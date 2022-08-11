@@ -12,6 +12,7 @@ Extbase reference
    :titlesonly:
 
    Domain/Index
+   Persistence/Index
    Controller/Index
    View/Index
    FrontendPlugins

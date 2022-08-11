@@ -84,7 +84,7 @@ A blog can have multiple posts in it. If a blog is deleted all of its posts
 should be deleted. However a blog might get displayed without displaying the
 posts therefore we load the posts of a blog lazily:
 
-.. include:: /CodeSnippets/Extbase/Domain/Optional1onN2.rst.txt
+.. include:: /CodeSnippets/Extbase/Domain/Relationship1onN2.rst.txt
 
 .. note::
    Note the subtle differences here. The methods :php:`setPosts()` and
@@ -102,7 +102,7 @@ posts therefore we load the posts of a blog lazily:
 Each post belongs to exactly one blog, of course a blog does not get deleted
 when one of its posts gets deleted.
 
-.. include:: /CodeSnippets/Extbase/Domain/Optional1onN1.rst.txt
+.. include:: /CodeSnippets/Extbase/Domain/Relationship1onN1.rst.txt
 
 
 A post can also have multiple comments and each comment belongs to exactly
@@ -110,7 +110,7 @@ one blog. However we never display a comment without its post therefore we do
 not need to store information about the post in the comment's model: The
 relationship is unidirectional.
 
-.. include:: /CodeSnippets/Extbase/Domain/Optional1onNUni1.rst.txt
+.. include:: /CodeSnippets/Extbase/Domain/Relationship1onNUni.rst.txt
 
 The model of the comment has no property to get the blog post in this case.
 

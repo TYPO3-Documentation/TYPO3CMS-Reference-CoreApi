@@ -19,7 +19,7 @@ The SQL structure for the database needs to be defined in the file
 :ref:`EXT:{ext_key}/ext_tables.sql <ext_tables-sql>`. An Extbase model requires that
 there is valid TCA for the table that should be used as base for the model.
 Therefore you have to create a TCA definition in file
-:ref:`EXT:{ext_key}/Configuration/TCA/tx_{extkey}_domain_model_{mymodel}.php`.
+:file:`EXT:{ext_key}/Configuration/TCA/tx_{extkey}_domain_model_{mymodel}.php`.
 
 It is recommended to stick to the following naming scheme for the table:
 
@@ -42,7 +42,7 @@ The SQL table for the model can be defined like this:
 
 The according TCA definition could look like that:
 
-.. include:: /CodeSnippets/Extbase/Domain/TCA.rst.txt
+.. include:: /CodeSnippets/Extbase/Persistence/TCA.rst.txt
 
 Use arbitrary database tables with an Extbase model
 ===================================================
@@ -50,15 +50,4 @@ Use arbitrary database tables with an Extbase model
 It is possible to use tables that do not convey to the naming scheme mentioned
 in the last section. In this case you have to define the connection between
 the database table and the file
-:ref:`EXT:{ext_key}/Configuration/Extbase/Persistence/Classes.php <>`.
-
-
-**Contents:**
-
-.. toctree::
-   :titlesonly:
-   :caption: Persistence
-   :glob:
-
-   *
-
+:ref:`EXT:{ext_key}/Configuration/Extbase/Persistence/Classes.php <extension-configuration-extbase-persistence>`.

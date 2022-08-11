@@ -42,5 +42,13 @@
        {
            return $this->posts;
        }
+   
+       /**
+        * @param ObjectStorage<Post> $posts
+        */
+       public function setPosts(ObjectStorage $posts): void
+       {
+           $this->posts = $posts;
+       }
    }
    
