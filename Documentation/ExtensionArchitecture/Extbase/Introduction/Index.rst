@@ -1,0 +1,109 @@
+.. include:: /Includes.rst.txt
+.. index::
+   pair: Extension development; Extbase introduction
+
+.. _extbase-introduction:
+
+====================
+Extbase introduction
+====================
+
+.. todo:: Refer to a good example, e.g. tea, blog_example?
+
+.. todo:: Add tips how to get more information or help
+
+What is Extbase?
+================
+
+Extbase is provided via a TYPO3 system extension (typo3-cms/extbase). Extbase is
+a framework within the TYPO3 core. The framework is based on `MVC
+(model-view-controller) <https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93controller>`__
+and uses
+`ORM (object relational modeling) <https://en.wikipedia.org/wiki/Object%E2%80%93relational_mapping>`__.
+
+Extbase can be and is often used in combination with the Fluid templating engine,
+but Fluid **can** also be used without Extbase. All things that can be done with
+Extbase, can also be done with core native functionality.
+Extbase is not a prerequisite for extension development. In most cases
+non-Extbase means writing more code. In many cases the performance will be
+better with non-Extbase.
+
+When Extbase was released, it was introduced as the modern way to program
+extensions and the "old" way (pibase) was propagated as outdated. When we look
+at this today, it is not entirely true: Extbase is a good fit for some specific
+types of extensions and there are always alternatives. For some use cases it
+is not a good fit at all and the extension can be developed without Extbase.
+
+Thus, many things, such as backend modules or plugins can be done "the Extbase
+way" or "the core way". This is a design decision, the extension developer must
+make for the specific use case.
+
+.. important::
+
+   Extbase is one of many options in the "toolbox" of TYPO3 extension development.
+
+   TYPO3 is flexible, often provides several approaches for one thing and it is
+   up to the extension developer to make an informed choice.
+
+Characteristics of Extbase
+==========================
+
+Conventions
+-----------
+
+Extbase uses the principle "Convention over configuration". This means that
+some things do not need to be configured but will work by convention. It
+also means that all extensions follow some specific conventions, which make
+it easier for developers to find their way around the extension. For example,
+all controllers are in the :file:`Controller` directory. The Fluid template
+for the controller "Form" and action "display" is in
+:file:`Resources/Private/Templates/Form/Action.html`.
+
+If you use non-Extbase you have to define these conventions yourself or use
+other conventions.
+
+
+Extbase or not?
+===============
+
+When to use Extbase and when to use other methods?
+
+As a rule of thumb (which should not be blindly followed but gives some
+guidance):
+
+Use Extbase if you:
+
+*  wish to get started quickly, e.g. using the
+   :ref:`extension_builder <extension-builder>`
+*  are a beginner or do not have much experience with TYPO3
+*  want to create a "classic" Extbase extension with plugins and (possibly)
+   backend modules (as created with the extension_builder)
+
+Do not use Extbase
+
+*  if performance might be an issue with the "classic" Extbase approach
+*  if there is no benefit from using the Extbase approach
+*  if you are writing an extension where Extbase does not add any or much value,
+   e.g. an extension consisting only of Backend modules, a site package, a
+   collection of content elements, an Extension which is used as a command line
+   tool.
+
+There is also the possibility to use a "mixed" approach, e.g. use Extbase
+controllers, but do not use the persistence of Extbase. Use TYPO3
+:ref:`QueryBuilder <database>` (which is based on doctrine/dbal) instead.
+With Extbase persistence or with other ORM approaches, you may run into
+performance problems. The database tables are mapped to "Model" objects which
+are acquired via "Repository" classes. This often means more is fetched, mapped
+and allocated than necessary. Especially if there are large tables and or many
+relations, this may cause performance problems. Some can be circumvented by
+using "lazy initialization" which is supported within Extbase.
+
+However, if you use the "mixed" approach, you will not get some of the
+advantages of Extbase and have to write more code yourself.
+
+.. seealso::
+
+   *  for more information to get started with Extension development, see
+      :ref:`extension-create-new`
+
+
