@@ -19,8 +19,6 @@
               'provider' => \TYPO3\CMS\Core\Imaging\IconProvider\FontawesomeIconProvider::class,
                // the fontawesome icon name
               'name' => 'spinner',
-               // additional css classes
-              'additionalClasses' => 'fa-fw',
                // all icon providers provide the possibility to register an icon that spins
               'spinning' => true,
           ],
