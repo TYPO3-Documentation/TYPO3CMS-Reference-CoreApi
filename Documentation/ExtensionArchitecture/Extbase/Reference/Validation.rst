@@ -14,8 +14,8 @@ Validation
 Extbase provides a number of validators for standard use cases such as
 e-mail addresses, string length, not empty etc.
 
-.. version-changed:: 10.0
-   Before TYPO3 10 Validators where automatically applied by naming conventions.
+.. versionchanged:: 10.0
+   Before TYPO3 v10 Validators where automatically applied by naming conventions.
    This feature was removed without replacement.
 
 All validators need to be explicitly applied by the annotation

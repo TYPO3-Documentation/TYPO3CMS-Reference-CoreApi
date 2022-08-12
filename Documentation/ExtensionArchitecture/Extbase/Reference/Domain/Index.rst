@@ -27,4 +27,3 @@ The Application domain of the extension is always located below
    :glob:
 
    *
-

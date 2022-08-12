@@ -32,7 +32,7 @@ are automatically registered as actions of the controller.
 Many of these actions have parameters. You should use strong types for the
 parameters as this is necessary for the validation.
 
-.. include:: /CodeSnippets/Extbase/FrontendPlugins/BlogControllerNew.rst.txt
+.. include:: /CodeSnippets/Extbase/Controllers/BlogControllerNew.rst.txt
 
 The validation of domain object can be explicitly disabled by the annotation
 :php:`@TYPO3\CMS\Extbase\Annotation\IgnoreValidation`. This might be necessary

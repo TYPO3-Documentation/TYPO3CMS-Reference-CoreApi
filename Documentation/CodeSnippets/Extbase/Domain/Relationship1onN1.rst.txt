@@ -4,15 +4,8 @@
 .. code-block:: php
    :caption: EXT:blog_example/Classes/Domain/Model/Post.php
 
-   use TYPO3\CMS\Extbase\Persistence\ObjectStorage;
-   
    class Post extends AbstractEntity
    {
-       /**
-        * @var ObjectStorage<Comment>
-        * @Extbase\ORM\Lazy
-        * @Extbase\ORM\Cascade("remove")
-        */
-       public ObjectStorage $comments;
+       protected Blog $blog;
    }
    
