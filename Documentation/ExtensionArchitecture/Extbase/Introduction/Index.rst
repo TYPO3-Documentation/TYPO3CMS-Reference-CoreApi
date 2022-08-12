@@ -78,7 +78,7 @@ controllers, but do not use the persistence of Extbase. Use TYPO3
 With Extbase persistence or with other ORM approaches, you may run into
 performance problems. The database tables are mapped to "Model" objects which
 are acquired via "Repository" classes. This often means more is fetched, mapped
-and allocated than necessary. Especially if there are large tables and or many
+and allocated than necessary. Especially if there are large tables and/or many
 relations, this may cause performance problems. Some can be circumvented by
 using "lazy initialization" which is supported within Extbase.
 
