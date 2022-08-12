@@ -126,18 +126,6 @@ return [
     ],
     [
         'action'=> 'createPhpClassCodeSnippet',
-        'class'=> \FriendsOfTYPO3\BlogExample\Domain\Model\Tag::class,
-        'members' => [
-            'name',
-            '__construct',
-            'getName',
-        ],
-        'withComment' => false,
-        'withClassComment' => false,
-        'targetFileName' => 'Extbase/Domain/AbstractValueObject.rst.txt'
-    ],
-    [
-        'action'=> 'createPhpClassCodeSnippet',
         'class'=> \FriendsOfTYPO3\BlogExample\Domain\Repository\BlogRepository::class,
         'members' => [
             'defaultOrderings',
@@ -270,5 +258,105 @@ return [
         'withComment' => true,
         'withClassComment' => false,
         'targetFileName' => 'Extbase/Validator/ValidatorWithArgumentUsage.rst.txt',
+    ],
+    [
+        'action'=> 'createCodeSnippet',
+        'caption' => 'EXT:blog_example/Configuration/TCA/tx_blogexample_domain_model_info.php',
+        'sourceFile'=> 'typo3conf/ext/blog_example/Configuration/TCA/tx_blogexample_domain_model_info.php',
+        'targetFileName' => 'Extbase/Persistence/TCA.rst.txt'
+    ],
+    [
+        'action'=> 'createPhpClassCodeSnippet',
+        'class'=> FriendsOfTYPO3\BlogExample\Domain\Model\Tag::class,
+        'members' => [
+            'name',
+            'priority',
+        ],
+        'withComment' => false,
+        'withClassComment' => false,
+        'targetFileName' => 'Extbase/Domain/ModelWithPublicProperty.rst.txt',
+    ],
+    [
+        'action'=> 'createPhpClassCodeSnippet',
+        'class'=> FriendsOfTYPO3\BlogExample\Domain\Model\Info::class,
+        'members' => [
+            'name',
+            'bodytext',
+            'getName',
+            'getBodytext',
+            'setBodytext',
+        ],
+        'withComment' => false,
+        'withClassComment' => false,
+        'targetFileName' => 'Extbase/Domain/ModelWithPublicGetters.rst.txt',
+    ],
+    [
+        'action'=> 'createPhpClassCodeSnippet',
+        'class'=> FriendsOfTYPO3\BlogExample\Domain\Model\Info::class,
+        'members' => [
+            'name',
+            'bodytext',
+            'getCombinedString',
+        ],
+        'withComment' => false,
+        'withClassComment' => false,
+        'targetFileName' => 'Extbase/Domain/ModelWithAdditionalGetters.rst.txt',
+    ],
+    [
+        'action'=> 'createPhpClassCodeSnippet',
+        'class'=> FriendsOfTYPO3\BlogExample\Domain\Model\Post::class,
+        'members' => [
+            'additionalInfo',
+            'getAdditionalInfo',
+            'setAdditionalInfo',
+        ],
+        'withComment' => true,
+        'withClassComment' => false,
+        'targetFileName' => 'Extbase/Domain/Optional1on1.rst.txt',
+    ],
+    [
+        'action'=> 'createPhpClassCodeSnippet',
+        'class'=> FriendsOfTYPO3\BlogExample\Domain\Model\Post::class,
+        'members' => [
+            'blog',
+        ],
+        'withComment' => true,
+        'withClassComment' => false,
+        'targetFileName' => 'Extbase/Domain/Relationship1onN1.rst.txt',
+    ],
+    [
+        'action'=> 'createPhpClassCodeSnippet',
+        'class'=> FriendsOfTYPO3\BlogExample\Domain\Model\Blog::class,
+        'members' => [
+            'posts',
+            'addPost',
+            'removePost',
+            'getPosts',
+            'setPosts',
+        ],
+        'withComment' => true,
+        'withClassComment' => false,
+        'targetFileName' => 'Extbase/Domain/Relationship1onN2.rst.txt',
+    ],
+    [
+        'action'=> 'createPhpClassCodeSnippet',
+        'class'=> FriendsOfTYPO3\BlogExample\Domain\Model\Post::class,
+        'members' => [
+            'comments',
+        ],
+        'withComment' => true,
+        'withClassComment' => false,
+        'targetFileName' => 'Extbase/Domain/Relationship1onNUni.rst.txt',
+    ],
+    [
+        'action'=> 'createPhpClassCodeSnippet',
+        'class'=> FriendsOfTYPO3\BlogExample\Domain\Model\Post::class,
+        'members' => [
+            'author',
+            'secondAuthor',
+        ],
+        'withComment' => true,
+        'withClassComment' => false,
+        'targetFileName' => 'Extbase/Domain/RelationshipNonM.rst.txt',
     ],
 ];

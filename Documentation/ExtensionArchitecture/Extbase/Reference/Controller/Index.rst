@@ -6,3 +6,12 @@
 ================
 Controller
 ================
+
+**Contents:**
+
+.. toctree::
+   :titlesonly:
+   :caption: Controller
+   :glob:
+
+   *
