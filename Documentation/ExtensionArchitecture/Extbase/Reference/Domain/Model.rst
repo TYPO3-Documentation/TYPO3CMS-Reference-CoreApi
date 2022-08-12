@@ -22,7 +22,7 @@ by the :sql:`uid` and are persisted, therefore have continuity.
 Connecting the model to the database
 ====================================
 
-It is possible to define models that are not persisted to database. However in
+It is possible to define models that are not persisted to the database. However in
 the most common use cases you want to save your model to the database and load
 it from there. See :ref:`extbase-Persistence`.
 
@@ -39,7 +39,7 @@ Or public getters:
 .. include:: /CodeSnippets/Extbase/Domain/ModelWithPublicGetters.rst.txt
 
 A public getter takes precedence over a public property. Getters have the
-advantage that you can make the properties themselves private and descide
+advantage that you can make the properties themselves private and decide
 which ones should be mutable. It is also possible to have getters for
 properties that are not persisted and get created on the fly:
 
@@ -125,7 +125,7 @@ posts or none at all. He can also be a second author and no main author.
 
 .. include:: /CodeSnippets/Extbase/Domain/RelationshipNon1Uni.rst.txt
 
-Once more the model of the autor does not have a property containing the
+Once more the model of the author does not have a property containing the
 authors posts. If you would want to get all posts of an author you would have
 to make a query in the PostRepository taking one or both relationships (first
 author, second author) into account.
