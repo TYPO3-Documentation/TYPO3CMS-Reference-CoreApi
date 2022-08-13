@@ -73,7 +73,7 @@ Extbase supports different types of hierarchical relationships
 between domain objects.
 All relationships can be defined unidirectional or multidimensional in the model.
 
-On the side of the relationship that can only have one counterpart you must
+On the side of the relationship that can only have one counterpart, you must
 decide whether it is possible to have no relationship (allow null) or not.
 
 
