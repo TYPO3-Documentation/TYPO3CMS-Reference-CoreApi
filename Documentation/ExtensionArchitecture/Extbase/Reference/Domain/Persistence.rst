@@ -61,7 +61,7 @@ the model :php:`FrontendUserGroup`.
 The key :php:`recordType` makes sure that the defined model is only used if the
 :ref:`type of the record <t3tca:types>` is set to
 :php:`\FriendsOfTYPO3\BlogExample\Domain\Model\Administrator`. This way the
-class will only be used for administrators but bot plain frontend users.
+class will only be used for administrators but not plain frontend users.
 
 The array stored in :php:`properties` to match properties to database field
 names if the names do not match.
