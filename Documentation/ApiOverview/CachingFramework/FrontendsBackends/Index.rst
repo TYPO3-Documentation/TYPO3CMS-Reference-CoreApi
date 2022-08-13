@@ -5,7 +5,7 @@
 .. _caching-frontend:
 
 ===============
-Cache Frontends
+Cache frontends
 ===============
 
 
@@ -332,7 +332,7 @@ Options
       *  `-1`: Default gzip compression (recommended)
       *  `0`: No compression
       *  `9`: Maximum compression (costs a lot of CPU)
-      
+
    :Mandatory:
       No
    :Type:
