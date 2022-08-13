@@ -208,7 +208,7 @@ database, for instance it is not possible to provide a full `.sqlite` database a
 in the test case. Instead, database rows should be provided as `.csv` files to be loaded into
 the database using :php:`$this->importCSVDataSet()`. An example file could look like this:
 
-.. code-block:: csv
+.. code-block:: none
    :caption: A CSV data set
 
    "pages",,,,,,,,,

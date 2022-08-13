@@ -147,7 +147,7 @@ Starting with TYPO3 version 12.0 you can use the following PSR-14 events:
 *  :ref:`ModifyLinkHandlersEvent`
 
 Supporting both TYPO3 v12 and v11 to modify the available LinkHandlers
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 If you want to be compatible to both TYPO3 v12 and v11, you can keep your
 implementation of the hooks

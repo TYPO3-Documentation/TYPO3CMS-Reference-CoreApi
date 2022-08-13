@@ -100,7 +100,7 @@ servers virtual host configuration. A typical example looks like this:
 
     server {
 
-        ...
+        # ...
 
         # Prevent clients from accessing hidden files (starting with a dot)
         # This is particularly important if you store .htpasswd files in the site hierarchy
@@ -161,7 +161,7 @@ servers virtual host configuration. A typical example looks like this:
             deny all;
         }
 
-        ...
+        # ...
 
     }
 
