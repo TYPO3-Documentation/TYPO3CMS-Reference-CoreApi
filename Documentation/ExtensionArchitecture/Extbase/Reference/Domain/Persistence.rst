@@ -51,7 +51,7 @@ in the last section. In this case you have to define the connection between
 the database table and the file
 :ref:`EXT:{ext_key}/Configuration/Extbase/Persistence/Classes.php <extension-configuration-extbase-persistence>`.
 
-In the following example the table :sql:`fe_users`, provided by the system
+In the following example, the table :sql:`fe_users` provided by the system
 extension `frontend` is used as persistence table for the model
 :php:`Administrator`. Additionally the table :sql:`fe_groups` is used to persist
 the model :php:`FrontendUserGroup`.
