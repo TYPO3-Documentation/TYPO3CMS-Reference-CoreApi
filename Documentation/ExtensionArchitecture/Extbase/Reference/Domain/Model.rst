@@ -85,7 +85,7 @@ There are two ways to allow null for a property in PHP:
 Nullable property types have been introduced with PHP 7.1 and can therefore
 be used in any modern TYPO3 version:
 
-.. code-block::php
+.. code-block:: php
    :caption: Example for a nullable property
 
    protected ?Person $secondAuthor = null;
