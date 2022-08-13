@@ -4,7 +4,7 @@
 .. code-block:: php
    :caption: EXT:blog_example/Classes/Domain/Model/Tag.php
 
-   class Tag extends AbstractEntity
+   final class Tag extends AbstractValueObject
    {
        public string $name = '';
    

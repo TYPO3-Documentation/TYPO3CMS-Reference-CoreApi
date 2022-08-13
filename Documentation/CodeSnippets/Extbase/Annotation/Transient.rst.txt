@@ -4,10 +4,12 @@
 .. code-block:: php
    :caption: EXT:blog_example/Classes/Domain/Model/Person.php
 
+   use TYPO3\CMS\Extbase\Annotation\ORM\Transient;
+   
    class Person extends AbstractEntity
    {
        /**
-        * @Extbase\ORM\Transient
+        * @Transient
         */
        protected string $fullname = '';
    }
