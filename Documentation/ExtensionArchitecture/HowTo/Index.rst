@@ -22,6 +22,7 @@ existing TCA.
    Documentation
    FrontendPlugin/Index
    BackendModule/Index
+   Localization/Index
    ExtendingTca/Index
    PublishExtension/Index
    CustomExtensionRepository
