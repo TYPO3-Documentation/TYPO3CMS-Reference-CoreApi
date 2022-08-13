@@ -4,11 +4,13 @@
 .. code-block:: php
    :caption: EXT:blog_example/Classes/Domain/Model/Blog.php
 
+   use TYPO3\CMS\Extbase\Annotation\Validate;
+   
    class Blog extends AbstractEntity
    {
        /**
-        * @Extbase\Validate("FriendsOfTYPO3\BlogExample\Domain\Validator\TitleValidator")
+        * @Validate("FriendsOfTYPO3\BlogExample\Domain\Validator\TitleValidator")
         */
-       protected string $title = '';
+       public string $title = '';
    }
    

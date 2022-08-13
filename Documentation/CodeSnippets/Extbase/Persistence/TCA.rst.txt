@@ -36,6 +36,13 @@
                    'max' => 256
                ]
            ],
+           'bodytext' => [
+               'label' => 'LLL:EXT:blog_example/Resources/Private/Language/locallang_db.xlf:tx_blogexample_domain_model_info.bodytext',
+               'config' => [
+                   'type' => 'text',
+                   'enableRichtext' => true,
+               ]
+           ],
            'post' => [
                'config' => [
                    'type' => 'passthrough',
@@ -102,7 +109,7 @@
            ],
        ],
        'types' => [
-           0 => ['showitem' => 'sys_language_uid, l10n_parent, hidden, name']
+           0 => ['showitem' => 'sys_language_uid, l10n_parent, hidden, name, bodytext']
        ],
    ];
    

@@ -7,8 +7,7 @@
    class Post extends AbstractEntity
    {
        /**
-        * 1:1 optional relation
-        * @Extbase\ORM\Cascade("remove")
+        * 1:1 relation stored as foreign key in Info class
         */
        protected Info|null $additionalInfo;
    

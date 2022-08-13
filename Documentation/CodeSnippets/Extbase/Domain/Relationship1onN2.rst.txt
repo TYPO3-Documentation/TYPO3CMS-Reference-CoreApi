@@ -5,6 +5,8 @@
    :caption: EXT:blog_example/Classes/Domain/Model/Blog.php
 
    use TYPO3\CMS\Extbase\Persistence\ObjectStorage;
+   use TYPO3\CMS\Extbase\Annotation\ORM\Lazy;
+   use TYPO3\CMS\Extbase\Annotation\ORM\Cascade;
    
    class Blog extends AbstractEntity
    {
@@ -12,10 +14,10 @@
         * The posts of this blog
         *
         * @var ObjectStorage<Post>
-        * @Extbase\ORM\Lazy
-        * @Extbase\ORM\Cascade("remove")
+        * @Lazy
+        * @Cascade("remove")
         */
-       protected $posts;
+       public $posts;
    
        /**
         * Adds a post to this blog

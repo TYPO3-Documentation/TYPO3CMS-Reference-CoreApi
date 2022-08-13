@@ -11,6 +11,6 @@
         */
        protected Person $author;
    
-       protected Person|null $secondAuthor;
+       protected ?Person $secondAuthor = null;
    }
    

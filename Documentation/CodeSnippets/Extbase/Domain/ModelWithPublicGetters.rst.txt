@@ -6,9 +6,9 @@
 
    class Info extends AbstractEntity
    {
-       private string $name = '';
+       protected string $name = '';
    
-       private string $bodytext = '';
+       protected string $bodytext = '';
    
        public function getName(): string
        {
