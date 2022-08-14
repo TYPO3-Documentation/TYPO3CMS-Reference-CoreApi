@@ -160,10 +160,10 @@ If the :html:`extensionName` is provided, the translation string is searched in
    Localization; sprintf
    Localization; Arguments
 
-Output localized strings using ``sprintf``
-==========================================
+Insert variables in translated strings
+======================================
 
-.. todo:: remove fluff
+.. todo: remove fluff
 
 In the above example, we have outputted the blog post
 author's name simply by using ``{blog.author.fullName}``. Many
@@ -195,7 +195,7 @@ which position the placeholder is to be inserted. For English and
 German it looks like this:
 
 .. code-block:: html
-   :caption: EXT:blog_example/Resources/Private/Language/locallang.xml
+   :caption: EXT:blog_example/Resources/Private/Language/locallang.xlf
 
    <label index="name">%1$s %2$s</label>
 
@@ -209,7 +209,7 @@ for Thai that "Khan" followed by the first name should be
 output:
 
 .. code-block:: html
-   :caption: EXT:blog_example/Resources/Private/Language/locallang_th.xml
+   :caption: EXT:blog_example/Resources/Private/Language/th.locallang.xlf
 
    <label index="name">Khan %1$s</label>
 
@@ -232,7 +232,7 @@ Changing localized terms using TypoScript
 =========================================
 
 
-.. todo:: does this work in TYPO3 or only extbase?
+.. todo: does this work in TYPO3 or only extbase?
 
 If you use an existing extension for a customer project, you
 sometimes find out that the extension is insufficient translated or that
