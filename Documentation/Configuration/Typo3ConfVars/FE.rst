@@ -846,18 +846,18 @@ _________________________________________________________________
 .. confval:: className
 
    :Path: $GLOBALS['TYPO3_CONF_VARS']['FE']['passwordHashing']
-   :type: text
+   :type: string
    :Default: :php:`\TYPO3\CMS\Core\Crypto\PasswordHashing\Argon2iPasswordHash::class`
    :allowedValues:
-      'TYPO3\CMS\Core\Crypto\PasswordHashing\Argon2iPasswordHash'
+      :php:`\TYPO3\CMS\Core\Crypto\PasswordHashing\Argon2iPasswordHash::class`
          Good password hash mechanism. Used by default if available.
-      'TYPO3\CMS\Core\Crypto\PasswordHashing\Argon2idPasswordHash'
+      :php:`\TYPO3\CMS\Core\Crypto\PasswordHashing\Argon2idPasswordHash::class`
          Good password hash mechanism.
-      'TYPO3\CMS\Core\Crypto\PasswordHashing\BcryptPasswordHash'
+      :php:`\TYPO3\CMS\Core\Crypto\PasswordHashing\BcryptPasswordHash::class`
          Good password hash mechanism.
-      'TYPO3\CMS\Core\Crypto\PasswordHashing\Pbkdf2PasswordHash'
+      :php:`\TYPO3\CMS\Core\Crypto\PasswordHashing\Pbkdf2PasswordHash::class`
          Fallback hash mechanism if argon and bcrypt are not available.
-      'TYPO3\CMS\Core\Crypto\PasswordHashing\PhpassPasswordHash'
+      :php:`\TYPO3\CMS\Core\Crypto\PasswordHashing\PhpassPasswordHash::class`
          Fallback hash mechanism if none of the above are available.
 
 
