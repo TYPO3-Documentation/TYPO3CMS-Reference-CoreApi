@@ -21,8 +21,11 @@ in the current language:
 TypoScript conditions based on the current language
 ===================================================
 
-The condition function :typoscript:`siteLanguage` can be used to provide
-certain typoscript only for certain languages.
+The condition function
+:ref:`siteLanguage <t3tsref:condition-functions-in-frontend-context-function-siteLanguage>`
+can be used to provide certain TypoScript configurations only for certain
+languages. You can query for any property of the language in the
+site configuration.
 
 .. code-block:: typoscript
    :caption: EXT:site_package/Configuration/TypoScript/setup.typoscript
