@@ -264,3 +264,78 @@ syntax the ordering of the arguments can be made clear:
 
 The authors name would be displayed in English as :html:`Lina Wolf` while
 it would be displayed in Chinese like :html:`吴林娜` (WúLínnà).
+
+
+.. index:: Localization; Date output
+
+Localization of date output
+===========================
+
+It often occurs that a date or time must be displayed in a template.
+Every language area has its own convention on how the date is to be
+displayed: While in Germany, the date is displayed in the form
+``Day.Month.Year``, in the USA the form
+``Month/Day/Year`` is used. Depending on the language, the date
+must be formatted different.
+
+Generally the date or time is formatted by the
+``format.date`` ViewHelper:
+
+.. code-block:: html
+   :caption: EXT:blog_example/Resources/Private/Templates/SomeTemplate.html
+
+   <f:format.date date="{dateObject}" format="d.m.Y" />
+   <!-- or -->
+   {dateObject -> f:format.date(format: 'd.m.Y')}
+
+The date object ``{dateObject}`` is displayed with the date
+format given in the parameter ``format``. This format string must
+be in a format that is readable by the PHP function ``date()``
+and declares the format of the output. Table 9-3 shows some important
+placeholders.
+
+*Table 9-3: Some place holder of date.*
+
+================ =========================================================== =========
+Format character Description                                                 Example
+================ =========================================================== =========
+d                Day of the month as number, double-digit, with leading zero 01 ... 31
+m                Month as number, with leading zero                          01 ... 12
+Y                Year as number, with 4 digits                               2011
+y                Year as number, with 2 digits                               11
+H                Hour in 24 hour format                                      00 ... 23
+i                Minutes, with leading zero                                  00 ... 59
+================ =========================================================== =========
+
+But the ViewHelper has to be configured differently. Depending on the
+language area, which is controlled by the language of the user, another
+format string should be used. Here we combine the ``format.date``
+ViewHelper with the ``translate`` ViewHelper which you got to
+know in the section "Multi-language templates".
+
+
+.. code-block:: html
+   :caption: EXT:blog_example/Resources/Private/Templates/SomeTemplate.html
+
+   <f:format.date date="{dateObject}" format="{f:translate(key: 'date_format')}" />
+
+Then you can store another format string for every language in the
+:file:`locallang.xml` file, and you can change the format
+string via TypoScript if needed. This method to translate the content you got
+to know in the section "Multi-language templates".
+
+.. tip::
+
+    There are other formatting ViewHelpers for adjusting the output of
+    currencies or big numbers. These ViewHelpers all starts with
+    ``format``. You can find an overview of these ViewHelpers in
+    Appendix C. These ViewHelpers can be used like the
+    ``f:format.date`` ViewHelper you have just learned.
+
+In this section, you have learned how you can translate and localize
+an extension. First, we have worked on the localization of single terms in
+the template. After this, we had a look at the content of the extension.
+Finally, the customization of date information for country-specific formats
+where explained. In the next section, you will see how constraints of the
+domain objects can be preserved.
+
