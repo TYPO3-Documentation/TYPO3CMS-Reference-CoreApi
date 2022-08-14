@@ -13,6 +13,6 @@
         * @var ObjectStorage<Post>
         * @Lazy
         */
-       protected ObjectStorage $relatedPosts;
+       public ObjectStorage $relatedPosts;
    }
    

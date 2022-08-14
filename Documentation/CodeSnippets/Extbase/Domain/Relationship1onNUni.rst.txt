@@ -15,6 +15,6 @@
         * @Lazy
         * @Cascade("remove")
         */
-       protected ObjectStorage $comments;
+       public ObjectStorage $comments;
    }
    
