@@ -1,12 +1,12 @@
 .. include:: /Includes.rst.txt
-.. index:: File; EXT:{extkey}/ext_typoscript_setup.typoscript
-.. _ext_typoscript_setup_typoscript:
+.. index:: File; EXT:{extkey}/ext_typoscript_constants.typoscript
+.. _ext_typoscript_constants_typoscript:
 
-=======================================
-:file:`ext_typoscript_setup.typoscript`
-=======================================
+===========================================
+:file:`ext_typoscript_constants.typoscript`
+===========================================
 
-Preset TypoScript setup. Will be included in the setup section of all
+Preset TypoScript constants. Will be included in the setup section of all
 TypoScript templates.
 
 .. attention::

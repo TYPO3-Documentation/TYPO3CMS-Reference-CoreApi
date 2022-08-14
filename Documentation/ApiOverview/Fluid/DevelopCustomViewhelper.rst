@@ -47,9 +47,6 @@ address as a parameter. The ViewHelper is called in the template as follows:
 
    <blog:gravatar emailAddress="username@example.org" />
 
-See :ref:`global-namespace-import` for information how to import
-namespaces globally.
-
 AbstractViewHelper implementation
 =================================
 

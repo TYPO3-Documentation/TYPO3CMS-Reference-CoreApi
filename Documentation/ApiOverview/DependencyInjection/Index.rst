@@ -463,7 +463,7 @@ to instantiate services. This is useful for factory-like services where the exac
 
 
 .. _configure-dependency-injection-in-extensions:
-.. _Configuration:
+.. _dependency-injection-Configuration:
 
 [WIP] Configuration
 ===================
