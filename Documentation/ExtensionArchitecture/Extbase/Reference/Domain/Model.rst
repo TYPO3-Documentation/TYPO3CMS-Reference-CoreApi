@@ -43,7 +43,7 @@ advantage that you can make the properties themselves protected and decide
 which ones should be mutable.
 
 .. note::
-   Making properties :php:`private` does not work in Extbase models: The super
+   Making model's properties :php:`private` does not work in Extbase models: The parent
    classes need to access the models properties directly. If your model must
    not be extended you can mark it as :php:`final` and thereby prevent
    other developers from extending your model.
