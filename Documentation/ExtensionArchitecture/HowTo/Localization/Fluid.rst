@@ -160,102 +160,107 @@ If the :html:`extensionName` is provided, the translation string is searched in
    Localization; sprintf
    Localization; Arguments
 
-Insert variables in translated strings
-======================================
+Insert arguments into translated strings
+========================================
 
-.. todo: remove fluff
+In some translation situations it is useful to insert an argument into
+the translated string.
 
-In the above example, we have outputted the blog post
-author's name simply by using ``{blog.author.fullName}``. Many
-languages have special rules on how names are to be used - especially in
-Thailand, it is common to only show the first name and place the word
-"Khan" in front of it (which is a polite form). We want to enhance our
-template now as far as it can to output the blog author's name
-according to the current language. In German and English, this is the
-form "first name last name" and in Thai "Khan first name".
-
-Also, for these use cases, the ``translate`` ViewHelper can
-be used. With the aid of the array ``arguments,`` values can be
-embedded into the translated string. To do this, the syntax of the PHP
-function ``sprintf`` is used.
-
-If we want to implement the above example, we must assign the
-first name and the last name of the blog author separate to the
-``translate`` ViewHelper:
-
+Let us assume you want to translate the following sentence:
 
 .. code-block:: html
-   :caption: EXT:blog_example/Resources/Private/Templates/SomeTemplate.html
+   :caption: Example output
 
-   <f:translate key="name" arguments="{1:post.author.firstName, 2: post.author.lastName}" />
+   Here is a list of 5 blogs:
 
-How should the corresponding string in the
-:file:`locallang.xml` file looks like? It describes in
-which position the placeholder is to be inserted. For English and
-German it looks like this:
+As the number of blogs can change it is not possible to put the complete
+sentence into the translation file.
+
+We could split the sentence up into two parts. However in different languages
+the number might have to appear in different positions in the sentence.
+
+Splitting up the sentence should be avoided as the context would get lost in
+translation. Especially when a translation agency is involved
+
+Instead it is possible to insert a placeholder in the translation file:
+
+.. tabs::
+
+   .. group-tab:: With arguments
+
+      .. code-block:: xml
+         :caption: EXT:blog_example/Resources/Private/Language/de.locallang.xlf
+
+         <trans-unit id="blog.list" xml:space="preserve" approved="yes">
+            <source>Here is a list of %d blogs: </source>
+            <target>Eine Liste von %d Blogs ist hier: </target>
+         </trans-unit>
+
+   .. group-tab:: Bad example without arguments
+
+      .. code-block:: xml
+         :caption: Bad example!
+
+         <trans-unit id="blog.list1" xml:space="preserve" approved="no">
+            <source>Here is a list of </source>
+            <target>Eine Liste von </target>
+         </trans-unit>
+         <trans-unit id="blog.list2" xml:space="preserve" approved="no">
+            <source>blogs: </source>
+            <target>Blogs ist hier: </target>
+         </trans-unit>
+
+Argument types
+--------------
+
+The placeholder contains the expected type of the argument to be inserted.
+Common are:
+
+   :php:`%d`
+      The argument is treated as an integer and presented as a (signed)
+      decimal number. Example: :html:`-42`
+
+   :php:`%f`
+      The argument is treated as a float and presented as a floating-point
+      number (locale aware). Example: :html:`3.14159`
+
+   :php:`%s`
+      The argument is treated and presented as a string. This can also be
+      a numeral formatted by another ViewHelper
+      Example: :html:`Lorem ipsum dolor`, :html:`59,99 €`, :html:`12.12.1980`
+
+There is no placeholder for dates. Date and time values have to be formatted
+by the according ViewHelper first.
+
+For a complete list of placeholders / specifiers see
+`PHP function sprintf <https://www.php.net/manual/en/function.sprintf.php>`__
+
+Order of the arguments
+----------------------
+
+More then one argument can be supplied. However for grammatical reasons
+the ordering of arguments has to be different in different languages.
+
+One easy example are names. In English the first name is displayed followed by
+a space and then the family name. In Chinese the family name comes first
+followed by no space and then directly the first name. By the following
+syntax the ordering of the arguments can be made clear:
+
+.. code-block:: xml
+   :caption: EXT:blog_example/Resources/Private/Language/zh.locallang.xlf
+
+   <trans-unit id="blog.author" xml:space="preserve" approved="yes">
+      <source>%1$s %2$s</source>
+      <target>%2$s%1$s</target>
+   </trans-unit>
 
 .. code-block:: html
-   :caption: EXT:blog_example/Resources/Private/Language/locallang.xlf
+   :caption:
 
-   <label index="name">%1$s %2$s</label>
+   <f:translate
+       key="blog.author"
+       arguments="{1: blog.author.firstName, 2: blog.author.lastname}"
+   >
 
-Important are the placeholder strings ``%1$s`` and
-``%2$s``. These will be replaced with the assigned parameters.
-Every placeholder starts with the % sign, followed by the position
-number inside the arguments array, starting with 1, followed by the $
-sign. After that, the usual formatting specifications follow - in the
-example, it is the data type ``string (s)``. Now we can define
-for Thai that "Khan" followed by the first name should be
-output:
-
-.. code-block:: html
-   :caption: EXT:blog_example/Resources/Private/Language/th.locallang.xlf
-
-   <label index="name">Khan %1$s</label>
-
-.. tip::
-
-    The keys in the argument array of the ViewHelper have no
-    relevance. We recommend to give them numbers like the positions
-    (starting with 1), because it is easily understandable.
-
-.. tip::
-
-    For a full reference of the formatting options for
-    ``sprintf`` you should have a look at the PHP documentation:
-    *http://php.net/manual/de/function.sprintf.php*.
-
-
-.. index:: Localization; TypoScript
-
-Changing localized terms using TypoScript
-=========================================
-
-
-.. todo: does this work in TYPO3 or only extbase?
-
-If you use an existing extension for a customer project, you
-sometimes find out that the extension is insufficient translated or that
-the translations have to be adjusted. TYPO3 offers the possibility to
-overwrite the localization of a term by TypoScript. Fluid also supports
-this.
-
-If, for example, you want to use the text "Remarks" instead of the
-text "Comments", you have to overwrite the identifier
-``comment_header`` for the English language. For this, you can
-add the following line to your TypoScript template:
-
-.. code-block:: typoscript
-   :caption: EXT:blog_example/Configuration/TypoScript/setup.typoscript
-
-   plugin.tx_blogexample._LOCAL_LANG.default.comment_header = Remarks
-
-With this, you will overwrite the localization of the term
-``comment_header`` for the default language in the blog
-example. So you can adjust the translation of the texts like you wish,
-without changing the :file:`locallang.xml` file.
-
-Until now, we have shown how to translate a static text of templates.
-Of course, an extension's data must be
-translated according to the national language. We will show this in the
-next section.
+The authors name would be displayed in English as :html:`Lina Wolf` while
+it would be displayed in Chinese like :html:`吴林娜` (WúLínnà).
