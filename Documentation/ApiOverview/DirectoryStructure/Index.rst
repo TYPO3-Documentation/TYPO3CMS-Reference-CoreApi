@@ -31,23 +31,23 @@ the paths within PHP code.
     :Description:
       This directory includes symlinks to resources of extensions, as consequence
       of this and further structure changes the folder :file:`typo3conf/ext/` is
-      not created or used anymore.  
-      So all files like CSS, JavaScript, Icons, Fonts, Images, etc. of extensions 
+      not created or used anymore.
+      So all files like CSS, JavaScript, Icons, Fonts, Images, etc. of extensions
       are not linked anymore directly to the extension folders but to the directory
       :file:`_assets/`.
-      
+
       .. note::
         This directory :file:`_assets/` and the related changes depend on the
         composer-plugin `typo3/cms-composer-installers` in version 4+.
         Previous versions of `typo3/cms-composer-installers` used the classical
         directory structure with :file:`typo3conf/ext/` for extensions.
-        
+
         The composer-plugin `typo3/cms-composer-installers` in version 4+ was created
         for TYPO3 Version 12 and backported for default but **optional usage**
         in TYPO3 Version 11. Therefore the version has to be explicitely set (decreased)
         if the classical directory structure shall be used:
-        
-        .. code-block:: json
+
+        .. code-block:: none
 
            "typo3/cms-composer-installers": "^3.1",
 
