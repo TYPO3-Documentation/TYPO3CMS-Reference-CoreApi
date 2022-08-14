@@ -93,34 +93,34 @@ getServiceTitle
    Returns the service's title
 
 getServiceOption
-   This method is used to retrieve the value of a service option, as
-   defined in the :php:`$GLOBALS['TYPO3_CONF_VARS']['SVCONF']` array. It will
-   take into account possible default values as described in the
-   :ref:`Service configuration chapter <services-configuration-service-configuration>`.
+    This method is used to retrieve the value of a service option, as
+    defined in the :php:`$GLOBALS['TYPO3_CONF_VARS']['SVCONF']` array. It will
+    take into account possible default values as described in the
+    :ref:`Service configuration chapter <services-configuration-service-configuration>`.
 
-   This method requires more explanation.
-   Imagine your service has an option called "ignoreBozo". To retrieve it
-   in a proper way, you should not access
-   :php:`$GLOBALS['TYPO3_CONF_VARS']['SVCONF']` directly, but use
-   :php:`getServiceOption()` instead. In its simplest form, it will look
-   like this (inside your service's code):
+    This method requires more explanation.
+    Imagine your service has an option called "ignoreBozo". To retrieve it
+    in a proper way, you should not access
+    :php:`$GLOBALS['TYPO3_CONF_VARS']['SVCONF']` directly, but use
+    :php:`getServiceOption()` instead. In its simplest form, it will look
+    like this (inside your service's code):
 
-  .. code-block:: php
-     :caption: EXT:some_extension/Classes/Services/SomeService.php
+    .. code-block:: php
+        :caption: EXT:some_extension/Classes/Services/SomeService.php
 
-     $ignoreBozo = $this->getServiceOption('ignoreBozo');
+        $ignoreBozo = $this->getServiceOption('ignoreBozo');
 
-   This will retrieve the value of the "ignoreBozo" option for your
-   specific service, if defined. If not, it will try to find a value in
-   the default configuration. Additional call parameters can be added:
+    This will retrieve the value of the "ignoreBozo" option for your
+    specific service, if defined. If not, it will try to find a value in
+    the default configuration. Additional call parameters can be added:
 
-   -  the second parameter is a default value to be used if no value was
-      found at all (including in the default configuration)
+    -  the second parameter is a default value to be used if no value was
+        found at all (including in the default configuration)
 
-   -  the third parameter can be used to temporarily switch off the usage of
-      the default configuration.
+    -  the third parameter can be used to temporarily switch off the usage of
+        the default configuration.
 
-   This allows for a lot of flexibility.
+    This allows for a lot of flexibility.
 
 
 .. _services-developer-service-api-error:

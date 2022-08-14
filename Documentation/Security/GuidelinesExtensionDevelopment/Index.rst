@@ -1,12 +1,12 @@
 .. include:: /Includes.rst.txt
 .. index:: Security guidelines; Extension development
-.. _security-integrators:
+.. _security-extension-development:
 
 =====================================
 Guidelines for extension development
 =====================================
 
-Insecure extensions can compromise the integrity of your TYPO3 installations database 
+Insecure extensions can compromise the integrity of your TYPO3 installations database
 and can potentially lead to sensitive information being exposed.
 
 In this section, we cover some relevant security best practices that are implemented by Extbase.
@@ -182,7 +182,7 @@ to the browser:
 content of the script tag is no longer executed as JavaScript but only
 displayed.
 
-But there is a problem with this: If we forget or fail to encode input 
+But there is a problem with this: If we forget or fail to encode input
 data just once, an XSS vulnerability will exist in the system.
 
 In Fluid, the output of every object accessor that occurs in a
