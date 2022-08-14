@@ -12,6 +12,14 @@
 
 Contains Language resources.
 
+.. seealso::
+
+   *  Read more about localizing extensions: :ref:`extension_localization`
+   *  Read more about the XLIFF format in the following chapter:
+      :ref:`xliff`.
+   *  Read more about applying localised labels int the following chapter:
+      :ref:`xliff_api`.
+
 In the folder :file:`EXT:my_extension/Resources/Private/Languages/` language files
 in format :file:`.xlf` or :file:`.xml` are stored.
 
@@ -25,13 +33,7 @@ must be stored in the same folder in a file called :file:`de.locallang.xlf`,
 the French translation in :file:`fr.locallang.xlf`. If the translations are
 stored in a different file name they will not be found.
 
-Read more about the XLIFF format in the following chapter:
-:ref:`xliff`.
-
-Read more about applying localised labels int the following chapter:
-:ref:`xliff_api`.
-
-Any arbitary file name with ending :file:`.xlf` or :file:`.xml` can be used.
+Any arbitrary file name with ending :file:`.xlf` or :file:`.xml` can be used.
 The following file names are commonly used:
 
 locallang.xlf
