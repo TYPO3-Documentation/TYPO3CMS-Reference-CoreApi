@@ -80,7 +80,7 @@ decide whether it is possible to have no relationship (allow null) or not.
 Nullable relations
 ------------------
 
-There are two ways to allow null for a property in PHP:
+There are two ways to allow :php:`null` for a property in PHP:
 
 Nullable property types have been introduced with PHP 7.1 and can therefore
 be used in any modern TYPO3 version:
