@@ -39,8 +39,16 @@ Or public getters:
 .. include:: /CodeSnippets/Extbase/Domain/ModelWithPublicGetters.rst.txt
 
 A public getter takes precedence over a public property. Getters have the
-advantage that you can make the properties themselves private and decide
-which ones should be mutable. It is also possible to have getters for
+advantage that you can make the properties themselves protected and decide
+which ones should be mutable.
+
+.. note::
+   Making model's properties :php:`private` does not work in Extbase models: The parent
+   classes need to access the models properties directly. If your model must
+   not be extended you can mark it as :php:`final` and thereby prevent
+   other developers from extending your model.
+
+It is also possible to have getters for
 properties that are not persisted and get created on the fly:
 
 .. include:: /CodeSnippets/Extbase/Domain/ModelWithAdditionalGetters.rst.txt
@@ -65,8 +73,33 @@ Extbase supports different types of hierarchical relationships
 between domain objects.
 All relationships can be defined unidirectional or multidimensional in the model.
 
-On the side of the relationship that can only have one counterpart you must
+On the side of the relationship that can only have one counterpart, you must
 decide whether it is possible to have no relationship (allow null) or not.
+
+
+Nullable relations
+------------------
+
+There are two ways to allow :php:`null` for a property in PHP:
+
+Nullable property types have been introduced with PHP 7.1 and can therefore
+be used in any modern TYPO3 version:
+
+.. code-block:: php
+   :caption: Example for a nullable property
+
+   protected ?Person $secondAuthor = null;
+
+Union types, that can also be used to allow :php:`null`, have been introduced with
+PHP 8.0 and can only been used when the minimal PHP requirement is PHP 8.0.
+
+.. code-block:: php
+   :caption: Example for union type of null and Person
+
+   protected Person|null $secondAuthor = null;
+
+Both declarations have the same meaning.
+
 
 1:1-relationship
 ----------------
@@ -103,7 +136,6 @@ Each post belongs to exactly one blog, of course a blog does not get deleted
 when one of its posts gets deleted.
 
 .. include:: /CodeSnippets/Extbase/Domain/Relationship1onN1.rst.txt
-
 
 A post can also have multiple comments and each comment belongs to exactly
 one blog. However we never display a comment without its post therefore we do

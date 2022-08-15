@@ -7,13 +7,12 @@
 Persistence
 ================
 
-
-Connecting the model to the database
-====================================
-
 It is possible to define models that are not persisted to database. However in
 the most common use cases you want to save your model to the database and load
 it from there.
+
+Connecting the model to the database
+====================================
 
 The SQL structure for the database needs to be defined in the file
 :ref:`EXT:{ext_key}/ext_tables.sql <ext_tables-sql>`. An Extbase model requires that
@@ -45,9 +44,24 @@ The according TCA definition could look like that:
 .. include:: /CodeSnippets/Extbase/Persistence/TCA.rst.txt
 
 Use arbitrary database tables with an Extbase model
-===================================================
+---------------------------------------------------
 
 It is possible to use tables that do not convey to the naming scheme mentioned
 in the last section. In this case you have to define the connection between
 the database table and the file
 :ref:`EXT:{ext_key}/Configuration/Extbase/Persistence/Classes.php <extension-configuration-extbase-persistence>`.
+
+In the following example, the table :sql:`fe_users` provided by the system
+extension `frontend` is used as persistence table for the model
+:php:`Administrator`. Additionally the table :sql:`fe_groups` is used to persist
+the model :php:`FrontendUserGroup`.
+
+.. include:: /CodeSnippets/Extbase/Persistence/ExtbasePersistenceClasses.rst.txt
+
+The key :php:`recordType` makes sure that the defined model is only used if the
+:ref:`type of the record <t3tca:types>` is set to
+:php:`\FriendsOfTYPO3\BlogExample\Domain\Model\Administrator`. This way the
+class will only be used for administrators but not plain frontend users.
+
+The array stored in :php:`properties` to match properties to database field
+names if the names do not match.

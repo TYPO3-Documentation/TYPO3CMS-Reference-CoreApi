@@ -4,20 +4,22 @@
 .. code-block:: php
    :caption: EXT:blog_example/Classes/Domain/Model/Person.php
 
+   use TYPO3\CMS\Extbase\Annotation\Validate;
+   
    class Person extends AbstractEntity
    {
        /**
-        * @Extbase\Validate("EmailAddress")
+        * @Validate("EmailAddress")
         */
        protected string $email = '';
    
        /**
-        * @Extbase\Validate("StringLength", options={"maximum": 80})
+        * @Validate("StringLength", options={"maximum": 80})
         */
        protected string $firstname = '';
    
        /**
-        * @Extbase\Validate("StringLength", options={"minimum": 2, "maximum": 80})
+        * @Validate("StringLength", options={"minimum": 2, "maximum": 80})
         */
        protected string $lastname = '';
    }
