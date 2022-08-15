@@ -489,19 +489,17 @@ which must be available on the system.
 Redis example
 -------------
 
-The Redis caching backend configuration is very similar to that of the other
-backends, but there is one caveat:
+The Redis caching backend configuration is very similar to that of other
+backends, but there is one caveat.
 
-.. warning::
-
-   The TYPO3 caches should be separated in case the same keys might be used.
-   This can be the case for the `pages` and `pagesection` caches.
-   Both use for example "tagIdents:pageId_21566" for the page id 21566.
-   How you separate them is more of a system administrator decision. We give
-   an example with using several databases but this may not be the best option
-   in production where you might want to use multiple cores (which do not
-   support databases). The separation has the additional advantage that
-   caches can be flushed individually.
+TYPO3 caches should be separated in case the same keys are used.
+This applies to the `pages` and `pagesection` caches.
+Both use "tagIdents:pageId_21566" for a page with an id of 21566.
+How you separate them is more of a system administrator decision. We provide 
+examples with several databases but this may not be the best option 
+in production where you might want to use multiple cores (which do not
+support databases). The separation has the additional advantage that
+caches can be flushed individually.
 
 If you have several of your own caches which each use unique keys (for example
 by using a different prefix for the cache identifier for each cache), you can
