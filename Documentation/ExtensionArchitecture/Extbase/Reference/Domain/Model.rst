@@ -90,7 +90,7 @@ be used in any modern TYPO3 version:
 
    protected ?Person $secondAuthor = null;
 
-Union types that can also be used to allow null have been introduced with
+Union types, that can also be used to allow :php:`null`, have been introduced with
 PHP 8.0 and can only been used when the minimal PHP requirement is PHP 8.0.
 
 .. code-block:: php
