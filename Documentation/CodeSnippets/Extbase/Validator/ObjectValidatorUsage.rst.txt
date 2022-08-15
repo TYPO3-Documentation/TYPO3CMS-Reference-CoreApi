@@ -7,6 +7,7 @@
    use FriendsOfTYPO3\BlogExample\Domain\Model\Blog;
    use FriendsOfTYPO3\BlogExample\Exception\NoBlogAdminAccessException;
    use Psr\Http\Message\ResponseInterface;
+   use TYPO3\CMS\Extbase\Annotation\Validate;
    
    class BlogController extends AbstractController
    {
@@ -16,7 +17,7 @@
         * $blog is a not yet persisted clone of the original blog containing
         * the modifications
         *
-        * @Extbase\Validate(param="blog", validator="FriendsOfTYPO3\ExtbaseExample\Domain\Validator\BlogValidator")
+        * @Validate(param="blog", validator="FriendsOfTYPO3\BlogExample\Domain\Validator\BlogValidator")
         * @throws NoBlogAdminAccessException
         */
        public function updateAction(Blog $blog): ResponseInterface

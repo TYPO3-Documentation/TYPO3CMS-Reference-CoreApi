@@ -6,6 +6,7 @@
 
    use FriendsOfTYPO3\BlogExample\Domain\Model\Blog;
    use Psr\Http\Message\ResponseInterface;
+   use TYPO3\CMS\Extbase\Annotation\IgnoreValidation;
    
    class BlogController extends AbstractController
    {

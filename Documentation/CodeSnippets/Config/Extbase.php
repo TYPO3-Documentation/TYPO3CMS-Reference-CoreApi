@@ -359,4 +359,10 @@ return [
         'withClassComment' => false,
         'targetFileName' => 'Extbase/Domain/RelationshipNonM.rst.txt',
     ],
+    [
+        'action'=> 'createCodeSnippet',
+        'caption' => 'EXT:blog_example/Configuration/Extbase/Persistence/Classes.php',
+        'sourceFile'=> 'typo3conf/ext/blog_example/Configuration/Extbase/Persistence/Classes.php',
+        'targetFileName' => 'Extbase/Persistence/ExtbasePersistenceClasses.rst.txt'
+    ],
 ];
