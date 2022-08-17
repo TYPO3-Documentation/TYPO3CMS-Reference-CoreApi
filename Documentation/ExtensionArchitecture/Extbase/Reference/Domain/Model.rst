@@ -193,6 +193,19 @@ in other contexts. For the complete list of all Extbase
 supported annotations, see the chapter :ref:`extbase-annotations`.
 
 
+.. _Multi-language-domain-objects:
+
+Multi-language domain objects
+=============================
+
+To make records translatable certain TCA has to be applied. See chapter
+:ref:`extension-localization-record-translation` about this.
+
+With the TCA set up correctly, the localization of the domain object is already
+configured.
+
+.. _extebase_model_localized_id:
+
 Identifiers in localized models
 ================================
 

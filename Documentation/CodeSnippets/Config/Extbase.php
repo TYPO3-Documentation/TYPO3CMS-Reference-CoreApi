@@ -365,4 +365,10 @@ return [
         'sourceFile'=> 'typo3conf/ext/blog_example/Configuration/Extbase/Persistence/Classes.php',
         'targetFileName' => 'Extbase/Persistence/ExtbasePersistenceClasses.rst.txt'
     ],
+    [
+        "action" => "createPhpClassDocs",
+        "class" => \TYPO3\CMS\Extbase\Utility\LocalizationUtility::class,
+        "targetFileName" => "Extbase/Api/LocalizationUtility.rst.txt",
+        "withCode" => false
+    ],
 ];

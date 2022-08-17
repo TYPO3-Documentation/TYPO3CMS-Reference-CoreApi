@@ -2,19 +2,29 @@
 
 .. index:: Extbase; Localization
 
-============
-Localization
-============
-
-.. todo: Link to core documentation of language files.
+===================
+LocalizationUtility
+===================
 
 Multilingual websites are widespread nowadays, which means that the
-web-available texts have to be localized. Extbase provides the helper class
-:php:`\TYPO3\CMS\Extbase\Utility\LocalizationUtility` for the translation of the labels. Besides,
-there is the Fluid ViewHelper `<f:translate>`, with the help of whom you can use that
-functionality in templates.
+all texts displayed in the frontend have to be localized.
 
-The localization class has only one public static method called `translate`, which
+Extbase provides the helper class
+:php:`\TYPO3\CMS\Extbase\Utility\LocalizationUtility` for the translation of
+labels within PHP code.
+
+.. note::
+   Translations in the View should be done with :ref:`extension-localization-fluid`.
+
+LocalizationUtility API
+========================
+
+.. include:: /CodeSnippets/Extbase/Api/LocalizationUtility.rst.txt
+
+LocalizationUtility usage
+=========================
+
+The class :php:`LocalizationUtility` has only one public static method called `translate`, which
 does all the translation. The method can be called like this:
 
 .. code-block:: php

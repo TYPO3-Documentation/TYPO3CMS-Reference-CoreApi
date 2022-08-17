@@ -1,9 +1,24 @@
 .. include:: /Includes.rst.txt
 .. index:: Localization; TypoScript
 
+.. _extension-localization-typoscript:
+
 ==========
 TypoScript
 ==========
+
+.. _extension-localization-typoscript-objects:
+
+Localization in TypoScript objects
+===================================
+
+The Typoscript objects :ref:`CONTENT <t3tsref:cobj-content>`,
+:ref:`RECORDS <t3tsref:cobj-records>` and :ref:`HMENU <t3tsref:cobj-hmenu>`
+respect all localization settings and automatically retrieve the correct
+language overlays of records.
+
+The same applies to the DataProcessors :ref:`DatabaseQueryProcessor` and
+:ref:`MenuProcessor`.
 
 Output localized strings with Typoscript
 ========================================

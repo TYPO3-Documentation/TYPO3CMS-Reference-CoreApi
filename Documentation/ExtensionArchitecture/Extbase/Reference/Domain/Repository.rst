@@ -2,6 +2,8 @@
 
 .. index:: Extbase; Repositories
 
+.. _extbase-repository:
+
 ===================================
 Repository
 ===================================
@@ -24,6 +26,8 @@ The :php:`BlogRepository` sets some default orderings and is otherwise empty:
 
 .. include:: /CodeSnippets/Extbase/Domain/BlogRepository.rst.txt
 
+.. _extbase-repository-magic-find:
+
 Magic find methods
 ===================
 
@@ -41,6 +45,8 @@ model.
 
 If necessary these methods can also be overridden by implementing them in the
 concrete repository.
+
+.. _extbase-repository-custom-find:
 
 Custom find methods
 ====================
@@ -60,6 +66,8 @@ custom find methods, two of those shown below:
 
 .. include:: /CodeSnippets/Extbase/Domain/CustomMethods.rst.txt
 
+.. _extbase-repository-query-settings:
+
 Query settings
 ===============
 
@@ -78,11 +86,15 @@ set in the method itself:
 .. include:: /CodeSnippets/Extbase/Domain/SpecialQuerySettings.rst.txt
 
 
+.. _extbase-repository-api:
+
 Repository API
 ===============
 
 .. include:: /CodeSnippets/Extbase/Api/Repository.rst.txt
 
+
+.. _extbase-repository-localization:
 
 Typo3QuerySettings and localization
 ===================================
