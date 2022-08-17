@@ -255,7 +255,7 @@ syntax the ordering of the arguments can be made clear:
    </trans-unit>
 
 .. code-block:: html
-   :caption:
+   :caption:  EXT:blog_example/Resources/Private/Templates/SomeTemplate.html
 
    <f:translate
        key="blog.author"
