@@ -104,7 +104,7 @@ If you need a to handle errors differently this method can be overridden.
 Forward to a different controller
 =================================
 
-It is possible to forward from one controller action to an action of a different
+It is possible to forward from one controller action to an action of the same or a different
 controller. This is even possible if the controller is in another extension.
 
 This can be done by returning a :php:`ForwardResponse`.
