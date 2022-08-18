@@ -63,7 +63,7 @@ e.g. on an anchor element, which prevents the default behavior.
 Name                      Description
 ========================= ===========
 data-title                the title text for the modal
-data-content              the content text for the modal
+data-bs-content              the content text for the modal
 data-severity             the severity for the modal, default is info (see :code:`TYPO3.Severity.*`)
 data-href                 the target URL, default is the href attribute of the element
 data-button-close-text    button text for the close/cancel button
@@ -111,7 +111,7 @@ A modal triggered on an anchor element:
 
 .. code-block:: html
 
-   <a href="delete.php" class="t3js-modal-trigger" data-title="Delete" data-content="Really delete?">delete</a>
+   <a href="delete.php" class="t3js-modal-trigger" data-title="Delete" data-bs-content="Really delete?">delete</a>
 
 Action buttons in modals created by the :js:`TYPO3/CMS/Backend/Modal` module may
 make use of :js:`TYPO3/CMS/Backend/ActionButton/ImmediateAction` and
