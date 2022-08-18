@@ -107,7 +107,7 @@ Forward to a different controller
 It is possible to forward from one controller action to an action of the same or a different
 controller. This is even possible if the controller is in another extension.
 
-This can be done by returning a :php:`ForwardResponse`.
+This can be done by returning a :php:`\TYPO3\CMS\Extbase\Http\ForwardResponse`.
 
 In the following example if the current blog is not found in the
 :php:`PostController`s index action we follow to the list of blogs which
