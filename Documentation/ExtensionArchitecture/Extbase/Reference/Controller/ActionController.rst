@@ -111,6 +111,6 @@ This can be done by returning a :php:`\TYPO3\CMS\Extbase\Http\ForwardResponse`.
 
 In the following example, if the current blog is not found in the
 index action of the :php:`PostController`, we follow to the list of blogs
-is displayed by the :php:`indexAction` of the :php:`BlogController`.
+displayed by the :php:`indexAction` of the :php:`BlogController`.
 
 .. include:: /CodeSnippets/Extbase/Controllers/ForwardAction.rst.txt
