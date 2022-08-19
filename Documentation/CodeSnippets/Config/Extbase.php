@@ -365,4 +365,15 @@ return [
         'sourceFile'=> 'typo3conf/ext/blog_example/Configuration/Extbase/Persistence/Classes.php',
         'targetFileName' => 'Extbase/Persistence/ExtbasePersistenceClasses.rst.txt'
     ],
+    [
+        'action'=> 'createPhpClassCodeSnippet',
+        'class'=> FriendsOfTYPO3\BlogExample\Controller\PostController::class,
+        'members' => [
+            'indexAction',
+        ],
+        'withComment' => true,
+        'withClassComment' => false,
+        'targetFileName' => 'Extbase/Controllers/ForwardAction.rst.txt',
+        'emphasizeLines' => [18,19,20,21],
+    ],
 ];
