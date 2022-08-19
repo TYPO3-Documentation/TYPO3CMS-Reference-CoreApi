@@ -374,6 +374,6 @@ return [
         'withComment' => true,
         'withClassComment' => false,
         'targetFileName' => 'Extbase/Controllers/ForwardAction.rst.txt',
-        'emphasizeLines' => [24,25,26,27],
+        'emphasizeLines' => [18,19,20,21],
     ],
 ];
