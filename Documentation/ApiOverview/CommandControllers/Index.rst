@@ -192,22 +192,20 @@ This argument can be retrieved with :php:`$input->getArgument()`, the options wi
    // use Symfony\Component\Console\Input\InputInterface;
    // use Symfony\Component\Console\Output\OutputInterface;
 
-   protected function execute(InputInterface $input, OutputInterface $output)
+   protected function execute(InputInterface $input, OutputInterface $output): int
    {
-      // ...
+       // ...
 
-      if ($input->getArgument('wizardName')) {
+       if ($input->getArgument('wizardName')) {
+           // ...
+       }
 
-         // ...
+       if ($input->getOption('brute-force')) {
+           // ...
+       }
 
-      }
-
-      if ($input->getOption('brute-force')) {
-
-      // ...
-
-      }
-
+       // ...
+   }
 
 .. _deactivating-the-command-in-scheduler:
 .. _schedulable:
@@ -269,10 +267,11 @@ A backend user can be initialized with this call inside :php:`execute()` method:
    // use Symfony\Component\Console\Input\InputInterface;
    // use Symfony\Component\Console\Output\OutputInterface;
 
-   protected function execute(InputInterface $input, OutputInterface $output)
+   protected function execute(InputInterface $input, OutputInterface $output): int
    {
-       // ..
+       // ...
        Bootstrap::initializeBackendAuthentication();
+       // ...
    }
 
 This is necessary when using :ref:`DataHandler  <datahandler-basics>`
