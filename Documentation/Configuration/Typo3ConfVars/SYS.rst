@@ -391,16 +391,16 @@ $GLOBALS['TYPO3_CONF_VARS']['SYS']['UTF8filesystem']
    :Default: true
 
    .. versionchanged:: 12.0
-      Before TYPO3 v12 the default value for new installations was :php:`false`.
-      As nowadays every serious file system supports UTF-8 the new default value
+      Before TYPO3 v12 the default value for new installations was always set to :php:`false`.
+      However, because almost every file system now supports UTF-8 the new default value
       is set to :php:`true`.
 
-   If :php:`true`, then TYPO3 uses UTF-8 to store file names. This allows for accented
+   If set to :php:`true`, then TYPO3 uses UTF-8 to store file names. This allows for accented
    latin letters as well as any other non-latin characters like Cyrillic and
    Chinese.
 
-   If :php:`false`, any file that contains characters like umlauts, or perhaps
-   consists only of "special" characters (Japanese), will be renamed to
+   If set to :php:`false`, any file that contains characters like umlauts, or if the
+   file name consists only of "special" characters such as Japanese, then the file will be renamed to
    something "safe" when uploaded in the backend.
 
    .. important::
