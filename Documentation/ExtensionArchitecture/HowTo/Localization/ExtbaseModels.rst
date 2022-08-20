@@ -56,7 +56,7 @@ The field ``sys_language_uid`` is used for storing
 the UID of the language in which the blog is written. Based on this UID
 Extbase chooses the right translation depending on the current site. In the field
 ``l10n_parent`` the UID of the original blog record created in the
-default language, which the current blog is a translation of. The third
+default language, which the current blog record is a translation of. The third
 field, ``l10n_diffsource`` contains a snapshot of the source of
 the translation. This snapshot is used in the backend for the creation of a
 differential view and is not used by Extbase.
