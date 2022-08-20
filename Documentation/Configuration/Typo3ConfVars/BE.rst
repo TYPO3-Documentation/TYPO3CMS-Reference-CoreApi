@@ -829,15 +829,12 @@ $GLOBALS['TYPO3_CONF_VARS']['BE']['fileDenyPattern']
 $GLOBALS['TYPO3_CONF_VARS']['BE']['interfaces']
 ===============================================
 
-.. confval:: interfaces
+.. versionchanged:: 12.0
+   This option was removed with TYPO3 v12.0.
 
-   :Path: $GLOBALS['TYPO3_CONF_VARS']['BE']
-   :type: text
-   :Default: backend
-
-   This determines which interface options are available in the login prompt
-
-   (All options: "backend,frontend")
+If a TYPO3 project really relies on this feature, create an
+:ref:`XCLASS <xclasses>` of :php:`\TYPO3\CMS\Backend\Controller\LoginController`,
+where also a custom Fluid template may be used.
 
 .. _typo3ConfVars_be_explicitADmode:
 
