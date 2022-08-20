@@ -65,7 +65,7 @@ add the following line to your TypoScript template:
    plugin.tx_blogexample._LOCAL_LANG.zh.comment_header = 备注
 
 With this, you will overwrite the localization of the term
-:html:`comment_header` for the default language and the languages de and zh
+:html:`comment_header` for the default language and the languages "de" and "zh"
 in the blog example.
 
 The :file:`locallang.xlf` files of the extension do not need to be changed for
