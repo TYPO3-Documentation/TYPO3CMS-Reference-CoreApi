@@ -247,8 +247,6 @@ A schema defining the values that can be changed in the Flexform is
 specified in the extension which supplies the plugin or content element.
 
 
-.. _config-overview-yaml:
-
 YAML
 ----
 
