@@ -254,13 +254,13 @@ syntax the ordering of the arguments can be made clear:
       <target>%2$s%1$s</target>
    </trans-unit>
 
-.. code-block:: html
-   :caption:
+..  code-block:: html
+    :caption: EXT:my_extension/Resources/Private/Templates/SomeTemplate.html
 
-   <f:translate
+    <f:translate
        key="blog.author"
        arguments="{1: blog.author.firstName, 2: blog.author.lastname}"
-   >
+    >
 
 The authors name would be displayed in English as :html:`Lina Wolf` while
 it would be displayed in Chinese like :html:`吴林娜` (WúLínnà).
