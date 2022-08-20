@@ -376,4 +376,22 @@ return [
         'targetFileName' => 'Extbase/Controllers/ForwardAction.rst.txt',
         'emphasizeLines' => [18,19,20,21],
     ],
+    [
+        'action'=> 'createPhpClassCodeSnippet',
+        'class'=> FriendsOfTYPO3\BlogExample\Controller\PostController::class,
+        'members' => [
+            'displayRssListAction',
+        ],
+        'withComment' => false,
+        'withClassComment' => false,
+        'targetFileName' => 'Extbase/Controllers/Settings.rst.txt',
+        'emphasizeLines' => [7],
+    ],
+    [
+        'action'=> 'createCodeSnippet',
+        'caption' => 'EXT:blog_example/Configuration/FlexForms/PluginSettings.xml',
+        'sourceFile'=> 'typo3conf/ext/blog_example/Configuration/FlexForms/PluginSettings.xml',
+        'targetFileName' => 'Extbase/Configuration/PluginSettings.rst.txt',
+        'emphasizeLines' => [10],
+    ],
 ];
