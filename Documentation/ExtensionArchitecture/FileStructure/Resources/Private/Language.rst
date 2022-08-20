@@ -33,7 +33,7 @@ must be stored in the same folder in a file called :file:`de.locallang.xlf`,
 the French translation in :file:`fr.locallang.xlf`. If the translations are
 stored in a different file name they will not be found.
 
-Any arbitrary file name with ending :file:`.xlf` or :file:`.xml` can be used.
+Any arbitrary file name with ending :file:`.xlf` can be used.
 The following file names are commonly used:
 
 locallang.xlf
