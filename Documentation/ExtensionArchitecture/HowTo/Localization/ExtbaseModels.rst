@@ -15,7 +15,7 @@ applies to domain data because they are treated as "normal" data sets
 in TYPO3. To make your domain objects translatable, you have
 to create additional fields in the database and tell TYPO3 about them. The
 class definitions must not be changed. Let's look at the required
-steps based on the ``blog`` class of the blog example. TYPO3
+steps based on the :php:`Blog` model class of the blog example. TYPO3
 needs three additional database fields which you should insert in the
 :file:`ext_tables.sql` file:
 
