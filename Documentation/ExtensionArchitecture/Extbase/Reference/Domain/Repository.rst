@@ -138,7 +138,7 @@ The following examples show how to query data in Extbase in different scenarios,
 1) Fetch records from the language uid=1 only, with no overlays.
 
 .. code-block:: php
-   :caption: EXT:sjr_offers/Classes/Domain/Repository/OfferRepository.php
+   :caption: EXT:some_extension/Classes/Domain/Repository/SomeRepository.php
 
    $querySettings = $query->getQuerySettings();
    $querySettings->setLanguageUid(1);
