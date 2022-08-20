@@ -54,7 +54,7 @@ section of the TCA configuration file
 
 The field ``sys_language_uid`` is used for storing
 the UID of the language in which the blog is written. Based on this UID
-Extbase choose the right translation depending on the current site. In the field
+Extbase chooses the right translation depending on the current site. In the field
 ``l10n_parent`` the UID of the original blog created in the
 default language, which the current blog is a translation of. The third
 field, ``l10n_diffsource`` contains a snapshot of the source of
