@@ -118,7 +118,7 @@ translation relates to.
 With it, the localization of the domain object is already
 configured. By adding ``&amp;L=1`` to the URL, the language of
 the frontend will be changed to german. If there is an existing
-translation of a blog, it will be shown. Otherwise, the blog is output in
+translation of a blog, it will be shown. Otherwise, the blog is displayed in
 the default language.
 
 .. tip::
