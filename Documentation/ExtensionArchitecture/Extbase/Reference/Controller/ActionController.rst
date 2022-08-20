@@ -100,3 +100,17 @@ If you need a to handle errors differently this method can be overridden.
    If a domain object should not be validated, for example in the middle of an
    editing process, the validation of that object can be disabled by the
    annotation :php:`@TYPO3\CMS\Extbase\Annotation\IgnoreValidation`.
+
+Forward to a different controller
+=================================
+
+It is possible to forward from one controller action to an action of the same or a different
+controller. This is even possible if the controller is in another extension.
+
+This can be done by returning a :php:`\TYPO3\CMS\Extbase\Http\ForwardResponse`.
+
+In the following example, if the current blog is not found in the
+index action of the :php:`PostController`, we follow to the list of blogs
+displayed by the :php:`indexAction` of the :php:`BlogController`.
+
+.. include:: /CodeSnippets/Extbase/Controllers/ForwardAction.rst.txt

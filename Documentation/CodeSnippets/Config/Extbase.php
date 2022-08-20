@@ -395,4 +395,15 @@ return [
         'withClassComment' => false,
         'targetFileName' => 'Extbase/PropertyManager/PropertyMapperInjection.rst.txt',
     ],
+    [
+        'action'=> 'createPhpClassCodeSnippet',
+        'class'=> FriendsOfTYPO3\BlogExample\Controller\PostController::class,
+        'members' => [
+            'indexAction',
+        ],
+        'withComment' => true,
+        'withClassComment' => false,
+        'targetFileName' => 'Extbase/Controllers/ForwardAction.rst.txt',
+        'emphasizeLines' => [18,19,20,21],
+    ],
 ];

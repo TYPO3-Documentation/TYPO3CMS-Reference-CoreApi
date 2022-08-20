@@ -6,32 +6,26 @@
 .. _symfony-console-commands:
 
 ==============================
-Symfony Console Commands (cli)
+Symfony console commands (cli)
 ==============================
 
-It is possible to run TYPO3 CMS scripts from the command line.
-This functionality can be used to set up cronjobs, for example.
+It is possible to run TYPO3 scripts from the command line.
+This functionality can be used to set up cron jobs, for example.
 
 TYPO3 uses Symfony commands API for writing CLI (command line interface) commands.
 These commands can also be run from the TYPO3 :ref:`scheduler <symfony-console-commands-scheduler>`.
 
-.. deprecated:: 10
-    :doc:`ext_core:Changelog/10.3/Deprecation-89139-ConsoleCommandsConfigurationFormatCommandsPhp`
-
-.. versionadded:: 10
-    :doc:`ext_core:Changelog/10.3/Feature-89139-AddDependencyInjectionSupportForConsoleCommands`
-
-Creating a new Command in Extensions
+Creating a new command in extensions
 ====================================
 
 .. rst-class:: bignums-xxl
 
-#. Register Commands
+#. Register commands
 
-   Commands can be registered via :ref:`DependencyInjection`.
+   Commands can be registered via :ref:`DependencyInjection` (DI).
    Detailed information can be read on the corresponding Symfony component
-   documentation: https://symfony.com/doc/current/console/commands_as_services.html.
-   E.g. how to setup aliases via :file:`Services.yaml`,
+   documentation: https://symfony.com/doc/current/console/commands_as_services.html,
+   for example, how to setup aliases via :file:`Services.yaml`,
    or how to use dependency injection in commands.
 
    The following example will add a command named ``someextension:dothings``.
@@ -66,8 +60,8 @@ Creating a new Command in Extensions
    The command should implement at least a :php:`configure()` and an :php:`execute()` method.
 
    :php:`configure()`
-      As the name would suggest allows to configure the command.
-      Allows to add a help text and / or define arguments.
+      As the name would suggest, allows to configure the command.
+      The method allows to add a help text and/or define arguments.
 
    :php:`execute()`
       Contains the logic when executing the command.
@@ -77,7 +71,7 @@ Creating a new Command in Extensions
    A detailed description and an example can be found in
    `the Symfony Command Documentation <https://symfony.com/doc/current/console.html>`_.
 
-Command Class
+Command class
 -------------
 
 A simplified command class:
@@ -91,7 +85,7 @@ A simplified command class:
    use Symfony\Component\Console\Output\OutputInterface;
    use Symfony\Component\Console\Style\SymfonyStyle;
 
-   class DoThingsCommand extends Command
+   final class DoThingsCommand extends Command
    {
        /**
         * Configure the command by defining the name, options and arguments
@@ -131,7 +125,7 @@ Return value
 The return type is :php:`int`, :php:`Command::SUCCESS` or :php:`Command::FAILURE`
 can be used.
 
-Passing Arguments
+Passing arguments
 -----------------
 
 Since your command is inherited from :php:`Symfony\Component\Console\Command\Command`,
@@ -174,9 +168,19 @@ Add an optional argument and an optional option to your command:
 This command takes one optional argument :php:`wizardName` and one optional option,
 which can be passed on the command line:
 
-.. code-block:: bash
+.. tabs::
 
-   vendor/bin/typo3 someextension:dothings [-b] [wizardName]
+   .. group-tab:: Composer-based installation
+
+      .. code-block:: bash
+
+         vendor/bin/typo3 someextension:dothings [-b] [wizardName]
+
+   .. group-tab:: Legacy installation
+
+      .. code-block:: bash
+
+         typo3/sysext/core/bin/typo3 someextension:dothings [-b] [wizardName]
 
 
 This argument can be retrieved with :php:`$input->getArgument()`, the options with
@@ -188,27 +192,25 @@ This argument can be retrieved with :php:`$input->getArgument()`, the options wi
    // use Symfony\Component\Console\Input\InputInterface;
    // use Symfony\Component\Console\Output\OutputInterface;
 
-   protected function execute(InputInterface $input, OutputInterface $output)
+   protected function execute(InputInterface $input, OutputInterface $output): int
    {
-      // ...
+       // ...
 
-      if ($input->getArgument('wizardName')) {
+       if ($input->getArgument('wizardName')) {
+           // ...
+       }
 
-         // ...
+       if ($input->getOption('brute-force')) {
+           // ...
+       }
 
-      }
-
-      if ($input->getOption('brute-force')) {
-
-      // ...
-
-      }
-
+       // ...
+   }
 
 .. _deactivating-the-command-in-scheduler:
 .. _schedulable:
 
-Deactivating the Command in Scheduler
+Deactivating the command in scheduler
 -------------------------------------
 
 By default, the command can be used in the scheduler too.
@@ -265,10 +267,11 @@ A backend user can be initialized with this call inside :php:`execute()` method:
    // use Symfony\Component\Console\Input\InputInterface;
    // use Symfony\Component\Console\Output\OutputInterface;
 
-   protected function execute(InputInterface $input, OutputInterface $output)
+   protected function execute(InputInterface $input, OutputInterface $output): int
    {
-       // ..
+       // ...
        Bootstrap::initializeBackendAuthentication();
+       // ...
    }
 
 This is necessary when using :ref:`DataHandler  <datahandler-basics>`
@@ -276,30 +279,45 @@ or other backend permission handling related tasks.
 
 .. _symfony-console-commands-cli:
 
-Running the Command From the Command Line
+Running the command from the command line
 =========================================
 
 The above example can be run via command line:
 
-.. code-block:: bash
+.. tabs::
 
-   vendor/bin/typo3 someextension:dothings
+   .. group-tab:: Composer-based installation
+
+      .. code-block:: bash
+
+         vendor/bin/typo3 someextension:dothings
+
+   .. group-tab:: Legacy installation
+
+      .. code-block:: bash
+
+         typo3/sysext/core/bin/typo3 someextension:dothings
 
 Show help for the command:
 
-.. code-block:: bash
+.. tabs::
 
-   vendor/bin/typo3 someextension:dothings -h
+   .. group-tab:: Composer-based installation
 
-.. tip::
+      .. code-block:: bash
 
-   If you installed TYPO3 without Composer, the path for the executable
-   is :file:`typo3/sysext/core/bin/typo3`.
+         vendor/bin/typo3 someextension:dothings -h
+
+   .. group-tab:: Legacy installation
+
+      .. code-block:: bash
+
+         typo3/sysext/core/bin/typo3 someextension:dothings -h
 
 
 .. _symfony-console-commands-scheduler:
 
-Running the Command From the Scheduler
+Running the command from the scheduler
 ======================================
 
 By default, it is possible to run the command from the :doc:`TYPO3 scheduler
@@ -309,12 +327,12 @@ followed by your command in the :guilabel:`Schedulable Command` field.
 .. note::
    You need to save and reopen the task to define command arguments.
 
-In order to prevent commands from being set up as Scheduler tasks,
+In order to prevent commands from being set up as scheduler tasks,
 see :ref:`deactivating-the-command-in-scheduler`.
 
 More information
 ================
 
-* see existing command controllers in the Core: :file:`typo3/sysext/*/Classes/Command`
-* `Symfony Command Documentation <https://symfony.com/doc/current/console.html>`_
-* `Symfony Commands: Console Input (Arguments & Options) <https://symfony.com/doc/current/console/input.html>`__
+*  see existing command controllers in the Core: :file:`typo3/sysext/*/Classes/Command`
+*  `Symfony Command Documentation <https://symfony.com/doc/current/console.html>`_
+*  `Symfony Commands: Console Input (Arguments & Options) <https://symfony.com/doc/current/console/input.html>`__
