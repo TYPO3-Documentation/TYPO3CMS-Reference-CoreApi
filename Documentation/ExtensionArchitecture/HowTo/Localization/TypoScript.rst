@@ -74,7 +74,7 @@ this.
 :typoscript:`stdWrap.lang`
 ==========================
 
-:typoscript:`stdWrap` offers the :ref:`lang <t3tsref:stdwrap-lang>` property
+:typoscript:`stdWrap` offers the :ref:`lang <t3tsref:stdwrap-lang>` property,
 which can be used to provide localized strings directly from TypoScript.
 This can be used as a quick fix but it is not recommended to
 manage translations within the TypoScript code.
