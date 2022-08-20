@@ -116,7 +116,7 @@ Starting with version 9, Extbase renders the translated records in the same way 
    are translated in the final result set (so overlay happens).
 
    For example:
-   Given a translated `tt_content` having relation to 2 categories (in the mm table translated
+   Given a translated `tt_content` record having a relation to 2 categories (in the mm table translated
    tt_content record is connected to category uid in default language), and one of the categories is translated.
    Extbase will return a `tt_content` model with both categories.
    If you want to have just translated category shown, remove the relation in the translated `tt_content`
