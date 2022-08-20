@@ -174,7 +174,7 @@ version:
 :samp:`https://example.org/index.php?id=99&amp;tx_blogexample_pi1[controller]=Blog&amp;tx_blogexample_pi1[action]=show&amp;tx_blogexample_pi1[blog]=7&amp;L=1`
 
 Notice that the given UID in `tx_blogexample_pi1[blog]=7` is not
-changed. There is not UID of the data record of the german translation
+changed. There is not the UID of the data record of the german translation used
 (42). This has the advantage that only the parameter for the language
 selection is enough. Concurrently it has the disadvantage of a higher
 administration effort during persistence. Extbase will do this for you by
