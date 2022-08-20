@@ -72,7 +72,7 @@ Allow mapping of sub-properties
 It is also possible to map to subtypes. In the above example, the
 :php:`FrontendUser` has a sub-property
 of type :php:`TYPO3\CMS\Extbase\Domain\Model\FrontendUserGroup`. If you want
-to map an incoming id, you have to configure the mapper as by default
+to map an incoming id, you have to configure the mapper, as by default
 it won't map sub properties for security reasons:
 
 .. code-block:: html
