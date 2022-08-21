@@ -79,7 +79,7 @@ providing a default text fragment in the property :html:`default`:
 The translation ViewHelper in Extbase
 =====================================
 
-In Extbase the translation file can be automatically detected. It is therefore
+In Extbase, the translation file can be detected automatically. It is therefore
 possible to omit the language file prefix.
 
 .. code-block:: html
