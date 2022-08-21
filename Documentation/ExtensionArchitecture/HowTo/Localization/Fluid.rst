@@ -59,10 +59,10 @@ the text fragment prefixed by the location file can be provided.
 
 The text fragment will now be displayed in the current frontend language
 defined in the site configuration if the translation file of the requested
-langauge can be found in the location of the prefix.
+language can be found in the location of the prefix.
 
 If the key is not found in the translated file or if the language file is not
-found in the language the key is searched in the default language file. If
+found in the language, the key is looked up in the default language file. If
 it is not found there an error is thrown. This error can be prevented by
 providing a default text fragment in the property :html:`default`:
 
