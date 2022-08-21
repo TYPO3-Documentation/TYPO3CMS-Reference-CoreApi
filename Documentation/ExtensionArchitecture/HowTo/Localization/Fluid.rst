@@ -8,10 +8,6 @@
 Multi-language Fluid templates
 ==============================
 
-.. tip::
-   Texts can also be translated directly in the PHP code, for example in
-   a ViewHelper. See :ref:`extension-localization-php`.
-
 Consider you have to translate the following static texts in your Fluid
 template:
 
@@ -29,8 +25,7 @@ template:
    </f:for>
 
 To make such texts exchangeable, they have to be removed from the Fluid
-template and inserted into a
-:ref:`language file <extension-localization-language-file>`. Every text
+template and inserted into a language file of format :file:`.xlf`. Every text
 fragment which is to be translated is given an identifier (also called key)
 that can be inserted in the Fluid template.
 
@@ -197,14 +192,17 @@ Instead it is possible to insert a placeholder in the translation file:
 
       .. code-block:: xml
          :caption: EXT:blog_example/Resources/Private/Language/de.locallang.xlf
+
          <trans-unit id="blog.list" xml:space="preserve" approved="yes">
             <source>Here is a list of %d blogs: </source>
             <target>Eine Liste von %d Blogs ist hier: </target>
          </trans-unit>
+
    .. group-tab:: Bad example without arguments
 
       .. code-block:: xml
          :caption: Bad example!
+
          <trans-unit id="blog.list1" xml:space="preserve" approved="no">
             <source>Here is a list of </source>
             <target>Eine Liste von </target>
@@ -213,6 +211,7 @@ Instead it is possible to insert a placeholder in the translation file:
             <source>blogs: </source>
             <target>Blogs ist hier: </target>
          </trans-unit>
+
 Argument types
 --------------
 
@@ -252,16 +251,20 @@ syntax the ordering of the arguments can be made clear:
 
 .. code-block:: xml
    :caption: EXT:blog_example/Resources/Private/Language/zh.locallang.xlf
+
    <trans-unit id="blog.author" xml:space="preserve" approved="yes">
       <source>%1$s %2$s</source>
       <target>%2$s%1$s</target>
    </trans-unit>
+
 ..  code-block:: html
     :caption: EXT:my_extension/Resources/Private/Templates/SomeTemplate.html
+
     <f:translate
        key="blog.author"
        arguments="{1: blog.author.firstName, 2: blog.author.lastname}"
     >
+
 The authors name would be displayed in English as :html:`Lina Wolf` while
 it would be displayed in Chinese like :html:`吴林娜` (WúLínnà).
 
