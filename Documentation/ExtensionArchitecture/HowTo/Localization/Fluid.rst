@@ -107,9 +107,9 @@ the parameter :html:`extensionName` with the UpperCamelCased extension key:
 
    <f:translate key="comment_header" extensionName="MyExtendedBlogExample"/>
 
-There is no fallback to the file of the original Extension in this case.
+There is no fallback to the file of the original extension in this case.
 
-By replacing all static texts with translation ViewHelpers the above text
+By replacing all static texts with translation ViewHelpers the above example
 can be replaced:
 
 .. code-block:: html
@@ -180,7 +180,7 @@ We could split the sentence up into two parts. However in different languages
 the number might have to appear in different positions in the sentence.
 
 Splitting up the sentence should be avoided as the context would get lost in
-translation. Especially when a translation agency is involved
+translation. Especially when a translation agency is involved.
 
 Instead it is possible to insert a placeholder in the translation file:
 
@@ -233,13 +233,13 @@ There is no placeholder for dates. Date and time values have to be formatted
 by the according ViewHelper first.
 
 For a complete list of placeholders / specifiers see
-`PHP function sprintf <https://www.php.net/manual/en/function.sprintf.php>`__
+`PHP function sprintf <https://www.php.net/manual/en/function.sprintf.php>`__.
 
 Order of the arguments
 ----------------------
 
 More then one argument can be supplied. However for grammatical reasons
-the ordering of arguments has to be different in different languages.
+the ordering of arguments may be different in the various languages.
 
 One easy example are names. In English the first name is displayed followed by
 a space and then the family name. In Chinese the family name comes first
@@ -291,10 +291,10 @@ Generally the date or time is formatted by the
 The date object ``{dateObject}`` is displayed with the date
 format given in the parameter ``format``. This format string must
 be in a format that is readable by the PHP function ``date()``
-and declares the format of the output. Table 9-3 shows some important
+and declares the format of the output. The table below shows some important
 placeholders.
 
-*Table 9-3: Some place holder of date.*
+*Table: Some place holder of date.*
 
 ================ =========================================================== =========
 Format character Description                                                 Example
