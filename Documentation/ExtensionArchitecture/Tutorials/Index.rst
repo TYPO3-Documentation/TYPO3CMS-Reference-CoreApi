@@ -2,7 +2,7 @@
 .. index::
    Extension development; Minimal extension
    Tutorial; Minimal extension
-.. _extension-minimal:
+.. _extension-tutorials:
 
 =========
 Tutorials
