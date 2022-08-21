@@ -37,7 +37,7 @@ Minimal extension - step-by-step
 
     You can find the code as it was produced at the time this tutorial was
     written for TYPO3 v11 at
-    `speeddemo v1.0.0 <https://github.com/TYPO3-Documentation/speeddemo/releases/tag/1.0.0>`.
+    `speeddemo v1.0.0 <https://github.com/TYPO3-Documentation/speeddemo/releases/tag/1.0.0>`__.
 
 2.  Install the extension locally
 
@@ -54,9 +54,9 @@ Minimal extension - step-by-step
 
     Delete all files on root level except :file:`composer.json` and
     :file:`ext_emconf.php`. See what is left at
-    `speeddemo v1.1.0 <https://github.com/TYPO3-Documentation/speeddemo/releases/tag/1.1.0>`.
+    `speeddemo v1.1.0 <https://github.com/TYPO3-Documentation/speeddemo/releases/tag/1.1.0>`__.
 
-4.  The namespace and PSR-4
+4.  The namespace and PSR-4 autoloading
 
     TYPO3 features :ref:`PSR-4 autoloading <autoload>`. If a PHP class is
     withing the correct namespace and path it will be available automatically.
@@ -112,7 +112,7 @@ Minimal extension - step-by-step
         }
 
     The extension now looks like
-    `speeddemo v1.2.0 <https://github.com/TYPO3-Documentation/speeddemo/releases/tag/1.2.0>`.
+    `speeddemo v1.2.0 <https://github.com/TYPO3-Documentation/speeddemo/releases/tag/1.2.0>`__.
 
     .. note::
         It is recommended to always use strict types for new PHP classes. You
@@ -138,7 +138,7 @@ Minimal extension - step-by-step
         }
 
     The extension now looks like
-    `speeddemo v1.3.0 <https://github.com/TYPO3-Documentation/speeddemo/releases/tag/1.3.0>`.
+    `speeddemo v1.3.0 <https://github.com/TYPO3-Documentation/speeddemo/releases/tag/1.3.0>`__.
 
 7.  Get the result of the function displayed
 
@@ -221,7 +221,7 @@ installations:
     ]
 
 The extension now looks like
-`speeddemo v1.4.0 <https://github.com/TYPO3-Documentation/speeddemo/releases/tag/1.4.0>`
+`speeddemo v1.4.0 <https://github.com/TYPO3-Documentation/speeddemo/releases/tag/1.4.0>`__
 and can be installed in both TYPO3 v11 and 12.
 
 Next steps
