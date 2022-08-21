@@ -9,7 +9,7 @@ Multi-language Fluid templates
 ==============================
 
 .. tip::
-   Texts can also be translated direclty in the PHP code, for example in
+   Texts can also be translated directly in the PHP code, for example in
    a ViewHelper. See :ref:`extension-localization-php`.
 
 Consider you have to translate the following static texts in your Fluid
