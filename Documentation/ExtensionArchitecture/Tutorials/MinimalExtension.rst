@@ -67,7 +67,7 @@ Minimal extension - step-by-step
 
     ..  code-block:: json
         :caption: EXT:speeddemo/composer.json
-        :linenos: 7
+        :emphasize-lines: 7
 
         {
             "name": "typo3-documentation-team/speeddemo",
@@ -98,7 +98,7 @@ Minimal extension - step-by-step
 
     ..  code-block:: php
         :caption: EXT:speeddemo/Classes/UserFunctions/MyClass.php
-        :linenos: 5
+        :emphasize-lines: 5
 
         <?php
 
@@ -127,7 +127,7 @@ Minimal extension - step-by-step
 
     ..  code-block:: php
         :caption: EXT:speeddemo/Classes/UserFunctions/MyClass.php
-        :linenos: 5
+        :emphasize-lines: 5
 
         class MyClass
         {
@@ -167,7 +167,7 @@ Minimal extension - step-by-step
     rebuild the autoload with:
 
     ..  code-block:: bash
-        Execute on your projects root level
+        :caption: Execute on your projects root level
 
         composer dump-autoload
 
@@ -191,7 +191,7 @@ development branch "main":
 
 ..  code-block:: json
     :caption: EXT:speeddemo/composer.json
-    :linenos: 7
+    :emphasize-lines: 7
 
     {
         "name": "typo3-documentation-team/speeddemo",
@@ -208,7 +208,7 @@ installations:
 
 ..  code-block:: php
     :caption: EXT:speeddemo/ext_emconf.php
-    :linenos: 7
+    :emphasize-lines: 6
 
     $EM_CONF[$_EXTKEY] = [
         'title' => 'speeddemo',
@@ -220,12 +220,9 @@ installations:
         ],
     ]
 
-
 The extension now looks like
 `speeddemo v1.4.0 <https://github.com/TYPO3-Documentation/speeddemo/releases/tag/1.4.0>`
 and can be installed in both TYPO3 v11 and 12.
-
-
 
 Next steps
 ==========
