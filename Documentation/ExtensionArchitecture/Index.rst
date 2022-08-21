@@ -81,3 +81,4 @@ Extension Development
    HowTo/Index
    Extbase/Index
    BestPractises/Index
+   Tutorials/Index
