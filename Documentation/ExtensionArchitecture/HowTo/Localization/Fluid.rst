@@ -57,7 +57,7 @@ the text fragment prefixed by the location file can be provided.
    {f:translate(key: 'LLL:EXT:my_extension/Resources/Private/Language/yourFile.xlf:yourKey')}
 
 
-The text fragment will now me output in the current frontend language
+The text fragment will now be displayed in the current frontend language
 defined in the site configuration if the translation file of the requested
 langauge can be found in the location of the prefix.
 
