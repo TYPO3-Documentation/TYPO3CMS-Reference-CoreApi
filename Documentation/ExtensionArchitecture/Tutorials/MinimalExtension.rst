@@ -72,7 +72,7 @@ Minimal extension - step-by-step
         {
             "name": "typo3-documentation-team/speeddemo",
             "type": "typo3-cms-extension",
-            // ...
+            "...": "...",
             "autoload": {
                 "psr-4": {
                     "Typo3DocumentationTeam\\Speeddemo\\": "Classes/"
