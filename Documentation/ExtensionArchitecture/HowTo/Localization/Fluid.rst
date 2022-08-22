@@ -82,13 +82,13 @@ possible to omit the language file prefix.
 .. code-block:: html
    :caption: EXT:my_extension/Resources/Private/Templates/SomeTemplate.html
 
-   <f:translate key="comment_header" />
+   <f:translate key="commentHeader" />
    <!-- or as inline Fluid: -->
-   {f:translate(key: 'comment_header')}
+   {f:translate(key: 'commentHeader')}
 
 
-:html:`<f:translate key="comment_header" />` looks up the key in
-:html:`LLL:EXT:my_example/Resources/Private/Language/locallang.xlf:comment_header`
+:html:`<f:translate key="commentHeader" />` looks up the key in
+:html:`LLL:EXT:my_example/Resources/Private/Language/locallang.xlf:commentHeader`
 **and** overrides the values from :typoscript:`_LOCAL_LANG` Extbase TypoScript.
 
 .. attention::
@@ -102,7 +102,7 @@ the parameter :html:`extensionName` with the UpperCamelCased extension key:
 ..  code-block:: html
     :caption: EXT:my_extension/Resources/Private/Templates/SomeTemplate.html
 
-    <f:translate key="comment_header" extensionName="MyOtherExtension"/>
+    <f:translate key="commentHeader" extensionName="MyOtherExtension"/>
 
 ..  note::
     The file translation file has to be located at
@@ -118,9 +118,9 @@ can be replaced:
    :caption: EXT:my_extension/Resources/Private/Templates/SomeTemplate.html
 
    <h3>{post.title}</h3>
-   <p><f:translate key="author_prefix"> {post.author.fullName}</p>
+   <p><f:translate key="authorPrefix"> {post.author.fullName}</p>
    <p>{post.content -> f:format.nl2br()}</p>
-   <h3><f:translate key="comment_header"></h3>
+   <h3><f:translate key="commentHeader"></h3>
    <f:for each="{post.comments}" as="comment">
       {comment.content -> f:format.nl2br()}
       <hr>
@@ -261,7 +261,7 @@ syntax the ordering of the arguments can be made clear:
     :caption: EXT:my_extension/Resources/Private/Templates/SomeTemplate.html
 
     <f:translate
-       key="blog.author"
+       key="author"
        arguments="{1: blog.author.firstName, 2: blog.author.lastname}"
     >
 
@@ -325,7 +325,7 @@ date format:
 .. code-block:: html
    :caption: EXT:my_extension/Resources/Private/Templates/SomeTemplate.html
 
-   <f:format.date date="{dateObject}" format="{f:translate(key: 'date_format')}" />
+   <f:format.date date="{dateObject}" format="{f:translate(key: 'dateFormat')}" />
 
 Then you can store another format string for every language in the
 :file:`locallang.xlf` file.
