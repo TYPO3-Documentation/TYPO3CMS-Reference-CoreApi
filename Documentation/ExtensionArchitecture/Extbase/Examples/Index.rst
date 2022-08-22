@@ -16,8 +16,8 @@ Example extensions
 Tea example
 -----------
 
-The extension :t3ext:`tea`, based on Extbase and Fluid, is an
-example of best practices in automated code checks,
+The extension :t3ext:`tea`, is based on Extbase and Fluid. The
+extension features a range of best practices in relation to automated code checks,
 unit/functional/acceptance testing and continuous integration.
 
 You can also use this extension to manage your collection of delicious teas.
@@ -25,14 +25,11 @@ You can also use this extension to manage your collection of delicious teas.
 Blog example
 ------------
 
-The extension :t3ext:`blog_extensions` tries to demonstrate all features of
-Extbase that are documented in the :ref:`Extbase Reference <extbase_reference>`.
+The extension :t3ext:`blog_extensions` contains working examples of all the features documented in the :ref:`Extbase Reference <extbase_reference>` manual.
 
-The :t3ext:`blog_extensions` demonstrates different features but does not show
-you a general best practise on how to write an extension. The blog example
-should not be used as base to develop your own extensions and it may not be used
-to create a blog in TYPO3. If you just need a blog, have a look at
-:t3ext:`blog` or combine :t3ext:`news` with a comment extension of you choice.
+This extension should not be used as a base for building your own extension or used to blog in a live environment.
+
+If you want to set up a blog, take a look at the :t3ext:`blog` extension or combine :t3ext:`news` with a comment extension of your choice.
 
 Real-world examples
 ===================
@@ -40,11 +37,11 @@ Real-world examples
 Backend user module
 -------------------
 
-In the TYPO3 Core the system extension :t3ext:`beuser` has backend modules
-based on Extbase. It can therefore be used as role model on how to develop
+In the TYPO3 Core, the system extension :t3ext:`beuser` has backend modules
+based on Extbase. It can therefore be used as a guide on how to develop
 backend modules with Extbase.
 
-news
+News
 ----
 
 :t3ext:`news` implements a versatile news system based on Extbase & Fluid
