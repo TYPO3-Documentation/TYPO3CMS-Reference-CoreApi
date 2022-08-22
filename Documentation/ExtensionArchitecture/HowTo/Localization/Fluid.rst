@@ -100,7 +100,7 @@ It is possible to use the translation file of another extension by supplying
 the parameter :html:`extensionName` with the UpperCamelCased extension key:
 
 ..  code-block:: html
-    :caption: EXT:blog_example/Resources/Private/Templates/SomeTemplate.html
+    :caption: EXT:my_extension/Resources/Private/Templates/SomeTemplate.html
 
     <f:translate key="comment_header" extensionName="MyExtendedBlogExample"/>
 
