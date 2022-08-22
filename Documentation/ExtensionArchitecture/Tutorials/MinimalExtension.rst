@@ -86,7 +86,7 @@ Minimal extension - step-by-step
 
 5.  Create a PHP class
 
-    It is recommended but not enforced to put your class in a thematic
+    It is recommended, but not enforced, to put your class in a thematic
     subfolder. We will create a subfolder called :file:`Classes/UserFunctions`.
 
     In this folder we create a Class in file :file:`MyClass.php`.
