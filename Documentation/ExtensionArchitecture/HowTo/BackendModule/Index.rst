@@ -119,7 +119,7 @@ backend. They are described in this chapter.
 
          .. container:: card-body
 
-            A video series from Susanne Moog demonstrates how to register
+            A video series from Susanne Moog demonstrating how to register
             and style a TYPO3 backend module.
 
 
