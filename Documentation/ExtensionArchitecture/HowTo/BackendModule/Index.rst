@@ -109,17 +109,31 @@ backend. They are described in this chapter.
             to manipulate the module configuration before it is used to create and
             register the module.
 
+   .. container:: col-md-6 pl-0 pr-3 py-3 m-0
 
-.. toctree::
-   :hidden:
-   :titlesonly:
+      .. container:: card px-0 h-100
 
-   BackendGUI
-   ModuleConfiguration
-   CreateModule
-   CreateModuleWithExtbase
-   ModuleTypoScript
-   ModuleDataObject
-   ToplevelModules
-   ThirdlevelModules
-   ModuleProviderAPI
+         .. rst-class:: card-header h3
+
+            .. rubric:: :ref:`Tutorials <backend-modules-tutorials>`
+
+         .. container:: card-body
+
+            A video series from Susanne Moog demonstrating how to register
+            and style a TYPO3 backend module.
+
+
+..  toctree::
+    :hidden:
+    :titlesonly:
+
+    BackendGUI
+    ModuleConfiguration
+    CreateModule
+    CreateModuleWithExtbase
+    ModuleTypoScript
+    ModuleDataObject
+    ToplevelModules
+    ThirdlevelModules
+    ModuleProviderAPI
+    Tutorials
