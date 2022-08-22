@@ -87,9 +87,12 @@ possible to omit the language file prefix.
    {f:translate(key: 'commentHeader')}
 
 
-:html:`<f:translate key="commentHeader" />` looks up the key in
-:html:`LLL:EXT:my_example/Resources/Private/Language/locallang.xlf:commentHeader`
-**and** overrides the values from :typoscript:`_LOCAL_LANG` Extbase TypoScript.
+In Extbase plugins :html:`<f:translate key="commentHeader" />` looks up the key in
+:html:`LLL:EXT:my_example/Resources/Private/Language/locallang.xlf:commentHeader`.
+
+The language string can be overridden by the values from
+:typoscript:`_LOCAL_LANG`. See also :ref:`property _LOCAL_LANG in a
+plugin <t3tsref:setup-plugin-local-lang-lang-key-label-key>`
 
 .. attention::
    This short notation triggers TypoScript parsing via the Extbase
@@ -132,30 +135,33 @@ Source of the language file
 If the Fluid template is called outside of an Extbase context there are two
 options on how to configure the correct language file.
 
-Use the complete language string as key:
 
-Prefix the translation key with :html:`LLL:EXT:` and then the path to
-the translation file, followed by a colon and then the translation key.
+.. rst-class:: bignums
 
-.. code-block:: html
-   :caption: EXT:my_extension/Resources/Private/Templates/SomeTemplate.html
+#.  Use the complete language string as key:
 
-   <f:translate
-       key="LLL:EXT:my_extension/Resources/Private/Language/yourFile.xlf:yourKey"
-   />
+    Prefix the translation key with :html:`LLL:EXT:` and then the path to
+    the translation file, followed by a colon and then the translation key.
 
-Or provide the parameter :html:`extensionName`:
+    .. code-block:: html
+       :caption: EXT:my_extension/Resources/Private/Templates/SomeTemplate.html
 
-.. code-block:: html
-   :caption: EXT:my_extension/Resources/Private/Templates/SomeTemplate.html
+       <f:translate
+           key="LLL:EXT:my_extension/Resources/Private/Language/yourFile.xlf:yourKey"
+       />
 
-   <f:translate
-       key="yourKey"
-       extensionName="MyExtension"
-   />
+#.  Or provide the parameter :html:`extensionName`:
 
-If the :html:`extensionName` is provided, the translation string is searched in
-:file:`EXT:my_extension/Resources/Private/Language/locallang.xlf`.
+    .. code-block:: html
+       :caption: EXT:my_extension/Resources/Private/Templates/SomeTemplate.html
+
+       <f:translate
+           key="yourKey"
+           extensionName="MyExtension"
+       />
+
+    If the :html:`extensionName` is provided, the translation string is searched in
+    :file:`EXT:my_extension/Resources/Private/Language/locallang.xlf`.
 
 
 .. index::
@@ -304,7 +310,6 @@ and declares the format of the output.
 The table below shows some important
 placeholders:
 
-
 ================ =========================================================== =========
 Format character Description                                                 Example
 ================ =========================================================== =========
@@ -335,4 +340,4 @@ Then you can store another format string for every language in the
     There are other formatting ViewHelpers for adjusting the output of
     currencies or big numbers. These ViewHelpers all starts with
     :html:`<f:format`. You can find an overview of these ViewHelpers in
-    the :ref:`ViewHelper Reference: format <format>`.
+    the :doc:`ViewHelper Reference: format <t3viewhelper:typo3/fluid/latest/Format/Index>`.
