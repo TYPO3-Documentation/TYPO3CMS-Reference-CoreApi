@@ -15,7 +15,7 @@ module is based on a regular TYPO3 installation. Extbase is not used.
 
 ..  youtube:: v3vnn3RnQwA
 
-In the video dependency injection is achieved via `Constructor Promotion <https://www.php.net/manual/en/language.oop5.decon.php#language.oop5.decon.constructor.promotion>`__.
+In this video dependency injection is achieved via `Constructor Promotion <https://www.php.net/manual/en/language.oop5.decon.php#language.oop5.decon.constructor.promotion>`__.
 
 Additionally `Named arguments <https://www.php.net/manual/en/functions.arguments.php#functions.named-arguments>` 
 are used in the example.
