@@ -26,7 +26,7 @@ template:
 
 To make such texts exchangeable, they have to be removed from the Fluid
 template and inserted into an :ref:`XLIFF language file <xliff>`. Every text
-fragment which is to be translated is given an identifier (also called key)
+fragment to be translated is assigned an identifier (also called key)
 that can be inserted in the Fluid template.
 
 .. index::
