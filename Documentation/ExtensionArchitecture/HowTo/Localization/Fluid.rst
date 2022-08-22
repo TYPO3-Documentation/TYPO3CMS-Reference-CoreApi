@@ -53,7 +53,7 @@ the text fragment prefixed by the location file can be provided.
 
 
 The text fragment will now be displayed in the current frontend language
-defined in the site configuration if the translation file of the requested
+defined in the site configuration, if the translation file of the requested
 language can be found in the location of the prefix.
 
 If the key is not found in the translated file or if the language file is not
