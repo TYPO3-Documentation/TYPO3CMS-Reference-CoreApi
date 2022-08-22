@@ -40,4 +40,12 @@ CREATING BACKEND MODULES WITHOUT EXTBASE
    BackendModulesWithoutExtbase/BackendTemplateViewWithoutExtbase
    BackendModulesWithoutExtbase/BackendModuleApiWithoutExtbase
 
+TUTORIALS
+
+.. toctree::
+   :maxdepth: 5
+   :titlesonly:
+   :glob:
+
+   Tutorials
 
