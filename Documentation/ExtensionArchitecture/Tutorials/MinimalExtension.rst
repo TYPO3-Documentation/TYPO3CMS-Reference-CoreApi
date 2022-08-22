@@ -28,7 +28,7 @@ Minimal extension - step-by-step
 
 1.  Create a new sitepackage
 
-    Head over to the `Site Package Builder <https://www.sitepackagebuilder.com/new/>`__
+    Head over to the `Site Package Builder <https://www.sitepackagebuilder.com/new/>`__.
 
     Choose your desired TYPO3 version and :guilabel:`Fluid Styled Content`
     as a base package.
