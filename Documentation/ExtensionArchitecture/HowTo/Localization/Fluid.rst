@@ -106,7 +106,7 @@ the parameter :html:`extensionName` with the UpperCamelCased extension key:
 
 ..  note::
     The file translation file has to be located at
-    :file:`EXT:my_extended_blog_example/Resources/Private/Languagelocallang.xlf`
+    :file:`EXT:my_other_extension/Resources/Private/Language/locallang.xlf`
     in the other extension as well.
 
 There is no fallback to the file of the original extension in this case.
