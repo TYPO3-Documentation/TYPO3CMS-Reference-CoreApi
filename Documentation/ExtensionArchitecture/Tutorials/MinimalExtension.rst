@@ -230,7 +230,7 @@ Next steps
 You don't have a sitepackage yet? Have a look at the
 :doc:`Sitepackage Tutorial <t3sitepackage:Index>`.
 
-If you want to display lists and single views of data or maybe even manipulate
+If you want to display lists and single views of data, or maybe even manipulate
 the data in the frontend have a look at :ref:`Extbase <extbase>`.
 
 If you need a script that can be executed from the command line or from a cron
