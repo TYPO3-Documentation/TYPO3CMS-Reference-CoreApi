@@ -91,9 +91,9 @@ Minimal extension - step-by-step
 
     In this folder we create a class in file :file:`MyClass.php`.
 
-    The class in the file must have the same name as the file or it won't be
+    The class in the file must have the same name as the file, otherwise it will be not
     found by autoloading. It must have a namespace that is a combination of the
-    namespace found in step 4 and its folder name(s). The complete class would
+    namespace defined in step 4 and its folder name(s). The complete class would
     look like this so far:
 
     ..  code-block:: php
@@ -156,15 +156,15 @@ Minimal extension - step-by-step
 
     The string used in the property :typoscript:`userFunc` is the fully
     qualified name (FQN) of the class. That is the namespace followed by
-    a backslash and then the classname. To that we attach the name of the method
-    that should be called with a minus and greater then sign (:typoscript:`->`).
+    a backslash and then the classname. To this we append the name of the method
+    to be called with a minus and greater-than sign (:typoscript:`->`).
 
     It is unnecessary to tell TYPO3 where the file of the class is located.
-    If the namespace and location of the PHP file are correct as described above
+    If the namespace and location of the PHP file are correct as described above,
     the class will be found automatically.
 
-    In rare cases composer autoloading might have a hiccup. then you can try to
-    rebuild the autoload with:
+    In rare cases composer autoloading might have a hiccup, then you can try to
+    regenerate the autoloading files:
 
     ..  code-block:: bash
         :caption: Execute on your projects root level
@@ -174,9 +174,9 @@ Minimal extension - step-by-step
 Bonus: make the extension available for v12
 ===========================================
 
-At the time this tutorial was written the sitepackage builder was not
-available for TYPO3 v12 yet. However as no deprecated functionality was
-used in creating this extension it should be straightforward to update.
+At the time of writing this tutorial, the sitepackage builder was not
+available for TYPO3 v12 yet. However, as no deprecated functionality was
+used in creating this extension, it should be straightforward to update.
 
 You would use the same process if you need to update your extension for a
 future TYPO3 version.
@@ -198,7 +198,7 @@ development branch "main":
         "type": "typo3-cms-extension",
         // ...
         "require": {
-            "typo3/cms-core": "^11.5|^12.0|dev-main"
+            "typo3/cms-core": "^11.5 || ^12.0"
         },
     }
 
@@ -215,14 +215,14 @@ installations:
         // ...
         'constraints' => [
             'depends' => [
-                'typo3' => '11.5.0-12.0.99',
+                'typo3' => '11.5.0-12.4.99',
             ],
         ],
     ]
 
 The extension now looks like
 `speeddemo v1.4.0 <https://github.com/TYPO3-Documentation/speeddemo/releases/tag/1.4.0>`__
-and can be installed in both TYPO3 v11 and 12.
+and can be installed in both TYPO3 v11 and v12.
 
 Next steps
 ==========
@@ -231,7 +231,7 @@ You don't have a sitepackage yet? Have a look at the
 :doc:`Sitepackage Tutorial <t3sitepackage:Index>`.
 
 If you want to display lists and single views of data, or maybe even manipulate
-the data in the frontend have a look at :ref:`Extbase <extbase>`.
+the data in the frontend, have a look at :ref:`Extbase <extbase>`.
 
 If you need a script that can be executed from the command line or from a cron
-job have a look at :ref:`Symfony console commands (cli) <symfony-console-commands>`.
+job, have a look at :ref:`Symfony console commands (cli) <symfony-console-commands>`.
