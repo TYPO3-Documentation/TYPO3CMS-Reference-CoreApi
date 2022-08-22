@@ -89,7 +89,7 @@ Minimal extension - step-by-step
     It is recommended, but not enforced, to put your class in a thematic
     subfolder. We will create a subfolder called :file:`Classes/UserFunctions`.
 
-    In this folder we create a Class in file :file:`MyClass.php`.
+    In this folder we create a class in file :file:`MyClass.php`.
 
     The class in the file must have the same name as the file or it won't be
     found by autoloading. It must have a namespace that is a combination of the
