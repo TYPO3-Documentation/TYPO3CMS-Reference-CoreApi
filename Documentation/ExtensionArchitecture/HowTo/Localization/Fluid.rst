@@ -56,7 +56,7 @@ The text fragment will now be displayed in the current frontend language
 defined in the site configuration, if the translation file of the requested
 language can be found in the location of the prefix.
 
-If the key is not found in the translated file or if the language file is not
+If the key is not available in the translated file or if the language file is not
 found in the language, the key is looked up in the default language file. If
 it is not found there, nothing is displayed.
 
