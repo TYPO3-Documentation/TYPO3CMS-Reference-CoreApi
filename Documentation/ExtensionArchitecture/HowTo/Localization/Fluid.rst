@@ -191,7 +191,7 @@ Instead it is possible to insert a placeholder in the translation file:
    .. group-tab:: With arguments
 
       .. code-block:: xml
-         :caption: EXT:blog_example/Resources/Private/Language/de.locallang.xlf
+         :caption: EXT:my_extension/Resources/Private/Language/de.locallang.xlf
 
          <trans-unit id="blog.list" xml:space="preserve" approved="yes">
             <source>Here is a list of %d blogs: </source>
@@ -201,7 +201,7 @@ Instead it is possible to insert a placeholder in the translation file:
    .. group-tab:: Bad example without arguments
 
       .. code-block:: xml
-         :caption: Bad example!
+         :caption: Bad example! Don't use it!
 
          <trans-unit id="blog.list1" xml:space="preserve" approved="no">
             <source>Here is a list of </source>
@@ -250,7 +250,7 @@ followed by no space and then directly the first name. By the following
 syntax the ordering of the arguments can be made clear:
 
 .. code-block:: xml
-   :caption: EXT:blog_example/Resources/Private/Language/zh.locallang.xlf
+   :caption: EXT:my_extension/Resources/Private/Language/zh.locallang.xlf
 
    <trans-unit id="blog.author" xml:space="preserve" approved="yes">
       <source>%1$s %2$s</source>
@@ -286,7 +286,7 @@ Generally the date or time is formatted by the
 :html:`<f:format.date>` ViewHelper:
 
 .. code-block:: html
-   :caption: EXT:blog_example/Resources/Private/Templates/SomeTemplate.html
+   :caption: EXT:my_extension/Resources/Private/Templates/SomeTemplate.html
 
    <f:format.date date="{dateObject}" format="d.m.Y" />
    <!-- or -->
@@ -302,9 +302,8 @@ and declares the format of the output.
     *   `PHP function date() <https://www.php.net/manual/en/function.date.php>`__
 
 The table below shows some important
-placeholders.
+placeholders:
 
-*Table: Some place holder of date.*
 
 ================ =========================================================== =========
 Format character Description                                                 Example
@@ -324,7 +323,7 @@ ViewHelper with the :html:`<f:translate>` ViewHelper to supply a localized
 date format:
 
 .. code-block:: html
-   :caption: EXT:blog_example/Resources/Private/Templates/SomeTemplate.html
+   :caption: EXT:my_extension/Resources/Private/Templates/SomeTemplate.html
 
    <f:format.date date="{dateObject}" format="{f:translate(key: 'date_format')}" />
 
