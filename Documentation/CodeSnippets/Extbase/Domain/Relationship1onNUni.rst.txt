@@ -4,9 +4,9 @@
 .. code-block:: php
    :caption: EXT:blog_example/Classes/Domain/Model/Post.php
 
-   use TYPO3\CMS\Extbase\Persistence\ObjectStorage;
-   use TYPO3\CMS\Extbase\Annotation\ORM\Lazy;
    use TYPO3\CMS\Extbase\Annotation\ORM\Cascade;
+   use TYPO3\CMS\Extbase\Annotation\ORM\Lazy;
+   use TYPO3\CMS\Extbase\Persistence\ObjectStorage;
    
    class Post extends AbstractEntity
    {
