@@ -88,7 +88,7 @@ possible to omit the language file prefix.
 
 
 :html:`<f:translate key="comment_header" />` looks up the key in
-:html:`LLL:EXT:blog_example/Resources/Private/Language/locallang.xlf:comment_header`
+:html:`LLL:EXT:my_example/Resources/Private/Language/locallang.xlf:comment_header`
 **and** overrides the values from :typoscript:`_LOCAL_LANG` Extbase TypoScript.
 
 .. attention::
