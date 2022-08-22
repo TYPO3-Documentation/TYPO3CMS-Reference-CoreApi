@@ -58,7 +58,7 @@ language can be found in the location of the prefix.
 
 If the key is not found in the translated file or if the language file is not
 found in the language, the key is looked up in the default language file. If
-it is not found there nothing is displayed.
+it is not found there, nothing is displayed.
 
 You can provide a default text fragment in the property :html:`default` to
 avoid no text being displayed:
