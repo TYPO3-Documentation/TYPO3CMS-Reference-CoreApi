@@ -329,7 +329,7 @@ date format:
    <f:format.date date="{dateObject}" format="{f:translate(key: 'date_format')}" />
 
 Then you can store another format string for every language in the
-:file:`locallang.xml` file.
+:file:`locallang.xlf` file.
 
 .. tip::
 
