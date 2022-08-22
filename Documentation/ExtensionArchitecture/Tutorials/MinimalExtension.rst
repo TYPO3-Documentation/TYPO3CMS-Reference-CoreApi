@@ -17,7 +17,7 @@ Video - "Tech Tip - Minimal Extension"
 ======================================
 
 The following video was produced in 2018 on TYPO3 v9. While some details have
-changed since then most parts remain the same. See the step-by-step guide below.
+changed since then, most parts remain the same. See the step-by-step guide below.
 
 .. youtube:: 15_HsnC_60Q
 
