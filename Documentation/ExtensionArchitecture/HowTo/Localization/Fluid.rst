@@ -12,7 +12,7 @@ Consider you have to translate the following static texts in your Fluid
 template:
 
 .. code-block:: html
-   :caption: EXT:blog_example/Resources/Private/Templates/SomeTemplate.html
+   :caption: EXT:my_extension/Resources/Private/Templates/SomeTemplate.html
 
    <h3>{post.title}</h3>
    <p>By: {post.author.fullName}</p>
