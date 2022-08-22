@@ -25,7 +25,7 @@ template:
    </f:for>
 
 To make such texts exchangeable, they have to be removed from the Fluid
-template and inserted into a language file of format :file:`.xlf`. Every text
+template and inserted into an :ref:`XLIFF language file <xliff>`. Every text
 fragment which is to be translated is given an identifier (also called key)
 that can be inserted in the Fluid template.
 
