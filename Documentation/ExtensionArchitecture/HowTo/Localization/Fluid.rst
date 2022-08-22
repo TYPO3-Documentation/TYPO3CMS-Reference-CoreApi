@@ -115,7 +115,7 @@ By replacing all static texts with translation ViewHelpers the above example
 can be replaced:
 
 .. code-block:: html
-   :caption: EXT:blog_example/Resources/Private/Templates/SomeTemplate.html
+   :caption: EXT:my_extension/Resources/Private/Templates/SomeTemplate.html
 
    <h3>{post.title}</h3>
    <p><f:translate key="author_prefix"> {post.author.fullName}</p>
