@@ -80,7 +80,7 @@ In Extbase, the translation file can be detected automatically. It is therefore
 possible to omit the language file prefix.
 
 .. code-block:: html
-   :caption: EXT:blog_example/Resources/Private/Templates/SomeTemplate.html
+   :caption: EXT:my_extension/Resources/Private/Templates/SomeTemplate.html
 
    <f:translate key="comment_header" />
    <!-- or as inline Fluid: -->
