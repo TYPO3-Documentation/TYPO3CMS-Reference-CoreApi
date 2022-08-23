@@ -247,7 +247,7 @@ For a complete list of placeholders / specifiers see
 Order of the arguments
 ----------------------
 
-More then one argument can be supplied. However for grammatical reasons
+More than one argument can be supplied. However for grammatical reasons
 the ordering of arguments may be different in the various languages.
 
 One easy example are names. In English the first name is displayed followed by
