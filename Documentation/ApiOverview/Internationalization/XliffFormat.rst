@@ -134,14 +134,14 @@ Good example:
 
 .. code-block:: none
 
-   CType.menu_abstract
+   CType.menuAbstract
 
 Bad examples:
 
 .. code-block:: none
 
-    CType_menu_abstract
-    CType-menu_abstract
+    CTypeMenuAbstract
+    CType-menuAbstract
 
 
 .. index:: XLIFF; Namespace
@@ -155,7 +155,7 @@ Good example:
 
 .. code-block:: none
 
-   CType.menu_abstract
+   CType.menuAbstract
 
 This groups all available content types for content elements by using
 the same prefix ``CType.``.
@@ -164,11 +164,11 @@ Bad example:
 
 .. code-block:: none
 
-    menu_abstract
+    menuAbstract
 
 Namespaces should be defined by context.
-``menu_abstract.CType`` could also be a reasonable namespace
-if the context is about ``menu_abstract``.
+``menuAbstract.CType`` could also be a reasonable namespace
+if the context is about ``menuAbstract``.
 
 lowerCamelCase
 --------------
