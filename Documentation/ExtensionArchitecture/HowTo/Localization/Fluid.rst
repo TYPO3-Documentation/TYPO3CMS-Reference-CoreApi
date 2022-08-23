@@ -92,7 +92,7 @@ In Extbase plugins :html:`<f:translate key="commentHeader" />` looks up the key 
 
 The language string can be overridden by the values from
 :typoscript:`_LOCAL_LANG`. See also :ref:`property _LOCAL_LANG in a
-plugin <t3tsref:setup-plugin-local-lang-lang-key-label-key>`
+plugin <t3tsref:setup-plugin-local-lang-lang-key-label-key>`.
 
 .. attention::
    This short notation triggers TypoScript parsing via the Extbase
