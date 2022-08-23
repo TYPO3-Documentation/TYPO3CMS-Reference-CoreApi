@@ -59,7 +59,7 @@ FlexForms
 FlexForms can be configured in the backend by editors. With FlexForms you can
 configure each plugin or content element individually without adding extra fields to the :sql:`tt_content` table.
 
-In Extbase plugins settings made in the FlexForm of the plugins content element
+In Extbase plugins, settings made in the FlexForm of a plugin
 override settings made in the TypoScript configuration of that plugin.
 
 ..  note::
