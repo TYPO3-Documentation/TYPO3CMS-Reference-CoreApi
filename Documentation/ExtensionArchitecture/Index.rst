@@ -72,6 +72,18 @@ Extension Development
             (:ref:`ext_localconf.php <ext-localconf-php>` and
             :ref:`ext_tables.php <ext-tables-php>`)
 
+   .. container:: col-md-6 pl-0 pr-3 py-3 m-0
+
+      .. container:: card px-0 h-100
+
+         .. rst-class:: card-header h3
+
+            .. rubric:: :ref:`Tutorials <extension-tutorials>`
+
+         .. container:: card-body
+
+            Contains tutorials on extension development in TYPO3.
+
 .. toctree::
    :hidden:
    :titlesonly:
