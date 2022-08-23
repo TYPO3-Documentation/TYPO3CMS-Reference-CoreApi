@@ -12,16 +12,17 @@ to publish an extension. Contains howto for different situations
 like creating a frontend plugin, a backend module or to extend
 existing TCA.
 
-.. toctree::
-   :titlesonly:
-   :glob:
+..  toctree::
+    :titlesonly:
+    :glob:
 
-   CreateNewExtension
-   CreateNewDistribution
-   ExtensionManagement
-   Documentation
-   FrontendPlugin/Index
-   BackendModule/Index
-   ExtendingTca/Index
-   PublishExtension/Index
-   CustomExtensionRepository
+    CreateNewExtension
+    CreateNewDistribution
+    ExtensionManagement
+    Documentation
+    FrontendPlugin/Index
+    BackendModule/Index
+    Localization/Index
+    ExtendingTca/Index
+    PublishExtension/Index
+    CustomExtensionRepository
