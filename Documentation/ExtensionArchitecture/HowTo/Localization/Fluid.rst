@@ -108,7 +108,7 @@ the parameter :html:`extensionName` with the UpperCamelCased extension key:
     <f:translate key="commentHeader" extensionName="MyOtherExtension"/>
 
 ..  note::
-    The file translation file has to be located at
+    The translation file has to be located at
     :file:`EXT:my_other_extension/Resources/Private/Language/locallang.xlf`
     in the other extension as well.
 
