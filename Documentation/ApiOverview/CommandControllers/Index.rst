@@ -146,11 +146,11 @@ Add an optional argument and an optional option to your command:
     // use Symfony\Component\Console\Input\InputOption;
 
     /**
-     * Configure the command by defining the name, options and arguments
+     * Configure the command by defining options and arguments
      */
     protected function configure()
     {
-        $this->setDescription('Run content importer. Without arguments all available wizards will be run.')
+        $this
             ->addArgument(
                 'wizardName',
                 InputArgument::OPTIONAL,
