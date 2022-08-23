@@ -65,7 +65,7 @@ override settings made in the TypoScript configuration of that plugin.
 ..  note::
 
     If you wish to access a setting set via FlexForm in Extbase from your controller via
-    :php:`$this->settings`, the name of the setting must begin with **settings**
+    :php:`$this->settings`, the name of the setting must begin with **settings**,
     directly followed by a dot (`.`).
 
 ..  seealso::
@@ -83,7 +83,7 @@ Access settings
 ===============
 
 The settings can be read using :php:`$this->settings` in an
-Extbase controller action. And via :html:`{settings}` within Fluid.
+Extbase controller action and via :html:`{settings}` within Fluid.
 
 Example: Access settings in an Extbase controller
 --------------------------------------------------
