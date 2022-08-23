@@ -26,7 +26,7 @@ The changes apply to the current page and all subpages.
 
 .. seealso::
 
-   * :ref:`extbase_typoscript_configuration`
+   * :ref:`Extbase TypoScript configuration <extbase_typoscript_configuration>`
 
    * :ref:`t3tsref:typoscript-syntax-what-are-constants`
 
