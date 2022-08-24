@@ -185,9 +185,8 @@ We can remove the requirements :json:`typo3/cms-rte-ckeditor` and
 :json:`typo3/cms-fluid-styled-content` from the :file:`composer.json`
 as they are not needed by our extension.
 
-The remaining requirement is :json:`typo3/cms-core`. We now allow that
-not only TYPO3 v11.5.x is allowed but also v12.0.x and the latest
-development branch "main":
+The remaining requirement is :json:`typo3/cms-core`. We now define that
+not only TYPO3 v11.5.x is allowed but also v12.x:
 
 ..  code-block:: json
     :caption: EXT:speeddemo/composer.json
