@@ -53,7 +53,7 @@ TypoScript for Extbase based plugins.
 
 Overriding translations in non-Extbase plugins might work depending on
 how they are implemented. Overriding translations works if the plugin is
-based on the class :ref:`AbstractPlugin <abstractplugin>` and used the function
+based on the class :ref:`AbstractPlugin <abstractplugin>` and uses the function
 :php:`$this->pi_getLL(...)`.
 
 ..  attention::
