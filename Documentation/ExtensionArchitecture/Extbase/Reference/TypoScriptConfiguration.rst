@@ -16,7 +16,7 @@ templates of your extension.
 All TypoScript settings are made in the following TypoScript blocks:
 
 .. code-block:: typoscript
-   :caption: EXT:blog_example/
+   :caption: EXT:my_extension/Configuration/TypoScript/setup.typoscript
 
    plugin.tx_[lowercasedextensionname]
 
