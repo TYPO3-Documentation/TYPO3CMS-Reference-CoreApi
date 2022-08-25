@@ -5,7 +5,7 @@
 .. _caching-frontend:
 
 ===============
-Cache Frontends
+Cache frontends
 ===============
 
 
@@ -332,7 +332,7 @@ Options
       *  `-1`: Default gzip compression (recommended)
       *  `0`: No compression
       *  `9`: Maximum compression (costs a lot of CPU)
-      
+
    :Mandatory:
       No
    :Type:
@@ -482,6 +482,73 @@ which must be available on the system.
    There are several articles on the net and the redis configuration file
    contains some important hints on how to speed up the system if it reaches bounds.
    A full documentation of available options is far beyond this documentation.
+
+
+.. _caching-backend-redis-example:
+
+Redis example
+-------------
+
+The Redis caching backend configuration is very similar to that of other
+backends, but there is one caveat.
+
+TYPO3 caches should be separated in case the same keys are used.
+This applies to the `pages` and `pagesection` caches.
+Both use "tagIdents:pageId_21566" for a page with an id of 21566.
+How you separate them is more of a system administrator decision. We provide 
+examples with several databases but this may not be the best option 
+in production where you might want to use multiple cores (which do not
+support databases). The separation has the additional advantage that
+caches can be flushed individually.
+
+If you have several of your own caches which each use unique keys (for example
+by using a different prefix for the cache identifier for each cache), you can
+store them in the same database, but it is good practice to separate the core
+caches.
+
+.. intentional quote!
+
+   In practical terms, Redis databases should be used to separate different keys
+   belonging to the same application (if needed), and not to use a single Redis
+   instance for multiple unrelated applications.
+
+   https://redis.io/commands/select/
+
+
+.. code-block:: php
+   :caption: public/typo3conf/AdditionalConfiguration.php
+
+   $redisHost = '127.0.0.1';
+   $redisPort = 6390;
+   $redisCaches = [
+       'pages' => [
+            'defaultLifetime' => 86400*7,
+            'compression' => true,
+       ],
+       'pagesection' => [
+            'defaultLifetime' => 86400*7,
+       ],
+       'hash' => [],
+       'rootline' => [],
+   ];
+   $redisDatabase = 0;
+   foreach ($redisCaches as $name => $values) {
+       $GLOBALS['TYPO3_CONF_VARS']['SYS']['caching']['cacheConfigurations'][$name]['backend']
+         = \TYPO3\CMS\Core\Cache\Backend\RedisBackend::class;
+       $GLOBALS['TYPO3_CONF_VARS']['SYS']['caching']['cacheConfigurations'][$name]['options'] = [
+           'database' => $redisDatabase++,
+           'hostname' => $redisHost,
+           'port' => $redisPort
+       ];
+       if (isset($values['defaultLifetime'])) {
+              $GLOBALS['TYPO3_CONF_VARS']['SYS']['caching']['cacheConfigurations'][$name]['options']['defaultLifetime']
+                  = $values['lifetime'];
+       }
+       if (isset($values['compression'])) {
+              $GLOBALS['TYPO3_CONF_VARS']['SYS']['caching']['cacheConfigurations'][$name]['options']['compression']
+                  = $values['compression'];
+       }
+   }
 
 .. _caching-backend-redis-options:
 

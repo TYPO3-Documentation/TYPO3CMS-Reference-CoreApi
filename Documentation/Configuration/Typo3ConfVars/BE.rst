@@ -829,15 +829,12 @@ $GLOBALS['TYPO3_CONF_VARS']['BE']['fileDenyPattern']
 $GLOBALS['TYPO3_CONF_VARS']['BE']['interfaces']
 ===============================================
 
-.. confval:: interfaces
+.. versionchanged:: 12.0
+   This option was removed with TYPO3 v12.0.
 
-   :Path: $GLOBALS['TYPO3_CONF_VARS']['BE']
-   :type: text
-   :Default: backend
-
-   This determines which interface options are available in the login prompt
-
-   (All options: "backend,frontend")
+If a TYPO3 project really relies on this feature, create an
+:ref:`XCLASS <xclasses>` of :php:`\TYPO3\CMS\Backend\Controller\LoginController`,
+where also a custom Fluid template may be used.
 
 .. _typo3ConfVars_be_explicitADmode:
 
@@ -968,20 +965,20 @@ $GLOBALS['TYPO3_CONF_VARS']['BE']['passwordHashing']['className']
 .. confval:: passwordHashing className
 
    :Path: $GLOBALS['TYPO3_CONF_VARS']['BE']['passwordHashing']
-   :type: dropdown
-   :Default: 'TYPO3\CMS\Core\Crypto\PasswordHashing\Argon2iPasswordHash'
+   :type: string
+   :Default: :php:`\TYPO3\CMS\Core\Crypto\PasswordHashing\Argon2iPasswordHash::class`
 
    :allowedValues:
-      'TYPO3\CMS\Core\Crypto\PasswordHashing\Argon2iPasswordHash':
-         'Good password hash mechanism. Used by default if available.'
-      'TYPO3\CMS\Core\Crypto\PasswordHashing\Argon2idPasswordHash':
-         'Good password hash mechanism.'
-      'TYPO3\CMS\Core\Crypto\PasswordHashing\BcryptPasswordHash':
-         'Good password hash mechanism.'
-      'TYPO3\CMS\Core\Crypto\PasswordHashing\Pbkdf2PasswordHash':
-         'Fallback hash mechanism if argon and bcrypt are not available.'
-      'TYPO3\CMS\Core\Crypto\PasswordHashing\PhpassPasswordHash':
-         'Fallback hash mechanism if none of the above are available.'
+      :php:`\TYPO3\CMS\Core\Crypto\PasswordHashing\Argon2iPasswordHash::class`
+         Good password hash mechanism. Used by default if available.
+      :php:`\TYPO3\CMS\Core\Crypto\PasswordHashing\Argon2idPasswordHash::class`
+         Good password hash mechanism.
+      :php:`\TYPO3\CMS\Core\Crypto\PasswordHashing\BcryptPasswordHash::class`
+         Good password hash mechanism.
+      :php:`\TYPO3\CMS\Core\Crypto\PasswordHashing\Pbkdf2PasswordHash::class`
+         Fallback hash mechanism if argon and bcrypt are not available.
+      :php:`\TYPO3\CMS\Core\Crypto\PasswordHashing\PhpassPasswordHash::class`
+         Fallback hash mechanism if none of the above are available.
 
 
 .. index::

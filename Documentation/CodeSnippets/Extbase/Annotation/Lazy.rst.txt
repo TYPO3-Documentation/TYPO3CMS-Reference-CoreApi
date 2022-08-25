@@ -4,14 +4,15 @@
 .. code-block:: php
    :caption: EXT:blog_example/Classes/Domain/Model/Post.php
 
+   use TYPO3\CMS\Extbase\Annotation\ORM\Lazy;
    use TYPO3\CMS\Extbase\Persistence\ObjectStorage;
    
    class Post extends AbstractEntity
    {
        /**
         * @var ObjectStorage<Post>
-        * @Extbase\ORM\Lazy
+        * @Lazy
         */
-       protected ObjectStorage $relatedPosts;
+       public ObjectStorage $relatedPosts;
    }
    

@@ -20,7 +20,7 @@ As this exposes internal information about the TYPO3 system publicly, it should 
 
 For shortcut and mountpoint pages:
 
-.. code-block:: http
+.. code-block:: none
    :caption: Generated HTTP header
 
    X-Redirect-By: TYPO3 Shortcut/Mountpoint
@@ -29,7 +29,7 @@ For shortcut and mountpoint pages:
 
 For *Links to External URL*:
 
-.. code-block:: http
+.. code-block:: none
    :caption: Generated HTTP header
 
    X-Redirect-By: TYPO3 External URL

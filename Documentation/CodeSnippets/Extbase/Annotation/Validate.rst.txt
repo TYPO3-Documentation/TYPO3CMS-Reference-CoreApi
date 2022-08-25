@@ -4,13 +4,15 @@
 .. code-block:: php
    :caption: EXT:blog_example/Classes/Domain/Model/Blog.php
 
+   use TYPO3\CMS\Extbase\Annotation\Validate;
+   
    class Blog extends AbstractEntity
    {
        /**
         * A short description of the blog
         *
-        * @Extbase\Validate("StringLength", options={"maximum": 150})
+        * @Validate("StringLength", options={"maximum": 150})
         */
-       protected string $description = '';
+       public string $description = '';
    }
    

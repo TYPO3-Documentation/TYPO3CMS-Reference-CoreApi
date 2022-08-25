@@ -6,6 +6,7 @@
 
    use FriendsOfTYPO3\BlogExample\Domain\Model\Blog;
    use Psr\Http\Message\ResponseInterface;
+   use TYPO3\CMS\Extbase\Annotation\IgnoreValidation;
    
    class BlogController extends AbstractController
    {
@@ -19,8 +20,10 @@
        public function newAction(Blog $newBlog = null): ResponseInterface
        {
            $this->view->assign('newBlog', $newBlog);
-           $this->view->assign('administrators',
-               $this->administratorRepository->findAll());
+           $this->view->assign(
+               'administrators',
+               $this->administratorRepository->findAll()
+           );
            return $this->htmlResponse();
        }
    }

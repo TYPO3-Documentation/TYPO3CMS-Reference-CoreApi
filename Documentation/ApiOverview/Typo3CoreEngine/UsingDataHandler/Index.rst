@@ -8,12 +8,17 @@ Using the DataHandler in scripts
 ================================
 
 It's really easy to use the class :php:`\TYPO3\CMS\Core\DataHandling\DataHandler` in your own
-scripts. All you need to do is include the class, build a $data/$cmd
+scripts. All you need to do is include the class, build a :php:`$data`/:php:`$cmd`
 array you want to pass to the class and call a few methods.
 
 .. attention::
    Mind that these scripts have to be run in the
    **backend scope**! There must be a global :php:`$GLOBALS['BE_USER']` object.
+
+
+.. contents:: Table of Contents
+   :depth: 2
+   :local:
 
 
 .. index:: pair: DataHandler; Symfony
@@ -25,28 +30,25 @@ It is possible to use the DataHandler for scripts started from the command line 
 the scheduler as well. You can do this by creating a :ref:`Symfony Command <cli-mode-command-controllers>`.
 
 These scripts use the `_cli_` backend user. Before using the DataHandler in your :php:`execute()`
-function, you should make sure that this user is initialized like this:
+method, you should make sure that this user is initialized like this:
 
 
 .. code-block:: php
-   :caption: EXT:some_extension/Classes/SomeClass.php
+   :caption: EXT:some_extension/Classes/Command/SomeCommand.php
 
    \TYPO3\CMS\Core\Core\Bootstrap::initializeBackendAuthentication();
-
-Look in the `typo3/cms-lowlevel <https://github.com/typo3/typo3/tree/main/typo3/sysext/lowlevel>`__
-system extension for more examples.
 
 
 .. index:: pair: DataHandler; PHP
 .. _dataHandler-examples:
 .. _tcemain-examples:
 
-DataHandler Examples
+DataHandler examples
 ====================
 
 What follows are a few code listings with comments which will provide you with
 enough knowledge to get started. It is assumed that you have populated
-the $data and $cmd arrays correctly prior to these chunks of code. The
+the :php:`$data` and :php:`$cmd` arrays correctly prior to these chunks of code. The
 syntax for these two arrays is explained in the :ref:`previous chapter <tce-database>`.
 
 .. _tcemain-submit-data:
@@ -114,9 +116,9 @@ calling the :php:`start()` method (which will initialize internal state).
    $dataHandler->start([], []);
    $dataHandler->clear_cacheCmd('all');
 
-Since TYPO3 CMS 6.2, caches are organized in groups. Clearing "all"
-caches will actually clear caches from the "all" group and not really
-**all** caches. Check the :ref:`caching framework architecture section <caching-architecture-core>`
+Caches are organized in groups. Clearing "all" caches will actually clear caches
+from the "all" group and not really **all** caches. Check the
+:ref:`caching framework architecture section <caching-architecture-core>`
 for more details about available caches and groups.
 
 .. _tcemain-complex-submission:
@@ -124,25 +126,24 @@ for more details about available caches and groups.
 Complex data submission
 -----------------------
 
-Imagine the $data array something like this:
-
+Imagine the :php:`$data` array something like this:
 
 .. code-block:: php
    :caption: EXT:some_extension/Classes/SomeClass.php
    :linenos:
 
-   $data = array(
-       'pages' => array(
-           'NEW_1' => array(
+   $data = [
+       'pages' => [
+           'NEW_1' => [
                'pid' => 456,
                'title' => 'Title for page 1',
-           ),
-           'NEW_2' => array(
+           ],
+           'NEW_2' => [
                'pid' => 456,
                'title' => 'Title for page 2',
-           ),
-       )
-   );
+           ],
+       ]
+   ];
 
 This aims to create two new pages in the page with uid "456". In the
 following code this is submitted to the database. Notice the reversing of
@@ -213,7 +214,7 @@ You can use these e.g to logging or another error handling.
    :caption: EXT:some_extension/Classes/SomeClass.php
    :linenos:
 
-   if (!empty($dataHandler->errorLog)) {
+   if ($dataHandler->errorLog !== []) {
        $this->logger->error('Error(s) while creating content element');
        foreach ($dataHandler->errorLog as $log) {
            // handle error e.g. in a log
