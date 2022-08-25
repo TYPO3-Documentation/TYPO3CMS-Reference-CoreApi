@@ -17,7 +17,7 @@ then the corresponding repository is named *BlogRepository* (with the full name
 `FriendsOfTYPO3\BlogExample\Domain\Repository\BlogRepository`).
 
 The :php:`\TYPO3\CMS\Extbase\Persistence\Repository` already offers a large
-number of usefull functions. Therefore in simple classes extending the
+number of useful functions. Therefore in simple classes extending the
 class :php:`Repository` and leaving the class empty otherwise is sufficient.
 
 The :php:`BlogRepository` sets some default orderings and is otherwise empty:
@@ -70,7 +70,7 @@ the should be set in the method :php:`initializeObject()` method.
 
 .. attention::
    Depending on the query settings hidden or even deleted objects can become
-   visible. This might be cause information disclosure. Use with care.
+   visible. This might cause sensitive information to be disclosed. Use with care.
 
 When the query settings should only be changed for a certain method they can be
 set in the method itself:
@@ -126,7 +126,7 @@ This way, the aggregate root record's sorting and visibility do not depend on
 the default language records.
 
 Moreover, the relations of a record, which are often stored using default
-language uids, are translated in the final result set (so overlay happens).
+language uids are translated in the final result set (so overlay happens).
 
 Example: Given a translated :sql:`tt_content` record having a relation to two
 categories (in the mm table translated tt_content record is connected to
@@ -144,7 +144,7 @@ Setting the :php:`Typo3QuerySettings->languageOverlayMode`
     By default :php:`Typo3QuerySettings` uses the site language configuration.
 
     You need to change :php:`Typo3QuerySettings` manually only if your Extbase
-    code should behave different than other :php:`tt_content` rendering.
+    code should behave differently to :php:`tt_content` rendering.
 
 Setting :php:`setLanguageOverlayMode()` on a query influences **only**
 fetching of the aggregate root. Relations are always fetched with
