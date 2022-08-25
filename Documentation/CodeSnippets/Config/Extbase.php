@@ -369,6 +369,36 @@ return [
         'action'=> 'createPhpClassCodeSnippet',
         'class'=> FriendsOfTYPO3\BlogExample\Controller\PostController::class,
         'members' => [
+            'mapIntegerFromString',
+        ],
+        'withComment' => true,
+        'withClassComment' => false,
+        'targetFileName' => 'Extbase/PropertyManager/IntegerMapping.rst.txt',
+    ],
+    [
+        'action'=> 'createPhpClassCodeSnippet',
+        'class'=> FriendsOfTYPO3\BlogExample\Controller\PostController::class,
+        'members' => [
+            'mapTagFromString',
+        ],
+        'withComment' => true,
+        'withClassComment' => false,
+        'targetFileName' => 'Extbase/PropertyManager/ObjectMapping.rst.txt',
+    ],
+    [
+        'action'=> 'createPhpClassCodeSnippet',
+        'class'=> FriendsOfTYPO3\BlogExample\Controller\PostController::class,
+        'members' => [
+            '__construct',
+        ],
+        'withComment' => true,
+        'withClassComment' => false,
+        'targetFileName' => 'Extbase/PropertyManager/PropertyMapperInjection.rst.txt',
+    ],
+    [
+        'action'=> 'createPhpClassCodeSnippet',
+        'class'=> FriendsOfTYPO3\BlogExample\Controller\PostController::class,
+        'members' => [
             'indexAction',
         ],
         'withComment' => true,
