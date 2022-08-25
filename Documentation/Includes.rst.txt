@@ -9,6 +9,7 @@
 .. role:: bash(code)
 .. role:: html(code)
 .. role:: js(code)
+.. role:: json(code)
 .. role:: php(code)
 .. role:: rst(code)
 .. role:: sep(strong)
