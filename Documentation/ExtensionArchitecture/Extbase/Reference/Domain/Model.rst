@@ -198,7 +198,7 @@ Identifiers in localized models
 ================================
 
 Domain models have a main identifier :php:`uid` and two additional properties
-:php:`_localizedUid` (for langauge overlays) and :php:`_versionedUid`
+:php:`_localizedUid` (for language overlays) and :php:`_versionedUid`
 (for workspace overlays).
 
 Depending on whether the
