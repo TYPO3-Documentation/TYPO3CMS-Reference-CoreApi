@@ -52,13 +52,11 @@ The :php:`RequestFactory` class can be used like this:
 
     class SomeClass
     {
-        private RequestFactory $requestFactory;
-
         // Initiate the RequestFactory, which allows to run multiple requests
         // (prefer dependency injection)
-        public function __construct(RequestFactory $requestFactory)
-        {
-            $this->requestFactory = $requestFactory;
+        public function __construct(
+            private readonly RequestFactory $requestFactory,
+        ) {
         }
 
         public function handle(): void
@@ -78,7 +76,7 @@ The :php:`RequestFactory` class can be used like this:
 
             // Get the content as a string on a successful request
             if ($response->getStatusCode() === 200) {
-                if (strpos($response->getHeaderLine('Content-Type'), 'text/html') === 0) {
+                if (str_starts_with($response->getHeaderLine('Content-Type'), 'text/html')) {
                     $content = $response->getBody()->getContents();
                 }
             }
@@ -138,75 +136,6 @@ HTTP Utility Methods
 
 TYPO3 provides a small set of helper methods related to HTTP Requests in the class :php:`HttpUtility`:
 
-HttpUtility::redirect
----------------------
-
-..  deprecated:: 11.3
-    This method is deprecated and will be removed with TYPO3 v12.0. Create a
-    direct response using the :ref:`ResponseFactory <request-handling-psr-17>`
-    instead.
-
-.. _http_utility_response_migration:
-
-Migration
-~~~~~~~~~
-
-Most of the time, a proper PSR-7 response can be returned to the call stack
-(request handler). Unfortunately there might still be some places within the
-call stack where it is not possible to return a PSR-7 response directly. In such
-a case a :php:`TYPO3\CMS\Core\Http\PropagateResponseException` could be thrown.
-This is automatically caught by a PSR-15 middleware and the given PSR-7 response
-is then returned directly.
-
-..  code-block:: php
-
-    // Before
-    HttpUtility::redirect('https://example.org/', HttpUtility::HTTP_STATUS_303);
-
-    // After
-
-    // use Psr\Http\Message\ResponseFactoryInterface
-    // use TYPO3\CMS\Core\Http\PropagateResponseException
-
-    // Inject PSR-17 ResponseFactoryInterface
-    public function __construct(ResponseFactoryInterface $responseFactory)
-    {
-        $this->responseFactory = $responseFactory
-    }
-
-    // Create redirect response
-    $response = $this->responseFactory
-        ->createResponse(303)
-        ->withAddedHeader('location', 'https://example.org/')
-
-    // Return response directly
-    return $response;
-
-    // Or throw PropagateResponseException
-    new PropagateResponseException($response);
-
-..  note::
-    Throwing exceptions for returning an immediate PSR-7 response is only
-    considered as an intermediate solution until it is possible to return PSR-7
-    responses at any relevant place. Therefore, the exception is marked as
-    :php:`@internal` and will most likely vanish in the future.
-
-HttpUtility::setResponseCode
-----------------------------
-
-..  deprecated:: 11.3
-    This method is deprecated and will be removed with TYPO3 v12.0. Create a
-    direct response using the :ref:`ResponseFactory <request-handling-psr-17>`
-    instead. See also :ref:`Migration <http_utility_response_migration>`.
-
-HttpUtility::setResponseCodeAndExit
------------------------------------
-
-..  deprecated:: 11.3
-    This method is deprecated and will be removed with TYPO3 v12.0. Create a
-    direct response using the :ref:`ResponseFactory <request-handling-psr-17>`
-    instead. See also :ref:`Migration <http_utility_response_migration>`.
-
 HttpUtility::buildUrl
 ---------------------
 
@@ -224,4 +153,4 @@ with an optional prepend of :php:`?` or :php:`&`.
 If the query is not empty, `?` or `&` are prepended in the correct sequence.
 Empty parameters are skipped.
 
-.. _`PHP function`: https://secure.php.net/manual/de/function.http-build-query.php
+.. _`PHP function`: https://www.php.net/manual/en/function.http-build-query.php
