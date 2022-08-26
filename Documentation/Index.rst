@@ -55,6 +55,7 @@ management system TYPO3.
    Configuration/Index
    ApiOverview/GlobalValues/Constants/Index
    ApiOverview/ContentElements/Index
+   ApiOverview/CommandControllers/Index
    ApiOverview/Context/Index
    ApiOverview/ContextSensitiveHelp/Index
    ApiOverview/CropVariants/Index
@@ -97,7 +98,6 @@ management system TYPO3.
    ApiOverview/SessionStorageFramework/Index
    ApiOverview/SiteHandling/Index
    ApiOverview/SoftReferences/Index
-   ApiOverview/CommandControllers/Index
    ApiOverview/SymfonyExpressionLanguage/Index
    ApiOverview/Categories/Index
    ApiOverview/SystemRegistry/Index

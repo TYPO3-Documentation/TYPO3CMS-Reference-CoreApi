@@ -5,9 +5,9 @@
 .. _cli-mode-command-controllers:
 .. _symfony-console-commands:
 
-==============================
-Symfony console commands (cli)
-==============================
+======================
+Console commands (cli)
+======================
 
 It is possible to run TYPO3 scripts from the command line.
 This functionality can be used to set up cron jobs, for example.
