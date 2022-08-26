@@ -2,9 +2,9 @@
 
 .. index:: Extbase; Model
 
-===================================
+=====
 Model
-===================================
+=====
 
 All classes of the domain model should inherit from the class
 :php:`\TYPO3\CMS\Extbase\DomainObject\AbstractEntity`.
@@ -192,3 +192,30 @@ Besides these two, there are a few more annotations available, which will be use
 in other contexts. For the complete list of all Extbase
 supported annotations, see the chapter :ref:`extbase-annotations`.
 
+..  _extbase-model-localizedUid:
+
+Identifiers in localized models
+================================
+
+Domain models have a main identifier :php:`uid` and two additional properties
+:php:`_localizedUid` (for langauge overlays) and :php:`_versionedUid`
+(for workspace overlays).
+
+Depending on whether the
+:typoscript:`languageOverlayMode` mode is enabled (:typoscript:`true` or
+:typoscript:`'hideNonTranslated'`) or disabled (:typoscript:`false`),
+the identifier contains different values.
+
+When :typoscript:`languageOverlayMode` is enabled, then the :php:`uid`
+property contains the :php:`uid` value of the default language record,
+the :php:`uid` of the translated record is kept in the :php:`_localizedUid`.
+
++----------------------------------------------------------+-------------------------+---------------------------+
+| Context                                                  | Record in language 0    | Translated record         |
++==========================================================+=========================+===========================+
+| Database                                                 | uid:2                   | uid:11, l10n_parent:2     |
++----------------------------------------------------------+-------------------------+---------------------------+
+| Domain object values with `languageOverlayMode` enabled  | uid:2, _localizedUid:2  | uid:2, _localizedUid:11   |
++----------------------------------------------------------+-------------------------+---------------------------+
+| Domain object values with `languageOverlayMode` disabled | uid:2, _localizedUid:2  | uid:11, _localizedUid:11  |
++----------------------------------------------------------+-------------------------+---------------------------+
