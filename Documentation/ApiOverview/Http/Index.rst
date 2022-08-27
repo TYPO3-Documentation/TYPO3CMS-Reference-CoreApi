@@ -224,4 +224,4 @@ with an optional prepend of :php:`?` or :php:`&`.
 If the query is not empty, `?` or `&` are prepended in the correct sequence.
 Empty parameters are skipped.
 
-.. _`PHP function`: https://secure.php.net/manual/de/function.http-build-query.php
+.. _`PHP function`: https://www.php.net/manual/en/function.http-build-query.php
