@@ -43,7 +43,6 @@ management system TYPO3.
     ApiOverview/Index
     CodingGuidelines/Index
     Configuration/Index
-    Events/Index
     ExtensionArchitecture/Index
     Security/Index
     Testing/Index
