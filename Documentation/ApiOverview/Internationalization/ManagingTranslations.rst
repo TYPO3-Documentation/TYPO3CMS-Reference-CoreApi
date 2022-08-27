@@ -60,9 +60,19 @@ Chrome or Chromium window.
 
 Just call on a console, for example:
 
-..  code-block:: bash
+..  tabs::
 
-    t3ll path/to/your/extension/Resources/Private/Language/locallang.xlf
+    ..  group-tab:: Linux / MacOS
+
+        ..  code-block:: bash
+
+            t3ll path/to/your/extension/Resources/Private/Language/locallang.xlf
+
+    ..  group-tab:: Windows
+
+        ..  code-block:: powershell
+
+            t3ll.exe path\to\your\extension\Resources\Private\Language\locallang.xlf
 
 Translating files locally is useful for extensions which should not be published
 or for creating :ref:`custom translations <xliff-translating-custom>`.
