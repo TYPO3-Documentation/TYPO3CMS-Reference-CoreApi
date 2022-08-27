@@ -17,7 +17,7 @@ Contains Language resources.
     *   Read more about localizing extensions: :ref:`extension_localization`
     *   Read more about the XLIFF format in the following chapter:
         :ref:`xliff`.
-    *   Read more about applying localised labels int the following chapter:
+    *   Read more about applying localised labels in the following chapter:
         :ref:`xliff_api`.
 
 In the folder :file:`EXT:my_extension/Resources/Private/Languages/` language
