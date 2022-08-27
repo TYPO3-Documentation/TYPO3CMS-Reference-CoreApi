@@ -32,81 +32,21 @@ management system TYPO3.
 
 **Table of Contents:**
 
-.. toctree::
-   :maxdepth: 1
+..  toctree::
+    :maxdepth: 1
 
-   Introduction/Index
+    Introduction/Index
 
-.. toctree::
-   :caption: TYPO3 A-Z
-   :maxdepth: 1
+..  toctree::
+    :maxdepth: 1
 
-   ApiOverview/Ajax/Index
-   ApiOverview/Assets/Index
-   ApiOverview/Authentication/Index
-   ApiOverview/Autoloading/Index
-   ApiOverview/AccessControl/Index
-   ApiOverview/BackendRouting/Index
-   ApiOverview/BackendUserObject/Index
-   ApiOverview/Bootstrapping/Index
-   ApiOverview/BroadcastChannels/Index
-   ApiOverview/CachingFramework/Index
-   CodingGuidelines/Index
-   Configuration/Index
-   ApiOverview/GlobalValues/Constants/Index
-   ApiOverview/ContentElements/Index
-   ApiOverview/CommandControllers/Index
-   ApiOverview/Context/Index
-   ApiOverview/CropVariants/Index
-   ApiOverview/FileProcessing/Index
-   ApiOverview/Database/Index
-   ApiOverview/Debugging/Index
-   ApiOverview/DependencyInjection/Index
-   ApiOverview/Deprecation/Index
-   ApiOverview/DirectoryStructure/Index
-   ApiOverview/Enumerations/Index
-   ApiOverview/Environment/Index
-   ApiOverview/ErrorAndExceptionHandling/Index
-   Events/Index
-   ExtensionArchitecture/Index
-   ApiOverview/ExtensionScanner/Index
-   ApiOverview/Fal/Index
-   ApiOverview/FlashMessages/Index
-   ApiOverview/Fluid/Index
-   ApiOverview/FormEngine/Index
-   ApiOverview/FormProtection/Index
-   ApiOverview/Http/Index
-   ApiOverview/Icon/Index
-   ApiOverview/Internationalization/Index
-   ApiOverview/JavaScript/Index
-   ApiOverview/LinkBrowser/Index
-   ApiOverview/LockingApi/Index
-   ApiOverview/Logging/Index
-   ApiOverview/Mail/Index
-   ApiOverview/MountPoints/Index
-   ApiOverview/Namespaces/Index
-   ApiOverview/PageTypes/Index
-   ApiOverview/Pagination/Index
-   ApiOverview/PasswordHashing/Index
-   ApiOverview/RequestHandling/Index
-   ApiOverview/Rte/Index
-   ApiOverview/Routing/Index
-   Security/Index
-   ApiOverview/Seo/Index
-   ApiOverview/Services/Index
-   ApiOverview/SessionStorageFramework/Index
-   ApiOverview/SiteHandling/Index
-   ApiOverview/SoftReferences/Index
-   ApiOverview/SymfonyExpressionLanguage/Index
-   ApiOverview/Categories/Index
-   ApiOverview/SystemRegistry/Index
-   ApiOverview/Typo3CoreEngine/Index
-   Testing/Index
-   ApiOverview/UpdateWizards/Index
-   ApiOverview/Workspaces/Index
-   ApiOverview/Xclasses/Index
-
-.. todo:: ApiOverview/Examples/
+    ApiOverview/Index
+    CodingGuidelines/Index
+    Configuration/Index
+    Events/Index
+    ExtensionArchitecture/Index
+    Security/Index
+    Testing/Index
 
 .. Meta Menu
 
