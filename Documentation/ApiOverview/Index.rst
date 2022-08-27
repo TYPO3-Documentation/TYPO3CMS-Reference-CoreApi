@@ -1,12 +1,8 @@
-:orphan:
-
 .. include:: /Includes.rst.txt
 
-
-
-============
-API Overview
-============
+=======
+API A-Z
+=======
 
 For a list of TYPO3 features, see the
 
@@ -23,4 +19,12 @@ This chapter describes the most important elements of the API.
 .. note::
 
    The source is the documentation! (General wisdom)
+
+**Contents:**
+
+.. toctree::
+   :titlesonly:
+   :glob:
+
+   */Index
 

@@ -4,7 +4,7 @@
 .. _extension-development:
 
 =====================
-Extension Development
+Extension development
 =====================
 
 
