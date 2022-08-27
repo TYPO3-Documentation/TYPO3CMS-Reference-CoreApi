@@ -4,20 +4,34 @@
    TYPO3_CONF_VARS; BE
 .. _typo3ConfVars_be:
 
-=================================
-$GLOBALS['TYPO3_CONF_VARS']['BE']
-=================================
+====================================
+BE - backend configuration variables
+====================================
+
+The following configuration variables can be used to configure settings for
+the TYPO3 backend:
+
+.. contents::
+   :local:
+
+..  note::
+    The configuration values listed here are keys in the global PHP array
+    :php:`$GLOBALS['TYPO3_CONF_VARS']['BE']`.
+
+    This variable can be set in one of the following files:
+
+    *   :file:`typo3conf/LocalConfiguration.php`
+    *   :file:`typo3conf/AdditionalConfiguration.php`
 
 .. index::
    TYPO3_CONF_VARS BE; languageDebug
 .. _typo3ConfVars_be_languageDebug:
 
-$GLOBALS['TYPO3_CONF_VARS']['BE']['languageDebug']
-==================================================
+languageDebug
+=============
 
-.. confval:: languageDebug
+.. confval:: $GLOBALS['TYPO3_CONF_VARS']['BE']['languageDebug']
 
-   :Path: $GLOBALS['TYPO3_CONF_VARS']['BE']
    :type: bool
    :Default: false
 
@@ -28,12 +42,11 @@ $GLOBALS['TYPO3_CONF_VARS']['BE']['languageDebug']
    TYPO3_CONF_VARS BE; fileadminDir
 .. _typo3ConfVars_be_fileadminDir:
 
-$GLOBALS['TYPO3_CONF_VARS']['BE']['fileadminDir']
-=================================================
+fileadminDir
+============
 
-.. confval:: fileadminDir
+.. confval:: $GLOBALS['TYPO3_CONF_VARS']['BE']['fileadminDir']
 
-   :Path: $GLOBALS['TYPO3_CONF_VARS']['BE']
    :type: text
    :Default: 'fileadmin/'
 
@@ -47,12 +60,11 @@ $GLOBALS['TYPO3_CONF_VARS']['BE']['fileadminDir']
    TYPO3_CONF_VARS BE; lockRootPath
 .. _typo3ConfVars_be_lockRootPath:
 
-$GLOBALS['TYPO3_CONF_VARS']['BE']['lockRootPath']
-=================================================
+lockRootPath
+============
 
-.. confval:: lockRootPath
+.. confval:: $GLOBALS['TYPO3_CONF_VARS']['BE']['lockRootPath']
 
-   :Path: $GLOBALS['TYPO3_CONF_VARS']['BE']
    :type: text
    :Default: ''
 
@@ -64,12 +76,11 @@ $GLOBALS['TYPO3_CONF_VARS']['BE']['lockRootPath']
    TYPO3_CONF_VARS BE; userHomePath
 .. _typo3ConfVars_be_userHomePath:
 
-$GLOBALS['TYPO3_CONF_VARS']['BE']['userHomePath']
-=================================================
+userHomePath
+============
 
-.. confval:: userHomePath
+.. confval:: $GLOBALS['TYPO3_CONF_VARS']['BE']['userHomePath']
 
-   :Path: $GLOBALS['TYPO3_CONF_VARS']['BE']
    :type: text
    :Default: ''
 
@@ -83,12 +94,11 @@ $GLOBALS['TYPO3_CONF_VARS']['BE']['userHomePath']
    TYPO3_CONF_VARS BE; groupHomePath
 .. _typo3ConfVars_be_groupHomePath:
 
-$GLOBALS['TYPO3_CONF_VARS']['BE']['groupHomePath']
-==================================================
+groupHomePath
+=============
 
-.. confval:: groupHomePath
+.. confval:: $GLOBALS['TYPO3_CONF_VARS']['BE']['groupHomePath']
 
-   :Path: $GLOBALS['TYPO3_CONF_VARS']['BE']
    :type: text
    :Default: ''
 
@@ -102,12 +112,11 @@ $GLOBALS['TYPO3_CONF_VARS']['BE']['groupHomePath']
    TYPO3_CONF_VARS BE; userUploadDir
 .. _typo3ConfVars_be_userUploadDir:
 
-$GLOBALS['TYPO3_CONF_VARS']['BE']['userUploadDir']
-==================================================
+userUploadDir
+=============
 
-.. confval:: userUploadDir
+.. confval:: $GLOBALS['TYPO3_CONF_VARS']['BE']['userUploadDir']
 
-   :Path: $GLOBALS['TYPO3_CONF_VARS']['BE']
    :type: text
    :Default: ''
 
@@ -119,12 +128,11 @@ $GLOBALS['TYPO3_CONF_VARS']['BE']['userUploadDir']
    TYPO3_CONF_VARS BE; warning_email_addr
 .. _typo3ConfVars_be_warning_email_addr:
 
-$GLOBALS['TYPO3_CONF_VARS']['BE']['warning_email_addr']
-=======================================================
+warning_email_addr
+==================
 
-.. confval:: warning_email_addr
+.. confval:: $GLOBALS['TYPO3_CONF_VARS']['BE']['warning_email_addr']
 
-   :Path: $GLOBALS['TYPO3_CONF_VARS']['BE']
    :type: text
    :Default: ''
 
@@ -137,12 +145,11 @@ $GLOBALS['TYPO3_CONF_VARS']['BE']['warning_email_addr']
    TYPO3_CONF_VARS BE; warning_mode
 .. _typo3ConfVars_be_warning_mode:
 
-$GLOBALS['TYPO3_CONF_VARS']['BE']['warning_mode']
-=================================================
+warning_mode
+============
 
-.. confval:: warning_mode
+.. confval:: $GLOBALS['TYPO3_CONF_VARS']['BE']['warning_mode']
 
-   :Path: $GLOBALS['TYPO3_CONF_VARS']['BE']
    :type: int
    :Default: 0
    :allowedValues:
@@ -159,12 +166,11 @@ $GLOBALS['TYPO3_CONF_VARS']['BE']['warning_mode']
    TYPO3_CONF_VARS BE; passwordReset
 .. _typo3ConfVars_be_passwordReset:
 
-$GLOBALS['TYPO3_CONF_VARS']['BE']['passwordReset']
-==================================================
+passwordReset
+=============
 
-.. confval:: passwordReset
+.. confval:: $GLOBALS['TYPO3_CONF_VARS']['BE']['passwordReset']
 
-   :Path: $GLOBALS['TYPO3_CONF_VARS']['BE']
    :type: bool
    :Default: true
 
@@ -177,12 +183,11 @@ $GLOBALS['TYPO3_CONF_VARS']['BE']['passwordReset']
    TYPO3_CONF_VARS BE; passwordResetForAdmins
 .. _typo3ConfVars_be_passwordResetForAdmins:
 
-$GLOBALS['TYPO3_CONF_VARS']['BE']['passwordResetForAdmins']
-===========================================================
+passwordResetForAdmins
+======================
 
-.. confval:: passwordResetForAdmins
+.. confval:: $GLOBALS['TYPO3_CONF_VARS']['BE']['passwordResetForAdmins']
 
-   :Path: $GLOBALS['TYPO3_CONF_VARS']['BE']
    :type: bool
    :Default: true
 
@@ -194,12 +199,11 @@ $GLOBALS['TYPO3_CONF_VARS']['BE']['passwordResetForAdmins']
    TYPO3_CONF_VARS BE; requireMfa
 .. _typo3ConfVars_be_requireMfa:
 
-$GLOBALS['TYPO3_CONF_VARS']['BE']['requireMfa']
-===============================================
+requireMfa
+==========
 
-.. confval:: requireMfa
+.. confval:: $GLOBALS['TYPO3_CONF_VARS']['BE']['requireMfa']
 
-   :Path: $GLOBALS['TYPO3_CONF_VARS']['BE']
    :type: int
    :Default: 0
    :allowedValues:
@@ -220,12 +224,11 @@ $GLOBALS['TYPO3_CONF_VARS']['BE']['requireMfa']
    TYPO3_CONF_VARS BE; recommendedMfaProvider
 .. _typo3ConfVars_be_recommendedMfaProvider:
 
-$GLOBALS['TYPO3_CONF_VARS']['BE']['recommendedMfaProvider']
-===========================================================
+recommendedMfaProvider
+======================
 
-.. confval:: recommendedMfaProvider
+.. confval:: $GLOBALS['TYPO3_CONF_VARS']['BE']['recommendedMfaProvider']
 
-   :Path: $GLOBALS['TYPO3_CONF_VARS']['BE']
    :type: text
    :Default: 'totp'
 
@@ -237,12 +240,11 @@ $GLOBALS['TYPO3_CONF_VARS']['BE']['recommendedMfaProvider']
    TYPO3_CONF_VARS BE; loginRateLimit
 .. _typo3ConfVars_be_loginRateLimit:
 
-$GLOBALS['TYPO3_CONF_VARS']['BE']['loginRateLimit']
-===================================================
+loginRateLimit
+==============
 
-.. confval:: loginRateLimit
+.. confval:: $GLOBALS['TYPO3_CONF_VARS']['BE']['loginRateLimit']
 
-   :Path: $GLOBALS['TYPO3_CONF_VARS']['BE']
    :type: int
    :Default: 5
 
@@ -256,12 +258,11 @@ $GLOBALS['TYPO3_CONF_VARS']['BE']['loginRateLimit']
    TYPO3_CONF_VARS BE; loginRateLimitInterval
 .. _typo3ConfVars_be_loginRateLimitInterval:
 
-$GLOBALS['TYPO3_CONF_VARS']['BE']['loginRateLimitInterval']
-===========================================================
+loginRateLimitInterval
+======================
 
-.. confval:: loginRateLimitInterval
+.. confval:: $GLOBALS['TYPO3_CONF_VARS']['BE']['loginRateLimitInterval']
 
-   :Path: $GLOBALS['TYPO3_CONF_VARS']['BE']
    :type: string, PHP relative format
    :Default: '15 minutes'
    :allowedValues: '1 minute', '5 minutes', '15 minutes', '30 minutes'
@@ -276,12 +277,11 @@ $GLOBALS['TYPO3_CONF_VARS']['BE']['loginRateLimitInterval']
    TYPO3_CONF_VARS BE; loginRateLimitIpExcludeList
 .. _typo3ConfVars_be_loginRateLimitIpExcludeList:
 
-$GLOBALS['TYPO3_CONF_VARS']['BE']['loginRateLimitIpExcludeList']
-================================================================
+loginRateLimitIpExcludeList
+===========================
 
-.. confval:: loginRateLimitIpExcludeList
+.. confval:: $GLOBALS['TYPO3_CONF_VARS']['BE']['loginRateLimitIpExcludeList']
 
-   :Path: $GLOBALS['TYPO3_CONF_VARS']['BE']
    :type: string
    :Default: ''
 
@@ -294,12 +294,11 @@ $GLOBALS['TYPO3_CONF_VARS']['BE']['loginRateLimitIpExcludeList']
    TYPO3_CONF_VARS BE; lockIP
 .. _typo3ConfVars_be_lockIP:
 
-$GLOBALS['TYPO3_CONF_VARS']['BE']['lockIP']
-===========================================
+lockIP
+======
 
-.. confval:: lockIP
+.. confval:: $GLOBALS['TYPO3_CONF_VARS']['BE']['lockIP']
 
-   :Path: $GLOBALS['TYPO3_CONF_VARS']['BE']
    :type: int
    :Default: 0
    :allowedValues:
@@ -320,12 +319,11 @@ $GLOBALS['TYPO3_CONF_VARS']['BE']['lockIP']
    TYPO3_CONF_VARS BE; lockIPv6
 .. _typo3ConfVars_be_lockIPv6:
 
-$GLOBALS['TYPO3_CONF_VARS']['BE']['lockIPv6']
-=============================================
+lockIPv6
+========
 
-.. confval:: lockIPv6
+.. confval:: $GLOBALS['TYPO3_CONF_VARS']['BE']['lockIPv6']
 
-   :Path: $GLOBALS['TYPO3_CONF_VARS']['BE']
    :type: int
    :Default: 0
    :allowedValues:
@@ -354,12 +352,11 @@ $GLOBALS['TYPO3_CONF_VARS']['BE']['lockIPv6']
    TYPO3_CONF_VARS BE; sessionTimeout
 .. _typo3ConfVars_be_sessionTimeout:
 
-$GLOBALS['TYPO3_CONF_VARS']['BE']['sessionTimeout']
-===================================================
+sessionTimeout
+==============
 
-.. confval:: sessionTimeout
+.. confval:: $GLOBALS['TYPO3_CONF_VARS']['BE']['sessionTimeout']
 
-   :Path: $GLOBALS['TYPO3_CONF_VARS']['BE']
    :type: int
    :Default: 28800
 
@@ -369,12 +366,11 @@ $GLOBALS['TYPO3_CONF_VARS']['BE']['sessionTimeout']
    TYPO3_CONF_VARS BE; IPmaskList
 .. _typo3ConfVars_be_IPmaskList:
 
-$GLOBALS['TYPO3_CONF_VARS']['BE']['IPmaskList']
-===============================================
+IPmaskList
+==========
 
-.. confval:: IPmaskList
+.. confval:: $GLOBALS['TYPO3_CONF_VARS']['BE']['IPmaskList']
 
-   :Path: $GLOBALS['TYPO3_CONF_VARS']['BE']
    :type: list
    :Default: ''
 
@@ -390,12 +386,11 @@ $GLOBALS['TYPO3_CONF_VARS']['BE']['IPmaskList']
    TYPO3_CONF_VARS BE; lockSSL
 .. _typo3ConfVars_be_lockSSL:
 
-$GLOBALS['TYPO3_CONF_VARS']['BE']['lockSSL']
-============================================
+lockSSL
+=======
 
-.. confval:: lockSSL
+.. confval:: $GLOBALS['TYPO3_CONF_VARS']['BE']['lockSSL']
 
-   :Path: $GLOBALS['TYPO3_CONF_VARS']['BE']
    :type: bool
    :Default: false
 
@@ -407,12 +402,11 @@ $GLOBALS['TYPO3_CONF_VARS']['BE']['lockSSL']
    TYPO3_CONF_VARS BE; lockSSLPort
 .. _typo3ConfVars_be_lockSSLPort:
 
-$GLOBALS['TYPO3_CONF_VARS']['BE']['lockSSLPort']
-================================================
+lockSSLPort
+===========
 
-.. confval:: lockSSLPort
+.. confval:: $GLOBALS['TYPO3_CONF_VARS']['BE']['lockSSLPort']
 
-   :Path: $GLOBALS['TYPO3_CONF_VARS']['BE']
    :type: int
    :Default: 0
 
@@ -423,12 +417,11 @@ $GLOBALS['TYPO3_CONF_VARS']['BE']['lockSSLPort']
    TYPO3_CONF_VARS BE;
 .. _typo3ConfVars_be_cookieDomain:
 
-$GLOBALS['TYPO3_CONF_VARS']['BE']['cookieDomain']
-=================================================
+cookieDomain
+============
 
-.. confval:: cookieDomain
+.. confval:: $GLOBALS['TYPO3_CONF_VARS']['BE']['cookieDomain']
 
-   :Path: $GLOBALS['TYPO3_CONF_VARS']['BE']
    :type: text
    :Default: ''
 
@@ -440,12 +433,11 @@ $GLOBALS['TYPO3_CONF_VARS']['BE']['cookieDomain']
    TYPO3_CONF_VARS BE; cookieName
 .. _typo3ConfVars_be_cookieName:
 
-$GLOBALS['TYPO3_CONF_VARS']['BE']['cookieName']
-===============================================
+cookieName
+==========
 
-.. confval:: cookieName:
+.. confval:: $GLOBALS['TYPO3_CONF_VARS']['BE']['cookieName']
 
-   :Path: $GLOBALS['TYPO3_CONF_VARS']['BE']
    :type: text
    :Default: 'be_typo_user'
 
@@ -455,12 +447,11 @@ $GLOBALS['TYPO3_CONF_VARS']['BE']['cookieName']
    TYPO3_CONF_VARS BE; cookieSameSite
 .. _typo3ConfVars_be_cookieSameSite:
 
-$GLOBALS['TYPO3_CONF_VARS']['BE']['cookieSameSite']
-===================================================
+cookieSameSite
+==============
 
-.. confval:: cookieSameSite
+.. confval:: $GLOBALS['TYPO3_CONF_VARS']['BE']['cookieSameSite']
 
-   :Path: $GLOBALS['TYPO3_CONF_VARS']['BE']
    :type: text
    :Default: 'strict'
    :allowedValues:
@@ -483,8 +474,8 @@ $GLOBALS['TYPO3_CONF_VARS']['BE']['cookieSameSite']
    TYPO3_CONF_VARS BE; loginSecurityLevel
 .. _typo3ConfVars_be_loginSecurityLevel:
 
-Removed: $GLOBALS['TYPO3_CONF_VARS']['BE']['loginSecurityLevel']
-================================================================
+Removed: loginSecurityLevel
+===========================
 
 .. deprecated:: 11.3
    This option was removed with version 11.3. The only possible
@@ -497,12 +488,11 @@ Removed: $GLOBALS['TYPO3_CONF_VARS']['BE']['loginSecurityLevel']
    TYPO3_CONF_VARS BE; showRefreshLoginPopup
 .. _typo3ConfVars_be_showRefreshLoginPopup:
 
-$GLOBALS['TYPO3_CONF_VARS']['BE']['showRefreshLoginPopup']
-==========================================================
+showRefreshLoginPopup
+=====================
 
-.. confval:: showRefreshLoginPopup
+.. confval:: $GLOBALS['TYPO3_CONF_VARS']['BE']['showRefreshLoginPopup']
 
-   :Path: $GLOBALS['TYPO3_CONF_VARS']['BE']
    :type: bool
    :Default: false
 
@@ -515,12 +505,11 @@ $GLOBALS['TYPO3_CONF_VARS']['BE']['showRefreshLoginPopup']
    TYPO3_CONF_VARS BE; adminOnly
 .. _typo3ConfVars_be_adminOnly:
 
-$GLOBALS['TYPO3_CONF_VARS']['BE']['adminOnly']
-==============================================
+adminOnly
+=========
 
-.. confval:: adminOnly
+.. confval:: $GLOBALS['TYPO3_CONF_VARS']['BE']['adminOnly']
 
-   :Path: $GLOBALS['TYPO3_CONF_VARS']['BE']
    :type: int
    :Default: 0
 
@@ -536,12 +525,11 @@ $GLOBALS['TYPO3_CONF_VARS']['BE']['adminOnly']
    TYPO3_CONF_VARS BE; disable_exec_function
 .. _typo3ConfVars_be_disable_exec_function:
 
-$GLOBALS['TYPO3_CONF_VARS']['BE']['disable_exec_function']
-==========================================================
+disable_exec_function
+=====================
 
-.. confval:: disable_exec_function
+.. confval:: $GLOBALS['TYPO3_CONF_VARS']['BE']['disable_exec_function']
 
-   :Path: $GLOBALS['TYPO3_CONF_VARS']['BE']
    :type: bool
    :Default: false
 
@@ -554,12 +542,11 @@ $GLOBALS['TYPO3_CONF_VARS']['BE']['disable_exec_function']
    TYPO3_CONF_VARS BE; compressionLevel
 .. _typo3ConfVars_be_compressionLevel:
 
-$GLOBALS['TYPO3_CONF_VARS']['BE']['compressionLevel']
+compressionLevel']
 =====================================================
 
-.. confval:: compressionLevel
+.. confval:: $GLOBALS['TYPO3_CONF_VARS']['BE']['compressionLevel']
 
-   :Path: $GLOBALS['TYPO3_CONF_VARS']['BE']
    :type: text
    :Default: 0
    :Range: 0-9
@@ -581,12 +568,11 @@ $GLOBALS['TYPO3_CONF_VARS']['BE']['compressionLevel']
    TYPO3_CONF_VARS BE; installToolPassword
 .. _typo3ConfVars_be_installToolPassword:
 
-$GLOBALS['TYPO3_CONF_VARS']['BE']['installToolPassword']
+installToolPassword']
 ========================================================
 
-.. confval:: installToolPassword
+.. confval:: $GLOBALS['TYPO3_CONF_VARS']['BE']['installToolPassword']
 
-   :Path: $GLOBALS['TYPO3_CONF_VARS']['BE']
    :type: string
    :Default: ''
 
@@ -597,12 +583,11 @@ $GLOBALS['TYPO3_CONF_VARS']['BE']['installToolPassword']
    TYPO3_CONF_VARS BE; checkStoredRecords
 .. _typo3ConfVars_be_checkStoredRecords:
 
-$GLOBALS['TYPO3_CONF_VARS']['BE']['checkStoredRecords']
+checkStoredRecords']
 =======================================================
 
-.. confval:: checkStoredRecords
+.. confval:: $GLOBALS['TYPO3_CONF_VARS']['BE']['checkStoredRecords']
 
-   :Path: $GLOBALS['TYPO3_CONF_VARS']['BE']
    :type: bool
    :Default: true
 
@@ -613,12 +598,11 @@ $GLOBALS['TYPO3_CONF_VARS']['BE']['checkStoredRecords']
    TYPO3_CONF_VARS BE; checkStoredRecordsLoose
 .. _typo3ConfVars_be_checkStoredRecordsLoose:
 
-$GLOBALS['TYPO3_CONF_VARS']['BE']['checkStoredRecordsLoose']
+checkStoredRecordsLoose']
 ============================================================
 
-.. confval:: checkStoredRecordsLoose
+.. confval:: $GLOBALS['TYPO3_CONF_VARS']['BE']['checkStoredRecordsLoose']
 
-   :Path: $GLOBALS['TYPO3_CONF_VARS']['BE']
    :type: bool
    :Default: true
 
@@ -631,12 +615,11 @@ $GLOBALS['TYPO3_CONF_VARS']['BE']['checkStoredRecordsLoose']
    TYPO3_CONF_VARS BE; defaultUserTSconfig
 .. _typo3ConfVars_be_defaultUserTSconfig:
 
-$GLOBALS['TYPO3_CONF_VARS']['BE']['defaultUserTSconfig']
-============================================================
+defaultUserTSconfig']
+========================================================
 
-.. confval:: defaultUserTSconfig
+.. confval:: $GLOBALS['TYPO3_CONF_VARS']['BE']['defaultUserTSconfig']
 
-   :Path: $GLOBALS['TYPO3_CONF_VARS']['BE']
    :type: text
 
    Contains the default user TSconfig.
@@ -662,12 +645,11 @@ $GLOBALS['TYPO3_CONF_VARS']['BE']['defaultUserTSconfig']
    TYPO3_CONF_VARS BE; defaultPageTSconfig
 .. _typo3ConfVars_be_defaultPageTSconfig:
 
-$GLOBALS['TYPO3_CONF_VARS']['BE']['defaultPageTSconfig']
+defaultPageTSconfig']
 ========================================================
 
-.. confval:: defaultPageTSconfig
+.. confval:: $GLOBALS['TYPO3_CONF_VARS']['BE']['defaultPageTSconfig']
 
-   :Path: $GLOBALS['TYPO3_CONF_VARS']['BE']
    :type: text
 
    Contains the default page TSconfig.
@@ -696,12 +678,11 @@ $GLOBALS['TYPO3_CONF_VARS']['BE']['defaultPageTSconfig']
    TYPO3_CONF_VARS BE; defaultPermissions
 .. _typo3ConfVars_be_defaultPermissions:
 
-$GLOBALS['TYPO3_CONF_VARS']['BE']['defaultPermissions']
+defaultPermissions']
 ========================================================
 
-.. confval:: defaultPermissions
+.. confval:: $GLOBALS['TYPO3_CONF_VARS']['BE']['defaultPermissions']
 
-   :Path: $GLOBALS['TYPO3_CONF_VARS']['BE']
    :type: array
    :Default: []
 
@@ -738,12 +719,11 @@ $GLOBALS['TYPO3_CONF_VARS']['BE']['defaultPermissions']
    TYPO3_CONF_VARS BE; defaultUC
 .. _typo3ConfVars_be_defaultUC:
 
-$GLOBALS['TYPO3_CONF_VARS']['BE']['defaultUC']
+defaultUC']
 ==============================================
 
-.. confval:: defaultUC
+.. confval:: $GLOBALS['TYPO3_CONF_VARS']['BE']['defaultUC']
 
-   :Path: $GLOBALS['TYPO3_CONF_VARS']['BE']
    :type: array
    :Default: []
 
@@ -773,12 +753,11 @@ $GLOBALS['TYPO3_CONF_VARS']['BE']['defaultUC']
    TYPO3_CONF_VARS BE; customPermOptions
 .. _typo3ConfVars_be_customPermOptions:
 
-$GLOBALS['TYPO3_CONF_VARS']['BE']['customPermOptions']
+customPermOptions']
 ======================================================
 
-.. confval:: customPermOptions
+.. confval:: $GLOBALS['TYPO3_CONF_VARS']['BE']['customPermOptions']
 
-   :Path: $GLOBALS['TYPO3_CONF_VARS']['BE']
    :type: array
    :Default: []
 
@@ -802,12 +781,11 @@ $GLOBALS['TYPO3_CONF_VARS']['BE']['customPermOptions']
    TYPO3_CONF_VARS BE; fileDenyPattern
 .. _typo3ConfVars_be_fileDenyPattern:
 
-$GLOBALS['TYPO3_CONF_VARS']['BE']['fileDenyPattern']
+fileDenyPattern']
 ====================================================
 
-.. confval:: fileDenyPattern
+.. confval:: $GLOBALS['TYPO3_CONF_VARS']['BE']['fileDenyPattern']
 
-   :Path: $GLOBALS['TYPO3_CONF_VARS']['BE']
    :type: text
    :Default: ''
 
@@ -826,7 +804,7 @@ $GLOBALS['TYPO3_CONF_VARS']['BE']['fileDenyPattern']
    TYPO3_CONF_VARS BE; interfaces
 .. _typo3ConfVars_be_interfaces:
 
-$GLOBALS['TYPO3_CONF_VARS']['BE']['interfaces']
+interfaces']
 ===============================================
 
 .. versionchanged:: 12.0
@@ -838,7 +816,7 @@ where also a custom Fluid template may be used.
 
 .. _typo3ConfVars_be_explicitADmode:
 
-$GLOBALS['TYPO3_CONF_VARS']['BE']['explicitADmode']
+explicitADmode']
 ===================================================
 
 .. versionchanged:: 12.0
@@ -854,9 +832,8 @@ $GLOBALS['TYPO3_CONF_VARS']['BE']['explicitADmode']
 $GLOBALS['TYPO3_CONF_VARS']['BE']['flexformForceCDATA']
 =======================================================
 
-.. confval:: flexformForceCDATA
+.. confval:: flexformForceCDATA']
 
-   :Path: $GLOBALS['TYPO3_CONF_VARS']['BE']
    :type: bool
    :Default: 0
 
@@ -868,12 +845,11 @@ $GLOBALS['TYPO3_CONF_VARS']['BE']['flexformForceCDATA']
    TYPO3_CONF_VARS BE; versionNumberInFilename
 .. _typo3ConfVars_be_versionNumberInFilename:
 
-$GLOBALS['TYPO3_CONF_VARS']['BE']['versionNumberInFilename']
+versionNumberInFilename']
 ============================================================
 
-.. confval:: versionNumberInFilename
+.. confval:: $GLOBALS['TYPO3_CONF_VARS']['BE']['versionNumberInFilename']
 
-   :Path: $GLOBALS['TYPO3_CONF_VARS']['BE']
    :type: bool
    :Default: false
 
@@ -893,12 +869,11 @@ $GLOBALS['TYPO3_CONF_VARS']['BE']['versionNumberInFilename']
    TYPO3_CONF_VARS BE; debug
 .. _typo3ConfVars_be_debug:
 
-$GLOBALS['TYPO3_CONF_VARS']['BE']['debug']
+debug']
 ==========================================
 
-.. confval:: debug
+.. confval:: $GLOBALS['TYPO3_CONF_VARS']['BE']['debug']
 
-   :Path: $GLOBALS['TYPO3_CONF_VARS']['BE']
    :type: bool
    :Default: false
 
@@ -911,7 +886,7 @@ $GLOBALS['TYPO3_CONF_VARS']['BE']['debug']
    TYPO3_CONF_VARS BE; toolbarItems (removed)
 .. _typo3ConfVars_be_toolbarItems:
 
-$GLOBALS['TYPO3_CONF_VARS']['BE']['toolbarItems']
+toolbarItems']
 =================================================
 
 .. warning::
@@ -936,12 +911,11 @@ your :file:`Configuration/Services.(yaml|php)`, add the tag
    TYPO3_CONF_VARS BE; HTTP
 .. _typo3ConfVars_be_HTTP:
 
-$GLOBALS['TYPO3_CONF_VARS']['BE']['HTTP']
+HTTP']
 =========================================
 
-.. confval:: HTTP
+.. confval:: $GLOBALS['TYPO3_CONF_VARS']['BE']['HTTP']
 
-   :Path: $GLOBALS['TYPO3_CONF_VARS']['BE']
    :type: array
    :Default:
       .. code-block:: php
@@ -959,12 +933,11 @@ $GLOBALS['TYPO3_CONF_VARS']['BE']['HTTP']
    TYPO3_CONF_VARS BE; passwordHashing className
 .. _typo3ConfVars_be_passwordHashing_className:
 
-$GLOBALS['TYPO3_CONF_VARS']['BE']['passwordHashing']['className']
+passwordHashing']['className']
 =================================================================
 
-.. confval:: passwordHashing className
+.. confval:: $GLOBALS['TYPO3_CONF_VARS']['BE']['passwordHashing']['className']
 
-   :Path: $GLOBALS['TYPO3_CONF_VARS']['BE']['passwordHashing']
    :type: string
    :Default: :php:`\TYPO3\CMS\Core\Crypto\PasswordHashing\Argon2iPasswordHash::class`
 
@@ -985,12 +958,11 @@ $GLOBALS['TYPO3_CONF_VARS']['BE']['passwordHashing']['className']
    TYPO3_CONF_VARS BE; passwordHashing options
 .. _typo3ConfVars_be_passwordHashing_options:
 
-$GLOBALS['TYPO3_CONF_VARS']['BE']['passwordHashing']['options']
-=================================================================
+passwordHashing']['options']
+===============================================================
 
-.. confval:: passwordHashing options
+.. confval:: $GLOBALS['TYPO3_CONF_VARS']['BE']['passwordHashing']['options']
 
-   :Path: $GLOBALS['TYPO3_CONF_VARS']['BE']['passwordHashing']
    :type: array
    :Default: []
 

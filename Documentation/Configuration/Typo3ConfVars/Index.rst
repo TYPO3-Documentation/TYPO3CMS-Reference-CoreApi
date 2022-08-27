@@ -5,7 +5,7 @@
 .. _typo3ConfVars:
 
 ===========================
-$GLOBALS['TYPO3_CONF_VARS']
+TYPO3_CONF_VARS
 ===========================
 
 However the main configuration is achieved via a set of global settings
