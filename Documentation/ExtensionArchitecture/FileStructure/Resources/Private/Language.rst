@@ -21,7 +21,7 @@ Contains Language resources.
         :ref:`xliff_api`.
 
 In the folder :file:`EXT:my_extension/Resources/Private/Languages/` language
-files in format :file:`.xlf` are stored.
+files are stored in format :file:`.xlf`.
 
 This folder contains all language labels supplied by the extension in the
 default language English.
