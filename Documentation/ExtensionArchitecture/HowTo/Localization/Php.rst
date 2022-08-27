@@ -24,7 +24,7 @@ Where :php:`$translationKey` has the following format:
 
     use TYPO3\CMS\Core\Utility\GeneralUtility;
 
-    $translationKey = 'LLL:EXT:' . GeneralUtility::camelCaseToLowerCaseUnderscored($extensionName)
+    $translationKey = 'LLL:EXT:my_extension'
         . '/Resources/Private/Language/locallang.xlf:' . $key;
 
 As the access to this global variable will probably change in future versions
