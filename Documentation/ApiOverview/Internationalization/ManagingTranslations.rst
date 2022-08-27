@@ -134,6 +134,7 @@ and the result can be easily seen in the backend:
 
 ..  attention::
     The following is a **bug** but must be taken as a constraint for now:
+
     -   The files containing the custom labels must be located inside an
         extension. Other locations will not be considered.
     -   The original translation needs to exist in the environment's
@@ -148,58 +149,72 @@ and the result can be easily seen in the backend:
 Custom languages
 ================
 
-:ref:`i18n_languages` describes the languages which are supported by default.
+TYPO3 :ref:`supports many languages <i18n_languages>` by default. But it is also
+possible to add custom languages and create the translations locally using XLIFF
+files.
 
-It is possible to add custom languages to the TYPO3 backend and create the translations
-locally using XLIFF files.
+..  rst-class:: bignums-xxl
 
-First of all, the language must be declared:
+#.  Define the language
 
-..  code-block:: php
-    :caption: typo3conf/AdditionalConfiguration.php
+    As example, we "gsw_CH" (the official code for “Schwiizertüütsch” - that is
+    "Swiss German") as additional language:
 
-    $GLOBALS['TYPO3_CONF_VARS']['SYS']['localization']['locales']['user'] = [
-        'gsw_CH' => 'Swiss German',
-    ];
+    ..  code-block:: php
+        :caption: typo3conf/AdditionalConfiguration.php
 
-This new language does not have to be translated entirely. It can be defined
-as a fallback to another language, so that only differing labels have to be
-translated:
+        $GLOBALS['TYPO3_CONF_VARS']['SYS']['localization']['locales']['user'] = [
+            'gsw_CH' => 'Swiss German',
+        ];
 
-..  code-block:: php
-    :caption: typo3conf/AdditionalConfiguration.php
+#.  Add fallback to another language
 
-    $GLOBALS['TYPO3_CONF_VARS']['SYS']['localization']['locales']['dependencies'] = [
-        'gsw_CH' => ['de_AT', 'de'],
-    ];
+    This new language does not have to be translated entirely. It can be defined
+    as a fallback to another language, so that only differing labels have to be
+    translated:
 
-In this case, we define that "gsw_CH" (the `official code
-<https://www.localeplanet.com/icu/>`_ for "Schwiizertüütsch" - that is "Swiss
-German") can fall back on "de_AT" (another custom translation) and then on "de".
+    ..  code-block:: php
+        :caption: typo3conf/AdditionalConfiguration.php
 
-The translations must be stored in the appropriate labels path sub-folder
-(:ref:`Environment-labels-path`), in this case :file:`/gsw_CH`.
+        $GLOBALS['TYPO3_CONF_VARS']['SYS']['localization']['locales']['dependencies'] = [
+            'gsw_CH' => ['de_AT', 'de'],
+        ];
 
-The least you need to do is to translate the label with the name of the language
-itself so that it appears in the user settings. In our example, this would be in
-the file :file:`/gsw_CH/setup/mod/gsw_CH.locallang.xlf`.
+    In this case, we define that "gsw_CH" can fall back on "de_AT" (another
+    custom translation) and then on "de".
 
-..  code-block:: xml
+#.  Add translation files
 
-    <?xml version='1.0' encoding='utf-8'?>
-    <xliff version="1.0">
-        <file source-language="en" target-language="gsw_CH" datatype="plaintext">
-            <header/>
-            <body>
-                <trans-unit id="lang_gsw_CH" approved="yes">
-                    <source>Swiss German</source>
-                    <target state="translated">Schwiizertüütsch</target>
-                </trans-unit>
-            </body>
-        </file>
-   </xliff>
+    The translations for system extensions and extensions from :abbr:`TER (TYPO3
+    Extension Repository)` must be stored in the appropriate labels path
+    sub-folder (:ref:`Environment-labels-path`), in this case :file:`gsw_CH`.
 
-..  include:: /Images/AutomaticScreenshots/Internationalization/CustomLanguage.png.rst.txt
+    The least you need to do is to translate the label with the name of the language
+    itself so that it appears in the user settings. In our example, this would be in
+    the file :file:`gsw_CH/setup/Resources/Private/Language/gsw_CH.locallang.xlf`.
+
+    ..  code-block:: xml
+        :caption: gsw_CH/setup/Resources/Private/Language/gsw_CH.locallang.xlf
+
+        <?xml version="1.0" encoding="UTF-8"?>
+        <xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+            <file source-language="en" target-language="gsw_CH" datatype="plaintext" original="EXT:setup/Resources/Private/Language/locallang.xlf">
+                <body>
+                    <trans-unit id="lang_gsw_CH" resname="lang_gsw_CH" approved="yes">
+                        <source>Swiss German</source>
+                        <target>Schwiizertüütsch</target>
+                    </trans-unit>
+                </body>
+            </file>
+        </xliff>
+
+    The custom language is now available in the user settings:
+
+    ..  include:: /Images/AutomaticScreenshots/Internationalization/CustomLanguage.png.rst.txt
+
+    For translations in own extensions you can provide the custom language files
+    in the :file:`Resources/Private/Language/` folder of the extension, for
+    example :file:`gsw_CH.locallang_db.xlf`.
 
 ..  note::
     Each language will always fall back on the default one (i.e. English) if no
