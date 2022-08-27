@@ -7,7 +7,7 @@
 Localization in PHP
 ====================
 
-Sometimes you have to localize a string in the PHP code, for
+Sometimes you have to localize a string in PHP code, for
 example inside of a controller or a ViewHelper.
 
 You can get the translation of a string into the current language via:
