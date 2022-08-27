@@ -197,9 +197,8 @@ supported annotations, see the chapter :ref:`extbase-annotations`.
 Identifiers in localized models
 ================================
 
-Domain models have a main identifier :php:`uid` and two additional properties
-:php:`_localizedUid` (for language overlays) and :php:`_versionedUid`
-(for workspace overlays).
+Domain models have a main identifier :php:`uid` and an additional property
+:php:`_localizedUid`.
 
 Depending on whether the
 :typoscript:`languageOverlayMode` mode is enabled (:typoscript:`true` or
@@ -219,3 +218,11 @@ the :php:`uid` of the translated record is kept in the :php:`_localizedUid`.
 +----------------------------------------------------------+-------------------------+---------------------------+
 | Domain object values with `languageOverlayMode` disabled | uid:2, _localizedUid:2  | uid:11, _localizedUid:11  |
 +----------------------------------------------------------+-------------------------+---------------------------+
+
+..  hint::
+    In case your project uses :t3ext:`workspaces` there is yet another
+    additional property, :php:`_versionedUid`. Refer to the
+    :ref:`Workspaces documentation <ext_workspaces:Index>` for details on
+    workspace overlays.
+
+.. TODO: Explain workspaces in Extbase context
