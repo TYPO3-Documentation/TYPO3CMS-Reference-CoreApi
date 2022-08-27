@@ -4,18 +4,38 @@
    TYPO3_CONF_VARS; EXT
 .. _typo3ConfVars_ext:
 
-==================================
-$GLOBALS['TYPO3_CONF_VARS']['EXT']
-==================================
+=====================================
+EXT - Extension manager configuration
+=====================================
+
+The following configuration variables can be used to configure settings for
+the Extension manager:
+
+..  contents::
+    :local:
+
+..  attention::
+    Extension specific configuration should be stored in
+    :php:`$GLOBALS['TYPO3_CONF_VARS']['EXTENSION']` and not here.
+
+..  note::
+    The configuration values listed here are keys in the global PHP array
+    :php:`$GLOBALS['TYPO3_CONF_VARS']['EXT']`.
+
+    This variable can be set in one of the following files:
+
+    *   :ref:`typo3conf/LocalConfiguration.php <typo3ConfVars-localConfiguration>`
+    *   :ref:`typo3conf/AdditionalConfiguration.php <typo3ConfVars-additionalConfiguration>`
+
 
 .. index::
    TYPO3_CONF_VARS SYS; excludeForPackaging
 .. _typo3ConfVars_ext_excludeForPackaging:
 
-$GLOBALS['TYPO3_CONF_VARS']['EXT']['excludeForPackaging']
-=========================================================
+excludeForPackaging
+===================
 
-.. confval:: excludeForPackaging:
+.. confval:: $GLOBALS['TYPO3_CONF_VARS']['EXT']['excludeForPackaging']
 
    :Path: $GLOBALS['TYPO3_CONF_VARS']['EXT']
    :type: list

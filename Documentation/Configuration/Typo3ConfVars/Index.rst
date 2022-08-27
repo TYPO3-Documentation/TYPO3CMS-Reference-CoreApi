@@ -8,25 +8,24 @@
 TYPO3_CONF_VARS
 ===========================
 
-However the main configuration is achieved via a set of global settings
+The main configuration is achieved via a set of global settings
 stored in a global array called :php:`$GLOBALS['TYPO3_CONF_VARS']`.
 
 This chapter describes this global configuration in more details and hints
 at other configuration possibilities.
 
-.. toctree::
-   :maxdepth: 1
-   :titlesonly:
-   :hidden:
+..  note::
+    This variable can be set in one of the following files:
 
-   BE
-   DB
-   EXT
-   FE
-   GFX
-   HTTP
-   MAIL
-   SYS
+    *   :ref:`typo3conf/LocalConfiguration.php <typo3ConfVars-localConfiguration>`
+    *   :ref:`typo3conf/AdditionalConfiguration.php <typo3ConfVars-additionalConfiguration>`
+
+..  toctree::
+    :titlesonly:
+    :glob:
+    :hidden:
+
+    *
 
 .. index::
    ! File; typo3conf/LocalConfiguration.php
@@ -168,13 +167,13 @@ T3_SERVICES
    :ref:`Service registration configuration <services-configuration-registration-changes>`
    and the backend.
 
-Further details on the various configuration options can be found in the Install Tool
-as well as the TYPO3 source at
+Further details on the various configuration options can be found in the
+:guilabel:`Admin Tools` as well as the TYPO3 source at
 :file:`typo3/sysext/core/Configuration/DefaultConfigurationDescription.yaml`.
-The documentation shown in the Install Tool is automatically extracted from
-those values of :file:`DefaultConfigurationDescription.yaml`.
+The documentation shown in the :guilabel:`Admin Tools` is automatically
+extracted from those values of :file:`DefaultConfigurationDescription.yaml`.
 
-The Install Tool provides various dedicated modules that change parts of
+The :guilabel:`Admin Tools` provides various dedicated modules that change parts of
 :file:`LocalConfiguration.php`, those can be found in
 :guilabel:`Admin Tools > Settings`, most importantly section
 :guilabel:`Configure installation-wide options`:
@@ -258,5 +257,3 @@ Here is an extract of that file:
 You will probably find it interesting to take a look at that file,
 which also contains values not displayed in the Install Tool and thus
 not easily available for modification.
-
-

@@ -5,14 +5,14 @@
 .. _typo3ConfVars_be:
 
 ====================================
-BE - backend configuration variables
+BE - backend configuration
 ====================================
 
 The following configuration variables can be used to configure settings for
 the TYPO3 backend:
 
-.. contents::
-   :local:
+..  contents::
+    :local:
 
 ..  note::
     The configuration values listed here are keys in the global PHP array
@@ -20,8 +20,8 @@ the TYPO3 backend:
 
     This variable can be set in one of the following files:
 
-    *   :file:`typo3conf/LocalConfiguration.php`
-    *   :file:`typo3conf/AdditionalConfiguration.php`
+    *   :ref:`typo3conf/LocalConfiguration.php <typo3ConfVars-localConfiguration>`
+    *   :ref:`typo3conf/AdditionalConfiguration.php <typo3ConfVars-additionalConfiguration>`
 
 .. index::
    TYPO3_CONF_VARS BE; languageDebug
@@ -542,8 +542,8 @@ disable_exec_function
    TYPO3_CONF_VARS BE; compressionLevel
 .. _typo3ConfVars_be_compressionLevel:
 
-compressionLevel']
-=====================================================
+compressionLevel
+================
 
 .. confval:: $GLOBALS['TYPO3_CONF_VARS']['BE']['compressionLevel']
 
@@ -568,8 +568,8 @@ compressionLevel']
    TYPO3_CONF_VARS BE; installToolPassword
 .. _typo3ConfVars_be_installToolPassword:
 
-installToolPassword']
-========================================================
+installToolPassword
+===================
 
 .. confval:: $GLOBALS['TYPO3_CONF_VARS']['BE']['installToolPassword']
 
@@ -583,8 +583,8 @@ installToolPassword']
    TYPO3_CONF_VARS BE; checkStoredRecords
 .. _typo3ConfVars_be_checkStoredRecords:
 
-checkStoredRecords']
-=======================================================
+checkStoredRecords
+==================
 
 .. confval:: $GLOBALS['TYPO3_CONF_VARS']['BE']['checkStoredRecords']
 
@@ -598,8 +598,8 @@ checkStoredRecords']
    TYPO3_CONF_VARS BE; checkStoredRecordsLoose
 .. _typo3ConfVars_be_checkStoredRecordsLoose:
 
-checkStoredRecordsLoose']
-============================================================
+checkStoredRecordsLoose
+=======================
 
 .. confval:: $GLOBALS['TYPO3_CONF_VARS']['BE']['checkStoredRecordsLoose']
 
@@ -615,8 +615,8 @@ checkStoredRecordsLoose']
    TYPO3_CONF_VARS BE; defaultUserTSconfig
 .. _typo3ConfVars_be_defaultUserTSconfig:
 
-defaultUserTSconfig']
-========================================================
+defaultUserTSconfig
+===================
 
 .. confval:: $GLOBALS['TYPO3_CONF_VARS']['BE']['defaultUserTSconfig']
 
@@ -645,8 +645,8 @@ defaultUserTSconfig']
    TYPO3_CONF_VARS BE; defaultPageTSconfig
 .. _typo3ConfVars_be_defaultPageTSconfig:
 
-defaultPageTSconfig']
-========================================================
+defaultPageTSconfig
+===================
 
 .. confval:: $GLOBALS['TYPO3_CONF_VARS']['BE']['defaultPageTSconfig']
 
@@ -678,8 +678,8 @@ defaultPageTSconfig']
    TYPO3_CONF_VARS BE; defaultPermissions
 .. _typo3ConfVars_be_defaultPermissions:
 
-defaultPermissions']
-========================================================
+defaultPermissions
+==================
 
 .. confval:: $GLOBALS['TYPO3_CONF_VARS']['BE']['defaultPermissions']
 
@@ -719,8 +719,8 @@ defaultPermissions']
    TYPO3_CONF_VARS BE; defaultUC
 .. _typo3ConfVars_be_defaultUC:
 
-defaultUC']
-==============================================
+defaultUC
+=========
 
 .. confval:: $GLOBALS['TYPO3_CONF_VARS']['BE']['defaultUC']
 
@@ -753,8 +753,8 @@ defaultUC']
    TYPO3_CONF_VARS BE; customPermOptions
 .. _typo3ConfVars_be_customPermOptions:
 
-customPermOptions']
-======================================================
+customPermOptions
+=================
 
 .. confval:: $GLOBALS['TYPO3_CONF_VARS']['BE']['customPermOptions']
 
@@ -781,8 +781,8 @@ customPermOptions']
    TYPO3_CONF_VARS BE; fileDenyPattern
 .. _typo3ConfVars_be_fileDenyPattern:
 
-fileDenyPattern']
-====================================================
+fileDenyPattern
+===============
 
 .. confval:: $GLOBALS['TYPO3_CONF_VARS']['BE']['fileDenyPattern']
 
@@ -804,8 +804,8 @@ fileDenyPattern']
    TYPO3_CONF_VARS BE; interfaces
 .. _typo3ConfVars_be_interfaces:
 
-interfaces']
-===============================================
+interfaces
+==========
 
 .. versionchanged:: 12.0
    This option was removed with TYPO3 v12.0.
@@ -816,8 +816,8 @@ where also a custom Fluid template may be used.
 
 .. _typo3ConfVars_be_explicitADmode:
 
-explicitADmode']
-===================================================
+explicitADmode
+==============
 
 .. versionchanged:: 12.0
    The handling of :php:`$GLOBALS['TYPO3_CONF_VARS']['BE']['explicitADmode']` has been changed and
@@ -829,8 +829,8 @@ explicitADmode']
    TYPO3_CONF_VARS BE; flexformForceCDATA
 .. _typo3ConfVars_be_flexformForceCDATA:
 
-$GLOBALS['TYPO3_CONF_VARS']['BE']['flexformForceCDATA']
-=======================================================
+flexformForceCDATA
+==================
 
 .. confval:: flexformForceCDATA']
 
@@ -845,8 +845,8 @@ $GLOBALS['TYPO3_CONF_VARS']['BE']['flexformForceCDATA']
    TYPO3_CONF_VARS BE; versionNumberInFilename
 .. _typo3ConfVars_be_versionNumberInFilename:
 
-versionNumberInFilename']
-============================================================
+versionNumberInFilename
+=======================
 
 .. confval:: $GLOBALS['TYPO3_CONF_VARS']['BE']['versionNumberInFilename']
 
@@ -869,8 +869,8 @@ versionNumberInFilename']
    TYPO3_CONF_VARS BE; debug
 .. _typo3ConfVars_be_debug:
 
-debug']
-==========================================
+debug
+=====
 
 .. confval:: $GLOBALS['TYPO3_CONF_VARS']['BE']['debug']
 
@@ -886,8 +886,8 @@ debug']
    TYPO3_CONF_VARS BE; toolbarItems (removed)
 .. _typo3ConfVars_be_toolbarItems:
 
-toolbarItems']
-=================================================
+toolbarItems
+============
 
 .. warning::
    This configuration variable has been removed in TYPO3 version 12.0. Setting
@@ -911,8 +911,8 @@ your :file:`Configuration/Services.(yaml|php)`, add the tag
    TYPO3_CONF_VARS BE; HTTP
 .. _typo3ConfVars_be_HTTP:
 
-HTTP']
-=========================================
+HTTP
+====
 
 .. confval:: $GLOBALS['TYPO3_CONF_VARS']['BE']['HTTP']
 
@@ -933,8 +933,11 @@ HTTP']
    TYPO3_CONF_VARS BE; passwordHashing className
 .. _typo3ConfVars_be_passwordHashing_className:
 
-passwordHashing']['className']
-=================================================================
+passwordHashing
+===============
+
+className
+---------
 
 .. confval:: $GLOBALS['TYPO3_CONF_VARS']['BE']['passwordHashing']['className']
 
@@ -958,8 +961,8 @@ passwordHashing']['className']
    TYPO3_CONF_VARS BE; passwordHashing options
 .. _typo3ConfVars_be_passwordHashing_options:
 
-passwordHashing']['options']
-===============================================================
+options
+-------
 
 .. confval:: $GLOBALS['TYPO3_CONF_VARS']['BE']['passwordHashing']['options']
 

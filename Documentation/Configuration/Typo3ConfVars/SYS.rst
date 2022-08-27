@@ -5,18 +5,33 @@
    TYPO3_CONF_VARS SYS
 .. _typo3ConfVars_sys:
 
-==================================
-$GLOBALS['TYPO3_CONF_VARS']['SYS']
-==================================
+==========================
+SYS - System configuration
+==========================
+
+The following configuration variables can be used for system wide
+configurations.
+
+..  contents::
+    :local:
+
+..  note::
+    The configuration values listed here are keys in the global PHP array
+    :php:`$GLOBALS['TYPO3_CONF_VARS']['SYS']`.
+
+    This variable can be set in one of the following files:
+
+    *   :ref:`typo3conf/LocalConfiguration.php <typo3ConfVars-localConfiguration>`
+    *   :ref:`typo3conf/AdditionalConfiguration.php <typo3ConfVars-additionalConfiguration>`
 
 .. index::
    TYPO3_CONF_VARS SYS; fileCreateMask
 .. _typo3ConfVars_sys_fileCreateMask:
 
-$GLOBALS['TYPO3_CONF_VARS']['SYS']['fileCreateMask']
-====================================================
+fileCreateMask
+==============
 
-.. confval:: fileCreateMask
+.. confval:: $GLOBALS['TYPO3_CONF_VARS']['SYS']['fileCreateMask']
 
    :Path: $GLOBALS['TYPO3_CONF_VARS']['SYS']
    :type: text
@@ -28,10 +43,10 @@ $GLOBALS['TYPO3_CONF_VARS']['SYS']['fileCreateMask']
    TYPO3_CONF_VARS SYS; folderCreateMask
 .. _typo3ConfVars_sys_folderCreateMask:
 
-$GLOBALS['TYPO3_CONF_VARS']['SYS']['folderCreateMask']
-======================================================
+folderCreateMask
+================
 
-.. confval:: folderCreateMask
+.. confval:: $GLOBALS['TYPO3_CONF_VARS']['SYS']['folderCreateMask']
 
    :Path: $GLOBALS['TYPO3_CONF_VARS']['SYS']
    :type: text
@@ -43,10 +58,10 @@ $GLOBALS['TYPO3_CONF_VARS']['SYS']['folderCreateMask']
    TYPO3_CONF_VARS SYS; createGroup
 .. _typo3ConfVars_sys_createGroup:
 
-$GLOBALS['TYPO3_CONF_VARS']['SYS']['createGroup']
-=================================================
+createGroup
+===========
 
-.. confval:: createGroup
+.. confval:: $GLOBALS['TYPO3_CONF_VARS']['SYS']['createGroup']
 
    :Path: $GLOBALS['TYPO3_CONF_VARS']['SYS']
    :type: text
@@ -67,10 +82,10 @@ $GLOBALS['TYPO3_CONF_VARS']['SYS']['createGroup']
    TYPO3_CONF_VARS SYS; sitename
 .. _typo3ConfVars_sys_sitename:
 
-$GLOBALS['TYPO3_CONF_VARS']['SYS']['sitename']
-==============================================
+sitename
+========
 
-.. confval:: sitename
+.. confval:: $GLOBALS['TYPO3_CONF_VARS']['SYS']['sitename']
 
    :Path: $GLOBALS['TYPO3_CONF_VARS']['SYS']
    :type: text
@@ -82,15 +97,15 @@ $GLOBALS['TYPO3_CONF_VARS']['SYS']['sitename']
    TYPO3_CONF_VARS SYS; defaultScheme
 .. _typo3ConfVars_sys_defaultScheme:
 
-$GLOBALS['TYPO3_CONF_VARS']['SYS']['defaultScheme']
-===================================================
+defaultScheme
+=============
 
 .. versionadded:: 12.0
    The setting :php:`defaultScheme` was added in TYPO3 v12 to make it possible to
    configure the default URI scheme when links are created by the Core.
    Previously, :php:`'http'` was always used.
 
-.. confval:: defaultScheme
+.. confval:: $GLOBALS['TYPO3_CONF_VARS']['SYS']['defaultScheme']
 
    :Path: $GLOBALS['TYPO3_CONF_VARS']['SYS']
    :type: text
@@ -103,10 +118,10 @@ $GLOBALS['TYPO3_CONF_VARS']['SYS']['defaultScheme']
    TYPO3_CONF_VARS SYS; encryptionKey
 .. _typo3ConfVars_sys_encryptionKey:
 
-$GLOBALS['TYPO3_CONF_VARS']['SYS']['encryptionKey']
-===================================================
+encryptionKey
+=============
 
-.. confval:: encryptionKey
+.. confval:: $GLOBALS['TYPO3_CONF_VARS']['SYS']['encryptionKey']
 
    :Path: $GLOBALS['TYPO3_CONF_VARS']['SYS']
    :type: text
@@ -122,10 +137,10 @@ $GLOBALS['TYPO3_CONF_VARS']['SYS']['encryptionKey']
    TYPO3_CONF_VARS SYS; cookieDomain
 .. _typo3ConfVars_sys_cookieDomain:
 
-$GLOBALS['TYPO3_CONF_VARS']['SYS']['cookieDomain']
-==================================================
+cookieDomain
+============
 
-.. confval:: cookieDomain
+.. confval:: $GLOBALS['TYPO3_CONF_VARS']['SYS']['cookieDomain']
 
    :Path: $GLOBALS['TYPO3_CONF_VARS']['SYS']
    :type: text
@@ -148,10 +163,10 @@ $GLOBALS['TYPO3_CONF_VARS']['SYS']['cookieDomain']
    TYPO3_CONF_VARS SYS; trustedHostsPattern
 .. _typo3ConfVars_sys_trustedHostsPattern:
 
-$GLOBALS['TYPO3_CONF_VARS']['SYS']['trustedHostsPattern']
-=========================================================
+trustedHostsPattern
+===================
 
-.. confval:: trustedHostsPattern
+.. confval:: $GLOBALS['TYPO3_CONF_VARS']['SYS']['trustedHostsPattern']
 
    :Path: $GLOBALS['TYPO3_CONF_VARS']['SYS']
    :type: text
@@ -187,10 +202,10 @@ $GLOBALS['TYPO3_CONF_VARS']['SYS']['trustedHostsPattern']
    TYPO3_CONF_VARS SYS; devIPmask
 .. _typo3ConfVars_sys_devIPmask:
 
-$GLOBALS['TYPO3_CONF_VARS']['SYS']['devIPmask']
-===============================================
+devIPmask
+=========
 
-.. confval:: devIPmask
+.. confval:: $GLOBALS['TYPO3_CONF_VARS']['SYS']['devIPmask']
 
    :Path: $GLOBALS['TYPO3_CONF_VARS']['SYS']
    :type: text
@@ -206,10 +221,10 @@ $GLOBALS['TYPO3_CONF_VARS']['SYS']['devIPmask']
    TYPO3_CONF_VARS SYS; ddmmyy
 .. _typo3ConfVars_sys_ddmmyy:
 
-$GLOBALS['TYPO3_CONF_VARS']['SYS']['ddmmyy']
-============================================
+ddmmyy
+======
 
-.. confval:: ddmmyy
+.. confval:: $GLOBALS['TYPO3_CONF_VARS']['SYS']['ddmmyy']
 
    :Path: $GLOBALS['TYPO3_CONF_VARS']['SYS']
    :type: text
@@ -221,10 +236,10 @@ $GLOBALS['TYPO3_CONF_VARS']['SYS']['ddmmyy']
    TYPO3_CONF_VARS SYS; hhmm
 .. _typo3ConfVars_sys_hhmm:
 
-$GLOBALS['TYPO3_CONF_VARS']['SYS']['hhmm']
-==========================================
+hhmm
+====
 
-.. confval:: hhmm
+.. confval:: $GLOBALS['TYPO3_CONF_VARS']['SYS']['hhmm']
 
    :Path: $GLOBALS['TYPO3_CONF_VARS']['SYS']
    :type: text
@@ -236,10 +251,10 @@ $GLOBALS['TYPO3_CONF_VARS']['SYS']['hhmm']
    TYPO3_CONF_VARS SYS; loginCopyrightWarrantyProvider
 .. _typo3ConfVars_sys_loginCopyrightWarrantyProvider:
 
-$GLOBALS['TYPO3_CONF_VARS']['SYS']['loginCopyrightWarrantyProvider']
-====================================================================
+loginCopyrightWarrantyProvider
+==============================
 
-.. confval:: loginCopyrightWarrantyProvider
+.. confval:: $GLOBALS['TYPO3_CONF_VARS']['SYS']['loginCopyrightWarrantyProvider']
 
    :Path: $GLOBALS['TYPO3_CONF_VARS']['SYS']
    :type: text
@@ -253,10 +268,10 @@ $GLOBALS['TYPO3_CONF_VARS']['SYS']['loginCopyrightWarrantyProvider']
    TYPO3_CONF_VARS SYS; loginCopyrightWarrantyURL
 .. _typo3ConfVars_sys_loginCopyrightWarrantyURL:
 
-$GLOBALS['TYPO3_CONF_VARS']['SYS']['loginCopyrightWarrantyURL']
-===============================================================
+loginCopyrightWarrantyURL
+=========================
 
-.. confval:: loginCopyrightWarrantyURL
+.. confval:: $GLOBALS['TYPO3_CONF_VARS']['SYS']['loginCopyrightWarrantyURL']
 
    :Path: $GLOBALS['TYPO3_CONF_VARS']['SYS']
    :type: text
@@ -273,10 +288,10 @@ $GLOBALS['TYPO3_CONF_VARS']['SYS']['loginCopyrightWarrantyURL']
    TYPO3_CONF_VARS SYS; textfile_ext
 .. _typo3ConfVars_sys_textfile_ext:
 
-$GLOBALS['TYPO3_CONF_VARS']['SYS']['textfile_ext']
-==================================================
+textfile_ext
+============
 
-.. confval:: textfile_ext
+.. confval:: $GLOBALS['TYPO3_CONF_VARS']['SYS']['textfile_ext']
 
    :Path: $GLOBALS['TYPO3_CONF_VARS']['SYS']
    :type: text
@@ -289,10 +304,10 @@ $GLOBALS['TYPO3_CONF_VARS']['SYS']['textfile_ext']
    TYPO3_CONF_VARS SYS; mediafile_ext
 .. _typo3ConfVars_sys_mediafile_ext:
 
-$GLOBALS['TYPO3_CONF_VARS']['SYS']['mediafile_ext']
-===================================================
+mediafile_ext
+=============
 
-.. confval:: mediafile_ext
+.. confval:: $GLOBALS['TYPO3_CONF_VARS']['SYS']['mediafile_ext']
 
    :Path: $GLOBALS['TYPO3_CONF_VARS']['SYS']
    :type: text
@@ -305,10 +320,10 @@ $GLOBALS['TYPO3_CONF_VARS']['SYS']['mediafile_ext']
    TYPO3_CONF_VARS SYS; binPath
 .. _typo3ConfVars_sys_binPath:
 
-$GLOBALS['TYPO3_CONF_VARS']['SYS']['binPath']
-=============================================
+binPath
+=======
 
-.. confval:: binPath
+.. confval:: $GLOBALS['TYPO3_CONF_VARS']['SYS']['binPath']
 
    :Path: $GLOBALS['TYPO3_CONF_VARS']['SYS']
    :type: text
@@ -322,10 +337,10 @@ $GLOBALS['TYPO3_CONF_VARS']['SYS']['binPath']
    TYPO3_CONF_VARS SYS; binSetup
 .. _typo3ConfVars_sys_binSetup:
 
-$GLOBALS['TYPO3_CONF_VARS']['SYS']['binSetup']
-==============================================
+binSetup
+========
 
-.. confval:: binSetup
+.. confval:: $GLOBALS['TYPO3_CONF_VARS']['SYS']['binSetup']
 
    :Path: $GLOBALS['TYPO3_CONF_VARS']['SYS']
    :type: multiline
@@ -342,10 +357,10 @@ $GLOBALS['TYPO3_CONF_VARS']['SYS']['binSetup']
    TYPO3_CONF_VARS SYS; setMemoryLimit
 .. _typo3ConfVars_sys_setMemoryLimit:
 
-$GLOBALS['TYPO3_CONF_VARS']['SYS']['setMemoryLimit']
-====================================================
+setMemoryLimit
+==============
 
-.. confval:: setMemoryLimit
+.. confval:: $GLOBALS['TYPO3_CONF_VARS']['SYS']['setMemoryLimit']
 
    :Path: $GLOBALS['TYPO3_CONF_VARS']['SYS']
    :type: int
@@ -359,10 +374,10 @@ $GLOBALS['TYPO3_CONF_VARS']['SYS']['setMemoryLimit']
    TYPO3_CONF_VARS SYS; phpTimeZone
 .. _typo3ConfVars_sys_phpTimeZone:
 
-$GLOBALS['TYPO3_CONF_VARS']['SYS']['phpTimeZone']
-=================================================
+phpTimeZone
+===========
 
-.. confval:: phpTimeZone
+.. confval:: $GLOBALS['TYPO3_CONF_VARS']['SYS']['phpTimeZone']
 
    :Path: $GLOBALS['TYPO3_CONF_VARS']['SYS']
    :type: text
@@ -381,10 +396,10 @@ $GLOBALS['TYPO3_CONF_VARS']['SYS']['phpTimeZone']
    TYPO3_CONF_VARS SYS; UTF8filesystem
 .. _typo3ConfVars_sys_UTF8filesystem:
 
-$GLOBALS['TYPO3_CONF_VARS']['SYS']['UTF8filesystem']
-====================================================
+UTF8filesystem
+==============
 
-.. confval:: UTF8filesystem
+.. confval:: $GLOBALS['TYPO3_CONF_VARS']['SYS']['UTF8filesystem']
 
    :Path: $GLOBALS['TYPO3_CONF_VARS']['SYS']
    :type: bool
@@ -413,10 +428,10 @@ $GLOBALS['TYPO3_CONF_VARS']['SYS']['UTF8filesystem']
    TYPO3_CONF_VARS SYS; systemLocale
 .. _typo3ConfVars_sys_systemLocale:
 
-$GLOBALS['TYPO3_CONF_VARS']['SYS']['systemLocale']
-==================================================
+systemLocale
+============
 
-.. confval:: systemLocale
+.. confval:: $GLOBALS['TYPO3_CONF_VARS']['SYS']['systemLocale']
 
    :Path: $GLOBALS['TYPO3_CONF_VARS']['SYS']
    :type: text
@@ -431,10 +446,10 @@ $GLOBALS['TYPO3_CONF_VARS']['SYS']['systemLocale']
    TYPO3_CONF_VARS SYS; reverseProxyIP
 .. _typo3ConfVars_sys_reverseProxyIP:
 
-$GLOBALS['TYPO3_CONF_VARS']['SYS']['reverseProxyIP']
-====================================================
+reverseProxyIP
+==============
 
-.. confval:: reverseProxyIP
+.. confval:: $GLOBALS['TYPO3_CONF_VARS']['SYS']['reverseProxyIP']
 
    :Path: $GLOBALS['TYPO3_CONF_VARS']['SYS']
    :type: list
@@ -447,10 +462,10 @@ $GLOBALS['TYPO3_CONF_VARS']['SYS']['reverseProxyIP']
    TYPO3_CONF_VARS SYS; reverseProxyHeaderMultiValue
 .. _typo3ConfVars_sys_reverseProxyHeaderMultiValue:
 
-$GLOBALS['TYPO3_CONF_VARS']['SYS']['reverseProxyHeaderMultiValue']
-==================================================================
+reverseProxyHeaderMultiValue
+============================
 
-.. confval:: reverseProxyHeaderMultiValue
+.. confval:: $GLOBALS['TYPO3_CONF_VARS']['SYS']['reverseProxyHeaderMultiValue']
 
    :Path: $GLOBALS['TYPO3_CONF_VARS']['SYS']
    :type: text
@@ -473,10 +488,10 @@ $GLOBALS['TYPO3_CONF_VARS']['SYS']['reverseProxyHeaderMultiValue']
    TYPO3_CONF_VARS SYS; reverseProxyPrefix
 .. _typo3ConfVars_sys_reverseProxyPrefix:
 
-$GLOBALS['TYPO3_CONF_VARS']['SYS']['reverseProxyPrefix']
-=========================================================
+reverseProxyPrefix
+==================
 
-.. confval:: reverseProxyPrefix
+.. confval:: $GLOBALS['TYPO3_CONF_VARS']['SYS']['reverseProxyPrefix']
 
    :Path: $GLOBALS['TYPO3_CONF_VARS']['SYS']
    :type: text
@@ -492,10 +507,10 @@ $GLOBALS['TYPO3_CONF_VARS']['SYS']['reverseProxyPrefix']
    TYPO3_CONF_VARS SYS; reverseProxySSL
 .. _typo3ConfVars_sys_reverseProxySSL:
 
-$GLOBALS['TYPO3_CONF_VARS']['SYS']['reverseProxySSL']
-=====================================================
+reverseProxySSL
+===============
 
-.. confval:: reverseProxySSL
+.. confval:: $GLOBALS['TYPO3_CONF_VARS']['SYS']['reverseProxySSL']
 
    :Path: $GLOBALS['TYPO3_CONF_VARS']['SYS']
    :type: text
@@ -510,10 +525,10 @@ $GLOBALS['TYPO3_CONF_VARS']['SYS']['reverseProxySSL']
    TYPO3_CONF_VARS SYS; reverseProxyPrefixSSL
 .. _typo3ConfVars_sys_reverseProxyPrefixSSL:
 
-$GLOBALS['TYPO3_CONF_VARS']['SYS']['reverseProxyPrefixSSL']
-============================================================
+reverseProxyPrefixSSL
+=====================
 
-.. confval:: reverseProxyPrefixSSL
+.. confval:: $GLOBALS['TYPO3_CONF_VARS']['SYS']['reverseProxyPrefixSSL']
 
    :Path: $GLOBALS['TYPO3_CONF_VARS']['SYS']
    :type: text
@@ -527,10 +542,10 @@ $GLOBALS['TYPO3_CONF_VARS']['SYS']['reverseProxyPrefixSSL']
    TYPO3_CONF_VARS SYS;
 .. _typo3ConfVars_sys_displayErrors:
 
-$GLOBALS['TYPO3_CONF_VARS']['SYS']['displayErrors']
-===================================================
+displayErrors
+=============
 
-.. confval:: displayErrors
+.. confval:: $GLOBALS['TYPO3_CONF_VARS']['SYS']['displayErrors']
 
    :Path: $GLOBALS['TYPO3_CONF_VARS']['SYS']
    :type: int
@@ -569,10 +584,10 @@ $GLOBALS['TYPO3_CONF_VARS']['SYS']['displayErrors']
    TYPO3_CONF_VARS SYS; productionExceptionHandler
 .. _typo3ConfVars_sys_productionExceptionHandler:
 
-$GLOBALS['TYPO3_CONF_VARS']['SYS']['productionExceptionHandler']
-================================================================
+productionExceptionHandler
+==========================
 
-.. confval:: productionExceptionHandler
+.. confval:: $GLOBALS['TYPO3_CONF_VARS']['SYS']['productionExceptionHandler']
 
    :Path: $GLOBALS['TYPO3_CONF_VARS']['SYS']
    :type: phpClass
@@ -592,10 +607,10 @@ $GLOBALS['TYPO3_CONF_VARS']['SYS']['productionExceptionHandler']
    TYPO3_CONF_VARS SYS; debugExceptionHandler
 .. _typo3ConfVars_sys_debugExceptionHandler:
 
-$GLOBALS['TYPO3_CONF_VARS']['SYS']['debugExceptionHandler']
-===========================================================
+debugExceptionHandler
+=====================
 
-.. confval:: debugExceptionHandler
+.. confval:: $GLOBALS['TYPO3_CONF_VARS']['SYS']['debugExceptionHandler']
 
    :Path: $GLOBALS['TYPO3_CONF_VARS']['SYS']
    :type: phpClass
@@ -615,10 +630,10 @@ $GLOBALS['TYPO3_CONF_VARS']['SYS']['debugExceptionHandler']
    TYPO3_CONF_VARS SYS; errorHandler
 .. _typo3ConfVars_sys_errorHandler:
 
-$GLOBALS['TYPO3_CONF_VARS']['SYS']['errorHandler']
-==================================================
+errorHandler
+============
 
-.. confval:: errorHandler
+.. confval:: $GLOBALS['TYPO3_CONF_VARS']['SYS']['errorHandler']
 
    :Path: $GLOBALS['TYPO3_CONF_VARS']['SYS']
    :type: phpClass
@@ -638,10 +653,10 @@ $GLOBALS['TYPO3_CONF_VARS']['SYS']['errorHandler']
    TYPO3_CONF_VARS SYS; errorHandlerErrors
 .. _typo3ConfVars_sys_errorHandlerErrors:
 
-$GLOBALS['TYPO3_CONF_VARS']['SYS']['errorHandlerErrors']
-========================================================
+errorHandlerErrors
+==================
 
-.. confval:: errorHandlerErrors
+.. confval:: $GLOBALS['TYPO3_CONF_VARS']['SYS']['errorHandlerErrors']
 
    :Path: $GLOBALS['TYPO3_CONF_VARS']['SYS']
    :type: errors
@@ -660,10 +675,10 @@ $GLOBALS['TYPO3_CONF_VARS']['SYS']['errorHandlerErrors']
    TYPO3_CONF_VARS SYS; exceptionalErrors
 .. _typo3ConfVars_sys_exceptionalErrors:
 
-$GLOBALS['TYPO3_CONF_VARS']['SYS']['exceptionalErrors']
-=======================================================
+exceptionalErrors
+=================
 
-.. confval:: exceptionalErrors
+.. confval:: $GLOBALS['TYPO3_CONF_VARS']['SYS']['exceptionalErrors']
 
    :Path: $GLOBALS['TYPO3_CONF_VARS']['SYS']
    :type: errors
@@ -680,10 +695,10 @@ $GLOBALS['TYPO3_CONF_VARS']['SYS']['exceptionalErrors']
    TYPO3_CONF_VARS SYS; belogErrorReporting
 .. _typo3ConfVars_sys_belogErrorReporting:
 
-$GLOBALS['TYPO3_CONF_VARS']['SYS']['belogErrorReporting']
-=========================================================
+belogErrorReporting
+===================
 
-.. confval:: belogErrorReporting
+.. confval:: $GLOBALS['TYPO3_CONF_VARS']['SYS']['belogErrorReporting']
 
    :Path: $GLOBALS['TYPO3_CONF_VARS']['SYS']
    :type: errors
@@ -699,10 +714,10 @@ $GLOBALS['TYPO3_CONF_VARS']['SYS']['belogErrorReporting']
    TYPO3_CONF_VARS SYS; generateApacheHtaccess
 .. _typo3ConfVars_sys_generateApacheHtaccess:
 
-$GLOBALS['TYPO3_CONF_VARS']['SYS']['generateApacheHtaccess']
-============================================================
+generateApacheHtaccess
+======================
 
-.. confval:: generateApacheHtaccess
+.. confval:: $GLOBALS['TYPO3_CONF_VARS']['SYS']['generateApacheHtaccess']
 
    :Path: $GLOBALS['TYPO3_CONF_VARS']['SYS']
    :type: bool
@@ -720,10 +735,10 @@ $GLOBALS['TYPO3_CONF_VARS']['SYS']['generateApacheHtaccess']
    TYPO3_CONF_VARS SYS; ipAnonymization
 .. _typo3ConfVars_sys_ipAnonymization:
 
-$GLOBALS['TYPO3_CONF_VARS']['SYS']['ipAnonymization']
-=====================================================
+ipAnonymization
+===============
 
-.. confval:: ipAnonymization
+.. confval:: $GLOBALS['TYPO3_CONF_VARS']['SYS']['ipAnonymization']
 
    :Path: $GLOBALS['TYPO3_CONF_VARS']['SYS']
    :type: int
@@ -746,10 +761,10 @@ $GLOBALS['TYPO3_CONF_VARS']['SYS']['ipAnonymization']
    TYPO3_CONF_VARS SYS; systemMaintainers
 .. _typo3ConfVars_sys_systemMaintainers:
 
-$GLOBALS['TYPO3_CONF_VARS']['SYS']['systemMaintainers']
-=======================================================
+systemMaintainers
+=================
 
-.. confval:: systemMaintainers
+.. confval:: $GLOBALS['TYPO3_CONF_VARS']['SYS']['systemMaintainers']
 
    :Path: $GLOBALS['TYPO3_CONF_VARS']['SYS']
    :type: array
@@ -761,8 +776,8 @@ $GLOBALS['TYPO3_CONF_VARS']['SYS']['systemMaintainers']
    TYPO3_CONF_VARS SYS; features
 .. _typo3ConfVars_sys_features:
 
-$GLOBALS['TYPO3_CONF_VARS']['SYS']['features']
-==============================================
+features
+========
 
 New features of TYPO3 that are activated on new installations but upgrading
 installations may still use the old behaviour.
@@ -772,10 +787,10 @@ installations may still use the old behaviour.
    TYPO3_CONF_VARS SYS; features form.legacyUploadMimeTypes
 .. _typo3ConfVars_sys_features_form.legacyUploadMimeTypes:
 
-$GLOBALS['TYPO3_CONF_VARS']['SYS']['features']['form.legacyUploadMimeTypes']
-----------------------------------------------------------------------------
+form.legacyUploadMimeTypes
+--------------------------
 
-.. confval:: form.legacyUploadMimeTypes:
+.. confval:: $GLOBALS['TYPO3_CONF_VARS']['SYS']['features']['form.legacyUploadMimeTypes']
 
    :Path: $GLOBALS['TYPO3_CONF_VARS']['SYS']['features']
    :type: bool
@@ -789,10 +804,10 @@ $GLOBALS['TYPO3_CONF_VARS']['SYS']['features']['form.legacyUploadMimeTypes']
    TYPO3_CONF_VARS SYS; features redirects.hitCount
 .. _typo3ConfVars_sys_features_redirects.hitCount:
 
-$GLOBALS['TYPO3_CONF_VARS']['SYS']['features']['redirects.hitCount']
---------------------------------------------------------------------
+redirects.hitCount
+------------------
 
-.. confval:: redirects.hitCount
+.. confval:: $GLOBALS['TYPO3_CONF_VARS']['SYS']['features']['redirects.hitCount']
 
    :Path: $GLOBALS['TYPO3_CONF_VARS']['SYS']['features']
    :type: bool
@@ -805,10 +820,10 @@ $GLOBALS['TYPO3_CONF_VARS']['SYS']['features']['redirects.hitCount']
    TYPO3_CONF_VARS SYS; features security.backend.enforceReferrer
 .. _typo3ConfVars_sys_features_security.backend.enforceReferrer:
 
-$GLOBALS['TYPO3_CONF_VARS']['SYS']['features']['security.backend.enforceReferrer']
-----------------------------------------------------------------------------------
+security.backend.enforceReferrer
+--------------------------------
 
-.. confval:: security.backend.enforceReferrer
+.. confval:: $GLOBALS['TYPO3_CONF_VARS']['SYS']['features']['security.backend.enforceReferrer']
 
    :Path: $GLOBALS['TYPO3_CONF_VARS']['SYS']['features']
    :type: bool
@@ -823,10 +838,10 @@ $GLOBALS['TYPO3_CONF_VARS']['SYS']['features']['security.backend.enforceReferrer
    TYPO3_CONF_VARS SYS; features yamlImportsFollowDeclarationOrder
 .. _typo3ConfVars_sys_features_yamlImportsFollowDeclarationOrder:
 
-$GLOBALS['TYPO3_CONF_VARS']['SYS']['features']['yamlImportsFollowDeclarationOrder']
------------------------------------------------------------------------------------
+yamlImportsFollowDeclarationOrder
+---------------------------------
 
-.. confval:: yamlImportsFollowDeclarationOrder
+.. confval:: $GLOBALS['TYPO3_CONF_VARS']['SYS']['features']['yamlImportsFollowDeclarationOrder']
 
    :Path: $GLOBALS['TYPO3_CONF_VARS']['SYS']['features']
    :type: bool
@@ -834,15 +849,14 @@ $GLOBALS['TYPO3_CONF_VARS']['SYS']['features']['yamlImportsFollowDeclarationOrde
 
    If on, the YAML imports are imported in the order they are defined in the importing YAML configuration.
 
-
 .. index::
    TYPO3_CONF_VARS SYS; availablePasswordHashAlgorithms
 .. _typo3ConfVars_sys_availablePasswordHashAlgorithms:
 
-$GLOBALS['TYPO3_CONF_VARS']['SYS']['availablePasswordHashAlgorithms']
-=====================================================================
+availablePasswordHashAlgorithms
+===============================
 
-.. confval:: availablePasswordHashAlgorithms
+.. confval:: $GLOBALS['TYPO3_CONF_VARS']['SYS']['availablePasswordHashAlgorithms']
 
    :Path: $GLOBALS['TYPO3_CONF_VARS']['SYS']['features']
    :type: array
