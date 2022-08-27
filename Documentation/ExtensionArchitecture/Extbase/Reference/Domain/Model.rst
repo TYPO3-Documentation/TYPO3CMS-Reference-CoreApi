@@ -222,7 +222,7 @@ the :php:`uid` of the translated record is kept in the :php:`_localizedUid`.
 ..  hint::
     In case your project uses :t3ext:`workspaces` there is yet another
     additional property, :php:`_versionedUid`. Refer to the
-    :ref:`Workspaces documentation <ext_workspaces:Index>` for details on
+    :doc:`Workspaces documentation <ext_workspaces:Index>` for details on
     workspace overlays.
 
 .. TODO: Explain workspaces in Extbase context
