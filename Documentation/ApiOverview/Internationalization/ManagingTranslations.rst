@@ -48,14 +48,21 @@ Language packs can also be fetched using the command line:
 Local translations
 ==================
 
-With `Virtaal <http://translate.sourceforge.net/wiki/virtaal/index>`_ it is
-possible to translate XLIFF files locally. Virtaal is an open source,
-cross-platform application.
+With `t3ll <https://github.com/garfieldius/t3ll>`__ it is possible to translate
+XLIFF files locally. t3ll is an open source, cross-platform application and runs
+on console under Linux, MacOS and Windows. It opens its editor inside a Google
+Chrome or Chromium window.
 
-..  figure:: /Images/ExternalImages/System/InternationalizationXliffWithVirtaal.png
-    :alt: Virtaal screenshot
+..  figure:: /Images/ExternalImages/System/t3ll.png
+    :alt: t3ll screenshot
 
-    Translating with Virtaal, with suggestions from other software
+    Translating with t3ll
+
+Just call on a console, for example:
+
+..  code-block:: bash
+
+    t3ll path/to/your/extension/Resources/Private/Language/locallang.xlf
 
 Translating files locally is useful for extensions which should not be published
 or for creating :ref:`custom translations <xliff-translating-custom>`.
