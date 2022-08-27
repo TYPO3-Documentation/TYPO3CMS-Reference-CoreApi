@@ -24,8 +24,7 @@ Where :php:`$translationKey` has the following format:
 
     use TYPO3\CMS\Core\Utility\GeneralUtility;
 
-    $translationKey = 'LLL:EXT:my_extension'
-        . '/Resources/Private/Language/locallang.xlf:' . $key;
+    $translationKey = 'LLL:EXT:my_extension' . '/Resources/Private/Language/locallang.xlf:' . $key;
 
 As the access to this global variable will probably change in future versions
 of TYPO3 it is considered best practice to use a wrapper function:
