@@ -55,7 +55,7 @@ This method requires the localization key as the first and the extension's
 name as the second parameter. Then the corresponding text in the current
 language will be loaded from this extension's :file:`locallang.xlf` file.
 
-The function :php:`pi_getLL` takes translation overrides from TypoScript into
+The function :php:`translate()` takes translation overrides from TypoScript into
 account. See :ref:`localization-typoscript-LOCAL_LANG`.
 
 Localization in a pi-based controllers
