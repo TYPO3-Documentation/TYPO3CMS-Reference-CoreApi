@@ -43,7 +43,7 @@ This file commonly contains translated labels to be used in the frontend.
 
 In the templates of Extbase plugins all labels in the file
 :file:`EXT:my_extension/Configuration/Resources/Private/locallang.xlf` can
-be accessed without a using the complete path:
+be accessed without using the complete path:
 
 ..  code-block:: html
     :caption: EXT:my_extension/Configuration/Resources/Templates/MyTemplate.html
