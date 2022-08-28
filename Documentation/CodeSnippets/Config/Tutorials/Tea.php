@@ -3,6 +3,7 @@
 use TYPO3\CMS\Extbase\DomainObject\AbstractEntity;
 
 return [
+    // TODO: Create code-snipperts automatically
     /*
     [
         'action'=> 'createCodeSnippet',
