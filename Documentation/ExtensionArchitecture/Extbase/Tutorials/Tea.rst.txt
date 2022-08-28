@@ -1,0 +1,33 @@
+..  include:: /Includes.rst.txt
+
+..  index::
+    Extbase; Tea
+    Tutorial; Tea
+..  _extbase_tutorial_tea:
+
+=================
+Tea in a Nutshell
+=================
+
+The example extension :t3ext:`tea` was created as an example of best practises
+on automatic code checks.
+
+..  hint::
+    If you want to learn more about automatic code checks
+    see the :doc:`documentation of tea <ext_tea:Index>` and the chapter on
+    :ref:`Testing <testing>` in this manual.
+
+In this manual, however we will ignore the testing and just explain how this
+simple and very well tested example extension works.
+
+..  attention::
+    The example extension tea should not be used as a kickstarter or
+    template for your own extension. It is simply an example to be
+    studied and copied from.
+
+Create an extension
+===================
+
+For an extension to be installable via composer it needs a file called
+:file:`composer.json`. You can read more about this file here:
+:ref:`files-composer-json`.
