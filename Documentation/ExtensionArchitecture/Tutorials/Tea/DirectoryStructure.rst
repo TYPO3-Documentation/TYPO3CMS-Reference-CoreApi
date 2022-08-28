@@ -31,7 +31,7 @@ Directory :file:`Classes`
 -------------------------
 
 The folder :file:`Classes` has to contain all PHP classes provided by the
-extension. Otherwise they are not available in the
+extension. Otherwise they are not available in the default
 :ref:`autoloading <autoload>`.
 
 See also the general chapter on the folder :ref:`extension-classes`.
