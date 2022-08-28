@@ -1,6 +1,8 @@
 .. include:: /Includes.rst.txt
 .. index:: Path; EXT:{extkey}/Documentation
 
+.. _extension-files-documentation:
+
 ================================
 :file:`Documentation`
 ================================

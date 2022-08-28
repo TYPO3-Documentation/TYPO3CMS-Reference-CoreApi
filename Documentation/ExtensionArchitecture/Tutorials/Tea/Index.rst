@@ -3,10 +3,11 @@
 ..  index::
     Extbase; Tea
     Tutorial; Tea
+    Tutorial Tea
 ..  _extbase_tutorial_tea:
 
 =================
-Tea in a Nutshell
+Tea in a nutshell
 =================
 
 The example extension :t3ext:`tea` was created as an example of best practises
@@ -25,9 +26,25 @@ simple and very well tested example extension works.
     template for your own extension. It is simply an example to be
     studied and copied from.
 
-Create an extension
-===================
+Steps in this tutorial:
 
-For an extension to be installable via composer it needs a file called
-:file:`composer.json`. You can read more about this file here:
-:ref:`files-composer-json`.
+..  rst-class:: bignums-xxl
+
+#.  :ref:`Extension configuration and installation <extbase_tutorial_tea_extension_configuration>`
+
+    Create the files needed to have a minimal running extension and install it.
+
+#.  :ref:`Directory structure <extbase_tutorial_tea_extension_configuration>`
+
+    Have a look at the directory structure of the example extension and learn
+    which files should go where.
+
+..  note::
+    This tutorial is work in progress. As we want to prevent epic pull requests,
+    we will create it step by step. Stay tuned.
+
+..  toctree::
+    :titlesonly:
+
+    ExtensionConfiguration
+    DirectoryStructure
