@@ -32,7 +32,8 @@ could look like this:
     contains roughly the same information in a different format. Have a look
     at the tab "Legacy" above.
 
-With just this file present you would be able to install the extension
+With just the :file:`composer.json` present (and for legacy installations additionally 
+:file:`ext_emconf.php`) you would be able to install the extension
 but it would not do anything.
 
 Though not required it is considered best practice for an extension to have an

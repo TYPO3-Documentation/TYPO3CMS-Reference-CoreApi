@@ -30,7 +30,7 @@ On the first level EXT:tea has the following structure:
 Directory :file:`Classes`
 -------------------------
 
-The folder :file:`Classes` has to contain all PHP classes provided by the
+The folder :file:`Classes` should contain all PHP classes provided by the
 extension. Otherwise they are not available in the default
 :ref:`autoloading <autoload>`.
 
@@ -77,7 +77,7 @@ The folder :file:`Classes` contains several subfolders:
 ..  code-block:: none
     :caption: Directory structure of EXT:tea
 
-    $ tree typo3conf/ext/tea
+    $ tree path/to/extension/tea
     ├── Classes
         ├── Controller
         ├── Domain
@@ -109,7 +109,7 @@ The folder :file:`Configuration` contains several subfolders:
 ..  code-block:: none
     :caption: Directory structure of EXT:tea
 
-    $ tree typo3conf/ext/tea
+    $ tree path/to/extension/tea
     ├── Configuration
         ├── FlexForms
         ├── TCA
@@ -159,7 +159,7 @@ further divided:
 ..  code-block:: none
     :caption: Directory structure of EXT:tea
 
-    $ tree typo3conf/ext/tea
+    $ tree /path/to/extension/tea
     ├── Resources
         ├── Private
         |   ├── Language
