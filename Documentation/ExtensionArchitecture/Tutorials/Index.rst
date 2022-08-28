@@ -37,14 +37,15 @@ Tutorials
                     `tea` is a simple, well tested extension based on
                     Extbase.
 
-                    This tutorial explains guides you through the different
+                    This tutorial guides you through the different
                     files, configuration formats and PHP classes needed for
                     an Extbase extension. Automatic tests are not covered in
-                    this tutorial.
+                    this tutorial. Refer to the extensions manual for this
+                    topic.
 
 ..  toctree::
     :titlesonly:
-    :glob:
     :hidden:
 
-    *
+    MinimalExtension
+    Tea/Index
