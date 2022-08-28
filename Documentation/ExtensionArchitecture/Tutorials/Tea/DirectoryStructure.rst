@@ -37,7 +37,8 @@ extension. Otherwise they are not available in the default
 See also the general chapter on the folder :ref:`extension-classes`.
 
 In the :file:`composer.json` we have defined that all PHP classes are
-automatically loaded from the :file:`Classes` directory:
+automatically loaded from the :file:`Classes` directory (and additionally
+in file:`ext_emconf.php` for legacy installations):
 
 ..  tabs::
 
@@ -69,8 +70,9 @@ automatically loaded from the :file:`Classes` directory:
                 ],
             ];
 
-Further this line defines the namespace all PHP classes in this directory
-have to be situated in to be found by the :ref:`PSR-4 autoloading <autoload>`.
+The key of the psr-4 array, here :php:`'TTN\\Tea\\'` defines the namespace
+that all classes in this directory must be situated in to be found by
+the :ref:`PSR-4 autoloading <autoload>`.
 
 The folder :file:`Classes` contains several subfolders:
 
@@ -124,23 +126,27 @@ The folder :file:`Configuration` contains several subfolders:
 
 :file:`Configuration/FlexForms`
     Contains the configuration of additional input fields to
-    configure plugins.
+    configure plugins in the format :ref:`FlexForm <flexforms>`.
 :file:`Configuration/TCA`
-    Contains the TYPO3 configuration array (TCA) as PHP arrays.
+    Contains the :ref:`TYPO3 configuration array (TCA) <t3tca:introduction>`
+    as PHP arrays.
 :file:`Configuration/TCA/Overrides`
     Can be used to extend the TCA of other extensions. They can be extended
     by direct array manipulation or (preferred if possible) by calls to
     API functions.
 :file:`Configuration/TsConfig`
-    Contains configurations for the TYPO3 backend on page or user level in
-    the syntax TypoScript. This extension does not feature TS
+    Contains :doc:`TSconfig <t3tsconfig:Index>` configurations for the TYPO3
+    backend on page or user level in the syntax of TypoScript. This extension
+    does not feature TSconfig, therefore the folder is only a placeholder here.
 :file:`Configuration/TypoScript`
-    Contains configurations for the TYPO3 frontend. In some contexts the
-    configuration contained here is also considered in the backend.
+    Contains :ref:`TypoScript <typoscript-syntax-about>` configurations for
+    the frontend. In some contexts the configuration contained here is also
+    considered in the backend.
 :file:`Configuration/Services.yaml`
     Is used to configure technical aspects of the extension including
-    automatic wiring, automatic configuration and options for dependency
-    injection.
+    automatic wiring, automatic configuration and options for
+    :ref:`dependency injection <Dependency-Injection>`. See also
+    :ref:`extension-configuration-services-yaml`.
 
 Directory :file:`Documentation`
 -------------------------------
@@ -176,7 +182,11 @@ further divided:
 :file:`Resources/Private`
     All resource files that do not have to be loaded directly by a browser
     **should** go in this directory. This includes Fluid templating files
-
+    and localization files.
+:file:`Resources/Public`
+    All resource files have to be loaded directly by a browser
+    **must** go in this directory. Otherwise they are not accessible
+    depending on the setup of the installation.
 
 Directory :file:`Tests`
 -----------------------
