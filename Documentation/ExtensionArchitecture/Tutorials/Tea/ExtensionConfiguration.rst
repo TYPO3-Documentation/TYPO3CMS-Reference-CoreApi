@@ -28,7 +28,7 @@ could look like this:
 
 ..  hint::
     If the extension should also be available for legacy installations it
-    also needs a file called :file:`EXT:tea/ext_emconf.php`. This file
+    also needs a file called :file:`ext_emconf.php`. This file
     contains roughly the same information in a different format. Have a look
     at the tab "Legacy" above.
 

@@ -124,7 +124,7 @@ The folder :file:`Configuration` contains several subfolders:
 
 :file:`Configuration/FlexForms`
     Contains the configuration of additional input fields to
-    configure the plugin.
+    configure plugins.
 :file:`Configuration/TCA`
     Contains the TYPO3 configuration array (TCA) as PHP arrays.
 :file:`Configuration/TCA/Overrides`
@@ -174,7 +174,7 @@ further divided:
 
 
 :file:`Resources/Private`
-    All ressource files that do not have to be loaded directly by a browser
+    All resource files that do not have to be loaded directly by a browser
     **should** go in this directory. This includes Fluid templating files
 
 
