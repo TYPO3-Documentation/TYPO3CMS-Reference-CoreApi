@@ -16,7 +16,7 @@ On the first level EXT:tea has the following structure:
 ..  code-block:: none
     :caption: Directory structure of EXT:tea
 
-    $ tree typo3conf/ext/tea
+    $ tree /path/to/extension/tea
     ├── Classes
     ├── Configuration
     ├── Documentation
