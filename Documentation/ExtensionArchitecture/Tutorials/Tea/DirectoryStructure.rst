@@ -37,7 +37,7 @@ extension. Otherwise they are not available in the
 See also the general chapter on the folder :ref:`extension-classes`.
 
 In the :file:`composer.json` we have defined that all PHP classes are
-automatically be loaded from the directory :file:`Classes`:
+automatically loaded from the :file:`Classes` directory:
 
 ..  tabs::
 
