@@ -16,6 +16,7 @@ existing TCA.
     :titlesonly:
     :glob:
 
+    Configuration
     CreateNewExtension
     CreateNewDistribution
     ExtensionManagement
