@@ -23,7 +23,7 @@ In this manual, however we will ignore the testing and just explain how this
 
 ..  attention::
     The example extension tea should not be used as a kickstarter or
-    template for your own extension. It is simply an example to be
+    template for your own extension. It is an example to be
     studied and copied from.
 
 Steps in this tutorial:
