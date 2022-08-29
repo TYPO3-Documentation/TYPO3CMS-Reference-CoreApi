@@ -11,7 +11,7 @@ Create a directory structure
 Extbase requires or defaults to a certain directory structure. It is considered
 best practise to always stick to this structure.
 
-On the first level EXT:tea has the following structure:
+On the first level `EXT:tea <https://github.com/TYPO3-Documentation/tea>`__ has the following structure:
 
 ..  code-block:: none
     :caption: Directory structure of EXT:tea
