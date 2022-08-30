@@ -5,40 +5,50 @@
    TYPO3_CONF_VARS HTTP
 .. _typo3ConfVars_http:
 
-===================================
-$GLOBALS['TYPO3_CONF_VARS']['HTTP']
-===================================
+====================
+HTTP - tune requests
+====================
 
 HTTP configuration to tune how TYPO3 behaves on HTTP requests made by TYPO3.
 See `Guzzle documentation <https://docs.guzzlephp.org/en/latest/request-options.html>`__
 for more background information on those settings.
 
+..  contents::
+    :local:
+
+..  note::
+    The configuration values listed here are keys in the global PHP array
+    :php:`$GLOBALS['TYPO3_CONF_VARS']['HTTP']`.
+
+    This variable can be set in one of the following files:
+
+    *   :ref:`typo3conf/LocalConfiguration.php <typo3ConfVars-localConfiguration>`
+    *   :ref:`typo3conf/AdditionalConfiguration.php <typo3ConfVars-additionalConfiguration>`
+
+
 .. index::
    TYPO3_CONF_VARS HTTP; allow_redirects
 .. _typo3ConfVars_http_allow_redirects:
 
-$GLOBALS['TYPO3_CONF_VARS']['HTTP']['allow_redirects']
-======================================================
+allow_redirects
+===============
 
-.. confval:: allow_redirects
+.. confval:: $GLOBALS['TYPO3_CONF_VARS']['HTTP']['allow_redirects']
 
-   :Path: $GLOBALS['TYPO3_CONF_VARS']['HTTP']
    :type: mixed
 
    Mixed, set to false if you want to disallow redirects, or use it as an
-   array to add more values.
-
+   array to add more configuration values (see below).
 
 .. index::
    TYPO3_CONF_VARS HTTP; allow_redirects strict
 .. _typo3ConfVars_http_allow_redirects_strict:
 
-$GLOBALS['TYPO3_CONF_VARS']['HTTP']['allow_redirects']['strict']
-----------------------------------------------------------------
+strict
+------
 
-.. confval:: allow_redirects strict
+.. confval:: $GLOBALS['TYPO3_CONF_VARS']['HTTP']['allow_redirects']['strict']
 
-   :Path: $GLOBALS['TYPO3_CONF_VARS']['HTTP']
    :type: bool
    :Default: false
 
@@ -56,12 +66,11 @@ $GLOBALS['TYPO3_CONF_VARS']['HTTP']['allow_redirects']['strict']
    TYPO3_CONF_VARS HTTP; allow_redirects max
 .. _typo3ConfVars_http_allow_redirects_max:
 
-$GLOBALS['TYPO3_CONF_VARS']['HTTP']['allow_redirects']['max']
--------------------------------------------------------------
+max
+---
 
-.. confval:: allow_redirects max
+.. confval:: $GLOBALS['TYPO3_CONF_VARS']['HTTP']['allow_redirects']['max']
 
-   :Path: $GLOBALS['TYPO3_CONF_VARS']['HTTP']
    :type: int
    :Default: 5
 
@@ -71,12 +80,11 @@ $GLOBALS['TYPO3_CONF_VARS']['HTTP']['allow_redirects']['max']
    TYPO3_CONF_VARS HTTP; cert
 .. _typo3ConfVars_http_cert:
 
-$GLOBALS['TYPO3_CONF_VARS']['HTTP']['cert']
-===========================================
+cert
+====
 
-.. confval:: cert
+.. confval:: $GLOBALS['TYPO3_CONF_VARS']['HTTP']['cert']
 
-   :Path: $GLOBALS['TYPO3_CONF_VARS']['HTTP']
    :type: mixed
    :Default: null
 
@@ -88,12 +96,11 @@ $GLOBALS['TYPO3_CONF_VARS']['HTTP']['cert']
    TYPO3_CONF_VARS HTTP; connect_timeout
 .. _typo3ConfVars_http_connect_timeout:
 
-$GLOBALS['TYPO3_CONF_VARS']['HTTP']['connect_timeout']
-======================================================
+connect_timeout
+===============
 
-.. confval:: connect_timeout
+.. confval:: $GLOBALS['TYPO3_CONF_VARS']['HTTP']['connect_timeout']
 
-   :Path: $GLOBALS['TYPO3_CONF_VARS']['HTTP']
    :type: int
    :Default: 10
 
@@ -104,12 +111,11 @@ $GLOBALS['TYPO3_CONF_VARS']['HTTP']['connect_timeout']
    TYPO3_CONF_VARS HTTP; proxy
 .. _typo3ConfVars_http_proxy:
 
-$GLOBALS['TYPO3_CONF_VARS']['HTTP']['proxy']
-====================================================
+proxy
+=====
 
-.. confval:: proxy
+.. confval:: $GLOBALS['TYPO3_CONF_VARS']['HTTP']['proxy']
 
-   :Path: $GLOBALS['TYPO3_CONF_VARS']['HTTP']
    :type: mixed
    :Default: null
 
@@ -128,12 +134,11 @@ $GLOBALS['TYPO3_CONF_VARS']['HTTP']['proxy']
    TYPO3_CONF_VARS HTTP; ssl_key
 .. _typo3ConfVars_http_ssl_key:
 
-$GLOBALS['TYPO3_CONF_VARS']['HTTP']['ssl_key']
-====================================================
+ssl_key
+=======
 
-.. confval:: ssl_key
+.. confval:: $GLOBALS['TYPO3_CONF_VARS']['HTTP']['ssl_key']
 
-   :Path: $GLOBALS['TYPO3_CONF_VARS']['HTTP']
    :type: mixed
    :Default: null
 
@@ -144,12 +149,11 @@ $GLOBALS['TYPO3_CONF_VARS']['HTTP']['ssl_key']
    TYPO3_CONF_VARS HTTP; timeout
 .. _typo3ConfVars_http_timeout:
 
-$GLOBALS['TYPO3_CONF_VARS']['HTTP']['timeout']
-====================================================
+timeout
+=======
 
-.. confval:: timeout
+.. confval:: $GLOBALS['TYPO3_CONF_VARS']['HTTP']['timeout']
 
-   :Path: $GLOBALS['TYPO3_CONF_VARS']['HTTP']
    :type: int
    :Default: 0
 
@@ -164,12 +168,11 @@ $GLOBALS['TYPO3_CONF_VARS']['HTTP']['timeout']
    TYPO3_CONF_VARS HTTP; verify
 .. _typo3ConfVars_http_verify:
 
-$GLOBALS['TYPO3_CONF_VARS']['HTTP']['verify']
-====================================================
+verify
+======
 
-.. confval:: verify
+.. confval:: $GLOBALS['TYPO3_CONF_VARS']['HTTP']['verify']
 
-   :Path: $GLOBALS['TYPO3_CONF_VARS']['HTTP']
    :type: mixed
    :Default: true
 
@@ -180,12 +183,11 @@ $GLOBALS['TYPO3_CONF_VARS']['HTTP']['verify']
    TYPO3_CONF_VARS HTTP; version
 .. _typo3ConfVars_http_version:
 
-$GLOBALS['TYPO3_CONF_VARS']['HTTP']['version']
-====================================================
+version
+=======
 
-.. confval:: version
+.. confval:: $GLOBALS['TYPO3_CONF_VARS']['HTTP']['version']
 
-   :Path: $GLOBALS['TYPO3_CONF_VARS']['HTTP']
    :type: text
    :Default: '1.1'
 
