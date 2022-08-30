@@ -1,23 +1,38 @@
 .. include:: /Includes.rst.txt
 
-.. index::
-   TYPO3_CONF_VARS; DB
+..  index::
+    TYPO3_CONF_VARS; DB
+    Database; Connections
 .. _typo3ConfVars_db:
 
-=================================
-$GLOBALS['TYPO3_CONF_VARS']['DB']
-=================================
+=========================
+DB - Database connections
+=========================
+
+The following configuration variables can be used to configure settings for
+the connection to the database:
+
+..  contents::
+    :local:
+
+..  note::
+    The configuration values listed here are keys in the global PHP array
+    :php:`$GLOBALS['TYPO3_CONF_VARS']['DB']`.
+
+    This variable can be set in one of the following files:
+
+    *   :ref:`typo3conf/LocalConfiguration.php <typo3ConfVars-localConfiguration>`
+    *   :ref:`typo3conf/AdditionalConfiguration.php <typo3ConfVars-additionalConfiguration>`
 
 .. index::
    TYPO3_CONF_VARS DB; additionalQueryRestrictions
 .. _typo3ConfVars_db_additionalQueryRestrictions:
 
-$GLOBALS['TYPO3_CONF_VARS']['DB']['additionalQueryRestrictions']
-================================================================
+additionalQueryRestrictions
+===========================
 
-.. confval:: additionalQueryRestrictions
+.. confval:: $GLOBALS['TYPO3_CONF_VARS']['DB']['additionalQueryRestrictions']
 
-   :Path: $GLOBALS['TYPO3_CONF_VARS']['DB']
    :type: array
    :Default: []
 
@@ -30,12 +45,11 @@ $GLOBALS['TYPO3_CONF_VARS']['DB']['additionalQueryRestrictions']
    TYPO3_CONF_VARS DB; Connections
 .. _typo3ConfVars_db_connections:
 
-$GLOBALS['TYPO3_CONF_VARS']['DB']['Connections']
-================================================
+Connections
+===========
 
-.. confval:: Connections
+.. confval:: $GLOBALS['TYPO3_CONF_VARS']['DB']['Connections']
 
-   :Path: $GLOBALS['TYPO3_CONF_VARS']['DB']
    :type: array
 
    One or more database connections can be configured under the
@@ -94,12 +108,11 @@ $GLOBALS['TYPO3_CONF_VARS']['DB']['Connections']
    TYPO3_CONF_VARS DB; Connections Charset
 .. _typo3ConfVars_db_connections_charset:
 
-$GLOBALS['TYPO3_CONF_VARS']['DB']['Connections'][<connection_name>]['charset']
-------------------------------------------------------------------------------
+charset
+-------
 
-.. confval:: Connections <connection_name> charset
+.. confval:: $GLOBALS['TYPO3_CONF_VARS']['DB']['Connections'][<connection_name>]['charset']
 
-   :Path: $GLOBALS['TYPO3_CONF_VARS']['DB']
    :type: string
    :Default: 'utf8'
 
@@ -111,12 +124,11 @@ $GLOBALS['TYPO3_CONF_VARS']['DB']['Connections'][<connection_name>]['charset']
    TYPO3_CONF_VARS DB; Connections Database name
 .. _typo3ConfVars_db_connections_dbname:
 
-$GLOBALS['TYPO3_CONF_VARS']['DB']['Connections'][<connection_name>]['dbname']
------------------------------------------------------------------------------
+dbname
+------
 
-.. confval:: Connections <connection_name> dbname
+.. confval:: $GLOBALS['TYPO3_CONF_VARS']['DB']['Connections'][<connection_name>]['dbname']
 
-   :Path: $GLOBALS['TYPO3_CONF_VARS']['DB']
    :type: string
 
    Name of the database/schema to connect to. Can be used with
@@ -127,12 +139,11 @@ $GLOBALS['TYPO3_CONF_VARS']['DB']['Connections'][<connection_name>]['dbname']
    TYPO3_CONF_VARS DB; Connections Driver
 .. _typo3ConfVars_db_connections_driver:
 
-$GLOBALS['TYPO3_CONF_VARS']['DB']['Connections'][<connection_name>]['driver']
------------------------------------------------------------------------------
+driver
+------
 
-.. confval:: Connections <connection_name> driver
+.. confval:: $GLOBALS['TYPO3_CONF_VARS']['DB']['Connections'][<connection_name>]['driver']
 
-   :Path: $GLOBALS['TYPO3_CONF_VARS']['DB']
    :type: string
 
    The built-in driver implementation to use. The following drivers are
@@ -152,12 +163,11 @@ $GLOBALS['TYPO3_CONF_VARS']['DB']['Connections'][<connection_name>]['driver']
    TYPO3_CONF_VARS DB; Connections Host
 .. _typo3ConfVars_db_connections_host:
 
-$GLOBALS['TYPO3_CONF_VARS']['DB']['Connections'][<connection_name>]['host']
--------------------------------------------------------------------------------
+host
+----
 
-.. confval:: Connections <connection_name> host
+.. confval:: $GLOBALS['TYPO3_CONF_VARS']['DB']['Connections'][<connection_name>]['host']
 
-   :Path: $GLOBALS['TYPO3_CONF_VARS']['DB']
    :type: string
 
    Hostname or IP address of the database to connect to. Can be used with
@@ -168,12 +178,11 @@ $GLOBALS['TYPO3_CONF_VARS']['DB']['Connections'][<connection_name>]['host']
    TYPO3_CONF_VARS DB; Connections Password
 .. _typo3ConfVars_db_connections_password:
 
-$GLOBALS['TYPO3_CONF_VARS']['DB']['Connections'][<connection_name>]['password']
--------------------------------------------------------------------------------
+password
+--------
 
-.. confval:: Connections <connection_name> password
+.. confval:: $GLOBALS['TYPO3_CONF_VARS']['DB']['Connections'][<connection_name>]['password']
 
-   :Path: $GLOBALS['TYPO3_CONF_VARS']['DB']
    :type: string
 
     Password to use when connecting to the database.
@@ -183,12 +192,11 @@ $GLOBALS['TYPO3_CONF_VARS']['DB']['Connections'][<connection_name>]['password']
    TYPO3_CONF_VARS DB; Connections Path
 .. _typo3ConfVars_db_connections_path:
 
-$GLOBALS['TYPO3_CONF_VARS']['DB']['Connections'][<connection_name>]['path']
--------------------------------------------------------------------------------
+path
+----
 
-.. confval:: Connections <connection_name> path
+.. confval:: $GLOBALS['TYPO3_CONF_VARS']['DB']['Connections'][<connection_name>]['path']
 
-   :Path: $GLOBALS['TYPO3_CONF_VARS']['DB']
    :type: string
 
    The filesystem path to the SQLite database file.
@@ -198,12 +206,11 @@ $GLOBALS['TYPO3_CONF_VARS']['DB']['Connections'][<connection_name>]['path']
    TYPO3_CONF_VARS DB; Connections Port
 .. _typo3ConfVars_db_connections_port:
 
-$GLOBALS['TYPO3_CONF_VARS']['DB']['Connections'][<connection_name>]['port']
----------------------------------------------------------------------------
+port
+----
 
-.. confval:: Connections <connection_name> port
+.. confval:: $GLOBALS['TYPO3_CONF_VARS']['DB']['Connections'][<connection_name>]['port']
 
-   :Path: $GLOBALS['TYPO3_CONF_VARS']['DB']
    :type: string
 
    Port of the database to connect to. Can be used with MySQL/MariaDB and
@@ -214,12 +221,11 @@ $GLOBALS['TYPO3_CONF_VARS']['DB']['Connections'][<connection_name>]['port']
    TYPO3_CONF_VARS DB; Connections Table options
 .. _typo3ConfVars_db_connections_tableoptions:
 
-$GLOBALS['TYPO3_CONF_VARS']['DB']['Connections'][<connection_name>]['tableoptions']
------------------------------------------------------------------------------------
+tableoptions
+------------
 
-.. confval:: Connections <connection_name> tableoptions
+.. confval:: $GLOBALS['TYPO3_CONF_VARS']['DB']['Connections'][<connection_name>]['tableoptions']
 
-   :Path: $GLOBALS['TYPO3_CONF_VARS']['DB']
    :type: array
    :Default: []
 
@@ -248,12 +254,11 @@ $GLOBALS['TYPO3_CONF_VARS']['DB']['Connections'][<connection_name>]['tableoption
    TYPO3_CONF_VARS DB; Connections Unix socket
 .. _typo3ConfVars_db_connections_unixsocket:
 
-$GLOBALS['TYPO3_CONF_VARS']['DB']['Connections'][<connection_name>]['unix_socket']
-----------------------------------------------------------------------------------
+unix_socket
+-----------
 
-.. confval:: Connections <connection_name> unix_socket
+.. confval:: $GLOBALS['TYPO3_CONF_VARS']['DB']['Connections'][<connection_name>]['unix_socket']
 
-   :Path: $GLOBALS['TYPO3_CONF_VARS']['DB']
    :type: string
 
    Name of the socket used to connect to the database. Can be used with
@@ -263,12 +268,11 @@ $GLOBALS['TYPO3_CONF_VARS']['DB']['Connections'][<connection_name>]['unix_socket
    TYPO3_CONF_VARS DB; Connections User
 .. _typo3ConfVars_db_connections_user:
 
-$GLOBALS['TYPO3_CONF_VARS']['DB']['Connections'][<connection_name>]['user']
----------------------------------------------------------------------------
+user
+----
 
-.. confval:: Connections <connection_name> user
+.. confval:: $GLOBALS['TYPO3_CONF_VARS']['DB']['Connections'][<connection_name>]['user']
 
-   :Path: $GLOBALS['TYPO3_CONF_VARS']['DB']
    :type: string
 
    Username to use when connecting to the database.
@@ -278,12 +282,11 @@ $GLOBALS['TYPO3_CONF_VARS']['DB']['Connections'][<connection_name>]['user']
    TYPO3_CONF_VARS DB; TableMapping
 .. _typo3ConfVars_db_tablemapping:
 
-$GLOBALS['TYPO3_CONF_VARS']['DB']['TableMapping']
-=================================================
+TableMapping
+============
 
-.. confval:: TableMapping
+.. confval:: $GLOBALS['TYPO3_CONF_VARS']['DB']['TableMapping']
 
-   :Path: $GLOBALS['TYPO3_CONF_VARS']['DB']
    :type: array
    :Default: []
 
