@@ -79,7 +79,7 @@ automatically parse for links. These two classes have to be injected via
     use TYPO3\CMS\Linkvalidator\Event\BeforeRecordIsAnalyzedEvent;
     use TYPO3\CMS\Linkvalidator\Repository\BrokenLinkRepository;
 
-    class BeforeRecordIsAnalyzedEventListener
+    final class BeforeRecordIsAnalyzedEventListener
     {
         protected BrokenLinkRepository $brokenLinkRepository;
         protected SoftReferenceParserFactory $softReferenceParserFactory;
