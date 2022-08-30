@@ -5,7 +5,6 @@
 
     return array_merge(
         include('Config/Extbase.php'),
-        /*
         include('Config/EventsBackend.php'),
         include('Config/EventsCore.php'),
         include('Config/EventsCoreResource.php'),
@@ -21,5 +20,7 @@
         include('Config/EventsSeo.php'),
         include('Config/EventsSetup.php'),
         include('Config/EventsWorkspaces.php'),
-        */
+        include('Config/ManualBackend.php'),
+        include('Config/ManualCore.php'),
+        include('Config/Tutorials/Tea.php'),
     );
