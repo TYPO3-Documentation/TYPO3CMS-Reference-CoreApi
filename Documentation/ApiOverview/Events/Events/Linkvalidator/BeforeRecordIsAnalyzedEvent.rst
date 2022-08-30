@@ -13,7 +13,7 @@ before the :doc:`LinkValidator <ext_linkvalidator:Index>` analyzes the record.
 Example
 =======
 
-In this example we are checking if there are external links containing the url
+In this example we are checking if there are external links containing the URL
 of the project itself as editors tend to set external links on internal pages
 at times.
 
