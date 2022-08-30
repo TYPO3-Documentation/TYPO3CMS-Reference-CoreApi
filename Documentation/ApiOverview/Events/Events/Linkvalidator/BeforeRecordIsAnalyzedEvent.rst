@@ -133,7 +133,7 @@ In this example we only check the field :sql:`bodytext` of new tables:
                                 'link_type' => 'external',
                             ];
                             // Insert it into the repository with
-                            // A meaningfull exception text and a unique error number
+                            // a meaningful exception text and a unique error number
                             $this->brokenLinkRepository->addBrokenLink($link, false, [
                                 'errorType' => 'exception',
                                 'exception' => 'Do not link externally to ' . $forbiddenDomain,
