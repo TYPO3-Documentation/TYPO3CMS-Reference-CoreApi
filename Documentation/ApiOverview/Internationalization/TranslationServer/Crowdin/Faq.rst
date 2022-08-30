@@ -45,6 +45,24 @@ of the extension or the :ref:`crowdin-initiative`.
 
    The language needs to be supported by TYPO3 itself as well, see :ref:`i18n_languages` for a list of all languages.
 
+.. _crowdin-faq-language-xlf-format:
+
+How to convert to the new language xlf file format
+--------------------------------------------------
+If you are downloading a xlf file from the Pootle language server or an old version of an extension,
+then it does not have the correct format. You can use a linux tool or a sophisticated editor to convert
+the xlf file into the new format based on regular expressions.
+
+Example for the KDE Kate edtor:
+
+#. Open the xlf file into the editor.
+#. Press :kbd:`Ctrl` + :kbd:`R` to get into the replace mode
+#. Find:    `id="(.+)"`
+   Replace: `id="\1" resname="\1"`
+#. Mode:     Regular expression
+#. Click on button `Replace all`
+
+
 Questions about extension integration
 =====================================
 
