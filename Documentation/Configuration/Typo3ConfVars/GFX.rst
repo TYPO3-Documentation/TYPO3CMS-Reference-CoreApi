@@ -10,7 +10,7 @@ GFX - graphics configuration
 ============================
 
 The following configuration variables can be used to configure settings for
-the handling images and graphics:
+the handling of images and graphics:
 
 ..  contents::
     :local:
