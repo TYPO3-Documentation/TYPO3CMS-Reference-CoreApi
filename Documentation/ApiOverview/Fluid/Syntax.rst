@@ -250,7 +250,7 @@ Boolean conditions can be used as ViewHelper arguments, whenever the datatype
 
 Examples:
 
-.. code-block:: html
+.. code-block:: none
 
    <f:if condition="{myObject}">
      ...

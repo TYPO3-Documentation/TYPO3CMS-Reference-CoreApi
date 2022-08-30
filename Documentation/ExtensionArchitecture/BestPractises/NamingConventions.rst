@@ -392,16 +392,6 @@ Examples:
 
    This follows `PSR-1 <https://www.php-fig.org/psr/psr-1/>`__ conventions.
 
-
-Extbase
-=======
-
-Extbase has some of its own conventions.
-
-.. seealso::
-
-    * :ref:`Extbase CGL <t3extbasebook:extbase-cgl>`.
-
 Upgrade wizard identifier
 =========================
 
@@ -441,5 +431,4 @@ Further reading
    * :ref:`extension key <extension-key>`
    * :ref:`publish-extension`
    * :ref:`cgl`
-   * :ref:`Extbase CGL <t3extbasebook:extbase-cgl>`
    * :ref:`Xliff language file id naming conventions <xliff-id-naming>`

@@ -12,5 +12,9 @@ This content has moved to:
 .. rst-class:: horizbuttons-tip-xxl
 
 
-- :ref:`t3ds`
+**Contents:**
 
+.. toctree::
+   :titlesonly:
+
+   T3datastructure/Index

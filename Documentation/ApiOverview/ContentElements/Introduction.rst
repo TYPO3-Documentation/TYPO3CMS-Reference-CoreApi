@@ -94,9 +94,9 @@ Creating custom content element types or plugins
 The following chapters handle how to create custom content element types and
 plugins:
 
-* :ref:`adding-your-own-content-elements`
-* :ref:`t3extbasebook:configuring-the-plugin` in the "Extbase / Fluid book"
-
+*   :ref:`adding-your-own-content-elements`
+*   :ref:`Registering frontend plugins in
+    Extbase <extbase_registration_of_frontend_plugins>`
 
 How to make your plugins or content elements configurable by editors with
 

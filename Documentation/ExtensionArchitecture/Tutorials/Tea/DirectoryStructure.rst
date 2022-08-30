@@ -2,7 +2,7 @@
 
 ..  index::
     Tutorial Tea; Directory structure
-..  _extbase_tutorial_tea_extension_configuration:
+..  _extbase_tutorial_tea_directury_structure:
 
 ============================
 Create a directory structure
