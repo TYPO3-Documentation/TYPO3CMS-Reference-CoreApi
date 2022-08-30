@@ -50,8 +50,10 @@ of the extension or the :ref:`crowdin-initiative`.
 How to convert to the new language xlf file format
 --------------------------------------------------
 If you are downloading a xlf file from the Pootle language server or an old version of an extension,
-then it does not have the correct format. You can use a linux tool or a sophisticated editor to convert
-the xlf file into the new format based on regular expressions.
+then it does not have the correct format. You need to remove some attributes.
+And you need to add the "resname" attribute.
+For this you can use a linux tool or a sophisticated editor to copy the id attribute into the resname of
+the xlf file based on regular expressions.
 
 Example for the KDE Kate edtor:
 
