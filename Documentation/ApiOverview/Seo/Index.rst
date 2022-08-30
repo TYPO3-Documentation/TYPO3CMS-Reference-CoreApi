@@ -67,10 +67,9 @@ SEO for Developers
     - The MetaTagApi (see :ref:`metatagapi`) to add dynamic meta tags
     - The PageTitleAPI (see :ref:`pagetitle`) to manipulate the page title
 
-.. toctree::
-   :maxdepth: 1
+..  toctree::
+    :maxdepth: 1
+    :glob:
 
-   ../CanonicalApi/Index
-   ../MetaTagApi/Index
-   ../PageTitleApi/Index
-   ../XmlSitemap/Index
+    *
+
