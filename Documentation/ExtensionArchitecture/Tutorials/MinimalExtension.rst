@@ -190,12 +190,12 @@ not only TYPO3 v11.5.x is allowed but also v12.x:
 
 ..  code-block:: json
     :caption: EXT:speeddemo/composer.json
-    :emphasize-lines: 7
+    :emphasize-lines: 6
 
     {
         "name": "typo3-documentation-team/speeddemo",
         "type": "typo3-cms-extension",
-        // ...
+        "...": "...",
         "require": {
             "typo3/cms-core": "^11.5 || ^12.0"
         },
