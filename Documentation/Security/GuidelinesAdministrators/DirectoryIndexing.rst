@@ -8,7 +8,7 @@ Disable directory indexing
 
 Depending on the operating system and distribution, Apache’s default configuration may have directory indexing enabled by default.
 
-This allows search engines to index the file structure of your site and potentially 
+This allows search engines to index the file structure of your site and potentially
 reveal sensitive data. The screenshot below shows an example of the kind
 data that can be retrieved with a simple HTTP request.
 
@@ -31,7 +31,7 @@ and only enable indexing on a case-by-case basis.
    :local:
 
 Apache web server
-===============
+=================
 
 By removing the `Indexes` from `Options` (or not setting it in the first place),
 Apache does not show the list of files and directories.

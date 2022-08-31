@@ -23,8 +23,5 @@ created, how existing content elements or plugins can be customized etc.
    CreatePlugins
    CustomBackendPreview
    ContentElementsWizard
-   ../FlexForms/Index
-   ../../DataFormats/T3datastructure/Index
-   ../BackendLayout/Index
    BestPractices
 
