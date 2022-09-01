@@ -48,16 +48,12 @@ Tutorials
 
             ..  rst-class:: card-header h3
 
-                ..  rubric:: :ref:`Tea in a nutshell <extbase_tutorial_tea>`
+                ..  rubric:: :ref:`Extension development with extbase <extbase_tutorials>`
 
             ..  container:: card-body
 
-                `tea` is a simple, well-tested extension based on Extbase.
-
-                This tutorial guides you through the different files,
-                configuration formats and PHP classes needed for an Extbase
-                extension. Automatic tests are not covered in this tutorial.
-                Refer to the extensions manual for this topic.
+                Extension Development with Extbase, a video from the TYPO3
+                Developer Days 2019
 
 ..  toctree::
     :titlesonly:
