@@ -41,9 +41,28 @@ Tutorials
                 extension. Automatic tests are not covered in this tutorial.
                 Refer to the extensions manual for this topic.
 
+
+    ..  container:: col-md-6 pl-0 pr-3 py-3 m-0
+
+        ..  container:: card px-0 h-100
+
+            ..  rst-class:: card-header h3
+
+                ..  rubric:: :ref:`Tea in a nutshell <extbase_tutorial_tea>`
+
+            ..  container:: card-body
+
+                `tea` is a simple, well-tested extension based on Extbase.
+
+                This tutorial guides you through the different files,
+                configuration formats and PHP classes needed for an Extbase
+                extension. Automatic tests are not covered in this tutorial.
+                Refer to the extensions manual for this topic.
+
 ..  toctree::
     :titlesonly:
     :hidden:
 
     MinimalExtension
     Tea/Index
+    Extbase/Index
