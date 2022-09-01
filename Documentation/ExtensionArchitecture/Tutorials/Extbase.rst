@@ -4,7 +4,7 @@
 .. _extbase_tutorials:
 
 ===================================
-Extension development with extbase
+Extension development with Extbase
 ===================================
 
 Extension Development with Extbase @ TYPO3 Developer Days 2019
