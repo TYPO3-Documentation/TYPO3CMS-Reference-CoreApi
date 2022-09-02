@@ -35,7 +35,8 @@
 
 .. attention::
    TYPO3 v9 has reached its end-of-life September 30th, 2021 and is not
-   maintained by the community anymore.
+   maintained by the community anymore. Looking for a stable version?
+   Use the version switch on the top right.
 
    You can order Extended Long Term Support (ELTS) here:
    `TYPO3 ELTS <https://typo3.com/services/extended-support-elts>`__.
