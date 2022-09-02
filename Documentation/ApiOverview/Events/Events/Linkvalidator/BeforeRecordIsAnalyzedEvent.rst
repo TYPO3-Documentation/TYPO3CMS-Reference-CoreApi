@@ -71,7 +71,7 @@ we add the an entry to the :php:`BrokenLinkRepository` and to the result set of
 
 The :php:`BrokenLinkRepository` is not an Extbase repository but a repository
 based on the :ref:`Doctrine database abstraction (DBAL) <Database_Introduction>`.
-It therefore expects an array with the names of the database fields as entry and
+It therefore expects an array with the names of the table fields as argument and
 not an Extbase model. The method internally uses
 :php:`TYPO3\CMS\Core\Database\Connection::insert`. This method automatically
 quotes all identifiers and values, we therefore do not worry about escaping here.
