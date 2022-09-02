@@ -12,3 +12,10 @@
 
 .. default-role:: code
 .. highlight:: php
+
+..  attention::
+    TYPO3 v6 has reached its end-of-life April 18th, 2017 and is not
+    maintained by the community anymore.
+
+    There is no further ELTS support. It is strongly recommended updating
+    your project.

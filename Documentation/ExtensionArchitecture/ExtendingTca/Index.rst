@@ -10,7 +10,7 @@
 .. INTENTION: Direct users to correct information, avoid 404 pages.
 
 
-.. include:: /Includes.rst.txt
+.. include:: /Includes.txt
 
 .. _extending:
 .. _extending-tca:
