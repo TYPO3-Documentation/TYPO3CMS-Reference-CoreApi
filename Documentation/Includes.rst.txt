@@ -32,3 +32,10 @@
 .. By default, code blocks use PHP syntax highlighting
 
 .. highlight:: php
+
+.. attention::
+   TYPO3 v7 has reached its end-of-life November 30th, 2018 and is not
+   maintained by the community anymore.
+
+   You can order Extended Long Term Support (ELTS) here:
+   `TYPO3 ELTS <https://typo3.com/services/extended-support-elts>`__.
