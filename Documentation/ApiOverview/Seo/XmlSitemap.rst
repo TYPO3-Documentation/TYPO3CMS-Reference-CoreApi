@@ -25,8 +25,8 @@ Installation
 ============
 
 XML sitemaps are part of the "seo" system extension. If the extension is not
-available in your installation, it can be easily activated by installing it and
-including the static TypoScript template `XML Sitemap (seo)`.
+available in your installation, require it as described here: :ref:`Installation, EXT:seo <ext_seo:installation>`
+Then include the static TypoScript template `XML Sitemap (seo)`.
 
 How to access your XML sitemap
 ==============================
