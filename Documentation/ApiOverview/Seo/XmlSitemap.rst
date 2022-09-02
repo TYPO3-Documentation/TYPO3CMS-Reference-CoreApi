@@ -24,9 +24,9 @@ for each site and language.
 Installation
 ============
 
-The XML sitemap is not available by default. You can easily activate it by
-installing the "seo" system extension and including the static TypoScript
-template `XML Sitemap (seo)`.
+XML sitemaps are part of the "seo" system extension. If the extension is not
+available in your installation, it can be easily activated by installing it and
+including the static TypoScript template `XML Sitemap (seo)`.
 
 How to access your XML sitemap
 ==============================
