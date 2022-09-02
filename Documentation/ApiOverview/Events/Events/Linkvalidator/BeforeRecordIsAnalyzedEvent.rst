@@ -63,7 +63,7 @@ match if it is an external link to an internal page.
 
 ..  include:: /CodeSnippets/Events/Linkvalidator/BeforeRecordIsAnalyzedEvent/ParseFields.rst.txt
 
-If the url found in the matching is external and contains the local domain name
+If the URL found in the matching is external and contains the local domain name
 we add the an entry to the :php:`BrokenLinkRepository` and to the result set of
 :php:`BeforeRecordIsAnalyzedEvent`.
 
