@@ -10,7 +10,8 @@
         * This method demonstrates property mapping to an integer
         * @throws \TYPO3\CMS\Extbase\Property\Exception
         */
-       protected function mapIntegerFromString(string $numberString = '42'): int {
+       protected function mapIntegerFromString(string $numberString = '42'): int
+       {
            return $output = $this->propertyMapper->convert($numberString, 'integer');
        }
    }

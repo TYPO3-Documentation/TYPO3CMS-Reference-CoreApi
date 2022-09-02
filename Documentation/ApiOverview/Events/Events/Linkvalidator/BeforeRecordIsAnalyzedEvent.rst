@@ -18,135 +18,71 @@ of the project itself as editors tend to set external links on internal pages
 at times.
 
 The following code can be put in a custom
-:ref:`minimal extension <extension-minimal>`.
+:ref:`minimal extension <extension-minimal>`. You find a live example in
+our example extension
+`EXT:examples <https://github.com/TYPO3-Documentation/t3docs-examples>`__.
 
 Create a class that works as event listener. This class does not implement or
 extend any class. It has to provide a method that accepts an event of type
 :php:`TYPO3\CMS\Linkvalidator\Event\BeforeRecordIsAnalyzedEvent`.  By default
-the method is called :php:`handleEvent`:
+the method is called :php:`__invoke`:
 
-..  code-block:: php
-    :caption: EXT:my_extension/Classes/EventListener/Linkvalidator/BeforeRecordIsAnalyzedEventListener.php
-
-    <?php
-
-    declare(strict_types=1);
-
-    namespace Vendor\MyExtension\EventListener\Linkvalidator;
-
-    use TYPO3\CMS\Linkvalidator\Event\BeforeRecordIsAnalyzedEvent;
-
-    class BeforeRecordIsAnalyzedEventListener
-    {
-
-        public function handleEvent(BeforeRecordIsAnalyzedEvent $event): void
-        {
-            // do something
-        }
-    }
+.. include:: /CodeSnippets/Events/Linkvalidator/BeforeRecordIsAnalyzedEvent/ExampleInvoke.rst.txt
 
 The listener must then be registered in the extensions :php:`Services.yaml`:
 
 ..  code-block:: yaml
-    :caption: EXT:my_extension/Configuration/Services.yaml
+    :caption: EXT:examples/Configuration/Services.yaml
 
     services:
-        _defaults:
-            autowire: true
-            autoconfigure: true
-            public: false
+       _defaults:
+          autowire: true
+          autoconfigure: true
+          public: false
 
-        Vendor\MyExtension\:
-            resource: '../Classes/*'
-            exclude: '../Classes/Domain/Model/*'
+       T3docs\Examples\:
+          resource: '../Classes/*'
+          exclude: '../Classes/Domain/Model/*'
 
-        Vendor\MyExtension\EventListener\Linkvalidator\BeforeRecordIsAnalyzedEventListener:
-            tags:
-                - name: event.listener
-                  method: handleEvent
-                  identifier: 'myExtensionBeforeRecordIsAnalyzedEventListener'
-                  event: TYPO3\CMS\Linkvalidator\Event\BeforeRecordIsAnalyzedEvent
+       T3docs\Examples\EventListener\LinkValidator\CheckExternalLinksToLocalPagesEventListener:
+          tags:
+             - name: event.listener
+               identifier: 'txExampleCheckExternalLinksToLocalPages'
 
 For the implementation we need the :php:`BrokenLinkRepository` to register
 additional link errors and the :php:`SoftReferenceParserFactory` so we can
 automatically parse for links. These two classes have to be injected via
 :ref:`dependeny injection <Dependency-Injection>`:
 
-..  code-block:: php
-    :caption: EXT:my_extension/Classes/EventListener/Linkvalidator/BeforeRecordIsAnalyzedEventListener.php
+..  include:: /CodeSnippets/Events/Linkvalidator/BeforeRecordIsAnalyzedEvent/ExampleInject.rst.txt
 
-    use TYPO3\CMS\Core\DataHandling\SoftReference\SoftReferenceParserFactory;
-    use TYPO3\CMS\Linkvalidator\Event\BeforeRecordIsAnalyzedEvent;
-    use TYPO3\CMS\Linkvalidator\Repository\BrokenLinkRepository;
+Now we use the :php:`SoftReferenceParserFactory` to find all registered link
+parsers for soft reference. Then we apply each of these parsers in turn to
+to configured field in the current record. For each link found we can now
+match if it is an external link to an internal page.
 
-    final class BeforeRecordIsAnalyzedEventListener
-    {
-        protected BrokenLinkRepository $brokenLinkRepository;
-        protected SoftReferenceParserFactory $softReferenceParserFactory;
+..  include:: /CodeSnippets/Events/Linkvalidator/BeforeRecordIsAnalyzedEvent/ParseFields.rst.txt
 
-        public function __construct(
-            BrokenLinkRepository $brokenLinkRepository,
-            SoftReferenceParserFactory $softReferenceParserFactory
-        ) {
-            $this->brokenLinkRepository = $brokenLinkRepository;
-            $this->softReferenceParserFactory = $softReferenceParserFactory;
-        }
-    }
+If the url found in the matching is external and contains the local domain name
+we add the an entry to the :php:`BrokenLinkRepository` and to the result set of
+:php:`BeforeRecordIsAnalyzedEvent`.
 
-In this example we only check the field :sql:`bodytext` of new tables:
+..  include:: /CodeSnippets/Events/Linkvalidator/BeforeRecordIsAnalyzedEvent/AddToBrokenLinkRepository.rst.txt
 
+The :php:`BrokenLinkRepository` is not an Extbase repository but a repository
+based on the :ref:`Doctrine database abstraction (DBAL) <Database_Introduction>`.
+It therefore expects an array with the names of the database fields as entry and
+not an Extbase model. The method internally uses
+:php:`TYPO3\CMS\Core\Database\Connection::insert`. This method automatically
+quotes all identifiers and values, we therefore do not worry about escaping here.
 
-..  code-block:: php
-    :caption: EXT:my_extension/Classes/EventListener/Linkvalidator/BeforeRecordIsAnalyzedEventListener.php
+..  tip::
+    It is recommended to always use a unique error number. An easy way to ensure
+    the error number to be unique is to use the current unix timestamp of the
+    time of writing the code.
 
-    public function handleEvent(BeforeRecordIsAnalyzedEvent $event): void
-    {
-        $table = $event->getTableName();
-        $forbiddenDomain = 'example.org';
-        if ($table == 'tx_news_domain_model_news') {
-            $results = $event->getResults();
-            $newsItem = $event->getRecord();
-            // a quick check if the forbidden domain is contained at all
-            if (strpos((string) $newsItem['bodytext'], $forbiddenDomain) !== false) {
-                $field = 'bodytext';
-                $conf = $GLOBALS['TCA']['tx_news_domain_model_news']['columns']['bodytext']['config'];
-                // parse the field
-                foreach ($this->softReferenceParserFactory->getParsersBySoftRefParserList($conf['softref'], ['subst']) as $softReferenceParser) {
-                    $parserResult = $softReferenceParser->parse($table, $field, $newsItem['uid'], $newsItem['bodytext']);
-                    if (!$parserResult->hasMatched()) {
-                        continue;
-                    }
-                    // act on each link found
-                    foreach ($parserResult->getMatchedElements() as $matchedElement) {
-                        // if it contains the forbidden domain, subdomains would also be allerted here
-                        if ($matchedElement['subst'] && $matchedElement['subst']['tokenValue']
-                            && strpos($matchedElement['subst']['tokenValue'] . '', $forbiddenDomain) !== false) {
-                            // create an entry for the table tx_linkvalidator_link
-                            $link = [
-                                'record_uid' => $newsItem['uid'],
-                                'record_pid' => $newsItem['pid'],
-                                'language' => $newsItem['sys_language_uid'],
-                                'field' => $field,
-                                'table_name' => $table,
-                                'url' => $matchedElement['subst']['tokenValue'],
-                                'last_check' => time(),
-                                'link_type' => 'external',
-                            ];
-                            // Insert it into the repository with
-                            // a meaningful exception text and a unique error number
-                            $this->brokenLinkRepository->addBrokenLink($link, false, [
-                                'errorType' => 'exception',
-                                'exception' => 'Do not link externally to ' . $forbiddenDomain,
-                                'errno' => 42]);
-                            // and add the item to the results
-                            $results[] = $newsItem;
-                        }
-                    }
-                }
-            }
-            $event->setResults($results);
-        }
-    }
+See the complete class here:
+`CheckExternalLinksToLocalPagesEventListener <https://github.com/TYPO3-Documentation/t3docs-examples/blob/main/Classes/EventListener/LinkValidator/CheckExternalLinksToLocalPagesEventListener.php>`__.
 
 API
 ===

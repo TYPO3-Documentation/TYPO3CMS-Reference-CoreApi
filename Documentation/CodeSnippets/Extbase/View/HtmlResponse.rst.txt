@@ -14,11 +14,9 @@
        /**
         * Displays a form for creating a new blog
         *
-        * $newBlog is taken as a basis for the rendering
-        *
         * @IgnoreValidation("newBlog")
         */
-       public function newAction(Blog $newBlog = null): ResponseInterface
+       public function newAction(?Blog $newBlog = null): ResponseInterface
        {
            $this->view->assign('newBlog', $newBlog);
            $this->view->assign(
