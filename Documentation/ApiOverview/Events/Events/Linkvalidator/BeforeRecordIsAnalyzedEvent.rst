@@ -58,7 +58,7 @@ automatically parse for links. These two classes have to be injected via
 
 Now we use the :php:`SoftReferenceParserFactory` to find all registered link
 parsers for soft reference. Then we apply each of these parsers in turn to
-to configured field in the current record. For each link found we can now
+the configured field in the current record. For each link found we can now
 match if it is an external link to an internal page.
 
 ..  include:: /CodeSnippets/Events/Linkvalidator/BeforeRecordIsAnalyzedEvent/ParseFields.rst.txt
