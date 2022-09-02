@@ -9,8 +9,8 @@ XML sitemap
 It is possible to generate XML sitemaps for SEO purposes without using 3rd party
 plugins. When this feature is enabled, a sitemap index file is created with one
 or more sitemaps in it. By default, there will be one sitemap that contains all
-pages of the current site and language. Per each site and language, you can
-render a different sitemap.
+pages of the current site and language.  You can render different sitemaps
+for each site and language.
 
 .. note::
    The XML sitemap is provided by the optional system extension
