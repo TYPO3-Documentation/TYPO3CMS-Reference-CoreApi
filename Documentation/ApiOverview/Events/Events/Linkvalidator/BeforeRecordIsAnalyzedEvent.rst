@@ -78,7 +78,7 @@ quotes all identifiers and values, we therefore do not worry about escaping here
 
 ..  tip::
     It is recommended to always use a unique error number. An easy way to ensure
-    the error number to be unique is to use the current unix timestamp of the
+    the error number to be unique is to use the current Unix timestamp of the
     time of writing the code.
 
 See the complete class here:
