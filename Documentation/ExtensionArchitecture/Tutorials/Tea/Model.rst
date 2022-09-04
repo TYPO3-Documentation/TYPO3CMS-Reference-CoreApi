@@ -34,7 +34,7 @@ The database model
 Let us translate this into SQL and store the scheme in a file called
 :file:`ext_tables.sql`:
 
-..  include:: Documentation/CodeSnippets/Tutorials/Tea/ExtTablesSql.rst.txt
+..  include:: /CodeSnippets/Tutorials/Tea/ExtTablesSql.rst.txt
 
 The image is stored as an integer. However the field :sql:`image` in the
 database does not contains a reference to the image in form of an identifier.
@@ -100,9 +100,9 @@ and in backend forms.
 
     The **title** of the table tea
 
-Strings starting with :php:`LLL:` will be localized. See
-:ref:`Extension localization`. All other strings would be output
-as strings. You could also write:
+Strings starting with :php:`LLL:` will be localized. See chapter
+:ref:`Extension localization <extension_localization>`. All other strings
+would be output as strings. You could also write:
 
 .. code-block:: php
    :caption: EXT:tea/Configuration/TCA/tx_tea_domain_model_product_tea.php
@@ -148,7 +148,7 @@ any API call to the table.
 
 The title input field is defined like that:
 
-.. include:: /CodeSnippets/Tutorials/Tea/Configuration/TCA/TeaColumnTitle.rst.txt
+..  include:: /CodeSnippets/Tutorials/Tea/Configuration/TCA/TeaColumnTitle.rst.txt
 
 The title of the field is displayed above the input field. The type is a (string)
 input field. The other configuration values influence display (size of the input
@@ -249,4 +249,50 @@ The list of teas in the module :guilabel:`Web -> List` looks like this:
 The Extbase model
 =================
 
+It is a common practice - though not mandatory - to use PHP class to store the
+data while working on it.
 
+The model is an additional abstraction from the database. It enables the
+developer to require variable types beyond what the database abstraction layer
+offers. The model can also be used to apply validators to the properties
+of the model and to specify relationship types (should relatives be loaded
+lazily? Should they be deleted if this object is deleted?).
+
+Extbase models extend the class
+:php:`TYPO3\CMS\Extbase\DomainObject\AbstractEntity` provided by Extbase.
+The parent classes of this class already offer methods needed for persistence in
+to database, accessing the identifier :php:`uid` etc.
+
+.. include:: /CodeSnippets/Tutorials/Tea/Classes/Domain/Model/TeaProperties.rst.txt
+
+..  attention::
+    All properties of the model have to have the modifier :php:`protected` or
+    :php:`public`. :php:`private` properties are not supported as properties have to
+    be accessed by the repository and persistence and layers internally.
+
+    If you want to prevent developers from extending you model, and though
+    accessing the properties of you model, you can make the class of the model
+    final.
+
+For all :php:`protected` properties we need at least a getter of the according
+name. If the property should be writable within the Extbase workflows it also
+has to have a getter. Properties that are only set in the backend forms do not
+need a setter.
+
+Example for the property :php:`title`:
+
+..  include:: /CodeSnippets/Tutorials/Tea/Classes/Domain/Model/TeaTitle.rst.txt
+
+The getter for the image also has to resolve the lazy loading:
+
+..  include:: /CodeSnippets/Tutorials/Tea/Classes/Domain/Model/TeaImage.rst.txt
+
+See the complete
+`class on Github: Tea <https://github.com/TYPO3-Documentation/tea/blob/main/Classes/Domain/Model/Product/Tea.php>`__.
+
+Next steps
+==========
+
+.. TODO: Link this as soon as written
+
+*   The repository - Query for tea

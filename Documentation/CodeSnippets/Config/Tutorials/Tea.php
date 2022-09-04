@@ -1,15 +1,6 @@
 <?php
 
 return [
-    // TODO: Create code-snipperts automatically
-    /*
-    [
-        'action'=> 'createCodeSnippet',
-        'caption' => 'EXT:tea/composer.json',
-        'sourceFile'=> 'typo3conf/ext/tea/composer.json',
-        'targetFileName' => 'Tutorials/Tea/ComposerJson.rst.txt'
-    ],
-    */
     [
         'action'=> 'createCodeSnippet',
         'caption' => 'EXT:tea/ext_tables.sql',
@@ -48,5 +39,35 @@ return [
         'fields' => ['types'],
         'showLineNumbers' => true,
         'targetFileName' => 'Tutorials/Tea/Configuration/TCA/TeaTypes.rst.txt',
+    ],
+    [
+        'action'=> 'createPhpClassCodeSnippet',
+        'class'=> \TTN\Tea\Domain\Model\Product\Tea::class,
+        'members' => [
+            'title','description','image'
+        ],
+        'withComment' => true,
+        'withClassComment' => true,
+        'targetFileName'=> 'Tutorials/Tea/Classes/Domain/Model/TeaProperties.rst.txt',
+    ],
+    [
+        'action'=> 'createPhpClassCodeSnippet',
+        'class'=> \TTN\Tea\Domain\Model\Product\Tea::class,
+        'members' => [
+            'title','getTitle','setTitle'
+        ],
+        'withComment' => true,
+        'withClassComment' => true,
+        'targetFileName'=> 'Tutorials/Tea/Classes/Domain/Model/TeaTitle.rst.txt',
+    ],
+    [
+        'action'=> 'createPhpClassCodeSnippet',
+        'class'=> \TTN\Tea\Domain\Model\Product\Tea::class,
+        'members' => [
+            'image','getImage','setImage'
+        ],
+        'withComment' => true,
+        'withClassComment' => true,
+        'targetFileName'=> 'Tutorials/Tea/Classes/Domain/Model/TeaImage.rst.txt',
     ],
 ];

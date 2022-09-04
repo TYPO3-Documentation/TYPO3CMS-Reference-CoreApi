@@ -39,6 +39,11 @@ Steps in this tutorial:
     Have a look at the directory structure of the example extension and learn
     which files should go where.
 
+#.  :ref:`The model <extbase_tutorial_tea_model>`
+
+    We define a database scheme and a make it known to TYPO3. Then we create
+    a PHP class as a model of the real live tea flavour.
+
 ..  note::
     This tutorial is work in progress. As we want to prevent epic pull requests,
     we will create it step by step. Stay tuned.
