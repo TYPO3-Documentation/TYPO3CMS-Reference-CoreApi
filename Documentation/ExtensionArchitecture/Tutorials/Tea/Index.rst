@@ -48,3 +48,4 @@ Steps in this tutorial:
 
     ExtensionConfiguration
     DirectoryStructure
+    Model
