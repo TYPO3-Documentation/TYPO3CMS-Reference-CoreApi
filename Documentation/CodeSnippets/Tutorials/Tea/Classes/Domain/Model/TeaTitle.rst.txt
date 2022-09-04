@@ -4,9 +4,6 @@
 .. code-block:: php
    :caption: EXT:tea/Classes/Domain/Model/Product/Tea.php
 
-   /**
-    * This class represents a tea (flavor), e.g., "Earl Grey".
-    */
    class Tea extends AbstractEntity
    {
        protected string $title = '';

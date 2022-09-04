@@ -123,7 +123,7 @@ in listings, dropdown fields used to reference a tea record and in the forms
 for editing records in the backend:
 
 
-..  figure:: /Images/ManualScreenshots/ExtensionArchitecture/Tutorials/Tea/TeaTitle.png
+..  figure:: /Images/ManualScreenshots/ExtensionArchitecture/Tutorials/Tea/TeaLabel.png
     :class: with-shadow
 
     The **label** of a tea record. Yeah, sorry, Coffee is my tea...

@@ -56,8 +56,8 @@ return [
         'members' => [
             'title','getTitle','setTitle'
         ],
-        'withComment' => true,
-        'withClassComment' => true,
+        'withComment' => false,
+        'withClassComment' => false,
         'targetFileName'=> 'Tutorials/Tea/Classes/Domain/Model/TeaTitle.rst.txt',
     ],
     [
@@ -67,7 +67,7 @@ return [
             'image','getImage','setImage'
         ],
         'withComment' => true,
-        'withClassComment' => true,
+        'withClassComment' => false,
         'targetFileName'=> 'Tutorials/Tea/Classes/Domain/Model/TeaImage.rst.txt',
     ],
 ];
