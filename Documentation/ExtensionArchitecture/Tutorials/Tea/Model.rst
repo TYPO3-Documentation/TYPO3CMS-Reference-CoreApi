@@ -9,7 +9,7 @@ Model: a bag of tea
 ===================
 
 The model in this example is kept quite basic: Each tea can have a title,
-a description and optionally images attached.
+a description and optionally an image attached.
 
 ..  uml::
 
