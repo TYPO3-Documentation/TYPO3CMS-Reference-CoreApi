@@ -1,0 +1,11 @@
+..  code-block:: php
+    :caption: EXT:tea/ext_emconf.php, extract
+    :emphasize-lines: 4
+
+    $EM_CONF[$_EXTKEY] = [
+        'autoload' => [
+            'psr-4' => [
+                'TTN\\Tea\\' => 'Classes/',
+            ],
+        ],
+    ];
