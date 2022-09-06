@@ -44,31 +44,11 @@ in file:`ext_emconf.php` for legacy installations):
 
     ..  group-tab:: Composer
 
-        ..  code-block:: json
-            :caption: EXT:tea/composer.json, extract
-            :emphasize-lines: 4
-
-            {
-                "autoload": {
-                    "psr-4": {
-                        "TTN\\Tea\\": "Classes/"
-                    }
-                }
-            }
+        .. include:: /CodeSnippets/Tutorials/Tea/ComposerJsonAutoload.rst.txt
 
     ..  group-tab:: Legacy
 
-        ..  code-block:: php
-            :caption: EXT:tea/ext_emconf.php, extract
-            :emphasize-lines: 4
-
-            $EM_CONF[$_EXTKEY] = [
-                'autoload' => [
-                    'psr-4' => [
-                        'TTN\\Tea\\' => 'Classes/',
-                    ],
-                ],
-            ];
+        .. include:: /CodeSnippets/Tutorials/Tea/ExtEmconfAutoload.rst.txt
 
 The key of the psr-4 array, here :php:`'TTN\\Tea\\'` defines the namespace
 that all classes in this directory must be situated in to be found by
