@@ -59,8 +59,8 @@ TYPO3 (like the :sql:`deleted` field used, for soft deleting).
 
 The TCA also defines how the corresponding input fields in the backend should look.
 
-The TCA is a nested PHP array. On the first level we need the the following
-keys in this example:
+The TCA is a nested PHP array. In this example, we need the the following
+keys on the first level:
 
 :php:`ctrl`
     Settings for the complete table, like an overall title, a lable that
