@@ -265,9 +265,9 @@ to database, the identifier :php:`uid` etc.
     accessing the properties of you model, you can make the class of the model
     final.
 
-For all :php:`protected` properties we need at least a getter of the according
-name. If the property should be writable within the Extbase workflows it also
-has to have a getter. Properties that are only set in the backend forms do not
+For all :php:`protected` properties we need at least a getter with the corresponding
+name. If the property should be writable within Extbase, it must also
+have a getter. Properties that are only set in backend forms do not
 need a setter.
 
 Example for the property :php:`title`:
