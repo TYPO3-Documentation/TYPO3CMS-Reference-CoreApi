@@ -258,7 +258,7 @@ to database, the identifier :php:`uid` etc.
 
 ..  attention::
     All properties of the model have to have the visibility keyword :php:`protected` or
-    :php:`public`. :php:`private` properties are not supported as properties have to
+    :php:`public`. :php:`private` properties are not supported, as properties have to
     be accessed by the repository and persistence and layers internally.
 
     If you want to prevent developers from extending you model, and though
