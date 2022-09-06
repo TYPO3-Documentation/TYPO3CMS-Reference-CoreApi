@@ -10,9 +10,9 @@ Best practises and conventions
 ==============================
 
 .. toctree::
-   :titlesonly:
-   :glob:
+    :titlesonly:
 
-   ExtensionKey
-   NamingConventions
-   ConfigurationFiles
+    ExtensionKey
+    NamingConventions
+    ConfigurationFiles
+    SoftwareDesignPrinciples
