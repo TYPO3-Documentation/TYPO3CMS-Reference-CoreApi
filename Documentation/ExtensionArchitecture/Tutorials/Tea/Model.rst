@@ -38,8 +38,8 @@ Let us translate this into SQL and store the schema in a file called
 The image is stored as an integer. However the field :sql:`image` in the
 database does not contains a reference to the image in form of an identifier.
 
-The field :sql:`image` stores how many images are attached. A separate table,
-a so called MM table stores the actual relationship. See about the definition
+The field :sql:`image` keeps track of the number of attached images. A separate table,
+a so-called MM table, stores the actual relationship. Read about the definition
 of this field here: :ref:`extbase_tutorial_tea_model_columns_image`.
 
 ..  hint::
