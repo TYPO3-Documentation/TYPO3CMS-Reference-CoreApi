@@ -274,7 +274,7 @@ Example for the property :php:`title`:
 
 ..  include:: /CodeSnippets/Tutorials/Tea/Classes/Domain/Model/TeaTitle.rst.txt
 
-The getter for the image also has to resolve the lazy loading:
+The getter for the image also has to resolve the :ref:`lazy loading <extbase-annotation-lazy>`:
 
 ..  include:: /CodeSnippets/Tutorials/Tea/Classes/Domain/Model/TeaImage.rst.txt
 
