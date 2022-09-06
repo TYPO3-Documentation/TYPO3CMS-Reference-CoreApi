@@ -30,7 +30,7 @@ by Extbase.
 The database model
 ==================
 
-Let us translate this into SQL and store the scheme in a file called
+Let us translate this into SQL and store the schema in a file called
 :file:`ext_tables.sql`:
 
 ..  include:: /CodeSnippets/Tutorials/Tea/ExtTablesSql.rst.txt
