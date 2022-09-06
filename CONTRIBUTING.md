@@ -16,13 +16,13 @@
 ## Preview rendering
 
 You can preview the rendered result of the docs in by calling the following URL:
-https://gitpod.io/#https://github.com/TYPO3-Documentation/TYPO3CMS-Reference-TSconfig/tree/<your branch>
+https://gitpod.io/#https://github.com/TYPO3-Documentation/TYPO3CMS-Reference-CoreApi/tree/<your branch>
 
 For example
 
-* https://gitpod.io/#https://github.com/TYPO3-Documentation/TYPO3CMS-Reference-TSconfig/tree/main renders the branch main
-* https://gitpod.io/#https://github.com/TYPO3-Documentation/TYPO3CMS-Reference-TSconfig/tree/lwolf-mychange renders branch lwolf-mychange
-* https://gitpod.io/#https://github.com/linawolf/TYPO3CMS-Reference-TSconfig/tree/lwolf-mychange renders the branch lwolf-mychange in my personal fork
+* https://gitpod.io/#https://github.com/TYPO3-Documentation/TYPO3CMS-Reference-CoreApi/tree/main renders the branch main
+* https://gitpod.io/#https://github.com/TYPO3-Documentation/TYPO3CMS-Reference-CoreApi/tree/lwolf-mychange renders branch lwolf-mychange
+* https://gitpod.io/#https://github.com/linawolf/TYPO3CMS-Reference-CoreApi/tree/lwolf-mychange renders the branch lwolf-mychange in my personal fork
 
 Hint: Use the VSStudio in browser as preview, PHPStorm is very slow
 
