@@ -63,9 +63,9 @@ The TCA is a nested PHP array. In this example, we need the the following
 keys on the first level:
 
 :php:`ctrl`
-    Settings for the complete table, like an overall title, a lable that
-    should specify the single object, default sorting and the names of some
-    fields used internally.
+    Settings for the complete table, such as a record title, a label
+    for a single record, default sorting, and the names of some
+    internal fields.
 
 :php:`types`
     We only have one type of tea record, however it is mandatory to
