@@ -261,7 +261,7 @@ to database, the identifier :php:`uid` etc.
     :php:`public`. :php:`private` properties are not supported, as properties have to
     be accessed by the repository and persistence and layers internally.
 
-    If you want to prevent developers from extending you model, and though
+    If you want to prevent developers from extending you model, and
     accessing the properties of you model, you can make the class of the model
     final.
 
