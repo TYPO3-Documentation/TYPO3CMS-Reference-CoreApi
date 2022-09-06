@@ -257,7 +257,7 @@ to database, the identifier :php:`uid` etc.
 .. include:: /CodeSnippets/Tutorials/Tea/Classes/Domain/Model/TeaProperties.rst.txt
 
 ..  attention::
-    All properties of the model have to have the modifier :php:`protected` or
+    All properties of the model have to have the visibility keyword :php:`protected` or
     :php:`public`. :php:`private` properties are not supported as properties have to
     be accessed by the repository and persistence and layers internally.
 
