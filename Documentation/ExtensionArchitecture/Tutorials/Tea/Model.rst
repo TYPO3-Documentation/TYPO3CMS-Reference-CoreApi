@@ -45,7 +45,7 @@ of this field here: :ref:`extbase_tutorial_tea_model_columns_image`.
 ..  hint::
     If you have had a look at a TYPO3 database before, you might wonder:
     What about all those special fields like :sql:`uid`, :sql:`pid`,
-    :sql:`deleted` etc? The answer is TYPO3 will generate them automatically
+    :sql:`deleted`, etc? The answer is that TYPO3 will generate them automatically
     for you.
 
 ..  _extbase_tutorial_tea_model_tca:
