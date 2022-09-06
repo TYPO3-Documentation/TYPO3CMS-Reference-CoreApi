@@ -19,7 +19,8 @@ on automatic code checks.
     :ref:`Testing <testing>` in this manual.
 
 In this manual, however we will ignore the testing and just explain how this
- example extension works. The extension demonstrates basic functionality and is very well tested
+example extension works. The extension demonstrates basic functionality and is
+very well tested.
 
 ..  attention::
     The example extension tea should not be used as a kickstarter or
