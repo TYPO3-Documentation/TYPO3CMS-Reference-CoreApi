@@ -2,15 +2,29 @@
 
 ## Create Issues
 
-* If you find something missing or something is wrong in this manual, you are welcome to write an issue describing the problem. 
-* If you can, please try to fix the problem yourself. 
-* For minor changes, it is not necessary to create an issue first. 
+* If you find something missing or something is wrong in this manual, you are welcome to write an issue describing the problem.
+* If you can, please try to fix the problem yourself.
+* For minor changes, it is not necessary to create an issue first.
 
 ## Make changes (create pull requests)
 
 * In order to make changes on a [rendered page](https://docs.typo3.org/typo3cms/CoreApiReference/), just click on "Edit me on GitHub".
 * For a step-by-step walkthrough for making a change, see [Contribute to docs.typo3.org](https://docs.typo3.org/typo3cms/HowToDocument/WritingDocsOfficial/Index.html)
 * For a step-by-step walkthrough of alternative workflow, see [Local Editing and Rendering with Docker](https://docs.typo3.org/typo3cms/HowToDocument/WritingDocsOfficial/LocalEditing.html)
+
+
+## Preview rendering
+
+You can preview the rendered result of the docs in by calling the following URL:
+https://gitpod.io/#https://github.com/TYPO3-Documentation/TYPO3CMS-Reference-TSconfig/tree/<your branch>
+
+For example
+
+* https://gitpod.io/#https://github.com/TYPO3-Documentation/TYPO3CMS-Reference-TSconfig/tree/main renders the branch main
+* https://gitpod.io/#https://github.com/TYPO3-Documentation/TYPO3CMS-Reference-TSconfig/tree/lwolf-mychange renders branch lwolf-mychange
+* https://gitpod.io/#https://github.com/linawolf/TYPO3CMS-Reference-TSconfig/tree/lwolf-mychange renders the branch lwolf-mychange in my personal fork
+
+Hint: Use the VSStudio in browser as preview, PHPStorm is very slow
 
 ## Get help
 
