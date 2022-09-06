@@ -55,7 +55,7 @@ TCA - Table Configuration Array
 
 The TCA makes the database model known to TYPO3. It defines all fields
 containing data and all semantic fields that have a special meaning within
-TYPO3 (like the :sql:`deleted` field used for soft deleting).
+TYPO3 (like the :sql:`deleted` field used, for soft deleting).
 
 TCA also defines how the input fields for the data in the backend should look
 like.
