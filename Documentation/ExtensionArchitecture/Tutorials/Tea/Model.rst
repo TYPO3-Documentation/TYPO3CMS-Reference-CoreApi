@@ -98,7 +98,7 @@ and in backend forms.
 
     The **title** of the :sql:`tea` table.
 
-Strings starting with :php:`LLL:` will be localized. See chapter
+Strings starting with :php:`LLL:` will be replaced with localized text. See chapter
 :ref:`Extension localization <extension_localization>`. All other strings
 would be output as strings. You could also write:
 
