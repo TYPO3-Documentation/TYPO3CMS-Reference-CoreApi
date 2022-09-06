@@ -57,8 +57,7 @@ The TCA tells TYPO3 about the database model. It defines all fields
 containing data and all semantic fields that have a special meaning within
 TYPO3 (like the :sql:`deleted` field used, for soft deleting).
 
-TCA also defines how the input fields for the data in the backend should look
-like.
+The TCA also defines how the corresponding input fields in the backend should look.
 
 The TCA is a nested PHP array. On the first level we need the the following
 keys in this example:
