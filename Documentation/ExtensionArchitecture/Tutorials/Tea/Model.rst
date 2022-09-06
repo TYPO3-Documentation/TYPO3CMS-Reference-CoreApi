@@ -100,7 +100,7 @@ and in backend forms.
 
 Strings starting with :php:`LLL:` will be replaced with localized text. See chapter
 :ref:`Extension localization <extension_localization>`. All other strings
-would be output as strings. You could also write:
+will be output as they are. This title will always be output as "Tea" without localization:
 
 .. code-block:: php
    :caption: EXT:tea/Configuration/TCA/tx_tea_domain_model_product_tea.php
@@ -117,43 +117,39 @@ would be output as strings. You could also write:
 ~~~~~~~~~~~~
 
 The :php:`label` is used as name for a specific tea record. The name is used
-in listings, dropdown fields used to reference a tea record and in the forms
-for editing records in the backend:
+in listings and in backend forms:
 
 
 ..  figure:: /Images/ManualScreenshots/ExtensionArchitecture/Tutorials/Tea/TeaLabel.png
     :class: with-shadow
 
-    The **label** of a tea record. Yeah, sorry, Coffee is my tea...
+    The **label** of a tea record.
 
 ..  _extbase_tutorial_tea_model_ctrl_others:
 
 :php:`tstamp`, :php:`deleted`, ...
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-These fields are used for different aspects of handling tables. You can read in
-depth in the `TCA Reference, chapter ctrl <t3tca:ctrl>` about what they mean and
-are used for.
+These fields are used to keep timestamp and status information for each record. You can read more about them in the `TCA Reference, chapter ctrl <t3tca:ctrl>`.
 
 ..  _extbase_tutorial_tea_model_columns:
 
-TCA :php:`columns` - Defining the database fields
+TCA :php:`columns` - Defining the fields
 -------------------------------------------------
 
 All fields that can be changed in the TYPO3 backend or used in the Extbase
-model have to be listed here. Otherwise they will not be recognized by
-any API call to the table.
+model have to be listed here. Otherwise they will not be recognized by TYPO3.
 
-The title input field is defined like that:
+The :sql:`title` field is defined like this:
 
 ..  include:: /CodeSnippets/Tutorials/Tea/Configuration/TCA/TeaColumnTitle.rst.txt
 
 The title of the field is displayed above the input field. The type is a (string)
 input field. The other configuration values influence display (size of the input
-field) and or processing on saving (:php:`'eval' => 'trim' removes whitespace).
+field) and or processing on saving (:php:`'eval' => 'trim'` removes whitespace).
 
 You can find a complete list of available input types and their propererties in
-the :`TCA Reference, chapter "Field types (config > type)" <t3tca:columns-types>`.
+the :ref:`TCA Reference, chapter "Field types (config > type)" <t3tca:columns-types>`.
 
 The other text fields are defined in a similar matter.
 
