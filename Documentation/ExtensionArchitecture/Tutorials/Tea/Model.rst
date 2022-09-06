@@ -66,15 +66,16 @@ keys on the first level:
     Settings for the complete table, such as a record title, a label
     for a single record, default sorting, and the names of some
     internal fields.
+    
+:php:`columns`
+    Here we define all fields that can be used for user input in the
+    backend.
 
 :php:`types`
     We only have one type of tea record, however it is mandatory to
     describe at least one type. Here we define the order in which
     the fields are displayed in the backend.
 
-:php:`columns`
-    Here we define all fields that can be used for user input in the
-    backend.
 
 
 ..  _extbase_tutorial_tea_model_ctrl:
