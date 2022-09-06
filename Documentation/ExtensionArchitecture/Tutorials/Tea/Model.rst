@@ -8,8 +8,7 @@
 Model: a bag of tea
 ===================
 
-The model in this example is kept quite basic: Each tea can have a title,
-a description and optionally an image attached.
+We keep the model basic: Each tea can have a title, a description, and an optional image.
 
 ..  uml::
 
