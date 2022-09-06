@@ -96,7 +96,7 @@ and in backend forms.
 ..  figure:: /Images/ManualScreenshots/ExtensionArchitecture/Tutorials/Tea/TeaTitle.png
     :class: with-shadow
 
-    The **title** of the table tea
+    The **title** of the :sql:`tea` table.
 
 Strings starting with :php:`LLL:` will be localized. See chapter
 :ref:`Extension localization <extension_localization>`. All other strings
