@@ -42,7 +42,7 @@ Steps in this tutorial:
 #.  :ref:`The model <extbase_tutorial_tea_model>`
 
     We define a database schema and make it visible to TYPO3. Then we create
-    a PHP class as a model of the real live tea flavour.
+    a PHP class as a model of the real-life tea flavour.
 
 ..  note::
     This tutorial is work in progress. As we want to prevent epic pull requests,
