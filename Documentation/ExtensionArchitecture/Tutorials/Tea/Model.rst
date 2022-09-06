@@ -21,9 +21,9 @@ a description and optionally an image attached.
         image
     }
 
-The title and description are strings, the image is stored as relation
-to the class :php:`\TYPO3\CMS\Extbase\Domain\Model\FileReference` provided
-by Extbase as model.
+The title and description are strings, the image is stored as a relation
+to the model class :php:`\TYPO3\CMS\Extbase\Domain\Model\FileReference`, provided
+by Extbase.
 
 
 ..  _extbase_tutorial_tea_model_database:
