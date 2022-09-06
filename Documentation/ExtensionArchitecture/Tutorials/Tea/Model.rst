@@ -55,7 +55,7 @@ TCA - Table Configuration Array
 
 The TCA tells TYPO3 about the database model. It defines all fields
 containing data and all semantic fields that have a special meaning within
-TYPO3 (like the :sql:`deleted` field used, for soft deleting).
+TYPO3 (like the :sql:`deleted` field which is used for soft deletion).
 
 The TCA also defines how the corresponding input fields in the backend should look.
 
@@ -146,7 +146,7 @@ The :sql:`title` field is defined like this:
 
 The title of the field is displayed above the input field. The type is a (string)
 input field. The other configuration values influence display (size of the input
-field) and or processing on saving (:php:`'eval' => 'trim'` removes whitespace).
+field) and or processing on saving ( :php:`'eval' => 'trim'` removes whitespace).
 
 You can find a complete list of available input types and their propererties in
 the :ref:`TCA Reference, chapter "Field types (config > type)" <t3tca:columns-types>`.
