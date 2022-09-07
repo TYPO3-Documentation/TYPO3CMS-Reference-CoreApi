@@ -15,3 +15,4 @@ Controller
 
     ActionController
     ErrorAction
+    PropertyMapping
