@@ -9,9 +9,9 @@ Controller
 
 **Contents:**
 
-.. toctree::
-   :titlesonly:
-   :caption: Controller
-   :glob:
+..  toctree::
+    :titlesonly:
+    :caption: Controller
 
-   *
+    ActionController
+    ErrorAction
