@@ -4,6 +4,74 @@
     "description": "Main TYPO3 core documentation",
     "license": "OPL-1.0",
     "require": {
-      "typo3/cms-core": "^11.0"
+      "typo3/cms-core": "^12.0"
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "extra": {
+        "typo3/cms": {
+            "app-dir": ".Build",
+            "web-dir": ".Build/public"
+        }
+    },
+    "repositories": {
+        "1a_git": {
+            "type": "vcs",
+            "url": "https://github.com/TYPO3-Documentation/tea.git"
+        },
+        "1c_git": {
+            "type": "vcs",
+            "url": "https://github.com/TYPO3-Documentation/blog_example.git"
+        }
+    },
+    "config": {
+        "allow-plugins": {
+            "typo3/cms-composer-installers": true,
+            "typo3/class-alias-loader": true
+        },
+        "vendor-dir": ".Build/vendor"
+    },
+    "require-dev": {
+        "t3docs/codesnippet": "dev-main",
+        "typo3/minimal": "main-dev",
+        "friendsoftypo3/blog-example": "dev-12.0-dev",
+        "typo3/cms-adminpanel": "^12.0",
+        "typo3/cms-backend": "^12.0",
+        "typo3/cms-belog": "^12.0",
+        "typo3/cms-beuser": "^12.0",
+        "typo3/cms-dashboard": "^12.0",
+        "typo3/cms-extbase": "^12.0",
+        "typo3/cms-extensionmanager": "^12.0",
+        "typo3/cms-felogin": "^12.0",
+        "typo3/cms-filelist": "^12.0",
+        "typo3/cms-filemetadata": "^12.0",
+        "typo3/cms-fluid": "^12.0",
+        "typo3/cms-fluid-styled-content": "^12.0",
+        "typo3/cms-form": "^12.0",
+        "typo3/cms-frontend": "^12.0",
+        "typo3/cms-impexp": "^12.0",
+        "typo3/cms-indexed-search": "^12.0",
+        "typo3/cms-info": "^12.0",
+        "typo3/cms-install": "^12.0",
+        "typo3/cms-linkvalidator": "^12.0",
+        "typo3/cms-lowlevel": "^12.0",
+        "typo3/cms-opendocs": "^12.0",
+        "typo3/cms-recordlist": "^12.0",
+        "typo3/cms-recycler": "^12.0",
+        "typo3/cms-redirects": "^12.0",
+        "typo3/cms-reports": "^12.0",
+        "typo3/cms-rte-ckeditor": "^12.0",
+        "typo3/cms-scheduler": "^12.0",
+        "typo3/cms-seo": "^12.0",
+        "typo3/cms-setup": "^12.0",
+        "typo3/cms-sys-note": "^12.0",
+        "typo3/cms-t3editor": "^12.0",
+        "typo3/cms-tstemplate": "^12.0",
+        "typo3/cms-viewpage": "^12.0",
+        "typo3/cms-workspaces": "^12.0",
+        "ttn/tea": "dev-lwolf-v12-compability",
+        "t3docs/examples": "dev-main",
+        "t3docs/site-package": "dev-main",
+        "typo3-documentation-team/speeddemo": "^11.4"
     }
 }
