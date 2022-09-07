@@ -33,7 +33,6 @@
     },
     "require-dev": {
         "t3docs/codesnippet": "dev-main",
-        "typo3/minimal": "main-dev",
         "friendsoftypo3/blog-example": "dev-12.0-dev",
         "typo3/cms-adminpanel": "^12.0",
         "typo3/cms-backend": "^12.0",
