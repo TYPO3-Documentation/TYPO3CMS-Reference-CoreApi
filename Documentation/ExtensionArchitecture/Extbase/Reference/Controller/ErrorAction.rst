@@ -30,7 +30,7 @@ How it works
 
    #. Add an error :ref:`Flash Message <t3coreapi:flash-messages>`
       by calling :php:`addErrorFlashMessage()`.
-      Which in turn will call :php:`getErrorFlashMessage()` to retrieve the
+      It will in turn call :php:`getErrorFlashMessage()` to retrieve the
       message to show.
 
    #. Forward back to referring request. If no referrer exists, a plain text
