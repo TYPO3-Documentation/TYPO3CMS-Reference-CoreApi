@@ -7,16 +7,16 @@
 Persistence
 ================
 
-It is possible to define models that are not persisted to database. However in
-the most common use cases you want to save your model to the database and load
+It is possible to define models that are not persisted to the database. However in
+the most common use cases you will want to save your model to the database and load
 it from there.
 
 Connecting the model to the database
 ====================================
 
 The SQL structure for the database needs to be defined in the file
-:ref:`EXT:{ext_key}/ext_tables.sql <ext_tables-sql>`. An Extbase model requires that
-there is valid TCA for the table that should be used as base for the model.
+:ref:`EXT:{ext_key}/ext_tables.sql <ext_tables-sql>`. An Extbase model requires 
+a valid TCA for the table that should be used as a base for the model.
 Therefore you have to create a TCA definition in file
 :file:`EXT:{ext_key}/Configuration/TCA/tx_{extkey}_domain_model_{mymodel}.php`.
 
@@ -65,3 +65,50 @@ class will only be used for administrators but not plain frontend users.
 
 The array stored in :php:`properties` to match properties to database field
 names if the names do not match.
+
+Record types and persistence
+============================
+
+It is possible to use different models for the same database table.
+
+A common use case are related domain objects that share common features and
+should be handled by hierarchical model classes.
+
+
+In this case the type of the model is stored in a field in the table, commonly
+in a field called :sql:`record_type`. This field is then registered as
+:php:`type` field in the :php:`ctrl` section of the TCA array:
+
+..  code-block:: php
+    :caption: EXT:my_extension/Configuration/TCA/tx_myextension_domain_model_something.php
+
+    return [
+        'ctrl' => [
+            'title' => 'Something',
+            'label' => 'title',
+            'type' => 'record_type',
+            // …
+        ],
+    ];
+
+The relationship between record type and preferred model is then configured
+in the :file:`Configuration/Extbase/Persistence/Classes.php` file.
+
+..  code-block:: php
+    :caption: EXT:my_extension/Configuration/Extbase/Persistence/Classes.php
+
+    return [
+        \MyVendor\MyExtension\Domain\Model\Something::class => [
+            'tableName' => 'tx_myextension_domain_model_party',
+            'recordType' => 'something',
+            'subclasses' => [
+                'oneSubClass' => \MyVendor\MyExtension\Domain\Model\SubClass1::class,
+                'anotherSubClass' => MyVendor\MyExtension\Domain\Model\SubClass2::class,
+            ],
+        ],
+    ];
+
+It is then possible to have a general repository, :php:`SomethingRepository`
+which returns both SubClass1 and SubClass2 objects depending on the value of
+the :sql:`record_type` field. This way related domain objects can as one
+in some contexts.
