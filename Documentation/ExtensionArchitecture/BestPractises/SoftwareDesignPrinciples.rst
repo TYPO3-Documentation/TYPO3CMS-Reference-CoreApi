@@ -15,7 +15,7 @@ extensions for TYPO3.
 *   `Test-Driven Development (TDD) <https://phptherightway.com/#test_driven_development>`__  is a basic technique for generating code that is stable,
     resilient to errors, and legible — and therefore maintainable.
 *   `Dependency Injection <https://phptherightway.com/#dependency_injection>`__ is a software design pattern that adds flexibility by removing the need for hard-coded dependencies.
-*   `Separation of Concerns<https://en.wikipedia.org/wiki/Separation_of_concerns>`__ and `Single-responsibility principle (SRP) <https://en.wikipedia.org/wiki/Single-responsibility_principle>`__ are computer programming principles that help developers create modular, coherent, and maintainable software.
+*   `Separation of Concerns <https://en.wikipedia.org/wiki/Separation_of_concerns>`__ and `Single-responsibility principle (SRP) <https://en.wikipedia.org/wiki/Single-responsibility_principle>`__ are computer programming principles that help developers create modular, coherent, and maintainable software.
 
 We also recommend to study common `software design
 patterns <https://designpatternsphp.readthedocs.io/en/latest/README.html>`__.
