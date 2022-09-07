@@ -15,8 +15,6 @@ be mapped or validation did not pass.
 How it works
 ============
 
-.. rst-class:: bignums-xxl
-
 #. Extbase will try to map all arguments within :php:`ActionController`. During
    this process arguments will also be validated.
 
