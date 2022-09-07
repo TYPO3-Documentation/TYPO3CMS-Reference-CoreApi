@@ -11,12 +11,13 @@ Fluid is a templating engine commonly used within TYPO3.
 
 **Table of contents**
 
-.. toctree::
-   :titlesonly:
+..  toctree::
+    :titlesonly:
 
-   Introduction
-   Syntax
-   UsingFluidInTypo3
-   UsingTypoScriptCObjectViewHelper
-   DevelopCustomViewhelper
-   ViewHelper reference <https://docs.typo3.org/other/typo3/view-helper-reference/main/en-us/>
+    Introduction
+    Syntax
+    UsingFluidInTypo3
+    UsingTypoScriptCObjectViewHelper
+    AdditionalAttributes
+    DevelopCustomViewhelper
+    ViewHelper reference <https://docs.typo3.org/other/typo3/view-helper-reference/main/en-us/>
