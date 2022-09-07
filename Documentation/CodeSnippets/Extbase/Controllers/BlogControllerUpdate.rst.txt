@@ -5,27 +5,20 @@
    :caption: EXT:blog_example/Classes/Controller/BlogController.php
 
    use FriendsOfTYPO3\BlogExample\Domain\Model\Blog;
-   use FriendsOfTYPO3\BlogExample\Exception\NoBlogAdminAccessException;
-   use Psr\Http\Message\ResponseInterface;
-   use TYPO3\CMS\Extbase\Annotation\Validate;
    
    class BlogController extends AbstractController
    {
        /**
         * Updates an existing blog
         *
-        * $blog is a not yet persisted clone of the original blog containing
-        * the modifications
-        *
-        * @Validate(param="blog", validator="FriendsOfTYPO3\BlogExample\Domain\Validator\BlogValidator")
-        * @throws NoBlogAdminAccessException
+        * @param Blog $blog A not yet persisted clone of the original blog containing the modifications
         */
-       public function updateAction(Blog $blog): ResponseInterface
+       public function updateAction(Blog $blog): void
        {
-           $this->checkBlogAdminAccess();
+           // TODO access protection
            $this->blogRepository->update($blog);
            $this->addFlashMessage('updated');
-           return $this->redirect('index');
+           $this->redirect('index');
        }
    }
    

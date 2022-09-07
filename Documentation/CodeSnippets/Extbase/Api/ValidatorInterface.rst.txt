@@ -11,16 +11,7 @@
       the Error Messages object which occurred.
       
       :param mixed $value: The value that should be validated
-      :returntype: TYPO3\\CMS\\Extbase\\Error\\Result
-      
-   .. php:method:: setOptions(array options)
-   
-      Receive validator options from framework.
-      
-      :param array $options: the options
       
    .. php:method:: getOptions()
    
-      Returns the options of this validator which can be specified by setOptions().
-      
-      :returntype: array
+      Returns the options of this validator which can be specified in the constructor

@@ -9,7 +9,7 @@
        /**
         * @var Person
         */
-       protected Person $author;
+       protected ?Person $author = null;
    
        protected ?Person $secondAuthor = null;
    }

@@ -5,7 +5,6 @@
    :caption: EXT:blog_example/Classes/Controller/BlogController.php
 
    use FriendsOfTYPO3\BlogExample\Domain\Model\Blog;
-   use Psr\Http\Message\ResponseInterface;
    use TYPO3\CMS\Extbase\Annotation\IgnoreValidation;
    
    class BlogController extends AbstractController
@@ -15,14 +14,10 @@
         *
         * @IgnoreValidation("newBlog")
         */
-       public function newAction(?Blog $newBlog = null): ResponseInterface
+       public function newAction(?Blog $newBlog = null): void
        {
            $this->view->assign('newBlog', $newBlog);
-           $this->view->assign(
-               'administrators',
-               $this->administratorRepository->findAll()
-           );
-           return $this->htmlResponse();
+           $this->view->assign('administrators', $this->administratorRepository->findAll());
        }
    }
    
