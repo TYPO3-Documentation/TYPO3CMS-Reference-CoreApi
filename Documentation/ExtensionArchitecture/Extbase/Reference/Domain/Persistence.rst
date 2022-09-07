@@ -65,3 +65,50 @@ class will only be used for administrators but not plain frontend users.
 
 The array stored in :php:`properties` to match properties to database field
 names if the names do not match.
+
+Record types and persistence
+============================
+
+It is possible to use different models for the same database table.
+
+A common use case are related domain objects that share common features and
+should be handled by hierarchic model classes.
+
+
+In this case the type of the model is stored in a field in the table, commonly
+in a field called :sql:`record_type`. This field is then registered as
+:php:`type` field in the :php:`ctrl` section of the TCA array:
+
+..  code-block:: php
+    :caption: EXT:my_extension/Configuration/TCA/tx_myextension_domain_model_something.php
+
+    return [
+        'ctrl' => [
+            'title' => 'Something',
+            'label' => 'title',
+            'type' => 'record_type',
+            // …
+        ],
+    ];
+
+The relationship between record type and preferred model is then configured
+in the :file:`Configuration/Extbase/Persistence/Classes.php` file.
+
+..  code-block:: php
+    :caption: EXT:my_extension/Configuration/Extbase/Persistence/Classes.php
+
+    return [
+        \MyVendor\MyExtension\Domain\Model\Something::class => [
+            'tableName' => 'tx_myextension_domain_model_party',
+            'recordType' => 'something',
+            'subclasses' => [
+                'oneSubClass' => \MyVendor\MyExtension\Domain\Model\SubClass1::class,
+                'anotherSubClass' => MyVendor\MyExtension\Domain\Model\SubClass2::class,
+            ],
+        ],
+    ];
+
+It is then possible to have a general repository, :php:`SomethingRepository`
+which returns both SubClass1 and SubClass2 objects depending on the value of
+the :sql:`record_type` field. This way related domain objects can as one
+in some contexts.
