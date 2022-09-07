@@ -33,6 +33,6 @@ How it works
       It will in turn call :php:`getErrorFlashMessage()` to retrieve the
       message to show.
 
-   #. Forward back to referring request. If no referrer exists, a plain text
+   #. Return the user to the referring request URL. If no referrer exists, a plain text
       message will be displayed, fetched from
       :php:`getFlattenedValidationErrorMessage()`.
