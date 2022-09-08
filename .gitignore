@@ -1,5 +1,6 @@
 *.bak
 *.idea
+.Build/*
 *.project
 *.swp
 *NOT_VERSIONED*
@@ -17,5 +18,6 @@
 /_make
 /Documentation-GENERATED-temp/
 ehthumbs.db
+composer.lock
 nbproject
 Thumbs.db
