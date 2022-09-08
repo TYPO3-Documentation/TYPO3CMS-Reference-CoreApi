@@ -134,4 +134,28 @@ return [
         "targetFileName"=> "Events/Core/EvaluateModifierFunctionEvent.rst.txt",
         "withCode"=> false
     ],
+    [
+        "action"=> "createPhpClassDocs",
+        "class"=> \TYPO3\CMS\Core\Configuration\Event\AfterFlexFormDataStructureIdentifierInitializedEvent::class,
+        "targetFileName"=> "Events/Core/AfterFlexFormDataStructureIdentifierInitializedEvent.rst.txt",
+        "withCode"=> false
+    ],
+    [
+        "action"=> "createPhpClassDocs",
+        "class"=> \TYPO3\CMS\Core\Configuration\Event\AfterFlexFormDataStructureParsedEvent::class,
+        "targetFileName"=> "Events/Core/AfterFlexFormDataStructureParsedEvent.rst.txt",
+        "withCode"=> false
+    ],
+    [
+        "action"=> "createPhpClassDocs",
+        "class"=> \TYPO3\CMS\Core\Configuration\Event\BeforeFlexFormDataStructureIdentifierInitializedEvent::class,
+        "targetFileName"=> "Events/Core/BeforeFlexFormDataStructureIdentifierInitializedEvent.rst.txt",
+        "withCode"=> false
+    ],
+    [
+        "action"=> "createPhpClassDocs",
+        "class"=> \TYPO3\CMS\Core\Configuration\Event\BeforeFlexFormDataStructureParsedEvent::class,
+        "targetFileName"=> "Events/Core/BeforeFlexFormDataStructureParsedEvent.rst.txt",
+        "withCode"=> false
+    ],
 ];
