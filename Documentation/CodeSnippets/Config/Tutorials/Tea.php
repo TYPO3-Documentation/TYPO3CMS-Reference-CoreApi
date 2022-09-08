@@ -107,4 +107,42 @@ return [
         'withClassComment' => false,
         'targetFileName'=> 'Tutorials/Tea/Classes/Domain/Model/TeaImage.rst.txt',
     ],
+    [
+        'action'=> 'createPhpClassCodeSnippet',
+        'class'=> \TTN\Tea\Domain\Model\Product\Tea::class,
+        'members' => [
+            'image','getImage','setImage'
+        ],
+        'withComment' => true,
+        'withClassComment' => false,
+        'targetFileName'=> 'Tutorials/Tea/Classes/Domain/Model/TeaImage.rst.txt',
+    ],
+    [
+        'action'=> 'createCodeSnippet',
+        'caption'=> 'EXT:tea/Classes/Domain/Repository/Product/TeaRepository.php',
+        'sourceFile'=> 'EXT:tea/Classes/Domain/Repository/Product/TeaRepository.php',
+        'targetFileName'=> 'Tutorials/Tea/Classes/Domain/Repository/TeaRepository.rst.txt',
+    ],
+    [
+        'action'=> 'createCodeSnippet',
+        'caption'=> 'EXT:tea/Classes/Domain/Repository/Traits/StoragePageAgnosticTrait.php',
+        'sourceFile'=> 'EXT:tea/Classes/Domain/Repository/Traits/StoragePageAgnosticTrait.php',
+        'targetFileName'=> 'Tutorials/Tea/Classes/Domain/Repository/StoragePageAgnosticTrait.rst.txt',
+    ],
+    [
+        'action'=> 'createPhpClassCodeSnippet',
+        'class'=> TTN\Tea\Controller\TeaController::class,
+        'members' => [
+            'teaRepository','injectTeaRepository'
+        ],
+        'targetFileName'=> 'Tutorials/Tea/Classes/Domain/Repository/InjectRepository.rst.txt',
+    ],
+    [
+        'action'=> 'createPhpClassCodeSnippet',
+        'class'=> TTN\Tea\Controller\TeaController::class,
+        'members' => [
+            'teaRepository','indexAction'
+        ],
+        'targetFileName'=> 'Tutorials/Tea/Classes/Domain/Repository/UseRepository.rst.txt',
+    ],
 ];

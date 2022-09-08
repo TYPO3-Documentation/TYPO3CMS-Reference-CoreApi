@@ -1,10 +1,11 @@
 .. include:: /Includes.rst.txt
 
 .. index:: Extbase; Repositories
+.. _extbase-repository:
 
-===================================
+==========
 Repository
-===================================
+==========
 
 All repositories inherit from :php:`\TYPO3\CMS\Extbase\Persistence\Repository`.
 
