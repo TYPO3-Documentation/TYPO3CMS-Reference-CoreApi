@@ -24,8 +24,7 @@
       :param string $identifier: the identifier
       :returntype: array
       
-   .. php:method:: setWizardItem(string $identifier, array $configuration, array $position = array (
-   ))
+   .. php:method:: setWizardItem(string $identifier, array $configuration, array $position = [])
    
       Add a new wizard item with configuration at a defined position.
       
@@ -33,8 +32,7 @@
       
       :param string $identifier: the identifier
       :param array $configuration: the configuration
-      :param array $position: the position, default: array (
-      )
+      :param array $position: the position, default: []
       
    .. php:method:: removeWizardItem(string $identifier)
    

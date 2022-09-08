@@ -23,52 +23,36 @@
    https://developer.wordpress.org/reference/functions/wp_enqueue_style/
 
    
-   .. php:method:: addJavaScript(string $identifier, string $source, array $attributes = array (
-   ), array $options = array (
-   ))
+   .. php:method:: addJavaScript(string $identifier, string $source, array $attributes = [], array $options = [])
    
       :param string $identifier: the identifier
       :param string $source: URI to JavaScript file (allows EXT: syntax)
-      :param array $attributes: additional HTML <script> tag attributes, default: array (
-      )
-      :param array $options: ['priority' => true] means rendering before other tags, default: array (
-      )
+      :param array $attributes: additional HTML <script> tag attributes, default: []
+      :param array $options: ['priority' => true] means rendering before other tags, default: []
       :returntype: self
       
-   .. php:method:: addInlineJavaScript(string $identifier, string $source, array $attributes = array (
-   ), array $options = array (
-   ))
+   .. php:method:: addInlineJavaScript(string $identifier, string $source, array $attributes = [], array $options = [])
    
       :param string $identifier: the identifier
       :param string $source: JavaScript code
-      :param array $attributes: additional HTML <script> tag attributes, default: array (
-      )
-      :param array $options: ['priority' => true] means rendering before other tags, default: array (
-      )
+      :param array $attributes: additional HTML <script> tag attributes, default: []
+      :param array $options: ['priority' => true] means rendering before other tags, default: []
       :returntype: self
       
-   .. php:method:: addStyleSheet(string $identifier, string $source, array $attributes = array (
-   ), array $options = array (
-   ))
+   .. php:method:: addStyleSheet(string $identifier, string $source, array $attributes = [], array $options = [])
    
       :param string $identifier: the identifier
       :param string $source: URI to stylesheet file (allows EXT: syntax)
-      :param array $attributes: additional HTML <link> tag attributes, default: array (
-      )
-      :param array $options: ['priority' => true] means rendering before other tags, default: array (
-      )
+      :param array $attributes: additional HTML <link> tag attributes, default: []
+      :param array $options: ['priority' => true] means rendering before other tags, default: []
       :returntype: self
       
-   .. php:method:: addInlineStyleSheet(string $identifier, string $source, array $attributes = array (
-   ), array $options = array (
-   ))
+   .. php:method:: addInlineStyleSheet(string $identifier, string $source, array $attributes = [], array $options = [])
    
       :param string $identifier: the identifier
       :param string $source: stylesheet code
-      :param array $attributes: additional HTML <link> tag attributes, default: array (
-      )
-      :param array $options: ['priority' => true] means rendering before other tags, default: array (
-      )
+      :param array $attributes: additional HTML <link> tag attributes, default: []
+      :param array $options: ['priority' => true] means rendering before other tags, default: []
       :returntype: self
       
    .. php:method:: addMedia(string $fileName, array $additionalInformation)
