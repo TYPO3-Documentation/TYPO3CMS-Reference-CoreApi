@@ -6,7 +6,7 @@
    Collects additional JavaScript modules to be loaded in SetupModuleController.
 
    
-   .. php:method:: addModule(string moduleName)
+   .. php:method:: addModule(string $moduleName)
    
       :param string $moduleName: the moduleName
       

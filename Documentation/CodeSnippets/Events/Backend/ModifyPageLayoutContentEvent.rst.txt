@@ -14,7 +14,7 @@
    
       :returntype: TYPO3\\CMS\\Backend\\Template\\ModuleTemplate
       
-   .. php:method:: setHeaderContent(string content)
+   .. php:method:: setHeaderContent(string $content)
    
       Set content for the header. Can also be used to e.g. reorder existing content.
       
@@ -22,7 +22,7 @@
       
       :param string $content: the content
       
-   .. php:method:: addHeaderContent(string content)
+   .. php:method:: addHeaderContent(string $content)
    
       Add additional content to the header
       
@@ -32,7 +32,7 @@
    
       :returntype: string
       
-   .. php:method:: setFooterContent(string content)
+   .. php:method:: setFooterContent(string $content)
    
       Set content for the footer. Can also be used to e.g. reorder existing content.
       
@@ -40,7 +40,7 @@
       
       :param string $content: the content
       
-   .. php:method:: addFooterContent(string content)
+   .. php:method:: addFooterContent(string $content)
    
       Add additional content to the footer
       

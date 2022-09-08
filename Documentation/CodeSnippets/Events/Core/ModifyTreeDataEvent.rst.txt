@@ -10,7 +10,7 @@
    
       :returntype: TYPO3\\CMS\\Backend\\Tree\\TreeNode
       
-   .. php:method:: setTreeData(TYPO3\\CMS\\Backend\\Tree\\TreeNode treeData)
+   .. php:method:: setTreeData(TYPO3\\CMS\\Backend\\Tree\\TreeNode $treeData)
    
       :param TYPO3\\CMS\\Backend\\Tree\\TreeNode $treeData: the treeData
       

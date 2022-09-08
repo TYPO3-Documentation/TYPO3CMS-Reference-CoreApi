@@ -14,7 +14,7 @@
    
       :returntype: array
       
-   .. php:method:: setData(array data)
+   .. php:method:: setData(array $data)
    
       :param array $data: the data
       
@@ -22,6 +22,6 @@
    
       :returntype: array
       
-   .. php:method:: setVersions(array versions)
+   .. php:method:: setVersions(array $versions)
    
       :param array $versions: the versions

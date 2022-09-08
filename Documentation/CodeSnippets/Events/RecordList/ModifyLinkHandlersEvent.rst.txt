@@ -18,11 +18,12 @@
       :returntype: array
       :returns: The handler definition, or null if not defined.
       
-   .. php:method:: setLinkHandler(string $name)
+   .. php:method:: setLinkHandler(string $name, array $handler)
    
       Sets a handler by name, overwriting it if it already exists.
       
       :param string $name: The handler name, including trailing period.
+      :param array $handler: the handler
       :returntype: self
       
    .. php:method:: getCurrentLinkParts()

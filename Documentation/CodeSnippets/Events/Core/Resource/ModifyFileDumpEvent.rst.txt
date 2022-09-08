@@ -16,7 +16,7 @@
    
       :returntype: TYPO3\\CMS\\Core\\Resource\\ResourceInterface
       
-   .. php:method:: setFile(TYPO3\\CMS\\Core\\Resource\\ResourceInterface file)
+   .. php:method:: setFile(TYPO3\\CMS\\Core\\Resource\\ResourceInterface $file)
    
       :param TYPO3\\CMS\\Core\\Resource\\ResourceInterface $file: the file
       
@@ -24,7 +24,7 @@
    
       :returntype: Psr\\Http\\Message\\ServerRequestInterface
       
-   .. php:method:: setResponse(Psr\\Http\\Message\\ResponseInterface response)
+   .. php:method:: setResponse(Psr\\Http\\Message\\ResponseInterface $response)
    
       :param Psr\\Http\\Message\\ResponseInterface $response: the response
       

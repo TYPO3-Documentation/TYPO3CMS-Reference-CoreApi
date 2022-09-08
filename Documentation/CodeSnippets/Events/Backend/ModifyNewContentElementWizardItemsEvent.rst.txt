@@ -10,21 +10,21 @@
    
       :returntype: array
       
-   .. php:method:: setWizardItems(array wizardItems)
+   .. php:method:: setWizardItems(array $wizardItems)
    
       :param array $wizardItems: the wizardItems
       
-   .. php:method:: hasWizardItem(string identifier)
+   .. php:method:: hasWizardItem(string $identifier)
    
       :param string $identifier: the identifier
       :returntype: bool
       
-   .. php:method:: getWizardItem(string identifier)
+   .. php:method:: getWizardItem(string $identifier)
    
       :param string $identifier: the identifier
       :returntype: array
       
-   .. php:method:: setWizardItem(string identifier, array configuration, array position = array (
+   .. php:method:: setWizardItem(string $identifier, array $configuration, array $position = array (
    ))
    
       Add a new wizard item with configuration at a defined position.
@@ -36,7 +36,7 @@
       :param array $position: the position, default: array (
       )
       
-   .. php:method:: removeWizardItem(string identifier)
+   .. php:method:: removeWizardItem(string $identifier)
    
       :param string $identifier: the identifier
       :returntype: bool

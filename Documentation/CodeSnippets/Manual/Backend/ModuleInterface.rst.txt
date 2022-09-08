@@ -101,7 +101,7 @@
       
       :returntype: bool
       
-   .. php:method:: hasSubModule(string identifier)
+   .. php:method:: hasSubModule(string $identifier)
    
       Checks whether this module has a submodule with the given identifier
       
@@ -114,7 +114,7 @@
       
       :returntype: bool
       
-   .. php:method:: getSubModule(string identifier)
+   .. php:method:: getSubModule(string $identifier)
    
       Return a submodule given by its full identifier
       

@@ -7,7 +7,7 @@
    URI, which had been generated for a page in the frontend.
 
    
-   .. php:method:: setPreviewUri(Psr\\Http\\Message\\UriInterface previewUri)
+   .. php:method:: setPreviewUri(Psr\\Http\\Message\\UriInterface $previewUri)
    
       :param Psr\\Http\\Message\\UriInterface $previewUri: the previewUri
       

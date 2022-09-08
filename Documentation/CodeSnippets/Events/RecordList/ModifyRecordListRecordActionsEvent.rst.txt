@@ -8,7 +8,7 @@
    "edit", "copy", "delete") for a table in the RecordList.
 
    
-   .. php:method:: setAction()
+   .. php:method:: setAction(string $action, string $actionName = '', string $group = '', string $before = '', string $after = '')
    
       Add a new action or override an existing one. Latter is only possible,
       in case $columnName is given. Otherwise, the column will be added with
@@ -19,38 +19,50 @@
       Note: In case non or an invalid $group is provided, the new action will
       be added to the secondary group.
       
+      :param string $action: the action
+      :param string $actionName: the actionName, default: ''
+      :param string $group: the group, default: ''
+      :param string $before: the before, default: ''
+      :param string $after: the after, default: ''
       
-   .. php:method:: hasAction()
+   .. php:method:: hasAction(string $actionName, string $group = '')
    
       Whether the action exists in the given group. In case non or
       an invalid $group is provided, both groups will be checked.
       
+      :param string $actionName: the actionName
+      :param string $group: the group, default: ''
       :returntype: bool
       
-   .. php:method:: getAction()
+   .. php:method:: getAction(string $actionName, string $group = '')
    
       Get action by its name. In case the action exists in both groups
       and non or an invalid $group is provided, the action from the
       "primary" group will be returned.
       
+      :param string $actionName: the actionName
+      :param string $group: the group, default: ''
       :returntype: string
       
-   .. php:method:: removeAction()
+   .. php:method:: removeAction(string $actionName, string $group = '')
    
       Remove action by its name. In case the action exists in both groups
       and non or an invalid $group is provided, the action will be removed
       from both groups.
       
+      :param string $actionName: the actionName
+      :param string $group: the group, default: ''
       :returntype: bool
       :returns: Whether the action could be removed - Will therefore return FALSE if the action to remove does not exist.
       
-   .. php:method:: getActionGroup()
+   .. php:method:: getActionGroup(string $group)
    
       Get the actions of a specific group
       
+      :param string $group: the group
       :returntype: array
       
-   .. php:method:: setActions(array actions)
+   .. php:method:: setActions(array $actions)
    
       :param array $actions: the actions
       

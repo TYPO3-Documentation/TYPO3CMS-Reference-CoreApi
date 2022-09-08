@@ -13,7 +13,7 @@
    
       :returntype: int
       
-   .. php:method:: setStorageUid(int storageUid)
+   .. php:method:: setStorageUid(int $storageUid)
    
       :param int $storageUid: the storageUid
       
@@ -21,7 +21,7 @@
    
       :returntype: array
       
-   .. php:method:: setRecord(array record)
+   .. php:method:: setRecord(array $record)
    
       :param array $record: the record
       
@@ -29,6 +29,6 @@
    
       :returntype: string
       
-   .. php:method:: setFileIdentifier(string fileIdentifier)
+   .. php:method:: setFileIdentifier(string $fileIdentifier)
    
       :param string $fileIdentifier: the fileIdentifier

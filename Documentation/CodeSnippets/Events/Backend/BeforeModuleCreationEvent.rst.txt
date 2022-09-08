@@ -14,22 +14,22 @@
    
       :returntype: array
       
-   .. php:method:: setConfiguration(array configuration)
+   .. php:method:: setConfiguration(array $configuration)
    
       :param array $configuration: the configuration
       
-   .. php:method:: hasConfigurationValue(string key)
+   .. php:method:: hasConfigurationValue(string $key)
    
       :param string $key: the key
       :returntype: bool
       
-   .. php:method:: getConfigurationValue(string key, mixed default = NULL)
+   .. php:method:: getConfigurationValue(string $key, mixed $default = NULL)
    
       :param string $key: the key
       :param mixed $default: the default, default: NULL
       :returntype: mixed
       
-   .. php:method:: setConfigurationValue(string key, mixed value)
+   .. php:method:: setConfigurationValue(string $key, mixed $value)
    
       :param string $key: the key
       :param mixed $value: the value

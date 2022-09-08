@@ -32,7 +32,7 @@
       
       :returntype: string
       
-   .. php:method:: setValue(string value)
+   .. php:method:: setValue(string $value)
    
       Set the updated value calculated by a listener.
       

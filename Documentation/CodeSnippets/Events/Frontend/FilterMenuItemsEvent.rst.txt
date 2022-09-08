@@ -14,7 +14,7 @@
    
       :returntype: array
       
-   .. php:method:: setFilteredMenuItems(array filteredMenuItems)
+   .. php:method:: setFilteredMenuItems(array $filteredMenuItems)
    
       :param array $filteredMenuItems: the filteredMenuItems
       

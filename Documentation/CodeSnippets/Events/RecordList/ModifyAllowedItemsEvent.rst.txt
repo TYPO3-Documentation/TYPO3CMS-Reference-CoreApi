@@ -10,12 +10,12 @@
    
       :returntype: array
       
-   .. php:method:: addAllowedItem(string item)
+   .. php:method:: addAllowedItem(string $item)
    
       :param string $item: the item
       :returntype: self
       
-   .. php:method:: removeAllowedItem(string new)
+   .. php:method:: removeAllowedItem(string $new)
    
       :param string $new: the new
       :returntype: self

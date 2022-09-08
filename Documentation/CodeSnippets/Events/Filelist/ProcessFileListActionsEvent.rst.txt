@@ -18,6 +18,6 @@
    
       :returntype: array
       
-   .. php:method:: setActionItems(array actionItems)
+   .. php:method:: setActionItems(array $actionItems)
    
       :param array $actionItems: the actionItems

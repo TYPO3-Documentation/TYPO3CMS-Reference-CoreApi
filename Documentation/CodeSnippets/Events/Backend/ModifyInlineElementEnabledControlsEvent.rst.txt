@@ -6,7 +6,7 @@
    Listeners to this Event will be able to modify the state (enabled or disabled) for controls of an inline element
 
    
-   .. php:method:: enableControl(string identifier)
+   .. php:method:: enableControl(string $identifier)
    
       Enable a control, if it exists
       
@@ -14,7 +14,7 @@
       :returntype: bool
       :returns: Whether the control could be enabled
       
-   .. php:method:: disableControl(string identifier)
+   .. php:method:: disableControl(string $identifier)
    
       Disable a control, if it exists
       
@@ -22,14 +22,14 @@
       :returntype: bool
       :returns: Whether the control could be disabled
       
-   .. php:method:: hasControl(string identifier)
+   .. php:method:: hasControl(string $identifier)
    
       Returns whether a control exists for the given identifier
       
       :param string $identifier: the identifier
       :returntype: bool
       
-   .. php:method:: isControlEnabled(string identifier)
+   .. php:method:: isControlEnabled(string $identifier)
    
       Returns whether the control is enabled.
       

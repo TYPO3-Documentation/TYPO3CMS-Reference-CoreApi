@@ -25,7 +25,7 @@
    .. php:method:: markAsCheckedLink()
    
       
-   .. php:method:: markAsBrokenLink(string reason = '')
+   .. php:method:: markAsBrokenLink(string $reason = '')
    
       :param string $reason: the reason, default: ''
       

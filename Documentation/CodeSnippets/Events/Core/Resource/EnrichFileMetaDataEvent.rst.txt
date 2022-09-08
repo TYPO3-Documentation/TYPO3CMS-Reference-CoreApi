@@ -20,6 +20,6 @@
    
       :returntype: array
       
-   .. php:method:: setRecord(array record)
+   .. php:method:: setRecord(array $record)
    
       :param array $record: the record

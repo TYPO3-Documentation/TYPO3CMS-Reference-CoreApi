@@ -10,6 +10,6 @@
    
       :returntype: string
       
-   .. php:method:: setUrl(string url)
+   .. php:method:: setUrl(string $url)
    
       :param string $url: the url

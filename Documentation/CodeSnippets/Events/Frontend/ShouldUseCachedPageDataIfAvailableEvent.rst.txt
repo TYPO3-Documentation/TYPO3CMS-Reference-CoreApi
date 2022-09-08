@@ -20,6 +20,6 @@
    
       :returntype: bool
       
-   .. php:method:: setShouldUseCachedPageData(bool shouldUseCachedPageData)
+   .. php:method:: setShouldUseCachedPageData(bool $shouldUseCachedPageData)
    
       :param bool $shouldUseCachedPageData: the shouldUseCachedPageData

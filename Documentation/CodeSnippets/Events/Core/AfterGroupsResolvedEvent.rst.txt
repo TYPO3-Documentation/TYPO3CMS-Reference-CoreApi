@@ -21,7 +21,7 @@
       
       :returntype: array
       
-   .. php:method:: setGroups(array groups)
+   .. php:method:: setGroups(array $groups)
    
       List of group records as manipulated by the event.
       

@@ -9,7 +9,7 @@
    If a link could not be generated, a "UnableToLinkException" could be thrown by an Event Listener.
 
    
-   .. php:method:: setLinkResult(TYPO3\\CMS\\Frontend\\Typolink\\LinkResultInterface linkResult)
+   .. php:method:: setLinkResult(TYPO3\\CMS\\Frontend\\Typolink\\LinkResultInterface $linkResult)
    
       Update a link when a part was modified by an Event Listener.
       

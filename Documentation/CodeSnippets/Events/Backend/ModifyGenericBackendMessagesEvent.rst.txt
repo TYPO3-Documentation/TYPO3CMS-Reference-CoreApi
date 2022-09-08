@@ -10,10 +10,10 @@
    
       :returntype: array
       
-   .. php:method:: addMessage(TYPO3\\CMS\\Core\\Messaging\\AbstractMessage message)
+   .. php:method:: addMessage(TYPO3\\CMS\\Core\\Messaging\\AbstractMessage $message)
    
       :param TYPO3\\CMS\\Core\\Messaging\\AbstractMessage $message: the message
       
-   .. php:method:: setMessages(array messages)
+   .. php:method:: setMessages(array $messages)
    
       :param array $messages: the messages

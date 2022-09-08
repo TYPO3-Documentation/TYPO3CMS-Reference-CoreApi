@@ -10,7 +10,7 @@
    
       :returntype: array
       
-   .. php:method:: setVersionDifferences(array versionDifferences)
+   .. php:method:: setVersionDifferences(array $versionDifferences)
    
       :param array $versionDifferences: the versionDifferences
       

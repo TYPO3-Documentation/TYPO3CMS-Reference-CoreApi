@@ -13,7 +13,7 @@
    
       :returntype: array
       
-   .. php:method:: setConfiguration(array configuration)
+   .. php:method:: setConfiguration(array $configuration)
    
       :param array $configuration: the configuration
       
@@ -25,7 +25,7 @@
    
       :returntype: array
       
-   .. php:method:: setPage(array page)
+   .. php:method:: setPage(array $page)
    
       :param array $page: the page
       
@@ -33,7 +33,7 @@
    
       :returntype: array
       
-   .. php:method:: setQueryParameters(array queryParameters)
+   .. php:method:: setQueryParameters(array $queryParameters)
    
       :param array $queryParameters: the queryParameters
       
@@ -41,6 +41,6 @@
    
       :returntype: string
       
-   .. php:method:: setFragment(string fragment)
+   .. php:method:: setFragment(string $fragment)
    
       :param string $fragment: the fragment

@@ -22,6 +22,6 @@
    
       :returntype: Psr\\Http\\Message\\ResponseInterface
       
-   .. php:method:: setResponse(Psr\\Http\\Message\\ResponseInterface response)
+   .. php:method:: setResponse(Psr\\Http\\Message\\ResponseInterface $response)
    
       :param Psr\\Http\\Message\\ResponseInterface $response: the response

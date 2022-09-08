@@ -6,11 +6,11 @@
    An event to modify the clear cache actions, shown in the TYPO3 Backend top toolbar
 
    
-   .. php:method:: addCacheAction(array cacheAction)
+   .. php:method:: addCacheAction(array $cacheAction)
    
       :param array $cacheAction: the cacheAction
       
-   .. php:method:: setCacheActions(array cacheActions)
+   .. php:method:: setCacheActions(array $cacheActions)
    
       :param array $cacheActions: the cacheActions
       
@@ -18,11 +18,11 @@
    
       :returntype: array
       
-   .. php:method:: addCacheActionIdentifier(string cacheActionIdentifier)
+   .. php:method:: addCacheActionIdentifier(string $cacheActionIdentifier)
    
       :param string $cacheActionIdentifier: the cacheActionIdentifier
       
-   .. php:method:: setCacheActionIdentifiers(array cacheActionIdentifiers)
+   .. php:method:: setCacheActionIdentifiers(array $cacheActionIdentifiers)
    
       :param array $cacheActionIdentifiers: the cacheActionIdentifiers
       

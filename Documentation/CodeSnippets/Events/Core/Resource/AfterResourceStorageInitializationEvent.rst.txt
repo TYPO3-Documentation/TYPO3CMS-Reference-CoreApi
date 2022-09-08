@@ -12,6 +12,6 @@
    
       :returntype: TYPO3\\CMS\\Core\\Resource\\ResourceStorage
       
-   .. php:method:: setStorage(TYPO3\\CMS\\Core\\Resource\\ResourceStorage storage)
+   .. php:method:: setStorage(TYPO3\\CMS\\Core\\Resource\\ResourceStorage $storage)
    
       :param TYPO3\\CMS\\Core\\Resource\\ResourceStorage $storage: the storage

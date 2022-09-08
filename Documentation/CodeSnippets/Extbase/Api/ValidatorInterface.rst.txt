@@ -13,7 +13,7 @@
       :param mixed $value: The value that should be validated
       :returntype: TYPO3\\CMS\\Extbase\\Error\\Result
       
-   .. php:method:: setOptions(array options)
+   .. php:method:: setOptions(array $options)
    
       Receive validator options from framework.
       

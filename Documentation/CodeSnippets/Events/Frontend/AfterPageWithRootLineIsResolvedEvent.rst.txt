@@ -18,7 +18,7 @@
    
       :returntype: Psr\\Http\\Message\\ServerRequestInterface
       
-   .. php:method:: setResponse(Psr\\Http\\Message\\ResponseInterface response)
+   .. php:method:: setResponse(Psr\\Http\\Message\\ResponseInterface $response)
    
       :param Psr\\Http\\Message\\ResponseInterface $response: the response
       

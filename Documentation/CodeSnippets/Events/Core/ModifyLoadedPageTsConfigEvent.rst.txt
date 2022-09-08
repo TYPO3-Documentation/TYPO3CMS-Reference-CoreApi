@@ -10,11 +10,11 @@
    
       :returntype: array
       
-   .. php:method:: addTsConfig(string tsConfig)
+   .. php:method:: addTsConfig(string $tsConfig)
    
       :param string $tsConfig: the tsConfig
       
-   .. php:method:: setTsConfig(array tsConfig)
+   .. php:method:: setTsConfig(array $tsConfig)
    
       :param array $tsConfig: the tsConfig
       
