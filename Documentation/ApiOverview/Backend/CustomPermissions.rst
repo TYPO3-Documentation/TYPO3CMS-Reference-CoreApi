@@ -1,6 +1,5 @@
 .. include:: /Includes.rst.txt
 
-
 .. _custom-permissions:
 
 ===============================
@@ -14,39 +13,34 @@ permission option is always a checkbox (on/off).
 
 The scope of such options is the backend only.
 
-
 .. _custom-permissions-registration:
 
 Registration
 ============
 
-Options are configured in the global variable :code:`$GLOBALS['TYPO3_CONF_VARS']['BE']['customPermOptions']` in
-:file:`ext_tables.php`. The syntax is demonstrated in the following example, which adds three options
-under a given header:
+Options are configured in the global variable
+:php:`$GLOBALS['TYPO3_CONF_VARS']['BE']['customPermOptions']` in
+:file:`EXT:my_extension/ext_tables.php`. The syntax is demonstrated in
+the following example, which a custom permission option:
 
-.. code-block:: php
+..  code-block:: php
+    :caption: EXT:my_extension/ext_tables.php
 
-   $iconRegistry = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\TYPO3\CMS\Core\Imaging\IconRegistry::class);
-   $iconRegistry->registerIcon(
-      'styleguide-icon-svg',
-      \TYPO3\CMS\Core\Imaging\IconProvider\SvgIconProvider::class,
-      [ 'source' => 'EXT:styleguide/Resources/Public/Icons/provider_svg_icon.svg',]
-    );
-
-   $GLOBALS['TYPO3_CONF_VARS']['BE']['customPermOptions'] = array(
-      'tx_examples_cat1' => array(
-         'header' => 'LLL:EXT:examples/Resources/Private/Language/locallang.xlf:permissions_header',
-         'items' => array(
-            'key1' => array(
-               'LLL:EXT:examples/Resources/Private/Language/locallang.xlf:permissions_option1',
-               'styleguide-icon-svg',
-               'LLL:EXT:examples/Resources/Private/Language/locallang.xlf:permissions_option1_description',
-            ),
-            'key2' => array('LLL:EXT:examples/Resources/Private/Language/locallang.xlf:permissions_option2'),
-            'key3' => array('LLL:EXT:examples/Resources/Private/Language/locallang.xlf:permissions_option3'),
-         )
-      )
-   );
+    // Register some custom permission options shown in BE group access lists
+    $GLOBALS['TYPO3_CONF_VARS']['BE']['customPermOptions']['tx_styleguide_custom'] = [
+        'header' => 'Custom styleguide permissions',
+            'items' => [
+                'key1' => [
+                    'Option 1',
+                    // Icon has been registered above
+                    'tcarecords-tx_styleguide_forms-default',
+                    'Description 1',
+                ],
+            'key2' => [
+                'Option 2',
+            ],
+        ],
+    ];
 
 
 The result is that these options appear in the group access lists like
@@ -54,18 +48,16 @@ this:
 
 .. include:: /Images/AutomaticScreenshots/Examples/CustomPermissions/CustomOptions.rst.txt
 
-
-As you can see it is possible to add both an icon and a description text, that will
-be displayed as context-sensitive help. If icons not provided by the Core are used,
-they need to be registered with the icon API.
-
+As you can see it is possible to add both an icon and a description text.
+If icons not provided by the Core are used, they need to be registered
+with the :ref:`Icon API <icon>`.
 
 .. _custom-permissions-evaluation:
 
 Evaluation
 ==========
 
-To check if a custom permission option is set simply call the API
+To check if a custom permission option is set call the following API
 function from the user object:
 
 .. code-block:: php
