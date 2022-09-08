@@ -45,6 +45,10 @@ Steps in this tutorial:
     We define a database schema and make it visible to TYPO3. Then we create
     a PHP class as a model of the real-life tea flavour.
 
+#.  :ref:`The Repository <extbase_tutorial_tea_repositoy>`
+
+    The repository helps us to fetch tea objects from the database.
+
 ..  note::
     This tutorial is work in progress. As we want to prevent epic pull requests,
     we will create it step by step. Stay tuned.
@@ -55,3 +59,4 @@ Steps in this tutorial:
     ExtensionConfiguration
     DirectoryStructure
     Model
+    Repository
