@@ -71,6 +71,7 @@
         "ttn/tea": "dev-lwolf-v12-compability",
         "t3docs/examples": "11.5.x-dev",
         "t3docs/site-package": "^11.5",
-        "typo3-documentation-team/speeddemo": "^11.4"
+        "typo3-documentation-team/speeddemo": "^11.4",
+        "typo3/cms-styleguide": "^11.4"
     }
 }
