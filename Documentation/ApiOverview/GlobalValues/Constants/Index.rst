@@ -31,6 +31,13 @@ Paths
 TYPO3_mainDir
 -------------
 
+..  deprecated:: 12.0
+    Accessing the constant will stop working in TYPO3 v13.
+
+    It is recommended to use the
+    :php:`TYPO3\CMS\Core\Routing\BackendEntryPointResolver`
+    class when needing to direct to the TYPO3 Backend.
+
 This is the directory of the backend administration for the sites of
 this TYPO3 installation. Hardcoded to :code:`typo3/`. Must be a subdirectory
 to the website.
