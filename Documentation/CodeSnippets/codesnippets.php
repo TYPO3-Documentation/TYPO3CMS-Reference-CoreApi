@@ -21,4 +21,5 @@
         include('Config/EventsSetup.php'),
         include('Config/EventsWorkspaces.php'),
         include('Config/Tutorials/Tea.php'),
+        include('Config/LoginProvider.php'),
     );
