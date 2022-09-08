@@ -7,7 +7,7 @@
    should be cached in the "pages" cache when initially generated.
 
    
-   .. php:method:: setCacheLifetime(int cacheLifetime)
+   .. php:method:: setCacheLifetime(int $cacheLifetime)
    
       :param int $cacheLifetime: the cacheLifetime
       

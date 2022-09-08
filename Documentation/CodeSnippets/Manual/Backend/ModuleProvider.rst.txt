@@ -7,7 +7,7 @@
    performing the necessary access checks, which ModuleRegistry does not deal with.
 
    
-   .. php:method:: isModuleRegistered(string identifier)
+   .. php:method:: isModuleRegistered(string $identifier)
    
       Simple wrapper for the registry, which just checks if a
       module is registered. Does NOT perform any access checks.
@@ -15,7 +15,7 @@
       :param string $identifier: the identifier
       :returntype: bool
       
-   .. php:method:: getModule(string identifier, TYPO3\\CMS\\Core\\Authentication\\BackendUserAuthentication user = NULL, bool respectWorkspaceRestrictions = true)
+   .. php:method:: getModule(string $identifier, TYPO3\\CMS\\Core\\Authentication\\BackendUserAuthentication $user = NULL, bool $respectWorkspaceRestrictions = true)
    
       Returns a Module for the given identifier. In case a user is given, also access checks are performed.
       
@@ -24,7 +24,7 @@
       :param bool $respectWorkspaceRestrictions: the respectWorkspaceRestrictions, default: true
       :returntype: TYPO3\\CMS\\Backend\\Module\\ModuleInterface
       
-   .. php:method:: getModules(TYPO3\\CMS\\Core\\Authentication\\BackendUserAuthentication user = NULL, bool respectWorkspaceRestrictions = true, bool grouped = true)
+   .. php:method:: getModules(TYPO3\\CMS\\Core\\Authentication\\BackendUserAuthentication $user = NULL, bool $respectWorkspaceRestrictions = true, bool $grouped = true)
    
       Returns all modules either grouped by main modules or flat.
       
@@ -35,7 +35,7 @@
       :param bool $grouped: the grouped, default: true
       :returntype: array
       
-   .. php:method:: getModuleForMenu(string identifier, TYPO3\\CMS\\Core\\Authentication\\BackendUserAuthentication user, bool respectWorkspaceRestrictions = true)
+   .. php:method:: getModuleForMenu(string $identifier, TYPO3\\CMS\\Core\\Authentication\\BackendUserAuthentication $user, bool $respectWorkspaceRestrictions = true)
    
       Return the requested (main) module if exist and allowed, prepared
       for menu generation or similar structured output (nested). Takes
@@ -46,7 +46,7 @@
       :param bool $respectWorkspaceRestrictions: the respectWorkspaceRestrictions, default: true
       :returntype: TYPO3\\CMS\\Backend\\Module\\MenuModule
       
-   .. php:method:: getModulesForModuleMenu(TYPO3\\CMS\\Core\\Authentication\\BackendUserAuthentication user, bool respectWorkspaceRestrictions = true)
+   .. php:method:: getModulesForModuleMenu(TYPO3\\CMS\\Core\\Authentication\\BackendUserAuthentication $user, bool $respectWorkspaceRestrictions = true)
    
       Returns all allowed modules for the current user, prepared
       for module menu generation or similar structured output (nested).
@@ -57,7 +57,7 @@
       :param bool $respectWorkspaceRestrictions: the respectWorkspaceRestrictions, default: true
       :returntype: array
       
-   .. php:method:: accessGranted(string identifier, TYPO3\\CMS\\Core\\Authentication\\BackendUserAuthentication user, bool respectWorkspaceRestrictions = true)
+   .. php:method:: accessGranted(string $identifier, TYPO3\\CMS\\Core\\Authentication\\BackendUserAuthentication $user, bool $respectWorkspaceRestrictions = true)
    
       Check access of a module for a given user
       

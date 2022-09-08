@@ -22,17 +22,17 @@
    
       :returntype: array
       
-   .. php:method:: setLinkExplanation(array linkExplanation)
+   .. php:method:: setLinkExplanation(array $linkExplanation)
    
       :param array $linkExplanation: the linkExplanation
       
-   .. php:method:: getLinkExplanationValue(string key, mixed default = NULL)
+   .. php:method:: getLinkExplanationValue(string $key, mixed $default = NULL)
    
       :param string $key: the key
       :param mixed $default: the default, default: NULL
       :returntype: mixed
       
-   .. php:method:: setLinkExplanationValue(string key, mixed value)
+   .. php:method:: setLinkExplanationValue(string $key, mixed $value)
    
       :param string $key: the key
       :param mixed $value: the value

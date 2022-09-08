@@ -12,7 +12,7 @@
    
       :returntype: TYPO3\\CMS\\Core\\Resource\\ProcessedFile
       
-   .. php:method:: setProcessedFile(TYPO3\\CMS\\Core\\Resource\\ProcessedFile processedFile)
+   .. php:method:: setProcessedFile(TYPO3\\CMS\\Core\\Resource\\ProcessedFile $processedFile)
    
       :param TYPO3\\CMS\\Core\\Resource\\ProcessedFile $processedFile: the processedFile
       

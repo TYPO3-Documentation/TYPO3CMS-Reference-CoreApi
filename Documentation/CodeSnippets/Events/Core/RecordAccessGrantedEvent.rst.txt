@@ -13,7 +13,7 @@
    
       :returntype: bool
       
-   .. php:method:: setAccessGranted(bool accessGranted)
+   .. php:method:: setAccessGranted(bool $accessGranted)
    
       :param bool $accessGranted: the accessGranted
       
@@ -25,7 +25,7 @@
    
       :returntype: array
       
-   .. php:method:: updateRecord(array record)
+   .. php:method:: updateRecord(array $record)
    
       :param array $record: the record
       

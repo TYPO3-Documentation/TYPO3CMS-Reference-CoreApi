@@ -10,6 +10,6 @@
    
       :returntype: TYPO3\\CMS\\Extbase\\Persistence\\QueryInterface
       
-   .. php:method:: setQuery(TYPO3\\CMS\\Extbase\\Persistence\\QueryInterface query)
+   .. php:method:: setQuery(TYPO3\\CMS\\Extbase\\Persistence\\QueryInterface $query)
    
       :param TYPO3\\CMS\\Extbase\\Persistence\\QueryInterface $query: the query

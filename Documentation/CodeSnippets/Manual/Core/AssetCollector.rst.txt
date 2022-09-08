@@ -23,60 +23,81 @@
    https://developer.wordpress.org/reference/functions/wp_enqueue_style/
 
    
-   .. php:method:: addJavaScript(string $source, array $attributes, array $options)
+   .. php:method:: addJavaScript(string $identifier, string $source, array $attributes = array (
+   ), array $options = array (
+   ))
    
+      :param string $identifier: the identifier
       :param string $source: URI to JavaScript file (allows EXT: syntax)
-      :param array $attributes: additional HTML <script> tag attributes
-      :param array $options: ['priority' => true] means rendering before other tags
+      :param array $attributes: additional HTML <script> tag attributes, default: array (
+      )
+      :param array $options: ['priority' => true] means rendering before other tags, default: array (
+      )
       :returntype: self
       
-   .. php:method:: addInlineJavaScript(string $source, array $attributes, array $options)
+   .. php:method:: addInlineJavaScript(string $identifier, string $source, array $attributes = array (
+   ), array $options = array (
+   ))
    
+      :param string $identifier: the identifier
       :param string $source: JavaScript code
-      :param array $attributes: additional HTML <script> tag attributes
-      :param array $options: ['priority' => true] means rendering before other tags
+      :param array $attributes: additional HTML <script> tag attributes, default: array (
+      )
+      :param array $options: ['priority' => true] means rendering before other tags, default: array (
+      )
       :returntype: self
       
-   .. php:method:: addStyleSheet(string $source, array $attributes, array $options)
+   .. php:method:: addStyleSheet(string $identifier, string $source, array $attributes = array (
+   ), array $options = array (
+   ))
    
+      :param string $identifier: the identifier
       :param string $source: URI to stylesheet file (allows EXT: syntax)
-      :param array $attributes: additional HTML <link> tag attributes
-      :param array $options: ['priority' => true] means rendering before other tags
+      :param array $attributes: additional HTML <link> tag attributes, default: array (
+      )
+      :param array $options: ['priority' => true] means rendering before other tags, default: array (
+      )
       :returntype: self
       
-   .. php:method:: addInlineStyleSheet(string $source, array $attributes, array $options)
+   .. php:method:: addInlineStyleSheet(string $identifier, string $source, array $attributes = array (
+   ), array $options = array (
+   ))
    
+      :param string $identifier: the identifier
       :param string $source: stylesheet code
-      :param array $attributes: additional HTML <link> tag attributes
-      :param array $options: ['priority' => true] means rendering before other tags
+      :param array $attributes: additional HTML <link> tag attributes, default: array (
+      )
+      :param array $options: ['priority' => true] means rendering before other tags, default: array (
+      )
       :returntype: self
       
-   .. php:method:: addMedia(array $additionalInformation)
+   .. php:method:: addMedia(string $fileName, array $additionalInformation)
    
+      :param string $fileName: the fileName
       :param array $additionalInformation: One dimensional hash map (array with non numerical keys) with scalar values
       :returntype: self
       
-   .. php:method:: removeJavaScript(string identifier)
+   .. php:method:: removeJavaScript(string $identifier)
    
       :param string $identifier: the identifier
       :returntype: self
       
-   .. php:method:: removeInlineJavaScript(string identifier)
+   .. php:method:: removeInlineJavaScript(string $identifier)
    
       :param string $identifier: the identifier
       :returntype: self
       
-   .. php:method:: removeStyleSheet(string identifier)
+   .. php:method:: removeStyleSheet(string $identifier)
    
       :param string $identifier: the identifier
       :returntype: self
       
-   .. php:method:: removeInlineStyleSheet(string identifier)
+   .. php:method:: removeInlineStyleSheet(string $identifier)
    
       :param string $identifier: the identifier
       :returntype: self
       
-   .. php:method:: removeMedia(string identifier)
+   .. php:method:: removeMedia(string $identifier)
    
       :param string $identifier: the identifier
       :returntype: self
@@ -85,47 +106,47 @@
    
       :returntype: array
       
-   .. php:method:: getJavaScripts(bool priority = NULL)
+   .. php:method:: getJavaScripts(bool $priority = NULL)
    
       :param bool $priority: the priority, default: NULL
       :returntype: array
       
-   .. php:method:: getInlineJavaScripts(bool priority = NULL)
+   .. php:method:: getInlineJavaScripts(bool $priority = NULL)
    
       :param bool $priority: the priority, default: NULL
       :returntype: array
       
-   .. php:method:: getStyleSheets(bool priority = NULL)
+   .. php:method:: getStyleSheets(bool $priority = NULL)
    
       :param bool $priority: the priority, default: NULL
       :returntype: array
       
-   .. php:method:: getInlineStyleSheets(bool priority = NULL)
+   .. php:method:: getInlineStyleSheets(bool $priority = NULL)
    
       :param bool $priority: the priority, default: NULL
       :returntype: array
       
-   .. php:method:: hasJavaScript(string identifier)
+   .. php:method:: hasJavaScript(string $identifier)
    
       :param string $identifier: the identifier
       :returntype: bool
       
-   .. php:method:: hasInlineJavaScript(string identifier)
+   .. php:method:: hasInlineJavaScript(string $identifier)
    
       :param string $identifier: the identifier
       :returntype: bool
       
-   .. php:method:: hasStyleSheet(string identifier)
+   .. php:method:: hasStyleSheet(string $identifier)
    
       :param string $identifier: the identifier
       :returntype: bool
       
-   .. php:method:: hasInlineStyleSheet(string identifier)
+   .. php:method:: hasInlineStyleSheet(string $identifier)
    
       :param string $identifier: the identifier
       :returntype: bool
       
-   .. php:method:: hasMedia(string fileName)
+   .. php:method:: hasMedia(string $fileName)
    
       :param string $fileName: the fileName
       :returntype: bool

@@ -13,6 +13,6 @@
    
       :returntype: array
       
-   .. php:method:: setTca(array tca)
+   .. php:method:: setTca(array $tca)
    
       :param array $tca: the tca

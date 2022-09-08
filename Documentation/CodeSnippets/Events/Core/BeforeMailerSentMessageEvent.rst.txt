@@ -14,7 +14,7 @@
    
       :returntype: Symfony\\Component\\Mime\\RawMessage
       
-   .. php:method:: setMessage(Symfony\\Component\\Mime\\RawMessage message)
+   .. php:method:: setMessage(Symfony\\Component\\Mime\\RawMessage $message)
    
       :param Symfony\\Component\\Mime\\RawMessage $message: the message
       
@@ -22,7 +22,7 @@
    
       :returntype: Symfony\\Component\\Mailer\\Envelope
       
-   .. php:method:: setEnvelope(Symfony\\Component\\Mailer\\Envelope envelope = NULL)
+   .. php:method:: setEnvelope(Symfony\\Component\\Mailer\\Envelope $envelope = NULL)
    
       :param Symfony\\Component\\Mailer\\Envelope $envelope: the envelope, default: NULL
       

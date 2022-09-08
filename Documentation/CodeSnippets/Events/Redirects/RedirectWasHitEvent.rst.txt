@@ -19,7 +19,7 @@
    
       :returntype: Psr\\Http\\Message\\UriInterface
       
-   .. php:method:: setMatchedRedirect(array matchedRedirect)
+   .. php:method:: setMatchedRedirect(array $matchedRedirect)
    
       :param array $matchedRedirect: the matchedRedirect
       
@@ -27,7 +27,7 @@
    
       :returntype: array
       
-   .. php:method:: setResponse(Psr\\Http\\Message\\ResponseInterface response)
+   .. php:method:: setResponse(Psr\\Http\\Message\\ResponseInterface $response)
    
       :param Psr\\Http\\Message\\ResponseInterface $response: the response
       

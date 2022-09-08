@@ -17,7 +17,7 @@
    
       :returntype: array
       
-   .. php:method:: setData(array data)
+   .. php:method:: setData(array $data)
    
       :param array $data: the data
       
@@ -25,7 +25,7 @@
    
       :returntype: array
       
-   .. php:method:: setDataArrayPart(array dataArrayPart)
+   .. php:method:: setDataArrayPart(array $dataArrayPart)
    
       :param array $dataArrayPart: the dataArrayPart
       

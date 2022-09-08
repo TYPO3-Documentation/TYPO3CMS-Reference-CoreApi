@@ -7,7 +7,7 @@
    the page preview URI is being generated, when linking to a page in the frontend.
 
    
-   .. php:method:: setPreviewUri(Psr\\Http\\Message\\UriInterface uri)
+   .. php:method:: setPreviewUri(Psr\\Http\\Message\\UriInterface $uri)
    
       :param Psr\\Http\\Message\\UriInterface $uri: the uri
       
@@ -23,7 +23,7 @@
    
       :returntype: int
       
-   .. php:method:: setPageId(int pageId)
+   .. php:method:: setPageId(int $pageId)
    
       :param int $pageId: the pageId
       
@@ -31,7 +31,7 @@
    
       :returntype: int
       
-   .. php:method:: setLanguageId(int languageId)
+   .. php:method:: setLanguageId(int $languageId)
    
       :param int $languageId: the languageId
       
@@ -39,7 +39,7 @@
    
       :returntype: array
       
-   .. php:method:: setRootline(array rootline)
+   .. php:method:: setRootline(array $rootline)
    
       :param array $rootline: the rootline
       
@@ -47,7 +47,7 @@
    
       :returntype: string
       
-   .. php:method:: setSection(string section)
+   .. php:method:: setSection(string $section)
    
       :param string $section: the section
       
@@ -55,7 +55,7 @@
    
       :returntype: array
       
-   .. php:method:: setAdditionalQueryParameters(array additionalQueryParameters)
+   .. php:method:: setAdditionalQueryParameters(array $additionalQueryParameters)
    
       :param array $additionalQueryParameters: the additionalQueryParameters
       

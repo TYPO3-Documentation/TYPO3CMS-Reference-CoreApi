@@ -12,20 +12,20 @@
       
       :returntype: array
       
-   .. php:method:: setControls(array controls)
+   .. php:method:: setControls(array $controls)
    
       Overwrite the controls
       
       :param array $controls: the controls
       
-   .. php:method:: getControl(string identifier)
+   .. php:method:: getControl(string $identifier)
    
       Returns the markup for the requested control
       
       :param string $identifier: the identifier
       :returntype: string
       
-   .. php:method:: setControl(string identifier, string markup)
+   .. php:method:: setControl(string $identifier, string $markup)
    
       Set a control with the given identifier and markup
       IMPORTANT: Overwrites an existing control with the same identifier
@@ -33,14 +33,14 @@
       :param string $identifier: the identifier
       :param string $markup: the markup
       
-   .. php:method:: hasControl(string identifier)
+   .. php:method:: hasControl(string $identifier)
    
       Returns whether a control exists for the given identifier
       
       :param string $identifier: the identifier
       :returntype: bool
       
-   .. php:method:: removeControl(string identifier)
+   .. php:method:: removeControl(string $identifier)
    
       Removes a control from the inline element, if it exists
       

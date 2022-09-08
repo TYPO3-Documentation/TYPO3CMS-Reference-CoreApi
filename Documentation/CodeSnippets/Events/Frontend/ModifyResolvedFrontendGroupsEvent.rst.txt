@@ -19,6 +19,6 @@
    
       :returntype: array
       
-   .. php:method:: setGroups(array groups)
+   .. php:method:: setGroups(array $groups)
    
       :param array $groups: the groups

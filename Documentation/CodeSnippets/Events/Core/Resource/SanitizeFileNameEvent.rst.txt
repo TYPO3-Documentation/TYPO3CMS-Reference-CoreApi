@@ -11,7 +11,7 @@
    
       :returntype: string
       
-   .. php:method:: setFileName(string fileName)
+   .. php:method:: setFileName(string $fileName)
    
       :param string $fileName: the fileName
       
