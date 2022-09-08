@@ -14,6 +14,6 @@
    
       :returntype: array
       
-   .. php:method:: setResult(array result)
+   .. php:method:: setResult(array $result)
    
       :param array $result: the result

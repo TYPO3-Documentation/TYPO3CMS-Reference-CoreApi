@@ -23,7 +23,7 @@
    
       :returntype: string
       
-   .. php:method:: setIconIdentifier(string iconIdentifier)
+   .. php:method:: setIconIdentifier(string $iconIdentifier)
    
       :param string $iconIdentifier: the iconIdentifier
       
@@ -31,6 +31,6 @@
    
       :returntype: string
       
-   .. php:method:: setOverlayIdentifier(string overlayIdentifier)
+   .. php:method:: setOverlayIdentifier(string $overlayIdentifier)
    
       :param string $overlayIdentifier: the overlayIdentifier

@@ -18,11 +18,11 @@
    
       :returntype: array
       
-   .. php:method:: addAction(string actionKey, string content)
+   .. php:method:: addAction(string $actionKey, string $content)
    
       :param string $actionKey: the actionKey
       :param string $content: the content
       
-   .. php:method:: setActions(array actions)
+   .. php:method:: setActions(array $actions)
    
       :param array $actions: the actions

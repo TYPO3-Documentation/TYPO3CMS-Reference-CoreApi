@@ -15,7 +15,7 @@
    
       :returntype: array
       
-   .. php:method:: setRecord(array record)
+   .. php:method:: setRecord(array $record)
    
       :param array $record: the record
       
@@ -27,7 +27,7 @@
    
       :returntype: array
       
-   .. php:method:: setResults(array results)
+   .. php:method:: setResults(array $results)
    
       :param array $results: the results
       

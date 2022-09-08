@@ -14,7 +14,7 @@
    
       :returntype: array
       
-   .. php:method:: setColumns(array columns)
+   .. php:method:: setColumns(array $columns)
    
       :param array $columns: the columns
       
@@ -22,7 +22,7 @@
    
       :returntype: array
       
-   .. php:method:: setColumnList(array columnList)
+   .. php:method:: setColumnList(array $columnList)
    
       :param array $columnList: the columnList
       

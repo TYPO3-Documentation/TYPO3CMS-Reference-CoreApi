@@ -16,6 +16,6 @@
    
       :returntype: string
       
-   .. php:method:: setContent(string content)
+   .. php:method:: setContent(string $content)
    
       :param string $content: the content

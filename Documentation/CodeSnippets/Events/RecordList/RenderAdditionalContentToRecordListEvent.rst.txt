@@ -12,11 +12,11 @@
    
       :returntype: Psr\\Http\\Message\\ServerRequestInterface
       
-   .. php:method:: addContentAbove(string contentAbove)
+   .. php:method:: addContentAbove(string $contentAbove)
    
       :param string $contentAbove: the contentAbove
       
-   .. php:method:: addContentBelow(string contentBelow)
+   .. php:method:: addContentBelow(string $contentBelow)
    
       :param string $contentBelow: the contentBelow
       

@@ -26,19 +26,19 @@
    
       :returntype: string
       
-   .. php:method:: setLinkParts(array linkParts)
+   .. php:method:: setLinkParts(array $linkParts)
    
       :param array $linkParts: the linkParts
       
-   .. php:method:: setContent(string content)
+   .. php:method:: setContent(string $content)
    
       :param string $content: the content
       
-   .. php:method:: setElements(array elements)
+   .. php:method:: setElements(array $elements)
    
       :param array $elements: the elements
       
-   .. php:method:: addElements(array elements)
+   .. php:method:: addElements(array $elements)
    
       :param array $elements: the elements
       

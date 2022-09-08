@@ -29,6 +29,6 @@
    
       :returntype: string
       
-   .. php:method:: setPublicUrl(string publicUrl)
+   .. php:method:: setPublicUrl(string $publicUrl)
    
       :param string $publicUrl: the publicUrl
