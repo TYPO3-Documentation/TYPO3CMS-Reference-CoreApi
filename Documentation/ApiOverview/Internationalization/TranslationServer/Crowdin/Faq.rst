@@ -55,7 +55,7 @@ And you need to add the "resname" attribute.
 For this you can use a linux tool or a sophisticated editor to copy the `id` attribute into the `resname` of
 the xlf file based on regular expressions.
 
-Example for the KDE Kate edtor:
+In most editors you can use regular expressions. For example in the KDE Kate editor:
 
 #. Open the xlf file into the editor.
 #. Press :kbd:`Ctrl` + :kbd:`R` to get into the replace mode
