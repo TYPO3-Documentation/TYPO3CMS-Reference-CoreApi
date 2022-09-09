@@ -493,12 +493,3 @@ within the "Configuration" module:
 .. _PSR-17: https://www.php-fig.org/psr/psr-17/
 .. _PSR-15: https://www.php-fig.org/psr/psr-15/
 .. _PSR-7: https://www.php-fig.org/psr/psr-7/
-
-More Information
-================
-
-.. toctree::
-   :titlesonly:
-   :maxdepth: 1
-
-   Typo3Request
