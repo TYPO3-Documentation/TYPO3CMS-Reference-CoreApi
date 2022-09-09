@@ -3,7 +3,7 @@
 .. _ajax-client-side:
 
 =======================
-Client-side programming
+Ajax in the frontend
 =======================
 
 TYPO3 Core ships an API to send ajax requests to the server. This API is based on the `fetch API`_, which is implemented
