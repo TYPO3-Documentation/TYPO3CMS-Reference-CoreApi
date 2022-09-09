@@ -134,4 +134,22 @@ return [
         "targetFileName"=> "Events/Core/EvaluateModifierFunctionEvent.rst.txt",
         "withCode"=> false
     ],
+    [
+        "action"=> "createPhpClassDocs",
+        "class"=> \TYPO3\CMS\Core\Domain\Event\BeforeRecordLanguageOverlayEvent::class,
+        "targetFileName"=> "Events/Core/BeforeRecordLanguageOverlayEvent.rst.txt",
+        "withCode"=> false
+    ],
+    [
+        "action"=> "createPhpClassDocs",
+        "class"=> \TYPO3\CMS\Core\Domain\Event\AfterRecordLanguageOverlayEvent::class,
+        "targetFileName"=> "Events/Core/AfterRecordLanguageOverlayEvent.rst.txt",
+        "withCode"=> false
+    ],
+    [
+        "action"=> "createPhpClassDocs",
+        "class"=> \TYPO3\CMS\Core\Domain\Event\BeforePageLanguageOverlayEvent::class,
+        "targetFileName"=> "Events/Core/BeforePageLanguageOverlayEvent.rst.txt",
+        "withCode"=> false
+    ],
 ];
