@@ -1,14 +1,13 @@
 .. include:: /Includes.rst.txt
 .. highlight:: php
 .. index::
-    Request handling
-    PSR-15
-    Request handling; PSR-15
-    Middlewares
+   Request handling
+   PSR-15
+   Request handling; PSR-15
 .. _request-handling:
 
 ==============================
-Middlewares (Request handling)
+Request handling (Middlewares)
 ==============================
 
 TYPO3 CMS has implemented `PSR-15`_ for handling incoming HTTP requests. The
