@@ -26,4 +26,5 @@ existing TCA.
     Localization/Index
     ExtendingTca/Index
     PublishExtension/Index
+    UpdateExtensions/Index
     CustomExtensionRepository
