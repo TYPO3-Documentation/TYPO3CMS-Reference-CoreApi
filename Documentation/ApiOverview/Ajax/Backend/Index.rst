@@ -2,17 +2,13 @@
 .. index:: pair: Ajax; Backend
 .. _ajax-backend:
 
-===================
-Ajax in the Backend
-===================
+=======
+Backend
+=======
 
 An ajax endpoint in the TYPO3 backend is usually implemented as a method in a regular controller. The method receives a
 request object implementing the :php:`Psr\Http\Message\ServerRequestInterface`, which allows to access all aspects of
 the requests and returns an appropriate response in a normalized way. This approach is standardized as `PSR-7`_.
-
-..  seealso::
-    You can find information on how to handle ajax requests in the frontend
-    in the chapter :ref:`Ajax in the Extension Development section <ajax-client-side>`.
 
 .. index:: pair: Ajax; Controller
 
