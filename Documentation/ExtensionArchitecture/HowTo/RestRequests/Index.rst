@@ -5,9 +5,9 @@
     PSR-7
 ..  _http:
 
-=====================================
-HTTP request library / Guzzle / PSR-7
-=====================================
+=================================
+HTTP requests to external sources
+=================================
 
 The PHP library "Guzzle" is available in TYPO3 as a feature-rich solution for
 creating HTTP requests based on the PSR-7 interfaces.
