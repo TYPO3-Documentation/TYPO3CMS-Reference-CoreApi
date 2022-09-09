@@ -19,7 +19,7 @@ if the instance is behind a reverse proxy.
 The object is available from :php:`ServerRequestInterface $request` objects as an attribute.
 The request object is passed to controllers, example:
 
-.. code-block:: php
+..  code-block:: php
 
     /** @var NormalizedParams $normalizedParams */
     $normalizedParams = $request->getAttribute('normalizedParams');

@@ -1,13 +1,14 @@
 .. include:: /Includes.rst.txt
 .. highlight:: php
 .. index::
-   Request handling
-   PSR-15
-   Request handling; PSR-15
+    Request handling
+    PSR-15
+    Request handling; PSR-15
+    Middlewares
 .. _request-handling:
 
 ==============================
-Request handling (Middlewares)
+Middlewares (Request handling)
 ==============================
 
 TYPO3 CMS has implemented `PSR-15`_ for handling incoming HTTP requests. The
@@ -468,12 +469,3 @@ within the "Configuration" module:
 .. _PSR-17: https://www.php-fig.org/psr/psr-17/
 .. _PSR-15: https://www.php-fig.org/psr/psr-15/
 .. _PSR-7: https://www.php-fig.org/psr/psr-7/
-
-More Information
-================
-
-.. toctree::
-   :titlesonly:
-   :maxdepth: 1
-
-   Typo3Request
