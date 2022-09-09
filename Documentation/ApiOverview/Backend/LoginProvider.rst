@@ -9,7 +9,7 @@ Backend login form API
 Registering a login provider
 ============================
 
-The concept of the backend login is based on so-called "login providers".
+The concept of the backend login is based on "login providers".
 
 A login provider can be registered within your :file:`LocalConfiguration.php`
 or :file:`AdditionalConfiguration.php`  like this:
