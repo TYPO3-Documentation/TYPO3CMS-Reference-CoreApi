@@ -33,7 +33,7 @@ System dependencies
 Many developers are familiar with `Docker <https://www.docker.com/>`_. As outlined in the
 :ref:`history <testing-history>` chapter, test execution needs a well defined, isolated, stable and
 reliable environment to run tests and also remove the need to manage niche dependencies on your local
-environment for tests such as "execute functional test "X" using MSSQL with xdebug".
+environment for tests such as "execute functional test "X" using PostgreSQL with xdebug".
 
 Git, docker and docker-compose are all required. For standalone test execution, a local installation of
 PHP is not required. You can even `composer install` a Core by calling `Build/Scripts/runTests.sh -s
@@ -141,8 +141,8 @@ Let's pick a :file:`runTests.sh` example and have a closer look:
     PHP: 8.0
     DBMS: mariadb  version 10.3  driver mysqli
     SUCCESS
-    ###########################################################################    
-    
+    ###########################################################################
+
     lolli@apoc /var/www/local/cms/Web $ echo $?
     0
     lolli@apoc /var/www/local/cms/Web $

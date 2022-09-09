@@ -63,13 +63,13 @@ Modules
       at user-level.
 
 Dashboard widgets
-   A :ref:`list of the available dashboard widgets <t3dashboard:permission-handling-of-widgets>`
+   A :ref:`list of the available dashboard widgets <ext_dashboard:permission-handling-of-widgets>`
    a user may be allowed to use on the dashboard.
 
    .. note::
 
       This section is only available with activated
-      :ref:`dashboard <t3dashboard:start>` system extension.
+      :doc:`dashboard <ext_dashboard:Index>` system extension.
 
 Tables for listing
    A list of all tables a user may be allowed to read in the backend.
@@ -126,8 +126,8 @@ Mounts
 ======
 
 TYPO3 CMS natively supports two kinds of hierarchical tree structures:
-the page tree (typically visible in the **WEB** module) and the folder
-tree (typically visible in the **FILE** module). Each tree is
+the page tree (typically visible in the :guilabel:`Web` module) and the folder
+tree (typically visible in the :guilabel:`File` module). Each tree is
 generated based on the *mount points* configured for the current user. So a
 page tree is drawn from the *DB Mounts* which are one or more page ids
 telling the Core from which "start page" to draw the tree(s). Likewise

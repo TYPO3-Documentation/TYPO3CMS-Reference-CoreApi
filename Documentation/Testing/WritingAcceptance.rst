@@ -57,6 +57,7 @@ The suite file (for instance :file:`Backend.suite.yml`) should contain a line
 to load and configure the backend login module:
 
 .. code-block:: yaml
+   :caption: EXT:some_extension/Tests/Acceptance/Backend.suite.yml
 
     modules:
       enabled:
@@ -67,7 +68,10 @@ to load and configure the backend login module:
             admin: 886526ce72b86870739cc41991144ec1
 
 This allows an editor and an admin user to easily log into the TYPO3 backend
-without further fuzz. An acceptance test can use it like this::
+without further fuzz. An acceptance test can use it like this:
+
+.. code-block:: php
+   :caption: EXT:styleguide/Tests/Acceptance/Backend/ModuleCest.php
 
     <?php
     declare(strict_types = 1);
@@ -97,20 +101,26 @@ Dealing with the backend frames can be a bit tricky in acceptance tests. The
 `typo3/testing-framework` contains a trait to help here: The backend tester
 should use this trait, which will add two methods. The implementation of these
 methods takes care the according frames are fully loaded before proceeding with
-further tests::
+further tests:
 
-    // Switch to "content frame", eg the "list module" content
-    $I->switchToContentFrame();
+.. code-block:: php
+   :caption: EXT:styleguide/Tests/Acceptance/Backend/SomeCest.php
 
-    // Switch to "main frame", the frame with the main modules and top bar
-    $I->switchToMainFrame();
+   // Switch to "content frame", eg the "list module" content
+   $I->switchToContentFrame();
+
+   // Switch to "main frame", the frame with the main modules and top bar
+   $I->switchToMainFrame();
 
 
 PageTree
 ========
 
 An abstract class of `typo3/testing-framework` can be extended and used to open and
-select specific pages in the page tree. A typical class looks like this::
+select specific pages in the page tree. A typical class looks like this:
+
+.. code-block:: php
+   :caption: typo3/sysext/core/Tests/Acceptance/Support/Helper/PageTree.php
 
     <?php
     declare(strict_types = 1);
@@ -137,11 +147,14 @@ select specific pages in the page tree. A typical class looks like this::
 
 This example is taken from the Core extension, other extensions should use their own
 instance in an own extension based namespace. If this is done, the PageTree support
-class can be injected into a test::
+class can be injected into a test:
+
+.. code-block:: php
+   :caption: EXT:some_extension/Tests/Acceptance/Backend/SomeCest.php
 
     <?php
     declare(strict_types = 1);
-    namespace TYPO3\CMS\Core\Tests\Acceptance\Backend\FormEngine;
+    namespace Vendor\SomeExtension\Tests\Acceptance\Backend\FormEngine;
 
     use Codeception\Example;
     use TYPO3\CMS\Core\Tests\Acceptance\Support\BackendTester;

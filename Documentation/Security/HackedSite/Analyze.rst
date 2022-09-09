@@ -22,7 +22,10 @@ the file. If you find such code, you may want to do a full search of
 the content of all files on your hard disk(s) for similar patterns.
 
 However, attackers often try to obscure their actions or the malicious
-code. An example could look like the following line::
+code. An example could look like the following line:
+
+.. code-block:: php
+   :caption: An example how attackers may hide malicious code
 
    eval(base64_decode('dW5saW5rKCd0ZXN0LnBocCcpOw=='));
 

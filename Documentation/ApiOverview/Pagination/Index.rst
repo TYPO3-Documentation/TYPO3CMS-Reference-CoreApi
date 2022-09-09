@@ -9,7 +9,7 @@ Pagination
 .. note::
 
    Pagination via Fluid widgets was removed, see
-   :doc:`t3core:Changelog/11.0/Breaking-92529-AllFluidWidgetFunctionalityRemoved`.
+   :doc:`ext_core:Changelog/11.0/Breaking-92529-AllFluidWidgetFunctionalityRemoved`.
    Use the API documented here to implement your own pagination.
 
 The TYPO3 Core provides an interface to implement the native pagination of lists like arrays or
@@ -24,10 +24,13 @@ Along with that interface, an abstract paginator class :php:`\TYPO3\CMS\Core\Pag
 is available that implements the base pagination logic for any kind of :php:`Countable` set of
 items while it leaves the processing of items to the concrete paginator class.
 
-Two concrete paginators are available. One for :php:`array` and one for
-:php:`\TYPO3\CMS\Extbase\Persistence\QueryResultInterface` objects.
+Two concrete paginators are available:
 
-Code-Example for the :php:`ArrayPaginator`:
+*  For type :php:`array`: :php:`\TYPO3\CMS\Core\Pagination\ArrayPaginator`
+*  For type :php:`\TYPO3\CMS\Extbase\Persistence\QueryResultInterface`:
+   :php:`\TYPO3\CMS\Extbase\Pagination\QueryResultPaginator`
+
+Code example for the :php:`ArrayPaginator`:
 
 .. code-block:: php
 
@@ -42,10 +45,61 @@ Code-Example for the :php:`ArrayPaginator`:
    $paginator->getCurrentPageNumber(); // returns 3, basically just returns the input value
    $paginator->getKeyOfFirstPaginatedItem(); // returns 5
    $paginator->getKeyOfLastPaginatedItem(); // returns 5
-   
-   // use TYPO3\CMS\Extbase\Pagination\QueryResultPaginator;
+
+   // use TYPO3\CMS\Core\Pagination\SimplePagination;
+
    $pagination = new SimplePagination($paginator);
    $pagination->getAllPageNumbers(); // returns [1, 2, 3]
    $pagination->getPreviousPageNumber(); // returns 2
    $pagination->getNextPageNumber(); // returns null
    // …
+
+
+Sliding window pagination
+=========================
+
+.. versionadded:: 12.0
+
+The sliding window pagination can be used to paginate array items or query
+results from Extbase. The main advantage is that it reduces the amount of pages
+shown.
+
+**Example**: Imagine 1000 records and 20 items per page which would lead to
+50 links. Using the `SlidingWindowPagination`, you will get something like
+`< 1 2 ... 21 22 23 24 ... 100 >`.
+
+Usage
+-----
+
+Replace the usage of :php:`SimplePagination` with
+:php:`\TYPO3\CMS\Core\Pagination\SlidingWindowPagination` and you are done. Set
+the 2nd argument to the maximum number of links which should be rendered.
+
+.. code-block:: php
+
+   // use TYPO3\CMS\Extbase\Pagination\QueryResultPaginator;
+   // use TYPO3\CMS\Core\Pagination\SlidingWindowPagination;
+
+   $currentPage = $this->request->hasArgument('currentPage')
+       ? (int)$this->request->getArgument('currentPage')
+       : 1;
+   $itemsPerPage = 10;
+   $maximumLinks = 15;
+
+   $paginator = new QueryResultPaginator(
+       $allItems,
+       $currentPage,
+       $itemsPerPage
+   );
+   $pagination = new SlidingWindowPagination(
+       $paginator,
+       $maximumLinks
+   );
+
+   $this->view->assign(
+       'pagination',
+       [
+           'pagination' => $pagination,
+           'paginator' => $paginator,
+       ]
+   );

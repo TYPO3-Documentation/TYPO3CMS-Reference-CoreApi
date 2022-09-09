@@ -22,7 +22,7 @@ Current LinkHandlers:
 *  UrlLinkHandler: for linking external urls
 *  FileLinkHandler: for linking files in the :ref:`fal`
 *  FolderLinkHandler: for linking to directories
-*  MailLinkHandler: for linking mail
+*  MailLinkHandler: for linking email addresses
 *  TelephoneLinkHandler: for linking phone numbers
 
 .. note::
@@ -71,7 +71,10 @@ The links are now stored in the database with the syntax
 LinkHandler page TSconfig options
 =================================
 
-The minimal PageTSconfig Configuration is::
+The minimal PageTSconfig Configuration is:
+
+.. code-block:: typoscript
+   :caption: EXT:some_extension/Configuration/page.tsconfig
 
    TCEMAIN.linkHandler.anIdentifier {
        handler = TYPO3\CMS\Recordlist\LinkHandler\RecordLinkHandler
@@ -83,27 +86,31 @@ The minimal PageTSconfig Configuration is::
 
 The following optional configuration is available:
 
-:ts:`configuration.hidePageTree = 1`
+:typoscript:`configuration.hidePageTree = 1`
    Hide the page tree in the link browser
 
-:ts:`configuration.storagePid = 84`
+:typoscript:`configuration.storagePid = 84`
    The link browser starts with the given page
 
-:ts:`configuration.pageTreeMountPoints = 123,456`
+:typoscript:`configuration.pageTreeMountPoints = 123,456`
    Only records on these pages and their children will be displayed
 
 Furthermore the following options are available from the LinkBrowser Api:
 
-:ts:`scanAfter = page` or :ts:`scanBefore = page`
+:typoscript:`scanAfter = page` or :typoscript:`scanBefore = page`
    define the order in which handlers are queried when determining the responsible tab for an existing link
 
-:ts:`displayBefore = page` or :ts:`displayAfter = page`
+:typoscript:`displayBefore = page` or :typoscript:`displayAfter = page`
    define the order how the various tabs are displayed in the link browser.
 
 Example: news records from one storage pid
 ------------------------------------------
 
-The following configuration hides the page tree and shows news records only from the defined storage page::
+The following configuration hides the page tree and shows news records only
+from the defined storage page:
+
+.. code-block:: typoscript
+   :caption: EXT:some_extension/Configuration/page.tsconfig
 
    TCEMAIN.linkHandler.news {
        handler = TYPO3\CMS\Recordlist\LinkHandler\RecordLinkHandler
@@ -113,11 +120,16 @@ The following configuration hides the page tree and shows news records only from
            storagePid = 123
            hidePageTree = 1
        }
-       displayAfter = mail
+       displayAfter = email
    }
 
-It is possible to have another configuration using another storagePid which also contains news records.
-This configuration shows a reduced page tree starting at page with uid 42::
+It is possible to have another configuration using another storagePid which
+also contains news records.
+
+This configuration shows a reduced page tree starting at page with uid 42:
+
+.. code-block:: typoscript
+   :caption: EXT:some_extension/Configuration/page.tsconfig
 
    TCEMAIN.linkHandler.bookreports {
        handler = TYPO3\CMS\Recordlist\LinkHandler\RecordLinkHandler
@@ -146,7 +158,10 @@ It will **not** work for custom added LinkHandler configurations.
 .. figure:: Images/LinkBrowserTSConfigExamplepageIdSelector.png
    :alt: The link browser field for entering a page uid.
 
-Enable the field with the following User-/PageTSConfig::
+Enable the field with the following page TSConfig:
+
+.. code-block:: typoscript
+   :caption: EXT:some_extension/Configuration/page.tsconfig
 
    TCEMAIN.linkHandler.page.configuration.pageIdSelector.enabled = 1
 
@@ -159,7 +174,10 @@ Enable the field with the following User-/PageTSConfig::
 LinkHandler TypoScript options
 ==============================
 
-A configuration could look like this::
+A configuration could look like this:
+
+.. code-block:: typoscript
+   :caption: EXT:some_extension/Configuration/TypoScript/setup.typoscript
 
    config.recordLinks.anIdentifier {
        forceLink = 0
@@ -177,7 +195,10 @@ in class :php:`TYPO3\CMS\Frontend\Typolink\DatabaseRecordLinkBuilder`.
 Example: news records displayed on fixed detail page
 ----------------------------------------------------
 
-The following displays the link to the news on a detail page::
+The following displays the link to the news on a detail page:
+
+.. code-block:: typoscript
+   :caption: EXT:some_extension/Configuration/TypoScript/setup.typoscript
 
    config.recordLinks.news {
       typolink {
@@ -188,7 +209,10 @@ The following displays the link to the news on a detail page::
    }
 
 Once more if the book reports that are also saved as `tx_news_domain_model_news` record should be displayed on their own
-detail page you can do it like this::
+detail page you can do it like this:
+
+.. code-block:: typoscript
+   :caption: EXT:some_extension/Configuration/TypoScript/setup.typoscript
 
    config.recordLinks.bookreports  {
       typolink {

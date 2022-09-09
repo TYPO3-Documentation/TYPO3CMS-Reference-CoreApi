@@ -87,7 +87,7 @@ locked to its IP address. The `lockIP` configuration for IPv4 and `lockIPv6` for
 many parts of the IP address have to match with the IP address used at
 authentication time.
 
-.. ATTENTION::
+.. attention::
 
    IP locking breaks modern IPv6 setups because of the
    `Fast Fallback aka. Happy Eyeballs <https://en.wikipedia.org/wiki/Happy_Eyeballs>`__
@@ -196,13 +196,14 @@ The string configured as `IPmaskList` is a comma-separated list of IP
 addresses which are allowed to access the backend. The use of
 wildcards is also possible to specify a network. The following example
 opens the backend for users with the IP address `123.45.67.89` and from
-the network `192.168.xxx.xxx`::
+the network `192.168.xxx.xxx`:
 
-   [BE][IPmaskList] = 123.45.67.89,192.168.*.*
+.. code-block:: php
+  :caption: typo3conf/AdditionalConfiguration.php
+
+  $GLOBALS['TYPO3_CONF_VARS']['BE']['IPmaskList'] = 123.45.67.89,192.168.*.*
 
 The default value is an empty string.
-
-The PHP variable reads: :php:`$GLOBALS['TYPO3_CONF_VARS']['BE']['IPmaskList']`
 
 
 trustedHostsPattern
@@ -262,6 +263,6 @@ The value in an integer:
    Send a notification-email every time a backend user logs in
 
 `2`
-   Send a notification-email every time an ADMIN backend user logs in
+   Send a notification-email every time an **admin** backend user logs in
 
 The PHP variable reads: :php:`$GLOBALS['TYPO3_CONF_VARS']['BE']['warning_mode']`

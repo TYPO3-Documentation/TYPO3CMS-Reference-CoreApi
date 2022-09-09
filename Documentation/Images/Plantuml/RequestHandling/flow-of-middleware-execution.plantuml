@@ -1,5 +1,53 @@
 @startuml
 
+skinparam dpi 150
+hide empty members
+
+skinparam sequence {
+    ArrowColor  #e18d00
+    DividerBackgroundColor  #f7a831
+    GroupBackgroundColor    #f7a831
+    LifeLineBackgroundColor white
+    LifeLineBorderColor #e18d00
+    ParticipantBackgroundColor  #f7a831
+    ParticipantBorderColor  #e18d00
+    BoxLineColor    #e18d00
+    BoxBackgroundColor  #DDDDDD
+}
+
+participant Application
+participant ServerRequestFactory
+participant MiddlewareStackResolver
+
+participant "MiddlewareDispatcher \n(RequestHandlerInterface)" as MiddlewareDispatcher
+
+box "Middleware A"
+participant "Anonymous\nRequestHandler" as RequestHandlerA << Generated >>
+participant "MiddlewareA" as Middleware
+end box
+
+box "Middleware B"
+participant "Anonymous\nRequestHandler" as RequestHandlerB << Generated >>
+participant "MiddlewareB" as MiddlewareB
+end box
+
+participant "(Frontend|Backend)\nRequestHandler" as RequestHandler
+
+note over Middleware
+Every Middleware
+ is wrapped in
+  an anonymous
+ RequestHandler
+end note
+
+note over RequestHandler
+Always the last
+RequestHandler
+in the stack
+end note
+
+
+
 autonumber 1
 Application -> ServerRequestFactory: fromGlobals()
 autonumber 1
@@ -13,16 +61,34 @@ Application <-- MiddlewareStackResolver: Stack
 autonumber 4
 Application -> MiddlewareDispatcher: handle(Request)
 autonumber 4
-MiddlewareDispatcher -> RequestHandler: handle(Request)
+MiddlewareDispatcher -> RequestHandlerA: handle(Request)
 
 autonumber 5
-RequestHandler -> Middleware: process(Request, next RequestHandler)
+RequestHandlerA -> Middleware: process(Request, \nnext RequestHandler)
+autonumber 5
+Middleware -> RequestHandlerB : handle(Request)
+autonumber 5
+RequestHandlerB -> MiddlewareB: process(Request, \nnext RequestHandler)
+
 autonumber 6
-Middleware --> RequestHandler: Response
+MiddlewareB -> RequestHandler : handle(Request)
+autonumber 6
+RequestHandler --> MiddlewareB: Response
+
 
 autonumber 7
-RequestHandler --> MiddlewareDispatcher: Response
+MiddlewareB --> RequestHandlerB: Response
+
 autonumber 7
+RequestHandlerB --> Middleware: Response
+
+
+autonumber 7
+Middleware --> RequestHandlerA: Response
+
+autonumber 8
+RequestHandlerA --> MiddlewareDispatcher: Response
+autonumber 8
 MiddlewareDispatcher --> Application: Response
 
 @enduml

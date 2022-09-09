@@ -35,7 +35,7 @@ to evaluate against. This means you cannot use DataHandler from the
 frontend scope. Thus writing to tables (such as a guestbook) will have
 to be done from the frontend *without* DataHandler.
 
-The features of the $TCA are described in the :ref:`TCA Reference<t3tca:start>`.
+The features of the $TCA are described in the :doc:`TCA Reference <t3tca:Index>`.
 
 
 .. index:: pair: TYPO3 Core engine; Files
@@ -45,7 +45,7 @@ Files
 =====
 
 TCE also has a part for handling files. The file operations are
-normally performed in the **FILE > Filelist** module where you can manage a
+normally performed in the :guilabel:`File > Filelist` module where you can manage a
 directory on the server by copying, moving, deleting and editing files
 and directories. The file operations are managed by two Core classes,
 :php:`\TYPO3\CMS\Core\Utility\File\BasicFileUtility` and

@@ -49,7 +49,11 @@ Additionally, there is an extra section for providing media sources, that come a
 
 .. include:: /Images/AutomaticScreenshots/Fal/FalRelationTca.rst.txt
 
-Which ones should appear for the editor to use, can be configures using TCA appearance settings::
+Which ones should appear for the editor to use, can be configures using TCA
+appearance settings:
+
+.. code-block:: php
+   :caption: EXT:some_extension/Configuration/TCA/Overrides/pages.php
 
    $GLOBALS['TCA']['pages']['columns']['media']['config']['appearance'] = [
       'fileUploadAllowed' => false,
@@ -68,10 +72,9 @@ On the database side, the corresponding field needs just store an integer,
 as is usual for relations field:
 
 .. code-block:: sql
+   :caption: EXT:some_extension/ext_tables.sql
 
    CREATE TABLE tt_content (
-      ...
       image int(11) unsigned DEFAULT '0' NOT NULL,
-      ...
    );
 

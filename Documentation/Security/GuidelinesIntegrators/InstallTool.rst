@@ -42,9 +42,18 @@ not recommended.
 
 The password for accessing the Install Tool is stored using the
 :ref:`configured password hash mechanism <password-hashing>` set for the backend
-in the global configuration file :file:`typo3conf/LocalConfiguration.php`::
+in the global configuration file :file:`typo3conf/LocalConfiguration.php`:
 
-   'BE' => 'installToolPassword' = '$P$CnawBtpk.D22VwoB2RsN0jCocLuQFp.'
+.. code-block:: php
+   :caption: typo3conf/LocalConfiguration.php
+
+   <?php
+   return [
+       'BE' => [
+           'installToolPassword' => '$P$CnawBtpk.D22VwoB2RsN0jCocLuQFp.',
+           // ...
+       ],
+   ];
 
 Since TYPO3 version 6.2, the Install Tool password is set during the
 installation process. This means, in the case that a system administrator
@@ -63,9 +72,20 @@ security measures.
 The number of system maintainers should be as small as possible to mitigate the risks of corrupted accounts.
 
 The role can be provided in the Settings Section of the Install Tool -> Manage System Maintainers. It is also
-possible to manually modify the list by adding or removing the be_users.uid of the user in :file:`LocalConfiguration.php`::
+possible to manually modify the list by adding or removing the be_users.uid of the user in :file:`LocalConfiguration.php`:
 
-    'SYS' => 'SystemMaintainers' => [1, 7, 36]
+.. code-block:: php
+   :caption: typo3conf/LocalConfiguration.php
+
+   <?php
+   return [
+       // ...
+       'SYS' => [
+           'systemMaintainers' => [1, 7, 36],
+           // ...
+       ],
+   ];
+
 
 For additional security, the folders :file:`typo3/install` and :file:`typo3/sysext/install`
 can be deleted, or password protected on a server level (e.g. by a web
@@ -88,7 +108,9 @@ bug fixes and security updates).
     :alt: Install Tool function to update the TYPO3 Core
 
 It should be noted that this feature can be disabled by an environment
-variable::
+variable:
+
+.. code-block:: none
 
    TYPO3_DISABLE_CORE_UPDATER=1
 

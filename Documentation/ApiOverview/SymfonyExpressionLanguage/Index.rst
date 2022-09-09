@@ -26,13 +26,16 @@ In order to provide custom conditions, its essential to understand how
 conditions are written. Refer to :ref:`typoscript-syntax-conditions-syntax` for details.
 
 Conditions are evaluated by the `Symfony Expression Language`_ and are evaluated
-to boolean results. Therefore an integrator can write :ts:`[true === true]`
+to boolean results. Therefore an integrator can write :typoscript:`[true === true]`
 which would evaluate to true. In order to provide further functionality within
 conditions, the Symfony Expression Language needs to be extended. There are two
 parts that can be added to the language, which are variables and functions.
 
 The following sections explain how to add variables and functions.
 
+.. hint::
+   The :ref:`System > Configuration <ext_lowlevel:module-configuration>` module
+   provides a list of all registered Symfony Expression Language providers.
 
 .. index:: pair: Symfony expression language; Custom provider
 .. _sel-ts-registering-new-provider-within-extension:
@@ -42,14 +45,15 @@ Registering new provider within an extension
 
 There has to be a provider, no matter whether variables or functions will be provided.
 
-The provider is registered in the extension file :file:`/Configuration/ExpressionLanguage.php`, depending on
-the extension's custom PHP class name::
+The provider is registered in the extension file
+:file:`Configuration/ExpressionLanguage.php`:
 
-   <?php
+.. code-block:: php
+   :caption: EXT:some_extension/Configuration/ExpressionLanguage.php
 
    return [
        'typoscript' => [
-           \Vendor\ExtensionName\ExpressionLanguage\CustomTypoScriptConditionProvider::class,
+           \Vendor\SomeExtension\ExpressionLanguage\CustomTypoScriptConditionProvider::class,
        ]
    ];
 
@@ -64,11 +68,12 @@ Implement provider within extension
 
 The provider itself is written as PHP Class within the extension file
 :file:`/Classes/ExpressionLanguage/CustomTypoScriptConditionProvider.php`, depending on
-the formerly registered PHP class name::
+the formerly registered PHP class name:
 
-   <?php
+.. code-block:: php
+   :caption: EXT:some_extension/Classes/ExpressionLanguage/CustomTypoScriptConditionProvider.php
 
-   namespace Vendor\ExtensionName\ExpressionLanguage;
+   namespace Vendor\SomeExtension\ExpressionLanguage;
 
    use TYPO3\CMS\Core\ExpressionLanguage\AbstractProvider;
 
@@ -86,7 +91,10 @@ Additional variables
 ====================
 
 Additional variables can already be provided within the
-:php:`CustomTypoScriptConditionProvider` PHP class::
+:php:`CustomTypoScriptConditionProvider` PHP class:
+
+.. code-block:: php
+   :caption: EXT:some_extension/Classes/ExpressionLanguage/CustomTypoScriptConditionProvider.php
 
    class CustomTypoScriptConditionProvider extends AbstractProvider
    {
@@ -102,6 +110,7 @@ In above example a new variable `variableA` with value `valueB` is added, this
 can be used within conditions:
 
 .. code-block:: typoscript
+   :caption: EXT:some_extension/Configuration/TypoScript/setup.typoscript
 
    [variableA === 'valueB']
        page >
@@ -117,7 +126,10 @@ Additional functions
 ====================
 
 Additional functions can be provided through another class, which has to be
-returned by the example :php:`CustomTypoScriptConditionProvider` PHP class::
+returned by the example :php:`CustomTypoScriptConditionProvider` PHP class:
+
+.. code-block:: php
+   :caption: EXT:some_extension/Classes/ExpressionLanguage/CustomTypoScriptConditionProvider.php
 
    class CustomTypoScriptConditionProvider extends AbstractProvider
    {
@@ -129,11 +141,12 @@ returned by the example :php:`CustomTypoScriptConditionProvider` PHP class::
        }
    }
 
-The returned class will look like the following::
+The returned class will look like the following:
 
-   <?php
+.. code-block:: php
+   :caption: EXT:some_extension/Classes/ExpressionLanguage/CustomConditionFunctionsProvider.php
 
-   namespace Vendor\ExtensionName\TypoScript;
+   namespace Vendor\SomeExtension\TypoScript;
 
    use Symfony\Component\ExpressionLanguage\ExpressionFunction;
    use Symfony\Component\ExpressionLanguage\ExpressionFunctionProviderInterface;
@@ -155,7 +168,10 @@ The returned class will look like the following::
 
 
 The class is already trying to return a new :php:`ExpressionFunction`, but
-currently lacks implementation. That is the last step::
+currently lacks implementation. That is the last step:
+
+.. code-block:: php
+   :caption: EXT:some_extension/Classes/ExpressionLanguage/CustomConditionFunctionsProvider.php
 
    protected function getWebserviceFunction(): ExpressionFunction
    {
@@ -182,7 +198,11 @@ The first argument :php:`$existingVariables` is an array of which each associati
 *  workspace - stdClass
 *  page - array: page record
 
-If you need an undefined number of variables, then you can write the same function in a variadic form::
+If you need an undefined number of variables, then you can write the same
+function in a variadic form:
+
+.. code-block:: php
+   :caption: EXT:some_extension/Classes/ExpressionLanguage/CustomConditionFunctionsProvider.php
 
     // ...
     }, function (...$args) {
@@ -194,6 +214,7 @@ If you need an undefined number of variables, then you can write the same functi
 All further arguments are provided by TypoScript. The above example could look like:
 
 .. code-block:: typoscript
+   :caption: EXT:some_extension/Configuration/TypoScript/setup.typoscript
 
    [webservice('pages', 10)]
        page.10 >
@@ -204,6 +225,7 @@ All further arguments are provided by TypoScript. The above example could look l
 If a simple string like a page title is returned, this can be further compared:
 
 .. code-block:: typoscript
+   :caption: EXT:some_extension/Configuration/TypoScript/setup.typoscript
 
    [webservice('pages', 10) === 'Expected page title']
        page.10 >

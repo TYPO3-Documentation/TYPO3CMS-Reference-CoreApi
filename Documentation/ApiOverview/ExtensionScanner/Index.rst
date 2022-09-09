@@ -27,9 +27,7 @@ and it should help Core developers to add Core patches which use the scanner.
 
 This module has been featured on the TYPO3 youtube channel:
 
-.. only:: html
-
-   .. youtube:: UdIYDZgBrQU
+.. youtube:: UdIYDZgBrQU
 
 
 .. index:: Admin tool; Scan extension files
@@ -112,7 +110,7 @@ Let's explain this by example. Suppose a static method was deprecated:
     }
 
 This method is registered in the matcher class
-:php:`TYPO3\CMS\Install\ExtensionScanner\Php\MethodCallStaticMatcher` like this:
+:php:`TYPO3\CMS\Install\ExtensionScanner\Php\Matcher\MethodCallStaticMatcher` like this:
 
 .. code-block:: php
 

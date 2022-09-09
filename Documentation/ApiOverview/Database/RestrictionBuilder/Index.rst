@@ -6,8 +6,12 @@
 RestrictionBuilder
 ==================
 
-Database tables in TYPO3 CMS that can be administrated in the backend come with
-:ref:`TCA <t3tca:start>` definitions that
+.. contents:: Table of Contents
+   :depth: 1
+   :local:
+
+Database tables in TYPO3 that can be administrated in the backend come with
+:doc:`TCA <t3tca:Index>` definitions that
 specify how single fields and rows of the table should be handled and displayed
 by the framework.
 
@@ -24,7 +28,7 @@ dealing with low-level query stuff must take care overlayed or deleted rows
 are not in the result set of a casual query.
 
 This is where this "automatic restriction" stuff kicks in: The construct is created
-on top of native Doctrine DBAL as TYPO3 CMS specific extension. It automatically
+on top of native Doctrine DBAL as TYPO3 specific extension. It automatically
 adds `WHERE` expressions that suppress rows which are marked as deleted or exceeded
 their "active" life cycle. All that is based on the `TCA` configuration of the affected table.
 
@@ -173,6 +177,58 @@ it is possible to apply restrictions to a query only for a given set of tables, 
 Since it is a restriction container, it can be added to the restrictions of the query builder and
 can hold restrictions itself.
 
+.. _database-custom-restrictions:
+
+Custom restrictions
+===================
+
+It is possible to add additional query restrictions by adding class names as key
+to :php:`$GLOBALS['TYPO3_CONF_VARS']['DB']['additionalQueryRestrictions']`.
+These restriction objects will be added to any select query executed using the
+:ref:`QueryBuilder <database-query-builder>`.
+
+If these added restriction objects additionally implement
+:php:`\TYPO3\CMS\Core\Database\Query\Restriction\EnforceableQueryRestrictionInterface`
+and return :php:`true` in the to be implemented method :php:`isEnforced()`,
+calling :php:`$queryBuilder->getRestrictions()->removeAll()` such restrictions
+will **still** be applied to the query.
+
+If an enforced restriction must be removed, it can still be removed with
+:php:`$queryBuilder->->getRestrictions()->removeByType(SomeClass::class)`.
+
+Implementers of custom restrictions can therefore have their restrictions always
+enforced, or even not applied at all, by returning an empty expression in certain cases.
+
+To add a custom restriction class, use the following snippet:
+
+.. code-block:: php
+   :caption: EXT:my_extension/ext_localconf.php
+
+   use MyVendor\MyExtension\Database\Query\Restriction\CustomRestriction;
+
+   if (!isset($GLOBALS['TYPO3_CONF_VARS']['DB']['additionalQueryRestrictions'][CustomRestriction::class])) {
+       $GLOBALS['TYPO3_CONF_VARS']['DB']['additionalQueryRestrictions'][CustomRestriction::class] = [];
+   }
+
+.. note::
+   The class name must be the array key and the value must always be an array,
+   which is reserved for options given to the restriction objects.
+
+.. important::
+   Restrictions added by third-party extensions will impact the whole system.
+   Therefore this API does not allow removing restrictions added by the system
+   and adding restrictions should be handled with care.
+
+Removing third party restrictions is possible, by setting the option
+:php:`disabled` for a restriction to :php:`true` in global TYPO3 configuration
+or :file:`ext_localconf.php` of an extension:
+
+.. code-block:: php
+   :caption: EXT:my_extension/ext_localconf.php
+
+   use MyVendor\MyExtension\Database\Query\Restriction\CustomRestriction;
+
+   $GLOBALS['TYPO3_CONF_VARS']['DB']['additionalQueryRestrictions'][CustomRestriction::class]['disabled'] = true;
 
 Examples
 ========
@@ -181,7 +237,10 @@ Often the default restrictions are sufficient. Nothing needs to be done in those
 
 However, many backend modules still want to show disabled records and remove the starttime and endtime
 restrictions to allow administration of those records for an editor. A typical setup from within a
-backend module::
+backend module:
+
+.. code-block:: php
+   :caption: EXT:some_extension/Classes/SomeClass.php
 
    // use TYPO3\CMS\Core\Utility\GeneralUtility;
    // use TYPO3\CMS\Core\Database\ConnectionPool;
@@ -206,7 +265,10 @@ that flag is the recycler module to list and resurrect deleted records. Any obje
 
 An alternative to the recommended way of first removing all restrictions and then adding needed
 ones again (using :php:`->removeAll()`, then :php:`->add()`) is to kick specific restrictions with a call to
-:php:`->removeByType()`::
+:php:`->removeByType()`:
+
+.. code-block:: php
+   :caption: EXT:some_extension/Classes/SomeClass.php
 
    // use TYPO3\CMS\Core\Utility\GeneralUtility;
    // use TYPO3\CMS\Core\Database\ConnectionPool;
@@ -221,7 +283,10 @@ ones again (using :php:`->removeAll()`, then :php:`->add()`) is to kick specific
 
 
 In the frontend it is often needed to swap the `DefaultRestrictionContainer` with the
-`FrontendRestrictionContainer`::
+`FrontendRestrictionContainer`:
+
+.. code-block:: php
+   :caption: EXT:some_extension/Classes/SomeClass.php
 
    // use TYPO3\CMS\Core\Database\Query\Restriction\FrontendRestrictionContainer
    // Kick default restrictions and add list of default frontend restrictions
@@ -243,7 +308,10 @@ deliver and use an own set of restrictions for own query statements if needed.
 
 If you want to apply one or more restriction/s to only one table, that is possible as follows. Let's say,
 that you have content in table `tt_content` with a relation to categories. Now you would like to get all records with their categories, except those that are hidden. The hidden restriction in this case should only apply to
-the :sql:`tt_content` table, not to the :sql:`sys_category` or :sql:`sys_category_*_mm` table.::
+the :sql:`tt_content` table, not to the :sql:`sys_category` or :sql:`sys_category_*_mm` table.
+
+.. code-block:: php
+   :caption: EXT:some_extension/Classes/SomeClass.php
 
    $queryBuilder = GeneralUtility::makeInstance(ConnectionPool::class)->getQueryBuilderForTable('tt_content');
    $queryBuilder->getRestrictions()
@@ -268,7 +336,9 @@ In this example the :php:`HiddenRestriction` is only applied to :sql:`tt` table 
 Furthermore it is possible to restrict the complete set of restrictions of a query builder to a
 given set of table aliases.
 
+
 .. code-block:: php
+   :caption: EXT:some_extension/Classes/SomeClass.php
 
    $queryBuilder = GeneralUtility::makeInstance(ConnectionPool::class)->getQueryBuilderForTable('tt_content');
    $queryBuilder->getRestrictions()->removeAll()->add(GeneralUtility::makeInstance(HiddenRestriction::class));

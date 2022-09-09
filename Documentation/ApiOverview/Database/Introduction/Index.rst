@@ -5,7 +5,6 @@
    MySQL
    MariaDB
    PostgreSQL
-   SQLServer
 .. _Database_Introduction:
 
 ============
@@ -15,13 +14,9 @@ Introduction
 TYPO3 CMS relies on storing its data in a relational database management
 system (RDBMS). The Doctrine DBAL component is used to enable connecting to
 different database management systems. Most used is still MySQL / MariaDB, but
-thanks to Doctrine others like PostgreSQL and SQLServer are also an option.
+thanks to Doctrine others like PostgreSQL and SQLite are also an option.
 
 The corresponding DBMS can be selected during installation.
-
-.. note::
-  At the time of writing the installation process does not fully work for
-  SQL Server, the connection settings have to be manually configured in that case.
 
 This chapter gives an overview of the basic TYPO3 database table structure, followed
 by some information on upgrading and maintaining table and field consistency, and then
@@ -59,10 +54,7 @@ that is queried. This enables instance administrators to configure different dat
 engines for different tables while this is transparent for extension developers.
 
 Doctrine DBAL has been introduced with TYPO3 CMS version 8 and substitutes the
-old API based on :php:`$GLOBALS['TYPO3_DB']`. Extension authors are encouraged to switch
-away from TYPO3_DB to the new API. A :ref:`dedicated chapter <database-migration>` helps
-with typical migration questions. With database abstraction being built in Doctrine DBAL
-the old and optional extensions `dbal` and `adodb` are obsolete.
+old API based on :php:`$GLOBALS['TYPO3_DB']`.
 
 This document does *not* outline each and every single method the API provides. It
 sticks to those that are commonly used in extensions and some parts like the rewritten

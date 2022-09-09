@@ -19,14 +19,18 @@ in general the last extension part (`.txt` in `.html.txt`) defines the mime-type
 
 Apache's `mod_mime`_ documentation explains their handling of files having multiple extensions.
 Directive `TypesConfig` and using a `mime.types`_ map probably
-leads to unexpected handling of extension `.html.wrong` as mime-type `text/html`::
+leads to unexpected handling of extension `.html.wrong` as mime-type `text/html`:
+
+.. code-block:: apacheconf
 
    AddType text/html     html htm
    AddType image/svg+xml svg svgz
 
 Global settings like shown in the example above
 are matching `.html` and `.html.wrong` file extension
-and have to be limited with `<FilesMatch>`::
+and have to be limited with `<FilesMatch>`:
+
+.. code-block:: apacheconf
 
    <FilesMatch ".+\.html?$">
        AddType text/html     .html .htm
@@ -36,7 +40,10 @@ and have to be limited with `<FilesMatch>`::
    </FilesMatch>
 
 In case these settings cannot be applied to the global server configuration,
-but only to :file:`.htaccess` it is recommended to remove the default behavior::
+but only to :file:`.htaccess` it is recommended to remove the default behavior:
+
+.. code-block:: apacheconf
+   :caption: .htaccess
 
    RemoveType .html .htm
    RemoveType .svg .svgz
@@ -47,7 +54,10 @@ but it is definitively unexpected for files like `test.php.html`
 (having `.php` somewhere in between).
 
 The expected `default configuration`_ should look like the following
-(adjusted to the actual PHP script dispatching via CGI, FPM or any other type)::
+(adjusted to the actual PHP script dispatching via CGI, FPM or any other type):
+
+.. code-block:: apacheconf
+   :caption: .htaccess
 
    <FilesMatch ".+\.php$">
        SetHandler application/x-httpd-php

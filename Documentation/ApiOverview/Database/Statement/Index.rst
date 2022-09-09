@@ -28,7 +28,7 @@ values multiple times.
    defined as `int`, the `Statement` result may very well return that as PHP :php:`string`. This is
    true for other database column types like `FLOAT`, `DOUBLE` and others.
    This is an issue with the database drivers used below, it may happen that `MySQL` returns an integer
-   value for an `int` field, while `MSSQL` returns a string.
+   value for an `int` field, while others may return a string.
    In general, the application must take care of an according type cast on their own to reach maximum
    `DBMS` compatibility.
 
@@ -39,7 +39,10 @@ fetchAssociative()
 Fetch next row from the result. Usually used in :php:`while()` loops.
 This is the recommended way of accessing the result in most use cases.
 
-Typical example::
+Typical example:
+
+.. code-block:: php
+   :caption: EXT:some_extension/Classes/SomeClass.php
 
    // use TYPO3\CMS\Core\Utility\GeneralUtility;
    // use TYPO3\CMS\Core\Database\ConnectionPool;
@@ -65,7 +68,10 @@ fetchAllAssociative()
 
 Returns an array containing all of the result set rows by implementing the same while loop as above internally.
 Using that method saves some precious code characters but is more memory intensive if the result set is large
-with lots of rows and lot of data since big arrays are carried around in PHP::
+with lots of rows and lot of data since big arrays are carried around in PHP:
+
+.. code-block:: php
+   :caption: EXT:some_extension/Classes/SomeClass.php
 
    // use TYPO3\CMS\Core\Utility\GeneralUtility;
    // use TYPO3\CMS\Core\Database\ConnectionPool;
@@ -86,7 +92,10 @@ Returns a single column from the next row of a result set, other columns from th
 This method is especially handy for :php:`QueryBuilder->count()` queries.
 
 The :php:`Connection->count()` implementation does exactly that to return the
-number of rows directly::
+number of rows directly:
+
+.. code-block:: php
+   :caption: EXT:some_extension/Classes/SomeClass.php
 
    // use TYPO3\CMS\Core\Utility\GeneralUtility;
    // use TYPO3\CMS\Core\Database\ConnectionPool;
@@ -131,29 +140,32 @@ and executes it twice with different arguments
 .. todo: Update this code example when https://review.typo3.org/c/Packages/TYPO3.CMS/+/72610
          is merged.
 
-The following code example is probably outdated::
+The following code example is probably outdated:
 
-    // use TYPO3\CMS\Core\Utility\GeneralUtility;
-    // use TYPO3\CMS\Core\Database\ConnectionPool;
-    $connection = GeneralUtility::makeInstance(ConnectionPool::class)->getConnectionForTable('pages');
-    $queryBuilder = $connection->createQueryBuilder();
-    $queryBuilder->getRestrictions()->removeAll();
-    $sqlStatement = $queryBuilder->select('uid')
-        ->from('pages')
-        ->where($queryBuilder->expr()->eq('uid', $queryBuilder->createPositionalParameter(0, \PDO::PARAM_INT)))
-        ->getSQL();
-    $statement = $connection->executeQuery($sqlStatement, [ 24 ]);
-    $result1 = $statement->fetchAssociative();
-    $statement->closeCursor(); // free the resources for this result
-    $statement->bindValue(1, 25);
-    $statement->executeQuery();
-    $result2 = $statement->fetchAssociative();
-    $statement->closeCursor(); // free the resources for this result
+.. code-block:: php
+   :caption: EXT:some_extension/Classes/SomeClass.php
+
+   // use TYPO3\CMS\Core\Utility\GeneralUtility;
+   // use TYPO3\CMS\Core\Database\ConnectionPool;
+   $connection = GeneralUtility::makeInstance(ConnectionPool::class)->getConnectionForTable('pages');
+   $queryBuilder = $connection->createQueryBuilder();
+   $queryBuilder->getRestrictions()->removeAll();
+   $sqlStatement = $queryBuilder->select('uid')
+       ->from('pages')
+       ->where($queryBuilder->expr()->eq('uid', $queryBuilder->createPositionalParameter(0, \PDO::PARAM_INT)))
+       ->getSQL();
+   $statement = $connection->executeQuery($sqlStatement, [ 24 ]);
+   $result1 = $statement->fetchAssociative();
+   $statement->closeCursor(); // free the resources for this result
+   $statement->bindValue(1, 25);
+   $statement->executeQuery();
+   $result2 = $statement->fetchAssociative();
+   $statement->closeCursor(); // free the resources for this result
 
 
 Looking at a mysql debug log:
 
-.. code-block:: sql
+.. code-block:: none
 
     Prepare SELECT `uid` FROM `pages` WHERE `uid` = ?
     Execute SELECT `uid` FROM `pages` WHERE `uid` = '24'

@@ -7,6 +7,10 @@
 Introduction
 ============
 
+.. term clarification:
+.. 1. "content elements" is used as general term, including plugins
+.. 2. use "content element types" when talking about the type
+
 What are content elements?
 ==========================
 
@@ -31,35 +35,65 @@ Content elements are arranged on a page, depending on their
 * column (field: ``tt_content.colPos``)
 * etc.
 
+.. note::
+
+   Sometimes, the term "content element" is used to mean a content element type
+   which is not a plugin. On this page and in this chapter, "content element"
+   means any content element type including plugins.
 
 What are plugins?
 =================
 
-**Plugins** are a specific type of content elements. Typical characteristics of
+**Plugins** are a specific type of content elements. Plugins use the CType='list'.
+Each plugin has its own plugin type, which is used in the database field
+tt_content.list_type. The list_type could be understood as subtype of CType.
+
+Typical characteristics of
 plugins are:
 
-* Used if more complex functionality is required
+* Plugins often use additional database tables which contain records which are
+  dynamically displayed via the plugin - often in a list view, a single view,
+  optionally with pagination and search functionality. An extension may provide
+  several plugins, each with a dedicated function, such as the list view.
+* Plugins are ofen used if more complex functionality is required (than in non-
+  plugin content elements)
 * Plugins can be created using the Extbase framework or as pibase (AbstractPlugin)
   plugin.
 * ``tt_content.CType`` = ``list`` and ``tt_content.list_type`` contains the
   :ref:`plugin signature <naming-conventions-plugin-signature>`.
 
 A typical extension with plugins is the 'news' extension which comes with plugins
-to display news records in lists or as a single view. The news records are stored
-in a custom database table and can be edited in the backend (in the list module).
+to display news records in lists or as a single view with only one news record.
+The news records are stored in a custom database table (tx_news_domain_model_news)
+and can be edited in the backend.
+
+Examples
+========
+
+.. code-block:: none
+
+   CType='textmedia'
+   list_type=''
+
+Content element type "Text & Media" shipped with the TYPO3 core
+
+.. code-block:: none
+
+   CType='list'
+   list_type='indexedsearch_pi2'
+
+Indexed search plugin type, provided by the TYPO3 core.
 
 Editing
 =======
 
-How to work with content elements and plugins?
-
-The :ref:`Editors Tutorial <t3editors:start>` describes how to work with
+The :doc:`Editors Tutorial <t3editors:Index>` describes how to work with
 :ref:`page content <t3editors:content-working>` and
 lists the :ref:`basic TYPO3 content elements <t3editors:content-types>`
 and how to work with them.
 
 Additional descriptions can be found the
-:ref:`fluid_styled_content <fsc:content-elements>` documentation.
+:ref:`fluid_styled_content <ext_fsc:content-elements>` documentation.
 
 .. _cePluginsCustomize:
 
@@ -81,13 +115,17 @@ displayed in the backend. There are a number of ways to do this:
 * page TSconfig can be used to :ref:`configure <content-element-wizard>` what is displayed in the "Content Element
   Wizard".
 
-Creating new content elements
-=============================
+Creating custom content element types or plugins
+================================================
 
-The following chapters handle how to create your own content element types and plugins.
-Specifically, check out:
+The following chapters handle how to create custom content element types and
+plugins:
 
-* :ref:`adding-your-own-content-elements`
-* :ref:`t3extbasebook:configuring-the-plugin` in the "Extbase / Fluid book"
-* How to make your plugins or content elements configurable by editors with
-  :ref:`flexforms`
+*   :ref:`adding-your-own-content-elements`
+*   :ref:`Registering frontend plugins in
+    Extbase <extbase_registration_of_frontend_plugins>`
+
+How to make your plugins or content elements configurable by editors with
+
+*  :ref:`flexforms`
+

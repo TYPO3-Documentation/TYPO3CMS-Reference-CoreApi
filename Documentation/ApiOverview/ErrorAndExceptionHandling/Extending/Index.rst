@@ -13,7 +13,10 @@ If you want to register your own error or exception handler:
 #. Create a corresponding class in your extension
 
 #. Override the Core defaults for `productionExceptionHandler`, `debugExceptionHandler`
-   or `errorHandler` in :file:`typo3conf/AdditionalConfiguration.php`::
+   or `errorHandler` in :file:`typo3conf/AdditionalConfiguration.php`:
+
+   .. code-block:: php
+      :caption: typo3conf/AdditionalConfiguration.php
 
       $GLOBALS['TYPO3_CONF_VARS']['SYS']['errorHandler'] = \Vendor\Ext\Error\MyOwnErrorHandler::class;
       $GLOBALS['TYPO3_CONF_VARS']['SYS']['debugExceptionHandler'] = \Vendor\Ext\Error\MyOwnDebugExceptionHandler::class;
@@ -37,10 +40,12 @@ Example Debug Exception Handler
 ===============================
 
 This uses the default Core exception handler `DebugExceptionHandler` and overrides some
-of the functionality::
+of the functionality:
 
+.. code-block:: php
+   :caption: EXT:some_extension/Clases/Error/PostExceptionsOnTwitter.php
 
-   namespace Vendor\Ext\Error;
+   namespace Vendor\SomeExtension\Error;
 
    class PostExceptionsOnTwitter extends \TYPO3\CMS\Core\Error\DebugExceptionHandler
    {
@@ -55,7 +60,8 @@ of the functionality::
        }
    }
 
-:file:`typo3conf/AdditionalConfiguration.php`::
+.. code-block:: php
+   :caption: typo3conf/AdditionalConfiguration.php
 
-   $GLOBALS['TYPO3_CONF_VARS']['SYS']['debugExceptionHandler'] = \Vendor\Ext\Error\PostExceptionsOnTwitter::class;
+   $GLOBALS['TYPO3_CONF_VARS']['SYS']['debugExceptionHandler'] = \Vendor\SomeExtension\Error\PostExceptionsOnTwitter::class;
 

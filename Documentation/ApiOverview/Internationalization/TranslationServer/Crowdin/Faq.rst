@@ -6,8 +6,6 @@
 Frequently Asked Questions (FAQ)
 ================================
 
-.. only:: html
-
 .. contents::
         :local:
         :depth: 2
@@ -46,6 +44,26 @@ of the extension or the :ref:`crowdin-initiative`.
 .. seealso::
 
    The language needs to be supported by TYPO3 itself as well, see :ref:`i18n_languages` for a list of all languages.
+
+.. _crowdin-faq-language-xlf-format:
+
+How to convert to the new language xlf file format
+--------------------------------------------------
+If you are downloading an xlf file from the Pootle language server or an old version of an extension,
+then it does not have the correct format. You need to remove some attributes.
+And you need to add the "resname" attribute.
+For this you can use a linux tool or a sophisticated editor to copy the `id` attribute into the `resname` of
+the xlf file based on regular expressions.
+
+In most editors you can use regular expressions. For example in the KDE Kate editor:
+
+#. Open the xlf file into the editor.
+#. Press :kbd:`Ctrl` + :kbd:`R` to get into the replace mode
+#. Find:    `id="(.+)"`
+   Replace: `id="\1" resname="\1"`
+#. Mode:     Regular expression
+#. Click on button `Replace all`
+
 
 Questions about extension integration
 =====================================

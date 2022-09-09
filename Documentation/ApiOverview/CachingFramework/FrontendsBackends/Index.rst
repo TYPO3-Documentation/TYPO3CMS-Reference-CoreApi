@@ -5,7 +5,7 @@
 .. _caching-frontend:
 
 ===============
-Cache Frontends
+Cache frontends
 ===============
 
 
@@ -328,9 +328,11 @@ Options
    :Description:
       Gzip compression level (if the :code:`compression` option is set to :code:`true`).
       The default compression level is usually sufficient.
-      - -1: Default gzip compression (recommended)
-      - 0: No compression
-      - 9: Maximum compression (costs a lot of CPU)
+
+      *  `-1`: Default gzip compression (recommended)
+      *  `0`: No compression
+      *  `9`: Maximum compression (costs a lot of CPU)
+
    :Mandatory:
       No
    :Type:
@@ -468,10 +470,22 @@ at least if there is enough memory available to hold the complete set in memory.
 At the moment only one redis server can be used at a time per cache,
 but one redis instance can handle multiple caches without performance loss when flushing a single cache.
 
-The garbage collection task should be run every once in a while to find and delete old tags.
+.. important::
+
+   The scheduler garbage collection task should be run regularly to
+   find and delete old cache tags entries. These do not expire on their own and
+   would remain in memory indefinitely - unless cache is flushed.
 
 The implementation is based on the PHP `phpredis <https://github.com/nicolasff/phpredis>`_ module,
 which must be available on the system.
+
+.. warning::
+
+   Please check the section on
+   :ref:`configuration <cacheBackendRedisServerConfiguration>` and monitor
+   memory usage (and eviction, if enabled). Otherwise, you may run into
+   problems, if not enough memory for the cache entries is reserved in the Redis
+   server (`maxmemory`).
 
 .. note::
 
@@ -480,6 +494,73 @@ which must be available on the system.
    There are several articles on the net and the redis configuration file
    contains some important hints on how to speed up the system if it reaches bounds.
    A full documentation of available options is far beyond this documentation.
+
+
+.. _caching-backend-redis-example:
+
+Redis example
+-------------
+
+The Redis caching backend configuration is very similar to that of other
+backends, but there is one caveat.
+
+TYPO3 caches should be separated in case the same keys are used.
+This applies to the `pages` and `pagesection` caches.
+Both use "tagIdents:pageId_21566" for a page with an id of 21566.
+How you separate them is more of a system administrator decision. We provide 
+examples with several databases but this may not be the best option 
+in production where you might want to use multiple cores (which do not
+support databases). The separation has the additional advantage that
+caches can be flushed individually.
+
+If you have several of your own caches which each use unique keys (for example
+by using a different prefix for the cache identifier for each cache), you can
+store them in the same database, but it is good practice to separate the core
+caches.
+
+.. intentional quote!
+
+   In practical terms, Redis databases should be used to separate different keys
+   belonging to the same application (if needed), and not to use a single Redis
+   instance for multiple unrelated applications.
+
+   https://redis.io/commands/select/
+
+
+.. code-block:: php
+   :caption: public/typo3conf/AdditionalConfiguration.php
+
+   $redisHost = '127.0.0.1';
+   $redisPort = 6390;
+   $redisCaches = [
+       'pages' => [
+            'defaultLifetime' => 86400*7,
+            'compression' => true,
+       ],
+       'pagesection' => [
+            'defaultLifetime' => 86400*7,
+       ],
+       'hash' => [],
+       'rootline' => [],
+   ];
+   $redisDatabase = 0;
+   foreach ($redisCaches as $name => $values) {
+       $GLOBALS['TYPO3_CONF_VARS']['SYS']['caching']['cacheConfigurations'][$name]['backend']
+         = \TYPO3\CMS\Core\Cache\Backend\RedisBackend::class;
+       $GLOBALS['TYPO3_CONF_VARS']['SYS']['caching']['cacheConfigurations'][$name]['options'] = [
+           'database' => $redisDatabase++,
+           'hostname' => $redisHost,
+           'port' => $redisPort
+       ];
+       if (isset($values['defaultLifetime'])) {
+              $GLOBALS['TYPO3_CONF_VARS']['SYS']['caching']['cacheConfigurations'][$name]['options']['defaultLifetime']
+                  = $values['lifetime'];
+       }
+       if (isset($values['compression'])) {
+              $GLOBALS['TYPO3_CONF_VARS']['SYS']['caching']['cacheConfigurations'][$name]['options']['compression']
+                  = $values['compression'];
+       }
+   }
 
 .. _caching-backend-redis-options:
 
@@ -585,6 +666,73 @@ Options
    :Default:
       -1
 
+.. _cacheBackendRedisServerConfiguration:
+
+Redis server configuration
+--------------------------
+
+This section is about the configuration on the Redis server, not the client.
+
+For the flushing by cache tags to work, it is important that the integrity of
+the cache entries and cache tags is maintained. This may not be the case,
+depending on which eviction policy (`maxmemory-policy`) is used. For example,
+for a page id=81712, the following entries may exist in the Redis page cache:
+
+#. "tagIdents:pageId_81712" (tag->identifier relation)
+#. "identTags:81712_7e9c8309692aa221b08e6d5f6ec09fb6" (identifier->tags relation)
+#. "identData:81712_7e9c8309692aa221b08e6d5f6ec09fb6" (identifier->data)
+
+If entries are evicted (due to memory shortage), there is no mechanism in
+place which ensures that all entries which are related, will be evicted. If
+`maxmemory-policy allkeys-lru` is used, for example, this may
+result in the situation that the cache entry (identData) still exists, but the
+tag entry (tagIdents) does not. The tag entry reflects the relation
+"cache tag => cache identifier" and is used for
+:php:`RedisBackend::flushByTag()`). If this entry is gone, the cache
+can no longer be flushed if content is changed on the page or an explicit
+flushing of the page cache for this page is requested. Once this is the case,
+cache flushing (for this page) is only possible via other means (such as full
+cache flush).
+
+Because of this, the following recommendations apply:
+
+#. Allocate enough memory (`maxmemory`) for the cache.
+#. Use the `maxmemory-policy` `volatile-ttl`. This will ensure
+   that no tagIdents entries are removed. (These have no expiration date).
+#. Regularly run the TYPO3 scheduler garbage collection task for the Redis cache
+   backend.
+#. Monitor `evicted_keys` in case an eviction policy is used.
+#. Monitor `used_memory` if eviction policy `noeviction` is used. The
+   `used_memory` should always be less then `maxmemory`.
+
+.. tip::
+
+   The information about `evicted_keys` etc. can be obtained via `redis-cli` and
+   the `info` command or via php-redis. Further information of the results of
+   info is in the `documentation <https://redis.io/commands/info/>`__.
+
+The `maxmemory-policy <https://redis.io/docs/manual/eviction/#eviction-policies>`__
+options have the following drawbacks:
+
+volatile-ttl
+   (recommended) Will flush only entries with an expiration date. Should be ok
+   with TYPO3.
+
+noeviction
+   (Not recommended) Once memory is full, no new entries will be saved to cache.
+   Only use if you can ensure that there is always enough memory.
+
+allkeys-lru, allkeys-lfu, allkeys-random
+   (Not recommended) This may result in tagIdents being removed, but not the
+   related identData entry, which makes it impossible to flush the cache
+   entries by tag (which is necessary for TYPO3 cache flushing on changes to
+   work and the flush page cache to work for specific pages).
+
+
+.. seealso::
+
+   *  `Redis eviction policies <https://redis.io/docs/manual/eviction/>`__
+   *  `Redis configuration <https://redis.io/docs/manual/config/>`__
 
 .. _caching-backend-wincache:
 

@@ -11,7 +11,7 @@ Deprecation
    For information how to handle deprecations in the TYPO3 Core,
    see the Contribution Guide: :ref:`t3contribute:deprecations`.
 
-Since TYPO3 4.3, calls to deprecated functions are logged to track usage of
+Since TYPO3 v4.3, calls to deprecated functions are logged to track usage of
 deprecated/outdated methods in the TYPO3 Core. Developers have to make sure to adjust their code to avoid
 using this old functionality since deprecated methods will be removed in future TYPO3 releases.
 
@@ -21,7 +21,7 @@ using this old functionality since deprecated methods will be removed in future 
 Introduction
 ============
 
-Deprecations since TYPO3 9 use the PHP method :php:`trigger_error('a message', E_USER_DEPRECATED)` and run
+Deprecations since TYPO3 v9 use the PHP method :php:`trigger_error('a message', E_USER_DEPRECATED)` and run
 through the logging and exception stack of the TYPO3 Core . There are several methods that help extension developers in
 dispatching deprecation errors. In development context deprecations are turned into exceptions by default
 and ignored in production context.
@@ -40,7 +40,10 @@ Disabling deprecation errors
 ============================
 
 Deprecation errors are automatically being ignored in production context. If you need to disable them in development
-context you can do so in the :file:`AdditionalConfiguration.php`::
+context you can do so in the :file:`AdditionalConfiguration.php`:
+
+.. code-block:: php
+   :caption: typo3conf/AdditionalConfiguration.php
 
    $GLOBALS['TYPO3_CONF_VARS']['LOG']['TYPO3']['CMS']['deprecations']['writerConfiguration'][\TYPO3\CMS\Core\Log\LogLevel::NOTICE] = [];
 
@@ -71,7 +74,10 @@ Deprecate functions in extensions
 =================================
 
 Functions that will be removed in future versions of your extension should be marked as deprecated by both the
-doc-comment and a call to the PHP error method::
+doc-comment and a call to the PHP error method:
+
+.. code-block:: php
+   :caption: EXT:some_extension/Classes/SomeClass.php
 
    /**
     * @param array $record

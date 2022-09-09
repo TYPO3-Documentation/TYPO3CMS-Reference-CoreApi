@@ -68,7 +68,11 @@ At the time of this writing, TYPO3 Core  contains more than 2600 functional test
 there are plenty of test files to look at to learn about writing functional tests. Do not
 hesitate looking around, there is plenty to discover.
 
-As a starter, let's have a look at a basic scenario from the styleguide example again::
+As a starter, let's have a look at a basic scenario from the styleguide example again:
+
+
+.. code-block:: php
+   :caption: EXT:styleguide/Tests/Functional/TcaDataGenerator/GeneratorTest.php
 
     <?php
     namespace TYPO3\CMS\Styleguide\Tests\Functional\TcaDataGenerator;
@@ -108,7 +112,10 @@ Extending setUp
 
 Note :php:`setUp()` is not overridden in this case. If you override it, remember to always
 call :php:`parent::setUp()` before doing own stuff. An example can be found in
-:php:`TYPO3\CMS\Backend\Tests\Functional\Domain\Repository\LocalizationLocalizationRepositoryTest`::
+:php:`TYPO3\CMS\Backend\Tests\Functional\Domain\Repository\Localization\LocalizationRepositoryTest`:
+
+.. code-block:: php
+   :caption: typo3/sysext/backend/Tests/Functional/Domain/Repository/Localization/LocalizationRepositoryTest.php
 
     <?php
     declare(strict_types = 1);
@@ -164,13 +171,19 @@ always loaded. Those should be `require` or at least `require-dev` dependencies 
 
 Apart from that default list, it is possible to load additional Core extensions: An extension
 that wants to test if it works well together with workspaces, would for example specify
-the workspaces extension as additional to-load extension::
+the workspaces extension as additional to-load extension:
+
+.. code-block:: php
+   :caption: EXT:some_extension/Tests/Functional/SomeTest.php
 
     protected $coreExtensionsToLoad = [
         'workspaces',
     ];
 
-Furthermore, third party extensions and fixture extensions can be loaded for any given test case::
+Furthermore, third party extensions and fixture extensions can be loaded for any given test case:
+
+.. code-block:: php
+   :caption: EXT:some_extension/Tests/Functional/SomeTest.php
 
     protected $testExtensionsToLoad = [
         'typo3conf/ext/some_extension/Tests/Functional/Fixtures/Extensions/test_extension',
@@ -195,14 +208,15 @@ database, for instance it is not possible to provide a full `.sqlite` database a
 in the test case. Instead, database rows should be provided as `.csv` files to be loaded into
 the database using :php:`$this->importCSVDataSet()`. An example file could look like this:
 
-.. code-block:: php
+.. code-block:: none
+   :caption: A CSV data set
 
-    "pages",,,,,,,,,
-    ,"uid","pid","sorting","deleted","t3_origuid","title",,,
-    ,1,0,256,0,0,"Connected mode",,,
-    "tt_content",,,,,,,,,
-    ,"uid","pid","sorting","deleted","sys_language_uid","l18n_parent","l10n_source","t3_origuid","header"
-    ,297,1,256,0,0,0,0,0,"Regular Element #1"
+   "pages",,,,,,,,,
+   ,"uid","pid","sorting","deleted","t3_origuid","title",,,
+   ,1,0,256,0,0,"Connected mode",,,
+   "tt_content",,,,,,,,,
+   ,"uid","pid","sorting","deleted","sys_language_uid","l18n_parent","l10n_source","t3_origuid","header"
+   ,297,1,256,0,0,0,0,0,"Regular Element #1"
 
 This file defines one row for the `pages` table
 and one `tt_content` row. So one `.csv` file can contain rows of multiple tables.
@@ -211,14 +225,17 @@ There is a similar method called :php:`$this->importDataSet()` that allows loadi
 rows defined as XML instead of CSV, too.
 
 In general, the methods need the absolute path to the fixture file to load them. However some
-keywords are allowed::
+keywords are allowed:
 
-    // Load a xml file relative to test case file
-    $this->importDataSet(__DIR__ . '/../Fixtures/pages.xml');
-    // Load a xml file of some extension
-    $this->importDataSet('EXT:frontend/Tests/Functional/Fixtures/pages-title-tag.xml');
-    // Load a xml file provided by the typo3/testing-framework package
-    $this->importDataSet('PACKAGE:typo3/testing-framework/Resources/Core/Functional/Fixtures/pages.xml');
+.. code-block:: php
+   :caption: EXT:some_extension/Tests/Functional/SomeTest.php
+
+   // Load a xml file relative to test case file
+   $this->importDataSet(__DIR__ . '/../Fixtures/pages.xml');
+   // Load a xml file of some extension
+   $this->importDataSet('EXT:frontend/Tests/Functional/Fixtures/pages-title-tag.xml');
+   // Load a xml file provided by the typo3/testing-framework package
+   $this->importDataSet('PACKAGE:typo3/testing-framework/Resources/Core/Functional/Fixtures/pages.xml');
 
 
 Asserting database
@@ -238,14 +255,17 @@ Loading files
 
 If the system under test works on files, those can be provided by the test setup, too. As
 example, one may want to check if an image has been properly sized down. The image to work
-on can be linked into the test instance::
+on can be linked into the test instance:
 
-    /**
-     * @var array
-     */
-    protected $pathsToLinkInTestInstance = [
-        'typo3/sysext/impexp/Tests/Functional/Fixtures/Folders/fileadmin/user_upload/typo3_image2.jpg' => 'fileadmin/user_upload/typo3_image2.jpg',
-    ];
+.. code-block:: php
+   :caption: EXT:some_extension/Tests/Functional/SomeTest.php
+
+   /**
+   * @var array
+   */
+   protected $pathsToLinkInTestInstance = [
+     'typo3/sysext/impexp/Tests/Functional/Fixtures/Folders/fileadmin/user_upload/typo3_image2.jpg' => 'fileadmin/user_upload/typo3_image2.jpg',
+   ];
 
 It is also possible to *copy* the files to the test instance instead of only linking it
 using :php:`$pathsToProvideInTestInstance`.
@@ -258,13 +278,17 @@ A default :file:`LocalConfiguration.php` file of the instance is created by the 
 It contains the database credentials and everything else to end up with a working TYPO3 instance.
 
 If extensions need additional settings in :file:`LocalConfiguration.php`, the property
-:php:`$configurationToUseInTestInstance` can be used to specify these::
+:php:`$configurationToUseInTestInstance` can be used to specify these:
 
-    protected $configurationToUseInTestInstance = [
-        'MAIL' => [
-            'transport' => \Symfony\Component\Mailer\Transport\NullTransport::class,
-        ],
-    ];
+
+.. code-block:: php
+   :caption: EXT:some_extension/Tests/Functional/SomeTest.php
+
+   protected $configurationToUseInTestInstance = [
+       'MAIL' => [
+           'transport' => \Symfony\Component\Mailer\Transport\NullTransport::class,
+       ],
+   ];
 
 
 Frontend tests
@@ -278,7 +302,10 @@ Frontend tests
     since most of them work with additional abstracts and set up tricks.
 
 To prepare a frontend test, the system can be instructed to load a set of :file:`.typoscript`
-files for a working frontend::
+files for a working frontend:
+
+.. code-block:: php
+   :caption: EXT:some_extension/Tests/Functional/SomeTest.php
 
     $this->setUpFrontendRootPage(1, ['EXT:fluid_test/Configuration/TypoScript/Basic.ts']);
 

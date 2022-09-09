@@ -96,9 +96,15 @@ The Registry API
 
 There is an easy-to-use API for using the registry. Simply call the following
 code to retrieve an instance of the registry. The instance returned will always
-be the same, as the registry is a singleton::
+be the same, as the registry is a singleton:
 
-   $registry = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\TYPO3\CMS\Core\Registry::class);
+.. code-block:: php
+   :caption: EXT:some_extension/Classes/SomeClass.php
+
+   use TYPO3\CMS\Core\Utility\GeneralUtility;
+   use TYPO3\CMS\Core\Registry;
+
+   $registry = GeneralUtility::makeInstance(Registry::class);
 
 After retrieving an instance of the registry, you can access the registry values
 through its :php:`get()` method. The :php:`get()` method provides an
@@ -170,7 +176,13 @@ first time an entry is accessed. Setting a value is also easy with the
 Examples
 --------
 
-Here's an example taken from the Scheduler system extension::
+Here's an example taken from the Scheduler system extension:
+
+.. code-block:: php
+   :caption: typo3/sysext/scheduler/Classes/Scheduler.php
+
+   use TYPO3\CMS\Core\Utility\GeneralUtility;
+   use TYPO3\CMS\Core\Registry;
 
    $context = GeneralUtility::makeInstance(Context::class);
    $requestStartTimestamp = $context->getPropertyFromAspect('date', 'timestamp');
@@ -178,8 +190,10 @@ Here's an example taken from the Scheduler system extension::
    $runInformation = array('start' => $requestStartTimestamp, 'end' => time(), 'type' => $type);
    $registry->set('tx_scheduler', 'lastRun', $runInformation);
 
-It is retrieved later using::
+It is retrieved later using:
 
-   $registry = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\TYPO3\CMS\Core\Registry::class);
+.. code-block:: php
+   :caption: typo3/sysext/scheduler/Classes/Scheduler.php
+
+   $registry = GeneralUtility::makeInstance(Registry::class);
    $lastRun = $registry->get('tx_scheduler', 'lastRun');
-

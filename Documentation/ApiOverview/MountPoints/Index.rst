@@ -52,7 +52,10 @@ accordingly.
 Simple usage example
 ====================
 
-Consider this setup::
+Consider this setup:
+
+.. code-block:: none
+   :caption: example page tree
 
    page   tree
    ====== ====================
@@ -61,7 +64,10 @@ Consider this setup::
    3      └── Company              <- mounted by page 2
    4          └── About us
 
-Let's assume the mount point page two is configured like this::
+Let's assume the mount point page two is configured like this:
+
+.. code-block:: none
+   :caption: Data in the mount point
 
    Title         :  Basic Mount Point
    URL segment   :  basic-mountpoint
@@ -99,7 +105,10 @@ from a completely different site or pagetree within TYPO3.
 Creating links for multi-site mount points works the same way as in a
 same site setup.
 
-Situation::
+Situation:
+
+.. code-block:: none
+   :caption: example page tree
 
    Page   Tree
    ====== ====================
@@ -112,7 +121,10 @@ Situation::
    5      └── Cross site mount     <- mount point page that is mounting page 2
 
 
-Configuration of mount point page 5::
+Configuration of mount point page 5:
+
+.. code-block:: none
+   :caption: Data in the mount point
 
    Title         :  Cross site mount
    URL segment   :  cross-site-mount
@@ -151,7 +163,10 @@ Limitations
    If a Mount Point Page has the slug "/more", mounting a page with "/imprint" subpage,
    but the Mount Point Page has a regular sibling page with "/more/imprint" a collision cannot
    be detected. In contrast, the non-mounted page would always work, and a subpage of a
-   Mounted Page would never be reached.::
+   Mounted Page would never be reached.:
+
+   .. code-block:: none
+      :caption: example page tree
 
       Page   Tree
       ====== ====================

@@ -1,0 +1,15 @@
+.. manual excerpt of EXT:blog_example/ext_localconf.php
+.. TODO: create this code-snippet automatically
+
+.. code-block:: php
+   :caption: EXT:blog_example/ext_localconf.php
+
+   use TYPO3\CMS\Extbase\Utility\ExtensionUtility;
+   use FriendsOfTYPO3\BlogExample\Controller\PostController;
+
+   // RSS Feed
+   ExtensionUtility::configurePlugin(
+      'blog_post',
+      'PostListRss',
+      [PostController::class => 'displayRssList']
+   );

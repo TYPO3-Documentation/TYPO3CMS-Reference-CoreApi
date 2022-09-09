@@ -37,57 +37,139 @@ The different severity levels are described below:
 Flash messages API
 ==================
 
-Creating a flash message is achieved by simply instantiating an object
-of class :php:`\TYPO3\CMS\Core\Messaging\FlashMessage`::
+Instantiate a flash message
+---------------------------
 
-   $message = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\TYPO3\CMS\Core\Messaging\FlashMessage::class,
+Creating a flash message is achieved by simply instantiating an object
+of class :php:`\TYPO3\CMS\Core\Messaging\FlashMessage`:
+
+.. code-block:: php
+   :caption: EXT:some_extension/Classes/Controller/SomeController.php
+
+   use TYPO3\CMS\Core\Messaging\FlashMessage;
+   use TYPO3\CMS\Core\Utility\GeneralUtility;
+   use TYPO3\CMS\Core\Type\ContextualFeedbackSeverity;
+
+   // FlashMessage($message, $title = '', $severity = ContextualFeedbackSeverity::OK, $storeInSession = false)
+   $message = GeneralUtility::makeInstance(FlashMessage::class,
       'My message text',
-      'Message Header', // [optional] the header
-      \TYPO3\CMS\Core\Messaging\FlashMessage::WARNING, // [optional] the severity defaults to \TYPO3\CMS\Core\Messaging\FlashMessage::OK
-      true // [optional] whether the message should be stored in the session or only in the \TYPO3\CMS\Core\Messaging\FlashMessageQueue object (default is false)
+      'Message Header',
+      ContextualFeedbackSeverity::WARNING,
+      true
    );
 
+:php:`$message:`
+   The text of the message
+:php:`$title:`
+   [optional] the header
+:php:`$severity:`
+   [optional] the severity (default: :php:`ContextualFeedbackSeverity::OK`)
+:php:`$storeInSession:`
+   [optional] :php:`true`: store in the session or :php:`false`: store
+   only in the :php:`\TYPO3\CMS\Core\Messaging\FlashMessageQueue` object. Storage
+   in the session should be used if you need the message to be still present after
+   a redirection (default: :php:`false`).
+
+
+.. index:: ContextualFeedbackSeverity
 
 Flash messages severities
 -------------------------
 
-The severity is defined by using class constants provided by
-:php:`\TYPO3\CMS\Core\Messaging\FlashMessage`:
+.. versionchanged:: 12.0
 
-*  :php:`\TYPO3\CMS\Core\Messaging\FlashMessage::NOTICE` for notifications
+The severity is defined by using the
+:php:`\TYPO3\CMS\Core\Type\ContextualFeedbackSeverity` enumeration:
 
-*  :php:`\TYPO3\CMS\Core\Messaging\FlashMessage::INFO` for information messages
+*  :php:`ContextualFeedbackSeverity::NOTICE` for notifications
 
-*  :php:`\TYPO3\CMS\Core\Messaging\FlashMessage::OK` for success messages
+*  :php:`ContextualFeedbackSeverity::INFO` for information messages
 
-*  :php:`\TYPO3\CMS\Core\Messaging\FlashMessage::WARNING` for warnings
+*  :php:`ContextualFeedbackSeverity::OK` for success messages
 
-*  :php:`\TYPO3\CMS\Core\Messaging\FlashMessage::ERROR` for errors
+*  :php:`ContextualFeedbackSeverity::WARNING` for warnings
 
-The fourth parameter passed to the constructor is a flag that
-indicates whether the message should be stored in the session or not (the
-default is not). Storage in the session should be used if you need the
-message to be still present after a redirection.
+*  :php:`ContextualFeedbackSeverity::ERROR` for errors
+
+.. deprecated:: 12.0
+   In TYPO3 versions up to 11.5 class constants from
+   :php:`\TYPO3\CMS\Core\Messaging\FlashMessage` must be used:
+
+   *  :php:`FlashMessage::NOTICE` for notifications
+
+   *  :php:`FlashMessage::INFO` for information messages
+
+   *  :php:`FlashMessage::OK` for success messages
+
+   *  :php:`FlashMessage::WARNING` for warnings
+
+   *  :php:`FlashMessage::ERROR` for errors
+
+   One can also use the class constants of :php:`FlashMessage` if an
+   extension should remain compatible with TYPO3 v12 and older versions.
+
+   The class constants will be removed in a future version of TYPO3.
+
+
+Add a flash message to the queue
+--------------------------------
 
 In backend modules you can then make that message appear on top of the
 module after a page refresh or the rendering of the next page request
 or render it on your own where ever you want.
 
 This example adds the flash message at the top of modules when
-rendering the next request::
+rendering the next request:
 
-   $flashMessageService = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\TYPO3\CMS\Core\Messaging\FlashMessageService::class);
+
+.. code-block:: php
+   :caption: EXT:some_extension/Classes/Controller/SomeController.php
+
+   use TYPO3\CMS\Core\Utility\GeneralUtility;
+   use TYPO3\CMS\Core\Messaging\FlashMessageService;
+
+   $flashMessageService = GeneralUtility::makeInstance(FlashMessageService::class);
    $messageQueue = $flashMessageService->getMessageQueueByIdentifier();
    $messageQueue->addMessage($message);
 
 The message is added to the queue and then the template class calls
 :php:`\TYPO3\CMS\Core\Messaging\FlashMessageQueue::renderFlashMessages()` which renders all
-messages from the queue. Here's how such a message looks like in a module:
+messages from the queue as inline flash messages. Here's how such a message looks like in a module:
 
 .. include:: /Images/AutomaticScreenshots/Examples/FlashMessages/FlashMessagesExample.rst.txt
 
-The recommend way to show flash messages is to use the Fluid Viewhelper :html:`<f:flashMessages />`.
-This Viewhelper works in any context because it use the :php:`FlashMessageRendererResolver` class
+This shows flash messages with 2 types of rendering mechanisms:
+
+*  several flash messages are displayed **inline**
+*  and an additional flash message ("Record count") is rendered as top-right
+   **notification** (which automatically disappear after a short delay).
+
+.. versionadded:: 12.0
+
+   :php:`FlashMessageQueue::NOTIFICATION_QUEUE` has been added in TYPO3 v12 to
+   provide a simple mechanism to add flash messages (from PHP code) to be
+   displayed as notifications on the top-right edge of the backend. Previously,
+   this had to be implemented in JavaScript (e.g. :js:`Notification.success()`),
+   which is also still possible, see :ref:`flash-messages-javascript`.
+
+Use the :php:`FlashMessageQueue::NOTIFICATION_QUEUE` to submit a flash message
+as top-right notifications, instead of inline:
+
+.. code-block:: php
+   :caption: my_extension/Classes/Controller/MyController.php
+
+    $flashMessageService = GeneralUtility::makeInstance(FlashMessageService::class);
+    $notificationQueue = $flashMessageService->getMessageQueueByIdentifier(FlashMessageQueue::NOTIFICATION_QUEUE);
+    $flashMessage = GeneralUtility::makeInstance(
+        FlashMessage::class,
+        'I\'m a message rendered as notification',
+        'Hooray!',
+        FlashMessage::OK
+    );
+    $notificationQueue->enqueue($flashMessage);
+
+The recommended way to show flash messages is to use the Fluid ViewHelper :html:`<f:flashMessages />`.
+This ViewHelper works in any context because it use the :php:`FlashMessageRendererResolver` class
 to find the correct renderer for the current context.
 
 .. _flash-messages-renderer:
@@ -97,34 +179,44 @@ Flash messages renderer
 
 The implementation of rendering FlashMessages in the Core has been optimized.
 
-A new class called :php:`FlashMessageRendererResolver` has been introduced.
-This class detects the context and renders the given FlashMessages in the correct output format.
+A new class called :php:`TYPO3\CMS\Core\Messaging\FlashMessageRendererResolver`
+has been introduced. This class detects the context and renders the given
+FlashMessages in the correct output format.
 It can handle any kind of output format.
 The Core ships with the following FlashMessageRenderer classes:
 
 *  :php:`TYPO3\CMS\Core\Messaging\Renderer\BootstrapRenderer`
    This renderer is used by default in the TYPO3 backend.
-   The output is based on Bootstrap markup
+   The output is based on Bootstrap markup.
 *  :php:`TYPO3\CMS\Core\Messaging\Renderer\ListRenderer`
    This renderer is used by default in the TYPO3 frontend.
-   The output is a simple <ul> list
+   The output is a simple :html:`<ul>` list.
 *  :php:`TYPO3\CMS\Core\Messaging\Renderer\PlaintextRenderer`
    This renderer is used by default in the CLI context.
-   The output is plain text
+   The output is plain text.
 
 All new rendering classes have to implement the :php:`TYPO3\CMS\Core\Messaging\Renderer\FlashMessageRendererInterface` interface.
 If you need a special output format, you can implement your own renderer class and use it:
 
 .. code-block:: php
+   :caption: EXT:some_extension/Classes/Controller/SomeController.php
+
+   use TYPO3\CMS\Core\Utility\GeneralUtility;
+   use Vendor\SomeExtension\Classes\Messaging\MySpecialRenderer;
 
    $out = GeneralUtility::makeInstance(MySpecialRenderer::class)
       ->render($flashMessages);
 
 
 The Core has been modified to use the new :php:`FlashMessageRendererResolver`.
-Any third party extension should use the provided :php:`FlashMessageViewHelper` or the new :php:`FlashMessageRendererResolver` class:
+Any third party extension should use the provided :php:`FlashMessageViewHelper`
+or the new :php:`FlashMessageRendererResolver` class:
 
 .. code-block:: php
+   :caption: EXT:some_extension/Classes/Controller/SomeController.php
+
+   use TYPO3\CMS\Core\Utility\GeneralUtility;
+   use TYPO3\CMS\Core\Messaging\FlashMessageRendererResolver;
 
    $out = GeneralUtility::makeInstance(FlashMessageRendererResolver::class)
       ->resolve()
@@ -137,25 +229,35 @@ Any third party extension should use the provided :php:`FlashMessageViewHelper` 
 Flash messages in Extbase
 =========================
 
-In Extbase the standard way of issuing flash messages is to add them
-in the controller. Code from the "examples" extension::
+In Extbase, the standard way of issuing flash messages is to add them
+in the controller. Code from the `"examples" extension
+<https://github.com/TYPO3-Documentation/t3docs-examples>`__:
+
+.. code-block:: php
+   :caption: EXT:examples/Classes/Controller/ModuleController.php
 
    $this->addFlashMessage('This is a simple success message');
 
 .. warning::
 
-   You cannot call this function in the constructor of a Controller
-   or in an initialize Action as it needs some internal data 
+   You cannot call this function in the constructor of a controller
+   or in an initialize action as it needs some internal data
    structures to be initialized.
 
 
-The full API of this function is::
+A more elaborate example:
+
+
+.. code-block:: php
+   :caption: EXT:examples/Classes/Controller/ModuleController.php
+
+   // use TYPO3\CMS\Core\Type\ContextualFeedbackSeverity;
 
    $this->addFlashMessage(
-      $messageBody,
-      $messageTitle = '',
-      $severity = \TYPO3\CMS\Core\Messaging\AbstractMessage::OK,
-      $storeInSession = TRUE
+      'This message is forced to be NOT stored in the session by setting the fourth argument to FALSE.',
+      'Success',
+      ContextualFeedbackSeverity::OK,
+      false
    );
 
 
@@ -171,9 +273,8 @@ as shown in this excerpt of :file:`EXT:examples/Resources/Private/Layouts/Module
       </div>
    </div>
 
-Where to display the flash messages in an Extbase-based BE module is
-as simple as moving the View Helper around.
-
+Where to display the flash messages in an Extbase-based backend module is
+as simple as moving the ViewHelper around.
 
 .. index::
    pair: Flash messages; JavaScript
@@ -244,7 +345,7 @@ Example:
 Actions
 -------
 
-Since TYPO3 10.1 the notification API may bind actions to a notification that execute certain tasks when invoked. Each
+Since TYPO3 v10.1 the notification API may bind actions to a notification that execute certain tasks when invoked. Each
 action item is an object containing the fields :js:`label` and :js:`action`:
 
 .. rst-class:: dl-parameters

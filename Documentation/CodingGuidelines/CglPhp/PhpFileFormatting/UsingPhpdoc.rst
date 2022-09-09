@@ -58,7 +58,10 @@ information block".))
 Function Information Block
 ==========================
 
-Functions should have *parameters* and *the return type* documented. Example::
+Functions should have *parameters* and *the return type* documented. Example:
+
+.. code-block:: php
+   :caption: EXT:some_extension/Classes/SomeClass.php
 
    /**
     * Initializes the plugin.
@@ -69,7 +72,7 @@ Functions should have *parameters* and *the return type* documented. Example::
     * @return bool true if initialization was successful, false otherwise
     * @see MyClass:anotherFunc()
     */
-   protected function initialize(array $conf) : bool
+   protected function initialize(array $conf): bool
    {
        // Do something
    }

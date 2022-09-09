@@ -36,10 +36,11 @@ TYPO3 implementation
 
 TYPO3 has implemented the PSR-15 approach in the following way:
 
-.. figure:: /Images/Plantuml/RequestHandling/FlowOfMiddlewareExecution.svg
+.. uml:: /Images/Plantuml/RequestHandling/flow-of-middleware-execution.plantuml
    :align: center
+   :caption: Figure 1-1: Application flow
+   :width: 1000
 
-   Figure 1-1: Application flow
 
 .. rst-class:: bignums
 
@@ -51,9 +52,14 @@ TYPO3 has implemented the PSR-15 approach in the following way:
 
 #. TYPO3 will call the first middleware with request and the next middleware.
 
-#. Each middleware is processed, see :ref:`request-handling-middlewares`.
+#. Each middleware can modify the request if needed, see :ref:`request-handling-middlewares`.
 
-#. In the end each middleware has to return a PSR-7 response.
+#. Final Request is passed to the last RequestHandler (`\TYPO3\CMS\Frontend\Http\RequestHandler`
+   or `\TYPO3\CMS\Backend\Http\RequestHandler`) which generates PSR-7 response and passes
+   it back to the last middleware.
+
+#. Each middleware gets back a PSR-7 response from middleware later in the stack and passes it up the stack to the previous middleware.
+   Each middleware can modify the response before passing it back.
 
 #. This response is passed back to the execution flow.
 
@@ -64,7 +70,10 @@ TYPO3 has implemented the PSR-15 approach in the following way:
 Middlewares
 ===========
 
-Each middleware has to implement the PSR-15 :php:`MiddlewareInterface`::
+Each middleware has to implement the PSR-15 :php:`MiddlewareInterface`:
+
+.. code-block:: php
+   :caption: vendor/psr/http-server-middleware/src/MiddlewareInterface.php
 
    namespace Psr\Http\Server;
 
@@ -121,7 +130,8 @@ This middleware will check whether TYPO3 is in maintenance mode and will return
 an unavailable response in that case. Otherwise the next middleware will be
 called, and its response is returned instead.
 
-::
+.. code-block:: php
+   :caption: EXT:some_extension/Classes/Middleware/SomeMiddleware.php
 
    public function process(
        ServerRequestInterface $request,
@@ -151,7 +161,9 @@ resolved site and language could be attached to the request.
 In order to do so, a new request is built with additional attributes, before
 calling the next request handler with the enhanced request.
 
-::
+
+.. code-block:: php
+   :caption: EXT:some_extension/Classes/Middleware/SomeMiddleware.php
 
    public function process(
        ServerRequestInterface $request,
@@ -178,7 +190,14 @@ with this information to the response.
 In order to do so, the next request handler is called. It will return the generated
 response, which can be enriched before it gets returned.
 
-::
+If you want to modify the response coming from certain middleware,
+your middleware has to be configured to be `before` it.
+Order of processing middlewares when enriching response is opposite
+to when middlewares are modifying the request.
+
+
+.. code-block:: php
+   :caption: EXT:some_extension/Classes/Middleware/SomeMiddleware.php
 
    public function process(
        ServerRequestInterface $request,
@@ -208,32 +227,9 @@ middlewares, it's also possible to remove existing middlewares from
 the configuration.
 
 The configuration is provided within
-:file:`Configuration/RequestMiddlewares.php` of an extension::
+:file:`Configuration/RequestMiddlewares.php` of an extension:
 
-   return [
-       'frontend' => [
-           'middleware-identifier' => [
-               'target' => \Vendor\ExtName\Middleware\ConcreteClass::class,
-               'before' => [
-                   'another-middleware-identifier',
-               ],
-               'after' => [
-                   'yet-another-middleware-identifier',
-               ],
-           ],
-       ],
-       'backend' => [
-           'middleware-identifier' => [
-               'target' => \Vendor\ExtName\Middleware\AnotherConcreteClass::class,
-               'before' => [
-                   'another-middleware-identifier',
-               ],
-               'after' => [
-                   'yet-another-middleware-identifier',
-               ],
-           ],
-       ],
-   ];
+.. include:: /CodeSnippets/Manual/Extension/Configuration/RequestMiddlewares.rst.txt
 
 TYPO3 has multiple stacks where one middleware might only be necessary in one
 of them. Therefore the configuration defines the context on its first level to define the
@@ -266,6 +262,18 @@ disabled
 
    Allows to disable specific middlewares.
 
+The `before` and `after` configuration is used to sort middlewares in form of a stack.
+You can check the calculated order in the configuration module in TYPO3 Backend.
+
+Middleware which is configured `before` another middleware (higher in the stack) wraps execution of following middlewares.
+Code written before `$handler->handle($request);` in the `process` method can modify
+the request before it's passed to the next middlewares. Code written after `$handler->handle($request);`
+can modify the response provided by next middlewares.
+
+Middleware which is configured `after` another (e.g. `MiddlewareB` from the diagram above),
+will see changes to the request made by previous middleware (`MiddlewareA`),
+but will not see changes made to the response from `MiddlewareA`.
+
 
 .. index:: Request handling; Ordering
 
@@ -273,7 +281,10 @@ Override ordering of middlewares
 ================================
 
 To change the ordering of middlewares shipped by the Core an extension can override the registration in
-:file:`Configuration/RequestMiddlewares.php`::
+:file:`Configuration/RequestMiddlewares.php`:
+
+.. code-block:: php
+   :caption: EXT:some_extension/Configuration/RequestMiddlewares.php
 
    return [
        'frontend' => [
@@ -290,7 +301,10 @@ To change the ordering of middlewares shipped by the Core an extension can overr
 
 However, this could lead to circular ordering depending on the ordering constraints of other
 middlewares. Alternatively an existing middleware can be disabled and reregistered again with a new
-identifier. This will circumvent the risk of circularity::
+identifier. This will circumvent the risk of circularity:
+
+.. code-block:: php
+   :caption: EXT:some_extension/Configuration/RequestMiddlewares.php
 
    return [
        'frontend' => [
@@ -298,7 +312,7 @@ identifier. This will circumvent the risk of circularity::
                'disabled' => true
            ],
            'overwrite-middleware-identifier' => [
-               'target' => \Vendor\Extension\Middleware\MyMiddleware::class,
+               'target' => \Vendor\SomeExtension\Middleware\MyMiddleware::class,
                'after' => [
                    'another-middleware-identifier',
                ],
@@ -333,36 +347,38 @@ A middleware that needs to send a JSON response when a certain condition is met,
 PSR-17_ response factory interface (the concrete TYPO3 implementation is injected as a constructor
 dependency) to create a new PSR-7_ response object:
 
+
 .. code-block:: php
+   :caption: EXT:some_extension/Classes/Middleware/StatusCheckMiddleware.php
 
-    use Psr\Http\Message\ResponseFactoryInterface;
-    use Psr\Http\Message\ResponseInterface;
-    use Psr\Http\Message\ServerRequestInterface;
-    use Psr\Http\Server\MiddlewareInterface;
-    use Psr\Http\Server\RequestHandlerInterface;
+   use Psr\Http\Message\ResponseFactoryInterface;
+   use Psr\Http\Message\ResponseInterface;
+   use Psr\Http\Message\ServerRequestInterface;
+   use Psr\Http\Server\MiddlewareInterface;
+   use Psr\Http\Server\RequestHandlerInterface;
 
-    class StatusCheckMiddleware implements MiddlewareInterface
-    {
-        /** @var ResponseFactoryInterface */
-        private $responseFactory;
+   class StatusCheckMiddleware implements MiddlewareInterface
+   {
+       /** @var ResponseFactoryInterface */
+       private $responseFactory;
 
-        public function __construct(ResponseFactoryInterface $responseFactory)
-        {
-            $this->responseFactory = $responseFactory;
-        }
+       public function __construct(ResponseFactoryInterface $responseFactory)
+       {
+           $this->responseFactory = $responseFactory;
+       }
 
-        public function process(ServerRequestInterface $request, RequestHandlerInterface $handler): ResponseInterface
-        {
-            if ($request->getRequestTarget() === '/check') {
-                $data = ['status' => 'ok'];
-                $response = $this->responseFactory->createResponse()
-                    ->withHeader('Content-Type', 'application/json; charset=utf-8');
-                $response->getBody()->write(json_encode($data));
-                return $response;
-            }
-            return $handler->handle($request);
-        }
-    }
+       public function process(ServerRequestInterface $request, RequestHandlerInterface $handler): ResponseInterface
+       {
+           if ($request->getRequestTarget() === '/check') {
+               $data = ['status' => 'ok'];
+               $response = $this->responseFactory->createResponse()
+                   ->withHeader('Content-Type', 'application/json; charset=utf-8');
+               $response->getBody()->write(json_encode($data));
+               return $response;
+           }
+           return $handler->handle($request);
+       }
+   }
 
 
 .. index:: Request handling; Execution
@@ -409,6 +425,7 @@ response to be returned to the user. All of these interface implementations are 
 as constructor dependencies:
 
 .. code-block:: php
+   :caption: EXT:some_extension/Classes/Middleware/ExampleMiddleware.php
 
     use Psr\Http\Client\ClientInterface;
     use Psr\Http\Message\RequestFactoryInterface;

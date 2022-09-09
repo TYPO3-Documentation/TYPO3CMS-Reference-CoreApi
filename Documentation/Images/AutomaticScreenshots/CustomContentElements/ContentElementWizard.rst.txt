@@ -3,4 +3,4 @@
 .. figure:: /Images/AutomaticScreenshots/CustomContentElements/ContentElementWizard.png
    :class: with-shadow
 
-   Content element wizard with thCTypee new content element
+   Content element wizard with the new content element

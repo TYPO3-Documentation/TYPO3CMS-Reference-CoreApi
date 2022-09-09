@@ -67,11 +67,6 @@ provided above should not be accessible anymore and result in a HTTP `403` error
 Apache and Microsoft IIS web servers
 ====================================
 
-.. hint::
-
-   TYPO3 provides a recommended :file:`.htaccess` file.
-   See :ref:`t3start:system-environment` .
-
 To increase protection of TYPO3 instances, the Core Team however decided to
 install default web server configuration files since TYPO3 Core  version v9 under certain
 circumstances: If an Apache web server is detected by the web based installation
@@ -99,11 +94,13 @@ Administrators running the popular web server `NGINX <https://www.nginx.com/>`_ 
 take additional measures: NGINX does not support an approach like Apache or IIS to configure
 access by putting files into the web document directories - the TYPO3 install procedure can
 not install good default files and administrators must merge deny patterns into the web
-servers virtual host configuration. A typical example looks like this::
+servers virtual host configuration. A typical example looks like this:
+
+.. code-block:: nginx
 
     server {
 
-        ...
+        # ...
 
         # Prevent clients from accessing hidden files (starting with a dot)
         # This is particularly important if you store .htpasswd files in the site hierarchy
@@ -164,7 +161,7 @@ servers virtual host configuration. A typical example looks like this::
             deny all;
         }
 
-        ...
+        # ...
 
     }
 

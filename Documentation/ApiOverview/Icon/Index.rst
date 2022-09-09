@@ -23,38 +23,13 @@ To register icons for your own extension, create a file called
 
 .. note::
 
-   In versions below TYPO3 11.4 the configuration was done in the :file:`ext_localconf.php`,
+   In versions below TYPO3 v11.4 the configuration was done in the :file:`ext_localconf.php`,
    please use the version selector to look-up the syntax in the corresponding
    documentation version.
 
 The file needs to return a flat PHP configuration array with the following keys:
 
-.. code-block:: php
-
-   <?php
-      return [
-          // icon identifier
-          'mysvgicon' => [
-               // icon provider class
-              'provider' => \TYPO3\CMS\Core\Imaging\IconProvider\SvgIconProvider::class,
-               // the source SVG for the SvgIconProvider
-              'source' => 'EXT:my_extension/Resources/Public/Icons/mysvg.svg',
-          ],
-          'mybitmapicon' => [
-              'provider' => \TYPO3\CMS\Core\Imaging\IconProvider\BitmapIconProvider::class,
-               // the source bitmap file
-              'source' => 'EXT:my_extension/Resources/Public/Icons/mybitmap.png',
-          ],
-          'myfontawesomeicon' => [
-              'provider' => \TYPO3\CMS\Core\Imaging\IconProvider\FontawesomeIconProvider::class,
-               // the fontawesome icon name
-              'name' => 'spinner',
-               // additional css classes
-              'additionalClasses' => 'fa-fw',
-               // all icon providers provide the possibility to register an icon that spins
-              'spinning' => true,
-          ],
-      ];
+.. include:: /CodeSnippets/Manual/Extension/Configuration/IconsPhp.rst.txt
 
 
 .. index:: Icon API; IconProviderInterface
@@ -62,13 +37,18 @@ The file needs to return a flat PHP configuration array with the following keys:
 IconProvider
 ------------
 
-The TYPO3 Core ships three icon providers which can be used:
+The TYPO3 Core ships two icon providers which can be used straight away:
 
 * :php:`BitmapIconProvider` – For all kinds of bitmap icons (GIF, PNG, JPEG, etc.)
 * :php:`SvgIconProvider` – For SVG icons
-* :php:`FontawesomeIconProvider` – For all icons which can be found in the fontawesome.io icon font
 
-In case you need a custom icon provider, you can add your own by writing a
+.. versionchanged:: 12.0
+   The :php:`FontawesomeIconProvider` has been available since version 11.5 and
+   was removed from the Core in 12.0. You can use the polyfill extension from
+   `friendsoftypo3/fontawesome-provider <https://github.com/friendsoftypo3/fontawesome-provider>`__
+   which is also compatible with TYPO3 v11.
+
+If require need a custom icon provider, you can add your own by writing a
 class which implements the :php:`IconProviderInterface`.
 
 .. _icon-usage:
@@ -99,6 +79,15 @@ You can use the :php:`IconFactory` to request an icon:
    );
    $this->view->assign('icon', $icon);
 
+.. versionchanged:: 12.0
+
+   The TYPO3 Icon Api previously defaulted to :php:`Icon::SIZE_DEFAULT` and was
+   adapted to now use :php:`Icon::SIZE_MEDIUM` instead. :php:`Icon::SIZE_MEDIUM`
+   is displayed at a fixed size of 32x32 px while :php:`Icon::SIZE_DEFAULT`
+   now scales with the text.
+
+   In cases where the size :php:`Icon::SIZE_DEFAULT` was explicitly set this
+   might result in changed behavior. Switch to :php:`Icon::SIZE_MEDIUM` then.
 
 .. index::
    Fluid; Core icon
@@ -145,9 +134,16 @@ identifier
 size
    :sep:`|` :aspect:`Condition:` required
    :sep:`|` :aspect:`Type:` string
+   :sep:`|` :aspect:`Default:` medium
    :sep:`|`
 
-   Desired size of the icon. All values of the :js:`Icons.sizes` enum are allowed, these are: `small`, `default`, `large` and `overlay`.
+   Desired size of the icon. All values of the :js:`Icons.sizes` enum are allowed,
+   these are:
+
+   -  :js:`default`:  1em, to scale with font size
+   -  :js:`small`: fixed to 16px
+   -  :js:`medium`: fixed to 32px (default)
+   -  :js:`large`: fixed to 64px
 
 overlayIdentifier
    :sep:`|` :aspect:`Condition:` optional
@@ -173,7 +169,7 @@ markupIdentifier
 The method :js:`getIcon()` returns a jQuery Promise object, as internally an AJAX request is done.
 
 .. note::
-   Since TYPO3 9, the icons are cached in the localStorage of the client to reduce the workload off the server.
+   Since TYPO3 v9, the icons are cached in the localStorage of the client to reduce the workload off the server.
 
 
 Here's an example code how a usage of the JavaScript Icon API may look like:
@@ -199,13 +195,13 @@ The TYPO3 Core comes with a number of icons that may be used in your extensions.
 To search for available icons, you can use one of these possibilities:
 
 
-Install styleguide extension
-----------------------------
+Install the styleguide extension
+--------------------------------
 
 Install the extension *styleguide* as described in the Readme in the `installation
 <https://github.com/TYPO3/styleguide#installation>`__ section.
 
-Once, installed, you can view available icons by selecting help (?) on the top in the
+Once installed, you can view available icons by selecting help (?) on the top in the
 TYPO3 backend, then *Styleguide* and then *Icons*, *All Icons*.
 
 There, browse through existing icons. Use the name under the icon (for example

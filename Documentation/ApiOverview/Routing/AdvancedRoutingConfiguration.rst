@@ -142,10 +142,20 @@ The configuration option `routePath` defines the static keyword and the availabl
 Plugin Enhancer
 ^^^^^^^^^^^^^^^
 
-The Plugin Enhancer works with plugins on a page that are commonly known as `Pi-Based Plugins`, where previously
-the following GET/POST variables were used:
+The Plugin Enhancer works with plugins based on the class :ref:`AbstractPlugin <abstractplugin>`,
+also known as "Pi-Based Plugins".
 
-`index.php?id=13&tx_felogin_pi1[forgot]=1&&tx_felogin_pi1[user]=82&tx_felogin_pi1[hash]=ABCDEFGHIJKLMNOPQRSTUVWXYZ012345`
+In this example we will map the raw parameters of an URL like this:
+
+.. code-block:: none
+
+   https://example.org/path-to/my-page?id=13&tx_felogin_pi1[forgot]=1&tx_felogin_pi1[user]=82&tx_felogin_pi1[hash]=ABCDEFGHIJKLMNOPQRSTUVWXYZ012345
+
+The result will be an URL like this:
+
+.. code-block:: none
+
+   https://example.org/path-to/my-page/forgot-password/82/ABCDEFGHIJKLMNOPQRSTUVWXYZ012345
 
 The base for the plugin enhancer is to configure a so-called "namespace", in this case `tx_felogin_pi1` - the plugin's
 namespace.
@@ -283,6 +293,7 @@ To understand what's happening in the `aspects` part, read on.
 
 
 .. index:: Routing; PageType decorator
+.. _routing-pagetype-decorator:
 
 PageType decorator
 ^^^^^^^^^^^^^^^^^^^
@@ -327,7 +338,7 @@ Now configure the Enhancer in your site's :file:`config.yaml` file like this:
             '.json': 26
 
 
-The :yaml:`map` allows to add a filename or a file ending and map this to a :ts:`page.typeNum` value.
+The :yaml:`map` allows to add a filename or a file ending and map this to a :typoscript:`page.typeNum` value.
 
 It is also possible to set :yaml:`default` to e.g. ".html" to add a ".html" suffix to all default pages.
 

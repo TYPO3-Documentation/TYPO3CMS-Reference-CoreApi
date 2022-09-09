@@ -8,6 +8,8 @@
 Assets (CSS, JavaScript, Media)
 ===============================
 
+.. versionadded:: 10.3
+
 The TYPO3 component responsible for rendering the HTML and adding assets to a TYPO3
 frontend or backend page is called :php:`PageRenderer`.
 
@@ -21,10 +23,6 @@ see the :ref:`TypoScript Reference <t3tsref:setup-page-includecss-array>`. In ex
 both directly using the :php:`PageRenderer` as well as using the more convenient
 :php:`AssetCollector` is possible.
 
-.. note::
-
-   The :php:`AssetCollector` is available since TYPO3 10.3.
-
 .. index::
    AssetCollector
    Fluid; asset.script
@@ -37,7 +35,7 @@ The :php:`AssetCollector` is a concept to allow custom CSS/JS code, inline or ex
 times in e.g. a Fluid template (via :html:`<f:asset.script>` or :html:`<f:asset.css>` Viewhelpers)
 but rendered only once in the output.
 
-The :php:`priority` flag (default: :php:`false`) controls where the asset is included: 
+The :php:`priority` flag (default: :php:`false`) controls where the asset is included:
 
 - JavaScript will be output inside :html:`<head>` if :php:`$priority == true` or at the bottom of the :html:`<body>` tag if :php:`$priority == false`.
 - CSS will always be output inside :html:`<head>`, yet grouped by :php:`$priority`.
@@ -47,7 +45,7 @@ It leverages making use of HTTP/2 which removes the necessity to have all
 files concatenated into one file.
 
 The :php:`AssetCollector` class is implemented as a singleton (:php:`SingletonInterface`). It replaces various other existing options
-in TypoScript and methods in PHP to insert Javascript code and CSS data. 
+in TypoScript and methods in PHP to insert Javascript code and CSS data.
 
 Former methods:
 
@@ -77,33 +75,20 @@ The :php:`AssetCollector` also collects information about "imagesOnPage", which 
 The API
 -------
 
-- :php:`\TYPO3\CMS\Core\Page\AssetCollector::addJavaScript(string $identifier, string $source, array $attributes, array $options = []): self`
-- :php:`\TYPO3\CMS\Core\Page\AssetCollector::addInlineJavaScript(string $identifier, string $source, array $attributes, array $options = []): self`
-- :php:`\TYPO3\CMS\Core\Page\AssetCollector::addStyleSheet(string $identifier, string $source, array $attributes, array $options = []): self`
-- :php:`\TYPO3\CMS\Core\Page\AssetCollector::addInlineStyleSheet(string $identifier, string $source, array $attributes, array $options = []): self`
-- :php:`\TYPO3\CMS\Core\Page\AssetCollector::addMedia(string $fileName, array $additionalInformation): self`
-- :php:`\TYPO3\CMS\Core\Page\AssetCollector::removeJavaScript(string $identifier): self`
-- :php:`\TYPO3\CMS\Core\Page\AssetCollector::removeInlineJavaScript(string $identifier): self`
-- :php:`\TYPO3\CMS\Core\Page\AssetCollector::removeStyleSheet(string $identifier): self`
-- :php:`\TYPO3\CMS\Core\Page\AssetCollector::removeInlineStyleSheet(string $identifier): self`
-- :php:`\TYPO3\CMS\Core\Page\AssetCollector::removeMedia(string $identifier): self`
-- :php:`\TYPO3\CMS\Core\Page\AssetCollector::getJavaScripts(?bool $priority = null): array`
-- :php:`\TYPO3\CMS\Core\Page\AssetCollector::getInlineJavaScripts(?bool $priority = null): array`
-- :php:`\TYPO3\CMS\Core\Page\AssetCollector::getStyleSheets(?bool $priority = null): array`
-- :php:`\TYPO3\CMS\Core\Page\AssetCollector::getInlineStyleSheets(?bool $priority = null): array`
-- :php:`\TYPO3\CMS\Core\Page\AssetCollector::getMedia(): array`
+.. include:: /CodeSnippets/Manual/Core/AssetCollector.rst.txt
 
 .. note::
 
    If the same asset is registered multiple times using different attributes or options, both sets are merged. If the
    same attributes or options are given with different values, those registered last will overwrite the existing ones.
+   With the `has` methods it can be checked if an asset exists before generating it again, hence avoiding redundancy.
 
 .. index:: pair: Assets; Viewhelpers
 
-Viewhelper
+ViewHelper
 ----------
 
-There are also two Viewhelpers, the :ref:`f:asset.css<t3viewhelper:typo3-fluid-asset-css>` and the :ref:`f:asset.script<t3viewhelper:typo3-fluid-asset-script>` Viewhelper which use the :php:`AssetCollector` API.
+There are also two ViewHelpers, the :ref:`f:asset.css<t3viewhelper:typo3-fluid-asset-css>` and the :ref:`f:asset.script<t3viewhelper:typo3-fluid-asset-script>` Viewhelper which use the :php:`AssetCollector` API.
 
 .. index:: pair: Assets; Rendering order
 
@@ -114,27 +99,27 @@ Currently, CSS and JavaScript registered with the :php:`AssetCollector` will be 
 :php:`PageRenderer` counterparts. The order is:
 
 - :html:`<head>`
-- :ts:`page.includeJSLibs.forceOnTop`
-- :ts:`page.includeJSLibs`
-- :ts:`page.includeJS.forceOnTop`
-- :ts:`page.includeJS`
+- :typoscript:`page.includeJSLibs.forceOnTop`
+- :typoscript:`page.includeJSLibs`
+- :typoscript:`page.includeJS.forceOnTop`
+- :typoscript:`page.includeJS`
 - :php:`AssetCollector::addJavaScript()` with 'priority'
-- :ts:`page.jsInline`
+- :typoscript:`page.jsInline`
 - :php:`AssetCollector::addInlineJavaScript()` with 'priority'
 - :html:`</head>`
 
-- :ts:`page.includeJSFooterlibs.forceOnTop`
-- :ts:`page.includeJSFooterlibs`
-- :ts:`page.includeJSFooter.forceOnTop`
-- :ts:`page.includeJSFooter`
+- :typoscript:`page.includeJSFooterlibs.forceOnTop`
+- :typoscript:`page.includeJSFooterlibs`
+- :typoscript:`page.includeJSFooter.forceOnTop`
+- :typoscript:`page.includeJSFooter`
 - :php:`AssetCollector::addJavaScript()`
-- :ts:`page.jsFooterInline`
+- :typoscript:`page.jsFooterInline`
 - :php:`AssetCollector::addInlineJavaScript()`
 
 .. note::
 
    JavaScript registered with AssetCollector is not affected by
-   :ts:`config.moveJsFromHeaderToFooter`.
+   :typoscript:`config.moveJsFromHeaderToFooter`.
 
 Examples
 --------
@@ -143,23 +128,36 @@ Add a JavaScript file to the collector with script attribute :code:`data-foo="ba
 
 .. code-block:: php
 
-    GeneralUtility::makeInstance(AssetCollector::class)
-       ->addJavaScript('my_ext_foo', 'EXT:my_ext/Resources/Public/JavaScript/foo.js', ['data-foo' => 'bar']);
+   //use TYPO3\CMS\Core\Page\AssetCollector;
+   //use TYPO3\CMS\Core\Utility\GeneralUtility;
+
+   GeneralUtility::makeInstance(AssetCollector::class)
+      ->addJavaScript('my_ext_foo', 'EXT:my_ext/Resources/Public/JavaScript/foo.js', ['data-foo' => 'bar']);
 
 Add a JavaScript file to the collector with script attribute :html:`data-foo="bar"` and priority which means rendering before other script tags:
 
 .. code-block:: php
 
-    GeneralUtility::makeInstance(AssetCollector::class)
-       ->addJavaScript('my_ext_foo', 'EXT:my_ext/Resources/Public/JavaScript/foo.js', ['data-foo' => 'bar'], ['priority' => true]);
+   GeneralUtility::makeInstance(AssetCollector::class)
+      ->addJavaScript('my_ext_foo', 'EXT:my_ext/Resources/Public/JavaScript/foo.js', ['data-foo' => 'bar'], ['priority' => true]);
 
 Add a JavaScript file to the collector with :html:`type="module"` (by default, no type= is output for JavaScript):
 
 .. code-block:: php
 
-    GeneralUtility::makeInstance(AssetCollector::class)
-       ->addJavaScript('my_ext_foo', 'EXT:my_ext/Resources/Public/JavaScript/foo.js', ['type' => 'module']);
+   GeneralUtility::makeInstance(AssetCollector::class)
+      ->addJavaScript('my_ext_foo', 'EXT:my_ext/Resources/Public/JavaScript/foo.js', ['type' => 'module']);
 
+Check if a JavaScript file with the given identifier exists:
+
+.. code-block:: php
+
+   $assetCollector = GeneralUtility::makeInstance(AssetCollector::class);
+   if ($assetCollector->hasJavaScript($identifier)) {
+       // result: true - JavaScript with identifier $identifier exists
+   } else {
+       // result: false - JavaScript with identifier $identifier does not exist
+   }
 
 .. index::
    pair: Assets; Events

@@ -39,7 +39,7 @@ If you use the *category menu* or *tag list* plugins to filter news records, the
          - routePath: '/page-{page}'
            _controller: 'News::list'
            _arguments:
-             page: '@widget_0/currentPage'
+             page: currentPage
          - routePath: '/{news-title}'
            _controller: 'News::detail'
            _arguments:

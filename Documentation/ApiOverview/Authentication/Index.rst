@@ -294,7 +294,10 @@ influence when services are called.
 It is possible to force TYPO3 CMS to go through the
 authentication process for **every** request no matter any
 existing session. By setting the following local configuration
-either for the FE or the BE::
+either for the FE or the BE:
+
+.. code-block:: php
+  :caption: typo3conf/AdditionalConfiguration.php
 
    $GLOBALS['TYPO3_CONF_VARS']['SVCONF']['auth']['setup']['BE_alwaysFetchUser'] = true;
    $GLOBALS['TYPO3_CONF_VARS']['SVCONF']['auth']['setup']['BE_alwaysAuthUser'] = true;
@@ -312,7 +315,10 @@ may not be necessary depending on what your service does exactly.
 
 A more fine-grained approach allows for triggering the
 authentication process only when a valid session does not
-yet exist. The settings are::
+yet exist. The settings are:
+
+.. code-block:: php
+  :caption: typo3conf/AdditionalConfiguration.php
 
    $GLOBALS['TYPO3_CONF_VARS']['SVCONF']['auth']['setup']['BE_fetchUserIfNoSession'] = true;
    $GLOBALS['TYPO3_CONF_VARS']['SVCONF']['auth']['setup']['FE_fetchUserIfNoSession'] = true;
@@ -325,7 +331,10 @@ yet exist. The settings are::
    need to repeat the process upon each request.
 
 The authentication process can also be forced to go through
-all services for the "getUser\*" subtype by setting::
+all services for the "getUser\*" subtype by setting:
+
+.. code-block:: php
+  :caption: typo3conf/AdditionalConfiguration.php
 
    $GLOBALS['TYPO3_CONF_VARS']['SVCONF']['auth']['setup']['BE_fetchAllUsers'] = true;
    $GLOBALS['TYPO3_CONF_VARS']['SVCONF']['auth']['setup']['FE_fetchAllUsers'] = true;

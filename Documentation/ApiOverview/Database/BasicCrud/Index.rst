@@ -44,6 +44,8 @@ A straight insert to a table:
 
 .. index:: Database; SELECT
 
+.. _database-select:
+
 SELECT a Single Row
 ===================
 
@@ -118,7 +120,7 @@ Advanced query using the `QueryBuilder` and manipulating the default restriction
         ->select('uid', 'pid', 'bodytext')
         ->from('tt_content')
         ->where(
-            $queryBuilder->expr()->orX(
+            $queryBuilder->expr()->or(
                 $queryBuilder->expr()->eq('bodytext', $queryBuilder->createNamedParameter('klaus')),
                 $queryBuilder->expr()->eq('uid', $queryBuilder->createNamedParameter($uid, \PDO::PARAM_INT))
             )

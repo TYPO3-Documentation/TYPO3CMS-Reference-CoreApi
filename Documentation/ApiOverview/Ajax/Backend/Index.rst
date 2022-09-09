@@ -36,6 +36,7 @@ will be our ajax endpoint.
    {
        public function doSomethingAction(ServerRequestInterface $request): ResponseInterface
        {
+           // TODO: return ResponseInterface
        }
    }
 
@@ -53,6 +54,7 @@ incoming number by 2. The incoming value will be passed as a query string argume
        }
 
        $result = $input ** 2;
+       // TODO: return ResponseInterface
    }
 
 
@@ -118,16 +120,7 @@ The endpoint must be registered as route. Create a file called :file:`Configurat
 extension. The file basically just returns an array of route definitions. Every route in this file will be exposed to
 JavaScript automatically. Let's register our endpoint now:
 
-.. code-block:: php
-
-   <?php
-
-   return [
-       'example_dosomething' => [
-           'path' => '/example/do-something',
-           'target' => \Vendor\MyExtension\Controller\ExampleController::class . '::doSomethingAction',
-       ],
-   ];
+.. include:: /CodeSnippets/Manual/Extension/Configuration/BackendAjaxRoutes.rst.txt
 
 
 The naming of the key `example_dosomething` and path `/example/do-something` are up to you, but should contain the

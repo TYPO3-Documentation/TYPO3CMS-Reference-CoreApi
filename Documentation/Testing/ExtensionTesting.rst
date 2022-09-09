@@ -146,7 +146,10 @@ author and a license. We are stating that "I need at least 9.5.0 of cms-core" an
 "find all class names starting with :php:`Lolli\Enetcache` in the Classes/ directory".
 
 The extension already contains some unit tests that extend `typo3/testing-framework`'s base
-unit test class in directory :file:`Tests/Unit/Hooks` (stripped)::
+unit test class in directory :file:`Tests/Unit/Hooks` (stripped):
+
+.. code-block:: php
+   :caption: E
 
     <?php
     namespace Lolli\Enetcache\Tests\Unit\Hooks;
@@ -238,12 +241,15 @@ extension `.Build/Web/typo3conf/ext/enetcache` in our extension specific TYPO3 i
 two additional properties `web-dir` and `extension-key` to do that.
 
 Now, before we start playing around with this setup, we instruct `git` to ignore runtime
-on-the-fly files. The :file:`.gitignore` looks like this::
+on-the-fly files. The :file:`.gitignore` looks like this:
 
-    .Build/
-    .idea/
-    Build/testing-docker/.env
-    composer.lock
+.. code-block:: none
+   :caption: .gitignore
+
+   .Build/
+   .idea/
+   Build/testing-docker/.env
+   composer.lock
 
 We ignore the entire `.Build` directory, these are on-the-fly files that do not belong to the extension
 functionality. We also ignore the `.idea` directory - this is a directory where PhpStorm stores its settings.
@@ -426,9 +432,6 @@ In order to tell the CI what to do, create a new workflow file in `.github/workf
          - name: Functional tests with mariadb
            run: Build/Scripts/runTests.sh -p ${{ matrix.php }} -d mariadb -s functional
 
-         - name: Functional tests with mssql
-           run: Build/Scripts/runTests.sh -p ${{ matrix.php }} -d mssql -s functional
-
          - name: Functional tests with postgres
            run: Build/Scripts/runTests.sh -p ${{ matrix.php }} -d postgres -s functional
 
@@ -503,74 +506,77 @@ code can generate a page tree and demo data for all of these scenarios. Codewise
 section of the extension and it uses quite some Core API to do its job. And yes, the generator breaks
 once in a while. A perfect scenario for a `functional test!
 <https://github.com/TYPO3/styleguide/blob/main/Tests/Functional/TcaDataGenerator/GeneratorTest.php>`_
-(slightly stripped)::
+(slightly stripped):
 
-    <?php
-    namespace TYPO3\CMS\Styleguide\Tests\Functional\TcaDataGenerator;
+.. code-block:: php
+   :caption: https://github.com/TYPO3/styleguide/blob/main/Tests/Functional/TcaDataGenerator/GeneratorTest.php
 
-    use TYPO3\CMS\Core\Core\Bootstrap;
-    use TYPO3\CMS\Styleguide\TcaDataGenerator\Generator;
-    use TYPO3\TestingFramework\Core\Functional\FunctionalTestCase;
+   <?php
+   namespace TYPO3\CMS\Styleguide\Tests\Functional\TcaDataGenerator;
 
-    /**
-     * Test case
-     */
-    class GeneratorTest extends FunctionalTestCase
-    {
-        /**
-         * @var array Have styleguide loaded
-         */
-        protected $testExtensionsToLoad = [
-            'typo3conf/ext/styleguide',
-        ];
+   use TYPO3\CMS\Core\Core\Bootstrap;
+   use TYPO3\CMS\Styleguide\TcaDataGenerator\Generator;
+   use TYPO3\TestingFramework\Core\Functional\FunctionalTestCase;
 
-        /**
-         * Just a dummy to show that at least one test is actually executed on mssql
-         *
-         * @test
-         */
-        public function dummy()
-        {
-            $this->assertTrue(true);
-        }
+   /**
+    * Test case
+    */
+   class GeneratorTest extends FunctionalTestCase
+   {
+       /**
+        * @var array Have styleguide loaded
+        */
+       protected $testExtensionsToLoad = [
+           'typo3conf/ext/styleguide',
+       ];
 
-        /**
-         * @test
-         * @group not-mssql
-         * @todo Generator does not work using mssql DMBS yet ... fix this
-         */
-        public function generatorCreatesBasicRecord()
-        {
-            // styleguide generator uses DataHandler for some parts. DataHandler needs an
-            // initialized BE user with admin right and the live workspace.
-            Bootstrap::initializeBackendUser();
-            $GLOBALS['BE_USER']->user['admin'] = 1;
-            $GLOBALS['BE_USER']->user['uid'] = 1;
-            $GLOBALS['BE_USER']->workspace = 0;
-            Bootstrap::initializeLanguageObject();
+       /**
+        * Just a dummy to show that at least one test is actually executed on mssql
+        *
+        * @test
+        */
+       public function dummy()
+       {
+           $this->assertTrue(true);
+       }
 
-            // Verify there is no tx_styleguide_elements_basic yet
-            $queryBuilder = $this->getConnectionPool()->getQueryBuilderForTable('tx_styleguide_elements_basic');
-            $queryBuilder->getRestrictions()->removeAll();
-            $count = (int)$queryBuilder->count('uid')
-                ->from('tx_styleguide_elements_basic')
-                ->executeQuery()
-                ->fetchOne();
-            $this->assertEquals(0, $count);
+       /**
+        * @test
+        * @group not-mssql
+        * @todo Generator does not work using mssql DMBS yet ... fix this
+        */
+       public function generatorCreatesBasicRecord()
+       {
+           // styleguide generator uses DataHandler for some parts. DataHandler needs an
+           // initialized BE user with admin right and the live workspace.
+           Bootstrap::initializeBackendUser();
+           $GLOBALS['BE_USER']->user['admin'] = 1;
+           $GLOBALS['BE_USER']->user['uid'] = 1;
+           $GLOBALS['BE_USER']->workspace = 0;
+           Bootstrap::initializeLanguageObject();
 
-            $generator = new Generator();
-            $generator->create();
+           // Verify there is no tx_styleguide_elements_basic yet
+           $queryBuilder = $this->getConnectionPool()->getQueryBuilderForTable('tx_styleguide_elements_basic');
+           $queryBuilder->getRestrictions()->removeAll();
+           $count = (int)$queryBuilder->count('uid')
+               ->from('tx_styleguide_elements_basic')
+               ->executeQuery()
+               ->fetchOne();
+           $this->assertEquals(0, $count);
 
-            // Verify there is at least one tx_styleguide_elements_basic record now
-            $queryBuilder = $this->getConnectionPool()->getQueryBuilderForTable('tx_styleguide_elements_basic');
-            $queryBuilder->getRestrictions()->removeAll();
-            $count = (int)$queryBuilder->count('uid')
-                ->from('tx_styleguide_elements_basic')
-                ->executeQuery()
-                ->fetchOne();
-            $this->assertGreaterThan(0, $count);
-        }
-    }
+           $generator = new Generator();
+           $generator->create();
+
+           // Verify there is at least one tx_styleguide_elements_basic record now
+           $queryBuilder = $this->getConnectionPool()->getQueryBuilderForTable('tx_styleguide_elements_basic');
+           $queryBuilder->getRestrictions()->removeAll();
+           $count = (int)$queryBuilder->count('uid')
+               ->from('tx_styleguide_elements_basic')
+               ->executeQuery()
+               ->fetchOne();
+           $this->assertGreaterThan(0, $count);
+       }
+   }
 
 Ah, shame on us! The data generator does not work well if executed using MSSQL as our DBMS. It is thus marked as
 `@group not-mssql` at the moment. We need to fix that at some point. The rest is rather straight forward:
@@ -636,7 +642,10 @@ Not enough! The styleguide extension adds a module to the TYPO3 backend to the T
 Next to other things, this module adds buttons to create and delete the demo
 data that has been functional tested above already. To verify this works in the backend as well, styleguide
 comes with some straight acceptance tests in `Tests/Acceptance/Backend/ModuleCest
-<https://github.com/TYPO3/styleguide/blob/main/Tests/Acceptance/Backend/ModuleCest.php>`_::
+<https://github.com/TYPO3/styleguide/blob/main/Tests/Acceptance/Backend/ModuleCest.php>`_:
+
+.. code-block:: php
+   :caption: https://github.com/TYPO3/styleguide/blob/main/Tests/Acceptance/Backend/ModuleCest.php
 
     <?php
     declare(strict_types = 1);
@@ -811,9 +820,6 @@ Now we want all of this automatically checked using Github Actions. As before, w
          - name: Functional Tests with mariadb
            run: Build/Scripts/runTests.sh -p ${{ matrix.php }} -d mariadb -s functional
 
-         - name: Functional Tests with mssql
-           run: Build/Scripts/runTests.sh -p ${{ matrix.php }} -d mssql -s functional
-
          - name: Functional Tests with postgres
            run: Build/Scripts/runTests.sh -p ${{ matrix.php }} -d postgres -s functional
 
@@ -824,5 +830,5 @@ Now we want all of this automatically checked using Github Actions. As before, w
            run: Build/Scripts/runTests.sh -p ${{ matrix.php }} -s acceptance
 
 This is similar to the enetcache example, but does some more: The functional tests are executed
-with four different DBMS (MariaDB, MSSQL, Postgres, sqlite), and the acceptance tests are executed, too.
+with three different DBMS (MariaDB, Postgres, sqlite), and the acceptance tests are executed, too.
 This setup takes some time to complete on Github Actions. But, `it's green <https://github.com/TYPO3/styleguide/actions>`_!

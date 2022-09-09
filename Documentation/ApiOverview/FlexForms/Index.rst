@@ -128,19 +128,49 @@ Steps to perform (Extension developer)
       how to handle underscores and upper / lowercase, check there to see
       what your plugin signature is.
 
+   .. versionadded:: 12.0
+      The method :php:`ExtensionUtility::registerPlugin()` returns the plugin signature.
+
    Also look on the page :ref:`extension-naming`.
 
    If you are using a content element instead of a plugin, the example
-   will look like this::
+   will look like this:
 
-       \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPiFlexFormValue(
-           // 'list_type' does not apply here
-           '*',
-           // Flexform configuration schema file
-           'FILE:EXT:example/Configuration/FlexForms/Registration.xml',
-           // ctype
-           'accordion'
-       );
+   .. code-block:: php
+      :caption: Add in file EXT:your_extension/Configuration/TCA/Overrides/tt_content.php
+
+      \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPiFlexFormValue(
+         // 'list_type' does not apply here
+         '*',
+         // Flexform configuration schema file
+         'FILE:EXT:example/Configuration/FlexForms/Registration.xml',
+         // ctype
+         'accordion'
+      );
+
+   Finally, according to "Configuration of the displayed order of fields in FormEngine
+   and their tab alignment." the field containing the FlexForm still needs to be
+   added to the `showitem` directive.
+   The following example shows line from the accordion element of the Bootstrap Package.
+
+   .. code-block:: php
+      :caption: Add in file EXT:your_extension/Configuration/TCA/Overrides/tt_content.php
+      :emphasize-lines: 11
+
+      // Configure element type
+      $GLOBALS['TCA']['tt_content']['types']['accordion'] = array_replace_recursive(
+         $GLOBALS['TCA']['tt_content']['types']['accordion'],
+         [
+            'showitem' => '
+               --div--;General,
+               --palette--;General;general,
+               --palette--;Headers;headers,
+               tx_bootstrappackage_accordion_item,
+               --div--;Options,
+               pi_flexform'
+         ]
+      );
+
 
 #. Access the settings in your extension:
 
@@ -360,7 +390,7 @@ How to access flexforms From TypoScript
 
 .. versionadded:: 8.4
    It is now possible to read Flexform properties from TypoScript,
-   see :doc:`t3core:Changelog/8.4/Feature-17309-AccessFlexformValueViaTS`.
+   see :doc:`ext_core:Changelog/8.4/Feature-17309-AccessFlexformValueViaTS`.
 
 
 .. code-block:: typoscript
@@ -442,8 +472,8 @@ Credits
 =======
 
 Some of the examples were taken from the extensions
-`news <https://extensions.typo3.org/extension/news/>`__ (by Georg Ringer)
-and `bootstrap_package <https://extensions.typo3.org/extension/bootstrap_package/>`__
+:t3ext:`news/` (by Georg Ringer)
+and :t3ext:`bootstrap_package/`
 (by Benjamin Kott).
 
 Further enhancements by the TYPO3 community are welcome!

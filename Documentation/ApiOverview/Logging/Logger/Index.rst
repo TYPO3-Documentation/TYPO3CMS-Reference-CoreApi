@@ -7,7 +7,9 @@ Logger
 ======
 
 
-.. index:: Logging; LoggerAwareTrait
+.. index::
+   Logging; Instantiation
+   Logging; LoggerInterface
 .. _logging-logger-instantiation:
 
 Instantiation
@@ -25,10 +27,19 @@ Constructor injection can be used to automatically instantiate the logger:
    class MyClass {
        private LoggerInterface $logger;
 
-       public function __construct(LoggerInterface $logger) {
+       public function __construct(LoggerInterface $logger)
+       {
            $this->logger = $logger;
        }
    }
+
+.. tip::
+
+   For examples of instantiation with :php:`LoggerAwareTrait` or
+   :php:`GeneralUtility::makeInstance()`, switch to an older TYPO3 version for this
+   page. Instantiation with dependency injection is now the recommended
+   procedure. Also see the section on :ref:`channels <logging-channels>` for
+   information on grouping classes in channels.
 
 
 .. index::
@@ -80,7 +91,7 @@ Notice
    :sep:`|` :code:`$this->logger->notice($message, array $context = array());`
    :sep:`|`
 
-   Things you should have a look at, nothing to worry about though. 
+   Things you should have a look at, nothing to worry about though.
    Example: User log ins, SQL logs.
 
 .. _label-warning:
@@ -192,7 +203,7 @@ They can modify the log records or add extra information.
 The Logger then forwards the log records to all of its configured :ref:`Writers <logging-writers>`,
 which will then persist the log record.
 
-
+.. _logging-channels:
 
 Channels
 ========
@@ -249,28 +260,13 @@ overwrites possible class attributes:
      }
    }
 
-
-Registration via class attribute for :php:`LoggerAwareInterface` services.
-
-.. code-block:: php
-
-   use Psr\Log\LoggerAwareInterface;
-   use Psr\Log\LoggerAwareTrait;
-   use TYPO3\CMS\Core\Log\Channel;
-   #[Channel('security')]
-   class MyClass implements LoggerAwareInterface
-   {
-     use LoggerAwareTrait;
-   }
-
-
 .. _logging-logger-examples:
 
 Examples
 ========
 
 Examples of the usage of the Logger can be found in the extension
-`examples <https://extensions.typo3.org/extension/examples/>`__. in file
+:t3ext:`examples/`. in file
 :file:`/Classes/Controller/ModuleController.php`
 
 

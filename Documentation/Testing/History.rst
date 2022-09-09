@@ -38,9 +38,9 @@ This was the first time "green bar feeling" came up: All tests green.
 2012
 ====
 
-This was after TYPO3 4.5 times - a version that carried us for a long time. Several TYPO3 Core
+This was after TYPO3 v4.5 times - a version that carried us for a long time. Several TYPO3 Core
 contributors meanwhile added some hundreds of unit tests in various Core extensions. There was an
-issue, though: Not too many persons developing the TYPO3 Core  cared about unit tests and executed
+issue, though: Not too many persons developing the TYPO3 Core cared about unit tests and executed
 them before providing or merging patches. As a result, tests were frequently failing and only a
 small group of persons took care and fixed them once in a while. Unit tests and system under test
 are symbiotic: If one is changed, the other one needs changes, too. If that does not happen, unit
@@ -124,14 +124,14 @@ were no longer read, no database connection established, the global backend user
 no longer set up and so on. In the end, not much more than the class auto loading is initialized. To reach
 this, many tests had to improve their mocking of dependencies and had to specify the exact state they needed.
 With this being done, side effects between tests reduced a lot and a dedicated unit test runner executing
-tests in random order was added to find situations were test isolation was still not perfect.
+tests in random order was added to find situations where test isolation was still not perfect.
 Nowadays unit testing is pretty stable on all machines that execute them due to these works. With nearly
 ten thousand tests in place it is rather seldom that a test fails on one machine and is successful
 on another. And if that happens, the root cause is often a detail down below in PHP itself that has not been
 perfectly aligned during test bootstrap - for instance a missing locale or some detail php.ini setting.
 
 Second, the test execution was changed to use a composer based setup instead of cloning things on
-its own. This was at TYPO3 6.2 times when composer was first introduced in TYPO3 world - testing was
+its own. This was at TYPO3 v6.2 times when composer was first introduced in TYPO3 world - testing was
 one of the first usages. In this process we were able to ditch the TYPO3 specific extension based
 flavor of phpunit and switched to the native version instead. This turned out to be a wise decision
 since TYPO3 Core  testing now no longer relied on development of a third party TER extension but could
@@ -236,7 +236,7 @@ suitable solution to do that. This chapter may put an end to this confusion.
 
 Since 2016, the TYPO3 Core  test setup went through further changes and improvements: Various test
 details were added that checked the integrity of the system. TYPO3 v8 switched to doctrine so we
-started executing the functional tests on meanwhile four different database systems, a nighly test
+started executing the functional tests on meanwhile four different database systems, a nightly test
 setup has been established that checks even more system permutations and software dependencies and
 much more.
 

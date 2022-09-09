@@ -52,7 +52,10 @@ which can be cached in four different cache entries:
 
 To differentiate all entries from each other, the identifier is built from the page ID
 where the plugin is located, combined with the information whether a user is logged in.
-These are concatenated and hashed. In PHP this could look like this::
+These are concatenated and hashed. In PHP this could look like this:
+
+.. code-block:: php
+   :caption: EXT:some_extension/Classes/SomeClass.php
 
    $identifier = sha1((string)$this->getPageUid() . (string)$this->isUserLoggedIn());
 
@@ -250,7 +253,7 @@ The caching framework architecture is based on the following classes:
 
 .. note::
 
-   The `\TYPO3\CMS\Core\Cache\CacheManager` was used before TYPO3 10.1 to
+   The `\TYPO3\CMS\Core\Cache\CacheManager` was used before TYPO3 v10.1 to
    retrieve an object implementing `FrontendInterface`. It is now recommended
    to :ref:`use dependency injection <caching-developer-example>` to retrieve
    this object and no longer use the `CacheManager` directly.

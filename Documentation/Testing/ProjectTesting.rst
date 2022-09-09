@@ -134,7 +134,10 @@ the website is reachable as :samp:`https://introduction.ddev.site`, it enables s
 and specifies a couple of logging details. The `codeception documentation <https://codeception.com/>`_
 goes into details about these.
 
-Now we need a simple first test which is added as :file:`Tests/Acceptance/Frontend/FrontendPagesCest.php`::
+Now we need a simple first test which is added as :file:`Tests/Acceptance/Frontend/FrontendPagesCest.php`:
+
+.. code-block:: php
+   :caption: EXT:site_introduction/Tests/Acceptance/Frontend/FrontendPagesCest.php
 
     <?php
     declare(strict_types = 1);
