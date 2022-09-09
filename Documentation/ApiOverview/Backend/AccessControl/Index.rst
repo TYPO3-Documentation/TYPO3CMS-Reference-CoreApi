@@ -2,9 +2,9 @@
 .. index:: pair: Backend; Access control
 .. _access:
 
-======================================
-Backend access control (Users & Roles)
-======================================
+================================================
+Access control in the backend (users and groups)
+================================================
 
 .. toctree::
    :maxdepth: 5
