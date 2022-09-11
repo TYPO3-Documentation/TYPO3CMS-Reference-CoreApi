@@ -5,15 +5,13 @@
    :caption: EXT:tea/Classes/Controller/TeaController.php
 
    use Psr\Http\Message\ResponseInterface;
-   use TTN\Tea\Domain\Repository\Product\TeaRepository;
+   use TTN\Tea\Domain\Model\Product\Tea;
    
    class TeaController extends ActionController
    {
-       private TeaRepository $teaRepository;
-   
-       public function indexAction(): ResponseInterface
+       public function showAction(Tea $tea): ResponseInterface
        {
-           $this->view->assign('teas', $this->teaRepository->findAll());
+           $this->view->assign('tea', $tea);
            return $this->htmlResponse();
        }
    }
