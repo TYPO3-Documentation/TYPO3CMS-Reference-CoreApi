@@ -211,7 +211,7 @@ devIPmask
    :type: text
    :Default: '127.0.0.1,::1'
 
-   Defines a list of IP addresses which will allow development-output to
+   Defines a list of IP addresses which will allow development output to
    display. The :php:`debug()` function will use this as a filter. See the
    function :php:`\TYPO3\CMS\Core\Utility\GeneralUtilitycmpIP()` for details
    on syntax. Setting this to blank value will deny all.
@@ -685,7 +685,7 @@ exceptionalErrors
    :Default: :php:`E_ALL & ~(E_STRICT | E_NOTICE | E_COMPILE_WARNING | E_COMPILE_ERROR | E_CORE_WARNING | E_CORE_ERROR | E_PARSE | E_ERROR | E_DEPRECATED | E_USER_DEPRECATED | E_WARNING | E_USER_ERROR | E_USER_NOTICE | E_USER_WARNING)`
 
    The E_* constant that will be converted into an exception by the default
-   ref:`[SYS][errorHandler]<typo3ConfVars_sys_errorHandler>`. Default is
+   :ref:`[SYS][errorHandler]<typo3ConfVars_sys_errorHandler>`. Default is
    4096 = :php:`E_ALL & ~(E_STRICT | E_NOTICE | E_COMPILE_WARNING | E_COMPILE_ERROR | E_CORE_WARNING | E_CORE_ERROR | E_PARSE | E_ERROR | E_DEPRECATED | E_USER_DEPRECATED | E_WARNING | E_USER_ERROR | E_USER_NOTICE | E_USER_WARNING)`
    (see `PHP documentation <https://www.php.net/manual/en/errorfunc.constants.php>`__).
 
