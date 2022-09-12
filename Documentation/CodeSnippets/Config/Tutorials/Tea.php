@@ -161,15 +161,15 @@ return [
         'members' => [
             'showAction',
         ],
-        'targetFileName'=> 'Tutorials/Tea/Classes/Domain/Controller/ShowAction.rst.txt',
+        'targetFileName'=> '/ExtensionArchitecture/Tutorials/Tea/_Controller/_ShowAction.rst.txt',
     ],
     [
         'action'=> 'createPhpClassCodeSnippet',
         'class'=> TTN\Tea\Controller\TeaController::class,
         'members' => [
-            'teaRepository', 'indexAction',
+            'teaRepository', 'injectTeaRepository', 'indexAction',
         ],
-        'targetFileName'=> 'Tutorials/Tea/Classes/Domain/Controller/IndexAction.rst.txt',
+        'targetFileName'=> '/ExtensionArchitecture/Tutorials/Tea/_Controller/_IndexAction.rst.txt',
     ],
     [
         'action'=> 'createPhpClassCodeSnippet',
@@ -177,6 +177,6 @@ return [
         'members' => [
             'htmlResponse',
         ],
-        'targetFileName'=> 'Tutorials/Tea/Classes/Domain/Controller/HtmlResponse.rst.txt',
+        'targetFileName'=> '/ExtensionArchitecture/Tutorials/Tea/_Controller/_HtmlResponse.rst.txt',
     ],
 ];
