@@ -7,7 +7,7 @@ BeforePageLanguageOverlayEvent
 ==============================
 
 .. versionadded:: 12.0
-   This event serves as replacement for the removed hook
+   This event serves as a replacement for the removed hook
    :php:`$GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['t3lib/class.t3lib_page.php']['getPageOverlay']`.
 
 :php:`\TYPO3\CMS\Core\Domain\Event\BeforePageLanguageOverlayEvent` is a special
