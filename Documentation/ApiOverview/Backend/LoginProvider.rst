@@ -26,7 +26,7 @@ or :file:`AdditionalConfiguration.php`  like this:
 
 ..  versionadded:: 11.5
     The option :php:`iconIdentifier` has been introduced. As FontAwesome will
-    be phased out developers are encouraged to use the  this option instead of
+    be phased out developers are encouraged to use this option instead of
     :php:`icon-class`, which expects a FontAwesome class.
 
 The settings are defined as:
