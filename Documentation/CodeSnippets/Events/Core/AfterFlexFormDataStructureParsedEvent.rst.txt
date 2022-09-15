@@ -20,8 +20,15 @@
       
    .. php:method:: getDataStructure()
    
+      Returns the current data structure, which has been processed and
+      parsed by the `FlexFormTools` component. Might contain additional
+      data from previously called listeners.
+      
       :returntype: array
       
-   .. php:method:: setDataStructure(array dataStructure)
+   .. php:method:: setDataStructure(array $dataStructure)
    
+      Allows to modify or completely replace the parsed data
+      structure identifier.
+      
       :param array $dataStructure: the dataStructure
