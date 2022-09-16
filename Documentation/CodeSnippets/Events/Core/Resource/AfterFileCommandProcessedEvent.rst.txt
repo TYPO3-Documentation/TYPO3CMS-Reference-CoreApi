@@ -10,7 +10,7 @@
    
    .. php:method:: getCommand()
    
-      A single command, e.g.:
+      A single command, e.g.::
       
       'upload' => [
           'target' => '1:/some/folder/'

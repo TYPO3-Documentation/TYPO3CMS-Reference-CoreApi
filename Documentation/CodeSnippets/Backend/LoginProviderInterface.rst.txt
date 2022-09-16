@@ -19,6 +19,6 @@
          $view->setTemplatePathAndFilename($pathAndFilename);
          $view->assign('foo', 'bar');
       
-      :param TYPO3\\CMS\\Fluid\\View\\StandaloneView $view: the $view
-      :param TYPO3\\CMS\\Core\\Page\\PageRenderer $pageRenderer: the $pageRenderer
-      :param TYPO3\\CMS\\Backend\\Controller\\LoginController $loginController: the $loginController
+      :param TYPO3\\CMS\\Fluid\\View\\StandaloneView $view: the view
+      :param TYPO3\\CMS\\Core\\Page\\PageRenderer $pageRenderer: the pageRenderer
+      :param TYPO3\\CMS\\Backend\\Controller\\LoginController $loginController: the loginController

@@ -4,15 +4,17 @@
 .. code-block:: php
    :caption: EXT:tea/Classes/Controller/TeaController.php
 
+   use Psr\Http\Message\ResponseInterface;
    use TTN\Tea\Domain\Repository\Product\TeaRepository;
    
    class TeaController extends ActionController
    {
        private TeaRepository $teaRepository;
    
-       public function indexAction(): void
+       public function indexAction(): ResponseInterface
        {
            $this->view->assign('teas', $this->teaRepository->findAll());
+           return $this->htmlResponse();
        }
    }
    
