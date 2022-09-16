@@ -1,7 +1,7 @@
 .. include:: /Includes.rst.txt
 .. index::
-   Extension development; Minimal extension
-   Tutorial; Minimal extension
+   Extension development; Tutorial
+   Tutorial; Extension development
 .. _extension-tutorials:
 
 =========
