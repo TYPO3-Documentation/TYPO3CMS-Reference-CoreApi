@@ -27,74 +27,34 @@ object oriented approach.
 Example
 =======
 
-Registration of the Events in your extensions' :file:`Services.yaml`:
+This example is available in our
+`examples extension <https://github.com/TYPO3-Documentation/t3docs-examples>`__.
+
+Registration of the Events in the extension's :file:`Services.yaml`:
 
 ..  code-block:: yaml
-    :caption: EXT:my_extension/Configuration
+    :caption: EXT:examples/Configuration/Services.yaml
 
-    Vendor\MyExtension\Backend\FlexFormParsingModifyEventListener:
-      tags:
-        - name: event.listener
-          identifier: 'form-framework/set-data-structure'
-          method: 'setDataStructure'
-        - name: event.listener
-          identifier: 'form-framework/modify-data-structure'
-          method: 'modifyDataStructure'
-        - name: event.listener
-          identifier: 'form-framework/set-data-structure-identifier'
-          method: 'setDataStructureIdentifier'
-        - name: event.listener
-          identifier: 'form-framework/modify-data-structure-identifier'
-          method: 'modifyDataStructureIdentifier'
+    services:
+       T3docs\Examples\EventListener\Core\Configuration\FlexFormParsingModifyEventListener:
+          tags:
+             - name: event.listener
+               identifier: 'form-framework/set-data-structure'
+               method: 'setDataStructure'
+             - name: event.listener
+               identifier: 'form-framework/modify-data-structure'
+               method: 'modifyDataStructure'
+             - name: event.listener
+               identifier: 'form-framework/set-data-structure-identifier'
+               method: 'setDataStructureIdentifier'
+             - name: event.listener
+               identifier: 'form-framework/modify-data-structure-identifier'
+               method: 'modifyDataStructureIdentifier'
+
 
 The corresponding event listener class:
 
-..  code-block:: php
-
-    use TYPO3\CMS\Core\Configuration\Event\AfterFlexFormDataStructureIdentifierInitializedEvent;
-    use TYPO3\CMS\Core\Configuration\Event\AfterFlexFormDataStructureParsedEvent;
-    use TYPO3\CMS\Core\Configuration\Event\BeforeFlexFormDataStructureIdentifierInitializedEvent;
-    use TYPO3\CMS\Core\Configuration\Event\BeforeFlexFormDataStructureParsedEvent;
-
-    final class FlexFormParsingModifyEventListener
-    {
-        public function setDataStructure(BeforeFlexFormDataStructureParsedEvent $event): void
-        {
-            $identifier = $event->getIdentifier();
-            if (($identifier['type'] ?? '') === 'my_custom_type') {
-                $event->setDataStructure('FILE:EXT:myext/Configuration/FlexForms/MyFlexform.xml');
-            }
-        }
-
-        public function modifyDataStructure(AfterFlexFormDataStructureParsedEvent $event): void
-        {
-            $identifier = $event->getIdentifier();
-            if (($identifier['type'] ?? '') === 'my_custom_type') {
-                $parsedDataStructure = $event->getDataStructure();
-                $parsedDataStructure['sheets']['sDEF']['ROOT']['TCEforms']['sheetTitle'] = 'Some dynamic custom sheet title';
-                $event->setDataStructure($parsedDataStructure);
-            }
-        }
-
-        public function setDataStructureIdentifier(BeforeFlexFormDataStructureIdentifierInitializedEvent $event): void
-        {
-            if ($event->getTableName() === 'tx_myext_sometable') {
-                $event->setIdentifier([
-                    'type' => 'my_custom_type',
-                ]);
-            }
-        }
-
-        public function modifyDataStructureIdentifier(AfterFlexFormDataStructureIdentifierInitializedEvent $event): void
-        {
-            $identifier = $event->getIdentifier();
-            if (($identifier['type'] ?? '') !== 'my_custom_type') {
-                $identifier['type'] = 'my_custom_type';
-            }
-            $event->setIdentifier($identifier);
-        }
-    }
-
+..  include:: /CodeSnippets/Events/Core/FlexFormParsingModifyEventListener/FlexFormParsingModifyEventListener.rst.txt
 
 
 API

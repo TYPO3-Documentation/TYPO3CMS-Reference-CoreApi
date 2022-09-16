@@ -176,4 +176,14 @@ return [
         "targetFileName"=> "Events/Core/BeforeFlexFormDataStructureParsedEvent.rst.txt",
         "withCode"=> false
     ],
+    [
+        'action'=> 'createPhpClassCodeSnippet',
+        'class'=> \T3docs\Examples\EventListener\Core\Configuration\FlexFormParsingModifyEventListener::class,
+        'members' => [
+            'setDataStructure','modifyDataStructure','setDataStructureIdentifier','modifyDataStructureIdentifier'
+        ],
+        'withComment' => true,
+        'withClassComment' => false,
+        'targetFileName'=> 'Events/Core/FlexFormParsingModifyEventListener/FlexFormParsingModifyEventListener.rst.txt',
+    ],
 ];
