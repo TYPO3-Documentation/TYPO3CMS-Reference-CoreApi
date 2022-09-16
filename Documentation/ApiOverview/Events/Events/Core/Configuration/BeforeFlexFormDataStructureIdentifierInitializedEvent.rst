@@ -1,0 +1,46 @@
+.. include:: /Includes.rst.txt
+.. index:: Events; BeforeFlexFormDataStructureIdentifierInitializedEvent
+
+.. _BeforeFlexFormDataStructureIdentifierInitializedEvent:
+
+=====================================================
+BeforeFlexFormDataStructureIdentifierInitializedEvent
+=====================================================
+
+..  versionadded:: 12.0
+    This event was introduced to replace and improve the method
+    :php:`getDataStructureIdentifierPreProcess()` ot the hook
+    :php:`$GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['workspaces']['modifyDifferenceArray']`.
+
+This event can be used to control the flex form parsing in an
+object oriented approach.
+
+..  seealso::
+
+    *   :ref:`AfterFlexFormDataStructureIdentifierInitializedEvent`
+    *   :ref:`AfterFlexFormDataStructureParsedEvent`
+    *   :ref:`BeforeFlexFormDataStructureParsedEvent`
+    *   :ref:`combined Example <AfterFlexFormDataStructureIdentifierInitializedEvent-Example>`
+
+
+API
+===
+
+..  include:: /CodeSnippets/Events/Core/BeforeFlexFormDataStructureIdentifierInitializedEvent.rst.txt
+
+Migration
+=========
+
+Using the removed hook method :php:`getDataStructureIdentifierPreProcess()` of
+the hook :php:`$GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['workspaces']['modifyDifferenceArray']`
+previously required implementations to always return an :php:`array`.
+
+This means, implementations returned an empty :php:`array` in case they did
+not want to set an identifier, allowing further implementations to be
+called.
+
+This behaviour has now changed. As soon as a listener sets the identifier
+using the :php:`setIdentifier()` method, the event propagation is stopped
+immediately and no further listeners are being called. Therefore, listeners
+should avoid setting an empty :php:`array` but should just "return" without
+any change to the :php:`$event` object in such a case.
