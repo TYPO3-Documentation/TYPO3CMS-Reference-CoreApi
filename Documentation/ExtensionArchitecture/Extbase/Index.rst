@@ -21,5 +21,4 @@ Tutorials <extension-tutorials>` section.
     :titlesonly:
 
     Reference/Index
-    Tutorials/Index
     Examples/Index
