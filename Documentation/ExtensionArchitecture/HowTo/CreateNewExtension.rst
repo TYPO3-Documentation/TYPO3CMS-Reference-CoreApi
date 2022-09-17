@@ -21,7 +21,7 @@ Kickstarting the extension
 
 There are different options to kickstart an extension. You can create it from
 scratch or follow one of our :ref:`tutorials on kickstarting an
-Extension <extension-kickstart>`.
+extension <extension-kickstart>`.
 
 Installing the newly created extension
 =======================================
