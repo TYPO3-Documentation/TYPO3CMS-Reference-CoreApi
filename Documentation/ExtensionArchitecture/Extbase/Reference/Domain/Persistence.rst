@@ -15,7 +15,7 @@ Connecting the model to the database
 ====================================
 
 The SQL structure for the database needs to be defined in the file
-:ref:`EXT:{ext_key}/ext_tables.sql <ext_tables-sql>`. An Extbase model requires 
+:ref:`EXT:{ext_key}/ext_tables.sql <ext_tables-sql>`. An Extbase model requires
 a valid TCA for the table that should be used as a base for the model.
 Therefore you have to create a TCA definition in file
 :file:`EXT:{ext_key}/Configuration/TCA/tx_{extkey}_domain_model_{mymodel}.php`.
@@ -42,6 +42,8 @@ The SQL table for the model can be defined like this:
 The according TCA definition could look like that:
 
 .. include:: /CodeSnippets/Extbase/Persistence/TCA.rst.txt
+
+.. _extbase_manual_mapping:
 
 Use arbitrary database tables with an Extbase model
 ---------------------------------------------------
