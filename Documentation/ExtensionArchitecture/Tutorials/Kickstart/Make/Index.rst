@@ -16,7 +16,7 @@ a basic extension scaffold on the console.
 1. Install "Make"
 =================
 
-In composer-based TYPO3 installations of v10.4 and above you can install the
+In Composer-based TYPO3 installations you can install the
 extension via Composer, you should install it as :bash:`dev` dependency as
 it should not be used on production systems:
 
