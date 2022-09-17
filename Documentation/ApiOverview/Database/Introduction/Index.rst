@@ -91,7 +91,7 @@ Low-level and high-level database calls
 
 This documentation is about low-level database calls. In many cases it is better
 to use higher level API's like the :ref:`DataHandler <tce-database-basics>` or
-:ref:`Extbase repositories <t3extbasebook:persistence>`
+:ref:`Extbase repositories <extbase-repository>`
 and to let the framework handle persistence details internally.
 
 .. tip::
