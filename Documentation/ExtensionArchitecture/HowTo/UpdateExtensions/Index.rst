@@ -1,6 +1,6 @@
 .. include:: /Includes.rst.txt
-.. index:: Extension development; Publishing
-.. _publish-extension:
+.. index:: Extension development; Update
+.. _update-extension:
 
 ============================================
 Update your extension for new TYPO3 versions

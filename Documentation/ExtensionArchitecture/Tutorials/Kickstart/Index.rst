@@ -6,7 +6,7 @@
 .. _extension-kickstart:
 
 ======================
-Kickstart an extension
+Kickstart an Extension
 ======================
 
 There are different options to kickstart an extension. Here are some
@@ -26,7 +26,7 @@ tutorials for common options:
 
                 *   Create a directory with the extensions name
                 *   Create the :ref:`files-composer-json`
-                *   Create the :ref:`fext_emconf-php` for legacy installations
+                *   Create the :ref:`ext_emconf-php` for legacy installations
 
     ..  container:: col-md-6 pl-0 pr-3 py-3 m-0
 
@@ -76,3 +76,10 @@ tutorials for common options:
 ..  note::
     There used to be an extension called "kickstarter" it has however been
     discontinued since 2012.
+
+
+..  toctree::
+    :titlesonly:
+    :glob:
+
+    */Index

@@ -22,3 +22,9 @@ and dependencies that are not needed.
 
 See :ref:`Kickstart a Minimal Extension with the Sitepackage
 Builder <extension-minimal>`.
+
+..  toctree::
+    :titlesonly:
+    :glob:
+
+    *
