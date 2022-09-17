@@ -11,7 +11,7 @@ Kickstart a TYPO3 Extension with "Make"
 =======================================
 
 "`Make <https://github.com/b13/make>`__" is a TYPO3 extension provided by b13. It features a quick way to create
-a basic extension scaffold on the console.
+a basic extension scaffold on the console. The extension is available for TYPO3 v10 and above.
 
 1. Install "Make"
 =================
