@@ -8,6 +8,9 @@
 Minimal extension
 =================
 
+Kickstart a Minimal Extension with the Sitepackage Builder
+==========================================================
+
 Learn how to create a minimal extension that contains a single PHP class.
 
 .. contents::
