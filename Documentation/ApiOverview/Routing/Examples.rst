@@ -73,7 +73,8 @@ If you use the *category menu* or *tag list* plugins to filter news records, the
            tableName: tx_news_domain_model_tag
            routeFieldName: slug
 
-For more examples and background information see `News manual <https://docs.typo3.org/p/georgringer/news/master/en-us/AdministratorManual/BestPractice/Routing/Index.html>`__.
+For more examples and background information see the
+:ref:`routing examples in the "News" manual <ext_news:routing>`__.
 
 
 .. index:: Routing; EXT: Blog
@@ -693,4 +694,4 @@ EXT: DpnGlossary
             - locale: 'de_DE.*'
               value: 'begriff'
 
-Taken from `dpn_glossary manual <https://docs.typo3.org/typo3cms/extensions/dpn_glossary/3.0.2/Configuration/ExampleTypoScriptSetup/Index.html#configure-routing-for-terms-and-pagination>`__.
+Taken from :ref:`dpn_glossary manual <ext_dpn_glossary:configure-routing-for-terms-and-pagination>`.

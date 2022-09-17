@@ -27,13 +27,6 @@ Finally the *class name* is the same as the corresponding file name, without the
 
 "UpperCamelCase" is used for all segments.
 
-.. tip::
-
-   `See the chapter about 'ClassAliasMap.php' in the 6.2 documentation.
-   <https://docs.typo3.org/typo3cms/CoreApiReference/6.2/ApiOverview/Namespaces/Index.html#namespaces-migrations-classaliasmap>`__.
-   It may help you with migrating code from old to new conventions.
-
-
 .. index:: pair: Namespaces; Core
 .. _namespaces-example:
 

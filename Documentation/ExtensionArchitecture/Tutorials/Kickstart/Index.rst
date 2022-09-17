@@ -65,7 +65,7 @@ tutorials for common options:
 
             ..  rst-class:: card-header h3
 
-                ..  rubric:: :doc:`Extension Builder <ext_ext-builder:Index>`
+                ..  rubric:: :doc:`Extension Builder <ext_ext_builder:Index>`
 
             ..  container:: card-body
 
