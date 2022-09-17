@@ -94,8 +94,7 @@ If you are using Extbase controller actions in combination with Fluid,
 Extbase defines how files and directories should be named within these directories.
 Extbase uses sub directories located within the "Templates" directory to group
 templates by controller name and the filename of templates to correspond to a
-certain action on that controller
-(see :ref:`t3extbasebook:template-creation-by-example`).
+certain action on that controller.
 
 .. code-block:: none
 

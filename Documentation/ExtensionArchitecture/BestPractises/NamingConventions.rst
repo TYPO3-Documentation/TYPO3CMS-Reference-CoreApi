@@ -223,7 +223,7 @@ Examples for Extbase domain models and table names of an extension named `cool_s
 .. tip::
    You may notice, that the names above use the singular form, e.g. `post` and
    not `posts`. This is recommended, but not always followed. If you do not follow this pattern,
-   you may need :ref:`manual mapping <t3extbasebook:using-foreign-data-sources>`.
+   you may need :ref:`manual mapping <extbase_manual_mapping>`.
 
 
 **MM** tables (for multiple-multiple relations between tables) follow these rules.
