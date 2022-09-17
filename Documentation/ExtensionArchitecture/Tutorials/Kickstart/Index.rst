@@ -25,7 +25,7 @@ tutorials for common options:
             ..  container:: card-body
 
                 *   Create a directory with the extension name
-                *   Create the :ref:`files-composer-json`
+                *   Create the :ref:`files-composer-json` file
                 *   Create the :ref:`ext_emconf-php` file for legacy installations and extensions to be uploaded to TER
 
     ..  container:: col-md-6 pl-0 pr-3 py-3 m-0
