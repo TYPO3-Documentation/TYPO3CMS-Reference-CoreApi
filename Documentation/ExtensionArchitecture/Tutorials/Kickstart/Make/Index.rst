@@ -3,7 +3,10 @@
    Extension development; Make
 .. _extension-make:
 
-=======================================
+====
+Make
+====
+
 Kickstart a TYPO3 Extension with "Make"
 =======================================
 

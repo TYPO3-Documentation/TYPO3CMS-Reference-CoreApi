@@ -20,5 +20,4 @@ You can find an extended tutorial in the tutorial :doc:`t3extbasebook:Index`.
     :titlesonly:
 
     Reference/Index
-    Tutorials/Index
     Examples/Index
