@@ -507,8 +507,8 @@ backends, but there is one caveat.
 TYPO3 caches should be separated in case the same keys are used.
 This applies to the `pages` and `pagesection` caches.
 Both use "tagIdents:pageId_21566" for a page with an id of 21566.
-How you separate them is more of a system administrator decision. We provide 
-examples with several databases but this may not be the best option 
+How you separate them is more of a system administrator decision. We provide
+examples with several databases but this may not be the best option
 in production where you might want to use multiple cores (which do not
 support databases). The separation has the additional advantage that
 caches can be flushed individually.
@@ -741,9 +741,6 @@ Wincache Backend
 
 `Wincache <https://www.iis.net/downloads/microsoft/wincache-extension>`_ is a PHP opcode cache similar to APC, but
 dedicated to the Windows OS platform. Similar to APC, the cache can also be used as in-memory key/value cache.
-
-The cache backend implementation is nearly identical to the implementation of `APC backend <https://docs.typo3.org/m/typo3/reference-coreapi/9.5/en-us/ApiOverview/CachingFramework/FrontendsBackends/Index.html#apc-backend>`_ and has the same design constrains.
-
 
 .. _caching-backend-file:
 
