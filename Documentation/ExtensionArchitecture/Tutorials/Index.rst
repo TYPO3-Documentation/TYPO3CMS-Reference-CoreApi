@@ -16,7 +16,7 @@ Tutorials
 
             ..  rst-class:: card-header h3
 
-                ..  rubric:: :ref:`Kickstart an Extension <extension-kickstart>`
+                ..  rubric:: :ref:`Kickstart an extension <extension-kickstart>`
 
             ..  container:: card-body
 
