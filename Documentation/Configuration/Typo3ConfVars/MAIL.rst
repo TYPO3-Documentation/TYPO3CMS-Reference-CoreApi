@@ -207,7 +207,7 @@ transport_smtp_domain
    this isn't done, sending emails via such servers will fail.
 
    Setting a valid SMTP domain can be achieved by setting
-   :confval:`transport_smtp_domain` in the :file:`LocalConfiguration.php`.
+   `transport_smtp_domain` in the :file:`LocalConfiguration.php`.
    This will set the given domain to the EsmtpTransport agent and send the
    correct EHLO-command to the relay-server.
 
