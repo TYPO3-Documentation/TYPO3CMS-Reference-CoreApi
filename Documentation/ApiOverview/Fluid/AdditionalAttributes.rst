@@ -27,5 +27,5 @@ reasonable to write an own ViewHelper which extends the corresponding
 ViewHelper.
 
 The property `additionalAttributes` is provided by the
-:php:``TagBasedViewHelper` so it is also available to custom ViewHelpers
+:php:`TagBasedViewHelper` so it is also available to custom ViewHelpers
 based on this class. See chapter :ref:`fluid-custom-viewhelper`.
