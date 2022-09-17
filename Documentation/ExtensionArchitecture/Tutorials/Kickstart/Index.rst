@@ -24,7 +24,7 @@ tutorials for common options:
 
             ..  container:: card-body
 
-                *   Create a directory with the extensions name
+                *   Create a directory with the extension name
                 *   Create the :ref:`files-composer-json`
                 *   Create the :ref:`ext_emconf-php` for legacy installations
 
