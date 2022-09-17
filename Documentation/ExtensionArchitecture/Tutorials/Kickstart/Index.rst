@@ -26,7 +26,7 @@ tutorials for common options:
 
                 *   Create a directory with the extension name
                 *   Create the :ref:`files-composer-json`
-                *   Create the :ref:`ext_emconf-php` for legacy installations
+                *   Create the :ref:`ext_emconf-php` file for legacy installations and extensions to be uploaded to TER
 
     ..  container:: col-md-6 pl-0 pr-3 py-3 m-0
 
@@ -34,7 +34,7 @@ tutorials for common options:
 
             ..  rst-class:: card-header h3
 
-                ..  rubric:: :ref:`Kickstart a TYPO3 Extension with "Make" <extension-make>`
+                ..  rubric:: :ref:`Kickstart a TYPO3 extension with "Make" <extension-make>`
 
             ..  container:: card-body
 
@@ -42,7 +42,7 @@ tutorials for common options:
                 basic commands on the console. "Make" can also be used to
                 kickstart functionality like console command (CLI), backend
                 controllers and event listeners. It does not offer to kickstart
-                a sitepackage or an Extbase Extension.
+                a sitepackage or an Extbase extension.
 
     ..  container:: col-md-6 pl-0 pr-3 py-3 m-0
 

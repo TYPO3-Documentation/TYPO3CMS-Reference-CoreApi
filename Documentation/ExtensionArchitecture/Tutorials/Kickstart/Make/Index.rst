@@ -10,14 +10,14 @@ Make
 Kickstart a TYPO3 Extension with "Make"
 =======================================
 
-"Make" is a TYPO3 extension provided by B13. It features a quick way to create
+"`Make <https://github.com/b13/make>`__" is a TYPO3 extension provided by b13. It features a quick way to create
 a basic extension scaffold on the console.
 
 1. Install "Make"
 =================
 
 In composer-based TYPO3 installations of v10.4 and above you can install the
-extension via composer, you should install it as :bash:`dev` dependency as
+extension via Composer, you should install it as :bash:`dev` dependency as
 it should not be used on production systems:
 
 ..  tabs::
@@ -78,25 +78,25 @@ Call the CLI script on the console:
     The vendor **should** be a unique name that is not yet used by other
     companies or developers.
 
-    Example: `t3docs/my-test`
+    Example: `my-vendor/my-test`
 
 `Enter the extension key [my_test]:`
     The extension key **should** follow the rules for best practises on
     :ref:`choosing an extension key <extension-key>` if you plan to publish
-    your extension. In most cases the default, here `my_test` is sufficient.
-    Press enter to accept the default or enter another name.
+    your extension. In most cases, the default, here `my_test`, is sufficient.
+    Press :kbd:`enter` to accept the default or enter another name.
 
 `Enter the PSR-4 namespace [T3docs/MyTest]:`
     The namespace has to be unique within the project. Usually the default
     should be unique, as your vendor is unique, and you can accept it by
-    pressing enter.
+    pressing :kbd:`enter`.
 
 `Choose supported TYPO3 versions (comma separate for multiple) [TYPO3 v11 LTS]:`
     If you want to support both TYPO3 v11 and v12, enter the following:
     `11,12`
 
 `Enter a description of the extension:`
-    A description is mandatory. You can change it later on in the file
+    A description is mandatory. You can change it later in the file
     :file:`composer.json` of the extension.
 
 `Where should the extension be created? [src/extensions/]:`
@@ -105,20 +105,20 @@ Call the CLI script on the console:
     default.
 
 `May we add a basic service configuration for you? (yes/no) [yes]:`
-    If you chose `yes` "Make" will create a basic
-    :file:`Configuration/Services.yaml` to configure dependency injection.
+    If you choose `yes` "Make" will create a basic
+    :file:`Configuration/Services.yaml` to configure :ref:`dependency injection <DependencyInjection>`.
 
 `May we create a ext_emconf.php for you? (yes/no) [no]:`
     Mandatory for extensions supporting TYPO3 v10. Starting with v11:
     If your extension should be installable in legacy TYPO3 installations
-    choose yes. This is not necessary for local extensions in composer-based
+    choose `yes`. This is not necessary for local extensions in composer-based
     installations.
 
 4.  Have a look at the result
 =============================
 
-"Make" created a folder in the folder :file:`src/extensions` with the
-composer name (without vendor) of your extensions. By default it contains
+"Make" created a subfolder under :file:`src/extensions` with the
+composer name (without vendor) of your extension. By default, it contains
 the following files:
 
 ..  code-block:: none
@@ -138,7 +138,7 @@ the following files:
 On composer-based installations the extension is not installed yet.
 It will not be displayed in the :guilabel:`Extension Manager` in the backend.
 
-To install it open the main :file:`composer.json` of your **project** (not the
+To install it, open the main :file:`composer.json` of your **project** (not the
 one in the created extension) and add the extension directory as new repository:
 
 ..  code-block:: json
@@ -146,7 +146,7 @@ one in the created extension) and add the extension directory as new repository:
     :lines: 3-8
 
     {
-        "name": "myvendor/myproject",
+        "name": "my-vendor/my-project",
         "repositories": {
             "0_local_packages": {
                 "type": "path",
@@ -171,7 +171,7 @@ name defined in the prompt of the script:
 
         ..  code-block:: bash
 
-            ddev composer req t3docs/my-test:@dev
+            ddev composer req my-vendor/my-test:@dev
 
     ..  group-tab:: Legacy
 
