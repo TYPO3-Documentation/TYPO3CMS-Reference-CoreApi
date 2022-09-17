@@ -143,6 +143,7 @@ one in the created extension) and add the extension directory as new repository:
 
 ..  code-block:: json
     :caption: my_project_root/composer.json
+    :lines: 3-8
 
     {
         "name": "myvendor/myproject",
