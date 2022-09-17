@@ -23,4 +23,5 @@ Tutorials <extension-tutorials>` section.
 .. toctree::
    :titlesonly:
 
-   Reference/Index
+    Reference/Index
+    Examples/Index

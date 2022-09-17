@@ -1,3 +1,4 @@
+.. include:: /Includes.rst.txt
 
 .. index:: Extbase; Annotations
 .. _extbase-annotations:

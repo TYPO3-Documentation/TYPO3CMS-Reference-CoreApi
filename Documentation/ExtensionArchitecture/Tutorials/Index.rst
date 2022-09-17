@@ -1,7 +1,7 @@
 .. include:: /Includes.rst.txt
 .. index::
-   Extension development; Minimal extension
-   Tutorial; Minimal extension
+   Extension development; Tutorial
+   Tutorial; Extension development
 .. _extension-tutorials:
 
 =========
@@ -16,13 +16,13 @@ Tutorials
 
             ..  rst-class:: card-header h3
 
-                ..  rubric:: :ref:`Minimal extension <extension-minimal>`
+                ..  rubric:: :ref:`Kickstart an extension <extension-kickstart>`
 
             ..  container:: card-body
 
-                Learn how to create a minimal TYPO3 extension containing
-                one PHP class. Use the sitepackage builder to create
-                this extension quickly.
+                There are different options to kickstart an extension. This
+                chapter offers tutorials for some common methods to
+                kickstart an extension.
 
     ..  container:: col-md-6 pl-0 pr-3 py-3 m-0
 
@@ -45,5 +45,6 @@ Tutorials
     :titlesonly:
     :hidden:
 
-    MinimalExtension
+    Kickstart/Index
     Tea/Index
+    Extbase
