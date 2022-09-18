@@ -7,4 +7,10 @@ return [
         "targetFileName" => "Manual/Core/AssetCollector.rst.txt",
         "withCode" => false
     ],
+    [
+        'action'=> 'createCodeSnippet',
+        'caption' => 'EXT:examples/Classes/Http/MeowInformationRequester.php',
+        'sourceFile'=> 'typo3conf/ext/examples/Classes/Http/MeowInformationRequester.php',
+        'targetFileName' => 'Examples/Http/MeowInformationRequester.rst.txt'
+    ],
 ];

@@ -45,43 +45,7 @@ Basic usage
 
 The :php:`RequestFactory` class can be used like this:
 
-..  code-block:: php
-    :caption: EXT:my_extension/Classes/SomeClass.php
-
-    use TYPO3\CMS\Core\Http\RequestFactory;
-
-    class SomeClass
-    {
-        // Initiate the RequestFactory, which allows to run multiple requests
-        // (prefer dependency injection)
-        public function __construct(
-            private readonly RequestFactory $requestFactory,
-        ) {
-        }
-
-        public function handle(): void
-        {
-            $url = 'https://example.org/';
-
-            // Additional headers for this specific request
-            // See: https://docs.guzzlephp.org/en/stable/request-options.html
-            $additionalOptions = [
-                'headers' => ['Cache-Control' => 'no-cache'],
-                'allow_redirects' => false,
-                'cookies' => true,
-            ];
-
-            // Return a PSR-7 compliant response object
-            $response = $this->requestFactory->request($url, 'GET', $additionalOptions);
-
-            // Get the content as a string on a successful request
-            if ($response->getStatusCode() === 200) {
-                if (str_starts_with($response->getHeaderLine('Content-Type'), 'text/html')) {
-                    $content = $response->getBody()->getContents();
-                }
-            }
-        }
-    }
+..  include:: /CodeSnippets/Examples/Http/MeowInformationRequester.rst.txt
 
 A POST request can be achieved with:
 
