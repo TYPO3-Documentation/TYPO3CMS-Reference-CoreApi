@@ -57,8 +57,7 @@ plugins are:
   several plugins, each with a dedicated function, such as the list view.
 * Plugins are ofen used if more complex functionality is required (than in non-
   plugin content elements)
-* Plugins can be created using the Extbase framework or as pibase (AbstractPlugin)
-  plugin.
+* Plugins can be created using the Extbase framework or by Core functionality.
 * ``tt_content.CType`` = ``list`` and ``tt_content.list_type`` contains the
   :ref:`plugin signature <naming-conventions-plugin-signature>`.
 
