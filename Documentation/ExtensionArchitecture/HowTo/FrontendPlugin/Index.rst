@@ -18,6 +18,6 @@ For pure output it is often sufficient to use a
 For scenarios with user input and or complicated data operations consider
 using :ref:`Extbase <extbase>`.
 
-It is also possible to create a front end plugin using Core functionality only.
+It is also possible to create a frontend plugin using Core functionality only.
 
 ..  todo: Document how to create a frontend plugin without Extbase.
