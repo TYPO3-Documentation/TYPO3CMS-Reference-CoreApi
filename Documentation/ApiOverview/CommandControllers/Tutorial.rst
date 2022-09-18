@@ -55,7 +55,7 @@ definition for your class as tag :yaml:`console.command`:
 ..  note::
     Despite using :file:`autoconfigure: true` the commands
     have to be explicitly defined in :file:`Configuration/Services.yaml`. It
-    is recommended to always supply a description, Otherwise there is 
+    is recommended to always supply a description, otherwise there is 
     an empty space in the list of commands.
 
 2. Create the command class
