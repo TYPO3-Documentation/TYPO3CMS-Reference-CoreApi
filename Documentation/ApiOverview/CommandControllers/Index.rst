@@ -92,7 +92,7 @@ Create a custom command
 You can create a custom command by extending
 :php:`\Symfony\Component\Console\Command\Command`.
 
-See the :ref:`Tutorial: Create a console command from scratch <console-command-from-scratch>`
+See the :ref:`Tutorial: Create a console command <console-command-tutorial>`
 for details on how to create commands.
 
 A command has to be registered as a tag of name :yaml:`console.command`:
@@ -120,3 +120,12 @@ A command has to be registered as a tag of name :yaml:`console.command`:
 :yaml:`hidden`
     A command can be hidden from the command list by setting
     :yaml:`hidden` to :yaml:`true`.
+
+Read more:
+==========
+
+..  toctree::
+    :titlesonly:
+    :glob:
+
+    *

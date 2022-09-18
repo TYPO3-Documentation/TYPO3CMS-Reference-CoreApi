@@ -188,4 +188,11 @@ to your extension:
 *   `make:eventlistener` - Create a new event listener
 *   `make:middleware` - Create a new middleware
 
-..  todo: Link the chapters once created
+Read more:
+==========
+
+..  toctree::
+    :titlesonly:
+    :glob:
+
+    *
