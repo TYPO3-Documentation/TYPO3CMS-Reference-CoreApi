@@ -143,7 +143,7 @@ one in the created extension) and add the extension directory as new repository:
 
 ..  code-block:: json
     :caption: my_project_root/composer.json
-    :lines: 3-8
+    :emphasize-lines: 3-8
 
     {
         "name": "my-vendor/my-project",
@@ -188,4 +188,11 @@ to your extension:
 *   `make:eventlistener` - Create a new event listener
 *   `make:middleware` - Create a new middleware
 
-..  todo: Link the chapters once created
+Read more:
+==========
+
+..  toctree::
+    :titlesonly:
+    :glob:
+
+    *
