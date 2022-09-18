@@ -4,7 +4,7 @@
 AbstractPlugin (internal)
 =========================
 
-..  versionchanged:: 12.ß
+..  versionchanged:: 12.0
     :php:`\TYPO3\CMS\Frontend\Plugin\AbstractPlugin` has been marked as
     :php:`@internal`.
 
