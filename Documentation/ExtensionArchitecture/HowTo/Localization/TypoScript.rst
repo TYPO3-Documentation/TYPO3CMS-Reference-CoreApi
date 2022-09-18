@@ -51,10 +51,7 @@ Changing localized terms using TypoScript
 It is possible to override texts in the plugin configuration in
 TypoScript for Extbase based plugins.
 
-Overriding translations in non-Extbase plugins might work depending on
-how they are implemented. Overriding translations works if the plugin is
-based on the class :ref:`AbstractPlugin <abstractplugin>` and uses the function
-:php:`$this->pi_getLL(...)`.
+Overriding translations in non-Extbase plugins does not work out of the box.
 
 ..  attention::
     Setting :php:`_LOCAL_LANG` has no effect if the ViewHelper

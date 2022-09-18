@@ -18,13 +18,6 @@ For pure output it is often sufficient to use a
 For scenarios with user input and or complicated data operations consider
 using :ref:`Extbase <extbase>`.
 
-Legacy frontend plugins without Extbase, so called "pi-based plugins" are based
-on the :ref:`AbstractPlugin <abstractplugin>`. It is not recommended anymore
-to use the AbstractPlugin as base for new frontend plugins. The Core does not
-use it anymore and only few third party extensions still use it.
+It is also possible to create a front end plugin using Core functionality only.
 
-.. toctree::
-   :titlesonly:
-   :glob:
-
-   *
+..  todo: Document how to create a frontend plugin without Extbase.
