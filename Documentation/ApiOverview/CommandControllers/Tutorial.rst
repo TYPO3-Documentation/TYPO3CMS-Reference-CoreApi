@@ -9,7 +9,7 @@ Tutorial
 Create a console command from scratch
 =====================================
 
-A console command is always situated in an Extension. If you want to create
+A console command is always situated in an extension. If you want to create
 one, :ref:`kickstart a custom extension <extension-kickstart>` or use your
 sitepackage extension.
 
@@ -23,18 +23,18 @@ You can use "Make" to create a console command even if your extension was
 created by different means.
 
 This command can be found in the
-`Examples extension <https://github.com/TYPO3-Documentation/t3docs-examples>`.
+`Examples extension <https://github.com/TYPO3-Documentation/t3docs-examples>`__.
 
 1. Register the command
 -----------------------
 
-Register via DI in :file:`Configuration/Services.yaml` by adding the service
+Register the command in :file:`Configuration/Services.yaml` by adding the service
 definition for your class as tag :yaml:`console.command`:
 
 ..  code-block:: yaml
-    :caption: EXT:some_extension/Configuration/Services.yaml
+    :caption: EXT:examples/Configuration/Services.yaml
     :linenos:
-    :emphasize-lines: 12-16
+    :emphasize-lines: 11-16
 
     services:
       _defaults:
@@ -61,7 +61,7 @@ definition for your class as tag :yaml:`console.command`:
 2. Create the command class
 ---------------------------
 
-Create a class called :php:`DoThingsCommand` extending
+Create a class called :php:`DoSomethingCommand` extending
 :php:`\Symfony\Component\Console\Command\Command`.
 
 ..  include:: /CodeSnippets/Tutorials/Command/Classes/DoSomethingCommand.rst.txt
@@ -70,7 +70,7 @@ The following two methods should be overridden by your class:
 
 :php:`configure()`
     As the name would suggest, allows to configure the command.
-    The method allows to add a help text and/or define arguments.
+    The method allows to add a help text and/or define arguments and options.
 
 :php:`execute()`
     Contains the logic when executing the command. Should return
@@ -92,13 +92,13 @@ The above example can be run via command line:
 
       .. code-block:: bash
 
-         vendor/bin/typo3 example:dothings
+         vendor/bin/typo3 examples:dosomething
 
    .. group-tab:: Legacy installation
 
       .. code-block:: bash
 
-         typo3/sysext/core/bin/typo3 someextension:dothings
+         typo3/sysext/core/bin/typo3 examples:dosomething
 
 The command will return without a message as it does nothing but stating it
 succeeded.
@@ -196,7 +196,7 @@ A backend user can be initialized with this call inside :php:`execute()` method:
 
 ..  code-block:: php
     :caption: EXT:some_extension/Classes/Command/DoBackendRelatedThingsCommand.php
-    :emphasize-lines: 7
+    :emphasize-lines: 9
 
     use TYPO3\CMS\Core\Core\Bootstrap;
     use Symfony\Component\Console\Input\InputInterface;

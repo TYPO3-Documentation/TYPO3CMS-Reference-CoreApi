@@ -7,7 +7,7 @@
 Create a new console command
 ============================
 
-The make extension can be used to create a new :ref:`console
+The "Make" extension can be used to create a new :ref:`console
 command <symfony-console-commands>`:
 
 ..  tabs::

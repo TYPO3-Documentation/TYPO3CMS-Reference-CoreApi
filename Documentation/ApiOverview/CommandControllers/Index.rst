@@ -19,10 +19,10 @@ disabled in the :file:`Configuration/Services.yaml`.
 
 .. _symfony-console-commands-cli:
 
-Run the command from the command line
+Run a command from the command line
 =====================================
 
-You can find a list of available commands by calling:
+You can list the available commands by calling:
 
 .. tabs::
 
@@ -38,7 +38,7 @@ You can find a list of available commands by calling:
 
          typo3/sysext/core/bin/typo3
 
-For example you can clear all caches by calling
+For example, you can clear all caches by calling:
 
 .. tabs::
 
@@ -121,7 +121,7 @@ A command has to be registered as a tag of name :yaml:`console.command`:
     A command can be hidden from the command list by setting
     :yaml:`hidden` to :yaml:`true`.
 
-Read more:
+Read more
 ==========
 
 ..  toctree::
