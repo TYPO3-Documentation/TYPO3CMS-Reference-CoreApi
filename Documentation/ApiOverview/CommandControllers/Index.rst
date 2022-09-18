@@ -14,7 +14,7 @@ This functionality can be used to set up cron jobs, for example.
 
 TYPO3 uses Symfony commands API for writing CLI (command line interface) commands.
 These commands can also be run from the TYPO3
-:ref:`scheduler <symfony-console-commands-scheduler>` if this option was not
+:ref:`scheduler <symfony-console-commands-scheduler>` if this option is not
 disabled in the :file:`Configuration/Services.yaml`.
 
 .. _symfony-console-commands-cli:
