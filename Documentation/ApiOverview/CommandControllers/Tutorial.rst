@@ -51,7 +51,6 @@ definition for your class as tag :yaml:`console.command`:
           - name: console.command
             command: 'examples:dosomething'
             description: 'A command that does nothing and always succeeds.'
-            schedulable: true
 
 ..  note::
     Despite using :file:`autoconfigure: true` the commands
