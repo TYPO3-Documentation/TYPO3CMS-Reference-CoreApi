@@ -24,6 +24,7 @@
         include('Config/EventsWorkspaces.php'),
         include('Config/ManualBackend.php'),
         include('Config/ManualCore.php'),
-        include('Config/Tutorials/Tea.php'),
         include('Config/LoginProvider.php'),
+        include('Config/Tutorials/Tea.php'),
+        include('Config/Tutorials/CommandControllers.php'),
     );

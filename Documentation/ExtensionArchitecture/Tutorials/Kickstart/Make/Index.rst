@@ -143,7 +143,7 @@ one in the created extension) and add the extension directory as new repository:
 
 ..  code-block:: json
     :caption: my_project_root/composer.json
-    :lines: 3-8
+    :emphasize-lines: 3-8
 
     {
         "name": "my-vendor/my-project",
@@ -184,7 +184,7 @@ The following additional commands are available to add more functionality
 to your extension:
 
 *   `make:backendcontroller`  - Create a new backend controller
-*   `make:command` - Create a new command
+*   `make:command` - :ref:`Create a new command <extension-make-console-command>`
 *   `make:eventlistener` - Create a new event listener
 *   `make:middleware` - Create a new middleware
 
