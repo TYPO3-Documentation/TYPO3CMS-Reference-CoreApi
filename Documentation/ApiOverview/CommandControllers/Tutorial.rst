@@ -72,7 +72,9 @@ The following two methods should be overridden by your class:
     The method allows to add a help text and/or define arguments and options.
 
 :php:`execute()`
-    Contains the logic when executing the command. Should return
+    Contains the logic when executing the command. Must 
+    return an integer. It is considered best practice to 
+    return the constants
     :php:`Command::SUCCESS` or :php:`Command::FAILURE`.
 
 .. seealso::
