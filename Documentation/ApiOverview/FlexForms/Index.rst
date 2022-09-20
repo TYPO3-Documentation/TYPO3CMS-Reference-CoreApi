@@ -365,45 +365,56 @@ Read FlexForms values in PHP
 You can use the :php:`FlexFormService` to read the content of a FlexForm field:
 
 ..  code-block:: php
-    :caption: EXT:my_extension/Classes/Controller/NonExtbaseController
+    :caption: EXT:my_extension/Classes/Controller/NonExtbaseController.php
 
     use TYPO3\CMS\Core\Service\FlexFormService;
     use TYPO3\CMS\Core\Utility\GeneralUtility;
 
-    // Inject FlexFormService
-    public function __construct(
-        protected readonly FlexFormService $flexFormService,
-    ) {
-    }
-
-    private function loadFlexForm(): void
+    class NonExtbaseController
     {
-        $this->flexFormData = $this->flexFormService
-            ->convertFlexFormContentToArray($this->cObj->data['pi_flexform']);
+
+        // Inject FlexFormService
+        public function __construct(
+            private readonly FlexFormService $flexFormService,
+        ) {
+        }
+
+        // ...
+
+        private function loadFlexForm($flexFormString): array
+        {
+            return $this->flexFormService
+                ->convertFlexFormContentToArray($flexFormString);
+        }
     }
 
-The resulting array would look this:
+Using :php:`FlexFormService->convertFlexFormContentToArray` the resulting
+array can be used conviniently in most use cases:
 
 ..  code-block:: php
-    :caption: Example output
 
-    $output = $this->flexFormService
-            ->convertFlexFormContentToArray($this->cObj->data['pi_flexform']);
+     var_export($this->flexFormService
+            ->convertFlexFormContentToArray($flexFormString));
 
-    $looksLike = [
+    /* Output:
+    [
         'settings' => [
             'singlePid' => 25,
             'listPid' => 380,
         ],
-    ];
+    ]
+    */
 
-While the result of :php:`GeneralUtility::xml2array()` might look like:
+While the result of :php:`GeneralUtility::xml2array()` preserves the internal
+structure of the XML FlexForm, and is usually used to modify a FlexForm
+string, see next section.
 
-.. code-block:: php
+..  code-block:: php
 
-    $output = GeneralUtility::xml2array($this->cObj->data['pi_flexform'])
+    var_export($flexFormString));
 
-    $looksLike = [
+    /* Output:
+    [
         'data' =>
             [
                 'sDEF' =>
@@ -416,6 +427,7 @@ While the result of :php:`GeneralUtility::xml2array()` might look like:
                     ],
             ],
     ];
+    */
 
 
 ..  index::
