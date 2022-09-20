@@ -411,7 +411,7 @@ string, see next section.
 
 ..  code-block:: php
 
-    var_export($flexFormString));
+    var_export(GeneralUtility::xml2array($flexFormString)));
 
     /* Output:
     [
