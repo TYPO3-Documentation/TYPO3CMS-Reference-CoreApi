@@ -451,10 +451,10 @@ changes.
     use \TYPO3\CMS\Core\Configuration\FlexForm\FlexFormTools;
 
     $flexFormArray = GeneralUtility::xml2array($flexFormString);
-    $this->doSomething($flexFormArray);
+    $changedFlexFormArray = $this->doSomething($flexFormArray);
 
     $flexFormTools = new FlexFormTools();
-    $flexFormString = $flexFormTools->flexArray2Xml($flexFormArray, true);
+    $flexFormString = $flexFormTools->flexArray2Xml($changedFlexFormArray, addPrologue: true);
 
 
 .. index:: pair: FlexForms; TypoScript
