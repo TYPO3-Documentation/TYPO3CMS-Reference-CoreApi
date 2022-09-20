@@ -1,17 +1,17 @@
 .. include:: /Includes.rst.txt
-.. index:: Flexforms
+.. index:: FlexForms
 .. _flexforms:
 
 =========
-Flexforms
+FlexForms
 =========
 
-Flexforms can be used to store data within an XML structure inside a single DB
+FlexForms can be used to store data within an XML structure inside a single DB
 column.
 
-Flexforms can be used to configure :ref:`content elements (CE) or plugins
+FlexForms can be used to configure :ref:`content elements (CE) or plugins
 <content-elements>`, but they are optional so you can create plugins or
-content elements without using Flexforms.
+content elements without using FlexForms.
 
 Most of the configuration below is the same, whether you are adding configuration
 for a plugin or content element. The main difference is how :php:`addPiFlexFormValue()`
@@ -19,12 +19,12 @@ is used.
 
 You may want to configure
 individual plugins or content elements differently, depending on where they are added. The
-configuration set via the Flexform mechanism applies to only the content
-record it has been configured for. The Flexforms configuration for a plugin or CE
+configuration set via the FlexForm mechanism applies to only the content
+record it has been configured for. The FlexForms configuration for a plugin or CE
 can be changed by editors in the backend. This gives editors more control
 over plugin features and what is to be rendered.
 
-Using Flexforms you have all the features of TCA, so it is possible
+Using FlexForms you have all the features of TCA, so it is possible
 to use input fields, select lists, show options conditionally and more.
 
 
@@ -32,7 +32,7 @@ Example use cases
 =================
 
 The `bootstrap_package <https://github.com/benjaminkott/bootstrap_package>`__
-uses Flexforms to configure rendering options,
+uses FlexForms to configure rendering options,
 e.g. a transition interval and transition type (slide, fade)
 for the carousel content element.
 
@@ -117,7 +117,7 @@ Steps to perform (Extension developer)
        $GLOBALS['TCA']['tt_content']['types']['list']['subtypes_addlist'][$pluginSignature] = 'pi_flexform';
        \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPiFlexFormValue(
            $pluginSignature,
-           // Flexform configuration schema file
+           // FlexForm configuration schema file
            'FILE:EXT:example/Configuration/FlexForms/Registration.xml'
        );
 
@@ -142,7 +142,7 @@ Steps to perform (Extension developer)
       \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPiFlexFormValue(
          // 'list_type' does not apply here
          '*',
-         // Flexform configuration schema file
+         // FlexForm configuration schema file
          'FILE:EXT:example/Configuration/FlexForms/Registration.xml',
          // ctype
          'accordion'
@@ -187,11 +187,11 @@ More examples
 The definition of the data types and parameters used complies to the
 :ref:`column types defined by TCA <t3tca:columns-types>`.
 
-The settings must be added within the :html:`<el>` element in the Flexform
+The settings must be added within the :html:`<el>` element in the FlexForm
 configuration schema file.
 
 
-.. index:: Flexforms; Select field
+.. index:: FlexForms; Select field
 
 Select field
 ------------
@@ -280,7 +280,7 @@ How this looks when configuring the plugin:
    * :ref:`t3tca:columns-select-properties-itemsprocfunc` in TCA reference.
 
 
-.. index:: Flexforms; Display conditions
+.. index:: FlexForms; Display conditions
 .. _flexformDisplayCond:
 
 Display fields conditionally (displayCond)
@@ -293,7 +293,7 @@ should only be visible, if sort order "title" was not selected.
 
 You can define conditions using displayCond. This dynamically defines
 whether a setting should be displayed when the plugin is configured.
-The conditions may for example depend on one or more other settings in the Flexform,
+The conditions may for example depend on one or more other settings in the FlexForm,
 on database fields of current record or be defined by a user function.
 
 
@@ -334,11 +334,11 @@ can do that with:
 The :xml:`onChange` element is optional and must be placed on the same level as the :xml:`<config>` element.
 
 
-.. index:: pair: Flexforms; Extbase
+.. index:: pair: FlexForms; Extbase
 .. _read-flexforms:
 .. _read-flexforms-extbase:
 
-How to read flexforms from an Extbase controller action
+How to read FlexForms from an Extbase controller action
 -------------------------------------------------------
 
 The settings can be read using :php:`$this->settings` in an
@@ -348,52 +348,112 @@ Extbase controller.
 
    $includeCategories = (bool) ($this->settings['includeCategories'] ?? false);
 
-
 .. important::
 
    If you wish to access a setting from your controller via
    :php:`$this->settings`, the name of the setting must be prefixed with `settings.`,
    so literally `settings` directly followed by a dot (`.`).
 
-
-.. index:: pair: Flexforms; PHP
+..  index::
+    FlexForms; Read in PHP
+    FlexForms; FlexFormService
 .. _read-flexforms-php:
 
-How to read and write flexforms from PHP
-----------------------------------------
+Read FlexForms values in PHP
+----------------------------
 
-Some situation make it necessary to access Flexforms via PHP. The following APIs
-are available to work with Flexforms from within PHP:
+You can use the :php:`FlexFormService` to read the content of a FlexForm field:
 
-In order to convert a Flexform to a PHP array, the :php:`xml2array` method can
-be used:
+..  code-block:: php
+    :caption: EXT:my_extension/Classes/Controller/NonExtbaseController
+
+    use TYPO3\CMS\Core\Service\FlexFormService;
+    use TYPO3\CMS\Core\Utility\GeneralUtility;
+
+    // Inject FlexFormService
+    public function __construct(
+        protected readonly FlexFormService $flexFormService,
+    ) {
+    }
+
+    private function loadFlexForm(): void
+    {
+        $this->flexFormData = $this->flexFormService
+            ->convertFlexFormContentToArray($this->cObj->data['pi_flexform']);
+    }
+
+The resulting array would look this:
+
+..  code-block:: php
+    :caption: Example output
+
+    $output = $this->flexFormService
+            ->convertFlexFormContentToArray($this->cObj->data['pi_flexform']);
+
+    $looksLike = [
+        'settings' => [
+            'singlePid' => 25,
+            'listPid' => 380,
+        ],
+    ];
+
+While the result of :php:`GeneralUtility::xml2array()` might look like:
 
 .. code-block:: php
 
-   $flexFormArray = \TYPO3\CMS\Core\Utility\GeneralUtility::xml2array($flexFormString);
+    $output = GeneralUtility::xml2array($this->cObj->data['pi_flexform'])
+
+    $looksLike = [
+        'data' =>
+            [
+                'sDEF' =>
+                    [
+                        'lDEF' =>
+                            [
+                                'settings.singlePid' =>['vDEF' => '4',],
+                                'settings.listPid' =>['vDEF' => '',],
+                            ],
+                    ],
+            ],
+    ];
 
 
-In order to convert an PHP array into an Flexform, the :php`flexArray2Xml`
-method can be used:
+..  index::
+    FlexForms; Modify in PHP
+    FlexForms; FlexFormTools
+.. _modify-flexforms-php:
 
-.. code-block:: php
+How to modify FlexForms from PHP
+--------------------------------
 
-   $flexFormTools = new \TYPO3\CMS\Core\Configuration\FlexForm\FlexFormTools();
-   $flexFormString = $flexFormTools->flexArray2Xml($flexFormArray, true);
+Some situation make it necessary to modify FlexForms via PHP.
+
+In order to convert a FlexForm to a PHP array, preserving the structure,
+the :php:`xml2array` method in :php:`GeneralUtility`  can be used to read
+the FlexForm data, then the :php:`FlexFormTools` can be used to write back the
+changes.
+
+..  code-block:: php
+
+    use \TYPO3\CMS\Core\Utility\GeneralUtility;
+    use \TYPO3\CMS\Core\Configuration\FlexForm\FlexFormTools;
+
+    $flexFormArray = GeneralUtility::xml2array($flexFormString);
+    $this->doSomething($flexFormArray);
+
+    $flexFormTools = new FlexFormTools();
+    $flexFormString = $flexFormTools->flexArray2Xml($flexFormArray, true);
 
 
-.. index:: pair: Flexforms; TypoScript
+.. index:: pair: FlexForms; TypoScript
 .. _read-flexforms-ts:
 
-How to access flexforms From TypoScript
+How to access FlexForms From TypoScript
 ---------------------------------------
 
-.. versionadded:: 8.4
-   It is now possible to read Flexform properties from TypoScript,
-   see :doc:`ext_core:Changelog/8.4/Feature-17309-AccessFlexformValueViaTS`.
+It is possible to read FlexForm properties from TypoScript:
 
-
-.. code-block:: typoscript
+..  code-block:: typoscript
 
     lib.flexformContent = CONTENT
     lib.flexformContent {
@@ -411,21 +471,23 @@ How to access flexforms From TypoScript
         }
     }
 
-The key `flexform` is followed by the field which holds the Flexform data (`pi_flexform`) and the name of the property whose content should be retrieved (`settings.categories`).
+The key `flexform` is followed by the field which holds the FlexForm data
+(`pi_flexform`) and the name of the property whose content should be retrieved
+(`settings.categories`).
 
 .. seealso::
 
    * :ref:`TypoScript: flexform <t3tsref:data-type-gettext-flexform>`
 
 
-.. index:: pair: Flexforms; Fluid
+.. index:: pair: FlexForms; Fluid
 .. _read-flexforms-fluid:
 
-How to access flexForms from Fluid
+How to access FlexForms from Fluid
 ----------------------------------
 
 If you are using an Extbase controller, FlexForm settings can be read from within a Fluid template using
-:html:`{settings}`. See the note on naming restrictions in :ref:`How to Read Flexforms From an Extbase Controller Action <read-flexforms-extbase>`.
+:html:`{settings}`. See the note on naming restrictions in :ref:`How to Read FlexForms From an Extbase Controller Action <read-flexforms-extbase>`.
 
 If you defined your :typoscript:`FLUIDTEMPLATE` in TypoScript, you can assign single variables like that:
 
