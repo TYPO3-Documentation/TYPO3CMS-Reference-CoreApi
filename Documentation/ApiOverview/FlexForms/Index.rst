@@ -370,7 +370,7 @@ You can use the :php:`FlexFormService` to read the content of a FlexForm field:
     use TYPO3\CMS\Core\Service\FlexFormService;
     use TYPO3\CMS\Core\Utility\GeneralUtility;
 
-    class NonExtbaseController
+    final class NonExtbaseController
     {
 
         // Inject FlexFormService
