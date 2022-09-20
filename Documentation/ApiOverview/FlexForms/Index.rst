@@ -365,7 +365,7 @@ Read FlexForms values in PHP
 You can use the :php:`FlexFormService` to read the content of a FlexForm field:
 
 ..  code-block:: php
-    :caption: EXT:my_extension/Classes/Controller/NonExtbaseController
+    :caption: EXT:my_extension/Classes/Controller/NonExtbaseController.php
 
     use TYPO3\CMS\Core\Service\FlexFormService;
     use TYPO3\CMS\Core\Utility\GeneralUtility;
@@ -382,7 +382,7 @@ You can use the :php:`FlexFormService` to read the content of a FlexForm field:
             ->convertFlexFormContentToArray($this->cObj->data['pi_flexform']);
     }
 
-The resulting array would look this:
+The resulting array would look like this:
 
 ..  code-block:: php
     :caption: Example output
@@ -439,10 +439,10 @@ changes.
     use \TYPO3\CMS\Core\Configuration\FlexForm\FlexFormTools;
 
     $flexFormArray = GeneralUtility::xml2array($flexFormString);
-    $this->doSomething($flexFormArray);
+    $changedFlexFormArray = $this->doSomething($flexFormArray);
 
     $flexFormTools = new FlexFormTools();
-    $flexFormString = $flexFormTools->flexArray2Xml($flexFormArray, true);
+    $flexFormString = $flexFormTools->flexArray2Xml($changedFlexFormArray, addPrologue: true);
 
 
 .. index:: pair: FlexForms; TypoScript
