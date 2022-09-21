@@ -104,12 +104,14 @@ Extended composer.json
          "typo3/cms-backend": "^10.4 || ^11.5",
          "typo3/cms-core": "^10.4 || ^11.5"
       },
-      "authors": {
-         "name": "John Doe",
-         "role": "Developer",
-         "email": "john.doe@example.org",
-         "homepage": "johndoe.example.org"
-      },
+      "authors": [
+         {
+            "name": "John Doe",
+            "role": "Developer",
+            "email": "john.doe@example.org",
+            "homepage": "johndoe.example.org"
+         }
+      ],
       "keywords": [
          "typo3",
          "blog"
