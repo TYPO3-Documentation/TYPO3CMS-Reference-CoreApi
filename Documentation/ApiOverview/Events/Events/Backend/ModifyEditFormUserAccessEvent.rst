@@ -1,0 +1,74 @@
+..  include:: /Includes.rst.txt
+..  index:: Events; ModifyEditFormUserAccessEvent
+..  _ModifyEditFormUserAccessEvent:
+
+=============================
+ModifyEditFormUserAccessEvent
+=============================
+
+..  versionadded:: 12.0
+    The PSR-14 event
+    :php:`TYPO3\CMS\Backend\Form\Event\ModifyEditFormUserAccessEvent\ModifyEditFormUserAccessEvent`
+    has been introduced which serves as a more powerful and flexible alternative
+    for the removed :php:`$GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['typo3/alt_doc.php']['makeEditForm_accessCheck']`
+    hook.
+
+The event provides the full database row of the record in question next to the
+exception, which might have been set by the Core. Additionally, the event allows
+to modify the user access decision in an object-oriented way, using
+convenience methods.
+
+To modify the user access, the following methods are available:
+
+-   :php:`allowUserAccess()`: Allows user access to the editing form
+-   :php:`setLinkExplanation()`: Denies user access to the editing form
+-   :php:`doesUserHaveAccess()`: Returns the current user access state
+-   :php:`getAccessDeniedException()`: If Core's DataProvider previously denied
+    access, this returns the corresponding exception, :php:`null` otherwise
+
+The following additional methods can be used for further context:
+
+-   :php:`getTableName()`: Returns the table name of the record in question
+-   :php:`getCommand()`: Returns the requested command, either `new` or `edit`
+-   :php:`getDatabaseRow()`: Returns the record's database row
+
+In case any listener to the new event denies user access, while it was initially
+allowed by Core, the :php:`TYPO3\CMS\Backend\Form\Exception\AccessDeniedListenerException`
+will be thrown.
+
+Example
+=======
+
+Registration of the event in your extension's :file:`Services.yaml`:
+
+..  code-block:: yaml
+    :caption: EXT:my_extension/Configuration/Services.yaml
+
+    MyVendor\MyExtension\Backend\Form\ModifyEditFormUserAccessEventListener:
+        tags:
+            - name: event.listener
+              identifier: 'my-extension/backend/modify-edit-form-user-access'
+
+The corresponding event listener class:
+
+..  code-block:: php
+    :caption: EXT:my_extension/Classes/Backend/Form/ModifyEditFormUserAccessEventListener.php
+
+    use TYPO3\CMS\Backend\Form\Event\ModifyEditFormUserAccessEvent;
+
+    final class ModifyEditFormUserAccessEventListener
+    {
+        public function __invoke(ModifyEditFormUserAccessEvent $event): void
+        {
+            // Deny access for creating records of a custom table
+            if ($event->getTableName() === 'my_custom_table' && $event->getCommand() === 'new') {
+                $event->denyUserAccess();
+            }
+        }
+    }
+
+
+API
+===
+
+.. include:: /CodeSnippets/Events/Backend/ModifyEditFormUserAccessEvent.rst.txt
