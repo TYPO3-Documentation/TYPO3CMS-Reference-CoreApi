@@ -3,6 +3,24 @@
 return [
     [
         "action" => "createPhpClassDocs",
+        "class" => \TYPO3\CMS\Backend\View\Event\IsContentUsedOnPageLayoutEvent::class,
+        "targetFileName" => "Events/Backend/IsContentUsedOnPageLayoutEvent.rst.txt",
+        "withCode" => false
+    ],
+    [
+        "action" => "createPhpClassDocs",
+        "class" => \TYPO3\CMS\Backend\View\Event\ModifyDatabaseQueryForContentEvent::class,
+        "targetFileName" => "Events/Backend/ModifyDatabaseQueryForContentEvent.rst.txt",
+        "withCode" => false
+    ],
+    [
+        "action" => "createPhpClassDocs",
+        "class" => \TYPO3\CMS\Backend\View\Event\PageContentPreviewRenderingEvent::class,
+        "targetFileName" => "Events/Backend/PageContentPreviewRenderingEvent.rst.txt",
+        "withCode" => false
+    ],
+    [
+        "action" => "createPhpClassDocs",
         "class" => \TYPO3\CMS\Backend\Controller\Event\AfterFormEnginePageInitializedEvent::class,
         "targetFileName" => "Events/Backend/AfterFormEnginePageInitializedEvent.rst.txt",
         "withCode" => false
