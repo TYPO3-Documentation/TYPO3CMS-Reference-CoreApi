@@ -393,8 +393,9 @@ array can be used conviniently in most use cases:
 
 ..  code-block:: php
 
-     var_export($this->flexFormService
-            ->convertFlexFormContentToArray($flexFormString));
+     var_export(
+         $this->flexFormService->convertFlexFormContentToArray($flexFormString)
+     );
 
     /* Output:
     [
