@@ -119,10 +119,12 @@ Extended composer.json
       "support": {
          "issues": "https://github.com/vendorname/my-extensions/issues"
       },
-      "funding": {
-         "type": "other",
-         "url:" : "myfundpage.org/vendorname"
-      },
+      "funding": [
+         {
+            "type": "other",
+            "url:" : "myfundpage.org/vendorname"
+         }
+      ],
       "autoload": {
          "psr-4": {
             "Vendorname\\MyExtension\\": "Classes/"
