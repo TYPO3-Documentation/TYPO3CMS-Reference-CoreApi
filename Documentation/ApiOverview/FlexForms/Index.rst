@@ -405,9 +405,9 @@ array can be used conviniently in most use cases:
     ]
     */
 
-While the result of :php:`GeneralUtility::xml2array()` preserves the internal
+The result of :php:`GeneralUtility::xml2array()` preserves the internal
 structure of the XML FlexForm, and is usually used to modify a FlexForm
-string, see next section.
+string. See section :ref:`<modify-flexforms-php>` for an example.
 
 ..  code-block:: php
 
