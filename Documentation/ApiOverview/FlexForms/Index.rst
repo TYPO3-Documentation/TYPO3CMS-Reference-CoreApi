@@ -55,7 +55,7 @@ How it works
    the configuration.
 
 
-Steps to perform (Extension developer)
+Steps to perform (extension developer)
 ======================================
 
 .. rst-class:: bignums-xxl
@@ -225,7 +225,7 @@ Select field
 
 .. _flexforms-itemsProcFunc:
 
-Populate a `select` Field with a PHP Function (itemsProcFunc)
+Populate a `select` field with a PHP Function (itemsProcFunc)
 -------------------------------------------------------------
 
 .. code-block:: xml
@@ -547,8 +547,8 @@ Credits
 =======
 
 Some of the examples were taken from the extensions
-:t3ext:`news/` (by Georg Ringer)
-and :t3ext:`bootstrap_package/`
+:t3ext:`news` (by Georg Ringer)
+and :t3ext:`bootstrap_package`
 (by Benjamin Kott).
 
 Further enhancements by the TYPO3 community are welcome!
