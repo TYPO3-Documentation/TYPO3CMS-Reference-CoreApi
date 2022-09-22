@@ -142,8 +142,7 @@ The configuration option `routePath` defines the static keyword and the availabl
 Plugin Enhancer
 ^^^^^^^^^^^^^^^
 
-The Plugin Enhancer works with plugins based on the class :ref:`AbstractPlugin <abstractplugin>`,
-also known as "Pi-Based Plugins".
+The Plugin Enhancer works with plugins based on Core functionality.
 
 In this example we will map the raw parameters of an URL like this:
 
