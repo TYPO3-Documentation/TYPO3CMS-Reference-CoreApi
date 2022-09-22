@@ -408,7 +408,7 @@ array can be used conveniently in most use cases:
 
 The result of :php:`GeneralUtility::xml2array()` preserves the internal
 structure of the XML FlexForm, and is usually used to modify a FlexForm
-string. See section :ref:`<modify-flexforms-php>` for an example.
+string. See section :ref:`modify-flexforms-php` for an example.
 
 ..  code-block:: php
 
