@@ -389,7 +389,7 @@ You can use the :php:`FlexFormService` to read the content of a FlexForm field:
     }
 
 Using :php:`FlexFormService->convertFlexFormContentToArray` the resulting
-array can be used conviniently in most use cases:
+array can be used conveniently in most use cases:
 
 ..  code-block:: php
 
