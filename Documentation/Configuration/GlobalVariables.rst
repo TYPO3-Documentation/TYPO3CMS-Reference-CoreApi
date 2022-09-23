@@ -47,20 +47,6 @@ $GLOBALS
 
    Global registration of :ref:`services <services-introduction>`.
 
-.. confval:: TBE_MODULES_EXT
-
-   :Path: $GLOBALS
-   :type: array
-   :Defined: [In :file:`ext_tables.php` files of extensions]
-   :Frontend: (occasionally)
-
-   Used to store information about modules from extensions that should be
-   included in "function menus" of real modules. See the Extension API
-   for details.
-
-   This variable *may* be set in a script prior to
-   the bootstrap process so it is optional.
-
 
 .. confval:: TBE_STYLES
 
