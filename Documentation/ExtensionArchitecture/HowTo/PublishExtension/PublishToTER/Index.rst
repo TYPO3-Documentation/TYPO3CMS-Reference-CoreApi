@@ -14,8 +14,8 @@ First of all ask yourself some questions before publishing or even putting some
 effort in coding:
 
 *  What additional benefit does your extension have for the TYPO3 community?
-*  Does your extension key describe the extension? See the `extension key
-   requirements<https://docs.typo3.org/m/typo3/reference-coreapi/11.5/en-us/ExtensionArchitecture/BestPractises/NamingConventions.html>`__.
+*  Does your extension key describe the extension? See the :ref:`extension key
+   requirements <extension-key>`
 *  Are there any extensions in the TER yet which have the same functionalities?
 *  If yes, why do we need your one? Wouldn't it be an option to contribute to
    other extensions?
