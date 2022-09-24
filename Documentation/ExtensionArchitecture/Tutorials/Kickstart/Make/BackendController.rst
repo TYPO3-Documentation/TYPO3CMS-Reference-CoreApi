@@ -46,5 +46,5 @@ files will be generated, new or changed files marked with a star (*):
         ├── composer.json
         └── ext_emconf.php
 
-Learn how to turn the backend controller into a full fledged backend module in
+Learn how to turn the backend controller into a full-fledged backend module in
 the chapter :ref:`backend-modules`.
