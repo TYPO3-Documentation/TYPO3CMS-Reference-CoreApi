@@ -10,10 +10,10 @@ ModifyGenericBackendMessagesEvent
    This event serves as direct replacement for the now removed hook
    :php:`$GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['t3lib/class.t3lib_befunc.php']['displayWarningMessages']`.
 
-This Event allows to add or alter messages that are displayed
+This event allows to add or alter messages that are displayed
 in the "About" module (default start module of the TYPO3 Backend).
 
-Extensions such as the system extension EXT:reports use this Event to display
+Extensions such as the system extension EXT:reports use this event to display
 custom messages based on the status of the system:
 
 .. include:: /Images/ManualScreenshots/Backend/GenericBackendMessage.rst.txt
