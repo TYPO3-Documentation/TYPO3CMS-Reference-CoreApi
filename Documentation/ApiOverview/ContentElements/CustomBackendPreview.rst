@@ -90,9 +90,9 @@ approaches:
     plugin you want to target is selected as plugin type.
 
 ..  note::
-    The recommended location is in the :php:`ctrl` array in your extension's
-    :file:`Configuration/TCA/$table.php` or
-    :file:`Configuration/TCA/Overrides/$table.php` file. The former is used when
-    your extension is the one that creates the table, the latter is used when
-    you need to override TCA properties of tables added by the Core or other
-    extensions.
+    The :ref:`recommended location <extension-configuration-tca>` is in the
+    :php:`ctrl` array in your extension's :file:`Configuration/TCA/$table.php`
+    or :file:`Configuration/TCA/Overrides/$table.php` file. The former is used
+    when your extension is the one that creates the table, the latter is used
+    when you need to override TCA properties of tables added by the Core or
+    other extensions.
