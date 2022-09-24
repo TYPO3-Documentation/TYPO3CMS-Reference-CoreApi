@@ -27,12 +27,8 @@ With Fluid Based Page Module
    The feature toggle can be located in the :guilabel:`Settings` admin module under :guilabel:`Feature Toggles`. Or it can be set in
    PHP using :php:`$GLOBALS['TYPO3_CONF_VARS']['SYS']['features']['fluidBasedPageModule'] = true;`.
 
-A :php:`PreviewRenderer` is used to facilitate (record) previews in TYPO3.
-
-The feature consists of two concepts:
-
-* :php:`PreviewRendererResolver` which is a global implementation to detect which :php:`PreviewRenderer` a given record needs.
-* :php:`PreviewRenderer` which is the class responsible for generating the preview and the wrapping.
+A :php:`PreviewRenderer` is used to facilitate (record) previews in TYPO3. The
+class is responsible for generating the preview and the wrapping.
 
 
 Writing a PreviewRenderer
@@ -81,10 +77,6 @@ the following API methods:
      */
     public function wrapPageModulePreview($previewHeader, $previewContent, GridColumnItem $item);
 
-.. note::
-
-   Further methods are expected to be added in the future to support generic preview rendering, e.g. usages outside :php:`PageLayoutView`.
-
 Implementing these methods allows you to control the exact composition of the preview.
 
 This means assuming your :php:`PreviewRenderer` returns :html:`<h4>Header</h4>` from the header render method and :html:`<p>Body</p>` from
@@ -131,22 +123,6 @@ type of plugin you want to target is selected as plugin type.
    The recommended location is in the :php:`ctrl` array in your extension's :file:`Configuration/TCA/$table.php` or
    :file:`Configuration/TCA/Overrides/$table.php` file. The former is used when your extension is the one that creates the table,
    the latter is used when you need to override TCA properties of tables added by the core or other extensions.
-
-
-Overriding the `PreviewRendererResolver`
-----------------------------------------
-
-If necessary, the :php:`PreviewRendererResolver` can be overridden by setting:
-
-.. code-block:: php
-
-    $GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['backend']['previewRendererResolver'] = \TYPO3\CMS\Backend\Preview\StandardPreviewRendererResolver::class;
-
-Once overridden, the old resolver will no longer be consulted.
-
-:php:`\TYPO3\CMS\Backend\Preview\PreviewRendererResolverInterface` must be implemented by :php:`PreviewRendererResolvers` and
-contains a single API method, :php:`public function resolveRendererFor($table, array $row, int $pageUid);` which
-needs to return a single :php:`PreviewRenderer` based on the given input.
 
 
 With "Classic" Page Module
