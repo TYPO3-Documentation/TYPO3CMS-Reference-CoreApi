@@ -11,6 +11,6 @@ This event is fired before a file is about to be renamed. Custom listeners can f
 according to specific guidelines based on the project.
 
 API
----
+===
 
 .. include:: /CodeSnippets/Events/Core/Resource/BeforeFileRenamedEvent.rst.txt

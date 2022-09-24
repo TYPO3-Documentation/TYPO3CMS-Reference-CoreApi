@@ -13,6 +13,6 @@ The folder represents the "target folder".
 *Examples*: Use this to update custom third party handlers that rely on specific paths.
 
 API
----
+===
 
 .. include:: /CodeSnippets/Events/Core/Resource/AfterFileMovedEvent.rst.txt

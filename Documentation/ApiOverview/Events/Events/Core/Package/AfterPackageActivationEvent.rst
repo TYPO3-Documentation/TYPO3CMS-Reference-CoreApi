@@ -12,6 +12,6 @@ Event that is triggered after a package has been activated.
 
 
 API
----
+===
 
 .. include:: /CodeSnippets/Events/Core/AfterPackageActivationEvent.rst.txt

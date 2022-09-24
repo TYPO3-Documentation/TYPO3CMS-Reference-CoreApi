@@ -11,6 +11,6 @@ This event is fired once an index was just updated inside the database (= indexe
 Custom listeners can update further index values when a file was updated.
 
 API
----
+===
 
 .. include:: /CodeSnippets/Events/Core/Resource/AfterFileUpdatedInIndexEvent.rst.txt

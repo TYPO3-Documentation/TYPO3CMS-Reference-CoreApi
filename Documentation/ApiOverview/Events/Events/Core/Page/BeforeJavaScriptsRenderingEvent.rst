@@ -1,6 +1,5 @@
 .. include:: /Includes.rst.txt
-
-
+.. index:: Events; BeforeJavaScriptsRenderingEvent
 .. _BeforeJavaScriptsRenderingEvent:
 
 
