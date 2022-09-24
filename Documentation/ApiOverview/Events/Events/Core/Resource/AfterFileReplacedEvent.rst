@@ -13,6 +13,6 @@ This event is fired after a file was replaced.
 contents of a file for AI analysis etc.
 
 API
----
+===
 
 .. include:: /CodeSnippets/Events/Core/Resource/AfterFileReplacedEvent.rst.txt

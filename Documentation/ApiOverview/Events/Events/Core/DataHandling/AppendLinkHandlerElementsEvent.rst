@@ -7,9 +7,9 @@ AppendLinkHandlerElementsEvent
 ==============================
 
 Event fired so listeners can intercept add elements when checking
-links within the SoftRef parser.
+links within the :ref:`soft reference <soft-references>` parser.
 
 API
----
+===
 
 .. include:: /CodeSnippets/Events/Core/AppendLinkHandlerElementsEvent.rst.txt

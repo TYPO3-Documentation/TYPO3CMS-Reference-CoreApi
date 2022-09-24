@@ -9,6 +9,9 @@ AfterMailerInitializationEvent
 This event is fired once a new Mailer is instantiated with specific transport settings.
 So it is possible to add custom mailing settings.
 
+Example
+=======
+
 An example listener, which hooks into the Mailer API to modify Mailer settings to not send any emails,
 could look like this:
 
@@ -17,7 +20,7 @@ could look like this:
    namespace MyCompany\MyPackage\EventListener;
    use TYPO3\CMS\Core\Mail\Event\AfterMailerInitializationEvent;
 
-   class NullMailer
+   final class NullMailer
    {
        public function __invoke(AfterMailerInitializationEvent $event): void
        {
@@ -26,6 +29,6 @@ could look like this:
    }
 
 API
----
+===
 
 .. include:: /CodeSnippets/Events/Core/AfterMailerInitializationEvent.rst.txt

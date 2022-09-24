@@ -21,11 +21,6 @@ parameters, since this won't have any effect as the preview URI is directly
 returned after event dispatching and no further action is done by the
 :php:`PreviewUriBuilder`.
 
-API
-===
-
-.. include:: /CodeSnippets/Events/Backend/AfterPagePreviewUriGeneratedEvent.rst.txt
-
 Example
 =======
 
@@ -57,3 +52,8 @@ The corresponding event listener class:
            $event->setPreviewUri($uri);
        }
    }
+
+API
+===
+
+.. include:: /CodeSnippets/Events/Backend/AfterPagePreviewUriGeneratedEvent.rst.txt

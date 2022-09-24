@@ -10,6 +10,9 @@ The PSR-14 event :ref:`BeforeModuleCreationEvent` allows extension authors
 to manipulate the module configuration, before it is used to create and
 register the module.
 
+Example
+=======
+
 Registration of an event listener in the :file:`Services.yaml`:
 
 .. code-block:: yaml

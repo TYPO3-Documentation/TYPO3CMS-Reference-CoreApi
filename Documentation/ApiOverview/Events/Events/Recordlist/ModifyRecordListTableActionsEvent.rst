@@ -47,7 +47,7 @@ The corresponding event listener class:
     use TYPO3\CMS\Recordlist\Event\ModifyRecordListRecordActionsEvent;
     use TYPO3\CMS\Recordlist\Event\ModifyRecordListTableActionsEvent;
 
-    class MyEventListener {
+    final class MyEventListener {
 
         protected LoggerInterface $logger;
 

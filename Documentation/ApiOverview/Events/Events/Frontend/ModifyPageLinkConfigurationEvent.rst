@@ -36,7 +36,7 @@ The corresponding event listener class:
 
    use TYPO3\CMS\Frontend\Event\ModifyPageLinkConfigurationEvent;
 
-   class MyEventListener {
+   final class MyEventListener {
 
        public function __invoke(ModifyPageLinkConfigurationEvent $event): void
        {

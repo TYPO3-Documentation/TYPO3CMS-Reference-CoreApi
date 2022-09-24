@@ -42,7 +42,7 @@ An example implementation of the PSR-14 event:
 
    use TYPO3\CMS\Linkvalidator\Event\ModifyValidatorTaskEmailEvent;
 
-   class ModifyValidatorTaskEmail
+   final class ModifyValidatorTaskEmail
    {
       public function modify(ModifyValidatorTaskEmailEvent $event): void
       {

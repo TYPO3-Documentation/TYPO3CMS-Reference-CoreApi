@@ -55,7 +55,7 @@ The corresponding event listener class:
 
    use TYPO3\CMS\Info\Controller\Event\ModifyInfoModuleContentEvent;
 
-   class MyEventListener {
+   final class MyEventListener {
 
      public function __invoke(ModifyInfoModuleContentEvent $event): void
      {

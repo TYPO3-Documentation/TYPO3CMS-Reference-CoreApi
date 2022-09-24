@@ -42,7 +42,7 @@ The corresponding event listener class:
 
    use TYPO3\CMS\Frontend\Event\ShouldUseCachedPageDataIfAvailableEvent;
 
-   class MyEventListener {
+   final class MyEventListener {
 
        public function __invoke(ShouldUseCachedPageDataIfAvailableEvent $event): void
        {

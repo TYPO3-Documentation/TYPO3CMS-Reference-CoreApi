@@ -32,7 +32,7 @@ The corresponding event listener class:
 
     use TYPO3\CMS\Filelist\Event\ProcessFileListActionsEvent;
 
-    class MyEventListener {
+    final class MyEventListener {
 
         public function __invoke(ProcessFileListActionsEvent $event): void
         {

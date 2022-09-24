@@ -18,6 +18,9 @@ Use cases for this event include running extensions'
 code which needs to be executed at any time, and needs
 TYPO3's full configuration including all loaded extensions.
 
+Example
+=======
+
 Registration of the event in the :file:`Services.yaml`:
 
 .. code-block:: yaml
@@ -29,7 +32,7 @@ Registration of the event in the :file:`Services.yaml`:
 
 .. code-block:: php
 
-    class MyEventListener {
+    final class MyEventListener {
         public function __invoke(BootCompletedEvent $e): void
         {
             // do your magic
@@ -38,6 +41,6 @@ Registration of the event in the :file:`Services.yaml`:
 
 
 API
----
+===
 
 .. include:: /CodeSnippets/Events/Core/BootCompletedEvent.rst.txt

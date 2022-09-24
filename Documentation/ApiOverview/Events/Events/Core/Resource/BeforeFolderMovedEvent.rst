@@ -12,6 +12,6 @@ Listeners can be used to modify a folder name before it is actually moved or to 
 or specific rules when moving folders.
 
 API
----
+===
 
 .. include:: /CodeSnippets/Events/Core/Resource/BeforeFolderMovedEvent.rst.txt
