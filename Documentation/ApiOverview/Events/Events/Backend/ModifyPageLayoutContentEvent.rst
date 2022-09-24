@@ -20,7 +20,7 @@ content or reorder the content.
 Example
 =======
 
-Registration of the Event in your extension's :file:`Services.yaml`:
+Registration of the event in your extension's :file:`Services.yaml`:
 
 .. code-block:: yaml
    :caption: EXT:my_extension/Configuration/Services.yaml

@@ -26,7 +26,7 @@ API
 Example
 =======
 
-Registration of the Event in your extensions' :file:`Services.yaml`:
+Registration of the event in your extensions' :file:`Services.yaml`:
 
 .. code-block:: yaml
    :caption: my_extension/Configuration/Services.yaml
