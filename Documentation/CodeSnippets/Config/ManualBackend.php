@@ -13,4 +13,10 @@ return [
         "targetFileName" => "Manual/Backend/ModuleProvider.rst.txt",
         "withCode" => false
     ],
+    [
+        "action" => "createPhpClassDocs",
+        "class" => \TYPO3\CMS\Backend\Preview\PreviewRendererInterface::class,
+        "targetFileName" => "Manual/Backend/PreviewRendererInterface.rst.txt",
+        "withCode" => false
+    ],
 ];
