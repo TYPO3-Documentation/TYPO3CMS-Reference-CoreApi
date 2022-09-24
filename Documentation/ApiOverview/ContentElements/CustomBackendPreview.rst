@@ -24,10 +24,6 @@ the following API methods:
 
 ..  include:: /CodeSnippets/Manual/Backend/PreviewRendererInterface.rst.txt
 
-..  note::
-    Further methods are expected to be added in the future to support generic
-    preview rendering, e.g. usages outside :php:`PageLayoutView`.
-
 Implementing these methods allows you to control the exact composition of the
 preview.
 
