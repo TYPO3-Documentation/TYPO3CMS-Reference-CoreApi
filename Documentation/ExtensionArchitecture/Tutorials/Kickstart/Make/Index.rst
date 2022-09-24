@@ -183,8 +183,8 @@ name defined in the prompt of the script:
 The following additional commands are available to add more functionality
 to your extension:
 
-*   `make:backendcontroller`  - Create a new backend controller
-*   `make:command` - Create a new command
+*   `make:backendcontroller`  - :ref:`Create a new backend controller <extension-make-backend-controller>`
+*   `make:command` - :ref:`Create a new command <extension-make-console-command>`
 *   `make:eventlistener` - Create a new event listener
 *   `make:middleware` - Create a new middleware
 
