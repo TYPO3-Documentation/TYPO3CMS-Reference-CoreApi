@@ -17,11 +17,6 @@ The event allows listeners to modify any available wizard item as well
 as adding new ones. It's therefore possible for the listeners to e.g. change
 the configuration, the position or to remove existing items altogether.
 
-API
-===
-
-.. include:: /CodeSnippets/Events/Backend/ModifyNewContentElementWizardItemsEvent.rst.txt
-
 Example
 =======
 
@@ -42,7 +37,7 @@ The corresponding event listener class:
 
    use TYPO3\CMS\Backend\Controller\Event\ModifyNewContentElementWizardItemsEvent;
 
-   class MyEventListener {
+   final class MyEventListener {
 
        public function __invoke(ModifyNewContentElementWizardItemsEvent $event): void
        {
@@ -62,3 +57,7 @@ The corresponding event listener class:
        }
    }
 
+API
+===
+
+.. include:: /CodeSnippets/Events/Backend/ModifyNewContentElementWizardItemsEvent.rst.txt

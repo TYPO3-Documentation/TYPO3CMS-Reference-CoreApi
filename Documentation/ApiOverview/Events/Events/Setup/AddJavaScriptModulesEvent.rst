@@ -39,7 +39,7 @@ A listener using mentioned PSR-14 event could look like the following.
 
          use TYPO3\CMS\SetupEvent\AddJavaScriptModulesEvent;
 
-         class CustomUserSettingsListener
+         final class CustomUserSettingsListener
          {
              // name of JavaScript module to be loaded
              private const MODULE_NAME = 'TYPO3/CMS/MyExtension/CustomUserSettingsModule';

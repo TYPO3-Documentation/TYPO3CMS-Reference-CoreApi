@@ -13,6 +13,6 @@ This event is fired once a file was just marked as missing in the database (sys_
 where editors also work via FTP.
 
 API
----
+===
 
 .. include:: /CodeSnippets/Events/Core/Resource/AfterFileMarkedAsMissingEvent.rst.txt

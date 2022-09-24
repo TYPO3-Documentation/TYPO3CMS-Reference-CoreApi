@@ -23,6 +23,6 @@ This functionality is implemented in the system extension "linkvalidator".
 Other extensions can use the event to override the default behaviour.
 
 API
----
+===
 
 .. include:: /CodeSnippets/Events/Core/BrokenLinkAnalysisEvent.rst.txt

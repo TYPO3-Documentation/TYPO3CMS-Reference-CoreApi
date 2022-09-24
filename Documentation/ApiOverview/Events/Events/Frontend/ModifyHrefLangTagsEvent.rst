@@ -43,7 +43,7 @@ executed after or before the given identifiers.
 
    use TYPO3\CMS\Frontend\Event\ModifyHrefLangTagsEvent;
 
-   class OwnHrefLang
+   final class OwnHrefLang
    {
       public function __invoke(ModifyHrefLangTagsEvent $event): void
       {

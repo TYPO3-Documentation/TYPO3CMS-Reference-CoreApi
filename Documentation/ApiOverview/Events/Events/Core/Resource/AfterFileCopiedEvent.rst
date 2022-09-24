@@ -13,6 +13,6 @@ The folder represents the "target folder".
 *Example*: Listeners can sign up for listing duplicates using this event.
 
 API
----
+===
 
 .. include:: /CodeSnippets/Events/Core/Resource/AfterFileCopiedEvent.rst.txt

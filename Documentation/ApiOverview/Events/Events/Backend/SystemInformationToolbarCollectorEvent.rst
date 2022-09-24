@@ -10,6 +10,6 @@ An event to enrich the system information toolbar in the TYPO3 Backend top toolb
 with various information.
 
 API
----
+===
 
 .. include:: /CodeSnippets/Events/Backend/SystemInformationToolbarCollectorEvent.rst.txt

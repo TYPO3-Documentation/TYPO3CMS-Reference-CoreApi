@@ -18,11 +18,6 @@ custom messages based on the status of the system:
 
 .. include:: /Images/ManualScreenshots/Backend/GenericBackendMessage.rst.txt
 
-API
-===
-
-.. include:: /CodeSnippets/Events/Backend/ModifyGenericBackendMessagesEvent.rst.txt
-
 Example
 =======
 
@@ -44,7 +39,7 @@ The corresponding event listener class:
    use TYPO3\CMS\Backend\Controller\Event\ModifyGenericBackendMessagesEvent;
    use TYPO3\CMS\Core\Messaging\FlashMessage;
 
-   class MyEventListener {
+   final class MyEventListener {
 
        public function __invoke(ModifyGenericBackendMessagesEvent $event): void
        {
@@ -52,3 +47,8 @@ The corresponding event listener class:
            $event->addMessage(new FlashMessage('My custom message'));
        }
    }
+
+API
+===
+
+.. include:: /CodeSnippets/Events/Backend/ModifyGenericBackendMessagesEvent.rst.txt

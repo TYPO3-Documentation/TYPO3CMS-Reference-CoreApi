@@ -16,12 +16,6 @@ property is set (either :php:`true` or :php:`false`), the defined settings is
 directly used, skipping any further event listener as well as any further
 evaluation.
 
-API
-===
-
-.. include:: /CodeSnippets/Events/Core/RecordAccessGrantedEvent.rst.txt
-
-
 Example
 =======
 
@@ -42,7 +36,7 @@ The corresponding event listener class:
 
    use TYPO3\CMS\Core\Domain\Access\RecordAccessGrantedEvent;
 
-   class MyEventListener {
+   final class MyEventListener {
 
        public function __invoke(RecordAccessGrantedEvent $event): void
        {
@@ -57,3 +51,8 @@ The corresponding event listener class:
            $event->updateRecord($record);
        }
    }
+
+API
+===
+
+.. include:: /CodeSnippets/Events/Core/RecordAccessGrantedEvent.rst.txt

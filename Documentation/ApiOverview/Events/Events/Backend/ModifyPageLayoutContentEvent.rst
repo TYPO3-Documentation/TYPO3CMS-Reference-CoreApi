@@ -6,6 +6,8 @@
 ModifyPageLayoutContentEvent
 =============================
 
+.. versionadded:: 12.0
+
 Event for modifying page module content.
 
 This event features the methods :php:`getRequest()`, :php:`getModuleTemplate()`
@@ -14,8 +16,6 @@ content.
 
 It is possible to add additional content, overwrite existing
 content or reorder the content.
-
-.. versionadded:: 12.0
 
 Example
 =======
@@ -39,7 +39,7 @@ The corresponding event listener class:
 
    use TYPO3\CMS\Backend\Controller\Event\ModifyPageLayoutContentEvent;
 
-   class MyEventListener {
+   final class MyEventListener {
 
        public function __invoke(ModifyPageLayoutContentEvent $event): void
        {

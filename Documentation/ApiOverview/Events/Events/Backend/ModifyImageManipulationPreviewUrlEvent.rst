@@ -26,12 +26,6 @@ url will be opened in a new window.
     The elements crop variants will always be appended to the preview url
     as json encoded string, using the `cropVariants` parameter.
 
-API
-===
-
-.. include:: /CodeSnippets/Events/Backend/ModifyImageManipulationPreviewUrlEvent.rst.txt
-
-
 Example
 =======
 
@@ -59,3 +53,8 @@ The corresponding event listener class:
            $event->setPreviewUrl('https://example.com/some/preview/url');
        }
    }
+
+API
+===
+
+.. include:: /CodeSnippets/Events/Backend/ModifyImageManipulationPreviewUrlEvent.rst.txt
