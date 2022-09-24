@@ -81,4 +81,4 @@ defined.
         -
             errorCode: 0
             errorHandler: Page
-            errorContentSource: 'https://typo3.org/404'
+            errorContentSource: 'https://example.org/page-not-found'
