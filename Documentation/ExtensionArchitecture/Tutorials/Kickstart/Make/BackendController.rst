@@ -18,12 +18,6 @@ to put the controller in.
 
             vendor/bin/typo3 make:backendcontroller
 
-    ..  group-tab:: DDEV, Composer
-
-        ..  code-block:: bash
-
-            ddev exec vendor/bin/typo3 make:backendcontroller
-
     ..  group-tab:: Legacy
 
         ..  code-block:: bash
