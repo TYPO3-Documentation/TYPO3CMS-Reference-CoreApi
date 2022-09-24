@@ -11,14 +11,14 @@ should be configured with a corresponding backend preview that shows an
 approximation of the element's appearance in the TYPO3 page module. The
 following sections describe how to achieve that.
 
-A :php:`PreviewRenderer` is used to facilitate (record) previews in TYPO3. This
+A preview renderer is used to facilitate (record) previews in TYPO3. This
 class is responsible for generating the preview and the wrapping.
 
 
 Writing a PreviewRenderer
 =========================
 
-A custom :php:`PreviewRenderer` must implement the interface
+A custom preview renderer must implement the interface
 :php:`\TYPO3\CMS\Backend\Preview\PreviewRendererInterface` which contains
 the following API methods:
 
@@ -31,7 +31,7 @@ the following API methods:
 Implementing these methods allows you to control the exact composition of the
 preview.
 
-This means assuming your :php:`PreviewRenderer` returns :html:`<h4>Header</h4>`
+This means assuming your preview renderer returns :html:`<h4>Header</h4>`
 from the header render method and :html:`<p>Body</p>` from the preview content
 rendering method and your wrapping method does
 :php:`return '<div>' . $previewHeader . $previewContent . '</div>';` then the
@@ -40,8 +40,8 @@ combined.
 
 Should you wish to reuse parts of the default preview rendering and only change,
 for example, the method that renders the preview body content, you can extend
-:php:`\TYPO3\CMS\Backend\Preview\StandardContentPreviewRenderer` in your own
-:php:`PreviewRenderer` class - and selectively override the methods from the API
+:php:`\TYPO3\CMS\Backend\Preview\StandardContentPreviewRenderer` in your custom
+preview renderer class - and selectively override the methods from the API
 displayed above.
 
 
