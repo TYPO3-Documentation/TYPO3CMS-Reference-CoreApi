@@ -14,6 +14,6 @@ Event after `$GLOBALS['TCA']` is built to allow to further manipulate the TCA.
    before this event is fired.
 
 API
----
+===
 
 .. include:: /CodeSnippets/Events/Core/AfterTcaCompilationEvent.rst.txt

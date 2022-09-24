@@ -1,5 +1,5 @@
 .. include:: /Includes.rst.txt
-
+.. index:: Events; AfterFileCommandProcessedEvent
 .. _AfterFileCommandProcessedEvent:
 
 ==============================
@@ -12,6 +12,9 @@ The :php:`AfterFileCommandProcessedEvent` can be used to perform additional task
 
 The `AfterFileCommandProcessedEvent` is fired in the :php:`ExtendedFileUtility`
 class.
+
+Example
+=======
 
 Registration of the event in the :file:`Services.yaml`:
 
@@ -28,7 +31,7 @@ The corresponding event listener class:
 
     use TYPO3\CMS\Core\Resource\Event\AfterFileCommandProcessedEvent;
 
-    class MyEventListener {
+    final class MyEventListener {
 
         public function __invoke(AfterFileCommandProcessedEvent $event): void
         {
@@ -38,6 +41,6 @@ The corresponding event listener class:
     }
 
 API
----
+===
 
 .. include:: /CodeSnippets/Events/Core/Resource/AfterFileCommandProcessedEvent.rst.txt

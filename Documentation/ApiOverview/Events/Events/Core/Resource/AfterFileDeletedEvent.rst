@@ -14,6 +14,6 @@ this event allows listener to also clean
 up their custom handling. This can also be used for versioning of files.
 
 API
----
+===
 
 .. include:: /CodeSnippets/Events/Core/Resource/AfterFileDeletedEvent.rst.txt

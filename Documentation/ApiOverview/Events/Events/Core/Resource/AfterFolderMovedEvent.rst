@@ -11,6 +11,6 @@ This event is fired after a folder was moved within the Resource Storage / Drive
 Custom references can be updated via listeners of this event.
 
 API
----
+===
 
 .. include:: /CodeSnippets/Events/Core/Resource/AfterFolderMovedEvent.rst.txt

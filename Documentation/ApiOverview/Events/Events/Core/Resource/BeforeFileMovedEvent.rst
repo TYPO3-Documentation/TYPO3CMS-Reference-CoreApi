@@ -11,6 +11,6 @@ This event is fired before a file is about to be moved within a Resource Storage
 The folder represents the "target folder".
 
 API
----
+===
 
 .. include:: /CodeSnippets/Events/Core/Resource/BeforeFileMovedEvent.rst.txt
