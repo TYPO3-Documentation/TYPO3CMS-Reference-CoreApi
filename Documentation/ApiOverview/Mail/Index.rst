@@ -405,7 +405,7 @@ Fluid:
 
 
 
-Or, if you prefer, don't concatenate the calls:
+Or, if you prefer, do not concatenate the calls:
 
 ..  code-block:: php
     :caption: EXT:site_package/Classes/Utility/MyMailUtility.php
