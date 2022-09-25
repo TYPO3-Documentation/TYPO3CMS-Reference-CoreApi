@@ -487,7 +487,8 @@ Add some inline media like images in an email:
 How to set and use a default sender
 ===================================
 
-It is possible to define a default email sender ("From:") in the *Install Tool*:
+It is possible to define a default email sender ("From:") in 
+:guilabel:`Admin Tools > Settings > Configure Installation-Wide Options`:
 
 ..  code-block:: php
     :caption: typo3conf/AdditionalConfiguration.php
