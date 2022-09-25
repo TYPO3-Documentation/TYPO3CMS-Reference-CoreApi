@@ -184,7 +184,7 @@ mbox
 
 ..  _mail-validators:
 
-validators
+Validators
 ----------
 
 ..  versionadded:: 11.0
