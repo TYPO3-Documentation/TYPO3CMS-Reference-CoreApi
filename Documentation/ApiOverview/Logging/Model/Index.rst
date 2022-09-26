@@ -37,7 +37,7 @@ The API to create a new instance of LogRecord is
 :code:`LogRecord` implements the :code:`ArrayAccess` interface so that the properties
 can be accessed like a native array, for example: :code:`$logRecord['requestId']`.
 It also implements a :code:`__toString()` method for your convenience,
-which returns the log records as a simplified string.
+which returns the log record as a simplified string.
 
 A :code:`LogRecord` can be processed using :ref:`LogProcessors <logging-processors>`
 or :ref:`LogWriters <logging-writers>`. :code:`LogProcessors` are meant to add values
