@@ -835,21 +835,6 @@ security.backend.enforceReferrer
 
 
 .. index::
-   TYPO3_CONF_VARS SYS; features yamlImportsFollowDeclarationOrder
-.. _typo3ConfVars_sys_features_yamlImportsFollowDeclarationOrder:
-
-yamlImportsFollowDeclarationOrder
----------------------------------
-
-.. confval:: $GLOBALS['TYPO3_CONF_VARS']['SYS']['features']['yamlImportsFollowDeclarationOrder']
-
-   :Path: $GLOBALS['TYPO3_CONF_VARS']['SYS']['features']
-   :type: bool
-   :Default: false
-
-   If on, the YAML imports are imported in the order they are defined in the importing YAML configuration.
-
-.. index::
    TYPO3_CONF_VARS SYS; availablePasswordHashAlgorithms
 .. _typo3ConfVars_sys_availablePasswordHashAlgorithms:
 
