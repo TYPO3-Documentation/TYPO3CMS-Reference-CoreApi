@@ -18,20 +18,6 @@ exception, which might have been set by the Core. Additionally, the event allows
 to modify the user access decision in an object-oriented way, using
 convenience methods.
 
-To modify the user access, the following methods are available:
-
--   :php:`allowUserAccess()`: Allows user access to the editing form
--   :php:`setLinkExplanation()`: Denies user access to the editing form
--   :php:`doesUserHaveAccess()`: Returns the current user access state
--   :php:`getAccessDeniedException()`: If Core's DataProvider previously denied
-    access, this returns the corresponding exception, :php:`null` otherwise
-
-The following additional methods can be used for further context:
-
--   :php:`getTableName()`: Returns the table name of the record in question
--   :php:`getCommand()`: Returns the requested command, either `new` or `edit`
--   :php:`getDatabaseRow()`: Returns the record's database row
-
 In case any listener to the new event denies user access, while it was initially
 allowed by Core, the :php:`TYPO3\CMS\Backend\Form\Exception\AccessDeniedListenerException`
 will be thrown.

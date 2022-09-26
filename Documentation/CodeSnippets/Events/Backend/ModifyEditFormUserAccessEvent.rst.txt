@@ -9,26 +9,41 @@
    
    .. php:method:: allowUserAccess()
    
+      Allows user access to the editing form
+      
       
    .. php:method:: denyUserAccess()
    
+      Denies user access to the editing form
+      
       
    .. php:method:: doesUserHaveAccess()
    
+      Returns the current user access state
+      
       :returntype: bool
       
    .. php:method:: getAccessDeniedException()
    
+      If Core's DataProvider previously denied access, this returns the corresponding
+      exception, `null` otherwise
+      
       :returntype: TYPO3\\CMS\\Backend\\Form\\Exception\\AccessDeniedException
       
    .. php:method:: getTableName()
    
+      Returns the table name of the record in question
+      
       :returntype: string
       
    .. php:method:: getCommand()
    
+      Returns the requested command, either `new` or `edit`
+      
       :returntype: string
       
    .. php:method:: getDatabaseRow()
    
+      Returns the record's database row
+      
       :returntype: array
