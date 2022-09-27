@@ -152,4 +152,10 @@ return [
         "targetFileName" => "Events/Backend/AfterPageTreeItemsPreparedEvent.rst.txt",
         "withCode" => false
     ],
+    [
+        "action" => "createPhpClassDocs",
+        "class" => \TYPO3\CMS\Backend\Form\Event\ModifyEditFormUserAccessEvent::class,
+        "targetFileName" => "Events/Backend/ModifyEditFormUserAccessEvent.rst.txt",
+        "withCode" => false
+    ],
 ];
