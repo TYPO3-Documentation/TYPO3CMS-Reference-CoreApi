@@ -1,51 +1,55 @@
-.. include:: /Includes.rst.txt
-.. index:: Events; ModifyRecordListTableActionsEvent
-.. _ModifyRecordListTableActionsEvent:
+..  include:: /Includes.rst.txt
+..  index:: Events; ModifyRecordListTableActionsEvent
+..  _ModifyRecordListTableActionsEvent:
 
 
-========================================
+=================================
 ModifyRecordListTableActionsEvent
-========================================
+=================================
 
-.. versionadded:: 11.4
+..  versionadded:: 11.4
+
+..  versionchanged:: 12.0
+    Due to the integration of EXT:recordlist into EXT:backend the namespace of
+    the event changed from
+    :php:`TYPO3\CMS\Recordlist\Event\ModifyRecordListTableActionsEvent`
+    to
+    :php:`TYPO3\CMS\Backend\RecordList\Event\ModifyRecordListTableActionsEvent`.
+    For TYPO3 v12 the moved class is available as an alias under the old
+    namespace to allow extensions to be compatible with TYPO3 v11 and v12.
 
 An event to modify the multi record selection actions (for example
 :guilabel:`edit`, :guilabel:`copy to clipboard`) for a table in the record list.
 
-API
----
-
-.. include:: /CodeSnippets/Events/RecordList/ModifyRecordListTableActionsEvent.rst.txt
-
-.. _ModifyRecordListTableActionsEvent-usage:
+..  _ModifyRecordListTableActionsEvent-usage:
 
 Usage
 =====
 
 An example registration of the events in your extensions' :file:`Services.yaml`:
 
-.. code-block:: yaml
+..  code-block:: yaml
 
-  MyVendor\MyPackage\RecordList\MyEventListener:
-    tags:
-      - name: event.listener
-        identifier: 'my-package/recordlist/my-event-listener'
-        method: 'modifyRecordActions'
-      - name: event.listener
-        identifier: 'my-package/recordlist/my-event-listener'
-        method: 'modifyHeaderColumns'
-      - name: event.listener
-        identifier: 'my-package/recordlist/my-event-listener'
-        method: 'modifyTableActions'
+    MyVendor\MyPackage\RecordList\MyEventListener:
+        tags:
+            - name: event.listener
+              identifier: 'my-package/recordlist/my-event-listener'
+              method: 'modifyRecordActions'
+            - name: event.listener
+              identifier: 'my-package/recordlist/my-event-listener'
+              method: 'modifyHeaderColumns'
+            - name: event.listener
+              identifier: 'my-package/recordlist/my-event-listener'
+              method: 'modifyTableActions'
 
 The corresponding event listener class:
 
-.. code-block:: php
+..  code-block:: php
 
     use Psr\Log\LoggerInterface;
-    use TYPO3\CMS\Recordlist\Event\ModifyRecordListHeaderColumnsEvent;
-    use TYPO3\CMS\Recordlist\Event\ModifyRecordListRecordActionsEvent;
-    use TYPO3\CMS\Recordlist\Event\ModifyRecordListTableActionsEvent;
+    use TYPO3\CMS\Backend\RecordList\Event\ModifyRecordListHeaderColumnsEvent;
+    use TYPO3\CMS\Backend\RecordList\Event\ModifyRecordListRecordActionsEvent;
+    use TYPO3\CMS\Backend\RecordList\Event\ModifyRecordListTableActionsEvent;
 
     final class MyEventListener {
 
@@ -102,5 +106,9 @@ The corresponding event listener class:
             // Set a custom label for the case, no actions are available for the user
             $event->setNoActionLabel('No actions available due to missing permissions.');
         }
-
     }
+
+API
+===
+
+.. include:: /CodeSnippets/Events/Backend/ModifyRecordListTableActionsEvent.rst.txt
