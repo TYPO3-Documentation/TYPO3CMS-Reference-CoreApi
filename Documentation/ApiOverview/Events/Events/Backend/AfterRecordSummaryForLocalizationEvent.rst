@@ -40,17 +40,17 @@ The corresponding event listener class:
             // Get current records
             $records = $event->getRecords();
 
-            // remove or add $records available for translation
+            // ... do something with $records
 
-            // set new records
+            // Set new records
             $event->setRecords($records);
 
             // Get current columns
             $columns = $event->getColumns();
 
-            // remove or add $columns available for translation
+            // ... do something with $columns
 
-            // set new columns
+            // Set new columns
             $event->setColumns($columns);
         }
     }
