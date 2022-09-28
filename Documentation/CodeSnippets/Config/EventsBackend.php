@@ -158,4 +158,10 @@ return [
         "targetFileName" => "Events/Backend/ModifyEditFormUserAccessEvent.rst.txt",
         "withCode" => false
     ],
+    [
+        "action" => "createPhpClassDocs",
+        "class" => \TYPO3\CMS\Backend\Controller\Event\AfterRecordSummaryForLocalizationEvent::class,
+        "targetFileName" => "Events/Backend/AfterRecordSummaryForLocalizationEvent.rst.txt",
+        "withCode" => false
+    ],
 ];
