@@ -9,9 +9,18 @@ The PageLinkHandler
 
 The PageLinkHandler enables editors to link to pages and content.
 
-It is implemented in class :php:`\TYPO3\CMS\Recordlist\LinkHandler\PageLinkHandler`
-of the system extension :file:`recordlist`. The class is marked as
+It is implemented in class :php:`\TYPO3\CMS\Backend\LinkHandler\PageLinkHandler`
+of the system extension :file:`backend`. The class is marked as
 :php:`@internal` and contains neither hooks nor events.
+
+..  versionchanged:: 12.0
+    Due to the integration of EXT:recordlist into EXT:backend the namespace of
+    LinkHandlers has changed from
+    :php:`TYPO3\CMS\Recordlist\LinkHandler`
+    to
+    :php:`TYPO3\CMS\Backend\LinkHandler`.
+    For TYPO3 v12 the moved classes are available as an alias under the old
+    namespace to allow extensions to be compatible with TYPO3 v11 and v12.
 
 The PageLinkHandler is preconfigured in the page TSconfig as:
 
@@ -20,8 +29,8 @@ The PageLinkHandler is preconfigured in the page TSconfig as:
 
    TCEMAIN.linkHandler {
       page {
-         handler = TYPO3\\CMS\\Recordlist\\LinkHandler\\PageLinkHandler
-         label = LLL:EXT:recordlist/Resources/Private/Language/locallang_browse_links.xlf:page
+         handler = TYPO3\CMS\Backend\LinkHandler\PageLinkHandler
+         label = LLL:EXT:backend/Resources/Private/Language/locallang_browse_links.xlf:page
       }
    }
 
