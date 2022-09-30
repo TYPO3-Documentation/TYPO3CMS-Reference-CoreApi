@@ -300,14 +300,14 @@ our tests in:
     lolli@apoc /var/www/local/git/enetcache/.Build $ ls Web/
     index.php  typo3  typo3conf
     lolli@apoc /var/www/local/git/enetcache/.Build $ ls Web/typo3/sysext/
-    backend  Core  Extbase  fluid  frontend  recordlist
+    backend  Core  Extbase  fluid  frontend
     lolli@apoc /var/www/local/git/enetcache/.Build $ ls -l Web/typo3conf/ext/
     total 0
     lrwxrwxrwx 1 lolli www-data 29 Nov  5 14:19 enetcache -> /var/www/local/git/enetcache/
 
 The package `typo3/testing-framework` that we added as `require-dev` dependency has some basic Core
 extensions set as dependency, we end up with the Core extensions `backend`, `core`, `extbase`,
-`fluid`, `frontend` and `recordlist` in `.Build/Web/typo3/sysext`. Additionally, the
+`fluid` and `frontend` in `.Build/Web/typo3/sysext`. Additionally, the
 :php:`ExtensionTestEnvironment` hook linked our git root checkout as extension into `.Build/Web/typo3conf/ext`.
 
 We now have a full TYPO3 instance. It is not installed, there is no database, but we are now at the point
@@ -755,7 +755,7 @@ have some database fixtures included to easily log in to the backend. Additional
     Directory Format: record_5be078fb43f86_{filename}_{testname} ----
 
       Database Connection: {"Connections":{"Default":{"driver":"mysqli","dbname":"func_test_at","host":"mariadb10","user":"root","password":"funcp"}}}
-      Loaded Extensions: ["core","extbase","fluid","backend","about","install","frontend","recordlist","typo3conf/ext/styleguide"]
+      Loaded Extensions: ["core","extbase","fluid","backend","about","install","frontend","typo3conf/ext/styleguide"]
     ModuleCest: Styleguide in topbar help can be called
 
     ...
