@@ -34,14 +34,23 @@ LinkBrowser tabs are registered in page TSconfig like this:
    :caption: EXT:some_extension/Configuration/page.tsconfig
 
    TCEMAIN.linkHandler.<tabIdentifier> {
-       handler = TYPO3\CMS\Recordlist\LinkHandler\FileLinkHandler
-       label = LLL:EXT:recordlist/Resources/Private/Language/locallang_browse_links.xlf:file
+       handler = TYPO3\CMS\Backend\LinkHandler\FileLinkHandler
+       label = LLL:EXT:backend/Resources/Private/Language/locallang_browse_links.xlf:file
        displayAfter = page
        scanAfter = page
        configuration {
            customConfig = passed to the handler
        }
    }
+
+..  versionchanged:: 12.0
+    Due to the integration of EXT:recordlist into EXT:backend the namespace of
+    LinkHandlers has changed from
+    :php:`TYPO3\CMS\Recordlist\LinkHandler`
+    to
+    :php:`TYPO3\CMS\Backend\LinkHandler`.
+    For TYPO3 v12 the moved classes are available as an alias under the old
+    namespace to allow extensions to be compatible with TYPO3 v11 and v12.
 
 The options `displayBefore` and `displayAfter` define the order how the various tabs are displayed in the LinkBrowser.
 
@@ -61,7 +70,7 @@ Handler implementation
 .. todo: We also describe a custom Link Handler in Documentation/ApiOverview/LinkBrowser/Linkhandler/CustomLinkHandlers.rst
    unify them?
 
-A LinkHandler has to implement the :php:`\TYPO3\CMS\Recordlist\LinkHandler\LinkHandlerInterface` interface,
+A LinkHandler has to implement the :php:`\TYPO3\CMS\Backend\LinkHandler\LinkHandlerInterface` interface,
 which defines all necessary methods for communication with the LinkBrowser.
 The function actually doing the output of the link is function :php:`formatCurrentUrl()`:
 
@@ -89,7 +98,7 @@ It can utilize a Fluid template:
 
    public function render(ServerRequestInterface $request): string
    {
-       GeneralUtility::makeInstance(PageRenderer::class)->loadRequireJsModule('TYPO3/CMS/Recordlist/TelephoneLinkHandler');
+       GeneralUtility::makeInstance(PageRenderer::class)->loadRequireJsModule('TYPO3/CMS/Backend/TelephoneLinkHandler');
 
        $this->view->assign('telephone', !empty($this->linkParts) ? $this->linkParts['url']['telephone'] : '');
 
@@ -104,7 +113,7 @@ A minimal implementation of such a module looks like this:
 .. code-block:: javascript
    :caption: EXT:some_extension/Resources/Public/JavaScript/LinkBrowser.js
 
-   define(['jquery', 'TYPO3/CMS/Recordlist/LinkBrowser'], function($, LinkBrowser) {
+   define(['jquery', 'TYPO3/CMS/Backend/LinkBrowser'], function($, LinkBrowser) {
        var myModule = {};
 
        myModule.createMyLink = function() {

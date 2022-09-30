@@ -7,16 +7,21 @@
 The RecordLinkHandler
 =====================
 
-.. versionadded:: 8.6
-    The RecordLinkHandler has been included in the Core with 8.6.
-    Before, it had only been available as the third party extension "linkhandler".
-
 The RecordLinkHandler enables editors to link to single records, for example a
 single news record.
 
-It is implemented in class :php:`\TYPO3\CMS\Recordlist\LinkHandler\RecordLinkHandler`
-of the system extension :file:`recordlist`. The class is marked as
+It is implemented in class :php:`\TYPO3\CMS\Backend\LinkHandler\RecordLinkHandler`
+of the system extension :file:`backend`. The class is marked as
 :php:`@internal` and contains neither hooks nor events.
+
+..  versionchanged:: 12.0
+    Due to the integration of EXT:recordlist into EXT:backend the namespace of
+    LinkHandlers has changed from
+    :php:`TYPO3\CMS\Recordlist\LinkHandler`
+    to
+    :php:`TYPO3\CMS\Backend\LinkHandler`.
+    For TYPO3 v12 the moved classes are available as an alias under the old
+    namespace to allow extensions to be compatible with TYPO3 v11 and v12.
 
 In order to use the RecordLinkHandler it can be configured as following:
 
@@ -28,7 +33,7 @@ In order to use the RecordLinkHandler it can be configured as following:
    .. code-block:: typoscript
 
       TCEMAIN.linkHandler.anIdentifier {
-          handler = TYPO3\CMS\Recordlist\LinkHandler\RecordLinkHandler
+          handler = TYPO3\CMS\Backend\LinkHandler\RecordLinkHandler
           label = LLL:EXT:extension/Resources/Private/Language/locallang.xlf:link.customTab
           configuration {
               table = tx_example_domain_model_item
@@ -76,7 +81,7 @@ The minimal page TSconfig configuration is:
    :caption: EXT:some_extension/Configuration/page.tsconfig
 
    TCEMAIN.linkHandler.anIdentifier {
-       handler = TYPO3\CMS\Recordlist\LinkHandler\RecordLinkHandler
+       handler = TYPO3\CMS\Backend\LinkHandler\RecordLinkHandler
        label = LLL:EXT:extension/Resources/Private/Language/locallang.xlf:link.customTab
        configuration {
            table = tx_example_domain_model_item
@@ -113,7 +118,7 @@ from the defined storage page:
    :caption: EXT:some_extension/Configuration/page.tsconfig
 
    TCEMAIN.linkHandler.news {
-       handler = TYPO3\CMS\Recordlist\LinkHandler\RecordLinkHandler
+       handler = TYPO3\CMS\Backend\LinkHandler\RecordLinkHandler
        label = News
        configuration {
            table = tx_news_domain_model_news
@@ -132,7 +137,7 @@ This configuration shows a reduced page tree starting at page with uid 42:
    :caption: EXT:some_extension/Configuration/page.tsconfig
 
    TCEMAIN.linkHandler.bookreports {
-       handler = TYPO3\CMS\Recordlist\LinkHandler\RecordLinkHandler
+       handler = TYPO3\CMS\Backend\LinkHandler\RecordLinkHandler
        label = Book Reports
        configuration {
            table = tx_news_domain_model_news

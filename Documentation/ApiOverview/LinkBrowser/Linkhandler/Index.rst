@@ -8,8 +8,17 @@ The LinkHandler API
 ===================
 
 The LinkHandler API currently consists of 7 LinkHandler classes and the
-:php:`TYPO3\CMS\Recordlist\LinkHandler\LinkHandlerInterface`. The
+:php:`TYPO3\CMS\Backend\LinkHandler\LinkHandlerInterface`. The
 LinkHandlerInterface can be implemented to create custom LinkHandlers.
+
+..  versionchanged:: 12.0
+    Due to the integration of EXT:recordlist into EXT:backend the namespace of
+    LinkHandlers has changed from
+    :php:`TYPO3\CMS\Recordlist\LinkHandler`
+    to
+    :php:`TYPO3\CMS\Backend\LinkHandler`.
+    For TYPO3 v12 the moved classes are available as an alias under the old
+    namespace to allow extensions to be compatible with TYPO3 v11 and v12.
 
 Most LinkHandlers cannot receive additional configuration, they are marked as
 :php:`@internal` and contain neither hooks nor events. They are therefore
@@ -28,7 +37,7 @@ Current LinkHandlers:
 .. note::
 
    In the system extension :file:`core` there are also classes ending on
-   "LinkHandler". However those implement the :php:`interface LinkHandlingInterface`
+   "LinkHandler". However those implement the interface :php:`LinkHandlingInterface`
    and are part of the LinkHandling API, not the LinkHandler API.
 
 The following LinkHandlers are of interest:
@@ -77,7 +86,7 @@ The minimal PageTSconfig Configuration is:
    :caption: EXT:some_extension/Configuration/page.tsconfig
 
    TCEMAIN.linkHandler.anIdentifier {
-       handler = TYPO3\CMS\Recordlist\LinkHandler\RecordLinkHandler
+       handler = TYPO3\CMS\Backend\LinkHandler\RecordLinkHandler
        label = LLL:EXT:extension/Resources/Private/Language/locallang.xlf:link.customTab
        configuration {
            table = tx_example_domain_model_item
@@ -113,7 +122,7 @@ from the defined storage page:
    :caption: EXT:some_extension/Configuration/page.tsconfig
 
    TCEMAIN.linkHandler.news {
-       handler = TYPO3\CMS\Recordlist\LinkHandler\RecordLinkHandler
+       handler = TYPO3\CMS\Backend\LinkHandler\RecordLinkHandler
        label = News
        configuration {
            table = tx_news_domain_model_news
@@ -132,7 +141,7 @@ This configuration shows a reduced page tree starting at page with uid 42:
    :caption: EXT:some_extension/Configuration/page.tsconfig
 
    TCEMAIN.linkHandler.bookreports {
-       handler = TYPO3\CMS\Recordlist\LinkHandler\RecordLinkHandler
+       handler = TYPO3\CMS\Backend\LinkHandler\RecordLinkHandler
        label = Book Reports
        configuration {
            table = tx_news_domain_model_news
@@ -142,8 +151,8 @@ This configuration shows a reduced page tree starting at page with uid 42:
        }
    }
 
-The PageTSconfig of the LinkHandler is being used in sysext `recordlist`
-in class :php:`\TYPO3\CMS\Recordlist\LinkHandler\RecordLinkHandler`
+The page TSconfig of the LinkHandler is being used in sysext `backend`
+in class :php:`\TYPO3\CMS\Backend\LinkHandler\RecordLinkHandler`
 which does not contain Hooks.
 
 Enable page id field

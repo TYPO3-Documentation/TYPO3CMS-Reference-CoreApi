@@ -17,7 +17,6 @@
         include('Config/EventsInfo.php'),
         include('Config/EventsInstall.php'),
         include('Config/EventsLinkvalidator.php'),
-        include('Config/EventsRecordlist.php'),
         include('Config/EventsRedirects.php'),
         include('Config/EventsSeo.php'),
         include('Config/EventsSetup.php'),

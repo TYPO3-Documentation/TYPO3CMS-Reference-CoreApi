@@ -160,6 +160,42 @@ return [
     ],
     [
         "action" => "createPhpClassDocs",
+        "class" => \TYPO3\CMS\Backend\Controller\Event\RenderAdditionalContentToRecordListEvent::class,
+        "targetFileName" => "Events/Backend/RenderAdditionalContentToRecordListEvent.rst.txt",
+        "withCode" => false
+    ],
+    [
+        "action" => "createPhpClassDocs",
+        "class" => \TYPO3\CMS\Backend\RecordList\Event\ModifyRecordListHeaderColumnsEvent::class,
+        "targetFileName" => "Events/Backend/ModifyRecordListHeaderColumnsEvent.rst.txt",
+        "withCode" => false
+    ],
+    [
+        "action" => "createPhpClassDocs",
+        "class" => \TYPO3\CMS\Backend\RecordList\Event\ModifyRecordListRecordActionsEvent::class,
+        "targetFileName" => "Events/Backend/ModifyRecordListRecordActionsEvent.rst.txt",
+        "withCode" => false
+    ],
+    [
+        "action" => "createPhpClassDocs",
+        "class" => \TYPO3\CMS\Backend\RecordList\Event\ModifyRecordListTableActionsEvent::class,
+        "targetFileName" => "Events/Backend/ModifyRecordListTableActionsEvent.rst.txt",
+        "withCode" => false
+    ],
+    [
+        "action" => "createPhpClassDocs",
+        "class" => TYPO3\CMS\Backend\Controller\Event\ModifyLinkHandlersEvent::class,
+        "targetFileName" => "Events/Backend/ModifyLinkHandlersEvent.rst.txt",
+        "withCode" => false
+    ],
+    [
+        "action" => "createPhpClassDocs",
+        "class" => TYPO3\CMS\Backend\Controller\Event\ModifyAllowedItemsEvent::class,
+        "targetFileName" => "Events/Backend/ModifyAllowedItemsEvent.rst.txt",
+        "withCode" => false
+    ],
+    [
+        "action" => "createPhpClassDocs",
         "class" => \TYPO3\CMS\Backend\Controller\Event\AfterRecordSummaryForLocalizationEvent::class,
         "targetFileName" => "Events/Backend/AfterRecordSummaryForLocalizationEvent.rst.txt",
         "withCode" => false
