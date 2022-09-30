@@ -53,14 +53,23 @@ to make use of the loader in your extensions:
 
 Configuration files can make use of import functionality to reference to the contents of different files.
 
-Examples:
+Example:
 
-.. code-block:: yaml
+..  code-block:: yaml
 
-   imports:
-     - { resource: "EXT:rte_ckeditor/Configuration/RTE/Processing.yaml" }
-     - { resource: "misc/my_options.yaml" }
-     - { resource: "../path/to/something/within/the/project-folder/generic.yaml" }
+    imports:
+        - { resource: "EXT:rte_ckeditor/Configuration/RTE/Processing.yaml" }
+        - { resource: "misc/my_options.yaml" }
+        - { resource: "../path/to/something/within/the/project-folder/generic.yaml" }
+
+..  versionchanged:: 12.0
+    In TYPO3 v10.4.14 the feature flag :php:`yamlImportsFollowDeclarationOrder`
+    was introduced to enable natural order of YAML imports. For existing
+    installations it was set to :php:`false` (resources are imported in reverse
+    order), for new installations to :php:`true` (resources are imported in
+    declared order). In TYPO3 v12.0 the feature flag was removed and the
+    resources are now imported in the exact same order as they are configured in
+    the importing file.
 
 
 
