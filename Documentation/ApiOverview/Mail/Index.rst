@@ -40,7 +40,8 @@ Format
 ------
 
 :php:`$GLOBALS['TYPO3_CONF_VARS']['MAIL']['format']` can be `both`, `plain` or
-`html`. This option can be overridden by extension authors in their use cases.
+`html`. This option can be overridden in the project's
+:file:`LocalConfiguration.php` or :file:`AdditionalConfiguration.php` files.
 
 ..  _mail-configuration-fluid:
 
@@ -372,19 +373,23 @@ Fluid:
 ..  code-block:: php
     :caption: EXT:site_package/Classes/Utility/MyMailUtility.php
 
+    use Symfony\Component\Mime\Address;
+    use TYPO3\CMS\Core\Mail\MailMessage;
+    use TYPO3\CMS\Core\Utility\GeneralUtility;
+
     // Create the message
-    $mail = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\TYPO3\CMS\Core\Mail\MailMessage::class);
+    $mail = GeneralUtility::makeInstance(MailMessage::class);
 
     // Prepare and send the message
     $mail
         // Defining the "From" email address and name as an object
         // (email clients will display the name)
-        ->from(new \Symfony\Component\Mime\Address('john.doe@example.org', 'John Doe'))
+        ->from(new Address('john.doe@example.org', 'John Doe'))
 
         // Set the "To" addresses
         ->to(
-            new \Symfony\Component\Mime\Address('receiver@example.com', 'Max Mustermann'),
-            new \Symfony\Component\Mime\Address('other@example.net')
+            new Address('receiver@example.com', 'Max Mustermann'),
+            new Address('other@example.net')
         )
 
         // Give the message a subject
@@ -487,7 +492,7 @@ Add some inline media like images in an email:
 How to set and use a default sender
 ===================================
 
-It is possible to define a default email sender ("From:") in 
+It is possible to define a default email sender ("From:") in
 :guilabel:`Admin Tools > Settings > Configure Installation-Wide Options`:
 
 ..  code-block:: php
@@ -501,9 +506,9 @@ This is how you can use these defaults:
 ..  code-block:: php
     :caption: EXT:site_package/Classes/Utility/MyMailUtility.php
 
+    use TYPO3\CMS\Core\Mail\MailMessage;
     use TYPO3\CMS\Core\Utility\GeneralUtility;
     use TYPO3\CMS\Core\Utility\MailUtility;
-    use TYPO3\CMS\Core\Mail\MailMessage;
 
     $from = MailUtility::getSystemFrom();
     $mail = GeneralUtility::makeInstance(MailMessage::class);
