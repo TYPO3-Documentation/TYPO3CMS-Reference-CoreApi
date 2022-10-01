@@ -106,17 +106,17 @@ Steps to perform (extension developer)
     If you are using a content element instead of a plugin, the example
     looks like this:
 
-    .. code-block:: php
-    :caption: EXT:my_extension/Configuration/TCA/Overrides/tt_content.php
+    ..  code-block:: php
+        :caption: EXT:my_extension/Configuration/TCA/Overrides/tt_content.php
 
-    \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPiFlexFormValue(
-        // 'list_type' does not apply here
-        '*',
-        // FlexForm configuration schema file
-        'FILE:EXT:example/Configuration/FlexForms/Registration.xml',
-        // ctype
-        'accordion'
-    );
+        \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPiFlexFormValue(
+            // 'list_type' does not apply here
+            '*',
+            // FlexForm configuration schema file
+            'FILE:EXT:example/Configuration/FlexForms/Registration.xml',
+            // ctype
+            'accordion'
+        );
 
     Finally, according to "Configuration of the displayed order of fields in FormEngine
     and their tab alignment." the field containing the FlexForm still needs to be
