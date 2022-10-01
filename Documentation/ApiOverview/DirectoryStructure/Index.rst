@@ -8,120 +8,198 @@
 Directory structure
 ===================
 
-By default a TYPO3 installation consists of a structure of
-main directories within the web server document root. You will find
-this structure to be almost always like that. Depending on the installation
-variant you choose however, this may be slightly different. For instance,
-it is possible to have all PHP files except the entry points :file:`index.php`
-within the Composer-managed :file:`vendor/` directory, outside of the document
-root. This setup however did not fully settle yet, and is not documented
-here in detail. So, if you look at "casual" TYPO3 installations, you will
-almost always find the directory structure as outlined below.
+The structure below describes the directory structure in a typical
+Composer-base TYPO3 installation. For the structure in a legacy installation
+see :ref:`Legacy installations: Directory structure <legacy-directory-structure>`.
 
 Also see :ref:`Environment` for further information, especially how to retrieve
 the paths within PHP code.
 
-..  t3-field-list-table::
-    :header-rows: 1
+.. _directory-project:
 
-    -   :Directory,20: Directory
-        :Description,80: Description
+Files on project level
+======================
 
-    -   :Directory: :file:`_assets/`
-        :Description:
-            This directory includes symlinks to resources of extensions, as consequence
-            of this and further structure changes the folder :file:`typo3conf/ext/` is
-            not created or used anymore.
-            So all files like CSS, JavaScript, Icons, Fonts, Images, etc. of extensions
-            are not linked anymore directly to the extension folders but to the directory
-            :file:`_assets/`.
+On the top most level, the project level, you can find the files
+:file:`composer.json` which contains requirements for the TYPO3 installation
+and the :file:`composer.lock` which contains information about the concretely
+installed versions of each package.
 
-            .. note::
-                This directory :file:`_assets/` and the related changes depend on the
-                composer-plugin `typo3/cms-composer-installers` in version 4+.
-                Previous versions of `typo3/cms-composer-installers` used the classical
-                directory structure with :file:`typo3conf/ext/` for extensions.
+.. _directory-config:
 
-                The composer-plugin `typo3/cms-composer-installers` in version 4+ was created
-                for TYPO3 Version 12 and backported for default but **optional usage**
-                in TYPO3 Version 11. Therefore the version has to be explicitely set (decreased)
-                if the classical directory structure shall be used:
+:file:`config`
+==============
 
-                .. code-block:: none
+TYPO3 configuration directory. This directory contains installation wide
+configuration.
 
-                     "typo3/cms-composer-installers": "^3.1",
+.. _directory-config-sites:
 
-    -   :Directory: :file:`fileadmin/`
-        :Description:
-            This is a directory in which editors store files. Typically images,
-            PDFs or video files appear in this directory and/or its subdirectories.
+:file:`sites/`
+--------------
 
-            Note this is only the default editor's file storage. This directory
-            is handled via the :ref:`FAL API <fal>` internally, there may be
-            further storage locations configured outside of :file:`fileadmin/`, even
-            pointing to different servers or using 3rd party digital asset management
-            systems.
+The folder :file:`config/sites` contains subfolders for each
+:ref:`site configuration <sitehandling>`.
 
-            .. note::
-                Note this directory is meant for editors! Integrators should
-                *not* locate frontend website layout related files in here: Storing
-                HTML templates, logos, Css and similar files used to build the website
-                layout in here is considered bad practice. Integrators should locate
-                and ship these files within a project specific extension.
+.. _directory-local_packages:
 
-    -   :Directory: :file:`typo3/`
-        :Description:
-            TYPO3 Backend directory. This directory contains most of the files
-            coming with the TYPO3 Core. The files are arranged logically in the
-            different system extensions in the :file:`sysext/` directory,
-            according to the application area of the particular file. For example,
-            the ":code:`frontend`" extension amongst other things contains the
-            "TypoScript library", the code for generating the Frontend website. In
-            each system extension the PHP files are located in the folder
-            :file:`Classes/`. See :ref:`extension files locations <extension-files-locations>`
-            for more information on how single extensions are structured.
+:file:`local_packages` (optional)
+=================================
 
-    -   :Directory: :ref:`Environment-config-path` either :file:`typo3conf/` or :file:`config/`
-        :Description:
-            TYPO3 configuration directory. This directory contains installation wide
-            configuration.
+Each web site which is run on TYPO3 **should** have a sitepackage, a special
+extension containing all templates, styles, images etc needed for the theme.
+It is usually stored locally and then symlinked into the :ref:`directory-vendor`
+folder. Many projects also need custom extensions that can be stored here.
 
-            The most important file within this folder is
-            :file:`LocalConfiguration.php`. This one contains local settings of the
-            main global PHP array :php:`$GLOBALS['TYPO3_CONF_VARS`], crucial settings
-            like database connect credentials are in here. The file is managed by the
-            Install Tool and the Extension Manager and the content should not be
-            managed manually since Extension Manager or Install Tool may override
-            manually changed settings again.
+The folder for local packages has to be defined in the :file:`composer.json`
+to be used:
 
-            The file :file:`LocalConfiguration.php` can be enriched by
-            :file:`AdditionalConfiguration.php` which is never touched by TYPO3
-            internal management tools. Be aware that having settings within
-            :file:`AdditionalConfiguration.php` may prevent the system from doing
-            automatic upgrades and should be used with care and only if you know what
-            you are doing.
+..  code-block:: json
+    :caption: composer.json
 
-    -   :Directory: :file:`typo3conf/ext/`
-        :Description:
-            Directory for local TYPO3 extensions. Each subdirectory contains one extension.
+    {
+        "name": "myvendor/my-project",
+        "repositories": {
+            "my_local_packages": {
+                "type": "path",
+                "url": "local_packages/*"
+            }
+        },
+        "...": "..."
+    }
 
-    -   :Directory: :ref:`Environment-labels-path` either :file:`typo3conf/l10n` or :file:`var/labels`
-        :Description:
-            Directory for extension localisations. Contains all downloaded translation
-            files.
 
-    -   :Directory: :file:`typo3temp/`
-        :Description:
-            Directory for temporary files. It contains subdirectories (see below)
-            for temporary files of extensions and TYPO3 components.
+.. _directory-public:
 
-    -   :Directory: :file:`typo3temp/assets/`
-        :Description:
-            Directory for temporary files that should be public available
-            (e.g. generated images).
+:file:`public/`
+===============
 
-    -   :Directory: :file:`typo3temp/var/`
-        :Description:
-            Directory for temporary files that contains private files (e.g. cached
-            Fluid templates) and should not be publicly available.
-            See also :ref:`Environment-configuring-paths` for a more detailed description.
+This folder contains all files that are publicly available. Your webservers
+web root **must** point here.
+
+This folder contains the main entry script :file:`index.php` created by composer
+and might contain publicly available files like a :file:`robots.txt` and
+files needed for the server configuration like a :file:`.htaccess`.
+
+If required this directory can be renamed by setting `extra > typo3/cms > web-dir`
+in the composer.json, for example to :file:`web`:
+
+..  code-block:: json
+    :caption: composer.json
+
+    {
+        "extra": {
+            "typo3/cms": {
+                "web-dir": "web"
+            }
+        },
+        "...": "..."
+    }
+
+.. _directory-public-_assets:
+
+:file:`_assets/`
+----------------
+
+This directory includes symlinks to resources of extensions, as consequence
+of this and further structure changes the folder :file:`typo3conf/ext/` is
+not created or used anymore.
+So all files like CSS, JavaScript, Icons, Fonts, Images, etc. of extensions
+are not linked anymore directly to the extension folders but to the directory
+:file:`_assets/`.
+
+..  note::
+    In TYPO3 v12 using the `typo3/cms-composer-installers` in version
+    5 is mandatory. Therefore the publicly available files provided by
+    extensions are now always stored in this directory.
+
+.. _directory-public-fileadmin:
+
+:file:`fileadmin/`
+------------------
+
+This is a directory in which editors store files. Typically images,
+PDFs or video files appear in this directory and/or its subdirectories.
+
+Note this is only the default editor's file storage. This directory
+is handled via the :ref:`FAL API <fal>` internally, there may be
+further storage locations configured outside of :file:`fileadmin/`, even
+pointing to different servers or using 3rd party digital asset management
+systems.
+
+.. note::
+    Note this directory is meant for editors! Integrators should
+    *not* locate frontend website layout related files in here: Storing
+    HTML templates, logos, Css and similar files used to build the website
+    layout in here is considered bad practice. Integrators should locate
+    and ship these files within a project specific extension.
+
+.. _directory-public-typo3:
+
+:file:`typo3/`
+--------------
+
+This directory contains the two PHP files for accessing the TYPO3
+backend (:file:`typo3/index.php`) and install tool (:file:`typo3/install.php`).
+
+..  versionchanged:: 12.0
+    Starting with TYPO3 v12 (or v11 using the `typo3/cms-composer-installers` v4)
+    the system extensions are not located in this directory anymore. They can now
+    be found in the :ref:`directory-vendor` folder.
+
+.. _directory-public-typo3conf:
+
+:file:`typo3conf/`
+------------------
+
+This directory contains the files :file:`LocalConfiguration.php` and
+:file:`AdditionalConfiguration.php`. See chapter
+:ref:`Configuration files <configuration-files>` for details.
+
+..  versionchanged:: 12.0
+    Starting with TYPO3 v12 (or v11 using the `typo3/cms-composer-installers` v4)
+    the installed extensions are not located in the directory
+    :file:`typo3conf/ext/` anymore. They can now be found in the :ref:`vendor`
+    folder.
+
+.. _directory-public-typo3temp:
+
+:file:`typo3temp`
+------------------
+
+Directory for temporary files. It contains subdirectories (see below)
+for temporary files of extensions and TYPO3 components.
+
+.. _directory-public-typo3temp-assets:
+
+:file:`assets`
+~~~~~~~~~~~~~~
+
+Directory :file:`typo3temp/assets/` contains temporary files that should be
+public available. This includes generated images and compressed css and
+JavaScript files.
+
+.. _directory-var:
+
+:file:`var/`
+============
+
+Directory for temporary files that contains private files (e.g. cached
+Fluid templates) and should not be publicly available.
+See also :ref:`Environment-configuring-paths` for a more detailed description.
+
+.. _directory-var-labels:
+
+:file:`labels/`
+---------------
+
+The directory :file:`var/labels/` for extension localisations. Contains all
+downloaded translation files.
+
+This path can be retrieved from the Environment API, see :ref:`Environment-labels-path`.
+
+..  toctree::
+    :titlesonly:
+    :hidden:
+
+    LegacyInstalations

@@ -23,7 +23,7 @@ folder:
 .. code-block:: none
    :caption: Common content of the configuration folder
 
-   $ tree public/typo3conf/ext/my_extension/Configuration/TypoScript/
+   $ tree vendor/myvendor/my-extension/Configuration/
    ├── Backend
    │    ├── AjaxRoutes.php
    │    └── Routes.php

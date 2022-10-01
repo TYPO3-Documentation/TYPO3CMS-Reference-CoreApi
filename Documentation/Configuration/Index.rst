@@ -22,20 +22,21 @@ these terms in this chapter.
 
 **Table of Contents**
 
-.. toctree::
-   :maxdepth: 1
+..  toctree::
+    :maxdepth: 1
 
-   ConfigurationOverview
-   Glossary
-   ConfigurationModule/Index
-   FeatureToggles
-   GlobalVariables
-   Typo3ConfVars/Index
-   Typo3Information
-   Tsconfig
-   TypoScriptSyntax/Index
-   UserSettingsConfiguration/Index
-   Yaml/Index
+    ConfigurationOverview
+    Glossary
+    ConfigurationFiles
+    ConfigurationModule/Index
+    FeatureToggles
+    GlobalVariables
+    Typo3ConfVars/Index
+    Typo3Information
+    Tsconfig
+    TypoScriptSyntax/Index
+    UserSettingsConfiguration/Index
+    Yaml/Index
 
 **More ...**
 

@@ -1,35 +1,39 @@
 .. include:: /Includes.rst.txt
 
-
 .. _extension-scope:
 
 ===============================
 System and Local Extensions
 ===============================
 
-The files for an extension are located in a folder named by the
-*extension key*. The location of this folder can be either inside
-`typo3/sysext/` or `typo3conf/ext/`.
+The files for an extension are located in a folder named vendor, followed by
+a folder with the composer name. The location of this folder is in the directory
+:ref:`vendor/ <directory-vendor>`.
 
-The extension *must* be programmed so that it does automatically
-detect where it is located and can work from both locations.
-
-
+In legacy installations they are found in `typo3/sysext/` or `typo3conf/ext/`.
 
 .. _extension-local:
 
 Local Extensions
 ================
 
-Local extensions are located in the :file:`typo3conf/ext/` directory.
+Local extensions have the composer type `typo3-cms-extension`:
 
-This is where to put extensions *which are local* for a particular
-TYPO3 installation. The :file:`typo3conf` directory is always local, containing
-local configuration (e.g. :file:`LocalConfiguration.php`), local modules etc.
-If you put an extension here it will be available for a single TYPO3
-installation only. This is a "per-database" way to install an
-extension.
+..  code-block:: json
+    :caption: EXT:my_extension/composer.json`
 
+    {
+        "name": "myvendor/my-extension",
+        "type": "typo3-cms-extension",
+        "...": "..."
+    }
+
+The extension will be installed in the directory :ref:`vendor <directory-vendor>`
+in a directory with the vendor and the composer name. In the above example that
+would be directory :file:`vendor/myvendor/my-extension`.
+
+In legacy installations local extensions are located in the
+:ref:`typo3conf/ext/ <legacy-directory-typo3conf-ext>` directory.
 
 .. _extension-global:
 .. _extension-system:
@@ -37,19 +41,19 @@ extension.
 System Extensions
 =================
 
-System extensions are located in the :file:`typo3/sysext/` directory.
+System extensions have the composer type `typo3-cms-framework`:
 
-This is system default extensions which cannot and should not be
-updated by the EM. They are distributed with TYPO3 Core  source code
-and generally understood to be a part of the Core system.
+..  code-block:: json
+    :caption: EXT:core/composer.json`
 
+    {
+        "name": "typo3/cms-core",
+        "type": "typo3-cms-framework",
+        "...": "..."
+    }
 
-.. _extension-loading-precedence:
+The extensions will be installed in the directory :ref:`vendor <directory-vendor>`.
+In the above example that would be directory :file:`vendor/typo3/cms-core`.
 
-Loading Precedence
-==================
-
-Local extensions take precedence which means that if an extension
-exists both in :file:`typo3conf/ext/` and :file:`typo3/sysext/` the one in :file:`typo3conf/ext/`
-is loaded. This means that extensions are loaded in the
-order of priority local-system.
+In legacy installations system extensions are located in the
+:ref:`typo3/sysext/ <legacy-directory-typo3>` directory.
