@@ -22,7 +22,7 @@ must be arrays.)
 
 ..  versionchanged:: 12.0
     The superfluous array key `TCEforms` was removed and is not evaluated
-    anymore. Its sole purpose was to wrap real TCA definitions. The tags `TCEforms` **should** 
+    anymore. Its sole purpose was to wrap real TCA definitions. The tags `TCEforms` **should**
     be removed upon dropping TYPO3 v11 support. In TYPO3 v12 there is an automatic migration
     that will be removed in a future version.
 
@@ -186,10 +186,14 @@ must be strings or integers.)
 Example
 =======
 
-Below is the structure for the plugin options of
-system extension `felogin`. It shows an example of relative complex
-data structure used in a FlexForm. More information about such usage
-of FlexForms can be found in the
-:ref:`relevant section of the TCA reference <t3tca:columns-flex>`.
+Below is the structure of a basic FlexForm from the example extension
+:t3ext:`styleguide`:
 
 ..  include:: /CodeSnippets/FlexForms/FeLogin.rst.txt
+
+For a more elaborate example, have a look at the plugin configuration of
+system extension `felogin` (`Login.xml <https://github.com/TYPO3/typo3/blob/main/typo3/sysext/felogin/Configuration/FlexForms/Login.xml>`__).
+It shows an example of relative complex data structure used in a FlexForm.
+
+More information about such usage of FlexForms can be found in the
+:ref:`relevant section of the TCA reference <t3tca:columns-flex>`.

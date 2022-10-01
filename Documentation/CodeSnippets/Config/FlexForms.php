@@ -5,9 +5,9 @@ use TYPO3\CMS\Extbase\DomainObject\AbstractEntity;
 return [
     [
         'action'=> 'createCodeSnippet',
-        'caption' => 'EXT:felogin/Configuration/FlexForms/Login.xml',
-        'sourceFile'=> 'typo3/sysext/felogin/Configuration/FlexForms/Login.xml',
-        'targetFileName' => 'FlexForms/FeLogin.rst.txt',
+        'caption'=> 'EXT:styleguide/Configuration/FlexForms/Simple.xml',
+        'sourceFile'=> 'typo3conf/ext/styleguide/Configuration/FlexForms/Simple.xml',
+        'targetFileName'=> 'FlexForms/Simple.rst.txt'
     ],
     [
         'action'=> 'createCodeSnippet',
