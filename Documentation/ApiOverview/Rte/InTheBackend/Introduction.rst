@@ -38,25 +38,21 @@ The short story is that it's enough to set the key :code:`enableRichtext` to tru
 
 This works for FlexForms too:
 
-.. code-block:: xml
-   :emphasize-lines: 9
+..  code-block:: xml
+    :emphasize-lines: 8
 
-   <poem>
-       <TCEforms>
-           <exclude>0</exclude>
-           <label>LLL:EXT:examples/locallang_db.xlf:tx_examples_haiku.poem</label>
-           <config>
-               <type>text</type>
-               <cols>40<cols>
-               <rows>6</rows>
-               <enableRichtext>true</enableRichtext>
-           </config>
-       <TCEforms>
-   </poem>
+    <poem>
+        <exclude>0</exclude>
+        <label>LLL:EXT:examples/locallang_db.xlf:tx_examples_haiku.poem</label>
+        <config>
+            <type>text</type>
+            <cols>40</cols>
+            <rows>6</rows>
+            <enableRichtext>true</enableRichtext>
+        </config>
+    </poem>
 
-.. important::
+..  hint::
 
-   Don't forget to enable Rich Text Editor in the back end,
-   in User Settings -> Edit and Advanced functions,
-   check "Enable Rich Text Editor", if not already done.
-
+    If the Rich-Text-Editor is not displayed, it might be turned off in
+    :guilabel:`User Settings > Edit and Advanced functions > Enable Rich Text Editor`
