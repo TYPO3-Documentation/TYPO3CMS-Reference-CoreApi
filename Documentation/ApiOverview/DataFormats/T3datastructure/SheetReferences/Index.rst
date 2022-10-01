@@ -12,7 +12,7 @@ choose to store one or more sheets externally in separate files. This
 is done by setting the value of the <[sheet ident]> tag to a relative
 file reference instead of being a definition of the <ROOT> element.
 
-..  todo: Does this still work? If so move example to examples extension
+..  todo: Move example to examples extension
 
 .. _t3ds-sheet-references-example:
 

@@ -29,9 +29,9 @@ to use input fields, select lists, show options conditionally and more.
 
 ..  versionchanged:: 12.0
     The superfluous array key `TCEforms` was removed and is not evaluated
-    anymore. Its sole purpose was to wrap real TCA definitions.
-
-    The tags `TCEforms` **should** be removed upon dropping TYPO3 v11 support.
+    anymore. Its sole purpose was to wrap real TCA definitions. The tags `TCEforms` **should** 
+    be removed upon dropping TYPO3 v11 support. In TYPO3 v12 there is an automatic migration
+    that will be removed in a future version.
 
 
 Example use cases
@@ -83,7 +83,7 @@ Steps to perform (extension developer)
     ..  versionadded:: 12.0
         The method :php:`ExtensionUtility::registerPlugin()` returns the plugin signature.
 
-    In when registering Extbase plugins you can use the return value of
+    When registering Extbase plugins you can use the return value of
     :php:`ExtensionUtility::registerPlugin()` to figure out the plugin
     signiture to use:
 
@@ -124,7 +124,7 @@ Steps to perform (extension developer)
     The following example shows line from the accordion element of the Bootstrap Package.
 
     .. code-block:: php
-        :caption: Add in file EXT:your_extension/Configuration/TCA/Overrides/tt_content.php
+        :caption: EXT:your_extension/Configuration/TCA/Overrides/tt_content.php
         :emphasize-lines: 11
 
         // Configure element type

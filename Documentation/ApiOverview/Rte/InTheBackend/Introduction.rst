@@ -54,5 +54,5 @@ This works for FlexForms too:
 
 ..  hint::
 
-    If the Rich-Text-Editor is not displayed, it might be turned off in
+    If the Rich Text Editor is not displayed, it might be turned off in
     :guilabel:`User Settings > Edit and Advanced functions > Enable Rich Text Editor`
