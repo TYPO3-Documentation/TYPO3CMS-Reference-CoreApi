@@ -3,6 +3,7 @@
 
 .. code-block:: php
    :caption: EXT:examples/Configuration/TCA/Overrides/tt_content_plugin_haiku_list.php
+   :emphasize-lines: 19,20,21,22
 
    <?php
    
