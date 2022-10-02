@@ -189,7 +189,7 @@ Example
 Below is the structure of a basic FlexForm from the example extension
 :t3ext:`styleguide`:
 
-..  include:: /CodeSnippets/FlexForms/FeLogin.rst.txt
+..  include:: /CodeSnippets/FlexForms/Simple.rst.txt
 
 For a more elaborate example, have a look at the plugin configuration of
 system extension `felogin` (`Login.xml <https://github.com/TYPO3/typo3/blob/main/typo3/sysext/felogin/Configuration/FlexForms/Login.xml>`__).
