@@ -85,7 +85,7 @@ Steps to perform (extension developer)
 
     When registering Extbase plugins you can use the return value of
     :php:`ExtensionUtility::registerPlugin()` to figure out the plugin
-    signiture to use:
+    signature to use:
 
     ..  code-block::
         :caption: EXT:blog_example/Configuration/TCA/Overrides/tt_content.php (Excerpt)
