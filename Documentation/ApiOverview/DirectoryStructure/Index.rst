@@ -15,6 +15,7 @@ see :ref:`Legacy installations: Directory structure <legacy-directory-structure>
 Also see :ref:`Environment` for further information, especially how to retrieve
 the paths within PHP code.
 
+
 .. _directory-project:
 
 Files on project level
@@ -25,29 +26,37 @@ On the top most level, the project level, you can find the files
 and the :file:`composer.lock` which contains information about the concretely
 installed versions of each package.
 
+Directories in a typical project
+================================
+
+.. contents::
+   :local:
+
 .. _directory-config:
 
-:file:`config`
-==============
+:file:`config/`
+---------------
 
 TYPO3 configuration directory. This directory contains installation-wide
 configuration.
 
 .. _directory-config-sites:
 
-:file:`sites/`
---------------
+:file:`config/sites/`
+~~~~~~~~~~~~~~~~~~~~~
 
 The folder :file:`config/sites` contains subfolders for each
 :ref:`site configuration <sitehandling>`.
 
 .. _directory-local_packages:
 
-:file:`local_packages` (optional)
-=================================
+:file:`local_packages/`
+-----------------------
 
-Each web site which is run on TYPO3 **should** have a sitepackage, a special
-extension containing all templates, styles, images etc needed for the theme.
+Each web site which is run on TYPO3 **should** have a sitepackage, an
+extension with a special purpose containing all templates, styles, images
+etc needed for the theme.
+
 It is usually stored locally and then symlinked into the :ref:`directory-vendor`
 folder. Many projects also need custom extensions that can be stored here.
 
@@ -72,7 +81,7 @@ to be used:
 .. _directory-public:
 
 :file:`public/`
-===============
+---------------
 
 This folder contains all files that are publicly available. Your webserver's
 web root **must** point here.
@@ -96,10 +105,15 @@ in the composer.json, for example to :file:`web`:
         "...": "..."
     }
 
+This directory contains the following subdirectories:
+
+.. contents::
+   :local:
+
 .. _directory-public-_assets:
 
-:file:`_assets/`
-----------------
+:file:`public/_assets/`
+~~~~~~~~~~~~~~~~~~~~~~~
 
 This directory includes symlinks to public resources of extensions, as consequence
 of this and further structure changes the foldesr :file:`typo3conf/ext/` and :file:`typo3/sysext/` are
@@ -115,8 +129,8 @@ are not linked anymore directly to the extension folders but to the directory
 
 .. _directory-public-fileadmin:
 
-:file:`fileadmin/`
-------------------
+:file:`public/fileadmin/`
+~~~~~~~~~~~~~~~~~~~~~~~~~
 
 This is a directory in which editors store files. Typically images,
 PDFs or video files appear in this directory and/or its subdirectories.
@@ -136,8 +150,8 @@ systems.
 
 .. _directory-public-typo3:
 
-:file:`typo3/`
---------------
+:file:`public/typo3/`
+~~~~~~~~~~~~~~~~~~~~~
 
 This directory contains the two PHP files for accessing the TYPO3
 backend (:file:`typo3/index.php`) and install tool (:file:`typo3/install.php`).
@@ -149,8 +163,8 @@ backend (:file:`typo3/index.php`) and install tool (:file:`typo3/install.php`).
 
 .. _directory-public-typo3conf:
 
-:file:`typo3conf/`
-------------------
+:file:`public/typo3conf/`
+~~~~~~~~~~~~~~~~~~~~~~~~~
 
 This directory contains the files :file:`LocalConfiguration.php` and
 :file:`AdditionalConfiguration.php`. See chapter
@@ -164,16 +178,16 @@ This directory contains the files :file:`LocalConfiguration.php` and
 
 .. _directory-public-typo3temp:
 
-:file:`typo3temp`
-------------------
+:file:`public/typo3temp/`
+~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Directory for temporary files. It contains subdirectories (see below)
 for temporary files of extensions and TYPO3 components.
 
 .. _directory-public-typo3temp-assets:
 
-:file:`assets`
-~~~~~~~~~~~~~~
+:file:`public/typo3temp/assets`
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Directory :file:`typo3temp/assets/` contains temporary files that should be
 public available. This includes generated images and compressed CSS and
@@ -182,7 +196,7 @@ JavaScript files.
 .. _directory-var:
 
 :file:`var/`
-============
+------------
 
 Directory for temporary files that contains private files (e.g.
 cache and logs files) and should not be publicly available.
@@ -190,25 +204,18 @@ See also :ref:`Environment-configuring-paths` for a more detailed description.
 
 .. _directory-var-labels:
 
-:file:`labels/`
----------------
+:file:`var/labels/`
+~~~~~~~~~~~~~~~~~~~
 
 The directory :file:`var/labels/` is for extension localisations. It contains all
 downloaded translation files.
 
 This path can be retrieved from the Environment API, see :ref:`Environment-labels-path`.
 
-..  toctree::
-    :titlesonly:
-    :hidden:
-
-    LegacyInstalations
-
-
 .. _directory-vendor:
 
 :file:`vendor/`
-===============
+---------------
 
 In this directory, which lies outside of the webroot, all extensions (system,
 third party and local) are installed as composer packages.
@@ -229,3 +236,9 @@ folder outside the web root, for example
 defined as path in the repository section of the :file:`project/composer.json`.
 Upon installing it, it will be symlinked into the folder
 :file:`vendor/myvendor/my-extension` by Composer.
+
+..  toctree::
+    :titlesonly:
+    :hidden:
+
+    LegacyInstallations

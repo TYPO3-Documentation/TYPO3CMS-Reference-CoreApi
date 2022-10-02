@@ -22,7 +22,7 @@ and TypoScript setup in a file called :file:`setup.typoscript`.
 .. code-block:: none
    :caption: TypoScript folder
 
-   $ tree vendor/myvendor/my-extension/Configuration/TypoScript/
+   $ tree local_packages/my-extension/Configuration/TypoScript/
    ├── constants.typoscript
    └── setup.typoscript
 
@@ -50,7 +50,7 @@ you should use the ending :file:`.typoscript` for these files.
 .. code-block:: none
    :caption: TypoScript folder, extended
 
-   $ tree vendor/myvendor/my-extension/Configuration/TypoScript/
+   $ tree local_packages/my-extension/Configuration/TypoScript/
    ├── Example1
    │    ├── constants.typoscript
    │    └── setup.typoscript

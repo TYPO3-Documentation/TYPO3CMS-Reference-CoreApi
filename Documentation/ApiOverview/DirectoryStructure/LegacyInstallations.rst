@@ -17,10 +17,17 @@ This folder contains the main entry script :file:`index.php` and might contain
 publicly available files like a :file:`robots.txt` and files needed for the
 server configuration like a :file:`.htaccess`.
 
+
+Directories in a typical project
+================================
+
+.. contents::
+   :local:
+
 .. _legacy-directory-fileadmin:
 
 :file:`fileadmin/`
-==================
+------------------
 
 This is a directory in which editors store files.
 It is used for the same files like
@@ -30,17 +37,19 @@ structure.
 .. _legacy-directory-typo3:
 
 :file:`typo3/`
-==============
-
+--------------
 
 This directory contains the two PHP files for accessing the TYPO3
 backend (:file:`typo3/index.php`) and install tool (:file:`typo3/install.php`).
 
-It also contains most of the files
-coming with the TYPO3 Core. The files are arranged logically in the
-different system extensions in the :file:`sysext/` directory,
-according to the application area of the particular file. For example,
-the ":code:`frontend`" extension amongst other things contains the
+
+.. _legacy-directory-typo3-sysext:
+
+:file:`typo3/sysext/`
+~~~~~~~~~~~~~~~~~~~~~
+
+All system extensions, supplied by the TYPO3 Core, are stored here.  For example,
+the `frontend` extension amongst other things contains the
 "TypoScript library", the code for generating the Frontend website. In
 each system extension the PHP files are located in the folder
 :file:`Classes/`. See :ref:`extension files locations <extension-files-locations>`
@@ -53,7 +62,7 @@ in the directory :ref:`vendor/ <directory-vendor>`.
 .. _legacy-directory-typo3conf:
 
 :file:`typo3conf/`
-==================
+------------------
 
 This directory contains the files :file:`LocalConfiguration.php` and
 :file:`AdditionalConfiguration.php`. See chapter
@@ -64,7 +73,7 @@ This path can be retrieved from the Environment API, see :ref:`Environment-confi
 .. _legacy-directory-typo3conf-ext:
 
 :file:`typo3conf/ext/`
-----------------------
+~~~~~~~~~~~~~~~~~~~~~~
 
 Directory for local TYPO3 extensions. Each subdirectory contains one extension.
 
@@ -74,7 +83,7 @@ in the directory :ref:`vendor/ <directory-vendor>`.
 .. _legacy-directory-typo3conf-l10n:
 
 :file:`typo3conf/l10n`
-----------------------
+~~~~~~~~~~~~~~~~~~~~~~
 
 Directory for extension localisations. Contains all downloaded translation
 files.
@@ -88,7 +97,7 @@ in the directory :ref:`var/labels/ <directory-var-labels>`.
 .. _legacy-directory-typo3temp:
 
 :file:`typo3temp/`
-==================
+------------------
 
 Directory for temporary files. It contains subdirectories (see below)
 for temporary files of extensions and TYPO3 components.
@@ -99,7 +108,7 @@ in the directory :ref:`public/typo3temp/ <directory-public-typo3temp>`.
 .. _legacy-directory-typo3temp-assets:
 
 :file:`typo3temp/assets/`
--------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Directory for temporary files that should be public available
 (e.g. generated images).
@@ -107,7 +116,7 @@ Directory for temporary files that should be public available
 .. _legacy-directory-typo3temp-var:
 
 :file:`typo3temp/var/`
-----------------------
+~~~~~~~~~~~~~~~~~~~~~~
 
 Directory for temporary files that contains private files (e.g. cached
 Fluid templates) and should not be publicly available.

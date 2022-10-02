@@ -6,11 +6,11 @@
 System and Local Extensions
 ===============================
 
-The files for an extension are located in a folder named vendor, followed by
-a folder with the composer name. The location of this folder is in the directory
-:ref:`vendor/ <directory-vendor>`.
+The files for an extension are installed into a folder named :file:`vendor`
+by composers. See also :ref:`directory-vendor`
 
-In legacy installations they are found in `typo3/sysext/` (system extensions) or `typo3conf/ext/` (local extensions).
+In legacy installations they are found in :ref:`legacy-directory-typo3-sysext`
+(system extensions) or :ref:`legacy-directory-typo3conf-ext` (local extensions).
 
 .. _extension-local:
 

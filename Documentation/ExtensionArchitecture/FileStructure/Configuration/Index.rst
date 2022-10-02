@@ -23,7 +23,7 @@ folder:
 .. code-block:: none
    :caption: Common content of the configuration folder
 
-   $ tree vendor/myvendor/my-extension/Configuration/
+   $ tree local_packages/my-extension/Configuration/
    ├── Backend
    │    ├── AjaxRoutes.php
    │    └── Routes.php
