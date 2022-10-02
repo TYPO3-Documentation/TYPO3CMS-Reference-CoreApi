@@ -32,8 +32,8 @@ Environment PHP API
 getProjectPath()
 ----------------
 
-The environment provides the path to the `top most directory <directory-project>`
-containing the :file:`composer.json`.
+The method provides the path to the `top most directory <directory-project>`
+containing the project's :file:`composer.json`.
 
 For legacy installations, this is equal to :ref:`Environment-public-path`.
 
@@ -45,7 +45,7 @@ For legacy installations, this is equal to :ref:`Environment-public-path`.
 getPublicPath()
 ---------------
 
-The environment provides the path to the :ref:`public web folder <directory-public>`
+The method provides the path to the :ref:`public web folder <directory-public>`
 with :file:`index.php` for the TYPO3 frontend.
 
 For legacy installations it point to the
@@ -61,7 +61,7 @@ For legacy installations it point to the
 getVarPath()
 ------------
 
-The environment provides the path to the :ref:`var <directory>` folder.
+The method provides the path to the :ref:`var <directory>` folder.
 This directory contains private temporary files like logs, sessions, locks,
 and cache files.
 
@@ -98,7 +98,7 @@ the web document root - a situation that is not optimal from a security point of
 getLabelsPath()
 ---------------
 
-The environment provides the path to :ref:`var/labels/ <directory-var-labels>`,
+The method provides the path to :ref:`var/labels/ <directory-var-labels>`,
 folder. This folder contains downloaded translation files.
 
 For projects with Composer setup, the value is :php:`getVarPath() . '/labels'`,

@@ -10,14 +10,14 @@ The files for an extension are located in a folder named vendor, followed by
 a folder with the composer name. The location of this folder is in the directory
 :ref:`vendor/ <directory-vendor>`.
 
-In legacy installations they are found in `typo3/sysext/` or `typo3conf/ext/`.
+In legacy installations they are found in `typo3/sysext/` (system extensions) or `typo3conf/ext/` (local extensions).
 
 .. _extension-local:
 
 Local Extensions
 ================
 
-Local extensions have the composer type `typo3-cms-extension`:
+Local extensions have the Composer type `typo3-cms-extension`:
 
 ..  code-block:: json
     :caption: EXT:my_extension/composer.json`

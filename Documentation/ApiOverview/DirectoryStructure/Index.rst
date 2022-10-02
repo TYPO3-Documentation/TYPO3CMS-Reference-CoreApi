@@ -30,7 +30,7 @@ installed versions of each package.
 :file:`config`
 ==============
 
-TYPO3 configuration directory. This directory contains installation wide
+TYPO3 configuration directory. This directory contains installation-wide
 configuration.
 
 .. _directory-config-sites:
@@ -51,7 +51,7 @@ extension containing all templates, styles, images etc needed for the theme.
 It is usually stored locally and then symlinked into the :ref:`directory-vendor`
 folder. Many projects also need custom extensions that can be stored here.
 
-The folder for local packages has to be defined in the :file:`composer.json`
+The folder for local packages has to be defined in the project's :file:`composer.json`
 to be used:
 
 ..  code-block:: json
@@ -74,14 +74,14 @@ to be used:
 :file:`public/`
 ===============
 
-This folder contains all files that are publicly available. Your webservers
+This folder contains all files that are publicly available. Your webserver's
 web root **must** point here.
 
-This folder contains the main entry script :file:`index.php` created by composer
+This folder contains the main entry script :file:`index.php` created by Composer
 and might contain publicly available files like a :file:`robots.txt` and
 files needed for the server configuration like a :file:`.htaccess`.
 
-If required this directory can be renamed by setting `extra > typo3/cms > web-dir`
+If required, this directory can be renamed by setting `extra > typo3/cms > web-dir`
 in the composer.json, for example to :file:`web`:
 
 ..  code-block:: json
@@ -101,17 +101,17 @@ in the composer.json, for example to :file:`web`:
 :file:`_assets/`
 ----------------
 
-This directory includes symlinks to resources of extensions, as consequence
-of this and further structure changes the folder :file:`typo3conf/ext/` is
+This directory includes symlinks to public resources of extensions, as consequence
+of this and further structure changes the foldesr :file:`typo3conf/ext/` and :file:`typo3/sysext/` are
 not created or used anymore.
-So all files like CSS, JavaScript, Icons, Fonts, Images, etc. of extensions
+So all files like CSS, JavaScript, icons, fonts, images, etc. of extensions
 are not linked anymore directly to the extension folders but to the directory
 :file:`_assets/`.
 
 ..  note::
     In TYPO3 v12 using the `typo3/cms-composer-installers` in version
     5 is mandatory. Therefore the publicly available files provided by
-    extensions are now always stored in this directory.
+    extensions are now always referenced via this directory.
 
 .. _directory-public-fileadmin:
 
@@ -121,16 +121,16 @@ are not linked anymore directly to the extension folders but to the directory
 This is a directory in which editors store files. Typically images,
 PDFs or video files appear in this directory and/or its subdirectories.
 
-Note this is only the default editor's file storage. This directory
+Note that this is only the default editor's file storage. This directory
 is handled via the :ref:`FAL API <fal>` internally, there may be
 further storage locations configured outside of :file:`fileadmin/`, even
 pointing to different servers or using 3rd party digital asset management
 systems.
 
 .. note::
-    Note this directory is meant for editors! Integrators should
+    This directory is meant for editors! Integrators should
     *not* locate frontend website layout related files in here: Storing
-    HTML templates, logos, Css and similar files used to build the website
+    HTML templates, logos, CSS and similar files used to build the website
     layout in here is considered bad practice. Integrators should locate
     and ship these files within a project specific extension.
 
@@ -143,7 +143,7 @@ This directory contains the two PHP files for accessing the TYPO3
 backend (:file:`typo3/index.php`) and install tool (:file:`typo3/install.php`).
 
 ..  versionchanged:: 12.0
-    Starting with TYPO3 v12 (or v11 using the `typo3/cms-composer-installers` v4)
+    Starting with TYPO3 v12 (or v11 using `typo3/cms-composer-installers` v4)
     the system extensions are not located in this directory anymore. They can now
     be found in the :ref:`directory-vendor` folder.
 
@@ -157,7 +157,7 @@ This directory contains the files :file:`LocalConfiguration.php` and
 :ref:`Configuration files <configuration-files>` for details.
 
 ..  versionchanged:: 12.0
-    Starting with TYPO3 v12 (or v11 using the `typo3/cms-composer-installers` v4)
+    Starting with TYPO3 v12 (or v11 using `typo3/cms-composer-installers` v4)
     the installed extensions are not located in the directory
     :file:`typo3conf/ext/` anymore. They can now be found in the :ref:`vendor`
     folder.
@@ -176,7 +176,7 @@ for temporary files of extensions and TYPO3 components.
 ~~~~~~~~~~~~~~
 
 Directory :file:`typo3temp/assets/` contains temporary files that should be
-public available. This includes generated images and compressed css and
+public available. This includes generated images and compressed CSS and
 JavaScript files.
 
 .. _directory-var:
@@ -184,8 +184,8 @@ JavaScript files.
 :file:`var/`
 ============
 
-Directory for temporary files that contains private files (e.g. cached
-Fluid templates) and should not be publicly available.
+Directory for temporary files that contains private files (e.g.
+cache and logs files) and should not be publicly available.
 See also :ref:`Environment-configuring-paths` for a more detailed description.
 
 .. _directory-var-labels:
@@ -193,7 +193,7 @@ See also :ref:`Environment-configuring-paths` for a more detailed description.
 :file:`labels/`
 ---------------
 
-The directory :file:`var/labels/` for extension localisations. Contains all
+The directory :file:`var/labels/` is for extension localisations. It contains all
 downloaded translation files.
 
 This path can be retrieved from the Environment API, see :ref:`Environment-labels-path`.
