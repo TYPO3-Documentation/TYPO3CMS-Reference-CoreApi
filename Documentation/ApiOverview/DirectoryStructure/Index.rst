@@ -159,8 +159,8 @@ This directory contains the files :file:`LocalConfiguration.php` and
 ..  versionchanged:: 12.0
     Starting with TYPO3 v12 (or v11 using `typo3/cms-composer-installers` v4)
     the installed extensions are not located in the directory
-    :file:`typo3conf/ext/` anymore. They can now be found in the :ref:`vendor`
-    folder.
+    :file:`typo3conf/ext/` anymore. They can now be found in the
+    :ref:`directory-vendor` folder.
 
 .. _directory-public-typo3temp:
 
@@ -203,3 +203,29 @@ This path can be retrieved from the Environment API, see :ref:`Environment-label
     :hidden:
 
     LegacyInstalations
+
+
+.. _directory-vendor:
+
+:file:`vendor/`
+===============
+
+In this directory, which lies outside of the webroot, all extensions (system,
+third party and local) are installed as composer packages.
+
+The directory contains folders for each required vendor and inside each
+vendor directory there is a folder for the composer name.
+
+For example the system extension `core` has the complete composer name
+`typo3/cms-core` and will therefore be installed into the directory
+:file:`vendor/typo3/cms-core`. The extension `news`, composer name
+`georgringer/news` will be installed into the folder
+:file:`vendor/georgringer/news`.
+
+Never put or symlink your extensions manually into this directory as they would
+not be found. Local extensions and sitepackages should be kept in a separate
+folder outside the web root, for example
+:ref:`local_packages <directory-local_packages>`. This directory then be
+defined as path in the repository section of the :file:`project/composer.json`.
+Upon installing it, it will be symlinked into the folder
+:file:`vendor/myvendor/my-extension` by Composer.

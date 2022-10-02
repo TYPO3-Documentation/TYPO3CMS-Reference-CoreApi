@@ -49,7 +49,7 @@ The method provides the path to the :ref:`public web folder <directory-public>`
 with :file:`index.php` for the TYPO3 frontend.
 
 For legacy installations it point to the
-:ref:`root directory <legacy-directory-root>`, this is equal to
+:ref:`project directory <legacy-directory-project>`, this is equal to
 :ref:`Environment-project-path`.
 
 .. index::
@@ -61,7 +61,7 @@ For legacy installations it point to the
 getVarPath()
 ------------
 
-The method provides the path to the :ref:`var <directory>` folder.
+The method provides the path to the :ref:`var <directory-var>` folder.
 This directory contains private temporary files like logs, sessions, locks,
 and cache files.
 
