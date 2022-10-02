@@ -22,7 +22,7 @@ must be arrays.)
 
 ..  versionchanged:: 12.0
     The superfluous array key `TCEforms` was removed and is not evaluated
-    anymore. Its sole purpose was to wrap real TCA definitions. The tags `TCEforms` **should**
+    anymore. Its sole purpose was to wrap real TCA definitions. The `TCEforms` tags **should**
     be removed upon dropping TYPO3 v11 support. In TYPO3 v12 there is an automatic migration
     that will be removed in a future version.
 
