@@ -6,7 +6,7 @@ return [
     [
         'action'=> 'createCodeSnippet',
         'caption' => 'EXT:blog_example/Configuration/TypoScript/RssFeed/setup.typoscript',
-        'sourceFile'=> 'typo3conf/ext/blog_example/Configuration/TypoScript/RssFeed/setup.typoscript',
+        'sourceFile'=> 'EXT:blog_example/Configuration/TypoScript/RssFeed/setup.typoscript',
         'targetFileName' => 'Extbase/FrontendPlugins/TypoScriptPluginRss.rst.txt'
     ],
     [
@@ -262,7 +262,7 @@ return [
     [
         'action'=> 'createCodeSnippet',
         'caption' => 'EXT:blog_example/Configuration/TCA/tx_blogexample_domain_model_info.php',
-        'sourceFile'=> 'typo3conf/ext/blog_example/Configuration/TCA/tx_blogexample_domain_model_info.php',
+        'sourceFile'=> 'EXT:blog_example/Configuration/TCA/tx_blogexample_domain_model_info.php',
         'targetFileName' => 'Extbase/Persistence/TCA.rst.txt'
     ],
     [
@@ -362,7 +362,7 @@ return [
     [
         'action'=> 'createCodeSnippet',
         'caption' => 'EXT:blog_example/Configuration/Extbase/Persistence/Classes.php',
-        'sourceFile'=> 'typo3conf/ext/blog_example/Configuration/Extbase/Persistence/Classes.php',
+        'sourceFile'=> 'EXT:blog_example/Configuration/Extbase/Persistence/Classes.php',
         'targetFileName' => 'Extbase/Persistence/ExtbasePersistenceClasses.rst.txt'
     ],
     [
@@ -420,7 +420,7 @@ return [
     [
         'action'=> 'createCodeSnippet',
         'caption' => 'EXT:blog_example/Configuration/FlexForms/PluginSettings.xml',
-        'sourceFile'=> 'typo3conf/ext/blog_example/Configuration/FlexForms/PluginSettings.xml',
+        'sourceFile'=> 'EXT:blog_example/Configuration/FlexForms/PluginSettings.xml',
         'targetFileName' => 'Extbase/Configuration/PluginSettings.rst.txt',
         'emphasizeLines' => [10],
     ],
