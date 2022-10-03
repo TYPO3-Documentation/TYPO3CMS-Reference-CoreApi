@@ -110,7 +110,7 @@ in the directory :ref:`public/typo3temp/ <directory-public-typo3temp>`.
 :file:`typo3temp/assets/`
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Directory for temporary files that should be public available
+Directory for temporary files that should be publicly available
 (e.g. generated images).
 
 .. _legacy-directory-typo3temp-var:
