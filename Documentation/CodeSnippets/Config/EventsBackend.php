@@ -194,4 +194,22 @@ return [
         "targetFileName" => "Events/Backend/ModifyAllowedItemsEvent.rst.txt",
         "withCode" => false
     ],
+    [
+        "action" => "createPhpClassDocs",
+        "class" => TYPO3\CMS\Backend\Form\Event\CustomFileControlsEvent::class,
+        "targetFileName" => "Events/Backend/CustomFileControlsEvent.rst.txt",
+        "withCode" => false
+    ],
+    [
+        "action" => "createPhpClassDocs",
+        "class" => TYPO3\CMS\Backend\Form\Event\ModifyFileReferenceControlsEvent::class,
+        "targetFileName" => "Events/Backend/ModifyFileReferenceControlsEvent.rst.txt",
+        "withCode" => false
+    ],
+    [
+        "action" => "createPhpClassDocs",
+        "class" => TYPO3\CMS\Backend\Form\Event\ModifyFileReferenceEnabledControlsEvent::class,
+        "targetFileName" => "Events/Backend/ModifyFileReferenceEnabledControlsEvent.rst.txt",
+        "withCode" => false
+    ],
 ];
