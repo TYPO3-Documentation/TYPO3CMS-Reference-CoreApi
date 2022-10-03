@@ -194,4 +194,10 @@ return [
         "targetFileName" => "Events/Backend/ModifyAllowedItemsEvent.rst.txt",
         "withCode" => false
     ],
+    [
+        'action' => 'createPhpClassDocs',
+        'class' => TYPO3\CMS\Backend\View\Event\ModifyDatabaseQueryForRecordListingEvent::class,
+        'targetFileName' => 'Events/Backend/ModifyDatabaseQueryForRecordListingEvent.rst.txt',
+        'withCode' => false
+    ],
 ];
