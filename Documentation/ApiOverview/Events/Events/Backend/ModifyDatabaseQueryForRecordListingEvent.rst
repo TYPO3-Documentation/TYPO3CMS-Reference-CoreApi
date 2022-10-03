@@ -14,9 +14,9 @@ ModifyDatabaseQueryForRecordListingEvent
     *   :php:`$GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['TYPO3\CMS\Recordlist\RecordList\DatabaseRecordList']['makeSearchStringConstraints']`
 
 
-This event allows to alter the :php:`QueryBuilder` SQL statement before a
-list of records is rendered in record lists such as the :guilabel:`List` module
-or an element browser.
+This event allows to alter the :ref:`QueryBuilder <database-query-builder>` SQL
+statement before a list of records is rendered in record lists such as
+the :guilabel:`List` module or an element browser.
 
 Example
 =======
