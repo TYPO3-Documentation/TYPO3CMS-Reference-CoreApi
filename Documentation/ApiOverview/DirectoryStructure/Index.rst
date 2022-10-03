@@ -232,9 +232,8 @@ For example the system extension `core` has the complete package name
 Never put or symlink your extensions manually into this directory as they would
 not be found. Local extensions and sitepackages should be kept in a separate
 folder outside the web root, for example
-:ref:`local_packages <directory-local_packages>`. This directory then be
-defined as path in the repository section of the :file:`project/composer.json`.
-Upon installation , Composer creates a symlink to 
+:ref:`local_packages <directory-local_packages>`. 
+Upon installation , Composer creates a symlink from local_packages to 
 :file:`vendor/myvendor/my-extension`.
 
 ..  toctree::
