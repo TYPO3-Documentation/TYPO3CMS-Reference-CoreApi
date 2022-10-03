@@ -234,8 +234,8 @@ not be found. Local extensions and sitepackages should be kept in a separate
 folder outside the web root, for example
 :ref:`local_packages <directory-local_packages>`. This directory then be
 defined as path in the repository section of the :file:`project/composer.json`.
-Upon installing it, it will be symlinked into the folder
-:file:`vendor/myvendor/my-extension` by Composer.
+Upon installation , Composer creates a symlink to 
+:file:`vendor/myvendor/my-extension`.
 
 ..  toctree::
     :titlesonly:
