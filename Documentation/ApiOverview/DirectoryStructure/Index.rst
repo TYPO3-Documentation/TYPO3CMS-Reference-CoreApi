@@ -54,8 +54,8 @@ The folder :file:`config/sites` contains subfolders for each
 -----------------------
 
 Each web site which is run on TYPO3 **should** have a sitepackage, an
-extension with a special purpose containing all templates, styles, images
-etc needed for the theme.
+extension with a special purpose containing all templates, styles, images,
+etc. needed for the theme.
 
 It is usually stored locally and then symlinked into the :ref:`directory-vendor`
 folder. Many projects also need custom extensions that can be stored here.
@@ -115,8 +115,8 @@ This directory contains the following subdirectories:
 :file:`public/_assets/`
 ~~~~~~~~~~~~~~~~~~~~~~~
 
-This directory includes symlinks to public resources of extensions, as consequence
-of this and further structure changes the foldesr :file:`typo3conf/ext/` and :file:`typo3/sysext/` are
+This directory includes symlinks to the :file:`Resources/Public` folder of extensions, as consequence
+of this and further structure changes the folders :file:`typo3conf/ext/` and :file:`typo3/sysext/` are
 not created or used anymore.
 So all files like CSS, JavaScript, icons, fonts, images, etc. of extensions
 are not linked anymore directly to the extension folders but to the directory
@@ -132,7 +132,7 @@ are not linked anymore directly to the extension folders but to the directory
 :file:`public/fileadmin/`
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
-This is a directory in which editors store files. Typically images,
+This is the default directory in which editors store files. Typically images,
 PDFs or video files appear in this directory and/or its subdirectories.
 
 Note that this is only the default editor's file storage. This directory
@@ -218,14 +218,14 @@ This path can be retrieved from the Environment API, see :ref:`Environment-label
 ---------------
 
 In this directory, which lies outside of the webroot, all extensions (system,
-third party and local) are installed as composer packages.
+third-party and local) are installed as Composer packages.
 
 The directory contains folders for each required vendor and inside each
-vendor directory there is a folder for the composer name.
+vendor directory there is a folder with the different project names.
 
-For example the system extension `core` has the complete composer name
+For example the system extension `core` has the complete package name
 `typo3/cms-core` and will therefore be installed into the directory
-:file:`vendor/typo3/cms-core`. The extension `news`, composer name
+:file:`vendor/typo3/cms-core`. The extension `news`, package name
 `georgringer/news` will be installed into the folder
 :file:`vendor/georgringer/news`.
 

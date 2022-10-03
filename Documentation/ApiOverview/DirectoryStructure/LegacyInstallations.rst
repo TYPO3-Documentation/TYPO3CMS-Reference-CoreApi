@@ -31,7 +31,7 @@ Directories in a typical project
 
 This is a directory in which editors store files.
 It is used for the same files like
-:ref:`public/fileadmin/ <directory-public-fileadmin>` in the Composer directory
+:ref:`public/fileadmin/ <directory-public-fileadmin>` in the Composer-based directory
 structure.
 
 .. _legacy-directory-typo3:
@@ -39,7 +39,7 @@ structure.
 :file:`typo3/`
 --------------
 
-This directory contains the two PHP files for accessing the TYPO3
+Among others, this directory contains the two PHP files for accessing the TYPO3
 backend (:file:`typo3/index.php`) and install tool (:file:`typo3/install.php`).
 
 
@@ -50,7 +50,7 @@ backend (:file:`typo3/index.php`) and install tool (:file:`typo3/install.php`).
 
 All system extensions, supplied by the TYPO3 Core, are stored here.  For example,
 the `frontend` extension amongst other things contains the
-"TypoScript library", the code for generating the Frontend website. In
+"TypoScript library", the code for generating the website. In
 each system extension the PHP files are located in the folder
 :file:`Classes/`. See :ref:`extension files locations <extension-files-locations>`
 for more information on how single extensions are structured.
@@ -64,7 +64,7 @@ in the directory :ref:`vendor/ <directory-vendor>`.
 :file:`typo3conf/`
 ------------------
 
-This directory contains the files :file:`LocalConfiguration.php` and
+Amongst others, this directory contains the files :file:`LocalConfiguration.php` and
 :file:`AdditionalConfiguration.php`. See chapter
 :ref:`Configuration files <configuration-files>` for details.
 
@@ -102,7 +102,7 @@ in the directory :ref:`var/labels/ <directory-var-labels>`.
 Directory for temporary files. It contains subdirectories (see below)
 for temporary files of extensions and TYPO3 components.
 
-In Composer-based installations public temorary files can be found in
+In Composer-based installations public temporary files can be found in
 in the directory :ref:`public/typo3temp/ <directory-public-typo3temp>`.
 
 .. _legacy-directory-typo3temp-assets:

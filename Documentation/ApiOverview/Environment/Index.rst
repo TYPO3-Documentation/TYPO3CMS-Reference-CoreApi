@@ -32,8 +32,8 @@ Environment PHP API
 getProjectPath()
 ----------------
 
-The method provides the path to the `top most directory <directory-project>`
-containing the project's :file:`composer.json`.
+The method provides the path to the :ref:`top most directory <directory-project>`
+containing the project's :file:`composer.json` file.
 
 For legacy installations, this is equal to :ref:`Environment-public-path`.
 
