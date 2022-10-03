@@ -29,7 +29,7 @@ Registration of the event in your extension's :file:`Services.yaml`:
     MyVendor\MyExtension\Backend\View\ModifyDatabaseQueryForRecordListingEvent:
         tags:
             - name: event.listener
-              identifier: 'my-extension/backend/modify-datanase-query-for-record-list'
+              identifier: 'my-extension/backend/modify-database-query-for-record-list'
 
 The corresponding event listener class:
 
