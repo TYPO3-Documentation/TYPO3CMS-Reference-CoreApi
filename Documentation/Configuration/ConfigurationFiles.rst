@@ -12,7 +12,7 @@ The configuration files :file:`LocalConfiguration.php` and
 installations. In legacy installations they are located in
 :ref:`typo3conf/ <legacy-directory-typo3conf>`.
 
-The most important configurations file is
+The most important configuration file is
 :file:`LocalConfiguration.php`. It contains local settings of the
 main global PHP array :php:`$GLOBALS['TYPO3_CONF_VARS`], crucial settings
 like database connect credentials are in here. The file is managed by the
