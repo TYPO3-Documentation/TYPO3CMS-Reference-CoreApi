@@ -9,72 +9,83 @@ TCA Definition
 This chapter explains how to create a field that makes it possible to
 create relations to files.
 
-TYPO3 CMS provides a convenient API for this.
-Let's look at the TCA configuration the `image` field of the `tt_content`
-table for example (with some parts skipped).
+..  versionchanged:: 12.0
+    For TYPO3 v11 and bellow the API function
+    :php:`ExtensionManagementUtility::getFileFieldTCAConfig()` was used to
+    create a TCA configuration suitable to handle files. This function has been
+    deprecated with the introduction of the new field type :ref:`t3tca:columns-file`.
 
-.. code-block:: php
+The TCA field type :ref:`t3tca:columns-file` can be used to provide a field
+in which files can be referenced and or uploaded:
 
-   'image' => [
-       'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.images',
-       'config' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::getFileFieldTCAConfig('image', [
-           'appearance' => [
-               'createNewRelationLinkTitle' => 'LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:images.addFileReference'
-           ],
-           // custom configuration for displaying fields in the overlay/reference table
-           // to use the imageoverlayPalette instead of the basicoverlayPalette
-           'foreign_types' => [
-               // ...
-           ]
-       ], $GLOBALS['TYPO3_CONF_VARS']['GFX']['imagefile_ext'])
-   ],
+..  code-block:: php
+    :caption: EXT:some_extension/Configuration/TCA/my_table.php
 
-
-The API call is :php:`\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::getFileFieldTCAConfig()`.
-The first argument is the name of the current field, the second argument is an override
-configuration array, the third argument is the list of allowed file extensions and the
-fourth argument is the list of disallowed file extensions. All arguments but the first
-are optional.
-
-A call to :php:`\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::getFileFieldTCAConfig()`
-will generate a standard TCA configuration for an :ref:`inline-type field <t3tca:columns-inline>`,
-with relation to the `sys_file` table via the `sys_file_reference`
-table as "MM" table.
-
-The override configuration array (the second argument) can be used to tweak
-this default TCA definition. Any valid property from the `config` section
-of inline-type fields can be used.
-
-Additionally, there is an extra section for providing media sources, that come as three buttons per default.
-
-.. include:: /Images/AutomaticScreenshots/Fal/FalRelationTca.rst.txt
-
-Which ones should appear for the editor to use, can be configures using TCA
-appearance settings:
-
-.. code-block:: php
-   :caption: EXT:some_extension/Configuration/TCA/Overrides/pages.php
-
-   $GLOBALS['TCA']['pages']['columns']['media']['config']['appearance'] = [
-      'fileUploadAllowed' => false,
-      'fileByUrlAllowed' => false,
-   ];
-
-This will suppress two buttons and only leave "Create new relation".
-
-.. note::
-
-   Such FAL-enabled fields can also be used inside FlexForms, but there's no API
-   to generate the code in such a case.
-
-
+    return [
+        'columns' => [
+            'my_media_file' => [
+                'label' => 'My image',
+                'config' => [
+                    'type' => 'file',
+                    'allowed' => 'common-media-types'
+                ],
+            ],
+        ],
+        // ...
+    ];
 On the database side, the corresponding field needs just store an integer,
 as is usual for relations field:
 
 .. code-block:: sql
    :caption: EXT:some_extension/ext_tables.sql
 
-   CREATE TABLE tt_content (
-      image int(11) unsigned DEFAULT '0' NOT NULL,
+   CREATE TABLE my_table (
+      my_media_file int(11) unsigned DEFAULT '0' NOT NULL,
    );
 
+The property :php:`appearance` can be used to specify if a file upload button
+and file by URL button (Vimeo, Youtube) should be displayed.
+
+Example:
+
+..  code-block:: php
+    :caption: EXT:some_extension/Configuration/TCA/Overrides/my_table.php
+
+    $GLOBALS['TCA']['my_table']['columns']['my_media_file']['config']['appearance'] = [
+        'fileUploadAllowed' => false,
+        'fileByUrlAllowed' => false,
+    ];
+
+This will suppress two buttons for upload and external URL and only leave
+the button :guilabel:`Create new relation`.
+
+Migration from :php:`ExtensionManagementUtility::getFileFieldTCAConfig`
+=======================================================================
+
+..  code-block:: php
+
+    // Before
+    'columns' => [
+        'image' => [
+            'label' => 'My image',
+            'config' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::getFileFieldTCAConfig(
+                'image',
+                [
+                    'maxitems' => 6,
+                ],
+                $GLOBALS['TYPO3_CONF_VARS']['GFX']['imagefile_ext']
+            ),
+        ],
+    ],
+
+    // After
+    'columns' => [
+        'image' => [
+            'label' => 'My image',
+            'config' => [
+                'type' => 'file',
+                'maxitems' => 6,
+                'allowed' => 'common-image-types'
+            ],
+        ],
+    ],
