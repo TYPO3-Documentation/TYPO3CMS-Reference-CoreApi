@@ -18,7 +18,7 @@ main global PHP array :php:`$GLOBALS['TYPO3_CONF_VARS`], crucial settings
 like database connect credentials are in here. The file is managed by the
 :guilabel:`Admin Tools`.
 
-The file :file:`LocalConfiguration.php` can be enriched by
+The file :file:`LocalConfiguration.php` can be overridden by settings in the file
 :file:`AdditionalConfiguration.php` which is never touched by TYPO3
 internal management tools. Be aware that having settings within
 :file:`AdditionalConfiguration.php` may prevent the system from doing
