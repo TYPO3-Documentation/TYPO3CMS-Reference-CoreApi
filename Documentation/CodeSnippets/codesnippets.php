@@ -21,6 +21,7 @@
         include('Config/EventsSeo.php'),
         include('Config/EventsSetup.php'),
         include('Config/EventsWorkspaces.php'),
+        include('Config/FlexForms.php'),
         include('Config/ManualBackend.php'),
         include('Config/ManualCore.php'),
         include('Config/LoginProvider.php'),
