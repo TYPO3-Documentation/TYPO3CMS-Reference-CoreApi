@@ -27,6 +27,12 @@ over plugin features and what is to be rendered.
 Using FlexForms you have all the features of TCA, so it is possible
 to use input fields, select lists, show options conditionally and more.
 
+..  versionchanged:: 12.0
+    The superfluous array key `TCEforms` was removed and is not evaluated
+    anymore. Its sole purpose was to wrap real TCA definitions. The `TCEforms` tags **should** 
+    be removed upon dropping TYPO3 v11 support. In TYPO3 v12 there is an automatic migration
+    that will be removed in a future version.
+
 
 Example use cases
 =================
@@ -60,116 +66,80 @@ Steps to perform (extension developer)
 
 .. rst-class:: bignums-xxl
 
-#. Create configuration schema in :ref:`T3DataStructure <t3ds>` format (XML)
+#.  Create configuration schema in :ref:`T3DataStructure <t3ds>` format (XML)
 
-   Example: :file:`Configuration/FlexForms/Registration.xml`.
+    **Example:**
 
-   .. code-block:: xml
-
-        <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
-        <T3DataStructure>
-            <sheets>
-                <sDEF>
-                    <ROOT>
-                        <TCEforms>
-                            <sheetTitle>LLL:EXT:example/Resources/Private/Language/Backend.xlf:settings.registration.title</sheetTitle>
-                        </TCEforms>
-                        <type>array</type>
-                        <el>
-                            <!-- Add settings here ... -->
-
-                            <!-- Example setting: input field with name settings.includeCategories -->
-                            <settings.includeCategories>
-                                <TCEforms>
-                                    <label>LLL:EXT:example/Resources/Private/Language/Backend.xlf:settings.registration.includeCategories</label>
-                                    <config>
-                                        <type>check</type>
-                                        <default>0</default>
-                                        <items type="array">
-                                            <numIndex index="0" type="array">
-                                                <numIndex index="0">LLL:EXT:example/Resources/Private/Language/Backend.xlf:setting.registration.includeCategories.title</numIndex>
-                                            </numIndex>
-                                        </items>
-                                    </config>
-                                </TCEforms>
-                            </settings.includeCategories>
-
-                            <!-- end of settings -->
-
-                        </el>
-                    </ROOT>
-                </sDEF>
-            </sheets>
-        </T3DataStructure>
+    ..  include:: /CodeSnippets/FlexForms/Examples/PluginHaikuList.rst.txt
 
 
-#. The configuration schema is attached to one or more plugins
+#.  The configuration schema is attached to one or more plugins in the folder
+    :file:`Configuration/TCA/Overrides` of an extension.
 
-   The vendor name is **Myvendor**, the extension key is **example**
-   and the plugin name is **Registration**.
+    Example for the FlexForm registration of a basic plugin:
 
-   In :file:`Configuration/TCA/Overrides/tt_content.php` add the following:
+    ..  include:: /CodeSnippets/FlexForms/Examples/PluginHaikuListRegistration.rst.txt
 
-   .. code-block:: php
+    ..  versionadded:: 12.0
+        The method :php:`ExtensionUtility::registerPlugin()` returns the plugin signature.
 
-       // plugin signature: <extension key without underscores> '_' <plugin name in lowercase>
-       $pluginSignature = 'example_registration';
-       $GLOBALS['TCA']['tt_content']['types']['list']['subtypes_addlist'][$pluginSignature] = 'pi_flexform';
-       \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPiFlexFormValue(
-           $pluginSignature,
-           // FlexForm configuration schema file
-           'FILE:EXT:example/Configuration/FlexForms/Registration.xml'
-       );
+    When registering Extbase plugins you can use the return value of
+    :php:`ExtensionUtility::registerPlugin()` to figure out the plugin
+    signature to use:
 
-   .. tip::
+    ..  code-block:: php
+        :caption: EXT:blog_example/Configuration/TCA/Overrides/tt_content.php (Excerpt)
 
-      The plugin signature is used in the database field `tt_content.list_type`
-      as well, when the tt_content record is saved. If you are confused about
-      how to handle underscores and upper / lowercase, check there to see
-      what your plugin signature is.
+        $pluginSignature = ExtensionUtility::registerPlugin(
+            'blog_example',
+            'Pi1',
+            'A Blog Example',
+        );
+        $GLOBALS['TCA']['tt_content']['types']['list']['subtypes_addlist'][$pluginSignature]
+            = 'pi_flexform';
+        ExtensionManagementUtility::addPiFlexFormValue(
+            $pluginSignature,
+            'FILE:EXT:blog_example/Configuration/FlexForms/PluginSettings.xml'
+        );
 
-   .. versionadded:: 12.0
-      The method :php:`ExtensionUtility::registerPlugin()` returns the plugin signature.
 
-   Also look on the page :ref:`extension-naming`.
+    If you are using a content element instead of a plugin, the example
+    looks like this:
 
-   If you are using a content element instead of a plugin, the example
-   will look like this:
+    ..  code-block:: php
+        :caption: EXT:my_extension/Configuration/TCA/Overrides/tt_content.php
 
-   .. code-block:: php
-      :caption: Add in file EXT:your_extension/Configuration/TCA/Overrides/tt_content.php
+        \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPiFlexFormValue(
+            // 'list_type' does not apply here
+            '*',
+            // FlexForm configuration schema file
+            'FILE:EXT:example/Configuration/FlexForms/Registration.xml',
+            // ctype
+            'accordion'
+        );
 
-      \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPiFlexFormValue(
-         // 'list_type' does not apply here
-         '*',
-         // FlexForm configuration schema file
-         'FILE:EXT:example/Configuration/FlexForms/Registration.xml',
-         // ctype
-         'accordion'
-      );
+    Finally, according to "Configuration of the displayed order of fields in FormEngine
+    and their tab alignment." the field containing the FlexForm still needs to be
+    added to the `showitem` directive.
+    The following example shows line from the accordion element of the Bootstrap Package.
 
-   Finally, according to "Configuration of the displayed order of fields in FormEngine
-   and their tab alignment." the field containing the FlexForm still needs to be
-   added to the `showitem` directive.
-   The following example shows line from the accordion element of the Bootstrap Package.
+    .. code-block:: php
+        :caption: EXT:your_extension/Configuration/TCA/Overrides/tt_content.php
+        :emphasize-lines: 11
 
-   .. code-block:: php
-      :caption: Add in file EXT:your_extension/Configuration/TCA/Overrides/tt_content.php
-      :emphasize-lines: 11
-
-      // Configure element type
-      $GLOBALS['TCA']['tt_content']['types']['accordion'] = array_replace_recursive(
-         $GLOBALS['TCA']['tt_content']['types']['accordion'],
-         [
-            'showitem' => '
-               --div--;General,
-               --palette--;General;general,
-               --palette--;Headers;headers,
-               tx_bootstrappackage_accordion_item,
-               --div--;Options,
-               pi_flexform'
-         ]
-      );
+        // Configure element type
+        $GLOBALS['TCA']['tt_content']['types']['accordion'] = array_replace_recursive(
+            $GLOBALS['TCA']['tt_content']['types']['accordion'],
+            [
+                'showitem' => '
+                    --div--;General,
+                    --palette--;General;general,
+                    --palette--;Headers;headers,
+                    tx_bootstrappackage_accordion_item,
+                    --div--;Options,
+                    pi_flexform'
+            ]
+        );
 
 
 #. Access the settings in your extension:
@@ -190,32 +160,35 @@ The definition of the data types and parameters used complies to the
 The settings must be added within the :html:`<el>` element in the FlexForm
 configuration schema file.
 
-
 .. index:: FlexForms; Select field
 
 Select field
 ------------
 
-.. code-block:: xml
+..  code-block:: xml
 
     <settings.orderBy>
-        <TCEforms>
-            <label>LLL:EXT:example/Resources/Private/Language/Backend.xlf:settings.registration.orderBy</label>
-            <config>
-                <type>select</type>
-                <renderType>selectSingle</renderType>
-                <items>
+        <label>
+            LLL:EXT:example/Resources/Private/Language/Backend.xlf:settings.registration.orderBy
+        </label>
+        <config>
+            <type>select</type>
+            <renderType>selectSingle</renderType>
+            <items>
+                <numIndex index="0">
                     <numIndex index="0">
-                        <numIndex index="0">LLL:EXT:example/Resources/Private/Language/Backend.xlf:settings.registration.orderBy.crdate</numIndex>
-                        <numIndex index="1">crdate</numIndex>
+                        LLL:EXT:example/Resources/Private/Language/Backend.xlf:settings.registration.orderBy.crdate
                     </numIndex>
-                    <numIndex index="1">
-                        <numIndex index="0">LLL:EXT:example/Resources/Private/Language/Backend.xlf:settings.registration.orderBy.title</numIndex>
-                        <numIndex index="1">title</numIndex>
+                    <numIndex index="1">crdate</numIndex>
+                </numIndex>
+                <numIndex index="1">
+                    <numIndex index="0">
+                        LLL:EXT:example/Resources/Private/Language/Backend.xlf:settings.registration.orderBy.title
                     </numIndex>
-                </items>
-            </config>
-        </TCEforms>
+                    <numIndex index="1">title</numIndex>
+                </numIndex>
+            </items>
+        </config>
     </settings.orderBy>
 
 .. seealso::
@@ -228,26 +201,27 @@ Select field
 Populate a `select` field with a PHP Function (itemsProcFunc)
 -------------------------------------------------------------
 
-.. code-block:: xml
+..  code-block:: xml
 
     <settings.orderBy>
-        <TCEforms>
-            <label>LLL:EXT:example/Resources/Private/Language/Backend.xlf:settings.registration.orderBy</label>
-            <config>
-                <type>select</type>
-                <itemsProcFunc>Myvendor\Example\Backend\ItemsProcFunc->user_orderBy</itemsProcFunc>
-                <renderType>selectSingle</renderType>
-                <items>
-                    <!-- empty by default -->
-                </items>
-            </config>
-        </TCEforms>
+        <label>
+            LLL:EXT:example/Resources/Private/Language/Backend.xlf:settings.registration.orderBy
+        </label>
+        <config>
+            <type>select</type>
+            <itemsProcFunc>Myvendor\Example\Backend\ItemsProcFunc->user_orderBy
+            </itemsProcFunc>
+            <renderType>selectSingle</renderType>
+            <items>
+                <!-- empty by default -->
+            </items>
+        </config>
     </settings.orderBy>
 
 The function :php:`user_orderBy` populates the select field in
 :file:`Backend\ItemsProcFunc.php`:
 
-.. code-block:: php
+..  code-block:: php
 
     class ItemsProcFunc
     {
@@ -268,7 +242,7 @@ The function :php:`user_orderBy` populates the select field in
         }
 
         // ...
-     }
+    }
 
 How this looks when configuring the plugin:
 
@@ -296,8 +270,7 @@ whether a setting should be displayed when the plugin is configured.
 The conditions may for example depend on one or more other settings in the FlexForm,
 on database fields of current record or be defined by a user function.
 
-
-.. code-block:: xml
+..  code-block:: xml
 
     <config>
         <type>select</type>
@@ -323,12 +296,12 @@ Especially in combination with conditionally displaying settings with
 a reloading of the form when specific settings are changed. You
 can do that with:
 
-.. code-block:: xml
+..  code-block:: xml
 
-   <onChange>reload</onChange>
-   <config>
-       <!-- ... -->
-   </config>
+    <onChange>reload</onChange>
+    <config>
+        <!-- ... -->
+    </config>
 
 
 The :xml:`onChange` element is optional and must be placed on the same level as the :xml:`<config>` element.

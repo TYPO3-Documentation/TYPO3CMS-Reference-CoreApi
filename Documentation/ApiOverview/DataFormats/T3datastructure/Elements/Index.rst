@@ -9,7 +9,6 @@ Elements
 
 This is the list of elements and their nesting in the Data Structure.
 
-
 .. _t3ds-elements-array:
 
 Elements Nesting Other Elements ("Array" Elements)
@@ -20,6 +19,12 @@ contain another set of elements.
 
 (In a PHP array this corresponds to saying that all these elements
 must be arrays.)
+
+..  versionchanged:: 12.0
+    The superfluous array key `TCEforms` was removed and is not evaluated
+    anymore. Its sole purpose was to wrap real TCA definitions. The `TCEforms` tags **should**
+    be removed upon dropping TYPO3 v11 support. In TYPO3 v12 there is an automatic migration
+    that will be removed in a future version.
 
 .. t3-field-list-table::
  :header-rows: 1
@@ -76,17 +81,6 @@ must be arrays.)
          of independent Data Structures
    :Child elements:
          <[sheet name]>
-
-
- - :Element:
-         <TCEforms>
-   :Description:
-         Contains details about visual representation of sheets. If there is
-         only a single sheet, applies to implicit single sheet.
-   :Child elements:
-         <sheetTitle>
-
-         <displayCond>
 
 
  - :Element:
@@ -192,89 +186,14 @@ must be strings or integers.)
 Example
 =======
 
-Below is the (truncated) structure for the plugin options of
-system extension "felogin". It shows an example of relative complex
-data structure used in a FlexForm. More information about such usage
-of FlexForms can be found in the :ref:`relevant section of the TCA reference <t3tca:columns-flex>`.
+Below is the structure of a basic FlexForm from the example extension
+:t3ext:`styleguide`:
 
-.. code-block:: xml
+..  include:: /CodeSnippets/FlexForms/Simple.rst.txt
 
-   <T3DataStructure>
-      <sheets>
-         <sDEF>
-            <ROOT>
-               <TCEforms>
-                  <sheetTitle>LLL:EXT:felogin/locallang_db.xml:tt_content.pi_flexform.sheet_general</sheetTitle>
-               </TCEforms>
-               <type>array</type>
-               <el>
-                  <showForgotPassword>
-                     <TCEforms>
-                        <label>LLL:EXT:felogin/locallang_db.xml:tt_content.pi_flexform.show_forgot_password</label>
-                        <config>
-                           <type>check</type>
-                           <items type="array">
-                              <numIndex index="1" type="array">
-                                 <numIndex index="0">LLL:EXT:core/Resources/Private/Language/locallang_core.xml:labels.enabled</numIndex>
-                                 <numIndex index="1">1</numIndex>
-                              </numIndex>
-                           </items>
-                        </config>
-                     </TCEforms>
-                  </showForgotPassword>
-                  <showPermaLogin>
-                     <TCEforms>
-                        <label>LLL:EXT:felogin/locallang_db.xml:tt_content.pi_flexform.show_permalogin</label>
-                        <config>
-                           <default>1</default>
-                           <type>check</type>
-                           <items type="array">
-                              <numIndex index="1" type="array">
-                                 <numIndex index="0">LLL:EXT:core/Resources/Private/Language/locallang_core.xml:labels.enabled</numIndex>
-                                 <numIndex index="1">1</numIndex>
-                              </numIndex>
-                           </items>
-                        </config>
-                     </TCEforms>
-                  </showPermaLogin>
-                  // ...
-               </el>
-            </ROOT>
-         </sDEF>
-         <s_redirect>
-            <ROOT>
-               <TCEforms>
-                  <sheetTitle>LLL:EXT:felogin/locallang_db.xml:tt_content.pi_flexform.sheet_redirect</sheetTitle>
-               </TCEforms>
-               <type>array</type>
-               <el>
-                  <redirectMode>
-                     <TCEforms>
-                        <label>LLL:EXT:felogin/locallang_db.xml:tt_content.pi_flexform.redirectMode</label>
-                        <config>
-                           <type>select</type>
-                           <items type="array">
-                              <numIndex index="0" type="array">
-                                 <numIndex index="0">LLL:EXT:felogin/locallang_db.xml:tt_content.pi_flexform.redirectMode.I.0</numIndex>
-                                 <numIndex index="1">groupLogin</numIndex>
-                              </numIndex>
-                              <numIndex index="1" type="array">
-                                 <numIndex index="0">LLL:EXT:felogin/locallang_db.xml:tt_content.pi_flexform.redirectMode.I.1</numIndex>
-                                 <numIndex index="1">userLogin</numIndex>
-                              </numIndex>
-                              // ...
-                           </items>
-                           <size>8</size>
-                           <minitems>0</minitems>
-                           <maxitems>8</maxitems>
-                        </config>
-                     </TCEforms>
-                  </redirectMode>
-               </el>
-            </ROOT>
-         </s_redirect>
-         <s_messages>
-            // ...
-         </s_messages>
-      </sheets>
-   </T3DataStructure>
+For a more elaborate example, have a look at the plugin configuration of
+system extension `felogin` (`Login.xml <https://github.com/TYPO3/typo3/blob/main/typo3/sysext/felogin/Configuration/FlexForms/Login.xml>`__).
+It shows an example of relative complex data structure used in a FlexForm.
+
+More information about such usage of FlexForms can be found in the
+:ref:`relevant section of the TCA reference <t3tca:columns-flex>`.
