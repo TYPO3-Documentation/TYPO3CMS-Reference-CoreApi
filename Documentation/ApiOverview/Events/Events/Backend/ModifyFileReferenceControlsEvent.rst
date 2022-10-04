@@ -8,9 +8,10 @@ ModifyFileReferenceControlsEvent
 
 ..  versionadded:: 12.0
 
-Example
-=======
-
+Listeners to this event are able to modify the controls of a single
+file reference of a TCA type :php:`file` field. This event is similar to the
+:ref:`ModifyInlineElementControlsEvent`, which is only available for TCA
+type :php:`inline`.
 
 API
 ===
