@@ -22,9 +22,9 @@ and uses
 `ORM (object relational modeling) <https://en.wikipedia.org/wiki/Object%E2%80%93relational_mapping>`__.
 
 Extbase can be and is often used in combination with the Fluid templating engine,
-but Fluid **can** also be used without Extbase. Writing Backend modules and
-plugins can also be done with
-Extbase, can also be done with TYPO3 Core native functionality.
+but Fluid **can** also be used without Extbase. Backend modules and
+plugins can be implemented using Extbase, but  can also be done with TYPO3 Core
+native functionality.
 Extbase is not a prerequisite for extension development. In most cases,
 using Extbase means writing less code, but the performance may suffer.
 
