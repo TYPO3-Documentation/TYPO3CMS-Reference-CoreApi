@@ -11,7 +11,7 @@ CustomFileControlsEvent
     hook option, which is only available for TCA type :php:`inline`.
 
 Listeners to this event are able to add custom controls to a TCA type
-:php:`file` field in FormEngine.
+:php:`file` field in :ref:`FormEngine <FormEngine>`.
 
 Custom controls are always displayed below the file references. In contrast
 to the selectors, e.g. :guilabel:`Select & upload files` are custom controls
