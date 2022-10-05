@@ -181,40 +181,42 @@ content object type.
    pair: File abstraction layer; Services
    Services; FileProcessingService
    Services; MagicImageService
-   Services; UserFileInlineLabelService
    Services; UserFileMountService
 .. _fal-architecture-components-services:
 
 Services
 ========
 
-The File abstraction layer also comes with a number of services:
+The file abstraction layer also comes with a number of services:
 
 :php:`\TYPO3\CMS\Core\Resource\Service\FileProcessingService`
-  This service processes files to generate previews or scaled/cropped images.
-  These two functions are known as task types and are identified by class
-  constants.
+    This service processes files to generate previews or scaled/cropped images.
+    These two functions are known as task types and are identified by class
+    constants.
 
-  The task which generates preview images is used in most places in the backend
-  where thumbnails are called for. It is identified by constant
-  :php:`\TYPO3\CMS\Core\Resource\ProcessedFile::CONTEXT_IMAGEPREVIEW`.
+    The task which generates preview images is used in most places in the backend
+    where thumbnails are called for. It is identified by constant
+    :php:`\TYPO3\CMS\Core\Resource\ProcessedFile::CONTEXT_IMAGEPREVIEW`.
 
-  The other task is about cropping and scaling an image, typically for frontend
-  output. It is dentified by constant :php:`\TYPO3\CMS\Core\Resource\ProcessedFile::CONTEXT_IMAGECROPSCALEMASK`).
+    The other task is about cropping and scaling an image, typically for frontend
+    output. It is identified by the
+    constant :php:`\TYPO3\CMS\Core\Resource\ProcessedFile::CONTEXT_IMAGECROPSCALEMASK`).
 
-  The configuration for :php:`\TYPO3\CMS\Core\Resource\ProcessedFile::CONTEXT_IMAGECROPSCALEMASK`
-  is the one used for the :ref:`imgResource function <t3tsref:imgresource>`,
-  but only taking the crop, scale and mask settings into account.
+    The configuration for :php:`\TYPO3\CMS\Core\Resource\ProcessedFile::CONTEXT_IMAGECROPSCALEMASK`
+    is the one used for the :ref:`imgResource function <t3tsref:imgresource>`,
+    but only taking the crop, scale and mask settings into account.
 
 :php:`\TYPO3\CMS\Core\Resource\Service\MagicImageService`
-  This service creates resized ("magic") images as can be used in the
-  Rich-Text Editor, for example.
-
-:php:`\TYPO3\CMS\Core\Resource\Service\UserFileInlineLabelService`
-  This service is called to generate the label of a "sys\_file\_reference"
-  entry, i.e. what will appear in the header of an IRRE element.
+    This service creates resized ("magic") images as can be used in the
+    Rich-Text Editor, for example.
 
 :php:`\TYPO3\CMS\Core\Resource\Service\UserFileMountService`
-  This service provides a single public method which builds a list of
-  folders (and subfolders, recursively) inside any given storage. It is
-  used when defining File Mounts.
+    This service provides a single public method which builds a list of
+    folders (and subfolders, recursively) inside any given storage. It is
+    used when defining File Mounts.
+
+..  versionchanged:: 12.0
+    The service :php:`\TYPO3\CMS\Core\Resource\Service\UserFileInlineLabelService`
+    has been deprecated. With introduction of the new TCA type
+    :ref:`file <t3tca:columns-file>` the service is not needed anymore. Therefore
+    no migration path exists.
