@@ -14,7 +14,7 @@ installations. In legacy installations they are located in
 
 The most important configuration file is
 :file:`LocalConfiguration.php`. It contains local settings of the
-main global PHP array :php:`$GLOBALS['TYPO3_CONF_VARS`], crucial settings
+main global PHP array :php:`$GLOBALS['TYPO3_CONF_VARS']`, crucial settings
 like database connect credentials are in here. The file is managed by the
 :guilabel:`Admin Tools`.
 
