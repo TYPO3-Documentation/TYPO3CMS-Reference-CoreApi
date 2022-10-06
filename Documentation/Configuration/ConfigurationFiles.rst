@@ -8,7 +8,7 @@ Configuration files
 
 The configuration files :file:`LocalConfiguration.php` and
 :file:`AdditionalConfiguration.php` are located in the directory
-:ref:`public/typo3conf/ <directory-public-typo3conf>` in Composer-based
+:file:`public/typo3conf/` in Composer-based
 installations. In legacy installations they are located in
 :file:`typo3conf/`.
 
