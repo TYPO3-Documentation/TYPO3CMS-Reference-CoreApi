@@ -23,6 +23,7 @@ Example
 Registration of the event in your extension's :file:`Services.yaml`:
 
 ..  code-block:: yaml
+    :caption: EXT:my_package/Configuration/Services.yaml
 
     MyVendor\MyPackage\EventListener\ModifyEditFileFormDataEventListener:
         tags:
