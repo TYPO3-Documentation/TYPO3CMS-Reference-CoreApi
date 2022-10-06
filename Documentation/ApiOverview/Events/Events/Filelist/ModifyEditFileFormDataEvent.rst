@@ -33,6 +33,7 @@ Registration of the event in your extension's :file:`Services.yaml`:
 The corresponding event listener class:
 
 ..  code-block:: php
+   :caption: EXT:my_package/Classes/EventLister/ModifyEditFileFormDataEventListener.php
 
     use TYPO3\CMS\Filelist\Event\ModifyEditFileFormDataEvent;
 
