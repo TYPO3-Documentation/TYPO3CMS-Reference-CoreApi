@@ -21,6 +21,6 @@ like database connect credentials are in here. The file is managed by the
 The file :file:`LocalConfiguration.php` can be overridden by settings in the file
 :file:`AdditionalConfiguration.php` which is never touched by TYPO3
 internal management tools. Be aware that having settings within
-:file:`AdditionalConfiguration.php` may prevent the system from doing
+:file:`AdditionalConfiguration.php` may prevent the system from performing
 automatic upgrades and should be used with care and only if you know what
 you are doing.
