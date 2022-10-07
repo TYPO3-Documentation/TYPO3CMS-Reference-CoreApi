@@ -31,6 +31,9 @@ Directories in a typical project
 :file:`public/`
 ---------------
 
+We assume here that your web root points to a folder called :file:`public` in a Composer-based installation or a legacy 
+installation as is commonly done. Otherwise, replace  :file:`public` with the path to your web root.
+
 :file:`public/_assets/`
 ~~~~~~~~~~~~~~~~~~~~~~~
 
