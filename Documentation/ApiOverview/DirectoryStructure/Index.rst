@@ -85,20 +85,9 @@ the paths within PHP code.
       TYPO3 configuration directory. This directory contains installation wide
       configuration.
 
-      The most important file within this folder is
-      :file:`LocalConfiguration.php`. This one contains local settings of the
-      main global PHP array :php:`$GLOBALS['TYPO3_CONF_VARS`], crucial settings
-      like database connect credentials are in here. The file is managed by the
-      Install Tool and the Extension Manager and the content should not be
-      managed manually since Extension Manager or Install Tool may override
-      manually changed settings again.
-
-      The file :file:`LocalConfiguration.php` can be enriched by
-      :file:`AdditionalConfiguration.php` which is never touched by TYPO3
-      internal management tools. Be aware that having settings within
-      :file:`AdditionalConfiguration.php` may prevent the system from doing
-      automatic upgrades and should be used with care and only if you know what
-      you are doing.
+      Amongst others, this directory contains the files :file:`LocalConfiguration.php` and
+      :file:`AdditionalConfiguration.php`. See chapter
+      :ref:`Configuration files <configuration-files>` for details.
 
   - :Directory: :file:`typo3conf/ext/`
     :Description:
