@@ -849,3 +849,51 @@ availablePasswordHashAlgorithms
 
    A list of available password hash mechanisms. Extensions may register
    additional mechanisms here.
+
+
+..  index::
+    TYPO3_CONF_VARS SYS; lang
+..  _typo3ConfVars_sys_lang:
+
+lang
+====
+
+..  index::
+    TYPO3_CONF_VARS SYS; lang requireApprovedLocalizations
+..  _typo3ConfVars_sys_lang_requireApprovedLocalizations:
+
+requireApprovedLocalizations
+----------------------------
+
+..  versionadded:: 12.0
+    Before TYPO3 v12.0 all translations are taken into account when parsing XLF
+    files. As of TYPO3 v12.0, only approved translations are available by
+    default.
+
+..  confval:: $GLOBALS['TYPO3_CONF_VARS']['SYS']['lang']['requireApprovedLocalizations']
+
+    :Path: $GLOBALS['TYPO3_CONF_VARS']['SYS']['lang']['requireApprovedLocalizations']
+    :type: bool
+    :Default: true
+
+    The attribute :xml:`approved` of the :ref:`XLIFF <xliff>` standard is
+    respected by TYPO3 since version 12.0 when parsing XLF files. This attribute
+    can either have the value :xml:`yes` or :xml:`no` and indicates whether the
+    translation is final or not.
+
+    ..  code-block:: xml
+        :caption: EXT:my_extension/Resources/Private/Language/locallang.xml
+
+        <trans-unit id="label2" resname="label2" approved="yes">
+            <source>This is label #2</source>
+            <target>Ceci est le libellé no. 2</target>
+        </trans-unit>
+
+    This setting can be used to control the behavior:
+
+    :php:`true`
+        Only translations with the attribute :xml:`approved` set to :xml:`yes`
+        will be used. Any non-approved translation will be ignored.
+
+    :php:`false`
+        All translations are used.
