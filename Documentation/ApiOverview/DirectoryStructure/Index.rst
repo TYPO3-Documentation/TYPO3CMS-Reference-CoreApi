@@ -113,7 +113,7 @@ Directory for local TYPO3 extensions. Each subdirectory contains one extension.
 .. _directory-public-typo3conf-l10n:
 .. _directory-var-labels:
 
-:file:`public/typo3conf/ext/` or :file:`var/labels`
+:file:`public/typo3conf/l10n/` or :file:`var/labels`
 """""""""""""""""""""""""""""""""""""""""""""""""""
 
 Directory for extension localisations. Contains all downloaded translation
