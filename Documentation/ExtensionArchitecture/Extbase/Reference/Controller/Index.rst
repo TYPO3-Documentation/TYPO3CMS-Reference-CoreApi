@@ -16,3 +16,4 @@ Controller
     ActionController
     ErrorAction
     PropertyMapping
+    TypeConverter
