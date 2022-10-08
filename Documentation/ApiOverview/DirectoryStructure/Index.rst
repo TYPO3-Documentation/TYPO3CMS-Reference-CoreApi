@@ -8,15 +8,9 @@
 Directory structure
 ===================
 
-By default a TYPO3 installation consists of a structure of
-main directories within the web server document root. You will find
-this structure to be almost always like that. Depending on the installation
-variant you choose however, this may be slightly different. For instance,
-it is possible to have all PHP files except the entry points :file:`index.php`
-within the Composer-managed :file:`vendor/` directory, outside of the document
-root. This setup however did not fully settle yet, and is not documented
-here in detail. So, if you look at "casual" TYPO3 installations, you will
-almost always find the directory structure as outlined below.
+The structure below describes the directory structure in a typical
+Composer-based TYPO3 installation. For the structure in a legacy installation
+see :ref:`Legacy installations: Directory structure <legacy-directory-structure>`.
 
 Also see :ref:`Environment` for further information, especially how to retrieve
 the paths within PHP code.
@@ -40,7 +34,7 @@ Directories in a typical project
 :file:`config/`
 ---------------
 
-Composer-based installations only. TYPO3 configuration directory. This directory
+TYPO3 configuration directory. This directory
 contains installation-wide configuration.
 
 .. _directory-config-sites:
@@ -48,7 +42,7 @@ contains installation-wide configuration.
 :file:`config/sites/`
 ~~~~~~~~~~~~~~~~~~~~~
 
-Composer-based installations only.  The folder :file:`config/sites` contains
+The folder :file:`config/sites` contains
 subfolders for each :ref:`site configuration <sitehandling>`.
 
 
@@ -57,7 +51,7 @@ subfolders for each :ref:`site configuration <sitehandling>`.
 :file:`local_packages/`
 -----------------------
 
-Composer-based installations only.  Each web site which is run on TYPO3 **should**
+Each web site which is run on TYPO3 **should**
 have a sitepackage, an extension with a special purpose containing all
 templates, styles, images, etc. needed for the theme.
 
@@ -87,9 +81,8 @@ to be used:
 ---------------
 
 We assume here that your web root points to a folder called :file:`public` in
-a Composer-based installation or a legacy installation as is commonly done.
-Otherwise, replace  :file:`public` with the path to your web root. In legacy
-installations all files are located in this folder by default..
+a Composer-based installation as is commonly done.
+Otherwise, replace  :file:`public` with the path to your web root.
 
 .. _directory-public-assets:
 
@@ -164,14 +157,6 @@ Amongst others, this directory contains the files :file:`LocalConfiguration.php`
 :file:`AdditionalConfiguration.php`. See chapter
 :ref:`Configuration files <configuration-files>` for details.
 
-.. _directory-public-typo3conf-autoload:
-
-:file:`public/typo3conf/autoload/`
-""""""""""""""""""""""""""""""""""
-
-Legacy installations only. Contains :ref:`autoloading <autoload>` information.
-The files are updated each time an extension is installed via the
-:guilabel:`Extension Manager`.
 
 .. _directory-public-typo3conf-ext:
 
@@ -179,22 +164,6 @@ The files are updated each time an extension is installed via the
 """""""""""""""""""""""""""""
 
 Directory for local TYPO3 extensions. Each subdirectory contains one extension.
-
-.. _directory-public-typo3conf-l10n:
-
-:file:`public/typo3conf/l10n/`
-""""""""""""""""""""""""""""""
-
-Legacy installations only. Directory for extension localizations.
-Contains all downloaded translation files.
-
-.. _directory-public-typo3conf-sites:
-
-:file:`public/typo3conf/sites/`
-"""""""""""""""""""""""""""""""
-
-Legacy installations only. Contains
-subfolders for each :ref:`site configuration <sitehandling>`.
 
 .. _directory-public-typo3temp:
 
@@ -212,21 +181,12 @@ for temporary files of extensions and TYPO3 components.
 Directory for temporary files that should be public available
 (e.g. generated images).
 
-.. _directory-public-typo3temp-var:
-
-:file:`public/typo3temp/var/`
-"""""""""""""""""""""""""""""
-
-Legacy installations only. Directory for temporary files that contains private
-files (e.g. cache and log files) and should not be publicly available.
-See also :ref:`Environment-configuring-paths` for a more detailed description.
-
 .. _directory-var:
 
 :file:`var/`
 ------------
 
-Composer-based installations only. Directory for temporary files that contains private files (e.g.
+Directory for temporary files that contains private files (e.g.
 cache and logs files) and should not be publicly available.
 See also :ref:`Environment-configuring-paths` for a more detailed description.
 
@@ -235,15 +195,14 @@ See also :ref:`Environment-configuring-paths` for a more detailed description.
 :file:`var/cache/`
 ~~~~~~~~~~~~~~~~~~~
 
-Composer-based installations only. This directory contains internal files needed
-for the cache.
+This directory contains internal files needed for the cache.
 
 .. _directory-var-labels:
 
 :file:`var/labels/`
 ~~~~~~~~~~~~~~~~~~~
 
-Composer-based installations only.  The directory :file:`var/labels/` is for extension
+The directory :file:`var/labels/` is for extension
 localizations. It contains all downloaded translation files.
 
 This path can be retrieved from the Environment API, see
@@ -254,7 +213,7 @@ This path can be retrieved from the Environment API, see
 :file:`var/log/`
 ~~~~~~~~~~~~~~~~~~~
 
-Composer-based installations only.  This directory contains log files like the
+This directory contains log files like the
 TYPO3 log, the deprecations log and logs generated by extensions.
 
 .. _directory-vendor:
@@ -262,7 +221,7 @@ TYPO3 log, the deprecations log and logs generated by extensions.
 :file:`vendor/`
 ---------------
 
-Composer-based installations only.  In this directory, which lies outside of
+In this directory, which lies outside of
 the webroot, all extensions (system, third-party and custom) are installed
 as Composer packages.
 
@@ -275,11 +234,17 @@ For example the system extension `core` has the complete package name
 `georgringer/news` will be installed into the folder
 :file:`vendor/georgringer/news`.
 
-Never put or symlink your extensions manually into this directory as it is 
-managed by Composer and any manual changes are getting lost, 
-for example on deployment. Local extensions and sitepackages 
+Never put or symlink your extensions manually into this directory as it is
+managed by Composer and any manual changes are getting lost,
+for example on deployment. Local extensions and sitepackages
 should be kept in a separate folder outside the web root, for example
 :ref:`local_packages <directory-local_packages>`.
 Upon installation , Composer creates a symlink from local_packages to
 :file:`vendor/myvendor/my-extension`.
 
+
+..  toctree::
+    :titlesonly:
+    :hidden:
+
+    LegacyInstallations
