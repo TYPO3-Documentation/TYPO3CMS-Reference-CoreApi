@@ -16,7 +16,7 @@ For example a date might be given as string in some language,
 Your action method, however, expects a :php:`\DateTime` object. Extbase tries to
 match the data coming from the frontend automatically.
 
-When matching the data formats is expected to fail you can use one of type
+When matching the data formats is expected to fail you can use one of the type
 converters provided by Extbase or implement a type converter yourself
 by extending :php:`TYPO3\CMS\Extbase\Property\TypeConverter\AbstractTypeConverter`.
 
