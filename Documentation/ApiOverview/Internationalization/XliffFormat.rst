@@ -23,7 +23,7 @@ The default language is always English, even if you have changed your TYPO3 back
 to another language. It is mandatory to set  :xml:`source-language="en"`.
 
 Keep in mind that the default language is always English, even when you have
-changed your TYPO3 Backend to another language, so the source language must
+changed your TYPO3 backend to another language, so the source language must
 always be :xml:`source-language="en"`.
 
 ..  note::
