@@ -22,10 +22,6 @@ contains a :xml:`<source>` element to store the source text and a
 The default language is always English, even if you have changed your TYPO3
 backend to another language. It is mandatory to set :xml:`source-language="en"`.
 
-Keep in mind that the default language is always English, even when you have
-changed your TYPO3 backend to another language, so the source language must
-always be :xml:`source-language="en"`.
-
 ..  note::
     Having several :xml:`<file>` elements in the same XLIFF document is not
     supported by the TYPO3 Core.
