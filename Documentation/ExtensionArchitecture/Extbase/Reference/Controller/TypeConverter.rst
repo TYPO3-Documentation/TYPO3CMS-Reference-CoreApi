@@ -13,7 +13,7 @@ into another. They are usually applied in the Extbase controller in the
 
 For example a date might be given as string in some language,
 :php:`"Freitag, 7. Oktober 2022"` or as UNIX time stamp: :php:`1665159559`.
-Your action method, however, expects a :php:`\Date` object. Extbase tries to
+Your action method, however, expects a :php:`\DateTime` object. Extbase tries to
 match the data coming from the frontend automatically.
 
 When matching the data formats is expected to fail you can use one of type
