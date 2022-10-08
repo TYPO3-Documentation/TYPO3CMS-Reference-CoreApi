@@ -9,22 +9,18 @@
        <sheets>
            <sDEF>
                <ROOT>
-                   <TCEforms>
-                       <sheetTitle>Options</sheetTitle>
-                   </TCEforms>
+                   <sheetTitle>Options</sheetTitle>
                    <type>array</type>
                    <el>
                        <settings.postsPerPage>
-                           <TCEforms>
-                               <label>Max. number of posts to display per page
-                               </label>
-                               <config>
-                                   <type>input</type>
-                                   <size>2</size>
-                                   <eval>int</eval>
-                                   <default>3</default>
-                               </config>
-                           </TCEforms>
+                           <label>Max. number of posts to display per page
+                           </label>
+                           <config>
+                               <type>input</type>
+                               <size>2</size>
+                               <eval>int</eval>
+                               <default>3</default>
+                           </config>
                        </settings.postsPerPage>
                    </el>
                </ROOT>

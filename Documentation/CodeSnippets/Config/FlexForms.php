@@ -6,7 +6,7 @@ return [
     [
         'action'=> 'createCodeSnippet',
         'caption'=> 'EXT:styleguide/Configuration/FlexForms/Simple.xml',
-        'sourceFile'=> 'typo3conf/ext/styleguide/Configuration/FlexForms/Simple.xml',
+        'sourceFile'=> 'EXT:styleguide/Configuration/FlexForms/Simple.xml',
         'targetFileName'=> 'FlexForms/Simple.rst.txt'
     ],
     [
