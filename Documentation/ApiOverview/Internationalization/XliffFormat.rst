@@ -19,7 +19,8 @@ Localizable data is stored in :xml:`<trans-unit>` elements. :xml:`<trans-unit>`
 contains a :xml:`<source>` element to store the source text and a
 (non-mandatory) :xml:`<target>` element to store the translated text.
 
-Remember that the default language is always English, even if you have changed your Typo3 backend to another language, so source-language="en" must be.
+The default language is always English, even if you have changed your TYPO3 backend 
+to another language. It is mandatory to set  :xml:`source-language="en"`.
 
 Keep in mind that the default language is always English, even when you have
 changed your TYPO3 Backend to another language, so the source language must
