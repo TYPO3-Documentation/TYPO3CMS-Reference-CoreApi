@@ -23,7 +23,7 @@ return [
     ],
     [
         'action'=> 'createPhpClassCodeSnippet',
-        'class'=> \FriendsOfTYPO3\BlogExample\Controller\BlogController::class,
+        'class'=> \T3docs\BlogExample\Controller\BlogController::class,
         'members' => [
             'newAction'
         ],
@@ -33,7 +33,7 @@ return [
     ],
     [
         'action'=> 'createPhpClassCodeSnippet',
-        'class'=> \FriendsOfTYPO3\BlogExample\Controller\BlogController::class,
+        'class'=> \T3docs\BlogExample\Controller\BlogController::class,
         'members' => [
             'updateAction'
         ],
@@ -43,7 +43,7 @@ return [
     ],
     [
         'action'=> 'createPhpClassCodeSnippet',
-        'class'=> \FriendsOfTYPO3\BlogExample\Controller\BackendController::class,
+        'class'=> \T3docs\BlogExample\Controller\BackendController::class,
         'members' => [
             'initializeAction'
         ],
@@ -51,7 +51,7 @@ return [
     ],
     [
         'action'=> 'createPhpClassCodeSnippet',
-        'class'=> \FriendsOfTYPO3\BlogExample\Domain\Model\Post::class,
+        'class'=> \T3docs\BlogExample\Domain\Model\Post::class,
         'members' => [
             'comments'
         ],
@@ -61,7 +61,7 @@ return [
     ],
     [
         'action'=> 'createPhpClassCodeSnippet',
-        'class'=> \FriendsOfTYPO3\BlogExample\Domain\Model\Post::class,
+        'class'=> \T3docs\BlogExample\Domain\Model\Post::class,
         'members' => [
             'relatedPosts'
         ],
@@ -71,7 +71,7 @@ return [
     ],
     [
         'action'=> 'createPhpClassCodeSnippet',
-        'class'=> \FriendsOfTYPO3\BlogExample\Domain\Model\Blog::class,
+        'class'=> \T3docs\BlogExample\Domain\Model\Blog::class,
         'members' => [
             'description'
         ],
@@ -81,7 +81,7 @@ return [
     ],
     [
         'action'=> 'createPhpClassCodeSnippet',
-        'class'=> \FriendsOfTYPO3\BlogExample\Controller\BlogController::class,
+        'class'=> \T3docs\BlogExample\Controller\BlogController::class,
         'members' => [
             'newAction'
         ],
@@ -91,7 +91,7 @@ return [
     ],
     [
         'action'=> 'createPhpClassCodeSnippet',
-        'class'=> \FriendsOfTYPO3\BlogExample\Domain\Model\Blog::class,
+        'class'=> \T3docs\BlogExample\Domain\Model\Blog::class,
         'members' => [
             'posts'
         ],
@@ -101,7 +101,7 @@ return [
     ],
     [
         'action'=> 'createPhpClassCodeSnippet',
-        'class'=> \FriendsOfTYPO3\BlogExample\Domain\Model\Person::class,
+        'class'=> \T3docs\BlogExample\Domain\Model\Person::class,
         'members' => [
             'fullname'
         ],
@@ -111,7 +111,7 @@ return [
     ],
     [
         'action'=> 'createPhpClassCodeSnippet',
-        'class'=> \FriendsOfTYPO3\BlogExample\Domain\Model\Comment::class,
+        'class'=> \T3docs\BlogExample\Domain\Model\Comment::class,
         'members' => [
             'author',
             'content',
@@ -126,7 +126,7 @@ return [
     ],
     [
         'action'=> 'createPhpClassCodeSnippet',
-        'class'=> \FriendsOfTYPO3\BlogExample\Domain\Repository\BlogRepository::class,
+        'class'=> \T3docs\BlogExample\Domain\Repository\BlogRepository::class,
         'members' => [
             'defaultOrderings',
         ],
@@ -136,7 +136,7 @@ return [
     ],
     [
         'action'=> 'createPhpClassCodeSnippet',
-        'class'=> \FriendsOfTYPO3\BlogExample\Domain\Repository\PostRepository::class,
+        'class'=> \T3docs\BlogExample\Domain\Repository\PostRepository::class,
         'members' => [
             'findByTagAndBlog',
             'findAllSortedByCategory',
@@ -147,7 +147,7 @@ return [
     ],
     [
         'action'=> 'createPhpClassCodeSnippet',
-        'class'=> \FriendsOfTYPO3\BlogExample\Domain\Repository\CommentRepository::class,
+        'class'=> \T3docs\BlogExample\Domain\Repository\CommentRepository::class,
         'members' => [
             'initializeObject',
         ],
@@ -157,7 +157,7 @@ return [
     ],
     [
         'action'=> 'createPhpClassCodeSnippet',
-        'class'=> \FriendsOfTYPO3\BlogExample\Domain\Repository\CommentRepository::class,
+        'class'=> \T3docs\BlogExample\Domain\Repository\CommentRepository::class,
         'members' => [
             'findAllIgnoreEnableFields',
         ],
@@ -168,7 +168,7 @@ return [
 
     [
         'action'=> 'createPhpClassCodeSnippet',
-        'class'=> \FriendsOfTYPO3\BlogExample\Controller\BlogController::class,
+        'class'=> \T3docs\BlogExample\Controller\BlogController::class,
         'members' => [
             'newAction'
         ],
@@ -179,7 +179,7 @@ return [
     ],
     [
         'action'=> 'createPhpClassCodeSnippet',
-        'class'=> \FriendsOfTYPO3\BlogExample\Controller\BlogController::class,
+        'class'=> \T3docs\BlogExample\Controller\BlogController::class,
         'members' => [
             'helloWorldAction'
         ],
@@ -190,7 +190,7 @@ return [
     ],
     [
         'action'=> 'createPhpClassCodeSnippet',
-        'class'=> \FriendsOfTYPO3\BlogExample\Controller\BlogController::class,
+        'class'=> \T3docs\BlogExample\Controller\BlogController::class,
         'members' => [
             'showBlogAjaxAction'
         ],
@@ -201,7 +201,7 @@ return [
     ],
     [
         'action'=> 'createPhpClassCodeSnippet',
-        'class'=> \FriendsOfTYPO3\BlogExample\Controller\PostController::class,
+        'class'=> \T3docs\BlogExample\Controller\PostController::class,
         'members' => [
             'displayRssListAction'
         ],
@@ -212,7 +212,7 @@ return [
     ],
     [
         'action'=> 'createPhpClassCodeSnippet',
-        'class'=> \FriendsOfTYPO3\BlogExample\Domain\Validator\TitleValidator::class,
+        'class'=> \T3docs\BlogExample\Domain\Validator\TitleValidator::class,
         'members' => [
             'isValid'
         ],
@@ -221,7 +221,7 @@ return [
     ],
     [
         'action'=> 'createPhpClassCodeSnippet',
-        'class'=> \FriendsOfTYPO3\BlogExample\Domain\Model\Blog::class,
+        'class'=> \T3docs\BlogExample\Domain\Model\Blog::class,
         'members' => [
             'title'
         ],
@@ -231,7 +231,7 @@ return [
     ],
     [
         'action'=> 'createPhpClassCodeSnippet',
-        'class'=> \FriendsOfTYPO3\BlogExample\Domain\Validator\BlogValidator::class,
+        'class'=> \T3docs\BlogExample\Domain\Validator\BlogValidator::class,
         'members' => [
             'isValid'
         ],
@@ -239,7 +239,7 @@ return [
     ],
     [
         'action'=> 'createPhpClassCodeSnippet',
-        'class'=> \FriendsOfTYPO3\BlogExample\Controller\BlogController::class,
+        'class'=> \T3docs\BlogExample\Controller\BlogController::class,
         'members' => [
             'updateAction'
         ],
@@ -249,7 +249,7 @@ return [
     ],
     [
         'action'=> 'createPhpClassCodeSnippet',
-        'class'=> FriendsOfTYPO3\BlogExample\Domain\Model\Person::class,
+        'class'=> T3docs\BlogExample\Domain\Model\Person::class,
         'members' => [
             'email',
             'firstname',
@@ -267,7 +267,7 @@ return [
     ],
     [
         'action'=> 'createPhpClassCodeSnippet',
-        'class'=> FriendsOfTYPO3\BlogExample\Domain\Model\Tag::class,
+        'class'=> T3docs\BlogExample\Domain\Model\Tag::class,
         'members' => [
             'name',
             'priority',
@@ -278,7 +278,7 @@ return [
     ],
     [
         'action'=> 'createPhpClassCodeSnippet',
-        'class'=> FriendsOfTYPO3\BlogExample\Domain\Model\Info::class,
+        'class'=> T3docs\BlogExample\Domain\Model\Info::class,
         'members' => [
             'name',
             'bodytext',
@@ -292,7 +292,7 @@ return [
     ],
     [
         'action'=> 'createPhpClassCodeSnippet',
-        'class'=> FriendsOfTYPO3\BlogExample\Domain\Model\Info::class,
+        'class'=> T3docs\BlogExample\Domain\Model\Info::class,
         'members' => [
             'name',
             'bodytext',
@@ -304,7 +304,7 @@ return [
     ],
     [
         'action'=> 'createPhpClassCodeSnippet',
-        'class'=> FriendsOfTYPO3\BlogExample\Domain\Model\Post::class,
+        'class'=> T3docs\BlogExample\Domain\Model\Post::class,
         'members' => [
             'additionalInfo',
             'getAdditionalInfo',
@@ -316,7 +316,7 @@ return [
     ],
     [
         'action'=> 'createPhpClassCodeSnippet',
-        'class'=> FriendsOfTYPO3\BlogExample\Domain\Model\Post::class,
+        'class'=> T3docs\BlogExample\Domain\Model\Post::class,
         'members' => [
             'blog',
         ],
@@ -326,7 +326,7 @@ return [
     ],
     [
         'action'=> 'createPhpClassCodeSnippet',
-        'class'=> FriendsOfTYPO3\BlogExample\Domain\Model\Blog::class,
+        'class'=> T3docs\BlogExample\Domain\Model\Blog::class,
         'members' => [
             'posts',
             'addPost',
@@ -340,7 +340,7 @@ return [
     ],
     [
         'action'=> 'createPhpClassCodeSnippet',
-        'class'=> FriendsOfTYPO3\BlogExample\Domain\Model\Post::class,
+        'class'=> T3docs\BlogExample\Domain\Model\Post::class,
         'members' => [
             'comments',
         ],
@@ -350,7 +350,7 @@ return [
     ],
     [
         'action'=> 'createPhpClassCodeSnippet',
-        'class'=> FriendsOfTYPO3\BlogExample\Domain\Model\Post::class,
+        'class'=> T3docs\BlogExample\Domain\Model\Post::class,
         'members' => [
             'author',
             'secondAuthor',
@@ -367,7 +367,7 @@ return [
     ],
     [
         'action'=> 'createPhpClassCodeSnippet',
-        'class'=> FriendsOfTYPO3\BlogExample\Controller\PostController::class,
+        'class'=> T3docs\BlogExample\Controller\PostController::class,
         'members' => [
             'mapIntegerFromString',
         ],
@@ -377,7 +377,7 @@ return [
     ],
     [
         'action'=> 'createPhpClassCodeSnippet',
-        'class'=> FriendsOfTYPO3\BlogExample\Controller\PostController::class,
+        'class'=> T3docs\BlogExample\Controller\PostController::class,
         'members' => [
             'mapTagFromString',
         ],
@@ -387,7 +387,7 @@ return [
     ],
     [
         'action'=> 'createPhpClassCodeSnippet',
-        'class'=> FriendsOfTYPO3\BlogExample\Controller\PostController::class,
+        'class'=> T3docs\BlogExample\Controller\PostController::class,
         'members' => [
             '__construct',
         ],
@@ -397,7 +397,7 @@ return [
     ],
     [
         'action'=> 'createPhpClassCodeSnippet',
-        'class'=> FriendsOfTYPO3\BlogExample\Controller\PostController::class,
+        'class'=> T3docs\BlogExample\Controller\PostController::class,
         'members' => [
             'indexAction',
         ],
@@ -408,7 +408,7 @@ return [
     ],
     [
         'action'=> 'createPhpClassCodeSnippet',
-        'class'=> FriendsOfTYPO3\BlogExample\Controller\PostController::class,
+        'class'=> T3docs\BlogExample\Controller\PostController::class,
         'members' => [
             'displayRssListAction',
         ],

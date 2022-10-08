@@ -6,9 +6,17 @@
    Collects additional JavaScript modules to be loaded in SetupModuleController.
 
    
+   .. php:method:: addJavaScriptModule(string $specifier)
+   
+      :param string $specifier: Bare module identifier like @my/package/filename.js
+      
    .. php:method:: addModule(string $moduleName)
    
       :param string $moduleName: the moduleName
+      
+   .. php:method:: getJavaScriptModules()
+   
+      :returntype: array
       
    .. php:method:: getModules()
    
