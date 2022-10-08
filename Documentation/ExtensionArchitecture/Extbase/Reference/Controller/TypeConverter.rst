@@ -8,7 +8,7 @@ Type converters
 ===============
 
 Type converters are commonly used when it is necessary to convert from one type
-into another. They are usually applied in the controller in the method
+into another. They are usually applied in the Extbase controller in the
 :php:`initialize<actionName>Action()` method.
 
 For example a date might be given as string in some language,
