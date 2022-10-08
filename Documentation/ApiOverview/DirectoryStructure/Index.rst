@@ -40,7 +40,7 @@ Directories in a typical project
 :file:`config/`
 ---------------
 
-Composer installations only. TYPO3 configuration directory. This directory
+Composer-based installations only. TYPO3 configuration directory. This directory
 contains installation-wide configuration.
 
 .. _directory-config-sites:
