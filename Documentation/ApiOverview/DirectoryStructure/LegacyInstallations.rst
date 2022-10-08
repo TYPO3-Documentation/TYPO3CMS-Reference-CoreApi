@@ -9,7 +9,7 @@ Legacy installations: Directory structure
 =========================================
 
 The structure below describes the directory structure in a legacy
-TYPO3 installation without composer. For the structure in a Composer-based installation
+TYPO3 installation without Composer. For the structure in a Composer-based installation
 see :ref:`Composer-based installations: Directory structure <directory-structure>`.
 
 .. _legacy-directory-project:
@@ -58,11 +58,11 @@ All system extensions, supplied by the TYPO3 Core, are stored here.
 ---------------------
 
 It is a common practice in legacy installations to use symlinks to quickly
-exchange the TYPO3 Core. In many installations you will find a symlink or folder
+change between TYPO3 Core versions. In many installations you will find a symlink or folder
 called :file:`typo3_source` that contains the folders :ref:`legacy-directory-typo3`,
-and :ref:`legacy-directory-vendor` and the file :file:`index.php`. In this case
+and :ref:`legacy-directory-vendor` and the file :file:`index.php`. In this case,
 those directories and files only symlink to :file:`typo3_source`. This way
-the Core can be updated quickly by exchanging the symlink.
+the Core can be updated quickly by changing the symlink.
 
 Assuming your webroot is a directory called :file:`public` you could have
 the following symlink structure:

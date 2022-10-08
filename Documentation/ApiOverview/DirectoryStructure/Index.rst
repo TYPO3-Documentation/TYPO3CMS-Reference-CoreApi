@@ -8,7 +8,7 @@
 Directory structure
 ===================
 
-The structure below describes the directory structure in a typical
+The overview below describes the directory structure in a typical
 Composer-based TYPO3 installation. For the structure in a legacy installation
 see :ref:`Legacy installations: Directory structure <legacy-directory-structure>`.
 
