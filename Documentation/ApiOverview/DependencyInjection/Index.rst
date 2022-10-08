@@ -253,8 +253,8 @@ Service
    - non static - utilities, repositories and obvious classes like mailers and similar. To emphasize:
    Not only classes named with a :php:`*Service` suffix are services but basically anything. It
    does not matter much if those services are stateless or not. Controllers, for instance,
-   are usually *not* stateless. ((this is just a configuration detail from this point of view.))
-   Note the TYPO3 core does not strictly follow this in all cases yet, but strives
+   are usually *not* stateless. (This is just a configuration detail from this point of view.)
+   Note: The TYPO3 Core does not strictly follow this behaviour in all cases yet, but it strives
    to get this more clean over time.
 
 Data object
