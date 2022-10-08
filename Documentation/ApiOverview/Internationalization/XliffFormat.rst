@@ -19,8 +19,8 @@ Localizable data is stored in :xml:`<trans-unit>` elements. :xml:`<trans-unit>`
 contains a :xml:`<source>` element to store the source text and a
 (non-mandatory) :xml:`<target>` element to store the translated text.
 
-The default language is always English, even if you have changed your TYPO3 backend 
-to another language. It is mandatory to set  :xml:`source-language="en"`.
+The default language is always English, even if you have changed your TYPO3
+backend to another language. It is mandatory to set :xml:`source-language="en"`.
 
 Keep in mind that the default language is always English, even when you have
 changed your TYPO3 backend to another language, so the source language must
@@ -57,16 +57,15 @@ Here is a sample XLIFF file:
         </file>
     </xliff>
 
-..  tip::
-    The following attributes should be populated properly in order to get the
-    best support in external translation tools:
+The following attributes should be populated properly in order to get the
+best support in external translation tools:
 
-    :xml:`original` (in :xml:`<file>` tag)
-        This property contains the path to the xlf file.
+:xml:`original` (in :xml:`<file>` tag)
+    This property contains the path to the xlf file.
 
-    :xml:`resname` (in :xml:`<trans-unit>` tag)
-        Its content is shown to translators. It should be a copy of the
-        :xml:`id` property.
+:xml:`resname` (in :xml:`<trans-unit>` tag)
+    Its content is shown to translators. It should be a copy of the
+    :xml:`id` property.
 
 
 ..  _xliff-translated-file-name:
@@ -125,10 +124,10 @@ File locations and naming
 In the TYPO3 Core, XLIFF files are located in the various system extensions
 as needed and are expected to be located in :file:`Resources/Private/Language`.
 
-In :ref:`Extbase <extbase>`, the main file (:file:`locallang.xlf`) will be
-loaded automatically and is available in the controller and Fluid views without
-further work needed. Other files will need to be referred to explicitly using
-the :code:`LLL:EXT:extkey/path/to/file:my.label` syntax.
+In :ref:`Extbase <extbase>`, the main file (:file:`locallang.xlf`) is loaded
+automatically and is available in the controller and Fluid views without any
+further work. Other files must be explicitly referenced with the syntax
+:code:`LLL:EXT:extkey/Resources/Private/Language/myfile.xlf:my.label`.
 
 As :ref:`mentioned above <xliff-translated-file-name>`, the translation files
 follow the same naming conventions, but are prepended with the language code and
@@ -141,8 +140,8 @@ a dot. They are stored alongside the default language files.
 ID naming
 =========
 
-There is no strict rule or guideline for defining identifiers (the :xml:`id`
-attribute). Nevertheless, it is best practice to follow these rules:
+It is recommended to apply the following rules for defining identifiers (the
+:xml:`id` attribute).
 
 Separate by dots
 ----------------
