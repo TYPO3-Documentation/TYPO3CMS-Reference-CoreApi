@@ -18,7 +18,7 @@ the paths within PHP code.
 Files on project level
 ======================
 
-On the top most level, the project level, you can find the files
+On the top-most level, the project level, you can find the files
 :file:`composer.json` which contains requirements for the TYPO3 installation
 and the :file:`composer.lock` which contains information about the concrete
 installed versions of each package.
