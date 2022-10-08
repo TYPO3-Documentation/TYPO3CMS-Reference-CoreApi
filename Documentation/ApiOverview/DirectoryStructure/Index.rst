@@ -126,7 +126,7 @@ pointing to different servers or using 3rd party digital asset management
 systems.
 
 ..  note::
-    Note this directory is meant for editors! Integrators should
+    This directory is meant for editors! Integrators should
     *not* locate frontend website layout related files in here: Storing
     HTML templates, logos, Css and similar files used to build the website
     layout in here is considered bad practice. Integrators should locate
