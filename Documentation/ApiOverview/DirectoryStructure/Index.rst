@@ -102,9 +102,9 @@ are not linked anymore directly to the extension folders but to the directory
     Previous versions of `typo3/cms-composer-installers` used the classical
     directory structure with :file:`typo3conf/ext/` for extensions.
 
-    The composer-plugin `typo3/cms-composer-installers` in version 4+ was created
-    for TYPO3 Version 12 and backported for default but **optional usage**
-    in TYPO3 Version 11. Therefore the version has to be explicitely set (decreased)
+    The Composer plugin `typo3/cms-composer-installers` in version 4+ was created
+    for TYPO3 version 12 and backported for default but **optional usage**
+    in TYPO3 version 11. Therefore the version has to be explicitely set (decreased)
     if the classical directory structure shall be used:
 
 .. code-block:: none
