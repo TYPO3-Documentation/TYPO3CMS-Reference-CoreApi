@@ -16,7 +16,7 @@ to manipulate :sql:`sys_template` rows. The event receives the list of resolved
 :sql:`sys_template` rows and the :php:`\Psr\Http\Message\ServerRequestInterface` and allows manipulating the
 :sql:`sys_template` rows array.
 
-The event is called in backend EXT:tstemplate code, for example in
+The event is called in the code of the :guilabel:`Template` backend module, for example in
 the :guilabel:`Template Analyzer`, and in the frontend.
 
 Extensions using the old hook that want to stay compatible with TYPO3 v11
