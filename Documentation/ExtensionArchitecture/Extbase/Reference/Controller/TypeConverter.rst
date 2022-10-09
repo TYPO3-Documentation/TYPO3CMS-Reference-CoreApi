@@ -61,5 +61,5 @@ The registration and configuration of a type converter is done in the extension'
     :ref:`Type converters in TYPO3 v12 <t3coreapi12:extbase_Type_converters>`.
 
     To provide compatibility with both TYPO3 v11 and v12 register the type
-    converter in the Services.yaml and keep the call to
+    converter in the :file:`Services.yaml` and keep the call to
     :php:`ExtensionUtility::registerTypeConverter()` until dropping v11 support.
