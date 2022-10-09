@@ -28,13 +28,6 @@ You can find the type converters provided by Extbase in the directory
 Custom type converters
 ======================
 
-..  versionchanged:: 12.0
-    Starting with TYPO3 v12.0 a type converter does not have to be registered
-    via the now deprecated method :php:`\TYPO3\CMS\Extbase\Utility\ExtensionUtility::registerTypeConverter()`.
-    Remove calls to this method when dropping TYPO3 v11 support. This method will be
-    removed with TYPO3 v13.0. Register a type converter in your extension's
-    :file:`Services.yaml` instead.
-
 A custom type converter must implement the interface
 :php:`\TYPO3\CMS\Extbase\Property\TypeConverterInterface`. In most use cases
 it will extend the abstract class
@@ -45,15 +38,28 @@ All type converters **should** have **no internal state**, such that they
 can be used as singletons and multiple times in succession.
 
 The registration and configuration of a type converter is done in the extension's
-file:`Services.yaml`:
+:file:`ext_localconf.php`:
 
 ..  code-block:: yaml
-    :caption: EXT:my_extension/Configuration/Sevices.yaml
+    :caption: EXT:my_extension/ext_localconf.php
 
-    services:
-      MyVendor\MyExtension\Property\TypeConverter\MyCustomDateTimeConverter:
-        tag:
-          - name: extbase.type_converter
-            priority: 10
-            target: \DateTime
-            sources: int,string
+    <?php
+
+    declare(strict_types=1);
+
+    use MyVendor\MyExtension\TypeConverter\MyDatetimeConverter;
+    use TYPO3\CMS\Extbase\Utility\ExtensionUtility;
+
+    defined('TYPO3') or die();
+
+    // Register type converters
+    ExtensionUtility::registerTypeConverter(MyDatetimeConverter::class);
+
+..  tip::
+    Starting with TYPO3 v12.0 a type converter is registered in the extension's
+    :file:`Services.yaml`. See
+    :ref:`Type converters in TYPO3 v12 <t3coreapi12:extbase_Type_converters>`.
+
+    To provide compatibility with both TYPO3 v11 and v12 register the type
+    converter in the Services.yaml and keep the call to
+    :php:`ExtensionUtility::registerTypeConverter()` until dropping v11 support.
