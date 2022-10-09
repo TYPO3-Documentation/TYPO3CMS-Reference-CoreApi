@@ -40,7 +40,7 @@ can be used as singletons and multiple times in succession.
 The registration and configuration of a type converter is done in the extension's
 :file:`ext_localconf.php`:
 
-..  code-block:: yaml
+..  code-block:: php
     :caption: EXT:my_extension/ext_localconf.php
 
     <?php
