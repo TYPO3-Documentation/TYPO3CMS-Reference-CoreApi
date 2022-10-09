@@ -52,8 +52,13 @@ The registration and configuration of a type converter is done in the extension'
 
     defined('TYPO3') or die();
 
-    // Register type converters
-    ExtensionUtility::registerTypeConverter(MyDatetimeConverter::class);
+    // Starting  with TYPO3 v12 extbase type converters are registered in 
+    // Configuration/Services.yaml
+    if ((new \TYPO3\CMS\Core\Information\Typo3Version())->getMajorVersion() < 12) 
+    {
+        // Register type converters
+        ExtensionUtility::registerTypeConverter(MyDatetimeConverter::class);
+    }
 
 ..  tip::
     Starting with TYPO3 v12.0 a type converter is registered in the extension's
