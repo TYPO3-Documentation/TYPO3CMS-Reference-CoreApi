@@ -186,4 +186,10 @@ return [
         'withClassComment' => false,
         'targetFileName'=> 'Events/Core/FlexFormParsingModifyEventListener/FlexFormParsingModifyEventListener.rst.txt',
     ],
+    [
+        "action"=> "createPhpClassDocs",
+        "class"=> \TYPO3\CMS\Core\TypoScript\IncludeTree\Event\AfterTemplatesHaveBeenDeterminedEvent::class,
+        "targetFileName"=> "Events/Core/AfterTemplatesHaveBeenDeterminedEvent.rst.txt",
+        "withCode"=> false
+    ],
 ];
