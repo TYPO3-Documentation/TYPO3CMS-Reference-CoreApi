@@ -18,7 +18,7 @@ Files on project level
 
 This folder contains the main entry script :file:`index.php` and might contain
 publicly available files like a :file:`robots.txt` and files needed for the
-server configuration like a :file:`.htaccess`.
+server configuration like a :file:`.htaccess` file.
 
 Directories in a typical project
 ================================
