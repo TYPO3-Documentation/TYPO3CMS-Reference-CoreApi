@@ -122,7 +122,7 @@ for more information on how the extensions are structured.
 :file:`typo3conf/l10n/`
 ~~~~~~~~~~~~~~~~~~~~~~
 
-Directory for extension localisations. Contains all downloaded translation
+Directory for extension localizations. Contains all downloaded translation
 files.
 
 This path can be retrieved from the Environment API, see
