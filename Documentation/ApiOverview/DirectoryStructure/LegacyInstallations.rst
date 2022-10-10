@@ -119,7 +119,7 @@ for more information on how the extensions are structured.
 
 .. _legacy-directory-typo3conf-l10n:
 
-:file:`typo3conf/l10n`
+:file:`typo3conf/l10n/`
 ~~~~~~~~~~~~~~~~~~~~~~
 
 Directory for extension localisations. Contains all downloaded translation
