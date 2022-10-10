@@ -163,7 +163,7 @@ See also :ref:`Environment-configuring-paths` for a more detailed description.
 
 .. _legacy-directory-vendor:
 
-:file:`vendor`
+:file:`vendor/`
 ~~~~~~~~~~~~~~
 
 This directory contains third-party packages that are required by the
