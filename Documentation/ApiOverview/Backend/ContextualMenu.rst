@@ -291,3 +291,37 @@ called after clicking on the context menu item.
 This file can be found in :file:`EXT:examples/Resources/Public/JavaScript/ContextMenuActions.js`
 
 .. include:: /CodeSnippets/Examples/ContextualMenuExtended/ContextMenuActions.rst.txt
+
+Step 3: Registration
+--------------------
+
+If you have :yaml:`autoconfigure: true` set in your extension's :file:`Services.yaml` all 
+classes implementing :php:`\TYPO3\CMS\Backend\ContextMenu\ItemProviders\ProviderInterface`
+get registered as context menu items automatically:
+
+..  code-block:: yaml
+    :caption: EXT:examples/Configuration/Services.yaml
+    :emphasize-lines: 4
+    
+    services:
+      _defaults:
+        autowire: true
+        autoconfigure: true
+        public: false
+        
+If :yaml:`autoconfigure` is disabled you can manually register a context menu item provider
+by adding the tag :yaml:`backend.contextmenu.itemprovider`:
+
+
+..  code-block:: yaml
+    :caption: EXT:my_extension/Configuration/Services.yaml
+    :emphasize-lines: 5-7
+    
+    services:
+      _defaults:
+        autoconfigure: false
+        
+      MyVendor\MyExtension\ContextMenu\SomeItemProvider:
+        tags:
+          - name: backend.contextmenu.itemprovider
+      
