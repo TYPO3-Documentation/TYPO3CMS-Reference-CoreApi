@@ -312,7 +312,6 @@ get registered as context menu items automatically:
 If :yaml:`autoconfigure` is disabled you can manually register a context menu item provider
 by adding the tag :yaml:`backend.contextmenu.itemprovider`:
 
-
 ..  code-block:: yaml
     :caption: EXT:my_extension/Configuration/Services.yaml
     :emphasize-lines: 5-7
