@@ -295,7 +295,7 @@ This file can be found in :file:`EXT:examples/Resources/Public/JavaScript/Contex
 Step 3: Registration
 --------------------
 
-If you have :yaml:`autoconfigure: true` set in your extension's :file:`Services.yaml` all 
+If you have :yaml:`autoconfigure: true` set in your extension's :file:`Services.yaml` file all 
 classes implementing :php:`\TYPO3\CMS\Backend\ContextMenu\ItemProviders\ProviderInterface`
 get registered as context menu items automatically:
 
