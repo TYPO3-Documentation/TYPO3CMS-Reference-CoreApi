@@ -6,7 +6,7 @@
 Site settings
 =============
 
-It is possible to define a `settings` block in a site's :file:`config.yml` which
+It is possible to define a `settings` block in a site's :file:`config.yaml` which
 can be accessed both in backend and frontend via the site object.
 
 Additionally, these settings are available as "constants" in both TSConfig
@@ -16,7 +16,7 @@ storage PIDs which can be used in both frontend and backend.
 Adding site settings
 ====================
 
-Add a `settings` block to the :file:`config.yml`:
+Add a `settings` block to the :file:`config.yaml`:
 
 .. code-block:: yaml
 
