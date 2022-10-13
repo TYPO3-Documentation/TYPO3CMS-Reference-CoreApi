@@ -84,6 +84,26 @@ by a login request. In the FE, this happens when a form field
 called "logintype" is submitted with value "login". The same
 happens for the BE, but with a form field called "login_status".
 
+..  versionchanged:: 12.0
+    `JSON Web Tokens (JWT) <https://jwt.io/>`__ are used to transport user
+    session identifiers in `be_typo_user` and `fe_typo_user` cookies.
+
+Using JWT's `HS256` (HMAC signed based on SHA256) allows to determine whether a
+session cookie is valid before comparing with server-side stored session data.
+This enhances the overall performance a bit, since sessions cookies would be
+checked for every request to TYPO3's backend and frontend.
+
+The session cookies can be pre-validated without querying the database, which
+can filter invalid requests and might reduce the enhances the overall
+performance a bit.
+
+As a consequence session tokens are not sent "as is", but are wrapped in a
+corresponding JWT message, which contains the following payload:
+
+* `identifier` reflects the actual session identifier
+* `time` reflects the time of creating the cookie (RFC 3339 format)
+
+
 .. index:: Authentication; Login data
 .. _authentication-data:
 
