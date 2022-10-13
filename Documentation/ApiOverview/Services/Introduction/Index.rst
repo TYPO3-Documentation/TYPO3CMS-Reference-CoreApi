@@ -41,10 +41,10 @@ The whole Services API works as a registry. Services are registered
 with a number of parameters, and each service can easily be overridden
 by another one with improved features or more specific capabilities,
 for example. This can be achieved without having to change the original
-code of TYPO3 CMS or of an extension.
+code of TYPO3 or of an extension.
 
 Services are simply PHP classes packaged inside an extension.
-The usual way to instantiate a class in TYPO3 CMS is:
+The usual way to instantiate a class in TYPO3 is:
 
 .. code-block:: php
    :caption: EXT:some_extension/Classes/SomeClass.php

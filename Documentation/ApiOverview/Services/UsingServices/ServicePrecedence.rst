@@ -8,7 +8,7 @@ Service precedence
 
 Several services may be declared to do the same job. What will
 distinguish them is two intrinsic properties of services: priority and
-quality. Priority tells TYPO3 CMS which service should be called first.
+quality. Priority tells TYPO3 which service should be called first.
 Normal priorities vary between 0 and 100, but can exceptionally be set
 to higher values (no maximum). When two services of equal priority are
 found, the system will use the service with the best quality.
@@ -25,7 +25,7 @@ by the service. There may be several services who can perform the same
 task (e.g. extracting meta data from a file), but one may be able to
 do that much better than the other because it is able to use a third-
 party application. However if that third-party application is not
-available, neither will this service. In this case TYPO3 CMS can fall back
+available, neither will this service. In this case TYPO3 can fall back
 on the lower quality service which will still be better than nothing.
 Quality varies between 0-100.
 

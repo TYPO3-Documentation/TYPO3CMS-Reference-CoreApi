@@ -24,7 +24,7 @@ extension's :file:`ext_tables.php` file:
 	);
 
 
-The rest of the work is automatically handled by the TYPO3 CMS
+The rest of the work is automatically handled by the TYPO3
 form engine.
 
 

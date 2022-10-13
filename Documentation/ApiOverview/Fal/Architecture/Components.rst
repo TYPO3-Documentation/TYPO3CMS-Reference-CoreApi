@@ -61,7 +61,7 @@ In the database, each FileReference is represented by a record in the
 :ref:`sys_file_reference table <fal-architecture-database-sys-file-reference>`.
 
 Creating a reference to a file requires the file to be indexed first,
-as the reference is done through the normal record relation handling of TYPO3 CMS.
+as the reference is done through the normal record relation handling of TYPO3.
 
 .. note::
 
@@ -172,7 +172,7 @@ individually, by the selection of a folder or by the selection of one or
 more categories. Collections can be used by content elements or plugins
 for various needs.
 
-The TYPO3 CMS Core makes usage of collections for the "File Links"
+The TYPO3 Core makes usage of collections for the "File Links"
 content object type.
 
 

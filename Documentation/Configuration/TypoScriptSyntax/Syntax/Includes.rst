@@ -145,7 +145,7 @@ DIR      This includes all files from a directory relative to :php:`\TYPO3\CMS\C
 Conditions
 ==========
 
-Since TYPO3 CMS 7, it is possible to use conditions on include directives.
+Since TYPO3 v7, it is possible to use conditions on include directives.
 The conditions are the same as was presented in the :ref:`previous chapter <typoscript-syntax-conditions>`.
 The files or directories will be included only if the condition is met.
 
@@ -173,7 +173,7 @@ Best practices
 ==============
 
 The option to filter by extension has been included exactly for the
-purpose of covering as many use cases as possible. In TYPO3 CMS we often
+purpose of covering as many use cases as possible. In TYPO3 we often
 have many different ways of configuring something, with pros and cons
 and the extended inclusion command serves this purpose of letting you
 organize your files with different directories using whichever extension

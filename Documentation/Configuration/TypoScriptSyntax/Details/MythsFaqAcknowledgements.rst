@@ -23,7 +23,7 @@ when the TypoScript syntax is applied to create TypoScript Templates
 then it begins to look like programming.
 
 In any case TypoScript is **not** comparable to a scripting language like
-PHP or JavaScript. In fact, if TYPO3 CMS offers any scripting language it
+PHP or JavaScript. In fact, if TYPO3 offers any scripting language it
 is PHP itself! TypoScript is only an API which is often used to
 configure underlying PHP code.
 

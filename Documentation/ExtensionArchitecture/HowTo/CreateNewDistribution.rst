@@ -14,8 +14,8 @@ This chapter describes the main steps in creating a new distribution.
 Concept of distributions
 ========================
 
-The distributions are full TYPO3 CMS websites that only need to be unpacked.
-They offer a simple and quick introduction to the use of the TYPO3 CMS. The
+The distributions are full TYPO3 websites that only need to be unpacked.
+They offer a simple and quick introduction to the use of the TYPO3. The
 best known distribution is the `Introduction Package <https://extensions.typo3.org/extension/introduction/>`__.
 Distributions are easiest to install via the :ref:`Extension Manager <extension-manager>` (EM)
 under "Get preconfigured distribution".
@@ -123,7 +123,7 @@ to :file:`Initialisation/Site/<SITE_IDENTIFIER>/config.yaml`.
 Database Data
 -------------
 
-The database data is delivered as TYPO3 CMS export file under :file:`Initialisation/data.xml`.
+The database data is delivered as TYPO3 export file under :file:`Initialisation/data.xml`.
 
 Generate this file by exporting your whole TYPO3 instance
 from the root of the page tree using the :ref:`export module <ext_impexp:export>`:
@@ -244,7 +244,7 @@ Test Your Distribution
 ======================
 
 To test your distribution, simply copy your extension to an empty
-TYPO3 CMS installation and try to install it from the Extension
+TYPO3 installation and try to install it from the Extension
 Manager.
 
 To test a distribution locally without uploading to TER, just install
@@ -266,7 +266,7 @@ locally *without* uploading to TER first.
 .. warning::
 
    It is not enough to clean all files and the page tree if you want to
-   try again to install your distribution. Indeed, TYPO3 CMS remembers that it
+   try again to install your distribution. Indeed, TYPO3 remembers that it
    previously imported your distribution and will skip any known files and
    the database import. Make sure to clean the table "sys_registry" if you want
    to work around that, or, even better, install a new blank TYPO3 to test again.

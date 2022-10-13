@@ -5,7 +5,7 @@
 Users and groups
 ================
 
-TYPO3 CMS features an access control system based on users and groups.
+TYPO3 features an access control system based on users and groups.
 
 
 .. index:: pair: Backend; Users
@@ -61,7 +61,7 @@ There is a special kind of backend users called "Admin".
 When creating a backend user, just check the "Admin!" box in the
 "General" tab and that user will become an administrator.
 There's no need to set further access options for such a user:
-an admin user can access every single feature of the TYPO3 CMS
+an admin user can access every single feature of the TYPO3
 backend, like the "root" user on a UNIX system.
 
 All systems must have at least one "admin" user and most systems

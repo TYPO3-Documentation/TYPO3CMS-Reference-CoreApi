@@ -6,7 +6,7 @@
 RequireJS in the TYPO3 Backend
 ==============================
 
-Since TYPO3 CMS 7 it is possible to use RequireJS in the backend.
+Since TYPO3 v7 it is possible to use RequireJS in the backend.
 A short explanation: RequireJS enables developers to have some kind of
 dependency handling for JavaScript. The JavaScript is written as so-called
 "Asynchronous Module Definition" (AMD).

@@ -5,7 +5,7 @@
 Introduction
 ============
 
-TYPO3 CMS is entirely built around the concept of extensions. The Core itself
+TYPO3 is entirely built around the concept of extensions. The Core itself
 is entirely comprised of extensions, called "system extensions".
 Some are required and will always be activated. Others can be activated
 or deactivated at will.
@@ -16,7 +16,7 @@ Many more extensions - developed by the community - are available in the
 Yet more extensions are not officially published and are available straight
 from source code repositories like `GitHub <https://github.com/>`_.
 
-It is also possible to set up TYPO3 CMS using Composer. This opens
+It is also possible to set up TYPO3 using Composer. This opens
 the possibility of including any library published on
 `Packagist <https://packagist.org/>`_.
 
@@ -41,7 +41,7 @@ standards or recommendations. Some of these types by convention are:
    CSS, JavaScript, Fluid templating files, TypoScript etc.). The
    :ref:`Sitepackage Tutorial <t3sitepackage:introduction>` covers this in depth.
 
--  **Distributions** are fully packaged TYPO3 CMS web installations,
+-  **Distributions** are fully packaged TYPO3 web installations,
    complete with files, templates, extensions, etc. Distributions are
    covered :ref:`in their own chapter <distribution>`.
 
@@ -99,7 +99,7 @@ what main resources and libraries they contain. The system extensions
 are located in directory :file:`typo3/sysext`.
 
 Core
-  As its name implies, this extension is crucial to the working of TYPO3 CMS.
+  As its name implies, this extension is crucial to the working of TYPO3.
   It defines the main database tables (BE users, BE groups, pages and all the
   "sys\_*" tables. It also contains the default global configuration
   (in :file:`typo3/sysext/core/Configuration/DefaultConfiguration.php`). Last
@@ -107,7 +107,7 @@ Core
   to describe here.
 
 backend
-  This system extension provides all that is necessary to run the TYPO3 CMS
+  This system extension provides all that is necessary to run the TYPO3
   backend. This means quite a few PHP classes, a lot of controllers and Fluid templates.
 
 frontend
@@ -119,7 +119,7 @@ frontend
 
 Extbase
   Extbase is an MVC framework, with the "View" part being actually the system extension "fluid".
-  Not all of the TYPO3 CMS backend is written in Extbase, but some modules are.
+  Not all of the TYPO3 backend is written in Extbase, but some modules are.
 
 Fluid
   Fluid is a templating engine. It forms the "View" part of the MVC framework.
@@ -131,5 +131,5 @@ Fluid
   with Extbase (where it is the default template engine), but also in non-extbase extensions.
 
 install
-  This system extension is the package containing the TYPO3 CMS Install Tool.
+  This system extension is the package containing the TYPO3 Install Tool.
 

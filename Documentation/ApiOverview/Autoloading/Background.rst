@@ -1,5 +1,5 @@
 .. include:: /Includes.rst.txt
-.. index:: 
+.. index::
    Autoloader; ComposerClassLoader
    ClassLoader
 .. _composer-class-loader:
@@ -8,20 +8,20 @@
 ComposerClassLoader
 ===================
 
-Integrating Composer class loader into TYPO3 CMS
-================================================
+Integrating Composer class loader into TYPO3
+============================================
 
-In our efforts to make the TYPO3 CMS system faster and closer oriented
+In our efforts to make TYPO3 faster and closer oriented
 to common PHP standard systems, we looked into the integration of the
 class loader that is used by all composer-based projects. We consider
-this functionality a crucial feature for the future of TYPO3 CMS on the
+this functionality a crucial feature for the future of TYPO3 on the
 base level, but also as a dramatic increase of the overall performance
-of every request inside TYPO3 CMS.
+of every request inside TYPO3.
 
-Understanding the TYPO3 CMS class loader
-========================================
+Understanding the TYPO3 class loader
+====================================
 
-The TYPO3 class loader is instantiated within the TYPO3 CMS Bootstrap at
+The TYPO3 class loader is instantiated within the TYPO3 Bootstrap at
 a very early point. It does a lot of logic (checking :file:`ext_autoload.php`,
 :file:`ClassAliasMap.php), and caches this logic away on a per-class basis by
 default in :file:`typo3temp/Cache/` to store all information for a class. This
@@ -46,7 +46,7 @@ hit, the caching framework does not create the cache files, but fetches
 one by one for each class used in the request via a separate
 :php:`file_get_contents()` call.
 
-When debugging the TYPO3 CMS system on an initial request, there are a
+When debugging TYPO3 on an initial request, there are a
 lot of :file:`file_get_contents()` and :file:`file_put_contents()` calls to
 store and fetch this information. This is quite a lot of overhead for loading
 PHP classes. Even without a lot of class aliases (e.g. in CMS7) this
@@ -60,18 +60,18 @@ ensured.
 Understanding the Composer class loader
 =======================================
 
-Compared to the TYPO3 CMS class loader, the composer class loader
+Compared to the TYPO3 class loader, the composer class loader
 concept differs in the following major points:
 
 Caching on build stage
 ----------------------
 
-When setting up a project, like a TYPO3 CMS project, Composer checks the
+When setting up a project, like a TYPO3 project, Composer checks the
 main composer.json of a project and builds a static file with all PSR-4
 prefixes defined in that json file. Unless in a development environment
 or when updating the source, this file does not need to be rebuilt as
 the PHP classes of the loaded packages won’t change in a regular
-instance. This way all classes available inside TYPO3 CMS are always
+instance. This way all classes available inside TYPO3 are always
 available to the class loader.
 
 Using PSR-4 compatible prefix-based resolving
@@ -83,13 +83,13 @@ Composer class loader only needs to know that all PHP classes starting
 with TYPO3\CMS\Core are located within typo3/sysext/core/Classes. The
 rest is done by a simple resolution to include the necessary PHP class
 files. This means that the information to be cached away is only the
-list of available namespace-prefixes. All classes inside the TYPO3 CMS
-Core are PSR-4 compatible since TYPO3 CMS 6.0 already.
+list of available namespace-prefixes. All classes inside the TYPO3
+Core are PSR-4 compatible since TYPO3 v6.0 already.
 
 The definition of these prefixes is set inside the composer.json of each
-package or distribution / project. In the TYPO3 CMS Core, every system
-extension defined these namespace prefixes already since TYPO3 CMS 7.1
-and TYPO3 CMS 6.2.10.
+package or distribution / project. In the TYPO3 Core, every system
+extension defined these namespace prefixes already since TYPO3 v7.1
+and TYPO3 v6.2.10.
 
 Autoloading developer-specific data differently
 -----------------------------------------------
@@ -104,11 +104,11 @@ Integration Approach
 ====================
 
 The Composer class loader is injected inside the Bootstrap process of
-TYPO3 CMS and registered before the TYPO3 class loader. This means that
+TYPO3 and registered before the TYPO3 class loader. This means that
 a lookup on a class name is first checked via the Composer logic, and if
 none found, the regular TYPO3 class loader takes over.
 
-The support for class aliases is quite important for TYPO3 CMS, but is
+The support for class aliases is quite important for TYPO3, but is
 not supported by Composer by default. There is a separate Composer
 package created by Helmut Hummel (available on `GitHub
 <https://github.com/helhum/class-alias-loader>`_) which serves as a facade

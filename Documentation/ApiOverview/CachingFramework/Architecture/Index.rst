@@ -115,7 +115,7 @@ The TYPO3 Core  defines and uses several caching framework caches by default.
 This section gives an overview of default caches, its usage and behaviour. If not stated otherwise,
 the default database backend with variable frontend is used.
 
-Since TYPO3 CMS 6.2, the various caches are organized in groups.
+Since TYPO3 v6.2, the various caches are organized in groups.
 Three groups currently exist:
 
 pages
@@ -138,7 +138,7 @@ but such caches should normally be transient anyway.
 There are :ref:`TSconfig options for permissions <t3tsconfig:useroptions>`
 corresponding to each group.
 
-The following caches exist in the TYPO3 CMS Core:
+The following caches exist in the TYPO3 Core:
 
 - `core`
 

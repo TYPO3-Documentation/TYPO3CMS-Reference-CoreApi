@@ -9,7 +9,7 @@ Storing the changes
 
 There are various ways to store changes to :php:`$GLOBALS['TCA']`. They
 depend - partly - on what you are trying to achieve and - a lot -
-on the version of TYPO3 CMS which you are targeting. The TCA can only be 
+on the version of TYPO3 which you are targeting. The TCA can only be
 changed from within an extension.
 
 
@@ -51,7 +51,7 @@ Core APIs.
 Storing in the overrides folder
 -------------------------------
 
-Since TYPO3 CMS 6.2 (6.2.1 to be precise) changes to :php:`$GLOBALS['TCA']`
+Since TYPO3 v6.2 (v6.2.1 to be precise) changes to :php:`$GLOBALS['TCA']`
 must be stored inside a folder called :file:`Configuration/TCA/Overrides`.
 For clarity files should be named along the pattern
 :file:`<tablename>.php`.
@@ -94,9 +94,9 @@ The advantage of this method is that all such changes are incorporated into
 Storing in ext_tables.php files
 -------------------------------
 
-Until TYPO3 CMS 6.1 (still supported for 6.2) changes to :php:`$GLOBALS['TCA']` are packaged
+Until TYPO3 v6.1 (still supported for v6.2) changes to :php:`$GLOBALS['TCA']` are packaged
 into an extension's :file:`ext_tables.php` file. This is strongly discouraged in more recent
-versions of TYPO3 CMS.
+versions of TYPO3.
 
 Nowadays the only usecase for TCA changes in :file:`ext_tables.php` is to override TCA definitions
 done in the :file:`ext_tables.php` of a legacy extension. TCA overrides cannot be used in this case

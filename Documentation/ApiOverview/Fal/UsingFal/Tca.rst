@@ -9,7 +9,7 @@ TCA Definition
 This chapter explains how to create a field that makes it possible to
 create relations to files.
 
-TYPO3 CMS provides a convenient API for this.
+TYPO3 provides a convenient API for this.
 Let's look at the TCA configuration the `image` field of the `tt_content`
 table for example (with some parts skipped).
 

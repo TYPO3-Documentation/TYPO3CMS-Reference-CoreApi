@@ -294,7 +294,7 @@ per release. In other words, share :file:`var/session`, :file:`var/log`,
 Caching Framework
 -----------------
 
-Since TYPO3 CMS 4.3, the Core contains a data caching framework
+Since TYPO3 v4.3, the Core contains a data caching framework
 which supports a wide variety of storage solutions and options
 for different caching needs. Each cache can be configured individually
 and can implement its own specific storage strategy.

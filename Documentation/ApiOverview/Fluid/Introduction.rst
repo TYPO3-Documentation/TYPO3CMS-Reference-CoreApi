@@ -87,8 +87,8 @@ In your extension, the following directory structure should be used for Fluid fi
         ├── Partials
         └── Templates
 
-This directory structure is the convention used by TYPO3 CMS. When using Fluid outside of
-TYPO3 CMS you can use any folder structure you like.
+This directory structure is the convention used by TYPO3. When using Fluid outside of
+TYPO3 you can use any folder structure you like.
 
 If you are using Extbase controller actions in combination with Fluid,
 Extbase defines how files and directories should be named within these directories.

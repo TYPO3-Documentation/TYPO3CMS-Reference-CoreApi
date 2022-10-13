@@ -40,11 +40,11 @@ This file overrides default settings from :file:`typo3/sysext/core/Configuration
 .. important::
 
    Since configuration settings can be manipulated from within the
-   TYPO3 CMS backend, the :file:`typo3conf/LocalConfiguration.php`
+   TYPO3 backend, the :file:`typo3conf/LocalConfiguration.php`
    must be writable by the web server user.
 
 The local configuration file is basically a long array which is simply returned
-when the file is included. It represents the global TYPO3 CMS configuration.
+when the file is included. It represents the global TYPO3 configuration.
 This configuration can be modified/extended/overridden by extensions,
 by setting configuration options inside an extension's
 :file:`ext_localconf.php` file. :ref:`See extension files and locations <extension-files-locations>`
@@ -127,7 +127,7 @@ may themselves be arrays.
 The configuration categories are:
 
 BE
-   :ref:`Options related to the TYPO3 CMS backend <typo3ConfVars_be>`.
+   :ref:`Options related to the TYPO3 backend <typo3ConfVars_be>`.
 
 DB
    :ref:`Database connection configuration <typo3ConfVars_db>`.
@@ -209,7 +209,7 @@ values programmatically if needed.
 
 :file:`typo3conf/AdditionalConfiguration.php` is a plain PHP file.
 There are no specific rules about what it may contain. However since
-the code is included on **every** request to TYPO3 CMS
+the code is included on **every** request to TYPO3
 - whether frontend or backend - you should avoid inserting code
 which requires heavy duty processing.
 
@@ -232,7 +232,7 @@ which requires heavy duty processing.
 File DefaultConfiguration.php
 =============================
 
-TYPO3 CMS comes with some default settings, which are defined in
+TYPO3 comes with some default settings, which are defined in
 file :file:`typo3/sysext/core/Configuration/DefaultConfiguration.php`.
 
 This is the base configuration, the other files like :file:`LocalConfiguration.php`

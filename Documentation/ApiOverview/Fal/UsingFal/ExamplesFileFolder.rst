@@ -246,7 +246,7 @@ You are on your own.
 
 The simplest solution is to create a database entry into
 table "sys\_file\_reference" by using the database connection
-class provided by TYPO3 CMS.
+class provided by TYPO3.
 
 A cleaner solution using Extbase requires far more work. An example
 can be found here: https://github.com/helhum/upload_example

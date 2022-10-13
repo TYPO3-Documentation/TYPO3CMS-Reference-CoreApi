@@ -36,7 +36,7 @@ FormEngine are abstracted and may come from "elsewhere", still leading to the fo
 This makes FormEngine an incredible flexible construct. The basic idea is "feed something that looks like TCA
 and render forms that have the full power of TCA but look like all other parts of the backend".
 
-The FormEngine code base has been significantly refactored in TYPO3 CMS version 7 and version 8 to be much more
+The FormEngine code base has been significantly refactored in TYPO3 version 7 and version 8 to be much more
 flexible, more easy to use and extend, and much more powerful than before. This is an ongoing process and some
 areas still need a major overhaul. The current state of the documentation aims to explain the main constructs of
 FormEngine and gives an insight on how to re-use, adapt and extend it with extensions. The Core Team expects to see more

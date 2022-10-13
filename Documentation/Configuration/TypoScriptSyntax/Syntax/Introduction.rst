@@ -25,7 +25,7 @@ Referring to :code:`myObject` we might call it: "*an object with the value
 Furthermore 'myProperty' has its own two properties, 'firstProperty'
 and 'secondProperty' with a value each ([value 3] and [value 4]).*"
 
-The TYPO3 CMS backend contains tools that can be used to visualize the
+The TYPO3 backend contains tools that can be used to visualize the
 tree structure of TypoScript. They are described in the relevant
 section further of the two using reference documents
 :ref:`TypoScript Reference <t3tsref:typoscript-syntax-typoscript-templates>` and

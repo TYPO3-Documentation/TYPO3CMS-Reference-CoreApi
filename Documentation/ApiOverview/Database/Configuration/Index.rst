@@ -52,7 +52,7 @@ Remarks:
    connection even for `localhost`, the `IPv4` or `IPv6` address `127.0.0.1` and `::1/128` respectively
    must be used as `host` value.
 
-*  The connect options are hand over to Doctrine DBAL without much manipulation from TYPO3 CMS side.
+*  The connect options are hand over to Doctrine DBAL without much manipulation from TYPO3 side.
    Please refer to the
    `doctrine connection docs <https://www.doctrine-project.org/projects/doctrine-dbal/en/latest/reference/configuration.html>`__
    for a full overview of settings.
