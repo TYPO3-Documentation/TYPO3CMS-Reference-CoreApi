@@ -9,7 +9,7 @@
 Database Structure
 ==================
 
-The database tables used by TYPO3 CMS can be divided into two
+The database tables used by TYPO3 can be divided into two
 rough categories:
 
 - Tables that are used by the system internally and are invisible to backend
@@ -17,13 +17,13 @@ rough categories:
   often dedicated PHP API's in the Core extension to manage entries of these
   tables, for instance the :ref:`Caching framework API <caching>`.
 
-- Tables that can be managed via the TYPO3 CMS backend, are shown in the List
+- Tables that can be managed via the TYPO3 backend, are shown in the List
   module and can be edited using :ref:`FormEngine <FormEngine>`.
 
 There are certain requirements for such managed tables:
 
 - The table must be configured in the :doc:`global TCA array <t3tca:Index>`.
-  This will tell TYPO3 CMS things like the table name,
+  This will tell TYPO3 things like the table name,
   features you have configured, the fields of the table and how to
   render these in the backend, relations to other tables, etc.
 
@@ -47,7 +47,7 @@ There are certain requirements for such managed tables:
 
     - A "sorting" field holding an order if records are sorted manually.
 
-    - A "deleted" field which tells TYPO3 CMS that the record is deleted
+    - A "deleted" field which tells TYPO3 that the record is deleted
       (in effect implementing a "soft delete" feature; records with a
       "deleted" field are not truly deleted from the database).
 

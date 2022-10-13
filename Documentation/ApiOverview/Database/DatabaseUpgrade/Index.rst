@@ -6,7 +6,7 @@
 Upgrade table and field definitions
 ===================================
 
-Each extension in TYPO3 CMS can bring the file :file:`ext_tables.sql` that
+Each extension in TYPO3 can bring the file :file:`ext_tables.sql` that
 defines which tables and fields the extension needs. Gathering all
 :file:`ext_tables.sql` thus defines the full set of tables, fields and
 indexes of a TYPO3 instance to unfold its full feature set. Some functionality
@@ -14,13 +14,13 @@ in the install tool can compare the defined set with the current active
 database schema and shows options to align those two by adding fields,
 removing fields and so on.
 
-When you upgrade to newer versions of the TYPO3 CMS or upgrade an extension,
+When you upgrade to newer versions of TYPO3 or upgrade an extension,
 the data definition of tables and fields might have changed.
-The TYPO3 CMS install tool will detect such changes.
+The TYPO3 install tool will detect such changes.
 
 When you install a new extension, any change to the database
 is automatically performed. When you upgrade to a new major
-version of TYPO3 CMS, you should normally go through the Upgrade
+version of TYPO3, you should normally go through the Upgrade
 Wizard, whose first step is to perform all necessary database
 changes:
 
@@ -45,7 +45,7 @@ very likely break your installation.
 
 .. include:: /Images/AutomaticScreenshots/AdminTools/DatabaseAnalyzer.rst.txt
 
-More information about the process of upgrading TYPO3 CMS can be found in
+More information about the process of upgrading TYPO3 can be found in
 the :doc:`Upgrade Guide <t3install:Index>`.
 
 .. index::

@@ -34,7 +34,7 @@ all files inside the folder will be returned when calling that collection.
 Collections API
 ===============
 
-The TYPO3 CMS Core provides an API to enable usage of collections
+The TYPO3 Core provides an API to enable usage of collections
 inside extensions. The most important classes are:
 
 :code:`\TYPO3\CMS\Core\Resource\FileCollectionRepository`

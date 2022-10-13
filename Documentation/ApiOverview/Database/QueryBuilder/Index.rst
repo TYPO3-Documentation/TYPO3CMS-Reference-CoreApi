@@ -164,7 +164,7 @@ Default Restrictions
 
 .. note::
 
-   `->select()` and `->count()` queries trigger TYPO3 CMS magic that adds further default where
+   `->select()` and `->count()` queries trigger TYPO3 magic that adds further default where
    clauses if the queried table is also registered via `$GLOBALS['TCA']`. See the
    :ref:`RestrictionBuilder <database-restriction-builder>` section for details on that topic.
 
