@@ -94,8 +94,7 @@ This enhances the overall performance a bit, since sessions cookies would be
 checked for every request to TYPO3's backend and frontend.
 
 The session cookies can be pre-validated without querying the database, which
-can filter invalid requests and might reduce the enhances the overall
-performance a bit.
+can filter invalid requests and might improve overall performance a bit.
 
 As a consequence session tokens are not sent "as is", but are wrapped in a
 corresponding JWT message, which contains the following payload:
