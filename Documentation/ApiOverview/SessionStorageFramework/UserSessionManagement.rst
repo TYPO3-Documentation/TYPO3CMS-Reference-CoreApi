@@ -10,7 +10,7 @@ User sessions in TYPO3 are represented as :php:`UserSession` objects. The :ref:`
 authentication service chain <authentication>` creates or updates user sessions
 when authenticating users.
 
-The :php:`UserSession` object contains all information regarding a users' session,
+The :php:`UserSession` object contains all information regarding a user's session,
 for website visitors with session data (e.g. basket for anonymous / not-logged-in users),
 for frontend users as well as authenticated backend users. These are for example,
 the session id, the session data, if a session was updated, if the session is anonymous,
@@ -19,7 +19,7 @@ or if it is marked as permanent and so on.
 The :php:`UserSession` object can be used to change and
 retrieve information in an object-oriented way.
 
-For creating :php:`UserSession`-objects the :php:`UserSessionManager` must be used
+For creating :php:`UserSession` objects the :php:`UserSessionManager` must be used
 since this manager acts as the main factory for user
 sessions and therefore handles all necessary tasks like fetching, evaluating
 and persisting them. Effectively encapsulating all calls to the
@@ -97,10 +97,10 @@ The session object created or retrieved by the :php:`UserSessionManager` provide
 +---------------------+-------------+------------------------------------------------------------------------------+
 | Method              | Return type | Description                                                                  |
 +=====================+=============+==============================================================================+
-| getIdentifier()     | String      | Returns the session id. This is the :php:`ses_id` respectively the           |
+| getIdentifier()     | String      | Returns the session ID. This is the :php:`ses_id` respectively the           |
 |                     |             | :php:`AbstractUserAuthentication->id`.                                       |
 +---------------------+-------------+------------------------------------------------------------------------------+
-| getUserId()         | Int or NULL | Returns the user id the session belongs to. Can also return `0` or NULL      |
+| getUserId()         | Int or NULL | Returns the user ID the session belongs to. Can also return `0` or NULL      |
 |                     |             | Which indicates an anonymous session. This is the :php:`ses_userid`.         |
 +---------------------+-------------+------------------------------------------------------------------------------+
 | getLastUpdated()    | Int         | Returns the timestamp of the last session data update. This is the           |
@@ -132,6 +132,9 @@ The session object created or retrieved by the :php:`UserSessionManager` provide
 | isPermanent()       | Bool        | Checks whether the session was marked as permanent on creation.              |
 +---------------------+-------------+------------------------------------------------------------------------------+
 | needsUpdate()       | Bool        | Checks whether the session has to be updated.                                |
++---------------------+-------------+------------------------------------------------------------------------------+
+| getJwt()            | String      | .. versionadded:: 12.0                                                       |
+|                     |             | Returns the session ID wrapped in JWT to be used for emitting a new cookie.  |
 +---------------------+-------------+------------------------------------------------------------------------------+
 | toArray()           | Array       | Returns the session and its data as array in the old `sessionRecord` format. |
 +---------------------+-------------+------------------------------------------------------------------------------+
