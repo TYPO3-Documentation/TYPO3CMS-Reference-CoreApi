@@ -27,12 +27,12 @@ of choice in your work with TYPO3.
 Intended Audience
 =================
 
-This document is intended to be a reference for TYPO3 CMS developers and partially
+This document is intended to be a reference for TYPO3 developers and partially
 for integrators. The document explains all major parts of TYPO3 and the concepts.
 Some chapters presumes knowledge in the technical end: PHP, MySQL, Unix etc, depending
 on the specific chapter.
 
-The goal is to take you "under the hood" of TYPO3 CMS. To make the
+The goal is to take you "under the hood" of TYPO3. To make the
 principles and opportunities clear and less mysterious. To educate you
 to help continue the development of TYPO3 along the already
 established lines so we will have a consistent CMS application in a

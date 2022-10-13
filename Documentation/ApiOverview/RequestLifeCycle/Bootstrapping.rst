@@ -6,7 +6,7 @@
 Bootstrapping
 =============
 
-TYPO3 CMS has a clean bootstrapping process driven mostly
+TYPO3 has a clean bootstrapping process driven mostly
 by class :php:`\TYPO3\CMS\Core\Core\Bootstrap`. This class is initialized by
 calling  :php:`Bootstrap::init()` and serves as an entry point for later calling
 an application class, depending on several context-dependant constraints.
@@ -86,7 +86,7 @@ Example of bootstrapping the TYPO3 Backend:
 Initialization
 ==============
 
-Whenever a call to TYPO3 CMS is made, the application goes through a
+Whenever a call to TYPO3 is made, the application goes through a
 bootstrapping process managed by a dedicated API. This process is also
 used in the frontend, but only the backend process is described here.
 
@@ -194,7 +194,7 @@ Application context
 ===================
 
 Each request, no matter if it runs from the command line or through HTTP,
-runs in a specific *application context*. TYPO3 CMS provides exactly three built-in
+runs in a specific *application context*. TYPO3 provides exactly three built-in
 contexts:
 
 * ``Production`` (default) - should be used for a live site
@@ -206,7 +206,7 @@ The context TYPO3 runs in is specified through the environment variable
 
 .. code-block:: bash
 
-   # run the TYPO3 CMS CLI commands in development context
+   # run the TYPO3 CLI commands in development context
    TYPO3_CONTEXT=Development ./bin/typo3
 
 

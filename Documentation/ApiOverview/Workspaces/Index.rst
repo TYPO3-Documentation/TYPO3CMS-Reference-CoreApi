@@ -8,7 +8,7 @@
 Versioning and Workspaces
 =========================
 
-TYPO3 CMS provides a feature called "workspaces", whereby changes
+TYPO3 provides a feature called "workspaces", whereby changes
 can be made to the content of the web site without affecting the
 currently visible (live) version. Changes can be previewed and
 go through an approval process before publishing.

@@ -4,7 +4,7 @@
 Introduction
 ============
 
-Except for some low level functions, TYPO3 CMS exclusively uses localizable
+Except for some low level functions, TYPO3 exclusively uses localizable
 strings for all labels displayed in the backend. This means that the whole user
 interface may be translated. The encoding is strictly UTF-8.
 

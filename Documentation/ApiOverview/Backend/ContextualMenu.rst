@@ -16,7 +16,7 @@ Context-sensitive menus
    configured in the same way.
 
 
-Contextual menus exist in many places in the TYPO3 CMS backend. Just try your
+Contextual menus exist in many places in the TYPO3 backend. Just try your
 luck clicking on any **icon** that you see. Chances are good that a contextual
 menu will appear, offering useful functions to execute.
 

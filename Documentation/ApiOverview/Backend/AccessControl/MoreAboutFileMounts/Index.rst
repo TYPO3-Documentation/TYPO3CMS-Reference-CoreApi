@@ -10,7 +10,7 @@ More about file mounts
 ======================
 
 File mounts require a little more description of the concepts provided
-by TYPO3 CMS. All files are handled by an application layer called
+by TYPO3. All files are handled by an application layer called
 the "File Abstraction Layer" (FAL). You can find more information
 about the basic concepts of :ref:`FAL <fal-concepts>`.
 
@@ -29,7 +29,7 @@ Storages
   "directories". The storage configuration depends on the driver it uses.
 
   Thanks to the storage and its driver, the user is able to browse
-  files from within the TYPO3 CMS backend as if they were stored locally.
+  files from within the TYPO3 backend as if they were stored locally.
 
 File mounts
   As discussed before, a file mount is the element which is used to

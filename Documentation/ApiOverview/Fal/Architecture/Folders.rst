@@ -8,12 +8,12 @@ Folders
 
 The actual storage structure depends on which Driver each storage
 is based on. When using the local file system Driver provided by
-the TYPO3 CMS Core, a storage will correspond to some existing
+the TYPO3 Core, a storage will correspond to some existing
 folder on the local storage system (e.g. hard drive). Other
 Drivers may use virtual structures.
 
 By default, a storage pointing to the :file:`fileadmin` folder
-is created automatically in every TYPO3 CMS installation.
+is created automatically in every TYPO3 installation.
 
 
 .. index:: File abstraction layer; Processed files
