@@ -310,8 +310,8 @@ Either method can be used to send emails with HTML content, text content or both
 ..  index:: Mail; FluidEmail
 ..  _mail-fluid-email:
 
-Send mail with `FluidEmail`
----------------------------
+Send email with `FluidEmail`
+----------------------------
 
 This sends an email using a Fluid template :file:`TipsAndTricks.html`, make
 sure the paths are setup as described in :ref:`mail-configuration-fluid`:
@@ -332,6 +332,13 @@ sure the paths are setup as described in :ref:`mail-configuration-fluid`:
         ->assign('mySecretIngredient', 'Tomato and TypoScript');
     GeneralUtility::makeInstance(MailerInterface::class)->send($email);
 
+
+..  versionchanged:: 12.1
+    Until TYPO3 v12.0 the :php:`\TYPO3\CMS\Core\Mail\Mailer` class
+    implementation has to be retrieved/injected to send an email. Since TYPO3
+    v12.1 it is recommended to use :php:`\TYPO3\CMS\Core\Mail\MailerInterface`
+    instead to be able to use :ref:`custom mailer implementations
+    <register-custom-mailer>`.
 
 A file :file:`TipsAndTricks.html` must exist in one of the paths defined in
 :php:`$GLOBALS['TYPO3_CONF_VARS']['MAIL']['templateRootPaths']` for sending the
@@ -535,6 +542,31 @@ In case of the problem "Mails are not sent" in your extension, try to set a
         $mail->setReturnPath($returnPath);
     }
     $mail->send();
+
+
+..  index::
+    Mail; Custom mailer
+..  _register-custom-mailer:
+
+Register a custom mailer
+========================
+
+..  versionadded:: 12.1
+
+To be able to use a custom mailer implementation in TYPO3, the interface
+:php:`\TYPO3\CMS\Core\Mail\MailerInterface` is available, which extends
+:php:`\Symfony\Component\Mailer\MailerInterface`. By default,
+:php:`\TYPO3\CMS\Core\Mail\Mailer` is registered as implementation.
+
+After implementing your custom mailer, add the following lines into the
+:file:`Configuration/Services.yaml` file to ensure that your custom
+mailer is used.
+
+..  code-block:: yaml
+    :caption: EXT:site_package/Configuration/Services.yaml
+
+    TYPO3\CMS\Core\Mail\MailerInterface:
+        alias: MyVendor\SitePackage\Mail\MyCustomMailer
 
 
 PSR-14 events on sending messages
