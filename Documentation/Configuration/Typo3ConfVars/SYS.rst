@@ -195,8 +195,11 @@ trustedHostsPattern
 
    for example :php:`example\.org:88` allows only :file:`example.org:88`,
    **not** :file:`example.org`. To disable this check completely
-
    (not recommended because it is **insecure**) you can use :php:`.*` as pattern.
+
+   Have also a look into the :ref:`security guidelines
+   <security-global-typo3-options-trustedHostsPattern>`.
+
 
 .. index::
    TYPO3_CONF_VARS SYS; devIPmask
@@ -216,6 +219,9 @@ devIPmask
    function :php:`\TYPO3\CMS\Core\Utility\GeneralUtilitycmpIP()` for details
    on syntax. Setting this to blank value will deny all.
    Setting to "*" will allow all.
+
+   Have also a look into the :ref:`security guidelines
+   <security-global-typo3-options-devIpMask>`.
 
 .. index::
    TYPO3_CONF_VARS SYS; ddmmyy
@@ -551,7 +557,7 @@ displayErrors
    :type: int
    :Default: -1
    :allowedValues:
-      -1
+      `-1`
          TYPO3 does not touch the PHP setting. If
          :ref:`[SYS][devIPmask] <typo3ConfVars_sys_devIPmask>` matches the users
          IP address, the configured
@@ -560,7 +566,7 @@ displayErrors
          :ref:`[SYS][productionExceptionHandler] <typo3ConfVars_sys_productionExceptionHandler>`
          to handle exceptions.
 
-      0
+      `0`
          Live: Do not display any PHP error message. Sets :php:`display_errors=0`.
          Overrides the value of
          :ref:`[SYS][exceptionalErrors]<typo3ConfVars_sys_exceptionalErrors>`
@@ -569,7 +575,7 @@ displayErrors
          :ref:`[SYS][productionExceptionHandler]<typo3ConfVars_sys_productionExceptionHandler>`
          is used as exception handler.
 
-      1
+      `1`
          Debug: Display error messages with the registered
          :ref:`[SYS][errorHandler]<typo3ConfVars_sys_errorHandler>`.
          Sets :php:`display_errors=1`. The configured
@@ -577,8 +583,11 @@ displayErrors
          is used as exception handler.
 
 
-   Configures whether PHP errors or Exceptions should be displayed,
+   Configures whether PHP errors or exceptions should be displayed,
    effectively setting the PHP option :php:`display_errors` during runtime.
+
+   Have also a look into the :ref:`security guidelines
+   <security-global-typo3-options-displayErrors>`.
 
 .. index::
    TYPO3_CONF_VARS SYS; productionExceptionHandler

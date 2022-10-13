@@ -241,6 +241,10 @@ lockIP
    during their session (in which case you can lower it). The integer indicates
    how many parts of the IP address to include in the check for the session.
 
+   Have also a look into the :ref:`security guidelines
+   <security-global-typo3-options-lockIP>`.
+
+
 .. index::
    TYPO3_CONF_VARS FE; lockIPv6
 .. _typo3ConfVars_fe_lockIPv6:
