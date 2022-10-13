@@ -6,6 +6,11 @@
 Configuration files
 ===================
 
+
+..  todo: Situation changed again with
+    https://github.com/TYPO3-Documentation/Changelog-To-Doc/issues/204
+    I will take care of this in a follow up.
+
 The configuration files :file:`LocalConfiguration.php` and
 :file:`AdditionalConfiguration.php` are located in the directory
 :ref:`public/typo3conf/ <directory-public-typo3conf>` in Composer-based

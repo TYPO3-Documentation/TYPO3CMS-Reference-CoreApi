@@ -19,7 +19,7 @@ Registration
 All icons must be registered in the :php:`IconRegistry`.
 To register icons for your own extension, create a file called
 :file:`Configuration/Icons.php` in your extension - for example:
-:file:`typo3conf/ext/my_extension/Configuration/Icons.php`.
+:file:`EXT:/my_extension/Configuration/Icons.php`.
 
 .. note::
 

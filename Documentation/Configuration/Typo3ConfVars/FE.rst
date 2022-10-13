@@ -494,12 +494,16 @@ additionalAbsRefPrefixDirectories
 
 .. confval:: $GLOBALS['TYPO3_CONF_VARS']['FE']['additionalAbsRefPrefixDirectories']
 
-   :type: text
-   :Default: ''
+    :type: text
+    :Default: ''
 
-   Enter additional directories to be prepended with absRefPrefix.
-   Directories must be comma-separated. TYPO3 already prepends the following
-   directories typo3/, typo3temp/, typo3conf/ext/ and all local storages
+    Enter additional directories to be prepended with absRefPrefix.
+    Directories must be comma-separated. TYPO3 already prepends the following
+    directories :file:`public/_assets/`, :file:`public/typo3temp/` and all
+    local storages including :file:`public/fileadmin`.
+
+    In legacy installations without Composer :file:`typo3conf/ext`
+    and :file:`typo3` are also prefixed.
 
 .. index::
    TYPO3_CONF_VARS FE; enable_mount_pids

@@ -43,7 +43,7 @@ element`:
    }
 
 In the extension *examples* you can find the code in
-:file:`typo3conf/ext/examples/Configuration/TypoScript/setup.typoscript`.
+:file:`EXT:/examples/Configuration/TypoScript/setup.typoscript`.
 
 Where :typoscript:`tx_examples_main_category` is the field in which the comma
 separated categories are being stored.
@@ -131,7 +131,7 @@ This is an example implementation of a custom data processor:
    }
 
 In the extension *examples* you can find the code in
-:file:`typo3conf/ext/examples/Classes/DataProcessing/CustomCategoryProcessor.php`.
+:file:`EXT:/examples/Classes/DataProcessing/CustomCategoryProcessor.php`.
 
 On being called, the :php:`CustomCategoryProcessor` runs stdWrap on the calling
 ContentObjectRenderer, which has the data of the table :php:`tt_content` in the
