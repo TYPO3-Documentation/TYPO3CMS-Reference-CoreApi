@@ -12,7 +12,7 @@ Parsing Custom TypoScript
    This example will probably seem rather quaint. However it is
    still useful to illustrate this topic.
 
-Let's imagine that you have created an application in TYPO3 CMS, for
+Let's imagine that you have created an application in TYPO3, for
 example a plug-in. You have defined certain parameters editable
 directly in the form fields of the plug-in content element. However
 you want advanced users to be able to set up more detailed parameters.

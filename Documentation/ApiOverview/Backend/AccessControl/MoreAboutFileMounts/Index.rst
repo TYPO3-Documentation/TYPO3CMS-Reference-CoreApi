@@ -112,7 +112,7 @@ equal to :code:`/home/foo/`.
 Home directories
 ================
 
-TYPO3 CMS also features the concept of "home directories". These are paths
+TYPO3 also features the concept of "home directories". These are paths
 that are automatically mounted if they are present at a path
 configured in the global configuration. Thus they don't need to have a file
 mount record representing them - they just need a properly named

@@ -34,7 +34,7 @@ Module menu
 
   .. note::
 
-     In the TYPO3 CMS world, "module" is typically used for
+     In the TYPO3 world, "module" is typically used for
      the backend. Extension components which add features in the frontend
      are referred to as "plugins".
 

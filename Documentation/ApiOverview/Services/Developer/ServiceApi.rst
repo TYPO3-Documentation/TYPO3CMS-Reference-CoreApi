@@ -173,7 +173,7 @@ checkExec
 
    The method relies on :php:`\TYPO3\CMS\Core\Utility\CommandUtility::checkCommand()`
    to find the executables, so it will search through the paths defined/allowed by
-   the TYPO3 CMS configuration.
+   the TYPO3 configuration.
 
 deactivateService
    Internal method to temporarily deactivate a service at run-time, if it
@@ -193,7 +193,7 @@ cleaning up temporary files.
 
 checkInputFile
    Checks if a file exists and is readable within the paths allowed by
-   the TYPO3 CMS configuration.
+   the TYPO3 configuration.
 
 readFile
    Reads the content of a file and returns it as a string. Calls on

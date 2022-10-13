@@ -45,7 +45,7 @@ additional technical details, where necessary.
 .. note::
 
    Access list don't apply to admin users. As mentioned before, admin
-   users have access to every single feature of the TYPO3 CMS backend.
+   users have access to every single feature of the TYPO3 backend.
 
 Modules
    This is a list of submodules a user may be given access to. Access to a main
@@ -92,7 +92,7 @@ Tables for editing
    modification rights.
 
 Page types
-   TYPO3 CMS defines a number of page types. A user can be restricted
+   TYPO3 defines a number of page types. A user can be restricted
    to access only some of them.
 
    For a full discussion on page types, please refer to the
@@ -106,7 +106,7 @@ Excludefields
 
 Explicitly allow/deny field values
    When a field offers a list of options to select from, it is possible
-   to tell TYPO3 CMS that access to these options is restricted and should
+   to tell TYPO3 that access to these options is restricted and should
    be granted explicitly. Such fields and their values appear here.
 
    The related TCA property is :ref:`"authMode" <t3tca:columns-select-properties-authmode>`.
@@ -125,7 +125,7 @@ the groups are "added" together.
 Mounts
 ======
 
-TYPO3 CMS natively supports two kinds of hierarchical tree structures:
+TYPO3 natively supports two kinds of hierarchical tree structures:
 the page tree (typically visible in the :guilabel:`Web` module) and the folder
 tree (typically visible in the :guilabel:`File` module). Each tree is
 generated based on the *mount points* configured for the current user. So a
@@ -154,13 +154,13 @@ This is what the user will see:
 involve several steps. First of all, you need to have at least
 one :ref:`File Storage <fal-concepts-storages-drivers>`. By
 default, you will always have one, pointing
-to the :file:`fileadmin` directory. It is created by TYPO3 CMS
+to the :file:`fileadmin` directory. It is created by TYPO3
 upon installation.
 
 .. note::
 
    The :file:`fileadmin` directory is the default place where
-   TYPO3 CMS expects media resources to be located. It can be
+   TYPO3 expects media resources to be located. It can be
    changed using the global configuration option
    :code:`$GLOBALS['TYPO3_CONF_VARS']['BE']['fileadminDir']`.
 
@@ -256,7 +256,7 @@ Editing permissions is described in details in the
 A user must be "admin" *or* the owner of a page in order to edit its
 permissions.
 
-When a user creates new pages in TYPO3 CMS they will by default get the
+When a user creates new pages in TYPO3 they will by default get the
 creating user as owner. The owner group will be set to the *first
 listed user group* configured for the users record (if any). These defaults
 can be changed through :ref:`page TSconfig <t3tsconfig:pagetcemain-permissions-user-group>`.
@@ -269,6 +269,6 @@ User TSconfig
 
 User TSconfig is a hierarchical configuration structure entered in
 plain text TypoScript. It can be used by all kinds of applications
-inside of TYPO3 CMS to retrieve customized settings for users which
+inside of TYPO3 to retrieve customized settings for users which
 relates to a certain module or part. The options available are
 described in the :ref:`document TSconfig <t3tsconfig:usertsconfig>` .

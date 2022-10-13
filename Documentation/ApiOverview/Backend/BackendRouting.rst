@@ -28,7 +28,7 @@ Here is an extract of :file:`typo3/sysext/backend/Configuration/Backend/Routes.p
     * Contains all "regular" routes for entry points
     *
     * Please note that this setup is preliminary until all Core use-cases are set up here.
-    * Especially some more properties regarding modules will be added until TYPO3 CMS 7 LTS, and might change.
+    * Especially some more properties regarding modules will be added until TYPO3 v7 LTS, and might change.
     *
     * Currently the "access" property is only used so no token creation + validation is made,
     * but will be extended further.
@@ -135,7 +135,7 @@ generates and applies the mentioned session token.
    // Using a route identifier
    $uriBuilder = GeneralUtility::makeInstance(UriBuilder::class);
    $uri = $uriBuilder->buildUriFromRoute('web_layout', ['id' => $pageId]);
-   
+
    // Using a route path
    $uriBuilder = GeneralUtility::makeInstance(UriBuilder::class);
    $uri = $uriBuilder->buildUriFromRoutePath(

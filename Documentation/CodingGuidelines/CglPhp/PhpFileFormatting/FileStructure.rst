@@ -30,7 +30,7 @@ Namespace
 =========
 
 The namespace declaration of each PHP file in the TYPO3 Core shows
-where the file belongs inside TYPO3 CMS. The namespace starts with
+where the file belongs inside TYPO3. The namespace starts with
 :php:`TYPO3\CMS`, then the extension name in UpperCamelCase, a
 backslash and then the name of the subfolder of :file:`Classes/`, in
 which the file is located (if any). E.g. the file

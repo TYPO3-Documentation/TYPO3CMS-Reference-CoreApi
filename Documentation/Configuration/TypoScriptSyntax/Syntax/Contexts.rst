@@ -7,13 +7,13 @@ Contexts
 ========
 
 There are two contexts where TypoScript is used: templates, where
-TypoScript is used to actually define what will appear in the TYPO3 CMS
+TypoScript is used to actually define what will appear in the TYPO3
 frontend, and TSconfig, where it is used to configure settings of the
 TYPO3 backend. TSconfig is further subdivided into **user TSconfig**
 (defined for backend users or user groups) and **page TSconfig** (defined
 for pages in the page tree).
 
-Page TSconfig is used for customizing the TYPO3 CMS backend according
+Page TSconfig is used for customizing the TYPO3 backend according
 to where users will be working along the page tree. User TSconfig
 is used to customize what elements are visible for users and groups
 or change the behavior of some elements.
@@ -27,6 +27,6 @@ this manual).
 
 .. note::
 
-   TYPO3 CMS provides a :ref:`TypoScript parser <typoscript-syntax-typoscript-parser-api>`
+   TYPO3 provides a :ref:`TypoScript parser <typoscript-syntax-typoscript-parser-api>`
    whose API can be used by any developer. In theory this means that new
-   contexts of TypoScript usage can be created by TYPO3 CMS extensions.
+   contexts of TypoScript usage can be created by TYPO3 extensions.

@@ -17,7 +17,7 @@ Mail API
    emails out-of-the-box. The email contents are built with the Fluid Templating Engine.
    :doc:`ext_core:Changelog/10.3/Feature-90266-Fluid-basedTemplatedEmails`
 
-TYPO3 CMS provides a RFC-compliant mailing solution based on
+TYPO3 provides a RFC-compliant mailing solution based on
 `symfony/mailer <https://symfony.com/doc/current/components/mailer.html>`__
 for sending emails and
 `symfony/mime <https://symfony.com/doc/current/components/mime.html>`__
@@ -273,7 +273,7 @@ To send the spooled mails you need to run the following CLI command:
 .. code-block:: bash
 
    vendor/bin/typo3 mailer:spool:send
-   
+
 This command can be set up to be run periodically using the TYPO3 Scheduler.
 
 .. index::

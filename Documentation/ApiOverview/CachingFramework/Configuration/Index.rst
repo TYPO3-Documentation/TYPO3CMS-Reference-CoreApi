@@ -21,7 +21,7 @@ and consists of the single section:
 Cache Configurations
 ====================
 
-Unfortunately in TYPO3 CMS, all :file:`ext_localconf.php` files of the extensions are loaded **after** the instance specific
+Unfortunately in TYPO3, all :file:`ext_localconf.php` files of the extensions are loaded **after** the instance specific
 configuration from :file:`LocalConfiguration.php` and :file:`AdditionalConfiguration.php`. This
 enables extensions to overwrite cache configurations already done for the instance. All extensions
 should avoid this situation and should just define the very bare minimum of cache configurations. This
@@ -65,7 +65,7 @@ How to Disable Specific Caches
 ==============================
 
 During development, it can be convenient to disable certain caches.
-This is especially helpful since TYPO3 CMS 4.6 for central caches like the language or autoloader cache.
+This is especially helpful since TYPO3 v4.6 for central caches like the language or autoloader cache.
 This can be achieved by using the **null** backend (see below) as storage backend.
 
 .. warning::

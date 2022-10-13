@@ -97,5 +97,5 @@ the "beuser" extension:
 
 
 The best resources for learning is to look at existing modules
-from TYPO3 CMS. With the information given here, you should be
+from TYPO3. With the information given here, you should be
 able to find your way around the code.
