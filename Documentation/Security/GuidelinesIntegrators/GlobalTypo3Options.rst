@@ -50,7 +50,7 @@ The PHP variable reads: :php:`$GLOBALS['TYPO3_CONF_VARS']['SYS']['displayErrors'
 devIPmask
 =========
 
-The :ref:`option <typo3ConfVars_sys_devIPmask>` defines a comma-separated list
+The :ref:`option devIPmask <typo3ConfVars_sys_devIPmask>` defines a comma-separated list
 of IP addresses which will allow development output to display (information
 disclosure). The :php:`debug()` function will use this as a filter. Setting this
 to a blank value will deny all (recommended for a production site). Setting this
