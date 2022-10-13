@@ -8,7 +8,7 @@
 Icon API
 ========
 
-TYPO3 CMS provides an icon API for all icons in the TYPO3 backend.
+TYPO3 provides an icon API for all icons in the TYPO3 backend.
 
 .. index:: IconRegistry; registerIcon
 .. _icon-registration:

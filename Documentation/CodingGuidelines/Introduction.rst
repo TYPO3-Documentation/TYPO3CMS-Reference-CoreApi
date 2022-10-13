@@ -5,7 +5,7 @@
 Introduction
 ============
 
-This chapter defines coding guidelines for the TYPO3 CMS project.
+This chapter defines coding guidelines for the TYPO3 project.
 Following these guidelines is mandatory for TYPO3 Core  developers and
 contributors to the TYPO3 Core .
 
