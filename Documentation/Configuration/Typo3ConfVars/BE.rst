@@ -4,9 +4,9 @@
    TYPO3_CONF_VARS; BE
 .. _typo3ConfVars_be:
 
-====================================
+==========================
 BE - backend configuration
-====================================
+==========================
 
 The following configuration variables can be used to configure settings for
 the TYPO3 backend:
@@ -141,6 +141,10 @@ warning_email_addr
    whenever more than 3 failed backend login attempts (regardless of user)
    are detected within an hour.
 
+   Have also a look into the :ref:`security guidelines
+   <security-global-typo3-options-warning-email-addr>`.
+
+
 .. index::
    TYPO3_CONF_VARS BE; warning_mode
 .. _typo3ConfVars_be_warning_mode:
@@ -161,6 +165,10 @@ warning_mode
          Send a notification-email every time an **admin** backend user logs in
 
    Send emails to :php:`warning_email_addr`  upon backend-login
+
+   Have also a look into the :ref:`security guidelines
+   <security-global-typo3-options-warning-mode>`.
+
 
 .. index::
    TYPO3_CONF_VARS BE; passwordReset
@@ -315,6 +323,10 @@ lockIP
 
    Session IP locking for backend users. See :ref:`[FE][lockIP]<typo3ConfVars_fe_lockIP>` for details.
 
+   Have also a look into the :ref:`security guidelines
+   <security-global-typo3-options-lockIP>`.
+
+
 .. index::
    TYPO3_CONF_VARS BE; lockIPv6
 .. _typo3ConfVars_be_lockIPv6:
@@ -382,6 +394,10 @@ IPmaskList
    See syntax for that (or look up syntax for the function
    :php:`\TYPO3\CMS\Core\Utility\GeneralUtility::cmpIP())`
 
+   Have also a look into the :ref:`security guidelines
+   <security-global-typo3-options-IPmaskList>`.
+
+
 .. index::
    TYPO3_CONF_VARS BE; lockSSL
 .. _typo3ConfVars_be_lockSSL:
@@ -397,6 +413,10 @@ lockSSL
    If set, the backend can only be operated from an SSL-encrypted
    connection (https). A redirect to the SSL version of a URL will happen
    when a user tries to access non-https admin-urls
+
+   Have also a look into the :ref:`security guidelines
+   <security-global-typo3-options-lockSSL>`.
+
 
 .. index::
    TYPO3_CONF_VARS BE; lockSSLPort
@@ -799,6 +819,10 @@ fileDenyPattern
    Matching is done case-insensitive.
 
    Default value is stored in PHP constant :php:`FILE_DENY_PATTERN_DEFAULT`
+
+   Have also a look into the :ref:`security guidelines
+   <security-global-typo3-options-fileDenyPattern>`.
+
 
 .. index::
    TYPO3_CONF_VARS BE; interfaces
