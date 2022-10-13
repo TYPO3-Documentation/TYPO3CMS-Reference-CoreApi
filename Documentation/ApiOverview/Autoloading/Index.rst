@@ -1,6 +1,6 @@
-.. include:: /Includes.rst.txt
-.. index:: Autoloader
-.. _autoload:
+..  include:: /Includes.rst.txt
+..  index:: Autoloader
+..  _autoload:
 
 ===========
 Autoloading
@@ -11,143 +11,164 @@ The class autoloader takes care of finding classes in TYPO3.
 About :php:`makeInstance()`
 ===========================
 
-:php:`\TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance()` is the generic way
-throughout core and extensions to create objects. It takes care of singleton
+:php:`\TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance()` is a generic way
+throughout Core and extensions to create objects. It takes care of singleton
 and :ref:`XCLASS <xclasses>` handling.
 
-A developer should usually instantiate classes using :php:`makeInstance()` - it is
-the normal way to go. This has been a hard rule in the past. With younger core version
-however, there are some situations where :php:`new` is used over :php:`makeInstance()`,
-effectively dropping especially the direct ability to :ref:`XCLASS <xclasses>`:
+..  note::
+    When dependent services are injected via :ref:`Dependency Injection
+    <dependencyinjection>`, there is no need for :php:`makeInstance()`:
+    Injecting a different object is done by configuration - that's what
+    dependency injection is for.
 
-- When dependent services are injected via :ref:`Dependency Injection <dependencyinjection>`,
-  there is no need for :php:`makeInstance()`: Injecting a different object is done by
-  configuration - that's what dependency injection is for.
+A developer can instantiate classes using :php:`makeInstance()` - if dependency
+injection cannot be used. There are some situations where :php:`new` is used
+over :php:`makeInstance()`, effectively dropping especially the direct ability
+to :ref:`XCLASS <xclasses>`:
 
-- Data transfer objects are often created with :php:`new`. A good example are
-  :ref:`PSR-14 events <EventDispatcher>`: The calling class creates a data transfer
-  object that is hand over to the consumer. These DTO's must never be changed by an
-  extension, since they are a contract both caller and consumer must stick to. They
-  are thus created using :php:`new` to prevent XCLASS'ing.
+-   Data transfer objects are often created with :php:`new`. A good example are
+    :ref:`PSR-14 events <EventDispatcher>`: The calling class creates a data
+    transfer object that is hand over to the consumer. These DTOs must never be
+    changed by an extension, since they are a contract both caller and consumer
+    must stick to. They are thus created using :php:`new` to prevent XCLASSing.
 
-- Structures with a dedicated API that allows own implementations on a configuration
-  level sometimes do not use :php:`makeInstance`: Many core constructs come with API
-  to allow custom classes by dedicated configuration. Those implement a factory
-  pattern to deal with this. An example is the :ref:`PSR-15 middleware stack <request-handling>`.
+-   Structures with a dedicated API that allows own implementations on a
+    configuration level sometimes do not use :php:`makeInstance`: Many Core
+    constructs come with an API to allow custom classes by dedicated
+    configuration. Those implement a factory pattern to deal with this. An
+    example is the :ref:`PSR-15 middleware stack <request-handling>`.
 
 
-.. _autoloading_since_typo3_7:
+..  _autoloading_since_typo3_7:
+..  _autoloading_classes:
 
-Autoloading classes since TYPO3 v7.x
-====================================
+Autoloading classes
+===================
 
-TYPO3 v6.2 was still delivered with a couple of different autoloaders, that all had different
-approaches and rules to find a class. Since TYPO3 v7.0, there is only a single autoloader left,
-the one of Composer. No matter if you run TYPO3 in Composer mode or not (Classic Mode), TYPO3
-uses the Composer autoloader to resolve all class file locations.
+There is one autoloader used, the one of Composer. No matter if you run TYPO3 in
+Composer mode or not (legacy mode), TYPO3 uses the Composer autoloader to
+resolve all class file locations.
 
-.. index:: Autoloader; Without Composer
-.. _autoloading_without_composer_mode:
 
-Loading classes without Composer mode
-=====================================
-
-This means, you did not install TYPO3 via a `require` statement inside your :file:`composer.json`. It's a
-regular old-school install where the TYPO3 source and the symlinks (:file:`typo3/index.php`) are setup
-manually.
-
-In this case, every time you install an extension, the autoloader scans the whole extension
-directory for classes. No matter if they follow any convention at all. There is just one rule:
-put each class into its own file. This also means that there can only be a single class per file.
-
-You can also explicitly configure autoloading in the :ref:`extension-declaration`.
-
-The generated :file:`typo3conf/autoload_classmap.php` is a large array with a mapping of classnames
-to their location on the disk:
-
-.. code-block:: php
-   :caption: typo3conf/autoload_classmap.php
-
-   <?php
-
-   // autoload_classmap.php @generated by TYPO3
-
-   $typo3InstallDir = \TYPO3\CMS\Core\Core\Environment::getPublicPath();
-
-   return array(
-      'Schnitzler\\Templavoila\\Clipboard\\Clipboard' => $typo3InstallDir . 'typo3conf/ext/templavoila/Classes/Clipboard/Clipboard.php',
-      'tx_templavoila_pi1' => $typo3InstallDir . 'typo3conf/ext/templavoila/Compatibility/class.tx_templavoila_pi1.php',
-      ...
-   );
-
-This method is failsafe unless the autoload information cannot be written. In this case, check the Install
-Tool for warnings and **make sure that** :file:`typo3temp` **is writable**.
-
-**Troubleshooting:**
-
-If your classes cannot be found, try the following approaches.
-
-- Dump the class loading information manually with the following command: `php typo3/sysext/core/bin/typo3 dumpautoload`
-- If that command itself fails, please (manually) uninstall the extension and simply
-  try reinstalling it (via the Extension Manager).
-- If you are still not lucky, the issue is definitely on your side and you should double check
-  the write permissions on :file:`typo3temp`.
-
-.. index:: pair: Autoloader; Composer
-.. _autoloading_with_composer_mode:
+..  index:: pair: Autoloader; Composer
+..  _autoloading_with_composer_mode:
 
 Loading classes with Composer mode
 ==================================
 
-In composer mode, the autoloader checks for (classmap and `PSR-4`) autoloading information inside
-your extensions' :file:`composer.json`. If you do not provide any information, the autoloader falls
-back to the classmap autoloading like in non composer mode.
+In Composer mode, the autoloader checks for (classmap and `PSR-4`) autoloading
+information inside your extension's :file:`composer.json`. If you do not provide
+any information, the autoloader falls back to the classmap autoloading like in
+non-Composer mode.
 
-**Troubleshooting:**
+Troubleshooting
+---------------
 
-* Dump the class loading information manually via `composer dumpautoload` and check that
-  the autoload information is updated. Typically you would check :file:`vendor/composer` to hold
-  files like :file:`autoload_classmap.php` and :file:`autoload_psr4.php` etc.
+Dump the class loading information manually via `composer dumpautoload` and
+check that the autoload information is updated. Typically you would check
+:file:`vendor/composer/` to hold files like :file:`autoload_classmap.php` and
+:file:`autoload_psr4.php`, etc.
 
 Example:
 
-.. code-block:: none
+..  code-block:: none
 
-   $ tree vendor/composer
-   .
-   ├── ClassLoader.php
-   ├── LICENSE
-   ├── autoload_classmap.php
-   ├── autoload_files.php
-   ├── autoload_namespaces.php
-   ├── autoload_psr4.php
-   ├── autoload_real.php
-   ├── autoload_static.php
-   ├── include_paths.php
-   └── installed.json
+    $ tree vendor/composer
+    .
+    ├── ClassLoader.php
+    ├── LICENSE
+    ├── autoload_classmap.php
+    ├── autoload_files.php
+    ├── autoload_namespaces.php
+    ├── autoload_psr4.php
+    ├── autoload_real.php
+    ├── autoload_static.php
+    ├── include_paths.php
+    └── installed.json
 
-.. index:: pair: Autoloader; PSR-4
+
+..  index:: Autoloader; Without Composer
+..  _autoloading_without_composer_mode:
+
+Loading classes without Composer mode
+=====================================
+
+This means, you did not install TYPO3 via a `require` statement inside your
+:file:`composer.json`. It's a regular old-school install where the TYPO3 source
+and the symlinks (:file:`typo3/index.php`) are setup manually.
+
+In this case, every time you install an extension, the autoloader scans the
+whole extension directory for classes. No matter if they follow any convention
+at all. There is just one rule: put each class into its own file. This also
+means that there can only be a single class per file.
+
+You can also explicitly configure autoloading in the
+:ref:`extension-declaration`.
+
+The generated :file:`typo3conf/autoload_classmap.php` is a large array with a
+mapping of classnames to their location on the disk:
+
+..  code-block:: php
+    :caption: typo3conf/autoload_classmap.php
+
+    <?php
+
+    // autoload_classmap.php @generated by TYPO3
+
+    $typo3InstallDir = \TYPO3\CMS\Core\Core\Environment::getPublicPath();
+
+    return array(
+        'Schnitzler\\Templavoila\\Clipboard\\Clipboard' => $typo3InstallDir . 'typo3conf/ext/templavoila/Classes/Clipboard/Clipboard.php',
+        'tx_templavoila_pi1' => $typo3InstallDir . 'typo3conf/ext/templavoila/Compatibility/class.tx_templavoila_pi1.php',
+        ...
+    );
+
+This method is failsafe unless the autoload information cannot be written. In
+this case, check the Install Tool for warnings and **make sure that**
+:file:`typo3temp/` **is writable**.
+
+Troubleshooting:
+----------------
+
+If your classes cannot be found, try the following approaches.
+
+-   Dump the class loading information manually with the following command:
+
+    ..  code-block:: bash
+
+        php typo3/sysext/core/bin/typo3 dumpautoload
+
+-   If that command itself fails, please (manually) uninstall the extension and
+    simply try reinstalling it (via the Extension Manager).
+
+-   If you are still not lucky, the issue is definitely on your side and you
+    should double check the write permissions on :file:`typo3temp`.
+
+
+..  index:: pair: Autoloader; PSR-4
 
 Best practices
 ==============
 
-* If you didn't do so before, have a look at the `PSR-4` standard. It defines very good rules
-  for naming classes and the files they reside in. Really, read the specs and start
-  using `PSR-4` in your projects. It's unlikely that there will be any other more advanced
-  standard in the near future in the PHP world. `PSR-4` is the way to go and you should embrace it.
+*   If you didn't do so before, have a look at the PSR-4 standard. It defines
+    very good rules for naming classes and the files they reside in. Really,
+    read the specs and start using PSR-4 in your projects. It's unlikely that
+    there will be any other more advanced standard in the near future in the
+    PHP world. PSR-4 is the way to go and you should embrace it.
 
-* Even if you do not use composer mode and the class mapping of the autoloader allows you
-  to use whatever you want, stick to `PSR-4`. It's not only a very good standard to find classes,
-  but it will also help organizing your code.
+*   Even if you do not use Composer mode and the class mapping of the autoloader
+    allows you to use whatever you want, stick to PSR-4. It's not only a very
+    good standard to find classes, but it will also help organizing your code.
 
-* `PSR-4` is all about namespaces. No matter if you like namespaces or not, use them. Namespaces
-  exist since PHP 5.3, so you will be able to use them in any modern TYPO3 project due to the
-  minimum PHP requirements of TYPO3 itself.
+*   PSR-4 is all about namespaces. No matter if you like namespaces or not, use
+    them. Namespaces exist since PHP 5.3, so you will be able to use them in any
+    modern TYPO3 project due to the minimum PHP requirements of TYPO3 itself.
 
-.. tip::
-
-   PSR-4 is a standard that has been developed by the PHP Framework Interop Group (FIG). PSR-4 is an advanced standard for autoloading php classes and replaces PSR-0.
-   If you want to know more about the PHP FIG in general and PSR-4 in specific, please visit https://www.php-fig.org/psr/psr-4/.
+..  tip::
+    PSR-4 is a standard that has been developed by the PHP Framework Interop
+    Group (FIG). PSR-4 is an advanced standard for autoloading php classes and
+    replaces PSR-0. If you want to know more about the PHP FIG in general and
+    PSR-4 in specific, please visit https://www.php-fig.org/psr/psr-4/.
 
 Further reading
 ===============
