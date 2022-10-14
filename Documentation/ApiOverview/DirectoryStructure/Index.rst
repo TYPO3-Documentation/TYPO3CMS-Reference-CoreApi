@@ -92,6 +92,7 @@ in the composer.json, for example to :file:`web`:
 
 ..  code-block:: json
     :caption: composer.json
+
     {
         "extra": {
             "typo3/cms": {
@@ -187,7 +188,7 @@ for temporary files of extensions and TYPO3 components.
 :file:`public/typo3temp/assets/`
 """"""""""""""""""""""""""""""""
 
-Directory :file:`typo3temp/assets/` contains temporary files that should be
+The directory :file:`typo3temp/assets/` contains temporary files that should be
 public available. This includes generated images and compressed CSS and
 JavaScript files.
 
