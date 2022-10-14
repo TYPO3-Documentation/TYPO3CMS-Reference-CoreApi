@@ -85,8 +85,8 @@ a Composer-based installation as is commonly done.
 Otherwise, replace  :file:`public` with the path to your web root.
 
 ..  note::
-    If you find a directory called :file:`_assets` in this directory you are
-    either running :ref:`composer-installer-v4` or
+    If you find a directory called :file:`_assets/` in this directory, you are
+    running either :ref:`composer-installer-v4` or
     :ref:`TYPO3 v12 <t3coreapi12:directory-structure>` and above.
 
 .. _directory-public-fileadmin:
@@ -128,7 +128,7 @@ for more information on how single extensions are structured.
 
 ..  note::
     If you cannot find the TYPO3 Core source in the directory
-    :file:`public/typo3/sysext` you are either running :ref:`composer-installer-v4` or
+    :file:`public/typo3/sysext/` you are running either :ref:`composer-installer-v4` or
     :ref:`TYPO3 v12 <t3coreapi12:directory-structure>` and above.
 
 .. _directory-public-typo3conf:
@@ -150,7 +150,7 @@ contains one extension.
 
 ..  note::
     If you cannot find the directory called :file:`public/typo3conf/ext/` you are
-    either running :ref:`composer-installer-v4` or
+    running either :ref:`composer-installer-v4` or
     :ref:`TYPO3 v12 <t3coreapi12:directory-structure>` and above.
 
 .. _directory-public-typo3temp:
@@ -214,7 +214,7 @@ the webroot, third-party dependencies that are not TYPO3 extensions are
 installed.
 
 If optional :ref:`Composer installers v4 <composer-installer-v4>`
-are used, TYPO3 extensions are also installed here.
+is used, TYPO3 extensions are also installed here.
 
 .. _composer-installer-v4:
 
@@ -242,11 +242,11 @@ Most notably public assets provided by extensions will be available in
 :file:`public/_assets/` (Composer installer v4)
 -----------------------------------------------
 
-This directory includes symlinks to resources of extensions, as consequence
+This directory includes symlinks to public resources of extensions, as consequence
 of this and further structure changes the folder :file:`typo3conf/ext/` is
 not created or used anymore.
 So all files like CSS, JavaScript, Icons, Fonts, Images, etc. of extensions
-are not linked anymore directly to the extension folders but to the directory
+which are stored in the folder :file:`Resources/Public/` are not available anymore directly to the extension folders but linked into the directory
 :file:`_assets/`.
 
 .. _directory-vendor-installer-v4:
