@@ -15,9 +15,10 @@ Each tab of the LinkBrowser has an associated :ref:`LinkHandler <linkhandler>`.
 
 **Contents:**
 
-.. rst-class:: compact-list
-.. toctree::
-   :titlesonly:
+..  rst-class:: compact-list
+..  toctree::
+    :titlesonly:
 
-   LinkBrowserApi/Index
-   Linkhandler/Index
+    LinkBrowserApi/Index
+    Linkhandler/Index
+    Tutorials/Index
