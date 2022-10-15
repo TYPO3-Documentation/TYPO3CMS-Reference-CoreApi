@@ -117,8 +117,8 @@ are not linked anymore directly to the extension folders but to the directory
 :file:`_assets/`.
 
 ..  note::
-    In TYPO3 v12 using the `typo3/cms-composer-installers` in version
-    5 is mandatory. Therefore the publicly available files provided by
+    TYPO3 v12 requires `typo3/cms-composer-installers` in version
+    5. Therefore the publicly available files provided by
     extensions are now always referenced via this directory.
 
 .. _directory-public-fileadmin:
