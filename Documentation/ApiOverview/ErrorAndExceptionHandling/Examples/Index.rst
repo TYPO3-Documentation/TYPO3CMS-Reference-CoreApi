@@ -23,7 +23,7 @@ Debugging and development setup
 Very verbose configuration which logs and displays all errors and
 exceptions.
 
-In :file:`LocalConfiguration.php` or :file:`AdditionalConfiguration.php`:
+In :file:`config/system/settings.php` or :file:`AdditionalConfiguration.php`:
 
 .. code-block:: php
    :caption: typo3conf/AdditionalConfiguration.php
@@ -80,7 +80,7 @@ Example for a production configuration which displays only errors and
 exceptions if the devIPmask matches. Errors and exceptions are only
 logged if their level is at least 2 (=Warning).
 
-In :file:`LocalConfiguration.php` or :file:`AdditionalConfiguration.php`:
+In :file:`config/system/settings.php` or :file:`AdditionalConfiguration.php`:
 
 .. code-block:: php
    :caption: typo3conf/AdditionalConfiguration.php
@@ -116,7 +116,7 @@ Since the error and exception handling and also the logging need some
 performance, here's an example how to disable error and exception
 handling completely.
 
-In :file:`LocalConfiguration.php` or :file:`AdditionalConfiguration.php`:
+In :file:`config/system/settings.php` or :file:`AdditionalConfiguration.php`:
 
 .. code-block:: php
    :caption: typo3conf/AdditionalConfiguration.php

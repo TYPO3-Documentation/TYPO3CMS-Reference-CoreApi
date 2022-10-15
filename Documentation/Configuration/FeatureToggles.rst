@@ -13,7 +13,7 @@ new implementations of features next to their legacy version. By using a feature
 can decide when to switch to the new feature.
 
 The API checks against a system-wide option array within :php:`$GLOBALS['TYPO3_CONF_VARS']['SYS']['features']` which an integrator
-or admin can set in the :file:`LocalConfiguration.php` file.
+or admin can set in the :file:`config/system/settings.php` file.
 Both TYPO3 Core and Extensions can provide alternative functionality for a certain feature.
 
 Examples for features are:
@@ -108,7 +108,7 @@ Features can be toggled in the *Settings* module via *Feature Toggles*:
 
 .. include:: /Images/AutomaticScreenshots/AdminTools/FeatureToggles.rst.txt
 
-Internally, the changes are written to :file:`LocalConfiguration.php`:
+Internally, the changes are written to :file:`config/system/settings.php`:
 
 .. code-block:: php
    :caption: typo3conf/LocalConfiguration.php

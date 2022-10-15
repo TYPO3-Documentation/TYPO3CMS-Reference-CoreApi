@@ -174,7 +174,7 @@ The documentation shown in the :guilabel:`Admin Tools` is automatically
 extracted from those values of :file:`DefaultConfigurationDescription.yaml`.
 
 The :guilabel:`Admin Tools` provides various dedicated modules that change parts of
-:file:`LocalConfiguration.php`, those can be found in
+:file:`config/system/settings.php`, those can be found in
 :guilabel:`Admin Tools > Settings`, most importantly section
 :guilabel:`Configure installation-wide options`:
 
@@ -235,7 +235,7 @@ File DefaultConfiguration.php
 TYPO3 CMS comes with some default settings, which are defined in
 file :file:`typo3/sysext/core/Configuration/DefaultConfiguration.php`.
 
-This is the base configuration, the other files like :file:`LocalConfiguration.php`
+This is the base configuration, the other files like :file:`config/system/settings.php`
 just overlay it.
 
 Here is an extract of that file:

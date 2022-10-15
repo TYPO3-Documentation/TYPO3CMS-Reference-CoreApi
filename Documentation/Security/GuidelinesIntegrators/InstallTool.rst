@@ -72,7 +72,7 @@ security measures.
 The number of system maintainers should be as small as possible to mitigate the risks of corrupted accounts.
 
 The role can be provided in the Settings Section of the Install Tool -> Manage System Maintainers. It is also
-possible to manually modify the list by adding or removing the be_users.uid of the user in :file:`LocalConfiguration.php`:
+possible to manually modify the list by adding or removing the be_users.uid of the user in :file:`config/system/settings.php`:
 
 .. code-block:: php
    :caption: typo3conf/LocalConfiguration.php

@@ -34,7 +34,7 @@ and the :ref:`database backend <caching-backend-db>` by default.
 .. tip::
 
    The null coalescing assignment operator (:code:`??=`) check is used to enable administrators to overwrite configuration of caches in
-   :file:`LocalConfiguration.php`. During bootstrap, any :file:`ext_localconf.php` is loaded **after**
+   :file:`config/system/settings.php`. During bootstrap, any :file:`ext_localconf.php` is loaded **after**
    :file:`DefaultConfiguration.php` and :file:`AdditionalConfiguration.php` are loaded, so it is
    important to make sure that the administrator did not already set any configuration of the
    extensions cache.

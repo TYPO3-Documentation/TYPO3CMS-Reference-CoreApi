@@ -500,7 +500,7 @@ Removed: loginSecurityLevel
 .. deprecated:: 11.3
    This option was removed with version 11.3. The only possible
    value has been 'normal'. This behaviour stays unchanged.  When this option
-   has been set in your :file:`LocalConfiguration.php`
+   has been set in your :file:`config/system/settings.php`
    or :file:`AdditionalConfiguration.php` files, they are automatically
    removed when accessing the admin tool or system maintenance area.
 

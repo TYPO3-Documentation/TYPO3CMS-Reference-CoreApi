@@ -32,7 +32,7 @@ Global files
    are written to this file.
 
 :file:`<webroot>/typo3conf/AdditionalConfiguration.php`:
-   Can be used to **override** settings defined in :file:`LocalConfiguration.php`
+   Can be used to **override** settings defined in :file:`config/system/settings.php`
 
 :file:`config/sites/<site>/config.yaml`
    This file is located in :file:`webroot/typo3conf/sites` in non-Composer installations.

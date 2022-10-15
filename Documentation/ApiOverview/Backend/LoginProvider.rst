@@ -11,7 +11,7 @@ Registering a login provider
 
 The concept of the backend login is based on "login providers".
 
-A login provider can be registered within your :file:`LocalConfiguration.php`
+A login provider can be registered within your :file:`config/system/settings.php`
 or :file:`AdditionalConfiguration.php`  like this:
 
 ..  code-block:: php

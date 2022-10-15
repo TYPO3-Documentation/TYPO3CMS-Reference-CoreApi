@@ -41,7 +41,7 @@ Format
 
 :php:`$GLOBALS['TYPO3_CONF_VARS']['MAIL']['format']` can be `both`, `plain` or
 `html`. This option can be overridden in the project's
-:file:`LocalConfiguration.php` or :file:`AdditionalConfiguration.php` files.
+:file:`config/system/settings.php` or :file:`AdditionalConfiguration.php` files.
 
 ..  _mail-configuration-fluid:
 
@@ -57,7 +57,7 @@ All Fluid-based template paths can be configured via
 where TYPO3 reserves all array keys below `100` for internal purposes.
 
 If you want to provide custom templates or layouts, set this in your
-:file:`LocalConfiguration.php` / :file:`AdditionalConfiguration.php` file:
+:file:`config/system/settings.php` / :file:`AdditionalConfiguration.php` file:
 
 ..  code-block:: php
     :caption: typo3conf/AdditionalConfiguration.php

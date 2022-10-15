@@ -79,7 +79,7 @@ Custom placeholder processing
 -----------------------------
 
 It is possible to register custom placeholder processors to allow fetching data from
-different sources. To do so, register a custom processor via :file:`LocalConfiguration.php`:
+different sources. To do so, register a custom processor via :file:`config/system/settings.php`:
 
 .. code-block:: php
 
