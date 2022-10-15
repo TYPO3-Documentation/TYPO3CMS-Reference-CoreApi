@@ -58,5 +58,8 @@ System extensions have the composer type `typo3-cms-framework`:
         "...": "..."
     }
 
+Composer installs all TYPO3 extensions, including system extensions in the
+directory :ref:`vendor/ <directory-vendor>`.
+
 In legacy installations they are installed into
 :ref:`legacy-directory-typo3-sysext`.
