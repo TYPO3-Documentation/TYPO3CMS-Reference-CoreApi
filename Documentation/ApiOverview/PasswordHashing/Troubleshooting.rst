@@ -34,7 +34,7 @@ given user password to *argon2i* if the install tool has not been
 executed once.
 
 This typically happens if a system has just been upgraded and a
-backend login has been performed before the install tool has executed 
+backend login has been performed before the install tool has executed
 the silent configuration upgrade.
 
 
@@ -103,6 +103,6 @@ Add or edit the following in your :file:`typo3conf/LocalConfiguration.php`.
       // ...
    ];
 
-If this doesn't work then check file :file:`typo3conf/AdditionalConfiguration.php` which
+If this doesn't work then check file :file:`config/system/additional.php` which
 overrides :file:`typo3conf/LocalConfiguration.php`.
 

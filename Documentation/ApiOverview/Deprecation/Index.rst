@@ -43,7 +43,7 @@ Deprecation errors are automatically being ignored in production context. If you
 context you can do so in the :file:`config/system/additional.php`:
 
 .. code-block:: php
-   :caption: typo3conf/AdditionalConfiguration.php
+   :caption: config/system/additional.php
 
    $GLOBALS['TYPO3_CONF_VARS']['LOG']['TYPO3']['CMS']['deprecations']['writerConfiguration'][\TYPO3\CMS\Core\Log\LogLevel::NOTICE] = [];
 

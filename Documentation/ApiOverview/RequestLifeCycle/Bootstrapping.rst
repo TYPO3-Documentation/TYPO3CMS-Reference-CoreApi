@@ -291,7 +291,7 @@ The current Application Context is set very early in the bootstrap process and c
 through public API for example in the :file:`config/system/additional.php` file to automatically set
 different configuration for different contexts.
 
-In file :file:`typo3conf/AdditionalConfiguration.php`:
+In file :file:`config/system/additional.php`:
 
 .. code-block:: php
 

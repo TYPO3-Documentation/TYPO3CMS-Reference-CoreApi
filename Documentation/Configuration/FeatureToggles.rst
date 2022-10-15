@@ -80,7 +80,7 @@ To check if a feature is enabled use this code:
    or :file:`config/system/additional.php`: like
 
    .. code-block:: php
-      :caption: typo3conf/AdditionalConfiguration.php
+      :caption: config/system/additional.php
 
       $GLOBALS['TYPO3_CONF_VARS']['SYS']['features']['myFeatureName'] = true;
 

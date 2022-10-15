@@ -13,10 +13,10 @@ If you want to register your own error or exception handler:
 #. Create a corresponding class in your extension
 
 #. Override the Core defaults for `productionExceptionHandler`, `debugExceptionHandler`
-   or `errorHandler` in :file:`typo3conf/AdditionalConfiguration.php`:
+   or `errorHandler` in :file:`config/system/additional.php`:
 
    .. code-block:: php
-      :caption: typo3conf/AdditionalConfiguration.php
+      :caption: config/system/additional.php
 
       $GLOBALS['TYPO3_CONF_VARS']['SYS']['errorHandler'] = \Vendor\Ext\Error\MyOwnErrorHandler::class;
       $GLOBALS['TYPO3_CONF_VARS']['SYS']['debugExceptionHandler'] = \Vendor\Ext\Error\MyOwnDebugExceptionHandler::class;
@@ -24,7 +24,7 @@ If you want to register your own error or exception handler:
 
 .. tip::
 
-   We use :file:`typo3conf/AdditionalConfiguration.php` and **not** :file:`ext_localconf.php`
+   We use :file:`config/system/additional.php` and **not** :file:`ext_localconf.php`
    in the extension (as previously documented) because that will be executed
    **after** the error / exception handlers are initialized in the bootstrap process.
 
@@ -61,7 +61,7 @@ of the functionality:
    }
 
 .. code-block:: php
-   :caption: typo3conf/AdditionalConfiguration.php
+   :caption: config/system/additional.php
 
    $GLOBALS['TYPO3_CONF_VARS']['SYS']['debugExceptionHandler'] = \Vendor\SomeExtension\Error\PostExceptionsOnTwitter::class;
 

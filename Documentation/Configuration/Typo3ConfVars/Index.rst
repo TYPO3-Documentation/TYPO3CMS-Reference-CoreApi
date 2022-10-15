@@ -18,7 +18,7 @@ at other configuration possibilities.
     This variable can be set in one of the following files:
 
     *   :ref:`typo3conf/LocalConfiguration.php <typo3ConfVars-localConfiguration>`
-    *   :ref:`typo3conf/AdditionalConfiguration.php <typo3ConfVars-additionalConfiguration>`
+    *   :ref:`config/system/additional.php <typo3ConfVars-additionalConfiguration>`
 
 ..  toctree::
     :titlesonly:
@@ -184,13 +184,12 @@ The :guilabel:`Admin Tools` provides various dedicated modules that change parts
 
 
 .. index::
-   ! File; typo3conf/AdditionalConfiguration.php
-   Configuration; AdditionalConfiguration
-   AdditionalConfiguration
+   ! File; config/system/additional.php
+   Configuration; additional
 .. _typo3ConfVars-additionalConfiguration:
 
-File AdditionalConfiguration.php
-================================
+File config/system/additional.php
+=================================
 
 Although you can manually edit the :file:`typo3conf/LocalConfiguration.php`
 file, it is limited in scope because the file is expected to return
@@ -199,7 +198,7 @@ changed in the Install Tool or some other operation (like changing
 an extension configuration in the Extension Manager). Thus custom
 code cannot reside in that file.
 
-Such code should be placed in the :file:`typo3conf/AdditionalConfiguration.php`
+Such code should be placed in the :file:`config/system/additional.php`
 file. This file is never touched by TYPO3, so any code will be
 left alone.
 
@@ -207,7 +206,7 @@ Furthermore this file is loaded **after** :file:`typo3conf/LocalConfiguration.ph
 which means it represents an opportunity to change global configuration
 values programmatically if needed.
 
-:file:`typo3conf/AdditionalConfiguration.php` is a plain PHP file.
+:file:`config/system/additional.php` is a plain PHP file.
 There are no specific rules about what it may contain. However since
 the code is included on **every** request to TYPO3 CMS
 - whether frontend or backend - you should avoid inserting code
@@ -216,7 +215,7 @@ which requires heavy duty processing.
 **Example: Changing the database hostname for development machines**
 
 .. code-block:: php
-   :caption: typo3conf/AdditionalConfiguration.php
+   :caption: config/system/additional.php
 
    <?php
 

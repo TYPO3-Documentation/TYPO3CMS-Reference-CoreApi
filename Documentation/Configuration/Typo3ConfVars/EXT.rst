@@ -25,7 +25,7 @@ the Extension manager:
     This variable can be set in one of the following files:
 
     *   :ref:`typo3conf/LocalConfiguration.php <typo3ConfVars-localConfiguration>`
-    *   :ref:`typo3conf/AdditionalConfiguration.php <typo3ConfVars-additionalConfiguration>`
+    *   :ref:`config/system/additional.php <typo3ConfVars-additionalConfiguration>`
 
 
 .. index::

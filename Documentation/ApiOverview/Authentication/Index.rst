@@ -316,7 +316,7 @@ existing session. By setting the following local configuration
 either for the FE or the BE:
 
 .. code-block:: php
-  :caption: typo3conf/AdditionalConfiguration.php
+  :caption: config/system/additional.php
 
    $GLOBALS['TYPO3_CONF_VARS']['SVCONF']['auth']['setup']['BE_alwaysFetchUser'] = true;
    $GLOBALS['TYPO3_CONF_VARS']['SVCONF']['auth']['setup']['BE_alwaysAuthUser'] = true;
@@ -337,7 +337,7 @@ authentication process only when a valid session does not
 yet exist. The settings are:
 
 .. code-block:: php
-  :caption: typo3conf/AdditionalConfiguration.php
+  :caption: config/system/additional.php
 
    $GLOBALS['TYPO3_CONF_VARS']['SVCONF']['auth']['setup']['BE_fetchUserIfNoSession'] = true;
    $GLOBALS['TYPO3_CONF_VARS']['SVCONF']['auth']['setup']['FE_fetchUserIfNoSession'] = true;
@@ -353,7 +353,7 @@ The authentication process can also be forced to go through
 all services for the "getUser\*" subtype by setting:
 
 .. code-block:: php
-  :caption: typo3conf/AdditionalConfiguration.php
+  :caption: config/system/additional.php
 
    $GLOBALS['TYPO3_CONF_VARS']['SVCONF']['auth']['setup']['BE_fetchAllUsers'] = true;
    $GLOBALS['TYPO3_CONF_VARS']['SVCONF']['auth']['setup']['FE_fetchAllUsers'] = true;

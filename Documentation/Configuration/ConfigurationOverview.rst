@@ -31,7 +31,7 @@ Global files
    :guilabel:`Admin Tools > Settings > Configure Installation-Wide Options`
    are written to this file.
 
-:file:`<webroot>/typo3conf/AdditionalConfiguration.php`:
+:file:`config/system/additional.php`:
    Can be used to **override** settings defined in :file:`config/system/settings.php`
 
 :file:`config/sites/<site>/config.yaml`
@@ -194,7 +194,7 @@ The :php:`$GLOBALS` PHP array consists of:
    is used for system wide configuration. Most of the settings can be
    modified in the backend :guilabel:`Admin Tools > Settings > Global Configuration`
    and will be persisted to the file file:`typo3conf/LocalConfiguration.php`.
-   The settings can be overridden by using :file:`typo3conf/AdditionalConfiguration.php`.
+   The settings can be overridden by using :file:`config/system/additional.php`.
 
 :ref:`Extension Configuration <extension-options>`:
    is a subset of :php:`$GLOBALS['TYPO3_CONF_VARS']`.
@@ -232,7 +232,7 @@ system maintainers. TCA cannot be modified in the backend.
 Configuration of the :ref:`Logging Framework <logging-configuration>` and
 :ref:`Caching Framework <caching-configuration>` - while being a part of the
 :php:`$GLOBALS['TYPO3_CONF_VARS']` array - can also not be changed in the
-backend. They must be modified in the file :file:`typo3conf/AdditionalConfiguration.php`.
+backend. They must be modified in the file :file:`config/system/additional.php`.
 
 
 :ref:`Flexform <flexforms>`

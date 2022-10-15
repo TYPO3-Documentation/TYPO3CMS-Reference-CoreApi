@@ -45,7 +45,7 @@ Optionally it is possible to restrict this feature to non-admins only by setting
 :php:`$GLOBALS['TYPO3_CONF_VARS']['BE']['passwordResetForAdmins']`
 
 Both options are available to be configured within the :guilabel:`Maintenance Area > Settings`
-module or in the :guilabel:`Install Tool` but can be set manually via :file:`typo3conf/LocalConfiguration.php` or :file:`typo3conf/AdditionalConfiguration.php`.
+module or in the :guilabel:`Install Tool` but can be set manually via :file:`typo3conf/LocalConfiguration.php` or :file:`config/system/additional.php`.
 
 Reset password for user
 =======================

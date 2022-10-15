@@ -19,7 +19,7 @@ not contain a PHP encoding declaration.
 
 All :file:`ext_localconf.php` files of loaded extensions are
 included right  *after* the files :file:`typo3conf/LocalConfiguration.php`
-and :file:`typo3conf/AdditionalConfiguration.php` during TYPO3
+and :file:`config/system/additional.php` during TYPO3
 :ref:`bootstrap <bootstrapping>`.
 
 Pay attention to the rules for the contents of these files.
@@ -53,14 +53,14 @@ included (:php:`loadTypo3LoadedExtAndExtLocalconf`) after the creation of the
 mentioned objects in the :ref:`Bootstrap <bootstrapping>` class.
 
 In most cases, these assignments should be placed in
-:file:`typo3conf/AdditionalConfiguration.php`.
+:file:`config/system/additional.php`.
 
 Example:
 
 :ref:`Register an exception handler <error-handling-extending>`:
 
 .. code-block:: php
-   :caption: typo3conf/AdditionalConfiguration.php
+   :caption: config/system/additional.php
 
    $GLOBALS['TYPO3_CONF_VARS']['SYS']['debugExceptionHandler'] =
        \Vendor\Ext\Error\PostExceptionsOnTwitter::class;

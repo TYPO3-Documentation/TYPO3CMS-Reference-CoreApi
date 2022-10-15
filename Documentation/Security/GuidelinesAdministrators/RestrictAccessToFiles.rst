@@ -45,7 +45,7 @@ directly by using HTTP requests:
 * :samp:`https://example.org/typo3_src/ChangeLog`
 * :samp:`https://example.org/typo3_src/vendor/autoload.php`
 * :samp:`https://example.org/typo3conf/LocalConfiguration.php`
-* :samp:`https://example.org/typo3conf/AdditionalConfiguration.php`
+* :samp:`https://example.org/typo3conf/system/additional.php`
 * :samp:`https://example.org/typo3temp/var/log/`
 * :samp:`https://example.org/typo3temp/var/session/`
 * :samp:`https://example.org/typo3temp/var/tests/`

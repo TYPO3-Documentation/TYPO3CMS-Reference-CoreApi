@@ -21,7 +21,7 @@ the TYPO3 backend:
     This variable can be set in one of the following files:
 
     *   :ref:`typo3conf/LocalConfiguration.php <typo3ConfVars-localConfiguration>`
-    *   :ref:`typo3conf/AdditionalConfiguration.php <typo3ConfVars-additionalConfiguration>`
+    *   :ref:`config/system/additional.php <typo3ConfVars-additionalConfiguration>`
 
 .. index::
    TYPO3_CONF_VARS BE; languageDebug
@@ -716,7 +716,7 @@ defaultPermissions
    Example (which reflects the default permissions):
 
    .. code-block:: php
-      :caption: typo3conf/AdditionalConfiguration.php
+      :caption: config/system/additional.php
 
       $GLOBALS['TYPO3_CONF_VARS']['BE']['defaultPermissions'] = [
          'user' => 'show,edit,delete,new,editcontent',
@@ -728,7 +728,7 @@ defaultPermissions
    you only need to modify the key you wish to change:
 
    .. code-block:: php
-      :caption: typo3conf/AdditionalConfiguration.php
+      :caption: config/system/additional.php
 
       $GLOBALS['TYPO3_CONF_VARS']['BE']['defaultPermissions'] = [
          'everybody' => 'show',
@@ -756,7 +756,7 @@ defaultUC
    Example (which reflects the default user settings):
 
    .. code-block:: php
-      :caption: typo3conf/AdditionalConfiguration.php
+      :caption: config/system/additional.php
 
       $GLOBALS['TYPO3_CONF_VARS']['BE']['defaultUC'] = [
          'emailMeAtLogin' => 0,
@@ -785,7 +785,7 @@ customPermOptions
 
 
    .. code-block:: php
-      :caption: typo3conf/AdditionalConfiguration.php
+      :caption: config/system/additional.php
 
       'key' => array(
          'header' => 'header string, language split',
