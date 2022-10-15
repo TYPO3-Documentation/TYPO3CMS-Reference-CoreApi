@@ -121,6 +121,13 @@ are not linked anymore directly to the extension folders but to the directory
     5. Therefore the publicly available files provided by
     extensions are now always referenced via this directory.
 
+..  seealso::
+
+    -   `TYPO3 and Composer — we've come a long way <https://b13.com/core-insights/typo3-and-composer-weve-come-a-long-way>`__
+    -   `Composer changes for TYPO3 v11 and v12 <https://usetypo3.com/composer-changes-for-typo3-v11-and-v12.html>`__
+    -   `Migration to typo3/composer-cms-installers version 4+ <https://brot.krue.ml/migration-typo3-composer-cms-installers-version-4/>`__
+
+
 .. _directory-public-fileadmin:
 
 :file:`public/fileadmin/`
@@ -138,7 +145,7 @@ systems.
 ..  note::
     This directory is meant for editors! Integrators should
     *not* locate frontend website layout related files in here: Storing
-    HTML templates, logos, Css and similar files used to build the website
+    HTML templates, logos, CSS and similar files used to build the website
     layout in here is considered bad practice. Integrators should locate
     and ship these files within a project specific extension.
 
