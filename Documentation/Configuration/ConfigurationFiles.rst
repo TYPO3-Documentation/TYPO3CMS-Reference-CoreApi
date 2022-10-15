@@ -58,8 +58,8 @@ might need adaptions.
 History
 =======
 
-Until TYPO3 v11 every installation required a mandatory file named
-:php:`typo3conf/LocalConfiguration.php`.
+Until TYPO3 v12 every installation required a mandatory file named
+:file:`typo3conf/LocalConfiguration.php`.
 
 Historically, the very original
 name was :file:`typo3conf/localconf.php` (this is also where the extensions' file

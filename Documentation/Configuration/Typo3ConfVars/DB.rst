@@ -21,7 +21,7 @@ the connection to the database:
 
     This variable can be set in one of the following files:
 
-    *   :ref:`typo3conf/LocalConfiguration.php <typo3ConfVars-localConfiguration>`
+    *   :ref:`config/system/settings.php <typo3ConfVars-localConfiguration>`
     *   :ref:`config/system/additional.php <typo3ConfVars-additional>`
 
 .. index::

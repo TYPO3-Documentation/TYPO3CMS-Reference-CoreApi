@@ -1,7 +1,7 @@
 .. include:: /Includes.rst.txt
 .. index::
    Doctrine; Configuration
-   File; typo3conf/LocalConfiguration.php
+   File; config/system/settings.php
    TYPO3_CONF_VARS; DB
 .. _database-configuration:
 
@@ -70,7 +70,6 @@ table to a different endpoint:
 .. code-block:: php
    caption: config/system/settings.php
 
-   // LocalConfiguration.php
    // [...]
    'DB' => [
       'Connections' => [

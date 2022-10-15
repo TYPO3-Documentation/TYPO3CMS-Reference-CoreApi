@@ -17,7 +17,7 @@ at other configuration possibilities.
 ..  note::
     This variable can be set in one of the following files:
 
-    *   :ref:`typo3conf/LocalConfiguration.php <typo3ConfVars-localConfiguration>`
+    *   :ref:`config/system/settings.php <typo3ConfVars-localConfiguration>`
     *   :ref:`config/system/additional.php <typo3ConfVars-additional>`
 
 ..  toctree::
@@ -28,11 +28,11 @@ at other configuration possibilities.
     *
 
 .. index::
-   ! File; typo3conf/LocalConfiguration.php
+   ! File; config/system/settings.php
 .. _typo3ConfVars-localConfiguration:
 
-File LocalConfiguration.php
-===========================
+File :file:`config/system/settings.php`
+=======================================
 
 The global configuration is stored in file :file:`config/system/settings.php`.
 This file overrides default settings from :file:`typo3/sysext/core/Configuration/DefaultConfiguration.php`.

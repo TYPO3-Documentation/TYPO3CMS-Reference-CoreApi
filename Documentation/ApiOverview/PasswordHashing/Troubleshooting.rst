@@ -66,10 +66,10 @@ server where argon2 isn't available. Create a new user that uses the
 working algorithm.
 
 
-.. index:: File; typo3conf/LocalConfiguration.php
+.. index:: File; config/system/settings.php
 
-Manually disable argon2 in the LocalConfiguration.php
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Manually disable argon2 in the :file:`:file:`config/system/settings.php`
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 This may be nessesary if access to the install tool is not possible.
 This can happen when the first installation was done on a system with argon2
