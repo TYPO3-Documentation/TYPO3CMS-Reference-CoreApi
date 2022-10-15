@@ -1,4 +1,4 @@
-
+.. include:: /Includes.rst.txt
 .. index:: Flash messages; API
 .. _flash-messages-api:
 
@@ -27,13 +27,13 @@ of class :php:`\TYPO3\CMS\Core\Messaging\FlashMessage`:
       true
    );
 
-:php:`$message:`
+:php:`$message`
    The text of the message
-:php:`$title:`
+:php:`$title`
    [optional] the header
-:php:`$severity:`
+:php:`$severity`
    [optional] the severity (default: :php:`ContextualFeedbackSeverity::OK`)
-:php:`$storeInSession:`
+:php:`$storeInSession`
    [optional] :php:`true`: store in the session or :php:`false`: store
    only in the :php:`\TYPO3\CMS\Core\Messaging\FlashMessageQueue` object. Storage
    in the session should be used if you need the message to be still present after

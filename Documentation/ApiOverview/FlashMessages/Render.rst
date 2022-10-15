@@ -1,4 +1,4 @@
-
+.. include:: /Includes.rst.txt
 .. _flash-messages-renderer:
 
 =======================
