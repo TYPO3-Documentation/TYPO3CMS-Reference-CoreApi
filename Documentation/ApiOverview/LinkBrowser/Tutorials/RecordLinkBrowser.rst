@@ -21,20 +21,7 @@ Backend: Configure the link browser with page TSconfig
 The following configuration displays an additional tab in the link browser
 window in the backend.
 
-.. code-block:: typoscript
-    :caption: EXT:examples/Configuration/TsConfig/Page/Extension/Linkhandler.tsconfig
-
-    TCEMAIN.linkHandler {
-       haiku {
-          handler = TYPO3\CMS\Recordlist\LinkHandler\RecordLinkHandler
-          label = LLL:EXT:examples/Resources/Private/Language/locallang_browse_links.xlf:haiku
-          configuration {
-             table = tx_examples_haiku
-          }
-          displayAfter = url
-          scanBefore = page
-       }
-    }
+..  include:: /CodeSnippets/Tutorials/LinkBrowser/Classes/HaikuRecordLinkBrowserTsconfig.rst.txt
 
 The TSconfig file should then be included in the extension's global
 :file:`page.tsconfig` file or in the TSconfig of the pages where it should be
@@ -62,18 +49,6 @@ For the frontend output of the haiku record links we have to configure the
 page on which the plugin handling the detail view is displayed and the
 parameters this plugin expects:
 
-.. code-block:: typoscript
-    :caption: EXT:examples/Configuration/TypoScript/RecordLinks/Haiku.typoscript
-
-    config.recordLinks.haiku {
-       // Do not force link generation when the record is hidden
-       forceLink = 0
-
-       typolink {
-          parameter = {$plugin.tx_examples_haiku.settings.singlePid}
-          additionalParams.data = field:uid
-          additionalParams.wrap = &tx_examples_haiku[action]=show&tx_examples_haiku[haiku]=|
-       }
-    }
+..  include:: /CodeSnippets/Tutorials/LinkBrowser/Classes/HaikuRecordLinkTypoScript.rst.txt
 
 You can find the available options here: :ref:`linkhandler-typoscript_options`.
