@@ -21,7 +21,7 @@ the handling of images and graphics:
 
     This variable can be set in one of the following files:
 
-    *   :ref:`config/system/settings.php <typo3ConfVars-localConfiguration>`
+    *   :ref:`config/system/settings.php <typo3ConfVars-settings>`
     *   :ref:`config/system/additional.php <typo3ConfVars-additional>`
 
 
