@@ -179,6 +179,8 @@ These "components" can be specific software packages on a system
 level, scripts running on the web server but also specific TYPO3
 versions or TYPO3 extensions.
 
+..  todo: Update this to include Composer
+
 The recommended way to update TYPO3 extensions is to use TYPO3's
 internal Extension Manager (EM). The EM takes care of the download of
 the extension source code, extracts the archive and stores the files in

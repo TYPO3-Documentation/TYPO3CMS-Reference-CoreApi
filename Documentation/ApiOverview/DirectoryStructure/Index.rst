@@ -80,9 +80,29 @@ to be used:
 :file:`public/`
 ---------------
 
-We assume here that your web root points to a folder called :file:`public` in
-a Composer-based installation as is commonly done.
-Otherwise, replace  :file:`public` with the path to your web root.
+This folder contains all files that are publicly available. Your webserver's
+web root **must** point here.
+
+This folder contains the main entry script :file:`index.php` created by Composer
+and might contain publicly available files like a :file:`robots.txt` and
+files needed for the server configuration like a :file:`.htaccess`.
+
+If required, this directory can be renamed by setting `extra > typo3/cms > web-dir`
+in the composer.json, for example to :file:`web`:
+
+..  code-block:: json
+    :caption: composer.json
+
+    {
+        "extra": {
+            "typo3/cms": {
+                "web-dir": "web"
+            }
+        },
+        "...": "..."
+    }
+
+This directory contains the following subdirectories:
 
 .. _directory-public-assets:
 
@@ -96,20 +116,17 @@ So all files like CSS, JavaScript, Icons, Fonts, Images, etc. of extensions
 are not linked anymore directly to the extension folders but to the directory
 :file:`_assets/`.
 
-.. note::
-    This directory :file:`_assets/` and the related changes depend on the
-    composer-plugin `typo3/cms-composer-installers` in version 4+.
-    Previous versions of `typo3/cms-composer-installers` used the classical
-    directory structure with :file:`typo3conf/ext/` for extensions.
+..  note::
+    TYPO3 v12 requires `typo3/cms-composer-installers` in version
+    5. Therefore the publicly available files provided by
+    extensions are now always referenced via this directory.
 
-    The Composer plugin `typo3/cms-composer-installers` in version 4+ was created
-    for TYPO3 version 12 and backported for default but **optional usage**
-    in TYPO3 version 11. Therefore the version has to be explicitely set (decreased)
-    if the classical directory structure shall be used:
+..  seealso::
 
-.. code-block:: none
+    -   `TYPO3 and Composer — we've come a long way <https://b13.com/core-insights/typo3-and-composer-weve-come-a-long-way>`__
+    -   `Composer changes for TYPO3 v11 and v12 <https://usetypo3.com/composer-changes-for-typo3-v11-and-v12.html>`__
+    -   `Migration to typo3/composer-cms-installers version 4+ <https://brot.krue.ml/migration-typo3-composer-cms-installers-version-4/>`__
 
-   "typo3/cms-composer-installers": "^3.1",
 
 .. _directory-public-fileadmin:
 
@@ -128,7 +145,7 @@ systems.
 ..  note::
     This directory is meant for editors! Integrators should
     *not* locate frontend website layout related files in here: Storing
-    HTML templates, logos, Css and similar files used to build the website
+    HTML templates, logos, CSS and similar files used to build the website
     layout in here is considered bad practice. Integrators should locate
     and ship these files within a project specific extension.
 
@@ -138,32 +155,32 @@ systems.
 :file:`public/typo3/`
 ~~~~~~~~~~~~~~~~~~~~~
 
-TYPO3 Backend directory. This directory contains most of the files
-coming with the TYPO3 Core. The files are arranged logically in the
-different system extensions in the :file:`sysext/` directory,
-according to the application area of the particular file. For example,
-the ":code:`frontend`" extension amongst other things contains the
-"TypoScript library", the code for generating the Frontend website. In
-each system extension the PHP files are located in the folder
-:file:`Classes/`. See :ref:`extension files locations <extension-files-locations>`
-for more information on how single extensions are structured.
+This directory contains the two PHP files for accessing the TYPO3
+backend (:file:`typo3/index.php`) and install tool (:file:`typo3/install.php`).
+
+..  versionchanged:: 12.0
+    Starting with TYPO3 v12 (or v11 using `typo3/cms-composer-installers` v4)
+    the system extensions are not located in this directory anymore. They can now
+    be found in the :ref:`directory-vendor` folder.
 
 .. _directory-public-typo3conf:
 
 :file:`public/typo3conf/`
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Amongst others, this directory contains the files :file:`LocalConfiguration.php` and
+..  todo: Situation changed again with
+    https://github.com/TYPO3-Documentation/Changelog-To-Doc/issues/204
+    I will take care of this in a follow up.
+
+This directory contains the files :file:`LocalConfiguration.php` and
 :file:`AdditionalConfiguration.php`. See chapter
 :ref:`Configuration files <configuration-files>` for details.
 
-
-.. _directory-public-typo3conf-ext:
-
-:file:`public/typo3conf/ext/`
-"""""""""""""""""""""""""""""
-
-Directory for local TYPO3 extensions. Each subdirectory contains one extension.
+..  versionchanged:: 12.0
+    Starting with TYPO3 v12 (or v11 using `typo3/cms-composer-installers` v4)
+    the installed extensions are not located in the directory
+    :file:`typo3conf/ext/` anymore. They can now be found in the
+    :ref:`directory-vendor` folder.
 
 .. _directory-public-typo3temp:
 
@@ -178,8 +195,9 @@ for temporary files of extensions and TYPO3 components.
 :file:`public/typo3temp/assets/`
 """"""""""""""""""""""""""""""""
 
-Directory for temporary files that should be public available
-(e.g. generated images).
+The directory :file:`typo3temp/assets/` contains temporary files that should be
+public available. This includes generated images and compressed CSS and
+JavaScript files.
 
 .. _directory-var:
 
