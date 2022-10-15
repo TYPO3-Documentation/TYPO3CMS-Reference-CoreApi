@@ -18,7 +18,7 @@ at other configuration possibilities.
     This variable can be set in one of the following files:
 
     *   :ref:`typo3conf/LocalConfiguration.php <typo3ConfVars-localConfiguration>`
-    *   :ref:`config/system/additional.php <typo3ConfVars-additionalConfiguration>`
+    *   :ref:`config/system/additional.php <typo3ConfVars-additional>`
 
 ..  toctree::
     :titlesonly:
@@ -186,6 +186,7 @@ The :guilabel:`Admin Tools` provides various dedicated modules that change parts
 .. index::
    ! File; config/system/additional.php
    Configuration; additional
+.. _typo3ConfVars-additional:
 .. _typo3ConfVars-additionalConfiguration:
 
 File config/system/additional.php
