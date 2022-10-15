@@ -15,6 +15,8 @@ In our example extension `t3docs/examples <https://github.com/TYPO3-Documentatio
 we demonstrate creating a custom record link browser by linking to the single
 view of a haiku poem.
 
+..  include:: /Images/ManualScreenshots/Backend/HaikuLinkBrowser.rst.txt
+
 Backend: Configure the link browser with page TSconfig
 ======================================================
 
@@ -34,7 +36,7 @@ available:
 
 You can find all available options here: :ref:`linkhandler-pagetsconfig_options`.
 
-When an editor now selects a haiku poem as link it will then be saved 
+When an editor now selects a haiku poem as link it will then be saved
 as `t3://record?identifier=haiku&uid=1` in backend link
 fields and as
 :html:`<a href="t3://record?identifier=haiku&amp;uid=1">Look at this Haiku!</a>`
