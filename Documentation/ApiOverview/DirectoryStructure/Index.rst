@@ -128,8 +128,8 @@ for more information on how single extensions are structured.
 
 ..  note::
     If you cannot find the TYPO3 Core source in the directory
-    :file:`public/typo3/sysext/` you are running either :ref:`composer-installer-v4` or
-    :ref:`TYPO3 v12 <t3coreapi12:directory-structure>` and above.
+    :file:`public/typo3/sysext/` you are running either :ref:`typo3/cms-composer-installer`
+    v4 or :ref:`TYPO3 v12 <t3coreapi12:directory-structure>` and above.
 
 .. _directory-public-typo3conf:
 
@@ -221,21 +221,31 @@ is used, TYPO3 extensions are also installed here.
 TYPO3 v11 with Composer installers v4
 =====================================
 
-The Composer plugin `typo3/cms-composer-installers` in version 4+ was created
-for TYPO3 version 12 and back-ported for **optional usage**
-in TYPO3 version 11. Therefore the version has to be explicitly set
-if the new directory structure shall already be used:
+TYPO3 requires the Composer plugin `typo3/cms-composer-installers` which
+takes care of moving extensions to the right folders upon installation:
+:ref:`directory-public-typo3` and :ref:`directory-public-typo3conf-ext`.
+TYPO3 v11 uses version 3 of the Composer plugin by default.
 
-.. code-block:: bash
+With the new major version 4 extensions are installed always in the
+:ref:`directory-vendor` folder. The directory structure of the TYPO3
+project is similar to the :ref:`directory structure of TYPO3 v12
+<t3coreapi12:directory-structure>`. Most notably public assets provided by
+extensions will be available in :ref:`public/_assets/ <directory-public-assets>`.
 
-   composer req typo3/cms-composer-installers:"^4.0@dev"
+At time of writing the usage of version 4 is available as release candidate and
+therefore optional. To use it right now in a TYPO3 v11 installation require
+the new version in your project's :file:`composer.json`:
 
-If the Composer installers v4 is used the directory structure of the TYPO3
-project is similar to the :ref:`directory structure of TYPO3
-v12 <t3coreapi12:directory-structure>`.
+..  code-block:: bash
 
-Most notably public assets provided by extensions will be available in
-:ref:`directory-public-assets`
+    composer req typo3/cms-composer-installers:"^4.0@rc"
+
+..  seealso::
+
+    -   `TYPO3 and Composer — we've come a long way <https://b13.com/core-insights/typo3-and-composer-weve-come-a-long-way>`__
+    -   `Composer changes for TYPO3 v11 and v12 <https://usetypo3.com/composer-changes-for-typo3-v11-and-v12.html>`__
+    -   `Migration to typo3/composer-cms-installers version 4+ <https://brot.krue.ml/migration-typo3-composer-cms-installers-version-4/>`__
+
 
 .. _directory-public-assets:
 
