@@ -42,9 +42,28 @@ contains installation-wide configuration.
 :file:`config/sites/`
 ~~~~~~~~~~~~~~~~~~~~~
 
-The folder :file:`config/sites` contains
+The folder :file:`config/sites/` contains
 subfolders for each :ref:`site configuration <sitehandling>`.
 
+
+.. _directory-config-system:
+
+:file:`config/system/`
+~~~~~~~~~~~~~~~~~~~~~
+
+The folder :file:`config/system/` contains the
+:ref:`Configuration files <configuration-files>` :file:`config/system/settings.php`
+and :file:`config/system/additional.php`.
+
+
+..  versionchanged:: 12.0
+    For Composer-based installations the configuration files have been moved and
+    renamed:
+
+    *   :file:`public/typo3conf/LocalConfiguration.php` is now available in
+        :file:`config/system/settings.php`
+    *   :file:`public/typo3conf/AdditionalConfiguration.php` is now available
+        in :file:`config/system/additional.php`
 
 .. _directory-local_packages:
 
@@ -147,23 +166,6 @@ the ":code:`frontend`" extension amongst other things contains the
 each system extension the PHP files are located in the folder
 :file:`Classes/`. See :ref:`extension files locations <extension-files-locations>`
 for more information on how single extensions are structured.
-
-.. _directory-public-typo3conf:
-
-:file:`public/typo3conf/`
-~~~~~~~~~~~~~~~~~~~~~~~~~
-
-Amongst others, this directory contains the files :file:`LocalConfiguration.php` and
-:file:`AdditionalConfiguration.php`. See chapter
-:ref:`Configuration files <configuration-files>` for details.
-
-
-.. _directory-public-typo3conf-ext:
-
-:file:`public/typo3conf/ext/`
-"""""""""""""""""""""""""""""
-
-Directory for local TYPO3 extensions. Each subdirectory contains one extension.
 
 .. _directory-public-typo3temp:
 
