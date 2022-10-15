@@ -17,7 +17,7 @@ to a single or a group of tables: It allows "swapping-out" single tables from th
 to point them to a different database endpoint.
 
 As with other central configuration options, the database endpoint and mapping configuration happens
-within :file:`typo3conf/LocalConfiguration.php` and ends up in :php:`$GLOBALS['TYPO3_CONF_VARS']` after
+within :file:`config/system/settings.php` and ends up in :php:`$GLOBALS['TYPO3_CONF_VARS']` after
 the Core bootstrap. The specific sub-array is :php:`$GLOBALS['TYPO3_CONF_VARS']['DB']`.
 
 A typical, basic example using only the `Default` connection with a single

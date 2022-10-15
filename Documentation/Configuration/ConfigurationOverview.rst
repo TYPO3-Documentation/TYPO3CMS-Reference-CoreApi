@@ -25,7 +25,7 @@ Configuration overview: files
 Global files
 ------------
 
-:file:`<webroot>/typo3conf/LocalConfiguration.php`:
+:file:`config/system/settings.php`:
    Contains the persisted :ref:`$GLOBALS['TYPO3_CONF_VARS'] <typo3ConfVars>` array.
    Settings configured in the backend by system maintainers in
    :guilabel:`Admin Tools > Settings > Configure Installation-Wide Options`
@@ -193,7 +193,7 @@ The :php:`$GLOBALS` PHP array consists of:
 :ref:`$GLOBALS['TYPO3_CONF_VARS'] <typo3ConfVars>`:
    is used for system wide configuration. Most of the settings can be
    modified in the backend :guilabel:`Admin Tools > Settings > Global Configuration`
-   and will be persisted to the file file:`typo3conf/LocalConfiguration.php`.
+   and will be persisted to the file :file:`config/system/settings.php`.
    The settings can be overridden by using :file:`config/system/additional.php`.
 
 :ref:`Extension Configuration <extension-options>`:

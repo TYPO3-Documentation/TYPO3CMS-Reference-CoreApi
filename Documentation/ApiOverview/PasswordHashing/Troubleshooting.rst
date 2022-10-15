@@ -76,7 +76,7 @@ This can happen when the first installation was done on a system with argon2
 and the installation was then copied to a target system that doesn't support
 this encryption type.
 
-Add or edit the following in your :file:`typo3conf/LocalConfiguration.php`.
+Add or edit the following in your :file:`config/system/settings.php`.
 
 .. code-block:: php
 
@@ -104,5 +104,5 @@ Add or edit the following in your :file:`typo3conf/LocalConfiguration.php`.
    ];
 
 If this doesn't work then check file :file:`config/system/additional.php` which
-overrides :file:`typo3conf/LocalConfiguration.php`.
+overrides :file:`config/system/settings.php`.
 

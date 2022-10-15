@@ -42,7 +42,7 @@ not recommended.
 
 The password for accessing the Install Tool is stored using the
 :ref:`configured password hash mechanism <password-hashing>` set for the backend
-in the global configuration file :file:`typo3conf/LocalConfiguration.php`:
+in the global configuration file :file:`config/system/settings.php`:
 
 .. code-block:: php
    caption: config/system/settings.php

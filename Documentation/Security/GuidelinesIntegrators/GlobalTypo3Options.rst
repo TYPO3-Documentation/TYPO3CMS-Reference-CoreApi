@@ -10,7 +10,7 @@ Global TYPO3 configuration options
 
 The following configuration options are accessible and changeable via
 the :ref:`Install Tool <security-install-tool>` (recommended way) or directly
-in the file :file:`typo3conf/LocalConfiguration.php`. The list below is in
+in the file :file:`config/system/settings.php`. The list below is in
 alphabetical order - not in the order of importance (all are relevant but the
 usage depends on your specific site and requirements).
 

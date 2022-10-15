@@ -34,13 +34,13 @@ at other configuration possibilities.
 File LocalConfiguration.php
 ===========================
 
-The global configuration is stored in file :file:`typo3conf/LocalConfiguration.php`.
+The global configuration is stored in file :file:`config/system/settings.php`.
 This file overrides default settings from :file:`typo3/sysext/core/Configuration/DefaultConfiguration.php`.
 
 .. important::
 
    Since configuration settings can be manipulated from within the
-   TYPO3 CMS backend, the :file:`typo3conf/LocalConfiguration.php`
+   TYPO3 CMS backend, the :file:`config/system/settings.php`
    must be writable by the web server user.
 
 The local configuration file is basically a long array which is simply returned
@@ -50,7 +50,7 @@ by setting configuration options inside an extension's
 :file:`ext_localconf.php` file. :ref:`See extension files and locations <extension-files-locations>`
 for more details about extension structure.
 
-A typical content of :file:`typo3conf/LocalConfiguration.php` looks like this:
+A typical content of :file:`config/system/settings.php` looks like this:
 
 .. code-block:: php
 
@@ -192,7 +192,7 @@ The :guilabel:`Admin Tools` provides various dedicated modules that change parts
 File config/system/additional.php
 =================================
 
-Although you can manually edit the :file:`typo3conf/LocalConfiguration.php`
+Although you can manually edit the :file:`config/system/settings.php`
 file, it is limited in scope because the file is expected to return
 a PHP array. Also the file is rewritten every time an option is
 changed in the Install Tool or some other operation (like changing
@@ -203,7 +203,7 @@ Such code should be placed in the :file:`config/system/additional.php`
 file. This file is never touched by TYPO3, so any code will be
 left alone.
 
-Furthermore this file is loaded **after** :file:`typo3conf/LocalConfiguration.php`,
+Furthermore this file is loaded **after** :file:`config/system/settings.php`,
 which means it represents an opportunity to change global configuration
 values programmatically if needed.
 

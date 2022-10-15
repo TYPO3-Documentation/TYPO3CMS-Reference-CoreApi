@@ -18,7 +18,7 @@ This file contains hook definitions and plugin configuration. It must
 not contain a PHP encoding declaration.
 
 All :file:`ext_localconf.php` files of loaded extensions are
-included right  *after* the files :file:`typo3conf/LocalConfiguration.php`
+included right  *after* the files :file:`config/system/settings.php`
 and :file:`config/system/additional.php` during TYPO3
 :ref:`bootstrap <bootstrapping>`.
 
