@@ -13,7 +13,7 @@ example the detail page of a news record.
 You can find examples here:
 
 *   :ref:`Browse records of a table <TableRecordLinkBrowserTutorials>`
-*   :ref:`Link browser example in tutorial in the news manual <ext_news:linkhandler>`
+*   :ref:`Link browser example in tutorial in the news extension manual <ext_news:linkhandler>`
 
 The handler is implemented in class :php:`\TYPO3\CMS\Backend\LinkHandler\RecordLinkHandler`
 of the system extension :file:`backend`. The class is marked as

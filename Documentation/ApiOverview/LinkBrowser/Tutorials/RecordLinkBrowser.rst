@@ -8,7 +8,7 @@ Browse records of a table
 
 This tutorial explains how to create a link browser to the records of a table.
 It can be used to create links to a news detail page (See also the
-:ref:`Link browser example in tutorial in the news manual <ext_news:linkhandler>`)
+:ref:`Link browser example in tutorial in the news extension manual <ext_news:linkhandler>`)
 or to the record of another third-party extension.
 
 In our example extension `t3docs/examples <https://github.com/TYPO3-Documentation/t3docs-examples>`__
@@ -37,15 +37,15 @@ You can find all available options here: :ref:`linkhandler-pagetsconfig_options`
 The link will then be saved as `t3://record?identifier=haiku&uid=1` in backend link
 fields and as
 :html:`<a href="t3://record?identifier=haiku&amp;uid=1">Look at this Haiku!</a>`
-in the richt text editor (RTE).
+in the rich text editor (RTE).
 
-The output of the link needs still needs to be configured or the
+The output of the link needs still to be configured or the
 link will be removed upon rendering. See the next step:
 
 Frontend: Configure the detail link to the record with TypoScript
 =================================================================
 
-For the frontend output of the haiku record links we have to configure the
+For the frontend output of a haiku record link we have to configure the
 page on which the plugin handling the detail view is displayed and the
 parameters this plugin expects:
 
