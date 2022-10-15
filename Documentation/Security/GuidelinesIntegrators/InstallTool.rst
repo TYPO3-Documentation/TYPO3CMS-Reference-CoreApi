@@ -45,7 +45,7 @@ The password for accessing the Install Tool is stored using the
 in the global configuration file :file:`typo3conf/LocalConfiguration.php`:
 
 .. code-block:: php
-   :caption: typo3conf/LocalConfiguration.php
+   caption: config/system/settings.php
 
    <?php
    return [
@@ -75,7 +75,7 @@ The role can be provided in the Settings Section of the Install Tool -> Manage S
 possible to manually modify the list by adding or removing the be_users.uid of the user in :file:`config/system/settings.php`:
 
 .. code-block:: php
-   :caption: typo3conf/LocalConfiguration.php
+   caption: config/system/settings.php
 
    <?php
    return [

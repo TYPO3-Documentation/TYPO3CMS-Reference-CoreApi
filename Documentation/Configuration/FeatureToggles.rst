@@ -111,7 +111,7 @@ Features can be toggled in the *Settings* module via *Feature Toggles*:
 Internally, the changes are written to :file:`config/system/settings.php`:
 
 .. code-block:: php
-   :caption: typo3conf/LocalConfiguration.php
+   caption: config/system/settings.php
 
    'SYS' => [
       'features' => [
