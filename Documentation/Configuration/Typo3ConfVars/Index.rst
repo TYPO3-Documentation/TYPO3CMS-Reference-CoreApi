@@ -4,9 +4,9 @@
    TYPO3_CONF_VARS
 .. _typo3ConfVars:
 
-===========================
+===============
 TYPO3_CONF_VARS
-===========================
+===============
 
 The main configuration is achieved via a set of global settings
 stored in a global array called :php:`$GLOBALS['TYPO3_CONF_VARS']`.
@@ -35,8 +35,26 @@ at other configuration possibilities.
 File :file:`config/system/settings.php`
 =======================================
 
-The global configuration is stored in file :file:`config/system/settings.php`.
-This file overrides default settings from :file:`typo3/sysext/core/Configuration/DefaultConfiguration.php`.
+..  todo: We are describing these files also in Configuration/ConfigurationFiles.rst
+    Merge those two chapters?
+
+The global configuration is stored in file :file:`config/system/settings.php` in
+Composer-based extensions, :file:`typo3conf/system/settings.php` in legacy
+installations.
+
+..  versionchanged:: 12.0
+    For Composer-based installations the configuration files have been moved and
+    renamed:
+
+    *   :file:`public/typo3conf/LocalConfiguration.php` is now available in
+        :file:`config/system/settings.php`
+
+    For legacy installations to:
+
+    *   :file:`typo3conf/system/settings.php`
+
+This file overrides default settings from
+:file:`typo3/sysext/core/Configuration/DefaultConfiguration.php`.
 
 .. important::
 
@@ -54,6 +72,7 @@ for more details about extension structure.
 A typical content of :file:`config/system/settings.php` looks like this:
 
 ..  code-block:: php
+    :caption: config/system/settings.php
 
     <?php
     return [
@@ -203,6 +222,18 @@ code cannot reside in that file.
 Such code should be placed in the :file:`config/system/additional.php`
 file. This file is never touched by TYPO3, so any code will be
 left alone.
+
+
+..  versionchanged:: 12.0
+    For Composer-based installations the configuration files have been moved and
+    renamed:
+
+    *   :file:`public/typo3conf/AdditionalConfiguration.php` is now available
+        in :file:`config/system/additional.php`
+
+    For legacy installations to:
+
+    *   :file:`typo3conf/system/additional.php`
 
 Furthermore this file is loaded **after** :file:`config/system/settings.php`,
 which means it represents an opportunity to change global configuration
