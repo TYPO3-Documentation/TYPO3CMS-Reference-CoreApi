@@ -36,6 +36,15 @@ window in the backend.
        }
     }
 
+The TSconfig file should then be included in the extension's global
+:file:`page.tsconfig` file or in the TSconfig of the pages where it should be
+available:
+
+.. code-block:: typoscript
+    :caption: EXT:examples/Configuration/page.tsconfig
+
+    @import 'EXT:examples/Configuration/TsConfig/Page/LinkBrowser/*.tsconfig'
+
 You can find all available options here: :ref:`linkhandler-pagetsconfig_options`.
 
 The link will then be saved as `t3://record?identifier=haiku&uid=1` in backend link
