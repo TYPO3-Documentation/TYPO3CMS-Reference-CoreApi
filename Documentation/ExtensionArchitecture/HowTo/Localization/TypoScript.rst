@@ -38,6 +38,7 @@ site configuration.
         lib.something.value = This site has the title "Italy"
     [end]
 
+.. _localization-typoscript-LOCAL_LANG:
 
 Changing localized terms using TypoScript
 =========================================
