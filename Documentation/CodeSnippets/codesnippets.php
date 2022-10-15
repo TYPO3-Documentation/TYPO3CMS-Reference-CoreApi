@@ -25,6 +25,5 @@
         include('Config/ManualBackend.php'),
         include('Config/ManualCore.php'),
         include('Config/LoginProvider.php'),
-        include('Config/Tutorials/Tea.php'),
-        include('Config/Tutorials/CommandControllers.php'),
+        include('Config/Tutorials/All.php'),
     );
