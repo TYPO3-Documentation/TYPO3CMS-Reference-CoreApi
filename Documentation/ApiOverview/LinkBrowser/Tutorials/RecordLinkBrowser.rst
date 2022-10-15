@@ -34,7 +34,8 @@ available:
 
 You can find all available options here: :ref:`linkhandler-pagetsconfig_options`.
 
-The link will then be saved as `t3://record?identifier=haiku&uid=1` in backend link
+When an editor now selects a haiku poem as link it will then be saved 
+as `t3://record?identifier=haiku&uid=1` in backend link
 fields and as
 :html:`<a href="t3://record?identifier=haiku&amp;uid=1">Look at this Haiku!</a>`
 in the rich text editor (RTE).
