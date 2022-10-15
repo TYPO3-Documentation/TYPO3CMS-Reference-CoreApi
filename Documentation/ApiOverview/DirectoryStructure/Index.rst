@@ -128,8 +128,8 @@ for more information on how single extensions are structured.
 
 ..  note::
     If you cannot find the TYPO3 Core source in the directory
-    :file:`public/typo3/sysext/` you are running either :ref:`typo3/cms-composer-installer`
-    v4 or :ref:`TYPO3 v12 <t3coreapi12:directory-structure>` and above.
+    :file:`public/typo3/sysext/` you are running either :ref:`composer-installer-v4` or
+    :ref:`TYPO3 v12 <t3coreapi12:directory-structure>` and above.
 
 .. _directory-public-typo3conf:
 
