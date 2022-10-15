@@ -76,7 +76,7 @@ Routing adds an explicit mapping of incoming readable URL slugs to internal para
 This both adds an additional layer for validating slugs as well as reduces the parameters to a limited (and predictable) set of values.
 
 Various configuration options exist to configure the `cHash` behavior via :php:`$GLOBALS['TYPO3_CONF_VARS']['FE']['cacheHash']`
-in the file :file:`config/system/settings.php` or :file:`AdditionalConfiguration.php`:
+in the file :file:`config/system/settings.php` or :file:`config/system/additional.php`:
 
 .. confval:: cachedParametersWhiteList
 

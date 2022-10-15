@@ -189,7 +189,7 @@ loginRateLimitInterval
    Allowed time interval for the configured rate limit. Individual values
    using
    `PHP relative formats <https://www.php.net/manual/de/datetime.formats.relative.php>`__
-   can be set in :file:`AdditionalConfiguration.php`.
+   can be set in :file:`config/system/additional.php`.
 
 
 .. index::
@@ -306,7 +306,7 @@ loginSecurityLevel
    This option got removed with version 11.3. The only possible
    value has been 'normal'. This behaviour stays unchanged.  When this option
    has been set in your :file:`config/system/settings.php`
-   or :file:`AdditionalConfiguration.php` files, they are automatically
+   or :file:`config/system/additional.php` files, they are automatically
    removed when accessing the admin tool or system maintenance area.
 
 .. index::

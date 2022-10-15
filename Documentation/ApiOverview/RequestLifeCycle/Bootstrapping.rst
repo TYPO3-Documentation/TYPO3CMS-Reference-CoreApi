@@ -288,7 +288,7 @@ Usage example
 ~~~~~~~~~~~~~
 
 The current Application Context is set very early in the bootstrap process and can be accessed
-through public API for example in the :file:`AdditionalConfiguration.php` file to automatically set
+through public API for example in the :file:`config/system/additional.php` file to automatically set
 different configuration for different contexts.
 
 In file :file:`typo3conf/AdditionalConfiguration.php`:

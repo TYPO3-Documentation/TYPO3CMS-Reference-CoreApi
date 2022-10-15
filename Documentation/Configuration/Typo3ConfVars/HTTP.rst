@@ -127,7 +127,7 @@ proxy
    for details.
 
    The configuration with an array must be made in the
-   :file:`AdditionalConfiguration.php`; see :ref:`typo3ConfVars-additionalConfiguration`
+   :file:`config/system/additional.php`; see :ref:`typo3ConfVars-additionalConfiguration`
    for details.
 
 .. index::

@@ -77,7 +77,7 @@ To check if a feature is enabled use this code:
    Currently, only the Core features can be (de-)activated in the Install Tool.
 
    To change the setting for your extension feature either use :file:`Localconfiguration.php`:
-   or :file:`AdditionalConfiguration.php`: like
+   or :file:`config/system/additional.php`: like
 
    .. code-block:: php
       :caption: typo3conf/AdditionalConfiguration.php

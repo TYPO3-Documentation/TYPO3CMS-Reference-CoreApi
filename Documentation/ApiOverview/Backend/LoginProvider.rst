@@ -12,7 +12,7 @@ Registering a login provider
 The concept of the backend login is based on "login providers".
 
 A login provider can be registered within your :file:`config/system/settings.php`
-or :file:`AdditionalConfiguration.php`  like this:
+or :file:`config/system/additional.php`  like this:
 
 ..  code-block:: php
     :caption: typo3conf/AdditionalConfiguration.php
