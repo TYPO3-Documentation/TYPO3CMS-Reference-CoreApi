@@ -7,10 +7,15 @@
 The RecordLinkHandler
 =====================
 
-The RecordLinkHandler enables editors to link to single records, for example a
-single news record.
+The :php:`RecordLinkHandler` enables editors to link to single records, for
+example the detail page of a news record.
 
-It is implemented in class :php:`\TYPO3\CMS\Backend\LinkHandler\RecordLinkHandler`
+You can find examples here:
+
+*   :ref:`Browse records of a table <TableRecordLinkBrowserTutorials>`
+*   :ref:`Link browser example in tutorial in the news manual <ext_news:linkhandler>`
+
+The handler is implemented in class :php:`\TYPO3\CMS\Backend\LinkHandler\RecordLinkHandler`
 of the system extension :file:`backend`. The class is marked as
 :php:`@internal` and contains neither hooks nor events.
 
@@ -23,7 +28,7 @@ of the system extension :file:`backend`. The class is marked as
     For TYPO3 v12 the moved classes are available as an alias under the old
     namespace to allow extensions to be compatible with TYPO3 v11 and v12.
 
-In order to use the RecordLinkHandler it can be configured as following:
+In order to use the :php:`RecordLinkHandler` it can be configured as following:
 
 .. rst-class:: bignums-xxl
 
@@ -107,47 +112,6 @@ Furthermore the following options are available from the LinkBrowser Api:
 :typoscript:`configuration.displayBefore = page` or :typoscript:`configuration.displayAfter = page`
    Define the order of how the various tabs are displayed in the link browser.
 
-
-Example: news records from one storage pid
-------------------------------------------
-
-The following configuration hides the page tree and shows news records only
-from the defined storage page:
-
-.. code-block:: typoscript
-   :caption: EXT:some_extension/Configuration/page.tsconfig
-
-   TCEMAIN.linkHandler.news {
-       handler = TYPO3\CMS\Backend\LinkHandler\RecordLinkHandler
-       label = News
-       configuration {
-           table = tx_news_domain_model_news
-           storagePid = 123
-           hidePageTree = 1
-       }
-       displayAfter = mail
-   }
-
-It is possible to have another configuration using another storagePid which also
-contains news records.
-
-This configuration shows a reduced page tree starting at page with uid 42:
-
-.. code-block:: typoscript
-   :caption: EXT:some_extension/Configuration/page.tsconfig
-
-   TCEMAIN.linkHandler.bookreports {
-       handler = TYPO3\CMS\Backend\LinkHandler\RecordLinkHandler
-       label = Book Reports
-       configuration {
-           table = tx_news_domain_model_news
-           storagePid = 42
-           pageTreeMountPoints = 42
-           hidePageTree = 0
-       }
-   }
-
-
 .. index::
    pair: LinkHandler; TypoScript
    TypoScript; config.recordLinks
@@ -173,33 +137,3 @@ A configuration could look like this:
 
 The TypoScript Configuration of the LinkHandler is being used in sysext `frontend`
 in class :php:`TYPO3\CMS\Frontend\Typolink\DatabaseRecordLinkBuilder`.
-
-Example: news records displayed on fixed detail page
-====================================================
-
-The following displays the link to the news on a detail page:
-
-.. code-block:: typoscript
-   :caption: EXT:some_extension/Configuration/page.tsconfig
-
-   config.recordLinks.news {
-      typolink {
-         parameter = 123
-         additionalParams.data = field:uid
-         additionalParams.wrap = &tx_news_pi1[controller]=News&tx_news_pi1[action]=detail&tx_news_pi1[news]=|
-      }
-   }
-
-Once more if the book reports that are also saved as `tx_news_domain_model_news` record should be displayed on their own
-detail page you can do it like this:
-
-.. code-block:: typoscript
-   :caption: EXT:some_extension/Configuration/page.tsconfig
-
-   config.recordLinks.news {
-      typolink {
-         parameter = 123
-         additionalParams.data = field:uid
-         additionalParams.wrap = &tx_news_pi1[controller]=News&tx_news_pi1[action]=detail&tx_news_pi1[news]=|
-      }
-   }
