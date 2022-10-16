@@ -41,7 +41,7 @@ Format
 
 :php:`$GLOBALS['TYPO3_CONF_VARS']['MAIL']['format']` can be `both`, `plain` or
 `html`. This option can be overridden in the project's
-:file:`LocalConfiguration.php` or :file:`AdditionalConfiguration.php` files.
+:file:`config/system/settings.php` or :file:`config/system/additional.php` files.
 
 ..  _mail-configuration-fluid:
 
@@ -57,10 +57,10 @@ All Fluid-based template paths can be configured via
 where TYPO3 reserves all array keys below `100` for internal purposes.
 
 If you want to provide custom templates or layouts, set this in your
-:file:`LocalConfiguration.php` / :file:`AdditionalConfiguration.php` file:
+:file:`config/system/settings.php` / :file:`config/system/additional.php` file:
 
 ..  code-block:: php
-    :caption: typo3conf/AdditionalConfiguration.php
+    :caption: config/system/additional.php | typo3conf/system/additional.php
 
     $GLOBALS['TYPO3_CONF_VARS']['MAIL']['templateRootPaths'][700]
         = 'EXT:my_site_extension/Resources/Private/Templates/Email';
@@ -103,7 +103,7 @@ smtp
 Example:
 
 ..  code-block:: php
-    :caption: typo3conf/AdditionalConfiguration.php
+    :caption: config/system/additional.php | typo3conf/system/additional.php
 
     $GLOBALS['TYPO3_CONF_VARS']['MAIL']['transport'] = 'smtp';
     $GLOBALS['TYPO3_CONF_VARS']['MAIL']['transport_smtp_server'] = 'localhost';
@@ -131,7 +131,7 @@ sendmail
     Example:
 
     ..  code-block:: php
-        :caption: typo3conf/AdditionalConfiguration.php
+        :caption: config/system/additional.php | typo3conf/system/additional.php
 
         $GLOBALS['TYPO3_CONF_VARS']['MAIL']['transport'] = 'sendmail';
         $GLOBALS['TYPO3_CONF_VARS']['MAIL']['transport_sendmail_command'] = '/usr/sbin/sendmail -bs';
@@ -207,7 +207,7 @@ If multiple validators are provided, each validator must return :php:`true`.
 Example:
 
 ..  code-block:: php
-    :caption: typo3conf/AdditionalConfiguration.php
+    :caption: config/system/additional.php | typo3conf/system/additional.php
 
     $GLOBALS['TYPO3_CONF_VARS']['MAIL']['validators'] = [
         \Egulias\EmailValidator\Validation\RFCValidation::class,
@@ -503,7 +503,7 @@ It is possible to define a default email sender ("From:") in
 :guilabel:`Admin Tools > Settings > Configure Installation-Wide Options`:
 
 ..  code-block:: php
-    :caption: typo3conf/AdditionalConfiguration.php
+    :caption: config/system/additional.php | typo3conf/system/additional.php
 
     $GLOBALS['TYPO3_CONF_VARS']['MAIL']['defaultMailFromAddress'] = 'john.doe@example.org';
     $GLOBALS['TYPO3_CONF_VARS']['MAIL']['defaultMailFromName'] = 'John Doe';

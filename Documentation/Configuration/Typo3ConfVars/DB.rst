@@ -21,8 +21,8 @@ the connection to the database:
 
     This variable can be set in one of the following files:
 
-    *   :ref:`typo3conf/LocalConfiguration.php <typo3ConfVars-localConfiguration>`
-    *   :ref:`typo3conf/AdditionalConfiguration.php <typo3ConfVars-additionalConfiguration>`
+    *   :ref:`config/system/settings.php <typo3ConfVars-settings>`
+    *   :ref:`config/system/additional.php <typo3ConfVars-additional>`
 
 .. index::
    TYPO3_CONF_VARS DB; additionalQueryRestrictions
@@ -57,7 +57,7 @@ Connections
    :php:`Default` key, in which the default database is configured, for example:
 
    .. code-block:: php
-      :caption: typo3conf/LocalConfiguration.php
+      caption: config/system/settings.php
 
       'Connections' => [
           'Default' => [
@@ -77,7 +77,7 @@ Connections
    database server:
 
    .. code-block:: php
-      :caption: typo3conf/LocalConfiguration.php
+      caption: config/system/settings.php
 
       'Connections' => [
           'Default' => [
@@ -232,7 +232,7 @@ tableoptions
    Defines the charset and collate options for tables for MySQL/MariaDB:
 
    .. code-block:: php
-      :caption: typo3conf/LocalConfiguration.php
+      caption: config/system/settings.php
 
       'Connections' => [
           'Default' => [
@@ -296,7 +296,7 @@ TableMapping
    For example, the :sql:`sys_log` table should be swapped to another database:
 
    .. code-block:: php
-      :caption: typo3conf/LocalConfiguration.php
+      caption: config/system/settings.php
 
       'Connections' => [
           'Default' => [

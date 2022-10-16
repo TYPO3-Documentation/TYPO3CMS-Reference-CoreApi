@@ -33,7 +33,7 @@ tests are executed using this scenario definition.
 Single test cases extend :php:`TYPO3\TestingFramework\Core\Functional\FunctionalTestCase`.
 The default implementation of method :php:`setUp()` contains all the main magic to set
 up a new TYPO3 instance in a sub folder of the existing system, create a database,
-create :file:`LocalConfiguration.php`, load extensions, populate the database with tables
+create :file:`config/system/settings.php`, load extensions, populate the database with tables
 needed by the extensions and to link or copy additional fixture files around and finally
 bootstrap a basic TYPO3 backend. :php:`setUp()` is called before each test, so each single
 test is isolated from other tests, even within one test case. There is only one optimization
@@ -273,10 +273,10 @@ using :php:`$pathsToProvideInTestInstance`.
 Setting TYPO3_CONF_VARS
 =======================
 
-A default :file:`LocalConfiguration.php` file of the instance is created by the default :php:`setUp()`.
+A default :file:`config/system/settings.php` file of the instance is created by the default :php:`setUp()`.
 It contains the database credentials and everything else to end up with a working TYPO3 instance.
 
-If extensions need additional settings in :file:`LocalConfiguration.php`, the property
+If extensions need additional settings in :file:`config/system/settings.php`, the property
 :php:`$configurationToUseInTestInstance` can be used to specify these:
 
 

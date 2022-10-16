@@ -42,10 +42,10 @@ not recommended.
 
 The password for accessing the Install Tool is stored using the
 :ref:`configured password hash mechanism <password-hashing>` set for the backend
-in the global configuration file :file:`typo3conf/LocalConfiguration.php`:
+in the global configuration file :file:`config/system/settings.php`:
 
 .. code-block:: php
-   :caption: typo3conf/LocalConfiguration.php
+   caption: config/system/settings.php
 
    <?php
    return [
@@ -72,10 +72,10 @@ security measures.
 The number of system maintainers should be as small as possible to mitigate the risks of corrupted accounts.
 
 The role can be provided in the Settings Section of the Install Tool -> Manage System Maintainers. It is also
-possible to manually modify the list by adding or removing the be_users.uid of the user in :file:`LocalConfiguration.php`:
+possible to manually modify the list by adding or removing the be_users.uid of the user in :file:`config/system/settings.php`:
 
 .. code-block:: php
-   :caption: typo3conf/LocalConfiguration.php
+   caption: config/system/settings.php
 
    <?php
    return [

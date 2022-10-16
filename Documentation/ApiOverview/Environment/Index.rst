@@ -79,7 +79,7 @@ getConfigPath()
 ---------------
 
 The environment provides the path to :file:`typo3conf`. This folder contains TYPO3
-global configuration files and folders, e.g. :file:`LocalConfiguration.php`.
+global configuration files and folders, e.g. :file:`config/system/settings.php`.
 
 For projects with Composer setup, the value is :php:`getProjectPath() . '/config'`,
 so it is outside of the web document root - not within :php:`getPublicPath()`.
@@ -129,7 +129,7 @@ May be one of `Production`, `Testing`, or `Development` with optional sub-contex
 Example, test for production context:
 
 .. code-block:: php
-   :caption: typo3conf/AdditionalConfiguration.php
+   :caption: config/system/additional.php | typo3conf/system/additional.php
 
    // use \TYPO3\CMS\Core\Core\Environment;
 

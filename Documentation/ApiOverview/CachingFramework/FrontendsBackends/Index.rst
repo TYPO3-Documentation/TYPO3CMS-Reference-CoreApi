@@ -528,7 +528,7 @@ caches.
 
 
 .. code-block:: php
-   :caption: public/typo3conf/AdditionalConfiguration.php
+   :caption: config/system/additional.php | typo3conf/system/additional.php
 
    $redisHost = '127.0.0.1';
    $redisPort = 6390;

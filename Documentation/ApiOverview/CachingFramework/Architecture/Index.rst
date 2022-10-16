@@ -147,7 +147,7 @@ The following caches exist in the TYPO3 CMS Core:
   - Stores Core internal compiled PHP code like concatenated :file:`ext_tables.php` and :file:`ext_localconf.php`
     files, autoloader and sprite configuration PHP files.
   - This cache is instantiated very early during bootstrap and **can not** be re configured
-    by instance specific :file:`LocalConfiguration.php` or similar.
+    by instance specific :file:`config/system/settings.php` or similar.
   - Cache entries are located in directory :file:`typo3temp/var/cache/code/core` or :file:`var/cache/code/core` (for Composer installations). The full directory and any file
     in this directory can be safely removed and will be re-created upon next request. This is especially useful during
     development

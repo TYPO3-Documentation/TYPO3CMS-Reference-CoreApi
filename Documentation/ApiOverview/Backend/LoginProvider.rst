@@ -11,11 +11,11 @@ Registering a login provider
 
 The concept of the backend login is based on "login providers".
 
-A login provider can be registered within your :file:`LocalConfiguration.php`
-or :file:`AdditionalConfiguration.php`  like this:
+A login provider can be registered within your :file:`config/system/settings.php`
+or :file:`config/system/additional.php`  like this:
 
 ..  code-block:: php
-    :caption: typo3conf/AdditionalConfiguration.php
+    :caption: config/system/additional.php | typo3conf/system/additional.php
 
 	$GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['backend']['loginProviders'][1433416020] = [
 		'provider' => \Vendor\MyExtension\LoginProvider\CustomLoginProvider::class,
@@ -51,7 +51,7 @@ settings. An example would be to extend an existing provider and
 replace its registered :php:`provider` class with your custom class.
 
 ..  code-block:: php
-    :caption: typo3conf/AdditionalConfiguration.php
+    :caption: config/system/additional.php | typo3conf/system/additional.php
 
     $GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['backend']['loginProviders'][1433416020]['provider'] =
         \Vendor\MyExtension\LoginProvider\CustomProviderExtendingUsernamePasswordLoginProvider::class

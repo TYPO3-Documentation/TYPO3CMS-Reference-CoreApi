@@ -40,7 +40,6 @@ In legacy installations third-party extensions are installed into
 directory outside of the project root and symlinked into :file:`typo3conf/ext/`
 or manually inserted in this directory.
 
-
 .. _extension-global:
 .. _extension-system:
 

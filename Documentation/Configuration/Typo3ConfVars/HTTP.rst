@@ -22,8 +22,8 @@ for more background information on those settings.
 
     This variable can be set in one of the following files:
 
-    *   :ref:`typo3conf/LocalConfiguration.php <typo3ConfVars-localConfiguration>`
-    *   :ref:`typo3conf/AdditionalConfiguration.php <typo3ConfVars-additionalConfiguration>`
+    *   :ref:`config/system/settings.php <typo3ConfVars-settings>`
+    *   :ref:`config/system/additional.php <typo3ConfVars-additional>`
 
 
 .. index::
@@ -127,7 +127,7 @@ proxy
    for details.
 
    The configuration with an array must be made in the
-   :file:`AdditionalConfiguration.php`; see :ref:`typo3ConfVars-additionalConfiguration`
+   :file:`config/system/additional.php`; see :ref:`typo3ConfVars-additional`
    for details.
 
 .. index::

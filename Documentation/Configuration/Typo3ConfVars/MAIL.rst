@@ -21,8 +21,8 @@ the sending mails by TYPO3:
 
     This variable can be set in one of the following files:
 
-    *   :ref:`typo3conf/LocalConfiguration.php <typo3ConfVars-localConfiguration>`
-    *   :ref:`typo3conf/AdditionalConfiguration.php <typo3ConfVars-additionalConfiguration>`
+    *   :ref:`config/system/settings.php <typo3ConfVars-settings>`
+    *   :ref:`config/system/additional.php <typo3ConfVars-additional>`
 
 .. index::
    TYPO3_CONF_VARS MAIL; format
@@ -215,14 +215,14 @@ transport_smtp_domain
    this isn't done, sending emails via such servers will fail.
 
    Setting a valid SMTP domain can be achieved by setting
-   `transport_smtp_domain` in the :file:`LocalConfiguration.php`.
+   `transport_smtp_domain` in the :file:`config/system/settings.php`.
    This will set the given domain to the EsmtpTransport agent and send the
    correct EHLO-command to the relay-server.
 
    **Configuration Example for GSuite:**
 
    .. code-block:: php
-      :caption: `typo3conf/LocalConfiguration.php`
+      :caption: `config/system/settings.php`
 
        return [
            //....
@@ -258,7 +258,7 @@ transport_smtp_stream_options
    Configuration Example:
 
    .. code-block:: php
-      :caption: typo3conf/AdditionalConfiguration.php
+      :caption: config/system/additional.php | typo3conf/system/additional.php
 
        return [
            //....

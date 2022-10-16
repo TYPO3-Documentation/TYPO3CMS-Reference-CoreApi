@@ -13,6 +13,7 @@ TYPO3 installation without Composer. For the structure in a Composer-based insta
 see :ref:`Composer-based installations: Directory structure <directory-structure>`.
 
 .. _legacy-directory-project:
+
 Files on project level
 ======================
 
@@ -89,11 +90,8 @@ the following symlink structure:
 :file:`typo3conf/`
 ------------------
 
-Amongst others, this directory contains the files :file:`LocalConfiguration.php` and
-:file:`AdditionalConfiguration.php`. See chapter
-:ref:`Configuration files <configuration-files>` for details.
-
-This path can be retrieved from the Environment API, see :ref:`Environment-config-path`.
+This path can be retrieved from the Environment API, see
+:ref:`Environment-config-path`.
 
 .. _legacy-directory-typo3conf-autoload:
 
@@ -134,6 +132,27 @@ This path can be retrieved from the Environment API, see
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
 Contains subfolders for each :ref:`site configuration <sitehandling>`.
+
+.. _legacy-directory-typo3conf-system:
+
+:file:`typo3conf/system/`
+~~~~~~~~~~~~~~~~~~~~~~~~~
+
+The folder :file:`typo3conf/system/` contains the
+:ref:`Configuration files <configuration-files>` :file:`typo3conf/system/settings.php`
+and :file:`typo3conf/system/additional.php`.
+
+This path can be retrieved from the Environment API, see
+:ref:`Environment-config-path`.
+
+..  versionchanged:: 12.0
+    For legacy installations the configuration files have been moved and
+    renamed:
+
+    *   :file:`typo3conf/LocalConfiguration.php` is now available in
+        :file:`typo3conf/system/settings.php`
+    *   :file:`typo3conf/AdditionalConfiguration.php` is now available in
+        :file:`typo3conf/system/additional.php`
 
 .. _legacy-directory-typo3temp:
 

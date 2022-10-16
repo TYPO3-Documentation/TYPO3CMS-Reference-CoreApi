@@ -42,9 +42,30 @@ contains installation-wide configuration.
 :file:`config/sites/`
 ~~~~~~~~~~~~~~~~~~~~~
 
-The folder :file:`config/sites` contains
+The folder :file:`config/sites/` contains
 subfolders for each :ref:`site configuration <sitehandling>`.
 
+
+.. _directory-config-system:
+
+:file:`config/system/`
+~~~~~~~~~~~~~~~~~~~~~
+
+The folder :file:`config/system/` contains the
+:ref:`Configuration files <configuration-files>` :file:`config/system/settings.php`
+and :file:`config/system/additional.php`.
+
+This path can be retrieved from the Environment API, see
+:ref:`Environment-config-path`.
+
+..  versionchanged:: 12.0
+    For Composer-based installations the configuration files have been moved and
+    renamed:
+
+    *   :file:`public/typo3conf/LocalConfiguration.php` is now available in
+        :file:`config/system/settings.php`
+    *   :file:`public/typo3conf/AdditionalConfiguration.php` is now available
+        in :file:`config/system/additional.php`
 
 .. _directory-local_packages:
 
@@ -162,25 +183,6 @@ backend (:file:`typo3/index.php`) and install tool (:file:`typo3/install.php`).
     Starting with TYPO3 v12 (or v11 using `typo3/cms-composer-installers` v4)
     the system extensions are not located in this directory anymore. They can now
     be found in the :ref:`directory-vendor` folder.
-
-.. _directory-public-typo3conf:
-
-:file:`public/typo3conf/`
-~~~~~~~~~~~~~~~~~~~~~~~~~
-
-..  todo: Situation changed again with
-    https://github.com/TYPO3-Documentation/Changelog-To-Doc/issues/204
-    I will take care of this in a follow up.
-
-This directory contains the files :file:`LocalConfiguration.php` and
-:file:`AdditionalConfiguration.php`. See chapter
-:ref:`Configuration files <configuration-files>` for details.
-
-..  versionchanged:: 12.0
-    Starting with TYPO3 v12 (or v11 using `typo3/cms-composer-installers` v4)
-    the installed extensions are not located in the directory
-    :file:`typo3conf/ext/` anymore. They can now be found in the
-    :ref:`directory-vendor` folder.
 
 .. _directory-public-typo3temp:
 

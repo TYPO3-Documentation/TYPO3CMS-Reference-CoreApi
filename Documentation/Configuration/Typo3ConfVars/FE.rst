@@ -20,8 +20,8 @@ the TYPO3 frontend:
 
     This variable can be set in one of the following files:
 
-    *   :ref:`typo3conf/LocalConfiguration.php <typo3ConfVars-localConfiguration>`
-    *   :ref:`typo3conf/AdditionalConfiguration.php <typo3ConfVars-additionalConfiguration>`
+    *   :ref:`config/system/settings.php <typo3ConfVars-settings>`
+    *   :ref:`config/system/additional.php <typo3ConfVars-additional>`
 
 .. index::
    TYPO3_CONF_VARS FE; addAllowedPaths
@@ -189,7 +189,7 @@ loginRateLimitInterval
    Allowed time interval for the configured rate limit. Individual values
    using
    `PHP relative formats <https://www.php.net/manual/de/datetime.formats.relative.php>`__
-   can be set in :file:`AdditionalConfiguration.php`.
+   can be set in :file:`config/system/additional.php`.
 
 
 .. index::
@@ -305,8 +305,8 @@ loginSecurityLevel
 .. deprecated:: 11.3
    This option got removed with version 11.3. The only possible
    value has been 'normal'. This behaviour stays unchanged.  When this option
-   has been set in your :file:`LocalConfiguration.php`
-   or :file:`AdditionalConfiguration.php` files, they are automatically
+   has been set in your :file:`config/system/settings.php`
+   or :file:`config/system/additional.php` files, they are automatically
    removed when accessing the admin tool or system maintenance area.
 
 .. index::
@@ -616,7 +616,7 @@ _________________________
    Example:
 
    .. code-block:: php
-      :caption: typo3conf/AdditionalConfiguration.php
+      :caption: config/system/additional.php | typo3conf/system/additional.php
 
       $GLOBALS['TYPO3_CONF_VARS']['FE']['cacheHash']['cachedParametersWhiteList'][] = 'tx_news_pi1[uid]';
 
@@ -652,7 +652,7 @@ __________________
    Example:
 
    .. code-block:: php
-      :caption: typo3conf/AdditionalConfiguration.php
+      :caption: config/system/additional.php | typo3conf/system/additional.php
 
       $GLOBALS['TYPO3_CONF_VARS']['FE']['cacheHash']['excludedParameters'] = ['L','tx_search_pi1[query]'];
 

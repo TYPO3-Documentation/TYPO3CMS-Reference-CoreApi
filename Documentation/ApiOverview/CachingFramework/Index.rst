@@ -76,7 +76,7 @@ Routing adds an explicit mapping of incoming readable URL slugs to internal para
 This both adds an additional layer for validating slugs as well as reduces the parameters to a limited (and predictable) set of values.
 
 Various configuration options exist to configure the `cHash` behavior via :php:`$GLOBALS['TYPO3_CONF_VARS']['FE']['cacheHash']`
-in the file :file:`LocalConfiguration.php` or :file:`AdditionalConfiguration.php`:
+in the file :file:`config/system/settings.php` or :file:`config/system/additional.php`:
 
 .. confval:: cachedParametersWhiteList
 
@@ -117,11 +117,11 @@ These indicators can be used for all previously existing sub-properties
 :php:`cachedParametersWhiteList`, :php:`excludedParameters`, :php:`excludedParametersIfEmpty`
 and :php:`requireCacheHashPresenceParameters`.
 
-Example (excerpt of `AdditionalConfiguration.php`)
---------------------------------------------------
+Example (excerpt of `config/system/additional.php`)
+---------------------------------------------------
 
 .. code-block:: php
-   :caption: typo3conf/AdditionalConfiguration.php
+   :caption: config/system/additional.php | typo3conf/system/additional.php
 
    $GLOBALS['TYPO3_CONF_VARS']['FE']['cacheHash'] = [
      'excludedParameters' => [
@@ -138,7 +138,7 @@ Example (excerpt of `AdditionalConfiguration.php`)
 For instance instead of having exclude items like
 
 .. code-block:: php
-   :caption: typo3conf/AdditionalConfiguration.php
+   :caption: config/system/additional.php | typo3conf/system/additional.php
 
    'excludedParameters' => [
       'tx_my[data][uid]',
@@ -152,7 +152,7 @@ partial matches allow to simplify the configuration and consider all items havin
 :php:`tx_my[data]` (or :php:`tx_my[data][` to be more specific) as prefix like
 
 .. code-block:: php
-   :caption: typo3conf/AdditionalConfiguration.php
+   :caption: config/system/additional.php | typo3conf/system/additional.php
 
    'excludedParameters' => [
       '^tx_my[data][',

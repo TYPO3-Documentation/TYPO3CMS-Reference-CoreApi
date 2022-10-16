@@ -13,7 +13,7 @@ new implementations of features next to their legacy version. By using a feature
 can decide when to switch to the new feature.
 
 The API checks against a system-wide option array within :php:`$GLOBALS['TYPO3_CONF_VARS']['SYS']['features']` which an integrator
-or admin can set in the :file:`LocalConfiguration.php` file.
+or admin can set in the :file:`config/system/settings.php` file.
 Both TYPO3 Core and Extensions can provide alternative functionality for a certain feature.
 
 Examples for features are:
@@ -76,11 +76,11 @@ To check if a feature is enabled use this code:
 
    Currently, only the Core features can be (de-)activated in the Install Tool.
 
-   To change the setting for your extension feature either use :file:`Localconfiguration.php`:
-   or :file:`AdditionalConfiguration.php`: like
+   To change the setting for your extension feature either use :file:`config/system/settings.php`:
+   or :file:`config/system/additional.php`: like
 
    .. code-block:: php
-      :caption: typo3conf/AdditionalConfiguration.php
+      :caption: config/system/additional.php | typo3conf/system/additional.php
 
       $GLOBALS['TYPO3_CONF_VARS']['SYS']['features']['myFeatureName'] = true;
 
@@ -108,10 +108,10 @@ Features can be toggled in the *Settings* module via *Feature Toggles*:
 
 .. include:: /Images/AutomaticScreenshots/AdminTools/FeatureToggles.rst.txt
 
-Internally, the changes are written to :file:`LocalConfiguration.php`:
+Internally, the changes are written to :file:`config/system/settings.php`:
 
 .. code-block:: php
-   :caption: typo3conf/LocalConfiguration.php
+   caption: config/system/settings.php
 
    'SYS' => [
       'features' => [

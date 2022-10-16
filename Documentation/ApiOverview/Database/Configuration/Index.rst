@@ -1,7 +1,7 @@
 .. include:: /Includes.rst.txt
 .. index::
    Doctrine; Configuration
-   File; typo3conf/LocalConfiguration.php
+   File; config/system/settings.php
    TYPO3_CONF_VARS; DB
 .. _database-configuration:
 
@@ -17,14 +17,14 @@ to a single or a group of tables: It allows "swapping-out" single tables from th
 to point them to a different database endpoint.
 
 As with other central configuration options, the database endpoint and mapping configuration happens
-within :file:`typo3conf/LocalConfiguration.php` and ends up in :php:`$GLOBALS['TYPO3_CONF_VARS']` after
+within :file:`config/system/settings.php` and ends up in :php:`$GLOBALS['TYPO3_CONF_VARS']` after
 the Core bootstrap. The specific sub-array is :php:`$GLOBALS['TYPO3_CONF_VARS']['DB']`.
 
 A typical, basic example using only the `Default` connection with a single
 database endpoint:
 
 .. code-block:: php
-   :caption: typo3conf/LocalConfiguration.php
+   caption: config/system/settings.php
 
    // [...]
    'DB' => [
@@ -68,9 +68,8 @@ A slightly more complex example with two connections, mapping the `sys_log`
 table to a different endpoint:
 
 .. code-block:: php
-   :caption: typo3conf/LocalConfiguration.php
+   caption: config/system/settings.php
 
-   // LocalConfiguration.php
    // [...]
    'DB' => [
       'Connections' => [
