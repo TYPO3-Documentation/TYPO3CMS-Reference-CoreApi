@@ -73,7 +73,7 @@ available in :php:`typo3conf/AdditionalConfiguration.php`.
 With TYPO3 v12, the names for both files and their location have been changed.
 
 The prefix "Local" in :php:`LocalConfiguration.php` originates from the
-three-divided location of "System", "Global" and "Local" extensions - the latter
+three-divided location of "system", "global" and "local" extensions - the latter
 is "specific to a TYPO3 installation" where as other extensions and configuration
 could be shared with multiple TYPO3 installations.
 
@@ -93,12 +93,12 @@ with certain settings much better, so the file locations and the file names
 have been changed.
 
 Composer-based TYPO3 projects by default have the possibility to place certain
-files from outside the document root, and using the document root such as :file:`public/`
+files from outside the document root, and using the document root such as :ref:`directory-public`
 as a subfolder. This way, Composer-based TYPO3 projects can restrict direct public
 access to such files via the webserver.
 
-TYPO3 in its Composer Mode already creates a folder named :file:`config/` on the
-project root level, where e.g. site configuration is stored. Within the
+TYPO3 in its Composer mode already creates a folder named :ref:`directory-config` on the
+project root level, where e.g. the site configuration is stored. Within the
 :file:`config/` folder, the configuration files are placed starting with TYPO3
 v12:
 

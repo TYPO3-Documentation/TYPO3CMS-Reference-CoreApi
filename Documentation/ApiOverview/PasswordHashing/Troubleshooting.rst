@@ -68,7 +68,7 @@ working algorithm.
 
 .. index:: File; config/system/settings.php
 
-Manually disable argon2 in the :file:`:file:`config/system/settings.php`
+Manually disable argon2 in the :file:`config/system/settings.php`
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 This may be nessesary if access to the install tool is not possible.
