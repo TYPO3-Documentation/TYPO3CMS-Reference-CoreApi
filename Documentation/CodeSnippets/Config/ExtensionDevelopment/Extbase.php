@@ -424,4 +424,21 @@ return [
         'targetFileName' => 'Extbase/Configuration/PluginSettings.rst.txt',
         'emphasizeLines' => [10],
     ],
+    [
+        'action'=> 'createPhpClassCodeSnippet',
+        'class'=> T3docs\Examples\Controller\ModuleController::class,
+        'members' => [
+            'countAction',
+        ],
+        'withComment' => true,
+        'withClassComment' => false,
+        'targetFileName' => 'Extbase/Controllers/PhpLocalization.rst.txt',
+        'emphasizeLines' => [14, 15, 16, 17, 18],
+    ],
+    [
+        'action' => 'createPhpClassDocs',
+        'class' => \TYPO3\CMS\Extbase\Utility\LocalizationUtility::class,
+        'targetFileName' => 'Extbase/LocalizationUtilityApi.rst.txt',
+        'withCode' => false
+    ],
 ];
