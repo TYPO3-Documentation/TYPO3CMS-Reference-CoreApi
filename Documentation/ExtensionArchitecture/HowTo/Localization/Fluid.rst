@@ -168,6 +168,8 @@ options on how to configure the correct language file.
    Localization; sprintf
    Localization; Arguments
 
+..  _extension-localization-fluid-arguments:
+
 Insert arguments into translated strings
 ========================================
 
