@@ -72,7 +72,7 @@ for more details about extension structure.
 A typical content of :file:`config/system/settings.php` looks like this:
 
 ..  code-block:: php
-    :caption: config/system/settings.php
+    :caption: config/system/additional.php | typo3conf/system/settings.php
 
     <?php
     return [
@@ -248,7 +248,7 @@ which requires heavy duty processing.
 **Example: Changing the database hostname for development machines**
 
 .. code-block:: php
-   :caption: config/system/additional.php
+   :caption: config/system/additional.php | typo3conf/system/additional.php
 
    <?php
 

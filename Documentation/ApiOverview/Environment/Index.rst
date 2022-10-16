@@ -129,7 +129,7 @@ May be one of `Production`, `Testing`, or `Development` with optional sub-contex
 Example, test for production context:
 
 .. code-block:: php
-   :caption: config/system/additional.php
+   :caption: config/system/additional.php | typo3conf/system/additional.php
 
    // use \TYPO3\CMS\Core\Core\Environment;
 

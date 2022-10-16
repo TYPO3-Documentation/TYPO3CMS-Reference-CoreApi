@@ -37,7 +37,7 @@ available, :php:`SemaphoreLockStrategy` will not be used).
    The directory can be overwritten by configuration:
 
    .. code-block:: php
-      :caption: config/system/additional.php
+      :caption: config/system/additional.php | typo3conf/system/additional.php
 
       use TYPO3\CMS\Core\Locking\FileLockStrategy;
 
@@ -140,7 +140,7 @@ To change the locking strategy priority, the priority can be overwritten by conf
 for example in additional configuration:
 
 .. code-block:: php
-   :caption: config/system/additional.php
+   :caption: config/system/additional.php | typo3conf/system/additional.php
 
    use TYPO3\CMS\Core\Locking\FileLockStrategy;
 

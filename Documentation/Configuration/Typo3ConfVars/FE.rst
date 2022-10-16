@@ -616,7 +616,7 @@ _________________________
    Example:
 
    .. code-block:: php
-      :caption: config/system/additional.php
+      :caption: config/system/additional.php | typo3conf/system/additional.php
 
       $GLOBALS['TYPO3_CONF_VARS']['FE']['cacheHash']['cachedParametersWhiteList'][] = 'tx_news_pi1[uid]';
 
@@ -652,7 +652,7 @@ __________________
    Example:
 
    .. code-block:: php
-      :caption: config/system/additional.php
+      :caption: config/system/additional.php | typo3conf/system/additional.php
 
       $GLOBALS['TYPO3_CONF_VARS']['FE']['cacheHash']['excludedParameters'] = ['L','tx_search_pi1[query]'];
 

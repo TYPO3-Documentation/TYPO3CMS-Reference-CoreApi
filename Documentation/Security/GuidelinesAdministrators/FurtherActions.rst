@@ -55,7 +55,7 @@ handled by external tools, such as `fail2ban <https://www.fail2ban.org>`_.
 Example logging configuration:
 
 .. code-block:: php
-  :caption: config/system/additional.php
+  :caption: config/system/additional.php | typo3conf/system/additional.php
 
    $GLOBALS['TYPO3_CONF_VARS']['LOG']['TYPO3']['CMS']['Core']['Authentication']['writerConfiguration'] = [
        \TYPO3\CMS\Core\Log\LogLevel::INFO => [

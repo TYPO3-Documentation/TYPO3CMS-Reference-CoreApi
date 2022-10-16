@@ -55,6 +55,8 @@ The folder :file:`config/system/` contains the
 :ref:`Configuration files <configuration-files>` :file:`config/system/settings.php`
 and :file:`config/system/additional.php`.
 
+This path can be retrieved from the Environment API, see
+:ref:`Environment-config-path`.
 
 ..  versionchanged:: 12.0
     For Composer-based installations the configuration files have been moved and

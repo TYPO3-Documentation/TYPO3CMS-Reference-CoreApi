@@ -258,7 +258,7 @@ transport_smtp_stream_options
    Configuration Example:
 
    .. code-block:: php
-      :caption: config/system/additional.php
+      :caption: config/system/additional.php | typo3conf/system/additional.php
 
        return [
            //....

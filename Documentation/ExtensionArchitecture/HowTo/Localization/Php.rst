@@ -10,6 +10,28 @@ Localization in PHP
 Sometimes you have to localize a string in PHP code, for
 example inside of a controller or a ViewHelper.
 
+Localization in plain PHP (frontend context)
+============================================
+
+In plain PHP use the class :php:`LanguageServiceFactory` to create a
+:php:`LanguageService` from the current site language:
+
+..  code-block:: php
+    :caption: EXT:my_extension/Classes/Utility/SomeUtilityClass.php
+
+    $languageServiceFactory = GeneralUtility::makeInstance(LanguageServiceFactory::class);
+    $languageService = $languageServiceFactory->createFromSiteLanguage($request->getAttribute('language')
+        ?? $request->getAttribute('site')->getDefaultLanguage());
+    $languageService->sL(...)
+
+If possible consider to use :ref:`DependencyInjection`:
+
+
+Localization in backend context
+===============================
+
+If you are in the backend context
+
 .. todo: Add information on ViewHelper and non-Extbase context
 
 Localization in Extbase context

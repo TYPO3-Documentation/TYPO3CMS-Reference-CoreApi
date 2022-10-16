@@ -26,7 +26,7 @@ exceptions.
 In :file:`config/system/settings.php` or :file:`config/system/additional.php`:
 
 .. code-block:: php
-   :caption: config/system/additional.php
+   :caption: config/system/additional.php | typo3conf/system/additional.php
 
     $changeSettings['SYS'] => array(
       'displayErrors' => '1',
@@ -83,7 +83,7 @@ logged if their level is at least 2 (=Warning).
 In :file:`config/system/settings.php` or :file:`config/system/additional.php`:
 
 .. code-block:: php
-   :caption: config/system/additional.php
+   :caption: config/system/additional.php | typo3conf/system/additional.php
 
     $changeSettings['SYS'] => array(
       'displayErrors' => '2',
@@ -119,7 +119,7 @@ handling completely.
 In :file:`config/system/settings.php` or :file:`config/system/additional.php`:
 
 .. code-block:: php
-   :caption: config/system/additional.php
+   :caption: config/system/additional.php | typo3conf/system/additional.php
 
     $changeSettings['SYS'] => array(
       'displayErrors' => '0',

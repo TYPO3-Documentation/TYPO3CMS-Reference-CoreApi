@@ -138,10 +138,12 @@ Contains subfolders for each :ref:`site configuration <sitehandling>`.
 :file:`typo3conf/system/`
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
-
 The folder :file:`typo3conf/system/` contains the
 :ref:`Configuration files <configuration-files>` :file:`typo3conf/system/settings.php`
 and :file:`typo3conf/system/additional.php`.
+
+This path can be retrieved from the Environment API, see
+:ref:`Environment-config-path`.
 
 ..  versionchanged:: 12.0
     For legacy installations the configuration files have been moved and

@@ -161,7 +161,7 @@ files.
     "Swiss German") as additional language:
 
     ..  code-block:: php
-        :caption: config/system/additional.php
+        :caption: config/system/additional.php | typo3conf/system/additional.php
 
         $GLOBALS['TYPO3_CONF_VARS']['SYS']['localization']['locales']['user'] = [
             'gsw_CH' => 'Swiss German',
@@ -174,7 +174,7 @@ files.
     translated:
 
     ..  code-block:: php
-        :caption: config/system/additional.php
+        :caption: config/system/additional.php | typo3conf/system/additional.php
 
         $GLOBALS['TYPO3_CONF_VARS']['SYS']['localization']['locales']['dependencies'] = [
             'gsw_CH' => ['de_AT', 'de'],

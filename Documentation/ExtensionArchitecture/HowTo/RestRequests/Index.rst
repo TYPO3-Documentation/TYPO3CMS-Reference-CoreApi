@@ -80,7 +80,7 @@ custom configuration is specified, the default handler stack will be extended
 and not overwritten.
 
 ..  code-block:: php
-    :caption: config/system/additional.php
+    :caption: config/system/additional.php | typo3conf/system/additional.php
 
     // Add custom middlewares to default Guzzle handler stack
     $GLOBALS['TYPO3_CONF_VARS']['HTTP']['handler'][] =

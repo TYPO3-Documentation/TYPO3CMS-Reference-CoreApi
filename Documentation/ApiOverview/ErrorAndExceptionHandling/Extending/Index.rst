@@ -16,7 +16,7 @@ If you want to register your own error or exception handler:
    or `errorHandler` in :file:`config/system/additional.php`:
 
    .. code-block:: php
-      :caption: config/system/additional.php
+      :caption: config/system/additional.php | typo3conf/system/additional.php
 
       $GLOBALS['TYPO3_CONF_VARS']['SYS']['errorHandler'] = \Vendor\Ext\Error\MyOwnErrorHandler::class;
       $GLOBALS['TYPO3_CONF_VARS']['SYS']['debugExceptionHandler'] = \Vendor\Ext\Error\MyOwnDebugExceptionHandler::class;
@@ -61,7 +61,7 @@ of the functionality:
    }
 
 .. code-block:: php
-   :caption: config/system/additional.php
+   :caption: config/system/additional.php | typo3conf/system/additional.php
 
    $GLOBALS['TYPO3_CONF_VARS']['SYS']['debugExceptionHandler'] = \Vendor\SomeExtension\Error\PostExceptionsOnTwitter::class;
 

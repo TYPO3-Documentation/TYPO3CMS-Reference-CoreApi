@@ -12,6 +12,9 @@ The configuration files :file:`settings.php` and
 installations. In legacy installations they are located in
 :ref:`legacy-directory-typo3conf-system`.
 
+This path can be retrieved from the Environment API, see
+:ref:`Environment-config-path` for both Composer-based and legacy installations.
+
 The most important configuration file is
 :file:`settings.php`. It contains local settings of the
 main global PHP array :php:`$GLOBALS['TYPO3_CONF_VARS']`, crucial settings
@@ -43,6 +46,9 @@ Migration
 
     *   :file:`typo3conf/system/settings.php`
     *   :file:`typo3conf/system/additional.php`
+
+This path can be retrieved from the Environment API, see
+:ref:`Environment-config-path` for both Composer-based and legacy installations.
 
 The configuration files are automatically moved with TYPO3 v12.0 to their new
 locations, so no manual process is needed.

@@ -104,7 +104,7 @@ example opens the backend for users with the IP address `123.45.67.89` and from
 the network `192.168.xxx.xxx`:
 
 .. code-block:: php
-  :caption: config/system/additional.php
+  :caption: config/system/additional.php | typo3conf/system/additional.php
 
   $GLOBALS['TYPO3_CONF_VARS']['BE']['IPmaskList'] = 123.45.67.89,192.168.*.*
 
