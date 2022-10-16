@@ -133,8 +133,9 @@ The session object created or retrieved by the :php:`UserSessionManager` provide
 +---------------------+-------------+------------------------------------------------------------------------------+
 | needsUpdate()       | Bool        | Checks whether the session has to be updated.                                |
 +---------------------+-------------+------------------------------------------------------------------------------+
-| getJwt()            | String      | .. versionadded:: 12.0                                                       |
-|                     |             | Returns the session ID wrapped in JWT to be used for emitting a new cookie.  |
+| getJwt()            | String      | ..  versionadded:: 12.0                                                      |
+|                     |             |     Returns the session ID wrapped in JWT to be used for emitting            |
+|                     |             |     new cookie.                                                              |
 +---------------------+-------------+------------------------------------------------------------------------------+
 | toArray()           | Array       | Returns the session and its data as array in the old `sessionRecord` format. |
 +---------------------+-------------+------------------------------------------------------------------------------+
