@@ -93,6 +93,13 @@ the paths within PHP code.
       Directory for temporary files. It contains subdirectories (see below)
       for temporary files of extensions and TYPO3 components.
 
+..  attention::
+
+    Although it is a most common understanding in the TYPO3 world that
+    :file:`typo3temp/` can be removed at any time, it is considered
+    bad practice to remove the whole folder. Developers should selectively
+    remove folders relevant to the changes made.
+
   - :Directory: :file:`typo3temp/assets/`
     :Description:
       Directory for temporary files that should be public available
