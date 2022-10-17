@@ -28,7 +28,7 @@ The context menu is shown after clicking on the HTML element which has
 
 The JavaScript click event handler is implemented in the
 ES6 module :js:`@typo3/backend/context-menu.js`. It takes the
-data attributes mentioned above and executes an AJAX call to the
+data attributes mentioned above and executes an Ajax call to the
 :php:`\TYPO3\CMS\Backend\Controller\ContextMenuController->getContextMenuAction()`.
 
 ..  versionchanged:: 12.0
