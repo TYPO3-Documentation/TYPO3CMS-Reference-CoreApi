@@ -77,7 +77,7 @@ Example code:
 
 Hook into
 :php:`$GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['typo3/backend.php']['constructPostProcess']`
-to load a custom :php:`BackendController` hook that loads the event handlers
+to load a custom :php:`BackendController` hook that loads the event handler's
 JavaScript.
 
 Example code:
