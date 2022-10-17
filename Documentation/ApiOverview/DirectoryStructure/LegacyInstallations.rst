@@ -143,6 +143,13 @@ Contains subfolders for each :ref:`site configuration <sitehandling>`.
 Directory for temporary files. It contains subdirectories (see below)
 for temporary files of extensions and TYPO3 components.
 
+..  attention::
+
+    Although it is a most common understanding in the TYPO3 world that
+    :file:`typo3temp/` can be removed at any time, it is considered
+    bad practice to remove the whole folder. Developers should selectively
+    remove folders relevant to the changes made.
+
 .. _legacy-directory-typo3temp-assets:
 
 :file:`typo3temp/assets/`
@@ -158,8 +165,6 @@ Directory for temporary files that should be publicly available
 
 Directory for temporary files that should not be accessed through the web
 (cache, log, etc).
-
-See also :ref:`Environment-configuring-paths` for a more detailed description.
 
 .. _legacy-directory-vendor:
 
