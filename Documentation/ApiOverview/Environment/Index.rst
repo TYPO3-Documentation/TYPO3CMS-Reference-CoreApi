@@ -63,29 +63,47 @@ getVarPath()
 The environment provides the path to the :file:`var` folder. This folder contains
 data like logs, sessions, locks, and cache files.
 
-For projects with Composer setup, the value is :php:`getProjectPath() . '/var'`,
-so it is outside of the web document root - not within :php:`getPublicPath()`.
+For Composer-based installations, the it returns :ref:`directory-var`, in legacy
+installations :ref:`legacy-directory-typo3temp-var`.
 
-Without Composer, the value is :php:`getPublicPath() . '/typo3temp/var'`, so within
-the web document root - a situation that is not optimal from a security point of view.
+..  code-block:: php
+
+    use TYPO3\CMS\Core\Core\Environment;
+
+    // Composer-based installations: '/home/www/my-project/var/`
+    // Legacy installations: '/home/www/my-project/typo3temp/var/'
+    $pathToLabels = Environment::getVarPath();
 
 
 .. index::
    Environment; getConfigPath
    Path; typo3conf
+   Path; config
 .. _Environment-config-path:
 
 getConfigPath()
 ---------------
 
-The environment provides the path to :file:`typo3conf`. This folder contains TYPO3
-global configuration files and folders, e.g. :file:`config/system/settings.php`.
+In Composer based installation this method provides the path
+:ref:`directory-config`, in legacy installations
+:ref:`legacy-directory-typo3conf`.
 
-For projects with Composer setup, the value is :php:`getProjectPath() . '/config'`,
-so it is outside of the web document root - not within :php:`getPublicPath()`.
+The directory returned by this method contains the folders :file:`system/`
+containing the :ref:`configuration files <configuration-files>`
+:file:`system/settings.php` and :file:`system/additional.php` and the folder
+:file:`sites/` containing the :ref:`site configuration <sitehandling>`.
 
-Without Composer, the value is :php:`getPublicPath() . '/typo3conf'`, so within
-the web document root - a situation that is not optimal from a security point of view.
+..  code-block:: php
+
+    use TYPO3\CMS\Core\Core\Environment;
+
+    // Composer-based installations: '/home/www/my-project/config/system/settings.php`
+    // Legacy installations: '/home/www/my-project/typo3conf/system/settings.php'
+    $pathToSetting = Environment::getConfigPath() . 'system/settings.php';
+
+    // Composer-based installations: '/home/www/my-project/config/sites/mysite/config.yaml`
+    // Legacy installations: '/home/www/my-project/typo3conf/sites/mysite/config.yaml'
+    $pathToSiteConfig = Environment::getConfigPath() . 'sites/' . $siteKey . '/config.yaml';
 
 
 .. index::
@@ -97,14 +115,17 @@ the web document root - a situation that is not optimal from a security point of
 getLabelsPath()
 ---------------
 
-The environment provides the path to :file:`labels`, respective :file:`l10n`
-folder. This folder contains downloaded translation files.
+The environment provides the path to :ref:`directory-var-labels` in
+Composer-based installations, respective :ref:`legacy-directory-typo3conf-l10n`
+folder in Legacy installations. This folder contains downloaded translation files.
 
-For projects with Composer setup, the value is :php:`getVarPath() . '/labels'`,
-so it is outside of the web document root - not within :php:`getPublicPath()`.
+..  code-block:: php
 
-Without Composer, the value is :php:`getPublicPath() . '/typo3conf/l10n'`, so within
-the web document root - a situation that is not optimal from a security point of view.
+    use TYPO3\CMS\Core\Core\Environment;
+
+    // Composer-based installations: '/home/www/my-project/var/labels/`
+    // Legacy installations: '/home/www/my-project/typo3conf/l10n/'
+    $pathToLabels = Environment::getLabelsPath();
 
 .. index:: Environment; getCurrentScript
 .. _Environment-current-script:
@@ -131,7 +152,7 @@ Example, test for production context:
 .. code-block:: php
    :caption: config/system/additional.php | typo3conf/system/additional.php
 
-   // use \TYPO3\CMS\Core\Core\Environment;
+   use TYPO3\CMS\Core\Core\Environment;
 
    $applicationContext = Environment::getContext();
    if ($applicationContext->isProduction()) {
@@ -147,6 +168,8 @@ Example, test for production context:
 
 Configuring environment paths
 =============================
+
+..  todo: the constants where removed, this section must be reviewed.
 
 The TYPO3 constant :php:`PATH_site` acts as a basis for any PHP entry point. It
 can be overwritten via the environment variable :php:`TYPO3_PATH_ROOT`.
@@ -166,17 +189,17 @@ publicly accessible (for example via web browser) anymore.
 
 A typical example:
 
-- :php:`TYPO3_PATH_APP` is set to :file:`/var/www/my-project`.
-- The web folder is then set to :php:`TYPO3_PATH_ROOT` :file:`/var/www/my-project/public`.
+- :php:`TYPO3_PATH_APP` is set to :file:`/home/www/my-project`.
+- The web folder is then set to :php:`TYPO3_PATH_ROOT` :file:`/home/www/my-project/public`.
 
 Non-public files are then put to
 
-- :file:`/var/www/my-project/var/session` (like Maintenance Tool Session files)
-- :file:`/var/www/my-project/var/cache` (Caching Framework data)
-- :file:`/var/www/my-project/var/lock` (Files related to locking)
-- :file:`/var/www/my-project/var/log` (Files related to logging)
-- :file:`/var/www/my-project/var/extensionmanager` (Files related to extension manager data)
-- :file:`/var/www/my-project/var/transient` (Files related to import/export, Core updater, FAL)
+- :file:`/home/www/my-project/var/session` (like Maintenance Tool Session files)
+- :file:`/home/www/my-project/var/cache` (Caching Framework data)
+- :file:`/home/www/my-project/var/lock` (Files related to locking)
+- :file:`/home/www/my-project/var/log` (Files related to logging)
+- :file:`/home/www/my-project/var/extensionmanager` (Files related to extension manager data)
+- :file:`/home/www/my-project/var/transient` (Files related to import/export, Core updater, FAL)
 
 For installations without this setting, there are minor differences in the folder structure:
 

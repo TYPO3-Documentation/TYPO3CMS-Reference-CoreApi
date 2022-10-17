@@ -30,6 +30,12 @@ need write access to this directory on a server level (for example via SSH, SFTP
 or you can create this file as a backend user with administrator
 privileges.
 
+..  attention::
+    Even if you run TYPO3 v12 in the Composer-mode at the time of writing
+    (TYPO3 v12.0.0) the file still has to be
+    created in folder :file:`public/typo3conf/ENABLE_INSTALL_TOOL`. See also
+    https://forge.typo3.org/issues/98528
+
 .. include:: /Images/AutomaticScreenshots/AdminTools/EnableInstallTool.rst.txt
 
 Conversely, this also means, you should delete this file as soon as
