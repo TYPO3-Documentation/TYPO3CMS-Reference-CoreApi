@@ -34,7 +34,7 @@ definition for your class as tag :yaml:`console.command`:
 ..  code-block:: yaml
     :caption: EXT:examples/Configuration/Services.yaml
     :linenos:
-    :emphasize-lines: 11-16
+    :emphasize-lines: 11-15
 
     services:
       _defaults:
@@ -55,7 +55,7 @@ definition for your class as tag :yaml:`console.command`:
 ..  note::
     Despite using :file:`autoconfigure: true` the commands
     have to be explicitly defined in :file:`Configuration/Services.yaml`. It
-    is recommended to always supply a description, otherwise there is 
+    is recommended to always supply a description, otherwise there is
     an empty space in the list of commands.
 
 2. Create the command class
@@ -73,8 +73,8 @@ The following two methods should be overridden by your class:
     The method allows to add a help text and/or define arguments and options.
 
 :php:`execute()`
-    Contains the logic when executing the command. Must 
-    return an integer. It is considered best practice to 
+    Contains the logic when executing the command. Must
+    return an integer. It is considered best practice to
     return the constants
     :php:`Command::SUCCESS` or :php:`Command::FAILURE`.
 
