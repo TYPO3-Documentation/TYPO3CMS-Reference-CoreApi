@@ -93,52 +93,62 @@ The function actually doing the output of the link is function :php:`formatCurre
 The function :php:`render()` renders the backend display inside the tab of the LinkBrowser.
 It can utilize a Fluid template:
 
-.. code-block:: php
-   :caption: EXT:some_extension/Classes/LinkHandler/TelephoneLinkHandler.php
+..  code-block:: php
+    :caption: EXT:some_extension/Classes/LinkHandler/TelephoneLinkHandler.php
 
-   public function render(ServerRequestInterface $request): string
-   {
-       GeneralUtility::makeInstance(PageRenderer::class)->loadRequireJsModule('TYPO3/CMS/Backend/TelephoneLinkHandler');
+    public function render(ServerRequestInterface $request): string
+    {
+        GeneralUtility::makeInstance(PageRenderer::class)
+         ->loadJavaScriptModule('@myvendor/my-extension/telefone-link-handler.js');
 
-       $this->view->assign('telephone', !empty($this->linkParts) ? $this->linkParts['url']['telephone'] : '');
+        $this->view->assign('telephone', !empty($this->linkParts) ? $this->linkParts['url']['telephone'] : '');
 
-       return $this->view->render('Telephone');
-   }
+        return $this->view->render('Telephone');
+    }
 
-Additionally, each LinkHandler should also provide a JavaScript module (requireJS),
+Additionally, each LinkHandler should also provide a JavaScript module (ES6),
 which takes care of passing a link to the LinkBrowser.
 
-A minimal implementation of such a module looks like this:
+An implementation of such a module looks like this:
 
-.. code-block:: javascript
-   :caption: EXT:some_extension/Resources/Public/JavaScript/LinkBrowser.js
+.. code-block:: typescript
+    :caption: EXT:some_extension/Resources/Private/TypeScript/telefone-link-handler.js
 
-   define(['jquery', 'TYPO3/CMS/Backend/LinkBrowser'], function($, LinkBrowser) {
-       var myModule = {};
+    import LinkBrowser from '@typo3/backend/link-browser';
+    import RegularEvent from '@typo3/core/event/regular-event';
 
-       myModule.createMyLink = function() {
-           var val = $('.myElmeent').val();
+    /**
+     * Module: @typo3/backend/telephone-link-handler
+     * @exports @typo3/backend/telephone-link-handler
+     * Telephone link interaction
+     */
+    class TelephoneLinkHandler {
+      constructor() {
+        new RegularEvent('submit', (evt: MouseEvent, targetEl: HTMLElement): void => {
+          evt.preventDefault();
+          const inputField = targetEl.querySelector('[name="ltelephone"]') as HTMLInputElement;
+          let value = inputField.value;
+          if (value === 'tel:') {
+            return;
+          }
+          if (value.startsWith('tel:')) {
+            value = value.substr(4);
+          }
 
-           // optional: If your link points to some external resource you should set this attribute
-           LinkBrowser.setAdditionalLinkAttribute('data-htmlarea-external', '1');
+          LinkBrowser.finalizeFunction('tel:' + value);
+        }).delegateTo(document, '#ltelephoneform');
+      }
+    }
 
-           LinkBrowser.finalizeFunction('mylink:' + val);
-       };
+    export default new TelephoneLinkHandler();
 
-       myModule.initialize = function() {
-           // todo add necessary event handlers, which will propably call myModule.createMyLink
-       };
-
-       $(myModule.initialize);
-
-       return myModule;
-   }
 
 Notice the call to `LinkBrowser.finalizeFunction()`,
-which is the point where the link is handed over to the LinkBrowser for further processing and storage.
+which is the point where the link is handed over to the LinkBrowser for f
+urther processing and storage.
 
-As an example for a working LinkHandler implementations you can have a look at the LinkHandlers being defined in the
-sysext.
+As an example for a working LinkHandler implementations you can have a look
+at the LinkHandlers being defined in the system extension `EXT:backend`.
 
 .. index:: pair: LinkBrowser; Events
 

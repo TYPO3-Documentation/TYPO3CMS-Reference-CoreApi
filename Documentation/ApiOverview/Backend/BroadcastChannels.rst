@@ -75,29 +75,32 @@ Example code:
    });
 
 
-Hook into :php:`$GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['typo3/backend.php']['constructPostProcess']` to load a custom
-:php:`BackendController` hook that loads the event handler, e.g. via RequireJS.
+Hook into
+:php:`$GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['typo3/backend.php']['constructPostProcess']`
+to load a custom :php:`BackendController` hook that loads the event handlers
+JavaScript.
 
 Example code:
 
+..  code-block:: php
+    :caption: EXT:some_extension/ext_localconf.php
+
+    $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['typo3/backend.php']['constructPostProcess'][]
+        = \MyVendor\MyExtension\Hooks\BackendControllerHook::class . '->registerClientSideEventHandler';
+
+
 .. code-block:: php
-   :caption: EXT:some_extension/ext_localconf.php
+    :caption: EXT:my_extension/Classes/Hooks/BackendControllerHook.php
 
-   $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['typo3/backend.php']['constructPostProcess'][]
-       = \Vendor\MyExtension\Hooks\BackendControllerHook::class . '->registerClientSideEventHandler';
+    use TYPO3\CMS\Core\Utility\GeneralUtility;
+    use TYPO3\CMS\Core\Page\PageRenderer;
 
-
-.. code-block:: php
-   :caption: EXT:some_extension/Classes/Hooks/BackendControllerHook.php
-
-   use TYPO3\CMS\Core\Utility\GeneralUtility;
-   use TYPO3\CMS\Core\Page\PageRenderer;
-
-   class BackendControllerHook
-   {
-       public function registerClientSideEventHandler(): void
-       {
-           $pageRenderer = GeneralUtility::makeInstance(PageRenderer::class);
-           $pageRenderer->loadRequireJsModule('TYPO3/CMS/MyExtension/EventHandler');
-       }
+    class BackendControllerHook
+    {
+        public function registerClientSideEventHandler(): void
+        {
+            $pageRenderer = GeneralUtility::makeInstance(PageRenderer::class);
+            $pageRenderer->loadJavaScriptModule('@myvendor/my-extension/event-handler.js');
+            $pageRenderer->addInlineLanguageLabelFile('EXT:my_extension/Resources/Private/Language/locallang_slug_service.xlf');
+        }
     }
