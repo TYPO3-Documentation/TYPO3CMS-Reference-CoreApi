@@ -266,7 +266,6 @@ Follow these steps to add a custom menu item for pages records. You will add a
 
 .. include:: /Images/AutomaticScreenshots/Examples/ContextualMenuExtended/ContextMenuHelloWorld.rst.txt
 
-
 Step 1: Implementation of the item provider class
 -------------------------------------------------
 
@@ -277,50 +276,38 @@ or any other provider from EXT:backend.
 
 See comments in the following code snippet clarifying implementation details.
 
-This file can be found in :file:`EXT:examples/Classes/ContextMenu/HelloWorldItemProvider.php`
-
-.. include:: /CodeSnippets/Examples/ContextualMenuExtended/HelloWorldItemProvider.rst.txt
-
+.. include:: /CodeSnippets/Tutorials/ContextMenu/HelloWorldItemProvider.rst.txt
 
 Step 2: JavaScript actions
 --------------------------
 
-Provide a JavaScript file (RequireJS module) which will be
+Provide a JavaScript file (ES6 module) which will be
 called after clicking on the context menu item.
 
-This file can be found in :file:`EXT:examples/Resources/Public/JavaScript/ContextMenuActions.js`
+..  include:: /CodeSnippets/Tutorials/ContextMenu/ContextMenuActions.rst.txt
 
-.. include:: /CodeSnippets/Examples/ContextualMenuExtended/ContextMenuActions.rst.txt
+Register the JavaScript ES6 modules of your extension if not done yet:
+
+..  include:: /CodeSnippets/Tutorials/ContextMenu/JavaScriptModules.rst.txt
 
 Step 3: Registration
 --------------------
 
-If you have :yaml:`autoconfigure: true` set in your extension's :file:`Services.yaml` file all 
+If you have :yaml:`autoconfigure: true` set in your extension's :file:`Services.yaml` file all
 classes implementing :php:`\TYPO3\CMS\Backend\ContextMenu\ItemProviders\ProviderInterface`
 get registered as context menu items automatically:
 
 ..  code-block:: yaml
     :caption: EXT:examples/Configuration/Services.yaml
     :emphasize-lines: 4
-    
+
     services:
       _defaults:
         autowire: true
         autoconfigure: true
         public: false
-        
+
 If :yaml:`autoconfigure` is disabled you can manually register a context menu item provider
 by adding the tag :yaml:`backend.contextmenu.itemprovider`:
 
-..  code-block:: yaml
-    :caption: EXT:my_extension/Configuration/Services.yaml
-    :emphasize-lines: 5-7
-    
-    services:
-      _defaults:
-        autoconfigure: false
-        
-      MyVendor\MyExtension\ContextMenu\SomeItemProvider:
-        tags:
-          - name: backend.contextmenu.itemprovider
-      
+..  include:: /CodeSnippets/Tutorials/ContextMenu/ManualServicesYaml.rst.txt
