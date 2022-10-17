@@ -14,6 +14,7 @@ The example below is part of the TYPO3 Documentation Team extension `examples
 
 ..  todo: Replace the source code here with the code from EXT:examples
     and adjust the texts
+    https://github.com/TYPO3-Documentation/TYPO3CMS-Reference-CoreApi/issues/2298
 
 Implementing the LinkHandler
 ============================

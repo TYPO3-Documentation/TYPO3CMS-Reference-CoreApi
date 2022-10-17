@@ -178,6 +178,7 @@ The examples below are taken from the "beuser" system extension and
 assume that the module is Extbase-based.
 
 ..  todo: Document the new ES6 way of creating a context menu
+    https://github.com/TYPO3-Documentation/TYPO3CMS-Reference-CoreApi/issues/2298
 
 The first step is to include the needed JavaScript using the
 :js:`includeRequireJsModules` property
@@ -257,6 +258,7 @@ Tutorial: How to add a custom context menu item
 ===============================================
 
 ..  todo: Document the new ES6 way of creating a context menu
+    https://github.com/TYPO3-Documentation/TYPO3CMS-Reference-CoreApi/issues/2298
 
 Follow these steps to add a custom menu item for pages records. You will add a
 "Hello world" item which will show an info after clicking.

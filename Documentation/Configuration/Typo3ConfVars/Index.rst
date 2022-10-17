@@ -37,6 +37,7 @@ File :file:`config/system/settings.php`
 
 ..  todo: We are describing these files also in Configuration/ConfigurationFiles.rst
     Merge those two chapters?
+    https://github.com/TYPO3-Documentation/TYPO3CMS-Reference-CoreApi/issues/2289
 
 The global configuration is stored in file :file:`config/system/settings.php` in
 Composer-based extensions, :file:`typo3conf/system/settings.php` in legacy

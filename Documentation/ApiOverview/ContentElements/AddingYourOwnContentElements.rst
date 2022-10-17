@@ -397,7 +397,7 @@ table :sql:`sys_category`:
         ],
    ],
 
-.. todo:: this example is not valid anymore as there is the field type "category"
+.. todo: this example is not valid anymore as there is the field type "category"
    now. Let us find another example.
 
 

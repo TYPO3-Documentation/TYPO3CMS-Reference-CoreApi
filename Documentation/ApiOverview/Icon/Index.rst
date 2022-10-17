@@ -188,6 +188,7 @@ an AJAX request is done.
 Here is an example code how a usage of the JavaScript Icon API may look like:
 
 ..  todo: move the example to examples extension
+    https://github.com/TYPO3-Documentation/TYPO3CMS-Reference-CoreApi/issues/2299
 
 ..  code-block:: js
     :caption: EXT:my_extension/Resources/Public/JavaScript/my-es6-module.js
