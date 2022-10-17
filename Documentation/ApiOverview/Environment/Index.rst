@@ -63,7 +63,7 @@ getVarPath()
 The environment provides the path to the :file:`var` folder. This folder contains
 data like logs, sessions, locks, and cache files.
 
-For Composer-based installations, the it returns :ref:`directory-var`, in legacy
+For Composer-based installations, it returns :ref:`directory-var`, in legacy
 installations :ref:`legacy-directory-typo3temp-var`.
 
 ..  code-block:: php
