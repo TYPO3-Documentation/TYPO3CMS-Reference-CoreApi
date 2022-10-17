@@ -192,6 +192,13 @@ backend (:file:`typo3/index.php`) and install tool (:file:`typo3/install.php`).
 Directory for temporary files. It contains subdirectories (see below)
 for temporary files of extensions and TYPO3 components.
 
+..  attention::
+
+    Although it is a most common understanding in the TYPO3 world that
+    :file:`public/typo3temp/` can be removed at any time, it is considered
+    bad practice to remove the whole folder. Developers should selectively
+    remove folders relevant to the changes made.
+
 .. _directory-public-typo3temp-assets:
 
 :file:`public/typo3temp/assets/`
@@ -208,7 +215,13 @@ JavaScript files.
 
 Directory for temporary files that contains private files (e.g.
 cache and logs files) and should not be publicly available.
-See also :ref:`Environment-configuring-paths` for a more detailed description.
+
+..  attention::
+
+    Although it is a most common understanding in the TYPO3 world that
+    :file:`var/` can be removed at any time, it is considered
+    bad practice to remove the whole folder. Developers should selectively
+    remove folders relevant to the changes made.
 
 .. _directory-var-cache:
 
