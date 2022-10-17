@@ -95,7 +95,7 @@ Example code:
     use TYPO3\CMS\Core\Utility\GeneralUtility;
     use TYPO3\CMS\Core\Page\PageRenderer;
 
-    class BackendControllerHook
+    final class BackendControllerHook
     {
         public function registerClientSideEventHandler(): void
         {

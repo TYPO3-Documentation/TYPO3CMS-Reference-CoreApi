@@ -6,7 +6,7 @@
 RequireJS in the TYPO3 Backend
 ==============================
 
-.. deprecated::  12.0
+..  deprecated::  12.0
     The RequireJS project has been discontinued_ and was therefore
     replaced by native ECMAScript v6/v11 modules in TYPO3 v12.0. The
     infrastructure for configuration and loading of RequireJS
@@ -36,7 +36,7 @@ If your extension wants to support both TYPO3 v11 and v12 you can keep the
 RequireJS version and remove it upon switching to TYPO3 v13.
 
 If you want to prevent deprecation warnings you can also implement both
-RequireJS (with a version switch) and a native ECMAScript v6/v11 (ES6) modules.
+RequireJS (with a version switch) and native ECMAScript v6/v11 (ES6) modules.
 This approach is recommended if you are working with TypeScript and the
 JavaScript will be generated anyway.
 
@@ -85,7 +85,7 @@ load the ES6 module:
 In Fluid templates `includeJavaScriptModules` is to be used instead of
 `includeRequireJsModules`.
 
-In Fluid template the `includeJavaScriptModules` property of the
+In Fluid template the `includeJavaScriptModules` attribute of the
 :html:`<f:be.pageRenderer>` ViewHelper may be used:
 
 ..  code-block:: html

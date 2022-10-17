@@ -6,7 +6,7 @@
 Dependency handling
 ===================
 
-.. deprecated::  12.0
+..  deprecated::  12.0
     The RequireJS project has been discontinued_ and was therefore
     replaced by native ECMAScript v6/v11 modules in TYPO3 v12.0. The
     infrastructure for configuration and loading of RequireJS
