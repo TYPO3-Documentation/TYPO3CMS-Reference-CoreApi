@@ -60,7 +60,7 @@ For projects without Composer setup, this is equal to :ref:`Environment-project-
 getVarPath()
 ------------
 
-The environment provides the path to the :file:`var` folder. This folder contains
+The environment provides the path to the :file:`var/` folder. This folder contains
 data like logs, sessions, locks, and cache files.
 
 For Composer-based installations, it returns :ref:`directory-var`, in legacy
@@ -84,14 +84,14 @@ installations :ref:`legacy-directory-typo3temp-var`.
 getConfigPath()
 ---------------
 
-In Composer based installation this method provides the path
+In Composer-based installation this method provides the path
 :ref:`directory-config`, in legacy installations
 :ref:`legacy-directory-typo3conf`.
 
 The directory returned by this method contains the folders :file:`system/`
 containing the :ref:`configuration files <configuration-files>`
 :file:`system/settings.php` and :file:`system/additional.php` and the folder
-:file:`sites/` containing the :ref:`site configuration <sitehandling>`.
+:file:`sites/` containing the :ref:`site configurations <sitehandling>`.
 
 ..  code-block:: php
 
@@ -117,7 +117,7 @@ getLabelsPath()
 
 The environment provides the path to :ref:`directory-var-labels` in
 Composer-based installations, respective :ref:`legacy-directory-typo3conf-l10n`
-folder in Legacy installations. This folder contains downloaded translation files.
+folder in legacy installations. This folder contains downloaded translation files.
 
 ..  code-block:: php
 

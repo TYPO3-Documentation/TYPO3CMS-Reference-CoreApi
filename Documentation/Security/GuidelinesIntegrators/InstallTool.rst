@@ -31,7 +31,7 @@ or you can create this file as a backend user with administrator
 privileges.
 
 ..  attention::
-    Even if you run TYPO3 v12 in the Composer-mode at the time of writing
+    Even if you run TYPO3 v12 in Composer mode at the time of writing
     (TYPO3 v12.0.0) the file still has to be
     created in folder :file:`public/typo3conf/ENABLE_INSTALL_TOOL`. See also
     https://forge.typo3.org/issues/98528
