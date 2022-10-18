@@ -13,4 +13,4 @@ be created directly, therefore its constructor is internal. Create a
 In the backend context a :php:`LanguageService` is stored in the global
 variable :php:`$GLOBALS['LANG']`.
 
-..  include:: /CodeSnippets/Api/LocalizationApi/LanguageService.rst.txt
+..  include:: _LanguageService.rst.txt
