@@ -4,13 +4,13 @@ return [
     [
         'action' => 'createPhpClassDocs',
         'class' => \TYPO3\CMS\Linkvalidator\Event\BeforeRecordIsAnalyzedEvent::class,
-        'targetFileName' => 'Events/Linkvalidator/BeforeRecordIsAnalyzedEvent.rst.txt',
+        'targetFileName' => 'CodeSnippets/Events/Linkvalidator/BeforeRecordIsAnalyzedEvent.rst.txt',
         'withCode' => false
     ],
     [
         'action' => 'createPhpClassDocs',
         'class' => \TYPO3\CMS\Linkvalidator\Event\ModifyValidatorTaskEmailEvent::class,
-        'targetFileName' => 'Events/Linkvalidator/ModifyValidatorTaskEmailEvent.rst.txt',
+        'targetFileName' => 'CodeSnippets/Events/Linkvalidator/ModifyValidatorTaskEmailEvent.rst.txt',
         'withCode' => false
     ],
     [
@@ -24,7 +24,7 @@ return [
         ],
         'withComment' => true,
         'withClassComment' => false,
-        'targetFileName' => 'Events/Linkvalidator/BeforeRecordIsAnalyzedEvent/ExampleInvoke.rst.txt',
+        'targetFileName' => 'CodeSnippets/Events/Linkvalidator/BeforeRecordIsAnalyzedEvent/ExampleInvoke.rst.txt',
     ],
     [
         'action' => 'createPhpClassCodeSnippet',
@@ -36,7 +36,7 @@ return [
         ],
         'withComment' => true,
         'withClassComment' => false,
-        'targetFileName' => 'Events/Linkvalidator/BeforeRecordIsAnalyzedEvent/ExampleInject.rst.txt',
+        'targetFileName' => 'CodeSnippets/Events/Linkvalidator/BeforeRecordIsAnalyzedEvent/ExampleInject.rst.txt',
     ],
     [
         'action' => 'createPhpClassCodeSnippet',
@@ -51,7 +51,7 @@ return [
         ],
         'withComment' => true,
         'withClassComment' => false,
-        'targetFileName' => 'Events/Linkvalidator/BeforeRecordIsAnalyzedEvent/ParseFields.rst.txt',
+        'targetFileName' => 'CodeSnippets/Events/Linkvalidator/BeforeRecordIsAnalyzedEvent/ParseFields.rst.txt',
     ],
     [
         'action' => 'createPhpClassCodeSnippet',
@@ -66,6 +66,6 @@ return [
         ],
         'withComment' => true,
         'withClassComment' => false,
-        'targetFileName' => 'Events/Linkvalidator/BeforeRecordIsAnalyzedEvent/AddToBrokenLinkRepository.rst.txt',
+        'targetFileName' => 'CodeSnippets/Events/Linkvalidator/BeforeRecordIsAnalyzedEvent/AddToBrokenLinkRepository.rst.txt',
     ],
 ];

@@ -7,18 +7,18 @@ return [
         'action' => 'createCodeSnippet',
         'caption' => 'EXT:blog_example/Configuration/TypoScript/RssFeed/setup.typoscript',
         'sourceFile' => 'typo3conf/ext/blog_example/Configuration/TypoScript/RssFeed/setup.typoscript',
-        'targetFileName' => 'Extbase/FrontendPlugins/TypoScriptPluginRss.rst.txt'
+        'targetFileName' => 'CodeSnippets/Extbase/FrontendPlugins/TypoScriptPluginRss.rst.txt'
     ],
     [
         'action' => 'createPhpClassDocs',
         'class' => \TYPO3\CMS\Extbase\Validation\Validator\ValidatorInterface::class,
-        'targetFileName' => 'Extbase/Api/ValidatorInterface.rst.txt',
+        'targetFileName' => 'CodeSnippets/Extbase/Api/ValidatorInterface.rst.txt',
         'withCode' => false
     ],
     [
         'action' => 'createPhpClassDocs',
         'class' => \TYPO3\CMS\Extbase\Persistence\Repository::class,
-        'targetFileName' => 'Extbase/Api/Repository.rst.txt',
+        'targetFileName' => 'CodeSnippets/Extbase/Api/Repository.rst.txt',
         'withCode' => false
     ],
     [
@@ -29,7 +29,7 @@ return [
         ],
         'withComment' => true,
         'withClassComment' => false,
-        'targetFileName' => 'Extbase/Controllers/BlogControllerNew.rst.txt'
+        'targetFileName' => 'CodeSnippets/Extbase/Controllers/BlogControllerNew.rst.txt'
     ],
     [
         'action' => 'createPhpClassCodeSnippet',
@@ -39,7 +39,7 @@ return [
         ],
         'withComment' => true,
         'withClassComment' => false,
-        'targetFileName' => 'Extbase/Controllers/BlogControllerUpdate.rst.txt'
+        'targetFileName' => 'CodeSnippets/Extbase/Controllers/BlogControllerUpdate.rst.txt'
     ],
     [
         'action' => 'createPhpClassCodeSnippet',
@@ -47,7 +47,7 @@ return [
         'members' => [
             'initializeAction'
         ],
-        'targetFileName' => 'Extbase/Controllers/BackendControllerInitialize.rst.txt'
+        'targetFileName' => 'CodeSnippets/Extbase/Controllers/BackendControllerInitialize.rst.txt'
     ],
     [
         'action' => 'createPhpClassCodeSnippet',
@@ -57,7 +57,7 @@ return [
         ],
         'withComment' => true,
         'withClassComment' => false,
-        'targetFileName' => 'Extbase/Annotation/Multiple.rst.txt'
+        'targetFileName' => 'CodeSnippets/Extbase/Annotation/Multiple.rst.txt'
     ],
     [
         'action' => 'createPhpClassCodeSnippet',
@@ -67,7 +67,7 @@ return [
         ],
         'withComment' => true,
         'withClassComment' => false,
-        'targetFileName' => 'Extbase/Annotation/Lazy.rst.txt'
+        'targetFileName' => 'CodeSnippets/Extbase/Annotation/Lazy.rst.txt'
     ],
     [
         'action' => 'createPhpClassCodeSnippet',
@@ -77,7 +77,7 @@ return [
         ],
         'withComment' => true,
         'withClassComment' => false,
-        'targetFileName' => 'Extbase/Annotation/Validate.rst.txt'
+        'targetFileName' => 'CodeSnippets/Extbase/Annotation/Validate.rst.txt'
     ],
     [
         'action' => 'createPhpClassCodeSnippet',
@@ -87,7 +87,7 @@ return [
         ],
         'withComment' => true,
         'withClassComment' => false,
-        'targetFileName' => 'Extbase/Annotation/IgnoreValidation.rst.txt'
+        'targetFileName' => 'CodeSnippets/Extbase/Annotation/IgnoreValidation.rst.txt'
     ],
     [
         'action' => 'createPhpClassCodeSnippet',
@@ -97,7 +97,7 @@ return [
         ],
         'withComment' => true,
         'withClassComment' => false,
-        'targetFileName' => 'Extbase/Annotation/Cascade.rst.txt'
+        'targetFileName' => 'CodeSnippets/Extbase/Annotation/Cascade.rst.txt'
     ],
     [
         'action' => 'createPhpClassCodeSnippet',
@@ -107,7 +107,7 @@ return [
         ],
         'withComment' => true,
         'withClassComment' => false,
-        'targetFileName' => 'Extbase/Annotation/Transient.rst.txt'
+        'targetFileName' => 'CodeSnippets/Extbase/Annotation/Transient.rst.txt'
     ],
     [
         'action' => 'createPhpClassCodeSnippet',
@@ -122,7 +122,7 @@ return [
         ],
         'withComment' => false,
         'withClassComment' => false,
-        'targetFileName' => 'Extbase/Domain/AbstractEntity.rst.txt'
+        'targetFileName' => 'CodeSnippets/Extbase/Domain/AbstractEntity.rst.txt'
     ],
     [
         'action' => 'createPhpClassCodeSnippet',
@@ -132,7 +132,7 @@ return [
         ],
         'withComment' => false,
         'withClassComment' => false,
-        'targetFileName' => 'Extbase/Domain/BlogRepository.rst.txt'
+        'targetFileName' => 'CodeSnippets/Extbase/Domain/BlogRepository.rst.txt'
     ],
     [
         'action' => 'createPhpClassCodeSnippet',
@@ -143,7 +143,7 @@ return [
         ],
         'withComment' => false,
         'withClassComment' => false,
-        'targetFileName' => 'Extbase/Domain/CustomMethods.rst.txt'
+        'targetFileName' => 'CodeSnippets/Extbase/Domain/CustomMethods.rst.txt'
     ],
     [
         'action' => 'createPhpClassCodeSnippet',
@@ -153,7 +153,7 @@ return [
         ],
         'withComment' => false,
         'withClassComment' => false,
-        'targetFileName' => 'Extbase/Domain/DefaultQuerySettings.rst.txt'
+        'targetFileName' => 'CodeSnippets/Extbase/Domain/DefaultQuerySettings.rst.txt'
     ],
     [
         'action' => 'createPhpClassCodeSnippet',
@@ -163,7 +163,7 @@ return [
         ],
         'withComment' => false,
         'withClassComment' => false,
-        'targetFileName' => 'Extbase/Domain/SpecialQuerySettings.rst.txt',
+        'targetFileName' => 'CodeSnippets/Extbase/Domain/SpecialQuerySettings.rst.txt',
     ],
 
     [
@@ -174,7 +174,7 @@ return [
         ],
         'withComment' => true,
         'withClassComment' => false,
-        'targetFileName' => 'Extbase/View/HtmlResponse.rst.txt',
+        'targetFileName' => 'CodeSnippets/Extbase/View/HtmlResponse.rst.txt',
         'emphasizeLines' => [18],
     ],
     [
@@ -185,7 +185,7 @@ return [
         ],
         'withComment' => true,
         'withClassComment' => false,
-        'targetFileName' => 'Extbase/View/HtmlResponseCustom.rst.txt',
+        'targetFileName' => 'CodeSnippets/Extbase/View/HtmlResponseCustom.rst.txt',
         'emphasizeLines' => [10],
     ],
     [
@@ -196,7 +196,7 @@ return [
         ],
         'withComment' => true,
         'withClassComment' => false,
-        'targetFileName' => 'Extbase/View/JsonResponseCustom.rst.txt',
+        'targetFileName' => 'CodeSnippets/Extbase/View/JsonResponseCustom.rst.txt',
         'emphasizeLines' => [9],
     ],
     [
@@ -207,7 +207,7 @@ return [
         ],
         'withComment' => true,
         'withClassComment' => false,
-        'targetFileName' => 'Extbase/View/CustomResponse.rst.txt',
+        'targetFileName' => 'CodeSnippets/Extbase/View/CustomResponse.rst.txt',
         'emphasizeLines' => [17, 18, 19],
     ],
     [
@@ -216,7 +216,7 @@ return [
         'members' => [
             'isValid'
         ],
-        'targetFileName' => 'Extbase/Validator/PropertyValidator.rst.txt',
+        'targetFileName' => 'CodeSnippets/Extbase/Validator/PropertyValidator.rst.txt',
         'emphasizeLines' => [8],
     ],
     [
@@ -227,7 +227,7 @@ return [
         ],
         'withComment' => true,
         'withClassComment' => false,
-        'targetFileName' => 'Extbase/Validator/PropertyValidatorUsage.rst.txt',
+        'targetFileName' => 'CodeSnippets/Extbase/Validator/PropertyValidatorUsage.rst.txt',
     ],
     [
         'action' => 'createPhpClassCodeSnippet',
@@ -235,7 +235,7 @@ return [
         'members' => [
             'isValid'
         ],
-        'targetFileName' => 'Extbase/Validator/ObjectValidator.rst.txt',
+        'targetFileName' => 'CodeSnippets/Extbase/Validator/ObjectValidator.rst.txt',
     ],
     [
         'action' => 'createPhpClassCodeSnippet',
@@ -245,7 +245,7 @@ return [
         ],
         'withComment' => true,
         'withClassComment' => false,
-        'targetFileName' => 'Extbase/Validator/ObjectValidatorUsage.rst.txt',
+        'targetFileName' => 'CodeSnippets/Extbase/Validator/ObjectValidatorUsage.rst.txt',
     ],
     [
         'action' => 'createPhpClassCodeSnippet',
@@ -257,13 +257,13 @@ return [
         ],
         'withComment' => true,
         'withClassComment' => false,
-        'targetFileName' => 'Extbase/Validator/ValidatorWithArgumentUsage.rst.txt',
+        'targetFileName' => 'CodeSnippets/Extbase/Validator/ValidatorWithArgumentUsage.rst.txt',
     ],
     [
         'action' => 'createCodeSnippet',
         'caption' => 'EXT:blog_example/Configuration/TCA/tx_blogexample_domain_model_info.php',
         'sourceFile' => 'typo3conf/ext/blog_example/Configuration/TCA/tx_blogexample_domain_model_info.php',
-        'targetFileName' => 'Extbase/Persistence/TCA.rst.txt'
+        'targetFileName' => 'CodeSnippets/Extbase/Persistence/TCA.rst.txt'
     ],
     [
         'action' => 'createPhpClassCodeSnippet',
@@ -274,7 +274,7 @@ return [
         ],
         'withComment' => false,
         'withClassComment' => false,
-        'targetFileName' => 'Extbase/Domain/ModelWithPublicProperty.rst.txt',
+        'targetFileName' => 'CodeSnippets/Extbase/Domain/ModelWithPublicProperty.rst.txt',
     ],
     [
         'action' => 'createPhpClassCodeSnippet',
@@ -288,7 +288,7 @@ return [
         ],
         'withComment' => false,
         'withClassComment' => false,
-        'targetFileName' => 'Extbase/Domain/ModelWithPublicGetters.rst.txt',
+        'targetFileName' => 'CodeSnippets/Extbase/Domain/ModelWithPublicGetters.rst.txt',
     ],
     [
         'action' => 'createPhpClassCodeSnippet',
@@ -300,7 +300,7 @@ return [
         ],
         'withComment' => false,
         'withClassComment' => false,
-        'targetFileName' => 'Extbase/Domain/ModelWithAdditionalGetters.rst.txt',
+        'targetFileName' => 'CodeSnippets/Extbase/Domain/ModelWithAdditionalGetters.rst.txt',
     ],
     [
         'action' => 'createPhpClassCodeSnippet',
@@ -312,7 +312,7 @@ return [
         ],
         'withComment' => true,
         'withClassComment' => false,
-        'targetFileName' => 'Extbase/Domain/Optional1on1.rst.txt',
+        'targetFileName' => 'CodeSnippets/Extbase/Domain/Optional1on1.rst.txt',
     ],
     [
         'action' => 'createPhpClassCodeSnippet',
@@ -322,7 +322,7 @@ return [
         ],
         'withComment' => true,
         'withClassComment' => false,
-        'targetFileName' => 'Extbase/Domain/Relationship1onN1.rst.txt',
+        'targetFileName' => 'CodeSnippets/Extbase/Domain/Relationship1onN1.rst.txt',
     ],
     [
         'action' => 'createPhpClassCodeSnippet',
@@ -336,7 +336,7 @@ return [
         ],
         'withComment' => true,
         'withClassComment' => false,
-        'targetFileName' => 'Extbase/Domain/Relationship1onN2.rst.txt',
+        'targetFileName' => 'CodeSnippets/Extbase/Domain/Relationship1onN2.rst.txt',
     ],
     [
         'action' => 'createPhpClassCodeSnippet',
@@ -346,7 +346,7 @@ return [
         ],
         'withComment' => true,
         'withClassComment' => false,
-        'targetFileName' => 'Extbase/Domain/Relationship1onNUni.rst.txt',
+        'targetFileName' => 'CodeSnippets/Extbase/Domain/Relationship1onNUni.rst.txt',
     ],
     [
         'action' => 'createPhpClassCodeSnippet',
@@ -357,13 +357,13 @@ return [
         ],
         'withComment' => true,
         'withClassComment' => false,
-        'targetFileName' => 'Extbase/Domain/RelationshipNonM.rst.txt',
+        'targetFileName' => 'CodeSnippets/Extbase/Domain/RelationshipNonM.rst.txt',
     ],
     [
         'action' => 'createCodeSnippet',
         'caption' => 'EXT:blog_example/Configuration/Extbase/Persistence/Classes.php',
         'sourceFile' => 'typo3conf/ext/blog_example/Configuration/Extbase/Persistence/Classes.php',
-        'targetFileName' => 'Extbase/Persistence/ExtbasePersistenceClasses.rst.txt'
+        'targetFileName' => 'CodeSnippets/Extbase/Persistence/ExtbasePersistenceClasses.rst.txt'
     ],
     [
         'action' => 'createPhpClassCodeSnippet',
@@ -373,7 +373,7 @@ return [
         ],
         'withComment' => true,
         'withClassComment' => false,
-        'targetFileName' => 'Extbase/Controllers/ForwardAction.rst.txt',
+        'targetFileName' => 'CodeSnippets/Extbase/Controllers/ForwardAction.rst.txt',
         'emphasizeLines' => [18, 19, 20, 21],
     ],
     [
@@ -384,14 +384,14 @@ return [
         ],
         'withComment' => false,
         'withClassComment' => false,
-        'targetFileName' => 'Extbase/Controllers/Settings.rst.txt',
+        'targetFileName' => 'CodeSnippets/Extbase/Controllers/Settings.rst.txt',
         'emphasizeLines' => [7],
     ],
     [
         'action' => 'createCodeSnippet',
         'caption' => 'EXT:blog_example/Configuration/FlexForms/PluginSettings.xml',
         'sourceFile' => 'typo3conf/ext/blog_example/Configuration/FlexForms/PluginSettings.xml',
-        'targetFileName' => 'Extbase/Configuration/PluginSettings.rst.txt',
+        'targetFileName' => 'CodeSnippets/Extbase/Configuration/PluginSettings.rst.txt',
         'emphasizeLines' => [10],
     ],
 ];

@@ -8,7 +8,7 @@ return [
             'action' => 'createCodeSnippet',
             'caption' => 'EXT:examples/Classes/Command/DoSomethingCommand.php',
             'sourceFile' => 'EXT:examples/Classes/Command/DoSomethingCommand.php',
-            'targetFileName' => 'Tutorials/Command/Classes/DoSomethingCommand.rst.txt',
+            'targetFileName' => 'CodeSnippets/Tutorials/Command/Classes/DoSomethingCommand.rst.txt',
         ],
         [
             'action' => 'createPhpClassCodeSnippet',
@@ -16,7 +16,7 @@ return [
             'members' => [
                 'configure'
             ],
-            'targetFileName' => 'Tutorials/Command/Classes/CreateWizardCommandConfiguration.rst.txt',
+            'targetFileName' => 'CodeSnippets/Tutorials/Command/Classes/CreateWizardCommandConfiguration.rst.txt',
         ],
         [
             'action' => 'createPhpClassCodeSnippet',
@@ -24,7 +24,7 @@ return [
             'members' => [
                 'execute'
             ],
-            'targetFileName' => 'Tutorials/Command/Classes/CreateWizardCommandExecute.rst.txt',
+            'targetFileName' => 'CodeSnippets/Tutorials/Command/Classes/CreateWizardCommandExecute.rst.txt',
         ],
         [
             'action' => 'createPhpClassCodeSnippet',
@@ -32,7 +32,7 @@ return [
             'members' => [
                 'doMagic'
             ],
-            'targetFileName' => 'Tutorials/Command/Classes/CreateWizardCommandIo.rst.txt',
+            'targetFileName' => 'CodeSnippets/Tutorials/Command/Classes/CreateWizardCommandIo.rst.txt',
         ],
         [
             'action' => 'createPhpClassCodeSnippet',
@@ -40,7 +40,7 @@ return [
             'members' => [
                 '__construct'
             ],
-            'targetFileName' => 'Tutorials/Command/Classes/DependencyInjection.rst.txt',
+            'targetFileName' => 'CodeSnippets/Tutorials/Command/Classes/DependencyInjection.rst.txt',
         ],
      */
 ];
