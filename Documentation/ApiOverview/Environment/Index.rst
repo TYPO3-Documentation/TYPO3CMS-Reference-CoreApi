@@ -6,7 +6,7 @@
 Environment
 ===========
 
-The TYPO3 Core  includes an environment class that s contains all
+The TYPO3 Core includes an environment class that contains all
 environment-specific information, mostly paths within the
 filesystem. This implementation replaces previously used global variables and
 constants like :php:`PATH_site` that have been removed with TYPO3 v10.
