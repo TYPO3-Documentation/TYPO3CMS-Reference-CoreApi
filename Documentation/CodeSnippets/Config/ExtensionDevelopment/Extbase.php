@@ -4,114 +4,114 @@ use TYPO3\CMS\Extbase\DomainObject\AbstractEntity;
 
 return [
     [
-        'action'=> 'createCodeSnippet',
+        'action' => 'createCodeSnippet',
         'caption' => 'EXT:blog_example/Configuration/TypoScript/RssFeed/setup.typoscript',
-        'sourceFile'=> 'EXT:blog_example/Configuration/TypoScript/RssFeed/setup.typoscript',
-        'targetFileName' => 'Extbase/FrontendPlugins/TypoScriptPluginRss.rst.txt'
+        'sourceFile' => 'EXT:blog_example/Configuration/TypoScript/RssFeed/setup.typoscript',
+        'targetFileName' => 'CodeSnippets/Extbase/FrontendPlugins/TypoScriptPluginRss.rst.txt'
     ],
     [
-        'action'=> 'createPhpClassDocs',
-        'class'=> \TYPO3\CMS\Extbase\Validation\Validator\ValidatorInterface::class,
-        'targetFileName'=> 'Extbase/Api/ValidatorInterface.rst.txt',
-        'withCode'=> false
+        'action' => 'createPhpClassDocs',
+        'class' => \TYPO3\CMS\Extbase\Validation\Validator\ValidatorInterface::class,
+        'targetFileName' => 'CodeSnippets/Extbase/Api/ValidatorInterface.rst.txt',
+        'withCode' => false
     ],
     [
-        'action'=> 'createPhpClassDocs',
-        'class'=> \TYPO3\CMS\Extbase\Persistence\Repository::class,
-        'targetFileName'=> 'Extbase/Api/Repository.rst.txt',
-        'withCode'=> false
+        'action' => 'createPhpClassDocs',
+        'class' => \TYPO3\CMS\Extbase\Persistence\Repository::class,
+        'targetFileName' => 'CodeSnippets/Extbase/Api/Repository.rst.txt',
+        'withCode' => false
     ],
     [
-        'action'=> 'createPhpClassCodeSnippet',
-        'class'=> \T3docs\BlogExample\Controller\BlogController::class,
+        'action' => 'createPhpClassCodeSnippet',
+        'class' => \T3docs\BlogExample\Controller\BlogController::class,
         'members' => [
             'newAction'
         ],
         'withComment' => true,
         'withClassComment' => false,
-        'targetFileName' => 'Extbase/Controllers/BlogControllerNew.rst.txt'
+        'targetFileName' => 'CodeSnippets/Extbase/Controllers/BlogControllerNew.rst.txt'
     ],
     [
-        'action'=> 'createPhpClassCodeSnippet',
-        'class'=> \T3docs\BlogExample\Controller\BlogController::class,
+        'action' => 'createPhpClassCodeSnippet',
+        'class' => \T3docs\BlogExample\Controller\BlogController::class,
         'members' => [
             'updateAction'
         ],
         'withComment' => true,
         'withClassComment' => false,
-        'targetFileName' => 'Extbase/Controllers/BlogControllerUpdate.rst.txt'
+        'targetFileName' => 'CodeSnippets/Extbase/Controllers/BlogControllerUpdate.rst.txt'
     ],
     [
-        'action'=> 'createPhpClassCodeSnippet',
-        'class'=> \T3docs\BlogExample\Controller\BackendController::class,
+        'action' => 'createPhpClassCodeSnippet',
+        'class' => \T3docs\BlogExample\Controller\BackendController::class,
         'members' => [
             'initializeAction'
         ],
-        'targetFileName' => 'Extbase/Controllers/BackendControllerInitialize.rst.txt'
+        'targetFileName' => 'CodeSnippets/Extbase/Controllers/BackendControllerInitialize.rst.txt'
     ],
     [
-        'action'=> 'createPhpClassCodeSnippet',
-        'class'=> \T3docs\BlogExample\Domain\Model\Post::class,
+        'action' => 'createPhpClassCodeSnippet',
+        'class' => \T3docs\BlogExample\Domain\Model\Post::class,
         'members' => [
             'comments'
         ],
         'withComment' => true,
         'withClassComment' => false,
-        'targetFileName' => 'Extbase/Annotation/Multiple.rst.txt'
+        'targetFileName' => 'CodeSnippets/Extbase/Annotation/Multiple.rst.txt'
     ],
     [
-        'action'=> 'createPhpClassCodeSnippet',
-        'class'=> \T3docs\BlogExample\Domain\Model\Post::class,
+        'action' => 'createPhpClassCodeSnippet',
+        'class' => \T3docs\BlogExample\Domain\Model\Post::class,
         'members' => [
             'relatedPosts'
         ],
         'withComment' => true,
         'withClassComment' => false,
-        'targetFileName' => 'Extbase/Annotation/Lazy.rst.txt'
+        'targetFileName' => 'CodeSnippets/Extbase/Annotation/Lazy.rst.txt'
     ],
     [
-        'action'=> 'createPhpClassCodeSnippet',
-        'class'=> \T3docs\BlogExample\Domain\Model\Blog::class,
+        'action' => 'createPhpClassCodeSnippet',
+        'class' => \T3docs\BlogExample\Domain\Model\Blog::class,
         'members' => [
             'description'
         ],
         'withComment' => true,
         'withClassComment' => false,
-        'targetFileName' => 'Extbase/Annotation/Validate.rst.txt'
+        'targetFileName' => 'CodeSnippets/Extbase/Annotation/Validate.rst.txt'
     ],
     [
-        'action'=> 'createPhpClassCodeSnippet',
-        'class'=> \T3docs\BlogExample\Controller\BlogController::class,
+        'action' => 'createPhpClassCodeSnippet',
+        'class' => \T3docs\BlogExample\Controller\BlogController::class,
         'members' => [
             'newAction'
         ],
         'withComment' => true,
         'withClassComment' => false,
-        'targetFileName' => 'Extbase/Annotation/IgnoreValidation.rst.txt'
+        'targetFileName' => 'CodeSnippets/Extbase/Annotation/IgnoreValidation.rst.txt'
     ],
     [
-        'action'=> 'createPhpClassCodeSnippet',
-        'class'=> \T3docs\BlogExample\Domain\Model\Blog::class,
+        'action' => 'createPhpClassCodeSnippet',
+        'class' => \T3docs\BlogExample\Domain\Model\Blog::class,
         'members' => [
             'posts'
         ],
         'withComment' => true,
         'withClassComment' => false,
-        'targetFileName' => 'Extbase/Annotation/Cascade.rst.txt'
+        'targetFileName' => 'CodeSnippets/Extbase/Annotation/Cascade.rst.txt'
     ],
     [
-        'action'=> 'createPhpClassCodeSnippet',
-        'class'=> \T3docs\BlogExample\Domain\Model\Person::class,
+        'action' => 'createPhpClassCodeSnippet',
+        'class' => \T3docs\BlogExample\Domain\Model\Person::class,
         'members' => [
             'fullname'
         ],
         'withComment' => true,
         'withClassComment' => false,
-        'targetFileName' => 'Extbase/Annotation/Transient.rst.txt'
+        'targetFileName' => 'CodeSnippets/Extbase/Annotation/Transient.rst.txt'
     ],
     [
-        'action'=> 'createPhpClassCodeSnippet',
-        'class'=> \T3docs\BlogExample\Domain\Model\Comment::class,
+        'action' => 'createPhpClassCodeSnippet',
+        'class' => \T3docs\BlogExample\Domain\Model\Comment::class,
         'members' => [
             'author',
             'content',
@@ -122,134 +122,134 @@ return [
         ],
         'withComment' => false,
         'withClassComment' => false,
-        'targetFileName' => 'Extbase/Domain/AbstractEntity.rst.txt'
+        'targetFileName' => 'CodeSnippets/Extbase/Domain/AbstractEntity.rst.txt'
     ],
     [
-        'action'=> 'createPhpClassCodeSnippet',
-        'class'=> \T3docs\BlogExample\Domain\Repository\BlogRepository::class,
+        'action' => 'createPhpClassCodeSnippet',
+        'class' => \T3docs\BlogExample\Domain\Repository\BlogRepository::class,
         'members' => [
             'defaultOrderings',
         ],
         'withComment' => false,
         'withClassComment' => false,
-        'targetFileName' => 'Extbase/Domain/BlogRepository.rst.txt'
+        'targetFileName' => 'CodeSnippets/Extbase/Domain/BlogRepository.rst.txt'
     ],
     [
-        'action'=> 'createPhpClassCodeSnippet',
-        'class'=> \T3docs\BlogExample\Domain\Repository\PostRepository::class,
+        'action' => 'createPhpClassCodeSnippet',
+        'class' => \T3docs\BlogExample\Domain\Repository\PostRepository::class,
         'members' => [
             'findByTagAndBlog',
             'findAllSortedByCategory',
         ],
         'withComment' => false,
         'withClassComment' => false,
-        'targetFileName' => 'Extbase/Domain/CustomMethods.rst.txt'
+        'targetFileName' => 'CodeSnippets/Extbase/Domain/CustomMethods.rst.txt'
     ],
     [
-        'action'=> 'createPhpClassCodeSnippet',
-        'class'=> \T3docs\BlogExample\Domain\Repository\CommentRepository::class,
+        'action' => 'createPhpClassCodeSnippet',
+        'class' => \T3docs\BlogExample\Domain\Repository\CommentRepository::class,
         'members' => [
             'initializeObject',
         ],
         'withComment' => false,
         'withClassComment' => false,
-        'targetFileName' => 'Extbase/Domain/DefaultQuerySettings.rst.txt'
+        'targetFileName' => 'CodeSnippets/Extbase/Domain/DefaultQuerySettings.rst.txt'
     ],
     [
-        'action'=> 'createPhpClassCodeSnippet',
-        'class'=> \T3docs\BlogExample\Domain\Repository\CommentRepository::class,
+        'action' => 'createPhpClassCodeSnippet',
+        'class' => \T3docs\BlogExample\Domain\Repository\CommentRepository::class,
         'members' => [
             'findAllIgnoreEnableFields',
         ],
         'withComment' => false,
         'withClassComment' => false,
-        'targetFileName' => 'Extbase/Domain/SpecialQuerySettings.rst.txt',
+        'targetFileName' => 'CodeSnippets/Extbase/Domain/SpecialQuerySettings.rst.txt',
     ],
 
     [
-        'action'=> 'createPhpClassCodeSnippet',
-        'class'=> \T3docs\BlogExample\Controller\BlogController::class,
+        'action' => 'createPhpClassCodeSnippet',
+        'class' => \T3docs\BlogExample\Controller\BlogController::class,
         'members' => [
             'newAction'
         ],
         'withComment' => true,
         'withClassComment' => false,
-        'targetFileName' => 'Extbase/View/HtmlResponse.rst.txt',
+        'targetFileName' => 'CodeSnippets/Extbase/View/HtmlResponse.rst.txt',
         'emphasizeLines' => [18],
     ],
     [
-        'action'=> 'createPhpClassCodeSnippet',
-        'class'=> \T3docs\BlogExample\Controller\BlogController::class,
+        'action' => 'createPhpClassCodeSnippet',
+        'class' => \T3docs\BlogExample\Controller\BlogController::class,
         'members' => [
             'helloWorldAction'
         ],
         'withComment' => true,
         'withClassComment' => false,
-        'targetFileName' => 'Extbase/View/HtmlResponseCustom.rst.txt',
+        'targetFileName' => 'CodeSnippets/Extbase/View/HtmlResponseCustom.rst.txt',
         'emphasizeLines' => [10],
     ],
     [
-        'action'=> 'createPhpClassCodeSnippet',
-        'class'=> \T3docs\BlogExample\Controller\BlogController::class,
+        'action' => 'createPhpClassCodeSnippet',
+        'class' => \T3docs\BlogExample\Controller\BlogController::class,
         'members' => [
             'showBlogAjaxAction'
         ],
         'withComment' => true,
         'withClassComment' => false,
-        'targetFileName' => 'Extbase/View/JsonResponseCustom.rst.txt',
+        'targetFileName' => 'CodeSnippets/Extbase/View/JsonResponseCustom.rst.txt',
         'emphasizeLines' => [9],
     ],
     [
-        'action'=> 'createPhpClassCodeSnippet',
-        'class'=> \T3docs\BlogExample\Controller\PostController::class,
+        'action' => 'createPhpClassCodeSnippet',
+        'class' => \T3docs\BlogExample\Controller\PostController::class,
         'members' => [
             'displayRssListAction'
         ],
         'withComment' => true,
         'withClassComment' => false,
-        'targetFileName' => 'Extbase/View/CustomResponse.rst.txt',
-        'emphasizeLines' => [17,18,19],
+        'targetFileName' => 'CodeSnippets/Extbase/View/CustomResponse.rst.txt',
+        'emphasizeLines' => [17, 18, 19],
     ],
     [
-        'action'=> 'createPhpClassCodeSnippet',
-        'class'=> \T3docs\BlogExample\Domain\Validator\TitleValidator::class,
+        'action' => 'createPhpClassCodeSnippet',
+        'class' => \T3docs\BlogExample\Domain\Validator\TitleValidator::class,
         'members' => [
             'isValid'
         ],
-        'targetFileName' => 'Extbase/Validator/PropertyValidator.rst.txt',
+        'targetFileName' => 'CodeSnippets/Extbase/Validator/PropertyValidator.rst.txt',
         'emphasizeLines' => [8],
     ],
     [
-        'action'=> 'createPhpClassCodeSnippet',
-        'class'=> \T3docs\BlogExample\Domain\Model\Blog::class,
+        'action' => 'createPhpClassCodeSnippet',
+        'class' => \T3docs\BlogExample\Domain\Model\Blog::class,
         'members' => [
             'title'
         ],
         'withComment' => true,
         'withClassComment' => false,
-        'targetFileName' => 'Extbase/Validator/PropertyValidatorUsage.rst.txt',
+        'targetFileName' => 'CodeSnippets/Extbase/Validator/PropertyValidatorUsage.rst.txt',
     ],
     [
-        'action'=> 'createPhpClassCodeSnippet',
-        'class'=> \T3docs\BlogExample\Domain\Validator\BlogValidator::class,
+        'action' => 'createPhpClassCodeSnippet',
+        'class' => \T3docs\BlogExample\Domain\Validator\BlogValidator::class,
         'members' => [
             'isValid'
         ],
-        'targetFileName' => 'Extbase/Validator/ObjectValidator.rst.txt',
+        'targetFileName' => 'CodeSnippets/Extbase/Validator/ObjectValidator.rst.txt',
     ],
     [
-        'action'=> 'createPhpClassCodeSnippet',
-        'class'=> \T3docs\BlogExample\Controller\BlogController::class,
+        'action' => 'createPhpClassCodeSnippet',
+        'class' => \T3docs\BlogExample\Controller\BlogController::class,
         'members' => [
             'updateAction'
         ],
         'withComment' => true,
         'withClassComment' => false,
-        'targetFileName' => 'Extbase/Validator/ObjectValidatorUsage.rst.txt',
+        'targetFileName' => 'CodeSnippets/Extbase/Validator/ObjectValidatorUsage.rst.txt',
     ],
     [
-        'action'=> 'createPhpClassCodeSnippet',
-        'class'=> T3docs\BlogExample\Domain\Model\Person::class,
+        'action' => 'createPhpClassCodeSnippet',
+        'class' => T3docs\BlogExample\Domain\Model\Person::class,
         'members' => [
             'email',
             'firstname',
@@ -257,28 +257,28 @@ return [
         ],
         'withComment' => true,
         'withClassComment' => false,
-        'targetFileName' => 'Extbase/Validator/ValidatorWithArgumentUsage.rst.txt',
+        'targetFileName' => 'CodeSnippets/Extbase/Validator/ValidatorWithArgumentUsage.rst.txt',
     ],
     [
-        'action'=> 'createCodeSnippet',
+        'action' => 'createCodeSnippet',
         'caption' => 'EXT:blog_example/Configuration/TCA/tx_blogexample_domain_model_info.php',
-        'sourceFile'=> 'EXT:blog_example/Configuration/TCA/tx_blogexample_domain_model_info.php',
-        'targetFileName' => 'Extbase/Persistence/TCA.rst.txt'
+        'sourceFile' => 'EXT:blog_example/Configuration/TCA/tx_blogexample_domain_model_info.php',
+        'targetFileName' => 'CodeSnippets/Extbase/Persistence/TCA.rst.txt'
     ],
     [
-        'action'=> 'createPhpClassCodeSnippet',
-        'class'=> T3docs\BlogExample\Domain\Model\Tag::class,
+        'action' => 'createPhpClassCodeSnippet',
+        'class' => T3docs\BlogExample\Domain\Model\Tag::class,
         'members' => [
             'name',
             'priority',
         ],
         'withComment' => false,
         'withClassComment' => false,
-        'targetFileName' => 'Extbase/Domain/ModelWithPublicProperty.rst.txt',
+        'targetFileName' => 'CodeSnippets/Extbase/Domain/ModelWithPublicProperty.rst.txt',
     ],
     [
-        'action'=> 'createPhpClassCodeSnippet',
-        'class'=> T3docs\BlogExample\Domain\Model\Info::class,
+        'action' => 'createPhpClassCodeSnippet',
+        'class' => T3docs\BlogExample\Domain\Model\Info::class,
         'members' => [
             'name',
             'bodytext',
@@ -288,11 +288,11 @@ return [
         ],
         'withComment' => false,
         'withClassComment' => false,
-        'targetFileName' => 'Extbase/Domain/ModelWithPublicGetters.rst.txt',
+        'targetFileName' => 'CodeSnippets/Extbase/Domain/ModelWithPublicGetters.rst.txt',
     ],
     [
-        'action'=> 'createPhpClassCodeSnippet',
-        'class'=> T3docs\BlogExample\Domain\Model\Info::class,
+        'action' => 'createPhpClassCodeSnippet',
+        'class' => T3docs\BlogExample\Domain\Model\Info::class,
         'members' => [
             'name',
             'bodytext',
@@ -300,11 +300,11 @@ return [
         ],
         'withComment' => false,
         'withClassComment' => false,
-        'targetFileName' => 'Extbase/Domain/ModelWithAdditionalGetters.rst.txt',
+        'targetFileName' => 'CodeSnippets/Extbase/Domain/ModelWithAdditionalGetters.rst.txt',
     ],
     [
-        'action'=> 'createPhpClassCodeSnippet',
-        'class'=> T3docs\BlogExample\Domain\Model\Post::class,
+        'action' => 'createPhpClassCodeSnippet',
+        'class' => T3docs\BlogExample\Domain\Model\Post::class,
         'members' => [
             'additionalInfo',
             'getAdditionalInfo',
@@ -312,21 +312,21 @@ return [
         ],
         'withComment' => true,
         'withClassComment' => false,
-        'targetFileName' => 'Extbase/Domain/Optional1on1.rst.txt',
+        'targetFileName' => 'CodeSnippets/Extbase/Domain/Optional1on1.rst.txt',
     ],
     [
-        'action'=> 'createPhpClassCodeSnippet',
-        'class'=> T3docs\BlogExample\Domain\Model\Post::class,
+        'action' => 'createPhpClassCodeSnippet',
+        'class' => T3docs\BlogExample\Domain\Model\Post::class,
         'members' => [
             'blog',
         ],
         'withComment' => true,
         'withClassComment' => false,
-        'targetFileName' => 'Extbase/Domain/Relationship1onN1.rst.txt',
+        'targetFileName' => 'CodeSnippets/Extbase/Domain/Relationship1onN1.rst.txt',
     ],
     [
-        'action'=> 'createPhpClassCodeSnippet',
-        'class'=> T3docs\BlogExample\Domain\Model\Blog::class,
+        'action' => 'createPhpClassCodeSnippet',
+        'class' => T3docs\BlogExample\Domain\Model\Blog::class,
         'members' => [
             'posts',
             'addPost',
@@ -336,109 +336,109 @@ return [
         ],
         'withComment' => true,
         'withClassComment' => false,
-        'targetFileName' => 'Extbase/Domain/Relationship1onN2.rst.txt',
+        'targetFileName' => 'CodeSnippets/Extbase/Domain/Relationship1onN2.rst.txt',
     ],
     [
-        'action'=> 'createPhpClassCodeSnippet',
-        'class'=> T3docs\BlogExample\Domain\Model\Post::class,
+        'action' => 'createPhpClassCodeSnippet',
+        'class' => T3docs\BlogExample\Domain\Model\Post::class,
         'members' => [
             'comments',
         ],
         'withComment' => true,
         'withClassComment' => false,
-        'targetFileName' => 'Extbase/Domain/Relationship1onNUni.rst.txt',
+        'targetFileName' => 'CodeSnippets/Extbase/Domain/Relationship1onNUni.rst.txt',
     ],
     [
-        'action'=> 'createPhpClassCodeSnippet',
-        'class'=> T3docs\BlogExample\Domain\Model\Post::class,
+        'action' => 'createPhpClassCodeSnippet',
+        'class' => T3docs\BlogExample\Domain\Model\Post::class,
         'members' => [
             'author',
             'secondAuthor',
         ],
         'withComment' => true,
         'withClassComment' => false,
-        'targetFileName' => 'Extbase/Domain/RelationshipNonM.rst.txt',
+        'targetFileName' => 'CodeSnippets/Extbase/Domain/RelationshipNonM.rst.txt',
     ],
     [
-        'action'=> 'createCodeSnippet',
+        'action' => 'createCodeSnippet',
         'caption' => 'EXT:blog_example/Configuration/Extbase/Persistence/Classes.php',
-        'sourceFile'=> 'EXT:blog_example/Configuration/Extbase/Persistence/Classes.php',
-        'targetFileName' => 'Extbase/Persistence/ExtbasePersistenceClasses.rst.txt'
+        'sourceFile' => 'EXT:blog_example/Configuration/Extbase/Persistence/Classes.php',
+        'targetFileName' => 'CodeSnippets/Extbase/Persistence/ExtbasePersistenceClasses.rst.txt'
     ],
     [
-        'action'=> 'createPhpClassCodeSnippet',
-        'class'=> T3docs\BlogExample\Controller\PostController::class,
+        'action' => 'createPhpClassCodeSnippet',
+        'class' => T3docs\BlogExample\Controller\PostController::class,
         'members' => [
             'mapIntegerFromString',
         ],
         'withComment' => true,
         'withClassComment' => false,
-        'targetFileName' => 'Extbase/PropertyManager/IntegerMapping.rst.txt',
+        'targetFileName' => 'CodeSnippets/Extbase/PropertyManager/IntegerMapping.rst.txt',
     ],
     [
-        'action'=> 'createPhpClassCodeSnippet',
-        'class'=> T3docs\BlogExample\Controller\PostController::class,
+        'action' => 'createPhpClassCodeSnippet',
+        'class' => T3docs\BlogExample\Controller\PostController::class,
         'members' => [
             'mapTagFromString',
         ],
         'withComment' => true,
         'withClassComment' => false,
-        'targetFileName' => 'Extbase/PropertyManager/ObjectMapping.rst.txt',
+        'targetFileName' => 'CodeSnippets/Extbase/PropertyManager/ObjectMapping.rst.txt',
     ],
     [
-        'action'=> 'createPhpClassCodeSnippet',
-        'class'=> T3docs\BlogExample\Controller\PostController::class,
+        'action' => 'createPhpClassCodeSnippet',
+        'class' => T3docs\BlogExample\Controller\PostController::class,
         'members' => [
             '__construct',
         ],
         'withComment' => true,
         'withClassComment' => false,
-        'targetFileName' => 'Extbase/PropertyManager/PropertyMapperInjection.rst.txt',
+        'targetFileName' => 'CodeSnippets/Extbase/PropertyManager/PropertyMapperInjection.rst.txt',
     ],
     [
-        'action'=> 'createPhpClassCodeSnippet',
-        'class'=> T3docs\BlogExample\Controller\PostController::class,
+        'action' => 'createPhpClassCodeSnippet',
+        'class' => T3docs\BlogExample\Controller\PostController::class,
         'members' => [
             'indexAction',
         ],
         'withComment' => true,
         'withClassComment' => false,
-        'targetFileName' => 'Extbase/Controllers/ForwardAction.rst.txt',
-        'emphasizeLines' => [18,19,20,21],
+        'targetFileName' => 'CodeSnippets/Extbase/Controllers/ForwardAction.rst.txt',
+        'emphasizeLines' => [18, 19, 20, 21],
     ],
     [
-        'action'=> 'createPhpClassCodeSnippet',
-        'class'=> T3docs\BlogExample\Controller\PostController::class,
+        'action' => 'createPhpClassCodeSnippet',
+        'class' => T3docs\BlogExample\Controller\PostController::class,
         'members' => [
             'displayRssListAction',
         ],
         'withComment' => false,
         'withClassComment' => false,
-        'targetFileName' => 'Extbase/Controllers/Settings.rst.txt',
+        'targetFileName' => 'CodeSnippets/Extbase/Controllers/Settings.rst.txt',
         'emphasizeLines' => [7],
     ],
     [
-        'action'=> 'createCodeSnippet',
+        'action' => 'createCodeSnippet',
         'caption' => 'EXT:blog_example/Configuration/FlexForms/PluginSettings.xml',
-        'sourceFile'=> 'EXT:blog_example/Configuration/FlexForms/PluginSettings.xml',
-        'targetFileName' => 'Extbase/Configuration/PluginSettings.rst.txt',
+        'sourceFile' => 'EXT:blog_example/Configuration/FlexForms/PluginSettings.xml',
+        'targetFileName' => 'CodeSnippets/Extbase/Configuration/PluginSettings.rst.txt',
         'emphasizeLines' => [10],
     ],
     [
-        'action'=> 'createPhpClassCodeSnippet',
-        'class'=> T3docs\Examples\Controller\ModuleController::class,
+        'action' => 'createPhpClassCodeSnippet',
+        'class' => T3docs\Examples\Controller\ModuleController::class,
         'members' => [
             'countAction',
         ],
         'withComment' => true,
         'withClassComment' => false,
-        'targetFileName' => 'Extbase/Controllers/PhpLocalization.rst.txt',
+        'targetFileName' => 'CodeSnippets/Extbase/Controllers/PhpLocalization.rst.txt',
         'emphasizeLines' => [14, 15, 16, 17, 18],
     ],
     [
         'action' => 'createPhpClassDocs',
         'class' => \TYPO3\CMS\Extbase\Utility\LocalizationUtility::class,
-        'targetFileName' => 'Extbase/LocalizationUtilityApi.rst.txt',
+        'targetFileName' => 'CodeSnippets/Extbase/LocalizationUtilityApi.rst.txt',
         'withCode' => false
     ],
 ];
