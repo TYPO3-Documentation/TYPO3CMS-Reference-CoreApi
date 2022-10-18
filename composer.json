@@ -33,7 +33,7 @@
     },
     "require-dev": {
         "t3docs/codesnippet": "dev-main",
-        "friendsoftypo3/blog-example": "dev-master",
+        "friendsoftypo3/blog-example": "^11.0",
         "typo3/cms-adminpanel": "^11.5",
         "typo3/cms-backend": "^11.5",
         "typo3/cms-belog": "^11.5",
@@ -73,5 +73,13 @@
         "t3docs/site-package": "^11.5",
         "typo3-documentation-team/speeddemo": "^11.4",
         "typo3/cms-styleguide": "^11.4"
+    },
+    "scripts": {
+        "generate:codesnippets": [
+            ".Build/vendor/bin/typo3 codesnippet:create Documentation/"
+        ],
+        "generate": [
+            "@generate:codesnippets"
+        ]
     }
 }

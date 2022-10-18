@@ -1,42 +1,46 @@
 <?php
 
 return [
-    [
-        'action'=> 'createCodeSnippet',
-        'caption'=> 'EXT:examples/Classes/Command/DoSomethingCommand.php',
-        'sourceFile'=> 'EXT:examples/Classes/Command/DoSomethingCommand.php',
-        'targetFileName'=> 'Tutorials/Command/Classes/DoSomethingCommand.rst.txt',
-    ],
-    [
-        'action'=> 'createPhpClassCodeSnippet',
-        'class'=> T3docs\Examples\Command\CreateWizardCommand::class,
-        'members' => [
-            'configure'
+    /*
+     todo: backport these snippets to examples v11 or just backport generated files
+
+        [
+            'action' => 'createCodeSnippet',
+            'caption' => 'EXT:examples/Classes/Command/DoSomethingCommand.php',
+            'sourceFile' => 'EXT:examples/Classes/Command/DoSomethingCommand.php',
+            'targetFileName' => 'CodeSnippets/Tutorials/Command/Classes/DoSomethingCommand.rst.txt',
         ],
-        'targetFileName'=> 'Tutorials/Command/Classes/CreateWizardCommandConfiguration.rst.txt',
-    ],
-    [
-        'action'=> 'createPhpClassCodeSnippet',
-        'class'=> T3docs\Examples\Command\CreateWizardCommand::class,
-        'members' => [
-            'execute'
+        [
+            'action' => 'createPhpClassCodeSnippet',
+            'class' => T3docs\Examples\Command\CreateWizardCommand::class,
+            'members' => [
+                'configure'
+            ],
+            'targetFileName' => 'CodeSnippets/Tutorials/Command/Classes/CreateWizardCommandConfiguration.rst.txt',
         ],
-        'targetFileName'=> 'Tutorials/Command/Classes/CreateWizardCommandExecute.rst.txt',
-    ],
-    [
-        'action'=> 'createPhpClassCodeSnippet',
-        'class'=> T3docs\Examples\Command\CreateWizardCommand::class,
-        'members' => [
-            'doMagic'
+        [
+            'action' => 'createPhpClassCodeSnippet',
+            'class' => T3docs\Examples\Command\CreateWizardCommand::class,
+            'members' => [
+                'execute'
+            ],
+            'targetFileName' => 'CodeSnippets/Tutorials/Command/Classes/CreateWizardCommandExecute.rst.txt',
         ],
-        'targetFileName'=> 'Tutorials/Command/Classes/CreateWizardCommandIo.rst.txt',
-    ],
-    [
-        'action'=> 'createPhpClassCodeSnippet',
-        'class'=> T3docs\Examples\Command\MeowInformationCommand::class,
-        'members' => [
-            '__construct'
+        [
+            'action' => 'createPhpClassCodeSnippet',
+            'class' => T3docs\Examples\Command\CreateWizardCommand::class,
+            'members' => [
+                'doMagic'
+            ],
+            'targetFileName' => 'CodeSnippets/Tutorials/Command/Classes/CreateWizardCommandIo.rst.txt',
         ],
-        'targetFileName'=> 'Tutorials/Command/Classes/DependencyInjection.rst.txt',
-    ],
+        [
+            'action' => 'createPhpClassCodeSnippet',
+            'class' => T3docs\Examples\Command\MeowInformationCommand::class,
+            'members' => [
+                '__construct'
+            ],
+            'targetFileName' => 'CodeSnippets/Tutorials/Command/Classes/DependencyInjection.rst.txt',
+        ],
+     */
 ];
