@@ -6,10 +6,10 @@
 Environment
 ===========
 
-Since version 9.x the TYPO3 Core  includes an environment class.
-This class contains all environment-specific information, e.g. paths within the
+The TYPO3 Core  includes an environment class that s contains all
+environment-specific information, mostly paths within the
 filesystem. This implementation replaces previously used global variables and
-constants like :php:`PATH_site`.
+constants like :php:`PATH_site` that have been removed with TYPO3 v10.
 
 The fully qualified class name is :php:`\TYPO3\CMS\Core\Core\Environment`. The
 class provides static methods to access the necessary information.
@@ -70,8 +70,8 @@ installations :ref:`legacy-directory-typo3temp-var`.
 
     use TYPO3\CMS\Core\Core\Environment;
 
-    // Composer-based installations: '/home/www/my-project/var/`
-    // Legacy installations: '/home/www/my-project/typo3temp/var/'
+    // Composer-based installations: '/path/to/my-project/var/`
+    // Legacy installations: '/path/to/my-project/typo3temp/var/'
     $pathToLabels = Environment::getVarPath();
 
 
@@ -97,12 +97,12 @@ containing the :ref:`configuration files <configuration-files>`
 
     use TYPO3\CMS\Core\Core\Environment;
 
-    // Composer-based installations: '/home/www/my-project/config/system/settings.php`
-    // Legacy installations: '/home/www/my-project/typo3conf/system/settings.php'
+    // Composer-based installations: '/path/to/my-project/config/system/settings.php`
+    // Legacy installations: '/path/to/my-project/typo3conf/system/settings.php'
     $pathToSetting = Environment::getConfigPath() . 'system/settings.php';
 
-    // Composer-based installations: '/home/www/my-project/config/sites/mysite/config.yaml`
-    // Legacy installations: '/home/www/my-project/typo3conf/sites/mysite/config.yaml'
+    // Composer-based installations: '/path/to/my-project/config/sites/mysite/config.yaml`
+    // Legacy installations: '/path/to/my-project/typo3conf/sites/mysite/config.yaml'
     $pathToSiteConfig = Environment::getConfigPath() . 'sites/' . $siteKey . '/config.yaml';
 
 
@@ -123,8 +123,8 @@ folder in legacy installations. This folder contains downloaded translation file
 
     use TYPO3\CMS\Core\Core\Environment;
 
-    // Composer-based installations: '/home/www/my-project/var/labels/`
-    // Legacy installations: '/home/www/my-project/typo3conf/l10n/'
+    // Composer-based installations: '/path/to/my-project/var/labels/`
+    // Legacy installations: '/path/to/my-project/typo3conf/l10n/'
     $pathToLabels = Environment::getLabelsPath();
 
 .. index:: Environment; getCurrentScript
