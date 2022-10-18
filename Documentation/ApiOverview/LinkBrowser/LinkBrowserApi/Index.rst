@@ -106,6 +106,10 @@ It can utilize a Fluid template:
         return $this->view->render('Telephone');
     }
 
+..  seealso::
+    *   :ref:`Loading ES6 JavaScript <backend-javascript-es6-loading>`
+    *   :ref:`Migration from RequireJS to ES6 <requirejs-migration>`
+
 Additionally, each LinkHandler should also provide a JavaScript module (ES6),
 which takes care of passing a link to the LinkBrowser.
 

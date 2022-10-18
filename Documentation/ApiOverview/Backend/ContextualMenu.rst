@@ -27,13 +27,14 @@ The context menu is shown after clicking on the HTML element which has
 :html:`data-uid` and optional :html:`data-context` attributes.
 
 The JavaScript click event handler is implemented in the
-ES6 module :js:`@typo3/backend/context-menu.js`. It takes the
+:ref:`ES6 module <backend-javascript-es6>` :js:`@typo3/backend/context-menu.js`. It takes the
 data attributes mentioned above and executes an Ajax call to the
 :php:`\TYPO3\CMS\Backend\Controller\ContextMenuController->getContextMenuAction()`.
 
 ..  versionchanged:: 12.0
     The RequireJS module :js:`TYPO3/CMS/Backend/ContextMenu` has been migrated
     to the ES6 module :js:`@typo3/backend/context-menu.js`.
+    See also :ref:`backend-javascript-es6`.
 
 ContextMenuController
 ---------------------
@@ -92,10 +93,11 @@ Menu rendering in JavaScript
 ..  versionchanged:: 12.0
     The RequireJS module :js:`TYPO3/CMS/Backend/ContextMenuActions` has been migrated
     to the ES6 module :js:`@typo3/backend/context-menu-actions.js`.
+    See also :ref:`backend-javascript-es6`.
 
 Based on the JSON data :file:`context-menu.js` is rendering a context menu. If
 one of the items is clicked, the according JavaScript :js:`callbackAction` is
-executed on the ES6 module :js:`@typo3/backend/context-menu-actions.js`
+executed on the :ref:`ES6 module <backend-javascript-es6>` :js:`@typo3/backend/context-menu-actions.js`
 or other modules defined in the JSON as :js:`additionalAttributes['data-callback-module']`.
 
 Example of the JSON response:
@@ -159,7 +161,7 @@ items. See following places for a reference:
 
 *   EXT:impexp module adds import and export options for pages, content elements
     and other records. See item provider
-    :php:`\TYPO3\CMS\Impexp\ContextMenu\ItemProvider` and ES6 module
+    :php:`\TYPO3\CMS\Impexp\ContextMenu\ItemProvider` and :ref:`ES6 module <backend-javascript-es6>`
     :js:`@typo3/impexp/context-menu-actions.js`.
 *   EXT:filelist module provides several item providers for files, folders,
     filemounts, filestorage, and drag-drop context menu for the folder tree.
@@ -168,7 +170,7 @@ items. See following places for a reference:
     :php:`\TYPO3\CMS\Filelist\ContextMenu\ItemProviders\FileProvider`,
     :php:`\TYPO3\CMS\Filelist\ContextMenu\ItemProviders\FileStorageProvider`,
     :php:`\TYPO3\CMS\Filelist\ContextMenu\ItemProviders\FilemountsProvider`
-    and the ES6 module :js:`@typo3/filelist/context-menu-actions.js`
+    and the :ref:`ES6 module <backend-javascript-es6>` :js:`@typo3/filelist/context-menu-actions.js`
 
 Adding context menu to elements in your backend module
 ======================================================

@@ -119,9 +119,10 @@ The JavaScript way
 ..  versionchanged:: 12.0
     The JavaScript icon provider has been moved from the RequireJS module
     :js:`TYPO3/CMS/Backend/Icons` to the ES6 module :js:`@typo3/backend/icons`.
+    See also :ref:`backend-javascript-es6`.
 
 In JavaScript, icons can be only fetched from the Icon Registry. To achieve this,
-add the following dependency to your ES6 module: :js:`@typo3/backend/icons`.
+add the following dependency to your :ref:`ES6 module <backend-javascript-es6>`: :js:`@typo3/backend/icons`.
 In this section, the module is known as `Icons`.
 
 The module has a single public method :js:`getIcon()` which accepts up to five arguments:

@@ -9,10 +9,20 @@ ES6 in the TYPO3 Backend
 ..  todo: Add information on ES6 and its registration
     https://github.com/TYPO3-Documentation/Changelog-To-Doc/issues/5
 
-This chapter is still work in progress. For now see the changelog:
+..  seealso::
+    This chapter is still work in progress. For now see the changelog:
 
-*   :ref:`ext_core:feature-96510`
-*   :ref:`ext_core:feature-98431-1664652179`
+    *   :ref:`ext_core:feature-96510`
+    *   :ref:`ext_core:feature-98431-1664652179`
+
+
+.. _backend-javascript-es6-loading:
+
+Loading ES6
+===========
+
+..  info::
+    This chapter is still work in progress.
 
 .. _requirejs-migration:
 
