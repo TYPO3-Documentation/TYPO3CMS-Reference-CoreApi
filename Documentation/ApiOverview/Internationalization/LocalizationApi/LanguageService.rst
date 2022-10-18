@@ -13,10 +13,4 @@ be created directly, therefore its constructor is internal. Create a
 In the backend context a :php:`LanguageService` is stored in the global
 variable :php:`$GLOBALS['LANG']`.
 
-..  attention::
-    During development you are usually logged into the backend. So the global
-    variable :php:`$GLOBALS['LANG']` might be available in the frontend. Once
-    logged out it is usually not available. **Never** depend on
-    :php:`$GLOBALS['LANG']` in the frontend unless you know what you are doing.
-
-..  include:: _phpdocs/LanguageService.rst.txt
+..  include:: /CodeSnippets/Api/LocalizationApi/LanguageService.rst.txt

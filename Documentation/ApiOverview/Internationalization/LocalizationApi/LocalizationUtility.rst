@@ -8,4 +8,4 @@ LocalizationUtility (Extbase)
 This class is used to translate strings within Extbase context. For an example
 see :ref:`extension-localization-extbase`.
 
-..  include:: _phpdocs/LocalizationUtility.rst.txt
+..  include:: /CodeSnippets/Api/LocalizationApi/LocalizationUtilityApi.rst.txt

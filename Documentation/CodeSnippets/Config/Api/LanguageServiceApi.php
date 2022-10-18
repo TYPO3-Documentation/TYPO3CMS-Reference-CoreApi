@@ -6,19 +6,19 @@ return [
     [
         'action' => 'createPhpClassDocs',
         'class' => \TYPO3\CMS\Extbase\Utility\LocalizationUtility::class,
-        'targetFileName' => 'CodeSnippets/ApiOverview/Internationalization/LocalizationApi/_phpdocs/LocalizationUtilityApi.rst.txt',
+        'targetFileName' => 'Api/LocalizationApi/LocalizationUtilityApi.rst.txt',
         'withCode' => false
     ],
     [
         'action' => 'createPhpClassDocs',
-        'class' => \TYPO3\CMS\Extbase\Utility\LocalizationUtility::class,
-        'targetFileName' => 'CodeSnippets/Extbase/LocalizationUtilityApi.rst.txt',
+        'class' => \TYPO3\CMS\Core\Localization\LanguageServiceFactory::class,
+        'targetFileName' => 'Api/LocalizationApi/LanguageServiceFactory.rst.txt',
         'withCode' => false
     ],
     [
         'action' => 'createPhpClassDocs',
-        'class' => \TYPO3\CMS\Extbase\Utility\LocalizationUtility::class,
-        'targetFileName' => 'CodeSnippets/Extbase/LocalizationUtilityApi.rst.txt',
+        'class' => \TYPO3\CMS\Core\Localization\LanguageService::class,
+        'targetFileName' => 'Api/LocalizationApi/LanguageService.rst.txt',
         'withCode' => false
     ],
 ];

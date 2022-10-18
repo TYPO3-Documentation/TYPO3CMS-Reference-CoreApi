@@ -21,8 +21,9 @@ Localization in plain PHP
 Localization in frontend context
 --------------------------------
 
-In plain PHP use the class :php:`LanguageServiceFactory` to create a
-:php:`LanguageService` from the current site language:
+In plain PHP use the class :ref:`LanguageServiceFactory <LanguageServiceFactory-api>`
+to create a :ref:`LanguageService <LanguageService-api>` from the current
+site language:
 
 ..  literalinclude:: _php/MyUserFunction.php
     :language: php
@@ -35,7 +36,7 @@ Localization in backend context
 -------------------------------
 
 In the backend context you can use the global variable :php:`$GLOBALS['LANG']`
-which contains the :php:`\TYPO3\CMS\Core\Localization\LanguageService`.
+which contains the :ref:`LanguageService <LanguageService-api>`.
 
 ..  literalinclude:: _php/MyBackendClass.php
     :language: php
@@ -61,7 +62,7 @@ Localization in Extbase
 =======================
 
 In :ref:`Extbase <extbase>` context you can use the method
-`\TYPO3\CMS\Extbase\Utility\LocalizationUtility::translate($key, $extensionName)`.
+:ref:`\TYPO3\CMS\Extbase\Utility\LocalizationUtility::translate($key, $extensionName) <extbase-localization-utility-api>`.
 
 This method requires the localization key as the first and the extension's
 name as optional second parameter. For all available parameters
