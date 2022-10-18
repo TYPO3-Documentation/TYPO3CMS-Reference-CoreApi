@@ -29,19 +29,19 @@ information is loaded, and a backend user is authenticated.
 Should not be used for
 ======================
 
-*  TCA configurations for new tables.
-   They should go in :ref:`Configuration/TCA/sometable.php <extension-configuration-tca>`.
-*  TCA overrides of existing tables. They should go in
-   :ref:`Configuration/TCA/Overrides/somefile.php <extension-configuration-tca-overrides>`.
-*  calling :php:`ExtensionManagementUtility::addToInsertRecords()`
-   as this might break the frontend. They should go in
-   :ref:`Configuration/TCA/Overrides/somefile.php <extension-configuration-tca-overrides>`.
-*  calling :php:`ExtensionManagementUtility::addStaticFile()`
-   as this might break the frontend. They should go in
-   :file:`Configuration/TCA/Overrides/sys_template.php`
-*  .. versionchanged:: 12.0
-   Adding table options via :php:`ExtensionManagementUtility::allowTableOnStandardPages()`
-   :ref:`Example <extension-configuration-files-allow-table-standard>`
+*   TCA configurations for new tables.
+    They should go in :ref:`Configuration/TCA/sometable.php <extension-configuration-tca>`.
+*   TCA overrides of existing tables. They should go in
+    :ref:`Configuration/TCA/Overrides/somefile.php <extension-configuration-tca-overrides>`.
+*   calling :php:`ExtensionManagementUtility::addToInsertRecords()`
+    as this might break the frontend. They should go in
+    :ref:`Configuration/TCA/Overrides/somefile.php <extension-configuration-tca-overrides>`.
+*   calling :php:`ExtensionManagementUtility::addStaticFile()`
+    as this might break the frontend. They should go in
+    :file:`Configuration/TCA/Overrides/sys_template.php`
+*   ..  versionchanged:: 12.0
+        Adding table options via :php:`ExtensionManagementUtility::allowTableOnStandardPages()`
+        :ref:`Example <extension-configuration-files-allow-table-standard>`
 
 
 Should be used for
