@@ -24,7 +24,7 @@ A typical, basic example using only the `Default` connection with a single
 database endpoint:
 
 .. code-block:: php
-   caption: config/system/settings.php
+   :caption: config/system/settings.php
 
    // [...]
    'DB' => [
@@ -68,7 +68,7 @@ A slightly more complex example with two connections, mapping the `sys_log`
 table to a different endpoint:
 
 .. code-block:: php
-   caption: config/system/settings.php
+   :caption: config/system/settings.php
 
    // [...]
    'DB' => [

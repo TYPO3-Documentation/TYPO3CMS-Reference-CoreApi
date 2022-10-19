@@ -92,5 +92,4 @@ Class after migration:
     }
 
 It is also possible to migrate to an Extbase plugin using a controller.
-See the :ref:`Extbase documentation, chapter
-"Frontend Plugins" <t3coreapi:extbase_registration_of_frontend_plugins>`.
+See the :ref:`Extbase frontend plugins <extbase_registration_of_frontend_plugins>`.
