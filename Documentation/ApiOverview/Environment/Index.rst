@@ -6,10 +6,10 @@
 Environment
 ===========
 
-Since version 9.x the TYPO3 Core  includes an environment class.
-This class contains all environment-specific information, e.g. paths within the
+The TYPO3 Core includes an environment class that contains all
+environment-specific information, mostly paths within the
 filesystem. This implementation replaces previously used global variables and
-constants like :php:`PATH_site`.
+constants like :php:`PATH_site` that have been removed with TYPO3 v10.
 
 The fully qualified class name is :php:`\TYPO3\CMS\Core\Core\Environment`. The
 class provides static methods to access the necessary information.
@@ -60,32 +60,50 @@ For projects without Composer setup, this is equal to :ref:`Environment-project-
 getVarPath()
 ------------
 
-The environment provides the path to the :file:`var` folder. This folder contains
+The environment provides the path to the :file:`var/` folder. This folder contains
 data like logs, sessions, locks, and cache files.
 
-For projects with Composer setup, the value is :php:`getProjectPath() . '/var'`,
-so it is outside of the web document root - not within :php:`getPublicPath()`.
+For Composer-based installations, it returns :ref:`directory-var`, in legacy
+installations :ref:`legacy-directory-typo3temp-var`.
 
-Without Composer, the value is :php:`getPublicPath() . '/typo3temp/var'`, so within
-the web document root - a situation that is not optimal from a security point of view.
+..  code-block:: php
+
+    use TYPO3\CMS\Core\Core\Environment;
+
+    // Composer-based installations: '/path/to/my-project/var/`
+    // Legacy installations: '/path/to/my-project/typo3temp/var/'
+    $pathToLabels = Environment::getVarPath();
 
 
 .. index::
    Environment; getConfigPath
    Path; typo3conf
+   Path; config
 .. _Environment-config-path:
 
 getConfigPath()
 ---------------
 
-The environment provides the path to :file:`typo3conf`. This folder contains TYPO3
-global configuration files and folders, e.g. :file:`config/system/settings.php`.
+In Composer-based installation this method provides the path
+:ref:`directory-config`, in legacy installations
+:ref:`legacy-directory-typo3conf`.
 
-For projects with Composer setup, the value is :php:`getProjectPath() . '/config'`,
-so it is outside of the web document root - not within :php:`getPublicPath()`.
+The directory returned by this method contains the folders :file:`system/`
+containing the :ref:`configuration files <configuration-files>`
+:file:`system/settings.php` and :file:`system/additional.php` and the folder
+:file:`sites/` containing the :ref:`site configurations <sitehandling>`.
 
-Without Composer, the value is :php:`getPublicPath() . '/typo3conf'`, so within
-the web document root - a situation that is not optimal from a security point of view.
+..  code-block:: php
+
+    use TYPO3\CMS\Core\Core\Environment;
+
+    // Composer-based installations: '/path/to/my-project/config/system/settings.php`
+    // Legacy installations: '/path/to/my-project/typo3conf/system/settings.php'
+    $pathToSetting = Environment::getConfigPath() . 'system/settings.php';
+
+    // Composer-based installations: '/path/to/my-project/config/sites/mysite/config.yaml`
+    // Legacy installations: '/path/to/my-project/typo3conf/sites/mysite/config.yaml'
+    $pathToSiteConfig = Environment::getConfigPath() . 'sites/' . $siteKey . '/config.yaml';
 
 
 .. index::
@@ -97,14 +115,17 @@ the web document root - a situation that is not optimal from a security point of
 getLabelsPath()
 ---------------
 
-The environment provides the path to :file:`labels`, respective :file:`l10n`
-folder. This folder contains downloaded translation files.
+The environment provides the path to :ref:`directory-var-labels` in
+Composer-based installations, respective :ref:`legacy-directory-typo3conf-l10n`
+folder in legacy installations. This folder contains downloaded translation files.
 
-For projects with Composer setup, the value is :php:`getVarPath() . '/labels'`,
-so it is outside of the web document root - not within :php:`getPublicPath()`.
+..  code-block:: php
 
-Without Composer, the value is :php:`getPublicPath() . '/typo3conf/l10n'`, so within
-the web document root - a situation that is not optimal from a security point of view.
+    use TYPO3\CMS\Core\Core\Environment;
+
+    // Composer-based installations: '/path/to/my-project/var/labels/`
+    // Legacy installations: '/path/to/my-project/typo3conf/l10n/'
+    $pathToLabels = Environment::getLabelsPath();
 
 .. index:: Environment; getCurrentScript
 .. _Environment-current-script:
@@ -131,7 +152,7 @@ Example, test for production context:
 .. code-block:: php
    :caption: config/system/additional.php | typo3conf/system/additional.php
 
-   // use \TYPO3\CMS\Core\Core\Environment;
+   use TYPO3\CMS\Core\Core\Environment;
 
    $applicationContext = Environment::getContext();
    if ($applicationContext->isProduction()) {

@@ -6,6 +6,8 @@
 File/directory permissions
 ==========================
 
+..  todo: This describes the situation in legacy installations only
+
 The correct and secure setup of the underlying server is an essential
 prerequisite for a secure web application. Well-considered access
 permissions on files and directories are an important part of this
