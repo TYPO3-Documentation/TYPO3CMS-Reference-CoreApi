@@ -21,7 +21,7 @@ ES6 in the TYPO3 Backend
 Loading ES6
 ===========
 
-..  info::
+..  note::
     This chapter is still work in progress.
 
 .. _requirejs-migration:

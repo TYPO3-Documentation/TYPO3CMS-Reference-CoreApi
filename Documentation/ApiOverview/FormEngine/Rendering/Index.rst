@@ -210,18 +210,16 @@ CSS and language labels (which can be used in JS) are added with their file
 names in format :php:`EXT:my_extension/path/to/file`.
 
 .. note::
-   The result array handled by :php:`$this->mergeChildReturnIntoExistingResult()` contains a couple of more keys, those
-   will vanish with further FormEngine refactoring steps. If using them, be prepared to adapt extensions later.
-
-.. note::
-   Nodes must never add JavaScript or CSS or similar stuff using the :php:`PageRenderer`. This fails as soon
-   as this container / element / wizard is called via AJAX, for instance within inline. Instead, those resources
-   must be registered via the result array only, using :php:`stylesheetFiles` and :php:`requireJsModules`.
+    Nodes must never add assets like JavaScript or CSS using the
+    :php:`PageRenderer`. This fails as soon as this container / element /
+    wizard is called via AJAX, for instance within inline. Instead,
+    those resources must be registered via the result array only,
+    using :php:`stylesheetFiles` and :php:`javaScriptModules`.
 
 Adding JavaScript modules
 -------------------------
 
-JavaScript is added via RequireJS modules using the
+JavaScript is added as ES6 modules using the
 function :php:`JavaScriptModuleInstruction::create()`.
 
 You can for example use it in a container:
@@ -398,10 +396,6 @@ To illustrate the principals discussed in this chapter see the following
 example which registers a fieldControl (button) next to a field in the pages
 table to trigger a data import via AJAX.
 
-..  todo:
-    Move source code to Examples extension and test it
-    Also switch from RequireJS to ES6
-
 Add a new renderType in :file:`ext_localconf.php`:
 
 .. code-block:: php
@@ -459,6 +453,16 @@ Add the php class for rendering the control in
          return $result;
       }
    }
+
+
+..  todo:
+    Move source code to Examples extension and test it
+    Also switch from RequireJS to ES6
+
+..  attention::
+    This example is still in RequireJS. RequireJS has been deprecated with
+    TYPO3 v12. Help us transferring the example into ES6.
+    See :ref:`h2document:contribute`.
 
 Add the JavaScript for defining the behavior of the control in
 :file:`Resources/Public/JavaScript/ImportData.js`:

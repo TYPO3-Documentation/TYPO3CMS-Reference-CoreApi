@@ -33,13 +33,9 @@ following properties:
 * :js:`componentName` - the name of the component that sends the message (e.g. extension name)
 * :js:`eventName` - the event name used to identify the message
 
-A message may contain any other property as necessary. The final event name to listen is a composition of "typo3", the
-component name and the event name, e.g. `typo3:my_extension:my_event`.
-
-.. attention::
-
-    Since a polyfill is in place to add support for Microsoft Edge, the
-    payload must contain JSON-serializable content only.
+A message may contain any other property as necessary. The final event
+name to listen is a composition of "typo3", the component name and the
+event name, e.g. `typo3:my_extension:my_event`.
 
 To send a message, the :js:`post()` method must be used.
 
