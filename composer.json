@@ -67,7 +67,7 @@
         "typo3/cms-tstemplate": "dev-main as 12.0",
         "typo3/cms-viewpage": "dev-main as 12.0",
         "typo3/cms-workspaces": "dev-main as 12.0",
-        "ttn/tea": "dev-lwolf-v12-compability",
+        "ttn/tea": "^3.0",
         "t3docs/examples": "dev-main",
         "t3docs/site-package": "dev-main",
         "typo3-documentation-team/speeddemo": "^11.4",
