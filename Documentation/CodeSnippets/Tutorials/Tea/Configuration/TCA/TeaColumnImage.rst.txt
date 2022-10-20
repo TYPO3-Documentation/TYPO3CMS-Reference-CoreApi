@@ -11,8 +11,6 @@
                'label' => 'LLL:EXT:tea/Resources/Private/Language/locallang_db.xlf:tx_tea_domain_model_product_tea.image',
                'config' => [
                    'type' => 'file',
-                   'allowed' => '',
-                   'disallowed' => '',
                    'maxitems' => 1,
                    'appearance' => [
                        'collapseAll' => true,
@@ -21,6 +19,7 @@
                            'hide' => false,
                        ],
                    ],
+                   'allowed' => 'common-image-types',
                ],
            ],
        ],
