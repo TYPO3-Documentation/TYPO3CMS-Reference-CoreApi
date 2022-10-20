@@ -88,7 +88,7 @@ The syntax is as follows and is commonly located in an extension's
    use TYPO3\CMS\Backend\Controller\NewRecordController;
 
    $GLOBALS['TYPO3_CONF_VARS']['SYS']['Objects'][NewRecordController::class] = [
-       'className' => Vendor\SomeExtension\Xclass\NewRecordController::class
+       'className' => \Vendor\SomeExtension\Xclass\NewRecordController::class
    ];
 
 
