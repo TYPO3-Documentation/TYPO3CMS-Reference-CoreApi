@@ -6,6 +6,14 @@
 Extension testing
 =================
 
+..  attention::
+    The example in this chapter covers only outdated TYPO3 and PHP versions. Help us bring
+    it up to date: See :ref:`h2document:contribute`.
+    
+    The general principles demonstrated here still apply.
+    
+..  todo: Update the examples bellow
+
 Introduction
 ============
 
