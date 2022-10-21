@@ -116,8 +116,13 @@ This will render the desired icon using an `img`-tag. If you prefer having the S
 The JavaScript way
 ------------------
 
+..  versionchanged:: 12.0
+    The JavaScript icon provider has been moved from the RequireJS module
+    :js:`TYPO3/CMS/Backend/Icons` to the ES6 module :js:`@typo3/backend/icons`.
+    See also :ref:`backend-javascript-es6`.
+
 In JavaScript, icons can be only fetched from the Icon Registry. To achieve this,
-add the following dependency to your RequireJS module: :js:`TYPO3/CMS/Backend/Icons`.
+add the following dependency to your :ref:`ES6 module <backend-javascript-es6>`: :js:`@typo3/backend/icons`.
 In this section, the module is known as `Icons`.
 
 The module has a single public method :js:`getIcon()` which accepts up to five arguments:
@@ -125,63 +130,82 @@ The module has a single public method :js:`getIcon()` which accepts up to five a
 .. rst-class:: dl-parameters
 
 identifier
-   :sep:`|` :aspect:`Condition:` required
-   :sep:`|` :aspect:`Type:` string
-   :sep:`|`
+    :sep:`|` :aspect:`Condition:` required
+    :sep:`|` :aspect:`Type:` string
+    :sep:`|`
 
-   Identifier of the icon as registered in the Icon Registry.
+    Identifier of the icon as registered in the Icon Registry.
 
 size
-   :sep:`|` :aspect:`Condition:` required
-   :sep:`|` :aspect:`Type:` string
-   :sep:`|` :aspect:`Default:` medium
-   :sep:`|`
+    :sep:`|` :aspect:`Condition:` required
+    :sep:`|` :aspect:`Type:` Sizes
+    :sep:`|` :aspect:`Default:` medium
+    :sep:`|`
 
-   Desired size of the icon. All values of the :js:`Icons.sizes` enum are allowed,
-   these are:
+    Desired size of the icon. All values of the :js:`Sizes` enum from
+    :js:`@typo3/backend/enum/icon-types' are allowed,
+    these are:
 
-   -  :js:`default`:  1em, to scale with font size
-   -  :js:`small`: fixed to 16px
-   -  :js:`medium`: fixed to 32px (default)
-   -  :js:`large`: fixed to 64px
+    -   :js:`default`:  1em, to scale with font size
+    -   :js:`small`: fixed to 16px
+    -   :js:`medium`: fixed to 32px (default)
+    -   :js:`large`: fixed to 64px
+    -   :js:`mega`:
+    -   :js:`overlay`:
 
 overlayIdentifier
-   :sep:`|` :aspect:`Condition:` optional
-   :sep:`|` :aspect:`Type:` string
-   :sep:`|`
+    :sep:`|` :aspect:`Condition:` optional
+    :sep:`|` :aspect:`Type:` string
+    :sep:`|`
 
-   Identifier of an overlay icon as registered in the Icon Registry.
+    Identifier of an overlay icon as registered in the Icon Registry.
 
 state
-   :sep:`|` :aspect:`Condition:` optional
-   :sep:`|` :aspect:`Type:` string
-   :sep:`|`
+    :sep:`|` :aspect:`Condition:` optional
+    :sep:`|` :aspect:`Type:` string
+    :sep:`|`
 
-   Sets the state of the icon. All values of the :js:`Icons.states` enum are allowed, these are: `default` and `disabled`.
+    Sets the state of the icon. All values of the :js:`States` enum from
+    :js:`@typo3/backend/enum/icon-types' are
+    allowed, these are: `default` and `disabled`.
 
 markupIdentifier
-   :sep:`|` :aspect:`Condition:` optional
-   :sep:`|` :aspect:`Type:` string
-   :sep:`|`
+    :sep:`|` :aspect:`Condition:` optional
+    :sep:`|` :aspect:`Type:` string
+    :sep:`|`
 
-   Defines how the markup is returned. All values of the :js:`Icons.markupIdentifiers` enum are allowed, these are: `default` and `inline`. Please note that `inline` is only meaningful for SVG icons.
+    Defines how the markup is returned. All values of the
+    :js:`MarkupIdentifiers` enum from :js:`@typo3/backend/enum/icon-types' are
+    allowed, these are: `default` and `inline`. Please note that
+    `inline` is only meaningful for SVG icons.
 
-The method :js:`getIcon()` returns a jQuery Promise object, as internally an AJAX request is done.
+The method :js:`getIcon()` returns a AjaxResponse Promise object, as internally
+an AJAX request is done.
 
 .. note::
-   Since TYPO3 v9, the icons are cached in the localStorage of the client to reduce the workload off the server.
+    Since TYPO3 v9, the icons are cached in the localStorage of the client to
+    reduce the workload off the server.
 
+Here is an example code how a usage of the JavaScript Icon API may look like:
 
-Here's an example code how a usage of the JavaScript Icon API may look like:
+..  todo: move the example to examples extension
+    https://github.com/TYPO3-Documentation/TYPO3CMS-Reference-CoreApi/issues/2299
 
-.. code-block:: js
+..  code-block:: js
+    :caption: EXT:my_extension/Resources/Public/JavaScript/my-es6-module.js
 
-   define(['jquery', 'TYPO3/CMS/Backend/Icons'], function($, Icons) {
-       // Get a single icon
-       Icons.getIcon('spinner-circle-light', Icons.sizes.small).done(function(spinner) {
-           console.log(spinner);
-       });
-   });
+    import Icons from '@typo3/backend/icons';
+
+    class MyEs6Module {
+        constructor() {
+            // Get a single icon
+            Icons.getIcon('spinner-circle-light', Icons.sizes.small, null, 'disabled').then((icon: string): void => {
+                console.log(icon);
+            });
+        }
+    }
+
+    export default new MyEs6Module();
 
 
 .. index:: Icon Api; Available icons

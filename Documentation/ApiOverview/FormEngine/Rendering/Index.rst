@@ -190,8 +190,8 @@ of a child can be slightly different. For instance, a :php:`FieldControl` "wizar
 result key key. Using :php:`$this->initializeResultArray()` is not appropriate in these cases but depends on the specific
 expansion type. See below for more details on node expansion.
 
-The result array for container and element nodes looks like this. :php:`$resultArray = $this->initializeResultArray()`
-takes care of basic keys:
+The result array for container and element nodes looks like this.
+:php:`$resultArray = $this->initializeResultArray()` takes care of basic keys:
 
 .. code-block:: php
 
@@ -199,53 +199,100 @@ takes care of basic keys:
         'html' => '',
         'additionalInlineLanguageLabelFiles' => [],
         'stylesheetFiles' => [],
+        'javaScriptModules' => $javaScriptModules,
+        /** @deprecated requireJsModules will be removed in TYPO3 v13.0 */
         'requireJsModules' => [],
+        'inlineData' => [],
+        'html' => '',
     ]
 
-CSS and language labels (which can be used in JS) are added with their file names in format :php:`EXT:extName/path/to/file`.
+CSS and language labels (which can be used in JS) are added with their file
+names in format :php:`EXT:my_extension/path/to/file`.
 
 .. note::
-   The result array handled by :php:`$this->mergeChildReturnIntoExistingResult()` contains a couple of more keys, those
-   will vanish with further FormEngine refactoring steps. If using them, be prepared to adapt extensions later.
+    Nodes must never add assets like JavaScript or CSS using the
+    :php:`PageRenderer`. This fails as soon as this container / element /
+    wizard is called via AJAX, for instance within inline. Instead,
+    those resources must be registered via the result array only,
+    using :php:`stylesheetFiles` and :php:`javaScriptModules`.
 
-.. note::
-   Nodes must never add JavaScript or CSS or similar stuff using the :php:`PageRenderer`. This fails as soon
-   as this container / element / wizard is called via AJAX, for instance within inline. Instead, those resources
-   must be registered via the result array only, using :php:`stylesheetFiles` and :php:`requireJsModules`.
+Adding JavaScript modules
+-------------------------
+
+JavaScript is added as ES6 modules using the
+function :php:`JavaScriptModuleInstruction::create()`.
+
+You can for example use it in a container:
+
+..  code-block:: php
+    :caption: EXT:my_extension/Classes/Backend/SomeContainer.php
+
+    use TYPO3\CMS\Backend\Form\Container\AbstractContainer;
+    use TYPO3\CMS\Core\Page\JavaScriptModuleInstruction;
+
+    class SomeContainer extends AbstractContainer
+    {
+        public function render()
+        {
+            $resultArray = $this->initializeResultArray();
+            $resultArray['javaScriptModules'][] =
+                JavaScriptModuleInstruction::create('@myvendor/my_extension/my-javascript.js');
+            // ...
+            return $resultArray;
+        }
+    }
+
+Or a controller:
+
+..  code-block:: php
+    :caption: EXT:my_extension/Classes/Backend/Controller/SomeController.php
+
+    use Psr\Http\Message\ResponseInterface;
+    use Psr\Http\Message\ServerRequestInterface;
+    use TYPO3\CMS\Core\Page\JavaScriptModuleInstruction;
+    use TYPO3\CMS\Core\Page\PageRenderer;
+
+    class SomeController
+    {
+        public function mainAction(ServerRequestInterface $request): ResponseInterface
+        {
+            $javaScriptRenderer = $pageRenderer->getJavaScriptRenderer();
+            $javaScriptRenderer->addJavaScriptModuleInstruction(
+                JavaScriptModuleInstruction::create('@myvendor/my_extension/my-service.js')->invoke('someFunction')
+            );
+            // ...
+            return $pageRenderer->renderResponse();
+        }
+    }
 
 Adding RequireJS modules
 ------------------------
 
-.. deprecated:: 11.5
-   Using callback functions is deprecated and shall be replaced with new
-   JavaScriptModuleInstruction declarations. In FormEngine, loading the RequireJS
-   module via arrays is deprecated and has to be migrated as well.
+.. deprecated::  12.0
+    The RequireJS project has been discontinued_ and was therefore
+    replaced by native ECMAScript v6/v11 modules in TYPO3 v12.0. The
+    infrastructure for configuration and loading of RequireJS
+    modules is deprecated with v12.0 and will be removed in TYPO3 v13. See
+    :ref:`RequireJS to ES6 migration <requirejs-migration>`.
 
-JavaScript is added via RequireJS modules using the
-function :php:` JavaScriptModuleInstruction::forRequireJS`.
+.. _discontinued: https://github.com/requirejs/requirejs/issues/1816
 
-.. code-block:: php
-   :caption: Example in a FormEngine component
+If you want to support both TYPO3 v11 and v12 you can use a version switch:
 
-   $resultArray['requireJsModules'][] = JavaScriptModuleInstruction::forRequireJS(
-       'TYPO3/CMS/Backend/FormEngine/Element/InputDateTimeElement'
-   )->instance($fieldId);
+..  code-block:: php
+    :caption: Example in a FormEngine component
 
-:php:`JavaScriptModuleInstruction` allows the following
-aspects to be declared when loading RequireJS modules:
+    $typo3Version = new \TYPO3\CMS\Core\Information\Typo3Version();
+    if ($typo3Version->getMajorVersion() < 12) {
+        $resultArray['requireJsModules'][] = JavaScriptModuleInstruction::forRequireJS(
+            'TYPO3/CMS/MyExtension/MyJavaScript'
+        )->instance($fieldId);
+    } else {
+        $resultArray['javaScriptModules'][] =
+            JavaScriptModuleInstruction::create('@myvendor/my_extension/my-javascript.js');
+    }
 
-*  :php:`$instruction = JavaScriptModuleInstruction::forRequireJS('TYPO3/CMS/Module')`
-   creates corresponding loading instruction that can be enriched with following declarations
-*  :php:`$instruction->assign(['key' => 'value'])` allows to assign key-value pairs
-   directly to the loaded RequireJS module object or instance
-*  :php:`$instruction->invoke('method', 'value-a', 'value-b')` allows to invoke
-   a particular method of the loaded RequireJS instance with given argument values
-*  :php:`$instruction->instance('value-a', 'value-b')` allows to invoke the
-   constructor of the loaded RequireJS class with given argument values
-
-Initializations other than the provided aspects have to be implemented in
-custom module implementations, for example triggered by corresponding on-ready handlers.
-
+Or stick to RequireJS and accept the deprecation warnings.
 
 .. _FormEngine-Rendering-NodeExpansion:
 
@@ -347,7 +394,7 @@ Add fieldControl Example
 
 To illustrate the principals discussed in this chapter see the following
 example which registers a fieldControl (button) next to a field in the pages
-table to trigger a data import via ajax.
+table to trigger a data import via AJAX.
 
 Add a new renderType in :file:`ext_localconf.php`:
 
@@ -406,6 +453,16 @@ Add the php class for rendering the control in
          return $result;
       }
    }
+
+
+..  todo:
+    Move source code to Examples extension and test it
+    Also switch from RequireJS to ES6
+
+..  attention::
+    This example is still in RequireJS. RequireJS has been deprecated with
+    TYPO3 v12. Help us transferring the example into ES6.
+    See :ref:`h2document:contribute`.
 
 Add the JavaScript for defining the behavior of the control in
 :file:`Resources/Public/JavaScript/ImportData.js`:

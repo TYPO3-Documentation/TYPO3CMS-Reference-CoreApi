@@ -6,6 +6,16 @@
 Use RequireJS in your own extension
 ===================================
 
+..  attention::
+    ..  deprecated::  12.0
+        The RequireJS project has been discontinued_ and was therefore
+        replaced by native ECMAScript v6/v11 modules in TYPO3 v12.0. The
+        infrastructure for configuration and loading of RequireJS
+        modules is deprecated with v12.0 and will be removed in TYPO3 v13. See
+        :ref:`RequireJS to ES6 migration <requirejs-migration>`.
+
+.. _discontinued: https://github.com/requirejs/requirejs/issues/1816
+
 To be able to use RequireJS at all, some prerequisites must be fulfilled:
 
 * Your extension *must* have a `Resources/Public/JavaScript` directory. That directory is used for autoloading the modules stored in your extension.

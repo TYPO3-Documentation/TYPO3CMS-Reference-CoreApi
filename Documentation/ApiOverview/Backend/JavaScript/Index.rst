@@ -1,7 +1,7 @@
 .. include:: /Includes.rst.txt
 .. index::
    pair: JavaScript; Backend
-   JavaScript (Backend); RequireJS
+   JavaScript (Backend); ES6
 .. _javascript:
 
 ===========================
@@ -18,6 +18,7 @@ APIs in that regard.
 
 .. toctree::
 
+   ES6/Index
    RequireJS/Index
    Templating/Index
    Modules/Index
