@@ -42,7 +42,7 @@ $GLOBALS
 
    :Path: $GLOBALS
    :type: array
-   :Defined: :php:`SystemEnvironmentBuilder::initializeGlobalVariables()`
+   :Defined: :php:`\TYPO3\CMS\Core\Core\SystemEnvironmentBuilder::initializeGlobalVariables()`
    :Frontend: Yes
 
    Global registration of :ref:`services <services-introduction>`.
@@ -84,7 +84,7 @@ $GLOBALS
 .. confval:: BE_USER
 
    :Path: $GLOBALS
-   :type: TYPO3\CMS\Core\Authentication\BackendUserAuthentication
+   :type: :php:`\TYPO3\CMS\Core\Authentication\BackendUserAuthentication`
    :Defined: :php:`\TYPO3\CMS\Core\Core\Bootstrap::initializeBackendUser()`
    :Frontend: (depends)
 
@@ -95,7 +95,7 @@ $GLOBALS
 
    :Path: $GLOBALS
    :type: int
-   :Defined: :php:`SystemEnvironmentBuilder::initializeGlobalTimeTrackingVariables()`
+   :Defined: :php:`\TYPO3\CMS\Core\Core\SystemEnvironmentBuilder::initializeGlobalTimeTrackingVariables()`
    :Frontend: yes
 
    Is set to :php:`time()` so that the rest of the script has a common value
@@ -111,7 +111,7 @@ $GLOBALS
 
    :Path: $GLOBALS
    :type: int
-   :Defined: :php:`SystemEnvironmentBuilder::initializeGlobalTimeTrackingVariables()`
+   :Defined: :php:`\TYPO3\CMS\Core\Core\SystemEnvironmentBuilder::initializeGlobalTimeTrackingVariables()`
    :Frontend: yes
 
    Is set to :php:`$GLOBALS['EXEC_TIME']` but can be altered later in the script if we
