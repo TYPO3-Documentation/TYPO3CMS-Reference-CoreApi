@@ -300,17 +300,16 @@ dependency by the framework looks like this:
 
    final class UserController
    {
-        private UserRepository $userRepository;
-
-        public function __construct(UserRepository $userRepository)
+        public function __construct(private readonly UserRepository $userRepository)
         {
-             $this->userRepository = $userRepository;
         }
    }
 
 Here the Symfony container sees a dependency to :php:`UserRepository` when scanning :php:`__construct()`
 of the :php:`UserController`. Since autowiring is enabled by default (more on that below), an instance of the
-:php:`UserRepository` is created and provided when the controller is created.
+:php:`UserRepository` is created and provided when the controller is created. The example uses `constructor
+property promotion <https://www.php.net/manual/en/language.oop5.decon.php#language.oop5.decon.constructor.promotion>`__
+and sets the property :php:`readonly`, so it can not be written a second time.
 
 
 .. _Method-injection:
