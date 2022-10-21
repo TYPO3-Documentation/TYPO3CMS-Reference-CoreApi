@@ -16,12 +16,13 @@
 Localization
 ============
 
-.. toctree::
-   :titlesonly:
+..  toctree::
+    :titlesonly:
 
-   Introduction
-   Languages
-   ManagingTranslations
-   TranslationServer/Index
-   XliffFormat
-   XliffApi
+    Introduction
+    Languages
+    ManagingTranslations
+    TranslationServer/Index
+    LocalizationApi/Index
+    XliffFormat
+    XliffApi
