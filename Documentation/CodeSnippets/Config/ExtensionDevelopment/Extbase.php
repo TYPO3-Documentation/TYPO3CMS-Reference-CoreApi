@@ -435,10 +435,4 @@ return [
         'targetFileName' => 'CodeSnippets/Extbase/Controllers/PhpLocalization.rst.txt',
         'emphasizeLines' => [14, 15, 16, 17, 18],
     ],
-    [
-        'action' => 'createPhpClassDocs',
-        'class' => \TYPO3\CMS\Extbase\Utility\LocalizationUtility::class,
-        'targetFileName' => 'CodeSnippets/Extbase/LocalizationUtilityApi.rst.txt',
-        'withCode' => false
-    ],
 ];

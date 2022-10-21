@@ -8,37 +8,61 @@ Localization in PHP
 ====================
 
 Sometimes you have to localize a string in PHP code, for
-example inside of a controller or a ViewHelper.
+example inside of a controller or a user function.
 
-Localization in plain PHP (frontend context)
-============================================
+Which method of localization to use depends on the current context:
 
-In plain PHP use the class :php:`LanguageServiceFactory` to create a
-:php:`LanguageService` from the current site language:
+..  contents::
+    :local:
 
-..  code-block:: php
-    :caption: EXT:my_extension/Classes/Utility/SomeUtilityClass.php
+Localization in plain PHP
+=========================
 
-    $languageServiceFactory = GeneralUtility::makeInstance(LanguageServiceFactory::class);
-    $languageService = $languageServiceFactory->createFromSiteLanguage($request->getAttribute('language')
-        ?? $request->getAttribute('site')->getDefaultLanguage());
-    $languageService->sL(...)
+Localization in frontend context
+--------------------------------
 
-If possible consider to use :ref:`DependencyInjection`:
+In plain PHP use the class :ref:`LanguageServiceFactory <LanguageServiceFactory-api>`
+to create a :ref:`LanguageService <LanguageService-api>` from the current
+site language:
 
+..  literalinclude:: _php/MyUserFunction.php
+    :language: php
+
+:ref:`DependencyInjection` should be available in most contexts where you need
+translations. Also the current request is available in entry point such as
+custom non-Extbase controllers, user functions, data processors etc.
 
 Localization in backend context
-===============================
+-------------------------------
 
-If you are in the backend context
+In the backend context you can use the global variable :php:`$GLOBALS['LANG']`
+which contains the :ref:`LanguageService <LanguageService-api>`.
 
-.. todo: Add information on ViewHelper and non-Extbase context
+..  literalinclude:: _php/MyBackendClass.php
+    :language: php
 
-Localization in Extbase context
-===============================
+..  attention::
+    During development you are usually logged into the backend. So the global
+    variable :php:`$GLOBALS['LANG']` might be available in the frontend. Once
+    logged out it is usually not available. **Never** depend on
+    :php:`$GLOBALS['LANG']` in the frontend unless you know what you are doing.
+
+Localization without context
+----------------------------
+
+If you should happen to be in a context where none of these are available,
+for example a static function, you can still do translations:
+
+..  literalinclude:: _php/MyUtility.php
+    :language: php
+
+.. _extension-localization-extbase:
+
+Localization in Extbase
+=======================
 
 In :ref:`Extbase <extbase>` context you can use the method
-`\TYPO3\CMS\Extbase\Utility\LocalizationUtility::translate($key, $extensionName)`.
+:ref:`\TYPO3\CMS\Extbase\Utility\LocalizationUtility::translate($key, $extensionName) <extbase-localization-utility-api>`.
 
 This method requires the localization key as the first and the extension's
 name as optional second parameter. For all available parameters
@@ -59,22 +83,9 @@ gets translated:
 
 The string in the translation file is defined like this:
 
-..  code-block:: xml
-    :caption: EXT: examples/Resources/Private/Language/locallang.xlf
+..  literalinclude:: _php/locallang.xlf
+    :language: xml
     :emphasize-lines: 8
-
-    <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
-    <xliff version="1.0">
-        <file source-language="en" datatype="plaintext" original="messages" date="2013-03-09T18:44:59Z" product-name="examples">
-            <header/>
-            <body>
-                <!-- ... -->
-                <trans-unit id="new_relation" xml:space="preserve">
-                    <source>Content element "%1$s" (uid: %2$d) has the following relations:</source>
-                </trans-unit>
-            </body>
-        </file>
-    </xliff>
 
 The :php:`arguments` will be replaced in the localized strings by
 the `PHP function sprintf <https://www.php.net/manual/en/function.sprintf.php>`__.
@@ -83,9 +94,4 @@ This behaviour is the same like in a
 :ref:`Fluid translate ViewHelper with arguments <extension-localization-fluid-arguments>`.
 
 
-.. _extbase-localization-utility-api:
 
-API of the Extbase :php:`LocalizationUtility`
----------------------------------------------
-
-..  include:: /CodeSnippets/Extbase/LocalizationUtilityApi.rst.txt

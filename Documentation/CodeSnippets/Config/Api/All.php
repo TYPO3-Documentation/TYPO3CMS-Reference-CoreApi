@@ -6,4 +6,5 @@
 return array_merge(
     include('Events/All.php'),
     include('BackendApi.php'),
+    include('LanguageServiceApi.php'),
 );
