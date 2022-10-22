@@ -77,13 +77,34 @@ use the following configuration:
 This overwrites the default configuration shown in the first example for classes
 located in the namespace :code:`\Documentation\Examples\Controller`.
 
-For extension "foo" with key "tx_foo" (not using namespaces), the configuration would be located at:
+More examples:
 
 .. code-block:: php
 
-   $GLOBALS['TYPO3_CONF_VARS']['LOG']['Tx']['Foo']['writerConfiguration'] = [
-      // ...
-   ];
+    // configure logging ...
+
+    // for class \Documentation\Examples\Controller\FalExampleController
+    $GLOBALS['TYPO3_CONF_VARS']['LOG']
+        ['Documentation']['Examples']['Controller']['FalExampleController'] \
+        ['writerConfiguration'] = [
+            // ...
+    ];
+
+    // for channel "security"
+    $GLOBALS['TYPO3_CONF_VARS']['LOG']
+        ['security']
+        ['writerConfiguration'] = [
+             // ...
+    ];
+
+    // For extension "foo" with key "tx_foo" (not using namespaces):
+    $GLOBALS['TYPO3_CONF_VARS']['LOG']
+        ['Tx']['Foo']
+        ['writerConfiguration'] = [
+            // ...
+    ];
+
+For more information about channels, see :ref:`logging-channels`.
 
 An arbitrary number of writers can be added for every severity level (INFO, WARNING, ERROR, ...).
 The configuration is applied to log entries of the particular severity level
