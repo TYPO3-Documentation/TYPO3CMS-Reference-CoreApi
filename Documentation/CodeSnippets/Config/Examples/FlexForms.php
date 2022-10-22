@@ -17,9 +17,10 @@ return [
     ],
     [
         'action' => 'createCodeSnippet',
-        'emphasizeLines' => ['19', '20', '21', '22'],
+        'emphasizeLines' => ['23', '24', '25', '26'],
         'caption' => 'EXT:examples/Configuration/TCA/Overrides/tt_content_plugin_haiku_list.php',
         'sourceFile' => 'EXT:examples/Configuration/TCA/Overrides/tt_content_plugin_haiku_list.php',
+        'replaceFirstMultilineComment' => true,
         'targetFileName' => 'CodeSnippets/FlexForms/Examples/PluginHaikuListRegistration.rst.txt',
     ],
 ];
