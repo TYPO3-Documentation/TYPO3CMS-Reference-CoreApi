@@ -85,7 +85,7 @@ More examples:
 
     // for class \Documentation\Examples\Controller\FalExampleController
     $GLOBALS['TYPO3_CONF_VARS']['LOG']
-        ['Documentation']['Examples']['Controller']['FalExampleController'] \
+        ['Documentation']['Examples']['Controller']['FalExampleController']
         ['writerConfiguration'] = [
             // ...
     ];
