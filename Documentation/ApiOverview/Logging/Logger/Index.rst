@@ -228,6 +228,8 @@ Registration via class attribute for :php:`LoggerInterface` injection:
 
 .. code-block:: php
 
+   namespace Myvendor\Myextension\Service\MyClass;
+
    use Psr\Log\LoggerInterface;
    use TYPO3\CMS\Core\Log\Channel;
    #[Channel('security')]
@@ -241,10 +243,12 @@ Registration via class attribute for :php:`LoggerInterface` injection:
      }
    }
 
-Registration via parameter attribute for :php:`LoggerInterface` injection,
-overwrites possible class attributes:
+Registration via parameter attribute for :php:`LoggerInterface`
+injection, overwrites possible class attributes:
 
 .. code-block:: php
+
+   namespace Myvendor\Myextension\Service\MyClass;
 
    use Psr\Log\LoggerInterface;
    use TYPO3\CMS\Core\Log\Channel;
@@ -259,6 +263,40 @@ overwrites possible class attributes:
          // do your magic
      }
    }
+
+The instantiated :php:`LoggerInterface` will now have the name "security",
+instead of the default which would be a combination of namespace and class of
+the instantiating class, such as 'Myvendor.Myextension.Service.MyClass".
+
+Using the Channel
+-----------------
+
+The name "security" can then be used in the logging configuration:
+
+.. code-block:: php
+    :caption: typo3conf/system/additional.php
+
+    use TYPO3\CMS\Core\Core\Environment;
+    use TYPO3\CMS\Core\Log\LogLevel;
+    use TYPO3\CMS\Core\Log\Writer\FileWriter;
+
+    $GLOBALS['TYPO3_CONF_VARS']['LOG']['security']['writerConfiguration'] = [
+        LogLevel::DEBUG => [
+            FileWriter::class => [
+                'logFile' => Environment::getVarPath() . '/log/' . 'security.log'
+            ]
+        ],
+    ];
+
+The written log messages will then have the component name "security", such as:
+
+.. code-block:: text
+    :caption: var/log/security.log
+
+    Fri, 21 Oct 2022 16:26:13 +0000 [DEBUG] ... component="security": ...
+
+For more examples for configuring the logging see
+:ref:`logging-configuration-writer`.
 
 .. _logging-logger-examples:
 
