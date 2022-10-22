@@ -280,13 +280,15 @@ The name "security" can then be used in the logging configuration:
     use TYPO3\CMS\Core\Log\LogLevel;
     use TYPO3\CMS\Core\Log\Writer\FileWriter;
 
-    $GLOBALS['TYPO3_CONF_VARS']['LOG']['security']['writerConfiguration'] = [
-        LogLevel::DEBUG => [
-            FileWriter::class => [
-                'logFile' => Environment::getVarPath() . '/log/' . 'security.log'
-            ]
-        ],
-    ];
+    $GLOBALS['TYPO3_CONF_VARS']['LOG']
+        ['security']
+        ['writerConfiguration'] = [
+            LogLevel::DEBUG => [
+                FileWriter::class => [
+                    'logFile' => Environment::getVarPath() . '/log/' . 'security.log'
+                ]
+            ],
+        ];
 
 The written log messages will then have the component name "security", such as:
 
