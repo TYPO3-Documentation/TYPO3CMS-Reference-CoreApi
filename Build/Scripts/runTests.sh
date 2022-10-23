@@ -24,7 +24,6 @@ setUpDockerComposeDotEnv() {
         echo "DOCKER_PHP_IMAGE=${DOCKER_PHP_IMAGE}"
         echo "SCRIPT_VERBOSE=${SCRIPT_VERBOSE}"
         echo "CGLCHECK_DRY_RUN=${CGLCHECK_DRY_RUN}"
-        echo "COMPOSER_NORMALIZE_DRY_RUN=${COMPOSER_NORMALIZE_DRY_RUN}"
     } > .env
 }
 
@@ -43,9 +42,6 @@ Options:
     -s <...>
         Specifies which test suite to run
             - cgl: cgl test and fix all php files
-            - composerNormalize: "composer normalize"
-            - composerUpdate: "composer update", handy if host has no PHP
-            - composerValidate: "composer validate"
             - lint: PHP linting
             - rector: Apply Rector rules
 
@@ -53,10 +49,6 @@ Options:
         Specifies the PHP minor version to be used
             - 8.1 (default): use PHP 8.1
             - 8.2: use PHP 8.2
-
-    -n
-        Only with -s cgl, composerNormalize, rector
-        Activate dry-run in CGL check and composer normalize that does not actively change files and only prints broken ones.
 
     -u
         Update existing typo3/core-testing-*:latest docker images. Maintenance call to docker pull latest
@@ -100,7 +92,6 @@ TEST_SUITE="cgl"
 PHP_VERSION="8.1"
 SCRIPT_VERBOSE=0
 CGLCHECK_DRY_RUN=""
-COMPOSER_NORMALIZE_DRY_RUN=""
 
 # Option parsing
 # Reset in case getopts has been used previously in the shell
@@ -122,7 +113,6 @@ while getopts ":s:p:nhuv" OPT; do
             ;;
         n)
             CGLCHECK_DRY_RUN="-n"
-            COMPOSER_NORMALIZE_DRY_RUN="--dry-run"
             ;;
         u)
             TEST_SUITE=update
@@ -165,33 +155,9 @@ case ${TEST_SUITE} in
         SUITE_EXIT_CODE=$?
         docker-compose down
         ;;
-    composerNormalize)
-        setUpDockerComposeDotEnv
-        docker-compose run composer_normalize
-        SUITE_EXIT_CODE=$?
-        docker-compose down
-        ;;
-    composerUpdate)
-        setUpDockerComposeDotEnv
-        docker-compose run composer_update
-        SUITE_EXIT_CODE=$?
-        docker-compose down
-        ;;
-    composerValidate)
-        setUpDockerComposeDotEnv
-        docker-compose run composer_validate
-        SUITE_EXIT_CODE=$?
-        docker-compose down
-        ;;
     lint)
         setUpDockerComposeDotEnv
         docker-compose run lint
-        SUITE_EXIT_CODE=$?
-        docker-compose down
-        ;;
-    rector)
-        setUpDockerComposeDotEnv
-        docker-compose run rector
         SUITE_EXIT_CODE=$?
         docker-compose down
         ;;
