@@ -5,6 +5,7 @@ return [
         'action' => 'createCodeSnippet',
         'caption' => 'EXT:examples/Classes/Command/DoSomethingCommand.php',
         'sourceFile' => 'EXT:examples/Classes/Command/DoSomethingCommand.php',
+        'replaceFirstMultilineComment' => true,
         'targetFileName' => 'CodeSnippets/Tutorials/Command/Classes/DoSomethingCommand.rst.txt',
     ],
     [

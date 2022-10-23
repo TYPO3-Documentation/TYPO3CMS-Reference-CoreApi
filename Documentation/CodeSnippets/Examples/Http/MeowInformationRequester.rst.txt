@@ -8,6 +8,10 @@
    
    declare(strict_types=1);
    
+   /*
+    * This file is part of the TYPO3 CMS project. [...]
+    */ 
+   
    namespace T3docs\Examples\Http;
    
    use TYPO3\CMS\Core\Http\RequestFactory;
@@ -23,6 +27,10 @@
        ) {
        }
    
+       /**
+        * @throws \JsonException
+        * @throws \RuntimeException
+        */
        public function request(): string
        {
            // Additional headers for this specific request
@@ -50,10 +58,10 @@
                    'The request did not return JSON data'
                );
            }
-   
            // Get the content as a string on a successful request
-           return json_decode($response->getBody()->getContents(), true)['fact']
-               ?? throw new \RuntimeException('No information available');
+           $content = $response->getBody()->getContents();
+           return (string)json_decode($content, true, flags: JSON_THROW_ON_ERROR)['fact']??
+               throw new \RuntimeException('The service returned an unexpected format.', 1666413230);
        }
    }
    

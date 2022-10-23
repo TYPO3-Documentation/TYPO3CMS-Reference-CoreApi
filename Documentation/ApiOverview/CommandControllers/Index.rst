@@ -115,7 +115,7 @@ A command has to be registered as a tag of name :yaml:`console.command`:
 
 :yaml:`schedulable`
     By default, a command can be used in the scheduler too.
-    This can be disabled by setting `schedulable` to `false`.
+    This can be disabled by setting :yaml:`schedulable` to :yaml:`false`.
 
 :yaml:`hidden`
     A command can be hidden from the command list by setting
