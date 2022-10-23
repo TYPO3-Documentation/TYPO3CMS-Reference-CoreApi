@@ -2,7 +2,7 @@
 .. index::
    Extension development; Kickstart
    Extension development; Builder
-.. _extension-builder:
+.. _tutorial-extension-builder:
 .. _extension-kickstart:
 
 ======================
