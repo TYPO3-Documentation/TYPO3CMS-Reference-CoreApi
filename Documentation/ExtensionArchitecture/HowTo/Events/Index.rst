@@ -12,8 +12,8 @@ or third-party extensions.
 You can find a complete list of events provided by the TYPO3 Core in the
 following chapter: :ref:`eventlist`.
 
-Events provided by third-party extensions should be described in the extensions
-manual. You can also search for events by searching for classes that inject the
+Events provided by third-party extensions should be described in the extension's
+manual. You can also search for events by looking for classes that inject the
 :ref:`EventDispatcherInterface`
 
 
@@ -22,10 +22,10 @@ manual. You can also search for events by searching for classes that inject the
 Listen to an event
 ==================
 
-If you want to use an event provided by the Core or a third party extension,
+If you want to use an event provided by the Core or a third-party extension,
 create a PHP class with a method `public __invoke(SomeCoolEvent $event)`
 that accepts an object of the event class as
-argument. It is possible use another method name but you have to configure
+argument. It is possible to use another method name but you have to configure
 the name in the :file:`Configuration/Services.yaml` or it is not found.
 
 It is best practice to use a descriptive class name that ends on
@@ -40,14 +40,14 @@ Then register the event in your extension's :file:`Configuration/Services.yaml`:
 .. literalinclude:: _EventServices.yaml
    :language: yaml
 
-The file:`Configuration/Services.yaml` also allows to define a different
-method name for the EventListener class and to influence the order in which
+Additionally, the :file:`Configuration/Services.yaml` file allows to define a different
+method name for the event listener class and to influence the order in which
 events are loaded. See :ref:`EventDispatcherRegistration` for details.
 
 Dispatch an event
 =================
 
-You can dispatch events in your own extension`s code to enable other extensions
+You can dispatch events in your own extension's code to enable other extensions
 to extend your code. Events are the preferred method of making code in TYPO3
 extensions extendable.
 
