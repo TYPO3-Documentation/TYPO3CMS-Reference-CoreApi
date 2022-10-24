@@ -7,7 +7,7 @@
 File structure
 ==============
 
-Lists reserved file and directory names within and extension. Also
+Lists reserved file and directory names within an extension. Also
 lists file names that are used in a certain way by convention.
 
 This chapter should also help you to find your way around in
