@@ -80,7 +80,7 @@ located in the namespace :code:`\Documentation\Examples\Controller`.
 More examples:
 
 .. code-block:: php
-
+    :caption: config/system/additional.php | typo3conf/system/additional.php
     // configure logging ...
 
     // for class \Documentation\Examples\Controller\FalExampleController
