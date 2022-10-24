@@ -274,7 +274,7 @@ Using the Channel
 The name "security" can then be used in the logging configuration:
 
 .. code-block:: php
-    :caption: typo3conf/system/additional.php
+    :caption: config/system/additional.php | typo3conf/system/additional.php
 
     use TYPO3\CMS\Core\Core\Environment;
     use TYPO3\CMS\Core\Log\LogLevel;
