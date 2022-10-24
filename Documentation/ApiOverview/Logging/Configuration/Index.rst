@@ -83,7 +83,7 @@ More examples:
     :caption: config/system/additional.php | typo3conf/system/additional.php
     // configure logging ...
 
-    // for class \Documentation\Examples\Controller\FalExampleController
+    // for class \T3docs\Examples\Controller\FalExampleController
     $GLOBALS['TYPO3_CONF_VARS']['LOG']
         ['Documentation']['Examples']['Controller']['FalExampleController']
         ['writerConfiguration'] = [
