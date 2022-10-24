@@ -16,7 +16,6 @@ Events provided by third-party extensions should be described in the extension's
 manual. You can also search for events by looking for classes that inject the
 :ref:`EventDispatcherInterface`
 
-
 .. _extension-development-event-listener:
 
 Listen to an event
@@ -28,11 +27,10 @@ that accepts an object of the event class as
 argument. It is possible to use another method name but you have to configure
 the name in the :file:`Configuration/Services.yaml` or it is not found.
 
-It is best practice to use a descriptive class name that ends on
-:file:`EventListener` and to put it in the namespace
-:php:`MyVendor\MyExtension\EventListener`.
+It is best practice to use a descriptive class name and to put it in the
+namespace :php:`MyVendor\MyExtension\EventListener`.
 
-.. literalinclude:: _Joh316PasswordInvalidEventListener.php
+.. literalinclude:: _Joh316PasswordInvalidator.php
    :language: php
 
 Then register the event in your extension's :file:`Configuration/Services.yaml`:
