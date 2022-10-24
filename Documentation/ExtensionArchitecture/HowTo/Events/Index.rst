@@ -22,7 +22,7 @@ Listen to an event
 ==================
 
 If you want to use an event provided by the Core or a third-party extension,
-create a PHP class with a method `public __invoke(SomeCoolEvent $event)`
+create a PHP class with a method :php:`__invoke(SomeCoolEvent $event)`
 that accepts an object of the event class as
 argument. It is possible to use another method name but you have to configure
 the name in the :file:`Configuration/Services.yaml` or it is not found.

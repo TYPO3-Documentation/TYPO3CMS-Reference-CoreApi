@@ -3,12 +3,13 @@
 declare(strict_types=1);
 
 namespace MyVendor\MyExtension\EventListener;
+
 use TYPO3\CMS\FrontendLogin\Event\PasswordChangeEvent;
 
 /**
  * The password 'joh316' was historically used as default password for
  * the TYPO3 install tool.
- * Today this password is a unsecure choice as it is well-known, too short
+ * Today this password is an unsecure choice as it is well-known, too short
  * and does not contain capital letters or special characters.
  */
 final class Joh316PasswordInvalidator
