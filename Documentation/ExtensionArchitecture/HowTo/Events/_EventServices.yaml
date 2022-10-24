@@ -5,7 +5,7 @@ services:
     autoconfigure: true
     public: false
   # ...
-  MyVendor\MyExtension\EventListener\Joh316PasswordInvalidEventListener:
+  MyVendor\MyExtension\EventListener\Joh316PasswordInvalidator:
     tags:
       - name: event.listener
-        identifier: 'myJoh316PasswordInvalid'
+        identifier: 'myJoh316PasswordInvalidator'
