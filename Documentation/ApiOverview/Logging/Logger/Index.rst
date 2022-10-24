@@ -290,7 +290,7 @@ The name "security" can then be used in the logging configuration:
             ],
         ];
 
-The written log messages will then have the component name "security", such as:
+The written log messages will then have the component name `"security"`, such as:
 
 .. code-block:: text
     :caption: var/log/security.log
