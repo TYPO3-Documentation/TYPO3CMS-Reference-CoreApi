@@ -143,7 +143,7 @@ size
     :sep:`|`
 
     Desired size of the icon. All values of the :js:`Sizes` enum from
-    :js:`@typo3/backend/enum/icon-types' are allowed,
+    :js:`@typo3/backend/enum/icon-types` are allowed,
     these are:
 
     -   :js:`default`:  1em, to scale with font size
