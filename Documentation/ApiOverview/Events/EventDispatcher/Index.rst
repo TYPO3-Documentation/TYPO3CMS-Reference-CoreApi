@@ -19,6 +19,11 @@ migrate away from previous TYPO3 solutions.
 
 Benni Mack: "Don't get hooked, listen to events! PSR-14 within TYPO3 v10" @ TYPO3 Developer Days 2019
 
+..  hint::
+    For a basic example on listening to an event see chapter
+    :ref:`Listen to an event <extension-development-event-listener>` in the
+    extension development how-to section.
+
 .. youtube:: ElUDMXmV3Ng
 
 .. hint::
@@ -190,6 +195,10 @@ a more robust or future-proof API.
 Implementing an event listener in your extension
 ================================================
 
+..  hint::
+    For a basic example on listening to an event see chapter
+    :ref:`Listen to an event <extension-development-event-listener>` in the
+    extension development how-to section.
 
 .. index::
    Event Listener; Registration
