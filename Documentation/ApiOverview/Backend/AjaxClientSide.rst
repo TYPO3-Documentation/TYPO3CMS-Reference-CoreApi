@@ -3,7 +3,7 @@
 .. _ajax-client-side:
 
 ================================
-Ajax in the Backend, Client side
+Ajax in the backend, client-side
 ================================
 
 ..  todo: Unify with Ajax.rst, which also contains client side ajax information
