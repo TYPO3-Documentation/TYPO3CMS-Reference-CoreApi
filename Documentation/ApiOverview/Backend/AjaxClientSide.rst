@@ -6,7 +6,7 @@
 Ajax in the backend, client-side
 ================================
 
-..  todo: Unify with Ajax.rst, which also contains client side ajax information
+..  todo: Unify with Ajax.rst, which also contains client-side ajax information
     https://github.com/TYPO3-Documentation/TYPO3CMS-Reference-CoreApi/issues/2331
 
 TYPO3 Core ships an API to send ajax requests to the server. This API is based on the `fetch API`_, which is implemented
