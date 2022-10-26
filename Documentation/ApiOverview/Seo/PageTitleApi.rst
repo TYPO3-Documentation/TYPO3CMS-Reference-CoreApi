@@ -115,4 +115,4 @@ record) and, if this providers didn't provide a title, the
 
 You can override these settings within your own installation. You can add as
 many providers as you want. Be aware that if a provider returns a non-empty
-value, all provider with a lower priority won't be checked.
+value, all provider with a lower priority will not be checked.
