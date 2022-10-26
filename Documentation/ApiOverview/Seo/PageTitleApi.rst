@@ -75,7 +75,7 @@ Usage example, for example, in an :ref:`Extbase <extbase>` controller:
 Define priority of PageTitleProviders
 =====================================
 
-The priority of the providers are set by the TypoScript property
+The priority of the providers is set by the TypoScript property
 :typoscript:`config.pageTitleProviders`. This way an integrator is able to set
 the priorities for his project and can even have conditions in place.
 
