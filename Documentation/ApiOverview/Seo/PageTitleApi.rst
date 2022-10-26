@@ -110,7 +110,7 @@ provider. The configuration will be:
     }
 
 First the :php:`SeoTitlePageTitleProvider` (because it will be handled before
-record) and, if this providers didn't provide a title, the
+record) and, if this providers did not provide a title, the
 :php:`RecordPageTitleProvider` will be checked.
 
 You can override these settings within your own installation. You can add as
