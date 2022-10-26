@@ -109,9 +109,9 @@ You can finde the complete example on
 `GitHub, EXT:examples, HaikuSeasonList <https://github.com/TYPO3-Documentation/t3docs-examples/blob/main/Classes/Middleware/HaikuSeasonList.php>`__.
 
 As we do not need a full frontend context with TypoScript the JSON is returned
-by a :ref:`middleware <request-handling>`.
+by a :ref:`PSR-15 middleware <request-handling>`.
 
-Beside other factories needed by our response we inject the
+Beside other factories needed by our response, we inject the
 :ref:`LanguageServiceFactory <LanguageServiceFactory-api>` with
 :ref:`constructor dependency injection <Constructor-injection>`. This example uses
 `constructor property promotion <https://www.php.net/manual/en/language.oop5.decon.php#language.oop5.decon.constructor.promotion>`__
@@ -120,8 +120,8 @@ which was introduced with PHP 8.0.
 ..  include:: _php/_LanguageServiceFactoryDI.rst.txt
 
 The main method :php:`process()` is called with a
-:php:`Psr\Http\Message\ServerRequestInterface` that can be used to detect the
-current language and is therefore passed on the the private method doing the
+:php:`Psr\Http\Message\ServerRequestInterface` as argument that can be used to detect the
+current language and is therefore passed on to the private method :php:`getSeasons()` doing the
 actual translation:
 
 ..  include:: _php/_ProcessMiddleware.rst.txt
