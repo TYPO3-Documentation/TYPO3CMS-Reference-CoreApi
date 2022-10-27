@@ -252,6 +252,7 @@ injection, overwrites possible class attributes:
 
    use Psr\Log\LoggerInterface;
    use TYPO3\CMS\Core\Log\Channel;
+
    class MyClass
    {
      private LoggerInterface $logger;
