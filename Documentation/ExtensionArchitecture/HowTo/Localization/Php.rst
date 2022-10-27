@@ -103,7 +103,7 @@ Provide localized strings via JSON by a middleware
 
 In the following example we use the :ref:`language service API <LanguageService-api>`
 to provide a list of localized season names. This list could then be loaded in
-the frontend via Ajax, where the data to load is dynamically decided.
+the frontend via Ajax.
 
 You can finde the complete example on
 `GitHub, EXT:examples, HaikuSeasonList <https://github.com/TYPO3-Documentation/t3docs-examples/blob/main/Classes/Middleware/HaikuSeasonList.php>`__.
