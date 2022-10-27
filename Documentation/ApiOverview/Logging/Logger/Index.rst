@@ -266,7 +266,7 @@ injection, overwrites possible class attributes:
 
 The instantiated :php:`LoggerInterface` will now have the name "security",
 instead of the default which would be a combination of namespace and class of
-the instantiating class, such as 'Myvendor.Myextension.Service.MyClass".
+the instantiating class, such as `MyVendor.MyExtension.Service.MyClass`.
 
 Using the Channel
 -----------------
