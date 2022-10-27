@@ -29,31 +29,48 @@ The data processor can be configured through a TypoScript setup configuration. A
 custom data processor can be used in the definition of a "new custom content
 element" as follows:
 
-..  code-block:: typoscript
-
-    tt_content {
-        examples_dataproccustom =< lib.contentElement
-        examples_dataproccustom {
-            templateName = DataProcCustom
-            dataProcessing.10 = T3docs\Examples\DataProcessing\CustomCategoryProcessor
-            dataProcessing.10 {
-                as = categories
-                categoryList.field = tx_examples_main_category
-            }
-        }
-    }
+..  include:: /CodeSnippets/DataProcessing/CustomCategoryProcessorTypoScript.rst.txt
 
 In the extension *examples* you can find the code in
-:file:`EXT:examples/Configuration/TypoScript/setup.typoscript`.
+:file:`EXT:examples/Configuration/TypoScript/DataProcessors/Processors/CustomCategoryProcessor.typoscript`.
 
-In the field :typoscript:`tx_examples_main_category` the comma-separated
-categories are stored.
+In the field :typoscript:`categories` the comma-separated categories are stored.
 
 ..  note::
     The custom data processor described here should serve as a simple example.
     It can therefore only work with comma-separated values, not with an m:n
     relationship as used in the field :php:`categories` of tables like
     :sql:`tt_content`. For that, further logic would need to be implemented.
+
+
+..  index::
+    Custom data processor; Alias
+..  _content-elements-custom-data-processor_alias:
+
+Register an alias for the data processor (optional)
+===================================================
+
+.. versionadded:: 12.1
+
+Instead of using the fully-qualified class name as data processor identifier
+(in the example above :php:`T3docs\Examples\DataProcessing\CustomCategoryProcessor`)
+you can also define a short alias in :file:`Configuration/Services.yaml`:
+
+..  code-block:: yaml
+    :caption: EXT:examples/Configuration/Services.yaml
+
+    T3docs\Examples\DataProcessing\CustomCategoryProcessor:
+        tags:
+            - name: 'data.processor'
+              identifier: 'custom-category'
+
+The alias :yaml:`custom-category` can now be used as data processor identifier
+like in the TypoScript example above.
+
+..  note::
+    When registering a data processor alias please be sure you don't override
+    an existing alias (form TYPO3 Core or a third-party extension) as this may
+    cause errors.
 
 
 ..  index::
@@ -88,46 +105,7 @@ The main method :php:`process()` gets called with the following parameters:
 
 This is an example implementation of a custom data processor:
 
-..  code-block:: php
-    :caption: EXT:examples/Classes/DataProcessing/CustomCategoryProcessor.php
-
-    namespace T3docs\Examples\DataProcessing;
-
-    use TYPO3\CMS\Core\Utility\GeneralUtility;
-    use TYPO3\CMS\Frontend\ContentObject\ContentObjectRenderer;
-    use TYPO3\CMS\Frontend\ContentObject\DataProcessorInterface;
-    use TYPO3\CMS\Extbase\Domain\Repository\CategoryRepository;
-
-    class CustomCategoryProcessor implements DataProcessorInterface
-    {
-        public function process(
-            ContentObjectRenderer $cObj,
-            array $contentObjectConfiguration,
-            array $processorConfiguration,
-            array $processedData
-        ) : array {
-            if (isset($processorConfiguration['if.']) && !$cObj->checkIf($processorConfiguration['if.'])) {
-                // leave $processedData unchanged in case there were previous other processors
-                return $processedData;
-            }
-            // categories by comma-separated list
-            $categoryIdList = $cObj->stdWrapValue('categoryList', $processorConfiguration ?? []);
-            if ($categoryIdList) {
-                $categoryIdList = GeneralUtility::intExplode(',', (string)$categoryIdList, true);
-            }
-
-            /** @var CategoryRepository $categoryRepository */
-            $categoryRepository = GeneralUtility::makeInstance(CategoryRepository::class);
-            $categories = [];
-            foreach ($categoryIdList as $categoryId) {
-                $categories[] = $categoryRepository->findByUid($categoryId);
-            }
-            // set the categories into a variable, default "categories"
-            $targetVariableName = $cObj->stdWrapValue('as', $processorConfiguration, 'categories');
-            $processedData[$targetVariableName] = $categories;
-            return $processedData;
-        }
-    }
+..  include:: /CodeSnippets/DataProcessing/CustomCategoryProcessor.rst.txt
 
 In the extension *examples* you can find the code in
 :file:`EXT:/examples/Classes/DataProcessing/CustomCategoryProcessor.php`.
@@ -140,7 +118,7 @@ Since the field :php:`categoryList` got configured in TypoScript as follows:
 
 ..  code-block:: typoscript
 
-    categoryList.field = tx_examples_main_category
+    categoryList.field = categories
 
 :ref:`stdWrap <t3tsref:stdwrap>` fetches the value of :php:`categoryList` from
 :sql:`tt_content.tx_examples_main_category` of the currently calling content
