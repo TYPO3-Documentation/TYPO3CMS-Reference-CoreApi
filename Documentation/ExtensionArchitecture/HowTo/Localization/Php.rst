@@ -113,9 +113,7 @@ by a :ref:`PSR-15 middleware <request-handling>`.
 
 Beside other factories needed by our response, we inject the
 :ref:`LanguageServiceFactory <LanguageServiceFactory-api>` with
-:ref:`constructor dependency injection <Constructor-injection>`. This example uses
-`constructor property promotion <https://www.php.net/manual/en/language.oop5.decon.php#language.oop5.decon.constructor.promotion>`__
-which was introduced with PHP 8.0.
+:ref:`constructor dependency injection <Constructor-injection>`. 
 
 ..  include:: _php/_LanguageServiceFactoryDI.rst.txt
 
