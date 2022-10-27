@@ -274,7 +274,7 @@ the instantiating class, such as `MyVendor.MyExtension.Service.MyClass`.
 Using the Channel
 -----------------
 
-The name "security" can then be used in the logging configuration:
+The channel "security" can then be used in the logging configuration:
 
 .. code-block:: php
     :caption: config/system/additional.php | typo3conf/system/additional.php
