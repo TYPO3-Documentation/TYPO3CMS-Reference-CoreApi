@@ -114,6 +114,9 @@ Middleware examples
 
 The following list shows typical use cases for middlewares.
 
+*   :ref:`A middleware to return a JSON response with localized
+    strings <example-localization-middleware>`.
+
 
 .. index:: Request handling; Custom response
 .. _request-handling-returning-custom-response:
