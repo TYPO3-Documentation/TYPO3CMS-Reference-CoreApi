@@ -232,6 +232,7 @@ Registration via class attribute for :php:`LoggerInterface` injection:
 
    use Psr\Log\LoggerInterface;
    use TYPO3\CMS\Core\Log\Channel;
+
    #[Channel('security')]
    class MyClass
    {
