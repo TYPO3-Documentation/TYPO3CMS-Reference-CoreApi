@@ -81,6 +81,7 @@ More examples:
 
 .. code-block:: php
     :caption: config/system/additional.php | typo3conf/system/additional.php
+
     // configure logging ...
 
     // for class \T3docs\Examples\Controller\FalExampleController
