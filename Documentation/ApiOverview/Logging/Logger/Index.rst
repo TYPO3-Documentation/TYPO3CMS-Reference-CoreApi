@@ -227,6 +227,7 @@ and the classic component name will be used instead.
 Registration via class attribute for :php:`LoggerInterface` injection:
 
 .. code-block:: php
+   :caption: EXT:my_extension/Classes/Service/MyClass.php
 
    namespace Myvendor\Myextension\Service\MyClass;
 
