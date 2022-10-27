@@ -288,7 +288,7 @@ The name "security" can then be used in the logging configuration:
         ['writerConfiguration'] = [
             LogLevel::DEBUG => [
                 FileWriter::class => [
-                    'logFile' => Environment::getVarPath() . '/log/' . 'security.log'
+                    'logFile' => Environment::getVarPath() . '/log/security.log'
                 ]
             ],
         ];
