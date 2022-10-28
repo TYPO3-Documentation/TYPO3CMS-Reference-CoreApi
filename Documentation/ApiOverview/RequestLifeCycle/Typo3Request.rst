@@ -123,7 +123,7 @@ Example:
     $locale = $language->getLocale();
 
 
-..  todo::
+..  todo:
     Add API as code snippet.
 
 
