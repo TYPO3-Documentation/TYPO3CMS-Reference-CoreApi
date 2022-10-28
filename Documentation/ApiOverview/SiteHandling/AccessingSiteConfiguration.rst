@@ -24,7 +24,7 @@ Let's look at both cases in detail:
 Accessing the current site object
 =================================
 
-When rendering the frontend or backend TYPO3 builds a HTTP request object
+When rendering the frontend or backend, TYPO3 builds an HTTP request object
 through a `PSR-15` middleware stack and enriches that with information.
 Part of that information are the :php:`Site` and :php:`SiteLanguage` objects. Both
 objects are available as attributes on the current request object.
@@ -35,7 +35,7 @@ Depending on the context, there are two main ways to access them:
   or the admin panel
 * via :php:`$GLOBALS['TYPO3_REQUEST']` - everywhere you don't have a ServerRequest object
 
-.. hint::
+..  hint::
     The first method is preferred if possible as :php:`$GLOBALS['TYPO3_REQUEST']` was
     deprecated in 9.2 and will be removed in future versions.
 
@@ -51,11 +51,10 @@ Methods:
    $siteLanguage = $request->getAttribute('language');
 
 
-.. warning::
-    The `PSR-7` Request and the Extbase request are different things. You cannot
-    access the site configuration via the Extbase request. When in Extbase context
-    use the global access - a better way will be introduced in future versions.
-
+..  versionchanged:: 11.3
+    Since TYPO3 v11.3 the :ref:`Extbase <extbase>` request class implements the
+    PSR-7 :php:`\Psr\Http\Message\ServerRequestInterface`. Therefore you can
+    retrieve all needed attributes from the request object.
 
 .. index:: pair: Site handling; SiteFinder
 
