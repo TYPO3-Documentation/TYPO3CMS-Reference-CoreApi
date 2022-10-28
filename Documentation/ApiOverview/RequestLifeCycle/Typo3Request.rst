@@ -30,7 +30,7 @@ in another, official way. The global object is scheduled to vanish at a later
 point once the code has been refactored enough to not rely on it anymore.
 
 
-..  todo::
+..  todo:
     Add information on how to retrieve the request object from different
     scenarios (Extbase controller, data processor, USER function, backend
     controller, etc, and global variable as last resort).
