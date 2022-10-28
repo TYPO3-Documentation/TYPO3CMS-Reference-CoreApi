@@ -216,7 +216,7 @@ Example:
     $pageId = $pageArguments->getPageId();
 
 
-..  todo::
+..  todo:
     Add API as code snippet.
 
 
