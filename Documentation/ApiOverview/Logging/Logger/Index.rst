@@ -229,7 +229,7 @@ Registration via class attribute for :php:`LoggerInterface` injection:
 .. code-block:: php
    :caption: EXT:my_extension/Classes/Service/MyClass.php
 
-   namespace Myvendor\Myextension\Service\MyClass;
+   namespace MyVendor\MyExtension\Service\MyClass;
 
    use Psr\Log\LoggerInterface;
    use TYPO3\CMS\Core\Log\Channel;
