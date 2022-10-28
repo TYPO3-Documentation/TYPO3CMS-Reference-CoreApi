@@ -249,6 +249,7 @@ Registration via parameter attribute for :php:`LoggerInterface`
 injection, overwrites possible class attributes:
 
 .. code-block:: php
+   :caption: EXT:my_extension/Service/MyClass.php
 
    namespace Myvendor\Myextension\Service\MyClass;
 
