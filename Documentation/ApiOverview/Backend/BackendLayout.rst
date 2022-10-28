@@ -227,7 +227,7 @@ In the Fluid template the column positions can be accessed now via content mappi
 Reference implementations of backend layouts
 ============================================
 
-The extension :t3ext:`bootstrap_package/` ships several
+The extension :t3ext:`bootstrap_package` ships several
 `Backend layouts <https://github.com/benjaminkott/bootstrap_package/tree/1b00a01e362d2460af92f754ee10e507edb70568/Configuration/TsConfig/Page/Mod/WebLayout/BackendLayouts>`__
 as well as an example configuration of how to include frontend templates for backend layouts (see its
 `setup.typoscript <https://github.com/benjaminkott/bootstrap_package/blob/1b00a01e362d2460af92f754ee10e507edb70568/Configuration/TypoScript/setup.typoscript#L99-L113>`__)
@@ -240,8 +240,8 @@ Extensions for backend layouts
 
 In many cases besides defining fixed backend layouts a more modular approach with the possibility of combining different
 backend layouts and frontend layouts may be feasible. The extension
-:t3ext:`gridelements/`
+:t3ext:`gridelements`
 integrates the grid layout concept also to regular content elements.
 
-The extension :t3ext:`content_defender/` offers advanced options to
+The extension :t3ext:`content_defender` offers advanced options to
 the column positions i.e. allowed or disallowed content elements, a maximal number of contend elements.

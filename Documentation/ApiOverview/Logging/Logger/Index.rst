@@ -266,7 +266,7 @@ Examples
 ========
 
 Examples of the usage of the Logger can be found in the extension
-:t3ext:`examples/`. in file
+:t3ext:`examples`. in file
 :file:`/Classes/Controller/ModuleController.php`
 
 
