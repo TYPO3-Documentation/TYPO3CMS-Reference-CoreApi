@@ -251,7 +251,7 @@ injection, overwrites possible class attributes:
 .. code-block:: php
    :caption: EXT:my_extension/Service/MyClass.php
 
-   namespace Myvendor\Myextension\Service\MyClass;
+   namespace MyVendor\MyExtension\Service\MyClass;
 
    use Psr\Log\LoggerInterface;
    use TYPO3\CMS\Core\Log\Channel;
