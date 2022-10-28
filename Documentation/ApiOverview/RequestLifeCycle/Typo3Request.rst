@@ -237,5 +237,5 @@ Example:
     $site = $request->getAttribute('site');
     $siteConfiguration = $site->getConfiguration();
 
-..  todo::
+..  todo:
     Add API as code snippet.
