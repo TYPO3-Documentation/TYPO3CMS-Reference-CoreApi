@@ -71,8 +71,9 @@ Perl-compatible regular expression that (if it matches a file name) will prevent
 TYPO3 from accessing or processing this file (deny uploading, renaming, etc).
 For security reasons, PHP files as well as Apache's :file:`.htaccess` file
 should be included in this regular expression string. The default value is:
-:php:`\\.(php[3-7]?|phpsh|phtml|pht)(\\..*)?$|^\\.htaccess$`, initially defined
-in constant :php:`FILE_DENY_PATTERN_DEFAULT`.
+:php:`\\.(php[3-8]?|phpsh|phtml|pht|phar|shtml|cgi)(\\..*)?$|\\.pl$|^\\.htaccess$`,
+initially defined in constant
+:php:`\TYPO3\CMS\Core\Resource\Security\FileNameValidator::FILE_DENY_PATTERN_DEFAULT`.
 
 There are only a very few scenarios imaginable where it makes sense to
 allow access to those files. In most cases backend users such as
