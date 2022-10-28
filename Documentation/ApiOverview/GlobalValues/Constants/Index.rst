@@ -62,32 +62,14 @@ Security related constant
 FILE_DENY_PATTERN_DEFAULT
 -------------------------
 
-Default value of fileDenyPattern.
+Default value of :ref:`$GLOBALS['TYPO3_CONF_VARS']['BE']['fileDenyPattern']
+<typo3ConfVars_be_fileDenyPattern>`.
 
 Defined in:
-   :php:`SystemEnvironmentBuilder::defineBaseConstants()`
+   :php:`\TYPO3\CMS\Core\Resource\Security\FileNameValidator::FILE_DENY_PATTERN_DEFAULT`
 
 Example:
-   :php:`'\\.(php[3-7]?|phpsh|phtml|pht|phar|shtml|cgi)(\\..*)?$|\\.pl$|^\\.htaccess$'`
-
-Available in Frontend:
-   Yes
-
-
-.. index::
-   Security; PHP_EXTENSIONS_DEFAULT
-   Constants; PHP_EXTENSIONS_DEFAULT
-
-PHP_EXTENSIONS_DEFAULT
-----------------------
-
-List of file extensions that should be registered as php script file extensions.
-
-Defined in:
-   :php:`SystemEnvironmentBuilder::defineBaseConstants()`
-
-Example:
-   :php:`'php,php3,php4,php5,php6,php7,phpsh,inc,phtml,pht,phar'`
+   :php:`\\.(php[3-8]?|phpsh|phtml|pht|phar|shtml|cgi)(\\..*)?$|\\.pl$|^\\.htaccess$`
 
 Available in Frontend:
    Yes
