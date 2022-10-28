@@ -314,8 +314,8 @@ make sure the paths are setup as described in :ref:`mail-configuration-fluid`:
 
    $email = GeneralUtility::makeInstance(FluidEmail::class);
    $email
-       ->to('contact@acme.com')
-       ->from(new Address('jeremy@acme.com', 'Jeremy'))
+       ->to('contact@example.org')
+       ->from(new Address('jeremy@example.org', 'Jeremy'))
        ->subject('TYPO3 loves you - here is why')
        ->format('both') // send HTML and plaintext mail
        ->setTemplate('TipsAndTricks')
@@ -341,7 +341,7 @@ and use this within the Fluid template:
 
    $email = GeneralUtility::makeInstance(FluidEmail::class);
    $email
-       ->to('contact@acme.com')
+       ->to('contact@example.org')
        ->assign('language', 'de');
 
 In Fluid, you can now use the defined language key ("language"):
@@ -374,8 +374,8 @@ Send email with `MailMessage`
 
       // Set the "To" addresses
       ->to(
-         new \Symfony\Component\Mime\Address('receiver@example.com', 'Max Mustermann'),
-         new \Symfony\Component\Mime\Address('other@example.net')
+         new \Symfony\Component\Mime\Address('receiver@example.org', 'Max Mustermann'),
+         new \Symfony\Component\Mime\Address('other@example.org')
       )
 
       // Give the message a subject
@@ -408,8 +408,8 @@ Or if you prefer, don't concatenate the calls:
    $mail = GeneralUtility::makeInstance(MailMessage::class);
    $mail->from(new Address('john.doe@example.org', 'John Doe'));
    $mail->to(
-      new Address('receiver@example.com', 'Max Mustermann'),
-      new Address('other@example.net')
+      new Address('receiver@example.org', 'Max Mustermann'),
+      new Address('other@example.org')
    );
    $mail->subject('Your subject');
    $mail->text('Here is the message itself');
