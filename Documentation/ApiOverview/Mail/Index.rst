@@ -324,8 +324,8 @@ sure the paths are setup as described in :ref:`mail-configuration-fluid`:
 
     $email = GeneralUtility::makeInstance(FluidEmail::class);
     $email
-        ->to('contact@acme.com')
-        ->from(new Address('jeremy@acme.com', 'Jeremy'))
+        ->to('contact@example.com')
+        ->from(new Address('jeremy@example.com', 'Jeremy'))
         ->subject('TYPO3 loves you - here is why')
         ->format('both') // send HTML and plaintext mail
         ->setTemplate('TipsAndTricks')
@@ -358,7 +358,7 @@ and use this within the Fluid template:
 
     $email = GeneralUtility::makeInstance(FluidEmail::class);
     $email
-        ->to('contact@acme.com')
+        ->to('contact@example.com')
         ->assign('language', 'de');
 
 In Fluid, you can now use the defined language key ("language"):
