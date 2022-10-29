@@ -11,6 +11,9 @@ TYPO3 request object
 The TYPO3 request object is an implementation of the PSR-7 based
 `\Psr\Http\Message\ServerRequestInterface` containing TYPO3-specific attributes.
 
+..  seealso::
+    `PSR-7: HTTP message interfaces <https://www.php-fig.org/psr/psr-7/>`__
+
 .. contents::
    :local:
 
