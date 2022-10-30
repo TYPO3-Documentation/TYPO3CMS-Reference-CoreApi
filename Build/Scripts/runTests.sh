@@ -36,7 +36,7 @@ a recent docker-compose (tested >=1.21.2) is needed.
 
 Usage: $0 [options] [file]
 
-No arguments: Run all unit tests with PHP 8.1
+No arguments: Run all checks with PHP 8.1
 
 Options:
     -s <...>
@@ -64,7 +64,7 @@ Options:
         Show this help.
 
 Examples:
-    # Run unit tests using PHP 8.1
+    # Run checks using PHP 8.1
     ./Build/Scripts/runTests.sh
 EOF
 
