@@ -41,20 +41,29 @@ The request object compatible with the PSR-7
 ..  code-block:: php
     :caption: EXT:my_extension/Classes/Controller/MyController.php
 
-    public function myAction(): ServerResponseInterface
+    use Psr\Http\Message\ResponseInterface;
+    use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
+
+    final class MyController extends ActionController
     {
         // ...
 
-        // Retrieve the language attribute via the request object
-        $language = $this->request->getAttribute('language');
+        public function myAction(): ResponseInterface
+        {
+            // ...
 
-        // ...
+            // Retrieve the language attribute via the request object
+            $language = $this->request->getAttribute('language');
+
+            // ...
+        }
     }
 
-Prior to TYPO3 v11.3, a custom Extbase request object is available that does not
-adhere to the PSR-7 standard. If you need the PSR-7 compatible request object
-in an older version you have to use the :ref:`global variable
-<typo3-request-global-variable>`.
+..  note::
+    Prior to TYPO3 v11.3, a custom Extbase request object is available that does
+    not adhere to the PSR-7 standard. If you want to stay compatible with
+    TYPO3 v10 and TYPO3 v11 you have to use the :ref:`global variable
+    <typo3-request-global-variable>`.
 
 
 User function
@@ -66,17 +75,22 @@ is available as third parameter of the called class method:
 ..  code-block:: php
     :caption: EXT:my_extension/Classes/UserFunction/MyUserFunction.php
 
-    public function doSomething(
-        string $content,
-        array $conf,
-        ServerRequestInterface $request
-    ): string {
-        // ...
+    use Psr\Http\Message\ServerRequestInterface;
 
-        // Retrieve the language attribute via the request object
-        $language = $request->getAttribute('language');
+    final class MyUserFunction
+    {
+        public function doSomething(
+            string $content,
+            array $conf,
+            ServerRequestInterface $request
+        ): string {
+            // ...
 
-        // ...
+            // Retrieve the language attribute via the request object
+            $language = $request->getAttribute('language');
+
+            // ...
+        }
     }
 
 
@@ -84,21 +98,28 @@ Data processor
 --------------
 
 A :ref:`data processor <content-elements-custom-data-processor>` receives a
-reference to the :php:`ContentObjectRenderer` as first argument for the
-:php:`process()` method. This object provides a :php:`getRequest()` method:
+reference to the :php:`\TYPO3\CMS\Frontend\ContentObject\ContentObjectRenderer`
+as first argument for the :php:`process()` method. This object provides a
+:php:`getRequest()` method:
 
 ..  code-block:: php
     :caption: EXT:my_extension/Classes/DataProcessing/MyProcessor.php
 
-    public function process(
-        ContentObjectRenderer $cObj,
-        array $contentObjectConfiguration,
-        array $processorConfiguration,
-        array $processedData
-    ): array {
-        $request = $cObj->getRequest();
+    use TYPO3\CMS\Frontend\ContentObject\ContentObjectRenderer;
+    use TYPO3\CMS\Frontend\ContentObject\DataProcessorInterface;
 
-        // ...
+    final class MyProcessor implements DataProcessorInterface
+    {
+        public function process(
+            ContentObjectRenderer $cObj,
+            array $contentObjectConfiguration,
+            array $processorConfiguration,
+            array $processedData
+        ): array {
+            $request = $cObj->getRequest();
+
+            // ...
+        }
     }
 
 
@@ -140,7 +161,7 @@ The attributes can be retrieved via
     // Get all available attributes
     $allAttributes = $request->getAttributes();
 
-    // Get only a specific attribute, here about the site in frontend
+    // Get only a specific attribute, here the site entity in frontend context
     $site = $request->getAttribute('site');
 
 The request object is also available as a global variable in
