@@ -1,4 +1,5 @@
 <?php
+
 // EXT:my_extension/Classes/EventListener/Joh316PasswordInvalidator.php
 declare(strict_types=1);
 
