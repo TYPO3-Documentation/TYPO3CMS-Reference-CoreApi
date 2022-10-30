@@ -33,7 +33,7 @@ These two files will be included via
 .. code-block:: php
    :caption: EXT:my_extension/Configuration/TCA/Overrides/sys_template.php
 
-   use TYPO3\CMS\Core\Utility\ExtensionManagementUtility:
+   use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
 
    ExtensionManagementUtility::addStaticFile(
        'my_extension',
@@ -69,7 +69,7 @@ for each folder that should be available in the TypoScript template record:
 .. code-block:: php
    :caption: EXT:my_extension/Configuration/TCA/Overrides/sys_template.php
 
-   use TYPO3\CMS\Core\Utility\ExtensionManagementUtility:
+   use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
 
    ExtensionManagementUtility::addStaticFile(
        'my_extension',
