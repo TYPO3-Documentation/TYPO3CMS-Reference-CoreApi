@@ -34,7 +34,9 @@ matter; you only need it to get the form token for verifying it.
 
 ..  code-block:: php
 
-    $formToken = \TYPO3\CMS\Core\FormProtection\FormProtectionFactory::get()
+    // use TYPO3\CMS\Core\FormProtection\FormProtectionFactory;
+
+    $formToken = FormProtectionFactory::get()
         ->generateToken('BE user setup', 'edit')
     );
     $this->content .= '<input type="hidden" name="formToken" value="' . $formToken . '">';
@@ -49,7 +51,9 @@ For editing a :sql:`tt_content` record, the call could look like this:
 
 ..  code-block:: php
 
-    $formToken = \TYPO3\CMS\Core\FormProtection\FormProtectionFactory::get()
+    // use TYPO3\CMS\Core\FormProtection\FormProtectionFactory;
+
+    $formToken = FormProtectionFactory::get()
         ->generateToken('tt_content', 'edit', $uid);
 
 Finally, you need to persist the tokens. This makes sure that
@@ -57,7 +61,9 @@ generated tokens get saved, and also that removed tokens stay removed:
 
 ..  code-block:: php
 
-    \TYPO3\CMS\Core\FormProtection\FormProtectionFactory::get()
+    // use TYPO3\CMS\Core\FormProtection\FormProtectionFactory;
+
+    FormProtectionFactory::get()
         ->persistTokens();
 
 In backend lists, it might be necessary to generate hundreds of tokens.
@@ -69,9 +75,12 @@ you can check that the form token is valid like this:
 
 ..  code-block:: php
 
+    // use TYPO3\CMS\Core\FormProtection\FormProtectionFactory;
+    // use TYPO3\CMS\Core\Utility\GeneralUtility;
+
     if ($dataHasBeenSubmitted &&
-        \TYPO3\CMS\Core\FormProtection\FormProtectionFactory::get()->validateToken(
-            (string) \TYPO3\CMS\Core\Utility\GeneralUtility::_POST('formToken'),
+        FormProtectionFactory::get()->validateToken(
+            (string) GeneralUtility::_POST('formToken'),
             'BE user setup',
             'edit'
         ) ) {
@@ -87,7 +96,7 @@ you can check that the form token is valid like this:
     So calling the validation with the same parameters twice in a row will
     always return :php:`false` for the second call.
 
-..  important::
+..  attention::
     The tokens must be validated **before** the tokens are persisted. This
     makes sure that the tokens, that get invalidated by :php:`validateToken()`
     cannot be used again.
@@ -106,7 +115,8 @@ you only need it to get the form token for verifying it.
 
 ..  code-block:: php
 
-    $formToken = $this->formProtection->generateToken('installToolPassword', 'change');
+    $formToken = $this->formProtection
+        ->generateToken('installToolPassword', 'change');
     // then puts the generated form token in a hidden field in the template
 
 The three parameters :php:`$formName`, :php:`$action` (optional) and
@@ -145,7 +155,7 @@ the form token is valid like this:
     So calling the validation with the same parameters twice in a row will
     always return :php:`false` for the second call.
 
-..  important::
+..  attention::
     The tokens must be validated **before** the tokens are persisted. This makes
     sure that the tokens that get invalidated by :php:`validateToken()` cannot
     be used again.
@@ -160,12 +170,15 @@ Usage is the same as in :ref:`backend context <csrf-backend>`:
 
 ..  code-block:: php
 
-    $formToken = \TYPO3\CMS\Core\FormProtection\FormProtectionFactory::get()
-        ->getFormProtection()->generateToken('news', 'edit', $uid);
+    // use TYPO3\CMS\Core\FormProtection\FormProtectionFactory;
+    // use TYPO3\CMS\Core\Utility\GeneralUtility;
+
+    $formToken = FormProtectionFactory::get()
+        ->generateToken('news', 'edit', $uid);
 
 	if ($dataHasBeenSubmitted
-		&& \TYPO3\CMS\Core\FormProtection\FormProtectionFactory::get()->validateToken(
-			\TYPO3\CMS\Core\Utility\GeneralUtility::_POST('formToken'),
+		&& FormProtectionFactory::get()->validateToken(
+			GeneralUtility::_POST('formToken'),
 			'news',
 			'edit',
 			$uid
@@ -183,7 +196,7 @@ Usage is the same as in :ref:`backend context <csrf-backend>`:
     calling the validation with the same parameters twice in a row will always
     return :php:`false` for the second call.
 
-..  important::
+..  attention::
     The tokens must be validated **before** the tokens are persisted. This makes
     sure that the tokens that get invalidated by :php:`validateToken()` cannot
     be used again.
