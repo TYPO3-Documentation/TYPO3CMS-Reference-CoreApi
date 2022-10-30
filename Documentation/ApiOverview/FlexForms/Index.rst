@@ -29,7 +29,7 @@ to use input fields, select lists, show options conditionally and more.
 
 ..  versionchanged:: 12.0
     The superfluous array key `TCEforms` was removed and is not evaluated
-    anymore. Its sole purpose was to wrap real TCA definitions. The `TCEforms` tags **should** 
+    anymore. Its sole purpose was to wrap real TCA definitions. The `TCEforms` tags **should**
     be removed upon dropping TYPO3 v11 support. In TYPO3 v12 there is an automatic migration
     that will be removed in a future version.
 
@@ -60,6 +60,16 @@ How it works
 #. The extension can read current configuration and act according to
    the configuration.
 
+
+..  tip::
+    The data structure of a FlexForm may change over time. Also, when switching
+    from one plugin with a FlexForm to another plugin with a FlexForm in an
+    element, the old values are not removed in the FlexForm field. This
+    may cause problems and errors. You can avoid this by calling the
+    :ref:`CLI <symfony-console-commands>` command `cleanup:flexforms` which is
+    provided by the :doc:`lowlevel system extension <ext_lowlevel:Index>`. It
+    updates all database records which have a FlexForm field and the XML data
+    does not match the chosen data structure.
 
 Steps to perform (extension developer)
 ======================================
