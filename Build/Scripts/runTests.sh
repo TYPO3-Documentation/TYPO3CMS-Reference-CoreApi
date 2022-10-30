@@ -42,6 +42,7 @@ Options:
     -s <...>
         Specifies which test suite to run
             - cgl: cgl test and fix all php files
+            - composerUpdate: "composer update", handy if host has no PHP
             - lint: PHP linting
             - rector: Apply Rector rules
 
@@ -152,6 +153,12 @@ case ${TEST_SUITE} in
         fi
         setUpDockerComposeDotEnv
         docker-compose run cgl
+        SUITE_EXIT_CODE=$?
+        docker-compose down
+        ;;
+    composerUpdate)
+        setUpDockerComposeDotEnv
+        docker-compose run composer_update
         SUITE_EXIT_CODE=$?
         docker-compose down
         ;;
