@@ -32,6 +32,9 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
 
+      - name: Install testing system
+        run: Build/Scripts/runTests.sh -p ${{ env.php }} -s composerUpdate
+
       - name: CGL
         run: Build/Scripts/runTests.sh -n -p ${{ env.php }} -s cgl
 
