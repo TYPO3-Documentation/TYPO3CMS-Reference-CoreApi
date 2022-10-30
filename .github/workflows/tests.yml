@@ -7,7 +7,7 @@ on:
 jobs:
   testsuite:
     name: all tests
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-22.04
     strategy:
       # This prevents cancellation of matrix job runs, if one or more already failed
       # and let the remaining matrix jobs be be executed anyway.
