@@ -59,6 +59,16 @@ How it works
    the configuration.
 
 
+..  tip::
+    The data structure of a FlexForm may change over time. Also, when switching
+    from one plugin with a FlexForm to another plugin with a FlexForm in an
+    element, the old values are not removed in the FlexForm field. This
+    may cause problems and errors. You can avoid this by calling the
+    :ref:`CLI <symfony-console-commands>` command `cleanup:flexforms` which is
+    provided by the :doc:`lowlevel system extension <ext_lowlevel:Index>`. It
+    updates all database records which have a FlexForm field and the XML data
+    does not match the chosen data structure.
+
 Steps to perform (extension developer)
 ======================================
 
