@@ -218,4 +218,4 @@ Examples
 ========
 
 Working examples of the usage of different Log writers can be found in the extension
-:t3ext:`examples/`.
+:t3ext:`examples`.

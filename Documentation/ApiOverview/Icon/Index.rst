@@ -19,7 +19,7 @@ Registration
 All icons must be registered in the :php:`IconRegistry`.
 To register icons for your own extension, create a file called
 :file:`Configuration/Icons.php` in your extension - for example:
-:file:`EXT:/my_extension/Configuration/Icons.php`.
+:file:`EXT:my_extension/Configuration/Icons.php`.
 
 .. note::
 
@@ -43,10 +43,9 @@ The TYPO3 Core ships two icon providers which can be used straight away:
 * :php:`SvgIconProvider` – For SVG icons
 
 .. versionchanged:: 12.0
-   The :php:`FontawesomeIconProvider` has been available since version 11.5 and
+   The :php:`FontawesomeIconProvider` has been available since version 7.5 and
    was removed from the Core in 12.0. You can use the polyfill extension from
-   `friendsoftypo3/fontawesome-provider <https://github.com/friendsoftypo3/fontawesome-provider>`__
-   which is also compatible with TYPO3 v11.
+   :t3ext:`fontawesome_provider` which is also compatible with TYPO3 v11 LTS.
 
 If require need a custom icon provider, you can add your own by writing a
 class which implements the :php:`IconProviderInterface`.

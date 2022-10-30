@@ -818,7 +818,8 @@ fileDenyPattern
    handler in an arbitrary position. Also, ".htaccess" files have to be denied.
    Matching is done case-insensitive.
 
-   Default value is stored in PHP constant :php:`FILE_DENY_PATTERN_DEFAULT`
+   Default value is stored in class constant
+   :php:`\TYPO3\CMS\Core\Resource\Security\FileNameValidator::FILE_DENY_PATTERN_DEFAULT`.
 
    Have also a look into the :ref:`security guidelines
    <security-global-typo3-options-fileDenyPattern>`.
