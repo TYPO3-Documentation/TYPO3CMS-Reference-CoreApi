@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace MyVendor\MyExtension\Utility;
@@ -11,7 +12,6 @@ use TYPO3\CMS\Core\Utility\GeneralUtility;
  */
 final class MyUtility
 {
-
     private static function translateSomething(string $lll): string
     {
         $languageServiceFactory = GeneralUtility::makeInstance(

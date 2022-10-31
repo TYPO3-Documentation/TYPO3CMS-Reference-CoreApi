@@ -12,7 +12,7 @@ return [
         'action' => 'createPhpClassCodeSnippet',
         'class' => T3docs\Examples\Command\CreateWizardCommand::class,
         'members' => [
-            'configure'
+            'configure',
         ],
         'targetFileName' => 'CodeSnippets/Tutorials/Command/Classes/CreateWizardCommandConfiguration.rst.txt',
     ],
@@ -20,7 +20,7 @@ return [
         'action' => 'createPhpClassCodeSnippet',
         'class' => T3docs\Examples\Command\CreateWizardCommand::class,
         'members' => [
-            'execute'
+            'execute',
         ],
         'targetFileName' => 'CodeSnippets/Tutorials/Command/Classes/CreateWizardCommandExecute.rst.txt',
     ],
@@ -28,7 +28,7 @@ return [
         'action' => 'createPhpClassCodeSnippet',
         'class' => T3docs\Examples\Command\CreateWizardCommand::class,
         'members' => [
-            'doMagic'
+            'doMagic',
         ],
         'targetFileName' => 'CodeSnippets/Tutorials/Command/Classes/CreateWizardCommandIo.rst.txt',
     ],
@@ -36,7 +36,7 @@ return [
         'action' => 'createPhpClassCodeSnippet',
         'class' => T3docs\Examples\Command\MeowInformationCommand::class,
         'members' => [
-            '__construct'
+            '__construct',
         ],
         'targetFileName' => 'CodeSnippets/Tutorials/Command/Classes/DependencyInjection.rst.txt',
     ],

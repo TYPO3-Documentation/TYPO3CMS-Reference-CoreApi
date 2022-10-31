@@ -5,7 +5,7 @@ return [
         'action' => 'createPhpClassCodeSnippet',
         'class' => \T3docs\Examples\Middleware\HaikuSeasonList::class,
         'members' => [
-            '__construct'
+            '__construct',
         ],
         'withComment' => true,
         'withClassComment' => true,
@@ -16,7 +16,7 @@ return [
         'class' => \T3docs\Examples\Middleware\HaikuSeasonList::class,
         'members' => [
             'URL_SEGMENT',
-            'process'
+            'process',
         ],
         'withComment' => true,
         'withClassComment' => false,
@@ -28,7 +28,7 @@ return [
         'members' => [
             'SEASONS',
             'TRANSLATION_PATH',
-            'getSeasons'
+            'getSeasons',
         ],
         'withComment' => true,
         'withClassComment' => false,

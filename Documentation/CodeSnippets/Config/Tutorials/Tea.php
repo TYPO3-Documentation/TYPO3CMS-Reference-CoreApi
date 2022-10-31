@@ -18,7 +18,7 @@ return [
             '"extra"/"typo3/cms"/"extension-key"',
         ],
         'inlineLevel' => 3,
-        'targetFileName' => 'CodeSnippets/Tutorials/Tea/ComposerJsonSimplified.rst.txt'
+        'targetFileName' => 'CodeSnippets/Tutorials/Tea/ComposerJsonSimplified.rst.txt',
     ],
     [
         'action' => 'createJsonCodeSnippet',
@@ -30,13 +30,13 @@ return [
         ],
         'inlineLevel' => 3,
         'emphasize-lines' => 5,
-        'targetFileName' => 'CodeSnippets/Tutorials/Tea/ComposerJsonAutoload.rst.txt'
+        'targetFileName' => 'CodeSnippets/Tutorials/Tea/ComposerJsonAutoload.rst.txt',
     ],
     [
         'action' => 'createCodeSnippet',
         'caption' => 'EXT:tea/ext_emconf.php',
         'sourceFile' => 'EXT:tea/ext_emconf.php',
-        'targetFileName' => 'CodeSnippets/Tutorials/Tea/ExtEmconf.rst.txt'
+        'targetFileName' => 'CodeSnippets/Tutorials/Tea/ExtEmconf.rst.txt',
     ],
     [
         'action' => 'createCodeSnippet',
@@ -83,7 +83,7 @@ return [
         'members' => [
             'title',
             'description',
-            'image'
+            'image',
         ],
         'withComment' => true,
         'withClassComment' => true,
@@ -95,7 +95,7 @@ return [
         'members' => [
             'title',
             'getTitle',
-            'setTitle'
+            'setTitle',
         ],
         'withComment' => false,
         'withClassComment' => false,
@@ -107,7 +107,7 @@ return [
         'members' => [
             'image',
             'getImage',
-            'setImage'
+            'setImage',
         ],
         'withComment' => true,
         'withClassComment' => false,
@@ -119,7 +119,7 @@ return [
         'members' => [
             'image',
             'getImage',
-            'setImage'
+            'setImage',
         ],
         'withComment' => true,
         'withClassComment' => false,
@@ -142,7 +142,7 @@ return [
         'class' => TTN\Tea\Controller\TeaController::class,
         'members' => [
             'teaRepository',
-            'injectTeaRepository'
+            'injectTeaRepository',
         ],
         'targetFileName' => 'CodeSnippets/Tutorials/Tea/Classes/Domain/Repository/InjectRepository.rst.txt',
     ],
@@ -151,7 +151,7 @@ return [
         'class' => TTN\Tea\Controller\TeaController::class,
         'members' => [
             'teaRepository',
-            'indexAction'
+            'indexAction',
         ],
         'targetFileName' => 'CodeSnippets/Tutorials/Tea/Classes/Domain/Repository/UseRepository.rst.txt',
     ],

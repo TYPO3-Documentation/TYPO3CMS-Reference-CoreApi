@@ -1,13 +1,11 @@
 <?php
 
-use TYPO3\CMS\Extbase\DomainObject\AbstractEntity;
-
 return [
     [
         'action' => 'createCodeSnippet',
         'caption' => 'EXT:styleguide/Configuration/FlexForms/Simple.xml',
         'sourceFile' => 'EXT:styleguide/Configuration/FlexForms/Simple.xml',
-        'targetFileName' => 'CodeSnippets/FlexForms/Simple.rst.txt'
+        'targetFileName' => 'CodeSnippets/FlexForms/Simple.rst.txt',
     ],
     [
         'action' => 'createCodeSnippet',

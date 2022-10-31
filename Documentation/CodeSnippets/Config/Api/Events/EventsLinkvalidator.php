@@ -5,13 +5,13 @@ return [
         'action' => 'createPhpClassDocs',
         'class' => \TYPO3\CMS\Linkvalidator\Event\BeforeRecordIsAnalyzedEvent::class,
         'targetFileName' => 'CodeSnippets/Events/Linkvalidator/BeforeRecordIsAnalyzedEvent.rst.txt',
-        'withCode' => false
+        'withCode' => false,
     ],
     [
         'action' => 'createPhpClassDocs',
         'class' => \TYPO3\CMS\Linkvalidator\Event\ModifyValidatorTaskEmailEvent::class,
         'targetFileName' => 'CodeSnippets/Events/Linkvalidator/ModifyValidatorTaskEmailEvent.rst.txt',
-        'withCode' => false
+        'withCode' => false,
     ],
     [
         'action' => 'createPhpClassCodeSnippet',
@@ -20,7 +20,7 @@ return [
             'LOCAL_DOMAIN',
             'TABLE_NAME',
             'FIELD_NAME',
-            '__invoke'
+            '__invoke',
         ],
         'withComment' => true,
         'withClassComment' => false,
@@ -32,7 +32,7 @@ return [
         'members' => [
             'brokenLinkRepository',
             'softReferenceParserFactory',
-            '__construct'
+            '__construct',
         ],
         'withComment' => true,
         'withClassComment' => false,
@@ -47,7 +47,7 @@ return [
             'FIELD_NAME',
             'softReferenceParserFactory',
             'parseField',
-            'findAllParsers'
+            'findAllParsers',
         ],
         'withComment' => true,
         'withClassComment' => false,
@@ -62,7 +62,7 @@ return [
             'FIELD_NAME',
             'brokenLinkRepository',
             'matchUrl',
-            'addItemToBrokenLinkRepository'
+            'addItemToBrokenLinkRepository',
         ],
         'withComment' => true,
         'withClassComment' => false,
