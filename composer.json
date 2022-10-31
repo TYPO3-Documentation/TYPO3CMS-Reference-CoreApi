@@ -49,16 +49,6 @@
         "typo3/cms-workspaces": "dev-main as 12.0",
         "typo3/coding-standards": "^0.5.5"
     },
-    "repositories": {
-        "1a_git": {
-            "type": "vcs",
-            "url": "https://github.com/TYPO3-Documentation/tea.git"
-        },
-        "1c_git": {
-            "type": "vcs",
-            "url": "https://github.com/TYPO3-Documentation/blog_example.git"
-        }
-    },
     "minimum-stability": "dev",
     "prefer-stable": true,
     "config": {

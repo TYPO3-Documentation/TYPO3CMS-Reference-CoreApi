@@ -18,9 +18,6 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
 
-      - name: Add HTTP Basic Auth Credentials for composer
-        run: echo '${{ secrets.COMPOSER_AUTH_JSON }}' > $GITHUB_WORKSPACE/auth.json
-
       - name: Install testing system
         run: Build/Scripts/runTests.sh -p ${{ matrix.php }} -s composerUpdate
 
@@ -29,4 +26,3 @@ jobs:
 
       - name: CGL
         run: Build/Scripts/runTests.sh -n -p ${{ matrix.php }} -s cgl -n
-
