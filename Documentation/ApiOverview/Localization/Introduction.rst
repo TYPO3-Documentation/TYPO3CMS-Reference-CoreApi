@@ -17,4 +17,3 @@ may still be found in some places).
 
 The format, TYPO3 specific details and managing interfaces of XLIFF are
 outlined in detail in this chapter.
-

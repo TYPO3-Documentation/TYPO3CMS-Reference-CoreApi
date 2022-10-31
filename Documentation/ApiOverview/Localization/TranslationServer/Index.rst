@@ -1,5 +1,5 @@
 .. include:: /Includes.rst.txt
-.. index:: Internationalization; Translation servers
+.. index:: Localization; Translation servers
 .. _xliff-translating-servers:
 
 ===================

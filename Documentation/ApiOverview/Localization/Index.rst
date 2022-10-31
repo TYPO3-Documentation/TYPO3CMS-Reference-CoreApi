@@ -1,20 +1,20 @@
 .. include:: /Includes.rst.txt
 .. index::
-   ! Internationalization
-   Localization
-   see: Localization; Internationalization
+   ! Localization
+   see: Localization; Localization
 .. _locallang:
 .. _locallang-elements:
 .. _locallang-elements-nesting:
 .. _locallang-elements-value:
 .. _locallang-ext:
 .. _locallang-example-backend:
-
 .. _internationalization:
 
-=====================================
-Internationalization and localization
-=====================================
+.. _localization:
+
+============
+Localization
+============
 
 ..  toctree::
     :titlesonly:

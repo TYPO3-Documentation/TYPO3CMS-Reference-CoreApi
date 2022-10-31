@@ -1,5 +1,5 @@
 ..  include:: /Includes.rst.txt
-..  index:: Internationalization; Supported languages
+..  index:: Localization; Supported languages
 ..  _i18n_languages:
 
 ===================
