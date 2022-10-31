@@ -193,6 +193,8 @@ The following attributes are available in **backend** context:
     :titlesonly:
 
     RequestAttributes/ApplicationType
+    RequestAttributes/Module
+    RequestAttributes/ModuleData
     RequestAttributes/NormalizedParams
     RequestAttributes/Route
     RequestAttributes/Site
