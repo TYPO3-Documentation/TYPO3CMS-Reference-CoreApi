@@ -57,4 +57,10 @@ return [
         ],
         'withCode' => false,
     ],
+    [
+        'action' => 'createPhpClassDocs',
+        'class' => \TYPO3\CMS\Core\TypoScript\FrontendTypoScript::class,
+        'targetFileName' => 'CodeSnippets/Manual/Entity/FrontendTypoScript.rst.txt',
+        'withCode' => false,
+    ],
 ];
