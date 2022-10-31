@@ -180,6 +180,7 @@ The following attributes are available in **frontend** context:
 
     RequestAttributes/ApplicationType
     RequestAttributes/FrontendController
+    RequestAttributes/FrontendTyposcript
     RequestAttributes/FrontendUser
     RequestAttributes/Language
     RequestAttributes/NormalizedParams
