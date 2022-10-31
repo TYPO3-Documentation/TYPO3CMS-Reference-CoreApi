@@ -105,7 +105,7 @@ the parameter :html:`extensionName` with the UpperCamelCased extension key:
 ..  code-block:: html
     :caption: EXT:my_extension/Resources/Private/Templates/SomeTemplate.html
 
-    <f:translate key="commentHeader" extensionName="MyOtherExtension"/>
+    <f:translate key="commentHeader" extensionName="MyOtherExtension" />
 
 ..  note::
     The translation file has to be located at
@@ -271,7 +271,7 @@ syntax the ordering of the arguments can be made clear:
     <f:translate
        key="author"
        arguments="{1: blog.author.firstName, 2: blog.author.lastname}"
-    >
+    />
 
 The authors name would be displayed in English as :html:`Lina Wolf` while
 it would be displayed in Chinese like :html:`吴林娜` (WúLínnà).
