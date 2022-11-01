@@ -25,7 +25,7 @@ backend. To use the notification API, load the
 *   :js:`warning()`
 *   :js:`error()`
 
-All methods accept the same arguments.
+All methods accept the same arguments:
 
 ..  rst-class:: dl-parameters
 
