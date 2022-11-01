@@ -99,7 +99,7 @@ Transient
 Lazy
 ~~~~
 
-:php:`TYPO3\CMS\Extbase\Annotation\ORM\Lazy`: Marks property to be lazily
+:php:`TYPO3\CMS\Extbase\Annotation\ORM\Lazy`: Marks model property to be lazily
 loaded on first access.
 
 .. note::

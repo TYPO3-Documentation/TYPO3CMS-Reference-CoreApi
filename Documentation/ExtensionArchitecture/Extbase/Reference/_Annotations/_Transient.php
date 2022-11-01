@@ -10,8 +10,9 @@ final class Person extends AbstractEntity
 {
     #[Transient()]
     protected string $fullname = '';
+
     /**
-     * Use annotations instead for compatibility with TYPO3 v11 and PHP 7.4:
+     * Use annotations instead for compatibility with TYPO3 v11:
      * @Transient
      */
     protected string $fullname2 = '';

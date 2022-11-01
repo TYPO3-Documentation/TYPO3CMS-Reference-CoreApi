@@ -18,7 +18,7 @@ final class BlogController extends ActionController
     }
 
     /**
-     * Use annotations instead for compatibility with TYPO3 v11 and PHP 7.4:
+     * Use annotations instead for compatibility with TYPO3 v11:
      * @IgnoreValidation("newBlog")
      */
     public function newAction2(?Blog $newBlog = null): ResponseInterface

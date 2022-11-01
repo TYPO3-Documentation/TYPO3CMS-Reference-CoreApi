@@ -14,8 +14,9 @@ class Post extends AbstractEntity
      */
     #[Lazy()]
     public ObjectStorage $relatedPosts;
+
     /**
-     * Use annotations instead for compatibility with TYPO3 v11 and PHP 7.4:
+     * Use annotations instead for compatibility with TYPO3 v11:
      * @var ObjectStorage<Post>
      * @Lazy
      */

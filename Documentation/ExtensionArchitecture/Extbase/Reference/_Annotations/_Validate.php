@@ -15,7 +15,7 @@ class Blog extends AbstractEntity
     public string $description = '';
 
     /**
-     * Use annotations instead for compatibility with TYPO3 v11 and PHP 7.4:
+     * Use annotations instead for compatibility with TYPO3 v11:
      *
      * @Validate("StringLength", options={"maximum": 150})
      */
