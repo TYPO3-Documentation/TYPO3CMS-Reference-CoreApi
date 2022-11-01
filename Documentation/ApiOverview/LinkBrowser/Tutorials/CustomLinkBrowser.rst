@@ -19,10 +19,10 @@ We create a new tab in the link browser window in the TYPO3 backend:
     need a custom link browser in that scenario.
 
 We introduce a :ref:`custom link format <tutorial-core-link-handler>` to store
-the links in: `t3://github?issue=123`.
+the links in this format: `t3://github?issue=123`.
 
 This enables us to edit an existing link in the
-link browser or to change parts of the GitHub URI programmatically later on.
+link browser or to change parts of the GitHub URI programmatically later.
 
 And we :ref:`render the new link in the frontend <tutorial-typolink-builder>`
 automatically.
@@ -40,27 +40,27 @@ To create a link browser tab we implement the interface
 
 All backend link handlers provided by the Core extend the abstract class
 :php:`TYPO3\CMS\Backend\LinkHandler\AbstractLinkHandler`. However, this class is
-marked as :php:`@internal` and therefore can be changed by the Core at any time.
+marked as :php:`@internal` and therefore can be changed by the Core Team at any time.
 
-You have the choice of implementing the :php:`LinkHandlerInterface` your self
+You have the choice of implementing the :php:`LinkHandlerInterface` yourself by
 having a look at the :php:`AbstractLinkHandler` for best practices or to extend
 the :php:`AbstractLinkHandler`. In the latter case your code might break on
 updates though.
 
-In this tutorial we implement the :php:`LinkHandlerInterface` directly as it is
+In this tutorial, we implement the :php:`LinkHandlerInterface` directly, as it is
 best practice not to rely on internal classes.
 
 You can find the complete class in the extension EXT:examples on GitHub:
 `GitHubLinkHandler <https://github.com/TYPO3-Documentation/t3docs-examples/blob/main/Classes/LinkHandler/GitHubLinkHandler.php>`__.
 
-We will explain some of the important methods bellow:
+We will explain some of the important methods below:
 
 Initialization and dependencies
 -------------------------------
 
 ..  include:: /ApiOverview/LinkBrowser/Tutorials/_CustomLinkBrowser/_GitHubLinkHandlerInitialize.rst.txt
 
-For technical reasons not all dependencies needed by the backend link handler can
+For technical reasons, not all dependencies needed by the backend link handler can
 be acquired by :ref:`DependencyInjection`. Therefore the following two methods
 are called by Core classes once the dependencies are available:
 
@@ -77,7 +77,7 @@ the link browser window.
 
 ..  note::
     :php:`setView()` is not part of the :php:`LinkHandlerInterface`
-    and it being called is an implementation detail that might be subject to be
+    and its call is an implementation detail that might be
     changed in the future.
 
 Render the link browser tab
@@ -92,7 +92,7 @@ variables to the view and returns the rendered HTML.
 Set the link via JavaScript
 ---------------------------
 
-When the button in the rendered form is clicked to set a link a custom
+When the button in the rendered form is clicked to set a link, a custom
 JavaScript class interprets the form data and creates the link to be stored:
 
 ..  todo: Configure code snippet tool to remove or shorten the license comment here
@@ -102,24 +102,24 @@ JavaScript class interprets the form data and creates the link to be stored:
 It is important that the JavaScript function calls
 :js:`LinkBrowser.finalizeFunction()`. Otherwise no link will be set.
 
-If not done yet the JavaScript has to be registered in the file
+If not done yet, the JavaScript has to be registered in the file
 :file:`EXT:my_extension/Configuration/JavaScriptModules.php`. Otherwise it
 will not be found by :php:`$pageRenderer->loadJavaScriptModule()`.
 
 ..  literalinclude:: _CustomLinkBrowser/_JavaScriptModules.php
     :caption: EXT:examples/Configuration/JavaScriptModules.php
 
-As our JavaScript class depends on classes provided by EXT:backend,
-:php:`backend` has to be included in the dependencies. See also
+As our JavaScript class depends on classes provided by the backend system extension,
+:php:`backend` has to be added as dependency. See also
 :ref:`backend-javascript-es6-loading`.
 
 Can we handle this link?
 ------------------------
 
 The method :php:`LinkHandlerInterface::canHandleLink()` is called when the
-user tries to edit an existing link in the link browser. All backend link handlers will
-be called and can decide if they can handle that link. If so they should store
-the provided information to be used in rendering (for example to fill an input
+user edits an existing link in the link browser. All backend link handlers will
+be called and can decide if they can handle that link. If so, they should store
+the provided information to be used in rendering (for example, to fill an input
 field with the old value).
 
 ..  include:: /ApiOverview/LinkBrowser/Tutorials/_CustomLinkBrowser/_GitHubLinkHandlerCanHandleLink.rst.txt
@@ -128,7 +128,7 @@ Format current URL
 ------------------
 
 The function :php:`LinkHandlerInterface::formatCurrentUrl()` is used to preview
-what the link will look like in the backend, for example in the upper part of
+what the link will look like in the backend, for example, in the upper part of
 the link browser window.
 
 ..  attention::
