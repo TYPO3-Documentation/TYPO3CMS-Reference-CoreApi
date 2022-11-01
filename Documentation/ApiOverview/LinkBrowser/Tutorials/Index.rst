@@ -10,7 +10,7 @@ LinkBrowser Tutorials
 
 ..  rst-class:: compact-list
 ..  toctree::
-    :glob:
     :titlesonly:
 
-    *
+    RecordLinkBrowser
+    CustomLinkBrowser
