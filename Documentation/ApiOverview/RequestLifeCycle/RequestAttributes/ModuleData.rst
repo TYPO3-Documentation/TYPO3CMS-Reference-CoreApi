@@ -16,7 +16,7 @@ which contains the stored module data that might have been overwritten through
 the current request (with `GET`/`POST`).
 
 Through the module registration one can define, which properties can be
-overwritten via GET/POST and their default value.
+overwritten via `GET`/`POST` and their default value.
 
 The whole determination is done before the requested route target - usually a
 backend controller - is called. This means, the route target can just read the
