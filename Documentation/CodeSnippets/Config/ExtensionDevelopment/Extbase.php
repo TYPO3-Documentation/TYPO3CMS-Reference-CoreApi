@@ -9,12 +9,6 @@ return [
     ],
     [
         'action' => 'createPhpClassDocs',
-        'class' => \TYPO3\CMS\Extbase\Validation\Validator\ValidatorInterface::class,
-        'targetFileName' => 'CodeSnippets/Extbase/Api/ValidatorInterface.rst.txt',
-        'withCode' => false,
-    ],
-    [
-        'action' => 'createPhpClassDocs',
         'class' => \TYPO3\CMS\Extbase\Persistence\Repository::class,
         'targetFileName' => 'CodeSnippets/Extbase/Api/Repository.rst.txt',
         'withCode' => false,
@@ -46,66 +40,6 @@ return [
             'initializeAction',
         ],
         'targetFileName' => 'CodeSnippets/Extbase/Controllers/BackendControllerInitialize.rst.txt',
-    ],
-    [
-        'action' => 'createPhpClassCodeSnippet',
-        'class' => \T3docs\BlogExample\Domain\Model\Post::class,
-        'members' => [
-            'comments',
-        ],
-        'withComment' => true,
-        'withClassComment' => false,
-        'targetFileName' => 'CodeSnippets/Extbase/Annotation/Multiple.rst.txt',
-    ],
-    [
-        'action' => 'createPhpClassCodeSnippet',
-        'class' => \T3docs\BlogExample\Domain\Model\Post::class,
-        'members' => [
-            'relatedPosts',
-        ],
-        'withComment' => true,
-        'withClassComment' => false,
-        'targetFileName' => 'CodeSnippets/Extbase/Annotation/Lazy.rst.txt',
-    ],
-    [
-        'action' => 'createPhpClassCodeSnippet',
-        'class' => \T3docs\BlogExample\Domain\Model\Blog::class,
-        'members' => [
-            'description',
-        ],
-        'withComment' => true,
-        'withClassComment' => false,
-        'targetFileName' => 'CodeSnippets/Extbase/Annotation/Validate.rst.txt',
-    ],
-    [
-        'action' => 'createPhpClassCodeSnippet',
-        'class' => \T3docs\BlogExample\Controller\BlogController::class,
-        'members' => [
-            'newAction',
-        ],
-        'withComment' => true,
-        'withClassComment' => false,
-        'targetFileName' => 'CodeSnippets/Extbase/Annotation/IgnoreValidation.rst.txt',
-    ],
-    [
-        'action' => 'createPhpClassCodeSnippet',
-        'class' => \T3docs\BlogExample\Domain\Model\Blog::class,
-        'members' => [
-            'posts',
-        ],
-        'withComment' => true,
-        'withClassComment' => false,
-        'targetFileName' => 'CodeSnippets/Extbase/Annotation/Cascade.rst.txt',
-    ],
-    [
-        'action' => 'createPhpClassCodeSnippet',
-        'class' => \T3docs\BlogExample\Domain\Model\Person::class,
-        'members' => [
-            'fullname',
-        ],
-        'withComment' => true,
-        'withClassComment' => false,
-        'targetFileName' => 'CodeSnippets/Extbase/Annotation/Transient.rst.txt',
     ],
     [
         'action' => 'createPhpClassCodeSnippet',
@@ -214,18 +148,8 @@ return [
         'members' => [
             'isValid',
         ],
-        'targetFileName' => 'CodeSnippets/Extbase/Validator/PropertyValidator.rst.txt',
+        'targetFileName' => 'ExtensionArchitecture/Extbase/Reference/Domain/_CustomValidator/_PropertyValidator.rst.txt',
         'emphasizeLines' => [8],
-    ],
-    [
-        'action' => 'createPhpClassCodeSnippet',
-        'class' => \T3docs\BlogExample\Domain\Model\Blog::class,
-        'members' => [
-            'title',
-        ],
-        'withComment' => true,
-        'withClassComment' => false,
-        'targetFileName' => 'CodeSnippets/Extbase/Validator/PropertyValidatorUsage.rst.txt',
     ],
     [
         'action' => 'createPhpClassCodeSnippet',
@@ -233,29 +157,7 @@ return [
         'members' => [
             'isValid',
         ],
-        'targetFileName' => 'CodeSnippets/Extbase/Validator/ObjectValidator.rst.txt',
-    ],
-    [
-        'action' => 'createPhpClassCodeSnippet',
-        'class' => \T3docs\BlogExample\Controller\BlogController::class,
-        'members' => [
-            'updateAction',
-        ],
-        'withComment' => true,
-        'withClassComment' => false,
-        'targetFileName' => 'CodeSnippets/Extbase/Validator/ObjectValidatorUsage.rst.txt',
-    ],
-    [
-        'action' => 'createPhpClassCodeSnippet',
-        'class' => T3docs\BlogExample\Domain\Model\Person::class,
-        'members' => [
-            'email',
-            'firstname',
-            'lastname',
-        ],
-        'withComment' => true,
-        'withClassComment' => false,
-        'targetFileName' => 'CodeSnippets/Extbase/Validator/ValidatorWithArgumentUsage.rst.txt',
+        'targetFileName' => 'ExtensionArchitecture/Extbase/Reference/Domain/_CustomValidator/_ObjectValidator.rst.txt',
     ],
     [
         'action' => 'createCodeSnippet',

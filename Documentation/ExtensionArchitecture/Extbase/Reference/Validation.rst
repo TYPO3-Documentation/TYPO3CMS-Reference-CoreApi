@@ -14,10 +14,6 @@ Validation
 Extbase provides a number of validators for standard use cases such as
 e-mail addresses, string length, not empty etc.
 
-.. versionchanged:: 10.0
-   Before TYPO3 v10 Validators where automatically applied by naming conventions.
-   This feature was removed without replacement.
-
 All validators need to be explicitly applied by the annotation
 :ref:`extbase-annotation-validate` to either a
 controller action or a property / setter in a model.
@@ -75,7 +71,8 @@ You can define simple validation rules in the domain model by the annotation
 
 **Example:**
 
-.. include:: /CodeSnippets/Extbase/Annotation/Validate.rst.txt
+..  literalinclude:: _Annotations/_Validate.php
+    :caption: EXT:blog_example/Classes/Domain/Model/Blog.php, modified
 
 In this code section the validator :php:`StringLength` provided by Extbase
 in class :php:`TYPO3\CMS\Extbase\Validation\Validator\StringLengthValidator`
@@ -87,11 +84,11 @@ Validation of controller arguments
 The following rules validate each controller argument:
 
 *  If the argument is a domain object, the annotations
-   `@TYPO3\CMS\Extbase\Annotation\Validate` in the domain object are taken into
+   :php:`TYPO3\CMS\Extbase\Annotation\Validate` in the domain object are taken into
    account.
 
 *  If there is set an annotation
-   :php:`@TYPO3\CMS\Extbase\Annotation\IgnoreValidation` for the argument,
+   :php:`TYPO3\CMS\Extbase\Annotation\IgnoreValidation` for the argument,
    no validation is done.
 
 *  Validators added in the annotation of the action are applied.
@@ -108,7 +105,8 @@ Annotations with arguments
 Annotations can be called with zero, one or more arguments. See the following
 examples:
 
-.. include:: /CodeSnippets/Extbase/Validator/ValidatorWithArgumentUsage.rst.txt
+..  literalinclude:: _Annotations/_Validate.php
+    :caption: EXT:blog_example/Classes/Domain/Model/Person.php, modified
 
 Available validators shipped with Extbase can be found within
 :file:`EXT:extbase/Classes/Validation/Validator/`.

@@ -40,7 +40,8 @@ can be uniquely identified.
 This validator can be used for any string property of model now by including it
 in the annotation of that parameter:
 
-.. include:: /CodeSnippets/Extbase/Validator/PropertyValidatorUsage.rst.txt
+..  literalinclude:: _CustomValidator/_PropertyValidatorUsage.php
+    :caption: EXT:blog_example/Classes/Domain/Model/Blog.php, modified
 
 .. note::
    Validators added to a property of a model are executed whenever an object
@@ -63,4 +64,5 @@ function :php:`addErrorForProperty()` should be used instead of :php:`addError()
 
 The validator is used as annotation in the action methods of the controller:
 
-.. include:: /CodeSnippets/Extbase/Validator/ObjectValidatorUsage.rst.txt
+..  literalinclude:: _CustomValidator/_ObjectValidatorUsage.php
+    :caption: EXT:blog_example/Classes/Controller/BlogController.php, modified
