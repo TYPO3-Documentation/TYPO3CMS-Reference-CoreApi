@@ -63,4 +63,16 @@ return [
         'targetFileName' => 'CodeSnippets/Manual/Entity/FrontendTypoScript.rst.txt',
         'withCode' => false,
     ],
+    [
+        'action' => 'createPhpClassDocs',
+        'class' => \TYPO3\CMS\Backend\Module\Module::class,
+        'targetFileName' => 'CodeSnippets/Manual/Entity/Module.rst.txt',
+        'withCode' => false,
+    ],
+    [
+        'action' => 'createPhpClassDocs',
+        'class' => \TYPO3\CMS\Backend\Module\ModuleData::class,
+        'targetFileName' => 'CodeSnippets/Manual/Entity/ModuleData.rst.txt',
+        'withCode' => false,
+    ],
 ];
