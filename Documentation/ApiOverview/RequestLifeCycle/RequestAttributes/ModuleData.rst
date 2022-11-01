@@ -24,7 +24,7 @@ final module data and does no longer have to fiddle around with overwriting and
 persisting the data manually.
 
 ..  note::
-    It's still possible to store and retrieve arbitrary module data. The
+    It is still possible to store and retrieve arbitrary module data. The
     definition of `moduleData` in the module registration only defines, which
     properties can be overwritten in a request (with GET/POST).
 
