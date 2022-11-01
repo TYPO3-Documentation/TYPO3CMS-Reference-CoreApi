@@ -27,6 +27,8 @@ link browser or to change parts of the GitHub URI programmatically later.
 And we :ref:`render the new link in the frontend <tutorial-typolink-builder>`
 automatically.
 
+**Step by step to a custom link browser**
+
 ..  contents::
     :local:
 
