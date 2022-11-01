@@ -7,8 +7,8 @@
 Annotations
 ===========
 
-All available annotations for Extbase are placed within the namespace
-:php:`TYPO3\CMS\Extbase\Annotation`.
+All available annotations for Extbase delivered by TYPO3 Core are placed within
+the namespace :php:`\TYPO3\CMS\Extbase\Annotation`.
 
 ..  versionchanged:: 12.0
     Starting with TYPO3 v12.0 Extbase annotations can be supplied as
@@ -19,7 +19,8 @@ All available annotations for Extbase are placed within the namespace
     TYPO3 v12.0. To stay compatible with both TYPO3 v11 and v12, continue to use
     the Extbase annotations as doc-block comments.
 
-Example in EXT:blog_example for the annotation :php:`Lazy`:
+Example in `EXT:blog_example <https://github.com/typo3-documentation/blog_example>`__
+for the annotation :php:`Lazy`:
 
 ..  literalinclude:: _Annotations/_Lazy.php
     :caption: EXT:blog_example/Classes/Domain/Model/Blog.php, modified
@@ -37,7 +38,7 @@ Validate
 :php:`\TYPO3\CMS\Extbase\Annotation\Validate`: Allows to configure validators
 for properties and method arguments. See :ref:`extbase_validation` for details.
 
-Can be used in the context of a model.
+Can be used in the context of a model property.
 
 **Example:**
 
@@ -52,7 +53,7 @@ IgnoreValidation
 :php:`\TYPO3\CMS\Extbase\Annotation\IgnoreValidation()`: Allows to ignore
 Extbase default validation for a given argument.
 
-Used in context of a controller.
+Used in context of a controller action.
 
 **Example:**
 
@@ -64,7 +65,7 @@ Used in context of a controller.
 ORM (object relational model) annotations
 ------------------------------------------
 
-The following annotations can only be used on models:
+The following annotations can only be used on model properties:
 
 .. _extbase-annotation-cascade:
 
@@ -84,7 +85,7 @@ Extbase only supports the option "remove".
 .. _extbase-annotation-transient:
 
 Transient
-~~~~~~~~~~
+~~~~~~~~~
 
 :php:`\TYPO3\CMS\Extbase\Annotation\ORM\Transient`: Marks property as transient
 (not persisted).
@@ -99,8 +100,8 @@ Transient
 Lazy
 ~~~~
 
-:php:`\TYPO3\CMS\Extbase\Annotation\ORM\Lazy`: Marks model property to be lazily
-loaded on first access.
+:php:`\TYPO3\CMS\Extbase\Annotation\ORM\Lazy`: Marks model property to be loaded
+lazily on first access.
 
 .. note::
    Lazy loading can greatly improve the performance of your actions.
@@ -115,7 +116,7 @@ loaded on first access.
 Combining annotations
 =====================
 
-Annotations can be combined. For example Lazy loading and removal on cascade
+Annotations can be combined. For example, "lazy loading" and "removal on cascade"
 are frequently combined:
 
 ..  literalinclude:: _Annotations/_Multiple.php
