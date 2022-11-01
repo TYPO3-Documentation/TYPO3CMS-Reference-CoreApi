@@ -1,5 +1,5 @@
 .. include:: /Includes.rst.txt
-.. index:: Internationalization; Supported languages
+.. index:: Localization; Supported languages
 .. _i18n_languages:
 
 ===================
@@ -74,5 +74,5 @@ The list of supported languages is defined in :php:`\TYPO3\CMS\Core\Localization
 
    *  Open an issue at https://forge.typo3.org/projects/typo3cms-core/issues and
       describe your usecase. The language might be added to the next major release of TYPO3.
-     
+
    *  Take a look at the section :ref:`xliff-translating-languages` to solve it in your project.
