@@ -61,7 +61,6 @@ actions
 
     Contains all actions that get rendered as buttons inside the notification.
 
-
 Example:
 
 ..  literalinclude:: _ES6/_flash-message-demo.js
@@ -73,12 +72,12 @@ still be used:
 ..  literalinclude:: _RequireJS/_flash-message-demo.js
     :caption: EXT:some_extension/Resources/Public/JavaScript/FlashMessageDemo.js
 
-
 Actions
 -------
 
-Since TYPO3 v10.1 the notification API may bind actions to a notification that execute certain tasks when invoked. Each
-action item is an object containing the fields :js:`label` and :js:`action`:
+The notification API may bind actions to a notification that execute certain
+tasks when invoked. Each action item is an object containing the
+fields :js:`label` and :js:`action`:
 
 .. rst-class:: dl-parameters
 
@@ -94,17 +93,22 @@ action
     :sep:`|` :aspect:`Type:` ImmediateAction|DeferredAction
     :sep:`|`
 
-    An instance of either :js:`ImmediateAction` or :js:`DeferredAction`.
+    An instance of either :ref:`ImmediateAction <notification_api_immediate_action>`
+    (:js:`@typo3/backend/action-button/immediate-action.js`)
+    or :ref:`DeferredAction <notification_api_deferred_action>`
+    (:js:`@typo3/backend/action-button/deferred-action.js`).
 
 ..  attention::
     Any action **must** be optional to be executed. If triggering an action is
     mandatory, consider using a :ref:`modal <modules-modals>` instead.
 
+..  _notification_api_immediate_action:
+
 Immediate action
 ~~~~~~~~~~~~~~~~
 
 An action of type :js:`ImmediateAction`
-(:js:`TYPO3/CMS/Backend/ActionButton/ImmediateAction`) is executed directly on
+(:js:`@typo3/backend/action-button/immediate-action.js`) is executed directly on
 click and closes the notification. This action type is suitable for e.g.
 linking to a backend module.
 
@@ -121,10 +125,12 @@ still be used:
 ..  literalinclude:: _RequireJS/_flash-message-immediate-action-demo.js
     :caption: EXT:some_extension/Resources/Public/JavaScript/FlashMessageImmediateActionDemo.js
 
+..  _notification_api_deferred_action:
+
 Deferred action
 ~~~~~~~~~~~~~~~
 
-An action of type :js:`DeferredAction` (:js:`TYPO3/CMS/Backend/ActionButton/DeferredAction`)
+An action of type :js:`DeferredAction` (:js:`@typo3/backend/action-button/deferred-action.js`)
 is recommended when a long-lasting task is executed, e.g. an Ajax request.
 
 This class accepts a callback method which must return a :js:`Promise`
