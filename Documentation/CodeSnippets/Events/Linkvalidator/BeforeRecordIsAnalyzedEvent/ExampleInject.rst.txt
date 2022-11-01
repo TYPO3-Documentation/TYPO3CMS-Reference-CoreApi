@@ -9,16 +9,12 @@
    
    final class CheckExternalLinksToLocalPagesEventListener
    {
-       private BrokenLinkRepository $brokenLinkRepository;
    
-       private SoftReferenceParserFactory $softReferenceParserFactory;
    
        public function __construct(
-           BrokenLinkRepository $brokenLinkRepository,
-           SoftReferenceParserFactory $softReferenceParserFactory
+           private readonly BrokenLinkRepository $brokenLinkRepository,
+           private readonly SoftReferenceParserFactory $softReferenceParserFactory,
        ) {
-           $this->brokenLinkRepository = $brokenLinkRepository;
-           $this->softReferenceParserFactory = $softReferenceParserFactory;
        }
    }
    
