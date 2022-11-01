@@ -20,8 +20,7 @@ overwritten via `GET`/`POST` and their default value.
 
 The whole determination is done before the requested route target - usually a
 backend controller - is called. This means, the route target can just read the
-final module data and does no longer have to fiddle around with overwriting and
-persisting the data manually.
+final module data.
 
 ..  note::
     It is still possible to store and retrieve arbitrary module data. The
