@@ -64,11 +64,14 @@ actions
 
 Example:
 
-..  code-block:: js
+..  literalinclude:: _ES6/_flash-message-demo.js
+    :caption: EXT:some_extension/Resources/Public/JavaScript/flash-message-demo.js
 
-    require(['TYPO3/CMS/Backend/Notification'], function(Notification) {
-      Notification.success('Well done', 'Whatever you did, it was successful.');
-    });
+To stay compatible with both TYPO3 v11 and v12 the (deprecated) RequireJS module can
+still be used:
+
+..  literalinclude:: _RequireJS/_flash-message-demo.js
+    :caption: EXT:some_extension/Resources/Public/JavaScript/FlashMessageDemo.js
 
 
 Actions
@@ -109,23 +112,14 @@ The class accepts a callback method executing very simple logic.
 
 Example:
 
-..  code-block:: js
+..  literalinclude:: _ES6/_flash-message-immediate-action-demo.js
+    :caption: EXT:some_extension/Resources/Public/JavaScript/flash-message-immediate-action-demo.js
 
-    require(['TYPO3/CMS/Backend/Notification', 'TYPO3/CMS/Backend/ActionButton/ImmediateAction'], function(Notification, ImmediateAction) {
-      const immediateActionCallback = new ImmediateAction(function () {
-        require(['TYPO3/CMS/Backend/ModuleMenu'], function (ModuleMenu) {
-          ModuleMenu.showModule('web_layout');
-        });
-      });
+To stay compatible with both TYPO3 v11 and v12 the (deprecated) RequireJS module can
+still be used:
 
-      Notification.info('Nearly there', 'You may head to the Page module to see what we did for you', 10, [
-        {
-          label: 'Go to module',
-          action: immediateActionCallback
-        }
-      ]);
-    });
-
+..  literalinclude:: _RequireJS/_flash-message-immediate-action-demo.js
+    :caption: EXT:some_extension/Resources/Public/JavaScript/FlashMessageImmediateActionDemo.js
 
 Deferred action
 ~~~~~~~~~~~~~~~
@@ -142,18 +136,11 @@ notification, which will **not stop** the execution.
 
 Example:
 
-..  code-block:: js
+..  literalinclude:: _ES6/_flash-message-deferred-action-demo.js
+    :caption: EXT:some_extension/Resources/Public/JavaScript/flash-message-deferred-action-demo.js
 
-    require(['jquery', 'TYPO3/CMS/Backend/Notification', 'TYPO3/CMS/Backend/ActionButton/DeferredAction'], function($, Notification, DeferredAction) {
-      const deferredActionCallback = new DeferredAction(function () {
-        return Promise.resolve($.ajax(/* Ajax configuration */));
-      });
+To stay compatible with both TYPO3 v11 and v12 the (deprecated) RequireJS module can
+still be used:
 
-      Notification.warning('Goblins ahead', 'It may become dangerous at this point.', 10, [
-        {
-          label: 'Delete the internet',
-          action: deferredActionCallback
-        }
-      ]);
-    });
-
+..  literalinclude:: _RequireJS/_flash-message-deferred-action-demo.js
+    :caption: EXT:some_extension/Resources/Public/JavaScript/FlashMessageDeferredActionDemo.js

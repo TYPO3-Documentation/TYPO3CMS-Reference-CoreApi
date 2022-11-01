@@ -1,8 +1,3 @@
-/**
- * Module: @t3docs/examples/flash-message-demo
- * JavaScript code for extension "examples" backend module
- */
-
 import Notification from "@typo3/backend/notification.js";
 import DeferredAction from "@typo3/backend/action-button/deferred-action.js";
 import $ from 'jquery';
