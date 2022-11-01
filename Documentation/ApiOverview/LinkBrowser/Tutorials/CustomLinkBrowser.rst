@@ -184,10 +184,10 @@ function or by the :php:`\TYPO3\CMS\Extbase\Mvc\Web\Routing\UriBuilder`.
 ..  include:: /ApiOverview/LinkBrowser/Tutorials/_CustomLinkBrowser/_GithubLinkBuilder.rst.txt
 
 The function :php:`AbstractTypolinkBuilder::build()` is called with the link
-configuration and data from the typolink function. If the link can be rendered
-it returns a new :php:`TYPO3\CMS\Frontend\Typolink\LinkResultInterface`. The
+configuration and data from the typolink function. If the link can be rendered,
+it returns a new :php:`\TYPO3\CMS\Frontend\Typolink\LinkResultInterface`. The
 actual rendering of the link depends on the context the link is rendered in
 (for example HTML or JSON).
 
-If the link cannot be built it should throw an
-:php:`TYPO3\CMS\Frontend\Typolink\UnableToLinkException`.
+If the link cannot be built it should throw a
+:php:`\TYPO3\CMS\Frontend\Typolink\UnableToLinkException`.
