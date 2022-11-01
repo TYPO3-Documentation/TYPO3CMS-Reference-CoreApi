@@ -7,8 +7,8 @@
 Annotations
 ===========
 
-All available annotations for Extbase are placed within the namespace
-:php:`TYPO3\CMS\Extbase\Annotation`.
+All available annotations for Extbase delivered by TYPO3 Core are placed within
+the namespace :php:`\TYPO3\CMS\Extbase\Annotation`.
 
 Example in the blog example for the annotation :php:`Lazy`:
 
@@ -27,7 +27,7 @@ Validate
 :php:`@TYPO3\CMS\Extbase\Annotation\Validate`: Allows to configure validators
 for properties and method arguments. See :ref:`extbase_validation` for details.
 
-Can be used in the context of a model.
+Can be used in the context of a model property.
 
 **Example:**
 
@@ -41,7 +41,7 @@ IgnoreValidation
 :php:`@TYPO3\CMS\Extbase\Annotation\IgnoreValidation()`: Allows to ignore
 Extbase default validation for a given argument.
 
-Used in context of a controller.
+Used in context of a controller action.
 
 **Example:**
 
@@ -52,7 +52,7 @@ Used in context of a controller.
 ORM (object relational model) annotations
 ------------------------------------------
 
-The following annotations can only be used on models:
+The following annotations can only be used on model properties:
 
 .. _extbase-annotation-cascade:
 
@@ -71,7 +71,7 @@ Extbase only supports the option "remove".
 .. _extbase-annotation-transient:
 
 Transient
-~~~~~~~~~~
+~~~~~~~~~
 
 :php:`@TYPO3\CMS\Extbase\Annotation\ORM\Transient`: Marks property as transient
 (not persisted).
@@ -100,7 +100,7 @@ loaded on first access.
 Combining annotations
 =====================
 
-Annotations can be combined. For example Lazy loading and removal on cascade
+Annotations can be combined. For example, "lazy loading" and "removal on cascade"
 are frequently combined:
 
 .. include:: /CodeSnippets/Extbase/Annotation/Multiple.rst.txt
