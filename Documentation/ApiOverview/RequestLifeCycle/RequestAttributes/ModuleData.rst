@@ -13,7 +13,7 @@ ModuleData
 The :php:`moduleData` backend request attribute is available when a backend
 module is requested. It holds the object :php:`\TYPO3\CMS\Backend\Module\ModuleData`
 which contains the stored module data that might have been overwritten through
-the current request (with GET/POST).
+the current request (with `GET`/`POST`).
 
 Through the module registration one can define, which properties can be
 overwritten via GET/POST and their default value.
