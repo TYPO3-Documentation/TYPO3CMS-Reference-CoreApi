@@ -15,8 +15,8 @@ All available annotations for Extbase are placed within the namespace
     `PHP 8 native attributes <https://www.php.net/manual/en/language.attributes.overview.php>`__.
 
 ..  attention::
-    Even if you use PHP 8.0 with TYPO3 11LTS native attributes do not work below
-    TYPO3 v12.0. To stay compatible with bot TYPO3 v11 and v12 continue to use
+    Even if you use PHP 8.0 with TYPO3 v11 LTS native attributes do not work below
+    TYPO3 v12.0. To stay compatible with both TYPO3 v11 and v12, continue to use
     the Extbase annotations as doc-block comments.
 
 Example in EXT:blog_example for the annotation :php:`Lazy`:
