@@ -1,6 +1,6 @@
 .. include:: /Includes.rst.txt
 .. index::
-   Internationalization; Crowdin
+   Localization; Crowdin
    Crowdin
 .. _xliff-translating-server-crowdin:
 

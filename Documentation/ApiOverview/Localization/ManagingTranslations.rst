@@ -1,5 +1,5 @@
 ..  include:: /Includes.rst.txt
-..  index:: Internationalization; Manage translations
+..  index:: Localization; Manage translations
 ..  _managing-translating:
 
 =================================
@@ -9,7 +9,7 @@ Managing translations for backend
 This sections highlights the different ways to translate and manage XLIFF files.
 
 
-..  index:: Internationalization; Fetch translations
+..  index:: Localization; Fetch translations
 ..  _xliff-translating-fetch:
 
 Fetching translations
@@ -42,7 +42,7 @@ Language packs can also be fetched using the command line:
             typo3/sysext/core/bin/typo3 language:update
 
 
-..  index:: Internationalization; Local translations
+..  index:: Localization; Local translations
 ..  _xliff-translating-local:
 
 Local translations
@@ -78,7 +78,7 @@ Translating files locally is useful for extensions which should not be published
 or for creating :ref:`custom translations <xliff-translating-custom>`.
 
 
-..  index:: Internationalization; Custom translations
+..  index:: Localization; Custom translations
 ..  _xliff-translating-custom:
 
 Custom translations
@@ -143,7 +143,7 @@ and the result can be easily seen in the backend:
         :file:`my_extension/Resources/Private/Language/`.
 
 
-..  index:: Internationalization; Custom languages
+..  index:: Localization; Custom languages
 ..  _xliff-translating-languages:
 
 Custom languages

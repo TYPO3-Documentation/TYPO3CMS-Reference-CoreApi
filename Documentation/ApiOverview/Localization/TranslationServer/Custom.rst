@@ -1,5 +1,5 @@
 .. include:: /Includes.rst.txt
-.. index:: Internationalization; Custom translation servers
+.. index:: Localization; Custom translation servers
 .. _custom-translation-server:
 
 ==========================
