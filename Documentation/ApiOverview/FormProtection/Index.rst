@@ -37,8 +37,7 @@ matter; you only need it to get the form token for verifying it.
     // use TYPO3\CMS\Core\FormProtection\FormProtectionFactory;
 
     $formToken = FormProtectionFactory::get()
-        ->generateToken('BE user setup', 'edit')
-    );
+        ->generateToken('BE user setup', 'edit');
     $this->content .= '<input type="hidden" name="formToken" value="' . $formToken . '">';
 
 The three parameters :php:`$formName`, :php:`$action` (optional) and
