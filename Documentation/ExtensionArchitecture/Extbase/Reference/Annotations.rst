@@ -34,7 +34,7 @@ The following annotations are provided Extbase:
 Validate
 --------
 
-:php:`TYPO3\CMS\Extbase\Annotation\Validate`: Allows to configure validators
+:php:`\TYPO3\CMS\Extbase\Annotation\Validate`: Allows to configure validators
 for properties and method arguments. See :ref:`extbase_validation` for details.
 
 Can be used in the context of a model.
@@ -49,7 +49,7 @@ Can be used in the context of a model.
 IgnoreValidation
 ----------------
 
-:php:`TYPO3\CMS\Extbase\Annotation\IgnoreValidation()`: Allows to ignore
+:php:`\TYPO3\CMS\Extbase\Annotation\IgnoreValidation()`: Allows to ignore
 Extbase default validation for a given argument.
 
 Used in context of a controller.
@@ -71,7 +71,7 @@ The following annotations can only be used on models:
 Cascade
 ~~~~~~~
 
-:php:`TYPO3\CMS\Extbase\Annotation\ORM\Cascade("remove")`: Allows to remove
+:php:`\TYPO3\CMS\Extbase\Annotation\ORM\Cascade("remove")`: Allows to remove
 child entities during deletion of aggregate root.
 
 Extbase only supports the option "remove".
@@ -86,7 +86,7 @@ Extbase only supports the option "remove".
 Transient
 ~~~~~~~~~~
 
-:php:`TYPO3\CMS\Extbase\Annotation\ORM\Transient`: Marks property as transient
+:php:`\TYPO3\CMS\Extbase\Annotation\ORM\Transient`: Marks property as transient
 (not persisted).
 
 **Example:**
@@ -99,7 +99,7 @@ Transient
 Lazy
 ~~~~
 
-:php:`TYPO3\CMS\Extbase\Annotation\ORM\Lazy`: Marks model property to be lazily
+:php:`\TYPO3\CMS\Extbase\Annotation\ORM\Lazy`: Marks model property to be lazily
 loaded on first access.
 
 .. note::

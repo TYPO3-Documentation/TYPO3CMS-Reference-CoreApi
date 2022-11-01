@@ -15,7 +15,7 @@ Custom validators are located in the directory :file:`Classes/Domain/Validator`
 and therefore in the namespace :php:`Vendor\MyExtension\Domain\Validator`.
 
 All validators extend the :php:`AbstractValidator`
-(:php:`TYPO3\CMS\Extbase\Validation\Validator\AbstractValidator`).
+(:php:`\TYPO3\CMS\Extbase\Validation\Validator\AbstractValidator`).
 
 .. note::
    In the package :php:`\TYPO3\CMS\Extbase\Validation\Validator\*` Extbase

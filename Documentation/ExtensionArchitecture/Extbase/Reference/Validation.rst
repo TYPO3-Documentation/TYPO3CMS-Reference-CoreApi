@@ -75,7 +75,7 @@ You can define simple validation rules in the domain model by the annotation
     :caption: EXT:blog_example/Classes/Domain/Model/Blog.php, modified
 
 In this code section the validator :php:`StringLength` provided by Extbase
-in class :php:`TYPO3\CMS\Extbase\Validation\Validator\StringLengthValidator`
+in class :php:`\TYPO3\CMS\Extbase\Validation\Validator\StringLengthValidator`
 is applied with one argument.
 
 Validation of controller arguments
@@ -84,11 +84,11 @@ Validation of controller arguments
 The following rules validate each controller argument:
 
 *  If the argument is a domain object, the annotations
-   :php:`TYPO3\CMS\Extbase\Annotation\Validate` in the domain object are taken into
+   :php:`\TYPO3\CMS\Extbase\Annotation\Validate` in the domain object are taken into
    account.
 
 *  If there is set an annotation
-   :php:`TYPO3\CMS\Extbase\Annotation\IgnoreValidation` for the argument,
+   :php:`\TYPO3\CMS\Extbase\Annotation\IgnoreValidation` for the argument,
    no validation is done.
 
 *  Validators added in the annotation of the action are applied.
