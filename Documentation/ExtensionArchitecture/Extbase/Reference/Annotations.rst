@@ -12,7 +12,7 @@ All available annotations for Extbase are placed within the namespace
 
 ..  versionchanged:: 12.0
     Starting with TYPO3 v12.0 Extbase annotations can be supplied as
-    `PHP 8 native attributes <https://www.php.net/manual/en/language.attributes.overview.php>`.
+    `PHP 8 native attributes <https://www.php.net/manual/en/language.attributes.overview.php>`__.
 
 ..  attention::
     Even if you use PHP 8.0 with TYPO3 11LTS native attributes do not work below
