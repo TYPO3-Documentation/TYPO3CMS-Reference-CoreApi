@@ -8,7 +8,7 @@
    {
        public function formatCurrentUrl(): string
        {
-           return 'https://gitub.com/' . $this->configuration['project'] . '/'
+           return 'https://github.com/' . $this->configuration['project'] . '/'
                . $this->configuration['action'] . '/' . $this->linkParts['issue']??'';
        }
    }

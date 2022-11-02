@@ -20,9 +20,7 @@ return [
         'members' => [
             'linkAttributes',
             'linkParts',
-            'linkBrowser',
             'view',
-            'pageRenderer',
             'configuration',
             '__construct',
             'initialize',
