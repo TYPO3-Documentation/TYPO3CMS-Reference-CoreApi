@@ -32,9 +32,39 @@ automatically.
 ..  contents::
     :local:
 
+.. _tutorial_backend_link_handler-tsconfig:
+
+1.  Register the custom link browser tab in page TSconfig
+=========================================================
+
+..  include:: _CustomLinkBrowser/_PageTsConfig.rst.txt
+
+:typoscript:`handler`
+    The :ref:`backend link handler <tutorial_backend_link_handler>` that we
+    create in step 2.
+
+:typoscript:`label`
+    The name displayed on the tab button in the link browser.
+
+:typoscript:`displayAfter` / :typoscript:`displayBefore`
+    Can be used to decide the order of the tabs.
+
+:typoscript:`scanAfter` / :typoscript:`scanBefore`
+    The first backend link handler who determines that it can :ref:`handle the link
+    <tutorial_backend_link_handler_canHandleLink>` may edit a link. The
+    external url accepts any link no other link handler accepts. Therefore
+    we must scan before it.
+
+:typoscript:`configuration`
+    Some configuration, available to the backend link handler. This information
+    is **not available in the frontend**. Therefore in the :ref:`frontend
+    rendering of the link <tutorial-typolink-builder>` the information must be
+    stored in another way. In this example we hardcoded it. But you could also
+    make it available by TypoScript Setup or as part of the link that is saved.
+
 .. _tutorial_backend_link_handler:
 
-1. Create a link browser tab
+2. Create a link browser tab
 ============================
 
 To create a link browser tab we implement the interface
@@ -69,9 +99,19 @@ are called by Core classes once the dependencies are available:
 :php:`LinkHandlerInterface::initialize()` takes care of setting the
 :php:`\TYPO3\CMS\Backend\Controller\AbstractLinkBrowserController`, the identifier and
 the configuration information. In this example we only need the configuration,
-the other parameters might be needed in different scenarios. The
-:php:`\TYPO3\CMS\Core\Page\PageRenderer` has also to be created here for as it
-is not possible to inject it at the point of creation of the backend link handler.
+the other parameters might be needed in different scenarios.
+
+:php:`AbstractLinkBrowserController  $linkBrowser`
+    Is the surrounding class calling the link handler. This class stores
+    configuration information on the complete link browser window.
+
+:php:`string $identifier`
+    Contains the key of the page TSconfig configuration of the link browser tab
+    this instance renders.
+
+:php:`string[] $configuration`
+    Contains the array of the page TSconfig configuration of the link browser tab
+    this instance renders.
 
 The method :php:`setView()` is called by the :php:`AbstractLinkBrowserController`
 once the view is available and contains the necessary information to render
@@ -82,6 +122,21 @@ the link browser window.
     and its call is an implementation detail that might be
     changed in the future.
 
+Enable dependency injection
+---------------------------
+
+Backend link handlers are called internally in the TYPO3 Core by
+:php:`GeneralUtility::makeInstance()`. Therefore dependency injection needs
+to be enabled by marking the class as public in the extension's
+:file:`Configuration/Services.yaml`. As we keep internal states in the link
+handler class (for example :php:`$linkParts`) it cannot be a singleton and must
+be marked as :yaml:`shared: false`:
+
+..  literalinclude:: _CustomLinkBrowser/_Services.yaml
+    :caption: EXT:examples/Configuration/Services.yaml
+
+.. _tutorial_backend_link_handler_render:
+
 Render the link browser tab
 ---------------------------
 
@@ -90,6 +145,8 @@ be rendered. It registers the required JavaScript in the page renderer, assigns
 variables to the view and returns the rendered HTML.
 
 ..  include:: /ApiOverview/LinkBrowser/Tutorials/_CustomLinkBrowser/_GitHubLinkHandlerRender.rst.txt
+
+.. _tutorial_backend_link_handler_javascript:
 
 Set the link via JavaScript
 ---------------------------
@@ -115,6 +172,9 @@ As our JavaScript class depends on classes provided by the backend system extens
 :php:`backend` has to be added as dependency. See also
 :ref:`backend-javascript-es6-loading`.
 
+
+.. _tutorial_backend_link_handler_canHandleLink:
+
 Can we handle this link?
 ------------------------
 
@@ -125,6 +185,8 @@ the provided information to be used in rendering (for example, to fill an input
 field with the old value).
 
 ..  include:: /ApiOverview/LinkBrowser/Tutorials/_CustomLinkBrowser/_GitHubLinkHandlerCanHandleLink.rst.txt
+
+.. _tutorial_backend_link_handler_formatCurrentUrl:
 
 Format current URL
 ------------------
@@ -139,7 +201,7 @@ the link browser window.
 
 ..  _tutorial-core-link-handler:
 
-2. Introduce the custom link format
+3. Introduce the custom link format
 ===================================
 
 You can find the complete class in the extension EXT:examples on GitHub:
@@ -166,12 +228,14 @@ of the new format by a second class which implements the
 The method :php:`LinkHandlingInterface::asString()` creates a string
 representation from the parameter array.
 
-:php:`LinkHandlingInterface::resolveHandlerData()` receives a parsed version of
+:php:`LinkHandlingInterface::resolveHandlerData()` receives
 the string representation of the link and creates the parameter array from it.
+For convenience the parameters are already parsed and stored as key-value pairs
+in an array for you. You can perform further processing here if needed.
 
 ..  _tutorial-typolink-builder:
 
-3. Render the custom link format in the frontend
+4. Render the custom link format in the frontend
 ================================================
 
 The link builder, a class extending the abstract class
@@ -191,3 +255,10 @@ actual rendering of the link depends on the context the link is rendered in
 
 If the link cannot be built it should throw a
 :php:`\TYPO3\CMS\Frontend\Typolink\UnableToLinkException`.
+
+..  attention:: This configuration from the :ref:`page TSconfig
+    configuration <tutorial_backend_link_handler-tsconfig>` (step 1)
+    is **not available in the frontend**. Therefore the information which
+    repository to use must be stored in another way. In this example we
+    hardcoded it. But you could also make it available by TypoScript
+    setup or as part of the link format that is saved.

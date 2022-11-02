@@ -82,4 +82,11 @@ return [
         'withClassComment' => true,
         'targetFileName' => '/ApiOverview/LinkBrowser/Tutorials/_CustomLinkBrowser/_GithubLinkBuilder.rst.txt',
     ],
+    [
+        'action' => 'createCodeSnippet',
+        'caption' => 'EXT:examples/Configuration/TsConfig/Page/LinkBrowser/GitHubLinkhandler.tsconfig',
+        'sourceFile' => 'EXT:examples/Configuration/TsConfig/Page/LinkBrowser/GitHubLinkhandler.tsconfig',
+        'language' => 'typoscript',
+        'targetFileName' => 'ApiOverview/LinkBrowser/Tutorials/_CustomLinkBrowser/_PageTsConfig.rst.txt',
+    ],
 ];
