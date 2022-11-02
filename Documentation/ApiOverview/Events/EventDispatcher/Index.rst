@@ -51,10 +51,10 @@ Dispatching an event
       :caption: EXT:some_extension/Classes/Events/DoingThisAndThatEvent.php
 
       final class DoingThisAndThatEvent {
-         private string mutableProperty;
-         private int immutableProperty;
+         private string $mutableProperty;
+         private int $immutableProperty;
 
-         public function __construct(string mutableProperty, int immutableProperty) {
+         public function __construct(string $mutableProperty, int $immutableProperty) {
             // ...
          }
 
