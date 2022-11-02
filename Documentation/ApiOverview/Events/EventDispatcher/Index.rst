@@ -41,10 +41,10 @@ Dispatching an event
    properties and setters for mutable properties. It contains a constructor for all properties::
 
       final class DoingThisAndThatEvent {
-         private string mutableProperty;
-         private int immutableProperty;
+         private string $mutableProperty;
+         private int $immutableProperty;
 
-         public function __construct(string mutableProperty, int immutableProperty) {
+         public function __construct(string $mutableProperty, int $immutableProperty) {
             // ...
          }
 
