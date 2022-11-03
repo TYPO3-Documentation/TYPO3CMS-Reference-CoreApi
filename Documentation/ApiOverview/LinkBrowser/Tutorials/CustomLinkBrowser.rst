@@ -109,7 +109,7 @@ the other parameters might be needed in different scenarios.
     Contains the key of the page TSconfig configuration of the link browser tab
     this instance renders.
 
-:php:`string[] $configuration`
+:php:`array $configuration`
     Contains the page TSconfig configuration as array of the link browser tab
     this instance renders.
 
