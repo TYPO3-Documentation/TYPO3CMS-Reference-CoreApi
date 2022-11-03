@@ -906,3 +906,47 @@ requireApprovedLocalizations
 
     :php:`false`
         All translations are used.
+
+
+..  index::
+    TYPO3_CONF_VARS SYS; passwordPolicies
+..  _typo3ConfVars_sys_passwordPolicies:
+
+passwordPolicies
+================
+
+..  versionadded:: 12.0
+
+..  confval:: $GLOBALS['TYPO3_CONF_VARS']['SYS']['passwordPolicies']
+
+    :Path: $GLOBALS['TYPO3_CONF_VARS']['SYS']['passwordPolicies']
+    :type: array
+
+    Defines the available :ref:`password policies <password-policies>`. Each
+    policy must have a unique identifier (the identifier `default` is reserved
+    by TYPO3) and must at least contain one validator.
+
+    The default configuration:
+
+    ..  code-block:: php
+
+        $GLOBALS['TYPO3_CONF_VARS']['SYS']['passwordPolicies']['default'] = [
+            'validators' => [
+                \TYPO3\CMS\Core\PasswordPolicy\Validator\CorePasswordValidator::class => [
+                    'options' => [
+                        'minimumLength' => 8,
+                        'upperCaseCharacterRequired' => true,
+                        'lowerCaseCharacterRequired' => true,
+                        'digitCharacterRequired' => true,
+                        'specialCharacterRequired' => true,
+                    ],
+                    'excludeActions' => [],
+                ],
+                \TYPO3\CMS\Core\PasswordPolicy\Validator\NotCurrentPasswordValidator::class => [
+                    'options' => [],
+                    'excludeActions' => [
+                        \TYPO3\CMS\Core\PasswordPolicy\PasswordPolicyAction::NEW_USER_PASSWORD,
+                    ],
+                ],
+            ],
+        ];

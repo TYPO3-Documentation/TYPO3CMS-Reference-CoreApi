@@ -62,6 +62,11 @@ computers in libraries, internet cafés, and sometimes even computers
 of work colleagues and friends can be manipulated (with or without the
 knowledge of the owner) and log your keyboard input.
 
+..  tip::
+    Since TYPO3 v12.0 password policies can be configured in backend and/or
+    frontend context. Have a look into the chapter :ref:`password-policies`.
+
+
 .. _security-update-operating-system:
 .. _security-update-browser:
 
