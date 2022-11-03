@@ -179,7 +179,7 @@ markupIdentifier
     `inline` is only meaningful for SVG icons.
 
 The method :js:`getIcon()` returns a AjaxResponse Promise object, as internally
-an AJAX request is done.
+an Ajax request is done.
 
 .. note::
     Since TYPO3 v9, the icons are cached in the localStorage of the client to

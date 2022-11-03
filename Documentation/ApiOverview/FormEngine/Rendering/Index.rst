@@ -8,7 +8,7 @@ Rendering
 
 This is the second step of the processing chain: The rendering part gets the data array prepared
 by :php:`FormDataCompiler` and creates a result array containing HTML, CSS and JavaScript. This
-is then post-processed by a controller to feed it to the :php:`PageRenderer` or to create an ajax
+is then post-processed by a controller to feed it to the :php:`PageRenderer` or to create an Ajax
 response.
 
 The rendering is a tree: The controller initializes this by setting one :php:`container` as :php:`renderType`
@@ -212,7 +212,7 @@ names in format :php:`EXT:my_extension/path/to/file`.
 .. note::
     Nodes must never add assets like JavaScript or CSS using the
     :php:`PageRenderer`. This fails as soon as this container / element /
-    wizard is called via AJAX, for instance within inline. Instead,
+    wizard is called via Ajax, for instance within inline. Instead,
     those resources must be registered via the result array only,
     using :php:`stylesheetFiles` and :php:`javaScriptModules`.
 
@@ -394,7 +394,7 @@ Add fieldControl Example
 
 To illustrate the principals discussed in this chapter see the following
 example which registers a fieldControl (button) next to a field in the pages
-table to trigger a data import via AJAX.
+table to trigger a data import via Ajax.
 
 Add a new renderType in :file:`ext_localconf.php`:
 
@@ -505,7 +505,7 @@ Add the JavaScript for defining the behavior of the control in
 
       /**
       * initializes events using deferred bound to document
-      * so AJAX reloads are no problem
+      * so Ajax reloads are no problem
       */
       ImportData.initializeEvents = function () {
 
@@ -520,7 +520,7 @@ Add the JavaScript for defining the behavior of the control in
       return ImportData;
    });
 
-Add an ajax route for the request in
+Add an Ajax route for the request in
 :file:`Configuration/Backend/AjaxRoutes.php`:
 
 .. code-block:: php
@@ -534,7 +534,7 @@ Add an ajax route for the request in
       ],
    ];
 
-Add the ajax controller class in
+Add the Ajax controller class in
 :file:`Classes/Controller/Ajax/ImportDataController.php`:
 
 .. code-block:: php
