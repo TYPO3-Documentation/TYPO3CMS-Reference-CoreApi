@@ -103,14 +103,14 @@ the other parameters might be needed in different scenarios.
 
 :php:`AbstractLinkBrowserController $linkBrowser`
     Is the surrounding class calling the link handler. This class stores
-    configuration information on the complete link browser window.
+    configuration information of the complete link browser window.
 
 :php:`string $identifier`
     Contains the key of the page TSconfig configuration of the link browser tab
     this instance renders.
 
 :php:`string[] $configuration`
-    Contains the array of the page TSconfig configuration of the link browser tab
+    Contains the page TSconfig configuration as array of the link browser tab
     this instance renders.
 
 The method :php:`setView()` is called by the :php:`AbstractLinkBrowserController`
