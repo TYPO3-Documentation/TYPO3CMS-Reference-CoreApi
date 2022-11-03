@@ -104,9 +104,7 @@ class validateRstFiles
         $finder
             ->files()
             ->in($this->baseDir)
-            ->name('/\.rst$/')
-            ->notName('Index.rst')
-            ->notName('Howto.rst');
+            ->name('/\.rst$/');
 
         return $finder;
     }

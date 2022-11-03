@@ -1,4 +1,4 @@
-﻿.. include:: /Includes.rst.txt
+.. include:: /Includes.rst.txt
 .. index:: Soft references
 .. _soft-references:
 
