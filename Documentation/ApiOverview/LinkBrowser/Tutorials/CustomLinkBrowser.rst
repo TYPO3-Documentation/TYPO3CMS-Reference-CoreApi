@@ -6,7 +6,7 @@
 Create a custom link browser
 ============================
 
-In this tutorial we create a custom link browser tab and the associated
+In this tutorial we create a custom link browser and the associated
 :ref:`backend link handler <tutorial_backend_link_handler>`.
 
 We create a new tab in the link browser window in the TYPO3 backend:
