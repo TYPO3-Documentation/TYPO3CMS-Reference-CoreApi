@@ -101,7 +101,7 @@ are called by Core classes once the dependencies are available:
 the configuration information. In this example we only need the configuration,
 the other parameters might be needed in different scenarios.
 
-:php:`AbstractLinkBrowserController  $linkBrowser`
+:php:`AbstractLinkBrowserController $linkBrowser`
     Is the surrounding class calling the link handler. This class stores
     configuration information on the complete link browser window.
 
