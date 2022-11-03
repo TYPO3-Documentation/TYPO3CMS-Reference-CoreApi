@@ -36,3 +36,7 @@ max_line_length = 80
 [*.js]
 indent_size = 2
 
+# YAML-Files
+[*.{yaml,yml}]
+indent_size = 2
+
