@@ -545,7 +545,7 @@ eID_include
    to include the code file which renders the page from that point.
 
    (Useful for functionality that requires a low initialization footprint,
-   for example frontend ajax applications)
+   for example frontend Ajax applications)
 
 
 .. index::

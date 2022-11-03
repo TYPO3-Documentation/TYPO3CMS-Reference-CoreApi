@@ -145,7 +145,7 @@ markupIdentifier
 
    Defines how the markup is returned. All values of the :js:`Icons.markupIdentifiers` enum are allowed, these are: `default` and `inline`. Please note that `inline` is only meaningful for SVG icons.
 
-The method :js:`getIcon()` returns a jQuery Promise object, as internally an AJAX request is done.
+The method :js:`getIcon()` returns a jQuery Promise object, as internally an Ajax request is done.
 
 .. note::
    Since TYPO3 v9, the icons are cached in the localStorage of the client to reduce the workload off the server.

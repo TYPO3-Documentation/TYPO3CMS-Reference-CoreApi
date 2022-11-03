@@ -114,7 +114,7 @@ TcaInputPlaceholderRecord
   List of data providers used to prepare placeholder values for :php:`type=input` and :php:`type=text` fields.
 
 InlineParentRecord
-  List of data providers used to prepare data needed if an inline record is opened from within an ajax call.
+  List of data providers used to prepare data needed if an inline record is opened from within an Ajax call.
 
 OnTheFly
   A special data group that can be initialized with a list of to-execute data providers directly. In contrast to the

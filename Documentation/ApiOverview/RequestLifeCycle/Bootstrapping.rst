@@ -12,7 +12,7 @@ calling  :php:`Bootstrap::init()` and serves as an entry point for later calling
 an application class, depending on several context-dependant constraints.
 
 Each application class registers request handlers to
-run a certain request type (e.g. eID or TSFE-logic, or AJAX requests in the Backend). Each application is handed
+run a certain request type (e.g. eID or TSFE-logic, or Ajax requests in the Backend). Each application is handed
 over the class loader provided by Composer.
 
 Applications
@@ -38,7 +38,7 @@ This class handles all incoming web requests for any regular backend call
 inside :file:`typo3/\*`.
 
 Its :php:`TYPO3\CMS\Backend\Http\RequestHandler` is used for all backend
-requests, including AJAX routes. If a get/post parameter "route" is set, the
+requests, including Ajax routes. If a get/post parameter "route" is set, the
 backend routing is called by the :php:`RequestHandler` and
 searches for a matching route inside the router. The corresponding controller
 / action is called then which returns the response.
@@ -111,7 +111,7 @@ to have an overview of these base values, it is worth taking a look into the fol
 
 -  :php:`SystemEnvironmentBuilder::defineTypo3RequestTypes()` defines the different
    constants for determining if the current request is a frontend, backend, cli,
-   ajax or Install Tool request.
+   Ajax or Install Tool request.
 
 -  :php:`SystemEnvironmentBuilder::defineBaseConstants()` defines
    constants containing values such as the current version number,
