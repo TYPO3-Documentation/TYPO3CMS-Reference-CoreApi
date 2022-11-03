@@ -9,7 +9,7 @@ Ajax in the backend, client-side
 ..  todo: Unify with Ajax.rst, which also contains client-side ajax information
     https://github.com/TYPO3-Documentation/TYPO3CMS-Reference-CoreApi/issues/2331
 
-TYPO3 Core ships an API to send ajax requests to the server. This API is based on the `fetch API`_, which is implemented
+TYPO3 Core ships an API to send Ajax requests to the server. This API is based on the `fetch API`_, which is implemented
 in every modern browser (e.g. Chrome, Safari, Firefox, Edge).
 
 .. note::
@@ -137,14 +137,14 @@ which contains the received response.
 
 .. hint::
    The fetch API handles responses with faulty statuses like 404 or 500 still as "successful", but sets the response's
-   :js:`ok` field to `false`. The ajax API converts such responses into errors for convenience reasons.
+   :js:`ok` field to `false`. The Ajax API converts such responses into errors for convenience reasons.
 
 .. index:: Ajax; Abort
 
 Abort a request
 ===============
 
-In some cases it might be necessary to abort a running request. The ajax API has you covered then, an instance of
+In some cases it might be necessary to abort a running request. The Ajax API has you covered then, an instance of
 `AbortController`_ is attached to each request. To abort the request, just call the :js:`abort()` method:
 
 .. code-block:: js

@@ -75,7 +75,7 @@ This two-fold process has a number of advantages:
 * Data providing and rendering is split: Controllers could re-use the rendering part of FormEngine while
   all or parts of the data providers are omitted, or their data comes from "elsewhere". Furthermore, controllers can
   re-use the data providing part of FormEngine and output the result in an entirely different way than HTML. The
-  latter is for instance used when FormEngine is triggered for a TCA tree by an ajax call and thus outputs a JSON array.
+  latter is for instance used when FormEngine is triggered for a TCA tree by an Ajax call and thus outputs a JSON array.
 
 * The code constructs behind "data providing" and "rendering" can be different to allow higher re-use and more
   flexibility with having the "data array" as main communication base in between. This will become more obvious

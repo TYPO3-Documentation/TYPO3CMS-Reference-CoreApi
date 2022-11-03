@@ -6,12 +6,12 @@
 Ajax in the Backend
 ===================
 
-An ajax endpoint in the TYPO3 backend is usually implemented as a method in a regular controller. The method receives a
+An Ajax endpoint in the TYPO3 backend is usually implemented as a method in a regular controller. The method receives a
 request object implementing the :php:`Psr\Http\Message\ServerRequestInterface`, which allows to access all aspects of
 the requests and returns an appropriate response in a normalized way. This approach is standardized as `PSR-7`_.
 
 ..  seealso::
-    You can find information on how to handle ajax requests in the frontend
+    You can find information on how to handle Ajax requests in the frontend
     in the chapter :ref:`Ajax in the Extension Development section <ajax-client-side>`.
 
 .. index:: pair: Ajax; Controller
@@ -24,7 +24,7 @@ To have such controller, create a new :php:`ExampleController` in :file:`Classes
 inside your extension.
 
 The controller doesn't need that much logic right now. We'll create a method called :php:`doSomethingAction()` which
-will be our ajax endpoint.
+will be our Ajax endpoint.
 
 .. code-block:: php
 
@@ -136,14 +136,14 @@ For further reading, take a look at :ref:`backend-routing`.
    Flushing caches is mandatory after modifying any route definition.
 
 
-Use in ajax
+Use in Ajax
 ===========
 
 Since the route is registered in :file:`AjaxRoutes.php` its exposed to JavaScript now and stored in the global
 :js:`TYPO3.settings.ajaxUrls` object identified by the used key in the registration. In this example it's
 :js:`TYPO3.settings.ajaxUrls.example_dosomething`.
 
-You are now free to use the endpoint in any of your ajax calls. To complete this example, we'll ask the server to
+You are now free to use the endpoint in any of your Ajax calls. To complete this example, we'll ask the server to
 compute our input and write the result into the console.
 
 .. code-block:: js

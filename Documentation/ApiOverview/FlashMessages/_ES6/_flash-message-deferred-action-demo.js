@@ -5,7 +5,7 @@ import $ from 'jquery';
 class _flashMessageDeferredActionDemo {
   constructor() {
     const deferredActionCallback = new DeferredAction(function () {
-      return Promise.resolve($.ajax(/* AJAX configuration */));
+      return Promise.resolve($.ajax(/* Ajax configuration */));
     });
 
     Notification.warning('Goblins ahead', 'It may become dangerous at this point.', 10, [
