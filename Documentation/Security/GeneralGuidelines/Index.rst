@@ -20,7 +20,7 @@ It is critical that every user is using secure passwords to
 authenticate themselfs at systems like TYPO3. Below are rules that
 should be implemented in a password policy:
 
-#. Ensure that the passwords you use have a minimum length of 9 or more
+#. Ensure that the passwords you use have a minimum length of 8 or more
    characters.
 
 #. Passwords should have a mix of upper and lower case letters, numbers
