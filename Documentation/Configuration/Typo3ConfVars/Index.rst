@@ -1,8 +1,8 @@
-.. include:: /Includes.rst.txt
-.. index::
-   $GLOBALS; TYPO3_CONF_VARS
-   TYPO3_CONF_VARS
-.. _typo3ConfVars:
+..  include:: /Includes.rst.txt
+..  index::
+    $GLOBALS; TYPO3_CONF_VARS
+    TYPO3_CONF_VARS
+..  _typo3ConfVars:
 
 ===============
 TYPO3_CONF_VARS
@@ -11,8 +11,8 @@ TYPO3_CONF_VARS
 The main configuration is achieved via a set of global settings
 stored in a global array called :php:`$GLOBALS['TYPO3_CONF_VARS']`.
 
-This chapter describes this global configuration in more details and hints
-at other configuration possibilities.
+This chapter describes this global configuration in more details and give hints
+to further configuration possibilities.
 
 ..  note::
     This variable can be set in one of the following files:
@@ -60,12 +60,12 @@ This file overrides default settings from
 .. important::
 
    Since configuration settings can be manipulated from within the
-   TYPO3 CMS backend, the :file:`config/system/settings.php`
+   TYPO3 backend, the :file:`config/system/settings.php`
    must be writable by the web server user.
 
 The local configuration file is basically a long array which is simply returned
-when the file is included. It represents the global TYPO3 CMS configuration.
-This configuration can be modified/extended/overridden by extensions,
+when the file is included. It represents the global TYPO3 configuration.
+This configuration can be modified/extended/overridden by extensions
 by setting configuration options inside an extension's
 :file:`ext_localconf.php` file. :ref:`See extension files and locations <extension-files-locations>`
 for more details about extension structure.
@@ -73,7 +73,7 @@ for more details about extension structure.
 A typical content of :file:`config/system/settings.php` looks like this:
 
 ..  code-block:: php
-    :caption: config/system/additional.php | typo3conf/system/settings.php
+    :caption: config/system/settings.php | typo3conf/system/settings.php
 
     <?php
     return [
@@ -148,54 +148,55 @@ may themselves be arrays.
 The configuration categories are:
 
 BE
-   :ref:`Options related to the TYPO3 CMS backend <typo3ConfVars_be>`.
+    :ref:`Options related to the TYPO3 backend <typo3ConfVars_be>`.
 
 DB
-   :ref:`Database connection configuration <typo3ConfVars_db>`.
+    :ref:`Database connection configuration <typo3ConfVars_db>`.
 
 EXT
-   :ref:`Extension installation options <typo3ConfVars_ext>`.
+    :ref:`Extension installation options <typo3ConfVars_ext>`.
 
 EXTCONF
-   Backend related language pack configuration resides here.
+    Backend-related language pack configuration resides here.
 
 EXTENSIONS
-   :ref:`Extension configuration <extension-configuration>`.
+    :ref:`Extension configuration <extension-configuration>`.
 
 FE
-   :ref:`Frontend-related options <typo3ConfVars_fe>`.
+    :ref:`Frontend-related options <typo3ConfVars_fe>`.
 
 GFX
-   :ref:`Options related to image manipulation. <typo3ConfVars_gfx>`
+    :ref:`Options related to image manipulation. <typo3ConfVars_gfx>`.
 
 HTTP
-   :ref:`Settings for tuning HTTP requests <typo3ConfVars_http>` made by TYPO3.
+    :ref:`Settings for tuning HTTP requests <typo3ConfVars_http>` made by TYPO3.
 
 LOG
-   :ref:`Configuration of the logging system <logging-configuration>`
+    :ref:`Configuration of the logging system <logging-configuration>`.
 
 MAIL
-   :ref:`Options related to the sending of emails <typo3ConfVars_gfx>`
-   (transport, server, etc.).
+    :ref:`Options related to the sending of emails <typo3ConfVars_gfx>`
+    (transport, server, etc.).
 
 SVCONF
-   :ref:`Service API configuration<services-developer-service-api-getters>`
+    :ref:`Service API configuration <services-developer-service-api-getters>`.
 
 SYS
-  :ref:`General options <typo3ConfVars_sys>` which may affect both the frontend
+    :ref:`General options <typo3ConfVars_sys>` which may affect both the
+    frontend and the backend.
 
 T3_SERVICES
-   :ref:`Service registration configuration <services-configuration-registration-changes>`
-   and the backend.
+    :ref:`Service registration configuration <services-configuration-registration-changes>`
+    and the backend.
 
 Further details on the various configuration options can be found in the
-:guilabel:`Admin Tools` as well as the TYPO3 source at
-:file:`typo3/sysext/core/Configuration/DefaultConfigurationDescription.yaml`.
-The documentation shown in the :guilabel:`Admin Tools` is automatically
+:guilabel:`Admin Tools` module as well as the TYPO3 source at
+:file:`EXT:core/Configuration/DefaultConfigurationDescription.yaml`.
+The documentation shown in the :guilabel:`Admin Tools` module is automatically
 extracted from those values of :file:`DefaultConfigurationDescription.yaml`.
 
-The :guilabel:`Admin Tools` provides various dedicated modules that change parts of
-:file:`config/system/settings.php`, those can be found in
+The :guilabel:`Admin Tools` module provides various dedicated sections that
+change parts of :file:`config/system/settings.php`, those can be found in
 :guilabel:`Admin Tools > Settings`, most importantly section
 :guilabel:`Configure installation-wide options`:
 
@@ -241,10 +242,10 @@ which means it represents an opportunity to change global configuration
 values programmatically if needed.
 
 :file:`config/system/additional.php` is a plain PHP file.
-There are no specific rules about what it may contain. However since
-the code is included on **every** request to TYPO3 CMS
+There are no specific rules about what it may contain. However, since
+the code is included on **every** request to TYPO3
 - whether frontend or backend - you should avoid inserting code
-which requires heavy duty processing.
+which requires a lot of processing time.
 
 **Example: Changing the database hostname for development machines**
 
@@ -265,28 +266,28 @@ which requires heavy duty processing.
 File DefaultConfiguration.php
 =============================
 
-TYPO3 CMS comes with some default settings, which are defined in
-file :file:`typo3/sysext/core/Configuration/DefaultConfiguration.php`.
+TYPO3 comes with some default settings, which are defined in
+file :file:`EXT:core/Configuration/DefaultConfiguration.php`.
 
 This is the base configuration, the other files like :file:`config/system/settings.php`
 just overlay it.
 
 Here is an extract of that file:
 
-.. code-block:: php
+..  code-block:: php
 
-	return [
-		'GFX' => [
-			'thumbnails' => true,
-			'thumbnails_png' => true,
-			'gif_compress' => true,
-			'imagefile_ext' => 'gif,jpg,jpeg,tif,tiff,bmp,pcx,tga,png,pdf,ai,svg',
-			// ...
-		],
-		// ...
-	];
+    return [
+        'GFX' => [
+            'thumbnails' => true,
+            'thumbnails_png' => true,
+            'gif_compress' => true,
+            'imagefile_ext' => 'gif,jpg,jpeg,tif,tiff,bmp,pcx,tga,png,pdf,ai,svg',
+            // ...
+        ],
+        // ...
+    ];
 
 
-You will probably find it interesting to take a look at that file,
-which also contains values not displayed in the Install Tool and thus
-not easily available for modification.
+It is certainly interesting to take a look into this file, which also contains
+values that are not displayed in the Install Tool and therefore cannot be
+changed easily.
