@@ -11,7 +11,7 @@ TYPO3_CONF_VARS
 The main configuration is achieved via a set of global settings
 stored in a global array called :php:`$GLOBALS['TYPO3_CONF_VARS']`.
 
-This chapter describes this global configuration in more details and give hints
+This chapter describes this global configuration in more details and gives hints
 to further configuration possibilities.
 
 ..  note::
