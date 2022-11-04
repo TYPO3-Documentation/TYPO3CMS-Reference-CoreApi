@@ -12,21 +12,21 @@ jobs:
       # This prevents cancellation of matrix job runs, if one or more already failed
       # and let the remaining matrix jobs be executed anyway.
       fail-fast: false
-      matrix:
-        php: [ '8.1' ]
+    env:
+      php: '8.1'
     steps:
       - name: Checkout
         uses: actions/checkout@v3
 
       - name: Install testing system
-        run: Build/Scripts/runTests.sh -p ${{ matrix.php }} -s composerUpdate
+        run: Build/Scripts/runTests.sh -p ${{ env.php }} -s composerUpdate
 
       - name: Lint PHP
-        run: Build/Scripts/runTests.sh -p ${{ matrix.php }} -s lint
+        run: Build/Scripts/runTests.sh -p ${{ env.php }} -s lint
 
       - name: CGL
-        run: Build/Scripts/runTests.sh -n -p ${{ matrix.php }} -s cgl -n
+        run: Build/Scripts/runTests.sh -n -p ${{ env.php }} -s cgl -n
 
       - name: Check Rst
-        run: Build/Scripts/runTests.sh -p ${{ matrix.php }} -s checkRst
+        run: Build/Scripts/runTests.sh -p ${{ env.php }} -s checkRst
 
