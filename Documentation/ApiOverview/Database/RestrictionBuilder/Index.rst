@@ -49,7 +49,7 @@ query" should be fired. The construct implements some important design goals:
     for every single query, this is easy to forget. We are all lazy, aren't we?
 
 *   **Security:**
-    When in doubt, it is better to show a little too less than too much. It is
+    When in doubt, it is better to show a little too little than too much. It is
     much better to deal with a customer complaining that some records are *not*
     displayed than to show too many records. The former is "just a bug", while
     the latter can easily lead to a serious privilege escalation security issue.
