@@ -26,3 +26,7 @@ jobs:
 
       - name: CGL
         run: Build/Scripts/runTests.sh -n -p ${{ matrix.php }} -s cgl -n
+
+      - name: Check Rst
+        run: Build/Scripts/runTests.sh -p ${{ matrix.php }} -s checkRst
+
