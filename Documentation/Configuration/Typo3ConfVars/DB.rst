@@ -57,7 +57,7 @@ Connections
     :php:`Default` key, in which the default database is configured, for example:
 
     .. code-block:: php
-        :caption: config/system/settings.php
+        :caption: config/system/settings.php | typo3conf/system/settings.php
 
         'Connections' => [
             'Default' => [
