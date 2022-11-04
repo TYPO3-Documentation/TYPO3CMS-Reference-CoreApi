@@ -47,4 +47,3 @@ Tutorials
 
     Kickstart/Index
     Tea/Index
-    Extbase

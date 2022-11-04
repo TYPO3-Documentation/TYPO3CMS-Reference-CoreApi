@@ -1,7 +1,6 @@
 .. include:: /Includes.rst.txt
 
 .. index:: $GLOBALS; TBE_MODULES
-.. _backend-modules-api-tbemodules:
 
 =======================
 View registered modules

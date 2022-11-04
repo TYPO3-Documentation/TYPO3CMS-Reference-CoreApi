@@ -11,5 +11,6 @@ Request Life Cycle
     :maxdepth: 1
     :glob:
 
+    */Index
     *
 
