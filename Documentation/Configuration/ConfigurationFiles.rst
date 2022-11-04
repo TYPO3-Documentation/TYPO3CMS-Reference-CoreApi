@@ -22,7 +22,7 @@ like database connect credentials are in here. The file is managed by the
 :guilabel:`Admin Tools`.
 
 The settings in the :file:`settings.php`  can be overridden in the
-:file:`additional.php file, which is never touched by TYPO3
+:file:`additional.php` file, which is never touched by TYPO3
 internal management tools. Be aware that having settings within
 :file:`additional.php` may prevent the system from performing
 automatic upgrades and should be used with care and only if you know what
