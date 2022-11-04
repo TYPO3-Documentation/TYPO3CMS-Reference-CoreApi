@@ -8,10 +8,10 @@
    {
        public function canHandleLink(array $linkParts): bool
        {
-           if ($linkParts['type'] !== 'github') {
+           if (!isset($linkParts['type']) || $linkParts['type'] !== 'github') {
                return false;
            }
-           $this->linkParts = $linkParts['url']??[];
+           $this->linkParts = $linkParts;
            return true;
        }
    }

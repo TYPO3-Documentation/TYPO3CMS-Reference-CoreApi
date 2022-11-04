@@ -2,19 +2,6 @@
 
 return [
     [
-        'action'=> 'createCodeSnippet',
-        'caption'=> 'EXT:examples/Configuration/TsConfig/Page/LinkBrowser/HaikuRecordLinkBrowser.tsconfig',
-        'sourceFile'=> 'EXT:examples/Configuration/TsConfig/Page/LinkBrowser/HaikuRecordLinkBrowser.tsconfig',
-        'targetFileName'=> 'Tutorials/LinkBrowser/Classes/HaikuRecordLinkBrowserTsconfig.rst.txt',
-        'language' => 'typoscript',
-    ],
-    [
-        'action'=> 'createCodeSnippet',
-        'caption'=> 'EXT:examples/Configuration/TypoScript/RecordLinks/Haiku.typoscript',
-        'sourceFile'=> 'EXT:examples/Configuration/TypoScript/RecordLinks/Haiku.typoscript',
-        'targetFileName'=> 'Tutorials/LinkBrowser/Classes/HaikuRecordLinkTypoScript.rst.txt',
-    ],
-    [
         'action' => 'createPhpClassCodeSnippet',
         'class' => \T3docs\Examples\LinkHandler\GitHubLinkHandler::class,
         'members' => [
@@ -54,8 +41,8 @@ return [
     ],
     [
         'action' => 'createCodeSnippet',
-        'caption' => 'EXT:examples/Resources/Public/JavaScript/github_link_handler.js',
-        'sourceFile' => 'EXT:examples/Resources/Public/JavaScript/github_link_handler.js',
+        'caption' => 'EXT:examples/Resources/Public/JavaScript/GitHubLinkHandler.js',
+        'sourceFile' => 'EXT:examples/Resources/Public/JavaScript/GitHubLinkHandler.js',
         'language' => 'js',
         'targetFileName' => '/ApiOverview/LinkBrowser/Tutorials/_CustomLinkBrowser/_CustomLinkHandlerJavaScript.rst.txt',
     ],

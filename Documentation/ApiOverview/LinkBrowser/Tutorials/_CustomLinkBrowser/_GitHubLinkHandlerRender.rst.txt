@@ -10,13 +10,16 @@
    {
        public function render(ServerRequestInterface $request): string
        {
-           $this->pageRenderer->loadJavaScriptModule('@t3docs/examples/github_link_handler.js');
-           $this->view->assign('project', $this->configuration['project']);
-           $this->view->assign('action', $this->configuration['action']);
-           $this->view->assign('linkParts', $this->linkParts);
-           $this->view->assign('issue', $this->linkParts['issue'] ?? '');
+           $this->pageRenderer->loadRequireJsModule('TYPO3/CMS/Examples/GitHubLinkHandler');
+           $this->view->getRequest()->setControllerExtensionName('examples');
+           $this->view->setTemplateRootPaths(['EXT:examples/Resources/Private/Templates/LinkBrowser']);
    
-           return $this->view->render('LinkBrowser/GitHub');
+           $this->view->assign('project', $this->configuration['project'] ?? '');
+           $this->view->assign('action', $this->configuration['action'] ?? '');
+           $this->view->assign('github', !empty($this->linkParts) ? $this->linkParts['url']['value'] : '');
+   
+           $this->view->setTemplate('GitHub');
+           return '';
        }
    }
    

@@ -154,24 +154,10 @@ Set the link via JavaScript
 When the button in the rendered form is clicked to set a link, a custom
 JavaScript class interprets the form data and creates the link to be stored:
 
-..  todo: Configure code snippet tool to remove or shorten the license comment here
-
 ..  include:: /ApiOverview/LinkBrowser/Tutorials/_CustomLinkBrowser/_CustomLinkHandlerJavaScript.rst.txt
 
 It is important that the JavaScript function calls
 :js:`LinkBrowser.finalizeFunction()`. Otherwise no link will be set.
-
-If not done yet, the JavaScript has to be registered in the file
-:file:`EXT:my_extension/Configuration/JavaScriptModules.php`. Otherwise it
-will not be found by :php:`$pageRenderer->loadJavaScriptModule()`.
-
-..  literalinclude:: _CustomLinkBrowser/_JavaScriptModules.php
-    :caption: EXT:examples/Configuration/JavaScriptModules.php
-
-As our JavaScript class depends on classes provided by the backend system extension,
-:php:`backend` has to be added as dependency. See also
-:ref:`backend-javascript-es6-loading`.
-
 
 .. _tutorial_backend_link_handler_canHandleLink:
 
