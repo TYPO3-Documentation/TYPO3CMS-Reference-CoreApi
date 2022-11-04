@@ -128,6 +128,8 @@ extension developer.
 Restrictions
 ============
 
+.. rst-class:: dl-parameters
+
 :php:`\TYPO3\CMS\Core\Database\Query\Restriction\DeletedRestriction` (default)
     Evaluates :php:`['ctrl']['delete']`, adds for instance
     :sql:`AND deleted = 0` if :php:`TCA['aTable']['ctrl']['delete'] = 'deleted'`
@@ -151,11 +153,17 @@ Restrictions
     Match records on root level, adds :sql:`AND (`pid` = 0)`
 
 :php:`\TYPO3\CMS\Core\Database\Query\Restriction\BackendWorkspaceRestriction`
+    ..  deprecated:: 12.1
+        Use :php:`\TYPO3\CMS\Core\Database\Query\Restriction\WorkspaceRestriction` instead.
+
     Determines the current workspace a backend user is working in and adds
     a couple of restrictions to select only records of that workspace if the
     table supports workspace-enabled records.
 
 :php:`\TYPO3\CMS\Core\Database\Query\Restriction\FrontendWorkspaceRestriction`
+    ..  deprecated:: 12.1
+        Use :php:`\TYPO3\CMS\Core\Database\Query\Restriction\WorkspaceRestriction` instead.
+
     Restriction to filter records for frontend workspaces preview.
 
 :php:`\TYPO3\CMS\Core\Database\Query\Restriction\WorkspaceRestriction`
@@ -188,6 +196,8 @@ following applies:
 QueryRestrictionContainer
 =========================
 
+.. rst-class:: dl-parameters
+
 :php:`\TYPO3\CMS\Core\Database\Query\Restriction\DefaultRestrictionContainer`
     Add :php:`\TYPO3\CMS\Core\Database\Query\Restriction\DeletedRestriction`,
     :php:`\TYPO3\CMS\Core\Database\Query\Restriction\HiddenRestriction`,
@@ -200,7 +210,7 @@ QueryRestrictionContainer
     :php:`\TYPO3\CMS\Core\Database\Query\Restriction\HiddenRestriction`,
     :php:`\TYPO3\CMS\Core\Database\Query\Restriction\StartTimeRestriction`,
     :php:`\TYPO3\CMS\Core\Database\Query\Restriction\EndTimeRestriction`,
-    :php:`\TYPO3\CMS\Core\Database\Query\Restriction\FrontendWorkspaceRestriction`
+    :php:`\TYPO3\CMS\Core\Database\Query\Restriction\WorkspaceRestriction`
     and :php:`\TYPO3\CMS\Core\Database\Query\Restriction\FrontendGroupRestriction`.
     This container should be be added by a developer to a query when creating
     query statements in frontend context or when handling frontend stuff from
