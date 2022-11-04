@@ -77,7 +77,7 @@ Connections
     database server:
 
     ..  code-block:: php
-        :caption: config/system/settings.php
+        :caption: config/system/settings.php | typo3conf/system/settings.php
 
         'Connections' => [
             'Default' => [
