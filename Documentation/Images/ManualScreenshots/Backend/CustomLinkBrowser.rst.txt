@@ -1,0 +1,6 @@
+.. Screenshot of TYPO3 v12.0 cannot be automated yet
+
+..  figure:: /Images/ManualScreenshots/Backend/CustomLinkBrowser.png
+    :class: with-shadow
+
+    A custom link browser to link to GitHub issues
