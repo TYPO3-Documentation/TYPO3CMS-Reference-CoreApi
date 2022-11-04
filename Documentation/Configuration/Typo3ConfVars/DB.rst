@@ -1,9 +1,9 @@
-.. include:: /Includes.rst.txt
+..  include:: /Includes.rst.txt
 
 ..  index::
     TYPO3_CONF_VARS; DB
     Database; Connections
-.. _typo3ConfVars_db:
+..  _typo3ConfVars_db:
 
 =========================
 DB - Database connections
@@ -24,294 +24,299 @@ the connection to the database:
     *   :ref:`config/system/settings.php <typo3ConfVars-settings>`
     *   :ref:`config/system/additional.php <typo3ConfVars-additional>`
 
-.. index::
-   TYPO3_CONF_VARS DB; additionalQueryRestrictions
-.. _typo3ConfVars_db_additionalQueryRestrictions:
+..  index::
+    TYPO3_CONF_VARS DB; additionalQueryRestrictions
+..  _typo3ConfVars_db_additionalQueryRestrictions:
 
 additionalQueryRestrictions
 ===========================
 
-.. confval:: $GLOBALS['TYPO3_CONF_VARS']['DB']['additionalQueryRestrictions']
+..  confval:: $GLOBALS['TYPO3_CONF_VARS']['DB']['additionalQueryRestrictions']
 
-   :type: array
-   :Default: []
+    :type: array
+    :Default: []
 
-   It is possible to add additional query restrictions by adding class names as
-   key to :php:`$GLOBALS['TYPO3_CONF_VARS']['DB']['additionalQueryRestrictions']`.
-   Have a look into the chapter :ref:`database-custom-restrictions` for details.
+    It is possible to add additional query restrictions by adding class names as
+    key to :php:`$GLOBALS['TYPO3_CONF_VARS']['DB']['additionalQueryRestrictions']`.
+    Have a look into the chapter :ref:`database-custom-restrictions` for details.
 
 
-.. index::
-   TYPO3_CONF_VARS DB; Connections
-.. _typo3ConfVars_db_connections:
+..  index::
+    TYPO3_CONF_VARS DB; Connections
+..  _typo3ConfVars_db_connections:
 
 Connections
 ===========
 
-.. confval:: $GLOBALS['TYPO3_CONF_VARS']['DB']['Connections']
+..  confval:: $GLOBALS['TYPO3_CONF_VARS']['DB']['Connections']
 
-   :type: array
+    :type: array
 
-   One or more database connections can be configured under the
-   :php:`Connections` key. There must be at least one configuration with the
-   :php:`Default` key, in which the default database is configured, for example:
+    One or more database connections can be configured under the
+    :php:`Connections` key. There must be at least one configuration with the
+    :php:`Default` key, in which the default database is configured, for example:
 
-   .. code-block:: php
-      :caption: config/system/settings.php
+    .. code-block:: php
+        :caption: config/system/settings.php
 
-      'Connections' => [
-          'Default' => [
-              'charset' => 'utf8mb4',
-              'driver' => 'mysqli',
-              'dbname' => 'typo3_database',
-              'host' => '127.0.0.1',
-              'password' => 'typo3',
-              'port' => 3306,
-              'user' => 'typo3',
-          ],
-      ]
+        'Connections' => [
+            'Default' => [
+                'charset' => 'utf8mb4',
+                'driver' => 'mysqli',
+                'dbname' => 'typo3_database',
+                'host' => '127.0.0.1',
+                'password' => 'typo3',
+                'port' => 3306,
+                'user' => 'typo3',
+            ],
+        ]
 
-   It is possible to swap out tables from the default database and use a specific
-   setup (e.g. for logging or caching). For example, the following snippet could
-   be used to swap the :sql:`sys_log` table to another database or even another
-   database server:
+    It is possible to swap out tables from the default database and use a specific
+    setup (e.g. for logging or caching). For example, the following snippet could
+    be used to swap the :sql:`sys_log` table to another database or even another
+    database server:
 
-   .. code-block:: php
-      :caption: config/system/settings.php
+    ..  code-block:: php
+        :caption: config/system/settings.php
 
-      'Connections' => [
-          'Default' => [
-              'charset' => 'utf8mb4',
-              'driver' => 'mysqli',
-              'dbname' => 'typo3_database',
-              'host' => '127.0.0.1',
-              'password' => '***',
-              'port' => 3306,
-              'user' => 'typo3',
-          ],
-          'Syslog' => [
-              'charset' => 'utf8mb4',
-              'driver' => 'mysqli',
-              'dbname' => 'syslog_dbname',
-              'host' => 'syslog_host',
-              'password' => '***',
-              'port' => 3306,
-              'user' => 'syslog_user',
-          ],
-      ],
-      'TableMapping' => [
-          'sys_log' => 'Syslog',
-      ]
+        'Connections' => [
+            'Default' => [
+                'charset' => 'utf8mb4',
+                'driver' => 'mysqli',
+                'dbname' => 'typo3_database',
+                'host' => '127.0.0.1',
+                'password' => '***',
+                'port' => 3306,
+                'user' => 'typo3',
+            ],
+            'Syslog' => [
+                'charset' => 'utf8mb4',
+                'driver' => 'mysqli',
+                'dbname' => 'syslog_dbname',
+                'host' => 'syslog_host',
+                'password' => '***',
+                'port' => 3306,
+                'user' => 'syslog_user',
+            ],
+        ],
+        'TableMapping' => [
+            'sys_log' => 'Syslog',
+        ]
 
+    ..  note::
+        The connection options described below are the most commonly used. These
+        options correspond to the options of the underlying Doctrine DBAL
+        library. Please refer to the `Doctrine DBAL connection details
+        <https://www.doctrine-project.org/projects/doctrine-dbal/en/current/reference/configuration.html#connection-details>`__
+        for a full overview of settings.
 
-.. index::
-   TYPO3_CONF_VARS DB; Connections Charset
-.. _typo3ConfVars_db_connections_charset:
+..  index::
+    TYPO3_CONF_VARS DB; Connections Charset
+..  _typo3ConfVars_db_connections_charset:
 
 charset
 -------
 
-.. confval:: $GLOBALS['TYPO3_CONF_VARS']['DB']['Connections'][<connection_name>]['charset']
+..  confval:: $GLOBALS['TYPO3_CONF_VARS']['DB']['Connections'][<connection_name>]['charset']
 
-   :type: string
-   :Default: 'utf8'
+    :type: string
+    :Default: 'utf8'
 
-   The charset used when connecting to the database. Can be used with
-   MySQL/MariaDB and PostgreSQL.
+    The charset used when connecting to the database. Can be used with
+    MySQL/MariaDB and PostgreSQL.
 
 
-.. index::
-   TYPO3_CONF_VARS DB; Connections Database name
-.. _typo3ConfVars_db_connections_dbname:
+..  index::
+    TYPO3_CONF_VARS DB; Connections Database name
+..  _typo3ConfVars_db_connections_dbname:
 
 dbname
 ------
 
-.. confval:: $GLOBALS['TYPO3_CONF_VARS']['DB']['Connections'][<connection_name>]['dbname']
+..  confval:: $GLOBALS['TYPO3_CONF_VARS']['DB']['Connections'][<connection_name>]['dbname']
 
-   :type: string
+    :type: string
 
-   Name of the database/schema to connect to. Can be used with
-   MySQL/MariaDB and PostgreSQL.
+    Name of the database/schema to connect to. Can be used with
+    MySQL/MariaDB and PostgreSQL.
 
 
-.. index::
-   TYPO3_CONF_VARS DB; Connections Driver
-.. _typo3ConfVars_db_connections_driver:
+..  index::
+    TYPO3_CONF_VARS DB; Connections Driver
+..  _typo3ConfVars_db_connections_driver:
 
 driver
 ------
 
-.. confval:: $GLOBALS['TYPO3_CONF_VARS']['DB']['Connections'][<connection_name>]['driver']
+..  confval:: $GLOBALS['TYPO3_CONF_VARS']['DB']['Connections'][<connection_name>]['driver']
 
-   :type: string
+    :type: string
 
-   The built-in driver implementation to use. The following drivers are
-   currently available:
+    The built-in driver implementation to use. The following drivers are
+    currently available:
 
-   mysqli
-      A MySQL/MariaDB driver that uses the mysqli extension.
-   pdo_mysql
-      A MySQL/MariaDB driver that uses the pdo_mysql PDO extension.
-   pdo_pgsql
-      A PostgreSQL driver that uses the pdo_pgsql PDO extension.
-   pdo_sqlite
-      An SQLite driver that uses the pdo_sqlite PDO extension.
+    mysqli
+        A MySQL/MariaDB driver that uses the mysqli extension.
+    pdo_mysql
+        A MySQL/MariaDB driver that uses the pdo_mysql PDO extension.
+    pdo_pgsql
+        A PostgreSQL driver that uses the pdo_pgsql PDO extension.
+    pdo_sqlite
+        An SQLite driver that uses the pdo_sqlite PDO extension.
 
 
-.. index::
-   TYPO3_CONF_VARS DB; Connections Host
-.. _typo3ConfVars_db_connections_host:
+..  index::
+    TYPO3_CONF_VARS DB; Connections Host
+..  _typo3ConfVars_db_connections_host:
 
 host
 ----
 
-.. confval:: $GLOBALS['TYPO3_CONF_VARS']['DB']['Connections'][<connection_name>]['host']
+..  confval:: $GLOBALS['TYPO3_CONF_VARS']['DB']['Connections'][<connection_name>]['host']
 
-   :type: string
+    :type: string
 
-   Hostname or IP address of the database to connect to. Can be used with
-   MySQL/MariaDB and PostgreSQL.
+    Hostname or IP address of the database to connect to. Can be used with
+    MySQL/MariaDB and PostgreSQL.
 
 
-.. index::
-   TYPO3_CONF_VARS DB; Connections Password
-.. _typo3ConfVars_db_connections_password:
+..  index::
+    TYPO3_CONF_VARS DB; Connections Password
+..  _typo3ConfVars_db_connections_password:
 
 password
 --------
 
-.. confval:: $GLOBALS['TYPO3_CONF_VARS']['DB']['Connections'][<connection_name>]['password']
+..  confval:: $GLOBALS['TYPO3_CONF_VARS']['DB']['Connections'][<connection_name>]['password']
 
-   :type: string
+    :type: string
 
     Password to use when connecting to the database.
 
 
-.. index::
-   TYPO3_CONF_VARS DB; Connections Path
-.. _typo3ConfVars_db_connections_path:
+..  index::
+    TYPO3_CONF_VARS DB; Connections Path
+..  _typo3ConfVars_db_connections_path:
 
 path
 ----
 
-.. confval:: $GLOBALS['TYPO3_CONF_VARS']['DB']['Connections'][<connection_name>]['path']
+..  confval:: $GLOBALS['TYPO3_CONF_VARS']['DB']['Connections'][<connection_name>]['path']
 
-   :type: string
+    :type: string
 
-   The filesystem path to the SQLite database file.
+    The filesystem path to the SQLite database file.
 
 
-.. index::
-   TYPO3_CONF_VARS DB; Connections Port
-.. _typo3ConfVars_db_connections_port:
+..  index::
+    TYPO3_CONF_VARS DB; Connections Port
+..  _typo3ConfVars_db_connections_port:
 
 port
 ----
 
-.. confval:: $GLOBALS['TYPO3_CONF_VARS']['DB']['Connections'][<connection_name>]['port']
+..  confval:: $GLOBALS['TYPO3_CONF_VARS']['DB']['Connections'][<connection_name>]['port']
 
-   :type: string
+    :type: string
 
-   Port of the database to connect to. Can be used with MySQL/MariaDB and
-   PostgreSQL.
+    Port of the database to connect to. Can be used with MySQL/MariaDB and
+    PostgreSQL.
 
 
-.. index::
-   TYPO3_CONF_VARS DB; Connections Table options
-.. _typo3ConfVars_db_connections_tableoptions:
+..  index::
+    TYPO3_CONF_VARS DB; Connections Table options
+..  _typo3ConfVars_db_connections_tableoptions:
 
 tableoptions
 ------------
 
-.. confval:: $GLOBALS['TYPO3_CONF_VARS']['DB']['Connections'][<connection_name>]['tableoptions']
+..  confval:: $GLOBALS['TYPO3_CONF_VARS']['DB']['Connections'][<connection_name>]['tableoptions']
 
-   :type: array
-   :Default: []
+    :type: array
+    :Default: []
 
-   Defines the charset and collate options for tables for MySQL/MariaDB:
+    Defines the charset and collate options for tables for MySQL/MariaDB:
 
-   .. code-block:: php
-      :caption: config/system/settings.php
+    .. code-block:: php
+        :caption: config/system/settings.php
 
-      'Connections' => [
-          'Default' => [
-              'driver' => 'mysqli',
-              // ...
-              'charset' => 'utf8mb4',
-              'tableoptions' => [
-                  'charset' => 'utf8mb4',
-                  'collate' => 'utf8mb4_unicode_ci',
-              ],
+        'Connections' => [
+            'Default' => [
+                'driver' => 'mysqli',
+                // ...
+                'charset' => 'utf8mb4',
+                'tableoptions' => [
+                    'charset' => 'utf8mb4',
+                    'collate' => 'utf8mb4_unicode_ci',
+                ],
+            ],
+        ]
 
-          ],
-      ]
-
-   For new installations the above is the default.
+    For new installations the above is the default.
 
 
-.. index::
-   TYPO3_CONF_VARS DB; Connections Unix socket
-.. _typo3ConfVars_db_connections_unixsocket:
+..  index::
+    TYPO3_CONF_VARS DB; Connections Unix socket
+..  _typo3ConfVars_db_connections_unixsocket:
 
 unix_socket
 -----------
 
-.. confval:: $GLOBALS['TYPO3_CONF_VARS']['DB']['Connections'][<connection_name>]['unix_socket']
+..  confval:: $GLOBALS['TYPO3_CONF_VARS']['DB']['Connections'][<connection_name>]['unix_socket']
 
-   :type: string
+    :type: string
 
-   Name of the socket used to connect to the database. Can be used with
-   MySQL/MariaDB.
+    Name of the socket used to connect to the database. Can be used with
+    MySQL/MariaDB.
 
-.. index::
-   TYPO3_CONF_VARS DB; Connections User
-.. _typo3ConfVars_db_connections_user:
+..  index::
+    TYPO3_CONF_VARS DB; Connections User
+..  _typo3ConfVars_db_connections_user:
 
 user
 ----
 
-.. confval:: $GLOBALS['TYPO3_CONF_VARS']['DB']['Connections'][<connection_name>]['user']
+..  confval:: $GLOBALS['TYPO3_CONF_VARS']['DB']['Connections'][<connection_name>]['user']
 
-   :type: string
+    :type: string
 
-   Username to use when connecting to the database.
+    Username to use when connecting to the database.
 
 
-.. index::
-   TYPO3_CONF_VARS DB; TableMapping
-.. _typo3ConfVars_db_tablemapping:
+..  index::
+    TYPO3_CONF_VARS DB; TableMapping
+..  _typo3ConfVars_db_tablemapping:
 
 TableMapping
 ============
 
-.. confval:: $GLOBALS['TYPO3_CONF_VARS']['DB']['TableMapping']
+..  confval:: $GLOBALS['TYPO3_CONF_VARS']['DB']['TableMapping']
 
-   :type: array
-   :Default: []
+    :type: array
+    :Default: []
 
-   When a TYPO3 table is swapped to another database (either on the same host
-   or another host) this table must be mapped to the other database.
+    When a TYPO3 table is swapped to another database (either on the same host
+    or another host) this table must be mapped to the other database.
 
-   For example, the :sql:`sys_log` table should be swapped to another database:
+    For example, the :sql:`sys_log` table should be swapped to another database:
 
-   .. code-block:: php
-      :caption: config/system/settings.php
+    ..  code-block:: php
+        :caption: config/system/settings.php
 
-      'Connections' => [
-          'Default' => [
-              // ...
-          ],
-          'Syslog' => [
-              'charset' => 'utf8mb4',
-              'driver' => 'mysqli',
-              'dbname' => 'syslog_dbname',
-              'host' => 'syslog_host',
-              'password' => '***',
-              'port' => 3306,
-              'user' => 'syslog_user',
-          ],
-      ],
-      'TableMapping' => [
-          'sys_log' => 'Syslog',
-      ]
+        'Connections' => [
+            'Default' => [
+                // ...
+            ],
+            'Syslog' => [
+                'charset' => 'utf8mb4',
+                'driver' => 'mysqli',
+                'dbname' => 'syslog_dbname',
+                'host' => 'syslog_host',
+                'password' => '***',
+                'port' => 3306,
+                'user' => 'syslog_user',
+            ],
+        ],
+        'TableMapping' => [
+            'sys_log' => 'Syslog',
+        ]
