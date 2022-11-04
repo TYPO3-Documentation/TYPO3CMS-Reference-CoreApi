@@ -301,7 +301,7 @@ TableMapping
     For example, the :sql:`sys_log` table should be swapped to another database:
 
     ..  code-block:: php
-        :caption: config/system/settings.php
+        :caption: config/system/settings.php | typo3conf/system/settings.php
 
         'Connections' => [
             'Default' => [
