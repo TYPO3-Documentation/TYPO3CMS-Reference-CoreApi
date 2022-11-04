@@ -1,17 +1,18 @@
 .. include:: /Includes.rst.txt
-.. index:: LinkBrowser
+.. index:: Link Browser
 .. _LinkBrowser:
 
-===========
-LinkBrowser
-===========
+============
+Link browser
+============
 
-The :ref:`LinkBrowser <linkbrowser-api>` is the window in which users can configure
-links in both the :ref:`rte` and the :ref:`FormEngine`. The LinkBrowser offers
+The :ref:`link browser <linkbrowser-api>` is the window in which users can configure
+links in both the :ref:`rte` and the :ref:`FormEngine`. The link browser offers
 tabs for the different types of links like email, page, external, file, news
-record and possibly more.
-
-Each tab of the LinkBrowser has an associated :ref:`LinkHandler <linkhandler>`.
+record and possibly more.Each tab is rendered by a :ref:`backend link
+handler <linkhandler>`. The associated link format is processed by a
+:ref:`core link handler <>` and
+the frontend output is processed by a :ref:`link builder <>`.
 
 **Contents:**
 
@@ -19,6 +20,7 @@ Each tab of the LinkBrowser has an associated :ref:`LinkHandler <linkhandler>`.
 ..  toctree::
     :titlesonly:
 
-    LinkBrowserApi/Index
+    Configuration
     Linkhandler/Index
-    Tutorials/Index
+    CoreLinkHandler
+    LinkBuilder

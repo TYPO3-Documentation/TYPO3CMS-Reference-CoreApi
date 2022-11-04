@@ -1,9 +1,9 @@
 .. include:: /Includes.rst.txt
-.. index:: LinkBrowser; Custom
+.. index:: Link Browser; Custom
 .. _tutorial-github-link-handler:
 
 ============================
-Create a custom link browser
+Create a custom link handler
 ============================
 
 In this tutorial we create a custom link browser and the associated
@@ -39,21 +39,11 @@ automatically.
 
 ..  include:: _CustomLinkBrowser/_PageTsConfig.rst.txt
 
+The following options are of note here:
+
 :typoscript:`handler`
     The :ref:`backend link handler <tutorial_backend_link_handler>` that we
     create in step 2.
-
-:typoscript:`label`
-    The name displayed on the tab button in the link browser.
-
-:typoscript:`displayAfter` / :typoscript:`displayBefore`
-    Can be used to decide the order of the tabs.
-
-:typoscript:`scanAfter` / :typoscript:`scanBefore`
-    The first backend link handler who determines that it can :ref:`handle the link
-    <tutorial_backend_link_handler_canHandleLink>` may edit a link. The
-    external url accepts any link no other link handler accepts. Therefore
-    we must scan before it.
 
 :typoscript:`configuration`
     Some configuration, available to the backend link handler. This information
@@ -61,6 +51,8 @@ automatically.
     rendering of the link <tutorial-typolink-builder>` the information must be
     stored in another way. In this example we hardcoded it. But you could also
     make it available by TypoScript Setup or as part of the link that is saved.
+
+For a complete list of available option see :ref:`linkbrowser-api-tab-registration`.
 
 .. _tutorial_backend_link_handler:
 

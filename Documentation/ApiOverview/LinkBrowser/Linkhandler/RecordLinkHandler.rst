@@ -1,6 +1,6 @@
 .. include:: /Includes.rst.txt
 .. highlight:: typoscript
-.. index:: LinkHandlers; RecordLinkHandler
+.. index:: link handlers; RecordLinkHandler
 .. _recordlinkhandler:
 
 =====================
@@ -21,7 +21,7 @@ of the system extension :file:`backend`. The class is marked as
 
 ..  versionchanged:: 12.0
     Due to the integration of EXT:recordlist into EXT:backend the namespace of
-    LinkHandlers has changed from
+    link handlers has changed from
     :php:`TYPO3\CMS\Recordlist\LinkHandler`
     to
     :php:`TYPO3\CMS\Backend\LinkHandler`.
@@ -32,7 +32,7 @@ In order to use the :php:`RecordLinkHandler` it can be configured as following:
 
 .. rst-class:: bignums-xxl
 
-#. Page TSconfig is used to create a new tab in the LinkBrowser to
+#. Page TSconfig is used to create a new tab in the link handler to
    be able to select records.
 
    .. code-block:: typoscript
@@ -104,7 +104,7 @@ The following optional configuration is available:
 :typoscript:`configuration.pageTreeMountPoints = 123,456`
    Only records on these pages and their children will be displayed
 
-Furthermore the following options are available from the LinkBrowser Api:
+Furthermore the following options are available from the link handler Api:
 
 :typoscript:`configuration.scanAfter = page` or :typoscript:`configuration.scanBefore = page`
    Define the order in which handlers are queried when determining the responsible tab for an existing link
@@ -113,12 +113,12 @@ Furthermore the following options are available from the LinkBrowser Api:
    Define the order of how the various tabs are displayed in the link browser.
 
 .. index::
-   pair: LinkHandler; TypoScript
+   pair: Link handler; TypoScript
    TypoScript; config.recordLinks
 .. _linkhandler-typoscript_options:
 
-LinkHandler TypoScript options
-==============================
+Link handler TypoScript options
+===============================
 
 A configuration could look like this:
 
@@ -135,5 +135,5 @@ A configuration could look like this:
        }
    }
 
-The TypoScript Configuration of the LinkHandler is being used in sysext `frontend`
+The TypoScript Configuration of the link handler is being used in sysext `frontend`
 in class :php:`TYPO3\CMS\Frontend\Typolink\DatabaseRecordLinkBuilder`.

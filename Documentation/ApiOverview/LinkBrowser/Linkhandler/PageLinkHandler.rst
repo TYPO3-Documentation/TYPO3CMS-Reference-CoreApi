@@ -1,6 +1,6 @@
 .. include:: /Includes.rst.txt
 .. highlight:: typoscript
-.. index:: LinkHandlers; PageLinkHandler
+.. index:: Link handlers; PageLinkHandler
 .. _pagelinkhandler:
 
 ===================
@@ -15,7 +15,7 @@ of the system extension :file:`backend`. The class is marked as
 
 ..  versionchanged:: 12.0
     Due to the integration of EXT:recordlist into EXT:backend the namespace of
-    LinkHandlers has changed from
+    link handlers has changed from
     :php:`TYPO3\CMS\Recordlist\LinkHandler`
     to
     :php:`TYPO3\CMS\Backend\LinkHandler`.

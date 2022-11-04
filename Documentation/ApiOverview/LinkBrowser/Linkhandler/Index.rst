@@ -1,30 +1,27 @@
 .. include:: /Includes.rst.txt
 .. highlight:: typoscript
-.. index:: LinkHandlers
+.. index:: Link handlers
 .. _linkhandler:
 
-===================
-The LinkHandler API
-===================
+============
+link handler
+============
 
-The LinkHandler API currently consists of 7 LinkHandler classes and the
-:php:`TYPO3\CMS\Backend\LinkHandler\LinkHandlerInterface`. The
-LinkHandlerInterface can be implemented to create custom LinkHandlers.
+A link handler, implementing the
+:php:`TYPO3\CMS\Backend\LinkHandler\LinkHandlerInterface`, renders a tab in the
+link browser. The link handler is also used when a user edits an existing link
+in the backend.
 
 ..  versionchanged:: 12.0
     Due to the integration of EXT:recordlist into EXT:backend the namespace of
-    LinkHandlers has changed from
+    link handlers has changed from
     :php:`TYPO3\CMS\Recordlist\LinkHandler`
     to
     :php:`TYPO3\CMS\Backend\LinkHandler`.
     For TYPO3 v12 the moved classes are available as an alias under the old
     namespace to allow extensions to be compatible with TYPO3 v11 and v12.
 
-Most LinkHandlers cannot receive additional configuration, they are marked as
-:php:`@internal` and contain neither hooks nor events. They are therefore
-of interest to Core developers only.
-
-Current LinkHandlers:
+The Core provides the following link handlers:
 
 *  :ref:`pagelinkhandler`: for linking pages and content
 *  :ref:`recordlinkhandler`: for linking any kind of record
@@ -34,13 +31,17 @@ Current LinkHandlers:
 *  MailLinkHandler: for linking email addresses
 *  TelephoneLinkHandler: for linking phone numbers
 
+Most link handlers cannot receive additional configuration, they are marked as
+:php:`@internal` and contain neither hooks nor events. They are therefore
+of interest to Core developers only.
+
 .. note::
 
    In the system extension :file:`core` there are also classes ending on
    "LinkHandler". However those implement the interface :php:`LinkHandlingInterface`
-   and are part of the LinkHandling API, not the LinkHandler API.
+   and are used to
 
-The following LinkHandlers are of interest:
+The following link handlers are of interest:
 
 .. toctree::
    :titlesonly:
@@ -68,17 +69,17 @@ The links are now stored in the database with the syntax
 
    .. important::
 
-      Do not change the identifier after links have been created  using the LinkHandler. The identifier will be
+      Do not change the identifier after links have been created  using the link handler. The identifier will be
       stored as part of the link in the database.
 
 
 .. index::
-   pair: LinkHandler; Page TSconfig
+   pair: Link handler; Page TSconfig
    TCEMAIN; linkHandler
 .. _linkhandler-pagetsconfig:
 
-LinkHandler page TSconfig options
-=================================
+Link handler page TSconfig options
+==================================
 
 The minimal PageTSconfig Configuration is:
 
@@ -104,7 +105,7 @@ The following optional configuration is available:
 :typoscript:`configuration.pageTreeMountPoints = 123,456`
    Only records on these pages and their children will be displayed
 
-Furthermore the following options are available from the LinkBrowser Api:
+Furthermore the following options are available from the link handler Api:
 
 :typoscript:`scanAfter = page` or :typoscript:`scanBefore = page`
    define the order in which handlers are queried when determining the responsible tab for an existing link
@@ -180,7 +181,7 @@ Enable the field with the following page TSConfig:
    TypoScript; config.recordLinks
 .. _linkhandler-typoscript:
 
-LinkHandler TypoScript options
+link handler TypoScript options
 ==============================
 
 A configuration could look like this:
@@ -198,7 +199,7 @@ A configuration could look like this:
        }
    }
 
-The TypoScript Configuration of the LinkHandler is being used in sysext `frontend`
+The TypoScript Configuration of the link handler is being used in sysext `frontend`
 in class :php:`TYPO3\CMS\Frontend\Typolink\DatabaseRecordLinkBuilder`.
 
 Example: news records displayed on fixed detail page
