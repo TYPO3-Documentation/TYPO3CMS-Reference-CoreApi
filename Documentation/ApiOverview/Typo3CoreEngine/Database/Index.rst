@@ -331,23 +331,32 @@ Examples of commands:
 Accessing the uid of copied records:
 ------------------------------------
 
-The :php:`DataHandler` keeps track of records created by :code:`copy` operations in its :php:`$copyMappingArray_merged` property. This property is public and can be used to determine the UID of a record copy based on the UID of the copied record.
+The :php:`DataHandler` keeps track of records created by :code:`copy`
+operations in its :php:`$copyMappingArray_merged` property. This
+property is public but marked as :php:`@internal`. So it is subject to change
+future TYPO3 versions without notice.
 
-.. caution::
-   The :php:`$copyMappingArray_merged` property should not be confused with the :php:`$copyMappingArray` property which contains only information about the last copy operation and is cleared between each operation.
+The :php:`$copyMappingArray_merged` property can be used to determine the UID
+of a record copy based on the UID of the copied record.
+
+..  caution::
+    The :php:`$copyMappingArray_merged` property should not be confused with
+    the :php:`$copyMappingArray` property which contains only information
+    about the last copy operation and is cleared between each operation.
 
 The structure of the :php:`$copyMappingArray_merged` property looks like this:
 
-.. code-block:: php
-   :caption: EXT:some_extension/Classes/SomeClass.php
+..  code-block:: php
+    :caption: EXT:some_extension/Classes/SomeClass.php
 
-   $copyMappingArray_merged = [
-      <table> => [
-         <original-record-uid> => <record-copy-uid>,
-      ],
-   ];
+    $copyMappingArray_merged = [
+       <table> => [
+          <original-record-uid> => <record-copy-uid>,
+       ],
+    ];
 
-The property contains the names of the manipulated tables as keys and a map of original record UIDs and UIDs of record copies as values.
+The property contains the names of the manipulated tables as keys and a map
+of original record UIDs and UIDs of record copies as values.
 
 
 .. code-block:: php
