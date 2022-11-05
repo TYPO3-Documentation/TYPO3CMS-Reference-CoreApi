@@ -2,6 +2,7 @@
 .. index:: ! Namespaces
 .. _namespaces:
 
+==========
 Namespaces
 ==========
 

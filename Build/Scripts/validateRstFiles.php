@@ -138,6 +138,12 @@ class validateRstFiles
                 'title' => 'no include',
                 'message' => 'insert \'..  include:: /Includes.rst.txt\' in first line of the file',
             ],
+            [
+                'type' => 'include',
+                'regex' => '#\={2,}\n.*\n\={2,}#m',
+                'title' => 'no title',
+                'message' => 'Each document must have a title with multiple === above and below',
+            ],
         ];
 
         foreach ($checkFor as $values) {

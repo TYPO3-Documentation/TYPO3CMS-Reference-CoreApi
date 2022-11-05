@@ -2,6 +2,7 @@
 
 .. _extension-architecture-introduction:
 
+============
 Introduction
 ============
 
