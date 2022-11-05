@@ -98,7 +98,7 @@ This path can be retrieved from the Environment API, see :ref:`Environment-confi
 .. _legacy-directory-typo3conf-autoload:
 
 :file:`typo3conf/autoload/`
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Contains :ref:`autoloading <autoload>` information.
 The files are updated each time an extension is installed via the
@@ -120,7 +120,7 @@ for more information on how the extensions are structured.
 .. _legacy-directory-typo3conf-l10n:
 
 :file:`typo3conf/l10n/`
-~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~
 
 Directory for extension localizations. Contains all downloaded translation
 files.
@@ -169,7 +169,7 @@ Directory for temporary files that should not be accessed through the web
 .. _legacy-directory-vendor:
 
 :file:`vendor/`
-~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~
 
 This directory contains third-party packages that are required by the
 TYPO3 Core.

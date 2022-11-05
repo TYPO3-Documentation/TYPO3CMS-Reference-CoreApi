@@ -23,6 +23,5 @@ Localization
     Languages
     ManagingTranslations
     TranslationServer/Index
-    LocalizationApi/Index
     XliffFormat
     XliffApi
