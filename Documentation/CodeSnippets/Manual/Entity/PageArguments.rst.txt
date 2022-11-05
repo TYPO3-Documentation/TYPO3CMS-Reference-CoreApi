@@ -25,7 +25,6 @@
    .. php:method:: get(string $name)
    
       :param string $name: the name
-      :returntype: mixed
       
    .. php:method:: getArguments()
    
@@ -51,7 +50,6 @@
    .. php:method:: offsetGet(mixed $offset)
    
       :param mixed $offset: the offset
-      :returntype: mixed
       
    .. php:method:: offsetSet(mixed $offset, mixed $value)
    
