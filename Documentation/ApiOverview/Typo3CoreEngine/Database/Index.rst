@@ -330,7 +330,7 @@ Accessing the uid of copied records:
 The :php:`DataHandler` keeps track of records created by :code:`copy`
 operations in its :php:`$copyMappingArray_merged` property. This
 property is public but marked as :php:`@internal`. So it is subject to change
-future TYPO3 versions without notice.
+in future TYPO3 versions without notice.
 
 The :php:`$copyMappingArray_merged` property can be used to determine the UID
 of a record copy based on the UID of the copied record.
