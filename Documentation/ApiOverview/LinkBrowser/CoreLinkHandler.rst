@@ -7,7 +7,7 @@ Core link handler
 =================
 
 The Core link handler, implementing the
-:php:`TYPO3\CMS\Core\LinkHandling\LinkHandlingInterface` described here
+:php:`\TYPO3\CMS\Core\LinkHandling\LinkHandlingInterface` described here
 matches between different internal representations of a link. It is not
 to be mixed up with the :ref:`backend link handler <linkhandler>`, commonly
 also just called link handler. The latter implements the
