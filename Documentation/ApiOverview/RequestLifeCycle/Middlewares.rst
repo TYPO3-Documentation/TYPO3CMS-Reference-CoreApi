@@ -11,7 +11,7 @@
 Middlewares (Request handling)
 ==============================
 
-TYPO3 CMS has implemented `PSR-15`_ for handling incoming HTTP requests. The
+TYPO3 has implemented `PSR-15`_ for handling incoming HTTP requests. The
 implementation within TYPO3 is often called "Middlewares", as PSR-15 consists of
 two interfaces where one is called :php:`Middleware`.
 
@@ -119,6 +119,9 @@ Middleware examples
 ===================
 
 The following list shows typical use cases for middlewares.
+
+*   :ref:`A middleware to return a JSON response with localized
+    strings <example-localization-middleware>`.
 
 
 .. index:: Request handling; Custom response

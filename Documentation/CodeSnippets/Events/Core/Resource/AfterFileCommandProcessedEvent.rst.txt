@@ -10,12 +10,15 @@
    
    .. php:method:: getCommand()
    
-      A single command, e.g.:
+      A single command, e.g.
       
-      'upload' => [
-          'target' => '1:/some/folder/'
-          'data' => '1'
-      ]
+      ..  code-block:: php
+          
+          'upload' => [
+              'target' => '1:/some/folder/'
+              'data' => '1'
+          ]
+          
       
       :returntype: array
       

@@ -4,9 +4,9 @@
    TYPO3_CONF_VARS; BE
 .. _typo3ConfVars_be:
 
-====================================
+==========================
 BE - backend configuration
-====================================
+==========================
 
 The following configuration variables can be used to configure settings for
 the TYPO3 backend:
@@ -20,8 +20,8 @@ the TYPO3 backend:
 
     This variable can be set in one of the following files:
 
-    *   :ref:`typo3conf/LocalConfiguration.php <typo3ConfVars-localConfiguration>`
-    *   :ref:`typo3conf/AdditionalConfiguration.php <typo3ConfVars-additionalConfiguration>`
+    *   :ref:`config/system/settings.php <typo3ConfVars-settings>`
+    *   :ref:`config/system/additional.php <typo3ConfVars-additional>`
 
 .. index::
    TYPO3_CONF_VARS BE; languageDebug
@@ -141,6 +141,10 @@ warning_email_addr
    whenever more than 3 failed backend login attempts (regardless of user)
    are detected within an hour.
 
+   Have also a look into the :ref:`security guidelines
+   <security-global-typo3-options-warning-email-addr>`.
+
+
 .. index::
    TYPO3_CONF_VARS BE; warning_mode
 .. _typo3ConfVars_be_warning_mode:
@@ -161,6 +165,10 @@ warning_mode
          Send a notification-email every time an **admin** backend user logs in
 
    Send emails to :php:`warning_email_addr`  upon backend-login
+
+   Have also a look into the :ref:`security guidelines
+   <security-global-typo3-options-warning-mode>`.
+
 
 .. index::
    TYPO3_CONF_VARS BE; passwordReset
@@ -270,7 +278,7 @@ loginRateLimitInterval
    Allowed time interval for the configured rate limit. Individual values
    using
    `PHP relative formats <https://www.php.net/manual/de/datetime.formats.relative.php>`__
-   can be set in :file:`AdditionalConfiguration.php`.
+   can be set in :file:`config/system/additional.php`.
 
 
 .. index::
@@ -314,6 +322,10 @@ lockIP
          Use the editors full IPv4 address (for example "192.168.13.84") as part of the session locking of Backend Users (highest security)
 
    Session IP locking for backend users. See :ref:`[FE][lockIP]<typo3ConfVars_fe_lockIP>` for details.
+
+   Have also a look into the :ref:`security guidelines
+   <security-global-typo3-options-lockIP>`.
+
 
 .. index::
    TYPO3_CONF_VARS BE; lockIPv6
@@ -382,6 +394,10 @@ IPmaskList
    See syntax for that (or look up syntax for the function
    :php:`\TYPO3\CMS\Core\Utility\GeneralUtility::cmpIP())`
 
+   Have also a look into the :ref:`security guidelines
+   <security-global-typo3-options-IPmaskList>`.
+
+
 .. index::
    TYPO3_CONF_VARS BE; lockSSL
 .. _typo3ConfVars_be_lockSSL:
@@ -397,6 +413,10 @@ lockSSL
    If set, the backend can only be operated from an SSL-encrypted
    connection (https). A redirect to the SSL version of a URL will happen
    when a user tries to access non-https admin-urls
+
+   Have also a look into the :ref:`security guidelines
+   <security-global-typo3-options-lockSSL>`.
+
 
 .. index::
    TYPO3_CONF_VARS BE; lockSSLPort
@@ -480,8 +500,8 @@ Removed: loginSecurityLevel
 .. deprecated:: 11.3
    This option was removed with version 11.3. The only possible
    value has been 'normal'. This behaviour stays unchanged.  When this option
-   has been set in your :file:`LocalConfiguration.php`
-   or :file:`AdditionalConfiguration.php` files, they are automatically
+   has been set in your :file:`config/system/settings.php`
+   or :file:`config/system/additional.php` files, they are automatically
    removed when accessing the admin tool or system maintenance area.
 
 .. index::
@@ -696,7 +716,7 @@ defaultPermissions
    Example (which reflects the default permissions):
 
    .. code-block:: php
-      :caption: typo3conf/AdditionalConfiguration.php
+      :caption: config/system/additional.php | typo3conf/system/additional.php
 
       $GLOBALS['TYPO3_CONF_VARS']['BE']['defaultPermissions'] = [
          'user' => 'show,edit,delete,new,editcontent',
@@ -708,7 +728,7 @@ defaultPermissions
    you only need to modify the key you wish to change:
 
    .. code-block:: php
-      :caption: typo3conf/AdditionalConfiguration.php
+      :caption: config/system/additional.php | typo3conf/system/additional.php
 
       $GLOBALS['TYPO3_CONF_VARS']['BE']['defaultPermissions'] = [
          'everybody' => 'show',
@@ -736,7 +756,7 @@ defaultUC
    Example (which reflects the default user settings):
 
    .. code-block:: php
-      :caption: typo3conf/AdditionalConfiguration.php
+      :caption: config/system/additional.php | typo3conf/system/additional.php
 
       $GLOBALS['TYPO3_CONF_VARS']['BE']['defaultUC'] = [
          'emailMeAtLogin' => 0,
@@ -765,7 +785,7 @@ customPermOptions
 
 
    .. code-block:: php
-      :caption: typo3conf/AdditionalConfiguration.php
+      :caption: config/system/additional.php | typo3conf/system/additional.php
 
       'key' => array(
          'header' => 'header string, language split',
@@ -798,7 +818,12 @@ fileDenyPattern
    handler in an arbitrary position. Also, ".htaccess" files have to be denied.
    Matching is done case-insensitive.
 
-   Default value is stored in PHP constant :php:`FILE_DENY_PATTERN_DEFAULT`
+   Default value is stored in class constant
+   :php:`\TYPO3\CMS\Core\Resource\Security\FileNameValidator::FILE_DENY_PATTERN_DEFAULT`.
+
+   Have also a look into the :ref:`security guidelines
+   <security-global-typo3-options-fileDenyPattern>`.
+
 
 .. index::
    TYPO3_CONF_VARS BE; interfaces

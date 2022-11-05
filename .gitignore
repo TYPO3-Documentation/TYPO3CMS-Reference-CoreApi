@@ -18,6 +18,10 @@
 /_make
 /Documentation-GENERATED-temp/
 ehthumbs.db
+auth.json
 composer.lock
 nbproject
 Thumbs.db
+var/
+.cache/
+Build/.cache/

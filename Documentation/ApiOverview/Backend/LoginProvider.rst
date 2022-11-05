@@ -11,18 +11,23 @@ Registering a login provider
 
 The concept of the backend login is based on "login providers".
 
-A login provider can be registered within your :file:`LocalConfiguration.php`
-or :file:`AdditionalConfiguration.php`  like this:
+A login provider can be registered within your :file:`config/system/settings.php`
+or :file:`config/system/additional.php`  like this:
 
 ..  code-block:: php
-    :caption: typo3conf/AdditionalConfiguration.php
+    :caption: config/system/additional.php | typo3conf/system/additional.php
 
 	$GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['backend']['loginProviders'][1433416020] = [
 		'provider' => \Vendor\MyExtension\LoginProvider\CustomLoginProvider::class,
 		'sorting' => 50,
-		'icon-class' => 'fa-key',
+		'iconIdentifier' => 'actions-key',
 		'label' => 'LLL:EXT:backend/Resources/Private/Language/locallang.xlf:login.link'
 	];
+
+..  versionadded:: 11.5
+    The option :php:`iconIdentifier` has been introduced. As FontAwesome will
+    be phased out developers are encouraged to use this option instead of
+    :php:`icon-class`, which expects a FontAwesome class.
 
 The settings are defined as:
 
@@ -32,8 +37,8 @@ The settings are defined as:
 :php:`sorting`
     The sorting is important for the ordering of the links to the possible
     login providers on the login screen.
-:php:`icon-class`
-    The font-awesome icon name for the link on the login screen.
+:php:`iconIdentifier`
+    Accepts any icon identifier that is available in the Icon Registry.
 :php:`label`
     The label for the login provider link on the login screen.
 
@@ -46,7 +51,7 @@ settings. An example would be to extend an existing provider and
 replace its registered :php:`provider` class with your custom class.
 
 ..  code-block:: php
-    :caption: typo3conf/AdditionalConfiguration.php
+    :caption: config/system/additional.php | typo3conf/system/additional.php
 
     $GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['backend']['loginProviders'][1433416020]['provider'] =
         \Vendor\MyExtension\LoginProvider\CustomProviderExtendingUsernamePasswordLoginProvider::class

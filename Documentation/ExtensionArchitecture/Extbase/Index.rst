@@ -14,11 +14,12 @@ have to be used.
 
 Extbase is included in the TYPO3 Core as system extension :php:`extbase`.
 
-You can find an extended tutorial in the tutorial :doc:`t3extbasebook:Index`.
+There are also tutorials in the :ref:`Extension Development -
+Tutorials <extension-tutorials>` section.
 
 ..  toctree::
     :titlesonly:
-
+    
+    Introduction/Index
     Reference/Index
-    Tutorials/Index
     Examples/Index

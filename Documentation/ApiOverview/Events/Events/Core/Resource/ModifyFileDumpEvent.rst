@@ -20,14 +20,17 @@ stop the propagation.
 With the event, it's not only possible to reject the file dump request,
 but also to replace the file, which should be dumped.
 
+Example
+=======
+
 Registration of the event in the :file:`Services.yaml`:
 
 .. code-block:: yaml
 
-  MyVendor\MyPackage\Resource\MyEventListener:
-    tags:
-      - name: event.listener
-        identifier: 'my-package/resource/my-event-listener'
+   MyVendor\MyPackage\Resource\MyEventListener:
+     tags:
+       - name: event.listener
+         identifier: 'my-package/resource/my-event-listener'
 
 The corresponding event listener class:
 
@@ -35,7 +38,7 @@ The corresponding event listener class:
 
     use TYPO3\CMS\Core\Resource\Event\ModifyFileDumpEvent;
 
-    class MyEventListener {
+    final class MyEventListener {
 
         public function __invoke(ModifyFileDumpEvent $event): void
         {
@@ -45,6 +48,6 @@ The corresponding event listener class:
     }
 
 API
----
+===
 
 .. include:: /CodeSnippets/Events/Core/Resource/ModifyFileDumpEvent.rst.txt

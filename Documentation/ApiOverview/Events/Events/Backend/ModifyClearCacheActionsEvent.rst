@@ -19,6 +19,9 @@ contains, next to the usual "getter" and "setter" methods, the convenience
 method :php:`add` for the :php:`cacheActions` and
 :php:`cacheActionIdentifiers` arrays.
 
+Example
+=======
+
 Registration of the event in the :file:`Services.yaml`:
 
 .. code-block:: yaml
@@ -36,7 +39,7 @@ The corresponding event listener class:
 
     use TYPO3\CMS\Backend\Backend\Event\ModifyClearCacheActionsEvent;
 
-    class MyEventListener {
+    final class MyEventListener {
 
         public function __invoke(ModifyClearCacheActionsEvent $event): void
         {
@@ -60,6 +63,6 @@ The cache action array element consists of the following keys and values:
 
 
 API
----
+===
 
 .. include:: /CodeSnippets/Events/Backend/ModifyClearCacheActionsEvent.rst.txt

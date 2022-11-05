@@ -48,7 +48,7 @@ The corresponding event listener class:
 
     use TYPO3\CMS\Redirects\Event\RedirectWasHitEvent;
 
-    class MyEventListener {
+    final class MyEventListener {
 
         public function __invoke(RedirectWasHitEvent $event): void
         {

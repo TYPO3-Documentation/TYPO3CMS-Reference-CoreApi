@@ -32,7 +32,7 @@ as is done for example in the *table* content element with the field `bodytext`.
 In these cases Fluid does not have to deal with these manipulations or transformation.
 
 You can find the example below in the TYPO3 Documentation Team extension
-:t3ext:`examples/`.
+:t3ext:`examples`.
 
 
 Prerequisites
@@ -289,7 +289,7 @@ Extended example: Extend tt_content and use data processing
 ===========================================================
 
 You can find the complete example in the  TYPO3 Documentation Team extension
-:t3ext:`examples/`. The steps for
+:t3ext:`examples`. The steps for
 creating a simple new content element as above need to be repeated. We use the
 key *examples_newcontentcsv* in this example.
 
@@ -397,7 +397,7 @@ table :sql:`sys_category`:
         ],
    ],
 
-.. todo:: this example is not valid anymore as there is the field type "category"
+.. todo: this example is not valid anymore as there is the field type "category"
    now. Let us find another example.
 
 

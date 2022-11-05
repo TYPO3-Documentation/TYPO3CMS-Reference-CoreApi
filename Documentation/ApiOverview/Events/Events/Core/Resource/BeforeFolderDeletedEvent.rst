@@ -13,6 +13,6 @@ Listeners can use this event to clean up further external references
 to a folder / files in this folder.
 
 API
----
+===
 
 .. include:: /CodeSnippets/Events/Core/Resource/BeforeFolderDeletedEvent.rst.txt

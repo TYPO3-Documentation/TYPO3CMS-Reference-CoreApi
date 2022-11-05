@@ -15,7 +15,7 @@ XCLASSes (Extending Classes)
 Introduction
 ============
 
-XCLASSing is a mechanism in TYPO3 CMS to extend classes or overwrite methods from the Core or extensions
+XCLASSing is a mechanism in TYPO3 to extend classes or overwrite methods from the Core or extensions
 with one's own code. This enables a developer to easily change a given functionality,
 if other options like :ref:`hooks <hooks>`, signals, :ref:`events <EventDispatcher>`
 or the dependency injection mechanisms do not work or do not exist.
@@ -28,7 +28,7 @@ or the dependency injection mechanisms do not work or do not exist.
 
 If you need a hook or event that does not exist, feel free to submit
 a feature request and - even better - a patch. Consult the
-`TYPO3 Contribution Guide <https://docs.typo3.org/typo3cms/ContributionWorkflowGuide/>`__
+:doc:`TYPO3 Contribution Guide <t3contribute:Index>`
 about how to do this.
 
 
@@ -88,13 +88,13 @@ The syntax is as follows and is commonly located in an extension's
    use TYPO3\CMS\Backend\Controller\NewRecordController;
 
    $GLOBALS['TYPO3_CONF_VARS']['SYS']['Objects'][NewRecordController::class] = [
-       'className' => Vendor\SomeExtension\Xclass\NewRecordController::class
+       'className' => \Vendor\SomeExtension\Xclass\NewRecordController::class
    ];
 
 
 In this example, we declare that the :code:`\TYPO3\CMS\Backend\Controller\NewRecordController` class
 will be overridden by the :code:`\T3docs\Examples\Xclass\NewRecordController`
-class, the latter being part of the :t3ext:`examples/` extension.
+class, the latter being part of the :t3ext:`examples` extension.
 
 When XCLASSing a class that does not use namespaces, simply use that class' name
 in the declaration.

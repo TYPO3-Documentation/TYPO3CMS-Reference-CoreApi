@@ -29,16 +29,20 @@ information is loaded, and a backend user is authenticated.
 Should not be used for
 ======================
 
-*  TCA configurations for new tables.
-   They should go in :ref:`Configuration/TCA/sometable.php <extension-configuration-tca>`.
-*  TCA overrides of existing tables. They should go in
-   :ref:`Configuration/TCA/Overrides/somefile.php <extension-configuration-tca-overrides>`.
-*  calling :php:`ExtensionManagementUtility::addToInsertRecords()`
-   as this might break the frontend. They should go in
-   :ref:`Configuration/TCA/Overrides/somefile.php <extension-configuration-tca-overrides>`.
-*  calling :php:`ExtensionManagementUtility::addStaticFile()`
-   as this might break the frontend. They should go in
-   :file:`Configuration/TCA/Overrides/sys_template.php`
+*   TCA configurations for new tables.
+    They should go in :ref:`Configuration/TCA/sometable.php <extension-configuration-tca>`.
+*   TCA overrides of existing tables. They should go in
+    :ref:`Configuration/TCA/Overrides/somefile.php <extension-configuration-tca-overrides>`.
+*   calling :php:`ExtensionManagementUtility::addToInsertRecords()`
+    as this might break the frontend. They should go in
+    :ref:`Configuration/TCA/Overrides/somefile.php <extension-configuration-tca-overrides>`.
+*   calling :php:`ExtensionManagementUtility::addStaticFile()`
+    as this might break the frontend. They should go in
+    :file:`Configuration/TCA/Overrides/sys_template.php`
+*   ..  versionchanged:: 12.0
+        Adding table options via :php:`ExtensionManagementUtility::allowTableOnStandardPages()`
+        :ref:`Example <extension-configuration-files-allow-table-standard>`
+
 
 Should be used for
 ==================
@@ -47,8 +51,6 @@ These are the typical functions that should be placed inside :file:`ext_tables.p
 
 *  Registering of :ref:`backend modules <backend-modules-api>` or adding a new
    main module :ref:`Example <extension-configuration-files-backend-module>`
-*  Adding table options via :php:`ExtensionManagementUtility::allowTableOnStandardPages()`
-   :ref:`Example <extension-configuration-files-allow-table-standard>`
 *  Registering a scheduler tasks:
    :ref:`extension-configuration-files-scheduler`
 *  Assignments to the global configuration arrays :php:`$GLOBALS['TBE_STYLES']`
@@ -109,6 +111,13 @@ For more information on backend modules see :ref:`backend module API <backend-mo
 
 Allowing a tables records to be added to Standard pages
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+..  versionchanged:: 12.0
+    The usage of :php:`ExtensionManagementUtility::allowTableOnStandardPages()` is
+    deprecated. The method will be removed in TYPO3 v13.0. Use TCA ctrl option
+    :ref:`ignorePageTypeRestriction <t3tca:ctrl-security-ignorePageTypeRestriction>`
+    instead.
+
 By default new records of tables may only be added to Sysfolders in TYPO3. If you need to allow
 new records of your table to be added on Standard pages call:
 

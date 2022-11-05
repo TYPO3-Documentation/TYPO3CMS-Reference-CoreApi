@@ -21,15 +21,10 @@ parameters, since this won't have any effect as the preview URI is directly
 returned after event dispatching and no further action is done by the
 :php:`PreviewUriBuilder`.
 
-API
-===
-
-.. include:: /CodeSnippets/Events/Backend/AfterPagePreviewUriGeneratedEvent.rst.txt
-
 Example
 =======
 
-Registration of the Event in your extensions' :file:`Services.yaml`:
+Registration of the event in your extensions' :file:`Services.yaml`:
 
 .. code-block:: yaml
    :caption: EXT:my_extension/Configuration/Services.yaml
@@ -57,3 +52,8 @@ The corresponding event listener class:
            $event->setPreviewUri($uri);
        }
    }
+
+API
+===
+
+.. include:: /CodeSnippets/Events/Backend/AfterPagePreviewUriGeneratedEvent.rst.txt

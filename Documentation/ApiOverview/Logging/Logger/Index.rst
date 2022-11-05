@@ -227,9 +227,13 @@ and the classic component name will be used instead.
 Registration via class attribute for :php:`LoggerInterface` injection:
 
 .. code-block:: php
+   :caption: EXT:my_extension/Classes/Service/MyClass.php
+
+   namespace MyVendor\MyExtension\Service\MyClass;
 
    use Psr\Log\LoggerInterface;
    use TYPO3\CMS\Core\Log\Channel;
+
    #[Channel('security')]
    class MyClass
    {
@@ -241,13 +245,17 @@ Registration via class attribute for :php:`LoggerInterface` injection:
      }
    }
 
-Registration via parameter attribute for :php:`LoggerInterface` injection,
-overwrites possible class attributes:
+Registration via parameter attribute for :php:`LoggerInterface`
+injection, overwrites possible class attributes:
 
 .. code-block:: php
+   :caption: EXT:my_extension/Service/MyClass.php
+
+   namespace MyVendor\MyExtension\Service\MyClass;
 
    use Psr\Log\LoggerInterface;
    use TYPO3\CMS\Core\Log\Channel;
+
    class MyClass
    {
      private LoggerInterface $logger;
@@ -260,13 +268,49 @@ overwrites possible class attributes:
      }
    }
 
+The instantiated logger will now have the channel "security",
+instead of the default which would be a combination of namespace and class of
+the instantiating class, such as `MyVendor.MyExtension.Service.MyClass`.
+
+Using the Channel
+-----------------
+
+The channel "security" can then be used in the logging configuration:
+
+.. code-block:: php
+    :caption: config/system/additional.php | typo3conf/system/additional.php
+
+    use TYPO3\CMS\Core\Core\Environment;
+    use TYPO3\CMS\Core\Log\LogLevel;
+    use TYPO3\CMS\Core\Log\Writer\FileWriter;
+
+    $GLOBALS['TYPO3_CONF_VARS']['LOG']
+        ['security']
+        ['writerConfiguration'] = [
+            LogLevel::DEBUG => [
+                FileWriter::class => [
+                    'logFile' => Environment::getVarPath() . '/log/security.log'
+                ]
+            ],
+        ];
+
+The written log messages will then have the component name `"security"`, such as:
+
+.. code-block:: text
+    :caption: var/log/security.log
+
+    Fri, 21 Oct 2022 16:26:13 +0000 [DEBUG] ... component="security": ...
+
+For more examples for configuring the logging see
+:ref:`logging-configuration-writer`.
+
 .. _logging-logger-examples:
 
 Examples
 ========
 
 Examples of the usage of the Logger can be found in the extension
-:t3ext:`examples/`. in file
+:t3ext:`examples`. in file
 :file:`/Classes/Controller/ModuleController.php`
 
 

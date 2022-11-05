@@ -11,7 +11,7 @@
 Introduction
 ============
 
-TYPO3 CMS relies on storing its data in a relational database management
+TYPO3 relies on storing its data in a relational database management
 system (RDBMS). The Doctrine DBAL component is used to enable connecting to
 different database management systems. Most used is still MySQL / MariaDB, but
 thanks to Doctrine others like PostgreSQL and SQLite are also an option.
@@ -48,12 +48,12 @@ doctrine without an extension developer taking care of that specifically.
 
 The API provided by the Core is basically a pretty small and lightweight facade
 in front of Doctrine DBAL that adds some convenient methods as well as some
-TYPO3 CMS specific sugar. The facade additionally provides methods to retrieve
+TYPO3 specific sugar. The facade additionally provides methods to retrieve
 specific connection objects per configured database connection based on the table
 that is queried. This enables instance administrators to configure different database
 engines for different tables while this is transparent for extension developers.
 
-Doctrine DBAL has been introduced with TYPO3 CMS version 8 and substitutes the
+Doctrine DBAL has been introduced with TYPO3 version 8 and substitutes the
 old API based on :php:`$GLOBALS['TYPO3_DB']`.
 
 This document does *not* outline each and every single method the API provides. It
@@ -83,7 +83,7 @@ Low-level and high-level database calls
 
 This documentation is about low-level database calls. In many cases it is better
 to use higher level API's like the :ref:`DataHandler <tce-database-basics>` or
-:ref:`Extbase repositories <t3extbasebook:persistence>`
+:ref:`Extbase repositories <extbase-repository>`
 and to let the framework handle persistence details internally.
 
 .. tip::

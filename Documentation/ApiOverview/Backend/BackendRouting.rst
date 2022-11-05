@@ -13,7 +13,7 @@ and an action.
 
 Routes are defined inside extensions, in file :file:`Configuration/Backend/Routes.php`
 for general requests and in  :file:`Configuration/Backend/AjaxRoutes.php` for
-AJAX calls.
+Ajax calls.
 
 Here is an extract of :file:`typo3/sysext/backend/Configuration/Backend/Routes.php`:
 
@@ -125,7 +125,7 @@ Generating backend URLs
 =======================
 
 Using the UriBuilder API, you can generate any kind of URL for the Backend, may it be
-a module, a typical route or an AJAX call. Therefore use either :php:`buildUriFromRoute()`
+a module, a typical route or an Ajax call. Therefore use either :php:`buildUriFromRoute()`
 or :php:`buildUriFromRoutePath()`. The :php:`UriBuilder` then returns a PSR-7 conform :php:`Uri` object
 that can be cast to string when needed. Furthermore does the :php:`UriBuilder` automatically
 generates and applies the mentioned session token.

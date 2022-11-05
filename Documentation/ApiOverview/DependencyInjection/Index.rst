@@ -240,8 +240,8 @@ Service
    - non static - utilities, repositories and obvious classes like mailers and similar. To emphasize:
    Not only classes named with a :php:`*Service` suffix are services but basically anything. It
    does not matter much if those services are stateless or not. Controllers, for instance,
-   are usually *not* stateless. ((this is just a configuration detail from this point of view.))
-   Note the TYPO3 core does not strictly follow this in all cases yet, but strives
+   are usually *not* stateless. (This is just a configuration detail from this point of view.)
+   Note: The TYPO3 Core does not strictly follow this behavior in all cases yet, but it strives
    to get this more clean over time.
 
 Data object
@@ -300,17 +300,16 @@ dependency by the framework looks like this:
 
    final class UserController
    {
-        private UserRepository $userRepository;
-
-        public function __construct(UserRepository $userRepository)
+        public function __construct(private readonly UserRepository $userRepository)
         {
-             $this->userRepository = $userRepository;
         }
    }
 
 Here the Symfony container sees a dependency to :php:`UserRepository` when scanning :php:`__construct()`
 of the :php:`UserController`. Since autowiring is enabled by default (more on that below), an instance of the
-:php:`UserRepository` is created and provided when the controller is created.
+:php:`UserRepository` is created and provided when the controller is created. The example uses `constructor
+property promotion <https://www.php.net/manual/en/language.oop5.decon.php#language.oop5.decon.constructor.promotion>`__
+and sets the property :php:`readonly`, so it can not be written a second time.
 
 
 .. _Method-injection:

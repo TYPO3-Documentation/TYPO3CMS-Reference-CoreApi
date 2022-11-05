@@ -13,7 +13,7 @@ ModifyLinkExplanationEvent
 
 While the removed hook effectively only allowed to modify the link explanation
 of TCA `link` fields in case the resolved link type did not already match
-one of those, implemented by TYPO3 itself, does the new Event now allow to
+one of those, implemented by TYPO3 itself, does the new event now allow to
 always modify the link explanation of any type. Additionally, this also allows
 to modify the `additionalAttributes`, displayed below the actual link
 explanation field. This is especially useful for extended link handler setups.
@@ -37,15 +37,10 @@ The current context can be evaluated using the following methods:
 - :php:`getLinkParts()`: Returns the resolved link parts, such as `url`, `target` and `additionalParams`
 - :php:`getElementData()`: Returns the full FormEngine `$data` array for the current element
 
-API
-===
-
-.. include:: /CodeSnippets/Events/Backend/ModifyLinkExplanationEvent.rst.txt
-
 Example
 =======
 
-Registration of the Event in your extensions' :file:`Services.yaml`:
+Registration of the event in your extensions' :file:`Services.yaml`:
 
 .. code-block:: yaml
    :caption: EXT:my_extension/Configuration/Services.yaml
@@ -78,3 +73,8 @@ The corresponding event listener class:
            }
        }
    }
+
+API
+===
+
+.. include:: /CodeSnippets/Events/Backend/ModifyLinkExplanationEvent.rst.txt

@@ -49,15 +49,16 @@ the :php:`\TYPO3\CMS\Lowlevel\ConfigurationModuleProvider\ProviderInterface`.
 
 The registration of such a provider looks like the following:
 
-.. code-block:: yaml
+..  code-block:: yaml
+    :caption: EXT:my_extension/Configuration/Services.yaml
 
-   myextension.configuration.module.provider.myconfiguration:
-     class: 'Vendor\Extension\ConfigurationModuleProvider\MyProvider'
-     tags:
-       - name: 'lowlevel.configuration.module.provider'
-         identifier: 'myProvider'
-         before: 'beUserTsConfig'
-         after: 'pagesTypes'
+    myextension.configuration.module.provider.myconfiguration:
+        class: 'Vendor\Extension\ConfigurationModuleProvider\MyProvider'
+        tags:
+            - name: 'lowlevel.configuration.module.provider'
+              identifier: 'myProvider'
+              before: 'beUserTsConfig'
+              after: 'pagesTypes'
 
 A new service with a freely selectable name is defined by specifying the
 provider class to be used. Further, the new service must be tagged with the
@@ -71,37 +72,38 @@ menu.
 The provider class has to implement the methods as required by the interface.
 A full implementation would look like this:
 
-.. code-block:: php
+..  code-block:: php
+    :caption: EXT:my_extension/Classes/ConfigurationModule/MyProvider.php
 
-   <?php
+    <?php
 
-   use TYPO3\CMS\Lowlevel\ConfigurationModuleProvider\ProviderInterface;
+    use TYPO3\CMS\Lowlevel\ConfigurationModuleProvider\ProviderInterface;
 
-   class MyProvider implements ProviderInterface
-   {
-      protected string $identifier;
+    final class MyProvider implements ProviderInterface
+    {
+        protected string $identifier;
 
-      public function __invoke(array $attributes): self
-      {
-         $this->identifier = $attributes['identifier'];
-         return $this;
-      }
+        public function __invoke(array $attributes): self
+        {
+            $this->identifier = $attributes['identifier'];
+            return $this;
+        }
 
-      public function getIdentifier(): string
-      {
-         return $this->identifier;
-      }
+        public function getIdentifier(): string
+        {
+            return $this->identifier;
+        }
 
-      public function getLabel(): string
-      {
-         return 'My custom configuration';
-      }
+        public function getLabel(): string
+        {
+            return 'My custom configuration';
+        }
 
-      public function getConfiguration(): array
-      {
-         return $myCustomConfiguration;
-      }
-   }
+        public function getConfiguration(): array
+        {
+            return $myCustomConfiguration;
+        }
+    }
 
 The :php:`__invoke()` method is called from the provider registry and provides
 all attributes, defined in the :file:`Services.yaml`. This can be used to set
@@ -137,15 +139,16 @@ Simply define the key to be exposed using the `globalVariableKey` attribute.
 
 This could look like this:
 
-.. code-block:: yaml
+..  code-block:: yaml
+    :caption: EXT:my_extension/Configuration/Services.yaml
 
-   myextension.configuration.module.provider.myconfiguration:
-     class: 'TYPO3\CMS\Lowlevel\ConfigurationModuleProvider\GlobalVariableProvider'
-     tags:
-       - name: 'lowlevel.configuration.module.provider'
-         identifier: 'myConfiguration'
-         label: 'My global var'
-         globalVariableKey: 'MY_GLOBAL_VAR'
+    myextension.configuration.module.provider.myconfiguration:
+        class: 'TYPO3\CMS\Lowlevel\ConfigurationModuleProvider\GlobalVariableProvider'
+        tags:
+            - name: 'lowlevel.configuration.module.provider'
+              identifier: 'myConfiguration'
+              label: 'My global var'
+              globalVariableKey: 'MY_GLOBAL_VAR'
 
 Disabling an entry
 ------------------
@@ -153,11 +156,12 @@ Disabling an entry
 To disable an already registered configuration add the `disabled: true`
 attribute. For example, if you intend to disable the `TCA_DESCR` key you can use:
 
-.. code-block:: yaml
+..  code-block:: yaml
+    :caption: EXT:my_extension/Configuration/Services.yaml
 
-   lowlevel.configuration.module.provider.tcadescr:
-     class: TYPO3\CMS\Lowlevel\ConfigurationModuleProvider\GlobalVariableProvider
-     tags:
-       - name: 'lowlevel.configuration.module.provider'
-         disabled: true
+    lowlevel.configuration.module.provider.tcadescr:
+        class: TYPO3\CMS\Lowlevel\ConfigurationModuleProvider\GlobalVariableProvider
+        tags:
+            - name: 'lowlevel.configuration.module.provider'
+              disabled: true
 

@@ -38,7 +38,7 @@ content.
 Example
 =======
 
-Registration of the Event in your extension's :file:`Configuration/Services.yaml`:
+Registration of the event in your extension's :file:`Configuration/Services.yaml`:
 
 .. code-block:: yaml
    :caption: EXT:my_extension/Configuration/Services.yaml
@@ -55,7 +55,7 @@ The corresponding event listener class:
 
    use TYPO3\CMS\Info\Controller\Event\ModifyInfoModuleContentEvent;
 
-   class MyEventListener {
+   final class MyEventListener {
 
      public function __invoke(ModifyInfoModuleContentEvent $event): void
      {

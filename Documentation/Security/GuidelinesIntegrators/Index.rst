@@ -23,7 +23,7 @@ backend, extensions, TypoScript, TSconfig, etc.) and should be able to
 configure a TYPO3 system properly and securely.
 
 Integrators know how to use the Install Tool, the meaning of
-configurations in :file:`typo3conf/LocalConfiguration.php` and the basic
+configurations in :file:`config/system/settings.php` and the basic
 structure of files and directories used by TYPO3.
 
 The installation of TYPO3 on a web server or the configuration of the

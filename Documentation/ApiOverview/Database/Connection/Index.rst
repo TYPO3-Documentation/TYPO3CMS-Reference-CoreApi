@@ -11,7 +11,7 @@ An instance of class :php:`TYPO3\CMS\Core\Database\Connection` is retrieved from
 and handing over the table name a query should executed on.
 
 The class extends the basic Doctrine DBAL `Doctrine\DBAL\Connection` class and is mainly
-used internally within the TYPO3 CMS framework to establish, maintain and terminate
+used internally within the TYPO3 framework to establish, maintain and terminate
 connections to single database endpoints. Those internal methods are not scope of this
 documentation since an extension developer usually doesn't have to deal with that.
 
@@ -193,7 +193,7 @@ argument specifies the quoting of `WHERE` values. There is a pattern ;)
 
 .. note::
 
-    TYPO3 CMS uses a "soft delete" approach for many tables. Instead of directly deleting a rows in the database,
+    TYPO3 uses a "soft delete" approach for many tables. Instead of directly deleting a rows in the database,
     a field - often called `deleted` - is set from 0 to 1. Executing a `DELETE` query circumvents this and really
     removes rows from a table. For most tables, it is better to use the :ref:`DataHandler <tce-database-basics>` API
     to handle deletes instead of executing such low level queries directly.

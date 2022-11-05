@@ -13,6 +13,6 @@ This allows for listeners to create custom links to certain files (e.g. restrict
 authorized deeplinks.
 
 API
----
+===
 
 .. include:: /CodeSnippets/Events/Core/Resource/GeneratePublicUrlForResourceEvent.rst.txt

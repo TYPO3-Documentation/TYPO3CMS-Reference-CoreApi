@@ -17,7 +17,7 @@ The page to be linked to can also be modified to link to a different page.
 Example
 =======
 
-Registration of the Event in your extension's :file:`Services.yaml`:
+Registration of the event in your extension's :file:`Services.yaml`:
 
 .. code-block:: yaml
    :caption: EXT:my_extension/Configuration/Services.yaml
@@ -36,7 +36,7 @@ The corresponding event listener class:
 
    use TYPO3\CMS\Frontend\Event\ModifyPageLinkConfigurationEvent;
 
-   class MyEventListener {
+   final class MyEventListener {
 
        public function __invoke(ModifyPageLinkConfigurationEvent $event): void
        {

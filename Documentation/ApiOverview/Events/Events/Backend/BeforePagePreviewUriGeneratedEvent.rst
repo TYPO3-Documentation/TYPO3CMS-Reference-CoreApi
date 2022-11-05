@@ -24,15 +24,10 @@ the URI based on the parameters.
    to the :ref:`AfterPagePreviewUriGeneratedEvent`. They however do not
    overwrite the related class properties in :php:`PreviewUriBuilder`.
 
-API
-===
-
-.. include:: /CodeSnippets/Events/Backend/BeforePagePreviewUriGeneratedEvent.rst.txt
-
 Example
 =======
 
-Registration of the Event in your extensions' :file:`Services.yaml`:
+Registration of the event in your extensions' :file:`Services.yaml`:
 
 .. code-block:: yaml
    :caption: EXT:my_extension/Configuration/Services.yaml
@@ -64,3 +59,7 @@ The corresponding event listener class:
        }
    }
 
+API
+===
+
+.. include:: /CodeSnippets/Events/Backend/BeforePagePreviewUriGeneratedEvent.rst.txt

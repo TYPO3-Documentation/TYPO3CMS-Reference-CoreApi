@@ -1,73 +1,201 @@
-.. include:: /Includes.rst.txt
-.. index::
-   Request handling; request object
-   $GLOBALS; TYPO3_REQUEST
-.. _typo3-request:
+..  include:: /Includes.rst.txt
+..  index::
+    Request handling; request object
+    $GLOBALS; TYPO3_REQUEST
+..  _typo3-request:
 
 ====================
 TYPO3 request object
 ====================
 
-The TYPO3 request object is a PSR-7 based `ServerRequest` object containing a TYPO3-specific attribute object for normalized
-server parameters. These normalized parameter for instance resolve variables
-if the instance is behind a reverse proxy.
+The TYPO3 request object is an implementation of the PSR-7 based
+`\Psr\Http\Message\ServerRequestInterface` containing TYPO3-specific attributes.
 
-.. important::
+..  seealso::
+    `PSR-7: HTTP message interfaces <https://www.php-fig.org/psr/psr-7/>`__
 
-   This substitutes :php:`GeneralUtility::getIndpEnv()`.
+.. contents::
+   :local:
 
-The object is available from :php:`ServerRequestInterface $request` objects as an attribute.
-The request object is passed to controllers, example:
+
+..  _getting-typo3-request-object:
+
+Getting the PSR-7 request object
+================================
+
+The PSR-7 based request object is available in most contexts. In some scenarios,
+like :ref:`PSR-15 middlewares <request-handling>` or backend module controllers,
+the PSR-7 base request object is given as argument to the called method.
+
+
+Extbase controller
+------------------
+
+..  versionadded:: 11.3
+
+The request object compatible with the PSR-7
+:php:`\Psr\Http\Message\ServerRequestInterface` is available in an
+:ref:`Extbase controller <extbase-action-controller>` via the class property
+:php:`$this->request`:
+
+..  code-block:: php
+    :caption: EXT:my_extension/Classes/Controller/MyController.php
+
+    use Psr\Http\Message\ResponseInterface;
+    use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
+
+    final class MyController extends ActionController
+    {
+        // ...
+
+        public function myAction(): ResponseInterface
+        {
+            // ...
+
+            // Retrieve the language attribute via the request object
+            $language = $this->request->getAttribute('language');
+
+            // ...
+        }
+    }
+
+..  note::
+    Prior to TYPO3 v11.3, a custom Extbase request object is available that does
+    not adhere to the PSR-7 standard. If you want to stay compatible with
+    TYPO3 v10 and TYPO3 v11 you have to use the :ref:`global variable
+    <typo3-request-global-variable>`.
+
+
+User function
+-------------
+
+In a :ref:`TypoScript user function <t3tsref:cobj-user>` the request object
+is available as third parameter of the called class method:
+
+..  code-block:: php
+    :caption: EXT:my_extension/Classes/UserFunction/MyUserFunction.php
+
+    use Psr\Http\Message\ServerRequestInterface;
+
+    final class MyUserFunction
+    {
+        public function doSomething(
+            string $content,
+            array $conf,
+            ServerRequestInterface $request
+        ): string {
+            // ...
+
+            // Retrieve the language attribute via the request object
+            $language = $request->getAttribute('language');
+
+            // ...
+        }
+    }
+
+
+Data processor
+--------------
+
+A :ref:`data processor <content-elements-custom-data-processor>` receives a
+reference to the :php:`\TYPO3\CMS\Frontend\ContentObject\ContentObjectRenderer`
+as first argument for the :php:`process()` method. This object provides a
+:php:`getRequest()` method:
+
+..  code-block:: php
+    :caption: EXT:my_extension/Classes/DataProcessing/MyProcessor.php
+
+    use TYPO3\CMS\Frontend\ContentObject\ContentObjectRenderer;
+    use TYPO3\CMS\Frontend\ContentObject\DataProcessorInterface;
+
+    final class MyProcessor implements DataProcessorInterface
+    {
+        public function process(
+            ContentObjectRenderer $cObj,
+            array $contentObjectConfiguration,
+            array $processorConfiguration,
+            array $processedData
+        ): array {
+            $request = $cObj->getRequest();
+
+            // ...
+        }
+    }
+
+
+..  _typo3-request-global-variable:
+
+Last resort: global variable
+----------------------------
+
+TYPO3 provides the request object also in the global variable
+:php:`$GLOBALS['TYPO3_REQUEST']`. Whenever it is possible the request should be
+retrieved within the contexts described above. But this is not always possible
+by now.
+
+When using the global variable, it should be wrapped into a getter method:
 
 ..  code-block:: php
 
-    /** @var NormalizedParams $normalizedParams */
-    $normalizedParams = $request->getAttribute('normalizedParams');
-    $requestPort = $normalizedParams->getRequestPort();
+    // use Psr\Http\Message\ServerRequestInterface;
+
+    private function getRequest(): ServerRequestInterface
+    {
+        return $GLOBALS['TYPO3_REQUEST']);
+    }
+
+This way, it is only referenced once. It can be cleaned up later easily when
+the request object is made available in that context in a future TYPO3 version.
 
 
-The request object is also available as a global variable in :php:`$GLOBALS['TYPO3_REQUEST']`. This is a workaround for
-the Core which has to access the server parameters at places where $request is not available. So, while this object is
-globally available during any HTTP request, it is considered bad practice to use this global object if the request is
-accessible in another, official way. The global object is scheduled to vanish at a later point once the code has been refactored
-enough to not rely on it anymore.
+Attributes
+==========
+
+Attributes enriches the request with further information. TYPO3 provides
+attributes which can be used in custom implementations.
+
+The attributes can be retrieved via
+
+..  code-block:: php
+
+    // Get all available attributes
+    $allAttributes = $request->getAttributes();
+
+    // Get only a specific attribute, here the site entity in frontend context
+    $site = $request->getAttribute('site');
+
+The request object is also available as a global variable in
+:php:`$GLOBALS['TYPO3_REQUEST']`. This is a workaround for the Core which has to
+access the server parameters at places where :php:`$request` is not available.
+So, while this object is globally available during any HTTP request, it is
+considered bad practice to use this global object, if the request is accessible
+in another, official way. The global object is scheduled to vanish at a later
+point once the code has been refactored enough to not rely on it anymore.
 
 
-.. index:: Request handling; Migration from getIndpEnv
+The following attributes are available in **frontend** context:
 
-Migrating from :php:`GeneralUtility::getIndpEnv()`
-==================================================
+..  toctree::
+    :titlesonly:
 
-Class :php:`NormalizedParams` is a one-to-one transition of :php:`GeneralUtility::getIndpEnv()`, the old
-arguments can be substituted with these calls:
+    RequestAttributes/ApplicationType
+    RequestAttributes/FrontendController
+    RequestAttributes/FrontendTyposcript
+    RequestAttributes/FrontendUser
+    RequestAttributes/Language
+    RequestAttributes/NormalizedParams
+    RequestAttributes/Routing
+    RequestAttributes/Site
 
-- :php:`SCRIPT_NAME` is now :php:`->getScriptName()`
-- :php:`SCRIPT_FILENAME` is now :php:`->getScriptFilename()`
-- :php:`REQUEST_URI` is now :php:`->getRequestUri()`
-- :php:`TYPO3_REV_PROXY` is now :php:`->isBehindReverseProxy()`
-- :php:`REMOTE_ADDR` is now :php:`->getRemoteAddress()`
-- :php:`HTTP_HOST` is now :php:`->getHttpHost()`
-- :php:`TYPO3_DOCUMENT_ROOT` is now :php:`->getDocumentRoot()`
-- :php:`TYPO3_HOST_ONLY` is now :php:`->getRequestHostOnly()`
-- :php:`TYPO3_PORT` is now :php:`->getRequestPort()`
-- :php:`TYPO3_REQUEST_HOST` is now :php:`->getRequestHost()`
-- :php:`TYPO3_REQUEST_URL` is now :php:`->getRequestUrl()`
-- :php:`TYPO3_REQUEST_SCRIPT` is now :php:`->getRequestScript()`
-- :php:`TYPO3_REQUEST_DIR` is now :php:`->getRequestDir()`
-- :php:`TYPO3_SITE_URL` is now :php:`->getSiteUrl()`
-- :php:`TYPO3_SITE_PATH` is now :php:`->getSitePath()`
-- :php:`TYPO3_SITE_SCRIPT` is now :php:`->getSiteScript()`
-- :php:`TYPO3_SSL` is now :php:`->isHttps()`
+The following attributes are available in **backend** context:
 
-Some further old :php:`getIndpEnv()` arguments directly access :php:`$request->serverParams()` and do not apply any
-normalization. These have been transferred to the new class, too, but will be deprecated later if the Core does not use
-them anymore:
+..  toctree::
+    :titlesonly:
 
-- :php:`PATH_INFO` is now :php:`->getPathInfo()`, but better use :php:`->getScriptName()` instead
-- :php:`HTTP_REFERER` is now :php:`->getHttpReferer()`, but better use :php:`$request->getServerParams()['HTTP_REFERER']` instead
-- :php:`HTTP_USER_AGENT` is now :php:`->getHttpUserAgent()`, but better use :php:`$request->getServerParams()['HTTP_USER_AGENT']` instead
-- :php:`HTTP_ACCEPT_ENCODING` is now :php:`->getHttpAcceptEncoding()`, but better use :php:`$request->getServerParams()['HTTP_ACCEPT_ENCODING']` instead
-- :php:`HTTP_ACCEPT_LANGUAGE` is now :php:`->getHttpAcceptLanguage()`, but better use :php:`$request->getServerParams()['HTTP_ACCEPT_LANGUAGE']` instead
-- :php:`REMOTE_HOST` is now :php:`->getRemoteHost()`, but better use :php:`$request->getServerParams()['REMOTE_HOST']` instead
-- :php:`QUERY_STRING` is now :php:`->getQueryString()`, but better use :php:`$request->getServerParams()['QUERY_STRING']` instead
-
+    RequestAttributes/ApplicationType
+    RequestAttributes/Module
+    RequestAttributes/ModuleData
+    RequestAttributes/NormalizedParams
+    RequestAttributes/Route
+    RequestAttributes/Site
+    RequestAttributes/Target

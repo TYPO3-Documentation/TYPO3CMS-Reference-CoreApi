@@ -74,7 +74,7 @@ Each array has the following options available:
  - :Key:
          type
    :Description:
-         Can be "sys" or "web". This is purely informative, as TYPO3 CMS does
+         Can be "sys" or "web". This is purely informative, as TYPO3 does
          nothing with that piece of data.
 
 

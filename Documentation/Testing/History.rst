@@ -119,7 +119,7 @@ Next to tons of detail changes, two main steps happened in 2014.
 
 First, the unit test isolation has been finished. The initiative "standalone unit test"
 changed the unit test bootstrap to execute
-only a very basic part of the system. Instance specific configuration files like *LocalConfiguration.php*
+only a very basic part of the system. Instance specific configuration files like :file:`config/system/settings.php`
 were no longer read, no database connection established, the global backend user and language objects were
 no longer set up and so on. In the end, not much more than the class auto loading is initialized. To reach
 this, many tests had to improve their mocking of dependencies and had to specify the exact state they needed.

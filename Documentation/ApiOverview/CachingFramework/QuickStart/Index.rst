@@ -19,10 +19,10 @@ Change Specific Cache Options
 
 By default, most Core caches use the database backend. Default cache configuration
 is defined in :file:`typo3/sysext/core/Configuration/DefaultConfiguration.php`
-and can be overridden in :file:`LocalConfiguration.php`.
+and can be overridden in :file:`config/system/settings.php`.
 
-If specific settings should be applied to the configuration, they should be added to :file:`LocalConfiguration.php`.
-All settings in :file:`LocalConfiguration.php` will be merged with :file:`DefaultConfiguration.php`. The easiest way to see
+If specific settings should be applied to the configuration, they should be added to :file:`config/system/settings.php`.
+All settings in :file:`config/system/settings.php` will be merged with :file:`DefaultConfiguration.php`. The easiest way to see
 the final cache configuration is to use the TYPO3 backend module
 :guilabel:`System > Configuration > $GLOBALS['TYPO3_CONF_VARS']`
 (with installed lowlevel system extension).

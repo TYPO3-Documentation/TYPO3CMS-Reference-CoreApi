@@ -20,10 +20,10 @@ bootstrap.
 
 Complete path: :file:`EXT:my_extension/Configuration/Backend/AjaxRoutes.php`
 
-In this file routes for AJAX requests that should be used in the backend can
+In this file routes for Ajax requests that should be used in the backend can
 be defined.
 
-Read more about :ref:`Using AJAX in the backend <ajax-backend>`.
+Read more about :ref:`Using Ajax in the backend <ajax-backend>`.
 
 .. include:: /CodeSnippets/Manual/Extension/Configuration/BackendAjaxRoutes.rst.txt
 

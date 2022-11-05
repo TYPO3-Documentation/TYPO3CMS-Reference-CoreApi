@@ -42,7 +42,7 @@ context:
    namespace MyCompany\MyExtension\EventListener;
    use TYPO3\CMS\Frontend\Event\ModifyCacheLifetimeForPageEvent;
 
-   class ChangeCacheTimeout
+   final class ChangeCacheTimeout
    {
        public function __invoke(ModifyCacheLifetimeForPageEvent $event): void
        {

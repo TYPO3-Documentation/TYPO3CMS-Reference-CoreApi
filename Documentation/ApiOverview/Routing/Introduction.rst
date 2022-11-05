@@ -87,17 +87,28 @@ To ensure Routing in TYPO3 is fully functional the following prerequisites need 
 Tips
 ====
 
-Using imports in yaml files
+Using imports in YAML files
 ---------------------------
 
-As routing configuration (and site configuration in general) can get pretty long fast, you should make use of imports
-in your yaml configuration which allows you to add routing configurations from different files and different extensions.
+As routing configuration (and site configuration in general) can get pretty long
+fast, you should make use of imports in your YAML configuration which allows you
+to add routing configurations from different files and different extensions.
 
-Example - Main :file:`config.yaml`
+Example:
 
-.. code-block:: yaml
+..  code-block:: yaml
+    :caption: config/sites/<site-identifier>/config.yaml
 
-   imports:
-      - { resource: "EXT:myblog/Configuration/Routes/Default.yaml" }
-      - { resource: "EXT:mynews/Configuration/Routes/Default.yaml" }
-      - { resource: "EXT:template/Configuration/Routes/Default.yaml" }
+    imports:
+        - { resource: "EXT:myblog/Configuration/Routes/Default.yaml" }
+        - { resource: "EXT:mynews/Configuration/Routes/Default.yaml" }
+        - { resource: "EXT:template/Configuration/Routes/Default.yaml" }
+
+..  versionchanged:: 12.0
+    In TYPO3 v10.4.14 the feature flag :php:`yamlImportsFollowDeclarationOrder`
+    was introduced to enable natural order of YAML imports. For existing
+    installations it was set to :php:`false` (resources are imported in reverse
+    order), for new installations to :php:`true` (resources are imported in
+    declared order). In TYPO3 v12.0 the feature flag was removed and the
+    resources are now imported in the exact same order as they are configured in
+    the importing file.

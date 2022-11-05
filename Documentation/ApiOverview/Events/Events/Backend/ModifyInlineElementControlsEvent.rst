@@ -16,17 +16,12 @@ is called after the markup for all enabled controls has been generated. It
 can be used to either change the markup of a control, to add a new control
 or to completely remove a control.
 
-API
-===
-
-.. include:: /CodeSnippets/Events/Backend/ModifyInlineElementControlsEvent.rst.txt
-
 .. _ModifyInlineElementControlsEvent_example:
 
 Example
 =======
 
-Registration of the Event in your extensions' :file:`Services.yaml`:
+Registration of the event in your extensions' :file:`Services.yaml`:
 
 .. code-block:: yaml
    :caption: my_extension/Configuration/Services.yaml
@@ -50,7 +45,7 @@ The corresponding event listener class:
    use TYPO3\CMS\Core\Imaging\IconFactory;
    use TYPO3\CMS\Core\Utility\GeneralUtility;
 
-   class MyEventListener {
+   final class MyEventListener {
 
        public function modifyEnabledControls(ModifyInlineElementEnabledControlsEvent $event): void
        {
@@ -73,3 +68,8 @@ The corresponding event listener class:
        }
 
    }
+
+API
+===
+
+.. include:: /CodeSnippets/Events/Backend/ModifyInlineElementControlsEvent.rst.txt

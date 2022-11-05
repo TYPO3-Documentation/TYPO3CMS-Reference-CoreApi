@@ -8,7 +8,7 @@
 Versioning and Workspaces
 =========================
 
-TYPO3 CMS provides a feature called "workspaces", whereby changes
+TYPO3 provides a feature called "workspaces", whereby changes
 can be made to the content of the web site without affecting the
 currently visible (live) version. Changes can be previewed and
 go through an approval process before publishing.
@@ -298,6 +298,10 @@ Workspace-related API for backend modules
 
 
 :php:`BackendWorkspaceRestriction`
+   ..  deprecated:: 12.1
+       Use :php:`\TYPO3\CMS\Core\Database\Query\Restriction\WorkspaceRestriction`
+       instead.
+
    Adds a WHERE-clause to the QueryBuilder which will deselect placeholder
    records from other workspaces. This should be implemented almost everywhere
    records are selected in the backend based on other fields than uid and where
@@ -319,7 +323,11 @@ Workspace-related API for backend modules
           ->add(GeneralUtility::makeInstance(BackendWorkspaceRestriction::class));
 
 :php:`FrontendWorkspaceRestriction`
-   Restriction for filtering records for fronted workspaces preview:
+   ..  deprecated:: 12.1
+       Use :php:`\TYPO3\CMS\Core\Database\Query\Restriction\WorkspaceRestriction`
+       instead.
+
+   Restriction for filtering records for frontend workspaces preview:
 
    .. code-block:: php
 

@@ -1,0 +1,13 @@
+..  this code snippet was created manually
+
+..  code-block:: yaml
+    :caption: EXT:my_extension/Configuration/Services.yaml
+    :emphasize-lines: 5-7
+
+    services:
+      _defaults:
+        autoconfigure: false
+
+      MyVendor\MyExtension\ContextMenu\SomeItemProvider:
+        tags:
+          - name: backend.contextmenu.itemprovider

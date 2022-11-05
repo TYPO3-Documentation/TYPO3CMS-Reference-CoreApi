@@ -9,18 +9,23 @@ Global TYPO3 configuration options
 ==================================
 
 The following configuration options are accessible and changeable via
-the Install Tool (recommended way) or directly in the file
-:file:`typo3conf/LocalConfiguration.php`. The list below is in alphabetical
-order - not in the order of importance (all are relevant but the usage
-depends on your specific site and requirements).
+the :ref:`Install Tool <security-install-tool>` (recommended way) or directly
+in the file :file:`config/system/settings.php`. The list below is in
+alphabetical order - not in the order of importance (all are relevant but the
+usage depends on your specific site and requirements).
 
+..  contents::
+    :local:
+
+
+.. _security-global-typo3-options-displayErrors:
 
 displayErrors
 =============
 
-This configuration option controls whether PHP errors should be
-displayed or not (information disclosure). Possible values are: `-1`, `0`,
-`1` (integer) with the following meaning:
+This :ref:`configuration option <typo3ConfVars_sys_displayErrors>` controls
+whether PHP errors should be displayed or not (information disclosure). Possible
+values are: `-1`, `0`, `1` (integer) with the following meaning:
 
 `-1`
    This overrides the PHP setting :php:`display_errors`.
@@ -45,47 +50,76 @@ The PHP variable reads: :php:`$GLOBALS['TYPO3_CONF_VARS']['SYS']['displayErrors'
 devIPmask
 =========
 
-Defines a comma-separated list of IP addresses which will allow
-development-output to display (information disclosure). The :php:`debug()`
-function will use this as a filter. Setting this to a blank value will
-deny all (recommended for a production site). Setting this to `*`
-will show debug messages to every client without any restriction
+The :ref:`option devIPmask <typo3ConfVars_sys_devIPmask>` defines a comma-separated list
+of IP addresses which will allow development output to display (information
+disclosure). The :php:`debug()` function will use this as a filter. Setting this
+to a blank value will deny all (recommended for a production site). Setting this
+to `*` will show debug messages to every client without any restriction
 (definitely not recommended). The default value is `127.0.0.1,::1`
 which means "localhost" only.
 
 The PHP variable reads: :php:`$GLOBALS['TYPO3_CONF_VARS']['SYS']['devIPmask']``
 
 
-
+.. _security-global-typo3-options-fileDenyPattern:
 
 fileDenyPattern
 ===============
 
-The `fileDenyPattern` is a perl-compatible regular expression that (if
-it matches a file name) will prevent TYPO3 from accessing or processing
-this file (deny uploading, renaming, etc). For security reasons, PHP files
-as well as Apache's :file:`.htaccess` file should be included in this regular
-expression string. The default value is: :php:`\\.(php[3-7]?|phpsh|phtml|pht)(\\..*)?$|^\\.htaccess$`,
-initially defined in constant :php:`FILE_DENY_PATTERN_DEFAULT`.
+The :ref:`fileDenyPattern <typo3ConfVars_be_fileDenyPattern>` is a
+Perl-compatible regular expression that (if it matches a file name) will prevent
+TYPO3 from accessing or processing this file (deny uploading, renaming, etc).
+For security reasons, PHP files as well as Apache's :file:`.htaccess` file
+should be included in this regular expression string. The default value is:
+:php:`\\.(php[3-8]?|phpsh|phtml|pht|phar|shtml|cgi)(\\..*)?$|\\.pl$|^\\.htaccess$`,
+initially defined in constant
+:php:`\TYPO3\CMS\Core\Resource\Security\FileNameValidator::FILE_DENY_PATTERN_DEFAULT`.
 
 There are only a very few scenarios imaginable where it makes sense to
 allow access to those files. In most cases backend users such as
 editors must not have the option to upload/edit PHP files or other
 files which could harm the TYPO3 instance when misused. Even if you
-trust your backend users, keep in mind that a less-restrictive
+trust your backend users, keep in mind that a less restrictive
 `fileDenyPattern` would enable an attacker to compromise the system if
 it only gained access to the TYPO3 backend with a normal, unprivileged user account.
 
 The PHP variable reads: :php:`$GLOBALS['TYPO3_CONF_VARS']['BE']['fileDenyPattern']`
 
 
+.. _security-global-typo3-options-IPmaskList:
+
+IPmaskList
+==========
+
+Some TYPO3 instances are maintained by a selected group of integrators
+and editors who only work from a specific IP range or (in an ideal
+world) from a specific IP address only. This could be, for example, an
+office network with a static public IP address. In this case, or in
+any case where the client's IP addresses are predictable, the `IPmaskList`
+configuration may be used to limit the access to the TYPO3 backend.
+
+The string configured as :ref:`IPmaskList <typo3ConfVars_be_IPmaskList>` is a
+comma-separated list of IP addresses which are allowed to access the backend.
+The use of wildcards is also possible to specify a network. The following
+example opens the backend for users with the IP address `123.45.67.89` and from
+the network `192.168.xxx.xxx`:
+
+.. code-block:: php
+  :caption: config/system/additional.php | typo3conf/system/additional.php
+
+  $GLOBALS['TYPO3_CONF_VARS']['BE']['IPmaskList'] = 123.45.67.89,192.168.*.*
+
+The default value is an empty string.
+
+.. _security-global-typo3-options-lockIP:
+
 lockIP / lockIPv6
 =================
 
-If a frontend or backend user logs into TYPO3, the user's session can be
-locked to its IP address. The `lockIP` configuration for IPv4 and `lockIPv6` for IPv6 control how
-many parts of the IP address have to match with the IP address used at
-authentication time.
+If a frontend or backend user logs into TYPO3, the user's session can be locked
+to its IP address. The `lockIP` configuration for IPv4 and `lockIPv6` for IPv6
+control how many parts of the IP address have to match with the IP address used
+at authentication time.
 
 .. attention::
 
@@ -150,9 +184,11 @@ dynamic proxy servers for example) and adjusting this setting could
 address this issue. The downside of using a lower value than the default is a
 decreased level of security.
 
-Keep in mind that the `lockIP` and `lockIPv6` configurations are available for frontend
-(:php:`['FE']['lockIP']` and :php:`['FE']['lockIPv6']`) and backend (:php:`['BE']['lockIP']`
-and :php:`['BE']['lockIPv6']`) sessions separately, so four PHP variables are available:
+Keep in mind that the `lockIP` and `lockIPv6` configurations are available for
+:ref:`frontend <typo3ConfVars_fe_lockIP>` (:php:`['FE']['lockIP']` and
+:php:`['FE']['lockIPv6']`) and :ref:`backend <typo3ConfVars_be_lockIP>`
+(:php:`['BE']['lockIP']` and :php:`['BE']['lockIPv6']`) sessions separately, so
+four PHP variables are available:
 
 * :php:`$GLOBALS['TYPO3_CONF_VARS']['FE']['lockIP']`
 
@@ -171,9 +207,9 @@ lockSSL
 As described in :ref:`encrypted client/server communication
 <security-encrypted-client-server-connection>`, the use of `https://` scheme
 for the backend and frontend of TYPO3 drastically improves the security.
-The `lockSSL` configuration controls if the backend can only be operated from a SSL-
-encrypted connection (HTTPS). Possible values are: `true`, `false` (boolean)
-with the following meaning:
+The :ref:`lockSSL <typo3ConfVars_be_lockSSL>` configuration controls if the
+backend can only be operated from an SSL-encrypted connection (HTTPS). Possible
+values are: `true`, `false` (boolean) with the following meaning:
 
 * `false`: The backend is not forced to SSL locking at all (default value)
 
@@ -182,29 +218,7 @@ with the following meaning:
 The PHP variable reads: :php:`$GLOBALS['TYPO3_CONF_VARS']['BE']['lockSSL']`
 
 
-IPmaskList
-==========
-
-Some TYPO3 instances are maintained by a selected group of integrators
-and editors who only work from a specific IP range or (in an ideal
-world) from a specific IP address only. This could be for example an
-office network with a static public IP address. In this case, or in
-any case where client's IP addresses are predictable, the `IPmaskList`
-configuration may be used to limit the access to the TYPO3 backend.
-
-The string configured as `IPmaskList` is a comma-separated list of IP
-addresses which are allowed to access the backend. The use of
-wildcards is also possible to specify a network. The following example
-opens the backend for users with the IP address `123.45.67.89` and from
-the network `192.168.xxx.xxx`:
-
-.. code-block:: php
-  :caption: typo3conf/AdditionalConfiguration.php
-
-  $GLOBALS['TYPO3_CONF_VARS']['BE']['IPmaskList'] = 123.45.67.89,192.168.*.*
-
-The default value is an empty string.
-
+.. _security-global-typo3-options-trustedHostsPattern:
 
 trustedHostsPattern
 ===================
@@ -212,15 +226,15 @@ trustedHostsPattern
 TYPO3 uses the HTTP header `Host:` to generate absolute URLs in several
 places such as 404 handling, http(s) enforcement, password reset links
 and many more. Since the host header itself is provided by the client,
-it can be forged to any value, even in a name based virtual hosts
+it can be forged to any value, even in a name-based virtual hosts
 environment.
 
-The `trustedHostsPattern" configuration option can contain either the
-value `SERVER_NAME` or a regular expression pattern that matches all
-host names that are considered trustworthy for the particular TYPO3
-installation. `SERVER_NAME` is the default value and with this option
-value in effect, TYPO3 checks the currently submitted host-header
-against the `SERVER_NAME` variable. Please see security bulletin
+The :ref:`trustedHostsPattern <typo3ConfVars_sys_trustedHostsPattern>`
+configuration option can contain either the value `SERVER_NAME` or a regular
+expression pattern that matches all host names that are considered trustworthy
+for the particular TYPO3 installation. `SERVER_NAME` is the default value and
+with this option value in effect, TYPO3 checks the currently submitted
+host header against the `SERVER_NAME` variable. Please see security bulletin
 `TYPO3-CORE-SA-2014-001 <https://typo3.org/security/advisory/typo3-core-sa-2014-001/>`_
 for further details about specific setups.
 
@@ -238,7 +252,8 @@ The PHP variable reads: :php:`$GLOBALS['TYPO3_CONF_VARS']['SYS']['trustedHostsPa
 warning_email_addr
 ==================
 
-The email address defined here will receive notifications, whenever an
+The email address defined in :ref:`warning_email_addr
+<typo3ConfVars_be_warning_email_addr>` will receive notifications, whenever an
 attempt to login to the Install Tool is made. TYPO3 will also send a
 warning whenever more than three failed backend login attempts
 (regardless of the user) are detected within one hour.
@@ -248,21 +263,25 @@ The default value is an empty string.
 The PHP variable reads: :php:`$GLOBALS['TYPO3_CONF_VARS']['BE']['warning_email_addr']`
 
 
+.. _security-global-typo3-options-warning-mode:
+
 warning_mode
 ============
 
-This setting specifies if mails should be sen to :ref:`warning_email_addr
-<security-global-typo3-options-warning-email-addr>` upon successful backend user login.
+This :ref:`setting <typo3ConfVars_be_warning_mode>` specifies if emails should
+be send to :ref:`warning_email_addr
+<security-global-typo3-options-warning-email-addr>` upon successful backend user
+login.
 
 The value in an integer:
 
 `0`
-   Do not send notification-emails upon backend-login (default)
+   Do not send notification emails upon backend login (default)
 
 `1`
-   Send a notification-email every time a backend user logs in
+   Send a notification email every time a backend user logs in
 
 `2`
-   Send a notification-email every time an **admin** backend user logs in
+   Send a notification email every time an **admin** backend user logs in
 
 The PHP variable reads: :php:`$GLOBALS['TYPO3_CONF_VARS']['BE']['warning_mode']`

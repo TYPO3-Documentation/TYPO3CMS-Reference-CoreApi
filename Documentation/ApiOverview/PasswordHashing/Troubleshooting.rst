@@ -34,7 +34,7 @@ given user password to *argon2i* if the install tool has not been
 executed once.
 
 This typically happens if a system has just been upgraded and a
-backend login has been performed before the install tool has executed 
+backend login has been performed before the install tool has executed
 the silent configuration upgrade.
 
 
@@ -66,17 +66,17 @@ server where argon2 isn't available. Create a new user that uses the
 working algorithm.
 
 
-.. index:: File; typo3conf/LocalConfiguration.php
+.. index:: File; config/system/settings.php
 
-Manually disable argon2 in the LocalConfiguration.php
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Manually disable argon2 in the :file:`config/system/settings.php`
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 This may be nessesary if access to the install tool is not possible.
 This can happen when the first installation was done on a system with argon2
 and the installation was then copied to a target system that doesn't support
 this encryption type.
 
-Add or edit the following in your :file:`typo3conf/LocalConfiguration.php`.
+Add or edit the following in your :file:`config/system/settings.php`.
 
 .. code-block:: php
 
@@ -103,6 +103,6 @@ Add or edit the following in your :file:`typo3conf/LocalConfiguration.php`.
       // ...
    ];
 
-If this doesn't work then check file :file:`typo3conf/AdditionalConfiguration.php` which
-overrides :file:`typo3conf/LocalConfiguration.php`.
+If this doesn't work then check file :file:`config/system/additional.php` which
+overrides :file:`config/system/settings.php`.
 

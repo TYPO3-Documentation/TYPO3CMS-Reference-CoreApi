@@ -8,20 +8,11 @@
 Context-sensitive menus
 =======================
 
-.. tip::
-
-   Since TYPO3 v8.6 a new way of configuring and rendering context menu has
-   been introduced.
-   Both page tree context menu and list view context menu are generated and
-   configured in the same way.
-
-
-Contextual menus exist in many places in the TYPO3 CMS backend. Just try your
+Contextual menus exist in many places in the TYPO3 backend. Just try your
 luck clicking on any **icon** that you see. Chances are good that a contextual
 menu will appear, offering useful functions to execute.
 
 .. include:: /Images/AutomaticScreenshots/Examples/ContextualMenuExtended/ContextMenuTtContent.rst.txt
-
 
 .. _csm-implementation:
 
@@ -31,15 +22,19 @@ Context menu rendering flow
 Markup
 ------
 
-The context menu is shown after click on the HTML element which has
+The context menu is shown after clicking on the HTML element which has
 :html:`class="t3js-contextmenutrigger"` together with :html:`data-table`,
 :html:`data-uid` and optional :html:`data-context` attributes.
 
 The JavaScript click event handler is implemented in the
-:js:`TYPO3/CMS/Backend/ContextMenu` requireJS module. It takes the
-data attributes mentioned above and executes an ajax call to the
+:ref:`ES6 module <backend-javascript-es6>` :js:`@typo3/backend/context-menu.js`. It takes the
+data attributes mentioned above and executes an Ajax call to the
 :php:`\TYPO3\CMS\Backend\Controller\ContextMenuController->getContextMenuAction()`.
 
+..  versionchanged:: 12.0
+    The RequireJS module :js:`TYPO3/CMS/Backend/ContextMenu` has been migrated
+    to the ES6 module :js:`@typo3/backend/context-menu.js`.
+    See also :ref:`backend-javascript-es6`.
 
 ContextMenuController
 ---------------------
@@ -54,11 +49,12 @@ item providers by asking each whether it can provide items
 Item providers registration
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. versionchanged:: 12.0
-   ContextMenu item providers, implementing :php:`\TYPO3\CMS\Backend\ContextMenu\ItemProviders\ProviderInterface`
-   are now automatically registered. The registration via
-   :php:`$GLOBALS['TYPO3_CONF_VARS']['BE']['ContextMenu']['ItemProviders']`
-   is not evaluated anymore.
+..  versionchanged:: 12.0
+    ContextMenu item providers, implementing
+    :php:`\TYPO3\CMS\Backend\ContextMenu\ItemProviders\ProviderInterface`
+    are now automatically registered. The registration via
+    :php:`$GLOBALS['TYPO3_CONF_VARS']['BE']['ContextMenu']['ItemProviders']`
+    is not evaluated anymore.
 
 Custom item providers must implement
 :php:`\TYPO3\CMS\Backend\ContextMenu\ItemProviders\ProviderInterface` and can
@@ -94,11 +90,15 @@ After that, a compiled list of items is returned to the
 Menu rendering in JavaScript
 ----------------------------
 
-Based on the JSON data :file:`ContextMenu.js` is rendering a context menu. If
+..  versionchanged:: 12.0
+    The RequireJS module :js:`TYPO3/CMS/Backend/ContextMenuActions` has been migrated
+    to the ES6 module :js:`@typo3/backend/context-menu-actions.js`.
+    See also :ref:`backend-javascript-es6`.
+
+Based on the JSON data :file:`context-menu.js` is rendering a context menu. If
 one of the items is clicked, the according JavaScript :js:`callbackAction` is
-executed on the :js:`TYPO3/CMS/Backend/ContextMenuActions` JavaScript module
-or other modules defined in the JSON as
-:js:`additionalAttributes['data-callback-module']`.
+executed on the :ref:`ES6 module <backend-javascript-es6>` :js:`@typo3/backend/context-menu-actions.js`
+or other modules defined in the JSON as :js:`additionalAttributes['data-callback-module']`.
 
 Example of the JSON response:
 
@@ -159,23 +159,18 @@ API usage in the Core
 Several TYPO3 Core modules are already using this API for adding or modifying
 items. See following places for a reference:
 
--  EXT:beuser module adds an item with a link to the Access (page permissions)
-   module for pages context menu.
-   See item provider :php:`\TYPO3\CMS\Beuser\ContextMenu\ItemProvider` and
-   requireJS module :js:`TYPO3/CMS/Beuser/ContextMenuActions`
--  EXT:impexp module adds import and export options for pages, content elements
-   and other records. See item provider
-   :php:`\TYPO3\CMS\Impexp\ContextMenu\ItemProvider` and requireJS module
-   :js:`TYPO3/CMS/Impexp/ContextMenuActions`
--  EXT:filelist module provides several item providers for files, folders,
-   filemounts, filestorage, and drag-drop context menu for the folder tree.
-   See following item providers:
-   :php:`\TYPO3\CMS\Filelist\ContextMenu\ItemProviders\FileDragProvider`,
-   :php:`\TYPO3\CMS\Filelist\ContextMenu\ItemProviders\FileProvider`,
-   :php:`\TYPO3\CMS\Filelist\ContextMenu\ItemProviders\FileStorageProvider`,
-   :php:`\TYPO3\CMS\Filelist\ContextMenu\ItemProviders\FilemountsProvider`
-   and requireJS module :js:`TYPO3/CMS/Filelist/ContextMenuActions`
-
+*   EXT:impexp module adds import and export options for pages, content elements
+    and other records. See item provider
+    :php:`\TYPO3\CMS\Impexp\ContextMenu\ItemProvider` and :ref:`ES6 module <backend-javascript-es6>`
+    :js:`@typo3/impexp/context-menu-actions.js`.
+*   EXT:filelist module provides several item providers for files, folders,
+    filemounts, filestorage, and drag-drop context menu for the folder tree.
+    See following item providers:
+    :php:`\TYPO3\CMS\Filelist\ContextMenu\ItemProviders\FileDragProvider`,
+    :php:`\TYPO3\CMS\Filelist\ContextMenu\ItemProviders\FileProvider`,
+    :php:`\TYPO3\CMS\Filelist\ContextMenu\ItemProviders\FileStorageProvider`,
+    :php:`\TYPO3\CMS\Filelist\ContextMenu\ItemProviders\FilemountsProvider`
+    and the :ref:`ES6 module <backend-javascript-es6>` :js:`@typo3/filelist/context-menu-actions.js`
 
 Adding context menu to elements in your backend module
 ======================================================
@@ -183,6 +178,9 @@ Adding context menu to elements in your backend module
 Enabling context menu in your own backend modules is quite straightforward.
 The examples below are taken from the "beuser" system extension and
 assume that the module is Extbase-based.
+
+..  todo: Document the new ES6 way of creating a context menu
+    https://github.com/TYPO3-Documentation/TYPO3CMS-Reference-CoreApi/issues/2298
 
 The first step is to include the needed JavaScript using the
 :js:`includeRequireJsModules` property
@@ -261,11 +259,13 @@ For more details see :ref:`TSConfig reference <t3tsconfig:useroptions-contextmen
 Tutorial: How to add a custom context menu item
 ===============================================
 
+..  todo: Document the new ES6 way of creating a context menu
+    https://github.com/TYPO3-Documentation/TYPO3CMS-Reference-CoreApi/issues/2298
+
 Follow these steps to add a custom menu item for pages records. You will add a
 "Hello world" item which will show an info after clicking.
 
 .. include:: /Images/AutomaticScreenshots/Examples/ContextualMenuExtended/ContextMenuHelloWorld.rst.txt
-
 
 Step 1: Implementation of the item provider class
 -------------------------------------------------
@@ -277,17 +277,38 @@ or any other provider from EXT:backend.
 
 See comments in the following code snippet clarifying implementation details.
 
-This file can be found in :file:`EXT:examples/Classes/ContextMenu/HelloWorldItemProvider.php`
-
-.. include:: /CodeSnippets/Examples/ContextualMenuExtended/HelloWorldItemProvider.rst.txt
-
+.. include:: /CodeSnippets/Tutorials/ContextMenu/HelloWorldItemProvider.rst.txt
 
 Step 2: JavaScript actions
 --------------------------
 
-Provide a JavaScript file (RequireJS module) which will be
+Provide a JavaScript file (ES6 module) which will be
 called after clicking on the context menu item.
 
-This file can be found in :file:`EXT:examples/Resources/Public/JavaScript/ContextMenuActions.js`
+..  include:: /CodeSnippets/Tutorials/ContextMenu/ContextMenuActions.rst.txt
 
-.. include:: /CodeSnippets/Examples/ContextualMenuExtended/ContextMenuActions.rst.txt
+Register the JavaScript ES6 modules of your extension if not done yet:
+
+..  include:: /CodeSnippets/Tutorials/ContextMenu/JavaScriptModules.rst.txt
+
+Step 3: Registration
+--------------------
+
+If you have :yaml:`autoconfigure: true` set in your extension's :file:`Services.yaml` file all
+classes implementing :php:`\TYPO3\CMS\Backend\ContextMenu\ItemProviders\ProviderInterface`
+get registered as context menu items automatically:
+
+..  code-block:: yaml
+    :caption: EXT:examples/Configuration/Services.yaml
+    :emphasize-lines: 4
+
+    services:
+      _defaults:
+        autowire: true
+        autoconfigure: true
+        public: false
+
+If :yaml:`autoconfigure` is disabled you can manually register a context menu item provider
+by adding the tag :yaml:`backend.contextmenu.itemprovider`:
+
+..  include:: /CodeSnippets/Tutorials/ContextMenu/ManualServicesYaml.rst.txt

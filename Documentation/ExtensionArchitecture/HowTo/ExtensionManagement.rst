@@ -66,7 +66,7 @@ There are only two (possibly three) steps involved in using extensions with TYPO
    provides an interface to configure extensions that provide configuration settings. Any
    settings - if present - configured for an extension are available as
    an array in the variable :php:`$GLOBALS['TYPO3_CONF_VARS']['EXTENSIONS'][extensionKey]` and
-   thus reside in :file:`typo3conf/LocalConfiguration.php`.
+   thus reside in :file:`config/system/settings.php`.
 
 Loaded extensions can be fetched with :php:`TYPO3\CMS\Core\Package\PackageManager::getActivePackages()`,
 available in both frontend and backend of TYPO3.

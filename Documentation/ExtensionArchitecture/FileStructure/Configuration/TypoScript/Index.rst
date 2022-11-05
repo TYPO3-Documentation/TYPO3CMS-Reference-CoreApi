@@ -22,7 +22,7 @@ and TypoScript setup in a file called :file:`setup.typoscript`.
 .. code-block:: none
    :caption: TypoScript folder
 
-   $ tree public/typo3conf/ext/my_extension/Configuration/TypoScript/
+   $ tree local_packages/my_extension/Configuration/TypoScript/
    ├── constants.typoscript
    └── setup.typoscript
 
@@ -33,9 +33,7 @@ These two files will be included via
 .. code-block:: php
    :caption: EXT:my_extension/Configuration/TCA/Overrides/sys_template.php
 
-   use TYPO3\CMS\Core\Utility\ExtensionManagementUtility:
-
-   ExtensionManagementUtility::addStaticFile(
+   \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addStaticFile(
        'my_extension',
        'Configuration/TypoScript/',
        'Examples TypoScript'
@@ -50,7 +48,7 @@ you should use the ending :file:`.typoscript` for these files.
 .. code-block:: none
    :caption: TypoScript folder, extended
 
-   $ tree public/typo3conf/ext/my_extension/Configuration/TypoScript/
+   $ tree local_packages/my_extension/Configuration/TypoScript/
    ├── Example1
    │    ├── constants.typoscript
    │    └── setup.typoscript
@@ -69,21 +67,19 @@ for each folder that should be available in the TypoScript template record:
 .. code-block:: php
    :caption: EXT:my_extension/Configuration/TCA/Overrides/sys_template.php
 
-   use TYPO3\CMS\Core\Utility\ExtensionManagementUtility:
-
-   ExtensionManagementUtility::addStaticFile(
+   \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addStaticFile(
        'my_extension',
        'Configuration/TypoScript/',
        'My Extension - Main TypoScript'
    );
 
-   ExtensionManagementUtility::addStaticFile(
+   \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addStaticFile(
        'my_extension',
        'Configuration/TypoScript/Example1/',
        'My Extension - Additional example 1'
    );
 
-   ExtensionManagementUtility::addStaticFile(
+   \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addStaticFile(
        'my_extension',
        'Configuration/TypoScript/SpecialFeature2/',
        'My Extension - Some special feature'

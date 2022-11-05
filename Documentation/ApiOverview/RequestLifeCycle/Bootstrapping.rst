@@ -6,13 +6,13 @@
 Bootstrapping
 =============
 
-TYPO3 CMS has a clean bootstrapping process driven mostly
+TYPO3 has a clean bootstrapping process driven mostly
 by class :php:`\TYPO3\CMS\Core\Core\Bootstrap`. This class is initialized by
 calling  :php:`Bootstrap::init()` and serves as an entry point for later calling
 an application class, depending on several context-dependant constraints.
 
 Each application class registers request handlers to
-run a certain request type (e.g. eID or TSFE-logic, or AJAX requests in the Backend). Each application is handed
+run a certain request type (e.g. eID or TSFE-logic, or Ajax requests in the Backend). Each application is handed
 over the class loader provided by Composer.
 
 Applications
@@ -38,7 +38,7 @@ This class handles all incoming web requests for any regular backend call
 inside :file:`typo3/\*`.
 
 Its :php:`TYPO3\CMS\Backend\Http\RequestHandler` is used for all backend
-requests, including AJAX routes. If a get/post parameter "route" is set, the
+requests, including Ajax routes. If a get/post parameter "route" is set, the
 backend routing is called by the :php:`RequestHandler` and
 searches for a matching route inside the router. The corresponding controller
 / action is called then which returns the response.
@@ -86,7 +86,7 @@ Example of bootstrapping the TYPO3 Backend:
 Initialization
 ==============
 
-Whenever a call to TYPO3 CMS is made, the application goes through a
+Whenever a call to TYPO3 is made, the application goes through a
 bootstrapping process managed by a dedicated API. This process is also
 used in the frontend, but only the backend process is described here.
 
@@ -111,7 +111,7 @@ to have an overview of these base values, it is worth taking a look into the fol
 
 -  :php:`SystemEnvironmentBuilder::defineTypo3RequestTypes()` defines the different
    constants for determining if the current request is a frontend, backend, cli,
-   ajax or Install Tool request.
+   Ajax or Install Tool request.
 
 -  :php:`SystemEnvironmentBuilder::defineBaseConstants()` defines
    constants containing values such as the current version number,
@@ -194,7 +194,7 @@ Application context
 ===================
 
 Each request, no matter if it runs from the command line or through HTTP,
-runs in a specific *application context*. TYPO3 CMS provides exactly three built-in
+runs in a specific *application context*. TYPO3 provides exactly three built-in
 contexts:
 
 * ``Production`` (default) - should be used for a live site
@@ -206,7 +206,7 @@ The context TYPO3 runs in is specified through the environment variable
 
 .. code-block:: bash
 
-   # run the TYPO3 CMS CLI commands in development context
+   # run the TYPO3 CLI commands in development context
    TYPO3_CONTEXT=Development ./bin/typo3
 
 
@@ -288,10 +288,10 @@ Usage example
 ~~~~~~~~~~~~~
 
 The current Application Context is set very early in the bootstrap process and can be accessed
-through public API for example in the :file:`AdditionalConfiguration.php` file to automatically set
+through public API for example in the :file:`config/system/additional.php` file to automatically set
 different configuration for different contexts.
 
-In file :file:`typo3conf/AdditionalConfiguration.php`:
+In file :file:`config/system/additional.php`:
 
 .. code-block:: php
 

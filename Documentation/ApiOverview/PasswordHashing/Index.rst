@@ -173,7 +173,7 @@ reason.
 Configuration options
 =====================
 
-Configuration of password hashing is stored in :file:`LocalConfiguration.php` with defaults in
+Configuration of password hashing is stored in :file:`config/system/settings.php` with defaults in
 :file:`DefaultConfiguration.php` at five places:
 
 * :php:`$GLOBALS['TYPO3_CONF_VARS']['SYS']['availablePasswordHashAlgorithms']`: An array of class names.

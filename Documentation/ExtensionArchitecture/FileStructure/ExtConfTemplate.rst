@@ -96,7 +96,7 @@ Where user functions have to be written the following way:
 Accessing saved options
 =======================
 
-When saved in the Settings module, the configuration will be kept in the :file:`LocalConfiguration.php`
+When saved in the Settings module, the configuration will be kept in the :file:`config/system/settings.php`
 file and is available as array :php:`$GLOBALS['TYPO3_CONF_VARS']['EXTENSIONS']['my_extension_key']`.
 
 To retrieve the configuration use the API provided by the

@@ -30,6 +30,12 @@ need write access to this directory on a server level (for example via SSH, SFTP
 or you can create this file as a backend user with administrator
 privileges.
 
+..  attention::
+    Even if you run TYPO3 v12 in Composer mode at the time of writing
+    (TYPO3 v12.0.0) the file still has to be
+    created in folder :file:`public/typo3conf/ENABLE_INSTALL_TOOL`. See also
+    https://forge.typo3.org/issues/98528
+
 .. include:: /Images/AutomaticScreenshots/AdminTools/EnableInstallTool.rst.txt
 
 Conversely, this also means, you should delete this file as soon as
@@ -42,10 +48,10 @@ not recommended.
 
 The password for accessing the Install Tool is stored using the
 :ref:`configured password hash mechanism <password-hashing>` set for the backend
-in the global configuration file :file:`typo3conf/LocalConfiguration.php`:
+in the global configuration file :file:`config/system/settings.php`:
 
 .. code-block:: php
-   :caption: typo3conf/LocalConfiguration.php
+   :caption: config/system/settings.php
 
    <?php
    return [
@@ -72,10 +78,10 @@ security measures.
 The number of system maintainers should be as small as possible to mitigate the risks of corrupted accounts.
 
 The role can be provided in the Settings Section of the Install Tool -> Manage System Maintainers. It is also
-possible to manually modify the list by adding or removing the be_users.uid of the user in :file:`LocalConfiguration.php`:
+possible to manually modify the list by adding or removing the be_users.uid of the user in :file:`config/system/settings.php`:
 
 .. code-block:: php
-   :caption: typo3conf/LocalConfiguration.php
+   :caption: config/system/settings.php
 
    <?php
    return [
@@ -98,7 +104,7 @@ definitely discuss your intention with the team.
 TYPO3 Core updates
 ==================
 
-Since TYPO3 CMS 6.2, the Install Tool allows integrators to update the
+Since TYPO3 v6.2, the Install Tool allows integrators to update the
 TYPO3 Core with a click of a button. This feature can be found under
 "Important actions" and it checks/installs revision updates only (e.g.
 bug fixes and security updates).

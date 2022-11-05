@@ -12,18 +12,30 @@ and handled that cannot be handled by any of the Core LinkHandlers.
 The example below is part of the TYPO3 Documentation Team extension `examples
 <https://github.com/TYPO3-Documentation/t3docs-examples>`__.
 
+..  todo: Replace the source code here with the code from EXT:examples
+    and adjust the texts
+    https://github.com/TYPO3-Documentation/TYPO3CMS-Reference-CoreApi/issues/2298
 
 Implementing the LinkHandler
 ============================
 
-You can have a look at the existing LinkHandler in the system Extension
-recordlist, found at :file:`typo3/sysext/recordlist/Classes/LinkHandler`.
+You can have a look at the existing LinkHandler in the system extension
+"backend", found at :file:`typo3/sysext/backend/Classes/LinkHandler`.
+
+..  versionchanged:: 12.0
+    Due to the integration of EXT:recordlist into EXT:backend the path has
+    changed from
+    :file:`typo3/sysext/recordlist/Classes/LinkHandler`
+    to
+    :file:`typo3/sysext/backend/Classes/LinkHandler`.
+    For TYPO3 v12 the moved classes are available as an alias under the old
+    namespace to allow extensions to be compatible with TYPO3 v11 and v12.
 
 However please note that all these extensions extend the :php:`AbstractLinkHandler`,
 which is marked as :php:`@internal` and subject to change without further notice.
 
-You should therefore implement the :php:`interface LinkHandlerInterface` in your
-own custom LinkHandlers:
+You should therefore implement the interface :php:`LinkHandlerInterface` in your
+custom LinkHandlers:
 
 
 .. code-block:: php
@@ -33,7 +45,7 @@ own custom LinkHandlers:
    namespace T3docs\Examples\LinkHandler;
 
    # use ...
-   use TYPO3\CMS\Recordlist\LinkHandler\LinkHandlerInterface;
+   use TYPO3\CMS\Backend\LinkHandler\LinkHandlerInterface;
 
    class GitHubLinkHandler implements LinkHandlerInterface
    {
@@ -141,7 +153,7 @@ own custom LinkHandlers:
       }
    }
 
-The LinkHandler then has to be registered via page TSCONFIG:
+The LinkHandler then has to be registered via page TSconfig:
 
 
 .. code-block:: typoscript
