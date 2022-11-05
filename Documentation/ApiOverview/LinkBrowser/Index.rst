@@ -24,3 +24,4 @@ the frontend output is processed by a :ref:`link builder <>`.
     Linkhandler/Index
     CoreLinkHandler
     LinkBuilder
+    Tutorials/Index
