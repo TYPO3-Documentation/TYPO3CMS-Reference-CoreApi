@@ -131,7 +131,7 @@ class validateRstFiles
 
     protected function validateContent(string $fileContent)
     {
-        $checkFor = [
+        $checkForRequired = [
             [
                 'type' => 'include',
                 'regex' => '#^\\.\\.\s+include::\s+\/Includes.rst.txt|\:orphan\:#m',
@@ -140,8 +140,25 @@ class validateRstFiles
             ],
         ];
 
-        foreach ($checkFor as $values) {
+        foreach ($checkForRequired as $values) {
             if (preg_match($values['regex'], $fileContent) !== 1) {
+                $this->messages[$values['type']]['title'] = $values['title'];
+                $this->messages[$values['type']]['message'] = $values['message'];
+                $this->isError = true;
+            }
+        }
+
+        $checkForForbidden = [
+            [
+                'type' => 'include',
+                'regex' => '#\.\. *important::#m',
+                'title' => 'admonition warning forbidden',
+                'message' => 'use ".. attention" instead of ".. important"',
+            ],
+        ];
+
+        foreach ($checkForForbidden as $values) {
+            if (preg_match($values['regex'], $fileContent) > 0) {
                 $this->messages[$values['type']]['title'] = $values['title'];
                 $this->messages[$values['type']]['message'] = $values['message'];
                 $this->isError = true;

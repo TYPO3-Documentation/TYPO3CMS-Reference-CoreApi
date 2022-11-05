@@ -61,7 +61,7 @@ values in the :php:`$EM_CONF` array if needed.
 
 $_EXTKEY is set globally and contains the extension key.
 
-.. important::
+.. attention::
    Due to limitations to the TER (`TYPO3 Extension Repository <https://extensions.typo3.org>`__),
    `$_EXTKEY` should be used here and **not** a constant or a string.
 
@@ -320,7 +320,7 @@ $_EXTKEY is set globally and contains the extension key.
                ]
             ],
 
-         .. important::
+         .. attention::
             The prefix must end with a backslash.
 
  - :Key:

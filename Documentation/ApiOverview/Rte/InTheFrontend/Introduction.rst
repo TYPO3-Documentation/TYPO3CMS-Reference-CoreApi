@@ -62,7 +62,7 @@ The optional features
 
    *This option requires an Ajax-connection to interact with TYPO3.*
 
-.. important::
+.. attention::
 
    User input in the frontend always represents a general security risk.
 

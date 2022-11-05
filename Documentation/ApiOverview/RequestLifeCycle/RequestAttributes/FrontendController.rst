@@ -18,7 +18,7 @@ Example:
     $frontendController = $request->getAttribute('frontend.controller');
     $rootline = $frontendController->rootline;
 
-..  important::
+..  attention::
     In former TYPO3 versions you have to retrieve the
     :php:`TypoScriptFrontendController` via the global variable
     :php:`$GLOBALS['TSFE']`. This should be avoided now, instead use the request

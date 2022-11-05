@@ -42,7 +42,7 @@ Thus, many things, such as backend modules or plugins can be done "the Extbase
 way" or "the Core way". This is a design decision, the extension developer must
 make for the specific use case.
 
-.. important::
+.. attention::
 
    Extbase is one of many options in the "toolbox" of TYPO3 extension development.
 

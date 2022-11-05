@@ -132,7 +132,7 @@ controller name and action name to avoid potential conflicts with other existing
 
 For further reading, take a look at :ref:`backend-routing`.
 
-.. important::
+.. attention::
    Flushing caches is mandatory after modifying any route definition.
 
 
