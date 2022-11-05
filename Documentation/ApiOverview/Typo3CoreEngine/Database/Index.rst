@@ -336,7 +336,7 @@ The :php:`$copyMappingArray_merged` property can be used to determine the UID
 of a record copy based on the UID of the copied record.
 
 ..  caution::
-    The :php:`$copyMappingArray_merged` property should not be confused with
+    The :php:`$copyMappingArray_merged` property should not be mixed up with
     the :php:`$copyMappingArray` property which contains only information
     about the last copy operation and is cleared between each operation.
 
