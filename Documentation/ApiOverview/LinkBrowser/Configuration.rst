@@ -6,7 +6,7 @@
 Link handler configuration
 ==========================
 
-Link Browser tabs are registered in page TSconfig like this:
+Link browser tabs are registered in :ref:`page TSconfig <t3tsconfig:pagetsconfig>` like this:
 
 ..  include:: /CodeSnippets/Tutorials/LinkBrowser/Classes/HaikuRecordLinkBrowserTsconfig.rst.txt
 
@@ -25,7 +25,7 @@ browser <TableRecordLinkBrowserTutorials>`.
 Possible options are:
 
 :typoscript:`handler`
-    The fully qualified classname of the link handler.
+    The fully-qualified classname of the link handler.
 
 :typoscript:`label`
     The name displayed on the tab button in the link browser.
@@ -36,20 +36,20 @@ Possible options are:
 :typoscript:`scanAfter` / :typoscript:`scanBefore`
     The first backend link handler who determines that it can :ref:`handle the link
     <tutorial_backend_link_handler_canHandleLink>` may edit a link. Most
-    likely your links will start with a specific prefix to identify them.
+    likely your links will start with a :ref:`specific prefix <tutorial-github-link-handler>` to identify them.
 
     You should register your tab at least before the `url` link handler.
     The `url` link handler treats all links, that no other handler can treat.
 
 :typoscript:`configuration`
-    Some configuration, available to the backend link handler.
+    Some custom configuration, available to the backend link handler.
 
 .. _record-link-handler-configuration:
 
 Record link handler configuration
 =================================
 
-Record link handlers have the following options additionally:
+Record link handlers have the following additional options:
 
 :typoscript:`configuration.hidePageTree = 1`
    Hide the page tree in the link browser
@@ -66,7 +66,7 @@ Page link handler configuration
 :typoscript:`configuration.pageIdSelector.enabled`
    Enable an additional field in the link browser to enter the uid of a page.
 
-.. figure:: Images/LinkBrowserTSConfigExamplepageIdSelector.png
+.. figure:: Linkhandler/Images/LinkBrowserTSConfigExamplepageIdSelector.png
    :alt: The link browser field for entering a page uid.
 
 Enable the field with the following page TSConfig:
