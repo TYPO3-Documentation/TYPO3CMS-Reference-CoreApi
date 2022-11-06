@@ -15,15 +15,15 @@ handling in the presets:
 
 :guilabel:`Admin Tools > Settings > Configuration Presets > Debug Settings`
 
-For more fine-grained error handling you can change diverse settings in:
+For more fine-grained error handling you can change various settings in:
 
 :guilabel:`Admin Tools > Settings > Configure Installation-Wide Options > SYS`
 
-It is also possible to write the changes into the configuration file
-:file:`typo3conf/LocalConfiguration.php` or
-:file:`typo3conf/AdditionalConfiguration.php`.
+It is also possible to write changes manually into the configuration file
+:file:`config/system/settings.php` or
+:file:`config/system/additional.php`.
 Most configuration options related to error and exception handling are
-part of :php:`$GLOBALS['TYPO3_CONF_VARS'][SYS]`.
+part of :php:`$GLOBALS['TYPO3_CONF_VARS']['SYS']`.
 
 The following configuration values are of interest:
 
@@ -50,7 +50,7 @@ The following configuration values are of interest:
     The :php:`E_*` constants that will be handled by the error handler.
 
 :confval:`$GLOBALS['TYPO3_CONF_VARS']['SYS']['exceptionalErrors']`
-    The php:`E_*` constant that will be converted into an exception by
+    The :php:`E_*` constant that will be converted into an exception by
     the default errorHandler.
 
 :confval:`$GLOBALS['TYPO3_CONF_VARS']['SYS']['productionExceptionHandler']`
@@ -60,7 +60,7 @@ The following configuration values are of interest:
 
 :confval:`$GLOBALS['TYPO3_CONF_VARS']['SYS']['debugExceptionHandler']`
     The default debug exception handler displays
-    displays the complete stack trace of any encountered
+    the complete stack trace of any encountered
     exception. The error message and the stack trace is logged to the
     configured logs.
 
