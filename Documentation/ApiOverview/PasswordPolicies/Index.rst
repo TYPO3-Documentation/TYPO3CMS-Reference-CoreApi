@@ -94,19 +94,42 @@ minimum length and four individual requirements.
 
 The following options are available:
 
-+-----------------------------------+----------------------------+------+---------+
-| Option                            | Description                | Type | Default |
-+-----------------------------------+----------------------------+------+---------+
-| :php:`minimumLength`              | Minimum length             | int  | 8       |
-+-----------------------------------+----------------------------+------+---------+
-| :php:`upperCaseCharacterRequired` | Upper case character check | bool | false   |
-+-----------------------------------+----------------------------+------+---------+
-| :php:`lowerCaseCharacterRequired` | Lower case character check | bool | false   |
-+-----------------------------------+----------------------------+------+---------+
-| :php:`digitCharacterRequired`     | Digit check                | bool | false   |
-+-----------------------------------+----------------------------+------+---------+
-| :php:`specialCharacterRequired`   | Special character check    | bool | false   |
-+-----------------------------------+----------------------------+------+---------+
+..  confval:: minimumLength
+
+    :type: int
+    :Default: 8
+
+    The minimum length of a given password.
+
+..  confval:: upperCaseCharacterRequired
+
+    :type: bool
+    :Default: false
+
+    If set to :php:`true` at least one upper case character (`A`-`Z`) is required.
+
+..  confval:: lowerCaseCharacterRequired
+
+    :type: bool
+    :Default: false
+
+    If set to :php:`true` at least one lower case character (`a`-`z`) is required.
+
+..  confval:: digitCharacterRequired
+
+    :type: bool
+    :Default: false
+
+    If set to :php:`true` at least one digit character (`0`-`9`) is required.
+
+..  confval:: specialCharacterRequired
+
+    :type: bool
+    :Default: false
+
+    If set to :php:`true` at least one special character (not `0`-`9`, `a`-`z`,
+    `A`-`Z`) is required.
+
 
 :php:`\TYPO3\CMS\Core\PasswordPolicy\Validator\NotCurrentPasswordValidator`
 ---------------------------------------------------------------------------
@@ -130,6 +153,12 @@ string has to be supplied as password policy for frontend and backend context:
         $GLOBALS['TYPO3_CONF_VARS']['BE']['passwordPolicy'] = '';
         $GLOBALS['TYPO3_CONF_VARS']['FE']['passwordPolicy'] = '';
     }
+
+..  warning::
+    Do **not** deactivate the password policies on a production server as this
+    decreases security massively. In the example above the deactivation of
+    the password policies is wrapped into a condition which is only applied
+    in development context.
 
 
 Custom password validator
