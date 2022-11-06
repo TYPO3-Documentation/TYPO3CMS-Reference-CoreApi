@@ -23,6 +23,11 @@ allows to set a new password, which must consist of at least eight characters.
 The link is valid for 2 hours and a token is added to the link. If the password
 is entered correctly, it will be updated for the user and they can log in.
 
+..  versionadded:: 12.1
+    The new password that the user specifies must comply with the configured
+    :ref:`password policy <password-policies>` for the backend.
+
+
 Notes on security
 =================
 
