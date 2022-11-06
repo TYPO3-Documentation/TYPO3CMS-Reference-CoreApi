@@ -20,7 +20,7 @@ Here is an example for a custom link handler in the link browser:
 
 ..  include:: /Images/ManualScreenshots/Backend/CustomLinkBrowser.rst.txt
 
-In most use cases you can use one of the link handlers provided by the Core.
+In most use cases, you can use one of the link handlers provided by the Core.
 For an example see :ref:`Tutorial: Custom record link
 browser <TableRecordLinkBrowserTutorials>`.
 
