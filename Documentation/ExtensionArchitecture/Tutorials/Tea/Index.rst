@@ -49,6 +49,11 @@ Steps in this tutorial:
 
     The repository helps us to fetch tea objects from the database.
 
+#.  :ref:`The controller <extbase_tutorial_tea_controller>`
+
+    The controller controls the flow of data between the view and the
+    data repository containing the model.
+
 ..  note::
     This tutorial is work in progress. As we want to prevent epic pull requests,
     we will create it step by step. Stay tuned.
@@ -60,3 +65,4 @@ Steps in this tutorial:
     DirectoryStructure
     Model
     Repository
+    Controller

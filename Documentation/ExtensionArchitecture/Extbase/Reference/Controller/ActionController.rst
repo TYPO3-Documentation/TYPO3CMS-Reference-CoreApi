@@ -101,6 +101,8 @@ If you need a to handle errors differently this method can be overridden.
    editing process, the validation of that object can be disabled by the
    annotation :php:`@TYPO3\CMS\Extbase\Annotation\IgnoreValidation`.
 
+..  _extbase-action-controller-forward:
+
 Forward to a different controller
 =================================
 

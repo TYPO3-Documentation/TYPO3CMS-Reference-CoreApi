@@ -155,4 +155,28 @@ return [
         ],
         'targetFileName' => 'CodeSnippets/Tutorials/Tea/Classes/Domain/Repository/UseRepository.rst.txt',
     ],
+    [
+        'action'=> 'createPhpClassCodeSnippet',
+        'class'=> TTN\Tea\Controller\TeaController::class,
+        'members' => [
+            'showAction',
+        ],
+        'targetFileName'=> '/ExtensionArchitecture/Tutorials/Tea/_Controller/_ShowAction.rst.txt',
+    ],
+    [
+        'action'=> 'createPhpClassCodeSnippet',
+        'class'=> TTN\Tea\Controller\TeaController::class,
+        'members' => [
+            'teaRepository', 'injectTeaRepository', 'indexAction',
+        ],
+        'targetFileName'=> '/ExtensionArchitecture/Tutorials/Tea/_Controller/_IndexAction.rst.txt',
+    ],
+    [
+        'action'=> 'createPhpClassCodeSnippet',
+        'class'=> TYPO3\CMS\Extbase\Mvc\Controller\ActionController::class,
+        'members' => [
+            'htmlResponse',
+        ],
+        'targetFileName'=> '/ExtensionArchitecture/Tutorials/Tea/_Controller/_HtmlResponse.rst.txt',
+    ],
 ];
