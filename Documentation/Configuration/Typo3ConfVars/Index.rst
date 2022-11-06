@@ -27,10 +27,10 @@ to further configuration possibilities.
 
     *
 
-.. index::
-   ! File; config/system/settings.php
-.. _typo3ConfVars-settings:
-.. _typo3ConfVars-localConfiguration:
+..  index::
+    ! File; config/system/settings.php
+..  _typo3ConfVars-settings:
+..  _typo3ConfVars-localConfiguration:
 
 File :file:`config/system/settings.php`
 =======================================
@@ -57,11 +57,13 @@ installations.
 This file overrides default settings from
 :file:`typo3/sysext/core/Configuration/DefaultConfiguration.php`.
 
-.. attention::
+..  note::
+    ..  versionchanged:: 12.1
 
-   Since configuration settings can be manipulated from within the
-   TYPO3 backend, the :file:`config/system/settings.php`
-   must be writable by the web server user.
+    The :file:`settings.php` file can be read-only. In this case, the
+    sections in the Install Tool that would write to this file inform a
+    system maintainer that it is write-protected. All input fields are disabled
+    and the save button not available.
 
 The local configuration file is basically a long array which is simply returned
 when the file is included. It represents the global TYPO3 configuration.
