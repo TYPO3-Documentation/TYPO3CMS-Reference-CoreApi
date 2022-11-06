@@ -23,14 +23,14 @@ This action would be displayed if an URL like the following would be requested:
 :samp:`https://www.example.org/myfrontendplugin?tx_tea[action]=show&tx_tea[controller]=tea&tx_tea[tea]=42&chash=whatever`.
 
 So where does the model :php:`Tea $tea` come from? The only reference we had
-to the actual tea to be displayed was the id :php:`42`. In most cases the
-parent class :php:`ActionController` will take care of matching parameters to
+to the actual tea to be displayed was the ID :php:`42`. In most cases, the
+parent class :php:`\TYPO3\CMS\Extbase\Mvc\Controller\ActionController` will take care of matching parameters to
 objects or models. In more advanced scenarios it is necessary to influence
-the parameter matching. But in our scenario it is sufficient to know this
+the parameter matching. But in our scenario it is sufficient to know that this
 happens automatically in the controller.
 
-The following action expects not parameters. It fetches all available tea
-objects from the repository and hands them to the view:
+The following action expects no parameters. It fetches all available tea
+objects from the repository and hands them over to the view:
 
 ..  include:: /CodeSnippets/Tutorials/Tea/Classes/Domain/Controller/IndexAction.rst.txt
 
@@ -40,7 +40,7 @@ repository available to the controller: The method :php:`injectTeaRepository()`
 will be called automatically with an initialized :php:`TeaRepository` when
 the :php:`TeaController` is created.
 
-Both action methods return a call to the function :php:`$this->htmlResponse()`.
+Both action methods return a call to the method :php:`$this->htmlResponse()`.
 This method is implemented in the parent class :php:`ActionController` and is
 a shorthand method to create a response from the response factory and attach
 the rendered content. Let us have a look at what happens in this method:
@@ -49,8 +49,8 @@ the rendered content. Let us have a look at what happens in this method:
 
 You can also use this code directly in your controller if you need to return
 a different HTTP header. If a different rendering from the standard view is
-necessary you can just path the rendered HTML content to this method. There
-is also a short hand method for JSON called :php:`jsonResponse()`.
+necessary you can just pass the rendered HTML content to this method. There
+is also a shorthand method for returning JSON called :php:`jsonResponse()`.
 
 This basic example requires no actions that are forwarding or redirecting.
 Read more about those concepts here: :ref:`extbase-action-controller-forward`.
