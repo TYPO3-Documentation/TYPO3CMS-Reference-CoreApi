@@ -126,7 +126,7 @@ and the result can be easily seen in the backend:
     Custom translation in the TYPO3 backend
 
 
-..  important::
+..  attention::
     -   You do not have to copy the full reference file, but only the labels you
         want to translate.
     -   The path to the file to be overridden must be specified as

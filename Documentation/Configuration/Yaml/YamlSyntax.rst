@@ -32,7 +32,7 @@ might break badly if not followed, by using MUST.
   See `Symfony > The YAML Format > Strings <https://symfony.com/doc/current/components/yaml/yaml_format.html#strings>`__
 
 
-.. important::
+.. attention::
 
    All text is case-sensitive.
 

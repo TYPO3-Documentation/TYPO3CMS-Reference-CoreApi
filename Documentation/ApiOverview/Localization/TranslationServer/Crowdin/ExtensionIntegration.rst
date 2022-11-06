@@ -59,7 +59,7 @@ Select the **main** branch to be translated.
 
    Branch configuration
 
-.. important::
+.. attention::
 
    TYPO3 can currently handle one branch for an extension!
    Typically you should select the `main` branch.

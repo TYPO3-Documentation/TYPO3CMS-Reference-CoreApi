@@ -331,7 +331,7 @@ Extbase controller.
 
    $includeCategories = (bool) ($this->settings['includeCategories'] ?? false);
 
-.. important::
+.. attention::
 
    If you wish to access a setting from your controller via
    :php:`$this->settings`, the name of the setting must be prefixed with `settings.`,

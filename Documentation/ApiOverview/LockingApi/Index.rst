@@ -14,7 +14,7 @@ where concurrent access can be a problem. For example if you are getting a
 cache entry, while another process sets the same entry. This may
 result in incomplete or corrupt data, if locking is not used.
 
-.. important::
+.. attention::
 
    The :ref:`TYPO3 Caching Framework <caching>` does not use locking internally.
    If you use the Caching Framework to cache entries in your extension, you may

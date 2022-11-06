@@ -65,7 +65,7 @@ In order to use the :php:`RecordLinkHandler` it can be configured as following:
           }
       }
 
-   .. important::
+   .. attention::
 
       Do not change the identifier after links have been created using the
       RecordLinkHandler. The identifier will be stored as part of the link in the

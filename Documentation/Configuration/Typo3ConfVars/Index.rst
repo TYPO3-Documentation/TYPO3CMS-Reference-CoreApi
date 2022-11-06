@@ -57,7 +57,7 @@ installations.
 This file overrides default settings from
 :file:`typo3/sysext/core/Configuration/DefaultConfiguration.php`.
 
-.. important::
+.. attention::
 
    Since configuration settings can be manipulated from within the
    TYPO3 backend, the :file:`config/system/settings.php`

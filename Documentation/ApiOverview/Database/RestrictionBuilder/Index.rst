@@ -262,7 +262,7 @@ To add a custom restriction class, use the following snippet:
     The class name must be the array key and the value must always be an array,
     which is reserved for options given to the restriction objects.
 
-..  important::
+..  attention::
     Restrictions added by third-party extensions will impact the whole system.
     Therefore this API does not allow removing restrictions added by the system
     and adding restrictions should be handled with care.

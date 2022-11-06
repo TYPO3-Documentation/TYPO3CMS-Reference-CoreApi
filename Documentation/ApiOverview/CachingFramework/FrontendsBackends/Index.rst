@@ -470,7 +470,7 @@ at least if there is enough memory available to hold the complete set in memory.
 At the moment only one redis server can be used at a time per cache,
 but one redis instance can handle multiple caches without performance loss when flushing a single cache.
 
-.. important::
+.. attention::
 
    The scheduler garbage collection task should be run regularly to
    find and delete old cache tags entries. These do not expire on their own and

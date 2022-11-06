@@ -66,7 +66,7 @@ The links are now stored in the database with the syntax
           }
       }
 
-   .. important::
+   .. attention::
 
       Do not change the identifier after links have been created  using the LinkHandler. The identifier will be
       stored as part of the link in the database.

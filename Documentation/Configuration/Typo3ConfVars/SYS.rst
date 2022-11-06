@@ -424,7 +424,7 @@ UTF8filesystem
    file name consists only of "special" characters such as Japanese, then the file will be renamed to
    something "safe" when uploaded in the backend.
 
-   .. important::
+   .. attention::
       This requires a UTF-8 compatible locale in order to work. Otherwise
       problems with filenames containing special characters will occur.
       See :ref:`[SYS][systemLocale]<typo3ConfVars_sys_UTF8filesystem>` and

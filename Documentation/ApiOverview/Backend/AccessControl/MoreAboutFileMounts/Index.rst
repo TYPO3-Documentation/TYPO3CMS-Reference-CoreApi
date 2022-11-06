@@ -79,7 +79,7 @@ folder (or whatever other folder was configured using
 Absolute paths are full paths starting at the root of the file system
 (i.e. :code:`/` on Unix systems).
 
-.. important::
+.. attention::
 
    If the :file:`fileadmin/` location is not changed, be aware
    that all files beneath it will be accessible via a browser,

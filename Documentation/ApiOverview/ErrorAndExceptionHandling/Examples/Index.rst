@@ -11,7 +11,7 @@ Examples
 Debugging and development setup
 ===============================
 
-.. important::
+.. attention::
    Do not use **debug / development setup** in production. This setup generates error
    messages in the Frontend and a number of log messages for low severity errors.
    The messages in the Frontend will be visible to the user, give a potential attacker
@@ -61,7 +61,7 @@ In :file:`.htaccess`
 
 Use this setting, to get more context and a stacktrace in the Frontend in case of an exception.
 
-.. important::
+.. attention::
    Do not set `config.contentObjectExceptionHandler` to 0 in production. It will
    display a complete stack dump in the Frontend, when an exception occurs. Use
    `config.contentObjectExceptionHandler = 1`, which is the default, in production.

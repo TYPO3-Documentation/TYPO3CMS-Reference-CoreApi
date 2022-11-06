@@ -51,7 +51,7 @@ The Log Writer configuration is read from the subkey :code:`writerConfiguration`
 
 The above configuration applies to **all** log entries of level "ERROR" or above.
 
-.. important::
+.. attention::
 
     Since TYPO3 v9 the default folder for log files is :file:`<var-path>/log`.
     The `<var-path>` in a non-Composer installation (Classic Mode) is :file:`typo3temp/var/`,

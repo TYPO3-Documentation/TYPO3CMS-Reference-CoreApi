@@ -327,7 +327,7 @@ identifier. This will circumvent the risk of circularity:
        ]
    ];
 
-.. important::
+.. attention::
 
    Always check the integrity of the middleware stack after changing the default ordering.
    This can be done in the configuration module that comes with EXT:lowlevel.

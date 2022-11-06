@@ -6,7 +6,7 @@
 Localization with Pootle
 =========================
 
-.. important::
+.. attention::
 
    Pootle has been superseded by the usage of Crowdin which is described in detail at :ref:`xliff-translating-server-crowdin`.
 

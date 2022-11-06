@@ -13,7 +13,7 @@ decides internally the best timing to schedule the rendering.
 The best suited use-case for this event type is on "paint jobs", e.g. calculating the size of an element or move
 elements around.
 
-.. important::
+.. attention::
    Due to the behavior of rAF, any event listener is not executed if the browser's tab is not active.
 
 To construct the event listener, the module :js:`TYPO3/CMS/Core/Event/RequestAnimationFrameEvent` must be imported.

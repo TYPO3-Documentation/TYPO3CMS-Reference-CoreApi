@@ -146,7 +146,7 @@ Method :php:`getPrerequisites`
 
 .. code-block:: php
    :caption: EXT:some_extension/Classes/Updates/ExampleUpdateWizard.php
-   
+
    use TYPO3\CMS\Install\Updates\DatabaseUpdatedPrerequisite;
    use TYPO3\CMS\Install\Updates\ReferenceIndexUpdatedPrerequisite;
 
@@ -205,7 +205,7 @@ You SHOULD use the following naming convention for the identifier:
 *  existing underscores in extension keys are replaced by capitalizing the
    following letter
 
-.. important::
+.. attention::
 
    Any identifier will still work, using these naming conventions is
    not enforced. In fact, it is not recommended to change already
