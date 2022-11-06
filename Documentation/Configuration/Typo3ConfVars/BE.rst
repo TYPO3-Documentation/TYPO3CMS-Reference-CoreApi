@@ -995,3 +995,20 @@ options
    :Default: []
 
    Special settings for specific hashes.
+
+
+..  index::
+    TYPO3_CONF_VARS BE; passwordPolicy
+..  _typo3ConfVars_be_passwordPolicy:
+
+passwordPolicy
+==============
+
+..  versionadded:: 12.0
+
+..  confval:: $GLOBALS['TYPO3_CONF_VARS']['BE']['passwordPolicy']
+
+    :type: string
+    :Default: default
+
+    Defines the :ref:`password policy <password-policies>` in backend context.

@@ -860,6 +860,23 @@ _______
    Special settings for specific hashes.
 
 
+..  index::
+    TYPO3_CONF_VARS FE; passwordPolicy
+..  _typo3ConfVars_fe_passwordPolicy:
+
+passwordPolicy
+==============
+
+..  versionadded:: 12.0
+
+..  confval:: $GLOBALS['TYPO3_CONF_VARS']['FE']['passwordPolicy']
+
+    :type: string
+    :Default: default
+
+    Defines the :ref:`password policy <password-policies>` in frontend context.
+
+
 .. index::
    TYPO3_CONF_VARS FE; exposeRedirectInformation
 .. _typo3ConfVars_fe_exposeRedirectInformation:

@@ -21,4 +21,5 @@ Each tab of the LinkBrowser has an associated :ref:`LinkHandler <linkhandler>`.
 
     LinkBrowserApi/Index
     Linkhandler/Index
+    CoreLinkHandler
     Tutorials/Index
