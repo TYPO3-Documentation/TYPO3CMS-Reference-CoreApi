@@ -13,7 +13,7 @@ data repository containing the model.
 
 A controller can contain one or more actions. Each of them is a method which
 ends on the name "Action" and returns an object of type
-:php:`Psr\Http\Message\ResponseInterface`.
+:php:`\Psr\Http\Message\ResponseInterface`.
 
 In the following action a tea object should be displayed in the view:
 
