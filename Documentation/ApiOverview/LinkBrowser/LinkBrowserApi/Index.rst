@@ -7,26 +7,26 @@
 LinkBrowser API
 ===============
 
-.. versionadded:: 7.6
-    The LinkBrowser in the TYPO3 backend was made configurable and included hooks,
-    see Change :doc:`ext_core:Changelog/7.6/Feature-66369-AddedLinkBrowserAPIs`.
-    This page has been updated to reflect the changes.
-
-
 .. _linkbrowser-api-description:
 
 Description
 ===========
 
-This API allows to extend the LinkBrowser with new tabs,
-which allow to implement custom link functionality in a generic way in a so called LinkHandler.
-Since the LinkBrowser is used by FormEngine and RTE,
-the new API ensures that your custom LinkHandler works with those two,
-and possible future, usages flawlessly.
+Each tab rendered in the link browser has an associated link handler,
+responsible for rendering the tab and for creating and editing of
+links belonging to this tab.
 
-Each tab rendered in the LinkBrowser has an associated LinkHandler,
-responsible for rendering the tab and for creating and editing of links belonging to this tab.
+Here is an example for a custom link handler in the link browser:
 
+..  include:: /Images/ManualScreenshots/Backend/CustomLinkBrowser.rst.txt
+
+In most use cases, you can use one of the link handlers provided by the Core.
+For an example, see :ref:`Tutorial: Custom record link
+browser <TableRecordLinkBrowserTutorials>`.
+
+If no link handler is available to deal with your link type, you can create
+a custom link handler. See :ref:`Tutorial: Create a custom link
+browser <tutorial-github-link-handler>`.
 
 .. index:: LinkBrowser; Tab registration
 .. _linkbrowser-api-tab-registration:
@@ -57,87 +57,7 @@ Most likely your links will start with a specific prefix to identify them.
 Therefore you should register your tab at least before the 'url' handler, so your handler can advertise itself as responsible for the given link.
 The 'url' handler should be treated as last resort as it will work with any link.
 
-
-.. index:: LinkBrowser; LinkHandler implementation
-.. _linkbrowser-api-handler-implementation:
-
-Handler implementation
-----------------------
-
-.. todo: We also describe a custom Link Handler in Documentation/ApiOverview/LinkBrowser/Linkhandler/CustomLinkHandlers.rst
-   unify them?
-
-A LinkHandler has to implement the :php:`\TYPO3\CMS\Recordlist\LinkHandler\LinkHandlerInterface` interface,
-which defines all necessary methods for communication with the LinkBrowser.
-The function actually doing the output of the link is function :php:`formatCurrentUrl()`:
-
-
-.. code-block:: php
-   :caption: EXT:some_extension/Classes/LinkHandler/TelephoneLinkHandler.php
-
-   class TelephoneLinkHandler implements LinkHandlerInterface
-   {
-       // …
-
-       public function formatCurrentUrl(): string
-       {
-           return $this->linkParts['url']['telephone'];
-       }
-
-       // …
-   }
-
-The function :php:`render()` renders the backend display inside the tab of the LinkBrowser.
-It can utilize a Fluid template:
-
-.. code-block:: php
-   :caption: EXT:some_extension/Classes/LinkHandler/TelephoneLinkHandler.php
-
-   public function render(ServerRequestInterface $request): string
-   {
-       GeneralUtility::makeInstance(PageRenderer::class)->loadRequireJsModule('TYPO3/CMS/Recordlist/TelephoneLinkHandler');
-
-       $this->view->assign('telephone', !empty($this->linkParts) ? $this->linkParts['url']['telephone'] : '');
-
-       return $this->view->render('Telephone');
-   }
-
-Additionally, each LinkHandler should also provide a JavaScript module (requireJS),
-which takes care of passing a link to the LinkBrowser.
-
-A minimal implementation of such a module looks like this:
-
-.. code-block:: javascript
-   :caption: EXT:some_extension/Resources/Public/JavaScript/LinkBrowser.js
-
-   define(['jquery', 'TYPO3/CMS/Recordlist/LinkBrowser'], function($, LinkBrowser) {
-       var myModule = {};
-
-       myModule.createMyLink = function() {
-           var val = $('.myElmeent').val();
-
-           // optional: If your link points to some external resource you should set this attribute
-           LinkBrowser.setAdditionalLinkAttribute('data-htmlarea-external', '1');
-
-           LinkBrowser.finalizeFunction('mylink:' + val);
-       };
-
-       myModule.initialize = function() {
-           // todo add necessary event handlers, which will propably call myModule.createMyLink
-       };
-
-       $(myModule.initialize);
-
-       return myModule;
-   }
-
-Notice the call to `LinkBrowser.finalizeFunction()`,
-which is the point where the link is handed over to the LinkBrowser for further processing and storage.
-
-As an example for a working LinkHandler implementations you can have a look at the LinkHandlers being defined in the
-sysext.
-
-.. index:: pair: LinkBrowser; Hooks
+.. index:: pair: LinkBrowser; Events
 
 .. _modifyLinkHandlers:
 
