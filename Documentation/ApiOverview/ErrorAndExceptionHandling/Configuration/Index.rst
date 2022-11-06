@@ -10,7 +10,7 @@
 Configuration
 =============
 
-You can configure the most important settings for production or debug error
+You can configure the most important settings for live or debug error
 handling in the presets:
 
 :guilabel:`Admin Tools > Settings > Configuration Presets > Debug Settings`
