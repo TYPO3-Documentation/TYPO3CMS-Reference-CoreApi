@@ -15,6 +15,8 @@ handling in the presets:
 
 :guilabel:`Admin Tools > Settings > Configuration Presets > Debug Settings`
 
+..  include:: /Images/ManualScreenshots/Backend/DebugConfigurationPresets.rst.txt
+
 For more fine-grained error handling you can change various settings in:
 
 :guilabel:`Admin Tools > Settings > Configure Installation-Wide Options > SYS`
