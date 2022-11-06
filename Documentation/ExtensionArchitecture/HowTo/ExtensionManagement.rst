@@ -2,6 +2,7 @@
 .. index:: Extension Manager
 .. _extension-manager:
 
+====================
 Extension management
 ====================
 
