@@ -17,7 +17,7 @@ ends on the name "Action" and returns an object of type
 
 In the following action a tea object should be displayed in the view:
 
-.. include:: /CodeSnippets/Tutorials/Tea/Classes/Domain/Controller/ShowAction.rst.txt
+.. include:: _Controller/_ShowAction.rst.txt
 
 This action would be displayed if an URL like the following would be requested:
 :samp:`https://www.example.org/myfrontendplugin?tx_tea[action]=show&tx_tea[controller]=tea&tx_tea[tea]=42&chash=whatever`.
@@ -32,7 +32,7 @@ happens automatically in the controller.
 The following action expects no parameters. It fetches all available tea
 objects from the repository and hands them over to the view:
 
-..  include:: /CodeSnippets/Tutorials/Tea/Classes/Domain/Controller/IndexAction.rst.txt
+..  include:: _Controller/_IndexAction.rst.txt
 
 The controller has to access the :php:`TeaRepository` to find all available tea
 objects. We use :ref:`Dependency Injection <DependencyInjection>` to make the
@@ -45,7 +45,7 @@ This method is implemented in the parent class :php:`ActionController` and is
 a shorthand method to create a response from the response factory and attach
 the rendered content. Let us have a look at what happens in this method:
 
-..  include:: /CodeSnippets/Tutorials/Tea/Classes/Domain/Controller/HtmlResponse.rst.txt
+..  include:: _Controller/_HtmlResponse.rst.txt
 
 You can also use this code directly in your controller if you need to return
 a different HTTP header. If a different rendering from the standard view is
