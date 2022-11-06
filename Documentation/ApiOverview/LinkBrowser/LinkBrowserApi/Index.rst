@@ -12,15 +12,21 @@ LinkBrowser API
 Description
 ===========
 
-This API allows to extend the LinkBrowser with new tabs,
-which allow to implement custom link functionality in a generic way in a so called LinkHandler.
-Since the LinkBrowser is used by FormEngine and RTE,
-the new API ensures that your custom LinkHandler works with those two,
-and possible future, usages flawlessly.
+Each tab rendered in the link browser has an associated link handler,
+responsible for rendering the tab and for creating and editing of
+links belonging to this tab.
 
-Each tab rendered in the LinkBrowser has an associated LinkHandler,
-responsible for rendering the tab and for creating and editing of links belonging to this tab.
+Here is an example for a custom link handler in the link browser:
 
+..  include:: /Images/ManualScreenshots/Backend/CustomLinkBrowser.rst.txt
+
+In most use cases, you can use one of the link handlers provided by the Core.
+For an example, see :ref:`Tutorial: Custom record link
+browser <TableRecordLinkBrowserTutorials>`.
+
+If no link handler is available to deal with your link type, you can create
+a custom link handler. See :ref:`Tutorial: Create a custom link
+browser <tutorial-github-link-handler>`.
 
 .. index:: LinkBrowser; Tab registration
 .. _linkbrowser-api-tab-registration:
@@ -59,100 +65,6 @@ tab for an existing link.
 Most likely your links will start with a specific prefix to identify them.
 Therefore you should register your tab at least before the 'url' handler, so your handler can advertise itself as responsible for the given link.
 The 'url' handler should be treated as last resort as it will work with any link.
-
-
-.. index:: LinkBrowser; LinkHandler implementation
-.. _linkbrowser-api-handler-implementation:
-
-Handler implementation
-----------------------
-
-.. todo: We also describe a custom Link Handler in Documentation/ApiOverview/LinkBrowser/Linkhandler/CustomLinkHandlers.rst
-   unify them?
-
-A LinkHandler has to implement the :php:`\TYPO3\CMS\Backend\LinkHandler\LinkHandlerInterface` interface,
-which defines all necessary methods for communication with the LinkBrowser.
-The function actually doing the output of the link is function :php:`formatCurrentUrl()`:
-
-
-.. code-block:: php
-   :caption: EXT:some_extension/Classes/LinkHandler/TelephoneLinkHandler.php
-
-   class TelephoneLinkHandler implements LinkHandlerInterface
-   {
-       // …
-
-       public function formatCurrentUrl(): string
-       {
-           return $this->linkParts['url']['telephone'];
-       }
-
-       // …
-   }
-
-The function :php:`render()` renders the backend display inside the tab of the LinkBrowser.
-It can utilize a Fluid template:
-
-..  code-block:: php
-    :caption: EXT:some_extension/Classes/LinkHandler/TelephoneLinkHandler.php
-
-    public function render(ServerRequestInterface $request): string
-    {
-        GeneralUtility::makeInstance(PageRenderer::class)
-         ->loadJavaScriptModule('@myvendor/my-extension/telefone-link-handler.js');
-
-        $this->view->assign('telephone', !empty($this->linkParts) ? $this->linkParts['url']['telephone'] : '');
-
-        return $this->view->render('Telephone');
-    }
-
-..  seealso::
-    *   :ref:`Loading ES6 JavaScript <backend-javascript-es6-loading>`
-    *   :ref:`Migration from RequireJS to ES6 <requirejs-migration>`
-
-Additionally, each LinkHandler should also provide a JavaScript module (ES6),
-which takes care of passing a link to the LinkBrowser.
-
-An implementation of such a module looks like this:
-
-.. code-block:: typescript
-    :caption: EXT:some_extension/Resources/Private/TypeScript/telefone-link-handler.js
-
-    import LinkBrowser from '@typo3/backend/link-browser';
-    import RegularEvent from '@typo3/core/event/regular-event';
-
-    /**
-     * Module: @typo3/backend/telephone-link-handler
-     * @exports @typo3/backend/telephone-link-handler
-     * Telephone link interaction
-     */
-    class TelephoneLinkHandler {
-      constructor() {
-        new RegularEvent('submit', (evt: MouseEvent, targetEl: HTMLElement): void => {
-          evt.preventDefault();
-          const inputField = targetEl.querySelector('[name="ltelephone"]') as HTMLInputElement;
-          let value = inputField.value;
-          if (value === 'tel:') {
-            return;
-          }
-          if (value.startsWith('tel:')) {
-            value = value.substr(4);
-          }
-
-          LinkBrowser.finalizeFunction('tel:' + value);
-        }).delegateTo(document, '#ltelephoneform');
-      }
-    }
-
-    export default new TelephoneLinkHandler();
-
-
-Notice the call to `LinkBrowser.finalizeFunction()`,
-which is the point where the link is handed over to the LinkBrowser for f
-urther processing and storage.
-
-As an example for a working LinkHandler implementations you can have a look
-at the LinkHandlers being defined in the system extension `EXT:backend`.
 
 .. index:: pair: LinkBrowser; Events
 
