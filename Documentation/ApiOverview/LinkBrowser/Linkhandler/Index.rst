@@ -40,15 +40,6 @@ Current LinkHandlers:
    "LinkHandler". However those implement the interface :php:`LinkHandlingInterface`
    and are part of the LinkHandling API, not the LinkHandler API.
 
-The following LinkHandlers are of interest:
-
-.. toctree::
-   :titlesonly:
-
-   PageLinkHandler
-   RecordLinkHandler
-   CustomLinkHandlers
-
 The links are now stored in the database with the syntax
 `<a href="t3://record?identifier=anIdentifier&amp;uid=456">A link</a>`.
 
@@ -193,3 +184,13 @@ detail page you can do it like this:
          additionalParams.wrap = &tx_news_pi1[controller]=News&tx_news_pi1[action]=detail&tx_news_pi1[news]=|
       }
    }
+
+
+..  toctree::
+    :titlesonly:
+    :hidden:
+
+    PageLinkHandler
+    RecordLinkHandler
+    CustomLinkHandlers
+    Events
