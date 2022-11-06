@@ -84,7 +84,7 @@ You need to exlude those in your `.crowdin.yaml` configuration which can be foun
         ignore:
           - /Resources/Private/Language/de.*
 
-.. important::
+.. attention::
 
    In the long run, you should remove the translations from your extension as those will be provided by the translation server.
 

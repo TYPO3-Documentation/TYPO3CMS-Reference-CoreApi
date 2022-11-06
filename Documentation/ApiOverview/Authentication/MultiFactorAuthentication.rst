@@ -229,7 +229,7 @@ the global configuration.
 TYPO3 Integration and API
 -------------------------
 
-.. important::
+.. attention::
 
    The MFA API is still experimental and subject to change until v11 LTS,
    since we are looking forward to receive feedback, especially for custom

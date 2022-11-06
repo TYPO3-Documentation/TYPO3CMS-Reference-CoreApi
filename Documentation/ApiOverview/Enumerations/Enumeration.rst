@@ -87,7 +87,7 @@ If the enumeration is instantiated with an invalid value an
 This exception must be caught and you have to decide what the appropriate
 behavior should be.
 
-.. important::
+.. attention::
 
    Always be prepared to handle exceptions when instantiating
    enumerations from user defined values!

@@ -58,7 +58,7 @@ General Recommendations
 Setup IDE / Editor
 ------------------
 
-.. important::
+.. attention::
 
    You are strongly advised to set up your editor / IDE properly so that the
    standards get checked and enforced automatically!

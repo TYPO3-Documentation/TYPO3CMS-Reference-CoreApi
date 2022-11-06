@@ -11,7 +11,7 @@
 JavaScript-based flash messages (Notification API)
 ==================================================
 
-..  important::
+..  attention::
     The notification API is designed for TYPO3 backend purposes only.
 
 The TYPO3 Core provides a JavaScript-based API  called :js:`Notification` to

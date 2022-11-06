@@ -113,7 +113,7 @@ The request sequence in the TYPO3 Core looks like this:
   + HTTP redirect to :samp:`https://example.org/typo3/main?token=...`
   + exposing the token is mitigated with `referrer` route option mentioned above
 
-.. important::
+.. attention::
 
    Please keep in mind these steps are part of a mitigation strategy, which requires
    to be aware of mentioned implications when implementing custom web applications.

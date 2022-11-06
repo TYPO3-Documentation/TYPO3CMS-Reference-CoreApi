@@ -12,7 +12,7 @@ The :php:`normalizedParams` request attribute provide access to server
 parameters, for instance, if the TYPO3 installation is behind a reverse proxy.
 It is available in frontend and backend context.
 
-..  important::
+..  attention::
     The normalized parameters substitute
     :php:`\TYPO3\CMS\Core\Utility\GeneralUtility::getIndpEnv()`. See the
     :ref:`migration guide <GeneralUtility-getIndpEnv-migration>` below.

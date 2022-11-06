@@ -19,6 +19,8 @@ Each tab of the LinkBrowser has an associated :ref:`LinkHandler <linkhandler>`.
 ..  toctree::
     :titlesonly:
 
+    Configuration
     LinkBrowserApi/Index
     Linkhandler/Index
+    CoreLinkHandler
     Tutorials/Index

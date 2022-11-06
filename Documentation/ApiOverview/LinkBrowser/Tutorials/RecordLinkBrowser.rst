@@ -25,6 +25,8 @@ window in the backend.
 
 ..  include:: /CodeSnippets/Tutorials/LinkBrowser/Classes/HaikuRecordLinkBrowserTsconfig.rst.txt
 
+For a complete list of available option see :ref:`link-handler-configuration`.
+
 The TSconfig file should then be included in the extension's global
 :file:`page.tsconfig` file or in the TSconfig of the pages where it should be
 available:

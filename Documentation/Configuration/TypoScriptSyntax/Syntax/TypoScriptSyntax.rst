@@ -194,7 +194,7 @@ properties.
 -  Blocks can be nested. This is actually recommended for **improved
    readability**.
 
-.. important::
+.. attention::
 
    You cannot use conditions inside of braces (except the
    :code:`[GLOBAL]` condition which will be detected and reset the brace-level to
@@ -228,7 +228,7 @@ Opening and closing parenthesis are used to assign a *multi-line
 value* . With this method you can define values which span several
 lines and thus include line breaks.
 
-.. important::
+.. attention::
 
    You cannot use multi-line values in constants. They are only available in
    the setup part of TypoScript.
@@ -288,7 +288,7 @@ which – in tree view – translates to:
 
 .. include:: /Images/AutomaticScreenshots/TypoScriptSyntax/SyntaxCopying2.rst.txt
 
-.. important::
+.. attention::
 
    When the original object is changed after copying, the
    copy does not change! Take a look at the following code:

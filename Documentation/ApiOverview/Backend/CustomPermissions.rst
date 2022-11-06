@@ -84,6 +84,6 @@ It is good practice to use the extension keys prefixed with :code:`tx_` on
 the first level of the array to avoid potential conflicts with other
 custom options.
 
-.. important::
+.. attention::
    Never pick a key containing any of the characters
    ",:\\|". They are reserved delimiter characters.

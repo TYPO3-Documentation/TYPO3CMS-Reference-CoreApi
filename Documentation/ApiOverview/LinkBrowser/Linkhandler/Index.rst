@@ -40,15 +40,6 @@ Current LinkHandlers:
    "LinkHandler". However those implement the interface :php:`LinkHandlingInterface`
    and are part of the LinkHandling API, not the LinkHandler API.
 
-The following LinkHandlers are of interest:
-
-.. toctree::
-   :titlesonly:
-
-   PageLinkHandler
-   RecordLinkHandler
-   CustomLinkHandlers
-
 The links are now stored in the database with the syntax
 `<a href="t3://record?identifier=anIdentifier&amp;uid=456">A link</a>`.
 
@@ -66,7 +57,7 @@ The links are now stored in the database with the syntax
           }
       }
 
-   .. important::
+   .. attention::
 
       Do not change the identifier after links have been created  using the LinkHandler. The identifier will be
       stored as part of the link in the database.
@@ -93,24 +84,7 @@ The minimal PageTSconfig Configuration is:
        }
    }
 
-The following optional configuration is available:
-
-:typoscript:`configuration.hidePageTree = 1`
-   Hide the page tree in the link browser
-
-:typoscript:`configuration.storagePid = 84`
-   The link browser starts with the given page
-
-:typoscript:`configuration.pageTreeMountPoints = 123,456`
-   Only records on these pages and their children will be displayed
-
-Furthermore the following options are available from the LinkBrowser Api:
-
-:typoscript:`scanAfter = page` or :typoscript:`scanBefore = page`
-   define the order in which handlers are queried when determining the responsible tab for an existing link
-
-:typoscript:`displayBefore = page` or :typoscript:`displayAfter = page`
-   define the order how the various tabs are displayed in the link browser.
+See :ref:`link-handler-configuration` for all available options.
 
 Example: news records from one storage pid
 ------------------------------------------
@@ -154,26 +128,6 @@ This configuration shows a reduced page tree starting at page with uid 42:
 The page TSconfig of the LinkHandler is being used in sysext `backend`
 in class :php:`\TYPO3\CMS\Backend\LinkHandler\RecordLinkHandler`
 which does not contain Hooks.
-
-Enable page id field
---------------------
-
-It is possible to enable an additional field in the link browser to enter the uid of a page.
-The uid will be used directly instead of selecting it from the page tree.
-
-This only works for the :php:`PageLinkHandler`.
-It will **not** work for custom added LinkHandler configurations.
-
-.. figure:: Images/LinkBrowserTSConfigExamplepageIdSelector.png
-   :alt: The link browser field for entering a page uid.
-
-Enable the field with the following page TSConfig:
-
-.. code-block:: typoscript
-   :caption: EXT:some_extension/Configuration/page.tsconfig
-
-   TCEMAIN.linkHandler.page.configuration.pageIdSelector.enabled = 1
-
 
 .. index::
    pair: LinkHandler; TypoScript
@@ -230,3 +184,13 @@ detail page you can do it like this:
          additionalParams.wrap = &tx_news_pi1[controller]=News&tx_news_pi1[action]=detail&tx_news_pi1[news]=|
       }
    }
+
+
+..  toctree::
+    :titlesonly:
+    :hidden:
+
+    PageLinkHandler
+    RecordLinkHandler
+    CustomLinkHandlers
+    Events

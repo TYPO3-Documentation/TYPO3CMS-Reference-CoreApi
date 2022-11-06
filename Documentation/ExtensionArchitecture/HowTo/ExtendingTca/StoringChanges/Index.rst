@@ -9,7 +9,7 @@ Storing the changes
 
 There are various ways to store changes to :php:`$GLOBALS['TCA']`. They
 depend - partly - on what you are trying to achieve and - a lot -
-on the version of TYPO3 CMS which you are targeting. The TCA can only be 
+on the version of TYPO3 CMS which you are targeting. The TCA can only be
 changed from within an extension.
 
 
@@ -27,7 +27,7 @@ case you are modifying Core TCA, you usually don't have to worry about that**. S
 custom extensions are always loaded *after* the Core's TCA, changes from custom extensions
 will usually take effect without any special measures.
 
-.. important::
+.. attention::
 
    If your extension modifies another extension, you actively need to make sure your
    extension is loaded *after* the extension you are modifying. This can be achieved
@@ -72,14 +72,14 @@ The advantage of this method is that all such changes are incorporated into
    loading order. Proper naming is only relevant for the real definition of tables one
    folder up in :file:`Configuration/TCA`
 
-.. important::
+.. attention::
 
    Be aware that you cannot extend the TCA of extensions if it was configured within
    its :file:`ext_tables.php` file, usually containing the "ctrl" section
    referencing a "dynamicConfigFile". Please ask the extension author to switch
    to the :file:`Configuration/TCA/<tablename>.php` setup.
 
-.. important::
+.. attention::
 
    Only TCA-related changes should go into :file:`Configuration/TCA/Overrides`
    files. Some API calls may be okay as long as they also manipulate only

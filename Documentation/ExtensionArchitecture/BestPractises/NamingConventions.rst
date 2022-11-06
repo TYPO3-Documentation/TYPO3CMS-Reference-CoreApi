@@ -107,7 +107,7 @@ Derived names are:
   to UpperCamelCase in namespaces (e.g. `cool_shop` becomes `VendorName\CoolShop`).
 
 
-.. important::
+.. attention::
 
    If you plan to :ref:`publish your extension <publish-extension>`,
    the extension key must be unique worldwide. This will be checked
@@ -150,7 +150,7 @@ The vendor name is used in:
 * namespaces
 * package name in :file:`composer.json`, e.g. ``myvendor/cool-shop`` (all lowercase)
 
-.. important::
+.. attention::
 
    The vendor name MUST be unique (if you publish your extensions
    on packagist).

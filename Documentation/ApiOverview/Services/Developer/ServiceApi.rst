@@ -25,7 +25,7 @@ Service Implementation
 
 These methods are related to the general functioning of services.
 
-.. important::
+.. attention::
 
    :php:`init()` and :php:`reset()` are the most important methods to implement
    when developing your own services.
