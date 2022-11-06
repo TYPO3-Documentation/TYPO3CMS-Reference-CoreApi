@@ -47,6 +47,7 @@ The feature is enabled by default and can be deactivated entirely via the
 system-wide configuration option:
 
 ..  code-block:: php
+    :caption: config/system/additional.php | typo3conf/system/additional.php
 
     $GLOBALS['TYPO3_CONF_VARS']['BE']['passwordReset'] = false;
 
@@ -54,6 +55,7 @@ Optionally, it is possible to restrict this feature to non-admins only by settin
 the following system-wide option to :php:`false`.
 
 ..  code-block:: php
+    :caption: config/system/additional.php | typo3conf/system/additional.php
 
     $GLOBALS['TYPO3_CONF_VARS']['BE']['passwordResetForAdmins'] = false;
 
