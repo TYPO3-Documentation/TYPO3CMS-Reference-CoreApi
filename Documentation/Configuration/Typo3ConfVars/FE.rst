@@ -296,6 +296,20 @@ lockIPv6
    The integer indicates how many parts of the IP address to include in the check for the session.
 
 .. index::
+   TYPO3_CONF_VARS FE; loginSecurityLevel
+.. _typo3ConfVars_fe_loginSecurityLevel:
+
+loginSecurityLevel
+==================
+
+.. deprecated:: 11.3
+   This option got removed with version 11.3. The only possible
+   value has been 'normal'. This behaviour stays unchanged.  When this option
+   has been set in your :file:`config/system/settings.php`
+   or :file:`config/system/additional.php` files, they are automatically
+   removed when accessing the admin tool or system maintenance area.
+
+.. index::
    TYPO3_CONF_VARS FE; lifetime
 .. _typo3ConfVars_fe_lifetime:
 
