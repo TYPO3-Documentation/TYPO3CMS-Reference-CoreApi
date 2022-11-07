@@ -43,7 +43,7 @@ The TYPO3 Core ships two icon providers which can be used straight away:
 * :php:`SvgIconProvider` – For SVG icons
 
 .. versionchanged:: 12.0
-   The :php:`FontawesomeIconProvider` has been available since version 7.5 and
+   The :php:`FontawesomeIconProvider`
    was removed from the Core in 12.0. You can use the polyfill extension from
    :t3ext:`fontawesome_provider` which is also compatible with TYPO3 v11 LTS.
 
@@ -181,10 +181,7 @@ markupIdentifier
 The method :js:`getIcon()` returns a AjaxResponse Promise object, as internally
 an Ajax request is done.
 
-.. note::
-    Since TYPO3 v9, the icons are cached in the localStorage of the client to
-    reduce the workload off the server.
-
+The icons are cached in the local storage of the client to reduce the workload off the server.
 Here is an example code how a usage of the JavaScript Icon API may look like:
 
 ..  todo: move the example to examples extension

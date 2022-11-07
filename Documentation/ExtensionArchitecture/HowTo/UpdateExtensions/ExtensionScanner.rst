@@ -10,8 +10,7 @@ Extension scanner
 Introduction
 ============
 
-The extension scanner which has been introduced with TYPO3 Core version 9 as part of the system
-management (formerly "Install Tool") provides an interactive interface to scan extension code
+The extension scanner provides an interactive interface to scan extension code
 for usage of TYPO3 Core API which has been removed or deprecated.
 
 .. include:: /Images/AutomaticScreenshots/AdminTools/ExtensionScanner.rst.txt
@@ -73,7 +72,7 @@ Goals and non goals
 
 * Implementation within the TYPO3 Core backend has been primary goal. While it might be possible, integration
   into IDEs like PhpStorm has not been a design goal. Also, matcher configuration is bound to the Core version,
-  e.g. tests concerning v9 are not intended to be executed on v8.
+  e.g. tests concerning v12 are not intended to be executed on v11.
 
 * Some of reST files that document a breaking change or deprecated API can be used to scan extensions.
   If those find no matches, the reST documentation files are tagged with a "no match" label telling integrators

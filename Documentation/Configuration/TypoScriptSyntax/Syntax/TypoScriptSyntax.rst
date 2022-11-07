@@ -435,15 +435,9 @@ Single line comments
 When a line starts with :code:`//` or :code:`#` it is considered to be a comment
 and will be ignored.
 
-
 **Example:**
 
 .. include:: /CodeSnippets/TypoScriptSyntax/Syntax/CommentsSingleLine.rst.txt
-
-Up to TYPO3 v7.6, a line starting with only one single slash,
-:code:`/`, has also been considered a comment. Since TYPO3 v8, this
-style however is deprecated and should not be used.
-
 
 .. index::
    TypoScript; Operator "/*"
