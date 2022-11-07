@@ -8,9 +8,8 @@
 Basics
 ======
 
-TYPO3 site handling and configuration is the starting point for creating new
-websites. The corresponding modules are found in the TYPO3 backend in the
-section :guilabel:`Site management`.
+TYPO3 site handling and configuration is the starting point for creating new web sites.
+The corresponding modules are found in the TYPO3 backend in the section :guilabel:`Site management`.
 
 A site configuration consists of the following parts:
 

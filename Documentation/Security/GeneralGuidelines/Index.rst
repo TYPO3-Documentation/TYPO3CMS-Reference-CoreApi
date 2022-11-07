@@ -131,10 +131,10 @@ Keep the TYPO3 Core up-to-date
 ==============================
 
 As described in :ref:`TYPO3 versions <security-typo3-versions>` chapter, a
-new version of TYPO3 can either be a major update (e.g. from version 7.x.x to
-version 8.x.x), a minor update (e.g. from version 8.4.x to version
-8.5.x) or a maintenance/bugfix/security release (e.g. from version
-8.7.11 to 8.7.12).
+new version of TYPO3 can either be a major update (e.g. from version 10.x.x to
+version 11.x.x), a minor update (e.g. from version 11.4.x to version
+11.5.x) or a maintenance/bugfix/security release (e.g. from version
+11.5.11 to 11.5.12).
 
 In most cases, a maintenance/bugfix/security update is a no-brainer,
 see :doc:`TYPO3 Installation and Upgrade Guide <t3install:Index>`

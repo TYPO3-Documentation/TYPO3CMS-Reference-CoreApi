@@ -21,8 +21,8 @@ using this old functionality since deprecated methods will be removed in future 
 Introduction
 ============
 
-Deprecations since TYPO3 v9 use the PHP method :php:`trigger_error('a message', E_USER_DEPRECATED)` and run
-through the logging and exception stack of the TYPO3 Core . There are several methods that help extension developers in
+Deprecations use the PHP method :php:`trigger_error('a message', E_USER_DEPRECATED)` and run
+through the logging and exception stack of the TYPO3 Core. There are several methods that help extension developers in
 dispatching deprecation errors. In development context deprecations are turned into exceptions by default
 and ignored in production context.
 
@@ -60,8 +60,7 @@ For more information on how to configure the writing of deprecation logs see :re
 Finding calls to deprecated functions
 =====================================
 
-The extension scanner which has been introduced with TYPO3 Core version 9 as part of the system
-management (formerly "Install Tool") provides an interactive interface to scan extension code
+The extension scanner provides an interactive interface to scan extension code
 for usage of removed or deprecated TYPO3 Core API. See :ref:`extension-scanner` for more information.
 
 It is also possible to do a file search for "@deprecated" and "E_USER_DEPRECATED". Then using an IDE you can find all

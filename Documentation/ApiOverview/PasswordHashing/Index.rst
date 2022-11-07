@@ -15,8 +15,8 @@ Introduction
 TYPO3 never stores passwords in plain text in the database. If the latest configured hash algorithm has been changed,
 TYPO3 will update the stored frontend and backend user password hashes upon user login.
 
-TYPO3 uses modern hash algorithms suitable for the given PHP platform, the default being Argon2i since
-the release of TYPO3 Core  version 9.
+TYPO3 uses modern hash algorithms suitable for the given PHP platform, the
+default being Argon2i.
 
 This section is for administrators and users who want to know more about TYPO3 password hashing and
 have a basic understanding of hashing algorithms and configuration in TYPO3.
@@ -84,9 +84,7 @@ approaches: Core version v4.3 from 2009 added salted password storing, v4.5 from
 storing using the algorithm 'phpass' by default, v6.2 from 2014 made salted passwords storing mandatory,
 v8 added the improved hash algorithm 'PBKDF2' and used it by default.
 
-With TYPO3 Core  version 9, the password hashing has been refactored and modern hash algorithms such as
-Argon2i have been added. PHP improved in this area a lot and PHP 7.2 brings `Argon2i` by default, so this
-algorithm could be easily integrated as available Core hash mechanism to the existing hash family.
+Currently Argon2i is the default and provided automatically by PHP.
 Argon2i is rather resilient against GPU and some other attacks, the default TYPO3 Core  configuration even raises
 the default PHP configuration to make attacks on stored Argon2i user password hashes even more unfeasible.
 
@@ -129,15 +127,11 @@ used hash algorithm. In this case it is `$argon2i` which denotes the Argon2i has
 Configuration
 =============
 
-Configuration of password hashing is done by TYPO3 automatically and administrators usually do not need
-to worry about details too much: If installing a TYPO3 instance with Core version v9 or higher, the
-installation process will configure the best available hash algorithm by default. Since Core version v9 requires
-at least PHP version 7.2, this is usually Argon2i. Only if the PHP build is incomplete, some less secure
+Configuration of password hashing is done by TYPO3 automatically and
+administrators usually do not need to worry about details too much: The
+installation process will configure the best available hash algorithm by default.
+This is usually Argon2i. Only if the PHP build is incomplete, some less secure
 fallback will be selected.
-
-If upgrading from a version smaller than v9, the upgrade process will automatically upgrade to the best
-available hash algorithm, which is again usually Argon2i if PHP 7.2 on the server has been set up
-in a sane way.
 
 Switching between hash algorithms in a TYPO3 instance is unproblematic: Password hashes of the old selected
 algorithm are just kept but newly created users automatically use the new hash algorithms. If a user
@@ -153,7 +147,7 @@ comply with the idea of data minimisation of person related data. TYPO3 helps he
 "Table garbage collection" task of the scheduler extension, details on this are however out-of-scope of this section.
 
 To verify and select which specific hash algorithm is currently configured for frontend and backend users, a
-preset of the settings module has been established with Core v9. It can be found in
+preset of the settings module is available. It can be found in
 :guilabel:`Admin Tools > Settings
 > Configuration presets > Password hashing settings`:
 
@@ -198,7 +192,7 @@ Configuration of password hashing is stored in :file:`LocalConfiguration.php` wi
 Available Hash Algorithms
 =========================
 
-The list of available hash mechanisms is pretty rich since Core version v9 and may be extended further
+The list of available hash mechanisms is pretty rich and may be extended further
 if better hash algorithms over time. Most algorithms have additional configuration options that may be
 used to increase or lower the needed computation power to calculated hashes. Administrators usually do
 not need to fiddle with these and should go with defaults configured by the Core. If changing these options,

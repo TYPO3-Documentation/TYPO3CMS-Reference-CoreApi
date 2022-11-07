@@ -147,9 +147,8 @@ markupIdentifier
 
 The method :js:`getIcon()` returns a jQuery Promise object, as internally an Ajax request is done.
 
-.. note::
-   Since TYPO3 v9, the icons are cached in the localStorage of the client to reduce the workload off the server.
-
+The icons are cached in the local storage of the client to reduce the workload off the server.
+Here is an example code how a usage of the JavaScript Icon API may look like:
 
 Here's an example code how a usage of the JavaScript Icon API may look like:
 

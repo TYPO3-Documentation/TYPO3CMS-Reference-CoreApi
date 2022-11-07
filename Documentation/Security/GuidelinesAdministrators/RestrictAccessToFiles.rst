@@ -73,7 +73,7 @@ Apache and Microsoft IIS web servers
    See :ref:`t3start:system-environment` .
 
 To increase protection of TYPO3 instances, the Core Team however decided to
-install default web server configuration files since TYPO3 Core  version v9 under certain
+install default web server configuration files under certain
 circumstances: If an Apache web server is detected by the web based installation
 procedure, a default :file:`.htaccess` file is written to the document root, and if
 a Microsoft IIS web server is detected, a default :file:`web.config` file is written

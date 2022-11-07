@@ -6,6 +6,14 @@
 Extension testing
 =================
 
+..  attention::
+    The example in this chapter covers only outdated TYPO3 and PHP versions. Help us bring
+    it up to date: See :ref:`h2document:contribute`.
+
+    The general principles demonstrated here still apply.
+
+..  todo: Update the examples bellow
+
 Introduction
 ============
 
@@ -34,8 +42,8 @@ About this chapter and what it does *not* cover, first.
   development of that package is closely bound to Core development and has a relatively high
   development speed. It does contain breaking patches per major Core versions, but it should
   not contain breaking patches for existing major Core branches. If you now set up testing
-  using `typo3/testing-framework` with TYPO3 Core version 9, it should not break within v9's
-  lifetime. But it is likely to break if you upgrade to version 10 or later and may need adaption
+  using `typo3/testing-framework` with TYPO3 Core version 11, it should not break within v11's
+  lifetime. But it is likely to break if you upgrade to version 12 or later and may need adaption
   in your extension codes or setup.
 
   If you are looking for test setups that support multiple Core versions at once,

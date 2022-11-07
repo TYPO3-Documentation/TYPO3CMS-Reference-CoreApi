@@ -9,9 +9,11 @@ Core testing
 Introduction
 ============
 
-This chapter is about executing TYPO3 Core tests locally and is intended to give you a better understanding of testing within TYPO3's Core. A full Core git checkout comes with everything needed
-to run tests in TYPO3 as of version 9. We don't use older versions in this chapter
-since Core development is most likely bound to the Core master branch - back porting patches to older
+This chapter is about executing TYPO3 Core tests locally and is intended to give
+you a better understanding of testing within TYPO3's Core. A full Core git checkout comes with everything needed
+to run tests in TYPO3.
+
+Core development is most likely bound to the Core `main` branch - backporting patches to older
 branches are usually handled by Core maintainers and often don't affect other Core contributors.
 
 Note, the main script

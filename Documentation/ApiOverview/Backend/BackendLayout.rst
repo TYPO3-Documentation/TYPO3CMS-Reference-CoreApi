@@ -6,11 +6,9 @@
 Backend layout
 ==============
 
-Since TYPO3 v4.5 there has been a database record type "backend layout" to define a combination of rows and columns
-to which content can be added in the page module.
-
-With TYPO3 v7.4 a new feature was introduced to define backend layouts in TYPO3 via page TSconfig. It implements a
-generic page TSconfig provider for backend layouts to make backend layouts reusable across installations.
+Backend layouts can be defined as database records or via :ref:`page TSconfig <t3tsconfig:pagetsconfig>`.
+Page TSconfig should be preferred as it can be stored in the file system and
+be kept under version control.
 
 .. _be-layout-video:
 

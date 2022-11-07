@@ -55,7 +55,7 @@ in the global configuration file :file:`typo3conf/LocalConfiguration.php`:
        ],
    ];
 
-Since TYPO3 version 6.2, the Install Tool password is set during the
+The Install Tool password is set during the
 installation process. This means, in the case that a system administrator
 hands over the TYPO3 instance to you, it should also provide you
 with the appropriate password.
@@ -66,8 +66,8 @@ Log-in to the Install Tool and change it there.
 
 .. include:: /Images/AutomaticScreenshots/AdminTools/ChangeInstallToolPassword.rst.txt
 
-Since TYPO3 v9, the role of system maintainer has been introduced. It allows for selected
-BE users to access the Install Tool components from within the backend without further
+The role of system maintainer allows for selected
+backend users to access the :guilabel:`Admin Tools` components from within the backend without further
 security measures.
 The number of system maintainers should be as small as possible to mitigate the risks of corrupted accounts.
 
@@ -98,8 +98,8 @@ definitely discuss your intention with the team.
 TYPO3 Core updates
 ==================
 
-Since TYPO3 v6.2, the Install Tool allows integrators to update the
-TYPO3 Core with a click of a button. This feature can be found under
+In legacy installations the Install Tool allows integrators to update the
+TYPO3 Core with a click on a button. This feature can be found under
 "Important actions" and it checks/installs revision updates only (e.g.
 bug fixes and security updates).
 
