@@ -80,8 +80,7 @@ Using PSR-4 compatible prefix-based resolving
 Instead of looking up every single class and caching the information
 away, composer works on a “prefix”-based resolution. As an example, the
 Composer class loader only needs to know that all PHP classes starting
-with :php:`TYPO3\CMS\Core` are located within :file:`vendor/typo3/cms-core/Classes`
-(:file:`typo3/sysext/core/Classes` in legacy installations). The
+with :php:`TYPO3\CMS\Core` are located within :file:`EXT:core/Classes`. The
 rest is done by a simple resolution to include the necessary PHP class
 files. This means that the information to be cached away is only the
 list of available namespace prefixes.
