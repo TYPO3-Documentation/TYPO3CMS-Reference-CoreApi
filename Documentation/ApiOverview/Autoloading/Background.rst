@@ -84,9 +84,9 @@ with :php:`TYPO3\CMS\Core` are located within :file:`vendor/typo3/cms-core/Class
 (:file:`typo3/sysext/core/Classes` in legacy installations). The
 rest is done by a simple resolution to include the necessary PHP class
 files. This means that the information to be cached away is only the
-list of available namespace-prefixes.
+list of available namespace prefixes.
 
-The definition of these prefixes is set inside the :file:`composer.json` of each
+The definition of these prefixes is set inside the :file:`composer.json` file of each
 package or distribution / project.
 
 Autoloading developer-specific data differently

@@ -57,7 +57,7 @@ Slug
 
     A slug of a record may contain slashes but this is not recommended:
     The risk of conflicts is higher when using slashes within slugs. For
-    example unrelated page hierarchies and records could have slugs
+    example, unrelated page hierarchies and records could have slugs
     forming the same URL path.
 
 

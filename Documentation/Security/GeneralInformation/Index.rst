@@ -63,16 +63,14 @@ new version of the source code.
 
 List of TYPO3 LTS releases:
 
-*   v7 (7.6.0 eLTS): No free security updated. Extended Long Term support can
-    be ordered at https://typo3.com/services/extended-support-elts
 *   v8 (8.7.0 eLTS): No free security updated. Extended Long Term support
     can be ordered at https://typo3.com/services/extended-support-elts
 *   v9 (9.5.0 eLTS): No free security updated. Extended Long Term support
     can be ordered at https://typo3.com/services/extended-support-elts
-*   v10 (10.4.0 LTS): Versions v10.0 through v10.3 do not receive security
-    upgrades any longer
-*   v11 (11.5.0 LTS): Versions v11.0 through v11.4 do not receive security
-    upgrades any longer
+*   v10 (10.4 LTS): Versions 10.0 through 10.3 do not receive security
+    updates any longer
+*   v11 (11.5 LTS): Versions 11.0 through 11.4 do not receive security
+    updates any longer
 
 
 .. _security-difference-core-extensions:

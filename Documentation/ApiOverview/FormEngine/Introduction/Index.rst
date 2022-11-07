@@ -36,7 +36,7 @@ FormEngine are abstracted and may come from "elsewhere", still leading to the fo
 This makes FormEngine an incredible flexible construct. The basic idea is "feed something that looks like TCA
 and render forms that have the full power of TCA but look like all other parts of the backend".
 
-The current state of the documentation aims to explain the main constructs of
+This chapter explains the main constructs of
 FormEngine and gives an insight on how to re-use, adapt and extend it with extensions. The Core Team expects to see more
 usages of FormEngine within the Core itself and within extensions in the future, and encourages developers to solve
 feature needs based on FormEngine. With the ongoing changes, those areas that may need code adaptions in the

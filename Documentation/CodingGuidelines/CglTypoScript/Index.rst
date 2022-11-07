@@ -9,7 +9,7 @@ TypoScript Coding Guidelines
 Directory and File Names
 ========================
 
-* The file ending **should** be :file:`.typoscript`.
+* The file extension **should** be :file:`.typoscript`.
 
 * TypoScript files are located in the directory :file:`<extension>/Configuration/TypoScript`.
 
