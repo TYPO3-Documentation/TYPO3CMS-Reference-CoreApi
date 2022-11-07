@@ -7,11 +7,6 @@
 ModifyLoginFormViewEvent
 ========================
 
-.. versionadded:: 10.4
-   This event replaces the :php:`$GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['felogin']['loginFormOnSubmitFuncs']`
-   hook from the pibase plugin.
-
-
 Allows to inject custom variables into the login form.
 
 .. versionchanged:: 12.0
