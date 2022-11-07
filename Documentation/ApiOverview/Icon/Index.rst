@@ -181,6 +181,7 @@ markupIdentifier
 The method :js:`getIcon()` returns a AjaxResponse Promise object, as internally
 an Ajax request is done.
 
+The icons are cached in the local storage of the client to reduce the workload off the server.
 Here is an example code how a usage of the JavaScript Icon API may look like:
 
 ..  todo: move the example to examples extension
