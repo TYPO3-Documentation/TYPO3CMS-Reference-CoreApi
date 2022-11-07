@@ -20,31 +20,31 @@ TYPO3 is offered in Long Term Support (LTS) and Sprint Release versions.
 
 The first versions of each branch are Sprint Release versions. A Sprint Release
 version only receives support until the next Sprint Release got published. E.g.
-TYPO3 `9.0.0` was the first Sprint Release of the `9` branch and its support
-ended when TYPO3 `9.1.0` got released.
+TYPO3 `11.0.0` was the first Sprint Release of the `11` branch and its support
+ended when TYPO3 `11.1.0` got released.
 
 An LTS version is planned to be created every 18 months. LTS versions are created
 from a branch in order to finalize it: Prior to reaching LTS status, a number of
 Sprint Releases has been created from that branch and the release of an LTS version
 marks the point after which no new features will be added to this branch. LTS
 versions get full support (bug fixes and security fixes) for at least three years.
-TYPO3 version 8 (`v8`) and v9 are such LTS versions.
+TYPO3 version 10 (`v10`) and v11 are such LTS versions.
 
-Starting with TYPO3 v7 the minor-versions are skipped in the official
-naming. 7 LTS is version` 7.6` internally, 8 LTS is `8.7` and 9 LTS is `9.5`. Versions inside a
-major-version have minor-versions as usual (`9.0`, `9.1`, ...) until at some
+The minor-versions are skipped in the official
+naming. 11 LTS is version`11.5` internally and 10 LTS is `10.4`. Versions inside a
+major-version have minor-versions as usual (`11.0`, `11.1`, ...) until at some
 point the branch receives LTS-status.
 
 Support and security fixes are provided for the current as well as the
-preceding LTS release. For example, when TYPO3 v9 is the current LTS release,
-TYPO3 v8 is still actively supported, including security updates.
+preceding LTS release. For example, when TYPO3 v11 is the current LTS release,
+TYPO3 v10 is still actively supported, including security updates.
 
-For users of v8 an update to v9 is recommended. All versions below TYPO3 v8 are
+For users of v10 an update to v11 is recommended. All versions below TYPO3 v10 are
 outdated and the regular support of these versions has ended, including security updates.
 Users of these versions are strongly encouraged to update their systems
 as soon as possible.
 
-In cases where users can't yet upgrade to a supported version, the TYPO3 GmbH is offering
+In cases where users cannot yet upgrade to a supported version, the TYPO3 GmbH is offering
 an Extended Long Term Support (ELTS) service for up to three years after the regular support has ended.
 Subscribers to the ELTS plans receive security and compatibility updates.
 
@@ -56,17 +56,23 @@ backend may be changed and appropriate training for editors may be
 required. The content rendering may change, so that updates in
 `TypoScript`, templates or `CSS` code may be necessary. With LTS and
 Sprint Releases also the system requirements (for example PHP or MySQL
-version) may change. For a patch level releases (i.e.
-changing from release `9.5.0` to `9.5.1`) the database structure and
+version) may change. For a patch level release (i.e.
+changing from release `11.5.0` to `11.5.1`) the database structure and
 backend will usually not change and an update will only require the
 new version of the source code.
 
 List of TYPO3 LTS releases:
 
-* v7 (7.6.0 LTS): versions 7.0 through 7.5 do not receive security upgrades any longer
-* v8 (8.7.0 LTS): versions 8.0 through 8.6 do not receive security upgrades any longer
-* v9 (9.5.0 LTS): versions 9.0 through 9.4 do not receive security upgrades any longer
-* v10 (10.4.0 LTS): versions 10.0 through 10.3 do not receive security upgrades any longer
+*   v7 (7.6.0 eLTS): No free security updated. Extended Long Term support can
+    be ordered at https://typo3.com/services/extended-support-elts
+*   v8 (8.7.0 eLTS): No free security updated. Extended Long Term support
+    can be ordered at https://typo3.com/services/extended-support-elts
+*   v9 (9.5.0 eLTS): No free security updated. Extended Long Term support
+    can be ordered at https://typo3.com/services/extended-support-elts
+*   v10 (10.4.0 LTS): Versions v10.0 through v10.3 do not receive security
+    upgrades any longer
+*   v11 (11.5.0 LTS): Versions v11.0 through v11.4 do not receive security
+    upgrades any longer
 
 
 .. _security-difference-core-extensions:

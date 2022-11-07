@@ -54,16 +54,6 @@ array as :php:`$data['renderType']` and then gives the data array to the :php:`N
 an appropriate class name, instantiates and initializes the class, gives it the data array, and calls :php:`render()`
 on it.
 
-.. note::
-   The :php:`SingleFieldContainer` and :php:`FlexFormElementContainer` will probably vanish with Core version 9.
-
-.. note::
-   Data set by containers and given down to children will likely change in Core version 9: All fields not registered
-   in the main data array of :php:`FormDataCompiler` and only added within containers will move into section
-   :php:`renderData`. Furthermore, it is planned to *remove* :php:`parameterArray` and substitute it with something
-   better. This will affect most elements and will probably break a lot of these elements.
-
-
 .. _FormEngine-Rendering-ClassInheritance:
 
 Class Inheritance
@@ -113,8 +103,8 @@ This re-routes the :php:`renderType` "flex" to an own class. If multiple registr
 the one with highest priority wins.
 
 .. note::
-   The :php:`NodeFactory` uses :php:`$data['renderType']`. This has been introduced with Core version 7 in TCA, and
-   a couple of TCA fields actively use this renderType. However, it is important to understand the renderType is *only*
+   The :php:`NodeFactory` uses :php:`$data['renderType']`.
+   A couple of TCA fields actively use this renderType. However, it is important to understand the renderType is *only*
    used within the FormEngine and :php:`type` is still a must-have setting for columns fields in TCA. Additionally,
    :php:`type` can *not* be overridden in :php:`columnsOverrides`. Basically, :php:`type` specifies how the DataHandler
    should put data into the database, while :php:`renderType` specifies how a single field is rendered. This additionally
@@ -301,8 +291,6 @@ Node Expansion
 
 The "node expansion" classes :php:`FieldControl`, :php:`FieldInformation` and :php:`FieldWizard` are called by containers
 and elements and allow "enriching" containers and elements. Which enrichments are called can be configured via TCA.
-
-This API is the substitution of the old "TCA wizards array" and has been introduced with Core version 8.
 
 FieldInformation
   Additional information. In elements, their output is shown between the field label and the element itself. They can

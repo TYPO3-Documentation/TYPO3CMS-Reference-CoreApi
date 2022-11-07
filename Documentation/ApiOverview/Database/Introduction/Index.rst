@@ -53,9 +53,6 @@ specific connection objects per configured database connection based on the tabl
 that is queried. This enables instance administrators to configure different database
 engines for different tables while this is transparent for extension developers.
 
-Doctrine DBAL has been introduced with TYPO3 version 8 and substitutes the
-old API based on :php:`$GLOBALS['TYPO3_DB']`.
-
 This document does *not* outline each and every single method the API provides. It
 sticks to those that are commonly used in extensions and some parts like the rewritten
 schema migrator are left out since they are usually of little to no interest for

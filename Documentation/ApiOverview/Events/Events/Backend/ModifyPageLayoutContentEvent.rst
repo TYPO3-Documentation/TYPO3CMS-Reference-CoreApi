@@ -67,10 +67,6 @@ In contrast to the removed hooks, this event does not provide the
 :php:`PageLayoutController` as :php:`$parentObject`, since :php:`getModuleTemplate()`
 has been the only public method, which is now directly included in the event.
 
-Additionally, there were three public properties :php:`$id`, :php:`$pageInfo`
-and :php:`$MOD_SETTINGS`, which had been marked as :php:`@internal`
-in TYPO3 v9. If needed, the information can be retrieved from the request directly.
-
 An example to get the current :php:`$id`:
 
 .. code-block:: php

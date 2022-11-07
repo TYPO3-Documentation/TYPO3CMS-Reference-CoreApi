@@ -69,12 +69,6 @@ The main array is initialized by :php:`FormDataCompiler`, and each :php:`DataPro
    The main data array is prepared by :php:`FormDataCompiler`, each key is well documented in this class. To find out
    which data is expected to reside in this array, those comments are worth a look.
 
-.. note::
-   It may happen in future versions of FormEngine (Core version 9+) that the responsibility for the main structure and integrity
-   of the data array will be moved away from :php:`FormDataCompiler` into the single :php:`FormDataGroup` class. This may even make
-   the :php:`FormDataCompiler` obsolete in total.
-
-
 Data Groups and Providers
 =========================
 

@@ -8,7 +8,7 @@
 Searching for Files
 ===================
 
-Since TYPO3 v9.5.6, there is an API in FAL to search for files in a storage or folder, which includes matches in meta data
+There is an API in FAL to search for files in a storage or folder, which includes matches in meta data
 of those files. The given search term is looked for in all search fields defined in TCA of `sys_file`
 and `sys_file_metadata` tables.
 

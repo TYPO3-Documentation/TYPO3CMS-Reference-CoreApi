@@ -53,14 +53,12 @@ Slug
     * Slugs must be separated by one or more character like "/", "-", "_" and "&".
       Regular characters like letters should not be used as separators for better readability.
 
-.. note::
+..  note::
 
-   Until TYPO3 v9 routing for TYPO3 was done by using extensions such as `realURL` or `coolURI`.
-   In contrast to concepts within RealURL of "URL segments", a slug is a segment of a URL.
-   Slugs should be separated by slashes, but this is not a strict requirement.
-   Therefore a slug of a record may contain slashes.
-   However the risk of conflicts is higher when using slashes
-   within slugs. For example unrelated page hierarchies and records could have slugs forming the same URL path.
+    A slug of a record may contain slashes but this is not recommended:
+    The risk of conflicts is higher when using slashes within slugs. For
+    example unrelated page hierarchies and records could have slugs
+    forming the same URL path.
 
 
 Routing in TYPO3

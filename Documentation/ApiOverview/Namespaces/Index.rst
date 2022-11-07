@@ -6,7 +6,7 @@
 Namespaces
 ==========
 
-Since version 6.0, TYPO3 uses PHP namespaces for all classes in the Core.
+TYPO3 uses PHP namespaces for all classes in the Core.
 
 The general structure of namespaces is the following:
 

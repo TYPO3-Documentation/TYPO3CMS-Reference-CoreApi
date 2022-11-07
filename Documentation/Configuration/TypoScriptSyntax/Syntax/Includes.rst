@@ -10,9 +10,8 @@ You can also add include-instructions in TypoScript code. Availability
 depends on the context, but it works with TypoScript templates, page
 TSconfig and user TSconfig.
 
-Since TYPO3 version 9 a new syntax for importing external TypoScript files has
-been introduced, which acts as a preprocessor before the actual parsing
-(condition evaluation) takes place.
+The syntax for importing external TypoScript files acts as a preprocessor
+before the actual parsing (condition evaluation) takes place.
 
 .. warning::
    Includes of either syntax within multi-line comments are still executed due
@@ -154,18 +153,6 @@ Example:
 .. code-block:: text
 
    <INCLUDE_TYPOSCRIPT: source="FILE:EXT:my_extension/Configuration/TypoScript/user.typoscript" condition="[loginUser = *]">
-
-
-.. attention::
-
-   Please note that since TYPO3 v9.4, the syntax of condition has switched to the `symfony expression language <https://symfony.com/doc/4.1/components/expression_language.html>`__ which :ref:`is covered in this section of TSref <t3tsref:conditions>`. If the condition requires double quotes, they must be converted to single quotes or escaped, e.g.:
-
-   .. code-block:: text
-
-      <INCLUDE_TYPOSCRIPT: source="FILE:EXT:my_extension/Configuration/TypoScript/some.typoscript" condition="[applicationContext == 'Development']">
-
-	  <INCLUDE_TYPOSCRIPT: source="FILE:EXT:my_extension/Configuration/TypoScript/some.typoscript" condition="[applicationContext == \"Development\"]">
-
 
 .. _typoscript-syntax-includes-best-practices:
 

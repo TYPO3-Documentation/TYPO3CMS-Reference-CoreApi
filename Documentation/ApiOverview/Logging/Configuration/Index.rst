@@ -53,12 +53,11 @@ The above configuration applies to **all** log entries of level "ERROR" or above
 
 .. attention::
 
-    Since TYPO3 v9 the default folder for log files is :file:`<var-path>/log`.
-    The `<var-path>` in a non-Composer installation (Classic Mode) is :file:`typo3temp/var/`,
-    in a Composer based installation it is :file:`<project-root>/var/` instead, unless configured otherwise.
+    The default folder for log files is :file:`<var-path>/log`.
+    The `<var-path>` is :file:`<project-root>/var/` (legacy installations:
+    :file:`typo3temp/var/`).
+
     See class :php:`\TYPO3\CMS\Core\Core\Environment` for defaults in both cases.
-    Since TYPO3 v9 it is possible (and a good practice) to store temporary files
-    outside the document root.
 
 To apply a special configuration for the controllers of the *examples* extension,
 use the following configuration:
