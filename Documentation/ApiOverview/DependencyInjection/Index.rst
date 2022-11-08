@@ -12,7 +12,7 @@
 Dependency injection
 ====================
 
-.. seealso::
+.. versionadded:: 10.0
 
    :doc:`Changelog/10.0/Feature-84112-SymfonyDependencyInjectionForCoreAndExtbase`
 

@@ -6,6 +6,8 @@
 AfterPackageDeactivationEvent
 =============================
 
+.. versionadded:: 10.3
+
 Event that is triggered after a package has been deactivated.
 
 

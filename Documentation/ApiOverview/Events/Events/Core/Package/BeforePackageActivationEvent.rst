@@ -6,6 +6,8 @@
 BeforePackageActivationEvent
 ============================
 
+.. versionadded:: 10.3
+
 Event that is triggered before a number of packages should become active.
 
 
