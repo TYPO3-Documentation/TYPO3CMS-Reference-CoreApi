@@ -47,6 +47,7 @@ Registering :ref:`hooks <hooks-concept>`, :ref:`XCLASSes
 *  locales
 *  stream wrapper
 *  :ref:`error handler <error-handling-extending>`
+*  Icon registration. Icons should be registered in :ref:`extension-configuration-Icons-php`.
 
 This would not work because the extension files :file:`ext_localconf.php` are
 included (:php:`loadTypo3LoadedExtAndExtLocalconf`) after the creation of the
@@ -64,11 +65,6 @@ Example:
 
    $GLOBALS['TYPO3_CONF_VARS']['SYS']['debugExceptionHandler'] =
        \Vendor\Ext\Error\PostExceptionsOnTwitter::class;
-
-.. deprecated:: 11.5
-   Icons should be registered in :ref:`extension-configuration-Icons-php`.
-
-   See also: :ref:`IconRegistry <icon-registration>`
 
 Should be used for
 ==================

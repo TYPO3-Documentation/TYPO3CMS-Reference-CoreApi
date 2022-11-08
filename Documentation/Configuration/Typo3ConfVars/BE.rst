@@ -491,20 +491,6 @@ cookieSameSite
    can be shared (first-party cookies vs. third-party cookies) in TYPO3 Backend.
 
 .. index::
-   TYPO3_CONF_VARS BE; loginSecurityLevel
-.. _typo3ConfVars_be_loginSecurityLevel:
-
-Removed: loginSecurityLevel
-===========================
-
-.. deprecated:: 11.3
-   This option was removed with version 11.3. The only possible
-   value has been 'normal'. This behaviour stays unchanged.  When this option
-   has been set in your :file:`config/system/settings.php`
-   or :file:`config/system/additional.php` files, they are automatically
-   removed when accessing the admin tool or system maintenance area.
-
-.. index::
    TYPO3_CONF_VARS BE; showRefreshLoginPopup
 .. _typo3ConfVars_be_showRefreshLoginPopup:
 
