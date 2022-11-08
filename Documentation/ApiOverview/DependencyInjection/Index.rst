@@ -12,9 +12,6 @@
 Dependency injection
 ====================
 
-.. seealso::
-
-   :doc:`Changelog/10.0/Feature-84112-SymfonyDependencyInjectionForCoreAndExtbase`
 
 .. rst-class:: compact-list
 .. contents:: This page
