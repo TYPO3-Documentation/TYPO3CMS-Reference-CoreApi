@@ -1,72 +1,72 @@
-.. include:: /Includes.rst.txt
+..  include:: /Includes.rst.txt
 
-.. index::
-   ! File; EXT:{extkey}/ext_emconf.php
-   File; Declaration File
-.. _extension-declaration:
-.. _ext_emconf-php:
+..  index::
+    ! File; EXT:{extkey}/ext_emconf.php
+    File; Declaration File
+..  _extension-declaration:
+..  _ext_emconf-php:
 
 
-=======================================
+======================
 :file:`ext_emconf.php`
-=======================================
+======================
 
 *-- required*  in legacy installations
 
 The :file:`ext_emconf.php` is used in
 :ref:`legacy installations not based on Composer <t3start:legacyinstallation>` to
-supply information about the extension to the :guilabel:`Extensions` module. In
-these installations the ordering of installed extensions and their dependencies
-are loaded from this file as well.
+supply information about an extension in the :guilabel:`Admin Tools > Extensions`
+module. In these installations the ordering of installed extensions and their
+dependencies are loaded from this file as well.
 
-.. versionchanged:: 11.4
-   The ordering of installed extensions and their dependencies are loaded from
-   the :file:`composer.json` file, instead of :file:`ext_emconf.php` in
-   Composer installations.
+..  versionchanged:: 11.4
+    In Composer-based installations, the ordering of installed extensions and
+    their dependencies is loaded from the :file:`composer.json` file, instead of
+    :file:`ext_emconf.php`
 
-The only thing included
-is an associative array, :php:`$EM_CONF[extension key]`.
-The keys are described in the table below.
+The only content included is an associative array,
+:php:`$EM_CONF[extension key]`. The keys are described in the table below.
 
-This file is overwritten, when extensions are imported from the online
-repository. So don't write your custom code in this file - only change
+This file is overwritten when extensions are imported from the online
+repository. So do not write your custom code into this file - only change
 values in the :php:`$EM_CONF` array if needed.
 
+Example:
 
-.. code-block:: php
+..  code-block:: php
 
-   <?php
-   $EM_CONF[$_EXTKEY] = [
-       'title' => 'Extension title',
-       'description' => 'Extension description',
-       'category' => 'plugin',
-       'author' => 'John Doe',
-       'author_email' => 'john.doe@example.org',
-       'author_company' => 'some company',
-       'state' => 'stable',
-       'clearCacheOnLoad' => 0,
-       'version' => '1.0.0',
-       'constraints' => [
-           'depends' => [
-               'typo3' => '11.5.0-11.99.99',
-           ],
-           'conflicts' => [
-           ],
-           'suggests' => [
-           ],
-       ],
-   ];
+    <?php
+    $EM_CONF[$_EXTKEY] = [
+        'title' => 'Extension title',
+        'description' => 'Extension description',
+        'category' => 'plugin',
+        'author' => 'John Doe',
+        'author_email' => 'john.doe@example.org',
+        'author_company' => 'some company',
+        'state' => 'stable',
+        'clearCacheOnLoad' => 0,
+        'version' => '1.0.0',
+        'constraints' => [
+            'depends' => [
+                'typo3' => '11.5.0-11.99.99',
+            ],
+            'conflicts' => [
+            ],
+            'suggests' => [
+            ],
+        ],
+    ];
 
-.. index:: $_EXTKEY
+..  index:: $_EXTKEY
 
-$_EXTKEY is set globally and contains the extension key.
+:php:`$_EXTKEY` is set globally and contains the extension key.
 
-.. attention::
-   Due to limitations to the TER (`TYPO3 Extension Repository <https://extensions.typo3.org>`__),
-   `$_EXTKEY` should be used here and **not** a constant or a string.
+..  attention::
+    Due to limitations of the TER (`TYPO3 Extension Repository <https://extensions.typo3.org>`__),
+    `$_EXTKEY` should be used here and **not** a constant or a string.
 
 
-.. t3-field-list-table::
+..  t3-field-list-table::
  :header-rows: 1
 
  - :Key,20: Key
@@ -93,8 +93,8 @@ $_EXTKEY is set globally and contains the extension key.
    :Data type:
          string
    :Description:
-         Version of the extension. Automatically managed by EM / TER. Format is
-         [int].[int].[int]
+         Version of the extension. Automatically managed by extension manager /
+         TER. Format is [int].[int].[int]
  - :Key:
          category
    :Data type:
@@ -156,8 +156,8 @@ $_EXTKEY is set globally and contains the extension key.
 
             'constraints' => [
                 'depends' => [
-                    'typo3' => '10.4.0-11.5.99',
-                    'php' => '7.4.0-8.0.99'
+                    'typo3' => '11.5.0-12.4.99',
+                    'php' => '7.4.0-8.1.99'
                 ],
                 'conflicts' => [
                     'templavoilaplus' => ''
@@ -182,17 +182,17 @@ $_EXTKEY is set globally and contains the extension key.
            Loading order especially matters when overriding TCA or SQL of another extension.
 
          The above example indicates that the extension depends on a
-         version of TYPO3 between 10.4 and 11.5 (as only bug and security fixes are
+         version of TYPO3 between 11.4 and 12.4 (as only bug and security fixes are
          integrated into TYPO3 when the last digit of the version changes, it is
          safe to assume it will be compatible with any upcoming version of the
          corresponding branch, thus ``.99``). Also the extension has been
-         tested and is known to work properly with PHP 7.4. and 8.0 It
+         tested and is known to work properly with PHP 7.4. and 8.1 It
          will conflict with "templavoilaplus" (any version) and it is suggested
          that it might be worth installing "news" (version at least 9.0.0).
          Be aware that you should add *at least* the TYPO3 and PHP version constraints
          to this file to make sure everything is working properly.
 
-         For legacy installations the :file:`ext_emconf.php` file
+         For legacy installations, the :file:`ext_emconf.php` file
          is the source of truth for required dependencies and the loading order
          of active extensions.
 
@@ -213,20 +213,19 @@ $_EXTKEY is set globally and contains the extension key.
 
          - **alpha**
 
-           Alpha state is used for very initial work, basically the state is has
+           Alpha state is used for very initial work, basically the extension is
            during the very process of creating its foundation.
 
          - **beta**
 
-           Under current development. Beta extensions are functional but not
-           complete in functionality. Most likely beta-extensions will not be
-           reviewed.
+           Under current development. Beta extensions are functional, but not
+           complete in functionality.
 
          - **stable**
 
            Stable extensions are complete, mature and ready for production
-           environment. You will be approached for a review. Authors of stable
-           extensions carry a responsibility to maintain and improve them.
+           environment. Authors of stable extensions carry a responsibility to
+           maintain and improve them.
 
          - **experimental**
 
@@ -247,18 +246,20 @@ $_EXTKEY is set globally and contains the extension key.
          - **excludeFromUpdates**
 
            This state makes it impossible to update the
-           extension through the Extension Manager (neither by the Update
+           extension through the Extension Manager (neither by the update
            mechanism, nor by uploading a newer version to the installation). This
            is very useful if you made local changes to an extension for a
-           specific installation and don't want any admin to overwrite them.
+           specific installation and do not want any administrator to overwrite
+           them.
 
  - :Key:
          clearCacheOnLoad
    :Data type:
          boolean
    :Description:
-         If set, the EM will request all caches (incl. FE cache) to be cleared when this
-         extension is loaded. If false (default), only system cache will be cleared.
+         If set, the extension manager will request all caches (incl. frontend
+         cache) to be cleared when this extension is loaded. If false (default),
+         only the system cache will be cleared.
 
  - :Key:
          author
