@@ -141,7 +141,7 @@ When using the global variable, it should be wrapped into a getter method:
 
     private function getRequest(): ServerRequestInterface
     {
-        return $GLOBALS['TYPO3_REQUEST']);
+        return $GLOBALS['TYPO3_REQUEST'];
     }
 
 This way, it is only referenced once. It can be cleaned up later easily when
