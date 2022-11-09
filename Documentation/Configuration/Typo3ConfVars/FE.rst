@@ -744,7 +744,7 @@ contentRenderingTemplates
    the content templates.
 
    See :file:`EXT:fluid_styled_content/ext_localconf.php` and
-   :file:`EXT:frontend/Classes/TypoScript/TemplateService.php`
+   :file:`EXT:core/Classes/TypoScript/IncludeTree/TreeBuilder.php`
 
 .. index::
    TYPO3_CONF_VARS FE; ContentObjects
