@@ -22,8 +22,8 @@ current TypoScript, it can retrieve it using this API:
 
 ..  code-block:: php
 
-    // New substitution of $GLOBALS['TSFE']->tmpl->setup
-    $frontendTypoScriptSetupArray = $request->getAttribute('frontend.typoscript')
+    // Substitution of $GLOBALS['TSFE']->tmpl->setup
+    $fullTypoScript = $request->getAttribute('frontend.typoscript')
         ->getSetupArray();
 
 API
