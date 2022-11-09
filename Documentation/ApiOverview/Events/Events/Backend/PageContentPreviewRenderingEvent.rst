@@ -12,7 +12,8 @@ PageContentPreviewRenderingEvent
     :php:`$GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['cms/layout/class.tx_cms_layout.php']['tt_content_drawItem']`
     hook.
 
-Use this event to ship an alternative rendering for a specific content type.
+Use this event to ship an alternative rendering for a specific content type or
+to manipulate the record data of a content element.
 
 API
 ===
