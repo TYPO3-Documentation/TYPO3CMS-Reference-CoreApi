@@ -8,8 +8,6 @@
 Assets (CSS, JavaScript, Media)
 ===============================
 
-.. versionadded:: 10.3
-
 The TYPO3 component responsible for rendering the HTML and adding assets to a TYPO3
 frontend or backend page is called :php:`PageRenderer`.
 

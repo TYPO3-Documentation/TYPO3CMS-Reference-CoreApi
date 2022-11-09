@@ -6,8 +6,6 @@
 ModifyHrefLangTagsEvent
 =======================
 
-.. versionadded:: 10.3
-
 Event to alter the hreflang tags just before they get rendered.
 
 The class :php:`TYPO3\CMS\Seo\HrefLang\HrefLangGenerator` has been
