@@ -9,9 +9,6 @@
 Troubleshooting
 ===============
 
-.. versionadded:: 9
-   Starting with TYPO3 v9 argon2i is the standard hashing mechanism
-
 #1533818591 InvalidPasswordHashException
 ========================================
 
