@@ -44,11 +44,10 @@ Example:
         'author_email' => 'john.doe@example.org',
         'author_company' => 'some company',
         'state' => 'stable',
-        'clearCacheOnLoad' => 0,
         'version' => '1.0.0',
         'constraints' => [
             'depends' => [
-                'typo3' => '11.5.0-11.99.99',
+                'typo3' => '12.0.0-12.4.99',
             ],
             'conflicts' => [
             ],
@@ -257,9 +256,11 @@ Example:
    :Data type:
          boolean
    :Description:
-         If set, the extension manager will request all caches (incl. frontend
-         cache) to be cleared when this extension is loaded. If false (default),
-         only the system cache will be cleared.
+         .. deprecated:: 12.1
+            When loading or unloading extensions using the extension manager,
+            all caches are always cleared. Extensions that want to keep
+            compatibility with both TYPO3 v11 and v12 should keep the setting
+            until v11 compatibility is dropped from the extensions.
 
  - :Key:
          author
