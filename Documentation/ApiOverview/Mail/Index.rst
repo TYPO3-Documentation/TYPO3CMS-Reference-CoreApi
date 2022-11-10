@@ -327,7 +327,7 @@ sure the paths are setup as described in :ref:`mail-configuration-fluid`:
         ->to('contact@example.org')
         ->from(new Address('jeremy@example.org', 'Jeremy'))
         ->subject('TYPO3 loves you - here is why')
-        ->format('both') // send HTML and plaintext mail
+        ->format(FluidEmail::FORMAT_BOTH) // send HTML and plaintext mail
         ->setTemplate('TipsAndTricks')
         ->assign('mySecretIngredient', 'Tomato and TypoScript');
     GeneralUtility::makeInstance(MailerInterface::class)->send($email);
