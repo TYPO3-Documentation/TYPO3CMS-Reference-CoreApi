@@ -240,7 +240,7 @@ The tag builder is available at property :php:`$this->tag`. It offers the method
 :php:`addAttribute()` to add new tag attributes. In our example the attribute
 `src` is added to the tag.
 
-:php:`$this->tag->addAttribute()`
+:php:`$this->tag->render()`
 ---------------------------------
 
 *line 24*
