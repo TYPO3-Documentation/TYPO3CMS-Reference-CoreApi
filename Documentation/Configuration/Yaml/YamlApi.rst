@@ -67,12 +67,19 @@ contents of different files.
 Example:
 
 ..  code-block:: yaml
-    :caption: config/sites/<some_site>/config.yaml
 
     imports:
         - { resource: "EXT:rte_ckeditor/Configuration/RTE/Processing.yaml" }
         - { resource: "misc/my_options.yaml" }
         - { resource: "../path/to/something/within/the/project-folder/generic.yaml" }
+        - { resource: "./**/*.yaml", glob: true }
+        - { resource: "EXT:core/Tests/**/Configuration/**/SiteConfigs/*.yaml", glob: true }
+
+..  versionadded:: 12.1
+    The YAML file loader supports importing of files with `glob`_ patterns.
+    To enable globbing, set the option :yaml:`glob: true` on the import level.
+
+..  _glob: https://www.php.net/manual/en/function.glob.php
 
 ..  versionchanged:: 12.0
     In TYPO3 v10.4.14 the feature flag :php:`yamlImportsFollowDeclarationOrder`
