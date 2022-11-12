@@ -239,6 +239,16 @@ function or by the :php:`\TYPO3\CMS\Extbase\Mvc\Web\Routing\UriBuilder`.
 
 ..  include:: /ApiOverview/LinkBrowser/Tutorials/_CustomLinkBrowser/_GithubLinkBuilder.rst.txt
 
+The link builder must be registered in the :file:`ext_localconf.php` do that
+the :php:`LinkFactory` can determine the correct link builder for the new type
+to be used:
+
+..  code-block:: php
+    :caption: EXT:examples/ext_localconf.php (Excerpt)
+
+    $GLOBALS['TYPO3_CONF_VARS']['FE']['typolinkBuilder']['github'] =
+        \T3docs\Examples\LinkHandler\GithubLinkBuilder::class;
+
 The function :php:`AbstractTypolinkBuilder::build()` is called with the link
 configuration and data from the typolink function. If the link can be rendered,
 it returns a new :php:`\TYPO3\CMS\Frontend\Typolink\LinkResultInterface`. The
