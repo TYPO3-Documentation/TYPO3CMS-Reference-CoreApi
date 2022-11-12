@@ -98,18 +98,18 @@ Migration from RequireJS
 
 ..  note:: For general information on how to migrate from AMD (RequireJS) to
     ES6 see this article: `Arthur Yidi: Migrate JavaScript Modules From AMD
-    to ES6 <https://arthuryidi.com/migrate-amd-modules/>`__. Here we talk about
+    to ES6 <https://arthuryidi.com/migrate-amd-modules/>`__. This is about 
     the TYPO3 specific details.
 
 RequireJS is shimmed to prefer ES6 modules if available, allowing any extension
 to ship ES6 modules by providing an importmap configuration in
-:file:`Configuration/JavaScriptModules.php` while providing full backwards
+:file:`Configuration/JavaScriptModules.php` while providing full backward
 compatibility support for extensions that load modules via RequireJS.
 
 Existing RequireJS modules can load new ES6 modules via a bridge that
 prefers ES6 modules over traditional RequireJS AMD modules. This allows
 extensions authors to migrate to ES6 without breaking dependencies that
-used to load a module of that extension via RequireJS.
+previously loaded a module of that extension via RequireJS.
 
 Registering modules via :php:`$pageRenderer->requireJsModules` will still
 work in TYPO3 v12. These modules will be loaded after modules registered via
