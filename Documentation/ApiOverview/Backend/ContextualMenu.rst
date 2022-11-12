@@ -314,7 +314,7 @@ by adding the tag :yaml:`backend.contextmenu.itemprovider`:
 ..  include:: /CodeSnippets/Tutorials/ContextMenu/ManualServicesYaml.rst.txt
 
 Migration from binding this to context menu
-===========================
+===========================================
 
 ..  deprecated:: 12.0
     Due to historical reasons, a context menu item was bound to
@@ -329,5 +329,8 @@ Migration from binding this to context menu
 To access data attributes, use the :js:`dataset` argument passed as the third
 argument in the context menu callback action.
 
-.. literalinclude:: _dataset-version-11.js
-   :diff: _dataset.js
+.. literalinclude:: _ContextMenu/_dataset-version-11.js
+   :caption: Before migration (TYPO3 v11)
+
+.. literalinclude:: _ContextMenu/_dataset-version-11.js
+   :caption: After migration (TYPO3 v12)
