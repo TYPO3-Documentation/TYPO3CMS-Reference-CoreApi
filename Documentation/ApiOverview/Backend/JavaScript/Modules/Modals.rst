@@ -106,7 +106,7 @@ for example on an anchor element, which prevents the default behavior.
     the content text for the modal
 
 :html:`data-severity`
-    the severity for the modal, default is info (see :code:`TYPO3.Severity.*`)
+    The severity for the modal, default is `info` (see :code:`TYPO3.Severity.*`).
 
 :html:`data-href`
     The target URL, default is the :html:`href` attribute of the element.
