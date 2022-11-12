@@ -20,11 +20,11 @@ and applied whenever an importmap is emitted.
 
 For security reasons, importmap configuration is only emitted when the modules
 are actually used, that means when a module has been added to the current
-page response via via :php:`PageRenderer->loadJavaScriptModule()` or
+page response via :php:`PageRenderer->loadJavaScriptModule()` or
 :php:`JavaScriptRenderer->addJavaScriptModuleInstruction()`.
 Exposing all module configurations is possible via
 :php:`JavaScriptRenderer->includeAllImports()`, but that should only be
-done in backend context for logged in users, to avoid disclosing installed
+done in backend context for logged-in users to avoid disclosing installed
 extensions to anonymous visitors.
 
 Configuration
@@ -54,7 +54,7 @@ A module can be added to the current page response either via
 ..  literalinclude:: _PageRendererJavaScriptLoading.php
     :caption: EXT:my_extension/Classes/SomeNamespace/SomeClass.php
 
-In Fluid template the `includeJavaScriptModules` property of the
+In a Fluid template the `includeJavaScriptModules` property of the
 :html:`<f:be.pageRenderer>` ViewHelper may be used:
 
 ..  literalinclude:: _BackendFluidTemplate.html
@@ -63,18 +63,18 @@ In Fluid template the `includeJavaScriptModules` property of the
 Some tips on ES6
 ================
 
-In the TYPO3 Core there are no ES6 JavaScript files created directly. JavaScript
+No ES6 JavaScript files are created directly in the TYPO3 Core. JavaScript
 is created as TypeScript module which is then converted to ES6 JavaScript
-during the build process. However TypeScript and ES6 are quite similar, you
+during the build process. However, TypeScript and ES6 are quite similar, you
 can therefore look into those files for reference. The TypeScript files can be
 found on GitHub at
 `Build/Sources/TypeScript <https://github.com/TYPO3/typo3/tree/main/Build/Sources/TypeScript>`__.
 
-For an example on a ES6 JavaScript file have a look at the JavaScript example in
+For examples of an ES6 JavaScript file have a look at the JavaScript example in
 the :ref:`LinkHandler Tutorial <tutorial_backend_link_handler_javascript>` or
 the example in the :ref:`Notification API <notification_api>`.
 
-For a real life example on how to introduce ES6 modules into a large extension
+For a practical example on how to introduce ES6 modules into a large extension
 see this commit for EXT:news: `[TASK] Add support for TYPO3 v12 ES6
 modules <https://github.com/bnf/news/commit/f8e196b67ceaa2f56699fbf464080dde668ad526>`__.
 
