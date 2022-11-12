@@ -18,7 +18,7 @@ By the time of writing importmaps are supported natively by Google Chrome,
 a polyfill is available for Firefox and Safari and included by TYPO3 core
 and applied whenever an importmap is emitted.
 
-For security reasons importmap configuration is only emitted when the modules
+For security reasons, importmap configuration is only emitted when the modules
 are actually used, that means when a module has been added to the current
 page response via via :php:`PageRenderer->loadJavaScriptModule()` or
 :php:`JavaScriptRenderer->addJavaScriptModuleInstruction()`.
