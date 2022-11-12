@@ -29,6 +29,7 @@ The API provides only two public methods:
 #. :js:`TYPO3.Modal.confirm(title, content, severity, buttons)`
 #. :js:`TYPO3.Modal.dismiss()`
 
+.. _modules-modals-settings:
 
 Modal settings
 --------------
@@ -61,6 +62,7 @@ Modal settings
     Actions rendered into the modal footer. If empty, the footer
     is not rendered. See table below.
 
+.. _modules-modals-button-settings:
 
 Button settings
 ---------------
