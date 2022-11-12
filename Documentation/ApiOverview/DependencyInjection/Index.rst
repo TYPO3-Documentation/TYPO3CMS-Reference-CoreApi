@@ -604,7 +604,7 @@ with constructor arguments.
 
 This means every class that is directly retrieved using
 :php:`GeneralUtility::makeInstance()` *and* requires dependency injection
-*must* be marked as public. Any other class which requires dependency injection
+**must** be marked as public. Any other class which requires dependency injection
 and is retrieved by dependency injection itself can be private. Instances of
 :php:`\TYPO3\CMS\Core\SingletonInterface` and Extbase controllers are
 automatically marked as public because they are retrieved using
