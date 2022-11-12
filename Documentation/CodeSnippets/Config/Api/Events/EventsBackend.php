@@ -225,4 +225,10 @@ return [
         'targetFileName' => 'CodeSnippets/Events/Backend/AfterRecordSummaryForLocalizationEvent.rst.txt',
         'withCode' => false,
     ],
+    [
+        'action' => 'createPhpClassDocs',
+        'class' => \TYPO3\CMS\Backend\Search\Event\BeforeSearchInDatabaseRecordProviderEvent::class,
+        'targetFileName' => 'CodeSnippets/Events/Backend/BeforeSearchInDatabaseRecordProviderEvent.rst.txt',
+        'withCode' => false,
+    ],
 ];
