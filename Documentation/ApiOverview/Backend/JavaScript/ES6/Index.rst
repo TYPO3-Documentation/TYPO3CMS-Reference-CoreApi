@@ -11,7 +11,7 @@ ES6 in the TYPO3 Backend
     AMD modules, both in backend and frontend context.
 
 JavaScript node-js style path resolutions are managed by
-`importmaps <https://wicg.github.io/import-maps/>`_, which allow web
+`importmaps <https://html.spec.whatwg.org/multipage/webappapis.html#import-maps>`_, which allow web
 pages to control the behavior of JavaScript imports.
 
 By the time of writing importmaps are supported natively by Google Chrome,
