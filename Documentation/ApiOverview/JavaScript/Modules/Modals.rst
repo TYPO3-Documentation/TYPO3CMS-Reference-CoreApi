@@ -26,7 +26,7 @@ API
 
 The API provides only two public methods:
 
-#. :code:`TYPO3.Modal.confirm(title, content, severity, buttons)`
+#. :js:`TYPO3.Modal.confirm(title, content, severity, buttons)`
 #. :js:`TYPO3.Modal.dismiss()`
 
 
