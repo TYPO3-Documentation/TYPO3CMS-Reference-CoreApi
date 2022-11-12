@@ -313,7 +313,7 @@ by adding the tag :yaml:`backend.contextmenu.itemprovider`:
 
 ..  include:: /CodeSnippets/Tutorials/ContextMenu/ManualServicesYaml.rst.txt
 
-Migration of the JavaScript
+Migration from binding this to context menu
 ===========================
 
 ..  deprecated:: 12.0
