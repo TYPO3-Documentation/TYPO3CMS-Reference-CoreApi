@@ -109,16 +109,16 @@ for example on an anchor element, which prevents the default behavior.
     the severity for the modal, default is info (see :code:`TYPO3.Severity.*`)
 
 :html:`data-href`
-    the target URL, default is the href attribute of the element
+    The target URL, default is the :html:`href` attribute of the element.
 
 :html:`data-button-close-text`
-    button text for the close/cancel button
+    Button text for the :guilabel:`close`/:guilabel:`cancel` button.
 
 :html:`data-button-ok-text `
-    button text for the ok button
+    Button text for the :guilabel:`ok` button.
 
 :html:`class="t3js-modal-trigger"`
-    marks the element as modal trigger
+    Marks the element as modal trigger.
 
 Example:
 
