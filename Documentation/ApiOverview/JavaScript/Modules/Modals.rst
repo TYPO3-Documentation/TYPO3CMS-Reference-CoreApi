@@ -27,7 +27,7 @@ API
 The API provides only two public methods:
 
 #. :code:`TYPO3.Modal.confirm(title, content, severity, buttons)`
-#. :code:`TYPO3.Modal.dismiss()`
+#. :js:`TYPO3.Modal.dismiss()`
 
 
 Modal settings
@@ -106,7 +106,7 @@ for example on an anchor element, which prevents the default behavior.
     The content text for the modal.
 
 :html:`data-severity`
-    The severity for the modal, default is `info` (see :code:`TYPO3.Severity.*`).
+    The severity for the modal, default is `info` (see :js:`TYPO3.Severity.*`).
 
 :html:`data-href`
     The target URL, default is the :html:`href` attribute of the element.
