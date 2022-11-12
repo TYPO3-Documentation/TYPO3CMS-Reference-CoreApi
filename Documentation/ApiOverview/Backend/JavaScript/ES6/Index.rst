@@ -14,7 +14,7 @@ JavaScript node-js style path resolutions are managed by
 `importmaps <https://html.spec.whatwg.org/multipage/webappapis.html#import-maps>`_, which allow web
 pages to control the behavior of JavaScript imports.
 
-By the time of writing importmaps are supported natively by Google Chrome,
+In november 2022 importmaps are supported natively by Google Chrome,
 a polyfill is available for Firefox and Safari and included by TYPO3 core
 and applied whenever an importmap is emitted.
 
