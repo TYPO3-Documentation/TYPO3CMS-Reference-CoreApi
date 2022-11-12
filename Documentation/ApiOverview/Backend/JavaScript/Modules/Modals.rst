@@ -103,7 +103,7 @@ for example on an anchor element, which prevents the default behavior.
     The title text for the modal.
 
 :html:`data-bs-content`
-    the content text for the modal
+    The content text for the modal.
 
 :html:`data-severity`
     The severity for the modal, default is `info` (see :code:`TYPO3.Severity.*`).
