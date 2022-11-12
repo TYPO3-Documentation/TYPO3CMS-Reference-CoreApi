@@ -60,7 +60,7 @@ Modal settings
     :type: object[]
 
     Actions rendered into the modal footer. If empty, the footer
-    is not rendered. See table below.
+    is not rendered. See section :ref:`modules-modals` on how to configure the buttons.
 
 .. _modules-modals-button-settings:
 
