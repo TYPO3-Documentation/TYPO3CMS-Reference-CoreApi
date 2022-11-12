@@ -493,7 +493,7 @@ A basic :file:`Services.yaml` file of an extension looks like the following.
     Whenever the service configuration or class dependencies change, the Core
     cache must be flushed in the Install Tool or via the :ref:`CLI <cli-mode>`
     command `cache:flush` to rebuild the compiled Symfony container. Flushing
-    all caches from the "Clear cache" menu does not flush the compiled Symfony
+    all caches from the :guilabel:`Clear cache` menu does not flush the compiled Symfony
     container.
 
 ..  code-block:: yaml
