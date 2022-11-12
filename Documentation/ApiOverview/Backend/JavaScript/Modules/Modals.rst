@@ -17,7 +17,7 @@ to highlight it.
 
 Modals should be used rarely and only for confirmations. For information that
 does not require a confirmation
-the :ref:`Notification API (flash message) <notification_api>` API should be used.
+the :ref:`Notification API (flash message) <notification_api>` should be used.
 
 For complex content, like forms or a lot of information, use normal pages.
 
@@ -50,9 +50,9 @@ Modal settings
 ..  confval:: severity
 
     :type: int
-    :Default: :code:`TYPO3.Severity.info`
+    :Default: :js:`TYPO3.Severity.info`
 
-    Represents the severity of a modal. Please see :code:`TYPO3.Severity`.
+    Represents the severity of a modal. Please see :js:`TYPO3.Severity`.
 
 ..  confval:: buttons
 
@@ -77,8 +77,8 @@ Button settings
     :Required: true
     :type: function
 
-    Callback that is triggered on button click - either simple function or
-    `DeferredAction` / `ImmediateAction`
+    Callback that is triggered on button click - either a simple function or
+    :js:`DeferredAction` / :js:`ImmediateAction`
 
 ..  confval:: active
 
@@ -90,17 +90,17 @@ Button settings
 
     :type: string
 
-    The css class for the button
+    The CSS class for the button.
 
 
 Data Attributes
 ---------------
 
-It is also possible to use data-attributes to trigger a modal.
+It is also possible to use :html:`data` attributes to trigger a modal,
 for example on an anchor element, which prevents the default behavior.
 
 :html:`data-title`
-    the title text for the modal
+    The title text for the modal.
 
 :html:`data-bs-content`
     the content text for the modal
