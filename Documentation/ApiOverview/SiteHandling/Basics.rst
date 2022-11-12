@@ -53,10 +53,9 @@ configuration is stored in a file called :file:`config.yaml`.
 
 ..  note::
     If you are using a legacy installation, the location is
-    :file:`typo3conf/sites/`. In the future this folder can (and should) be used
-    for more files like Fluid templates, and backend layouts.
+    :file:`typo3conf/sites/`.
 
-..  hint::
+..  tip::
     Add this folder to your version control system.
 
 
@@ -67,73 +66,8 @@ The configuration file
 
 The following part explains the configuration file and options:
 
-..  code-block:: yaml
+..  literalinclude:: _basics-config.yaml
     :caption: config/sites/<some_site>/config.yaml | typo3conf/sites/<some_site>/config.yaml
-
-    rootPageId: 12
-    base: 'https://example.org/'
-    websiteTitle: Example
-    languages:
-      -
-        languageId: '0'
-        title: English
-        navigationTitle: ''
-        base: /
-        locale: en_US.UTF-8
-        iso-639-1: en
-        hreflang: en-US
-        direction: ltr
-        typo3Language: default
-        flag: gb
-      -
-        languageId: '1'
-        title: 'danish'
-        navigationTitle: Dansk
-        base: /da/
-        locale: dk_DK.UTF-8
-        iso-639-1: da
-        hreflang: dk-DK
-        direction: ltr
-        typo3Language: default
-        flag: dk
-        fallbackType: strict
-      -
-        languageId: '2'
-        title: Deutsch
-        navigationTitle: ''
-        base: 'https://example.net/'
-        locale: de_DE.UTF-8
-        iso-639-1: de
-        hreflang: de-DE
-        direction: ltr
-        typo3Language: de
-        flag: de
-        fallbackType: fallback
-        fallbacks: '1,0'
-    errorHandling:
-      -
-        errorCode: '404'
-        errorHandler: Page
-        errorContentSource: 't3://page?uid=8'
-      -
-        errorCode: '403'
-        errorHandler: Fluid
-        errorFluidTemplate: 'EXT:my_extension/Resources/Private/Templates/ErrorPages/403.html'
-        errorFluidTemplatesRootPath: 'EXT:my_extension/Resources/Private/Templates/ErrorPages'
-        errorFluidLayoutsRootPath: 'EXT:my_extension/Resources/Private/Layouts/ErrorPages'
-        errorFluidPartialsRootPath: 'EXT:my_extension/Resources/Private/Partials/ErrorPages'
-      -
-        errorCode: '0'
-        errorHandler: PHP
-        errorPhpClassFQCN: Vendor\ExtensionName\ErrorHandlers\GenericErrorhandler
-    routes:
-      route: robots.txt
-      type: staticText
-      content: |
-        Sitemap: https://example.org/sitemap.xml
-        User-agent: *
-        Allow: /
-        Disallow: /forbidden/
 
 Most settings can also be edited via the :guilabel:`Site Management > Sites`
 backend module, except for custom settings and additional routing configuration.
