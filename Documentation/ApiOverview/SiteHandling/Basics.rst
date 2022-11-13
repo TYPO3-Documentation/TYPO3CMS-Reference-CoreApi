@@ -93,6 +93,11 @@ Root pages are identified by one of these two properties:
 *   They have the :guilabel:`Use as Root Page` property in :sql:`pages` set to
     true.
 
+..  versionadded:: 12.1
+    The :guilabel:`Sites` module warns administrators if the same root page ID
+    is used in multiple site configurations. This may lead to misbehavior,
+    since always the last defined site with this root page ID is used by TYPO3.
+
 
 websiteTitle
 ------------
