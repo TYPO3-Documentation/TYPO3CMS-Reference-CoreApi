@@ -35,17 +35,16 @@ addAllowedPaths
    :type: list
    :Default: ''
 
-   Additional relative paths (comma-list) to allow TypoScript resources be in.
-   Should be prepended with /. If not, then any path where the first part is
-   like this path will match. That is myfolder/ , myarchive will match
-   for example myfolder/, myarchive/, myarchive_one/, myarchive_2/ ...
+   Additional relative paths where resources may be placed. Used in some
+   frontend-related places for images and TypoScript.
+   It should be prefixed with :file:`/`. If not, then any path whose the first
+   part is like this path will match. That is, `myfolder/ , myarchive` will
+   match, for example, :file:`myfolder/`, :file:`myarchive/`,
+   :file:`myarchive_one/`, :file:`myarchive_2/`, etc.
 
-   No check is done to see if this directory actually exists in the
-   root of the site. Paths are matched by simply checking if these strings
-   equals the first part of any TypoScript resource filepath.
+   No check is done whether this directory actually exists in the root folder
+   of the site.
 
-   (See class template, function init() in
-   :php:`\TYPO3\CMS\Core\TypoScript\Parser\TypoScriptParser`)
 
 .. index::
    TYPO3_CONF_VARS FE; debug
