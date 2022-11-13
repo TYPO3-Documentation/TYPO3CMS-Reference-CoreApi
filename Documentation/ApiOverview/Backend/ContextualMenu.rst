@@ -332,5 +332,5 @@ argument in the context menu callback action.
 .. literalinclude:: _ContextMenu/_dataset-version-11.js
    :caption: Before migration (TYPO3 v11)
 
-.. literalinclude:: _ContextMenu/_dataset-version-11.js
+.. literalinclude:: _ContextMenu/_dataset.js
    :caption: After migration (TYPO3 v12)
