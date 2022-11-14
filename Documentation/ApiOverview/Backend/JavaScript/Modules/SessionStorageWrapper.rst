@@ -33,4 +33,4 @@ API methods
 
 :js:`unsetByPrefix(prefix)`
     Empties all data inside the storage with their keys
-    starting with a prefix
+    starting with a prefix.
