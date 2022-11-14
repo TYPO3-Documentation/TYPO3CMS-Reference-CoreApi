@@ -16,21 +16,21 @@ to store data in the :js:`sessionStorage`.
 API methods
 ===========
 
-`get(key)`
+:js:`get(key)`
     Fetches the data behind the key.
 
-`set(key, value)`
+:js:`set(key, value)`
     Sets/overrides a key with any arbitrary content.
 
-`isset(key)` (bool)
+:js:`isset(key)` (bool)
     Checks if the key is in use.
 
-`unset(key)`
+:js:`unset(key)`
     Removes a key from the storage.
 
-`clear()`
+:js:`clear()`
     Empties all data inside the storage.
 
-`unsetByPrefix(prefix)`
+:js:`unsetByPrefix(prefix)`
     Empties all data inside the storage with their keys
     starting with a prefix
