@@ -312,3 +312,25 @@ If :yaml:`autoconfigure` is disabled you can manually register a context menu it
 by adding the tag :yaml:`backend.contextmenu.itemprovider`:
 
 ..  include:: /CodeSnippets/Tutorials/ContextMenu/ManualServicesYaml.rst.txt
+
+Migration from binding this to context menu
+===========================================
+
+..  deprecated:: 12.0
+    Due to historical reasons, a context menu item was bound to
+    :js:`this` in its callback action which was used to access the
+    context menu item's :js:`dataset`. With TYPO3 v12.0 the invocation of the
+    assigned callback actions is adapted to pass the :js:`dataset` as the
+    third argument.
+
+    Binding the context menu item to :js:`this` in the callback is marked as
+    deprecated.
+
+To access data attributes, use the :js:`dataset` argument passed as the third
+argument in the context menu callback action.
+
+.. literalinclude:: _ContextMenu/_dataset-version-11.js
+   :caption: Before migration (TYPO3 v11)
+
+.. literalinclude:: _ContextMenu/_dataset.js
+   :caption: After migration (TYPO3 v12)
