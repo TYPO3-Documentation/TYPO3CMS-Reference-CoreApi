@@ -1,5 +1,5 @@
 .. include:: /Includes.rst.txt
-.. index:: 
+.. index::
    JavaScript (Backend); Modals
    Modal window
 .. _modules-modals:
@@ -10,108 +10,140 @@ Modals
 
 Actions that require a user's attention must be visualized by modal windows.
 
-TYPO3 provides an API as basis to create modal windows with severity representation. For better UX,
-if actions (buttons) are attached to the modal, one button must be a positive action. This button
-should get a `btnClass` to highlight it.
+TYPO3 provides an API as basis to create modal windows with severity
+representation. For better UX, if actions (buttons) are attached to the modal,
+one button must be a positive action. This button should get a `btnClass`
+to highlight it.
 
-Modals should be used rarely and only for confirmations. For information the :code:`TYPO3.Flashmessage` API should be used.
-For complex content, like forms or a lot of information, please use normal pages.
+Modals should be used rarely and only for confirmations. For information that
+does not require a confirmation
+the :ref:`Notification API (flash message) <notification_api>` should be used.
 
+For complex content, like forms or a lot of information, use normal pages.
 
 API
 ===
 
 The API provides only two public methods:
 
-#. :code:`TYPO3.Modal.confirm(title, content, severity, buttons)`
-#. :code:`TYPO3.Modal.dismiss()`
+#. :js:`TYPO3.Modal.confirm(title, content, severity, buttons)`
+#. :js:`TYPO3.Modal.dismiss()`
 
+.. _modules-modals-settings:
 
-Modal Settings
+Modal settings
 --------------
 
-========= =============== ============ ===========
-Name      DataType        Mandatory    Description
-========= =============== ============ ===========
-title     string          Yes          The title displayed in the modal
-content   string|jQuery   Yes          The content displayed in the modal
-severity  int                          Represents the severity of a modal. Please see :code:`TYPO3.Severity`. Default is :code:`TYPO3.Severity.info`.
-buttons   object[]                     Actions rendered into the modal footer. If empty, the footer is not rendered. See table below.
-========= =============== ============ ===========
+..  confval:: title
 
+    :Required: true
+    :type: string
 
-Button Settings
+    The title displayed in the modal
+
+..  confval:: content
+
+    :Required: true
+    :type: string|jQuery
+
+    The content displayed in the modal
+
+..  confval:: severity
+
+    :type: int
+    :Default: :js:`TYPO3.Severity.info`
+
+    Represents the severity of a modal. Please see :js:`TYPO3.Severity`.
+
+..  confval:: buttons
+
+    :type: object[]
+
+    Actions rendered into the modal footer. If empty, the footer
+    is not rendered. See section :ref:`modules-modals` on how to configure the buttons.
+
+.. _modules-modals-button-settings:
+
+Button settings
 ---------------
 
-================== =============== ============ ===========
-Name               DataType        Mandatory    Description
-================== =============== ============ ===========
-text               string          Yes          The text rendered into the button.
-trigger / action   function        Yes          Callback that's triggered on button click - either simple function or `DeferredAction`/`ImmediateAction`
-active             bool                         Marks the button as active. If true, the button gets the focus.
-btnClass           string                       The css class for the button
-================== =============== ============ ===========
+..  confval:: text
+
+    :Required: true
+    :type: string
+
+    The text rendered into the button.
+
+..  confval:: trigger / action
+
+    :Required: true
+    :type: function
+
+    Callback that is triggered on button click - either a simple function or
+    :js:`DeferredAction` / :js:`ImmediateAction`
+
+..  confval:: active
+
+    :type: bool
+
+    Marks the button as active. If true, the button gets the focus.
+
+..  confval:: btnClass
+
+    :type: string
+
+    The CSS class for the button.
 
 
 Data Attributes
 ---------------
 
-It is also possible to use data-attributes to trigger a modal.
-e.g. on an anchor element, which prevents the default behavior.
+It is also possible to use :html:`data` attributes to trigger a modal,
+for example on an anchor element, which prevents the default behavior.
 
-========================= ===========
-Name                      Description
-========================= ===========
-data-title                the title text for the modal
-data-bs-content              the content text for the modal
-data-severity             the severity for the modal, default is info (see :code:`TYPO3.Severity.*`)
-data-href                 the target URL, default is the href attribute of the element
-data-button-close-text    button text for the close/cancel button
-data-button-ok-text       button text for the ok button
-========================= ===========
+:html:`data-title`
+    The title text for the modal.
 
-:code:`class="t3js-modal-trigger"` marks the element as modal trigger
+:html:`data-bs-content`
+    The content text for the modal.
 
+:html:`data-severity`
+    The severity for the modal, default is `info` (see :js:`TYPO3.Severity.*`).
+
+:html:`data-href`
+    The target URL, default is the :html:`href` attribute of the element.
+
+:html:`data-button-close-text`
+    Button text for the :guilabel:`close`/:guilabel:`cancel` button.
+
+:html:`data-button-ok-text `
+    Button text for the :guilabel:`ok` button.
+
+:html:`class="t3js-modal-trigger"`
+    Marks the element as modal trigger.
+
+Example:
+
+..  literalinclude:: _Modals/_DataModal.html
 
 Examples
 ========
 
 A basic modal (without anything special) can be created this way:
 
-.. code-block:: javascript
+..  code-block:: javascript
 
-   TYPO3.Modal.confirm('The title of the modal', 'This the the body of the modal');
+    TYPO3.Modal.confirm('The title of the modal', 'This the the body of the modal');
 
 A modal as warning with button:
 
-.. code-block:: javascript
-
-   TYPO3.Modal.confirm('Warning', 'You may break the internet!', TYPO3.Severity.warning, [
-      {
-         text: 'Break it',
-         active: true,
-         trigger: function() {
-            // break the net
-         }
-      }, {
-         text: 'Abort!',
-         trigger: function() {
-            TYPO3.Modal.dismiss();
-         }
-      }
-   ]);
+..  literalinclude:: _Modals/_warning.js
 
 A modal as warning:
 
-.. code-block:: javascript
+..  code-block:: javascript
 
-   TYPO3.Modal.confirm('Warning', 'You may break the internet!', TYPO3.Severity.warning);
-
-A modal triggered on an anchor element:
-
-.. code-block:: html
-
-   <a href="delete.php" class="t3js-modal-trigger" data-title="Delete" data-bs-content="Really delete?">delete</a>
+    TYPO3.Modal.confirm('Warning', 'You may break the internet!', TYPO3.Severity.warning);
 
 Action buttons in modals created by the :js:`TYPO3/CMS/Backend/Modal` module may
 make use of :js:`TYPO3/CMS/Backend/ActionButton/ImmediateAction` and
@@ -120,26 +152,11 @@ make use of :js:`TYPO3/CMS/Backend/ActionButton/ImmediateAction` and
 As an alternative to the existing :js:`trigger` option, the option
 :js:`action` may be used with an instance of the previously mentioned modules.
 
-.. code-block:: js
-
-   Modal.confirm('Header', 'Some content', Severity.error, [
-     {
-       text: 'Based on trigger()',
-       trigger: function () {
-         console.log('Vintage!');
-       }
-     },
-     {
-       text: 'Based on action',
-       action: new DeferredAction(() => {
-         return new AjaxRequest('/any/endpoint').post({});
-       })
-     }
-   ]);
-
+..  literalinclude:: _Modals/_deferred-action.js
 
 Activating any action disables all buttons in the modal. Once the action is
 done, the modal disappears automatically.
 
-Buttons of the type :js:`DeferredAction` render a spinner on activation into the button.
+Buttons of the type :js:`DeferredAction` render a spinner on activation
+into the button.
 
