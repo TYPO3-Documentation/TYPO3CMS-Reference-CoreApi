@@ -14,12 +14,23 @@ The module :js:`TYPO3/CMS/Core/Storage/BrowserSession` allows
 to store data in the :js:`sessionStorage`.
 
 API methods
------------
+===========
 
-* `get(key)` To fetch the data behind the key.
-* `set(key, value)` To set/override a key with any arbitrary content.
-* `isset(key)` (bool) checks if the key is in use.
-* `unset(key)` To remove a key from the storage.
-* `clear()` to empty all data inside the storage.
-* `unsetByPrefix(prefix)` to empty all data inside the storage with their keys
-  starting with a prefix
+:js:`get(key)`
+    Fetches the data behind the key.
+
+:js:`set(key, value)`
+    Sets/overrides a key with any arbitrary content.
+
+:js:`isset(key)` (bool)
+    Checks if the key is in use.
+
+:js:`unset(key)`
+    Removes a key from the storage.
+
+:js:`clear()`
+    Empties all data inside the storage.
+
+:js:`unsetByPrefix(prefix)`
+    Empties all data inside the storage with their keys
+    starting with a prefix.
