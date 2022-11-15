@@ -116,7 +116,7 @@ for example on an anchor element, which prevents the default behavior.
 :html:`data-button-close-text`
     Button text for the :guilabel:`close`/:guilabel:`cancel` button.
 
-:html:`data-button-ok-text `
+:html:`data-button-ok-text`
     Button text for the :guilabel:`ok` button.
 
 :html:`class="t3js-modal-trigger"`
