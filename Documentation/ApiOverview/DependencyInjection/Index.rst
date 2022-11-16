@@ -671,6 +671,70 @@ An :php:`Error` is thrown on missing dependency injection for
 
     Call to a member function methodName() on null
 
+.. index:: Dependency injection; Installation-wide configuration
+.. _dependency-injection-installation-wide:
+
+Installation-wide configuration
+-------------------------------
+
+..  versionadded:: 12.1
+
+One can set up a global service configuration for a project that can be used in
+multiple project-specific extensions. For example, this way you can alias an
+interface with a concrete implementation that can be used in several extensions.
+It is also possible to register project-specific :ref:`CLI commands
+<symfony-console-commands>` without requiring a project-specific extension.
+
+However, this only works - due to security restrictions - if TYPO3 is configured
+in a way that the project root is outside the document root, which is usually
+the case in Composer-based installations.
+
+The global service configuration files :file:`services.yaml` and
+:file:`services.php` are now read within the :file:`config/system/` path
+of a TYPO3 project in Composer-based installations.
+
+**Example:**
+
+You want to use the interface of the PHP package `stella-maris/clock` as a type
+hint for dependency injection in the service classes of your project's various
+extensions. Then the concrete implementation may change without touching your
+code. In this example, we use `lcobucci/clock` for the concrete implementation.
+
+..  code-block:: php
+    :caption: config/system/services.php
+
+    use Lcobucci\Clock\SystemClock;
+    use StellaMaris\Clock\ClockInterface;
+    use Symfony\Component\DependencyInjection\ContainerBuilder;
+    use Symfony\Component\DependencyInjection\Loader\Configurator\ContainerConfigurator;
+
+    return static function (
+        ContainerConfigurator $containerConfigurator,
+        ContainerBuilder $containerBuilder
+    ): void {
+        $services = $containerConfigurator->services();
+        $services->set(ClockInterface::class)
+            ->factory([SystemClock::class, 'fromUTC']);
+    };
+
+The concrete clock implementation is now injected when a type hint to the
+interface is given:
+
+..  code-block:: php
+    :caption: EXT:my_extension/Classes/MyClass.php
+
+    use StellaMaris\Clock\ClockInterface;
+
+    class MyClass
+    {
+        public function __construct(
+            private readonly ClockInterface $clock
+        ) {
+        }
+
+        // ...
+    }
+
 
 Dependency injection in a XCLASSed class
 ----------------------------------------

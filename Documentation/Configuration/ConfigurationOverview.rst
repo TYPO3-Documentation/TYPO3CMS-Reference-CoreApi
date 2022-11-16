@@ -26,18 +26,24 @@ Global files
 ------------
 
 :file:`config/system/settings.php`:
-   Contains the persisted :ref:`$GLOBALS['TYPO3_CONF_VARS'] <typo3ConfVars>` array.
-   Settings configured in the backend by system maintainers in
-   :guilabel:`Admin Tools > Settings > Configure Installation-Wide Options`
-   are written to this file.
+    Contains the persisted :ref:`$GLOBALS['TYPO3_CONF_VARS'] <typo3ConfVars>` array.
+    Settings configured in the backend by system maintainers in
+    :guilabel:`Admin Tools > Settings > Configure Installation-Wide Options`
+    are written to this file.
 
 :file:`config/system/additional.php`:
-   Can be used to **override** settings defined in :file:`config/system/settings.php`
+    Can be used to **override** settings defined in :file:`config/system/settings.php`
+
+:file:`config/system/services.php` and :file:`config/system/services.yaml`:
+    These two files can be used to set up a global service configuration for
+    a project that can be used in several project-specific extensions. This
+    is explained in detail in the :ref:`Dependency Injection: Installation-wide
+    configuration <dependency-injection-installation-wide>` section.
 
 :file:`config/sites/<site>/config.yaml`
-   This file is located in :file:`webroot/typo3conf/sites` in non-Composer installations.
-   The Site configuration configured in the :guilabel:`SITE MANAGEMENT > Sites`
-   backend module is written to this file.
+    This file is located in :file:`webroot/typo3conf/sites` in non-Composer installations.
+    The site configuration configured in the :guilabel:`Site Management > Sites`
+    backend module is written to this file.
 
 Extension files
 ---------------
@@ -271,10 +277,4 @@ Some system extensions use YAML for configuration:
 
 There is a :ref:`YamlFileLoader <yamlFileLoader>` which can be used to load YAML
 files.
-
-
-
-
-
-
 
