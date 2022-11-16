@@ -1,8 +1,8 @@
-.. include:: /Includes.rst.txt
+..  include:: /Includes.rst.txt
 
 
-.. _fal-using-fal-examples:
-.. _fal-using-fal-examples-storage-repository:
+..  _fal-using-fal-examples:
+..  _fal-using-fal-examples-storage-repository:
 
 ===========================
 The StorageRepository Class
@@ -15,7 +15,7 @@ which are described here, some others which appear in the
 other code samples provided in this chapter.
 
 
-.. _fal-using-fal-examples-storage-repository-default-storage:
+..  _fal-using-fal-examples-storage-repository-default-storage:
 
 Getting the Default Storage
 ===========================
@@ -25,51 +25,43 @@ is the storage that will be used for any operation whenever
 no storage has been explicitly chosen or defined (for example,
 when not using a :ref:`combined identifier <fal-architecture-components-files-folders>`).
 
-.. code-block:: php
+..  code-block:: php
 
-   /**
-    * @var \TYPO3\CMS\Core\Resource\StorageRepository
-    */
-   private $storageRepository;
+    // use TYPO3\CMS\Core\Resource\StorageRepository;
 
-   public function __construct(StorageRepository $storageRepository)
-   {
-      $this->storageRepository = $storageRepository;
-   }
+    public function __construct(
+        private readonly StorageRepository $storageRepository
+    ) {
+    }
 
-   public function example(): void
-   {
-      $defaultStorage = $this->storageRepository->getDefaultStorage();
-   }
+    public function example(): void
+    {
+        $defaultStorage = $this->storageRepository->getDefaultStorage();
+    }
 
 
-.. note::
+..  note::
+    The method :php:`getDefaultStorage()` may return :php:`null` if no default
+    storage exists.
 
-   This may return :php:`null` if no default Storage exists.
 
-
-.. _fal-using-fal-examples-storage-repository-getting-storage:
+..  _fal-using-fal-examples-storage-repository-getting-storage:
 
 Getting any storage
 ===================
 
-The :php:`StorageRepository` should be used when retrieving
-any storage.
+The :php:`StorageRepository` class should be used when retrieving any storage.
 
-.. code-block:: php
+..  code-block:: php
 
-   /**
-     * @var \TYPO3\CMS\Core\Resource\StorageRepository
-     */
-   private $storageRepository;
+    // use TYPO3\CMS\Core\Resource\StorageRepository;
 
-   public function __construct(StorageRepository $storageRepository)
+    public function __construct(
+        private readonly StorageRepository $storageRepository
+    ) {
+    }
+
+    public function example(): void
     {
-       $this->storageRepository = $storageRepository;
-   }
-
-
-   public function example(): void
-   {
-       $storage = $this->storageRepository->getStorageObject(3);
-   }
+        $storage = $this->storageRepository->getStorageObject(3);
+    }
