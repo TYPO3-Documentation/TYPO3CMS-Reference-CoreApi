@@ -65,6 +65,10 @@
       
       :returntype: array
       
+   .. php:method:: getSettings()
+   
+      :returntype: TYPO3\\CMS\\Core\\Site\\Entity\\SiteSettings
+      
    .. php:method:: getAttribute(string $attributeName)
    
       Returns a single configuration attribute
