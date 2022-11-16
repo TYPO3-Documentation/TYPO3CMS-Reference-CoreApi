@@ -84,14 +84,23 @@ When choosing an identifier, be sure to use ASCII, but you may also use `-`, `_`
 and `.` for convenience.
 
 
-rootPageId
-----------
+Root page ID
+------------
 
 Root pages are identified by one of these two properties:
 
 *   They are direct descendants of PID 0 (the root root page of TYPO3).
 *   They have the :guilabel:`Use as Root Page` property in :sql:`pages` set to
     true.
+
+..  note::
+    The same root page ID **should not** be used in multiple site configurations.
+    This may lead to misbehavior, since always the last defined site with this
+    root page ID is used by TYPO3.
+
+    ..  versionadded:: 12.1
+        Starting with TYPO3 v12.1 the :guilabel:`Sites` module warns you if the
+        same root page ID is used multiple times.
 
 
 websiteTitle
