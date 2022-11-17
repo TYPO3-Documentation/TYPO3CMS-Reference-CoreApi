@@ -101,65 +101,6 @@ you can check that the form token is valid like this:
     cannot be used again.
 
 
-..  index:: pair: Form protection tool; Install tool
-..  _csrf-install:
-
-Usage in the install tool
-=========================
-
-For each form in the Install Tool (or link that changes some data),
-create a token and insert it as a hidden form element.
-The name of the form element does not matter;
-you only need it to get the form token for verifying it.
-
-..  code-block:: php
-
-    $formToken = $this->formProtection
-        ->generateToken('installToolPassword', 'change');
-    // then puts the generated form token in a hidden field in the template
-
-The three parameters :php:`$formName`, :php:`$action` (optional) and
-:php:`$formInstanceName` (optional) can be arbitrary strings, but they should
-make the form token as specific as possible. For different forms (for example,
-the password change and editing the configuration), those values should be
-different.
-
-At the end of the form, you need to persist the tokens. This makes sure that
-generated tokens get saved, and also that removed tokens stay removed:
-
-..  code-block:: php
-
-    $this->formProtection()->persistTokens();
-
-When processing the data that has been submitted by the form, you can check that
-the form token is valid like this:
-
-..  code-block:: php
-
-    if ($dataHasBeenSubmitted &&
-        $this->formProtection()->validateToken(
-            (string) $_POST['formToken'],
-            'installToolPassword',
-            'change'
-        )
-    ) {
-        // processes the data
-    } else {
-        // No need to do anything here, as the Install Tool form protection will
-        // create an error message for an invalid token
-    }
-
-..  note::
-    The :php:`validateToken()` method invalidates the token with the token ID.
-    So calling the validation with the same parameters twice in a row will
-    always return :php:`false` for the second call.
-
-..  attention::
-    The tokens must be validated **before** the tokens are persisted. This makes
-    sure that the tokens that get invalidated by :php:`validateToken()` cannot
-    be used again.
-
-
 ..  index:: pair: Form protection tool; Frontend
 
 Usage in the frontend
