@@ -85,7 +85,7 @@ You can register a new backend module for your extension via :php:`ExtensionUtil
 .. code-block:: php
    :caption: EXT:my_extension/ext_tables.php
 
-   // use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
+   // use TYPO3\CMS\Extbase\Utility\ExtensionUtility;
 
    ExtensionUtility::registerModule(
       'ExtensionName', // Extension Name in CamelCase
@@ -102,6 +102,7 @@ You can register a new backend module for your extension via :php:`ExtensionUtil
       ]
    );
 
+There is also a possibility to register modules without Extbase, using core functionality only.
 For more information on backend modules see :ref:`backend module API <backend-modules-api>`.
 
 .. index:: Extension development; allowTableOnStandardPages
