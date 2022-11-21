@@ -25,20 +25,7 @@ is the storage that will be used for any operation whenever
 no storage has been explicitly chosen or defined (for example,
 when not using a :ref:`combined identifier <fal-architecture-components-files-folders>`).
 
-..  code-block:: php
-
-    // use TYPO3\CMS\Core\Resource\StorageRepository;
-
-    public function __construct(
-        private readonly StorageRepository $storageRepository
-    ) {
-    }
-
-    public function example(): void
-    {
-        $defaultStorage = $this->storageRepository->getDefaultStorage();
-    }
-
+..  literalinclude:: _GetDefaultStorageExample.php
 
 ..  note::
     The method :php:`getDefaultStorage()` may return :php:`null` if no default
@@ -52,16 +39,4 @@ Getting any storage
 
 The :php:`StorageRepository` class should be used when retrieving any storage.
 
-..  code-block:: php
-
-    // use TYPO3\CMS\Core\Resource\StorageRepository;
-
-    public function __construct(
-        private readonly StorageRepository $storageRepository
-    ) {
-    }
-
-    public function example(): void
-    {
-        $storage = $this->storageRepository->getStorageObject(3);
-    }
+..  literalinclude:: _GetStorageObjectExample.php
