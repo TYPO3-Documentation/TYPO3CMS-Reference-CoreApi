@@ -242,4 +242,4 @@ backend layouts and frontend layouts may be feasible. The extension
 integrates the grid layout concept also to regular content elements.
 
 The extension :t3ext:`content_defender` offers advanced options to
-the column positions i.e. allowed or disallowed content elements, a maximal number of contend elements.
+the column positions i.e. allowed or disallowed content elements, a maximal number of content elements.
