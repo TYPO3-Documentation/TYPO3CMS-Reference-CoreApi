@@ -17,6 +17,8 @@ These commands can also be run from the TYPO3
 :ref:`scheduler <symfony-console-commands-scheduler>` if this option is not
 disabled in the :file:`Configuration/Services.yaml`.
 
+The starting point for the commands is the TYPO3 project folder.
+
 .. _symfony-console-commands-cli:
 
 Run a command from the command line
