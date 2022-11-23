@@ -17,7 +17,8 @@ see :ref:`Composer-based installations: Directory structure <directory-structure
 Files on project level
 ======================
 
-This folder contains the main entry script :file:`index.php` and might contain
+The TYPO3 project root folder (TYPO3 main) is any subfolder of your web root folder, e.g. :file:`/var/www/html/project1/` or :file:`/home/user1/public_html/project1/`.
+It contains the main entry script :file:`index.php` and might contain
 publicly available files like a :file:`robots.txt` and files needed for the
 server configuration like a :file:`.htaccess` file.
 
