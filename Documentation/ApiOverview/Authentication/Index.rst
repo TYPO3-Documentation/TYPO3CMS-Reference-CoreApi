@@ -83,7 +83,7 @@ is performed in such a case.
 
     When no session exists, the authentication process is triggered
     by a login request. In the FE, this happens when a form field
-    called "logintype" is submitted with value "login". The same
+    called `logintype` is submitted with value `login`. The same
     happens for the BE, but with a form field called "login_status".
 
 .. index:: Authentication; Login data
