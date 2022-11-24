@@ -84,7 +84,7 @@ is performed in such a case.
     When no session exists, the authentication process is triggered
     by a login request. In the frontend, this happens when a form field
     called `logintype` is submitted with value `login`. The same
-    happens for the BE, but with a form field called "login_status".
+    happens for the backend, but with a form field called `login_status`.
 
 ..  versionchanged:: 12.0
     `JSON Web Tokens (JWT) <https://jwt.io/>`__ are used to transport user
