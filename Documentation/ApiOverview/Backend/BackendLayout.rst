@@ -243,4 +243,4 @@ backend layouts and frontend layouts may be feasible. The extension `gridelement
 integrates the grid layout concept also to regular content elements.
 
 The extension `content_defender <https://extensions.typo3.org/extension/content_defender/>`__ offers advanced options to
-the column positions i.e. allowed or disallowed content elements, a maximal number of contend elements.
+the column positions i.e. allowed or disallowed content elements, a maximal number of content elements.
