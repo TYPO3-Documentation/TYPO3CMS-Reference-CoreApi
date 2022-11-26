@@ -17,8 +17,8 @@ see :ref:`Composer-based installations: Directory structure <directory-structure
 TYPO3 project root folder
 =========================
 
-The TYPO3 project root folder is equal to your web root folder or to any subfolder of it, 
-e.g. :file:`/home/user1/public_html/project1/`, where `project1` is the name of the project.
+The TYPO3 project root folder should be equal to the website’s root directory or the Web application root, 
+e.g. :file:`/path/to/your/webroot/`. It is not recommended to use a subdirectory of it.
 
 .. _legacy-directory-project:
 
