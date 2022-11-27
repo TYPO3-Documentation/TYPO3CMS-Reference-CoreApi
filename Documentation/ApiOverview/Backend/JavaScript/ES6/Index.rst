@@ -15,7 +15,7 @@ JavaScript node-js style path resolutions are managed by
 pages to control the behavior of JavaScript imports.
 
 In November 2022 importmaps are supported natively by Google Chrome,
-a polyfill is available for Firefox and Safari and included by TYPO3 core
+a polyfill is available for Firefox and Safari and included by TYPO3 Core
 and applied whenever an importmap is emitted.
 
 For security reasons, importmap configuration is only emitted when the modules
