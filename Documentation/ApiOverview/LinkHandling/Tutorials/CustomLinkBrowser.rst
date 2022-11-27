@@ -82,7 +82,7 @@ We will explain some of the important methods below:
 Initialization and dependencies
 -------------------------------
 
-..  include:: /ApiOverview/LinkBrowser/Tutorials/_CustomLinkBrowser/_GitHubLinkHandlerInitialize.rst.txt
+..  include:: _CustomLinkBrowser/_GitHubLinkHandlerInitialize.rst.txt
 
 For technical reasons, not all dependencies needed by the backend link handler can
 be acquired by :ref:`DependencyInjection`. Therefore the following two methods
@@ -136,7 +136,7 @@ The method :php:`LinkHandlerInterface::render()` is called when the tab should
 be rendered. It registers the required JavaScript in the page renderer, assigns
 variables to the view and returns the rendered HTML.
 
-..  include:: /ApiOverview/LinkBrowser/Tutorials/_CustomLinkBrowser/_GitHubLinkHandlerRender.rst.txt
+..  include:: _CustomLinkBrowser/_GitHubLinkHandlerRender.rst.txt
 
 .. _tutorial_backend_link_handler_javascript:
 
@@ -146,7 +146,9 @@ Set the link via JavaScript
 When the button in the rendered form is clicked to set a link, a custom
 JavaScript class interprets the form data and creates the link to be stored:
 
-..  include:: /ApiOverview/LinkBrowser/Tutorials/_CustomLinkBrowser/_CustomLinkHandlerJavaScript.rst.txt
+..  todo: Configure code snippet tool to remove or shorten the license comment here
+
+..  include:: _CustomLinkBrowser/_CustomLinkHandlerJavaScript.rst.txt
 
 It is important that the JavaScript function calls
 :js:`LinkBrowser.finalizeFunction()`. Otherwise no link will be set.
@@ -162,7 +164,7 @@ be called and can decide if they can handle that link. If so, they should store
 the provided information to be used in rendering (for example, to fill an input
 field with the old value).
 
-..  include:: /ApiOverview/LinkBrowser/Tutorials/_CustomLinkBrowser/_GitHubLinkHandlerCanHandleLink.rst.txt
+..  include:: _CustomLinkBrowser/_GitHubLinkHandlerCanHandleLink.rst.txt
 
 .. _tutorial_backend_link_handler_formatCurrentUrl:
 
@@ -201,7 +203,7 @@ of the new format by a second class which implements the
     :php:`TYPO3\CMS\Core\LinkHandling\LinkHandlingInterface` handle the
     introduced link format. Such a class is called a "(core) link handler".
 
-..  include:: /ApiOverview/LinkBrowser/Tutorials/_CustomLinkBrowser/_GitHubLinkHandling.rst.txt
+..  include:: _CustomLinkBrowser/_GitHubLinkHandling.rst.txt
 
 The method :php:`LinkHandlingInterface::asString()` creates a string
 representation from the parameter array.
@@ -223,7 +225,7 @@ TypoScript :typoscript:`.typolink`, by the
 :php:`\TYPO3\CMS\Frontend\ContentObject\ContentObjectRenderer::typoLink`
 function or by the :php:`\TYPO3\CMS\Extbase\Mvc\Web\Routing\UriBuilder`.
 
-..  include:: /ApiOverview/LinkBrowser/Tutorials/_CustomLinkBrowser/_GithubLinkBuilder.rst.txt
+..  include:: _CustomLinkBrowser/_GithubLinkBuilder.rst.txt
 
 The function :php:`AbstractTypolinkBuilder::build()` is called with the link
 configuration and data from the typolink function. If the link can be rendered,

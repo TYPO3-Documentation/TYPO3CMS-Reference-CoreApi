@@ -2,6 +2,7 @@
 .. highlight:: php
 .. index:: LinkBrowser
 .. _linkbrowser-api:
+.. _LinkBrowser:
 
 ===============
 LinkBrowser API
