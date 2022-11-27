@@ -163,4 +163,6 @@ This setup allows you to freely inject the very same cache into any class.
 ..  note::
     After changes in the :file:`Services.yaml` file flush the cache via
     :guilabel:`Admin Tools > Maintenance` or the :ref:`CLI command
-    <symfony-console-commands>` `cache:flush`.
+    <symfony-console-commands>` `cache:flush`:
+
+    .. include:: /_includes/cli-cache-flush.rst.txt
