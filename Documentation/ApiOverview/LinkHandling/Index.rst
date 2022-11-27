@@ -6,7 +6,7 @@
 Link handling
 =============
 
-Link entered in the backend in TYPO3 are stored in an internal format in the
+Links entered in the backend in TYPO3 are stored in an internal format in the
 database.
 
 ..  include:: /Images/ManualScreenshots/Backend/BackendLinkFormats.txt
