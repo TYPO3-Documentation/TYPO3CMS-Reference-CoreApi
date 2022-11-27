@@ -38,7 +38,7 @@ input in the ViewHelper :ref:`t3viewhelper:typo3-fluid-link-typolink`:
       {myContent.header_link}
     </f:link.typolink>
 
-In TypoScript RTE content can be converted by the function :ref:`t3tsref:parsefunc`,
+In TypoScript, RTE content can be converted by the function :ref:`t3tsref:parsefunc`,
 link fields can be converted into HTML by the function :ref:`t3tsref:typolink`.
 
 In PHP context links are usually stored in an array format. Each link type is
