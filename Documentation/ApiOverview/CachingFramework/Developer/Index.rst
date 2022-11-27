@@ -11,7 +11,7 @@ framework for their needs. It is about how to use the framework properly. For
 details about its inner working, please refer to the
 :ref:`section about architecture <caching-architecture>`.
 
-Example usages can be found throughout the TYPO3 Core, in particular in system
+Example usages can be found throughout the TYPO3 Core, in particular in the system
 extensions `core` and `extbase`.
 
 
