@@ -63,7 +63,7 @@ also talk about how to transition away from it towards the core-wide Symfony sol
 Background and history
 ======================
 
-Obtaining object instances in TYPO3 has always been pretty straight: Just call
+Obtaining object instances in TYPO3 has always been pretty straight: call
 :php:`GeneralUtility::makeInstance(\Vendor\MyExtension\Some\Class::class)` and hand over
 mandatory and optional :php:`__construct()` arguments as additional arguments.
 

@@ -888,7 +888,7 @@ Transient Memory Backend
 
 The transient memory backend stores data in a PHP array. It is only valid for one request. This becomes handy if code
 logic needs to do expensive calculations or must look up identical information from a database over and over again
-during its execution. In this case it is useful to store the data in an array once and just lookup the entry from the
+during its execution. In this case it is useful to store the data in an array once and lookup the entry from the
 cache for consecutive calls to get rid of the otherwise additional overhead. Since caches are available system wide and
 shared between Core and extensions they can profit from each other if they need the same information.
 

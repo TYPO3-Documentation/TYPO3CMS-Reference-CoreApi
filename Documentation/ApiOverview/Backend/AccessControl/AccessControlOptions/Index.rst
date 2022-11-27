@@ -133,7 +133,7 @@ page tree is drawn from the *DB Mounts* which are one or more page ids
 telling the Core from which "start page" to draw the tree(s). Likewise
 is the folder tree drawn based on *filemounts* configured for the user.
 
-**DB mounts** (page mounts) are easily set by simply pointing out the
+**DB mounts** (page mounts) are easily set by pointing out the
 page that should be mounted for the user (at user or group-level):
 
 .. include:: /Images/AutomaticScreenshots/AccessControl/DbMounts.rst.txt

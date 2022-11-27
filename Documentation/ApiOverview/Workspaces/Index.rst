@@ -69,7 +69,7 @@ The most basic form of a preview is when a live record is selected and
 you lookup a future version of that record belonging to the current
 workspace of the logged in backend user. This is very easy as long as
 a record is selected based on its "uid" or "pid" fields which are not
-subject to versioning; You simply call :code:`sys_page->versionOL()` after
+subject to versioning; You call :code:`sys_page->versionOL()` after
 record selection.
 
 However, when other fields are involved in the where clause it gets
@@ -431,9 +431,9 @@ will take over the pid / "sortby" value upon publishing.
 Preview of move operations is almost fully functional through the
 :code:`\TYPO3\CMS\Core\Domain\Repository\PageRepository::versionOL()` and
 :code:`\TYPO3\CMS\Backend\Utility\BackendUtility::workspaceOL()` functions.
-When the online placeholder is selected it simply looks up the source
+When the online placeholder is selected it looks up the source
 record, overlays any version on top and displays it. When the source
-record is selected it should simply be discarded in case shown in
+record is selected it should be discarded in case shown in
 context where ordering or position matters (like in menus or column
 based page content). This is done in the appropriate places.
 

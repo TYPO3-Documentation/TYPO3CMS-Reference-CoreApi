@@ -155,7 +155,7 @@ must be strings or integers.)
    :Description:
          Defines the type of object.
 
-         - "array" means that the object simply contains a collection of other
+         - "array" means that the object contains a collection of other
            objects defined inside the <el> tag on the same level. If the value is
            "array" you can use the boolean "<section>". See below.
 

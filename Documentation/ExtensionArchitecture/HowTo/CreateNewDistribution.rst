@@ -243,7 +243,7 @@ scheme) on the fly.
 Test Your Distribution
 ======================
 
-To test your distribution, simply copy your extension to an empty
+To test your distribution, copy your extension to an empty
 TYPO3 CMS installation and try to install it from the Extension
 Manager.
 

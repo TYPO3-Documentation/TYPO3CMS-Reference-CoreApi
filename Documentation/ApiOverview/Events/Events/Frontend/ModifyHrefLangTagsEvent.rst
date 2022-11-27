@@ -11,7 +11,7 @@ Event to alter the hreflang tags just before they get rendered.
 The class :php:`TYPO3\CMS\Seo\HrefLang\HrefLangGenerator` has been
 refactored to be a listener (identifier 'typo3-seo/hreflangGenerator') to the
 newly introduced event. This way the system extension seo still provides
-hreflang tags but it is now possible to simply register after or instead
+hreflang tags but it is now possible to register after or instead
 of the implementation.
 
 Example

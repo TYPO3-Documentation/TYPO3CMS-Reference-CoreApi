@@ -295,7 +295,7 @@ Example:
          **Extensions having one folder with classes or single files**
 
          Considering you have an Extbase extension (or an extension where all classes
-         and interfaces reside in a :file:`Classes` folder) or single classes you can simply
+         and interfaces reside in a :file:`Classes` folder) or single classes you can
          add the following to your :file:`ext_emconf.php` file:
 
          .. code-block:: php
