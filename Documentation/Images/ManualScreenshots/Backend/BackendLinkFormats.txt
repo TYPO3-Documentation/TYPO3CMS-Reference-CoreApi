@@ -3,5 +3,5 @@
 ..  figure:: /Images/ManualScreenshots/Backend/BackendLinkFormats.png
     :class: with-shadow
 
-    Input of different link formats in the backend. The rich-text-editor
+    Input of different link formats in the backend. The rich-text editor
     is disabled for demonstration of these formats.
