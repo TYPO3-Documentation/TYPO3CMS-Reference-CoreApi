@@ -21,7 +21,7 @@ extensions `core` and `extbase`.
 Cache Registration
 ==================
 
-Registration of a new cache should be done in :file:`ext_localconf.php`. The
+Registration of a new cache should be done in an extension's :ref:`ext-localconf-php`. The
 example below just defines an empty sub-array in *cacheConfigurations*. Neither
 *frontend* nor *backend* are defined, meaning that the cache manager will choose
 the default :ref:`variable frontend <caching-frontend-variable>` and the
