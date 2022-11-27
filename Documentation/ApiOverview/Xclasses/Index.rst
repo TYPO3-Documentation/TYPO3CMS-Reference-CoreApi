@@ -96,7 +96,7 @@ In this example, we declare that the :code:`\TYPO3\CMS\Backend\Controller\NewRec
 will be overridden by the :code:`\T3docs\Examples\Xclass\NewRecordController`
 class, the latter being part of the :t3ext:`examples` extension.
 
-When XCLASSing a class that does not use namespaces, use that class' name
+When XCLASSing a class that does not use namespaces, use that class name
 in the declaration.
 
 
