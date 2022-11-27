@@ -28,7 +28,7 @@ the default :ref:`variable frontend <caching-frontend-variable>` and the
 :ref:`database backend <caching-backend-db>` by default.
 
 ..  code-block:: php
-    :caption: EXT:some_extension/ext_localconf.php
+    :caption: EXT:my_extension/ext_localconf.php
 
     $GLOBALS['TYPO3_CONF_VARS']['SYS']['caching']['cacheConfigurations']['myext_mycache']
         ??= [];
@@ -55,7 +55,7 @@ about specific caching needs or setups in this case.
     them for whatever reason.
 
 ..  code-block:: php
-    :caption: EXT:some_extension/ext_localconf.php
+    :caption: EXT:my_extension/ext_localconf.php
 
     // use \TYPO3\CMS\Core\Cache\Backend\TransientMemoryBackend;
     $GLOBALS['TYPO3_CONF_VARS']['SYS']['caching']['cacheConfigurations']['myext_mycache']
@@ -75,7 +75,7 @@ the :ref:`container service configuration
 <configure-dependency-injection-in-extensions>`:
 
 ..  code-block:: yaml
-    :caption: EXT:some_extension/Configuration/Services.yaml
+    :caption: EXT:my_extension/Configuration/Services.yaml
 
     services:
       _defaults:
@@ -83,7 +83,7 @@ the :ref:`container service configuration
         autoconfigure: true
         public: false
 
-      Vendor\SomeExtension\:
+      Vendor\MyExtension\:
         resource: '../Classes/*'
 
       cache.myext_mycache:
@@ -104,9 +104,9 @@ sure they are unique and clearly hint at the purpose of your cache.
 Here is some example code which retrieves the cache via dependency injection:
 
 ..  code-block:: php
-    :caption: EXT:some_extension/Classes/MyClass.php
+    :caption: EXT:my_extension/Classes/MyClass.php
 
-    namespace Vendor\SomeExtension;
+    namespace Vendor\MyExtension;
 
     use TYPO3\CMS\Core\Cache\Frontend\FrontendInterface;
 
@@ -147,12 +147,12 @@ of :php:`MyClass`, the :ref:`container service configuration
 <configure-dependency-injection-in-extensions>` needs to be extended:
 
 ..  code-block:: yaml
-    :caption: EXT:some_extension/Configuration/Services.yaml
+    :caption: EXT:my_extension/Configuration/Services.yaml
 
     services:
       # other configurations
 
-      Vendor\SomeExtension\MyClass:
+      Vendor\MyExtension\MyClass:
         arguments:
           $cache: '@cache.myext_mycache'
 
