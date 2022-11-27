@@ -81,8 +81,8 @@ modules <https://github.com/bnf/news/commit/f8e196b67ceaa2f56699fbf464080dde668a
 Using JQuery
 ------------
 
-There is a general tendency to remove dependencies to jQuery in the Core whenever
-possible.
+In the TYPO3 Core usage of jQuery is eliminated step-by-step as the necessary
+functionality is provided by native JavaScript nowadays.
 
 If you still have to use jQuery in your third-party extension, include it
 with the following statement:
@@ -98,7 +98,7 @@ Migration from RequireJS
 
 ..  note:: For general information on how to migrate from AMD (RequireJS) to
     ES6 see this article: `Arthur Yidi: Migrate JavaScript Modules From AMD
-    to ES6 <https://arthuryidi.com/migrate-amd-modules/>`__. This is about 
+    to ES6 <https://arthuryidi.com/migrate-amd-modules/>`__. This is about
     the TYPO3 specific details.
 
 RequireJS is shimmed to prefer ES6 modules if available, allowing any extension
