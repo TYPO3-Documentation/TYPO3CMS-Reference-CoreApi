@@ -46,7 +46,7 @@ handled by a :ref:`core-link-handler` which maps between different formats.
 
 ..  todo: Add chapter about converting and outputting links in PHP
 
-The :ref:`link browser <linkbrowser-api>` is the window in which users can configure
+The :ref:`link browser <linkbrowser-api>` is the modal in which users can configure
 links in both the :ref:`rte` and the :ref:`FormEngine`. The link browser offers
 tabs for the different types of links like email, page, external, file, news
 record and possibly more. Each tab of the link browser has an associated
