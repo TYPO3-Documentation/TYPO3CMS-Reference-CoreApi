@@ -23,7 +23,7 @@ Cache Registration
 
 Registration of a new cache should be done in an extension's :ref:`ext-localconf-php`. The
 example below defines an empty sub-array in `cacheConfigurations`. Neither
-*frontend* nor *backend* are defined, meaning that the cache manager will choose
+*frontend* nor *backend* are defined: The cache manager will choose
 the default :ref:`variable frontend <caching-frontend-variable>` and the
 :ref:`database backend <caching-backend-db>` by default.
 
