@@ -141,10 +141,11 @@ Here is some example code which retrieves the cache via dependency injection:
     entries with :php:`$this->cache->get()` as the latter returns :php:`false`
     if no entry exists.
 
-Since the auto-wiring feature of the dependency injection container cannot
-detect which cache configuration should be used for the :php:`$cache` argument
-of :php:`MyClass`, the :ref:`container service configuration
-<configure-dependency-injection-in-extensions>` needs to be extended:
+Since the :ref:`auto-wiring feature <dependency-injection-autowire>` of the
+dependency injection container cannot detect which cache configuration should be
+used for the :php:`$cache` argument of :php:`MyClass`, the :ref:`container
+service configuration <configure-dependency-injection-in-extensions>` needs to
+be extended:
 
 ..  code-block:: yaml
     :caption: EXT:my_extension/Configuration/Services.yaml
