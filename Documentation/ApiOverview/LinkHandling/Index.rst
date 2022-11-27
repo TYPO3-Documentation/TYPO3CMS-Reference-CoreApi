@@ -11,7 +11,7 @@ database.
 
 ..  include:: /Images/ManualScreenshots/Backend/BackendLinkFormats.txt
 
-For example a link to the page with uid 42 is stored in a backend input as
+For example, a link to the page with uid 42 is stored in a backend field as
 `t3://page?uid=42` and in the rich-text editor (RTE) as
 :html:`<a href="t3://page?uid=1">test</a>`.
 
