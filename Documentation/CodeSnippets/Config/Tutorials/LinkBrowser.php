@@ -26,7 +26,7 @@ return [
             'initialize',
             'setView',
         ],
-        'targetFileName' => 'ApiOverview/LinkBrowser/Tutorials/_CustomLinkBrowser/_GitHubLinkHandlerInitialize.rst.txt',
+        'targetFileName' => 'ApiOverview/LinkHandling/Tutorials/_CustomLinkBrowser/_GitHubLinkHandlerInitialize.rst.txt',
     ],
     [
         'action' => 'createPhpClassCodeSnippet',
@@ -34,7 +34,7 @@ return [
         'members' => [
             'canHandleLink',
         ],
-        'targetFileName' => 'ApiOverview/LinkBrowser/Tutorials/_CustomLinkBrowser/_GitHubLinkHandlerCanHandleLink.rst.txt',
+        'targetFileName' => 'ApiOverview/LinkHandling/Tutorials/_CustomLinkBrowser/_GitHubLinkHandlerCanHandleLink.rst.txt',
     ],
     [
         'action' => 'createPhpClassCodeSnippet',
@@ -42,7 +42,7 @@ return [
         'members' => [
             'formatCurrentUrl',
         ],
-        'targetFileName' => 'ApiOverview/LinkBrowser/Tutorials/_CustomLinkBrowser/_GitHubLinkHandlerFormatCurrentUrl.rst.txt',
+        'targetFileName' => 'ApiOverview/LinkHandling/Tutorials/_CustomLinkBrowser/_GitHubLinkHandlerFormatCurrentUrl.rst.txt',
     ],
     [
         'action' => 'createPhpClassCodeSnippet',
@@ -50,14 +50,14 @@ return [
         'members' => [
             'render',
         ],
-        'targetFileName' => '/ApiOverview/LinkBrowser/Tutorials/_CustomLinkBrowser/_GitHubLinkHandlerRender.rst.txt',
+        'targetFileName' => '/ApiOverview/LinkHandling/Tutorials/_CustomLinkBrowser/_GitHubLinkHandlerRender.rst.txt',
     ],
     [
         'action' => 'createCodeSnippet',
         'caption' => 'EXT:examples/Resources/Public/JavaScript/github_link_handler.js',
         'sourceFile' => 'EXT:examples/Resources/Public/JavaScript/github_link_handler.js',
         'language' => 'js',
-        'targetFileName' => '/ApiOverview/LinkBrowser/Tutorials/_CustomLinkBrowser/_CustomLinkHandlerJavaScript.rst.txt',
+        'targetFileName' => '/ApiOverview/LinkHandling/Tutorials/_CustomLinkBrowser/_CustomLinkHandlerJavaScript.rst.txt',
     ],
     [
         'action' => 'createPhpClassCodeSnippet',
@@ -69,7 +69,7 @@ return [
         ],
         'withComment' => false,
         'withClassComment' => true,
-        'targetFileName' => '/ApiOverview/LinkBrowser/Tutorials/_CustomLinkBrowser/_GitHubLinkHandling.rst.txt',
+        'targetFileName' => '/ApiOverview/LinkHandling/Tutorials/_CustomLinkBrowser/_GitHubLinkHandling.rst.txt',
     ],
     [
         'action' => 'createPhpClassCodeSnippet',
@@ -80,13 +80,13 @@ return [
         ],
         'withComment' => false,
         'withClassComment' => true,
-        'targetFileName' => '/ApiOverview/LinkBrowser/Tutorials/_CustomLinkBrowser/_GithubLinkBuilder.rst.txt',
+        'targetFileName' => '/ApiOverview/LinkHandling/Tutorials/_CustomLinkBrowser/_GithubLinkBuilder.rst.txt',
     ],
     [
         'action' => 'createCodeSnippet',
         'caption' => 'EXT:examples/Configuration/TsConfig/Page/LinkBrowser/GitHubLinkhandler.tsconfig',
         'sourceFile' => 'EXT:examples/Configuration/TsConfig/Page/LinkBrowser/GitHubLinkhandler.tsconfig',
         'language' => 'typoscript',
-        'targetFileName' => 'ApiOverview/LinkBrowser/Tutorials/_CustomLinkBrowser/_PageTsConfig.rst.txt',
+        'targetFileName' => 'ApiOverview/LinkHandling/Tutorials/_CustomLinkBrowser/_PageTsConfig.rst.txt',
     ],
 ];
