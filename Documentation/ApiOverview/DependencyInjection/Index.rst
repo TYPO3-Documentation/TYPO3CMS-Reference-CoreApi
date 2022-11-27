@@ -464,8 +464,6 @@ to instantiate services. This is useful for factory-like services where the exac
 Configuration
 =============
 
-.. _dependency-injection-autoconfigure:
-
 Configure dependency injection in extensions
 --------------------------------------------
 
@@ -494,6 +492,8 @@ A basic :file:`Services.yaml` file of an extension looks like the following.
         resource: '../Classes/*'
         exclude: '../Classes/Domain/Model/*'
 
+.. _dependency-injection-autowire:
+
 autowire
     :yaml:`autowire: true` instructs the dependency injection component to
     calculate the required dependencies from type declarations. This works for
@@ -504,6 +504,8 @@ autowire
     ..  attention::
         An extension does not have to use autowiring, but can wire
         dependencies manually in the service configuration file.
+
+.. _dependency-injection-autoconfigure:
 
 autoconfigure
     It is suggested to enable :yaml:`autoconfigure: true` as this
