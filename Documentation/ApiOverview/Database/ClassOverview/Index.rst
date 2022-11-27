@@ -30,10 +30,6 @@ QueryBuilder
    queries <database-query-builder>` executed on a specific connection. Provides the main `CRUD` methods for
    `select()`, `delete()` and friends.
 
-QueryHelper
-   :php:`TYPO3\CMS\Core\Database\Query\QueryHelper`: :ref:`Set of static helper methods <database-query-helper>`
-   that can simplify the transition from old `TYPO3_DB` based code to the doctrine base API.
-
 Restriction ...
    :php:`TYPO3\CMS\Core\Database\Query\Restriction\...`: :ref:`Set of classes that add expressions
    <database-restriction-builder>` like "deleted=0" to a query based on `TCA` settings of a table.
