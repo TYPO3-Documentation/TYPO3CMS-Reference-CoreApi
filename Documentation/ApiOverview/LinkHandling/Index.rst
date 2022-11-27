@@ -20,7 +20,7 @@ For example, a link to the page with uid 42 is stored in a backend field as
     targets, link classes, etc
 
 Such links must be converted before they are output as HTML in the frontend.
-For example in Fluid all input from the RTE should be output by the ViewHelper
+For example, in :ref:`Fluid <fluid>` all input from the RTE should be output by the ViewHelper
 :ref:`t3viewhelper:typo3-fluid-format-html`:
 
 ..  code-block:: html
