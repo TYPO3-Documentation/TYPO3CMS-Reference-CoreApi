@@ -69,7 +69,7 @@ The most basic form of a preview is when a live record is selected and
 you lookup a future version of that record belonging to the current
 workspace of the logged in backend user. This is very easy as long as
 a record is selected based on its "uid" or "pid" fields which are not
-subject to versioning; You call :code:`sys_page->versionOL()` after
+subject to versioning: call :code:`sys_page->versionOL()` after
 record selection.
 
 However, when other fields are involved in the where clause it gets
