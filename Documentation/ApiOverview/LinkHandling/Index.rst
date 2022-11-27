@@ -48,7 +48,7 @@ handled by a :ref:`core-link-handler` which maps between different formats.
 
 The :ref:`link browser <linkbrowser-api>` is the modal in which users can configure
 links in both the :ref:`rte` and the :ref:`FormEngine`. The link browser offers
-tabs for the different types of links like email, page, external, file, news
+tabs for the different types of links like page, external, file, email, phone
 record and possibly more. Each tab of the link browser has an associated
 :ref:`backend link handler <linkhandler>` that renders the tab and handles
 editing links. The link browser can be extended by
