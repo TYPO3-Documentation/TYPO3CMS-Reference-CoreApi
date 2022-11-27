@@ -243,7 +243,7 @@ Examples
 --------
 
 If you want to apply one or more restrictions to only one table, that is
-possible as follows. Let's say you have content in the :sql:`tt_content` table
+possible as follows. Let us say you have content in the :sql:`tt_content` table
 with a relation to categories. Now you want to get all records with their
 categories except those that are hidden. In this case, the hidden restriction
 should apply only to the :sql:`tt_content` table, not to the :sql:`sys_category`
