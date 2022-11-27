@@ -36,7 +36,7 @@ the default :ref:`variable frontend <caching-frontend-variable>` and the
 ..  tip::
     The null coalescing assignment operator (:code:`??=`) check is used to
     enable administrators to overwrite configuration of caches in
-    :file:`config/system/settings.php`. During :ref:`bootstrap <bootstrapping>`,
+    :ref:`config/system/settings.php <configuration-files>`. During :ref:`bootstrap <bootstrapping>`,
     any :file:`ext_localconf.php` is loaded **after**
     :file:`config/system/settings.php` and :file:`config/system/additional.php`
     are loaded, so it is important to make sure that the administrator did not
