@@ -200,7 +200,7 @@ The usage is described as this:
 
 .. code-block:: bash
 
-   cache:flush [--group <all|system|di|pages|...¦>]
+   cache:flush [--group <all|system|di|pages|...>]
 
 All available cache groups can be supplied as option. The command defaults to
 flush all available cache groups as the :guilabel:`System Tools > Maintenance` area
@@ -226,7 +226,7 @@ The usage is described as this:
 
 .. code-block:: bash
 
-   cache:warmup [--group <all|system|di|pages|â€¦>]
+   cache:warmup [--group <all|system|di|pages|...>]
 
 All available cache groups can be supplied as option. The command defaults to
 warm all available cache groups.
