@@ -241,8 +241,8 @@ function or by the :php:`\TYPO3\CMS\Extbase\Mvc\Web\Routing\UriBuilder`.
 
 ..  todo: Mention LinkFactory for v12 and other calling API for v11
 
-The link builder must be registered in the :file:`ext_localconf.php`, so that
-the correct link builder for the new type to be determined by the calling API:
+The link builder must be registered in :file:`ext_localconf.php`, so that
+the correct link builder for the new type can be determined by the calling API:
 
 ..  code-block:: php
     :caption: EXT:examples/ext_localconf.php (Excerpt)
