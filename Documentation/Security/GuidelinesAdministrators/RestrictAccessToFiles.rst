@@ -85,10 +85,9 @@ and common package files like :file:`composer.json`.
 
 This "black list" approach needs maintenance: The Core Team tries to keep the template files
 :file:`.htaccess` and :file:`web.config` updated. If running Apache or IIS, administrators
-should compare their specific version with the reference files found at `root-htaccess
-<https://github.com/typo3/typo3/blob/master/typo3/sysext/install/Resources/Private/FolderStructureTemplateFiles/root-htaccess>`_
-and `root-web-config
-<https://github.com/typo3/typo3/blob/master/typo3/sysext/install/Resources/Private/FolderStructureTemplateFiles/root-web-config>`_
+should compare their specific version with the reference files found at
+:t3src:`install/Resources/Private/FolderStructureTemplateFiles/root-htaccess>`
+and :t3src:`install/Resources/Private/FolderStructureTemplateFiles/root-web-config`
 and adapt or update local versions if needed.
 
 

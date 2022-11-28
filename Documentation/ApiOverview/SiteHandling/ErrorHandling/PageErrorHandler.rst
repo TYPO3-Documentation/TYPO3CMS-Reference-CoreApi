@@ -11,8 +11,7 @@ HTTP status. The content of this page is generated via a TYPO3-internal
 sub-request.
 
 The page-based error handler is defined in
-`\TYPO3\CMS\Core\Error\PageErrorHandler\PageContentErrorHandler
-<https://github.com/typo3/typo3/blob/master/typo3/sysext/core/Classes/Error/PageErrorHandler/PageContentErrorHandler.php>`__.
+:t3src:`core/Classes/Error/PageErrorHandler/PageContentErrorHandler.php`.
 
 FeatureFlag: `subrequestPageErrors`
 -----------------------------------
