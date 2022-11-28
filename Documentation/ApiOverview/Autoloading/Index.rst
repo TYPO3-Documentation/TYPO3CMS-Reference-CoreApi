@@ -139,7 +139,7 @@ If your classes cannot be found, try the following approaches.
         php typo3/sysext/core/bin/typo3 dumpautoload
 
 -   If that command itself fails, please (manually) uninstall the extension and
-    simply try reinstalling it (via the Extension Manager).
+    try reinstalling it (via the Extension Manager).
 
 -   If you are still not lucky, the issue is definitely on your side and you
     should double check the write permissions on :file:`typo3temp`.

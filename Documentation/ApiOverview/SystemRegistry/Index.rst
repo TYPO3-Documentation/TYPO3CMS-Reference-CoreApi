@@ -94,7 +94,7 @@ table:
 The Registry API
 ================
 
-There is an easy-to-use API for using the registry. Simply call the following
+There is an easy-to-use API for using the registry. You can use the following
 code to retrieve an instance of the registry. The instance returned will always
 be the same, as the registry is a singleton:
 
