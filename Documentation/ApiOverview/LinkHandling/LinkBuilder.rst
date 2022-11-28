@@ -15,7 +15,7 @@ call is determined by the class configured in global configuration,
 see :ref:`typo3ConfVars_fe_typolinkBuilder`.
 
 You can register a custom link builder in your extension's
-:ref:`ext_localconf-php`:
+:ref:`ext-localconf-php`:
 
 ..  code-block:: php
     :caption: EXT:my_extension/ext_localconf.php
