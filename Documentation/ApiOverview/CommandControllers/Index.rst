@@ -40,7 +40,7 @@ You can list the available commands by calling:
 
 For example, you can clear all caches by calling:
 
-.. include:: /_includes/cli-cache-flush.rst.txt
+.. include:: /_includes/CliCacheFlush.rst.txt
 
 Show help for the command:
 

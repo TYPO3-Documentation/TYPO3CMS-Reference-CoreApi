@@ -165,4 +165,4 @@ This setup allows you to freely inject the very same cache into any class.
     :guilabel:`Admin Tools > Maintenance` or the :ref:`CLI command
     <symfony-console-commands>` `cache:flush`:
 
-    .. include:: /_includes/cli-cache-flush.rst.txt
+    .. include:: /_includes/CliCacheFlush.rst.txt
