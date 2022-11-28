@@ -156,5 +156,5 @@ Please refer to the following external resources and look at how the TYPO3 sourc
 handles backend routing in your TYPO3 version.
 
 * `PSR-7 <https://www.php-fig.org/psr/psr-7/>`__
-* TYPO3 Core : `backend : AjaxRoutes.php <https://github.com/typo3/typo3/blob/main/typo3/sysext/backend/Configuration/Backend/AjaxRoutes.php>`__ (GitHub)
-* TYPO3 Core : `backend : Routes.php <https://github.com/typo3/typo3/blob/main/typo3/sysext/backend/Configuration/Backend/Routes.php>`__ (GitHub)
+* TYPO3 Core: :t3src:`backend/Configuration/Backend/AjaxRoutes.php`
+* TYPO3 Core: :t3src:`backend/Configuration/Backend/Routes.php`
