@@ -5,9 +5,9 @@
    Overwriting Methods
 .. _xclasses:
 
-============================
-XCLASSes (Extending Classes)
-============================
+===================================
+Extending Classes (SYS OBJ, XCLASS)
+===================================
 
 
 .. _xclasses-intro:
@@ -15,8 +15,9 @@ XCLASSes (Extending Classes)
 Introduction
 ============
 
-XCLASSing is a mechanism in TYPO3 to extend classes or overwrite methods from the Core or extensions
-with one's own code. This enables a developer to easily change a given functionality,
+Using SYS OBJ constants (formerly XCLASSing) is a mechanism in TYPO3 to extend classes or 
+overwrite methods from the Core or extensions with one's own code. 
+This enables a developer to easily change a given functionality,
 if other options like :ref:`hooks <hooks>`, signals, :ref:`events <EventDispatcher>`
 or the dependency injection mechanisms do not work or do not exist.
 
