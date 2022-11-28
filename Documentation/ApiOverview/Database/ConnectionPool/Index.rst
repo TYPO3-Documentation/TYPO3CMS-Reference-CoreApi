@@ -6,14 +6,14 @@
 ConnectionPool
 ==============
 
-TYPO3's interface for executing queries via Doctrine DBAL typically starts with
+TYPO3's interface for executing queries via Doctrine DBAL starts with
 a request to the :php:`ConnectionPool` for a :php:`QueryBuilder` or a
 :php:`Connection` object and passing the table name to be queried:
 
 ..  literalinclude:: _MyTableRepository.php
     :caption: EXT:my_extension/Classes/Domain/Model/MyTableRepository.php
 
-The :php:`QueryBuilder` is the default workhorse object used by extension
+The :php:`QueryBuilder` is the default object used by extension
 authors to express complex queries, while a :php:`Connection` instance can be
 used as a shortcut to handle some simple query cases and little written code.
 
