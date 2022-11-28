@@ -38,7 +38,7 @@ be used.
 Most backend routes defined in the TYPO3 core can be found in the following
 file, which you can use as example:
 
-`typo3/sysext/backend/Configuration/Backend/Routes.php <https://github.com/typo3/typo3/blob/main/typo3/sysext/backend/Configuration/Backend/Routes.php>`__
+:t3src:`typo3/sysext/backend/Configuration/Backend/Routes.php`
 
 Read more about :ref:`Backend routing <backend-routing>`.
 

@@ -192,7 +192,7 @@ Below is the structure of a basic FlexForm from the example extension
 ..  include:: /CodeSnippets/FlexForms/Simple.rst.txt
 
 For a more elaborate example, have a look at the plugin configuration of
-system extension `felogin` (`Login.xml <https://github.com/TYPO3/typo3/blob/main/typo3/sysext/felogin/Configuration/FlexForms/Login.xml>`__).
+system extension `felogin` (:t3src:`felogin/Configuration/FlexForms/Login.xml`).
 It shows an example of relative complex data structure used in a FlexForm.
 
 More information about such usage of FlexForms can be found in the
