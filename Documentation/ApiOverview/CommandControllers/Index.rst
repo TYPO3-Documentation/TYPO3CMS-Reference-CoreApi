@@ -40,19 +40,7 @@ You can list the available commands by calling:
 
 For example, you can clear all caches by calling:
 
-.. tabs::
-
-   .. group-tab:: Composer-based installation
-
-      .. code-block:: bash
-
-         vendor/bin/typo3 cache:flush
-
-   .. group-tab:: Legacy installation
-
-      .. code-block:: bash
-
-         typo3/sysext/core/bin/typo3 cache:flush
+.. include:: /_includes/CliCacheFlush.rst.txt
 
 Show help for the command:
 
