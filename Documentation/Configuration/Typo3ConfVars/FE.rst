@@ -783,7 +783,10 @@ typolinkBuilder
 
    :type: array
 
-   Matches the LinkService implementations for generating URL, link text via typolink
+   Matches the LinkService implementations for generating URLs and link texts
+   via typolink. This configuration value can be used to register a
+   :ref:`custom link builder <tutorial-typolink-builder>` for the frontend
+   generation of links.
 
    .. code-block:: php
       :caption: Default value of $GLOBALS['TYPO3_CONF_VARS']['FE']['typolinkBuilder']

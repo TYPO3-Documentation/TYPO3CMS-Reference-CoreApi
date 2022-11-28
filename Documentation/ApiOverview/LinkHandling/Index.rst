@@ -67,4 +67,5 @@ and :ref:`custom link handler implementations <tutorial-github-link-handler>`.
     LinkBrowserApi/Index
     Linkhandler/Index
     CoreLinkHandler
+    LinkBuilder
     Tutorials/Index
