@@ -783,7 +783,7 @@ typolinkBuilder
 
    :type: array
 
-   Matches the LinkService implementations for generating URL, and link texts
+   Matches the LinkService implementations for generating URLs and link texts
    via typolink. This configuration value can be used to register a
    :ref:`custom link builder <tutorial-typolink-builder>` for the frontend
    generation of links.
