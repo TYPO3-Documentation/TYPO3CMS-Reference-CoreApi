@@ -51,8 +51,8 @@ Some other facts about Data Structures (DS):
   sheets will depend on the application. Basically sheets are like a
   one-dimensional internal categorization of Data Structures.
 
-- Parsing a Data Structure into a PHP array is incredibly easy - just
-  pass it to :php:`GeneralUtility::xml2array()` (see the :ref:`t3ds-parsing` section).
+- Parsing a Data Structure into a PHP array can be achieved by passing it to
+  :php:`GeneralUtility::xml2array()` (see the :ref:`t3ds-parsing` section).
 
 - "DS" is sometimes used as short for Data Structure
 

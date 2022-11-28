@@ -132,10 +132,10 @@ constructor arguments in the provider classes.
 Displaying values from `$GLOBALS`
 ---------------------------------
 
-If you want to display a custom configuration from the `$GLOBALS` array,
+If you want to display a custom configuration from the :php:`$GLOBALS` array,
 you can also use the already existing
 :php:`TYPO3\CMS\Lowlevel\ConfigurationModuleProvider\GlobalVariableProvider`.
-Simply define the key to be exposed using the `globalVariableKey` attribute.
+Define the key to be exposed using the `globalVariableKey` attribute.
 
 This could look like this:
 

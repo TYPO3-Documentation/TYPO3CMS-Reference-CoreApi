@@ -67,7 +67,7 @@ The operator (in the example it is :code:`=`) can be one of the characters
 Value assignment: The "=" operator
 ----------------------------------
 
-This simply assigns a value to an object path.
+This assigns a value to an object path.
 
 
 **Rules:**
@@ -277,7 +277,7 @@ Another example with a copy within a code block:
 
 Here also a copy is made, although inside the :code:`pageObj` object. Note
 that the copied object is referred to with its full path
-(:code:`pageObj.10`). When **copying on the same level**, you can just
+(:code:`pageObj.10`). When **copying on the same level**, you can
 refer to the copied object's name, **prepended by a dot**.
 
 The following produces the same result as above:
@@ -319,7 +319,7 @@ Object references: the equal smaller "=<" sign
 **In the context of TypoScript Templates** it is possible to create
 references from one object to another. References mean that multiple
 positions in an object tree can use the same object at another
-position without making an actual copy of the object but by simply
+position without making an actual copy of the object but by
 pointing to the objects full object path.
 
 The obvious advantage is that a **change of code to the original
