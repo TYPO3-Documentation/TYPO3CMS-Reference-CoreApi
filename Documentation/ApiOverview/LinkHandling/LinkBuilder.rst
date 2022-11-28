@@ -10,8 +10,8 @@ A link builder, a class extending the abstract class
 :php:`\TYPO3\CMS\Frontend\Typolink\AbstractTypolinkBuilder` is called whenever
 a link is rendered in the frontend.
 
-There are specific link builders for each type of link. Which link is to
-be called is determined by the class configured in global configuration,
+There are specific link builders for each type of link. Which link to
+call is determined by the class configured in global configuration,
 see :ref:`typo3ConfVars_fe_typolinkBuilder`.
 
 You can register a custom link builder in your extension's
