@@ -25,7 +25,7 @@ The result::
 
    <h1>An example title</h1>
 
-In the template's HTML code, simply wrap the variable name into curly
+In the template's HTML code, wrap the variable name into curly
 braces to output it:
 
 .. _fluid-arrays:
