@@ -9,7 +9,7 @@ Flash messages API
 Instantiate a flash message
 ---------------------------
 
-Creating a flash message is achieved by simply instantiating an object
+Creating a flash message is achieved by instantiating an object
 of class :php:`\TYPO3\CMS\Core\Messaging\FlashMessage`:
 
 .. code-block:: php

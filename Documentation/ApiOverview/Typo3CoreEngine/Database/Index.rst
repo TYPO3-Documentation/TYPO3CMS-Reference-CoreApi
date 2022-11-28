@@ -23,7 +23,7 @@ create a new record.
 system.
 
 The data and commands are created as multidimensional arrays and to
-understand the API of DataHandler you simply need to understand the
+understand the API of DataHandler you need to understand the
 hierarchy of these two arrays.
 
 .. caution::

@@ -6,7 +6,7 @@
 Simple usage
 ============
 
-The most basic use is when you just want an object that handles a
+The most basic use is when you want an object that handles a
 given service type:
 
 .. code-block:: php

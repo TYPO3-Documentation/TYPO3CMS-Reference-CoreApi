@@ -1,56 +1,57 @@
-.. include:: /Includes.rst.txt
+..  include:: /Includes.rst.txt
 
-.. _database-connection-pool:
+..  _database-connection-pool:
 
 ==============
 ConnectionPool
 ==============
 
-TYPO3's interface to execute queries via Doctrine DBAL typically starts by asking
-the `ConnectionPool` for a `QueryBuilder` or a `Connection` object, handing over the table name to be queried:
+TYPO3's interface for executing queries via Doctrine DBAL starts with
+a request to the :php:`ConnectionPool` for a :php:`QueryBuilder` or a
+:php:`Connection` object and passing the table name to be queried:
 
-.. code-block:: php
-   :caption: EXT:some_extension/Classes/SomeClass.php
+..  literalinclude:: _MyTableRepository.php
+    :caption: EXT:my_extension/Classes/Domain/Model/MyTableRepository.php
 
-   // use TYPO3\CMS\Core\Utility\GeneralUtility;
-   // use TYPO3\CMS\Core\Database\ConnectionPool;
-   // Get a query builder for a table
-   $queryBuilder = GeneralUtility::makeInstance(ConnectionPool::class)->getQueryBuilderForTable('tx_myext_comments');
-   // or
-   // Get a connection for a table
-   $connection = GeneralUtility::makeInstance(ConnectionPool::class)->getConnectionForTable('tx_myext_comments');
-
-
-The `QueryBuilder` is the default workhorse object used by extension authors to express complex queries,
-while a `Connection` instance can be used as shortcut to deal with some simple query cases and little written down code.
-
+The :php:`QueryBuilder` is the default object used by extension
+authors to express complex queries, while a :php:`Connection` instance can be
+used as a shortcut to handle some simple query cases.
 
 Pooling
 =======
 
-TYPO3 can handle multiple connections to different database endpoints at the same time. This
-can be configured on a per-table basis in :php:`$GLOBALS['TYPO3_CONF_VARS']`. It allows running tables
-on different databases, without an extension developer taking care of that.
+TYPO3 can handle multiple connections to different database endpoints at the
+same time. This can be configured for each individual table in
+:php:`$GLOBALS['TYPO3_CONF_VARS']` (see :ref:`database configuration
+<database-configuration>` for details). This makes it possible to run tables on
+different databases without an extension developer having to worry about it.
 
-The `ConnectionPool` implements this feature: It looks up a configured table-to-database
-mapping and can return a `Connection` or a `QueryBuilder` instance for that specific connection.
-Those objects internally know which target connection they are dealing with and will
-for instance quote field names accordingly.
+The :php:`ConnectionPool` implements this feature: It looks for configured
+table-to-database mapping and can return a :php:`Connection` or a
+:php:`QueryBuilder` instance for that specific connection. These objects know
+internally which target connection they are dealing with and will quote field
+names accordingly, for instance.
 
-The transparency of tables to different database endpoints is limited, though:
+Beware
+------
 
-Executing a table `JOIN` between two tables that point to different connections will throw an exception.
-This restriction may in practice create implicit "groups" of tables that need to point to one connection
-at once if an extension or the TYPO3 Core  joins those tables.
+However, the transparency of tables for different database endpoints is limited.
 
-This can turn out as a headache if multiple different extensions use for instance the Core category or
-collection API with their mm table joins between Core internal tables and their extension's counterparts.
+Executing a table :sql:`JOIN` between two tables that reference different
+connections will result in an exception. This restriction may in practice lead
+to implicit "groups" of tables that must to point to a single connection when an
+extension or the TYPO3 Core joins these tables.
 
-That situation is not easy to deal with. At the time of this writing the Core development will
-eventually implement some non-join fallbacks for typical cases that would be good to decouple, though.
+This can be problematic when several different extensions use, for instance, the
+Core category or collection API with their mm table joins between Core internal
+tables and their extension counterparts.
 
-.. tip::
+That situation is not easy to deal with. At the time of writing the Core
+development will implement eventually some non-join fallbacks for typical cases
+that would be good to decouple, though.
 
-   In case joins cannot be decoupled but still affected tables must run on different databases,
-   and if the code can not be easily adapted, some DBMS like `PostgreSQL` allow executing those
-   queries by having own connection handlers to different other endpoints on its own.
+..  tip::
+    In the case joins cannot be decoupled, but still need to run affected tables
+    on different databases, and when the code can not be easily adapted, some
+    DBMS like PostgreSQL allow these queries to be executed by having their own
+    connection handlers to various other endpoints.

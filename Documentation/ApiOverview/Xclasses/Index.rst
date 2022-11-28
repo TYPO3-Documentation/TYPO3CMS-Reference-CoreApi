@@ -96,7 +96,7 @@ In this example, we declare that the :code:`\TYPO3\CMS\Backend\Controller\NewRec
 will be overridden by the :code:`\T3docs\Examples\Xclass\NewRecordController`
 class, the latter being part of the :t3ext:`examples` extension.
 
-When XCLASSing a class that does not use namespaces, simply use that class' name
+When XCLASSing a class that does not use namespaces, use that class name
 in the declaration.
 
 
@@ -112,7 +112,7 @@ XCLASS breaking after a code update.
 .. tip::
 
    You're even safer if you can do your changes before or after the parent method
-   and just call the latter with :code:`parent::`.
+   and call the latter with :code:`parent::`.
 
 The example below extends the new record wizard screen. It first calls the original
 method and then adds its own content:

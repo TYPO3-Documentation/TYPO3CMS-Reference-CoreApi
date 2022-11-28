@@ -114,7 +114,7 @@ base
 
 The base is the base domain on which a website runs. It accepts either a
 fully qualified URL or a relative segment "/" to react to any domain name.
-It is possible to set a site base prefix to just :samp:`/site1`, :samp:`/site2`
+It is possible to set a site base prefix to :samp:`/site1`, :samp:`/site2`
 or even :samp:`example.com` instead of entering a full URI.
 
 This allows a site base as :samp:`example.com` with http and https protocols to

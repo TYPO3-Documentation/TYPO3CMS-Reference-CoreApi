@@ -117,7 +117,7 @@ intervals.
 In case you are also storing backups on the production server, make
 sure that they are placed outside of the root directory of your
 website and cannot be accessed with a browser. Otherwise everybody
-could simply download your backups, including sensitive data, such as
+could download your backups, including sensitive data, such as
 passwords (not revealing the URL is not a sufficient measure from a
 security perspective).
 

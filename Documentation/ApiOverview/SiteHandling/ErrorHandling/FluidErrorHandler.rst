@@ -7,8 +7,7 @@ Fluid-based error handler
 =========================
 
 The fluid-based error handler is defined in
-`\TYPO3\CMS\Core\Error\PageErrorHandler\FluidPageErrorHandler
-<https://github.com/typo3/typo3/blob/main/typo3/sysext/core/Classes/Error/PageErrorHandler/FluidPageErrorHandler.php>`__.
+:t3src:`core/Classes/Error/PageErrorHandler/FluidPageErrorHandler.php`.
 
 Properties
 ==========

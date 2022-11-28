@@ -11,8 +11,7 @@ HTTP status. The content of this page is generated via a TYPO3-internal
 sub-request.
 
 The page-based error handler is defined in
-`\\TYPO3\\CMS\\Core\\Error\\PageErrorHandler\\PageContentErrorHandler
-<https://github.com/typo3/typo3/blob/main/typo3/sysext/core/Classes/Error/PageErrorHandler/PageContentErrorHandler.php>`__.
+:t3src:`core/Classes/Error/PageErrorHandler/PageContentErrorHandler.php`.
 
 In order to prevent possible denial-of-service attacks when the page-based error
 handler is used with the curl-based approach, the content of the error page is
