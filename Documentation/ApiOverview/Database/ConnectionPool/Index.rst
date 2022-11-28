@@ -15,7 +15,7 @@ a request to the :php:`ConnectionPool` for a :php:`QueryBuilder` or a
 
 The :php:`QueryBuilder` is the default object used by extension
 authors to express complex queries, while a :php:`Connection` instance can be
-used as a shortcut to handle some simple query cases and little written code.
+used as a shortcut to handle some simple query cases.
 
 Pooling
 =======
