@@ -227,6 +227,17 @@ function or by the :php:`\TYPO3\CMS\Extbase\Mvc\Web\Routing\UriBuilder`.
 
 ..  include:: _CustomLinkBrowser/_GithubLinkBuilder.rst.txt
 
+..  todo: Mention LinkFactory for v12 and other calling API for v11
+
+The link builder must be registered in :file:`ext_localconf.php`, so that
+the correct link builder for the new type can be determined by the calling API:
+
+..  code-block:: php
+    :caption: EXT:examples/ext_localconf.php (Excerpt)
+
+    $GLOBALS['TYPO3_CONF_VARS']['FE']['typolinkBuilder']['github'] =
+        \T3docs\Examples\LinkHandler\GithubLinkBuilder::class;
+
 The function :php:`AbstractTypolinkBuilder::build()` is called with the link
 configuration and data from the typolink function. If the link can be rendered,
 it returns a new :php:`\TYPO3\CMS\Frontend\Typolink\LinkResultInterface`. The
@@ -236,7 +247,7 @@ actual rendering of the link depends on the context the link is rendered in
 If the link cannot be built it should throw a
 :php:`\TYPO3\CMS\Frontend\Typolink\UnableToLinkException`.
 
-..  attention:: This configuration from the :ref:`page TSconfig
+..  attention:: The configuration from the :ref:`page TSconfig
     configuration <tutorial_backend_link_handler-tsconfig>` (step 1)
     is **not available in the frontend**. Therefore the information which
     repository to use must be stored in another way. In this example we
