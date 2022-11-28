@@ -11,8 +11,17 @@ A link builder, a class extending the abstract class
 a link is rendered in the frontend.
 
 There are specific link builders for each type of link. Which link is to
-be called is determined by the class configured in global configuration:
-:php:`$GLOBALS['TYPO3_CONF_VARS']['FE']['typolinkBuilder'][<type>]`.
+be called is determined by the class configured in global configuration,
+see :ref:`typo3ConfVars_fe_typolinkBuilder`.
+
+You can register a custom link builder in your extension's
+:ref:`ext_localconf-php`:
+
+..  code-block:: php
+    :caption: EXT:my_extension/ext_localconf.php
+
+    $GLOBALS['TYPO3_CONF_VARS']['FE']['typolinkBuilder']['mylinkkey'] =
+        \MyVendor\MyExtension\LinkHandler\MyLinkBuilder::class;
 
 The link builders provided by the Core can be found in namespace
 :php:`\TYPO3\CMS\Frontend\Typolink`. It is possible to also create a
