@@ -32,7 +32,7 @@ table-to-database mapping and can return a :php:`Connection` or a
 internally which target connection they are dealing with and will quote field
 names accordingly, for instance.
 
-Caveat
+Beware
 ------
 
 However, the transparency of tables for different database endpoints is limited.
