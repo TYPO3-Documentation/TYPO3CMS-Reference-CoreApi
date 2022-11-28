@@ -7,7 +7,7 @@ Frontend link builder
 =====================
 
 A link builder, a class extending the abstract class
-:php:`\TYPO3\CMS\Frontend\Typolink\AbstractTypolinkBuilder` is called whenever
+:php:`\TYPO3\CMS\Frontend\Typolink\AbstractTypolinkBuilder`, is called whenever
 a link is rendered in the frontend.
 
 There are specific link builders for each type of link. Which link to
