@@ -96,11 +96,6 @@ The name of the service for the injection configuration is
 defined in :php:`ext_localconf.php`). Both can be anything you like, just make
 sure they are unique and clearly hint at the purpose of your cache.
 
-..  note::
-    Since TYPO3v10, you should prefer :ref:`dependency injection
-    <DependencyInjection>` to retrieve cache frontends whenever possible and no
-    longer use the :php:`CacheManager` directly.
-
 Here is some example code which retrieves the cache via dependency injection:
 
 ..  code-block:: php
@@ -112,24 +107,25 @@ Here is some example code which retrieves the cache via dependency injection:
 
     class MyClass
     {
-        private FrontendInterface $cache;
-
-        public function __construct(FrontendInterface $cache)
+        public function __construct(
+            private readonly FrontendInterface $cache
+        )
         {
-            $this->cache = $cache;
         }
 
-        protected function getCachedValue()
+        private function getCachedValue()
         {
             $cacheIdentifier = /* ... logic to determine the cache identifier ... */;
 
-            // If $entry is false, it hasn't been cached. Calculate the value and store it in the cache:
-            if (($value = $this->cache->get($cacheIdentifier)) === false) {
+            // If value is false, it has not been cached
+            $value = $this->cache->get($cacheIdentifier);
+            if ($value === false) {
+                // Calculate the value and store it in the cache
                 $value = /* ... Logic to calculate value ... */;
-                $tags = /* ... Tags for the cache entry ... */
-                $lifetime = /* ... Calculate/Define cache entry lifetime ... */
+                $tags = /* ... Tags for the cache entry ... */;
+                $lifetime = /* ... Calculate/define cache entry lifetime ... */;
 
-                // Save value in cache
+                // Store value in cache
                 $this->cache->set($cacheIdentifier, $value, $tags, $lifetime);
             }
 
