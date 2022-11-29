@@ -1,124 +1,135 @@
-.. include:: /Includes.rst.txt
-.. index::
-   Database; Structure
-   Tables
-.. _database-structure:
-.. _database-structure-requirements:
+..  include:: /Includes.rst.txt
+..  index::
+    Database; Structure
+    Tables
+..  _database-structure:
+..  _database-structure-requirements:
 
 ==================
-Database Structure
+Database structure
 ==================
 
-The database tables used by TYPO3 can be divided into two
-rough categories:
+The database tables used by TYPO3 can be roughly divided into two categories:
 
-- Tables that are used by the system internally and are invisible to backend
-  users (eg. `be_sessions`, `sys_registry`, cache related tables). There are
-  often dedicated PHP API's in the Core extension to manage entries of these
-  tables, for instance the :ref:`Caching framework API <caching>`.
+-   Tables that are used internally by the system and are invisible to backend
+    users (for example, :sql:`be_sessions`, :sql:`sys_registry`, cache-related
+    tables). In the Core extension, there are often dedicated PHP APIs for
+    managing entries in these tables, for instance, the :ref:`caching framework
+    API <caching>`.
 
-- Tables that can be managed via the TYPO3 backend, are shown in the List
-  module and can be edited using :ref:`FormEngine <FormEngine>`.
+-   Tables that can be managed via the TYPO3 backend are shown in the
+    :guilabel:`List` module and can be edited using the :ref:`FormEngine
+    <FormEngine>`.
 
 There are certain requirements for such managed tables:
 
-- The table must be configured in the :doc:`global TCA array <t3tca:Index>`.
-  This will tell TYPO3 things like the table name,
-  features you have configured, the fields of the table and how to
-  render these in the backend, relations to other tables, etc.
+-   The table must be configured in the :doc:`global TCA array <t3tca:Index>`.
+    This tells TYPO3 things like the table name, features you have configured,
+    the fields in the table and how they should be rendered in the backend,
+    relations to other tables, and so on.
 
-- The table must contain at least these fields:
+-   The table must contain at least these fields:
 
-  - "uid" - an auto-incremented integer, PRIMARY key, for the table,
-    containing the *unique ID* of the record in the table.
+    -   :sql:`uid` - an auto-incremented integer and primary key for the table,
+        containing the *unique ID* of the record in the table.
 
-  - "pid" - an integer pointing to the "uid" of the page (record from
-    "pages" table) to which the record belongs.
+    -   :sql:`pid` - an integer pointing to the :sql:`uid` of the page (record
+        from :sql:`pages` table) to which the record belongs.
 
-  - other typical fields include:
+-   Other typical fields include:
 
-    - A "title" field holding the records title as seen in the backend.
+    -   A :sql:`title` field holding the title of the record as seen in the
+        backend.
 
-    - A "description" field holding a description displayed in :guilabel:`Web > List` view.
+    -   A :sql:`description` field holding a description displayed in the
+        :guilabel:`Web > List` view.
 
-    - A "crdate" field holding the creation time of the record.
+    -   A :sql:`crdate` field holding the creation time of the record.
 
-    - A "tstamp" field holding the last modification time of the record.
+    -   A :sql:`tstamp` field holding the last modification time of the
+        record.
 
-    - A "sorting" field holding an order if records are sorted manually.
+    -   A :sql:`sorting` field holding an order when records are sorted
+        manually.
 
-    - A "deleted" field which tells TYPO3 that the record is deleted
-      (in effect implementing a "soft delete" feature; records with a
-      "deleted" field are not truly deleted from the database).
+    -   A :sql:`deleted` field which tells TYPO3 that the record is deleted
+        (actually implementing a "soft delete" feature; records with a
+        :sql:`deleted` field are not truly deleted from the database).
 
-    - A "hidden" or "disabled" field for records which exist but should not
-      be used (e.g. disabled backend users, content not visible in the frontend).
+    -   A :sql:`hidden` or :sql:`disabled` field for records which exist but
+        should not be used (for example, disabled backend users, content
+        not visible in the frontend).
 
-.. note::
+..  note::
+    With the exception of the :sql:`uid` and :sql:`pid` fields, all other fields
+    do not automatically fill a role as soon as they exist. Their existence must
+    be declared in the :ref:`TCA configuration <t3tca:ctrl>`. This means that
+    such fields can also be named freely, the above are the default names TYPO3
+    uses - for consistency reasons it is recommended to name them that way.
 
-   Except for the "uid" and "pid" fields, all other fields do not fill a role
-   automatically as soon as they exist. Their existence must be declared in
-   the :ref:`TCA configuration <t3tca:ctrl>`. This means that such fields can
-   also be named freely, the above are the default names TYPO3 uses - for
-   consistency it is recommended to name them that way.
 
-
-.. index:: Tables; pages
-.. _database-structure-pages:
+..  index:: Tables; pages
+..  _database-structure-pages:
 
 The "pages" table
 =================
 
-The `pages` table has a special status: It is the backbone of TYPO3 CMS, as it provides
-the hierarchical page structure into which all other TYPO3 CMS managed records are positioned.
-All other managed tables in TYPO3 have a `pid` field that points to a `uid` record in this table.
-So any managed table record in TYPO3 is always positioned on exactly one page in the page tree.
-This makes the `pages` table the mother of all other managed tables. It can be seen as a directory
-tree with all other table records as files.
+The :sql:`pages` table has a special status: It is the backbone of TYPO3, as it
+provides the hierarchical page structure into which all other records managed by
+TYPO3 are placed. All other managed tables in TYPO3 have a :sql:`pid`
+field that points to a :sql:`uid` record in this table. Thus, each managed table
+record in TYPO3 is always placed on exactly one page in the page tree. This
+makes the :sql:`pages` table the mother of all other managed tables. It can be
+seen as a directory tree with all other table records as files.
 
-Standard pages are quite literally web site pages in the frontend. But they can also be storage
-spaces in the backend, very much like folders on a hard disk. For any record, the `pid` field
-contains a reference to the page where that record is stored. For pages, the `pid` fields behaves
-as a reference to their parent pages.
+Standard pages are literally website pages in the frontend. But they can also be
+storage spaces in the backend, similar to folders on a hard disk. For each
+record, the :sql:`pid` field contains a reference to the page where that
+record is stored. For pages, the :sql:`pid` fields behaves as a reference to
+their parent pages.
 
-The special "root" page has some unique properties: its pid is 0 (zero), it does not exist as
-a row in the `pages` table, only admin-users can access records on it and these records have
-to be :ref:`explicitly configured to reside in the root page <t3tca:ctrl-reference-rootlevel>` - usually
-table records may only be created on a real page.
+The special "root" page has some unique properties: its :sql:`pid` is 0 (zero),
+it does not exist as a row in the :sql:`pages` table, only users with
+administrative rights can access records on it, and these records must be
+:ref:`explicitly configured to reside in the root page
+<t3tca:ctrl-reference-rootlevel>` - usually, table records can only be created
+on a real page.
 
-.. index::
-   Tables; MM relations
-   Tables; Cache
-   Tables; System information
-.. _database-structure-other-tables:
+..  index::
+    Tables; MM relations
+    Tables; Cache
+    Tables; System information
+..  _database-structure-other-tables:
 
 Other Tables
 ============
 
-The tables which are not managed via the TYPO3 CMS backend fill various
-roles. Some of the most common are:
+The tables which are not managed through the TYPO3 backend serve various
+purposes. Some of the most common are:
 
-- MM relations: when tables are related using a many-to-many relationship,
-  another table must hold these relations. Examples are the table storing
-  relations between categories and categorized records
-  ("sys\_category\_record\_mm") or the table storing relations
-  between files and their various usages in pages, content elements, etc.
-  ("sys\_file\_reference"). The latter is an interesting example,
-  because it does actually appear in the backend, although only
-  as part of :ref:`inline records <t3tca:columns-inline>`.
+-   **MM relations:** When tables are connected via a many-to-many relationship,
+    another table must store these relations. Examples are the table storing
+    relations between :ref:`categories <categories>` and categorized records
+    (:sql:`"sys_category_record_mm`) or the table storing relations
+    between files and their various usages in pages, content elements, etc.
+    (:sql:`sys_file_reference`). The latter is an interesting example,
+    because it actually appears in the backend, although only as part of
+    :ref:`inline records <t3tca:columns-inline>`.
 
-- Cache: when a cache is defined as using the database as a cache backend,
-  TYPO3 CMS will automatically create and manage the relevant cache tables.
+-   **Cache:** If a :ref:`cache <caching>` is defined to use the database as a
+    :ref:`cache backend <caching-backend>`, TYPO3 automatically creates and
+    manages the relevant cache tables.
 
-- System information: there exist tables storing information about sessions,
-  both frontend and backend ("fe\_sessions" and "be\_sessions" respectively),
-  a table for a central registry ("sys\_registry") and quite a few others.
+-   **System information:** There are tables that store information about
+    :ref:`sessions <sessions>`, both frontend and backend (:sql:`fe_sessions`
+    and `be_sessions`  respectively), a table for a central registry
+    (:sql:`sys_registry`) and some others.
 
-All these tables are not subject to the uid/pid constraint mentioned
-above, but they may have such fields if it is convenient for whatever
+All these tables are not subject to the :sql:`uid`/:sql:`pid` constraint
+mentioned above, but they may have such fields if it is convenient for some
 reason.
 
-There is no way such tables can be managed via the TYPO3 CMS
-backend unless a specific module provides a form of access to it.
-For example, the :guilabel:`System > Log` module provides an interface
-to browse records from the :sql:`sys_log` table.
+There is no way to manage such tables through the TYPO3 backend, unless a
+specific module provides some form of access to them. For example, the
+:guilabel:`System > Log` module provides an interface for browsing records
+from the :sql:`sys_log` table.
