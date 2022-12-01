@@ -21,6 +21,9 @@ The database tables used by TYPO3 can be roughly divided into two categories:
     :guilabel:`List` module and can be edited using the :ref:`FormEngine
     <FormEngine>`.
 
+Requirements
+============
+
 There are certain requirements for such managed tables:
 
 -   The table must be configured in the :doc:`global TCA array <t3tca:Index>`,
@@ -36,29 +39,27 @@ There are certain requirements for such managed tables:
     -   :sql:`pid` - an integer pointing to the :sql:`uid` of the page (record
         from :sql:`pages` table) to which the record belongs.
 
--   Other typical fields include:
+Typical fields
+==============
 
-    -   A :sql:`title` field holding the title of the record as seen in the
-        backend.
+-   A :sql:`title` field holding the title of the record as seen in the backend.
 
-    -   A :sql:`description` field holding a description displayed in the
-        :guilabel:`Web > List` view.
+-   A :sql:`description` field holding a description displayed in the
+    :guilabel:`Web > List` view.
 
-    -   A :sql:`crdate` field holding the creation time of the record.
+-   A :sql:`crdate` field holding the creation time of the record.
 
-    -   A :sql:`tstamp` field holding the last modification time of the
-        record.
+-   A :sql:`tstamp` field holding the last modification time of the record.
 
-    -   A :sql:`sorting` field holding an order when records are sorted
-        manually.
+-   A :sql:`sorting` field holding an order when records are sorted manually.
 
-    -   A :sql:`deleted` field which tells TYPO3 that the record is deleted
-        (actually implementing a "soft delete" feature; records with a
-        :sql:`deleted` field are not truly deleted from the database).
+-   A :sql:`deleted` field which tells TYPO3 that the record is deleted
+    (actually implementing a "soft delete" feature; records with a
+    :sql:`deleted` field are not truly deleted from the database).
 
-    -   A :sql:`hidden` or :sql:`disabled` field for records which exist but
-        should not be used (for example, disabled backend users, content
-        not visible in the frontend).
+-   A :sql:`hidden` or :sql:`disabled` field for records which exist but should
+    not be used (for example, disabled backend users, content not visible in the
+    frontend).
 
 ..  note::
     With the exception of the :sql:`uid` and :sql:`pid` fields, all other fields
