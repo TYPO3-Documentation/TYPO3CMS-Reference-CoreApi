@@ -20,6 +20,9 @@ Internal tables
     managing entries in these tables, for instance, the :ref:`caching framework
     API <caching>`.
 
+Managed tables
+==============
+
 -   Tables that can be managed via the TYPO3 backend are shown in the
     :guilabel:`List` module and can be edited using the :ref:`FormEngine
     <FormEngine>`.
