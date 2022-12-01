@@ -11,6 +11,9 @@ Database structure
 
 The database tables used by TYPO3 can be roughly divided into two categories:
 
+Internal tables
+===========
+
 -   Tables that are used internally by the system and are invisible to backend
     users (for example, :sql:`be_sessions`, :sql:`sys_registry`, cache-related
     tables). In the Core extension, there are often dedicated PHP APIs for
