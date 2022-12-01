@@ -10,7 +10,8 @@ final class MyRepository
 {
     private ConnectionPool $connectionPool;
 
-    public function __construct(ConnectionPool $connectionPool) {
+    public function __construct(ConnectionPool $connectionPool)
+    {
         $this->connectionPool = $connectionPool;
     }
 
