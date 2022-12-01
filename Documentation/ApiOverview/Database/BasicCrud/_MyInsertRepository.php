@@ -6,7 +6,7 @@ namespace Vendor\MyExtension\Domain\Repository;
 
 use TYPO3\CMS\Core\Database\ConnectionPool;
 
-class MyInsertRepository
+final class MyInsertRepository
 {
     private ConnectionPool $connectionPool;
 

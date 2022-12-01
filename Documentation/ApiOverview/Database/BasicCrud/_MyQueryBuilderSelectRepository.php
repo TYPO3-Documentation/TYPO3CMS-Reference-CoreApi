@@ -9,7 +9,7 @@ use TYPO3\CMS\Core\Database\ConnectionPool;
 use TYPO3\CMS\Core\Database\Query\Restriction\DeletedRestriction;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 
-class MyQueryBuilderSelectRepository
+final class MyQueryBuilderSelectRepository
 {
     private ConnectionPool $connectionPool;
 
