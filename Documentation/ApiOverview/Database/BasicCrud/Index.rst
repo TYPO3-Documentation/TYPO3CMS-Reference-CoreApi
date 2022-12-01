@@ -1,201 +1,149 @@
-.. include:: /Includes.rst.txt
-.. index::
-   Database; CRUD
-   Database; Create, read, update, and delete operations
-.. _database-basic-crud:
+..  include:: /Includes.rst.txt
+..  index::
+    Database; CRUD
+    Database; Create, read, update, and delete operations
+..  _database-basic-crud:
 
 ========================================================
 Basic create, read, update, and delete operations (CRUD)
 ========================================================
 
-A list of basic usage examples of the query API. This is just a kickstart.
-Details on the single methods are found in the following chapters, especially
-:ref:`QueryBuilder <database-query-builder>` and :ref:`Connection <database-connection>`.
+This section provides a list of basic usage examples of the query API. This is
+just a starting point. Details about the single methods can be found in the
+following chapters, especially :ref:`QueryBuilder <database-query-builder>` and
+:ref:`Connection <database-connection>`.
 
-.. note::
+All examples use :ref:`dependency injection <DependencyInjection>` to provide
+the :ref:`ConnectionPool <database-connection-pool>` in the classes.
 
-    The examples use the shorthand syntax for class names. Please refer to :ref:`Class overview <database-class-overview>` for the full namespace.
 
-.. index:: Database; INSERT
+.. contents:: **Table of Contents**
+   :local:
 
-INSERT a Row
+
+..  index:: Database; INSERT
+
+Insert a row
 ============
 
-A straight insert to a table:
+A direct insert into a table:
 
-.. code-block:: php
+..  literalinclude:: _MyInsertRepository.php
+    :caption: EXT:my_extension/Classes/Domain/Repository/MyInsertRepository.php
 
-    // use TYPO3\CMS\Core\Utility\GeneralUtility;
-    // use TYPO3\CMS\Core\Database\ConnectionPool;
+This results in the following SQL statement:
 
-    GeneralUtility::makeInstance(ConnectionPool::class)->getConnectionForTable('tt_content')
-        ->insert(
-            'tt_content',
-            [
-                'pid' => (int)42,
-                'bodytext' => 'bernd',
-            ]
-        );
+..  code-block:: sql
 
-.. code-block:: sql
-
-    INSERT INTO `tt_content` (`pid`, `bodytext`) VALUES ('42', 'bernd')
+    INSERT INTO `tt_content` (`pid`, `bodytext`)
+        VALUES ('42', 'bernd')
 
 
 .. index:: Database; SELECT
 
 .. _database-select:
 
-SELECT a Single Row
+Select a single row
 ===================
 
-Straight fetch of a single row from `tt_content` table:
+Fetching a single row directly from the :sql:`tt_content` table:
 
-.. code-block:: php
+..  literalinclude:: _MySelectRepository.php
+    :caption: EXT:my_extension/Classes/Domain/Repository/MySelectRepository.php
 
-    // use TYPO3\CMS\Core\Utility\GeneralUtility;
-    // use TYPO3\CMS\Core\Database\ConnectionPool;
+Result in :php:`$row`:
 
-    $uid = 4;
-    $row = GeneralUtility::makeInstance(ConnectionPool::class)
-        ->getConnectionForTable('tt_content')
-        ->select(
-            ['uid', 'pid', 'bodytext'], // fields to select
-            'tt_content', // from
-            [ 'uid' => (int)$uid ] // where
-        )
-        ->fetchAssociative();
-
-
-Result in $row:
-
-.. code-block:: php
+..  code-block:: none
 
     array(3 items)
        uid => 4 (integer)
        pid => 35 (integer)
        bodytext => 'some content' (12 chars)
 
+The engine encloses field names in quotes, adds default TCA restrictions such as
+:sql:`deleted=0`, and prepares a query to be executed with this final statement:
 
-The engine quotes field names, adds default TCA restrictions like "deleted=0",
-and prepares a query executed with this final statement:
-
-.. code-block:: sql
+..  code-block:: sql
 
     SELECT `uid`, `pid`, `bodytext`
         FROM `tt_content`
         WHERE (`uid` = '4')
             AND ((`tt_content`.`deleted` = 0)
             AND (`tt_content`.`hidden` = 0)
-            AND (`tt_content`.`starttime` <= 1473447660)
-            AND ((`tt_content`.`endtime` = 0) OR (`tt_content`.`endtime` > 1473447660)))
+            AND (`tt_content`.`starttime` <= 1669838885)
+            AND ((`tt_content`.`endtime` = 0) OR (`tt_content`.`endtime` > 1669838885)))
+
+..  note::
+    The default restrictions :sql:`deleted`, :sql:`hidden`, :sql:`startime` and
+    :sql:`endtime` based on the :ref:`TCA setting of a table <t3tca:ctrl>` are
+    only applied to :sql:`select()` calls, they are **not** added for
+    :sql:`delete()` or other query types.
 
 
-.. note::
+Select multiple rows with some "where" magic
+--------------------------------------------
 
-   Default restrictions `deleted`, `hidden`, `startime` and `endtime` based on `TCA` setting of a table
-   are only applied to `select()` calls, they are *not* added for `delete()` or other query types.
+Advanced query using the :php:`QueryBuilder` and manipulating the default
+restrictions:
 
+..  literalinclude:: _MyQueryBuilderSelectRepository.php
+    :caption: EXT:my_extension/Classes/Domain/Repository/MyQueryBuilderSelectRepository.php
 
-SELECT Multiple Rows With Some WHERE Magic
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Result in :php:`$rows`:
 
-Advanced query using the `QueryBuilder` and manipulating the default restrictions:
+..  code-block:: none
 
-.. code-block:: php
+    array(2 items)
+        0 => array(3 items)
+            uid => 4 (integer)
+            pid => 35 (integer)
+            bodytext => 'bernd' (5 chars)
+        1 => array(3 items)
+            uid => 366 (integer)
+            pid => 13 (integer)
+            bodytext => 'klaus' (5 chars)
 
-    // use TYPO3\CMS\Core\Utility\GeneralUtility;
-    // use TYPO3\CMS\Core\Database\ConnectionPool;
-    // use TYPO3\CMS\Core\Database\Query\Restriction\DeletedRestriction
+The executed query looks like this:
 
-    $uid = 4;
-    // Get a query builder for a query on table "tt_content"
-    $queryBuilder = GeneralUtility::makeInstance(ConnectionPool::class)->getQueryBuilderForTable('tt_content');
-    // Remove all default restrictions (delete, hidden, starttime, stoptime), but add DeletedRestriction again
-    $queryBuilder->getRestrictions()
-        ->removeAll()
-        ->add(GeneralUtility::makeInstance(DeletedRestriction::class));
-    // Execute a query with "bodytext=klaus OR uid=4" and proper quoting
-    $rows = $queryBuilder
-        ->select('uid', 'pid', 'bodytext')
-        ->from('tt_content')
-        ->where(
-            $queryBuilder->expr()->or(
-                $queryBuilder->expr()->eq('bodytext', $queryBuilder->createNamedParameter('klaus')),
-                $queryBuilder->expr()->eq('uid', $queryBuilder->createNamedParameter($uid, \PDO::PARAM_INT))
-            )
-        )
-        ->execute()
-        ->fetchAllAssociative();
-
-Result in $rows:
-
-.. code-block:: php
-
-   array(2 items)
-      0 => array(3 items)
-         uid => 4 (integer)
-         pid => 35 (integer)
-         bodytext => 'bernd' (5 chars)
-      1 => array(3 items)
-         uid => 366 (integer)
-         pid => 13 (integer)
-         bodytext => 'klaus' (5 chars)
-
-
-The executed query looks like:
-
-.. code-block:: sql
+..  code-block:: sql
 
     SELECT `uid`, `pid`, `bodytext`
         FROM `tt_content`
         WHERE ((`bodytext` = 'klaus') OR (`uid` = 4))
             AND (`tt_content`.`deleted` = 0)
 
+
 .. index:: Database; UPDATE
 
-UPDATE Multiple Rows
+Update multiple rows
 ====================
 
-.. code-block:: php
+..  literalinclude:: _MyUpdateRepository.php
+    :caption: EXT:my_extension/Classes/Domain/Repository/MyUpdateRepository.php
 
-    // use TYPO3\CMS\Core\Utility\GeneralUtility;
-    // use TYPO3\CMS\Core\Database\ConnectionPool;
+The executed query looks like this:
 
-    GeneralUtility::makeInstance(ConnectionPool::class)->getConnectionForTable('tt_content')
-        ->update(
-            'tt_content',
-            [ 'bodytext' => 'bernd' ], // set
-            [ 'bodytext' => 'klaus' ] // where
-        );
+..  code-block:: sql
 
+    UPDATE `tt_content` SET `bodytext` = 'bernd'
+        WHERE `bodytext` = 'klaus'
 
-.. code-block:: sql
-
-    UPDATE `tt_content` SET `bodytext` = 'bernd' WHERE `bodytext` = 'klaus'
+..  tip::
+    You can also use the :php:`QueryBuilder` to create more complex update
+    queries. For examples, see the :ref:`QueryBuilder chapter
+    <database-query-builder-update-set>`.
 
 
-.. tip::
-
-   You can also use `QueryBuilder` for generating more complex update queries. See examples in the :ref:`QueryBuilder chapter <database-query-builder-update-set>`.
-
-
-DELETE a Row
+Delete a row
 ============
 
-.. code-block:: php
+..  literalinclude:: _MyDeleteRepository.php
+    :caption: EXT:my_extension/Classes/Domain/Repository/MyDeleteRepository.php
 
-    // use TYPO3\CMS\Core\Utility\GeneralUtility;
-    // use TYPO3\CMS\Core\Database\ConnectionPool;
+The executed query looks like this:
 
-    GeneralUtility::makeInstance(ConnectionPool::class)->getConnectionForTable('tt_content')
-        ->delete(
-            'tt_content', // from
-            [ 'uid' => (int)4711 ] // where
-        );
+..  code-block:: sql
 
-
-.. code-block:: sql
-
-    DELETE FROM `tt_content` WHERE `uid` = '4711'
+    DELETE FROM `tt_content`
+        WHERE `uid` = '4711'
 
