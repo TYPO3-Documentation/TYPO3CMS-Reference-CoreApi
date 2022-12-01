@@ -1,266 +1,271 @@
-.. include:: /Includes.rst.txt
+..  include:: /Includes.rst.txt
 
-.. _database-query-builder:
+..  _database-query-builder:
 
-============
-QueryBuilder
-============
+=============
+Query builder
+=============
 
-.. contents:: Table of Contents
-   :depth: 1
-   :local:
+..  contents:: Table of Contents
+    :depth: 1
+    :local:
 
-The `QueryBuilder` provides a set of methods that allow queries to be built programmatically.
+The query builder provides a set of methods to create queries
+programmatically.
 
-This documentation provides examples for the most commonly used queries.
+This chapter provides examples of the most common queries.
 
-.. warning::
-
-   From security point of view, the documentation of
-   :ref:`->createNamedParameter() <database-query-builder-create-named-parameter>` and
-   :ref:`->quoteIdentifier() <database-query-builder-quote-identifier>` are an absolute **must read and follow** section.
-   Make very sure this is understood and use this for **each and every query** to prevent SQL injections!
-
-
-The `QueryBuilder` comes with a happy little list of small methods:
-
-*  Set type of query: :php:`->select()`, :php:`->count()`, :php:`->update()`,
-   :php:`->insert()` and :php:`delete()`
-
-*  Prepare `WHERE` conditions
-
-*  Manipulate default `WHERE` restrictions added by TYPO3 for :php:`->select()`
-
-*  Add `LIMIT`, `GROUP BY` and other SQL stuff
-
-*  :php:`executeQuery()` a query and retrieve a result, a
-   :php:`\Doctrine\DBAL\Result` object
+..  warning::
+    From a security point of view, the documentation of
+    :ref:`->createNamedParameter() <database-query-builder-create-named-parameter>`
+    and :ref:`->quoteIdentifier() <database-query-builder-quote-identifier>` are
+    an absolute **must read and follow** section. Make very sure you understand
+    this and use it for **each and every query** to prevent SQL
+    injections!
 
 
-Most methods of the `QueryBuilder` return `$this` and can be chained:
+The query builder comes with a list of small methods:
 
-.. code-block:: php
-   :caption: EXT:some_extension/Classes/SomeClass.php
+*   Set type of query: :php:`->select()`, :php:`->count()`, :php:`->update()`,
+    :php:`->insert()` and :php:`->delete()`
 
-   // use TYPO3\CMS\Core\Utility\GeneralUtility;
-   // use TYPO3\CMS\Core\Database\ConnectionPool;
-   // use TYPO3\CMS\Core\Database\Connection;
-   $queryBuilder = GeneralUtility::makeInstance(ConnectionPool::class)->getConnectionForTable('pages')->createQueryBuilder();
-   $queryBuilder->select('uid')->from('pages');
+*   Prepare :sql:`WHERE` conditions
 
-.. _database-query-builder-instantiation:
+*   Manipulate default :sql:`WHERE` restrictions added by TYPO3 for
+    :php:`->select()`
+
+*   Add :sql:`LIMIT`, :sql:`GROUP BY` and other SQL functions
+
+*   :php:`executeQuery()` executes a :sql:`SELECT` query and returns a result,
+    a :php:`\Doctrine\DBAL\Result` object
+
+*   :php:`executeStatement()` executes an :sql:`INSERT`, :sql:`UPDATE` or
+    :sql:`DELETE` statement and returns the number of affected rows.
+
+
+Most of the query builder methods provide a fluent interface, return
+an instance of the current query builder itself, and can be chained:
+
+..  code-block:: php
+
+    $queryBuilder
+        ->select('uid')
+        ->from('pages');
+
+..  _database-query-builder-instantiation:
 
 Instantiation
 =============
 
-To create an instance of the :php:`QueryBuilder`, call
-:php:`ConnectionPool::getQueryBuilderForTable()` and pass the table as an argument:
+To create an instance of the query builder, call
+:php:`ConnectionPool::getQueryBuilderForTable()` and pass the table as an
+argument. The :ref:`ConnectionPool <database-connection-pool>` object can be
+injected via :ref:`dependency injection <DependencyInjection>`.
 
-.. code-block:: php
-   :caption: EXT:some_extension/Classes/SomeClass.php
+..  literalinclude:: _MyRepository.php
+    :caption: EXT:my_extension/Classes/Domain/Repository/MyRepository.php
 
-   // use TYPO3\CMS\Core\Utility\GeneralUtility;
-   // use TYPO3\CMS\Core\Database\ConnectionPool;
-   $queryBuilder = GeneralUtility::makeInstance(ConnectionPool::class)->getQueryBuilderForTable('aTable');
+..  attention::
+    Never instantiate and initialize the query builder manually using
+    dependency injection or :php:`GeneralUtility::makeInstance()`, otherwise you
+    will miss essential dependencies and runtime setup.
 
-.. attention::
-   Never instantiate and initialize the `QueryBuilder` manually using :php:`GeneralUtility::makeInstance()` since you'll miss essential dependencies and runtime setup.
-
-The :ref:`dependency injection arguments <DependencyInjectionArguments>` section
-contains information on how to inject a QueryBuilder instance.
-
-.. note::
-
-   The QueryBuilder holds internal state and should not be re-used for different queries: Use one
-   query builder per query. Get a fresh one by calling :php:`$connection->createQueryBuilder()` if the
-   same table is affected, or use :php:`$connectionPool->getQueryBuilderForTable()` for a query
-   on to a different table. Don't worry, creating those object instances is rather quick.
+..  note::
+    The QueryBuilder holds internal state and should not be reused for
+    different queries: Use one query builder per query. Get a fresh one by
+    calling :php:`$connection->createQueryBuilder()` if the same table is
+    involved, or use :php:`$connectionPool->getQueryBuilderForTable()` for a
+    query to a different table. Don't worry, creating those object instances
+    is quite fast.
 
 
-.. _database-query-builder-select:
+..  _database-query-builder-select:
 
 select() and addSelect()
 ========================
 
-Create a `SELECT` query.
+Create a :sql:`SELECT` query.
 
 Select all fields:
 
-.. code-block:: php
-   :caption: EXT:some_extension/Classes/SomeClass.php
+..  code-block:: php
+    :caption: EXT:my_extension/Classes/Domain/Repository/MyRepository.php
 
-   // SELECT *
-   $queryBuilder->select('*')
+    // SELECT *
+    $queryBuilder->select('*')
 
 
-:php:`->select()` and a number of other methods of the `QueryBuilder`
+:php:`->select()` and a number of other methods of the query builder
 are `variadic <https://en.wikipedia.org/wiki/Variadic_function>`__
-and can handle any number of arguments. For :php:`->select()`, every argument
-is interpreted as a single field name to select:
+and can handle any number of arguments. In :php:`->select()` each argument
+is interpreted as a single field name to be selected:
 
-.. code-block:: php
+..  code-block:: php
 
-   // SELECT `uid`, `pid`, `aField`
-   $queryBuilder->select('uid', 'pid', 'aField');
+    // SELECT `uid`, `pid`, `aField`
+    $queryBuilder->select('uid', 'pid', 'aField');
 
-Argument unpacking can be used if the list of fields is available as array already:
+Argument unpacking can be used if the list of fields already is available as
+array:
 
-.. code-block:: php
+..  code-block:: php
 
-   $fields = ['uid', 'pid', 'aField', 'anotherField'];
-   $queryBuilder->select(...$fields);
-
-
-:php:`->select()` supports `AS` and quotes identifiers automatically.
-This can become especially handy in join() operations:
-
-.. code-block:: php
-
-   // SELECT `tt_content`.`bodytext` AS `t1`.`text`
-   $queryBuilder->select('tt_content.bodytext AS t1.text')
+    // SELECT `uid`, `pid`, `aField`, `anotherField`
+    $fields = ['uid', 'pid', 'aField', 'anotherField'];
+    $queryBuilder->select(...$fields);
 
 
-:php:`->select()` sets the list of fields that should be selected and :php:`->addSelect()` can add further items
-to an existing list.
+:php:`->select()` automatically supports :sql:`AS` and quotes identifiers. This
+can be especially useful for :php:`join()` operations:
 
-Mind that :php:`->select()` *replaces* any formerly registered list instead of appending. Thus, it usually doesn't
-make much sense to call :php:`select()` twice in a code flow, or to call it *after* an :php:`->addSelect()`. The methods
-:php:`->where()` and :php:`->andWhere()` share the same behavior: :php:`->where()` replaces all formerly registered
-constraints, :php:`->andWhere()` appends additional constraints.
+..  code-block:: php
+
+    // SELECT `tt_content`.`bodytext` AS `t1`.`text`
+    $queryBuilder->select('tt_content.bodytext AS t1.text')
+
+
+With :php:`->select()` the list of fields to be selected is specified, and with
+:php:`->addSelect()` further elements can be added to an existing list.
+
+Mind that :php:`->select()` **replaces** any formerly registered list instead of
+appending it. Thus, it is not very usefule to call :php:`select()` twice in a
+code flow or **after** an :php:`->addSelect()`. The methods :php:`->where()` and
+:php:`->andWhere()` share the same behavior: :php:`->where()` replaces all
+formerly registered constraints, :php:`->andWhere()` appends additional
+constraints.
 
 A useful combination of :php:`->select()` and :php:`->addSelect()` can be:
 
-.. code-block:: php
+..  code-block:: php
 
-   $queryBuilder->select(...$defaultList);
-   if ($needAdditionalFields) {
-      $queryBuilder->addSelect(...$additionalFields);
-   }
+    $queryBuilder->select(...$defaultList);
+    if ($needAdditionalFields) {
+        $queryBuilder->addSelect(...$additionalFields);
+    }
 
-Calling the function :php:`executeQuery()` on a :php:`->select()` query returns
-a result object (type :php:`\Doctrine\DBAL\Result`). To receive single rows a
-:php:`->fetchAssociative()` loop on that object is used, or
-:php:`->fetchAllAssociative()` to return a single array with all rows.
-A typical code flow of a :sql:`SELECT` query looks like:
+Calling the :php:`executeQuery()` function on a :php:`->select()` query returns
+a result object of type :php:`\Doctrine\DBAL\Result`. To receive single rows, a
+:php:`->fetchAssociative()` loop is used on that object, or
+:php:`->fetchAllAssociative()` to return a single array with all rows. A typical
+code flow of a :sql:`SELECT` query looks like this:
 
-.. code-block:: php
-   :caption: EXT:some_extension/Classes/SomeClass.php
+..  code-block:: php
+    :caption: EXT:my_extension/Classes/Domain/Repository/MyRepository.php
 
-   // use TYPO3\CMS\Core\Utility\GeneralUtility;
-   // use TYPO3\CMS\Core\Database\ConnectionPool;
-   $queryBuilder = GeneralUtility::makeInstance(ConnectionPool::class)->getQueryBuilderForTable('tt_content');
-   $result = $queryBuilder
-      ->select('uid', 'header', 'bodytext')
-      ->from('tt_content')
-      ->where(
-         $queryBuilder->expr()->eq('bodytext', $queryBuilder->createNamedParameter('klaus'))
-      )
-      ->executeQuery();
-   while ($row = $result->fetchAssociative()) {
-      // Do something with that single row
-      debug($row);
-   }
+    $result = $queryBuilder
+        ->select('uid', 'header', 'bodytext')
+        ->from('tt_content')
+        ->where(
+            $queryBuilder->expr()->eq('bodytext', $queryBuilder->createNamedParameter('klaus'))
+        )
+        ->executeQuery();
+    while ($row = $result->fetchAssociative()) {
+        // Do something with that single row
+        debug($row);
+    }
 
-.. _database-query-builder-select-restrictions:
+..  _database-query-builder-select-restrictions:
 
 Default Restrictions
 --------------------
 
-.. note::
-
-   `->select()` and `->count()` queries trigger TYPO3 magic that adds further default where
-   clauses if the queried table is also registered via `$GLOBALS['TCA']`. See the
-   :ref:`RestrictionBuilder <database-restriction-builder>` section for details on that topic.
+..  note::
+    :php:`->select()` and :php:`->count()` queries trigger TYPO3 magic that adds
+    further default where clauses if the queried table is also registered via
+    :php:`$GLOBALS['TCA']`. See the :ref:`RestrictionBuilder
+    <database-restriction-builder>` section for details on that topic.
 
 
 count()
 =======
 
-Create a `COUNT` query, a typical usage:
+Create a :sql:`COUNT` query, a typical usage:
 
-.. code-block:: php
-   :caption: EXT:some_extension/Classes/SomeClass.php
+..  code-block:: php
+    :caption: EXT:my_extension/Classes/Domain/Repository/MyRepository.php
 
-   // use TYPO3\CMS\Core\Utility\GeneralUtility;
-   // use TYPO3\CMS\Core\Database\ConnectionPool;
-   // SELECT COUNT(`uid`) FROM `tt_content` WHERE (`bodytext` = 'klaus')
-   //     AND ((`tt_content`.`deleted` = 0) AND (`tt_content`.`hidden` = 0)
-   //     AND (`tt_content`.`starttime` <= 1475580240)
-   //     AND ((`tt_content`.`endtime` = 0) OR (`tt_content`.`endtime` > 1475580240)))
-   $queryBuilder = GeneralUtility::makeInstance(ConnectionPool::class)->getQueryBuilderForTable('tt_content');
-   $count = $queryBuilder
-      ->count('uid')
-      ->from('tt_content')
-      ->where(
-         $queryBuilder->expr()->eq('bodytext', $queryBuilder->createNamedParameter('klaus'))
-       )
-      ->executeQuery()
-      ->fetchOne();
+    // SELECT COUNT(`uid`) FROM `tt_content` WHERE (`bodytext` = 'klaus')
+    //     AND ((`tt_content`.`deleted` = 0) AND (`tt_content`.`hidden` = 0)
+    //     AND (`tt_content`.`starttime` <= 1669885410)
+    //     AND ((`tt_content`.`endtime` = 0) OR (`tt_content`.`endtime` > 1669885410)))
+    $count = $queryBuilder
+        ->count('uid')
+        ->from('tt_content')
+        ->where(
+            $queryBuilder->expr()->eq('bodytext', $queryBuilder->createNamedParameter('klaus'))
+        )
+        ->executeQuery()
+        ->fetchOne();
 
 
 Remarks:
 
-*  Similar to the :php:`->select()` query type, :php:`->count()` automatically
-   triggers `RestrictionBuilder` magic that adds default `deleted`, `hidden`,
-   `starttime` and `endtime` restrictions if that is defined in `TCA`.
+*   Similar to the :php:`->select()` query type, :php:`->count()` automatically
+    triggers the magic of the :ref:`RestrictionBuilder
+    <database-restriction-builder>` that adds default restrictions such as
+    :sql:`deleted`, :sql:`hidden`, :sql:`starttime` and :sql:`endtime` when
+    defined in TCA.
 
-*  Similar to :php:`->select()` query types, :php:`->executeQuery()` with
-   :php:`->count()` returns a result object of type :php:`\Doctrine\DBAL\Result`.
-   To fetch the number of rows directly, use :php:`->fetchOne()`.
+*   Similar to :php:`->select()` query types, :php:`->executeQuery()` with
+    :php:`->count()` returns a result object of type :php:`\Doctrine\DBAL\Result`.
+    To fetch the number of rows directly, use :php:`->fetchOne()`.
 
-*  First argument to :php:`->count()` is required, typically :php:`->count(*)`
-   or :php:`->count('uid')` is used, the field
-   name is automatically quoted.
+*   The first argument to :php:`->count()` is required, typically
+    :php:`->count(*)` or :php:`->count('uid')` is used, the field name is
+    automatically quoted.
 
-*  There is no support for `DISTINCT`, a :php:`->groupBy()` has to be used
-   instead.
+*   There is no support for :sql:`DISTINCT`, instead a :php:`->groupBy()` has to
+    be used.
 
-*  If combining :php:`->count()` with a :php:`->groupBy()`, the result may
-   return multiple rows. The order of
-   those rows depends on the used `DBMS`. To ensure same order of result rows
-   on multiple different databases,
-   a :php:`->groupBy()` should thus always be combined with a :php:`->orderBy()`.
+*   If :php:`->count()` is combined with :php:`->groupBy()`, the result may
+    return multiple rows. The order of those rows depends on the used
+    :abbr:`DBMS (Database management system)`. Therefore, to ensure the same
+    order of result rows on multiple different databases, a :php:`->groupBy()`
+    should always be combined with an :php:`->orderBy()`.
 
 
 delete()
 ========
 
-Create a `DELETE FROM` query. The method requires the table name to drop
-data from. Classic usage:
+Create a :sql:`DELETE FROM` query. The method requires the table name from which
+data is to be deleted. Classic usage:
 
-.. code-block:: php
-   :caption: EXT:some_extension/Classes/SomeClass.php
+..  code-block:: php
+    :caption: EXT:my_extension/Classes/Domain/Repository/MyRepository.php
 
-   // use TYPO3\CMS\Core\Utility\GeneralUtility;
-   // use TYPO3\CMS\Core\Database\ConnectionPool;
-   // DELETE FROM `tt_content` WHERE `bodytext` = 'klaus'
-   $queryBuilder = GeneralUtility::makeInstance(ConnectionPool::class)->getQueryBuilderForTable('tt_content');
-   $affectedRows = $queryBuilder
-      ->delete('tt_content')
-      ->where(
-         $queryBuilder->expr()->eq('bodytext', $queryBuilder->createNamedParameter('klaus'))
-      )
-      ->executeStatement();
+    // DELETE FROM `tt_content` WHERE `bodytext` = 'klaus'
+    $affectedRows = $queryBuilder
+        ->delete('tt_content')
+        ->where(
+            $queryBuilder->expr()->eq('bodytext', $queryBuilder->createNamedParameter('klaus'))
+        )
+        ->executeStatement();
 
 
 Remarks:
 
-* For simple cases, it is often easier to write and read if using the :php:`->delete()` method of the
-  `Connection` object.
+*   For simple cases it is often easier to write and read using the
+    :php:`->delete()` method of the :ref:`Connection <database-connection>`
+    object.
 
-* In contrast to :php:`->select()`, :php:`->delete()` does *not* add `WHERE` restrictions like ``AND `deleted` = 0``
-  automatically.
+*   In contrast to :php:`->select()`, :php:`->delete()` does **not**
+    automatically add :sql:`WHERE` restrictions like ``AND `deleted` = 0``.
 
-* :php:`->delete()` does *not* magically transform a ``DELETE FROM `tt_content` WHERE `uid` = 4711`` to something like
-  ``UPDATE `tt_content` SET `deleted` = 1 WHERE `uid` = 4711`` internally. A soft-delete must be handled on application
-  level code with a dedicated lookup in :php:`$GLOBALS['TCA']['theTable']['ctrl']['deleted']` to check if
-  a specific table can handle the soft-delete, together with an :php:`->update()` instead.
+*   :php:`->delete()` does **not** magically transform a
+    ``DELETE FROM `tt_content` WHERE `uid` = 4711`` into something like
+    ``UPDATE `tt_content` SET `deleted` = 1 WHERE `uid` = 4711`` internally.
+    A soft-delete must be handled at application level with a dedicated
+    lookup in :php:`$GLOBALS['TCA']['theTable']['ctrl']['deleted']` to check if
+    a specific table can handle the soft-delete, together with an
+    :php:`->update()` instead.
 
-* Multi-table delete is *not* supported: ``DELETE FROM `table1`, `table2``` can not be created.
+*   Deleting from multiple tables at once is **not** supported:
+    ``DELETE FROM `table1`, `table2``` can not be created.
 
-* :php:`->delete()` ignores :php:`->join()`
+*   :php:`->delete()` ignores :php:`->join()`
 
-* :php:`->delete()` ignores :php:`setMaxResults()`: `DELETE` with `LIMIT` does not work.
+*   :php:`->delete()` ignores :php:`setMaxResults()`: :sql:`DELETE` with
+    :sql:`LIMIT` does not work.
 
 
 .. _database-query-builder-update-set:
@@ -268,143 +273,143 @@ Remarks:
 update() and set()
 ==================
 
-Create an `UPDATE` query. Typical usage:
+Create an :sql:`UPDATE` query. Typical usage:
 
-.. code-block:: php
-   :caption: EXT:some_extension/Classes/SomeClass.php
+..  code-block:: php
+    :caption: EXT:my_extension/Classes/Domain/Repository/MyRepository.php
 
-   // use TYPO3\CMS\Core\Utility\GeneralUtility;
-   // use TYPO3\CMS\Core\Database\ConnectionPool;
-   // UPDATE `tt_content` SET `bodytext` = 'peter' WHERE `bodytext` = 'klaus'
-
-   $queryBuilder = GeneralUtility::makeInstance(ConnectionPool::class)->getQueryBuilderForTable('tt_content');
-   $queryBuilder
-      ->update('tt_content')
-      ->where(
-         $queryBuilder->expr()->eq('bodytext', $queryBuilder->createNamedParameter('klaus'))
-      )
-      ->set('bodytext', 'peter')
-      ->executeStatement();
+     // UPDATE `tt_content` SET `bodytext` = 'peter' WHERE `bodytext` = 'klaus'
+    $queryBuilder
+        ->update('tt_content')
+        ->where(
+            $queryBuilder->expr()->eq('bodytext', $queryBuilder->createNamedParameter('klaus'))
+        )
+        ->set('bodytext', 'peter')
+        ->executeStatement();
 
 
-:php:`->update()` requires the table to update as first argument and a table
-alias (e.g. 't') as optional second argument.
-The table alias can then be used in :php:`->set()` and :php:`->where()`
-expressions:
+:php:`->update()` requires the table to update as the first argument and a table
+alias (for example, :sql:`t`) as optional second argument. The table alias can
+then be used in :php:`->set()` and :php:`->where()` expressions:
 
-.. code-block:: php
-   :caption: EXT:some_extension/Classes/SomeClass.php
+..  code-block:: php
+    :caption: EXT:my_extension/Classes/Domain/Repository/MyRepository.php
 
-   // use TYPO3\CMS\Core\Utility\GeneralUtility;
-   // use TYPO3\CMS\Core\Database\ConnectionPool;
-   // UPDATE `tt_content` `t` SET `t`.`bodytext` = 'peter' WHERE `t`.`bodytext` = 'klaus'
-   $queryBuilder = GeneralUtility::makeInstance(ConnectionPool::class)->getQueryBuilderForTable('tt_content');
-   $queryBuilder
-      ->update('tt_content', 't')
-      ->where(
-         $queryBuilder->expr()->eq('t.bodytext', $queryBuilder->createNamedParameter('klaus'))
-      )
-      ->set('t.bodytext', 'peter')
-      ->executeStatement();
+    // UPDATE `tt_content` `t` SET `t`.`bodytext` = 'peter' WHERE `t`.`bodytext` = 'klaus'
+    $queryBuilder
+        ->update('tt_content', 't')
+        ->where(
+            $queryBuilder->expr()->eq('t.bodytext', $queryBuilder->createNamedParameter('klaus'))
+        )
+        ->set('t.bodytext', 'peter')
+        ->executeStatement();
 
-:php:`->set()` requires a field name as first argument and automatically quotes it internally. The second mandatory
-argument is the value a field should be set to, **the value is automatically transformed to a named parameter
-of a prepared statement**. This way, :php:`->set()` key/value pairs are **automatically SQL injection safe by default**.
+:php:`->set()` requires a field name as the first argument and automatically
+quotes it internally. The second mandatory argument is the value to set a field
+to. **The value is automatically transformed to a named parameter of a prepared
+statement**. This way, :php:`->set()` key/value pairs are **automatically SQL
+protected from injection by default**.
 
-If a field should be set to the value of another field from the row, the quoting needs to be turned off and
-:php:`->quoteIdentifier()` and :php:`false` have to be used:
+If a field should be set to the value of another field from the row, quoting
+must be turned off and :php:`->quoteIdentifier()` and :php:`false` have to
+be used:
 
-.. code-block:: php
-   :caption: EXT:some_extension/Classes/SomeClass.php
+..  code-block:: php
+    :caption: EXT:my_extension/Classes/Domain/Repository/MyRepository.php
 
-   // use TYPO3\CMS\Core\Utility\GeneralUtility;
-   // use TYPO3\CMS\Core\Database\ConnectionPool;
-   // UPDATE `tt_content` SET `bodytext` = `header` WHERE `bodytext` = 'klaus'
-   $queryBuilder = GeneralUtility::makeInstance(ConnectionPool::class)->getQueryBuilderForTable('tt_content');
-   $queryBuilder
-      ->update('tt_content')
-      ->where(
-         $queryBuilder->expr()->eq('bodytext', $queryBuilder->createNamedParameter('klaus'))
-      )
-      ->set('bodytext', $queryBuilder->quoteIdentifier('header'), false)
-      ->executeStatement();
+    // UPDATE `tt_content` SET `bodytext` = `header` WHERE `bodytext` = 'klaus'
+    $queryBuilder
+        ->update('tt_content')
+        ->where(
+            $queryBuilder->expr()->eq('bodytext', $queryBuilder->createNamedParameter('klaus'))
+        )
+        ->set('bodytext', $queryBuilder->quoteIdentifier('header'), false)
+        ->executeStatement();
 
 Remarks:
 
-*  For simple cases, it is often easier to use the :php:`->update()` method of the
-   `Connection` object.
+*   For simple cases it is often easier to use the :php:`->update()` method of
+    the :ref:`Connection <database-connection>` object.
 
-*  :php:`->set()` can be called multiple times if multiple fields should be updated.
+*   :php:`->set()` can be called multiple times if multiple fields should be
+    updated.
 
-*  :php:`->set()` requires a field name as first argument and automatically quotes it internally.
+*   :php:`->set()` requires a field name as the first argument and automatically
+    quotes it internally.
 
-*  :php:`->set()` requires the value a field should be set to as second parameter.
+*   :php:`->set()` requires the value to which a field is to be set as the
+    second parameter.
 
-*  :php:`->update()` ignores :php:`->join()` and :php:`->setMaxResults()`.
+*   :php:`->update()` ignores :php:`->join()` and :php:`->setMaxResults()`.
 
-*  The API does not magically add `deleted = 0` or other restrictions as is currently done
-   for example on :ref:`select <database-query-builder-select-restrictions>`.
-   (See also :ref:`RestrictionBuilder <database-restriction-builder>`).
+*   The API does not magically add `deleted = 0` or other restrictions, as is
+    currently the case with :ref:`select
+    <database-query-builder-select-restrictions>`, for example.
+    (See also :ref:`RestrictionBuilder <database-restriction-builder>`).
 
 
 insert() and values()
 =====================
 
-Create an `INSERT` query. Typical usage:
+Create an :sql:`INSERT` query. Typical usage:
 
-.. code-block:: php
-   :caption: EXT:some_extension/Classes/SomeClass.php
+..  code-block:: php
+    :caption: EXT:my_extension/Classes/Domain/Repository/MyRepository.php
 
-   // use TYPO3\CMS\Core\Utility\GeneralUtility;
-   // use TYPO3\CMS\Core\Database\ConnectionPool;
-   $queryBuilder = GeneralUtility::makeInstance(ConnectionPool::class)->getQueryBuilderForTable('tt_content');
-   $affectedRows = $queryBuilder
-      ->insert('tt_content')
-      ->values([
-         'bodytext' => 'klaus',
-         'header' => 'peter',
-      ])
-      ->executeStatement();
+    // INSERT INTO `tt_content` (`bodytext`, `header`) VALUES(`klaus`, `peter`)
+    $affectedRows = $queryBuilder
+        ->insert('tt_content')
+        ->values([
+            'bodytext' => 'klaus',
+            'header' => 'peter',
+        ])
+        ->executeStatement();
 
 
 Remarks:
 
-*  It is often easier to use :php:`->insert()` or :php:`->bulkInsert()` of the `Connection` object.
+*   Often it is often to use :php:`->insert()` or :php:`->bulkInsert()` of the
+    :ref:`Connection <database-connection>` object.
 
-*  :php:`->values()` expects an array of key/value pairs. Both keys (field names / identifiers) and values are
-   automatically quoted. In rare cases, quoting of values can be turned off by setting the second argument
-   to :php:`false`. In those cases the quoting has to be done manually, typically by using :php:`->createNamedParameter()`
-   on the values, use with care ...
+*   :php:`->values()` expects an array of key/value pairs. Both keys (field
+    names / identifiers) and values are automatically quoted. In rare cases,
+    quoting of values can be turned off by setting the second argument to
+    :php:`false`. In those cases, quoting has must done manually, typically
+    by using :php:`->createNamedParameter()` on the values, use with care ...
 
-*  :php:`->executeStatement()` after :php:`->insert()` returns the number of inserted rows, which is typically `1`.
+*   :php:`->executeStatement()` after :php:`->insert()` returns the number of
+    inserted rows, which is typically `1`.
 
-*  `QueryBuilder` does not contain a method to insert multiple rows at once, use :php:`->bulkInsert()` of `Connection`
-   object instead to achieve that.
+*   The query builder does not contain a method for inserting multiple rows at
+    once, use :php:`->bulkInsert()` of the :ref:`Connection
+    <database-connection>` object instead to achieve that.
 
 
 from()
 ======
 
-:php:`->from()` is a must have call for :php:`->select()` and :php:`->count()` query types.
-:php:`->from()` needs a table name and an optional alias name. The method is typically called once per query build
-and the table name is typically the same as what was given to :php:`->getQueryBuilderForTable()`. If the query joins
-multiple tables, the argument should be the name of the first table within
+:php:`->from()` is essential for :php:`->select()` and :php:`->count()` query
+types. :php:`->from()` requires a table name and an optional alias name. The
+method is usually called once per query creation and the table name is usually
+the same as the one passed to :php:`->getQueryBuilderForTable()`. If the query
+joins multiple tables, the argument should be the name of the first table within
 the :php:`->join()` chain:
 
-.. code-block:: php
-   :caption: EXT:some_extension/Classes/SomeClass.php
+..  code-block:: php
+    :caption: EXT:my_extension/Classes/Domain/Repository/MyRepository.php
 
-   // FROM `myTable`
-   $queryBuilder->from('myTable');
+    // FROM `myTable`
+    $queryBuilder->from('myTable');
 
-   // FROM `myTable` AS `anAlias`
-   $queryBuilder->from('myTable', 'anAlias');
+    // FROM `myTable` AS `anAlias`
+    $queryBuilder->from('myTable', 'anAlias');
 
 
-:php:`->from()` can be called multiple times and will create the cartesian product of
-tables if not restricted by an according :php:`->where()` or :php:`->andWhere()` expression. In general,
-it is a good idea to use :php:`->from()` only once per query and model multi-table selection
-with an explicit :php:`->join()` instead.
+:php:`->from()` can be called multiple times and will create the Cartesian
+product of tables if not constrained by a respective :php:`->where()` or
+:php:`->andWhere()` expression. In general, it is a good idea to use
+:php:`->from()` only once per query and instead model the selection of multiple
+tables with an explicit :php:`->join()`.
 
 
 where(), andWhere() and orWhere()
