@@ -11,11 +11,9 @@ use TYPO3\CMS\Core\Utility\GeneralUtility;
 
 final class MyQueryBuilderSelectRepository
 {
-    private ConnectionPool $connectionPool;
-
-    public function __construct(ConnectionPool $connectionPool)
-    {
-        $this->connectionPool = $connectionPool;
+    public function __construct(
+        private readonly ConnectionPool $connectionPool
+    ) {
     }
 
     public function selectSomeData(): array
