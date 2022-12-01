@@ -101,6 +101,7 @@ and can handle any number of arguments. In :php:`->select()` each argument
 is interpreted as a single field name to be selected:
 
 ..  code-block:: php
+    :caption: EXT:my_extension/Classes/Domain/Repository/MyRepository.php
 
     // SELECT `uid`, `pid`, `aField`
     $queryBuilder->select('uid', 'pid', 'aField');
@@ -109,6 +110,7 @@ Argument unpacking can be used if the list of fields already is available as
 array:
 
 ..  code-block:: php
+    :caption: EXT:my_extension/Classes/Domain/Repository/MyRepository.php
 
     // SELECT `uid`, `pid`, `aField`, `anotherField`
     $fields = ['uid', 'pid', 'aField', 'anotherField'];
@@ -119,6 +121,7 @@ array:
 can be especially useful for :php:`join()` operations:
 
 ..  code-block:: php
+    :caption: EXT:my_extension/Classes/Domain/Repository/MyRepository.php
 
     // SELECT `tt_content`.`bodytext` AS `t1`.`text`
     $queryBuilder->select('tt_content.bodytext AS t1.text')
@@ -137,6 +140,7 @@ constraints.
 A useful combination of :php:`->select()` and :php:`->addSelect()` can be:
 
 ..  code-block:: php
+    :caption: EXT:my_extension/Classes/Domain/Repository/MyRepository.php
 
     $queryBuilder->select(...$defaultList);
     if ($needAdditionalFields) {
@@ -415,317 +419,344 @@ tables with an explicit :php:`->join()`.
 where(), andWhere() and orWhere()
 =================================
 
-The three methods are used to create `WHERE` restrictions for `SELECT`, `COUNT`, `UPDATE` and `DELETE` query types.
-Each argument is typically an `ExpressionBuilder` object that will be cast to a string on :php:`->executeQuery()`
-or :php:`->executeStatement()`:
+The three methods are used to create :sql:`WHERE` restrictions for :sql:`SELECT`,
+:sql:`COUNT`, :sql:`UPDATE` and :sql:`DELETE` query types. Each argument is
+usually an :ref:`ExpressionBuilder <database-expression-builder>` object that
+is converted to a string on :php:`->executeQuery()` or
+:php:`->executeStatement()`:
 
-.. code-block:: php
-   :caption: EXT:some_extension/Classes/SomeClass.php
+..  code-block:: php
+    :caption: EXT:my_extension/Classes/Domain/Repository/MyRepository.php
 
-   // use TYPO3\CMS\Core\Utility\GeneralUtility;
-   // use TYPO3\CMS\Core\Database\ConnectionPool;
-   // SELECT `uid`, `header`, `bodytext`
-   // FROM `tt_content`
-   // WHERE
-   //    (
-   //       ((`bodytext` = 'klaus') AND (`header` = 'a name'))
-   //       OR (`bodytext` = 'peter') OR (`bodytext` = 'hans')
-   //    )
-   //    AND (`pid` = 42)
-   //    AND ... RestrictionBuilder TCA restrictions ...
-   $queryBuilder = GeneralUtility::makeInstance(ConnectionPool::class)->getQueryBuilderForTable('tt_content');
-   $result = $queryBuilder
-      ->select('uid', 'header', 'bodytext')
-      ->from('tt_content')
-      ->where(
-         $queryBuilder->expr()->eq('bodytext', $queryBuilder->createNamedParameter('klaus')),
-         $queryBuilder->expr()->eq('header', $queryBuilder->createNamedParameter('a name'))
-      )
-      ->orWhere(
-         $queryBuilder->expr()->eq('bodytext', $queryBuilder->createNamedParameter('peter')),
-         $queryBuilder->expr()->eq('bodytext', $queryBuilder->createNamedParameter('hans'))
-      )
-      ->andWhere(
-         $queryBuilder->expr()->eq('pid', $queryBuilder->createNamedParameter(42, \PDO::PARAM_INT))
-      )
-      ->executeQuery();
+    // SELECT `uid`, `header`, `bodytext`
+    // FROM `tt_content`
+    // WHERE
+    //    (
+    //       ((`bodytext` = 'klaus') AND (`header` = 'a name'))
+    //       OR (`bodytext` = 'peter') OR (`bodytext` = 'hans')
+    //    )
+    //    AND (`pid` = 42)
+    //    AND ... RestrictionBuilder TCA restrictions ...
+    $result = $queryBuilder
+        ->select('uid', 'header', 'bodytext')
+        ->from('tt_content')
+        ->where(
+            $queryBuilder->expr()->eq('bodytext', $queryBuilder->createNamedParameter('klaus')),
+            $queryBuilder->expr()->eq('header', $queryBuilder->createNamedParameter('a name'))
+        )
+        ->orWhere(
+            $queryBuilder->expr()->eq('bodytext', $queryBuilder->createNamedParameter('peter')),
+            $queryBuilder->expr()->eq('bodytext', $queryBuilder->createNamedParameter('hans'))
+        )
+        ->andWhere(
+            $queryBuilder->expr()->eq('pid', $queryBuilder->createNamedParameter(42, Connection::PARAM_INT))
+        )
+        ->executeQuery();
 
-Note the parenthesis of the above example: :php:`->andWhere()` encapsulates both :php:`->where()` and :php:`->orWhere()`
-with an additional restriction.
+Note the parenthesis of the above example: :php:`->andWhere()` encapsulates both
+:php:`->where()` and :php:`->orWhere()` with an additional restriction.
 
 Argument unpacking can become handy with these methods:
 
-.. code-block:: php
-   :caption: EXT:some_extension/Classes/SomeClass.php
+..  code-block:: php
+    :caption: EXT:my_extension/Classes/Domain/Repository/MyRepository.php
 
-   $whereExpressions = [
-      $queryBuilder->expr()->eq('bodytext', $queryBuilder->createNamedParameter('klaus')),
-      $queryBuilder->expr()->eq('header', $queryBuilder->createNamedParameter('a name'))
-   ];
-   if ($needsAdditionalExpression) {
-      $whereExpressions[] = $someAdditionalExpression;
-   }
-   $queryBuilder->where(...$whereExpressions);
+    $whereExpressions = [
+        $queryBuilder->expr()->eq('bodytext', $queryBuilder->createNamedParameter('klaus')),
+        $queryBuilder->expr()->eq('header', $queryBuilder->createNamedParameter('a name'))
+    ];
+    if ($needsAdditionalExpression) {
+        $whereExpressions[] = $someAdditionalExpression;
+    }
+    $queryBuilder->where(...$whereExpressions);
 
 
 Remarks:
 
-* The three methods are `variadic <https://en.wikipedia.org/wiki/Variadic_function>`__. They can handle
-  any number of arguments. If for instance :php:`->where()` receives four arguments, they are handled as single
-  expressions, all of them combined with `AND`.
+*   The three methods are `variadic <https://en.wikipedia.org/wiki/Variadic_function>`__.
+    They can handle any number of arguments. For instance, if :php:`->where()`
+    receives four arguments, they are handled as single expressions, all
+    combined with :sql:`AND`.
 
-* :ref:`createNamedParameter <database-query-builder-create-named-parameter>`
-  is used to create a placeholder for a prepared statement field value.
-  **Always** use that when dealing with user input in expressions to make
-  the statement SQL injection safe.
+*   :ref:`createNamedParameter <database-query-builder-create-named-parameter>`
+    is used to create a placeholder for a field value of a prepared statement.
+    **Always** use this when dealing with user input in expressions to protect
+    the statement from SQL injections.
 
-* :php:`->where()` should be called only once per query and it resets any previously set :php:`->where()`, :php:`->andWhere()`
-  and :php:`->orWhere()` expression. Having a :php:`->where()` call after a previous :php:`->where()`, :php:`->andWhere()` or :php:`->orWhere()`
-  typically indicates a bug or a rather weird code flow. Doing so is discouraged.
+*   :php:`->where()` should be called only once per query and resets all
+    previously set :php:`->where()`, :php:`->andWhere()` and :php:`->orWhere()`
+    expressions. A :php:`->where()` call after a previous :php:`->where()`,
+    :php:`->andWhere()` or :php:`->orWhere()` usually indicates a bug or a
+    rather weird code flow. Doing so is discouraged.
 
-* While creating complex `WHERE` restrictions, :php:`->getSQL()` and :php:`->getParameters()` are helpful debugging friends to verify parenthesis and single query parts.
+*   When creating complex :sql:`WHERE` restrictions, :php:`->getSQL()` and
+    :php:`->getParameters()` are helpful debugging tools to verify parenthesis
+    and single query parts.
 
-* If using only :php:`->eq()` expressions, it is often easier to switch to the according `Connection` object method
-  to simplify quoting and increase readability.
+*   If only :php:`->eq()` expressions are used, it is often easier to switch to
+    the according method of the :ref:`Connection <database-connection>` object
+    to simplify quoting and improve readability.
 
-* It is possible to feed the methods with strings directly, but that is discouraged and typically only used
-  in rare cases where expression strings are created at a different place that can not be resolved easily. In
-  the Core, those places are usually combined with :php:`QueryHelper::stripLogicalOperatorPrefix()` to remove leading
-  `AND` or `OR` parts. Using this gives an additional risk of missing or wrong quoting and is a potential security
-  issue. Use with care if ever.
+*   It is possible to feed the methods directly with strings, but this is
+    discouraged and usually used only in rare cases where expression strings
+    are created in a different place that can not be easily resolved.
 
 
 join(), innerJoin(), rightJoin() and leftJoin()
 ===============================================
 
-Joining multiple tables in a :php:`->select()` or :php:`->count()` query is done with one of these methods. Multiple joins
-are supported by calling the methods more than once. All methods require four arguments: The name of the left side
-table (or its alias), the name of the right side table, an alias for the right side table name and the join
-restriction as fourth argument:
+Joining multiple tables in a :php:`->select()` or :php:`->count()` query is done
+with one of these methods. Multiple joins are supported by calling the methods
+more than once. All methods require four arguments: The name of the table on the
+left (or its alias), the name of the table on the right, an alias for the name
+of the table on the right, and the join restriction as fourth argument:
 
-.. code-block:: php
-   :caption: EXT:some_extension/Classes/SomeClass.php
+..  code-block:: php
+    :caption: EXT:my_extension/Classes/Domain/Repository/MyRepository.php
 
-   // use TYPO3\CMS\Core\Utility\GeneralUtility;
-   // use TYPO3\CMS\Core\Database\ConnectionPool;
-   // SELECT `sys_language`.`uid`, `sys_language`.`title`
-   // FROM `sys_language`
-   // INNER JOIN `pages` `p`
-   //     ON `p`.`sys_language_uid` = `sys_language`.`uid`
-   // WHERE
-   //     (`p`.`uid` = 42)
-   //     AND (
-   //          (`p`.`deleted` = 0)
-   //          AND (
-   //              (`sys_language`.`hidden` = 0) AND (`overlay`.`hidden` = 0)
-   //          )
-   //          AND (`p`.`starttime` <= 1475591280)
-   //          AND ((`p`.`endtime` = 0) OR (`overlay`.`endtime` > 1475591280))
-   //     )
-   $queryBuilder = GeneralUtility::makeInstance(ConnectionPool::class)->getQueryBuilderForTable('sys_language');
-   $result = $queryBuilder
-      ->select('sys_language.uid', 'sys_language.title')
-      ->from('sys_language')
-      ->join(
-         'sys_language',
-         'pages',
-         'p',
-         $queryBuilder->expr()->eq('p.sys_language_uid', $queryBuilder->quoteIdentifier('sys_language.uid'))
-      )
-      ->where(
-         $queryBuilder->expr()->eq('p.uid', $queryBuilder->createNamedParameter(42, \PDO::PARAM_INT))
-      )
-      ->executeQuery();
-
-
-Notes to the above example:
-
-*  The query operates on table `sys_language` as main table, this table name is given to :php:`getQueryBuilderForTable()`.
-
-*  The query joins table `pages` as `INNER JOIN`, giving it the alias `p`.
-
-*  The join condition is ```p`.`sys_language_uid` = `sys_language`.`uid```. It would have been identical to
-   swap the expression arguments of the fourth `->join()` argument
-   :php:`->eq('sys_language.uid', $queryBuilder->quoteIdentifier('p.sys_language_uid'))`.
-
-*  The second argument of the join expression instructs the `ExpressionBuilder` to quote the value as a field
-   identifier (a field name, here a table/field name combination). Using :php:`createNamedParameter()` would lead to
-   a quoting as value (`'` instead of ````` in `mysql`) and the query would fail.
-
-*  The alias `p` - the third argument of the :php:`->join()` call - does not necessarily have to be set to a different
-   name than the table name itself here. Using `pages` as third argument and not specifying
-   a different name would do. Aliases are mostly useful if a join to the same table is needed:
-   ``SELECT `something` FROM `tt_content` JOIN `tt_content` `content2` ON ...``. Aliases additionally become handy
-   to increase readability of `->where()` expressions.
-
-*  The `RestrictionBuilder` added additional `WHERE` conditions for both involved tables! Table `sys_language` obviously
-   only specifies a `'disabled' => 'hidden'` as `enableColumns` in its `TCA` `ctrl` section, while table
-   `pages` specifies `deleted`, `hidden`, `starttime` and `stoptime` fields.
+    // SELECT `sys_language`.`uid`, `sys_language`.`title`
+    // FROM `sys_language`
+    // INNER JOIN `pages` `p`
+    //     ON `p`.`sys_language_uid` = `sys_language`.`uid`
+    // WHERE
+    //     (`p`.`uid` = 42)
+    //     AND (
+    //          (`p`.`deleted` = 0)
+    //          AND (
+    //              (`sys_language`.`hidden` = 0) AND (`overlay`.`hidden` = 0)
+    //          )
+    //          AND (`p`.`starttime` <= 1475591280)
+    //          AND ((`p`.`endtime` = 0) OR (`overlay`.`endtime` > 1475591280))
+    //     )
+    $queryBuilder = $this->connectionPool->getQueryBuilderForTable('sys_language')
+    $result = $queryBuilder
+       ->select('sys_language.uid', 'sys_language.title')
+       ->from('sys_language')
+       ->join(
+           'sys_language',
+           'pages',
+           'p',
+           $queryBuilder->expr()->eq('p.sys_language_uid', $queryBuilder->quoteIdentifier('sys_language.uid'))
+       )
+       ->where(
+           $queryBuilder->expr()->eq('p.uid', $queryBuilder->createNamedParameter(42, \PDO::PARAM_INT))
+       )
+       ->executeQuery();
 
 
-A more complex example with two joins. The first join points to the first table again using an alias to resolve
-a language overlay scenario. The second join uses the alias name of the first
-join target as left side:
+Notes to the example above:
 
-.. code-block:: php
-   :caption: EXT:some_extension/Classes/SomeClass.php
+*   The query operates with the :sql:`sys_language` table as the main table,
+    this table name is given to :php:`getQueryBuilderForTable()`.
 
-   // use TYPO3\CMS\Core\Utility\GeneralUtility;
-   // use TYPO3\CMS\Core\Database\ConnectionPool;
-   // SELECT `tt_content_orig`.`sys_language_uid`
-   // FROM `tt_content`
-   // INNER JOIN `tt_content` `tt_content_orig` ON `tt_content`.`t3_origuid` = `tt_content_orig`.`uid`
-   // INNER JOIN `sys_language` `sys_language` ON `tt_content_orig`.`sys_language_uid` = `sys_language`.`uid`
-   // WHERE
-   //     (`tt_content`.`colPos` = 1)
-   //     AND (`tt_content`.`pid` = 42)
-   //     AND (`tt_content`.`sys_language_uid` = 2)
-   //     AND ... RestrictionBuilder TCA restrictions for tables tt_content and sys_language ...
-   // GROUP BY `tt_content_orig`.`sys_language_uid`
-   $queryBuilder = GeneralUtility::makeInstance(ConnectionPool::class)->getQueryBuilderForTable('tt_content');
-   $constraints = [
-      $queryBuilder->expr()->eq('tt_content.colPos', $queryBuilder->createNamedParameter(1, \PDO::PARAM_INT)),
-      $queryBuilder->expr()->eq('tt_content.pid', $queryBuilder->createNamedParameter(42, \PDO::PARAM_INT)),
-      $queryBuilder->expr()->eq('tt_content.sys_language_uid', $queryBuilder->createNamedParameter(2, \PDO::PARAM_INT)),
-   ];
-   $queryBuilder
-      ->select('tt_content_orig.sys_language_uid')
-      ->from('tt_content')
-      ->join(
-         'tt_content',
-         'tt_content',
-         'tt_content_orig',
-         $queryBuilder->expr()->eq(
-            'tt_content.t3_origuid',
-            $queryBuilder->quoteIdentifier('tt_content_orig.uid')
-         )
-      )
-      ->join(
-         'tt_content_orig',
-         'sys_language',
-         'sys_language',
-         $queryBuilder->expr()->eq(
-            'tt_content_orig.sys_language_uid',
-            $queryBuilder->quoteIdentifier('sys_language.uid')
-         )
-      )
-      ->where(...$constraints)
-      ->groupBy('tt_content_orig.sys_language_uid')
-      ->executeQuery();
+*   The query joins the :sql:`pages` table as :sql:`INNER JOIN` and gives it the
+    alias :sql:`p`.
+
+*   The join condition is ```p`.`sys_language_uid` = `sys_language`.`uid```. It
+    would have been identical to swap the expression arguments of the fourth
+    :php:`->join()` argument
+    :php:`->eq('sys_language.uid', $queryBuilder->quoteIdentifier('p.sys_language_uid'))`.
+
+*   The second argument of the join expression instructs the
+    :ref:`ExpressionBuilder <database-expression-builder>` to quote the value as
+    a field identifier (a field name, here a combination of table and field
+    name). Using :ref:`createNamedParameter <database-query-builder-create-named-parameter>`
+    would lead in quoting as value (`'` instead of ````` in MySQL) and the query
+    would fail.
+
+*   The alias :sql:`p` - the third argument of the :php:`->join()` call - does
+    not necessarily have to be set to a different name than the table name
+    itself here. It is sufficient to use :php:`pages` as third argument and not
+    to specify any other name. Aliases are mostly useful when a join to the same
+    table is needed:
+    ``SELECT `something` FROM `tt_content` JOIN `tt_content` `content2` ON ...``.
+    Aliases are also useful to increase the readability of `->where()`
+    expressions.
+
+*   The :ref:`RestrictionBuilder <database-restriction-builder>` has added
+    additional :sql:`WHERE` conditions for both tables involved! The
+    :sql:`sys_language` table obviously only specifies a
+    :php:`'disabled' => 'hidden'` as :php:`enableColumns` in its
+    :ref:`TCA ctrl <t3tca:ctrl>` section, while the :sql:`pages` table
+    specifies the fields :sql:`deleted`, :sql:`hidden`, :sql:`starttime` and
+    :sql:`stoptime`.
+
+
+A more complex example with two joins. The first join points to the first table,
+again using an alias to resolve a language overlay scenario. The second join
+uses the alias of the first join target as left side:
+
+..  code-block:: php
+    :caption: EXT:my_extension/Classes/Domain/Repository/MyRepository.php
+
+    // SELECT `tt_content_orig`.`sys_language_uid`
+    // FROM `tt_content`
+    // INNER JOIN `tt_content` `tt_content_orig` ON `tt_content`.`t3_origuid` = `tt_content_orig`.`uid`
+    // INNER JOIN `sys_language` `sys_language` ON `tt_content_orig`.`sys_language_uid` = `sys_language`.`uid`
+    // WHERE
+    //     (`tt_content`.`colPos` = 1)
+    //     AND (`tt_content`.`pid` = 42)
+    //     AND (`tt_content`.`sys_language_uid` = 2)
+    //     AND ... RestrictionBuilder TCA restrictions for tables tt_content and sys_language ...
+    // GROUP BY `tt_content_orig`.`sys_language_uid`
+    $queryBuilder = $this->connectionPool->getQueryBuilderForTable('sys_language')
+    $constraints = [
+        $queryBuilder->expr()->eq('tt_content.colPos', $queryBuilder->createNamedParameter(1, \PDO::PARAM_INT)),
+        $queryBuilder->expr()->eq('tt_content.pid', $queryBuilder->createNamedParameter(42, \PDO::PARAM_INT)),
+        $queryBuilder->expr()->eq('tt_content.sys_language_uid', $queryBuilder->createNamedParameter(2, \PDO::PARAM_INT)),
+    ];
+    $queryBuilder
+        ->select('tt_content_orig.sys_language_uid')
+        ->from('tt_content')
+        ->join(
+            'tt_content',
+            'tt_content',
+            'tt_content_orig',
+            $queryBuilder->expr()->eq(
+                'tt_content.t3_origuid',
+                $queryBuilder->quoteIdentifier('tt_content_orig.uid')
+            )
+        )
+        ->join(
+            'tt_content_orig',
+            'sys_language',
+            'sys_language',
+            $queryBuilder->expr()->eq(
+                'tt_content_orig.sys_language_uid',
+                $queryBuilder->quoteIdentifier('sys_language.uid')
+            )
+        )
+        ->where(...$constraints)
+        ->groupBy('tt_content_orig.sys_language_uid')
+        ->executeQuery();
 
 
 Further remarks:
 
-*  :php:`->join()` and `innerJoin` are identical. They create an `INNER JOIN` query, this is identical to a `JOIN` query.
+*   :php:`->join()` and `innerJoin` are identical. They create an
+    :sql:`INNER JOIN` query, this is identical to a :sql:`JOIN` query.
 
-*  :php:`->leftJoin()` creates a `LEFT JOIN` query, this is identical to a `LEFT OUTER JOIN` query.
+*   :php:`->leftJoin()` creates a :sql:`LEFT JOIN` query, this is identical to
+    a :sql:`LEFT OUTER JOIN` query.
 
-*  :php:`->rightJoin()` creates a `RIGHT JOIN` query, this is identical to a `RIGHT OUTER JOIN` query.
+*   :php:`->rightJoin()` creates a :sql:`RIGHT JOIN` query, this is identical to
+    a :sql:`RIGHT OUTER JOIN` query.
 
-*  Calls on join() methods are only considered for :php:`->select()` and :php:`->count()` type queries. :php:`->delete()`, :php:`->insert()`
-   and :php:`update()` do not support joins, those query parts are ignored and do not end up in the final statement.
+*   Calls to :php:`join()` methods are only considered for :php:`->select()` and
+    :php:`->count()` type queries. :php:`->delete()`, :php:`->insert()`
+    and :php:`update()` do not support joins, these query parts are ignored and
+    do not end up in the final statement.
 
-*  The argument of :php:`->getQueryBuilderForTable()` should be the left most main table.
+*   The argument of :php:`->getQueryBuilderForTable()` should be the leftmost
+    main table.
 
-*  A join of two tables that are configured to different connections will throw an exception. This restricts which
-   tables can be configured to different database endpoints. It is possible to test the connection objects of involved
-   tables for equality and implement a fallback logic in PHP if they are different.
+*   Joining two tables that are configured to different connections will throw
+    an exception. This restricts the tables that can be configured for different
+    database endpoints. It is possible to test the connection objects of the
+    involved tables for equality and implement a fallback logic in PHP if they
+    are different.
 
 
 orderBy() and addOrderBy()
 ==========================
 
-Add `ORDER BY` to a :php:`->select()` statement. Both :php:`->orderBy()` and
-:php:`->addOrderBy()` require a field name as first
-argument:
+Add :sql:`ORDER BY` to a :php:`->select()` statement. Both :php:`->orderBy()` and
+:php:`->addOrderBy()` require a field name as first argument:
 
-.. code-block:: php
-   :caption: EXT:some_extension/Classes/SomeClass.php
+..  code-block:: php
+    :caption: EXT:my_extension/Classes/Domain/Repository/MyRepository.php
 
-   // use TYPO3\CMS\Core\Utility\GeneralUtility;
-   // use TYPO3\CMS\Core\Database\ConnectionPool;
-   // SELECT * FROM `sys_language` ORDER BY `sorting` ASC
-   $queryBuilder = GeneralUtility::makeInstance(ConnectionPool::class)->getQueryBuilderForTable('sys_language');
-   $queryBuilder->getRestrictions()->removeAll();
-   $languageRecords = $queryBuilder
-      ->select('*')
-      ->from('sys_language')
-      ->orderBy('sorting')
-      ->executeQuery()
-      ->fetchAllAssociative();
+    // SELECT * FROM `sys_language` ORDER BY `sorting` ASC
+    $queryBuilder->getRestrictions()->removeAll();
+    $languageRecords = $queryBuilder
+        ->select('*')
+        ->from('sys_language')
+        ->orderBy('sorting')
+        ->executeQuery()
+        ->fetchAllAssociative();
 
 
 Remarks:
 
-* :php:`->orderBy()` resets any previously specified orders. It doesn't make sense to call it after a previous :php:`->orderBy()`
-  or :php:`->addOrderBy()` again.
+*   :php:`->orderBy()` resets all previously specified orders. It makes no sense
+    to call this function again after a previous :php:`->orderBy()` or
+    :php:`->addOrderBy()`.
 
-* Both methods need a field name or a `table.fieldName` or a `tableAlias.fieldName` as first argument, in the above
-  example calling :php:`->orderBy('sys_language.sorting')` would have been identical. All identifiers are quoted
-  automatically.
+*   Both methods need a field name or a :sql:`table.fieldName` or a
+    :sql:`tableAlias.fieldName` as first argument. In the example above the call
+    to :php:`->orderBy('sys_language.sorting')` would have been identical. All
+    identifiers are quoted automatically.
 
-* The second, optional argument of both methods specifies the sorting order. The two allowed values are `'ASC'` and `'DESC'`
-  where `'ASC'` is default and can be omited.
+*   The second, optional argument of both methods specifies the sort order. The
+    two allowed values are :php:`'ASC'` and :php:`'DESC'`, where :php:`'ASC'`
+    is default and can be omitted.
 
-* To create a chain of orders, use :php:`->orderBy()` and then multiple :php:`->addOrderBy()` calls. Calling
-  :php:`->orderBy('header')->addOrderBy('bodytext')->addOrderBy('uid', 'DESC')` creates
-  ``ORDER BY `header` ASC, `bodytext` ASC, `uid` DESC``
+*   To create a chain of orders, use :php:`->orderBy()` and then multiple
+    :php:`->addOrderBy()` calls. The call to
+    :php:`->orderBy('header')->addOrderBy('bodytext')->addOrderBy('uid', 'DESC')`
+    creates ``ORDER BY `header` ASC, `bodytext` ASC, `uid` DESC``
 
-* To add more complex sorting, you can use :php:`->add('orderBy', 'FIELD(eventtype, 0, 4, 1, 2, 3)', true)`,
-  remember to quote properly
+*   To add more complex sorting you can use
+    :php:`->add('orderBy', 'FIELD(eventtype, 0, 4, 1, 2, 3)', true)`,
+    remember to quote properly!
 
 
 groupBy() and addGroupBy()
 ==========================
 
-Add `GROUP BY` to a :php:`->select()` statement. Each argument to the methods
-is a single identifier:
+Add :sql:`GROUP BY` to a :php:`->select()` statement. Each argument of the
+methods is a single identifier:
 
-.. code-block:: php
-   :caption: EXT:some_extension/Classes/SomeClass.php
+..  code-block:: php
+    :caption: EXT:my_extension/Classes/Domain/Repository/MyRepository.php
 
-   // GROUP BY `pages`.`sys_language_uid`, `sys_language`.`uid`
-   ->groupBy('pages.sys_language_uid', 'sys_language.uid');
+    // GROUP BY `pages`.`sys_language_uid`, `sys_language`.`uid`
+    ->groupBy('pages.sys_language_uid', 'sys_language.uid');
 
 Remarks:
 
-* Similar to :php:`->select()` and :php:`->where()` both methods are variadic and take any number of arguments, argument
-  unpacking is supported: :php:`->groupBy(...$myGroupArray)`
+*   Similar to :php:`->select()` and :php:`->where()`, both methods are variadic
+    and take any number of arguments, argument unpacking is supported:
+    :php:`->groupBy(...$myGroupArray)`
 
-* Each argument is either a direct field name ``GROUP BY `bodytext```, a `table.fieldName` or a `tableAlias.fieldName`
-  and will be properly quoted.
+*   Each argument is either a direct field name ``GROUP BY `bodytext```,
+    a :sql:`table.fieldName` or a :sql:`tableAlias.fieldName` and is properly
+    quoted.
 
-* :php:`->groupBy()` resets any previously set group specification and should be called only once per statement.
+*   :php:`->groupBy()` resets all previously defined group specification and
+    should only be called once per statement.
 
-* For more complex statements you can use :php:`->add('groupBy', $sql, $append)`, remember to quote properly.
+*   For more complex statements you can use
+    :php:`->add('groupBy', $sql, $append)`, remember to quote properly!
 
 
 setMaxResults() and setFirstResult()
 ====================================
 
-Add `LIMIT` to restrict number of records and `OFFSET` for pagination query parts. Both methods should be
-called only once per statement:
+Add :sql:`LIMIT` to restrict the number of records and :sql:`OFFSET` for
+pagination of query parts. Both methods should be called only once per
+statement:
 
-.. code-block:: php
-   :caption: EXT:some_extension/Classes/SomeClass.php
+..  code-block:: php
+    :caption: EXT:my_extension/Classes/Domain/Repository/MyRepository.php
 
-   // use TYPO3\CMS\Core\Utility\GeneralUtility;
-   // use TYPO3\CMS\Core\Database\ConnectionPool;
-   // SELECT * FROM `sys_language` LIMIT 2 OFFSET 4
-   $queryBuilder = GeneralUtility::makeInstance(ConnectionPool::class)->getQueryBuilderForTable('sys_language');
-   $queryBuilder
-      ->select('*')
-      ->from('sys_language')
-      ->setMaxResults(2)
-      ->setFirstResult(4)
-      ->executeQuery();
+    // SELECT * FROM `sys_language` LIMIT 2 OFFSET 4
+    $queryBuilder
+        ->select('*')
+        ->from('sys_language')
+        ->setMaxResults(2)
+        ->setFirstResult(4)
+        ->executeQuery();
 
 Remarks:
 
-* It's allowed to call :php:`->setMaxResults()` but not to call :php:`->setFirstResult()`.
+*   It is allowed to call :php:`->setMaxResults()` without calling
+    :php:`->setFirstResult()`.
 
-* It is possible to call :php:`->setFirstResult()` without calling :php:`setMaxResults()`: This equals to "Fetch everything, but
-  leave out the first n records". Internally, `LIMIT` will be added by Doctrine DBAL and set to a very high value.
+*   It is possible to call :php:`->setFirstResult()` without calling
+    :php:`setMaxResults()`: This is equivalent to "Fetch everything, but leave
+    out the first n records". Internally, :sql:`LIMIT` will be added by
+    Doctrine DBAL and set to a very high value.
 
 
 .. _database-query-builder-add:
