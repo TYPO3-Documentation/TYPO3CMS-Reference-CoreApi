@@ -1,171 +1,214 @@
-.. include:: /Includes.rst.txt
-.. index::
-   Database; Result
-   QueryBuilder
-.. _database-statement:
-.. _database-result:
+..  include:: /Includes.rst.txt
+..  index::
+    Database; Result
+    QueryBuilder
+..  _database-statement:
+..  _database-result:
 
 ======
 Result
 ======
 
-A :php:`Result` object of type :php:`\Doctrine\DBAL\Result` is returned by
-:php:`QueryBuilder->executeQuery()` for :php:`->select()` and :php:`->count()`
-query types and by :php:`Connection->select()` and :php:`Connection->count()` calls.
+A :php:`\Doctrine\DBAL\Result` object is returned by
+:php:`QueryBuilder->executeQuery()` for :ref:`->select()
+<database-query-builder-select>` and :ref:`->count() <database-query-builder-count>`
+query types, and by :ref:`Connection->select() <database-connection-select>`
+and :ref:`Connection->count() <database-connection-count>` calls.
 
-The object represents a query result set and comes with methods to fetch single rows
-with :php:`->fetchAssociative()` or to fetch all rows as an array with
-:php:`->fetchAllAssociative()`.
+The object represents a query result set and has methods to fetch single rows
+with :ref:`->fetchAssociative() <database-result-fetch-associative>` or to fetch
+all rows as an array with :ref:`->fetchAllAssociative()
+<database-result-fetch-all-associative>`.
 
-In opposite to the :php:`Statement` formerly returned by the :php:`->execute()`,
-it cannot also be used to execute a single prepared statement with different
-values multiple times.
+Unlike :php:`\Doctrine\DBAL\Statement` returned formerly by :ref:`->execute()
+<database-query-builder-execute>`, a single prepared statement with different
+values cannot be executed multiple times.
+
+..  warning::
+    The return type of single field values is **not** type safe! If you select a
+    value from a field that is defined as :sql:`INT`, the :php:`Result` result
+    may very well return that value as a PHP :php:`string`. This is also true
+    for other database column types like :sql:`FLOAT`, :sql:`DOUBLE` and others.
+    This is an issue with the database drivers used underneath. It may happen
+    that MySQL returns an integer value for an :sql:`INT` field, while others
+    may return a string. In general, the application itself must take care of an
+    according type cast to achieve maximum :abbr:`DBMS (Database management
+    system)` compatibility.
 
 
-.. warning::
-
-   The return type of single field values is NOT type safe! If selecting a value from a field that is
-   defined as `int`, the `Statement` result may very well return that as PHP :php:`string`. This is
-   true for other database column types like `FLOAT`, `DOUBLE` and others.
-   This is an issue with the database drivers used below, it may happen that `MySQL` returns an integer
-   value for an `int` field, while others may return a string.
-   In general, the application must take care of an according type cast on their own to reach maximum
-   `DBMS` compatibility.
-
+..  _database-result-fetch-associative:
 
 fetchAssociative()
 ==================
 
-Fetch next row from the result. Usually used in :php:`while()` loops.
-This is the recommended way of accessing the result in most use cases.
+This method fetched the next row from the result. It is usually used in
+:php:`while()` loops. This is the recommended way of accessing the result in
+most use cases.
 
 Typical example:
 
-.. code-block:: php
-   :caption: EXT:some_extension/Classes/SomeClass.php
+..  code-block:: php
+    :caption: EXT:my_extension/Classes/Domain/Repository/MyRepository.php
 
-   // use TYPO3\CMS\Core\Utility\GeneralUtility;
-   // use TYPO3\CMS\Core\Database\ConnectionPool;
-   // Fetch all records from tt_content on page 42
-   $queryBuilder = GeneralUtility::makeInstance(ConnectionPool::class)->getQueryBuilderForTable('tt_content');
-   $result = $queryBuilder
-      ->select('uid', 'bodytext')
-      ->from('tt_content')
-      ->where($queryBuilder->expr()->eq('pid', $queryBuilder->createNamedParameter(42, \PDO::PARAM_INT)))
+    // use TYPO3\CMS\Core\Database\Connection
+    // Fetch all records from tt_content on page 42
+    $queryBuilder = $this->connectionPool->getQueryBuilderForTable('tt_content');
+    $result = $queryBuilder
+        ->select('uid', 'bodytext')
+        ->from('tt_content')
+        ->where(
+            $queryBuilder->expr()->eq(
+                'pid',
+                $queryBuilder->createNamedParameter(42, Connection::PARAM_INT)
+            )
+        )
       ->executeQuery();
-   while ($row = $result->fetchAssociative()) {
-      // Do something useful with that single $row
-   }
+
+    while ($row = $result->fetchAssociative()) {
+        // Do something useful with that single $row
+    }
+
+Read :ref:`how to correctly instantiate <database-query-builder-instantiation>`
+a query builder with the connection pool.
+
+:php:`->fetchAssociative()` returns an array reflecting one result row with
+field/value pairs in one call and retrieves the next row with the next call.
+It returns :php:`false` when no more rows can be found.
 
 
-:php:`->fetchAssociative()` returns an array reflecting one result row,
-containing field, value pairs, at one call, retrieving the next row
-with the next call. Returns false when no more rows can be found.
-
+..  _database-result-fetch-all-associative:
 
 fetchAllAssociative()
 =====================
 
-Returns an array containing all of the result set rows by implementing the same while loop as above internally.
-Using that method saves some precious code characters but is more memory intensive if the result set is large
-with lots of rows and lot of data since big arrays are carried around in PHP:
+This method returns an array containing all rows of the result set by internally
+implementing the same while loop as above. Using that method saves some precious
+code characters, but is more memory intensive if the result set is large and
+contains many rows and data, since large arrays are carried around in PHP:
 
-.. code-block:: php
-   :caption: EXT:some_extension/Classes/SomeClass.php
+..  code-block:: php
+    :caption: EXT:my_extension/Classes/Domain/Repository/MyRepository.php
 
-   // use TYPO3\CMS\Core\Utility\GeneralUtility;
-   // use TYPO3\CMS\Core\Database\ConnectionPool;
-   // Fetch all records from tt_content on page 42
-   $queryBuilder = GeneralUtility::makeInstance(ConnectionPool::class)->getQueryBuilderForTable('tt_content');
-   $rows = $queryBuilder
-      ->select('uid', 'bodytext')
-      ->from('tt_content')
-      ->where($queryBuilder->expr()->eq('pid', $queryBuilder->createNamedParameter(42, \PDO::PARAM_INT)))
-      ->executeQuery()
-      ->fetchAllAssociative();
+    // use TYPO3\CMS\Core\Database\Connection;
+    // Fetch all records from tt_content on page 42
+    $queryBuilder = $this->connectionPool->getQueryBuilderForTable('tt_content');
+    $rows = $queryBuilder
+        ->select('uid', 'bodytext')
+        ->from('tt_content')
+        ->where(
+            $queryBuilder->expr()->eq(
+                'pid',
+                $queryBuilder->createNamedParameter(42, Connection::PARAM_INT)
+            )
+        )
+        ->executeQuery()
+        ->fetchAllAssociative();
 
+Read :ref:`how to correctly instantiate <database-query-builder-instantiation>`
+a query builder with the connection pool.
+
+
+..  _database-result-fetch-one:
 
 fetchOne()
 ==========
 
-Returns a single column from the next row of a result set, other columns from that result row are discarded.
-This method is especially handy for :php:`QueryBuilder->count()` queries.
+The method returns a single column from the next row of a result set, other
+columns from this result row are discarded. It is especially handy for
+:ref:`QueryBuilder->count() <database-query-builder-count>` queries:
 
-The :php:`Connection->count()` implementation does exactly that to return the
-number of rows directly:
+..  code-block:: php
+    :caption: EXT:my_extension/Classes/Domain/Repository/MyRepository.php
 
-.. code-block:: php
-   :caption: EXT:some_extension/Classes/SomeClass.php
+    // use TYPO3\CMS\Core\Database\Connection;
+    // Get the number of tt_content records on pid 42 into variable $numberOfRecords
+    $queryBuilder = $this->connectionPool->getQueryBuilderForTable('tt_content');
+    $numberOfRecords = $queryBuilder
+        ->count('uid')
+        ->from('tt_content')
+        ->where(
+            $queryBuilder->expr()->eq(
+                'pid',
+                $queryBuilder->createNamedParameter(42, Connection::PARAM_INT)
+            )
+        )
+        ->executeQuery()
+        ->fetchOne();
 
-   // use TYPO3\CMS\Core\Utility\GeneralUtility;
-   // use TYPO3\CMS\Core\Database\ConnectionPool;
-   // Get the number of tt_content records on pid 42 into variable $numberOfRecords
-   $queryBuilder = GeneralUtility::makeInstance(ConnectionPool::class)->getQueryBuilderForTable('tt_content');
-   $numberOfRecords = $queryBuilder
-      ->count('uid')
-      ->from('tt_content')
-      ->where($queryBuilder->expr()->eq('pid', $queryBuilder->createNamedParameter(42, \PDO::PARAM_INT)))
-      ->executeQuery()
-      ->fetchOne();
+Read :ref:`how to correctly instantiate <database-query-builder-instantiation>`
+a query builder with the connection pool.
+
+..  note::
+    The :ref:`Connection->count() <database-connection-count>` implementation
+    does exactly that to return the number of rows directly.
+
+
+..  _database-result-row-count:
 
 rowCount()
 ==========
 
-.. todo: does this still exist? I think for select queries count should be used
-         and executeStatement() for insert, update and delete queries?
+This method returns the number of rows affected by the last execution of this
+statement. Use this method instead of counting the number of records in a
+:ref:`->fetchAssociative() <database-result-fetch-associative>` loop manually.
 
-Returns the number of rows affected by the last execution of this statement. Use that method
-instead of counting the number of records in a :php:`->fetchAssociative()` loop manually.
-
-.. warning::
-
-   :php:`->rowCount()` works well with `DELETE`, `UPDATE` and `INSERT` queries. However, it does NOT
-   return a valid number for `SELECT` queries on some `DBMS`. Never use :php:`->rowCount()` on `SELECT`
-   queries. This may work with MySOL, but fails with other databases like SQLite.
+..  warning::
+    :php:`->rowCount()` works well with :sql:`DELETE`, :sql:`UPDATE` and
+    :sql:`INSERT` queries. However, it does **not** return a valid number for
+    :sql:`SELECT` queries on some :abbr:`DBMSes (Database management systems)`.
+    Never use :php:`->rowCount()` on :sql:`SELECT` queries. This may work with
+    MySOL, but will fail with other databases like SQLite.
 
 
-Re-use Prepared Statement()
-===========================
+Reuse prepared statement
+========================
 
-Doctrine usually prepares a statement first, and then executes it with
-given parameters. Implementing prepared statements depends on the given driver.
-A driver not properly implementing prepared statements fall back to a direct
-execution of given query.
+Doctrine DBAL usually prepares a statement first and then executes it with the
+given parameters. The implementation of prepared statements depends on the
+particular database driver. A driver that does not implement prepared
+statements properly falls back to a direct execution of a given query.
 
-There is an API to make real use of prepared statements that becomes handy if
-the same query is executed with different arguments over and over again. The
-example below prepares a statement to the `pages` table
-and executes it twice with different arguments
+There is an API that allows to make real use of prepared statements. This is
+handy when the same query is executed over and over again with different
+arguments. The example below prepares a statement for the :sql:`pages` table
+and executes it twice with different arguments.
 
 .. todo: Update this code example when https://review.typo3.org/c/Packages/TYPO3.CMS/+/72610
          is merged.
 
 The following code example is probably outdated:
 
-.. code-block:: php
-   :caption: EXT:some_extension/Classes/SomeClass.php
+..  code-block:: php
+    :caption: EXT:my_extension/Classes/Domain/Repository/MyRepository.php
 
-   // use TYPO3\CMS\Core\Utility\GeneralUtility;
-   // use TYPO3\CMS\Core\Database\ConnectionPool;
-   $connection = GeneralUtility::makeInstance(ConnectionPool::class)->getConnectionForTable('pages');
-   $queryBuilder = $connection->createQueryBuilder();
-   $queryBuilder->getRestrictions()->removeAll();
-   $sqlStatement = $queryBuilder->select('uid')
-       ->from('pages')
-       ->where($queryBuilder->expr()->eq('uid', $queryBuilder->createPositionalParameter(0, \PDO::PARAM_INT)))
-       ->getSQL();
-   $statement = $connection->executeQuery($sqlStatement, [ 24 ]);
-   $result1 = $statement->fetchAssociative();
-   $statement->closeCursor(); // free the resources for this result
-   $statement->bindValue(1, 25);
-   $statement->executeQuery();
-   $result2 = $statement->fetchAssociative();
-   $statement->closeCursor(); // free the resources for this result
+    // use TYPO3\CMS\Core\Database\Connection;
+    $connection = $this->connectionPool->getConnectionForTable('pages');
+    $queryBuilder = $connection->createQueryBuilder();
+    $queryBuilder->getRestrictions()->removeAll();
+    $sqlStatement = $queryBuilder->select('uid')
+        ->from('pages')
+        ->where(
+            $queryBuilder->expr()->eq(
+                'uid',
+                $queryBuilder->createPositionalParameter(0, Connection::PARAM_INT)
+            )
+        )
+        ->getSQL();
 
+    $statement = $connection->executeQuery($sqlStatement, [ 24 ]);
+    $result1 = $statement->fetchAssociative();
+    $statement->closeCursor(); // free the resources for this result
+    $statement->bindValue(1, 25);
+    $statement->executeQuery();
+    $result2 = $statement->fetchAssociative();
+    $statement->closeCursor(); // free the resources for this result
+
+Read :ref:`how to correctly instantiate <database-query-builder-instantiation>`
+a query builder with the connection pool.
 
 Looking at a mysql debug log:
 
-.. code-block:: none
+..  code-block:: none
 
     Prepare SELECT `uid` FROM `pages` WHERE `uid` = ?
     Execute SELECT `uid` FROM `pages` WHERE `uid` = '24'
