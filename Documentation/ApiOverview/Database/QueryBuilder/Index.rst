@@ -170,6 +170,9 @@ code flow of a :sql:`SELECT` query looks like this:
         debug($row);
     }
 
+Read :ref:`how to correctly instantiate <database-query-builder-instantiation>`
+a query builder with the connection pool.
+
 ..  _database-query-builder-select-restrictions:
 
 Default Restrictions
@@ -204,6 +207,8 @@ Create a :sql:`COUNT` query, a typical usage:
         ->executeQuery()
         ->fetchOne();
 
+Read :ref:`how to correctly instantiate <database-query-builder-instantiation>`
+a query builder with the connection pool.
 
 Remarks:
 
@@ -249,6 +254,8 @@ data is to be deleted. Classic usage:
         )
         ->executeStatement();
 
+Read :ref:`how to correctly instantiate <database-query-builder-instantiation>`
+a query builder with the connection pool.
 
 Remarks:
 
@@ -296,6 +303,8 @@ Create an :sql:`UPDATE` query. Typical usage:
         ->set('bodytext', 'peter')
         ->executeStatement();
 
+Read :ref:`how to correctly instantiate <database-query-builder-instantiation>`
+a query builder with the connection pool.
 
 :php:`->update()` requires the table to update as the first argument and a table
 alias (for example, :sql:`t`) as optional second argument. The table alias can
@@ -313,6 +322,9 @@ then be used in :php:`->set()` and :php:`->where()` expressions:
         )
         ->set('t.bodytext', 'peter')
         ->executeStatement();
+
+Read :ref:`how to correctly instantiate <database-query-builder-instantiation>`
+a query builder with the connection pool.
 
 :php:`->set()` requires a field name as the first argument and automatically
 quotes it internally. The second mandatory argument is the value to set a field
@@ -336,6 +348,9 @@ be used:
         )
         ->set('bodytext', $queryBuilder->quoteIdentifier('header'), false)
         ->executeStatement();
+
+Read :ref:`how to correctly instantiate <database-query-builder-instantiation>`
+a query builder with the connection pool.
 
 Remarks:
 
@@ -377,6 +392,8 @@ Create an :sql:`INSERT` query. Typical usage:
         ])
         ->executeStatement();
 
+Read :ref:`how to correctly instantiate <database-query-builder-instantiation>`
+a query builder with the connection pool.
 
 Remarks:
 
@@ -462,6 +479,9 @@ is converted to a string on :php:`->executeQuery()` or
             $queryBuilder->expr()->eq('pid', $queryBuilder->createNamedParameter(42, Connection::PARAM_INT))
         )
         ->executeQuery();
+
+Read :ref:`how to correctly instantiate <database-query-builder-instantiation>`
+a query builder with the connection pool.
 
 Note the parenthesis of the above example: :php:`->andWhere()` encapsulates both
 :php:`->where()` and :php:`->orWhere()` with an additional restriction.
@@ -553,6 +573,8 @@ of the table on the right, and the join restriction as fourth argument:
        )
        ->executeQuery();
 
+Read :ref:`how to correctly instantiate <database-query-builder-instantiation>`
+a query builder with the connection pool.
 
 Notes to the example above:
 
@@ -640,6 +662,8 @@ uses the alias of the first join target as left side:
         ->groupBy('tt_content_orig.sys_language_uid')
         ->executeQuery();
 
+Read :ref:`how to correctly instantiate <database-query-builder-instantiation>`
+a query builder with the connection pool.
 
 Further remarks:
 
@@ -686,6 +710,8 @@ Add :sql:`ORDER BY` to a :php:`->select()` statement. Both :php:`->orderBy()` an
         ->executeQuery()
         ->fetchAllAssociative();
 
+Read :ref:`how to correctly instantiate <database-query-builder-instantiation>`
+a query builder with the connection pool.
 
 Remarks:
 
@@ -760,6 +786,9 @@ statement:
         ->setFirstResult(4)
         ->executeQuery();
 
+Read :ref:`how to correctly instantiate <database-query-builder-instantiation>`
+a query builder with the connection pool.
+
 Remarks:
 
 *   It is allowed to call :php:`->setMaxResults()` without calling
@@ -789,6 +818,8 @@ freedom to express parts of statements:
         ->from('sys_language')
         ->add('orderBy', 'FIELD(eventtype, 0, 4, 1, 2, 3)');
 
+Read :ref:`how to correctly instantiate <database-query-builder-instantiation>`
+a query builder with the connection pool.
 
 Remarks:
 
@@ -821,6 +852,8 @@ executed exactly as a developer expects:
     debug($queryBuilder->getSQL());
     $result = $queryBuilder->executeQuery();
 
+Read :ref:`how to correctly instantiate <database-query-builder-instantiation>`
+a query builder with the connection pool.
 
 Remarks:
 
@@ -870,6 +903,8 @@ to verify that the final statement is executed as a developer expects:
     debug($queryBuilder->getParameters());
     $statement = $queryBuilder->executeQuery();
 
+Read :ref:`how to correctly instantiate <database-query-builder-instantiation>`
+a query builder with the connection pool.
 
 Remarks:
 
@@ -963,6 +998,9 @@ parts and :sql:`JOIN` expressions:
         )
         ->executeQuery();
 
+Read :ref:`how to correctly instantiate <database-query-builder-instantiation>`
+a query builder with the connection pool.
+
 Remarks:
 
 *   This object is stateless and can be called and worked on as often as needed.
@@ -1002,6 +1040,9 @@ statement from SQL injections:
         )
         ->executeQuery();
 
+Read :ref:`how to correctly instantiate <database-query-builder-instantiation>`
+a query builder with the connection pool.
+
 The above example shows the importance of using :php:`->createNamedParameter()`:
 The search word ``kl'aus`` is "tainted" and would break the query if not
 channeled through :php:`->createNamedParameter()`, which quotes the backtick and
@@ -1026,6 +1067,9 @@ Not convinced? Suppose the code would look like this:
             // USE ->createNamedParameter() ON $searchWord!
             $queryBuilder->expr()->eq('bodytext', $searchWord)
         );
+
+Read :ref:`how to correctly instantiate <database-query-builder-instantiation>`
+a query builder with the connection pool.
 
 Mind the missing :php:`->createNamedParameter()` method call in the
 :php:`->eq()` expression for a given value! This code would happily execute
@@ -1075,6 +1119,8 @@ Use integer, integer array:
         )
         ->executeQuery();
 
+Read :ref:`how to correctly instantiate <database-query-builder-instantiation>`
+a query builder with the connection pool.
 
 Rules
 -----
@@ -1136,6 +1182,8 @@ Rules
             $queryBuilder->expr()->eq('bodytext', $myValue)
         )
 
+Read :ref:`how to correctly instantiate <database-query-builder-instantiation>`
+a query builder with the connection pool.
 
 .. _database-query-builder-quote-identifier:
 
@@ -1162,6 +1210,8 @@ backticks ````` instead of ticks ``'``:
             )
         );
 
+Read :ref:`how to correctly instantiate <database-query-builder-instantiation>`
+a query builder with the connection pool.
 
 The method quotes single field names or combinations of table names or table
 aliases with field names:
@@ -1223,6 +1273,8 @@ Helper method to quote `%` characters within a search string. This is helpful in
             )
         );
 
+Read :ref:`how to correctly instantiate <database-query-builder-instantiation>`
+a query builder with the connection pool.
 
 ..  warning::
     Even when using :php:`->escapeLikeWildcards()` the value must be
