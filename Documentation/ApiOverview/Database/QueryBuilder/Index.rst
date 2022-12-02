@@ -24,7 +24,7 @@ This chapter provides examples of the most common queries.
     injections!
 
 
-The query builder comes with a list of small methods:
+The query builder comes with a happy little list of small methods:
 
 *   Set type of query: :php:`->select()`, :php:`->count()`, :php:`->update()`,
     :php:`->insert()` and :php:`->delete()`
