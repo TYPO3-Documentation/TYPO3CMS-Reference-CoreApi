@@ -10,7 +10,8 @@ final class MyClass
 {
     private PageRenderer $pageRenderer;
 
-    public function __construct(PageRenderer $pageRenderer) {
+    public function __construct(PageRenderer $pageRenderer)
+    {
         $this->pageRenderer = $pageRenderer;
     }
 

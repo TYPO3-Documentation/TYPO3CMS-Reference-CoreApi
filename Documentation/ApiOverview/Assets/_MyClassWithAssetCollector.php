@@ -10,7 +10,8 @@ final class MyClass
 {
     private AssetCollector $assetCollector;
 
-    public function __construct(AssetCollector $assetCollector) {
+    public function __construct(AssetCollector $assetCollector)
+    {
         $this->assetCollector = $assetCollector;
     }
 
