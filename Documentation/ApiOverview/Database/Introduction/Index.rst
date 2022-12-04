@@ -1,11 +1,12 @@
-.. include:: /Includes.rst.txt
-.. index::
-   Relational database management system
-   see: RDBMS; Relational database management system
-   MySQL
-   MariaDB
-   PostgreSQL
-.. _Database_Introduction:
+..  include:: /Includes.rst.txt
+..  index::
+    Relational database management system
+    see: RDBMS; Relational database management system
+    MySQL
+    MariaDB
+    PostgreSQL
+    SQLite
+..  _Database_Introduction:
 
 ============
 Introduction
@@ -18,81 +19,85 @@ thanks to Doctrine others like PostgreSQL and SQLite are also an option.
 
 The corresponding DBMS can be selected during installation.
 
-This chapter gives an overview of the basic TYPO3 database table structure, followed
-by some information on upgrading and maintaining table and field consistency, and then
-deep dives into the programming API.
+This chapter gives an overview of the basic TYPO3 database table structure,
+followed by some information on upgrading and maintaining table and field
+consistency, and then deep dives into the programming API.
 
-.. index::
-   ! Doctrine
-   Doctrine; DBAL
-   Database; Abstraction layer
-   Database; DBAL
-   $GLOBALS; TYPO3_DB
-   DBMS
+..  index::
+    ! Doctrine
+    Doctrine; DBAL
+    Database; Abstraction layer
+    Database; DBAL
+    DBMS
 
 Doctrine DBAL
 =============
 
-Database queries in TYPO3 are done with an API based on
-`Doctrine DBAL <https://www.doctrine-project.org/projects/dbal.html>`__.
-The API is provided by the system extension `core` which is always loaded and
+Database queries in TYPO3 are done with an API based on `Doctrine DBAL`_.
+The API is provided by the system extension `core`, which is always loaded and
 thus always available.
 
-Extension authors can use this low-level `API` to manage query operations
-directly on the configured `DBMS`.
+Extension authors can use this low-level API to manage query operations
+directly on the configured DBMS.
 
-Doctrine DBAL is feature rich. Drivers for various target systems enable
-TYPO3 to run on a long list of `ANSI SQL` compatible `DBMS`. If used properly,
+Doctrine DBAL is rich in features. Drivers for various target systems enable
+TYPO3 to run on a long list of ANSI SQL-compatible DBMSes. If used properly,
 queries created with this API are translated to the specific database engine by
-doctrine without an extension developer taking care of that specifically.
+Doctrine without an extension developer taking care of that specifically.
 
 The API provided by the Core is basically a pretty small and lightweight facade
 in front of Doctrine DBAL that adds some convenient methods as well as some
-TYPO3 specific sugar. The facade additionally provides methods to retrieve
-specific connection objects per configured database connection based on the table
-that is queried. This enables instance administrators to configure different database
-engines for different tables while this is transparent for extension developers.
+TYPO3-specific sugar. The facade additionally provides methods to retrieve
+specific connection objects per configured database connection based on the
+table that is queried. This enables instance administrators to configure
+different database engines for different tables, while being transparent to
+extension developers.
 
-This document does *not* outline each and every single method the API provides. It
-sticks to those that are commonly used in extensions and some parts like the rewritten
-schema migrator are left out since they are usually of little to no interest for
-extensions.
+This document does *not* outline every single method that the API provides. It
+sticks to those that are commonly used in extensions, and some parts like the
+rewritten schema migrator are omitted as they are usually of little to no
+interest to extensions.
 
-.. index:: Doctrine; ORM
+..  index:: Doctrine; ORM
 
 Understanding Doctrine DBAL and Doctrine ORM
 ============================================
 
-Doctrine is a two-fold project with `Doctrine DBAL <https://www.doctrine-project.org/projects/dbal.html>`__
-being the low-level database abstraction and query building interface to specific database engines, while
-`Doctrine ORM <https://www.doctrine-project.org/projects/orm.html>`__
-is a high-level object relational mapping on top of Doctrine DBAL.
+Doctrine is a two-part project, with `Doctrine DBAL`_ being the low-level
+database abstraction and the interface for building queries to specific database
+engines, while `Doctrine ORM`_ is a high-level object relational mapping on top
+of Doctrine DBAL.
 
-The TYPO3 Core - only - implements the dbal part. `Doctrine ORM` is neither required nor
-implemented nor used at the time of this writing.
+The TYPO3 Core implements - only - the DBAL part. Doctrine ORM is neither
+required nor implemented nor used.
 
-.. index::
-   Database;  Low-level calls
-   DataHandler
+..  index::
+    Database;  Low-level calls
+    DataHandler
 
 Low-level and high-level database calls
 =======================================
 
-This documentation is about low-level database calls. In many cases it is better
-to use higher level API's like the :ref:`DataHandler <tce-database-basics>` or
-:ref:`Extbase repositories <extbase-repository>`
-and to let the framework handle persistence details internally.
+This documentation focuses on low-level database calls. In many cases, it is
+better to use higher level APIs such as the :ref:`DataHandler
+<tce-database-basics>` or :ref:`Extbase repositories <extbase-repository>` and
+to let the framework handle persistence details internally.
 
-.. tip::
-
-   Always remember the **high-level** database calls and use them when appropriate!
+..  tip::
+    Always remember the **high-level** database calls and use them when
+    appropriate!
 
 
 Credits
 =======
 
-Implementing the Doctrine DBAL API into `TYPO3` has been a *huge project in 2016.*
-Special thanks goes to awesome Mr. **Morton Jonuschat** for the initial design, integration
-and support and to more than **40 different people** who actively contributed to migrate
-more than 1700 calls from `TYPO3_DB`-style to Doctrine within half a year.
+Implementing the Doctrine DBAL API into `TYPO3` has been a *huge project in
+2016.* Special thanks goes to awesome Mr. **Morton Jonuschat** for the initial
+design, integration and support and to more than **40 different people** who
+actively contributed to migrate more than 1700 calls from TYPO3_DB-style to
+Doctrine within half a year.
 **This was a huge community achievement, thanks everyone involved!**
+
+
+.. _Doctrine DBAL: https://www.doctrine-project.org/projects/dbal.html
+.. _Doctrine ORM: https://www.doctrine-project.org/projects/orm.html
