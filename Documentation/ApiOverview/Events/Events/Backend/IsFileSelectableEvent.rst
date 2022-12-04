@@ -37,7 +37,7 @@ The corresponding event listener class:
         {
             // Deny selection of "png" images
             if ($event->getFile()->getExtension() === 'png') {
-                $event->denyFileSelecttion();
+                $event->denyFileSelection();
             }
         }
     }
