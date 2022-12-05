@@ -32,9 +32,14 @@ Requirements
 There are certain requirements for such managed tables:
 
 -   The table must be configured in the :doc:`global TCA array <t3tca:Index>`,
-    for example, the table name, features that are configured, the fields in the
-    table and how they should be rendered in the backend, relations to other
-    tables, and so on.
+    for example:
+
+    -   table name
+    -   features that are required
+    -   fields of the table and how they should be rendered in the backend
+    -   relations to other tables
+
+    and so on.
 
 -   The table must contain at least these fields:
 
