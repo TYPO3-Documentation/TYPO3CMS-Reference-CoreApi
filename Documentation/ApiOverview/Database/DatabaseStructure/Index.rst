@@ -109,8 +109,26 @@ administrative rights can access records on it, and these records must be
 <t3tca:ctrl-reference-rootlevel>` - usually, table records can only be created
 on a real page.
 
+
 ..  index::
     Tables; MM relations
+..  _database-structure-mm-relations:
+
+
+MM relations
+============
+
+When tables are connected via a many-to-many relationship, another table must
+store these relations. Examples are the table storing relations between
+:ref:`categories <categories>` and categorized records
+(:sql:`sys_category_record_mm`) or the table storing relations between files
+and their various usages in pages, content elements, etc.
+(:sql:`sys_file_reference`). The latter is an interesting example, because it
+actually appears in the backend, although only as part of
+:ref:`inline records <t3tca:columns-inline>`.
+
+
+..  index::
     Tables; Cache
     Tables; System information
 ..  _database-structure-other-tables:
@@ -120,15 +138,6 @@ Other Tables
 
 The internal tables which are not managed through the TYPO3 backend serve
 various purposes. Some of the most common are:
-
--   MM relations: When tables are connected via a many-to-many relationship,
-    another table must store these relations. Examples are the table storing
-    relations between :ref:`categories <categories>` and categorized records
-    (:sql:`"sys_category_record_mm`) or the table storing relations
-    between files and their various usages in pages, content elements, etc.
-    (:sql:`sys_file_reference`). The latter is an interesting example,
-    because it actually appears in the backend, although only as part of
-    :ref:`inline records <t3tca:columns-inline>`.
 
 -   Cache: If a :ref:`cache <caching>` is defined to use the database as a
     :ref:`cache backend <caching-backend>`, TYPO3 automatically creates and
