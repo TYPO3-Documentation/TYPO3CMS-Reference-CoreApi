@@ -72,6 +72,12 @@ like in the TypoScript example above.
     an existing alias (form TYPO3 Core or a third-party extension) as this may
     cause errors.
 
+..  tip::
+    It is recommended to tag a custom data processors as this will
+    automatically add them to the internal :php:`DataProcessorRegistry`,
+    enabling :ref:`dependency injection <DependencyInjection>` by default.
+    Otherwise, the service would need to be set :ref:`public <What-to-make-public>`.
+
 
 ..  index::
     Custom data processor; Impementation
