@@ -22,7 +22,7 @@ endpoints. These internal methods are not the scope of this documentation, since
 an extension developer usually does not have to deal with them.
 
 However, for an extension developer, the class provides a list of short-hand
-methods that allow you to deal with "simple" query cases without the complexity
+methods that allow you to deal with query cases without the complexity
 of the :ref:`query builder <database-query-builder>`. Using these methods
 usually ends up in rather short and easy-to-read code. The methods have in common
 that they only support "equal" comparisons in :sql:`WHERE` conditions, that all
