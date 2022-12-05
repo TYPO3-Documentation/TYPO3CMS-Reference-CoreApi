@@ -24,7 +24,7 @@ an extension developer usually does not have to deal with them.
 However, for an extension developer, the class provides a list of "short-hand"
 methods that allow you to deal with "simple" query cases without the complexity
 of the :ref:`query builder <database-query-builder>`. Using these methods
-usually ends up in rather short and eas-to-read code. The methods have in common
+usually ends up in rather short and easy-to-read code. The methods have in common
 that they only support "equal" comparisons in :sql:`WHERE` conditions, that all
 fields and values are automatically fully quoted, and that the created queries
 are executed right away.
