@@ -45,9 +45,12 @@ There are certain requirements for such managed tables:
 
     -   :sql:`uid` - an auto-incremented integer and primary key for the table,
         containing the *unique ID* of the record in the table.
-
     -   :sql:`pid` - an integer pointing to the :sql:`uid` of the page (record
         from :sql:`pages` table) to which the record belongs.
+
+    The fields are created automatically when the table is associated
+    with a TCA configuration.
+
 
 Typical fields
 ==============
