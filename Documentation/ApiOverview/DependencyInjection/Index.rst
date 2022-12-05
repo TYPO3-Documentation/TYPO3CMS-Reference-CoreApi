@@ -544,29 +544,29 @@ the desired classes. This can be done in chronological order or by naming.
       arguments:
         - '@TYPO3\CMS\Core\Database\ConnectionPool'
 
-This allows you to inject concrete objects like the :php:`QueryBuilder`:
+This allows you to inject concrete objects like the :ref:`Connection
+<database-connection>`:
 
 ..  code-block:: yaml
     :caption: EXT:my_extension/Configuration/Services.yaml
 
-    querybuilder.pages:
-      class: 'TYPO3\CMS\Core\Database\Query\QueryBuilder'
+    connection.pages:
+      class: 'TYPO3\CMS\Core\Database\Connection'
       factory:
         - '@TYPO3\CMS\Core\Database\ConnectionPool'
-        - 'getQueryBuilderForTable'
+        - 'getConnectionForTable'
       arguments:
         - 'pages'
 
     Vendor\MyExtension\UserFunction\ClassA:
       public: true
       arguments:
-        - '@querybuilder.pages'
+        - '@connection.pages'
 
-Now you can access the :php:`QueryBuilder` instance within :php:`ClassA`. This
-allows you to call your queries without further instantiation. Be aware to clone
-your object or reset the query parts to avoid side effects when using them more
-than once. For example, this method of injecting objects also works with
-extension configurations and with TypoScript settings.
+Now you can access the :php:`Connection` instance within :php:`ClassA`. This
+allows you to execute your queries without further instantiation. For example,
+this method of injecting objects also works with extension configurations and
+with TypoScript settings.
 
 
 Public
@@ -618,6 +618,8 @@ marked as public:
 *   Classes registered in :ref:`hooks <hooks-general>`
 *   :ref:`Authentication services <authentication>`
 *   :ref:`Fluid data processors <content-elements-custom-data-processor>`
+    (only necessary if not tagged as
+    :ref:`data.processor <content-elements-custom-data-processor_alias>`).
 
 For such classes, an extension can override the global configuration
 :yaml:`public: false` in :file:`Configuration/Services.yaml` for each affected
