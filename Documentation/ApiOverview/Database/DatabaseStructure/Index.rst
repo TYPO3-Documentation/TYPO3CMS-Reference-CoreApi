@@ -118,8 +118,8 @@ on a real page.
 Other Tables
 ============
 
-The tables which are not managed through the TYPO3 backend serve various
-purposes. Some of the most common are:
+The internal tables which are not managed through the TYPO3 backend serve
+various purposes. Some of the most common are:
 
 -   MM relations: When tables are connected via a many-to-many relationship,
     another table must store these relations. Examples are the table storing
