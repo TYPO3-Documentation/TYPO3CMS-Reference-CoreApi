@@ -127,7 +127,7 @@ A (slightly simplified) example from the Registry API:
 Read :ref:`how to instantiate <database-connection-instantiation>` a connection
 with the connection pool.
 
-Well, that should be rather obvious: First argument is the table name to insert
+First argument is the table name to insert
 a row into, the second argument is an array of key/value pairs. All keys are
 quoted to field names and all values are quoted to string values.
 
