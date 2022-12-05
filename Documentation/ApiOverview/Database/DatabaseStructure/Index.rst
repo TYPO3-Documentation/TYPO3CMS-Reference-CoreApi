@@ -9,10 +9,13 @@
 Database structure
 ==================
 
+Types of tables
+===============
+
 The database tables used by TYPO3 can be roughly divided into two categories:
 
 Internal tables
-===============
+---------------
 
 Tables that are used internally by the system and are invisible to backend users
 (for example, :sql:`be_sessions`, :sql:`sys_registry`, cache-related tables). In
@@ -20,14 +23,14 @@ the Core extension, there are often dedicated PHP APIs for managing entries in
 these tables, for instance, the :ref:`caching framework API <caching>`.
 
 Managed tables
-==============
+--------------
 
 Tables that can be managed via the TYPO3 backend are shown in the
-:guilabel:`List` module and can be edited using the :ref:`FormEngine
+:guilabel:`Web > List` module and can be edited using the :ref:`FormEngine
 <FormEngine>`.
 
 Requirements
-============
+~~~~~~~~~~~~
 
 There are certain requirements for such managed tables:
 
@@ -53,7 +56,7 @@ There are certain requirements for such managed tables:
 
 
 Typical fields
-==============
+~~~~~~~~~~~~~~
 
 -   A :sql:`title` field holding the title of the record as seen in the backend.
 
@@ -133,7 +136,7 @@ actually appears in the backend, although only as part of
     Tables; System information
 ..  _database-structure-other-tables:
 
-Other Tables
+Other tables
 ============
 
 The internal tables which are not managed through the TYPO3 backend serve
