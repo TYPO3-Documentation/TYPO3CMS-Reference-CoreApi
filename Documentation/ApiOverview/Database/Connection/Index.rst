@@ -308,12 +308,12 @@ The method returns the number of deleted rows. If something goes wrong, a
 :php:`\Doctrine\DBAL\Exception` is thrown.
 
 ..  note::
-    TYPO3 uses a "soft delete" approach for many tables. Instead of deleting a
-    row directly in the database, a field - often called :sql:`deleted` - is set
-    from 0 to 1. Executing a :sql:`DELETE` query circumvents this and really
-    removes rows from a table. For most tables, it is better to use the
-    :ref:`DataHandler <tce-database-basics>` API to handle deletions instead of
-    executing such low-level queries directly.
+    TYPO3 uses a ":ref:`soft delete <t3tca:ctrl-reference-delete>`" approach for
+    many tables. Instead of deleting a  row directly in the database, a field -
+    often called :sql:`deleted` - is set from 0 to 1. Executing a :sql:`DELETE`
+    query circumvents this and really removes rows from a table. For most
+    tables, it is better to use the :ref:`DataHandler <tce-database-basics>` API
+    to handle deletions instead of executing such low-level queries directly.
 
 
 .. _database-connection-truncate:
