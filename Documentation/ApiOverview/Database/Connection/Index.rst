@@ -127,45 +127,47 @@ A (slightly simplified) example from the Registry API:
 Read :ref:`how to instantiate <database-connection-instantiation>` a connection
 with the connection pool.
 
-First argument is the table name to insert
-a row into, the second argument is an array of key/value pairs. All keys are
-quoted to field names and all values are quoted to string values.
+Arguments of the :php:`insert()` method:
 
-It is possible to add another array as third argument to specify how single
-values are quoted. This is useful if a date, number or similar should be
-inserted. The example below quotes the first value to an integer and the second
-one to a string:
+1.  The name of the table the row should be inserted. Required.
+2.  An associative array containing field/value pairs. The key is a field name,
+    the value is the value to be inserted. All keys are quoted to field names
+    and all values are quoted to string values. Required.
+3.  Specify how single values are quoted. This is useful if a date, number or
+    similar should be inserted. Optional.
 
-..  code-block:: php
-    :caption: EXT:my_extension/Classes/Domain/Repository/MyTableRepository.php
+    The example below quotes the first value to an integer and the second one to
+    a string:
 
-    // use TYPO3\CMS\Core\Database\Connection;
-    // INSERT INTO `sys_log` (`userid`, `details`) VALUES (42, 'klaus')
-    $this->connectionPool
-        ->getConnectionForTable('sys_log')
-        ->insert(
-            'sys_log',
-            [
-                'userid' => (int)$userId,
-                'details' => (string)$details,
-            ],
-            [
-                Connection::PARAM_INT,
-                Connection::PARAM_STR,
-            ]
-        );
+    ..  code-block:: php
+        :caption: EXT:my_extension/Classes/Domain/Repository/MyTableRepository.php
 
-Read :ref:`how to instantiate <database-connection-instantiation>` a connection
-with the connection pool.
+        // use TYPO3\CMS\Core\Database\Connection;
+        // INSERT INTO `sys_log` (`userid`, `details`) VALUES (42, 'klaus')
+        $this->connectionPool
+            ->getConnectionForTable('sys_log')
+            ->insert(
+                'sys_log',
+                [
+                    'userid' => (int)$userId,
+                    'details' => (string)$details,
+                ],
+                [
+                    Connection::PARAM_INT,
+                    Connection::PARAM_STR,
+                ]
+            );
 
-:php:`insert()` returns the number of affected rows. Guess what? That's the
+    Read :ref:`how to instantiate <database-connection-instantiation>` a
+    connection with the connection pool.
+
+:php:`insert()` returns the number of affected rows. Guess what? That is the
 number `1` ... If something goes wrong, a :php:`\Doctrine\DBAL\Exception` is
 thrown.
 
 ..  note::
     A list of allowed field types for proper quoting can be found in the
-    :php:`TYPO3\CMS\Core\Database\Connection` class and its base class
-    :php:`\Doctrine\DBAL\Connection`.
+    :php:`TYPO3\CMS\Core\Database\Connection` class.
 
 
 .. _database-connection-bulk-insert:
@@ -199,11 +201,18 @@ This method insert multiple rows at once:
 Read :ref:`how to instantiate <database-connection-instantiation>` a connection
 with the connection pool.
 
-The first argument is the table to insert into, the second argument is an array
-of rows, the third argument is the list of field names. Similar to
-:ref:`insert() <database-connection-insert>` it is optional to add another
-argument to specify the quoting details; if omitted, everything will be quoted
-to strings.
+Arguments of the :php:`bulkInsert()` method:
+
+1.  The name of the table the row should be inserted. Required.
+2.  An array of the values to be inserted. Required.
+3.  An array containing the column names of the data which should be inserted.
+    Optional.
+4.  Specify how single values are quoted. Similar to :ref:`insert()
+    <database-connection-insert>`; if omitted, everything will be quoted
+    to strings. Optional.
+
+The number of inserted rows are returned. If something goes wrong, a
+:php:`\Doctrine\DBAL\Exception` is thrown.
 
 ..  note::
     MySQL is quite forgiving when it comes to insufficient field quoting:
@@ -240,14 +249,21 @@ Create an :sql:`UPDATE` statement and execute it. The example from FAL's
 Read :ref:`how to instantiate <database-connection-instantiation>` a connection
 with the connection pool.
 
-First argument is the table for which an an update should be performed, the
-second argument is an array of key/value pairs to be set, the third argument is
-an array of "equal" where statements combined with :sql:`AND`, the (optional)
-fourth argument specifies the type of values to be updated, similar to
-:ref:`insert() <database-connection-insert>` and
-:ref:`bulkInsert()  <database-connection-bulk-insert>`.
+Arguments of the :php:`update()` method:
 
-The method returns the number of affected rows.
+1.  The name of the table to update. Required.
+2.  An associative array containing field/value pairs to be updated. The key is
+    a field name, the value is the value. In SQL they are mapped to the
+    :sql:`SET` keyword. Required.
+3.  The update criteria as an array of key/value pairs. The key is the field
+    name, the value is the value. In SQL they are mapped in a :sql:`WHERE`
+    keyword combined with :sql:`AND`. Required.
+4.  Specify how single values are quoted. Similar to :ref:`insert()
+    <database-connection-insert>`; if omitted, everything will be quoted
+    to strings. Optional.
+
+The method returns the number of updated rows. If something goes wrong, a
+:php:`\Doctrine\DBAL\Exception` is thrown.
 
 ..  note::
     The third argument ``WHERE `foo` = 'bar'`` supports only equal `=`. For more
@@ -278,9 +294,18 @@ from :php:`BackendUtility`, to mark rows as no longer locked by a user:
 Read :ref:`how to instantiate <database-connection-instantiation>` a connection
 with the connection pool.
 
-The first argument is the table name, the second argument is a list of
-:sql:`AND` combined :sql:`WHERE` conditions as an array, the third argument
-specifies the quoting of :sql:`WHERE` values. There is a pattern ;)
+Arguments of the :php:`delete()` method:
+
+1.  The name of the table. Required.
+2.  The delete criteria as an array of key/value pairs. The key is the field
+    name, the value is the value. In SQL they are mapped in a :sql:`WHERE`
+    keyword combined with :sql:`AND`. Required.
+3.  Specify how single values are quoted. Similar to :ref:`insert()
+    <database-connection-insert>`; if omitted, everything will be quoted
+    to strings. Optional.
+
+The method returns the number of deleted rows. If something goes wrong, a
+:php:`\Doctrine\DBAL\Exception` is thrown.
 
 ..  note::
     TYPO3 uses a "soft delete" approach for many tables. Instead of deleting a
@@ -310,6 +335,9 @@ resets "auto increment primary keys" to zero. Use with care:
 
 Read :ref:`how to instantiate <database-connection-instantiation>` a connection
 with the connection pool.
+
+The argument is the name of the table to be truncated. If something goes wrong,
+a :php:`\Doctrine\DBAL\Exception` is thrown.
 
 
 .. _database-connection-count:
@@ -345,9 +373,15 @@ field set to `klaus`:
 Read :ref:`how to instantiate <database-connection-instantiation>` a connection
 with the connection pool.
 
-The first argument is the field to count, usually :sql:`*` or :sql:`uid`. The
-second argument is the table name, the third argument is an array of
-:sql:`WHERE` equal conditions combined with :sql:`AND`.
+Arguments of the :php:`count()` method:
+
+1.  The field to count, usually :sql:`*` or :sql:`uid`. Required.
+2.  The name of the table. Required.
+3.  The select criteria as an array of key/value pairs. The key is the field
+    name, the value is the value. In SQL they are mapped in a :sql:`WHERE`
+    keyword combined with :sql:`AND`. Required.
+
+The method returns the counted rows.
 
 Remarks:
 
@@ -397,15 +431,27 @@ quoted:
 Read :ref:`how to instantiate <database-connection-instantiation>` a connection
 with the connection pool.
 
+Arguments of the :php:`select()` method:
+
+1.  The columns of the table which to select as an array. Required.
+2.  The name of the table. Required.
+3.  The select criteria as an array of key/value pairs. The key is the field
+    name, the value is the value. In SQL they are mapped in a :sql:`WHERE`
+    keyword combined with :sql:`AND`. Optional.
+4.  The columns to group the results by as an array. In SQL they are mapped
+    in a :sql:`GROUP BY` keyword. Optional.
+5.  An associative array of column name/sort directions pairs. In SQL they are
+    mapped in an :sql:`ORDER BY` keyword. Optional.
+6.  The maximum number of rows to return. In SQL it is mapped in a :sql:`LIMIT`
+    keyword. Optional.
+7.  The first result row to select (when used the maximum number of rows). In
+    SQL it is mapped in an :sql:`OFFSET` keyword. Optional.
+
+In contrast to the other short-hand methods, :php:`->select()` returns a
+:ref:`Result <database-result>` object ready for :php:`->fetchAssociative()` to
+get single rows or for :php:`->fetchAllAssociative()` to get all rows at once.
+
 Remarks:
-
-*   In contrast to the other short-hand methods, :php:`->select()` returns a
-    :ref:`Result <database-result>` object ready for :php:`->fetchAssociative()`
-    to get single rows or for :php:`->fetchAllAssociative()` to get all rows at
-    once.
-
-*   The method accepts a number of further arguments to specify :sql:`GROUP BY`,
-    :sql:`ORDER BY`, :sql:`LIMIT` and :sql:`OFFSET` query parts.
 
 *   For non-trivial :sql:`SELECT` queries it is often better to switch to the
     according method of the :ref:`query builder <database-query-builder>`
