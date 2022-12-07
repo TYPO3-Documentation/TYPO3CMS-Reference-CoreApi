@@ -6,129 +6,222 @@
 Connection
 ==========
 
-An instance of class :php:`TYPO3\CMS\Core\Database\Connection` is retrieved from the
-:ref:`ConnectionPool <database-connection-pool>` by calling `->getConnectionForTable()`
-and handing over the table name a query should executed on.
+.. contents:: **Table of Contents**
+   :local:
 
-The class extends the basic Doctrine DBAL `Doctrine\DBAL\Connection` class and is mainly
-used internally within the TYPO3 framework to establish, maintain and terminate
-connections to single database endpoints. Those internal methods are not scope of this
-documentation since an extension developer usually doesn't have to deal with that.
 
-For an extension developer however, the class provides a list of "short-hand" methods
-that allow dealing with "simple" query cases, without the complexity of the
-:ref:`QueryBuilder <database-query-builder>`. Using those methods typically ends up in
-rather short and easily readable code. The methods have in common that they support only
-"equal" comparisons in `WHERE` conditions, that all fields and values are fully quoted
-automatically and the created queries are executed right away.
+.. _database-connection-introduction:
 
-.. note::
+Introduction
+============
 
-    The `Connection` object is designed to work on a single table only. If queries to multiple
-    tables should be performed, the object must not be re-used. Instead, a single `Connection`
-    instance should be retrieved via `ConnectionPool` per target table. However, it is allowed
-    to use one `Connection` object for multiple queries to the same table.
+The :php:`TYPO3\CMS\Core\Database\Connection` class extends the basic Doctrine
+DBAL :php:`Doctrine\DBAL\Connection` class and is mainly used internally in
+TYPO3 to establish, maintain and terminate connections to single database
+endpoints. These internal methods are not the scope of this documentation, since
+an extension developer usually does not have to deal with them.
 
+However, for an extension developer, the class provides a list of short-hand
+methods that allow you to deal with query cases without the complexity
+of the :ref:`query builder <database-query-builder>`. Using these methods
+usually ends up in rather short and easy-to-read code. The methods have in common
+that they only support "equal" comparisons in :sql:`WHERE` conditions, that all
+fields and values are automatically fully quoted, and that the created queries
+are executed right away.
+
+..  note::
+    The :php:`Connection` object is designed to work on a single table only. If
+    queries are performed on multiple tables, the object must not be reused.
+    Instead, a single :php:`Connection` instance per target table should be
+    retrieved via :ref:`ConnectionPool <database-connection-pool>`. However, it
+    is allowed to use one :php:`Connection` object for multiple queries on the
+    same table.
+
+
+.. _database-connection-instantiation:
+
+Instantiation
+=============
+
+Using the connection pool
+-------------------------
+
+An instance of the :php:`TYPO3\CMS\Core\Database\Connection` class is retrieved
+from the :ref:`ConnectionPool <database-connection-pool>` by calling
+:php:`->getConnectionForTable()` and passing the table name for which a query
+should be executed. The :php:`ConnectionPool` can be injected via constructor:
+
+..  literalinclude:: _MyTableRepositoryWithConnectionPool.php
+    :caption: EXT:my_extension/Classes/Domain/Repository/MyTableRepository.php
+
+Via dependency injection
+------------------------
+
+Another way is to inject the :php:`Connection` object directly via
+:ref:`dependency injection <DependencyInjection>` if you only use one table.
+
+..  rst-class:: bignums-xxl
+
+#.  Configure the concrete connection as a service
+
+    To make a concrete :php:`Connection` object available as a service, use
+    the factory option in the service configuration:
+
+    ..  code-block:: yaml
+        :caption: EXT:my_extension/Configuration/Services.yaml
+        :emphasize-lines: 10-18
+
+        services:
+          _defaults:
+            autowire: true
+            autoconfigure: true
+            public: false
+
+          MyVendor\MyExtension\:
+            resource: '../Classes/*'
+
+          connection.tx_myextension_domain_model_mytable:
+            class: 'TYPO3\CMS\Core\Database\Connection'
+            factory: ['@TYPO3\CMS\Core\Database\ConnectionPool', 'getConnectionForTable']
+            arguments:
+              - 'tx_myextension_domain_model_mytable'
+
+          MyVendor\MyExtension\Domain\Repository\MyTableRepository:
+            arguments:
+              - '@connection.tx_myextension_domain_model_mytable'
+
+#.  Use constructor injection in your class
+
+    Now the :php:`Connection` object for a specific table can be injected via
+    the constructor:
+
+    ..  literalinclude:: _MyTableRepositoryWithConnection.php
+        :caption: EXT:my_extension/Classes/Domain/Repository/MyTableRepository.php
+
+
+.. _database-connection-insert:
 
 insert()
 ========
 
-Creates and executes an `INSERT INTO` statement. A (slightly simplified) example from the `Registry` API:
+The :php:`insert()` method creates and executes an :sql:`INSERT INTO` statement.
+A (slightly simplified) example from the Registry API:
 
-.. code-block:: php
-   :caption: EXT:some_extension/Classes/SomeClass.php
+..  code-block:: php
+    :caption: EXT:my_extension/Classes/Domain/Repository/MyTableRepository.php
 
-   // use TYPO3\CMS\Core\Utility\GeneralUtility;
-   // use TYPO3\CMS\Core\Database\ConnectionPool;
-   // INSERT INTO `sys_registry` (`entry_namespace`, `entry_key`, `entry_value`) VALUES ('aoeu', 'aoeu', 's:3:\"bar\";')
-   GeneralUtility::makeInstance(ConnectionPool::class)
-      ->getConnectionForTable('sys_registry')
-      ->insert(
-         'sys_registry',
-         [
-            'entry_namespace' => $namespace,
-            'entry_key' => $key,
-            'entry_value' => serialize($value)
-         ]
-      );
+    // INSERT
+    //     INTO `sys_registry` (`entry_namespace`, `entry_key`, `entry_value`)
+    //     VALUES ('aoeu', 'aoeu', 's:3:\"bar\";')
+    $this->connectionPool
+        ->getConnectionForTable('sys_registry')
+        ->insert(
+            'sys_registry',
+            [
+                'entry_namespace' => $namespace,
+                'entry_key' => $key,
+                'entry_value' => serialize($value)
+            ]
+        );
+
+Read :ref:`how to instantiate <database-connection-instantiation>` a connection
+with the connection pool.
+
+Arguments of the :php:`insert()` method:
+
+1.  The name of the table the row should be inserted. Required.
+2.  An associative array containing field/value pairs. The key is a field name,
+    the value is the value to be inserted. All keys are quoted to field names
+    and all values are quoted to string values. Required.
+3.  Specify how single values are quoted. This is useful if a date, number or
+    similar should be inserted. Optional.
+
+    The example below quotes the first value to an integer and the second one to
+    a string:
+
+    ..  code-block:: php
+        :caption: EXT:my_extension/Classes/Domain/Repository/MyTableRepository.php
+
+        // use TYPO3\CMS\Core\Database\Connection;
+        // INSERT INTO `sys_log` (`userid`, `details`) VALUES (42, 'klaus')
+        $this->connectionPool
+            ->getConnectionForTable('sys_log')
+            ->insert(
+                'sys_log',
+                [
+                    'userid' => (int)$userId,
+                    'details' => (string)$details,
+                ],
+                [
+                    Connection::PARAM_INT,
+                    Connection::PARAM_STR,
+                ]
+            );
+
+    Read :ref:`how to instantiate <database-connection-instantiation>` a
+    connection with the connection pool.
+
+:php:`insert()` returns the number of affected rows. Guess what? That is the
+number `1` ... If something goes wrong, a :php:`\Doctrine\DBAL\DBALException` is
+thrown.
+
+..  note::
+    A list of allowed field types for proper quoting can be found in the
+    :php:`TYPO3\CMS\Core\Database\Connection` class.
 
 
-Well, that should be rather obvious: First argument is the table name to insert a row into, second argument is an
-array of key/value pairs. All keys are quoted to field names and all values are quoted to string values.
-
-It is possible to add another array as third argument to specify how single values are quoted. This is useful
-if `date` or `numbers` or similar should be inserted. The example below quotes the first value to an integer
-and the second one to a string:
-
-.. code-block:: php
-   :caption: EXT:some_extension/Classes/SomeClass.php
-
-   // use TYPO3\CMS\Core\Utility\GeneralUtility;
-   // use TYPO3\CMS\Core\Database\ConnectionPool;
-   // use TYPO3\CMS\Core\Database\Connection;
-   // INSERT INTO `sys_log` (`userid`, `details`) VALUES (42, 'klaus')
-   GeneralUtility::makeInstance(ConnectionPool::class)
-      ->getConnectionForTable('sys_log')
-      ->insert(
-         'sys_log',
-         [
-            'userid' => (int)$userId,
-            'details' => (string)$details,
-         ],
-         [
-            Connection::PARAM_INT,
-            Connection::PARAM_STR,
-         ]
-      );
-
-
-`insert()` returns the number of affected rows. Guess what? That's the number `1` ... In case something
-goes wrong a `\Doctrine\DBAL\DBALException` is raised.
-
-.. note::
-
-    A list of allowed field types for proper quoting can be found in the :php:`TYPO3\CMS\Core\Database\Connection`
-    class and its base class :php:`\Doctrine\DBAL\Connection`
-
+.. _database-connection-bulk-insert:
 
 bulkInsert()
 ============
 
-`INSERT` multiple rows at once:
+This method insert multiple rows at once:
 
-.. code-block:: php
-   :caption: EXT:some_extension/Classes/SomeClass.php
+..  code-block:: php
+    :caption: EXT:my_extension/Classes/Domain/Repository/MyTableRepository.php
 
-   // use TYPO3\CMS\Core\Utility\GeneralUtility;
-   // use TYPO3\CMS\Core\Database\ConnectionPool;
-   $connection = GeneralUtility::makeInstance(ConnectionPool::class)
-      ->getConnectionForTable('sys_log');
-   $connection->bulkInsert(
-      'sys_log',
-      [
-         [(int)$userId, (string)$details1],
-         [(int)$userId, (string)$details2],
-      ],
-      [
-         'userid',
-         'details',
-      ],
-      [
-         Connection::PARAM_INT,
-         Connection::PARAM_STR,
-      ]
-   );
+    // use TYPO3\CMS\Core\Database\Connection;
+    $connection = $this->connectionPool->getConnectionForTable('sys_log');
+    $connection->bulkInsert(
+        'sys_log',
+        [
+            [(int)$userId, (string)$details1],
+            [(int)$userId, (string)$details2],
+        ],
+        [
+            'userid',
+            'details',
+        ],
+        [
+            Connection::PARAM_INT,
+            Connection::PARAM_STR,
+        ]
+    );
 
-First argument is the table to insert table into, second argument is an array of rows, third argument is the list
-of field names. Similar to :php:`->insert()` it is optionally possible to add another argument to specify quoting details,
-if omitted, everything will be quoted to strings.
+Read :ref:`how to instantiate <database-connection-instantiation>` a connection
+with the connection pool.
 
-.. note::
+Arguments of the :php:`bulkInsert()` method:
 
-    `mysql` is rather forgiving when it comes to insufficient field quoting: Inserting a string to an `int` field will
-    not raise an error and `mysql` will adapt internally. However, other `dbms` are not that relaxed and may raise
-    errors. It is good practice to specify field types for each field, especially if they are not strings. Doing
-    so right away will reduce the number of raised bugs if people run your extension an anything else than `mysql`.
+1.  The name of the table the row should be inserted. Required.
+2.  An array of the values to be inserted. Required.
+3.  An array containing the column names of the data which should be inserted.
+    Optional.
+4.  Specify how single values are quoted. Similar to :ref:`insert()
+    <database-connection-insert>`; if omitted, everything will be quoted
+    to strings. Optional.
+
+The number of inserted rows are returned. If something goes wrong, a
+:php:`\Doctrine\DBAL\DBALException` is thrown.
+
+..  note::
+    MySQL is quite forgiving when it comes to insufficient field quoting:
+    Inserting a string into an :sql:`int` field does not cause an error and
+    MySQL adjusts internally. However, other :abbr:`DBMSes (Database management
+    systems)` are not that relaxed and may raise errors. It is good practice to
+    specify field types for each field, especially if they are not strings.
+    Doing this immediately will reduce the number of bugs that occur when people
+    run your extension an anything else than MySQL.
 
 
 .. _database-connection-update:
@@ -136,150 +229,198 @@ if omitted, everything will be quoted to strings.
 update()
 ========
 
-Create and execute an `UPDATE` statement. The example from `FAL's`
-`ResourceStorage` sets a storage to offline:
+Create an :sql:`UPDATE` statement and execute it. The example from FAL's
+:php:`ResourceStorage` sets a storage to offline:
 
-.. code-block:: php
-   :caption: EXT:some_extension/Classes/SomeClass.php
+..  code-block:: php
+    :caption: EXT:my_extension/Classes/Domain/Repository/MyTableRepository.php
 
-   // use TYPO3\CMS\Core\Utility\GeneralUtility;
-   // use TYPO3\CMS\Core\Database\ConnectionPool;
-   // use TYPO3\CMS\Core\Database\Connection;
-   // UPDATE `sys_file_storage` SET `is_online` = 0 WHERE `uid` = '42'
-   GeneralUtility::makeInstance(ConnectionPool::class)
-      ->getConnectionForTable('sys_file_storage')
-      ->update(
-         'sys_file_storage',
-         ['is_online' => 0],
-         ['uid' => (int)$this->getUid()],
-         [Connection::PARAM_INT]
-      );
+    // use TYPO3\CMS\Core\Database\Connection;
+    // UPDATE `sys_file_storage` SET `is_online` = 0 WHERE `uid` = '42'
+    $this->connectionPool
+        ->getConnectionForTable('sys_file_storage')
+        ->update(
+            'sys_file_storage',
+            ['is_online' => 0],
+            ['uid' => (int)$this->getUid()],
+            [Connection::PARAM_INT]
+        );
+
+Read :ref:`how to instantiate <database-connection-instantiation>` a connection
+with the connection pool.
+
+Arguments of the :php:`update()` method:
+
+1.  The name of the table to update. Required.
+2.  An associative array containing field/value pairs to be updated. The key is
+    a field name, the value is the value. In SQL they are mapped to the
+    :sql:`SET` keyword. Required.
+3.  The update criteria as an array of key/value pairs. The key is the field
+    name, the value is the value. In SQL they are mapped in a :sql:`WHERE`
+    keyword combined with :sql:`AND`. Required.
+4.  Specify how single values are quoted. Similar to :ref:`insert()
+    <database-connection-insert>`; if omitted, everything will be quoted
+    to strings. Optional.
+
+The method returns the number of updated rows. If something goes wrong, a
+:php:`\Doctrine\DBAL\DBALException` is thrown.
+
+..  note::
+    The third argument ``WHERE `foo` = 'bar'`` supports only equal `=`. For more
+    complex stuff the :ref:`query builder <database-query-builder>` must be used.
 
 
-First argument is the table an update should be executed on, the second argument is an array of key/value pairs to set,
-the third argument is an array of "equal" where statements that are combined with `AND`, the (optional) fourth argument
-specifies the type of values to be updated similar to :php:`->insert()` and :php:`bulkInsert()`.
-
-Note the third argument ``WHERE `foo` = 'bar'`` only supports equal `=`. For more complex stuff the `QueryBuilder`
-has to be used.
-
-The method returns the number of affected rows.
-
+.. _database-connection-delete:
 
 delete()
 ========
 
-Execute a `DELETE` query using `equal` conditions in `WHERE`, example from `BackendUtility` to mark
-rows as no longer locked by a user:
+Execute a :sql:`DELETE` query using `equal` conditions in :sql:`WHERE`, example
+from :php:`BackendUtility`, to mark rows as no longer locked by a user:
 
-.. code-block:: php
-   :caption: EXT:some_extension/Classes/SomeClass.php
+..  code-block:: php
+    :caption: EXT:my_extension/Classes/Domain/Repository/MyTableRepository.php
 
-   // use TYPO3\CMS\Core\Utility\GeneralUtility;
-   // use TYPO3\CMS\Core\Database\ConnectionPool;
-   // use TYPO3\CMS\Core\Database\Connection;
-   // DELETE FROM `sys_lockedrecords` WHERE `userid` = 42
-   GeneralUtility::makeInstance(ConnectionPool::class)
-      ->getConnectionForTable('sys_lockedrecords')
-      ->delete(
-         'sys_lockedrecords',
-         ['userid' => (int)42],
-         [Connection::PARAM_INT]
-       );
+    // use TYPO3\CMS\Core\Database\Connection;
+    // DELETE FROM `sys_lockedrecords` WHERE `userid` = 42
+    $this->connectionPool
+        ->getConnectionForTable('sys_lockedrecords')
+        ->delete(
+            'sys_lockedrecords',
+            ['userid' => (int)42],
+            [Connection::PARAM_INT]
+        );
+
+Read :ref:`how to instantiate <database-connection-instantiation>` a connection
+with the connection pool.
+
+Arguments of the :php:`delete()` method:
+
+1.  The name of the table. Required.
+2.  The delete criteria as an array of key/value pairs. The key is the field
+    name, the value is the value. In SQL they are mapped in a :sql:`WHERE`
+    keyword combined with :sql:`AND`. Required.
+3.  Specify how single values are quoted. Similar to :ref:`insert()
+    <database-connection-insert>`; if omitted, everything will be quoted
+    to strings. Optional.
+
+The method returns the number of deleted rows. If something goes wrong, a
+:php:`\Doctrine\DBAL\DBALException` is thrown.
+
+..  note::
+    TYPO3 uses a ":ref:`soft delete <t3tca:ctrl-reference-delete>`" approach for
+    many tables. Instead of deleting a  row directly in the database, a field -
+    often called :sql:`deleted` - is set from 0 to 1. Executing a :sql:`DELETE`
+    query circumvents this and really removes rows from a table. For most
+    tables, it is better to use the :ref:`DataHandler <tce-database-basics>` API
+    to handle deletions instead of executing such low-level queries directly.
 
 
-First argument is the table name, second argument is a list of `AND` combined `WHERE` conditions as array, third
-argument specifies the quoting of `WHERE` values. There is a pattern ;)
-
-.. note::
-
-    TYPO3 uses a "soft delete" approach for many tables. Instead of directly deleting a rows in the database,
-    a field - often called `deleted` - is set from 0 to 1. Executing a `DELETE` query circumvents this and really
-    removes rows from a table. For most tables, it is better to use the :ref:`DataHandler <tce-database-basics>` API
-    to handle deletes instead of executing such low level queries directly.
-
+.. _database-connection-truncate:
 
 truncate()
 ==========
 
-Empty a table, removing all rows. Usually much quicker than a :php:`->delete()` of all rows. This typically
+This method empties a table, removing all rows. It is usually much faster than
+a :ref:`delete() <database-connection-delete>` of all rows. This typically
 resets "auto increment primary keys" to zero. Use with care:
 
-.. code-block:: php
-   :caption: EXT:some_extension/Classes/SomeClass.php
+..  code-block:: php
+    :caption: EXT:my_extension/Classes/Domain/Repository/MyTableRepository.php
 
-   // use TYPO3\CMS\Core\Utility\GeneralUtility;
-   // use TYPO3\CMS\Core\Database\ConnectionPool;
-   // TRUNCATE `cache_treelist`
-   GeneralUtility::makeInstance(ConnectionPool::class)
-      ->getConnectionForTable('cache_treelist')
-      ->truncate('cache_treelist');
+    // TRUNCATE `cache_treelist`
+    $this->connectionPool
+        ->getConnectionForTable('cache_treelist')
+        ->truncate('cache_treelist');
 
+Read :ref:`how to instantiate <database-connection-instantiation>` a connection
+with the connection pool.
+
+The argument is the name of the table to be truncated. If something goes wrong,
+a :php:`\Doctrine\DBAL\DBALException` is thrown.
+
+
+.. _database-connection-count:
 
 count()
 =======
 
-A `COUNT` query. Again, this methods becomes handy if very simple `COUNT` statements are to be executed, the example
-returns tha number of active rows from table `tt_content` that have their `bodytext` field set to `klaus`:
+This method executes a :sql:`COUNT` query. Again, this becomes useful when very
+simple :sql:`COUNT` statements are to be executed. The example below returns the
+number of active rows from the table :sql:`tt_content` whose :sql:`bodytext`
+field set to `klaus`:
 
-.. code-block:: php
-   :caption: EXT:some_extension/Classes/SomeClass.php
+..  code-block:: php
+    :caption: EXT:my_extension/Classes/Domain/Repository/MyTableRepository.php
 
-   // use TYPO3\CMS\Core\Utility\GeneralUtility;
-   // use TYPO3\CMS\Core\Database\ConnectionPool;
-   // SELECT COUNT(*)
-   // FROM `tt_content`
-   // WHERE
-   //     (`bodytext` = 'klaus')
-   //     AND (
-   //         (`tt_content`.`deleted` = 0)
-   //         AND (`tt_content`.`hidden` = 0)
-   //         AND (`tt_content`.`starttime` <= 1475621940)
-   //         AND ((`tt_content`.`endtime` = 0) OR (`tt_content`.`endtime` > 1475621940))
-   //     )
-   $connection = GeneralUtility::makeInstance(ConnectionPool::class)->getConnectionForTable('tt_content');
-   $rowCount = $connection->count(
-      '*',
-      'tt_content',
-      ['bodytext' => 'klaus']
-   );
+    // SELECT COUNT(*)
+    // FROM `tt_content`
+    // WHERE
+    //     (`bodytext` = 'klaus')
+    //     AND (
+    //         (`tt_content`.`deleted` = 0)
+    //         AND (`tt_content`.`hidden` = 0)
+    //         AND (`tt_content`.`starttime` <= 1475621940)
+    //         AND ((`tt_content`.`endtime` = 0) OR (`tt_content`.`endtime` > 1475621940))
+    //     )
+    $connection = $this->connectionPool->getConnectionForTable('tt_content');
+    $rowCount = $connection->count(
+        '*',
+        'tt_content',
+        ['bodytext' => 'klaus']
+    );
 
+Read :ref:`how to instantiate <database-connection-instantiation>` a connection
+with the connection pool.
 
-First argument is the field to count on, usually `*` or `uid`. Second argument is the table name, third argument
-is an array of `WHERE` equal conditions combined with `AND`.
+Arguments of the :php:`count()` method:
+
+1.  The field to count, usually :sql:`*` or :sql:`uid`. Required.
+2.  The name of the table. Required.
+3.  The select criteria as an array of key/value pairs. The key is the field
+    name, the value is the value. In SQL they are mapped in a :sql:`WHERE`
+    keyword combined with :sql:`AND`. Required.
+
+The method returns the counted rows.
 
 Remarks:
 
-* :php:`->count()` of `Connection` returns the number directly as integer, in contrast to the method of the `QueryBuilder`,
-  there is no need to call :php:`->fetchColumns(0)` or similar.
+*   :php:`Connection::count()` returns the number directly as an integer, unlike
+    the method of the :ref:`query builder <database-query-builder>` it is not
+    necessary to call :php:`->fetchColumns(0)` or similar.
 
-* The third argument expects all `WHERE` values to be strings, each single expression is combined with `AND`.
+*   The third argument expects all :sql:`WHERE` values to be strings, each
+    single expression is combined with :sql:`AND`.
 
-* The :ref:`RestrictionBuilder <database-restriction-builder>` kicks in and adds additional `WHERE` conditions
-  based on `TCA` settings.
+*   The :ref:`restriction builder <database-restriction-builder>` kicks in and
+    adds additional :sql:`WHERE` conditions based on TCA settings.
 
-* Field names and values are quoted automatically.
+*   Field names and values are quoted automatically.
 
-* If anything more complex than a simple `equal` condition on `WHERE` is needed, the `QueryBuilder` methods
-  are a better choice: Next to :php:`->select()`, the :php:`->count()` query is often the least useful method of the
-  `Connection` object.
+*   If anything more complex than a simple `equal` condition on :sql:`WHERE` is
+    needed, the :ref:`query builder <database-query-builder>` methods are the
+    better choice: next to :ref:`select() <database-connection-select>`,
+    the :php:`->count()` query is often the least useful method of the
+    :php:`Connection` object.
+
 
 .. _database-connection-select:
 
 select()
 ========
 
-Creates and executes a simple `SELECT` query based on `equal` conditions. Its usage is limited, the
-:ref:`RestrictionBuilder <database-restriction-builder>` kicks in and key/value pairs are automatically
+This method creates and executes a simple :sql:`SELECT` query based on `equal`
+conditions. Its usage is limited, the :ref:`restriction builder
+<database-restriction-builder>` kicks in and key/value pairs are automatically
 quoted:
 
-.. code-block:: php
-   :caption: EXT:some_extension/Classes/SomeClass.php
+..  code-block:: php
+    :caption: EXT:my_extension/Classes/Domain/Repository/MyTableRepository.php
 
-   // use TYPO3\CMS\Core\Utility\GeneralUtility;
-   // use TYPO3\CMS\Core\Database\ConnectionPool;
-   // SELECT `entry_key`, `entry_value` FROM `sys_registry` WHERE `entry_namespace` = 'my_extension'
-   $resultRows = GeneralUtility::makeInstance(ConnectionPool::class)
+    // SELECT `entry_key`, `entry_value`
+    //     FROM `sys_registry`
+    //     WHERE `entry_namespace` = 'my_extension'
+    $resultRows = $this->connectionPool
       ->getConnectionForTable('sys_registry')
       ->select(
          ['entry_key', 'entry_value'],
@@ -287,75 +428,103 @@ quoted:
          ['entry_namespace' => 'my_extension']
       );
 
+Read :ref:`how to instantiate <database-connection-instantiation>` a connection
+with the connection pool.
+
+Arguments of the :php:`select()` method:
+
+1.  The columns of the table which to select as an array. Required.
+2.  The name of the table. Required.
+3.  The select criteria as an array of key/value pairs. The key is the field
+    name, the value is the value. In SQL they are mapped in a :sql:`WHERE`
+    keyword combined with :sql:`AND`. Optional.
+4.  The columns to group the results by as an array. In SQL they are mapped
+    in a :sql:`GROUP BY` keyword. Optional.
+5.  An associative array of column name/sort directions pairs. In SQL they are
+    mapped in an :sql:`ORDER BY` keyword. Optional.
+6.  The maximum number of rows to return. In SQL it is mapped in a :sql:`LIMIT`
+    keyword. Optional.
+7.  The first result row to select (when used the maximum number of rows). In
+    SQL it is mapped in an :sql:`OFFSET` keyword. Optional.
+
+In contrast to the other short-hand methods, :php:`->select()` returns a
+:ref:`Result <database-result>` object ready for :php:`->fetchAssociative()` to
+get single rows or for :php:`->fetchAllAssociative()` to get all rows at once.
 
 Remarks:
 
-* In contrast to the other short-hand methods, :php:`->select()` returns a :ref:`Statement <database-statement>` object
-  ready to :php:`->fetchAssociative()` single rows or to :php:`->fetchAllAssociative()`
+*   For non-trivial :sql:`SELECT` queries it is often better to switch to the
+    according method of the :ref:`query builder <database-query-builder>`
+    object.
 
-* The method accepts a series of further arguments to specify `GROUP BY`, `ORDER BY`, `LIMIT` and `OFFSET` query parts.
+*   The :ref:`restriction builder <database-restriction-builder>` adds default
+    :sql:`WHERE` restrictions. If these restrictions do not match the query
+    requirements, it is necessary to switch to the :php:`QueryBuilder->select()`
+    method for fine-grained :sql:`WHERE` manipulation.
 
-* For non-trivial `SELECT` queries, it is often better to switch to the according method of the
-  :ref:`QueryBuilder <database-query-builder>` object.
 
-* The :ref:`RestrictionBuilder <database-restriction-builder>` adds default `WHERE` restrictions. If those restrictions
-  do not apply to the query needs, it is required to switch to the `QueryBuilder->select()` method for fine-grained
-  `WHERE` manipulation.
-
+.. _database-connection-last-insert-id:
 
 lastInsertId()
 ==============
 
-Returns the `uid` of the last :php:`->insert()` statement. Useful if this id
-needs to be used afterwards directly:
+This method returns the :sql:`uid` of the last :ref:`insert()
+<database-connection-insert>` statement. This is useful if the id is to be used
+directly afterwards:
 
-.. code-block:: php
-   :caption: EXT:some_extension/Classes/SomeClass.php
+..  code-block:: php
+    :caption: EXT:my_extension/Classes/Domain/Repository/MyTableRepository.php
 
-   // use TYPO3\CMS\Core\Utility\GeneralUtility;
-   // use TYPO3\CMS\Core\Database\ConnectionPool;
-   // use TYPO3\CMS\Core\Database\Connection;
-   $connectionPool = GeneralUtility::makeInstance(ConnectionPool::class);
-   $databaseConnectionForPages = $connectionPool->getConnectionForTable('myTable');
-   $databaseConnectionForPages->insert(
-      'myTable',
-      [
-         'pid' => 0,
-         'title' => 'Home',
-      ]
-   );
-   $pageUid = (int)$databaseConnectionForPages->lastInsertId('pages');
+    $connection = $this->connectionPool->getConnectionForTable('pages');
+    $connection->insert(
+        'pages',
+        [
+            'pid' => 0,
+            'title' => 'Home',
+        ]
+    );
+    $pageUid = (int)$connection->lastInsertId('pages');
+
+Read :ref:`how to instantiate <database-connection-instantiation>` a connection
+with the connection pool.
 
 Remarks:
 
-* :php:`->lastInsertId($tableName)` needs the table name as first argument. While this is optional, you should always
-  supply the table name for DBAL compatibility with engines like postgres.
+*   :php:`->lastInsertId($tableName)` takes the table name as first argument.
+    Although it is optional, you should always specify the table name for
+    Doctrine DBAL compatibility with engines like PostgreSQL.
 
-* If the auto increment field name is not `uid`, the second argument with the name of this field must be supplied.
-  For casual TYPO3 tables, `uid` is ok and the argument can be left out.
+*   If the name of the auto increment field is not :sql:`uid`, the second
+    argument must be specified with the name of that field. For simple TYPO3
+    tables, :sql:`uid` is fine and the argument can be omitted.
 
+
+.. _database-connection-create-query-builder:
 
 createQueryBuilder()
 ====================
 
-The :ref:`QueryBuilder <database-query-builder>` should not be re-used for multiple different queries. However,
-it sometimes becomes handy to first fetch a `Connection` object for a specific table and to execute a simple
-query, and to create a `QueryBuilder` for a more complex query from this connection object later. The methods
-usefulness is limited however and no good example within the Core can be found at the time of this writing.
+The :ref:`query builder <database-query-builder>` should not be reused for
+multiple different queries. However, sometimes it is convenient to first fetch a
+connection object for a specific table and execute a simple query, and later
+create a query builder for a more complex query from that connection object. The
+usefulness of this method is limited, however, and at the time of writing no
+good example could be found in the Core.
 
-The method can be helpful in loops to save some precious code characters, too:
+The method can also be useful in loops to save some precious code characters:
 
-.. code-block:: php
-   :caption: EXT:some_extension/Classes/SomeClass.php
+..  code-block:: php
+    :caption: EXT:my_extension/Classes/Domain/Repository/MyTableRepository.php
 
-   // use TYPO3\CMS\Core\Utility\GeneralUtility;
-   // use TYPO3\CMS\Core\Database\ConnectionPool;
-   $connection = GeneralUtility::makeInstance(ConnectionPool::class)->getConnectionForTable($myTable);
-   foreach ($someList as $aListValue) {
-      $myResult = $connection->createQueryBuilder
-         ->select('something')
-         ->from('whatever')
-         ->where(...)
-         ->execute()
-         ->fetchAllAssociative();
-   }
+    $connection = $this->connection->getConnectionForTable($myTable);
+    foreach ($someList as $aListValue) {
+        $myResult = $connection->createQueryBuilder
+            ->select('something')
+            ->from('whatever')
+            ->where(...)
+            ->executeQuery()
+            ->fetchAllAssociative();
+    }
+
+Read :ref:`how to instantiate <database-connection-instantiation>` a connection
+with the connection pool.
