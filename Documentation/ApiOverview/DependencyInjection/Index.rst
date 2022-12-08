@@ -618,6 +618,8 @@ marked as public:
 *   Classes registered in :ref:`hooks <hooks-general>`
 *   :ref:`Authentication services <authentication>`
 *   :ref:`Fluid data processors <content-elements-custom-data-processor>`
+    (only necessary if not tagged as
+    :ref:`data.processor <content-elements-custom-data-processor_alias>`).
 
 For such classes, an extension can override the global configuration
 :yaml:`public: false` in :file:`Configuration/Services.yaml` for each affected
