@@ -50,7 +50,7 @@ specific route to a page:
 
 The suffix `/products/<product-name>` to the base route of the page is added by
 an enhancer. The placeholder variable added by the curly braces can then be
-resolved statically or dynamically, or built by an Aspect (more commonly
+resolved statically or dynamically, or built by an aspect (more commonly
 known as a "mapper").
 
 It is possible to use the same enhancer multiple times with different
