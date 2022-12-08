@@ -42,22 +42,8 @@ It is good practice not to assign an instance of the :php:`ExpressionBuilder` to
 a variable, but to use it directly within the code flow of the query builder
 context:
 
-..  code-block:: php
+..  literalinclude:: _MyTableRepository.php
     :caption: EXT:my_extension/Classes/Domain/Repository/MyTableRepository.php
-
-    $rows = $this->connectionPool->getQueryBuilderForTable('tt_content')
-        ->select('uid', 'header', 'bodytext')
-        ->from('tt_content')
-        ->where(
-            // `bodytext` = 'klaus' AND `header` = 'peter'
-            $queryBuilder->expr()->eq('bodytext', $queryBuilder->createNamedParameter('klaus')),
-            $queryBuilder->expr()->eq('header', $queryBuilder->createNamedParameter('peter'))
-        )
-        ->executeQuery()
-        ->fetchAllAssociative();
-
-Read :ref:`how to correctly instantiate <database-query-builder-instantiation>`
-a query builder with the connection pool.
 
 ..  warning::
     It is of crucial importance to quote values correctly to not introduce SQL
