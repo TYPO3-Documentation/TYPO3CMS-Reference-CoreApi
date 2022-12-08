@@ -259,4 +259,4 @@ This chapter is a show case how project testing can be done. Our example project
 the ddev setup allows us to fully kickstart the entire instance and then run tests on it. Your project setup
 may be probably different, you may want to run tests against some other web endpoint, you may want to trigger
 that from within your CI and deployment phase and so on. These setups are out of scope of this document, but
-maybe the chapter is a good starting point and you can derive you own solution from it.
+maybe the chapter is a good starting point and you can derive your own solution from it.
