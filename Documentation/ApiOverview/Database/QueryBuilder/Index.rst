@@ -692,6 +692,10 @@ Further remarks:
     involved tables for equality and implement a fallback logic in PHP if they
     are different.
 
+*   Doctrine DBAL does not support the use of join methods in combination with
+    :php:`->update()`, :php:`->insert()` and :php:`->delete()` methods, because
+    such a statement is not cross-platform compatible.
+
 
 orderBy() and addOrderBy()
 ==========================
