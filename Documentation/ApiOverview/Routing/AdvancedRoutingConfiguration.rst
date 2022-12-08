@@ -24,7 +24,7 @@ configured explicitly in your :ref:`site configuration <sitehandling>`.
     :file:`config.yaml` site configuration file (located in
     :file:`config/sites/<yoursite>/config.yaml`).
 
-To map GET parameters to routes, a concept called "enhancers and aspects has
+To map GET parameters to routes, a concept called "enhancers and aspects" has
 been introduced.
 
 An :ref:`enhancer <routing-advanced-routing-configuration-enhancers>` creates
