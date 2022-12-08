@@ -147,7 +147,9 @@ Remarks and warnings:
     argument **must** be quoted, usually by calling
     :ref:`$queryBuilder->createNamedParameter() <database-query-builder-create-named-parameter>`
     or :ref:`$queryBuilder->quoteIdentifier() <database-query-builder-quote-identifier>`.
-    **Failing to do so will end up in SQL injections!**
+
+    ..  warning::
+        Failing to quote will end up in :ref:`SQL injections <security-sql-injection>`!
 
 *   :php:`->like()` and :php:`->notLike()` values **must** be **additionally**
     quoted with a call to :ref:`$queryBuilder->escapeLikeWildcards($value)
