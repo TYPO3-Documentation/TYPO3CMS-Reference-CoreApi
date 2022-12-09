@@ -206,7 +206,7 @@ The following code example is probably outdated:
 Read :ref:`how to correctly instantiate <database-query-builder-instantiation>`
 a query builder with the connection pool.
 
-Looking at a mysql debug log:
+Looking at a MySQL debug log:
 
 ..  code-block:: none
 
