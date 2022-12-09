@@ -10,11 +10,9 @@ final class MyTableRepository
 {
     private const TABLE_NAME = 'tt_content';
 
-    private ConnectionPool $connectionPool;
-
-    public function __construct(ConnectionPool $connectionPool)
-    {
-        $this->connectionPool = $connectionPool;
+    public function __construct(
+        private readonly ConnectionPool $connectionPool
+    ) {
     }
 
     public function findSomething()
