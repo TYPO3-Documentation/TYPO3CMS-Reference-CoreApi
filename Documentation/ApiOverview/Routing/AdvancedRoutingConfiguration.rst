@@ -28,8 +28,8 @@ To map GET parameters to routes, a concept called "enhancers and aspects" has
 been introduced.
 
 An :ref:`enhancer <routing-advanced-routing-configuration-enhancers>` creates
-variants of a specific page-based route for a specific purpose (e.g., one plugin,
-one :ref:`Extbase <extbase>` plugin) and enhances the existing route path, which
+variants of a specific page-based route for a specific purpose (e.g. an
+:ref:`Extbase <extbase>` plugin) and enhances the existing route path, which
 can then contain flexible values, so-called "placeholders".
 
 On top, :ref:`aspects <routing-advanced-routing-configuration-aspects>` can be
