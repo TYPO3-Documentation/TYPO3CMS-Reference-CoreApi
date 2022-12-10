@@ -17,11 +17,6 @@ final class MyTableRepository
 
     public function findSomething()
     {
-        // Get a query builder for a table
-        $queryBuilder = $this->connectionPool
-            ->getQueryBuilderForTable(self::TABLE_NAME);
-
-        // Or get a connection for a table
         $connection = $this->connectionPool
             ->getConnectionForTable(self::TABLE_NAME);
     }

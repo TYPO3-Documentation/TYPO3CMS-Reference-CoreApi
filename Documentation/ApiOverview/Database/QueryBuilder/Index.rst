@@ -185,6 +185,8 @@ Default Restrictions
     <database-restriction-builder>` section for details on that topic.
 
 
+..  _database-query-builder-count:
+
 count()
 =======
 
@@ -925,6 +927,8 @@ Remarks:
     <database-query-builder-get-sql>` to see the string with placeholders, which
     is used as a prepared statement.
 
+
+..  _database-query-builder-execute:
 
 execute(), executeQuery() and executeStatement()
 ================================================
