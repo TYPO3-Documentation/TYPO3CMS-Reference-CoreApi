@@ -197,8 +197,8 @@ Former methods to add assets
 Using the page renderer
 -----------------------
 
-An instance of the :php:`PageRenderer` class can be injection into the
-constructor via :ref:`dependency injection <DependencyInjection>`:
+An instance of the :php:`PageRenderer` class can be injected into the
+class via :ref:`dependency injection <DependencyInjection>`:
 
 ..  literalinclude:: _MyClassWithPageRenderer.php
     :caption: EXT:my_extension/Classes/MyClass.php
