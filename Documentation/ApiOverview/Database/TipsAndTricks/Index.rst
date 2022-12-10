@@ -13,7 +13,7 @@ Various tips and tricks
     to quickly see usage examples for complex methods like :php:`join()`
     from the :ref:`query builder <database-query-builder>`.
 
-*   :sql:`INSERT`, :sql:`UPDATE` and :sql:`DELETE` statements are often easier
+*   :sql:`INSERT`, :sql:`UPDATE` and :sql:`DELETE` statements are often better
     to read and write using the :ref:`Connection <database-connection>` object
     instead of the :ref:`query builder <database-query-builder>`.
 
