@@ -185,6 +185,8 @@ Default Restrictions
     <database-restriction-builder>` section for details on that topic.
 
 
+..  _database-query-builder-count:
+
 count()
 =======
 
@@ -926,7 +928,10 @@ Remarks:
     is used as a prepared statement.
 
 
-* The method is typically called directly before :php:`->execute()` to output the final values for the statement.
+..  _database-query-builder-execute:
+
+execute(), executeQuery() and executeStatement()
+================================================
 
 ..  versionchanged:: 11.5
     The widely used :php:`->execute()` method has been split into
@@ -940,8 +945,8 @@ Remarks:
     :sql:`COUNT` statements and :php:`->executeStatement()` for :sql:`INSERT`,
     :sql:`UPDATE` and :sql:`DELETE` queries.
 
-execute()
-=========
+executeQuery()
+--------------
 
 This method compiles and fires the final query statement. This is usually the
 last call on a query builder object. It can be called for :sql:`SELECT` and
