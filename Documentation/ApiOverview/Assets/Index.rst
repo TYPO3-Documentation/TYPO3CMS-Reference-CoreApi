@@ -36,10 +36,10 @@ more convenient :php:`AssetCollector` is possible.
 Asset collector
 ===============
 
-The :php:`\TYPO3\CMS\Core\Page\AssetCollector` is a concept to allow custom
-CSS/JS code, inline or external, to be added multiple times into, for example,
-a Fluid template (via :html:`<f:asset.script>` or :html:`<f:asset.css>`
-ViewHelpers), but rendered only once in the output.
+With the :php:`\TYPO3\CMS\Core\Page\AssetCollector` class, CSS and JavaScript
+code (inline or external) can be added multiple times, but rendered only once in
+the output. The class may be used directly in PHP code or the assets can be
+added via the :html:`<f:asset.css>` and :html:`<f:asset.script>` ViewHelpers.
 
 The :php:`priority` flag (default: :php:`false`) controls where the asset is
 inserted:
