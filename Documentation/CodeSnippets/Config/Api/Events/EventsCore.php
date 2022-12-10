@@ -15,7 +15,7 @@ return [
     ],
     [
         'action' => 'createPhpClassDocs',
-        'class' => \TYPO3\CMS\Core\Configuration\Event\ModifyLoadedPageTsConfigEvent::class,
+        'class' => \TYPO3\CMS\Core\TypoScript\IncludeTree\Event\ModifyLoadedPageTsConfigEvent::class,
         'targetFileName' => 'CodeSnippets/Events/Core/ModifyLoadedPageTsConfigEvent.rst.txt',
         'withCode' => false,
     ],
