@@ -231,4 +231,10 @@ return [
         'targetFileName' => 'CodeSnippets/Events/Backend/BeforeSearchInDatabaseRecordProviderEvent.rst.txt',
         'withCode' => false,
     ],
+    [
+        'action' => 'createPhpClassDocs',
+        'class' => \TYPO3\CMS\Backend\ElementBrowser\Event\IsFileSelectableEvent::class,
+        'targetFileName' => 'CodeSnippets/Events/Backend/IsFileSelectableEvent.rst.txt',
+        'withCode' => false,
+    ],
 ];
