@@ -26,9 +26,9 @@ Accessing the current site object
 
 When rendering frontend or backend, TYPO3 builds an HTTP request object through
 a :ref:`PSR-15 middleware stack <request-handling>` and enriches it with
-information. Part of that information are the
+information. Part of that information are the objects
 :php:`\TYPO3\CMS\Core\Site\Entity\Site` and
-:php:`\TYPO3\CMS\Core\Site\Entity\SiteLanguage` objects. Both objects are
+:php:`\TYPO3\CMS\Core\Site\Entity\SiteLanguage`. Both objects are
 available as :ref:`attributes <typo3-request-attributes>` in the current
 :ref:`request object <typo3-request>`.
 
