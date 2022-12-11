@@ -949,6 +949,8 @@ execute(), executeQuery() and executeStatement()
     :sql:`COUNT` statements and :php:`->executeStatement()` for :sql:`INSERT`,
     :sql:`UPDATE` and :sql:`DELETE` queries.
 
+..  _database-query-builder-execute-query:
+
 executeQuery()
 --------------
 
@@ -973,6 +975,8 @@ was lost or if the query contains a syntax error), an
 suppress this exception, as it indicates a runtime error a program error. Both
 should bubble up. For more information on proper exception handling, see the
 :ref:`coding guidelines <cgl-working-with-exceptions>`.
+
+..  _database-query-builder-execute-statement:
 
 executeStatement()
 ------------------
