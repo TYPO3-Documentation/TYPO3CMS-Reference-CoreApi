@@ -8,11 +8,9 @@ use TYPO3\CMS\Core\Page\PageRenderer;
 
 final class MyClass
 {
-    private PageRenderer $pageRenderer;
-
-    public function __construct(PageRenderer $pageRenderer)
-    {
-        $this->pageRenderer = $pageRenderer;
+    public function __construct(
+        private readonly PageRenderer $pageRenderer
+    ) {
     }
 
     public function doSomething()
