@@ -36,7 +36,7 @@ This results in the following SQL statement:
 ..  code-block:: sql
 
     INSERT INTO `tt_content` (`pid`, `bodytext`)
-        VALUES ('42', 'bernd')
+        VALUES ('42', 'ipsum')
 
 
 .. index:: Database; SELECT
@@ -97,11 +97,11 @@ Result in :php:`$rows`:
         0 => array(3 items)
             uid => 4 (integer)
             pid => 35 (integer)
-            bodytext => 'bernd' (5 chars)
+            bodytext => 'ipsum' (5 chars)
         1 => array(3 items)
             uid => 366 (integer)
             pid => 13 (integer)
-            bodytext => 'klaus' (5 chars)
+            bodytext => 'lorem' (5 chars)
 
 The executed query looks like this:
 
@@ -109,7 +109,7 @@ The executed query looks like this:
 
     SELECT `uid`, `pid`, `bodytext`
         FROM `tt_content`
-        WHERE ((`bodytext` = 'klaus') OR (`uid` = 4))
+        WHERE ((`bodytext` = 'lorem') OR (`uid` = 4))
             AND (`tt_content`.`deleted` = 0)
 
 
@@ -125,8 +125,8 @@ The executed query looks like this:
 
 ..  code-block:: sql
 
-    UPDATE `tt_content` SET `bodytext` = 'bernd'
-        WHERE `bodytext` = 'klaus'
+    UPDATE `tt_content` SET `bodytext` = 'ipsum'
+        WHERE `bodytext` = 'lorem'
 
 ..  tip::
     You can also use the :php:`QueryBuilder` to create more complex update

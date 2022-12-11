@@ -21,7 +21,7 @@ final class MyInsertRepository
                 'tt_content',
                 [
                     'pid' => 42,
-                    'bodytext' => 'bernd',
+                    'bodytext' => 'ipsum',
                 ]
             );
     }
