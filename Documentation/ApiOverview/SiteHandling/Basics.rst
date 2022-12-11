@@ -74,6 +74,7 @@ backend module, except for custom settings and additional routing configuration.
 
 
 ..  index:: Site handling; Site identifier
+..  _sitehandling-basics-site-identifier:
 
 Site identifier
 ---------------
