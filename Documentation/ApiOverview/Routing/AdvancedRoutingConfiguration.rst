@@ -756,6 +756,92 @@ That is why :yaml:`aspects` take precedence over :yaml:`requirements` for a
 specific :yaml:`routePath` definition.
 
 
+.. index:: Routing; Aspect fallback value handling
+
+Aspect fallback value handling
+==============================
+
+..  versionadded:: 12.1
+
+Imagine a route like `/news/{news_title}` that has been filled with an "invalid"
+value for the `news_title` part. Often these are outdated, deleted or hidden
+records. Usually TYPO3 reacts to these "invalid" URL sections at a very early
+stage with an HTTP status code "404" (resource not found).
+
+The property :yaml:`fallbackValue = [string|null]` can prevent the above
+scenario in several ways. By specifying an alternative value, a different
+record, language or other detail can be represented. Specifying :yaml:`null`
+removes the corresponding parameter from the route result. In this way, it is
+up to the developer to react accordingly.
+
+In the case of :ref:`Extbase <extbase>` extensions, the developer can define the
+parameters in his calling controller action as nullable and deliver
+corresponding :ref:`flash messages <flash-messages-api>` that explain the current
+scenario better than a "404" HTTP status code.
+
+Examples
+--------
+
+..  code-block:: yaml
+
+    routeEnhancers:
+      NewsPlugin:
+        type: Extbase
+        extension: News
+        plugin: Pi1
+        routes:
+          - routePath: '/detail/{news_title}'
+            _controller: 'News::detail'
+            _arguments:
+              news_title: 'news'
+        aspects:
+          news_title:
+            type: PersistedAliasMapper
+            tableName: tx_news_domain_model_news
+            routeFieldName: path_segment
+
+            # A string value leads to parameter `&tx_news_pi1[news]=0`
+            fallbackValue: '0'
+
+            # A null value leads to parameter `&tx_news_pi1[news]` being removed
+            fallbackValue: null
+
+Custom mapper implementations can incorporate this behavior by implementing
+the :php:`\TYPO3\CMS\Core\Routing\Aspect\UnresolvedValueInterface` which is
+provided by :php:`\TYPO3\CMS\Core\Routing\Aspect\UnresolvedValueTrait`:
+
+..  code-block:: php
+    :caption: EXT:my_extension/Classes/Routing/Enhancer/MyCustomEnhancer.php
+
+    use TYPO3\CMS\Core\Routing\Aspect\MappableAspectInterface;
+    use TYPO3\CMS\Core\Routing\Aspect\UnresolvedValueInterface;
+    use TYPO3\CMS\Core\Routing\Aspect\UnresolvedValueTrait;
+
+    final class MyCustomEnhancer implements MappableAspectInterface, UnresolvedValueInterface
+    {
+        use UnresolvedValueTrait;
+
+        // ...
+    }
+
+In another example we handle the null value in an Extbase show action
+separately, for instance, to redirect to the list page:
+
+..  code-block:: php
+    :caption: EXT:my_extension/Classes/Controller/MyController.php
+
+    public function showAction(?MyModel $myModel = null): ResponseInterface
+    {
+        if ($myModel === null) {
+            return $this->responseFactory
+                ->createResponse(301)
+                ->withHeader('Location', $this->buildListPageUrl());
+        }
+
+        // ... default handling
+    }
+
+
 .. index::
    Routing; PageArguments
    Routing; cHash
