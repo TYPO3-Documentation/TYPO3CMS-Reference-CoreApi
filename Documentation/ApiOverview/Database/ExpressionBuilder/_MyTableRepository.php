@@ -25,14 +25,14 @@ final class MyTableRepository
             ->select('uid', 'header', 'bodytext')
             ->from(self::TABLE_NAME)
             ->where(
-                // `bodytext` = 'klaus' AND `header` = 'peter'
+                // `bodytext` = 'lorem' AND `header` = 'dolor'
                 $queryBuilder->expr()->eq(
                     'bodytext',
-                    $queryBuilder->createNamedParameter('klaus')
+                    $queryBuilder->createNamedParameter('lorem')
                 ),
                 $queryBuilder->expr()->eq(
                     'header',
-                    $queryBuilder->createNamedParameter('peter')
+                    $queryBuilder->createNamedParameter('dolor')
                 )
             )
             ->executeQuery()

@@ -161,7 +161,7 @@ code flow of a :sql:`SELECT` query looks like this:
         ->select('uid', 'header', 'bodytext')
         ->from('tt_content')
         ->where(
-            $queryBuilder->expr()->eq('bodytext', $queryBuilder->createNamedParameter('klaus'))
+            $queryBuilder->expr()->eq('bodytext', $queryBuilder->createNamedParameter('lorem'))
         )
         ->executeQuery();
 
@@ -195,7 +195,7 @@ Create a :sql:`COUNT` query, a typical usage:
 ..  code-block:: php
     :caption: EXT:my_extension/Classes/Domain/Repository/MyRepository.php
 
-    // SELECT COUNT(`uid`) FROM `tt_content` WHERE (`bodytext` = 'klaus')
+    // SELECT COUNT(`uid`) FROM `tt_content` WHERE (`bodytext` = 'lorem')
     //     AND ((`tt_content`.`deleted` = 0) AND (`tt_content`.`hidden` = 0)
     //     AND (`tt_content`.`starttime` <= 1669885410)
     //     AND ((`tt_content`.`endtime` = 0) OR (`tt_content`.`endtime` > 1669885410)))
@@ -204,7 +204,7 @@ Create a :sql:`COUNT` query, a typical usage:
         ->count('uid')
         ->from('tt_content')
         ->where(
-            $queryBuilder->expr()->eq('bodytext', $queryBuilder->createNamedParameter('klaus'))
+            $queryBuilder->expr()->eq('bodytext', $queryBuilder->createNamedParameter('lorem'))
         )
         ->executeQuery()
         ->fetchOne();
@@ -247,12 +247,12 @@ data is to be deleted. Classic usage:
 ..  code-block:: php
     :caption: EXT:my_extension/Classes/Domain/Repository/MyRepository.php
 
-    // DELETE FROM `tt_content` WHERE `bodytext` = 'klaus'
+    // DELETE FROM `tt_content` WHERE `bodytext` = 'lorem'
     $queryBuilder = $this->connectionPool->getQueryBuilderForTable('tt_content');
     $affectedRows = $queryBuilder
         ->delete('tt_content')
         ->where(
-            $queryBuilder->expr()->eq('bodytext', $queryBuilder->createNamedParameter('klaus'))
+            $queryBuilder->expr()->eq('bodytext', $queryBuilder->createNamedParameter('lorem'))
         )
         ->executeStatement();
 
@@ -295,14 +295,14 @@ Create an :sql:`UPDATE` query. Typical usage:
 ..  code-block:: php
     :caption: EXT:my_extension/Classes/Domain/Repository/MyRepository.php
 
-     // UPDATE `tt_content` SET `bodytext` = 'peter' WHERE `bodytext` = 'klaus'
+     // UPDATE `tt_content` SET `bodytext` = 'dolor' WHERE `bodytext` = 'lorem'
     $queryBuilder = $this->connectionPool->getQueryBuilderForTable('tt_content');
     $queryBuilder
         ->update('tt_content')
         ->where(
-            $queryBuilder->expr()->eq('bodytext', $queryBuilder->createNamedParameter('klaus'))
+            $queryBuilder->expr()->eq('bodytext', $queryBuilder->createNamedParameter('lorem'))
         )
-        ->set('bodytext', 'peter')
+        ->set('bodytext', 'dolor')
         ->executeStatement();
 
 Read :ref:`how to correctly instantiate <database-query-builder-instantiation>`
@@ -315,14 +315,14 @@ then be used in :php:`->set()` and :php:`->where()` expressions:
 ..  code-block:: php
     :caption: EXT:my_extension/Classes/Domain/Repository/MyRepository.php
 
-    // UPDATE `tt_content` `t` SET `t`.`bodytext` = 'peter' WHERE `t`.`bodytext` = 'klaus'
+    // UPDATE `tt_content` `t` SET `t`.`bodytext` = 'dolor' WHERE `t`.`bodytext` = 'lorem'
     $queryBuilder = $this->connectionPool->getQueryBuilderForTable('tt_content');
     $queryBuilder
         ->update('tt_content', 't')
         ->where(
-            $queryBuilder->expr()->eq('t.bodytext', $queryBuilder->createNamedParameter('klaus'))
+            $queryBuilder->expr()->eq('t.bodytext', $queryBuilder->createNamedParameter('lorem'))
         )
-        ->set('t.bodytext', 'peter')
+        ->set('t.bodytext', 'dolor')
         ->executeStatement();
 
 Read :ref:`how to correctly instantiate <database-query-builder-instantiation>`
@@ -341,12 +341,12 @@ be used:
 ..  code-block:: php
     :caption: EXT:my_extension/Classes/Domain/Repository/MyRepository.php
 
-    // UPDATE `tt_content` SET `bodytext` = `header` WHERE `bodytext` = 'klaus'
+    // UPDATE `tt_content` SET `bodytext` = `header` WHERE `bodytext` = 'lorem'
     $queryBuilder = $this->connectionPool->getQueryBuilderForTable('tt_content');
     $queryBuilder
         ->update('tt_content')
         ->where(
-            $queryBuilder->expr()->eq('bodytext', $queryBuilder->createNamedParameter('klaus'))
+            $queryBuilder->expr()->eq('bodytext', $queryBuilder->createNamedParameter('lorem'))
         )
         ->set('bodytext', $queryBuilder->quoteIdentifier('header'), false)
         ->executeStatement();
@@ -384,13 +384,13 @@ Create an :sql:`INSERT` query. Typical usage:
 ..  code-block:: php
     :caption: EXT:my_extension/Classes/Domain/Repository/MyRepository.php
 
-    // INSERT INTO `tt_content` (`bodytext`, `header`) VALUES(`klaus`, `peter`)
+    // INSERT INTO `tt_content` (`bodytext`, `header`) VALUES(`lorem`, `dolor`)
     $queryBuilder = $this->connectionPool->getQueryBuilderForTable('tt_content');
     $affectedRows = $queryBuilder
         ->insert('tt_content')
         ->values([
-            'bodytext' => 'klaus',
-            'header' => 'peter',
+            'bodytext' => 'lorem',
+            'header' => 'dolor',
         ])
         ->executeStatement();
 
@@ -460,8 +460,8 @@ is converted to a string on :php:`->executeQuery()` or
     // FROM `tt_content`
     // WHERE
     //    (
-    //       ((`bodytext` = 'klaus') AND (`header` = 'a name'))
-    //       OR (`bodytext` = 'peter') OR (`bodytext` = 'hans')
+    //       ((`bodytext` = 'lorem') AND (`header` = 'a name'))
+    //       OR (`bodytext` = 'dolor') OR (`bodytext` = 'hans')
     //    )
     //    AND (`pid` = 42)
     //    AND ... RestrictionBuilder TCA restrictions ...
@@ -470,11 +470,11 @@ is converted to a string on :php:`->executeQuery()` or
         ->select('uid', 'header', 'bodytext')
         ->from('tt_content')
         ->where(
-            $queryBuilder->expr()->eq('bodytext', $queryBuilder->createNamedParameter('klaus')),
+            $queryBuilder->expr()->eq('bodytext', $queryBuilder->createNamedParameter('lorem')),
             $queryBuilder->expr()->eq('header', $queryBuilder->createNamedParameter('a name'))
         )
         ->orWhere(
-            $queryBuilder->expr()->eq('bodytext', $queryBuilder->createNamedParameter('peter')),
+            $queryBuilder->expr()->eq('bodytext', $queryBuilder->createNamedParameter('dolor')),
             $queryBuilder->expr()->eq('bodytext', $queryBuilder->createNamedParameter('hans'))
         )
         ->andWhere(
@@ -494,7 +494,7 @@ Argument unpacking can become handy with these methods:
     :caption: EXT:my_extension/Classes/Domain/Repository/MyRepository.php
 
     $whereExpressions = [
-        $queryBuilder->expr()->eq('bodytext', $queryBuilder->createNamedParameter('klaus')),
+        $queryBuilder->expr()->eq('bodytext', $queryBuilder->createNamedParameter('lorem')),
         $queryBuilder->expr()->eq('header', $queryBuilder->createNamedParameter('a name'))
     ];
     if ($needsAdditionalExpression) {

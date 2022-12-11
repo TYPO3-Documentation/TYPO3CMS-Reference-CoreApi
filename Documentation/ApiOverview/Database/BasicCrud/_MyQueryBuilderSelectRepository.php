@@ -31,7 +31,7 @@ final class MyQueryBuilderSelectRepository
             ->removeAll()
             ->add(GeneralUtility::makeInstance(DeletedRestriction::class));
 
-        // Execute a query with "bodytext=klaus OR uid=4" and proper quoting
+        // Execute a query with "bodytext=lorem OR uid=4" and proper quoting
         return $queryBuilder
             ->select('uid', 'pid', 'bodytext')
             ->from('tt_content')
@@ -39,7 +39,7 @@ final class MyQueryBuilderSelectRepository
                 $queryBuilder->expr()->or(
                     $queryBuilder->expr()->eq(
                         'bodytext',
-                        $queryBuilder->createNamedParameter('klaus')
+                        $queryBuilder->createNamedParameter('lorem')
                     ),
                     $queryBuilder->expr()->eq(
                         'uid',
