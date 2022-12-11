@@ -148,6 +148,8 @@ This way, it is only referenced once. It can be cleaned up later easily when
 the request object is made available in that context in a future TYPO3 version.
 
 
+..  _typo3-request-attributes:
+
 Attributes
 ==========
 
