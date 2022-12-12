@@ -94,8 +94,8 @@ configuration options via
 -   :php:`getAttribute()`: returns a specific configuration attribute (root
     level configuration only)
 
-Additionally, it provides methods for accessing related objects (languages /
-errorHandling):
+Additionally, the site object provides methods for accessing related objects
+(languages / errorHandling):
 
 -   :php:`getErrorHandler()`: returns a :php:`PageErrorHandler` according to the
     site configuration
