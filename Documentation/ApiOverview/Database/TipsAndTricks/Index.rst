@@ -34,7 +34,7 @@ Various tips and tricks
             ->where(
                 $queryBuilder->expr()->eq(
                     'bodytext',
-                    $queryBuilder->createNamedParameter('klaus')
+                    $queryBuilder->createNamedParameter('lorem')
                 )
             );
 

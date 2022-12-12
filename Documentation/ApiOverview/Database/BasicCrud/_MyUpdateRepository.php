@@ -20,8 +20,8 @@ final class MyUpdateRepository
         $this->connectionPool->getConnectionForTable('tt_content')
             ->update(
                 'tt_content',
-                [ 'bodytext' => 'bernd' ], // set
-                [ 'bodytext' => 'klaus' ]  // where
+                [ 'bodytext' => 'ipsum' ], // set
+                [ 'bodytext' => 'lorem' ]  // where
             );
     }
 }

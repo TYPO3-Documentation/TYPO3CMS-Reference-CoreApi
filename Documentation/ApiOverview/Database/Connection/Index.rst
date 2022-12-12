@@ -143,7 +143,7 @@ Arguments of the :php:`insert()` method:
         :caption: EXT:my_extension/Classes/Domain/Repository/MyTableRepository.php
 
         // use TYPO3\CMS\Core\Database\Connection;
-        // INSERT INTO `sys_log` (`userid`, `details`) VALUES (42, 'klaus')
+        // INSERT INTO `sys_log` (`userid`, `details`) VALUES (42, 'lorem')
         $this->connectionPool
             ->getConnectionForTable('sys_log')
             ->insert(
@@ -348,7 +348,7 @@ count()
 This method executes a :sql:`COUNT` query. Again, this becomes useful when very
 simple :sql:`COUNT` statements are to be executed. The example below returns the
 number of active rows from the table :sql:`tt_content` whose :sql:`bodytext`
-field set to `klaus`:
+field set to `lorem`:
 
 ..  code-block:: php
     :caption: EXT:my_extension/Classes/Domain/Repository/MyTableRepository.php
@@ -356,7 +356,7 @@ field set to `klaus`:
     // SELECT COUNT(*)
     // FROM `tt_content`
     // WHERE
-    //     (`bodytext` = 'klaus')
+    //     (`bodytext` = 'lorem')
     //     AND (
     //         (`tt_content`.`deleted` = 0)
     //         AND (`tt_content`.`hidden` = 0)
@@ -367,7 +367,7 @@ field set to `klaus`:
     $rowCount = $connection->count(
         '*',
         'tt_content',
-        ['bodytext' => 'klaus']
+        ['bodytext' => 'lorem']
     );
 
 Read :ref:`how to instantiate <database-connection-instantiation>` a connection

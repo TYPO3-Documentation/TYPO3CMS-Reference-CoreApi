@@ -177,19 +177,19 @@ Examples:
     // `uid` >= 42
     ->gte('uid', $queryBuilder->createNamedParameter(42, \PDO::PARAM_INT))
 
-    // `bodytext` LIKE 'klaus'
+    // `bodytext` LIKE 'lorem'
     ->like(
         'bodytext',
         $queryBuilder->createNamedParameter(
-            $queryBuilder->escapeLikeWildcards('klaus')
+            $queryBuilder->escapeLikeWildcards('lorem')
         )
     )
 
-    // `bodytext` LIKE '%klaus%'
+    // `bodytext` LIKE '%lorem%'
     ->like(
         'bodytext',
         $queryBuilder->createNamedParameter(
-            '%' . $queryBuilder->escapeLikeWildcards('klaus') . '%'
+            '%' . $queryBuilder->escapeLikeWildcards('lorem') . '%'
         )
     )
 
