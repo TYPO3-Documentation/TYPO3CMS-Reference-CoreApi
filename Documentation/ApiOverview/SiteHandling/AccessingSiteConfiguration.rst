@@ -70,17 +70,13 @@ Finding a site object
 When you need to access the site configuration for a specific page ID or by a
 site identifier, you can use the class :php:`\TYPO3\CMS\Core\Site\SiteFinder`.
 
-The site finder offers the following methods for finding a site:
+The methods for finding a specific site throw a
+:php:`\TYPO3\CMS\Core\Exception\SiteNotFoundException` if no site was found.
 
--   :php:`getSiteByIdentifier()`: returns the site object for the specified
-    identifier ("folder name")
--   :php:`getSiteByRootPageId()`: returns the site object for a specific root
-    page (`pid = 0` or `is_siteroot` set)
--   :php:`getSiteByPageId()`: returns the site object for a page (walks the root
-    line to find the root page and returns the site configuration)
--   :php:`getAllSites()`: returns all configured site objects
+API
+---
 
-All methods for finding a specific site throw an exception, if no site was found.
+..  include:: /CodeSnippets/Manual/Core/SiteFinder.rst.txt
 
 
 .. index:: pair: Site handling; Site object
