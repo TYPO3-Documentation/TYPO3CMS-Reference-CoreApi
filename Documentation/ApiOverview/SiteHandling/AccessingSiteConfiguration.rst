@@ -35,9 +35,10 @@ available as :ref:`attributes <typo3-request-attributes>` in the current
 Depending on the context, there are two main ways to access them:
 
 -   via the PSR-7 HTTP request object directly - for example in a PSR-15
-    middleware or the :doc:`admin panel <ext_adminpanel:Index>`
+    middleware, an :ref:`Extbase controller <extbase-action-controller>` or a
+    :ref:`user function <t3tsref:cobj-user>`.
 -   via :php:`$GLOBALS['TYPO3_REQUEST']` - everywhere you do not have a
-    request object
+    request object.
 
 ..  hint::
     The first method is preferred if possible as :php:`$GLOBALS['TYPO3_REQUEST']`
