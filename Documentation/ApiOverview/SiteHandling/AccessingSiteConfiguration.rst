@@ -87,9 +87,8 @@ All methods for finding a specific site throw an exception, if no site was found
 The site object
 ===============
 
-Now we know how to find a :php:`Site` object, but what can it do?
-
-First of all, it gives us access to the site configuration options via
+A :php:`\TYPO3\CMS\Core\Site\Entity\Site` object gives access to the site
+configuration options via
 
 -   :php:`getConfiguration()`: returns the complete configuration
 -   :php:`getAttribute()`: returns a specific configuration attribute (root
