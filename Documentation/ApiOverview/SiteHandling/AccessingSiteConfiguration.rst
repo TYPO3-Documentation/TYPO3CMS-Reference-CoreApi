@@ -41,7 +41,7 @@ Depending on the context, there are two main ways to access them:
 
 ..  hint::
     The first method is preferred if possible as :php:`$GLOBALS['TYPO3_REQUEST']`
-    was deprecated in 9.2 and will be removed in a future version.
+    was deprecated in TYPO3 v9.2 and will be removed in a future version.
 
 Methods:
 
