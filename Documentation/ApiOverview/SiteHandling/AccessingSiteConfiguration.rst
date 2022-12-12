@@ -66,8 +66,8 @@ Methods:
 Finding a site object
 =====================
 
-When you need to access the site configuration for a specific page ID or by an
-identifier, you can use the :php:`\TYPO3\CMS\Core\Site\SiteFinder` class.
+When you need to access the site configuration for a specific page ID or by a
+site identifier, you can use the class :php:`\TYPO3\CMS\Core\Site\SiteFinder`.
 
 The site finder offers the following methods for finding a site:
 
