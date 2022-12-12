@@ -24,7 +24,7 @@ Let us look at both cases in detail.
 Accessing the current site object
 =================================
 
-When rendering frontend or backend, TYPO3 builds an HTTP request object through
+When rendering the frontend or backend, TYPO3 builds an HTTP request object through
 a :ref:`PSR-15 middleware stack <request-handling>` and enriches it with
 information. Part of that information are the objects
 :php:`\TYPO3\CMS\Core\Site\Entity\Site` and
