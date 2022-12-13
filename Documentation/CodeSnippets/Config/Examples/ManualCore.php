@@ -8,6 +8,12 @@ return [
         'withCode' => false,
     ],
     [
+        'action' => 'createPhpClassDocs',
+        'class' => \TYPO3\CMS\Core\Site\SiteFinder::class,
+        'targetFileName' => 'CodeSnippets/Manual/Core/SiteFinder.rst.txt',
+        'withCode' => false,
+    ],
+    [
         'action' => 'createCodeSnippet',
         'caption' => 'EXT:examples/Classes/Http/MeowInformationRequester.php',
         'sourceFile' => 'EXT:examples/Classes/Http/MeowInformationRequester.php',
