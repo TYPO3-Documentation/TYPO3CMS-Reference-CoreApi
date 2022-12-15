@@ -164,7 +164,7 @@ Therefore it behaves differently than a regular query by :php:`uid`.
 
 ..  note::
     :php:`$query->matching($query->equals('uid', 11));` and
-    :php:`$repository->findByUid()` do behave different in some langauge
+    :php:`$repository->findByUid()` do behave different in some language
     scenarios:
 
     The regular query will return :php:`null` if passed :php:`uid` doesn't match
