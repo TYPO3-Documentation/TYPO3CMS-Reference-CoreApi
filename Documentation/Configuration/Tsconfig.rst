@@ -61,8 +61,8 @@ Get page TSConfig via PHP in an extension
 The page TSconfig for a specific page can be retrieved via the
 :php:`\TYPO3\CMS\Backend\Utility\BackendUtility::getPagesTSconfig()` method:
 
-.. code-block:: php
-   :caption: EXT:some_extension/Classes/SomeClass.php
+..  code-block:: php
+    :caption: EXT:some_extension/Classes/SomeClass.php
 
     // use TYPO3\CMS\Backend\Utility\BackendUtility;
 
