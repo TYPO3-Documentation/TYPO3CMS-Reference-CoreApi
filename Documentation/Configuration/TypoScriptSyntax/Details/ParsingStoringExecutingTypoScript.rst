@@ -11,6 +11,9 @@ Parsing, Storing and Executing TypoScript
 Parsing TypoScript
 ==================
 
+..  todo:
+    Revise this chapter once the new TypoScript parser is stable.
+
 This means that the TypoScript text content is transformed into a PHP
 array structure by following the rules of the TypoScript syntax. But
 still the meaning of the parsed content is not evaluated.
@@ -25,6 +28,11 @@ errors can therefore be seen only with a tool that analyzes the syntax
 The :php:`\TYPO3\CMS\Core\TypoScript\Parser\TypoScriptParser` class is used to parse
 TypoScript content. Please see the section :ref:`typoscript-syntax-typoscript-parser-api`
 in this document for details.
+
+..  note::
+    The :php:`\TYPO3\CMS\Core\TypoScript\Parser\TypoScriptParser` class is
+    deprecated since TYPO3 v12.2. For more information see
+    :ref:`ext_core:breaking-97816-1664800747`.
 
 
 .. index:: TypoScript; Storage

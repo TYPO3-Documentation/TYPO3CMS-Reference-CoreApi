@@ -7,6 +7,14 @@
 Parsing Custom TypoScript
 =========================
 
+..  todo:
+    Revise this chapter once the new TypoScript parser is stable.
+
+..  attention::
+    The :php:`\TYPO3\CMS\Core\TypoScript\Parser\TypoScriptParser` class used
+    in this example is deprecated since TYPO3 v12.2. For more information see
+    :ref:`ext_core:breaking-97816-1664800747`.
+
 .. note::
 
    This example will probably seem rather quaint. However it is

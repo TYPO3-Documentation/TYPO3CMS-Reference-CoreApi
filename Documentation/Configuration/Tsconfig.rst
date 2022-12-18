@@ -58,6 +58,11 @@ in projects running many sites in the same page tree.
 Get Page TSConfig via PHP in an extension
 -----------------------------------------
 
+..  todo:
+    Revise this section once the new TypoScript parser is stable. The
+    PageTsConfigParser relies on the old TypoScript parser as a constructor
+    argument.
+
 When there is the necessity for fetching and loading PageTSconfig,
 it is recommended for extension developers to make use of the PHP classes:
 
