@@ -55,35 +55,16 @@ in projects running many sites in the same page tree.
 
 .. index:: pair: Page TSconfig; PHP
 
-Get Page TSConfig via PHP in an extension
+Get page TSConfig via PHP in an extension
 -----------------------------------------
 
-When there is the necessity for fetching and loading PageTSconfig,
-it is recommended for extension developers to make use of the PHP classes:
+The page TSconfig for a specific page can be retrieved via the
+:php:`\TYPO3\CMS\Backend\Utility\BackendUtility::getPagesTSconfig()` method:
 
-- :php:`TYPO3\CMS\Core\Configuration\Loader\PageTsConfigLoader`
-- :php:`TYPO3\CMS\Core\Configuration\Parser\PageTsConfigParser`
+..  code-block:: php
+    :caption: EXT:some_extension/Classes/SomeClass.php
 
-Usage for fetching all available PageTS in one large string (not parsed yet):
+    // use TYPO3\CMS\Backend\Utility\BackendUtility;
 
-.. code-block:: php
-   :caption: EXT:some_extension/Classes/SomeClass.php
-
-   $loader = GeneralUtility::makeInstance(PageTsConfigLoader::class);
-   $tsConfigString = $loader->load($rootLine);
-
-The string can then be put in proper TSconfig array syntax:
-
-.. code-block:: php
-   :caption: EXT:some_extension/Classes/SomeClass.php
-
-   $parser = GeneralUtility::makeInstance(
-      PageTsConfigParser::class,
-      $typoScriptParser,
-      $hashCache
-   );
-   $pagesTSconfig = $parser->parse(
-      $tsConfigString,
-      $conditionMatcher
-   );
-
+    // Get the page TSconfig for the page with uid 42
+    $thePageTsConfig = BackendUtility::getPagesTSconfig(42);

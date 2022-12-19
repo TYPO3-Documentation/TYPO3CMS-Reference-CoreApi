@@ -155,6 +155,13 @@ sortList
 
    Multiple parameters are separated by comma.
 
+
+..  todo:
+    Use new PSR-14 event "EvaluateModifierFunctionEvent":
+    https://docs.typo3.org/c/typo3/cms-core/main/en-us/Changelog/12.0/Feature-98016-PSR-14EvaluateModifierFunctionEvent.html
+    The hook was removed in v12.0:
+    https://docs.typo3.org/c/typo3/cms-core/main/en-us/Changelog/12.0/Breaking-98016-RemovedTypoScriptFunctionHook.html
+
 There is a hook inside class :php:`\TYPO3\CMS\Core\TypoScript\Parser\TypoScriptParser`
 which can be used to define more such functions.
 
