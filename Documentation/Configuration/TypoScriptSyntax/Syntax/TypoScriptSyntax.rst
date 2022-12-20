@@ -155,17 +155,6 @@ sortList
 
    Multiple parameters are separated by comma.
 
-
-..  todo:
-    Use new PSR-14 event "EvaluateModifierFunctionEvent":
-    https://docs.typo3.org/c/typo3/cms-core/main/en-us/Changelog/12.0/Feature-98016-PSR-14EvaluateModifierFunctionEvent.html
-    The hook was removed in v12.0:
-    https://docs.typo3.org/c/typo3/cms-core/main/en-us/Changelog/12.0/Breaking-98016-RemovedTypoScriptFunctionHook.html
-
-There is a hook inside class :php:`\TYPO3\CMS\Core\TypoScript\Parser\TypoScriptParser`
-which can be used to define more such functions.
-
-
 **Example:**
 
 .. include:: /CodeSnippets/TypoScriptSyntax/Syntax/ValueModification.rst.txt
@@ -173,6 +162,19 @@ which can be used to define more such functions.
 produces the same result as:
 
 .. include:: /CodeSnippets/TypoScriptSyntax/Syntax/ValueModification2.rst.txt
+
+
+Custom TypoScript functions
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+..  versionchanged:: 12.0
+
+The PSR-14 event :php:`\TYPO3\CMS\Core\TypoScript\AST\Event\EvaluateModifierFunctionEvent`
+is available to define custom TypoScript functions. The event replaces the hook
+:php:`$GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['t3lib/class.t3lib_tsparser.php']['preParseFunc']`.
+
+The section :ref:`EvaluateModifierFunctionEvent <EvaluateModifierFunctionEvent>`
+provides an example and the API.
 
 
 .. index::
