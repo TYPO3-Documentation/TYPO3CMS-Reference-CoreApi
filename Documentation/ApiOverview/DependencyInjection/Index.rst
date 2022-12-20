@@ -699,16 +699,16 @@ of a TYPO3 project in Composer-based installations.
 
 **Example:**
 
-You want to use the interface of the PHP package `stella-maris/clock` as a type
-hint for dependency injection in the service classes of your project's various
-extensions. Then the concrete implementation may change without touching your
-code. In this example, we use `lcobucci/clock` for the concrete implementation.
+You want to use the PSR-20 clock interface as a type hint for dependency
+injection in the service classes of your project's various extensions. Then the
+concrete implementation may change without touching your code. In this example,
+we use `lcobucci/clock` for the concrete implementation.
 
 ..  code-block:: php
     :caption: config/system/services.php
 
     use Lcobucci\Clock\SystemClock;
-    use StellaMaris\Clock\ClockInterface;
+    use Psr\Clock\ClockInterface;
     use Symfony\Component\DependencyInjection\ContainerBuilder;
     use Symfony\Component\DependencyInjection\Loader\Configurator\ContainerConfigurator;
 
@@ -727,7 +727,7 @@ interface is given:
 ..  code-block:: php
     :caption: EXT:my_extension/Classes/MyClass.php
 
-    use StellaMaris\Clock\ClockInterface;
+    use Psr\Clock\ClockInterface;
 
     class MyClass
     {
