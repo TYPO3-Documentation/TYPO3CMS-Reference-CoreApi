@@ -75,4 +75,10 @@ return [
         'targetFileName' => 'CodeSnippets/Manual/Entity/ModuleData.rst.txt',
         'withCode' => false,
     ],
+    [
+        'action' => 'createPhpClassDocs',
+        'class' => \TYPO3\CMS\Backend\Routing\RouteResult::class,
+        'targetFileName' => 'CodeSnippets/Manual/Entity/RouteResult.rst.txt',
+        'withCode' => false,
+    ],
 ];

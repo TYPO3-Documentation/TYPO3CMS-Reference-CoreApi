@@ -54,11 +54,12 @@ So a routes file essentially returns an array containing routes mapping.
 A route is defined by a key, a path, a referrer and a target. The "public" :code:`access`
 property indicates that no authentication is required for that action.
 
-.. note::
+..  note::
+    The current route object is available as :ref:`route attribute
+    <typo3-request-attribute-route>` on the PSR-7 request object of every
+    backend request. It is added through the PSR-15 middleware stack and can be
+    retrieved using :php:`$request->getAttribute('route')`.
 
-   The current route object is available as `route` attribute on the PSR-7 request
-   object of every backend request. It is added through the PSR-15 middleware stack
-   and can be retrieved using :php:`$request->getAttribute('route')`.
 
 .. index::
    pair: Backend routing; Cross-site scripting
@@ -117,6 +118,49 @@ The request sequence in the TYPO3 Core looks like this:
 
    Please keep in mind these steps are part of a mitigation strategy, which requires
    to be aware of mentioned implications when implementing custom web applications.
+
+
+..  index:: Backend routing; Dynamic URL parts
+..  _backend-routing-dynamic-parts:
+
+Dynamic URL parts in backend URLs
+=================================
+
+..  versionadded:: 12.1
+
+Backend routes can be registered with path segments that contain dynamic parts,
+which are then resolved into a PSR-7 request attribute called
+:ref:`routing <typo3-request-attribute-routing-backend>`.
+
+These routes are defined within the route path as named placeholders:
+
+..  code-block:: php
+    :caption: EXT:my_extension/Configuration/Backend/Routes.php
+
+    use MyVendor\MyExtension\Controller\MyRouteController;
+
+    return [
+        'my_route' => [
+            'path' => '/my-route/{identifier}',
+            'target' => MyRouteController::class . '::handle',
+        ],
+    ];
+
+Within the controller:
+
+..  code-block:: php
+    :caption: EXT:my_extension/Classes/Controller/MyRouteController.php
+
+    use Psr\Http\Message\ResponseInterface;
+    use Psr\Http\Message\ServerRequestInterface;
+
+    public function handle(ServerRequestInterface $request): ResponseInterface
+    {
+        $routing = $request->getAttribute('routing');
+        $myIdentifier = $routing['identifier'];
+        $route = $routing->getRoute();
+        // ...
+    }
 
 
 .. index:: Backend routing; Generating backend URLs
