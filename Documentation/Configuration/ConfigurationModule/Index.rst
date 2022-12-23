@@ -195,7 +195,7 @@ First, implement a class, for example:
 
 Then register the hook in your extension's :file:`ext_localconf.php`:
 
-..  code-block::
+..  code-block:: php
     :caption: EXT:my_extension/ext_localconf.php
 
     use MyVendor\MyExtension\Hook\BlindedConfigurationOptionsHook;
