@@ -12,10 +12,6 @@ The PSR-14 event :php:`\TYPO3\CMS\Backend\Search\Event\ModifyResultItemInLiveSea
 is available to allow extension developers to take control over search result
 items rendered in the backend search.
 
-The event has a public method called :php:`getResultItem()`, returning the
-:php:`\TYPO3\CMS\Backend\Search\LiveSearch\ResultItem` instance of the search
-result item.
-
 Example
 =======
 
@@ -79,3 +75,8 @@ The corresponding event listener class:
             }
         }
     }
+
+API
+===
+
+..  include:: /CodeSnippets/Events/Backend/ModifyResultItemInLiveSearchEvent.rst.txt
