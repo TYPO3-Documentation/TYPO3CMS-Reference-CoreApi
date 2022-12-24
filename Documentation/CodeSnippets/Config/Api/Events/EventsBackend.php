@@ -237,4 +237,10 @@ return [
         'targetFileName' => 'CodeSnippets/Events/Backend/IsFileSelectableEvent.rst.txt',
         'withCode' => false,
     ],
+    [
+        'action' => 'createPhpClassDocs',
+        'class' => \TYPO3\CMS\Backend\Search\Event\ModifyResultItemInLiveSearchEvent::class,
+        'targetFileName' => 'CodeSnippets/Events/Backend/ModifyResultItemInLiveSearchEvent.rst.txt',
+        'withCode' => false,
+    ],
 ];
