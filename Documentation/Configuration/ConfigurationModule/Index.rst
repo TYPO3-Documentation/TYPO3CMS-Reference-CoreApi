@@ -22,6 +22,9 @@ easy to browse through. Over time this module got extended to also display
 the configuration of newly introduced features like the middleware stack or
 the event listeners.
 
+.. contents:: Table of Contents
+   :local:
+
 
 .. index::
    Configuration; Module extension
@@ -165,3 +168,38 @@ attribute. For example, if you intend to disable the `TCA_DESCR` key you can use
             - name: 'lowlevel.configuration.module.provider'
               disabled: true
 
+
+Blinding configuration options
+==============================
+
+Sensitive data (like passwords or access tokens) should not be displayed in the
+configuration module. Therefore, a hook is available to blind such configuration
+options.
+
+First, implement a class, for example:
+
+..  code-block:: php
+    :caption: EXT:my_extension/Classes/Hooks/BlindedConfigurationOptionsHook.php
+
+    final class BlindedConfigurationOptionsHook
+    {
+        public function modifyBlindedConfigurationOptions(array $blindedOptions): array
+        {
+            if (($GLOBALS['TYPO3_CONF_VARS']['EXTENSIONS']['example']['password'] ?? '') !== '') {
+                $blindedOptions['TYPO3_CONF_VARS']['EXTENSIONS']['example']['password'] = '******';
+            }
+
+            return $blindedOptions;
+        }
+    }
+
+Then register the hook in your extension's :file:`ext_localconf.php`:
+
+..  code-block:: php
+    :caption: EXT:my_extension/ext_localconf.php
+
+    use MyVendor\MyExtension\Hook\BlindedConfigurationOptionsHook;
+    use TYPO3\CMS\Lowlevel\Controller\ConfigurationController;
+
+    $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS'][ConfigurationController::class]['modifyBlindedConfigurationOptions'][]
+        = BlindedConfigurationOptionsHook::class;
