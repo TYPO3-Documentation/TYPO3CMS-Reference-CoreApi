@@ -52,6 +52,26 @@ definition for your class as tag :yaml:`console.command`:
             command: 'examples:dosomething'
             description: 'A command that does nothing and always succeeds.'
 
+The following attributes are available:
+
+:yaml:`command`
+    The name under which the command is available.
+
+:yaml:`description`
+    Give a short description. It will be displayed in the list of commands and
+    the help information of the command.
+
+.. _deactivating-the-command-in-scheduler:
+.. _schedulable:
+:yaml:`schedulable`
+    By default, a command can be used in the :doc:`scheduler
+    <ext_scheduler:Index>`, too. This can be disabled by setting
+    :yaml:`schedulable` to :yaml:`false`.
+
+:yaml:`hidden`
+    A command can be hidden from the command list by setting :yaml:`hidden` to
+    :yaml:`true`.
+
 ..  note::
     Despite using :file:`autoconfigure: true` the commands
     have to be explicitly defined in :file:`Configuration/Services.yaml`. It

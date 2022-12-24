@@ -77,37 +77,8 @@ see :ref:`deactivating-the-command-in-scheduler`.
 Create a custom command
 =======================
 
-You can create a custom command by extending
-:php:`\Symfony\Component\Console\Command\Command`.
-
 See the :ref:`Tutorial: Create a console command <console-command-tutorial>`
 for details on how to create commands.
-
-A command has to be registered as a tag of name :yaml:`console.command`:
-
-.. code-block:: yaml
-   :caption: EXT:some_extension/Configuration/Services.yaml
-
-   services:
-     Vendor\SomeExtension\Command\DoThingsCommand:
-       tags:
-         - name: 'console.command'
-           command: 'someextension:dothings'
-           description: 'An example command that demonstrates some stuff'
-           schedulable: true
-           hidden: false
-
-
-.. _deactivating-the-command-in-scheduler:
-.. _schedulable:
-
-:yaml:`schedulable`
-    By default, a command can be used in the scheduler too.
-    This can be disabled by setting :yaml:`schedulable` to :yaml:`false`.
-
-:yaml:`hidden`
-    A command can be hidden from the command list by setting
-    :yaml:`hidden` to :yaml:`true`.
 
 Read more
 ==========
