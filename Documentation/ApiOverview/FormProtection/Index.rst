@@ -4,10 +4,18 @@
     Cross-site request forgery
     CSRF
 ..  _csrf:
+..  _csrf-backend:
 
 ====================
 Form protection tool
 ====================
+
+..  versionchanged:: 12.1
+    Before TYPO3 v12.1, the :php:`FormProtectionFactory` provided only static
+    methods to get the concrete form protection implementation. Since
+    TYPO3 v12.1, the :php:`FormProtectionFactory` can be instantiated and
+    therefore injected into the constructor. The static methods are deprecated
+    and will be removed in TYPO3 v13.
 
 The TYPO3 Core provides a generic way of protecting forms against cross-site
 request forgery (CSRF).
@@ -17,60 +25,35 @@ request forgery (CSRF).
     protection is not supported for anonymous users. Without a logged-in user
     the token will always be :php:`dummyToken`. See :forge:`77403` for details.
 
+For each form in the backend/frontend (or link that changes some data), create a
+token and insert it as a hidden form element. The name of the form element does
+not matter; you only need it to get the form token for verifying it.
 
-.. contents::
-   :local:
+Examples
+========
 
+..  literalinclude:: _FormProtectionExample.php
+    :caption: EXT:my_extension/Classes/Controller/FormProtectionExample.php
 
-..  index:: pair; Form protection tool; Backend
-..  _csrf-backend:
+The three parameters of the :php:`generateToken()` method:
 
-Usage in the backend
-====================
+-   :php:`$formName`
+-   :php:`$action` (optional)
+-   :php:`$formInstanceName` (optional)
 
-For each form in the BE (or link that changes some data), create a token and
-insert it as a hidden form element. The name of the form element does not
-matter; you only need it to get the form token for verifying it.
-
-..  code-block:: php
-
-    // use TYPO3\CMS\Core\FormProtection\FormProtectionFactory;
-
-    $formToken = FormProtectionFactory::get()
-        ->generateToken('BE user setup', 'edit');
-    $this->content .= '<input type="hidden" name="formToken" value="' . $formToken . '">';
-
-The three parameters :php:`$formName`, :php:`$action` (optional) and
-:php:`$formInstanceName` (optional) can be arbitrary strings, but they should
-make the form token as specific as possible. For different forms (for example,
-BE user setup and editing a :sql:`tt_content` record) or different records (with
-different UIDs) from the same table, those values should be different.
+can be arbitrary strings, but they should make the form token as specific as
+possible. For different forms (for example, BE user setup and editing a
+:sql:`tt_content` record) or different records (with different UIDs) from the
+same table, those values should be different.
 
 For editing a :sql:`tt_content` record, the call could look like this:
 
 ..  code-block:: php
 
-    // use TYPO3\CMS\Core\FormProtection\FormProtectionFactory;
+    $formToken = $formProtection->generateToken('tt_content', 'edit', (string)$uid);
 
-    $formToken = FormProtectionFactory::get()
-        ->generateToken('tt_content', 'edit', $uid);
-
-Finally, you need to persist the tokens. This makes sure that
-generated tokens get saved, and also that removed tokens stay removed:
-
-..  code-block:: php
-
-    // use TYPO3\CMS\Core\FormProtection\FormProtectionFactory;
-
-    FormProtectionFactory::get()
-        ->persistTokens();
-
-In backend lists, it might be necessary to generate hundreds of tokens.
-So, the tokens are not automatically persisted after creation for performance
-reasons.
-
-When processing the data that has been submitted by the form,
-you can check that the form token is valid like this:
+When processing the data that has been submitted by the form, you can check that
+the form token is valid like this:
 
 ..  code-block:: php
 
@@ -78,8 +61,8 @@ you can check that the form token is valid like this:
     // use TYPO3\CMS\Core\Utility\GeneralUtility;
 
     if ($dataHasBeenSubmitted &&
-        FormProtectionFactory::get()->validateToken(
-            (string) GeneralUtility::_POST('formToken'),
+        $formProtection->validateToken(
+            $request->getParsedBody()['formToken'] ?? '',
             'BE user setup',
             'edit'
         ) ) {
@@ -89,54 +72,14 @@ you can check that the form token is valid like this:
         // create a flash message for an invalid token
     }
 
-
-..  note::
-    The :php:`validateToken()` method invalidates the token with the token ID.
-    So calling the validation with the same parameters twice in a row will
-    always return :php:`false` for the second call.
-
-..  attention::
-    The tokens must be validated **before** the tokens are persisted. This
-    makes sure that the tokens, that get invalidated by :php:`validateToken()`
-    cannot be used again.
-
-
-..  index:: pair: Form protection tool; Frontend
-
-Usage in the frontend
-=====================
-
-Usage is the same as in :ref:`backend context <csrf-backend>`:
+As it is recommended to use :php:`FormProtectionFactory->createForRequest()`
+to auto-detect which type is needed, one can also create a specific type
+directly:
 
 ..  code-block:: php
 
-    // use TYPO3\CMS\Core\FormProtection\FormProtectionFactory;
-    // use TYPO3\CMS\Core\Utility\GeneralUtility;
+    // For backend
+    $formProtection = $this->formProtectionFactory->createFromType('backend');
 
-    $formToken = FormProtectionFactory::get()
-        ->generateToken('news', 'edit', $uid);
-
-	if ($dataHasBeenSubmitted
-		&& FormProtectionFactory::get()->validateToken(
-			GeneralUtility::_POST('formToken'),
-			'news',
-			'edit',
-			$uid
-		)
-	) {
-		// process the data
-	} else {
-		// Create a flash message for the invalid token
-        // or just discard this request
-	}
-
-
-..  note::
-    The :php:`validateToken()` invalidates the token with the token ID. So,
-    calling the validation with the same parameters twice in a row will always
-    return :php:`false` for the second call.
-
-..  attention::
-    The tokens must be validated **before** the tokens are persisted. This makes
-    sure that the tokens that get invalidated by :php:`validateToken()` cannot
-    be used again.
+    // For frontend
+    $formProtection = $this->formProtectionFactory->createFromType('frontend');
