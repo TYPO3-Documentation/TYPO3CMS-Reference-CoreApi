@@ -27,20 +27,26 @@ To access these resources, inject the
 :php:`TYPO3\CMS\Backend\Template\ModuleTemplateFactory` into your backend module
 controller:
 
-.. code-block:: php
+..  code-block:: php
 
-   // use TYPO3\CMS\Backend\Template\ModuleTemplateFactory;
-   // use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
-   class MyController extends ActionController
-   {
-       protected ModuleTemplateFactory $moduleTemplateFactory;
+    use TYPO3\CMS\Backend\Attribute\Controller;
+    use TYPO3\CMS\Backend\Template\ModuleTemplateFactory;
+    use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
 
-       public function __construct(
-           ModuleTemplateFactory $moduleTemplateFactory,
-       ) {
-           $this->moduleTemplateFactory = $moduleTemplateFactory;
-       }
+    #[Controller]
+    final class MyController extends ActionController
+    {
+        public function __construct(
+            protected readonly ModuleTemplateFactory $moduleTemplateFactory,
+        ) {
+        }
    }
+
+..  versionadded:: 12.1
+    Since TYPO3 v12.1 a backend controller can be tagged with the
+    :php:`\TYPO3\CMS\Backend\Attribute\Controller` attribute. This way, the
+    :ref:`registration of the controller <backend-modules-template-without-extbase-manual-tagging>`
+    in the :file:`Configuration/Services.yaml` file is no longer necessary.
 
 
 After that you can add titles, menus and buttons using :php:`ModuleTemplate`:
