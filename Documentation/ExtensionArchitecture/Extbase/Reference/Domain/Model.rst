@@ -2,6 +2,8 @@
 
 .. index:: Extbase; Model
 
+.. _extbase-model:
+
 =====
 Model
 =====
