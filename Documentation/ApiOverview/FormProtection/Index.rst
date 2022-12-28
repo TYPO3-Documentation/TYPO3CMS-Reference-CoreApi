@@ -49,6 +49,7 @@ same table, those values should be different.
 For editing a :sql:`tt_content` record, the call could look like this:
 
 ..  code-block:: php
+    :caption: EXT:my_extension/Classes/Controller/FormProtectionExample.php (Excerpt)
 
     $formToken = $formProtection->generateToken('tt_content', 'edit', (string)$uid);
 
@@ -56,9 +57,7 @@ When processing the data that has been submitted by the form, you can check that
 the form token is valid like this:
 
 ..  code-block:: php
-
-    // use TYPO3\CMS\Core\FormProtection\FormProtectionFactory;
-    // use TYPO3\CMS\Core\Utility\GeneralUtility;
+    :caption: EXT:my_extension/Classes/Controller/FormProtectionExample.php (Excerpt)
 
     if ($dataHasBeenSubmitted &&
         $formProtection->validateToken(
@@ -77,6 +76,7 @@ to auto-detect which type is needed, one can also create a specific type
 directly:
 
 ..  code-block:: php
+    :caption: EXT:my_extension/Classes/Controller/FormProtectionExample.php (Excerpt)
 
     // For backend
     $formProtection = $this->formProtectionFactory->createFromType('backend');
