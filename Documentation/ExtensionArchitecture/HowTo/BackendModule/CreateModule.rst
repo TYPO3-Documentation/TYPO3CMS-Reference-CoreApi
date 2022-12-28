@@ -18,44 +18,56 @@ without Extbase.
 Basic controller
 ================
 
-When creating a controller without Extbase an instance of :php:`ModuleTemplate` is required
-to return the rendered template:
+When creating a controller without Extbase an instance of :php:`ModuleTemplate`
+is required to return the rendered template:
 
-.. code-block:: php
-   :caption: EXT:examples/Classes/Controller/AdminModuleController.php
+..  code-block:: php
+    :caption: EXT:examples/Classes/Controller/AdminModuleController.php
 
-   // the module template will be initialized in handleRequest()
-   use TYPO3\CMS\Backend\Template\ModuleTemplateFactory;
-   use TYPO3\CMS\Core\Imaging\IconFactory;
+    use TYPO3\CMS\Backend\Attribute\Controller;
+    // the module template will be initialized in handleRequest()
+    use TYPO3\CMS\Backend\Template\ModuleTemplateFactory;
+    use TYPO3\CMS\Core\Imaging\IconFactory;
 
-   class AdminModuleController
-   {
-       public function __construct(
-           protected readonly ModuleTemplateFactory $moduleTemplateFactory,
-           protected readonly IconFactory $iconFactory,
-           // ...
-       ) {
-       }
-   }
+    #[Controller]
+    final class AdminModuleController
+    {
+        public function __construct(
+            protected readonly ModuleTemplateFactory $moduleTemplateFactory,
+            protected readonly IconFactory $iconFactory,
+            // ...
+        ) {
+        }
+    }
 
-The controller needs to be registered in :file:`Configuration/Services.yaml`
-with the tag `backend.controller` so that dependency injection works:
+..  versionadded:: 12.1
+    Since TYPO3 v12.1 a backend controller can be tagged with the
+    :php:`\TYPO3\CMS\Backend\Attribute\Controller` attribute. This way, the
+    registration of the controller in the :file:`Configuration/Services.yaml`
+    file is no longer necessary.
 
-.. code-block:: yaml
-   :caption: EXT:examples/Configuration/Services.yaml
+..  _backend-modules-template-without-extbase-manual-tagging:
 
-   services:
+If the controller is not tagged with the :php:`\TYPO3\CMS\Backend\Attribute\Controller`
+attribute, it must be registered in :file:`Configuration/Services.yaml`
+with the `backend.controller` tag for dependency injection to work:
+
+..  code-block:: yaml
+    :caption: EXT:examples/Configuration/Services.yaml
+    :emphasize-lines: 11-12
+
+    services:
       _defaults:
-         autowire: true
-         autoconfigure: true
-         public: false
+        autowire: true
+        autoconfigure: true
+        public: false
 
       T3docs\Examples\:
-         resource: '../Classes/*'
-         exclude: '../Classes/Domain/Model/*'
+        resource: '../Classes/*'
+        exclude: '../Classes/Domain/Model/*'
 
       T3docs\Examples\Controller\AdminModuleController:
-         tags: ['backend.controller']
+        tags: ['backend.controller']
 
 
 Main entry point
