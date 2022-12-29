@@ -3,13 +3,16 @@
 .. index:: Extbase; Persistence
 .. _extbase-Persistence:
 
-================
+===========
 Persistence
-================
+===========
 
-It is possible to define models that are not persisted to the database. However in
+It is possible to define models that are not persisted to the database. However, in
 the most common use cases you will want to save your model to the database and load
 it from there.
+
+.. contents::
+   :local:
 
 Connecting the model to the database
 ====================================
@@ -114,3 +117,40 @@ It is then possible to have a general repository, :php:`SomethingRepository`
 which returns both SubClass1 and SubClass2 objects depending on the value of
 the :sql:`record_type` field. This way related domain objects can as one
 in some contexts.
+
+
+Create a custom model for a Core table
+======================================
+
+This example adds a custom model for the :sql:`tt_content` table. Three steps
+are required:
+
+..  rst-class:: bignums
+
+#.  Create a model
+
+    In this example, we assume that we need the two fields :sql:`header` and
+    :sql:`bodytext`, so only these two fields are available in the
+    :ref:`model <extbase-model>` class.
+
+    ..  literalinclude:: _Content.php
+        :caption: EXT:my_extension/Classes/Domain/Model/Content.php
+
+    ..  note::
+        It is not necessary to define a property in the model for each field in
+        the table. Define only the properties for the fields you need!
+
+#.  Create the repository
+
+    We need a :ref:`repository <extbase-repository>` to query the data from the
+    table:
+
+    ..  literalinclude:: _ContentRepository.php
+        :caption: EXT:my_extension/Classes/Domain/Repository/ContentRepository.php
+
+#.  Connect table with model
+
+    Finally, we need to :ref:`connect the table to the model <extbase_manual_mapping>`:
+
+    ..  literalinclude:: _Classes.php
+        :caption: EXT:my_extension/Configuration/Extbase/Persistence/Classes.php
