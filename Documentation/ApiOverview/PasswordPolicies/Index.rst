@@ -9,6 +9,14 @@ Password policies
 
 ..  versionadded::  12.0
 
+.. contents::
+   :depth: 1
+   :local:
+
+
+Introduction
+============
+
 TYPO3 includes a password policy validator which can be used to validate
 passwords against configurable password policies. A default password policy is
 included which ensures that passwords meet the following requirements:
@@ -23,10 +31,15 @@ Password policies can be configured individually for both frontend and backend
 context. It is also possible to extend a password policy with custom validation
 requirements.
 
-.. contents:: **Table of Contents**
-   :depth: 1
-   :local:
+The password policy applies to:
 
+*   Creating a backend user during installation
+*   Setting a new password for a backend user in :guilabel:`User settings`
+*   Resetting a password for a backend user
+
+..  note::
+    During the development of TYPO3 v12 LTS more areas are added where the
+    password policy is considered.
 
 Configuring password policies
 =============================
