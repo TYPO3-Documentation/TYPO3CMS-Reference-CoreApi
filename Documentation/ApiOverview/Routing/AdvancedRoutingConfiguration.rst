@@ -358,7 +358,7 @@ To understand what's happening in the :yaml:`aspects` part, read on.
 ..  note::
     For the Extbase plugin enhancer, it is also possible to configure the
     namespace directly by skipping :yaml:`extension` and :yaml:`plugin`
-    properties and just using the :ayml:`namespace` property as in the
+    properties and just using the :yaml:`namespace` property as in the
     :ref:`regular plugin enhancer <routing-plugin-enhancer>`.
 
 ..  attention::
