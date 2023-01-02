@@ -30,6 +30,8 @@ set by a provider, this provider will return the title of the page.
 Besides the providers shipped by the Core, you can add own providers. An
 integrator can define the priority of the providers for his project.
 
+..  contents:: Table of contents
+    :local:
 
 ..  index:: PageTitle; Custom PageTitleProvider
 
@@ -42,10 +44,12 @@ the page record will not be the correct title. To make sure to display the
 correct page title, you have to create your own page title provider. It is
 quite easy to create one.
 
+Example: Set the page title from your extension's controller
+-----------------------------------------------------------
+
 First, create a PHP class in your extension that implements the
 :php:`\TYPO3\CMS\Core\PageTitle\PageTitleProviderInterface`, for example by
-extending :php:`\TYPO3\CMS\Core\PageTitle\AbstractPageTitleProvider`. This will
-force you to have at least the :php:`getTitle()` method in your class. Within
+extending :php:`\TYPO3\CMS\Core\PageTitle\AbstractPageTitleProvider`.  Within
 this method you can create your own logic to define the correct title.
 
 ..  code-block:: php
@@ -54,7 +58,7 @@ this method you can create your own logic to define the correct title.
 
     use TYPO3\CMS\Core\PageTitle\AbstractPageTitleProvider;
 
-    class MyOwnPageTitleProvider extends AbstractPageTitleProvider
+    final class MyOwnPageTitleProvider extends AbstractPageTitleProvider
     {
         public function setTitle(string $title)
         {
@@ -64,11 +68,50 @@ this method you can create your own logic to define the correct title.
 
 Usage example, for example, in an :ref:`Extbase <extbase>` controller:
 
-.. code-block:: php
+..  code-block:: php
+    :caption: EXT:my_extension/Classes/Controller/SomeController.php
 
-   $titleProvider = GeneralUtility::makeInstance(MyOwnPageTitleProvider::class);
-   $titleProvider->setTitle('Title from controller action');
+    $titleProvider = GeneralUtility::makeInstance(MyOwnPageTitleProvider::class);
+    $titleProvider->setTitle('Title from controller action');
 
+
+Configure the new page title provider to be used in your TypoScript setup:
+
+..  literalinclude:: _ExampleSetInController/_setup.typoscript
+    :caption: EXT:my_sitepackage/Configuration/TypoScript/setup.typoscript
+
+Example: Use website title from the site configuration
+------------------------------------------------------
+
+If you want to use data from the :ref:`site configuration <sitehandling>`, for
+example the site title, you can implement a page title provider as follows:
+
+..  literalinclude:: _ExampleWebsiteTitle/_WebsiteTitleProvider.php
+    :caption: EXT:my_sitepackage/Classes/PageTitle/WebsiteTitleProvider.php
+
+As we need to :ref:`inject <DependencyInjection>` the class :php:`SiteFinder`
+to retrieve the current site configuration, we must make the new page title
+provider public:
+
+..  literalinclude:: _ExampleWebsiteTitle/_Services.yaml
+    :caption: EXT:my_sitepackage/Configuration/Services.yaml
+
+Then **flush the cache** in :guilabel:`Admin Tools > Maintenance > Flush TYPO3
+and PHP Cache`.
+
+Configure the new page title provider to be used in your TypoScript setup:
+
+..  literalinclude:: _ExampleWebsiteTitle/_setup.typoscript
+    :caption: EXT:my_sitepackage/Configuration/TypoScript/setup.typoscript
+
+The registered page title providers are called after each other in the
+order configured. The first provider that returns a non-empty value is used,
+the providers later in the order are ignored.
+
+Therefore our custom provider should be loaded before `record`, the
+default provider which always returns a value. If the system extension
+:t3ext:`seo` is loaded and setting the :guilabel:`SEO Title` should override
+your complete custom title, you can load your provider after `seo`.
 
 .. index:: PageTitle; Priority
 

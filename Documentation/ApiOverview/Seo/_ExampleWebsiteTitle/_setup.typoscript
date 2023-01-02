@@ -1,0 +1,9 @@
+config {
+  pageTitleProviders {
+    sitepackage {
+      provider = MyVendor\MySitepackage\PageTitle\WebsiteTitleProvider
+      before = record
+      after = seo
+    }
+  }
+}

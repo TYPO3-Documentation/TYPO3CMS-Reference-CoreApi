@@ -40,3 +40,5 @@ indent_size = 2
 [*.{yaml,yml}]
 indent_size = 2
 
+[*.{typoscript,tsconfig}]
+indent_size = 2
