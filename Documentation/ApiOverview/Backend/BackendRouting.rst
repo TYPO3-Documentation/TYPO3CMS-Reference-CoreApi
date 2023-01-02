@@ -146,7 +146,7 @@ These routes are defined within the route path as named placeholders:
         ],
     ];
 
-Within the controller:
+Within a controller (we use here a non-Extbase controller as example):
 
 ..  code-block:: php
     :caption: EXT:my_extension/Classes/Controller/MyRouteController.php
