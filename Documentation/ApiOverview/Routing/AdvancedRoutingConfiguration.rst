@@ -372,7 +372,7 @@ also provide the :yaml:`namespace` property as in the
     v12.2 the :yaml:`namespace` property has precedence.
 
 
-To understand what's happening in the :yaml:`aspects` part, read on.
+To understand what is happening in the :yaml:`aspects` part, read on.
 
 ..  attention::
     Please ensure not to register the same :yaml:`routePath` more than once, for
