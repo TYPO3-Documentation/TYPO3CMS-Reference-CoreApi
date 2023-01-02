@@ -133,3 +133,7 @@ When you set the property replace to :typoscript:`1` at the specific tag, the ta
 By using the new API it is not possible to have duplicate metatags, unless this is explicitly allowed. If you use custom
 meta tags and want to have multiple occurrences of the same meta tag, you have to create your own :php:`MetaTagManager`.
 
+..  seealso::
+   
+    :ref:`config.meta <t3tsref:setup-page-meta>` in the TypoScript reference
+
