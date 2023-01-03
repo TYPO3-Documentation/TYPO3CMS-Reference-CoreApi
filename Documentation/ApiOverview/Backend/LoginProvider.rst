@@ -18,7 +18,7 @@ or :file:`config/system/additional.php`  like this:
     :caption: config/system/additional.php | typo3conf/system/additional.php
 
 	$GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['backend']['loginProviders'][1433416020] = [
-		'provider' => \Vendor\MyExtension\LoginProvider\CustomLoginProvider::class,
+		'provider' => \MyVendor\MyExtension\LoginProvider\CustomLoginProvider::class,
 		'sorting' => 50,
 		'iconIdentifier' => 'actions-key',
 		'label' => 'LLL:EXT:backend/Resources/Private/Language/locallang.xlf:login.link'
@@ -54,7 +54,7 @@ replace its registered :php:`provider` class with your custom class.
     :caption: config/system/additional.php | typo3conf/system/additional.php
 
     $GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['backend']['loginProviders'][1433416020]['provider'] =
-        \Vendor\MyExtension\LoginProvider\CustomProviderExtendingUsernamePasswordLoginProvider::class
+        \MyVendor\MyExtension\LoginProvider\CustomProviderExtendingUsernamePasswordLoginProvider::class
 
 LoginProviderInterface
 ======================

@@ -28,7 +28,7 @@ additional actions whenever the cache is cleared for a specific page:
    :caption: EXT:site_package/ext_localconf.php
 
    $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['t3lib/class.t3lib_tcemain.php']['clearCachePostProc'][] =
-      \Vendor\Package\Hook\DataHandlerHook::class . '->postProcessClearCache';
+      \MyVendor\Package\Hook\DataHandlerHook::class . '->postProcessClearCache';
 
 This registers the class/method name to a hook inside of
 :php:`\TYPO3\CMS\Core\DataHandling\DataHandler`. The hook will call the user

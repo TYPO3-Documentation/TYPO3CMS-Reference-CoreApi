@@ -316,7 +316,7 @@ identifier. This will circumvent the risk of circularity:
                'disabled' => true
            ],
            'overwrite-middleware-identifier' => [
-               'target' => \Vendor\SomeExtension\Middleware\MyMiddleware::class,
+               'target' => \MyVendor\SomeExtension\Middleware\MyMiddleware::class,
                'after' => [
                    'another-middleware-identifier',
                ],
