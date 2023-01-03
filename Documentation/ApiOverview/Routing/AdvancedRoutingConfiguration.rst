@@ -352,13 +352,27 @@ of an array, which is typically used within demand objects for filtering
 functionality. Additionally, it is using both the short and the long form of
 writing route configurations.
 
-To understand what's happening in the :yaml:`aspects` part, read on.
+Instead of using the combination of :yaml:`extension` and :yaml:`plugin` one can
+also provide the :yaml:`namespace` property as in the
+:ref:`regular plugin enhancer <routing-plugin-enhancer>`:
 
-..  note::
-    For the Extbase plugin enhancer, it is also possible to configure the
-    namespace directly by skipping :yaml:`extension` and :yaml:`plugin`
-    properties and just using the :ayml:`namespace` property as in the
-    :ref:`regular plugin enhancer <routing-plugin-enhancer>`.
+..  code-block:: yaml
+    :emphasize-lines: 5
+
+    routeEnhancers:
+      NewsPlugin:
+        type: Extbase
+        limitToPages: [13]
+        namespace: tx_news_pi1
+        # ... further configuration
+
+..  versionchanged:: 12.2
+    Prior to version 12.2 the combination of :yaml:`extension` and
+    :yaml:`plugin` was preferred when all three properties are given. Since
+    v12.2 the :yaml:`namespace` property has precedence.
+
+
+To understand what is happening in the :yaml:`aspects` part, read on.
 
 ..  attention::
     Please ensure not to register the same :yaml:`routePath` more than once, for
