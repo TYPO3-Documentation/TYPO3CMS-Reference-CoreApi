@@ -53,15 +53,30 @@ You can use the :ref:`PageType decorator <routing-pagetype-decorator>` to map
 the page type to a fixed suffix. This allows you to expose the sitemap with a
 readable URL, for example :samp:`https://example.org/sitemap.xml`.
 
+Additionally, you can map the parameter `sitemap`, so that the links to the different
+sitemap types (`pages` and additional ones, for example, from the news extension) are also mapped.
+
 ..  code-block:: yaml
     :caption: config/sites/<your_site>/config.yaml
 
     routeEnhancers:
-        PageTypeSuffix:
-            type: PageType
+      PageTypeSuffix:
+        type: PageType
+        map:
+          /: 0
+          sitemap.xml: 1533906435
+      Sitemap:
+        type: Simple
+        routePath: 'sitemap-type/{sitemap}'
+        defaults:
+          sitemap: ''
+        aspects:
+          sitemap:
+            type: StaticValueMapper
             map:
-                /: 0
-                sitemap.xml: 1533906435
+              pages: pages
+              tx_news: tx_news
+              my_other_sitemap: my_other_sitemap
 
 .. index:: XmlSitemapDataProviders
 
