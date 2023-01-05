@@ -234,7 +234,7 @@ Remarks:
     ..  code-block:: php
 
         // Equivalent to:
-        // SELECT DISTINCT some_field, another_field from my_table
+        // SELECT DISTINCT some_field, another_field FROM my_table
 
         $queryBuilder
             ->select('some_field', 'another_field')
