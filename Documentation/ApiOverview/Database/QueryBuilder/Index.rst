@@ -233,6 +233,7 @@ Remarks:
 
     ..  code-block:: php
 
+        // Equivalent to:
         // SELECT DISTINCT some_field, another_field from my_table
 
         $queryBuilder
