@@ -23,6 +23,7 @@ Example:
 
 ..  code-block:: php
 
+    /** @var \Psr\Http\Message\ServerRequestInterface $request */
     $pageArguments = $request->getAttribute('routing');
     $pageId = $pageArguments->getPageId();
 
@@ -47,6 +48,7 @@ Example:
 
 ..  code-block:: php
 
+    /** @var \Psr\Http\Message\ServerRequestInterface $request */
     $routing = $request->getAttribute('routing');
     $arguments = $routing->getArguments()
 
