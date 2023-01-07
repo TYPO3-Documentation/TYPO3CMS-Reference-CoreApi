@@ -12,6 +12,10 @@
       
    .. php:method:: addModule(string $moduleName)
    
+      **Deprecated:** will be removed in TYPO3 v13.0. Use addJavaScriptModule() instead, available since TYPO3 v12.0.
+      
+      
+      
       :param string $moduleName: the moduleName
       
    .. php:method:: getJavaScriptModules()
