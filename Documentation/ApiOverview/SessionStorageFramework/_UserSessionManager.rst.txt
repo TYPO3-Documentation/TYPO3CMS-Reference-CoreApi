@@ -32,6 +32,8 @@
       
    .. php:method:: createFromGlobalCookieOrAnonymous(string $cookieName)
    
+      **Deprecated:** use createFromRequestOrAnonymous() instead. Will be removed in TYPO3 v13.0.
+      
       Creates and returns a session from a global cookie (`$_COOKIE`). If
       no cookie can be found for the given name, an anonymous session
       will be returned. It is recommended to use the
