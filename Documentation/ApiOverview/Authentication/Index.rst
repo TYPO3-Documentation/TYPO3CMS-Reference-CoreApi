@@ -14,6 +14,11 @@ The aim of this chapter is to describe the authentication
 services so that developers feel confident about writing
 their own.
 
+..  seealso::
+
+    *   :ref:`authentication-request-token`
+    *   :ref:`multi-factor-authentication`
+
 
 .. _authentication-why-services:
 
@@ -79,12 +84,16 @@ be it in the FE or the BE. However if a valid session already exists,
 that session is kept. Strictly speaking, no authentication
 is performed in such a case.
 
-.. note::
-
+..  note::
     When no session exists, the authentication process is triggered
     by a login request. In the frontend, this happens when a form field
     called `logintype` is submitted with value `login`. The same
     happens for the backend, but with a form field called `login_status`.
+
+    ..  versionadded:: 12.0
+        A :ref:`CSRF-like request token handling <authentication-request-token>`
+        is in place to mitigate potential cross-site requests on actions with
+        side effects
 
 ..  versionchanged:: 12.0
     `JSON Web Tokens (JWT) <https://jwt.io/>`__ are used to transport user
@@ -363,10 +372,8 @@ all services for the "getUser\*" subtype by setting:
 for BE or FE respectively. This will collect all possible users rather than
 stopping at the first one available.
 
-Multi-Factor Authentication
-===========================
+..  toctree::
+    :hidden:
+    :glob:
 
-.. toctree::
-   :titlesonly:
-
-   MultiFactorAuthentication.rst
+    *
