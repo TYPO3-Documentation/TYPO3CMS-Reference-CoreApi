@@ -113,7 +113,7 @@ Adding default PageTSconfig
 
 .. todo: What about EXT:some_extension/Configuration/page.tsconfig? Starting with v12
 
-Default PageTSconfig can be added inside :file:`ext_localconf.php`, see
+Default page TSconfig can be added inside :file:`ext_localconf.php`, see
 :ref:`t3tsconfig:pagesettingdefaultpagetsconfig`:
 
 .. code-block:: php
@@ -123,7 +123,7 @@ Default PageTSconfig can be added inside :file:`ext_localconf.php`, see
 
    ExtensionManagementUtility::addPageTSConfig();
 
-PageTSconfig available via static files can be added inside
+Page TSconfig available via static files can be added inside
 :file:`Configuration/TCA/Overrides/pages.php`, see
 :ref:`t3tsconfig:pagesettingstaticpagetsconfigfiles`:
 
@@ -138,7 +138,7 @@ PageTSconfig available via static files can be added inside
 Adding default UserTSconfig
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-As for default PageTSconfig, UserTSconfig can be added inside
+As for default page TSconfig, user TSconfig can be added inside
 :file:`ext_localconf.php`, see:
 :ref:`t3tsconfig:usersettingdefaultusertsconfig`:
 

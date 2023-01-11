@@ -71,7 +71,7 @@ The links are now stored in the database with the syntax
 LinkHandler page TSconfig options
 =================================
 
-The minimal PageTSconfig Configuration is:
+The minimal page TSconfig configuration is:
 
 .. code-block:: typoscript
    :caption: EXT:some_extension/Configuration/page.tsconfig
