@@ -91,8 +91,8 @@ Why do we need this?
 * FormDataGroups know which providers should be used in a specific scope. They usually fetch a list of providers from
   some global configuration array. Extensions can add own providers to this configuration array for further data munging.
 
-* Single data providers have dependencies to each other and must be executed in a specific order. For Instance, the
-  PageTsConfig of a record can only be determined, if the rootline of a record has been determined, which can only happen
+* Single data providers have dependencies to each other and must be executed in a specific order. For instance, the
+  page TSconfig of a record can only be determined, if the rootline of a record has been determined, which can only happen
   after the pid of a given record has been consolidated, which relies on the record being fetched from the database.
   This makes data providers a *linked list* and it is the task of a :php:`FormDataGroup` to manage the correct order.
 
@@ -126,7 +126,7 @@ Let's have a closer look at the data providers. The main :php:`TcaDatabaseRecord
 Main record data and dependencies:
 
 * Fetch record from DB or initialize a new row depending on :php:`$data['command']` being "new" or "edit", set row as :php:`$data['databaseRow']`
-* Add userTs and pageTsConfig to data array
+* Add user TSconfig and page TSconfig to data array
 * Add table TCA as :php:`$data['processedTca']`
 * Determine record type value
 * Fetch record translations and other details and add to data array
