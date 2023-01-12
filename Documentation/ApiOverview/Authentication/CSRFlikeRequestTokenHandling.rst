@@ -125,13 +125,10 @@ The sequence looks like the following:
     ..  code-block:: php
         :caption: EXT:my_extension/Classes/Controller/MyController.php
 
-        use TYPO3\CMS\Core\Context\Context;
         use TYPO3\CMS\Core\Context\SecurityAspect;
-        use TYPO3\CMS\Fluid\View\StandaloneView;
 
         final class MyController
         {
-            private StandaloneView $view;
             private Context $context;
 
             public function showFormAction() {
