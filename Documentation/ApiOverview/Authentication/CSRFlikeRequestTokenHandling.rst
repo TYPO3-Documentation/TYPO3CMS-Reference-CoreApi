@@ -30,8 +30,8 @@ Session cookie names involved for providing the nonce value:
 
 Submitting request token value to application:
 
-*   HTTP body, e.g. in `<form>` via parameter `__RequestToken`
-*   HTTP header, e.g. in XHR via header `X-TYPO3-Request-Token`
+*   HTTP body, for example in `<form>` via parameter `__RequestToken`
+*   HTTP header, for example in XHR via header `X-TYPO3-Request-Token`
 
 ..  attention::
     When working with multiple browser tabs, an existing nonce value (stored as
@@ -145,13 +145,13 @@ The sequence looks like the following:
 
                 if ($requestToken === null) {
                     // No request token was provided in the request
-                    // e.g., (overridden) templates need to be adjusted
+                    // for example, (overridden) templates need to be adjusted
                 } elseif ($requestToken === false) {
                     // There was a request token, which could not be verified with the nonce
-                    // e.g., when nonce cookie has been overridden by another HTTP request
+                    // for example, when nonce cookie has been overridden by another HTTP request
                 } elseif ($requestToken->scope !== 'my/process') {
                     // There was a request token, but for a different scope
-                    // e.g., when a form with different scope was submitted
+                    // for example, when a form with different scope was submitted
                 } else {
                     // The request token was valid and for the expected scope
                     $this->doTheMagic();
