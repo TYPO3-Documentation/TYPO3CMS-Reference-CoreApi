@@ -154,7 +154,7 @@ which is the fourth segment of the namespace. Any further subfolders will
 be subsequent segments.
 
 So a test class in :file:`EXT:foo_bar_baz/Tests/Unit/Bla/` will have as namespace
-:code:`\Vendor\FooBarBaz\Tests\Unit\Bla`.
+:code:`\MyVendor\FooBarBaz\Tests\Unit\Bla`.
 
 
 .. _namespaces-instances:

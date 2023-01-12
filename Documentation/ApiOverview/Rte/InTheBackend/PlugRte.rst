@@ -35,7 +35,7 @@ based on the implementation of ext:rte_ckeditor.
    $GLOBALS['TYPO3_CONF_VARS']['SYS']['formEngine']['nodeResolver'][1593194137] = [
        'nodeName' => 'text',
        'priority' => 50, // rte_ckeditor uses priority 50
-       'class' => \Vendor\MyExt\Form\Resolver\RichTextNodeResolver::class,
+       'class' => \MyVendor\MyExt\Form\Resolver\RichTextNodeResolver::class,
    ];
 
 - Now create the class :code:`\Vendor\MyExt\Form\Resolver\RichTextNodeResolver`.

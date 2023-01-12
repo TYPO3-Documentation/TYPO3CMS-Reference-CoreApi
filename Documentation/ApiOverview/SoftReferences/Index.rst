@@ -318,7 +318,7 @@ via dependency injection:
 
 .. code-block:: yaml
 
-    VENDOR\Extension\SoftReference\YourSoftReferenceParser:
+    MyVendor\Extension\SoftReference\YourSoftReferenceParser:
       tags:
         - name: softreference.parser
           parserKey: your_key

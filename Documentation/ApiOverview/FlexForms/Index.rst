@@ -219,7 +219,7 @@ Populate a `select` field with a PHP Function (itemsProcFunc)
         </label>
         <config>
             <type>select</type>
-            <itemsProcFunc>Myvendor\Example\Backend\ItemsProcFunc->user_orderBy
+            <itemsProcFunc>MyVendor\Example\Backend\ItemsProcFunc->user_orderBy
             </itemsProcFunc>
             <renderType>selectSingle</renderType>
             <items>

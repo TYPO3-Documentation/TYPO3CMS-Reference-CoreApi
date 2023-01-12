@@ -30,7 +30,7 @@ If you need a special output format, you can implement your own renderer class a
    :caption: EXT:some_extension/Classes/Controller/SomeController.php
 
    use TYPO3\CMS\Core\Utility\GeneralUtility;
-   use Vendor\SomeExtension\Classes\Messaging\MySpecialRenderer;
+   use MyVendor\SomeExtension\Classes\Messaging\MySpecialRenderer;
 
    $out = GeneralUtility::makeInstance(MySpecialRenderer::class)
       ->render($flashMessages);
