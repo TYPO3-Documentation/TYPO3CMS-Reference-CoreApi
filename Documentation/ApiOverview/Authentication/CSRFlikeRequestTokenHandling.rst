@@ -10,9 +10,9 @@ CSRF-like request token handling
 
 A CSRF-like request token handling is available to mitigate potential cross-site
 requests on actions with side effects. This approach does not require an
-existing server-side user session, but uses a nonce (number used once) as a
-"pre-session". The main scope is to ensure a user actually has visited a page,
-before submitting data to the webserver.
+existing server-side user session, but uses a `nonce`_ as a "pre-session". The
+main scope is to ensure a user actually has visited a page, before submitting
+data to the webserver.
 
 This token can only be used for HTTP methods `POST`, `PUT` or `PATCH`, but
 for instance not for `GET` request.
@@ -20,7 +20,7 @@ for instance not for `GET` request.
 The :php:`\TYPO3\CMS\Core\Middleware\RequestTokenMiddleware` resolves
 request tokens and nonce values from a request and enhances responses with
 a nonce value in case the underlying application issues one. Both items are
-serialized as JSON Web Token (JWT) hash signed with `HS256`. Request tokens
+serialized as a `JSON Web Token (JWT)`_ hash signed with `HS256`. Request tokens
 use the provided nonce value during signing.
 
 Session cookie names involved for providing the nonce value:
@@ -41,6 +41,10 @@ Submitting request token value to application:
     The current concept uses the :php:`\TYPO3\CMS\Core\Security\NoncePool` which
     supports five different nonces in the same request. The pool purges nonces
     15 minutes (900 seconds) after they have been issued.
+
+.. _JSON Web Token (JWT): https://jwt.io/
+.. _nonce: https://en.wikipedia.org/wiki/Cryptographic_nonce
+
 
 Workflow
 ========
