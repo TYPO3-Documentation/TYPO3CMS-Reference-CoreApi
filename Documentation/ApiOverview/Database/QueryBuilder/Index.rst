@@ -229,7 +229,18 @@ Remarks:
     automatically quoted.
 
 *   There is no support for :sql:`DISTINCT`, instead a :php:`->groupBy()` has to
-    be used.
+    be used, for example:
+
+    ..  code-block:: php
+
+        // Equivalent to:
+        // SELECT DISTINCT some_field, another_field FROM my_table
+
+        $queryBuilder
+            ->select('some_field', 'another_field')
+            ->from('my_table')
+            ->groupBy('some_field')
+            ->addGroupBy('another_field');
 
 *   If :php:`->count()` is combined with :php:`->groupBy()`, the result may
     return multiple rows. The order of those rows depends on the used
