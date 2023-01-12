@@ -50,7 +50,7 @@ The provider is registered in the extension file
 
    return [
        'typoscript' => [
-           \Vendor\SomeExtension\ExpressionLanguage\CustomTypoScriptConditionProvider::class,
+           \MyVendor\SomeExtension\ExpressionLanguage\CustomTypoScriptConditionProvider::class,
        ]
    ];
 
@@ -70,7 +70,7 @@ the formerly registered PHP class name:
 .. code-block:: php
    :caption: EXT:some_extension/Classes/ExpressionLanguage/CustomTypoScriptConditionProvider.php
 
-   namespace Vendor\SomeExtension\ExpressionLanguage;
+   namespace MyVendor\SomeExtension\ExpressionLanguage;
 
    use TYPO3\CMS\Core\ExpressionLanguage\AbstractProvider;
 

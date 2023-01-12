@@ -31,7 +31,7 @@ will be our Ajax endpoint.
    <?php
    declare(strict_types = 1);
 
-   namespace Vendor\MyExtension\Controller;
+   namespace MyVendor\MyExtension\Controller;
 
    use Psr\Http\Message\ResponseFactoryInterface;
    use Psr\Http\Message\ResponseInterface;

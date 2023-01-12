@@ -80,7 +80,7 @@ Background and history
 ======================
 
 Obtaining object instances in TYPO3 has always been straightforward: Call
-:php:`GeneralUtility::makeInstance(\Vendor\MyExtension\Some\Class::class)` and hand over
+:php:`GeneralUtility::makeInstance(\MyVendor\MyExtension\Some\Class::class)` and hand over
 mandatory and optional :php:`__construct()` arguments as additional arguments.
 
 There are two quirks to that:
@@ -307,9 +307,9 @@ dependency by the framework looks like this:
 .. code-block:: php
    :caption: EXT:my_extension/Controller/UserController.php
 
-   namespace Vendor\MyExtension\Controller;
+   namespace MyVendor\MyExtension\Controller;
 
-   use Vendor\MyExtension\Repository\UserRepository;
+   use MyVendor\MyExtension\Repository\UserRepository;
 
    final class UserController
    {
@@ -336,9 +336,9 @@ A second way to get services injected is by using :php:`inject*()` methods:
 .. code-block:: php
    :caption: EXT:my_extension/Controller/UserController.php
 
-   namespace Vendor\MyExtension\Controller;
+   namespace MyVendor\MyExtension\Controller;
 
-   use Vendor\MyExtension\Repository\UserRepository;
+   use MyVendor\MyExtension\Repository\UserRepository;
 
    final class UserController
    {
@@ -362,10 +362,10 @@ implementation detail. More important is an abstraction scenario. Consider this 
 .. code-block:: php
    :caption: EXT:my_extension/Controller/UserController.php
 
-   namespace Vendor\MyExtension\Controller;
+   namespace MyVendor\MyExtension\Controller;
 
-   use Vendor\MyExtension\Repository\UserRepository;
-   use Vendor\MyExtension\Logger\Logger;
+   use MyVendor\MyExtension\Repository\UserRepository;
+   use MyVendor\MyExtension\Logger\Logger;
 
    abstract class AbstractController
    {
@@ -434,9 +434,9 @@ useful dependency injection scenario. Look at this example:
 .. code-block:: php
    :caption: EXT:my_extension/Controller/UserController.php
 
-   namespace Vendor\MyExtension\Controller;
+   namespace MyVendor\MyExtension\Controller;
 
-   use Vendor\MyExtension\Logger\LoggerInterface;
+   use MyVendor\MyExtension\Logger\LoggerInterface;
 
    final class UserController extends AbstractController
    {
@@ -505,7 +505,7 @@ A basic :file:`Services.yaml` file of an extension looks like the following.
         autoconfigure: true
         public: false
 
-      Vendor\MyExtension\:
+      MyVendor\MyExtension\:
         resource: '../Classes/*'
         exclude: '../Classes/Domain/Model/*'
 
@@ -553,11 +553,11 @@ the desired classes. This can be done in chronological order or by naming.
 ..  code-block:: yaml
     :caption: EXT:my_extension/Configuration/Services.yaml
 
-    Vendor\MyExtension\UserFunction\ClassA:
+    MyVendor\MyExtension\UserFunction\ClassA:
       arguments:
         $argA: '@TYPO3\CMS\Core\Database\ConnectionPool'
 
-    Vendor\MyExtension\UserFunction\ClassB:
+    MyVendor\MyExtension\UserFunction\ClassB:
       arguments:
         - '@TYPO3\CMS\Core\Database\ConnectionPool'
 
@@ -575,7 +575,7 @@ This allows you to inject concrete objects like the :ref:`Connection
       arguments:
         - 'pages'
 
-    Vendor\MyExtension\UserFunction\ClassA:
+    MyVendor\MyExtension\UserFunction\ClassA:
       public: true
       arguments:
         - '@connection.pages'
@@ -649,15 +649,15 @@ class:
         autoconfigure: true
         public: false
 
-      Vendor\MyExtension\:
+      MyVendor\MyExtension\:
         resource: '../Classes/*'
         exclude: '../Classes/Domain/Model/*'
 
-      Vendor\MyExtension\UserFunction\ClassA:
+      MyVendor\MyExtension\UserFunction\ClassA:
         public: true
 
 With this configuration, you can use dependency injection in
-:php:`\Vendor\MyExtension\UserFunction\ClassA` when it is created, for example
+:php:`\MyVendor\MyExtension\UserFunction\ClassA` when it is created, for example
 in the context of a :typoscript:`USER` TypoScript object, which would not be
 possible if this class were private.
 
@@ -678,7 +678,7 @@ class has to be configured as :yaml:`public: true`.
 
     (1/1) ArgumentCountError
 
-    Too few arguments to function Vendor\MyExtension\Namespace\Class::__construct(),
+    Too few arguments to function MyVendor\MyExtension\Namespace\Class::__construct(),
     0 passed in typo3/sysext/core/Classes/Utility/GeneralUtility.php on line 3461 and exactly 1 expected
 
 An :php:`Error` is thrown on missing dependency injection for
@@ -703,7 +703,7 @@ the example below:
 ..  code-block:: yaml
     :caption: EXT:my_extension/Configuration/Services.yaml
 
-    TYPO3\CMS\Belog\Controller\BackendLogController: '@Vendor\MyExtension\Controller\ExtendedBackendLogController'
+    TYPO3\CMS\Belog\Controller\BackendLogController: '@MyVendor\MyExtension\Controller\ExtendedBackendLogController'
 
 
 Further information
