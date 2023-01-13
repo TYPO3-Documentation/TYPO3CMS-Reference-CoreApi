@@ -42,6 +42,10 @@ Submitting request token value to application:
     supports five different nonces in the same request. The pool purges nonces
     15 minutes (900 seconds) after they have been issued.
 
+..  seealso::
+    The event :ref:`BeforeRequestTokenProcessedEvent` is available to
+    intercept/adjust the request token.
+
 .. _JSON Web Token (JWT): https://jwt.io/
 .. _nonce: https://en.wikipedia.org/wiki/Cryptographic_nonce
 
