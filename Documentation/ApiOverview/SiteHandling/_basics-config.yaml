@@ -47,7 +47,7 @@ errorHandling:
     errorFluidPartialsRootPath: 'EXT:my_extension/Resources/Private/Partials/ErrorPages'
   - errorCode: '0'
     errorHandler: PHP
-    errorPhpClassFQCN: Vendor\ExtensionName\ErrorHandlers\GenericErrorhandler
+    errorPhpClassFQCN: MyVendor\ExtensionName\ErrorHandlers\GenericErrorhandler
 routes:
   route: robots.txt
   type: staticText

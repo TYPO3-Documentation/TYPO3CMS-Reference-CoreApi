@@ -219,7 +219,7 @@ Populate a `select` field with a PHP Function (itemsProcFunc)
             <label>LLL:EXT:example/Resources/Private/Language/Backend.xlf:settings.registration.orderBy</label>
             <config>
                 <type>select</type>
-                <itemsProcFunc>Myvendor\Example\Backend\ItemsProcFunc->user_orderBy</itemsProcFunc>
+                <itemsProcFunc>MyVendor\Example\Backend\ItemsProcFunc->user_orderBy</itemsProcFunc>
                 <renderType>selectSingle</renderType>
                 <items>
                     <!-- empty by default -->
