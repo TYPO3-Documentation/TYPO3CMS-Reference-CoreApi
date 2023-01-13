@@ -17,12 +17,12 @@ or :file:`config/system/additional.php`  like this:
 ..  code-block:: php
     :caption: config/system/additional.php | typo3conf/system/additional.php
 
-	$GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['backend']['loginProviders'][1433416020] = [
-		'provider' => \MyVendor\MyExtension\LoginProvider\CustomLoginProvider::class,
-		'sorting' => 50,
-		'iconIdentifier' => 'actions-key',
-		'label' => 'LLL:EXT:backend/Resources/Private/Language/locallang.xlf:login.link'
-	];
+    $GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['backend']['loginProviders'][1433416020] = [
+        'provider' => \MyVendor\MyExtension\LoginProvider\CustomLoginProvider::class,
+        'sorting' => 50,
+        'iconIdentifier' => 'actions-key',
+        'label' => 'LLL:EXT:backend/Resources/Private/Language/locallang.xlf:login.link'
+    ];
 
 ..  versionadded:: 11.5
     The option :php:`iconIdentifier` has been introduced. As FontAwesome will
@@ -80,17 +80,17 @@ View requirements:
 ..  code-block:: html
     :caption: EXT:my_sitepackage/Resources/Private/Templates/MyLoginForm.html
 
-	<f:layout name="Login" />
-	<f:section name="loginFormFields">
-		<div class="form-group t3js-login-openid-section" id="t3-login-openid_url-section">
-			<div class="input-group">
-				<input type="text" id="openid_url" name="openid_url" value="{presetOpenId}" autofocus="autofocus" placeholder="{f:translate(key: 'openId', extensionName: 'openid')}" class="form-control input-login t3js-clearable t3js-login-openid-field" />
-				<div class="input-group-addon">
-					<span class="fa fa-openid"></span>
-				</div>
-			</div>
-		</div>
-	</f:section>
+    <f:layout name="Login" />
+    <f:section name="loginFormFields">
+        <div class="form-group t3js-login-openid-section" id="t3-login-openid_url-section">
+            <div class="input-group">
+                <input type="text" id="openid_url" name="openid_url" value="{presetOpenId}" autofocus="autofocus" placeholder="{f:translate(key: 'openId', extensionName: 'openid')}" class="form-control input-login t3js-clearable t3js-login-openid-field" />
+                <div class="input-group-addon">
+                    <span class="fa fa-openid"></span>
+                </div>
+            </div>
+        </div>
+    </f:section>
 
 
 Examples
@@ -99,5 +99,5 @@ Examples
 Within the Core you can find the standard implementation in the system extension
 `backend`:
 
-See class :php:`TYPO3\CMS\Backend\LoginProvider\UsernamePasswordLoginProvider`
-with its template :file:`typo3/sysext/backend/Resources/Private/Templates/Login/UserPassLoginForm.html`.
+See class :t3src:`backend/Classes/LoginProvider/UsernamePasswordLoginProvider.php`
+with its template :t3src:`backend/Resources/Private/Templates/Login/UserPassLoginForm.html`.
