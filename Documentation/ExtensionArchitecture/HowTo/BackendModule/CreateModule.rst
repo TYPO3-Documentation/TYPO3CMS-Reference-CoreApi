@@ -85,7 +85,7 @@ This makes it possible to include e.g. Javascript for all actions in the control
        $languageService->includeLLFile('EXT:examples/Resources/Private/Language/AdminModule/locallang.xlf');
 
        $this->menuConfig($request);
-       $moduleTemplate = $this->moduleTemplateFactory->create($request, 't3docs/examples');
+       $moduleTemplate = $this->moduleTemplateFactory->create($request);
        // setUpDocHeader() is documented below
        $this->setUpDocHeader($moduleTemplate);
 
