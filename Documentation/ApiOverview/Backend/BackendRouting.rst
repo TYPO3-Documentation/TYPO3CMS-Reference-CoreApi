@@ -1,7 +1,7 @@
-.. include:: /Includes.rst.txt
-.. index:: ! Backend routing
-   File; EXT:{extkey}/Configuration/Backend/Routes.php
-.. _backend-routing:
+..  include:: /Includes.rst.txt
+..  index:: ! Backend routing
+    File; EXT:{extkey}/Configuration/Backend/Routes.php
+..  _backend-routing:
 
 ===============
 Backend routing
@@ -11,52 +11,44 @@ Each request to the backend is eventually executed by a controller.
 A list of routes is defined which maps a given request to a controller
 and an action.
 
-Routes are defined inside extensions, in file :file:`Configuration/Backend/Routes.php`
-for general requests and in  :file:`Configuration/Backend/AjaxRoutes.php` for
-Ajax calls.
+Routes are defined inside extensions, in the files
 
-Here is an extract of :file:`typo3/sysext/backend/Configuration/Backend/Routes.php`:
+*   :file:`Configuration/Backend/Routes.php` for general requests
+*   :file:`Configuration/Backend/AjaxRoutes.php` for Ajax calls
 
-.. code-block:: php
+Here is an extract of :t3src:`backend/Configuration/Backend/Routes.php`:
 
-   <?php
+..  code-block:: php
+    :caption: EXT:backend/Configuration/Backend/Routes.php (excerpt)
 
-   use TYPO3\CMS\Backend\Controller;
+    <?php
 
-   /**
-    * Definitions for routes provided by EXT:backend
-    * Contains all "regular" routes for entry points
-    *
-    * Please note that this setup is preliminary until all Core use-cases are set up here.
-    * Especially some more properties regarding modules will be added until TYPO3 CMS 7 LTS, and might change.
-    *
-    * Currently the "access" property is only used so no token creation + validation is made,
-    * but will be extended further.
-    */
-   return [
-       // Login screen of the TYPO3 Backend
-       'login' => [
-           'path' => '/login',
-           'access' => 'public',
-           'target' => Controller\LoginController::class . '::formAction'
-       ],
+    use TYPO3\CMS\Backend\Controller;
 
-       // Main backend rendering setup (previously called backend.php) for the TYPO3 Backend
-       'main' => [
-           'path' => '/main',
-           'referrer' => 'required,refresh-always',
-           'target' => Controller\BackendController::class . '::mainAction'
-       ],
-      // ...
-   ];
+    return [
+        // Login screen of the TYPO3 Backend
+        'login' => [
+            'path' => '/login',
+            'access' => 'public',
+            'target' => Controller\LoginController::class . '::formAction'
+        ],
 
-So a routes file essentially returns an array containing routes mapping.
-A route is defined by a key, a path, a referrer and a target. The "public" :code:`access`
+        // Main backend rendering setup (previously called backend.php) for the TYPO3 Backend
+        'main' => [
+            'path' => '/main',
+            'referrer' => 'required,refresh-always',
+            'target' => Controller\BackendController::class . '::mainAction'
+        ],
+        // ...
+    ];
+
+So, a route file essentially returns an array containing route mappings. A route
+is defined by a key, a path, a referrer and a target. The "public" :php:`access`
 property indicates that no authentication is required for that action.
 
 ..  note::
     The current route object is available as :ref:`route attribute
-    <typo3-request-attribute-route>` on the PSR-7 request object of every
+    <typo3-request-attribute-route>` in the PSR-7 request object of every
     backend request. It is added through the PSR-15 middleware stack and can be
     retrieved using :php:`$request->getAttribute('route')`.
 
@@ -79,7 +71,7 @@ considered cross-site request forgery (CSRF). The difference in terminology is
 that this scenario occurs on same-site requests and not cross-site - however,
 potential security implications are still the same.
 
-Backend routes can enforce an HTTP Referer header's existence by adding a
+Backend routes can enforce the existence of an HTTP referrer header by adding a
 :php:`referrer` to routes to mitigate the described scenario.
 
 .. code-block:: php
@@ -90,16 +82,16 @@ Backend routes can enforce an HTTP Referer header's existence by adding a
         'target' => Controller\BackendController::class . '::mainAction'
     ],
 
-Values for :php:`referrer` are declared as comma-separated list:
+Values for :php:`referrer` are declared as a comma-separated list:
 
-* `required` enforces existence of HTTP `Referer` header that has to match the
-  currently used backend URL (e.g. :samp:`https://example.org/typo3/`), the request
-  will be denied otherwise.
-* `refresh-empty` triggers a HTML based refresh in case HTTP `Referer` header
-  is not given or empty - this attempt uses an HTML refresh, since regular HTTP
-  `Location` redirect still would not set a referrer. It implies this technique
-  should only be used on plain HTML responses and won't have any impact e.g. on
-  JSON or XML response types.
+*   :php:`required` enforces existence of HTTP `Referer` header that has to match
+    the currently used backend URL (for example, :samp:`https://example.org/typo3/`),
+    the request will be denied otherwise.
+*   :php:`refresh-empty` triggers an HTML-based refresh in case HTTP `Referer`
+    header is not given or empty - this attempt uses an HTML refresh, since
+    regular HTTP `Location` redirect still would not set a referrer. It implies
+    this technique should only be used on plain HTML responses and will not have
+    any impact, for example, on JSON or XML response types.
 
 This technique should be used on all public routes (without session token) that
 internally redirect to a restricted route (having a session token). The goal is
@@ -107,17 +99,19 @@ to protect and keep information about the current session token internal.
 
 The request sequence in the TYPO3 Core looks like this:
 
-* HTTP request to :samp:`https://example.org/typo3/` having a valid user session
-* internally **public** backend route `/login` is processed
-* internally redirects to **restricted** backend route `/main` since an
-  existing and valid backend user session was found
-  + HTTP redirect to :samp:`https://example.org/typo3/main?token=...`
-  + exposing the token is mitigated with `referrer` route option mentioned above
+#.  HTTP request to :samp:`https://example.org/typo3/` having a valid user
+    session
+#.  Internally **public** backend route `/login` is processed
+#.  Internally redirects to **restricted** backend route `/main` since an
+    existing and valid backend user session was found
+    + HTTP redirect to :samp:`https://example.org/typo3/main?token=...`
+    + exposing the token is mitigated with `referrer` route option mentioned
+    above
 
-.. attention::
-
-   Please keep in mind these steps are part of a mitigation strategy, which requires
-   to be aware of mentioned implications when implementing custom web applications.
+..  attention::
+    Please keep in mind these steps are part of a mitigation strategy, which
+    requires to be aware of mentioned implications when implementing custom web
+    applications.
 
 
 ..  index:: Backend routing; Dynamic URL parts
@@ -168,37 +162,25 @@ Within a controller (we use here a non-Extbase controller as example):
 Generating backend URLs
 =======================
 
-Using the UriBuilder API, you can generate any kind of URL for the Backend, may it be
-a module, a typical route or an Ajax call. Therefore use either :php:`buildUriFromRoute()`
-or :php:`buildUriFromRoutePath()`. The :php:`UriBuilder` then returns a PSR-7 conform :php:`Uri` object
-that can be cast to string when needed. Furthermore does the :php:`UriBuilder` automatically
+Using the UriBuilder API, you can generate any kind of URL for the backend, may
+it be a module, a typical route or an Ajax call. Therefore use either
+:php:`buildUriFromRoute()` or :php:`buildUriFromRoutePath()`. The
+:php:`UriBuilder` then returns a PSR-7 conform :php:`Uri` object that can be
+cast to a string when needed. Furthermore, the :php:`UriBuilder` automatically
 generates and applies the mentioned session token.
 
-.. code-block:: php
+Example within a controller (we use here a non-Extbase controller):
 
-   // Using a route identifier
-   $uriBuilder = GeneralUtility::makeInstance(UriBuilder::class);
-   $uri = $uriBuilder->buildUriFromRoute('web_layout', ['id' => $pageId]);
+..  literalinclude:: _BackendRouting/_UriBuilderExample.php
+    :caption: EXT:my_extension/Classes/Controller/MyRouteController.php
 
-   // Using a route path
-   $uriBuilder = GeneralUtility::makeInstance(UriBuilder::class);
-   $uri = $uriBuilder->buildUriFromRoutePath(
-      '/record/edit',
-      [
-         'edit' => [
-            'pages' => [
-               123 => 'edit'
-            ]
-         ]
-      ]
-   );
 
 More Information
 ================
 
-Please refer to the following external resources and look at how the TYPO3 source code
+Please refer to the following resources and look at how the TYPO3 source code
 handles backend routing in your TYPO3 version.
 
-* `PSR-7 <https://www.php-fig.org/psr/psr-7/>`__
+* :ref:`TYPO3 request object <typo3-request>`
 * TYPO3 Core: :t3src:`backend/Configuration/Backend/AjaxRoutes.php`
 * TYPO3 Core: :t3src:`backend/Configuration/Backend/Routes.php`
