@@ -435,6 +435,10 @@ cookieSameSite
 defaultUserTSconfig
 ===================
 
+..  deprecated:: 12.1
+    This setting will be removed with TYPO3 v13. More information can be found
+    in the :ref:`changelog <ext_core:deprecation-99075-1668337874>`.
+
 .. confval:: $GLOBALS['TYPO3_CONF_VARS']['FE']['defaultUserTSconfig']
 
    :type: multiline
