@@ -63,6 +63,10 @@ After that you can add titles, menus and buttons using :php:`ModuleTemplate`:
         return $this->htmlResponse($moduleTemplate->renderContent());
     }
 
+..  seealso::
+    :ref:`dropdown-button-components`
+
+
 Using this :php:`ModuleTemplate` class, the Fluid templates for
 your module need only take care of the actual content of your module.
 As such, the Layout may be as simple as (again from "beuser"):
