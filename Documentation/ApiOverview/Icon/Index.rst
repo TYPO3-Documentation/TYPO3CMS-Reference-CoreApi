@@ -1,8 +1,8 @@
-.. include:: /Includes.rst.txt
-.. index::
-   Backend; Icon API
-   Icon API
-.. _icon:
+..  include:: /Includes.rst.txt
+..  index::
+    Backend; Icon API
+    Icon API
+..  _icon:
 
 ========
 Icon API
@@ -10,24 +10,23 @@ Icon API
 
 TYPO3 provides an icon API for all icons in the TYPO3 backend.
 
-.. index:: IconRegistry; registerIcon
-.. _icon-registration:
+..  index:: IconRegistry; registerIcon
+..  _icon-registration:
 
 Registration
 ============
 
-All icons must be registered in the :php:`IconRegistry`.
+All icons must be registered in the icon registry.
 To register icons for your own extension, create a file called
 :file:`Configuration/Icons.php` in your extension - for example:
 :file:`EXT:my_extension/Configuration/Icons.php`.
 
-.. note::
+..  note::
+    In versions below TYPO3 v11.4 the configuration was done in the
+    :file:`ext_localconf.php` file, please use the version selector to look up
+    the syntax in the corresponding documentation version.
 
-   In versions below TYPO3 v11.4 the configuration was done in the :file:`ext_localconf.php`,
-   please use the version selector to look-up the syntax in the corresponding
-   documentation version.
-
-The file needs to return a flat PHP configuration array with the following keys:
+The file needs to return a PHP configuration array with the following keys:
 
 .. include:: /CodeSnippets/Manual/Extension/Configuration/IconsPhp.rst.txt
 
@@ -47,7 +46,7 @@ The TYPO3 Core ships two icon providers which can be used straight away:
    was removed from the Core in 12.0. You can use the polyfill extension from
    :t3ext:`fontawesome_provider` which is also compatible with TYPO3 v11 LTS.
 
-If require need a custom icon provider, you can add your own by writing a
+If you need a custom icon provider, you can add your own by writing a
 class which implements the :php:`IconProviderInterface`.
 
 .. _icon-usage:
@@ -66,21 +65,12 @@ The PHP way
 
 You can use the :php:`IconFactory` to request an icon:
 
-.. code-block:: php
-
-   $iconFactory = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(
-      \TYPO3\CMS\Core\Imaging\IconFactory::class
-   );
-   $icon = $iconFactory->getIcon(
-      'tx-myext-action-preview',
-      \TYPO3\CMS\Core\Imaging\Icon::SIZE_SMALL,
-      'overlay-identifier'
-   );
-   $this->view->assign('icon', $icon);
+..  literalinclude:: _IconFactoryExample.php
+    :caption: EXT:my_extension/Classes/MyClass.php
 
 .. versionchanged:: 12.0
 
-   The TYPO3 Icon Api previously defaulted to :php:`Icon::SIZE_DEFAULT` and was
+   The TYPO3 Icon API previously defaulted to :php:`Icon::SIZE_DEFAULT` and was
    adapted to now use :php:`Icon::SIZE_MEDIUM` instead. :php:`Icon::SIZE_MEDIUM`
    is displayed at a fixed size of 32x32 px while :php:`Icon::SIZE_DEFAULT`
    now scales with the text.
@@ -88,29 +78,38 @@ You can use the :php:`IconFactory` to request an icon:
    In cases where the size :php:`Icon::SIZE_DEFAULT` was explicitly set this
    might result in changed behavior. Switch to :php:`Icon::SIZE_MEDIUM` then.
 
-.. index::
-   Fluid; Core icon
-   pair: Icon API; Fluid
+..  index::
+    Fluid; Core icon
+    pair: Icon API; Fluid
 
-The Fluid Viewhelper
+The Fluid ViewHelper
 --------------------
 
-You can also use the :ref:`Fluid core:icon Viewhelper <t3viewhelper:typo3-core-icon>` to render an icon in your view:
+You can also use the :ref:`Fluid core:icon ViewHelper <t3viewhelper:typo3-core-icon>`
+to render an icon in your view:
 
-.. code-block:: html
+..  code-block:: html
 
-   {namespace core = TYPO3\CMS\Core\ViewHelpers}
-   <core:icon identifier="my-icon-identifier" size="small" />
+    {namespace core = TYPO3\CMS\Core\ViewHelpers}
+    <core:icon identifier="my-icon-identifier" size="small" />
 
-This will render the desired icon using an `img`-tag. If you prefer having the SVG inlined into your HTML (e.g. for being able to change colors with CSS), you can set the optional `alternativeMarkupIdentifier` attribute to `inline`. By default, the icon will pick up the font-color of its surrounding element if you use this option.
+This will render the desired icon using an :html:`img` tag. If you prefer having
+the SVG inlined into your HTML (for example, for being able to change colors
+with CSS), you can set the optional :html:`alternativeMarkupIdentifier`
+attribute to :html:`inline`. By default, the icon will pick up the font color of
+its surrounding element if you use this option.
 
-.. code-block:: html
+..  code-block:: html
 
-   {namespace core = TYPO3\CMS\Core\ViewHelpers}
-   <core:icon identifier="my-icon-identifier" size="small" alternativeMarkupIdentifier="inline" />
+    {namespace core = TYPO3\CMS\Core\ViewHelpers}
+    <core:icon
+        identifier="my-icon-identifier"
+        size="small"
+        alternativeMarkupIdentifier="inline"
+    />
 
 
-.. index:: JavaScript; getIcon
+..  index:: JavaScript; getIcon
 
 The JavaScript way
 ------------------
@@ -121,8 +120,8 @@ The JavaScript way
     See also :ref:`backend-javascript-es6`.
 
 In JavaScript, icons can be only fetched from the Icon Registry. To achieve this,
-add the following dependency to your :ref:`ES6 module <backend-javascript-es6>`: :js:`@typo3/backend/icons`.
-In this section, the module is known as `Icons`.
+add the following dependency to your :ref:`ES6 module <backend-javascript-es6>`:
+:js:`@typo3/backend/icons`. In this section, the module is known as :js:`Icons`.
 
 The module has a single public method :js:`getIcon()` which accepts up to five arguments:
 
@@ -234,4 +233,5 @@ the argument :code:`identifier` in Fluid (see code examples above).
 Use TYPO3.Icons
 ---------------
 
-An alternative way to look for existing icons is to browse through `TYPO3.Icons <https://typo3.github.io/TYPO3.Icons/>`__.
+An alternative way to look for existing icons is to browse through
+`TYPO3.Icons <https://typo3.github.io/TYPO3.Icons/>`__.
