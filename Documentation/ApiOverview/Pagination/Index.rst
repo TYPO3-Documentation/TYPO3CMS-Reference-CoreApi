@@ -54,6 +54,10 @@ Code example for the :php:`ArrayPaginator`:
    $pagination->getNextPageNumber(); // returns null
    // …
 
+..  hint::
+    You can also rely on the the third-party extension :t3ext:`numbered_pagination`. This 
+    extension also offeres predefined templates.
+
 
 Sliding window pagination
 =========================
