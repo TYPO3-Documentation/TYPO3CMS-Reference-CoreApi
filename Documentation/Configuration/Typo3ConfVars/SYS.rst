@@ -902,7 +902,9 @@ requireApprovedLocalizations
 
     :php:`true`
         Only translations with the attribute :xml:`approved` set to :xml:`yes`
-        will be used. Any non-approved translation will be ignored.
+        will be used. Any non-approved translation (value is set to :xml:`no`)
+        will be ignored. If the attribute :xml:`approved` is omitted, the
+        translation is still taken into account.
 
     :php:`false`
         All translations are used.

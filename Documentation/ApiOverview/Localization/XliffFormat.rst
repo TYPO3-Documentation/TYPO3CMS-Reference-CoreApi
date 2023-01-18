@@ -112,10 +112,11 @@ language is placed in an additional file.
     TYPO3 :ref:`translation server <xliff-translating-servers>`.
 
     ..  versionchanged:: 12.0
-        By default, only approved translations are taken into account when
-        parsing XLF files. Set the option :ref:`requireApprovedLocalizations
+        By default, only translations with no :xml:`approved` attribute or with
+        the attribute set to :xml:`yes` are taken into account when parsing XLF
+        files. Set the option :ref:`requireApprovedLocalizations
         <typo3ConfVars_sys_lang_requireApprovedLocalizations>` to :php:`false`
-        to use all translations.
+        to use translations with the :xml:`approved` attribute set to :xml:`no`.
 
 ..  index:: ! Path; EXT:{extkey}/Resources/Private/Language
 ..  _xliff-files:
