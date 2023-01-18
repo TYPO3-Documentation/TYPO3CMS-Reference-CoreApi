@@ -3,17 +3,23 @@
 
 .. php:class:: AfterRecordPublishedEvent
 
-   Event that is fired after a record has been published ina workspace.
+   Event that is fired after a record has been published in a workspace.
 
    
    .. php:method:: getTable()
    
+      The table name of the record.
+      
       :returntype: string
       
    .. php:method:: getRecordId()
    
+      The uid of the record
+      
       :returntype: int
       
    .. php:method:: getWorkspaceId()
    
+      The workspace the record has been published in.
+      
       :returntype: int

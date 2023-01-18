@@ -9,9 +9,8 @@ AfterRecordPublishedEvent
 
 ..  versionadded:: 12.2
 
-The PSR-14 event :php:`\TYPO3\CMS\Workspaces\Event\AfterRecordPublishedEvent`
-allows to react on record publishing in workspaces. The event is fired after a
-record has been published in a workspace.
+The PSR-14 event :php:`\TYPO3\CMS\Workspaces\Event\AfterRecordPublishedEvent` is
+fired after a record has been published in a workspace.
 
 Example
 =======
