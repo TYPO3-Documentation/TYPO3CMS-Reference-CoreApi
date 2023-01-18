@@ -84,7 +84,15 @@ View requirements:
     <f:section name="loginFormFields">
         <div class="form-group t3js-login-openid-section" id="t3-login-openid_url-section">
             <div class="input-group">
-                <input type="text" id="openid_url" name="openid_url" value="{presetOpenId}" autofocus="autofocus" placeholder="{f:translate(key: 'openId', extensionName: 'openid')}" class="form-control input-login t3js-clearable t3js-login-openid-field" />
+                <input
+                    type="text"
+                    id="openid_url"
+                    name="openid_url"
+                    value="{presetOpenId}"
+                    autofocus="autofocus"
+                    placeholder="{f:translate(key: 'openId', extensionName: 'openid')}"
+                    class="form-control input-login t3js-clearable t3js-login-openid-field"
+                >
                 <div class="input-group-addon">
                     <span class="fa fa-openid"></span>
                 </div>
