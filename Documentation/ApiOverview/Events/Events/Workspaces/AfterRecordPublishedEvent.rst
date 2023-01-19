@@ -28,7 +28,7 @@ Registration of the event listener in your extension's :file:`Services.yaml`:
 The corresponding event listener class:
 
 ..  code-block:: php
-    :caption: EXT:my_extension/Classes/Workspaces/MyEventListener;
+    :caption: EXT:my_extension/Classes/Workspaces/MyEventListener.php;
 
     use TYPO3\CMS\Workspaces\Event\AfterRecordPublishedEvent;
 
