@@ -47,9 +47,13 @@ Code-Example for the :php:`ArrayPaginator`:
    $paginator->getKeyOfLastPaginatedItem(); // returns 5
 
    // use TYPO3\CMS\Core\Pagination\SimplePagination;
-   
+
    $pagination = new SimplePagination($paginator);
    $pagination->getAllPageNumbers(); // returns [1, 2, 3]
    $pagination->getPreviousPageNumber(); // returns 2
    $pagination->getNextPageNumber(); // returns null
    // …
+
+..  hint::
+    You can also rely on the the third-party extension :t3ext:`numbered_pagination`. This
+    extension also offeres predefined templates.
