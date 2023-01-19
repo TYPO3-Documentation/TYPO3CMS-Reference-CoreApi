@@ -195,4 +195,10 @@ return [
         'targetFileName' => 'CodeSnippets/Events/Core/AfterTemplatesHaveBeenDeterminedEvent.rst.txt',
         'withCode' => false,
     ],
+    [
+        'action' => 'createPhpClassDocs',
+        'class' => \TYPO3\CMS\Core\Authentication\Event\BeforeRequestTokenProcessedEvent::class,
+        'targetFileName' => 'CodeSnippets/Events/Core/BeforeRequestTokenProcessedEvent.rst.txt',
+        'withCode' => false,
+    ],
 ];
