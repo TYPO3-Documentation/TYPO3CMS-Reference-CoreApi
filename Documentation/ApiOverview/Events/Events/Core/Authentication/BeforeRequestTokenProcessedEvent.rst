@@ -15,9 +15,9 @@ during active user authentication process.
 Example
 =======
 
-Scenarios that are not using a login callback without having the possibility to
-submit a request token, this event can be used to generate the token
-individually:
+The event can be used to generate the request token individually. This can be
+the case when you are not using a login callback and have not the possibility
+to submit a request token:
 
 ..  code-block:: php
     :caption: EXT:my_extension/EventListener/ProcessRequestTokenListener.php
