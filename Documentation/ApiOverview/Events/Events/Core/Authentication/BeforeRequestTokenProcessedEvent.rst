@@ -20,6 +20,7 @@ submit a request token, this event can be used to generate the token
 individually:
 
 ..  code-block:: php
+    :caption: EXT:my_extension/EventListener/ProcessRequestTokenListener.php
 
     namespace MyVendor\MyExtension\EventListener;
 
