@@ -4,19 +4,12 @@ declare(strict_types=1);
 
 namespace MyVendor\MyExtension\Upgrades;
 
+use TYPO3\CMS\Install\Attribute\UpgradeWizard;
 use TYPO3\CMS\Install\Updates\UpgradeWizardInterface;
 
+#[UpgradeWizard('myExtension_exampleUpgradeWizard')]
 final class ExampleUpgradeWizard implements UpgradeWizardInterface
 {
-    /**
-     * Return the identifier for this wizard
-     * This should be the same string as used in the ext_localconf.php class registration
-     */
-    public function getIdentifier(): string
-    {
-        return 'myExtension_exampleUpgradeWizard';
-    }
-
     /**
      * Return the speaking name of this wizard
      */
