@@ -18,7 +18,7 @@ Example
 Registration of the event listener in your extension's :file:`Services.yaml`:
 
 ..  code-block:: yaml
-    :caption: EXT:my_extension/Configuration/Servicey.yaml
+    :caption: EXT:my_extension/Configuration/Service.yaml
 
     MyVendor\MyExtension\Workspaces\MyEventListener:
       tags:
