@@ -127,28 +127,32 @@ as it is only written for using direct SQL queries in the source code.
 sys\_file\_collection
 =====================
 
-FAL offers the possibility to create File Collections,
+..  versionchanged:: 12.2
+    The two fields :sql:`storage` and :sql:`folder` are now combined into the
+    new field :sql:`folder_identifier`.
+
+FAL offers the possibility to create file collections,
 which can then be used for various purposes. By default,
 they can be used with the "File links" content element.
 
 The most important fields are:
 
 type
-  The type of the Collection. A Collection can be based on hand-picked files,
-  a folder or categories.
+    The type of the collection. A collection can be based on hand-picked files,
+    a folder or categories.
 
 files
-  The list of selected files. The relationship between files and their Collection
-  is also stored in "sys\_file\_reference".
+    The list of selected files. The relationship between files and their collection
+    is also stored in "sys\_file\_reference".
 
-storage
-  The chosen storage, for folder-type Collections.
-
-folder
-  The chosen folder, for folder-type Collections.
+folder_identifier
+    The field contains the so-called "combined identifier" in the format
+    `storage:folder`, where "storage" is the :sql:`uid` of the corresponding
+    :sql:`sys_file_storage` record and :sql:`folder` the absolute path to the
+    folder. An example for a combined identifier is `1:/user_upload`.
 
 category
-  The chosen categories, for category-type Collections.
+    The chosen categories, for category-type collections.
 
 
 .. index:: Tables; sys_file_storage
