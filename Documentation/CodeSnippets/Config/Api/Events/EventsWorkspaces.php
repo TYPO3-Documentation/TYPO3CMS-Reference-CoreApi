@@ -31,4 +31,10 @@ return [
         'targetFileName' => 'CodeSnippets/Events/Workspaces/SortVersionedDataEvent.rst.txt',
         'withCode' => false,
     ],
+    [
+        'action' => 'createPhpClassDocs',
+        'class' => \TYPO3\CMS\Workspaces\Event\AfterRecordPublishedEvent::class,
+        'targetFileName' => 'CodeSnippets/Events/Workspaces/AfterRecordPublishedEvent.rst.txt',
+        'withCode' => false,
+    ],
 ];
