@@ -26,11 +26,10 @@ Is publicly available?
   any access checks, but provides a hook for doing so.
 
   .. warning::
-
-     This does not protect your files if they are within your web root
-     (e.g. below the :file:`fileadmin` folder). They will still be available to
-     anyone who knows the path to the file. To implement a strict access restriction,
-     the storage must point to some path outside the web root. Alternatively, the folder it points
+     This does not protect your files, if the configured storage folder is within
+     your web root. They will still be available to anyone who knows the path to
+     the file. To implement a strict access restriction, the storage must point
+     to some path outside the web root. Alternatively, the folder it points
      to must contain web server restrictions to block direct access to the files it
      contains (for example, in an Apache :file:`.htaccess` file).
 
@@ -38,10 +37,16 @@ Is writable?
   When this box is unchecked, the storage is read-only.
 
 Is online?
-  A storage that is not online cannot be accessed in any way. This flag is
+  A storage that is not online cannot be accessed in the backend. This flag is
   set automatically when files are not accessible (for example, when a
-  third-party storage service is not available) and the underlying Driver
+  third-party storage service is not available) and the underlying driver
   detects someone trying to access files in that storage.
 
   The important thing to note is that a storage must be turned online again
   manually.
+
+  .. warning::
+     This does not protect your files, if the configured storage folder is within
+     your web root or accessible via a third-party storage service which is
+     publicly available. The files will still be available to anyone who knows
+     the path to the file.
