@@ -27,6 +27,8 @@ It also integrates with the backend, but is only available for logged in users w
 The :file:`ENABLE_INSTALL_TOOL` file can be created by placing an empty
 file in one of the following file paths:
 
+..  versionchanged:: 12.2
+
 ..  tabs::
 
     ..  group-tab:: Composer-based installation
