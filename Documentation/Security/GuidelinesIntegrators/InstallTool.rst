@@ -24,17 +24,26 @@ passwords.
 The Install Tool can be found as a stand alone application via :samp:`https://example.org/typo3/install.php`.
 It also integrates with the backend, but is only available for logged in users with administrator privileges.
 
-The :file:`ENABLE_INSTALL_TOOL` file can be created by putting an empty
-file into the :ref:`config directory<Environment-config-path>`. You usually
-need write access to this directory on a server level (for example via SSH, SFTP, etc.)
-or you can create this file as a backend user with administrator
-privileges.
+The :file:`ENABLE_INSTALL_TOOL` file can be created by placing an empty
+file in one of the following file paths:
 
-..  attention::
-    Even if you run TYPO3 v12 in Composer mode at the time of writing
-    (TYPO3 v12.0.0) the file still has to be
-    created in folder :file:`public/typo3conf/ENABLE_INSTALL_TOOL`. See also
-    https://forge.typo3.org/issues/98528
+..  versionchanged:: 12.2
+
+..  tabs::
+
+    ..  group-tab:: Composer-based installation
+
+        *   :file:`var/transient/ENABLE_INSTALL_TOOL`
+        *   :file:`config/ENABLE_INSTALL_TOOL`
+
+    ..  group-tab:: Legacy installation
+
+        *   :file:`typo3temp/var/transient/ENABLE_INSTALL_TOOL`
+        *   :file:`typo3conf/ENABLE_INSTALL_TOOL`
+
+You usually need write access to this directory on a server level (for example,
+via SSH, SFTP, etc.) or you can create this file as a backend user with
+administrator privileges.
 
 .. include:: /Images/AutomaticScreenshots/AdminTools/EnableInstallTool.rst.txt
 
