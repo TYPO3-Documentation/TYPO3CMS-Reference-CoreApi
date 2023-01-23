@@ -16,8 +16,9 @@ Creating upgrade wizards
     was removed. The registration via
     :php:`$GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['ext/install']['update']`
     in :file:`ext_localconf.php` is deprecated and will be removed in TYPO3 v13.
-    To be compatible with TYPO3 v11 and v12 you can still use the registration
-    via :file:`ext_localconf.php`.
+    To be compatible with TYPO3 v11 and v12 you can still
+    :ref:`use the registration <t3coreapi11:upgrade-wizards-register>` via
+    :file:`ext_localconf.php`.
 
 To create an upgrade wizard you have to add a class which implements the
 :ref:`UpgradeWizardInterface <upgrade-wizards-interface>`.
