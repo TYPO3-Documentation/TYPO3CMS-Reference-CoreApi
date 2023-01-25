@@ -9,26 +9,31 @@
 Creating upgrade wizards
 ========================
 
-These steps create an upgrade wizard:
+..  versionchanged:: 12.2
+    The registration of an upgrade wizard has changed in TYPO3 v12.2. An
+    upgrade wizard class is now registered with an attribute. The
+    :php:`getIdentifier()` method in the :php:`UpgradeWizardInterface`
+    was removed. The registration via
+    :php:`$GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['ext/install']['update']`
+    in :file:`ext_localconf.php` is deprecated and will be removed in TYPO3 v13.
+    To be compatible with TYPO3 v11 and v12 you can still
+    :ref:`use the registration <t3coreapi11:upgrade-wizards-register>` via
+    :file:`ext_localconf.php`.
 
-..  rst-class:: bignums
+To create an upgrade wizard you have to add a class which implements the
+:ref:`UpgradeWizardInterface <upgrade-wizards-interface>`.
 
-#.  Add a class implementing :ref:`UpgradeWizardInterface <upgrade-wizards-interface>`
+The class *may* implement other interfaces (optional):
 
-#.  The class *may* implement other interfaces (optional):
-
-    *   :ref:`RepeatableInterface <repeatable-interface>` to not mark the wizard
-        as done after execution
-
-    *   :ref:`ChattyInterface <uprade-wizards-chatty-interface>` for generating
-        output
-
-    *   :php:`ConfirmableInferface` for wizards that need user confirmation
-
-#.  :ref:`Register the wizard <upgrade-wizards-register>` in the file
-    :ref:`ext_localconf.php <ext-localconf-php>`
+*   :ref:`RepeatableInterface <repeatable-interface>` to not mark the wizard
+    as done after execution
+*   :ref:`ChattyInterface <uprade-wizards-chatty-interface>` for generating
+    output
+*   :php:`ConfirmableInferface` for wizards that need user confirmation
 
 
+.. index:: Upgrade wizards; Registration
+.. _upgrade-wizards-register:
 .. _upgrade-wizards-interface:
 
 UpgradeWizardInterface
@@ -36,14 +41,14 @@ UpgradeWizardInterface
 
 Each upgrade wizard consists of a single PHP file containing a single PHP class.
 This class has to implement :php:`TYPO3\CMS\Install\Updates\UpgradeWizardInterface`
-and its methods:
+and its methods.
+
+The registration of an upgrade wizard is done directly in the class by adding
+the class attribute :php:`\TYPO3\CMS\Install\Attribute\UpgradeWizard`. The
+:ref:`unique identifier <upgrade-wizards-identifier>` is passed as an argument.
 
 ..  literalinclude:: _ExampleUpgradeWizard.php
     :caption: EXT:my_extension/Classes/Upgrades/ExampleUpgradeWizard.php
-
-Method :php:`getIdentifier()`
-    Return the identifier for this wizard. This should be the same string as
-    used in the :file:`ext_localconf.php` class registration.
 
 Method :php:`getTitle()`
     Return the speaking name of this wizard.
@@ -90,26 +95,6 @@ Method :php:`getPrerequisites()`
         }
 
 
-.. index:: Upgrade wizards; Registration
-.. _upgrade-wizards-register:
-
-Registering wizards
-===================
-
-Once the wizard is created, it needs to be registered. Registration is done in
-:file:`ext_localconf.php`:
-
-..  code-block:: php
-    :caption: EXT:my_extension/ext_localconf.php
-
-    $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['ext/install']['update']['myExtension_exampleUpgradeWizard']
-        = \MyVendor\MyExtension\Upgrades\ExampleUpgradeWizard::class;
-
-..  attention::
-    Use the same identifier as key (here: :php:`myExtension_exampleUpgradeWizard`),
-    which is returned by :php:`UpgradeWizardInterface::getIdentifier()` in your
-    wizard class.
-
 .. index:: Upgrade wizards; Identifier
 .. _upgrade-wizards-identifier:
 
@@ -122,10 +107,8 @@ The wizard identifier is used:
 *   when marking the wizard as done in the table :sql:`sys_registry`
 
 Since all upgrade wizards of TYPO3 Core and extensions are registered using the
-identifier as key in the global array
-:php:`$GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['ext/install']['update']`, it
-is recommended to prepend the wizard identifier with a prefix based on the
-extension key.
+identifier, it is recommended to prepend the wizard identifier with a prefix
+based on the extension key.
 
 You **should** use the following naming convention for the identifier:
 
