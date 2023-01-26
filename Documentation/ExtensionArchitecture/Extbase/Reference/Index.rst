@@ -14,6 +14,7 @@ Extbase reference
    Domain/Index
    Controller/Index
    View/Index
+   UriBuilder
    FrontendPlugins
    TypoScriptConfiguration
    Annotations
