@@ -16,6 +16,7 @@ return array_merge(
     include('EventsInfo.php'),
     include('EventsInstall.php'),
     include('EventsLinkvalidator.php'),
+    include('EventsLowlevel.php'),
     include('EventsRedirects.php'),
     include('EventsSeo.php'),
     include('EventsSetup.php'),
