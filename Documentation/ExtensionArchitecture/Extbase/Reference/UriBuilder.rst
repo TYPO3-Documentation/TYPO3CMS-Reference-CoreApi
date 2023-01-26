@@ -1,13 +1,13 @@
 .. include:: /Includes.rst.txt
 
 .. index:: Extbase; URI builder
-..  _uri-builder:
+..  _extbase-uri-builder:
 
-===========
-URI builder
-===========
+=====================
+URI builder (Extbase)
+=====================
 
-The URI builder offers the possibility to create links in an Extbase context.
+The URI builder offers a convenient way to create links in an Extbase context.
 
 
 Usage in an Extbase controller
@@ -32,7 +32,8 @@ the URI builder.
 Usage in another context
 ========================
 
-The :php:`UriBuilder` class can be injection via constructor in a class:
+The :php:`\TYPO3\CMS\Extbase\Mvc\Web\Routing\UriBuilder` class can be injected
+via constructor in a class:
 
 ..  literalinclude:: _UriBuilder/_MyClass.php
     :caption: EXT:my_extension/Classes/MyClass.php
