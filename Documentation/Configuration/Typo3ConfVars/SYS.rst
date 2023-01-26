@@ -893,3 +893,35 @@ availablePasswordHashAlgorithms
 
    A list of available password hash mechanisms. Extensions may register
    additional mechanisms here.
+
+
+..  index::
+    TYPO3_CONF_VARS SYS; linkHandler
+..  _typo3ConfVars_sys_linkHandler:
+
+linkHandler
+===========
+
+..  confval:: $GLOBALS['TYPO3_CONF_VARS']['SYS']['linkHandler']
+
+    :Path: $GLOBALS['TYPO3_CONF_VARS']['SYS']['linkHandler']
+    :type: array
+
+    Links entered in the TYPO3 backend are stored in an internal format in the
+    database, like `t3://page?uid=42`. The handlers for the different resource
+    keys (like `page` in the example) are registered as link handlers.
+
+    The TYPO3 Core registers the following link handlers:
+
+    *   `page` (see :t3src:`core/Classes/LinkHandling/PageLinkHandler.php`)
+    *   `file` (see :t3src:`core/Classes/LinkHandling/FileLinkHandler.php`)
+    *   `folder` (see :t3src:`core/Classes/LinkHandling/FolderLinkHandler.php`)
+    *   `url` (see :t3src:`core/Classes/LinkHandling/UrlLinkHandler.php`)
+    *   `email` (see :t3src:`core/Classes/LinkHandling/EmailLinkHandler.php`)
+    *   `record` (see :t3src:`core/Classes/LinkHandling/RecordLinkHandler.php`)
+    *   `phone` (see :t3src:`core/Classes/LinkHandling/TelephoneLinkHandler.php`)
+
+    Additional link handlers can be added by extensions.
+
+    ..  seealso::
+        :ref:`LinkHandling`
