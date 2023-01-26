@@ -335,4 +335,10 @@ return [
         'targetFileName' => 'CodeSnippets/Extbase/Controllers/PhpLocalization.rst.txt',
         'emphasizeLines' => [14, 15, 16, 17, 18],
     ],
+    [
+        'action' => 'createPhpClassDocs',
+        'class' => \TYPO3\CMS\Extbase\Mvc\Web\Routing\UriBuilder::class,
+        'targetFileName' => 'CodeSnippets/Extbase/UriBuilder.rst.txt',
+        'withCode' => false,
+    ],
 ];
