@@ -76,7 +76,7 @@ definition:
 :php:`['ctrl']['crdate'] = 'fieldName'`
   Often set to :php:`crdate` or :php:`createdon`
 
-:php:`['ctrl']['delete'] = 'fieldName'`
+:php:`['ctrl']['deleted'] = 'fieldName'`
   Often set to :php:`deleted`
 
 :php:`['ctrl']['enablecolumns']['disabled'] = 'fieldName'`
