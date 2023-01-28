@@ -33,6 +33,13 @@ Installation-Wide Options > Mail` which are stored into
 :php:`$GLOBALS['TYPO3_CONF_VARS']['MAIL']`. See :ref:`typo3ConfVars_mail` for
 an overview of all settings.
 
+..  note::
+    If you want to send emails using Microsoft 365 or Office 365, you have to
+    configure a connector first, as described in the article
+    `Configure a connector to send mail using Microsoft 365 or Office 365 SMTP relay`_.
+
+..  _Configure a connector to send mail using Microsoft 365 or Office 365 SMTP relay: https://learn.microsoft.com/en-us/exchange/mail-flow-best-practices/how-to-set-up-a-multifunction-device-or-application-to-send-email-using-microsoft-365-or-office-365#option-3-configure-a-connector-to-send-mail-using-microsoft-365-or-office-365-smtp-relay
+
 
 ..  _mail-configuration-format:
 
