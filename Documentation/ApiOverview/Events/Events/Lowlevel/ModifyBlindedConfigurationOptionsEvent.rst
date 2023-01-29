@@ -1,0 +1,60 @@
+.. include:: /Includes.rst.txt
+.. index:: Events; ModifyBlindedConfigurationOptionsEvent
+.. _ModifyBlindedConfigurationOptionsEvent:
+
+======================================
+ModifyBlindedConfigurationOptionsEvent
+======================================
+
+..  versionadded:: 12.2
+    The event serves as a direct replacement for the deprecated hook
+    :php:`$GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['TYPO3\CMS\Lowlevel\Controller\ConfigurationController']['modifyBlindedConfigurationOptions']`.
+
+The PSR-14 event :php:`\TYPO3\CMS\Lowlevel\Event\ModifyBlindedConfigurationOptionsEvent`
+is fired in the :php:`\TYPO3\CMS\Lowlevel\ConfigurationModuleProvider\GlobalVariableProvider`
+while building the configuration array to be displayed in the
+:guilabel:`System > Configuration` module. It allows to blind (hide) any
+configuration options. Usually such options are passwords or other sensitive
+information.
+
+
+Example
+=======
+
+Registration of the :php:`ModifyBlindedConfigurationOptionsEvent` in your
+extension's :file:`Services.yaml`:
+
+..  code-block:: yaml
+    :caption: EXT:my_extension/Configuration/Services.yaml
+
+    MyVendor\MyExtension\Backend\MyEventListener:
+      tags:
+        - name: event.listener
+          identifier: 'my-extension/blind-configuration-options'
+
+The corresponding event listener:
+
+..  code-block:: php
+    :caption: EXT:my_extension/Classes/Backend/MyEventListener.php
+
+    namespace MyVendor\MyExtension\Backend;
+
+    use TYPO3\CMS\Lowlevel\Event\ModifyBlindedConfigurationOptionsEvent;
+
+    final class MyEventListener {
+
+        public function __invoke(ModifyBlindedConfigurationOptionsEvent $event): void
+        {
+            $options = $event->getBlindedConfigurationOptions();
+
+            $options['TYPO3_CONF_VARS']['EXTENSIONS']['my_extension']['password'] = '******';
+
+            $event->setBlindedConfigurationOptions($options);
+        }
+    }
+
+
+API
+===
+
+.. include:: /CodeSnippets/Events/Lowlevel/ModifyBlindedConfigurationOptionsEvent.rst.txt
