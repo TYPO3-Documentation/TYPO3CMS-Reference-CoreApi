@@ -12,22 +12,15 @@ The structure below describes the directory structure in a legacy
 TYPO3 installation without Composer. For the structure in a Composer-based installation
 see :ref:`Composer-based installations: Directory structure <directory-structure>`.
 
-.. _typo3-project-root-folder:
-
-TYPO3 project root folder
-=========================
-
-The TYPO3 project root folder should be equal to the website’s root directory or the Web application root, 
-e.g. :file:`/path/to/your/webroot/`. It is not recommended to use a subdirectory of it.
-
 .. _legacy-directory-project:
 
 Files on project level
 ======================
 
-The project folder contains the main entry script :file:`index.php` and might contain
-publicly available files like a :file:`robots.txt` and files needed for the
-server configuration like a :file:`.htaccess` file.
+The project folder is at :file:`/path/to/your/webroot/` (web application root) or a subfolder of it.
+It must contain the main entry script :file:`index.php`. It might contain
+publicly available files like a :file:`robots.txt` and some files needed for the
+server configuration like a :file:`.htaccess` or a `.user.ini` file.
 
 Directories in a typical project
 ================================
