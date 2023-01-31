@@ -32,22 +32,24 @@ the URI builder.
 Usage in another context
 ========================
 
-The :php:`\TYPO3\CMS\Extbase\Mvc\Web\Routing\UriBuilder` class can be injected
+The class :php:`\TYPO3\CMS\Extbase\Mvc\Web\Routing\UriBuilder` can be injected
 via constructor in a class:
 
 ..  literalinclude:: _UriBuilder/_MyClass.php
     :caption: EXT:my_extension/Classes/MyClass.php
 
 ..  versionchanged:: 12.2
-    The request object should be set before using the URI builder. If not done,
-    a deprecation warning will be raised. In TYPO3 v13 setting the request
-    object before first usage will be mandatory.
+    The Extbase request object should be set via the :php:`setRequest()` method
+    before using the URI builder. If not done, a deprecation notice will be
+    raised. In TYPO3 v13 setting the request object before first usage will be
+    mandatory.
 
 ..  note::
-    In the above example, the :ref:`request object <typo3-request>` is
-    retrieved from the global object. This is not recommended and is only a
-    fallback. See the section :ref:`getting-typo3-request-object` to learn how
-    to retrieve the request object depending on the context.
+    In the above example, the :ref:`PSR-7 request object <typo3-request>` is
+    retrieved from the global variable :php:`TYPO3_REQUEST`. This is not
+    recommended and is only a fallback. See the section
+    :ref:`getting-typo3-request-object` to learn how to retrieve the request
+    PSR-7 object depending on the context.
 
 
 ..  _uri-builder-api:

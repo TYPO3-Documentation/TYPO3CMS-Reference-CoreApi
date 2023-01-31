@@ -5,6 +5,9 @@ declare(strict_types=1);
 namespace MyVendor\MyExtension\MyClass;
 
 use Psr\Http\Message\ServerRequestInterface;
+use TYPO3\CMS\Extbase\Mvc\ExtbaseRequestParameters;
+use TYPO3\CMS\Extbase\Mvc\Request;
+use TYPO3\CMS\Extbase\Mvc\RequestInterface;
 use TYPO3\CMS\Extbase\Mvc\Web\Routing\UriBuilder;
 
 final class MyClass
@@ -16,7 +19,7 @@ final class MyClass
 
     public function doSomething()
     {
-        $this->uriBuilder->setRequest($this->getRequest());
+        $this->uriBuilder->setRequest($this->getExtbaseRequest());
 
         $url = $this->uriBuilder
             ->reset()
@@ -34,8 +37,14 @@ final class MyClass
         // do something with $url
     }
 
-    private function getRequest(): ServerRequestInterface
+    private function getExtbaseRequest(): RequestInterface
     {
-        return $GLOBALS['TYPO3_REQUEST'];
+        /** @var ServerRequestInterface $request */
+        $request = $GLOBALS['TYPO3_REQUEST'];
+
+        // We have to provide an Extbase request object
+        return new Request(
+            $request->withAttribute('extbase', new ExtbaseRequestParameters())
+        );
     }
 }
