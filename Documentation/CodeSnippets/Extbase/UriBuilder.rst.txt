@@ -6,6 +6,14 @@
    An URI Builder
 
    
+   .. php:method:: setRequest(TYPO3\\CMS\\Extbase\\Mvc\\RequestInterface $request)
+   
+      Sets the current request
+      
+      :param TYPO3\\CMS\\Extbase\\Mvc\\RequestInterface $request: the request
+      :returntype: TYPO3\\CMS\\Extbase\\Mvc\\Web\\Routing\\UriBuilder
+      :returns: the current UriBuilder to allow method chaining
+      
    .. php:method:: setArguments(array $arguments)
    
       Additional query parameters.
