@@ -1,34 +1,34 @@
-.. include:: /Includes.rst.txt
-.. index::
-   pair: Configuration; Module
-   TYPO3_CONF_VARS; Validation
-   TCA; Validation
-.. _config-module:
+..  include:: /Includes.rst.txt
+..  index::
+    pair: Configuration; Module
+    TYPO3_CONF_VARS; Validation
+    TCA; Validation
+..  _config-module:
 
 ====================
 Configuration module
 ====================
 
-.. note::
-
-   The configuration module is only available if the system extension `lowlevel` is
-   installed.
+..  note::
+    The configuration module is only available, if the system extension `lowlevel`
+    is installed.
 
 The configuration module can be found at :guilabel:`System > Configuration`.
 It allows integrators to view and validate the global configuration of TYPO3.
 The module displays all relevant global variables such as
-:php:`TYPO3_CONF_VARS`, :php:`TCA` and many more, in a tree format which is
-easy to browse through. Over time this module got extended to also display
-the configuration of newly introduced features like the middleware stack or
-the event listeners.
+:ref:`TYPO3_CONF_VARS <typo3ConfVars>`, :doc:`TCA <t3tca:Index>` and many more,
+in a tree format which is easy to browse through. Over time this module got
+extended to also display the configuration of newly introduced features like the
+:ref:`middleware stack <request-handling>` or
+:ref:`event listeners <EventDispatcherListeners>`.
 
-.. contents:: Table of Contents
-   :local:
+..  contents:: Table of Contents
+    :local:
 
 
-.. index::
-   Configuration; Module extension
-   Configuration; Module provider
+..  index::
+    Configuration; Module extension
+    Configuration; Module provider
 
 Extending the configuration module
 ==================================
@@ -48,7 +48,7 @@ To extend the configuration module, a custom configuration provider needs to
 be registered. Each "provider" is responsible for one configuration. The provider
 is registered as a so-called "configuration module provider" by tagging it in the
 :file:`Services.yaml` file. The provider class must implement
-the :php:`\TYPO3\CMS\Lowlevel\ConfigurationModuleProvider\ProviderInterface`.
+the :t3src:`lowlevel/Classes/ConfigurationModuleProvider/ProviderInterface.php`.
 
 The registration of such a provider looks like the following:
 
@@ -75,57 +75,28 @@ menu.
 The provider class has to implement the methods as required by the interface.
 A full implementation would look like this:
 
-..  code-block:: php
+..  literalinclude:: _MyProvider.php
     :caption: EXT:my_extension/Classes/ConfigurationModule/MyProvider.php
-
-    <?php
-
-    use TYPO3\CMS\Lowlevel\ConfigurationModuleProvider\ProviderInterface;
-
-    final class MyProvider implements ProviderInterface
-    {
-        protected string $identifier;
-
-        public function __invoke(array $attributes): self
-        {
-            $this->identifier = $attributes['identifier'];
-            return $this;
-        }
-
-        public function getIdentifier(): string
-        {
-            return $this->identifier;
-        }
-
-        public function getLabel(): string
-        {
-            return 'My custom configuration';
-        }
-
-        public function getConfiguration(): array
-        {
-            return $myCustomConfiguration;
-        }
-    }
 
 The :php:`__invoke()` method is called from the provider registry and provides
 all attributes, defined in the :file:`Services.yaml`. This can be used to set
-and initialize class properties like the `$identifier` which can then be returned
+and initialize class properties like the :php`$identifier` which can then be returned
 by the required method :php:`getIdentifier()`. The :php:`getLabel()` method is
 called by the configuration module when creating the module menu. And finally,
 the :php:`getConfiguration()` method has to return the configuration as an
 :php:`array` to be displayed in the module.
 
 There is also the abstract class
-:php:`TYPO3\CMS\Lowlevel\ConfigurationModuleProvider\AbstractProvider` in place
-which already implements the required methods; except :php:`getConfiguration`.
+:t3src:`lowlevel/Classes/ConfigurationModuleProvider/AbstractProvider.php` in place
+which already implements the required methods; except :php:`getConfiguration()`.
 Please note, when extending this class, the attribute `label` is expected in the
 `__invoke()` method and must therefore be defined in the :file:`Services.yaml`.
-Either a static text or a locallang label can be used.
+Either a static text or a :ref:`localized label <localization>` can be used.
 
 Since the registration uses the Symfony service container and provides all
-attributes using :php:`__invoke()`, it is even possible to use DI with
-constructor arguments in the provider classes.
+attributes using :php:`__invoke()`, it is even possible to use
+:ref:`dependency injection <DependencyInjection>` with constructor arguments in
+the provider classes.
 
 
 .. index::
@@ -156,13 +127,14 @@ This could look like this:
 Disabling an entry
 ------------------
 
-To disable an already registered configuration add the `disabled: true`
-attribute. For example, if you intend to disable the `TCA_DESCR` key you can use:
+To disable an already registered configuration add the :yaml:`disabled` attribute
+set to :yaml:`true`. For example, if you intend to disable the `TBE_STYLES` key
+you can use:
 
 ..  code-block:: yaml
     :caption: EXT:my_extension/Configuration/Services.yaml
 
-    lowlevel.configuration.module.provider.tcadescr:
+    lowlevel.configuration.module.provider.tbestyles:
         class: TYPO3\CMS\Lowlevel\ConfigurationModuleProvider\GlobalVariableProvider
         tags:
             - name: 'lowlevel.configuration.module.provider'
