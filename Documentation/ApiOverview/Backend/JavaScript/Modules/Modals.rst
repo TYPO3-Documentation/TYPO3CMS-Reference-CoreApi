@@ -8,6 +8,11 @@
 Modals
 ======
 
+..  versionchanged:: 12.0
+    The modal API provided by the module :js:`@typo3/backend/modal.js` has been
+    adapted to be backed by a custom web component and therefore gained an updated,
+    stateless interface. See also section :ref:`modules-modals-migration`.
+
 Actions that require a user's attention must be visualized by modal windows.
 
 TYPO3 provides an API as basis to create modal windows with severity
@@ -23,6 +28,10 @@ For complex content, like forms or a lot of information, use normal pages.
 
 API
 ===
+
+..  versionchanged:: 12.0
+    The return type of all :js:`Modal.*` factory methods has been changed from
+    :js:`JQuery` to :js:`ModalElement`.
 
 The API provides only two public methods:
 
@@ -94,6 +103,11 @@ Button settings
 
     The CSS class for the button.
 
+..  versionchanged:: 12.0
+    The :js:`Button` property `dataAttributes` has been removed without
+    replacement, as the functionality can be expressed via :js:`Button.name`
+    or :js:`Button.trigger` and is therefore redundant.
+
 
 Data Attributes
 ---------------
@@ -160,3 +174,61 @@ done, the modal disappears automatically.
 Buttons of the type :js:`DeferredAction` render a spinner on activation
 into the button.
 
+
+.. _modules-modals-migration:
+
+Migration
+=========
+
+Given the following fully-fledged example of a modal that uses custom buttons,
+with custom attributes, triggers and events, they should be migrated away
+from :js:`JQuery` to :js:`ModalElement` usage.
+
+Existing code:
+
+..  code-block:: javascript
+
+    var configuration = {
+       buttons: [
+          {
+             text: 'Save changes',
+             name: 'save',
+             icon: 'actions-document-save',
+             active: true,
+             btnClass: 'btn-primary',
+             dataAttributes: {
+                action: 'save'
+             },
+             trigger: function() {
+                Modal.currentModal.trigger('modal-dismiss');
+             }
+          }
+       ]
+    };
+    Modal
+      .advanced(configuration)
+      .on('hidden.bs.modal', function() {
+        // do something
+    });
+
+Should be adapted to:
+
+..  code-block:: javascript
+
+    const modal = Modal.advanced({
+       buttons: [
+          {
+             text: 'Save changes',
+             name: 'save',
+             icon: 'actions-document-save',
+             active: true,
+             btnClass: 'btn-primary',
+             trigger: function(event, modal) {
+               modal.hideModal();
+             }
+          }
+       ]
+    });
+    modal.addEventListener('typo3-modal-hidden', function() {
+      // do something
+    });
