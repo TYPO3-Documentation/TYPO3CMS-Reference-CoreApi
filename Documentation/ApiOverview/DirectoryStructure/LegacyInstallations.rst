@@ -20,7 +20,7 @@ Files on project level
 The project folder is at :file:`/path/to/your/webroot/` (web application root) or a subfolder of it.
 It must contain the main entry script :file:`index.php`. It might contain
 publicly available files like a :file:`robots.txt` and some files needed for the
-server configuration like a :file:`.htaccess` or a file:`.user.ini` file.
+server configuration file like :file:`.htaccess` or :file:`.user.ini`.
 
 Directories in a typical project
 ================================
