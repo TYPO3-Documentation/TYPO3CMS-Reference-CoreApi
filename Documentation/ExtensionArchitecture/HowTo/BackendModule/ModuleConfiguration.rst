@@ -276,26 +276,48 @@ Module configuration options
 Default module configuration options (without Extbase)
 ------------------------------------------------------
 
-.. confval:: routes
+..  versionchanged:: 12.2
+    Specific routes different from `_default` can now be defined.
 
-   :Scope: Backend module configuration
-   :type: array
+..  confval:: routes
 
-   Define the routes to this module. Each route requires a `path` and
-   the `target`, except the mandatory `_default` route, which uses
-   the `path` from the top-level configuration:
+    :Scope: Backend module configuration
+    :type: array
 
-   .. code-block:: php
-      :caption: EXT:my_extension/Configuration/Backend/Modules.php
+    Define the routes to this module. Each route requires at least the `target`.
+    The `_default` route is mandatory, except for modules which can fall back
+    to a submodule. The `path` of the `_default` route is taken from the
+    top-level configuration. For all other routes, the route identifier is taken
+    as `path`, if not explicitly defined. Each route can define any
+    controller/action pair and can restrict the allowed HTTP methods:
 
-      routes' => [
-          '_default' => [
-              'target' => MyController::class . '::handleRequest',
-          ],
-      ],
+    ..  code-block:: php
+        :caption: EXT:my_extension/Configuration/Backend/Modules.php
 
-   .. note::
-      Using additional routes - next to `_default` - is not yet implemented.
+        routes' => [
+            '_default' => [
+                'target' => MyModuleController::class . '::overview',
+            ],
+            'edit' => [
+                'path' => '/edit-me',
+                'target' => MyModuleController::class . '::edit',
+            ],
+            'manage' => [
+                'target' => AnotherController::class . '::manage',
+                'methods' => ['POST'],
+            ],
+        ],
+
+    All subroutes are automatically registered in a
+    :php:`\TYPO3\CMS\Core\Routing\RouteCollection`. The full syntax for route
+    identifiers is `<module_identifier>.<sub_route>`, for example,
+    `my_module.edit`. Therefore, using the
+    :php:`\TYPO3\CMS\Backend\Routing\UriBuilder` to create a link to such a
+    subroute might look like this:
+
+    ..  code-block:: php
+
+        \TYPO3\CMS\Backend\Routing\UriBuilder->buildUriFromRoute('my_module.edit')
 
 
 .. _backend-modules-api-extbase:
