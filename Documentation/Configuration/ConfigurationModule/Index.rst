@@ -141,6 +141,8 @@ you can use:
               disabled: true
 
 
+.. _config-module-blind-options:
+
 Blinding configuration options
 ==============================
 
