@@ -125,3 +125,15 @@ Yes, you can! Switch to the settings area of your project (you need to have the 
 
 After triggering the upload Crowdin tries to find the matching source files and the target languages.
 It might be that you need to adopt both if not found automatically.
+
+
+
+Questions about TYPO3 CMS core integration
+==========================================
+
+.. _crowdin-faq-duplicated-labels:
+
+The Core Team added a new system extension. Why are language packs not available even though it has already been translated into language XY?
+---------------------------------------------------------------------------------------------------------------------------------------------
+The new system extension needs to be added to the configuration of https://github.com/TYPO3/crowdin-bridge/. You can speed up the change by creating
+a pull request like this one https://github.com/TYPO3/crowdin-bridge/pull/6/commits
