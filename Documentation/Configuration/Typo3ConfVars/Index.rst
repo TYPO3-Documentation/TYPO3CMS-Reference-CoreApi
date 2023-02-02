@@ -154,7 +154,7 @@ LOG
     :ref:`Configuration of the logging system <logging-configuration>`.
 
 MAIL
-    :ref:`Options related to the sending of emails <typo3ConfVars_gfx>`
+    :ref:`Options related to the sending of emails <typo3ConfVars_mail>`
     (transport, server, etc.).
 
 SVCONF
