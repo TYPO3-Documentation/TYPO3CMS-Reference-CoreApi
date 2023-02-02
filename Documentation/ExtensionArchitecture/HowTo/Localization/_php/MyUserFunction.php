@@ -8,9 +8,6 @@ use Psr\Http\Message\ServerRequestInterface;
 use TYPO3\CMS\Core\Localization\LanguageService;
 use TYPO3\CMS\Core\Localization\LanguageServiceFactory;
 
-/**
- * File EXT:my_extension/Classes/UserFunction/MyUserFunction.php
- */
 final class MyUserFunction
 {
     private LanguageService $languageService;
