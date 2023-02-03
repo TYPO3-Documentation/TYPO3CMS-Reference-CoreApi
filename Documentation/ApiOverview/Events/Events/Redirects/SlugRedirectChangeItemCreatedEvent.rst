@@ -63,7 +63,7 @@ The corresponding event listener class:
             $sources = $changeItem->getSourcesCollection()->all();
 
             // Remove plain slug replacement redirect source from sources
-            array_filter(
+            $sources = array_filter(
                 $sources,
                 fn ($source) => !($source instanceof PlainSlugReplacementRedirectSource)
             );
