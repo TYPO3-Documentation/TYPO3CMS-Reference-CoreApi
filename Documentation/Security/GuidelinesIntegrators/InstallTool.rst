@@ -30,6 +30,11 @@ need write access to this directory on a server level (for example via SSH, SFTP
 or you can create this file as a backend user with administrator
 privileges.
 
+..  tip::
+    Add the :file:`ENABLE_INSTALL_TOOL` file to your project's :php:`.gitignore`
+    file to avoid accidentally committing and deploying it to production
+    environments.
+
 .. include:: /Images/AutomaticScreenshots/AdminTools/EnableInstallTool.rst.txt
 
 Conversely, this also means, you should delete this file as soon as
