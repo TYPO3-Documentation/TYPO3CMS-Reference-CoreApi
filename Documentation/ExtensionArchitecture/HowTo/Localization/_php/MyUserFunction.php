@@ -7,21 +7,16 @@ use Psr\Http\Message\ServerRequestInterface;
 use TYPO3\CMS\Core\Localization\LanguageService;
 use TYPO3\CMS\Core\Localization\LanguageServiceFactory;
 
-/**
- * File EXT:my_extension/Classes/UserFunction/MyUserFunction.php
- */
 final class MyUserFunction
 {
-    private LanguageService $languageService;
+    private LanguageServiceFactory $languageServiceFactory;
 
-    public function __construct(
-        private readonly LanguageServiceFactory $languageServiceFactory,
-        ) {
+    public function __construct(LanguageServiceFactory $languageServiceFactory) {
+        $this->languageServiceFactory = $languageServiceFactory;
     }
 
-    private function getLanguageService(
-        ServerRequestInterface $request
-    ): LanguageService {
+    private function getLanguageService(ServerRequestInterface $request): LanguageService
+    {
         return $this->languageServiceFactory->createFromSiteLanguage(
             $request->getAttribute('language')
             ?? $request->getAttribute('site')->getDefaultLanguage()
@@ -33,8 +28,7 @@ final class MyUserFunction
         array $conf,
         ServerRequestInterface $request
     ): string {
-        $this->languageService = $this->getLanguageService($request);
-        return $this->languageService->getLL(
+        return $this->getLanguageService($request)->getLL(
             'LLL:EXT:my_extension/Resources/Private/Language/locallang.xlf:something.'
         );
     }
