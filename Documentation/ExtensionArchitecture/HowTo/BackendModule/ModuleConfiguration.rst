@@ -273,6 +273,8 @@ Module configuration options
       ];
 
 
+..  _backend-modules-api-default:
+
 Default module configuration options (without Extbase)
 ------------------------------------------------------
 
@@ -320,44 +322,70 @@ Default module configuration options (without Extbase)
         \TYPO3\CMS\Backend\Routing\UriBuilder->buildUriFromRoute('my_module.edit')
 
 
-.. _backend-modules-api-extbase:
+..  _backend-modules-api-extbase:
 
 Extbase module configuration options
 ------------------------------------
 
-.. confval:: extensionName
+..  confval:: extensionName
 
-   :Scope: Backend module configuration
-   :type: string
+    :Scope: Backend module configuration
+    :type: string
 
-   The extension name in UpperCamelCase for which the module is registered. If the
-   extension key is `my_example_extension` the extension name would be
-   `MyExampleExtension`.
-
-
-.. confval:: controllerActions
-
-   :Scope: Backend module configuration
-   :type: array
-
-   Define the controller action pair. The array keys are the
-   controller class names and the values are the actions, which
-   can either be defined as array or comma-separated list:
+    The extension name in UpperCamelCase for which the module is registered. If the
+    extension key is `my_example_extension` the extension name would be
+    `MyExampleExtension`.
 
 
-.. code-block:: php
-   :caption: EXT:my_extension/Configuration/Backend/Modules.php
+..  confval:: controllerActions
 
-   return [
-       'web_examples' => [
-           //...
-           'controllerActions' => [
-               ModuleController::class => [
-                   'flash','tree','clipboard','links','fileReference','fileReferenceCreate',
-               ],
-           ],
-       ],
-   ];
+    :Scope: Backend module configuration
+    :type: array
+
+    Define the controller action pair. The array keys are the
+    controller class names and the values are the actions, which
+    can either be defined as array or comma-separated list:
+
+    ..  code-block:: php
+        :caption: EXT:my_extension/Configuration/Backend/Modules.php
+        :emphasize-lines: 5-10
+
+        return [
+            'web_ExtkeyExample' => [
+                //...
+                'path' => '/module/web/ExtkeyExample',
+                'controllerActions' => [
+                    ModuleController::class => [
+                        'list',
+                        'detail',
+                    ],
+                ],
+            ],
+        ];
+
+    ..  versionchanged:: 12.2
+
+    The modules define explicit routes for each controller/action combination,
+    as long as the :typoscript:`enableNamespacedArgumentsForBackend` feature
+    toggle is turned off (which is the default). This effectively means
+    human-readable URLs, since the controller/action combinations are no longer
+    defined via query parameters, but are now part of the path.
+
+    This leads to the following URLs:
+
+    *   :samp:`https://example.com/typo3/module/web/ExtkeyExample`
+    *   :samp:`https://example.com/typo3/module/web/ExtkeyExample/MyModuleController/list`
+    *   :samp:`https://example.com/typo3/module/web/ExtkeyExample/MyModuleController/detail`
+
+    The route identifier of corresponding routes is registered with similar
+    syntax as :ref:`standard backend modules <backend-modules-api-default>`:
+    :php:`<module_identifier>.<controller>_<action>`. Above configuration will
+    therefore register the following routes:
+
+    *   `web_ExtkeyExample`
+    *   `web_ExtkeyExample.MyModuleController_list`
+    *   `web_ExtkeyExample.MyModuleController_detail`
+
 
 .. _backend-modules-configuration-debug:
 
