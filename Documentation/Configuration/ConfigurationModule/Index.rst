@@ -141,37 +141,18 @@ you can use:
               disabled: true
 
 
+..  _config-module-blind-options:
+
 Blinding configuration options
 ==============================
 
+..  versionchanged:: 12.2
+
 Sensitive data (like passwords or access tokens) should not be displayed in the
-configuration module. Therefore, a hook is available to blind such configuration
-options.
+configuration module. Therefore, the PSR-14 event
+:ref:`ModifyBlindedConfigurationOptionsEvent` is available to blind such
+configuration options.
 
-First, implement a class, for example:
-
-..  code-block:: php
-    :caption: EXT:my_extension/Classes/Hooks/BlindedConfigurationOptionsHook.php
-
-    final class BlindedConfigurationOptionsHook
-    {
-        public function modifyBlindedConfigurationOptions(array $blindedOptions): array
-        {
-            if (($GLOBALS['TYPO3_CONF_VARS']['EXTENSIONS']['example']['password'] ?? '') !== '') {
-                $blindedOptions['TYPO3_CONF_VARS']['EXTENSIONS']['example']['password'] = '******';
-            }
-
-            return $blindedOptions;
-        }
-    }
-
-Then register the hook in your extension's :file:`ext_localconf.php`:
-
-..  code-block:: php
-    :caption: EXT:my_extension/ext_localconf.php
-
-    use MyVendor\MyExtension\Hook\BlindedConfigurationOptionsHook;
-    use TYPO3\CMS\Lowlevel\Controller\ConfigurationController;
-
-    $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS'][ConfigurationController::class]['modifyBlindedConfigurationOptions'][]
-        = BlindedConfigurationOptionsHook::class;
+For compatibility with TYPO3 v11 and v12 you can use the deprecated hook
+:ref:`modifyBlindedConfigurationOptions <t3coreapi11:config-module-blind-options>`
+which will be removed with TYPO3 v13.
