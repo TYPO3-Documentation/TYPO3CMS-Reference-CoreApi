@@ -259,4 +259,10 @@ return [
         'targetFileName' => 'CodeSnippets/Events/Core/Resource/AfterFileMetaDataUpdatedEvent.rst.txt',
         'withCode' => false,
     ],
+    [
+        'action' => 'createPhpClassDocs',
+        'class' => \TYPO3\CMS\Core\Resource\OnlineMedia\Event\AfterVideoPreviewFetchedEvent::class,
+        'targetFileName' => 'CodeSnippets/Events/Core/Resource/AfterVideoPreviewFetchedEvent.rst.txt',
+        'withCode' => false,
+    ],
 ];
