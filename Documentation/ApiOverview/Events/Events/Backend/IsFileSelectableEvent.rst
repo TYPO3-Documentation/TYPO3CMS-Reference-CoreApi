@@ -22,7 +22,7 @@ Registration of the event in your extension's :file:`Services.yaml`:
 ..  code-block:: yaml
 
     MyVendor\MyPackage\Backend\MyEventListener:
-      tags
+      tags:
         - name: event.listener
           identifier: 'my-package/backend/modify-file-is-selectable'
 
