@@ -35,6 +35,19 @@ Using the PHP API
     :caption: EXT:my_extension/Classes/MyClass.php
 
 
+Get all countries
+-----------------
+
+To get all countries call the :php:`getAll()` method:
+
+..  code-block:: php
+    :caption: EXT:my_extension/Classes/MyClass.php
+
+    $allCountries = $this->countryProvider->getAll();
+
+The method returns an array of :php:`\TYPO3\CMS\Core\Country\Country` objects.
+
+
 Get a country
 -------------
 
@@ -53,17 +66,28 @@ Get a country
 The methods return a :php:`\TYPO3\CMS\Core\Country\Country` object.
 
 
-Get all countries
------------------
+Filter countries
+----------------
 
-To get all countries call the :php:`getAll()` method:
+One can use filters to get the desired countries:
 
 ..  code-block:: php
     :caption: EXT:my_extension/Classes/MyClass.php
 
-    $allCountries = $this->countryProvider->getAll();
+    use TYPO3\CMS\Core\Country\CountryFilter;
 
-The method returns an array of :php:`\TYPO3\CMS\Core\Country\Country` objects.
+    $filter = new CountryFilter();
+
+    // Alpha-2 and Alpha-3 ISO codes can be used
+    $filter
+        ->setOnlyCountries(['AT', 'DE', 'FR', 'DK'])
+        ->setExcludeCountries(['AUT', 'DK']);
+
+    // Will be an array with "Germany" and "France"
+    $filteredCountries = $this->countryProvider->getFiltered($filter);
+
+The method :php:`getFiltered()` return an array of
+:php:`\TYPO3\CMS\Core\Country\Country` objects.
 
 
 The :php:`Country` object
@@ -83,6 +107,11 @@ PHP API reference
 ----------------------
 
 .. include:: /CodeSnippets/Manual/Country/CountryProvider.rst.txt
+
+:php:`CountryFilter`
+----------------------
+
+.. include:: /CodeSnippets/Manual/Country/CountryFilter.rst.txt
 
 :php:`Country`
 --------------

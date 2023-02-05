@@ -31,3 +31,8 @@
    
       :param string $name: the name
       :returntype: TYPO3\\CMS\\Core\\Country\\Country
+      
+   .. php:method:: getFiltered(TYPO3\\CMS\\Core\\Country\\CountryFilter $filter)
+   
+      :param TYPO3\\CMS\\Core\\Country\\CountryFilter $filter: the filter
+      :returntype: array
