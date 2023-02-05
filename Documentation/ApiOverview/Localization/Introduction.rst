@@ -11,8 +11,8 @@ interface may be translated. The encoding is strictly UTF-8.
 The default language is English, and the Core ships only with such labels (and
 so should extensions).
 
-All labels are stored in XLIFF format, generally located in the
-:file:`Resources/Private/Language` folder of an extension (old locations
+All labels are stored in :ref:`XLIFF format <xliff>`, generally located in the
+:file:`Resources/Private/Language/` folder of an extension (old locations
 may still be found in some places).
 
 The format, TYPO3 specific details and managing interfaces of XLIFF are
