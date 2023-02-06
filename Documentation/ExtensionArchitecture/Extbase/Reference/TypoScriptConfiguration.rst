@@ -103,7 +103,7 @@ View and template settings.
 `view.templateRootPaths`
     This can be used to specify the root paths for all Fluid templates in this
     extension. If nothing is specified, the path
-    :file:`extensionName/Resources/Private/Templates` is used. All layouts that are necessary
+    :file:`extensionName/Resources/Private/Templates` is used. All templates that are necessary
     for this extension should reside in this folder.
 
 `view.pluginNamespace`
