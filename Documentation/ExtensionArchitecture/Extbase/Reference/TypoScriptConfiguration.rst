@@ -113,7 +113,7 @@ View and template settings.
     .. todo: This is not understandable without an example. This option might be deprecated and dropped.
 
 `view.defaultPid`
-    This can be used to specify a default target page id. If this value is set, this value will
+    This can be used to specify a default target page ID. If this value is set, this value will
     be used as target page id. If `defaultPid` is set to `auto`, a pid is determined 
     by loading the tt_content record that contains this plugin. An error will be thrown if more than
     one record matches the `list_type`.
