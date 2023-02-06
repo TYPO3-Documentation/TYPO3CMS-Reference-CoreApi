@@ -100,17 +100,23 @@ View and template settings.
     :file:`extensionName/Resources/Private/Partials` is used. All partials that are
     necessary for this extension should reside in this folder.
 
+`view.templateRootPaths`
+    This can be used to specify the root paths for all Fluid templates in this
+    extension. If nothing is specified, the path
+    :file:`extensionName/Resources/Private/Templates` is used. All layouts that are necessary
+    for this extension should reside in this folder.
+
 `view.pluginNamespace`
     This can be used to specify an alternative namespace for the plugin.
     Use this to shorten the Extbase default plugin namespace or to access
     arguments from other extensions by setting this option to their namespace.
     .. todo: This is not understandable without an example. This option might be deprecated and dropped.
 
-`view.templateRootPaths`
-    This can be used to specify the root paths for all Fluid templates in this
-    extension. If nothing is specified, the path
-    :file:`extensionName/Resources/Private/Templates` is used. All layouts that are necessary
-    for this extension should reside in this folder.
+`view.defaultPid`
+    This can be used to specify a default target page id. If this value is set, this value will
+    be used as target page id. If `defaultPid` is set to `auto`, a pid is determined 
+    by loading the tt_content record that contains this plugin. An error will be thrown if more than
+    one record matches the `list_type`.
 
 All root paths are defined as an array which enables you to define multiple root paths that
 will be used by Extbase to find the desired template files.
