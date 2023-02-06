@@ -26,7 +26,7 @@ Registration of the event in your extension's :file:`Services.yaml`:
 ..  code-block:: yaml
     :caption: EXT:my_extension/Configuration/Services.yaml
 
-    Vendor\MyExtension\Backend\MyEventListener:
+    MyVendor\MyExtension\Backend\MyEventListener:
       tags:
         - name: event.listener
           identifier: 'my-extension/backend/after-backend-controller-render'
@@ -35,6 +35,8 @@ The corresponding event listener class:
 
 ..  code-block:: php
     :caption: EXT:my_extension/Classes/Backend/MyEventListener.php
+
+    namespace MyVendor\MyExtension\Backend;
 
     use TYPO3\CMS\Backend\Controller\Event\AfterBackendPageRenderEvent;
 
