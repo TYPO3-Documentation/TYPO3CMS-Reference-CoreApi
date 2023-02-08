@@ -242,7 +242,7 @@ Boolean conditions can be used as ViewHelper arguments, whenever the datatype
    example :html:`{variable} > 3`
 
    *  The ooperator can be one of :html:`>`, :html:`>=`, :html:`<`, :html:`<=`,
-      :html:`==`, :html:`!=` or :html:`%`,
+      :html:`==`, :html:`===`, :html:`!=`, :html:`!==` or :html:`%`,
 
 3. The previous expressions can be combined with :html:`||` (or) or :html:`&&`
    (and).
@@ -265,7 +265,7 @@ Examples:
       </f:else>
    </f:if>
 
-   <my:custom showLabel"{myString} == 'something'">
+   <my:custom showLabel"{myString} === 'something'">
      ...
    </my:custom>
 
