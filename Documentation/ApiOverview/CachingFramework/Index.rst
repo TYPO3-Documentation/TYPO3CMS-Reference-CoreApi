@@ -75,7 +75,7 @@ With :ref:`Routing` you can configure TYPO3 not to display the `cHash` in your U
 Routing adds an explicit mapping of incoming readable URL slugs to internal parameter values.
 This both adds an additional layer for validating slugs as well as reduces the parameters to a limited (and predictable) set of values.
 
-Various configuration options exist to configure the `cHash` behavior via :php:`$GLOBALS['TYPO3_CONF_VARS']['FE']['cacheHash']`
+Various configuration options exist to configure the `cHash` behavior via :ref:`$GLOBALS['TYPO3_CONF_VARS']['FE']['cacheHash']  <typo3ConfVars_fe_cacheHash>`
 in the file :file:`LocalConfiguration.php` or :file:`AdditionalConfiguration.php`:
 
 .. confval:: cachedParametersWhiteList
@@ -104,6 +104,14 @@ in the file :file:`LocalConfiguration.php` or :file:`AdditionalConfiguration.php
 .. confval:: excludeAllEmptyParameters
 
    If true, all parameters which are relevant for cHash are only considered if they are non-empty.
+
+.. confval:: enforceValidation
+
+   .. versionadded:: 10.4.35/11.5.23
+
+   If this option is enabled, the same validation is used to calculate a "cHash"
+   value as when a valid or invalid "cHash" parameter is given to a request,
+   even when no "cHash" is given.
 
 All properties can be configured with an array of values. Besides exact matches (*equals*) it is possible to apply partial matches at
 the beginning of a parameter (*startsWith*) or inline occurrences (*contains*).

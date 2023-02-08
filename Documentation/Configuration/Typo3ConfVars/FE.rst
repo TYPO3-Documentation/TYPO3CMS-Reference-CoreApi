@@ -676,6 +676,45 @@ _________________________
    If true, all parameters which are relevant for cHash are only considered
    if they are non-empty.
 
+..  index::
+    TYPO3_CONF_VARS FE; cacheHash enforceValidation
+..  _typo3ConfVars_fe_cacheHash_enforceValidation:
+
+enforceValidation
+_________________
+
+..  versionadded:: 10.4.35/11.5.23
+
+..  confval:: $GLOBALS['TYPO3_CONF_VARS']['FE']['cacheHash']['enforceValidation']
+
+    :type: bool
+    :Default: false (for existing installations), true (for new installations)
+
+    If this option is enabled, the same validation is used to calculate a
+    "cHash" value as when a valid or invalid "cHash" parameter is given to a
+    request, even when no "cHash" is given.
+
+    ..  note::
+        The option is disabled for existing installations, but enabled for new
+        installations. It is also highly recommended to enable this option in
+        your existing installations as well.
+
+    **Details:**
+
+    Since TYPO3 v9 and the :ref:`PSR-15 middleware concept <request-handling>`,
+    cHash validation has been moved outside of plugins and rendering code inside
+    a validation middleware to check if a given "cHash" acts as a signature of
+    other query parameters in order to use a cached version of a frontend page.
+
+    However, the check only provided information about an invalid "cHash" in the
+    query parameters. If no "cHash" was given, the only option was to add a
+    "required list" (global TYPO3 configuration option
+    :ref:`requireCacheHashPresenceParameters <typo3ConfVars_fe_cacheHash_requireCacheHashPresenceParameters>`),
+    but not based on the final
+    :ref:`excludedParameters <typo3ConfVars_fe_cacheHash_excludedParameters>`
+    for the cache hash calculation of the given query parameters.
+
+
 .. index::
    TYPO3_CONF_VARS FE; workspacePreviewLogoutTemplate
 .. _typo3ConfVars_fe_workspacePreviewLogoutTemplate:
