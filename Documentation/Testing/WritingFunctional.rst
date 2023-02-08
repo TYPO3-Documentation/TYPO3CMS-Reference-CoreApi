@@ -220,8 +220,11 @@ the database using :php:`$this->importCSVDataSet()`. An example file could look 
 This file defines one row for the `pages` table
 and one `tt_content` row. So one `.csv` file can contain rows of multiple tables.
 
+.. note::
+   If you need to define a :php:`null` value within CSV files, you need to use the special value `"\NULL"`.
+
 There is a similar method called :php:`$this->importDataSet()` that allows loading database
-rows defined as XML instead of CSV, too.
+rows defined as XML instead of CSV, too. Note that XML-files are deprecated and you should use CSV files.
 
 In general, the methods need the absolute path to the fixture file to load them. However some
 keywords are allowed:
