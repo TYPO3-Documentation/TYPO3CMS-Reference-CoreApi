@@ -241,7 +241,7 @@ Boolean conditions can be used as ViewHelper arguments, whenever the datatype
 2. The expression can be a statement consisting of: term1 operator term2, for
    example :html:`{variable} > 3`
 
-   *  The ooperator can be one of :html:`>`, :html:`>=`, :html:`<`, :html:`<=`,
+   *  The operator can be one of :html:`>`, :html:`>=`, :html:`<`, :html:`<=`,
       :html:`==`, :html:`===`, :html:`!=`, :html:`!==` or :html:`%`,
 
 3. The previous expressions can be combined with :html:`||` (or) or :html:`&&`
