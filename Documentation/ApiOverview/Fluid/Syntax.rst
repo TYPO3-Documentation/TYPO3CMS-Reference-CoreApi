@@ -265,7 +265,7 @@ Examples:
       </f:else>
    </f:if>
 
-   <my:custom showLabel"{myString} === 'something'">
+   <my:custom showLabel="{myString} === 'something'">
      ...
    </my:custom>
 
