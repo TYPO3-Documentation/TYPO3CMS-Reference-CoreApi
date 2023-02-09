@@ -2,9 +2,9 @@
 ..  index:: Localization; Manage translations
 ..  _managing-translating:
 
-=================================
-Managing translations for backend
-=================================
+=====================
+Managing translations
+=====================
 
 This sections highlights the different ways to translate and manage XLIFF files.
 
