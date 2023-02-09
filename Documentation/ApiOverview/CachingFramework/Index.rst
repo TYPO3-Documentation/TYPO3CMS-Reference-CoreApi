@@ -77,15 +77,16 @@ This both adds an additional layer for validating slugs as well as reduces the p
 Various configuration options exist to configure the `cHash` behavior via :php:`$GLOBALS['TYPO3_CONF_VARS']['FE']['cacheHash']`
 in the file :file:`LocalConfiguration.php` or :file:`AdditionalConfiguration.php`:
 
-================================== ====================================================================================================================================================================
+================================== ======================================================================================================================================================================================
 Option                             Description
-================================== ====================================================================================================================================================================
+================================== ======================================================================================================================================================================================
 cachedParametersWhiteList          Only the given parameters will be evaluated in the cHash calculation. Example: tx_news_pi1[uid]
 requireCacheHashPresenceParameters Configure Parameters that require a cHash. If no cHash is given but one of the parameters are set, then TYPO3 triggers the configured cHash Error behavior
 excludedParameters                 The given parameters will be ignored in the cHash calculation. Example: L,tx_search_pi1[query]
 excludedParametersIfEmpty          Configure Parameters only being relevant for the cHash if there's an associated value available. Set excludeAllEmptyParameters to true to skip all empty parameters.
 excludeAllEmptyParameters          If true, all parameters which are relevant for cHash are only considered if they are non-empty.
-================================== ====================================================================================================================================================================
+enforceValidation (since v10.4.35) If this option is enabled, the same validation is used to calculate a "cHash" value as when a valid or invalid "cHash" parameter is given to a request, even when no "cHash" is given.
+================================== ======================================================================================================================================================================================
 
 All properties can be configured with an array of values. Besides exact matches (*equals*) it is possible to apply partial matches at
 the beginning of a parameter (*startsWith*) or inline occurrences (*contains*).
