@@ -28,8 +28,7 @@ internal management tools. Be aware that having settings within
 automatic upgrades and should be used with care and only if you know what
 you are doing.
 
-These main settings supersede the configurations from the extension files: 
-:ref:`extension-files-configuration`
+See also :ref:`extension-files-configuration` .
 
 .. _configuration-files-migration:
 
