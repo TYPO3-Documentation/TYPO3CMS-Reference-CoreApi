@@ -2,39 +2,34 @@ rootPageId: 12
 base: 'https://example.org/'
 websiteTitle: Example
 languages:
-  - languageId: '0'
-    title: English
-    navigationTitle: ''
-    base: /
+  - title: English
+    enabled: true
     locale: en_US.UTF-8
-    iso-639-1: en
-    hreflang: en-US
-    direction: ltr
-    typo3Language: default
+    base: /
+    websiteTitle: ''
+    navigationTitle: English
     flag: gb
-  - languageId: '1'
-    title: 'danish'
-    navigationTitle: Dansk
-    base: /da/
+    languageId: 0
+  - title: 'danish'
+    enabled: true
     locale: dk_DK.UTF-8
-    iso-639-1: da
-    hreflang: dk-DK
-    direction: ltr
-    typo3Language: default
-    flag: dk
+    base: /da/
+    websiteTitle: ''
+    navigationTitle: Dansk
     fallbackType: strict
-  - languageId: '2'
-    title: Deutsch
-    navigationTitle: ''
-    base: 'https://example.net/'
+    fallbacks: ''
+    flag: dk
+    languageId: 1
+  - title: Deutsch
+    enabled: true
     locale: de_DE.UTF-8
-    iso-639-1: de
-    hreflang: de-DE
-    direction: ltr
-    typo3Language: de
-    flag: de
+    base: 'https://example.net/'
+    websiteTitle: ''
+    navigationTitle: Deutsch
     fallbackType: fallback
     fallbacks: '1,0'
+    flag: de
+    languageId: 2
 errorHandling:
   - errorCode: '404'
     errorHandler: Page

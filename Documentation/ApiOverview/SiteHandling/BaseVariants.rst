@@ -51,7 +51,7 @@ Example
 =======
 
 .. code-block:: yaml
-   :caption: config/sites/somesite/config.yaml
+   :caption: config/sites/<some_site>/config.yaml | typo3conf/sites/<some_site>/config.yaml
 
    rootPageId: 1
    base: 'https://example.org/'
@@ -70,40 +70,34 @@ Example
        condition: 'getenv("TYPO3_BASE")'
    languages:
      -
-       title: 'Global'
+       title: English
        enabled: true
-       languageId: '0'
+       locale: en_US.UTF-8
        base: /
-       typo3Language: default
-       locale: en_UK.UTF-8
-       iso-639-1: en
+       websiteTitle: ''
        navigationTitle: English
-       hreflang: gb-en
-       direction: ''
        flag: gb
+       languageId: 0
      -
-       title: 'DE'
+       title: Deutsch
        enabled: true
-       languageId: '1'
-       base: https://example.de/'
+       locale: de_DE.UTF-8
+       base: 'https://example.net/'
        baseVariants:
          -
            base: 'https://de.example.localhost/'
            condition: 'applicationContext == "Development"'
          -
-           base: 'https://staging.example.de/'
+           base: 'https://staging.example.net/'
            condition: 'applicationContext == "Production/Sydney"'
          -
-           base: 'https://testing.example.de/'
+           base: 'https://testing.example.net/'
            condition: 'applicationContext == "Testing/Paris"'
-       typo3Language: de
-       locale: de_DE.UTF-8
-       iso-639-1: de
+       websiteTitle: ''
        navigationTitle: Deutsch
-       hreflang: de-de
-       direction: ''
        fallbackType: strict
        flag: de
+       languageId: 1
 
 
 .. index:: Site handling; Base variant properties
