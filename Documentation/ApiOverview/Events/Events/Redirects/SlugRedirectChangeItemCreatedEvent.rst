@@ -81,6 +81,32 @@ The corresponding event listener class:
         }
     }
 
+Example of a :php:`CustomSource` implementation:
+
+..  code-block:: php
+    :caption: EXT:my_extension/Classes/Redirects/CustomSource.php
+
+    namespace MyVendor\MyExtension\Redirects;
+
+    use TYPO3\CMS\Redirects\RedirectUpdate\RedirectSourceInterface;
+
+    final class CustomSource implements RedirectSourceInterface
+    {
+        public function getHost(): string
+        {
+            return '*';
+        }
+
+        public function getPath(): string
+        {
+            return '/some-path';
+        }
+
+        public function getTargetLinkParameters(): array
+        {
+            return [];
+        }
+    }
 
 API
 ===
