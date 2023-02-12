@@ -1,0 +1,4 @@
+MyVendor\MyExtension\FileList\ModifyEditFileFormDataEventListener:
+  tags:
+    - name: event.listener
+      identifier: 'my-extension/modify-edit-file-form-data-event-listener'

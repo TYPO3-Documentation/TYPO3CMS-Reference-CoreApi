@@ -1,0 +1,11 @@
+languages:
+  - languageId: 0
+    title: English
+    navigationTitle: ''
+    base: /
+    locale: en_GB.UTF-8
+    iso-639-1: en
+    hreflang: en-US
+    direction: ltr
+    typo3Language: default
+    flag: gb

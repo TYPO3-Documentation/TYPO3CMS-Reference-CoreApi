@@ -16,29 +16,18 @@ This event can be used to manipulate the icons/actions, used for the edit contro
 section in the files and folders listing within the :guilabel:`File > Filelist`
 module.
 
+Example
+=======
+
 Registration of the event in the extension's :file:`Services.yaml`:
 
-..  code-block:: yaml
-
-    MyVendor\MyPackage\FileList\MyEventListener:
-        tags:
-            - name: event.listener
-              identifier: 'my-package/filelist/my-event-listener'
+..  literalinclude:: _Snippets/_ProcessFileListActionsEvent.yaml
+    :caption: EXT:my_extension/Configuration/Services.yaml
 
 The corresponding event listener class:
 
-..  code-block:: php
-
-    use TYPO3\CMS\Filelist\Event\ProcessFileListActionsEvent;
-
-    final class MyEventListener {
-
-        public function __invoke(ProcessFileListActionsEvent $event): void
-        {
-            // do your magic
-        }
-
-    }
+..  literalinclude:: _Snippets/_ProcessFileListActionsEventListener.php
+    :caption: EXT:my_extension/Classes/FileList/ProcessFileListActionsEventListener.php
 
 API
 ===

@@ -10,6 +10,10 @@
    
       :returntype: TYPO3\\CMS\\Core\\Authentication\\AbstractUserAuthentication
       
+   .. php:method:: getRequest()
+   
+      :returntype: Psr\\Http\\Message\\ServerRequestInterface
+      
    .. php:method:: getRequestToken()
    
       :returntype: TYPO3\\CMS\\Core\\Security\\RequestToken|false|null

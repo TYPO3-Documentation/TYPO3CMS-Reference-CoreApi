@@ -7,6 +7,7 @@
         "typo3/cms-core": "dev-main as 12.1"
     },
     "require-dev": {
+        "symfony/yaml": "^6.2",
         "t3docs/blog-example": "dev-main",
         "t3docs/codesnippet": "dev-main",
         "t3docs/examples": "dev-main",
@@ -69,7 +70,8 @@
     },
     "scripts": {
         "check": [
-            "@check:php"
+            "@check:php",
+            "@check:yaml"
         ],
         "check:php": [
             "@check:php:lint",
@@ -77,6 +79,10 @@
         ],
         "check:php:cs": "Build/Scripts/runTests.sh -n -s cgl",
         "check:php:lint": "Build/Scripts/runTests.sh -s lint",
+        "check:yaml": [
+            "@check:yaml:lint"
+        ],
+        "check:yaml:lint": ".Build/bin/yaml-lint Documentation/",
         "fix": [
             "@fix:php"
         ],

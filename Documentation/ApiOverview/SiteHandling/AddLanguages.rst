@@ -1,278 +1,209 @@
-.. include:: /Includes.rst.txt
-.. index:: pair: Site handling; Languages
-.. _sitehandling-addingLanguages:
+..  include:: /Includes.rst.txt
+..  index:: pair: Site handling; Languages
+..  _sitehandling-addingLanguages:
 
 ================
 Adding Languages
 ================
 
-The site module allows you to define which languages are active for your site, which languages are available
-in the frontend and how they should behave.
-To add new languages to the system, follow :ref:`t3editors:languages`, afterwards those languages can be configured like mentioned below.
+The :guilabel:`Site Management > Sites` module lets you specify which languages
+are active for your site, which languages are available, and how they
+should behave. New languages for a site can also be configured in this module.
 
-For an explanation of each of the properties, see below.
+When the backend shows the list of available languages, the list of languages is
+limited to the languages defined by the sites module. For instance, the
+languages are used in the page module language selector, when editing records
+or in the list module.
 
-When the backend shows the list of available languages - for instance in the page module language selector,
-when editing records and in the list module - the list of languages is now restricted to those defined by
-the site module. If there are for instance five language records in the system, but a site configures only
-three of them for a page tree, only those three are considered when rendering language drop downs.
+The language management provides the ability to hide a language on the frontend
+while allowing it on the backend. This enables editors to start translating
+pages without them being directly live.
 
-The language management comes with an option to hide a language in the frontend while allowing it in the backend.
-This allows editors to start translating pages without them directly being live.
+..  note::
+    In case no site configuration has been created for a tree, all configured
+    languages are displayed. In this case the :ref:`page TSconfig options
+    <t3tsconfig:pagemod>` :typoscript:`mod.SHARED.defaultLanguageFlag`,
+    :typoscript:`mod.SHARED.defaultLanguageLabel` and
+    :typoscript:`mod.SHARED.disableLanguages` settings are also considered -
+    those are obsolete, if a site configuration exists.
 
-.. note::
-    In case no site configuration has been created for a tree, all language records are shown. In this case the
-    page TSconfig options `mod.SHARED.defaultLanguageFlag`, `mod.SHARED.defaultLanguageLabel`
-    and `mod.SHARED.disableLanguages` settings are also considered - those are obsolete if a site configuration exists.
+Language fallbacks can be configured for any language except the default one. A
+language fallback means that if content is not available in the current language,
+the content is displayed in the fallback language. This may include multiple
+fallback levels - for example, "Modern Chinese" might fall back to "Chinese
+(Traditional)", which in turn may fallback to "English". All languages can be
+configured separately, so you can specify different fallback chains and
+behaviors for each language.
 
-Language fallbacks can be configured for every language but the default one. A language fallback means that if content
-is not available in the current language, content of the fallback language will be displayed. This may include multiple
-fallback levels - for example "Modern Chinese" might fall back to "Chinese (Traditional)" which may then fallback to
-"English". All languages can be configured separately, so you can have different fallback chains and behavior for
-each language.
+Example of a language configuration (excerpt):
 
-.. tip::
-    Used to older TYPO3 versions? The following TypoScript settings will be set based on `config.yaml` - you don't need
-    to have them in your TypoScript template:
+..  literalinclude:: _language-example.yaml
+    :language: yaml
+    :caption: config/sites/<some_site>/config.yaml | typo3conf/sites/<some_site>/config.yaml
 
-    * `config.language`
-    * `config.locale_all`
-    * `config.htmlTag_dir`
-    * `config.htmlTag_langKey`
-    * `config.sys_language_uid`
-    * `config.sys_language_mode`
-    * `config.sys_language_isocode`
-    * `config.sys_language_isocode_default`
-
-
-.. index:: pair: Site handling; Languages properties
+..  index:: pair: Site handling; Languages properties
 
 Configuration properties
 ========================
 
-enabled
--------
+..  confval:: enabled
 
-:aspect:`Datatype`
-    bool
+    :type: bool
+    :Example: :yaml:`true`
 
-:aspect:`Description`
-    Defines if the language is visible in the frontend. Editors in the TYPO3 Backend will still be able to translate content     for the language.
+    Defines, if the language is visible on the frontend. Editors in the TYPO3
+    backend will still be able to translate content for the language.
 
-:aspect:`Example`
-    `true`
+..  confval:: languageId
 
-languageId
-----------
+    :type: integer
+    :Example: :yaml:`1`
 
-:aspect:`Datatype`
-    integer
+    For the default/main language of the given site, use value :yaml:`0`. For
+    additional languages use a number greater than :yaml:`0`. Every site should
+    have at last one language configured - with :yaml:`languageId: 0`.
 
-:aspect:`Description`
-    For default/main language for the given site, use value '0'. For additional languages use
-    the TYPO3 sys_language_uid (the uid of the language record on pid 0).
-    Every site should have at last one language configured - with `languageId: 0`.
+    ..  attention::
+        Once pages, content or records are created in a specific language, the
+        :yaml:`languageId` must not be changed anymore.
 
-:aspect:`Example`
-    `1`
+..  confval:: title
 
-title
------
+    :type: string
+    :Example: :yaml:`English`
 
-:aspect:`Datatype`
-    string
-
-:aspect:`Description`
     The internal human-readable name for this language.
 
-:aspect:`Example`
-    `English`
+..  confval:: websiteTitle
 
-websiteTitle
----------------
+    :type: string
+    :Example: :yaml:`My custom very British title`
 
-:aspect:`Datatype`
-    string
-
-:aspect:`Description`
     Overrides the global website title for this language.
 
-:aspect:`Example`
-    `My custom very british title`
+..  confval:: navigationTitle
 
+    :type: string
+    :Example: :yaml:`British`
 
-navigationTitle
----------------
+    Optional navigation title which is used in
+    :typoscript:`HMENU.special = language`.
 
-:aspect:`Datatype`
-    string
+..  confval:: base
 
-:aspect:`Description`
-    Optional navigation title which is used in HMENU.special = language
+    :type: string / URL
+    :Example: :yaml:`/uk/`
 
-:aspect:`Example`
-    `British`
+    The language base accepts either a URL or a path segment like :yaml:`/en/`.
 
+..  confval:: baseVariants
 
-base
-----
+    :type: array
 
-:aspect:`Datatype`
-    string / URL
+    Allows different base URLs for the same language. They follow the same
+    syntax as the :ref:`base variants <sitehandling-baseVariants>` on the root
+    level of the site config and they get active, if the condition matches.
 
-:aspect:`Description`
-    Language base. Accepts either a fully qualified URL or a path segment like "/en/".
+    Example:
 
-:aspect:`Example`
-    `/uk/`
+    ..  code-block:: yaml
 
-baseVariants
-------------
+        baseVariants:
+          -
+            base: 'https://example.localhost/'
+            condition: 'applicationContext == "Development"'
+          -
+            base: 'https://staging.example.com/'
+            condition: 'applicationContext == "Production/Sydney"'
+          -
+            base: 'https://testing.example.com/'
+            condition: 'applicationContext == "Testing/Paris"'
 
-:aspect:`Datatype`
-    array
+..  confval:: locale
 
-:aspect:`Description`
-    Allows different base URLs for same language.
-    They follow the same syntax as the :ref:`base variants
-    <sitehandling-baseVariants>` on the root level of the site config and they
-    get active if the condition matches.
+    :type: string / locale
+    :Example: :yaml:`en_GB`
 
-:aspect:`Example`
-   .. code-block:: yaml
+    The locale to use for this language. For example, it is used during frontend
+    rendering. That locale needs to be installed on the server. In a Linux
+    environment, you can see installed locales with :bash:`locale -a`. Multiple
+    fallback locales can be set as a comma-separated list. TYPO3 will then
+    iterate through the locales from left to right until it finds a locale, that
+    is installed on the server.
 
-      baseVariants:
-        -
-          base: 'https://de.example.localhost/'
-          condition: 'applicationContext == "Development"'
-        -
-          base: 'https://staging.example.de/'
-          condition: 'applicationContext == "Production/Sydney"'
-        -
-          base: 'https://testing.example.de/'
-          condition: 'applicationContext == "Testing/Paris"'
+..  confval:: iso-639-1
 
-locale
-------
+    :type: string
+    :Example: :yaml:`en`
 
-:aspect:`Datatype`
-    string / locale
+    The two-letter code for the language according to
+    `ISO-639 <https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes>`__
+    nomenclature.
 
-:aspect:`Description`
-    The locale to use for this language (Is set during frontend rendering for example)
-    See `locale identifiers <https://gist.github.com/jasef/337431c43c3addb2cbd5eb215b376179>`__.
-    That locale needs to be installed on the server. In a Linux environment, you can see installed locales with `locale -a`.
-    You can set multiple fallback locales as a comma-separated list. TYPO3 will then iterate through the locales from left to right until it finds a locale, that is installed on     the server.
+..  confval:: hreflang
 
-:aspect:`Example`
-    `en_UK`
+    :type: string
+    :Example: :yaml:`en-GB`
 
+    The frontend language for :html:`hreflang` and :html:`lang` tags.
 
-iso-639-1
----------
+..  confval:: direction
 
-:aspect:`Datatype`
-    string
+    :type: string
+    :Example: :yaml:`ltr`
 
-:aspect:`Description`
-    Two-letter code for the language according to ISO-639 nomenclature (see `ISO 639-1 codes <https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes>`__)
+    The text direction for content in this language (left-to-right or
+    right-to-left).
 
-:aspect:`Example`
-    `en`
+..  confval:: typo3Language
 
-hreflang
---------
+    :type: string
+    :Example: :yaml:`en`
 
-:aspect:`Datatype`
-    string
+    Language identifier to use in TYPO3 :ref:`XLIFF files <xliff_api>`.
 
-:aspect:`Description`
-    Frontend language for hreflang and lang tags.
+..  confval:: flag
 
-:aspect:`Example`
-    `en-UK`
+    :type: string
+    :Example: :yaml:`gb`
 
+    The flag identifier. For example, the flag is displayed in the backend page
+    module.
 
-direction
----------
+..  confval:: fallbackType
 
-:aspect:`Datatype`
-    string
+    :type: string
+    :Example: :yaml:`strict`
 
-:aspect:`Description`
-    Text direction for content in this language (left-to-right or right-to-left)
+    The language fallback mode, one of:
 
-:aspect:`Example`
-    `ltr`
+    :yaml:`fallback`
+        Fall back to another language, if the record does not exist in the
+        requested language. Do overlays and keep the ones that are not
+        translated.
 
+        It behaves like the old :typoscript:`config.sys_language_overlay = 1`.
+        Keep the ones that are only available in default language.
 
-typo3Language
--------------
+    :yaml:`strict`
+        Same as :yaml:`fallback` but removes the records that are not
+        translated.
 
-:aspect:`Datatype`
-    string
+        If there is no overlay, do not render the default language records,
+        it behaves like the old :typoscript:`hideNonTranslated`, and include
+        records without default translation.
 
-:aspect:`Description`
-    Language Identifier to use in TYPO3 locallang XLIFF files
+    :yaml:`free`
+        Fall back to another language, if the record does not exist in the
+        requested language. But always fetch only records of this specific
+        (available) language.
 
-:aspect:`Example`
-    `en`
+        It behaves like old :typoscript:`config.sys_language_overlay = 0`.
 
+..  confval:: fallbacks
 
-flag
---------------
+    :type: comma-separated list of language IDs
+    :Example: :yaml:`1,0`
 
-:aspect:`Datatype`
-    string
-
-:aspect:`Description`
-    Flag identifier. The flag is for example displayed in the backend page module.
-
-:aspect:`Example`
-    `en`
-
-
-fallbackType
-------------
-
-:aspect:`Datatype`
-    string
-
-:aspect:`Description`
-    Language fallback mode:
-
-    ``strict``
-      Same as ``fallback`` but remove the records that are not translated.
-
-      If there is no overlay, do not render the default language records,
-      behaves like old :typoscript:`hideNonTranslated`, and include records without
-      default translation.
-
-    ``fallback``
-      Fall back to other language, if the record does not exist in the requested language.
-      Do overlays, and keep the ones that are not translated.
-
-      Behaves like old :typoscript:`config.sys_language_overlay = 1`
-      Keep the ones that are only available in default language.
-
-    ``free``
-      Fall back to other language, if the record does not exist in the requested language.
-      But always fetch only records of this specific (available) language.
-
-      Behaves like old :typoscript:`config.sys_language_overlay = 0`
-
-:aspect:`Example`
-    `strict`
-
-
-fallbacks
----------
-
-:aspect:`Datatype`
-    list of language ids
-
-:aspect:`Description`
-    List of fallback languages. If non has a matching translation, a pageNotFound is thrown.
-
-:aspect:`Example`
-    `0`
+    The list of fallback languages. If none has a matching translation, a
+    "pageNotFound" is thrown.

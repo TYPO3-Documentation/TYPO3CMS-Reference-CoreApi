@@ -1,15 +1,17 @@
-.. include:: /Includes.rst.txt
-.. index:: Events; ModifyUrlForCanonicalTagEvent
-.. _ModifyUrlForCanonicalTagEvent:
+..  include:: /Includes.rst.txt
+..  index:: Events; ModifyUrlForCanonicalTagEvent
+..  _ModifyUrlForCanonicalTagEvent:
 
 
 =============================
 ModifyUrlForCanonicalTagEvent
 =============================
 
-Event to alter (or remove) an URL for the href="" attribute of a canonical URL.
+With the PSR-14 event `\TYPO3\CMS\Seo\Event\ModifyUrlForCanonicalTagEvent`
+the URL for the :html:`href` attribute of the canonical tag can be altered or
+emptied.
 
 API
----
+===
 
-.. include:: /CodeSnippets/Events/Seo/ModifyUrlForCanonicalTagEvent.rst.txt
+..  include:: /CodeSnippets/Events/Seo/ModifyUrlForCanonicalTagEvent.rst.txt
