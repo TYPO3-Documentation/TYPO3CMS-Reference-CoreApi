@@ -12,13 +12,15 @@ ModifyRecordListTableActionsEvent
 ..  versionchanged:: 12.0
     Due to the integration of EXT:recordlist into EXT:backend the namespace of
     the event changed from
-    :php:`TYPO3\CMS\Recordlist\Event\ModifyRecordListTableActionsEvent`
+    :php:`\TYPO3\CMS\Recordlist\Event\ModifyRecordListTableActionsEvent`
     to
-    :php:`TYPO3\CMS\Backend\RecordList\Event\ModifyRecordListTableActionsEvent`.
+    :php:`\TYPO3\CMS\Backend\RecordList\Event\ModifyRecordListTableActionsEvent`.
     For TYPO3 v12 the moved class is available as an alias under the old
     namespace to allow extensions to be compatible with TYPO3 v11 and v12.
 
-An event to modify the multi record selection actions (for example
+The PSR-14 event
+:php:`\TYPO3\CMS\Backend\RecordList\Event\ModifyRecordListTableActionsEvent`
+allows to modify the multi record selection actions (for example
 :guilabel:`edit`, :guilabel:`copy to clipboard`) for a table in the record list.
 
 ..  _ModifyRecordListTableActionsEvent-usage:
@@ -26,25 +28,29 @@ An event to modify the multi record selection actions (for example
 Usage
 =====
 
-An example registration of the events in your extensions' :file:`Services.yaml`:
+An example registration of the events in your extension's :file:`Services.yaml`:
 
 ..  code-block:: yaml
+    :caption: EXT:my_extension/Configuration/Services.yaml
 
-    MyVendor\MyPackage\RecordList\MyEventListener:
+    MyVendor\MyExtension\RecordList\MyEventListener:
         tags:
             - name: event.listener
-              identifier: 'my-package/recordlist/my-event-listener'
+              identifier: 'my-extension/recordlist/my-event-listener'
               method: 'modifyRecordActions'
             - name: event.listener
-              identifier: 'my-package/recordlist/my-event-listener'
+              identifier: 'my-extension/recordlist/my-event-listener'
               method: 'modifyHeaderColumns'
             - name: event.listener
-              identifier: 'my-package/recordlist/my-event-listener'
+              identifier: 'my-extension/recordlist/my-event-listener'
               method: 'modifyTableActions'
 
 The corresponding event listener class:
 
 ..  code-block:: php
+    :caption: EXT:my_extension/Classes/RecordList/MyEventListener.php
+
+    namespace MyVendor\MyExtension\RecordList;
 
     use Psr\Log\LoggerInterface;
     use TYPO3\CMS\Backend\RecordList\Event\ModifyRecordListHeaderColumnsEvent;
@@ -52,8 +58,7 @@ The corresponding event listener class:
     use TYPO3\CMS\Backend\RecordList\Event\ModifyRecordListTableActionsEvent;
 
     final class MyEventListener {
-
-        protected LoggerInterface $logger;
+        private LoggerInterface $logger;
 
         public function __construct(LoggerInterface $logger)
         {
@@ -111,4 +116,4 @@ The corresponding event listener class:
 API
 ===
 
-.. include:: /CodeSnippets/Events/Backend/ModifyRecordListTableActionsEvent.rst.txt
+..  include:: /CodeSnippets/Events/Backend/ModifyRecordListTableActionsEvent.rst.txt

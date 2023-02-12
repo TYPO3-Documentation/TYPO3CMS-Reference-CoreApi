@@ -10,13 +10,13 @@ ModifyLinkHandlersEvent
 ..  versionadded:: 12.0
     This event has been introduced together with
     :ref:`ModifyAllowedItemsEvent` to
-    serve as a direct replacement for the following removed hook:
-
-    *   :php:`$GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['LinkBrowser']['hooks']`
-
+    serve as a direct replacement for the following removed hook
+    :php:`$GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['LinkBrowser']['hooks']`.
     It replaces the method :php:`modifyLinkHandlers()` in this hook.
 
-The event is triggered before link handlers are executed, allowing listeners
+The PSR-14 event
+:php:`\TYPO3\CMS\Backend\Controller\Event\ModifyLinkHandlersEvent`
+is triggered before link handlers are executed, allowing listeners
 to modify the set of handlers that will be used.
 
 ..  seealso::
@@ -31,7 +31,7 @@ Registration of the event in your extension's :file:`Services.yaml`:
 ..  code-block:: yaml
     :caption: EXT:my_extension/Configuration/Services.yaml
 
-    Vendor\MyExtension\Backend\MyEventListener:
+    MyVendor\MyExtension\Backend\MyEventListener:
         tags:
             - name: event.listener
               identifier: 'my-extension/backend/link-handlers'
@@ -40,6 +40,8 @@ The corresponding event listener class:
 
 ..  code-block:: php
     :caption: EXT:my_extension/Classes/Backend/MyEventListener.php
+
+    namespace MyVendor\MyExtension\Backend;
 
     use TYPO3\CMS\Backend\Controller\Event\ModifyLinkHandlersEvent;
 

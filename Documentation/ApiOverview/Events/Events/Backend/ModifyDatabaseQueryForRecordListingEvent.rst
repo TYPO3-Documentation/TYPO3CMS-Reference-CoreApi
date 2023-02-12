@@ -14,8 +14,10 @@ ModifyDatabaseQueryForRecordListingEvent
     *   :php:`$GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['TYPO3\CMS\Recordlist\RecordList\DatabaseRecordList']['makeSearchStringConstraints']`
 
 
-This event allows to alter the :ref:`QueryBuilder <database-query-builder>` SQL
-statement before a list of records is rendered in record lists such as
+The PSR-14 event
+:php:`TYPO3\CMS\Backend\View\Event\ModifyDatabaseQueryForRecordListingEvent`
+allows to alter the :ref:`query builder <database-query-builder>` SQL
+statement before a list of records is rendered in record lists, such as
 the :guilabel:`List` module or an element browser.
 
 Example
@@ -26,7 +28,7 @@ Registration of the event in your extension's :file:`Services.yaml`:
 ..  code-block:: yaml
     :caption: EXT:my_extension/Configuration/Services.yaml
 
-    MyVendor\MyExtension\Backend\View\ModifyDatabaseQueryForRecordListingEvent:
+    MyVendor\MyExtension\Backend\View\MyEventListener:
         tags:
             - name: event.listener
               identifier: 'my-extension/backend/modify-database-query-for-record-list'
@@ -34,11 +36,11 @@ Registration of the event in your extension's :file:`Services.yaml`:
 The corresponding event listener class:
 
 ..  code-block:: php
-    :caption: EXT:my_extension/Classes/Backend/View/ModifyDatabaseQueryForRecordListingEventListener.php
+    :caption: EXT:my_extension/Classes/Backend/View/MyEventListener.php
 
     use TYPO3\CMS\Backend\View\Event\ModifyDatabaseQueryForRecordListingEvent;
 
-    final class ModifyDatabaseQueryForRecordListingEventListener
+    final class MyEventListener
     {
         public function __invoke(ModifyDatabaseQueryForRecordListingEvent $event): void
         {

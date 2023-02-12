@@ -7,13 +7,13 @@ ModifyEditFormUserAccessEvent
 =============================
 
 ..  versionadded:: 12.0
-    The PSR-14 event
-    :php:`TYPO3\CMS\Backend\Form\Event\ModifyEditFormUserAccessEvent\ModifyEditFormUserAccessEvent`
-    serves as a more powerful and flexible alternative for the removed
+    This event serves as a more powerful and flexible alternative for the removed
     :php:`$GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['typo3/alt_doc.php']['makeEditForm_accessCheck']`
     hook.
 
-The event provides the full database row of the record in question next to the
+The PSR-14 event
+:php:`TYPO3\CMS\Backend\Form\Event\ModifyEditFormUserAccessEvent\ModifyEditFormUserAccessEvent`
+provides the full database row of the record in question next to the
 exception, which might have been set by the Core. Additionally, the event allows
 to modify the user access decision in an object-oriented way, using
 convenience methods.
@@ -30,7 +30,7 @@ Registration of the event in your extension's :file:`Services.yaml`:
 ..  code-block:: yaml
     :caption: EXT:my_extension/Configuration/Services.yaml
 
-    MyVendor\MyExtension\Backend\Form\ModifyEditFormUserAccessEventListener:
+    MyVendor\MyExtension\Backend\Form\MyEventListener:
         tags:
             - name: event.listener
               identifier: 'my-extension/backend/modify-edit-form-user-access'
@@ -38,11 +38,13 @@ Registration of the event in your extension's :file:`Services.yaml`:
 The corresponding event listener class:
 
 ..  code-block:: php
-    :caption: EXT:my_extension/Classes/Backend/Form/ModifyEditFormUserAccessEventListener.php
+    :caption: EXT:my_extension/Classes/Backend/Form/MyEventListener.php
+
+    namespace MyVendor\MyExtension\Backend\Form;
 
     use TYPO3\CMS\Backend\Form\Event\ModifyEditFormUserAccessEvent;
 
-    final class ModifyEditFormUserAccessEventListener
+    final class MyEventListener
     {
         public function __invoke(ModifyEditFormUserAccessEvent $event): void
         {
@@ -57,4 +59,4 @@ The corresponding event listener class:
 API
 ===
 
-.. include:: /CodeSnippets/Events/Backend/ModifyEditFormUserAccessEvent.rst.txt
+..  include:: /CodeSnippets/Events/Backend/ModifyEditFormUserAccessEvent.rst.txt
