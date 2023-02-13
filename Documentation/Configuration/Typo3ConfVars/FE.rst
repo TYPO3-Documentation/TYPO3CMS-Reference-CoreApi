@@ -741,29 +741,36 @@ workspacePreviewLogoutTemplate
 versionNumberInFilename
 =======================
 
-.. confval:: $GLOBALS['TYPO3_CONF_VARS']['FE']['versionNumberInFilename']
+..  versionchanged:: 12.3
+    The setting was previously evaluated as a "string" value, having three
+    possible options:
 
-   :type: dropdown
-   :Default: 'querystring'
-   :allowedValues:
-      ''
-         "Do not include the version/timestamp of the file at all"
-      'embed'
-         Include the timestamp of the last modification timestamp of files
-         embedded in the filename - for example :file:`filename.1269312081.js`
-      'querystring'
-         Default - Append the last modification timestamp of the file as
-         query string for example :file:`filename.js?1269312081`
+    *   ""
+    *   "querystring"
+    *   "embed"
 
+    When updating TYPO3 and accessing the maintenance area, an explicitly set
+    option is migrated automatically. If this is not possible - for example,
+    the configuration is set in :file:`AdditionalConfiguration.php` - the value
+    is always migrated on-the-fly when the setting is evaluated.
 
-   Allows to automatically include a version number (timestamp of the file)
-   to referred CSS and JS filenames on the rendered page. This will make
-   browsers and proxies reload the files if they change (thus avoiding
-   caching issues).
+..  confval:: $GLOBALS['TYPO3_CONF_VARS']['FE']['versionNumberInFilename']
 
-   **IMPORTANT** embed requires extra :file:`.htaccess` rules to work
-   (please refer to the :file:`root-htaccess` file shipped with TYPO3 in
-   :file:`typo3/sysext/install/Resources/Private/FolderStructureTemplateFiles`)
+    :type: bool
+    :Default: false
+
+    If enabled, included CSS and JS files loaded in the TYPO3 frontend will
+    have the timestamp embedded in the filename, for example,
+    :php:`filename.1676276352.js`. This will make browsers and proxies reload
+    the files, if they change (thus avoiding caching issues).
+
+    ..  attention::
+        This feature requires extra :file:`.htaccess` rules to work (please
+        refer to the :t3src:`install/Resources/Private/FolderStructureTemplateFiles/root-htaccess`
+        file shipped with TYPO3).
+
+    If disabled, the last modification date of the file will be appended as a
+    query string.
 
 
 .. index::
