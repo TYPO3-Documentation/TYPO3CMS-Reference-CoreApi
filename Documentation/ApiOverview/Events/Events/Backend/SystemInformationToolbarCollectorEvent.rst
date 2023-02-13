@@ -1,12 +1,14 @@
-.. include:: /Includes.rst.txt
-.. index:: Events; SystemInformationToolbarCollectorEvent
-.. _SystemInformationToolbarCollectorEvent:
+..  include:: /Includes.rst.txt
+..  index:: Events; SystemInformationToolbarCollectorEvent
+..  _SystemInformationToolbarCollectorEvent:
 
 ======================================
 SystemInformationToolbarCollectorEvent
 ======================================
 
-An event to enrich the system information toolbar in the TYPO3 Backend top toolbar
+The PSR-14 event
+:php:`\TYPO3\CMS\Backend\Backend\Event\SystemInformationToolbarCollectorEvent`
+allows to enrich the system information toolbar in the TYPO3 backend top toolbar
 with various information.
 
 API

@@ -9,8 +9,18 @@
    
    .. php:method:: setBlindedConfigurationOptions(array $blindedConfigurationOptions)
    
+      Allows to define configuration options to be blinded
+      
       :param array $blindedConfigurationOptions: the blindedConfigurationOptions
       
    .. php:method:: getBlindedConfigurationOptions()
    
+      Returns the blinded configuration options
+      
       :returntype: array
+      
+   .. php:method:: getProviderIdentifier()
+   
+      Returns the configuration provider identifier, dispatching the event
+      
+      :returntype: string

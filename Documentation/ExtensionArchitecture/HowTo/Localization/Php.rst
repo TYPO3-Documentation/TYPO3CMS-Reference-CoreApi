@@ -26,7 +26,7 @@ to create a :ref:`LanguageService <LanguageService-api>` from the current
 site language:
 
 ..  literalinclude:: _php/MyUserFunction.php
-    :language: php
+    :caption: EXT:my_extension/Classes/UserFunction/MyUserFunction.php
 
 :ref:`DependencyInjection` should be available in most contexts where you need
 translations. Also the current request is available in entry point such as
@@ -39,7 +39,7 @@ In the backend context you can use the global variable :php:`$GLOBALS['LANG']`
 which contains the :ref:`LanguageService <LanguageService-api>`.
 
 ..  literalinclude:: _php/MyBackendClass.php
-    :language: php
+    :caption: EXT:my_extension/Classes/Backend/MyBackendClass.php
 
 ..  attention::
     During development you are usually logged into the backend. So the global
@@ -54,7 +54,7 @@ If you should happen to be in a context where none of these are available,
 for example a static function, you can still do translations:
 
 ..  literalinclude:: _php/MyUtility.php
-    :language: php
+    :caption: EXT:my_extension/Classes/Utility/MyUtility.php
 
 .. _extension-localization-extbase:
 
@@ -113,7 +113,7 @@ by a :ref:`PSR-15 middleware <request-handling>`.
 
 Beside other factories needed by our response, we inject the
 :ref:`LanguageServiceFactory <LanguageServiceFactory-api>` with
-:ref:`constructor dependency injection <Constructor-injection>`. 
+:ref:`constructor dependency injection <Constructor-injection>`.
 
 ..  include:: _php/_LanguageServiceFactoryDI.rst.txt
 

@@ -7,9 +7,6 @@ namespace MyVendor\MyExtension\Utility;
 use TYPO3\CMS\Core\Localization\LanguageServiceFactory;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 
-/**
- * File EXT:my_extension/Classes/Utility/MyUtility.php
- */
 final class MyUtility
 {
     private static function translateSomething(string $lll): string
