@@ -8,7 +8,9 @@ AfterRecordSummaryForLocalizationEvent
 
 ..  versionadded:: 12.0
 
-The event is fired in the
+The PSR-14 event
+:php:`\TYPO3\CMS\Backend\Controller\Event\AfterRecordSummaryForLocalizationEvent`
+is fired in the
 :php:`\TYPO3\CMS\Backend\Controller\Page\RecordSummaryForLocalization` class
 and allows extensions to modify the payload of the :php:`JsonResponse`.
 
@@ -21,7 +23,7 @@ Registration of the event in your extension's :file:`Services.yaml`:
 ..  code-block:: yaml
     :caption: EXT:my_extension/Configuration/Services.yaml
 
-    Vendor\MyExtension\EventListener\Backend\MyEventListener:
+    MyVendor\MyExtension\EventListener\Backend\MyEventListener:
         tags:
             - name: event.listener
               identifier: 'my-extension/backend/after-record-summary-for-localization'
@@ -30,6 +32,8 @@ The corresponding event listener class:
 
 ..  code-block:: php
     :caption: EXT:my_extension/Classes/Backend/MyEventListener.php
+
+    namespace MyVendor\MyExtension\EventListener\Backend;
 
     use TYPO3\CMS\Backend\Controller\Event\AfterRecordSummaryForLocalizationEvent;
 
@@ -58,4 +62,4 @@ The corresponding event listener class:
 API
 ===
 
-.. include:: /CodeSnippets/Events/Backend/AfterRecordSummaryForLocalizationEvent.rst.txt
+..  include:: /CodeSnippets/Events/Backend/AfterRecordSummaryForLocalizationEvent.rst.txt

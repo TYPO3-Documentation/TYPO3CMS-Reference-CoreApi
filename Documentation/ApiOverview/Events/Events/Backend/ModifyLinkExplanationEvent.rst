@@ -1,19 +1,19 @@
-.. include:: /Includes.rst.txt
-.. index:: Events; ModifyLinkExplanationEvent
-.. _ModifyLinkExplanationEvent:
+..  include:: /Includes.rst.txt
+..  index:: Events; ModifyLinkExplanationEvent
+..  _ModifyLinkExplanationEvent:
 
-=============================
+==========================
 ModifyLinkExplanationEvent
-=============================
+==========================
 
-.. versionadded:: 12.0
-   This event serves as a more powerful and flexible alternative
-   for the removed :php:`$GLOBALS['TYPO3_CONF_VARS']['SYS']['formEngine']['linkHandler']`
-   hook.
+..  versionadded:: 12.0
+    This event serves as a more powerful and flexible alternative
+    for the removed :php:`$GLOBALS['TYPO3_CONF_VARS']['SYS']['formEngine']['linkHandler']`
+    hook.
 
 While the removed hook effectively only allowed to modify the link explanation
 of TCA `link` fields in case the resolved link type did not already match
-one of those, implemented by TYPO3 itself, does the new event now allow to
+one of those, implemented by TYPO3 itself, the new event allows to
 always modify the link explanation of any type. Additionally, this also allows
 to modify the `additionalAttributes`, displayed below the actual link
 explanation field. This is especially useful for extended link handler setups.
@@ -40,41 +40,44 @@ The current context can be evaluated using the following methods:
 Example
 =======
 
-Registration of the event in your extensions' :file:`Services.yaml`:
+Registration of the event in your extension's :file:`Services.yaml`:
 
-.. code-block:: yaml
-   :caption: EXT:my_extension/Configuration/Services.yaml
+..  code-block:: yaml
+    :caption: EXT:my_extension/Configuration/Services.yaml
 
-   MyVendor\MyExtension\Backend\ModifyLinkExplanationEventListener:
-     tags:
-       - name: event.listener
-         identifier: 'my-package/backend/modify-link-explanation'
+    MyVendor\MyExtension\Backend\MyEventListener:
+      tags:
+        - name: event.listener
+          identifier: 'my-extension/backend/modify-link-explanation'
 
 The corresponding event listener class:
 
-.. code-block:: php
-   :caption: EXT:my_extension/Classes/Backend/ModifyLinkExplanationEventListener.php
+..  code-block:: php
+    :caption: EXT:my_extension/Classes/Backend/MyEventListener.php
 
-   use TYPO3\CMS\Backend\Form\Event\ModifyLinkExplanationEvent;
-   use TYPO3\CMS\Core\Imaging\Icon;
-   use TYPO3\CMS\Core\Imaging\IconFactory;
+    namespace MyVendor\MyExtension\Backend;
 
-   final class ModifyLinkExplanationEventListener
-   {
-       public function __construct(protected readonly IconFactory $iconFactory)
-       {
-       }
+    use TYPO3\CMS\Backend\Form\Event\ModifyLinkExplanationEvent;
+    use TYPO3\CMS\Core\Imaging\Icon;
+    use TYPO3\CMS\Core\Imaging\IconFactory;
 
-       public function __invoke(ModifyLinkExplanationEvent $event): void
-       {
-           // Use a custom icon for a custom link type
-           if ($event->getLinkData()['type'] === 'myCustomLinkType') {
-               $event->setLinkExplanationValue('icon', $this->iconFactory->getIcon('my-custom-link-icon', Icon::SIZE_SMALL)->render());
-           }
-       }
-   }
+    final class MyEventListener
+    {
+        public function __construct(
+            private readonly IconFactory $iconFactory
+        ) {
+        }
+
+        public function __invoke(ModifyLinkExplanationEvent $event): void
+        {
+            // Use a custom icon for a custom link type
+            if ($event->getLinkData()['type'] === 'myCustomLinkType') {
+                $event->setLinkExplanationValue('icon', $this->iconFactory->getIcon('my-custom-link-icon', Icon::SIZE_SMALL)->render());
+            }
+        }
+    }
 
 API
 ===
 
-.. include:: /CodeSnippets/Events/Backend/ModifyLinkExplanationEvent.rst.txt
+..  include:: /CodeSnippets/Events/Backend/ModifyLinkExplanationEvent.rst.txt
