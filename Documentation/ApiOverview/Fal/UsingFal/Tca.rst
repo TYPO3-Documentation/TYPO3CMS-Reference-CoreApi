@@ -10,7 +10,7 @@ This chapter explains how to create a field that makes it possible to
 create relations to files.
 
 ..  versionchanged:: 12.0
-    For TYPO3 v11 and bellow the API function
+    For TYPO3 v11 and below the API function
     :php:`ExtensionManagementUtility::getFileFieldTCAConfig()` was used to
     create a TCA configuration suitable to handle files. This function has been
     deprecated with the introduction of the new field type :ref:`t3tca:columns-file`.
