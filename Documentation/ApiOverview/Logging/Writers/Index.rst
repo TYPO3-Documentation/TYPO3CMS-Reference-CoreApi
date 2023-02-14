@@ -180,7 +180,7 @@ All log writers can be used in your own classes. You can initialize the loggers 
 
     use Psr\Log\LoggerInterface;
 
-    class MyClass implements {
+    class MyClass {
        private LoggerInterface $logger;
 
        public function __construct(LoggerInterface $logger) {
