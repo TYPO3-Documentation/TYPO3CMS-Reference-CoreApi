@@ -15,8 +15,9 @@ AfterBackendPageRenderEvent
     *   :php:`$GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['typo3/backend.php']['renderPreProcess']`
     *   :php:`$GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['typo3/backend.php']['renderPostProcess']`
 
-This event gets triggered after the page in the backend is rendered and includes
-the rendered page body. Listeners may overwrite the page string if desired.
+The PSR-14 event :php:`\TYPO3\CMS\Backend\Controller\Event\AfterBackendPageRenderEvent`
+gets triggered after the page in the backend is rendered and includes the
+rendered page body. Listeners may overwrite the page string if desired.
 
 Example
 =======
@@ -29,7 +30,7 @@ Registration of the event in your extension's :file:`Services.yaml`:
     MyVendor\MyExtension\Backend\MyEventListener:
       tags:
         - name: event.listener
-          identifier: 'my-extension/backend/after-backend-controller-render'
+          identifier: 'my-extension/backend/after-backend-page-render'
 
 The corresponding event listener class:
 

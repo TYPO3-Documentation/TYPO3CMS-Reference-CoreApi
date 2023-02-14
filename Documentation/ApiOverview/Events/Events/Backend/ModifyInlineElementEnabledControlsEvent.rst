@@ -7,19 +7,20 @@ ModifyInlineElementEnabledControlsEvent
 =======================================
 
 .. versionadded:: 12.0
-   This event, together with :ref:`ModifyInlineElementControlsEvent`
+   This event, together with :ref:`ModifyInlineElementControlsEvent`,
    serves as a more powerful and flexible replacement
    for the removed hook :php:`$GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['t3lib/class.t3lib_tceforms_inline.php']['tceformsInlineHook']`
 
-This event
+The PSR-14 event :php:`\TYPO3\CMS\Backend\Form\Event\ModifyInlineElementEnabledControlsEvent`
 is called before any control markup is generated. It can be used to
 enable or disable each control. With this event it is therefore possible
 to enable a control, which is disabled in TCA, only for some use case.
 
-For an example see
-:ref:`ModifyInlineElementControlsEvent Example <ModifyInlineElementControlsEvent_example>`.
+See the
+:ref:`ModifyInlineElementControlsEvent example <ModifyInlineElementControlsEvent_example>`
+for details.
 
 API
 ===
 
-.. include:: /CodeSnippets/Events/Backend/ModifyInlineElementEnabledControlsEvent.rst.txt
+..  include:: /CodeSnippets/Events/Backend/ModifyInlineElementEnabledControlsEvent.rst.txt

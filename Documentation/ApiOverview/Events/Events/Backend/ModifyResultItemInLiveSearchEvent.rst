@@ -24,15 +24,15 @@ Registration of the event in your extension's :file:`Services.yaml`:
 ..  code-block:: yaml
     :caption: EXT:my_extension/Configuration/Services.yaml
 
-    MyVendor\MyExtension\Search\EventListener\AddLiveSearchResultActionsListener:
+    MyVendor\MyExtension\Search\EventListener\MyEventListener:
       tags:
         - name: event.listener
-          identifier: 'my-vendor/my-extension/add-live-search-result-actions-listener'
+          identifier: 'my-extension/add-live-search-result-actions-listener'
 
 The corresponding event listener class:
 
 ..  code-block:: php
-    :caption: EXT:my_extension/Search/EventListener/AddLiveSearchResultActionsListener.php
+    :caption: EXT:my_extension/Search/EventListener/MyEventListener.php
 
     namespace MyVendor\MyExtension\Search\EventListener;
 
@@ -42,14 +42,14 @@ The corresponding event listener class:
     use TYPO3\CMS\Core\Imaging\Icon;
     use TYPO3\CMS\Core\Imaging\IconFactory;
 
-    final class AddLiveSearchResultActionsListener
+    final class MyEventListener
     {
-        protected LanguageService $languageService;
+        private readonly LanguageService $languageService;
 
         public function __construct(
-            protected readonly IconFactory $iconFactory,
-            protected readonly LanguageServiceFactory $languageServiceFactory,
-            protected readonly UriBuilder $uriBuilder
+            private readonly IconFactory $iconFactory,
+            LanguageServiceFactory $languageServiceFactory,
+            private readonly UriBuilder $uriBuilder
         ) {
             $this->languageService = $this->languageServiceFactory->createFromUserPreferences($GLOBALS['BE_USER']);
         }

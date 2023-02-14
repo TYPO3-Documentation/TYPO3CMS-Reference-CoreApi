@@ -70,6 +70,21 @@ The translated file is very similar. If the original file was named
 :file:`locallang.xlf`, the translated file for German (code "de") will be named
 :file:`de.locallang.xlf`.
 
+..  versionchanged:: 12.2
+
+One can use a custom label file, for example, with the locale prefix
+:file:`de_CH.locallang.xlf` in an extension next to :file:`de.locallang.xlf` and
+:file:`locallang.xlf` (default language English).
+
+When integrators then use "de-CH" within their
+:ref:`site configuration <sitehandling>`, TYPO3 first checks if a term is
+available in :file:`de_CH.locallang.xlf`, and then automatically falls back to
+the non-region-specific "de" label file :file:`de.locallang.xlf` without any
+further configuration to TYPO3.
+
+Before TYPO v12.2, one has to define a
+:ref:`custom language <xliff-translating-languages>`.
+
 ..  note::
     The original file must always be in English, so it is not allowed to create
     a file with the prefix "en", for example :file:`en.locallang.xlf`.
