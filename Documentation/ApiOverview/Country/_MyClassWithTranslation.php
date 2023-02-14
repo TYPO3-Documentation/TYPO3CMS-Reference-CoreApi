@@ -6,6 +6,7 @@ namespace MyVendor\MyExtension;
 
 use TYPO3\CMS\Core\Country\CountryProvider;
 use TYPO3\CMS\Core\Localization\LanguageServiceFactory;
+use TYPO3\CMS\Core\Localization\Locale;
 
 final class MyClassWithTranslation
 {
@@ -17,7 +18,7 @@ final class MyClassWithTranslation
 
     public function doSomething()
     {
-        $languageService = $this->languageServiceFactory->create('de');
+        $languageService = $this->languageServiceFactory->create(new Locale('de'));
         $france = $this->countryProvider->getByIsoCode('FR');
 
         // "France"

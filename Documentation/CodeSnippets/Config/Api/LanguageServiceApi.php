@@ -19,4 +19,10 @@ return [
         'targetFileName' => 'ApiOverview/Localization/LocalizationApi/_LanguageService.rst.txt',
         'withCode' => false,
     ],
+    [
+        'action' => 'createPhpClassDocs',
+        'class' => \TYPO3\CMS\Core\Localization\Locale::class,
+        'targetFileName' => 'ApiOverview/Localization/LocalizationApi/_Locale.rst.txt',
+        'withCode' => false,
+    ],
 ];
