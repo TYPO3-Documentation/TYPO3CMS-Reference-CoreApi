@@ -124,13 +124,13 @@ Configuration properties
 ..  confval:: locale
 
     :type: string / locale
-    :Example: :yaml:`en_GB`
+    :Example: :yaml:`en_GB` or :yaml:`de_DE.utf8,de_DE`
 
     The locale to use for this language. For example, it is used during frontend
     rendering. That locale needs to be installed on the server. In a Linux
     environment, you can see installed locales with :bash:`locale -a`. Multiple
     fallback locales can be set as a comma-separated list. TYPO3 will then
-    iterate through the locales from left to right until it finds a locale, that
+    iterate through the locales from left to right until it finds a locale that
     is installed on the server.
 
 ..  confval:: iso-639-1
