@@ -119,22 +119,30 @@ Configuration properties
             base: 'https://testing.example.com/'
             condition: 'applicationContext == "Testing/Paris"'
 
+..  _sitehandling-addingLanguages-locale:
+
 ..  confval:: locale
 
     :type: string / locale
-    :Example: :yaml:`en_GB`
+    :Example: :yaml:`en_GB` or :yaml:`de_DE.utf8,de_DE`
 
     The locale to use for this language. For example, it is used during frontend
     rendering. That locale needs to be installed on the server. In a Linux
     environment, you can see installed locales with :bash:`locale -a`. Multiple
     fallback locales can be set as a comma-separated list. TYPO3 will then
-    iterate through the locales from left to right until it finds a locale, that
+    iterate through the locales from left to right until it finds a locale that
     is installed on the server.
 
 ..  confval:: iso-639-1
 
     :type: string
     :Example: :yaml:`en`
+
+    ..  deprecated:: 12.3
+        It is not needed to set this property anymore, and is removed from the
+        backend UI. The information is now automatically derived from the
+        :ref:`locale <sitehandling-addingLanguages-locale>` setting.
+        Using this property will trigger a PHP deprecation notice.
 
     The two-letter code for the language according to
     `ISO-639 <https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes>`__
@@ -145,12 +153,24 @@ Configuration properties
     :type: string
     :Example: :yaml:`en-GB`
 
+    ..  deprecated:: 12.3
+        It is not needed to set this property anymore, and is removed from the
+        backend UI. The information is now automatically derived from the
+        :ref:`locale <sitehandling-addingLanguages-locale>` setting.
+        Using this property will trigger a PHP deprecation notice.
+
     The frontend language for :html:`hreflang` and :html:`lang` tags.
 
 ..  confval:: direction
 
     :type: string
     :Example: :yaml:`ltr`
+
+    ..  deprecated:: 12.3
+        It is not needed to set this property anymore, and is removed from the
+        backend UI. The information is now automatically derived from the
+        :ref:`locale <sitehandling-addingLanguages-locale>` setting.
+        Using this property will trigger a PHP deprecation notice.
 
     The text direction for content in this language (left-to-right or
     right-to-left).
@@ -159,6 +179,12 @@ Configuration properties
 
     :type: string
     :Example: :yaml:`en`
+
+    ..  deprecated:: 12.3
+        It is not needed to set this property anymore, and is removed from the
+        backend UI. The information is now automatically derived from the
+        :ref:`locale <sitehandling-addingLanguages-locale>` setting.
+        Using this property will trigger a PHP deprecation notice.
 
     Language identifier to use in TYPO3 :ref:`XLIFF files <xliff_api>`.
 
