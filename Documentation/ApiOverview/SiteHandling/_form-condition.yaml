@@ -1,0 +1,14 @@
+renderables:
+  - type: Page
+    identifier: page-1
+    label: DE
+    renderingOptions:
+    previousButtonLabel: 'zurück'
+    nextButtonLabel: 'weiter'
+    variants:
+      - identifier: language-variant-1
+        condition: 'siteLanguage("locale") == en_US.UTF-8'
+        label: EN
+        renderingOptions:
+        previousButtonLabel: 'Previous step'
+        nextButtonLabel: 'Next step'
