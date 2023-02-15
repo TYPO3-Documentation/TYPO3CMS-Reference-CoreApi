@@ -174,7 +174,7 @@ Usage in Custom Class
 
 All log writers can be used in your own classes. If the service is configured to use autowiring 
 you can inject a logger into the :php:`__construct` method of your class :php:`\MyVendor\MyExtension\MyFolder\MyClass`) since TYPO3 v11 LTS. 
-If no autowiring is used the service class however must implement the interface :code:`\Psr\Log\LoggerAwareInterface` and :code:`\Psr\Log\LoggerAwareTrait` and use no constructor.
+If autowiring is disabled, the service class however must implement the interface :php:`\Psr\Log\LoggerAwareInterface` and use :php:`\Psr\Log\LoggerAwareTrait`.
 
 .. code-block:: php
 
