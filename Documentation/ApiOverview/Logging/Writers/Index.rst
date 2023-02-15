@@ -41,7 +41,7 @@ logTable  no         Database table  :code:`sys_log`
 .. warning::
 
    The :guilabel:`Admin Tools > Log` module is not adapted to the records written by the
-   :code:`DatabaseWriter` into the :code:`sys_log` table. If you write such records
+   :php:`DatabaseWriter` into the :code:`sys_log` table. If you write such records
    there, you will not be able to see them using that module.
 
 *Tip:* There's a tool for viewing such records in the TYPO3 backend at
@@ -67,7 +67,7 @@ Example of a CREATE TABLE statement for logTable:
            KEY request (request_id)
    );
 
-The corresponding configuration might look like this for the example class :code:`\T3docs\Examples\Controller`:
+The corresponding configuration might look like this for the example class :php:`\T3docs\Examples\Controller`:
 
 .. code-block:: php
 
@@ -92,7 +92,7 @@ FileWriter
 The file writer logs into a log file, one log record per line.
 If the log file does not exist, it will be created (including parent directories, if needed).
 Please make sure that your web server has write-permissions to that path
-and it is below the root directory of your web site (defined by :code:`\TYPO3\CMS\Core\Core\Environment::getPublicPath()`). The filename is
+and it is below the root directory of your web site (defined by :php:`\TYPO3\CMS\Core\Core\Environment::getPublicPath()`). The filename is
 appended with a hash, that depends on the encryption key.
 If :ref:`$GLOBALS['TYPO3_CONF_VARS']['SYS']['generateApacheHtaccess'] <typo3ConfVars_sys_generateApacheHtaccess>` is set,
 an :file:`.htaccess` file is added to the directory.
@@ -107,7 +107,7 @@ logFile       no         Path to log file                                      :
 logFileInfix  no         Different file name to the default log configuration  :php:`'logFileInfix' => 'special'` results in :file:`typo3\_special\_<hash>.log`
 ============  =========  ====================================================  ================
 
-The corresponding configuration might look like this for the example class :code:`\T3docs\Examples\Controller` :
+The corresponding configuration might look like this for the example class :php:`\T3docs\Examples\Controller` :
 
 .. code-block:: php
 
@@ -157,12 +157,12 @@ Custom Log Writers
 ==================
 
 Custom log writers can be added through extensions.
-Every log writer has to implement the interface :code:`\TYPO3\CMS\Core\Log\Writer\WriterInterface`.
-It is suggested to extend the abstract class :code:`\TYPO3\CMS\Core\Log\Writer\AbstractWriter`
+Every log writer has to implement the interface :php:`\TYPO3\CMS\Core\Log\Writer\WriterInterface`.
+It is suggested to extend the abstract class :php:`\TYPO3\CMS\Core\Log\Writer\AbstractWriter`
 which allows you use configuration options by adding the corresponding properties and setter methods.
 
 Please keep in mind that TYPO3 will silently continue operating,
-in case a log writer is throwing an exception while executing the :code:`writeLog()` method.
+in case a log writer is throwing an exception while executing the :php:`writeLog()` method.
 Only in the case that all registered writers fail, the log entry plus additional information
 will be added to the configured fallback logger (which defaults to
 the :ref:`PhpErrorLog <logging-writers-php>` writer).
