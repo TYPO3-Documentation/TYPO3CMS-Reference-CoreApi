@@ -1,0 +1,4 @@
+errorHandling:
+  - errorCode: 0
+    errorHandler: Page
+    errorContentSource: 'https://example.org/page-not-found'
