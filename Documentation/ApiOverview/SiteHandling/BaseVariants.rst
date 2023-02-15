@@ -1,48 +1,51 @@
-.. include:: /Includes.rst.txt
-.. index:: Site handling; Base variants
-.. _sitehandling-baseVariants:
+..  include:: /Includes.rst.txt
+..  index:: Site handling; Base variants
+..  _sitehandling-baseVariants:
 
 =============
 Base variants
 =============
 
-In site handling "base variants" represent different bases for a web site depending on a specified
-condition. For example a "live" base URL might be :samp:`https://example.org` but on local machine
-it's :samp:`https://example.localhost` as a domain - that's when variants are used.
+In site handling, "base variants" represent different bases for a website
+depending on a specified condition. For example, a "live" base URL might be
+:samp:`https://example.org/`, but on a local machine it is
+:samp:`https://example.localhost/` as a domain - that is when variants are used.
 
-Base variants exist for languages, too. Currently these can only be defined
-through the respective :file:`*.yml` file, there is no UI available yet.
+Base variants exist for languages, too. Currently, these can only be defined
+through the respective :file:`*.yaml` file, there is no backend user interface
+available yet.
 
 Variants consist of two parts:
 
-*  a base to use for this variant
-*  a condition that decides when this variant shall be active
+*   a base to use for this variant
+*   a condition that decides when this variant shall be active
 
-Conditions are based on Symfony expression language and allow flexible
-conditions. For example:
+Conditions are based on `Symfony expression language`_ and allow flexible
+conditions, for example:
 
-.. code-block:: none
+..  code-block:: none
 
     applicationContext == "Development"
 
-would define a base variant to use in Development context.
+would define a base variant to use in "Development" context.
 
-.. note::
+..  note::
+    Environment variables can be used in the :yaml:`base` via ``%env(...)%``.
+    :yaml:`condition` needs ``getenv(...)`` instead.
 
-   Notice that environment variables can be used in the :yaml:`base` via ``%env(...)%``.
-   :yaml:`condition` needs ``getenv(...)`` instead.
+..  include:: /Images/AutomaticScreenshots/SiteHandling/SiteHandlingBaseVariants-1.rst.txt
 
-.. include:: /Images/AutomaticScreenshots/SiteHandling/SiteHandlingBaseVariants-1.rst.txt
+..  hint::
+    For those coming from earlier TYPO3 versions: With site handling, there is
+    no need for :sql:`sys_domain` records anymore!
 
-.. hint::
-   For those coming from earlier TYPO3 versions: With site handling, there is
-   no need for `sys_domain` records anymore!
+..  seealso::
+    *   Read :ref:`application-context` for more information on how to set the
+        application context.
+    *   Read :ref:`yaml-api` for more information on YAML parsing.
 
-.. seealso::
-   Read :ref:`application-context` for more information on how to set the
-   application context.
+..  _Symfony expression language: https://symfony.com/doc/current/components/expression_language.html
 
-   Read :ref:`yaml-api` for more information on YAML parsing.
 
 The following variables and functions are available in addition to the default
 Symfony functionality:
@@ -50,54 +53,9 @@ Symfony functionality:
 Example
 =======
 
-.. code-block:: yaml
-   :caption: config/sites/<some_site>/config.yaml | typo3conf/sites/<some_site>/config.yaml
-
-   rootPageId: 1
-   base: 'https://example.org/'
-   baseVariants:
-     -
-       base: 'https://example.localhost/'
-       condition: 'applicationContext == "Development"'
-     -
-       base: 'https://staging.example.org/'
-       condition: 'applicationContext == "Production/Sydney"'
-     -
-       base: 'https://testing.example.org/'
-       condition: 'applicationContext == "Testing/Paris"'
-     -
-       base: '%env("TYPO3_BASE")%'
-       condition: 'getenv("TYPO3_BASE")'
-   languages:
-     -
-       title: English
-       enabled: true
-       locale: en_US.UTF-8
-       base: /
-       websiteTitle: ''
-       navigationTitle: English
-       flag: gb
-       languageId: 0
-     -
-       title: Deutsch
-       enabled: true
-       locale: de_DE.UTF-8
-       base: 'https://example.net/'
-       baseVariants:
-         -
-           base: 'https://de.example.localhost/'
-           condition: 'applicationContext == "Development"'
-         -
-           base: 'https://staging.example.net/'
-           condition: 'applicationContext == "Production/Sydney"'
-         -
-           base: 'https://testing.example.net/'
-           condition: 'applicationContext == "Testing/Paris"'
-       websiteTitle: ''
-       navigationTitle: Deutsch
-       fallbackType: strict
-       flag: de
-       languageId: 1
+..  literalinclude:: _base-variants.yaml
+    :language: yaml
+    :caption: config/sites/<some_site>/config.yaml | typo3conf/sites/<some_site>/config.yaml
 
 
 .. index:: Site handling; Base variant properties
@@ -105,56 +63,34 @@ Example
 Properties
 ==========
 
-typo3.version
--------------
+..  confval:: typo3.version
 
-:aspect:`Datatype`
-    string
+    :type: string
+    :Example: `12.4.0`
 
-:aspect:`Description`
-    The current TYPO3 version
+    The current TYPO3 version.
 
-:aspect:`Example`
-    `11.5.0`
+..  confval:: typo3.branch
 
+    :type: string
+    :Example: `12.4`
 
-typo3.branch
-------------
+    The current TYPO3 branch.
 
-:aspect:`Datatype`
-    string
+..  confval:: typo3.devIpMask
 
-:aspect:`Description`
-    The current TYPO3 branch
+    :type: string
+    :Example: `203.0.113.*`
 
-:aspect:`Example`
-    `11.5`
+    The configured devIpMask taken from
+    :ref:`$GLOBALS['TYPO3_CONF_VARS']['SYS']['devIPmask'] <typo3ConfVars_sys_devIPmask>`.
 
+..  confval:: applicationContext
 
-typo3.devIpMask
----------------
+    :type: string
+    :Example: `Development`
 
-:aspect:`Datatype`
-    string
-
-:aspect:`Description`
-    The configured devIpMask taken from `$GLOBALS['TYPO3_CONF_VARS']['SYS']['devIPmask']`
-
-:aspect:`Example`
-    `77.176.160.*`
-
-
-applicationContext
-------------------
-
-:aspect:`Datatype`
-    string
-
-:aspect:`Description`
-    The current application context
-
-:aspect:`Example`
-    `Development`
+    The current :ref:`application context <application-context>`.
 
 
 .. index::
@@ -164,95 +100,64 @@ applicationContext
 Functions
 =========
 
-All functions from TYPO3s `DefaultFunctionsProvider` are available:
+All functions from
+:t3src:`core/Classes/ExpressionLanguage/FunctionsProvider/DefaultFunctionsProvider.php`
+are available:
 
-ip
---
+..  confval:: ip
 
-:aspect:`Datatype`
-    string
+    :type: string
+    :Example: `ip("203.0.113.*")`
 
-:aspect:`Description`
-    Match an IP address, value or regex, wildcards possible. Special value: `devIp` for matching `devIpMask`.
+    Match an IP address, value or regex, wildcards possible.
+    Special value: `devIp` for matching `devIpMask`.
 
-:aspect:`Example`
-    `ip("77.176.160.*")`
+..  confval:: compatVersion
 
+    :type: string
+    :Example: `compatVersion("12.4.0")`, `compatVersion("11.5")`
 
-compatVersion
--------------
+    Match a TYPO3 version.
 
-:aspect:`Datatype`
-    string
+..  confval:: like
 
-:aspect:`Description`
-    Match a TYPO3 version
+    :type: string
+    :Example: `like("foobarbaz", "*bar*")`
 
-:aspect:`Example`
-    `compatVersion("11.5.0")`, `compatVersion("11.4")`
+    A comparison function to compare two strings. The first parameter is the
+    "haystack", the second the "needle". Wildcards are allowed.
 
+..  confval:: getenv
 
-like
-----
+    :type: string
+    :Example: `getenv("TYPO3_BASE_URL")`
 
-:aspect:`Datatype`
-    string
+    A wrapper for PHPs `getenv()`_ function. It allows accessing environment
+    variables.
 
-:aspect:`Description`
-    Comparison function to compare two strings. The first parameter is the "haystack", the
-    second the "needle". Wildcards are allowed.
+    ..  _getenv(): https://www.php.net/manual/en/function.getenv.php
 
-:aspect:`Example`
-    `like("foobarbaz", "*bar*")`
+..  confval:: date
 
+    :type: string
+    :Example: checking the current month: `date("j") == 7`
 
-getenv
-------
-
-:aspect:`Datatype`
-    string
-
-:aspect:`Description`
-    Wrapper for PHPs `getenv()` function. Allows accessing environment variables.
-
-:aspect:`Example`
-    `getenv("TYPO3_BASE_URL")`
-
-
-date
-----
-
-:aspect:`Datatype`
-    string
-
-:aspect:`Description`
     Get the current date in given format.
 
-:aspect:`Example for checking the current month`
-    `date("j") == 7`
+..  confval:: feature
 
+    :type: string
+    :Example: `feature("redirects.hitCount")`
 
-feature
--------
+    Check whether a feature (":ref:`feature toggle <feature-toggles>`") is
+    enabled in TYPO3.
 
-:aspect:`Datatype`
-    string
+..  confval:: traverse
 
-:aspect:`Description`
-    Check whether a feature ("feature toggle") is enabled in TYPO3.
+    :type: array|string
+    :Example: `traverse(request.getQueryParams(), 'tx_news_pi1/news') > 0`
 
-:aspect:`Example`
-    `feature("TypoScript.strictSyntax")`
+    This function has two parameters:
 
-
-traverse
---------
-
-:aspect:`Datatype`
-    array and string
-
-:aspect:`Description`
-    This function has two parameters: - first parameter is the array to traverse - second parameter is the path to traverse Syntax.
-
-:aspect:`Example`
-    `traverse(request.getQueryParams(), 'tx_news_pi1/news') > 0`
+    *   first parameter is the array to traverse
+    *   second parameter is the path to traverse
