@@ -173,8 +173,8 @@ Usage in Custom Class
 ---------------------
 
 All log writers can be used in your own classes. If the service is configured to use autowiring 
-you can inject a logger into the :php:`__construct` method of your class :php:`\MyVendor\MyExtension\MyFolder\MyClass`) since TYPO3 v11 LTS. 
-If autowiring is disabled, the service class however must implement the interface :php:`\Psr\Log\LoggerAwareInterface` and use :php:`\Psr\Log\LoggerAwareTrait`.
+you can inject a logger into the :php:`__construct` method of your class :php:`\MyVendor\MyExtension\MyFolder\MyClass`) since TYPO3 v11 LTS.
+
 
 .. code-block:: php
 
@@ -182,17 +182,40 @@ If autowiring is disabled, the service class however must implement the interfac
 
     use Psr\Log\LoggerInterface;
 
-    class MyClass {
+    class MyClass implements SingletonInterface {
        private LoggerInterface $logger;
 
        public function __construct(LoggerInterface $logger) {
            $this->logger = $logger;
        }
         ...
-        $this->logger->info('My class is executed.');
-        if ($error) {
-           $this->logger->error('error in class MyClass');
-        }
+           $this->logger->info('My class is executed.');
+           if ($error) {
+              $this->logger->error('error in class MyClass');
+           }
+        ...
+    }
+
+
+If autowiring is disabled, the service class however must implement the interface :php:`\Psr\Log\LoggerAwareInterface` and use the :php:`\Psr\Log\LoggerAwareTrait`.
+
+
+.. code-block:: php
+
+    namespace MyDomain\MyExtension\MyFolder;
+
+    use Psr\Log\LoggerAwareInterface;
+    use Psr\Log\LoggerAwareTrait;
+
+    class MyClass implements SingletonInterface, LoggerAwareInterface {
+       use LoggerAwareTrait;
+
+        ...
+           $this->logger->info('My class is executed.');
+           if ($error) {
+              $this->logger->error('error in class MyClass');
+           }
+        ...
     }
 
 
