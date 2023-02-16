@@ -207,7 +207,6 @@ If autowiring is disabled, the service class however must implement the interfac
 
     use Psr\Log\LoggerAwareInterface;
     use Psr\Log\LoggerAwareTrait;
-    use TYPO3\CMS\Core\SingletonInterface;
 
     class MyClass implements LoggerAwareInterface {
        use LoggerAwareTrait;
