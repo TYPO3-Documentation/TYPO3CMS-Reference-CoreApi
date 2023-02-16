@@ -203,7 +203,7 @@ If autowiring is disabled, the service class however must implement the interfac
 
 .. code-block:: php
 
-    namespace MyDomain\MyExtension\MyFolder;
+    namespace MyVendor\MyExtension\MyFolder;
 
     use Psr\Log\LoggerAwareInterface;
     use Psr\Log\LoggerAwareTrait;
