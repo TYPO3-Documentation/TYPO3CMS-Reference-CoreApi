@@ -182,7 +182,7 @@ you can inject a logger into the :php:`__construct` method of your class :php:`\
 
     use Psr\Log\LoggerInterface;
 
-    class MyClass implements SingletonInterface {
+    class MyClass {
        private LoggerInterface $logger;
 
        public function __construct(LoggerInterface $logger) {
