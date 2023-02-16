@@ -178,7 +178,7 @@ you can inject a logger into the :php:`__construct` method of your class :php:`\
 
 .. code-block:: php
 
-    namespace MyDomain\MyExtension\MyFolder;
+    namespace MyVendor\MyExtension\MyFolder;
 
     use Psr\Log\LoggerInterface;
 
@@ -224,7 +224,7 @@ The logger must be configured via :file:`ext_localconf.php` :
 .. code-block:: php
 
    // Add example configuration for the logging API
-   $GLOBALS['TYPO3_CONF_VARS']['LOG']['MyDomain']['MyExtension']['MyFolder']['MyClass']['writerConfiguration'] = [
+   $GLOBALS['TYPO3_CONF_VARS']['LOG']['MyVendor']['MyExtension']['MyFolder']['MyClass']['writerConfiguration'] = [
        // configuration for ERROR level log entries
        \TYPO3\CMS\Core\Log\LogLevel::ERROR => [
            // add a FileWriter
