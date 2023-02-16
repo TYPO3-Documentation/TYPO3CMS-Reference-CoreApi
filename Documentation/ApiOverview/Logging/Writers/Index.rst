@@ -181,7 +181,6 @@ you can inject a logger into the :php:`__construct` method of your class :php:`\
     namespace MyDomain\MyExtension\MyFolder;
 
     use Psr\Log\LoggerInterface;
-    use TYPO3\CMS\Core\SingletonInterface;
 
     class MyClass implements SingletonInterface {
        private LoggerInterface $logger;
