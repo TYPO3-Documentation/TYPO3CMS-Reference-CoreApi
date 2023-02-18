@@ -41,7 +41,7 @@ logTable  no         Database table  :code:`sys_log`
 .. warning::
 
    The :guilabel:`Admin Tools > Log` module is not adapted to the records written by the
-   :code:`DatabaseWriter` into the :code:`sys_log` table. If you write such records
+   :php:`DatabaseWriter` into the :code:`sys_log` table. If you write such records
    there, you will not be able to see them using that module.
 
 *Tip:* There's a tool for viewing such records in the TYPO3 backend at
@@ -67,7 +67,7 @@ Example of a CREATE TABLE statement for logTable:
            KEY request (request_id)
    );
 
-The corresponding configuration might look like this for the example class :code:`\T3docs\Examples\Controller`:
+The corresponding configuration might look like this for the example class :php:`\T3docs\Examples\Controller`:
 
 .. code-block:: php
 
@@ -92,7 +92,7 @@ FileWriter
 The file writer logs into a log file, one log record per line.
 If the log file does not exist, it will be created (including parent directories, if needed).
 Please make sure that your web server has write-permissions to that path
-and it is below the root directory of your web site (defined by :code:`\TYPO3\CMS\Core\Core\Environment::getPublicPath()`). The filename is
+and it is below the root directory of your web site (defined by :php:`\TYPO3\CMS\Core\Core\Environment::getPublicPath()`). The filename is
 appended with a hash, that depends on the encryption key.
 If :ref:`$GLOBALS['TYPO3_CONF_VARS']['SYS']['generateApacheHtaccess'] <typo3ConfVars_sys_generateApacheHtaccess>` is set,
 an :file:`.htaccess` file is added to the directory.
@@ -107,7 +107,7 @@ logFile       no         Path to log file                                      :
 logFileInfix  no         Different file name to the default log configuration  :php:`'logFileInfix' => 'special'` results in :file:`typo3\_special\_<hash>.log`
 ============  =========  ====================================================  ================
 
-The corresponding configuration might look like this for the example class :code:`\T3docs\Examples\Controller` :
+The corresponding configuration might look like this for the example class :php:`\T3docs\Examples\Controller` :
 
 .. code-block:: php
 
@@ -157,12 +157,12 @@ Custom Log Writers
 ==================
 
 Custom log writers can be added through extensions.
-Every log writer has to implement the interface :code:`\TYPO3\CMS\Core\Log\Writer\WriterInterface`.
-It is suggested to extend the abstract class :code:`\TYPO3\CMS\Core\Log\Writer\AbstractWriter`
+Every log writer has to implement the interface :php:`\TYPO3\CMS\Core\Log\Writer\WriterInterface`.
+It is suggested to extend the abstract class :php:`\TYPO3\CMS\Core\Log\Writer\AbstractWriter`
 which allows you use configuration options by adding the corresponding properties and setter methods.
 
 Please keep in mind that TYPO3 will silently continue operating,
-in case a log writer is throwing an exception while executing the :code:`writeLog()` method.
+in case a log writer is throwing an exception while executing the :php:`writeLog()` method.
 Only in the case that all registered writers fail, the log entry plus additional information
 will be added to the configured fallback logger (which defaults to
 the :ref:`PhpErrorLog <logging-writers-php>` writer).
@@ -172,25 +172,50 @@ the :ref:`PhpErrorLog <logging-writers-php>` writer).
 Usage in Custom Class
 ---------------------
 
-All log writers can be used in your own classes. You can initialize the loggers in the __construct method of your class :code:`\MyDomain\MyExtension\MyFolder\MyClass`.
+All log writers can be used in your own classes. If the service is configured to use autowiring 
+you can inject a logger into the :php:`__construct` method of your class :php:`\MyVendor\MyExtension\MyFolder\MyClass`) since TYPO3 v11 LTS.
+
 
 .. code-block:: php
 
-    namespace MyDomain\MyExtension\MyFolder;
+    namespace MyVendor\MyExtension\MyFolder;
 
     use Psr\Log\LoggerInterface;
 
-    class MyClass implements {
+    class MyClass {
        private LoggerInterface $logger;
 
        public function __construct(LoggerInterface $logger) {
            $this->logger = $logger;
        }
         ...
-        $this->logger->info('My class is executed.');
-        if ($error) {
-           $this->logger->error('error in class MyClass');
-        }
+           $this->logger->info('My class is executed.');
+           if ($error) {
+              $this->logger->error('error in class MyClass');
+           }
+        ...
+    }
+
+
+If autowiring is disabled, the service class however must implement the interface :php:`\Psr\Log\LoggerAwareInterface` and use the :php:`\Psr\Log\LoggerAwareTrait`.
+
+
+.. code-block:: php
+
+    namespace MyVendor\MyExtension\MyFolder;
+
+    use Psr\Log\LoggerAwareInterface;
+    use Psr\Log\LoggerAwareTrait;
+
+    class MyClass implements LoggerAwareInterface {
+       use LoggerAwareTrait;
+
+        ...
+           $this->logger->info('My class is executed.');
+           if ($error) {
+              $this->logger->error('error in class MyClass');
+           }
+        ...
     }
 
 
@@ -199,7 +224,7 @@ The logger must be configured via :file:`ext_localconf.php` :
 .. code-block:: php
 
    // Add example configuration for the logging API
-   $GLOBALS['TYPO3_CONF_VARS']['LOG']['MyDomain']['MyExtension']['MyFolder']['MyClass']['writerConfiguration'] = [
+   $GLOBALS['TYPO3_CONF_VARS']['LOG']['MyVendor']['MyExtension']['MyFolder']['MyClass']['writerConfiguration'] = [
        // configuration for ERROR level log entries
        \TYPO3\CMS\Core\Log\LogLevel::ERROR => [
            // add a FileWriter
