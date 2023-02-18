@@ -35,7 +35,7 @@ The identifier of the site name is evaluated:
 
     [site("identifier") == "someIdentifier"]
        page.30.value = foo
-    [global]
+    [GLOBAL]
 
 
 Property of the current site language is evaluated:
@@ -44,7 +44,7 @@ Property of the current site language is evaluated:
 
     [siteLanguage("locale") == "de_CH.UTF-8"]
        page.40.value = bar
-    [global]
+    [GLOBAL]
 
 
 .. index:: pair: Site handling; YAML

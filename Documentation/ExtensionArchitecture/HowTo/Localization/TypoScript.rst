@@ -33,10 +33,10 @@ site configuration.
     lib.something = TEXT
     [siteLanguage("locale") == "de_CH"]
         lib.something.value = This site has the locale "de_CH"
-    [end]
+    [END]
     [siteLanguage("title") == "Italy"]
         lib.something.value = This site has the title "Italy"
-    [end]
+    [END]
 
 .. _localization-typoscript-LOCAL_LANG:
 
