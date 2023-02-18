@@ -62,7 +62,8 @@ Methods:
     retrieve all needed attributes from the request object.
 
 
-.. index:: pair: Site handling; SiteFinder
+..  index:: pair: Site handling; SiteFinder
+..  _sitehandling-site-object:
 
 Finding a site object
 =====================
