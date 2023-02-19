@@ -32,7 +32,7 @@ configuration. There are two options: deliver static text or resolve a TYPO3 URL
 
 ..  index:: Site handling; StaticText
 
-staticText
+:yaml:`staticText`
 ==========
 
 The :yaml:`staticText` option allows to deliver simple text content. The text
