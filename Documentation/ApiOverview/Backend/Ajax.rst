@@ -110,7 +110,7 @@ $reasonPhrase
    
    public function __construct(
        private readonly ResponseFactoryInterface $responseFactory
-   )
+   ) {
    {}
 
    public function doSomethingAction(ServerRequestInterface $request): ResponseInterface
