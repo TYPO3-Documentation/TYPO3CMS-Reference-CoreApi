@@ -10,9 +10,9 @@ It is possible to define a :yaml:`settings` block in a site's
 :file:`config.yaml` which can be accessed both in backend and frontend via the
 site object :php:`\TYPO3\CMS\core\Site\Entity\Site`.
 
-Additionally, these settings are available as "constants" in both
+Additionally, these settings are available in both
 :ref:`page TSconfig <t3tsconfig:pagetsconfig>` and
-:doc:`TypoScript templates <t3tsref:Index>` making it possible, for example, to
+:doc:`TypoScript templates <t3tsref:Index>`. This allows us, for example, to
 configure site-wide storage page IDs which can be used in both frontend and
 backend.
 
