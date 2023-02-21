@@ -115,11 +115,20 @@ $reasonPhrase
 
 .. code-block:: php
 
+   use Psr\Http\Message\ResponseFactoryInterface;
+   
+   public function __construct(
+       private readonly ResponseFactoryInterface $responseFactory
+   ) {
+   }
+
    public function doSomethingAction(ServerRequestInterface $request): ResponseInterface
    {
        // our previous computation
-
-       return new Response(json_encode(['result' => $result]), 200, ['Content-Type' => 'application/json; charset=utf-8']);
+       $response = $this->responseFactory->createResponse()
+           ->withHeader('Content-Type', 'application/json; charset=utf-8');
+       $response->getBody()->write(json_encode(['result' => $result], JSON_THROW_ON_ERROR));
+       return $response;
    }
 
 .. index:: Ajax; Endpoint
