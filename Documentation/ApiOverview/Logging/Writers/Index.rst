@@ -1,30 +1,36 @@
-.. include:: /Includes.rst.txt
+..  include:: /Includes.rst.txt
 
 
-.. _logging-writers:
+..  _logging-writers:
 
 ===========
-Log Writers
+Log writers
 ===========
 
-The purpose of a log writer is (usually) to save all log records into a persistent storage,
-like a log file, a database table, or to a remote syslog server.
+The purpose of a log writer is (usually) to save all log records into a
+persistent storage, like a log file, a database table, or to a remote syslog
+server.
 
 Different log writers offer possibilities to log into different targets.
-Custom log writers can extend the functionality shipped with TYPO3 Core .
+:ref:`Custom log writers <logging-writers-custom>` can extend the functionality
+shipped with TYPO3 Core.
+
+..  contents:: **Table of Contents**
+    :local:
 
 
-.. _logging-writers-builtin:
+..  _logging-writers-builtin:
 
-Built-in Log Writers
+Built-in log writers
 ====================
 
-This section describes the log writers shipped with the TYPO3 Core .
+This section describes the log writers shipped with the TYPO3 Core.
 Some writers have options to allow customization of the particular writer.
-See the :ref:`Configuration <logging-configuration-writer>` section for how to use these options.
+See the :ref:`configuration <logging-configuration-writer>` section on how to
+use these options.
 
 
-.. _logging-writers-database:
+..  _logging-writers-database:
 
 DatabaseWriter
 --------------
@@ -32,215 +38,236 @@ DatabaseWriter
 The database writer logs into a database table. This table has to reside
 in the database used by TYPO3 and is **not** automatically created.
 
-========  =========  ==============  ===============
-Option    Mandatory  Description     Default
-========  =========  ==============  ===============
-logTable  no         Database table  :code:`sys_log`
-========  =========  ==============  ===============
+The following option is available:
 
-.. warning::
+..  confval:: logTable
 
-   The :guilabel:`Admin Tools > Log` module is not adapted to the records written by the
-   :php:`DatabaseWriter` into the :code:`sys_log` table. If you write such records
-   there, you will not be able to see them using that module.
+    :type: string
+    :Mandatory: no
+    :Default: :sql:`sys_log`
 
-*Tip:* There's a tool for viewing such records in the TYPO3 backend at
-`gitlab.com/co-stack.com/co-stack.com/typo3-extensions/logs <https://gitlab.com/co-stack.com/co-stack.com/typo3-extensions/logs>`__.
+    The database table to write to.
 
-Example of a CREATE TABLE statement for logTable:
+    ..  warning::
+        The :guilabel:`Admin Tools > Log` module is not adapted to the records
+        written by the :php:`DatabaseWriter` into the :sql:`sys_log` table. If
+        you write such records there, you will not be able to see them using
+        that module.
 
-.. code-block:: mysql
+    ..  tip::
+        There is the third-party extension :t3ext:`logs` available for viewing
+        such records in the TYPO3 backend.
 
-   #
-   # Table structure for table 'tx_examples_log'
-   #
-   # The KEY on request_id is optional
-   #
-   CREATE TABLE tx_examples_log (
-           request_id varchar(13) DEFAULT '' NOT NULL,
-           time_micro double(16,4) NOT NULL default '0.0000',
-           component varchar(255) DEFAULT '' NOT NULL,
-           level tinyint(1) unsigned DEFAULT '0' NOT NULL,
-           message text,
-           data text,
+    Example of a :sql:`CREATE TABLE` statement for :php:`logTable`:
 
-           KEY request (request_id)
-   );
+    ..  code-block:: sql
+        :caption: EXT:my_extension/ext_tables.sql
 
-The corresponding configuration might look like this for the example class :php:`\T3docs\Examples\Controller`:
+        #
+        # Table structure for table 'tx_examples_log'
+        #
+        # The KEY on request_id is optional
+        #
+        CREATE TABLE tx_examples_log (
+            request_id varchar(13) DEFAULT '' NOT NULL,
+            time_micro double(16,4) NOT NULL default '0.0000',
+            component varchar(255) DEFAULT '' NOT NULL,
+            level tinyint(1) unsigned DEFAULT '0' NOT NULL,
+            message text,
+            data text,
 
-.. code-block:: php
+            KEY request (request_id)
+        );
 
-   $GLOBALS['TYPO3_CONF_VARS']['LOG']['T3docs']['Examples']['Controller']['writerConfiguration'][\TYPO3\CMS\Core\Log\LogLevel::DEBUG] = [
-      \TYPO3\CMS\Core\Log\Writer\DatabaseWriter::class => [
-        'logTable' => 'tx_examples_log'
-      ],
-   ];
+    The corresponding configuration might look like this for the example class
+    :php:`\T3docs\Examples\Controller`:
+
+    ..  code-block:: php
+        :caption: EXT:my_extension/ext_localconf.php
+
+        use TYPO3\CMS\Core\Log\LogLevel;
+        use TYPO3\CMS\Core\Log\Writer\DatabaseWriter;
+
+        $GLOBALS['TYPO3_CONF_VARS']['LOG']['T3docs']['Examples']['Controller']['writerConfiguration'] = [
+            LogLevel::DEBUG => [
+                DatabaseWriter::class => [
+                    'logTable' => 'tx_examples_log',
+                ],
+            ],
+        ];
 
 
-.. warning::
+..  warning::
+    If you are using a MariaDB Galera Cluster you should definitely add a
+    primary key field to the database definition, since it is required by
+    Galera (this can be a normal :sql:`uid` autoincrement field as known from
+    other tables):
+    `MariaDB Galera Cluster - Known Limitations <https://mariadb.com/kb/en/mariadb/mariadb-galera-cluster-known-limitations/>`__.
 
-   If you are using a MariaDB Galera Cluster you should definitely add a primary key field
-   to the database definition, since it is required by Galera (this can be a normal `uid` field as known from other tables):
-   `MariaDB Galera Cluster - Known Limitations <https://mariadb.com/kb/en/mariadb/mariadb-galera-cluster-known-limitations/>`__.
 
-.. _logging-writers-FileWriter:
+..  _logging-writers-FileWriter:
 
 FileWriter
 ----------
 
-The file writer logs into a log file, one log record per line.
-If the log file does not exist, it will be created (including parent directories, if needed).
-Please make sure that your web server has write-permissions to that path
-and it is below the root directory of your web site (defined by :php:`\TYPO3\CMS\Core\Core\Environment::getPublicPath()`). The filename is
-appended with a hash, that depends on the encryption key.
-If :ref:`$GLOBALS['TYPO3_CONF_VARS']['SYS']['generateApacheHtaccess'] <typo3ConfVars_sys_generateApacheHtaccess>` is set,
-an :file:`.htaccess` file is added to the directory.
-It protects your log files from being accessed from the web.
-If the log file is not set, then TYPO3 will use a filename containing a random hash,
-like :file:`typo3temp/logs/typo3_7ac500bce5.log`.
+The file writer logs into a log file, one log record per line. If the log file
+does not exist, it will be created (including parent directories, if needed).
 
-============  =========  ====================================================  ================
-Option        Mandatory  Description                                           Default
-============  =========  ====================================================  ================
-logFile       no         Path to log file                                      :file:`typo3temp/logs/typo3_<hash>.log` like for example :file:`typo3temp/logs/typo3_7ac500bce5.log`
-logFileInfix  no         Different file name to the default log configuration  :php:`'logFileInfix' => 'special'` results in :file:`typo3\_special\_<hash>.log`
-============  =========  ====================================================  ================
+Please make sure:
 
-The corresponding configuration might look like this for the example class :php:`\T3docs\Examples\Controller` :
+*   Your web server has write permissions to that path.
+*   The path is below the root directory of your website (defined by
+    :ref:`Environment::getPublicPath() <Environment-public-path>`).
 
-.. code-block:: php
+The filename is appended with a hash, that depends on the
+:ref:`encryption key <typo3ConfVars_sys_encryptionKey>`. If
+:ref:`$GLOBALS['TYPO3_CONF_VARS']['SYS']['generateApacheHtaccess'] <typo3ConfVars_sys_generateApacheHtaccess>`
+is set, an :file:`.htaccess` file is added to the directory. It protects your
+log files from being accessed from the web. If the :php:`logFile` option is not
+set, TYPO3 will use a filename containing a random hash, like
+:file:`typo3temp/logs/typo3_7ac500bce5.log`.
 
-   // Add example configuration for the logging API
-   $GLOBALS['TYPO3_CONF_VARS']['LOG']['T3docs']['Examples']['Controller']['writerConfiguration'] = [
-       // configuration for ERROR level log entries
-       \TYPO3\CMS\Core\Log\LogLevel::ERROR => [
-           // add a FileWriter
-           \TYPO3\CMS\Core\Log\Writer\FileWriter::class => [
-               // configuration for the writer
-               'logFile' => \TYPO3\CMS\Core\Core\Environment::getVarPath() . '/log/typo3_examples.log'
-           ]
-       ]
-   ];
+The following options are available:
+
+..  confval:: logFile
+
+    :type: string
+    :Mandatory: no
+    :Default: :file:`typo3temp/logs/typo3_<hash>.log`
+              (for example, like :file:`typo3temp/logs/typo3_7ac500bce5.log`)
+
+    The path to the log file.
+
+..  confval:: logFileInfix
+
+    :type: string
+    :Mandatory: no
+    :Default: (empty string)
+
+    This option allows to set a different name for the log file that is created
+    by the :php:`FileWriter` without having to define a full path to the file.
+    For example, the settings :php:`'logFileInfix' => 'special'` results in
+    :file:`typo3_special_<hash>.log`.
 
 
-.. _logging-writers-php:
+The corresponding configuration might look like this for the example class
+:php:`\T3docs\Examples\Controller`:
+
+..  code-block:: php
+    :caption: EXT:my_extension/ext_localconf.php
+
+    use TYPO3\CMS\Core\Core\Environment;
+    use TYPO3\CMS\Core\Log\LogLevel;
+    use TYPO3\CMS\Core\Log\Writer\FileWriter;
+
+    // Add example configuration for the logging API
+    $GLOBALS['TYPO3_CONF_VARS']['LOG']['T3docs']['Examples']['Controller']['writerConfiguration'] = [
+        // configuration for ERROR level log entries
+        LogLevel::ERROR => [
+            // Add a FileWriter
+            FileWriter::class => [
+                // Configuration for the writer
+                'logFile' => Environment::getVarPath() . '/log/typo3_examples.log',
+            ],
+        ],
+    ];
+
+
+..  _logging-writers-php:
 
 PhpErrorLogWriter
 -----------------
 
-Logs into the PHP error log using `error_log()`_
+This writer logs into the PHP error log using `error_log()`_
 
-.. _error_log(): https://www.php.net/manual/en/function.error-log.php
+..  _error_log(): https://www.php.net/manual/en/function.error-log.php
 
-.. _logging-writers-syslog:
+
+..  _logging-writers-syslog:
 
 SyslogWriter
 ------------
 
-Logs into the syslog (Unix only).
+The syslog writer logs into the syslog (Unix only).
+
+The following option is available:
+
+..  confval:: facility
+
+    :type: string
+    :Mandatory: no
+    :Default: ``USER``
+
+    The syslog `facility`_ to log into.
+
+    .. _facility: https://en.wikipedia.org/wiki/Syslog#Facility
 
 
-========  =========  ================  ========
-Option    Mandatory  Description       Default
-========  =========  ================  ========
-facility  no         Syslog Facility_  ``USER``
-                     to log into.
-========  =========  ================  ========
+..  _logging-writers-custom:
 
-.. _Facility: https://en.wikipedia.org/wiki/Syslog#Facility_Levels
-
-
-.. _logging-writers-custom:
-
-Custom Log Writers
+Custom log writers
 ==================
 
-Custom log writers can be added through extensions.
-Every log writer has to implement the interface :php:`\TYPO3\CMS\Core\Log\Writer\WriterInterface`.
-It is suggested to extend the abstract class :php:`\TYPO3\CMS\Core\Log\Writer\AbstractWriter`
-which allows you use configuration options by adding the corresponding properties and setter methods.
+Custom log writers can be added through extensions. Every log writer has to
+implement the interface :t3src:`core/Log/Writer/WriterInterface.php`. It is
+suggested to extend the abstract class :t3src:`core/Log/Writer/AbstractWriter.php`
+which allows you to use configuration options by adding the corresponding
+properties and setter methods.
 
-Please keep in mind that TYPO3 will silently continue operating,
-in case a log writer is throwing an exception while executing the :php:`writeLog()` method.
-Only in the case that all registered writers fail, the log entry plus additional information
-will be added to the configured fallback logger (which defaults to
+Please keep in mind that TYPO3 will silently continue operating, in case a log
+writer is throwing an exception while executing the :php:`writeLog()` method.
+Only in the case that all registered writers fail, the log entry with additional
+information will be added to the configured fallback logger (which defaults to
 the :ref:`PhpErrorLog <logging-writers-php>` writer).
 
-.. _logging-writers-usage:
 
-Usage in Custom Class
----------------------
+..  _logging-writers-usage:
 
-All log writers can be used in your own classes. If the service is configured to use autowiring 
-you can inject a logger into the :php:`__construct` method of your class :php:`\MyVendor\MyExtension\MyFolder\MyClass`) since TYPO3 v11 LTS.
+Usage in a custom class
+-----------------------
 
+All log writers can be used in your own classes. If the service is configured to
+use autowiring you can inject a logger into the :php:`__construct()` method of
+your class :php:`\MyVendor\MyExtension\MyFolder\MyClass`) since TYPO3 v11 LTS.
 
-.. code-block:: php
+..  literalinclude:: _MyClassWithConstructorInjection.php
+    :caption: EXT:my_extension/Classes/MyClass.php
 
-    namespace MyVendor\MyExtension\MyFolder;
+If autowiring is disabled, the service class however must implement the
+interface :php:`\Psr\Log\LoggerAwareInterface` and use the
+:php:`\Psr\Log\LoggerAwareTrait`.
 
-    use Psr\Log\LoggerInterface;
+..  literalinclude:: _MyClassWithLoggerAwareInterface.php
+    :caption: EXT:my_extension/Classes/MyClass.php
 
-    class MyClass {
-       private LoggerInterface $logger;
+One or more log writers for this class are configured in the file
+:file:`ext_localconf.php`:
 
-       public function __construct(LoggerInterface $logger) {
-           $this->logger = $logger;
-       }
-        ...
-           $this->logger->info('My class is executed.');
-           if ($error) {
-              $this->logger->error('error in class MyClass');
-           }
-        ...
-    }
+..  code-block:: php
+    :caption: EXT:my_extension/ext_localconf.php
 
+    use TYPO3\CMS\Core\Core\Environment;
+    use TYPO3\CMS\Core\Log\LogLevel;
+    use TYPO3\CMS\Core\Log\Writer\FileWriter;
 
-If autowiring is disabled, the service class however must implement the interface :php:`\Psr\Log\LoggerAwareInterface` and use the :php:`\Psr\Log\LoggerAwareTrait`.
-
-
-.. code-block:: php
-
-    namespace MyVendor\MyExtension\MyFolder;
-
-    use Psr\Log\LoggerAwareInterface;
-    use Psr\Log\LoggerAwareTrait;
-
-    class MyClass implements LoggerAwareInterface {
-       use LoggerAwareTrait;
-
-        ...
-           $this->logger->info('My class is executed.');
-           if ($error) {
-              $this->logger->error('error in class MyClass');
-           }
-        ...
-    }
-
-
-The logger must be configured via :file:`ext_localconf.php` :
-
-.. code-block:: php
-
-   // Add example configuration for the logging API
-   $GLOBALS['TYPO3_CONF_VARS']['LOG']['MyVendor']['MyExtension']['MyFolder']['MyClass']['writerConfiguration'] = [
-       // configuration for ERROR level log entries
-       \TYPO3\CMS\Core\Log\LogLevel::ERROR => [
-           // add a FileWriter
-           \TYPO3\CMS\Core\Log\Writer\FileWriter::class => [
-               // configuration for the writer
-               'logFile' => \TYPO3\CMS\Core\Core\Environment::getVarPath() . '/log/typo3_examples.log'
-           ]
-       ]
-   ];
+    // Add example configuration for the logging API
+    $GLOBALS['TYPO3_CONF_VARS']['LOG']['MyVendor']['MyExtension']['MyClass']['writerConfiguration'] = [
+        // Configuration for ERROR level log entries
+        LogLevel::ERROR => [
+            // Add a FileWriter
+            FileWriter::class => [
+                // Configuration for the writer
+                'logFile' => Environment::getVarPath() . '/log/my_extension.log',
+            ],
+        ],
+    ];
 
 
 
-.. _logging-writers-examples:
+..  _logging-writers-examples:
 
 Examples
 ========
 
-Working examples of the usage of different Log writers can be found in the extension
-:t3ext:`examples`.
+Working examples of the usage of different Log writers can be found in the
+extension :t3ext:`examples`.
