@@ -1,41 +1,48 @@
-.. include:: /Includes.rst.txt
-.. index:: pair: Site handling; Custom error handler
-.. _sitehandling-customErrorHandler:
+..  include:: /Includes.rst.txt
+..  index:: pair: Site handling; Custom error handler
+..  _sitehandling-customErrorHandler:
 
 ===================================
 Writing a custom page error handler
 ===================================
 
-The error handling configuration for sites allows implementing a custom error handler if the existing
-options of rendering a Fluid template or page are not enough. An example would be an error page
-that uses the requested page or its parameters to search for relevant content on the web site.
+The error handling configuration for sites allows implementing a custom error
+handler, if the existing options of rendering a
+:ref:`Fluid template <sitehandling-errorHandling_fluid>` or
+:ref:`page <sitehandling-errorHandling_page>` are not enough. An example would
+be an error page that uses the requested page or its parameters to search for
+relevant content on the website.
 
-A custom error handler needs to have a constructor that takes exactly two arguments:
+A custom error handler needs to have a constructor that takes exactly two
+arguments:
 
-* :php:`$statusCode`: an integer holding the status code TYPO3 expects the handler to use
-* :php:`$configuration`: an array holding the configuration of the handler
+*   :php:`$statusCode`: an integer holding the status code TYPO3 expects the
+    handler to use
+*   :php:`$configuration`: an array holding the configuration of the handler
 
 Furthermore it needs to implement the :php:`PageErrorHandlerInterface`
-(:php:`\TYPO3\CMS\Core\Error\PageErrorHandler\PageErrorHandlerInterface`). The interface specifies only one method:
+(:t3src:`core/Classes/Error/PageErrorHandler/PageErrorHandlerInterface.php`).
+The interface specifies only one method:
 :php:`handlePageError(ServerRequestInterface $request, string $message, array $reasons = []): ResponseInterface`
 
-Let's take a closer look:
+Let us take a closer look:
 
-The method :php:`handlePageError` get's three parameters:
+The method :php:`handlePageError()` gets three parameters:
 
-* :php:`$request`: the current HTTP request - we can for example access query parameters and
-  the request path via this object
-* :php:`$message`: an error message string - for example `Cannot connect to the configured database.`
-  or `Page not found`
-* :php:`$reasons`: an arbitrary array of failure reasons - see for
-  example :php:`\TYPO3\CMS\Frontend\Controller\TypoScriptFrontendController::getPageAccessFailureReasons`
+*   :php:`$request`: the current HTTP request - for example, we can access
+    query parameters and the request path via this :ref:`object <typo3-request>`
+*   :php:`$message`: an error message string - for example, "Cannot connect to
+    the configured database." or "Page not found"
+*   :php:`$reasons`: an arbitrary array of failure reasons - see, for example,
+    :php:`\TYPO3\CMS\Frontend\Controller\TypoScriptFrontendController::getPageAccessFailureReasons`
 
-What you do with these variables is left to you, but you need to return a valid :php:`ResponseInterface`
-response - most usually an :php:`HtmlResponse`.
+What you do with these variables is left to you, but you need to return a
+valid :php:`\Psr\Http\Message\ResponseInterface` response - most usually an
+:php:`\TYPO3\CMS\Core\Http\HtmlResponse`.
 
-For an example implementation of the :php:`PageErrorHandlerInterface` take a look
-at :php:`\TYPO3\CMS\Core\Error\PageErrorHandler\PageContentErrorHandler` or
-:php:`\TYPO3\CMS\Core\Error\PageErrorHandler\FluidPageErrorHandler`.
+For an example implementation of the :php:`PageErrorHandlerInterface`, take a
+look at :t3src:`core/Classes/Error/PageErrorHandler/PageContentErrorHandler.php`
+or :t3src:`core/Classes/Error/PageErrorHandler/FluidPageErrorHandler.php`.
 
 Properties
 ==========
@@ -44,81 +51,25 @@ The custom error handlers have the properties
 :ref:`sitehandling-errorHandling_errorCode` and
 :ref:`sitehandling-errorHandling_errorHandler` and the following:
 
-errorPhpClassFQCN
------------------
+..  confval:: errorPhpClassFQCN
 
-:aspect:`Datatype`
-   string
+    :type: string
+    :Example: `MyVendor\MySitePackage\Error\MyErrorHandler`
 
-:aspect:`Description`
-   Fully qualified class name of a custom error handler implementing
-   `PageErrorHandlerInterface`.
-
-:aspect:`Example`
-   `My\Site\Error\Handler`
+    Fully-qualified class name of a custom error handler implementing
+    :php:`PageErrorHandlerInterface`.
 
 
-Examples
-========
+Example for a simple 404 error handler
+======================================
 
-Example for a simple 404 ErrorHandler
--------------------------------------
+The configuration:
 
-The configuration in *config.yaml*:
+..  literalinclude:: _custom-error-handler.yaml
+    :language: yaml
+    :caption: config/sites/<some_site>/config.yaml | typo3conf/sites/<some_site>/config.yaml
 
-.. code-block:: yaml
+The error handler class:
 
-   errorHandling:
-      -
-         errorCode: '404'
-         errorHandler: PHP
-         errorPhpClassFQCN: My\ExtensionName\Error\ErrorHandler
-
-The ErrorHandler class:
-
-.. code-block:: php
-
-   <?php
-
-   namespace My\ExtensionName\Error;
-
-   use Psr\Http\Message\ResponseInterface;
-   use Psr\Http\Message\ServerRequestInterface;
-   use TYPO3\CMS\Core\Error\PageErrorHandler\PageErrorHandlerInterface;
-   use TYPO3\CMS\Core\Http\HtmlResponse;
-
-   final class ErrorHandler implements PageErrorHandlerInterface
-   {
-       /**
-        * @var int
-        */
-       protected $statusCode;
-
-       /**
-        * @var array
-        */
-       protected $errorHandlerConfiguration;
-
-       public function __construct(int $statusCode, array $configuration)
-       {
-           $this->statusCode = $statusCode;
-           // This contains the configuration of the error handler which is
-           // set in site configuration - this example does not use it.
-           $this->errorHandlerConfiguration = $configuration;
-       }
-
-       /**
-        * @param ServerRequestInterface $request
-        * @param string $message
-        * @param array $reasons
-        * @return ResponseInterface
-        */
-       public function handlePageError(
-           ServerRequestInterface $request,
-           string $message,
-           array $reasons = []
-       ): ResponseInterface {
-              return new HtmlResponse('<h1>Not found, sorry</h1>', $this->statusCode);
-       }
-
-   }
+..  literalinclude:: _MyErrorHandler.php
+    :caption: EXT:my_sitepackage/Classes/Error/MyErrorHandler.php
