@@ -29,31 +29,14 @@ Example
 
 Registration of the event in your extension's :file:`Services.yaml`:
 
-..  code-block:: yaml
+..  literalinclude:: _ModifyAllowedItemsEvent/_Services.yaml
+    :language: yaml
     :caption: EXT:my_extension/Configuration/Services.yaml
-
-    MyVendor\MyExtension\Backend\MyEventListener:
-        tags:
-            - name: event.listener
-              identifier: 'my-extension/backend/allowed-items'
 
 The corresponding event listener class:
 
-..  code-block:: php
-    :caption: EXT:my_extension/Classes/Backend/MyEventListener.php
-
-    namespace MyVendor\MyExtension\Backend;
-
-    use TYPO3\CMS\Backend\Controller\Event\ModifyAllowedItemsEvent;
-
-    final class MyEventListener
-    {
-        public function __invoke(ModifyAllowedItemsEvent $event): void
-        {
-            $event->addAllowedItem('someItem');
-            $event->removeAllowedItem('anotherItem');
-        }
-    }
+..  literalinclude:: _ModifyAllowedItemsEvent/_MyEventListener.php
+    :caption: EXT:my_extension/Classes/Backend/EventListener/MyEventListener.php
 
 API
 ===

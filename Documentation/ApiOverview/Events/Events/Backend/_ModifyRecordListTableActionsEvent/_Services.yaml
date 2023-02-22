@@ -1,0 +1,11 @@
+MyVendor\MyExtension\Backend\EventListener\MyEventListener:
+  tags:
+    - name: event.listener
+      identifier: 'my-extension/recordlist/my-event-listener'
+      method: 'modifyRecordActions'
+    - name: event.listener
+      identifier: 'my-extension/recordlist/my-event-listener'
+      method: 'modifyHeaderColumns'
+    - name: event.listener
+      identifier: 'my-extension/recordlist/my-event-listener'
+      method: 'modifyTableActions'

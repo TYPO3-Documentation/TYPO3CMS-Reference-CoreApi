@@ -19,32 +19,14 @@ Example
 
 Registration of the event in your extension's :file:`Services.yaml`:
 
-..  code-block:: yaml
+..  literalinclude:: _IsFileSelectableEvent/_Services.yaml
+    :language: yaml
     :caption: EXT:my_extension/Configuration/Services.yaml
-
-    MyVendor\MyExtension\Backend\MyEventListener:
-      tags:
-        - name: event.listener
-          identifier: 'my-extension/backend/modify-file-is-selectable'
 
 The corresponding event listener class:
 
-..  code-block:: php
-    :caption: EXT:my_extension/Classes/Backend/MyEventListener.php
-
-    namespace MyVendor\MyExtension\Backend;
-
-    use TYPO3\CMS\Backend\ElementBrowser\Event\IsFileSelectableEvent;
-
-    final class MyEventListener {
-        public function __invoke(IsFileSelectableEvent $event): void
-        {
-            // Deny selection of "png" images
-            if ($event->getFile()->getExtension() === 'png') {
-                $event->denyFileSelection();
-            }
-        }
-    }
+..  literalinclude:: _IsFileSelectableEvent/_MyEventListener.php
+    :caption: EXT:my_extension/Classes/Backend/EventListener/MyEventListener.php
 
 API
 ===

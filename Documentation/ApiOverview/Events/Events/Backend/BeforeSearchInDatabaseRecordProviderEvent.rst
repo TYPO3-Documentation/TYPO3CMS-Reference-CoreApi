@@ -25,30 +25,14 @@ Example
 
 Registration of the event in your extension's :file:`Services.yaml`:
 
-..  code-block:: yaml
+..  literalinclude:: _BeforeSearchInDatabaseRecordProviderEvent/_Services.yaml
+    :language: yaml
     :caption: EXT:my_extension/Configuration/Services.yaml
-
-    MyVendor\MyExtension\EventListener\MyEventListener:
-      tags:
-        - name: event.listener
-          identifier: 'my-extension/before-search-in-database-record-provider-event-listener'
 
 The corresponding event listener class:
 
-..  code-block:: php
-    :caption: EXT:my_extension/Classes/EventListener/MyEventListener.php
-
-    namespace MyVendor\MyExtension\EventListener;
-
-    use TYPO3\CMS\Backend\Search\Event\BeforeSearchInDatabaseRecordProviderEvent;
-
-    final class MyEventListener
-    {
-        public function __invoke(BeforeSearchInDatabaseRecordProviderEvent $event): void
-        {
-            $event->ignoreTable('my_custom_table');
-        }
-    }
+..  literalinclude:: _BeforeSearchInDatabaseRecordProviderEvent/_MyEventListener.php
+    :caption: EXT:my_extension/Classes/Backend/EventListener/MyEventListener.php
 
 
 API

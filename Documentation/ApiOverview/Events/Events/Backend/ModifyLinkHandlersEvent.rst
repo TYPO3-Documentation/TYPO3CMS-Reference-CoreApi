@@ -2,7 +2,6 @@
 ..  index:: Events; ModifyLinkHandlersEvent
 ..  _ModifyLinkHandlersEvent:
 
-
 =======================
 ModifyLinkHandlersEvent
 =======================
@@ -28,32 +27,14 @@ Example
 
 Registration of the event in your extension's :file:`Services.yaml`:
 
-..  code-block:: yaml
+..  literalinclude:: _ModifyLinkHandlersEvent/_Services.yaml
+    :language: yaml
     :caption: EXT:my_extension/Configuration/Services.yaml
-
-    MyVendor\MyExtension\Backend\MyEventListener:
-        tags:
-            - name: event.listener
-              identifier: 'my-extension/backend/link-handlers'
 
 The corresponding event listener class:
 
-..  code-block:: php
-    :caption: EXT:my_extension/Classes/Backend/MyEventListener.php
-
-    namespace MyVendor\MyExtension\Backend;
-
-    use TYPO3\CMS\Backend\Controller\Event\ModifyLinkHandlersEvent;
-
-    final class MyEventListener
-    {
-        public function __invoke(ModifyLinkHandlersEvent $event): void
-        {
-            $handler = $event->getHandler('url.');
-            $handler['label'] = 'My custom label';
-            $event->setHandler('url.', $handler);
-        }
-    }
+..  literalinclude:: _ModifyLinkHandlersEvent/_MyEventListener.php
+    :caption: EXT:my_extension/Classes/Backend/EventListener/MyEventListener.php
 
 
 API

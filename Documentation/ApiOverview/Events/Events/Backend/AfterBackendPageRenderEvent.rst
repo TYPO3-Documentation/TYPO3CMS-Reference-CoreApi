@@ -24,32 +24,14 @@ Example
 
 Registration of the event in your extension's :file:`Services.yaml`:
 
-..  code-block:: yaml
+..  literalinclude:: _AfterBackendPageRenderEvent/_Services.yaml
+    :language: yaml
     :caption: EXT:my_extension/Configuration/Services.yaml
-
-    MyVendor\MyExtension\Backend\MyEventListener:
-      tags:
-        - name: event.listener
-          identifier: 'my-extension/backend/after-backend-page-render'
 
 The corresponding event listener class:
 
-..  code-block:: php
-    :caption: EXT:my_extension/Classes/Backend/MyEventListener.php
-
-    namespace MyVendor\MyExtension\Backend;
-
-    use TYPO3\CMS\Backend\Controller\Event\AfterBackendPageRenderEvent;
-
-    final class MyEventListener
-    {
-        public function __invoke(AfterBackendPageRenderEvent $event): void
-        {
-            $content = $event->getContent() . ' I was here';
-            $event->setContent($content);
-        }
-    }
-
+..  literalinclude:: _AfterBackendPageRenderEvent/_MyEventListener.php
+    :caption: EXT:my_extension/Classes/Backend/EventListener/MyEventListener.php
 
 API
 ===

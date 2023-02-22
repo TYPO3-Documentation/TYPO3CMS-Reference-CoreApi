@@ -25,41 +25,14 @@ Example
 
 Registration of the event in your extension's :file:`Services.yaml`:
 
-..  code-block:: yaml
+..  literalinclude:: _ModifyNewContentElementWizardItemsEvent/_Services.yaml
+    :language: yaml
     :caption: EXT:my_extension/Configuration/Services.yaml
-
-    MyVendor\MyExtension\Backend\MyEventListener:
-      tags:
-        - name: event.listener
-          identifier: 'my-extension/backend/modify-wizard-items'
 
 The corresponding event listener class:
 
-..  code-block:: php
-    :caption: EXT:my_extension/Classes/Backend/MyEventListener.php
-
-    namespace MyVendor\MyExtension\Backend;
-
-    use TYPO3\CMS\Backend\Controller\Event\ModifyNewContentElementWizardItemsEvent;
-
-    final class MyEventListener {
-        public function __invoke(ModifyNewContentElementWizardItemsEvent $event): void
-        {
-            // Add a new wizard item after "textpic"
-            $event->setWizardItem(
-                'my_element',
-                [
-                    'iconIdentifier' => 'icon-my-element',
-                    'title' => 'My element',
-                    'description' => 'My element description',
-                    'tt_content_defValues' => [
-                        'CType' => 'my_element'
-                    ],
-                ],
-                ['after' => 'common_textpic']
-            );
-        }
-    }
+..  literalinclude:: _ModifyNewContentElementWizardItemsEvent/_MyEventListener.php
+    :caption: EXT:my_extension/Classes/Backend/EventListener/MyEventListener.php
 
 API
 ===

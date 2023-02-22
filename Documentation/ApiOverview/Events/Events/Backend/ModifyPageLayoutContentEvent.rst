@@ -23,31 +23,14 @@ Example
 
 Registration of the event in your extension's :file:`Services.yaml`:
 
-..  code-block:: yaml
+..  literalinclude:: _ModifyPageLayoutContentEvent/_Services.yaml
+    :language: yaml
     :caption: EXT:my_extension/Configuration/Services.yaml
-
-    MyVendor\MyExtension\Backend\MyEventListener:
-      tags:
-        - name: event.listener
-          identifier: 'my-extension/backend/modify-page-module-content'
 
 The corresponding event listener class:
 
-..  code-block:: php
+..  literalinclude:: _ModifyPageLayoutContentEvent/_MyEventListener.php
     :caption: EXT:my_extension/Classes/Backend/EventListener/MyEventListener.php
-
-    namespace MyVendor\MyExtension\Backend\MyEventListener;
-
-    use TYPO3\CMS\Backend\Controller\Event\ModifyPageLayoutContentEvent;
-
-    final class MyEventListener {
-        public function __invoke(ModifyPageLayoutContentEvent $event): void
-        {
-            $event->addHeaderContent('Additional header content');
-
-            $event->setFooterContent('Overwrite footer content');
-        }
-    }
 
 API
 ===

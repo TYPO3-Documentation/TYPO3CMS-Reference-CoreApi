@@ -21,60 +21,14 @@ Example
 
 Registration of the event in your extension's :file:`Services.yaml`:
 
-..  code-block:: yaml
+..  literalinclude:: _ModifyResultItemInLiveSearchEvent/_Services.yaml
+    :language: yaml
     :caption: EXT:my_extension/Configuration/Services.yaml
-
-    MyVendor\MyExtension\Search\EventListener\MyEventListener:
-      tags:
-        - name: event.listener
-          identifier: 'my-extension/add-live-search-result-actions-listener'
 
 The corresponding event listener class:
 
-..  code-block:: php
-    :caption: EXT:my_extension/Search/EventListener/MyEventListener.php
-
-    namespace MyVendor\MyExtension\Search\EventListener;
-
-    use TYPO3\CMS\Backend\Search\Event\ModifyResultItemInLiveSearchEvent;
-    use TYPO3\CMS\Backend\Search\LiveSearch\DatabaseRecordProvider;
-    use TYPO3\CMS\Backend\Search\LiveSearch\ResultItemAction;
-    use TYPO3\CMS\Core\Imaging\Icon;
-    use TYPO3\CMS\Core\Imaging\IconFactory;
-
-    final class MyEventListener
-    {
-        private readonly LanguageService $languageService;
-
-        public function __construct(
-            private readonly IconFactory $iconFactory,
-            LanguageServiceFactory $languageServiceFactory,
-            private readonly UriBuilder $uriBuilder
-        ) {
-            $this->languageService = $this->languageServiceFactory->createFromUserPreferences($GLOBALS['BE_USER']);
-        }
-
-        public function __invoke(ModifyResultItemInLiveSearchEvent $event): void
-        {
-            $resultItem = $event->getResultItem();
-            if ($resultItem->getProviderClassName() !== DatabaseRecordProvider::class) {
-                return;
-            }
-
-            if (($resultItem->getExtraData()['table'] ?? null) === 'tt_content') {
-                /**
-                 * WARNING: THIS EXAMPLE OMITS ANY ACCESS CHECK FOR SIMPLICITY REASONS - DO NOT USE AS-IS
-                 */
-                $showHistoryAction = (new ResultItemAction('view_history'))
-                    ->setLabel($this->languageService->sL('LLL:EXT:core/Resources/Private/Language/locallang_mod_web_list.xlf:history'))
-                    ->setIcon($this->iconFactory->getIcon('actions-document-history-open', Icon::SIZE_SMALL))
-                    ->setUrl((string)$this->uriBuilder->buildUriFromRoute('record_history', [
-                        'element' => $resultItem->getExtraData()['table'] . ':' . $resultItem->getExtraData()['uid']
-                    ]));
-                $resultItem->addAction($showHistoryAction);
-            }
-        }
-    }
+..  literalinclude:: _ModifyResultItemInLiveSearchEvent/_MyEventListener.php
+    :caption: EXT:my_extension/Classes/Backend/EventListener/MyEventListener.php
 
 API
 ===
