@@ -32,30 +32,14 @@ Example
 
 Registration of the event in your extension's :file:`Services.yaml`:
 
-..  code-block:: yaml
+..  literalinclude:: _ModifyImageManipulationPreviewUrlEvent/_Services.yaml
+    :language: yaml
     :caption: EXT:my_extension/Configuration/Services.yaml
-
-    MyVendor\MyExtension\Backend\MyEventListener:
-      tags:
-        - name: event.listener
-          identifier: 'my-extension/backend/modify-imagemanipulation-previewurl'
 
 The corresponding event listener class:
 
-..  code-block:: php
-    :caption: EXT:my_extension/Classes/Backend/MyEventListener.php
-
-    namespace MyVendor\MyExtension\Backend;
-
-    use TYPO3\CMS\Backend\Form\Event\ModifyImageManipulationPreviewUrlEvent
-
-    final class MyEventListener
-    {
-        public function __invoke(ModifyImageManipulationPreviewUrlEvent $event): void
-        {
-            $event->setPreviewUrl('https://example.com/some/preview/url');
-        }
-    }
+..  literalinclude:: _ModifyImageManipulationPreviewUrlEvent/_MyEventListener.php
+    :caption: EXT:my_extension/Classes/Backend/EventListener/MyEventListener.php
 
 API
 ===

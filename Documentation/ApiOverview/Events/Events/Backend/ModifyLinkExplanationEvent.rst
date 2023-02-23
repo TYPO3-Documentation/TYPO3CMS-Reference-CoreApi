@@ -42,40 +42,14 @@ Example
 
 Registration of the event in your extension's :file:`Services.yaml`:
 
-..  code-block:: yaml
+..  literalinclude:: _ModifyLinkExplanationEvent/_Services.yaml
+    :language: yaml
     :caption: EXT:my_extension/Configuration/Services.yaml
-
-    MyVendor\MyExtension\Backend\MyEventListener:
-      tags:
-        - name: event.listener
-          identifier: 'my-extension/backend/modify-link-explanation'
 
 The corresponding event listener class:
 
-..  code-block:: php
-    :caption: EXT:my_extension/Classes/Backend/MyEventListener.php
-
-    namespace MyVendor\MyExtension\Backend;
-
-    use TYPO3\CMS\Backend\Form\Event\ModifyLinkExplanationEvent;
-    use TYPO3\CMS\Core\Imaging\Icon;
-    use TYPO3\CMS\Core\Imaging\IconFactory;
-
-    final class MyEventListener
-    {
-        public function __construct(
-            private readonly IconFactory $iconFactory
-        ) {
-        }
-
-        public function __invoke(ModifyLinkExplanationEvent $event): void
-        {
-            // Use a custom icon for a custom link type
-            if ($event->getLinkData()['type'] === 'myCustomLinkType') {
-                $event->setLinkExplanationValue('icon', $this->iconFactory->getIcon('my-custom-link-icon', Icon::SIZE_SMALL)->render());
-            }
-        }
-    }
+..  literalinclude:: _ModifyLinkExplanationEvent/_MyEventListener.php
+    :caption: EXT:my_extension/Classes/Backend/EventListener/MyEventListener.php
 
 API
 ===

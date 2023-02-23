@@ -25,29 +25,14 @@ Example
 
 Registration of the event in the :file:`Services.yaml`:
 
-..  code-block:: yaml
-    :caption: EXT:some_extension/Configuration/Services.yaml
-
-    MyVendor\MyExtension\Toolbar\MyEventListener:
-      tags:
-        - name: event.listener
-          identifier: 'my-extension/toolbar/my-event-listener'
+..  literalinclude:: _ModifyClearCacheActionsEvent/_Services.yaml
+    :language: yaml
+    :caption: EXT:my_extension/Configuration/Services.yaml
 
 The corresponding event listener class:
 
-..  code-block:: php
-    :caption: EXT:my_extension/Classes/EventListener/MyEventListener.php
-
-    namespace MyVendor\MyExtension\Toolbar;
-
-    use TYPO3\CMS\Backend\Backend\Event\ModifyClearCacheActionsEvent;
-
-    final class MyEventListener {
-        public function __invoke(ModifyClearCacheActionsEvent $event): void
-        {
-            // do magic here
-        }
-    }
+..  literalinclude:: _ModifyClearCacheActionsEvent/_MyEventListener.php
+    :caption: EXT:my_extension/Classes/Backend/EventListener/MyEventListener.php
 
 The cache action array element consists of the following keys and values:
 

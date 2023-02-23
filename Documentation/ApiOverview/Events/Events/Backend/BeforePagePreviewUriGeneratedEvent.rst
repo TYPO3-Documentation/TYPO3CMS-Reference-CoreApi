@@ -30,36 +30,14 @@ Example
 
 Registration of the event in your extension's :file:`Services.yaml`:
 
-..  code-block:: yaml
+..  literalinclude:: _BeforePagePreviewUriGeneratedEvent/_Services.yaml
+    :language: yaml
     :caption: EXT:my_extension/Configuration/Services.yaml
-
-    MyVendor\MyExtension\Backend\MyEventListener:
-      tags:
-        - name: event.listener
-          identifier: 'my-extension/backend/modify-parameters'
 
 The corresponding event listener class:
 
-..  code-block:: php
-    :caption: EXT:my_extension/Classes/Backend/MyEventListener.php
-
-    namespace MyVendor\MyExtension\Backend;
-
-    use TYPO3\CMS\Backend\Routing\Event\BeforePagePreviewUriGeneratedEvent;
-
-    final class MyEventListener
-    {
-        public function __invoke(BeforePagePreviewUriGeneratedEvent $event): void
-        {
-            // Add custom query parameter before URI generation
-            $event->setAdditionalQueryParameters(
-                array_replace_recursive(
-                    $event->getAdditionalQueryParameters(),
-                    ['myParam' => 'paramValue']
-                )
-            );
-        }
-    }
+..  literalinclude:: _BeforePagePreviewUriGeneratedEvent/_MyEventListener.php
+    :caption: EXT:my_extension/Classes/Backend/EventListener/MyEventListener.php
 
 API
 ===

@@ -25,39 +25,14 @@ Example
 
 Registration of the event in your extensions' :file:`Services.yaml`:
 
-..  code-block:: yaml
+..  literalinclude:: _ModifyQueryForLiveSearchEvent/_Services.yaml
+    :language: yaml
     :caption: EXT:my_extension/Configuration/Services.yaml
-
-    MyVendor\MyExtension\HrefLang\EventListener\ModifyQueryForLiveSearchEventListener:
-      tags:
-        - name: event.listener
-          identifier: 'my-extension/modify-query-for-live-search-event-listener'
 
 The corresponding event listener class:
 
-..  code-block:: php
-    :caption: EXT:my_extension/Classes/HrefLang/EventListener/MyEventListener.php
-
-    namespace MyVendor\MyExtension\HrefLang\EventListener;
-
-    use TYPO3\CMS\Backend\Search\Event\ModifyQueryForLiveSearchEvent;
-
-    final class ModifyQueryForLiveSearchEventListener
-    {
-        public function __invoke(ModifyQueryForLiveSearchEvent $event): void
-        {
-            // Get the current instance
-            $queryBuilder = $event->getQueryBuilder();
-
-            // Change limit depending on the table
-            if ($event->getTableName() === 'pages') {
-                $queryBuilder->setMaxResults(2);
-            }
-
-            // Reset the orderBy part
-            $queryBuilder->resetQueryPart('orderBy');
-        }
-    }
+..  literalinclude:: _ModifyQueryForLiveSearchEvent/_MyEventListener.php
+    :caption: EXT:my_extension/Classes/Backend/EventListener/MyEventListener.php
 
 
 API

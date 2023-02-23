@@ -20,44 +20,14 @@ Example
 
 Registration of the event in your extension's :file:`Services.yaml`:
 
-..  code-block:: yaml
+..  literalinclude:: _AfterRecordSummaryForLocalizationEvent/_Services.yaml
+    :language: yaml
     :caption: EXT:my_extension/Configuration/Services.yaml
-
-    MyVendor\MyExtension\EventListener\Backend\MyEventListener:
-        tags:
-            - name: event.listener
-              identifier: 'my-extension/backend/after-record-summary-for-localization'
 
 The corresponding event listener class:
 
-..  code-block:: php
-    :caption: EXT:my_extension/Classes/Backend/MyEventListener.php
-
-    namespace MyVendor\MyExtension\EventListener\Backend;
-
-    use TYPO3\CMS\Backend\Controller\Event\AfterRecordSummaryForLocalizationEvent;
-
-    final class MyEventListener
-    {
-        public function __invoke(AfterRecordSummaryForLocalizationEvent $event): void
-        {
-            // Get current records
-            $records = $event->getRecords();
-
-            // ... do something with $records
-
-            // Set new records
-            $event->setRecords($records);
-
-            // Get current columns
-            $columns = $event->getColumns();
-
-            // ... do something with $columns
-
-            // Set new columns
-            $event->setColumns($columns);
-        }
-    }
+..  literalinclude:: _AfterRecordSummaryForLocalizationEvent/_MyEventListener.php
+    :caption: EXT:my_extension/Classes/Backend/EventListener/MyEventListener.php
 
 API
 ===

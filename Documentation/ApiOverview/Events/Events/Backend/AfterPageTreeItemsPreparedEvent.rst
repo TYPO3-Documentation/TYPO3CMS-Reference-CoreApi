@@ -26,37 +26,14 @@ Example
 
 Registration of the event in your extension's :file:`Services.yaml`:
 
-..  code-block:: yaml
+..  literalinclude:: _AfterPageTreeItemsPreparedEvent/_Services.yaml
+    :language: yaml
     :caption: EXT:my_extension/Configuration/Services.yaml
-
-    MyVendor\MyExtension\Backend\MyEventListener:
-      tags:
-        - name: event.listener
-          identifier: 'my-extension/backend/modify-page-tree-items'
 
 The corresponding event listener class:
 
-..  code-block:: php
-    :caption: EXT:my_extension/Classes/Backend/MyEventListener.php
-
-    namespace MyVendor\MyExtension\Backend;
-
-    use TYPO3\CMS\Backend\Controller\Event\AfterPageTreeItemsPreparedEvent;
-
-    final class MyEventListener
-    {
-        public function __invoke(AfterPageTreeItemsPreparedEvent $event): void
-        {
-            $items = $event->getItems();
-            foreach ($items as $item) {
-                // Setting special item for page with id 123
-                if ($item['_page']['uid'] === 123) {
-                    $item['icon'] = 'my-special-icon';
-                }
-            }
-            $event->setItems($items);
-        }
-    }
+..  literalinclude:: _AfterPageTreeItemsPreparedEvent/_MyEventListener.php
+    :caption: EXT:my_extension/Classes/Backend/EventListener/MyEventListener.php
 
 API
 ===

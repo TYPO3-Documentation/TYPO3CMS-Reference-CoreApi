@@ -25,31 +25,14 @@ Example
 
 Registration of an event listener in your extension's :file:`Services.yaml`:
 
-..  code-block:: yaml
+..  literalinclude:: _ModifyGenericBackendMessagesEvent/_Services.yaml
+    :language: yaml
     :caption: EXT:my_extension/Configuration/Services.yaml
-
-    MyVendor\MyExtension\Backend\MyEventListener:
-      tags:
-        - name: event.listener
-          identifier: 'my-extension/backend/add-message'
 
 The corresponding event listener class:
 
-..  code-block:: php
-    :caption: EXT:my_extension/Classes/Backend/MyEventListener.php
-
-    namespace MyVendor\MyExtension\Backend;
-
-    use TYPO3\CMS\Backend\Controller\Event\ModifyGenericBackendMessagesEvent;
-    use TYPO3\CMS\Core\Messaging\FlashMessage;
-
-    final class MyEventListener {
-        public function __invoke(ModifyGenericBackendMessagesEvent $event): void
-        {
-            // Add a custom message
-            $event->addMessage(new FlashMessage('My custom message'));
-        }
-    }
+..  literalinclude:: _ModifyGenericBackendMessagesEvent/_MyEventListener.php
+    :caption: EXT:my_extension/Classes/Backend/EventListener/MyEventListener.php
 
 API
 ===

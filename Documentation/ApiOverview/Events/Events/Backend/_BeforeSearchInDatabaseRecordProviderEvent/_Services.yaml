@@ -1,0 +1,4 @@
+MyVendor\MyExtension\Backend\EventListener\MyEventListener:
+  tags:
+    - name: event.listener
+      identifier: 'my-extension/before-search-in-database-record-provider-event-listener'
