@@ -296,7 +296,7 @@ Best practices
 
 Any kind of event provided by TYPO3 Core falls under TYPO3's Core API deprecation policy, except
 for its constructor arguments, which may vary. Events that should only be used within TYPO3 Core,
-are marked as :php:`@internal`, just like other non-API parts of TYPO3. :php:`@internal` events should be
+are marked as :php:`@internal`, just like other non-API parts of TYPO3. Events marked as :php:`@internal` should be
 avoided whenever technically possible.
 
 
