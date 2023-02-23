@@ -6,6 +6,13 @@
 Configuration files
 ===================
 
+.. note::
+
+    This page is about configuration for the general TYPO3 installation.  
+    There might be many other configuration directives related to technical elements
+    like the RTE (Rich Text Editor), link handling or to distinct extensions.  
+    Those directives are not covered on this page.
+
 The configuration files :file:`settings.php` and
 :file:`additional.php` are located in the directory
 :ref:`directory-config-system` in Composer-based
@@ -27,8 +34,6 @@ internal management tools. Be aware that having settings within
 :file:`additional.php` may prevent the system from performing
 automatic upgrades and should be used with care and only if you know what
 you are doing.
-
-See also :ref:`extension-files-configuration` .
 
 .. _configuration-files-migration:
 
