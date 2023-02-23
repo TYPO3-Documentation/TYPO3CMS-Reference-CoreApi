@@ -296,7 +296,7 @@ Best practices
 
 Any kind of event provided by TYPO3 Core falls under TYPO3's Core API deprecation policy, except
 for its constructor arguments, which may vary. Events that should only be used within TYPO3 Core,
-are marked as :php:`@internal`, just like other non-API parts of TYPO3, but :php:`@internal` events will be
+are marked as :php:`@internal`, just like other non-API parts of TYPO3. :php:`@internal` events should be
 avoided whenever technically possible.
 
 
@@ -312,9 +312,10 @@ A complete list of all registered event listeners can be viewed in the the modul
 
 .. TODO: add screenshot
 
-To debug all events that are actually dispatched in a frontend request you can use
+To debug all events that are actually dispatched during a frontend request you can use the
 admin panel:
 
 Go to :guilabel:`Admin Panel > Debug > Events` and see all dispatched events.
+The system extension `adminpanel` has to be installed for this module to be available.
 
 .. TODO: add screenshot
