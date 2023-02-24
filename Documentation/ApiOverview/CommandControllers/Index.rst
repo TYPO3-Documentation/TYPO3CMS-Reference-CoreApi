@@ -17,13 +17,15 @@ These commands can also be run from the TYPO3
 :ref:`scheduler <symfony-console-commands-scheduler>` if this option is not
 disabled in the :file:`Configuration/Services.yaml`.
 
-The starting point for the commands differs depending on the kind of your TYPO3 installation.  
+The starting point for the commands differs depending on the type of your
+TYPO3 installation.
 
- 1. In installations with composer TYPO3 the starting point is usually the folder where the
-file :file:`composer.json` is resided, in this folder the directories :file:`var` and
-:file:`vendor` are also created. CLI-commands start usually with `vendor/bin/`.
- 2. In legacy installations (without composer) the starting poin is usually the web-root,
- so that CLI-commands start with `typo3/vendor/bin/`.
+*   For installations with Composer, the starting point is the project
+    folder, which also contains the :file:`composer.json` file of the project.
+    The CLI commands usually start with :file:`vendor/bin/typo3`.
+*   For legacy installations (without Composer), the starting point is usually
+    the web root, so CLI commands start with :file:`typo3/sysext/core/bin/typo3`.
+
 
 .. _symfony-console-commands-cli:
 
