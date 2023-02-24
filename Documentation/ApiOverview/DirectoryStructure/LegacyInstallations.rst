@@ -17,9 +17,21 @@ see :ref:`Composer-based installations: Directory structure <directory-structure
 Files on project level
 ======================
 
-This folder contains the main entry script :file:`index.php` and might contain
-publicly available files like a :file:`robots.txt` and files needed for the
-server configuration like a :file:`.htaccess` file.
+The project folder is usually at :file:`/path/to/your/webroot/` (web application root).
+It must contain the main entry script :file:`index.php`.
+It might contain a file for server configuration like  :file:`.htaccess`.
+
+.. note::
+
+   Further files might be useful depending on the server or the purpose.  
+   It's for example common to place an authentication file in the web root for a search engine.  
+   Also different files for server configuration might be possible.  
+   
+   Note that TYPO3 has the possibility to provide one or more virtual file(s) :file:`robots.txt`.
+   This option can be found in the backend module 'Sites' in 'Site Management' and
+   is especially advised when different domains shall be hosted in one TYPO3 installation.
+   Like this it's possible to provide for each domain an individual :file:`robots.txt`.
+
 
 Directories in a typical project
 ================================
