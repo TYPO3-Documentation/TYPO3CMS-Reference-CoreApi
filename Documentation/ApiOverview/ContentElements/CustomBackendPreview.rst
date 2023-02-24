@@ -71,10 +71,10 @@ approaches:
 #.  Table and field have a :php:`subtype_value_field` TCA setting
 
     If your table and field have a :php:`subtype_value_field` TCA setting (like
-    :php:`tt_content.list_type` for example) and you want to register a preview
-    renderer that applies only when that value is selected (for example, when a
-    certain plugin type is selected and you can't match it with the "type" of
-    the record alone):
+    :php:`tt_content.list_type` for example) and you want to register a 
+    PreviewRenderer that applies only when that value is selected (for example, 
+    when a certain plugin type is selected and you can't match it with the "type"
+    of the record alone):
 
     ..  code-block:: php
 
@@ -92,3 +92,9 @@ approaches:
     when your extension is the one that creates the table, the latter is used
     when you need to override TCA properties of tables added by the Core or
     other extensions.
+
+..  note::
+    The content elements :php:`text`, :php:`textpic`, :php:`textmedia` and 
+    :php:`image` have their own PreviewRenderer. Therefore it's not sufficient
+    to overwrite the :php:`StandardContentPreviewRenderer` but you need to use
+    the second approach from above for every single of these content elements.
