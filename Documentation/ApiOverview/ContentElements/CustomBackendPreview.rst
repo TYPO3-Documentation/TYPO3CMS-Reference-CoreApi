@@ -56,7 +56,7 @@ approaches:
         $GLOBALS['TCA'][$table]['ctrl']['previewRenderer']
             = MyVendor\MyExtension\Preview\MyPreviewRenderer::class;
 
-    This specifies the PreviewRenderer to be used for any record in :php:`$table`.
+    This specifies the preview renderer to be used for any record in :php:`$table`.
 
 #.  Table has a type field/attribute
 
@@ -65,16 +65,16 @@ approaches:
         $GLOBALS['TCA'][$table]['types'][$type]['previewRenderer']
             = MyVendor\MyExtension\Preview\MyPreviewRenderer::class;
 
-    This specifies the PreviewRenderer only for records of type :php:`$type` as
+    This specifies the preview renderer only for records of type :php:`$type` as
     determined by the type field of your table.
 
 #.  Table and field have a :php:`subtype_value_field` TCA setting
 
     If your table and field have a :php:`subtype_value_field` TCA setting (like
-    :php:`tt_content.list_type` for example) and you want to register a 
-    PreviewRenderer that applies only when that value is selected (for example, 
-    when a certain plugin type is selected and you can't match it with the "type"
-    of the record alone):
+    :php:`tt_content.list_type` for example) and you want to register a preview 
+    renderer that applies only when that value is selected (assume, when a 
+    certain plugin type is selected and you can't match it with the "type" of 
+    the record alone):
 
     ..  code-block:: php
 
@@ -95,6 +95,7 @@ approaches:
 
 ..  note::
     The content elements :php:`text`, :php:`textpic`, :php:`textmedia` and 
-    :php:`image` have their own PreviewRenderer. Therefore it's not sufficient
-    to overwrite the :php:`StandardContentPreviewRenderer` but you need to use
-    the second approach from above for every single of these content elements.
+    :php:`image` have their own :php:`PreviewRenderer`. Therefore it's not 
+    sufficient to overwrite the :php:`StandardContentPreviewRenderer` but 
+    you need to use the second approach from above for every single of 
+    these content elements.
