@@ -6,11 +6,10 @@
 Configuration files
 ===================
 
-.. note::
-
-    This page is about configuration for the general TYPO3 installation.  
-    There might be many other configuration directives related to technical elements
-    like the RTE (Rich Text Editor), link handling or to distinct extensions.  
+..  note::
+    This page is about configuration for a general TYPO3 installation.
+    There might be many other configuration directives, such as for
+    RTE (Rich Text Editor), link handling or to certain extensions.
     Those directives are not covered on this page.
 
 The configuration files :file:`settings.php` and
