@@ -54,7 +54,7 @@ Examples
 Internal error page
 -------------------
 
-Show the internal page with uid `145` on all erros with HTML status code `404`.
+Show the internal page with uid `145` on all errors with HTML status code `404`.
 
 ..  literalinclude:: _page-error-handler-internal.yaml
     :language: yaml
