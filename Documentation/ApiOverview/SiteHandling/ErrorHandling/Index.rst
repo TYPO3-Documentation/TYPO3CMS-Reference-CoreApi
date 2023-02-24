@@ -1,6 +1,6 @@
-.. include:: /Includes.rst.txt
-.. index:: pair: Site handling; Error handling
-.. _sitehandling-errorHandling:
+..  include:: /Includes.rst.txt
+..  index:: pair: Site handling; Error handling
+..  _sitehandling-errorHandling:
 
 ==============
 Error handling
@@ -9,73 +9,68 @@ Error handling
 Error handling can be configured on site level and is automatically dependent
 on the current site and language.
 
-There are currently two error handler implementations and the option to write
+Currently, there are two error handler implementations and the option to write
 a custom handler:
 
-.. toctree::
-   :titlesonly:
+..  toctree::
+    :titlesonly:
 
-   PageErrorHandler
-   FluidErrorHandler
-   WriteCustomErrorHandler
+    PageErrorHandler
+    FluidErrorHandler
+    WriteCustomErrorHandler
 
 
 The configuration consists of two parts:
 
-* The HTTP Error Status Code that should be handled
-* The Error Handler Configuration
+*   The HTTP error status code that should be handled
+*   The error handler configuration
 
 You can define one error handler per HTTP error code and add a generic one that
 serves all error pages.
 
-.. attention::
-   Exceptions must be handled via the :ref:`error and exception handling
-   <error-handling>` since they occur on a much lower level.
-   These are currently not covered by site error handling.
+..  attention::
+    Exceptions must be handled via :ref:`error and exception handling
+    <error-handling>`, since they occur on a much lower level.
+    These are currently not covered by site error handling.
 
-.. include:: /Images/AutomaticScreenshots/SiteHandling/SiteHandlingErrorHandling-1.rst.txt
+..  include:: /Images/AutomaticScreenshots/SiteHandling/SiteHandlingErrorHandling-1.rst.txt
 
 
-.. index:: pair: Site handling; Error handling properties
+..  index:: pair: Site handling; Error handling properties
 
 Properties
 ==========
 
 These properties apply to all error handlers.
 
-.. _sitehandling-errorHandling_errorCode:
+..  _sitehandling-errorHandling_errorCode:
 
-errorCode
----------
+..  confval:: errorCode
 
-:aspect:`Datatype`
-    int
+    :type: int
+    :Example: `404`
 
-:aspect:`Description`
-    The HTTP (Error) Status Code to handle. The predefined list contains the most common errors.
-    A free definition of other error codes is also possible. The special value `0` will take care of
-    all errors.
+    The `HTTP (error) status code`_ to handle. The predefined list contains the
+    most common errors. A free definition of other error codes is also possible.
+    The special value `0` will take care of all errors.
 
-:aspect:`Example`
-    `404`
+    ..  _HTTP (error) status code: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status
 
 
 .. _sitehandling-errorHandling_errorHandler:
 
-errorHandler
-------------
+..  confval:: errorHandler
 
-:aspect:`Datatype`
-    string / enum
+    :type: string / enum
+    :Example: `Fluid`
 
-:aspect:`Description`
-   Define how to handle these errors. May be
-   :ref:`Fluid<sitehandling-errorHandling_fluid>` for rendering a Fluid template,
-   :ref:`Page<sitehandling-errorHandling_page>` for fetching content from a page
-   or :ref:`PHP<sitehandling-customErrorHandler>` for a custom implementation.
+    Define how to handle these errors:
 
-:aspect:`Example`
-   `Fluid`
-
+    *   :ref:`Fluid <sitehandling-errorHandling_fluid>` for rendering a Fluid
+        template
+    *   :ref:`Page <sitehandling-errorHandling_page>` for fetching content from
+        a page
+    *   :ref:`PHP <sitehandling-customErrorHandler>` for a custom
+        implementation
 
 

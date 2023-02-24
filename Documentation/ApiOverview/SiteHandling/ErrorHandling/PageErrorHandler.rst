@@ -17,13 +17,13 @@ FeatureFlag: `subrequestPageErrors`
 -----------------------------------
 
 In order to prevent possible denial-of-service attacks when the page-based error
-handler is used with the curl-based approach, the content of the error page is
+handler is used with the cURL-based approach, the content of the error page is
 cached in the TYPO3 page cache. Any dynamic content on the error page (for
-example content created by TypoScript or uncached plugins) will therefore also be
-cached.
+example, content created by TypoScript or uncached plugins) will therefore also
+be cached.
 
 If the error page contains dynamic content, TYPO3 administrators must
-ensure that no sensitive data (for example username of logged in frontend user)
+ensure that no sensitive data (for example, username of logged-in frontend user)
 will be shown on the error page.
 
 If dynamic content is required on the error page, it is recommended
@@ -40,18 +40,14 @@ The page-based error handler has the properties
 :ref:`sitehandling-errorHandling_errorCode` and
 :ref:`sitehandling-errorHandling_errorHandler` and the following:
 
-errorContentSource
-------------------
+..  confval:: errorContentSource
 
-:aspect:`Datatype`
-    string
+    :type: string
+    :Example: `t3://page?uid=123`
 
-:aspect:`Description`
-   May be either an External URL or TYPO3 Page that will be fetched with
-   curl and displayed in case of an error.
+    May be either an external URL or TYPO3 page that will be fetched with
+    cURL and displayed in case of an error.
 
-:aspect:`Example`
-    `t3://page?uid=123`
 
 Examples
 ========
@@ -59,26 +55,19 @@ Examples
 Internal error page
 -------------------
 
-Show the internal page with uid 145 on errors with HTML status 404.
+Show the internal page with uid `145` on all errors with HTML status code `404`.
 The content of this page will be fetched via internal sub-request.
 
-.. code-block:: yaml
-
-   errorHandling:
-     -
-       errorCode: 404
-       errorHandler: Page
-       errorContentSource: 't3://page?uid=145'
+..  literalinclude:: _page-error-handler-internal.yaml
+    :language: yaml
+    :caption: config/sites/<some_site>/config.yaml | typo3conf/sites/<some_site>/config.yaml
 
 External error page
 -------------------
 
-Shows an external page on all errors with a HTML status not otherwise defined.
+Shows an external page on all errors with a HTTP status code not defined
+otherwise.
 
-.. code-block:: yaml
-
-   errorHandling:
-     -
-       errorCode: 0
-       errorHandler: Page
-       errorContentSource: 'https://typo3.org/404'
+..  literalinclude:: _page-error-handler-external.yaml
+    :language: yaml
+    :caption: config/sites/<some_site>/config.yaml | typo3conf/sites/<some_site>/config.yaml
