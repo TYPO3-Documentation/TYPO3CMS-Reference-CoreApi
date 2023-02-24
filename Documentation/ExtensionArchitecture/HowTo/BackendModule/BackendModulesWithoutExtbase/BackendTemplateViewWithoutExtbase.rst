@@ -30,7 +30,7 @@ to return the rendered template:
        /**
         * Constructor Method
         *
-        * @var ModuleTemplate $moduleTemplate
+        * @param ModuleTemplate $moduleTemplate
         */
        public function __construct(ModuleTemplate $moduleTemplate = null)
        {
