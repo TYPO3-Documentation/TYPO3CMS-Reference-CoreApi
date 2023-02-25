@@ -16,3 +16,14 @@ backend context.
     It is a frontend request.
 `2`
     It is a backend request.
+
+Example:
+
+..  code-block:: php
+
+    $applicationType = $request->getAttribute('applicationType');
+    if ($applicationType === 1) {
+        // We are in frontend context
+    } else {
+        // We are in backend context
+    }
