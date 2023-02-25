@@ -16,7 +16,7 @@ Configuration module
 The configuration module can be found at :guilabel:`System > Configuration`.
 It allows integrators to view and validate the global configuration of TYPO3.
 The module displays all relevant global variables such as
-:ref:`TYPO3_CONF_VARS <typo3ConfVars>`, :doc:`TCA <t3tca:Index>` and many more,
+:ref:`TYPO3_CONF_VARS <typo3ConfVars>`, :ref:`TCA <t3tca:start>` and many more,
 in a tree format which is easy to browse through. Over time this module got
 extended to also display the configuration of newly introduced features like the
 :ref:`middleware stack <request-handling>` or

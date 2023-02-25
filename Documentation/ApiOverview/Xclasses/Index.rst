@@ -28,7 +28,7 @@ or the dependency injection mechanisms do not work or do not exist.
 
 If you need a hook or event that does not exist, feel free to submit
 a feature request and - even better - a patch. Consult the
-:doc:`TYPO3 Contribution Guide <t3contribute:Index>`
+:ref:`TYPO3 Contribution Guide <t3contribute:start>`
 about how to do this.
 
 

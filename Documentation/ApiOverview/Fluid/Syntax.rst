@@ -82,7 +82,7 @@ functionality such as loops or generating links.
 The functionality of the ViewHelper is implemented in PHP, every ViewHelper has
 its own PHP class.
 
-See the :doc:`Fluid Viewhelper Reference <t3viewhelper:Index>` for a complete
+See the :ref:`Fluid Viewhelper Reference <t3viewhelper:start>` for a complete
 list of all available ViewHelpers.
 
 Within Fluid, the ViewHelper is used as a special HTML element with a namespace

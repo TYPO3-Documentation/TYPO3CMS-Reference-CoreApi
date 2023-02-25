@@ -14,7 +14,7 @@ Fluid is based on XML and you can use HTML markup in Fluid.
 
 Fluid ViewHelpers can be used for various purposes. Some transform data, some include
 Partials, some loop over data or even set variables. You can find a complete list of
-them in the :doc:`ViewHelper Reference <t3viewhelper:Index>`.
+them in the :ref:`ViewHelper Reference <t3viewhelper:start>`.
 
 You can :ref:`write your own custom ViewHelper <fluid-custom-viewhelper>`,
 which is a PHP component.
@@ -215,7 +215,7 @@ Example: Using Fluid to create a theme
 ======================================
 
 This example was taken from the `example extension <https://github.com/TYPO3-Documentation/TYPO3CMS-Tutorial-SitePackage-Code/>`__
-for :doc:`t3sitepackage:Index` and reduced to a very basic example.
+for :ref:`t3sitepackage:start` and reduced to a very basic example.
 
 The Sitepackage Tutorial walks you through the creation of a sitepackage
 (theme) using Fluid. In our simplified example, the overall structure of

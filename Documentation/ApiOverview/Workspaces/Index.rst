@@ -29,7 +29,7 @@ The only way to do so is with a :file:`Configuration/TCA/Overrides/example_table
 
    $GLOBALS['TCA']['example_table']['ctrl']['versioningWS'] = false;
 
-See :doc:`t3sitepackage:Index` and :ref:`storing-changes-extension-overrides` .
+See :ref:`t3sitepackage:start` and :ref:`storing-changes-extension-overrides` .
 
 .. note::
 

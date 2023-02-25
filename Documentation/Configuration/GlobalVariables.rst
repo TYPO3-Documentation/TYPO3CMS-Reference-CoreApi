@@ -35,7 +35,7 @@ $GLOBALS
    :Defined: :php:`\TYPO3\CMS\Core\Core\Bootstrap::loadExtensionTables()`
    :Frontend: Yes, partly
 
-   See :doc:`TCA Reference <t3tca:Index>`
+   See :ref:`TCA Reference <t3tca:start>`
 
 
 .. confval:: T3_SERVICES

@@ -12,7 +12,7 @@ site object :php:`\TYPO3\CMS\core\Site\Entity\Site`.
 
 Additionally, these settings are available in both
 :ref:`page TSconfig <t3tsconfig:pagetsconfig>` and
-:doc:`TypoScript templates <t3tsref:Index>`. This allows us, for example, to
+:ref:`TypoScript templates <t3tsref:start>`. This allows us, for example, to
 configure site-wide storage page IDs which can be used in both frontend and
 backend.
 

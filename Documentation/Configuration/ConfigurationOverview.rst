@@ -70,13 +70,13 @@ Extension files
    :ref:`Dependency injection <DependencyInjection>`.
 
 :file:`Configuration/TCA`
-   :doc:`TCA configuration <t3tca:Index>`.
+   :ref:`TCA configuration <t3tca:start>`.
 
 :file:`Configuration/TSconfig/`
-   :doc:`TSconfig configuration <t3tsconfig:Index>`.
+   :ref:`TSconfig configuration <t3tsconfig:start>`.
 
 :file:`Configuration/TypoScript/`
-   :doc:`TypoScript configuration <t3tsref:Index>`.
+   :ref:`TypoScript configuration <t3tsref:start>`.
 
 
 .. hint::
@@ -119,7 +119,7 @@ what they mean) are not.
 Configuration methods
 =====================
 
-:doc:`TSconfig <t3tsconfig:Index>`
+:ref:`TSconfig <t3tsconfig:start>`
 ----------------------------------
 
 While Frontend TypoScript is used to steer the rendering of the frontend, TSconfig is used
@@ -133,13 +133,13 @@ in :ref:`typoscript-syntax-start`. Other than that, TSconfig and Frontend TypoSc
 don't have much more in common - they consist of entirely different properties.
 
 A full reference of properties as well as an introduction to explain details configuration usage, API and
-load orders can be found in the :doc:`TSconfig Reference document <t3tsconfig:Index>`. While Developers
+load orders can be found in the :ref:`TSconfig Reference document <t3tsconfig:start>`. While Developers
 should have an eye on this document, it is mostly used as a reference for Integrators who make life as
 easy as possible for backend users.
 
 
 
-:doc:`TypoScript Templating <t3tsref:Index>`
+:ref:`TypoScript Templating <t3tsref:start>`
 --------------------------------------------
 
 TypoScript - or more precisely "TypoScript Templating" - is used in TYPO3 to steer
@@ -152,15 +152,15 @@ often used. Nowadays, TypoScript in real life projects is often not much more th
 set a series of options for plugins, to set some global config options, and to act as a simple
 pre processor between database data and Fluid templates.
 
-Still, the :doc:`TypoScript Reference <t3tsref:Index>` manual that goes deep into
+Still, the :ref:`TypoScript Reference <t3tsref:start>` manual that goes deep into
 the incredible power of TypoScript Templating is daily bread for Integrators.
 
 
 For an introduction, you may want to read one of the following tutorials:
 
 
-* :doc:`t3ts45:Index` - Introduction to TypoScript Templating.
-* :doc:`t3sitepackage:Index` - Start a Sitepackage Extension to create a theme
+* :ref:`t3ts45:start` - Introduction to TypoScript Templating.
+* :ref:`t3sitepackage:start` - Start a Sitepackage Extension to create a theme
   for your site using TypoScript and Fluid.
 
 .. note::
@@ -189,7 +189,7 @@ The :php:`$GLOBALS` PHP array consists of:
    TCA is the backbone of database tables displayed in the backend, it configures
    how data is stored if editing records in the backend, how fields are displayed,
    relations to other tables and much more. It is a huge array loaded in almost all
-   access contexts. TCA is documented in the :doc:`TCA Reference <t3tca:Index>`.
+   access contexts. TCA is documented in the :ref:`TCA Reference <t3tca:start>`.
    Next to a small introduction, the document forms a complete reference of all
    different TCA options, with bells and whistles. The document is a must-read for
    Developers, partially for Integrators, and is often used as a reference book

@@ -230,7 +230,7 @@ Next steps
 ==========
 
 You don't have a sitepackage yet? Have a look at the
-:doc:`Sitepackage Tutorial <t3sitepackage:Index>`.
+:ref:`Sitepackage Tutorial <t3sitepackage:start>`.
 
 If you want to display lists and single views of data, or maybe even manipulate
 the data in the frontend, have a look at :ref:`Extbase <extbase>`.

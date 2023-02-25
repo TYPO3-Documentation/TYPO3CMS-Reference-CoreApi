@@ -146,7 +146,7 @@ The following example contains the complete code:
 
 
 Additionally, it is possible to extend TYPO3 in a lot of different ways (adding
-:doc:`TCA <t3tca:Index>`, :ref:`backend routes <backend-routing>`,
+:ref:`TCA <t3tca:start>`, :ref:`backend routes <backend-routing>`,
 :ref:`Symfony console commands <symfony-console-commands>`, etc), which do not
 need to touch these files.
 

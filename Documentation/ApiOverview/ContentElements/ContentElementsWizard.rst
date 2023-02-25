@@ -7,7 +7,7 @@ Add content elements to the Content Element Wizard
 ==================================================
 
 The content element wizard opens when a new content element is
-created. It can be fully configured using :doc:`TSConfig <t3tsconfig:Index>`.
+created. It can be fully configured using :ref:`TSConfig <t3tsconfig:start>`.
 
 Our extension key is `example` and the name of the content element or
 plugin is `registration`.

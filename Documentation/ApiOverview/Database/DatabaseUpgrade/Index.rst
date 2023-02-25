@@ -49,7 +49,7 @@ installation.
 
 ..  seealso::
     For more information about the process of upgrading TYPO3, see the
-    :doc:`Upgrade Guide <t3install:Index>`.
+    :ref:`Upgrade Guide <t3install:start>`.
 
 
 ..  index::
