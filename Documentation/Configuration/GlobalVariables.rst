@@ -80,6 +80,18 @@ $GLOBALS
 
    Contains information related to BE skinning.
 
+.. confval:: TSFE
+
+   :Path: $GLOBALS
+   :type: TypoScriptFrontendController
+   :Defined: :file:`typo3/sysext/core/ext_tables.php`
+   :Frontend: yes
+
+   Contains an instantiation of :php:`TypoScriptFrontendController`. Provides
+   some public properties and methods which can be used by extensions. The public
+   properties can also be used in TypoScript via
+   :ref:`TSFE <t3tsref:data-type-gettext-tsfe>`. More information avilable
+   in :ref:`tsfe`.
 
 .. confval:: TYPO3_USER_SETTINGS
 
