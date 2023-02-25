@@ -105,7 +105,7 @@ Configure the new page title provider to be used in your TypoScript setup:
     :caption: EXT:my_sitepackage/Configuration/TypoScript/setup.typoscript
 
 The registered page title providers are called after each other in the
-order configured. The first provider that returns a non-empty value is used,
+configured order. The first provider that returns a non-empty value is used,
 the providers later in the order are ignored.
 
 Therefore our custom provider should be loaded before `record`, the
