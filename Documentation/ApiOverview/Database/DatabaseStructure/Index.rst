@@ -34,7 +34,7 @@ Requirements
 
 There are certain requirements for such managed tables:
 
--   The table must be configured in the :doc:`global TCA array <t3tca:Index>`,
+-   The table must be configured in the :ref:`global TCA array <t3tca:start>`,
     for example:
 
     -   table name

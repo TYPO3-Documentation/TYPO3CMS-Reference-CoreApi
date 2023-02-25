@@ -10,7 +10,7 @@ Sitepackage Builder
 The main incentive of the `Sitepackage Builder <https://www.sitepackagebuilder.com/>`__
 is a quick and easy way to create a new sitepackage, what would be called
 "theme" in other CMS, for your project. See the
-:doc:`Sitepackage Tutorial <t3sitepackage:Index>` for details on sitepackages.
+:ref:`Sitepackage Tutorial <t3sitepackage:start>` for details on sitepackages.
 
 Kickstart a TYPO3 Extension with the "Sitepackage Builder"
 ==========================================================

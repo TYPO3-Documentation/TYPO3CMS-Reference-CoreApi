@@ -11,7 +11,7 @@ Here are some examples of how Fluid can be used in TYPO3:
 
 *  Create a template (theme) using a combination of TypoScript
    :ref:`FLUIDTEMPLATE <t3tsref:cobj-fluidtemplate>` and Fluid.
-   Check out the :doc:`t3sitepackage:Index` which walks you through the
+   Check out the :ref:`t3sitepackage:start` which walks you through the
    creation of a sitepackage extension.
 *  :ref:`adding-your-own-content-elements` in addition to the already existing
    content elements TYPO3 supplies.
