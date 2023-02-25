@@ -72,6 +72,8 @@ Register a handler
         :language: yaml
         :caption: EXT:my_extension/Configuration/Services.yaml
 
+..  _message-bus-routing:
+
 "Everyday" usage - as a system administrator/integrator
 =======================================================
 
@@ -96,6 +98,9 @@ This will route all messages to the asynchronous transport (mind the :php:`*`).
 ..  attention::
     If you are using the Doctrine transport, make sure to take care of running
     the :ref:`consume command <message-bus-consume-command>`.
+
+..  seealso::
+    :ref:`$GLOBALS['TYPO3_CONF_VARS']['SYS']['messenger']['routing'] <typo3ConfVars_sys_messenger_routing>`
 
 
 ..  _message-bus-consume-command:
@@ -172,6 +177,8 @@ file on your server:
 Advanced usage
 ==============
 
+..  _message-bus-custom-transport:
+
 Configure a custom transport (Senders/Receivers)
 ------------------------------------------------
 
@@ -188,7 +195,7 @@ name used in the settings is resolved to a service that has been tagged with
     $GLOBALS['TYPO3_CONF_VARS']['SYS']['queue'] = [
         'routing' => [
             // Use "messenger.transport.demo" as transport for DemoMessage
-            \TYPO3\CMS\Queue\Message\DemoMessage::class => 'demo',
+            \MyVendor\MyExtension\Queue\Message\DemoMessage::class => 'demo',
 
             // Use "messenger.transport.default" as transport for all other messages
             '*' => 'default',
