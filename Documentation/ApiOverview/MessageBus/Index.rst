@@ -22,6 +22,12 @@ To offer asynchronicity, TYPO3 also provides a transport implementation based on
 the `Doctrine DBAL messenger transport`_ from Symfony and a basic implementation
 of a consumer command.
 
+..  seealso::
+    To familiarize yourself with the concept, please also read the following
+    resources:
+
+    *   `The Symfony Messenger Component`_
+    *   `Sync & Queued Message Handling`_
 
 ..  contents:: Table of Contents
     :local:
@@ -234,5 +240,7 @@ order using TYPO3's :yaml:`before` and :yaml:`after` ordering mechanism:
 
 ..  _Custom middleware: https://symfony.com/doc/current/components/messenger.html#bus
 ..  _Doctrine DBAL messenger transport: https://github.com/symfony/doctrine-messenger
-..  _symfony/messenger: https://symfony.com/doc/current/messenger.html
+..  _Sync & Queued Message Handling: https://symfony.com/doc/current/messenger.html
+..  _symfony/messenger: https://symfony.com/doc/current/components/messenger.html
 ..  _systemd: https://en.wikipedia.org/wiki/Systemd
+..  _The Symfony Messenger Component: https://symfony.com/doc/current/components/messenger.html
