@@ -27,7 +27,9 @@ There are at least 3 contexts in which the term TSFE is used:
 1.  It was and is available as global array :php:`$GLOBALS['TSFE']` in PHP.
 2.  TypoScript function :ref:`TSFE <t3tsref:data-type-gettext-tsfe>` which can
     be used to access public properties in TSFE.
-3.  (deprecated since v9.5) Page TSconfig :typoscript:`TSFE.constants`.
+3.  (deprecated since v9.5 and :doc:`removed in 10.0
+    <ext_core:Changelog/10.0/Breaking-88564-PageTSconfigSettingTSFEconstantsRemoved>`)
+    Page TSconfig :typoscript:`TSFE.constants`.
 
 Focusing on the PHP part (as the TypoScript part is covered in the
 :ref:`TypoScript Reference: TSFE <t3tsref:data-type-gettext-tsfe>` page),
