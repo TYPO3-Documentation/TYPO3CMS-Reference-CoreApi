@@ -310,12 +310,12 @@ getRedirectUriForMountPoint()
 getRedirectUriForShortcut()
     is :php:`@internal`.
 
-hook_eofe()`
+hook_eofe()
     Use a PSR-15 middleware instead.
 
     *   :doc:`ext_core:Changelog/9.4/Deprecation-85878-EidUtilityAndVariousTSFEMethods` (9.4)
 
-initFEuser()`
+initFEuser()
     use a PSR-15 middleware instead.
 
     *   :doc:`ext_core:Changelog/9.4/Deprecation-85878-EidUtilityAndVariousTSFEMethods` (9.4)
