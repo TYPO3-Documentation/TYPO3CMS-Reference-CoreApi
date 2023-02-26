@@ -39,7 +39,7 @@ this page gives an overview, what can still be used, what is deprecated,
 removed or discouraged and in which way the TSFE class itself may be
 interesting to developers.
 
-Acccessing TSFE
+Accessing TSFE
 ===============
 
 .. attention::
