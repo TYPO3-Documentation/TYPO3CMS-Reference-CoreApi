@@ -111,7 +111,7 @@ In order to get current language settings, such as the current language id,
 obtain :php:`\TYPO3\CMS\Core\Site\Entity\SiteLanguage` object from the
 :ref:`request attribute <request-attributes>` 'language':
 
-.. code-block::
+.. code-block:: php
 
     // TYPO3\CMS\Core\Site\Entity\SiteLanguage object.
     $language = $request->getAttribute('language');
