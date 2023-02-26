@@ -53,7 +53,7 @@ Accessing TSFE
 
 From the source:
 
-    When calling a Frontend page, an instance of this object is available
+    When calling a frontend page, an instance of this object is available
     as :php:`$GLOBALS['TSFE']`, even though the core development strives to get
     rid of this in the future.
 
