@@ -69,7 +69,7 @@ necessary, use the request attribute
 TSFE is not available in all contexts. In particular, it is
 only available in frontend contexts, not in the backend or CLI.
 
-Initializing :php:`$GLOBALS['TSFE']` in the Backend is sometimes done in code
+Initializing :php:`$GLOBALS['TSFE']` in the backend is sometimes done in code
 examples found online. This is not recommended. TSFE is not initialized in the
 backend context by the core (and there is usually no need to do this).
 
