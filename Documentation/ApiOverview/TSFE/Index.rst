@@ -109,7 +109,7 @@ Can be done using the ContentObjectRenderer (see previous example):
 
 In order to get current language settings, such as the current language id,
 obtain :php:`\TYPO3\CMS\Core\Site\Entity\SiteLanguage` object from the
-ref:`request attribute <request-attributes>` 'language':
+:ref:`request attribute <request-attributes>` 'language':
 
 .. code-block::
 
