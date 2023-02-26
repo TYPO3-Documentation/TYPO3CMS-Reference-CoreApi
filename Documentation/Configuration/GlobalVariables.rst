@@ -68,8 +68,8 @@ $GLOBALS
 
    .. attention::
 
-        Directly access TSFE only as a last resort. It is strongly
-        discouraged if not absolutely necessary.
+        Directly access :php:`$GLOBALS['TSFE']` only as a last resort. It is
+        strongly discouraged if not absolutely necessary.
 
    Provides some public properties and methods which can be used by extensions.
    The public properties can also be used in TypoScript via
