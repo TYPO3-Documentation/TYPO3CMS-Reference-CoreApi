@@ -115,11 +115,24 @@ Get the request language of the current page as integer:
 
 --------------
 
-Accessing information about Frontend and Backend users.
+Accessing information about Frontend users. Accessing
+:php:`$GLOBALS['TSFE']->fe_user` directly is discouraged.
 
 .. code-block:: php
 
+    // not recommended, use alternatives if possible
+    // TYPO3\CMS\Frontend\Authentication\FrontendUserAuthentication
     $feUser = $GLOBALS['TSFE']->fe_user;
+
+.. code-block:: php
+
+    // via request attributes
+    // TYPO3\CMS\Frontend\Authentication\FrontendUserAuthentication
+    $frontendUser = $request->getAttribute('frontend.user');
+
+.. seealso::
+
+    :ref:`request-attributes`
 
 Some information via frontend and backend users con be obtained via the
 :ref: `user aspect <context_api_aspects_user>`. For example:
