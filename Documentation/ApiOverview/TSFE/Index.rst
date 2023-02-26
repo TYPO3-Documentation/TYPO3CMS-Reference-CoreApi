@@ -205,8 +205,6 @@ Properties and functions
 
 .. todo::
     here some still used properties and functions can be listed and explained,
-    e.g. fe_user, id etc.
-
 
 Deprecated functionality (PHP)
 ==============================
@@ -393,7 +391,9 @@ shouldAcquireCacheData()
     *   :doc:`ext_core:Changelog/12.0/Breaking-97816-NewTypoScriptParserInFrontend` (12.0)
 
 storeSessionData()
-    should be replaced with :PHP:`TSFE->fe_user->storeSessionData()`.
+    should be replaced with
+    :PHP:`\TYPO3\CMS\Frontend\Authentication\FrontendUserAuthentication::storeSessionData()`.
+    See code examples above for accessing :php:`FrontendUserAuthentication`.
 
     *   :doc:`ext_core:Changelog/9.4/Deprecation-85878-EidUtilityAndVariousTSFEMethods` (9.4)
 
