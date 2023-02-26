@@ -15,10 +15,10 @@ TSFE
 What is TSFE?
 =============
 
-TSFE is short for :php:`TypoScriptFrontendController`, a class which exists in the
-system extension EXT:frontend.
+TSFE is short for :php:`\TYPO3\CMS\Frontend\Controller\TypoScriptFrontendController`,
+a class which exists in the system extension EXT:frontend.
 
-As the name implies: A responsibility of the :php:`TypoScriptFrontendController`
+As the name implies: A responsibility of TSFE
 is page rendering. It also handles reading from and writing to the page cache.
 For more details it is best to look in the source code.
 
