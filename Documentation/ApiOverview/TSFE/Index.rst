@@ -66,7 +66,7 @@ necessary, use the request attribute
 
     $frontendController = $request->getAttribute('frontend.controller');
 
-:php:`$GLOBALS['TSFE']` is not available in all contexts. In particular, it is
+TSFE is not available in all contexts. In particular, it is
 only available in frontend contexts, not in the backend or cli.
 
 Initializing :php:`$GLOBALS['TSFE']` in the Backend is sometimes done in code
