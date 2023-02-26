@@ -225,7 +225,8 @@ without further notice (no deprecations) in the future.
 
 acquireLock()
     has been set to :php:`@internal`.
-    :doc:`ext_core:Changelog/12.0/Breaking-97816-NewTypoScriptParserInFrontend` (12.0)
+
+    *   :doc:`ext_core:Changelog/12.0/Breaking-97816-NewTypoScriptParserInFrontend` (12.0)
 
 $ATagParams
     calls of :php:`$GLOBALS['TSFE']->ATagParams` can be
