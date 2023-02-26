@@ -124,15 +124,12 @@ Accessing information about Frontend users. Accessing
     // TYPO3\CMS\Frontend\Authentication\FrontendUserAuthentication
     $feUser = $GLOBALS['TSFE']->fe_user;
 
+Using :ref:`request-attributes`:
+
 .. code-block:: php
 
-    // via request attributes
     // TYPO3\CMS\Frontend\Authentication\FrontendUserAuthentication
     $frontendUser = $request->getAttribute('frontend.user');
-
-.. seealso::
-
-    :ref:`request-attributes`
 
 Some information via frontend and backend users con be obtained via the
 :ref: `user aspect <context_api_aspects_user>`. For example:
