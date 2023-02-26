@@ -131,15 +131,28 @@ Some information via frontend and backend users con be obtained via the
 
 ------------------
 
-To get the base URL of the current site, use site configuration.
-
-For example, to get the site via the current page id:
+To get the base URL of the current site (or other site configuration), use site
+configuration:
 
 .. code-block:: php
 
-    $siteFinder = GeneralUtility::makeInstance(SiteFinder::class);
-    getSiteByPageId($pageId);
+    // TYPO3\CMS\Core\Site\Entity\Site
+    $site = $request->getAttribute('site');
+    // array
+    $siteConfiguration = $site->getConfiguration();
+    $baseUrl = $siteConfiguration['base'];
 
+To get the site by page id:
+
+.. code-block:: php
+
+    // TYPO3\CMS\Core\Site\SiteFinder object (e.g. was injected by DI)
+    // TYPO3\CMS\Core\Site\Entity\Site
+    $site = $this->siteFinder->getSiteByPageId($pageId);
+
+.. seealso::
+
+    :ref:`Site <typo3-request-attribute-site>`
 
 Hooks and events
 ================
