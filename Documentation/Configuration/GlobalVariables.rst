@@ -87,11 +87,18 @@ $GLOBALS
    :Defined: :file:`typo3/sysext/core/ext_tables.php`
    :Frontend: yes
 
-   Contains an instantiation of :php:`TypoScriptFrontendController`. Provides
-   some public properties and methods which can be used by extensions. The public
-   properties can also be used in TypoScript via
-   :ref:`TSFE <t3tsref:data-type-gettext-tsfe>`. More information avilable
-   in :ref:`tsfe`.
+   Contains an instantiation of :php:`TypoScriptFrontendController`.
+
+   .. important::
+
+        Directly access TSFE only as a last resort. It is strongly
+        discouraged if not absolutely necessary.
+
+   Provides some public properties and methods which can be used by extensions.
+   The public properties can also be used in TypoScript via
+   :ref:`TSFE <t3tsref:data-type-gettext-tsfe>`.
+
+   More information is available in :ref:`tsfe`.
 
 .. confval:: TYPO3_USER_SETTINGS
 
