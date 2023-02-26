@@ -29,8 +29,9 @@ There are at least 3 contexts in which the term TSFE is used:
     be used to access public properties in TSFE.
 3.  (deprecated since v9.5) Page TSconfig :typoscript:`TSFE.constants`.
 
-Focusing on the PHP part (as the TypoScript part is covered in the TypoScript
-Reference), this page gives an overview, what can still be used, what is deprecated,
+Focusing on the PHP part (as the TypoScript part is covered in the
+:ref:`TypoScript Reference: TSFE <t3tsref:data-type-gettext-tsfe>` page),
+this page gives an overview, what can still be used, what is deprecated,
 removed or discouraged and in which way the TSFE class itself may be
 interesting to developers.
 
