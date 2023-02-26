@@ -22,14 +22,16 @@ As the name implies: A responsibility of TSFE
 is page rendering. It also handles reading from and writing to the page cache.
 For more details it is best to look in the source code.
 
-There are at least 3 contexts in which the term TSFE is used:
+There are several contexts in which the term TSFE is used:
 
-1.  It was and is available as global array :php:`$GLOBALS['TSFE']` in PHP.
-2.  TypoScript function :ref:`TSFE <t3tsref:data-type-gettext-tsfe>` which can
-    be used to access public properties in TSFE.
-3.  (deprecated since v9.5 and :doc:`removed in 10.0
+1.  PHP: It is passed as request attribute
+    :ref:`frontend.controller <typo3-request-attribute-frontend-controller>`
+2.  PHP: It was and is available as global array :php:`$GLOBALS['TSFE']` in PHP.
+3.  TypoScript: TypoScript function :ref:`TSFE <t3tsref:data-type-gettext-tsfe>`
+    which can be used to access public properties in TSFE.
+4.  (deprecated since v9.5 and :doc:`removed in 10.0
     <ext_core:Changelog/10.0/Breaking-88564-PageTSconfigSettingTSFEconstantsRemoved>`)
-    Page TSconfig :typoscript:`TSFE.constants`.
+    Page TSconfig: :typoscript:`TSFE.constants`.
 
 Focusing on the PHP part (as the TypoScript part is covered in the
 :ref:`TypoScript Reference: TSFE <t3tsref:data-type-gettext-tsfe>` page),
@@ -43,10 +45,11 @@ Acccessing TSFE
 .. attention::
 
     Some of the former public properties and methods have been changed to
-    protected or marked as internal.
+    protected or marked as internal. Often, accessing TSFE is no longer
+    necessary, and there are better alternatives.
 
-    Directly access TSFE only as a last resort. It is strongly discouraged if
-    not absolutely necessary.
+    Directly access :php:`$GLOBALS['TSFE']` only as a last resort. It is
+    strongly discouraged if not absolutely necessary.
 
 From the source:
 
@@ -54,12 +57,21 @@ From the source:
     as :php:`$GLOBALS['TSFE']`, even though the core development strives to get
     rid of this in the future.
 
+If access to the
+:php:`\TYPO3\CMS\Frontend\Controller\TypoScriptFrontendController` instance is
+necessary, use the request attribute
+:ref:`frontend.controller <typo3-request-attribute-frontend-controller>`:
+
+..  code-block:: php
+
+    $frontendController = $request->getAttribute('frontend.controller');
+
 :php:`$GLOBALS['TSFE']` is not available in all contexts. In particular, it is
 only available in frontend contexts, not in the backend or cli.
 
 Initializing :php:`$GLOBALS['TSFE']` in the Backend is sometimes done in code
-examples found online. TSFE is not initialized in the backend context by the
-core (and there is usually no need to do this).
+examples found online. This is not recommended. TSFE is not initialized in the
+backend context by the core (and there is usually no need to do this).
 
 From the PHP documentation:
 
