@@ -89,7 +89,7 @@ $GLOBALS
 
    Contains an instantiation of :php:`\TYPO3\CMS\Frontend\Controller\TypoScriptFrontendController`.
 
-   .. important::
+   .. attention::
 
         Directly access TSFE only as a last resort. It is strongly
         discouraged if not absolutely necessary.
