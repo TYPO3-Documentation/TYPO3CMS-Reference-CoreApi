@@ -67,7 +67,7 @@ necessary, use the request attribute
     $frontendController = $request->getAttribute('frontend.controller');
 
 TSFE is not available in all contexts. In particular, it is
-only available in frontend contexts, not in the backend or cli.
+only available in frontend contexts, not in the backend or CLI.
 
 Initializing :php:`$GLOBALS['TSFE']` in the Backend is sometimes done in code
 examples found online. This is not recommended. TSFE is not initialized in the
