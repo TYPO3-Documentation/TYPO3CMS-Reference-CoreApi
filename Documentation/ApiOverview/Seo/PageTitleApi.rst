@@ -66,7 +66,7 @@ this method you can create your own logic to define the correct title.
         }
     }
 
-Usage example, for example, in an :ref:`Extbase <extbase>` controller:
+Usage example in an :ref:`Extbase <extbase>` controller:
 
 ..  code-block:: php
     :caption: EXT:my_extension/Classes/Controller/SomeController.php
@@ -75,7 +75,7 @@ Usage example, for example, in an :ref:`Extbase <extbase>` controller:
     $titleProvider->setTitle('Title from controller action');
 
 
-Configure the new page title provider to be used in your TypoScript setup:
+Configure the new page title provider in your TypoScript setup:
 
 ..  literalinclude:: _ExampleSetInController/_setup.typoscript
     :caption: EXT:my_sitepackage/Configuration/TypoScript/setup.typoscript
@@ -102,6 +102,7 @@ and PHP Cache`.
 Configure the new page title provider to be used in your TypoScript setup:
 
 ..  literalinclude:: _ExampleWebsiteTitle/_setup.typoscript
+    :language: typoscript
     :caption: EXT:my_sitepackage/Configuration/TypoScript/setup.typoscript
 
 The registered page title providers are called after each other in the

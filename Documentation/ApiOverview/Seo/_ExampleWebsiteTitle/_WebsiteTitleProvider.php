@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace MyVendor\MySitepackge\PageTitle;
+namespace MyVendor\MySitepackage\PageTitle;
 
 use TYPO3\CMS\Core\PageTitle\AbstractPageTitleProvider;
 use TYPO3\CMS\Core\Site\SiteFinder;
