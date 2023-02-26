@@ -104,14 +104,25 @@ Can be done using the ContentObjectRenderer (see previous example):
 
 -------------
 
-Access language settings is now done using the
-:ref:`language aspect <context_api_aspects_language>`.
+In order to get current language settings, such as the current language id,
+obtain :php:`\TYPO3\CMS\Core\Site\Entity\SiteLanguage` object from the
+ref:`request attribute <request-attributes>` 'language':
 
-Get the request language of the current page as integer:
+.. code-block::
+
+    // TYPO3\CMS\Core\Site\Entity\SiteLanguage object.
+    $language = $request->getAttribute('language');
+    $languageId = $language->getLanguageId();
+
+
+If the request is not available, accessing language settings
+can be done using the :ref:`language aspect <context_api_aspects_language>`.
+
+Get the language of the current page as integer:
 
 .. code-block:: php
 
-    $context->getPropertyFromAspect('language', 'id');
+    $languageId = (int) $context->getPropertyFromAspect('language', 'id');
 
 --------------
 
