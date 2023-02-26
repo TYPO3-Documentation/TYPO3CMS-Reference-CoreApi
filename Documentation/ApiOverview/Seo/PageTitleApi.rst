@@ -79,6 +79,7 @@ to retrieve the current site configuration, we must make the new page title
 provider public:
 
 ..  literalinclude:: _ExampleWebsiteTitle/_Services.yaml
+    :language: yaml
     :caption: EXT:my_sitepackage/Configuration/Services.yaml
 
 Then **flush the cache** in :guilabel:`Admin Tools > Maintenance > Flush TYPO3
