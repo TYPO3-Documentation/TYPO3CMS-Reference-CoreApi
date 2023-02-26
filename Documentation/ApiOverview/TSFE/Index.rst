@@ -158,7 +158,7 @@ Using :ref:`request-attributes`:
     $frontendUser = $request->getAttribute('frontend.user');
 
 Some information via frontend and backend users con be obtained via the
-:ref: `user aspect <context_api_aspects_user>`. For example:
+:ref:`user aspect <context_api_aspects_user>`. For example:
 
 .. code-block:: php
 
