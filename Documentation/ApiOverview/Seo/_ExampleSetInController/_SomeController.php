@@ -1,6 +1,6 @@
 <?php
 
-use MyVendor\MyExtension\PageTitle\MyOwnPageTitleProvider;
+use MyVendor\MySitepackage\PageTitle\MyOwnPageTitleProvider;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 
 $titleProvider = GeneralUtility::makeInstance(MyOwnPageTitleProvider::class);

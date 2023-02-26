@@ -1,7 +1,7 @@
 config {
   pageTitleProviders {
     sitepackage {
-      provider = MyVendor\MyExtension\PageTitle\MyOwnPageTitleProvider
+      provider = MyVendor\MySitepackage\PageTitle\MyOwnPageTitleProvider
       before = record
     }
   }
