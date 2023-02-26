@@ -54,7 +54,7 @@ Accessing TSFE
 From the source:
 
     When calling a frontend page, an instance of this object is available
-    as :php:`$GLOBALS['TSFE']`, even though the core development strives to get
+    as :php:`$GLOBALS['TSFE']`, even though the Core development strives to get
     rid of this in the future.
 
 If access to the
