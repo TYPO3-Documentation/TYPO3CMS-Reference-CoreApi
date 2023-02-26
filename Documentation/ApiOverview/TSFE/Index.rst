@@ -37,12 +37,13 @@ interesting to developers.
 Acccessing TSFE
 ===============
 
-.. note::
+.. imporatant::
 
     Some of the former public properties and methods have been changed to
-    protected or marked as internal. You may still find code examples online
-    where :php:`$GLOBALS['TSFE']` is used. In several (but not all) cases, there
-    are alternatives available.
+    protected or marked as internal.
+
+    Directly access TSFE only as a last resort. It is strongly discouraged if
+    not absolutely necessary.
 
 From the source:
 
