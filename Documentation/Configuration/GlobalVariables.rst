@@ -64,7 +64,7 @@ $GLOBALS
    :Defined: :file:`typo3/sysext/core/ext_tables.php`
    :Frontend: yes
 
-   Contains an instantiation of :php:`TypoScriptFrontendController`.
+   Contains an instantiation of :php:`\TYPO3\CMS\Frontend\Controller\TypoScriptFrontendController`.
 
    .. important::
 

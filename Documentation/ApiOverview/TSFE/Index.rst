@@ -40,7 +40,7 @@ interesting to developers.
 Acccessing TSFE
 ===============
 
-.. imporatant::
+.. important::
 
     Some of the former public properties and methods have been changed to
     protected or marked as internal.
