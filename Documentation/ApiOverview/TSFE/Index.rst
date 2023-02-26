@@ -88,18 +88,27 @@ where available:
 Access ContentObjectRenderer
 ----------------------------
 
-
 Access the :php:`ContentObjectRenderer` (often referred to as "cObj"):
 
 .. code-block:: php
 
-    $GLOBALS['TSFE']->cObj
-
-Can be done as follows in Extbase controllers:
+    // this is discouraged, obtain TSFE from request attribute 'frontend.controller'
+    // see next example
+    $cObj = $GLOBALS['TSFE']->cObj;
 
 .. code-block:: php
 
-    $contentObj = $this->configurationManager->getContentObject();
+    $frontendController = $request->getAttribute('frontend.controller');
+    $cObj = $frontendController->cObj;
+
+In the case of a non Extbase plugin via setter injection:
+
+.. code-block:: php
+
+    public function setContentObjectRenderer(ContentObjectRenderer $cObj): void
+    {
+        $this->cObj = $cObj;
+    }
 
 .. _tsfe_pageId:
 
