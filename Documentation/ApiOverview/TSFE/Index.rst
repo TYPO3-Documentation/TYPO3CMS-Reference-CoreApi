@@ -6,12 +6,6 @@
 TSFE
 ====
 
-.. todo::
-
-    There are still several public properties / methods in TSFE. Unclear if
-    usage should be generally discouraged or only where marked as @internal /
-    protected.
-
 What is TSFE?
 =============
 
