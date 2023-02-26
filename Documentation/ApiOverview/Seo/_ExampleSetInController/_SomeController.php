@@ -1,7 +1,20 @@
 <?php
 
-use MyVendor\MyExtension\PageTitle\MyOwnPageTitleProvider;
-use TYPO3\CMS\Core\Utility\GeneralUtility;
+use MyVendor\MySitepackage\PageTitle\MyOwnPageTitleProvider;
+use Psr\Http\Message\ResponseInterface;
+use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
 
-$titleProvider = GeneralUtility::makeInstance(MyOwnPageTitleProvider::class);
-$titleProvider->setTitle('Title from controller action');
+final class SomeController extends ActionController
+{
+    public function __construct(
+        private readonly MyOwnPageTitleProvider $titleProvider
+    ) {
+    }
+
+    public function someAction(): ResponseInterface
+    {
+        $this->titleProvider->setTitle('Title from controller action');
+        // do something
+        return $this->htmlResponse();
+    }
+}
