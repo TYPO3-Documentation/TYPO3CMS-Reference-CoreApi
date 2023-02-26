@@ -89,7 +89,11 @@ Howtos
 Following are some examples which use TSFE and alternatives to using TSFE,
 where available:
 
--------------
+.. _tsfe_ContentObjectRenderer:
+
+Access ContentObjectRenderer
+----------------------------
+
 
 Access the :php:`ContentObjectRenderer` (often referred to as "cObj"):
 
@@ -103,7 +107,10 @@ Can be done as follows in Extbase controllers:
 
     $contentObj = $this->configurationManager->getContentObject();
 
--------------
+.. _tsfe_pageId:
+
+Access current page id
+----------------------
 
 Access the current page id:
 
@@ -120,7 +127,10 @@ request attribute:
     $pageArguments = $request->getAttribute('routing');
     $pageId = $pageArguments->getPageId();
 
--------------
+.. _tsfe_language:
+
+Access language settings
+------------------------
 
 In order to get current language settings, such as the current language id,
 obtain :php:`\TYPO3\CMS\Core\Site\Entity\SiteLanguage` object from the
@@ -142,7 +152,10 @@ Get the language of the current page as integer:
 
     $languageId = (int) $context->getPropertyFromAspect('language', 'id');
 
---------------
+.. _tsfe_frontendUser
+
+Access frontend user information
+--------------------------------
 
 Accessing information about Frontend users. Accessing
 :php:`$GLOBALS['TSFE']->fe_user` directly is discouraged.
@@ -168,7 +181,10 @@ Some information via frontend and backend users con be obtained via the
     // return whether a frontend user is logged in
     $context->getPropertyFromAspect('frontend.user', 'isLoggedIn');
 
-------------------
+.. _tsfe_baseURL:
+
+Get current base URL
+--------------------
 
 To get the base URL of the current site (or other site configuration), use site
 configuration:
@@ -181,7 +197,10 @@ configuration:
     $siteConfiguration = $site->getConfiguration();
     $baseUrl = $siteConfiguration['base'];
 
-To get the site by page id:
+.. _tsfe_siteByPageId:
+
+Get site by page id
+-------------------
 
 .. code-block:: php
 
