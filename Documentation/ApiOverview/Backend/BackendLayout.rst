@@ -238,7 +238,7 @@ Extensions for backend layouts
 
 In many cases besides defining fixed backend layouts a more modular approach with the possibility of combining different
 backend layouts and frontend layouts may be feasible. The extension
-:t3ext:`gridelements`
+:t3ext:`container`
 integrates the grid layout concept also to regular content elements.
 
 The extension :t3ext:`content_defender` offers advanced options to
