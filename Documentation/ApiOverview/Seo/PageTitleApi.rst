@@ -99,7 +99,7 @@ the providers later in the order are ignored.
 Therefore our custom provider should be loaded before `record`, the
 default provider which always returns a value. If the system extension
 :t3ext:`seo` is loaded the default :guilabel:`SEO Title` has a particular format,
-you can override this by loading your custom provider after `seo`.
+you can change this by loading your custom provider before `seo`.
 
 .. index:: PageTitle; Priority
 
