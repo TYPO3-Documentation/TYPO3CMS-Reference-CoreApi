@@ -77,7 +77,7 @@ example the site title, you can implement a page title provider as follows:
 
 As we need to :ref:`inject <DependencyInjection>` the class :php:`SiteFinder`
 to retrieve the current site configuration, we must make the new page title
-provider public:
+provider :ref:`public <knowing-what-to-make-public>`:
 
 ..  literalinclude:: _ExampleWebsiteTitle/_Services.yaml
     :language: yaml
