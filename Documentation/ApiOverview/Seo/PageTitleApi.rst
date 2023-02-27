@@ -63,6 +63,7 @@ Usage example in an :ref:`Extbase <extbase>` controller:
 Configure the new page title provider in your TypoScript setup:
 
 ..  literalinclude:: _ExampleSetInController/_setup.typoscript
+    :language: typoscript
     :caption: EXT:my_sitepackage/Configuration/TypoScript/setup.typoscript
 
 Example: Use values from the site configuration in the page title
