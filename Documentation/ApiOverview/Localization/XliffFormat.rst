@@ -91,6 +91,9 @@ Before TYPO v12.2, one has to define a
 
 In the file itself, a :xml:`target-language` attribute is added to the
 :xml:`<file>` tag to indicate the translation language ("de" in our example).
+TYPO3 does not consider the :xml:`target-language` attribute for its own processing
+of translations, but the filename prefix instead. The attribute might be useful
+though for human translators or tools.
 Then, for each :xml:`<source>` tag there is a sibling :xml:`<target>` tag
 that contains the translated string.
 
