@@ -65,7 +65,7 @@ only available in frontend contexts, not in the backend or CLI.
 
 Initializing :php:`$GLOBALS['TSFE']` in the backend is sometimes done in code
 examples found online. This is not recommended. TSFE is not initialized in the
-backend context by the core (and there is usually no need to do this).
+backend context by the Core (and there is usually no need to do this).
 
 From the PHP documentation:
 
