@@ -18,6 +18,25 @@ Which method of localization to use depends on the current context:
 Localization in plain PHP
 =========================
 
+The :php:`$GLOBALS['LANG']` can be used to access the language service as
+instantiated :php:`\TYPO3\CMS\Core\Localization\LanguageService` class.
+The global LANG array is available, if a backend user has been initialized,
+in particular in the following contexts:
+
+*   frontend: only if there is a logged-in backend user
+*   backend: always, except in Admin Tools modules (e.g. within Upgrade Wizard
+    in the backend)
+*   install tool / install tool modules in backend (e.g. Upgrade Wizard): no
+*   in cli: only if a backend user was initialized, e.g. by
+    `TYPO3\CMS\Core\Core\Bootstrap::initializeBackendUser()`
+
+If it is not instantiated, the :php:`LanguageServiceFactory` can be used
+to instantiate. Please see the examples below.
+
+:ref:`The methods provided by the instantiated LanguageService <LanguageService-api>`
+class then be used to translate texts using the language keys of XLIFF language
+files.
+
 Localization in frontend context
 --------------------------------
 

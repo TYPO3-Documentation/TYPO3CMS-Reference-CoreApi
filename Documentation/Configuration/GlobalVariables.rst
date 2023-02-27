@@ -14,6 +14,28 @@ $GLOBALS
    has no effect anymore. Use the
    :ref:`ModuleProvider <backend-modules-api>` instead.
 
+.. confval:: LANG
+
+   :Path: $GLOBALS
+   :type: :php:`\TYPO3\CMS\Core\Localization\LanguageService`
+   :Defined: is initialized by languageServiceFactory
+   :Frontend: no
+
+   The global array $GLOBALS['LANG'] is initialized by the core.
+   It can be used to fetch translations.
+   It contains an instantiation of the
+   :php:`\TYPO3\CMS\Core\Localization\LanguageService`.
+
+   .. attention::
+
+        The global array :php:`$GLOBALS['LANG']` is not available in all context,
+        in particular the contexts where a logged in backend user is not
+        available.
+
+   More information about instantiating and using :php:`$GLOBALS['LANG']` is
+   available in :ref:`extension-localization-php`.
+
+
 .. confval:: TYPO3_CONF_VARS
 
    :Path: $GLOBALS
