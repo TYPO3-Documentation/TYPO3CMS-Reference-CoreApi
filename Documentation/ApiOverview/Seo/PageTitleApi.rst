@@ -30,6 +30,8 @@ set by a provider, this provider will return the title of the page.
 Besides the providers shipped by the Core, you can add own providers. An
 integrator can define the priority of the providers for his project.
 
+..  contents:: Table of contents
+    :local:
 
 ..  index:: PageTitle; Custom PageTitleProvider
 
@@ -42,38 +44,67 @@ the page record will not be the correct title. To make sure to display the
 correct page title, you have to create your own page title provider. It is
 quite easy to create one.
 
+Example: Set the page title from your extension's controller
+-----------------------------------------------------------
+
 First, create a PHP class in your extension that implements the
 :php:`\TYPO3\CMS\Core\PageTitle\PageTitleProviderInterface`, for example by
-extending :php:`\TYPO3\CMS\Core\PageTitle\AbstractPageTitleProvider`. This will
-force you to have at least the :php:`getTitle()` method in your class. Within
+extending :php:`\TYPO3\CMS\Core\PageTitle\AbstractPageTitleProvider`.  Within
 this method you can create your own logic to define the correct title.
 
-..  code-block:: php
+..  literalinclude:: _ExampleSetInController/_MyOwnPageTitleProvider.php
+    :caption: EXT:my_extension/Classes/PageTitle/MyOwnPageTitleProvider.php
 
-    namespace Vendor\Extension\PageTitle;
+Usage example in an :ref:`Extbase <extbase>` controller:
 
-    use TYPO3\CMS\Core\PageTitle\AbstractPageTitleProvider;
+..  literalinclude:: _ExampleSetInController/_SomeController.php
+    :caption: EXT:my_extension/Classes/Controller/SomeController.php
 
-    class MyOwnPageTitleProvider extends AbstractPageTitleProvider
-    {
-        public function setTitle(string $title)
-        {
-            $this->title = $title;
-        }
-    }
+Configure the new page title provider in your TypoScript setup:
 
-Usage example, for example, in an :ref:`Extbase <extbase>` controller:
+..  literalinclude:: _ExampleSetInController/_setup.typoscript
+    :language: typoscript
+    :caption: EXT:my_sitepackage/Configuration/TypoScript/setup.typoscript
 
-.. code-block:: php
+Example: Use values from the site configuration in the page title
+-----------------------------------------------------------------
 
-   $titleProvider = GeneralUtility::makeInstance(MyOwnPageTitleProvider::class);
-   $titleProvider->setTitle('Title from controller action');
+If you want to use data from the :ref:`site configuration <sitehandling>`, for
+example the site title, you can implement a page title provider as follows:
 
+..  literalinclude:: _ExampleWebsiteTitle/_WebsiteTitleProvider.php
+    :caption: EXT:my_sitepackage/Classes/PageTitle/WebsiteTitleProvider.php
+
+As we need to :ref:`inject <DependencyInjection>` the class :php:`SiteFinder`
+to retrieve the current site configuration, we must make the new page title
+provider :ref:`public <knowing-what-to-make-public>`:
+
+..  literalinclude:: _ExampleWebsiteTitle/_Services.yaml
+    :language: yaml
+    :caption: EXT:my_sitepackage/Configuration/Services.yaml
+
+Then **flush the cache** in :guilabel:`Admin Tools > Maintenance > Flush TYPO3
+and PHP Cache`.
+
+Configure the new page title provider to be used in your TypoScript setup:
+
+..  literalinclude:: _ExampleWebsiteTitle/_setup.typoscript
+    :language: typoscript
+    :caption: EXT:my_sitepackage/Configuration/TypoScript/setup.typoscript
+
+The registered page title providers are called after each other in the
+configured order. The first provider that returns a non-empty value is used,
+the providers later in the order are ignored.
+
+Therefore our custom provider should be loaded before `record`, the
+default provider which always returns a value. If the system extension
+:t3ext:`seo` is loaded the default :guilabel:`SEO Title` has a particular format,
+you can change this by loading your custom provider before `seo`.
 
 .. index:: PageTitle; Priority
 
-Define priority of PageTitleProviders
-=====================================
+Define the priority of PageTitleProviders
+=========================================
 
 The priority of the providers is set by the TypoScript property
 :typoscript:`config.pageTitleProviders`. This way an integrator is able to set

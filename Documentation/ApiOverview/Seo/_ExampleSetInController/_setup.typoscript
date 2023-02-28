@@ -1,0 +1,8 @@
+config {
+  pageTitleProviders {
+    sitepackage {
+      provider = MyVendor\MySitepackage\PageTitle\MyOwnPageTitleProvider
+      before = record
+    }
+  }
+}
