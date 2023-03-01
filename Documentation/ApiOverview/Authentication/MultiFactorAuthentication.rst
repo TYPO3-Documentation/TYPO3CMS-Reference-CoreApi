@@ -214,7 +214,7 @@ This does not affect the remaining allowed providers from the "Access List".
 Recommended provider
 ~~~~~~~~~~~~~~~~~~~~
 
-To recommend a specific provider, :php:`$GLOBALS['TYPO3_CONF_VARS]['BE]['recommendedMfaProvider']`
+To recommend a specific provider, :php:`$GLOBALS['TYPO3_CONF_VARS']['BE']['recommendedMfaProvider']`
 can be used and is set to `totp` (Time-based one-time password) by default.
 
 To set a recommended provider on a per user or user group basis, the new
