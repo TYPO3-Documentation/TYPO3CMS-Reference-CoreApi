@@ -171,7 +171,7 @@ Accessing information about Frontend users. Accessing
     // TYPO3\CMS\Frontend\Authentication\FrontendUserAuthentication
     $feUser = $GLOBALS['TSFE']->fe_user;
 
-Using :ref:`request-attributes`:
+Using the request attribute :ref:`frontend.user <typo3-request-attribute-frontend-user>`:
 
 .. code-block:: php
 
