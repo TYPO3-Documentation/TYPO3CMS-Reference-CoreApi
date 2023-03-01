@@ -125,7 +125,7 @@ Access the current page id:
 .. code-block:: php
 
     // this is discouraged
-    $GLOBALS['TSFE']->id
+    $pageId = $GLOBALS['TSFE']->id;
 
 Can be done using the :ref:`'routing' <typo3-request-attribute-routing>`
 request attribute:
