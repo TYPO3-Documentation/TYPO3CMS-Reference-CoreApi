@@ -146,6 +146,11 @@ obtain :php:`\TYPO3\CMS\Core\Site\Entity\SiteLanguage` object from the
 
 .. code-block:: php
 
+    // outdated TSFE method, use site settings instead
+    $languageId = $GLOBALS['TSFE']->sys_language_uid;
+
+.. code-block:: php
+
     // TYPO3\CMS\Core\Site\Entity\SiteLanguage object.
     $language = $request->getAttribute('language');
     $languageId = $language->getLanguageId();
@@ -160,7 +165,7 @@ Get the language of the current page as integer:
 
     $languageId = (int) $context->getPropertyFromAspect('language', 'id');
 
-.. _tsfe_frontendUser
+.. _tsfe_frontendUser:
 
 Access frontend user information
 --------------------------------
