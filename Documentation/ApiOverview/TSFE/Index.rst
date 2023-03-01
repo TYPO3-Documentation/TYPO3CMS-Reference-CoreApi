@@ -93,7 +93,7 @@ where available:
 Access ContentObjectRenderer
 ----------------------------
 
-Access the :php:`ContentObjectRenderer` (often referred to as "cObj"):
+Access the :php:`\TYPO3\CMS\Frontend\ContentObject\ContentObjectRenderer` (often referred to as "cObj"):
 
 .. code-block:: php
 
