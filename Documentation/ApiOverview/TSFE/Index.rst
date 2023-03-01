@@ -140,7 +140,7 @@ request attribute:
 Access language settings
 ------------------------
 
-In order to get current language settings, such as the current language id,
+In order to get current language settings, such as the current language ID,
 obtain :php:`\TYPO3\CMS\Core\Site\Entity\SiteLanguage` object from the
 :ref:`request attribute <request-attributes>` 'language':
 
