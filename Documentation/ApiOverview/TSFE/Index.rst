@@ -93,7 +93,6 @@ Access ContentObjectRenderer
 Access the :php:`ContentObjectRenderer` (often referred to as "cObj"):
 
 .. code-block:: php
-    :caption: discouraged TSFE method
 
     // this is discouraged, obtain TSFE from request attribute 'frontend.controller'
     // see next example
@@ -121,7 +120,6 @@ Access current page id
 Access the current page id:
 
 .. code-block:: php
-    :caption: discouraged TSFE method
 
     // this is discouraged
     $GLOBALS['TSFE']->id
@@ -168,7 +166,6 @@ Accessing information about Frontend users. Accessing
 :php:`$GLOBALS['TSFE']->fe_user` directly is discouraged.
 
 .. code-block:: php
-    :caption: discouraged TSFE method
 
     // discouraged, use alternatives if possible
     // TYPO3\CMS\Frontend\Authentication\FrontendUserAuthentication
@@ -198,7 +195,6 @@ To get the base URL of the current site (or other :ref:`site configuration <site
 configuration:
 
 .. code-block:: php
-    :caption: deprecated TSFE method
 
     // It used to be possible to get the baseUrl configuration (from TypoScript
     // config.baseURL) this way.
