@@ -6,6 +6,9 @@
 TSFE
 ====
 
+..  contents::
+    :local:
+
 What is TSFE?
 =============
 
