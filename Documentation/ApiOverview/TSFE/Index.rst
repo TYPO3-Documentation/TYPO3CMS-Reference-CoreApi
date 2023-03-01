@@ -215,7 +215,7 @@ configuration:
 
 .. _tsfe_siteByPageId:
 
-Get site by page id
+Get site by page ID
 -------------------
 
 .. code-block:: php
