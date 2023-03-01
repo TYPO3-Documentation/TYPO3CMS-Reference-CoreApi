@@ -62,6 +62,9 @@ necessary, use the request attribute
 
     $frontendController = $request->getAttribute('frontend.controller');
 
+..  seealso::
+    :ref:`getting-typo3-request-object`
+
 TSFE is not available in all contexts. In particular, it is
 only available in frontend contexts, not in the backend or CLI.
 
