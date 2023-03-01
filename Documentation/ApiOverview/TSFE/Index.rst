@@ -14,7 +14,7 @@ a class which exists in the system extension EXT:frontend.
 
 As the name implies: A responsibility of TSFE
 is page rendering. It also handles reading from and writing to the page cache.
-For more details it is best to look in the source code.
+For more details it is best to look into the source code.
 
 There are several contexts in which the term TSFE is used:
 
