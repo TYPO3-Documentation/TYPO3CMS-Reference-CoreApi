@@ -30,11 +30,10 @@ There are several contexts in which the term TSFE is used:
     <ext_core:Changelog/10.0/Breaking-88564-PageTSconfigSettingTSFEconstantsRemoved>`)
     Page TSconfig: :typoscript:`TSFE.constants`.
 
-Focusing on the PHP part (as the TypoScript part is covered in the
-:ref:`TypoScript Reference: TSFE <t3tsref:data-type-gettext-tsfe>` page),
-this page gives an overview, what can be used, what is deprecated,
-removed or discouraged and in which way the TSFE class itself may be
-interesting to developers.
+The TypoScript part is covered in the
+:ref:`TypoScript Reference: TSFE <t3tsref:data-type-gettext-tsfe>`.
+In this section we focus on the PHP part and give an overview, in which way the
+TSFE class can be used.
 
 Accessing TSFE
 ===============
