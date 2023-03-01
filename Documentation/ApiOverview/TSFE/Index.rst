@@ -195,6 +195,15 @@ To get the base URL of the current site (or other site configuration), use site
 configuration:
 
 .. code-block:: php
+    :caption: deprecated TSFE method
+
+    // It used to be possible to get the baseUrl configuration (from TypoScript
+    // config.baseURL) this way.
+    // The property is now protected and deprecated since TYPO3 v12,
+    // use site configuration
+    $GLOBALS['TSFE']->baseURL
+
+.. code-block:: php
 
     // TYPO3\CMS\Core\Site\Entity\Site
     $site = $request->getAttribute('site');
