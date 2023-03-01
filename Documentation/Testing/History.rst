@@ -94,7 +94,7 @@ many classes and database operations. In short: functional testing.
 With our learning's from unit tests however it was clear that functional test execution needed to be
 executed in a well defined and isolated environment to be reliable: We could not just execute them in the
 context of the local developers system. Moreover, we had to isolate tests from each other: PHP is designed
-to work on a per-request basis. A cli or web request comes in, the system bootstraps, does the job,
+to work on a per-request basis. A CLI or web request comes in, the system bootstraps, does the job,
 then dies. The next request does a new bootstrap from scratch. This simplifies things a lot for
 developers since they don't need to take care of request overlapping state and don't need to take
 care too much about consumed memory. And if a single request dies in the middle of the execution,
@@ -163,7 +163,7 @@ functional test execution is clearly not a super charged turbo.
 Additionally, we had to increase the test isolation even more: There are test scenarios that execute
 both backend and frontend functionality. This is hard in TYPO3: A backend request is a backend
 request and it can't be used as a frontend request at the same time. Extension developers may know
-this: In TYPO3 it's hard to do frontend requests from within the backend or from cli - extensions
+this: In TYPO3 it's hard to do frontend requests from within the backend or from CLI - extensions
 like *solr* or *direct_mail* struggle at this point, too and need to find some solution working
 around this. In functional testing, a test scenario that does a frontend request thus forks
 processes twice: First, the backend part is executed as standalone process as explained above,
@@ -282,7 +282,7 @@ Core and extension code and allow system usages that have not been possible befo
 There are some further hard nuts we have to crack, though: For example, while the process isolation
 for functional backend tests has been dropped in 2018, the tests still fork processes to execute
 frontend scenarios. This is still ugly. It shows that calling a TYPO3 frontend from within the
-backend context or from cli is still not easily possible. As a goal, a developer in such a situation
+backend context or from CLI is still not easily possible. As a goal, a developer in such a situation
 would usually want to do this: Preserve the current framework state, create a PSR-7 request for the
 frontend, fire it, get a PSR-7 response object back, reset the framework state and then further work
 with the response object. Lots of details to allow this are in place since TYPO3 v9 already, with only
