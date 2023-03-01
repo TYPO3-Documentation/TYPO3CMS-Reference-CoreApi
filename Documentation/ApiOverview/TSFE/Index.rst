@@ -194,7 +194,7 @@ Some information via frontend and backend users con be obtained via the
 Get current base URL
 --------------------
 
-To get the base URL of the current site (or other site configuration), use site
+To get the base URL of the current site (or other :ref:`site configuration <sitehandling>`), use site
 configuration:
 
 .. code-block:: php
