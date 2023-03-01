@@ -117,7 +117,7 @@ In the case of :ref:`user function <tsref:cobj-user-int>` (for example, a non-Ex
 
 .. _tsfe_pageId:
 
-Access current page id
+Access current page ID
 ----------------------
 
 Access the current page id:
