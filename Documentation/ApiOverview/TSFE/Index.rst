@@ -168,7 +168,7 @@ Accessing information about Frontend users. Accessing
 
 .. code-block:: php
 
-    // not recommended, use alternatives if possible
+    // discouraged, use alternatives if possible
     // TYPO3\CMS\Frontend\Authentication\FrontendUserAuthentication
     $feUser = $GLOBALS['TSFE']->fe_user;
 
