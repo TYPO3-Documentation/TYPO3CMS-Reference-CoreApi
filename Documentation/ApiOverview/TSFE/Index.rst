@@ -120,7 +120,7 @@ In the case of :ref:`user function <tsref:cobj-user-int>` (for example, a non-Ex
 Access current page ID
 ----------------------
 
-Access the current page id:
+Access the current page ID:
 
 .. code-block:: php
 
