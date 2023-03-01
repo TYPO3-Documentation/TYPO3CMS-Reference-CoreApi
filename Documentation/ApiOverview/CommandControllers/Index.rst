@@ -6,7 +6,7 @@
 .. _symfony-console-commands:
 
 ======================
-Console commands (cli)
+Console commands (CLI)
 ======================
 
 It is possible to run TYPO3 scripts from the command line.

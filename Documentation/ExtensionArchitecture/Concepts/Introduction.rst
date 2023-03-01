@@ -66,7 +66,7 @@ beyond the listed components.
   extension in the backend.
 
 -  **Symfony console commands** provide functionality which can be executed on
-   the command line (cli). These commands are implemented by classes inheriting
+   the command line (CLI). These commands are implemented by classes inheriting
    the Symfony :php:`\Symfony\Component\Console\Command\Command\Command` class.
    More information is available in :ref:`symfony-console-commands`.
 
