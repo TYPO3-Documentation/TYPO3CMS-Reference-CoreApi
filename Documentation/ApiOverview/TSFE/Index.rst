@@ -165,7 +165,7 @@ Get the language of the current page as integer:
 Access frontend user information
 --------------------------------
 
-Accessing information about Frontend users. Accessing
+Accessing information about frontend users. Accessing
 :php:`$GLOBALS['TSFE']->fe_user` directly is discouraged.
 
 .. code-block:: php
