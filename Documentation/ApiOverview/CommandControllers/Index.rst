@@ -98,3 +98,4 @@ Read more
     :glob:
 
     *
+    */Index
