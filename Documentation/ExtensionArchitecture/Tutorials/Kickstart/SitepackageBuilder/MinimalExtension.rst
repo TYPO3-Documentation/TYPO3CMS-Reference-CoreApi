@@ -236,4 +236,4 @@ If you want to display lists and single views of data, or maybe even manipulate
 the data in the frontend, have a look at :ref:`Extbase <extbase>`.
 
 If you need a script that can be executed from the command line or from a cron
-job, have a look at :ref:`Symfony console commands (cli) <symfony-console-commands>`.
+job, have a look at :ref:`Symfony console commands (CLI) <symfony-console-commands>`.

@@ -110,7 +110,7 @@ This class defines a large number of constants and global variables. If you want
 to have an overview of these base values, it is worth taking a look into the following methods:
 
 -  :php:`SystemEnvironmentBuilder::defineTypo3RequestTypes()` defines the different
-   constants for determining if the current request is a frontend, backend, cli,
+   constants for determining if the current request is a frontend, backend, CLI,
    Ajax or Install Tool request.
 
 -  :php:`SystemEnvironmentBuilder::defineBaseConstants()` defines
