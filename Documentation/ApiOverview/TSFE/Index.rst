@@ -21,12 +21,12 @@ For more details it is best to look into the source code.
 
 There are several contexts in which the term TSFE is used:
 
-1.  PHP: It is passed as request attribute
+*   PHP: It is passed as request attribute
     :ref:`frontend.controller <typo3-request-attribute-frontend-controller>`
-2.  PHP: It was and is available as global array :php:`$GLOBALS['TSFE']` in PHP.
-3.  TypoScript: TypoScript function :ref:`TSFE <t3tsref:data-type-gettext-tsfe>`
+*   PHP: It was and is available as global array :php:`$GLOBALS['TSFE']` in PHP.
+*   TypoScript: TypoScript function :ref:`TSFE <t3tsref:data-type-gettext-tsfe>`
     which can be used to access public properties in TSFE.
-4.  (deprecated since v9.5 and :doc:`removed in 10.0
+*   (deprecated since v9.5 and :doc:`removed in 10.0
     <ext_core:Changelog/10.0/Breaking-88564-PageTSconfigSettingTSFEconstantsRemoved>`)
     Page TSconfig: :typoscript:`TSFE.constants`.
 
