@@ -28,7 +28,7 @@ $GLOBALS
 
    .. attention::
 
-        The global array :php:`$GLOBALS['LANG']` is not available in all context,
+        The global array :php:`$GLOBALS['LANG']` is not available in all contexts,
         in particular the contexts where a logged in backend user is not
         available.
 
