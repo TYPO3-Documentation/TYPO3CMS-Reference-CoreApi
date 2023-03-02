@@ -927,18 +927,34 @@ HTTP
 
 .. confval:: $GLOBALS['TYPO3_CONF_VARS']['BE']['HTTP']
 
-   :type: array
-   :Default:
-      .. code-block:: php
+    :type: array
 
-         [
+    Set HTTP headers to be sent with each backend request. Other keys than
+    :php:`['Response']['Headers']` are ignored.
+
+    The default configuration:
+
+    ..  code-block:: php
+
+        [
             'Response' => [
-               'Headers' => ['clickJackingProtection' => 'X-Frame-Options: SAMEORIGIN']
-            ]
-         ]
+                'Headers' => [
+                    'clickJackingProtection' => 'X-Frame-Options: SAMEORIGIN',
+                    'strictTransportSecurity' => 'Strict-Transport-Security: max-age=31536000',
+                    'avoidMimeTypeSniffing' => 'X-Content-Type-Options: nosniff',
+                    'referrerPolicy' => 'Referrer-Policy: strict-origin-when-cross-origin',
+                ],
+            ],
+        ]
+    ..  versionchanged:: 12.3
+        The options :php:`strictTransportSecurity`, :php:`avoidMimeTypeSniffing`
+        and :php:`referrerPolicy` were added.
 
-   Set HTTP headers to be sent with each backend request. Other keys than
-   :php:`['Response']['Headers']` are ignored.
+    ..  note::
+        The `Strict-Transport-Security` is only active, if the option
+        :ref:`$GLOBALS[TYPO3_CONF_VARS][BE][lockSSL] <typo3ConfVars_be_lockSSL>`
+        is enabled.
+
 
 .. index::
    TYPO3_CONF_VARS BE; passwordHashing className
