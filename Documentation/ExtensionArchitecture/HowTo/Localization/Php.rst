@@ -20,7 +20,7 @@ Localization in plain PHP
 
 The :php:`$GLOBALS['LANG']` can be used to access the language service as
 instantiated :php:`\TYPO3\CMS\Core\Localization\LanguageService` class.
-The global LANG array is available, if a backend user has been initialized,
+The global :php:`LANG` array is available, if a backend user has been initialized,
 in particular in the following contexts:
 
 *   frontend: only if there is a logged-in backend user
