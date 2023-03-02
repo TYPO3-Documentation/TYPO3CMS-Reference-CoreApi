@@ -946,6 +946,7 @@ HTTP
                 ],
             ],
         ]
+
     ..  versionchanged:: 12.3
         The options :php:`strictTransportSecurity`, :php:`avoidMimeTypeSniffing`
         and :php:`referrerPolicy` were added.
