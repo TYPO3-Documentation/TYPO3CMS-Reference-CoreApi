@@ -21,7 +21,7 @@ $GLOBALS
    :Defined: is initialized by languageServiceFactory
    :Frontend: no
 
-   The global array $GLOBALS['LANG'] is initialized by the core.
+   The global array :php:`$GLOBALS['LANG']` is initialized by the Core.
    It can be used to fetch translations.
    It contains an instantiation of the
    :php:`\TYPO3\CMS\Core\Localization\LanguageService`.
