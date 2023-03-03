@@ -1,0 +1,23 @@
+messenger.transport.demo:
+  factory: [ '@TYPO3\CMS\Core\Messenger\DoctrineTransportFactory', 'createTransport' ]
+  class: 'Symfony\Component\Messenger\Bridge\Doctrine\Transport\DoctrineTransport'
+  arguments:
+    $options:
+      queue_name: 'demo'
+  tags:
+    - name: 'messenger.sender'
+      identifier: 'demo'
+    - name: 'messenger.receiver'
+      identifier: 'demo'
+
+messenger.transport.default:
+  factory: [ '@Symfony\Component\Messenger\Transport\InMemoryTransportFactory', 'createTransport' ]
+  class: 'Symfony\Component\Messenger\Transport\InMemoryTransport'
+  arguments:
+    $dsn: 'in-memory://default'
+    $options: [ ]
+  tags:
+    - name: 'messenger.sender'
+      identifier: 'default'
+    - name: 'messenger.receiver'
+      identifier: 'default'

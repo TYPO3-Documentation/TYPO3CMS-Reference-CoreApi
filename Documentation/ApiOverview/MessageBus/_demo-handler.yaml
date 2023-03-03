@@ -1,0 +1,9 @@
+MyVendor\MyExtension\Queue\Handler\DemoHandler:
+  tags:
+    - name: 'messenger.message_handler'
+
+# Define another handler which should be called before DemoHandler:
+MyVendor\MyExtension\Queue\Handler\DemoHandler2:
+  tags:
+    - name: 'messenger.message_handler'
+      before: 'MyVendor\MyExtension\Queue\Handler\DemoHandler'

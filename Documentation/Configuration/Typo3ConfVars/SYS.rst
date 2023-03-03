@@ -984,3 +984,66 @@ passwordPolicies
                 ],
             ],
         ];
+
+
+..  index::
+    TYPO3_CONF_VARS SYS; messenger
+..  _typo3ConfVars_sys_messenger:
+
+messenger
+=========
+
+..  index::
+    TYPO3_CONF_VARS SYS; messenger routing
+..  _typo3ConfVars_sys_messenger_routing:
+
+routing
+-------
+
+..  versionadded:: 12.2
+
+..  confval:: $GLOBALS['TYPO3_CONF_VARS']['SYS']['messenger']['routing']
+
+    :Path: $GLOBALS['TYPO3_CONF_VARS']['SYS']['messenger']['routing']
+    :type: array
+
+    The configuration of the routing for the
+    :ref:`messenger component <message-bus>`. By default, TYPO3 uses a
+    synchronous transport (:php:`default`) for all messages (:php:`*`):
+
+    ..  code-block:: php
+
+        $GLOBALS['TYPO3_CONF_VARS']['SYS']['messenger']['routing'] = [
+            '*' => 'default',
+        ];
+
+    You can set a different transport for a specific message, for example:
+
+    ..  code-block:: php
+
+        $GLOBALS['TYPO3_CONF_VARS']['SYS']['messenger']['routing'][\MyVendor\MyExtension\Queue\Message\DemoMessage::class]
+            = 'doctrine';
+
+    ..  seealso::
+        :ref:`message-bus-routing`
+
+
+..  index::
+    TYPO3_CONF_VARS SYS; queue
+..  _typo3ConfVars_sys_queue:
+
+queue
+=====
+
+..  versionadded:: 12.2
+
+..  confval:: $GLOBALS['TYPO3_CONF_VARS']['SYS']['queue']
+
+    :Path: $GLOBALS['TYPO3_CONF_VARS']['SYS']['queue']
+    :type: array
+
+    This settings allows to configure a transport for the
+    :ref:`messenger component <message-bus>`.
+
+    ..  seealso::
+        :ref:`message-bus-custom-transport`
