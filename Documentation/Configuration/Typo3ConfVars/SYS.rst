@@ -1017,13 +1017,12 @@ routing
             '*' => 'default',
         ];
 
-    You can set a different transport for a specific message (additional to the above), for example:
+    You can set a different transport for a specific message, for example:
 
     ..  code-block:: php
 
-        $GLOBALS['TYPO3_CONF_VARS']['SYS']['messenger']['routing'] = [
-             \MyVendor\MyExtension\Queue\Message\DemoMessage::class => 'doctrine';
-        ];
+        $GLOBALS['TYPO3_CONF_VARS']['SYS']['messenger']['routing'][\MyVendor\MyExtension\Queue\Message\DemoMessage::class]
+            = 'doctrine';
 
     ..  seealso::
         :ref:`message-bus-routing`
