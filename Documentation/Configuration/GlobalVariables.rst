@@ -18,7 +18,7 @@ $GLOBALS
 
    :Path: $GLOBALS
    :type: :php:`\TYPO3\CMS\Core\Localization\LanguageService`
-   :Defined: is initialized by LanguageServiceFactory
+   :Defined: is initialized via :php:`\TYPO3\CMS\Core\Localization\LanguageServiceFactory`
    :Frontend: no
 
    The global array :php:`$GLOBALS['LANG']` is initialized by the Core.
