@@ -1017,7 +1017,7 @@ routing
             '*' => 'default',
         ];
 
-    You can set a different transport for a specific message, for example:
+    You can set a different transport for a specific message (additional to the above), for example:
 
     ..  code-block:: php
 
