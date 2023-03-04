@@ -53,11 +53,11 @@ plugin is `registration`.
       @import 'EXT:example/Configuration/TsConfig/Page/Mod/Wizards/NewContentElement.tsconfig'
 
    This always includes the above page TSconfig. It is better practice to make this configurable by
-   :ref:`registering the file as static page TSconfig <t3tsconfig:pagesettingstaticpagetsconfigfiles>`.
+   :ref:`registering this file as static page TSconfig <t3tsconfig:register-static-page-tsconfig>`.
 
    .. note::
       The usage of :file:`Configuration/page.tsconfig` is only valid in TYPO3
-      v12+. If you want to stay compatible with TYPO3 v11 and v12 have a look
+      v12+. If you want to stay compatible with TYPO3 v11 and v10 have a look
       into :ref:`setting-page-tsconfig`.
 
 #. :ref:`Register your icon <icon-registration>`
