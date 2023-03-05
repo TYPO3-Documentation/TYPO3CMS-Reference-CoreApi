@@ -101,12 +101,11 @@ backend. They are described in this chapter.
 
          .. rst-class:: card-header h3
 
-            .. rubric:: :ref:`Dropdown button components <dropdown-button-components>`
+            .. rubric:: :ref:`Button components <button-components>`
 
          .. container:: card-body
 
-            The backend module menu button bar can display dropdowns. This
-            enables interface interactions.
+            The menu button bar of a backend module can hold various components.
 
 
    .. container:: col-md-6 pl-0 pr-3 py-3 m-0

@@ -133,6 +133,8 @@ as you would normally do.
        return $view->renderResponse('AdminModule/Debug');
    }
 
+..  _backend-modules-template-without-extbase-docheader:
+
 The DocHeader
 =============
 
@@ -153,7 +155,7 @@ and :php:`makeLinkButton()` to create the button. Finally use :php:`addButton()`
     }
 
 ..  seealso::
-    :ref:`dropdown-button-components`
+    :ref:`button-components`
 
 
 Template example
