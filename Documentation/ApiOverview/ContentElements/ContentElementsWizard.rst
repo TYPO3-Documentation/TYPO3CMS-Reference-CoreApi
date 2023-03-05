@@ -53,7 +53,7 @@ plugin is `registration`.
       @import 'EXT:example/Configuration/TsConfig/Page/Mod/Wizards/NewContentElement.tsconfig'
 
    This always includes the above page TSconfig. It is better practice to make this configurable by
-   :ref:`registering the file as static page TSconfig <t3tsconfig:pagesettingstaticpagetsconfigfiles>`.
+   :ref:`registering this file as static page TSconfig <t3tsconfig:register-static-page-tsconfig>`.
 
    .. note::
       The usage of :file:`Configuration/page.tsconfig` is only valid in TYPO3
