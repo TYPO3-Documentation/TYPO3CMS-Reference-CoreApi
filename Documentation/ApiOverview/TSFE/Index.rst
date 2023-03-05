@@ -212,18 +212,3 @@ of the current site.
     // array
     $siteConfiguration = $site->getConfiguration();
     $baseUrl = $siteConfiguration['base'];
-
-.. _tsfe_siteByPageId:
-
-Get site by page ID
--------------------
-
-.. code-block:: php
-
-    // TYPO3\CMS\Core\Site\SiteFinder object (e.g. was injected by DI)
-    // TYPO3\CMS\Core\Site\Entity\Site
-    $site = $this->siteFinder->getSiteByPageId($pageId);
-
-.. seealso::
-
-    :ref:`Site <typo3-request-attribute-site>`
