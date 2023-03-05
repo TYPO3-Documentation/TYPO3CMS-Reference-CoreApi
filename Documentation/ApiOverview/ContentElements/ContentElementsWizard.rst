@@ -58,7 +58,7 @@ plugin is `registration`.
         );
 
    This always includes the above page TSconfig. It is better practice to make this configurable by
-   :ref:`registering the file as static page TSconfig <t3tsconfig:pagesettingstaticpagetsconfigfiles>`:
+   :ref:`registering this file as static page TSconfig <t3tsconfig:register-static-page-tsconfig>`.
 
 
 #. :ref:`Register your icon <icon-registration>` with the icon API
