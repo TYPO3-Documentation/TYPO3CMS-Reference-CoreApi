@@ -82,9 +82,6 @@ https://www.php.net/manual/en/reserved.variables.globals.php
 Howtos
 ======
 
-.. add howtos for common use cases, remove the not recommended, deprecated
-.. way if there is a better way
-
 Following are some examples which use TSFE and alternatives to using TSFE,
 where available:
 
@@ -93,13 +90,15 @@ where available:
 Access ContentObjectRenderer
 ----------------------------
 
-Access the :php:`\TYPO3\CMS\Frontend\ContentObject\ContentObjectRenderer` (often referred to as "cObj"):
+Access the :php:`\TYPO3\CMS\Frontend\ContentObject\ContentObjectRenderer`
+(often referred to as "cObj"):
 
 .. code-block:: php
 
-    // this is discouraged, obtain TSFE from request attribute 'frontend.controller'
-    // see next example
+    // !!! discouraged
     $cObj = $GLOBALS['TSFE']->cObj;
+
+Obtain TSFE from request attribute 'frontend.controller':
 
 .. code-block:: php
 
@@ -124,7 +123,7 @@ Access the current page ID:
 
 .. code-block:: php
 
-    // this is discouraged
+    // !!! discouraged
     $pageId = $GLOBALS['TSFE']->id;
 
 Can be done using the :ref:`'routing' <typo3-request-attribute-routing>`
@@ -146,7 +145,7 @@ obtain :php:`\TYPO3\CMS\Core\Site\Entity\SiteLanguage` object from the
 
 .. code-block:: php
 
-    // outdated TSFE method, use site settings instead
+    // !!! outdated
     $languageId = $GLOBALS['TSFE']->sys_language_uid;
 
 .. code-block:: php
@@ -170,16 +169,12 @@ Get the language of the current page as integer:
 Access frontend user information
 --------------------------------
 
-Accessing information about frontend users. Accessing
-:php:`$GLOBALS['TSFE']->fe_user` directly is discouraged.
-
 .. code-block:: php
 
-    // discouraged, use alternatives if possible
-    // TYPO3\CMS\Frontend\Authentication\FrontendUserAuthentication
+    // !!! discouraged
     $feUser = $GLOBALS['TSFE']->fe_user;
 
-Using the request attribute :ref:`frontend.user <typo3-request-attribute-frontend-user>`:
+Use the :ref:`frontend.user <typo3-request-attribute-frontend-user>`:
 
 .. code-block:: php
 
@@ -199,15 +194,15 @@ Some information via frontend and backend users con be obtained via the
 Get current base URL
 --------------------
 
-To get the base URL of the current site (or other :ref:`site configuration <sitehandling>`), use site
-configuration:
+It used to be possible to get the baseUrl configuration (from TypoScript
+config.baseURL) with the :php:`TSFE` :php:`baseURL` property. The
+property is now protected and deprecated since TYPO3 v12. Already in
+earlier version, site configuration should be used to get the base URL
+of the current site.
 
 .. code-block:: php
 
-    // It used to be possible to get the baseUrl configuration (from TypoScript
-    // config.baseURL) this way.
-    // The property is now protected and deprecated since TYPO3 v12,
-    // use site configuration
+    // !!! deprecated
     $GLOBALS['TSFE']->baseURL
 
 .. code-block:: php
