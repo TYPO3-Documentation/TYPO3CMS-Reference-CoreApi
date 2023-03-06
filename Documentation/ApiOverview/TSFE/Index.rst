@@ -45,7 +45,7 @@ Accessing TSFE
     necessary, and there are better alternatives.
 
     Access :php:`$GLOBALS['TSFE']` directly only as a last resort,
-    strongly discouraged if not absolutely necessary.
+    usage is strongly discouraged, if not absolutely necessary.
 
 From the source:
 
