@@ -44,7 +44,7 @@ Accessing TSFE
     protected or marked as internal. Often, accessing TSFE is no longer
     necessary, and there are better alternatives.
 
-    Access :php:`$GLOBALS['TSFE']` directly only as a last resort.
+    Access :php:`$GLOBALS['TSFE']` directly only as a last resort,
     strongly discouraged if not absolutely necessary.
 
 From the source:
