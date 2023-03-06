@@ -195,7 +195,7 @@ Get current base URL
 --------------------
 
 It used to be possible to get the base URL configuration (from TypoScript
-config.baseURL) with the :php:`TSFE` :php:`baseURL` property. The
+:typoscript:`config.baseURL`) with the :php:`TSFE` :php:`baseURL` property. The
 property is now protected and deprecated since TYPO3 v12. Already in
 earlier version, site configuration should be used to get the base URL
 of the current site.
