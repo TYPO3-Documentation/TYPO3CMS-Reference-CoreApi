@@ -1,76 +1,44 @@
-.. include:: /Includes.rst.txt
-.. index:: Events; RedirectWasHitEvent
-.. _RedirectWasHitEvent:
+..  include:: /Includes.rst.txt
+..  index:: Events; RedirectWasHitEvent
+..  _RedirectWasHitEvent:
 
 
 ===================
 RedirectWasHitEvent
 ===================
 
-.. versionadded:: 12.0
+..  versionadded:: 12.0
 
-This event is fired in the
-:php:`\TYPO3\CMS\Redirects\Http\Middleware\RedirectHandler`
-middleware and allows extensions to further process the matched
-redirect and to adjust the PSR-7 response.
+The PSR-14 event :php:`\TYPO3\CMS\Redirects\Event\RedirectWasHitEvent` is fired
+in the :php:`\TYPO3\CMS\Redirects\Http\Middleware\RedirectHandler`
+:ref:`middleware <request-handling>` and allows extension authors to further
+process the matched redirect and to adjust the PSR-7 response.
 
-
-API
----
-
-.. include:: /CodeSnippets/Events/Redirects/RedirectWasHitEvent.rst.txt
 
 Example: Disable the hit count increment for monitoring tools
--------------------------------------------------------------
+=============================================================
 
-TYPO3 already implements the :php:`IncrementHitCount` listener. It is
-used to increment the hit count of the matched redirect record, if the
-feature is enabled. In case you want to prevent the increment in some
-cases, for example when the request was initiated by a monitoring tool, you
+TYPO3 already implements the :t3src:`redirects/Classes/EventListener/IncrementHitCount.php`
+listener. It is used to increment the hit count of the matching redirect record,
+if the :ref:`feature "redirects.hitCount" <typo3ConfVars_sys_features_redirects.hitCount>`
+is enabled. In case you want to prevent the increment in some
+cases, for example if the request was initiated by a monitoring tool, you
 can either implement your own listener with the same identifier
 (:yaml:`redirects-increment-hit-count`) or add your custom listener
 before and dynamically set the records :php:`disable_hitcount` flag.
 
+Registration of the event in the extension's :file:`Services.yaml`:
 
-Registration of the event in the extensions' :file:`Services.yaml`:
-
-.. code-block:: yaml
-
-  MyVendor\MyPackage\Redirects\MyEventListener:
-    tags:
-      - name: event.listener
-        identifier: 'my-package/redirects/validate-hit-count'
-        before: 'redirects-increment-hit-count'
+..  literalinclude:: _RedirectWasHitEvent/_Services.yaml
+    :language: yaml
+    :caption: EXT:my_extension/Configuration/Services.yaml
 
 The corresponding event listener class:
 
-.. code-block:: php
+..  literalinclude:: _RedirectWasHitEvent/_MyEventListener.php
+    :caption: EXT:my_extension/Classes/Redirects/EventListener/MyEventListener.php
 
-    use TYPO3\CMS\Redirects\Event\RedirectWasHitEvent;
+API
+===
 
-    final class MyEventListener {
-
-        public function __invoke(RedirectWasHitEvent $event): void
-        {
-            $matchedRedirect = $event->getMatchedRedirect();
-
-            // This will disable the hit count increment in case the target
-            // is the page 123 and the request is from the monitoring tool.
-            if (str_contains($matchedRedirect['target'], 'uid=123')
-                && $event->getRequest()->getAttribute('normalizedParams')
-                ->getHttpUserAgent() === 'my monitoring tool'
-            ) {
-                $matchedRedirect['disable_hitcount'] = true;
-                $event->setMatchedRedirect(
-                    $matchedRedirect
-                );
-
-                // Also add a custom response header
-                $event->setResponse(
-                    $event->getResponse()->withAddedHeader(
-                       'X-Custom-Header',
-                       'Hit count increment skipped')
-                );
-            }
-        }
-    }
+.. include:: /CodeSnippets/Events/Redirects/RedirectWasHitEvent.rst.txt

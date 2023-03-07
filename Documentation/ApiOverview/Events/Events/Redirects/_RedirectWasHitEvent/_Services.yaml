@@ -1,0 +1,5 @@
+MyVendor\MyExtension\Redirects\EventListener\MyEventListener:
+  tags:
+    - name: event.listener
+      identifier: 'my-extension/redirects/validate-hit-count'
+      before: 'redirects-increment-hit-count'
