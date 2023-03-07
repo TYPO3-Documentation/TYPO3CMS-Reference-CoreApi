@@ -21,8 +21,6 @@ For more details it is best to look into the source code.
 
 There are several contexts in which the term TSFE is used:
 
-*   PHP: It is passed as request attribute
-    :ref:`frontend.controller <typo3-request-attribute-frontend-controller>`
 *   PHP: It was and is available as global array :php:`$GLOBALS['TSFE']` in PHP.
 *   TypoScript: TypoScript function :ref:`TSFE <t3tsref:data-type-gettext-tsfe>`
     which can be used to access public properties in TSFE.
@@ -52,18 +50,6 @@ From the source:
     When calling a frontend page, an instance of this object is available
     as :php:`$GLOBALS['TSFE']`, even though the Core development strives to get
     rid of this in the future.
-
-If access to the
-:php:`\TYPO3\CMS\Frontend\Controller\TypoScriptFrontendController` instance is
-necessary, use the request attribute
-:ref:`frontend.controller <typo3-request-attribute-frontend-controller>`:
-
-..  code-block:: php
-
-    $frontendController = $request->getAttribute('frontend.controller');
-
-..  seealso::
-    :ref:`getting-typo3-request-object`
 
 TSFE is not available in all contexts. In particular, it is
 only available in frontend contexts, not in the backend or CLI.
@@ -98,13 +84,6 @@ Access the :php:`\TYPO3\CMS\Frontend\ContentObject\ContentObjectRenderer`
     // !!! discouraged
     $cObj = $GLOBALS['TSFE']->cObj;
 
-Obtain TSFE from request attribute 'frontend.controller':
-
-.. code-block:: php
-
-    $frontendController = $request->getAttribute('frontend.controller');
-    $cObj = $frontendController->cObj;
-
 In the case of :ref:`user function <tsref:cobj-user-int>` (for example, a non-Extbase plugin) via setter injection:
 
 .. code-block:: php
@@ -123,16 +102,8 @@ Access the current page ID:
 
 .. code-block:: php
 
-    // !!! discouraged
+    // can be used in TYPO3 version 10
     $pageId = $GLOBALS['TSFE']->id;
-
-Can be done using the :ref:`'routing' <typo3-request-attribute-routing>`
-request attribute:
-
-.. code-block:: php
-
-    $pageArguments = $request->getAttribute('routing');
-    $pageId = $pageArguments->getPageId();
 
 .. _tsfe_language:
 
@@ -145,17 +116,10 @@ obtain :php:`\TYPO3\CMS\Core\Site\Entity\SiteLanguage` object from the
 
 .. code-block:: php
 
-    // !!! outdated
+    // can still be used, but will be deprecated
     $languageId = $GLOBALS['TSFE']->sys_language_uid;
 
-.. code-block:: php
-
-    // TYPO3\CMS\Core\Site\Entity\SiteLanguage object.
-    $language = $request->getAttribute('language');
-    $languageId = $language->getLanguageId();
-
-
-If the request is not available, accessing language settings
+Accessing language settings
 can be done using the :ref:`language aspect <context_api_aspects_language>`.
 
 Get the language of the current page as integer:
@@ -171,15 +135,8 @@ Access frontend user information
 
 .. code-block:: php
 
-    // !!! discouraged
-    $feUser = $GLOBALS['TSFE']->fe_user;
-
-Use the :ref:`frontend.user <typo3-request-attribute-frontend-user>`:
-
-.. code-block:: php
-
     // TYPO3\CMS\Frontend\Authentication\FrontendUserAuthentication
-    $frontendUser = $request->getAttribute('frontend.user');
+    $feUser = $GLOBALS['TSFE']->fe_user;
 
 Some information via frontend and backend users con be obtained via the
 :ref:`user aspect <context_api_aspects_user>`. For example:
@@ -196,13 +153,13 @@ Get current base URL
 
 It used to be possible to get the base URL configuration (from TypoScript
 :typoscript:`config.baseURL`) with the :php:`TSFE` :php:`baseURL` property. The
-property is now protected and deprecated since TYPO3 v12. Already in
+property will be deprecated in TYPO3 v12. Already in
 earlier version, site configuration should be used to get the base URL
 of the current site.
 
 .. code-block:: php
 
-    // !!! deprecated
+    // !!! will be deprecated
     $GLOBALS['TSFE']->baseURL
 
 .. code-block:: php
