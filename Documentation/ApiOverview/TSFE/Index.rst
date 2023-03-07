@@ -6,6 +6,9 @@
 TSFE
 ====
 
+..  contents::
+    :local:
+
 What is TSFE?
 =============
 
@@ -14,24 +17,23 @@ a class which exists in the system extension EXT:frontend.
 
 As the name implies: A responsibility of TSFE
 is page rendering. It also handles reading from and writing to the page cache.
-For more details it is best to look in the source code.
+For more details it is best to look into the source code.
 
 There are several contexts in which the term TSFE is used:
 
-1.  PHP: It is passed as request attribute
+*   PHP: It is passed as request attribute
     :ref:`frontend.controller <typo3-request-attribute-frontend-controller>`
-2.  PHP: It was and is available as global array :php:`$GLOBALS['TSFE']` in PHP.
-3.  TypoScript: TypoScript function :ref:`TSFE <t3tsref:data-type-gettext-tsfe>`
+*   PHP: It was and is available as global array :php:`$GLOBALS['TSFE']` in PHP.
+*   TypoScript: TypoScript function :ref:`TSFE <t3tsref:data-type-gettext-tsfe>`
     which can be used to access public properties in TSFE.
-4.  (deprecated since v9.5 and :doc:`removed in 10.0
+*   (deprecated since v9.5 and :doc:`removed in 10.0
     <ext_core:Changelog/10.0/Breaking-88564-PageTSconfigSettingTSFEconstantsRemoved>`)
     Page TSconfig: :typoscript:`TSFE.constants`.
 
-Focusing on the PHP part (as the TypoScript part is covered in the
-:ref:`TypoScript Reference: TSFE <t3tsref:data-type-gettext-tsfe>` page),
-this page gives an overview, what can still be used, what is deprecated,
-removed or discouraged and in which way the TSFE class itself may be
-interesting to developers.
+The TypoScript part is covered in the
+:ref:`TypoScript Reference: TSFE <t3tsref:data-type-gettext-tsfe>`.
+In this section we focus on the PHP part and give an overview, in which way the
+TSFE class can be used.
 
 Accessing TSFE
 ===============
@@ -42,8 +44,8 @@ Accessing TSFE
     protected or marked as internal. Often, accessing TSFE is no longer
     necessary, and there are better alternatives.
 
-    Directly access :php:`$GLOBALS['TSFE']` only as a last resort. It is
-    strongly discouraged if not absolutely necessary.
+    Access :php:`$GLOBALS['TSFE']` directly only as a last resort,
+    usage is strongly discouraged, if not absolutely necessary.
 
 From the source:
 
@@ -60,12 +62,15 @@ necessary, use the request attribute
 
     $frontendController = $request->getAttribute('frontend.controller');
 
+..  seealso::
+    :ref:`getting-typo3-request-object`
+
 TSFE is not available in all contexts. In particular, it is
 only available in frontend contexts, not in the backend or CLI.
 
 Initializing :php:`$GLOBALS['TSFE']` in the backend is sometimes done in code
 examples found online. This is not recommended. TSFE is not initialized in the
-backend context by the core (and there is usually no need to do this).
+backend context by the Core (and there is usually no need to do this).
 
 From the PHP documentation:
 
@@ -77,9 +82,6 @@ https://www.php.net/manual/en/reserved.variables.globals.php
 Howtos
 ======
 
-.. add howtos for common use cases, remove the not recommended, deprecated
-.. way if there is a better way
-
 Following are some examples which use TSFE and alternatives to using TSFE,
 where available:
 
@@ -88,20 +90,22 @@ where available:
 Access ContentObjectRenderer
 ----------------------------
 
-Access the :php:`ContentObjectRenderer` (often referred to as "cObj"):
+Access the :php:`\TYPO3\CMS\Frontend\ContentObject\ContentObjectRenderer`
+(often referred to as "cObj"):
 
 .. code-block:: php
 
-    // this is discouraged, obtain TSFE from request attribute 'frontend.controller'
-    // see next example
+    // !!! discouraged
     $cObj = $GLOBALS['TSFE']->cObj;
+
+Obtain TSFE from request attribute 'frontend.controller':
 
 .. code-block:: php
 
     $frontendController = $request->getAttribute('frontend.controller');
     $cObj = $frontendController->cObj;
 
-In the case of a non Extbase plugin via setter injection:
+In the case of :ref:`user function <tsref:cobj-user-int>` (for example, a non-Extbase plugin) via setter injection:
 
 .. code-block:: php
 
@@ -112,15 +116,15 @@ In the case of a non Extbase plugin via setter injection:
 
 .. _tsfe_pageId:
 
-Access current page id
+Access current page ID
 ----------------------
 
-Access the current page id:
+Access the current page ID:
 
 .. code-block:: php
 
-    // this is discouraged
-    $GLOBALS['TSFE']->id
+    // !!! discouraged
+    $pageId = $GLOBALS['TSFE']->id;
 
 Can be done using the :ref:`'routing' <typo3-request-attribute-routing>`
 request attribute:
@@ -135,9 +139,14 @@ request attribute:
 Access language settings
 ------------------------
 
-In order to get current language settings, such as the current language id,
+In order to get current language settings, such as the current language ID,
 obtain :php:`\TYPO3\CMS\Core\Site\Entity\SiteLanguage` object from the
 :ref:`request attribute <request-attributes>` 'language':
+
+.. code-block:: php
+
+    // !!! outdated
+    $languageId = $GLOBALS['TSFE']->sys_language_uid;
 
 .. code-block:: php
 
@@ -155,21 +164,17 @@ Get the language of the current page as integer:
 
     $languageId = (int) $context->getPropertyFromAspect('language', 'id');
 
-.. _tsfe_frontendUser
+.. _tsfe_frontendUser:
 
 Access frontend user information
 --------------------------------
 
-Accessing information about Frontend users. Accessing
-:php:`$GLOBALS['TSFE']->fe_user` directly is discouraged.
-
 .. code-block:: php
 
-    // not recommended, use alternatives if possible
-    // TYPO3\CMS\Frontend\Authentication\FrontendUserAuthentication
+    // !!! discouraged
     $feUser = $GLOBALS['TSFE']->fe_user;
 
-Using :ref:`request-attributes`:
+Use the :ref:`frontend.user <typo3-request-attribute-frontend-user>`:
 
 .. code-block:: php
 
@@ -189,8 +194,16 @@ Some information via frontend and backend users con be obtained via the
 Get current base URL
 --------------------
 
-To get the base URL of the current site (or other site configuration), use site
-configuration:
+It used to be possible to get the base URL configuration (from TypoScript
+:typoscript:`config.baseURL`) with the :php:`TSFE` :php:`baseURL` property. The
+property is now protected and deprecated since TYPO3 v12. Already in
+earlier version, site configuration should be used to get the base URL
+of the current site.
+
+.. code-block:: php
+
+    // !!! deprecated
+    $GLOBALS['TSFE']->baseURL
 
 .. code-block:: php
 
@@ -199,18 +212,3 @@ configuration:
     // array
     $siteConfiguration = $site->getConfiguration();
     $baseUrl = $siteConfiguration['base'];
-
-.. _tsfe_siteByPageId:
-
-Get site by page id
--------------------
-
-.. code-block:: php
-
-    // TYPO3\CMS\Core\Site\SiteFinder object (e.g. was injected by DI)
-    // TYPO3\CMS\Core\Site\Entity\Site
-    $site = $this->siteFinder->getSiteByPageId($pageId);
-
-.. seealso::
-
-    :ref:`Site <typo3-request-attribute-site>`
