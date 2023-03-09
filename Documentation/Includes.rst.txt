@@ -38,5 +38,5 @@
    maintained by the community anymore. Looking for a stable version? Use the
    version switch on the top left.
 
-   There is no further ELTS support. It is strongly recommended updating your
-   project.
+   There is no further ELTS support. It is recommended that you upgrade your
+   project and use a supported version of TYPO3.
