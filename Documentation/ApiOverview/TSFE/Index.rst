@@ -1,6 +1,6 @@
-.. include:: /Includes.rst.txt
-.. index:: TSFE; TypoScriptFrontendController
-.. _tsfe:
+..  include:: /Includes.rst.txt
+..  index:: TSFE; TypoScriptFrontendController
+..  _tsfe:
 
 ====
 TSFE
@@ -26,9 +26,6 @@ There are several contexts in which the term TSFE is used:
 *   PHP: It was and is available as global array :php:`$GLOBALS['TSFE']` in PHP.
 *   TypoScript: TypoScript function :ref:`TSFE <t3tsref:data-type-gettext-tsfe>`
     which can be used to access public properties in TSFE.
-*   (deprecated since v9.5 and :doc:`removed in 10.0
-    <ext_core:Changelog/10.0/Breaking-88564-PageTSconfigSettingTSFEconstantsRemoved>`)
-    Page TSconfig: :typoscript:`TSFE.constants`.
 
 The TypoScript part is covered in the
 :ref:`TypoScript Reference: TSFE <t3tsref:data-type-gettext-tsfe>`.
@@ -36,9 +33,9 @@ In this section we focus on the PHP part and give an overview, in which way the
 TSFE class can be used.
 
 Accessing TSFE
-===============
+==============
 
-.. attention::
+..  attention::
 
     Some of the former public properties and methods have been changed to
     protected or marked as internal. Often, accessing TSFE is no longer
@@ -85,7 +82,7 @@ Howtos
 Following are some examples which use TSFE and alternatives to using TSFE,
 where available:
 
-.. _tsfe_ContentObjectRenderer:
+..  _tsfe_ContentObjectRenderer:
 
 Access ContentObjectRenderer
 ----------------------------
@@ -93,28 +90,28 @@ Access ContentObjectRenderer
 Access the :php:`\TYPO3\CMS\Frontend\ContentObject\ContentObjectRenderer`
 (often referred to as "cObj"):
 
-.. code-block:: php
+..  code-block:: php
 
     // !!! discouraged
     $cObj = $GLOBALS['TSFE']->cObj;
 
 Obtain TSFE from request attribute 'frontend.controller':
 
-.. code-block:: php
+..  code-block:: php
 
     $frontendController = $request->getAttribute('frontend.controller');
     $cObj = $frontendController->cObj;
 
 In the case of :ref:`user function <tsref:cobj-user-int>` (for example, a non-Extbase plugin) via setter injection:
 
-.. code-block:: php
+..  code-block:: php
 
     public function setContentObjectRenderer(ContentObjectRenderer $cObj): void
     {
         $this->cObj = $cObj;
     }
 
-.. _tsfe_pageId:
+..  _tsfe_pageId:
 
 Access current page ID
 ----------------------
@@ -129,7 +126,7 @@ Access the current page ID:
 Can be done using the :ref:`'routing' <typo3-request-attribute-routing>`
 request attribute:
 
-.. code-block:: php
+..  code-block:: php
 
     $pageArguments = $request->getAttribute('routing');
     $pageId = $pageArguments->getPageId();
@@ -143,14 +140,14 @@ In order to get current language settings, such as the current language ID,
 obtain :php:`\TYPO3\CMS\Core\Site\Entity\SiteLanguage` object from the
 :ref:`request attribute <request-attributes>` 'language':
 
-.. code-block:: php
+..  code-block:: php
 
     // !!! outdated
     $languageId = $GLOBALS['TSFE']->sys_language_uid;
 
-.. code-block:: php
+..  code-block:: php
 
-    // TYPO3\CMS\Core\Site\Entity\SiteLanguage object.
+    /** @var \TYPO3\CMS\Core\Site\Entity\SiteLanguage $language */
     $language = $request->getAttribute('language');
     $languageId = $language->getLanguageId();
 
@@ -160,36 +157,36 @@ can be done using the :ref:`language aspect <context_api_aspects_language>`.
 
 Get the language of the current page as integer:
 
-.. code-block:: php
+..  code-block:: php
 
     $languageId = (int) $context->getPropertyFromAspect('language', 'id');
 
-.. _tsfe_frontendUser:
+..  _tsfe_frontendUser:
 
 Access frontend user information
 --------------------------------
 
-.. code-block:: php
+..  code-block:: php
 
     // !!! discouraged
     $feUser = $GLOBALS['TSFE']->fe_user;
 
 Use the :ref:`frontend.user <typo3-request-attribute-frontend-user>`:
 
-.. code-block:: php
+..  code-block:: php
 
-    // TYPO3\CMS\Frontend\Authentication\FrontendUserAuthentication
+    /** @var \TYPO3\CMS\Frontend\Authentication\FrontendUserAuthentication $frontendUser */
     $frontendUser = $request->getAttribute('frontend.user');
 
 Some information via frontend and backend users con be obtained via the
 :ref:`user aspect <context_api_aspects_user>`. For example:
 
-.. code-block:: php
+..  code-block:: php
 
     // return whether a frontend user is logged in
     $context->getPropertyFromAspect('frontend.user', 'isLoggedIn');
 
-.. _tsfe_baseURL:
+..  _tsfe_baseURL:
 
 Get current base URL
 --------------------
@@ -200,14 +197,14 @@ property is now protected and deprecated since TYPO3 v12. Already in
 earlier version, site configuration should be used to get the base URL
 of the current site.
 
-.. code-block:: php
+..  code-block:: php
 
     // !!! deprecated
     $GLOBALS['TSFE']->baseURL
 
-.. code-block:: php
+..  code-block:: php
 
-    // TYPO3\CMS\Core\Site\Entity\Site
+    /** @var \TYPO3\CMS\Core\Site\Entity\Site $site */
     $site = $request->getAttribute('site');
     // array
     $siteConfiguration = $site->getConfiguration();
