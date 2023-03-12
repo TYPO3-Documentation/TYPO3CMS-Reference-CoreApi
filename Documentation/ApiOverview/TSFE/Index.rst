@@ -58,13 +58,6 @@ Initializing :php:`$GLOBALS['TSFE']` in the backend is sometimes done in code
 examples found online. This is not recommended. TSFE is not initialized in the
 backend context by the Core (and there is usually no need to do this).
 
-From the PHP documentation:
-
-    As of PHP 8.1.0, $GLOBALS is now a read-only copy of the global symbol table.
-    That is, global variables cannot be modified via its copy.
-
-https://www.php.net/manual/en/reserved.variables.globals.php
-
 Howtos
 ======
 
