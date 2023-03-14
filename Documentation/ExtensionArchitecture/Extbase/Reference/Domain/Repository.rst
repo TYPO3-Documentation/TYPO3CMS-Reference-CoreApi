@@ -29,8 +29,58 @@ The :php:`BlogRepository` sets some default orderings and is otherwise empty:
     :local:
 
 
+..  _extbase-repository-find-methods:
+
+Find methods
+============
+
+..  versionadded:: 12.3
+
+The :php:`Repository` class provides the following methods for querying against
+arbitrary criteria:
+
+:php:`findBy(array $criteria, array $orderBy = null, int $limit = null, int $offset = null): QueryResultInterface`
+   Finds all objects with the provided criteria.
+
+:php:`findOneBy(array $criteria, array $orderBy = null): object|null`
+   Returns the first object found with the provided criteria.
+
+:php:`count(array $criteria): int`
+   Counts all objects with the provided criteria.
+
+Example:
+
+..  code-block:: php
+
+    $this->blogRepository->findBy(['author' => 1, 'published' => true]);
+
+
+Custom find methods
+===================
+
+Custom find methods can be implemented. They can be used for complex queries.
+
+..  attention::
+    As Extbase repositories turn the results into objects, querying large
+    amounts of data is resource-intensive.
+
+**Example:**
+
+The :php:`PostRepository` of the :t3ext:`blog` example extension implements
+several custom find methods, two of them are shown below:
+
+..  include:: /CodeSnippets/Extbase/Domain/CustomMethods.rst.txt
+
+
 Magic find methods
 ==================
+
+..  deprecated:: 12.3
+    As these methods are widely used in almost all Extbase-based extensions,
+    they are marked as deprecated in TYPO3 v12, but will only trigger a
+    deprecation notice in TYPO3 v13, as they will be removed in TYPO3 v14.
+    Migrate the usage of these methods to the new
+    :ref:`find methods <extbase-repository-find-methods>`.
 
 The :php:`Repository` class creates "magic" methods to find by attributes of
 model.
@@ -47,23 +97,6 @@ model.
 If necessary, these methods can also be overridden by implementing them in the
 concrete repository.
 
-Custom find methods
-===================
-
-Custom find methods can be implemented. They can be used, for example, to filter
-by multiple properties or apply a different sorting. They can also be used for
-complex queries.
-
-..  attention::
-    As Extbase repositories turn the results into objects, querying large
-    amounts of data is resource-intensive.
-
-**Example:**
-
-The :php:`PostRepository` of the :t3ext:`blog` example extension implements
-several custom find methods, two of them are shown below:
-
-..  include:: /CodeSnippets/Extbase/Domain/CustomMethods.rst.txt
 
 Query settings
 ===============
