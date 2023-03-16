@@ -1,0 +1,5 @@
+MyVendor\MyExtension\Redirects\EventListener\MyEventListener:
+  tags:
+    - name: event.listener
+      identifier: 'my-extension/redirects/add-redirect-source'
+      after: 'redirects-add-plain-slug-replacement-source'
