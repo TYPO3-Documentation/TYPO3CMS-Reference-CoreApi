@@ -1,0 +1,4 @@
+MyVendor\MyExtension\Redirects\EventListener\MyEventListener:
+  tags:
+    - name: event.listener
+      identifier: 'my-extension/modify-auto-create-redirect-record-before-persisting'
