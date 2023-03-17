@@ -20,7 +20,7 @@ allows to modify the form data, used to render the file edit form in the
 Example
 =======
 
-Registration of the event in your extension's :file:`Services.yaml`:
+Registration of the event listener in the extension's :file:`Services.yaml`:
 
 ..  literalinclude:: _Snippets/_ModifyEditFileFormDataEvent.yaml
     :caption: EXT:my_extension/Configuration/Services.yaml

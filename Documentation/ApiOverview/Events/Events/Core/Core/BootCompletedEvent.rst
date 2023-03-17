@@ -21,7 +21,7 @@ TYPO3's full configuration including all loaded extensions.
 Example
 =======
 
-Registration of the event in the :file:`Services.yaml`:
+Registration of the event listener in the extension's :file:`Services.yaml`:
 
 .. code-block:: yaml
 

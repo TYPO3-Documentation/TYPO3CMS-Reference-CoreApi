@@ -25,7 +25,7 @@ API
 Example
 =======
 
-Registration of the event in your extensions' :file:`Services.yaml`:
+Registration of the event listener in the extension's :file:`Services.yaml`:
 
 .. code-block:: yaml
    :caption: my_extension/Configuration/Services.yaml

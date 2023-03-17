@@ -23,7 +23,7 @@ returned after event dispatching and no further action is done by the
 Example
 =======
 
-Registration of the event in your extension's :file:`Services.yaml`:
+Registration of the event listener in the extension's :file:`Services.yaml`:
 
 ..  literalinclude:: _AfterPagePreviewUriGeneratedEvent/_Services.yaml
     :language: yaml

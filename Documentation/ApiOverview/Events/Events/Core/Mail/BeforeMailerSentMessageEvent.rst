@@ -21,7 +21,7 @@ the :php:`getTransport()` method.
 Example
 =======
 
-Registration of the event listener:
+Registration of the event listener in the extension's :file:`Services.yaml`:
 
 .. code-block:: yaml
    :caption: EXT:my_extension/Configuration/Services.yaml

@@ -24,7 +24,7 @@ items contain the corresponding page record in the special :php:`_page` key.
 Example
 =======
 
-Registration of the event in your extension's :file:`Services.yaml`:
+Registration of the event listener in the extension's :file:`Services.yaml`:
 
 ..  literalinclude:: _AfterPageTreeItemsPreparedEvent/_Services.yaml
     :language: yaml

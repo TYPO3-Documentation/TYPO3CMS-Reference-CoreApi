@@ -23,7 +23,7 @@ method :php:`add()` for the :php:`cacheActions` and
 Example
 =======
 
-Registration of the event in the :file:`Services.yaml`:
+Registration of the event listener in the extension's :file:`Services.yaml`:
 
 ..  literalinclude:: _ModifyClearCacheActionsEvent/_Services.yaml
     :language: yaml

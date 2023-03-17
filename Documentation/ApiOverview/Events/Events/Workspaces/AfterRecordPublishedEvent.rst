@@ -15,7 +15,7 @@ fired after a record has been published in a workspace.
 Example
 =======
 
-Registration of the event listener in your extension's :file:`Services.yaml`:
+Registration of the event listener in the extension's :file:`Services.yaml`:
 
 ..  code-block:: yaml
     :caption: EXT:my_extension/Configuration/Service.yaml

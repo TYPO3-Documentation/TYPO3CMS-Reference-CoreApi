@@ -21,7 +21,7 @@ content or reorder the content.
 Example
 =======
 
-Registration of the event in your extension's :file:`Services.yaml`:
+Registration of the event listener in the extension's :file:`Services.yaml`:
 
 ..  literalinclude:: _ModifyPageLayoutContentEvent/_Services.yaml
     :language: yaml
