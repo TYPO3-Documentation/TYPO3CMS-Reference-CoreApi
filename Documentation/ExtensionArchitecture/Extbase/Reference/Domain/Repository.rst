@@ -29,30 +29,36 @@ The :php:`BlogRepository` sets some default orderings and is otherwise empty:
     :local:
 
 
-Magic find methods
-==================
+..  _extbase-repository-find-methods:
 
-The :php:`Repository` class creates "magic" methods to find by attributes of
-model.
+Find methods
+============
 
-:php:`findBy[Property]`
-   Finds all objects with the provided property.
+..  versionadded:: 12.3
 
-:php:`findOneBy[Property]`
-   Returns the first object found with the provided property.
+The :php:`Repository` class provides the following methods for querying against
+arbitrary criteria:
 
-:php:`countBy[Property]`
-   Counts all objects with the provided property.
+:php:`findBy(array $criteria, array $orderBy = null, int $limit = null, int $offset = null): QueryResultInterface`
+   Finds all objects with the provided criteria.
 
-If necessary, these methods can also be overridden by implementing them in the
-concrete repository.
+:php:`findOneBy(array $criteria, array $orderBy = null): object|null`
+   Returns the first object found with the provided criteria.
+
+:php:`count(array $criteria): int`
+   Counts all objects with the provided criteria.
+
+Example:
+
+..  code-block:: php
+
+    $this->blogRepository->findBy(['author' => 1, 'published' => true]);
+
 
 Custom find methods
 ===================
 
-Custom find methods can be implemented. They can be used, for example, to filter
-by multiple properties or apply a different sorting. They can also be used for
-complex queries.
+Custom find methods can be implemented. They can be used for complex queries.
 
 ..  attention::
     As Extbase repositories turn the results into objects, querying large
@@ -64,6 +70,57 @@ The :php:`PostRepository` of the :t3ext:`blog` example extension implements
 several custom find methods, two of them are shown below:
 
 ..  include:: /CodeSnippets/Extbase/Domain/CustomMethods.rst.txt
+
+
+Magic find methods
+==================
+
+..  deprecated:: 12.3
+    As these methods are widely used in almost all Extbase-based extensions,
+    they are marked as deprecated in TYPO3 v12, but will only trigger a
+    deprecation notice in TYPO3 v13, as they will be removed in TYPO3 v14.
+    Migrate the usage of these methods to the new
+    :ref:`find methods <extbase-repository-find-methods>`.
+
+The :php:`Repository` class creates "magic" methods to find by attributes of
+model.
+
+:php:`findBy[PropertyName]`
+   Finds all objects with the provided property.
+
+:php:`findOneBy[PropertyName]`
+   Returns the first object found with the provided property.
+
+:php:`countBy[PropertyName]`
+   Counts all objects with the provided property.
+
+If necessary, these methods can also be overridden by implementing them in the
+concrete repository.
+
+Migration
+---------
+
+:php:`findBy[PropertyName]($propertyValue)` can be replaced with a call to
+:php:`findBy()`:
+
+..  code-block:: php
+
+    $this->myRepository->findBy(['propertyName' => $propertyValue]);
+
+:php:`findOneBy[PropertyName]($propertyValue)` can be replaced with a call to
+:php:`findOneBy`:
+
+..  code-block:: php
+
+    $this->myRepository->findOneBy(['propertyName' => $propertyValue]);
+
+:php:`countBy[PropertyName]($propertyValue)` can be replaced with a call to
+:php:`count`:
+
+..  code-block:: php
+
+    $this->myRepository->count(['propertyName' => $propertyValue]);
+
 
 Query settings
 ===============
