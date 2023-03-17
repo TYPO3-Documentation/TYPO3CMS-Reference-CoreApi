@@ -85,17 +85,41 @@ Magic find methods
 The :php:`Repository` class creates "magic" methods to find by attributes of
 model.
 
-:php:`findBy[Property]`
+:php:`findBy[PropertyName]`
    Finds all objects with the provided property.
 
-:php:`findOneBy[Property]`
+:php:`findOneBy[PropertyName]`
    Returns the first object found with the provided property.
 
-:php:`countBy[Property]`
+:php:`countBy[PropertyName]`
    Counts all objects with the provided property.
 
 If necessary, these methods can also be overridden by implementing them in the
 concrete repository.
+
+Migration
+---------
+
+:php:`findBy[PropertyName]($propertyValue)` can be replaced with a call to
+:php:`findBy()`:
+
+..  code-block:: php
+
+    $this->myRepository->findBy(['propertyName' => $propertyValue]);
+
+:php:`findOneBy[PropertyName]($propertyValue)` can be replaced with a call to
+:php:`findOneBy`:
+
+..  code-block:: php
+
+    $this->myRepository->findOneBy(['propertyName' => $propertyValue]);
+
+:php:`countBy[PropertyName]($propertyValue)` can be replaced with a call to
+:php:`count`:
+
+..  code-block:: php
+
+    $this->myRepository->count(['propertyName' => $propertyValue]);
 
 
 Query settings
