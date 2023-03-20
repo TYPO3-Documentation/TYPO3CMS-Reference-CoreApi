@@ -18,7 +18,7 @@ site configuration. Another use case could be to write data to additional
 :sql:`sys_redirect` columns added by a custom extension for later use.
 
 ..  note::
-    To handle later updates or react on manual created redirects in the backend
+    To handle updates or react on manual created redirects in the backend
     module, available hooks of :php:`\TYPO3\CMS\Core\DataHandling\DataHandler`
     can be used.
 
