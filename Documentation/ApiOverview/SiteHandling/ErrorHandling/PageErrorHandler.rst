@@ -13,9 +13,6 @@ sub-request.
 The page-based error handler is defined in
 :t3src:`core/Classes/Error/PageErrorHandler/PageContentErrorHandler.php`.
 
-FeatureFlag: `subrequestPageErrors`
------------------------------------
-
 In order to prevent possible denial-of-service attacks when the page-based error
 handler is used with the cURL-based approach, the content of the error page is
 cached in the TYPO3 page cache. Any dynamic content on the error page (for
@@ -30,7 +27,18 @@ If dynamic content is required on the error page, it is recommended
 to implement a :ref:`custom PHP based error
 handler <sitehandling-customErrorHandler>`.
 
-The internal sub-request is disabled by default.
+
+FeatureFlag: `subrequestPageErrors`
+-----------------------------------
+
+Error pages (such as 404 - not found, or 403 - access denied) may be
+generated via a TYPO3-internal sub-request instead of an external HTTP
+request (cURL over Guzzle).
+
+This feature is disabled by default, as there are some cases where stateful
+information is not correctly reset for the sub-request. It may be enabled on an
+experimental basis via a feature flag called `subrequestPageErrors` in the
+:guilabel:`Admin Tools > Settings` module.
 
 
 Properties
@@ -56,7 +64,6 @@ Internal error page
 -------------------
 
 Show the internal page with uid `145` on all errors with HTML status code `404`.
-The content of this page will be fetched via internal sub-request.
 
 ..  literalinclude:: _page-error-handler-internal.yaml
     :language: yaml
