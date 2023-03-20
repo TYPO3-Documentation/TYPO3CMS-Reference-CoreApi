@@ -14,6 +14,9 @@ BeforeRedirectEvent
 
 The notification event is triggered before a redirect is made.
 
+..  versionadded:: 11.5.26
+    The methods :php:`setRedirectUrl()` and :php:`getRequest()` are available.
+
 
 API
 ---
