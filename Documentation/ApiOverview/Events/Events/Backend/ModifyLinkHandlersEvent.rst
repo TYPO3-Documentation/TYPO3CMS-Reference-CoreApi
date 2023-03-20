@@ -25,7 +25,7 @@ to modify the set of handlers that will be used.
 Example
 =======
 
-Registration of the event in your extension's :file:`Services.yaml`:
+Registration of the event listener in the extension's :file:`Services.yaml`:
 
 ..  literalinclude:: _ModifyLinkHandlersEvent/_Services.yaml
     :language: yaml

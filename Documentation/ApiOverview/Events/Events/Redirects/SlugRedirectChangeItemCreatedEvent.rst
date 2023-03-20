@@ -32,7 +32,7 @@ information and data.
 Example
 =======
 
-Registration of the event in the extension's :file:`Services.yaml`:
+Registration of the event listener in the extension's :file:`Services.yaml`:
 
 ..  literalinclude:: _SlugRedirectChangeItemCreatedEvent/_Services.yaml
     :language: yaml

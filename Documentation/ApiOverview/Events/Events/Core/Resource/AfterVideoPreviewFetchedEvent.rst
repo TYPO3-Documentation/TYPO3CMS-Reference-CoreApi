@@ -18,8 +18,7 @@ used to modify and/or update the preview file.
 Example
 =======
 
-Registration of the event in :file:`Services.yaml`:
-
+Registration of the event listener in the extension's :file:`Services.yaml`:
 
 ..  code-block:: yaml
     :caption: EXT:my_extension/Configuration/Services.yaml

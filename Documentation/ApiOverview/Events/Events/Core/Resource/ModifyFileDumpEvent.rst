@@ -23,7 +23,7 @@ but also to replace the file, which should be dumped.
 Example
 =======
 
-Registration of the event in the :file:`Services.yaml`:
+Registration of the event listener in the extension's :file:`Services.yaml`:
 
 .. code-block:: yaml
 

@@ -23,7 +23,7 @@ search result on certain page IDs or to modify the search query altogether.
 Example
 =======
 
-Registration of the event in your extension's :file:`Services.yaml`:
+Registration of the event listener in the extension's :file:`Services.yaml`:
 
 ..  literalinclude:: _BeforeSearchInDatabaseRecordProviderEvent/_Services.yaml
     :language: yaml

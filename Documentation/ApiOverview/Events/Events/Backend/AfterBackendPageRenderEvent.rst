@@ -22,7 +22,7 @@ rendered page body. Listeners may overwrite the page string if desired.
 Example
 =======
 
-Registration of the event in your extension's :file:`Services.yaml`:
+Registration of the event listener in the extension's :file:`Services.yaml`:
 
 ..  literalinclude:: _AfterBackendPageRenderEvent/_Services.yaml
     :language: yaml

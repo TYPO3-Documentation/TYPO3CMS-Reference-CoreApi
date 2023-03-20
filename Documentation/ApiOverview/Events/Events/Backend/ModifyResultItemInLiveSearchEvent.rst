@@ -19,7 +19,7 @@ Example
     Some code in this example is experimental API and may change until TYPO3
     v12 LTS.
 
-Registration of the event in your extension's :file:`Services.yaml`:
+Registration of the event listener in the extension's :file:`Services.yaml`:
 
 ..  literalinclude:: _ModifyResultItemInLiveSearchEvent/_Services.yaml
     :language: yaml

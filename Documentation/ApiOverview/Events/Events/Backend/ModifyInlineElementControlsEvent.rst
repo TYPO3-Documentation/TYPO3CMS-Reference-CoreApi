@@ -21,7 +21,7 @@ or to completely remove a control.
 Example
 =======
 
-Registration of the event in your extensions' :file:`Services.yaml`:
+Registration of the event listener in the extension's :file:`Services.yaml`:
 
 ..  literalinclude:: _ModifyInlineElementControlsEvent/_Services.yaml
     :language: yaml

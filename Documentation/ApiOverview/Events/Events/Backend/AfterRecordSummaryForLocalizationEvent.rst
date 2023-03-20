@@ -18,7 +18,7 @@ and allows extensions to modify the payload of the :php:`JsonResponse`.
 Example
 =======
 
-Registration of the event in your extension's :file:`Services.yaml`:
+Registration of the event listener in the extension's :file:`Services.yaml`:
 
 ..  literalinclude:: _AfterRecordSummaryForLocalizationEvent/_Services.yaml
     :language: yaml

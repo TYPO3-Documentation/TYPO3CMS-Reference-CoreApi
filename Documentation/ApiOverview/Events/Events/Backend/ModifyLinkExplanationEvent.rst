@@ -40,7 +40,7 @@ The current context can be evaluated using the following methods:
 Example
 =======
 
-Registration of the event in your extension's :file:`Services.yaml`:
+Registration of the event listener in the extension's :file:`Services.yaml`:
 
 ..  literalinclude:: _ModifyLinkExplanationEvent/_Services.yaml
     :language: yaml

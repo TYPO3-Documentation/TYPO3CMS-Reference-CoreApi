@@ -30,7 +30,7 @@ URL will be opened in a new window.
 Example
 =======
 
-Registration of the event in your extension's :file:`Services.yaml`:
+Registration of the event listener in the extension's :file:`Services.yaml`:
 
 ..  literalinclude:: _ModifyImageManipulationPreviewUrlEvent/_Services.yaml
     :language: yaml
