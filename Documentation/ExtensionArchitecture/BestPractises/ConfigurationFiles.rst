@@ -85,7 +85,7 @@ file with all configuration of other extensions.
 -   You **must not** check for values of the removed :php:`TYPO3_MODE` or
     :php:`TYPO3_REQUESTTYPE` constants (for example,
     :php:`if (TYPO3_MODE === 'BE')`) or use the
-    :php:`\TYPO3\CMS\Core\Http\ApplicationType` class within these files as
+    :php:`\TYPO3\CMS\Core\Http\ApplicationType` enum within these files as
     it limits the functionality to cache the whole configuration of the system.
     Any extension author should remove the checks, and re-evaluate if these
     context-depending checks could go inside the hooks / caller function
