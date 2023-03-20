@@ -16,7 +16,7 @@ can be used to call external APIs or perform other tasks based on the real
 persisted redirects.
 
 ..  note::
-    To handle later updates or react on manual created redirects in the backend
+    To handle later updates or react on manually created redirects in the backend
     module, available hooks of :php:`\TYPO3\CMS\Core\DataHandling\DataHandler`
     can be used.
 
