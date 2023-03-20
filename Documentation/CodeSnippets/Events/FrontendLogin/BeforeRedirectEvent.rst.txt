@@ -3,7 +3,9 @@
 
 .. php:class:: BeforeRedirectEvent
 
-   Notification before a redirect is made.
+   Notification before a redirect is made, which also allows to modify
+   the actual redirect URL. Setting the redirect to an empty string
+   will avoid triggering a redirect.
 
    
    .. php:method:: getLoginType()
@@ -13,3 +15,11 @@
    .. php:method:: getRedirectUrl()
    
       :returntype: string
+      
+   .. php:method:: setRedirectUrl(string $redirectUrl)
+   
+      :param string $redirectUrl: the redirectUrl
+      
+   .. php:method:: getRequest()
+   
+      :returntype: Psr\\Http\\Message\\ServerRequestInterface
