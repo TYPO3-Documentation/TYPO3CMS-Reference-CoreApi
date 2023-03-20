@@ -13,7 +13,7 @@ The PSR-14 event
 :php:`\TYPO3\CMS\Redirects\Event\ModifyAutoCreateRedirectRecordBeforePersistingEvent`
 allows extension authors to modify the redirect record before it is persisted to
 the database. This can be used to change values according to circumstances, such
-as, for example, different sub-tree settings that are not covered by the Core
+as different sub-tree settings that are not covered by the Core
 site configuration. Another use case could be to write data to additional
 :sql:`sys_redirect` columns added by a custom extension for later use.
 
