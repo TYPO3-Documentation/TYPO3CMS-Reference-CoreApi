@@ -13,4 +13,16 @@ return [
         'targetFileName' => 'CodeSnippets/Events/Redirects/SlugRedirectChangeItemCreatedEvent.rst.txt',
         'withCode' => false,
     ],
+    [
+        'action' => 'createPhpClassDocs',
+        'class' => TYPO3\CMS\Redirects\Event\AfterAutoCreateRedirectHasBeenPersistedEvent::class,
+        'targetFileName' => 'CodeSnippets/Events/Redirects/AfterAutoCreateRedirectHasBeenPersistedEvent.rst.txt',
+        'withCode' => false,
+    ],
+    [
+        'action' => 'createPhpClassDocs',
+        'class' => TYPO3\CMS\Redirects\Event\ModifyAutoCreateRedirectRecordBeforePersistingEvent::class,
+        'targetFileName' => 'CodeSnippets/Events/Redirects/ModifyAutoCreateRedirectRecordBeforePersistingEvent.rst.txt',
+        'withCode' => false,
+    ],
 ];
