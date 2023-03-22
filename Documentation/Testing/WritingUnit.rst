@@ -153,7 +153,7 @@ can jump from a file to the according test file by hitting `CTRL+Shift+T`.
 Keep it simple
 ==============
 
-This is an importing rule in testing: Keep tests as simple as possible! Tests should be easy
+This is an important rule in testing: Keep tests as simple as possible! Tests should be easy
 to write, understand, read and refactor. There is no point in complex and overly abstracted
 tests. Those are pain to work with. The basic guides are: No loops, no additional class
 inheritance, no additional helper methods if not really needed, no additional state. As simple
