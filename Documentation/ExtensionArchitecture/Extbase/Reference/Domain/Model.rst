@@ -56,7 +56,7 @@ properties that are not persisted and get created on the fly:
 .. include:: /CodeSnippets/Extbase/Domain/ModelWithAdditionalGetters.rst.txt
 
 One disadvantage of using additional getters is that properties that are only
-defined as setters do not get displayed in the debug output in Fluid, they do
+defined as getters do not get displayed in the debug output in Fluid, they do
 however get displayed when explicitly called:
 
 .. code-block:: html
