@@ -178,7 +178,7 @@ $GLOBALS
         :php:`LanguageServiceFactory` should be used instead to retrieve the
         :php:`\TYPO3\CMS\Core\Localization\LanguageService`.
 
-   The :php:`\TYPO3\CMS\Core\Localization\LanguageService` can be used to fetch
+   The :php:`LanguageService` can be used to fetch
    translations.
 
    More information about retrieving the
