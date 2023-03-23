@@ -159,7 +159,7 @@ $GLOBALS
    translations.
 
    More information about retrieving the
-   :php:`\TYPO3\CMS\Core\Localization\LanguageService` is available in
+   :php:`LanguageService` is available in
    :ref:`extension-localization-php`.
 
 
