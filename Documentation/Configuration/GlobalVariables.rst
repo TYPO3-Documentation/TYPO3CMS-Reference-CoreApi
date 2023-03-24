@@ -142,6 +142,26 @@ $GLOBALS
       Should not be used anymore, rather use the
       :ref:`DateTime Aspect <context_api_aspects_datetime>`.
 
+.. confval:: LANG
+
+   :Path: $GLOBALS
+   :type: :php:`\TYPO3\CMS\Core\Localization\LanguageService`
+   :Defined: is initialized via :php:`\TYPO3\CMS\Core\Localization\LanguageServiceFactory`
+   :Frontend: no
+
+   .. attention::
+
+        It is discouraged to use this variable directly. The
+        :php:`LanguageServiceFactory` should be used instead to retrieve the
+        :php:`LanguageService`.
+
+   The :php:`LanguageService` can be used to fetch
+   translations.
+
+   More information about retrieving the
+   :php:`LanguageService` is available in
+   :ref:`extension-localization-php`.
+
 
 .. index:: $GLOBALS; Admin Tools
 .. _globals-exploring:
