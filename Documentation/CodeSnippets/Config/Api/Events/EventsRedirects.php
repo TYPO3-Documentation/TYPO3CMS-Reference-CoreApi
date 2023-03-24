@@ -31,4 +31,10 @@ return [
         'targetFileName' => 'CodeSnippets/Events/Redirects/ModifyRedirectManagementControllerViewDataEvent.rst.txt',
         'withCode' => false,
     ],
+    [
+        'action' => 'createPhpClassDocs',
+        'class' => TYPO3\CMS\Redirects\Event\BeforeRedirectMatchDomainEvent::class,
+        'targetFileName' => 'CodeSnippets/Events/Redirects/BeforeRedirectMatchDomainEvent.rst.txt',
+        'withCode' => false,
+    ],
 ];
