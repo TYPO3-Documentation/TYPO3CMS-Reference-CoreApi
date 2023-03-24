@@ -23,7 +23,7 @@ Read more about the concepts of MFA here https://en.wikipedia.org/wiki/Multi-fac
    :class: with-border with-shadow
 
 
-TYPO3 ships with some built-in MFA providers by default. But more importantly,
+TYPO3 comes with some built-in MFA providers by default. But more importantly,
 TYPO3 provides an API to allow extension authors to integrate their own
 MFA providers.
 
