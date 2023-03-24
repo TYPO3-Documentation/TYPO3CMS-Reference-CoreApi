@@ -25,4 +25,10 @@ return [
         'targetFileName' => 'CodeSnippets/Events/Redirects/ModifyAutoCreateRedirectRecordBeforePersistingEvent.rst.txt',
         'withCode' => false,
     ],
+    [
+        'action' => 'createPhpClassDocs',
+        'class' => TYPO3\CMS\Redirects\Event\ModifyRedirectManagementControllerViewDataEvent::class,
+        'targetFileName' => 'CodeSnippets/Events/Redirects/ModifyRedirectManagementControllerViewDataEvent.rst.txt',
+        'withCode' => false,
+    ],
 ];
