@@ -176,7 +176,7 @@ $GLOBALS
 
         It is discouraged to use this variable directly. The
         :php:`LanguageServiceFactory` should be used instead to retrieve the
-        :php:`\TYPO3\CMS\Core\Localization\LanguageService`.
+        :php:`LanguageService`.
 
    The :php:`LanguageService` can be used to fetch
    translations.
