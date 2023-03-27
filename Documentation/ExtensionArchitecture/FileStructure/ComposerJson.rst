@@ -39,19 +39,19 @@ Minimal composer.json
 
 This is a minimal composer.json for a TYPO3 extension:
 
-* The vendor name is *Vendorname*
+* The vendor name is *MyVendor*
 * The extension key is *my_extension*
 
 Subsequently:
 
-* The namespace will be *Vendorname\\MyExtension*
-* The package name will be *vendorname/my-extension*
+* The namespace will be *MyVendor\\MyExtension*
+* The package name will be *my-vendor/my-extension*
 
 .. code-block:: json
    :linenos:
 
    {
-      "name": "vendorname/my-extension",
+      "name": "my-vendor/my-extension",
       "type": "typo3-cms-extension",
       "description": "An example extension",
       "license": "GPL-2.0-or-later",
@@ -60,7 +60,7 @@ Subsequently:
       },
       "autoload": {
          "psr-4": {
-            "Vendorname\\MyExtension\\": "Classes/"
+            "MyVendor\\MyExtension\\": "Classes/"
          }
       },
       "extra": {
@@ -95,7 +95,7 @@ Extended composer.json
    :linenos:
 
    {
-      "name": "vendorname/my-extension",
+      "name": "my-vendor/my-extension",
       "type": "typo3-cms-extension",
       "description": "An example extension",
       "license": "GPL-2.0-or-later",
@@ -117,17 +117,17 @@ Extended composer.json
          "blog"
       ],
       "support": {
-         "issues": "https://github.com/vendorname/my-extensions/issues"
+         "issues": "https://github.com/my-vendor/my-extension/issues"
       },
       "funding": [
          {
             "type": "other",
-            "url:" : "myfundpage.org/vendorname"
+            "url:" : "myfundpage.org/my-vendor"
          }
       ],
       "autoload": {
          "psr-4": {
-            "Vendorname\\MyExtension\\": "Classes/"
+            "MyVendor\\MyExtension\\": "Classes/"
          }
       },
       "require-dev": {
@@ -156,7 +156,7 @@ name
 
 (*required*)
 
-`<vendorname>/<dashed extension key>` "Dashed extension key" means that every underscore (`_`) has been changed to a dash (`-`).
+`<my-vendor>/<dashed extension key>` "Dashed extension key" means that every underscore (`_`) has been changed to a dash (`-`).
 You must be owner of the vendor name and should register it on packagist.
 Typically, the name will correspond to your namespaces used in the :file:`Classes` folder,
 but with different uppercase / lowercase spelling,
@@ -264,8 +264,8 @@ The version for the extension is set in the file :ref:`ext_emconf.php <ext_emcon
 `Composer primarily takes the version information from repository tags <https://getcomposer.org/doc/02-libraries.md#library-versioning>`__,
 so the releases need to be tagged in the VCS repository with a version number.
 
-replace with ``typo3-ter`` vendorname
--------------------------------------
+replace with ``typo3-ter`` vendor name
+--------------------------------------
 
 .. code-block:: json
 

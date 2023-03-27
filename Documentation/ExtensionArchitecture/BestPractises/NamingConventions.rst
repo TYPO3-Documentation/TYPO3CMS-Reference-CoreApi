@@ -18,7 +18,7 @@ are based on the extension key.
     * underscores (`_`) in the extension key should be replaced by dashes (`-`), when used in the
       package name in the file :file:`composer.json` (e.g. `cool_shop` becomes `<vendor>/cool-shop`)
     * underscores in the extension key should be removed by converting the extension key
-      to UpperCamelCase in namespaces (e.g. `cool_shop` becomes :php:`VendorName\CoolShop`)
+      to UpperCamelCase in namespaces (e.g. `cool_shop` becomes :php:`MyVendor\CoolShop`)
 
 
 Abbreviations & Glossary
@@ -104,7 +104,7 @@ Derived names are:
 * package name in :file:`composer.json` `<vendor-name>/<package-name>`.
   Underscores (`_`) should be replaced by dashes (`-`)
 * namespaces: Underscores in the extension key are removed by converting the extension key
-  to UpperCamelCase in namespaces (e.g. `cool_shop` becomes `VendorName\CoolShop`).
+  to UpperCamelCase in namespaces (e.g. `cool_shop` becomes `MyVendor\CoolShop`).
 
 
 .. important::
@@ -136,7 +136,7 @@ Examples for names that are derived from the extkey:
 
 Here, the *extkey* is `my_extension`:
 
-* namespace: :php:`VendorName\MyExtension\...`
+* namespace: :php:`MyVendor\MyExtension\...`
 * package name in :file:`composer.json`: ``vendor-name/my-extension`` (the underscore is replaced by
   a dash)
 
