@@ -19,42 +19,16 @@ The event can be used to generate the request token individually. This can be
 the case when you are not using a login callback and have not the possibility
 to submit a request token:
 
-..  code-block:: php
-    :caption: EXT:my_extension/EventListener/ProcessRequestTokenListener.php
+Registration of the event listener in the extension's :file:`Services.yaml`:
 
-    namespace MyVendor\MyExtension\EventListener;
+..  literalinclude:: _BeforeRequestTokenProcessedEvent/_Services.yaml
+    :language: yaml
+    :caption: EXT:my_extension/Configuration/Services.yaml
 
-    use TYPO3\CMS\Core\Authentication\Event\BeforeRequestTokenProcessedEvent;
-    use TYPO3\CMS\Core\Security\RequestToken;
+An implementation of the event listener:
 
-    final class ProcessRequestTokenListener
-    {
-        public function __invoke(BeforeRequestTokenProcessedEvent $event): void
-        {
-            $user = $event->getUser();
-            $requestToken = $event->getRequestToken();
-            // fine, there is a valid request token
-            if ($requestToken instanceof RequestToken) {
-                return;
-            }
-            // validate individual requirements/checks
-            // ...
-            $event->setRequestToken(
-                RequestToken::create('core/user-auth/' . $user->loginType);
-            );
-        }
-    }
-
-Registration of the event listener in the extension's :file:`Services.yaml`::
-
-.. code-block:: yaml
-   :caption: EXT:my_extension/Configuration/Services.yaml
-
-   MyVendor\MyExtension\EventListener\ProcessRequestTokenListener:
-     tags:
-       - name: event.listener
-         identifier: 'my-extension/process-request-token-listener'
-
+..  literalinclude:: _BeforeRequestTokenProcessedEvent/_MyEventListener.php
+    :caption: EXT:my_extension/Authentication/EventListener/MyEventListener.php
 
 API
 ===

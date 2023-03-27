@@ -1,6 +1,6 @@
-.. include:: /Includes.rst.txt
-.. index:: Events; AfterGroupsResolvedEvent
-.. _AfterGroupsResolvedEvent:
+..  include:: /Includes.rst.txt
+..  index:: Events; AfterGroupsResolvedEvent
+..  _AfterGroupsResolvedEvent:
 
 ========================
 AfterGroupsResolvedEvent
@@ -14,13 +14,12 @@ be modified via event listeners. For example, more groups might be added when a
 particular user logs in or is seated at a special location.
 
 
-.. hint::
-
-   This event acts as a substitution for the removed TYPO3 Hook
-   :php:`$GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['t3lib/class.t3lib_userauthgroup.php']['fetchGroups_postProcessing']`.
+..  hint::
+    This event acts as a substitution for the removed TYPO3 hook
+    :php:`$GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['t3lib/class.t3lib_userauthgroup.php']['fetchGroups_postProcessing']`.
 
 
 API
----
+===
 
-.. include:: /CodeSnippets/Events/Core/AfterGroupsResolvedEvent.rst.txt
+..  include:: /CodeSnippets/Events/Core/AfterGroupsResolvedEvent.rst.txt
