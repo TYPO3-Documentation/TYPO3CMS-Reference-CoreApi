@@ -1,0 +1,4 @@
+MyVendor\MyExtension\Redirects\EventListener\MyEventListener:
+  tags:
+    - name: event.listener
+      identifier: 'my-extension/before-redirect-match-domain'
