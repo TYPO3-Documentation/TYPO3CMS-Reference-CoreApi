@@ -14,6 +14,65 @@ following sections describe how to achieve that.
 A preview renderer is used to facilitate (record) previews in TYPO3. This
 class is responsible for generating the preview and the wrapping.
 
+The default PreviewRenderer is :php:`StandardContentPreviewRenderer` and handles
+the core's built-in CTypes.
+
+Extend the default PreviewRenderer
+==================================
+
+There's two ways of how you can provide previews for your own custom CTypes:
+via PageTS or event listener.
+
+PageTS
+------
+
+..  code-block:: typoscript
+
+    mod.web_layout.tt_content.preview.<CType> = EXT:my_extension/Resources/Private/Templates/Preview/ExampleCType.html
+
+For more details see :ref:`TSconfig Reference <t3tsconfig:pageweblayoutpreview>`
+
+Event listener
+--------------
+
+..  versionadded:: 12.0
+    Since version 12.0 this this technique replaces the former hook
+    :php:`$GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['cms/layout/class.tx_cms_layout.php']['tt_content_drawItem']`
+
+The event :php:`PageContentPreviewRenderingEvent` is being dispatched by the
+:php:`StandardContentPreviewRenderer`. You can listen to it with your own
+event listener.
+
+..  code-block:: yaml
+    :caption: EXT:my_extension/Configuration/Services.yaml
+
+    services:
+      Vendor\MyExtension\EventListener\ExampleCType:
+        tags:
+          - name: event.listener
+            method: handleEvent
+            identifier: 'myListener'
+            event: TYPO3\CMS\Backend\View\Event\PageContentPreviewRenderingEvent
+
+..  code-block:: php
+    :caption: EXT:my_extension/Classes/EventListener/ExampleCType.php
+
+    namespace Vendor\MyExtension\EventListener;
+    use TYPO3\CMS\Backend\View\Event\PageContentPreviewRenderingEvent;
+
+    class ExampleCType
+    {
+        public function __invoke(PageContentPreviewRenderingEvent $event): void
+        {
+            if ($event->getTable() === 'tt_content') {
+                if ($event->getRecord()['CType'] === 'example_ctype') {
+                    $event->setPreviewContent('<div>...</div>');
+                }
+            }
+        }
+    }
+
+For more details see the chapter on :ref:`implementing an event listener <EventDispatcherImplementation>`
 
 Writing a PreviewRenderer
 =========================
