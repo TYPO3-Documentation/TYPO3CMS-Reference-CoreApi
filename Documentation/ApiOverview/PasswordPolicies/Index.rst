@@ -190,3 +190,11 @@ It is required to overwrite the following functions:
 
 Please refer to :php:`\TYPO3\CMS\Core\PasswordPolicy\Validator\CorePasswordValidator`
 for a detailed implementation example.
+
+
+Event
+=====
+
+The following PSR-14 event is available:
+
+*   :ref:`EnrichPasswordValidationContextDataEvent <EnrichPasswordValidationContextDataEvent>`

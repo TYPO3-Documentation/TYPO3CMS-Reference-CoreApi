@@ -1,0 +1,4 @@
+MyVendor\MyExtension\PasswordPolicy\EventListener\MyEventListener:
+  tags:
+    - name: event.listener
+      identifier: 'my-extension/enrich-context-data-event-listener'
