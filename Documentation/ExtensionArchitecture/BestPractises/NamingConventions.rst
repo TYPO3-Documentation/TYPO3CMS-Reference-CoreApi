@@ -45,6 +45,8 @@ TER
 extkey
     The extension key.
 
+..  extension-naming-extensionName::
+
 ExtensionName
     The term ExtensionName means the extension key in UpperCamelCase.
 
