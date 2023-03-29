@@ -201,4 +201,10 @@ return [
         'targetFileName' => 'CodeSnippets/Events/Core/BeforeRequestTokenProcessedEvent.rst.txt',
         'withCode' => false,
     ],
+    [
+        'action' => 'createPhpClassDocs',
+        'class' => \TYPO3\CMS\Core\PasswordPolicy\Event\EnrichPasswordValidationContextDataEvent::class,
+        'targetFileName' => 'CodeSnippets/Events/Core/PasswordPolicy/EnrichPasswordValidationContextDataEvent.rst.txt',
+        'withCode' => false,
+    ],
 ];
