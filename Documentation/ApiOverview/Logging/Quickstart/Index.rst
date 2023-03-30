@@ -89,6 +89,7 @@ for warnings (:php:`LogLevel::WARNING`) and lower, so all matching log entries
 are written to a file.
 
 If the filename is not set, then the file will contain a hash like
+
 ..  tabs::
 
     ..  group-tab:: Composer-based installation
