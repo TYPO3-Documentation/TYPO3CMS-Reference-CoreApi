@@ -14,19 +14,25 @@ following sections describe how to achieve that.
 A preview renderer is used to facilitate (record) previews in TYPO3. This
 class is responsible for generating the preview and the wrapping.
 
-The default preview renderer is :php:`StandardContentPreviewRenderer` and handles
-the Core's built-in content types (field :sql:`CType` in table :sql:`tt_content`).
+The default preview renderer is :php:`\TYPO3\CMS\Backend\Preview\StandardContentPreviewRenderer`
+and handles the Core's built-in content types (field :sql:`CType` in table :sql:`tt_content`).
 
-Extend the default PreviewRenderer
-==================================
+Extend the default preview renderer
+===================================
 
 There are two ways of how to provide previews for your own custom content types:
-via page TSconfig or event listener.
+via page :ref:`TSconfig <ConfigureCE-Preview>` or :ref:`event listener <ConfigureCE-Preview-EventListener>`.
 
-page TSconfig
+..  _ConfigureCE-Preview-PageTSconfig:
+
+Page TSconfig
 ----------------
 
+This is the "integrator" way, no PHP coding required. Just some PageTS
+and a fluid template.
+
 ..  code-block:: typoscript
+    :caption: EXT:my_extension/Configuration/page.tsconfig
 
     mod.web_layout {
       tt_content {
@@ -39,8 +45,13 @@ page TSconfig
 
 For more details see :ref:`TSconfig Reference <t3tsconfig:pageweblayoutpreview>`.
 
+..  _ConfigureCE-Preview-EventListener:
+
 Event listener
 --------------
+
+This requires at least some PHP coding but allows more flexibility in
+regards to accessing and processing the content elements properties.
 
 ..  versionadded:: 12.0
     Since version 12.0 this technique replaces the former hook
@@ -50,36 +61,9 @@ The event :php:`PageContentPreviewRenderingEvent` is being dispatched by the
 :php:`StandardContentPreviewRenderer`. You can listen to it with your own
 event listener.
 
-..  code-block:: yaml
-    :caption: EXT:my_extension/Configuration/Services.yaml
+Have a look at this :ref:`showcase implementation <_PageContentPreviewRenderingEvent>`.
 
-    services:
-      MyVendor\MyExtension\EventListener\ExampleCType:
-        tags:
-          - name: event.listener
-            method: handleEvent
-            identifier: 'myListener'
-            event: TYPO3\CMS\Backend\View\Event\PageContentPreviewRenderingEvent
-
-..  code-block:: php
-    :caption: EXT:my_extension/Classes/EventListener/ExampleCType.php
-
-    namespace MyVendor\MyExtension\EventListener;
-    use TYPO3\CMS\Backend\View\Event\PageContentPreviewRenderingEvent;
-
-    final class ExampleCType
-    {
-        public function __invoke(PageContentPreviewRenderingEvent $event): void
-        {
-            if ($event->getTable() === 'tt_content') {
-                if ($event->getRecord()['CType'] === 'example_ctype') {
-                    $event->setPreviewContent('<div>...</div>');
-                }
-            }
-        }
-    }
-
-For more details see the chapter on :ref:`implementing an event listener <EventDispatcherImplementation>`.
+For general information see the chapter on :ref:`implementing an event listener <EventDispatcherImplementation>`.
 
 Writing a PreviewRenderer
 =========================
