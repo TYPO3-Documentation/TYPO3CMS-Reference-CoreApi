@@ -283,7 +283,7 @@ Remarks:
     ``DELETE FROM `tt_content` WHERE `uid` = 4711`` into something like
     ``UPDATE `tt_content` SET `deleted` = 1 WHERE `uid` = 4711`` internally.
     A soft-delete must be handled at application level with a dedicated
-    lookup in :php:`$GLOBALS['TCA']['theTable']['ctrl']['deleted']` to check if
+    lookup in :php:`$GLOBALS['TCA']['theTable']['ctrl']['delete']` to check if
     a specific table can handle the soft-delete, together with an
     :php:`->update()` instead.
 
