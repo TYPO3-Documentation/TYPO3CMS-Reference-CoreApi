@@ -205,7 +205,7 @@ Remarks:
 
 * :php:`->delete()` does *not* magically transform a ``DELETE FROM `tt_content` WHERE `uid` = 4711`` to something like
   ``UPDATE `tt_content` SET `deleted` = 1 WHERE `uid` = 4711`` internally. A soft-delete must be handled on application
-  level code with a dedicated lookup in :php:`$GLOBALS['TCA']['theTable']['ctrl']['deleted']` to check if
+  level code with a dedicated lookup in :php:`$GLOBALS['TCA']['theTable']['ctrl']['delete']` to check if
   a specific table can handle the soft-delete, together with an :php:`->update()` instead.
 
 * Multi-table delete is *not* supported: ``DELETE FROM `table1`, `table2``` can not be created.
