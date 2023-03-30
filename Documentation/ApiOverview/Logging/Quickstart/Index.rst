@@ -89,8 +89,8 @@ for warnings (:php:`LogLevel::WARNING`) and lower, so all matching log entries
 are written to a file.
 
 If the filename is not set, then the file will contain a hash like
-:file:`typo3temp/var/logs/typo3_<hash>.log`, for example
-:file:`typo3temp/var/logs/typo3_7ac500bce5.log`.
+:file:`var/log/typo3_<hash>.log`, for example
+:file:`var/log/typo3_7ac500bce5.log`.
 
 A sample output looks like this:
 
