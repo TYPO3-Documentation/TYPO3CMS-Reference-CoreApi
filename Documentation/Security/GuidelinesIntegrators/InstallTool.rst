@@ -150,5 +150,22 @@ information, cache content, etc. and you should clear all caches after
 you changed this value in order to force the rebuild of this data with
 the new encryption key.
 
-Keep in mind that this string is security-related and you should keep
-it in a safe place.
+..  attention::
+    Keep in mind that this string is security-related and you should keep
+    it in a safe place.
+
+The encryption key should be a random hexadezimal key of length 96. You can 
+for example create it with openssl:
+
+..  code-block:: bash
+
+    openssl rand -hex 48 
+    
+From withing TYPO3 it is possible to generate it via API:
+
+
+..  code-block:: php
+
+    use  \TYPO3\CMS\Core\Crypto\Random;
+    
+    $this->random->generateRandomHexString(96);
