@@ -139,7 +139,7 @@ the new encryption key.
     Keep in mind that this string is security-related and you should keep
     it in a safe place.
 
-The encryption key should be a random hexadezimal key of length 96. You can 
+The encryption key should be a random hexadecimal key of length 96. You can 
 for example create it with openssl:
 
 ..  code-block:: bash
