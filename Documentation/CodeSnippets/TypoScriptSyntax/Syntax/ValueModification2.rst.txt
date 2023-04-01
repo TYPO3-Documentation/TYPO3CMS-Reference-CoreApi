@@ -1,8 +1,0 @@
-.. Automatic screenshot: Remove this line if you want to manually change this file
-
-.. code-block:: typoscript
-   :caption: Extension examples, file Configuration/TypoScript/Syntax/ValueModification2/setup.typoscript
-
-   myObject = TEXT
-   myObject.value = 3,4,5
-   

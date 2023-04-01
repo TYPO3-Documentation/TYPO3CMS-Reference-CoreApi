@@ -1,0 +1,10 @@
+.. Automatic screenshot: Remove this line if you want to manually change this file
+
+.. code-block:: typoscript
+   :caption: Extension examples, file Configuration/TypoScript/Syntax/OperatorCopy3/setup.typoscript
+
+   myIdentifier {
+      10 = TEXT
+      10.value = Hello world
+      20 < .10
+   }
