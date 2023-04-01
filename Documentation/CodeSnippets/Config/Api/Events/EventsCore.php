@@ -207,4 +207,22 @@ return [
         'targetFileName' => 'CodeSnippets/Events/Core/PasswordPolicy/EnrichPasswordValidationContextDataEvent.rst.txt',
         'withCode' => false,
     ],
+    [
+        'action' => 'createPhpClassDocs',
+        'class' => \TYPO3\CMS\Core\Authentication\Event\BeforeUserLogoutEvent::class,
+        'targetFileName' => 'CodeSnippets/Events/Core/BeforeUserLogoutEvent.rst.txt',
+        'withCode' => false,
+    ],
+    [
+        'action' => 'createPhpClassDocs',
+        'class' => \TYPO3\CMS\Core\Authentication\Event\AfterUserLoggedOutEvent::class,
+        'targetFileName' => 'CodeSnippets/Events/Core/AfterUserLoggedOutEvent.rst.txt',
+        'withCode' => false,
+    ],
+    [
+        'action' => 'createPhpClassDocs',
+        'class' => \TYPO3\CMS\Core\Authentication\Event\AfterUserLoggedInEvent::class,
+        'targetFileName' => 'CodeSnippets/Events/Core/AfterUserLoggedInEvent.rst.txt',
+        'withCode' => false,
+    ],
 ];

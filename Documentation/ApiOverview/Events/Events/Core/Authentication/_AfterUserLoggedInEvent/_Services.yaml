@@ -1,0 +1,4 @@
+MyVendor\MyExtension\Authentication\EventListener\MyEventListener:
+  tags:
+    - name: event.listener
+      identifier: 'my-extension/after-user-logged-in'
