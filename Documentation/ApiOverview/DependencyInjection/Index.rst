@@ -446,8 +446,8 @@ for consuming classes.
 Using container->get()
 ======================
 
-[WIP] Service containers provide two methods to obtain objects, first via :php:`$container->get()`,
-and via DI. This is only available for services itself: Classes that are registered
+Service containers provide two methods to obtain objects, first via :php:`$container->get()`,
+and via DI. This is only available for each service itself: Classes that are registered
 as a service via configuration can use injection or :php:`$container->get()`. DI is
 supported in two ways: As constructor injection, and as :php:`inject*()` method injection.
 They lead to the same result, but have subtle differences. More on that later.
