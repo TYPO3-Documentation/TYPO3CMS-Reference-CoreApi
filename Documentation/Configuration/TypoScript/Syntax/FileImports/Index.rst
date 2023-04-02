@@ -15,7 +15,7 @@ thus available in both frontend Typoscript and backend TSconfig.
 
 Both :typoscript:`@import` and :typoscript:`<INCLUDE_TYPOSCRIPT:` allow
 including additional files using wildcards. :typoscript:`@import` is a bit
-more restricted, though. The TYPO3 core strives to get rid of
+more restricted, though. The TYPO3 Core strives to get rid of
 :typoscript:`<INCLUDE_TYPOSCRIPT:` mid-term, and :typoscript:`@import` has
 been tuned with TYPO3 v12 to have show good performance metrics. Integrators
 should prefer :typoscript:`@import` over :typoscript:`<INCLUDE_TYPOSCRIPT:`
