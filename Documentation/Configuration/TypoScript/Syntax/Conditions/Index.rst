@@ -41,7 +41,7 @@ chapter in the :ref:`frontend TypoScript Reference <t3tsref:conditions>` and
 the :ref:`backend TSconfig Reference <t3tsconfig:conditions>`. These references
 come with examples for single condition criteria as well.
 
-The Tsconfig and TypoScript backend modules show lists of existing conditions
+The TSconfig and TypoScript backend modules show lists of existing conditions
 and allow simulating criteria verdicts to to analyze their impact on the
 resulting TypoScript tree.
 
