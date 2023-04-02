@@ -46,7 +46,7 @@ A couple of examples:
 Multiline assignment with "(" and ")"
 -------------------------------------
 
-Opening and closing parenthesis are used to assign multiline values. This allows
+Opening and closing parenthesis are used to assign multi-line values. This allows
 defining values that span several lines and thus include line breaks.
 
 The end parenthesis :typoscript:`)` is important: If it is not found, the parser
