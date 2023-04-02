@@ -16,7 +16,7 @@ enriching expressions with additional functionality, which is what this chapter 
 Main API
 ========
 
-The TYPO3 core API provides a relatively slim API in front of symfony expression
+The TYPO3 Core API provides a relatively slim API in front of symfony expression
 language: Symfony expressions are used in different contexts (TypoScript conditions,
 the EXT:form framework, maybe more).
 
