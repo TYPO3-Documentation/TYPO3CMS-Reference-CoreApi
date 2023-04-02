@@ -46,7 +46,7 @@ and allow simulating criteria verdicts to analyze their impact on the
 resulting TypoScript tree.
 
 Condition criteria are based on
-`symfony expression language <https://symfony.com/doc/current/components/expression_language/syntax.html>`__.
+the `Symfony expression language <https://symfony.com/doc/current/components/expression_language/syntax.html>`__.
 The core allows extending the symfony expression language with own variables and
 functions, see :ref:`symfony expression language API <sel-within-typoscript-conditions>`
 for more details.
