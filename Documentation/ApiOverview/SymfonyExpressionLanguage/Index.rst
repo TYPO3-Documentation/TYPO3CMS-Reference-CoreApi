@@ -9,7 +9,7 @@ Symfony expression language
 Symfony expression language (SEL) is used by TYPO3 in a couple of places. The most
 well-known ones are :ref:`TypoScript conditions <typoscript-syntax-global-condition>`.
 The :ref:`TSref <t3tsref:conditions>` and :ref:`TSconfig <t3tsconfig:conditions>` list
-available variables and functions of these contexts. But the TYPO3 core API allows
+available variables and functions of these contexts. But the TYPO3 Core API allows
 enriching expressions with additional functionality, which is what this chapter is about.
 
 
