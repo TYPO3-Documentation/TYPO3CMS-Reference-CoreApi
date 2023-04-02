@@ -36,7 +36,7 @@ and their details are found in standalone manuals:
     of this chapter when using TYPO3 versions older than v12. More details of changes implemented with the
     new parser can be found in this :doc:`ext_core:Changelog/12.0/Breaking-97816-TypoScriptSyntaxChanges`
     and this :doc:`ext_core:Changelog/12.0/Feature-97816-TypoScriptSyntaxImprovements`
-    Changelog entry.
+    changelog entries.
 
 
 **Table of Contents:**
