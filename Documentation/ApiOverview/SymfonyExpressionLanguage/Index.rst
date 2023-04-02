@@ -30,7 +30,7 @@ provides a list of all registered Symfony Expression Language providers.
 
 Evaluation of single expressions is then initiated calling
 :php:`$myResolver->evaluate()`. While TypoScript casts the return value to :php:`bool`,
-symfony expression evaluation can potentially return :php:`mixed`.
+Symfony expression evaluation can potentially return :php:`mixed`.
 
 
 .. index::
