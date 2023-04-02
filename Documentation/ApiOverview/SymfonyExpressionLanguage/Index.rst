@@ -20,7 +20,7 @@ The TYPO3 Core API provides a relatively slim API in front of the Symfony expres
 language: Symfony expressions are used in different contexts (TypoScript conditions,
 the EXT:form framework, maybe more).
 
-Class :php:`TYPO3\CMS\Core\ExpressionLanguage\Resolver` is used to prepare the
+The class :php:`TYPO3\CMS\Core\ExpressionLanguage\Resolver` is used to prepare the
 expression language processor based on a given context (identified by a string,
 for example "typoscript"), and loads registered available variables and functions
 for this context.
