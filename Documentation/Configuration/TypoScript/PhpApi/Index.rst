@@ -21,11 +21,11 @@ need to deal with all the nasty details and some parts of the parser are
 still subject to change.
 
 Developers who really need to parse own TypoScript snippets, should have
-a look at the Factory classes located in :file:`EXT:core/Classes/TypoScript/`,
+a look at the factory classes located in :file:`EXT:core/Classes/TypoScript/`,
 though. They are marked :php:`@internal` as well, but may be opened in the
 future. Use them on your own risk at the moment.
 
-TYPO3 provides frontend TypoScript and TSconfig rather simple APIs exist, though.
+TYPO3 already provides frontend TypoScript and TSconfig. Use these APIs for other use cases:
 
 
 .. index:: TSconfig; PHP
