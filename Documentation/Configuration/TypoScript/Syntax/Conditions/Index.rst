@@ -78,7 +78,7 @@ These general rules apply:
 * :typoscript:`[END]` and :typoscript:`[GLOBAL]` stop a given condition scope.
   This is similar to a closing curly brace :code:`}` in programming languages like PHP.
 
-* .. versionchanged:: 12.0
+  .. versionchanged:: 12.0
 
   :typoscript:`[END]` and :typoscript:`[GLOBAL]` behave exactly the same. Both
   are kept for historical reasons (for now).
