@@ -26,7 +26,7 @@ for example "typoscript"), and loads registered available variables and function
 for this context.
 
 The :ref:`System > Configuration <ext_lowlevel:module-configuration>` module
-provides a list of all registered Symfony Expression Language providers.
+provides a list of all registered Symfony expression language providers.
 
 Evaluation of single expressions is then initiated calling
 :php:`$myResolver->evaluate()`. While TypoScript casts the return value to :php:`bool`,
