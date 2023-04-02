@@ -46,6 +46,8 @@ for more details.
 The following rules apply:
 
 * Multiple files are imported in alphabetical order.
+  If a special loading order is desired it is common to prefix the filenames with 
+  numbers that increase for files that shall be loaded later.
 
 * Recursion is allowed: Imported files can have :typoscript:`@import` statements.
 
