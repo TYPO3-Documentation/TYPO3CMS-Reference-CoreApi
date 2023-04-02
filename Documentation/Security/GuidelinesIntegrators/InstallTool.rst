@@ -146,7 +146,7 @@ for example create it with OpenSSL:
 
     openssl rand -hex 48 
     
-From withing TYPO3 it is possible to generate it via API:
+From within TYPO3 it is possible to generate it via API:
 
 
 ..  code-block:: php
