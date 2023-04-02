@@ -8,11 +8,18 @@
 Model
 =====
 
+..  contents::
+    :local:
+
+
+Introduction
+============
+
 All classes of the domain model should inherit from the class
 :php:`\TYPO3\CMS\Extbase\DomainObject\AbstractEntity`.
 
 An entity is an object fundamentally defined not by its attributes, but by a
-thread of continuity and identity for example a person or a blog post.
+thread of continuity and identity, for example, a person or a blog post.
 
 Objects stored in the database are usually entities as they can be identified
 by the :sql:`uid` and are persisted, therefore have continuity.
@@ -20,6 +27,7 @@ by the :sql:`uid` and are persisted, therefore have continuity.
 **Example:**
 
 .. include:: /CodeSnippets/Extbase/Domain/AbstractEntity.rst.txt
+
 
 Connecting the model to the database
 ====================================
@@ -69,7 +77,7 @@ however get displayed when explicitly called:
    <f:debug>{post.info.combinedString}</f:debug>
 
 Relations
-==========
+=========
 
 Extbase supports different types of hierarchical relationships
 between domain objects.
@@ -165,7 +173,7 @@ to make a query in the PostRepository taking one or both relationships (first
 author, second author) into account.
 
 m:n-relationship
------------------
+----------------
 
 A blog post can have multiple categories, each category can belong to
 multiple blog posts.
@@ -173,8 +181,134 @@ multiple blog posts.
 .. include:: /CodeSnippets/Extbase/Domain/RelationshipNonM.rst.txt
 
 
+Hydrating objects
+=================
+
+Hydrating (the term originates from `doctrine/orm`_), or in Extbase terms thawing,
+is the act of creating an object from a given database row. The responsible
+class involved is the :php:`\TYPO3\CMS\Extbase\Persistence\Generic\Mapper\DataMapper`.
+During the process of hydrating, the :php:`DataMapper` creates objects to map
+the raw database data onto.
+
+Before diving into the framework internals, let us take a look at models from
+the user's perspective.
+
+..  _doctrine/orm: https://github.com/doctrine/orm
+
+Creating objects with constructor arguments
+-------------------------------------------
+
+Imagine you have a table :sql:`tx_extension_domain_model_blog` and a
+corresponding model or entity (entity is used as a synonym here)
+:php:`\MyVendor\MyExtension\Domain\Model\Blog`.
+
+Now, also imagine there is a domain rule which states, that all blogs must have
+a title. This rule can easily be followed by letting the blog class have a
+constructor with a required argument :php:`string $title`.
+
+..  literalinclude:: _Hydrating/_Blog1.php
+    :caption: EXT:my_extension/Classes/Domain/Model/Blog.php
+
+This example also shows how the `posts` property is initialized. It is done in
+the constructor because PHP does not allow setting a default value that is of
+type object.
+
+Hydrating objects with constructor arguments
+--------------------------------------------
+
+Whenever the user creates new blog objects in extension code, the aforementioned
+domain rule is followed. It is also possible to work on the :php:`posts`
+:php:`ObjectStorage` without further initialization. :php:`new Blog('title')` is
+all one need to create a blog object with a valid state.
+
+What happens in the :php:`DataMapper` however, is a totally different thing.
+When hydrating an object, the :php:`DataMapper` cannot follow any domain rules.
+Its only job is to map the raw database values onto a :php:`Blog` instance. The
+:php:`DataMapper` could of course detect constructor arguments and try to guess
+which argument corresponds to what property, but only if there is an easy
+mapping, that means, if the constructor takes the argument :php:`string $title`
+and updates the property `title` with it.
+
+To avoid possible errors due to guessing, the :php:`DataMapper` simply ignores
+the constructor at all. It does so with the help of the library
+`doctrine/instantiator`_.
+
+But there is more to all this.
+
+..  _doctrine/instantiator: https://github.com/doctrine/instantiator
+
+Initializing objects
+--------------------
+
+Have a look at the :php:`$posts` property in the example above. If the
+:php:`DataMapper` ignores the constructor, that property is in an invalid state,
+that means, uninitialized.
+
+To address this problem and possible others, the :php:`DataMapper` will call the
+method :php:`initializeObject(): void` on models, if it exists.
+
+Here is an updated version of the model:
+
+..  literalinclude:: _Hydrating/_Blog2.php
+    :caption: EXT:my_extension/Classes/Domain/Model/Blog.php
+
+This example demonstrates how Extbase expects the user to set up their models.
+If the method :php:`initializeObject()` is used for initialization logic that
+needs to be triggered on initial creation **and** on hydration. Please mind
+that :php:`__construct()` **should** call :php:`initializeObject()`.
+
+If there are no domain rules to follow, the recommended way to set up a model
+would then still be to define a :php:`__construct()` and
+:php:`initializeObject()` method like this:
+
+..  literalinclude:: _Hydrating/_Blog3.php
+    :caption: EXT:my_extension/Classes/Domain/Model/Blog.php
+
+Mutating objects
+----------------
+
+Some few more words on mutators (setter, adder, etc.). One might think that
+:php:`DataMapper` uses mutators during object hydration but it **does not**.
+Mutators are the only way for the user (developer) to implement business rules
+besides using the constructor.
+
+The :php:`DataMapper` uses the internal method
+:php:`AbstractDomainObject::_setProperty()` to update object properties. This
+looks a bit dirty and is a way around all business rules but that is what the
+:php:`DataMapper` needs in order to leave the mutators to the users.
+
+..  warning::
+    While the :php:`DataMapper` does not use any mutators, other parts of
+    Extbase do. Both, :ref:`validation <extbase_domain_validator>` and property
+    mapping, either use existing mutators or gather type information from them.
+
+Property visibility
+-------------------
+
+One important thing to know is that Extbase needs entity properties to be
+protected or public. As written in the former paragraph,
+:php:`AbstractDomainObject::_setProperty()` is used to bypass setters.
+However, :php:`AbstractDomainObject` is not able to access private properties of
+child classes, hence the need to have protected or public properties.
+
+Dependency injection
+--------------------
+
+Without digging too deep into :ref:`dependency injection <DependencyInjection>`
+the following statements have to be made:
+
+*   Extbase expects entities to be so-called prototypes, that means classes that
+    do have a different state per instance.
+*   :php:`DataMapper` **does not** use dependency injection for the creation of
+    entities, that means it does not query the object container. This also
+    means, that dependency injection is not possible in entities.
+
+If you think that your entities need to use/access services, you need to find
+other ways to implement it.
+
+
 Eager loading and lazy loading
-===============================
+==============================
 
 By default, Extbase loads all child objects with the parent object (so for
 example, all posts of a blog). This behavior is called eager loading.
@@ -184,7 +318,7 @@ are actually needed (lazy loading). This can lead to a significant
 increase in performance.
 
 On cascade remove
-==================
+=================
 
 The annotation :php:`@TYPO3\CMS\Extbase\Annotation\ORM\Cascade("remove")` has
 the effect that, if a blog is deleted, its posts will also be deleted
@@ -197,7 +331,7 @@ supported annotations, see the chapter :ref:`extbase-annotations`.
 ..  _extbase-model-localizedUid:
 
 Identifiers in localized models
-================================
+===============================
 
 Domain models have a main identifier :php:`uid` and an additional property
 :php:`_localizedUid`.
