@@ -24,7 +24,7 @@ User TSconfig
 User TSconfig can be set for backend users and groups.
 Configuration set for backend groups is inherited by the user who is a
 member of those groups. The available options typically cover user
-settings like those found in the User Settings, various backend tweaks
+settings like those found in the :guilabel:`User Settings` module, various backend tweaks
 (lock user to IP, may user clear caches?, etc.) and backend module configuration.
 
 
