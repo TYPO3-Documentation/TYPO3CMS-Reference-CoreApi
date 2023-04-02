@@ -104,7 +104,7 @@ Some examples:
     @import 'EXT:my_extension/Configuration/TypoScript/foo*'
 
     # Import files ending with ".setup.typoscript"
-    @import 'EXT:my_extension/Configuration/TypoScript/*setup.typoscript'
+    @import 'EXT:my_extension/Configuration/TypoScript/*.setup.typoscript'
 
     # Import "bar.typoscript" relative to current file
     @import './bar.typoscript'
