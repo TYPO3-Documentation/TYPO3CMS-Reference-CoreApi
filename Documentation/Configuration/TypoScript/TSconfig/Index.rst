@@ -7,7 +7,7 @@ TSconfig
 ========
 
 "user TSconfig" and "page TSconfig" are very flexible concepts for
-adding fine-grained configuration to the TYPO3 backend. It is a text-
+adding fine-grained configuration to the TYPO3 backend. It is a text-based
 based configuration system where you assign values to keyword strings,
 using the TypoScript syntax. The :ref:`TSconfig Reference <t3tsconfig:start>`
 describes in detail how this works and what can be done with it.
