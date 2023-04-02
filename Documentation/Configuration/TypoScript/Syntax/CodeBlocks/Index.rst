@@ -40,7 +40,7 @@ Some rules apply during parsing:
 
 - Conditions can not be placed within blocks, they are always "global" level
   and stop any brace nesting. The following construct is invalid, the TypoScript and
-  TSconfig backend modules will mumble a with "missing closing brace" warning:
+  TSconfig backend modules will mumble with a "missing closing brace" warning:
 
   .. include:: /CodeSnippets/TypoScriptSyntax/CodeBlockInvalidCondition.rst.txt
 
