@@ -6,7 +6,7 @@
    # Identifier "myIdentifier" is set to the value "foo"
    myIdentifier = foo
 
-   # Identidfier path "myIdentifier.mySubIdentifier" is set to the value "foo"
+   # Identifier path "myIdentifier.mySubIdentifier" is set to the value "foo"
    myIdentifier.mySubIdentifier = foo
 
    # "myIdentifier.mySubIdentifier" it set to the value "foo",
