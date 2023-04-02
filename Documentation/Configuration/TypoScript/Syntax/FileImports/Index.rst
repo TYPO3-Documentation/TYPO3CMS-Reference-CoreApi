@@ -17,9 +17,12 @@ Both :typoscript:`@import` and :typoscript:`<INCLUDE_TYPOSCRIPT:` allow
 including additional files using wildcards. :typoscript:`@import` is a bit
 more restricted, though. The TYPO3 Core strives to get rid of
 :typoscript:`<INCLUDE_TYPOSCRIPT:` mid-term, and :typoscript:`@import` has
-been tuned with TYPO3 v12 to show good performance metrics. Integrators
-should prefer :typoscript:`@import` over :typoscript:`<INCLUDE_TYPOSCRIPT:`
-since it is best practice and more future proof.
+been tuned with TYPO3 v12 to show good performance metrics.
+
+..  note::
+    Integrators should prefer :typoscript:`@import` over
+    :typoscript:`<INCLUDE_TYPOSCRIPT:` since it is best practice and more
+    future-proof.
 
 The TypoScript parser allows to place :typoscript:`@import` and
 :typoscript:`<INCLUDE_TYPOSCRIPT:` within condition bodies, which obsoletes the
@@ -33,10 +36,13 @@ to be placed within code blocks.
 =======
 
 This keyword allows including files inspired by a syntax similar to :code:`SASS`.
-It is restricted, but still allows wildcards on file level. Single files *must* end
-with :file:`.typoscript` if included in frontend Typoscript. In backend TSconfig,
-single files *should* end with :file:`.tsconfig`, but *may* end with
-:typoscript:`.typoscript` as well (for now).
+It is restricted, but still allows wildcards on file level.
+
+..  note::
+    Single files *must* end with :file:`.typoscript`, if included in frontend
+    Typoscript. In backend TSconfig, single files *should* end with
+    :file:`.tsconfig`, but *may* end with :file:`.typoscript` as well
+    (for now).
 
 The include logic is a bit more restrictive with TYPO3 v12, previous versions
 have been slightly more relaxed in this regard. See
@@ -46,7 +52,7 @@ for more details.
 The following rules apply:
 
 * Multiple files are imported in alphabetical order.
-  If a special loading order is desired it is common to prefix the filenames with 
+  If a special loading order is desired it is common to prefix the filenames with
   numbers that increase for files that shall be loaded later.
 
 * Recursion is allowed: Imported files can have :typoscript:`@import` statements.
@@ -120,9 +126,12 @@ Some examples:
 <INCLUDE_TYPOSCRIPT:
 ====================
 
+..  note::
+    This syntax should be avoided as of TYPO3 v12 and is likely to be deprecated
+    with TYPO3 v13.
+
 This traditional include instruction works as well. It is more clumsy and permissive,
-does not follow best practices. It should be avoided as of TYPO3 v12 and is likely
-to be deprecated with TYPO3 v13. It looks like this:
+does not follow best practices. It looks like this:
 
 .. code-block:: typoscript
 
