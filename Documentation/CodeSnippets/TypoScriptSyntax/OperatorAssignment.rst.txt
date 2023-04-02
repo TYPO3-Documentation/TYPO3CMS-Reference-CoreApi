@@ -1,0 +1,31 @@
+.. Automatic screenshot: Remove this line if you want to manually change this file
+
+.. code-block:: typoscript
+   :caption: Extension examples, file Configuration/TypoScript/Syntax/Assignment/setup.typoscript
+
+   # Identifier "myIdentifier" is set to the value "foo"
+   myIdentifier = foo
+
+   # Identifier path "myIdentifier.mySubIdentifier" is set to the value "foo"
+   myIdentifier.mySubIdentifier = foo
+
+   # "myIdentifier.mySubIdentifier" it set to the value "foo",
+   # but is immediately overwritten to value "bar"
+   myIdentifier.mySubIdentifier = foo
+   myIdentifier.mySubIdentifier = bar
+
+   # Same as above, value of "myIdentifier.mySubIdentifier" is "bar"
+   myIdentifier.mySubIdentifier = foo
+   myIdentifier {
+      mySubIdentifier = bar
+   }
+
+   # Value assignments are not comment-aware, "#", "//" and "/*" after a
+   # "=" operator do not start a comment. The value of identifier
+   # "myIdentifier.mySubIdentifier" is "foo // not a comment"
+   myIdentifier.mySubIdentifier = foo // not a comment
+
+   # Value assignment using a constant:
+   # Ends up as "foo myConstantValue bar" if constant "myConstant" is set to "myConstantValue"
+   # Ends up as "foo {$myConstantValue} bar" if constant "myConstant" is not set
+   myIdentifier. mySubIdentifier = foo {$myConstantValue} bar

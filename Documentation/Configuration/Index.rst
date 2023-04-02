@@ -33,8 +33,7 @@ these terms in this chapter.
     GlobalVariables
     Typo3ConfVars/Index
     Typo3Information
-    Tsconfig
-    TypoScriptSyntax/Index
+    TypoScript/Index
     UserSettingsConfiguration/Index
     Yaml/Index
 

@@ -1,0 +1,24 @@
+.. Automatic screenshot: Remove this line if you want to manually change this file
+
+.. code-block:: typoscript
+   :caption: Extension examples, file Configuration/TypoScript/Syntax/OperatorMultiLine/setup.typoscript
+
+   myIdentifier= TEXT
+   myIdentifier.value (
+      This is a
+      multiline assignment
+   )
+
+   myIdentifier= TEXT
+   myIdentifier.value (
+      <p class="warning">
+         This is HTML code.
+      </p>
+   )
+
+   myIdentifier= TEXT
+   myIdentifier.value (
+      This looks up the value for constant {$myConstant}
+      and falls back to the string "{$myConstant}" if it can
+      not be resolved.
+   )

@@ -1,0 +1,15 @@
+.. Automatic screenshot: Remove this line if you want to manually change this file
+
+.. code-block:: typoscript
+   :caption: Extension examples, file Configuration/TypoScript/Syntax/ObjectUnset/setup.typoscript
+
+   myIdentifier.mySubIdentifier = TEXT
+   myIdentifier.mySubIdentifier = myValue
+   myIdentifier.mySubIdentifier.stdWrap = <p>|</p>
+
+   # "myIdentifier.mySubIdentifier" is completely removed, including value
+   # assignment and sub identifier "stdWrap"
+   myIdentifier.mySubIdentifier >
+
+   # Same as above: Everything after ">" operator is considered a comment
+   myIdentifier.mySubIdentifier > // Some comment
