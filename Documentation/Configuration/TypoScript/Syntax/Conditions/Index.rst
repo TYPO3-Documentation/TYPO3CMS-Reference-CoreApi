@@ -118,7 +118,7 @@ These general rules apply:
 
 * .. versionchanged:: 12.0
 
-  Conditions automatically stop at the end of a text snipped (file or record), even
+  Conditions automatically stop at the end of a text snippet (file or record), even
   without :typoscript:`[END]` or :typoscript:`[GLOBAL]`. Another snippet on the same
   level is in "global" scope automatically. The backend TypoScript and
   TSconfig modules may mumble about a not properly closed condition, though.
