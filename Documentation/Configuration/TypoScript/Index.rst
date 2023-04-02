@@ -15,7 +15,7 @@ and its parser logic is mainly used in two different contexts: `Frontend TypoScr
 to configure frontend rendering and `TSconfig` to configure backend details
 for backend users.
 
-While the underlying TypoScript syntax is described in this chapter, both usages
+While the underlying TypoScript syntax is described in this chapter, both use cases
 and their details are found in standalone manuals:
 
 -  The :ref:`TypoScript Reference <t3tsref:start>` goes into details about the

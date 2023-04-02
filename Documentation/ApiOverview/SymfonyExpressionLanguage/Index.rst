@@ -7,7 +7,7 @@ Symfony expression language
 ===========================
 
 Symfony expression language (SEL) is used by TYPO3 in a couple of places. The most
-well know one are :ref:`TypoScript conditions <typoscript-syntax-global-condition>`.
+well known ones are :ref:`TypoScript conditions <typoscript-syntax-global-condition>`.
 The :ref:`TSref <t3tsref:conditions>` and :ref:`TSconfig <t3tsconfig:conditions>` list
 available variables and functions of these contexts. But the TYPO3 core API allows
 enriching expressions with additional functionality, which is what this chapter is about.
@@ -20,7 +20,7 @@ The TYPO3 core API provides a relatively slim API in front of symfony expression
 language: Symfony expressions are used in different contexts (TypoScript conditions,
 the EXT:form framework, maybe more).
 
-Class :php:`TYPO3\CMS\Core\ExpressionLanguage\Resolver` in used to prepare the
+Class :php:`TYPO3\CMS\Core\ExpressionLanguage\Resolver` is used to prepare the
 expression language processor based on a given context (identified by a string,
 for example "typoscript"), and loads registered available variables and functions
 for this context.
@@ -29,7 +29,7 @@ The :ref:`System > Configuration <ext_lowlevel:module-configuration>` module
 provides a list of all registered Symfony Expression Language providers.
 
 Evaluation of single expressions is then initiated calling
-:php:`$myResolver->evaluate()`. While TypoScript cast the return value to :php:`bool`,
+:php:`$myResolver->evaluate()`. While TypoScript casts the return value to :php:`bool`,
 symfony expression evaluation can potentially return :php:`mixed`.
 
 
@@ -126,7 +126,7 @@ registered in the provider:
        }
    }
 
-The below (artificial) implementation calls some external URL based on given variables:
+The (artificial) implementation below calls some external URL based on given variables:
 
 .. code-block:: php
    :caption: EXT:some_extension/Classes/ExpressionLanguage/CustomConditionFunctionsProvider.php

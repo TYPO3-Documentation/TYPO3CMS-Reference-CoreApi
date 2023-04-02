@@ -35,7 +35,7 @@ Page TSconfig
 
 The page TSconfig for a specific page can be retrieved using
 :php:`\TYPO3\CMS\Backend\Utility\BackendUtility::getPagesTSconfig()`. While
-the parser creates a tree of PHP objects internally, this methods only returns
+the parser creates a tree of PHP objects internally, this method returns only
 the array representation of the parsed TypoScript:
 
 ..  code-block:: php

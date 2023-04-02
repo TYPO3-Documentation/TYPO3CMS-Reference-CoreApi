@@ -108,7 +108,7 @@ Some examples:
     @import './bar.typoscript'
 
     # Import all ".setup.typoscript" files in sub directory relative to current file
-    @import './subDirectory/*.bar.typoscript'
+    @import './subDirectory/*.setup.typoscript'
 
 
 .. index:: TypoScript; Includes by conditions

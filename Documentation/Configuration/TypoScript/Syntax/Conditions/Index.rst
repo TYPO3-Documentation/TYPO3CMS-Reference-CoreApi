@@ -107,7 +107,7 @@ These general rules apply:
   within the same code snippet.
 
 * A second condition that is *not* :typoscript:`[ELSE]`, :typoscript:`[END]`
-  and :typoscript:`[GLOBAL]` *stops* a previous condition and starts a new one.
+  or :typoscript:`[GLOBAL]` *stops* a previous condition and starts a new one.
   This is the main reason conditions can *not* be nested within one text snippet.
 
 * .. versionchanged:: 12.0
