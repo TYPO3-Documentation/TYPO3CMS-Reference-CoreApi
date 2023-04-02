@@ -86,7 +86,7 @@ Additional variables
 ====================
 
 Additional variables can be provided by the registered provider class.
-In practice, adding additional variables are used rather seldom: To
+In practice, adding additional variables is used rather seldom: To
 access state, they tend to use :php:`$GLOBALS`, which in general is not
 a good idea. Instead, consuming code should provide available variables
 by handing them over to the :php:`Resolver` constructor already.
