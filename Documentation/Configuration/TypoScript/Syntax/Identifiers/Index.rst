@@ -25,7 +25,7 @@ a dotted path of single identifiers, and the first block of non-whitespace chara
 on a line until an operator, a curly open brace, or a whitespace. The dot (:typoscript:`.`)
 is used to separate single identifiers, creating a hierarchy.
 
-When a dot is part of a single identifier name (this may for instance sometimes happen when configuring
+When a dot is part of a single identifier name (this may, for instance, sometimes happen when configuring
 FlexForm details), it must be quoted with a backlash. The example below results in the
 identifier :typoscript:`myIdentifier` with the sub identifier :typoscript:`my.identifier.with.dots`
 having the assigned value :typoscript:`myValue`:
