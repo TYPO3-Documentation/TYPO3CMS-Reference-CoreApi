@@ -27,7 +27,7 @@ The TypoScript parser allows to place :typoscript:`@import` and
 imports with :typoscript:`@import`.
 
 Neither :typoscript:`@import` nor :typoscript:`<INCLUDE_TYPOSCRIPT:` are allowed
-to be places within code blocks.
+to be placed within code blocks.
 
 @import
 =======
