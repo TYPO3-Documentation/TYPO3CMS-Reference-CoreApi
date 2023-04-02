@@ -155,7 +155,7 @@ the new encryption key.
     it in a safe place.
 
 The encryption key should be a random hexadecimal key of length 96. You can 
-for example create it with openssl:
+for example create it with OpenSSL:
 
 ..  code-block:: bash
 
