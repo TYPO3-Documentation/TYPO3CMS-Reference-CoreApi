@@ -13,7 +13,7 @@
       page.10.value = You are *not* logged in
    [END]
 
-   # This is more easy
+   # This is faster to read
    [!frontend.user.isLoggedIn]
       page.10.value = You are *not* logged in
    [END]
