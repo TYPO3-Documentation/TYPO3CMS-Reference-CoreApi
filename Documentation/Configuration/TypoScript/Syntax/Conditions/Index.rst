@@ -100,7 +100,7 @@ These general rules apply:
 
 * Conditions can *not* be nested within code blocks.
 
-* .. versionchanged:: 12.0
+  .. versionchanged:: 12.0
 
   Conditions *can* be nested into each other, if they are located in
   different snippets (files or records), see example below. They can *not* be nested
