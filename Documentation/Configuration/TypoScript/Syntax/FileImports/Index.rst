@@ -40,7 +40,7 @@ single files *should* end with :file:`.tsconfig`, but *may* end with
 
 The include logic is a bit more restrictive with TYPO3 v12, previous versions
 have been slightly more relaxed in this regard. See
-:doc:`this Changelog <ext_core:Changelog/12.0/Breaking-97816-TypoScriptSyntaxChanges>`
+:doc:`this changelog <ext_core:Changelog/12.0/Breaking-97816-TypoScriptSyntaxChanges>`
 for more details.
 
 The following rules apply:
