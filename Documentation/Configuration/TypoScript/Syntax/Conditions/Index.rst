@@ -47,7 +47,7 @@ resulting TypoScript tree.
 
 Condition criteria are based on
 the `Symfony expression language <https://symfony.com/doc/current/components/expression_language/syntax.html>`__.
-The core allows extending the symfony expression language with own variables and
+The Core allows extending the Symfony expression language with own variables and
 functions, see :ref:`symfony expression language API <sel-within-typoscript-conditions>`
 for more details.
 
