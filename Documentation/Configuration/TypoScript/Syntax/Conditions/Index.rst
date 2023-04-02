@@ -84,7 +84,7 @@ These general rules apply:
   are kept for historical reasons (for now).
 
 * Conditions can use constants. They are available in frontend TypoScript "setup" and
-  in TSconfig from "site settings. A simple example if this constant
+  in TSconfig from "site settings". A simple example if this constant
   :typoscript:`myPageUid = 42` is set:
 
   .. code-block:: typoscript
