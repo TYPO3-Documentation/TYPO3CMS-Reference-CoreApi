@@ -24,7 +24,7 @@ TypoScript supports single line comments as well as multiline comment blocks.
     to be on a single line, and comments are auto-closed at the end of a single
     text snippets.
 
-:typoscript:`//` and :typoscript:`#` indicate a comment. Everything until the of
+:typoscript:`//` and :typoscript:`#` indicate a comment. Everything until the end
 of the line will be ignored by the parser. :typoscript:`/*` indicate a multiline
 comment start, :typoscript:`*/` stops it.
 
