@@ -17,7 +17,7 @@ Both :typoscript:`@import` and :typoscript:`<INCLUDE_TYPOSCRIPT:` allow
 including additional files using wildcards. :typoscript:`@import` is a bit
 more restricted, though. The TYPO3 Core strives to get rid of
 :typoscript:`<INCLUDE_TYPOSCRIPT:` mid-term, and :typoscript:`@import` has
-been tuned with TYPO3 v12 to have show good performance metrics. Integrators
+been tuned with TYPO3 v12 to show good performance metrics. Integrators
 should prefer :typoscript:`@import` over :typoscript:`<INCLUDE_TYPOSCRIPT:`
 since it is best practice and more future proof.
 
