@@ -149,7 +149,7 @@ to this wizard (via page TSconfig).
    is automatically included. For version 11.5 and below this file has to be included in the
    :file:`ext_localconf.php`.  
    See :ref:`Setting global page TSconfig <t3tsconfig:pagesettingdefaultpagetsconfig>`.
-   See :ref:`Wizard configuration reference <t3tsconfig:pagenewcontentelementwizard>`-
+   See :ref:`Wizard configuration reference <t3tsconfig:pagenewcontentelementwizard>`.
 
 .. include:: /Images/AutomaticScreenshots/CustomContentElements/ContentElementWizard.rst.txt
 
