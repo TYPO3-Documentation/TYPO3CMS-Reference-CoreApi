@@ -18,8 +18,8 @@ A common use case would be a middleware to implement SQL logging capabilities.
 
 For more information on driver middlewares, see the `Architecture chapter`_ of
 the Doctrine DBAL documentation. Furthermore, look up the implementation of the
-:t3src:`adminpanel/Classes/Log/DoctrineSqlLoggingMiddleware.php` in
-ext:adminpanel as an example.
+:t3src:`adminpanel/Classes/Log/DoctrineSqlLoggingMiddleware.php` in the
+adminpanel system extension as an example.
 
 ..  _Architecture chapter: https://www.doctrine-project.org/projects/doctrine-dbal/en/current/reference/architecture.html
 
@@ -27,7 +27,7 @@ Registering a new driver middleware
 ===================================
 
 ..  code-block:: php
-    :caption: EXT:adminpanel/ext_localconf.php
+    :caption: EXT:my_extension/ext_localconf.php
 
-    $GLOBALS['TYPO3_CONF_VARS']['DB']['Connections']['Default']['driverMiddlewares']['adminpanel_loggingmiddleware']
-        = \TYPO3\CMS\Adminpanel\Log\DoctrineSqlLoggingMiddleware::class;
+    $GLOBALS['TYPO3_CONF_VARS']['DB']['Connections']['Default']['driverMiddlewares']['myextension_mymiddleware']
+        = \MyVendor\MyExtension\Database\Log\MyMiddleware::class;
