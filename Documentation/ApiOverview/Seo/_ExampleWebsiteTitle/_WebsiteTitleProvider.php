@@ -20,7 +20,7 @@ final class WebsiteTitleProvider implements PageTitleProviderInterface
         $site = $this->siteFinder->getSiteByPageId($this->getTypoScriptFrontendController()->page['uid']);
         $titles = [
             $this->getTypoScriptFrontendController()->page['title'],
-            $this->$site->getAttribute('websiteTitle'),
+            $site->getAttribute('websiteTitle'),
         ];
 
         // do something
