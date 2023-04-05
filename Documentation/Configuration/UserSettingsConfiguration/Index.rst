@@ -26,6 +26,8 @@ array :php:`$GLOBALS['TYPO3_USER_SETTINGS']`. It is quite similar to
 The actual values can be accessed via the array :php:`$GLOBALS['BE_USER']->uc`
 as described in :ref:`be-user-configuration`.
 
+This functionality is provided by the `typo3/cms-setup` composer package.
+
 **Contents:**
 
 .. toctree::
