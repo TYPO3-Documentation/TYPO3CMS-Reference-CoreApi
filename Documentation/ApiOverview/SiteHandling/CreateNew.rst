@@ -51,14 +51,25 @@ The next tab, :guilabel:`Languages`, lets you configure the default
 language settings for your site. You can also add additional languages for
 multilingual sites here.
 
-These settings determine the default behavior - setting :html:`direction` and
-:html:`lang` tags in frontend as well as locale settings.
+These settings determine the default behavior - the entry point of the
+site language in frontend as well as locale settings.
+
+You can choose
+
+1.  to create a new language defining all values by yourself
+    (:guilabel:`Create new language`)
+2.  from a list of default language settings
+    (:guilabel:`Choose a preset ...`)
+3.  to use an existing language, if it is already used in a different site
+    (:guilabel:`Use language from existing site ...`)
+
+Although 3. is always recommended when working with multi-site setups to keep
+language IDs between sites in sync, 2. is a quick start to set up a new site.
 
 ..  include:: /Images/AutomaticScreenshots/SiteHandling/SiteHandlingCreateNewSite-3.rst.txt
 
 Check and correct all other settings as they will automatically used for
-features like :html:`hreflang` tags or displaying language flags in the
-backend.
+features like the locale or displaying language flags in the backend.
 
 That is all that is required for a new site.
 
