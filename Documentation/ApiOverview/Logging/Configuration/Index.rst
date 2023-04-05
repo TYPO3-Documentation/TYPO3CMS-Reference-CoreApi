@@ -73,6 +73,11 @@ use the following configuration:
        ],
    ];
 
+###
+### what "first example for classes ...."
+### there was no first example for this namespace
+### at least I probably did not identify any example to be for this namespace
+
 This overwrites the default configuration shown in the first example for classes
 located in the namespace :code:`\Documentation\Examples\Controller`.
 
