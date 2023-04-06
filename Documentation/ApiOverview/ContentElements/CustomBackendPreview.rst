@@ -28,7 +28,7 @@ via page :ref:`TSconfig <ConfigureCE-Preview-PageTSconfig>` or :ref:`event liste
 Page TSconfig
 ----------------
 
-This is the "integrator" way, no PHP coding required. Just some PageTS
+This is the "integrator" way, no PHP coding is required. Just some page TSconfig
 and a fluid template.
 
 ..  code-block:: typoscript
