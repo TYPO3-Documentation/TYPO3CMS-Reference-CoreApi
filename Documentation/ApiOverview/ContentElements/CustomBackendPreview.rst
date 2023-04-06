@@ -50,7 +50,7 @@ For more details see the :ref:`TSconfig Reference <t3tsconfig:pageweblayoutprevi
 Event listener
 --------------
 
-This requires at least some PHP coding but allows more flexibility in
+This requires at least some PHP coding, but allows more flexibility in
 regards to accessing and processing the content elements properties.
 
 ..  versionadded:: 12.0
