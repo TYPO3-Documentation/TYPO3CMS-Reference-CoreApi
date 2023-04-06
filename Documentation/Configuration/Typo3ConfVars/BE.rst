@@ -1015,3 +1015,37 @@ passwordPolicy
     :Default: default
 
     Defines the :ref:`password policy <password-policies>` in backend context.
+
+
+..  index::
+    TYPO3_CONF_VARS BE; stylesheets
+..  _typo3ConfVars_be_stylesheets:
+
+stylesheets
+===========
+
+..  versionadded:: 12.3
+
+..  confval:: $GLOBALS['TYPO3_CONF_VARS']['BE']['stylesheets']
+
+    :type: string
+    :Default: default
+
+    Load additional CSS files for the TYPO3 backend interface. This setting
+    can be set per site or within an extension's :file:`ext_localconf.php`.
+
+    **Examples:**
+
+    Add a specific stylesheet:
+
+    ..  code-block:: php
+
+        $GLOBALS['TYPO3_CONF_VARS']['BE']['stylesheets']['my_extension']
+            = 'EXT:my_extension/Resources/Public/Css/myfile.css';
+
+    Add all stylesheets from a folder:
+
+    ..  code-block:: php
+
+        $GLOBALS['TYPO3_CONF_VARS']['BE']['stylesheets']['my_extension']
+            = 'EXT:my_extension/Resources/Public/Css/';

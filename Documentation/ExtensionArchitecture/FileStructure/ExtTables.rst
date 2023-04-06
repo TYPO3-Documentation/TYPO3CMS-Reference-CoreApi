@@ -53,8 +53,7 @@ These are the typical functions that should be placed inside :file:`ext_tables.p
    main module :ref:`Example <extension-configuration-files-backend-module>`
 *  Registering a scheduler tasks:
    :ref:`extension-configuration-files-scheduler`
-*  Assignments to the global configuration arrays :php:`$GLOBALS['TBE_STYLES']`
-   and :php:`$GLOBALS['PAGES_TYPES']`
+*  Assignments to the global configuration array :php:`$GLOBALS['PAGES_TYPES']`
 *  Extending the :ref:`Backend user settings <user-settings-extending>`
 
 Examples
