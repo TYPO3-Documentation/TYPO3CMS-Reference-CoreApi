@@ -63,6 +63,7 @@ The following attributes are available:
 
 .. _deactivating-the-command-in-scheduler:
 .. _schedulable:
+
 :yaml:`schedulable`
     By default, a command can be used in the :doc:`scheduler
     <ext_scheduler:Index>`, too. This can be disabled by setting

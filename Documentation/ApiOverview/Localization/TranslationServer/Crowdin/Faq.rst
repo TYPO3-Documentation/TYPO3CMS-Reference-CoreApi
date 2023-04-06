@@ -149,8 +149,6 @@ It might be that you need to adopt both if not found automatically.
 Questions about TYPO3 CMS core integration
 ==========================================
 
-.. _crowdin-faq-duplicated-labels:
-
 The Core Team added a new system extension. Why are language packs not available even though it has already been translated into language XY?
 ---------------------------------------------------------------------------------------------------------------------------------------------
 The new system extension needs to be added to the configuration of https://github.com/TYPO3/crowdin-bridge/. You can speed up the change by creating
