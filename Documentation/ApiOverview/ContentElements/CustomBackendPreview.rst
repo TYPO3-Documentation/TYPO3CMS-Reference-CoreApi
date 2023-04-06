@@ -43,7 +43,7 @@ and a Fluid template.
       }
     }
 
-For more details see :ref:`TSconfig Reference <t3tsconfig:pageweblayoutpreview>`.
+For more details see the :ref:`TSconfig Reference <t3tsconfig:pageweblayoutpreview>`.
 
 ..  _ConfigureCE-Preview-EventListener:
 
