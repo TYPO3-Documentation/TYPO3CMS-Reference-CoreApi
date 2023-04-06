@@ -225,4 +225,10 @@ return [
         'targetFileName' => 'CodeSnippets/Events/Core/AfterUserLoggedInEvent.rst.txt',
         'withCode' => false,
     ],
+    [
+        'action' => 'createPhpClassDocs',
+        'class' => \TYPO3\CMS\Core\Authentication\Event\LoginAttemptFailedEvent::class,
+        'targetFileName' => 'CodeSnippets/Events/Core/LoginAttemptFailedEvent.rst.txt',
+        'withCode' => false,
+    ],
 ];
