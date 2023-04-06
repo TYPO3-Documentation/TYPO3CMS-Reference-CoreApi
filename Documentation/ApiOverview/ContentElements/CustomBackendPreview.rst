@@ -51,7 +51,7 @@ Event listener
 --------------
 
 This requires at least some PHP coding, but allows more flexibility in
-regards to accessing and processing the content elements properties.
+accessing and processing the content elements properties.
 
 ..  versionadded:: 12.0
     Since version 12.0 this technique replaces the former hook
