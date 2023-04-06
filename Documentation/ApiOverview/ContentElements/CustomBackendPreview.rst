@@ -29,7 +29,7 @@ Page TSconfig
 ----------------
 
 This is the "integrator" way, no PHP coding is required. Just some page TSconfig
-and a fluid template.
+and a Fluid template.
 
 ..  code-block:: typoscript
     :caption: EXT:my_extension/Configuration/page.tsconfig
