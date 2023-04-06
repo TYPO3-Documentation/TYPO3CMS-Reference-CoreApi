@@ -61,7 +61,7 @@ The event :php:`PageContentPreviewRenderingEvent` is being dispatched by the
 :php:`StandardContentPreviewRenderer`. You can listen to it with your own
 event listener.
 
-Have a look at this :ref:`showcase implementation <_PageContentPreviewRenderingEvent>`.
+Have a look at this :ref:`showcase implementation <PageContentPreviewRenderingEvent>`.
 
 For general information see the chapter on :ref:`implementing an event listener <EventDispatcherImplementation>`.
 
