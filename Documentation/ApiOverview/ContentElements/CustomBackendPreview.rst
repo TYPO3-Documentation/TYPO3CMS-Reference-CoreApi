@@ -20,7 +20,7 @@ and handles the Core's built-in content types (field :sql:`CType` in table :sql:
 Extend the default preview renderer
 ===================================
 
-There are two ways of how to provide previews for your own custom content types:
+There are two ways to provide previews for your custom content types:
 via page :ref:`TSconfig <ConfigureCE-Preview>` or :ref:`event listener <ConfigureCE-Preview-EventListener>`.
 
 ..  _ConfigureCE-Preview-PageTSconfig:
