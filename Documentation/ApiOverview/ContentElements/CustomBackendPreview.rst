@@ -21,7 +21,7 @@ Extend the default preview renderer
 ===================================
 
 There are two ways to provide previews for your custom content types:
-via page :ref:`TSconfig <ConfigureCE-Preview>` or :ref:`event listener <ConfigureCE-Preview-EventListener>`.
+via page :ref:`TSconfig <ConfigureCE-Preview-PageTSconfig>` or :ref:`event listener <ConfigureCE-Preview-EventListener>`.
 
 ..  _ConfigureCE-Preview-PageTSconfig:
 
