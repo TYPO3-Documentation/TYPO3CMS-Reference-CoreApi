@@ -89,6 +89,10 @@ that for the selenium-chrome container that pilots the acceptance tests as :file
         external_links:
           - ddev-router:$DDEV_HOSTNAME
 
+To execute acceptance test in this installation you've to activate this file, usually it's now appended
+with the suffix ".inactive" and therefore not used when ddev starts. To activate acceptance test the file
+:file:`.ddev/docker-compose.chrome.yaml.inactive` has to be renamed to :file:`.ddev/docker-compose.chrome.yaml`.
+
 With this in place and calling `ddev start`, another container with name `ddev-introduction-chrome`
 is added to the other containers, running in the same docker network. More information about
 setups like these can be found in the `ddev documentation
