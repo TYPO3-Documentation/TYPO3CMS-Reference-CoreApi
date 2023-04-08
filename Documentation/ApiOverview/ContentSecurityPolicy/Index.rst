@@ -57,6 +57,7 @@ corresponding settings.
 ..  literalinclude:: _ContentSecurityPolicies.php
     :caption: EXT:my_extension/Configuration/ContentSecurityPolicies.php
 
+..  todo: Explain "Scope", "MutationCollection", "Mutation", "MutationMode", ...
 
 Site-specific (frontend)
 ------------------------
@@ -70,6 +71,7 @@ used to declare CSP for a specific site as well.
     :language: yaml
     :caption: config/sites/<my-site>/csp.yaml | typo3conf/sites/<my-site>/csp.yaml
 
+..  todo: Explain "inheritDefault", "mutations", "mode", "directive", "sources", ...
 
 PSR-14 event
 ============
