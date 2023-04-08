@@ -31,7 +31,7 @@ versions get full support (bug fixes and security fixes) for at least three year
 TYPO3 version 10 (`v10`) and v11 are such LTS versions.
 
 The minor-versions are skipped in the official
-naming. 11 LTS is version`11.5` internally and 10 LTS is `10.4`. Versions inside a
+naming. 11 LTS is version `11.5` internally and 10 LTS is `10.4`. Versions inside a
 major-version have minor-versions as usual (`11.0`, `11.1`, ...) until at some
 point the branch receives LTS-status.
 
@@ -54,7 +54,7 @@ LTS and Sprint Releases offer new features and often a modified
 database structure. Also the visual appearance and handling of the
 backend may be changed and appropriate training for editors may be
 required. The content rendering may change, so that updates in
-`TypoScript`, templates or `CSS` code may be necessary. With LTS and
+TypoScript, templates or CSS code may be necessary. With LTS and
 Sprint Releases also the system requirements (for example PHP or MySQL
 version) may change. For a patch level release (i.e.
 changing from release `11.5.0` to `11.5.1`) the database structure and
@@ -63,12 +63,12 @@ new version of the source code.
 
 List of TYPO3 LTS releases:
 
-*   v8 (8.7 ELTS): No free bugfix/security update. Extended long term support
+*   v8 (8.7 ELTS): No free bugfix/security update. Extended long-term support
     can be ordered at https://typo3.com/services/extended-support-elts
-*   v9 (9.5 ELTS): No free bugfix/security update. Extended long term support
+*   v9 (9.5 ELTS): No free bugfix/security update. Extended long-term support
     can be ordered at https://typo3.com/services/extended-support-elts
-*   v10 (10.4 LTS): Versions 10.0 through 10.3 do not receive security
-    updates any longer
+*   v10 (10.4 LTS): No free bugfix/security update. Extended long-term support
+    can be ordered at https://typo3.com/services/extended-support-elts
 *   v11 (11.5 LTS): Versions 11.0 through 11.4 do not receive security
     updates any longer
 
