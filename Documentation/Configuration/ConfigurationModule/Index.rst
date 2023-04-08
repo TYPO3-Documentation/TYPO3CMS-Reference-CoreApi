@@ -128,13 +128,13 @@ Disabling an entry
 ------------------
 
 To disable an already registered configuration add the :yaml:`disabled` attribute
-set to :yaml:`true`. For example, if you intend to disable the `TBE_STYLES` key
+set to :yaml:`true`. For example, if you intend to disable the `T3_SERVICES` key
 you can use:
 
 ..  code-block:: yaml
     :caption: EXT:my_extension/Configuration/Services.yaml
 
-    lowlevel.configuration.module.provider.tbestyles:
+    lowlevel.configuration.module.provider.services:
         class: TYPO3\CMS\Lowlevel\ConfigurationModuleProvider\GlobalVariableProvider
         tags:
             - name: 'lowlevel.configuration.module.provider'

@@ -50,6 +50,16 @@ $GLOBALS
 
 .. confval:: TBE_STYLES
 
+   .. deprecated:: 12.3
+      Migrate to the new configuration setting
+      :ref:`$GLOBALS['TYPO3_CONF_VARS']['BE']['stylesheets'] <typo3ConfVars_be_stylesheets>`
+      which can be set per site or within an extension's
+      :file:`ext_localconf.php`. For a custom stylesheet of the TYPO3 Admin
+      Panel, it is recommended to use the
+      :ref:`AdminPanel Module API <ext_adminpanel:extending>` (available since
+      TYPO3 v9 LTS) where custom CSS and JavaScript files can be registered
+      dynamically.
+
    :Path: $GLOBALS
    :type: array
    :Defined: :file:`typo3/sysext/core/ext_tables.php`
