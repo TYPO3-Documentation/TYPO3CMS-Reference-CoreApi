@@ -19,7 +19,7 @@
       
    .. php:method:: getLocale()
    
-      :returntype: string
+      :returntype: TYPO3\\CMS\\Core\\Localization\\Locale
       
    .. php:method:: getBase()
    
@@ -43,22 +43,35 @@
       
    .. php:method:: getTypo3Language()
    
+      Returns the XLF label language key, returns "default" when it is "en".
+      
+      "default" is currently still needed for TypoScript label overloading.
+      For locales like "en-US", this method returns "en_US" which can then be used
+      for XLF file prefixes properly.
+      
       :returntype: string
       
    .. php:method:: getTwoLetterIsoCode()
    
+      **Deprecated:** not needed anymore, use $this->getLocale()->getLanguageCode() instead.
+      
       Returns the ISO-639-1 language ISO code
       
       :returntype: string
       
-   .. php:method:: getHreflang()
+   .. php:method:: getHreflang(bool $isInternalCall = false)
    
+      **Deprecated:** not needed anymore, use $siteLanguage->getLocale()->getName() instead.
+      
       Returns the RFC 1766 / 3066 language tag
       
+      :param bool $isInternalCall: the isInternalCall, default: false
       :returntype: string
       
    .. php:method:: getDirection()
    
+      **Deprecated:** in favor of $this->locale->isRightToLeftLanguageDirection()
+      
       Returns the language direction
       
       :returntype: string
