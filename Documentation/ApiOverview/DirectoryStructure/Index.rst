@@ -130,17 +130,25 @@ This directory contains the following subdirectories:
 :file:`public/_assets/`
 ~~~~~~~~~~~~~~~~~~~~~~~
 
-This directory includes symlinks to resources of extensions, as consequence
-of this and further structure changes the folder :file:`typo3conf/ext/` is
-not created or used anymore.
-So all files like CSS, JavaScript, Icons, Fonts, Images, etc. of extensions
-are not linked anymore directly to the extension folders but to the directory
-:file:`_assets/`.
+This directory includes symlinks to resources of extensions (stored in the
+:file:`Resources/Public/` folder), as consequence of this and further structure
+changes the folder :file:`typo3conf/ext/` is not created or used anymore.
+So all files like CSS, JavaScript, icons, fonts, images, etc. of extensions
+are not referenced anymore directly to the extension folders but to the
+directory :file:`_assets/`.
 
 ..  note::
     TYPO3 v12 requires `typo3/cms-composer-installers` in version
     5. Therefore the publicly available files provided by
     extensions are now always referenced via this directory.
+
+..  tip::
+    When creating an extension without a :file:`Resources/Public/` folder, the
+    corresponding :file:`assets/` folder for that extension can not be symlinked
+    as the extension's :file:`Resources/Public/` folder does not exist. When you
+    create it later after the installation of the extension, run a
+    :bash:`composer dumpautoload` and the :file:`Resources/Public/` folder for
+    that extension is symlinked to :file:`_assets/`.
 
 ..  seealso::
 
