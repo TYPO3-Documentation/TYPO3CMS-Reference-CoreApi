@@ -69,7 +69,7 @@ Methods:
 
 
 ..  index:: pair: Site handling; SiteFinder
-..  _sitehandling-site-object:
+..  _sitehandling-sitefinder-object:
 
 Finding a site object with the :php:`SiteFinder` class
 ======================================================
@@ -87,6 +87,7 @@ API
 
 
 .. index:: pair: Site handling; Site object
+..  _sitehandling-site-object:
 
 The :php:`Site` object
 ======================
@@ -101,6 +102,7 @@ API
 
 
 .. index:: pair: Site handling; SiteLanguage object
+..  _sitehandling-sitelanguage-object:
 
 The :php:`SiteLanguage` object
 ==============================
