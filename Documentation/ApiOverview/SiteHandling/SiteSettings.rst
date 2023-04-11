@@ -6,24 +6,38 @@
 Site settings
 =============
 
-It is possible to define a :yaml:`settings` block in a site's
-:file:`config.yaml` which can be accessed both in backend and frontend via the
-site object :php:`\TYPO3\CMS\core\Site\Entity\Site`.
+..  versionchanged:: 12.1
+    Before TYPO3 v12.1 the site settings were stored in the :file:`config.yaml`
+    file under the :yaml:`settings` key. An upgrade wizard migrates settings
+    to the new :file:`settings.yaml` file.
 
-Additionally, these settings are available in both
-:ref:`page TSconfig <t3tsconfig:pagetsconfig>` and
-:ref:`TypoScript templates <t3tsref:start>`. This allows us, for example, to
-configure site-wide storage page IDs which can be used in both frontend and
-backend.
+Site settings can be used to provide settings for a site. They can be accessed
+via
+
+*   the :ref:`\\TYPO3\\CMS\\Core\\Site\\Entity\\Site <sitehandling-site-object>`
+    object in frontend and backend context using PHP
+*   the :typoscript:`siteSettings` key of the
+    :ref:`data <data-type-gettext>` function in :ref:`TypoScript <t3tsref:start>`
+*   :ref:`page TSconfig <t3tsconfig:pagetsconfig>`
+
+..  todo:
+    Link "siteSettings" in TypoScript Reference once the PR there is merged.
+
+For instance, settings can be used in custom frontend code to deliver features
+which might vary per site for extensions. An example may be to configure
+storage page IDs.
+
+The settings are defined in the :file:`config/sites/<my_site>/settings.yaml`
+file.
 
 Adding site settings
 ====================
 
-Add a :yaml:`settings` block to the :file:`config.yaml`:
+Add settings to the :file:`settings.yaml`:
 
 ..  literalinclude:: _site-settings.yaml
     :language: yaml
-    :caption: config/sites/<some_site>/config.yaml | typo3conf/sites/<some_site>/config.yaml
+    :caption: config/sites/<my_site>/settings.yaml | typo3conf/sites/<my_site>/settings.yaml
 
 ..  note::
     This example shows how to fill a constant of

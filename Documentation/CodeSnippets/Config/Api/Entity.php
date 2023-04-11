@@ -27,6 +27,12 @@ return [
     ],
     [
         'action' => 'createPhpClassDocs',
+        'class' => \TYPO3\CMS\Core\Site\Entity\SiteSettings::class,
+        'targetFileName' => 'CodeSnippets/Manual/Entity/SiteSettings.rst.txt',
+        'withCode' => false,
+    ],
+    [
+        'action' => 'createPhpClassDocs',
         'class' => \TYPO3\CMS\Core\Http\NormalizedParams::class,
         'targetFileName' => 'CodeSnippets/Manual/Entity/NormalizedParams.rst.txt',
         'members' => [

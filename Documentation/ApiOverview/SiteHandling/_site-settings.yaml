@@ -1,6 +1,5 @@
-settings:
-  categoryPid: 658
-  styles:
-    content:
-      loginform:
-        pid: 23
+categoryPid: 658
+styles:
+  content:
+    loginform:
+      pid: 23
