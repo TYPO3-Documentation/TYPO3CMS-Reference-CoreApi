@@ -16,12 +16,10 @@ via
 
 *   the :ref:`\\TYPO3\\CMS\\Core\\Site\\Entity\\Site <sitehandling-site-object>`
     object in frontend and backend context using PHP
-*   the :typoscript:`siteSettings` key of the
-    :ref:`data <data-type-gettext>` function in :ref:`TypoScript <t3tsref:start>`
+*   the :ref:`siteSettings <t3tsref:data-type-siteSettings>` key of the
+    :ref:`data <t3tsref:data-type-gettext>` function in
+    :ref:`TypoScript <t3tsref:start>`
 *   :ref:`page TSconfig <t3tsconfig:pagetsconfig>`
-
-..  todo:
-    Link "siteSettings" in TypoScript Reference once the PR there is merged.
 
 For instance, settings can be used in custom frontend code to deliver features
 which might vary per site for extensions. An example may be to configure
