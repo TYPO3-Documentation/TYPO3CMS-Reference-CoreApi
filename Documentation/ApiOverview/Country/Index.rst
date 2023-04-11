@@ -58,10 +58,10 @@ Get a country
     $france = $this->countryProvider->getByIsoCode('FR');
 
     // Get the country by name
-    $france = $this->$countryProvider->getByName('France');
+    $france = $this->countryProvider->getByEnglishName('France');
 
     // Get the country by Alpha-3 code
-    $france = $this->$countryProvider->getByAlpha3IsoCode('FRA');
+    $france = $this->countryProvider->getByAlpha3IsoCode('FRA');
 
 The methods return a :php:`\TYPO3\CMS\Core\Country\Country` object.
 

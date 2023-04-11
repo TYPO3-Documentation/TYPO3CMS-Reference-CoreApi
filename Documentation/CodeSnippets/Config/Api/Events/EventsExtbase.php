@@ -55,4 +55,10 @@ return [
         'targetFileName' => 'CodeSnippets/Events/Extbase/ModifyResultAfterFetchingObjectDataEvent.rst.txt',
         'withCode' => false,
     ],
+    [
+        'action' => 'createPhpClassDocs',
+        'class' => \TYPO3\CMS\Extbase\Event\Configuration\BeforeFlexFormConfigurationOverrideEvent::class,
+        'targetFileName' => 'CodeSnippets/Events/Extbase/BeforeFlexFormConfigurationOverrideEvent.rst.txt',
+        'withCode' => false,
+    ],
 ];
