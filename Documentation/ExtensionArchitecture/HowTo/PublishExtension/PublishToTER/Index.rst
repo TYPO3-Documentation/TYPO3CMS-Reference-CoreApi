@@ -91,11 +91,3 @@ releasing an extension:
    simplify the integration into common CI / CD pipelines:
 
    GitHub: https://github.com/tomasnorre/typo3-upload-ter
-
-#. Via the SOAP interface (shut down on July 30, 2022):
-
-   Use the PHP CLI application
-   `TYPO3 Repository Client <https://github.com/NamelessCoder/typo3-repository-client>`__
-   , or the `TER Client <https://github.com/helhum/ter-client>`__ based on the
-   TYPO3 Repository Client.
-
