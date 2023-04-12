@@ -61,22 +61,20 @@ plugin is `registration`.
    :ref:`registering this file as static page TSconfig <t3tsconfig:register-static-page-tsconfig>`.
 
 
-#. :ref:`Register your icon <icon-registration>` with the icon API
-
-   In :file:`ext_localconf.php`:
+#. :ref:`Register your icon <icon-registration>`
 
    .. code-block:: php
+      :caption: EXT:example/Configuration/Icons.php
 
-      $iconRegistry = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\TYPO3\CMS\Core\Imaging\IconRegistry::class);
+      <?php
 
-      // use same identifier as used in TSconfig for icon
-      $iconRegistry->registerIcon(
+      return [
          // use same identifier as used in TSconfig for icon
-         'example-registration',
-         \TYPO3\CMS\Core\Imaging\IconProvider\FontawesomeIconProvider::class,
-         // font-awesome identifier ('external-link-square')
-         ['name' => 'external-link-square']
-      );
+         'example-registration' => [
+            'provider' => \TYPO3\CMS\Core\Imaging\IconProvider\SvgIconProvider::class,
+            'source' => 'EXT:example/Resources/Public/Icons/example-registration.svg',
+         ],
+      ];
 
 #. After clearing cache, create a new content element
 
