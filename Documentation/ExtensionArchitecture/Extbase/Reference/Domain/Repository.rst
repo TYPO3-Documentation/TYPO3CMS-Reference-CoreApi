@@ -7,9 +7,11 @@
 Repository
 ==========
 
-All repositories inherit from :php:`\TYPO3\CMS\Extbase\Persistence\Repository`.
+All :ref:`Extbase <extbase>` repositories inherit from
+:php:`\TYPO3\CMS\Extbase\Persistence\Repository`.
 
-A repository is always responsible for precisely one type of domain object.
+A repository is always responsible for precisely one type of
+:ref:`domain object <extbase-model>`.
 
 The naming of the repositories is important:
 If the domain object is, for example, *Blog* (with full name
