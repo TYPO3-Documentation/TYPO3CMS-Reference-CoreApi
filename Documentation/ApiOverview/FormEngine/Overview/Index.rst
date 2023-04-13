@@ -46,13 +46,14 @@ to the rendering part of FormEngine to end up with a result array containing all
 
 In code, this basic workflow looks like this:
 
-.. code-block:: php
+..  code-block:: php
 
     $formDataGroup = GeneralUtility::makeInstance(TcaDatabaseRecord::class);
     $formDataCompiler = GeneralUtility::makeInstance(FormDataCompiler::class, $formDataGroup);
     $nodeFactory = GeneralUtility::makeInstance(NodeFactory::class);
     $formResultCompiler = GeneralUtility::makeInstance(FormResultCompiler::class);
     $formDataCompilerInput = [
+        'request' => $request, // the PSR-7 request object
         'tableName' => $table,
         'vanillaUid' => (int)$theUid,
         'command' => $command,
@@ -62,6 +63,10 @@ In code, this basic workflow looks like this:
     $formResult = $nodeFactory->create($formData)->render();
     $formResultCompiler->mergeResult($formResult);
 
+..  deprecated:: 12.4
+    Using the FormEngine data provider to render records without passing the
+    current :ref:`request object <typo3-request>` is deprecated. Failing to do
+    so will stop working with TYPO3 v13.
 
 This basically means the main FormEngine concept is a two-fold process: First create an array to gather all
 render-relevant information, then call the render engine using this array to come up with output.

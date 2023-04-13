@@ -11,16 +11,22 @@ the rendering needs to come up with a result.
 
 A basic call looks like this:
 
-.. code-block:: php
+..  code-block:: php
 
-   $formDataGroup = GeneralUtility::makeInstance(TcaDatabaseRecord::class);
-   $formDataCompiler = GeneralUtility::makeInstance(FormDataCompiler::class, $formDataGroup);
-   $formDataCompilerInput = [
-      'tableName' => $table,
-      'vanillaUid' => (int)$theUid,
-      'command' => $command,
-   ];
-   $formData = $formDataCompiler->compile($formDataCompilerInput);
+    $formDataGroup = GeneralUtility::makeInstance(TcaDatabaseRecord::class);
+    $formDataCompiler = GeneralUtility::makeInstance(FormDataCompiler::class, $formDataGroup);
+    $formDataCompilerInput = [
+        'request' => $request, // the PSR-7 request object
+        'tableName' => $table,
+        'vanillaUid' => (int)$theUid,
+        'command' => $command,
+    ];
+    $formData = $formDataCompiler->compile($formDataCompilerInput);
+
+..  deprecated:: 12.4
+    Using the FormEngine data provider to render records without passing the
+    current :ref:`request object <typo3-request>` is deprecated. Failing to do
+    so will stop working with TYPO3 v13.
 
 The above code is a simplified version of the relevant part of the :php:`EditDocumentController`. This controller
 knows by its :code:`GET` or :code:`POST` parameters which record ("vanillaUid") of which specific table ("tableName")
