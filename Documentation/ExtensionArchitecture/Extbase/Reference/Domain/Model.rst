@@ -76,6 +76,63 @@ however get displayed when explicitly called:
     But it is there:
     <f:debug>{post.info.combinedString}</f:debug>
 
+
+Union types
+-----------
+
+..  versionadded:: 12.3
+    Previously, whenever a union type was needed, union type declarations led
+    Extbase not detecting any type at all, resulting in the property not being
+    mapped. However, union types could be resolved via docblocks. Since TYPO3
+    v12.3 native PHP union types can be used.
+
+Union types can be used in properties of an entity, for example:
+
+..  literalinclude:: _Model/_UnionType1.php
+    :caption: EXT:my_extension/Classes/Domain/Model/Entity.php
+
+This is especially useful for lazy-loaded relations where the property type is
+:php:`ChildEntity|\TYPO3\CMS\Extbase\Persistence\Generic\LazyLoadingProxy`.
+
+There is something important to understand about how Extbase detects union
+types when it comes to property mapping, that means when a database row is
+:ref:`mapped onto an object <extbase-model-hydrating>`. In this case, Extbase
+needs to know the desired target type - no union, no intersection, just one
+type. In order to achieve this, Extbase uses the first declared type as a
+so-called primary type.
+
+..  literalinclude:: _Model/_UnionType2.php
+    :caption: EXT:my_extension/Classes/Domain/Model/Entity.php
+
+In this case, :php:`string` is the primary type. :php:`int|string` would result
+in :php:`int` as primary type.
+
+There is one important thing to note and one exception to this rule. First of
+all, :php:`null` is not considered a type. :php:`null|string` results in the
+primary type :php:`string` which is :ref:`nullable <extbase-model-nullable-relations>`.
+:php:`null|string|int` also results in the primary type :php:`string`. In fact,
+:php:`null` means that all other types are nullable. :php:`null|string|int`
+boils down to :php:`?string` or :php:`?int`.
+
+Secondly, :php:`LazyLoadingProxy` is never detected as a primary type because it
+is just a proxy and not the actual target type, once loaded.
+
+..  literalinclude:: _Model/_UnionType3.php
+    :caption: EXT:my_extension/Classes/Domain/Model/Entity.php
+
+Extbase supports this and detects :php:`ChildEntity` as the primary type,
+although :php:`LazyLoadingProxy` is the first item in the list. However, it is
+recommended to place the actual type first, for consistency reasons:
+:php:`ChildEntity|LazyLoadingProxy`.
+
+A final word on :php:`\TYPO3\CMS\Extbase\Persistence\Generic\LazyObjectStorage`:
+it is a subclass of :php:`\TYPO3\CMS\Extbase\Persistence\ObjectStorage`,
+therefore the following code works and has always worked:
+
+..  literalinclude:: _Model/_ObjectStorage.php
+    :caption: EXT:my_extension/Classes/Domain/Model/Entity.php
+
+
 Relations
 =========
 
@@ -86,6 +143,8 @@ All relationships can be defined unidirectional or multidimensional in the model
 On the side of the relationship that can only have one counterpart, you must
 decide whether it is possible to have no relationship (allow null) or not.
 
+
+..  _extbase-model-nullable-relations:
 
 Nullable relations
 ------------------
@@ -179,6 +238,8 @@ multiple blog posts.
 
 ..  include:: /CodeSnippets/Extbase/Domain/RelationshipNonM.rst.txt
 
+
+..  _extbase-model-hydrating:
 
 Hydrating objects
 =================
