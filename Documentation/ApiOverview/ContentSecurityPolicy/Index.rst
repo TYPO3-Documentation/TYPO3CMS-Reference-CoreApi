@@ -50,9 +50,9 @@ Extension-specific
 ..  todo: Explain file Configuration/ContentSecurityPolicies.php in
           configuration section
 
-Having a file :file:`Configuration/ContentSecurityPolicies.php` in the base
-directory of any extension declared, will automatically provide and apply
-corresponding settings.
+Policies for frontend and backend can be applied automatically by providing a
+:file:`Configuration/ContentSecurityPolicies.php` file in an extension, for
+example:
 
 ..  literalinclude:: _ContentSecurityPolicies.php
     :caption: EXT:my_extension/Configuration/ContentSecurityPolicies.php
@@ -64,8 +64,8 @@ Site-specific (frontend)
 
 ..  todo: Explain file sites/my-site/csp.yaml in configuration section
 
-In the frontend, the dedicated :file:`sites/<my-site>/csp.yaml` can be
-used to declare CSP for a specific site as well.
+In frontend, a dedicated :file:`sites/<my-site>/csp.yaml` can be
+used to declare policies for a specific site, for example:
 
 ..  literalinclude:: _csp.yaml
     :language: yaml
