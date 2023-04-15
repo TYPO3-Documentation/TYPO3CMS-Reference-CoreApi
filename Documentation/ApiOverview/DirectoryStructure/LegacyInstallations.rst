@@ -23,10 +23,10 @@ It might contain a file for server configuration like  :file:`.htaccess`.
 
 .. note::
 
-   Further files might be useful depending on the server or the purpose.  
-   It's for example common to place an authentication file in the web root for a search engine.  
-   Also different files for server configuration might be possible.  
-   
+   Further files might be useful depending on the server or the purpose.
+   It's for example common to place an authentication file in the web root for a search engine.
+   Also different files for server configuration might be possible.
+
    Note that TYPO3 has the possibility to provide one or more virtual file(s) :file:`robots.txt`.
    This option can be found in the backend module 'Sites' in 'Site Management' and
    is especially advised when different domains shall be hosted in one TYPO3 installation.
@@ -143,16 +143,28 @@ This path can be retrieved from the Environment API, see
 :file:`typo3conf/sites/`
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
-Contains subfolders for each :ref:`site configuration <sitehandling>`.
+The folder :file:`typo3conf/sites/` contains subfolders for each site.
+
+The following files are processed:
+
+*   :file:`config.yaml` for the :ref:`site configuration <sitehandling>`
+*   :file:`settings.yaml` for the :ref:`site settings <sitehandling-settings>`
 
 .. _legacy-directory-typo3conf-system:
 
 :file:`typo3conf/system/`
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
-The folder :file:`typo3conf/system/` contains the
-:ref:`Configuration files <configuration-files>` :file:`typo3conf/system/settings.php`
-and :file:`typo3conf/system/additional.php`.
+The folder :file:`typo3conf/system/` contains the installation-wide
+:ref:`configuration files <configuration-files>`:
+
+*   :file:`settings.php`: :ref:`Configuration <typo3ConfVars-settings>` written
+    by the :guilabel:`Admin Tools > Settings` backend module
+*   :file:`additional.php`: :ref:`Manually created file <typo3ConfVars-additional>`
+    which can override settings from :file:`settings.php` file
+
+These files define a set of global settings stored in a global array called
+:ref:`$GLOBALS['TYPO3_CONF_VARS'] <typo3ConfVars>`.
 
 This path can be retrieved from the Environment API, see
 :ref:`Environment-config-path`.
