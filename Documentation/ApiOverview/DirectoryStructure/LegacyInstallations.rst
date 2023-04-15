@@ -24,7 +24,7 @@ It might contain a file for server configuration like  :file:`.htaccess`.
 .. note::
 
    Further files might be useful depending on the server or the purpose.
-   It's for example common to place an authentication file in the web root for a search engine.
+   It is for example common to place an authentication file in the web root for a search engine.
    Also different files for server configuration might be possible.
 
    Note that TYPO3 has the possibility to provide one or more virtual file(s) :file:`robots.txt`.
