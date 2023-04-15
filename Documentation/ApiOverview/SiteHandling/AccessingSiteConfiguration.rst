@@ -115,3 +115,37 @@ API
 ---
 
 ..  include:: /CodeSnippets/Manual/Entity/SiteLanguage.rst.txt
+
+
+The :php:`SiteSettings` object
+==============================
+
+..  versionadded:: 12.1
+
+The :ref:`site settings <sitehandling-settings>` can be retrieved using the
+:php:`getSettings()` method of the :ref:`Site <sitehandling-site-object>`
+object, which returns a :php:`SiteSettings` object.
+
+The object can be used to access settings either by the dot notation ("flat"),
+for example:
+
+..  code-block:: php
+
+    $redirectStatusCodeForRedirects = (int)$siteSettings->get('redirects.httpStatusCode', 307);
+
+or by accessing all options for a certain group:
+
+..  code-block:: php
+
+    $allSettingsRelatedToRedirects = $siteSettings->get('redirects');
+
+or even fetching all settings:
+
+..  code-block:: php
+
+    $siteSettings->all();
+
+API
+---
+
+..  include:: /CodeSnippets/Manual/Entity/SiteSettings.rst.txt

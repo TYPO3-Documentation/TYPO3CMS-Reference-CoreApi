@@ -1,8 +1,8 @@
-.. include:: /Includes.rst.txt
+..  include:: /Includes.rst.txt
 
-.. index:: Extbase; Model
+..  index:: Extbase; Model
 
-.. _extbase-model:
+..  _extbase-model:
 
 =====
 Model
@@ -26,7 +26,7 @@ by the :sql:`uid` and are persisted, therefore have continuity.
 
 **Example:**
 
-.. include:: /CodeSnippets/Extbase/Domain/AbstractEntity.rst.txt
+..  include:: /CodeSnippets/Extbase/Domain/AbstractEntity.rst.txt
 
 
 Connecting the model to the database
@@ -42,39 +42,96 @@ Properties
 The properties of a model can be defined either as public
 class properties:
 
-.. include:: /CodeSnippets/Extbase/Domain/ModelWithPublicProperty.rst.txt
+..  include:: /CodeSnippets/Extbase/Domain/ModelWithPublicProperty.rst.txt
 
 Or public getters:
 
-.. include:: /CodeSnippets/Extbase/Domain/ModelWithPublicGetters.rst.txt
+..  include:: /CodeSnippets/Extbase/Domain/ModelWithPublicGetters.rst.txt
 
 A public getter takes precedence over a public property. Getters have the
 advantage that you can make the properties themselves protected and decide
 which ones should be mutable.
 
-.. note::
-   Making model's properties :php:`private` does not work in Extbase models: The parent
-   classes need to access the models properties directly. If your model must
-   not be extended you can mark it as :php:`final` and thereby prevent
-   other developers from extending your model.
+..  note::
+    Making model's properties :php:`private` does not work in Extbase models: The parent
+    classes need to access the models properties directly. If your model must
+    not be extended you can mark it as :php:`final` and thereby prevent
+    other developers from extending your model.
 
 It is also possible to have getters for
 properties that are not persisted and get created on the fly:
 
-.. include:: /CodeSnippets/Extbase/Domain/ModelWithAdditionalGetters.rst.txt
+..  include:: /CodeSnippets/Extbase/Domain/ModelWithAdditionalGetters.rst.txt
 
 One disadvantage of using additional getters is that properties that are only
 defined as getters do not get displayed in the debug output in Fluid, they do
 however get displayed when explicitly called:
 
-.. code-block:: html
-   :caption: Debugging different kind of properties
+..  code-block:: html
+    :caption: Debugging different kind of properties
 
-   Does not display "combinedString":
-   <f:debug>{post.info}</f:debug>
+    Does not display "combinedString":
+    <f:debug>{post.info}</f:debug>
 
-   But it is there:
-   <f:debug>{post.info.combinedString}</f:debug>
+    But it is there:
+    <f:debug>{post.info.combinedString}</f:debug>
+
+
+Union types
+-----------
+
+..  versionadded:: 12.3
+    Previously, whenever a union type was needed, union type declarations led
+    Extbase not detecting any type at all, resulting in the property not being
+    mapped. However, union types could be resolved via docblocks. Since TYPO3
+    v12.3 native PHP union types can be used.
+
+Union types can be used in properties of an entity, for example:
+
+..  literalinclude:: _Model/_UnionType1.php
+    :caption: EXT:my_extension/Classes/Domain/Model/Entity.php
+
+This is especially useful for lazy-loaded relations where the property type is
+:php:`ChildEntity|\TYPO3\CMS\Extbase\Persistence\Generic\LazyLoadingProxy`.
+
+There is something important to understand about how Extbase detects union
+types when it comes to property mapping, that means when a database row is
+:ref:`mapped onto an object <extbase-model-hydrating>`. In this case, Extbase
+needs to know the desired target type - no union, no intersection, just one
+type. In order to achieve this, Extbase uses the first declared type as a
+so-called primary type.
+
+..  literalinclude:: _Model/_UnionType2.php
+    :caption: EXT:my_extension/Classes/Domain/Model/Entity.php
+
+In this case, :php:`string` is the primary type. :php:`int|string` would result
+in :php:`int` as primary type.
+
+There is one important thing to note and one exception to this rule. First of
+all, :php:`null` is not considered a type. :php:`null|string` results in the
+primary type :php:`string` which is :ref:`nullable <extbase-model-nullable-relations>`.
+:php:`null|string|int` also results in the primary type :php:`string`. In fact,
+:php:`null` means that all other types are nullable. :php:`null|string|int`
+boils down to :php:`?string` or :php:`?int`.
+
+Secondly, :php:`LazyLoadingProxy` is never detected as a primary type because it
+is just a proxy and not the actual target type, once loaded.
+
+..  literalinclude:: _Model/_UnionType3.php
+    :caption: EXT:my_extension/Classes/Domain/Model/Entity.php
+
+Extbase supports this and detects :php:`ChildEntity` as the primary type,
+although :php:`LazyLoadingProxy` is the first item in the list. However, it is
+recommended to place the actual type first, for consistency reasons:
+:php:`ChildEntity|LazyLoadingProxy`.
+
+A final word on :php:`\TYPO3\CMS\Extbase\Persistence\Generic\LazyObjectStorage`:
+it is a subclass of :php:`\TYPO3\CMS\Extbase\Persistence\ObjectStorage`,
+therefore the following code works and has always worked:
+
+..  literalinclude:: _Model/_ObjectStorage.php
+    :caption: EXT:my_extension/Classes/Domain/Model/Entity.php
+
 
 Relations
 =========
@@ -87,26 +144,27 @@ On the side of the relationship that can only have one counterpart, you must
 decide whether it is possible to have no relationship (allow null) or not.
 
 
+..  _extbase-model-nullable-relations:
+
 Nullable relations
 ------------------
 
 There are two ways to allow :php:`null` for a property in PHP:
 
-Nullable property types have been introduced with PHP 7.1 and can therefore
-be used in any modern TYPO3 version:
+*   Mark the type declaration as nullable by prefixing the type name with a
+    question mark:
 
-.. code-block:: php
-   :caption: Example for a nullable property
+    ..  code-block:: php
+        :caption: Example for a nullable property
 
-   protected ?Person $secondAuthor = null;
+        protected ?Person $secondAuthor = null;
 
-Union types, that can also be used to allow :php:`null`, have been introduced with
-PHP 8.0 and can only been used when the minimal PHP requirement is PHP 8.0.
+*   Use a union type:
 
-.. code-block:: php
-   :caption: Example for union type of null and Person
+    ..  code-block:: php
+        :caption: Example for a union type of null and Person
 
-   protected Person|null $secondAuthor = null;
+        protected Person|null $secondAuthor = null;
 
 Both declarations have the same meaning.
 
@@ -118,7 +176,7 @@ A blog post can have, in our case, exactly one additional info attached to it.
 The info always belongs to exactly one blog post. If the blog post gets deleted,
 the info does get related.
 
-.. include:: /CodeSnippets/Extbase/Domain/Optional1on1.rst.txt
+..  include:: /CodeSnippets/Extbase/Domain/Optional1on1.rst.txt
 
 1:n-relationship
 ----------------
@@ -127,32 +185,32 @@ A blog can have multiple posts in it. If a blog is deleted all of its posts
 should be deleted. However a blog might get displayed without displaying the
 posts therefore we load the posts of a blog lazily:
 
-.. include:: /CodeSnippets/Extbase/Domain/Relationship1onN2.rst.txt
+..  include:: /CodeSnippets/Extbase/Domain/Relationship1onN2.rst.txt
 
-.. note::
-   Note the subtle differences here. The methods :php:`setPosts()` and
-   :php:`getPosts()` refer simultaneously to all blog posts.
-   They expect and hence provide an :php:`ObjectStorage` object.
+..  note::
+    Note the subtle differences here. The methods :php:`setPosts()` and
+    :php:`getPosts()` refer simultaneously to all blog posts.
+    They expect and hence provide an :php:`ObjectStorage` object.
 
-   The methods :php:`addPost()` and :php:`removePost()` refer to a single
-   post object that is added to the list or removed from.
+    The methods :php:`addPost()` and :php:`removePost()` refer to a single
+    post object that is added to the list or removed from.
 
-.. attention::
-   It is possible to get an array of objects from an :php:`ObjectStorage`
-   by calling :php:`$this->posts->toArray()`. However doing so and looping
-   the resulting array might cause performance problems.
+..  attention::
+    It is possible to get an array of objects from an :php:`ObjectStorage`
+    by calling :php:`$this->posts->toArray()`. However doing so and looping
+    the resulting array might cause performance problems.
 
 Each post belongs to exactly one blog, of course a blog does not get deleted
 when one of its posts gets deleted.
 
-.. include:: /CodeSnippets/Extbase/Domain/Relationship1onN1.rst.txt
+..  include:: /CodeSnippets/Extbase/Domain/Relationship1onN1.rst.txt
 
 A post can also have multiple comments and each comment belongs to exactly
 one blog. However we never display a comment without its post therefore we do
 not need to store information about the post in the comment's model: The
 relationship is unidirectional.
 
-.. include:: /CodeSnippets/Extbase/Domain/Relationship1onNUni.rst.txt
+..  include:: /CodeSnippets/Extbase/Domain/Relationship1onNUni.rst.txt
 
 The model of the comment has no property to get the blog post in this case.
 
@@ -165,7 +223,7 @@ perspective of the object:
 Each post has exactly one main author but an author can write several blog
 posts or none at all. He can also be a second author and no main author.
 
-.. include:: /CodeSnippets/Extbase/Domain/RelationshipNon1Uni.rst.txt
+..  include:: /CodeSnippets/Extbase/Domain/RelationshipNon1Uni.rst.txt
 
 Once more the model of the author does not have a property containing the
 authors posts. If you would want to get all posts of an author you would have
@@ -178,8 +236,10 @@ m:n-relationship
 A blog post can have multiple categories, each category can belong to
 multiple blog posts.
 
-.. include:: /CodeSnippets/Extbase/Domain/RelationshipNonM.rst.txt
+..  include:: /CodeSnippets/Extbase/Domain/RelationshipNonM.rst.txt
 
+
+..  _extbase-model-hydrating:
 
 Hydrating objects
 =================
