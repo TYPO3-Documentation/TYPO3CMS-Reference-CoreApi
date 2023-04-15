@@ -15,6 +15,9 @@ TYPO3 has implemented `PSR-15`_ for handling incoming HTTP requests. The
 implementation within TYPO3 is often called "Middlewares", as PSR-15 consists of
 two interfaces where one is called :php:`Middleware`.
 
+..  contents::
+    :local:
+
 .. _request-handling-basic-concept:
 
 Basic concept
@@ -112,6 +115,51 @@ By doing so, the middleware can do one or multiple of the following:
 * Call next request handler (which again can be a middleware).
 
 * Adjust response received from the next request handler.
+
+
+.. _request-handling-middlewares-extbase:
+
+Using Extbase
+-------------
+
+One note about using :ref:`Extbase <extbase>` in middlewares: do not! Extbase
+relies on :ref:`frontend TypoScript <t3tsref:start>` being present; otherwise
+the configuration is not applied. This is usually no problem - Extbase plugins
+are typically either included as :ref:`USER content object <t3tsref:cobj-user>`
+(its content is cached and returned together with other content elements in
+fully-cached page context), or the Extbase plugin is registered as USER_INT. In
+this case, the :ref:`TSFE <tsfe>` takes care of calculating TypoScript before
+the plugin is rendered, while other USER content objects are fetched from page
+cache.
+
+With TYPO3 v11, the "calling Extbase in a context where TypoScript has not been
+calculated" scenario did not fail, but simply returned an empty array for
+TypoScript, crippling the configuration of the plugin in question. This
+mitigation hack will be removed in TYPO3 v13, though. Extension developers
+that already use Extbase in a middleware have the following options:
+
+*   Consider not using Extbase for the use case: Extbase is quite expensive.
+    Executing it from within middlewares can increase the parse time in
+    fully-cached page context significantly and should be avoided especially for
+    "simple" things. In many cases, directly manipulating the response object
+    and skipping the Extbase overhead in a middleware should be enough.
+
+*   Move away from the middleware and register the Extbase instance as a casual
+    :ref:`USER_INT <t3tsref:cobj-user-int>` object via TypoScript: Extbase is
+    designed to be executed like this, the TSFE bootstrap will take care of
+    properly calculating TypoScript, and Extbase will run as expected.
+
+    Note that with TYPO3 v12, the overhead of USER_INT content objects has been
+    reduced significantly, since TypoScript can be fetched from improved cache
+    layers more quickly. This is also more resilient towards core changes since
+    extension developers do not need to go through the fiddly process of
+    bootstrapping Extbase on their own.
+
+*   Trigger TypoScript calculation manually within the middleware: This is
+    clumsy with TYPO3 v12 and should only be done by developers who know exactly
+    what they are doing (chances are you do not!), and who are prepared to deal
+    with problems on their own when upgrading.
+
 
 .. _request-handling-middleware-examples:
 
