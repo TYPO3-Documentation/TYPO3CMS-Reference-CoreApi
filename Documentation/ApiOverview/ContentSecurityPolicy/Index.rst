@@ -49,9 +49,6 @@ Configuration
 Extension-specific
 ------------------
 
-..  todo: Explain file Configuration/ContentSecurityPolicies.php in
-          configuration section
-
 Policies for frontend and backend can be applied automatically by providing a
 :file:`Configuration/ContentSecurityPolicies.php` file in an extension, for
 example:
