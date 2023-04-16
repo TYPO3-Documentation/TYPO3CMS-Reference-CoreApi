@@ -317,8 +317,9 @@ Not TYPO3 specific:
 
 TYPO3 specific:
 
-* The :ref:`section on testing <testing-extensions>` (in this manual) contains further information
-  about adding additional properties to :file:`composer.json` that are relevant for testing.
-* `Helmut Hummel: composer.json specification for TYPO3 extensions <https://insight.helhum.io/post/148886148725/composerjson-specification-for-typo3-extensions>`__
-* `Helmut Hummel: minimal composer.json <https://gist.github.com/helhum/0ffd82525c90f305b81a8285329eb4f8>`__
-* `Helmut Hummel: TYPO3 Extension dependencies revisited <https://insight.helhum.io/post/155297666635/typo3-extension-dependencies-revisited>`__
+*   The :ref:`section on testing <testing-extensions>` (in this manual) contains further information
+    about adding additional properties to :file:`composer.json` that are relevant for testing.
+*   The Composer plugin (not extension)
+    `typo3/cms-composer-installers <https://packagist.org/packages/typo3/cms-composer-installers>`__
+    is responsible for TYPO3 specific Composer installation. Reading the README
+    and source code can be helpful to understand how it works.
