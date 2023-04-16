@@ -156,6 +156,15 @@ It is possible to set a site base prefix to just :samp:`/site1`, :samp:`/site2` 
 This allows to have a Site base e.g. :samp:`example.com` to be detected with http and https protocols, although it is recommended to do a HTTP to
 HTTPS redirect either on the webserver level, via a .htaccess rewrite rule, or by adding a redirect in TYPO3.
 
+Please note: when the domain is an `Internationalized Domain Name (IDN)`_
+containing non-Latin characters, the base must be provided in an
+ASCII-Compatible Encoded (ACE) format (also known as "`Punycode`_"). You can use
+a `converter`_ to get the ACE format of the domain name.
+
+..  _Internationalized Domain Name (IDN): https://en.wikipedia.org/wiki/Internationalized_domain_name
+..  _Punycode: https://en.wikipedia.org/wiki/Punycode
+..  _converter: https://www.punycoder.com/
+
 .. note::
   Please note that this flexibility will introduce side-effects when having multiple sites with mixed configuration settings as Site base:
 
