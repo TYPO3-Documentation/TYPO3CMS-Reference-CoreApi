@@ -39,10 +39,28 @@ feature flags need to be enabled:
 For new installations :php:`security.backend.enforceContentSecurityPolicy` is
 enabled by default.
 
-..  todo: Explain general approach
+..  _content-security-policy-configuration:
 
 Configuration
 =============
+
+Policy builder approach
+-----------------------
+
+The following approach illustrates how a policy is build:
+
+..  literalinclude:: _Policy.php
+
+The result of the compiled and serialized result as HTTP header would look
+similar to this (the following sections are using the same example, but utilize
+different techniques for the declarations):
+
+..  code-block:: none
+
+    Content-Security-Policy: default-src 'self';
+        img-src 'self' data: https://*.typo3.org; script-src 'self' 'nonce-[random]';
+        worker-src blob:
+
 
 .. _content-security-policy-extension:
 
@@ -58,6 +76,7 @@ example:
 
 ..  todo: Explain "Scope", "MutationCollection", "Mutation", "MutationMode", ...
 
+
 .. _content-security-policy-site:
 
 Site-specific (frontend)
@@ -71,6 +90,9 @@ used to declare policies for a specific site, for example:
     :caption: config/sites/<my_site>/csp.yaml | typo3conf/sites/<my_site>/csp.yaml
 
 ..  todo: Explain "inheritDefault", "mutations", "mode", "directive", "sources", ...
+
+
+..  _content-security-policy-events:
 
 PSR-14 event
 ============
