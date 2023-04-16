@@ -113,6 +113,15 @@ be detected, although it is recommended to redirect HTTP to HTTPS, either at the
 webserver level, via a :file:`.htaccess` rewrite rule or by adding a redirect
 in TYPO3.
 
+Please note: when the domain is an `Internationalized Domain Name (IDN)`_
+containing non-Latin characters, the base must be provided in an
+ASCII-Compatible Encoded (ACE) format (also known as "`Punycode`_"). You can use
+a `converter`_ to get the ACE format of the domain name.
+
+..  _Internationalized Domain Name (IDN): https://en.wikipedia.org/wiki/Internationalized_domain_name
+..  _Punycode: https://en.wikipedia.org/wiki/Punycode
+..  _converter: https://www.punycoder.com/
+
 ..  note::
     This flexibility introduces side effects if you have multiple sites with
     mixed configuration settings as site base:
