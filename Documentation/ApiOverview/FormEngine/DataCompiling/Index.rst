@@ -14,19 +14,22 @@ A basic call looks like this:
 ..  code-block:: php
 
     $formDataGroup = GeneralUtility::makeInstance(TcaDatabaseRecord::class);
-    $formDataCompiler = GeneralUtility::makeInstance(FormDataCompiler::class, $formDataGroup);
+    $formDataCompiler = GeneralUtility::makeInstance(FormDataCompiler::class);
     $formDataCompilerInput = [
         'request' => $request, // the PSR-7 request object
         'tableName' => $table,
         'vanillaUid' => (int)$theUid,
         'command' => $command,
     ];
-    $formData = $formDataCompiler->compile($formDataCompilerInput);
+    $formData = $formDataCompiler->compile($formDataCompilerInput, $formDataGroup);
 
 ..  deprecated:: 12.4
     Using the FormEngine data provider to render records without passing the
-    current :ref:`request object <typo3-request>` is deprecated. Failing to do
-    so will stop working with TYPO3 v13.
+    current :ref:`request object <typo3-request>` is deprecated. Additionally,
+    when instantiating the backend FormEngine-related :php:`FormDataCompiler`,
+    the constructor argument :php:`FormDataGroupInterface` should be omitted,
+    the form data group should be provided as second argument to :php:`compile()`
+    instead. Failing to do so will stop working with TYPO3 v13.
 
 The above code is a simplified version of the relevant part of the :php:`EditDocumentController`. This controller
 knows by its :code:`GET` or :code:`POST` parameters which record ("vanillaUid") of which specific table ("tableName")
