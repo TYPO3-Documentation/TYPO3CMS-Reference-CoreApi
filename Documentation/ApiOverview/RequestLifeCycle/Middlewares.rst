@@ -155,11 +155,6 @@ that already use Extbase in a middleware have the following options:
     extension developers do not need to go through the fiddly process of
     bootstrapping Extbase on their own.
 
-*   Trigger TypoScript calculation manually within the middleware: This is
-    clumsy with TYPO3 v12 and should only be done by developers who know exactly
-    what they are doing (chances are you do not!), and who are prepared to deal
-    with problems on their own when upgrading.
-
 
 .. _request-handling-middleware-examples:
 
