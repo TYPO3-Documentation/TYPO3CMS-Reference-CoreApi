@@ -1049,3 +1049,29 @@ stylesheets
 
         $GLOBALS['TYPO3_CONF_VARS']['BE']['stylesheets']['my_extension']
             = 'EXT:my_extension/Resources/Public/Css/';
+
+
+..  index::
+    TYPO3_CONF_VARS BE; contentSecurityPolicyReportingUrl
+..  _typo3ConfVars_be_contentSecurityPolicyReportingUrl:
+
+contentSecurityPolicyReportingUrl
+=================================
+
+..  versionadded:: 12.3
+
+..  confval:: $GLOBALS['TYPO3_CONF_VARS']['BE']['contentSecurityPolicyReportingUrl']
+
+    :type: string
+    :Default: ''
+
+    Configure the reporting HTTP endpoint of
+    :ref:`Content Security Policy <content-security-policy>` violations in the
+    backend; if it is empty, the TYPO3 endpoint will be used.
+
+    Example:
+
+    ..  code-block:: php
+
+        $GLOBALS['TYPO3_CONF_VARS']['BE']['contentSecurityPolicyReportingUrl']
+            = 'https://csp-violation.example.org/';

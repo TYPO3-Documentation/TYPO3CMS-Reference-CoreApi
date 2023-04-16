@@ -92,6 +92,56 @@ used to declare policies for a specific site, for example:
 ..  todo: Explain "inheritDefault", "mutations", "mode", "directive", "sources", ...
 
 
+.. _content-security-policy-reporting:
+
+Reporting of violations
+=======================
+
+Potential CSP violations are reported back to the TYPO3 system and persisted
+internally in the database table :sql:`sys_http_report`. A corresponding
+:guilabel:`Admin Tools > Content Security Policy` backend module supports users
+to keep track of recent violations and - if applicable - to select potential
+resolutions (stored in the database table :sql:`sys_csp_resolution`) which
+extends the Content Security Policy for the given scope during runtime:
+
+..  figure:: /Images/ManualScreenshots/ContentSecurityPolicy/BackendModule.png
+    :class: with-shadow
+
+    Backend module "Content Security Policy" which displays the violations
+
+Clicking on a row displays the details of this violation on the right side
+including suggestions on how to resolve this violation. You have the choice to
+apply this suggestion, or to mute or delete the specific violation.
+
+..  note::
+    If you apply the suggestion, it is stored in the database table
+    :sql:`sys_csp_resolution`. To have all policies in one place, you
+    should consider adding the suggestion to your
+    :ref:`extension-specific <content-security-policy-extension>` or
+    :ref:`site-specific <content-security-policy-site>` CSP definitions
+    manually.
+
+
+Using a third-party service
+---------------------------
+
+As an alternative, the reporting URL can be configured to use a third-party
+service as well:
+
+..  code-block:: php
+
+    // For backend
+    $GLOBALS['TYPO3_CONF_VARS']['BE']['contentSecurityPolicyReportingUrl']
+        = 'https://csp-violation.example.org/';
+
+    // For frontend
+    $GLOBALS['TYPO3_CONF_VARS']['FE']['contentSecurityPolicyReportingUrl']
+        = 'https://csp-violation.example.org/';
+
+Violations are then sent to the third-party service instead of the TYPO3
+endpoint.
+
+
 ..  _content-security-policy-events:
 
 PSR-14 event

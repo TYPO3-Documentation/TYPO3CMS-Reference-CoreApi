@@ -930,3 +930,28 @@ exposeRedirectInformation
    If set, redirects executed by TYPO3 publicly expose the page ID in the HTTP
    header. As this is an internal information about the TYPO3 system, it should
    only be enabled for debugging purposes.
+
+..  index::
+    TYPO3_CONF_VARS FE; contentSecurityPolicyReportingUrl
+..  _typo3ConfVars_fe_contentSecurityPolicyReportingUrl:
+
+contentSecurityPolicyReportingUrl
+=================================
+
+..  versionadded:: 12.3
+
+..  confval:: $GLOBALS['TYPO3_CONF_VARS']['FE']['contentSecurityPolicyReportingUrl']
+
+    :type: string
+    :Default: ''
+
+    Configure the reporting HTTP endpoint of
+    :ref:`Content Security Policy <content-security-policy>` violations in the
+    frontend; if it is empty, the TYPO3 endpoint will be used.
+
+    Example:
+
+    ..  code-block:: php
+
+        $GLOBALS['TYPO3_CONF_VARS']['FE']['contentSecurityPolicyReportingUrl']
+            = 'https://csp-violation.example.org/';
