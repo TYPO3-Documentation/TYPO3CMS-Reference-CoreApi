@@ -42,8 +42,12 @@ contains installation-wide configuration.
 :file:`config/sites/`
 ~~~~~~~~~~~~~~~~~~~~~
 
-The folder :file:`config/sites/` contains
-subfolders for each :ref:`site configuration <sitehandling>`.
+The folder :file:`config/sites/` contains subfolders for each site.
+
+The following files are processed:
+
+*   :file:`config.yaml` for the :ref:`site configuration <sitehandling>`
+*   :file:`settings.yaml` for the :ref:`site settings <sitehandling-settings>`
 
 
 .. _directory-config-system:
@@ -51,9 +55,16 @@ subfolders for each :ref:`site configuration <sitehandling>`.
 :file:`config/system/`
 ~~~~~~~~~~~~~~~~~~~~~~
 
-The folder :file:`config/system/` contains the
-:ref:`Configuration files <configuration-files>` :file:`config/system/settings.php`
-and :file:`config/system/additional.php`.
+The folder :file:`config/system/` contains the installation-wide
+:ref:`configuration files <configuration-files>`:
+
+*   :file:`settings.php`: :ref:`Configuration <typo3ConfVars-settings>` written
+    by the :guilabel:`Admin Tools > Settings` backend module
+*   :file:`additional.php`: :ref:`Manually created file <typo3ConfVars-additional>`
+    which can override settings from :file:`settings.php` file
+
+These files define a set of global settings stored in a global array called
+:ref:`$GLOBALS['TYPO3_CONF_VARS'] <typo3ConfVars>`.
 
 This path can be retrieved from the Environment API, see
 :ref:`Environment-config-path`.
