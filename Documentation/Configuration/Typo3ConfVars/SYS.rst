@@ -842,6 +842,42 @@ security.backend.enforceReferrer
    potential same-site request forgery attacks. The behavior can be disabled in case HTTP proxies filter
    required referer header. As this is a potential security risk, it is recommended to enable this option.
 
+..  index::
+    TYPO3_CONF_VARS SYS; features security.backend.enforceContentSecurityPolicy
+..  _typo3ConfVars_sys_features_security.backend.enforceContentSecurityPolicy:
+
+security.backend.enforceContentSecurityPolicy
+---------------------------------------------
+
+..  versionadded:: 12.3
+
+..  confval:: $GLOBALS['TYPO3_CONF_VARS']['SYS']['features']['security.backend.enforceContentSecurityPolicy']
+
+    :Path: $GLOBALS['TYPO3_CONF_VARS']['SYS']['features']
+    :type: bool
+    :Default: false (for existing installations), true (for new installations)
+
+    If enabled, the :ref:`Content Security Policy <content-security-policy>`
+    is applied in backend scope.
+
+..  index::
+    TYPO3_CONF_VARS SYS; features security.frontend.enforceContentSecurityPolicy
+..  _typo3ConfVars_sys_features_security.frontend.enforceContentSecurityPolicy:
+
+security.frontend.enforceContentSecurityPolicy
+----------------------------------------------
+
+..  versionadded:: 12.3
+
+..  confval:: $GLOBALS['TYPO3_CONF_VARS']['SYS']['features']['security.frontend.enforceContentSecurityPolicy']
+
+    :Path: $GLOBALS['TYPO3_CONF_VARS']['SYS']['features']
+    :type: bool
+    :Default: false
+
+    If enabled, the :ref:`Content Security Policy <content-security-policy>`
+    is applied in frontend scope.
+
 
 .. index::
    TYPO3_CONF_VARS SYS; availablePasswordHashAlgorithms

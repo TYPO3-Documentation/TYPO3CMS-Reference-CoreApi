@@ -227,8 +227,20 @@ return [
     ],
     [
         'action' => 'createPhpClassDocs',
+        'class' => \TYPO3\CMS\Core\Authentication\Event\AfterUserLoggedInEvent::class,
+        'targetFileName' => 'CodeSnippets/Events/Core/AfterUserLoggedInEvent.rst.txt',
+        'withCode' => false,
+    ],
+    [
+        'action' => 'createPhpClassDocs',
         'class' => \TYPO3\CMS\Core\Authentication\Event\LoginAttemptFailedEvent::class,
         'targetFileName' => 'CodeSnippets/Events/Core/LoginAttemptFailedEvent.rst.txt',
+        'withCode' => false,
+    ],
+    [
+        'action' => 'createPhpClassDocs',
+        'class' => \TYPO3\CMS\Core\Security\ContentSecurityPolicy\Event\PolicyMutatedEvent::class,
+        'targetFileName' => 'CodeSnippets/Events/Core/Security/PolicyMutatedEvent.rst.txt',
         'withCode' => false,
     ],
 ];

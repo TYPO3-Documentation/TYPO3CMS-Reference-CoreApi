@@ -119,6 +119,9 @@ entries. This could be as simple as the inclusion of additional text
 or images, but it could also contain JavaScript code of iframes that
 load code from a 3rd party website.
 
+Implementing :ref:`Content Security Policy <content-security-policy>` headers
+can reduce the risk of cross-site scripting.
+
 .. index::
    ! Cross-site request forgery
    XSRF
