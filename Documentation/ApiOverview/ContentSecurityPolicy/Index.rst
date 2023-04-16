@@ -44,6 +44,8 @@ enabled by default.
 Configuration
 =============
 
+.. _content-security-policy-extension:
+
 Extension-specific
 ------------------
 
@@ -59,17 +61,17 @@ example:
 
 ..  todo: Explain "Scope", "MutationCollection", "Mutation", "MutationMode", ...
 
+.. _content-security-policy-site:
+
 Site-specific (frontend)
 ------------------------
 
-..  todo: Explain file sites/my-site/csp.yaml in configuration section
-
-In frontend, a dedicated :file:`sites/<my-site>/csp.yaml` can be
+In frontend, a dedicated :file:`sites/<my_site>/csp.yaml` can be
 used to declare policies for a specific site, for example:
 
 ..  literalinclude:: _csp.yaml
     :language: yaml
-    :caption: config/sites/<my-site>/csp.yaml | typo3conf/sites/<my-site>/csp.yaml
+    :caption: config/sites/<my_site>/csp.yaml | typo3conf/sites/<my_site>/csp.yaml
 
 ..  todo: Explain "inheritDefault", "mutations", "mode", "directive", "sources", ...
 

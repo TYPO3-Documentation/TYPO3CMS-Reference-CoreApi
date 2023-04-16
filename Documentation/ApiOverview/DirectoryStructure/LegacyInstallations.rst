@@ -149,6 +149,8 @@ The following files are processed:
 
 *   :file:`config.yaml` for the :ref:`site configuration <sitehandling>`
 *   :file:`settings.yaml` for the :ref:`site settings <sitehandling-settings>`
+*   :file:`csp.yaml` for a
+    :ref:`site-specific Content Security Policy <content-security-policy-site>`
 
 .. _legacy-directory-typo3conf-system:
 
