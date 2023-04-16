@@ -143,11 +143,6 @@ that already use Extbase in a middleware have the following options:
     designed to be executed like this, the TSFE bootstrap will take care of
     properly calculating TypoScript, and Extbase will run as expected.
 
-*   Trigger TypoScript calculation manually within the middleware: This is
-    clumsy with TYPO3 v11 and should only be done by developers who know exactly
-    what they are doing (chances are you do not!), and who are prepared to deal
-    with problems on their own when upgrading.
-
 
 .. _request-handling-middleware-examples:
 
