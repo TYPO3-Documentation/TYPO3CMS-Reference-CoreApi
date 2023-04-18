@@ -266,9 +266,10 @@ functionality to generate multiple variants, typically based on the available
 controller/action pairs.
 
 ..  warning::
-    Do not set :typoscript:`features.skipDefaultArguments` in your Extbase
-    plugin configuration as this will result in missing parameters to be mapped
-    - then no matching route configuration can be found.
+    Do not enable the deprecated setting
+    :ref:`features.skipDefaultArguments <t3tsref:setup-plugin-features-skipDefaultArguments>`
+    in your Extbase plugin configuration as this will result in missing
+    parameters to be mapped - then no matching route configuration can be found.
 
 The Extbase plugin enhancer with the configuration below would now apply to the
 following URLs:
