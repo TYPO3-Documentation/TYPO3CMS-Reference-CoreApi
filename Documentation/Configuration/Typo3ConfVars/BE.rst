@@ -30,6 +30,12 @@ the TYPO3 backend:
 languageDebug
 =============
 
+..  deprecated:: 12.4
+    Judging from translators feedback, the option is not used in practice:
+    Setting the toggle to true leads to a massively convoluted backend
+    experience that breaks tons of CSS and renders the backend so unusable that
+    it is hardly a benefit at all. The setting will be removed with TYPO3 v13.
+
 .. confval:: $GLOBALS['TYPO3_CONF_VARS']['BE']['languageDebug']
 
    :type: bool
