@@ -1049,7 +1049,7 @@ statement from SQL injections:
     :caption: EXT:my_extension/Classes/Domain/Repository/MyRepository.php
 
     // SELECT * FROM `tt_content` WHERE (`bodytext` = 'kl\'aus')
-    $searchWord = "kl'aus"; // $searchWord = GeneralUtility::_GP('searchword');
+    $searchWord = "kl'aus"; // $searchWord retrieved from the PSR-7 request
     $queryBuilder = $this->connectionPool->getQueryBuilderForTable('tt_content');
     $queryBuilder->getRestrictions()->removeAll();
     $queryBuilder
@@ -1078,7 +1078,7 @@ Not convinced? Suppose the code would look like this:
 
     // NEVER EVER DO THIS!
     $_POST['searchword'] = "'foo' UNION SELECT username FROM be_users";
-    $searchWord = GeneralUtility::_GP('searchword');
+    $searchWord = $request->getParsedBody()['searchword']);
     $queryBuilder = $this->connectionPool->getQueryBuilderForTable('tt_content');
     $queryBuilder->getRestrictions()->removeAll();
      this fails with syntax error to prevent copy and paste
@@ -1120,7 +1120,7 @@ Use integer, integer array:
     //     WHERE `bodytext` = 'kl\'aus'
     //     AND   sys_language_uid = 0
     //     AND   pid in (2, 42,13333)
-    $searchWord = "kl'aus"; // $searchWord = GeneralUtility::_GP('searchword');
+    $searchWord = "kl'aus"; // $searchWord retrieved from the PSR-7 request
     $queryBuilder = $this->connectionPool->getQueryBuilderForTable('tt_content');
     $queryBuilder->getRestrictions()->removeAll();
     $queryBuilder

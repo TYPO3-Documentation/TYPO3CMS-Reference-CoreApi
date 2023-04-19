@@ -176,14 +176,17 @@ and "4" is "delete" permission. The result from the above query could be this st
 Saving module data
 ==================
 
-This stores the input variable :php:`$compareFlags` (an array!) with the key
-"tools\_beuser/index.php/compare"
+This stores the input variable :php:`$compareFlags` (an array!, retrieved from
+the :ref:`request object <typo3-request>`) with the key
+"tools\_beuser/index.php/compare":
 
-.. code-block:: php
-   :caption: EXT:some_extension/Classes/Controller/SomeModuleController.php
+..  code-block:: php
+    :caption: EXT:some_extension/Classes/Controller/SomeModuleController.php
 
-   $compareFlags = \TYPO3\CMS\Core\Utility\GeneralUtility::_GP('compareFlags');
-   $GLOBALS['BE_USER']->pushModuleData('tools_beuser/index.php/compare', $compareFlags);
+    $compareFlags = $request->getParsedBody()['compareFlags'])
+        ?? $request->getQueryParams()['compareFlags'])
+        ?? null;
+    $GLOBALS['BE_USER']->pushModuleData('tools_beuser/index.php/compare', $compareFlags);
 
 
 .. index:: Backend user; pushModuleData
