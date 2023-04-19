@@ -123,6 +123,20 @@ These general rules apply:
   level is in "global" scope automatically. The backend TypoScript and
   TSconfig modules may mumble about a not properly closed condition, though.
 
+* .. versionadded:: 12.1
+
+  Using the null-safe operator is possible when accessing properties on objects
+  which might not be available in some context, for example `TSFE` in the
+  backend:
+
+  .. code-block:: typoscript
+
+     # Previously
+     [getTSFE() && getTSFE().id == 123]
+
+     # Now
+     [getTSFE()?.id == 123]
+
 
 .. _typoscript-syntax-conditions-usage:
 .. _typoscript-syntax-conditions-combine:
