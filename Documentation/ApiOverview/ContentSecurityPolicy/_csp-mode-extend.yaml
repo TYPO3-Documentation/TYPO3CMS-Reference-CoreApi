@@ -1,0 +1,5 @@
+mutations:
+  - mode: extend
+    directive: 'worker-src'
+    sources:
+      - '*.example.com'

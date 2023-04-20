@@ -1,0 +1,5 @@
+mutations:
+  - mode: set
+    directive: 'worker-src'
+    sources:
+      - "'self'"

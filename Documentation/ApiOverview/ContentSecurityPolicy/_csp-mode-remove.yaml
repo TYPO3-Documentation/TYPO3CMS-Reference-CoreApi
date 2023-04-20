@@ -1,0 +1,3 @@
+mutations:
+  - mode: remove
+    directive: 'worker-src'

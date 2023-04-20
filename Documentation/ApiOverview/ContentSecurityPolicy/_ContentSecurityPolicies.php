@@ -15,8 +15,8 @@ use TYPO3\CMS\Core\Type\Map;
 return Map::fromEntries([
     // Provide declarations for the backend
     Scope::backend(),
-    // NOTICE: When using `MutationMode::Set` existing declarations will be overridden
 
+    // NOTICE: When using `MutationMode::Set` existing declarations will be overridden
     new MutationCollection(
         // Results in `default-src 'self'`
         new Mutation(

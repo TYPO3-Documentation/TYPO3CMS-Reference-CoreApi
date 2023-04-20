@@ -1,0 +1,6 @@
+mutations:
+  - mode: reduce
+    directive: 'worker-src'
+    sources:
+      - '*.example.com'
+

@@ -89,6 +89,144 @@ used to declare policies for a specific site, for example:
     :language: yaml
     :caption: config/sites/<my_site>/csp.yaml | typo3conf/sites/<my_site>/csp.yaml
 
+The following configuration properties are available:
+
+..  option:: inheritDefault
+
+    :type: bool
+    :Required: false
+    :Default: :yaml:`true`
+
+    Whether to inherit default (site-unspecific) frontend policy mutations.
+
+..  option:: mutations
+
+    :type: array
+    :Required: true
+
+    A list of mutations which should be applied. Each mutation can provide the
+    following properties:
+
+    ..  option:: mode
+
+        :type: string
+        :Required: true
+
+        The mode used in a mutation. It can be one of the following:
+
+        :yaml:`set`
+            Sets (overrides) a directive completely, for example:
+
+            ..  literalinclude:: _csp-mode-set.yaml
+                :language: yaml
+
+        :yaml:`extend`
+            Extends a directive by a given aspect, for example:
+
+            ..  literalinclude:: _csp-mode-extend.yaml
+                :language: yaml
+
+        :yaml:`reduce`
+            Reduces a directive by a given aspect.
+
+            ..  literalinclude:: _csp-mode-reduce.yaml
+                :language: yaml
+
+        :yaml:`remove`
+            Removes a directive completely, for example:
+
+            ..  literalinclude:: _csp-mode-remove.yaml
+                :language: yaml
+
+    ..  option:: directive
+
+        :type: string
+        :Required: true
+
+        The `directive`_ used in a mutation. It can be one of the following:
+
+        *   `default-src`_
+        *   `base-src`_
+        *   `child-src`_
+        *   `connect-src`_
+        *   `font-src`_
+        *   `form-action`_
+        *   `frame-ancestors`_
+        *   `frame-src`_
+        *   `img-src`_
+        *   `manifest-src`_
+        *   `media-src`_
+        *   `object-src`_
+        *   `sandbox`_
+        *   `script-src`_
+        *   `script-src-attr`_
+        *   `script-src-elem`_
+        *   `style-src`_
+        *   `style-src-attr`_
+        *   `style-src-elem`_
+        *   `worker-src`_
+
+    ..  option:: sources
+
+        :type: array
+        :Required: false
+
+        The `sources`_ used in a mutation.
+
+        A source can be an internet host by name or IP address, for example:
+
+        *   :yaml:`https://*.example.com`
+        *   :yaml:`sub.example.com:443`
+        *   :yaml:`*.example.com`
+        *   :yaml:`https://*.example.com:8080/path/to/file.js`
+
+        Or a schema, like:
+
+        *   :yaml:`blob:`
+        *   :yaml:`data:`
+        *   :yaml:`filesystem:`
+        *   :yaml:`mediastream:`
+
+        Or a keyword, such as (note the :yaml:`'` at the beginning and end):
+
+        *   :yaml:`'none'`
+        *   :yaml:`'self'`
+        *   :yaml:`'nonce-proxy'`
+        *   :yaml:`'report-sample'`
+        *   :yaml:`'strict-dynamic'`
+        *   :yaml:`'unsafe-inline'`
+        *   :yaml:`'unsafe-eval'`
+        *   :yaml:`'unsafe-hashes'`
+        *   :yaml:`'wasm-unsafe-eval'`
+
+        :yaml:`'nonce-proxy'` is substituted woth the current nonce value when
+        compiling the whole policy. This value does NOT exist in the CSP
+        definition, it is specific to TYPO3 only.
+
+
+..  _directive: https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy#directives
+..  _base-src: https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy/base-uri
+..  _child-src: https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy/child-src
+..  _connect-src: https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy/connect-src
+..  _default-src: https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy/default-src
+..  _font-src: https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy/font-src
+..  _form-action: https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy/form-action
+..  _frame-ancestors: https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy/frame-ancestors
+..  _frame-src: https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy/frame-src
+..  _img-src: https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy/img-src
+..  _manifest-src: https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy/manifest-src
+..  _media-src: https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy/media-src
+..  _object-src: https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy/object-src
+..  _sandbox: https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy/sandbox
+..  _script-src: https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy/script-src
+..  _script-src-attr: https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy/script-src-attr
+..  _script-src-elem: https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy/script-src-elem
+..  _style-src: https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy/style-src
+..  _style-src-attr: https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy/style-src-attr
+..  _style-src-elem: https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy/style-src-elem
+..  _worker-src: https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy/worker-src
+..  _sources: https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy/Sources
+
 ..  todo: Explain "inheritDefault", "mutations", "mode", "directive", "sources", ...
 
 
