@@ -1,16 +1,13 @@
 :orphan:
 
-=========================
-AbstractPlugin (internal)
-=========================
+.. include:: /Includes.rst.txt
 
-..  versionchanged:: 12.0
-    :php:`\TYPO3\CMS\Frontend\Plugin\AbstractPlugin` has been marked as
-    :php:`@internal`.
+==============
+AbstractPlugin
+==============
 
-Extending the class :php:`\TYPO3\CMS\Frontend\Plugin\AbstractPlugin` is not a
-recommended way of developing Frontend plugins anymore. This class is not
-maintained anymore and may be removed in future versions without further notice.
+..  deprecated:: 12.4
+    This class will be removed in TYPO3 v13.
 
 Migration
 =========
