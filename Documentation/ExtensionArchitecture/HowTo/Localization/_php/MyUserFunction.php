@@ -32,8 +32,8 @@ final class MyUserFunction
         ServerRequestInterface $request
     ): string {
         $this->languageService = $this->getLanguageService($request);
-        return $this->languageService->getLL(
-            'LLL:EXT:my_extension/Resources/Private/Language/locallang.xlf:something.'
+        return $this->languageService->sL(
+            'LLL:EXT:my_extension/Resources/Private/Language/locallang.xlf:something'
         );
     }
 }
