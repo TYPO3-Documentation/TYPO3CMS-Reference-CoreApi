@@ -66,7 +66,6 @@ database.
 
 .. code-block:: php
    :caption: EXT:some_extension/Classes/SomeClass.php
-   :linenos:
 
    $dataHandler = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\TYPO3\CMS\Core\DataHandling\DataHandler::class);
    $dataHandler->start($data, []);
@@ -87,7 +86,6 @@ The most basic way of executing commands:
 
 .. code-block:: php
    :caption: EXT:some_extension/Classes/SomeClass.php
-   :linenos:
 
    $dataHandler = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\TYPO3\CMS\Core\DataHandling\DataHandler::class);
    $dataHandler->start([], $cmd);
@@ -110,7 +108,6 @@ calling the :php:`start()` method (which will initialize internal state).
 
 .. code-block:: php
    :caption: EXT:some_extension/Classes/SomeClass.php
-   :linenos:
 
    $dataHandler = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\TYPO3\CMS\Core\DataHandling\DataHandler::class);
    $dataHandler->start([], []);
@@ -130,7 +127,6 @@ Imagine the :php:`$data` array something like this:
 
 .. code-block:: php
    :caption: EXT:some_extension/Classes/SomeClass.php
-   :linenos:
 
    $data = [
        'pages' => [
@@ -162,7 +158,6 @@ all pages is cleared.
 
 .. code-block:: php
    :caption: EXT:some_extension/Classes/SomeClass.php
-   :linenos:
 
    $dataHandler = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\TYPO3\CMS\Core\DataHandling\DataHandler::class);
    $dataHandler->reverseOrder = 1;
@@ -191,7 +186,6 @@ should not set this argument since you want TCE to use the global
 
 .. code-block:: php
    :caption: EXT:some_extension/Classes/SomeClass.php
-   :linenos:
 
    $dataHandler = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\TYPO3\CMS\Core\DataHandling\DataHandler::class);
    $dataHandler->start($data, $cmd, $alternative_BE_USER);
@@ -212,7 +206,6 @@ You can use these e.g to logging or another error handling.
 
 .. code-block:: php
    :caption: EXT:some_extension/Classes/SomeClass.php
-   :linenos:
 
    if ($dataHandler->errorLog !== []) {
        $this->logger->error('Error(s) while creating content element');

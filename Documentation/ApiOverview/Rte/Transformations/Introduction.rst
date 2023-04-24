@@ -59,7 +59,6 @@ This is how the content in the database could look for a hybrid mode
 (such as :code:`css_transform`):
 
 .. code-block:: html
-   :linenos:
 
    This is line number 1 with a <a href="t3://page?uid=123">link</a> inside
    This is line number 2 with a <b>bold part</b> in the text

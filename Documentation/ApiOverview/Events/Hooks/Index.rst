@@ -42,16 +42,15 @@ The class has to be declared with the TYPO3 autoloader.
 If we take a look inside of :code:`\TYPO3\CMS\Core\DataHandling\DataHandler` we
 find the hook to be activated like this:
 
-.. code-block:: php
-   :linenos:
+..  code-block:: php
 
-      // Call post processing function for clear-cache:
-   if (is_array($GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['t3lib/class.t3lib_tcemain.php']['clearCachePostProc'])) {
-      $_params = array('cacheCmd' => $cacheCmd);
-      foreach($GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['t3lib/class.t3lib_tcemain.php']['clearCachePostProc'] as $_funcRef) {
-         \TYPO3\CMS\Core\Utility\GeneralUtility::callUserFunction($_funcRef, $_params, $this);
-      }
-   }
+    // Call post processing function for clear-cache:
+    if (is_array($GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['t3lib/class.t3lib_tcemain.php']['clearCachePostProc'])) {
+        $_params = array('cacheCmd' => $cacheCmd);
+        foreach($GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['t3lib/class.t3lib_tcemain.php']['clearCachePostProc'] as $_funcRef) {
+            \TYPO3\CMS\Core\Utility\GeneralUtility::callUserFunction($_funcRef, $_params, $this);
+        }
+    }
 
 This is how hooks are typically constructed. The main action happens in line 5
 where the function :code:`\TYPO3\CMS\Core\Utility\GeneralUtility::callUserFunction()`
