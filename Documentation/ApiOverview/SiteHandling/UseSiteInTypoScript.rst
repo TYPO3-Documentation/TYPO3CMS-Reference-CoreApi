@@ -79,4 +79,4 @@ In the Fluid template the properties of the site entity can be accessed with:
 .. code-block:: html
 
    <p>{site.rootPageId}</p>
-   <p>{site.someCustomConfiguration}</p>
+   <p>{site.configuration.someCustomConfiguration}</p>
