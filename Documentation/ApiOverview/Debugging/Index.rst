@@ -54,14 +54,3 @@ to the select options in the “Full Search” module.
 
 Additionally, in debug mode, the page renderer does not compress or concatenate JavaScript or CSS
 resources.
-
-.. index::
-   pair: Debugging; Backend language
-   TYPO3_CONF_VARS; BE languageDebug
-
-Backend language debug
-======================
-
-Setting :code:`$GLOBALS['TYPO3_CONF_VARS']['BE']['languageDebug']`
-in the :file:`config/system/settings.php` displays the language labels (with
-file and key) in the TYPO3 backend :code:`FormEngine`.
