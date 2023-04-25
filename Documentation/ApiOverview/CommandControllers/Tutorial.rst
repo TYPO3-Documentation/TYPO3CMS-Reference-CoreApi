@@ -33,7 +33,6 @@ definition for your class as tag :yaml:`console.command`:
 
 ..  code-block:: yaml
     :caption: EXT:examples/Configuration/Services.yaml
-    :linenos:
     :emphasize-lines: 11-15
 
     services:

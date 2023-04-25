@@ -294,7 +294,6 @@ Set the Fluid paths with TypoScript using :ref:`t3tsref:cobj-fluidtemplate`
 
 .. code-block:: html
    :caption: Resources/Private/Templates/Page/ThreeColumn.html
-   :linenos:
 
    <f:layout name="Default" />
 

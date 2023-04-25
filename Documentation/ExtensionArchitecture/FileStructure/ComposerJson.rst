@@ -48,7 +48,6 @@ Subsequently:
 * The package name will be *my-vendor/my-extension*
 
 .. code-block:: json
-   :linenos:
 
    {
       "name": "my-vendor/my-extension",
@@ -92,7 +91,6 @@ Extended composer.json
 ======================
 
 .. code-block:: json
-   :linenos:
 
    {
       "name": "my-vendor/my-extension",

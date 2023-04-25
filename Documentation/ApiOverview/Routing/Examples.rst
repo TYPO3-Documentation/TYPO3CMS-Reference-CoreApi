@@ -28,7 +28,6 @@ If you use the *category menu* or *tag list* plugins to filter news records, the
 * Tag filter: :samp:`https://example.org/news/my-tag`
 
 .. code-block:: yaml
-   :linenos:
 
    routeEnhancers:
      News:
@@ -88,7 +87,6 @@ Archive
 ^^^^^^^
 
 .. code-block:: yaml
-   :linenos:
 
    routeEnhancers:
      BlogArchive:
@@ -184,7 +182,6 @@ Posts by Author
 ^^^^^^^^^^^^^^^
 
 .. code-block:: yaml
-   :linenos:
 
    routeEnhancers:
      AuthorPosts:
@@ -218,7 +215,6 @@ Category pages
 ^^^^^^^^^^^^^^^
 
 .. code-block:: yaml
-   :linenos:
 
    routeEnhancers:
      BlogCategory:
@@ -252,7 +248,6 @@ Blog Feeds
 ^^^^^^^^^^
 
 .. code-block:: yaml
-   :linenos:
 
    routeEnhancers:
      PageTypeSuffix:
@@ -269,7 +264,6 @@ Blog Posts
 ^^^^^^^^^^
 
 .. code-block:: yaml
-   :linenos:
 
    routeEnhancers:
      BlogPosts:
@@ -293,7 +287,6 @@ Posts by Tag
 ^^^^^^^^^^^^
 
 .. code-block:: yaml
-   :linenos:
 
    routeEnhancers:
      BlogTag:
@@ -327,7 +320,6 @@ BlogStaticDatabaseMapper
 ^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. code-block:: php
-   :linenos:
 
    <?php
         declare(strict_types = 1);
@@ -487,7 +479,6 @@ Usage with imports
 On typo3.com we are using imports to make routing configurations easier to manage:
 
 .. code-block:: yaml
-   :linenos:
 
    imports:
      - { resource: "EXT:template/Configuration/Routes/Blog/BlogCategory.yaml" }
@@ -503,7 +494,6 @@ Full project example config
 Taken from an anonymous live project:
 
 .. code-block:: yaml
-   :linenos:
 
    routeEnhancers:
      news:
@@ -663,7 +653,6 @@ EXT: DpnGlossary
 * Detail view: :samp:`https://example.org/<YOUR_PLUGINPAGE_SLUG>/term/the-term-title`
 
 .. code-block:: yaml
-   :linenos:
 
    routeEnhancers:
      DpnGlossary:
