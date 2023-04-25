@@ -82,7 +82,6 @@ This makes it possible to include e.g. Javascript for all actions in the control
    public function handleRequest(ServerRequestInterface $request): ResponseInterface
    {
        $languageService = $GLOBALS['LANG'];
-       $languageService->includeLLFile('EXT:examples/Resources/Private/Language/AdminModule/locallang.xlf');
 
        $this->menuConfig($request);
        $moduleTemplate = $this->moduleTemplateFactory->create($request);
@@ -92,13 +91,22 @@ This makes it possible to include e.g. Javascript for all actions in the control
        $title = $languageService->sL('LLL:EXT:examples/Resources/Private/Language/AdminModule/locallang_mod.xlf:mlang_tabs_tab');
        switch ($this->MOD_SETTINGS['function']) {
            case 'debug':
-               $moduleTemplate->setTitle($title, $languageService->getLL('module.menu.debug'));
+               $moduleTemplate->setTitle(
+                   $title,
+                   $languageService->sL(''EXT:examples/Resources/Private/Language/AdminModule/locallang.xlf:module.menu.debug')
+               );
                return $this->debugAction($moduleTemplate);
            case 'password':
-               $moduleTemplate->setTitle($title, $languageService->getLL('module.menu.password'));
+               $moduleTemplate->setTitle(
+                   $title,
+                   $languageService->sL(''EXT:examples/Resources/Private/Language/AdminModule/locallang.xlf:module.menu.password')
+               );
                return $this->passwordAction($moduleTemplate);
            default:
-               $moduleTemplate->setTitle($title, $languageService->getLL('module.menu.log'));
+               $moduleTemplate->setTitle(
+                   $title,
+                   $languageService->sL(''EXT:examples/Resources/Private/Language/AdminModule/locallang.xlf:module.menu.log')
+               );
                return $this->logAction($moduleTemplate);
        }
    }
