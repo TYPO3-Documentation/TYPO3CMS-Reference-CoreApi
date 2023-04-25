@@ -34,8 +34,8 @@ All mappers need to implement the methods :php:`generate` and :php:`resolve`. Th
 
 After implementing the matching interface, your aspect needs to be registered in :file:`ext_localconf.php`:
 
-.. code-block:: php
-   :linenos:
+..  code-block:: php
+    :caption: EXT:my_extension/ext_localconf.php
 
     $GLOBALS['TYPO3_CONF_VARS']['SYS']['routing']['aspects']['MyCustomMapperNameAsUsedInYamlConfig'] =
         \MyVendor\MyExtension\Routing\Aspect\MyCustomMapper::class;
@@ -68,8 +68,8 @@ The interfaces contain methods you need to implement as well as a description of
 
 To register the enhancer, add the following to your `ext_localconf.php`:
 
-.. code-block:: php
-   :linenos:
+..  code-block:: php
+    :caption: EXT:my_extension/ext_localconf.php
 
     $GLOBALS['TYPO3_CONF_VARS']['SYS']['routing']['enhancers']['MyCustomEnhancerAsUsedInYaml'] = \MyVendor\MyExtension\Routing\Enhancer\MyCustomEnhancer::class;
 
