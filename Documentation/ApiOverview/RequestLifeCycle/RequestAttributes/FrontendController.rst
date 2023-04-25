@@ -16,7 +16,7 @@ Example:
 ..  code-block:: php
 
     $frontendController = $request->getAttribute('frontend.controller');
-    $rootline = $frontendController->rootline;
+    $rootline = $frontendController->rootLine;  // Mind the capital "L"
 
 ..  important::
     In former TYPO3 versions you have to retrieve the
