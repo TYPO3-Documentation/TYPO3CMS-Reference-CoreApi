@@ -18,7 +18,7 @@
    is actually a list of supported language keys, (see Locales class), whereas "English"
    has the language key "default".
    
-   Further usages on setting up your own LanguageService in BE:
+   Further usages on setting up your own language service in the backend:
    
    ..  code-block:: php
        
