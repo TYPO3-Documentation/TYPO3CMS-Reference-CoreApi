@@ -233,41 +233,6 @@ transport_smtp_domain
        ];
 
 .. index::
-   TYPO3_CONF_VARS MAIL; transport_smtp_stream_options
-.. _typo3ConfVars_mail_transport_smtp_stream_options:
-
-transport_smtp_stream_options
-=============================
-
-.. confval:: $GLOBALS['TYPO3_CONF_VARS']['MAIL']['transport_smtp_stream_options']
-
-   :type: bool
-   :Default: false
-
-   *only with transport=smtp* Sets additional stream options.
-
-   Configuration Example:
-
-   .. code-block:: php
-      :caption: typo3conf/AdditionalConfiguration.php
-
-       return [
-           //....
-           'MAIL' => [
-               'transport' => 'smtp',
-               'transport_sendmail_command' => ' -t -i ',
-               'transport_smtp_server' => 'localhost:1025',
-               'transport_smtp_stream_options' => [
-                   'ssl' => [
-                       'verify_peer' => false,
-                       'verify_peer_name' => false,
-                   ]
-               ],
-           ],
-           //....
-       ];
-
-.. index::
    TYPO3_CONF_VARS MAIL; transport_smtp_encrypt
 .. _typo3ConfVars_mail_transport_smtp_encrypt:
 
