@@ -1062,24 +1062,3 @@ routing
 
     ..  seealso::
         :ref:`message-bus-routing`
-
-
-..  index::
-    TYPO3_CONF_VARS SYS; queue
-..  _typo3ConfVars_sys_queue:
-
-queue
-=====
-
-..  versionadded:: 12.2
-
-..  confval:: $GLOBALS['TYPO3_CONF_VARS']['SYS']['queue']
-
-    :Path: $GLOBALS['TYPO3_CONF_VARS']['SYS']['queue']
-    :type: array
-
-    This settings allows to configure a transport for the
-    :ref:`messenger component <message-bus>`.
-
-    ..  seealso::
-        :ref:`message-bus-custom-transport`
