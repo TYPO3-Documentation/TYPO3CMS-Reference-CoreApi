@@ -68,11 +68,15 @@
    
       :returntype: string
       
-   .. php:method:: setAddQueryString(bool $addQueryString)
+   .. php:method:: setAddQueryString(string|int|bool $addQueryString)
    
-      If set, the current query parameters will be merged with $this->arguments. Defaults to FALSE.
+      If set, the current query parameters will be merged with $this->arguments in backend context.
       
-      :param bool $addQueryString: the addQueryString
+      In frontend context, setting this property will only include mapped query arguments from the
+      Page Routing. To include any - possible "unsafe" - GET parameters, the property has to be set
+      to "untrusted". Defaults to FALSE.
+      
+      :param string|int|bool $addQueryString: is set to "1", "true", "0", "false" or "untrusted"
       :returntype: TYPO3\\CMS\\Extbase\\Mvc\\Web\\Routing\\UriBuilder
       :returns: the current UriBuilder to allow method chaining
       

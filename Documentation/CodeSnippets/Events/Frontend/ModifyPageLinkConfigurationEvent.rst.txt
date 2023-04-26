@@ -44,3 +44,7 @@
    .. php:method:: setFragment(string $fragment)
    
       :param string $fragment: the fragment
+      
+   .. php:method:: pageWasModified()
+   
+      :returntype: bool
