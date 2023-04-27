@@ -66,7 +66,7 @@
       'bar' => \TYPO3\CMS\Extbase\Persistence\QueryInterface::ORDER_DESCENDING
       )
       
-      :param array $defaultOrderings: the defaultOrderings
+      :param array $defaultOrderings: The property names to order by
       
    .. php:method:: setDefaultQuerySettings(TYPO3\\CMS\\Extbase\\Persistence\\Generic\\QuerySettingsInterface $defaultQuerySettings)
    
@@ -89,7 +89,28 @@
       
    .. php:method:: __call(non-empty-string $methodName, array<int,mixed> $arguments)
    
+      **Deprecated:** since v12, will be removed in v14, use {@see \findBy}, {@see \findOneBy} and {@see \count} instead
+      
       Dispatches magic methods (findBy[Property]())
       
       :param non-empty-string $methodName: The name of the magic method
       :param array<int,mixed> $arguments: The arguments of the magic method
+      
+   .. php:method:: findBy(array $criteria, array $orderBy = NULL, int $limit = NULL, int $offset = NULL)
+   
+      :param array $criteria: the criteria
+      :param array $orderBy: the orderBy, default: NULL
+      :param int $limit: the limit, default: NULL
+      :param int $offset: the offset, default: NULL
+      :returntype: TYPO3\\CMS\\Extbase\\Persistence\\QueryResultInterface
+      
+   .. php:method:: findOneBy(array $criteria, array $orderBy = NULL)
+   
+      :param array $criteria: the criteria
+      :param array $orderBy: the orderBy, default: NULL
+      :returntype: object
+      
+   .. php:method:: count(array $criteria)
+   
+      :param array $criteria: the criteria
+      :returntype: int
