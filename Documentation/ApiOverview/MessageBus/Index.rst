@@ -192,7 +192,7 @@ name used in the settings is resolved to a service that has been tagged with
 ..  code-block:: php
     :caption: config/settings.php | config/additional.php | EXT:my_extension/ext_localconf.php
 
-    $GLOBALS['TYPO3_CONF_VARS']['SYS']['queue'] = [
+    $GLOBALS['TYPO3_CONF_VARS']['SYS']['messenger'] = [
         'routing' => [
             // Use "messenger.transport.demo" as transport for DemoMessage
             \MyVendor\MyExtension\Queue\Message\DemoMessage::class => 'demo',
