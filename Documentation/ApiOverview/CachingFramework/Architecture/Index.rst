@@ -70,7 +70,7 @@ If such an entry exists, the plugin can return the cached content,
 else it calculates the content and stores a new cache entry with this identifier.
 
 In general, the identifier is constructed from all dependencies
-which specify an unique set of data. The identifier should be based on
+which specify a unique set of data. The identifier should be based on
 information which already exist in the system at the point of its calculation.
 In the above scenario the page id and whether or not a user is logged in
 are already determined during the frontend bootstrap and can be retrieved from the system quickly.
