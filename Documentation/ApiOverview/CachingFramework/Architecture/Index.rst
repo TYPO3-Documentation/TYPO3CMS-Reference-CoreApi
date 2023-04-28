@@ -40,7 +40,7 @@ The identifier is used to store ("set") and retrieve ("get") entries
 from the cache and holds all information to differentiate entries from each other.
 For performance reasons, it should be quick to calculate.
 
-Suppose there is an resource-intensive extension added as a plugin on two different pages.
+Suppose there is a resource-intensive extension added as a plugin on two different pages.
 The calculated content depends on the page on which it is inserted and if a user is logged in or not.
 So, the plugin creates at maximum four different content outputs,
 which can be cached in four different cache entries:
