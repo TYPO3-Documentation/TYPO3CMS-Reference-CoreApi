@@ -94,6 +94,11 @@ is added to the other containers, running in the same docker network. More infor
 setups like these can be found in the `ddev documentation
 <https://ddev.readthedocs.io/en/stable/users/extend/custom-compose-files/>`_.
 
+To execute acceptance test in this installation you've to activate this file, usually it's now appended
+with the suffix ".inactive" and therefore not used when ddev starts. To activate acceptance test the file
+:file:`.ddev/docker-compose.chrome.yaml.inactive` has to be renamed to :file:`.ddev/docker-compose.chrome.yaml`.
+By default acceptance tests are disabled because they slow down other tests significantally.
+
 Next, after adding codeception as require-dev dependency in :file:`composer.json`, we need a
 basic :file:`Tests/codeception.yml` file:
 
