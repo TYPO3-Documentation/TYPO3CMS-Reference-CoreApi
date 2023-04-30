@@ -158,10 +158,10 @@ The layout defines which sections are rendered and in which order. It can
 contain additional arbitrary Fluid / HTML. How you name the sections and which
 sections you use is up to you.
 
-The template should include the sections which are to be rendered.
+The corresponding template should include the sections which are to be rendered.
 
 .. code-block:: html
-   :caption:  EXT:my_extension/Resources/Private/Layouts/Default.html
+   :caption:  EXT:my_extension/Resources/Private/Templates/Default.html
 
    <f:layout name="Default" />
 
