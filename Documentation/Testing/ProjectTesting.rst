@@ -95,7 +95,7 @@ setups like these can be found in the `ddev documentation
 <https://ddev.readthedocs.io/en/stable/users/extend/custom-compose-files/>`_.
 
 To execute acceptance tests in this installation you have to activate this file, usually it is now appended
-with the suffix `.inactive` and therefore not used when DDEV starts. To activate acceptance test the file
+with the suffix `.inactive` and therefore not used when DDEV starts. To activate acceptance tests the file
 :file:`.ddev/docker-compose.chrome.yaml.inactive` has to be renamed to :file:`.ddev/docker-compose.chrome.yaml`.
 By default acceptance tests are disabled because they slow down other tests significantally.
 
