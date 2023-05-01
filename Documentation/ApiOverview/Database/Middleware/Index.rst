@@ -26,8 +26,6 @@ adminpanel system extension as an example.
 Registering a new driver middleware
 ===================================
 
-..  code-block:: php
+..  literalinclude:: _ext_localconf.php
+    :language: php
     :caption: EXT:my_extension/ext_localconf.php
-
-    $GLOBALS['TYPO3_CONF_VARS']['DB']['Connections']['Default']['driverMiddlewares']['myextension_mymiddleware']
-        = \MyVendor\MyExtension\Database\Log\MyMiddleware::class;
