@@ -100,7 +100,7 @@ TYPO3.
     hooks in the sources.
 
 :php:`\TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance()`
-    Create an object from a user defined
+    Create an object from a user-defined
     file/class. The method called in the object is fixed by the hook, so
     this is the non-flexible part. But it is cleaner in other ways, in
     particular that you can even call many methods in the object and you
