@@ -94,10 +94,10 @@ TYPO3 provides the following decorator out of the box:
 Custom enhancers can be registered by adding an entry to an extension's
 :file:`ext_localconf.php` file:
 
-..  code-block:: php
 
-    $GLOBALS['TYPO3_CONF_VARS']['SYS']['routing']['enhancers']['CustomEnhancer']
-        = \MyVendor\MyPackage\Routing\CustomEnhancer::class;
+..  literalinclude:: _AdvancedRoutingConfiguration/_ext_localconf.php
+    :language: php
+    :caption: EXT:my_extension/ext_localconf.php
 
 Within a configuration, an enhancer always evaluates the following properties:
 
