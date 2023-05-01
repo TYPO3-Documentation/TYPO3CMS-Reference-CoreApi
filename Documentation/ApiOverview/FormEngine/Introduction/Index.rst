@@ -8,21 +8,21 @@ Introduction
 Looking at TYPO3's main constructs from an abstract position, the system splits into three most important pillars:
 
 DataHandler
-  :php:`TYPO3\CMS\Core\DataHandling\...`: :ref:`Construct taking care of persisting data into the database <tce>`.
-  The DataHandler takes an array representing one or more records, inserts, deletes or updates them in the database
-  and takes care of relations between multiple records. If editing content in the backend, this construct does
-  all main database munging. DataHandler is fed by some controller that most often gets :code:`GET`
-  or :code:`POST` data from FormEngine.
+    :php:`TYPO3\CMS\Core\DataHandling\...`: :ref:`Construct taking care of persisting data into the database <tce>`.
+    The DataHandler takes an array representing one or more records, inserts, deletes or updates them in the database
+    and takes care of relations between multiple records. If editing content in the backend, this construct does
+    all main database munging. DataHandler is fed by some controller that most often gets :code:`GET`
+    or :code:`POST` data from FormEngine.
 
 FormEngine
-  :php:`TYPO3\CMS\Backend\Form\...`: FormEngine renders records, usually in the backend. It creates all the HTML
-  needed to edit complex data and data relations. Its :code:`GET` or :code:`POST` data is then fed to the DataHandler
-  by some controller.
+    :php:`TYPO3\CMS\Backend\Form\...`: FormEngine renders records, usually in the backend. It creates all the HTML
+    needed to edit complex data and data relations. Its :code:`GET` or :code:`POST` data is then fed to the DataHandler
+    by some controller.
 
 Frontend rendering
-  :php:`TYPO3\CMS\Frontend\...`: Renders the website frontend. The frontend rendering, usually based on
-  :php:`TYPO3\CMS\Frontend\Controller\TypoScriptFrontendController` uses :code:`TypoScript` and / or :code:`Fluid`
-  to process and render database content into the frontend.
+    :php:`TYPO3\CMS\Frontend\...`: Renders the website frontend. The frontend rendering, usually based on
+    :php:`TYPO3\CMS\Frontend\Controller\TypoScriptFrontendController` uses :code:`TypoScript` and / or :code:`Fluid`
+    to process and render database content into the frontend.
 
 The glue between these three pillars is :ref:`TCA (Table Configuration Array) <t3tca:tca-what-is>`: It defines how
 database tables are constructed, which localization or workspace facilities exist, how it should be displayed in the
