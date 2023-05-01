@@ -232,7 +232,7 @@ extension keys.
     the context of the hook.
 
 `<index>`
-    Integer index typically. Can be unique string if you have
+    Integer index typically. Can be a unique string, if you have
     a reason to use that. Normally it has no greater significance since
     the value of the key is not used. The hooks normally traverse over the
     array and uses only the value (function reference)
