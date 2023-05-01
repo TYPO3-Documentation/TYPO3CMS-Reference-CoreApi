@@ -136,7 +136,7 @@ Frontend plugin as pure TypoScript
     The TypoScript :ref:`USER <t3tsref:cobj-user>` object saved at
     :typoscript:`tt_content.list.20.blogexample_postlistrss` can now be used
     to display the frontend plugin. In this example we create a special page type
-    for the RSS feed and display the plugin via typoscript there:
+    for the RSS feed and display the plugin via TypoScript there:
 
     ..  literalinclude::  _FrontendPlugin/_setup.typoscript
         :language: typoscript
