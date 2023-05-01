@@ -2,7 +2,6 @@
 
 declare(strict_types=1);
 
-
 defined('TYPO3') or die();
 
 // Raise priority of service 'tx_example_sv1' to 110

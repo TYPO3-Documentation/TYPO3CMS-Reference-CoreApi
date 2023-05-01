@@ -8,5 +8,5 @@ use TYPO3\CMS\Backend\Controller\NewRecordController;
 defined('TYPO3') or die();
 
 $GLOBALS['TYPO3_CONF_VARS']['SYS']['Objects'][NewRecordController::class] = [
-    'className' => NewRecordControllerXclass::class
+    'className' => NewRecordControllerXclass::class,
 ];
