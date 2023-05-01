@@ -88,34 +88,15 @@ Custom translations
 override XLIFF files. Actually, this is not just about translations. Default
 language files can also be overridden. The syntax is as follows:
 
-..  code-block:: php
+..  literalinclude:: _ext_localconf.php
+    :language: php
     :caption: EXT:examples/ext_localconf.php
-
-    // Override a file in the default language
-    $GLOBALS['TYPO3_CONF_VARS']['SYS']['locallangXMLOverride']['EXT:frontend/Resources/Private/Language/locallang_tca.xlf'][]
-        = 'EXT:examples/Resources/Private/Language/custom.xlf';
-    // Override a German ("de") translation
-    $GLOBALS['TYPO3_CONF_VARS']['SYS']['locallangXMLOverride']['de']['EXT:news/Resources/Private/Language/locallang_modadministration.xlf'][]
-        = 'EXT:examples/Resources/Private/Language/Overrides/de.locallang_modadministration.xlf';
-
 
 The German language file looks like this:
 
-..  code-block:: xml
+..  literalinclude:: _de.locallang_modadministration.xlf
+    :language: xml
     :caption: EXT:examples/Resources/Private/Language/Overrides/de.locallang_modadministration.xlf
-
-    <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
-    <xliff version="1.0">
-        <file source-language="en" datatype="plaintext" date="2013-03-09T18:44:59Z" product-name="examples">
-            <header/>
-            <body>
-                <trans-unit id="pages.title_formlabel" xml:space="preserve">
-                    <source>Most important title</source>
-                    <target>Wichtigster Titel</target>
-                </trans-unit>
-            </body>
-        </file>
-    </xliff>
 
 
 and the result can be easily seen in the backend:

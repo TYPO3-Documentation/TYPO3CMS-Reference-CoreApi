@@ -110,6 +110,8 @@ file with all configuration of other extensions.
         :caption: EXT:my_extension/ext_localconf.php | EXT:my_extension/ext_tables.php
 
         <?php
+        declare(strict_types=1);
+
         use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
 
         // put this at top of every ext_tables.php and ext_localconf.php right after
@@ -124,25 +126,14 @@ file with all configuration of other extensions.
     :php:`$_EXTKEY` option **must** be kept within an extension's
     :ref:`ext_emconf.php <extension-declaration>` file.
 
--   You **should** use a directly called closure function to encapsulate all
-    locally defined variables and thus keep them out of the surrounding scope.
-    This avoids unexpected side-effects with files of other extensions.
+-   You **do not have to** use a directly called closure function after dropping
+    TYPO3 v10.4 support.
 
 The following example contains the complete code:
 
-..  code-block:: php
+..  literalinclude:: _ext_localconf.php
+    :language: php
     :caption: EXT:my_extension/ext_localconf.php | EXT:my_extension/ext_tables.php
-
-    <?php
-    declare(strict_types=1);
-
-    use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
-
-    defined('TYPO3') or die();
-
-    (function () {
-        // Add your code here
-    })();
 
 
 Additionally, it is possible to extend TYPO3 in a lot of different ways (adding
