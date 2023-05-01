@@ -80,8 +80,8 @@ Bulk removal of processed files
 
 This entire section is a "use at your own risk" hint.
 
-In general remove processed files as one atomic operation together with flushing
-the page cache afterwards.
+In general, processed files should be removed in one atomic operation. The page
+cache should be flushed after removing processed files.
 
 Removing processed files may take long if there are many. As a shortcut, you may
 remove all at once, but always be sure to consider the database table
