@@ -616,12 +616,10 @@ You can configure cache post-processing with a user defined PHP
 function. Configuration of the hook can be done from
 :file:`ext_localconf.php`. An example might look like:
 
-.. code-block:: php
-   :caption: EXT:some_extension/ext_localconf.php
 
-   $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['t3lib/class.t3lib_tcemain.php']['clearCachePostProc'][] =
-       \Vendor\SomeExtension\Hook\DataHandlerHook::class . '->postProcessClearCache';
-
+..  literalinclude:: _ext_localconf.php
+    :language: php
+    :caption: EXT:my_extension/ext_localconf.php
 
 .. index:: DataHandler; Flags
 .. _tce-flags:
