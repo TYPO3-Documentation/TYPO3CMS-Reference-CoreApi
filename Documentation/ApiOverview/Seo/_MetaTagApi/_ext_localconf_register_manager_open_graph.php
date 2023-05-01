@@ -2,7 +2,6 @@
 
 declare(strict_types=1);
 
-use Some\CustomExtension\MetaTag\CustomMetaTagManager;
 use Some\CustomExtension\MetaTag\MyOpenGraphMetaTagManager;
 use TYPO3\CMS\Core\MetaTag\MetaTagManagerRegistry;
 use TYPO3\CMS\Core\Utility\GeneralUtility;

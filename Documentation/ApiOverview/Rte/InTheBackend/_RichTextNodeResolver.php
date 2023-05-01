@@ -1,12 +1,13 @@
 <?php
+
 declare(strict_types=1);
 
 namespace MyVendor\MyExtension\Form\Resolver;
 
+use MyVendor\MyExtension\Form\Element\RichTextElement;
 use TYPO3\CMS\Backend\Form\NodeFactory;
 use TYPO3\CMS\Backend\Form\NodeResolverInterface;
 use TYPO3\CMS\Core\Authentication\BackendUserAuthentication;
-use MyVendor\MyExtension\Form\Element\RichTextElement;
 
 /**
  * This resolver will return the RichTextElement render class if RTE is enabled for this field.
