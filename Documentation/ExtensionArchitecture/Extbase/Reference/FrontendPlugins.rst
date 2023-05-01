@@ -125,7 +125,7 @@ Frontend plugin as pure TypoScript
     :ref:`extbase_frontend_plugin_content_element`. This will create the
     basic TypoScript and the lists of allowed controller-action combinations.
 
-    In this example we define a plugin displaying a list of posts as RSS-feed:
+    In this example we define a plugin displaying a list of posts as RSS feed:
 
     ..  literalinclude::  _FrontendPlugin/_ext_localconf_rss.php
         :language: php
