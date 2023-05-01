@@ -158,7 +158,7 @@ Constructor post-processing:
 Hook configuration
 ==================
 
-Most hooks in the TYPO3 Core have been converted into events which are
+Most hooks in the TYPO3 Core have been converted into PSR-14 events which are
 completely listed in the :ref:`event list <eventlist>`.
 
 There is no complete index of the remaining hooks in the Core. The following
