@@ -81,26 +81,18 @@ This :php:`MetaTagManager` must implement :php:`\TYPO3\CMS\Core\MetaTag\MetaTagM
 
 To use the manager, you must register it in :php:`ext_localconf.php`:
 
-.. code-block:: php
-
-    $metaTagManagerRegistry = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\TYPO3\CMS\Core\MetaTag\MetaTagManagerRegistry::class);
-    $metaTagManagerRegistry->registerManager(
-        'custom',
-        \Some\CustomExtension\MetaTag\CustomMetaTagManager::class
-    );
+..  literalinclude:: _MetaTagApi/_ext_localconf_register_manager.php
+    :language: php
+    :caption: EXT:my_extension/ext_localconf.php
 
 Registering a :php:`MetaTagManager` works with the :php:`DependencyOrderingService`. So you can also specify the
 priority of the manager by setting the third (before) and fourth (after) parameter of the method. If you for example
 want to implement your own :php:`OpenGraphMetaTagManager`, you can use the following code:
 
-.. code-block:: php
 
-    $metaTagManagerRegistry = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\TYPO3\CMS\Core\MetaTag\MetaTagManagerRegistry::class);
-    $metaTagManagerRegistry->registerManager(
-        'myOwnOpenGraphManager',
-        \Some\CustomExtension\MetaTag\MyOpenGraphMetaTagManager::class,
-        ['opengraph']
-    );
+..  literalinclude:: _MetaTagApi/_ext_localconf_register_manager_open_graph.php
+    :language: php
+    :caption: EXT:my_extension/ext_localconf.php
 
 This will result in :php:`MyOpenGraphMetaTagManager` having a higher priority and it will first check if your own
 manager can handle the tag before it checks the default manager provided by the Core.
@@ -134,6 +126,5 @@ By using the new API it is not possible to have duplicate metatags, unless this 
 meta tags and want to have multiple occurrences of the same meta tag, you have to create your own :php:`MetaTagManager`.
 
 ..  seealso::
-   
-    :ref:`config.meta <t3tsref:setup-page-meta>` in the TypoScript reference
 
+    :ref:`config.meta <t3tsref:setup-page-meta>` in the TypoScript reference
