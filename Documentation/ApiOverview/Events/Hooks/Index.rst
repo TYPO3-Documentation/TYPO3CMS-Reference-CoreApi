@@ -84,7 +84,7 @@ Creating hooks
 ==============
 
 ..  note::
-    It is highly recommended to dispatch `Psr-14 events
+    It is highly recommended to dispatch `PSR-14 events
     <EventDispatcherQuickStartDispatching>` instead of introducing new hooks.
     Existing hooks should be migrated to events.
 
