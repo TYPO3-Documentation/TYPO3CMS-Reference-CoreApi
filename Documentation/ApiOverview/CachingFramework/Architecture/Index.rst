@@ -40,7 +40,7 @@ The identifier is used to store ("set") and retrieve ("get") entries
 from the cache and holds all information to differentiate entries from each other.
 For performance reasons, it should be quick to calculate.
 
-Suppose there is an resource-intensive extension added as a plugin on two different pages.
+Suppose there is a resource-intensive extension added as a plugin on two different pages.
 The calculated content depends on the page on which it is inserted and if a user is logged in or not.
 So, the plugin creates at maximum four different content outputs,
 which can be cached in four different cache entries:
@@ -70,7 +70,7 @@ If such an entry exists, the plugin can return the cached content,
 else it calculates the content and stores a new cache entry with this identifier.
 
 In general, the identifier is constructed from all dependencies
-which specify an unique set of data. The identifier should be based on
+which specify a unique set of data. The identifier should be based on
 information which already exist in the system at the point of its calculation.
 In the above scenario the page id and whether or not a user is logged in
 are already determined during the frontend bootstrap and can be retrieved from the system quickly.
@@ -245,9 +245,9 @@ Cache API
 
 The caching framework architecture is based on the following classes:
 
-- **\\TYPO3\\CMS\\Core\\Cache\\Frontend\\FrontendInterface**: Main interface to handle cache entries of a specific cache.
+- :php:`\TYPO3\CMS\Core\Cache\Frontend\FrontendInterface`: Main interface to handle cache entries of a specific cache.
   Different frontends and further interfaces exist to handle different data types.
-- **\\TYPO3\\CMS\\Core\\Cache\\Backend\\BackendInterface**: Main interface that every valid storage backend must implement.
+- :php:`\TYPO3\CMS\Core\Cache\Backend\BackendInterface`: Main interface that every valid storage backend must implement.
   Several backends and further interfaces exist to specify specific backend capabilities. Some frontends require backends
   to implement additional interfaces.
 
