@@ -131,7 +131,7 @@ Frontend plugin as pure TypoScript
         :language: php
         :caption: :caption: EXT:blog_example/ext_localconf.php
 
-#.  Display the plugin via Typoscript
+#.  Display the plugin via TypoScript
 
     The TypoScript :ref:`USER <t3tsref:cobj-user>` object saved at
     :typoscript:`tt_content.list.20.blogexample_postlistrss` can now be used
