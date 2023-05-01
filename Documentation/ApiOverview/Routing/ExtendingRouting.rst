@@ -34,11 +34,10 @@ All mappers need to implement the methods :php:`generate` and :php:`resolve`. Th
 
 After implementing the matching interface, your aspect needs to be registered in :file:`ext_localconf.php`:
 
-..  code-block:: php
-    :caption: EXT:my_extension/ext_localconf.php
 
-    $GLOBALS['TYPO3_CONF_VARS']['SYS']['routing']['aspects']['MyCustomMapperNameAsUsedInYamlConfig'] =
-        \MyVendor\MyExtension\Routing\Aspect\MyCustomMapper::class;
+..  literalinclude:: _ExtendingRouting/_ext_localconf.php
+    :language: php
+    :caption: EXT:my_extension/ext_localconf.php
 
 It can now be used in the routing configuration as `type`. The example above could be used as `type: MyCustomMapperNameAsUsedInYamlConfig`.
 
@@ -61,19 +60,23 @@ Writing custom enhancers
 
 Enhancers can be either decorators or routing enhancers providing variants for a page.
 
-* To write a custom **decorator** your enhancer should implement the :php:`\TYPO3\CMS\Core\Routing\Enhancer\DecoratingEnhancerInterface`.
-* To write a custom **route enhancer** your enhancer should implement both :php:`\TYPO3\CMS\Core\Routing\Enhancer\RoutingEnhancerInterface` and :php:`\TYPO3\CMS\Core\Routing\Enhancer\ResultingInterface`
+* To write a custom **decorator** your enhancer should implement the
+:php:`\TYPO3\CMS\Core\Routing\Enhancer\DecoratingEnhancerInterface`.
+* To write a custom **route enhancer** your enhancer should implement both
+:php:`\TYPO3\CMS\Core\Routing\Enhancer\RoutingEnhancerInterface` and
+:php:`\TYPO3\CMS\Core\Routing\Enhancer\ResultingInterface`
 
 The interfaces contain methods you need to implement as well as a description of what the methods are supposed to do. Please take a look there.
 
 To register the enhancer, add the following to your `ext_localconf.php`:
 
-..  code-block:: php
+
+..  literalinclude:: _ExtendingRouting/_ext_localconf_custom_enhancer.php
+    :language: php
     :caption: EXT:my_extension/ext_localconf.php
 
-    $GLOBALS['TYPO3_CONF_VARS']['SYS']['routing']['enhancers']['MyCustomEnhancerAsUsedInYaml'] = \MyVendor\MyExtension\Routing\Enhancer\MyCustomEnhancer::class;
-
-Now you can use your new enhancer in the routing configuration as `type`. The example above could be used as `type: MyCustomEnhancerAsUsedInYaml`.
+Now you can use your new enhancer in the routing configuration as `type`. The
+example above could be used as `type: MyCustomEnhancerAsUsedInYaml`.
 
 
 .. index:: Routing; Manipulating slugs
