@@ -1,0 +1,6 @@
+services:
+  # other configurations
+
+  Vendor\MyExtension\MyClass:
+    arguments:
+      $cache: '@cache.myext_mycache'

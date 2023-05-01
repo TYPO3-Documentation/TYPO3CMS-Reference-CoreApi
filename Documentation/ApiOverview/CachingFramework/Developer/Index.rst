@@ -14,7 +14,6 @@ details about its inner working, please refer to the
 Example usages can be found throughout the TYPO3 Core, in particular in the system
 extensions `core` and `extbase`.
 
-
 ..  _caching-developer-usage:
 ..  _caching-developer-registration:
 
@@ -54,15 +53,9 @@ about specific caching needs or setups in this case.
     with sane defaults, but administrators should always be able to overwrite
     them for whatever reason.
 
-..  code-block:: php
+..  literalinclude:: _ext_localconf.php
+    :language: php
     :caption: EXT:my_extension/ext_localconf.php
-
-    // use \TYPO3\CMS\Core\Cache\Backend\TransientMemoryBackend;
-    $GLOBALS['TYPO3_CONF_VARS']['SYS']['caching']['cacheConfigurations']['myext_mycache']
-        ??= [];
-    $GLOBALS['TYPO3_CONF_VARS']['SYS']['caching']['cacheConfigurations']['myext_mycache']['backend']
-        ??= TransientMemoryBackend::class;
-
 
 ..  _caching-developer-example:
 ..  _caching-developer-access:
@@ -74,22 +67,9 @@ First, we need to prepare injection of our cache by setting it up as service in
 the :ref:`container service configuration
 <configure-dependency-injection-in-extensions>`:
 
-..  code-block:: yaml
+..  literalinclude:: _Services.yaml
+    :language: yaml
     :caption: EXT:my_extension/Configuration/Services.yaml
-
-    services:
-      _defaults:
-        autowire: true
-        autoconfigure: true
-        public: false
-
-      Vendor\MyExtension\:
-        resource: '../Classes/*'
-
-      cache.myext_mycache:
-        class: TYPO3\CMS\Core\Cache\Frontend\FrontendInterface
-        factory: ['@TYPO3\CMS\Core\Cache\CacheManager', 'getCache']
-        arguments: ['myext_mycache']
 
 The name of the service for the injection configuration is
 :yaml:`cache.myext_mycache`, the name of the cache is `myext_mycache` (as
@@ -98,39 +78,10 @@ sure they are unique and clearly hint at the purpose of your cache.
 
 Here is some example code which retrieves the cache via dependency injection:
 
-..  code-block:: php
+
+..  literalinclude:: _MyClass.php
+    :language: php
     :caption: EXT:my_extension/Classes/MyClass.php
-
-    namespace Vendor\MyExtension;
-
-    use TYPO3\CMS\Core\Cache\Frontend\FrontendInterface;
-
-    class MyClass
-    {
-        public function __construct(
-            private readonly FrontendInterface $cache
-        )
-        {
-        }
-
-        private function getCachedValue()
-        {
-            $cacheIdentifier = /* ... logic to determine the cache identifier ... */;
-
-            // If value is false, it has not been cached
-            $value = $this->cache->get($cacheIdentifier);
-            if ($value === false) {
-                // Calculate the value and store it in the cache
-                $value = /* ... Logic to calculate value ... */;
-                $tags = /* ... Tags for the cache entry ... */;
-                $lifetime = /* ... Calculate/define cache entry lifetime ... */;
-
-                // Store value in cache
-                $this->cache->set($cacheIdentifier, $value, $tags, $lifetime);
-            }
-
-            return $value;
-        }
 
 ..  tip::
     It is not needed to call :php:`$this->cache->has()` before accessing cache
@@ -143,15 +94,9 @@ used for the :php:`$cache` argument of :php:`MyClass`, the :ref:`container
 service configuration <configure-dependency-injection-in-extensions>` needs to
 be extended:
 
-..  code-block:: yaml
-    :caption: EXT:my_extension/Configuration/Services.yaml
-
-    services:
-      # other configurations
-
-      Vendor\MyExtension\MyClass:
-        arguments:
-          $cache: '@cache.myext_mycache'
+..  literalinclude:: _Services.yaml
+    :language: yaml
+    :caption: EXT:my_extension/Configuration/_Services_autowiring.yaml
 
 Here :yaml:`@cache.myext_mycache` refers to the cache service we defined above.
 This setup allows you to freely inject the very same cache into any class.
