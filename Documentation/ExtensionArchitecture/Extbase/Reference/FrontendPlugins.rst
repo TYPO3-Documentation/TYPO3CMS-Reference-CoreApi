@@ -91,7 +91,8 @@ Use the following steps to add the plugin as content element:
 
 #.  (Optional) Add to the :guilabel:`New Content Element` wizard
 
-    Add the following page TSconfig to add the new plugin to the wizard:
+    Add the following :ref:`page TSconfig <t3tsconfig:setting-page-tsconfig>`
+    to add the new plugin to the wizard:
 
     ..  literalinclude::  _FrontendPlugin/_page.tsconfig
         :language: typoscript
