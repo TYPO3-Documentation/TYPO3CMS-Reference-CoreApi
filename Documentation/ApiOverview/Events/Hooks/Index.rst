@@ -198,7 +198,7 @@ extension keys.
     should be the "script ID" as found in a comment in the HTML header )
 
 `<sub_key>`
-    Whatever the script defines. Typically it identifies
+    This is defined by the script. Typically it identifies
     the context of the hook.
 
 `<index>`
