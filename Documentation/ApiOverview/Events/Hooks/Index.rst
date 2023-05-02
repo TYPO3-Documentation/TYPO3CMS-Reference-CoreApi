@@ -11,9 +11,8 @@ called for processing, if such has been configured. While there are conventions
 and best practises of how hooks should be implemented the hook concept itself
 does not prevent it from being used in any way.
 
-Hooks are being phased-out in the TYPO3 Core and extension authors are also
-adviced to switch to the more strictly defined
-:ref:`PSR-14 event concept <EventDispatcher>`.
+Hooks are being phased-out and no new ones should be created. Dispatch a
+:ref:`PSR-14 event <EventDispatcher>` instead.
 
 
 .. index::
@@ -35,7 +34,7 @@ additional actions whenever the cache is cleared for a specific page:
 
 This hook registers the class/method name to a hook inside of
 :php:`\TYPO3\CMS\Core\DataHandling\DataHandler`. The hook calls the user
-function after the `clear-cache` command has been executed. The user function
+function after the cache has been cleared. The user function
 will receive parameters which allows it to see what clear-cache action was
 performed and typically also an object reference to the parent object. Then the
 user function can take additional actions as needed.
@@ -74,7 +73,6 @@ The syntax of a function reference can be seen in the API documentation of
    The example hook shown above refers to old class names. All these old class
    names were left in hooks, for obvious reasons of backwards-compatibility.
 
-
 .. index::
    GeneralUtility; callUserFunction
    Hooks; Creation
@@ -92,21 +90,14 @@ There are two main methods of calling a user defined function in
 TYPO3.
 
 :php:`\TYPO3\CMS\Core\Utility\GeneralUtility::callUserFunction()`
-    The classic way. Takes a
-    file/class/method reference as value and calls that function. The
-    argument list is fixed to a parameter array and a parent object. So
-    this is the limitation. The freedom is that the reference defines the
-    function name to call. This method is mostly useful for small-scale
-    hooks in the sources.
+    Takes a reference to a function in a PHP class reference as value
+    and calls that function. The argument list is fixed to a parameter array
+    and a parent object.
 
 :php:`\TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance()`
-    Create an object from a user-defined
-    file/class. The method called in the object is fixed by the hook, so
-    this is the non-flexible part. But it is cleaner in other ways, in
-    particular that you can even call many methods in the object and you
-    can pass an arbitrary argument list which makes the API cleaner.
-    You can also define the objects to be singletons,
-    instantiated only once in the global scope.
+    Creates an object from a user-defined
+    PHP class. The method to be called is defined by the implementation of
+    the hook.
 
 Here are some examples:
 
@@ -117,19 +108,9 @@ Using `\TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance()`
 
 Data submission to extensions:
 
-
-..  code-block:: php
+..  literalinclude:: _SomeClass.php
+    :language: php
     :caption: EXT:some_extension/Classes/SomeClass.php
-
-    use TYPO3\CMS\Core\Utility\GeneralUtility;
-
-    // Hook for processing data submission to extensions
-    foreach ($GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['my_custom_hook']
-         ['checkDataSubmission'] ?? [] as $className) {
-      $_procObj = GeneralUtility::makeInstance($className);
-      $_procObj->checkDataSubmission($this);
-    }
-
 
 .. _hooks-creation-function:
 
@@ -138,19 +119,9 @@ Using with `\TYPO3\CMS\Core\Utility\GeneralUtility::callUserFunction()`
 
 Constructor post-processing:
 
-.. code-block:: php
-   :caption: EXT:some_extension/Classes/SomeClass.php
-
-   use TYPO3\CMS\Core\Utility\GeneralUtility;
-
-   // Call post-processing function for constructor:
-   if (is_array($this->TYPO3_CONF_VARS['SC_OPTIONS'][get_class($this)]['Some-PostProc'])) {
-      $_params = array('pObj' => &$this);
-      foreach($this->TYPO3_CONF_VARS['SC_OPTIONS'][get_class($this)]['Some-PostProc'] as $_funcRef) {
-        GeneralUtility::callUserFunction($_funcRef,$_params, $this);
-      }
-   }
-
+..  literalinclude:: _SomeClassPostProc.php
+    :language: php
+    :caption: EXT:some_extension/Classes/SomeClass.php
 
 .. index:: Hooks; Configuration
 .. _hooks-configuration:
@@ -162,8 +133,7 @@ Most hooks in the TYPO3 Core have been converted into PSR-14 events which are
 completely listed in the :ref:`event list <eventlist>`.
 
 There is no complete index of the remaining hooks in the Core. The following
-naming scheme is usually used by third-party extensions and the remaining
-Core hooks:
+naming scheme should be used:
 
 .. index::
    Hooks;  $GLOBALS['TYPO3_CONF_VARS']['EXTCONF']
@@ -243,15 +213,11 @@ extension keys.
     or :php:`\TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance()` as a class name
     depending on implementation of the hook.
 
-    A namespace function has the quoted string format :php:`'Foo\\Bar\\MyClassName->myUserFunction'`
-    or a format using an unquoted class name :php:`\Foo\Bar\MyClassName::class . '->myUserFunction'`.
-    The latter is available since PHP 5.5.
+    A namespace function has the format :php:`\Foo\Bar\MyClassName::class . '->myUserFunction'`.
 
-    A namespace class name can be in the FQCN quoted string format :php:`'Foo\\Bar\\MyClassName'`,
-    or in the unquoted form :php:`\Foo\Bar\MyClassName::class`. The called function name
-    is determined by the hook itself.
-
-    Leading backslashes for class names are not allowed and lead to an error.
+    A namespace class should be used in the unquoted form, for example
+    :php:`\Foo\Bar\MyClassName::class`. The called function name is determined
+    by the hook itself.
 
 The above syntax is how a hook is typically defined but it might
 differ and it might not be a hook at all, but just configuration.
