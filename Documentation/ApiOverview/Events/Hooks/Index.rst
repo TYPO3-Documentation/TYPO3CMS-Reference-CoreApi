@@ -54,7 +54,7 @@ where the function :code:`\TYPO3\CMS\Core\Utility\GeneralUtility::callUserFuncti
 is called. The user function is called with two arguments, an array with
 variable parameters and the parent object.
 
-In line 24 the contents of the parameter array is prepared. This is of
+In line 24 the content of the parameter array is prepared. This is of
 high interest to you because this is where you see what data is passed
 to you and what data might be passed by reference and thereby
 could be manipulated from your hook function.
