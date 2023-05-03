@@ -1,17 +1,17 @@
-.. include:: /Includes.rst.txt
-.. index:: Events; LogoutConfirmedEvent
-.. _LogoutConfirmedEvent:
+..  include:: /Includes.rst.txt
+..  index:: Events; LogoutConfirmedEvent
+..  _LogoutConfirmedEvent:
 
 
 ====================
 LogoutConfirmedEvent
 ====================
 
-The event is triggered when a logout was successful.
-
+The PSR-14 event :php:`\TYPO3\CMS\FrontendLogin\Event\LogoutConfirmedEvent` is
+triggered when a logout was successful.
 
 
 API
----
+===
 
-.. include:: /CodeSnippets/Events/FrontendLogin/LogoutConfirmedEvent.rst.txt
+..  include:: /CodeSnippets/Events/FrontendLogin/LogoutConfirmedEvent.rst.txt
