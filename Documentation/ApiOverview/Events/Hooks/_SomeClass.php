@@ -4,7 +4,7 @@ use TYPO3\CMS\Core\Utility\GeneralUtility;
 
 final class SomeClass
 {
-    public function doSomeThing()
+    public function doSomeThing(): void
     {
         // Hook for processing data submission to extensions
         foreach ($GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['my_custom_hook']
