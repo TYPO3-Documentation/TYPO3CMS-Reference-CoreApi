@@ -63,7 +63,7 @@ long time. Many of them may then be obsolete.
 
 ..  attention::
 
-    If you delete processed files, you should flush the (page) cache immediately
+    If you delete processed files, you should flush the page cache immediately
     afterwards. If pages are cached and the page uses processed images, these
     will not be regenerated on the fly when a page is loaded. Ideally, make sure
     the removal of the processed files and flushing of page cache is one atomic
