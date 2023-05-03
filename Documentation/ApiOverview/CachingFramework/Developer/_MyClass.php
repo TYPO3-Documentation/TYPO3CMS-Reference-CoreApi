@@ -13,15 +13,23 @@ final class MyClass
 
     //...
 
-    private function getCachedValue(string $cacheIdentifier, array $data, array $tags, int|null $lifetime)
+    private function getCachedValue(string $cacheIdentifier, array $tags, int|null $lifetime): array
     {
         // If value is false, it has not been cached
         $value = $this->cache->get($cacheIdentifier);
         if ($value === false) {
             // Store the data in cache
-            $this->cache->set($cacheIdentifier, $data, $tags, $lifetime);
+            $value = $this->calculateData();
+            $this->cache->set($cacheIdentifier, $value, $tags, $lifetime);
         }
 
         return $value;
+    }
+    
+    private function calculateData() : array
+    {
+        $data = [];
+        // todo: implement
+        return $data;
     }
 }
