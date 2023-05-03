@@ -28,6 +28,7 @@ Registration of the event listener in the extension's :file:`Services.yaml`:
 An implementation of the event listener:
 
 ..  literalinclude:: _BeforeRequestTokenProcessedEvent/_MyEventListener.php
+    :language: php
     :caption: EXT:my_extension/Authentication/EventListener/MyEventListener.php
 
 API
