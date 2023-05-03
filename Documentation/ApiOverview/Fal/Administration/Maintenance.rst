@@ -61,7 +61,7 @@ Here you can choose to delete all files in :file:`fileadmin/_processed_/`
 This cleanup is also good if processed files have accumulated for a
 long time. Many of them may then be obsolete.
 
-.. attention::
+..  attention::
 
     If you delete processed files, you should flush the (page) cache immediately
     afterwards. If pages are cached and the page uses processed images, these
