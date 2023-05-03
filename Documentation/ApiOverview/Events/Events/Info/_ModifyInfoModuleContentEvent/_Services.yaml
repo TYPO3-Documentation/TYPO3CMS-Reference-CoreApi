@@ -1,0 +1,4 @@
+MyVendor\MyExtension\Info\EventListener\MyEventListener:
+  tags:
+    - name: event.listener
+      identifier: 'my-extension/content-to-info-module'
