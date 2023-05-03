@@ -28,6 +28,7 @@ Registration of the event listener in the extension's :file:`Services.yaml`:
 The corresponding event listener class:
 
 ..  literalinclude:: _PageContentPreviewRenderingEvent/_MyEventListener.php
+    :language: php
     :caption: EXT:my_extension/Classes/Backend/EventListener/MyEventListener.php
 
 
