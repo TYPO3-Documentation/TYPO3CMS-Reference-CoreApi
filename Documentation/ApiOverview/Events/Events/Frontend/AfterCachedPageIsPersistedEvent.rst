@@ -13,40 +13,27 @@ AfterCachedPageIsPersistedEvent
 
    * :php:`$GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['tslib/class.tslib_fe.php']['insertPageIncache']`
 
-The :php:`AfterCachedPageIsPersistedEvent` is commonly used to
-generate a static file cache. This event is only called if the
-page was actually stored in TYPO3's page cache.
+The PSR-14 event :php:`\TYPO3\CMS\Frontend\Event\AfterCachedPageIsPersistedEvent`
+is commonly used to generate a static file cache. This event is only called if
+the page was actually stored in TYPO3's page cache.
 
 Example
 =======
 
-Registration of the `AfterCacheableContentIsGeneratedEvent` in your
+Registration of the `AfterCachedPageIsPersistedEvent` in your
 extension's :file:`Services.yaml`:
 
-.. code-block:: yaml
-   :caption: EXT:my_extension/Configuration/Services.yaml
-
-   Vendor\MyExtension\Frontend\AfterCachedPageIsPersistedEvent:
-     tags:
-       - name: event.listener
-         identifier: 'my-extension/content-modifier'
+..  literalinclude:: _AfterCachedPageIsPersistedEvent/_Services.yaml
+    :language: yaml
+    :caption: EXT:my_extension/Configuration/Services.yaml
 
 The corresponding event listener class:
 
-.. code-block:: php
-   :caption: EXT:my_extension/Classes/Frontend/MyEventListener.php
-
-   use TYPO3\CMS\Frontend\Event\AfterCachedPageIsPersistedEvent;
-
-   final class MyEventListener {
-
-       public function __invoke(AfterCachedPageIsPersistedEvent $event): void
-       {
-           // generate static file cache
-       }
-   }
+..  literalinclude:: _AfterCachedPageIsPersistedEvent/_MyEventListener.php
+    :language: php
+    :caption: EXT:my_extension/Classes/Frontend/EventListener/MyEventListener.php
 
 API
 ===
 
-.. include:: /CodeSnippets/Events/Frontend/AfterCachedPageIsPersistedEvent.rst.txt
+..  include:: /CodeSnippets/Events/Frontend/AfterCachedPageIsPersistedEvent.rst.txt

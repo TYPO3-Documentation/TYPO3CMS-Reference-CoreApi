@@ -1,0 +1,5 @@
+MyVendor\MyExtension\Frontend\EventListener\MyEventListener:
+  tags:
+    - name: event.listener
+      identifier: 'my-extension/cache-timeout'
+      after: 'typo3-seo/hreflangGenerator'

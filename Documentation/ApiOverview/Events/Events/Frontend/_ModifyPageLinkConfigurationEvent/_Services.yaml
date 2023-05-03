@@ -1,0 +1,4 @@
+MyVendor\MyExtension\Frontend\EventListener\MyEventListener:
+  tags:
+    - name: event.listener
+      identifier: 'my-extension/modify-page-link-configuration'
