@@ -86,7 +86,7 @@ Creating hooks
     <EventDispatcherQuickStartDispatching>` instead of introducing new hooks.
     Existing hooks should be migrated to events.
 
-There are two main methods of calling a user defined function in
+There are two main methods of calling a user-defined function in
 TYPO3.
 
 :php:`\TYPO3\CMS\Core\Utility\GeneralUtility::callUserFunction()`
