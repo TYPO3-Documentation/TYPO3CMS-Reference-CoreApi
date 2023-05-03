@@ -60,7 +60,7 @@ to you and what data might be passed by reference and thereby
 could be manipulated from your hook function.
 
 Finally, notice how the array
-:code:`$GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['t3lib/class.t3lib_tcemain.php']['clearCachePostProc']`
+:php:`$GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['t3lib/class.t3lib_tcemain.php']['clearCachePostProc']`
 is traversed and for each entry the value is expected to be a function
 reference which will be called. This allows many hooks to be called at once.
 The hooks can even rearrange the calling order if they dare.
