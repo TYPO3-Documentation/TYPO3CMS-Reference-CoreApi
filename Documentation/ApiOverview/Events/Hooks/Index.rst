@@ -171,7 +171,7 @@ particular extension.
 
     :php:`$GLOBALS['TYPO3_CONF_VARS']['EXTCONF']` was the recommended place where to
     put hook configurations inside third-party extensions. It is not recommended anymore
-    to introduce news hooks. :ref:`Events <EventDispatcher>` should be used instead.
+    to introduce new hooks. :ref:`Events <EventDispatcher>` should be used instead.
 
 
 .. index::
