@@ -1,54 +1,36 @@
-.. include:: /Includes.rst.txt
-.. index:: Events; ModifyCacheLifetimeForPageEvent
-.. _ModifyCacheLifetimeForPageEvent:
+..  include:: /Includes.rst.txt
+..  index:: Events; ModifyCacheLifetimeForPageEvent
+..  _ModifyCacheLifetimeForPageEvent:
 
 ===============================
 ModifyCacheLifetimeForPageEvent
 ===============================
 
-.. versionadded:: 12.0
-   This event serves as a successor for the
-   :php:`$GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['tslib/class.tslib_fe.php']['get_cache_timeout']`
-   hook.
+..  versionadded:: 12.0
+    This event serves as a successor for the
+    :php:`$GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['tslib/class.tslib_fe.php']['get_cache_timeout']`
+    hook.
 
 This event allows to modify the lifetime of how long a rendered page of a
 frontend call should be stored in the "pages" cache.
-
-API
-===
-
-.. include:: /CodeSnippets/Events/Frontend/ModifyCacheLifetimeForPageEvent.rst.txt
 
 Example
 =======
 
 Register the listener:
 
-.. code-block:: yaml
-   :caption: my_extension/Configuration/Services.yaml
-
-   services:
-     MyCompany\MyPackage\EventListener\ChangeCacheTimeout:
-       tags:
-         - name: event.listener
-           identifier: 'mycompany/myextension/cache-timeout'
+..  literalinclude:: _ModifyCacheLifetimeForPageEvent/_Services.yaml
+    :language: yaml
+    :caption: EXT:my_extension/Configuration/Services.yaml
 
 The following listener limits the cache lifetime to 30 seconds in development
 context:
 
-.. code-block:: php
-   :caption: my_extension/EventListener/ChangeCacheTimeout.php
+..  literalinclude:: _ModifyCacheLifetimeForPageEvent/_MyEventListener.php
+    :language: php
+    :caption: EXT:my_extension/Classes/Frontend/EventListener/MyEventListener.php
 
-   namespace MyCompany\MyExtension\EventListener;
-   use TYPO3\CMS\Frontend\Event\ModifyCacheLifetimeForPageEvent;
+API
+===
 
-   final class ChangeCacheTimeout
-   {
-       public function __invoke(ModifyCacheLifetimeForPageEvent $event): void
-       {
-           // Only cache all pages for 30 seconds when in development context
-           if (Environment::getContext()->isDevelopment()) {
-               $event->setCacheLifetime(30);
-           }
-       }
-   }
+..  include:: /CodeSnippets/Events/Frontend/ModifyCacheLifetimeForPageEvent.rst.txt

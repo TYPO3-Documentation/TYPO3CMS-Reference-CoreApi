@@ -1,22 +1,23 @@
-.. include:: /Includes.rst.txt
-.. index:: Events; AfterCacheableContentIsGeneratedEvent
-.. _AfterCacheableContentIsGeneratedEvent:
+..  include:: /Includes.rst.txt
+..  index:: Events; AfterCacheableContentIsGeneratedEvent
+..  _AfterCacheableContentIsGeneratedEvent:
 
 =====================================
 AfterCacheableContentIsGeneratedEvent
 =====================================
 
-.. versionadded:: 12.0
+..  versionadded:: 12.0
 
-   This event together with :ref:`AfterCachedPageIsPersistedEvent` has
-   been introduced to serve as a direct replacement for the removed hooks:
+    This event together with :ref:`AfterCachedPageIsPersistedEvent` has
+    been introduced to serve as a direct replacement for the removed hooks:
 
-   * :php:`$GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['tslib/class.tslib_fe.php']['contentPostProc-cached']`
-   * :php:`$GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['tslib/class.tslib_fe.php']['contentPostProc-all']`
-   * :php:`$GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['tslib/class.tslib_fe.php']['usePageCache']`
+    * :php:`$GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['tslib/class.tslib_fe.php']['contentPostProc-cached']`
+    * :php:`$GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['tslib/class.tslib_fe.php']['contentPostProc-all']`
+    * :php:`$GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['tslib/class.tslib_fe.php']['usePageCache']`
 
-The event :php:`AfterCacheableContentIsGeneratedEvent` can be used
-to decide if a page should be stored in cache.
+The PSR-14 event
+:php:`\TYPO3\CMS\Frontend\Event\AfterCacheableContentIsGeneratedEvent` can be
+used to decide if a page should be stored in cache.
 
 It is executed right after all cacheable content is generated.
 It can also be used to manipulate the content before it is stored in
@@ -36,34 +37,17 @@ Example
 Registration of the `AfterCacheableContentIsGeneratedEvent` in your
 extension's :file:`Services.yaml`:
 
-.. code-block:: yaml
-   :caption: EXT:my_extension/Configuration/Services.yaml
-
-   Vendor\MyExtension\Frontend\MyEventListener:
-     tags:
-       - name: event.listener
-         identifier: 'my-extension/content-modifier'
+..  literalinclude:: _AfterCacheableContentIsGeneratedEvent/_Services.yaml
+    :language: yaml
+    :caption: EXT:my_extension/Configuration/Services.yaml
 
 The corresponding event listener class:
 
-.. code-block:: php
-   :caption: EXT:my_extension/Classes/Frontend/MyEventListener.php
-
-   use TYPO3\CMS\Frontend\Event\AfterCacheableContentIsGeneratedEvent;
-
-   final class MyEventListener {
-
-       public function __invoke(AfterCacheableContentIsGeneratedEvent $event): void
-       {
-           // Only do this when caching is enabled
-           if (!$event->isCachingEnabled()) {
-               return;
-           }
-           $event->getController()->content = str_replace('foo', 'bar', $event->getController()->content);
-       }
-   }
+..  literalinclude:: _AfterCacheableContentIsGeneratedEvent/_MyEventListener.php
+    :language: php
+    :caption: EXT:my_extension/Classes/Frontend/EventListener/MyEventListener.php
 
 API
 ===
 
-.. include:: /CodeSnippets/Events/Frontend/AfterCacheableContentIsGeneratedEvent.rst.txt
+..  include:: /CodeSnippets/Events/Frontend/AfterCacheableContentIsGeneratedEvent.rst.txt

@@ -1,15 +1,15 @@
-.. include:: /Includes.rst.txt
-.. index:: Events; ShouldUseCachedPageDataIfAvailableEvent
-.. _ShouldUseCachedPageDataIfAvailableEvent:
+..  include:: /Includes.rst.txt
+..  index:: Events; ShouldUseCachedPageDataIfAvailableEvent
+..  _ShouldUseCachedPageDataIfAvailableEvent:
 
 =======================================
 ShouldUseCachedPageDataIfAvailableEvent
 =======================================
 
-.. versionadded:: 12.0
-   This event was introduced.
+..  versionadded:: 12.0
 
-This event allows TYPO3 extensions to register event listeners to modify if a
+The PSR-14 event :php:`\TYPO3\CMS\Frontend\Event\ShouldUseCachedPageDataIfAvailableEvent`
+allows TYPO3 extensions to register event listeners to modify if a
 page should be read from cache (if it has been created in store already), or
 if it should be re-built completely ignoring the cache entry for the request.
 
@@ -17,38 +17,22 @@ This event can be used to avoid loading from the cache when indexing via
 CLI happens from an external source, or if the cache should be ignored when
 logged in from a certain IP address.
 
-API
-===
-
-.. include:: /CodeSnippets/Events/Frontend/ShouldUseCachedPageDataIfAvailableEvent.rst.txt
-
 Example
 =======
 
 Registration of the event listener in the extension's :file:`Services.yaml`:
 
-.. code-block:: yaml
-   :caption: my_extension/Configuration/Services.yaml
-
-   MyVendor\MyExtension\Frontend\MyEventListener:
-     tags:
-       - name: event.listener
-         identifier: 'my-package/avoid-cache-loading'
+..  literalinclude:: _ShouldUseCachedPageDataIfAvailableEvent/_Services.yaml
+    :language: yaml
+    :caption: EXT:my_extension/Configuration/Services.yaml
 
 The corresponding event listener class:
 
-.. code-block:: php
-   :caption: my_extension/Classes/Frontend/MyEventListener.php
+..  literalinclude:: _ShouldUseCachedPageDataIfAvailableEvent/_MyEventListener.php
+    :language: php
+    :caption: EXT:my_extension/Classes/Frontend/EventListener/MyEventListener.php
 
-   use TYPO3\CMS\Frontend\Event\ShouldUseCachedPageDataIfAvailableEvent;
+API
+===
 
-   final class MyEventListener {
-
-       public function __invoke(ShouldUseCachedPageDataIfAvailableEvent $event): void
-       {
-           if (!($event->getRequest()->getServerParams()['X-SolR-API'] ?? null)) {
-               return;
-           }
-           $event->setShouldUseCachedPageData(false);
-       }
-   }
+..  include:: /CodeSnippets/Events/Frontend/ShouldUseCachedPageDataIfAvailableEvent.rst.txt
