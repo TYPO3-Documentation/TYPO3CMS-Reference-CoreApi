@@ -70,4 +70,4 @@ long time. Many of them may then be obsolete.
     operation which is performed as quickly as possible.
 
 Also, deleting processed files while editors are active is not ideal.
-Preferably, lock the TYPO3 Backend before you remove the processed files.
+Preferably, lock the TYPO3 backend before you remove the processed files.
