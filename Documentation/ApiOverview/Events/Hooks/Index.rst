@@ -205,7 +205,7 @@ extension keys.
     Integer index typically. Can be a unique string, if you have
     a reason to use that. Normally it has no greater significance since
     the value of the key is not used. The hooks normally traverse over the
-    array and uses only the value (function reference)
+    array and uses only the value (function reference).
 
 `<function_reference>`
     A function reference using the syntax of
