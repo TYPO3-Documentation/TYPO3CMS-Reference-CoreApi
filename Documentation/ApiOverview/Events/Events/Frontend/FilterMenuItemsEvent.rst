@@ -1,14 +1,18 @@
-.. include:: /Includes.rst.txt
-.. index:: Events; FilterMenuItemsEvent
-.. _FilterMenuItemsEvent:
+..  include:: /Includes.rst.txt
+..  index:: Events; FilterMenuItemsEvent
+..  _FilterMenuItemsEvent:
 
 ====================
 FilterMenuItemsEvent
 ====================
 
-.. versionadded:: 12.0
+..  versionadded:: 12.0
+    This event has been introduced to serve as a more powerful and flexible
+    alternative for the removed hook
+    :php:`$GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['cms/tslib/class.tslib_menu.php']['filterMenuPages']`.
 
-This event has a variety of properties and getters, along with
+The PSR-14 event :php:`\TYPO3\CMS\Frontend\Event\FilterMenuItemsEvent` has
+a variety of properties and getters, along with
 :php:func:`TYPO3\\CMS\\Frontend\\Event\\FilterMenuItemsEvent::getFilteredMenuItems()`
 and
 :php:func:`TYPO3\\CMS\\Frontend\\Event\\FilterMenuItemsEvent::setFilteredMenuItems()`.
@@ -27,13 +31,5 @@ the menu items which were filtered out, is available.
 API
 ===
 
-.. include:: /CodeSnippets/Events/Frontend/FilterMenuItemsEvent.rst.txt
+..  include:: /CodeSnippets/Events/Frontend/FilterMenuItemsEvent.rst.txt
 
-
-History
-=======
-
-The PSR-14 event :php:class:`TYPO3\CMS\Frontend\Event\FilterMenuItemsEvent` has been
-introduced to serve as a more powerful and flexible alternative
-for the removed hook
-:php:`$GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['cms/tslib/class.tslib_menu.php']['filterMenuPages']`.
