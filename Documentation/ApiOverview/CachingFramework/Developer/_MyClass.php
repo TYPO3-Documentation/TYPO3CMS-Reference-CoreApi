@@ -25,8 +25,8 @@ final class MyClass
 
         return $value;
     }
-    
-    private function calculateData() : array
+
+    private function calculateData(): array
     {
         $data = [];
         // todo: implement
