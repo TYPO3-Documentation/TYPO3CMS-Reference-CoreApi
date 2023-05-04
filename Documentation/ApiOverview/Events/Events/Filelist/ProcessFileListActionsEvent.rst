@@ -22,11 +22,13 @@ Example
 Registration of the event listener in the extension's :file:`Services.yaml`:
 
 ..  literalinclude:: _Snippets/_ProcessFileListActionsEvent.yaml
+    :language: yaml
     :caption: EXT:my_extension/Configuration/Services.yaml
 
 The corresponding event listener class:
 
 ..  literalinclude:: _Snippets/_ProcessFileListActionsEventListener.php
+    :language: php
     :caption: EXT:my_extension/Classes/FileList/ProcessFileListActionsEventListener.php
 
 API

@@ -35,6 +35,7 @@ Registration of the event listener in the extension's :file:`Services.yaml`:
 The corresponding event listener class:
 
 ..  literalinclude:: _ModifyAutoCreateRedirectRecordBeforePersistingEvent/_MyEventListener.php
+    :language: php
     :caption: EXT:my_extension/Classes/Redirects/EventListener/MyEventListener.php
 
 API

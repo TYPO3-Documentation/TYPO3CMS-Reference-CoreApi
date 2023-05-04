@@ -32,6 +32,7 @@ Registration of the event listener in the extension's :file:`Services.yaml`:
 The corresponding event listener class:
 
 ..  literalinclude:: _ModifyClearCacheActionsEvent/_MyEventListener.php
+    :language: php
     :caption: EXT:my_extension/Classes/Backend/EventListener/MyEventListener.php
 
 The cache action array element consists of the following keys and values:
