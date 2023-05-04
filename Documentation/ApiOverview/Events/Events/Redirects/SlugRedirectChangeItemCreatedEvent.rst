@@ -41,14 +41,16 @@ Registration of the event listener in the extension's :file:`Services.yaml`:
 The corresponding event listener class:
 
 ..  literalinclude:: _SlugRedirectChangeItemCreatedEvent/_MyEventListener.php
+    :language: php
     :caption: EXT:my_extension/Classes/Redirects/EventListener/MyEventListener.php
 
 Example of a :php:`CustomSource` implementation:
 
 ..  literalinclude:: _SlugRedirectChangeItemCreatedEvent/_CustomSource.php
+    :language: php
     :caption: EXT:my_extension/Classes/Redirects/CustomSource.php
 
 API
 ===
 
-.. include:: /CodeSnippets/Events/Redirects/SlugRedirectChangeItemCreatedEvent.rst.txt
+..  include:: /CodeSnippets/Events/Redirects/SlugRedirectChangeItemCreatedEvent.rst.txt

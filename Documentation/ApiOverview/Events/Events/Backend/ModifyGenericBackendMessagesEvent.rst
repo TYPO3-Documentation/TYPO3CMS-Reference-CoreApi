@@ -32,6 +32,7 @@ Registration of an event listener in your extension's :file:`Services.yaml`:
 The corresponding event listener class:
 
 ..  literalinclude:: _ModifyGenericBackendMessagesEvent/_MyEventListener.php
+    :language: php
     :caption: EXT:my_extension/Classes/Backend/EventListener/MyEventListener.php
 
 API
