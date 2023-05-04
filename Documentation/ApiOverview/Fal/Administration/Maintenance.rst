@@ -69,5 +69,12 @@ long time. Many of them may then be obsolete.
     the removal of the processed files and flushing of page cache is one atomic
     operation which is performed as quickly as possible.
 
+After flushing page cache, it is a good idea to warmup the page cache. Generating
+the pages for the first time may take longer than usual because the processed
+files need to be regenerated. There is currently no core functionality to warmup
+the page cache for all pages, but there are a number of extensions which
+provide this functionality. Alternatively, one can use the sitemap and a tool
+such as wget for this.
+
 Also, deleting processed files while editors are active is not ideal.
 Preferably, lock the TYPO3 backend before you remove the processed files.
