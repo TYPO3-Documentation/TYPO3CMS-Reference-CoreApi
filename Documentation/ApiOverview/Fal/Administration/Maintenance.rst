@@ -60,3 +60,21 @@ Here you can choose to delete all files in :file:`fileadmin/_processed_/`
 
 This cleanup is also good if processed files have accumulated for a
 long time. Many of them may then be obsolete.
+
+..  attention::
+
+    If you delete processed files, you should flush the page cache immediately
+    afterwards. If pages are cached and the page uses processed images, these
+    will not be regenerated on the fly when a page is loaded. Ideally, make sure
+    the removal of the processed files and flushing of page cache is one atomic
+    operation which is performed as quickly as possible.
+
+After flushing page cache, it is a good idea to warmup the page cache. Generating
+the pages for the first time may take longer than usual because the processed
+files need to be regenerated. There is currently no Core functionality to warmup
+the page cache for all pages, but there are a number of extensions which
+provide this functionality. Alternatively, one can use the sitemap and a tool
+such as wget for this.
+
+Also, deleting processed files while editors are active is not ideal.
+Preferably, lock the TYPO3 backend before you remove the processed files.
