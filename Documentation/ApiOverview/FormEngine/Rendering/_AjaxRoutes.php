@@ -1,8 +1,10 @@
 <?php
 
+use MyVendor\MyExtension\Controller\Ajax\ImportDataController;
+
 return [
     'something-import-data' => [
         'path' => '/something/import-data',
-        'target' => \MyVendor\MyExtension\Controller\Ajax\ImportDataController::class . '::importDataAction',
+        'target' => ImportDataController::class . '::importDataAction',
     ],
 ];

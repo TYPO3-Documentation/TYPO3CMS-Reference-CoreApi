@@ -6,7 +6,7 @@ namespace MyVendor\MyExtension\FormEngine\FieldControl;
 
 use TYPO3\CMS\Backend\Form\AbstractNode;
 
-class ImportDataControl extends AbstractNode
+final class ImportDataControl extends AbstractNode
 {
     private string $langFile = 'LLL:EXT:my_extension/Ressources/private/Languages/locallang_db.xlf';
     public function render(): array

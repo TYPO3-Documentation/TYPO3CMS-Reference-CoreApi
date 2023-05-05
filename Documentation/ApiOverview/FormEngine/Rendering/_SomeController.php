@@ -8,7 +8,7 @@ use Psr\Http\Message\ServerRequestInterface;
 use TYPO3\CMS\Core\Page\JavaScriptModuleInstruction;
 use TYPO3\CMS\Core\Page\PageRenderer;
 
-class SomeController
+final class SomeController
 {
     public function __construct(private readonly PageRenderer $pageRenderer)
     {
@@ -18,7 +18,8 @@ class SomeController
     {
         $javaScriptRenderer = $this->pageRenderer->getJavaScriptRenderer();
         $javaScriptRenderer->addJavaScriptModuleInstruction(
-            JavaScriptModuleInstruction::create('@myvendor/my_extension/my-service.js')->invoke('someFunction')
+            JavaScriptModuleInstruction::create('@myvendor/my_extension/my-service.js')
+                ->invoke('someFunction')
         );
         // ...
         return $this->pageRenderer->renderResponse();
