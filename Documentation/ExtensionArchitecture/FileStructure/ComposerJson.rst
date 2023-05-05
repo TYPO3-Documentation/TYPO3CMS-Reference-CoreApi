@@ -253,6 +253,34 @@ Example for extension key **bootstrap_package**:
 Properties no longer used
 =========================
 
+ExtensionTestEnvironment
+------------------------
+
+..  versionchanged:: 11.5
+    Outdated since TYPO3 v11
+
+Previously, this was often added to composer.json if a local test environment
+was used:
+
+.. code-block:: json
+    :caption: composer.json
+
+    "scripts": {
+        "post-autoload-dump": [
+          "TYPO3\\TestingFramework\\Composer\\ExtensionTestEnvironment::prepare"
+        ]
+    },
+
+This caused the extension to be installed into :file:`.Build/Web/typo3conf/ext`
+when composer installed was called within the extension directory. This is
+a requirement in some cases for testing purposes.
+
+Since TYPO3 v11 this is no longer recommended, since the functionality
+was moved to the core with https://review.typo3.org/c/Packages/TYPO3.CMS/+/71029.
+
+It is however necessary to have a :file:`Resources/Build` directory for this to
+work.
+
 version
 -------
 
