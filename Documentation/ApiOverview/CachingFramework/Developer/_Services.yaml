@@ -1,0 +1,13 @@
+services:
+  _defaults:
+    autowire: true
+    autoconfigure: true
+    public: false
+
+  Vendor\MyExtension\:
+    resource: '../Classes/*'
+
+  cache.myext_mycache:
+    class: TYPO3\CMS\Core\Cache\Frontend\FrontendInterface
+    factory: ['@TYPO3\CMS\Core\Cache\CacheManager', 'getCache']
+    arguments: ['myext_mycache']
