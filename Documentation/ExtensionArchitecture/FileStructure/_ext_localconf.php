@@ -2,11 +2,9 @@
 
 declare(strict_types=1);
 
-// all use statements must come before the definition check
-use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
+use MyVendor\MyExtension\MyClass;
 
-// Prevent Script from being called directly
 defined('TYPO3') or die();
 
 // Add your code here
-ExtensionManagementUtility::doSomething();
+MyClass::doSomething();
