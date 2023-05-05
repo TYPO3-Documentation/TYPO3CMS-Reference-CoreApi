@@ -2,9 +2,9 @@
 .. index:: ! File; EXT:{extkey}/ext_tables.php
 .. _ext-tables-php:
 
-=======================================
+======================
 :file:`ext_tables.php`
-=======================================
+======================
 
 *-- optional*
 
@@ -43,14 +43,11 @@ Should not be used for
         Adding table options via :php:`ExtensionManagementUtility::allowTableOnStandardPages()`
         :ref:`Example <extension-configuration-files-allow-table-standard>`
 
-
 Should be used for
 ==================
 
 These are the typical functions that should be placed inside :file:`ext_tables.php`
 
-*  Registering of :ref:`backend modules <backend-modules-api>` or adding a new
-   main module :ref:`Example <extension-configuration-files-backend-module>`
 *  Registering a scheduler tasks:
    :ref:`extension-configuration-files-scheduler`
 *  Assignments to the global configuration array :php:`$GLOBALS['PAGES_TYPES']`
@@ -63,25 +60,39 @@ Put the following in a file called :file:`ext_tables.php` in the main directory
 of your extension. The file does not need to be registered but will be loaded
 automatically:
 
-.. code-block:: php
-   :caption: EXT:site_package/ext_tables.php
+..  literalinclude:: _ext_tables.php
+    :language: php
+    :caption: EXT:site_package/ext_tables.php
 
-   <?php
-   // all use statements must come first
-   use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
+.. index:: Extension development; Scheduler task registration
+.. _extension-configuration-files-scheduler:
 
-   defined('TYPO3') or die();
+Registering a scheduler task
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-   (function () {
-     // Add your code here
-   })();
+Scheduler tasks get registered in the ext_tables.php as well. Note that the Sysext "scheduler" has
+to be installed for this to work.
+
+
+..  literalinclude:: _ext_tables_scheduler.php
+    :language: php
+    :caption: EXT:site_package/ext_tables.php
 
 .. index:: Extension development; Backend module registration
 .. _extension-configuration-files-backend-module:
 
 Registering a backend module
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-You can register a new backend module for your extension via :php:`ExtensionUtility::registerModule()`:
+
+..  versionchanged:: 12.0
+    The usage of :php:`ExtensionManagementUtility::registerModule()` is
+    deprecated. In TYPO3 v12 it is not evaluated anymore. Register modules in
+    :ref:`extension-configuration-backend-modules`.
+
+If your extension needs to provide compatibility with TYPO3 v11 as well as v12
+you can check which version is loaded in the :file:`ext_tables.php` and call
+:php:`ExtensionUtility::registerModule` for v11 to register a Extbase backend
+module:
 
 .. code-block:: php
    :caption: EXT:my_extension/ext_tables.php
@@ -103,9 +114,6 @@ You can register a new backend module for your extension via :php:`ExtensionUtil
       ]
    );
 
-There is also a possibility to register modules without Extbase, using core functionality only.
-For more information on backend modules see :ref:`backend module API <backend-modules-api>`.
-
 .. index:: Extension development; allowTableOnStandardPages
 .. _extension-configuration-files-allow-table-standard:
 
@@ -118,39 +126,14 @@ Allowing a tables records to be added to Standard pages
     :ref:`ignorePageTypeRestriction <t3tca:ctrl-security-ignorePageTypeRestriction>`
     instead.
 
-By default new records of tables may only be added to Sysfolders in TYPO3. If you need to allow
-new records of your table to be added on Standard pages call:
+If your extension needs to provide compatibility with TYPO3 v11 as well as v12
+you can check which version is loaded in the :file:`ext_tables.php` and call
+:php:`allowTableOnStandardPages` for v11:
 
-.. code-block:: php
-   :caption: EXT:site_package/ext_tables.php
+..  literalinclude:: _ext_tables_allowonstandardpages.php
+    :language: php
+    :caption: EXT:site_package/ext_tables.php
 
-   // use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
-
-   ExtensionManagementUtility::allowTableOnStandardPages(
-      'tx_myextension_domain_model_mymodel'
-   );
-
-.. index:: Extension development; Scheduler task registration
-.. _extension-configuration-files-scheduler:
-
-Registering a scheduler task
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-Scheduler tasks get registered in the ext_tables.php as well. Note that the Sysext "scheduler" has
-to be installed for this to work.
-
-.. code-block:: php
-   :caption: EXT:site_package/ext_tables.php
-
-   // use TYPO3\CMS\Scheduler\Task\CachingFrameworkGarbageCollectionTask;
-   // use TYPO3\CMS\Scheduler\Task\CachingFrameworkGarbageCollectionAdditionalFieldProvider;
-
-   // Add caching framework garbage collection task
-   $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['scheduler']['tasks'][CachingFrameworkGarbageCollectionTask::class] = array(
-        'extension' => 'your_extension_key',
-        'title' => 'LLL:EXT:your_extension_key/locallang.xlf:cachingFrameworkGarbageCollection.name',
-        'description' => 'LLL:EXT:your_extension_key/locallang.xlf:cachingFrameworkGarbageCollection.description',
-        'additionalFields' => \CachingFrameworkGarbageCollectionAdditionalFieldProvider::class
-   );
-
-For more information see the documentation of the Sys-Extension scheduler.
+..  note::
+    Use :ref:`ignorePageTypeRestriction <t3tca:ctrl-security-ignorePageTypeRestriction>`
+    to achieve the same functionality for TYPO3 v12.
