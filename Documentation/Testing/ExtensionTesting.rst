@@ -222,11 +222,6 @@ to add root :file:`composer.json` details, turning the extension into a project 
         "enetcache": "self.version",
         "typo3-ter/enetcache": "self.version"
       },
-      "scripts": {
-        "post-autoload-dump": [
-          "TYPO3\\TestingFramework\\Composer\\ExtensionTestEnvironment::prepare"
-        ]
-      },
       "extra": {
         "branch-alias": {
           "dev-master": "2.x-dev"
@@ -293,7 +288,6 @@ Let's clone that repository and call `composer install` (stripped):
     Generating autoload files
     Generating class alias map file
     Inserting class alias loader into main autoload.php file
-    > TYPO3\TestingFramework\Composer\ExtensionTestEnvironment::prepare
     lolli@apoc /var/www/local/git/enetcache $
 
 To clean up any errors created at this point, we can always run `rm -r .Build/ composer.lock` later and
@@ -315,11 +309,27 @@ our tests in:
 
 The package `typo3/testing-framework` that we added as `require-dev` dependency has some basic Core
 extensions set as dependency, we end up with the Core extensions `backend`, `core`, `extbase`,
-`fluid` and `frontend` in `.Build/Web/typo3/sysext`. Additionally, the
-:php:`ExtensionTestEnvironment` hook linked our git root checkout as extension into `.Build/Web/typo3conf/ext`.
-
+`fluid` and `frontend` in `.Build/Web/typo3/sysext`.
 We now have a full TYPO3 instance. It is not installed, there is no database, but we are now at the point
 to begin unit testing!
+
+Installing the extension into .Build
+-------------------------------------
+
+The extension itself should automatically be installed into
+:file:`.Build/Web/typo3conf/ext` when composer install is called.
+
+Previously, this was performed by using a :php:`ExtensionTestEnvironment` hook
+in composer.json.
+
+But the functionality for this has been moved to the core with patch
+https://review.typo3.org/c/Packages/TYPO3.CMS/+/71029 (since TYPO3 v11), so it
+is no longer recommended to use :php:`ExtensionTestEnvironment`.
+
+But, it is necessary to have a directory file:`Resources/Public` for this to
+work. Add this to your extension now (if it does not exist) and perform composer
+install again.
+
 
 runTests.sh and docker-compose.yml
 ----------------------------------
