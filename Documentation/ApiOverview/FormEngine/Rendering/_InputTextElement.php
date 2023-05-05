@@ -5,7 +5,7 @@ namespace MyVendor\MyExtension\Backend\Form;
 
 use TYPO3\CMS\Backend\Form\Element\AbstractFormElement;
 
-class InputTextElement extends AbstractFormElement
+final class InputTextElement extends AbstractFormElement
 {
     protected $defaultFieldWizard = [
         'localizationStateSelector' => [

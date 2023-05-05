@@ -166,7 +166,9 @@ list to a different order.
 Adding an own provider to this list means adding an array key to that array having a specification *where* the new data provider
 should be added in the list. This is done by the arrays :php:`depends` and :php:`before`.
 
-As an example, the extension "news" uses an own data provider to do additional flex form data structure preparation. The Core internal
+As an example, the extension "news" used an own data provider in
+`a past version <https://github.com/georgringer/news/blob/main/ext_localconf.php#L104-L112>`__
+to do additional flex form data structure preparation. The Core internal
 flex preparation is already split into two providers: :php:`TcaFlexPrepare` determines the data structure and parses
 it, :php:`TcaFlexProcess` uses the prepared data structure, processes values and applies defaults if needed. The data provider
 from the extension "news" hooks in between these two to add some own preparation stuff. The registration happens with this

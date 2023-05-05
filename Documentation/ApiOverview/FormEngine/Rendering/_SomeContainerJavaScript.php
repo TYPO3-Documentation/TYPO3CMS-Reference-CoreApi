@@ -6,7 +6,7 @@ namespace MyVendor\MyExtension\Backend;
 use TYPO3\CMS\Backend\Form\Container\AbstractContainer;
 use TYPO3\CMS\Core\Page\JavaScriptModuleInstruction;
 
-class SomeContainer extends AbstractContainer
+final class SomeContainer extends AbstractContainer
 {
     public function render(): array
     {
