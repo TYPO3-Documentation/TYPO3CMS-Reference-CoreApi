@@ -324,7 +324,7 @@ The extension itself should automatically be installed into
 Previously, this was performed by using a :php:`ExtensionTestEnvironment` hook
 in composer.json.
 
-But the functionality for this has been moved to the core with patch
+The functionality for this has been moved to the Core with patch
 https://review.typo3.org/c/Packages/TYPO3.CMS/+/71029 (since TYPO3 v11), so it
 is no longer recommended to use :php:`ExtensionTestEnvironment`.
 
