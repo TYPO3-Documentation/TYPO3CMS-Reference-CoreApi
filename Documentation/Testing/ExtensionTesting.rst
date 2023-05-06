@@ -81,8 +81,8 @@ Testing enetcache
 
 The extension `enetcache <https://github.com/lolli42/enetcache>`_ is a small extension that helps
 with frontend plugin based caches. It has been available as composer package and a TER extension for quite
-some time and is loosely maintained to keep up with current Core versions. At the time of
-writing, it has three branches:
+some time and is loosely maintained to keep up with current Core versions. At the
+time this page was originally written, it had three branches:
 
 * `1.2` compatible with Core v7, released to TER as 1.x.y
 
@@ -90,11 +90,11 @@ writing, it has three branches:
 
 * `master` compatible with Core v9, released to TER as 3.x.y
 
-Branch master will be branched later as `3` when Core version 10 gains traction. This document
-focuses on the master / Core v9 compatible branch. The extension comes with a couple of unit tests
-in `Tests/Unit`, we want to run these locally and by GitHub Actions, along with some PHP linting to verify
-there is no fatal PHP error. We'll test that extension with both PHP 7.2 and PHP 7.3 - the two PHP
-versions TYPO3 Core v9 currently supports at the time of writing.
+Branch master will be branched later as `3` when Core version 10 gains traction.
+
+The extension comes with a couple of unit tests
+in `Tests/Unit`, we want to run these locally and by GitHub Actions, along with
+some PHP linting to verify there is no fatal PHP error.
 
 Starting point
 --------------
@@ -124,7 +124,7 @@ This is how the composer.json file looks before we add a test setup:
         "GPL-2.0-or-later"
       ],
       "require": {
-        "typo3/cms-core": "^9.5"
+        "typo3/cms-core": "^11.5"
       },
       "autoload": {
         "psr-4": {
@@ -139,7 +139,7 @@ This is how the composer.json file looks before we add a test setup:
     }
 
 This is a typical composer.json file without any complexity: It's a `typo3-cms-extension`, with an
-author and a license. We are stating that "I need at least 9.5.0 of cms-core" and we tell the auto loader
+author and a license. We are stating that "I need at least 11.5.0 of cms-core" and we tell the auto loader
 "find all class names starting with :php:`Lolli\Enetcache` in the Classes/ directory".
 
 The extension already contains some unit tests that extend `typo3/testing-framework`'s base
@@ -171,7 +171,8 @@ Now let's add our properties to put these tests into action. First, we add a ser
 to add root :file:`composer.json` details, turning the extension into a project at the same time:
 
 .. code-block:: json
-    :emphasize-lines: 18-24, 30-34, 39-43, 50-51
+    :linenos:
+    :emphasize-lines: 18-24, 30-34, 42
 
     {
       "name": "lolli/enetcache",
@@ -195,7 +196,7 @@ to add root :file:`composer.json` details, turning the extension into a project 
         "bin-dir": ".Build/bin"
       },
       "require-dev": {
-        "typo3/testing-framework": "^4.11.1"
+        "typo3/testing-framework": "^6.16.7"
       },
       "autoload": {
         "psr-4": {
@@ -222,11 +223,15 @@ to add root :file:`composer.json` details, turning the extension into a project 
 Note all added properties are only used within our root :file:`composer.json` files, they are ignored if the
 extension is loaded as a dependency in our project. Note: We specify `.Build` as
 build directory. This is where our TYPO3 instance will be set up. We add `typo3/testing-framework`
-in a v9 compatible version as `require-dev` dependency. We add a `autoload-dev` to tell composer
-that test classes are found in the `Tests` directory. In the `scripts` section we add a composer
-hook. This one is interesting. That class of the testing framework links the main directory as
+in a v11 compatible version as `require-dev` dependency. We add a `autoload-dev` to tell composer
+that test classes are found in the `Tests` directory.
+
+The class of the testing framework links the main directory as
 extension `.Build/Web/typo3conf/ext/enetcache` in our extension specific TYPO3 instance. It needs the
 two additional properties `web-dir` and `extension-key` to do that.
+
+It is also necessary to have a directory file:`Resources/Public` for this to
+work (since TYPO3 v11).
 
 Now, before we start playing around with this setup, we instruct `git` to ignore runtime
 on-the-fly files. The :file:`.gitignore` looks like this:
@@ -299,23 +304,6 @@ extensions set as dependency, we end up with the Core extensions `backend`, `cor
 We now have a full TYPO3 instance. It is not installed, there is no database, but we are now at the point
 to begin unit testing!
 
-Installing the extension into .Build
--------------------------------------
-
-The extension itself should automatically be installed into
-:file:`.Build/Web/typo3conf/ext` when composer install is called.
-
-Previously, this was performed by using a :php:`ExtensionTestEnvironment` hook
-in composer.json.
-
-The functionality for this has been moved to the Core with patch
-https://review.typo3.org/c/Packages/TYPO3.CMS/+/71029 (since TYPO3 v11), so it
-is no longer recommended to use :php:`ExtensionTestEnvironment`.
-
-But, it is necessary to have a directory file:`Resources/Public` for this to
-work. Add this to your extension now (if it does not exist) and perform composer
-install again.
-
 
 runTests.sh and docker-compose.yml
 ----------------------------------
@@ -342,8 +330,8 @@ Let's run the tests:
 
     lolli@apoc /var/www/local/git/enetcache $ Build/Scripts/runTests.sh
     Creating network "local_default" with the default driver
-    PHP 7.2.11-3+ubuntu18.04.1+deb.sury.org+1 (cli) (built: Oct 25 2018 06:44:08) ( NTS )
-    PHPUnit 7.1.5 by Sebastian Bergmann and contributors.
+    PHP ....
+    PHPUnit ... by Sebastian Bergmann and contributors.
 
     .....SS                                                             7 / 7 (100%)
 
@@ -415,7 +403,7 @@ In order to tell the CI what to do, create a new workflow file in `.github/workf
        runs-on: ubuntu-latest
        strategy:
          matrix:
-           php: [ '7.2', '7.3', '7.4' ]
+           php: [ '7.4', '8.0', '8.1' ]
            minMax: [ 'composerInstallMin', 'composerInstallMax' ]
        steps:
          - name: Checkout
@@ -445,7 +433,7 @@ In order to tell the CI what to do, create a new workflow file in `.github/workf
          - name: Functional tests with sqlite
            run: Build/Scripts/runTests.sh -p ${{ matrix.php }} -d sqlite -s functional
 
-In case of enetcache, we let Github Actions test the extension with the three PHP versions 7.2, 7.3 and 7.4.
+In case of enetcache, we let Github Actions test the extension with the three PHP versions.
 Each of these PHP Versions will also be tested with the highest and lowest compatible dependencies (defined in `strategy.matrix.minMax`).
 All defined steps run on the same checkout, so we will see six test runs in total, one per PHP version with each minMax property.
 Each run will do a separate checkout, `composer install` first, then all the test and linting jobs we defined.
@@ -801,7 +789,7 @@ Now we want all of this automatically checked using Github Actions. As before, w
        runs-on: ubuntu-latest
        strategy:
          matrix:
-           php: [ '7.2', '7.3', '7.4' ]
+           php: [ '7.4', '8.0', '8.1' ]
        steps:
          - name: Checkout
            uses: actions/checkout@v2
