@@ -347,14 +347,9 @@ enforced, or even not applied at all, by returning an empty expression in certai
 
 To add a custom restriction class, use the following snippet:
 
-..  code-block:: php
+..  literalinclude:: _ext_localconf.php
+    :language: php
     :caption: EXT:my_extension/ext_localconf.php
-
-    use MyVendor\MyExtension\Database\Query\Restriction\CustomRestriction;
-
-    if (!isset($GLOBALS['TYPO3_CONF_VARS']['DB']['additionalQueryRestrictions'][CustomRestriction::class])) {
-        $GLOBALS['TYPO3_CONF_VARS']['DB']['additionalQueryRestrictions'][CustomRestriction::class] = [];
-    }
 
 ..  note::
     The class name must be the array key and the value must always be an array,
@@ -369,12 +364,9 @@ Removing third party restrictions is possible, by setting the option
 :php:`disabled` for a restriction to :php:`true` in global TYPO3 configuration
 or :file:`ext_localconf.php` of an extension:
 
-..  code-block:: php
+..  literalinclude:: _ext_localconf_remove.php
+    :language: php
     :caption: EXT:my_extension/ext_localconf.php
-
-    use MyVendor\MyExtension\Database\Query\Restriction\CustomRestriction;
-
-    $GLOBALS['TYPO3_CONF_VARS']['DB']['additionalQueryRestrictions'][CustomRestriction::class]['disabled'] = true;
 
 Examples
 ========

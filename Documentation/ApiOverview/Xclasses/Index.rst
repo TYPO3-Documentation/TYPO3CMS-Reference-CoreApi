@@ -82,15 +82,9 @@ of overloaded (XCLASSed) classes.
 The syntax is as follows and is commonly located in an extension's
 :file:`ext_localconf.php` file:
 
-.. code-block:: php
-   :caption: EXT:some_extension/ext_localconf.php
-
-   use TYPO3\CMS\Backend\Controller\NewRecordController;
-
-   $GLOBALS['TYPO3_CONF_VARS']['SYS']['Objects'][NewRecordController::class] = [
-       'className' => \MyVendor\SomeExtension\Xclass\NewRecordController::class
-   ];
-
+..  literalinclude:: _ext_localconf.php
+    :language: php
+    :caption: EXT:my_extension/ext_localconf.php
 
 In this example, we declare that the :code:`\TYPO3\CMS\Backend\Controller\NewRecordController` class
 will be overridden by the :code:`\T3docs\Examples\Xclass\NewRecordController`

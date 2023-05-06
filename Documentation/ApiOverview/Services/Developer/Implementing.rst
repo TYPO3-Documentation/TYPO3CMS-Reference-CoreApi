@@ -31,34 +31,9 @@ Service registration
 Registering a service is done inside the :file:`ext_localconf.php`
 file. Let's look at what is inside.
 
-.. code-block:: php
-
-    <?php
-    defined('TYPO3') or die();
-
-    \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addService(
-        // Extension Key
-        'babelfish',
-        // Service type
-        'translator',
-        // Service key
-        'tx_babelfish_translator',
-        array(
-            'title' => 'Babelfish',
-            'description' => 'Guess alien languages by using a babelfish',
-
-            'subtype' => '',
-
-            'available' => true,
-            'priority' => 60,
-            'quality' => 80,
-
-            'os' => '',
-            'exec' => '',
-
-            'className' => \Foo\Babelfish\Service\Translator::class
-        )
-    );
+..  literalinclude:: _Implementing/_ext_localconf.php
+    :language: php
+    :caption: EXT:my_extension/ext_localconf.php
 
 A service is registered with TYPO3 CMS by calling
 :code:`\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addService()`.
