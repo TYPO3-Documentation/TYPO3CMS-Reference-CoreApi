@@ -70,7 +70,7 @@ automatically:
 Registering a scheduler task
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Scheduler tasks get registered in the ext_tables.php as well. Note that the Sysext "scheduler" has
+Scheduler tasks get registered in :file:`ext_tables.php` as well. Note that the system extension "scheduler" has
 to be installed for this to work.
 
 
