@@ -91,7 +91,7 @@ Registering a backend module
 
 If your extension needs to provide compatibility with TYPO3 v11 as well as v12
 you can check which version is loaded in the :file:`ext_tables.php` and call
-:php:`ExtensionUtility::registerModule` for v11 to register a Extbase backend
+:php:`ExtensionUtility::registerModule` for v11 to register an Extbase backend
 module:
 
 .. code-block:: php
