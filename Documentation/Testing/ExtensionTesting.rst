@@ -142,9 +142,6 @@ This is how the composer.json file looks before we add a test setup:
       "extra": {
         "branch-alias": {
           "dev-master": "2.x-dev"
-        },
-        "typo3/cms": {
-          "cms-package-dir": "{$vendor-dir}/typo3/cms"
         }
       }
     }
