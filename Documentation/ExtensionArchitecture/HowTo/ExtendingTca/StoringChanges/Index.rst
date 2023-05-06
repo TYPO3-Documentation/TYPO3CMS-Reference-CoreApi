@@ -51,7 +51,7 @@ Core APIs.
 Storing in the overrides folder
 -------------------------------
 
-Since changes to :php:`$GLOBALS['TCA']`
+Changes to :php:`$GLOBALS['TCA']`
 must be stored inside a folder called :file:`Configuration/TCA/Overrides`.
 For clarity files should be named along the pattern
 :file:`<tablename>.php`.
