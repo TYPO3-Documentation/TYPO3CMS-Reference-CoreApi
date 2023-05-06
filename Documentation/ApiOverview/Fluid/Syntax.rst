@@ -153,12 +153,9 @@ There are 3 ways to import ViewHelper namespaces in TYPO3. In all three examples
    Namespaces are registered within
    :php:`$GLOBALS['TYPO3_CONF_VARS']['SYS']['fluid']['namespaces']`, for example:
 
-   .. code-block:: php
-      :caption: EXT:blog_example/ext_localconf.php
-
-       $GLOBALS['TYPO3_CONF_VARS']['SYS']['fluid']['namespaces']['blog'] = [
-           'MyVendor\BlogExample\ViewHelpers',
-       ];
+    ..  literalinclude:: _Syntax/_ext_localconf.php
+        :language: php
+        :caption: EXT:mye_extension/ext_localconf.php
 
 
 Viewhelper attributes

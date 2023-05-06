@@ -1,6 +1,5 @@
 ..  include:: /Includes.rst.txt
 
-
 ..  _logging-writers:
 
 ===========
@@ -60,42 +59,16 @@ The following option is available:
 
     Example of a :sql:`CREATE TABLE` statement for :php:`logTable`:
 
-    ..  code-block:: sql
+    ..  literalinclude:: _ext_tables.sql
+        :language: sql
         :caption: EXT:my_extension/ext_tables.sql
-
-        #
-        # Table structure for table 'tx_examples_log'
-        #
-        # The KEY on request_id is optional
-        #
-        CREATE TABLE tx_examples_log (
-            request_id varchar(13) DEFAULT '' NOT NULL,
-            time_micro double(16,4) NOT NULL default '0.0000',
-            component varchar(255) DEFAULT '' NOT NULL,
-            level tinyint(1) unsigned DEFAULT '0' NOT NULL,
-            message text,
-            data text,
-
-            KEY request (request_id)
-        );
 
     The corresponding configuration might look like this for the example class
     :php:`\T3docs\Examples\Controller`:
 
-    ..  code-block:: php
+    ..  literalinclude:: _ext_localconf.php
+        :language: php
         :caption: EXT:my_extension/ext_localconf.php
-
-        use TYPO3\CMS\Core\Log\LogLevel;
-        use TYPO3\CMS\Core\Log\Writer\DatabaseWriter;
-
-        $GLOBALS['TYPO3_CONF_VARS']['LOG']['T3docs']['Examples']['Controller']['writerConfiguration'] = [
-            LogLevel::DEBUG => [
-                DatabaseWriter::class => [
-                    'logTable' => 'tx_examples_log',
-                ],
-            ],
-        ];
-
 
 ..  warning::
     If you are using a MariaDB Galera Cluster you should definitely add a
@@ -152,25 +125,9 @@ The following options are available:
 
 The corresponding configuration might look like this for the example class
 :php:`\T3docs\Examples\Controller`:
-
-..  code-block:: php
+..  literalinclude:: _ext_localconf_FileWriter.php
+    :language: php
     :caption: EXT:my_extension/ext_localconf.php
-
-    use TYPO3\CMS\Core\Core\Environment;
-    use TYPO3\CMS\Core\Log\LogLevel;
-    use TYPO3\CMS\Core\Log\Writer\FileWriter;
-
-    // Add example configuration for the logging API
-    $GLOBALS['TYPO3_CONF_VARS']['LOG']['T3docs']['Examples']['Controller']['writerConfiguration'] = [
-        // configuration for ERROR level log entries
-        LogLevel::ERROR => [
-            // Add a FileWriter
-            FileWriter::class => [
-                // Configuration for the writer
-                'logFile' => Environment::getVarPath() . '/log/typo3_examples.log',
-            ],
-        ],
-    ];
 
 
 ..  _logging-writers-php:
@@ -181,7 +138,6 @@ PhpErrorLogWriter
 This writer logs into the PHP error log using `error_log()`_
 
 ..  _error_log(): https://www.php.net/manual/en/function.error-log.php
-
 
 ..  _logging-writers-syslog:
 
@@ -220,7 +176,6 @@ Only in the case that all registered writers fail, the log entry with additional
 information will be added to the configured fallback logger (which defaults to
 the :ref:`PhpErrorLog <logging-writers-php>` writer).
 
-
 ..  _logging-writers-usage:
 
 Usage in a custom class
@@ -243,26 +198,9 @@ interface :php:`\Psr\Log\LoggerAwareInterface` and use the
 One or more log writers for this class are configured in the file
 :file:`ext_localconf.php`:
 
-..  code-block:: php
+..  literalinclude:: _ext_localconf_FileWriter_config.php
+    :language: php
     :caption: EXT:my_extension/ext_localconf.php
-
-    use TYPO3\CMS\Core\Core\Environment;
-    use TYPO3\CMS\Core\Log\LogLevel;
-    use TYPO3\CMS\Core\Log\Writer\FileWriter;
-
-    // Add example configuration for the logging API
-    $GLOBALS['TYPO3_CONF_VARS']['LOG']['MyVendor']['MyExtension']['MyClass']['writerConfiguration'] = [
-        // Configuration for ERROR level log entries
-        LogLevel::ERROR => [
-            // Add a FileWriter
-            FileWriter::class => [
-                // Configuration for the writer
-                'logFile' => Environment::getVarPath() . '/log/my_extension.log',
-            ],
-        ],
-    ];
-
-
 
 ..  _logging-writers-examples:
 

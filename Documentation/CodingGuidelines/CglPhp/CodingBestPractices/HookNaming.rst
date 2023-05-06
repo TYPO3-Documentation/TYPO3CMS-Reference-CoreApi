@@ -10,7 +10,7 @@ When introducing new hooks in TYPO3 the naming of the registration arrays
 shall follow this schema:
 
 .. code-block:: php
-   :caption: EXT:some_extension/ext_localconf.php
+   :caption: EXT:my_extension/ext_localconf.php
 
    // assign array of callables or Foo:class->function
    $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['<topic>']['<hook name>'] = [];

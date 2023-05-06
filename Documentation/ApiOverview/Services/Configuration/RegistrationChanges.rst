@@ -11,13 +11,10 @@ Override service registration
 The priority and other values of the original service registration can be
 overridden in any extension's :file:`ext_localconf.php` file. Example:
 
-.. code-block:: php
 
-    // Raise priority of service 'tx_example_sv1' to 110
-   $GLOBALS['TYPO3_CONF_VARS']['T3_SERVICES']['auth']['tx_example_sv1']['priority'] = 110;
-
-    // Disable service 'tx_example_sv1'
-   $GLOBALS['TYPO3_CONF_VARS']['T3_SERVICES']['auth']['tx_example_sv1']['enable'] = false;
+..  literalinclude:: _RegistrationChanges/_ext_localconf.php
+    :language: php
+    :caption: EXT:my_extension/ext_localconf.php
 
 The general syntax is:
 

@@ -17,11 +17,9 @@ see :ref:`typo3ConfVars_fe_typolinkBuilder`.
 You can register a custom link builder in your extension's
 :ref:`ext-localconf-php`:
 
-..  code-block:: php
+..  literalinclude:: _ext_localconf.php
+    :language: php
     :caption: EXT:my_extension/ext_localconf.php
-
-    $GLOBALS['TYPO3_CONF_VARS']['FE']['typolinkBuilder']['mylinkkey'] =
-        \MyVendor\MyExtension\LinkHandler\MyLinkBuilder::class;
 
 The link builders provided by the Core can be found in namespace
 :php:`\TYPO3\CMS\Frontend\Typolink`. It is possible to also create a
