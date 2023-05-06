@@ -213,7 +213,6 @@ to add root :file:`composer.json` details, turning the extension into a project 
           "dev-master": "2.x-dev"
         },
         "typo3/cms": {
-          "cms-package-dir": "{$vendor-dir}/typo3/cms",
           "extension-key": "enetcache",
           "web-dir": ".Build/Web"
         }
