@@ -218,10 +218,6 @@ to add root :file:`composer.json` details, turning the extension into a project 
           "Lolli\\Enetcache\\Tests\\": "Tests"
         }
       },
-      "replace": {
-        "enetcache": "self.version",
-        "typo3-ter/enetcache": "self.version"
-      },
       "extra": {
         "branch-alias": {
           "dev-master": "2.x-dev"
