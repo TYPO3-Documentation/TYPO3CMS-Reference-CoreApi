@@ -82,8 +82,9 @@ Default event listeners
 The listener :php:`\TYPO3\CMS\Redirects\EventListener\AddPageTypeZeroSource`
 creates a :php:`\TYPO3\CMS\Redirects\RedirectUpdate\PageTypeSource` for a page
 before the slug has been changed. The full URI is built to fill the `source_host`
-and `source_path`, which takes configured `RouteEnhancers` and `RouteDecorators`
-into account, e.g. the `PageType route decorator`.
+and `source_path`, which takes configured
+:ref:`route enhancers and route decorators <routing-advanced-routing-configuration-enhancers>`
+into account, for example, the :ref:`PageType route decorator <routing-pagetype-decorator>`.
 
 ..  note::
 
