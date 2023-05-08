@@ -19,7 +19,7 @@ final class ImportDataController
         $queryParameters = $request->getParsedBody();
         $id = (int)$queryParameters['id'];
 
-        if (empty($id)) {
+        if ($id === 0) {
             $response->getBody()->write(json_encode(['success' => false]));
             return $response;
         }
