@@ -93,7 +93,7 @@ time this page was originally written, it had three branches:
 Branch master will be branched later as `3` when Core version 10 gains traction.
 
 The extension comes with a couple of unit tests
-in `Tests/Unit`, we want to run these locally and by GitHub Actions, along with
+in :file:`Tests/Unit/`, we want to run these locally and by GitHub Actions, along with
 some PHP linting to verify there is no fatal PHP error.
 
 Starting point
