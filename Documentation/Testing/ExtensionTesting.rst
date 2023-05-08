@@ -223,7 +223,7 @@ Note all added properties are only used within our root :file:`composer.json` fi
 extension is loaded as a dependency in our project. Note: We specify `.Build` as
 build directory. This is where our TYPO3 instance will be set up. We add `typo3/testing-framework`
 in a v11 compatible version as `require-dev` dependency. We add a `autoload-dev` to tell composer
-that test classes are found in the `Tests` directory.
+that test classes are found in the :file:`Tests/` directory.
 
 The class of the testing framework links the main directory as
 extension `.Build/Web/typo3conf/ext/enetcache` in our extension specific TYPO3 instance. It needs the
