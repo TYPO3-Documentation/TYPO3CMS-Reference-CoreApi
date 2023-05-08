@@ -8,7 +8,7 @@ use TYPO3\CMS\Backend\Form\AbstractNode;
 
 final class ImportDataControl extends AbstractNode
 {
-    private string $langFile = 'LLL:EXT:my_extension/Ressources/private/Languages/locallang_db.xlf';
+    private string $langFile = 'LLL:EXT:my_extension/Ressources/Private/Language/locallang_db.xlf';
     public function render(): array
     {
         $result = [
