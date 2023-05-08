@@ -5,9 +5,9 @@
 
 .. _extension-configuration-backend:
 
-================================
+===============
 :file:`Backend`
-================================
+===============
 
 The folder :file:`EXT:my_extension/Configuration/Backend/` may contain
 configuration that is important within the TYPO3 Backend.
@@ -15,8 +15,10 @@ configuration that is important within the TYPO3 Backend.
 All files in this directory are automatically included during the TYPO3
 bootstrap.
 
+.. _extension-configuration-backend-ajaxroutes:
+
 :file:`AjaxRoutes.php`
-================================
+======================
 
 Complete path: :file:`EXT:my_extension/Configuration/Backend/AjaxRoutes.php`
 
@@ -27,8 +29,11 @@ Read more about :ref:`Using Ajax in the backend <ajax-backend>`.
 
 .. include:: /CodeSnippets/Manual/Extension/Configuration/BackendAjaxRoutes.rst.txt
 
+
+.. _extension-configuration-backend-routes:
+
 :file:`Routes.php`
-================================
+==================
 
 Complete path: :file:`EXT:my_extension/Configuration/Backend/Routes.php`
 
@@ -41,6 +46,9 @@ file, which you can use as example:
 :t3src:`backend/Configuration/Backend/Routes.php`
 
 Read more about :ref:`Backend routing <backend-routing>`.
+
+
+.. _extension-configuration-backend-modules:
 
 :file:`Modules.php`
 ====================
