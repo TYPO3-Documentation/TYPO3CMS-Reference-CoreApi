@@ -116,28 +116,15 @@ extension key is used.
 
 For a backend module:
 
-.. code-block:: php
-   :caption: EXT:my_extension/ext_tables.php
-
-   use TYPO3\CMS\Extbase\Utility\ExtensionUtility;
-
-   ExtensionUtility::registerModule(
-       '<ExtensionName>',
-       // ...
-   );
+..  literalinclude:: _Modules.php
+    :language: php
+    :caption: EXT:my_extension/Configuration/Backend/Modules.php
 
 For a frontend module:
 
-.. code-block:: php
-   :caption: EXT:my_extension/ext_tables.php
-
-   use TYPO3\CMS\Extbase\Utility\ExtensionUtility;
-
-   ExtensionUtility::configurePlugin(
-       '<ExtensionName>',
-       // ...
-   );
-
+..  literalinclude:: _ext_localconf.php
+    :language: php
+    :caption: EXT:my_extension/ext_localconf.php
 
 .. index:: pair: Namespaces; Tests
 .. _namespaces-test:
