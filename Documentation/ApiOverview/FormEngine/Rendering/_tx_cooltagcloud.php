@@ -1,6 +1,7 @@
 <?php
 
 defined('TYPO3') or die();
+
 $GLOBALS['TCA']['tx_cooltagcloud']['columns']['my_field'] = [
     'label' => 'Cool Tag cloud',
     'config' => [
