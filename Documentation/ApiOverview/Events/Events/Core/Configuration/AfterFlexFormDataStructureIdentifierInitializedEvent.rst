@@ -1,7 +1,7 @@
-.. include:: /Includes.rst.txt
-.. index:: Events; AfterFlexFormDataStructureIdentifierInitializedEvent
+..  include:: /Includes.rst.txt
+..  index:: Events; AfterFlexFormDataStructureIdentifierInitializedEvent
 
-.. _AfterFlexFormDataStructureIdentifierInitializedEvent:
+..  _AfterFlexFormDataStructureIdentifierInitializedEvent:
 
 ====================================================
 AfterFlexFormDataStructureIdentifierInitializedEvent
@@ -9,11 +9,13 @@ AfterFlexFormDataStructureIdentifierInitializedEvent
 
 ..  versionadded:: 12.0
     This event was introduced to replace and improve the method
-    :php:`parseDataStructureByIdentifierPostProcess()` ot the hook
+    :php:`parseDataStructureByIdentifierPostProcess()` of the hook
     :php:`$GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['workspaces']['modifyDifferenceArray']`.
 
-This event can be used to control the flex form parsing in an
-object oriented approach.
+The PSR-14 event
+:php:`\TYPO3\CMS\Core\Configuration\Event\AfterFlexFormDataStructureIdentifierInitializedEvent`
+can be used to control the :ref:`FlexForm <flexforms>` parsing in an
+object-oriented approach.
 
 ..  seealso::
 
@@ -32,25 +34,9 @@ This example is available in our
 
 Registration of the events in the extension's :file:`Services.yaml`:
 
-..  code-block:: yaml
+..  literalinclude:: _AfterFlexFormDataStructureIdentifierInitializedEvent/_Services.yaml
+    :language: yaml
     :caption: EXT:examples/Configuration/Services.yaml
-
-    services:
-       T3docs\Examples\EventListener\Core\Configuration\FlexFormParsingModifyEventListener:
-          tags:
-             - name: event.listener
-               identifier: 'form-framework/set-data-structure'
-               method: 'setDataStructure'
-             - name: event.listener
-               identifier: 'form-framework/modify-data-structure'
-               method: 'modifyDataStructure'
-             - name: event.listener
-               identifier: 'form-framework/set-data-structure-identifier'
-               method: 'setDataStructureIdentifier'
-             - name: event.listener
-               identifier: 'form-framework/modify-data-structure-identifier'
-               method: 'modifyDataStructureIdentifier'
-
 
 The corresponding event listener class:
 
