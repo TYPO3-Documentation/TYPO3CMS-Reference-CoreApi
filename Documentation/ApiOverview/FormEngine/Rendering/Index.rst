@@ -119,7 +119,7 @@ field:
     :language: php
     :caption: EXT:my_extension/ext_localconf.php
 
-The trick here is that "ckeditor" registers his resolver with ah higher priority (50) than "rtehtmlarea" (40), so the
+The trick here is that CKEditor registers his resolver with a higher priority (50) than "rtehtmlarea" (40), so the
 "ckeditor" resolver is called first and wins if both extensions are loaded and if both return a valid class name.
 
 
