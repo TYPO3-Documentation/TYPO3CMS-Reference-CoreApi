@@ -94,7 +94,7 @@ used for the :php:`$cache` argument of :php:`MyClass`, the :ref:`container
 service configuration <configure-dependency-injection-in-extensions>` needs to
 be extended:
 
-..  literalinclude:: _Services.yaml
+..  literalinclude:: _Services_autowiring.yaml
     :language: yaml
     :caption: EXT:my_extension/Configuration/_Services_autowiring.yaml
 
