@@ -71,7 +71,7 @@ including containers, elements, fieldInformation, fieldWizards and fieldControls
 can be fully adapted and extended if needed. It is possible to transparently "kick-out" a Core container and to
 substitute it with an own implementation.
 
-For example, the TemplaVoila implementation needs to add additional render capabilities of the flex form rendering
+For example, the TemplaVoila implementation needs to add additional render capabilities of the FlexForm rendering
 to add for instance an own multi-language rendering of flex fields. It does that by overriding the default
 flex container with own implementation:
 
