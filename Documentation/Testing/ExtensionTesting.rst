@@ -229,7 +229,7 @@ The class of the testing framework links the main directory as
 extension `.Build/Web/typo3conf/ext/enetcache` in our extension specific TYPO3 instance. It needs the
 two additional properties `web-dir` and `extension-key` to do that.
 
-It is also necessary to have a directory file:`Resources/Public` for this to
+It is also necessary to have a directory file:`Resources/Public/` for this to
 work (since TYPO3 v11).
 
 Now, before we start playing around with this setup, we instruct `git` to ignore runtime
