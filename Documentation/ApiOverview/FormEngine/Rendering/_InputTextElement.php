@@ -25,7 +25,7 @@ final class InputTextElement extends AbstractFormElement
         ],
     ];
 
-    public function render()
+    public function render(): array
     {
         $resultArray = $this->initializeResultArray();
 
