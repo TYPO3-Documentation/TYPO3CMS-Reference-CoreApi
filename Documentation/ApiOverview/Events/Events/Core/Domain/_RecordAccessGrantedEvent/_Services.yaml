@@ -1,0 +1,5 @@
+services:
+  MyVendor\MyExtension\Domain\Access\MyEventListener:
+    tags:
+      - name: event.listener
+        identifier: 'my-extension/set-access-granted'
