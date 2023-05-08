@@ -139,7 +139,7 @@ This is how the composer.json file looks before we add a test setup:
     }
 
 This is a typical composer.json file without any complexity: It's a `typo3-cms-extension`, with an
-author and a license. We are stating that "I need at least 11.5.0 of cms-core" and we tell the auto loader
+author and a license. We are stating that "I need at least 11.5.0 of cms-core" and we tell the autoloader
 "find all class names starting with :php:`Lolli\Enetcache` in the Classes/ directory".
 
 The extension already contains some unit tests that extend `typo3/testing-framework`'s base
