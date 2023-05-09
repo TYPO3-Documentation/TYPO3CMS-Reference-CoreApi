@@ -1,34 +1,32 @@
-.. include:: /Includes.rst.txt
-.. index:: Events; AfterMailerInitializationEvent
-.. _AfterMailerInitializationEvent:
+..  include:: /Includes.rst.txt
+..  index:: Events; AfterMailerInitializationEvent
+..  _AfterMailerInitializationEvent:
 
 ==============================
 AfterMailerInitializationEvent
 ==============================
 
-This event is fired once a new Mailer is instantiated with specific transport settings.
-So it is possible to add custom mailing settings.
+The PSR-14 event :php:`\TYPO3\CMS\Core\Mail\Event\AfterMailerInitializationEvent`
+is fired once a new :ref:`mailer <mail>` is instantiated with specific transport
+settings. So it is possible to add custom mailing settings.
 
 Example
 =======
 
-An example listener, which hooks into the Mailer API to modify Mailer settings to not send any emails,
-could look like this:
+Registration of the event listener in the extension's :file:`Services.yaml`:
 
-.. code-block:: php
+..  literalinclude:: _AfterMailerInitializationEvent/_Services.yaml
+    :language: yaml
+    :caption: EXT:my_extension/Configuration/Services.yaml
 
-   namespace MyCompany\MyPackage\EventListener;
-   use TYPO3\CMS\Core\Mail\Event\AfterMailerInitializationEvent;
+An example listener, which hooks into the Mailer API to modify mailer settings
+to not send any emails ("null mailer"), could look like this:
 
-   final class NullMailer
-   {
-       public function __invoke(AfterMailerInitializationEvent $event): void
-       {
-           $event->getMailer()->injectMailSettings(['transport' => 'null']);
-       }
-   }
+..  literalinclude:: _AfterMailerInitializationEvent/_MyEventListener.php
+    :language: php
+    :caption: EXT:my_extension/Classes/Mail/EventListener/MyEventListener.php
 
 API
 ===
 
-.. include:: /CodeSnippets/Events/Core/AfterMailerInitializationEvent.rst.txt
+..  include:: /CodeSnippets/Events/Core/AfterMailerInitializationEvent.rst.txt

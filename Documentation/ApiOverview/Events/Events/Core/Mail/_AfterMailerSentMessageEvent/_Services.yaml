@@ -1,0 +1,5 @@
+services:
+  MyVendor\MyExtension\Mail\EventListener\MyEventListener:
+    tags:
+      - name: event.listener
+        identifier: 'my-extension/process-sent-message'
