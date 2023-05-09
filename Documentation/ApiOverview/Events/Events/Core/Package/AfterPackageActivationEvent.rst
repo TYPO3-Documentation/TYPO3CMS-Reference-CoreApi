@@ -1,14 +1,15 @@
-.. include:: /Includes.rst.txt
-.. index:: Events; AfterPackageActivationEvent
-.. _AfterPackageActivationEvent:
+..  include:: /Includes.rst.txt
+..  index:: Events; AfterPackageActivationEvent
+..  _AfterPackageActivationEvent:
 
 ===========================
 AfterPackageActivationEvent
 ===========================
 
-Event that is triggered after a package has been activated.
+The PSR-14 event :php:`\TYPO3\CMS\Core\Mail\Event\AfterPackageActivationEvent`
+is triggered after a package has been activated.
 
 API
 ===
 
-.. include:: /CodeSnippets/Events/Core/AfterPackageActivationEvent.rst.txt
+..  include:: /CodeSnippets/Events/Core/AfterPackageActivationEvent.rst.txt
