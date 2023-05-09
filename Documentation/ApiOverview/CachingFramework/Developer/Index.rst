@@ -94,9 +94,9 @@ used for the :php:`$cache` argument of :php:`MyClass`, the :ref:`container
 service configuration <configure-dependency-injection-in-extensions>` needs to
 be extended:
 
-..  literalinclude:: _Services.yaml
+..  literalinclude:: _Services_autowiring.yaml
     :language: yaml
-    :caption: EXT:my_extension/Configuration/_Services_autowiring.yaml
+    :caption: EXT:my_extension/Configuration/Services.yaml
 
 Here :yaml:`@cache.myext_mycache` refers to the cache service we defined above.
 This setup allows you to freely inject the very same cache into any class.
