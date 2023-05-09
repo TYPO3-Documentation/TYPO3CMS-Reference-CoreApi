@@ -21,24 +21,24 @@ to persist stuff in the database.
 
 The rendering part of the :php:`EditDocumentController` job splits into these parts:
 
-* Initialize main FormEngine data array using :code:`POST` or :code:`GET` data to specify which specific record(s)
-  should be edited.
+*   Initialize main FormEngine data array using :code:`POST` or :code:`GET` data to specify which specific record(s)
+    should be edited.
 
-* Select which group of DataProviders should be used.
+*   Select which group of DataProviders should be used.
 
-* Trigger FormEngine DataCompiler to enrich the initialized data array with further data by calling all data
-  providers specified by selected data provider group.
+*   Trigger FormEngine DataCompiler to enrich the initialized data array with further data by calling all data
+    providers specified by selected data provider group.
 
-* Hand over DataCompiler result to an entry "render container" of FormEngine and receive a result array.
+*   Hand over DataCompiler result to an entry "render container" of FormEngine and receive a result array.
 
-* Take result array containing HTML, CSS and JavaScript details and put them into :php:`FormResultCompiler` which
-  hands them over to the :php:`PageRenderer`.
+*   Take result array containing HTML, CSS and JavaScript details and put them into :php:`FormResultCompiler` which
+    hands them over to the :php:`PageRenderer`.
 
-* Let the :php:`PageRenderer` output its compiled result.
+*   Let the :php:`PageRenderer` output its compiled result.
 
 
-.. figure:: /Images/Plantuml/FormEngine/FormEngineMainWorkflow.svg
-   :alt: Main FormEngine workflow
+..  figure:: /Images/Plantuml/FormEngine/FormEngineMainWorkflow.svg
+    :alt: Main FormEngine workflow
 
 The controller does two distinct things here: First, it initializes a data array and lets it get enriched by
 data providers of FormEngine which add all information needed for the rendering part. Then feed this data array
@@ -46,22 +46,9 @@ to the rendering part of FormEngine to end up with a result array containing all
 
 In code, this basic workflow looks like this:
 
-..  code-block:: php
-
-    $formDataGroup = GeneralUtility::makeInstance(TcaDatabaseRecord::class);
-    $formDataCompiler = GeneralUtility::makeInstance(FormDataCompiler::class);
-    $nodeFactory = GeneralUtility::makeInstance(NodeFactory::class);
-    $formResultCompiler = GeneralUtility::makeInstance(FormResultCompiler::class);
-    $formDataCompilerInput = [
-        'request' => $request, // the PSR-7 request object
-        'tableName' => $table,
-        'vanillaUid' => (int)$theUid,
-        'command' => $command,
-    ];
-    $formData = $formDataCompiler->compile($formDataCompilerInput, $formDataGroup);
-    $formData['renderType'] = 'outerWrapContainer';
-    $formResult = $nodeFactory->create($formData)->render();
-    $formResultCompiler->mergeResult($formResult);
+..  literalinclude:: _SomeClass.php
+    :language: php
+    :caption: EXT:my_extension/Classes/SomeClass.php
 
 ..  deprecated:: 12.4
     Using the FormEngine data provider to render records without passing the
@@ -76,15 +63,15 @@ render-relevant information, then call the render engine using this array to com
 
 This two-fold process has a number of advantages:
 
-* The data compiler step can be regulated by a controller to only enrich with stuff that is needed in any given context.
-  This part is supported by encapsulating single data providers in data groups, single data providers can be omitted if
-  not relevant in given scope.
+*   The data compiler step can be regulated by a controller to only enrich with stuff that is needed in any given context.
+    This part is supported by encapsulating single data providers in data groups, single data providers can be omitted if
+    not relevant in given scope.
 
-* Data providing and rendering is split: Controllers could re-use the rendering part of FormEngine while
-  all or parts of the data providers are omitted, or their data comes from "elsewhere". Furthermore, controllers can
-  re-use the data providing part of FormEngine and output the result in an entirely different way than HTML. The
-  latter is for instance used when FormEngine is triggered for a TCA tree by an Ajax call and thus outputs a JSON array.
+*   Data providing and rendering is split: Controllers could re-use the rendering part of FormEngine while
+    all or parts of the data providers are omitted, or their data comes from "elsewhere". Furthermore, controllers can
+    re-use the data providing part of FormEngine and output the result in an entirely different way than HTML. The
+    latter is for instance used when FormEngine is triggered for a TCA tree by an Ajax call and thus outputs a JSON array.
 
-* The code constructs behind "data providing" and "rendering" can be different to allow higher re-use and more
-  flexibility with having the "data array" as main communication base in between. This will become more obvious
-  in the next sections where it is shown that data providers are a linked list, while rendering is a tree.
+*   The code constructs behind "data providing" and "rendering" can be different to allow higher re-use and more
+    flexibility with having the "data array" as main communication base in between. This will become more obvious
+    in the next sections where it is shown that data providers are a linked list, while rendering is a tree.
