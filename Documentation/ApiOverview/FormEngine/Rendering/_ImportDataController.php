@@ -17,7 +17,7 @@ final class ImportDataController
     public function importDataAction(ServerRequestInterface $request, ResponseInterface $response): ResponseInterface
     {
         $queryParameters = $request->getParsedBody();
-        $id = (int)$queryParameters['id'];
+        $id = (int)($queryParameters['id'] ?? 0);
 
         if ($id === 0) {
             $response->getBody()->write(json_encode(['success' => false]));
