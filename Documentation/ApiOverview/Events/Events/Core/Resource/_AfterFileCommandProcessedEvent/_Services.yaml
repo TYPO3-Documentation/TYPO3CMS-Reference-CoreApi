@@ -2,4 +2,4 @@ services:
   MyVendor\MyExtension\Resource\EventListener\MyEventListener:
     tags:
       - name: event.listener
-        identifier: 'my-extension/after-default-upload-folder-was-resolved'
+        identifier: 'my-extension/after-file-command-processed'
