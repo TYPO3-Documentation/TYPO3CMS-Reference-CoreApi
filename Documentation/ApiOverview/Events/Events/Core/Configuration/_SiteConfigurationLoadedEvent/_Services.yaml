@@ -1,0 +1,5 @@
+services:
+  MyVendor\MyExtension\Configuration\EventListener\MyEventListener:
+    tags:
+      - name: event.listener
+        identifier: 'my-extension/site-configuration-loaded'

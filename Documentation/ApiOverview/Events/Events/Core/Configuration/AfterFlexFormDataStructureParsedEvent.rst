@@ -1,7 +1,7 @@
-.. include:: /Includes.rst.txt
-.. index:: Events; AfterFlexFormDataStructureParsedEvent
+..  include:: /Includes.rst.txt
+..  index:: Events; AfterFlexFormDataStructureParsedEvent
 
-.. _AfterFlexFormDataStructureParsedEvent:
+..  _AfterFlexFormDataStructureParsedEvent:
 
 =====================================
 AfterFlexFormDataStructureParsedEvent
@@ -9,19 +9,20 @@ AfterFlexFormDataStructureParsedEvent
 
 ..  versionadded:: 12.0
     This event was introduced to replace and improve the method
-    :php:`getDataStructureIdentifierPostProcess()` ot the hook
+    :php:`getDataStructureIdentifierPostProcess()` of the hook
     :php:`$GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['workspaces']['modifyDifferenceArray']`.
 
-This event can be used to control the flex form parsing in an
-object oriented approach.
+The PSR-14 event
+:php:`\TYPO3\CMS\Core\Configuration\Event\AfterFlexFormDataStructureParsedEvent`
+can be used to control the :ref:`FlexForm <flexforms>` parsing in an
+object-oriented approach.
 
 ..  seealso::
 
     *   :ref:`AfterFlexFormDataStructureIdentifierInitializedEvent`
-    *   :ref:`AfterFlexFormDataStructureParsedEvent`
     *   :ref:`BeforeFlexFormDataStructureIdentifierInitializedEvent`
     *   :ref:`BeforeFlexFormDataStructureParsedEvent`
-    *   :ref:`combined Example <AfterFlexFormDataStructureIdentifierInitializedEvent-Example>`
+    *   :ref:`combined example <AfterFlexFormDataStructureIdentifierInitializedEvent-Example>`
 
 API
 ===
