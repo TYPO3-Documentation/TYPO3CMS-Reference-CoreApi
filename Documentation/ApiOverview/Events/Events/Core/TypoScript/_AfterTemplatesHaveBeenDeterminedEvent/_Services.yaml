@@ -1,0 +1,5 @@
+services:
+  MyVendor\MyExtension\TypoScript\EventListener\MyEventListener:
+    tags:
+      - name: event.listener
+        identifier: 'my-extension/post-process-sys-templates'
