@@ -408,6 +408,9 @@ Create an :sql:`INSERT` query. Typical usage:
 Read :ref:`how to correctly instantiate <database-query-builder-instantiation>`
 a query builder with the connection pool.
 
+The `uid` of the created database row can be fetched from the connection
+by using :ref:`$queryBuilder->getConnection()->lastInsertId() <database-connection-last-insert-id>`.
+
 Remarks:
 
 *   Often it is often to use :php:`->insert()` or :php:`->bulkInsert()` of the
