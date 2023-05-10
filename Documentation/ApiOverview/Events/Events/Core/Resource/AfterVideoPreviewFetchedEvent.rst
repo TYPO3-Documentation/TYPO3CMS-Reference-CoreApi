@@ -2,7 +2,6 @@
 ..  index:: Events; AfterVideoPreviewFetchedEvent
 ..  _AfterVideoPreviewFetchedEvent:
 
-
 =============================
 AfterVideoPreviewFetchedEvent
 =============================
@@ -20,32 +19,17 @@ Example
 
 Registration of the event listener in the extension's :file:`Services.yaml`:
 
-..  code-block:: yaml
+..  literalinclude:: _AfterVideoPreviewFetchedEvent/_Services.yaml
+    :language: yaml
     :caption: EXT:my_extension/Configuration/Services.yaml
-
-    MyVendor\MyExtension\EventListener\ExampleEventListener:
-      tags:
-        - name: event.listener
-          identifier: 'exampleEventListener'
 
 The corresponding event listener class:
 
-..  code-block:: php
-    :caption: EXT:my_extension/Classes/EventListener/ExampleEventListener.php
-
-    use TYPO3\CMS\Core\Resource\OnlineMedia\Event\AfterVideoPreviewFetchedEvent;
-
-    final class ExampleEventListener
-    {
-        public function __invoke(AfterVideoPreviewFetchedEvent $event): void
-        {
-            $event->setPreviewImageFilename(
-                '/var/www/html/typo3temp/assets/online_media/new-preview-image.jpg'
-            );
-        }
-    }
+..  literalinclude:: _AfterVideoPreviewFetchedEvent/_MyEventListener.php
+    :language: php
+    :caption: EXT:my_extension/Classes/Resource/EventListener/MyEventListener.php
 
 API
 ===
 
-.. include:: /CodeSnippets/Events/Core/Resource/AfterVideoPreviewFetchedEvent.rst.txt
+..  include:: /CodeSnippets/Events/Core/Resource/AfterVideoPreviewFetchedEvent.rst.txt

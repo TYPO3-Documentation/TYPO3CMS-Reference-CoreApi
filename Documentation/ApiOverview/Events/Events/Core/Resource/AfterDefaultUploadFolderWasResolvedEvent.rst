@@ -1,6 +1,6 @@
-.. include:: /Includes.rst.txt
-.. index:: Events; AfterDefaultUploadFolderWasResolvedEvent
-.. _AfterDefaultUploadFolderWasResolvedEvent:
+..  include:: /Includes.rst.txt
+..  index:: Events; AfterDefaultUploadFolderWasResolvedEvent
+..  _AfterDefaultUploadFolderWasResolvedEvent:
 
 ========================================
 AfterDefaultUploadFolderWasResolvedEvent
@@ -34,4 +34,4 @@ The corresponding event listener class:
 API
 ===
 
-.. include:: /CodeSnippets/Events/Core/Resource/AfterDefaultUploadFolderWasResolvedEvent.rst.txt
+..  include:: /CodeSnippets/Events/Core/Resource/AfterDefaultUploadFolderWasResolvedEvent.rst.txt

@@ -1,46 +1,37 @@
-.. include:: /Includes.rst.txt
-.. index:: Events; AfterFileCommandProcessedEvent
-.. _AfterFileCommandProcessedEvent:
+..  include:: /Includes.rst.txt
+..  index:: Events; AfterFileCommandProcessedEvent
+..  _AfterFileCommandProcessedEvent:
 
 ==============================
 AfterFileCommandProcessedEvent
 ==============================
 
-.. versionadded:: 11.4
+..  versionadded:: 11.4
 
-The :php:`AfterFileCommandProcessedEvent` can be used to perform additional tasks for specific file commands. For example, trigger a custom indexer after a file has been uploaded.
+The PSR-14 event
+:php:`\TYPO3\CMS\Core\Resource\Event\AfterFileCommandProcessedEvent` can be used
+to perform additional tasks for specific file commands. For example, trigger a
+custom indexer after a file has been uploaded.
 
-The `AfterFileCommandProcessedEvent` is fired in the :php:`ExtendedFileUtility`
-class.
+This event is fired in the
+:php:`\TYPO3\CMS\Core\Utility\File\ExtendedFileUtility` class.
 
 Example
 =======
 
 Registration of the event listener in the extension's :file:`Services.yaml`:
 
-.. code-block:: yaml
-
-   MyVendor\MyPackage\File\MyEventListener:
-     tags:
-       - name: event.listener
-         identifier: 'my-package/file/my-event-listener'
+..  literalinclude:: _AfterFileCommandProcessedEvent/_Services.yaml
+    :language: yaml
+    :caption: EXT:my_extension/Configuration/Services.yaml
 
 The corresponding event listener class:
 
-.. code-block:: php
-
-    use TYPO3\CMS\Core\Resource\Event\AfterFileCommandProcessedEvent;
-
-    final class MyEventListener {
-
-        public function __invoke(AfterFileCommandProcessedEvent $event): void
-        {
-            // do magic here
-        }
-
-    }
+..  literalinclude:: _AfterFileCommandProcessedEvent/_MyEventListener.php
+    :language: php
+    :caption: EXT:my_extension/Classes/Resource/EventListener/MyEventListener.php
 
 API
 ===
 
-.. include:: /CodeSnippets/Events/Core/Resource/AfterFileCommandProcessedEvent.rst.txt
+..  include:: /CodeSnippets/Events/Core/Resource/AfterFileCommandProcessedEvent.rst.txt
