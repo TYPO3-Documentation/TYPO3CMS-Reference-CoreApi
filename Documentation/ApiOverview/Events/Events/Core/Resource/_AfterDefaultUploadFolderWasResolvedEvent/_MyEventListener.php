@@ -6,7 +6,7 @@ namespace MyVendor\MyExtension\Resource\EventListener;
 
 use TYPO3\CMS\Core\Resource\Event\AfterDefaultUploadFolderWasResolvedEvent;
 
-final class AfterDefaultUploadFolderWasResolvedEventListener
+final class MyEventListener
 {
     public function __invoke(AfterDefaultUploadFolderWasResolvedEvent $event): void
     {
