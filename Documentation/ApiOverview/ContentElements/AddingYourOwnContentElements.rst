@@ -78,7 +78,8 @@ The following call needs to be added to the file
 :file:`Configuration/TCA/Overrides/tt_content.php`.
 
 .. code-block:: php
-
+    
+    <?php 
    // Adds the content element to the "Type" dropdown
    \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTcaSelectItem(
       'tt_content',
