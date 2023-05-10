@@ -37,7 +37,7 @@ A listener using mentioned PSR-14 event could look like the following.
 
          namespace MyVendor\MyExtension\EventListener;
 
-         use TYPO3\CMS\SetupEvent\AddJavaScriptModulesEvent;
+         use TYPO3\CMS\Setup\Event\AddJavaScriptModulesEvent;
 
          final class CustomUserSettingsListener
          {
