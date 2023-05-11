@@ -8,12 +8,15 @@ ActionController
 ================
 
 Most Extbase controllers are based on the
-:php:`TYPO3\CMS\Extbase\Mvc\Controller\ActionController`. It is theoretically
+:php:`\TYPO3\CMS\Extbase\Mvc\Controller\ActionController`. It is theoretically
 possible to base a controller directly on the
 :php:`\TYPO3\CMS\Extbase\Mvc\Controller\ControllerInterface`, however there are
 rarely use cases for that. Implementing the :php:`ControllerInterface` does not
 guarantee a controller to be dispatchable. It is not recommended to base
 your controller directly on the :php:`ControllerInterface`.
+
+.. contents::
+   :local:
 
 .. _extbase_class_hierarchy-actions:
 
@@ -116,3 +119,11 @@ index action of the :php:`PostController`, we follow to the list of blogs
 displayed by the :php:`indexAction` of the :php:`BlogController`.
 
 .. include:: /CodeSnippets/Extbase/Controllers/ForwardAction.rst.txt
+
+Events
+======
+
+Two :ref:`PSR-14 events <EventDispatcher>` are available:
+
+*   :ref:`AfterRequestDispatchedEvent`
+*   :ref:`BeforeActionCallEvent`
