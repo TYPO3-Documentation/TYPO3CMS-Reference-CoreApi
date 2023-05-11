@@ -1,6 +1,6 @@
-.. include:: /Includes.rst.txt
-.. index:: pair: Events; Extbase Configuration
-.. _eventlist-extbase-configuration:
+..  include:: /Includes.rst.txt
+..  index:: pair: Events; Extbase Configuration
+..  _eventlist-extbase-configuration:
 
 =============
 Configuration
@@ -11,8 +11,8 @@ in EXT:extbase, namespace Configuration.
 
 **Contents:**
 
-.. toctree::
-   :titlesonly:
-   :glob:
+..  toctree::
+    :titlesonly:
+    :glob:
 
-   *
+    *
