@@ -1,14 +1,16 @@
-.. include:: /Includes.rst.txt
-.. index:: Events; EntityUpdatedInPersistenceEvent
-.. _EntityUpdatedInPersistenceEvent:
+..  include:: /Includes.rst.txt
+..  index:: Events; EntityUpdatedInPersistenceEvent
+..  _EntityUpdatedInPersistenceEvent:
 
 ===============================
 EntityUpdatedInPersistenceEvent
 ===============================
 
-Event which is fired after an object/entity was persisted on update.
+The PSR-14 event
+:php:`\TYPO3\CMS\Extbase\Event\Persistence\EntityUpdatedInPersistenceEvent`
+is fired after an object/entity was persisted on update.
 
 API
----
+===
 
-.. include:: /CodeSnippets/Events/Extbase/EntityUpdatedInPersistenceEvent.rst.txt
+..  include:: /CodeSnippets/Events/Extbase/EntityUpdatedInPersistenceEvent.rst.txt

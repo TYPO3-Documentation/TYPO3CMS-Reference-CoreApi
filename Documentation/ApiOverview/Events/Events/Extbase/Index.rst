@@ -3,9 +3,9 @@
 .. _eventlist-extbase:
 
 
-==========================
+=======
 Extbase
-==========================
+=======
 
 The following list contains :ref:`PSR-14 events <EventDispatcher>`
 in EXT:extbase.

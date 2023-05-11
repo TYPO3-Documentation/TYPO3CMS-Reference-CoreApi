@@ -33,4 +33,4 @@ The corresponding event listener class:
 API
 ===
 
-.. include:: /CodeSnippets/Events/Extbase/BeforeFlexFormConfigurationOverrideEvent.rst.txt
+..  include:: /CodeSnippets/Events/Extbase/BeforeFlexFormConfigurationOverrideEvent.rst.txt
