@@ -366,6 +366,12 @@ the following statements have to be made:
 If you think that your entities need to use/access services, you need to find
 other ways to implement it.
 
+Event
+-----
+
+The PSR-14 event :ref:`AfterObjectThawedEvent` is available to modify values
+when creating domain objects.
+
 
 Eager loading and lazy loading
 ==============================
