@@ -1,0 +1,5 @@
+services:
+  MyVendor\MyExtension\EventListener\MyEventListener:
+    tags:
+      - name: event.listener
+        identifier: 'my-extension/extension-activated'
