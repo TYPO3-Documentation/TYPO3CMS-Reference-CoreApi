@@ -445,7 +445,7 @@ In order to tell the CI what to do, create a new workflow file in `.github/workf
          - name: Functional tests with sqlite
            run: Build/Scripts/runTests.sh -p ${{ matrix.php }} -d sqlite -s functional
 
-In case of enetcache, we let Github Actions test the extension with the three PHP versions.
+In case of enetcache, we let Github Actions test the extension with the several PHP versions.
 Each of these PHP Versions will also be tested with the highest and lowest compatible dependencies (defined in `strategy.matrix.minMax`).
 All defined steps run on the same checkout, so we will see six test runs in total, one per PHP version with each minMax property.
 Each run will do a separate checkout, `composer install` first, then all the test and linting jobs we defined.
