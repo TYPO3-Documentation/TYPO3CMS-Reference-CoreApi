@@ -4,7 +4,7 @@ namespace MyVendor\MyExtension\Package\EventListener;
 
 use TYPO3\CMS\Core\Package\Event\AfterPackageActivationEvent;
 
-class Setup
+final class MyEventListener
 {
     public function __invoke(AfterPackageActivationEvent $event)
     {
