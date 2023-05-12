@@ -17,8 +17,6 @@ Extension testing
         core version since testing 2 core versions was not supported well at the
         time. Also, when this page was originally written, enetcache tested only one core
         version and supported only one core version per branch).
-    *   Should testing 2 core version in one branch still be discouraged?
-    *   Referring to nimut - is this supported long term?
 
     For now, we document testing only one core version here, even if 2 is possible
     and enetcache supports it.
@@ -39,29 +37,11 @@ Scope
 About this chapter and what it does *not* cover, first.
 
 * This documentation assumes an extension is tested with only one major Core version. It
-  does not support extension testing with multiple target Core versions. Extensions that
-  support multiple Core versions at the same time in the same branch are *not* scope of this document.
+  does not support extension testing with multiple target Core versions (though that is
+  possible).
   The Core Team encourages extension developers to have dedicated Core branches
   per Core version. This has various advantages, it is for instance easy to create deprecation
   free extensions this way.
-
-  If you need test setups for an extension that supports
-  multiple major Core versions at the same time, you may run into trouble if using
-  the `typo3/testing-framework <https://github.com/TYPO3/testing-framework>`_ package. The
-  development of that package is closely bound to Core development and has a relatively high
-  development speed. It does contain breaking patches per major Core versions, but it should
-  not contain breaking patches for existing major Core branches. If you now set up testing
-  using `typo3/testing-framework` with TYPO3 Core version 11, it should not break within v11's
-  lifetime. But it is likely to break if you upgrade to version 12 or later and may need adaption
-  in your extension codes or setup.
-
-  If you are looking for test setups that support multiple Core versions at once,
-  `nimut/testing-framework <https://github.com/Nimut/testing-framework>`_ may better suit your
-  needs. This is however out of scope for this chapter.
-
-* This documentation relies on TYPO3 Core version 11 and higher. It is possible to
-  run tests using older Core versions and various extensions have done this before. This
-  is however out of scope for this chapter.
 
 * We assume a Composer based setup. Extensions should provide a :file:`composer.json`
   file anyway and using Composer for extension testing is quite convenient.
