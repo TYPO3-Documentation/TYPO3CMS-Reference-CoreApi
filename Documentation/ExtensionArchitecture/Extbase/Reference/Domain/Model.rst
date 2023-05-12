@@ -172,6 +172,12 @@ multiple blog posts.
 
 .. include:: /CodeSnippets/Extbase/Domain/RelationshipNonM.rst.txt
 
+Event
+-----
+
+The PSR-14 event :ref:`AfterObjectThawedEvent` is available to modify values
+when creating domain objects.
+
 
 Eager loading and lazy loading
 ===============================

@@ -154,3 +154,16 @@ are required:
 
     ..  literalinclude:: _Classes.php
         :caption: EXT:my_extension/Configuration/Extbase/Persistence/Classes.php
+
+
+Events
+======
+
+Some :ref:`PSR-14 events <EventDispatcher>` are available:
+
+*   :ref:`EntityAddedToPersistenceEvent`
+*   :ref:`EntityPersistedEvent`
+*   :ref:`EntityRemovedFromPersistenceEvent`
+*   :ref:`EntityUpdatedInPersistenceEvent`
+*   :ref:`ModifyQueryBeforeFetchingObjectDataEvent`
+*   :ref:`ModifyResultAfterFetchingObjectDataEvent`
