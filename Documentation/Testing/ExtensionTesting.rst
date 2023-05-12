@@ -378,8 +378,18 @@ Rather than changing the :file:`runTests.sh` to then use `greadlink` and thus ri
 
    ln -s "$(which greadlink)" "$(dirname "$(which greadlink)")/readlink"
 
-The :file:`runTests.sh` file of enetcache comes with some additional features, for example it is possible to execute `composer install` from within a container using `Build/Scripts/runTests.sh -s composerInstall`, it is possible to execute unit tests with PHP 7.3 instead of 7.2 (option `-p 7.3`). This is available for PHP linting, too (`-s lint`). Similar to :ref:`Core test execution <testing-core-examples>` it is possible to break point tests using xdebug (`-x` option), typo3gmbh containers
-can be updated using `runTests.sh -u`, verbose output is available with `-v` and a help is available with `runTests.sh -h`. Have a look around.
+The :file:`runTests.sh` file of enetcache comes with some additional features,
+for example:
+
+*   it is possible to execute `composer update` from within a container
+    using `Build/Scripts/runTests.sh -s composerUpdate`
+*   it is possible to execute unit tests with a several different PHP versions
+    (with the `-p` option). This is available for PHP linting, too (`-s lint`).
+*   Similar to :ref:`Core test execution <testing-core-examples>` it is possible
+    to break point tests using xdebug (`-x` option)
+*   typo3gmbh containers can be updated using `runTests.sh -u`
+*   verbose output is available with `-v`
+*   help is available with `runTests.sh -h`
 
 .. index:: Testing; Github Actions
 
