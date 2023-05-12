@@ -199,7 +199,7 @@ to add root :file:`composer.json` details, turning the extension into a project 
         "GPL-2.0-or-later"
       ],
       "require": {
-        "typo3/cms-core": "^9.5"
+        "typo3/cms-core": "^11.5"
       },
       "config": {
         "vendor-dir": ".Build/vendor",
