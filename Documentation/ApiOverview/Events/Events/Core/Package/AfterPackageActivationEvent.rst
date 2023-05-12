@@ -34,7 +34,7 @@ An implementation of the event listener:
 
 ..  literalinclude:: _AfterPackageActivationEvent/_MyEventListener.php
     :language: php
-    :caption: EXT:my_extension/Classes/EventListener/MyEventListener.php
+    :caption: EXT:my_extension/Classes/Package/EventListener/MyEventListener.php
 
 API
 ===
