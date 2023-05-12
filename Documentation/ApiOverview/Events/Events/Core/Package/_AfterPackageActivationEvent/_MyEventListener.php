@@ -1,6 +1,6 @@
 <?php
 
-namespace WCO\WcoLdap\EventListener;
+namespace MyVendor\MyExtension\Package\EventListener;
 
 use TYPO3\CMS\Core\Package\Event\AfterPackageActivationEvent;
 
