@@ -16,10 +16,10 @@ is triggered after a package has been deactivated.
 ..  attention::
     This event is dispatched when an extension is deactivated in the
     :guilabel:`Extension Manager`, therefore starting with TYPO3 v11 this
-    event is only dispatched in legacy installations, not in composer-based
+    event is only dispatched in legacy installations, not in Composer-based
     installations. Use
-    `installer events by composer <https://getcomposer.org/doc/articles/scripts.md#installer-events>`__
-    for composer-based installations.
+    `installer events by Composer <https://getcomposer.org/doc/articles/scripts.md#installer-events>`__
+    for Composer-based installations.
 
 
 API
