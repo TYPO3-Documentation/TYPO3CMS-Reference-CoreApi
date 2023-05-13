@@ -31,6 +31,8 @@ information and data.
 Examples
 ========
 
+..  _use_pagetypesource:
+
 Using the :php:`PageTypeSource`
 -------------------------------
 
@@ -94,7 +96,7 @@ into account, for example, the :ref:`PageType route decorator <routing-pagetype-
     :php:`PlainSlugReplacementSource` is replaced with the :php:`PageTypeSource`.
 
 It is not possible to configure for which page types sources should be added. If
-you need to do so, read :ref:`additional `PageTypeSource` auto-create redirect source type <feature-94499-1675615570>`
+you need to do so, see :ref:`Using PageTypeSource <use_pagetypesource>`
 which contains an example how to implement a custom event listener based on
 :php:`PageTypeSource`.
 
