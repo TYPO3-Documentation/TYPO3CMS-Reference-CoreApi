@@ -105,7 +105,7 @@ behaviour, which some instances may rely on.
 This behaviour can be modified by adding an event listener for
 :php:`SlugRedirectChangeItemCreatedEvent`:
 
-Remove plain slug source if page type 0 differs:
+Remove plain slug source, if page type 0 differs
 ------------------------------------------------
 
 Registration of the event in your extension's :file:`Services.yaml`:
