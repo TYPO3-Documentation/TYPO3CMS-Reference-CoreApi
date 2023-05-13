@@ -134,7 +134,7 @@ This is how the composer.json file looks before we add a test setup:
         "GPL-2.0-or-later"
       ],
       "require": {
-        "typo3/cms-core": "^11.5"
+        "typo3/cms-core": "^13"
       },
       "autoload": {
         "psr-4": {
@@ -149,7 +149,7 @@ This is how the composer.json file looks before we add a test setup:
     }
 
 This is a typical composer.json file without any complexity: It's a `typo3-cms-extension`, with an
-author and a license. We are stating that "I need at least 11.5.0 of cms-core" and we tell the autoloader
+author and a license. We are stating that "I need at least 13.0.0 of cms-core" and we tell the autoloader
 "find all class names starting with :php:`Lolli\Enetcache` in the Classes/ directory".
 
 The extension already contains some unit tests that extend `typo3/testing-framework`'s base
@@ -199,14 +199,14 @@ to add root :file:`composer.json` details, turning the extension into a project 
         "GPL-2.0-or-later"
       ],
       "require": {
-        "typo3/cms-core": "^11.5"
+        "typo3/cms-core": "^13"
       },
       "config": {
         "vendor-dir": ".Build/vendor",
         "bin-dir": ".Build/bin"
       },
       "require-dev": {
-        "typo3/testing-framework": "^7"
+        "typo3/testing-framework": "^8"
       },
       "autoload": {
         "psr-4": {
@@ -232,7 +232,7 @@ to add root :file:`composer.json` details, turning the extension into a project 
 Note all added properties are only used within our root :file:`composer.json` files, they are ignored if the
 extension is loaded as a dependency in our project. Note: We specify `.Build` as
 build directory. This is where our TYPO3 instance will be set up. We add `typo3/testing-framework`
-in a v11 compatible version as `require-dev` dependency. We add a `autoload-dev` to tell composer
+in a v13 compatible version as `require-dev` dependency. We add a `autoload-dev` to tell composer
 that test classes are found in the :file:`Tests/` directory.
 
 Now, before we start playing around with this setup, we instruct `git` to ignore runtime
@@ -415,7 +415,7 @@ In order to tell the CI what to do, create a new workflow file in `.github/workf
        runs-on: ubuntu-latest
        strategy:
          matrix:
-           php: [ '7.4', '8.0', '8.1' ]
+           php: [ '8.1', '8.2' ]
            minMax: [ 'composerInstallMin', 'composerInstallMax' ]
        steps:
          - name: Checkout
@@ -468,7 +468,7 @@ to composer's `packagist.org <https://packagist.org/packages/typo3/cms-styleguid
 dependency (or require-dev dependency) in any project.
 
 The styleguide extension follows the Core branching principle, too: At the time of this writing, its `main`
-branch is dedicated to be compatible with upcoming Core version 11. There are branches compatible with older Core versions, too.
+branch is dedicated to be compatible with Core version 13. There are branches compatible with older Core versions, too.
 
 In comparison to enetcache, styleguide comes with additional test suites: It has functional and
 acceptance tests! Our goal is to run the functional tests with different database platforms, and to
@@ -596,8 +596,8 @@ That's it. It executes fine using :file:`runTests.sh`:
     Creating local_mariadb10_1 ... done
     Waiting for database start...
     Database is up
-    PHP 7.2.11-3+ubuntu18.04.1+deb.sury.org+1 (cli) (built: Oct 25 2018 06:44:08) ( NTS )
-    PHPUnit 7.1.5 by Sebastian Bergmann and contributors.
+    PHP ...
+    PHPUnit ... by Sebastian Bergmann and contributors.
 
     ..                                                                  2 / 2 (100%)
 
@@ -745,8 +745,8 @@ have some database fixtures included to easily log in to the backend. Additional
     Creating local_mariadb10_1 ... done
     Waiting for database start...
     Database is up
-    Codeception PHP Testing Framework v2.5.1
-    Powered by PHPUnit 7.1.5 by Sebastian Bergmann and contributors.
+    Codeception PHP Testing Framework ...
+    Powered by PHPUnit ... by Sebastian Bergmann and contributors.
     Running with seed:
 
 
@@ -798,7 +798,7 @@ Now we want all of this automatically checked using Github Actions. As before, w
        runs-on: ubuntu-latest
        strategy:
          matrix:
-           php: [ '7.4', '8.0', '8.1' ]
+           php: [ '8.1', '8.2' ]
        steps:
          - name: Checkout
            uses: actions/checkout@v2
