@@ -4,9 +4,9 @@
 
 .. _extbase_domain_validator:
 
-===================================
+=========
 Validator
-===================================
+=========
 
 .. seealso::
    *  :ref:`extbase_validation` for general validation in Extbase.
@@ -66,3 +66,27 @@ The validator is used as annotation in the action methods of the controller:
 
 ..  literalinclude:: _CustomValidator/_ObjectValidatorUsage.php
     :caption: EXT:blog_example/Classes/Controller/BlogController.php, modified
+
+Dependency injection in validators
+==================================
+
+Starting with TYPO3 v12 Extbase validators are capable of dependency injection
+without further configuration, you can use the constructor method:
+
+..  literalinclude:: _Validator/_MyCustomValidator.php
+    :language: php
+    :capition: EXT:my_extension/Classes/Validators/MyCustomValidator.php
+
+Extensions that want to support both TYPO3 v12 and v11 have to implement the
+method :php:`setOptions` and use the injector method for dependency injection:
+
+..  literalinclude:: _Validator/_MyCustomValidatorv11v12.php
+    :language: php
+    :capition: EXT:my_extension/Classes/Validators/MyCustomValidator.php
+
+Additionally the validator requiring dependency injection has to be registered
+in the extension's :file:`Services.yaml` until TYPO3 v11 support is dropped:
+
+..  literalinclude:: _Validator/_Services.yaml
+    :language: yaml
+    :capition: EXT:my_extension/Configuration/Services.yaml
