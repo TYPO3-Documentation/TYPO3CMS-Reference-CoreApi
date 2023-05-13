@@ -310,7 +310,7 @@ Defining the field in the TCE
 
 An individual modification of the newly added field :sql:`myextension_reference`
 to the TCA definition of the table :sql:`tt_content` can be done in the
-TYPO3 Core Engine (TCE) TSConfig. In most cases it is necessary to set the page
+TYPO3 Core Engine (TCE) page TSconfig. In most cases it is necessary to set the page
 id of the general storage folder. Then the examples extension will only use
 the content records from the given page id.
 
