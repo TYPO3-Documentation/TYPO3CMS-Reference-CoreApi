@@ -125,10 +125,10 @@ The following options are available:
 
 The corresponding configuration might look like this for the example class
 :php:`\T3docs\Examples\Controller`:
+
 ..  literalinclude:: _ext_localconf_FileWriter.php
     :language: php
     :caption: EXT:my_extension/ext_localconf.php
-
 
 ..  _logging-writers-php:
 
