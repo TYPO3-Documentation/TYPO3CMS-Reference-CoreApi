@@ -292,8 +292,7 @@ Add the php class for rendering the control in
     :language: php
     :caption: EXT:my_extension/Classes/FormEngine/FieldControl/ImportDataControl.php
 
-..  todo:
-witch from RequireJS to ES6
+..  todo: switch from RequireJS to ES6
 
 ..  attention::
     This example is still in RequireJS. RequireJS has been deprecated with
