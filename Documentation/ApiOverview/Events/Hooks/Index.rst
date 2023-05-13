@@ -193,9 +193,9 @@ extension keys.
     :language: php
     :caption: EXT:some_extension/ext_localconf.php
 
-`<main_key> `
+`<main_key>`
     The relative path of a script (for output scripts it
-    should be the "script ID" as found in a comment in the HTML header )
+    should be the "script ID" as found in a comment in the HTML header)
 
 `<sub_key>`
     This is defined by the script. Typically it identifies

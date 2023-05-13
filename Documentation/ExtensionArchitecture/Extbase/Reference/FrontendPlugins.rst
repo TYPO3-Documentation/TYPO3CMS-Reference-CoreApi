@@ -130,7 +130,7 @@ Frontend plugin as pure TypoScript
 
     ..  literalinclude::  _FrontendPlugin/_ext_localconf_rss.php
         :language: php
-        :caption: :caption: EXT:blog_example/ext_localconf.php
+        :caption: EXT:blog_example/ext_localconf.php
 
 #.  Display the plugin via TypoScript
 
@@ -141,4 +141,4 @@ Frontend plugin as pure TypoScript
 
     ..  literalinclude::  _FrontendPlugin/_setup.typoscript
         :language: typoscript
-        EXT:blog_example/Configuration/TypoScript/RssFeed/setup.typoscript
+        :caption: EXT:blog_example/Configuration/TypoScript/RssFeed/setup.typoscript

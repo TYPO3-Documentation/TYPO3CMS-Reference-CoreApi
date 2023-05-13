@@ -683,5 +683,4 @@ EXT: DpnGlossary
             - locale: 'de_DE.*'
               value: 'begriff'
 
-Taken from :doc:`dpn_glossary extension
-manual <Configuration/ExampleTypoScriptSetup/Index>`.
+Taken from dpn_glossary extension manual.
