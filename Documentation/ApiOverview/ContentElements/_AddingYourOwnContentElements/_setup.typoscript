@@ -1,0 +1,3 @@
+lib.contentElement {
+  templateRootPaths.200 = EXT:my_extension/Resources/Private/Templates/
+}
