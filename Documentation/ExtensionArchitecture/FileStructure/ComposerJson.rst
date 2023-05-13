@@ -55,7 +55,7 @@ Subsequently:
       "description": "An example extension",
       "license": "GPL-2.0-or-later",
       "require": {
-         "typo3/cms-core": "^11.5 || ^12.0"
+         "typo3/cms-core": "^12.4 || ^13.0"
       },
       "autoload": {
          "psr-4": {
@@ -98,9 +98,9 @@ Extended composer.json
       "description": "An example extension",
       "license": "GPL-2.0-or-later",
       "require": {
-         "php" : "^7.4",
-         "typo3/cms-backend": "^11.5 || ^12.0",
-         "typo3/cms-core": "^11.5 || ^12.0"
+         "php" : "^8.1",
+         "typo3/cms-backend": "^12.4 || ^13.0",
+         "typo3/cms-core": "^12.4 || ^13.0"
       },
       "authors": [
          {
