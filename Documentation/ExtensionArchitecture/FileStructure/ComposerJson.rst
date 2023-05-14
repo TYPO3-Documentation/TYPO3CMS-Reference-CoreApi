@@ -92,7 +92,7 @@ Extended composer.json
 
 ..  note::
 
-    Please see the chapter on :ref:`section on testing <testing-extensions>` for
+    Please see :ref:`testing-extensions` for
     further changes to composer.json for testing extensions.
 
 .. code-block:: json
