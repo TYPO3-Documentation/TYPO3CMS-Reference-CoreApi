@@ -275,9 +275,19 @@ First we extend the database schema by adding the following to the file
     after changing the database schema (system maintainers only). Or call the
     console command:
 
-    ..  code-block:: bash
+    .. tabs::
 
-        vendor/bin/typo3 extension:setup
+       .. group-tab:: Composer-based installation
+
+          .. code-block:: bash
+
+             vendor/bin/typo3 extension:setup
+
+       .. group-tab:: Legacy installation
+
+          .. code-block:: bash
+
+             typo3/sysext/core/bin/typo3 extension:setup
 
 .. index::
    pair: Content element; TCA
