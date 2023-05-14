@@ -71,6 +71,14 @@ Modal settings
     Actions rendered into the modal footer. If empty, the footer
     is not rendered. See section :ref:`modules-modals` on how to configure the buttons.
 
+..  confval:: staticBackdrop
+
+    :type: bool
+    :Default: :js:`false`
+
+    Controls whether a static backdrop should be rendered, which prevents
+    closing the modal by clicking outside of it.
+
 .. _modules-modals-button-settings:
 
 Button settings
@@ -136,6 +144,9 @@ for example on an anchor element, which prevents the default behavior.
 :html:`class="t3js-modal-trigger"`
     Marks the element as modal trigger.
 
+:html:`data-static-backdrop`
+    Render a static backdrop to avoid closing the modal when clicking it.
+
 Example:
 
 ..  literalinclude:: _Modals/_DataModal.html
@@ -174,6 +185,17 @@ done, the modal disappears automatically.
 Buttons of the type :js:`DeferredAction` render a spinner on activation
 into the button.
 
+A modal with static backdrop:
+
+..  literalinclude:: _Modals/_static_backdrop.js
+    :language: js
+
+Templates, using the HTML class :html:`.t3js-modal-trigger` to initialize
+a modal dialog are also able to use the new option by adding the
+:html:`data-static-backdrop` attribute to the corresponding element.
+
+..  literalinclude:: _Modals/_StaticBackdrop.html
+    :language: html
 
 .. _modules-modals-migration:
 
