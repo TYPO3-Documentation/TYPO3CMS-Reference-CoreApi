@@ -18,6 +18,8 @@ final class ImportDataControl extends AbstractNode
                 'class' => 'importData ',
                 'data-id' => $this->data['databaseRow']['somefield'],
             ],
+            'javaScriptModules' => ['@my_vendor/my_extension/import-data.js'],
+            /** @deprecated remove on dropping TYPO3 v11 support */
             'requireJsModules' => ['TYPO3/CMS/Something/ImportData'],
         ];
         return $result;
