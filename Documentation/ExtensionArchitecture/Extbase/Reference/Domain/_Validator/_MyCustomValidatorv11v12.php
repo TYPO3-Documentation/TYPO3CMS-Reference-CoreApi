@@ -6,9 +6,11 @@ use TYPO3\CMS\Extbase\Validation\Validator\AbstractValidator;
 
 final class MyCustomValidator extends AbstractValidator
 {
-    public function injectSomething(Something $something)
+    private MyService $myService;
+
+    public function injectMyService(MyService $myService)
     {
-        $this->something = $something;
+        $this->myService = $myService;
     }
 
     public function setOptions(array $options): void
