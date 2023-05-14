@@ -67,28 +67,10 @@ Another way is to inject the :php:`Connection` object directly via
     To make a concrete :php:`Connection` object available as a service, use
     the factory option in the service configuration:
 
-    ..  code-block:: yaml
+    ..  literalinclude:: _Services.yaml
+        :language: yaml
         :caption: EXT:my_extension/Configuration/Services.yaml
         :emphasize-lines: 10-18
-
-        services:
-          _defaults:
-            autowire: true
-            autoconfigure: true
-            public: false
-
-          MyVendor\MyExtension\:
-            resource: '../Classes/*'
-
-          connection.tx_myextension_domain_model_mytable:
-            class: 'TYPO3\CMS\Core\Database\Connection'
-            factory: ['@TYPO3\CMS\Core\Database\ConnectionPool', 'getConnectionForTable']
-            arguments:
-              - 'tx_myextension_domain_model_mytable'
-
-          MyVendor\MyExtension\Domain\Repository\MyTableRepository:
-            arguments:
-              - '@connection.tx_myextension_domain_model_mytable'
 
 #.  Use constructor injection in your class
 
@@ -96,6 +78,7 @@ Another way is to inject the :php:`Connection` object directly via
     the constructor:
 
     ..  literalinclude:: _MyTableRepositoryWithConnection.php
+        :language: php
         :caption: EXT:my_extension/Classes/Domain/Repository/MyTableRepository.php
 
 
@@ -105,27 +88,22 @@ insert()
 ========
 
 The :php:`insert()` method creates and executes an :sql:`INSERT INTO` statement.
-A (slightly simplified) example from the Registry API:
+Example:
 
-..  code-block:: php
+..  literalinclude:: _MyTableRepository_insert.php
+    :language: php
     :caption: EXT:my_extension/Classes/Domain/Repository/MyTableRepository.php
-
-    // INSERT
-    //     INTO `sys_registry` (`entry_namespace`, `entry_key`, `entry_value`)
-    //     VALUES ('aoeu', 'aoeu', 's:3:\"bar\";')
-    $this->connectionPool
-        ->getConnectionForTable('sys_registry')
-        ->insert(
-            'sys_registry',
-            [
-                'entry_namespace' => $namespace,
-                'entry_key' => $key,
-                'entry_value' => serialize($value)
-            ]
-        );
 
 Read :ref:`how to instantiate <database-connection-instantiation>` a connection
 with the connection pool.
+
+..  versionadded:: 12.1
+    By using the native database field declaration `json` in e.g. :file:`ext_tables.sql`
+    files within an extension, TYPO3 now converts arrays or objects of type
+    :php:`\JsonSerializable` into a serialized JSON value in the database when
+    persisting such values via :php:`Connection->insert()` or
+    :php:`Connection->update()` if no explicit database types are handed in
+    as additional method argument.
 
 Arguments of the :php:`insert()` method:
 
@@ -139,24 +117,9 @@ Arguments of the :php:`insert()` method:
     The example below quotes the first value to an integer and the second one to
     a string:
 
-    ..  code-block:: php
+    ..  literalinclude:: _MyTableRepository_insert_types.php
+        :language: php
         :caption: EXT:my_extension/Classes/Domain/Repository/MyTableRepository.php
-
-        // use TYPO3\CMS\Core\Database\Connection;
-        // INSERT INTO `sys_log` (`userid`, `details`) VALUES (42, 'lorem')
-        $this->connectionPool
-            ->getConnectionForTable('sys_log')
-            ->insert(
-                'sys_log',
-                [
-                    'userid' => (int)$userId,
-                    'details' => (string)$details,
-                ],
-                [
-                    Connection::PARAM_INT,
-                    Connection::PARAM_STR,
-                ]
-            );
 
     Read :ref:`how to instantiate <database-connection-instantiation>` a
     connection with the connection pool.
@@ -177,26 +140,9 @@ bulkInsert()
 
 This method insert multiple rows at once:
 
-..  code-block:: php
+..  literalinclude:: _MyTableRepository_bulkinsert.php
+    :language: php
     :caption: EXT:my_extension/Classes/Domain/Repository/MyTableRepository.php
-
-    // use TYPO3\CMS\Core\Database\Connection;
-    $connection = $this->connectionPool->getConnectionForTable('sys_log');
-    $connection->bulkInsert(
-        'sys_log',
-        [
-            [(int)$userId, (string)$details1],
-            [(int)$userId, (string)$details2],
-        ],
-        [
-            'userid',
-            'details',
-        ],
-        [
-            Connection::PARAM_INT,
-            Connection::PARAM_STR,
-        ]
-    );
 
 Read :ref:`how to instantiate <database-connection-instantiation>` a connection
 with the connection pool.
@@ -232,19 +178,9 @@ update()
 Create an :sql:`UPDATE` statement and execute it. The example from FAL's
 :php:`ResourceStorage` sets a storage to offline:
 
-..  code-block:: php
+..  literalinclude:: _MyTableRepository_update.php
+    :language: php
     :caption: EXT:my_extension/Classes/Domain/Repository/MyTableRepository.php
-
-    // use TYPO3\CMS\Core\Database\Connection;
-    // UPDATE `sys_file_storage` SET `is_online` = 0 WHERE `uid` = '42'
-    $this->connectionPool
-        ->getConnectionForTable('sys_file_storage')
-        ->update(
-            'sys_file_storage',
-            ['is_online' => 0],
-            ['uid' => (int)$this->getUid()],
-            [Connection::PARAM_INT]
-        );
 
 Read :ref:`how to instantiate <database-connection-instantiation>` a connection
 with the connection pool.
@@ -278,18 +214,9 @@ delete()
 Execute a :sql:`DELETE` query using `equal` conditions in :sql:`WHERE`, example
 from :php:`BackendUtility`, to mark rows as no longer locked by a user:
 
-..  code-block:: php
+..  literalinclude:: _MyTableRepository_delete.php
+    :language: php
     :caption: EXT:my_extension/Classes/Domain/Repository/MyTableRepository.php
-
-    // use TYPO3\CMS\Core\Database\Connection;
-    // DELETE FROM `sys_lockedrecords` WHERE `userid` = 42
-    $this->connectionPool
-        ->getConnectionForTable('sys_lockedrecords')
-        ->delete(
-            'sys_lockedrecords',
-            ['userid' => (int)42],
-            [Connection::PARAM_INT]
-        );
 
 Read :ref:`how to instantiate <database-connection-instantiation>` a connection
 with the connection pool.
@@ -325,13 +252,9 @@ This method empties a table, removing all rows. It is usually much faster than
 a :ref:`delete() <database-connection-delete>` of all rows. This typically
 resets "auto increment primary keys" to zero. Use with care:
 
-..  code-block:: php
+..  literalinclude:: _MyCacheRepository_truncate.php
+    :language: php
     :caption: EXT:my_extension/Classes/Domain/Repository/MyTableRepository.php
-
-    // TRUNCATE `cache_treelist`
-    $this->connectionPool
-        ->getConnectionForTable('cache_treelist')
-        ->truncate('cache_treelist');
 
 Read :ref:`how to instantiate <database-connection-instantiation>` a connection
 with the connection pool.
@@ -347,28 +270,13 @@ count()
 
 This method executes a :sql:`COUNT` query. Again, this becomes useful when very
 simple :sql:`COUNT` statements are to be executed. The example below returns the
-number of active rows from the table :sql:`tt_content` whose :sql:`bodytext`
-field set to `lorem`:
+number of active rows (not hidden or deleted or disabled by time) from the
+table :sql:`tx_myextension_mytable` whose
+field :sql:`some_value` field set to :php:`$something`:
 
-..  code-block:: php
+..  literalinclude:: _MyTableRepository_count.php
+    :language: php
     :caption: EXT:my_extension/Classes/Domain/Repository/MyTableRepository.php
-
-    // SELECT COUNT(*)
-    // FROM `tt_content`
-    // WHERE
-    //     (`bodytext` = 'lorem')
-    //     AND (
-    //         (`tt_content`.`deleted` = 0)
-    //         AND (`tt_content`.`hidden` = 0)
-    //         AND (`tt_content`.`starttime` <= 1475621940)
-    //         AND ((`tt_content`.`endtime` = 0) OR (`tt_content`.`endtime` > 1475621940))
-    //     )
-    $connection = $this->connectionPool->getConnectionForTable('tt_content');
-    $rowCount = $connection->count(
-        '*',
-        'tt_content',
-        ['bodytext' => 'lorem']
-    );
 
 Read :ref:`how to instantiate <database-connection-instantiation>` a connection
 with the connection pool.
@@ -414,19 +322,9 @@ conditions. Its usage is limited, the :ref:`restriction builder
 <database-restriction-builder>` kicks in and key/value pairs are automatically
 quoted:
 
-..  code-block:: php
+..  literalinclude:: _MyTableRepository_select.php
+    :language: php
     :caption: EXT:my_extension/Classes/Domain/Repository/MyTableRepository.php
-
-    // SELECT `entry_key`, `entry_value`
-    //     FROM `sys_registry`
-    //     WHERE `entry_namespace` = 'my_extension'
-    $resultRows = $this->connectionPool
-      ->getConnectionForTable('sys_registry')
-      ->select(
-         ['entry_key', 'entry_value'],
-         'sys_registry',
-         ['entry_namespace' => 'my_extension']
-      );
 
 Read :ref:`how to instantiate <database-connection-instantiation>` a connection
 with the connection pool.
@@ -472,18 +370,9 @@ This method returns the :sql:`uid` of the last :ref:`insert()
 <database-connection-insert>` statement. This is useful if the id is to be used
 directly afterwards:
 
-..  code-block:: php
+..  literalinclude:: _MyTableRepository_lastinsertId.php
+    :language: php
     :caption: EXT:my_extension/Classes/Domain/Repository/MyTableRepository.php
-
-    $connection = $this->connectionPool->getConnectionForTable('pages');
-    $connection->insert(
-        'pages',
-        [
-            'pid' => 0,
-            'title' => 'Home',
-        ]
-    );
-    $pageUid = (int)$connection->lastInsertId('pages');
 
 Read :ref:`how to instantiate <database-connection-instantiation>` a connection
 with the connection pool.
@@ -513,18 +402,47 @@ good example could be found in the Core.
 
 The method can also be useful in loops to save some precious code characters:
 
-..  code-block:: php
+..  literalinclude:: _MyTableRepository_queryBuilder.php
+    :language: php
     :caption: EXT:my_extension/Classes/Domain/Repository/MyTableRepository.php
-
-    $connection = $this->connection->getConnectionForTable($myTable);
-    foreach ($someList as $aListValue) {
-        $myResult = $connection->createQueryBuilder
-            ->select('something')
-            ->from('whatever')
-            ->where(...)
-            ->executeQuery()
-            ->fetchAllAssociative();
-    }
 
 Read :ref:`how to instantiate <database-connection-instantiation>` a connection
 with the connection pool.
+
+Native JSON database field type support
+=======================================
+
+..  versionadded:: 12.1
+    TYPO3 Core's Database API based on Doctrine DBAL supports the native
+    database field type `json`, which is already available for all supported DBMS
+    of TYPO3 v12.
+
+JSON-like objects or array are automatically serialized during writing a
+dataset to the database, when the native JSON type was used in the database
+schema definition.
+
+By using the native database field declaration `json` in :file:`ext_tables.sql`
+files within an extension, TYPO3 converts arrays or objects of type
+:php:`\JsonSerializable` into a serialized JSON value in the database when
+persisting such values via :php:`Connection->insert()` or
+:php:`Connection->update()` if no explicit DB types are handed in as additional
+method argument.
+
+TYPO3 now utilizes the native type mapping of Doctrine to convert special types
+such as JSON database field types automatically for writing.
+
+Example:
+
+..  literalinclude:: _ext_tables.sql
+    :language: php
+    :caption: EXT:my_extension/ext_tables.sql
+
+..  literalinclude:: _MyTableRepository_insert.php
+    :language: php
+    :caption: EXT:my_extension/Classes/Domain/Repository/MyTableRepository.php
+
+..  note::
+
+    When reading a record from the database via QueryBuilder, it is still necessary
+    though to transfer the serialized value to an array or Object doing custom
+    serialization.
