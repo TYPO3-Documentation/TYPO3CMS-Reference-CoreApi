@@ -15,15 +15,36 @@ entries that can be overridden or added, based on the root line.
     :php:`\TYPO3\CMS\Core\TypoScript\IncludeTree\Event\ModifyLoadedPageTsConfigEvent`.
     Apart from that no changes were made. TYPO3 v12 triggers *both* the old
     and the new event, and TYPO3 v13 will stop calling the old event.
-
-    Extension that want to stay compatible with both TYPO3 v11 and v12 should
-    continue to listen for the old event only. This will *not* raise a
-    deprecation level log entry in v12, but it will stop working with TYPO3 v13.
-    Extensions with compatibility for TYPO3 v12 and above should switch to the
-    new event.
-
+    See also :ref:`ModifyLoadedPageTsConfigEventv11v12`.
 
 API
 ===
 
 ..  include:: /CodeSnippets/Events/Core/ModifyLoadedPageTsConfigEvent.rst.txt
+
+
+..  _ModifyLoadedPageTsConfigEventv11v12:
+
+Compatibility with TYPO3 v11 and v12
+====================================
+
+Extensions that want to stay compatible with both TYPO3 v11 and v12 and prepare v13
+compatibility as much as possible should start listening for the new event as well,
+and suppress handling of the old event in TYPO3 v12 to not handle things twice.
+
+Example from b13/bolt extension:
+
+Registration of both events in the file :file:`Services.yaml`:
+
+..  literalinclude:: _ModifyLoadedPageTsConfigEvent/_Services.yaml
+    :language: yaml
+    :caption: EXT:bolt/Configuration/Services.yaml
+
+Handle the old event in TYPO3 v11 only, but skip old event with TYPO3 v12:
+
+..  literalinclude:: _ModifyLoadedPageTsConfigEvent/_Loader.php
+    :language: php
+    :caption: EXT:bolt/Classes/TsConfig/Loader.php
+
+See the complete code on GitHub:
+`Loader.php <https://github.com/b13/bolt/blob/2.3.0/Classes/TsConfig/Loader.php>`__.
