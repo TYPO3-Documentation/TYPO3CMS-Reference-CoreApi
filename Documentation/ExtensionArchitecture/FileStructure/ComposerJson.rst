@@ -102,6 +102,9 @@ Extended composer.json
          "typo3/cms-backend": "^11.5 || ^12.0",
          "typo3/cms-core": "^11.5 || ^12.0"
       },
+      "require-dev": {
+         "typo3/coding-standards": "^0.7.1"
+      },
       "authors": [
          {
             "name": "John Doe",
