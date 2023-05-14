@@ -70,7 +70,7 @@ The validator is used as annotation in the action methods of the controller:
 Dependency injection in validators
 ==================================
 
-Starting with TYPO3 v12 Extbase validators are capable of dependency injection
+Starting with TYPO3 v12 Extbase validators are capable of :ref:`dependency injection <Dependency-Injection>`
 without further configuration, you can use the constructor method:
 
 ..  literalinclude:: _Validator/_MyCustomValidator.php
