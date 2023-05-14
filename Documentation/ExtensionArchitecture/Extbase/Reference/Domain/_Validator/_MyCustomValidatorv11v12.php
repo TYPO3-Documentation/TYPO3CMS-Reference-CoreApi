@@ -4,7 +4,8 @@ namespace MyVendor\MyExtenion\Validators;
 
 use TYPO3\CMS\Extbase\Validation\Validator\AbstractValidator;
 
-final class MyCustomValidator extends AbstractValidator {
+final class MyCustomValidator extends AbstractValidator
+{
     public function injectSomething(Something $something)
     {
         $this->something = $something;
