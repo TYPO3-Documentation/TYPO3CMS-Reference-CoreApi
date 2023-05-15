@@ -1,6 +1,7 @@
 <?php
 
 declare(strict_types=1);
+
 namespace MyVendor\MyExtension\Backend;
 
 use TYPO3\CMS\Core\Context\Context;

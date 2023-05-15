@@ -1,6 +1,7 @@
 <?php
 
 declare(strict_types=1);
+
 namespace T3docs\BlogExample\Controller;
 
 use Psr\Http\Message\ResponseInterface;
