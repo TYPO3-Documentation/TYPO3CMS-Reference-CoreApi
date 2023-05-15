@@ -444,5 +444,5 @@ Example:
 ..  note::
 
     When reading a record from the database via QueryBuilder, it is still necessary
-    though to transfer the serialized value to an array or Object doing custom
+    though to transfer the serialized value to an array or object doing custom
     serialization.
