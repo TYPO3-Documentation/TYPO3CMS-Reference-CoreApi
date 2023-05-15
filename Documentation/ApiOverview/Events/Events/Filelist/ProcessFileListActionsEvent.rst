@@ -21,17 +21,17 @@ Example
 
 Registration of the event listener in the extension's :file:`Services.yaml`:
 
-..  literalinclude:: _Snippets/_ProcessFileListActionsEvent.yaml
+..  literalinclude:: _ProcessFileListActionsEvent/_Services.yaml
     :language: yaml
     :caption: EXT:my_extension/Configuration/Services.yaml
 
 The corresponding event listener class:
 
-..  literalinclude:: _Snippets/_ProcessFileListActionsEventListener.php
+..  literalinclude:: _ProcessFileListActionsEvent/_MyEventListener.php
     :language: php
-    :caption: EXT:my_extension/Classes/FileList/ProcessFileListActionsEventListener.php
+    :caption: EXT:my_extension/Classes/FileList/EventListener/MyEventListener.php
 
 API
 ===
 
-.. include:: /CodeSnippets/Events/Filelist/ProcessFileListActionsEvent.rst.txt
+..  include:: /CodeSnippets/Events/Filelist/ProcessFileListActionsEvent.rst.txt
