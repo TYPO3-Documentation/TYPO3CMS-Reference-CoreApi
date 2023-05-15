@@ -1,6 +1,6 @@
-.. include:: /Includes.rst.txt
-.. index:: Events; ModifyLanguagePacksEvent
-.. _ModifyLanguagePacksEvent:
+..  include:: /Includes.rst.txt
+..  index:: Events; ModifyLanguagePacksEvent
+..  _ModifyLanguagePacksEvent:
 
 
 ========================
@@ -22,43 +22,18 @@ Example
 
 Registration of the event:
 
-..  code-block:: yaml
+..  literalinclude:: _ModifyLanguagePacksEvent/_Services.yaml
+    :language: yaml
     :caption: EXT:my_extension/Configuration/Services.yaml
 
-    services:
-      MyVendor\MyExtension\EventListener\ModifyLanguagePacks:
-        tags:
-          - name: event.listener
-            identifier: 'modifyLanguagePacks'
+An implementation of the event listener:
 
-Implementation of the event listener:
-
-..  code-block:: php
-    :caption: EXT:my_extension/Classes/EventListener/ModifyLanguagePacks.php
-
-    namespace MyVendor\MyExtension\EventListener;
-
-    use TYPO3\CMS\Install\Service\Event\ModifyLanguagePacksEvent;
-
-    final class ModifyLanguagePacks
-    {
-        public function __invoke(ModifyLanguagePacksEvent $event): void
-        {
-            $extensions = $event->getExtensions();
-            foreach ($extensions as $key => $extension){
-                // Do not download language packs from Core extensions
-                if ($extension['type'] === 'typo3-cms-framework'){
-                    $event->removeExtension($key);
-                }
-            }
-
-            // Remove German language pack from EXT:styleguide
-            $event->removeIsoFromExtension('de', 'styleguide');
-        }
-    }
+..  literalinclude:: _ModifyLanguagePacksEvent/_MyEventListener.php
+    :language: php
+    :caption: EXT:my_extension/Classes/Install/EventListener/MyEventListener.php
 
 
 API
 ===
 
-.. include:: /CodeSnippets/Events/Install/ModifyLanguagePacksEvent.rst.txt
+..  include:: /CodeSnippets/Events/Install/ModifyLanguagePacksEvent.rst.txt
