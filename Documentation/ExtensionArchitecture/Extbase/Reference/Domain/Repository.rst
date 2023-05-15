@@ -154,7 +154,7 @@ Extbase renders the translated records in the same way as TypoScript rendering.
 
 ..  versionchanged:: 12.0
     The Extbase query settings rely on
-    :php:`TYPO3\CMS\Core\Context\LanguageAspect` now.
+    :php:`\TYPO3\CMS\Core\Context\LanguageAspect` now.
 
 The following methods can be used to set and get the language aspect from any
 :php:`\TYPO3\CMS\Extbase\Persistence\Generic\QuerySettingsInterface`:
