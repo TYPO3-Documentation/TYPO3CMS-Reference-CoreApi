@@ -422,7 +422,7 @@ dataset to the database, when the native JSON type was used in the database
 schema definition.
 
 By using the native database field declaration `json` in :file:`ext_tables.sql`
-files within an extension, TYPO3 converts arrays or objects of type
+file within an extension, TYPO3 converts arrays or objects of type
 :php:`\JsonSerializable` into a serialized JSON value in the database when
 persisting such values via :php:`Connection->insert()` or
 :php:`Connection->update()` if no explicit DB types are handed in as additional
