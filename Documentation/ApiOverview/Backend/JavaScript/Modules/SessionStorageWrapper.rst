@@ -32,7 +32,7 @@ implemented by:
     Fetches the data behind the key.
 
 :js:`getByPrefix('common-prefix-')`
-    Obtains multiple items prefixed by a given key either.
+    Obtains multiple items prefixed by a given key.
 
 :js:`set(key, value)`
     Sets/overrides a key with any arbitrary content.
