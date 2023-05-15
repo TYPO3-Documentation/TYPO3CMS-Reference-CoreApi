@@ -180,7 +180,7 @@ The examples below are taken from the "beuser" system extension and
 assume that the module is Extbase-based.
 
 The first step is to include the needed JavaScript using the
-:js:`includeJavaScriptModules` property
+:html:`includeJavaScriptModules` property
 of the standard backend container Fluid view helper (or backend page
 renderer view helper).
 
