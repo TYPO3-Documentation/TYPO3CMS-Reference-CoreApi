@@ -1,6 +1,7 @@
 <?php
 
 declare(strict_types=1);
+
 namespace MyVendor\MyExtension\Backend\Form;
 
 use TYPO3\CMS\Backend\Form\Element\AbstractFormElement;

@@ -10,7 +10,7 @@ final class ExamplePlaceholderProcessor implements PlaceholderProcessorInterface
 {
     public function canProcess(string $placeholder, array $referenceArray): bool
     {
-        return strpos($placeholder, '%example(') !== false;
+        return str_contains($placeholder, '%example(');
     }
 
     public function process(string $value, array $referenceArray)
