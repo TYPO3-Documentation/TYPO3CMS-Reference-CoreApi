@@ -417,7 +417,7 @@ Native JSON database field type support
     database field type `json`, which is already available for all supported DBMS
     of TYPO3 v12.
 
-JSON-like objects or array are automatically serialized during writing a
+JSON-like objects or arrays are automatically serialized during writing a
 dataset to the database, when the native JSON type was used in the database
 schema definition.
 
