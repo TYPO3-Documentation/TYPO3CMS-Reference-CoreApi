@@ -84,7 +84,7 @@ method :php:`setOptions` and use the injector method for dependency injection:
     :language: php
     :capition: EXT:my_extension/Classes/Validators/MyCustomValidator.php
 
-Additionally the validator requiring dependency injection has to be registered
+Additionally, the validator requiring dependency injection has to be registered
 in the extension's :file:`Services.yaml` until TYPO3 v11 support is dropped:
 
 ..  literalinclude:: _Validator/_Services.yaml
