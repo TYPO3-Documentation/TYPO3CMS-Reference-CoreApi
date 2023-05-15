@@ -97,15 +97,9 @@ calling :php:`ExtensionManagementUtility::addToAllTCAtypes()`. Parameters:
 
 So you could do this:
 
-.. code-block:: php
-   :caption: EXT:some_extension/Configuration/TCA/Overrides/fe_users.php
-
-   \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addToAllTCAtypes(
-      'fe_users',
-      'tx_examples_options, tx_examples_special',
-      '',
-      'after:password'
-   );
+..  literalinclude:: _fe_users.php
+    :language: php
+    :caption: EXT:some_extension/Configuration/TCA/Overrides/fe_users.php
 
 If the fourth parameter (position) is omitted or the specified field is not found,
 new fields are added at the bottom of the form. If the table uses tabs,
