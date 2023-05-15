@@ -98,12 +98,8 @@ Read :ref:`how to instantiate <database-connection-instantiation>` a connection
 with the connection pool.
 
 ..  versionadded:: 12.1
-    By using the native database field declaration `json` in e.g. :file:`ext_tables.sql`
-    files within an extension, TYPO3 now converts arrays or objects of type
-    :php:`\JsonSerializable` into a serialized JSON value in the database when
-    persisting such values via :php:`Connection->insert()` or
-    :php:`Connection->update()` if no explicit database types are handed in
-    as additional method argument.
+    This method supports the native database field declaration :sql:`json`,
+    see :ref:`json_database_type`.
 
 Arguments of the :php:`insert()` method:
 
@@ -181,6 +177,10 @@ Create an :sql:`UPDATE` statement and execute it. The example from FAL's
 ..  literalinclude:: _MyTableRepository_update.php
     :language: php
     :caption: EXT:my_extension/Classes/Domain/Repository/MyTableRepository.php
+
+..  versionadded:: 12.1
+    This method supports the native database field declaration :sql:`json`,
+    see :ref:`json_database_type`.
 
 Read :ref:`how to instantiate <database-connection-instantiation>` a connection
 with the connection pool.
@@ -408,6 +408,8 @@ The method can also be useful in loops to save some precious code characters:
 
 Read :ref:`how to instantiate <database-connection-instantiation>` a connection
 with the connection pool.
+
+..  _json_database_type:
 
 Native JSON database field type support
 =======================================
