@@ -11,14 +11,14 @@ ES6 in the TYPO3 Backend
     AMD modules, both in backend and frontend context.
 
 JavaScript node-js style path resolutions are managed by
-`importmaps <https://html.spec.whatwg.org/multipage/webappapis.html#import-maps>`_, which allow web
+`import maps <https://html.spec.whatwg.org/multipage/webappapis.html#import-maps>`_, which allow web
 pages to control the behavior of JavaScript imports.
 
-In November 2022 importmaps are supported natively by Google Chrome,
+In November 2022 import maps are supported natively by Google Chrome,
 a polyfill is available for Firefox and Safari and included by TYPO3 Core
-and applied whenever an importmap is emitted.
+and applied whenever an import map is emitted.
 
-For security reasons, importmap configuration is only emitted when the modules
+For security reasons, import map configuration is only emitted when the modules
 are actually used, that means when a module has been added to the current
 page response via :php:`PageRenderer->loadJavaScriptModule()` or
 :php:`JavaScriptRenderer->addJavaScriptModuleInstruction()`.
@@ -95,8 +95,8 @@ with the following statement:
 
     import $ from 'jquery';
 
-Add JavaScript modules to importmap in backend form
-===================================================
+Add JavaScript modules to import map in backend form
+====================================================
 
 The JavaScript module import map is static and only generated and
 loaded in the first request to a document. All possible future
@@ -127,7 +127,7 @@ Migration from RequireJS
     the TYPO3 specific details.
 
 RequireJS is shimmed to prefer ES6 modules if available, allowing any extension
-to ship ES6 modules by providing an importmap configuration in
+to ship ES6 modules by providing an import map configuration in
 :file:`Configuration/JavaScriptModules.php` while providing full backward
 compatibility support for extensions that load modules via RequireJS.
 
