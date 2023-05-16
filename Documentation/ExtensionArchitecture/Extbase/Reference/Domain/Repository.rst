@@ -152,87 +152,32 @@ Typo3QuerySettings and localization
 
 Extbase renders the translated records in the same way as TypoScript rendering.
 
-..  versionchanged:: 11.0
-    Setting :php:`Typo3QuerySettings->languageMode`  was deprecated and does
-    **not** influence how Extbase queries records.
+..  versionchanged:: 12.0
+    The Extbase query settings rely on
+    :php:`\TYPO3\CMS\Core\Context\LanguageAspect` now.
 
-:php:`Typo3QuerySettings->languageOverlayMode` = true
------------------------------------------------------
+The following methods can be used to set and get the :ref:`language aspect <context_api_aspects_language>`  from any
+:php:`\TYPO3\CMS\Extbase\Persistence\Generic\QuerySettingsInterface`:
 
-Setting :php:`Typo3QuerySettings->languageOverlayMode` to :php:`true`
-will fetch records from the default language and overlay them
-with translated values. If a record is hidden in the default language,
-it will not be displayed in the translation. Also, records without translation
-parents will not be shown.
+-   :php:`QuerySettingsInterface::getLanguageAspect(): LanguageAspect`
+-   :php:`QuerySettingsInterface::setLanguageAspect(LanguageAspect $aspect)`
 
-For relations, Extbase reads relations from a translated record
-(so it is not possible to inherit a field value from translation source)
-and then passes the related records through
-:php:`$pageRepository->getRecordOverlay()`.
+You can specify a custom language aspect per query as defined in the query settings
+in any repository class:
 
-For example: when you have a translated :sql:`tt_content` record with a
-:ref:`FAL relation <fal>`, Extbase will show only those :sql:`sys_file_reference`
-records which are connected to the translated record (not caring
-whether some of these files have :sql:`l10n_parent` set).
+Example to use the fallback to the default language when working with overlays:
 
-:php:`Typo3QuerySettings->languageOverlayMode` = false
-------------------------------------------------------
+..  literalinclude:: _Repository/_LanguageAspect.php
+    :language: php
+    :caption: EXT:my_extension/Classes/Repository/MyRepository.php
 
-Setting :php:`Typo3QuerySettings->languageOverlayMode` to :php:`false`
-will fetch aggregate root records from a given language only.
+For compatibility with TYPO3 v11 you can still use the now deprecated methods in
+the default implementation:
 
-Extbase will follow relations (child records) as they are, without checking
-their :sql:`sys_language_uid` fields, and then pass these
-records through :php:`$pageRepository->getRecordOverlay()`.
+- :php:`Typo3QuerySettings::getLanguageOverlayMode()`
+- :php:`Typo3QuerySettings::setLanguageOverlayMode($languageOverlayMode)`
+- :php:`Typo3QuerySettings::getLanguageUid()`
+- :php:`Typo3QuerySettings::setLanguageUid($languageUid)`
 
-This way, the aggregate root record's sorting and visibility do not depend on
-the default language records.
-
-Moreover, the relations of a record, which are often stored using default
-language uids are translated in the final result set (so overlay happens).
-
-Example: Given a translated :sql:`tt_content` record having a relation to two
-categories (in the mm table the translated :sql:`tt_content` record is connected
-to the category uid in the default language), and one of the categories is translated.
-Extbase will return a :sql:`tt_content` model with both categories.
-
-If you want just the translated category to be shown, remove the
-relation in the translated :sql:`tt_content` record in the TYPO3 backend.
-
-
-Setting the :php:`Typo3QuerySettings->languageOverlayMode`
-----------------------------------------------------------
-
-..  note::
-    By default, :php:`Typo3QuerySettings` uses the
-    :ref:`site language configuration <sitehandling-addingLanguages>`.
-
-    You need to change :php:`Typo3QuerySettings` manually only, if your Extbase
-    code should behave differently to :php:`tt_content` rendering.
-
-Setting :php:`setLanguageOverlayMode()` on a query influences **only**
-fetching of the aggregate root. Relations are always fetched with
-:php:`setLanguageOverlayMode(true)`.
-
-When querying data in translated language, and having
-:php:`setLanguageOverlayMode(true)`, the relations (child objects) are overlaid
-even if the aggregate root is not translated.
-
-:php:`$repository->findByUid()` and language overlay modes
------------------------------------------------------------
-
-:php:`$repository->findByUid()` internally sets :php:`respectSysLanguage(false)`.
-
-Therefore it behaves differently than a regular query by :php:`uid`.
-
-..  note::
-    :php:`$query->matching($query->equals('uid', 11));` and
-    :php:`$repository->findByUid()` behave different in some language
-    scenarios:
-
-    The regular query will return :php:`null`, if passed :php:`uid` does not
-    match the language set in the :php:`$querySettings->setLanguageUid()` method.
-
-The bottom line is you can use :php:`$repository->findByUid()` with the translated
-record uid to get the translated content, independently of the language set in the
-global context.
+These methods have been removed from the interface however. For more consistent
+results use the language aspect via version switch.
