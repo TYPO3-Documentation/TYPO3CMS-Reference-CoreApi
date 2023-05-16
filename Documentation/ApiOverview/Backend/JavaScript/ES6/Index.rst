@@ -11,14 +11,14 @@ ES6 in the TYPO3 Backend
     AMD modules, both in backend and frontend context.
 
 JavaScript node-js style path resolutions are managed by
-`importmaps <https://html.spec.whatwg.org/multipage/webappapis.html#import-maps>`_, which allow web
+`import maps <https://html.spec.whatwg.org/multipage/webappapis.html#import-maps>`_, which allow web
 pages to control the behavior of JavaScript imports.
 
-In November 2022 importmaps are supported natively by Google Chrome,
+In November 2022 import maps are supported natively by Google Chrome,
 a polyfill is available for Firefox and Safari and included by TYPO3 Core
-and applied whenever an importmap is emitted.
+and applied whenever an import map is emitted.
 
-For security reasons, importmap configuration is only emitted when the modules
+For security reasons, import map configuration is only emitted when the modules
 are actually used, that means when a module has been added to the current
 page response via :php:`PageRenderer->loadJavaScriptModule()` or
 :php:`JavaScriptRenderer->addJavaScriptModuleInstruction()`.
@@ -34,12 +34,14 @@ A simple configuration example for an extension that maps
 the `Public/JavaScript` folder to an import prefix `@vendor/my-extensions`:
 
 ..  literalinclude:: _JavaScriptModulesSimple.php
+    :language: php
     :caption: EXT:my_extension/Configuration/JavaScriptModules.php
 
 Complex configuration example containing recursive-lookup exclusions,
 third-party library definitions and overwrites:
 
 ..  literalinclude:: _JavaScriptModulesExtended.php
+    :language: php
     :caption: EXT:my_extension/Configuration/JavaScriptModules.php
 
 .. _backend-javascript-es6-loading:
@@ -52,12 +54,14 @@ A module can be added to the current page response either via
 :php:`JavaScriptRenderer`:
 
 ..  literalinclude:: _PageRendererJavaScriptLoading.php
+    :language: php
     :caption: EXT:my_extension/Classes/SomeNamespace/SomeClass.php
 
 In a Fluid template the `includeJavaScriptModules` property of the
 :html:`<f:be.pageRenderer>` ViewHelper may be used:
 
 ..  literalinclude:: _BackendFluidTemplate.html
+    :language: html
     :caption: EXT:my_extension/Resources/Private/Backend/Templates/SomeTemplate.html
 
 Some tips on ES6
@@ -91,6 +95,27 @@ with the following statement:
 
     import $ from 'jquery';
 
+Add JavaScript modules to import map in backend form
+====================================================
+
+The JavaScript module import map is static and only generated and
+loaded in the first request to a document. All possible future
+modules requested in later Ajax calls need to be registered already
+in the first initial request.
+
+The tag :php:`backend.form` is used to identify
+JavaScript modules that can be used within backend forms. This
+ensures that the import maps are available for these modules
+even if the element is not displayed directly.
+
+A typical use case for this is an InlineRelationRecord where the
+CKEditor is not part of the main record but needs to be loaded for
+the child record.
+
+..  literalinclude:: _JavaScriptModulesBackendForm.php
+    :language: php
+    :caption: EXT:my_extension/Configuration/JavaScriptModules.php
+
 .. _requirejs-migration:
 
 Migration from RequireJS
@@ -102,7 +127,7 @@ Migration from RequireJS
     the TYPO3 specific details.
 
 RequireJS is shimmed to prefer ES6 modules if available, allowing any extension
-to ship ES6 modules by providing an importmap configuration in
+to ship ES6 modules by providing an import map configuration in
 :file:`Configuration/JavaScriptModules.php` while providing full backward
 compatibility support for extensions that load modules via RequireJS.
 
