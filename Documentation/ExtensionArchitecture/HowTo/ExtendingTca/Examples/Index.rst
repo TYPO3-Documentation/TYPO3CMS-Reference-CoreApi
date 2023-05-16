@@ -86,25 +86,20 @@ Since the fields are only registered but not used anywhere,  the fields are
 afterwards added to the "types" definition of the :sql:`fe_users` table by
 calling :php:`ExtensionManagementUtility::addToAllTCAtypes()`. Parameters:
 
-1. Name of the table to which the fields should be added.
-2. Comma-separated string of fields, the same syntax used in the
-   :ref:`showitem property of types in TCA <t3tca:types-properties-showitem>`.
-3. Optional: record types of the table where the fields should be added,
-   see :ref:`types in TCA <t3tca:types>` for details.
-4. Optional: position (:php:`'before'` or :php:`'after'`) in relation to an existing field.
+1.  Name of the table to which the fields should be added.
+2.  Comma-separated string of fields, the same syntax used in the
+    :ref:`showitem property of types in TCA <t3tca:types-properties-showitem>`.
+3.  Optional: record types of the table where the fields should be added,
+    see :ref:`types in TCA <t3tca:types>` for details.
+4.  Optional: position (:php:`'before'` or :php:`'after'`) in relation
+    to an existing field (:php:`after:myfield`) or
+    palette (:php:`after:palette:mypalette`).
 
 So you could do this:
 
-.. code-block:: php
-   :caption: EXT:some_extension/Configuration/TCA/Overrides/fe_users.php
-
-
-   \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addToAllTCAtypes(
-      'fe_users',
-      'tx_examples_options, tx_examples_special',
-      '',
-      'after:password'
-   );
+..  literalinclude:: _fe_users.php
+    :language: php
+    :caption: EXT:some_extension/Configuration/TCA/Overrides/fe_users.php
 
 If the fourth parameter (position) is omitted or the specified field is not found,
 new fields are added at the bottom of the form. If the table uses tabs,
