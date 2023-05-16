@@ -14,7 +14,7 @@
            description = Display a single blog post
            tt_content_defValues {
              CType = list
-             list_type =  = blogexample_postsingle
+             list_type = blogexample_postsingle
            }
          }
        }
