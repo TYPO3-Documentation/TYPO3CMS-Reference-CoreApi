@@ -75,18 +75,18 @@ without further configuration, you can use the constructor method:
 
 ..  literalinclude:: _Validator/_MyCustomValidator.php
     :language: php
-    :capition: EXT:my_extension/Classes/Validators/MyCustomValidator.php
+    :caption: EXT:my_extension/Classes/Validators/MyCustomValidator.php
 
 Extensions that want to support both TYPO3 v12 and v11 have to implement the
 method :php:`setOptions` and use the injector method for dependency injection:
 
 ..  literalinclude:: _Validator/_MyCustomValidatorv11v12.php
     :language: php
-    :capition: EXT:my_extension/Classes/Validators/MyCustomValidator.php
+    :caption: EXT:my_extension/Classes/Validators/MyCustomValidator.php
 
 Additionally, the validator requiring dependency injection has to be registered
 in the extension's :file:`Services.yaml` until TYPO3 v11 support is dropped:
 
 ..  literalinclude:: _Validator/_Services.yaml
     :language: yaml
-    :capition: EXT:my_extension/Configuration/Services.yaml
+    :caption: EXT:my_extension/Configuration/Services.yaml
