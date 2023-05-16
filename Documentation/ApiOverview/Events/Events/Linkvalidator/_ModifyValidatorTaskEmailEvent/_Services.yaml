@@ -1,0 +1,5 @@
+services:
+  MyVendor\MyExtension\Linkvalidator\EventListener\MyEventListener:
+    tags:
+      - name: event.listener
+        identifier: 'my-extension/modify-validation-task-email'
