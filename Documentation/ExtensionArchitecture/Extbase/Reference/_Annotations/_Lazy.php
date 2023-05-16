@@ -1,6 +1,7 @@
 <?php
 
 declare(strict_types=1);
+
 namespace T3docs\BlogExample\Domain\Model;
 
 use TYPO3\CMS\Extbase\Annotation\ORM\Lazy;
