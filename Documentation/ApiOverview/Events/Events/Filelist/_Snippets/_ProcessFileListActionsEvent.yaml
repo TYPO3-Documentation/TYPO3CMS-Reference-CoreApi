@@ -1,4 +1,0 @@
-MyVendor\MyExtension\FileList\MyEventListener:
-  tags:
-    - name: event.listener
-      identifier: 'my-extension/filelist/my-event-listener'

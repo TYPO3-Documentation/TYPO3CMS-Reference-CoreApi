@@ -22,15 +22,15 @@ Example
 
 Registration of the event listener in the extension's :file:`Services.yaml`:
 
-..  literalinclude:: _Snippets/_ModifyEditFileFormDataEvent.yaml
+..  literalinclude:: _ModifyEditFileFormDataEvent/_Services.yaml
     :language: yaml
     :caption: EXT:my_extension/Configuration/Services.yaml
 
 The corresponding event listener class:
 
-..  literalinclude:: _Snippets/_ModifyEditFileFormDataEventListener.php
+..  literalinclude:: _ModifyEditFileFormDataEvent/_MyEventListener.php
     :language: php
-    :caption: EXT:my_extension/Classes/FileList/ModifyEditFileFormDataEventListener.php
+    :caption: EXT:my_extension/Classes/FileList/EventListener/MyEventListener.php
 
 API
 ===
