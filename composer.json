@@ -48,7 +48,7 @@
         "typo3/cms-tstemplate": "dev-main as 12.1",
         "typo3/cms-viewpage": "dev-main as 12.1",
         "typo3/cms-workspaces": "dev-main as 12.1",
-        "typo3/coding-standards": "^0.5.5"
+        "typo3/coding-standards": "^0.7.1"
     },
     "minimum-stability": "dev",
     "prefer-stable": true,
