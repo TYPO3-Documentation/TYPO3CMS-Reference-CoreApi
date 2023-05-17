@@ -179,23 +179,15 @@ Enabling context menu in your own backend modules is quite straightforward.
 The examples below are taken from the "beuser" system extension and
 assume that the module is Extbase-based.
 
-..  todo: Document the new ES6 way of creating a context menu
-    https://github.com/TYPO3-Documentation/TYPO3CMS-Reference-CoreApi/issues/2298
-
 The first step is to include the needed JavaScript using the
-:js:`includeRequireJsModules` property
+:html:`includeJavaScriptModules` property
 of the standard backend container Fluid view helper (or backend page
 renderer view helper).
 
 Doing so in your layout is sufficient (see
 :file:`typo3/sysext/beuser/Resources/Private/Layouts/Default.html`).
 
-.. code-block:: xml
-
-   <f:be.container includeRequireJsModules="{0:'TYPO3/CMS/Backend/ContextMenu'}">
-      // ...
-   </f:be.container>
-
+..  literalinclude:: _ContextualMenu/_IncludeJS.html
 
 The second step is to activate the context menu on the icons. This kind of markup
 is required (taken from
