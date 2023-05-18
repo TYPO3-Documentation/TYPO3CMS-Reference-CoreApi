@@ -1,0 +1,5 @@
+services:
+  MyVendor\MyExtension\Lowlevel\EventListener\MyEventListener:
+    tags:
+      - name: event.listener
+        identifier: 'my-extension/blind-configuration-options'

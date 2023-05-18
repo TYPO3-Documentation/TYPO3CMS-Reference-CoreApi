@@ -1,6 +1,6 @@
-.. include:: /Includes.rst.txt
-.. index:: Events; ModifyBlindedConfigurationOptionsEvent
-.. _ModifyBlindedConfigurationOptionsEvent:
+..  include:: /Includes.rst.txt
+..  index:: Events; ModifyBlindedConfigurationOptionsEvent
+..  _ModifyBlindedConfigurationOptionsEvent:
 
 ======================================
 ModifyBlindedConfigurationOptionsEvent
@@ -28,46 +28,20 @@ in the :ref:`configuration module <config-module>`.
 Example
 =======
 
-Registration of the :php:`ModifyBlindedConfigurationOptionsEvent` in your
-extension's :file:`Services.yaml`:
+Registration of the event listener in the extension's :file:`Services.yaml`:
 
-..  code-block:: yaml
+..  literalinclude:: _ModifyBlindedConfigurationOptionsEvent/_Services.yaml
+    :language: yaml
     :caption: EXT:my_extension/Configuration/Services.yaml
 
-    MyVendor\MyExtension\Backend\MyEventListener:
-      tags:
-        - name: event.listener
-          identifier: 'my-extension/blind-configuration-options'
+An implementation of the event listener:
 
-The corresponding event listener:
-
-..  code-block:: php
-    :caption: EXT:my_extension/Classes/Backend/MyEventListener.php
-
-    namespace MyVendor\MyExtension\Backend;
-
-    use TYPO3\CMS\Lowlevel\ConfigurationModuleProvider\GlobalVariableProvider;
-    use TYPO3\CMS\Lowlevel\ConfigurationModuleProvider\SitesYamlConfigurationProvider;
-    use TYPO3\CMS\Lowlevel\Event\ModifyBlindedConfigurationOptionsEvent;
-
-    final class MyEventListener {
-
-        public function __invoke(ModifyBlindedConfigurationOptionsEvent $event): void
-        {
-            $options = $event->getBlindedConfigurationOptions();
-
-            if ($event->getProviderIdentifier() === 'sitesYamlConfiguration') {
-                $options['my-site']['settings']['apiKey'] = '***';
-            } elseif ($event->getProviderIdentifier() === 'confVars') {
-                $options['TYPO3_CONF_VARS']['EXTENSIONS']['my_extension']['password'] = '***';
-            }
-
-            $event->setBlindedConfigurationOptions($options);
-        }
-    }
+..  literalinclude:: _ModifyBlindedConfigurationOptionsEvent/_MyEventListener.php
+    :language: php
+    :caption: EXT:my_extension/Classes/Lowlevel/EventListener/MyEventListener.php
 
 
 API
 ===
 
-.. include:: /CodeSnippets/Events/Lowlevel/ModifyBlindedConfigurationOptionsEvent.rst.txt
+..  include:: /CodeSnippets/Events/Lowlevel/ModifyBlindedConfigurationOptionsEvent.rst.txt
