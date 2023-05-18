@@ -554,7 +554,7 @@ caches.
        ];
        if (isset($values['defaultLifetime'])) {
               $GLOBALS['TYPO3_CONF_VARS']['SYS']['caching']['cacheConfigurations'][$name]['options']['defaultLifetime']
-                  = $values['lifetime'];
+                  = $values['defaultLifetime'];
        }
        if (isset($values['compression'])) {
               $GLOBALS['TYPO3_CONF_VARS']['SYS']['caching']['cacheConfigurations'][$name]['options']['compression']
