@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace MyVendor\MyExtension\Lowlevel\EventListener\EventListener;
+namespace MyVendor\MyExtension\Lowlevel\EventListener;
 
 use TYPO3\CMS\Lowlevel\Event\ModifyBlindedConfigurationOptionsEvent;
 
