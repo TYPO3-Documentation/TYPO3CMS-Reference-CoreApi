@@ -706,7 +706,7 @@ field without having the need of adding a custom slug field to the system.
 The :yaml:`routeFieldPattern` option builds the title and uid fields from the
 database, the :yaml:`routeFieldResult` shows how the placeholder will be output.
 However, as mentioned above special characters in the title might still be a
-problem. The persisted pattern mapper` might be a good choice if you are
+problem. The persisted pattern mapper might be a good choice if you are
 upgrading from a previous version and had URLs with an appended UID for
 uniqueness.
 
