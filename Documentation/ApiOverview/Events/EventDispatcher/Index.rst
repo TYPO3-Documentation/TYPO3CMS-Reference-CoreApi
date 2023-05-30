@@ -48,7 +48,7 @@ Dispatching an event
    for all properties:
 
    .. code-block:: php
-      :caption: EXT:some_extension/Classes/Events/DoingThisAndThatEvent.php
+      :caption: EXT:some_extension/Classes/Event/DoingThisAndThatEvent.php
 
       final class DoingThisAndThatEvent {
          private string $mutableProperty;
