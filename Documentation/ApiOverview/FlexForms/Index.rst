@@ -186,16 +186,16 @@ Select field
             <renderType>selectSingle</renderType>
             <items>
                 <numIndex index="0">
-                    <numIndex index="0">
+                    <numIndex index="label">
                         LLL:EXT:example/Resources/Private/Language/Backend.xlf:settings.registration.orderBy.crdate
                     </numIndex>
-                    <numIndex index="1">crdate</numIndex>
+                    <numIndex index="value">crdate</numIndex>
                 </numIndex>
                 <numIndex index="1">
-                    <numIndex index="0">
+                    <numIndex index="label">
                         LLL:EXT:example/Resources/Private/Language/Backend.xlf:settings.registration.orderBy.title
                     </numIndex>
-                    <numIndex index="1">title</numIndex>
+                    <numIndex index="value">title</numIndex>
                 </numIndex>
             </items>
         </config>
