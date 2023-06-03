@@ -1,6 +1,6 @@
-.. include:: /Includes.rst.txt
-.. index:: Events; AfterRecordPublishedEvent
-.. _AfterRecordPublishedEvent:
+..  include:: /Includes.rst.txt
+..  index:: Events; AfterRecordPublishedEvent
+..  _AfterRecordPublishedEvent:
 
 
 =========================
@@ -17,29 +17,17 @@ Example
 
 Registration of the event listener in the extension's :file:`Services.yaml`:
 
-..  code-block:: yaml
-    :caption: EXT:my_extension/Configuration/Service.yaml
-
-    MyVendor\MyExtension\Workspaces\MyEventListener:
-      tags:
-        - name: event.listener
-          identifier: 'my-extension/after-record-published'
+..  literalinclude:: _AfterRecordPublishedEvent/_Services.yaml
+    :language: yaml
+    :caption: EXT:my_extension/Configuration/Services.yaml
 
 The corresponding event listener class:
 
-..  code-block:: php
-    :caption: EXT:my_extension/Classes/Workspaces/MyEventListener.php;
-
-    use TYPO3\CMS\Workspaces\Event\AfterRecordPublishedEvent;
-
-    final class MyEventListener {
-        public function __invoke(AfterRecordPublishedEvent $event): void
-        {
-            // Do your magic here
-        }
-    }
+..  literalinclude:: _AfterRecordPublishedEvent/_MyEventListener.php
+    :language: php
+    :caption: EXT:my_extension/Classes/Workspaces/EventListener/MyEventListener.php
 
 API
 ===
 
-.. include:: /CodeSnippets/Events/Workspaces/AfterRecordPublishedEvent.rst.txt
+..  include:: /CodeSnippets/Events/Workspaces/AfterRecordPublishedEvent.rst.txt
