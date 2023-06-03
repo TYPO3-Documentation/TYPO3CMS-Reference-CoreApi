@@ -1,0 +1,5 @@
+services:
+  MyVendor\MyExtension\UserSettings\EventListener\MyEventListener:
+    tags:
+      - name: event.listener
+        identifier: 'my-extension/my-event-listener'
