@@ -1,7 +1,10 @@
-MyVendor\MyExtension\Backend\MyEventListener:
-  tags:
-    - name: event.listener
-      identifier: 'my-extension/custom-page-type-redirect'
-      # Registering after Core listener is important, otherwise we would
-      # not know if there is a PageType source for page type 0
-      after: 'redirects-add-page-type-zero-source'
+services:
+  # Place here the default dependency injection configuration
+
+  MyVendor\MyExtension\Backend\MyEventListener:
+    tags:
+      - name: event.listener
+        identifier: 'my-extension/custom-page-type-redirect'
+        # Registering after Core listener is important, otherwise we would
+        # not know if there is a PageType source for page type 0
+        after: 'redirects-add-page-type-zero-source'

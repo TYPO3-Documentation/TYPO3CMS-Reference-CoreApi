@@ -27,6 +27,8 @@ To register an event listener to the new event, use the following code in your
     :language: yaml
     :caption: EXT:my_extension/Configuration/Services.yaml
 
+Read :ref:`how to configure dependency injection in extensions <dependency-injection-in-extensions>`.
+
 API
 ===
 

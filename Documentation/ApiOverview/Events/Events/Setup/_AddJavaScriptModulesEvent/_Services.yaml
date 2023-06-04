@@ -1,4 +1,6 @@
 services:
+  # Place here the default dependency injection configuration
+
   MyVendor\MyExtension\UserSettings\EventListener\MyEventListener:
     tags:
       - name: event.listener

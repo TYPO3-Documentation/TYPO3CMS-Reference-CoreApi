@@ -464,6 +464,8 @@ to instantiate services. This is useful for factory-like services where the exac
 Configuration
 =============
 
+..  _dependency-injection-in-extensions:
+
 Configure dependency injection in extensions
 --------------------------------------------
 

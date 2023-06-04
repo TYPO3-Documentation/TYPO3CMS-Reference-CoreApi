@@ -1,4 +1,7 @@
-MyVendor\MyExtension\Backend\EventListener\MyEventListener:
-  tags:
-    - name: event.listener
-      identifier: 'my-extension/backend/modify-imagemanipulation-previewurl'
+services:
+  # Place here the default dependency injection configuration
+
+  MyVendor\MyExtension\Backend\EventListener\MyEventListener:
+    tags:
+      - name: event.listener
+        identifier: 'my-extension/backend/modify-imagemanipulation-previewurl'

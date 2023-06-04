@@ -26,6 +26,8 @@ Registration of the event:
     :language: yaml
     :caption: EXT:my_extension/Configuration/Services.yaml
 
+Read :ref:`how to configure dependency injection in extensions <dependency-injection-in-extensions>`.
+
 An implementation of the event listener:
 
 ..  literalinclude:: _ModifyLanguagePacksEvent/_MyEventListener.php

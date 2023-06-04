@@ -19,6 +19,8 @@ Registration of the event listener in the extension's :file:`Services.yaml`:
     :language: yaml
     :caption: EXT:my_extension/Configuration/Services.yaml
 
+Read :ref:`how to configure dependency injection in extensions <dependency-injection-in-extensions>`.
+
 An example listener, which hooks into the Mailer API to modify mailer settings
 to not send any emails ("null mailer"), could look like this:
 

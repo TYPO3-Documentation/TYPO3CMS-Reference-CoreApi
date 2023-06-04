@@ -24,6 +24,8 @@ An example implementation could look like this:
     :language: yaml
     :caption: EXT:my_extension/Configuration/Services.yaml
 
+Read :ref:`how to configure dependency injection in extensions <dependency-injection-in-extensions>`.
+
 With :yaml:`after` and :yaml:`before`, you can make sure your own listener is
 executed after or before the given identifiers.
 
