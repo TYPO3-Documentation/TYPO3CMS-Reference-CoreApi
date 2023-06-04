@@ -1,4 +1,7 @@
-MyVendor\MyExtension\Frontend\EventListener\MyEventListener:
-  tags:
-    - name: event.listener
-      identifier: 'my-extension/modify-page-link-configuration'
+services:
+  # Place here the default dependency injection configuration
+
+  MyVendor\MyExtension\Frontend\EventListener\MyEventListener:
+    tags:
+      - name: event.listener
+        identifier: 'my-extension/modify-page-link-configuration'

@@ -34,6 +34,8 @@ An example registration of the events in your extension's :file:`Services.yaml`:
     :language: yaml
     :caption: EXT:my_extension/Configuration/Services.yaml
 
+Read :ref:`how to configure dependency injection in extensions <dependency-injection-in-extensions>`.
+
 The corresponding event listener class:
 
 ..  literalinclude:: _ModifyRecordListTableActionsEvent/_MyEventListener.php

@@ -1,4 +1,7 @@
-MyVendor\MyExtension\Frontend\EventListener\MyEventListener:
-  tags:
-    - name: event.listener
-      identifier: 'my-extension/avoid-cache-loading'
+services:
+  # Place here the default dependency injection configuration
+
+  MyVendor\MyExtension\Frontend\EventListener\MyEventListener:
+    tags:
+      - name: event.listener
+        identifier: 'my-extension/avoid-cache-loading'

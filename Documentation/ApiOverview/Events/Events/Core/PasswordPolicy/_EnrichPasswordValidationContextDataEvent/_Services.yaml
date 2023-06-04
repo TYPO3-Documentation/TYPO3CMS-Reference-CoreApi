@@ -1,4 +1,7 @@
-MyVendor\MyExtension\PasswordPolicy\EventListener\MyEventListener:
-  tags:
-    - name: event.listener
-      identifier: 'my-extension/enrich-context-data-event-listener'
+services:
+  # Place here the default dependency injection configuration
+
+  MyVendor\MyExtension\PasswordPolicy\EventListener\MyEventListener:
+    tags:
+      - name: event.listener
+        identifier: 'my-extension/enrich-context-data-event-listener'

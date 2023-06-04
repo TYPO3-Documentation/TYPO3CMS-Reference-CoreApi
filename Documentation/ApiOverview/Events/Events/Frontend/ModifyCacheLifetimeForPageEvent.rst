@@ -23,6 +23,8 @@ Register the listener:
     :language: yaml
     :caption: EXT:my_extension/Configuration/Services.yaml
 
+Read :ref:`how to configure dependency injection in extensions <dependency-injection-in-extensions>`.
+
 The following listener limits the cache lifetime to 30 seconds in development
 context:
 

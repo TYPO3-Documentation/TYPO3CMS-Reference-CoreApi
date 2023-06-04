@@ -37,6 +37,8 @@ The listener must then be registered in the extensions :php:`Services.yaml`:
     :language: yaml
     :caption: EXT:examples/Configuration/Services.yaml
 
+Read :ref:`how to configure dependency injection in extensions <dependency-injection-in-extensions>`.
+
 For the implementation we need the
 :php:`\TYPO3\CMS\Linkvalidator\Repository\BrokenLinkRepository` to register
 additional link errors and the

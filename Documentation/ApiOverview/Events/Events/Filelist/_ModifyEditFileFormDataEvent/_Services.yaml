@@ -1,4 +1,7 @@
-MyVendor\MyExtension\FileList\EventListener\MyEventListener:
-  tags:
-    - name: event.listener
-      identifier: 'my-extension/modify-edit-file-form-data'
+services:
+  # Place here the default dependency injection configuration
+
+  MyVendor\MyExtension\FileList\EventListener\MyEventListener:
+    tags:
+      - name: event.listener
+        identifier: 'my-extension/modify-edit-file-form-data'

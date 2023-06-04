@@ -1,4 +1,7 @@
-MyVendor\MyExtension\Redirects\EventListener\MyEventListener:
-  tags:
-    - name: event.listener
-      identifier: 'my-extension/before-redirect-match-domain'
+services:
+  # Place here the default dependency injection configuration
+
+  MyVendor\MyExtension\Redirects\EventListener\MyEventListener:
+    tags:
+      - name: event.listener
+        identifier: 'my-extension/before-redirect-match-domain'
