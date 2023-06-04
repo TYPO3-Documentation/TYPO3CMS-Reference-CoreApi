@@ -1,4 +1,7 @@
-MyVendor\MyExtension\Backend\EventListener\MyEventListener:
-  tags:
-    - name: event.listener
-      identifier: 'my-extension/toolbar/my-event-listener'
+services:
+  # Place here the default dependency injection configuration
+
+  MyVendor\MyExtension\Backend\EventListener\MyEventListener:
+    tags:
+      - name: event.listener
+        identifier: 'my-extension/toolbar/my-event-listener'

@@ -38,6 +38,8 @@ Registration of the events in the extension's :file:`Services.yaml`:
     :language: yaml
     :caption: EXT:examples/Configuration/Services.yaml
 
+Read :ref:`how to configure dependency injection in extensions <dependency-injection-in-extensions>`.
+
 The corresponding event listener class:
 
 ..  include:: /CodeSnippets/Events/Core/FlexFormParsingModifyEventListener/FlexFormParsingModifyEventListener.rst.txt

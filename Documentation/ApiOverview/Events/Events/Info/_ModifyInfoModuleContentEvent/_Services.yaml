@@ -1,4 +1,7 @@
-MyVendor\MyExtension\Info\EventListener\MyEventListener:
-  tags:
-    - name: event.listener
-      identifier: 'my-extension/content-to-info-module'
+services:
+  # Place here the default dependency injection configuration
+
+  MyVendor\MyExtension\Info\EventListener\MyEventListener:
+    tags:
+      - name: event.listener
+        identifier: 'my-extension/content-to-info-module'

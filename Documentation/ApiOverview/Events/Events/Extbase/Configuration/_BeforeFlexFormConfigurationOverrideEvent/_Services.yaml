@@ -1,4 +1,7 @@
-MyVendor\MyExtension\Extbase\EventListener\MyEventListener:
-  tags:
-    - name: event.listener
-      identifier: 'my-extension/before-flexform-configuration-override'
+services:
+  # Place here the default dependency injection configuration
+
+  MyVendor\MyExtension\Extbase\EventListener\MyEventListener:
+    tags:
+      - name: event.listener
+        identifier: 'my-extension/before-flexform-configuration-override'
