@@ -13,12 +13,13 @@ Extension testing
     This page has not been fully updated yet. Specifically the following:
 
     *   Decide if multi-core-version testing should be documented or testing only
-        one core version. (Originally, this page was written for testing only one
-        core version since testing 2 core versions was not supported well at the
-        time. Also, when this page was originally written, enetcache tested only one core
-        version and supported only one core version per branch).
+        one TYPO3 Core version. (Originally, this page was written for testing
+        only one TYPO3 Core version since testing two TYPO3 Core versions was
+        not supported well at the time. Also, when this page was originally
+        written, enetcache tested only one TYPO3 Core version and supported only
+        one TYPO3 Core version per branch).
 
-    For now, we document testing only one core version here, even if 2 is possible
+    For now, we document testing only one TYPO3 Core version here, even if 2 is possible
     and enetcache supports it.
 
 Introduction
