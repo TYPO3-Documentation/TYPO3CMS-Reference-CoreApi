@@ -25,6 +25,8 @@ Registration of the event listener in the extension's :file:`Services.yaml`:
     :language: yaml
     :caption: EXT:my_extension/Configuration/Services.yaml
 
+Read :ref:`how to configure dependency injection in extensions <dependency-injection-in-extensions>`.
+
 An implementation of the event listener:
 
 ..  literalinclude:: _BeforeRequestTokenProcessedEvent/_MyEventListener.php

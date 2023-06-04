@@ -40,6 +40,8 @@ Registration of both events in the file :file:`Services.yaml`:
     :language: yaml
     :caption: EXT:bolt/Configuration/Services.yaml
 
+Read :ref:`how to configure dependency injection in extensions <dependency-injection-in-extensions>`.
+
 Handle the old event in TYPO3 v11 only, but skip old event with TYPO3 v12:
 
 ..  literalinclude:: _ModifyLoadedPageTsConfigEvent/_Loader.php

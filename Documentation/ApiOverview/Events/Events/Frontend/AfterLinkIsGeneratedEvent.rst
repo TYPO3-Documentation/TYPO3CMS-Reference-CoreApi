@@ -43,6 +43,7 @@ Registration of the `AfterLinkIsGeneratedEvent` in your extension's
     :language: yaml
     :caption: EXT:my_extension/Configuration/Services.yaml
 
+Read :ref:`how to configure dependency injection in extensions <dependency-injection-in-extensions>`.
 
 The corresponding event listener class:
 

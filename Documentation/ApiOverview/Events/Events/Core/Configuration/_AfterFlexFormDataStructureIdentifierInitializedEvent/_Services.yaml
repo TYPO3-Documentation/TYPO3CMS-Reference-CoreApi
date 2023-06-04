@@ -1,4 +1,6 @@
 services:
+  # Place here the default dependency injection configuration
+
   T3docs\Examples\EventListener\Core\Configuration\FlexFormParsingModifyEventListener:
     tags:
       - name: event.listener

@@ -1,4 +1,7 @@
-MyVendor\MyExtension\Authentication\EventListener\MyEventListener:
-  tags:
-    - name: event.listener
-      identifier: 'my-extension/login-attempt-failed'
+services:
+  # Place here the default dependency injection configuration
+
+  MyVendor\MyExtension\Authentication\EventListener\MyEventListener:
+    tags:
+      - name: event.listener
+        identifier: 'my-extension/login-attempt-failed'
