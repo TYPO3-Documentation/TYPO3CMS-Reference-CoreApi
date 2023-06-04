@@ -326,25 +326,32 @@ through the files and adapt to your needs, for example.
    supported PHP version. (You can also specify the version on the command line
    using runTests.sh with -p.)
 
-Let's run the tests:
+Let's run the unit tests:
 
 .. code-block:: shell
+    :caption: command line
 
-    lolli@apoc /var/www/local/git/enetcache $ Build/Scripts/runTests.sh
+    Build/Scripts/runTests.sh
+
+You may now see something similar to this:
+
+.. code-block:: text
+
     Creating network "local_default" with the default driver
-    PHP ....
-    PHPUnit ... by Sebastian Bergmann and contributors.
+    PHP 8.2.6 (cli) (built: May 13 2023 01:04:28) (NTS)
+    PHPUnit 10.2.0 by Sebastian Bergmann and contributors.
 
-    .....SS                                                             7 / 7 (100%)
+    Runtime:       PHP 8.2.6
+    Configuration: /var/www/mysite/typo3conf/ext/styleguide/Build/UnitTests.xml
 
-    Time: 84 ms, Memory: 12.00MB
+    .                                                                   1 / 1 (100%)
 
-    OK, but incomplete, skipped, or risky tests!
-    Tests: 7, Assertions: 56, Skipped: 2.
-    Removing local_unit_run_1 ... done
+    Time: 00:00.007, Memory: 12.00 MB
+
+    OK (1 test, 5 assertions)
+    Removing local_unit_run_1f529b0fb49d ... done
     Removing network local_default
 
-Done. That's it. Execution of your extension`s unit tests.
 
 If there is no test output, try changing the verbosity when you run runTests.sh:
 
