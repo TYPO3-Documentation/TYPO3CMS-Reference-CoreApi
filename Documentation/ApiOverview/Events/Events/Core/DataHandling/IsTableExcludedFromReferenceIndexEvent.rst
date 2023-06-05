@@ -13,6 +13,11 @@ allows to intercept, if a certain table should be excluded from the
 There is no need to add tables without a definition in :php:`$GLOBALS['TCA']`
 since the reference index only handles those.
 
+Example
+=======
+
+..  include:: /_includes/EventsContributeNote.rst.txt
+
 API
 ===
 

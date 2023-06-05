@@ -15,6 +15,11 @@ Use the PSR-14 event :php:`\TYPO3\CMS\Backend\View\Event\ModifyDatabaseQueryForC
 to filter out certain content elements from being shown in the
 :guilabel:`Page` module.
 
+Example
+=======
+
+..  include:: /_includes/EventsContributeNote.rst.txt
+
 API
 ===
 

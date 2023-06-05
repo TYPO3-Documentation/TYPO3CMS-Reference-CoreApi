@@ -28,6 +28,11 @@ page response if additional permissions should be checked.
     *   AfterPageWithRootLineIsResolvedEvent
     *   :ref:`AfterPageAndLanguageIsResolvedEvent`
 
+Example
+=======
+
+..  include:: /_includes/EventsContributeNote.rst.txt
+
 API
 ===
 

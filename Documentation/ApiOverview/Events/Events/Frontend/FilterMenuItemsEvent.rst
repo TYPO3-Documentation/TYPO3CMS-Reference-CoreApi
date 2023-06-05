@@ -27,6 +27,10 @@ order is possible.
 Additionally, more information about the currently rendered menu, such as
 the menu items which were filtered out, is available.
 
+Example
+=======
+
+..  include:: /_includes/EventsContributeNote.rst.txt
 
 API
 ===

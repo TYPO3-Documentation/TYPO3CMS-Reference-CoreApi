@@ -27,6 +27,11 @@ stored in the database shortly.
     A :ref:`custom password policy validator<password-policies-custom-validator>`
     should be used to validate user passwords.
 
+Example
+=======
+
+..  include:: /_includes/EventsContributeNote.rst.txt
+
 API
 ===
 

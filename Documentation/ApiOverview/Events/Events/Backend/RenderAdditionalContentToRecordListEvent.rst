@@ -29,6 +29,10 @@ The PSR-14 event
 allows to add content before or after the main content of the :guilabel:`List`
 module.
 
+Example
+=======
+
+..  include:: /_includes/EventsContributeNote.rst.txt
 
 API
 ===

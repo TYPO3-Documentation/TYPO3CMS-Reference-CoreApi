@@ -11,6 +11,11 @@ The PSR-14 event
 allows to intercept the :sql:`CREATE TABLE` statement from all loaded
 extensions.
 
+Example
+=======
+
+..  include:: /_includes/EventsContributeNote.rst.txt
+
 API
 ===
 

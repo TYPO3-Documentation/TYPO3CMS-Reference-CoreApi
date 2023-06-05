@@ -15,6 +15,11 @@ IsContentUsedOnPageLayoutEvent
 Use the PSR-14 event :php:`\TYPO3\CMS\Backend\View\Event\IsContentUsedOnPageLayoutEvent`
 to identify if content has been used in a column that is not in a backend layout.
 
+Example
+=======
+
+..  include:: /_includes/EventsContributeNote.rst.txt
+
 API
 ===
 
