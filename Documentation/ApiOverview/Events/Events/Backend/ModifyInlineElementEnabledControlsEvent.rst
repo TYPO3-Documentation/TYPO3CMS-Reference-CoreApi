@@ -20,6 +20,11 @@ See the
 :ref:`ModifyInlineElementControlsEvent example <ModifyInlineElementControlsEvent_example>`
 for details.
 
+Example
+=======
+
+..  include:: /_includes/EventsContributeNote.rst.txt
+
 API
 ===
 

@@ -31,6 +31,10 @@ gets displayed in the translation modal when a user has clicked the
 :guilabel:`Translate` button in the page module, by implementing a listener for
 the event.
 
+Example
+=======
+
+..  include:: /_includes/EventsContributeNote.rst.txt
 
 API
 ===

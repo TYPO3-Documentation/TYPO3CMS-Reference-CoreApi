@@ -11,6 +11,11 @@ The PSR-14 event
 is fired so listeners can intercept and add elements when checking
 links within the :ref:`soft reference <soft-references>` parser.
 
+Example
+=======
+
+..  include:: /_includes/EventsContributeNote.rst.txt
+
 API
 ===
 

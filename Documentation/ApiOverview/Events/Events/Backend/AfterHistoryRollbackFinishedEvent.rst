@@ -9,6 +9,11 @@ AfterHistoryRollbackFinishedEvent
 The PSR-14 event :php:`\TYPO3\CMS\Backend\History\Event\AfterHistoryRollbackFinishedEvent`
 is fired after a history record rollback finished.
 
+Example
+=======
+
+..  include:: /_includes/EventsContributeNote.rst.txt
+
 API
 ===
 

@@ -15,6 +15,11 @@ can be used to modify information (such as the
 :ref:`LanguageAspect <context_api_aspects_language>` or the actual incoming
 record from the database) before the database is queried.
 
+Example
+=======
+
+..  include:: /_includes/EventsContributeNote.rst.txt
+
 API
 ===
 

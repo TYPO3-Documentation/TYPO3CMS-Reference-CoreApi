@@ -15,6 +15,11 @@ are able to modify the controls of a single file reference of a TCA type
 :ref:`ModifyInlineElementControlsEvent`, which is only available for TCA
 type :ref:`inline <columns-inline>`.
 
+Example
+=======
+
+..  include:: /_includes/EventsContributeNote.rst.txt
+
 API
 ===
 

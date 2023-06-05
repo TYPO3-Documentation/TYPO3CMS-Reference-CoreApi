@@ -11,6 +11,11 @@ The PSR-14 event :php:`\TYPO3\CMS\Workspaces\Event\SortVersionedDataEvent` is
 used in the :guilabel:`Web > Workspaces` module after sorting all data for
 versions of a workspace.
 
+Example
+=======
+
+..  include:: /_includes/EventsContributeNote.rst.txt
+
 API
 ===
 

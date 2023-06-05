@@ -22,6 +22,11 @@ independent of the :php:`readonly` and :php:`showFileSelectors` options.
 This means, you have full control in which scenario your custom controls
 are being displayed.
 
+Example
+=======
+
+..  include:: /_includes/EventsContributeNote.rst.txt
+
 API
 ===
 

@@ -13,6 +13,11 @@ triggered before a redirect is made.
 ..  versionadded:: 11.5.26/12.3
     The methods :php:`setRedirectUrl()` and :php:`getRequest()` are available.
 
+Example
+=======
+
+..  include:: /_includes/EventsContributeNote.rst.txt
+
 API
 ===
 
