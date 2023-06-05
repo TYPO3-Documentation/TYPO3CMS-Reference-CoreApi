@@ -288,19 +288,9 @@ found using a custom :php:`UserRepository`, so the repository service is a direc
 controller service. A typical constructor dependency injection to resolve the
 dependency by the framework looks like this:
 
-.. code-block:: php
-   :caption: EXT:my_extension/Controller/UserController.php
-
-   namespace MyVendor\MyExtension\Controller;
-
-   use MyVendor\MyExtension\Repository\UserRepository;
-
-   final class UserController
-   {
-        public function __construct(private readonly UserRepository $userRepository)
-        {
-        }
-   }
+..  literalinclude:: _ConstructorInjection.php
+    :language: php
+    :caption: EXT:my_extension/Controller/UserController.php
 
 Here the Symfony container sees a dependency to :php:`UserRepository` when scanning :php:`__construct()`
 of the :php:`UserController`. Since autowiring is enabled by default (more on that below), an instance of the
@@ -316,22 +306,9 @@ Method injection
 
 A second way to get services injected is by using :php:`inject*()` methods:
 
-.. code-block:: php
-   :caption: EXT:my_extension/Controller/UserController.php
-
-   namespace MyVendor\MyExtension\Controller;
-
-   use MyVendor\MyExtension\Repository\UserRepository;
-
-   final class UserController
-   {
-        private ?UserRepository $userRepository = null;
-
-        public function injectUserRepository(UserRepository $userRepository)
-        {
-            $this->userRepository = $userRepository;
-        }
-   }
+..  literalinclude:: _MethodInjection.php
+    :language: php
+    :caption: EXT:my_extension/Controller/UserController.php
 
 This ends up with the basically the same result as above: The controller instance has
 an object of type :php:`UserRepository` in class property :php:`$userRepository`.
@@ -342,35 +319,11 @@ hinted class property needs to be nullable, otherwise PHP >= 7.4 throws a warnin
 since the instance is not set during :php:`__construct()`. But that's just an
 implementation detail. More important is an abstraction scenario. Consider this case:
 
-.. code-block:: php
-   :caption: EXT:my_extension/Controller/UserController.php
+..  literalinclude:: _MethodInjectionWithAbstract.php
+    :language: php
+    :caption: EXT:my_extension/Controller/UserController.php
 
-   namespace MyVendor\MyExtension\Controller;
-
-   use MyVendor\MyExtension\Repository\UserRepository;
-   use MyVendor\MyExtension\Logger\Logger;
-
-   abstract class AbstractController
-   {
-        protected ?Logger $logger = null;
-
-        public function injectLogger(Logger $logger)
-        {
-            $this->logger = $logger;
-        }
-   }
-
-   final class UserController extends AbstractController
-   {
-        private UserRepository $userRepository;
-
-        public function __construct(UserRepository $userRepository)
-        {
-            $this->userRepository = $userRepository;
-        }
-   }
-
-We have an abstract constroller service with a dependency plus a controller service that extends
+We have an abstract controller service with a dependency plus a controller service that extends
 the abstract and has further dependencies.
 
 Now assume the abstract class is provided by TYPO3 core and the consuming class
@@ -414,22 +367,9 @@ Interface injection
 Apart from constructor injection and :php:`inject*()` method injection, there is another
 useful dependency injection scenario. Look at this example:
 
-.. code-block:: php
-   :caption: EXT:my_extension/Controller/UserController.php
-
-   namespace MyVendor\MyExtension\Controller;
-
-   use MyVendor\MyExtension\Logger\LoggerInterface;
-
-   final class UserController extends AbstractController
-   {
-        protected LoggerInterface $logger;
-
-        public function __construct(LoggerInterface $logger)
-        {
-            $this->logger = $logger;
-        }
-   }
+..  literalinclude:: _InterfaceInjection.php
+    :language: php
+    :caption: EXT:my_extension/Controller/UserController.php
 
 See the difference? We're requesting the injection of an interface and not a class!
 It works for both constructor and method injection. It forces the service container
@@ -481,18 +421,10 @@ A basic :file:`Services.yaml` file of an extension looks like the following.
     all caches from the :guilabel:`Clear cache` menu does not flush the compiled Symfony
     container.
 
-..  code-block:: yaml
+..  literalinclude:: _Services.yaml
+    :language: yaml
     :caption: EXT:my_extension/Configuration/Services.yaml
 
-    services:
-      _defaults:
-        autowire: true
-        autoconfigure: true
-        public: false
-
-      MyVendor\MyExtension\:
-        resource: '../Classes/*'
-        exclude: '../Classes/Domain/Model/*'
 
 .. _dependency-injection-autowire:
 
@@ -535,35 +467,16 @@ configure those as well. This means that you can set :yaml:`autowire: false` for
 an extension, but provide the required arguments via config specifically for
 the desired classes. This can be done in chronological order or by naming.
 
-..  code-block:: yaml
+..  literalinclude:: _ServicesWithoutAutowire.yaml
+    :language: yaml
     :caption: EXT:my_extension/Configuration/Services.yaml
-
-    MyVendor\MyExtension\UserFunction\ClassA:
-      arguments:
-        $argA: '@TYPO3\CMS\Core\Database\ConnectionPool'
-
-    MyVendor\MyExtension\UserFunction\ClassB:
-      arguments:
-        - '@TYPO3\CMS\Core\Database\ConnectionPool'
 
 This allows you to inject concrete objects like the :ref:`Connection
 <database-connection>`:
 
-..  code-block:: yaml
+..  literalinclude:: _ServicesWithConnection.yaml
+    :language: yaml
     :caption: EXT:my_extension/Configuration/Services.yaml
-
-    connection.pages:
-      class: 'TYPO3\CMS\Core\Database\Connection'
-      factory:
-        - '@TYPO3\CMS\Core\Database\ConnectionPool'
-        - 'getConnectionForTable'
-      arguments:
-        - 'pages'
-
-    MyVendor\MyExtension\UserFunction\ClassA:
-      public: true
-      arguments:
-        - '@connection.pages'
 
 Now you can access the :php:`Connection` instance within :php:`ClassA`. This
 allows you to execute your queries without further instantiation. For example,
@@ -627,21 +540,9 @@ For such classes, an extension can override the global configuration
 :yaml:`public: false` in :file:`Configuration/Services.yaml` for each affected
 class:
 
-..  code-block:: yaml
+..  literalinclude:: _ServicesWithPublic.yaml
+    :language: yaml
     :caption: EXT:my_extension/Configuration/Services.yaml
-
-    services:
-      _defaults:
-        autowire: true
-        autoconfigure: true
-        public: false
-
-      MyVendor\MyExtension\:
-        resource: '../Classes/*'
-        exclude: '../Classes/Domain/Model/*'
-
-      MyVendor\MyExtension\UserFunction\ClassA:
-        public: true
 
 With this configuration, you can use dependency injection in
 :php:`\MyVendor\MyExtension\UserFunction\ClassA` when it is created, for example
@@ -706,40 +607,16 @@ injection in the service classes of your project's various extensions. Then the
 concrete implementation may change without touching your code. In this example,
 we use `lcobucci/clock` for the concrete implementation.
 
-..  code-block:: php
+..  literalinclude:: _servicesInstallationWide.php
+    :language: php
     :caption: config/system/services.php
-
-    use Lcobucci\Clock\SystemClock;
-    use Psr\Clock\ClockInterface;
-    use Symfony\Component\DependencyInjection\ContainerBuilder;
-    use Symfony\Component\DependencyInjection\Loader\Configurator\ContainerConfigurator;
-
-    return static function (
-        ContainerConfigurator $containerConfigurator,
-        ContainerBuilder $containerBuilder
-    ): void {
-        $services = $containerConfigurator->services();
-        $services->set(ClockInterface::class)
-            ->factory([SystemClock::class, 'fromUTC']);
-    };
 
 The concrete clock implementation is now injected when a type hint to the
 interface is given:
 
-..  code-block:: php
+..  literalinclude:: _MyClass.php
+    :language: php
     :caption: EXT:my_extension/Classes/MyClass.php
-
-    use Psr\Clock\ClockInterface;
-
-    class MyClass
-    {
-        public function __construct(
-            private readonly ClockInterface $clock
-        ) {
-        }
-
-        // ...
-    }
 
 
 Dependency injection in a XCLASSed class
