@@ -12,6 +12,11 @@ The PSR-14 event
 is used in the :guilabel:`Web > Workspaces` module to find all cacheable data of
 versions of a workspace.
 
+Example
+=======
+
+..  include:: /_includes/EventsContributeNote.rst.txt
+
 API
 ===
 

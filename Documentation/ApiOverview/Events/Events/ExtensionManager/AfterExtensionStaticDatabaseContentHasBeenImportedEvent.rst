@@ -14,6 +14,11 @@ AfterExtensionStaticDatabaseContentHasBeenImportedEvent
 Event that is triggered after a package has imported the database file shipped
 within :file:`ext_tables_static+adt.sql`.
 
+Example
+=======
+
+..  include:: /_includes/EventsContributeNote.rst.txt
+
 API
 ===
 

@@ -11,6 +11,11 @@ The PSR-14 event
 allows to enrich the system information toolbar in the TYPO3 backend top toolbar
 with various information.
 
+Example
+=======
+
+..  include:: /_includes/EventsContributeNote.rst.txt
+
 API
 ===
 

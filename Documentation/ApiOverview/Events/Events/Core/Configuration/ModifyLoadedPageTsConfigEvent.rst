@@ -17,6 +17,11 @@ entries that can be overridden or added, based on the root line.
     and the new event, and TYPO3 v13 will stop calling the old event.
     See also :ref:`ModifyLoadedPageTsConfigEventv11v12`.
 
+Example
+=======
+
+..  include:: /_includes/EventsContributeNote.rst.txt
+
 API
 ===
 

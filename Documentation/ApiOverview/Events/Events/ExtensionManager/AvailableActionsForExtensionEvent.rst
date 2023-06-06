@@ -13,6 +13,11 @@ AvailableActionsForExtensionEvent
 Event that is triggered when rendering an additional action (currently within
 a Fluid ViewHelper) in the extension manager.
 
+Example
+=======
+
+..  include:: /_includes/EventsContributeNote.rst.txt
+
 API
 ===
 

@@ -11,6 +11,11 @@ The PSR-14 event :php:`\TYPO3\CMS\Extbase\Event\Mvc\AfterRequestDispatchedEvent`
 is fired after the dispatcher has successfully dispatched a request to a
 controller action.
 
+Example
+=======
+
+..  include:: /_includes/EventsContributeNote.rst.txt
+
 API
 ===
 

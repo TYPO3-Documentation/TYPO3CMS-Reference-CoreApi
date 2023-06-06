@@ -11,6 +11,11 @@ The PSR-14 event :php:`\TYPO3\CMS\Extbase\Event\Mvc\BeforeActionCallEvent` is
 triggered before any Extbase action is called within the :php:`ActionController`
 or one of its subclasses.
 
+Example
+=======
+
+..  include:: /_includes/EventsContributeNote.rst.txt
+
 API
 ===
 

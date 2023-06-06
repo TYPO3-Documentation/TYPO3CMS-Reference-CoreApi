@@ -11,6 +11,11 @@ The PSR-14 event :php:`\TYPO3\CMS\FrontendLogin\Event\SendRecoveryEmailEvent`
 contains the email to be sent and additional information about the user who
 requested a new password.
 
+Example
+=======
+
+..  include:: /_includes/EventsContributeNote.rst.txt
+
 API
 ===
 
