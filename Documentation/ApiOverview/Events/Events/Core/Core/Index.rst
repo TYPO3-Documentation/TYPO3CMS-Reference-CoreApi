@@ -1,6 +1,6 @@
-.. include:: /Includes.rst.txt
-.. index:: pair: Events; Core Core
-.. _eventlist-core-core:
+..  include:: /Includes.rst.txt
+..  index:: pair: Events; Core Core
+..  _eventlist-core-core:
 
 
 ====
@@ -12,8 +12,8 @@ in EXT:core, namespace Core.
 
 **Contents:**
 
-.. toctree::
-   :titlesonly:
-   :glob:
+..  toctree::
+    :titlesonly:
+    :glob:
 
-   *
+    *

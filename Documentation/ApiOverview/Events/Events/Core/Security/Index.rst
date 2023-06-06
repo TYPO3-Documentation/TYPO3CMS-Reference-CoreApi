@@ -1,6 +1,6 @@
-.. include:: /Includes.rst.txt
-.. index:: pair: Events; Core Security
-.. _eventlist-core-security:
+..  include:: /Includes.rst.txt
+..  index:: pair: Events; Core Security
+..  _eventlist-core-security:
 
 
 ========
@@ -12,8 +12,8 @@ in EXT:core, namespace Security.
 
 **Contents:**
 
-.. toctree::
-   :titlesonly:
-   :glob:
+..  toctree::
+    :titlesonly:
+    :glob:
 
-   *
+    *

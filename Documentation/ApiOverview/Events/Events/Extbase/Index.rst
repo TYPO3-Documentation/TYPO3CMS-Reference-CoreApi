@@ -1,6 +1,6 @@
-.. include:: /Includes.rst.txt
-.. index:: pair: Events; Extbase
-.. _eventlist-extbase:
+..  include:: /Includes.rst.txt
+..  index:: pair: Events; Extbase
+..  _eventlist-extbase:
 
 
 =======
@@ -12,8 +12,8 @@ in EXT:extbase.
 
 **Contents:**
 
-.. toctree::
-   :titlesonly:
-   :glob:
+..  toctree::
+    :titlesonly:
+    :glob:
 
-   */Index
+    */Index

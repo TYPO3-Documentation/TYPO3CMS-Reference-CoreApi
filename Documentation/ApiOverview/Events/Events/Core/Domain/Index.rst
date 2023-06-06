@@ -1,6 +1,6 @@
-.. include:: /Includes.rst.txt
-.. index:: pair: Events; Core Domain
-.. _eventlist-core-domain:
+..  include:: /Includes.rst.txt
+..  index:: pair: Events; Core Domain
+..  _eventlist-core-domain:
 
 
 ============
@@ -12,8 +12,8 @@ in EXT:core, namespace Domain.
 
 **Contents:**
 
-.. toctree::
-   :titlesonly:
-   :glob:
+..  toctree::
+    :titlesonly:
+    :glob:
 
-   *
+    *
