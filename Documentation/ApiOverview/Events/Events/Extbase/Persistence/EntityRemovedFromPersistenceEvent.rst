@@ -10,6 +10,11 @@ The PSR-14 event
 :php:`\TYPO3\CMS\Extbase\Event\Persistence\EntityRemovedFromPersistenceEvent`
 is fired after an object/entity was sent to the persistence layer to be removed.
 
+Example
+=======
+
+..  include:: /_includes/EventsContributeNote.rst.txt
+
 API
 ===
 

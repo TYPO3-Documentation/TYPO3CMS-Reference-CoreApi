@@ -11,6 +11,11 @@ The PSR-14 event
 allows to modify variables for the view depending on a special login provider
 set in the controller.
 
+Example
+=======
+
+..  include:: /_includes/EventsContributeNote.rst.txt
+
 API
 ===
 

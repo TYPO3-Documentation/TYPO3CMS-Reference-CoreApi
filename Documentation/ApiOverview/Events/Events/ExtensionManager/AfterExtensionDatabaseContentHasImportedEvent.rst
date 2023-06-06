@@ -14,6 +14,11 @@ AfterExtensionDatabaseContentHasBeenImportedEvent
 Event that is triggered after a package has imported the database file shipped
 within a t3d/xml import file.
 
+Example
+=======
+
+..  include:: /_includes/EventsContributeNote.rst.txt
+
 API
 ===
 

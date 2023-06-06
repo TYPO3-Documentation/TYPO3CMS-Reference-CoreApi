@@ -10,6 +10,11 @@ The PSR-14 event
 :php:`\TYPO3\CMS\Backend\History\Event\BeforeHistoryRollbackStartEvent`
 is fired before a history record rollback starts.
 
+Example
+=======
+
+..  include:: /_includes/EventsContributeNote.rst.txt
+
 API
 ===
 

@@ -15,6 +15,11 @@ fired after a record has been published in a workspace.
 Example
 =======
 
+..  include:: /_includes/EventsContributeNote.rst.txt
+
+Example
+=======
+
 Registration of the event listener in the extension's :file:`Services.yaml`:
 
 ..  literalinclude:: _AfterRecordPublishedEvent/_Services.yaml

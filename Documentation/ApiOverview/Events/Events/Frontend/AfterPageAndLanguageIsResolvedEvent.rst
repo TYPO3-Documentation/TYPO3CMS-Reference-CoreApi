@@ -28,6 +28,11 @@ listeners (e.g. a custom 403 response).
     *   :ref:`AfterPageWithRootLineIsResolvedEvent`
     *   AfterPageAndLanguageIsResolvedEvent
 
+Example
+=======
+
+..  include:: /_includes/EventsContributeNote.rst.txt
+
 API
 ===
 

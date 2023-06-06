@@ -28,6 +28,11 @@ parameters (such as :php:`$controller->id`) or the context for resolving a page.
     *   :ref:`AfterPageWithRootLineIsResolvedEvent`
     *   :ref:`AfterPageAndLanguageIsResolvedEvent`
 
+Example
+=======
+
+..  include:: /_includes/EventsContributeNote.rst.txt
+
 API
 ===
 

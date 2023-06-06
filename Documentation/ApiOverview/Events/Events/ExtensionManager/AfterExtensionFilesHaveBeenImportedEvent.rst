@@ -14,6 +14,11 @@ AfterExtensionFilesHaveBeenImportedEvent
 Event that is triggered after a package has imported all extension files
 (from :file:`Initialisation/Files/`).
 
+Example
+=======
+
+..  include:: /_includes/EventsContributeNote.rst.txt
+
 API
 ===
 

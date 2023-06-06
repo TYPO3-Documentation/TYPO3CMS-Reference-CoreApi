@@ -11,6 +11,11 @@ The PSR-14 event
 is dispatched after persisting the object, but before updating the reference
 index and adding the object to the persistence session.
 
+Example
+=======
+
+..  include:: /_includes/EventsContributeNote.rst.txt
+
 API
 ===
 

@@ -16,6 +16,11 @@ of one or multiple pages, which could be one full record or multiple page IDs.
 This event is fired only for pages and in-between the events
 :ref:`BeforeRecordLanguageOverlayEvent` and :ref:`AfterRecordLanguageOverlayEvent`.
 
+Example
+=======
+
+..  include:: /_includes/EventsContributeNote.rst.txt
+
 API
 ===
 

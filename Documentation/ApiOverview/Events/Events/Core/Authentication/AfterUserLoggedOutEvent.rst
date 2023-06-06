@@ -14,6 +14,11 @@ The purpose of the PSR-14 event
 :php:`\TYPO3\CMS\Core\Authentication\Event\AfterUserLoggedOutEvent`
 is to trigger any kind of action when a user has been successfully logged out.
 
+Example
+=======
+
+..  include:: /_includes/EventsContributeNote.rst.txt
+
 API
 ===
 
