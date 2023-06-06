@@ -1,6 +1,6 @@
-.. include:: /Includes.rst.txt
-.. index:: pair: Events; Core TypoScript
-.. _eventlist-core-typoscript:
+..  include:: /Includes.rst.txt
+..  index:: pair: Events; Core TypoScript
+..  _eventlist-core-typoscript:
 
 
 ==========
@@ -12,8 +12,8 @@ in EXT:core, namespace TypoScript.
 
 **Contents:**
 
-.. toctree::
-   :titlesonly:
-   :glob:
+..  toctree::
+    :titlesonly:
+    :glob:
 
-   *
+    *

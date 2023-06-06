@@ -1,6 +1,6 @@
-.. include:: /Includes.rst.txt
-.. index:: pair: Events; Core Configuration
-.. _eventlist-core-configuration:
+..  include:: /Includes.rst.txt
+..  index:: pair: Events; Core Configuration
+..  _eventlist-core-configuration:
 
 
 =============
@@ -12,8 +12,8 @@ in EXT:core, namespace Configuration.
 
 **Contents:**
 
-.. toctree::
-   :titlesonly:
-   :glob:
+..  toctree::
+    :titlesonly:
+    :glob:
 
-   *
+    *

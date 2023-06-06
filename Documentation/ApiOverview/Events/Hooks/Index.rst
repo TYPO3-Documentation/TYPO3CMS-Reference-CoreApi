@@ -1,6 +1,6 @@
-.. include:: /Includes.rst.txt
-.. index:: ! Hooks
-.. _hooks-general:
+..  include:: /Includes.rst.txt
+..  index:: ! Hooks
+..  _hooks-general:
 
 =====
 Hooks
@@ -15,11 +15,11 @@ Hooks are being phased-out and no new ones should be created. Dispatch a
 :ref:`PSR-14 event <EventDispatcher>` instead.
 
 
-.. index::
-   Hooks;  $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']
-   Hooks; Usage
-   TYPO3_CONF_VARS; SC_OPTIONS
-.. _hooks-basics:
+..  index::
+    Hooks;  $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']
+    Hooks; Usage
+    TYPO3_CONF_VARS; SC_OPTIONS
+..  _hooks-basics:
 
 Using hooks
 ===========
@@ -68,15 +68,15 @@ The hooks can even rearrange the calling order if they dare.
 The syntax of a function reference can be seen in the API documentation of
 :php:`\TYPO3\CMS\Core\Utility\GeneralUtility`.
 
-.. note::
+..  note::
 
-   The example hook shown above refers to old class names. All these old class
-   names were left in hooks, for obvious reasons of backwards-compatibility.
+    The example hook shown above refers to old class names. All these old class
+    names were left in hooks, for obvious reasons of backwards-compatibility.
 
-.. index::
-   GeneralUtility; callUserFunction
-   Hooks; Creation
-.. _hooks-creation:
+..  index::
+    GeneralUtility; callUserFunction
+    Hooks; Creation
+..  _hooks-creation:
 
 Creating hooks
 ==============
@@ -101,7 +101,7 @@ TYPO3.
 
 Here are some examples:
 
-.. _hooks-creation-object:
+..  _hooks-creation-object:
 
 Using `\TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance()`
 --------------------------------------------------------------
@@ -112,7 +112,7 @@ Data submission to extensions:
     :language: php
     :caption: EXT:some_extension/Classes/SomeClass.php
 
-.. _hooks-creation-function:
+..  _hooks-creation-function:
 
 Using with `\TYPO3\CMS\Core\Utility\GeneralUtility::callUserFunction()`
 -----------------------------------------------------------------------
@@ -123,8 +123,8 @@ Constructor post-processing:
     :language: php
     :caption: EXT:some_extension/Classes/SomeClass.php
 
-.. index:: Hooks; Configuration
-.. _hooks-configuration:
+..  index:: Hooks; Configuration
+..  _hooks-configuration:
 
 Hook configuration
 ==================
@@ -135,10 +135,10 @@ completely listed in the :ref:`event list <eventlist>`.
 There is no complete index of the remaining hooks in the Core. The following
 naming scheme should be used:
 
-.. index::
-   Hooks;  $GLOBALS['TYPO3_CONF_VARS']['EXTCONF']
-   pair: Hooks; Extensions
-.. _hooks-extensions:
+..  index::
+    Hooks;  $GLOBALS['TYPO3_CONF_VARS']['EXTCONF']
+    pair: Hooks; Extensions
+..  _hooks-extensions:
 
 $GLOBALS['TYPO3\_CONF\_VARS']['EXTCONF']
 ----------------------------------------
@@ -174,10 +174,10 @@ particular extension.
     to introduce new hooks. :ref:`Events <EventDispatcher>` should be used instead.
 
 
-.. index::
-   Hooks;  $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']
-   pair: Hooks; Core
-.. _hooks-core:
+..  index::
+    Hooks;  $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']
+    pair: Hooks; Core
+..  _hooks-core:
 
 $GLOBALS['TYPO3\_CONF\_VARS']['SC\_OPTIONS']
 ============================================

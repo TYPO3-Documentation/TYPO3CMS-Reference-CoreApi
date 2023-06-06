@@ -1,6 +1,6 @@
-.. include:: /Includes.rst.txt
-.. index:: JavaScript; Debounce event
-.. _Events_JavaScript_Debounce:
+..  include:: /Includes.rst.txt
+..  index:: JavaScript; Debounce event
+..  _Events_JavaScript_Debounce:
 
 ==============
 Debounce event
@@ -17,17 +17,17 @@ events.
 To construct the event listener, the module :js:`TYPO3/CMS/Core/Event/DebounceEvent` must be imported. The constructor
 accepts the following arguments:
 
-* :js:`eventName` (string) - the event to listen on
-* :js:`callback` (function) - the executed event listener when the event is triggered
-* :js:`wait` (number) - the amount of milliseconds to wait the event listener is either executed or locked
-* :js:`immediate` (boolean) - defined whether the event listener is executed before or after the waiting time
+*   :js:`eventName` (string) - the event to listen on
+*   :js:`callback` (function) - the executed event listener when the event is triggered
+*   :js:`wait` (number) - the amount of milliseconds to wait the event listener is either executed or locked
+*   :js:`immediate` (boolean) - defined whether the event listener is executed before or after the waiting time
 
-.. code-block:: js
+..  code-block:: js
 
-   new DebounceEvent('mousewheel', function (e) {
-     console.log('Executed 200ms after the last mousewheel event was fired');
-   }, 200).bindTo(document.body);
+    new DebounceEvent('mousewheel', function (e) {
+        console.log('Executed 200ms after the last mousewheel event was fired');
+    }, 200).bindTo(document.body);
 
-   new DebounceEvent('mousewheel', function (e) {
-     console.log('Executed right after the first 200ms after the last mousewheel event was fired');
-   }, 200, true).bindTo(document.body);
+    new DebounceEvent('mousewheel', function (e) {
+        console.log('Executed right after the first 200ms after the last mousewheel event was fired');
+    }, 200, true).bindTo(document.body);

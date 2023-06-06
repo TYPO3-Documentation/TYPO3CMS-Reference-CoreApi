@@ -1,6 +1,6 @@
-.. include:: /Includes.rst.txt
-.. index:: JavaScript; Throttle event
-.. _Events_JavaScript_Throttle:
+..  include:: /Includes.rst.txt
+..  index:: JavaScript; Throttle event
+..  _Events_JavaScript_Throttle:
 
 ==============
 Throttle event
@@ -12,16 +12,16 @@ the debounced event, where the major difference is that a throttled event execut
 To construct the event listener, the module :js:`TYPO3/CMS/Core/Event/ThrottleEvent` must be imported. The constructor
 accepts the following arguments:
 
-* :js:`eventName` (string) - the event to listen on
-* :js:`callback` (function) - the executed event listener when the event is triggered
-* :js:`limit` (number) - the amount of milliseconds to wait until the event listener is executed again
+*   :js:`eventName` (string) - the event to listen on
+*   :js:`callback` (function) - the executed event listener when the event is triggered
+*   :js:`limit` (number) - the amount of milliseconds to wait until the event listener is executed again
 
-.. hint::
-   If an event spans over 2000ms and the wait time is configured to be 100ms,
-   the event listener gets called up to 20 times in total (:math:`20=\frac{2000}{100}`).
+..  hint::
+    If an event spans over 2000ms and the wait time is configured to be 100ms,
+    the event listener gets called up to 20 times in total (:math:`20=\frac{2000}{100}`).
 
-.. code-block:: js
+..  code-block:: js
 
-   new ThrottleEvent('mousewheel', function (e) {
-     console.log('Executed every 50ms during the overall event time span');
-   }, 50).bindTo(document.body);
+    new ThrottleEvent('mousewheel', function (e) {
+        console.log('Executed every 50ms during the overall event time span');
+    }, 50).bindTo(document.body);
