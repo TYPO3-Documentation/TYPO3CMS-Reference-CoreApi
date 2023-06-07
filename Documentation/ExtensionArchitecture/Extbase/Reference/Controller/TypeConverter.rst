@@ -52,7 +52,7 @@ file:`Services.yaml`:
 
     services:
       MyVendor\MyExtension\Property\TypeConverter\MyCustomDateTimeConverter:
-        tag:
+        tags:
           - name: extbase.type_converter
             priority: 10
             target: \DateTime
