@@ -1,6 +1,6 @@
-.. include:: /Includes.rst.txt
-.. index:: pair: Events; Core Authentication
-.. _eventlist-core-authentication:
+..  include:: /Includes.rst.txt
+..  index:: pair: Events; Core Authentication
+..  _eventlist-core-authentication:
 
 
 ==============
@@ -12,8 +12,8 @@ in EXT:core, namespace Authentication.
 
 **Contents:**
 
-.. toctree::
-   :titlesonly:
-   :glob:
+..  toctree::
+    :titlesonly:
+    :glob:
 
-   *
+    *

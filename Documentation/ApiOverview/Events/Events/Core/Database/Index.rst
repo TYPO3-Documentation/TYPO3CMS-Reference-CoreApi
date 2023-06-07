@@ -1,6 +1,6 @@
-.. include:: /Includes.rst.txt
-.. index:: pair: Events; Core Database
-.. _eventlist-core-database:
+..  include:: /Includes.rst.txt
+..  index:: pair: Events; Core Database
+..  _eventlist-core-database:
 
 
 ========
@@ -12,8 +12,8 @@ in EXT:core, namespace Database.
 
 **Contents:**
 
-.. toctree::
-   :titlesonly:
-   :glob:
+..  toctree::
+    :titlesonly:
+    :glob:
 
-   *
+    *
