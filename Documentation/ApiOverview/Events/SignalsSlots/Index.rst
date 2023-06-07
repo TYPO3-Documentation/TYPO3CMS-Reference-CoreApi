@@ -1,20 +1,20 @@
 :orphan:
 
-.. include:: /Includes.rst.txt
-.. _signals-slots:
-.. _signals-concept:
-.. _signals-dispatch:
-.. _signals-basics:
+..  include:: /Includes.rst.txt
+..  _signals-slots:
+..  _signals-concept:
+..  _signals-dispatch:
+..  _signals-basics:
 
 ===========================
 Signals and slots (removed)
 ===========================
 
-.. versionchanged:: 12.0
-   Signals and slots and all related classes have been removed from the
-   Core. Use :ref:`PSR-14 events <EventDispatcher>` instead.
+..  versionchanged:: 12.0
+    Signals and slots and all related classes have been removed from the
+    Core. Use :ref:`PSR-14 events <EventDispatcher>` instead.
 
-.. warning::
+..  warning::
 
-   The extbase :php:`SignalSlotDispatcher` and the concept of using
-   signals and slots have been removed with Version 12.0.
+    The extbase :php:`SignalSlotDispatcher` and the concept of using
+    signals and slots have been removed with version 12.0.
