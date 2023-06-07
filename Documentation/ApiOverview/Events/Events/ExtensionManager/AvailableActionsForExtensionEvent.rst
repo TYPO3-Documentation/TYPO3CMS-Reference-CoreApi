@@ -10,7 +10,9 @@ AvailableActionsForExtensionEvent
     The event was introduced to replace the Signal/Slot
     `\TYPO3\CMS\Extensionmanager\ViewHelper\ProcessAvailableActionsViewHelper::processActions`.
 
-Event that is triggered when rendering an additional action (currently within
+The PSR-14 event
+:php:`\TYPO3\CMS\Extensionmanager\Event\AvailableActionsForExtensionEvent`
+is triggered when rendering an additional action (currently within
 a Fluid ViewHelper) in the extension manager.
 
 Example
