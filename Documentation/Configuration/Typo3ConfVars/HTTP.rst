@@ -90,7 +90,7 @@ cert
 
    Set to a string to specify the path to a file containing a
    PEM formatted client side certificate. See
-   `Guzzle option cert<http//docs.guzzlephp.org/en/latest/request-options.html#cert>`
+   `Guzzle option cert <http//docs.guzzlephp.org/en/latest/request-options.html#cert>`__
 
 .. index::
    TYPO3_CONF_VARS HTTP; connect_timeout
@@ -123,7 +123,7 @@ proxy
 
    Multiple proxies for different protocols can be added separately as an
    array as authentication and port; see
-   `Guzzle documentation<http//docs.guzzlephp.org/en/latest/request-options.html#proxy>`
+   `Guzzle documentation <https://docs.guzzlephp.org/en/latest/request-options.html#proxy>`__
    for details.
 
    The configuration with an array must be made in the
