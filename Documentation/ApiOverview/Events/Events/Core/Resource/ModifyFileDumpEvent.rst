@@ -25,7 +25,7 @@ Example
 
 Registration of the event listener in the extension's :file:`Services.yaml`:
 
-..  literalinclude:: _AfterFileCommandProcessedEvent/_Services.yaml
+..  literalinclude:: _ModifyFileDumpEvent/_Services.yaml
     :language: yaml
     :caption: EXT:my_extension/Configuration/Services.yaml
 
@@ -33,7 +33,7 @@ Read :ref:`how to configure dependency injection in extensions <dependency-injec
 
 The corresponding event listener class:
 
-..  literalinclude:: _AfterFileCommandProcessedEvent/_MyEventListener.php
+..  literalinclude:: _ModifyFileDumpEvent/_MyEventListener.php
     :language: php
     :caption: EXT:my_extension/Classes/Resource/EventListener/MyEventListener.php
 
