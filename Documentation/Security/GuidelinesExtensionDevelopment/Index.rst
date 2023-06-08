@@ -63,7 +63,7 @@ Trusted properties (Extbase Only)
 .. danger::
 
    Be aware that request hashes (HMAC) do not protect against **Identity** field manipulation.
-   An attacker can modify the identity field value and can thrn update the value of
+   An attacker can modify the identity field value and can then update the value of
    another record, even if they do not usually have access to it. You have to
    implement your own validation for the Identity field value (verify ownership
    of the record, add another hidden field that validates the identity field
