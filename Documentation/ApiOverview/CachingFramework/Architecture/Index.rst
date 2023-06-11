@@ -138,11 +138,11 @@ but such caches should normally be transient anyway.
 There are :ref:`TSconfig options for permissions <t3tsconfig:useroptions>`
 corresponding to each group.
 
-The following caches exist in the TYPO3 CMS Core:
+The following caches exist in the TYPO3 Core:
 
 - `core`
 
-  - Core cache for compiled php code. It should **not** be used by extensions.
+  - Core cache for compiled PHP code. It should **not** be used by extensions.
   - Uses **PhpFrontend** with the **SimpleFileBackend** for maximum performance.
   - Stores Core internal compiled PHP code like concatenated :file:`ext_tables.php` and :file:`ext_localconf.php`
     files, autoloader and sprite configuration PHP files.
@@ -161,13 +161,6 @@ The following caches exist in the TYPO3 CMS Core:
 - `pages`
 
   - The frontend page cache. Stores full frontend pages.
-  - Content is compressed by default to reduce database memory and storage overhead.
-  - **groups**: all, pages
-
-- `pagesection`
-
-  - Used to store "parts of a page", for example used to store Typoscript snippets and
-    compiled frontend templates.
   - Content is compressed by default to reduce database memory and storage overhead.
   - **groups**: all, pages
 
@@ -206,14 +199,25 @@ The following caches exist in the TYPO3 CMS Core:
   - Cache for Fluid templates.
   - **groups**: system
 
-- Extbase
+- `extbase`
 
   - Contains detailed information about a class' member variables and methods.
   - **group**: system
 
-- dashboard_rss
+- `ratelimiter`
 
-  - Contains the contents of RSS-Feeds retrieved by RSS widgets on the dashboard.
+  - Cache for the Symfony rate limiter component (for example, used for backend
+    login rate limiting).
+  - **group**: system
+
+- `typoscript`
+
+  - Cache for TypoScript.
+  - **group**: pages
+
+- `dashboard_rss`
+
+  - Contains the contents of RSS feeds retrieved by RSS widgets on the dashboard.
   - This cache can be used by extension authors for their own RSS widgets.
 
 
