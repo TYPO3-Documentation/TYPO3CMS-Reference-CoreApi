@@ -215,6 +215,13 @@ The following caches exist in the TYPO3 Core:
   - Cache for TypoScript.
   - **group**: pages
 
+- `database_schema`
+
+  .. versionadded:: 12.4.2
+
+  - Cache for database schema information.
+  - **group**: system
+
 - `dashboard_rss`
 
   - Contains the contents of RSS feeds retrieved by RSS widgets on the dashboard.
