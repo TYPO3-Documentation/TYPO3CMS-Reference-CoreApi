@@ -65,7 +65,7 @@ How to Disable Specific Caches
 ==============================
 
 During development, it can be convenient to disable certain caches.
-This is especially helpful since TYPO3 v4.6 for central caches like the language or autoloader cache.
+This is especially helpful for central caches like the language or autoloader cache.
 This can be achieved by using the **null** backend (see below) as storage backend.
 
 .. warning::
