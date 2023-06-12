@@ -477,6 +477,7 @@ Add the Ajax controller class in
 
    use Psr\Http\Message\ResponseInterface;
    use Psr\Http\Message\ServerRequestInterface;
+   use TYPO3\CMS\Core\Http\JsonResponse;
 
    class ImportDataController
    {
@@ -490,8 +491,7 @@ Add the Ajax controller class in
          $id = (int)$queryParameters['id'];
 
          if (empty($id)) {
-            $response->getBody()->write(json_encode(['success' => false]));
-            return $response;
+            return new JsonResponse(['success' => false]);
          }
          $param = ' -id=' . $id;
 
