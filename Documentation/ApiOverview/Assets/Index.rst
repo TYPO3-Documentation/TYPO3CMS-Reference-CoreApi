@@ -226,7 +226,7 @@ Using the TypoScriptFrontendController
 
 ..  tip::
     Instead of using the global variable for retrieving the
-    :php:`TypoScriptFrontendController` you should consider to use the
+    :ref:`TypoScriptFrontendController <tsfe>` you should consider to use the
     :ref:`PSR-7 request attribute <typo3-request-attributes>`
     :ref:`frontend.controller <typo3-request-attribute-frontend-controller>`
     wherever possible.
