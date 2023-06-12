@@ -296,47 +296,8 @@ Workspace-related API for backend modules
 :php:`BackendUtility::getLiveVersionOfRecord()`
    Returns live version of workspace version.
 
-
-:php:`BackendWorkspaceRestriction`
-   ..  deprecated:: 12.1
-       Use :php:`\TYPO3\CMS\Core\Database\Query\Restriction\WorkspaceRestriction`
-       instead.
-
-   Adds a WHERE-clause to the QueryBuilder which will deselect placeholder
-   records from other workspaces. This should be implemented almost everywhere
-   records are selected in the backend based on other fields than uid and where
-   a :code:`DeletedRestriction` is used.
-
-   **Example:**
-
-   .. code-block:: php
-      :caption: EXT:some_extension/Classes/SomeClass.php
-
-      // use TYPO3\CMS\Core\Database\Query\Restriction\BackendWorkspaceRestriction;
-      // use TYPO3\CMS\Core\Database\Query\Restriction\DeletedRestriction;
-
-      $queryBuilder = GeneralUtility::makeInstance(ConnectionPool::class)
-          ->getQueryBuilderForTable('pages');
-      $queryBuilder->getRestrictions()
-          ->removeAll()
-          ->add(GeneralUtility::makeInstance(DeletedRestriction::class))
-          ->add(GeneralUtility::makeInstance(BackendWorkspaceRestriction::class));
-
-:php:`FrontendWorkspaceRestriction`
-   ..  deprecated:: 12.1
-       Use :php:`\TYPO3\CMS\Core\Database\Query\Restriction\WorkspaceRestriction`
-       instead.
-
-   Restriction for filtering records for frontend workspaces preview:
-
-   .. code-block:: php
-
-      // use TYPO3\CMS\Core\Database\Query\Restriction\FrontendWorkspaceRestriction;
-
-
 :php:`WorkspaceRestriction`
-   This `WorkspaceRestriction` has been added to overcome certain downsides of the `BackendWorkspaceRestriction`
-   and `FrontendWorkspaceRestriction`. It limits a SQL query to only select records which are "online" (pid != -1)
+   It limits an SQL query to only select records which are "online" (pid != -1)
    and in live or current workspace:
 
    .. code-block:: php
