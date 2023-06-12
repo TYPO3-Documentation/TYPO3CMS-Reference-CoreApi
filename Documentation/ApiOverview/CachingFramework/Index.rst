@@ -1,126 +1,144 @@
-.. include:: /Includes.rst.txt
+..  include:: /Includes.rst.txt
 
-.. _caching:
+..  _caching:
 
 =======
 Caching
 =======
 
+..  contents::
+    :local:
+
 Caching in TYPO3
 ----------------
 
-TYPO3 uses multiple caching strategies to ensure fast content delivery. Depending
-on the content a page contains, TYPO3 chooses the best caching strategy for that use case.
+TYPO3 uses multiple caching strategies to ensure fast content delivery.
+Depending on the content a page contains, TYPO3 chooses the best caching
+strategy for that use case.
 
-For example, you might have a fully-cacheable page, a page that is at least partially
-cacheable or a page that is completely dynamic. Dynamic elements in TYPO3 are also known
-as `USER_INT` or `COA_INT` objects - as these are the matching TypoScript objects used
-to render non-cacheable content.
+For example, you might have a fully-cacheable page, a page that is at least
+partially cacheable or a page that is completely dynamic. Dynamic elements in
+TYPO3 are also known as :ref:`USER_INT <t3tsref:cobj-user-int>` or
+:ref:`COA_INT <t3tsref:cobj-coa-int>` objects - as these are the matching
+:ref:`Typoscript <t3tsref:start>` objects used to render non-cacheable content.
 
 When visiting a TYPO3 web site, TYPO3 knows the following states:
 
-- first time hit, page has never been rendered ("cache miss")
-- consecutive hit, page has been rendered before ("cache hit")
+*   first time hit, page has never been rendered ("cache miss")
+*   consecutive hit, page has been rendered before ("cache hit")
 
 In the first case, TYPO3 renders the complete page and writes cache entries as
 configured. In the second case, TYPO3 fetches those entries from the cache and
 delivers them to the user without re-triggering the rendering.
 
 In that second case, either the page is fully cached and directly delivered from
-the cache, or the page has non-cacheable elements on it. If a page has non-cacheable
-elements, TYPO3 first fetches the cached part of the page and then renders all
-dynamic parts.
+the cache, or the page has non-cacheable elements on it. If a page has
+non-cacheable elements, TYPO3 first fetches the cached part of the page and then
+renders all dynamic parts.
 
-.. note::
+..  note::
+    The cache contains placeholders for dynamic elements to tell TYPO3 where to
+    render dynamic parts.
 
-   The cache contains placeholders for dynamic elements to tell TYPO3 where to render
-   dynamic parts.
+..  hint::
+    For developers: If you are developing a :ref:`plugin <frontend_plugin>`,
+    think about your plugin's cache lifetime. Ideally, it can be fully cached,
+    but if not, read the section about the
+    :ref:`caching framework <caching-architecture>` to learn how to leverage
+    TYPO3's caching mechanism to cache your plugin for however long you can -
+    even 30 seconds might improve performance in some scenarios.
 
+..  _chash:
 
-.. hint::
-
-   For developers: If you are developing a plugin think about your plugin's cache lifetime.
-   Ideally, it can be fully cached, but if not, read the section about the caching framework
-   to learn how to leverage TYPO3's caching mechanism to cache your plugin for however long
-   you can - even 30 seconds might improve performance in some scenarios.
-
-.. _chash:
-
-Caching Variants - or: What is a "cache hash"?
+Caching variants - or: What is a "cache hash"?
 ----------------------------------------------
 
-TYPO3 ideally delivers fully cached pages for maximum performance. However, in scenarios where
-the same page will deliver different content depending on URL parameters, TYPO3 needs a possibility
-to identify these "variants" and cache each of them differently. For example, if you have a
-news plugin and a detail page, the detail page is different for every news entry.
+TYPO3 ideally delivers fully cached pages for maximum performance. However, in
+scenarios where the same page will deliver different content depending on URL
+parameters, TYPO3 needs a possibility to identify these "variants" and cache
+each of them differently. For example, if you have a news plugin and a detail
+page, the detail page is different for every news entry.
 
-To identify the variant, TYPO3 combines a set of parameters and generates a hash value as identifier.
-These parameters include by default:
+To identify the variant, TYPO3 combines a set of parameters and generates a hash
+value as identifier. These parameters include by default:
 
-- `id`: The current page ID
-- `type`: The current page type (`typeNum`)
-- `groupIds`: The user groups of the logged in user (if no user is logged in: 0, -1 as default values)
-- `MP`: The mount point identifier
-- `site`: The current site and base URL
-- `staticRouteArguments`: Any route argument configured in the routing configuration and resolved in the current request
-- `dynamicArguments`: Any :php:`$_GET` parameters influencing the rendered page
+*   `id`: The current page ID
+*   `type`: The current page type (`typeNum`)
+*   `groupIds`: The user groups of the logged-in user (if no user is logged in:
+    `0`, `-1` as default values)
+*   `MP`: The :ref:`mount point <MountPoints>` identifier
+*   `site`: The current :ref:`site <sitehandling>` and base URL
+*   `staticRouteArguments`: Any route argument configured in the
+    :ref:`routing configuration <routing>` and resolved in the current
+    :ref:`request <typo3-request>`
+*   `dynamicArguments`: Any "GET" parameters influencing the rendered page
 
-Imagine the following URL :samp:`https://example.org/news/?tx_example_news[id]=123` displaying the news with ID `123`.
-If TYPO3 would cache that page with that parameter without any security mechanisms, it would open a potential
-denial of service attack as an unlimited amount of cache entries could be generated by adding arbitrary parameters.
-To avoid that, TYPO3 generates a so-called `cHash` parameter, which is a hash that basically signs the valid parameters
-for that request. So any parameter that validly influences the rendered page needs to be part of that `cHash`.
+Imagine the following URL :samp:`https://example.org/news/?tx_example_news[id]=123`
+displaying the news with ID `123`. If TYPO3 would cache that page with that
+parameter without any security mechanisms, it would open a potential denial of
+service attack as an unlimited amount of cache entries could be generated by
+adding arbitrary parameters. To avoid that, TYPO3 generates a so-called "cHash"
+parameter, which is a hash that basically signs the valid parameters for that
+request. So any parameter that validly influences the rendered page needs to be
+part of that cHash.
 
-With :ref:`Routing` you can configure TYPO3 not to display the `cHash` in your URLs in most cases.
-Routing adds an explicit mapping of incoming readable URL slugs to internal parameter values.
-This both adds an additional layer for validating slugs as well as reduces the parameters to a limited (and predictable) set of values.
+With :ref:`routing <routing>` you can configure TYPO3 not to display the cHash
+in your URLs in most cases. Routing adds an explicit mapping of incoming
+readable URL slugs to internal parameter values. This both adds an additional
+layer for validating slugs as well as reduces the parameters to a limited (and
+predictable) set of values.
 
-Various configuration options exist to configure the `cHash` behavior via
+Various configuration options exist to configure the cHash behavior via
 :ref:`$GLOBALS['TYPO3_CONF_VARS']['FE']['cacheHash'] <typo3ConfVars_fe_cacheHash>`
 in the file :file:`config/system/settings.php` or :file:`config/system/additional.php`:
 
-.. confval:: cachedParametersWhiteList
+..  confval:: cachedParametersWhiteList
 
-   **Only** the given parameters will be evaluated in the cHash calculation. Example: tx_news_pi1[uid]
+    **Only** the given parameters will be evaluated in the cHash calculation.
+    Example: `tx_news_pi1[uid]`
 
-   .. attention::
+    ..  attention::
+        This option will lead to cache calculation being skipped for all
+        parameters except the ones listed here. Caching of pages will not be
+        influenced by other parameters beyond the initial caching anymore.
 
-      This option will lead to cache calculation being skipped for all parameters except the ones listed here.
-      Caching of pages will not be influenced by other parameters beyond the initial caching anymore.
+..  confval:: requireCacheHashPresenceParameters
 
-.. confval:: requireCacheHashPresenceParameters
+    Configure parameters that require a cHash. If no cHash is given, but one of
+    the parameters are set, then TYPO3 triggers the configured cHash error
+    behavior
 
-   Configure Parameters that require a cHash. If no cHash is given but one of the parameters
-   are set, then TYPO3 triggers the configured cHash Error behavior
+..  confval:: excludedParameters
 
-.. confval:: excludedParameters
+    The given parameters will be ignored in the cHash calculation.
+    Example: `L,tx_search_pi1[query]`
 
-   The given parameters will be ignored in the cHash calculation. Example: L,tx_search_pi1[query]
+..  confval:: excludedParametersIfEmpty
 
-.. confval:: excludedParametersIfEmpty
+    Configure parameters only being relevant for the cHash if there is an
+    associated value available. Set excludeAllEmptyParameters to true to skip
+    all empty parameters.
 
-   Configure Parameters only being relevant for the cHash if there's an associated value available.
-   Set excludeAllEmptyParameters to true to skip all empty parameters.
+..  confval:: excludeAllEmptyParameters
 
-.. confval:: excludeAllEmptyParameters
+    If true, all parameters relevant to cHash are only considered when they are
+    not empty.
 
-   If true, all parameters which are relevant for cHash are only considered if they are non-empty.
+..  confval:: enforceValidation
 
-.. confval:: enforceValidation
+    If this option is enabled, the same validation is used to calculate a cHash
+    value as when a valid or invalid "cHash" parameter is given to a request,
+    even when no cHash is given.
 
-   .. versionadded:: 10.4.35/11.5.23/12.2
-
-   If this option is enabled, the same validation is used to calculate a "cHash"
-   value as when a valid or invalid "cHash" parameter is given to a request,
-   even when no "cHash" is given.
-
-All properties can be configured with an array of values. Besides exact matches (*equals*) it is possible to apply partial matches at
-the beginning of a parameter (*startsWith*) or inline occurrences (*contains*).
+All properties can be configured with an array of values. Besides exact matches
+(*equals*) it is possible to apply partial matches at the beginning of a
+parameter (*startsWith*) or inline occurrences (*contains*).
 
 URL parameter names are prefixed with the following indicators:
-+ :php:`=` (*equals*): exact match, default behavior if not given
-+ :php:`^` (*startsWith*): matching the beginning of a parameter name
-+ :php:`~` (*contains*): matching any inline occurrence in a parameter name
+
+*   :php:`=` (*equals*): exact match, default behavior if not given
+*   :php:`^` (*startsWith*): matching the beginning of a parameter name
+*   :php:`~` (*contains*): matching any inline occurrence in a parameter name
 
 These indicators can be used for all previously existing sub-properties
 :php:`cachedParametersWhiteList`, :php:`excludedParameters`, :php:`excludedParametersIfEmpty`
@@ -129,64 +147,65 @@ and :php:`requireCacheHashPresenceParameters`.
 Example (excerpt of `config/system/additional.php`)
 ---------------------------------------------------
 
-.. code-block:: php
-   :caption: config/system/additional.php | typo3conf/system/additional.php
+..  code-block:: php
+    :caption: config/system/additional.php | typo3conf/system/additional.php
 
-   $GLOBALS['TYPO3_CONF_VARS']['FE']['cacheHash'] = [
-     'excludedParameters' => [
-       'utm_source',
-       'utm_medium',
-     ],
-     'excludedParametersIfEmpty' => [
-       '^tx_my_plugin[aspects]',
-       'tx_my_plugin[filter]',
-     ],
-   ];
-
+    $GLOBALS['TYPO3_CONF_VARS']['FE']['cacheHash'] = [
+        'excludedParameters' => [
+            'utm_source',
+            'utm_medium',
+        ],
+        'excludedParametersIfEmpty' => [
+            '^tx_my_plugin[aspects]',
+            'tx_my_plugin[filter]',
+        ],
+    ];
 
 For instance instead of having exclude items like
 
-.. code-block:: php
-   :caption: config/system/additional.php | typo3conf/system/additional.php
+..  code-block:: php
+    :caption: config/system/additional.php | typo3conf/system/additional.php
 
-   'excludedParameters' => [
-      'tx_my[data][uid]',
-      'tx_my[data][category]',
-      'tx_my[data][order]',
-      'tx_my[data][origin]',
-      ...
-   ],
+    'excludedParameters' => [
+        'tx_my_plugin[data][uid]',
+        'tx_my_plugin[data][category]',
+        'tx_my_plugin[data][order]',
+        'tx_my_plugin[data][origin]',
+        // ...
+    ],
 
 partial matches allow to simplify the configuration and consider all items having
 :php:`tx_my[data]` (or :php:`tx_my[data][` to be more specific) as prefix like
 
-.. code-block:: php
-   :caption: config/system/additional.php | typo3conf/system/additional.php
+..  code-block:: php
+    :caption: config/system/additional.php | typo3conf/system/additional.php
 
-   'excludedParameters' => [
-      '^tx_my[data][',
-      ...
-   ],
+    'excludedParameters' => [
+        '^tx_my_plugin[data][',
+        // ...
+    ],
 
-Clearing/Flushing and warming up caches
+Clearing/flushing and warming up caches
 ---------------------------------------
 
 TYPO3 provides different possibilities to clear all or specific caches.
 Depending on the context, you might want to
 
-- clear the cache for a single page (for example to make changes visible)
-- clear the frontend cache (for example after templating changes)
-- clear all caches (for example during development, when making TypoScript changes)
-- clear all caches incl. dependency injection (mainly useful during development)
+*   clear the cache for a single page (for example, to make changes visible)
+*   clear the frontend cache (for example, after templating changes)
+*   clear all caches (for example, during development, when making TypoScript
+    changes)
+*   clear all caches incl. :ref:`dependency injection <DependencyInjection>`
+    (mainly useful during development)
 
 Clearing the cache for a single page is done by using the "clear cache button"
-on that page in the backend (usually visualized with a "bolt" icon). Depending on
-user rights this option is available for editors.
+on that page in the backend (usually visualized with a "bolt" icon). Depending
+on user rights this option is available for editors.
 
 Clearing the frontend caches and all caches can be done via the system toolbar
-in the TYPO3 backend. This option should only be available to administrators. Clearing
-all caches can have a significant impact on the performance of the web site and
-should be used sparingly on production systems.
+in the TYPO3 backend. This option should only be available to administrators.
+Clearing all caches can have a significant impact on the performance of the web
+site and should be used sparingly on production systems.
 
 The "fullest" option to clear all caches can be reached via the
 :guilabel:`System Tools > Maintenance` section. In the development context when
@@ -194,41 +213,38 @@ new classes have been added to the system or in case of problems with the system
 using this cache clearing option will clear all caches including compiled code
 like the dependency injection container.
 
-Clear Cache Command
-^^^^^^^^^^^^^^^^^^^^
+Clear cache command
+~~~~~~~~~~~~~~~~~~~
 
 In addition to the GUI options explained above, caches can also be cleared
-via a CLI command:
+via a :ref:`CLI command <symfony-console-commands>`:
 
-.. code-block:: bash
-
-   ./typo3/sysext/core/bin/typo3 cache:flush
+..  include:: /_includes/CliCacheWarmup.rst.txt
 
 Specific cache groups can be defined via the group option.
 The usage is described as this:
 
-.. code-block:: bash
+..  code-block:: bash
 
-   cache:flush [--group <all|system|di|pages|...>]
+    cache:flush [--group <all|system|di|pages|...>]
 
-All available cache groups can be supplied as option. The command defaults to
-flush all available cache groups as the :guilabel:`System Tools > Maintenance` area
-does.
+All available :ref:`cache groups <caching-architecture-core>` can be supplied as
+option. The command defaults to flush all available cache groups as the
+:guilabel:`System Tools > Maintenance` area does.
 
 Extensions that register custom caches may listen to the
-via :php:`TYPO3\CMS\Core\Cache\Event\CacheFlushEvent`, but usually the
+via :php:`\TYPO3\CMS\Core\Cache\Event\CacheFlushEvent`, but usually the
 cache flush via CacheManager groups will suffice to clear those caches, too.
 
-Cache Warmup
-^^^^^^^^^^^^
+Cache warmup
+~~~~~~~~~~~~
 
 It is possible to warmup TYPO3 caches using the command line.
 
-The administrator can use the following CLI command:
+The administrator can use the following
+:ref:`CLI command <symfony-console-commands>`:
 
-.. code-block:: bash
-
-   ./typo3/sysext/core/bin/typo3 cache:warmup
+..  include:: /_includes/CliCacheFlush.rst.txt
 
 Specific cache groups can be defined via the group option.
 The usage is described as this:
@@ -237,88 +253,95 @@ The usage is described as this:
 
    cache:warmup [--group <all|system|di|pages|...>]
 
-All available cache groups can be supplied as option. The command defaults to
-warm all available cache groups.
+All available :ref:`cache groups <caching-architecture-core>` can be supplied as
+option. The command defaults to warm all available cache groups.
 
 Extensions that register custom caches are encouraged to implement cache warmers
-via :php:`TYPO3\CMS\Core\Cache\Event\CacheWarmupEvent`.
+via :php:`\TYPO3\CMS\Core\Cache\Event\CacheWarmupEvent`.
 
-.. note::
+..  note::
+    TYPO3 frontend caches will not be warmed by TYPO3 Core, such functionality
+    could be added by third-party extensions with the help of
+    :php:`\TYPO3\CMS\Core\Cache\Event\CacheWarmupEvent`.
 
-   TYPO3 frontend caches will not be warmed by TYPO3 core, such functionality
-   could be added by third party extensions with the help of
-   :php:`TYPO3\CMS\Core\Cache\Event\CacheWarmupEvent`.
-
-Use Case - Deployment
-^^^^^^^^^^^^^^^^^^^^^
+Use case: deployment
+~~~~~~~~~~~~~~~~~~~~
 
 It is often required to clear caches during deployment of TYPO3 instance.
-The integrator may decide to flush all caches or may alternatively flush selected groups
-(e.g. 'pages'). It is common practice to clear *all* caches during deployment of a
-TYPO3 instance update. This means that the first request after a deployment
-usually takes a major amount of time and blocks other requests due to cache-locks.
+The integrator may decide to flush all caches or may alternatively flush
+selected groups (for example, "pages"). It is common practice to clear *all*
+caches during deployment of a TYPO3 instance update. This means that the first
+request after a deployment usually takes a major amount of time and blocks other
+requests due to cache-locks.
 
-TYPO3 caches can now be warmed during deployment in release preparatory steps in
-symlink based deployment/release procedures. The enables fast first requests
+TYPO3 caches can be warmed during deployment in release preparatory steps in
+symlink-based deployment/release procedures. This enables fast first requests
 with all (or at least system) caches being prepared and warmed.
 
-Caches are often filesystem relevant (filepaths are calculated into cache
+Caches are often filesystem relevant (file paths are calculated into cache
 hashes), therefore cache warmup should only be performed on the the live system,
 in the *final* folder of a new release, and ideally before switching
 to that new release (via symlink switch).
 
-.. warning::
-
-   Caches that have been pre-created on the continuous integration server
-   will likely be useless as cache hashes will not match (as the final file system
-   path is relevant to the hash generation).
+..  warning::
+    Caches that have been pre-created on the continuous integration server
+    will likely be useless as cache hashes will not match (as the final file
+    system path is relevant to the hash generation).
 
 To summarize: Cache warmup is to be used during deployment, on the live system
 server, inside the new release folder and before switching to the new release.
 
 An example deployment could consist of:
 
-*  Before the release:
-   *  git-checkout/rsync your codebase to the continuous integration / build server
-   *  `composer install` on the continuous integration / build server
-   *  `vendor/bin/typo3 cache:warmup --group system` (*only* on the live system)
-*  Change release symlink to the new release folder
-*  After the release:
-   * `vendor/bin/typo3 cache:flush --group pages`
+*   Before the release:
+
+    *   git-checkout/rsync your codebase to the continuous integration / build
+        server
+    *   :bash:`composer install` on the continuous integration / build server
+    *   :bash:`vendor/bin/typo3 cache:warmup --group system` (*only* on the live
+        system)
+
+*   Change release symlink to the new release folder
+
+*   After the release:
+
+    *   :bash:`vendor/bin/typo3 cache:flush --group pages`
 
 The conceptional idea is to warmup all file-related caches *before* (symlink)
 switching to a new release and to *only* flush database and frontend (shared)
 caches after the symlink switch. Database warmup could be implemented with
-the help of the :php:`TYPO3\CMS\Core\Cache\Event\CacheWarmupEvent` as an
-additionally functionality by third party extensions.
+the help of the :php:`\TYPO3\CMS\Core\Cache\Event\CacheWarmupEvent` as an
+additionally functionality by third-party extensions.
 
 Note that file-related caches (summarized into the group "system") can safely be
 cleared before doing a release switch, as it is recommended to keep file caches
-per release. In other words, share :file:`var/session`, :file:`var/log`,
-:file:`var/lock` and :file:`var/charset` between releases, but keep
-:file:`var/cache` be associated only with one release.
+per release. In other words, share :file:`var/session/`, :file:`var/log/`,
+:file:`var/lock/` and :file:`var/charset/` between releases, but keep
+:file:`var/cache/` be associated only with one release.
 
 
-
-Caching Framework
+Caching framework
 -----------------
 
-Since TYPO3 v4.3, the Core contains a data caching framework
-which supports a wide variety of storage solutions and options
-for different caching needs. Each cache can be configured individually
-and can implement its own specific storage strategy.
+TYPO3 contains a data caching framework which supports a wide variety of storage
+solutions and options for different caching needs. Each cache can be configured
+individually and can implement its own specific storage strategy.
 
-The caching framework exists to help speeding up TYPO3 sites, especially heavily loaded ones.
-It is possible to move all caches to a dedicated cache server with specialized cache systems
-like the Redis key-value store (a so called `NoSQL database <https://en.wikipedia.org/wiki/NoSQL>`_).
+The caching framework exists to help speeding up TYPO3 sites, especially
+heavily loaded ones. It is possible to move all caches to a dedicated cache
+server with specialized cache systems like the Redis key-value store (a so
+called `NoSQL database`_).
 
-Major parts of the original caching framework were originally backported from TYPO3 Flow.
+..  _NoSQL database: https://en.wikipedia.org/wiki/NoSQL
 
-.. toctree::
-   :titlesonly:
+Major parts of the original caching framework were originally backported from
+TYPO3 Flow.
 
-   QuickStart/Index
-   Configuration/Index
-   Architecture/Index
-   FrontendsBackends/Index
-   Developer/Index
+..  toctree::
+    :titlesonly:
+
+    QuickStart/Index
+    Configuration/Index
+    Architecture/Index
+    FrontendsBackends/Index
+    Developer/Index
