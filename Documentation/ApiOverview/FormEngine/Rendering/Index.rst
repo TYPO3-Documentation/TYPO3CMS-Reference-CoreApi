@@ -482,10 +482,9 @@ Add the Ajax controller class in
    {
       /**
       * @param ServerRequestInterface $request
-      * @param ResponseInterface $response
       * @return ResponseInterface
       */
-      public function importDataAction(ServerRequestInterface $request, ResponseInterface $response)
+      public function importDataAction(ServerRequestInterface $request): ResponseInterface
       {
          $queryParameters = $request->getParsedBody();
          $id = (int)$queryParameters['id'];
@@ -499,7 +498,6 @@ Add the Ajax controller class in
          // trigger data import (simplified as example)
          $output = shell_exec('.' . DIRECTORY_SEPARATOR . 'import.sh' . $param);
 
-         $response->getBody()->write(json_encode(['success' => true, 'output' => $output]));
-         return $response;
+         return new JsonResponse(['success' => true, 'output' => $output]);
       }
    }
