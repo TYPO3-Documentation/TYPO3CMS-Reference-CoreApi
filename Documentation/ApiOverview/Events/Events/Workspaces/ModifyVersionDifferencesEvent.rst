@@ -18,20 +18,6 @@ can be used to modify the version differences data, used for the display in the
 with the :php:`getVersionDifferences()` method and updated using the
 :php:`setVersionDifferences(array $versionDifferences)` method.
 
-The version differences :php:`array` contains the differences of each field,
-with the following keys:
-
-*   :php:`field`: The corresponding field name
-*   :php:`label`: The corresponding field label
-*   :php:`content`: The field values difference
-
-In addition, the event provides the following methods:
-
-*   :php:`getLiveRecordData()`: Returns the records live data (used to create
-    the version difference)
-*   :php:`getParameters()`: Returns meta information like current stage and
-    current workspace
-
 
 Example
 =======

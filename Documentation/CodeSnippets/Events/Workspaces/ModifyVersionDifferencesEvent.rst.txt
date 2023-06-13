@@ -8,16 +8,32 @@
    
    .. php:method:: getVersionDifferences()
    
+      Get the version differences.
+      
+      This array contains the differences of each field with the following keys:
+      
+      - field: The corresponding field name
+      - label: The corresponding field label
+      - content: The field values difference
+      
       :returntype: array
+      :returns: string, label: string, content: string}>
       
    .. php:method:: setVersionDifferences(array $versionDifferences)
    
+      Modifies the version differences data
+      
       :param array $versionDifferences: the versionDifferences
       
    .. php:method:: getLiveRecordData()
    
+      Returns the records live data (used to create the version difference)
+      
       :returntype: array
+      :returns: string, label: string, content: string}>
       
    .. php:method:: getParameters()
    
+      Returns meta information like current stage and current workspace
+      
       :returntype: stdClass
