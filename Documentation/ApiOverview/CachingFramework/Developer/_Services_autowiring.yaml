@@ -1,6 +1,7 @@
 services:
-  # other configurations
+  # Place here the default dependency injection configuration
+  # and the configuration of the cache from above
 
-  Vendor\MyExtension\MyClass:
+  MyVendor\MyExtension\MyClass:
     arguments:
       $cache: '@cache.myext_mycache'

@@ -1,6 +1,6 @@
 <?php
 
-namespace Vendor\MyExtension;
+namespace MyVendor\MyExtension;
 
 use TYPO3\CMS\Core\Cache\Frontend\FrontendInterface;
 
