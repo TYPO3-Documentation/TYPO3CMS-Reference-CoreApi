@@ -51,7 +51,7 @@ view:
    For the :guilabel:`Reports` module to be visible, the system extension
    reports has to be installed. You can install it via Composer:
 
-   .. code-block:: console
+   .. code-block:: bash
 
       composer require typo3/cms-reports
 
