@@ -153,23 +153,7 @@ Restrictions
 :php:`\TYPO3\CMS\Core\Database\Query\Restriction\RootlevelRestriction`
     Match records on root level, adds :sql:`AND (`pid` = 0)`
 
-:php:`\TYPO3\CMS\Core\Database\Query\Restriction\BackendWorkspaceRestriction`
-    ..  deprecated:: 12.1
-        Use :php:`\TYPO3\CMS\Core\Database\Query\Restriction\WorkspaceRestriction` instead.
-
-    Determines the current workspace a backend user is working in and adds
-    a couple of restrictions to select only records of that workspace if the
-    table supports workspace-enabled records.
-
-:php:`\TYPO3\CMS\Core\Database\Query\Restriction\FrontendWorkspaceRestriction`
-    ..  deprecated:: 12.1
-        Use :php:`\TYPO3\CMS\Core\Database\Query\Restriction\WorkspaceRestriction` instead.
-
-    Restriction to filter records for frontend workspaces preview.
-
 :php:`\TYPO3\CMS\Core\Database\Query\Restriction\WorkspaceRestriction`
-    :php:`WorkspaceRestriction` has been added to overcome downsides of
-    :php:`FrontendWorkspaceRestriction` and :php:`BackendWorkspaceRestriction`.
     The workspace restriction limits an SQL query to only select records which
     are "online" and in live or current workspace.
 
