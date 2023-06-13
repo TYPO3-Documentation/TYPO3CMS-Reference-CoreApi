@@ -734,13 +734,6 @@ allkeys-lru, allkeys-lfu, allkeys-random
    *  `Redis eviction policies <https://redis.io/docs/manual/eviction/>`__
    *  `Redis configuration <https://redis.io/docs/manual/config/>`__
 
-.. _caching-backend-wincache:
-
-Wincache Backend
-================
-
-`Wincache <https://www.iis.net/downloads/microsoft/wincache-extension>`_ is a PHP opcode cache similar to APC, but
-dedicated to the Windows OS platform. Similar to APC, the cache can also be used as in-memory key/value cache.
 
 .. _caching-backend-file:
 
