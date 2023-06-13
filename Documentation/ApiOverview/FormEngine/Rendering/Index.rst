@@ -477,29 +477,27 @@ Add the Ajax controller class in
 
    use Psr\Http\Message\ResponseInterface;
    use Psr\Http\Message\ServerRequestInterface;
+   use TYPO3\CMS\Core\Http\JsonResponse;
 
    class ImportDataController
    {
       /**
       * @param ServerRequestInterface $request
-      * @param ResponseInterface $response
       * @return ResponseInterface
       */
-      public function importDataAction(ServerRequestInterface $request, ResponseInterface $response)
+      public function importDataAction(ServerRequestInterface $request): ResponseInterface
       {
          $queryParameters = $request->getParsedBody();
          $id = (int)$queryParameters['id'];
 
          if (empty($id)) {
-            $response->getBody()->write(json_encode(['success' => false]));
-            return $response;
+            return new JsonResponse(['success' => false]);
          }
          $param = ' -id=' . $id;
 
          // trigger data import (simplified as example)
          $output = shell_exec('.' . DIRECTORY_SEPARATOR . 'import.sh' . $param);
 
-         $response->getBody()->write(json_encode(['success' => true, 'output' => $output]));
-         return $response;
+         return new JsonResponse(['success' => true, 'output' => $output]);
       }
    }
