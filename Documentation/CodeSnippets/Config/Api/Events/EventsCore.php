@@ -243,4 +243,16 @@ return [
         'targetFileName' => 'CodeSnippets/Events/Core/Security/PolicyMutatedEvent.rst.txt',
         'withCode' => false,
     ],
+    [
+        'action' => 'createPhpClassDocs',
+        'class' => \TYPO3\CMS\Core\Cache\Event\CacheFlushEvent::class,
+        'targetFileName' => 'CodeSnippets/Events/Core/Cache/CacheFlushEvent.rst.txt',
+        'withCode' => false,
+    ],
+    [
+        'action' => 'createPhpClassDocs',
+        'class' => \TYPO3\CMS\Core\Cache\Event\CacheWarmupEvent::class,
+        'targetFileName' => 'CodeSnippets/Events/Core/Cache/CacheWarmupEvent.rst.txt',
+        'withCode' => false,
+    ],
 ];
