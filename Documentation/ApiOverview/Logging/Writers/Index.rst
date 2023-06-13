@@ -165,8 +165,8 @@ Custom log writers
 ==================
 
 Custom log writers can be added through extensions. Every log writer has to
-implement the interface :t3src:`core/Log/Writer/WriterInterface.php`. It is
-suggested to extend the abstract class :t3src:`core/Log/Writer/AbstractWriter.php`
+implement the interface :t3src:`core/Classes/Log/Writer/WriterInterface.php`. It is
+suggested to extend the abstract class :t3src:`core/Classes/Log/Writer/AbstractWriter.php`
 which allows you to use configuration options by adding the corresponding
 properties and setter methods.
 
