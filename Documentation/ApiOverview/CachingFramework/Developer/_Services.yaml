@@ -1,11 +1,5 @@
 services:
-  _defaults:
-    autowire: true
-    autoconfigure: true
-    public: false
-
-  Vendor\MyExtension\:
-    resource: '../Classes/*'
+  # Place here the default dependency injection configuration
 
   cache.myext_mycache:
     class: TYPO3\CMS\Core\Cache\Frontend\FrontendInterface
