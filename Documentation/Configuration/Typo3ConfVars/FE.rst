@@ -741,19 +741,6 @@ workspacePreviewLogoutTemplate
 versionNumberInFilename
 =======================
 
-..  versionchanged:: 12.3
-    The setting was previously evaluated as a "string" value, having three
-    possible options:
-
-    *   ""
-    *   "querystring"
-    *   "embed"
-
-    When updating TYPO3 and accessing the maintenance area, an explicitly set
-    option is migrated automatically. If this is not possible - for example,
-    the configuration is set in :file:`AdditionalConfiguration.php` - the value
-    is always migrated on-the-fly when the setting is evaluated.
-
 ..  confval:: $GLOBALS['TYPO3_CONF_VARS']['FE']['versionNumberInFilename']
 
     :type: bool
