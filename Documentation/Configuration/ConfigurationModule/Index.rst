@@ -146,13 +146,7 @@ you can use:
 Blinding configuration options
 ==============================
 
-..  versionchanged:: 12.2
-
 Sensitive data (like passwords or access tokens) should not be displayed in the
 configuration module. Therefore, the PSR-14 event
 :ref:`ModifyBlindedConfigurationOptionsEvent` is available to blind such
 configuration options.
-
-For compatibility with TYPO3 v11 and v12 you can use the deprecated hook
-:ref:`modifyBlindedConfigurationOptions <t3coreapi11:config-module-blind-options>`
-which will be removed with TYPO3 v13.
