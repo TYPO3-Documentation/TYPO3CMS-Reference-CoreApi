@@ -29,11 +29,10 @@ Custom type converters
 ======================
 
 ..  versionchanged:: 12.0
-    Starting with TYPO3 v12.0 a type converter does not have to be registered
-    via the now deprecated method :php:`\TYPO3\CMS\Extbase\Utility\ExtensionUtility::registerTypeConverter()`.
-    Remove calls to this method when dropping TYPO3 v11 support. This method will be
-    removed with TYPO3 v13.0. Register a type converter in your extension's
-    :file:`Services.yaml` instead.
+    A type converter has to be registered in your extension's
+    :file:`Configuration/Services.yaml` file. The previous registration method
+    via :php:`\TYPO3\CMS\Extbase\Utility\ExtensionUtility::registerTypeConverter()`
+    is not supported anymore.
 
 A custom type converter must implement the interface
 :php:`\TYPO3\CMS\Extbase\Property\TypeConverterInterface`. In most use cases
