@@ -232,9 +232,9 @@ All available :ref:`cache groups <caching-architecture-core>` can be supplied as
 option. The command defaults to flush all available cache groups as the
 :guilabel:`System Tools > Maintenance` area does.
 
-Extensions that register custom caches may listen to the
-via :php:`\TYPO3\CMS\Core\Cache\Event\CacheFlushEvent`, but usually the
-cache flush via CacheManager groups will suffice to clear those caches, too.
+Extensions that register custom caches may listen to the :ref:`CacheFlushEvent`,
+but usually the cache flush via cache manager groups will suffice to clear those
+caches, too.
 
 Cache warmup
 ~~~~~~~~~~~~
@@ -257,12 +257,12 @@ All available :ref:`cache groups <caching-architecture-core>` can be supplied as
 option. The command defaults to warm all available cache groups.
 
 Extensions that register custom caches are encouraged to implement cache warmers
-via :php:`\TYPO3\CMS\Core\Cache\Event\CacheWarmupEvent`.
+via :ref:`CacheWarmupEvent`.
 
 ..  note::
     TYPO3 frontend caches will not be warmed by TYPO3 Core, such functionality
     could be added by third-party extensions with the help of
-    :php:`\TYPO3\CMS\Core\Cache\Event\CacheWarmupEvent`.
+    :ref:`CacheWarmupEvent`.
 
 Use case: deployment
 ~~~~~~~~~~~~~~~~~~~~
@@ -310,8 +310,8 @@ An example deployment could consist of:
 The conceptional idea is to warmup all file-related caches *before* (symlink)
 switching to a new release and to *only* flush database and frontend (shared)
 caches after the symlink switch. Database warmup could be implemented with
-the help of the :php:`\TYPO3\CMS\Core\Cache\Event\CacheWarmupEvent` as an
-additionally functionality by third-party extensions.
+the help of the :ref:`CacheWarmupEvent` as an additionally functionality by
+third-party extensions.
 
 Note that file-related caches (summarized into the group "system") can safely be
 cleared before doing a release switch, as it is recommended to keep file caches
