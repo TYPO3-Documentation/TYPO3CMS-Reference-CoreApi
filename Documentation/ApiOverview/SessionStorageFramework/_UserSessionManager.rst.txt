@@ -30,18 +30,6 @@
       :returntype: TYPO3\\CMS\\Core\\Session\\UserSession
       :returns: An existing session if one is stored in the cookie, an anonymous session otherwise
       
-   .. php:method:: createFromGlobalCookieOrAnonymous(string $cookieName)
-   
-      **Deprecated:** use createFromRequestOrAnonymous() instead. Will be removed in TYPO3 v13.0.
-      
-      Creates and returns a session from a global cookie (`$_COOKIE`). If
-      no cookie can be found for the given name, an anonymous session
-      will be returned. It is recommended to use the
-      PSR-7-Request based method instead.
-      
-      :param string $cookieName: the cookieName
-      :returntype: TYPO3\\CMS\\Core\\Session\\UserSession
-      
    .. php:method:: createAnonymousSession()
    
       Creates and returns an anonymous session object (which is not persisted)
