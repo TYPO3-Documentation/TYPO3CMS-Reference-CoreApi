@@ -10,15 +10,10 @@ Creating upgrade wizards
 ========================
 
 ..  versionchanged:: 12.2
-    The registration of an upgrade wizard has changed in TYPO3 v12.2. An
-    upgrade wizard class is now registered with an attribute. The
-    :php:`getIdentifier()` method in the :php:`UpgradeWizardInterface`
-    was removed. The registration via
+    The registration of an upgrade wizard has changed. An upgrade wizard class
+    is now registered with an attribute. The registration via
     :php:`$GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['ext/install']['update']`
-    in :file:`ext_localconf.php` is deprecated and will be removed in TYPO3 v13.
-    To be compatible with TYPO3 v11 and v12 you can still
-    :ref:`use the registration <t3coreapi11:upgrade-wizards-register>` via
-    :file:`ext_localconf.php`.
+    in :file:`ext_localconf.php` was removed in TYPO3 v13.
 
 To create an upgrade wizard you have to add a class which implements the
 :ref:`UpgradeWizardInterface <upgrade-wizards-interface>`.
