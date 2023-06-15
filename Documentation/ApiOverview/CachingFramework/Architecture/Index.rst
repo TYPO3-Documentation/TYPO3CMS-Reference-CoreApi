@@ -16,13 +16,20 @@ A single cache consists of any number of cache entries.
 
 A single cache entry is defined by these fields:
 
-*   **identifier**: A string as unique identifier within this cache. It is used
-    to store and retrieve entries.
-*   **data**: The data to be cached.
-*   **lifetime**: A lifetime in seconds of this cache entry. An entry can not be
-    retrieved from cache, if the lifetime is expired.
-*   **tags**: Additional tags (an array of strings) assigned to the entry. It is
-    used to remove specific cache entries.
+identifier
+    A string as unique identifier within this cache. It is used to store and
+    retrieve entries.
+
+data
+    The data to be cached.
+
+lifetime
+    A lifetime in seconds of this cache entry. An entry can not be retrieved
+    from cache, if the lifetime is expired.
+
+tags
+    Additional tags (an array of strings) assigned to the entry. It is used to
+    remove specific cache entries.
 
 ..  tip::
     The difference between identifier and tags is quite simple: an identifier
