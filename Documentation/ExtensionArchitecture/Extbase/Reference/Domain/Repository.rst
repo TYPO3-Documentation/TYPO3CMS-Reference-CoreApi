@@ -170,14 +170,3 @@ Example to use the fallback to the default language when working with overlays:
 ..  literalinclude:: _Repository/_LanguageAspect.php
     :language: php
     :caption: EXT:my_extension/Classes/Repository/MyRepository.php
-
-For compatibility with TYPO3 v11 you can still use the now deprecated methods in
-the default implementation:
-
-- :php:`Typo3QuerySettings::getLanguageOverlayMode()`
-- :php:`Typo3QuerySettings::setLanguageOverlayMode($languageOverlayMode)`
-- :php:`Typo3QuerySettings::getLanguageUid()`
-- :php:`Typo3QuerySettings::setLanguageUid($languageUid)`
-
-These methods have been removed from the interface however. For more consistent
-results use the language aspect via version switch.
