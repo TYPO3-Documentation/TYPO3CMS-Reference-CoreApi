@@ -6,29 +6,23 @@ namespace MyVendor\MyExtension\Controller\Ajax;
 
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
+use TYPO3\CMS\Core\Http\JsonResponse;
 
 final class ImportDataController
 {
-    /**
-     * @param ServerRequestInterface $request
-     * @param ResponseInterface $response
-     * @return ResponseInterface
-     */
-    public function importDataAction(ServerRequestInterface $request, ResponseInterface $response): ResponseInterface
+    public function importDataAction(ServerRequestInterface $request): ResponseInterface
     {
         $queryParameters = $request->getParsedBody();
         $id = (int)($queryParameters['id'] ?? 0);
 
         if ($id === 0) {
-            $response->getBody()->write(json_encode(['success' => false]));
-            return $response;
+            return new JsonResponse(['success' => false]);
         }
         $param = ' -id=' . $id;
 
         // trigger data import (simplified as example)
         $output = shell_exec('.' . DIRECTORY_SEPARATOR . 'import.sh' . $param);
 
-        $response->getBody()->write(json_encode(['success' => true, 'output' => $output]));
-        return $response;
+        return new JsonResponse(['success' => true, 'output' => $output]);
     }
 }
