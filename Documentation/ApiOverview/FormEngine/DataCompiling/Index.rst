@@ -23,13 +23,11 @@ A basic call looks like this:
     ];
     $formData = $formDataCompiler->compile($formDataCompilerInput, $formDataGroup);
 
-..  deprecated:: 12.4
-    Using the FormEngine data provider to render records without passing the
-    current :ref:`request object <typo3-request>` is deprecated. Additionally,
-    when instantiating the backend FormEngine-related :php:`FormDataCompiler`,
-    the constructor argument :php:`FormDataGroupInterface` should be omitted,
-    the form data group should be provided as second argument to :php:`compile()`
-    instead. Failing to do so will stop working with TYPO3 v13.
+..  versionchanged:: 13.0
+    The FormEngine data provider requires the current
+    :ref:`PSR-7 request object <typo3-request>` passed with the input data.
+    Additionally, the form data group must be provided as second argument to
+    :php:`compile()`.
 
 The above code is a simplified version of the relevant part of the :php:`EditDocumentController`. This controller
 knows by its :code:`GET` or :code:`POST` parameters which record ("vanillaUid") of which specific table ("tableName")
