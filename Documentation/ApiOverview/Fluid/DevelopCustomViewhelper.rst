@@ -110,16 +110,18 @@ Escaping of output
 
 *line 11*
 
-Setting the property :php:`$escapeOutput` to false is necessary to prevent
-escaping of output.
-
 By default, all output is escaped by :php:`htmlspecialchars` to prevent cross
 site scripting.
 
-If escaping of children is disabled, no nodes passed with inline
-syntax or values used as tag content will be escaped. Note that
-:php:`$escapeOutput` takes priority: if it is disabled, escaping child nodes
-is also disabled unless explicitly enabled.
+Setting the property :php:`$escapeOutput` to false is necessary to prevent
+escaping of ViewHelper output.
+
+By setting the property :php:`$escapeChildren` to false, escaping of the tag
+content (its child nodes) can be disabled. If this is not set explicitly,
+the value will be determined automatically: If :php:`$escapeOutput`: is true,
+:php:`$escapeChildren` will be disabled to prevent double escaping. If
+:php:`$escapeOutput`: is false, :php:`$escapeChildren` will be enabled unless
+disabled explicitly.
 
 Passing in children is explained in :ref:`prepare-viewhelper-for-inline-syntax`.
 
