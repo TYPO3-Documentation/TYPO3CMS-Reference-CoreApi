@@ -23,26 +23,6 @@ the TYPO3 backend:
     *   :ref:`config/system/settings.php <typo3ConfVars-settings>`
     *   :ref:`config/system/additional.php <typo3ConfVars-additional>`
 
-.. index::
-   TYPO3_CONF_VARS BE; languageDebug
-.. _typo3ConfVars_be_languageDebug:
-
-languageDebug
-=============
-
-..  deprecated:: 12.4
-    Judging from translators feedback, the option is not used in practice:
-    Setting the toggle to true leads to a massively convoluted backend
-    experience that breaks tons of CSS and renders the backend so unusable that
-    it is hardly a benefit at all. The setting will be removed with TYPO3 v13.
-
-.. confval:: $GLOBALS['TYPO3_CONF_VARS']['BE']['languageDebug']
-
-   :type: bool
-   :Default: false
-
-   If enabled, language labels will be shown with additional debug information.
-
 
 .. index::
    TYPO3_CONF_VARS BE; fileadminDir
