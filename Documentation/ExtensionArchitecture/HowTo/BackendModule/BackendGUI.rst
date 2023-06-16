@@ -29,13 +29,12 @@ Module menu
 
   The module menu can be opened or closed by using the icon on the top left.
 
-  New main or submodules are registered using the
-  :php:`\TYPO3\CMS\Extbase\Utility\ExtensionUtility::registerModule()`
-  API.
+  The chapter :ref:`backend-modules-configuration` describes how new
+  main or submodules are registered.
 
   .. note::
 
-     In the TYPO3 CMS world, "module" is typically used for
+     In the TYPO3 world, "module" is typically used for
      the backend. Extension components which add features in the frontend
      are referred to as "plugins".
 
