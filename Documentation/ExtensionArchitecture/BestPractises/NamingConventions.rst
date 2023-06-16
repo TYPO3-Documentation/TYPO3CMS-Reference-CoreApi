@@ -52,8 +52,10 @@ ExtensionName
 
     Example: for an extkey `bootstrap_package` the ExtensionName would be `BootstrapPackage`.
 
-    The ExtensionName is used as first parameter in the Extbase methods
-    :php:`ExtensionUtility::configurePlugin()` or :php:`ExtensionUtility::registerModule()`.
+    The ExtensionName is used as first parameter in the Extbase method
+    :php:`ExtensionUtility::configurePlugin()` and as value for the
+    :php:`extensionName` key when
+    :ref:`registering a backend module <backend-modules-configuration>`.
 
 modkey
     The backend module key.
