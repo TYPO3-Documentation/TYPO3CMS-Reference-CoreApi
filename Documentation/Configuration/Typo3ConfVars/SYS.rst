@@ -860,6 +860,9 @@ security.backend.enforceContentSecurityPolicy
     If enabled, the :ref:`Content Security Policy <content-security-policy>`
     is applied in backend scope.
 
+    ..  note::
+        With TYPO3 v13.0 this feature setting is always enabled.
+
 ..  index::
     TYPO3_CONF_VARS SYS; features security.frontend.enforceContentSecurityPolicy
 ..  _typo3ConfVars_sys_features_security.frontend.enforceContentSecurityPolicy:
