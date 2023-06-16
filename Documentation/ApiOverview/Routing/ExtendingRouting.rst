@@ -45,14 +45,6 @@ If your aspect is language aware, it should additionally implement `SiteLanguage
 and `getSiteLanguage()`. `setSiteLanguage` will automatically be called with the current site language object.
 
 
-Impact
-======
-
-Routing aspects respecting the site language are now using the `SiteLanguageAwareInterface` in addition
-to the `SiteLanguageAwareTrait`. The `AspectFactory` check has been adjusted to check for the interface
-_or_ the trait. If you are currently using the trait, you should implement the interface as well.
-
-
 .. index:: Routing; Custom enhancers
 
 Writing custom enhancers
