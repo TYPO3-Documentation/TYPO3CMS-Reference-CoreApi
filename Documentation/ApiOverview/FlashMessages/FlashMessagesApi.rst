@@ -92,7 +92,7 @@ rendering the next request:
 
 
 .. code-block:: php
-   :caption: EXT:some_extension/Classes/Controller/SomeController.php
+   :caption: EXT:my_extension/Classes/Controller/SomeController.php
 
    use TYPO3\CMS\Core\Utility\GeneralUtility;
    use TYPO3\CMS\Core\Messaging\FlashMessageService;
@@ -124,16 +124,24 @@ This shows flash messages with 2 types of rendering mechanisms:
 Use the :php:`FlashMessageQueue::NOTIFICATION_QUEUE` to submit a flash message
 as top-right notifications, instead of inline:
 
-.. code-block:: php
-   :caption: my_extension/Classes/Controller/MyController.php
+..  code-block:: php
+    :caption: EXT:my_extension/Classes/Controller/MyController.php
+
+    use TYPO3\CMS\Core\Messaging\FlashMessage;
+    use TYPO3\CMS\Core\Messaging\FlashMessageQueue;
+    use TYPO3\CMS\Core\Messaging\FlashMessageService;
+    use TYPO3\CMS\Core\Type\ContextualFeedbackSeverity;
+    use TYPO3\CMS\Core\Utility\GeneralUtility;
 
     $flashMessageService = GeneralUtility::makeInstance(FlashMessageService::class);
-    $notificationQueue = $flashMessageService->getMessageQueueByIdentifier(FlashMessageQueue::NOTIFICATION_QUEUE);
+    $notificationQueue = $flashMessageService->getMessageQueueByIdentifier(
+        FlashMessageQueue::NOTIFICATION_QUEUE
+    );
     $flashMessage = GeneralUtility::makeInstance(
         FlashMessage::class,
-        'I\'m a message rendered as notification',
+        'I am a message rendered as notification',
         'Hooray!',
-        FlashMessage::OK
+        ContextualFeedbackSeverity::OK
     );
     $notificationQueue->enqueue($flashMessage);
 
