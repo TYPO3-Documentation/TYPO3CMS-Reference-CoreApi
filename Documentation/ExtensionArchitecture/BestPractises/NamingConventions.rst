@@ -313,12 +313,9 @@ Examples (from TYPO3 core extennsions):
 *  web_FormFormbuilder
 *  site_redirects
 
-.. tip::
-
-   Registered modules are added to :php:`$GLOBALS['TBE_MODULES']`.
-
-   You can look at existing module signatures in
-   :guilabel:`System > Configuration > Backend Modules`.
+..  tip::
+    You can look at existing module signatures in
+    :guilabel:`System > Configuration > Backend Modules`.
 
 .. _naming-conventions-plugin-signature:
 
