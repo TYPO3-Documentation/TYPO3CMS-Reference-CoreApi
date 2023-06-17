@@ -948,20 +948,16 @@ Remarks:
 
 ..  _database-query-builder-execute:
 
-execute(), executeQuery() and executeStatement()
-================================================
+executeQuery() and executeStatement()
+=====================================
 
 ..  versionchanged:: 11.5
     The widely used :php:`->execute()` method has been split into
     :php:`executeQuery()` and :php:`executeStatement()`. :php:`executeQuery()`
     returns a :php:`\Doctrine\DBAL\Result` instead of a
     :php:`\Doctrine\DBAL\Statement`. :php:`executeStatement()` returns the
-    number of affected rows.
-
-    Although :php:`->execute()` still works for backwards compatibility, you
-    should prefer to use :php:`->executeQuery()` for :sql:`SELECT` and
-    :sql:`COUNT` statements and :php:`->executeStatement()` for :sql:`INSERT`,
-    :sql:`UPDATE` and :sql:`DELETE` queries.
+    number of affected rows. The :php:`->execute()` method has been removed with
+    TYPO3 v13.0.
 
 ..  _database-query-builder-execute-query:
 

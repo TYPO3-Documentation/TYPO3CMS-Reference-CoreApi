@@ -20,10 +20,6 @@ with :ref:`->fetchAssociative() <database-result-fetch-associative>` or to fetch
 all rows as an array with :ref:`->fetchAllAssociative()
 <database-result-fetch-all-associative>`.
 
-Unlike :php:`\Doctrine\DBAL\Statement` returned formerly by :ref:`->execute()
-<database-query-builder-execute>`, a single prepared statement with different
-values cannot be executed multiple times.
-
 ..  warning::
     The return type of single field values is **not** type safe! If you select a
     value from a field that is defined as :sql:`INT`, the :php:`Result` result
