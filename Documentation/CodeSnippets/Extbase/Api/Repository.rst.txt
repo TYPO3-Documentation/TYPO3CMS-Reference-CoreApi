@@ -103,6 +103,7 @@
       :param int $limit: the limit, default: NULL
       :param int $offset: the offset, default: NULL
       :returntype: TYPO3\\CMS\\Extbase\\Persistence\\QueryResultInterface
+      :returns: \QueryResultInterface
       
    .. php:method:: findOneBy(array $criteria, array $orderBy = NULL)
    

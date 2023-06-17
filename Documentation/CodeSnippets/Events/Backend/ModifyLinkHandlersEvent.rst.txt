@@ -9,6 +9,7 @@
    .. php:method:: getLinkHandlers()
    
       :returntype: array
+      :returns: array<string,array>
       
    .. php:method:: getLinkHandler(string $name)
    
@@ -16,7 +17,7 @@
       
       :param string $name: The handler name, including trailing period.
       :returntype: array
-      :returns: The handler definition, or null if not defined.
+      :returns: array<string,mixed>|null The handler definition, or null if not defined.
       
    .. php:method:: setLinkHandler(string $name, array $handler)
    
@@ -25,7 +26,9 @@
       :param string $name: The handler name, including trailing period.
       :param array $handler: the handler
       :returntype: self
+      :returns: $this
       
    .. php:method:: getCurrentLinkParts()
    
       :returntype: array
+      :returns: array<string,mixed>

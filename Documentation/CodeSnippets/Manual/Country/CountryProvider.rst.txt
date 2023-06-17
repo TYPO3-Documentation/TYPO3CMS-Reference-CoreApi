@@ -11,6 +11,7 @@
    .. php:method:: getAll()
    
       :returntype: array
+      :returns: \Country[]
       
    .. php:method:: getByIsoCode(string $isoCode)
    
@@ -36,3 +37,4 @@
    
       :param TYPO3\\CMS\\Core\\Country\\CountryFilter $filter: the filter
       :returntype: array
+      :returns: array<string,\Country>

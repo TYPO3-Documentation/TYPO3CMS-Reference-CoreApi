@@ -13,27 +13,27 @@
    .. php:method:: getDomain()
    
       :returntype: string
-      :returns: Request domain name (host)
+      :returns: string Request domain name (host)
       
    .. php:method:: getPath()
    
       :returntype: string
-      :returns: Request path
+      :returns: string Request path
       
    .. php:method:: getQuery()
    
       :returntype: string
-      :returns: Request query parameters
+      :returns: string Request query parameters
       
    .. php:method:: getMatchDomainName()
    
       :returntype: string
-      :returns: Domain name which should be checked, and `getRedirects()` items are provided for
+      :returns: string Domain name which should be checked, and `getRedirects()` items are provided for
       
    .. php:method:: getMatchedRedirect()
    
       :returntype: array
-      :returns: Returns the matched `sys_redirect` record or null
+      :returns: array|null Returns the matched `sys_redirect` record or null
       
    .. php:method:: setMatchedRedirect(array $matchedRedirect)
    

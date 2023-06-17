@@ -9,7 +9,7 @@
    .. php:method:: getSourceDatabaseTable()
    
       :returntype: string
-      :returns: 'be_groups' or 'fe_groups' depending on context.
+      :returns: string 'be_groups' or 'fe_groups' depending on context.
       
    .. php:method:: getGroups()
    
