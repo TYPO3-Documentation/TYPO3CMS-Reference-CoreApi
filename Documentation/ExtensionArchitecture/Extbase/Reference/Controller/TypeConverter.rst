@@ -28,7 +28,7 @@ You can find the type converters provided by Extbase in the directory
 Custom type converters
 ======================
 
-..  versionchanged:: 12.0
+..  versionchanged:: 13.0
     A type converter has to be registered in your extension's
     :file:`Configuration/Services.yaml` file. The previous registration method
     via :php:`\TYPO3\CMS\Extbase\Utility\ExtensionUtility::registerTypeConverter()`
