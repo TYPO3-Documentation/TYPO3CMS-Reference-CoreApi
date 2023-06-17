@@ -13,6 +13,7 @@
    .. php:method:: getRouteArguments()
    
       :returntype: array
+      :returns: array<string,string|array>
       
    .. php:method:: getPageId()
    
@@ -26,22 +27,27 @@
    
       :param string $name: the name
       :returntype: mixed
+      :returns: string|array<string,string|array>|null
       
    .. php:method:: getArguments()
    
       :returntype: array
+      :returns: array<string,string|array>
       
    .. php:method:: getStaticArguments()
    
       :returntype: array
+      :returns: array<string,string|array>
       
    .. php:method:: getDynamicArguments()
    
       :returntype: array
+      :returns: array<string,string|array>
       
    .. php:method:: getQueryArguments()
    
       :returntype: array
+      :returns: array<string,string|array>
       
    .. php:method:: offsetExists(mixed $offset)
    
@@ -52,6 +58,7 @@
    
       :param mixed $offset: the offset
       :returntype: mixed
+      :returns: string|array<string,string|array>|null
       
    .. php:method:: offsetSet(mixed $offset, mixed $value)
    

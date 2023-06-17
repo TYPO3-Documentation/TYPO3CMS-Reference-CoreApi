@@ -40,3 +40,4 @@
    .. php:method:: getIgnoredTables()
    
       :returntype: array
+      :returns: string[]
