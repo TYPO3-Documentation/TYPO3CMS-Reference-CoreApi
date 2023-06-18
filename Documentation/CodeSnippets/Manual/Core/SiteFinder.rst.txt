@@ -12,6 +12,7 @@
       
       :param bool $useCache: the useCache, default: true
       :returntype: array
+      :returns: \Site[]
       
    .. php:method:: getSiteByIdentifier(string $identifier)
    

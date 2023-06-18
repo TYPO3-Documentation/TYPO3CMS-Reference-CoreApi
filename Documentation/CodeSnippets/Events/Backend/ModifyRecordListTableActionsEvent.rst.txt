@@ -34,7 +34,7 @@
       
       :param string $actionName: the actionName
       :returntype: string
-      :returns: The action or NULL if the action does not exist
+      :returns: string|null The action or NULL if the action does not exist
       
    .. php:method:: removeAction(string $actionName)
    
@@ -42,7 +42,8 @@
       
       :param string $actionName: the actionName
       :returntype: bool
-      :returns: Whether the action could be removed - Will therefore return FALSE if the action to remove does not exist.
+      :returns: bool Whether the action could be removed - Will therefore
+      return FALSE if the action to remove does not exist.
       
    .. php:method:: setActions(array $actions)
    

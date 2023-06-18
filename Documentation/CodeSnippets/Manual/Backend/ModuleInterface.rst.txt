@@ -126,6 +126,7 @@
       Return all direct descendants of this module
       
       :returntype: array
+      :returns: \ModuleInterface[]
       
    .. php:method:: getDefaultRouteOptions()
    

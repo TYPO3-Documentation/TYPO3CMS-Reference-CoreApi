@@ -12,7 +12,7 @@
       
       :param TYPO3\\CMS\\Extbase\\Mvc\\RequestInterface $request: the request
       :returntype: TYPO3\\CMS\\Extbase\\Mvc\\Web\\Routing\\UriBuilder
-      :returns: the current UriBuilder to allow method chaining
+      :returns: static the current UriBuilder to allow method chaining
       
    .. php:method:: setArguments(array $arguments)
    
@@ -23,7 +23,7 @@
       
       :param array $arguments: the arguments
       :returntype: TYPO3\\CMS\\Extbase\\Mvc\\Web\\Routing\\UriBuilder
-      :returns: the current UriBuilder to allow method chaining
+      :returns: static the current UriBuilder to allow method chaining
       
    .. php:method:: setSection(string $section)
    
@@ -31,7 +31,7 @@
       
       :param string $section: the section
       :returntype: TYPO3\\CMS\\Extbase\\Mvc\\Web\\Routing\\UriBuilder
-      :returns: the current UriBuilder to allow method chaining
+      :returns: static the current UriBuilder to allow method chaining
       
    .. php:method:: setFormat(string $format)
    
@@ -39,7 +39,7 @@
       
       :param string $format: the format
       :returntype: TYPO3\\CMS\\Extbase\\Mvc\\Web\\Routing\\UriBuilder
-      :returns: the current UriBuilder to allow method chaining
+      :returns: static the current UriBuilder to allow method chaining
       
    .. php:method:: setCreateAbsoluteUri(bool $createAbsoluteUri)
    
@@ -47,7 +47,7 @@
       
       :param bool $createAbsoluteUri: the createAbsoluteUri
       :returntype: TYPO3\\CMS\\Extbase\\Mvc\\Web\\Routing\\UriBuilder
-      :returns: the current UriBuilder to allow method chaining
+      :returns: static the current UriBuilder to allow method chaining
       
    .. php:method:: setAbsoluteUriScheme(string $absoluteUriScheme)
    
@@ -55,7 +55,7 @@
       
       :param string $absoluteUriScheme: the scheme to be used for absolute URIs
       :returntype: TYPO3\\CMS\\Extbase\\Mvc\\Web\\Routing\\UriBuilder
-      :returns: the current UriBuilder to allow method chaining
+      :returns: static the current UriBuilder to allow method chaining
       
    .. php:method:: setLanguage(string $language)
    
@@ -78,7 +78,7 @@
       
       :param string|int|bool $addQueryString: is set to "1", "true", "0", "false" or "untrusted"
       :returntype: TYPO3\\CMS\\Extbase\\Mvc\\Web\\Routing\\UriBuilder
-      :returns: the current UriBuilder to allow method chaining
+      :returns: static the current UriBuilder to allow method chaining
       
    .. php:method:: setArgumentsToBeExcludedFromQueryString(array $argumentsToBeExcludedFromQueryString)
    
@@ -87,7 +87,7 @@
       
       :param array $argumentsToBeExcludedFromQueryString: the argumentsToBeExcludedFromQueryString
       :returntype: TYPO3\\CMS\\Extbase\\Mvc\\Web\\Routing\\UriBuilder
-      :returns: the current UriBuilder to allow method chaining
+      :returns: static the current UriBuilder to allow method chaining
       
    .. php:method:: setArgumentPrefix(string $argumentPrefix)
    
@@ -95,7 +95,7 @@
       
       :param string $argumentPrefix: the argumentPrefix
       :returntype: TYPO3\\CMS\\Extbase\\Mvc\\Web\\Routing\\UriBuilder
-      :returns: the current UriBuilder to allow method chaining
+      :returns: static the current UriBuilder to allow method chaining
       
    .. php:method:: setLinkAccessRestrictedPages(bool $linkAccessRestrictedPages)
    
@@ -103,7 +103,7 @@
       
       :param bool $linkAccessRestrictedPages: the linkAccessRestrictedPages
       :returntype: TYPO3\\CMS\\Extbase\\Mvc\\Web\\Routing\\UriBuilder
-      :returns: the current UriBuilder to allow method chaining
+      :returns: static the current UriBuilder to allow method chaining
       
    .. php:method:: setTargetPageUid(int $targetPageUid)
    
@@ -111,7 +111,7 @@
       
       :param int $targetPageUid: the targetPageUid
       :returntype: TYPO3\\CMS\\Extbase\\Mvc\\Web\\Routing\\UriBuilder
-      :returns: the current UriBuilder to allow method chaining
+      :returns: static the current UriBuilder to allow method chaining
       
    .. php:method:: setTargetPageType(int $targetPageType)
    
@@ -119,7 +119,7 @@
       
       :param int $targetPageType: the targetPageType
       :returntype: TYPO3\\CMS\\Extbase\\Mvc\\Web\\Routing\\UriBuilder
-      :returns: the current UriBuilder to allow method chaining
+      :returns: static the current UriBuilder to allow method chaining
       
    .. php:method:: setNoCache(bool $noCache)
    
@@ -127,14 +127,14 @@
       
       :param bool $noCache: the noCache
       :returntype: TYPO3\\CMS\\Extbase\\Mvc\\Web\\Routing\\UriBuilder
-      :returns: the current UriBuilder to allow method chaining
+      :returns: static the current UriBuilder to allow method chaining
       
    .. php:method:: reset()
    
       Resets all UriBuilder options to their default value
       
       :returntype: TYPO3\\CMS\\Extbase\\Mvc\\Web\\Routing\\UriBuilder
-      :returns: the current UriBuilder to allow method chaining
+      :returns: static the current UriBuilder to allow method chaining
       
    .. php:method:: uriFor(string $actionName = NULL, array $controllerArguments = NULL, string $controllerName = NULL, string $extensionName = NULL, string $pluginName = NULL)
    
@@ -148,7 +148,7 @@
       :param string $extensionName: Name of the target extension, without underscores. If not set, current ExtensionName is used., default: NULL
       :param string $pluginName: Name of the target plugin. If not set, current PluginName is used., default: NULL
       :returntype: string
-      :returns: the rendered URI
+      :returns: string the rendered URI
       
    .. php:method:: build()
    
@@ -156,4 +156,4 @@
       Depending on the current context this calls buildBackendUri() or buildFrontendUri()
       
       :returntype: string
-      :returns: The URI
+      :returns: string The URI

@@ -17,7 +17,7 @@
       - content: The field values difference
       
       :returntype: array
-      :returns: string, label: string, content: string}>
+      :returns: list<array{field: string, label: string, content: string}>
       
    .. php:method:: setVersionDifferences(array $versionDifferences)
    
@@ -30,7 +30,7 @@
       Returns the records live data (used to create the version difference)
       
       :returntype: array
-      :returns: string, label: string, content: string}>
+      :returns: list<array{field: string, label: string, content: string}>
       
    .. php:method:: getParameters()
    

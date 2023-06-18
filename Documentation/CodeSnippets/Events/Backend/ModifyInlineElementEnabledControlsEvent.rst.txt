@@ -12,7 +12,7 @@
       
       :param string $identifier: the identifier
       :returntype: bool
-      :returns: Whether the control could be enabled
+      :returns: bool Whether the control could be enabled
       
    .. php:method:: disableControl(string $identifier)
    
@@ -20,7 +20,7 @@
       
       :param string $identifier: the identifier
       :returntype: bool
-      :returns: Whether the control could be disabled
+      :returns: bool Whether the control could be disabled
       
    .. php:method:: hasControl(string $identifier)
    

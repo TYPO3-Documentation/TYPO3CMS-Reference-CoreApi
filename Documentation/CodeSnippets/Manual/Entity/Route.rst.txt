@@ -30,7 +30,7 @@
       An empty array means that any method is allowed.
       
       :returntype: array
-      :returns: The methods
+      :returns: string[] The methods
       
    .. php:method:: setMethods(array $methods)
    

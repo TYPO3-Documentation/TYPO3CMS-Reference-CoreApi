@@ -27,6 +27,7 @@
    .. php:method:: getMutationCollections()
    
       :returntype: array
+      :returns: list<\MutationCollection>
       
    .. php:method:: setMutationCollections(TYPO3\\CMS\\Core\\Security\\ContentSecurityPolicy\\MutationCollection $mutationCollections)
    
