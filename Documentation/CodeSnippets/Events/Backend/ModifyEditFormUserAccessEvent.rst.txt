@@ -41,6 +41,7 @@
       Returns the requested command, either `new` or `edit`
       
       :returntype: string
+      :returns: "new"|"edit"
       
    .. php:method:: getDatabaseRow()
    
