@@ -11,7 +11,7 @@ Backend user object
 The backend user of a session is always available in extensions
 as the global variable :php:`$GLOBALS['BE_USER']`. The object is created in
 :php:`\TYPO3\CMS\Core\Core\Bootstrap::initializeBackendUser()`
-and is an instance of the class :code:`\TYPO3\CMS\Core\Authentication\BackendUserAuthentication`
+and is an instance of the class :php:`\TYPO3\CMS\Core\Authentication\BackendUserAuthentication`
 (which extends :php:`\TYPO3\CMS\Core\Authentication\AbstractUserAuthentication`).
 
 .. index:: Backend user; Access
@@ -28,6 +28,11 @@ but contains other helpful information. This is presented here by a few examples
 
 Checking access to current backend module
 =========================================
+
+..  deprecated:: 12.0
+    The method :php:`->modAccess()` of the backend user object is deprecated.
+    Use :php:`ModuleProvider->accessGranted()` from the
+    :ref:`backend-module-provider-api` instead.
 
 :php:`$MCONF` is module configuration and the key :php:`$MCONF['access']` determines
 the access scope for the module. This function call will check if the
