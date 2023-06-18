@@ -46,7 +46,7 @@
       
       :param string $identifier: the identifier
       :returntype: bool
-      :returns: Whether the control could be removed
+      :returns: bool Whether the control could be removed
       
    .. php:method:: getElementData()
    

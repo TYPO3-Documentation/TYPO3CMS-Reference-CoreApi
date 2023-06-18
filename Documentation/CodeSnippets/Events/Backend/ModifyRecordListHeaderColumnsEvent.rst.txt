@@ -34,7 +34,7 @@
       
       :param string $columnName: the columnName
       :returntype: string
-      :returns: The column or NULL if the column does not exist
+      :returns: string|null The column or NULL if the column does not exist
       
    .. php:method:: removeColumn(string $columnName)
    
@@ -42,7 +42,8 @@
       
       :param string $columnName: the columnName
       :returntype: bool
-      :returns: Whether the column could be removed - Will therefore return FALSE if the column to remove does not exist.
+      :returns: bool Whether the column could be removed - Will therefore
+      return FALSE if the column to remove does not exist.
       
    .. php:method:: setColumns(array $columns)
    

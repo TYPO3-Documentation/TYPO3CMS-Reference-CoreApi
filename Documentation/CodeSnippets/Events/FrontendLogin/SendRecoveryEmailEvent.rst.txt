@@ -16,4 +16,4 @@
       
    .. php:method:: getEmail()
    
-      :returntype: Symfony\\Component\\Mime\\Email
+      :returntype: TYPO3\\CMS\\Core\\Mail\\FluidEmail

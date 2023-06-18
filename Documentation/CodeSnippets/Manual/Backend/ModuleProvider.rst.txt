@@ -34,6 +34,7 @@
       :param bool $respectWorkspaceRestrictions: the respectWorkspaceRestrictions, default: true
       :param bool $grouped: the grouped, default: true
       :returntype: array
+      :returns: \ModuleInterface[]
       
    .. php:method:: getModuleForMenu(string $identifier, TYPO3\\CMS\\Core\\Authentication\\BackendUserAuthentication $user, bool $respectWorkspaceRestrictions = true)
    
@@ -56,6 +57,7 @@
       :param TYPO3\\CMS\\Core\\Authentication\\BackendUserAuthentication $user: the user
       :param bool $respectWorkspaceRestrictions: the respectWorkspaceRestrictions, default: true
       :returntype: array
+      :returns: \MenuModule[]
       
    .. php:method:: accessGranted(string $identifier, TYPO3\\CMS\\Core\\Authentication\\BackendUserAuthentication $user, bool $respectWorkspaceRestrictions = true)
    

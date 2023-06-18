@@ -9,6 +9,7 @@
    .. php:method:: getAllowedItems()
    
       :returntype: array
+      :returns: string[]
       
    .. php:method:: addAllowedItem(string $item)
    
@@ -23,3 +24,4 @@
    .. php:method:: getCurrentLinkParts()
    
       :returntype: array
+      :returns: array<string,mixed>

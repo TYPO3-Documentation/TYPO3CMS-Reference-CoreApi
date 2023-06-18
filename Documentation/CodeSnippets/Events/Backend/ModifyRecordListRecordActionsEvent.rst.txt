@@ -53,7 +53,8 @@
       :param string $actionName: the actionName
       :param string $group: the group, default: ''
       :returntype: bool
-      :returns: Whether the action could be removed - Will therefore return FALSE if the action to remove does not exist.
+      :returns: bool Whether the action could be removed - Will therefore
+      return FALSE if the action to remove does not exist.
       
    .. php:method:: getActionGroup(string $group)
    
