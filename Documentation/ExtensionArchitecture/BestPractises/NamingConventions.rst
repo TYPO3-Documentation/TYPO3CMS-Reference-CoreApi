@@ -283,18 +283,19 @@ Example:
 Example usage:
 
 .. code-block:: php
-    :caption: EXT:my_extension/ext_tables.php
+    :caption: EXT:my_extension/Configuration/Backend/Modules.php
 
-    // Module System > Backend Users
-    \TYPO3\CMS\Extbase\Utility\ExtensionUtility::registerModule(
-        // ExtensionName
-        'CoolShop',
-        // Main module key (use existing main module 'web' here)
-        'web',
+    return [
         // Submodule key
-        'ProductManagement'
-        // ...
-    );
+        'web_productmanagement' => [
+            // Main module key (use existing main module 'web' here)
+            'parent' => 'web',
+            // ...
+        ],
+    ];
+
+For more details have a look into the :ref:`backend-modules-configuration`
+chapter.
 
 Backend module signature
 ========================
@@ -307,7 +308,7 @@ key <BackendModuleKey>`, separated by an underscore.
 Conversions, such as underscore to UpperCamelCase or conversions to lowercase
 may be applied in this process.
 
-Examples (from TYPO3 core extennsions):
+Examples (from TYPO3 Core extensions):
 
 *  web_info
 *  web_FormFormbuilder
