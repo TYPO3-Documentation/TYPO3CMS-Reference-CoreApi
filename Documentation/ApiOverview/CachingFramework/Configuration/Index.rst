@@ -43,26 +43,9 @@ Administrators can overwrite specific settings of the cache configuration in
 :file:`config/system/settings.php`. Here is an example configuration to switch
 **pages** to the **redis** backend using database 3:
 
-..  code-block:: php
-    :caption: config/system/settings.php
-
-    return [
-        // ... other configuration
-
-        'SYS' => [
-            'caching' => [
-                'cacheConfigurations' => [
-                    'pages' => [
-                        'backend' => \TYPO3\CMS\Core\Cache\Backend\RedisBackend::class,
-                        'options' => [
-                            'database' => 3,
-                        ],
-                   ],
-                ],
-            ],
-        ],
-    ];
-
+..  literalinclude:: _settings.php
+    :language: php
+    :caption: config/system/settings.php | typo3conf/system/settings.php
 
 Some backends have mandatory as well as optional parameters (which are
 documented in the :ref:`Cache backends <caching-backend>` section). If not all
