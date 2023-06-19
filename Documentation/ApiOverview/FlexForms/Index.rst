@@ -27,11 +27,10 @@ over plugin features and what is to be rendered.
 Using FlexForms you have all the features of TCA, so it is possible
 to use input fields, select lists, show options conditionally and more.
 
-..  versionchanged:: 12.0
-    The superfluous array key `TCEforms` was removed and is not evaluated
-    anymore. Its sole purpose was to wrap real TCA definitions. The `TCEforms` tags **should**
-    be removed upon dropping TYPO3 v11 support. In TYPO3 v12 there is an automatic migration
-    that will be removed in a future version.
+..  versionchanged:: 13.0
+    The superfluous tag :xml:`TCEforms` was removed and is not evaluated
+    anymore. Its sole purpose was to wrap real TCA definitions. The
+    :xml:`TCEforms` tags **must** be removed upon dropping TYPO3 v11 support.
 
 
 Example use cases
