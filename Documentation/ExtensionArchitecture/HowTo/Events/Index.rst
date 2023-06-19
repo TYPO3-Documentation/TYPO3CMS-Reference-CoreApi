@@ -30,6 +30,13 @@ the name in the :file:`Configuration/Services.yaml` or it is not found.
 It is best practice to use a descriptive class name and to put it in the
 namespace :php:`MyVendor\MyExtension\EventListener`.
 
+..  note::
+    This example is outdated as the used event :ref:`PasswordChangeEvent`
+    does not provide the method :php:`setAsInvalid()` anymore. However, it
+    illustrates the basic principle of an event listener.
+
+..  todo: Adjust example, see also https://github.com/TYPO3-Documentation/TYPO3CMS-Reference-CoreApi/issues/3155
+
 .. literalinclude:: _Joh316PasswordInvalidator.php
    :language: php
 
