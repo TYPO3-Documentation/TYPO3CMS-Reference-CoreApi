@@ -22,9 +22,34 @@ Context menu rendering flow
 Markup
 ------
 
-The context menu is shown after clicking on the HTML element which has
-:html:`class="t3js-contextmenutrigger"` together with :html:`data-table`,
-:html:`data-uid` and optional :html:`data-context` attributes.
+..  deprecated:: 12.1
+    Configuration of the context menu was streamlined. Replace
+
+    *   :html:`class="t3js-contextmenutrigger"` with :html:`data-contextmenu-trigger="click"`
+    *   :html:`data-table="pages"` with :html:`data-contextmenu-table="pages"`
+    *   :html:`data-uid="10" with :html:`data-contextmenu-uid="10"`
+    *   :html:`data-context="tree" with :html:`data-contextmenu-context="tree"`
+
+    to be compatible with TYPO3 v12+. To be compatible with TYPO3 v11 and v12
+    keep the previous attributes.
+
+    Using the deprecated JavaScript API will trigger a warning in the console
+    and will stop working with TYPO3 v13.
+
+..  versionadded:: 12.1
+    The context menu JavaScript API was adapted to also support opening
+    the menu through the "contextmenu" event type (right click) only.
+
+The context menu is shown after clicking on the HTML element which has the
+:html:`data-contextmenu-trigger` attribute set together with
+:html:`data-contextmenu-table`, :html:`data-contextmenu-uid` and optional
+:html:`data-contextmenu-context` attributes.
+
+The HTML attribute :html:`data-contextmenu-trigger` has the following options:
+
+*   :html:`click`: Opens the context menu on the "click" and "contextmenu"
+    events
+*   :html:`contextmenu`: Opens the context menu only on the "contextmenu" event
 
 The JavaScript click event handler is implemented in the
 :ref:`ES6 module <backend-javascript-es6>` :js:`@typo3/backend/context-menu.js`. It takes the
