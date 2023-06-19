@@ -23,7 +23,7 @@ Markup
 ------
 
 ..  deprecated:: 12.1
-    Configuration of the context menu was streamlined. Replace
+    The configuration of the context menu was streamlined. Replace
 
     *   :html:`class="t3js-contextmenutrigger"` with :html:`data-contextmenu-trigger="click"`
     *   :html:`data-table="pages"` with :html:`data-contextmenu-table="pages"`
