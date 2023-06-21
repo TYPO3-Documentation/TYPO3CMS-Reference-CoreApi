@@ -107,7 +107,7 @@ Adding default PageTSconfig
 Put all page TSconfig that must always be loaded into file
 :file:`EXT:some_extension/Configuration/page.tsconfig`. If your extension should
 also be compatible with TYPO3 v11, you can additionally load it in the
-:file:`ext_localconf.php`: :ref:`lobal page TSconfig, compatible
+:file:`ext_localconf.php`: :ref:`Global page TSconfig, compatible
 with TYPO3 11 and 12 <t3tsconfig:page-tsconfig-v11-v12>`:
 
 Page TSconfig that can be added in the page settings should be added in the
