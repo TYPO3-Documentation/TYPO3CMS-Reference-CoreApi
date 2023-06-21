@@ -370,18 +370,31 @@ Workspace-related API for backend modules
 Backend module access
 =====================
 
-You can restrict access to backend modules by using
-:code:`$MCONF['workspaces']` in the :file:`conf.php` files. The variable is a list of
-keywords defining where the module is available:
+..  versionchanged:: 12.0
+    If you are using an older version of TYPO3, please use the version switcher
+    on the top left of this document to go to the respective version.
 
-.. code-block:: php
-   :caption: conf.php
+You can restrict access to backend modules by setting the value of the
+:php:`workspaces` key in the
+:ref:`backend module configuration <backend-modules-configuration>`:
 
-   $MCONF['workspaces'] = online,offline,custom
+..  code-block:: php
+    :caption: EXT:my_extension/Configuration/Backend/Modules.php
 
-You can also restrict function menu items to certain workspaces if you
-like. This is done by an argument sent to the function
-:code:`\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::insertModuleFunction()`. See that file for more details.
+    return [
+        'web_examples' => [
+            'parent' => 'web',
+            // Only available in live workspace
+            'workspaces' => 'live',
+            // ... other configuration
+        ],
+    ];
+
+The value can be one of:
+
+*   :php:`*` (always)
+*   :php:`live`
+*   :php:`offline`
 
 
 .. _workspaces-detection:
