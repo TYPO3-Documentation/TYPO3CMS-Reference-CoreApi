@@ -9,14 +9,6 @@
 Third-level modules / module functions
 ======================================
 
-.. versionchanged:: 12.0
-   Previously, module functions could be added to modules such as
-   :guilabel:`Web > Info` or :guilabel:`Web > Template` via the
-   now removed global :php:`TBE_MODULES_EXT` array.
-
-   These are now registered as third-level modules with the
-   backend module configuration API.
-
 Third-level modules are registered in the
 extension's :file:`Configuration/Backend/Modules.php` file, the
 same way as :ref:`top-level <backend-modules-toplevel-module>`

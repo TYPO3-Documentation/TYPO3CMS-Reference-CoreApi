@@ -24,27 +24,6 @@ The :php:`$GLOBALS['BE_USER']` object is mostly used to check user access right,
 but contains other helpful information. This is presented here by a few examples:
 
 
-.. _be-user-access-current:
-
-Checking access to current backend module
-=========================================
-
-..  deprecated:: 12.0
-    The method :php:`->modAccess()` of the backend user object is deprecated.
-    Use :php:`ModuleProvider->accessGranted()` from the
-    :ref:`backend-module-provider-api` instead.
-
-:php:`$MCONF` is module configuration and the key :php:`$MCONF['access']` determines
-the access scope for the module. This function call will check if the
-:php:`$GLOBALS['BE_USER']` is allowed to access the module and if not, the function
-will exit with an error message.
-
-.. code-block:: php
-   :caption: EXT:some_extension/Classes/Controller/SomeModuleController.php
-
-   $GLOBALS['BE_USER']->modAccess($MCONF);
-
-
 .. _be-user-access-any:
 
 Checking access to any backend module
