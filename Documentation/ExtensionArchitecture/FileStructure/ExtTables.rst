@@ -39,9 +39,6 @@ Should not be used for
 *   calling :php:`ExtensionManagementUtility::addStaticFile()`
     as this might break the frontend. They should go in
     :file:`Configuration/TCA/Overrides/sys_template.php`
-*   ..  versionchanged:: 12.0
-        Adding table options via :php:`ExtensionManagementUtility::allowTableOnStandardPages()`
-        :ref:`Example <extension-configuration-files-allow-table-standard>`
 
 Should be used for
 ==================
@@ -120,20 +117,8 @@ module:
 Allowing a tables records to be added to Standard pages
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-..  versionchanged:: 12.0
-    The usage of :php:`ExtensionManagementUtility::allowTableOnStandardPages()` is
-    deprecated. The method will be removed in TYPO3 v13.0. Use TCA ctrl option
+..  versionchanged:: 13.0
+    The usage of :php:`ExtensionManagementUtility::allowTableOnStandardPages()`
+    has been removed. Use the TCA ctrl option
     :ref:`ignorePageTypeRestriction <t3tca:ctrl-security-ignorePageTypeRestriction>`
     instead.
-
-If your extension needs to provide compatibility with TYPO3 v11 as well as v12
-you can check which version is loaded in the :file:`ext_tables.php` and call
-:php:`allowTableOnStandardPages` for v11:
-
-..  literalinclude:: _ext_tables_allowonstandardpages.php
-    :language: php
-    :caption: EXT:site_package/ext_tables.php
-
-..  note::
-    Use :ref:`ignorePageTypeRestriction <t3tca:ctrl-security-ignorePageTypeRestriction>`
-    to achieve the same functionality for TYPO3 v12.
