@@ -45,7 +45,9 @@ of class :php:`\TYPO3\CMS\Core\Messaging\FlashMessage`:
 Flash messages severities
 -------------------------
 
-.. versionchanged:: 12.0
+..  versionchanged:: 13.0
+    The previous class constants of :php:`\TYPO3\CMS\Core\Messaging\FlashMessage`
+    have been removed with TYPO3 v13.0.
 
 The severity is defined by using the
 :php:`\TYPO3\CMS\Core\Type\ContextualFeedbackSeverity` enumeration:
@@ -59,25 +61,6 @@ The severity is defined by using the
 *  :php:`ContextualFeedbackSeverity::WARNING` for warnings
 
 *  :php:`ContextualFeedbackSeverity::ERROR` for errors
-
-.. deprecated:: 12.0
-   In TYPO3 versions up to 11.5 class constants from
-   :php:`\TYPO3\CMS\Core\Messaging\FlashMessage` must be used:
-
-   *  :php:`FlashMessage::NOTICE` for notifications
-
-   *  :php:`FlashMessage::INFO` for information messages
-
-   *  :php:`FlashMessage::OK` for success messages
-
-   *  :php:`FlashMessage::WARNING` for warnings
-
-   *  :php:`FlashMessage::ERROR` for errors
-
-   One can also use the class constants of :php:`FlashMessage` if an
-   extension should remain compatible with TYPO3 v12 and older versions.
-
-   The class constants will be removed in a future version of TYPO3.
 
 
 Add a flash message to the queue
