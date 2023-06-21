@@ -47,6 +47,8 @@ type :ref:`password <columns-password>`.
     During the development of TYPO3 v12 LTS more areas are added where the
     password policy is considered.
 
+..  _configure-password-policies:
+
 Configuring password policies
 =============================
 

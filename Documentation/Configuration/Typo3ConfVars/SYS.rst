@@ -876,14 +876,13 @@ security.usePasswordPolicyForFrontendUsers
     :type: bool
     :Default: false for existing installations, true for new installations
 
-    Password validation configured through
-    :typoscript:`plugin.tx_felogin_login.settings.passwordValidators` has been
-    marked as deprecated, but will still be used for password validation when
-    a user resets the password, if this feature toggle is set to :php:`false`.
-
     If the feature toggle is set to :php:`true`, the globally configured
     :ref:`password policy <password-policies>` is applied when a TYPO3 frontend
-    user resets the password.
+    user sets the password.
+
+    It is recommended to enable the global policy for frontend users. You can
+    :ref:`configure a separate password policy <configure-password-policies>`
+    for frontend.
 
     ..  seealso::
         :ref:`$GLOBALS['TYPO3_CONF_VARS']['FE']['passwordPolicy'] <typo3ConfVars_fe_passwordPolicy>`
