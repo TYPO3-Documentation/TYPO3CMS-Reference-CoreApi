@@ -11,10 +11,11 @@ Caches are configured in the array
 predefined in :t3src:`core/Configuration/DefaultConfiguration.php`, and consists
 of the single section:
 
-*   **cacheConfigurations**: Registry of all configured caches. Each cache is
-    identified by its array key. Each cache can have the sub-keys
-    :php:`frontend`, :php:`backend` and :php:`options` to configure the used
-    frontend, backend and possible backend options.
+:php:`cacheConfigurations`
+    Registry of all configured caches. Each cache is identified by its array
+    key. Each cache can have the sub-keys :php:`frontend`, :php:`backend` and
+    :php:`options` to configure the used frontend, backend and possible backend
+    options.
 
 ..  _caching-configuration-cache:
 
@@ -30,22 +31,22 @@ bare minimum of cache configurations. This boils down to define the array key to
 populate a new cache to the system. Without further configuration, the cache
 system falls back to the default backend and default frontend settings:
 
-..  code-block:: php
-
-    $GLOBALS['TYPO3_CONF_VARS']['SYS']['caching']['cacheConfigurations']['myext_mycache']
-        ??= [];
+..  literalinclude:: _default.php
+    :language: php
+    :caption: config/system/additional.php | typo3conf/system/additional.php
 
 Extensions, like :ref:`Extbase <extbase>`, define default caches this way,
 giving administrators full freedom for specific and possibly quicker setups
 (for example, a memory-driven cache for the Extbase reflection cache).
 
 Administrators can overwrite specific settings of the cache configuration in
-:file:`config/system/settings.php`. Here is an example configuration to switch
-**pages** to the **redis** backend using database 3:
+:file:`config/system/settings.php` or :file:`config/system/additional.php`. Here
+is an example configuration to switch **pages** to the **Redis** backend using
+database 3:
 
-..  literalinclude:: _settings.php
+..  literalinclude:: _redis.php
     :language: php
-    :caption: config/system/settings.php | typo3conf/system/settings.php
+    :caption: config/system/additional.php | typo3conf/system/additional.php
 
 Some backends have mandatory as well as optional parameters (which are
 documented in the :ref:`Cache backends <caching-backend>` section). If not all
@@ -68,8 +69,8 @@ storage backend.
 Example configuration to switch the *extbase_reflection* cache to use the
 **null** backend:
 
-..  code-block:: php
-    :caption: config/system/additional.php
+..  literalinclude:: _null.php
+    :language: php
+    :caption: config/system/additional.php | typo3conf/system/additional.php
 
-    $GLOBALS['TYPO3_CONF_VARS']['SYS']['caching']['cacheConfigurations']
-        ['extbase_reflection']['backend'] = \TYPO3\CMS\Core\Cache\Backend\NullBackend::class;
+
