@@ -80,7 +80,7 @@ like in the TypoScript example above.
 
 ..  note::
 
-    It might be that your data processor should not be shared. In such case
+    It might be that your data processor should not be shared. In such a case
     you need to set the :yaml:`shared: false` tag attribute for the service.
 
 ..  index::
