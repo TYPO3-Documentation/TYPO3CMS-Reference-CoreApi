@@ -218,31 +218,42 @@ The second step is to activate the context menu on the icons. This kind of marku
 is required (taken from
 :file:`typo3/sysext/beuser/Resources/Private/Templates/BackendUser/Index.html`):
 
-.. code-block:: xml
-   :emphasize-lines: 2
+..  code-block:: xml
+    :emphasize-lines: 2
 
-   <td>
-      <a href="#" class="t3js-contextmenutrigger" data-table="be_users"
-            data-uid="{compareUser.uid}" title="id={compareUser.uid}">
-         <be:avatar backendUser="{compareUser.uid}" showIcon="TRUE" />
-      </a>
-   </td>
+    <td>
+        <a href="#"
+            data-contextmenu-trigger="click"
+            data-contextmenu-table="be_users"
+            data-contextmenu-uid="{compareUser.uid}"
+            title="id={compareUser.uid}"
+        >
+            <be:avatar backendUser="{compareUser.uid}" showIcon="TRUE" />
+        </a>
+    </td>
 
-the relevant line being highlighted. The class :xml:`t3js-contextmenutrigger`
+the relevant line being highlighted. The attribute :html:`data-contextmenu-trigger`
 triggers a context menu functionality for the current element. The
-:xml:`data-table` attribute contains a table name of the record and
-:xml:`data-uid` the :php:`uid` of the record.
+:html:`data-contextmenu-table` attribute contains a table name of the record and
+:html:`data-contextmenu-uid` the :php:`uid` of the record.
 
-One additional data attribute can be used :xml:`data-context` with
-values being for example :xml:`tree` for context menu triggered from
+The attribute :html:`data-contextmenu-trigger` has the following options:
+
+*   :html:`click`: Opens the context menu on the "click" and "contextmenu"
+    events
+*   :html:`contextmenu`: Opens the context menu only on the "contextmenu" event
+
+
+One additional data attribute can be used :html:`data-contextmenu-context` with
+values being, for example, :html:`tree` for context menu triggered from
 the page tree. Context is used to hide menu items independently for page tree
 independently from other places (disabled items can be configured in TSconfig).
 
 .. note::
 
-   In most cases the :typoscript:`data-uid` attributes contain an integer value.
-   However in case of files and folders this attribute takes file/folder path
-   as a value like :typoscript:`data-uid="1:/some-folder/some-file.pdf"`
+   In most cases the :html:`data-contextmenu-uid` attribute contains an integer value.
+   However, in case of files and folders this attribute takes file/folder path
+   as a value like :html:`data-contextmenu-uid="1:/some-folder/some-file.pdf"`
 
 
 Disabling Context Menu Items from TSConfig
