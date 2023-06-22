@@ -78,6 +78,10 @@ like in the TypoScript example above.
     enabling :ref:`dependency injection <DependencyInjection>` by default.
     Otherwise, the service would need to be set :ref:`public <What-to-make-public>`.
 
+..  note::
+
+    It might be that your data processor should not be shared. In such case
+    you need to set the :yaml:`shared: false` tag attribute for the service.
 
 ..  index::
     Custom data processor; Impementation
