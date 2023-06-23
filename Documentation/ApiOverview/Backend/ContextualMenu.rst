@@ -22,7 +22,7 @@ Context menu rendering flow
 Markup
 ------
 
-..  deprecated:: 12.1
+..  versionchanged:: 13.0
     The configuration of the context menu was streamlined. Replace
 
     *   :html:`class="t3js-contextmenutrigger"` with :html:`data-contextmenu-trigger="click"`
@@ -30,11 +30,7 @@ Markup
     *   :html:`data-uid="10" with :html:`data-contextmenu-uid="10"`
     *   :html:`data-context="tree" with :html:`data-contextmenu-context="tree"`
 
-    to be compatible with TYPO3 v12+. To be compatible with TYPO3 v11 and v12
-    keep the previous attributes.
-
-    Using the deprecated JavaScript API will trigger a warning in the console
-    and will stop working with TYPO3 v13.
+    to be compatible with TYPO3 v12+.
 
 ..  versionadded:: 12.1
     The context menu JavaScript API was adapted to also support opening
