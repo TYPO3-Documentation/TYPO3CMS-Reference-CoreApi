@@ -27,11 +27,9 @@ manager will choose the default
 :ref:`variable frontend <caching-frontend-variable>` and the
 :ref:`database backend <caching-backend-db>` by default.
 
-..  code-block:: php
+..  literalinclude:: _init.php
+    :language: php
     :caption: EXT:my_extension/ext_localconf.php
-
-    $GLOBALS['TYPO3_CONF_VARS']['SYS']['caching']['cacheConfigurations']['myext_mycache']
-        ??= [];
 
 ..  tip::
     The null coalescing assignment operator (:php:`??=`) check is used to
@@ -56,7 +54,7 @@ in this case.
     with sane defaults, but administrators should always be able to overwrite
     them for whatever reason.
 
-..  literalinclude:: _ext_localconf.php
+..  literalinclude:: _transient.php
     :language: php
     :caption: EXT:my_extension/ext_localconf.php
 

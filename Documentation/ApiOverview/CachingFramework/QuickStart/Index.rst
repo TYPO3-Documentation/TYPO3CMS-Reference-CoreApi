@@ -32,24 +32,10 @@ Example for a configuration of a
 :ref:`Redis cache backend <caching-backend-redis>` on Redis database number 42
 instead of the default database backend with compression for the pages cache:
 
-..  code-block:: php
-    :caption: config/system/settings.php
+..  literalinclude:: _settings.php
+    :language: php
+    :caption: config/system/settings.php | typo3conf/system/settings.php
 
-    return [
-        // ...
-        'SYS' => [
-            // ...
-            'caching' => [
-                // ...
-                'pages' => [
-                    'backend' => \TYPO3\CMS\Core\Cache\Backend\RedisBackend::class,
-                    'options' => [
-                        'database' => 42,
-                    ],
-                ],
-            ],
-        ],
-    ];
 
 ..  _caching-quickstart-garbage:
 
