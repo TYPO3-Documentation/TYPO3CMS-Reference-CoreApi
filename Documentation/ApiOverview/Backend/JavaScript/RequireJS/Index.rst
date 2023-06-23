@@ -31,5 +31,4 @@ Overview
 
     Extensions/Index
     Dependency/Index
-    Loading/Index
     Shim/Index
