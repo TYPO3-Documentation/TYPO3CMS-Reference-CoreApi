@@ -81,35 +81,12 @@ to be installed for this to work.
 Registering a backend module
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-..  versionchanged:: 12.0
-    The usage of :php:`ExtensionManagementUtility::registerModule()` is
-    deprecated. In TYPO3 v12 it is not evaluated anymore. Register modules in
+..  versionchanged:: 13.0
+    The method
+    :php:`\use TYPO3\CMS\Extbase\Utility\ExtensionUtility::registerModule()`
+    has been removed. Register modules in
     :ref:`extension-configuration-backend-modules`.
 
-If your extension needs to provide compatibility with TYPO3 v11 as well as v12
-you can check which version is loaded in the :file:`ext_tables.php` and call
-:php:`ExtensionUtility::registerModule` for v11 to register an Extbase backend
-module:
-
-.. code-block:: php
-   :caption: EXT:my_extension/ext_tables.php
-
-   // use TYPO3\CMS\Extbase\Utility\ExtensionUtility;
-
-   ExtensionUtility::registerModule(
-      'ExtensionName', // Extension Name in CamelCase
-      'web', // the main module
-      'mysubmodulekey', // Submodule key
-      'bottom', // Position
-      [
-          'MyController' => 'list,show,new',
-      ],
-      [
-          'access' => 'user,group',
-          'icon'   => 'EXT:my_extension/ext_icon.svg',
-          'labels' => 'LLL:EXT:my_extension/Resources/Private/Language/locallang_statistics.xlf',
-      ]
-   );
 
 .. index:: Extension development; allowTableOnStandardPages
 .. _extension-configuration-files-allow-table-standard:
@@ -118,7 +95,7 @@ Allowing a tables records to be added to Standard pages
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 ..  versionchanged:: 13.0
-    The usage of :php:`ExtensionManagementUtility::allowTableOnStandardPages()`
+    The method :php:`ExtensionManagementUtility::allowTableOnStandardPages()`
     has been removed. Use the TCA ctrl option
     :ref:`ignorePageTypeRestriction <t3tca:ctrl-security-ignorePageTypeRestriction>`
     instead.
