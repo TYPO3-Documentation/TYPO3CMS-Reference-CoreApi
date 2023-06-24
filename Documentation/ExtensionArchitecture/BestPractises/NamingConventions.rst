@@ -184,6 +184,7 @@ Examples:
 
    * `PSR-0 <https://www.php-fig.org/psr/psr-0/>`__
 
+..  _naming-tables:
 
 Database table name
 ===================
@@ -203,6 +204,11 @@ Examples for an extension named `cool_shop`:
 
 *  :sql:`tx_coolshop_product`
 *  :sql:`tx_coolshop_category`
+
+..  _naming-tables-extbase:
+
+Extbase domain model tables
+---------------------------
 
 Extbase domain model tables **should** follow this pattern:
 
@@ -229,6 +235,10 @@ Examples for Extbase domain models and table names of an extension named `cool_s
    not `posts`. This is recommended, but not always followed. If you do not follow this pattern,
    you may need :ref:`manual mapping <extbase_manual_mapping>`.
 
+..  _naming-tables-mm:
+
+MM-tables for multiple-multiple relations between tables
+---------------------------------------------------------
 
 **MM** tables (for multiple-multiple relations between tables) follow these rules.
 
