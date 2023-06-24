@@ -25,6 +25,11 @@ Read :ref:`how to configure dependency injection in extensions <dependency-injec
 
 The corresponding event listener class:
 
+..  todo: \TYPO3\CMS\Setup\Event\AddJavaScriptModulesEvent->addModule and
+    \TYPO3\CMS\Setup\Event\AddJavaScriptModulesEvent->getModules was removed
+    with TYPO3 v13.0, please update the example.
+
+
 ..  literalinclude:: _AddJavaScriptModulesEvent/_MyEventListener.php
     :language: php
     :caption: EXT:my_extension/Classes/UserSettings/EventListener/MyEventListener.php

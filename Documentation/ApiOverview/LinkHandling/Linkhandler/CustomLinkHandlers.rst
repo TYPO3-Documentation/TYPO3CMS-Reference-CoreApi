@@ -38,6 +38,9 @@ You should therefore implement the interface :php:`LinkHandlerInterface` in your
 custom LinkHandlers:
 
 
+..  todo: \TYPO3\CMS\Core\Page\PageRenderer->loadRequireJsModule was removed with
+    TYPO3 v13.0, please update this example
+
 .. code-block:: php
    :caption: EXT:some_extension/Classes/LinkHandler/GitHubLinkHandler.php
 
