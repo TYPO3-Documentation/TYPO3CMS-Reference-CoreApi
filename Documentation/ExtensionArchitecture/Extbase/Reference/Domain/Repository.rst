@@ -79,6 +79,12 @@ they should be set in the method :php:`initializeObject()` method.
     Depending on the query settings, hidden or even deleted objects can become
     visible. This might cause sensitive information to be disclosed. Use with care.
 
+..  attention::
+    Since introduction of :ref:`dependency injection via Services.yaml <dependency-injection-in-extensions>` 
+    with TYPO3 v10 you may have to flush
+    cache in maintenance module of TYPO3 to register that method to be loaded
+    while instanciating that object.
+
 If you only want to change the query settings for a specific method, they can be
 set in the method itself:
 
