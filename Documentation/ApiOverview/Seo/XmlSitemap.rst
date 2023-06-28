@@ -68,8 +68,6 @@ sitemap types (`pages` and additional ones, for example, from the news extension
       Sitemap:
         type: Simple
         routePath: 'sitemap-type/{sitemap}'
-        defaults:
-          sitemap: ''
         aspects:
           sitemap:
             type: StaticValueMapper
