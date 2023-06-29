@@ -30,11 +30,8 @@ The new page type is added to :php:`$GLOBALS['PAGES_TYPES']` in
    (function ($extKey='some_extension') {
       $archiveDoktype = 116;
 
-      // Add new page type:
-      $GLOBALS['PAGES_TYPES'][$archiveDoktype] = [
-          'type' => 'web',
-          'allowedTables' => '*',
-      ];
+      $pageDoktypeRegistry = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\TYPO3\CMS\Core\DataHandling\PageDoktypeRegistry::class);
+      $pageDoktypeRegistry->add($archiveDoktype, [ 'allowedTables' => '*']);
 
    })();
 
