@@ -17,6 +17,8 @@ waiting for stylesheets, images, and sub-frames to finish loading.
 
 .. code-block:: javascript
 
+   import $ from 'jquery';
+
    $(document).ready(() => {
      // your application code
    });
@@ -25,10 +27,10 @@ Above jQuery code can be transformed into the following using :js:`DocumentServi
 
 .. code-block:: javascript
 
-   require(['TYPO3/CMS/Core/DocumentService'], function (DocumentService) {
-     DocumentService.ready().then(() => {
-       // your application code
-     });
+   import DocumentService from '@typo3/core/document-service.js';
+
+   DocumentService.ready().then(() => {
+     // your application code
    });
 
 

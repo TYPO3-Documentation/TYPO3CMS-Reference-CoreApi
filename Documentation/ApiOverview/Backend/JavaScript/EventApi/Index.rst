@@ -27,11 +27,11 @@ Example:
 
 .. code-block:: js
 
-   require(['TYPO3/CMS/Core/Event/RegularEvent'], function (RegularEvent) {
-     new RegularEvent('click', function (e) {
-       // Do something
-     }).bindTo(document.querySelector('#my-element'));
-   });
+   import RegularEvent from '@typo3/cms/core/event/regular-event.js';
+
+   new RegularEvent('click', function (e) {
+     // Do something
+   }).bindTo(document.querySelector('#my-element'));
 
 
 Event Delegation
@@ -44,11 +44,11 @@ Example:
 
 .. code-block:: js
 
-   require(['TYPO3/CMS/Core/Event/RegularEvent'], function (RegularEvent) {
-     new RegularEvent('click', function (e) {
-       // Do something
-     }).delegateTo(document, 'a[data-action="toggle"]');
-   });
+   import RegularEvent from '@typo3/cms/core/event/regular-event.js';
+
+   new RegularEvent('click', function (e) {
+     // Do something
+   }).delegateTo(document, 'a[data-action="toggle"]');
 
 The event listener is now called every time the element matching the selector
 :js:`a[data-action="toggle"]` within :js:`document` is clicked.
@@ -64,15 +64,15 @@ Example:
 
 .. code-block:: js
 
-   require(['TYPO3/CMS/Core/Event/RegularEvent'], function (RegularEvent) {
-     const clickEvent = new RegularEvent('click', function (e) {
-       // Do something
-     }).delegateTo(document, 'a[data-action="toggle"]');
+   import RegularEvent from '@typo3/cms/core/event/regular-event.js';
 
-     // Do more stuff
+   const clickEvent = new RegularEvent('click', function (e) {
+     // Do something
+   }).delegateTo(document, 'a[data-action="toggle"]');
 
-     clickEvent.release();
-   });
+   // Do more stuff
+
+   clickEvent.release();
 
 
 Event Strategies
@@ -95,12 +95,12 @@ Example:
 
 .. code-block:: js
 
-   require(['TYPO3/CMS/Core/Event/RegularEvent'], function (RegularEvent) {
-     new RegularEvent('click', function (e) {
-       e.preventDefault();
-       window.location.reload();
-     }).bindTo(document.querySelector('#my-element'));
-   });
+   import RegularEvent from '@typo3/cms/core/event/regular-event.js';
+
+   new RegularEvent('click', function (e) {
+     e.preventDefault();
+     window.location.reload();
+   }).bindTo(document.querySelector('#my-element'));
 
 
 DebounceEvent
@@ -120,11 +120,11 @@ Example:
 
 .. code-block:: js
 
-   require(['TYPO3/CMS/Core/Event/DebounceEvent'], function (DebounceEvent) {
-     new DebounceEvent('mousewheel', function (e) {
-       console.log('Triggered once after 250ms!');
-     }, 250).bindTo(document);
-   });
+   import DebounceEvent from '@typo3/cms/core/event/debounce-event.js';
+
+   new DebounceEvent('mousewheel', function (e) {
+     console.log('Triggered once after 250ms!');
+   }, 250).bindTo(document);
 
 
 ThrottleEvent
@@ -147,11 +147,11 @@ Example:
 
 .. code-block:: js
 
-   require(['TYPO3/CMS/Core/Event/ThrottleEvent'], function (ThrottleEvent) {
-     new ThrottleEvent('mousewheel', function (e) {
-       console.log('Triggered every 100ms!');
-     }, 100).bindTo(document);
-   });
+   import ThrottleEvent from '@typo3/cms/core/event/throttle-event.js';
+
+   new ThrottleEvent('mousewheel', function (e) {
+     console.log('Triggered every 100ms!');
+   }, 100).bindTo(document);
 
 
 RequestAnimationFrameEvent
@@ -170,8 +170,8 @@ Example:
 
 .. code-block:: js
 
-   require(['TYPO3/CMS/Core/Event/RequestAnimationFrameEvent'], function (RequestAnimationFrameEvent) {
-     new RequestAnimationFrameEvent('mousewheel', function (e) {
-       console.log('Triggered every 16ms (= 60 FPS)!');
-     });
+   import RequestAnimationFrameEvent from '@typo3/cms/core/event/request-animation-frame-event.js';
+
+   new RequestAnimationFrameEvent('mousewheel', function (e) {
+     console.log('Triggered every 16ms (= 60 FPS)!');
    });
