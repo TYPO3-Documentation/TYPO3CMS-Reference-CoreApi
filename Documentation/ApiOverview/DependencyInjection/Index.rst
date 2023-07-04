@@ -276,7 +276,8 @@ Non-service "data objects" like Extbase domain model instances or DTOs should
 be instantiated via :php:`\TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance()`
 if they are non-final and support XCLASSing. For final classes without
 dependencies plain instantiation via the `new` keyword must be used.
-Dependency injection cannot be used in Scheduler Tasks.
+
+In some APIs dependency injection cannot be used yet. This applies to classes that need specific data in their constructors or classes that are serialized and deserialized as, for example, scheduler tasks.
 
 
 .. _Constructor-injection:
