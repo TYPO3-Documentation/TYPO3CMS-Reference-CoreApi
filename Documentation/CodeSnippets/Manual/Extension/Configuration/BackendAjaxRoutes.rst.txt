@@ -1,5 +1,5 @@
 .. code-block:: php
-   :caption: EXT:my_extension/Configuration/Backend/BackendAjaxRoutes.php
+   :caption: EXT:my_extension/Configuration/Backend/AjaxRoutes.php
 
    <?php
    return [
