@@ -202,7 +202,7 @@ the "sys\_file\_reference" entry and the relation to the other item
            'pid' => $contentElement['pid']
    ];
    $data['tt_content'][$contentElement['uid']] = [
-           'assets' => $newId
+           'assets' => $newId // For multiple new references $newId is a comma-separated list
    ];
    // Get an instance of the DataHandler and process the data
    /** @var DataHandler $dataHandler */
