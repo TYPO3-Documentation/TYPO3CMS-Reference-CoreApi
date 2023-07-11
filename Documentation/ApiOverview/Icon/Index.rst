@@ -25,7 +25,7 @@ To register icons for your own extension, create a file called
     In versions below TYPO3 v11.4 the configuration was done in the
     :file:`ext_localconf.php` file.
 
-    It :ref:`migrate the icon registration <icon_migration>` to 
+    It :ref:`migrates the icon registration <icon_migration>` to 
     new format. There is also a rector rule.
 
 
