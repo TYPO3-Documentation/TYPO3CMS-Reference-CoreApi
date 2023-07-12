@@ -486,7 +486,7 @@ With this in place we can run unit tests:
 
     git clone git@github.com:TYPO3/styleguide.git
     cd styleguide
-    Build/Scripts/runTests.sh -s composerInstall
+    Build/Scripts/runTests.sh -s composerUpdate
     # Run unit tests
     Build/Scripts/runTests.sh
     # ... OK (1 test, 4 assertions)
@@ -776,55 +776,70 @@ of the failed run can be found in :file:`.Build/Web/typo3temp/var/tests/Acceptan
 Github Actions
 --------------
 
-Now we want all of this automatically checked using Github Actions. As before, we define the jobs in `.github/workflows/ci.yml <https://github.com/TYPO3/styleguide/blob/main/.github/workflows/ci.yml>`__:
+Now we want all of this automatically checked using Github Actions. As before, we define the jobs in `.github/workflows/ci.yml <https://github.com/TYPO3/styleguide/blob/main/.github/workflows/tests.yml>`__:
 
 .. code-block:: yaml
 
-   name: CI
+name: tests
 
-   on: [push, pull_request]
+on:
+  push:
+  pull_request:
+  schedule:
+    - cron:  '42 5 * * *'
 
-   jobs:
+jobs:
+  testsuite:
+    name: all tests
+    runs-on: ubuntu-20.04
+    strategy:
+      # This prevents cancellation of matrix job runs, if one or more already failed
+      # and let the remaining matrix jobs be executed anyway.
+      fail-fast: false
+      matrix:
+        php: [ '8.1', '8.2' ]
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
 
-     testsuite:
-       name: all tests
-       runs-on: ubuntu-latest
-       strategy:
-         matrix:
-           php: [ '8.1', '8.2' ]
-       steps:
-         - name: Checkout
-           uses: actions/checkout@v2
+      - name: Install dependencies
+        run: Build/Scripts/runTests.sh -p ${{ matrix.php }} -s composerUpdate
 
-         - name: Install testing system
-           run: Build/Scripts/runTests.sh -p ${{ matrix.php }} -s composerInstall
+      - name: Composer validate
+        run: Build/Scripts/runTests.sh -p ${{ matrix.php }} -s composerValidate
 
-         - name: Composer validate
-           run: Build/Scripts/runTests.sh -p ${{ matrix.php }} -s composerValidate
+      - name: Lint PHP
+        run: Build/Scripts/runTests.sh -p ${{ matrix.php }} -s lint
 
-         - name: Lint PHP
-           run: Build/Scripts/runTests.sh -p ${{ matrix.php }} -s lint
+      - name: CGL
+        run: Build/Scripts/runTests.sh -n -p ${{ matrix.php }} -s cgl
 
-         - name: CGL
-           run: Build/Scripts/runTests.sh -p ${{ matrix.php }} -s cgl
+      - name: phpstan
+        run: Build/Scripts/runTests.sh -p ${{ matrix.php }} -s phpstan -e "--error-format=github"
 
-         - name: phpstan
-           run: Build/Scripts/runTests.sh -p ${{ matrix.php }} -s phpstan
+      - name: Unit Tests
+        run: Build/Scripts/runTests.sh -p ${{ matrix.php }} -s unit
 
-         - name: Unit Tests
-           run: Build/Scripts/runTests.sh -p ${{ matrix.php }} -s unit
+      - name: Functional Tests with mariadb and mysqli
+        run: Build/Scripts/runTests.sh -p ${{ matrix.php }} -d mariadb -a mysqli -s functional
 
-         - name: Functional Tests with mariadb
-           run: Build/Scripts/runTests.sh -p ${{ matrix.php }} -d mariadb -s functional
+      - name: Functional Tests with mariadb and pdo_mysql
+        run: Build/Scripts/runTests.sh -p ${{ matrix.php }} -d mariadb -a pdo_mysql -s functional
 
-         - name: Functional Tests with postgres
-           run: Build/Scripts/runTests.sh -p ${{ matrix.php }} -d postgres -s functional
+      - name: Functional Tests with mysql and mysqli
+        run: Build/Scripts/runTests.sh -p ${{ matrix.php }} -d mysql -a mysqli -s functional
 
-         - name: Functional Tests with sqlite
-           run: Build/Scripts/runTests.sh -p ${{ matrix.php }} -d sqlite -s functional
+      - name: Functional Tests with mysql and pdo_mysql
+        run: Build/Scripts/runTests.sh -p ${{ matrix.php }} -d mysql -a pdo_mysql -s functional
 
-         - name: Acceptance Tests
-           run: Build/Scripts/runTests.sh -p ${{ matrix.php }} -s acceptance
+      - name: Functional Tests with postgres
+        run: Build/Scripts/runTests.sh -p ${{ matrix.php }} -d postgres -s functional
+
+      - name: Functional Tests with sqlite
+        run: Build/Scripts/runTests.sh -p ${{ matrix.php }} -d sqlite -s functional
+
+      - name: Build CSS
+        run: Build/Scripts/runTests.sh -s buildCss
 
 This is similar to the enetcache example, but does some more: The functional tests are executed
 with three different DBMS (MariaDB, Postgres, sqlite), and the acceptance tests are executed, too.
