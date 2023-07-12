@@ -776,7 +776,7 @@ of the failed run can be found in :file:`.Build/Web/typo3temp/var/tests/Acceptan
 Github Actions
 --------------
 
-Now we want all of this automatically checked using Github Actions. As before, we define the jobs in `.github/workflows/ci.yml <https://github.com/TYPO3/styleguide/blob/main/.github/workflows/tests.yml>`__:
+Now we want all of this automatically checked using Github Actions. As before, we define the jobs in `.github/workflows/tests.yml <https://github.com/TYPO3/styleguide/blob/main/.github/workflows/tests.yml>`__:
 
 .. code-block:: yaml
 
