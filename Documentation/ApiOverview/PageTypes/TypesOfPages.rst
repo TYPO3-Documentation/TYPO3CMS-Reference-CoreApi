@@ -59,10 +59,3 @@ additional fields in pages to be filled out:
 
 `DOKTYPE_SYSFOLDER` - ID: `254`
    Folder
-
-.. index:: Page types; DOKTYPE_RECYCLER
-
-`DOKTYPE_RECYCLER` - ID: `255`
-   Recycler
-
-
