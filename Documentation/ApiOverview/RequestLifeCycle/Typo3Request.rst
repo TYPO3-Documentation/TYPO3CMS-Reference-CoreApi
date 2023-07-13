@@ -65,6 +65,22 @@ The request object compatible with the PSR-7
     TYPO3 v10 and TYPO3 v11 you have to use the :ref:`global variable
     <typo3-request-global-variable>`.
 
+ViewHelper
+----------
+
+In a ViewHelper you can get the rendering request from the rendering context.
+For this you have to rely on the fact that a
+:php:`TYPO3\CMS\Fluid\Core\Rendering\RenderingContext` is passed to the
+ViewHelpers :php:`renderStatic` method, even though it is declared as
+:php:`RenderingContextInterface`, which does not have the method:
+
+..  literalinclude:: _ViewHelper.php
+    :language: php
+    :caption: EXT:my_extension/Classes/ViewHelpers/MyViewHelper.php
+
+Note, that :php:`RenderingContext::getRequest()` is internal and subject to
+change in future versions of TYPO3.
+
 
 User function
 -------------
