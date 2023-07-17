@@ -61,7 +61,7 @@ additional fields in pages to be filled out:
 
 .. versionchanged:: 13.0
 
-   The recycler doktype is removed and cannot be selected or used anymore. Any
+   The recycler doktype (`DOKTYPE_RECYCLER` - ID: `255`) is removed and cannot be selected or used anymore. Any
    existing recycler pages are migrated to a page of type "Backend User Section"
    which is also not accessible if there is no valid backend user with permission
    to see this page.
