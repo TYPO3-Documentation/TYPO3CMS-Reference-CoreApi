@@ -20,18 +20,9 @@ Instantiation
 
 Constructor injection can be used to automatically instantiate the logger:
 
-.. code-block:: php
-
-   use Psr\Log\LoggerInterface;
-
-   class MyClass {
-       private LoggerInterface $logger;
-
-       public function __construct(LoggerInterface $logger)
-       {
-           $this->logger = $logger;
-       }
-   }
+..  literalinclude:: _MyClassLoggerInjection.php
+    :language: php
+    :caption: EXT:my_extension/Classes/Service/MyClass.php
 
 .. tip::
 
@@ -226,47 +217,16 @@ and the classic component name will be used instead.
 
 Registration via class attribute for :php:`LoggerInterface` injection:
 
-.. code-block:: php
-   :caption: EXT:my_extension/Classes/Service/MyClass.php
-
-   namespace MyVendor\MyExtension\Service\MyClass;
-
-   use Psr\Log\LoggerInterface;
-   use TYPO3\CMS\Core\Log\Channel;
-
-   #[Channel('security')]
-   class MyClass
-   {
-     private LoggerInterface $logger;
-     public function __construct(LoggerInterface $logger)
-     {
-         $this->logger = $logger;
-         // do your magic
-     }
-   }
+..  literalinclude:: _MyClassChannel.php
+    :language: php
+    :caption: EXT:my_extension/Classes/Service/MyClass.php
 
 Registration via parameter attribute for :php:`LoggerInterface`
 injection, overwrites possible class attributes:
 
-.. code-block:: php
-   :caption: EXT:my_extension/Service/MyClass.php
-
-   namespace MyVendor\MyExtension\Service\MyClass;
-
-   use Psr\Log\LoggerInterface;
-   use TYPO3\CMS\Core\Log\Channel;
-
-   class MyClass
-   {
-     private LoggerInterface $logger;
-     public function __construct(
-         #[Channel('security')]
-         LoggerInterface $logger
-     ) {
-         $this->logger = $logger;
-         // do your magic
-     }
-   }
+..  literalinclude:: _MyClassChannel2.php
+    :language: php
+    :caption: EXT:my_extension/Classes/Service/MyClass.php
 
 The instantiated logger will now have the channel "security",
 instead of the default which would be a combination of namespace and class of
