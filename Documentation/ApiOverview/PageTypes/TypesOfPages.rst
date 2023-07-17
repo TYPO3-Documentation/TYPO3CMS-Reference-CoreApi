@@ -13,7 +13,6 @@ What role each page type plays and when to use it is explained in more
 detail in :ref:`t3editors:pages-types`. Some of the page types require
 additional fields in pages to be filled out:
 
-
 .. index:: Page types; DOKTYPE_DEFAULT
 
 `DOKTYPE_DEFAULT` - ID: `1`
@@ -59,3 +58,10 @@ additional fields in pages to be filled out:
 
 `DOKTYPE_SYSFOLDER` - ID: `254`
    Folder
+
+.. versionchanged:: 13.0
+
+   The recycler doktype is removed and cannot be selected or used anymore. Any
+   existing recycler pages are migrated to a page of type "Backend User Section"
+   which is also not accessible if there is no valid backend user with permission
+   to see this page.
