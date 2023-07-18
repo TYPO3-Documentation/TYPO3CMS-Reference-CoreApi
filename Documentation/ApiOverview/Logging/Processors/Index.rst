@@ -1,125 +1,162 @@
-.. include:: /Includes.rst.txt
-.. index:: Logging; Processors
-.. _logging-processors:
+..  include:: /Includes.rst.txt
+..  index:: Logging; Processors
+..  _logging-processors:
 
 ==============
 Log processors
 ==============
 
-The purpose of a log processor is (usually) to modify a log record or add more detailed information to it.
+The purpose of a log processor is (usually) to modify a
+:ref:`log record <logging-model>` or add more detailed information to it.
 
-Log processors allow the manipulation of log records without changing the code
-where the log method actually is called (inversion of control).
-This enables you to add any information from outside the scope of the actual calling function,
-for example webserver environment variables. The TYPO3 Core  ships some basic log processors,
-but more can be added with extensions.
+Log processors allow you to manipulate log records without changing the code
+that actually calls the log method (inversion of control). This enables you to
+add any information from outside the scope of the actual calling function, such
+as webserver environment variables. The TYPO3 Core ships with some basic log
+processors, but more can be added with extensions.
 
+..  contents::
+    :depth: 2
+    :local:
 
-.. index:: Logging; Processors, Built-in
-.. _logging-processors-builtin:
+..  index:: Logging; Processors, Built-in
+..  _logging-processors-builtin:
 
 Built-in log processors
 =======================
 
-This section describes the log processors shipped with the TYPO3 Core .
-Some processors have options to allow customization of the particular processor.
-See the :ref:`Configuration <logging-configuration-processor>` section for how to use these options.
+This section describes the log processors that are shipped with the TYPO3 Core.
+Some processors have options to allow the customization of the particular
+processor. See the :ref:`Configuration <logging-configuration-processor>`
+section for how to use these options.
 
 
-.. index:: Logging; IntrospectionProcessor
-.. _logging-processors-introspection:
+..  index:: Logging; IntrospectionProcessor
+..  _logging-processors-introspection:
 
 IntrospectionProcessor
 ----------------------
 
-The introspection processor adds backtrace data about where the log event was triggered.
+The introspection processor adds backtrace data about where the log event was
+triggered.
 
-By default the following parameters from the original function call are added:
+By default, the following parameters from the original function call are added:
 
 file
-  absolute path to the file.
+    The absolute path to the file.
+
 line
-  line number.
+    The line number.
+
 class
-  class name.
+    The class name.
+
 function
-  function name.
+    The function name.
 
-If :code:`appendFullBackTrace` is set, the full backtrace stack is added instead.
+Options
+~~~~~~~
 
-====================  =========  ===========================================================================  ============
-Option                Mandatory  Description                                                                   Default
-====================  =========  ===========================================================================  ============
-appendFullBackTrace   no         Adds a full backtrace stack to the log.                                      :code:`FALSE`
-shiftBackTraceLevel   no         Removes the given number of entries from the top of the backtrace stack.     :code:`0`
-====================  =========  ===========================================================================  ============
+..  option:: appendFullBackTrace
+
+    :Mandatory: no
+    :Default: :php:`false`
+
+    Adds a full backtrace stack to the log.
+
+..  option:: shiftBackTraceLevel
+
+    :Mandatory: no
+    :Default: :php:`0`
+
+    Removes the given number of entries from the top of the backtrace stack.
 
 
-.. index:: Logging; MemoryUsageProcessor
-.. _logging-processors-memory:
+..  index:: Logging; MemoryUsageProcessor
+..  _logging-processors-memory:
 
 MemoryUsageProcessor
 --------------------
 
 The memory usage processor adds the amount of used memory to the log record
-(result from `memory_get_usage()`__).
+(result from `memory_get_usage()`_).
 
-__ https://www.php.net/manual/en/function.memory-get-usage.php
+..  _memory_get_usage(): https://www.php.net/manual/en/function.memory-get-usage.php
 
-================  =========  ===========================================================================   ============
-Option            Mandatory  Description                                                                   Default
-================  =========  ===========================================================================   ============
-realMemoryUsage   no         Use real__ size of memory allocated from system instead of emalloc() value.   :code:`TRUE`
-formatSize        no         Whether the size is formatted with GeneralUtility::formatSize()               :code:`TRUE`
-================  =========  ===========================================================================   ============
+Options
+~~~~~~~
 
-__ https://www.php.net/manual/en/function.memory-get-usage.php
+..  option:: realMemoryUsage
+
+    :Mandatory: no
+    :Default: :php:`true`
+
+    Use the `real size of memory <https://www.php.net/manual/en/function.memory-get-usage.php#refsect1-function.memory-get-usage-parameters>`__
+    allocated from system instead of :php:`emalloc()` value.
+
+..  option:: formatSize
+
+    :Mandatory: no
+    :Default: :php:`true`
+
+    Whether the size is formatted with :php:`GeneralUtility::formatSize()`.
 
 
-.. index:: Logging; MemoryPeakUsageProcessor
-.. _logging-processors-memory-peak:
+..  index:: Logging; MemoryPeakUsageProcessor
+..  _logging-processors-memory-peak:
 
 MemoryPeakUsageProcessor
 ------------------------
 
-The memory peak usage processor adds the peak amount of used memory to the log record
-(result from `memory_get_peak_usage()`__).
+The memory peak usage processor adds the peak amount of used memory to the
+:ref:`log record <logging-model>` (result from `memory_get_peak_usage()`_).
 
-__ https://www.php.net/manual/en/function.memory-get-peak-usage.php
+..  _memory_get_peak_usage(): https://www.php.net/manual/en/function.memory-get-peak-usage.php
 
-================  ==========  ===========================================================================   ============
-Option            Mandatory   Description                                                                   Default
-================  ==========  ===========================================================================   ============
-realMemoryUsage   no          Use real__ size of memory allocated from system instead of emalloc() value.   :code:`TRUE`
-formatSize        no          Whether the size is formatted with GeneralUtility::formatSize()               :code:`TRUE`
-================  ==========  ===========================================================================   ============
+Options
+~~~~~~~
 
-__ https://www.php.net/manual/en/function.memory-get-peak-usage.php
+..  option:: realMemoryUsage
+
+    :Mandatory: no
+    :Default: :php:`true`
+
+    Use the `real size of memory <https://www.php.net/manual/en/function.memory-get-peak-usage.php#refsect1-function.memory-get-peak-usage-parameters>`__
+    allocated from system instead of :php:`emalloc()` value.
+
+..  option:: formatSize
+
+    :Mandatory: no
+    :Default: :php:`true`
+
+    Whether the size is formatted with :php:`GeneralUtility::formatSize()`.
 
 
-.. index:: Logging; Processors
-.. _logging-processors-web:
+..  index:: Logging; Processors
+..  _logging-processors-web:
 
 WebProcessor
 ------------
 
 The web processor adds selected webserver environment variables to the log record,
-i.e. all possible values from :code:`\TYPO3\CMS\Core\Utility\GeneralUtility::getIndpEnv('_ARRAY')`.
+that means, all possible values from
+:php:`\TYPO3\CMS\Core\Utility\GeneralUtility::getIndpEnv('_ARRAY')`.
 
 
-.. index::
-   Logging; Custom log processors
-   Logging; ProcessorInterface
-.. _logging-processors-custom:
+..  index::
+    Logging; Custom log processors
+    Logging; ProcessorInterface
+..  _logging-processors-custom:
 
 Custom log processors
 =====================
 
-Custom log processors can be added through extensions. Every log processor has to implement
-the interface :code:`\TYPO3\CMS\Core\Log\Processor\ProcessorInterface`.
-It is suggested to extend the abstract class :code:`\TYPO3\CMS\Core\Log\Processor\AbstractProcessor`
-which allows you use configuration options by adding the corresponding properties and setter methods.
+Custom log processors can be added through extensions. Every log processor has
+to implement the interface :t3src:`core/Classes/Log/Processor/ProcessorInterface.php`.
+It is suggested to extend the abstract class
+:t3src:`core/Classes/Log/Processor/AbstractProcessor.php` which allows you use
+configuration options by adding the corresponding properties and setter methods.
 
 Please keep in mind that TYPO3 will silently continue operating,
 in case a log processor is throwing an exception while executing
-the :code:`processLogRecord()` method.
+the :php:`processLogRecord()` method.
