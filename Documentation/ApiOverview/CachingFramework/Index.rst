@@ -219,7 +219,7 @@ Clear cache command
 In addition to the GUI options explained above, caches can also be cleared
 via a :ref:`CLI command <symfony-console-commands>`:
 
-..  include:: /_includes/CliCacheWarmup.rst.txt
+..  include:: /_includes/CliCacheFlush.rst.txt
 
 Specific cache groups can be defined via the group option.
 The usage is described as this:
@@ -244,7 +244,7 @@ It is possible to warmup TYPO3 caches using the command line.
 The administrator can use the following
 :ref:`CLI command <symfony-console-commands>`:
 
-..  include:: /_includes/CliCacheFlush.rst.txt
+..  include:: /_includes/CliCacheWarmup.rst.txt
 
 Specific cache groups can be defined via the group option.
 The usage is described as this:
