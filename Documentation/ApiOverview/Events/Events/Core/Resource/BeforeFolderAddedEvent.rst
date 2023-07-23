@@ -13,6 +13,11 @@ fired before a folder is about to be added to the resource
 This allows to further specify folder names according to regulations for a
 specific project.
 
+Example
+=======
+
+..  include:: /_includes/EventsContributeNote.rst.txt
+
 API
 ===
 

@@ -12,6 +12,11 @@ is fired before the contents of a file gets set / replaced.
 This allows to further analyze or modify the content of a file before it is
 written by the :ref:`driver <fal-architecture-components-drivers>`.
 
+Example
+=======
+
+..  include:: /_includes/EventsContributeNote.rst.txt
+
 API
 ===
 

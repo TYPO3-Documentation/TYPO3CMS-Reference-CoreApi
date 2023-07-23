@@ -24,6 +24,11 @@ This functionality is implemented in the system extension
 :doc:`linkvalidator <ext_linkvalidator:Index>`. Other extensions can use the
 event to override the default behaviour.
 
+Example
+=======
+
+..  include:: /_includes/EventsContributeNote.rst.txt
+
 API
 ===
 

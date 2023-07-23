@@ -11,6 +11,11 @@ The PSR-14 event
 is fired once metadata of a file was added to the database,
 so it can be enriched with more information.
 
+Example
+=======
+
+..  include:: /_includes/EventsContributeNote.rst.txt
+
 API
 ===
 

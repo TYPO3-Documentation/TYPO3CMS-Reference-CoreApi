@@ -13,6 +13,11 @@ is fired once before
 :php:`\TYPO3\CMS\Core\Page\AssetRenderer::render[Inline]Stylesheets`
 renders the output.
 
+Example
+=======
+
+..  include:: /_includes/EventsContributeNote.rst.txt
+
 API
 ===
 

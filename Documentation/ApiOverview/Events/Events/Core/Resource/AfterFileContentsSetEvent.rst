@@ -13,6 +13,11 @@ is fired after the contents of a file got set / replaced.
 *Example:* Listeners can analyze content for :abbr:`AI (Artifical Intelligence)`
 purposes within extensions.
 
+Example
+=======
+
+..  include:: /_includes/EventsContributeNote.rst.txt
+
 API
 ===
 
