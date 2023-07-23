@@ -15,6 +15,11 @@ The folder represents the "target folder".
 This allows to further analyze or modify the file or filename before it is
 written by the driver.
 
+Example
+=======
+
+..  include:: /_includes/EventsContributeNote.rst.txt
+
 API
 ===
 

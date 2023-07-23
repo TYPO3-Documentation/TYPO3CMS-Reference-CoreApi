@@ -16,6 +16,11 @@ will be dispatched once all mutations have been applied to the current
 corresponding HTTP header is added to the HTTP response object. This allows
 individual adjustments for custom implementations.
 
+Example
+=======
+
+..  include:: /_includes/EventsContributeNote.rst.txt
+
 API
 ===
 

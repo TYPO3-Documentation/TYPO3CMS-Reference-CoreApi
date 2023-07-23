@@ -15,6 +15,11 @@ is fired after a folder was added to the resource
 This allows to customize permissions or set up editor permissions automatically
 via listeners.
 
+Example
+=======
+
+..  include:: /_includes/EventsContributeNote.rst.txt
+
 API
 ===
 

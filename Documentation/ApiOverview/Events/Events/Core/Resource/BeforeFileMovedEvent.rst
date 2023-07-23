@@ -12,6 +12,11 @@ is fired before a file is about to be moved within a resource
 :ref:`driver <fal-architecture-components-drivers>`.
 The folder represents the "target folder".
 
+Example
+=======
+
+..  include:: /_includes/EventsContributeNote.rst.txt
+
 API
 ===
 

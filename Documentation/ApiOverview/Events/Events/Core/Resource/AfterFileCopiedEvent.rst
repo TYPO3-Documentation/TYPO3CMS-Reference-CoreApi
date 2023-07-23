@@ -15,6 +15,11 @@ The folder represents the "target folder".
 
 *Example:* Listeners can sign up for listing duplicates using this event.
 
+Example
+=======
+
+..  include:: /_includes/EventsContributeNote.rst.txt
+
 API
 ===
 

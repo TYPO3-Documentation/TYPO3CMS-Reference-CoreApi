@@ -16,6 +16,11 @@ The folder represents the "target folder".
 *Example*: Use this to update custom third-party handlers that rely on specific
 paths.
 
+Example
+=======
+
+..  include:: /_includes/EventsContributeNote.rst.txt
+
 API
 ===
 

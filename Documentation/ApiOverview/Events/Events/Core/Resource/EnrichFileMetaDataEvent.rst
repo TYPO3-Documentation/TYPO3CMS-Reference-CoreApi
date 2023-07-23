@@ -11,6 +11,11 @@ is called after a record has been loaded from database. It allows other places
 to perform the extension of metadata at runtime or, for example, translation
 and workspace overlay.
 
+Example
+=======
+
+..  include:: /_includes/EventsContributeNote.rst.txt
+
 API
 ===
 

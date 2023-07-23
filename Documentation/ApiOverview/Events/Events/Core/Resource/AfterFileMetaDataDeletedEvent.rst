@@ -11,6 +11,11 @@ The PSR-14 event
 is fired once all metadata of a file was removed, in order to manage custom
 metadata that was added previously.
 
+Example
+=======
+
+..  include:: /_includes/EventsContributeNote.rst.txt
+
 API
 ===
 

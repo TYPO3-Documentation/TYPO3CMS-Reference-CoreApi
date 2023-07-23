@@ -11,6 +11,11 @@ The PSR-14 event
 is dispatched when an icon for a resource (file or folder) is fetched, allowing
 to modify the icon or overlay in an event listener.
 
+Example
+=======
+
+..  include:: /_includes/EventsContributeNote.rst.txt
+
 API
 ===
 

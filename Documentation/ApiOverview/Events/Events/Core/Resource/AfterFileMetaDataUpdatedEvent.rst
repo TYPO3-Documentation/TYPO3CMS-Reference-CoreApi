@@ -11,6 +11,11 @@ The PSR-14 event
 is fired once metadata of a file was updated, in order to update custom metadata
 fields accordingly.
 
+Example
+=======
+
+..  include:: /_includes/EventsContributeNote.rst.txt
+
 API
 ===
 

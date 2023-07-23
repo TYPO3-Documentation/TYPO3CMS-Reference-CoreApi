@@ -12,6 +12,11 @@ is fired before a folder is about to be copied to the resource
 :ref:`driver <fal-architecture-components-drivers>`.
 Listeners could add deferred processing / queuing of large folders.
 
+Example
+=======
+
+..  include:: /_includes/EventsContributeNote.rst.txt
+
 API
 ===
 

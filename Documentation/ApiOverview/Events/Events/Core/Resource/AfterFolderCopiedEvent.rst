@@ -15,6 +15,11 @@ is fired after a folder was copied to the resource
 *Example*: Custom listeners can analyze contents of a file or add custom
 permissions to a folder automatically.
 
+Example
+=======
+
+..  include:: /_includes/EventsContributeNote.rst.txt
+
 API
 ===
 
