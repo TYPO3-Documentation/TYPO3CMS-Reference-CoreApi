@@ -130,6 +130,85 @@ The corresponding configuration might look like this for the example class
     :language: php
     :caption: EXT:my_extension/ext_localconf.php
 
+
+..  _logging-writers-RotatingFileWriter:
+
+RotatingFileWriter
+------------------
+
+..  versionadded:: 13.0
+
+TYPO3 log files tend to grow over time if not manually cleaned on a regular
+basis, potentially leading to full disks. Also, reading its contents may be
+hard when several weeks of log entries are printed as a wall of text.
+
+To circumvent such issues, established tools like `logrotate`_ are available for
+a long time already. However, TYPO3 may be installed on a hosting environment
+where "logrotate" is not available and cannot be installed by the customer.
+To cover such cases, a simple log rotation approach is available, following the
+"copy/truncate" approach: when rotating files, the currently opened log file is
+copied (for example, to `typo3_<hash>.log.20230616094812`) and the original log
+file is emptied.
+
+..  _logrotate: https://linux.die.net/man/8/logrotate
+
+Example of the :file:`var/log/` folder with rotated log files:
+
+..  code-block:: console
+
+    $ ls -1 var/log
+    typo3_<hash>.log
+    typo3_<hash>.log.20230613065902
+    typo3_<hash>.log.20230614084723
+    typo3_<hash>.log.20230615084756
+    typo3_<hash>.log.20230616094812
+
+The file writer :php:`\TYPO3\CMS\Core\Log\Writer\RotatingFileWriter` extends the
+`FileWriter <logging-writers-FileWriter>` class. The :php:`RotatingFileWriter`
+accepts all options of :php:`FileWriter` in addition of the following:
+
+..  confval:: interval
+
+    :type: :php:`\TYPO3\CMS\Core\Log\Writer\Enum\Interval`, string
+    :Mandatory: no
+    :Default: :php:`\TYPO3\CMS\Core\Log\Writer\Enum\Interval::DAILY`
+
+    The interval defines how often logs should be rotated. Use one of the
+    following options:
+
+    *   :php:`\TYPO3\CMS\Core\Log\Writer\Enum\Interval::DAILY` or :php:`daily`
+    *   :php:`\TYPO3\CMS\Core\Log\Writer\Enum\Interval::WEEKLY` or :php:`weekly`
+    *   :php:`\TYPO3\CMS\Core\Log\Writer\Enum\Interval::MONTHLY` or :php:`monthly`
+    *   :php:`\TYPO3\CMS\Core\Log\Writer\Enum\Interval::YEARLY` or :php:`yearly`
+
+..  confval:: maxFiles
+
+    :type: integer
+    :Mandatory: non
+    :Default: :php:`5`
+
+    This option configured how many files should be retained (use :php:`0` to
+    never delete any file).
+
+..  note::
+    When configuring the :php:`RotatingFileWriter` in
+    :file:`system/settings.php`, the string representations of the
+    :php:`Interval` cases must be used for the option :php:`interval` option,
+    as otherwise this might break the Install Tool.
+
+The following example introduces log rotation for the "main" log file:
+
+..  literalinclude:: _additionalRotationFileWriter.php
+    :language: php
+    :caption: config/system/additional.php | typo3conf/system/additional.php
+
+Another example introduces log rotation for the "deprecation" log file:
+
+..  literalinclude:: _additionalRotationFileWriterForDeprecations.php
+    :language: php
+    :caption: config/system/additional.php | typo3conf/system/additional.php
+
+
 ..  _logging-writers-php:
 
 PhpErrorLogWriter
