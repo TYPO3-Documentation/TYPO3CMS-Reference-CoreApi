@@ -16,6 +16,11 @@ The folder represents the "target folder".
 *Example:* This allows to modify a file or check for an appropriate signature
 after a file was created in TYPO3.
 
+Example
+=======
+
+..  include:: /_includes/EventsContributeNote.rst.txt
+
 API
 ===
 

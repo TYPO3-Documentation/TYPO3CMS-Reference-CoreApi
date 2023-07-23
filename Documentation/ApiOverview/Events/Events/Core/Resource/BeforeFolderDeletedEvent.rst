@@ -12,6 +12,11 @@ is fired before a folder is about to be deleted.
 Listeners can use this event to clean up further external references
 to a folder / files in this folder.
 
+Example
+=======
+
+..  include:: /_includes/EventsContributeNote.rst.txt
+
 API
 ===
 

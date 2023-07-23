@@ -11,6 +11,11 @@ The PSR-14 event
 is fired after a resource object was built/created. Custom handlers can be
 initialized at this moment for any kind of resource as well.
 
+Example
+=======
+
+..  include:: /_includes/EventsContributeNote.rst.txt
+
 API
 ===
 

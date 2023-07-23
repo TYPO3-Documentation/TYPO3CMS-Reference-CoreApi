@@ -21,6 +21,10 @@ is triggered after a package has been deactivated.
     `installer events by Composer <https://getcomposer.org/doc/articles/scripts.md#installer-events>`__
     for Composer-based installations.
 
+Example
+=======
+
+..  include:: /_includes/EventsContributeNote.rst.txt
 
 API
 ===

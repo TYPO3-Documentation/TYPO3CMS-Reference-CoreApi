@@ -13,6 +13,11 @@ is fired before a file is about to be added to the resource
 This allows to perform custom checks to a file or restrict access to a file
 before the file is added.
 
+Example
+=======
+
+..  include:: /_includes/EventsContributeNote.rst.txt
+
 API
 ===
 
