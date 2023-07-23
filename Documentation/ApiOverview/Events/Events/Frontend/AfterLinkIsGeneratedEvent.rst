@@ -34,7 +34,7 @@ working with string replacement functionality for adding, changing or removing
 attributes.
 
 If a link could not be generated, a
-:php:`\TYPO3\CMS\Frontend\Typolink\UnableToLinkException` could be thrown.
+:php:`\TYPO3\CMS\Frontend\Typolink\UnableToLinkException`  might be thrown.
 
 
 Example
