@@ -164,7 +164,7 @@ Example of the :file:`var/log/` folder with rotated log files:
     typo3_<hash>.log.20230616094812
 
 The file writer :php:`\TYPO3\CMS\Core\Log\Writer\RotatingFileWriter` extends the
-`FileWriter <logging-writers-FileWriter>` class. The :php:`RotatingFileWriter`
+:ref:`FileWriter <logging-writers-FileWriter>` class. The :php:`RotatingFileWriter`
 accepts all options of :php:`FileWriter` in addition of the following:
 
 ..  confval:: interval
