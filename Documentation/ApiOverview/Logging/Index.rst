@@ -2,9 +2,9 @@
 ..  index:: ! Logging
 ..  _logging:
 
-=================
-Logging Framework
-=================
+=======
+Logging
+=======
 
 The chapter :ref:`logging-quickstart` helps you get started.
 
