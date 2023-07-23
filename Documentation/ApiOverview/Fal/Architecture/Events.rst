@@ -1,6 +1,6 @@
-.. include:: /Includes.rst.txt
-.. index:: pair: File abstraction layer; Events
-.. _fal-architecture-events:
+..  include:: /Includes.rst.txt
+..  index:: pair: File abstraction layer; Events
+..  _fal-architecture-events:
 
 =============
 PSR-14 Events
@@ -17,146 +17,159 @@ by emitting class.
 Most events exist in pairs, one being sent **before** a given
 operation, the other one **after**.
 
-.. note::
+..  note::
+    Unless mentioned otherwise, mentions of class :php:`File` below actually
+    refer to the :php:`\TYPO3\CMS\Core\Resource\FileInterface` interface.
 
-   Unless mentioned otherwise, mentions of class :php:`File` below actually refer
-   to the :php:`\TYPO3\CMS\Core\Resource\FileInterface` interface.
+    :php:`Folder` objects actually refer to the
+    :php:`\TYPO3\CMS\Core\Resource\Folder` class.
 
-   :php:`Folder` objects actually refer to the :php:`\TYPO3\CMS\Core\Resource\Folder`
-   class.
+.. contents:: **Table of contents:**
+   :local:
 
-.. _fal-architecture-events-resource-storage:
+..  _fal-architecture-events-resource-storage:
 
 \\TYPO3\\CMS\\Core\\Resource\\ResourceStorage
 =============================================
 
-SanitizeFileNameEvent
-  The sanitize file name operation aims at removing characters from
-  file names which are not allowed by the underlying Driver. The
-  event receives the file name and the target folder.
+:ref:`SanitizeFileNameEvent`
+    The sanitize file name operation aims at removing characters from
+    file names which are not allowed by the underlying driver. The
+    event receives the file name and the target folder.
 
-BeforeFileAddedEvent
-  Receives the target file name, the target folder (as a :php:`Folder` instance)
-  and the local file path.
+:ref:`BeforeFileAddedEvent`
+    Receives the target file name, the target folder (as a :php:`Folder`
+    instance) and the local file path.
 
-AfterFileAddedEvent
-  Receives the :php:`File` instance corresponding to the
-  newly stored file and the target folder (as a :php:`Folder` instance).
+:ref:`AfterFileAddedEvent`
+    Receives the :php:`File` instance corresponding to the
+    newly stored file and the target folder (as a :php:`Folder` instance).
 
-AfterFileCreatedEvent
-  Receives the identifier of the newly created file and
-  the target folder (as a :php:`Folder` instance).
+:ref:`BeforeFileCreatedEvent`
+    Receives the file name to be created and
+    the target folder (as a :php:`Folder` instance).
 
-BeforeFileCopiedEvent
-  Receives a :php:`File` instance for the file to be copied and
-  the target folder (as a :php:`Folder` instance).
+:ref:`AfterFileCreatedEvent`
+    Receives the name of the newly created file and
+    the target folder (as a :php:`Folder` instance).
 
-AfterFileCopiedEvent
-  Receives a :php:`File` instance for the file that was copied
-  (i.e. the original file) and the target folder
-  (as a :php:`Folder` instance).
+:ref:`BeforeFileCopiedEvent`
+    Receives a :php:`File` instance for the file to be copied and
+    the target folder (as a :php:`Folder` instance).
 
-BeforeFileMovedEvent
-  Receives a :php:`File` instance for the file to be moved and
-  the target folder (as a :php:`Folder` instance).
+:ref:`AfterFileCopiedEvent`
+    Receives a :php:`File` instance for the file that was copied
+    (i.e. the original file) and the target folder
+    (as a :php:`Folder` instance).
 
-AfterFileMovedEvent
-  Receives a :php:`File` instance for the file that was moved,
-  the target folder and the original folder the file was in
-  (both as :php:`Folder` instances).
+:ref:`BeforeFileMovedEvent`
+    Receives a :php:`File` instance for the file to be moved and
+    the target folder (as a :php:`Folder` instance).
 
-BeforeFileDeletedEvent
-  Receives a :php:`File` instance for the file to be deleted.
+:ref:`AfterFileMovedEvent`
+    Receives a :php:`File` instance for the file that was moved,
+    the target folder and the original folder the file was in
+    (both as :php:`Folder` instances).
 
-AfterFileDeletedEvent
-  Receives a :php:`File` instance for the file that was deleted.
+:ref:`BeforeFileDeletedEvent`
+    Receives a :php:`File` instance for the file to be deleted.
 
-BeforeFileRenamedEvent
-  Receives a :php:`File` instance for the file to be renamed
-  and the sanitized new name.
+:ref:`AfterFileDeletedEvent`
+    Receives a :php:`File` instance for the file that was deleted.
 
-AfterFileRenamedEvent
-  Receives a :php:`File` instance for the file that was renamed
-  and the sanitized new name.
+:ref:`BeforeFileRenamedEvent`
+    Receives a :php:`File` instance for the file to be renamed
+    and the sanitized new name.
 
-BeforeFileReplacedEvent
-  Receives a :php:`File` instance for the file to be replaced
-  and the path to the local file that will replace it.
+:ref:`AfterFileRenamedEvent`
+    Receives a :php:`File` instance for the file that was renamed
+    and the sanitized new name.
 
-AfterFileReplacedEvent
-  Receives a :php:`File` instance for the file that was replaced
-  and the path to the local file that has replaced it.
+:ref:`BeforeFileReplacedEvent`
+    Receives a :php:`File` instance for the file to be replaced
+    and the path to the local file that will replace it.
 
-AfterFileContentsSetEvent
-  Receives a :php:`\TYPO3\CMS\Core\Resource\AbstractFile` instance
-  for the file whose content was changed and the content itself
-  (as a string).
+:ref:`AfterFileReplacedEvent`
+    Receives a :php:`File` instance for the file that was replaced
+    and the path to the local file that has replaced it.
 
-BeforeFolderAddedEvent
-  Receives the name of the new folder and a reference to the
-  parent folder, if any (as a :php:`Folder` instance).
+:ref:`BeforeFileContentsSetEvent`
+    Receives a :php:`\TYPO3\CMS\Core\Resource\AbstractFile` instance
+    for the file whose content will be changed and the content itself
+    (as a string).
 
-AfterFolderAddedEvent
-  Receives the newly created folder (as a :php:`Folder` instance).
+:ref:`AfterFileContentsSetEvent`
+    Receives a :php:`\TYPO3\CMS\Core\Resource\AbstractFile` instance
+    for the file whose content was changed and the content itself
+    (as a string).
 
-BeforeFolderCopiedEvent
-  Receives references to the folder to copy and the parent target folder
-  (both as :php:`\TYPO3\CMS\Core\Resource\FolderInterface` instances)
-  and the sanitized name for the copy.
+:ref:`BeforeFolderAddedEvent`
+    Receives the name of the new folder and a reference to the
+    parent folder, if any (as a :php:`Folder` instance).
 
-AfterFolderCopiedEvent
-  Receives references to the original folder and the parent target folder
-  (both as :php:`\TYPO3\CMS\Core\Resource\FolderInterface` instances)
-  and the identifier of the newly copied folder.
+:ref:`AfterFolderAddedEvent`
+    Receives the newly created folder (as a :php:`Folder` instance).
 
-BeforeFolderMovedEvent
-  Receives references to the folder to move and the parent target folder
-  (both as :php:`Folder` instances) and the sanitized target name.
+:ref:`BeforeFolderCopiedEvent`
+    Receives references to the folder to copy and the parent target folder
+    (both as :php:`\TYPO3\CMS\Core\Resource\FolderInterface` instances)
+    and the sanitized name for the copy.
 
-AfterFolderMovedEvent
-  Receives references to the folder to move and the parent target folder
-  (both as :php:`Folder` instances), the identifier of the moved folder
-  and a reference to the original parent folder (as a :php:`Folder` instance).
+:ref:`AfterFolderCopiedEvent`
+    Receives references to the original folder and the parent target folder
+    (both as :php:`\TYPO3\CMS\Core\Resource\FolderInterface` instances)
+    and the identifier of the newly copied folder.
 
-BeforeFolderDeletedEvent
-  Receives a reference to the folder to delete (as a :php:`Folder` instance).
+:ref:`BeforeFolderMovedEvent`
+    Receives references to the folder to move and the parent target folder
+    (both as :php:`Folder` instances) and the sanitized target name.
 
-AfterFolderDeletedEvent
-  Receives a reference to the deleted folder (as a :php:`Folder` instance).
+:ref:`AfterFolderMovedEvent`
+    Receives references to the folder to move and the parent target folder
+    (both as :php:`Folder` instances), the identifier of the moved folder
+    and a reference to the original parent folder (as a :php:`Folder` instance).
 
-BeforeFolderRenamedEvent
-  Receives a reference to the folder to be renamed (as a :php:`Folder` instance)
-  and the sanitized new name.
+:ref:`BeforeFolderDeletedEvent`
+    Receives a reference to the folder to delete (as a :php:`Folder` instance).
 
-AfterFolderRenamedEvent
-  Receives a reference to the renamed folder (as a :php:`Folder` instance)
-  and the new identifier of the renamed folder.
+:ref:`AfterFolderDeletedEvent`
+    Receives a reference to the deleted folder (as a :php:`Folder` instance).
 
-GeneratePublicUrlForResourceEvent
-  This event makes it possible to influence the construction of a
-  resource's public URL. If the event defines the URL, it is kept as
-  is and the rest of the URL generation process is ignored.
+:ref:`BeforeFolderRenamedEvent`
+    Receives a reference to the folder to be renamed (as a :php:`Folder`
+    instance) and the sanitized new name.
 
-  It receives a reference to the instance for which the URL should be generated
-  (as a :php:`\TYPO3\CMS\Core\Resource\ResourceInterface` instance),
-  a boolean flag indicating whether the URL should be relative to the current
-  script or absolute and a reference to the public URL (which is null at
-  this point, but can be then modified by the event).
+:ref:`AfterFolderRenamedEvent`
+    Receives a reference to the renamed folder (as a :php:`Folder` instance)
+    and the new identifier of the renamed folder.
+
+:ref:`GeneratePublicUrlForResourceEvent`
+    This event makes it possible to influence the construction of the public URL
+    of a resource. If the event defines the URL, it is kept as is and the rest
+    of the URL generation process is ignored.
+
+    It receives a reference to the instance for which the URL should be generated
+    (as a :php:`\TYPO3\CMS\Core\Resource\ResourceInterface` instance),
+    a boolean flag indicating whether the URL should be relative to the current
+    script or absolute and a reference to the public URL (which is null at
+    this point, but can be then modified by the event).
 
 .. _fal-architecture-events-storage-repository:
 
 \\TYPO3\\CMS\\Core\\Resource\\StorageRepository
 ===============================================
 
-BeforeResourceStorageInitializationEvent
-  This event is dispatched by method :code:`\TYPO3\CMS\Core\Resource\StorageRepository::getStorageObject()`
-  before a storage object has been fetched. The event receives a reference
-  to the storage.
+:ref:`BeforeResourceStorageInitializationEvent`
+    This event is dispatched by the method
+    :php:`\TYPO3\CMS\Core\Resource\StorageRepository::getStorageObject()`
+    before a storage object has been fetched. The event receives a reference
+    to the storage.
 
-AfterResourceStorageInitializationEvent
-  This event is dispatched by method :code:`\TYPO3\CMS\Core\Resource\StorageRepository::getStorageObject()`
-  after a Storage object has been fetched. The event receives a reference
-  to the Storage.
+:ref:`AfterResourceStorageInitializationEvent`
+    This event is dispatched by the method
+    :php:`\TYPO3\CMS\Core\Resource\StorageRepository::getStorageObject()`
+    after a Storage object has been fetched. The event receives a reference
+    to the storage.
 
 
 .. _fal-architecture-events-file-index-repository:
@@ -164,20 +177,21 @@ AfterResourceStorageInitializationEvent
 \\TYPO3\\CMS\\Core\\Resource\\Index\\FileIndexRepository
 ========================================================
 
-AfterFileAddedToIndexEvent
-  Receives an array containing the information collected about the file
-  whose index (i.e. "sys\_file" table entry) was just created.
+:ref:`AfterFileAddedToIndexEvent`
+    Receives an array containing the information collected about the file
+    whose index (i.e. :sql:`sys_file` table entry) was just created.
 
-AfterFileUpdatedInIndexEvent
-  Receives an array containing the information collected about the file
-  whose index (i.e. "sys\_file" table entry) was just updated.
+:ref:`AfterFileUpdatedInIndexEvent`
+    Receives an array containing the information collected about the file
+    whose index (i.e. :sql:`sys_file` table entry) was just updated.
 
-AfterFileRemovedFromIndexEvent
-  Receives the uid of the file (i.e. "sys\_file" table entry) which was deleted.
+:ref:`AfterFileRemovedFromIndexEvent`
+    Receives the uid of the file (i.e. :sql:`sys_file` table entry) which was
+    deleted.
 
-AfterFileMarkedAsMissingEvent
-  Receives the uid of the file (i.e. "sys\_file" table entry) which was
-  marked as missing.
+:ref:`AfterFileMarkedAsMissingEvent`
+    Receives the uid of the file (i.e. :sql:`sys_file` table entry) which was
+    marked as missing.
 
 
 .. _fal-architecture-events-metadata-repository:
@@ -185,21 +199,21 @@ AfterFileMarkedAsMissingEvent
 \\TYPO3\\CMS\\Core\\Resource\\Index\\MetaDataRepository
 =======================================================
 
-EnrichFileMetaDataEvent
-  This event is dispatched after metadata has been retrieved for a given
-  file. The event receives the metadata as an :php:`\ArrayObject` instance.
+:ref:`EnrichFileMetaDataEvent`
+    This event is dispatched after metadata has been retrieved for a given
+    file. The event receives the metadata as an :php:`\ArrayObject` instance.
 
-AfterFileMetaDataCreatedEvent
-  Receives an array containing the metadata collected about the file
-  just after it has been inserted into the "sys\_file\_metadata" table.
+:ref:`AfterFileMetaDataCreatedEvent`
+    Receives an array containing the metadata collected about the file
+    just after it has been inserted into the :sql:`sys_file_metadata` table.
 
-AfterFileMetaDataUpdatedEvent
-  This event is dispatched after metadata for a given file has been
-  updated. The event receives the metadata as an array containing all
-  metadata fields (and not just the updated ones).
+:ref:`AfterFileMetaDataUpdatedEvent`
+    This event is dispatched after metadata for a given file has been
+    updated. The event receives the metadata as an array containing all
+    metadata fields (and not just the updated ones).
 
-AfterFileMetaDataDeletedEvent
-  Receives the uid of the file whose metadata has just been deleted.
+:ref:`AfterFileMetaDataDeletedEvent`
+    Receives the uid of the file whose metadata has just been deleted.
 
 
 .. _fal-architecture-events-file-processing-service:
@@ -207,17 +221,17 @@ AfterFileMetaDataDeletedEvent
 \\TYPO3\\CMS\\Core\\Resource\\Service\\FileProcessingService
 ============================================================
 
-BeforeFileProcessingEvent
-  This event is dispatched before a file is processed. The event receives
-  a reference to the processed file and to the original file (both as
-  :php:`File` instances), a string defining the type of task being
-  executed and an array containing the configuration for that task.
+:ref:`BeforeFileProcessingEvent`
+    This event is dispatched before a file is processed. The event receives
+    a reference to the processed file and to the original file (both as
+    :php:`File` instances), a string defining the type of task being
+    executed and an array containing the configuration for that task.
 
-AfterFileProcessingEvent
-  This event is dispatched after a file has been processed. The event receives
-  a reference to the processed file and to the original file (both as
-  :php:`File` instances), a string defining the type of task being
-  executed and an array containing the configuration for that task.
+:ref:`AfterFileProcessingEvent`
+    This event is dispatched after a file has been processed. The event receives
+    a reference to the processed file and to the original file (both as
+    :php:`File` instances), a string defining the type of task being
+    executed and an array containing the configuration for that task.
 
-See the :ref:`section about Services <fal-architecture-components-services>`
+See the :ref:`section about services <fal-architecture-components-services>`
 for more information about this class.
