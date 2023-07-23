@@ -14,6 +14,11 @@ is fired after a file was deleted.
 variants), this event allows listeners to also clean up their custom handling.
 This can also be used for versioning of files.
 
+Example
+=======
+
+..  include:: /_includes/EventsContributeNote.rst.txt
+
 API
 ===
 

@@ -11,6 +11,11 @@ The PSR-14 event
 is fired after a file object has been processed.
 This allows to further customize a file object's processed file.
 
+Example
+=======
+
+..  include:: /_includes/EventsContributeNote.rst.txt
+
 API
 ===
 

@@ -16,6 +16,11 @@ is fired after a file was added to the resource
 permissions or perform specific analysis of files like additional metadata
 analysis after adding them to TYPO3.
 
+Example
+=======
+
+..  include:: /_includes/EventsContributeNote.rst.txt
+
 API
 ===
 
