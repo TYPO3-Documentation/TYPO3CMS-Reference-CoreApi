@@ -167,7 +167,7 @@ state
     :sep:`|`
 
     Sets the state of the icon. All values of the :js:`States` enum from
-    :js:`@typo3/backend/enum/icon-types' are
+    :js:`@typo3/backend/enum/icon-types` are
     allowed, these are: `default` and `disabled`.
 
 markupIdentifier
@@ -176,7 +176,7 @@ markupIdentifier
     :sep:`|`
 
     Defines how the markup is returned. All values of the
-    :js:`MarkupIdentifiers` enum from :js:`@typo3/backend/enum/icon-types' are
+    :js:`MarkupIdentifiers` enum from :js:`@typo3/backend/enum/icon-types` are
     allowed, these are: `default` and `inline`. Please note that
     `inline` is only meaningful for SVG icons.
 
