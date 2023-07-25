@@ -91,7 +91,7 @@ related assets within your dump.
 If there are files not directly referenced in tables selected for export
 (for example ext:form .yml form configurations), you can locate them
 within :file:`fileadmin/<extkey>`, too. Only those need to be copied to
-:file:`Initialization/Files` - all other files referenced in database rows
+:file:`Initialisation/Files` - all other files referenced in database rows
 will be within your export dump.
 
 Note that you should *not* put your website configuration
@@ -172,12 +172,12 @@ from the root of the page tree using the :ref:`export module <ext_impexp:export>
 
    To finish the export, click the :guilabel:`Save to filename` button. Copy
    the export file from :file:`/fileadmin/user_upload/_temp_/importtexport/data.xml`
-   to the distribution folder under :file:`Initialization/data.xml`.
+   to the distribution folder under :file:`Initialisation/data.xml`.
 
    If referenced files were exported, copy the
    :file:`fileadmin/user_upload/_temp_/importtexport/data.xml.files/` folder
    containing the files with hashed filenames to the distribution folder
-   under :file:`initialization/data.xml.files/`.
+   under :file:`Initialisation/data.xml.files/`.
 
 .. note::
 
