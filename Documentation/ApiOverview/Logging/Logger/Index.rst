@@ -38,11 +38,63 @@ automatically instantiate the logger:
 
 ..  index::
     Logging; logger->log
+.. _logging-logger-log:
+
+The log() method
+================
+
+The :php:`\TYPO3\CMS\Core\Log\Logger` class provides a central point for
+submitting log messages, the :php:`log()` method:
+
+..  code-block:: php
+
+    $this->logger->log($level, $message, $data);
+
+which takes three parameters:
+
+..  option:: $level
+
+    :Type: integer
+
+    One of the defined log levels, see the section
+    :ref:`logging-logger-shortcuts`.
+
+..  option:: $message
+
+    :Type: string
+
+    The log message itself.
+
+..  option:: $data
+
+    :Type: array
+
+    Optional parameter, it can contain additional data, which is added to the
+    :ref:`log record <logging-model>` in the form of an array.
+
+An early return in the :php:`log()` method prevents unneeded computation work to
+be done. So you are safe to call the logger with the debug log level frequently
+without slowing down your code too much. The logger will know by its
+configuration, what the most explicit severity level is.
+
+As a next step, all registered :ref:`processors <logging-processors>` are
+notified. They can modify the log records or add extra information.
+
+The logger then forwards the log records to all of its configured
+:ref:`writers <logging-writers>`, which will then persist the log record.
+
+
+..  index::
     Logging; LogLevels
     Logging; Shorthand methods
     Logging; logger->debug
     Logging; logger->info
+    Logging; logger->notice
     Logging; logger->warning
+    Logging; logger->error
+    Logging; logger->critical
+    Logging; logger->alert
+    Logging; logger->emergency
 ..  _logging-logger-shortcuts:
 
 Log levels and shorthand methods
@@ -142,52 +194,6 @@ For each of the severity levels mentioned below, a shorthand method exists in
     Nothing works, the system is unusable. You will likely not be able to reach
     the system. You better have a system administrator reachable when this
     happens.
-
-
-.. _logging-logger-log:
-
-The log() method
-================
-
-The :php:`\TYPO3\CMS\Core\Log\Logger` class provides a central point for
-submitting log messages, the :php:`log()` method:
-
-..  code-block:: php
-
-    $this->logger->log($level, $message, $data);
-
-which takes three parameters:
-
-..  option:: $level
-
-    :Type: integer
-
-    One of the defined log levels, see the section
-    :ref:`logging-logger-shortcuts`.
-
-..  option:: $message
-
-    :Type: string
-
-    The log message itself.
-
-..  option:: $data
-
-    :Type: array
-
-    Optional parameter, it can contain additional data, which is added to the
-    :ref:`log record <logging-model>` in the form of an array.
-
-An early return in the :php:`log()` method prevents unneeded computation work to
-be done. So you are safe to call the logger with the debug log level frequently
-without slowing down your code too much. The logger will know by its
-configuration, what the most explicit severity level is.
-
-As a next step, all registered :ref:`processors <logging-processors>` are
-notified. They can modify the log records or add extra information.
-
-The logger then forwards the log records to all of its configured
-:ref:`writers <logging-writers>`, which will then persist the log record.
 
 
 ..  _logging-channels:
