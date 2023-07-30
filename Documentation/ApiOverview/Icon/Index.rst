@@ -25,8 +25,8 @@ To register icons for your own extension, create a file called
     In versions below TYPO3 v11.4 the configuration was done in the
     :file:`ext_localconf.php` file.
 
-    It :ref:`migrates the icon registration <icon_migration>` to 
-    new format. There is also a rector rule.
+    It :ref:`migrates the icon registration <icon_migration>` to
+    new format. There is also a Rector rule.
 
 
 The file needs to return a PHP configuration array with the following keys:
@@ -202,10 +202,13 @@ An alternative way to look for existing icons is to browse through
 Migration
 =========
 
-The rector rule `\Ssch\TYPO3Rector\Rector\v11\v4\RegisterIconToIconFileRector 
-<https://github.com/sabbelasichon/typo3-rector/blob/main/docs/all_rectors_overview.md#registericontoiconfilerector>`__
-can be used for automatic migration. 
+The Rector rule `\\Ssch\\TYPO3Rector\\Rector\\v11\\v4\\RegisterIconToIconFileRector`_
+can be used for automatic migration.
 
-For manual migration remove all calls to :php:`IconRegistry::IconRegistry` from
-your :file:`EXT:my_extension/ext_localconf.php and move the content to
+For manual migration remove all calls
+to :php:`\TYPO3\CMS\Core\Imaging\IconRegistry::registerIcon()` from
+your :file:`EXT:my_extension/ext_localconf.php` and move the content to
 :file:`Configuration/Icons.php` instead.
+
+
+..  _\\Ssch\\TYPO3Rector\\Rector\\v11\\v4\\RegisterIconToIconFileRector: https://github.com/sabbelasichon/typo3-rector/blob/main/docs/all_rectors_overview.md#registericontoiconfilerector
