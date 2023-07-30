@@ -195,6 +195,10 @@ It is required to overwrite the following functions:
 Please refer to :php:`\TYPO3\CMS\Core\PasswordPolicy\Validator\CorePasswordValidator`
 for a detailed implementation example.
 
+..  tip::
+    The third-party extension :t3ext:`add_pwd_policy` provides additional
+    password validators. It can also be used as a resource for writing your
+    own password validator.
 
 Event
 =====
