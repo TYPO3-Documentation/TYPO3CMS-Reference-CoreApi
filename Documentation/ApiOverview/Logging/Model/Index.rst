@@ -26,7 +26,7 @@ component
 
 level
     An integer severity level from
-    :ref:`\\TYPO3\\CMS\\Core\\Log\\LogLevel <logging-logger-log>`.
+    :ref:`\\Psr\\Log\\LogLevel <logging-logger-log>`.
 
 message
     The log message string.
