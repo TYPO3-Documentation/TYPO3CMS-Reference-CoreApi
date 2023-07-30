@@ -106,7 +106,7 @@ For each of the severity levels mentioned below, a shorthand method exists in
 ..  _label-Debug:
 ..  option:: Debug
 
-    :Class constant: :php:`\TYPO3\CMS\Core\Log\LogLevel::DEBUG`
+    :Class constant: :php:`\Psr\Log\LogLevel::DEBUG`
     :Shorthand method: :php:`$this->logger->debug($message, $context);`
 
     For debug information: give detailed status information during the
@@ -115,7 +115,7 @@ For each of the severity levels mentioned below, a shorthand method exists in
 ..  _label-Informational:
 ..  option:: Informational
 
-    :Class constant: :php:`\TYPO3\CMS\Core\Log\LogLevel::INFO`
+    :Class constant: :php:`\Psr\Log\LogLevel::INFO`
     :Shorthand method: :php:`$this->logger->info($message, $context);`
 
     For informational messages, some examples:
@@ -127,7 +127,7 @@ For each of the severity levels mentioned below, a shorthand method exists in
 ..  _label-notice:
 ..  option:: Notice
 
-    :Class constant: :php:`\TYPO3\CMS\Core\Log\LogLevel::NOTICE`
+    :Class constant: :php:`\Psr\Log\LogLevel::NOTICE`
     :Shorthand method: :php:`$this->logger->notice($message, $context);`
 
     For significant conditions. Things you should have a look at, nothing to
@@ -139,7 +139,7 @@ For each of the severity levels mentioned below, a shorthand method exists in
 ..  _label-warning:
 ..  option:: Warning
 
-    :Class constant: :php:`\TYPO3\CMS\Core\Log\LogLevel::WARNING`
+    :Class constant: :php:`\Psr\Log\LogLevel::WARNING`
     :Shorthand method: :php:`$this->logger->warning($message, $context);`
 
     For warning conditions. Some examples:
@@ -150,7 +150,7 @@ For each of the severity levels mentioned below, a shorthand method exists in
 ..  _label-error:
 ..  option:: Error
 
-    :Class constant: :php:`\TYPO3\CMS\Core\Log\LogLevel::ERROR`
+    :Class constant: :php:`\Psr\Log\LogLevel::ERROR`
     :Shorthand method: :php:`$this->logger->error($message, $context);`
 
     For error conditions. Some examples:
@@ -162,7 +162,7 @@ For each of the severity levels mentioned below, a shorthand method exists in
 ..  _label-critical:
 ..  option:: Critical
 
-    :Class constant: :php:`\TYPO3\CMS\Core\Log\LogLevel::CRITICAL`
+    :Class constant: :php:`\Psr\Log\LogLevel::CRITICAL`
     :Shorthand method: :php:`$this->logger->critical($message, $context);`
 
     For critical conditions. Some examples:
@@ -174,7 +174,7 @@ For each of the severity levels mentioned below, a shorthand method exists in
 ..  _label-alert:
 ..  option:: Alert
 
-    :Class constant: :php:`\TYPO3\CMS\Core\Log\LogLevel::ALERT`
+    :Class constant: :php:`\Psr\Log\LogLevel::ALERT`
     :Shorthand method: :php:`$this->logger->alert($message, $context);`
 
     For blocking conditions, action must be taken immediately. Some examples:
@@ -185,7 +185,7 @@ For each of the severity levels mentioned below, a shorthand method exists in
 .. _label-emergency:
 ..  option:: Emergency
 
-   :Class constant: :php:`\TYPO3\CMS\Core\Log\LogLevel::EMERGENCY`
+   :Class constant: :php:`\Psr\Log\LogLevel::EMERGENCY`
    :Shorthand method: :php:`$this->logger->emergency($message, $context);`
 
     Nothing works, the system is unusable. You will likely not be able to reach
@@ -241,8 +241,8 @@ The channel "security" can then be used in the logging configuration:
 ..  code-block:: php
     :caption: config/system/additional.php | typo3conf/system/additional.php
 
+    use Psr\Log\LogLevel;
     use TYPO3\CMS\Core\Core\Environment;
-    use TYPO3\CMS\Core\Log\LogLevel;
     use TYPO3\CMS\Core\Log\Writer\FileWriter;
 
     $GLOBALS['TYPO3_CONF_VARS']['LOG']['security']['writerConfiguration'] = [
