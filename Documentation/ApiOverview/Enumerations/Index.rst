@@ -36,7 +36,7 @@ In TYPO3, enumerations are implemented by extending the abstract class
 to :php:`\SplEnum` which is unfortunately part of the unmaintained package
 `PECL spl_types`_.
 
-With version 8.1, an enumeration concept was implemented in PHP (see the
+With PHP version 8.1, an enumeration concept was implemented (see the
 `Enumeration documentation`_ for more details). This makes it possible to drop
 the custom enumeration concept from the Core in a future TYPO3 version.
 
