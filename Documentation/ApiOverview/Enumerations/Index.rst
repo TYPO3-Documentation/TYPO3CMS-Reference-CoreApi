@@ -28,7 +28,7 @@ methods of a bitset can.
 Background and history
 ======================
 
-Before version 8.1, PHP has no enumeration concept as part of the language.
+Before version 8.1, PHP had no enumeration concept as part of the language.
 Therefore the TYPO3 Core includes a custom enumeration implementation.
 
 In TYPO3, enumerations are implemented by extending the abstract class
