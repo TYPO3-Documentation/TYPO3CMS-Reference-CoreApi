@@ -45,7 +45,7 @@ context you can do so in the :file:`config/system/additional.php`:
 .. code-block:: php
    :caption: config/system/additional.php | typo3conf/system/additional.php
 
-   $GLOBALS['TYPO3_CONF_VARS']['LOG']['TYPO3']['CMS']['deprecations']['writerConfiguration'][\TYPO3\CMS\Core\Log\LogLevel::NOTICE] = [];
+   $GLOBALS['TYPO3_CONF_VARS']['LOG']['TYPO3']['CMS']['deprecations']['writerConfiguration'][\Psr\Log\LogLevel::NOTICE] = [];
 
 *Note:* Due to how the configuration files are being merged, this disabling can only be done in
 :file:`config/system/additional.php` and not in :file:`config/system/settings.php`.

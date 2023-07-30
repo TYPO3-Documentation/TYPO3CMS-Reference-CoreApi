@@ -62,7 +62,7 @@ specifying an invalid value) should use placeholders, denoted by
 ..  code-block:: php
     :caption: EXT:my_extension/Classes/MyClass.php
 
-    // use TYPO3\CMS\Core\Log\LogLevel;
+    // use Psr\Log\LogLevel;
 
     $this->logger->log(LogLevel::CRITICAL, 'This is an utter failure!');
 

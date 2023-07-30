@@ -37,7 +37,7 @@ The :ref:`log writer <logging-writers>` configuration is read from the sub-key
 
     $GLOBALS['TYPO3_CONF_VARS']['LOG']['writerConfiguration'] = [
         // Configuration for ERROR level log entries
-        \TYPO3\CMS\Core\Log\LogLevel::ERROR => [
+        \Psr\Log\LogLevel::ERROR => [
             // Add a FileWriter
             \TYPO3\CMS\Core\Log\Writer\FileWriter::class => [
                 // Configuration for the writer
@@ -62,7 +62,7 @@ use the following configuration:
     $GLOBALS['TYPO3_CONF_VARS']['LOG']['T3docs']['Examples']['Controller']['writerConfiguration'] = [
         // Configuration for WARNING severity, including all
         // levels with higher severity (ERROR, CRITICAL, EMERGENCY)
-        \TYPO3\CMS\Core\Log\LogLevel::WARNING => [
+        \Psr\Log\LogLevel::WARNING => [
             // Add a SyslogWriter
             \TYPO3\CMS\Core\Log\Writer\SyslogWriter::class => [],
         ],
@@ -129,7 +129,7 @@ can be configured on a per-class and per-namespace basis with the sub-key
 
     $GLOBALS['TYPO3_CONF_VARS']['LOG']['T3docs']['Examples']['Controller']['processorConfiguration'] = [
         // Configuration for ERROR level log entries
-        \TYPO3\CMS\Core\Log\LogLevel::ERROR => [
+        \Psr\Log\LogLevel::ERROR => [
             // Add a MemoryUsageProcessor
             \TYPO3\CMS\Core\Log\Processor\MemoryUsageProcessor::class => [
                 'formatSize' => TRUE
