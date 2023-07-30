@@ -31,26 +31,28 @@ To register icons for your own extension, create a file called
 
 The file needs to return a PHP configuration array with the following keys:
 
-.. include:: /CodeSnippets/Manual/Extension/Configuration/IconsPhp.rst.txt
+..  include:: /CodeSnippets/Manual/Extension/Configuration/IconsPhp.rst.txt
 
 
-.. index:: Icon API; IconProviderInterface
+..  index:: Icon API; IconProviderInterface
 
-IconProvider
-------------
+Icon provider
+-------------
 
 The TYPO3 Core ships two icon providers which can be used straight away:
 
-* :php:`BitmapIconProvider` – For all kinds of bitmap icons (GIF, PNG, JPEG, etc.)
-* :php:`SvgIconProvider` – For SVG icons
+*   :php:`\TYPO3\CMS\Core\Imaging\IconProvider\BitmapIconProvider` – For all
+    kinds of bitmap icons (GIF, PNG, JPEG, etc.)
+*   :php:`\TYPO3\CMS\Core\Imaging\IconProvider\SvgIconProvider` – For SVG icons
 
-.. versionchanged:: 12.0
-   The :php:`FontawesomeIconProvider`
-   was removed from the Core in 12.0. You can use the polyfill extension from
-   :t3ext:`fontawesome_provider` which is also compatible with TYPO3 v11 LTS.
+..  versionchanged:: 12.0
+    The :php:`\TYPO3\CMS\Core\Imaging\IconProvider\FontawesomeIconProvider`
+    was removed from the Core in 12.0. You can use the polyfill extension from
+    :t3ext:`fontawesome_provider` which is also compatible with TYPO3 v11 LTS.
 
 If you need a custom icon provider, you can add your own by writing a
-class which implements the :php:`IconProviderInterface`.
+class which implements the
+:t3src:`core/Classes/Imaging/IconProviderInterface.php`.
 
 .. _icon-usage:
 
@@ -66,17 +68,17 @@ code or directly in Fluid.
 The PHP way
 -----------
 
-You can use the :php:`IconFactory` to request an icon:
+You can use the :php:`\TYPO3\CMS\Core\Imaging\IconFactory` to request an icon:
 
 ..  literalinclude:: _IconFactoryExample.php
     :caption: EXT:my_extension/Classes/MyClass.php
 
-.. versionchanged:: 12.0
-
-   The TYPO3 Icon API previously defaulted to :php:`Icon::SIZE_DEFAULT` and was
-   adapted to now use :php:`Icon::SIZE_MEDIUM` instead. :php:`Icon::SIZE_MEDIUM`
-   is displayed at a fixed size of 32x32 px while :php:`Icon::SIZE_DEFAULT`
-   now scales with the text.
+..  versionchanged:: 12.0
+    The TYPO3 Icon API previously defaulted to
+    :php:`\TYPO3\CMS\Core\Imaging\Icon::SIZE_DEFAULT` and was
+    adapted to now use :php:`Icon::SIZE_MEDIUM` instead. :php:`Icon::SIZE_MEDIUM`
+    is displayed at a fixed size of 32x32 px while :php:`Icon::SIZE_DEFAULT`
+    now scales with the text.
 
    In cases where the size :php:`Icon::SIZE_DEFAULT` was explicitly set this
    might result in changed behavior. Switch to :php:`Icon::SIZE_MEDIUM` then.
