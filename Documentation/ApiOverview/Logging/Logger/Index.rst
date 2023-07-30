@@ -58,7 +58,7 @@ which takes three parameters:
 
 ..  option:: $message
 
-    :Type: string
+    :Type: string | :php:`\Stringable`
 
     The log message itself.
 
