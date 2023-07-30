@@ -212,10 +212,6 @@ The :php:`\TYPO3\CMS\Core\Log\Channel` attribute is supported for
 parameter-specific attribute and for :php:`\Psr\Log\LoggerAwareInterface`
 dependency injection services as a class attribute.
 
-This feature is only available with PHP 8. The channel attribute will be
-gracefully ignored in PHP 7, and the classic component name will be used
-instead.
-
 Registration via class attribute for :php:`\Psr\Log\LoggerInterface` injection:
 
 ..  literalinclude:: _MyClassChannel.php
