@@ -83,6 +83,17 @@ You can use the :php:`\TYPO3\CMS\Core\Imaging\IconFactory` to request an icon:
    In cases where the size :php:`Icon::SIZE_DEFAULT` was explicitly set this
    might result in changed behavior. Switch to :php:`Icon::SIZE_MEDIUM` then.
 
+The following icon sizes are available:
+
+*   :php:`\TYPO3\CMS\Core\Imaging\Icon::SIZE_DEFAULT`: 1em, to scale with font
+    size
+*   :php:`\TYPO3\CMS\Core\Imaging\Icon::SIZE_SMALL`: fixed to 16px
+*   :php:`\TYPO3\CMS\Core\Imaging\Icon::SIZE_MEDIUM`: fixed to 32px
+    (used as default value in API parameters)
+*   :php:`\TYPO3\CMS\Core\Imaging\Icon::SIZE_LARGE`: fixed to 48px
+*   :php:`\TYPO3\CMS\Core\Imaging\Icon::SIZE_MEGA`: fixed to 64px
+
+
 ..  index::
     Fluid; Core icon
     pair: Icon API; Fluid
@@ -152,9 +163,8 @@ size
     -   :js:`default`:  1em, to scale with font size
     -   :js:`small`: fixed to 16px
     -   :js:`medium`: fixed to 32px (default)
-    -   :js:`large`: fixed to 64px
-    -   :js:`mega`:
-    -   :js:`overlay`:
+    -   :js:`large`: fixed to 48px
+    -   :js:`mega`: fixed to 64px
 
 overlayIdentifier
     :sep:`|` :aspect:`Condition:` optional
