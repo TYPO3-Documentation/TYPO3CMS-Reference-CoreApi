@@ -10,6 +10,9 @@ Icon API
 
 TYPO3 provides an icon API for all icons in the TYPO3 backend.
 
+..  contents::
+    :local:
+
 ..  index:: IconRegistry; registerIcon
 ..  _icon-registration:
 
@@ -123,6 +126,14 @@ its surrounding element if you use this option.
         size="small"
         alternativeMarkupIdentifier="inline"
     />
+
+The following icon sizes are available:
+
+*   :html:`default`: 1em, to scale with font size
+*   :html:`small`: fixed to 16px (used as default value when not passed)
+*   :html:`medium`: fixed to 32px
+*   :html:`large`: fixed to 48px
+*   :html:`mega`: fixed to 64px
 
 
 ..  index:: JavaScript; getIcon
