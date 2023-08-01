@@ -187,10 +187,10 @@ Module configuration options
 
    The module navigation component. The following are provided by the Core:
 
-   `TYPO3/CMS/Backend/PageTree/PageTreeElement`
+   `@typo3/backend/page-tree/page-tree-element`
       The page tree as used in the :guilabel:`Web` module.
 
-   `TYPO3/CMS/Backend/Tree/FileStorageTreeContainer`
+   `@typo3/backend/tree/file-storage-tree-container`
       The file tree as used in the :guilabel:`Filelist` module.
 
 
