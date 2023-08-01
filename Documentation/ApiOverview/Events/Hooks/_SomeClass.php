@@ -1,5 +1,9 @@
 <?php
 
+declare(strict_types=1);
+
+namespace MyVendor\MyExtension;
+
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 
 final class SomeClass
