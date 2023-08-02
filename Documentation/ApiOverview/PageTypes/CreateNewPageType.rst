@@ -28,13 +28,18 @@ The new page type is added to the :php:`PageDoktypeRegistry::class` in
     :language: php
     :caption: EXT:example/ext_tables.php
 
-The last line loads the user TSconfig for all users. We need to the following
+We need to add the following user tsconfig
 to all users so that the new page type is displayed in the wizard:
 
 ..  literalinclude:: _UserConfiguration.tsconfig
     :language: typoscript
     :caption: EXT:example/Configuration/TsConfig/User/UserConfiguration.tsconfig
 
+You can load the file like this:
+
+..  literalinclude:: _ext_localconf.php
+    :language: php
+    :caption: EXT:example/ext_localconf.php
 
 The icon is registered in :file:`Configuration/Icons.php`:
 
