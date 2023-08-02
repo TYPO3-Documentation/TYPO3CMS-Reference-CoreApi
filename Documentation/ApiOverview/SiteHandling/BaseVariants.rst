@@ -63,21 +63,21 @@ Example
 Properties
 ==========
 
-..  confval:: typo3.version
+..  option:: typo3.version
 
     :type: string
     :Example: `12.4.0`
 
     The current TYPO3 version.
 
-..  confval:: typo3.branch
+..  option:: typo3.branch
 
     :type: string
     :Example: `12.4`
 
     The current TYPO3 branch.
 
-..  confval:: typo3.devIpMask
+..  option:: typo3.devIpMask
 
     :type: string
     :Example: `203.0.113.*`
@@ -85,7 +85,7 @@ Properties
     The configured devIpMask taken from
     :ref:`$GLOBALS['TYPO3_CONF_VARS']['SYS']['devIPmask'] <typo3ConfVars_sys_devIPmask>`.
 
-..  confval:: applicationContext
+..  option:: applicationContext
 
     :type: string
     :Example: `Development`
@@ -104,7 +104,7 @@ All functions from
 :t3src:`core/Classes/ExpressionLanguage/FunctionsProvider/DefaultFunctionsProvider.php`
 are available:
 
-..  confval:: ip
+..  option:: ip
 
     :type: string
     :Example: `ip("203.0.113.*")`
@@ -112,14 +112,14 @@ are available:
     Match an IP address, value or regex, wildcards possible.
     Special value: `devIp` for matching `devIpMask`.
 
-..  confval:: compatVersion
+..  option:: compatVersion
 
     :type: string
     :Example: `compatVersion("12.4.0")`, `compatVersion("11.5")`
 
     Match a TYPO3 version.
 
-..  confval:: like
+..  option:: like
 
     :type: string
     :Example: `like("foobarbaz", "*bar*")`
@@ -127,7 +127,7 @@ are available:
     A comparison function to compare two strings. The first parameter is the
     "haystack", the second the "needle". Wildcards are allowed.
 
-..  confval:: getenv
+..  option:: getenv
 
     :type: string
     :Example: `getenv("TYPO3_BASE_URL")`
@@ -137,14 +137,14 @@ are available:
 
     ..  _getenv(): https://www.php.net/manual/en/function.getenv.php
 
-..  confval:: date
+..  option:: date
 
     :type: string
     :Example: checking the current month: `date("j") == 7`
 
     Get the current date in given format.
 
-..  confval:: feature
+..  option:: feature
 
     :type: string
     :Example: `feature("redirects.hitCount")`
@@ -152,7 +152,7 @@ are available:
     Check whether a feature (":ref:`feature toggle <feature-toggles>`") is
     enabled in TYPO3.
 
-..  confval:: traverse
+..  option:: traverse
 
     :type: array|string
     :Example: `traverse(request.getQueryParams(), 'tx_news_pi1/news') > 0`

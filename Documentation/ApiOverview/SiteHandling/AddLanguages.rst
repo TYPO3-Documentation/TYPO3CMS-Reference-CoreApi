@@ -46,7 +46,7 @@ Example of a language configuration (excerpt):
 Configuration properties
 ========================
 
-..  confval:: enabled
+..  option:: enabled
 
     :type: bool
     :Example: :yaml:`true`
@@ -54,7 +54,7 @@ Configuration properties
     Defines, if the language is visible on the frontend. Editors in the TYPO3
     backend will still be able to translate content for the language.
 
-..  confval:: languageId
+..  option:: languageId
 
     :type: integer
     :Example: :yaml:`1`
@@ -67,21 +67,21 @@ Configuration properties
         Once pages, content or records are created in a specific language, the
         :yaml:`languageId` must not be changed anymore.
 
-..  confval:: title
+..  option:: title
 
     :type: string
     :Example: :yaml:`English`
 
     The internal human-readable name for this language.
 
-..  confval:: websiteTitle
+..  option:: websiteTitle
 
     :type: string
     :Example: :yaml:`My custom very British title`
 
     Overrides the global website title for this language.
 
-..  confval:: navigationTitle
+..  option:: navigationTitle
 
     :type: string
     :Example: :yaml:`British`
@@ -89,14 +89,14 @@ Configuration properties
     Optional navigation title which is used in
     :typoscript:`HMENU.special = language`.
 
-..  confval:: base
+..  option:: base
 
     :type: string / URL
     :Example: :yaml:`/uk/`
 
     The language base accepts either a URL or a path segment like :yaml:`/en/`.
 
-..  confval:: baseVariants
+..  option:: baseVariants
 
     :type: array
 
@@ -121,7 +121,7 @@ Configuration properties
 
 ..  _sitehandling-addingLanguages-locale:
 
-..  confval:: locale
+..  option:: locale
 
     :type: string / locale
     :Example: :yaml:`en_GB` or :yaml:`de_DE.utf8,de_DE`
@@ -133,7 +133,7 @@ Configuration properties
     iterate through the locales from left to right until it finds a locale that
     is installed on the server.
 
-..  confval:: iso-639-1
+..  option:: iso-639-1
 
     :type: string
     :Example: :yaml:`en`
@@ -148,7 +148,7 @@ Configuration properties
     `ISO-639 <https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes>`__
     nomenclature.
 
-..  confval:: hreflang
+..  option:: hreflang
 
     :type: string
     :Example: :yaml:`en-GB`
@@ -161,7 +161,7 @@ Configuration properties
 
     The frontend language for :html:`hreflang` and :html:`lang` tags.
 
-..  confval:: direction
+..  option:: direction
 
     :type: string
     :Example: :yaml:`ltr`
@@ -175,7 +175,7 @@ Configuration properties
     The text direction for content in this language (left-to-right or
     right-to-left).
 
-..  confval:: typo3Language
+..  option:: typo3Language
 
     :type: string
     :Example: :yaml:`en`
@@ -188,7 +188,7 @@ Configuration properties
 
     Language identifier to use in TYPO3 :ref:`XLIFF files <xliff_api>`.
 
-..  confval:: flag
+..  option:: flag
 
     :type: string
     :Example: :yaml:`gb`
@@ -196,7 +196,7 @@ Configuration properties
     The flag identifier. For example, the flag is displayed in the backend page
     module.
 
-..  confval:: fallbackType
+..  option:: fallbackType
 
     :type: string
     :Example: :yaml:`strict`
@@ -226,7 +226,7 @@ Configuration properties
 
         It behaves like old :typoscript:`config.sys_language_overlay = 0`.
 
-..  confval:: fallbacks
+..  option:: fallbacks
 
     :type: comma-separated list of language IDs
     :Example: :yaml:`1,0`

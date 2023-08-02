@@ -45,7 +45,7 @@ These properties apply to all error handlers.
 
 ..  _sitehandling-errorHandling_errorCode:
 
-..  confval:: errorCode
+..  option:: errorCode
 
     :type: int
     :Example: `404`
@@ -59,7 +59,7 @@ These properties apply to all error handlers.
 
 .. _sitehandling-errorHandling_errorHandler:
 
-..  confval:: errorHandler
+..  option:: errorHandler
 
     :type: string / enum
     :Example: `Fluid`

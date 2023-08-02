@@ -39,7 +39,7 @@ The page-based error handler has the properties
 :ref:`sitehandling-errorHandling_errorCode` and
 :ref:`sitehandling-errorHandling_errorHandler` and the following:
 
-..  confval:: errorContentSource
+..  option:: errorContentSource
 
     :type: string
     :Example: `t3://page?uid=123`
