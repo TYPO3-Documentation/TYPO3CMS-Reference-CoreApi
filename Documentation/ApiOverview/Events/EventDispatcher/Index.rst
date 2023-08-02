@@ -37,66 +37,37 @@ Quick start
 Dispatching an event
 --------------------
 
-#. Create an event class.
+#.  Create an event class.
 
-   An event class is basically a plain PHP object with getters for immutable
-   properties and setters for mutable properties. It contains a constructor
-   for all properties:
+    An event class is basically a plain PHP object with getters for immutable
+    properties and setters for mutable properties. It contains a constructor
+    for all properties:
 
-   .. code-block:: php
-      :caption: EXT:some_extension/Classes/Event/DoingThisAndThatEvent.php
+    ..  literalinclude:: _DoingThisAndThatEvent.php
+        :language: php
+        :caption: EXT:my_extension/Classes/Event/DoingThisAndThatEvent.php
 
-      final class DoingThisAndThatEvent {
-         private string $mutableProperty;
-         private int $immutableProperty;
+    Read more about :ref:`implementing event classes <EventDispatcherEvents>`.
 
-         public function __construct(string $mutableProperty, int $immutableProperty) {
-            // ...
-         }
+#.  Inject the EventDispatcher
 
-         // Getter for both properties, setters only for $mutableProperty;
-      }
+    If you are in a controller the `EventDispatcher` already got injected
+    and in this case you can omit this step.
 
-   Read more about :ref:`implementing event classes <EventDispatcherEvents>`.
+    If the EventDispatcher is not yet available, you need to inject it:
 
-#. Inject the EventDispatcher
+    ..  literalinclude:: _SomeClass.php
+        :language: php
+        :caption: EXT:my_extension/Classes/SomeClass.php
 
-   If you are in a controller the `EventDispatcher` already got injected
-   and in this case you can omit this step.
+#.  Dispatch the event
 
-   If the EventDispatcher is not yet available, you need have it injected:
+    Create an event object with the data that should be passed to the listeners. Use the data
+    of mutable properties however it suits your business logic:
 
-   .. code-block:: php
-      :caption: EXT:some_extension/Classes/SomeClass.php
-
-      use Psr\EventDispatcher\EventDispatcherInterface;
-
-      final class SomeClass {
-          private EventDispatcherInterface $eventDispatcher;
-
-          public function injectEventDispatcher(EventDispatcherInterface $eventDispatcher): void
-          {
-              $this->eventDispatcher = $eventDispatcher;
-          }
-      }
-
-#. Dispatch the event
-
-   Create an event object with the data that should be passed to the listeners. Use the data
-   of mutable properties however it suits your business logic:
-
-   .. code-block:: php
-      :caption: EXT:some_extension/Classes/SomeClass.php
-
-      public function doSomething() {
-          // ..
-          /** @var DoingThisAndThatEvent $event */
-          $event = $this->eventDispatcher->dispatch(
-              new DoingThisAndThatEvent("foo", 2)
-          );
-          $someChangedValue = $event->getMutableProperty();
-          // ...
-      }
+    ..  literalinclude:: _SomeClass2.php
+        :language: php
+        :caption: EXT:my_extension/Classes/SomeClass.php
 
 .. index:: ! PSR-14
 .. _EventDispatcherDescription:
@@ -208,18 +179,11 @@ Registering the event listener
 If an extension author wants to provide a custom Event Listener, an according entry with the tag
 :yaml:`event.listener` can be added to the :file:`Configuration/Services.yaml` file of that extension.
 
-.. code-block:: yaml
-   :caption: EXT:some_extension/Configuration/Services.yaml
+..  literalinclude:: _ServicesWithMethod.yaml
+    :language: yaml
+    :caption: EXT:my_extension/Configuration/Services.yaml
 
-   services:
-     Vendor\MyExtension\EventListener\NullMailer:
-       tags:
-         - name: event.listener
-           method: handleEvent
-           identifier: 'myListener'
-           before: 'redirects, anotherIdentifier'
-           event: TYPO3\CMS\Core\Mail\Event\AfterMailerInitializationEvent
-
+Read :ref:`how to configure dependency injection in extensions <dependency-injection-in-extensions>`.
 
 The tag name :yaml:`event.listener` identifies that a listener should be registered.
 
@@ -231,16 +195,11 @@ the optional :yaml:`before` and :yaml:`after` attributes allow for custom sortin
 
 If no attribute :yaml:`method` is given, the class is treated as invokable, thus its :php:`__invoke` method will be called:
 
-.. code-block:: yaml
-   :caption: EXT:my_extension/Configuration/Services.yaml
+..  literalinclude:: _ServicesWithoutMethod.yaml
+    :language: yaml
+    :caption: EXT:my_extension/Configuration/Services.yaml
 
-   services:
-     Vendor\MyExtension\EventListener\NullMailer:
-       tags:
-         - name: event.listener
-           identifier: 'myListener'
-           before: 'redirects, anotherIdentifier'
-           event: TYPO3\CMS\Core\Mail\Event\AfterMailerInitializationEvent
+Read :ref:`how to configure dependency injection in extensions <dependency-injection-in-extensions>`.
 
 .. versionchanged:: 11.3
    The :yaml:`event` tag can be omitted if the listener implementation has a corresponding
@@ -257,19 +216,9 @@ The event listener class
 An example listener, which hooks into the Mailer API to modify Mailer settings to not send any emails,
 could look like this:
 
-.. code-block:: php
-   :caption: EXT:some_extension/Classes/EventListener/NullMailer.php
-
-   namespace Vendor\SomeExtension\EventListener;
-   use TYPO3\CMS\Core\Mail\Event\AfterMailerInitializationEvent;
-
-   class NullMailer
-   {
-       public function __invoke(AfterMailerInitializationEvent $event): void
-       {
-           $event->getMailer()->injectMailSettings(['transport' => 'null']);
-       }
-   }
+..  literalinclude:: _NullMailer.php
+    :language: php
+    :caption: EXT:my_extension/Classes/EventListener/NullMailer.php
 
 An extension can define multiple listeners.
 

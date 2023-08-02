@@ -1,0 +1,9 @@
+services:
+  # Place here the default dependency injection configuration
+
+  MyVendor\MyExtension\EventListener\NullMailer:
+    tags:
+      - name: event.listener
+        identifier: 'myListener'
+        before: 'redirects, anotherIdentifier'
+        event: TYPO3\CMS\Core\Mail\Event\AfterMailerInitializationEvent
