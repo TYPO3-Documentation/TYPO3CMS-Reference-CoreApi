@@ -62,7 +62,7 @@ Example code:
 
 ..  seealso::
     *   :ref:`Loading ES6 JavaScript <backend-javascript-es6-loading>`
-    *   :ref:`Migration from RequireJS to ES6 <requirejs-migration>`
+    *   :ref:`Migration from RequireJS to ES6 <t3coreapi12:requirejs-migration>`
 
 Hook into
 :php:`$GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['typo3/backend.php']['constructPostProcess']`
