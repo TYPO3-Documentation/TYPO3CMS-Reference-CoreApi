@@ -110,7 +110,7 @@ Data submission to extensions:
 
 ..  literalinclude:: _SomeClass.php
     :language: php
-    :caption: EXT:some_extension/Classes/SomeClass.php
+    :caption: EXT:my_extension/Classes/SomeClass.php
 
 ..  _hooks-creation-function:
 
@@ -121,7 +121,7 @@ Constructor post-processing:
 
 ..  literalinclude:: _SomeClassPostProc.php
     :language: php
-    :caption: EXT:some_extension/Classes/SomeClass.php
+    :caption: EXT:my_extension/Classes/SomeClass.php
 
 ..  index:: Hooks; Configuration
 ..  _hooks-configuration:
@@ -152,7 +152,7 @@ particular extension.
 
 ..  literalinclude:: _ext_localconf_schema.php
     :language: php
-    :caption: EXT:some_extension/ext_localconf.php
+    :caption: EXT:my_extension/ext_localconf.php
 
 `<extension_key>`
     The unique extension key
@@ -191,7 +191,7 @@ extension keys.
 
 ..  literalinclude:: _ext_localconf_schema.php
     :language: php
-    :caption: EXT:some_extension/ext_localconf.php
+    :caption: EXT:my_extension/ext_localconf.php
 
 `<main_key>`
     The relative path of a script (for output scripts it
