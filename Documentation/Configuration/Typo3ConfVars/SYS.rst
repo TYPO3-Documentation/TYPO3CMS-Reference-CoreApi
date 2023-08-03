@@ -886,7 +886,6 @@ security.frontend.allowInsecureSiteResolutionByQueryParameters
 
     The flag can be used to reactivate the previous behavior:
 
-
     ..  code-block:: php
 
         $GLOBALS['TYPO3_CONF_VARS']['SYS']['features']['security.frontend.allowInsecureSiteResolutionByQueryParameters'] = true;
