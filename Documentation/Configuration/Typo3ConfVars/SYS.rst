@@ -941,7 +941,6 @@ security.usePasswordPolicyForFrontendUsers
 
 
 
-
 .. index::
    TYPO3_CONF_VARS SYS; availablePasswordHashAlgorithms
 .. _typo3ConfVars_sys_availablePasswordHashAlgorithms:
