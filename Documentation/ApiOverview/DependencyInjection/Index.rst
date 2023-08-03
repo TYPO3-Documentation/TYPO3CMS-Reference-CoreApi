@@ -457,13 +457,16 @@ autoconfigure
     available from the Symfony container and marked as shared
     (:yaml:`shared: true`).
 
-Model exclusion
-    The path exclusion :yaml:`exclude: '../Classes/Domain/Model/*'` excludes
-    your models from the dependency injection container, which means you cannot inject them
-    nor inject dependencies into them. Models are not services and therefore
-    should not require dependency injection. Also, these objects are created by
-    the Extbase persistence layer, which does not support the DI container.
-
+Exclusion
+    Model
+        The path exclusion :yaml:`- '../Classes/Domain/Model/*'` excludes
+        your models from the dependency injection container, which means you cannot inject them
+        nor inject dependencies into them. Models are not services and therefore
+        should not require dependency injection. Also, these objects are created by
+        the Extbase persistence layer, which does not support the DI container.
+    Middleware
+        The path exclusion :yaml:`- '../Classes/Middleware/*'` excludes
+        your middlewares from the dependency injection container
 
 .. _DependencyInjectionArguments:
 
