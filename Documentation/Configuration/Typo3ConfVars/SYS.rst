@@ -896,7 +896,7 @@ security.frontend.allowInsecureSiteResolutionByQueryParameters
     :type: bool
     :Default: false
 
-    ..  important::
+    ..  note::
         This change was introduced as part of the
         `TYPO3 12.4.4 and 11.5.30 security releases <https://typo3.org/security/advisory/typo3-core-sa-2023-003>`__.
 
