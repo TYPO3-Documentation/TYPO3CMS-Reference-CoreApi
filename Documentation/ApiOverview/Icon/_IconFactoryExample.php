@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace MyVendor\MyExtension;
 
-use TYPO3\CMS\Core\Imaging\Icon;
 use TYPO3\CMS\Core\Imaging\IconFactory;
+use TYPO3\CMS\Core\Imaging\IconSize;
 
 final class MyClass
 {
@@ -18,7 +18,7 @@ final class MyClass
     {
         $icon = $this->iconFactory->getIcon(
             'tx-myext-action-preview',
-            Icon::SIZE_SMALL,
+            IconSize::SMALL,
             'overlay-identifier'
         );
 
