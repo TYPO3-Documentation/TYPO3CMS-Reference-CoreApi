@@ -6,4 +6,6 @@ services:
 
   MyVendor\MyExtension\:
     resource: '../Classes/*'
-    exclude: '../Classes/Domain/Model/*'
+    exclude: 
+      - '../Classes/Domain/Model/*'
+      - '../Classes/Middleware/*'
