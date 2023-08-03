@@ -10,16 +10,18 @@ The following example adds a new page type called "Archive".
 
 ..  include:: /Images/AutomaticScreenshots/PageTypes/NewPageType.rst.txt
 
-The whole code to add a page type is shown below with the according file names above.
+Changes need to be made in several files to create a new page type. Follow
+the directions below to the end:
 
 ..  versionchanged:: 12.0
     A new :php:`PageDoktypeRegistry` was introduced replacing the
     :php:`$GLOBALS['PAGES_TYPES']` array. Use the version selector to look up
     the syntax in the corresponding documentation version for older TYPO3 versions.
 
-The first step is to add the new page type to the :php:`\TYPO3\CMS\Core\DataHandling\PageDoktypeRegistry`. Then you need to add
-the icon chosen for the new page type and allow users to drag and drop the new page type to the page
-tree.
+The first step is to add the new page type to the
+:php:`\TYPO3\CMS\Core\DataHandling\PageDoktypeRegistry`. Then you need to add
+the icon chosen for the new page type and allow users to drag and drop the new
+page type to the page tree.
 
 The new page type is added to the :php:`PageDoktypeRegistry` in
 :file:`ext_tables.php`:
@@ -56,14 +58,17 @@ need to add the new doktype as an select option and associate it with the config
     :language: php
     :caption: EXT:examples/Configuration/TCA/Overrides/pages.php
 
-As you can see from the example, to make sure you get the correct icons, you can utilize :php:`typeicon_classes`.
+As you can see from the example, to make sure you get the correct icons,
+you can utilize :php:`typeicon_classes`.
 
-For the following cases you need to configure icons explicitly, otherwise they will automatically fall back to the
-variant for regular page doktypes.
+It is possible to define additional type icons for special case pages:
 
-*   Page contains content from another page (`<doktype>-contentFromPid`)
-*   Page is hidden in navigation (`<doktype>-hideinmenu`)
-*   Page is site-root (`<doktype>-root`)
+*   Page contains content from another page `<doktype>-mountpoint`,
+    For example: :php:`$GLOBALS['TCA']['pages']['ctrl']['typeicon_classes']['116-mountpoint']`.
+*   Page is hidden in navigation `<doktype>-hideinmenu`
+    For example: :php:`$GLOBALS['TCA']['pages']['ctrl']['typeicon_classes']['116-hideinmenu']`.
+*   Page is the root of the site `<doktype>-root`
+    For example: :php:`$GLOBALS['TCA']['pages']['ctrl']['typeicon_classes']['116-root']`.
 
 ..  note::
 
@@ -72,8 +77,6 @@ variant for regular page doktypes.
 
 Further Information
 -------------------
-
-..  rst-class:: compact-list
 
 *   :doc:`ext_core:Changelog/11.4/Feature-94692-RegisteringIconsViaServiceContainer`
 
