@@ -76,25 +76,32 @@ You can use the :php:`\TYPO3\CMS\Core\Imaging\IconFactory` to request an icon:
 ..  literalinclude:: _IconFactoryExample.php
     :caption: EXT:my_extension/Classes/MyClass.php
 
-..  versionchanged:: 12.0
-    The TYPO3 Icon API previously defaulted to
-    :php:`\TYPO3\CMS\Core\Imaging\Icon::SIZE_DEFAULT` and was
-    adapted to now use :php:`Icon::SIZE_MEDIUM` instead. :php:`Icon::SIZE_MEDIUM`
-    is displayed at a fixed size of 32x32 px while :php:`Icon::SIZE_DEFAULT`
-    now scales with the text.
+..  versionchanged:: 13.0
 
-   In cases where the size :php:`Icon::SIZE_DEFAULT` was explicitly set this
-   might result in changed behavior. Switch to :php:`Icon::SIZE_MEDIUM` then.
+The following icon sizes are available as enum values:
 
-The following icon sizes are available:
-
-*   :php:`\TYPO3\CMS\Core\Imaging\Icon::SIZE_DEFAULT`: 1em, to scale with font
+*   :php:`\TYPO3\CMS\Core\Imaging\IconSize::DEFAULT`: 1em, to scale with font
     size
-*   :php:`\TYPO3\CMS\Core\Imaging\Icon::SIZE_SMALL`: fixed to 16px
-*   :php:`\TYPO3\CMS\Core\Imaging\Icon::SIZE_MEDIUM`: fixed to 32px
+*   :php:`\TYPO3\CMS\Core\Imaging\IconSize::SMALL`: fixed to 16px
+*   :php:`\TYPO3\CMS\Core\Imaging\IconSize::MEDIUM`: fixed to 32px
     (used as default value in API parameters)
-*   :php:`\TYPO3\CMS\Core\Imaging\Icon::SIZE_LARGE`: fixed to 48px
-*   :php:`\TYPO3\CMS\Core\Imaging\Icon::SIZE_MEGA`: fixed to 64px
+*   :php:`\TYPO3\CMS\Core\Imaging\IconSize::LARGE`: fixed to 48px
+*   :php:`\TYPO3\CMS\Core\Imaging\IconSize::MEGA`: fixed to 64px
+
+..  deprecated:: 13.0
+    In TYPO3 versions up to 12.4 class constants from
+    :php:`\TYPO3\CMS\Core\Imaging\Icon` must be used:
+
+    *   :php:`\TYPO3\CMS\Core\Imaging\Icon::SIZE_DEFAULT`
+    *   :php:`\TYPO3\CMS\Core\Imaging\Icon::SIZE_SMALL`
+    *   :php:`\TYPO3\CMS\Core\Imaging\Icon::SIZE_MEDIUM`
+    *   :php:`\TYPO3\CMS\Core\Imaging\Icon::SIZE_LARGE`
+    *   :php:`\TYPO3\CMS\Core\Imaging\Icon::SIZE_MEGA`
+
+    One can also use the class constants of :php:`\TYPO3\CMS\Core\Imaging\Icon`
+    if an extension should remain compatible with TYPO3 v13 and older versions.
+
+    The class constants will be removed in a future version of TYPO3.
 
 
 ..  index::
