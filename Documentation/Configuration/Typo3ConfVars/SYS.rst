@@ -940,7 +940,6 @@ security.usePasswordPolicyForFrontendUsers
         :ref:`$GLOBALS['TYPO3_CONF_VARS']['FE']['passwordPolicy'] <typo3ConfVars_fe_passwordPolicy>`
 
 
-
 .. index::
    TYPO3_CONF_VARS SYS; availablePasswordHashAlgorithms
 .. _typo3ConfVars_sys_availablePasswordHashAlgorithms:
