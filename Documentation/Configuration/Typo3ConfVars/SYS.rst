@@ -881,6 +881,37 @@ security.frontend.enforceContentSecurityPolicy
     If enabled, the :ref:`Content Security Policy <content-security-policy>`
     is applied in frontend scope.
 
+..  index::
+    TYPO3_CONF_VARS SYS; features security.frontend.allowInsecureSiteResolutionByQueryParameters
+..  _typo3ConfVars_sys_features_security.frontend.allowInsecureSiteResolutionByQueryParameters:
+
+security.frontend.allowInsecureSiteResolutionByQueryParameters
+--------------------------------------------------------------
+
+..  versionadded:: 12.4.4/11.5.30
+
+..  confval:: $GLOBALS['TYPO3_CONF_VARS']['SYS']['features']['security.frontend.allowInsecureSiteResolutionByQueryParameters']
+
+    :Path: $GLOBALS['TYPO3_CONF_VARS']['SYS']['features']
+    :type: bool
+    :Default: false
+
+    ..  important::
+        This change was introduced as part of the
+        `TYPO3 12.4.4 and 11.5.30 security releases <https://typo3.org/security/advisory/typo3-core-sa-2023-003>`__.
+
+    Resolving sites by the `id` and `L` HTTP query parameters is now denied by
+    default. However, it is still allowed to resolve a particular page by, for
+    example, "example.org" - as long as the page ID `123` is in the scope of the
+    site configured for the base URL "example.org".
+
+    The flag can be used to reactivate the previous behavior:
+
+
+    ..  code-block:: php
+
+        $GLOBALS['TYPO3_CONF_VARS']['SYS']['features']['security.frontend.allowInsecureSiteResolutionByQueryParameters'] = true;
+
 
 ..  index::
     TYPO3_CONF_VARS SYS; features security.usePasswordPolicyForFrontendUsers
@@ -908,6 +939,9 @@ security.usePasswordPolicyForFrontendUsers
 
     ..  seealso::
         :ref:`$GLOBALS['TYPO3_CONF_VARS']['FE']['passwordPolicy'] <typo3ConfVars_fe_passwordPolicy>`
+
+
+
 
 .. index::
    TYPO3_CONF_VARS SYS; availablePasswordHashAlgorithms
