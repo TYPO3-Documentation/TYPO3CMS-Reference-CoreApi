@@ -13,7 +13,7 @@ The following example adds a new page type called "Archive".
 The whole code to add a page type is shown below with the according file names above.
 
 ..  versionchanged:: 12.0
-    Starting with 12.0 a new PageDoktypeRegistry was introduced replacing the
+    A new :php:`PageDoktypeRegistry` was introduced replacing the
     :php:`$GLOBALS['PAGES_TYPES']` array. Use the version selector to look up
     the syntax in the corresponding documentation version.
 
