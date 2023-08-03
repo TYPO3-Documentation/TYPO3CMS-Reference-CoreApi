@@ -15,7 +15,7 @@ The whole code to add a page type is shown below with the according file names a
 ..  versionchanged:: 12.0
     A new :php:`PageDoktypeRegistry` was introduced replacing the
     :php:`$GLOBALS['PAGES_TYPES']` array. Use the version selector to look up
-    the syntax in the corresponding documentation version.
+    the syntax in the corresponding documentation version for older TYPO3 versions.
 
 The first step is to add the new page type to the PageDoktypeRegistry described above. Then you need to add
 the icon chosen for the new page type and allow users to drag and drop the new page type to the page
