@@ -21,40 +21,40 @@ The first step is to add the new page type to the :php:`\TYPO3\CMS\Core\DataHand
 the icon chosen for the new page type and allow users to drag and drop the new page type to the page
 tree.
 
-The new page type is added to the :php:`PageDoktypeRegistry::class` in
+The new page type is added to the :php:`PageDoktypeRegistry` in
 :file:`ext_tables.php`:
 
 ..  literalinclude:: _ext_tables.php
     :language: php
-    :caption: EXT:example/ext_tables.php
+    :caption: EXT:examples/ext_tables.php
 
-We need to add the following user tsconfig
-to all users so that the new page type is displayed in the wizard:
+We need to add the following :ref:`user TSconfig <t3tsconfig:usertsconfig>`
+to all users, so that the new page type is displayed in the wizard:
 
 ..  literalinclude:: _UserConfiguration.tsconfig
     :language: typoscript
-    :caption: EXT:example/Configuration/TsConfig/User/UserConfiguration.tsconfig
+    :caption: EXT:examples/Configuration/TsConfig/User/UserConfiguration.tsconfig
 
 You can load the file like this:
 
 ..  literalinclude:: _ext_localconf.php
     :language: php
-    :caption: EXT:example/ext_localconf.php
+    :caption: EXT:examples/ext_localconf.php
 
-The icon is registered in :file:`Configuration/Icons.php`:
+The :ref:`icon <icon>` is registered in :file:`Configuration/Icons.php`:
 
 ..  literalinclude:: _Icons.php
     :language: php
-    :caption: EXT:example/Configuration/Icons.php
+    :caption: EXT:examples/Configuration/Icons.php
 
-Furthermore we need to modify the configuration of "pages" records. As one can modify the pages, we
-need to add the new doktype as select item and associate it with the configured icon. That's done in
+Furthermore we need to modify the configuration of page records. As one can modify the pages, we
+need to add the new doktype as an select option and associate it with the configured icon. That is done in
 :file:`Configuration/TCA/Overrides/pages.php`:
 
 
 ..  literalinclude:: _pages.php
     :language: php
-    :caption: EXT:example/Configuration/TCA/Overrides/pages.php
+    :caption: EXT:examples/Configuration/TCA/Overrides/pages.php
 
 As you can see from the example, to make sure you get the correct icons, you can utilize :php:`typeicon_classes`.
 
@@ -67,7 +67,7 @@ variant for regular page doktypes.
 
 ..  note::
 
-    Make sure to add the additional icons using the icon registry!
+    Make sure to add the additional icons using the :ref:`Icon API <icon>`!
 
 
 Further Information
