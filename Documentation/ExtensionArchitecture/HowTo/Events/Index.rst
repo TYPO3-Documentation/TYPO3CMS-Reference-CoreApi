@@ -14,7 +14,7 @@ following chapter: :ref:`eventlist`.
 
 Events provided by third-party extensions should be described in the extension's
 manual. You can also search for events by looking for classes that inject the
-:ref:`Psr\EventDispatcher\EventDispatcherInterface <EventDispatcherObject>`.
+:ref:`Psr\\EventDispatcher\\EventDispatcherInterface <EventDispatcherObject>`.
 
 .. _extension-development-event-listener:
 
