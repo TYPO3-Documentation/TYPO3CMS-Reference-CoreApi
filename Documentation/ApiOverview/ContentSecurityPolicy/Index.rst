@@ -27,6 +27,11 @@ web page context.
     *   https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP
     *   https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy
 
+    At the TYPO3 Developer Days 2023 Oliver Hader talked about Content Security
+    Policy in general and in TYPO3:
+
+    *   https://www.youtube.com/watch?v=a_cS2XfCplI&t=28766s
+
 Content Security Policy declarations can be applied to a TYPO3 website in
 frontend and backend scope with a dedicated API.
 
