@@ -28,7 +28,7 @@ instantiated without a value and will be set to the default.
 
 Example:
 
-..  literalinclude:: _LikeWildcard.php
+..  literalinclude:: _Enumerations/_LikeWildcard.php
     :language: php
     :caption: EXT:my_extension/Classes/Enumeration/LikeWildcard.php
 
@@ -53,7 +53,7 @@ casts before finding a suitable value in the enumeration.
 
 Example:
 
-..  literalinclude:: _SomeClass.php
+..  literalinclude:: _Enumerations/_SomeClass.php
     :language: php
     :caption: EXT:my_extension/Classes/SomeClass.php
 
@@ -72,7 +72,7 @@ behavior should be.
 
 Example:
 
-..  literalinclude:: _SomeClass2.php
+..  literalinclude:: _Enumerations/_SomeClass2.php
     :language: php
     :caption: EXT:my_extension/Classes/SomeClass.php
 
@@ -89,12 +89,12 @@ For example, the :php:`\TYPO3\CMS\Core\Versioning\VersionState` enumeration
 contains values of version states. Some of the values indicate that the state is
 a "placeholder". This logic can be implemented by a custom method:
 
-..  literalinclude:: _VersionState.php
+..  literalinclude:: _Enumerations/_VersionState.php
     :language: php
     :caption: EXT:core/Classes/Versioning/VersionState.php
 
 The method can then be used in your class:
 
-..  literalinclude:: _SomeClass3.php
+..  literalinclude:: _Enumerations/_SomeClass3.php
     :language: php
     :caption: EXT:my_extension/Classes/SomeClass.php
