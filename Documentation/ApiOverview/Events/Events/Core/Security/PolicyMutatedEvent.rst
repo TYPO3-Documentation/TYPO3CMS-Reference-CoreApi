@@ -19,7 +19,20 @@ individual adjustments for custom implementations.
 Example
 =======
 
-..  include:: /_includes/EventsContributeNote.rst.txt
+Registration of the event listener in the extension's :file:`Services.yaml`:
+
+..  literalinclude:: _PolicyMutatedEvent/_Services.yaml
+    :language: yaml
+    :caption: EXT:my_extension/Configuration/Services.yaml
+
+Read :ref:`how to configure dependency injection in extensions <dependency-injection-in-extensions>`.
+
+The corresponding event listener class:
+
+..  literalinclude:: _PolicyMutatedEvent/_MyEventListener.php
+    :language: php
+    :caption: EXT:my_extension/Classes/ContentSecurityPolicy/EventListener/MyEventListener.php
+
 
 API
 ===
