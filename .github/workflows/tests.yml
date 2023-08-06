@@ -21,6 +21,12 @@ jobs:
       - name: Install testing system
         run: Build/Scripts/runTests.sh -p ${{ env.php }} -s composerUpdate
 
+      - name: Composer validate
+        run: Build/Scripts/runTests.sh -p ${{ env.php }} -s composerValidate
+
+      - name: Composer normalize
+        run: Build/Scripts/runTests.sh -p ${{ env.php }} -s composerNormalize -n
+
       - name: Lint PHP
         run: Build/Scripts/runTests.sh -p ${{ env.php }} -s lint
 
