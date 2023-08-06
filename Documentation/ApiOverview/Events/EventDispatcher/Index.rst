@@ -221,12 +221,6 @@ its :php:`__invoke()` method will be called:
 
 Read :ref:`how to configure dependency injection in extensions <dependency-injection-in-extensions>`.
 
-..  versionchanged:: 11.3
-    The :yaml:`event` tag can be omitted if the listener implementation has a
-    corresponding event type in the method signature. In that case the event
-    class is automatically derived from the method signature of the listener
-    implementation.
-
 
 ..  index:: Event listener; Implementation
 ..  _EventDispatcherEventListenerClass:

@@ -32,6 +32,7 @@ Using the PHP API
 :php:`\TYPO3\CMS\Core\Country\CountryProvider` class:
 
 ..  literalinclude:: _MyClass.php
+    :language: php
     :caption: EXT:my_extension/Classes/MyClass.php
 
 
@@ -97,6 +98,7 @@ A country object can be used to fetch all information about it, also with
 translatable labels:
 
 ..  literalinclude:: _MyClassWithTranslation.php
+    :language: php
     :caption: EXT:my_extension/Classes/MyClassWithTranslation.php
 
 

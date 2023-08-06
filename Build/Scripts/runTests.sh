@@ -117,6 +117,7 @@ while getopts ":s:p:nhuv" OPT; do
             ;;
         n)
             CGLCHECK_DRY_RUN="-n"
+            COMPOSER_NORMALIZE_DRY_RUN="--dry-run"
             ;;
         u)
             TEST_SUITE=update
@@ -165,9 +166,21 @@ case ${TEST_SUITE} in
         SUITE_EXIT_CODE=$?
         docker-compose down
         ;;
+    composerNormalize)
+        setUpDockerComposeDotEnv
+        docker-compose run composer_normalize
+        SUITE_EXIT_CODE=$?
+        docker-compose down
+        ;;
     composerUpdate)
         setUpDockerComposeDotEnv
         docker-compose run composer_update
+        SUITE_EXIT_CODE=$?
+        docker-compose down
+        ;;
+    composerValidate)
+        setUpDockerComposeDotEnv
+        docker-compose run composer_validate
         SUITE_EXIT_CODE=$?
         docker-compose down
         ;;

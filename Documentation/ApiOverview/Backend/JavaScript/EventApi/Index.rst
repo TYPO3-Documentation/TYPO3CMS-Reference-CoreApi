@@ -114,7 +114,12 @@ Arguments:
 * :js:`eventName` (string) - the event to listen on
 * :js:`callback` (function) - the event listener
 * :js:`wait` (number) - the amount of milliseconds to wait before the event listener is called
-* :js:`immediate` (boolean) - if true, the event listener is called right when the event started
+
+..  versionchanged:: 13.0
+    The parameter :js:`immediate` has been removed. There is no direct migration
+    possible. An extension author may re-implement the removed behavior manually,
+    or use the :ref:`ThrottleEvent <js-event-api-throttleevent>` module,
+    providing a similar behavior.
 
 Example:
 
@@ -126,6 +131,7 @@ Example:
      }, 250).bindTo(document);
    });
 
+..  _js-event-api-throttleevent:
 
 ThrottleEvent
 -------------

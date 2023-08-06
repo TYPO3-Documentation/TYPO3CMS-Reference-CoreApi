@@ -75,7 +75,8 @@ file:`ext_localconf.php`
 *   Registering :ref:`hooks <hooks-concept>`, :ref:`XCLASSes <xclasses>`
     or any simple array assignments to :php:`$GLOBALS['TYPO3_CONF_VARS']` options
 *   Registering additional Request Handlers within the :ref:`Bootstrap <bootstrapping>`
-*   Adding any :ref:`PageTSconfig <t3tsconfig:pagesettingdefaultpagetsconfig>`
+*   Adding any :ref:`page TSconfig <t3tsconfig:pagesettingdefaultpagetsconfig>`
+*   Adding any :ref:`user TSconfig <t3tsconfig:usersettingdefaultusertsconfig>`
 *   Adding default TypoScript via :php:`\TYPO3\CMS\Core\Utility\ExtensionManagementUtility` APIs
 *   Registering Scheduler Tasks
 *   Adding reports to the reports module

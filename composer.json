@@ -1,12 +1,13 @@
 {
     "name": "typo3/reference-coreapi",
-    "description": "Main TYPO3 core documentation",
+    "description": "Main TYPO3 Core documentation",
     "license": "OPL-1.0",
     "type": "typo3-cms-documentation",
     "require": {
         "typo3/cms-core": "dev-main as 12.1"
     },
     "require-dev": {
+        "ergebnis/composer-normalize": "^2.34",
         "symfony/yaml": "^6.2",
         "t3docs/blog-example": "dev-main",
         "t3docs/codesnippet": "dev-main",
@@ -84,8 +85,13 @@
         ],
         "check:yaml:lint": ".Build/bin/yaml-lint Documentation/",
         "fix": [
+            "@fix:composer",
             "@fix:php"
         ],
+        "fix:composer": [
+            "@fix:composer:config"
+        ],
+        "fix:composer:config": "Build/Scripts/runTests.sh -s composerNormalize",
         "fix:php": [
             "@fix:php:cs"
         ],

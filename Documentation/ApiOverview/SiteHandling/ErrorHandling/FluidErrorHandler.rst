@@ -16,7 +16,7 @@ The Fluid-based error handler has the properties
 :ref:`sitehandling-errorHandling_errorCode` and
 :ref:`sitehandling-errorHandling_errorHandler`, and the following:
 
-..  confval:: errorFluidTemplate
+..  option:: errorFluidTemplate
 
     :type: string
     :Example: `EXT:my_sitepackage/Resources/Private/Templates/Sites/Error.html`
@@ -27,21 +27,21 @@ The Fluid-based error handler has the properties
     *   relative to site root
     *   starting with `EXT:` for files from an extension
 
-..  confval:: errorFluidTemplatesRootPath
+..  option:: errorFluidTemplatesRootPath
 
     :type: string [optional]
     :Example: `EXT:my_sitepackage/Resources/Private/Templates/Sites/`
 
     The paths to the Fluid templates in case more flexibility is needed.
 
-..  confval:: errorFluidPartialsRootPath
+..  option:: errorFluidPartialsRootPath
 
     :type: string [optional]
     :Example: `EXT:my_sitepackage/Resources/Private/Partials/Sites/`
 
     The paths to the Fluid partials in case more flexibility is needed.
 
-..  confval:: errorFluidLayoutsRootPath
+..  option:: errorFluidLayoutsRootPath
 
     :type: string [optional]
     :Example: `EXT:my_sitepackage/Resources/Private/Layouts/Sites/`

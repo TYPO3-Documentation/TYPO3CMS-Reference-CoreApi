@@ -33,7 +33,7 @@ system falls back to the default backend and default frontend settings:
 
 ..  literalinclude:: _default.php
     :language: php
-    :caption: config/system/additional.php | typo3conf/system/additional.php
+    :caption: EXT:my_extension/ext_localconf.php
 
 Extensions, like :ref:`Extbase <extbase>`, define default caches this way,
 giving administrators full freedom for specific and possibly quicker setups

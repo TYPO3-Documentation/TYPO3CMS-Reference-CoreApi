@@ -429,24 +429,6 @@ cookieSameSite
    can be shared (first-party cookies vs. third-party cookies) in TYPO3 Frontend.
 
 .. index::
-   TYPO3_CONF_VARS FE; defaultUserTSconfig
-.. _typo3ConfVars_fe_defaultUserTSconfig:
-
-defaultUserTSconfig
-===================
-
-..  deprecated:: 12.1
-    This setting will be removed with TYPO3 v13. More information can be found
-    in the :ref:`changelog <ext_core:deprecation-99075-1668337874>`.
-
-.. confval:: $GLOBALS['TYPO3_CONF_VARS']['FE']['defaultUserTSconfig']
-
-   :type: multiline
-   :Default: ''
-
-    Enter lines of default frontend user/group TSconfig.
-
-.. index::
    TYPO3_CONF_VARS FE; defaultTypoScript_constants
 .. _typo3ConfVars_fe_defaultTypoScript_constants:
 
