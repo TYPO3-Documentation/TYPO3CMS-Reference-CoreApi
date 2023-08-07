@@ -276,15 +276,24 @@ Debugging event handling
 
 A complete list of all registered event listeners can be viewed in the the
 module :guilabel:`System > Configuration > Event Listeners (PSR-14)`. The
-system extension `lowlevel` has to be installed for this module to be available.
+:doc:`lowlevel <ext_lowlevel:Index>` system extension has to be installed for
+this module to be available.
 
-.. TODO: add screenshot
+..  figure:: /Images/ManualScreenshots/Events/ConfigurationEventListeners.png
+    :alt: List of event listeners in the Configuration module
+    :class: with-border
+
+    List of event listeners in the :guilabel:`Configuration` module
 
 To debug all events that are actually dispatched during a frontend request you
 can use the admin panel:
 
 Go to :guilabel:`Admin Panel > Debug > Events` and see all dispatched events.
-The system extension `adminpanel` has to be installed for this module to be
-available.
+The :doc:`adminpanel <ext_adminpanel:Index>` system extension has to be
+installed for this module to be available.
 
-.. TODO: add screenshot
+..  figure:: /Images/ManualScreenshots/Events/AdminPanelEvents.png
+    :alt: List of dispatched events in the Admin Panel
+    :class: with-border
+
+    List of dispatched events in the Admin Panel
