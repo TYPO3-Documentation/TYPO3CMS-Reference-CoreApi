@@ -3,7 +3,7 @@
 
 .. php:class:: UriBuilder
 
-   An URI Builder
+   URI Builder for extbase requests.
 
    
    .. php:method:: setRequest(TYPO3\\CMS\\Extbase\\Mvc\\RequestInterface $request)
@@ -63,10 +63,6 @@
       
       :param string $language: the language
       :returntype: TYPO3\\CMS\\Extbase\\Mvc\\Web\\Routing\\UriBuilder
-      
-   .. php:method:: getLanguage()
-   
-      :returntype: string
       
    .. php:method:: setAddQueryString(string|int|bool $addQueryString)
    
@@ -138,7 +134,7 @@
       
    .. php:method:: uriFor(string $actionName = NULL, array $controllerArguments = NULL, string $controllerName = NULL, string $extensionName = NULL, string $pluginName = NULL)
    
-      Creates an URI used for linking to an Extbase action.
+      Creates a URI used for linking to an Extbase action.
       
       Works in Frontend and Backend mode of TYPO3.
       
