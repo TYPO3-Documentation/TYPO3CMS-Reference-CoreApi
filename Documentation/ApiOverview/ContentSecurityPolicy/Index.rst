@@ -97,6 +97,78 @@ used to declare policies for a specific site, for example:
 ..  todo: Explain "inheritDefault", "mutations", "mode", "directive", "sources", ...
 
 
+.. _content-security-policy-nonce:
+
+Nonce
+=====
+
+    The nonce attribute is useful to allowlist specific elements, such as a
+    particular inline script or style elements. It can help you to avoid using
+    the CSP unsafe-inline directive, which would allowlist all inline scripts or
+    styles.
+
+    -- MDN Web Docs, https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/nonce
+
+It may look like this in your HTML code:
+
+..  code-block:: html
+
+    <link
+        rel="stylesheet"
+        href="/_assets/af46f1853e4e259cbb8ebcb816eb0403/Css/styles.css?1687696548"
+        media="all"
+        nonce="sqK8LkqFp-aWHc7jkHQ4aT-RlUp5cde9ZW0F0-BlrQbExX-PRMoTkw"
+    >
+
+    <style nonce="sqK8LkqFp-aWHc7jkHQ4aT-RlUp5cde9ZW0F0-BlrQbExX-PRMoTkw">
+        /* some inline styles */
+    </style>
+
+    <script
+        src="/_assets/27334a649e36d0032b969fa8830590c2/JavaScript/scripts.js?1684880443"
+        nonce="sqK8LkqFp-aWHc7jkHQ4aT-RlUp5cde9ZW0F0-BlrQbExX-PRMoTkw"
+    ></script>
+
+    <script nonce="sqK8LkqFp-aWHc7jkHQ4aT-RlUp5cde9ZW0F0-BlrQbExX-PRMoTkw">
+        /* some inline JavaScript */
+    </script>
+
+The nonce changes with each request so that (possibly malicious) inline scripts
+or styles are blocked by the browser.
+
+The nonce is applied automatically, when scripts or styles are defined with the
+TYPO3 API, like TypoScript (:typoscript:`page.includeJS`, etc.) or the
+:ref:`asset collector <assets>`.
+
+TYPO3 provides APIs to get the nonce for the current request:
+
+Retrieve with PHP
+-----------------
+
+The nonce can be retrieved via the
+:ref:`nonce request attribute <typo3-request-attribute-nonce>`:
+
+..  code-block:: php
+
+    // use TYPO3\CMS\Core\Domain\ConsumableString
+
+    /** @var ConsumableString|null $nonce */
+    $nonceAttribute = $this->request->getAttribute('nonce');
+    if ($nonceAttribute instanceof ConsumableString) {
+        $nonce = $nonceAttribute->consume();
+    }
+
+In a Fluid template
+-------------------
+
+The :ref:`f:security.nonce <t3viewhelper:typo3-fluid-security-nonce>` ViewHelper
+is available, which provides the nonce in a Fluid template, for example:
+
+..  code-block:: html
+
+    <script nonce="{f:security.nonce()}">const inline = 'script';</script>
+
+
 .. _content-security-policy-reporting:
 
 Reporting of violations
