@@ -14,7 +14,26 @@ emptied.
 Example
 =======
 
-..  include:: /_includes/EventsContributeNote.rst.txt
+Registration of the event in the :file:`Services.yaml`:
+
+.. code-block:: yaml
+
+  MyVendor\MyPackage\EventListener\MyEventListener:
+    tags:
+      - name: event.listener
+        identifier: 'my-package/my-listener'
+        event: TYPO3\CMS\Seo\Event\ModifyUrlForCanonicalTagEvent
+
+.. code-block:: php
+
+    final class MyEventListener {
+        public function __invoke(ModifyUrlForCanonicalTagEvent $event): void
+        {
+            // do your magic
+            // Note: $event->getUrl(); is initialized with the empty string value ''
+        }
+    }
+
 
 API
 ===
