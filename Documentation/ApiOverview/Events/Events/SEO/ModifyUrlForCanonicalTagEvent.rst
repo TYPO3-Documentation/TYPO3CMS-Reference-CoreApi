@@ -23,13 +23,16 @@ Registration of the event in the :file:`Services.yaml`:
       - name: event.listener
         identifier: 'my-package/my-listener'
 
+Changing the host of the current request and setting it as canonical:
 .. code-block:: php
 
     final class MyEventListener {
         public function __invoke(ModifyUrlForCanonicalTagEvent $event): void
         {
-            // do your magic
-            // Note: $event->getUrl(); is initialized with the empty string value ''
+            // Note: $event->getUrl(); is dispatched with the empty string value ''
+            $currentUrl = $GLOBALS['TYPO3_REQUEST']->getUri();
+            $newCanonical = $currentUrl->withHost('example.com');
+            $event->setUrl($newCanonical);
         }
     }
 
