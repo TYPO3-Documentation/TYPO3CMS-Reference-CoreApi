@@ -24,6 +24,7 @@ Registration of the event in the :file:`Services.yaml`:
         identifier: 'my-package/my-listener'
 
 Changing the host of the current request and setting it as canonical:
+
 .. code-block:: php
 
     final class MyEventListener {
