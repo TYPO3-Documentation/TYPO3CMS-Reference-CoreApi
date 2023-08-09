@@ -14,7 +14,29 @@ emptied.
 Example
 =======
 
-..  include:: /_includes/EventsContributeNote.rst.txt
+Registration of the event in the :file:`Services.yaml`:
+
+.. code-block:: yaml
+
+  MyVendor\MyPackage\EventListener\MyEventListener:
+    tags:
+      - name: event.listener
+        identifier: 'my-package/my-listener'
+
+Changing the host of the current request and setting it as canonical:
+
+.. code-block:: php
+
+    final class MyEventListener {
+        public function __invoke(ModifyUrlForCanonicalTagEvent $event): void
+        {
+            // Note: $event->getUrl(); is dispatched with the empty string value ''
+            $currentUrl = $GLOBALS['TYPO3_REQUEST']->getUri();
+            $newCanonical = $currentUrl->withHost('example.com');
+            $event->setUrl($newCanonical);
+        }
+    }
+
 
 API
 ===
