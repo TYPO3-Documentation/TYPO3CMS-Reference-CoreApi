@@ -22,7 +22,6 @@ Registration of the event in the :file:`Services.yaml`:
     tags:
       - name: event.listener
         identifier: 'my-package/my-listener'
-        event: TYPO3\CMS\Seo\Event\ModifyUrlForCanonicalTagEvent
 
 .. code-block:: php
 
