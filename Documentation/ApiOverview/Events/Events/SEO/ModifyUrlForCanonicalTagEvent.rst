@@ -16,26 +16,15 @@ Example
 
 Registration of the event in the :file:`Services.yaml`:
 
-.. code-block:: yaml
-
-  MyVendor\MyPackage\EventListener\MyEventListener:
-    tags:
-      - name: event.listener
-        identifier: 'my-package/my-listener'
+..  literalinclude:: _ModifyUrlForCanonicalTagEvent/_Services.yaml
+    :language: yaml
+    :caption: EXT:my_extension/Configuration/Services.yaml
 
 Changing the host of the current request and setting it as canonical:
 
-.. code-block:: php
-
-    final class MyEventListener {
-        public function __invoke(ModifyUrlForCanonicalTagEvent $event): void
-        {
-            // Note: $event->getUrl(); is dispatched with the empty string value ''
-            $currentUrl = $GLOBALS['TYPO3_REQUEST']->getUri();
-            $newCanonical = $currentUrl->withHost('example.com');
-            $event->setUrl($newCanonical);
-        }
-    }
+..  literalinclude:: _ModifyUrlForCanonicalTagEvent/_MyEventListener.php
+    :language: php
+    :caption: EXT:my_extension/Classes/Seo/EventListener/MyEventListener.php
 
 
 API
