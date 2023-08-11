@@ -148,3 +148,10 @@ the :file:`ext_tables.sql` file:
     *   :ref:`TCA type "group" <t3tca:columns-group-properties-mm>`
     *   :ref:`TCA type "inline" <t3tca:columns-inline-properties-mm>`
     *   :ref:`TCA type "select" <t3tca:columns-select-properties-mm>`
+
+:php:`['config']['type'] => 'slug'`
+    ..  versionadded:: 12.0
+        Database table fields for TCA type :php:`slug` are created automatically.
+
+    See also :ref:`t3tca:columns-slug`.
+
