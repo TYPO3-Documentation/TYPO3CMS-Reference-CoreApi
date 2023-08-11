@@ -134,3 +134,17 @@ auto-generated fields, if they are not manually defined in the
     those fields are prefixed with :sql:`t3ver_`, for example :sql:`t3ver_oid`.
     A default index named :sql:`t3ver_oid` to fields :sql:`t3ver_oid` and
     :sql:`t3ver_wsid` is added, too.
+
+The following
+:ref:`$GLOBALS['TCA'][$table]['columns'][$field]['config'] <t3tca:columns-types>`
+are considered for auto-generated fields, if they are not manually defined in
+the :file:`ext_tables.sql` file:
+
+:php:`['config']['MM']`
+    :sql:`CREATE TABLE` definitions for intermediate tables referenced by TCA
+    table columns should not be defined manually in the :file:`ext_tables.php`
+    file:
+
+    *   :ref:`TCA type "group" <t3tca:columns-group-properties-mm>`
+    *   :ref:`TCA type "inline" <t3tca:columns-inline-properties-mm>`
+    *   :ref:`TCA type "select" <t3tca:columns-select-properties-mm>`
