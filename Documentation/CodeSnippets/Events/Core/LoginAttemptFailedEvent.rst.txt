@@ -6,6 +6,14 @@
    Event fired after a login attempt failed.
 
    
+   .. php:method:: getUser()
+   
+      :returntype: TYPO3\\CMS\\Core\\Authentication\\AbstractUserAuthentication
+      
+   .. php:method:: getLoginData()
+   
+      :returntype: array
+      
    .. php:method:: isFrontendAttempt()
    
       :returntype: bool
@@ -14,14 +22,6 @@
    
       :returntype: bool
       
-   .. php:method:: getUser()
-   
-      :returntype: TYPO3\\CMS\\Core\\Authentication\\AbstractUserAuthentication
-      
    .. php:method:: getRequest()
    
       :returntype: Psr\\Http\\Message\\ServerRequestInterface
-      
-   .. php:method:: getLoginData()
-   
-      :returntype: array
