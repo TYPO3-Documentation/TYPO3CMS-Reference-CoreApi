@@ -4,5 +4,5 @@ services:
   MyVendor\MyExtension\EventListener\NullMailer:
     tags:
       - name: event.listener
-        identifier: 'myListener'
-        before: 'redirects, anotherIdentifier'
+        identifier: 'my-extension/null-mailer'
+        before: 'someIdentifier, anotherIdentifier'

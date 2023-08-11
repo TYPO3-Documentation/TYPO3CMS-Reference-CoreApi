@@ -184,14 +184,72 @@ Implementing an event listener in your extension
     :ref:`Listen to an event <extension-development-event-listener>` in the
     extension development how-to section.
 
+..  versionadded:: 13.0
+    A PHP attribute :php:`\TYPO3\CMS\Core\Attribute\AsEventListener` is
+    available to autoconfigure a class as an event listener. If the PHP
+    attribute is used, the :ref:`configuration of the event listener
+    <EventDispatcherRegistration>` via the :file:`Configuration/Services.yaml`
+    file is not necessary anymore.
+
+..  index:: Event listener; Implementation
+..  _EventDispatcherEventListenerClass:
+
+The event listener class
+------------------------
+
+An example listener, which hooks into the :ref:`Mailer API <mail>` to modify
+mailer settings to not send any emails, could look like this:
+
+..  literalinclude:: _NullMailer.php
+    :language: php
+    :caption: EXT:my_extension/Classes/EventListener/NullMailer.php
+
+An extension can define multiple listeners. The PHP attribute is repeatable,
+which allows to register the same class to listen for different events.
+
+Once the emitter is triggering an event, this listener is called automatically.
+Be sure to inspect the event's PHP class to fully understand the capabilities
+provided by an event.
+
+The PHP attribute :php:`\TYPO3\CMS\Core\Attribute\AsEventListener` supports the
+following properties:
+
+:php:`identifier`
+    A unique identifier must be declared which identifies the event listener,
+    and orderings can be build upon the identifier.
+
+:php:`before` (optional)
+    This property allows a custom sorting of registered listeners. The listener
+    is then dispatched before the given listener. The value is the identifier of
+    another event listeners.
+
+:php:`after` (optional)
+    This property allows a custom sorting of registered listeners. The listener
+    is then dispatched after the given listener. The value is the identifier of
+    another event listeners.
+
+:php:`event` (optional)
+    The fully-qualified class name (FQCN) of the event to be dispatched. This
+    property can be omitted, if the FQCN is used as type declaration of the
+    argument of the dispatched method.
+
+:php:`method` (optional)
+    The method to be called. If this property is not given, the listener class
+    is treated as invokable, thus its :php:`__invoke()` method is called.
+
 ..  index::
     Event Listener; Registration
     YAML; event.listener
     File; EXT:{extkey}/Configuration/Services.yaml
 ..  _EventDispatcherRegistration:
 
-Registering the event listener
-------------------------------
+Registering the event listener via :file:`Services.yaml`
+--------------------------------------------------------
+
+..  versionadded:: 13.0
+    If using the PHP attribute :php:`\TYPO3\CMS\Core\Attribute\AsEventListener`
+    to configure an event listener, the registration in the
+    :file:`Configuration/Services.yaml` file is not necessary anymore.
 
 If an extension author wants to provide a custom event listener, an according
 entry with the tag :yaml:`event.listener` can be added to the
@@ -222,24 +280,6 @@ its :php:`__invoke()` method will be called:
 Read :ref:`how to configure dependency injection in extensions <dependency-injection-in-extensions>`.
 
 
-..  index:: Event listener; Implementation
-..  _EventDispatcherEventListenerClass:
-
-The event listener class
-------------------------
-
-An example listener, which hooks into the Mailer API to modify mailer settings
-to not send any emails, could look like this:
-
-..  literalinclude:: _NullMailer.php
-    :language: php
-    :caption: EXT:my_extension/Classes/EventListener/NullMailer.php
-
-An extension can define multiple listeners.
-
-Once the emitter is triggering an event, this listener is called automatically.
-Be sure to inspect the event's PHP class to fully understand the capabilities
-provided by an event.
 
 
 ..  index:: Event listener; Best practices
