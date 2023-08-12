@@ -60,6 +60,25 @@ precedence over automatically generated fields, so the TYPO3 Core never
 overrides a manually specified column definition from an :file:`ext_tables.sql`
 file.
 
+..  note::
+
+    ..  versionchanged:: 13.0
+        A :sql:`CREATE TABLE` statement without columns in the
+        :file:`ext_tables.php` file is supported.
+
+    As column definitions are created automatically, the :file:`ext_tables.sql`
+    file can end up with a table definition without columns, like:
+
+    ..  code-block:: sql
+
+        CREATE TABLE tx_myextension_domain_model_table (
+        );
+
+    This would be invalid as such in most
+    :abbr:`DBMS (Database Management System)`, since tables usually must have
+    at least one column. However, it is a valid definition in the scope of
+    :file:`ext_tables.sql` files when the TYPO3 Core enriches fields from TCA.
+
 These columns below are automatically added if not defined in
 :file:`ext_tables.sql` for database tables that provide a :php:`$GLOBALS['TCA']`
 definition:
