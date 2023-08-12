@@ -31,9 +31,9 @@ Frontend plugin as content element
 
 Use the following steps to add the plugin as content element:
 
-.. rst-class:: bignums
+..  rst-class:: bignums
 
-#. :php:`configurePlugin()`: Make the plugin available in the frontend
+#.  :php:`configurePlugin()`: Make the plugin available in the frontend
 
     ..  literalinclude:: _FrontendPlugin/_ext_localconf.php
         :language: php
@@ -79,7 +79,7 @@ Use the following steps to add the plugin as content element:
         :language: php
         :caption: EXT:blog_example/Configuration/TCA/Overrides/tt_content.php
 
-   Use the following parameters:
+    Use the following parameters:
 
     #.  Extension key :php:`'blog_example'` or name :php:`BlogExample`.
     #.  A unique identifier for your plugin in UpperCamelCase: :php:`'PostSingle'`,
@@ -113,12 +113,12 @@ Use the following steps to add the plugin as content element:
 
     See :ref:`t3tsconfig:pagesettingdefaultpagetsconfig`.
 
-.. _extbase_frontend_plugin_typoscript:
+..  _extbase_frontend_plugin_typoscript:
 
 Frontend plugin as pure TypoScript
 ==================================
 
-.. rst-class:: bignums
+..  rst-class:: bignums
 
 #.  :php:`configurePlugin()`: Make the plugin available in the frontend
 
