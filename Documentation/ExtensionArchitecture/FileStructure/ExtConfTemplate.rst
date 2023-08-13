@@ -100,26 +100,20 @@ When saved in the Settings module, the configuration will be kept in the :file:`
 file and is available as array :php:`$GLOBALS['TYPO3_CONF_VARS']['EXTENSIONS']['my_extension_key']`.
 
 To retrieve the configuration use the API provided by the
-:php:`\TYPO3\CMS\Core\Configuration\ExtensionConfiguration` class:
+:php:`\TYPO3\CMS\Core\Configuration\ExtensionConfiguration` class via
+:ref:`constructor injection <Constructor-injection>`:
 
-.. code-block:: php
-   :caption: EXT:some_extension/Classes/SomeClass.php
-
-   use TYPO3\CMS\Core\Utility\GeneralUtility;
-   use TYPO3\CMS\Core\Configuration\ExtensionConfiguration;
-
-   $extensionConfiguration = GeneralUtility::makeInstance(ExtensionConfiguration::class)
-      ->get('my_extension_key');
+..  literalinclude:: _ExtConfTemplate/_MyClass.php
+    :language: php
+    :caption: EXT:my_extension/Classes/MyClass.php
 
 This will return the whole configuration as an array.
 
 To directly fetch specific values like :typoscript:`myVariable` from the example above:
 
-.. code-block:: php
-   :caption: EXT:some_extension/Classes/SomeClass.php
-
-   $temporaryDirectory = GeneralUtility::makeInstance(ExtensionConfiguration::class)
-      ->get('my_extension_key', 'myVariable');
+..  literalinclude:: _ExtConfTemplate/_MyClass2.php
+    :language: php
+    :caption: EXT:my_extension/Classes/MyClass.php
 
 
 .. _extension-options-nested-structure:
@@ -141,8 +135,8 @@ You can also define nested options using the TypoScript notation:
 
 This will result in a multidimensional array:
 
-.. code-block:: php
-   :caption: EXT:some_extension/Classes/SomeClass.php
+.. code-block:: plain
+   :caption: Example output of method `ExtensionConfiguration->get()`
 
    $extensionConfiguration['directories']['tmp']
    $extensionConfiguration['directories']['cache']
