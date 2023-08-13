@@ -9,15 +9,11 @@ ModifyResultItemInLiveSearchEvent
 ..  versionadded:: 12.2
 
 The PSR-14 event :php:`\TYPO3\CMS\Backend\Search\Event\ModifyResultItemInLiveSearchEvent`
-is available to allow extension developers to take control over search result
+allows extension developers to take control over search result
 items rendered in the backend search.
 
 Example
 =======
-
-..  warning::
-    Some code in this example is experimental API and may change until TYPO3
-    v12 LTS.
 
 Registration of the event listener in the extension's :file:`Services.yaml`:
 
