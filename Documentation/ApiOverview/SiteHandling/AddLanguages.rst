@@ -153,13 +153,23 @@ Configuration properties
     :type: string
     :Example: :yaml:`en-GB`
 
-    ..  deprecated:: 12.3
-        It is not needed to set this property anymore, and is removed from the
-        backend UI. The information is now automatically derived from the
-        :ref:`locale <sitehandling-addingLanguages-locale>` setting.
-        Using this property will trigger a PHP deprecation notice.
+    ..  versionchanged:: 12.4
+        This option is not relevant anymore for regular websites without
+        rendering hreflang tag, but is now customizable, and has a proper
+        fallback.
 
-    The frontend language for :html:`hreflang` and :html:`lang` tags.
+    This property sets the hreflang tag for this language. It is empty by
+    default and will fallback to the
+    :ref:`locale <sitehandling-addingLanguages-locale>` setting.
+
+    **Example setups:**
+
+    *   You have "German (Germany)" (which is using :yaml:`de-DE` as locale) and
+        "German (Austria)" (which is using :yaml:`de-AT` as locale). Here you
+        want to set :yaml:`de` as generic fallback in the :yaml:`de-DE` locale
+        when using hreflang tags.
+    *   You want to explicitly set :yaml:`x-default` for a specific language,
+        which is clearly not a valid language key.
 
 ..  option:: direction
 
