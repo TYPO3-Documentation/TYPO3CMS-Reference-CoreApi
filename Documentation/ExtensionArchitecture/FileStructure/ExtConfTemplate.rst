@@ -135,7 +135,8 @@ You can also define nested options using the TypoScript notation:
 
 This will result in a multidimensional array:
 
-.. code-block:: php
+.. code-block:: plain
+   :caption: Example output of function `ExtensionConfiguration::get`
 
    $extensionConfiguration['directories']['tmp']
    $extensionConfiguration['directories']['cache']
