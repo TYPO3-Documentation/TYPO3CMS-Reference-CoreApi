@@ -13,49 +13,31 @@ and an action.
 
 Routes are defined inside extensions, in the files
 
-*   :file:`Configuration/Backend/Routes.php` for general requests
-*   :file:`Configuration/Backend/AjaxRoutes.php` for Ajax calls
+*   :ref:`Configuration/Backend/Routes.php <extension-configuration-backend-routes>`
+    for general requests
+*   :ref:`Configuration/Backend/AjaxRoutes.php <extension-configuration-backend-ajaxroutes>`
+    for Ajax calls
 
 Here is an extract of :t3src:`backend/Configuration/Backend/Routes.php`:
 
-..  code-block:: php
+..  literalinclude:: _BackendRouting/_RoutesBackend.php
+    :language: php
     :caption: EXT:backend/Configuration/Backend/Routes.php (excerpt)
-
-    <?php
-
-    use TYPO3\CMS\Backend\Controller;
-
-    return [
-        // Login screen of the TYPO3 Backend
-        'login' => [
-            'path' => '/login',
-            'access' => 'public',
-            'target' => Controller\LoginController::class . '::formAction'
-        ],
-
-        // Main backend rendering setup (previously called backend.php) for the TYPO3 Backend
-        'main' => [
-            'path' => '/main',
-            'referrer' => 'required,refresh-always',
-            'target' => Controller\BackendController::class . '::mainAction'
-        ],
-        // ...
-    ];
 
 So, a route file essentially returns an array containing route mappings. A route
 is defined by a key, a path, a referrer and a target. The "public" :php:`access`
 property indicates that no authentication is required for that action.
 
 ..  note::
-    The current route object is available as :ref:`route attribute
+    The current route object is available as a :ref:`route attribute
     <typo3-request-attribute-route>` in the PSR-7 request object of every
     backend request. It is added through the PSR-15 middleware stack and can be
     retrieved using :php:`$request->getAttribute('route')`.
 
 
-.. index::
-   pair: Backend routing; Cross-site scripting
-   Backend routing; Public
+..  index::
+    pair: Backend routing; Cross-site scripting
+    Backend routing; Public
 
 Backend routing and cross-site scripting
 ========================================
@@ -74,7 +56,7 @@ potential security implications are still the same.
 Backend routes can enforce the existence of an HTTP referrer header by adding a
 :php:`referrer` to routes to mitigate the described scenario.
 
-.. code-block:: php
+..  code-block:: php
 
     'main' => [
         'path' => '/main',
@@ -128,34 +110,15 @@ which are then resolved into a PSR-7 request attribute called
 
 These routes are defined within the route path as named placeholders:
 
-..  code-block:: php
+..  literalinclude:: _BackendRouting/_RoutesMyRoute.php
+    :language: php
     :caption: EXT:my_extension/Configuration/Backend/Routes.php
-
-    use MyVendor\MyExtension\Controller\MyRouteController;
-
-    return [
-        'my_route' => [
-            'path' => '/my-route/{identifier}',
-            'target' => MyRouteController::class . '::handle',
-        ],
-    ];
 
 Within a controller (we use here a non-Extbase controller as example):
 
-..  code-block:: php
+..  literalinclude:: _BackendRouting/_MyRouteController.php
+    :language: php
     :caption: EXT:my_extension/Classes/Controller/MyRouteController.php
-
-    use Psr\Http\Message\ResponseInterface;
-    use Psr\Http\Message\ServerRequestInterface;
-
-    public function handle(ServerRequestInterface $request): ResponseInterface
-    {
-        $routing = $request->getAttribute('routing');
-        $myIdentifier = $routing['identifier'];
-        $route = $routing->getRoute();
-        // ...
-    }
-
 
 .. index:: Backend routing; Generating backend URLs
 
@@ -172,15 +135,16 @@ generates and applies the mentioned session token.
 Example within a controller (we use here a non-Extbase controller):
 
 ..  literalinclude:: _BackendRouting/_UriBuilderExample.php
+    :language: php
     :caption: EXT:my_extension/Classes/Controller/MyRouteController.php
 
 
-More Information
+More information
 ================
 
 Please refer to the following resources and look at how the TYPO3 source code
 handles backend routing in your TYPO3 version.
 
-* :ref:`TYPO3 request object <typo3-request>`
-* TYPO3 Core: :t3src:`backend/Configuration/Backend/AjaxRoutes.php`
-* TYPO3 Core: :t3src:`backend/Configuration/Backend/Routes.php`
+*   :ref:`TYPO3 request object <typo3-request>`
+*   TYPO3 Core: :t3src:`backend/Configuration/Backend/AjaxRoutes.php`
+*   TYPO3 Core: :t3src:`backend/Configuration/Backend/Routes.php`
