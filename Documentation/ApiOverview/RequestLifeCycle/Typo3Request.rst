@@ -201,6 +201,7 @@ The following attributes are available in **frontend** context:
     RequestAttributes/FrontendTyposcript
     RequestAttributes/FrontendUser
     RequestAttributes/Language
+    RequestAttributes/Nonce
     RequestAttributes/NormalizedParams
     RequestAttributes/Routing
     RequestAttributes/Site
@@ -213,6 +214,7 @@ The following attributes are available in **backend** context:
     RequestAttributes/ApplicationType
     RequestAttributes/Module
     RequestAttributes/ModuleData
+    RequestAttributes/Nonce
     RequestAttributes/NormalizedParams
     RequestAttributes/Route
     RequestAttributes/Site
