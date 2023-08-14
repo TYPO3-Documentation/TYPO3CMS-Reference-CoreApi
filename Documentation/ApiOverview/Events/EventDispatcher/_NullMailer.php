@@ -11,6 +11,7 @@ final class NullMailer
 {
     #[AsEventListener(
         identifier: 'my-extension/null-mailer',
+        before: 'someIdentifier, anotherIdentifier',
     )]
     public function __invoke(AfterMailerInitializationEvent $event): void
     {
