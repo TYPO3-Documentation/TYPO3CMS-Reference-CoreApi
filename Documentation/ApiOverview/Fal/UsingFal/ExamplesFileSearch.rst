@@ -41,10 +41,14 @@ methods for ease of use:
         ->withOrdering('fileext');
     $files = $storage->searchFiles($searchDemand);
 
-There is also a driver capability
+
+Performance optimization in a custom driver
+===========================================
+
+A driver capability
 :php:`\TYPO3\CMS\Core\Resource\ResourceStorageInterface::CAPABILITY_HIERARCHICAL_IDENTIFIERS`
-to allow implementing an optimized search with good performance. Drivers can
-optionally add this capability in case the identifiers that are constructed by
-the driver include the directory structure. Adding this capability to drivers
+is available to implement an optimized search with good performance. Drivers can
+optionally add this capability in case the identifiers constructed by the driver
+include the directory structure. Adding this capability to drivers
 can provide a big performance boost when it comes to recursive search (which is
-default in the file list and file browser UI).
+the default in the file list and file browser UI).
