@@ -103,21 +103,21 @@ Archive
            routePath: '/{year}/page-{page}'
            _controller: 'Post::listPostsByDate'
            _arguments:
-           year: year
-           page: '@widget_0/currentPage'
+             year: year
+             page: '@widget_0/currentPage'
          -
            routePath: '/{year}/{month}'
            _controller: 'Post::listPostsByDate'
            _arguments:
-           year: year
-           month: month
+             year: year
+             month: month
          -
            routePath: '/{year}/{month}/page-{page}'
            _controller: 'Post::listPostsByDate'
            _arguments:
-           year: year
-           month: month
-           page: '@widget_0/currentPage'
+             year: year
+             month: month
+             page: '@widget_0/currentPage'
        defaultController: 'Post::listPostsByDate'
        aspects:
          year:
