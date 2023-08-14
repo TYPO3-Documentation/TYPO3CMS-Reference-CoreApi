@@ -46,9 +46,14 @@ Performance optimization in a custom driver
 ===========================================
 
 A driver capability
-:php:`\TYPO3\CMS\Core\Resource\ResourceStorageInterface::CAPABILITY_HIERARCHICAL_IDENTIFIERS`
+:php:`\TYPO3\CMS\Core\Resource\Capabilities::CAPABILITY_HIERARCHICAL_IDENTIFIERS`
 is available to implement an optimized search with good performance. Drivers can
 optionally add this capability in case the identifiers constructed by the driver
 include the directory structure. Adding this capability to drivers
 can provide a big performance boost when it comes to recursive search (which is
 the default in the file list and file browser UI).
+
+..  versionchanged:: 13.0
+    The :php:`CAPABILITY_*` constants from the class
+    :php:`\TYPO3\CMS\Core\Resource\ResourceStorageInterface` were removed
+    and are now available via the class :php:`\TYPO3\CMS\Core\Resource\Capabilities`.
