@@ -34,20 +34,11 @@ cache was enabled or not.
 Example
 =======
 
-Registration of the `AfterCacheableContentIsGeneratedEvent` in your
-extension's :file:`Services.yaml`:
-
-..  literalinclude:: _AfterCacheableContentIsGeneratedEvent/_Services.yaml
-    :language: yaml
-    :caption: EXT:my_extension/Configuration/Services.yaml
-
-Read :ref:`how to configure dependency injection in extensions <dependency-injection-in-extensions>`.
-
-The corresponding event listener class:
-
 ..  literalinclude:: _AfterCacheableContentIsGeneratedEvent/_MyEventListener.php
     :language: php
     :caption: EXT:my_extension/Classes/Frontend/EventListener/MyEventListener.php
+
+..  include:: /_includes/EventsAttributeAdded.rst.txt
 
 API
 ===
