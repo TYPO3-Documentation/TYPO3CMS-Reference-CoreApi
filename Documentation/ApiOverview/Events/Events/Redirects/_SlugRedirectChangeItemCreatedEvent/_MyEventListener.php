@@ -5,10 +5,15 @@ declare(strict_types=1);
 namespace MyVendor\MyExtension\Redirects\EventListener;
 
 use MyVendor\MyExtension\Redirects\CustomSource;
+use TYPO3\CMS\Core\Attribute\AsEventListener;
 use TYPO3\CMS\Redirects\Event\SlugRedirectChangeItemCreatedEvent;
 use TYPO3\CMS\Redirects\RedirectUpdate\PlainSlugReplacementRedirectSource;
 use TYPO3\CMS\Redirects\RedirectUpdate\RedirectSourceCollection;
 
+#[AsEventListener(
+    identifier: 'my-extension/redirects/add-redirect-source',
+    after: 'redirects-add-plain-slug-replacement-source'
+)]
 final class MyEventListener
 {
     public function __invoke(SlugRedirectChangeItemCreatedEvent $event): void

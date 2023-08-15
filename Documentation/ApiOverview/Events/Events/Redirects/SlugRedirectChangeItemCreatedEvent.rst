@@ -45,34 +45,20 @@ a specific page type. This avoids the need for extension authors to implement a
 custom source type for the same task, and instead providing a custom event
 listener to build sources for non-zero page types.
 
-Registration of the event listener in the extension's :file:`Services.yaml`:
-
-..  literalinclude:: _SlugRedirectChangeItemCreatedEvent/_PageTypeSource/_Services.yaml
-    :language: yaml
-    :caption: EXT:my_extension/Configuration/Services.yaml
-
-Read :ref:`how to configure dependency injection in extensions <dependency-injection-in-extensions>`.
-
-The corresponding event listener class:
-
 ..  literalinclude:: _SlugRedirectChangeItemCreatedEvent/_PageTypeSource/_MyEventListener.php
     :language: php
     :caption: EXT:my_extension/Classes/Redirects/EventListener/MyEventListener.php
 
+..  include:: /_includes/EventsAttributeAdded.rst.txt
+
 With a custom source implementation
 -----------------------------------
-
-Registration of the event listener in the extension's :file:`Services.yaml`:
-
-..  literalinclude:: _SlugRedirectChangeItemCreatedEvent/_Services.yaml
-    :language: yaml
-    :caption: EXT:my_extension/Configuration/Services.yaml
-
-The corresponding event listener class:
 
 ..  literalinclude:: _SlugRedirectChangeItemCreatedEvent/_MyEventListener.php
     :language: php
     :caption: EXT:my_extension/Classes/Redirects/EventListener/MyEventListener.php
+
+..  include:: /_includes/EventsAttributeAdded.rst.txt
 
 Example of a :php:`CustomSource` implementation:
 
@@ -112,17 +98,11 @@ This behaviour can be modified by adding an event listener for
 Remove plain slug source, if page type 0 differs
 ------------------------------------------------
 
-Registration of the event in your extension's :file:`Services.yaml`:
-
-..  literalinclude:: _SlugRedirectChangeItemCreatedEvent/_AddPageTypeZeroSource/_Services.yaml
-    :language: yaml
-    :caption: EXT:my_extension/Configuration/Services.yaml
-
-The corresponding event listener class:
-
-..  literalinclude:: _SlugRedirectChangeItemCreatedEvent/_AddPageTypeZeroSource/_Services.yaml
+..  literalinclude:: _SlugRedirectChangeItemCreatedEvent/_AddPageTypeZeroSource/_MyEventListener.php
     :language: php
     :caption: EXT:my_extension/Classes/Backend/MyEventListener.php
+
+..  include:: /_includes/EventsAttributeAdded.rst.txt
 
 API
 ===

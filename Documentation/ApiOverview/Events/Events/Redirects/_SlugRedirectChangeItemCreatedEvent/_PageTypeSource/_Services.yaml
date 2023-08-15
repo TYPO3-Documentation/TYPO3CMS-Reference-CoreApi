@@ -1,8 +1,0 @@
-services:
-  # Place here the default dependency injection configuration
-
-  MyVendor\MyExtension\Backend\MyEventListener:
-    tags:
-      - name: event.listener
-        identifier: 'my-extension/custom-page-type-redirect'
-        after: 'redirects-add-page-type-zero-source'

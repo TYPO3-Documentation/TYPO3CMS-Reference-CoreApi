@@ -4,12 +4,19 @@ declare(strict_types=1);
 
 namespace MyVendor\MyExtension\Backend;
 
+use TYPO3\CMS\Core\Attribute\AsEventListener;
 use TYPO3\CMS\Redirects\Event\SlugRedirectChangeItemCreatedEvent;
 use TYPO3\CMS\Redirects\RedirectUpdate\PageTypeSource;
 use TYPO3\CMS\Redirects\RedirectUpdate\PlainSlugReplacementRedirectSource;
 use TYPO3\CMS\Redirects\RedirectUpdate\RedirectSourceCollection;
 use TYPO3\CMS\Redirects\RedirectUpdate\RedirectSourceInterface;
 
+#[AsEventListener(
+    identifier: 'my-extension/custom-page-type-redirect',
+    // Registering after Core listener is important, otherwise we would
+    // not know if there is a PageType source for page type 0
+    after: 'redirects-add-page-type-zero-source'
+)]
 final class MyEventListener
 {
     public function __invoke(
