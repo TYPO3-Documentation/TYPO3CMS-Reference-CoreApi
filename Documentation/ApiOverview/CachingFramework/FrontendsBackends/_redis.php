@@ -8,7 +8,7 @@ $redisCaches = [
         'compression' => true,
     ],
     'pagesection' => [
-        'defaultLifetime' => 86400*7,
+        'defaultLifetime' => 86400 * 7,
     ],
     'hash' => [],
     'rootline' => [],
