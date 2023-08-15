@@ -187,11 +187,13 @@ Implementing an event listener in your extension
     extension development how-to section.
 
 ..  versionadded:: 13.0
-    A PHP attribute :php:`\TYPO3\CMS\Core\Attribute\AsEventListener` is
+    A `PHP attribute`_ :php:`\TYPO3\CMS\Core\Attribute\AsEventListener` is
     available to autoconfigure a class as an event listener. If the PHP
     attribute is used, the :ref:`configuration of the event listener
     <EventDispatcherRegistration>` via the :file:`Configuration/Services.yaml`
     file is not necessary anymore.
+
+..  _PHP attribute: https://www.php.net/manual/en/language.attributes.overview.php
 
 ..  index:: Event listener; Implementation
 ..  _EventDispatcherEventListenerClass:
@@ -206,8 +208,9 @@ mailer settings to not send any emails, could look like this:
     :language: php
     :caption: EXT:my_extension/Classes/EventListener/NullMailer.php
 
-An extension can define multiple listeners. The PHP attribute is repeatable,
-which allows to register the same class to listen for different events.
+An extension can define multiple listeners. The attribute can be used on class
+and method level. The PHP attribute is repeatable, which allows to register the
+same class to listen for different events.
 
 Once the emitter is triggering an event, this listener is called automatically.
 Be sure to inspect the event's PHP class to fully understand the capabilities
@@ -245,6 +248,14 @@ to listen for different events, for example:
 ..  literalinclude:: _NullMailerRepeatable.php
     :language: php
     :caption: EXT:my_extension/Classes/EventListener/NullMailer.php
+
+The PHP attribute can also be used on a method level. The above example can also
+be written as:
+
+..  literalinclude:: _NullMailerRepeatable2.php
+    :language: php
+    :caption: EXT:my_extension/Classes/EventListener/NullMailer.php
+
 
 ..  index::
     Event Listener; Registration
