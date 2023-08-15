@@ -4,8 +4,12 @@ declare(strict_types=1);
 
 namespace MyVendor\MyExtension\Info\EventListener;
 
+use TYPO3\CMS\Core\Attribute\AsEventListener;
 use TYPO3\CMS\Info\Controller\Event\ModifyInfoModuleContentEvent;
 
+#[AsEventListener(
+    identifier: 'my-extension/content-to-info-module'
+)]
 final class MyEventListener
 {
     public function __invoke(ModifyInfoModuleContentEvent $event): void

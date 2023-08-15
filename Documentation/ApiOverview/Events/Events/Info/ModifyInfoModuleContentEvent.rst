@@ -38,19 +38,11 @@ content.
 Example
 =======
 
-Registration of the event listener in the extension's :file:`Services.yaml`:
-
-..  literalinclude:: _ModifyInfoModuleContentEvent/_Services.yaml
-    :language: yaml
-    :caption: EXT:my_extension/Configuration/Services.yaml
-
-Read :ref:`how to configure dependency injection in extensions <dependency-injection-in-extensions>`.
-
-The corresponding event listener class:
-
 ..  literalinclude:: _ModifyInfoModuleContentEvent/_MyEventListener.php
     :language: php
     :caption: EXT:my_extension/Classes/Info/EventListener/MyEventListener.php
+
+..  include:: /_includes/EventsAttributeAdded.rst.txt
 
 API
 ===
