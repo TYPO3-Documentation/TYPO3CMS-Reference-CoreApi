@@ -4,8 +4,12 @@ declare(strict_types=1);
 
 namespace MyVendor\MyExtension\Domain\Access;
 
+use TYPO3\CMS\Core\Attribute\AsEventListener;
 use TYPO3\CMS\Core\Domain\Access\RecordAccessGrantedEvent;
 
+#[AsEventListener(
+    identifier: 'my-extension/set-access-granted'
+)]
 final class MyEventListener
 {
     public function __invoke(RecordAccessGrantedEvent $event): void

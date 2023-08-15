@@ -27,20 +27,13 @@ A simple TypoScript example looks like this:
     someIdentifier = originalValue
     someIdentifier := myModifierFunction(myFunctionArgument)
 
-To implement :typoscript:`myModifierFunction`, an extension needs to register
-an event listener in an extension's :file:`Services.yaml`:
-
-..  literalinclude:: _EvaluateModifierFunctionEvent/_Services.yaml
-    :language: yaml
-    :caption: EXT:my_extension/Configuration/Services.yaml
-
-Read :ref:`how to configure dependency injection in extensions <dependency-injection-in-extensions>`.
-
 The corresponding event listener class could look like this:
 
 ..  literalinclude:: _EvaluateModifierFunctionEvent/_MyEventListener.php
     :language: php
     :caption: EXT:my_extension/Classes/TypoScript/EventListener/MyEventListener.php
+
+..  include:: /_includes/EventsAttributeAdded.rst.txt
 
 API
 ===

@@ -19,19 +19,11 @@ The event can be used to generate the request token individually. This can be
 the case when you are not using a login callback and have not the possibility
 to submit a request token:
 
-Registration of the event listener in the extension's :file:`Services.yaml`:
-
-..  literalinclude:: _BeforeRequestTokenProcessedEvent/_Services.yaml
-    :language: yaml
-    :caption: EXT:my_extension/Configuration/Services.yaml
-
-Read :ref:`how to configure dependency injection in extensions <dependency-injection-in-extensions>`.
-
-An implementation of the event listener:
-
 ..  literalinclude:: _BeforeRequestTokenProcessedEvent/_MyEventListener.php
     :language: php
     :caption: EXT:my_extension/Authentication/EventListener/MyEventListener.php
+
+..  include:: /_includes/EventsAttributeAdded.rst.txt
 
 API
 ===

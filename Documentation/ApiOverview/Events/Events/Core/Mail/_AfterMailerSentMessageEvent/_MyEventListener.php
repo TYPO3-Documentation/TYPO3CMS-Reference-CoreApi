@@ -5,9 +5,13 @@ declare(strict_types=1);
 namespace MyVendor\MyExtension\Mail\EventListener;
 
 use Psr\Log\LoggerInterface;
+use TYPO3\CMS\Core\Attribute\AsEventListener;
 use TYPO3\CMS\Core\Mail\Event\AfterMailerSentMessageEvent;
 use TYPO3\CMS\Core\Mail\Mailer;
 
+#[AsEventListener(
+    identifier: 'my-extension/process-sent-message'
+)]
 final class MyEventListener
 {
     public function __construct(

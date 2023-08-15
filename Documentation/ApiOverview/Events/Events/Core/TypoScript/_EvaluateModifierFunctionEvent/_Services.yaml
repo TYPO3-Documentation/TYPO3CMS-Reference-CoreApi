@@ -1,7 +1,0 @@
-services:
-  # Place here the default dependency injection configuration
-
-  MyVendor\MyExtension\TypoScript\EventListener\MyEventListener:
-    tags:
-      - name: event.listener
-        identifier: 'my-extension/evaluate-modifier-function'

@@ -2,8 +2,12 @@
 
 namespace MyVendor\MyExtension\Package\EventListener;
 
+use TYPO3\CMS\Core\Attribute\AsEventListener;
 use TYPO3\CMS\Core\Package\Event\AfterPackageActivationEvent;
 
+#[AsEventListener(
+    identifier: 'my-extension/extension-activated'
+)]
 final class MyEventListener
 {
     public function __invoke(AfterPackageActivationEvent $event)

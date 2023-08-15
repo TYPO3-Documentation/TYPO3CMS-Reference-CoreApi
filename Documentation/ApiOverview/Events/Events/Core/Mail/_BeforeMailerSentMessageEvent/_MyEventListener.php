@@ -6,8 +6,12 @@ namespace MyVendor\MyExtension\Mail\EventListener;
 
 use Symfony\Component\Mime\Address;
 use Symfony\Component\Mime\Email;
+use TYPO3\CMS\Core\Attribute\AsEventListener;
 use TYPO3\CMS\Core\Mail\Event\BeforeMailerSentMessageEvent;
 
+#[AsEventListener(
+    identifier: 'my-extension/modify-message'
+)]
 final class MyEventListener
 {
     public function __invoke(BeforeMailerSentMessageEvent $event): void
