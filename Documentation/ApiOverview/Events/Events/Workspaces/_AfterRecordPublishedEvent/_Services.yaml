@@ -1,7 +1,0 @@
-services:
-  # Place here the default dependency injection configuration
-
-  MyVendor\MyExtension\Workspaces\EventListener\MyEventListener:
-    tags:
-      - name: event.listener
-        identifier: 'my-extension/after-record-published'
