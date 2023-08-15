@@ -28,6 +28,8 @@ extension development how-to section.
     Additional background information on the implementation can be found at
     https://usetypo3.com/psr-14-events.html
 
+..  contents:: **Table of Contents**
+    :local:
 
 ..  _EventDispatcherQuickStart:
 
@@ -236,6 +238,13 @@ following properties:
 :php:`method` (optional)
     The method to be called. If this property is not given, the listener class
     is treated as invokable, thus its :php:`__invoke()` method is called.
+
+The PHP attribute is repeatable, which allows to register the same class
+to listen for different events, for example:
+
+..  literalinclude:: _NullMailerRepeatable.php
+    :language: php
+    :caption: EXT:my_extension/Classes/EventListener/NullMailer.php
 
 ..  index::
     Event Listener; Registration
