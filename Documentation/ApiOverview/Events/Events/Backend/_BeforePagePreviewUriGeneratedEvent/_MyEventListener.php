@@ -5,7 +5,11 @@ declare(strict_types=1);
 namespace MyVendor\MyExtension\Backend\EventListener;
 
 use TYPO3\CMS\Backend\Routing\Event\BeforePagePreviewUriGeneratedEvent;
+use TYPO3\CMS\Core\Attribute\AsEventListener;
 
+#[AsEventListener(
+    identifier: 'my-extension/backend/modify-parameters'
+)]
 final class MyEventListener
 {
     public function __invoke(BeforePagePreviewUriGeneratedEvent $event): void

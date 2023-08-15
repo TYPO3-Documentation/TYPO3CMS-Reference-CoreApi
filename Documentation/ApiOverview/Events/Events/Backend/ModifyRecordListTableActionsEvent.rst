@@ -25,22 +25,14 @@ allows to modify the multi record selection actions (for example
 
 ..  _ModifyRecordListTableActionsEvent-usage:
 
-Usage
-=====
-
-An example registration of the events in your extension's :file:`Services.yaml`:
-
-..  literalinclude:: _ModifyRecordListTableActionsEvent/_Services.yaml
-    :language: yaml
-    :caption: EXT:my_extension/Configuration/Services.yaml
-
-Read :ref:`how to configure dependency injection in extensions <dependency-injection-in-extensions>`.
-
-The corresponding event listener class:
+Example
+=======
 
 ..  literalinclude:: _ModifyRecordListTableActionsEvent/_MyEventListener.php
     :language: php
     :caption: EXT:my_extension/Classes/Backend/EventListener/MyEventListener.php
+
+..  include:: /_includes/EventsAttributeAdded.rst.txt
 
 API
 ===

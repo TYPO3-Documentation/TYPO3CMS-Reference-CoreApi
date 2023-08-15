@@ -5,7 +5,11 @@ declare(strict_types=1);
 namespace MyVendor\MyExtension\Backend\EventListener;
 
 use TYPO3\CMS\Backend\Search\Event\ModifyQueryForLiveSearchEvent;
+use TYPO3\CMS\Core\Attribute\AsEventListener;
 
+#[AsEventListener(
+    identifier: 'my-extension/modify-query-for-live-search-event-listener'
+)]
 final class MyEventListener
 {
     public function __invoke(ModifyQueryForLiveSearchEvent $event): void

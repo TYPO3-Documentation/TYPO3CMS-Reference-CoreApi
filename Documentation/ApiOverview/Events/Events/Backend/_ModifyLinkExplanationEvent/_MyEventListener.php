@@ -5,9 +5,13 @@ declare(strict_types=1);
 namespace MyVendor\MyExtension\Backend\EventListener;
 
 use TYPO3\CMS\Backend\Form\Event\ModifyLinkExplanationEvent;
+use TYPO3\CMS\Core\Attribute\AsEventListener;
 use TYPO3\CMS\Core\Imaging\Icon;
 use TYPO3\CMS\Core\Imaging\IconFactory;
 
+#[AsEventListener(
+    identifier: 'my-extension/backend/modify-link-explanation'
+)]
 final class MyEventListener
 {
     public function __construct(
