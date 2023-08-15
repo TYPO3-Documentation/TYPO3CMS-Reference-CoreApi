@@ -31,19 +31,11 @@ assigning new values to `FluidEmail`.
 Example
 =======
 
-Registration of the event listener in the extension's :file:`Services.yaml`:
-
-..  literalinclude:: _ModifyValidatorTaskEmailEvent/_Services.yaml
-    :language: yaml
-    :caption: EXT:my_extension/Configuration/Services.yaml
-
-Read :ref:`how to configure dependency injection in extensions <dependency-injection-in-extensions>`.
-
-An implementation of the event listener:
-
 ..  literalinclude:: _ModifyValidatorTaskEmailEvent/_MyEventListener.php
     :language: php
     :caption: EXT:my_extension/Classes/Linkvalidator/EventListener/MyEventListener.php
+
+..  include:: /_includes/EventsAttributeAdded.rst.txt
 
 The :php:`\TYPO3\CMS\Linkvalidator\Result\LinkAnalyzerResult` contains the
 following information by default:

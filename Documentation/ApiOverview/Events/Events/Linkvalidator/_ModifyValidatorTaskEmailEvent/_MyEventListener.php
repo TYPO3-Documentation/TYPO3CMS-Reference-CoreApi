@@ -5,8 +5,12 @@ declare(strict_types=1);
 namespace MyVendor\MyExtension\Linkvalidator\EventListener;
 
 use Symfony\Component\Mime\Address;
+use TYPO3\CMS\Core\Attribute\AsEventListener;
 use TYPO3\CMS\Linkvalidator\Event\ModifyValidatorTaskEmailEvent;
 
+#[AsEventListener(
+    identifier: 'my-extension/modify-validation-task-email'
+)]
 final class MyEventListener
 {
     public function __invoke(ModifyValidatorTaskEmailEvent $event): void
