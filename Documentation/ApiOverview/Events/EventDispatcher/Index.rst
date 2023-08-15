@@ -217,28 +217,29 @@ Be sure to inspect the event's PHP class to fully understand the capabilities
 provided by an event.
 
 The PHP attribute :php:`\TYPO3\CMS\Core\Attribute\AsEventListener` supports the
-following properties:
+following properties (which are all optional):
 
 :php:`identifier`
     A unique identifier must be declared which identifies the event listener,
-    and orderings can be build upon the identifier.
+    and orderings can be build upon the identifier. It this property is not
+    explicitly defined, the service name is used instead.
 
-:php:`before` (optional)
+:php:`before`
     This property allows a custom sorting of registered listeners. The listener
     is then dispatched before the given listener. The value is the identifier of
     another event listeners.
 
-:php:`after` (optional)
+:php:`after`
     This property allows a custom sorting of registered listeners. The listener
     is then dispatched after the given listener. The value is the identifier of
     another event listeners.
 
-:php:`event` (optional)
+:php:`event`
     The fully-qualified class name (FQCN) of the event to be dispatched. This
     property can be omitted, if the FQCN is used as type declaration of the
     argument of the dispatched method.
 
-:php:`method` (optional)
+:php:`method`
     The method to be called. If this property is not given, the listener class
     is treated as invokable, thus its :php:`__invoke()` method is called.
 
