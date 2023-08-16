@@ -120,7 +120,7 @@ Registration of the event in your extension's :file:`Services.yaml`:
 
 The corresponding event listener class:
 
-..  literalinclude:: _SlugRedirectChangeItemCreatedEvent/_AddPageTypeZeroSource/_Services.yaml
+..  literalinclude:: _SlugRedirectChangeItemCreatedEvent/_AddPageTypeZeroSource/_MyEventListener.php
     :language: php
     :caption: EXT:my_extension/Classes/Backend/MyEventListener.php
 
