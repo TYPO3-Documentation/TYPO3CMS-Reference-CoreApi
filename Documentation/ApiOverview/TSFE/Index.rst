@@ -63,7 +63,8 @@ necessary, use the request attribute
     :ref:`getting-typo3-request-object`
 
 TSFE is not available in all contexts. In particular, it is
-only available in frontend contexts, not in the backend or CLI.
+only available in frontend contexts, not in the backend or the
+:ref:`command line <symfony-console-commands>`.
 
 Initializing :php:`$GLOBALS['TSFE']` in the backend is sometimes done in code
 examples found online. This is not recommended. TSFE is not initialized in the
@@ -74,7 +75,7 @@ From the PHP documentation:
     As of PHP 8.1.0, $GLOBALS is now a read-only copy of the global symbol table.
     That is, global variables cannot be modified via its copy.
 
-https://www.php.net/manual/en/reserved.variables.globals.php
+    -- https://www.php.net/manual/en/reserved.variables.globals.php
 
 Howtos
 ======
@@ -95,21 +96,20 @@ Access the :php:`\TYPO3\CMS\Frontend\ContentObject\ContentObjectRenderer`
     // !!! discouraged
     $cObj = $GLOBALS['TSFE']->cObj;
 
-Obtain TSFE from request attribute 'frontend.controller':
+Obtain TSFE from the request attribute
+:ref:`frontend.controller <typo3-request-attribute-frontend-controller>`:
 
 ..  code-block:: php
 
     $frontendController = $request->getAttribute('frontend.controller');
     $cObj = $frontendController->cObj;
 
-In the case of :ref:`user function <tsref:cobj-user-int>` (for example, a non-Extbase plugin) via setter injection:
+In the case of the :ref:`USER content object <t3tsref:cobj-user>` (for example,
+a non-Extbase plugin) use setter injection:
 
-..  code-block:: php
-
-    public function setContentObjectRenderer(ContentObjectRenderer $cObj): void
-    {
-        $this->cObj = $cObj;
-    }
+..  literalinclude:: _MyClass.php
+    :language: php
+    :caption: EXT:my_extension/Classes/UserFunctions/MyClass.php
 
 ..  _tsfe_pageId:
 
@@ -123,8 +123,8 @@ Access the current page ID:
     // !!! discouraged
     $pageId = $GLOBALS['TSFE']->id;
 
-Can be done using the :ref:`'routing' <typo3-request-attribute-routing>`
-request attribute:
+Can be done using the
+:ref:`routing request attribute <typo3-request-attribute-routing>`:
 
 ..  code-block:: php
 
@@ -138,7 +138,7 @@ Access language settings
 
 In order to get current language settings, such as the current language ID,
 obtain :php:`\TYPO3\CMS\Core\Site\Entity\SiteLanguage` object from the
-:ref:`request attribute <request-attributes>` 'language':
+:ref:`language request attribute <typo3-request-attribute-language>`:
 
 ..  code-block:: php
 
@@ -171,7 +171,8 @@ Access frontend user information
     // !!! discouraged
     $feUser = $GLOBALS['TSFE']->fe_user;
 
-Use the :ref:`frontend.user <typo3-request-attribute-frontend-user>`:
+Use the
+:ref:`frontend.user request attribute <typo3-request-attribute-frontend-user>`:
 
 ..  code-block:: php
 
@@ -206,6 +207,6 @@ of the current site.
 
     /** @var \TYPO3\CMS\Core\Site\Entity\Site $site */
     $site = $request->getAttribute('site');
-    // array
+    /** @var array $siteConfiguration */
     $siteConfiguration = $site->getConfiguration();
     $baseUrl = $siteConfiguration['base'];
