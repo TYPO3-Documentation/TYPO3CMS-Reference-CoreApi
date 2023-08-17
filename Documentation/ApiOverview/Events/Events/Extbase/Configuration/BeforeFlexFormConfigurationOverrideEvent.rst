@@ -18,19 +18,11 @@ based on the original FlexForm configuration and the framework configuration.
 Example
 =======
 
-Registration of the event listener in the extension's :file:`Services.yaml`:
-
-..  literalinclude:: _BeforeFlexFormConfigurationOverrideEvent/_Services.yaml
-    :language: yaml
-    :caption: EXT:my_extension/Configuration/Services.yaml
-
-Read :ref:`how to configure dependency injection in extensions <dependency-injection-in-extensions>`.
-
-The corresponding event listener class:
-
 ..  literalinclude:: _BeforeFlexFormConfigurationOverrideEvent/_MyEventListener.php
     :language: php
     :caption: EXT:my_extension/Classes/Extbase/EventListener/MyEventListener.php
+
+..  include:: /_includes/EventsAttributeAdded.rst.txt
 
 API
 ===

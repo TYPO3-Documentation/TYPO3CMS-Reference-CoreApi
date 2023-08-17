@@ -5,8 +5,12 @@ declare(strict_types=1);
 namespace MyVendor\MyExtension\Redirects\EventListener;
 
 use TYPO3\CMS\Backend\Utility\BackendUtility;
+use TYPO3\CMS\Core\Attribute\AsEventListener;
 use TYPO3\CMS\Redirects\Event\BeforeRedirectMatchDomainEvent;
 
+#[AsEventListener(
+    identifier: 'my-extension/before-redirect-match-domain'
+)]
 final class MyEventListener
 {
     public function __invoke(BeforeRedirectMatchDomainEvent $event): void

@@ -4,8 +4,13 @@ declare(strict_types=1);
 
 namespace MyVendor\MyExtension\Redirects\EventListener;
 
+use TYPO3\CMS\Core\Attribute\AsEventListener;
 use TYPO3\CMS\Redirects\Event\RedirectWasHitEvent;
 
+#[AsEventListener(
+    identifier: 'my-extension/redirects/validate-hit-count',
+    before: 'redirects-increment-hit-count'
+)]
 final class MyEventListener
 {
     public function __invoke(RedirectWasHitEvent $event): void

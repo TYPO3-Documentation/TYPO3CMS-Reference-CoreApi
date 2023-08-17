@@ -40,19 +40,11 @@ The current context can be evaluated using the following methods:
 Example
 =======
 
-Registration of the event listener in the extension's :file:`Services.yaml`:
-
-..  literalinclude:: _ModifyLinkExplanationEvent/_Services.yaml
-    :language: yaml
-    :caption: EXT:my_extension/Configuration/Services.yaml
-
-Read :ref:`how to configure dependency injection in extensions <dependency-injection-in-extensions>`.
-
-The corresponding event listener class:
-
 ..  literalinclude:: _ModifyLinkExplanationEvent/_MyEventListener.php
     :language: php
     :caption: EXT:my_extension/Classes/Backend/EventListener/MyEventListener.php
+
+..  include:: /_includes/EventsAttributeAdded.rst.txt
 
 API
 ===

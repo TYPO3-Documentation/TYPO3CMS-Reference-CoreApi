@@ -4,9 +4,13 @@ declare(strict_types=1);
 
 namespace MyVendor\MyExtension\Frontend\EventListener;
 
+use TYPO3\CMS\Core\Attribute\AsEventListener;
 use TYPO3\CMS\Core\Core\Environment;
 use TYPO3\CMS\Frontend\Event\ModifyCacheLifetimeForPageEvent;
 
+#[AsEventListener(
+    identifier: 'my-extension/cache-timeout'
+)]
 final class MyEventListener
 {
     public function __invoke(ModifyCacheLifetimeForPageEvent $event): void

@@ -18,19 +18,11 @@ and allows extensions to modify the payload of the :php:`JsonResponse`.
 Example
 =======
 
-Registration of the event listener in the extension's :file:`Services.yaml`:
-
-..  literalinclude:: _AfterRecordSummaryForLocalizationEvent/_Services.yaml
-    :language: yaml
-    :caption: EXT:my_extension/Configuration/Services.yaml
-
-Read :ref:`how to configure dependency injection in extensions <dependency-injection-in-extensions>`.
-
-The corresponding event listener class:
-
 ..  literalinclude:: _AfterRecordSummaryForLocalizationEvent/_MyEventListener.php
     :language: php
     :caption: EXT:my_extension/Classes/Backend/EventListener/MyEventListener.php
+
+..  include:: /_includes/EventsAttributeAdded.rst.txt
 
 API
 ===

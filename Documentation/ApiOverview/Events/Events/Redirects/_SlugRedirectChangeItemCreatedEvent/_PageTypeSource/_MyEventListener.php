@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace MyVendor\MyExtension\Backend;
 
+use TYPO3\CMS\Core\Attribute\AsEventListener;
 use TYPO3\CMS\Core\Context\Context;
 use TYPO3\CMS\Core\Routing\InvalidRouteArgumentsException;
 use TYPO3\CMS\Core\Routing\RouterInterface;
@@ -16,9 +17,13 @@ use TYPO3\CMS\Redirects\RedirectUpdate\PageTypeSource;
 use TYPO3\CMS\Redirects\RedirectUpdate\RedirectSourceCollection;
 use TYPO3\CMS\Redirects\RedirectUpdate\RedirectSourceInterface;
 
+#[AsEventListener(
+    identifier: 'my-extension/custom-page-type-redirect',
+    after: 'redirects-add-page-type-zero-source'
+)]
 final class MyEventListener
 {
-    protected array $customPageTypes = [ 1234, 169999 ];
+    protected array $customPageTypes = [1234, 169999];
 
     public function __invoke(
         SlugRedirectChangeItemCreatedEvent $event
@@ -109,7 +114,7 @@ final class MyEventListener
                     'type' => $pageType,
                 ],
             );
-        } catch (\InvalidArgumentException | InvalidRouteArgumentsException $e) {
+        } catch (\InvalidArgumentException|InvalidRouteArgumentsException $e) {
             throw new UnableToLinkToPageException(
                 sprintf(
                     'The link to the page with ID "%d" and type "%d" could not be generated: %s',

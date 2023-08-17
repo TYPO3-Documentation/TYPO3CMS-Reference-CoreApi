@@ -21,19 +21,11 @@ content or reorder the content.
 Example
 =======
 
-Registration of the event listener in the extension's :file:`Services.yaml`:
-
-..  literalinclude:: _ModifyPageLayoutContentEvent/_Services.yaml
-    :language: yaml
-    :caption: EXT:my_extension/Configuration/Services.yaml
-
-Read :ref:`how to configure dependency injection in extensions <dependency-injection-in-extensions>`.
-
-The corresponding event listener class:
-
 ..  literalinclude:: _ModifyPageLayoutContentEvent/_MyEventListener.php
     :language: php
     :caption: EXT:my_extension/Classes/Backend/EventListener/MyEventListener.php
+
+..  include:: /_includes/EventsAttributeAdded.rst.txt
 
 API
 ===

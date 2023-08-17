@@ -6,10 +6,19 @@ namespace MyVendor\MyExtension\Backend\EventListener;
 
 use TYPO3\CMS\Backend\Form\Event\ModifyInlineElementControlsEvent;
 use TYPO3\CMS\Backend\Form\Event\ModifyInlineElementEnabledControlsEvent;
+use TYPO3\CMS\Core\Attribute\AsEventListener;
 use TYPO3\CMS\Core\Imaging\Icon;
 use TYPO3\CMS\Core\Imaging\IconFactory;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 
+#[AsEventListener(
+    identifier: 'my-extension/backend/modify-enabled-controls',
+    method: 'modifyEnabledControls'
+)]
+#[AsEventListener(
+    identifier: 'my-extension/backend/modify-controls',
+    method: 'modifyControls'
+)]
 final class MyEventListener
 {
     public function modifyEnabledControls(ModifyInlineElementEnabledControlsEvent $event): void

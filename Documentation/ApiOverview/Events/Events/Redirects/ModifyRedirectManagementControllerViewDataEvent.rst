@@ -27,19 +27,11 @@ displayed where it is needed and rendered the way it is wanted.
 Example
 =======
 
-Registration of the event listener in the extension's :file:`Services.yaml`:
-
-..  literalinclude:: _ModifyRedirectManagementControllerViewDataEvent/_Services.yaml
-    :language: yaml
-    :caption: EXT:my_extension/Configuration/Services.yaml
-
-Read :ref:`how to configure dependency injection in extensions <dependency-injection-in-extensions>`.
-
-The corresponding event listener class:
-
 ..  literalinclude:: _ModifyRedirectManagementControllerViewDataEvent/_MyEventListener.php
     :language: php
     :caption: EXT:my_extension/Classes/Redirects/EventListener/MyEventListener.php
+
+..  include:: /_includes/EventsAttributeAdded.rst.txt
 
 API
 ===

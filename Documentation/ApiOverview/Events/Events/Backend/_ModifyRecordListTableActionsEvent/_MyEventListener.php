@@ -8,7 +8,20 @@ use Psr\Log\LoggerInterface;
 use TYPO3\CMS\Backend\RecordList\Event\ModifyRecordListHeaderColumnsEvent;
 use TYPO3\CMS\Backend\RecordList\Event\ModifyRecordListRecordActionsEvent;
 use TYPO3\CMS\Backend\RecordList\Event\ModifyRecordListTableActionsEvent;
+use TYPO3\CMS\Core\Attribute\AsEventListener;
 
+#[AsEventListener(
+    identifier: 'my-extension/recordlist/my-event-listener',
+    method: 'modifyRecordActions'
+)]
+#[AsEventListener(
+    identifier: 'my-extension/recordlist/my-event-listener',
+    method: 'modifyHeaderColumns'
+)]
+#[AsEventListener(
+    identifier: 'my-extension/recordlist/my-event-listener',
+    method: 'modifyTableActions'
+)]
 final class MyEventListener
 {
     private LoggerInterface $logger;

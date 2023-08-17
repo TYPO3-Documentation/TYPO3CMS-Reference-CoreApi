@@ -21,19 +21,11 @@ The page to be linked to can also be modified to link to a different page.
 Example
 =======
 
-Registration of the event listener in the extension's :file:`Services.yaml`:
-
-..  literalinclude:: _ModifyPageLinkConfigurationEvent/_Services.yaml
-    :language: yaml
-    :caption: EXT:my_extension/Configuration/Services.yaml
-
-Read :ref:`how to configure dependency injection in extensions <dependency-injection-in-extensions>`.
-
-The corresponding event listener class:
-
 ..  literalinclude:: _ModifyPageLinkConfigurationEvent/_MyEventListener.php
     :language: php
     :caption: EXT:my_extension/Classes/Frontend/EventListener/MyEventListener.php
+
+..  include:: /_includes/EventsAttributeAdded.rst.txt
 
 API
 ===

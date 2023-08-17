@@ -17,20 +17,14 @@ frontend call should be stored in the "pages" cache.
 Example
 =======
 
-Register the listener:
-
-..  literalinclude:: _ModifyCacheLifetimeForPageEvent/_Services.yaml
-    :language: yaml
-    :caption: EXT:my_extension/Configuration/Services.yaml
-
-Read :ref:`how to configure dependency injection in extensions <dependency-injection-in-extensions>`.
-
 The following listener limits the cache lifetime to 30 seconds in development
 context:
 
 ..  literalinclude:: _ModifyCacheLifetimeForPageEvent/_MyEventListener.php
     :language: php
     :caption: EXT:my_extension/Classes/Frontend/EventListener/MyEventListener.php
+
+..  include:: /_includes/EventsAttributeAdded.rst.txt
 
 API
 ===

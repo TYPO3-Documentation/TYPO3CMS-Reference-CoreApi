@@ -28,17 +28,11 @@ and v12 can implement both the hook and the event.
 Example
 =======
 
-..  literalinclude:: _AfterTemplatesHaveBeenDeterminedEvent/_Services.yaml
-    :language: yaml
-    :caption: EXT:my_extension/Configuration/Services.yaml
-
-Read :ref:`how to configure dependency injection in extensions <dependency-injection-in-extensions>`.
-
-The corresponding event listener class could look like this:
-
 ..  literalinclude:: _AfterTemplatesHaveBeenDeterminedEvent/_MyEventListener.php
     :language: php
     :caption: EXT:my_extension/Classes/TypoScript/EventListener/MyEventListener.php
+
+..  include:: /_includes/EventsAttributeAdded.rst.txt
 
 API
 ===

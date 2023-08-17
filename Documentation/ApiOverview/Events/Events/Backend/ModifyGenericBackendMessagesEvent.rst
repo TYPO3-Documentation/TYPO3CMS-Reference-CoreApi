@@ -23,19 +23,11 @@ use this event to display custom messages based on the system status:
 Example
 =======
 
-Registration of an event listener in your extension's :file:`Services.yaml`:
-
-..  literalinclude:: _ModifyGenericBackendMessagesEvent/_Services.yaml
-    :language: yaml
-    :caption: EXT:my_extension/Configuration/Services.yaml
-
-Read :ref:`how to configure dependency injection in extensions <dependency-injection-in-extensions>`.
-
-The corresponding event listener class:
-
 ..  literalinclude:: _ModifyGenericBackendMessagesEvent/_MyEventListener.php
     :language: php
     :caption: EXT:my_extension/Classes/Backend/EventListener/MyEventListener.php
+
+..  include:: /_includes/EventsAttributeAdded.rst.txt
 
 API
 ===
