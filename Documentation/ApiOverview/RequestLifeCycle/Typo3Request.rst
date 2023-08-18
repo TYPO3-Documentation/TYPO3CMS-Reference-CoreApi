@@ -197,6 +197,7 @@ The following attributes are available in **frontend** context:
     :titlesonly:
 
     RequestAttributes/ApplicationType
+    RequestAttributes/CurrentContentObject
     RequestAttributes/FrontendController
     RequestAttributes/FrontendTyposcript
     RequestAttributes/FrontendUser
