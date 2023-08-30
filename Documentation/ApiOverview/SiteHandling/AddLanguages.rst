@@ -154,13 +154,11 @@ Configuration properties
     :Example: :yaml:`en-GB`
 
     ..  versionchanged:: 12.4
-        This option is not relevant anymore for regular websites without
-        rendering hreflang tag, but is now customizable, and has a proper
-        fallback.
+        The information is now automatically derived from the 
+        :ref:`locale <sitehandling-addingLanguages-locale>` setting.
 
-    This property sets the hreflang tag for this language. It is empty by
-    default and will fallback to the
-    :ref:`locale <sitehandling-addingLanguages-locale>` setting.
+    Use this property to override the automatic hreflang tag value for this 
+    language.
 
     **Example setups:**
 
