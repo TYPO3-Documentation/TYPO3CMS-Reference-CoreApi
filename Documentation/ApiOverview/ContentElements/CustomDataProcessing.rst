@@ -69,22 +69,22 @@ like in the TypoScript example above.
 
 ..  note::
     When registering a data processor alias please be sure you don't override
-    an existing alias (form TYPO3 Core or a third-party extension) as this may
+    an existing alias (from TYPO3 Core or a third-party extension) as this may
     cause errors.
 
 ..  tip::
-    It is recommended to tag a custom data processors as this will
+    It is recommended to tag custom data processors as this will
     automatically add them to the internal :php:`DataProcessorRegistry`,
     enabling :ref:`dependency injection <DependencyInjection>` by default.
     Otherwise, the service would need to be set :ref:`public <What-to-make-public>`.
 
 ..  note::
 
-    It might be that your data processor should not be shared. In such a case
+    If your data processor should not be shared then
     you need to set the :yaml:`shared: false` tag attribute for the service.
 
 ..  index::
-    Custom data processor; Impementation
+    Custom data processor; Implementation
     Interface; DataProcessorInterface
 ..  _content-elements-custom-data-processor_implementation:
 
@@ -99,19 +99,19 @@ The main method :php:`process()` gets called with the following parameters:
     data of the calling content element.
 
 :php:`array $contentObjectConfiguration`
-    Contains the configuration of the calling content element. In this example
-    all configuration of :typoscript:`tt_content.examples_dataproccustom`
+    Contains the configuration of the calling content element. In this example it is
+    the configuration :typoscript:`tt_content.examples_dataproccustom`
 
 :php:`array $processorConfiguration`
     Contains the configuration of the currently called data processor. In this
-    case the value of :typoscript:`as` and the :typoscript:`stdWrap`
+    example it is the value of :typoscript:`as` and the :typoscript:`stdWrap`
     configuration of the :typoscript:`categoryList`
 
 
 :php:`array $processedData`
     On calling, contains the processed data of all previously called data
-    processors on this content element. Your custom data processor also stores
-    the variables to be send to Fluid here.
+    processors on this same content element. Your custom data processor also stores
+    the variables to be sent to the Fluid template here.
 
 This is an example implementation of a custom data processor:
 
@@ -124,7 +124,7 @@ On being called, the :php:`CustomCategoryProcessor` runs :typoscript:`stdWrap`
 on the calling ContentObjectRenderer, which has the data of the table
 :sql:`tt_content` in the calling content element.
 
-Since the field :php:`categoryList` got configured in TypoScript as follows:
+The field :php:`categoryList` gets configured in TypoScript as follows:
 
 ..  code-block:: typoscript
 
@@ -139,9 +139,9 @@ of integers that represent uids of the table :sql:`sys_category`. It then
 fetches the category data from the :php:`CategoryRepository` by calling
 :php:`findByUid`.
 
-The data of the category records then gets stored in the desired key in the
+The data of the category records then get stored in the desired key in the
 :php:`$processedData` array.
 
 To make the data processor more configurable, we test for a TypoScript
-:ref:`if <t3tsref:if>` condition at the beginning, and make the name of the key
+:ref:`if <t3tsref:if>` condition at the beginning, and name the key
 we use to store the data configurable by the configuration :typoscript:`as`.
