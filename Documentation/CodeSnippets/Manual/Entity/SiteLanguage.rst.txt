@@ -5,7 +5,6 @@
 
    Entity representing a site_language configuration of a site object.
 
-
    .. php:method:: toArray()
 
       Returns the SiteLanguage in an array representation for e.g. the usage
@@ -51,27 +50,11 @@
 
       :returntype: string
 
-   .. php:method:: getTwoLetterIsoCode()
+   .. php:method:: getHreflang(bool $fetchCustomSetting = false)
 
-      **Deprecated:** not needed anymore, use $this->getLocale()->getLanguageCode() instead.
+      Returns the RFC 1766 / 3066 language tag for hreflang tags
 
-      Returns the ISO-639-1 language ISO code
-
-      :returntype: string
-
-   .. php:method:: getHreflang(bool $isInternalCall = false)
-
-      Returns the RFC 1766 / 3066 language tag
-
-      :param bool $isInternalCall: the isInternalCall, default: false
-      :returntype: string
-
-   .. php:method:: getDirection()
-
-      **Deprecated:** in favor of $this->locale->isRightToLeftLanguageDirection()
-
-      Returns the language direction
-
+      :param bool $fetchCustomSetting: the fetchCustomSetting, default: false
       :returntype: string
 
    .. php:method:: enabled()
