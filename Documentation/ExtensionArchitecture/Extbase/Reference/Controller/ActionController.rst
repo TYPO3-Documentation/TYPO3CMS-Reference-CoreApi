@@ -120,13 +120,15 @@ displayed by the :php:`indexAction` of the :php:`BlogController`.
 
 .. include:: /CodeSnippets/Extbase/Controllers/ForwardAction.rst.txt
 
-You need to ensure that every target controller is listed as a valid
-target in the extension's `ext_localconf.php` file in the relevant
-:php:`ExtensionUtility::configurePlugin()` section. Otherwise, the object
-class name of your target controller cannot be resolved properly,
-and container instantiation would fail.
+Forwards only work when the target controller and action is properly registered
+as an allowed pair. This can be done via an extension's `ext_localconf.php` file
+in the relevant :php:`ExtensionUtility::configurePlugin()` section, or by
+filling the :php:`$GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['extbase']['extensions']`
+array and :typoscript:`tt_content.list.20.(pluginSignature)` TypoScript.
+Otherwise, the object class name of your target controller cannot be resolved properly,
+and container instantiation will fail.
 
-The corresponding example would be:
+The corresponding example is:
 
 .. include:: /CodeSnippets/FrontendPlugins/ConfigurePlugin.rst.txt
 
@@ -136,8 +138,15 @@ Here, the plugin `BlogExample` would allow jumping between the controllers
 like this:
 
 .. code-block:: php
+   :caption: EXT:blog_example/ext_localconf.php
+
    <?php
    // ...
+   use FriendsOfTYPO3\BlogExample\Controller\CommentController;
+   use FriendsOfTYPO3\BlogExample\Controller\PostController;
+   use FriendsOfTYPO3\BlogExample\Controller\CommentController;
+   use TYPO3\CMS\Extbase\Utility\ExtensionUtility;
+
    ExtensionUtility::configurePlugin(
       'BlogExample',
       'PostSingle',
