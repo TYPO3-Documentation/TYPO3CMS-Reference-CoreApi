@@ -120,6 +120,36 @@ displayed by the :php:`indexAction` of the :php:`BlogController`.
 
 .. include:: /CodeSnippets/Extbase/Controllers/ForwardAction.rst.txt
 
+You need to ensure that every target controller is listed as a valid
+target in the extension's `ext_localconf.php` file in the relevant
+:php:`ExtensionUtility::configurePlugin()` section. Otherwise, the object
+class name of your target controller cannot be resolved properly,
+and container instantiation would fail.
+
+The corresponding example would be:
+
+.. include:: /CodeSnippets/FrontendPlugins/ConfigurePlugin.rst.txt
+
+Here, the plugin `BlogExample` would allow jumping between the controllers
+:php:`PostController` and :php:`CommentController`. To also allow
+:php:`BlogController` in the example above, it would need to get added
+like this:
+
+.. code-block:: php
+   <?php
+   // ...
+   ExtensionUtility::configurePlugin(
+      'BlogExample',
+      'PostSingle',
+      [
+         PostController::class => 'show',
+         CommentController::class => 'create',
+         BlogController::class => 'index'
+      ],
+      [CommentController::class => 'create']
+   );
+
+
 Events
 ======
 
