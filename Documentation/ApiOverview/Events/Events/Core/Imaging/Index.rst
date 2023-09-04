@@ -1,6 +1,6 @@
 ..  include:: /Includes.rst.txt
 ..  index:: pair: Events; Core Imaging
-..  _eventlist-core-page:
+..  _eventlist-core-imaging:
 
 
 =======
