@@ -18,18 +18,16 @@
    is actually a list of supported language keys, (see Locales class), whereas "English"
    has the language key "default".
 
-   Further usages on setting up your own language service in the backend:
+   Further usages on setting up your own LanguageService in BE:
 
    ..  code-block:: php
 
        $languageService = GeneralUtility::makeInstance(LanguageServiceFactory::class)
            ->createFromUserPreferences($GLOBALS['BE_USER']);
 
-
    .. php:attr:: lang
 
       This is set to the language that is currently running for the user
-
 
    .. php:method:: sL(string $input)
 
@@ -40,7 +38,6 @@
       ..  code-block:: php
 
           'LLL:EXT:core/Resources/Private/Language/locallang_core.xlf:labels.depth_0'
-
 
       This looks up the given .xlf file path in the 'core' extension for label labels.depth_0
 
