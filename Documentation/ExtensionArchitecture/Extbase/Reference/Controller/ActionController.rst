@@ -121,7 +121,7 @@ displayed by the :php:`indexAction` of the :php:`BlogController`.
 .. include:: /CodeSnippets/Extbase/Controllers/ForwardAction.rst.txt
 
 Forwards only work when the target controller and action is properly registered
-as an allowed pair. This can be done via an extension's `ext_localconf.php` file
+as an allowed pair. This can be done via an extension's :file:`ext_localconf.php` file
 in the relevant :php:`ExtensionUtility::configurePlugin()` section, or by
 filling the :php:`$GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['extbase']['extensions']`
 array and :typoscript:`tt_content.list.20.(pluginSignature)` TypoScript.
