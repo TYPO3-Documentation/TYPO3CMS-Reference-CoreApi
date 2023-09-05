@@ -29,6 +29,11 @@ of a consumer command.
     *   `The Symfony Messenger Component`_
     *   `Sync & Queued Message Handling`_
 
+    More details and an example implementation are described in this blog post:
+
+    *   `Message Bus and Message Queue in TYPO3`_
+
+
 ..  contents:: Table of Contents
     :local:
 
@@ -247,6 +252,7 @@ order using TYPO3's :yaml:`before` and :yaml:`after` ordering mechanism:
 
 ..  _Custom middleware: https://symfony.com/doc/current/components/messenger.html#bus
 ..  _Doctrine DBAL messenger transport: https://github.com/symfony/doctrine-messenger
+..  _Message Bus and Message Queue in TYPO3: https://usetypo3.com/messages-in-typo3.html
 ..  _Sync & Queued Message Handling: https://symfony.com/doc/current/messenger.html
 ..  _symfony/messenger: https://symfony.com/doc/current/components/messenger.html
 ..  _systemd: https://en.wikipedia.org/wiki/Systemd
