@@ -578,13 +578,10 @@ installToolPassword
 checkStoredRecords
 ==================
 
-.. confval:: $GLOBALS['TYPO3_CONF_VARS']['BE']['checkStoredRecords']
-
-   :type: bool
-   :Default: true
-
-   If set, values of the record are validated after saving in DataHandler.
-   Disable only if using a database in strict mode.
+..  versionchanged:: 13.0
+    This setting is obsolete. Instances setting this option in
+    :file:`settings.php` are updated silently by the install tool during the
+    upgrade process to TYPO3 v13.
 
 .. index::
    TYPO3_CONF_VARS BE; checkStoredRecordsLoose
@@ -593,14 +590,10 @@ checkStoredRecords
 checkStoredRecordsLoose
 =======================
 
-.. confval:: $GLOBALS['TYPO3_CONF_VARS']['BE']['checkStoredRecordsLoose']
-
-   :type: bool
-   :Default: true
-
-   If set, make a loose comparison ( equals 0) when validating record
-   values after saving in DataHandler.
-
+..  versionchanged:: 13.0
+    This setting is obsolete. Instances setting this option in
+    :file:`settings.php` are updated silently by the install tool during the
+    upgrade process to TYPO3 v13.
 
 
 .. index::
