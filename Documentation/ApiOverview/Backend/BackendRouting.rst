@@ -138,6 +138,8 @@ Example within a controller (we use here a non-Extbase controller):
     :language: php
     :caption: EXT:my_extension/Classes/Controller/MyRouteController.php
 
+..  versionadded:: 13.0
+    The :php:`UriBuilder->buildUriFromRequest()` method has been introduced.
 
 More information
 ================
