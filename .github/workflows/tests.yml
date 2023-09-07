@@ -7,16 +7,12 @@ on:
 jobs:
   testsuite:
     name: all tests
-    runs-on: ubuntu-22.04
-    strategy:
-      # This prevents cancellation of matrix job runs, if one or more already failed
-      # and let the remaining matrix jobs be executed anyway.
-      fail-fast: false
+    runs-on: ubuntu-latest
     env:
       php: '8.1'
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Install testing system
         run: Build/Scripts/runTests.sh -p ${{ env.php }} -s composerUpdate
