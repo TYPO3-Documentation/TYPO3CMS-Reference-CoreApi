@@ -248,7 +248,7 @@ Extbase:
 
    # rule for Extbase
    tx_<extension-prefix>_domain_model_<model-name-1>_<model-name-2>_mm
-   # example: EXT:news with relation between news and tag
+   # example: EXT:blog with relation between post and comment
    tx_blogexample_domain_model_post_comment_mm
 
 Non-Extbase tables usually use a similar rule, without the "domain_model" part:
