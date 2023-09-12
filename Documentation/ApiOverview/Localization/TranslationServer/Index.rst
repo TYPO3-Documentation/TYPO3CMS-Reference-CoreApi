@@ -12,5 +12,4 @@ A translation server holds all translations which can be fetched by multiple TYP
    :titlesonly:
 
    Crowdin
-   Pootle
    Custom
