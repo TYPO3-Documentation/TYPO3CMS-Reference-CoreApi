@@ -30,8 +30,10 @@ Crowdin is a localization management platform and offers the Core features essen
 Crowdin initiative
 ==================
 
-A TYPO3 initiative has been created which takes care of integrating Crowdin into TYPO3.
-The initiative’s scope is to fulfill all features which have been available with Pootle and its integration.
+A TYPO3 initiative has been created which takes care of integrating Crowdin into
+TYPO3. The scope of the initiative is to fulfil all the features that were
+available with the previously used translation server powered by Pootle and its
+integration.
 
 .. seealso::
 
