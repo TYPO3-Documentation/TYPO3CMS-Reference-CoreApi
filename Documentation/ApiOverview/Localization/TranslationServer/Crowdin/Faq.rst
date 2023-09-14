@@ -23,7 +23,9 @@ General Questions
 
 Will the old translation server be disabled?
 --------------------------------------------
-The existing translation server will be turned off some time after Crowdin will have been announced stable.
+
+The old translation server under :samp:`https://translation.typo3.org/` has been
+turned off in July 2023.
 
 The existing and exported translations which are downloaded within the Install Tool will be available for longer time.
 
@@ -46,6 +48,27 @@ of the extension or the :ref:`crowdin-initiative`.
 .. seealso::
 
    The language needs to be supported by TYPO3 itself as well, see :ref:`i18n_languages` for a list of all languages.
+
+.. _crowdin-faq-language-xlf-format:
+
+How to convert to the new language xlf file format
+--------------------------------------------------
+If you have :ref:`downloaded an xlf file <migrate-from-pootle>` from the
+deactivated Pootle language server or an old version of an extension,
+then it does not have the correct format. You need to remove some attributes.
+And you need to add the "resname" attribute.
+For this you can use a linux tool or a sophisticated editor to copy the `id` attribute into the `resname` of
+the xlf file based on regular expressions.
+
+In most editors you can use regular expressions. For example in the KDE Kate editor:
+
+#. Open the xlf file into the editor.
+#. Press :kbd:`Ctrl` + :kbd:`R` to get into the replace mode
+#. Find:    `id="(.+)"`
+   Replace: `id="\1" resname="\1"`
+#. Mode:     Regular expression
+#. Click on button `Replace all`
+
 
 Questions about extension integration
 =====================================
@@ -73,11 +96,12 @@ You need to exlude those in your `.crowdin.yaml` configuration which can be foun
 More information can be found in the documentation on crowdin: https://support.crowdin.com/configuration-file/
 
 
-.. index:: Crowdin; Migration from Pootle
+..  index:: Crowdin; Migration from Pootle
+..  _migrate-from-pootle:
 
 How can I migrate translations from Pootle?
 -------------------------------------------
-If translations exist on Pootle there is no need to retranslate everything on Crowdin again - you can import those.
+If translations existed on Pootle, there is no need to retranslate everything on Crowdin again - you can import those.
 
 
 #. **Fetch translations**
