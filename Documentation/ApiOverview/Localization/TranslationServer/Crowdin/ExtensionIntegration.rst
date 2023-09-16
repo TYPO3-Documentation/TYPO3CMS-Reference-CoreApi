@@ -9,7 +9,7 @@ Extension integration
 This section describes how an extension author can get his extension set up at
 :ref:`Crowdin <xliff-translating-server-crowdin>`.
 
-..  important::
+..  note::
     *   Your extension must be on GitHub, GitLab
         (:abbr:`SaaS (Software as a service)` or self-managed) or BitBucket.
     *   Currently, TYPO3 can only handle one branch/version for languages.
