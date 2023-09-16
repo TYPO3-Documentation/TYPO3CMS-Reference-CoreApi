@@ -11,19 +11,24 @@ Localization with Crowdin
 What is Crowdin?
 ================
 
-`Crowdin`_ is a localization management platform and offers features essential
-for delivering great translation:
+`Crowdin`_ is a cloud-based localization management platform and offers features
+essential for delivering great translation:
 
-*   **Single source**: translate text once that is used in different versions
-    and parts of the software.
-*   **Machine translation**: let machines do the first pass and then
-    human-translators can edit the suggestions.
-*   **Glossary**: we can use our own TYPO3 glossary to make sure specific words
-    are properly translated (for example, "Template" in German, "TypoScript" or
-    "SEO").
-*   **Translation memory**: we can reuse existing translations, no matter if
-    done for the TYPO3 Core or an extension.
-*   **Crowdin** is a cloud-based content localization solution.
+Single source
+    Translate text once that is used in different versions and parts of the
+    software.
+
+Machine translation
+    Let machines do the first pass and then  human-translators can edit the
+    suggestions.
+
+Glossary
+    We can use our own TYPO3 glossary to make sure specific words are properly
+    translated (for example, "Template" in German, "TypoScript" or "SEO").
+
+Translation memory
+    We can reuse existing translations, no matter if done for the TYPO3 Core or
+    an extension.
 
 ..  _Crowdin: https://crowdin.com/
 
