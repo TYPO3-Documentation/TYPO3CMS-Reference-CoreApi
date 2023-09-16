@@ -23,7 +23,7 @@ Understanding the TYPO3 class loader
 
 The TYPO3 class loader is instantiated within the TYPO3 Bootstrap at
 a very early point. It does a lot of logic (checking :file:`ext_autoload.php`,
-:file:`ClassAliasMap.php), and caches this logic away on a per-class basis by
+:file:`ClassAliasMap.php`), and caches this logic away on a per-class basis by
 default in :file:`typo3temp/Cache/` to store all information for a class. This
 information contains: The full path to the class, the namespaced class
 name itself and possible class aliases.
