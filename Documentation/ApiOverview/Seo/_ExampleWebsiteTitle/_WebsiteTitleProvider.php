@@ -12,8 +12,7 @@ final class WebsiteTitleProvider implements PageTitleProviderInterface
 {
     public function __construct(
         private readonly SiteFinder $siteFinder
-    ) {
-    }
+    ) {}
 
     public function getTitle(): string
     {

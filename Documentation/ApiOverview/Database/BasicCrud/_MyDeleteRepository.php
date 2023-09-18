@@ -10,8 +10,7 @@ final class MyDeleteRepository
 {
     public function __construct(
         private readonly ConnectionPool $connectionPool
-    ) {
-    }
+    ) {}
 
     public function deleteSomeData()
     {

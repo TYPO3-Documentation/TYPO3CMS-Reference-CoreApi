@@ -10,8 +10,7 @@ final class MyInsertRepository
 {
     public function __construct(
         private readonly ConnectionPool $connectionPool
-    ) {
-    }
+    ) {}
 
     public function insertSomeData(): void
     {

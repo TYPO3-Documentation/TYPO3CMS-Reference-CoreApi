@@ -13,8 +13,7 @@ final class MyTableRepository
 
     public function __construct(
         private readonly ConnectionPool $connectionPool
-    ) {
-    }
+    ) {}
 
     public function bulkInsertSomething(
         int $pid1,

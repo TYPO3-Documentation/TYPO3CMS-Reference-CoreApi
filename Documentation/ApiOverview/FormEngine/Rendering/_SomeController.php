@@ -11,9 +11,7 @@ use TYPO3\CMS\Core\Page\PageRenderer;
 
 final class SomeController
 {
-    public function __construct(private readonly PageRenderer $pageRenderer)
-    {
-    }
+    public function __construct(private readonly PageRenderer $pageRenderer) {}
 
     public function mainAction(ServerRequestInterface $request): ResponseInterface
     {

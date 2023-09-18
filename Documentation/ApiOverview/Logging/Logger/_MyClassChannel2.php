@@ -12,6 +12,5 @@ class MyClass
     public function __construct(
         #[Channel('security')]
         private readonly LoggerInterface $logger,
-    ) {
-    }
+    ) {}
 }

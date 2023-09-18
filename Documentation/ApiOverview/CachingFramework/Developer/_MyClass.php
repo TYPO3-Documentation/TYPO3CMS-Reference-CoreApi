@@ -8,8 +8,7 @@ final class MyClass
 {
     public function __construct(
         private readonly FrontendInterface $cache
-    ) {
-    }
+    ) {}
 
     //...
 

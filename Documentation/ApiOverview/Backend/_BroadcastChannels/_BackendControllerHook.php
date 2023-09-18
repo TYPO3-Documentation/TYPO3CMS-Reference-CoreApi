@@ -10,8 +10,7 @@ final class BackendControllerHook
 {
     public function __construct(
         private readonly PageRenderer $pageRenderer
-    ) {
-    }
+    ) {}
 
     public function registerClientSideEventHandler(): void
     {

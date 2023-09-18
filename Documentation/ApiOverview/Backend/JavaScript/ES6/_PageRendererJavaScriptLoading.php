@@ -12,8 +12,7 @@ final class SomeClass
     public function __construct(
         // Inject the page renderer dependency
         private readonly PageRenderer $pageRenderer,
-    ) {
-    }
+    ) {}
 
     public function someFunction()
     {
