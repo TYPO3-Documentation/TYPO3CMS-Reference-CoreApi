@@ -12,8 +12,7 @@ final class MyEventListener
 {
     public function __construct(
         private readonly LoggerInterface $logger
-    ) {
-    }
+    ) {}
 
     public function __invoke(AfterMailerSentMessageEvent $event): void
     {

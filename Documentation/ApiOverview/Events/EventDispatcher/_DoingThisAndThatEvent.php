@@ -9,8 +9,7 @@ final class DoingThisAndThatEvent
     public function __construct(
         private string $mutableProperty,
         private readonly int $immutableProperty,
-    ) {
-    }
+    ) {}
 
     public function getMutableProperty(): string
     {

@@ -8,8 +8,7 @@ final class SomeController extends ActionController
 {
     public function __construct(
         private readonly MyOwnPageTitleProvider $titleProvider
-    ) {
-    }
+    ) {}
 
     public function someAction(): ResponseInterface
     {

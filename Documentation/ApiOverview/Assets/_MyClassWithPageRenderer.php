@@ -10,8 +10,7 @@ final class MyClass
 {
     public function __construct(
         private readonly PageRenderer $pageRenderer
-    ) {
-    }
+    ) {}
 
     public function doSomething()
     {

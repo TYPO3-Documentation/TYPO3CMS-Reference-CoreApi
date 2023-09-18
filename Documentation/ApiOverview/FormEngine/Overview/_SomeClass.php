@@ -16,8 +16,7 @@ final class SomeClass
         private readonly FormDataCompiler $formDataCompiler,
         private readonly NodeFactory $nodeFactory,
         private readonly FormResultCompiler $formResultCompiler,
-    ) {
-    }
+    ) {}
 
     /**
      * @throws \TYPO3\CMS\Backend\Form\Exception
