@@ -1,0 +1,7 @@
+services:
+  # Place here the default dependency injection configuration
+
+  MyVendor\MyExtension\EventListener\CustomMirror:
+    tags:
+      - name: event.listener
+        identifier: 'my-extension/custom-mirror'
