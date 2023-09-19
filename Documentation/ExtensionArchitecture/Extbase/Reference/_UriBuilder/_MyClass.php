@@ -14,8 +14,7 @@ final class MyClass
 {
     public function __construct(
         private readonly UriBuilder $uriBuilder
-    ) {
-    }
+    ) {}
 
     public function doSomething()
     {

@@ -10,8 +10,7 @@ final class MyTableRepository
 {
     public function __construct(
         private readonly Connection $connection
-    ) {
-    }
+    ) {}
 
     public function findSomething()
     {

@@ -10,6 +10,5 @@ final class UserController extends AbstractController
 {
     public function __construct(
         private readonly LoggerInterface $logger
-    ) {
-    }
+    ) {}
 }

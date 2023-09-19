@@ -12,8 +12,7 @@ final class MyTableRepository
 
     public function __construct(
         private readonly ConnectionPool $connectionPool
-    ) {
-    }
+    ) {}
 
     public function useQueryBuilder(
         array $someData

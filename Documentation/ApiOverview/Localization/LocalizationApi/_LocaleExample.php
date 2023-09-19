@@ -11,8 +11,7 @@ final class LocaleExample
 {
     public function __construct(
         private readonly LanguageServiceFactory $languageServiceFactory
-    ) {
-    }
+    ) {}
 
     public function doSomething()
     {

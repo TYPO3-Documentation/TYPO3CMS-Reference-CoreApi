@@ -12,8 +12,7 @@ final class MyRouteController
 {
     public function __construct(
         private readonly UriBuilder $uriBuilder
-    ) {
-    }
+    ) {}
 
     public function handle(ServerRequestInterface $request): ResponseInterface
     {
