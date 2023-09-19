@@ -11,9 +11,7 @@ final class ImportDataControl extends AbstractNode
 {
     private string $langFile = 'LLL:EXT:my_extension/Ressources/Private/Language/locallang_db.xlf';
 
-    public function __construct(private readonly Typo3Version $typo3Version)
-    {
-    }
+    public function __construct(private readonly Typo3Version $typo3Version) {}
 
     public function render(): array
     {

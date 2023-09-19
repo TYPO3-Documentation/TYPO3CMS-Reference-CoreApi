@@ -10,8 +10,7 @@ final class MyRepository
 {
     public function __construct(
         private readonly ConnectionPool $connectionPool
-    ) {
-    }
+    ) {}
 
     public function findSomething()
     {

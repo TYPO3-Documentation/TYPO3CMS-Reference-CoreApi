@@ -10,6 +10,5 @@ final class MyClass
 {
     public function __construct(
         private readonly CountryProvider $countryProvider
-    ) {
-    }
+    ) {}
 }

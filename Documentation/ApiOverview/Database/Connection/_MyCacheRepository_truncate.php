@@ -12,8 +12,7 @@ final class MyCacheRepository
 
     public function __construct(
         private readonly ConnectionPool $connectionPool
-    ) {
-    }
+    ) {}
 
     public function truncateSomething(
         int $uid

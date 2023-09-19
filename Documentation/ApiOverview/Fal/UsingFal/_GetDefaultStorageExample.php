@@ -8,8 +8,7 @@ class GetDefaultStorageExample
 {
     public function __construct(
         private readonly StorageRepository $storageRepository
-    ) {
-    }
+    ) {}
 
     public function doSomething(): void
     {
