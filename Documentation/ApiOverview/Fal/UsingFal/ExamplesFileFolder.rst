@@ -194,7 +194,6 @@ the "sys\_file\_reference" entry and the relation to the other item
    $newId = 'NEW1234';
    $data = [];
    $data['sys_file_reference'][$newId] = [
-           'table_local' => 'sys_file',
            'uid_local' => $fileObject->getUid(),
            'tablenames' => 'tt_content',
            'uid_foreign' => $contentElement['uid'],
