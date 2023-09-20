@@ -22,7 +22,6 @@
            private readonly LanguageServiceFactory $languageServiceFactory,
            private readonly ResponseFactoryInterface $responseFactory,
            private readonly StreamFactoryInterface $streamFactory
-       ) {
-       }
+       ) {}
    }
    
