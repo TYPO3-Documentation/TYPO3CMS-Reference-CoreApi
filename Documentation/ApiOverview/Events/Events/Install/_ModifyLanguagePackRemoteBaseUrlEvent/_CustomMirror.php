@@ -4,9 +4,13 @@ declare(strict_types=1);
 
 namespace MyVendor\MyExtension\EventListener;
 
+use TYPO3\CMS\Core\Attribute\AsEventListener;
 use TYPO3\CMS\Core\Http\Uri;
 use TYPO3\CMS\Install\Service\Event\ModifyLanguagePackRemoteBaseUrlEvent;
 
+#[AsEventListener(
+    identifier: 'my-extension/custom-mirror'
+)]
 final class CustomMirror
 {
     private const EXTENSION_KEY = 'my_extension';
