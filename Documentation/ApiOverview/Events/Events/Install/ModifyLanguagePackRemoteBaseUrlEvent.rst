@@ -17,19 +17,11 @@ allows to modify the main URL of a language pack.
 Example
 =======
 
-Registration of the event listener in the extension's :file:`Services.yaml`:
-
-..  literalinclude:: _ModifyLanguagePackRemoteBaseUrlEvent/_Services.yaml
-    :language: yaml
-    :caption: EXT:my_extension/Configuration/Services.yaml
-
-Read :ref:`how to configure dependency injection in extensions <dependency-injection-in-extensions>`.
-
-The corresponding event listener class:
-
 ..  literalinclude:: _ModifyLanguagePackRemoteBaseUrlEvent/_CustomMirror.php
     :language: php
     :caption: EXT:my_extension/Classes/EventListener/CustomMirror.php
+
+..  include:: /_includes/EventsAttributeAdded.rst.txt
 
 API
 ===
