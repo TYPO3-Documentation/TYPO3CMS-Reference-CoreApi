@@ -38,7 +38,7 @@ method :php:`create()`:
 .. code-block:: php
    :caption: EXT:some_extension/Classes/Controller/SomeController.php
 
-   use TYPO3\CMS\Core\Session\UserSessionManager
+   use TYPO3\CMS\Core\Session\UserSessionManager;
 
    $loginType = 'BE'; // or 'FE' for frontend
    $userSessionManager = UserSessionManager::create($loginType);
