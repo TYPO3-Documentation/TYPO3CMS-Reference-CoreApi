@@ -633,6 +633,10 @@ defaultUserTSconfig
 defaultPageTSconfig
 ===================
 
+..  deprecated:: 13.0
+    This setting will be ignored with TYPO3 v14.0.
+    Use :ref:`Configuration/page.tsconfig <extension-configuration-page_tsconfig>` instead.
+
 .. confval:: $GLOBALS['TYPO3_CONF_VARS']['BE']['defaultPageTSconfig']
 
    :type: text
