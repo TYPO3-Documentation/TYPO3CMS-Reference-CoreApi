@@ -40,38 +40,6 @@ thumbnails
    Enables the use of thumbnails in the backend interface.
 
 .. index::
-   TYPO3_CONF_VARS GFX; thumbnails_png
-.. _typo3ConfVars_gfx_thumbnails_png:
-
-thumbnails_png
-==============
-
-.. confval:: $GLOBALS['TYPO3_CONF_VARS']['GFX']['thumbnails_png']
-
-   :type: bool
-   :Default: true
-
-   If disabled, thumbnails from non-image files will be converted
-   to gif, otherwise png (default).
-
-.. index::
-   TYPO3_CONF_VARS GFX; gif_compress
-.. _typo3ConfVars_gfx_gif_compress:
-
-gif_compress
-============
-
-.. confval:: $GLOBALS['TYPO3_CONF_VARS']['GFX']['gif_compress']
-
-   :type: bool
-   :Default: true
-
-   Enables the use of the
-   :php:`\TYPO3\CMS\Core\Imaging\GraphicalFunctionsgifCompress()` workaround
-   function for compressing .gif files made with GD or IM, which probably use
-   only RLE or no compression at all.
-
-.. index::
    TYPO3_CONF_VARS GFX; imagefile_ext
 .. _typo3ConfVars_gfx_imagefile_ext:
 
@@ -309,3 +277,28 @@ jpg_quality
    :Default: 85
 
    Default JPEG generation quality
+
+..  index::
+    TYPO3_CONF_VARS GFX; thumbnails_png
+..  _typo3ConfVars_gfx_thumbnails_png:
+
+thumbnails_png
+==============
+
+..  confval:: $GLOBALS['TYPO3_CONF_VARS']['GFX']['thumbnails_png']
+
+    ..  versionchanged:: 13.0
+        This setting has been removed. Thumbnails from non-image files (like
+        PDF) are always generated as PNG.
+
+..  index::
+    TYPO3_CONF_VARS GFX; gif_compress
+..  _typo3ConfVars_gfx_gif_compress:
+
+gif_compress
+============
+
+..  confval:: $GLOBALS['TYPO3_CONF_VARS']['GFX']['gif_compress']
+
+    ..  versionchanged:: 13.0
+        This setting has been removed.
