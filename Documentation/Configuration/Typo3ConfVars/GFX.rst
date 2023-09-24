@@ -179,21 +179,6 @@ processor_allowFrameSelection
    frame selection.
 
 .. index::
-   TYPO3_CONF_VARS GFX; processor_allowTemporaryMasksAsPng
-.. _typo3ConfVars_gfx_processor_allowTemporaryMasksAsPng:
-
-processor_allowTemporaryMasksAsPng
-==================================
-
-.. confval:: $GLOBALS['TYPO3_CONF_VARS']['GFX']['processor_allowTemporaryMasksAsPng']
-
-   :type: bool
-   :Default: false
-
-   This should be set if your processor supports using PNGs as masks as this
-   is usually faster.
-
-.. index::
    TYPO3_CONF_VARS GFX;
 .. _typo3ConfVars_gfx_processor_stripColorProfileByDefault:
 
@@ -302,3 +287,16 @@ gif_compress
 
     ..  versionchanged:: 13.0
         This setting has been removed.
+
+..  index::
+    TYPO3_CONF_VARS GFX; processor_allowTemporaryMasksAsPng
+..  _typo3ConfVars_gfx_processor_allowTemporaryMasksAsPng:
+
+processor_allowTemporaryMasksAsPng
+==================================
+
+..  confval:: $GLOBALS['TYPO3_CONF_VARS']['GFX']['processor_allowTemporaryMasksAsPng']
+
+    ..  versionchanged:: 13.0
+        This setting has been removed. Temporarily saved masking images are
+        always saved as PNG files rather than GIF images.
