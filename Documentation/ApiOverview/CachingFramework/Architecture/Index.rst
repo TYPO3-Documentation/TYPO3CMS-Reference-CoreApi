@@ -208,13 +208,13 @@ The following caches exist in the TYPO3 Core:
     **groups**: lowlevel
 
     *   Cache for imagesizes.
-    *   It Should **only** be cleared manually, if you know what you are doing.
+    *   It should **only** be cleared manually, if you know what you are doing.
 
 `assets`
     **groups**: system
 
     *   Cache for assets.
-    *   Examples: Backend icons, RTE or JavaScript configuration.
+    *   Examples: backend icons, RTE or JavaScript configuration.
 
 `l10n`
     **groups**: system
@@ -224,7 +224,7 @@ The following caches exist in the TYPO3 Core:
 `fluid_template`
     **groups**: system
 
-    *   Cache for Fluid templates.
+    *   Cache for :ref:`Fluid` templates.
 
 `extbase`
     **group**: system
@@ -235,13 +235,16 @@ The following caches exist in the TYPO3 Core:
 `ratelimiter`
     **group**: system
 
-    *   Cache for the Symfony rate limiter component (for example, used for
-        backend login rate limiting).
+    *   Cache for the `Symfony rate limiter`_ component (for example, used for
+        :ref:`backend <typo3ConfVars_be_loginRateLimit>` or
+        :ref:`frontend <typo3ConfVars_fe_loginRateLimit>` login rate limiting).
+
+..  _Symfony rate limiter: https://symfony.com/doc/current/rate_limiter.html
 
 `typoscript`
     **group**: pages
 
-    *   Cache for TypoScript.
+    *   Cache for :ref:`TypoScript <t3tsref:start>`.
 
 `database_schema`
     .. versionadded:: 12.4.2
