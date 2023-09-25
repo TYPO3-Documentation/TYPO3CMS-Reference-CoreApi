@@ -242,10 +242,11 @@ endpoint.
 
 ..  _content-security-policy-events:
 
-PSR-14 event
-============
+PSR-14 events
+=============
 
-The following PSR-14 event is available:
+The following PSR-14 events are available:
 
+*   :ref:`InvestigateMutationsEvent`
 *   :ref:`PolicyMutatedEvent`
 
