@@ -37,6 +37,12 @@ An implementation of the event listener:
     :language: php
     :caption: EXT:my_extension/Authentication/EventListener/MyEventListener.php
 
+..  note::
+    With TYPO3 v13 the event is also dispatched when a successful frontend user
+    login is performed. Prepare your code and check, if the user is an instance
+    of :php:`\TYPO3\CMS\Core\Authentication\BackendUserAuthentication` (where
+    necessary) like in the example above.
+
 API
 ===
 
