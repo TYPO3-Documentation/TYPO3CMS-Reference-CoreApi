@@ -245,6 +245,12 @@ return [
     ],
     [
         'action' => 'createPhpClassDocs',
+        'class' => \TYPO3\CMS\Core\Security\ContentSecurityPolicy\Event\InvestigateMutationsEvent::class,
+        'targetFileName' => 'CodeSnippets/Events/Core/Security/InvestigateMutationsEvent.rst.txt',
+        'withCode' => false,
+    ],
+    [
+        'action' => 'createPhpClassDocs',
         'class' => \TYPO3\CMS\Core\Cache\Event\CacheFlushEvent::class,
         'targetFileName' => 'CodeSnippets/Events/Core/Cache/CacheFlushEvent.rst.txt',
         'withCode' => false,
