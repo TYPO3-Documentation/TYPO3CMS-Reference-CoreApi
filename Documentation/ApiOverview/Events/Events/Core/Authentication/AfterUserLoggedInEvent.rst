@@ -10,10 +10,14 @@ AfterUserLoggedInEvent
     The event replaces the deprecated hook
     :php:`$GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['t3lib/class.t3lib_userauthgroup.php']['backendUserLogin']`.
 
+..  versionadded:: 13.0
+    The event is also dispatched, when a successful frontend user login is
+    performed.
+
 The purpose of the PSR-14 event
 :php:`\TYPO3\CMS\Core\Authentication\Event\AfterUserLoggedInEvent`
-is to trigger any kind of action when a backend user has been successfully
-logged in.
+is to trigger any kind of action when a backend or frontend user has been
+successfully logged in.
 
 The TYPO3 Core itself uses this event in the TYPO3 backend to send an email to a
 user, if the user has successfully logged in. See
