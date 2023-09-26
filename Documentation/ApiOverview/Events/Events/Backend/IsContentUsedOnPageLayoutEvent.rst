@@ -18,13 +18,17 @@ to identify if content has been used in a column that is not in a backend layout
 Example
 =======
 
+Registration of the event in your extension's :file:`Services.yaml`:
+
+..  literalinclude:: _IsContentUsedOnPageLayoutEvent/_Services.yaml
+    :language: yaml
+    :caption: EXT:my_extension/Configuration/Services.yaml
+
+The corresponding event listener class:
+
 ..  literalinclude:: _IsContentUsedOnPageLayoutEvent/_ContentUsedOnPage.php
     :language: php
     :caption: EXT:my_extension/Classes/Listener/ContentUsedOnPage.php
-
-..  literalinclude:: _IsContentUsedOnPageLayoutEvent/_Services.yaml
-    :language: php
-    :caption: EXT:my_extension/Configuration/Services.yaml
 
 ..  include:: /_includes/EventsAttributeAdded.rst.txt
 
