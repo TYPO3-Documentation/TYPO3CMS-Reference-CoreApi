@@ -204,12 +204,6 @@ The following caches exist in the TYPO3 Core:
     *   A quick and simple cache dedicated for Core usage, it should **not** be
         re-used by extensions.
 
-`imagesizes`
-    **groups**: lowlevel
-
-    *   Cache for imagesizes.
-    *   It should **only** be cleared manually, if you know what you are doing.
-
 `assets`
     **groups**: system
 
