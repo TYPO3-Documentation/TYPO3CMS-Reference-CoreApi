@@ -14,10 +14,6 @@ final class ContentUsedOnPage
 {
     public function __invoke(IsContentUsedOnPageLayoutEvent $event): void
     {
-        if ($event->getUsed()) {
-            return true;
-        }
-
         if ($record['colPos'] === 999 && !empty($record['tx_myext_content_parent'])) {
             $event->setUsed(true);
         }
