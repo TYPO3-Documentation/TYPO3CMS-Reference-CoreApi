@@ -20,12 +20,12 @@ in every modern browser (e.g. Chrome, Safari, Firefox, Edge).
 Prepare a request
 =================
 
-To be able to send a request, the module :js:`TYPO3/CMS/Core/Ajax/AjaxRequest` must be imported. To prepare a request,
+To be able to send a request, the module :js:`@typo3/core/ajax/ajax-request.js` must be imported. To prepare a request,
 create a new instance of :js:`AjaxRequest` per request and pass the url as the constructor argument:
 
-.. code-block:: js
-
-   let request = new AjaxRequest('https://example.org/my-endpoint');
+..  literalinclude:: _Ajax/_MyRequest1.js
+    :language: js
+    :caption: EXT:my_extension/Resources/Private/JavaScript/MyRequest.js
 
 The API offers a method :js:`withQueryString()` which allows to attach a query string to the URL. This comes in handy if
 the query string is programmatically generated. The method returns a clone of the :js:`AjaxRequest` object. It's possible
@@ -33,17 +33,9 @@ to pass either strings, arrays or objects as an argument.
 
 Example:
 
-.. code-block:: js
-
-   const qs = {
-     foo: 'bar',
-     bar: {
-       baz: ['foo', 'bencer']
-     }
-   };
-   request = request.withQueryArguments(qs);
-
-   // The query string compiles to ?foo=bar&bar[baz][0]=foo&bar[baz][1]=bencer
+..  literalinclude:: _Ajax/_MyRequest2.js
+    :language: js
+    :caption: EXT:my_extension/Resources/Private/JavaScript/MyRequest.js
 
 The method detects whether the URL already contains a query string and appends the new query string in a proper format.
 
@@ -94,14 +86,10 @@ If the payload is a string, no conversion will happen, but it's still recommende
 
 Example:
 
-.. code-block:: js
+..  literalinclude:: _Ajax/_MyRequestPromise1.js
+    :language: js
+    :caption: EXT:my_extension/Resources/Private/JavaScript/MyRequest.js
 
-   const json = {foo: 'bar'};
-   let promise = request.post(json, {
-     headers: {
-       'Content-Type': 'application/json; charset=utf-8'
-     }
-   });
 
 .. index:: Ajax; Response
 
@@ -111,14 +99,11 @@ Handle the response
 In the examples above :js:`promise` is, as the name already spoils, a `Promise`_ object. To fetch the actual response,
 we'll make use of :js:`then()`:
 
-.. code-block:: js
+..  literalinclude:: _Ajax/_MyRequestPromise2.js
+    :language: js
+    :caption: EXT:my_extension/Resources/Private/JavaScript/MyRequest.js
 
-   promise.then(async function (response) {
-     const responseText = await response.resolve();
-     console.log(responseText);
-   });
-
-:js:`response` is an object of type :js:`AjaxResponse` shipped by TYPO3 (:js:`TYPO3/CMS/Core/Ajax/AjaxResponse`). The
+:js:`response` is an object of type :js:`AjaxResponse` shipped by TYPO3 (:js:`@typo3/core/ajax/ajax-response.js`). The
 object is a simple wrapper for the original `Response`_ object. :js:`AjaxResponse` exposes the following methods which
 eases the handling with responses:
 
@@ -126,14 +111,12 @@ eases the handling with responses:
 * :js:`raw()` - returns the original `Response`_ object
 
 Of course a request may fail for various reasons. In such case, a second function may be passed to :js:`then()`, which
-handles the exceptional case. The function may receive a :js:`ResponseError` object (:js:`TYPO3/CMS/Core/Ajax/ResponseError`)
-which contains the received response.
+handles the exceptional case. The function may receive a :js:`AjaxResponse` object
+which contains the original response object.
 
-.. code-block:: js
-
-   promise.then(async function (response) {}, function (error) {
-     console.error(`The request failed with ${error.response.status}: ${error.response.statusText}`);
-   });
+..  literalinclude:: _Ajax/_MyRequestPromise3.js
+    :language: js
+    :caption: EXT:my_extension/Resources/Private/JavaScript/MyRequest.js
 
 .. hint::
    The fetch API handles responses with faulty statuses like 404 or 500 still as "successful", but sets the response's
