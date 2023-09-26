@@ -18,7 +18,15 @@ to identify if content has been used in a column that is not in a backend layout
 Example
 =======
 
-..  include:: /_includes/EventsContributeNote.rst.txt
+..  literalinclude:: _IsContentUsedOnPageLayoutEvent/_ContentUsedOnPage.php
+    :language: php
+    :caption: EXT:my_extension/Classes/Listener/ContentUsedOnPage.php
+
+..  literalinclude:: _IsContentUsedOnPageLayoutEvent/_Services.yaml
+    :language: php
+    :caption: EXT:my_extension/Configuration/Services.yaml
+
+..  include:: /_includes/EventsAttributeAdded.rst.txt
 
 API
 ===
