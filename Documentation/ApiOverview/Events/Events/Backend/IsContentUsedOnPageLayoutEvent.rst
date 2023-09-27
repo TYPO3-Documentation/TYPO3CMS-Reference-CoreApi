@@ -32,8 +32,6 @@ The corresponding event listener class:
     :language: php
     :caption: EXT:my_extension/Classes/Listener/ContentUsedOnPage.php
 
-..  include:: /_includes/EventsAttributeAdded.rst.txt
-
 API
 ===
 
