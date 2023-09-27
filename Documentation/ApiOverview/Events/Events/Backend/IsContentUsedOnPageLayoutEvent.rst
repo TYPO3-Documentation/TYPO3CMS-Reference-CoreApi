@@ -18,7 +18,6 @@ to identify if content has been used in a column that is not in a backend layout
 Example
 =======
 
-The event listener class, configured using an :php:`AsEventListener` attribute:
 
 ..  literalinclude:: _IsContentUsedOnPageLayoutEvent/_ContentUsedOnPage.php
     :language: php
