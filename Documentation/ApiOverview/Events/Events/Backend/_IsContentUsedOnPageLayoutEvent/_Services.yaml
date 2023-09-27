@@ -1,7 +1,0 @@
-services:
-  # Place here the default dependency injection configuration
-
-  MyVendor\MyExtension\Listener\ContentUsedOnPage:
-    tags:
-      - name: event.listener
-        identifier: 'my-extension/view/content-used-on-page'
