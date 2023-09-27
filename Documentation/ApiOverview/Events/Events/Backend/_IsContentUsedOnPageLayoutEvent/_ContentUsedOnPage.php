@@ -5,7 +5,11 @@ declare(strict_types=1);
 namespace MyVendor\MyExtension\Listener;
 
 use TYPO3\CMS\Backend\View\Event\IsContentUsedOnPageLayoutEvent;
+use TYPO3\CMS\Core\Attribute\AsEventListener;
 
+#[AsEventListener(
+    identifier: 'my-extension/view/content-used-on-page'
+)]
 final class ContentUsedOnPage
 {
     public function __invoke(IsContentUsedOnPageLayoutEvent $event): void
