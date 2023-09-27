@@ -26,7 +26,7 @@ via
 *   the :ref:`siteSettings <t3tsref:data-type-siteSettings>` key of the
     :ref:`data <t3tsref:data-type-gettext>` function in
     :ref:`TypoScript <t3tsref:start>`
-*   :ref:`page TSconfig <t3tsconfig:pagetsconfig>`
+*   constants in :ref:`TypoScript <t3tsref:start>` or :ref:`page TSconfig <t3tsconfig:pagetsconfig>`
 
 For instance, settings can be used in custom frontend code to deliver features
 which might vary per site for extensions. An example may be to configure
