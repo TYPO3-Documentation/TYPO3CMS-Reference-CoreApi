@@ -217,7 +217,7 @@ The TYPO3 Core has been tested with three transports:
     (default)
 *   :php:`\Symfony\Component\Messenger\Bridge\Doctrine\Transport\DoctrineTransport`
     (using the Doctrine DBAL messenger transport)
-*   :php:`\Symfony\Component\Messenger\Transport\InMemoryTransport`
+*   :php:`\Symfony\Component\Messenger\Transport\InMemory\InMemoryTransport`
     (for testing)
 
 
