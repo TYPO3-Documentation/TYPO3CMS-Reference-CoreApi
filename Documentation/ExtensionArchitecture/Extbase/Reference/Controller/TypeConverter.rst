@@ -44,10 +44,10 @@ All type converters **should** have **no internal state**, such that they
 can be used as singletons and multiple times in succession.
 
 The registration and configuration of a type converter is done in the extension's
-file:`Services.yaml`:
+:file:`Services.yaml`:
 
 ..  code-block:: yaml
-    :caption: EXT:my_extension/Configuration/Sevices.yaml
+    :caption: EXT:my_extension/Configuration/Services.yaml
 
     services:
       MyVendor\MyExtension\Property\TypeConverter\MyCustomDateTimeConverter:
