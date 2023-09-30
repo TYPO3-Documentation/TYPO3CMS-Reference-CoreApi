@@ -26,6 +26,13 @@ TYPO3 installation.
 *   For legacy installations (without Composer), the starting point is usually
     the web root, so CLI commands start with :file:`typo3/sysext/core/bin/typo3`.
 
+..  attention::
+    Using :ref:`Extbase <extbase>` repositories in CLI context is not
+    recommended as Extbase relies on frontend :ref:`TypoScript <t3tsref:start>`.
+    For example,
+    :ref:`conditions using the request object <t3tsref:condition-function-request>`
+    may cause problems. Use the :ref:`query builder <database-query-builder>`
+    or :ref:`DataHandler <tce-database-basics>` where appropriate.
 
 .. _symfony-console-commands-cli:
 
