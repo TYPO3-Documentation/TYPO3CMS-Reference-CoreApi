@@ -17,6 +17,14 @@ These commands can also be run from the TYPO3
 :ref:`scheduler <symfony-console-commands-scheduler>` if this option is not
 disabled in the :file:`Configuration/Services.yaml`.
 
+..  attention::
+    Using :ref:`Extbase <extbase>` repositories in CLI context is not
+    recommended as Extbase relies on frontend :ref:`TypoScript <t3tsref:start>`.
+    For example,
+    :ref:`conditions using the request object <t3tsref:condition-function-request>`
+    may cause problems. Use the :ref:`query builder <database-query-builder>`
+    or :ref:`DataHandler <tce-database-basics>` where appropriate.
+
 .. _symfony-console-commands-cli:
 
 Run a command from the command line
