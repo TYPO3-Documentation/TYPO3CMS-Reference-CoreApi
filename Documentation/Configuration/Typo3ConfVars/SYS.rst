@@ -898,24 +898,16 @@ security.frontend.allowInsecureSiteResolutionByQueryParameters
 security.usePasswordPolicyForFrontendUsers
 ------------------------------------------
 
-..  versionadded:: 12.3
+..  versionchanged:: 13.0
+    This feature toggle has been removed, because TypoScript-based password
+    validation in :doc:`EXT:felogin <ext_felogin:Index>` has been removed, too.
 
-..  confval:: $GLOBALS['TYPO3_CONF_VARS']['SYS']['features']['security.usePasswordPolicyForFrontendUsers']
+    The :ref:`password policy <password-policies>` configured in
+    :ref:`$GLOBALS['TYPO3_CONF_VARS']['FE']['passwordPolicy'] <typo3ConfVars_fe_passwordPolicy>`
+    is now always active for frontend user records in
+    :ref:`DataHandler <datahandler-basics>` and for the password recovery
+    functionality in EXT:felogin.
 
-    :Path: $GLOBALS['TYPO3_CONF_VARS']['SYS']['features']
-    :type: bool
-    :Default: false for existing installations, true for new installations
-
-    If the feature toggle is set to :php:`true`, the globally configured
-    :ref:`password policy <password-policies>` is applied when a TYPO3 frontend
-    user sets the password.
-
-    It is recommended to enable the global policy for frontend users. You can
-    :ref:`configure a separate password policy <configure-password-policies>`
-    for frontend.
-
-    ..  seealso::
-        :ref:`$GLOBALS['TYPO3_CONF_VARS']['FE']['passwordPolicy'] <typo3ConfVars_fe_passwordPolicy>`
 
 .. index::
    TYPO3_CONF_VARS SYS; availablePasswordHashAlgorithms
