@@ -293,7 +293,7 @@ processor_colorspace
    :type: text
    :Default: RGB
 
-   Specifes the colorspace to use. Some ImageMagick versions (like 6.7.0 and
+   Specifies the colorspace to use. Some ImageMagick versions (like 6.7.0 and
    above) use the sRGB colorspace, so all images are darker then the original.
 
    Possible Values: CMY, CMYK, Gray, HCL, HSB, HSL, HWB, Lab, LCH, LMS, Log,
