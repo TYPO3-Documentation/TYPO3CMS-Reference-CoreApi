@@ -70,21 +70,6 @@ gdlib
    Enables the use of GD.
 
 .. index::
-   TYPO3_CONF_VARS GFX; gdlib_png
-.. _typo3ConfVars_gfx_gdlib_png:
-
-gdlib_png
-=========
-
-.. confval:: $GLOBALS['TYPO3_CONF_VARS']['GFX']['gdlib_png']
-
-   :type: bool
-   :Default: false
-
-   Enables the use of GD, with PNG only. This means that all items normally
-   generated as gif-files will be png-files instead!
-
-.. index::
    TYPO3_CONF_VARS GFX;
 .. _typo3ConfVars_gfx_processor_enabled:
 
@@ -212,24 +197,34 @@ processor_stripColorProfileCommand
    `imagemagick.org <https://legacy.imagemagick.org/Usage/thumbnails/#profiles>`__
    for details
 
-.. index::
-   TYPO3_CONF_VARS GFX; processor_colorspace
-.. _typo3ConfVars_gfx_processor_colorspace:
+..  index::
+    TYPO3_CONF_VARS GFX; processor_colorspace
+..  _typo3ConfVars_gfx_processor_colorspace:
 
 processor_colorspace
 ====================
 
-.. confval:: $GLOBALS['TYPO3_CONF_VARS']['GFX']['processor_colorspace']
+..  versionchanged:: 13.0
+    The setting defaults to an empty value and - if not changed - is adjusted
+    automatically to the recommended colorspace for the given processor ("sRGB"
+    for ImageMagick, "RGB" for GraphicsMagick).
 
-   :type: text
-   :Default: RGB
+..  confval:: $GLOBALS['TYPO3_CONF_VARS']['GFX']['processor_colorspace']
 
-   Specifies the colorspace to use. Some ImageMagick versions (like 6.7.0 and
-   above) use the sRGB colorspace, so all images are darker then the original.
+    :type: text
+    :Default: ''
 
-   Possible Values: CMY, CMYK, Gray, HCL, HSB, HSL, HWB, Lab, LCH, LMS, Log,
-   Luv, OHTA, Rec601Luma, Rec601YCbCr, Rec709Luma, Rec709YCbCr, RGB, sRGB,
-   Transparent, XYZ, YCbCr, YCC, YIQ, YCbCr, YUV
+    Specifies the colorspace to use. Defaults to "RGB" when using GraphicsMagick
+    as :ref:`processor <typo3ConfVars_gfx_processor>` and "sRGB" when using
+    ImageMagick.
+
+    ..  note::
+        Images would be rendered darker than the original when using ImageMagick
+        in combination with "RGB".
+
+    Possible values: CMY, CMYK, Gray, HCL, HSB, HSL, HWB, Lab, LCH, LMS, Log,
+    Luv, OHTA, Rec601Luma, Rec601YCbCr, Rec709Luma, Rec709YCbCr, RGB, sRGB,
+    Transparent, XYZ, YCbCr, YCC, YIQ, YCbCr, YUV
 
 .. index::
    TYPO3_CONF_VARS GFX; processor_interlace
@@ -300,3 +295,16 @@ processor_allowTemporaryMasksAsPng
     ..  versionchanged:: 13.0
         This setting has been removed. Temporarily saved masking images are
         always saved as PNG files rather than GIF images.
+
+.. index::
+   TYPO3_CONF_VARS GFX; gdlib_png
+.. _typo3ConfVars_gfx_gdlib_png:
+
+gdlib_png
+=========
+
+..  confval:: $GLOBALS['TYPO3_CONF_VARS']['GFX']['gdlib_png']
+
+    ..  versionchanged:: 13.0
+        This setting has been removed. Temporary layers/masks are always saved
+        as PNG files instead of GIF files.
