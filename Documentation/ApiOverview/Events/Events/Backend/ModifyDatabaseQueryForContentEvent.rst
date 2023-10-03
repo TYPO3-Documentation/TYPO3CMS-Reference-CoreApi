@@ -18,19 +18,11 @@ to filter out certain content elements from being shown in the
 Example
 =======
 
-Registration of the event in your extension's :file:`Services.yaml`:
-
-..  literalinclude:: _ModifyDatabaseQueryForContentEvent/_Services.yaml
-    :language: yaml
-    :caption: EXT:my_extension/Configuration/Services.yaml
-
-Read :ref:`how to configure dependency injection in extensions <dependency-injection-in-extensions>`.
-
-The corresponding event listener class:
-
 ..  literalinclude:: _ModifyDatabaseQueryForContentEvent/_MyEventListener.php
     :language: php
     :caption: EXT:my_extension/Classes/Backend/EventListener/MyEventListener.php
+
+..  include:: /_includes/EventsAttributeAdded.rst.txt
 
 API
 ===
