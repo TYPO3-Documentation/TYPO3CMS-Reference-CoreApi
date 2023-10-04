@@ -101,7 +101,7 @@ Call the CLI script on the console:
 
 `Where should the extension be created? [src/extensions/]:`
     If you have a special path for installing local extensions like
-    :file:`local_packages` enter it here. Otherwise you can accept the
+    :file:`packages` enter it here. Otherwise you can accept the
     default.
 
 `May we add a basic service configuration for you? (yes/no) [yes]:`
@@ -148,7 +148,7 @@ one in the created extension) and add the extension directory as new repository:
     {
         "name": "my-vendor/my-project",
         "repositories": {
-            "0_local_packages": {
+            "0_packages": {
                 "type": "path",
                 "url": "src/extensions/*"
             }
