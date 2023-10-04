@@ -83,7 +83,7 @@ This path can be retrieved from the Environment API, see
 .. _directory-packages:
 
 :file:`packages/`
------------------------
+-----------------
 
 Each web site which is run on TYPO3 **should**
 have a sitepackage, an extension with a special purpose containing all
