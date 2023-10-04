@@ -32,7 +32,7 @@ Third-party and custom  extensions must have the Composer type `typo3-cms-extens
 The extension will be installed in the directory
 :ref:`vendor/ <directory-vendor>` by Composer. Custom extension like sitepackages
 or specialized extensions used only in one project can be kept under version
-control in a directory like :ref:`directory-local_packages`. They are then
+control in a directory like :ref:`directory-packages`. They are then
 symlinked into :file:`vendor/` by Composer.
 
 In legacy installations third-party extensions are installed into
