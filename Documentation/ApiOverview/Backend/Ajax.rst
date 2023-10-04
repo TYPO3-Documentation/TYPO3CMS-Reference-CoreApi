@@ -96,6 +96,8 @@ the console.
     :language: js
     :caption: EXT:my_extension/Resources/Public/JavaScript/Calculate.js
 
+..  seealso::
+    :ref:`ajax-request`
 
 ..  _`PSR-7`: https://www.php-fig.org/psr/psr-7/
 ..  _`exponentiation operator`: https://www.php.net/manual/en/language.operators.arithmetic.php
