@@ -2,9 +2,9 @@
 .. index:: pair: Site handling; TypoScript
 .. _sitehandling-inTypoScript:
 
-======================================
-Using site configuration in TypoScript
-======================================
+==========================================================
+Using site configuration in TypoScript and Fluid templates
+==========================================================
 
 .. index:: pair: Site handling; getText
 
@@ -43,9 +43,8 @@ To access the current siteLanguage use the :ref:`siteLanguage <t3tsref:data-type
 .. tip::
     Accessing site configuration is possible in TypoScript, which enables to store site specific configuration options
     in one central place (the site configuration) and allows usage of that configuration from different contexts.
-    While this sounds similar to using TypoScript, with using site configuration this may also be used from backend
-    or CLI context as long as the rootPageId of the site is known. To avoid duplicating configuration options,
-    TypoScript can now access these properties, too.
+    While this sounds similar to using TypoScript constants, site configuration
+    values may also be used from backend or CLI context as long as the rootPageId of a site is known.
 
 Site configuration can also be used in :ref:`TypoScript conditions <sitehandling-inConditions>` and as
 :ref:`TypoScript constants <sitehandling-settings>`.
@@ -54,12 +53,13 @@ Site configuration can also be used in :ref:`TypoScript conditions <sitehandling
 .. index::
    Site handling; FLUIDTEMPLATE
    Site handling; SiteProcessor
+   Site handling; Fluid
    SiteProcessor
 
 FLUIDTEMPLATE
 =============
 
-You can use the SiteProcessor in the The :ref:`FLUIDTEMPLATE <t3tsref:cobj-fluidtemplate>` content object
+You can use the SiteProcessor in the :ref:`FLUIDTEMPLATE <t3tsref:cobj-fluidtemplate>` content object
 to fetch data from the site entity:
 
 .. code-block:: typoscript
