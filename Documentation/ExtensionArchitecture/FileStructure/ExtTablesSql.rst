@@ -62,12 +62,11 @@ file.
 
 ..  note::
 
-    ..  versionchanged:: 13.0
-        A :sql:`CREATE TABLE` statement without columns in the
-        :file:`ext_tables.php` file is supported.
+    ..  versionadded:: 13.0
 
-    As column definitions are created automatically, the :file:`ext_tables.sql`
-    file can end up with a table definition without columns, like:
+    As column definitions are created automatically from the TCA configuration,
+    the :file:`ext_tables.sql` file can end up with a table definition without
+    columns, like:
 
     ..  code-block:: sql
 
@@ -78,6 +77,9 @@ file.
     :abbr:`DBMS (Database Management System)`, since tables usually must have
     at least one column. However, it is a valid definition in the scope of
     :file:`ext_tables.sql` files when the TYPO3 Core enriches fields from TCA.
+
+    Also, you can omit the :sql:`CREATE TABLE` statement without columns
+    entirely.
 
 These columns below are automatically added if not defined in
 :file:`ext_tables.sql` for database tables that provide a :php:`$GLOBALS['TCA']`
