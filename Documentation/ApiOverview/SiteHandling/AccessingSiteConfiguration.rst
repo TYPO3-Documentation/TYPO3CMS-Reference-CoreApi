@@ -143,7 +143,7 @@ or even fetching all settings:
 
 ..  code-block:: php
 
-    $siteSettings->all();
+    $siteSettings->getAll();
 
 API
 ---
