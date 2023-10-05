@@ -21,7 +21,7 @@ must be imported. To prepare a request, create a new instance of
     :language: js
     :caption: EXT:my_extension/Resources/Private/JavaScript/MyRequest.js
 
-The API offers a method :js:`withQueryString()` which allows to attach a query
+The API offers a method :js:`withQueryArguments()` which allows to attach a query
 string to the URL. This comes in handy, if the query string is programmatically
 generated. The method returns a clone of the :js:`AjaxRequest` object. It is
 possible to pass either strings, arrays or objects as an argument.
