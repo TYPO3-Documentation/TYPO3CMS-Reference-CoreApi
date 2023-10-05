@@ -13,6 +13,9 @@ example, Chrome, Edge, Firefox, Safari).
 Prepare a request
 =================
 
+..  versionadded:: 13.0
+    Native URL-related objects (:js:`URL` and :js:`URLSearchParams`) can be used.
+
 To be able to send a request, the module :js:`@typo3/core/ajax/ajax-request.js`
 must be imported. To prepare a request, create a new instance of
 :js:`AjaxRequest` per request and pass the URL as the constructor argument:
