@@ -10,8 +10,8 @@ BeforeLoadedPageTsConfigEvent
 
 The PSR-14 event
 :php:`\TYPO3\CMS\Core\TypoScript\IncludeTree\Event\BeforeLoadedPageTsConfigEvent`
-can be used to add global static :ref:`page TSconfig <pagetsconfig>` before
-anything else is loaded. This is especially useful, if page TSconfig is
+can be used to add global static :ref:`page TSconfig <t3tsconfig:pagetsconfig>`
+before anything else is loaded. This is especially useful, if page TSconfig is
 generated automatically as a string from a PHP function.
 
 It is important to understand that this configuration is considered static and
