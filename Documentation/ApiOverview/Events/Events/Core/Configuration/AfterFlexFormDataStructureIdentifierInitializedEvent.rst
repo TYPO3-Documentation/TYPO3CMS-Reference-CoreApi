@@ -29,20 +29,19 @@ object-oriented approach.
 Example
 =======
 
-This example is available in our
-`examples extension <https://github.com/TYPO3-Documentation/t3docs-examples>`__.
-
 Registration of the events in the extension's :file:`Services.yaml`:
 
 ..  literalinclude:: _AfterFlexFormDataStructureIdentifierInitializedEvent/_Services.yaml
     :language: yaml
-    :caption: EXT:examples/Configuration/Services.yaml
+    :caption: EXT:my_extension/Configuration/Services.yaml
 
 Read :ref:`how to configure dependency injection in extensions <dependency-injection-in-extensions>`.
 
 The corresponding event listener class:
 
-..  include:: /CodeSnippets/Events/Core/FlexFormParsingModifyEventListener/FlexFormParsingModifyEventListener.rst.txt
+..  literalinclude:: _AfterFlexFormDataStructureIdentifierInitializedEvent/_MyEventListener.php
+    :language: php
+    :caption: EXT:my_extension/Classes/Configuration/EventListener/FlexFormParsingModifyEventListener.php
 
 
 API
