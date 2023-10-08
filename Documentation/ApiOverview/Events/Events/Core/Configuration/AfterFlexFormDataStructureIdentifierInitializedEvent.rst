@@ -39,7 +39,7 @@ Read :ref:`how to configure dependency injection in extensions <dependency-injec
 
 The corresponding event listener class:
 
-..  literalinclude:: _AfterFlexFormDataStructureIdentifierInitializedEvent/_MyEventListener.php
+..  literalinclude:: _AfterFlexFormDataStructureIdentifierInitializedEvent/_FlexFormParsingModifyEventListener.php
     :language: php
     :caption: EXT:my_extension/Classes/Configuration/EventListener/FlexFormParsingModifyEventListener.php
 
