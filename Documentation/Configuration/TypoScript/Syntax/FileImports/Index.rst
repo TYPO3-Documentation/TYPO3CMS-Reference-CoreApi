@@ -46,7 +46,7 @@ for more details.
 The following rules apply:
 
 * Multiple files are imported in alphabetical order.
-  If a special loading order is desired it is common to prefix the filenames with 
+  If a special loading order is desired it is common to prefix the filenames with
   numbers that increase for files that shall be loaded later.
 
 * Recursion is allowed: Imported files can have :typoscript:`@import` statements.
@@ -149,6 +149,10 @@ More details:
   including subdirectories.
 
   Files are included in alphabetical. Also files are included first, then directories.
+
+  :typoscript:`<INCLUDE_TYPOSCRIPT:` with :typoscript:`DIR:` and relative
+  paths always assumes the web root directory as base directory.
+  (Before TYPO3 v12 it was relative to the file holding the include statement.)
 
 * Keyword "extensions":
 
