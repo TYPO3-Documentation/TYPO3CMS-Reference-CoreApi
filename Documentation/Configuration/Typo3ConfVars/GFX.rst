@@ -56,20 +56,6 @@ imagefile_ext
    Lowercase and no spaces between!
 
 .. index::
-   TYPO3_CONF_VARS GFX; gdlib
-.. _typo3ConfVars_gfx_gdlib:
-
-gdlib
-=====
-
-.. confval:: $GLOBALS['TYPO3_CONF_VARS']['GFX']['gdlib']
-
-   :type: bool
-   :Default: true
-
-   Enables the use of GD.
-
-.. index::
    TYPO3_CONF_VARS GFX;
 .. _typo3ConfVars_gfx_processor_enabled:
 
@@ -295,6 +281,21 @@ processor_allowTemporaryMasksAsPng
     ..  versionchanged:: 13.0
         This setting has been removed. Temporarily saved masking images are
         always saved as PNG files rather than GIF images.
+
+.. index::
+   TYPO3_CONF_VARS GFX; gdlib
+.. _typo3ConfVars_gfx_gdlib:
+
+gdlib
+=====
+
+.. confval:: $GLOBALS['TYPO3_CONF_VARS']['GFX']['gdlib']
+
+    ..  versionchanged:: 13.0
+        This setting has been removed. GDLib functionality is enabled as soon as
+        relevant `GDLib`_ classes are found.
+
+        ..  _GDLib: https://www.php.net/manual/en/book.image.php
 
 .. index::
    TYPO3_CONF_VARS GFX; gdlib_png
