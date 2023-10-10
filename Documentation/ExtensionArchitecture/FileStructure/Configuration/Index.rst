@@ -60,7 +60,8 @@ folder:
     ├── Icons.php
     ├── page.tsconfig
     ├── RequestMiddlewares.php
-    └── Services.yaml
+    ├── Services.yaml
+    └── user.tsconfig
 
 
 ..  toctree::

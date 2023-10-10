@@ -33,15 +33,9 @@ The new page type is added to the :php:`PageDoktypeRegistry` in
 We need to add the following :ref:`user TSconfig <t3tsconfig:usertsconfig>`
 to all users, so that the new page type is displayed in the wizard:
 
-..  literalinclude:: _UserConfiguration.tsconfig
+..  literalinclude:: _user.tsconfig
     :language: typoscript
-    :caption: EXT:examples/Configuration/TsConfig/User/UserConfiguration.tsconfig
-
-You can load the file like this:
-
-..  literalinclude:: _ext_localconf.php
-    :language: php
-    :caption: EXT:examples/ext_localconf.php
+    :caption: EXT:examples/Configuration/user.tsconfig
 
 The :ref:`icon <icon>` is registered in :file:`Configuration/Icons.php`:
 

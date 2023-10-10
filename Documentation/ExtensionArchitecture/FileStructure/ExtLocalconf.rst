@@ -76,7 +76,6 @@ file:`ext_localconf.php`
     or any simple array assignments to :php:`$GLOBALS['TYPO3_CONF_VARS']` options
 *   Registering additional Request Handlers within the :ref:`Bootstrap <bootstrapping>`
 *   Adding any :ref:`page TSconfig <t3tsconfig:pagesettingdefaultpagetsconfig>`
-*   Adding any :ref:`user TSconfig <t3tsconfig:usersettingdefaultusertsconfig>`
 *   Adding default TypoScript via :php:`\TYPO3\CMS\Core\Utility\ExtensionManagementUtility` APIs
 *   Registering Scheduler Tasks
 *   Adding reports to the reports module
@@ -119,6 +118,17 @@ file :file:`Configuration/TCA/Overrides/pages.php`, see
 
 Adding default UserTSconfig
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+..  deprecated:: 13.0
+    The method
+    :php:`\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addUserTSConfig()`
+    will be removed with TYPO3 v14.0. Use
+    :ref:`Configuration/user.tsconfig <extension-configuration-user_tsconfig>`
+    instead.
+
+    Extensions with compatibility for both TYPO3 v12 and v13 should keep the old
+    way and switch to the :file:`Configuration/user.tsconfig` file when v12
+    support is dropped.
 
 As for default page TSconfig, user TSconfig can be added inside
 :file:`ext_localconf.php`, see:
