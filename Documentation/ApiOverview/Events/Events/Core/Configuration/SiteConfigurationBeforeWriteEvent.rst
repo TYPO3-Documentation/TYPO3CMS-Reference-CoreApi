@@ -20,14 +20,7 @@ before writing the configuration to disk.
 Example
 =======
 
-To register an event listener to the new event, use the following code in your
-:file:`Services.yaml`:
-
-..  literalinclude:: _SiteConfigurationBeforeWriteEvent/_Services.yaml
-    :language: yaml
-    :caption: EXT:my_extension/Configuration/Services.yaml
-
-Read :ref:`how to configure dependency injection in extensions <dependency-injection-in-extensions>`.
+..  include:: /_includes/EventsContributeNote.rst.txt
 
 API
 ===
