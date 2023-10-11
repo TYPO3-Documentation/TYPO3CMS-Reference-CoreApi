@@ -110,7 +110,7 @@ An implementing class could look like this:
 
          // do something
 
-         return CssUtility::wrapInBaseClass($this->prefixId, $content);
+         return $this->pi_wrapInBaseClass($this->prefixId, $content);
       }
    }
 
