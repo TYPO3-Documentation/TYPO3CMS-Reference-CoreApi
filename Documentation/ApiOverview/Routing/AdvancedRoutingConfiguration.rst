@@ -177,7 +177,7 @@ The configuration looks like this:
           tag: ''
         requirements:
           category_id: '[0-9]{1,3}'
-          tag: '[a-zA-Z0-9].*'
+          tag: '[a-zA-Z0-9]+'
         _arguments:
           category_id: 'category'
 
