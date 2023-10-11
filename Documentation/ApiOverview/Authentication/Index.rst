@@ -69,7 +69,7 @@ for the frontend (FE), which both inherit from class
 :php:`\TYPO3\CMS\Core\Authentication\AbstractUserAuthentication`.
 The objects for these classes are available in the global variables 
 :php:`$GLOBALS['BE_USER']` for :php:`BackendUserAuthentication` and 
-:php:`$request->getAttribute('frontend.user')` for :php:`FrontendUserAuthentication`
+:ref:`"frontend.user" request attribute <typo3-request-attribute-frontend-user>` for :php:`FrontendUserAuthentication`
 These classes are called by the
 :ref:`bootstrapping process <bootstrapping>`.
 They manage the workflow of the authentication process.
