@@ -4,11 +4,28 @@ declare(strict_types=1);
 
 namespace MyVendor\MyExtension\Configuration\EventListener;
 
+use TYPO3\CMS\Core\Attribute\AsEventListener;
 use TYPO3\CMS\Core\Configuration\Event\AfterFlexFormDataStructureIdentifierInitializedEvent;
 use TYPO3\CMS\Core\Configuration\Event\AfterFlexFormDataStructureParsedEvent;
 use TYPO3\CMS\Core\Configuration\Event\BeforeFlexFormDataStructureIdentifierInitializedEvent;
 use TYPO3\CMS\Core\Configuration\Event\BeforeFlexFormDataStructureParsedEvent;
 
+#[AsEventListener(
+    identifier: 'my-extension/set-data-structure',
+    method: 'setDataStructure'
+)]
+#[AsEventListener(
+    identifier: 'my-extension/modify-data-structure',
+    method: 'modifyDataStructure'
+)]
+#[AsEventListener(
+    identifier: 'my-extension/set-data-structure-identifier',
+    method: 'setDataStructureIdentifier'
+)]
+#[AsEventListener(
+    identifier: 'my-extension/modify-data-structure-identifier',
+    method: 'modifyDataStructureIdentifier'
+)]
 final class FlexFormParsingModifyEventListener
 {
     public function setDataStructure(BeforeFlexFormDataStructureParsedEvent $event): void
