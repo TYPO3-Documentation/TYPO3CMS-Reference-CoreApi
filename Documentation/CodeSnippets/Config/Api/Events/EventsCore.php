@@ -177,19 +177,6 @@ return [
         'withCode' => false,
     ],
     [
-        'action' => 'createPhpClassCodeSnippet',
-        'class' => \T3docs\Examples\EventListener\Core\Configuration\FlexFormParsingModifyEventListener::class,
-        'members' => [
-            'setDataStructure',
-            'modifyDataStructure',
-            'setDataStructureIdentifier',
-            'modifyDataStructureIdentifier',
-        ],
-        'withComment' => true,
-        'withClassComment' => false,
-        'targetFileName' => 'CodeSnippets/Events/Core/FlexFormParsingModifyEventListener/FlexFormParsingModifyEventListener.rst.txt',
-    ],
-    [
         'action' => 'createPhpClassDocs',
         'class' => \TYPO3\CMS\Core\TypoScript\IncludeTree\Event\AfterTemplatesHaveBeenDeterminedEvent::class,
         'targetFileName' => 'CodeSnippets/Events/Core/AfterTemplatesHaveBeenDeterminedEvent.rst.txt',
