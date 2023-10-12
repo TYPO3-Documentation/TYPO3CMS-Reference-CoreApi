@@ -22,12 +22,11 @@ object-oriented approach.
     *   :ref:`AfterFlexFormDataStructureIdentifierInitializedEvent`
     *   :ref:`AfterFlexFormDataStructureParsedEvent`
     *   :ref:`BeforeFlexFormDataStructureIdentifierInitializedEvent`
-    *   :ref:`combined Example <AfterFlexFormDataStructureIdentifierInitializedEvent-Example>`
 
 Example
 =======
 
-..  include:: /_includes/EventsContributeNote.rst.txt
+Have a look at the :ref:`combined example <AfterFlexFormDataStructureIdentifierInitializedEvent-Example>`.
 
 API
 ===
