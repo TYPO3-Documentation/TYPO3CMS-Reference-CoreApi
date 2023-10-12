@@ -150,9 +150,10 @@ More details:
 
   Files are included in alphabetical. Also files are included first, then directories.
 
-  :typoscript:`<INCLUDE_TYPOSCRIPT:` with :typoscript:`DIR:` and relative
-  paths always assumes the web root directory as base directory.
-  (Before TYPO3 v12 it was relative to the file holding the include statement.)
+  .. attention::
+     :typoscript:`<INCLUDE_TYPOSCRIPT:` with :typoscript:`DIR:` and relative
+     paths always assumes the web root directory as base directory.
+     (Before TYPO3 v12 it was relative to the file holding the include statement.)
 
 * Keyword "extensions":
 
