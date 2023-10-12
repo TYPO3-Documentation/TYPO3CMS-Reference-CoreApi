@@ -17,7 +17,7 @@ final class MyEventListener
         $hosts = $event->getHosts();
 
         // Remove wildcard host from list
-        $hosts = array_filter($hosts, static fn ($host) => $host['name'] !== '*');
+        $hosts = array_filter($hosts, static fn($host) => $host['name'] !== '*');
 
         // Ipdate changed hosts list
         $event->setHosts($hosts);
