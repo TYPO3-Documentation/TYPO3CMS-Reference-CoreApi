@@ -184,6 +184,8 @@ the :file:`ext_tables.sql` file:
 :php:`['config']['type'] => 'json'`
     Database table fields for TCA type :php:`json` are created automatically.
 
+    See also :ref:`t3tca:columns-json`.
+
 :php:`['config']['type'] => 'slug'`
     ..  versionadded:: 12.0
         Database table fields for TCA type :php:`slug` are created automatically.
