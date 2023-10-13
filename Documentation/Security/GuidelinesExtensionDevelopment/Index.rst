@@ -44,7 +44,7 @@ Queries in the query language of Extbase are automatically escaped.
 However manually created SQL queries are subject to be attacked by
 :ref:`SQL injection <security-sql-injection>`.
 
-All SQL queries should be made in a dedicated classe called a repository. This
+All SQL queries should be made in a dedicated class called a repository. This
 applies to Extbase queries, Doctrine DBAL :ref:`QueryBuilder
 <database-query-builder>` queries and pure SQL queries.
 
