@@ -849,7 +849,7 @@ explicitADmode
 flexformForceCDATA
 ==================
 
-.. confval:: flexformForceCDATA']
+.. confval:: $GLOBALS['TYPO3_CONF_VARS']['BE'][flexformForceCDATA']
 
    :type: bool
    :Default: 0
