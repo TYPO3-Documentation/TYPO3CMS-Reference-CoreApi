@@ -1,12 +1,13 @@
 {
     "name": "typo3/reference-coreapi",
-    "description": "Main TYPO3 core documentation",
+    "description": "Main TYPO3 Core documentation",
     "license": "OPL-1.0",
     "type": "typo3-cms-documentation",
     "require": {
         "typo3/cms-core": "dev-main as 12.1"
     },
     "require-dev": {
+        "ergebnis/composer-normalize": "~2.39.0",
         "symfony/yaml": "^6.2",
         "t3docs/blog-example": "dev-main",
         "t3docs/codesnippet": "dev-main",
@@ -54,9 +55,9 @@
     "prefer-stable": true,
     "config": {
         "allow-plugins": {
-            "typo3/cms-composer-installers": true,
+            "ergebnis/composer-normalize": true,
             "typo3/class-alias-loader": true,
-            "ergebnis/composer-normalize": true
+            "typo3/cms-composer-installers": true
         },
         "bin-dir": ".Build/bin",
         "sort-packages": true,
