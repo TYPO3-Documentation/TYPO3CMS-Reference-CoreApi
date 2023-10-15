@@ -196,6 +196,12 @@ return [
     ],
     [
         'action' => 'createPhpClassDocs',
+        'class' => \TYPO3\CMS\Core\TypoScript\IncludeTree\Event\BeforeLoadedUserTsConfigEvent::class,
+        'targetFileName' => 'CodeSnippets/Events/Core/BeforeLoadedUserTsConfigEvent.rst.txt',
+        'withCode' => false,
+    ],
+    [
+        'action' => 'createPhpClassDocs',
         'class' => \TYPO3\CMS\Core\Authentication\Event\BeforeRequestTokenProcessedEvent::class,
         'targetFileName' => 'CodeSnippets/Events/Core/BeforeRequestTokenProcessedEvent.rst.txt',
         'withCode' => false,
