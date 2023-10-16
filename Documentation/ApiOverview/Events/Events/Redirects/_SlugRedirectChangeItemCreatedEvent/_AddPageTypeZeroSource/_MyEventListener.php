@@ -37,7 +37,7 @@ final class MyEventListener
         // 0 source, therefor it is safe to simply remove it by class check.
         $sources = array_filter(
             $sources,
-            static fn ($source) => !($source instanceof PlainSlugReplacementRedirectSource)
+            static fn($source) => !($source instanceof PlainSlugReplacementRedirectSource)
         );
 
         // update sources

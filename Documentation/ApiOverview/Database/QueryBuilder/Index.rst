@@ -956,12 +956,14 @@ executeQuery() and executeStatement()
 =====================================
 
 ..  versionchanged:: 11.5
-    The widely used :php:`->execute()` method has been split into
-    :php:`executeQuery()` and :php:`executeStatement()`. :php:`executeQuery()`
-    returns a :php:`\Doctrine\DBAL\Result` instead of a
-    :php:`\Doctrine\DBAL\Statement`. :php:`executeStatement()` returns the
-    number of affected rows. The :php:`->execute()` method has been removed with
-    TYPO3 v13.0.
+    The widely used :php:`->execute()` method has been split into:
+
+    * :php:`->executeQuery()` returning a :php:`\Doctrine\DBAL\Result` instead of
+      a :php:`\Doctrine\DBAL\Statement` and
+
+    * :php:`->executeStatement()` returning the number of affected rows.
+
+    The :php:`->execute()` method has been removed with TYPO3 v13.0.
 
 ..  _database-query-builder-execute-query:
 
