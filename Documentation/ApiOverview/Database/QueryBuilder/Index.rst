@@ -956,11 +956,12 @@ execute(), executeQuery() and executeStatement()
 ================================================
 
 ..  versionchanged:: 11.5
-    The widely used :php:`->execute()` method has been split into
-    :php:`executeQuery()` and :php:`executeStatement()`. :php:`executeQuery()`
-    returns a :php:`\Doctrine\DBAL\Result` instead of a
-    :php:`\Doctrine\DBAL\Statement`. :php:`executeStatement()` returns the
-    number of affected rows.
+    The widely used :php:`->execute()` method has been split into:
+
+    * :php:`->executeQuery()` returning a :php:`\Doctrine\DBAL\Result` instead of
+      a :php:`\Doctrine\DBAL\Statement` and
+
+    * :php:`->executeStatement()` returning the number of affected rows.
 
     Although :php:`->execute()` still works for backwards compatibility, you
     should prefer to use :php:`->executeQuery()` for :sql:`SELECT` and
