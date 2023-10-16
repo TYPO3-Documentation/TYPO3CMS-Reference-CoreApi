@@ -70,13 +70,17 @@ injected via :ref:`dependency injection <DependencyInjection>`.
     dependency injection or :php:`GeneralUtility::makeInstance()`, otherwise you
     will miss essential dependencies and runtime setup.
 
-..  note::
-    The QueryBuilder holds internal state and should not be reused for
-    different queries: Use one query builder per query. Get a fresh one by
-    calling :php:`$connection->createQueryBuilder()` if the same table is
+..  warning::
+    The QueryBuilder holds internal state and must not be reused for
+    different queries. In addition, a reuse comes with a
+    `significant performance penalty and memory consumption`_.
+    **Use one query builder per query.** Get a fresh one by calling
+    :php:`$connection->createQueryBuilder()` if the same table is
     involved, or use :php:`$connectionPool->getQueryBuilderForTable()` for a
-    query to a different table. Don't worry, creating those object instances
+    query to a different table. Do not worry, creating those object instances
     is quite fast.
+
+..  _significant performance penalty and memory consumption: https://www.derhansen.de/2023/10/the-pitfalls-of-reusing-typo3-querybuilder-analyzing-a-performance-bottleneck.html
 
 
 ..  _database-query-builder-select:
@@ -952,12 +956,14 @@ executeQuery() and executeStatement()
 =====================================
 
 ..  versionchanged:: 11.5
-    The widely used :php:`->execute()` method has been split into
-    :php:`executeQuery()` and :php:`executeStatement()`. :php:`executeQuery()`
-    returns a :php:`\Doctrine\DBAL\Result` instead of a
-    :php:`\Doctrine\DBAL\Statement`. :php:`executeStatement()` returns the
-    number of affected rows. The :php:`->execute()` method has been removed with
-    TYPO3 v13.0.
+    The widely used :php:`->execute()` method has been split into:
+
+    * :php:`->executeQuery()` returning a :php:`\Doctrine\DBAL\Result` instead of
+      a :php:`\Doctrine\DBAL\Statement` and
+
+    * :php:`->executeStatement()` returning the number of affected rows.
+
+    The :php:`->execute()` method has been removed with TYPO3 v13.0.
 
 ..  _database-query-builder-execute-query:
 

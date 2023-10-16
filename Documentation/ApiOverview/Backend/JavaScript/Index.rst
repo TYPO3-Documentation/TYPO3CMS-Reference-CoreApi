@@ -1,11 +1,11 @@
-.. include:: /Includes.rst.txt
-.. index::
-   pair: JavaScript; Backend
-   JavaScript (Backend); ES6
-.. _javascript:
+..  include:: /Includes.rst.txt
+..  index::
+    pair: JavaScript; Backend
+    JavaScript (Backend); ES6
+..  _javascript:
 
 ===========================
-JavaScript in TYPO3 Backend
+JavaScript in TYPO3 backend
 ===========================
 
 Some third-party JavaScript libraries are packaged with the TYPO3 source code.
@@ -16,11 +16,12 @@ APIs in that regard.
 
 **Contents:**
 
-.. toctree::
+..  toctree::
 
-   ES6/Index
-   Templating/Index
-   Modules/Index
-   EventApi/Index
-   Navigation/Index
-   Forms/Index
+    ES6/Index
+    Templating/Index
+    Modules/Index
+    AjaxRequest/Index
+    EventApi/Index
+    Navigation/Index
+    Forms/Index

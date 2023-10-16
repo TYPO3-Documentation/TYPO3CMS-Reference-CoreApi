@@ -14,8 +14,7 @@ final class MyUserFunction
 
     public function __construct(
         private readonly LanguageServiceFactory $languageServiceFactory,
-    ) {
-    }
+    ) {}
 
     private function getLanguageService(
         ServerRequestInterface $request

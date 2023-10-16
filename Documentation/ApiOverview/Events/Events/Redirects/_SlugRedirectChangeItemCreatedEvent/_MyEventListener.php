@@ -25,7 +25,7 @@ final class MyEventListener
         // Remove plain slug replacement redirect source from sources
         $sources = array_filter(
             $sources,
-            fn ($source) => !($source instanceof PlainSlugReplacementRedirectSource)
+            fn($source) => !($source instanceof PlainSlugReplacementRedirectSource)
         );
 
         // Add custom source implementation

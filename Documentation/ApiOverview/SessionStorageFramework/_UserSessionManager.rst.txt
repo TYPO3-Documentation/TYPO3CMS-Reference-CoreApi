@@ -11,7 +11,7 @@
 
    ..  code-block:: php
 
-       use TYPO3\CMS\Core\Session\UserSessionManager
+       use TYPO3\CMS\Core\Session\UserSessionManager;
 
        $loginType = 'BE'; // or 'FE' for frontend
        $userSessionManager = UserSessionManager::create($loginType);

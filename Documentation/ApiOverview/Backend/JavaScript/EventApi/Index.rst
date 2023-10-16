@@ -1,10 +1,9 @@
-.. include:: /Includes.rst.txt
+..  include:: /Includes.rst.txt
 
-
-.. _js-event-api:
+..  _js-event-api:
 
 =========
-Event Api
+Event API
 =========
 
 The TYPO3 JavaScript Event API enables JavaScript developers to have a stable event listening
@@ -25,13 +24,9 @@ by using the method :js:`bindTo()`, which accepts any element, :js:`document` an
 
 Example:
 
-.. code-block:: js
-
-   require(['TYPO3/CMS/Core/Event/RegularEvent'], function (RegularEvent) {
-     new RegularEvent('click', function (e) {
-       // Do something
-     }).bindTo(document.querySelector('#my-element'));
-   });
+..  literalinclude:: _DirectBinding.js
+    :language: js
+    :caption: EXT:my_extension/Resources/Public/JavaScript/MyScript.js
 
 
 Event Delegation
@@ -42,13 +37,9 @@ inside its bound element.
 
 Example:
 
-.. code-block:: js
-
-   require(['TYPO3/CMS/Core/Event/RegularEvent'], function (RegularEvent) {
-     new RegularEvent('click', function (e) {
-       // Do something
-     }).delegateTo(document, 'a[data-action="toggle"]');
-   });
+..  literalinclude:: _EventDelegation.js
+    :language: js
+    :caption: EXT:my_extension/Resources/Public/JavaScript/MyScript.js
 
 The event listener is now called every time the element matching the selector
 :js:`a[data-action="toggle"]` within :js:`document` is clicked.
@@ -57,25 +48,17 @@ The event listener is now called every time the element matching the selector
 Release an event
 ----------------
 
-Since each event is an object instance, it's sufficient to call :js:`release()` to
+Since each event is an object instance, it is sufficient to call :js:`release()` to
 detach the event listener.
 
 Example:
 
-.. code-block:: js
-
-   require(['TYPO3/CMS/Core/Event/RegularEvent'], function (RegularEvent) {
-     const clickEvent = new RegularEvent('click', function (e) {
-       // Do something
-     }).delegateTo(document, 'a[data-action="toggle"]');
-
-     // Do more stuff
-
-     clickEvent.release();
-   });
+..  literalinclude:: _ReleaseEvent.js
+    :language: js
+    :caption: EXT:my_extension/Resources/Public/JavaScript/MyScript.js
 
 
-Event Strategies
+Event strategies
 ================
 
 The Event API brings several strategies to handle event listeners:
@@ -84,23 +67,18 @@ RegularEvent
 ------------
 
 The :js:`RegularEvent` attaches a simple event listener to an event and element
-and has no further tweaks. This is the common use-case for event handling.
+and has no further tweaks. This is the common use case for event handling.
 
 Arguments:
 
-* :js:`eventName` (string) - the event to listen on
-* :js:`callback` (function) - the event listener
+*   :js:`eventName` (string) - the event to listen on
+*   :js:`callback` (function) - the event listener
 
 Example:
 
-.. code-block:: js
-
-   require(['TYPO3/CMS/Core/Event/RegularEvent'], function (RegularEvent) {
-     new RegularEvent('click', function (e) {
-       e.preventDefault();
-       window.location.reload();
-     }).bindTo(document.querySelector('#my-element'));
-   });
+..  literalinclude:: _RegularEvent.js
+    :language: js
+    :caption: EXT:my_extension/Resources/Public/JavaScript/MyScript.js
 
 
 DebounceEvent
@@ -111,9 +89,9 @@ but executing the event listener is called only after a certain wait time.
 
 Arguments:
 
-* :js:`eventName` (string) - the event to listen on
-* :js:`callback` (function) - the event listener
-* :js:`wait` (number) - the amount of milliseconds to wait before the event listener is called
+*   :js:`eventName` (string) - the event to listen on
+*   :js:`callback` (function) - the event listener
+*   :js:`wait` (number) - the amount of milliseconds to wait before the event listener is called
 
 ..  versionchanged:: 13.0
     The parameter :js:`immediate` has been removed. There is no direct migration
@@ -123,13 +101,10 @@ Arguments:
 
 Example:
 
-.. code-block:: js
+..  literalinclude:: _DebounceEvent.js
+    :language: js
+    :caption: EXT:my_extension/Resources/Public/JavaScript/MyScript.js
 
-   require(['TYPO3/CMS/Core/Event/DebounceEvent'], function (DebounceEvent) {
-     new DebounceEvent('mousewheel', function (e) {
-       console.log('Triggered once after 250ms!');
-     }, 250).bindTo(document);
-   });
 
 ..  _js-event-api-throttleevent:
 
@@ -138,9 +113,9 @@ ThrottleEvent
 
 Arguments:
 
-* :js:`eventName` (string) - the event to listen on
-* :js:`callback` (function) - the event listener
-* :js:`limit` (number) - the amount of milliseconds to wait before the event listener is called
+*   :js:`eventName` (string) - the event to listen on
+*   :js:`callback` (function) - the event listener
+*   :js:`limit` (number) - the amount of milliseconds to wait before the event listener is called
 
 The :js:`ThrottleEvent` is similar to the :js:`DebounceEvent`. The important
 difference is that the event listener is called after the configured wait time
@@ -151,13 +126,9 @@ the event listener gets called up to 20 times in total (2000 / 100).
 
 Example:
 
-.. code-block:: js
-
-   require(['TYPO3/CMS/Core/Event/ThrottleEvent'], function (ThrottleEvent) {
-     new ThrottleEvent('mousewheel', function (e) {
-       console.log('Triggered every 100ms!');
-     }, 100).bindTo(document);
-   });
+..  literalinclude:: _ThrottleEvent.js
+    :language: js
+    :caption: EXT:my_extension/Resources/Public/JavaScript/MyScript.js
 
 
 RequestAnimationFrameEvent
@@ -169,15 +140,11 @@ manipulate the DOM.
 
 Arguments:
 
-* :js:`eventName` (string) - the event to listen on
-* :js:`callback` (function) - the event listener
+*   :js:`eventName` (string) - the event to listen on
+*   :js:`callback` (function) - the event listener
 
 Example:
 
-.. code-block:: js
-
-   require(['TYPO3/CMS/Core/Event/RequestAnimationFrameEvent'], function (RequestAnimationFrameEvent) {
-     new RequestAnimationFrameEvent('mousewheel', function (e) {
-       console.log('Triggered every 16ms (= 60 FPS)!');
-     });
-   });
+..  literalinclude:: _RequestAnimationFrameEvent.js
+    :language: js
+    :caption: EXT:my_extension/Resources/Public/JavaScript/MyScript.js

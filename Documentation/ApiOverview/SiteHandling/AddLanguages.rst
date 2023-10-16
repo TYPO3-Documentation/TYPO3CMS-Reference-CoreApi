@@ -133,34 +133,17 @@ Configuration properties
     iterate through the locales from left to right until it finds a locale that
     is installed on the server.
 
-..  option:: iso-639-1
-
-    :type: string
-    :Example: :yaml:`en`
-
-    ..  deprecated:: 12.3
-        It is not needed to set this property anymore, and is removed from the
-        backend UI. The information is now automatically derived from the
-        :ref:`locale <sitehandling-addingLanguages-locale>` setting.
-        Using this property will trigger a PHP deprecation notice.
-
-    The two-letter code for the language according to
-    `ISO-639 <https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes>`__
-    nomenclature.
-
 ..  option:: hreflang
 
     :type: string
     :Example: :yaml:`en-GB`
 
     ..  versionchanged:: 12.4
-        This option is not relevant anymore for regular websites without
-        rendering hreflang tag, but is now customizable, and has a proper
-        fallback.
+        The information is now automatically derived from the
+        :ref:`locale <sitehandling-addingLanguages-locale>` setting.
 
-    This property sets the hreflang tag for this language. It is empty by
-    default and will fallback to the
-    :ref:`locale <sitehandling-addingLanguages-locale>` setting.
+    Use this property to override the automatic hreflang tag value for this
+    language.
 
     **Example setups:**
 
@@ -170,20 +153,6 @@ Configuration properties
         when using hreflang tags.
     *   You want to explicitly set :yaml:`x-default` for a specific language,
         which is clearly not a valid language key.
-
-..  option:: direction
-
-    :type: string
-    :Example: :yaml:`ltr`
-
-    ..  deprecated:: 12.3
-        It is not needed to set this property anymore, and is removed from the
-        backend UI. The information is now automatically derived from the
-        :ref:`locale <sitehandling-addingLanguages-locale>` setting.
-        Using this property will trigger a PHP deprecation notice.
-
-    The text direction for content in this language (left-to-right or
-    right-to-left).
 
 ..  option:: typo3Language
 

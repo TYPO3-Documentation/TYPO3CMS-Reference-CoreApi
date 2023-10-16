@@ -40,38 +40,6 @@ thumbnails
    Enables the use of thumbnails in the backend interface.
 
 .. index::
-   TYPO3_CONF_VARS GFX; thumbnails_png
-.. _typo3ConfVars_gfx_thumbnails_png:
-
-thumbnails_png
-==============
-
-.. confval:: $GLOBALS['TYPO3_CONF_VARS']['GFX']['thumbnails_png']
-
-   :type: bool
-   :Default: true
-
-   If disabled, thumbnails from non-image files will be converted
-   to gif, otherwise png (default).
-
-.. index::
-   TYPO3_CONF_VARS GFX; gif_compress
-.. _typo3ConfVars_gfx_gif_compress:
-
-gif_compress
-============
-
-.. confval:: $GLOBALS['TYPO3_CONF_VARS']['GFX']['gif_compress']
-
-   :type: bool
-   :Default: true
-
-   Enables the use of the
-   :php:`\TYPO3\CMS\Core\Imaging\GraphicalFunctionsgifCompress()` workaround
-   function for compressing .gif files made with GD or IM, which probably use
-   only RLE or no compression at all.
-
-.. index::
    TYPO3_CONF_VARS GFX; imagefile_ext
 .. _typo3ConfVars_gfx_imagefile_ext:
 
@@ -86,35 +54,6 @@ imagefile_ext
    Comma-separated list of file extensions perceived as images by TYPO3.
    List should be set to :php:`'gif,png,jpeg,jpg'` if IM is not available.
    Lowercase and no spaces between!
-
-.. index::
-   TYPO3_CONF_VARS GFX; gdlib
-.. _typo3ConfVars_gfx_gdlib:
-
-gdlib
-=====
-
-.. confval:: $GLOBALS['TYPO3_CONF_VARS']['GFX']['gdlib']
-
-   :type: bool
-   :Default: true
-
-   Enables the use of GD.
-
-.. index::
-   TYPO3_CONF_VARS GFX; gdlib_png
-.. _typo3ConfVars_gfx_gdlib_png:
-
-gdlib_png
-=========
-
-.. confval:: $GLOBALS['TYPO3_CONF_VARS']['GFX']['gdlib_png']
-
-   :type: bool
-   :Default: false
-
-   Enables the use of GD, with PNG only. This means that all items normally
-   generated as gif-files will be png-files instead!
 
 .. index::
    TYPO3_CONF_VARS GFX;
@@ -211,21 +150,6 @@ processor_allowFrameSelection
    frame selection.
 
 .. index::
-   TYPO3_CONF_VARS GFX; processor_allowTemporaryMasksAsPng
-.. _typo3ConfVars_gfx_processor_allowTemporaryMasksAsPng:
-
-processor_allowTemporaryMasksAsPng
-==================================
-
-.. confval:: $GLOBALS['TYPO3_CONF_VARS']['GFX']['processor_allowTemporaryMasksAsPng']
-
-   :type: bool
-   :Default: false
-
-   This should be set if your processor supports using PNGs as masks as this
-   is usually faster.
-
-.. index::
    TYPO3_CONF_VARS GFX;
 .. _typo3ConfVars_gfx_processor_stripColorProfileByDefault:
 
@@ -259,24 +183,34 @@ processor_stripColorProfileCommand
    `imagemagick.org <https://legacy.imagemagick.org/Usage/thumbnails/#profiles>`__
    for details
 
-.. index::
-   TYPO3_CONF_VARS GFX; processor_colorspace
-.. _typo3ConfVars_gfx_processor_colorspace:
+..  index::
+    TYPO3_CONF_VARS GFX; processor_colorspace
+..  _typo3ConfVars_gfx_processor_colorspace:
 
 processor_colorspace
 ====================
 
-.. confval:: $GLOBALS['TYPO3_CONF_VARS']['GFX']['processor_colorspace']
+..  versionchanged:: 13.0
+    The setting defaults to an empty value and - if not changed - is adjusted
+    automatically to the recommended colorspace for the given processor ("sRGB"
+    for ImageMagick, "RGB" for GraphicsMagick).
 
-   :type: text
-   :Default: RGB
+..  confval:: $GLOBALS['TYPO3_CONF_VARS']['GFX']['processor_colorspace']
 
-   Specifes the colorspace to use. Some ImageMagick versions (like 6.7.0 and
-   above) use the sRGB colorspace, so all images are darker then the original.
+    :type: text
+    :Default: ''
 
-   Possible Values: CMY, CMYK, Gray, HCL, HSB, HSL, HWB, Lab, LCH, LMS, Log,
-   Luv, OHTA, Rec601Luma, Rec601YCbCr, Rec709Luma, Rec709YCbCr, RGB, sRGB,
-   Transparent, XYZ, YCbCr, YCC, YIQ, YCbCr, YUV
+    Specifies the colorspace to use. Defaults to "RGB" when using GraphicsMagick
+    as :ref:`processor <typo3ConfVars_gfx_processor>` and "sRGB" when using
+    ImageMagick.
+
+    ..  note::
+        Images would be rendered darker than the original when using ImageMagick
+        in combination with "RGB".
+
+    Possible values: CMY, CMYK, Gray, HCL, HSB, HSL, HWB, Lab, LCH, LMS, Log,
+    Luv, OHTA, Rec601Luma, Rec601YCbCr, Rec709Luma, Rec709YCbCr, RGB, sRGB,
+    Transparent, XYZ, YCbCr, YCC, YIQ, YCbCr, YUV
 
 .. index::
    TYPO3_CONF_VARS GFX; processor_interlace
@@ -309,3 +243,69 @@ jpg_quality
    :Default: 85
 
    Default JPEG generation quality
+
+..  index::
+    TYPO3_CONF_VARS GFX; thumbnails_png
+..  _typo3ConfVars_gfx_thumbnails_png:
+
+thumbnails_png
+==============
+
+..  confval:: $GLOBALS['TYPO3_CONF_VARS']['GFX']['thumbnails_png']
+
+    ..  versionchanged:: 13.0
+        This setting has been removed. Thumbnails from non-image files (like
+        PDF) are always generated as PNG.
+
+..  index::
+    TYPO3_CONF_VARS GFX; gif_compress
+..  _typo3ConfVars_gfx_gif_compress:
+
+gif_compress
+============
+
+..  confval:: $GLOBALS['TYPO3_CONF_VARS']['GFX']['gif_compress']
+
+    ..  versionchanged:: 13.0
+        This setting has been removed.
+
+..  index::
+    TYPO3_CONF_VARS GFX; processor_allowTemporaryMasksAsPng
+..  _typo3ConfVars_gfx_processor_allowTemporaryMasksAsPng:
+
+processor_allowTemporaryMasksAsPng
+==================================
+
+..  confval:: $GLOBALS['TYPO3_CONF_VARS']['GFX']['processor_allowTemporaryMasksAsPng']
+
+    ..  versionchanged:: 13.0
+        This setting has been removed. Temporarily saved masking images are
+        always saved as PNG files rather than GIF images.
+
+.. index::
+   TYPO3_CONF_VARS GFX; gdlib
+.. _typo3ConfVars_gfx_gdlib:
+
+gdlib
+=====
+
+.. confval:: $GLOBALS['TYPO3_CONF_VARS']['GFX']['gdlib']
+
+    ..  versionchanged:: 13.0
+        This setting has been removed. GDLib functionality is enabled as soon as
+        relevant `GDLib`_ classes are found.
+
+        ..  _GDLib: https://www.php.net/manual/en/book.image.php
+
+.. index::
+   TYPO3_CONF_VARS GFX; gdlib_png
+.. _typo3ConfVars_gfx_gdlib_png:
+
+gdlib_png
+=========
+
+..  confval:: $GLOBALS['TYPO3_CONF_VARS']['GFX']['gdlib_png']
+
+    ..  versionchanged:: 13.0
+        This setting has been removed. Temporary layers/masks are always saved
+        as PNG files instead of GIF files.

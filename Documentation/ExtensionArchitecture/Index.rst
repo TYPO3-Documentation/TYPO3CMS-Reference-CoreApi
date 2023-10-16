@@ -62,6 +62,19 @@ Extension development
 
          .. rst-class:: card-header h3
 
+            .. rubric:: :ref:`Extbase <extbase>`
+
+         .. container:: card-body
+
+            Extbase is an extension framework to create TYPO3 frontend plugins
+            and TYPO3 backend modules.
+
+   .. container:: col-md-6 pl-0 pr-3 py-3 m-0
+
+      .. container:: card px-0 h-100
+
+         .. rst-class:: card-header h3
+
             .. rubric:: :ref:`Best practises and conventions <extension-Best-practises>`
 
          .. container:: card-body

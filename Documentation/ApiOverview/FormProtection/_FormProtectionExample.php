@@ -12,8 +12,7 @@ final class FormProtectionExample
 {
     public function __construct(
         private readonly FormProtectionFactory $formProtectionFactory
-    ) {
-    }
+    ) {}
 
     public function handleRequest(ServerRequestInterface $request): ResponseInterface
     {

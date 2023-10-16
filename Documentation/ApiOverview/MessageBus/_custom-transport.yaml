@@ -11,8 +11,8 @@ messenger.transport.demo:
       identifier: 'demo'
 
 messenger.transport.default:
-  factory: [ '@Symfony\Component\Messenger\Transport\InMemoryTransportFactory', 'createTransport' ]
-  class: 'Symfony\Component\Messenger\Transport\InMemoryTransport'
+  factory: [ '@Symfony\Component\Messenger\Transport\InMemory\InMemoryTransportFactory', 'createTransport' ]
+  class: 'Symfony\Component\Messenger\Transport\InMemory\InMemoryTransport'
   arguments:
     $dsn: 'in-memory://default'
     $options: [ ]

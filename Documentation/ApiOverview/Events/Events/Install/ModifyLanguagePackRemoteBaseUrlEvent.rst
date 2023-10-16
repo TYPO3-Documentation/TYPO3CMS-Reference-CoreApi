@@ -11,10 +11,17 @@ The PSR-14 event
 :php:`\TYPO3\CMS\Install\Service\Event\ModifyLanguagePackRemoteBaseUrlEvent`
 allows to modify the main URL of a language pack.
 
+..  seealso::
+    :ref:`custom-translation-server`
+
 Example
 =======
 
-..  include:: /_includes/EventsContributeNote.rst.txt
+..  literalinclude:: _ModifyLanguagePackRemoteBaseUrlEvent/_CustomMirror.php
+    :language: php
+    :caption: EXT:my_extension/Classes/EventListener/CustomMirror.php
+
+..  include:: /_includes/EventsAttributeAdded.rst.txt
 
 API
 ===

@@ -13,7 +13,6 @@
        public function __construct(
            private readonly BrokenLinkRepository $brokenLinkRepository,
            private readonly SoftReferenceParserFactory $softReferenceParserFactory,
-       ) {
-       }
+       ) {}
    }
    

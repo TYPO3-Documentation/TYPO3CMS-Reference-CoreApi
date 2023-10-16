@@ -13,8 +13,7 @@ final class MyQueryBuilderSelectRepository
 {
     public function __construct(
         private readonly ConnectionPool $connectionPool
-    ) {
-    }
+    ) {}
 
     public function selectSomeData(): array
     {

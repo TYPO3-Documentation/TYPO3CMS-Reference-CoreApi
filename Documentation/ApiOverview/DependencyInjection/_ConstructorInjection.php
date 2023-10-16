@@ -10,6 +10,5 @@ final class UserController
 {
     public function __construct(
         private readonly UserRepository $userRepository
-    ) {
-    }
+    ) {}
 }

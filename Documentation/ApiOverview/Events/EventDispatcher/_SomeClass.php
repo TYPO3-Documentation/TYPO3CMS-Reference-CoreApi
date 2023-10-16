@@ -10,6 +10,5 @@ final class SomeClass
 {
     public function __construct(
         private readonly EventDispatcherInterface $eventDispatcher,
-    ) {
-    }
+    ) {}
 }

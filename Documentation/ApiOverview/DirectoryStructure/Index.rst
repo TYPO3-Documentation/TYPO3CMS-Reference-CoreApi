@@ -80,10 +80,10 @@ This path can be retrieved from the Environment API, see
     *   :file:`public/typo3conf/AdditionalConfiguration.php` is now available
         in :file:`config/system/additional.php`
 
-.. _directory-local_packages:
+.. _directory-packages:
 
-:file:`local_packages/`
------------------------
+:file:`packages/`
+-----------------
 
 Each web site which is run on TYPO3 **should**
 have a sitepackage, an extension with a special purpose containing all
@@ -101,9 +101,9 @@ to be used:
     {
         "name": "myvendor/my-project",
         "repositories": {
-            "my_local_packages": {
+            "packages": {
                 "type": "path",
-                "url": "local_packages/*"
+                "url": "packages/*"
             }
         },
         "...": "..."
@@ -292,8 +292,8 @@ Never put or symlink your extensions manually into this directory as it is
 managed by Composer and any manual changes are getting lost,
 for example on deployment. Local extensions and sitepackages
 should be kept in a separate folder outside the web root, for example
-:ref:`local_packages <directory-local_packages>`.
-Upon installation , Composer creates a symlink from local_packages to
+:ref:`packages <directory-packages>`.
+Upon installation , Composer creates a symlink from packages to
 :file:`vendor/myvendor/my-extension`.
 
 

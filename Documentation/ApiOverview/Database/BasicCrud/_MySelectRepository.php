@@ -10,8 +10,7 @@ final class MySelectRepository
 {
     public function __construct(
         private readonly ConnectionPool $connectionPool
-    ) {
-    }
+    ) {}
 
     /**
      * @return array|false

@@ -21,8 +21,7 @@
        public function __construct(
            // The page renderer is needed to register the JavaScript
            private readonly PageRenderer $pageRenderer,
-       ) {
-       }
+       ) {}
 
        public function initialize(AbstractLinkBrowserController $linkBrowser, $identifier, array $configuration)
        {

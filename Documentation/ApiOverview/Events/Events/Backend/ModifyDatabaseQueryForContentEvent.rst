@@ -18,7 +18,11 @@ to filter out certain content elements from being shown in the
 Example
 =======
 
-..  include:: /_includes/EventsContributeNote.rst.txt
+..  literalinclude:: _ModifyDatabaseQueryForContentEvent/_MyEventListener.php
+    :language: php
+    :caption: EXT:my_extension/Classes/Backend/EventListener/MyEventListener.php
+
+..  include:: /_includes/EventsAttributeAdded.rst.txt
 
 API
 ===

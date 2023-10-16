@@ -16,8 +16,7 @@ final class MyEventListener
 {
     public function __construct(
         private readonly IconFactory $iconFactory
-    ) {
-    }
+    ) {}
 
     public function __invoke(ModifyLinkExplanationEvent $event): void
     {

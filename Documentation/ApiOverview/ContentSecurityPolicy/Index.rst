@@ -65,6 +65,27 @@ different techniques for the declarations):
         img-src 'self' data: https://*.typo3.org; script-src 'self' 'nonce-[random]';
         worker-src blob:
 
+..  note::
+    The policy builder is the low-level representation and interaction in PHP,
+    any other configuration is using the same verbs to describe the CSP
+    instructions. The :php:`\TYPO3\CMS\Core\Security\ContentSecurityPolicy\Policy`
+    object is used for compiling the CSP in a :ref:`middleware <request-handling>`.
+    Thus, custom controllers or middlewares could use this approach; the last
+    line
+
+    ..  code-block:: php
+
+        header('Content-Security-Policy: ' . $policy->compile($nonce));
+
+    is an example to show the basic principle without having to explain
+    :ref:`PSR-7 <typo3-request>`/:ref:`PSR-15 <request-handling>` details.
+
+    For project integrations the "mutations" (via
+    :ref:`configuration <content-security-policy-extension>`,
+    :ref:`YAML <content-security-policy-site>`,
+    :ref:`resolutions in the UI <content-security-policy-reporting>` or
+    :ref:`events <content-security-policy-events>`) shall be used.
+
 
 .. _content-security-policy-extension:
 
@@ -220,10 +241,11 @@ endpoint.
 
 ..  _content-security-policy-events:
 
-PSR-14 event
-============
+PSR-14 events
+=============
 
-The following PSR-14 event is available:
+The following PSR-14 events are available:
 
+*   :ref:`InvestigateMutationsEvent`
 *   :ref:`PolicyMutatedEvent`
 

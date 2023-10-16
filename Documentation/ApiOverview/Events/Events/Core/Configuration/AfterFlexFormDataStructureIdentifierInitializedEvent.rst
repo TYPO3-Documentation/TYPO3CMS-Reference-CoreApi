@@ -10,7 +10,7 @@ AfterFlexFormDataStructureIdentifierInitializedEvent
 ..  versionadded:: 12.0
     This event was introduced to replace and improve the method
     :php:`parseDataStructureByIdentifierPostProcess()` of the hook
-    :php:`$GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['workspaces']['modifyDifferenceArray']`.
+    :php:`$GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS'][FlexFormTools::class]['flexParsing']`.
 
 The PSR-14 event
 :php:`\TYPO3\CMS\Core\Configuration\Event\AfterFlexFormDataStructureIdentifierInitializedEvent`
@@ -29,21 +29,11 @@ object-oriented approach.
 Example
 =======
 
-This example is available in our
-`examples extension <https://github.com/TYPO3-Documentation/t3docs-examples>`__.
+..  literalinclude:: _AfterFlexFormDataStructureIdentifierInitializedEvent/_FlexFormParsingModifyEventListener.php
+    :language: php
+    :caption: EXT:my_extension/Classes/Configuration/EventListener/FlexFormParsingModifyEventListener.php
 
-Registration of the events in the extension's :file:`Services.yaml`:
-
-..  literalinclude:: _AfterFlexFormDataStructureIdentifierInitializedEvent/_Services.yaml
-    :language: yaml
-    :caption: EXT:examples/Configuration/Services.yaml
-
-Read :ref:`how to configure dependency injection in extensions <dependency-injection-in-extensions>`.
-
-The corresponding event listener class:
-
-..  include:: /CodeSnippets/Events/Core/FlexFormParsingModifyEventListener/FlexFormParsingModifyEventListener.rst.txt
-
+..  include:: /_includes/EventsAttributeAdded.rst.txt
 
 API
 ===
