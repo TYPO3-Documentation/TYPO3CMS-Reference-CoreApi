@@ -399,7 +399,7 @@ Create an :sql:`INSERT` query. Typical usage:
 ..  code-block:: php
     :caption: EXT:my_extension/Classes/Domain/Repository/MyRepository.php
 
-    // INSERT INTO `tt_content` (`bodytext`, `header`) VALUES(`lorem`, `dolor`)
+    // INSERT INTO `tt_content` (`bodytext`, `header`) VALUES ('lorem', 'dolor')
     $queryBuilder = $this->connectionPool->getQueryBuilderForTable('tt_content');
     $affectedRows = $queryBuilder
         ->insert('tt_content')
@@ -412,26 +412,27 @@ Create an :sql:`INSERT` query. Typical usage:
 Read :ref:`how to correctly instantiate <database-query-builder-instantiation>`
 a query builder with the connection pool.
 
-The `uid` of the created database row can be fetched from the connection
-by using :ref:`$queryBuilder->getConnection()->lastInsertId() <database-connection-last-insert-id>`.
-
 Remarks:
 
-*   Often it is often to use :php:`->insert()` or :php:`->bulkInsert()` of the
-    :ref:`Connection <database-connection>` object.
+*   The `uid` of the created database row can be fetched from the connection
+    by using :ref:`$queryBuilder->getConnection()->lastInsertId() <database-connection-last-insert-id>`.
 
-*   :php:`->values()` expects an array of key/value pairs. Both keys (field
-    names / identifiers) and values are automatically quoted. In rare cases,
+*   :php:`->values()` expects an array of key/value pairs. Both **keys** (field
+    names / identifiers) and **values** are automatically quoted. In rare cases,
     quoting of values can be turned off by setting the second argument to
-    :php:`false`. In those cases, quoting has must done manually, typically
-    by using :php:`->createNamedParameter()` on the values, use with care ...
+    :php:`false`. Then quoting must be done manually, typically by using
+    :php:`->createNamedParameter()` on the values.
 
 *   :php:`->executeStatement()` after :php:`->insert()` returns the number of
     inserted rows, which is typically `1`.
 
-*   The query builder does not contain a method for inserting multiple rows at
-    once, use :php:`->bulkInsert()` of the :ref:`Connection
-    <database-connection>` object instead to achieve that.
+*   An alternative to using the query builder for inserting data is using the
+    :ref:`Connection <database-connection>` object with its :php:`->insert()`
+    method.
+
+*   The query builder does **not provide** a method for inserting multiple rows
+    at once, use :php:`->bulkInsert()` of the :ref:`Connection <database-connection>`
+    object instead to achieve that.
 
 
 from()
