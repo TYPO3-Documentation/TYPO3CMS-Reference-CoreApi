@@ -54,6 +54,22 @@ Code example for the :php:`ArrayPaginator`:
    $pagination->getNextPageNumber(); // returns null
    // …
 
+.. code-block:: html
+
+   <ul class="pagination">
+      <f:for each="{pagination.allPageNumbers}" as="page">
+         <li class="page-item">
+            <f:link.action arguments="{currentPageNumber:page}"
+                           class="page-link {f:if(condition:'{currentPageNumber}=={page}',then:'active')}">
+               {page}
+            </f:link.action>
+         </li>
+      </f:for>
+   </ul>
+
+   <f:for each="{paginator.paginatedItems}" as="item">
+       {item}
+   </f:for>
 
 Sliding window pagination
 =========================
