@@ -266,4 +266,10 @@ return [
         'targetFileName' => 'CodeSnippets/Events/Core/Cache/CacheWarmupEvent.rst.txt',
         'withCode' => false,
     ],
+    [
+        'action' => 'createPhpClassDocs',
+        'class' => \TYPO3\CMS\Core\Imaging\Event\ModifyRecordOverlayIconIdentifierEvent::class,
+        'targetFileName' => 'CodeSnippets/Events/Core/ModifyRecordOverlayIconIdentifierEvent.rst.txt',
+        'withCode' => false,
+    ],
 ];
