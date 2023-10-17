@@ -149,9 +149,30 @@ the :file:`ext_tables.sql` file:
     *   :ref:`TCA type "inline" <t3tca:columns-inline-properties-mm>`
     *   :ref:`TCA type "select" <t3tca:columns-select-properties-mm>`
 
+:php:`['config']['type'] => 'category'`
+    ..  versionadded:: 12.0
+        Database table fields for TCA type :php:`category` are created automatically.
+
+    See also :ref:`t3tca:columns-category`.
+
+:php:`['config']['type'] => 'datetime'`
+    Database table fields for TCA type :php:`datetime` are created automatically.
+
+    See also :ref:`t3tca:columns-datetime`.
+
+:php:`['config']['type'] => 'json'`
+    Database table fields for TCA type :php:`json` are created automatically.
+
+    See also :ref:`t3tca:columns-json`.
+
 :php:`['config']['type'] => 'slug'`
     ..  versionadded:: 12.0
         Database table fields for TCA type :php:`slug` are created automatically.
 
     See also :ref:`t3tca:columns-slug`.
 
+:php:`['config']['type'] => 'uuid'`
+    ..  versionadded:: 12.3
+        Database table fields for TCA type :php:`uuid` are created automatically.
+
+    See also :ref:`t3tca:columns-uuid`.
