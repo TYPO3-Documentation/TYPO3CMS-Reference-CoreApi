@@ -1,0 +1,7 @@
+services:
+  # Place here the default dependency injection configuration
+
+  MyVendor\MyExtension\SoftReference\YourSoftReferenceParser:
+    tags:
+      - name: softreference.parser
+        parserKey: my_softref_key
