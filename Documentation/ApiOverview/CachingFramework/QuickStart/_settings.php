@@ -8,10 +8,13 @@ return [
         // ...
         'caching' => [
             // ...
-            'pages' => [
-                'backend' => RedisBackend::class,
-                'options' => [
-                    'database' => 42,
+            'cacheConfigurations' => [
+                // ...
+                'pages' => [
+                    'backend' => RedisBackend::class,
+                    'options' => [
+                        'database' => 42,
+                    ],
                 ],
             ],
         ],
