@@ -2,9 +2,9 @@
 ..  index:: Events; ModifyPageLayoutContentEvent
 ..  _ModifyPageLayoutContentEvent:
 
-=============================
+============================
 ModifyPageLayoutContentEvent
-=============================
+============================
 
 ..  versionadded:: 12.0
     This event serves as a replacement for the removed hooks:
@@ -14,10 +14,6 @@ ModifyPageLayoutContentEvent
 
 The PSR-14 event :php:`\TYPO3\CMS\Backend\Controller\Event\ModifyPageLayoutContentEvent`
 allows to modify page module content.
-
-This event features the methods :php:`getRequest()`, :php:`getModuleTemplate()`
-and additional getters and setters for the header and footer
-content.
 
 It is possible to add additional content, overwrite existing
 content or reorder the content.
