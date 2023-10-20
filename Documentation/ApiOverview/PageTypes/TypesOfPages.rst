@@ -1,6 +1,6 @@
-.. include:: /Includes.rst.txt
-.. index:: Page types; Doktypes
-.. _list-of-page-types:
+..  include:: /Includes.rst.txt
+..  index:: Page types; Doktypes
+..  _list-of-page-types:
 
 ==============
 Types of pages
@@ -13,12 +13,14 @@ What role each page type plays and when to use it is explained in more
 detail in :ref:`t3editors:pages-types`. Some of the page types require
 additional fields in pages to be filled out:
 
-.. index:: Page types; DOKTYPE_DEFAULT
+..  index:: Page types; DOKTYPE_DEFAULT
+..  _list-of-page-types-default:
 
 `DOKTYPE_DEFAULT` - ID: `1`
    Standard
 
-.. index:: Page types; DOKTYPE_LINK
+..  index:: Page types; DOKTYPE_LINK
+..  _list-of-page-types-link:
 
 `DOKTYPE_LINK` - ID: `3`
    Link to External URL
@@ -26,7 +28,8 @@ additional fields in pages to be filled out:
    This type of page creates a redirect to an URL in the frontend.
    The URL is specified in the field `pages.url`.
 
-.. index:: Page types; DOKTYPE_SHORTCUT
+..  index:: Page types; DOKTYPE_SHORTCUT
+..  _list-of-page-types-shortcut:
 
 `DOKTYPE_SHORTCUT` - ID: `4`
    Shortcut
@@ -35,12 +38,14 @@ additional fields in pages to be filled out:
    The shortcut target is specified in the field `pages.shortcut`,
    shortcut mode is stored in `pages.shortcut_mode`.
 
-.. index:: Page types; DOKTYPE_BE_USER_SECTION
+..  index:: Page types; DOKTYPE_BE_USER_SECTION
+..  _list-of-page-types-be-user-section:
 
 `DOKTYPE_BE_USER_SECTION` - ID: `6`
    Backend user Section
 
-.. index:: Page types; DOKTYPE_MOUNTPOINT
+..  index:: Page types; DOKTYPE_MOUNTPOINT
+..  _list-of-page-types-mountpoint:
 
 `DOKTYPE_MOUNTPOINT` - ID: `7`
    Mount point
@@ -49,12 +54,14 @@ additional fields in pages to be filled out:
    while display options can be changed with `pages.mount_pid_ol`.
    See :ref:`MountPoints documentation <MountPoints>`.
 
-.. index:: Page types; DOKTYPE_SPACER
+..  index:: Page types; DOKTYPE_SPACER
+..  _list-of-page-types-spacer:
 
 `DOKTYPE_SPACER` - ID: `199`
    Menu separator
 
-.. index:: Page types; DOKTYPE_SYSFOLDER
+..  index:: Page types; DOKTYPE_SYSFOLDER
+..  _list-of-page-types-sysfolder:
 
 `DOKTYPE_SYSFOLDER` - ID: `254`
    Folder
