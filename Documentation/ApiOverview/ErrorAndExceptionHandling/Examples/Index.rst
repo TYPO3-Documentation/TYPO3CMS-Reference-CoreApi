@@ -29,7 +29,7 @@ In :file:`config/system/settings.php` or :file:`config/system/additional.php`:
    :caption: config/system/additional.php | typo3conf/system/additional.php
 
     $changeSettings['SYS'] => array(
-      'displayErrors' => '1',
+      'displayErrors' => 1,
       'devIPmask' => '*',
       'errorHandler' => 'TYPO3\\CMS\\Core\\Error\\ErrorHandler',
       'errorHandlerErrors' => E_ALL ^ E_NOTICE,
@@ -77,8 +77,10 @@ Production setup
 ================
 
 Example for a production configuration which displays only errors and
-exceptions if the devIPmask matches. Errors and exceptions are only
-logged if their level is at least 2 (=Warning).
+exceptions, if the :ref:`devIPmask <typo3ConfVars_sys_devIPmask>` setting
+matches. Errors and exceptions are only logged, if their
+:ref:`log level <logging-logger-shortcuts>` is at least
+:php:`\Psr\Log\LogLevel::WARNING`.
 
 In :file:`config/system/settings.php` or :file:`config/system/additional.php`:
 
@@ -86,7 +88,7 @@ In :file:`config/system/settings.php` or :file:`config/system/additional.php`:
    :caption: config/system/additional.php | typo3conf/system/additional.php
 
     $changeSettings['SYS'] => array(
-      'displayErrors' => '2',
+      'displayErrors' => -1,
       'devIPmask' => '[your.IP.address]',
       'errorHandler' => 'TYPO3\\CMS\\Core\\Error\\ErrorHandler',
       'belogErrorReporting' => '0',
@@ -122,7 +124,7 @@ In :file:`config/system/settings.php` or :file:`config/system/additional.php`:
    :caption: config/system/additional.php | typo3conf/system/additional.php
 
     $changeSettings['SYS'] => array(
-      'displayErrors' => '0',
+      'displayErrors' => 0,
       'devIPmask' => '',
       'errorHandler' => '',
       'debugExceptionHandler' => '',
