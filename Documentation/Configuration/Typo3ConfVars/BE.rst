@@ -831,14 +831,8 @@ explicitADmode
 flexformForceCDATA
 ==================
 
-.. confval:: $GLOBALS['TYPO3_CONF_VARS']['BE'][flexformForceCDATA']
-
-   :type: bool
-   :Default: 0
-
-   If set, will add CDATA to Flexform XML. Some versions of libxml have a bug
-   that causes HTML entities to be stripped from any XML content and this
-   setting will avoid the bug by adding CDATA.
+.. versionchanged:: 13.0
+   This option was removed with TYPO3 v13.0.
 
 .. index::
    TYPO3_CONF_VARS BE; versionNumberInFilename
