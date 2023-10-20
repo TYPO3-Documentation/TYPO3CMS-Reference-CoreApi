@@ -46,7 +46,7 @@ folder:
     │    ├── tx_myextension_domain_model_something.php
     │    ├── ...
     │    └── tx_myextension_sometable.php
-    ├── TSconfig
+    ├── TsConfig
     │    ├── Page
     │    └── User
     ├── TypoScript
