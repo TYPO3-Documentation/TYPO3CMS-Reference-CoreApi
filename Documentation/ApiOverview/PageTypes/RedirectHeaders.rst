@@ -10,9 +10,10 @@ X-Redirect-By header for pages with redirect types
 
 The following page types trigger a redirect:
 
-- Shortcut
-- Mount point pages which should be overlaid when accessed directly
-- Link to external URL
+*   :ref:`Shortcut <list-of-page-types-shortcut>`
+*   :ref:`Mount point pages <list-of-page-types-mountpoint>` which should be
+    overlaid when accessed directly
+*   :ref:`Link to external URL <list-of-page-types-link>`
 
 Those redirects will send an additional HTTP Header `X-Redirect-By`, stating what type of page triggered the redirect.
 By enabling the global option :php:`$GLOBALS['TYPO3_CONF_VARS']['FE']['exposeRedirectInformation']` the header will also contain the page ID.
