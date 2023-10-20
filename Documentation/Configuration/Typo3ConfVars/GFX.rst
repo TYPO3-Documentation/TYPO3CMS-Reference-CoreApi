@@ -295,6 +295,10 @@ gdlib
         This setting has been removed. GDLib functionality is enabled as soon as
         relevant `GDLib`_ classes are found.
 
+        Custom code that relied on :php:`$GLOBALS['TYPO3_CONF_VARS']['GFX']['gdlib']`
+        should instead adopt the simpler check
+        :php:`if (class_exists(\GdImage::class))`.
+
         ..  _GDLib: https://www.php.net/manual/en/book.image.php
 
 .. index::
