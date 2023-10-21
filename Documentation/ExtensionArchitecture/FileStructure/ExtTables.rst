@@ -122,6 +122,8 @@ new records of your table to be added on Standard pages call:
       'tx_myextension_domain_model_mymodel'
    );
 
+Read :ref:`why the check for the TYPO3 constant is necessary <globals-constants-typo3>`.
+
 .. index:: Extension development; Scheduler task registration
 .. _extension-configuration-files-scheduler:
 
