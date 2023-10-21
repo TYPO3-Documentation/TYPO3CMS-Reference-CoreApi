@@ -94,6 +94,7 @@ The skeleton of the :file:`ext_localconf.php` looks like this:
     :language: php
     :caption: EXT:my_extension/ext_localconf.php
 
+Read :ref:`why the check for the TYPO3 constant is necessary <globals-constants-typo3>`.
 
 .. index:: Extension development; PageTSconfig
 
