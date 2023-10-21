@@ -145,7 +145,7 @@ the :file:`ext_tables.sql` file:
 
 :php:`['config']['MM']`
     :sql:`CREATE TABLE` definitions for intermediate tables referenced by TCA
-    table columns should not be defined manually in the :file:`ext_tables.php`
+    table columns should not be defined manually in the :file:`ext_tables.sql`
     file:
 
     *   :ref:`TCA type "group" <t3tca:columns-group-properties-mm>`
