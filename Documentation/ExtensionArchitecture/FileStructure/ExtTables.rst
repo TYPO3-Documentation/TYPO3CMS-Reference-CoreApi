@@ -64,6 +64,8 @@ automatically:
     :language: php
     :caption: EXT:site_package/ext_tables.php
 
+Read :ref:`why the check for the TYPO3 constant is necessary <globals-constants-typo3>`.
+
 .. index:: Extension development; Scheduler task registration
 .. _extension-configuration-files-scheduler:
 
