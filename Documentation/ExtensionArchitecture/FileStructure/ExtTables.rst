@@ -47,7 +47,7 @@ These are the typical functions that should be placed inside :file:`ext_tables.p
 
 *  Registering a scheduler tasks:
    :ref:`extension-configuration-files-scheduler`
-*  Assignments to the global configuration array :php:`$GLOBALS['PAGES_TYPES']`
+*  Registration of :ref:`custom page types <page-types-example>`
 *  Extending the :ref:`Backend user settings <user-settings-extending>`
 
 Examples
