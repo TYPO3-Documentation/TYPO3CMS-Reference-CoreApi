@@ -163,7 +163,7 @@ the :file:`ext_tables.sql` file:
 
 :php:`['config']['MM']`
     :sql:`CREATE TABLE` definitions for intermediate tables referenced by TCA
-    table columns should not be defined manually in the :file:`ext_tables.php`
+    table columns should not be defined manually in the :file:`ext_tables.sql`
     file:
 
     *   :ref:`TCA type "group" <t3tca:columns-group-properties-mm>`
@@ -193,7 +193,6 @@ the :file:`ext_tables.sql` file:
     See also :ref:`t3tca:columns-slug`.
 
 :php:`['config']['type'] => 'uuid'`
-    ..  versionadded:: 12.3
-        Database table fields for TCA type :php:`uuid` are created automatically.
+    Database table fields for TCA type :php:`uuid` are created automatically.
 
     See also :ref:`t3tca:columns-uuid`.
