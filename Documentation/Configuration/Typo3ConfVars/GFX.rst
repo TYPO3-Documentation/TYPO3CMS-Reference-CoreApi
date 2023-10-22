@@ -245,6 +245,22 @@ jpg_quality
    Default JPEG generation quality
 
 ..  index::
+    TYPO3_CONF_VARS GFX; jpg_quality
+..  _typo3ConfVars_gfx_webp_quality:
+
+webp_quality
+============
+
+..  versionadded:: 13.0
+
+..  confval:: $GLOBALS['TYPO3_CONF_VARS']['GFX']['webp_quality']
+
+    :type: int
+    :Default: 85
+
+    Default WebP generation quality
+
+..  index::
     TYPO3_CONF_VARS GFX; thumbnails_png
 ..  _typo3ConfVars_gfx_thumbnails_png:
 
