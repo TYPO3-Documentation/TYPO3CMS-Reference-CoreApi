@@ -1,0 +1,10 @@
+.. Automatic screenshot: Remove this line if you want to manually change this file
+
+.. code-block:: typoscript
+   :caption: Extension examples, file Configuration/TypoScript/Syntax/CodeBlockInvalidCondition/setup.typoscript
+
+   myIdentifier = TEXT
+   myIdentifier {
+      @import 'EXT:my_extension/Configuration/TypoScript/bar.typoscript'
+      value = foo
+   }

@@ -1,0 +1,13 @@
+.. Automatic screenshot: Remove this line if you want to manually change this file
+
+.. code-block:: typoscript
+   :caption: Extension examples, file Configuration/TypoScript/Conditions2/setup.typoscript
+
+   # Some TypoScript, always parsed
+   [condition criteria]
+      # Some TypoScript, only parsed if the condition criteria is met
+   [ELSE]
+      # Some TypoScript, only parsed if the condition criteria is *not* met
+      # [ELSE] is optional
+   [GLOBAL]
+   # ... some TypoScript, always parsed
