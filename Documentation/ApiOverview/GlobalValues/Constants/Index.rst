@@ -96,7 +96,7 @@ File types
     the constants from :php:`\TYPO3\CMS\Core\Resource\AbstractFile`.
 
 Different types of file constants are defined in the enum
-:php:`\TYPO3\CMS\Core\Resource\FileType`. These constants are available for
+:php:`\TYPO3\CMS\Core\Resource\FileType`. These cases are available for
 different groups of files as documented in
 https://www.iana.org/assignments/media-types/media-types.xhtml
 
@@ -105,7 +105,7 @@ example, be used in :ref:`Fluid <fluid>` to decide how to render different types
 of files.
 
 ============================ ===== =======================
-Enum name                    Value Description
+Enum case                    Value Description
 ============================ ===== =======================
 :php:`FileType::UNKNOWN`         0 Unknown
 :php:`FileType::TEXT`            1 Any kind of text
