@@ -245,7 +245,7 @@ jpg_quality
    Default JPEG generation quality
 
 ..  index::
-    TYPO3_CONF_VARS GFX; jpg_quality
+    TYPO3_CONF_VARS GFX; webp_quality
 ..  _typo3ConfVars_gfx_webp_quality:
 
 webp_quality
