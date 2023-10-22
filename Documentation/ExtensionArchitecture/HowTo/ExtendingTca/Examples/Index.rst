@@ -66,6 +66,8 @@ Here's the complete code, taken from file
       'tx_examples_options, tx_examples_special'
    );
 
+Read :ref:`why the check for the TYPO3 constant is necessary <globals-constants-typo3>`.
+
 .. note::
 
    The second example :php:`tx_examples_special` only works when the
