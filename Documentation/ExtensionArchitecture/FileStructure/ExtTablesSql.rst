@@ -156,43 +156,21 @@ auto-generated fields, if they are not manually defined in the
     A default index named :sql:`t3ver_oid` to fields :sql:`t3ver_oid` and
     :sql:`t3ver_wsid` is added, too.
 
-The following
+The configuration in
+:ref:`$GLOBALS['TCA'][$table]['columns'][$field]['config']['MM'] <t3tca:tca_property_MM>`
+is considered for auto-generating the intermediate table and fields for:
+
+*   :ref:`TCA type "group" <t3tca:columns-group-properties-mm>`
+*   :ref:`TCA type "inline" <t3tca:columns-inline-properties-mm>`
+*   :ref:`TCA type "select" <t3tca:columns-select-properties-mm>`
+
+The following types configured via
 :ref:`$GLOBALS['TCA'][$table]['columns'][$field]['config'] <t3tca:columns-types>`
 are considered for auto-generated fields, if they are not manually defined in
 the :file:`ext_tables.sql` file:
 
-:php:`['config']['MM']`
-    :sql:`CREATE TABLE` definitions for intermediate tables referenced by TCA
-    table columns should not be defined manually in the :file:`ext_tables.sql`
-    file:
-
-    *   :ref:`TCA type "group" <t3tca:columns-group-properties-mm>`
-    *   :ref:`TCA type "inline" <t3tca:columns-inline-properties-mm>`
-    *   :ref:`TCA type "select" <t3tca:columns-select-properties-mm>`
-
-:php:`['config']['type'] => 'category'`
-    ..  versionadded:: 12.0
-        Database table fields for TCA type :php:`category` are created automatically.
-
-    See also :ref:`t3tca:columns-category`.
-
-:php:`['config']['type'] => 'datetime'`
-    Database table fields for TCA type :php:`datetime` are created automatically.
-
-    See also :ref:`t3tca:columns-datetime`.
-
-:php:`['config']['type'] => 'json'`
-    Database table fields for TCA type :php:`json` are created automatically.
-
-    See also :ref:`t3tca:columns-json`.
-
-:php:`['config']['type'] => 'slug'`
-    ..  versionadded:: 12.0
-        Database table fields for TCA type :php:`slug` are created automatically.
-
-    See also :ref:`t3tca:columns-slug`.
-
-:php:`['config']['type'] => 'uuid'`
-    Database table fields for TCA type :php:`uuid` are created automatically.
-
-    See also :ref:`t3tca:columns-uuid`.
+*   :ref:`TCA type "category" <t3tca:columns-category>` (since TYPO3 v12.0)
+*   :ref:`TCA type "datetime" <t3tca:columns-datetime>`
+*   :ref:`TCA type "json" <t3tca:columns-json>`
+*   :ref:`TCA type "slug" <t3tca:columns-slug>` (since TYPO3 v12.0)
+*   :ref:`TCA type "uuid" <t3tca:columns-uuid>`
