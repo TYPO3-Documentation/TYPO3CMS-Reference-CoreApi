@@ -80,28 +80,56 @@ It is defined to :php:`true` in early TYPO3 bootstrap.
 
 
 ..  index:: Constants; Filetypes
+..  _globals-constants-file-types:
 
 File types
 ==========
 
-Different types of file constants are defined in :php:`\TYPO3\CMS\Core\Resource\AbstractFile`.
-These constants are available for different groups of files as documented in
+..  versionchanged:: 13.0
+    The PHP backed enum :php:`\TYPO3\CMS\Core\Resource\FileType` has been
+    introduced as a drop-in replacement for the public :php:`FILETYPE_*`
+    constants in :php:`\TYPO3\CMS\Core\Resource\AbstractFile`. See
+    :ref:`globals-constants-file-types-migration`.
+
+    The constant file types have been marked as deprecated and will be
+    removed with TYPO3 v14.0. To be compatible with TYPO3 v12 and v13 use
+    the constants from :php:`\TYPO3\CMS\Core\Resource\AbstractFile`.
+
+Different types of file constants are defined in the enum
+:php:`\TYPO3\CMS\Core\Resource\FileType`. These cases are available for
+different groups of files as documented in
 https://www.iana.org/assignments/media-types/media-types.xhtml
 
 These file types are assigned to all :ref:`FAL <fal>` resources. They can, for
 example, be used in :ref:`Fluid <fluid>` to decide how to render different types
 of files.
 
-========================================= ===== =======================
-Constant                                  Value Description
-========================================= ===== =======================
-:php:`AbstractFile::FILETYPE_UNKNOWN`         0 Unknown
-:php:`AbstractFile::FILETYPE_TEXT`            1 Any kind of text
-:php:`AbstractFile::FILETYPE_IMAGE`           2 Any kind of image
-:php:`AbstractFile::FILETYPE_AUDIO`           3 Any kind of audio
-:php:`AbstractFile::FILETYPE_VIDEO`           4 Any kind of video
-:php:`AbstractFile::FILETYPE_APPLICATION`     5 Any kind of application
-========================================= ===== =======================
+============================ ===== =======================
+Enum case                    Value Description
+============================ ===== =======================
+:php:`FileType::UNKNOWN`         0 Unknown
+:php:`FileType::TEXT`            1 Any kind of text
+:php:`FileType::IMAGE`           2 Any kind of image
+:php:`FileType::AUDIO`           3 Any kind of audio
+:php:`FileType::VIDEO`           4 Any kind of video
+:php:`FileType::APPLICATION`     5 Any kind of application
+============================ ===== =======================
+
+
+..  _globals-constants-file-types-migration:
+
+Migration
+---------
+
+Migrate all usages to use the new enum :php:`\TYPO3\CMS\Core\Resource\FileType`
+as follows:
+
+* :php:`\TYPO3\CMS\Core\Resource\AbstractFile::FILETYPE_UNKNOWN` → :php:`\TYPO3\CMS\Core\Resource\FileType::UNKNOWN->value`
+* :php:`\TYPO3\CMS\Core\Resource\AbstractFile::FILETYPE_TEXT` → :php:`\TYPO3\CMS\Core\Resource\FileType::TEXT->value`
+* :php:`\TYPO3\CMS\Core\Resource\AbstractFile::FILETYPE_IMAGE` → :php:`\TYPO3\CMS\Core\Resource\FileType::IMAGE->value`
+* :php:`\TYPO3\CMS\Core\Resource\AbstractFile::FILETYPE_AUDIO` → :php:`\TYPO3\CMS\Core\Resource\FileType::AUDIO->value`
+* :php:`\TYPO3\CMS\Core\Resource\AbstractFile::FILETYPE_VIDEO` → :php:`\TYPO3\CMS\Core\Resource\FileType::VIDEO->value`
+* :php:`\TYPO3\CMS\Core\Resource\AbstractFile::FILETYPE_APPLICATION` → :php:`\TYPO3\CMS\Core\Resource\FileType::APPLICATION->value`
 
 
 .. index:: Constants; HTTP status codes
