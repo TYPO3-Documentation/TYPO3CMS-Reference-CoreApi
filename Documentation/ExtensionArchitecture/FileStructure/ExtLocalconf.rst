@@ -110,6 +110,7 @@ The skeleton of the :file:`ext_localconf.php` looks like this:
        // Add your code here
    })();
 
+Read :ref:`why the check for the TYPO3 constant is necessary <globals-constants-typo3>`.
 
 .. index:: Extension development; PageTSconfig
 
