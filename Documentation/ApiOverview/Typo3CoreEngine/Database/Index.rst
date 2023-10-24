@@ -44,15 +44,26 @@ Basic Usage
 
 .. code-block:: php
 
-   use TYPO3\CMS\Core\Utility\GeneralUtility;
-   use TYPO3\CMS\Core\DataHandling\DataHandler;
+    use TYPO3\CMS\Core\Utility\GeneralUtility;
+    use TYPO3\CMS\Core\DataHandling\DataHandler;
 
-   $dataHandler = GeneralUtility::makeInstance(DataHandler::class);
+    $dataHandler = GeneralUtility::makeInstance(DataHandler::class);
 
-   $cmd = [];
-   $data = [];
-   $dataHandler->start($data, $cmd);
+    $cmd = [];
+    $data = [];
+    $dataHandler->start($data, $cmd);
 
+After this initialization you usually want to perform the actual operations by
+calling one (or both) of these two methods:
+
+.. code-block:: php
+
+    $dataHandler->process_datamap();
+    $dataHandler->process_cmdmap();
+
+.. note::
+    Any error that might have occured during your DataHandler operations can be
+    accessed via its public property :php:`$dataHandler->errorLog`.
 
 Commands array
 ==============
