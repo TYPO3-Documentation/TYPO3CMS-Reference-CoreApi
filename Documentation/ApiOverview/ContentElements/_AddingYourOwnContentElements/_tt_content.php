@@ -19,4 +19,7 @@ defined('TYPO3') or die();
     'after'
 );
 
+// Adds the content element icon to TCA typeicon_classes
+$GLOBALS['TCA']['tt_content']['ctrl']['typeicon_classes']['myextension_newcontentelement'] = 'content-text';
+
 // ...
