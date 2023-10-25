@@ -44,15 +44,26 @@ Basic Usage
 
 .. code-block:: php
 
-   use TYPO3\CMS\Core\Utility\GeneralUtility;
-   use TYPO3\CMS\Core\DataHandling\DataHandler;
+    use TYPO3\CMS\Core\Utility\GeneralUtility;
+    use TYPO3\CMS\Core\DataHandling\DataHandler;
 
-   $dataHandler = GeneralUtility::makeInstance(DataHandler::class);
+    $dataHandler = GeneralUtility::makeInstance(DataHandler::class);
 
-   $cmd = [];
-   $data = [];
-   $dataHandler->start($data, $cmd);
+    $cmd = [];
+    $data = [];
+    $dataHandler->start($data, $cmd);
 
+After this initialization you usually want to perform the actual operations by
+calling one (or both) of these two methods:
+
+.. code-block:: php
+
+    $dataHandler->process_datamap();
+    $dataHandler->process_cmdmap();
+
+.. note::
+    Any error that might have occured during your DataHandler operations can be
+    accessed via its public property :php:`$dataHandler->errorLog`.
 
 Commands array
 ==============
@@ -61,7 +72,7 @@ Syntax:
 
 .. code-block:: none
 
-   $cmd[ tablename ][ uid ][ command ] = value
+    $cmd[ tablename ][ uid ][ command ] = value
 
 Description of keywords in syntax:
 
@@ -320,10 +331,10 @@ Examples of commands:
 .. code-block:: php
    :caption: EXT:some_extension/Classes/SomeClass.php
 
-   $cmd['tt_content'][54]['delete'] = 1;    // Deletes tt_content record with uid=54
-   $cmd['tt_content'][1203]['copy'] = -303; // Copies tt_content uid=1203 to the position after tt_content uid=303 (new record will have the same pid as tt_content uid=1203)
-   $cmd['tt_content'][1203]['copy'] = 400;  // Copies tt_content uid=1203 to first position in page uid=400
-   $cmd['tt_content'][1203]['move'] = 400;  // Moves tt_content uid=1203 to the first position in page uid=400
+    $cmd['tt_content'][54]['delete'] = 1;    // Deletes tt_content record with uid=54
+    $cmd['tt_content'][1203]['copy'] = -303; // Copies tt_content uid=1203 to the position after tt_content uid=303 (new record will have the same pid as tt_content uid=1203)
+    $cmd['tt_content'][1203]['copy'] = 400;  // Copies tt_content uid=1203 to first position in page uid=400
+    $cmd['tt_content'][1203]['move'] = 400;  // Moves tt_content uid=1203 to the first position in page uid=400
 
 .. index:: DataHandler; Data array
 .. _tce-data:
@@ -362,11 +373,11 @@ of original record UIDs and UIDs of record copies as values.
 .. code-block:: php
    :caption: EXT:some_extension/Classes/SomeClass.php
 
-   $cmd['tt_content'][1203]['copy'] = 400;  // Copies tt_content uid=1203 to first position in page uid=400
-   $dataHandler->start([], $cmd);
-   $dataHandler->process_cmdmap();
+    $cmd['tt_content'][1203]['copy'] = 400;  // Copies tt_content uid=1203 to first position in page uid=400
+    $dataHandler->start([], $cmd);
+    $dataHandler->process_cmdmap();
 
-   $uid = $dataHandler->copyMappingArray_merged['tt_content'][1203];
+    $uid = $dataHandler->copyMappingArray_merged['tt_content'][1203];
 
 
 Data Array
@@ -444,11 +455,11 @@ inside page id 45:
 .. code-block:: php
    :caption: EXT:some_extension/Classes/SomeClass.php
 
-   $data['pages']['NEW9823be87'] = [
-      'title' => 'The page title',
-      'subtitle' => 'Other title stuff',
-      'pid' => '45'
-   ];
+    $data['pages']['NEW9823be87'] = [
+        'title' => 'The page title',
+        'subtitle' => 'Other title stuff',
+        'pid' => '45'
+    ];
 
 This creates a new page titled "The page title" right after page id 45
 in the tree:
@@ -456,11 +467,11 @@ in the tree:
 .. code-block:: php
    :caption: EXT:some_extension/Classes/SomeClass.php
 
-   $data['pages']['NEW9823be87'] = [
-      'title' => 'The page title',
-      'subtitle' => 'Other title stuff',
-      'pid' => '-45'
-   ];
+    $data['pages']['NEW9823be87'] = [
+        'title' => 'The page title',
+        'subtitle' => 'Other title stuff',
+        'pid' => '-45'
+    ];
 
 This creates two new pages right after each other, located right after
 the page id 45:
@@ -468,14 +479,14 @@ the page id 45:
 .. code-block:: php
    :caption: EXT:some_extension/Classes/SomeClass.php
 
-   $data['pages']['NEW9823be87'] = [
-      'title' => 'Page 1',
-      'pid' => '-45'
-   ];
-   $data['pages']['NEWbe68s587'] = [
-      'title' => 'Page 2',
-      'pid' => '-NEW9823be87'
-   ];
+    $data['pages']['NEW9823be87'] = [
+        'title' => 'Page 1',
+        'pid' => '-45'
+    ];
+    $data['pages']['NEWbe68s587'] = [
+        'title' => 'Page 2',
+        'pid' => '-NEW9823be87'
+    ];
 
 Notice how the second "pid" value points to the "NEW..." id
 placeholder of the first record. This works because the new id of the
@@ -489,19 +500,19 @@ one new system category:
 .. code-block:: php
    :caption: EXT:some_extension/Classes/SomeClass.php
 
-   $data['sys_category']['NEW9823be87'] = [
-       'title' => 'New category',
-       'pid' => 1,
-   ];
-   $data['tt_content']['NEWbe68s587'] = [
-       'header' => 'Look ma, categories!',
-       'pid' => 45,
-       'categories' => [
-           1,
-           2,
-           'NEW9823be87', // You can also use placeholders here
-       ],
-   ];
+    $data['sys_category']['NEW9823be87'] = [
+        'title' => 'New category',
+        'pid' => 1,
+    ];
+    $data['tt_content']['NEWbe68s587'] = [
+        'header' => 'Look ma, categories!',
+        'pid' => 45,
+        'categories' => [
+            1,
+            2,
+            'NEW9823be87', // You can also use placeholders here
+        ],
+    ];
 
 .. note::
    To get real uid of the record you have just created use DataHandler's `substNEWwithIDs` property like: :php:`$uid = $dataHandler->substNEWwithIDs['NEW9823be87'];`
@@ -512,10 +523,10 @@ this page", and no\_cache checked:
 .. code-block:: php
    :caption: EXT:some_extension/Classes/SomeClass.php
 
-   $data['pages'][9834] = [
-       'title' => 'New title for this page',
-       'no_cache' => '1'
-   ];
+    $data['pages'][9834] = [
+        'title' => 'New title for this page',
+        'no_cache' => '1'
+    ];
 
 
 
@@ -532,7 +543,7 @@ Syntax
 .. code-block:: php
    :caption: EXT:some_extension/Classes/SomeClass.php
 
-   $dataHandler->clear_cacheCmd($cacheCmd);
+    $dataHandler->clear_cacheCmd($cacheCmd);
 
 .. t3-field-list-table::
  :header-rows: 1
@@ -599,19 +610,19 @@ your Extbase plugin (e.g. controller or a custom viewhelper):
 .. code-block:: php
    :caption: EXT:some_extension/Classes/Controller/SomeController.php
 
-   public function __construct(TypoScriptFrontendController $frontendController)
-   {
-       $this->frontendController = $frontendController;
-   }
+    public function __construct(TypoScriptFrontendController $frontendController)
+    {
+        $this->frontendController = $frontendController;
+    }
 
-   public function showAction(ExampleModel $example): ResponseInterface
-   {
-      // ...
+    public function showAction(ExampleModel $example): ResponseInterface
+    {
+        // ...
 
-      $this->frontendController->addCacheTags([
-          sprintf('tx_myextension_example_%d', $example->getUid()),
-      ]);
-   }
+        $this->frontendController->addCacheTags([
+            sprintf('tx_myextension_example_%d', $example->getUid()),
+        ]);
+    }
 
 Hook for Cache Post-processing
 ------------------------------
