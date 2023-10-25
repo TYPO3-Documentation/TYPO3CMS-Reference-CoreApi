@@ -9,11 +9,13 @@ defined('TYPO3') or die();
     'CType',
     [
         // title
-        'LLL:EXT:my_extension/Resources/Private/Language/locallang.xlf:myextension_newcontentelement_title',
+        'label' => 'LLL:EXT:my_extension/Resources/Private/Language/locallang.xlf:myextension_newcontentelement_title',
         // plugin signature: extkey_identifier
-        'myextension_newcontentelement',
+        'value' => 'myextension_newcontentelement',
         // icon identifier
-        'content-text',
+        'icon' => 'content-text',
+        // group
+        'group' => 'common',
     ],
     'textmedia',
     'after'
