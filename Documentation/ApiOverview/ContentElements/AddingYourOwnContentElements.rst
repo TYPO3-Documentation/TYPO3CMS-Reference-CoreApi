@@ -78,23 +78,29 @@ The following call needs to be added to the file
 :file:`Configuration/TCA/Overrides/tt_content.php`.
 
 .. code-block:: php
-    
-    <?php 
-   // Adds the content element to the "Type" dropdown
-   \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTcaSelectItem(
-      'tt_content',
-      'CType',
-       [
-           // title
-           'LLL:EXT:examples/Resources/Private/Language/locallang.xlf:examples_newcontentelement_title',
-           // plugin signature: extkey_identifier
-           'examples_newcontentelement',
-           // icon identifier
-           'content-text',
-       ],
-       'textmedia',
-       'after'
-   );
+
+    <?php
+    // Adds the content element to the "Type" dropdown
+    \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTcaSelectItem(
+        'tt_content',
+        'CType',
+        [
+            // title
+            'LLL:EXT:examples/Resources/Private/Language/locallang.xlf:examples_newcontentelement_title',
+            // plugin signature: extkey_identifier
+            'examples_newcontentelement',
+            // icon identifier
+            'content-text',
+        ],
+        'textmedia',
+        'after'
+    );
+
+    // Adds the content element icon to TCA typeicon_classes
+    $GLOBALS['TCA']['tt_content']['ctrl']['typeicon_classes']['myextension_newcontentelement'] = 'content-text';
+
+    // ...
+
 
 Now the new content element is available in the backend form. However it
 currently contains no fields but the CType field.
