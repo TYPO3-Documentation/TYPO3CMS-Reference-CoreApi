@@ -258,6 +258,7 @@ webp_quality
 
     :type: int
     :Default: 85
+    :Allowed values: Between 1 (lowest quality) and 100 (highest quality)
 
     Default WebP generation quality
 
