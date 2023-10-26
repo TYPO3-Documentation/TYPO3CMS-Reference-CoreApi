@@ -1,4 +1,4 @@
-..  include:: /Includes.rst.txt
+﻿..  include:: /Includes.rst.txt
 ..  index:: Soft references
 ..  _soft-references:
 
@@ -52,11 +52,6 @@ installations. This is the list of the pre-registered keys:
 substitute
     A full field value targeted for manual substitution (for import/export
     features).
-
-..  _soft-references-default-parsers-notify:
-
-notify
-    Just report, if a value is found, nothing more.
 
 ..  _soft-references-default-parsers-typolink:
 
