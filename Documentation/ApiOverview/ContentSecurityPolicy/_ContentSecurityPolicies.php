@@ -34,6 +34,10 @@ return Map::fromEntries([
             SourceScheme::data,
             new UriValue('https://*.typo3.org')
         ),
+        // NOTICE: the following two instructions for `Directive::ImgSrc` are identical to the previous instruction,
+        // `MutationMode::Extend` is a shortcut for `MutationMode::InheritOnce` and `MutationMode::Append`
+        // new Mutation(MutationMode::InheritOnce, Directive::ImgSrc, SourceScheme::data),
+        // new Mutation(MutationMode::Append, Directive::ImgSrc, SourceScheme::data, new UriValue('https://*.typo3.org')),
 
         // Extends the ancestor directive ('default-src'),
         // thus reuses 'self' and adds additional sources
