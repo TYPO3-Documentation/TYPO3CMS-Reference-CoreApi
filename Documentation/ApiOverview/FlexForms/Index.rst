@@ -479,6 +479,23 @@ The key `flexform` is followed by the field which holds the FlexForm data
 .. index:: pair: FlexForms; Fluid
 .. _read-flexforms-fluid:
 
+Providing default values for FlexForms attributes
+------------------------------------------------
+
+When a new content element with an attached FlexForm is created, the 
+default values for each FlexForm attribute is fetched from the
+:xml:`<default>` XML attribute within the specification of each 
+FlexForm attribute. If that is missing, an empty value will be 
+shown in the backend (:ref:`FormEngine <FormEngine>`)
+fields.
+
+While you can use TypoScript :typoscript:`TCAdefaults` (see
+:ref:`TCAdefaults <TCAdefaults>`) to modify defaults of usual
+TCA-based attributes, this is not possible on FlexForms. This
+is because the values are calculated at an earlier step in
+the core workflow, where FlexForm values have not yet been
+extracted.
+
 How to access FlexForms from Fluid
 ----------------------------------
 
