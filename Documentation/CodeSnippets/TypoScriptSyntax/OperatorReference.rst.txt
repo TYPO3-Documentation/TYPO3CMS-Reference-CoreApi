@@ -1,0 +1,17 @@
+.. Automatic screenshot: Remove this line if you want to manually change this file
+
+.. code-block:: typoscript
+   :caption: Extension examples, file Configuration/TypoScript/Syntax/OperatorReference/setup.typoscript
+
+   lib.myIdentifier = TEXT
+   lib.myIdentifier {
+      value = Hello world
+      stdWrap.wrap = <p>|</p>
+   }
+   tt_content.text =< lib.myIdentifier
+   tt_content.textpic =< lib.myIdentifier
+
+   # This changes lib.myIdentifier.stdWrap.wrap *and* tt_content.text.stdWrap.wrap
+   lib.myIdentifier.stdWrap.wrap = <h1>|</h1>
+   # This changes only tt_content.textpic.stdWrap.wrap
+   tt_content.textpic.stdWrap.wrap = <h2>|</h2>

@@ -36,6 +36,28 @@ A couple of examples:
 
 .. include:: /CodeSnippets/TypoScriptSyntax/OperatorAssignment.rst.txt
 
+..  caution::
+    The TypoScript parser looks for valid operators first, then parses things
+    behind it. Consider this example:
+
+    ..  code-block:: typoscript
+
+        lib.nav.wrap =<ul id="nav">|</ul>
+
+    This is ambiguous: The above :typoscript:`=<ul` could be interpreted both as
+    an assignment :typoscript:`=` of the value :typoscript:`<ul`, or as a
+    :ref:`reference <typoscript-syntax-syntax-object-referencing>`
+    :typoscript:`=<` to the identifier :typoscript:`ul`.
+
+    Before TYPO3 v12.0 the TypoScript parser interpreted this as an assignment,
+    since TYPO3 v12.0 it is treated as a reference.
+
+    The above example aims for an assignment, though, which can be achieved by
+    adding a whitespace between :typoscript:`=` and :typoscript:`<`:
+
+    ..  code-block:: typoscript
+
+        lib.nav.wrap = <ul id="nav">|</ul>
 
 .. index::
    TypoScript; Operator "( )"

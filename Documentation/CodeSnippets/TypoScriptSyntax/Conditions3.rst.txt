@@ -1,0 +1,16 @@
+.. Automatic screenshot: Remove this line if you want to manually change this file
+
+.. code-block:: typoscript
+   :caption: Extension examples, file Configuration/TypoScript/Syntax/Conditions3/setup.typoscript
+
+   page = PAGE
+   page.10 = TEXT
+   page.10.value = HELLO WORLD!
+
+   [frontend.user.isLoggedIn || ip('127.0.0.1')]
+      page.20 = TEXT
+      page.20 {
+         value = A frontend user is logged in, or the browser IP is 127.0.0.1
+         stdWrap.case = upper
+      }
+   [GLOBAL]

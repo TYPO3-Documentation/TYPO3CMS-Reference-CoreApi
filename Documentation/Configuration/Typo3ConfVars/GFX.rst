@@ -230,19 +230,20 @@ processor_interlace
 
    Possible values: None, Line, Plane, Partition
 
-.. index::
-   TYPO3_CONF_VARS GFX; jpg_quality
-.. _typo3ConfVars_gfx_jpg_quality:
+..  index::
+    TYPO3_CONF_VARS GFX; jpg_quality
+..  _typo3ConfVars_gfx_jpg_quality:
 
 jpg_quality
 ===========
 
-.. confval:: $GLOBALS['TYPO3_CONF_VARS']['GFX']['jpg_quality']
+..  confval:: $GLOBALS['TYPO3_CONF_VARS']['GFX']['jpg_quality']
 
-   :type: int
-   :Default: 85
+    :type: int
+    :Default: 85
+    :Allowed values: Between 1 (lowest quality) and 100 (highest quality)
 
-   Default JPEG generation quality
+    Default JPEG generation quality
 
 ..  index::
     TYPO3_CONF_VARS GFX; webp_quality
