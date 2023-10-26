@@ -53,11 +53,6 @@ substitute
     A full field value targeted for manual substitution (for import/export
     features).
 
-..  _soft-references-default-parsers-notify:
-
-notify
-    Just report, if a value is found, nothing more.
-
 ..  _soft-references-default-parsers-typolink:
 
 typolink
