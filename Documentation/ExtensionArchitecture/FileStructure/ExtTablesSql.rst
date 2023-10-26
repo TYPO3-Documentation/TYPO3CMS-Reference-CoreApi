@@ -170,7 +170,20 @@ are considered for auto-generated fields, if they are not manually defined in
 the :file:`ext_tables.sql` file:
 
 *   :ref:`TCA type "category" <t3tca:columns-category>` (since TYPO3 v12.0)
+*   :ref:`TCA type "check" <t3tca:columns-check>` (since TYPO3 v13.0)
+*   :ref:`TCA type "color" <t3tca:columns-color>` (since TYPO3 v13.0)
 *   :ref:`TCA type "datetime" <t3tca:columns-datetime>`
+*   :ref:`TCA type "email" <t3tca:columns-email>` (since TYPO3 v13.0)
+*   :ref:`TCA type "file" <t3tca:columns-file>` (since TYPO3 v13.0)
+*   :ref:`TCA type "flex" <t3tca:columns-flex>` (since TYPO3 v13.0)
+*   :ref:`TCA type "folder" <t3tca:columns-folder>` (since TYPO3 v13.0)
+*   :ref:`TCA type "group" <t3tca:columns-group>` (since TYPO3 v13.0)
+*   :ref:`TCA type "imageManipulation" <t3tca:columns-imageManipulation>` (since TYPO3 v13.0)
 *   :ref:`TCA type "json" <t3tca:columns-json>`
+*   :ref:`TCA type "language" <t3tca:columns-language>` (since TYPO3 v13.0)
+*   :ref:`TCA type "link" <t3tca:columns-link>` (since TYPO3 v13.0)
+*   :ref:`TCA type "password" <t3tca:columns-password>` (since TYPO3 v13.0)
+*   :ref:`TCA type "radio" <t3tca:columns-radio>` (since TYPO3 v13.0)
 *   :ref:`TCA type "slug" <t3tca:columns-slug>` (since TYPO3 v12.0)
+*   :ref:`TCA type "text" <t3tca:columns-text>` (since TYPO3 v13.0)
 *   :ref:`TCA type "uuid" <t3tca:columns-uuid>`
