@@ -159,7 +159,7 @@ When using this attribute there is no need to register the command in the
     Only the parameters `command` and `description` are available. In order to
     overwrite the parameters `schedulable` and `hidden`  use the registration
     via :ref:`Services.yaml <console-command-tutorial-registration-services>`.
-    By default `schedulable` is true and `hidden` is false.
+    By default, `schedulable` is true and `hidden` is false.
 
     The Symfony PHP attribute also provides a `hidden` argument. This cannot
     be used to hide a command in the list of commands.
