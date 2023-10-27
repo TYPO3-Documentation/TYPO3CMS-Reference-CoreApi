@@ -241,7 +241,7 @@ jpg_quality
 
     :type: int
     :Default: 85
-    :Allowed values: Between 1 (lowest quality) and 100 (highest quality)
+    :Allowed values: Between 10 (lowest quality) and 100 (highest quality)
 
     Default JPEG generation quality
 
@@ -258,7 +258,7 @@ webp_quality
 
     :type: int
     :Default: 85
-    :Allowed values: Between 1 (lowest quality) and 100 (highest quality)
+    :Allowed values: Between 10 (lowest quality) and 100 (highest quality)
 
     Default WebP generation quality
 
