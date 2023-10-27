@@ -161,6 +161,9 @@ When using this attribute there is no need to register the command in the
     via :ref:`Services.yaml <console-command-tutorial-registration-services>`.
     By default `schedulable` is true and `hidden` is false.
 
+    The Symfony PHP attribute also provides a `hidden` argument. This cannot
+    be used to hide a command in the list of commands.
+
 The :ref:`example above <console-command-tutorial-create>` can also be
 registered this way:
 
