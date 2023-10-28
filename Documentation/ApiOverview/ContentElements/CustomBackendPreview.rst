@@ -26,7 +26,7 @@ via page :ref:`TSconfig <ConfigureCE-Preview-PageTSconfig>` or :ref:`event liste
 ..  _ConfigureCE-Preview-PageTSconfig:
 
 Page TSconfig
-----------------
+-------------
 
 This is the "integrator" way, no PHP coding is required. Just some page TSconfig
 and a Fluid template.
@@ -65,8 +65,8 @@ Have a look at this :ref:`showcase implementation <PageContentPreviewRenderingEv
 
 For general information see the chapter on :ref:`implementing an event listener <EventDispatcherImplementation>`.
 
-Writing a PreviewRenderer
-=========================
+Writing a preview renderer
+==========================
 
 A custom preview renderer must implement the interface
 :php:`\TYPO3\CMS\Backend\Preview\PreviewRendererInterface` which contains
@@ -116,15 +116,16 @@ approaches:
             = MyVendor\MyExtension\Preview\MyPreviewRenderer::class;
 
     This specifies the preview renderer only for records of type :php:`$type` as
-    determined by the type field of your table.
+    determined by the :ref:`type field <t3tca:types>` of your table.
 
 #.  Table and field have a :php:`subtype_value_field` TCA setting
 
-    If your table and field have a :php:`subtype_value_field` TCA setting (like
-    :php:`tt_content.list_type` for example) and you want to register a preview 
-    renderer that applies only when that value is selected (assume, when a 
-    certain plugin type is selected and you can't match it with the "type" of 
-    the record alone):
+    If your table and field have a
+    :ref:`subtype_value_field <t3tca:types-properties-subtype-value-field>` TCA
+    setting (like :php:`tt_content.list_type` for example) and you want to
+    register a preview renderer that applies only when that value is selected
+    (assume, when a certain plugin type is selected and you can't match it with
+    the "type" of the record alone):
 
     ..  code-block:: php
 
@@ -144,8 +145,8 @@ approaches:
     other extensions.
 
 ..  note::
-    The content elements :php:`text`, :php:`textpic`, :php:`textmedia` and 
-    :php:`image` have their own :php:`PreviewRenderer`. Therefore it's not 
-    sufficient to overwrite the :php:`StandardContentPreviewRenderer` but 
-    you need to use the second approach from above for every single of 
+    The content elements :php:`text`, :php:`textpic`, :php:`textmedia` and
+    :php:`image` have their own :php:`PreviewRenderer`. Therefore it's not
+    sufficient to overwrite the :php:`StandardContentPreviewRenderer` but
+    you need to use the second approach from above for every single of
     these content elements.
