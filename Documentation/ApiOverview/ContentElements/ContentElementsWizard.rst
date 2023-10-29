@@ -81,7 +81,11 @@ plugin is `registration`.
    command :bash:`vendor/bin/typo3 cache:flush` you should now see the icon,
    title and description you just added!
 
-   .. include:: /Images/AutomaticScreenshots/CustomContentElements/ContentElementWizard.rst.txt
+   .. figure:: /Images/ManualScreenshots/Backend/ContentElementWizard.png
+      :class: with-shadow
+      :alt: Content element wizard with the new content element
+
+      Content element wizard with the new content element
 
 .. seealso::
 
