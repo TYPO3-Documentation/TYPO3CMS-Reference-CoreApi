@@ -120,7 +120,12 @@ to this wizard (via page TSconfig).
    :file:`ext_localconf.php`. See :ref:`Setting global page TSconfig, compatible with TYPO3
    11 and 12 <t3tsconfig:page-tsconfig-v11-v12>`.
 
-.. include:: /Images/AutomaticScreenshots/CustomContentElements/ContentElementWizard.rst.txt
+.. figure:: /Images/ManualScreenshots/Backend/ContentElementWizard.png
+   :class: with-shadow
+   :alt: Content element wizard with the new content element
+
+   Content element wizard with the new content element
+
 
 The content element wizard configuration is described in detail in
 :ref:`content-element-wizard`.
