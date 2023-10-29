@@ -1294,20 +1294,6 @@
                     },
                     {"action": "switchToContentFrame"},
                     {"action": "waitForText", "text": "Custom Content Element"},
-                    {"action": "click", "link": "Content"},
-                    {"action": "waitForModalDialogInMainFrame"},
-                    {"action": "drawBox", "selector": "//div[contains(@class, 'media-new-content-element-wizard') and contains(., 'Example of a custom content element')]"},
-                    {
-                        "action": "makeScreenshotOfElement",
-                        "fileName": "ContentElementWizard",
-                        "captionText": "Content element wizard with thCTypee new content element"
-                    },
-                    {"action": "closeModalDialog"},
-                    {
-                        "action": "resizeWindow",
-                        "width": 640,
-                        "height": 640
-                    },
                     {
                         "action": "goToRecord",
                         "table": "tt_content",
