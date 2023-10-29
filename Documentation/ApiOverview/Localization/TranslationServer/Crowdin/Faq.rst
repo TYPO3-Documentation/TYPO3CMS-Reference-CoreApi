@@ -72,8 +72,7 @@ In most editors you can use regular expressions, for example, in PhpStorm:
 
 #.  Open the XLIFF file in the editor.
 #.  Press :kbd:`Ctrl` + :kbd:`R` to open the search and replace pane
-#.  | Find: `id="(.+?)"`
-    Replace: `id="$1" resname="$1"`
+#.  Find: `id="(.+?)"` / Replace: `id="$1" resname="$1"`
 #.  Click the regex icon (:guilabel:`.*`) to enable regular expressions.
 #.  Click on button :guilabel:`Replace All`
 
