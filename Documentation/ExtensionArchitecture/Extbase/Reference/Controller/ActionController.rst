@@ -130,7 +130,7 @@ and container instantiation will fail.
 
 The corresponding example is:
 
-.. include:: /CodeSnippets/FrontendPlugins/ConfigurePlugin.rst.txt
+.. include:: /CodeSnippets/Extbase/FrontendPlugins/ConfigurePlugin.rst.txt
 
 Here, the plugin `BlogExample` would allow jumping between the controllers
 :php:`PostController` and :php:`CommentController`. To also allow
