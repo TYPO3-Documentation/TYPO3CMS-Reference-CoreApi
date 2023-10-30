@@ -41,7 +41,7 @@ to be placed within code blocks.
         page = PAGE
         page {
           # This include won't work!
-          @include 'EXT:my_extension/Configuration/TypoScript/bar.typoscript'
+          @import 'EXT:my_extension/Configuration/TypoScript/bar.typoscript'
           20 = TEXT
           20.value = bar
         }
