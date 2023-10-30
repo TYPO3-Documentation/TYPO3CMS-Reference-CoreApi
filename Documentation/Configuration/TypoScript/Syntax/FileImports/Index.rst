@@ -40,7 +40,7 @@ to be placed within code blocks.
 
         page = PAGE
         page {
-          # This include won't work!
+          # This import won't work!
           @import 'EXT:my_extension/Configuration/TypoScript/bar.typoscript'
           20 = TEXT
           20.value = bar
