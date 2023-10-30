@@ -1,6 +1,6 @@
-.. include:: /Includes.rst.txt
+..  include:: /Includes.rst.txt
 
-.. index:: Extbase; URI builder
+..  index:: Extbase; URI builder
 ..  _extbase-uri-builder:
 
 =====================
@@ -51,6 +51,13 @@ via constructor in a class:
     :ref:`getting-typo3-request-object` to learn how to retrieve the request
     PSR-7 object depending on the context.
 
+..  attention::
+    When using the URI builder to build frontend URLs, the current content
+    object is required. It is initialized from the handed in local request
+    object. In case extensions set the request object without the request attribute
+    :ref:`currentContentObject <typo3-request-attribute-current-content-object>`,
+    an automatic fallback is applied in TYPO3 v12, triggering a PHP deprecation
+    warning. The fallback has been removed in TYPO3 v13.
 
 ..  _uri-builder-api:
 
