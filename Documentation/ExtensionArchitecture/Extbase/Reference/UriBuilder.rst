@@ -55,7 +55,7 @@ via constructor in a class:
     When using the URI builder to build frontend URLs, the current content
     object is required. It is initialized from the handed in local request
     object. In case extensions set the request object without the request attribute
-    :ref:`current content object <typo3-request-attribute-current-content-object>`,
+    :ref:`currentContentObject <typo3-request-attribute-current-content-object>`,
     an automatic fallback is applied in TYPO3 v12, triggering a PHP deprecation
     warning. The fallback has been removed in TYPO3 v13.
 
