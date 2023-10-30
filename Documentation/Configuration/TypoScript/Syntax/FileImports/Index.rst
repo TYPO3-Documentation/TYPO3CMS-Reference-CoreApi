@@ -30,7 +30,7 @@ Neither :typoscript:`@import` nor :typoscript:`<INCLUDE_TYPOSCRIPT:` are allowed
 to be placed within code blocks.
 
 ..  versionchanged:: 12.2
-    :typoscript:`@include` and :typoscript:`<INCLUDE_TYPOSCRIPT:` basically
+    :typoscript:`@import` and :typoscript:`<INCLUDE_TYPOSCRIPT:` basically
     break any curly braces level, resetting current scope to top level. While
     inclusion of files has never been documented to be valid within braces
     assignments, it still worked until TYPO3 v11. This is now disallowed and
