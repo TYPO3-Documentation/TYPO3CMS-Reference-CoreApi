@@ -29,6 +29,24 @@ imports with :typoscript:`@import`.
 Neither :typoscript:`@import` nor :typoscript:`<INCLUDE_TYPOSCRIPT:` are allowed
 to be placed within code blocks.
 
+..  versionchanged:: 12.2
+    :typoscript:`@import` and :typoscript:`<INCLUDE_TYPOSCRIPT:` basically
+    break any curly braces level, resetting current scope to top level. While
+    inclusion of files has never been documented to be valid within braces
+    assignments, it still worked until TYPO3 v11. This is now disallowed and
+    must not be used anymore. For example, a construct like this is **invalid**:
+
+    ..  code-block:: typoscript
+
+        page = PAGE
+        page {
+          # This import won't work!
+          @import 'EXT:my_extension/Configuration/TypoScript/bar.typoscript'
+          20 = TEXT
+          20.value = bar
+        }
+
+
 @import
 =======
 
