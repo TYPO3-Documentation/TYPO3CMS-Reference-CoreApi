@@ -15,6 +15,6 @@ return [
         'thirdpartypkg' => 'EXT:my_extension/Resources/Public/JavaScript/Contrib/thidpartypkg/index.js',
         'thidpartypkg/' => 'EXT:my_extension/Resources/Public/JavaScript/Contrib/thirdpartypkg/',
         // Overriding a file from another package
-        'TYPO3/CMS/Backend/Modal.js' => 'EXT:my_extension/Resources/Public/JavaScript/Overrides/BackendModal.js',
+        '@typo3/backend/modal.js' => 'EXT:my_extension/Resources/Public/JavaScript/Overrides/BackendModal.js',
     ],
 ];
