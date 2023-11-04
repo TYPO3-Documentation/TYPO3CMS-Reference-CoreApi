@@ -8,7 +8,10 @@ Resource
 ========
 
 The following list contains :ref:`PSR-14 events <EventDispatcher>`
-in EXT:core, namespace Page.
+in EXT:core, namespace Resource.
+
+..  seealso::
+    :ref:`PSR-14 events for the file abstraction layer <fal-architecture-events>`
 
 **Contents:**
 
