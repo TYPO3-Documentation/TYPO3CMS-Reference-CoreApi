@@ -1,18 +1,18 @@
-.. include:: /Includes.rst.txt
-.. index:: File abstraction layer; Architecture
-.. _fal-architecture:
+..  include:: /Includes.rst.txt
+..  index:: File abstraction layer; Architecture
+..  _fal-architecture:
 
 ============
 Architecture
 ============
 
 This chapter provides an in-depth look into the
-architecture of FAL.
+architecture of :abbr:`FAL (File Abstraction Layer)`.
 
-.. toctree::
+..  toctree::
 
-   Overview
-   Folders
-   Database
-   Components
-   Events
+    Overview
+    Folders
+    Database
+    Components
+    Events
