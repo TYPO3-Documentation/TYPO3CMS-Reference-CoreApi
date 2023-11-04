@@ -3,11 +3,12 @@
 ..  _fal-architecture-events:
 
 =============
-PSR-14 Events
+PSR-14 events
 =============
 
-FAL comes with a series of PSR-14 events that offer the opportunity
-to hook into FAL processes at a variety of points.
+The file abstraction layer (FAL) comes with a series of
+:ref:`PSR-14 events <EventDispatcher>` that offer the opportunity to
+hook into FAL processes at a variety of points.
 
 They are listed below with some explanation, in particular when
 they are sent (if the name is not explicit enough) and what
@@ -18,24 +19,26 @@ Most events exist in pairs, one being sent **before** a given
 operation, the other one **after**.
 
 ..  note::
-    Unless mentioned otherwise, mentions of class :php:`File` below actually
-    refer to the :php:`\TYPO3\CMS\Core\Resource\FileInterface` interface.
+    Unless communicated otherwise, mentions of the :php:`File` class below
+    actually refer to the :php:`\TYPO3\CMS\Core\Resource\FileInterface` interface.
 
     :php:`Folder` objects actually refer to the
     :php:`\TYPO3\CMS\Core\Resource\Folder` class.
 
-.. contents:: **Table of contents:**
-   :local:
+
+..  contents:: **Table of contents:**
+    :local:
 
 ..  _fal-architecture-events-resource-storage:
 
-\\TYPO3\\CMS\\Core\\Resource\\ResourceStorage
-=============================================
+:php:`\TYPO3\CMS\Core\Resource\ResourceStorage`
+===============================================
 
 :ref:`SanitizeFileNameEvent`
-    The sanitize file name operation aims at removing characters from
-    file names which are not allowed by the underlying driver. The
-    event receives the file name and the target folder.
+    The sanitize file name operation aims to remove characters from
+    filenames which are not allowed by the underlying
+    :ref:`driver <fal-architecture-components-drivers>`. The event receives the
+    filename and the target folder.
 
 :ref:`BeforeFileAddedEvent`
     Receives the target file name, the target folder (as a :php:`Folder`
@@ -94,12 +97,12 @@ operation, the other one **after**.
     and the path to the local file that has replaced it.
 
 :ref:`BeforeFileContentsSetEvent`
-    Receives a :php:`\TYPO3\CMS\Core\Resource\AbstractFile` instance
+    Receives a :php:`File` instance
     for the file whose content will be changed and the content itself
     (as a string).
 
 :ref:`AfterFileContentsSetEvent`
-    Receives a :php:`\TYPO3\CMS\Core\Resource\AbstractFile` instance
+    Receives a :php:`File` instance
     for the file whose content was changed and the content itself
     (as a string).
 
@@ -154,50 +157,54 @@ operation, the other one **after**.
     script or absolute and a reference to the public URL (which is null at
     this point, but can be then modified by the event).
 
-.. _fal-architecture-events-storage-repository:
+..  _fal-architecture-events-storage-repository:
 
-\\TYPO3\\CMS\\Core\\Resource\\StorageRepository
-===============================================
+:php:`\TYPO3\CMS\Core\Resource\StorageRepository`
+=================================================
 
 :ref:`BeforeResourceStorageInitializationEvent`
     This event is dispatched by the method
     :php:`\TYPO3\CMS\Core\Resource\StorageRepository::getStorageObject()`
-    before a storage object has been fetched. The event receives a reference
-    to the storage.
+    before a :ref:`storage <fal-architecture-components-storage>` object has
+    been fetched. The event receives a reference to the storage.
 
 :ref:`AfterResourceStorageInitializationEvent`
     This event is dispatched by the method
     :php:`\TYPO3\CMS\Core\Resource\StorageRepository::getStorageObject()`
-    after a Storage object has been fetched. The event receives a reference
-    to the storage.
+    after a :ref:`storage <fal-architecture-components-storage>` object has
+    been fetched. The event receives a reference to the storage.
 
 
-.. _fal-architecture-events-file-index-repository:
+..  _fal-architecture-events-file-index-repository:
 
-\\TYPO3\\CMS\\Core\\Resource\\Index\\FileIndexRepository
-========================================================
+:php:`\TYPO3\CMS\Core\Resource\Index\FileIndexRepository`
+=========================================================
 
 :ref:`AfterFileAddedToIndexEvent`
     Receives an array containing the information collected about the file
-    whose index (i.e. :sql:`sys_file` table entry) was just created.
+    whose index (i.e. :ref:`sys_file <fal-architecture-database-sys-file>` table
+    entry) was just created.
 
 :ref:`AfterFileUpdatedInIndexEvent`
     Receives an array containing the information collected about the file
-    whose index (i.e. :sql:`sys_file` table entry) was just updated.
+    whose index (i.e. :ref:`sys_file <fal-architecture-database-sys-file>` table
+    entry) was just updated.
 
 :ref:`AfterFileRemovedFromIndexEvent`
-    Receives the uid of the file (i.e. :sql:`sys_file` table entry) which was
+    Receives the uid of the file (i.e.
+    :ref:`sys_file <fal-architecture-database-sys-file>` table entry) which was
     deleted.
 
 :ref:`AfterFileMarkedAsMissingEvent`
-    Receives the uid of the file (i.e. :sql:`sys_file` table entry) which was
+    Receives the uid of the file (i.e.
+    :ref:`sys_file <fal-architecture-database-sys-file>` table entry) which was
     marked as missing.
 
 
-.. _fal-architecture-events-metadata-repository:
+..  _fal-architecture-events-metadata-repository:
 
-\\TYPO3\\CMS\\Core\\Resource\\Index\\MetaDataRepository
-=======================================================
+:php:`\TYPO3\CMS\Core\Resource\Index\MetaDataRepository`
+========================================================
 
 :ref:`EnrichFileMetaDataEvent`
     This event is dispatched after metadata has been retrieved for a given
@@ -205,7 +212,8 @@ operation, the other one **after**.
 
 :ref:`AfterFileMetaDataCreatedEvent`
     Receives an array containing the metadata collected about the file
-    just after it has been inserted into the :sql:`sys_file_metadata` table.
+    just after it has been inserted into the
+    :ref:`sys_file_metadata <fal-architecture-database-sys-file-metadata>` table.
 
 :ref:`AfterFileMetaDataUpdatedEvent`
     This event is dispatched after metadata for a given file has been
@@ -216,10 +224,10 @@ operation, the other one **after**.
     Receives the uid of the file whose metadata has just been deleted.
 
 
-.. _fal-architecture-events-file-processing-service:
+..  _fal-architecture-events-file-processing-service:
 
-\\TYPO3\\CMS\\Core\\Resource\\Service\\FileProcessingService
-============================================================
+:php:`\TYPO3\CMS\Core\Resource\Service\FileProcessingService`
+=============================================================
 
 :ref:`BeforeFileProcessingEvent`
     This event is dispatched before a file is processed. The event receives
