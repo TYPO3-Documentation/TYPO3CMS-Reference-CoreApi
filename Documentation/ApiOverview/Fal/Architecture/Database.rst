@@ -1,131 +1,134 @@
-.. include:: /Includes.rst.txt
-.. index:: File abstraction layer; Database structure
-.. _fal-architecture-database:
+..  include:: /Includes.rst.txt
+..  index:: File abstraction layer; Database structure
+..  _fal-architecture-database:
 
 ==================
 Database structure
 ==================
 
-This chapter lists the various tables related to FAL
-and highlights some of their important fields.
+This chapter lists the various tables related to the file abstraction layer
+(FAL) and highlights some of their important fields.
+
+..  contents::
+    :local:
 
 
-.. index:: Tables; sys_file
-.. _fal-architecture-database-sys-file:
+..  index:: Tables; sys_file
+..  _fal-architecture-database-sys-file:
 
-sys\_file
-=========
+:sql:`sys_file`
+===============
 
 This table is used to store basic information about each file.
 Some important fields:
 
-storage
-  Id of the storage where the file is stored.
+:sql:`storage`
+    ID of the storage where the file is stored.
 
-type
-  The type of the file represented by an integer defined in
-  :php:`\TYPO3\CMS\Core\Resource\AbstractFile`.
+:sql:`type`
+    The type of the file represented by an integer defined in
+    :php:`\TYPO3\CMS\Core\Resource\AbstractFile`.
 
-  Possible values:
+    See :ref:`globals-constants-file-types` for more details.
 
-  * 0 = unknown
-  * 1 = text
-  * 2 = image
-  * 3 = audio
-  * 4 = video
-  * 5 = application
+:sql:`identifier`
+    A string which should uniquely identify a file within its
+    :ref:`storage <fal-architecture-components-storage>`.
+    Duplicate identifiers are possible, but will create a confusion.
+    For the local file system :ref:`driver <fal-architecture-components-drivers>`,
+    the identifier is the path to the file, relative to the storage root
+    (starting with a slash and using a slash as directory delimiter).
 
-identifier
-  A string which should uniquely identify a file within its storage.
-  Duplicate identifiers are possible, but will create a confusion.
-  For the local file system driver, the identifier is the path to the
-  file, relative to the storage root (starting with a slash and using
-  a slash as directory delimiter).
+:sql:`name`
+    The name of the file. For the local file system driver, this will be
+    the current name of the file in the file system.
 
-name
-  The name of the file. For the local file system driver, this will be
-  the current name of the file in the file system.
+:sql:`sha1`
+    A hash of the file's content. This is used to detect whether a file
+    has changed or not.
 
-sha1
-  A hash of the file's content. This is used to detect whether a file
-  has changed or not.
-
-metadata
-  Foreign side of the "sys\_file\_metadata" relation. Always "0" in the
-  database, but necessary for the TCA of the "sys\_file".
+:sql:`metadata`
+    Foreign side of the :ref:`sys_file_metadata <fal-architecture-database-sys-file-metadata>`
+    relation. Always :sql:`0` in the database, but necessary for the
+    :ref:`TCA <t3tca:start>` of the :sql:`sys_file` table.
 
 
-.. index:: Tables; sys_file_metadata
-.. _fal-architecture-database-sys-file-metadata:
+..  index:: Tables; sys_file_metadata
+..  _fal-architecture-database-sys-file-metadata:
 
-sys\_file\_metadata
-===================
+:sql:`sys_file_metadata`
+========================
 
-This table is used to store metadata about each file. It has a
-one-to-one relationship with table "sys\_file". Contrary to the
-basic information stored in "sys\_file", the content of the table
-"sys\_file\_metadata" can be translated.
+This table is used to store metadata about each file. It has a one-to-one
+relationship with table :ref:`sys_file <fal-architecture-database-sys-file>`.
+Contrary to the basic information stored in :sql:`sys_file`, the content of the
+table :sql:`sys_file_metadata` can be translated.
 
 Most fields are really just additional information. The most
 important one is:
 
-file
-  Id of the sys_file record of the file the metadata is related to.
+:sql:`file`
+    ID of the :sql:`sys_file` record of the file the metadata is related to.
 
-The "sys\_file\_metadata" table is extended by system extension
-"filemetadata". In particular, it adds the necessary definitions
-to categorize files with system categories.
+The :sql:`sys_file_metadata` table is extended by the system extension
+`filemetadata`_. In particular, it adds the necessary definitions
+to categorize files with :ref:`system categories <categories>`.
 
-.. index:: Tables; sys_file_reference
-.. _fal-architecture-database-sys-file-reference:
+..  _filemetadata: https://packagist.org/packages/typo3/cms-filemetadata
 
-sys\_file\_reference
-====================
+
+..  index:: Tables; sys_file_reference
+..  _fal-architecture-database-sys-file-reference:
+
+:sql:`sys_file_reference`
+=========================
 
 This table is used to store all references between files and
 whatever other records they are used in, typically pages and
 content elements. The most important fields are:
 
-uid_local
-  Id of the file.
+:sql:`uid_local`
+    ID of the file.
 
-uid_foreign
-  Id of the related record.
+:sql:`uid_foreign`
+    ID of the related record.
 
-tablenames
-  Name of the table containing the related record.
+:sql:`tablenames`
+    Name of the table containing the related record.
 
-fieldname
-  Name of the field of the related record where the relation was created.
+:sql:`fieldname`
+    Name of the field of the related record where the relation was created.
 
-table_local
-  Always "sys\_file".
+:sql:`table_local`
+    Always :sql:`sys_file`.
 
-title
-  When a file is referenced, normally its title is used (for
-  whatever purpose, like displaying a caption for example). However it is
-  possible to define a title in the reference, which will be used instead
-  of the original file's title.
+:sql:`title`
+    When a file is referenced, normally its title is used (for
+    whatever purpose, like displaying a caption for example). However it is
+    possible to define a title in the reference, which will be used instead
+    of the original file's title.
 
-  The fields "description", "alternative" and "downloadname" obey the same principle.
-
-
-.. index:: Tables; sys_file_processedfile
-.. _fal-architecture-database-sys-file-processedfile:
-
-sys\_file\_processedfile
-========================
-
-This table is similar to "sys\_file", but for "temporary" files,
-like image previews. This table does not have a TCA representation,
-as it is only written for using direct SQL queries in the source code.
+    The fields :sql:`description`, :sql:`alternative` and :sql:`downloadname`
+    obey the same principle.
 
 
-.. index:: Tables; sys_file_collection
-.. _fal-architecture-database-sys-file-collection:
+..  index:: Tables; sys_file_processedfile
+..  _fal-architecture-database-sys-file-processedfile:
 
-sys\_file\_collection
-=====================
+:sql:`sys_file_processedfile`
+=============================
+
+This table is similar to :ref:`sys_file <fal-architecture-database-sys-file>`,
+but for "temporary" files, like image previews. This table does not have a
+:ref:`TCA <t3tca:start>` representation, as it is only written for using
+direct SQL queries in the source code.
+
+
+..  index:: Tables; sys_file_collection
+..  _fal-architecture-database-sys-file-collection:
+
+:sql:`sys_file_collection`
+==========================
 
 ..  versionchanged:: 12.2
     The two fields :sql:`storage` and :sql:`folder` are now combined into the
@@ -137,54 +140,56 @@ they can be used with the "File links" content element.
 
 The most important fields are:
 
-type
+:sql:`type`
     The type of the collection. A collection can be based on hand-picked files,
     a folder or categories.
 
-files
+:sql:`files`
     The list of selected files. The relationship between files and their collection
-    is also stored in "sys\_file\_reference".
+    is also stored in :ref:`sys_file_reference <fal-architecture-database-sys-file-reference>`.
 
-folder_identifier
+:sql:`folder_identifier`
     The field contains the so-called "combined identifier" in the format
     `storage:folder`, where "storage" is the :sql:`uid` of the corresponding
     :sql:`sys_file_storage` record and :sql:`folder` the absolute path to the
     folder. An example for a combined identifier is `1:/user_upload`.
 
-category
-    The chosen categories, for category-type collections.
+:sql:`category`
+    The chosen categories, for category-type :ref:`collections <collections-files>`.
 
 
-.. index:: Tables; sys_file_storage
-.. _fal-architecture-database-sys-file-storage:
+..  index:: Tables; sys_file_storage
+..  _fal-architecture-database-sys-file-storage:
 
-sys\_file\_storage
-==================
+:sql:`sys_file_storage`
+=======================
 
 This table is used to store the storages available in the installation.
 The most important fields are:
 
-driver
-  The type of Driver used for the storage.
+:sql:`driver`
+    The type of :ref:`driver <fal-architecture-components-drivers>` used for the
+    :ref:`storage <fal-architecture-components-storage>`.
 
-configuration
-  The storage configuration with regards to its Driver. This is a
-  :ref:`FlexForm field <t3tca:columns-flex>` and the current options
-  depend on the selected Driver.
+:sql:`configuration`
+    The storage configuration with regards to its driver. This is a
+    :ref:`FlexForm field <t3tca:columns-flex>` and the current options
+    depend on the selected driver.
 
 
-.. index:: Tables; sys_filemounts
-.. _fal-architecture-database-sys-filemounts:
+..  index:: Tables; sys_filemounts
+..  _fal-architecture-database-sys-filemounts:
 
-sys\_filemounts
-===============
+:sql:`sys_filemounts`
+=====================
 
 .. versionchanged:: 12.0
 
-File mounts are not specifically part of the FAL (they existed long
-before), but their definition is based on storages. Each file mount is
+File mounts are not specifically part of FAL (they existed long
+before), but their definition is based on
+:ref:`storages <fal-architecture-components-storage>`. Each file mount is
 related to a specific storage. The most important field is:
 
-identifier
-   The identifier in the format `base:path`, where `base` is the storage id and
-   `path` the path to the folder, for example `1:/user_upload`.
+:sql:`identifier`
+    The identifier in the format `base:path`, where `base` is the storage ID and
+    `path` the path to the folder, for example `1:/user_upload`.
