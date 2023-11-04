@@ -93,19 +93,19 @@ This makes it possible to include e.g. Javascript for all actions in the control
            case 'debug':
                $moduleTemplate->setTitle(
                    $title,
-                   $languageService->sL(''EXT:examples/Resources/Private/Language/AdminModule/locallang.xlf:module.menu.debug')
+                   $languageService->sL('EXT:examples/Resources/Private/Language/AdminModule/locallang.xlf:module.menu.debug')
                );
                return $this->debugAction($moduleTemplate);
            case 'password':
                $moduleTemplate->setTitle(
                    $title,
-                   $languageService->sL(''EXT:examples/Resources/Private/Language/AdminModule/locallang.xlf:module.menu.password')
+                   $languageService->sL('EXT:examples/Resources/Private/Language/AdminModule/locallang.xlf:module.menu.password')
                );
                return $this->passwordAction($moduleTemplate);
            default:
                $moduleTemplate->setTitle(
                    $title,
-                   $languageService->sL(''EXT:examples/Resources/Private/Language/AdminModule/locallang.xlf:module.menu.log')
+                   $languageService->sL('EXT:examples/Resources/Private/Language/AdminModule/locallang.xlf:module.menu.log')
                );
                return $this->logAction($moduleTemplate);
        }
