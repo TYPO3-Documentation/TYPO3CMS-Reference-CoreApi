@@ -21,7 +21,7 @@ Extend the default preview renderer
 ===================================
 
 There are two ways to provide previews for your custom content types:
-via page :ref:`TSconfig <ConfigureCE-Preview-PageTSconfig>` or :ref:`event listener <ConfigureCE-Preview-EventListener>`.
+via page :ref:`TSconfig <ConfigureCE-Preview-PageTSconfig>` or :ref:`hook <ConfigureCE-Preview-Hook>`.
 
 ..  _ConfigureCE-Preview-PageTSconfig:
 
@@ -45,25 +45,23 @@ and a Fluid template.
 
 For more details see the :ref:`TSconfig Reference <t3tsconfig:pageweblayoutpreview>`.
 
-..  _ConfigureCE-Preview-EventListener:
+..  _ConfigureCE-Preview-Hook:
 
-Event listener
---------------
+Hook
+----
 
 This requires at least some PHP coding, but allows more flexibility in
 accessing and processing the content elements properties.
 
-..  versionadded:: 12.0
-    Since version 12.0 this technique replaces the former hook
-    :php:`$GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['cms/layout/class.tx_cms_layout.php']['tt_content_drawItem']`
+..  code-block:: php
+    :caption: EXT:some_extension/ext_localconf.php
 
-The event :php:`PageContentPreviewRenderingEvent` is being dispatched by the
-:php:`StandardContentPreviewRenderer`. You can listen to it with your own
-event listener.
+    $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['cms/layout/class.tx_cms_layout.php']['tt_content_drawItem'][]
+        = MyVendor\MyExtension\Backend\DrawItem::class;
 
-Have a look at this :ref:`showcase implementation <PageContentPreviewRenderingEvent>`.
-
-For general information see the chapter on :ref:`implementing an event listener <EventDispatcherImplementation>`.
+..  versionchanged:: 12.0
+    In version 12.0 this hook will been removed and replaced by the event
+    :php:`PageContentPreviewRenderingEvent`
 
 Writing a PreviewRenderer
 =========================
