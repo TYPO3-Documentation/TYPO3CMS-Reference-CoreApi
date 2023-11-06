@@ -29,6 +29,29 @@ operation, the other one **after**.
 ..  contents:: **Table of contents:**
     :local:
 
+..  _fal-architecture-events-default-upload-folder-resolver:
+
+:php:`\TYPO3\CMS\Core\Resource\DefaultUploadFolderResolver`
+===========================================================
+
+:ref:`AfterDefaultUploadFolderWasResolvedEvent`
+    ..  versionadded:: 12.3
+
+    Allows to modify the default upload folder after it has been resolved for
+    the current page or user.
+
+
+..  _fal-architecture-events-preview-processing:
+
+:php:`\TYPO3\CMS\Core\Resource\OnlineMedia\Processing\PreviewProcessing`
+========================================================================
+
+:ref:`AfterVideoPreviewFetchedEvent`
+    ..  versionadded:: 12.2
+
+    Modifies the preview file of online media previews (like YouTube and Vimeo).
+
+
 ..  _fal-architecture-events-resource-storage:
 
 :php:`\TYPO3\CMS\Core\Resource\ResourceStorage`
