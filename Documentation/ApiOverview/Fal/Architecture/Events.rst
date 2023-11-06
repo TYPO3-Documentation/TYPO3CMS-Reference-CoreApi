@@ -243,3 +243,16 @@ operation, the other one **after**.
 
 See the :ref:`section about services <fal-architecture-components-services>`
 for more information about this class.
+
+
+..  _fal-architecture-events-extended-file-utility:
+
+:php:`\TYPO3\CMS\Core\Utility\File\ExtendedFileUtility`
+=======================================================
+
+:ref:`AfterFileCommandProcessedEvent`
+    ..  versionadded:: 11.4
+
+    The event can be used to perform additional tasks for specific file
+    commands. For example, trigger a custom indexer after a file has been
+    uploaded.
