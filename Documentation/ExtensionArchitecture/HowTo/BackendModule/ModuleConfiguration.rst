@@ -61,7 +61,6 @@ Extbase while the second uses a plain controller.
            'workspaces' => 'live',
            'path' => '/module/system/example',
            'labels' => 'LLL:EXT:examples/Resources/Private/Language/AdminModule/locallang_mod.xlf',
-           'extensionName' => 'Examples',
            'controllerActions' => [
                AdminModuleController::class => [
                    'index',
