@@ -10,9 +10,12 @@ use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
 
 final class MyController extends ActionController
 {
-    public function __construct(
-        private readonly FileCollectionRepository $collectionRepository,
-    ) {}
+    private FileCollectionRepository $collectionRepository;
+
+    public function __construct(FileCollectionRepository $collectionRepository)
+    {
+        $this->collectionRepository = $collectionRepository;
+    }
 
     /**
      * Renders the list of all existing collections and their content
