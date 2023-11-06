@@ -104,6 +104,9 @@ Among the many things done by the storage layer are:
 The storage essentially works with :php:`\TYPO3\CMS\Core\Resource\File`
 and :php:`\TYPO3\CMS\Core\Resource\Folder` objects.
 
+..  seealso::
+    :ref:`Administration of file storages <fal-administration-storages>`
+
 
 ..  index:: File abstraction layer; Drivers
 ..  _fal-architecture-components-drivers:
