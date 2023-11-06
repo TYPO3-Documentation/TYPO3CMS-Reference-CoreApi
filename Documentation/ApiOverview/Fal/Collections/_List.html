@@ -1,0 +1,12 @@
+<f:section name="main">
+    <ul class="collection with-header">
+        <f:for each="{collections}" as="collection">
+            <li class="collection-header">
+                <h4>{collection.title} (Records from <code>{collection.itemTableName}</code>)</h4>
+            </li>
+            <f:for each="{collection}" as="record">
+                <li class="collection-item">{record.name}</li>
+            </f:for>
+        </f:for>
+    </ul>
+</f:section>
