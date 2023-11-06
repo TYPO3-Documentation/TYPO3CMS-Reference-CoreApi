@@ -14,6 +14,56 @@ following sections describe how to achieve that.
 A preview renderer is used to facilitate (record) previews in TYPO3. This
 class is responsible for generating the preview and the wrapping.
 
+The default preview renderer is :php:`\TYPO3\CMS\Backend\Preview\StandardContentPreviewRenderer`
+and handles the Core's built-in content types (field :sql:`CType` in table :sql:`tt_content`).
+
+Extend the default preview renderer
+===================================
+
+There are two ways to provide previews for your custom content types:
+via page :ref:`TSconfig <ConfigureCE-Preview-PageTSconfig>` or :ref:`event listener <ConfigureCE-Preview-EventListener>`.
+
+..  _ConfigureCE-Preview-PageTSconfig:
+
+Page TSconfig
+----------------
+
+This is the "integrator" way, no PHP coding is required. Just some page TSconfig
+and a Fluid template.
+
+..  code-block:: typoscript
+    :caption: EXT:my_extension/Configuration/page.tsconfig
+
+    mod.web_layout {
+      tt_content {
+        preview {
+          # Your CType
+          example_ctype = EXT:my_extension/Resources/Private/Templates/Preview/ExampleCType.html
+        }
+      }
+    }
+
+For more details see the :ref:`TSconfig Reference <t3tsconfig:pageweblayoutpreview>`.
+
+..  _ConfigureCE-Preview-EventListener:
+
+Event listener
+--------------
+
+This requires at least some PHP coding, but allows more flexibility in
+accessing and processing the content elements properties.
+
+..  versionadded:: 12.0
+    Since version 12.0 this technique replaces the former hook
+    :php:`$GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['cms/layout/class.tx_cms_layout.php']['tt_content_drawItem']`
+
+The event :php:`PageContentPreviewRenderingEvent` is being dispatched by the
+:php:`StandardContentPreviewRenderer`. You can listen to it with your own
+event listener.
+
+Have a look at this :ref:`showcase implementation <PageContentPreviewRenderingEvent>`.
+
+For general information see the chapter on :ref:`implementing an event listener <EventDispatcherImplementation>`.
 
 Writing a PreviewRenderer
 =========================
