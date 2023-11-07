@@ -58,7 +58,7 @@ The default permissions for backend users and backend user groups
 are **read-only**:
 
 ..  code-block:: typoscript
-    :caption: EXT:my_extension/Configuration/user.tsconfig
+    :caption: EXT:my_extension/Configuration/TsConfig/User/permissions.tsconfig
 
     permissions.file.default {
       addFile      = 0
@@ -96,7 +96,7 @@ of the targeted storage record.
 The following example grants all permission for the storage with uid "1":
 
 ..  code-block:: typoscript
-    :caption: EXT:my_extension/Configuration/user.tsconfig
+    :caption: EXT:my_extension/Configuration/TsConfig/User/permissions.tsconfig
 
     permissions.file.storage.1 {
       addFile      = 1
@@ -198,16 +198,16 @@ to define a different default upload folder on a backend user or backend user
 group level, for example:
 
 ..  code-block:: typoscript
-    :caption: EXT:my_extension/Configuration/user.tsconfig
+    :caption: EXT:my_extension/Configuration/TsConfig/User/permissions.tsconfig
 
     options.defaultUploadFolder = 3:users/uploads/
 
 There are a number of circumstances where it might be convenient
-to change the default upload folder. The PSR-14 event
-:ref:`AfterDefaultUploadFolderWasResolvedEvent` exists to provide
-maximum flexibility in that regard. For example, take a look at the extension
-`default_upload_folder`_, which makes it possible to define a default upload
-folder for a given field of a given table (using custom TSconfig).
+to change the default upload folder. The hook
+:php:`$GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['t3lib/class.t3lib_userauthgroup.php']['getDefaultUploadFolder']`
+exists to provide maximum flexibility in that regard. For example, take a look
+at the extension `default_upload_folder`_, which makes it possible to define a
+default upload folder for a given field of a given table (using custom TSconfig).
 
 ..  _default_upload_folder: https://github.com/beechit/default_upload_folder
 
