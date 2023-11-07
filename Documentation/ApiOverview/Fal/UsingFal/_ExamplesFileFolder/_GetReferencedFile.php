@@ -15,7 +15,7 @@ final class MyClass
 
     public function doSomething(): void
     {
-        /** @var list<FileReference> $fileObjects */
+        /** @var FileReference[] $fileObjects */
         $fileObjects = $this->fileRepository->findByRelation('pages', 'media', 42);
 
         // ... more logic
