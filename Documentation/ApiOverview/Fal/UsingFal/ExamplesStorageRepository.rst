@@ -27,7 +27,7 @@ when not using a :ref:`combined identifier <fal-architecture-components-files-fo
 
 ..  literalinclude:: _ExamplesStorageRepository/_GetDefaultStorageExample.php
     :language: php
-    :caption: EXT:my_extension/Resource/GetDefaultStorageExample.php
+    :caption: EXT:my_extension/Classes/Resource/GetDefaultStorageExample.php
 
 
 ..  _fal-using-fal-examples-storage-repository-getting-storage:
@@ -39,4 +39,4 @@ The :php:`StorageRepository` class should be used for retrieving any storage.
 
 ..  literalinclude:: _ExamplesStorageRepository/_GetStorageObjectExample.php
     :language: php
-    :caption: EXT:my_extension/Resource/GetStorageObjectExample.php
+    :caption: EXT:my_extension/Classes/Resource/GetStorageObjectExample.php
