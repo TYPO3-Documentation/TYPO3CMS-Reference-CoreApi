@@ -82,7 +82,7 @@ available in :file:`de_CH.locallang.xlf`, and then automatically falls back to
 the non-region-specific "de" label file :file:`de.locallang.xlf` without any
 further configuration to TYPO3.
 
-Before TYPO v12.2, one has to define a
+Before TYPO3 v12.2, one has to define a
 :ref:`custom language <xliff-translating-languages>`.
 
 ..  note::
