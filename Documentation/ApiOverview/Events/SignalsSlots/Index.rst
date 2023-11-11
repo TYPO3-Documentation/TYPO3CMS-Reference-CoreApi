@@ -121,6 +121,8 @@ and take a look at the dispatch call:
 In this case, the :php:`dumpClassLoadingInformation` method will get the
 extension key and an instance of the dispatching class as parameters.
 
+If you are using Signals in your custom extension, you need to register the Slot in your ext_localconf.php.
+
 
 Finding signals
 ===============
