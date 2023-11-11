@@ -19,41 +19,28 @@ This chapter provides some examples about interacting with
 Getting a file
 ==============
 
-
 By uid
 ------
 
 A file can be retrieved using its uid:
 
-..  code-block:: php
-    :caption: EXT:some_extension/Classes/SomeClass.php
-
-    use TYPO3\CMS\Core\Utility\GeneralUtility;
-    use TYPO3\CMS\Core\Resource\ResourceFactory;
-
-    $resourceFactory = GeneralUtility::makeInstance(ResourceFactory::class);
-    $file = $resourceFactory->getFileObject(4);
+..  literalinclude:: _ExamplesFileFolder/_GetFileByUid.php
+    :language: php
+    :caption: EXT:my_extension/Classes/MyClass.php
 
 
 By its combined identifier
 --------------------------
 
-..  code-block:: php
-
-    $resourceFactory = GeneralUtility::makeInstance(ResourceFactory::class);
-    $file = $resourceFactory->getFileObjectFromCombinedIdentifier('1:/foo.txt');
+..  literalinclude:: _ExamplesFileFolder/_GetFileByCombinedIdentifier.php
+    :language: php
+    :caption: EXT:my_extension/Classes/MyClass.php
 
 The syntax of argument 1 for :php:`getFileObjectFromCombinedIdentifier()` is
 
 ..  code-block:: none
 
     [[storage uid]:]<file identifier>
-
-The return value is
-
-..  code-block:: none
-
-    File|ProcessedFile|null
 
 The storage uid is optional. If it is not specified, the default storage "0"
 will be assumed initially. The default storage is virtual with :php:`$uid === 0`
@@ -75,20 +62,17 @@ storage's base path.
 By filename from its folder
 ---------------------------
 
-..  code-block:: php
-
-    $storageRepository = GeneralUtility::makeInstance(StorageRepository::class);
-    $defaultStorage = $storageRepository->getDefaultStorage();
-    $folder = $defaultStorage->getFolder('/some/path/in/storage/');
-    $file = $folder->getStorage()->getFileInFolder("example.ext", $folder);
+..  literalinclude:: _ExamplesFileFolder/_GetFileByFilenameFromItsFolder.php
+    :language: php
+    :caption: EXT:my_extension/Classes/MyClass.php
 
 
 By its filename from the folder object
 --------------------------------------
 
-..  code-block:: php
-
-    $file = $folder->getFile("filename.ext");
+..  literalinclude:: _ExamplesFileFolder/_GetFileByItsFilenameFromTheFolderObject.php
+    :language: php
+    :caption: EXT:my_extension/Classes/MyClass.php
 
 
 .. _fal-using-fal-examples-file-folder-copy-file:
@@ -96,26 +80,9 @@ By its filename from the folder object
 Copying a file
 ==============
 
-..  code-block:: php
-    :caption: EXT:some_extension/Classes/SomeClass.php
-
-    use TYPO3\CMS\Core\Utility\GeneralUtility;
-    use TYPO3\CMS\Core\Resource\StorageRepository;
-
-    $storageUid = 17;
-    $someFileIdentifier = 'templates/images/banner.jpg';
-    $someFolderIdentifier = 'website/images/';
-
-    $storageRepository = GeneralUtility::makeInstance(StorageRepository::class);
-    $storage = $storageRepository->getStorageObject($storageUid);
-
-    // $file returns a TYPO3\CMS\Core\Resource\File object
-    $file = $storage->getFile($someFileIdentifier);
-    // $folder returns a TYPO3\CMS\Core\Resource\Folder object
-    $folder = $storage->getFolder($someFolderIdentifier);
-
-    // returns the TYPO3\CMS\Core\Resource\File object of the new, copied file
-    $copiedFile = $file->copyTo($folder);
+..  literalinclude:: _ExamplesFileFolder/_CopyingFile.php
+    :language: php
+    :caption: EXT:my_extension/Classes/MyClass.php
 
 
 ..  _fal-using-fal-examples-file-folder-delete-file:
@@ -124,10 +91,9 @@ Copying a file
 Deleting a file
 ===============
 
-..  code-block:: php
-    :caption: EXT:some_extension/Classes/SomeClass.php
-
-    $file->delete();
+..  literalinclude:: _ExamplesFileFolder/_DeletingFile.php
+    :language: php
+    :caption: EXT:my_extension/Classes/MyClass.php
 
 
 ..  _fal-using-fal-examples-file-folder-add-file:
@@ -138,20 +104,9 @@ Adding a file
 This example adds a new file in the root folder of the default
 storage:
 
-..  code-block:: php
-    :caption: EXT:some_extension/Classes/SomeClass.php
-
-    use TYPO3\CMS\Core\Utility\GeneralUtility;
-    use TYPO3\CMS\Core\Resource\StorageRepository;
-
-    $storageRepository = GeneralUtility::makeInstance(StorageRepository::class);
-    $storage = $storageRepository->getDefaultStorage();
-    $newFile = $storage->addFile(
-        '/tmp/temporary_file_name.ext',
-        $storage->getRootLevelFolder(),
-        'final_file_name.ext'
-    );
-
+..  literalinclude:: _ExamplesFileFolder/_AddingFile.php
+    :language: php
+    :caption: EXT:my_extension/Classes/MyClass.php
 
 The default storage uses :file:`fileadmin/` unless this was configured
 differently, as explained in :ref:`fal-concepts-storages-drivers`.
@@ -161,15 +116,9 @@ So, for this example, the resulting file path would typically be
 
 To store the file in a sub-folder use :php:`$storage->getFolder()`:
 
-..  code-block:: php
-    :caption: EXT:some_extension/Classes/SomeClass.php
-
-    $newFile = $storage->addFile(
-        '/tmp/temporary_file_name.ext',
-        $storage->getFolder('some/nested/folder'),
-        'final_file_name.ext'
-    );
-
+..  literalinclude:: _ExamplesFileFolder/_AddingFileToSubFolder.php
+    :language: php
+    :caption: EXT:my_extension/Classes/MyClass.php
 
 In this example, the file path would likely be
 :file:`<document-root>/fileadmin/some/nested/folder/final_file_name.ext`
@@ -195,45 +144,9 @@ the :ref:`sys_file_reference <fal-architecture-database-sys-file-reference>`
 entry and the relation to the other item (in this case a :sql:`tt_content`
 record):
 
-..  code-block:: php
-    :caption: EXT:some_extension/Classes/SomeClass.php
-
-    use TYPO3\CMS\Core\Utility\GeneralUtility;
-    use TYPO3\CMS\Core\Resource\ResourceFactory;
-    use TYPO3\CMS\Backend\Utility\BackendUtility;
-    use TYPO3\CMS\Core\DataHandling\DataHandler;
-
-   $resourceFactory = GeneralUtility::makeInstance(ResourceFactory::class);
-   $fileObject = $resourceFactory->getFileObject((int)$file);
-   $contentElement = BackendUtility::getRecord(
-           'tt_content',
-           (int)$element
-   );
-   // Assemble DataHandler data
-   $newId = 'NEW1234';
-   $data = [];
-   $data['sys_file_reference'][$newId] = [
-           'table_local' => 'sys_file',
-           'uid_local' => $fileObject->getUid(),
-           'tablenames' => 'tt_content',
-           'uid_foreign' => $contentElement['uid'],
-           'fieldname' => 'assets',
-           'pid' => $contentElement['pid']
-   ];
-   $data['tt_content'][$contentElement['uid']] = [
-           'assets' => $newId // For multiple new references $newId is a comma-separated list
-   ];
-   // Get an instance of the DataHandler and process the data
-   /** @var DataHandler $dataHandler */
-   $dataHandler = GeneralUtility::makeInstance(DataHandler::class);
-   $dataHandler->start($data, []);
-   $dataHandler->process_datamap();
-   // Error or success reporting
-   if (count($dataHandler->errorLog) === 0) {
-       // Handle success
-   } else {
-       // Handle errors
-   }
+..  literalinclude:: _ExamplesFileFolder/_CreatingFileReference.php
+    :language: php
+    :caption: EXT:my_extension/Classes/MyClass.php
 
 The above example comes from the "examples" extension
 (reference: https://github.com/TYPO3-Documentation/t3docs-examples/blob/master/Classes/Controller/ModuleController.php).
@@ -245,7 +158,7 @@ For another table than :sql:`tt_content`, you need to define
 the "pid" explicitly when creating the relation:
 
 ..  code-block:: php
-    :caption: EXT:some_extension/Classes/SomeClass.php
+    :caption: EXT:my_extension/Classes/SomeClass.php
 
     $data['tt_address'][$address['uid']] = [
         'pid' => $address['pid'],
@@ -280,15 +193,9 @@ This snippet shows how to retrieve FAL items that have been attached
 to some other element, in this case the :sql:`media` field of the :sql:`pages`
 table:
 
-..  code-block:: php
-    :caption: EXT:some_extension/Classes/SomeClass.php
-
-    use TYPO3\CMS\Core\Utility\GeneralUtility;
-    use TYPO3\CMS\Core\Resource\FileRepository;
-
-    $fileRepository = GeneralUtility::makeInstance(FileRepository::class);
-    $fileObjects = $fileRepository->findByRelation('pages', 'media', $uid);
-
+..  literalinclude:: _ExamplesFileFolder/_GetReferencedFile.php
+    :language: php
+    :caption: EXT:my_extension/Classes/MyClass.php
 
 where :php:`$uid` is the ID of some page. The return value is an array
 of :php:`\TYPO3\CMS\Core\Resource\FileReference` objects.
@@ -296,24 +203,18 @@ of :php:`\TYPO3\CMS\Core\Resource\FileReference` objects.
 
 ..  _fal-using-fal-examples-file-folder-list-files:
 
-Listing files in a folder
-=========================
+Get files in a folder
+=====================
 
 These would be the shortest steps to get the list of files in a given
 folder: :ref:`get the storage <fal-using-fal-examples-storage-repository>`, get
 a folder object for some path in that storage (path relative to storage root),
 finally retrieve the files:
 
-..  code-block:: php
-    :caption: EXT:some_extension/Classes/SomeClass.php
+..  literalinclude:: _ExamplesFileFolder/_GetFilesInFolder.php
+    :language: php
+    :caption: EXT:my_extension/Classes/MyClass.php
 
-    use TYPO3\CMS\Core\Utility\GeneralUtility;
-    use TYPO3\CMS\Core\Resource\StorageRepository;
-
-    $storageRepository = GeneralUtility::makeInstance(StorageRepository::class);
-    $defaultStorage = $storageRepository->getDefaultStorage();
-    $folder = $defaultStorage->getFolder('/some/path/in/storage/');
-    $files = $defaultStorage->getFilesInFolder($folder);
 
 Dumping a file via eID script
 =============================
@@ -361,7 +262,6 @@ See the following example on how to create a URI using the
     $publicUrl = GeneralUtility::locationHeaderUrl(PathUtility::getAbsoluteWebPath(Environment::getPublicPath() . '/index.php'));
     $publicUrl .= '?' . http_build_query($queryParameterArray, '', '&', PHP_QUERY_RFC3986);
 
-
 In this example, the crop variant :php:`default` and an image size of 320x280
 will be applied to a :sql:`sys_file_reference` record:
 
@@ -376,7 +276,6 @@ will be applied to a :sql:`sys_file_reference` record:
     $publicUrl = GeneralUtility::locationHeaderUrl(PathUtility::getAbsoluteWebPath(Environment::getPublicPath() . '/index.php'));
     $publicUrl .= '?' . http_build_query($queryParameterArray, '', '&', PHP_QUERY_RFC3986);
 
-
 This example shows how to create a URI to load an image of
 `sys_file_processedfile`:
 
@@ -388,7 +287,6 @@ This example shows how to create a URI to load an image of
     $queryParameterArray['token'] = GeneralUtility::hmac(implode('|', $queryParameterArray), 'resourceStorageDumpFile');
     $publicUrl = GeneralUtility::locationHeaderUrl(PathUtility::getAbsoluteWebPath(Environment::getPublicPath() . '/index.php'));
     $publicUrl .= '?' . http_build_query($queryParameterArray, '', '&', PHP_QUERY_RFC3986);
-
 
 The following restrictions apply:
 
