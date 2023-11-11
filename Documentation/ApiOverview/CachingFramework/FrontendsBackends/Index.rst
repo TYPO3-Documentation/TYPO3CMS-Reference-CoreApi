@@ -531,7 +531,7 @@ caches.
    :caption: public/typo3conf/AdditionalConfiguration.php
 
    $redisHost = '127.0.0.1';
-   $redisPort = 6390;
+   $redisPort = 6379;
    $redisCaches = [
        'pages' => [
             'defaultLifetime' => 86400*7,
