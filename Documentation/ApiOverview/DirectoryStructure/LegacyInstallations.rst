@@ -13,6 +13,7 @@ TYPO3 installation without Composer. For the structure in a Composer-based insta
 see :ref:`Composer-based installations: Directory structure <directory-structure>`.
 
 .. _legacy-directory-project:
+
 Files on project level
 ======================
 

@@ -150,13 +150,6 @@ to this wizard (via page TSconfig).
       }
    }
 
-.. versionchanged:: 12.0
-
-   Starting with TYPO3 version 12.0 file :file:`EXT:examples/Configuration/page.tsconfig`
-   is automatically included. For version 11.5 and below this file has to be included in the
-   :file:`ext_localconf.php`. See :ref:`Setting global page TSconfig, compatible with TYPO3
-   11 and 12 <t3tsconfig:global-page-tsconfig-v11-v12>`.
-
 .. include:: /Images/AutomaticScreenshots/CustomContentElements/ContentElementWizard.rst.txt
 
 The content element wizard configuration is described in detail in

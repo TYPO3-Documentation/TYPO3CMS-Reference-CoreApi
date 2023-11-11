@@ -6,8 +6,8 @@
 Backend module API (Extbase)
 ============================
 
-As for frontend plugins, you can use :ref:`Fluid templates <t3extbasebook:fluid-start>` to
-create the view and :ref:`controller actions <t3extbasebook:controlling-the-flow-with-controllers>`
+As for frontend plugins, you can use :ref:`Fluid templates <fluid>` to
+create the view and :ref:`controller actions <extbase-action-controller>`
 for the functionality.
 
 

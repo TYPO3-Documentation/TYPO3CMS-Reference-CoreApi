@@ -1,0 +1,6 @@
+..  note::
+    Currently, we do not have an example for this event. If you can provide a
+    useful one, please open `an issue`_ with your code snippets or
+    :ref:`a pull request <h2document:docs-contribute-git-docker>`.
+
+..  _an issue: https://github.com/TYPO3-Documentation/TYPO3CMS-Reference-CoreApi/issues/new

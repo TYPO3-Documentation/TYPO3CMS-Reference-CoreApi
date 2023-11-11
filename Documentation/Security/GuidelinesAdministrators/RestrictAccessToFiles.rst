@@ -100,7 +100,7 @@ access by putting files into the web document directories - the TYPO3 install pr
 not install good default files and administrators must merge deny patterns into the web
 servers virtual host configuration. A typical example looks like this:
 
-.. code-block:: nginx
+..  code-block:: text
 
     server {
 
