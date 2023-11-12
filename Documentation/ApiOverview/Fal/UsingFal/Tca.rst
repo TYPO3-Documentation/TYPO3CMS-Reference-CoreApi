@@ -17,19 +17,18 @@ create relations to files.
     See the :ref:`Migration <t3tca:columns-file-migration>` section on how to
     adjust the configuration.
 
+..  versionchanged:: 13.0
+    When using the TCA type `file`, TYPO3 takes care of
+    :ref:`generating the according database field <t3coreapi:auto-generated-db-structure>`.
+    A developer does not need to define this field in an extension's
+    :file:`ext_tables.sql` file.
+
 The TCA field type :ref:`t3tca:columns-file` can be used to provide a field
 in which files can be referenced and/or uploaded:
 
 ..  literalinclude:: _Tca/_my_table.php
     :language: php
     :caption: EXT:my_extension/Configuration/TCA/my_table.php
-
-On the database side, the corresponding field needs to store an integer,
-as is usual for relations field:
-
-..  literalinclude:: _Tca/_ext_tables.sql
-    :language: sql
-    :caption: EXT:my_extension/ext_tables.sql
 
 The property :ref:`appearance <t3tca:columns-file-properties-appearance>` can be
 used to specify, if a file upload button and file by URL button (Vimeo, Youtube)
