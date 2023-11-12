@@ -26,7 +26,7 @@ You can use Fluid in TYPO3 to do one of the following:
 * The previous point describes the lightweight components which
   are created using a combination of TypoScript and Fluid. If you need more functionality
   or flexibility in your content element, you can create a content plugin using
-  a combination of Extbase and Fluid. This is explained in :doc:`t3extbasebook:Index`
+  a combination of Extbase and Fluid.
 * Use Fluid to create emails using the :ref:`TYPO3 Mail API <mail-fluid-email>`.
 * Use Fluid in :ref:`backend modules <backend-modules-template>`.
 

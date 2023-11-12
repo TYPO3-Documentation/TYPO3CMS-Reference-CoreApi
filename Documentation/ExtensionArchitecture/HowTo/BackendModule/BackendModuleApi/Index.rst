@@ -5,8 +5,8 @@
 Backend module API
 ===================
 
-As for frontend plugins, you can use :ref:`Fluid templates <t3extbasebook:fluid-start>` to
-create the view and :ref:`controller actions <t3extbasebook:controlling-the-flow-with-controllers>`
+As for frontend plugins, you can use :ref:`Fluid templates <fluid>` to
+create the view and :ref:`controller actions <extbase-action-controller>`
 for the functionality.
 
 
@@ -22,7 +22,7 @@ for the functionality.
 Adding new modules
 ==================
 
-Modules added by extensions are registered in the file :ref:`ext_tables.php <ext-tables.php>`
+Modules added by extensions are registered in the file :ref:`ext_tables.php <ext-tables-php>`
 using the following API:
 
 Based on Extbase:

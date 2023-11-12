@@ -28,9 +28,9 @@ with the format you expected. For example, for a
 field that contains an email address, you should check that a valid email
 address was entered and not any other text.
 
-If the backend forms use the correct TCA types like :ref:`'type' => 'email' <t3tca:columns-email>`
+If the backend forms use the correct TCA types
 or parameters like :ref:`eval <t3tca:columns-input-properties-eval>`. In
-Extbase the :ref:`validating framework <t3coreapi:extbase_validation>` can
+Extbase the :ref:`validating framework <extbase_validation>` can
 be helpful.
 
 .. index:: Security; Database Queries
