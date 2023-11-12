@@ -8,9 +8,11 @@ use TYPO3\CMS\Core\Resource\ResourceFactory;
 
 final class CollectionExample
 {
-    public function __construct(
-        private readonly ResourceFactory $resourceFactory,
-    ) {}
+    private ResourceFactory $resourceFactory;
+
+    public function __construct(ResourceFactory $resourceFactory) {
+        $this->resourceFactory = $resourceFactory;
+    }
 
     public function doSomething(): void
     {
