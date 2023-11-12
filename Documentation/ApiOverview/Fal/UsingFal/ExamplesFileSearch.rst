@@ -12,8 +12,8 @@ search term is looked for in all
 :ref:`search fields defined in TCA <t3tca:ctrl-reference-searchfields>` of
 :sql:`sys_file` and :sql:`sys_file_metadata` tables.
 
-.. contents::
-   :local:
+..  contents::
+    :local:
 
 
 Searching for files in a folder
