@@ -1,45 +1,57 @@
-.. include:: /Includes.rst.txt
+..  include:: /Includes.rst.txt
 
-.. _fal-using-fal-examples-file-search:
+..  _fal-using-fal-examples-file-search:
 
 ===================
 Searching for files
 ===================
 
-An API is provided by the File Abstraction Layer to search for files in a
+An API is provided by the file abstraction layer (FAL) to search for files in a
 storage or folder. It includes matches in meta data of those files. The given
 search term is looked for in all
 :ref:`search fields defined in TCA <t3tca:ctrl-reference-searchfields>` of
 :sql:`sys_file` and :sql:`sys_file_metadata` tables.
 
-Searching for files in a folder works like this:
+..  contents::
+    :local:
 
-..  code-block:: php
 
-    use TYPO3\CMS\Core\Resource\Search\FileSearchDemand;
+Searching for files in a folder
+===============================
 
-    $searchDemand = FileSearchDemand::createForSearchTerm($searchWord)->withRecursive();
-    $files = $folder->searchFiles($searchDemand);
+..  literalinclude:: _ExamplesFileSearch/_SearchInFolder.php
+    :language: php
+    :caption: EXT:my_extension/Classes/SearchInFolderExample.php
 
-Searching for files in a storage works like this:
 
-..  code-block:: php
+Searching for files in a storage
+================================
 
-    $searchDemand = FileSearchDemand::createForSearchTerm($searchWord)->withRecursive();
-    $files = $storage->searchFiles($searchDemand);
+..  literalinclude:: _ExamplesFileSearch/_SearchInStorage.php
+    :language: php
+    :caption: EXT:my_extension/Classes/SearchInStorageExample.php
+
+..  seealso::
+    :ref:`fal-using-fal-examples-storage-repository`
+
+
+Add additional restrictions
+===========================
 
 It is possible to further limit the result set, by adding additional
 restrictions to the :php:`FileSearchDemand`. Please note, that
 :php:`FileSearchDemand` is an immutable value object, but allows chaining
 methods for ease of use:
 
-..  code-block:: php
+..  literalinclude:: _ExamplesFileSearch/_SearchInStorageWithRestrictions.php
+    :language: php
+    :caption: EXT:my_extension/Classes/SearchInStorageWithRestrictionsExample.php
 
-    $searchDemand = FileSearchDemand::createForSearchTerm($this->searchWord)
-        ->withRecursive()
-        ->withMaxResults(10)
-        ->withOrdering('fileext');
-    $files = $storage->searchFiles($searchDemand);
+
+API
+===
+
+..  include:: /CodeSnippets/Resource/FileSearchDemand.rst.txt
 
 
 Performance optimization in a custom driver

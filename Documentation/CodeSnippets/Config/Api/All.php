@@ -10,4 +10,5 @@ return array_merge(
     include('Entity.php'),
     include('LanguageServiceApi.php'),
     include('SessionManagement.php'),
+    include('Resource.php'),
 );
