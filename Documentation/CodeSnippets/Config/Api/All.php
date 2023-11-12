@@ -7,4 +7,5 @@ return array_merge(
     include('Events/All.php'),
     include('Entity.php'),
     include('LanguageServiceApi.php'),
+    include('Resource.php'),
 );
