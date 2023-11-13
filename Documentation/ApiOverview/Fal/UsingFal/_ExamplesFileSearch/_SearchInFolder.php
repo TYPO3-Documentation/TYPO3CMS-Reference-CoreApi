@@ -29,6 +29,6 @@ final class SearchInFolderExample
     {
         $defaultStorage = $this->storageRepository->getDefaultStorage();
 
-        return $defaultStorage->getFolder('/some/path/in/storage/');
+        return $defaultStorage->getFolder($path);
     }
 }
