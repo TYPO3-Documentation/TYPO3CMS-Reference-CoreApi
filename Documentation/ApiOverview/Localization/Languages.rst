@@ -13,6 +13,7 @@ The list of supported languages is defined in
     :header: "Locale in TYPO3", "Name"
     :widths: 15, 15
 
+        "default", "English"
         "af", "Afrikaans"
         "ar", "Arabic"
         "bs", "Bosnian"
@@ -60,7 +61,7 @@ The list of supported languages is defined in
         "rw", "Kinyarwanda"
         "sk", "Slovak"
         "sl", "Slovenian"
-        "sn", "Shona"
+        "sn", "Shona (Bantu)"
         "sq", "Albanian"
         "sr", "Serbian"
         "sv", "Swedish"
@@ -68,7 +69,10 @@ The list of supported languages is defined in
         "tr", "Turkish"
         "uk", "Ukrainian"
         "vi", "Vietnamese"
-        "zh", "Chinese (Trad)"
+        "zh", "Chinese (Traditional)"
+        "zh_CN", "Chinese (Simplified)"
+        "zh_HK", "Chinese (Simplified Hong Kong)"
+        "zh_Hans_CN", "Chinese (Simplified Han)"
 
 ..  tip::
     If you need additional languages there are two possible options:
