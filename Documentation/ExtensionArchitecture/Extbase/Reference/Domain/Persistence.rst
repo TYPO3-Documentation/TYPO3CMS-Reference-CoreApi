@@ -9,7 +9,9 @@ Persistence
 
 It is possible to define models that are not persisted to the database. However, in
 the most common use cases you will want to save your model to the database and load
-it from there.
+it from there. If you want to extend an existing model you can also follow the
+steps on this page. See also :ref:`Tutorial: Extending an Extbase model
+<extending-extbase-model>`.
 
 .. contents::
    :local:
