@@ -26,7 +26,7 @@ Follow these steps:
 
 #.  :ref:`Find the original model <extending-extbase-model_find_original_model>`.
     If this model has the modifier :php:`final` refer
-    to the extensions documentation on how to display additional fields.
+    to the extension's documentation on how to display additional fields.
 
 #.  :ref:`Find the original repository <extending-extbase-model_find_original_repository>`.
     Again, if the repository is :php:`final` refer
