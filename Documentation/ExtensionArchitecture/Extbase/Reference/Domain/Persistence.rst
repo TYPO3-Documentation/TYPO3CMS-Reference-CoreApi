@@ -73,6 +73,8 @@ class will only be used for administrators but not plain frontend users.
 The array stored in :php:`properties` to match properties to database field
 names if the names do not match.
 
+..  _extbase-persistance-record-types:
+
 Record types and persistence
 ============================
 
