@@ -6,7 +6,7 @@
 Extending an Extbase model
 ==========================
 
-Once you have added an additional field to the database table and
+Once you have added an additional field to the
 :ref:`TCA <extending-tca>` the new field will be displayed in the backend forms.
 
 However if the extension you are trying to extend is based on Extbase the new
@@ -33,9 +33,10 @@ Follow these steps:
     to the extensions documentation on how to display additional fields.
 
 #.  :ref:`Extend the original model <extending-extbase-model_extend_original_model>`
-    in your custom extension or sitepackage.
+    in your custom extension or :ref:`sitepackage <t3sitepackage:start>`.
 
-#.  Register your extended model with the according database table in
+#.  :ref:`Register your extended model <extending-extbase-model_register_extended_model>`
+    with the according database table in
     :file:`EXT:my_extension/Configuration/Extbase/Persistence/Classes.php`.
 
 #.  :ref:`Extend the original repository <extending-extbase-model_register_extended_model>`
@@ -57,17 +58,20 @@ the original model or repository (see bellow).
 
 If the model is already extended but you only need to create the fields for
 your current installation you can proceed by extending the extended model.
+In the following steps of this tutorial use the previously extended model
+as original model.
 
-If the model has different types you can decide to introduce a new type and
+If the model has different :ref:`Record types <extbase-persistance-record-types>`
+you can decide to introduce a new type and
 only extend that one type. This is for example commonly done when extending
-the model of EXT:news.
+the model of :t3ext:`news`.
 
 If you are planing to publish your extension that extends another extensions
 model, research on `Packagist <https://packagist.org/>`__ and the
 `TER (TYPO3 extension repository) <https://extensions.typo3.org/>` for
 extensions that are already extending the model. If necessary but them in
-the `conflict` sections of you extensions :file:`composer.json` and
-:file:`ext_emconfig.php`.
+the `conflict` sections of you extensions :ref:`composer-json` and
+:ref:`ext_emconf-php`.
 
 ..  _extending-extbase-model_find_original_model:
 
