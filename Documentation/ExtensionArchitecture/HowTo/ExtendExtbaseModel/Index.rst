@@ -9,7 +9,7 @@ Extending an Extbase model
 Once you have added an additional field to the
 :ref:`TCA <extending-tca>` the new field will be displayed in the backend forms.
 
-However if the extension you are trying to extend is based on Extbase the new
+However, if the extension you are trying to extend is based on :ref:`Extbase <extbase>` the new
 field is not available in the frontend out of the box. Further steps are
 needed to make the fields available. These steps will not work in all cases.
 
