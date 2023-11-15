@@ -30,7 +30,7 @@ Follow these steps:
 
 #.  :ref:`Find the original repository <extending-extbase-model_find_original_repository>`.
     Again, if the repository is :php:`final` refer
-    to the extensions documentation on how to display additional fields.
+    to the extension's documentation on how to display additional fields.
 
 #.  :ref:`Extend the original model <extending-extbase-model_extend_original_model>`
     in your custom extension or :ref:`sitepackage <t3sitepackage:start>`.
