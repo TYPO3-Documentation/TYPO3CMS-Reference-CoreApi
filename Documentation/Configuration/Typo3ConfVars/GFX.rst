@@ -258,9 +258,12 @@ webp_quality
 
     :type: int
     :Default: 85
-    :Allowed values: Between 10 (lowest quality) and 100 (highest quality)
+    :Allowed values: Between 10 (lowest quality) and 100 (highest quality), or 101 (lossless)
 
-    Default WebP generation quality
+    Default WebP generation quality. Setting the quality to "101" equivalents
+    to `"lossless" compression`_.
+
+    ..  _"lossless" compression: https://developers.google.com/speed/webp/docs/compression#lossless_webp
 
 ..  index::
     TYPO3_CONF_VARS GFX; thumbnails_png
