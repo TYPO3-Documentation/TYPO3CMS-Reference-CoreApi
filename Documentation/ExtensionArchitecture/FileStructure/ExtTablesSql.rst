@@ -179,9 +179,11 @@ the :file:`ext_tables.sql` file:
 *   :ref:`TCA type "folder" <t3tca:columns-folder>` (since TYPO3 v13.0)
 *   :ref:`TCA type "group" <t3tca:columns-group>` (since TYPO3 v13.0)
 *   :ref:`TCA type "imageManipulation" <t3tca:columns-imageManipulation>` (since TYPO3 v13.0)
+*   :ref:`TCA type "inline" <t3tca:columns-inline>` (since TYPO3 v13.0)
 *   :ref:`TCA type "json" <t3tca:columns-json>`
 *   :ref:`TCA type "language" <t3tca:columns-language>` (since TYPO3 v13.0)
 *   :ref:`TCA type "link" <t3tca:columns-link>` (since TYPO3 v13.0)
+*   :ref:`TCA type "number" <t3tca:columns-number>` (since TYPO3 v13.0)
 *   :ref:`TCA type "password" <t3tca:columns-password>` (since TYPO3 v13.0)
 *   :ref:`TCA type "radio" <t3tca:columns-radio>` (since TYPO3 v13.0)
 *   :ref:`TCA type "slug" <t3tca:columns-slug>` (since TYPO3 v12.0)
