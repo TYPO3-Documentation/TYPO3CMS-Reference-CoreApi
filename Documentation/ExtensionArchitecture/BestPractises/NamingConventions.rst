@@ -43,7 +43,11 @@ TER
     :guilabel:`My Extensions`.
 
 extkey
-    The extension key.
+    The extension key as is (e.g. 'my_extension').
+
+extkeyprefix
+    The extension key with stripped away underscores (e.g. extkey='my_extension'
+    becomes extkeyprefix='myextension').
 
 ..  _extension-naming-extensionName:
 
@@ -195,10 +199,10 @@ Database table names **should** follow this pattern:
 
 .. code-block:: none
 
-   tx_<extension-prefix>_<table-name>
+   tx_<extkeyprefix>_<table_name>
 
-* `<extension-prefix>` is the extension key without underscores, so `foo_bar` becomes `foobar`
-* `<table-name>` should clearly describe the purpose of the table
+* `<extkeyprefix>` is the extension key without underscores, so `foo_bar` becomes `foobar`
+* `<table_name>` should clearly describe the purpose of the table
 
 Examples for an extension named `cool_shop`:
 
@@ -214,9 +218,9 @@ Extbase domain model tables **should** follow this pattern:
 
 .. code-block:: none
 
-   tx_<extension-prefix>_domain_model_<model-name>
+   tx_<extkeyprefix>_domain_model_<model-name>
 
-* `<extension-prefix>` is the extension key without underscores, so `foo_bar` becomes `foobar`
+* `<extkeyprefix>` is the extension key without underscores, so `foo_bar` becomes `foobar`
 * `<model-name>` should match the domain model name
 
 Examples for Extbase domain models and table names of an extension named `cool_shop`:
@@ -247,7 +251,7 @@ Extbase:
 .. code-block:: none
 
    # rule for Extbase
-   tx_<extension-prefix>_domain_model_<model-name-1>_<model-name-2>_mm
+   tx_<extkeyprefix>_domain_model_<model-name-1>_<model-name-2>_mm
    # example: EXT:blog with relation between post and comment
    tx_blogexample_domain_model_post_comment_mm
 
@@ -256,7 +260,7 @@ Non-Extbase tables usually use a similar rule, without the "domain_model" part:
 .. code-block:: none
 
    # recommendation for non-Extbase third party extensions
-   tx_<extension-prefix>_<model-1>_<model-2>_mm
+   tx_<extkeyprefix>_<model-1>_<model-2>_mm
    # Example
    tx_myextension_address_category_mm
 
@@ -271,9 +275,9 @@ follow this pattern:
 
 .. code-block:: none
 
-   tx_<extension-prefix>_<column-name>
+   tx_<extkeyprefix>_<column-name>
 
-* `<extension-prefix>` is the extension key without underscores, so `foo_bar` becomes `foobar`
+* `<extkeyprefix>` is the extension key without underscores, so `foo_bar` becomes `foobar`
 * `<column-name>` should clearly describe the purpose of the column
 
 .. _BackendModuleKey:
