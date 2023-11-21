@@ -146,6 +146,16 @@ In the future (when translation teams start getting bigger), it might be a good
 idea to develop local style guides.
 
 
+Become a proofreader
+====================
+Community-driven translations form the backbone of our work.
+Huge thanks to all translators and proofreaders for their invaluable contributions!
+
+Please contact our localization team via email at `localization@typo3.org`_ to request the role of a proofreader.
+
+..  _localization@typo3.org: mailto:localization@typo3.org
+
+
 Links
 =====
 
@@ -174,6 +184,10 @@ Strings are translated, but when are they taken into account and available for d
 ----------------------------------------------------------------------------------------
 
 As soon as a string is proofread, it will be taken into account at the next export.
+
+If the prccess takes too long, please write us an email at `localization@typo3.org`_.
+
+..  _localization@typo3.org: mailto:localization@typo3.org
 
 
 How can I be sure what way a word, term or sting is to be translated?
