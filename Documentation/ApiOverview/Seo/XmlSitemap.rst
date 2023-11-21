@@ -102,7 +102,7 @@ exclude page subtrees from the sitemap (e.g internal pages).
                 sitemaps {
                     pages {
                         config {
-                            excludedDoktypes = 137, 138
+                            excludedDoktypes = 3, 4, 6, 7, 199, 254, 255
                             additionalWhere = AND (no_index = 0 OR no_follow = 0)
                             #rootPage = <optionally specify a different root page. (default: rootPageId from site configuration)>
                             excludePagesRecursive = <comma-separated list of page IDs>
