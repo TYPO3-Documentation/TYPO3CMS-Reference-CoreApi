@@ -91,7 +91,9 @@ The :php:`\TYPO3\CMS\Seo\XmlSitemap\PagesXmlSitemapDataProvider` will generate a
 sitemap of pages based on the detected siteroot. You can configure whether you
 have additional conditions for selecting the pages. It is also possible to
 exclude certain :ref:`doktypes <list-of-page-types>`. Additionally, you may
-exclude page subtrees from the sitemap (e.g internal pages).
+exclude page subtrees from the sitemap (e.g internal pages). This can be
+configured using TypoScript (example below) or using the :ref:`constants editor <t3tsref:typoscript-syntax-constant-editor>` in the
+backend.
 
 ..  code-block:: typoscript
     :caption: EXT:my_extension/Configuration/TypoScript/setup.typoscript
@@ -102,7 +104,7 @@ exclude page subtrees from the sitemap (e.g internal pages).
                 sitemaps {
                     pages {
                         config {
-                            excludedDoktypes = 137, 138
+                            excludedDoktypes = 3, 4, 6, 7, 199, 254, 255, 137, 138
                             additionalWhere = AND (no_index = 0 OR no_follow = 0)
                             #rootPage = <optionally specify a different root page. (default: rootPageId from site configuration)>
                             excludePagesRecursive = <comma-separated list of page IDs>
@@ -112,6 +114,10 @@ exclude page subtrees from the sitemap (e.g internal pages).
             }
         }
     }
+
+.. note::
+   The doktypes 137 and 138 in the example above are custom doktypes.
+   The other doktypes given are the ones excluded by default by the SEO extension.
 
 For records
 -----------
