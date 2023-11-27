@@ -18,7 +18,11 @@ TCA based on another resource, while still enabling users to override TCA via
 the known TCA overrides API.
 
 ..  note::
-    :ref:`TCA <t3tca:start>` is always "runtime-cached". This means that dynamic
+    :php:`$GLOBALS['TCA']` is not set at this point. Event listeners can only
+    work on the :ref:`TCA <t3tca:start>` coming from :php:`$event->getTca()` and
+    must not access :php:`$GLOBALS['TCA']`.
+
+    TCA is always "runtime-cached". This means that dynamic
     additions must never depend on runtime state, for example, the current
     :ref:`PSR-7 request <typo3-request>` or similar, because such information
     might not even exist when the first call is done, for example, from
