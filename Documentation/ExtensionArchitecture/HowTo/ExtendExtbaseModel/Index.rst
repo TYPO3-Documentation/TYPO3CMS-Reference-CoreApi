@@ -114,8 +114,8 @@ the original extension.
 Find the original repository
 ----------------------------
 
-In Extbase the repository of a model has to have the same class name as the
-model, prefixed with "Repository". It has to be located in the same domain
+In Extbase the repository of a model mostly has to have the same class name as
+the model, prefixed with "Repository". It has to be located in the same domain
 directory as the model, but in the subfolder :file:`Repository`.
 
 For example, if the model is found in :file:`Classes/Domain/Model/SomeModel.php`
