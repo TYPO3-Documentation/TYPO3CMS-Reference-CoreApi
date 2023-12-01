@@ -23,5 +23,6 @@ APIs in that regard.
     Modules/Index
     AjaxRequest/Index
     EventApi/Index
+    HotkeyApi/Index
     Navigation/Index
     Forms/Index
