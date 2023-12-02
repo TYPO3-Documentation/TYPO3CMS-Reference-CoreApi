@@ -36,6 +36,11 @@ arguments:
     :js:`scope`
         The scope a hotkey is registered in.
 
+        ..  note::
+            TYPO3-specific hotkeys may be registered in the reserved :js:`all`
+            scope. When invoking a hotkey from a different scope, the :js:`all`
+            scope is handled in any case at first.
+
     :js:`allowOnEditables`
         If :js:`false` (default), handlers are not executed when an editable
         element is focussed.
@@ -48,16 +53,15 @@ arguments:
         If given, an :html:`aria-keyshortcuts` attribute is added to the
         element. This is recommended for accessibility reasons.
 
-Example:
+..  seealso::
+    :ref:`Keyboard commands in TYPO3 <t3editors:keyboard_commands>`
+
+
+..  _js-hotkey-api-example:
+
+Example
+=======
 
 ..  literalinclude:: _example.js
     :language: js
     :caption: EXT:my_extension/Resources/Public/JavaScript/hotkey.js
-
-..  note::
-    TYPO3-specific hotkeys may be registered in the reserved :js:`all` scope.
-    When invoking a hotkey from a different scope, the :js:`all` scope is
-    handled in any case at first.
-
-..  seealso::
-    :ref:`Keyboard commands in TYPO3 <t3editors:keyboard_commands>`
