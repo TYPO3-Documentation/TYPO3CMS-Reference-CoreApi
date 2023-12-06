@@ -59,7 +59,7 @@ Limitations
   and has to be maintained and fixed if the underlying code changes.
   If possible, you should use a hook instead of an XCLASS.
 
-- XCLASSes do **not** work for static classes, static methods or final classes.
+- XCLASSes do **not** work for static classes, static methods, abstract classes or final classes.
 
 - There can be **only one** XCLASS per base class, but an XCLASS can be XCLASSed again.
   Be aware that such a construct is even more risky and definitely not advisable.
