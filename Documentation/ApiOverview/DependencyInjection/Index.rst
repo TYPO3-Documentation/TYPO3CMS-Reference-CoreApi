@@ -467,6 +467,25 @@ instance administrator can decide to configure the framework to inject some
 different implementation than the default, and that's fully transparent
 for consuming classes.
 
+Here's an example scenario that demonstrates how you can define the specific
+implementations that shall be used for an interface type hint:
+
+..  literalinclude:: _MyController.php
+    :language: php
+    :caption: EXT:my_extension/Controller/MyController.php
+
+..  literalinclude:: _MySecondController.php
+    :language: php
+    :caption: EXT:my_extension/Controller/MySecondController.php
+
+..  literalinclude:: _MyThirdController.php
+    :language: php
+    :caption: EXT:my_extension/Controller/MyThirdController.php
+
+..  literalinclude:: _ServicesWithInterfaceInjection.yaml
+    :language: yaml
+    :caption: EXT:my_extension/Configuration/Services.yaml
+
 
 Using container->get()
 ======================
