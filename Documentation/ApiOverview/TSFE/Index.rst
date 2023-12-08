@@ -166,9 +166,12 @@ Get the language of the current page as integer:
 Access frontend user information
 --------------------------------
 
+..  versionchanged:: 13.0
+    The variable has been removed with TYPO3 v13.
+
 ..  code-block:: php
 
-    // !!! discouraged
+    // !!! Not available anymore since TYPO3 v13
     $feUser = $GLOBALS['TSFE']->fe_user;
 
 Use the
