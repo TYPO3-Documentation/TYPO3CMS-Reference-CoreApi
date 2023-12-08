@@ -12,11 +12,12 @@
    
    class ContextMenuActions {
    
-   	helloWorld(table, uid) {
+   	helloWorld(table, uid, { errorMessage }) {
    		if (table === 'pages') {
-   			//If needed, you can access other 'data' attributes here from $(this).data('someKey')
-   			//see item provider getAdditionalAttributes method to see how to pass custom data attributes
-   			top.TYPO3.Notification.error('Hello World', 'Hi there!', 5);
+   			// If needed, you can access other data attributes here from the 3rd argument 'dataset' 
+            // or ever use ES6 destructuring like shown in this example
+   			// see item provider getAdditionalAttributes method to see how to pass custom data attributes
+   			top.TYPO3.Notification.error('Hello World', errorMessage, 5);
    		}
    	};
    }
