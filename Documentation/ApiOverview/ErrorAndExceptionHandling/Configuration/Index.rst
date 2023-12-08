@@ -1,14 +1,21 @@
-.. include:: /Includes.rst.txt
+..  include:: /Includes.rst.txt
 
-.. index::
-   Errors; Configuration
-   Exceptions; Configuration
-   TYPO3_CONF_VARS; SYS
-.. _error-handling-configuration:
+..  index::
+    Errors; Configuration
+    Exceptions; Configuration
+    TYPO3_CONF_VARS; SYS
+..  _error-handling-configuration:
 
 =============
 Configuration
 =============
+
+.. contents::
+   :depth: 1
+   :local:
+
+Via the :abbr:`GUI (Graphical User Interface)`
+==============================================
 
 You can configure the most important settings for live or debug error
 handling in the presets:
@@ -20,6 +27,10 @@ handling in the presets:
 For more fine-grained error handling you can change various settings in:
 
 :guilabel:`Admin Tools > Settings > Configure Installation-Wide Options > SYS`
+
+
+Via configuration files
+=======================
 
 It is also possible to write changes manually into the configuration file
 :file:`config/system/settings.php` or
@@ -73,3 +84,13 @@ The following configuration values are of interest:
 
     `PHP predefined constants for errors and logging
     <https://www.php.net/manual/en/errorfunc.constants.php>`__
+
+
+Exception handler for rendering TypoScript content objects
+==========================================================
+
+Exceptions which occur during rendering of content objects (typically plugins)
+will be caught by default in production context and an error message is shown
+along with the rendered output. For more information and examples have a look
+into the TypoScript reference for
+:ref:`config.contentObjectExceptionHandler <t3tsref:setup-config-contentObjectExceptionHandler>`.
