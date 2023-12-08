@@ -12,7 +12,7 @@ languages:
     languageId: 0
   - title: 'danish'
     enabled: true
-    locale: dk_DK.UTF-8
+    locale: da_DK.UTF-8
     base: /da/
     websiteTitle: ''
     navigationTitle: Dansk
