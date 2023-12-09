@@ -198,6 +198,7 @@ The following attributes are available in **frontend** context:
 
     RequestAttributes/ApplicationType
     RequestAttributes/CurrentContentObject
+    RequestAttributes/FrontendCacheInstruction
     RequestAttributes/FrontendController
     RequestAttributes/FrontendTyposcript
     RequestAttributes/FrontendUser
