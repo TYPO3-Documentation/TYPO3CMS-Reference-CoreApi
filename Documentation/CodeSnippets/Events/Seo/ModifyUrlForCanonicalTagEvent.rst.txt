@@ -3,7 +3,7 @@
 
 .. php:class:: ModifyUrlForCanonicalTagEvent
 
-   PSR-14 to alter (or empty) a canonical URL for the href="" attribute of a canonical URL.
+   PSR-14 event to alter (or empty) a canonical URL for the href="" attribute of a canonical URL.
 
    .. php:method:: getUrl()
 
@@ -12,3 +12,11 @@
    .. php:method:: setUrl(string $url)
 
       :param string $url: the url
+
+   .. php:method:: getRequest()
+
+      :returntype: Psr\\Http\\Message\\ServerRequestInterface
+
+   .. php:method:: getPage()
+
+      :returntype: TYPO3\\CMS\\Core\\Domain\\Page
