@@ -21,7 +21,6 @@
            protected readonly PersonRepository $personRepository,
            protected readonly PostRepository $postRepository,
            protected readonly PropertyMapper $propertyMapper
-       ) {
-       }
+       ) {}
    }
    
