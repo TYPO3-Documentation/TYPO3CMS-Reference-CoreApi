@@ -29,11 +29,11 @@ controller:
 
 ..  code-block:: php
 
-    use TYPO3\CMS\Backend\Attribute\Controller;
+    use TYPO3\CMS\Backend\Attribute\AsController;
     use TYPO3\CMS\Backend\Template\ModuleTemplateFactory;
     use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
 
-    #[Controller]
+    #[AsController]
     final class MyController extends ActionController
     {
         public function __construct(
@@ -42,11 +42,18 @@ controller:
         }
    }
 
-..  versionadded:: 12.1
-    Since TYPO3 v12.1 a backend controller can be tagged with the
-    :php:`\TYPO3\CMS\Backend\Attribute\Controller` attribute. This way, the
+..  versionadded:: 12.1/12.4.9
+    A backend controller can be tagged with the
+    :php:`\TYPO3\CMS\Backend\Attribute\AsController` attribute. This way, the
     :ref:`registration of the controller <backend-modules-template-without-extbase-manual-tagging>`
     in the :file:`Configuration/Services.yaml` file is no longer necessary.
+
+    ..  note::
+        Until TYPO3 v12.4.8 the attribute was named
+        :php:`\TYPO3\CMS\Backend\Attribute\Controller` and has been renamed to
+        :php:`AsController` with TYPO3 v12.4.9. Both work with TYPO3 v12 and v13,
+        but developers should use :php:`#[AsController]` for upwards compatibility,
+        since :php:`#[Controller]` has been deprecated with TYPO3 v13.
 
 
 After that you can add titles, menus and buttons using :php:`ModuleTemplate`:
