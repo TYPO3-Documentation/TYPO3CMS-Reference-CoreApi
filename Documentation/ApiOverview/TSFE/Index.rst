@@ -166,26 +166,10 @@ Get the language of the current page as integer:
 Access frontend user information
 --------------------------------
 
-..  code-block:: php
+..  versionchanged:: 13.0
+    The variable :php:`$GLOBALS['TSFE']->fe_user` has been removed with TYPO3
+    v13. :ref:`Migration <t3tsref:appendix-include-tsfe-feuser>`.
 
-    // !!! discouraged
-    $feUser = $GLOBALS['TSFE']->fe_user;
-
-Use the
-:ref:`frontend.user request attribute <typo3-request-attribute-frontend-user>`:
-
-..  code-block:: php
-
-    /** @var \TYPO3\CMS\Frontend\Authentication\FrontendUserAuthentication $frontendUser */
-    $frontendUser = $request->getAttribute('frontend.user');
-
-Some information via frontend and backend users con be obtained via the
-:ref:`user aspect <context_api_aspects_user>`. For example:
-
-..  code-block:: php
-
-    // return whether a frontend user is logged in
-    $context->getPropertyFromAspect('frontend.user', 'isLoggedIn');
 
 ..  _tsfe_baseURL:
 
