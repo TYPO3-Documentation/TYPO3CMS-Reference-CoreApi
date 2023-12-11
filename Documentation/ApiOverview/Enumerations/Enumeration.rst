@@ -6,6 +6,13 @@
 How to use enumerations
 =======================
 
+..  versionchanged:: 13.0
+    The abstract class :php:`\TYPO3\CMS\Core\Type\Enumeration` is deprecated.
+    Classes extending :php:`Enumeration` need to be converted into PHP built-in
+    `backed enums <https://www.php.net/manual/en/language.enumerations.backed.php>`__.
+    See :ref:`Enumerations-Migration`.
+
+
 ..  _Enumerations-Create-an-Enumeration:
 
 Create an enumeration
@@ -98,3 +105,26 @@ The method can then be used in your class:
 ..  literalinclude:: _Enumerations/_SomeClass3.php
     :language: php
     :caption: EXT:my_extension/Classes/SomeClass.php
+
+
+..  _Enumerations-Migration:
+
+Migration to backed enums
+=========================
+
+Class definition:
+
+..  literalinclude:: _Enumerations/_StateExtendingEnumeration.php
+    :language: php
+    :caption: EXT:my_extension/Classes/Enumeration/State.php
+
+should be converted into:
+
+..  literalinclude:: _Enumerations/_StateBackedEnum.php
+    :language: php
+    :caption: EXT:my_extension/Classes/Enumeration/State.php
+
+Existing method calls must be adapted.
+
+..  seealso::
+    `PHP: Backed enumerations <https://www.php.net/manual/en/language.enumerations.backed.php>`__
