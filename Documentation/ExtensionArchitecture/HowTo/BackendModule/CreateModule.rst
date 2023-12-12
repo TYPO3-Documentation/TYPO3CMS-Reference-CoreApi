@@ -24,12 +24,12 @@ is required to return the rendered template:
 ..  code-block:: php
     :caption: EXT:examples/Classes/Controller/AdminModuleController.php
 
-    use TYPO3\CMS\Backend\Attribute\Controller;
+    use TYPO3\CMS\Backend\Attribute\AsController;
     // the module template will be initialized in handleRequest()
     use TYPO3\CMS\Backend\Template\ModuleTemplateFactory;
     use TYPO3\CMS\Core\Imaging\IconFactory;
 
-    #[Controller]
+    #[AsController]
     final class AdminModuleController
     {
         public function __construct(
@@ -40,15 +40,22 @@ is required to return the rendered template:
         }
     }
 
-..  versionadded:: 12.1
-    Since TYPO3 v12.1 a backend controller can be tagged with the
-    :php:`\TYPO3\CMS\Backend\Attribute\Controller` attribute. This way, the
-    registration of the controller in the :file:`Configuration/Services.yaml`
-    file is no longer necessary.
+..  versionadded:: 12.1/12.4.9
+    A backend controller can be tagged with the
+    :php:`\TYPO3\CMS\Backend\Attribute\AsController` attribute. This way, the
+    :ref:`registration of the controller <backend-modules-template-without-extbase-manual-tagging>`
+    in the :file:`Configuration/Services.yaml` file is no longer necessary.
+
+    ..  note::
+        Until TYPO3 v12.4.8 the attribute was named
+        :php:`\TYPO3\CMS\Backend\Attribute\Controller` and has been renamed to
+        :php:`AsController` with TYPO3 v12.4.9. Both work with TYPO3 v12 and v13,
+        but developers should use :php:`#[AsController]` for upwards compatibility,
+        since :php:`#[Controller]` has been deprecated with TYPO3 v13.
 
 ..  _backend-modules-template-without-extbase-manual-tagging:
 
-If the controller is not tagged with the :php:`\TYPO3\CMS\Backend\Attribute\Controller`
+If the controller is not tagged with the :php:`\TYPO3\CMS\Backend\Attribute\AsController`
 attribute, it must be registered in :file:`Configuration/Services.yaml`
 with the `backend.controller` tag for dependency injection to work:
 
