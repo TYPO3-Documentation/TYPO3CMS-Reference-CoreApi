@@ -193,31 +193,26 @@ point once the code has been refactored enough to not rely on it anymore.
 
 The following attributes are available in **frontend** context:
 
-..  toctree::
-    :titlesonly:
-
-    RequestAttributes/ApplicationType
-    RequestAttributes/CurrentContentObject
-    RequestAttributes/FrontendCacheInstruction
-    RequestAttributes/FrontendController
-    RequestAttributes/FrontendTyposcript
-    RequestAttributes/FrontendUser
-    RequestAttributes/Language
-    RequestAttributes/Nonce
-    RequestAttributes/NormalizedParams
-    RequestAttributes/Routing
-    RequestAttributes/Site
+*    :doc:`RequestAttributes/ApplicationType`
+*    :doc:`RequestAttributes/CurrentContentObject`
+*    :doc:`RequestAttributes/FrontendCacheInstruction`
+*    :doc:`RequestAttributes/FrontendController`
+*    :doc:`RequestAttributes/FrontendTyposcript`
+*    :doc:`RequestAttributes/FrontendUser`
+*    :doc:`RequestAttributes/Language`
+*    :doc:`RequestAttributes/Nonce`
+*    :doc:`RequestAttributes/NormalizedParams`
+*    :doc:`RequestAttributes/Routing`
+*    :doc:`RequestAttributes/Site`
 
 The following attributes are available in **backend** context:
 
-..  toctree::
-    :titlesonly:
 
-    RequestAttributes/ApplicationType
-    RequestAttributes/Module
-    RequestAttributes/ModuleData
-    RequestAttributes/Nonce
-    RequestAttributes/NormalizedParams
-    RequestAttributes/Route
-    RequestAttributes/Site
-    RequestAttributes/Target
+*   :doc:`RequestAttributes/ApplicationType`
+*   :doc:`RequestAttributes/Module`
+*   :doc:`RequestAttributes/ModuleData`
+*   :doc:`RequestAttributes/Nonce`
+*   :doc:`RequestAttributes/NormalizedParams`
+*   :doc:`RequestAttributes/Route`
+*   :doc:`RequestAttributes/Site`
+*   :doc:`RequestAttributes/Target`
