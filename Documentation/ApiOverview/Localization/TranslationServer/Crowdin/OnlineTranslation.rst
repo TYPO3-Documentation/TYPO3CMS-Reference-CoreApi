@@ -187,6 +187,7 @@ Strings are translated, but when are they taken into account and available for d
 ----------------------------------------------------------------------------------------
 
 As soon as a string is proofread, it will be taken into account at the next export.
+The export is done every two hours.
 
 If the process takes too long, please write an email to `localization@typo3.org`_.
 
