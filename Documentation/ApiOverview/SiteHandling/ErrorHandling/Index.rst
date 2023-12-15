@@ -10,14 +10,14 @@ Error handling can be configured on site level and is automatically dependent
 on the current site and language.
 
 Currently, there are two error handler implementations and the option to write
-a custom handler:
+a :ref:`custom handler <sitehandling-customErrorHandler>`:
 
 ..  toctree::
     :titlesonly:
 
     PageErrorHandler
     FluidErrorHandler
-    WriteCustomErrorHandler
+
 
 
 The configuration consists of two parts:
