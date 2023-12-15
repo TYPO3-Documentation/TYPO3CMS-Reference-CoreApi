@@ -75,4 +75,10 @@ return [
         'targetFileName' => 'CodeSnippets/Events/Frontend/AfterCachedPageIsPersistedEvent.rst.txt',
         'withCode' => false,
     ],
+    [
+        'action' => 'createPhpClassDocs',
+        'class' => \TYPO3\CMS\Frontend\ContentObject\Event\AfterContentObjectRendererInitializedEvent::class,
+        'targetFileName' => 'CodeSnippets/Events/Frontend/AfterContentObjectRendererInitializedEvent.rst.txt',
+        'withCode' => false,
+    ],
 ];
