@@ -3,6 +3,7 @@
    Versioning
    Workspaces
 .. _ext_workspaces:
+.. _workspaces:
 
 =========================
 Versioning and Workspaces
