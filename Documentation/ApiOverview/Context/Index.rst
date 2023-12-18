@@ -1,274 +1,392 @@
-.. include:: /Includes.rst.txt
+..  include:: /Includes.rst.txt
 
-.. _context-api:
+..  _context-api:
 
 =======================
-Context API and Aspects
+Context API and aspects
 =======================
 
 Introduction
 ============
 
-Context API encapsulates various information for data retrieval (e.g. inside
-the database) and analysis of current permissions and caching information.
+The Context API encapsulates various information for data retrieval (for
+example, inside the database) and analysis of current permissions and caching
+information.
 
-Previously, various information was distributed inside globally accessible objects (:php:`$TSFE` or :php:`$GLOBALS['BE_USER']`)
-like the current workspace ID or if a frontend or backend user is authenticated. Having a global object
-available was also dependent on the current request type (frontend or backend), instead of having
-one consistent place where all this data is located.
+Previously, various information was distributed inside globally accessible
+objects (:php:`$TSFE` or :php:`$GLOBALS['BE_USER']`) like the current workspace
+ID or if a frontend or backend user is authenticated. Having a global object
+available was also dependent on the current request type (frontend or backend),
+instead of having one consistent place where all this data is located.
 
-The context is set up at the very beginning of each TYPO3 entry point, keeping track
-of the current time (formally known as :php:`$GLOBALS['EXEC_TIME']`),
+The context is set up at the very beginning of each TYPO3 entry point, keeping
+track of the current time (formally known as :php:`$GLOBALS['EXEC_TIME']`),
 if a user is logged in (formerly known as :php:`$GLOBALS['TSFE']->loginUser`),
 and which workspace is currently accessed.
 
-It can be retrieved anywhere via :php:`GeneralUtility::makeInstance()`:
+The :php:`\TYPO3\CMS\Core\Context\Context` object can be retrieved via
+:ref:`dependency injection <DependencyInjection>`:
 
-.. code-block:: php
+..  literalinclude:: _MyController.php
+    :language: php
+    :caption: EXT:my_extension/Classes/Controller/MyController.php
 
-    use TYPO3\CMS\Core\Utility\GeneralUtility;
-    use TYPO3\CMS\Core\Context\Context;
+This information is separated in so-called
+":ref:`aspects <context_api_aspects>`", each being responsible for a certain
+area.
 
-    $context = GeneralUtility::makeInstance(Context::class);
 
-This information is separated in so-called "Aspects", each being responsible for a certain area:
+..  _context_api_aspects:
 
-.. _context_api_aspects_datetime:
+Aspects
+=======
+
+..  contents::
+    :depth: 1
+    :local:
+
+..  _context_api_aspects_datetime:
 
 Date time aspect
 ----------------
 
 Contains time, date and timezone information for the current request.
 
-.. _context_api_aspects_datetime_properties:
+..  _context_api_aspects_datetime_properties:
 
-The date time aspect, :php:`TYPO3\CMS\Core\Context\DateTimeAspect`, accepts following properties:
+The date time aspect, :php:`\TYPO3\CMS\Core\Context\DateTimeAspect`, accepts
+the following properties:
 
-=============  ============================================================  ======
-Property       Call                                                          Result
-=============  ============================================================  ======
-``timestamp``  :php:`$context->getPropertyFromAspect('date', 'timestamp');`  unix timestamp as integer value
-``timezone``   :php:`$context->getPropertyFromAspect('date', 'timezone');`   timezone name, e.g. `Germany/Berlin`
-``iso``        :php:`$context->getPropertyFromAspect('date', 'iso');`        datetime as string in ISO 8601 format, e.g. `2004-02-12T15:19:21+00:00`
-``full``       :php:`$context->getPropertyFromAspect('date', 'full');`       the complete DateTimeImmutable object
-=============  ============================================================  ======
+..  confval:: timestamp
 
-.. _context_api_aspects_datetime_example:
+    :Call: :php:`$this->context->getPropertyFromAspect('date', 'timestamp');`
+
+    Returns the Unix timestamp as an integer value.
+
+..  confval:: timezone
+
+    :Call: :php:`$this->context->getPropertyFromAspect('date', 'timezone');`
+
+    Returns the timezone name, for example, "Germany/Berlin".
+
+..  confval:: iso
+
+    :Call: :php:`$this->context->getPropertyFromAspect('date', 'iso');`
+
+    Returns the datetime as string in
+    `ISO 8601 <https://en.wikipedia.org/wiki/ISO_8601>`__ format, for example,
+    "2004-02-12T15:19:21+00:00".
+
+..  confval:: full
+
+    :Call: :php:`$this->context->getPropertyFromAspect('date', 'full');`
+
+    Returns the complete
+    :ref:`\DateTimeImmutable <https://www.php.net/manual/class.datetimeimmutable.php>`
+    object.
+
+
+..  _context_api_aspects_datetime_example:
 
 Example
 ~~~~~~~
 
-.. code-block:: php
-
-    use TYPO3\CMS\Core\Utility\GeneralUtility;
-    use TYPO3\CMS\Core\Context\Context;
-
-    $context = GeneralUtility::makeInstance(Context::class);
-
-    // Reading the current data instead of $GLOBALS['EXEC_TIME']
-    $currentTimestamp = $context->getPropertyFromAspect('date', 'timestamp');
+..  literalinclude:: _MyControllerUsingDateAspect.php
+    :language: php
+    :caption: EXT:my_extension/Classes/Controller/MyController.php
 
 
-.. _context_api_aspects_language:
+..  _context_api_aspects_language:
 
 Language aspect
 ---------------
 
-Contains information about language settings for the current request, including fallback and overlay logic.
+Contains information about language settings for the current
+:ref:`request <typo3-request>`, including fallback and overlay logic.
 
-.. _context_api_aspects_language_properties:
+..  _context_api_aspects_language_properties:
 
-The language aspect, :php:`TYPO3\CMS\Core\Context\LanguageAspect` accepts following properties:
+The language aspect, :php:`\TYPO3\CMS\Core\Context\LanguageAspect` accepts the
+following properties:
 
-======================  =========================================================================  ======
-Property                Call                                                                       Result
-======================  =========================================================================  ======
-``id``                  :php:`$context->getPropertyFromAspect('language', 'id');`                  the requested language of the current page as integer (uid)
-``contentId``           :php:`$context->getPropertyFromAspect('language', 'contentId');`           the language id of records to be fetched in translation scenarios as integer (uid)
-``fallbackChain``       :php:`$context->getPropertyFromAspect('language', 'fallbackChain');`       the fallback steps as array
-``overlayType``         :php:`$context->getPropertyFromAspect('language', 'overlayType');`         one of :php:`LanguageAspect::OVERLAYS_OFF`, :php:`LanguageAspect::OVERLAYS_MIXED`, :php:`LanguageAspect::OVERLAYS_ON`, or :php:`LanguageAspect::OVERLAYS_ON_WITH_FLOATING` (default)
-``legacyLanguageMode``  :php:`$context->getPropertyFromAspect('language', 'legacyLanguageMode');`  one of `strict`, `ignore` or `content_fallback`, kept for compatibility reasons. Don't use if not really necessary, the option will be removed rather sooner than later.
-``legacyOverlayType``   :php:`$context->getPropertyFromAspect('language', 'legacyOverlayType');`   one of `hideNonTranslated`, `0` or `1`, kept for compatibility reasons. Don't use if not really necessary, the option will be removed rather sooner than later.
-======================  =========================================================================  ======
+..  confval:: id
 
-**Overlay types:**
+    :Call: :php:`$this->context->getPropertyFromAspect('language', 'id');`
 
-* :php:`LanguageAspect::OVERLAYS_OFF`:
-    Just fetch records from the selected language as given by :php:`$GLOBALS['TSFE']->sys_language_content`. No overlay will happen, no fetching of the records from the default language. This boils down to "free mode" language handling.
-    Records without a default language parent are included.
-* :php:`LanguageAspect::OVERLAYS_MIXED`:
-    Fetch records from the default language and overlay them with translations. If a record is not translated, the default language will be used.
-* :php:`LanguageAspect::OVERLAYS_ON`:
-    Fetch records from the default language and overlay them with translations. If a record is not translated, it will not be displayed.
-* :php:`LanguageAspect::OVERLAYS_ON_WITH_FLOATING`:
-    Fetch records from the default language and overlay them with translations. If a record is not translated, it will not be shown.
-    Records without a default language parent are included.
+    Returns the requested language of the current page as integer (uid).
 
-**Replaced calls:**
+..  confval:: contentId
 
-* $TSFE->sys_language_uid -> id
-* $TSFE->sys_language_content -> contentId
-* $TSFE->sys_language_mode -> fallbackChain
-* $TSFE->sys_language_mode -> legacyLanguageMode
-* $TSFE->sys_language_contentOL -> legacyOverlayType
+    :Call: :php:`$this->context->getPropertyFromAspect('language', 'contentId');`
 
-.. _context_api_aspects_language_example:
+    Returns the language ID of records to be fetched in translation scenarios as
+    integer (uid).
+
+..  confval:: fallbackChain
+
+    :Call: :php:`$this->context->getPropertyFromAspect('language', 'fallbackChain');`
+
+    Returns the fallback steps as array.
+
+..  confval:: overlayType
+
+    :Call: :php:`$this->context->getPropertyFromAspect('language', 'overlayType');`
+
+    Returns one of
+
+    *   :php:`LanguageAspect::OVERLAYS_OFF`
+    *   :php:`LanguageAspect::OVERLAYS_MIXED`
+    *   :php:`LanguageAspect::OVERLAYS_ON` or
+    *   :php:`LanguageAspect::OVERLAYS_ON_WITH_FLOATING` (default)
+
+    See :ref:`context_api_aspects_language_overlay-types` for more details.
+
+..  confval:: legacyLanguageMode
+
+    :Call: :php:`$this->context->getPropertyFromAspect('language', 'legacyLanguageMode');`
+
+    Returns one of
+
+    *   `strict`
+    *   `ignore` or
+    *   `content_fallback`.
+
+    This property is kept for compatibility reasons. Do not use, if not really
+    necessary, the option will be removed rather sooner than later.
+
+..  confval:: legacyOverlayType
+
+    :Call: :php:`$this->context->getPropertyFromAspect('language', 'legacyOverlayType');`
+
+    Returns one of
+
+    *   `hideNonTranslated`
+    *   `0` or
+    *   `1`.
+
+    This property is kept for compatibility reasons. Do not use, if not really
+    necessary, the option will be removed rather sooner than later.
+
+
+..  _context_api_aspects_language_overlay-types:
+
+Overlay types
+~~~~~~~~~~~~~
+
+:php:`LanguageAspect::OVERLAYS_OFF`
+    Just fetch records from the selected language as given by
+    :php:`$GLOBALS['TSFE']->sys_language_content`. No overlay will happen, no
+    fetching of the records from the default language. This boils down to
+    "free mode" language handling. Records without a default language parent are
+    included.
+
+:php:`LanguageAspect::OVERLAYS_MIXED`
+    Fetch records from the default language and overlay them with translations.
+    If a record is not translated, the default language will be used.
+
+:php:`LanguageAspect::OVERLAYS_ON`
+    Fetch records from the default language and overlay them with translations.
+    If a record is not translated, it will not be displayed.
+
+:php:`LanguageAspect::OVERLAYS_ON_WITH_FLOATING`
+    Fetch records from the default language and overlay them with translations.
+    If a record is not translated, it will not be shown. Records without a
+    default language parent are included.
+
+..  _context_api_aspects_language_example:
 
 Example
 ~~~~~~~
 
-.. code-block:: php
+..  literalinclude:: _MyControllerUsingLanguageAspect.php
+    :language: php
+    :caption: EXT:my_extension/Classes/Controller/MyController.php
 
-    use TYPO3\CMS\Core\Utility\GeneralUtility;
-    use TYPO3\CMS\Core\Context\Context;
 
-    $context = GeneralUtility::makeInstance(Context::class);
-
-    // Reading the current fallback chain instead $TSFE->sys_language_mode
-    $fallbackChain = $context->getPropertyFromAspect('language', 'fallbackChain');
-
-.. _context_api_aspects_preview:
+..  _context_api_aspects_preview:
 
 Preview aspect
 --------------
 
 The preview aspect may be used to indicate that the frontend is in preview mode
-(for example in case a workspace is previewed or hidden pages or records should be shown).
+(for example, in case a workspace is previewed or hidden pages or records should
+be shown).
 
-.. _context_api_aspects_preview_properties:
+..  _context_api_aspects_preview_properties:
+
+The preview aspect, :php:`\TYPO3\CMS\Frontend\Aspect\PreviewAspect`, contains
+the following property:
+
+..  confval:: isPreview
+
+    :Call: :php:`$this->context->getPropertyFromAspect('frontend.preview', 'isPreview');`
+
+Returns, whether the frontend is currently in preview mode.
 
 
-The preview aspect, :php:`TYPO3\CMS\Frontend\Aspect\PreviewAspect`, contains the following properties:
-
-==============  ========================================================================  ======
-Property        Call                                                                      Result
-==============  ========================================================================  ======
-``isPreview``   :php:`$context->getPropertyFromAspect('frontend.preview', 'isPreview');`  whether the frontend is currently in preview mode
-==============  ========================================================================  ======
-
-.. _context_api_aspects_typoscript:
+..  _context_api_aspects_typoscript:
 
 TypoScript aspect
 -----------------
 
-The :php:`TypoScriptAspect` can be used to manipulate/check whether TemplateRendering is forced.
+The TypoScript aspect can be used to manipulate/check whether
+TemplateRendering is forced.
 
-.. _context_api_aspects_typoscript_properties:
+..  _context_api_aspects_typoscript_properties:
+
+The TypoScript aspect, `\TYPO3\CMS\Core\Context\TypoScriptAspect` contains the
+following property:
+
+..  confval:: forcedTemplateParsing
+
+    :Call: :php:`$this->context->getPropertyFromAspect('typoscript', 'forcedTemplateParsing');`
+
+    Returns, whether TypoScript template parsing is forced.
 
 
-The TypoScript aspect, `TYPO3\CMS\Core\Context\TypoScriptAspect` contains the following properties:
-
-=========================  ==============================================================================  ======
-Property                   Call                                                                            Result
-=========================  ==============================================================================  ======
-``forcedTemplateParsing``  :php:`$context->getPropertyFromAspect('typoscript', 'forcedTemplateParsing');`  whether TypoScript template parsing is forced
-=========================  ==============================================================================  ======
-
-.. _context_api_aspects_user:
+..  _context_api_aspects_user:
 
 User aspect
 -----------
 
-Contains information about authenticated users in the current request. Can be used for frontend and backend users.
+Contains information about authenticated users in the current
+:ref:`request <typo3-request>`. The aspect can be used for frontend and backend
+users.
 
+..  _context_api_aspects_user_properties:
 
-.. _context_api_aspects_user_properties:
+The user aspect, :php:`\TYPO3\CMS\Core\Context\UserAspect`, accepts the
+following properties:
 
-The user aspect, :php:`TYPO3\CMS\Core\Context\UserAspect`, accepts following properties:
+..  confval:: id
 
-==============  ======================================================================  ======
-Property        Call                                                                    Result
-==============  ======================================================================  ======
-``id``          :php:`$context->getPropertyFromAspect('backend.user', 'id');`           uid of the currently logged in user, 0 if no user
-``username``    :php:`$context->getPropertyFromAspect('backend.user', 'username');`     the username of the currently authenticated user. Empty string if no user.
-``isLoggedIn``  :php:`$context->getPropertyFromAspect('frontend.user', 'isLoggedIn');`  whether a user is logged in, as boolean.
-``isAdmin``     :php:`$context->getPropertyFromAspect('backend.user', 'isAdmin');`      whether the user is admin, as boolean. Only useful for BEuser.
-``groupIds``    :php:`$context->getPropertyFromAspect('backend.user', 'groupIds');`     the groups the user is a member of, as array
-``groupNames``  :php:`$context->getPropertyFromAspect('frontend.user', 'groupNames');`  the names of all groups the user belongs to, as array
-==============  ======================================================================  ======
+    :Call: :php:`$this->context->getPropertyFromAspect('frontend.user', 'id');` or :php:`$this->context->getPropertyFromAspect('backend.user', 'id');`
 
-.. _context_api_aspects_user_example:
+    Returns the uid of the currently logged in user, `0` if no user is logged
+    in.
+
+..  confval:: username
+
+    :Call: :php:`$this->context->getPropertyFromAspect('frontend.user', 'username');` or :php:`$this->context->getPropertyFromAspect('backend.user', 'username');`
+
+    Returns the username of the currently authenticated user. Empty string, if
+    no user is logged in.
+
+..  confval:: isLoggedIn
+
+    :Call: :php:`$this->context->getPropertyFromAspect('frontend.user', 'isLoggedIn');` or :php:`$this->context->getPropertyFromAspect('backend.user', 'isLoggedIn');`
+
+    Returns, whether a user is logged in, as boolean.
+
+..  confval:: isAdmin
+
+    :Call: :php:`$this->context->getPropertyFromAspect('backend.user', 'isAdmin');`
+
+    Returns, whether the user is an administrator, as boolean. It is only useful
+    for backend users.
+
+..  confval:: groupIds
+
+    :Call: :php:`$this->context->getPropertyFromAspect('frontend.user', 'groupIds');` or :php:`$this->context->getPropertyFromAspect('backend.user', 'groupIds');`
+
+    Returns the groups the user is a member of, as array.
+
+..  confval:: groupNames
+
+    :Call: :php:`$this->context->getPropertyFromAspect('frontend.user', 'groupNames');` or :php:`$this->context->getPropertyFromAspect('backend.user', 'groupNames');`
+
+    Returns the names of all groups the user belongs to, as array.
+
+..  _context_api_aspects_user_example:
 
 Example
 ~~~~~~~
 
-.. code-block:: php
-
-    use TYPO3\CMS\Core\Utility\GeneralUtility;
-    use TYPO3\CMS\Core\Context\Context;
-
-    $context = GeneralUtility::makeInstance(Context::class);
-
-    // Checking if a user is logged in
-    $userIsLoggedIn = $context->getPropertyFromAspect('frontend.user', 'isLoggedIn');
+..  literalinclude:: _MyControllerUsingUserAspect.php
+    :language: php
+    :caption: EXT:my_extension/Classes/Controller/MyController.php
 
 
-.. _context_api_aspects_visibility:
+..  _context_api_aspects_visibility:
 
 Visibility aspect
 -----------------
 
-The aspect contains whether to show hidden pages, records (content) or even deleted records.
+The aspect contains whether to show hidden pages, records (content) or even
+deleted records.
 
 
-.. _context_api_aspects_visibility_properties:
+..  _context_api_aspects_visibility_properties:
 
-The visibility aspect, :php:`TYPO3\CMS\Core\Context\VisibilityAspect`, accepts following properties:
+The visibility aspect, :php:`\TYPO3\CMS\Core\Context\VisibilityAspect`, accepts
+the following properties:
 
-=========================  ==============================================================================  ======
-Property                   Call                                                                            Result
-=========================  ==============================================================================  ======
-``includeHiddenPages``     :php:`$context->getPropertyFromAspect('visibility', 'includeHiddenPages');`     whether hidden pages should be displayed, as boolean
-``includeHiddenContent``   :php:`$context->getPropertyFromAspect('visibility', 'includeHiddenContent');`   whether hidden content should be displayed, as boolean
-``includeDeletedRecords``  :php:`$context->getPropertyFromAspect('visibility', 'includeDeletedRecords');`  whether deleted records should be displayed, as boolean.
-=========================  ==============================================================================  ======
+..  confval:: includeHiddenPages
 
-.. _context_api_aspects_visibility_example:
+    :Call: :php:`$this->context->getPropertyFromAspect('visibility', 'includeHiddenPages');`
+
+    Returns, whether hidden pages should be displayed, as boolean.
+
+..  confval:: includeHiddenContent
+
+    :Call: :php:`$this->context->getPropertyFromAspect('visibility', 'includeHiddenContent');`
+
+    Returns, whether hidden content should be displayed, as boolean.
+
+..  confval:: includeDeletedRecords
+
+    :Call: :php:`$this->context->getPropertyFromAspect('visibility', 'includeDeletedRecords');`
+
+    Returns, whether deleted records should be displayed, as boolean.
+
+
+..  _context_api_aspects_visibility_example:
 
 Example
 ~~~~~~~
 
-.. code-block:: php
-
-    use TYPO3\CMS\Core\Utility\GeneralUtility;
-    use TYPO3\CMS\Core\Context\Context;
-
-    $context = GeneralUtility::makeInstance(Context::class);
-
-    // Checking if hidden pages should be displayed
-    $showHiddenPages = $context->getPropertyFromAspect('visibility', 'includeHiddenPages');
+..  literalinclude:: _MyControllerUsingVisibilityAspect.php
+    :language: php
+    :caption: EXT:my_extension/Classes/Controller/MyController.php
 
 
-.. _context_api_aspects_workspace:
+..  _context_api_aspects_workspace:
 
 Workspace aspect
 ----------------
 
-The aspect contains information about the currently accessed workspace
+The aspect contains information about the currently accessed
+:ref:`workspace <workspaces>`.
 
-.. _context_api_aspects_workspace_properties:
+..  _context_api_aspects_workspace_properties:
 
-The workspace aspect, :php:`TYPO3\CMS\Core\Context\WorkspaceAspect`, accepts following properties:
+The workspace aspect, :php:`\TYPO3\CMS\Core\Context\WorkspaceAspect`, accepts
+the following properties:
 
-=============  =================================================================  ======
-Property       Call                                                               Result
-=============  =================================================================  ======
-``id``         :php:`$context->getPropertyFromAspect('workspace', 'id');`         UID of the currently accessed workspace as integer
-``isLive``     :php:`$context->getPropertyFromAspect('workspace', 'isLive');`     whether the current workspace is live, or a custom offline WS, as boolean
-``isOffline``  :php:`$context->getPropertyFromAspect('workspace', 'isOffline');`  whether the current workspace is offline, as boolean.
-=============  =================================================================  ======
+..  confval:: id
 
-.. _context_api_aspects_workspace_example:
+    :Call: :php:`$this->context->getPropertyFromAspect('workspace', 'id');`
+
+    Returns the UID of the currently accessed workspace, as integer.
+
+..  confval:: isLive
+
+    :Call: :php:`$this->context->getPropertyFromAspect('workspace', 'isLive');`
+
+    Returns whether the current workspace is live, or a custom offline
+    workspace, as boolean.
+
+..  confval:: isOffline
+
+    :Call: :php:`$this->context->getPropertyFromAspect('workspace', 'isOffline');`
+
+    Returns, whether the current workspace is offline, as boolean.
+
+..  _context_api_aspects_workspace_example:
 
 Example
 ~~~~~~~
 
-.. code-block:: php
-
-    use TYPO3\CMS\Core\Utility\GeneralUtility;
-    use TYPO3\CMS\Core\Context\Context;
-
-    $context = GeneralUtility::makeInstance(Context::class);
-
-    // Retrieving the uid of currently accessed workspace
-    $workspaceId = $context->getPropertyFromAspect('workspace', 'id');
+..  literalinclude:: _MyControllerUsingWorkspaceAspect.php
+    :language: php
+    :caption: EXT:my_extension/Classes/Controller/MyController.php
