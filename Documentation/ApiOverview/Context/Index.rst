@@ -13,16 +13,9 @@ The Context API encapsulates various information for data retrieval (for
 example, inside the database) and analysis of current permissions and caching
 information.
 
-Previously, various information was distributed inside globally accessible
-objects (:php:`$TSFE` or :php:`$GLOBALS['BE_USER']`) like the current workspace
-ID or if a frontend or backend user is authenticated. Having a global object
-available was also dependent on the current request type (frontend or backend),
-instead of having one consistent place where all this data is located.
-
 The context is set up at the very beginning of each TYPO3 entry point, keeping
-track of the current time (formally known as :php:`$GLOBALS['EXEC_TIME']`),
-if a user is logged in (formerly known as :php:`$GLOBALS['TSFE']->loginUser`),
-and which workspace is currently accessed.
+track of, for example, the current time, if a user is logged in and which
+workspace is currently accessed.
 
 The :php:`\TYPO3\CMS\Core\Context\Context` object can be retrieved via
 :ref:`dependency injection <DependencyInjection>`:
