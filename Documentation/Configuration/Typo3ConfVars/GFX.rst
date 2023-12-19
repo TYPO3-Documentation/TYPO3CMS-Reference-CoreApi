@@ -58,7 +58,7 @@ imagefile_ext
     :type: list
     :Default: 'gif,jpg,jpeg,tif,tiff,bmp,pcx,tga,png,pdf,ai,svg,webp'
 
-Comma-separated list of file extensions recognized as images by TYPO3.
+    Comma-separated list of file extensions recognized as images by TYPO3.
     List should be set to :php:`'gif,png,jpeg,jpg,webp'`, if ImageMagick /
     GraphicsMagick is not available.
 
