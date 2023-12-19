@@ -1,0 +1,19 @@
+{
+    "name": "my-vendor/my-extension",
+    "type": "typo3-cms-extension",
+    "description": "An example extension",
+    "license": "GPL-2.0-or-later",
+    "require": {
+        "typo3/cms-core": "^11.5 || ^12.4"
+    },
+    "autoload": {
+        "psr-4": {
+            "MyVendor\\MyExtension\\": "Classes/"
+        }
+    },
+    "extra": {
+        "typo3/cms": {
+            "extension-key": "my_extension"
+        }
+    }
+}
