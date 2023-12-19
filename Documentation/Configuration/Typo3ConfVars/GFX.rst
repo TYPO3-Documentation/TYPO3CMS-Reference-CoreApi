@@ -39,21 +39,32 @@ thumbnails
 
    Enables the use of thumbnails in the backend interface.
 
-.. index::
-   TYPO3_CONF_VARS GFX; imagefile_ext
-.. _typo3ConfVars_gfx_imagefile_ext:
+..  index::
+    TYPO3_CONF_VARS GFX; imagefile_ext
+..  _typo3ConfVars_gfx_imagefile_ext:
 
 imagefile_ext
 =============
 
-.. confval:: $GLOBALS['TYPO3_CONF_VARS']['GFX']['imagefile_ext']
+..  versionadded:: 13.0
+    "webp" has been added to the list of default image file extensions.
 
-   :type: list
-   :Default: 'gif,jpg,jpeg,tif,tiff,bmp,pcx,tga,png,pdf,ai,svg'
+    If the underlying ImageMagick / GraphicsMagick library is not built with
+    WebP support, the server administrators can install or recompile the library
+    with WebP support by installing the "cwebp" or "dwebp" libraries.
 
-   Comma-separated list of file extensions perceived as images by TYPO3.
-   List should be set to :php:`'gif,png,jpeg,jpg'` if IM is not available.
-   Lowercase and no spaces between!
+..  confval:: $GLOBALS['TYPO3_CONF_VARS']['GFX']['imagefile_ext']
+
+    :type: list
+    :Default: 'gif,jpg,jpeg,tif,tiff,bmp,pcx,tga,png,pdf,ai,svg,webp'
+
+    Comma-separated list of file extensions perceived as images by TYPO3.
+    List should be set to :php:`'gif,png,jpeg,jpg,webp'`, if ImageMagick /
+    GraphicsMagick is not available.
+
+    ..  caution::
+        The file extensions must be in lowercase and there must be no spaces
+        between the commas and the file extensions!
 
 .. index::
    TYPO3_CONF_VARS GFX;
@@ -237,11 +248,14 @@ processor_interlace
 jpg_quality
 ===========
 
+..  versionadded:: 13.0
+    Lowest quality can be "1". Before, the lowest quality setting was "10".
+
 ..  confval:: $GLOBALS['TYPO3_CONF_VARS']['GFX']['jpg_quality']
 
     :type: int
     :Default: 85
-    :Allowed values: Between 10 (lowest quality) and 100 (highest quality)
+    :Allowed values: Between 1 (low quality, small file size) and 100 (best quality, large file size)
 
     Default JPEG generation quality
 
@@ -256,12 +270,12 @@ webp_quality
 
 ..  confval:: $GLOBALS['TYPO3_CONF_VARS']['GFX']['webp_quality']
 
-    :type: int
+    :type: int | string
     :Default: 85
-    :Allowed values: Between 10 (lowest quality) and 100 (highest quality), or 101 (lossless)
+    :Allowed values: Between 1 (low quality, small file size) and 100 (best quality, large file size), or "lossless"
 
-    Default WebP generation quality. Setting the quality to "101" equivalents
-    to `"lossless" compression`_.
+    Default WebP generation quality. Setting the quality to "lossless"
+    equivalents to `"lossless" compression`_.
 
     ..  _"lossless" compression: https://developers.google.com/speed/webp/docs/compression#lossless_webp
 
