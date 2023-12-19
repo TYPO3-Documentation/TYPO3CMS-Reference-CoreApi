@@ -249,7 +249,7 @@ jpg_quality
 ===========
 
 ..  versionadded:: 13.0
-    Lowest quality can be "1". Before, the lowest quality setting was "10".
+Lowest quality can be "1". Previously the lowest quality setting was "10".
 
 ..  confval:: $GLOBALS['TYPO3_CONF_VARS']['GFX']['jpg_quality']
 
