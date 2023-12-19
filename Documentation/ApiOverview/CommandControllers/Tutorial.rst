@@ -60,6 +60,10 @@ definition for your class as tag :yaml:`console.command`:
           - name: console.command
             command: 'examples:dosomething'
             description: 'A command that does nothing and always succeeds.'
+          # Also an alias for the command can be configured
+          - name: console.command
+            command: 'examples:dosomethingalias'
+            alias: true
 
 The following attributes are available:
 
@@ -81,6 +85,10 @@ The following attributes are available:
 :yaml:`hidden`
     A command can be hidden from the command list by setting :yaml:`hidden` to
     :yaml:`true`.
+
+:yaml:`alias`
+    A command can be made available under a different name. Set to :yaml:`true`,
+    if your command name is an alias.
 
 ..  note::
     Despite using :file:`autoconfigure: true` the commands
