@@ -1,0 +1,45 @@
+{
+    "name": "my-vendor/my-extension",
+    "type": "typo3-cms-extension",
+    "description": "An example extension",
+    "license": "GPL-2.0-or-later",
+    "require": {
+        "php": "^7.4",
+        "typo3/cms-backend": "^11.5 || ^12.4",
+        "typo3/cms-core": "^11.5 || ^12.4"
+    },
+    "require-dev": {
+        "typo3/coding-standards": "^0.7.1"
+    },
+    "authors": [
+        {
+            "name": "John Doe",
+            "role": "Developer",
+            "email": "john.doe@example.org",
+            "homepage": "https://johndoe.example.org/"
+        }
+    ],
+    "keywords": [
+        "typo3",
+        "blog"
+    ],
+    "support": {
+        "issues": "https://example.org/my-issues-tracker"
+    },
+    "funding": [
+        {
+            "type": "other",
+            "url:": "https://example.org/funding/my-vendor"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "MyVendor\\MyExtension\\": "Classes/"
+        }
+    },
+    "extra": {
+        "typo3/cms": {
+            "extension-key": "my_extension"
+        }
+    }
+}
