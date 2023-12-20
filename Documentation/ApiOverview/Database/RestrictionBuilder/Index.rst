@@ -324,7 +324,7 @@ calling :php:`$queryBuilder->getRestrictions()->removeAll()` such restrictions
 will **still** be applied to the query.
 
 If an enforced restriction must be removed, it can still be removed with
-:php:`$queryBuilder->->getRestrictions()->removeByType(SomeClass::class)`.
+:php:`$queryBuilder->getRestrictions()->removeByType(SomeClass::class)`.
 
 Implementers of custom restrictions can therefore have their restrictions always
 enforced, or even not applied at all, by returning an empty expression in certain cases.
