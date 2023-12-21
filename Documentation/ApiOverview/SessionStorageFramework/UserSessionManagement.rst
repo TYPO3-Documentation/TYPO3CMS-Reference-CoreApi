@@ -51,6 +51,11 @@ with user sessions. A couple of public methods are available:
 Public API of :php:`UserSession`
 ================================
 
+..  versionchanged:: 12.4.8
+    The signature of the methods :php:`getJwt()` and
+    :php:`resolveIdentifierFromJwt()` has changed. The methods now have an
+    additional argument :php:`$scope`.
+
 The session object created or retrieved by the :php:`UserSessionManager`
 provides the following API methods:
 
