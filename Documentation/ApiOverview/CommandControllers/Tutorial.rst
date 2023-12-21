@@ -164,9 +164,10 @@ When using this attribute there is no need to register the command in the
 :file:`Services.yaml` file.
 
 ..  note::
-    Only the parameters `command`, `description` and `hidden` are available. In
-    order to overwrite the parameter `schedulable`  use the registration
-    via :ref:`Services.yaml <console-command-tutorial-registration-services>`.
+    Only the parameters `command`, `description`, `aliases` and `hidden` are
+    available. In order to overwrite the parameter `schedulable` use the
+    registration via
+    :ref:`Services.yaml <console-command-tutorial-registration-services>`.
     By default, `schedulable` is true.
 
 The :ref:`example above <console-command-tutorial-create>` can also be
