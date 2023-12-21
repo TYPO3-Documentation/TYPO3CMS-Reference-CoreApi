@@ -108,12 +108,13 @@
 
       :returntype: bool
 
-   .. php:method:: getJwt()
+   .. php:method:: getJwt(TYPO3\\CMS\\Core\\Http\\CookieScope $scope = NULL)
 
       Gets session ID wrapped in JWT to be used for emitting a new cookie.
 
-      `Cookie: <JWT(HS256, [identifier => <session-id>], <signature>)>`
+      `Cookie: <JWT(HS256, [identifier => <session-id>], <signature(encryption-key, cookie-domain)>)>`
 
+      :param TYPO3\\CMS\\Core\\Http\\CookieScope $scope: the scope, default: NULL
       :returntype: string
       :returns: string the session ID wrapped in JWT to be used for emitting a new cookie
 
@@ -134,11 +135,12 @@
       :param string $identifier: the identifier
       :returntype: self
 
-   .. php:method:: resolveIdentifierFromJwt(string $cookieValue)
+   .. php:method:: resolveIdentifierFromJwt(string $cookieValue, TYPO3\\CMS\\Core\\Http\\CookieScope $scope)
 
       Verifies and resolves the session ID from a submitted cookie value:
-      `Cookie: <JWT(HS256, [identifier => <session-id>], <signature>)>`
+      `Cookie: <JWT(HS256, [identifier => <session-id>], <signature(encryption-key, cookie-domain)>)>`
 
       :param string $cookieValue: submitted cookie value
+      :param TYPO3\\CMS\\Core\\Http\\CookieScope $scope: the scope
       :returntype: string
       :returns: non-empty-string|null session ID, null in case verification failed
