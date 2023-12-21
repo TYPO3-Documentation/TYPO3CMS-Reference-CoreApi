@@ -217,26 +217,6 @@ the following property:
 Returns, whether the frontend is currently in preview mode.
 
 
-..  _context_api_aspects_typoscript:
-
-TypoScript aspect
------------------
-
-The TypoScript aspect can be used to manipulate/check whether
-TemplateRendering is forced.
-
-..  _context_api_aspects_typoscript_properties:
-
-The TypoScript aspect, `\TYPO3\CMS\Core\Context\TypoScriptAspect` contains the
-following property:
-
-..  confval:: forcedTemplateParsing
-
-    :Call: :php:`$this->context->getPropertyFromAspect('typoscript', 'forcedTemplateParsing');`
-
-    Returns, whether TypoScript template parsing is forced.
-
-
 ..  _context_api_aspects_user:
 
 User aspect
