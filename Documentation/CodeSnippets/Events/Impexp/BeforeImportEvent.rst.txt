@@ -8,3 +8,9 @@
    .. php:method:: getImport()
 
       :returntype: TYPO3\\CMS\\Impexp\\Import
+
+   .. php:method:: getFile()
+
+      The file being about to be imported
+
+      :returntype: string
