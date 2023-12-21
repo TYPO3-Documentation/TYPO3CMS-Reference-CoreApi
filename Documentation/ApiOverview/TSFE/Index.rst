@@ -131,36 +131,6 @@ Can be done using the
     $pageArguments = $request->getAttribute('routing');
     $pageId = $pageArguments->getPageId();
 
-.. _tsfe_language:
-
-Access language settings
-------------------------
-
-In order to get current language settings, such as the current language ID,
-obtain :php:`\TYPO3\CMS\Core\Site\Entity\SiteLanguage` object from the
-:ref:`language request attribute <typo3-request-attribute-language>`:
-
-..  code-block:: php
-
-    // !!! outdated
-    $languageId = $GLOBALS['TSFE']->sys_language_uid;
-
-..  code-block:: php
-
-    /** @var \TYPO3\CMS\Core\Site\Entity\SiteLanguage $language */
-    $language = $request->getAttribute('language');
-    $languageId = $language->getLanguageId();
-
-
-If the request is not available, accessing language settings
-can be done using the :ref:`language aspect <context_api_aspects_language>`.
-
-Get the language of the current page as integer:
-
-..  code-block:: php
-
-    $languageId = (int) $context->getPropertyFromAspect('language', 'id');
-
 ..  _tsfe_frontendUser:
 
 Access frontend user information
