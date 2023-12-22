@@ -1,7 +1,7 @@
 {
     "extra": {
         "typo3/cms": {
-            "extension-key": "bootstrap_package"
+            "extension-key": "my_extension"
         }
     }
 }
