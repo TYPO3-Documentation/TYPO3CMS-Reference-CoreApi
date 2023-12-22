@@ -88,6 +88,9 @@ where available:
 Access ContentObjectRenderer
 ----------------------------
 
+..  versionchanged:: 13.0
+    This property has been marked as read-only.
+
 Access the :php:`\TYPO3\CMS\Frontend\ContentObject\ContentObjectRenderer`
 (often referred to as "cObj"):
 
@@ -115,6 +118,9 @@ a non-Extbase plugin) use setter injection:
 
 Access current page ID
 ----------------------
+
+..  versionchanged:: 13.0
+    This property has been marked as read-only.
 
 Access the current page ID:
 
@@ -146,16 +152,13 @@ Access frontend user information
 Get current base URL
 --------------------
 
-It used to be possible to get the base URL configuration (from TypoScript
-:typoscript:`config.baseURL`) with the :php:`TSFE` :php:`baseURL` property. The
-property is now protected and deprecated since TYPO3 v12. Already in
-earlier version, site configuration should be used to get the base URL
-of the current site.
+..  versionchanged:: 13.0
+    The variable :php:`$GLOBALS['TSFE']->baseURL` has been removed with TYPO3
+    v13.
 
-..  code-block:: php
-
-    // !!! deprecated
-    $GLOBALS['TSFE']->baseURL
+Use the :ref:`request object <typo3-request>` and retrieve the
+:ref:`site attribute <typo3-request-attribute-site>` which holds the
+:ref:`site configuration <sitehandling-create-new>`:
 
 ..  code-block:: php
 

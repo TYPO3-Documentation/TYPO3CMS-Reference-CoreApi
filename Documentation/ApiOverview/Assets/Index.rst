@@ -220,13 +220,10 @@ The following methods can then be used:
 Using the TypoScriptFrontendController
 --------------------------------------
 
+..  versionchanged:: 13.0
+    The property :php:`additionalHeaderData` has been marked as internal
+    and should not be used.
+
 ..  code-block:: php
 
     $GLOBALS['TSFE']->additionalHeaderData[$name] = $javaScriptCode;
-
-..  tip::
-    Instead of using the global variable for retrieving the
-    :ref:`TypoScriptFrontendController <tsfe>` you should consider to use the
-    :ref:`PSR-7 request attribute <typo3-request-attributes>`
-    :ref:`frontend.controller <typo3-request-attribute-frontend-controller>`
-    wherever possible.
