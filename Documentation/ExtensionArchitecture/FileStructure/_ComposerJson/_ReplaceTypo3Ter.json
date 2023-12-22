@@ -1,0 +1,5 @@
+{
+    "replace": {
+        "typo3-ter/my-extension": "self.version"
+    }
+}
