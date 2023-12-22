@@ -23,6 +23,23 @@ Introduction
 PHP. It allows you to declare the libraries your extension depends on and it
 will manage (install/update) them for you.
 
+`Packagist <https://packagist.org/>`__ is the main Composer repository. It
+aggregates public PHP packages installable with Composer. Composer packages
+can be published by the package maintainers on Packagist to be installable in an
+easy way via the :bash:`composer require` command.
+
+..  attention::
+    When a Composer package with the :ref:`type <ext-composer-json-property-type>`
+    `typo3-cms-extension` is published on Packagist, it will be made available
+    in the `TYPO3 Extension Repository <https://extensions.typo3.org/>`__
+    automatically. If you do not want this, consider loading an extension from a
+    `VCS repository <https://getcomposer.org/doc/05-repositories.md#vcs>`__
+    instead, or use `Private Packagist <https://packagist.com/>`__ or similar
+    approaches.
+
+About the composer.json file
+============================
+
 ..  note::
     While the file :file:`composer.json` is currently not strictly required
     for an extension to function properly in legacy non-Composer installations
@@ -47,7 +64,7 @@ reasons:
 ..  _ext-composer-json-minimal:
 
 Minimal composer.json
-=====================
+---------------------
 
 This is a minimal :file:`composer.json` for a TYPO3 extension:
 
@@ -85,7 +102,7 @@ Subsequently:
 ..  _ext-composer-json-extended:
 
 Extended composer.json
-======================
+----------------------
 
 ..  seealso::
     Please see :ref:`testing-extensions` for
@@ -126,6 +143,8 @@ description
 (*required*)
 
 Description of your extension (1 line).
+
+..  _ext-composer-json-property-type:
 
 type
 ----
