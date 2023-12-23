@@ -127,4 +127,5 @@ should be converted into:
 Existing method calls must be adapted.
 
 ..  seealso::
-    `PHP: Backed enumerations <https://www.php.net/manual/en/language.enumerations.backed.php>`__
+    *   `PHP: Backed enumerations <https://www.php.net/manual/en/language.enumerations.backed.php>`__
+    *   :ref:`Enumerations in Extbase models <extbase-model-enumerations>`
