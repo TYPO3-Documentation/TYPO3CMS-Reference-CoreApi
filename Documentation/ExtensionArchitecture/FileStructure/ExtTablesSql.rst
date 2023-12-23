@@ -186,6 +186,7 @@ the :file:`ext_tables.sql` file:
 *   :ref:`TCA type "number" <t3tca:columns-number>` (since TYPO3 v13.0)
 *   :ref:`TCA type "password" <t3tca:columns-password>` (since TYPO3 v13.0)
 *   :ref:`TCA type "radio" <t3tca:columns-radio>` (since TYPO3 v13.0)
+*   :ref:`TCA type "select" <t3tca:columns-select>` (since TYPO3 v13.0)
 *   :ref:`TCA type "slug" <t3tca:columns-slug>` (since TYPO3 v12.0)
 *   :ref:`TCA type "text" <t3tca:columns-text>` (since TYPO3 v13.0)
 *   :ref:`TCA type "uuid" <t3tca:columns-uuid>`
