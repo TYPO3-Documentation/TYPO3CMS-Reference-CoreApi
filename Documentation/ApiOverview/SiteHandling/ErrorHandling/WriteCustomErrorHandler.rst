@@ -33,8 +33,8 @@ The method :php:`handlePageError()` gets three parameters:
     query parameters and the request path via this :ref:`object <typo3-request>`
 *   :php:`$message`: an error message string - for example, "Cannot connect to
     the configured database." or "Page not found"
-*   :php:`$reasons`: an arbitrary array of failure reasons - see, for example,
-    :php:`\TYPO3\CMS\Frontend\Controller\TypoScriptFrontendController::getPageAccessFailureReasons`
+*   :php:`$reasons`: an arbitrary array of failure reasons - see
+    :t3src:`frontend/Classes/Page/PageAccessFailureReasons.php`
 
 What you do with these variables is left to you, but you need to return a
 valid :php:`\Psr\Http\Message\ResponseInterface` response - most usually an
@@ -54,7 +54,7 @@ The custom error handlers have the properties
 ..  option:: errorPhpClassFQCN
 
     :type: string
-    :Example: `MyVendor\MySitePackage\Error\MyErrorHandler`
+    :Example: `\MyVendor\MySitePackage\Error\MyErrorHandler`
 
     Fully-qualified class name of a custom error handler implementing
     :php:`PageErrorHandlerInterface`.
