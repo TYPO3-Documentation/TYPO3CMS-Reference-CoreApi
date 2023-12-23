@@ -151,12 +151,15 @@ type
 
 (*required*)
 
-Use `typo3-cms-extension` for third-party extensions. This results in the
-extension to be installed in :file:`{web-dir}/typo3conf/ext/` instead of
-:file:`vendor/{vendor}/{package}`.
+..  versionchanged:: 12.4
+    Extensions in Composer-based installations are installed into the
+    :file:`vendor/` folder.
 
-Additionally, `typo3-cms-framework` is available for system extensions. They
-will be installed in :file:`web-dir/typo3/sysext/`.
+Use `typo3-cms-extension` for third-party extensions.
+The :file:`Resources/Public/` folder will be symlinked into the
+:ref:`_assets/ <directory-public-assets>` folder of your web root.
+
+Additionally, `typo3-cms-framework` is available for system extensions.
 
 See `typo3/cms-composer-installers <https://github.com/TYPO3/CmsComposerInstallers>`__
 (required by `typo3/cms-core`).
