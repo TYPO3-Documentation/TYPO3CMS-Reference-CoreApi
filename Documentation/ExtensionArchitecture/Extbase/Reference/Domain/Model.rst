@@ -133,6 +133,31 @@ therefore the following code works and has always worked:
     :caption: EXT:my_extension/Classes/Domain/Model/Entity.php
 
 
+..  _extbase-model-enumerations:
+
+Enumerations
+------------
+
+..  versionadded:: 13.0
+    Native support for
+    `backed enumerations <https://www.php.net/manual/language.enumerations.backed.php>`__
+    has been introduced. It is no longer necessary to extend the now deprecated
+    TYPO3 Core class :ref:`\\TYPO3\\CMS\\Core\\Type\\Enumeration <Enumerations-How-to-use>`.
+
+Native PHP enumerations can be used for properties, if a database field has a
+specific set of values which can be represented by a backed enum:
+
+..  literalinclude:: _Model/_Level.php
+    :language: php
+    :caption: EXT:my_extension/Classes/Domain/Model/Enum/Level.php
+
+The enum can then be used for a property in the model:
+
+..  literalinclude:: _Model/_LogEntry.php
+    :language: php
+    :caption: EXT:my_extension/Classes/Domain/Model/LogEntry.php
+
+
 Relations
 =========
 
