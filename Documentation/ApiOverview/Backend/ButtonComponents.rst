@@ -15,6 +15,8 @@ Example on how to use a button component:
 ..  literalinclude:: _ButtonComponents/_DropDownButton.php
     :caption: EXT:my_extension/Classes/Controller/MyBackendController.php
 
+..  seealso::
+    *   :ref:`ModifyButtonBarEvent`
 
 ..  contents:: Table of contents
     :local:
