@@ -277,12 +277,12 @@ be instantiated via :php:`\TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance()
 if they are non-final and support XCLASSing. For final classes without
 dependencies plain instantiation via the `new` keyword must be used.
 
-In some APIs dependency injection cannot be used yet. This applies to classes that need 
-specific data in their constructors or classes that are serialized and deserialized as, for 
+In some APIs dependency injection cannot be used yet. This applies to classes that need
+specific data in their constructors or classes that are serialized and deserialized as, for
 example, scheduler tasks.
 
-When dependency injection cannot be used directly yet, create a service class and make it public 
-in the  :file:`Configuration/Services.yaml`. Create an instance of the service class via 
+When dependency injection cannot be used directly yet, create a service class and make it public
+in the  :file:`Configuration/Services.yaml`. Create an instance of the service class via
 :php:`GeneralUtility::makeInstance(...)` you can then use dependency injection in the service class.
 
 
@@ -669,11 +669,6 @@ Further information
 *  `Symfony dependency injection component <https://symfony.com/doc/current/components/dependency_injection.html>`_
 
 *  `Symfony service container <https://symfony.com/doc/current/service_container.html>`_
-
-*  :doc:`ext_core:Changelog/10.0/Feature-84112-SymfonyDependencyInjectionForCoreAndExtbase`
-   of the TYPO3 Core .
-
-*  :doc:`ext_core:Changelog/10.4/Deprecation-90803-DeprecationOfObjectManagergetInExtbaseContext`
 
 *  `Dependency Injection in TYPO3 - Blog Article by Daniel Goerz <https://usetypo3.com/dependency-injection.html>`_
 
