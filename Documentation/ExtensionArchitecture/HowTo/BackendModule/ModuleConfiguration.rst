@@ -296,7 +296,7 @@ Default module configuration options (without Extbase)
     ..  code-block:: php
         :caption: EXT:my_extension/Configuration/Backend/Modules.php
 
-        routes' => [
+        'routes' => [
             '_default' => [
                 'target' => MyModuleController::class . '::overview',
             ],
