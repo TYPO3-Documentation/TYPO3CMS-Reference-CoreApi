@@ -129,13 +129,24 @@ Access the current page ID:
     // !!! discouraged
     $pageId = $GLOBALS['TSFE']->id;
 
-Can be done using the
+Instead, the current page ID can be retrieved using the
 :ref:`routing request attribute <typo3-request-attribute-routing>`:
 
 ..  code-block:: php
 
     $pageArguments = $request->getAttribute('routing');
     $pageId = $pageArguments->getPageId();
+
+..  versionadded:: 13.0
+
+Or, alternatively with the :ref:`frontend.page.information request attribute
+<typo3-request-attribute-frontend-page-information>`:
+
+..  code-block:: php
+
+    $pageInformation = $request->getAttribute('frontend.page.information');
+    $pageId = $pageInformation->getId();
+
 
 ..  _tsfe_frontendUser:
 
