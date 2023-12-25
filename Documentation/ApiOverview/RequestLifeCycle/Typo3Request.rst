@@ -197,6 +197,7 @@ The following attributes are available in **frontend** context:
 *    :doc:`RequestAttributes/CurrentContentObject`
 *    :doc:`RequestAttributes/FrontendCacheInstruction`
 *    :doc:`RequestAttributes/FrontendController`
+*    :doc:`RequestAttributes/FrontendPageInformation`
 *    :doc:`RequestAttributes/FrontendTyposcript`
 *    :doc:`RequestAttributes/FrontendUser`
 *    :doc:`RequestAttributes/Language`
@@ -206,7 +207,6 @@ The following attributes are available in **frontend** context:
 *    :doc:`RequestAttributes/Site`
 
 The following attributes are available in **backend** context:
-
 
 *   :doc:`RequestAttributes/ApplicationType`
 *   :doc:`RequestAttributes/Module`
