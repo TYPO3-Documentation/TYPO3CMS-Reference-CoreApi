@@ -243,4 +243,10 @@ return [
         'targetFileName' => 'CodeSnippets/Events/Backend/ModifyResultItemInLiveSearchEvent.rst.txt',
         'withCode' => false,
     ],
+    [
+        'action' => 'createPhpClassDocs',
+        'class' => \TYPO3\CMS\Backend\Template\Components\ModifyButtonBarEvent::class,
+        'targetFileName' => 'CodeSnippets/Events/Backend/ModifyButtonBarEvent.rst.txt',
+        'withCode' => false,
+    ],
 ];
