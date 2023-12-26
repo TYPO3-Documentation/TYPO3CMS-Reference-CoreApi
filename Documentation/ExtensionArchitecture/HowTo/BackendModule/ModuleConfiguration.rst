@@ -83,7 +83,8 @@ Module configuration options
     :Scope: Backend module configuration
     :type: string
 
-    Can be `*` (= always), `live` or `offline`
+    Can be `*` (= always), `live` or `offline`. If not set, the value of the
+    parent module - if any - is used.
 
 
 ..  _backend-modules-configuration-position:
