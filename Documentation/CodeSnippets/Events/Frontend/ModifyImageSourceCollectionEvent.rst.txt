@@ -3,7 +3,7 @@
 
 .. php:class:: ModifyImageSourceCollectionEvent
 
-   Listeners are able to modify the initialized ContentObjectRenderer instance
+   Listeners are able to enrich the final source collection result
 
    .. php:method:: setSourceCollection(string $sourceCollection)
 
