@@ -30,7 +30,6 @@ return [
         'workspaces' => 'live',
         'path' => '/module/system/example',
         'labels' => 'LLL:EXT:examples/Resources/Private/Language/AdminModule/locallang_mod.xlf',
-        'extensionName' => 'Examples',
         'controllerActions' => [
             AdminModuleController::class => [
                 'index',
