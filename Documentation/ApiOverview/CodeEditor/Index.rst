@@ -38,7 +38,9 @@ the mode for syntax highlighting can be chosen. Allowed values:
 *   :php:`css`
 *   :php:`html`
 *   :php:`javascript`
+*   :php:`json`
 *   :php:`php`
+*   :php:`sql`
 *   :php:`typoscript`
 *   :php:`xml`
 *   and any :ref:`custom mode <code-editor-register-mode>` registered by an
