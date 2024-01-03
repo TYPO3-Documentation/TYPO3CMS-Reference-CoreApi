@@ -9,10 +9,6 @@
    to direct or load content from a different page, or modify the page response if additional
    permissions should be checked.
 
-   .. php:method:: getController()
-
-      :returntype: TYPO3\\CMS\\Frontend\\Controller\\TypoScriptFrontendController
-
    .. php:method:: getRequest()
 
       :returntype: Psr\\Http\\Message\\ServerRequestInterface
@@ -24,3 +20,11 @@
    .. php:method:: getResponse()
 
       :returntype: Psr\\Http\\Message\\ResponseInterface
+
+   .. php:method:: getPageInformation()
+
+      :returntype: TYPO3\\CMS\\Frontend\\Page\\PageInformation
+
+   .. php:method:: setPageInformation(TYPO3\\CMS\\Frontend\\Page\\PageInformation $pageInformation)
+
+      :param TYPO3\\CMS\\Frontend\\Page\\PageInformation $pageInformation: the pageInformation
