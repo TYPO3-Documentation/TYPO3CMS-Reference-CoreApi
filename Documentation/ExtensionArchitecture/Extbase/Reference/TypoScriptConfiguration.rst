@@ -29,3 +29,14 @@ in :typoscript:`module.tx_[lowercasedextensionname]`, for example
 
 For details of the available configuration values see
 :ref:`plugin in the TypoScript Reference <t3tsref:plugin>`.
+
+
+Plugin configuration
+====================
+
+..  literalinclude::  _TypoScriptConfiguration/_pluginconf.typoscript
+    :language: typoscript
+    :caption: EXT:blog_example/Configuration/TypoScript/setup.typoscript
+
+In the controller use `$this->settings['postsPerPage']` to access the TypoScript
+setting.
