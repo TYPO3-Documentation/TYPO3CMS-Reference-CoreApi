@@ -153,7 +153,7 @@ statement. Use this method instead of counting the number of records in a
     :sql:`INSERT` queries. However, it does **not** return a valid number for
     :sql:`SELECT` queries on some :abbr:`DBMSes (Database management systems)`.
     Never use :php:`->rowCount()` on :sql:`SELECT` queries. This may work with
-    MySOL, but will fail with other databases like SQLite.
+    MySQL, but will fail with other databases like SQLite.
 
 
 Reuse prepared statement
