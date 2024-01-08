@@ -37,6 +37,10 @@ Example
 ..  todo: The property TSFE->content used in the example was marked as internal
           in v13. A substitution is needed for this.
 
+..  note::
+    Currently, the example below is outdated. It uses a - now internal -
+    property :php:`TypoScriptFrontendController->content`.
+
 ..  literalinclude:: _AfterCacheableContentIsGeneratedEvent/_MyEventListener.php
     :language: php
     :caption: EXT:my_extension/Classes/Frontend/EventListener/MyEventListener.php
