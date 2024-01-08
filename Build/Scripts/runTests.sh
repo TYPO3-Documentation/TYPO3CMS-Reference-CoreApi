@@ -46,6 +46,7 @@ Options:
             - cgl: cgl test and fix all php files
             - composerUpdate: "composer update", handy if host has no PHP
             - lint: PHP linting
+            - yamlLint: YAML linting
             - rector: Apply Rector rules
 
     -p <8.2|8.3>
@@ -195,6 +196,12 @@ case ${TEST_SUITE} in
         docker images typo3/core-testing-*:latest --format "{{.Repository}}:latest" | xargs -I {} docker pull {}
         # remove "dangling" typo3/core-testing-* images (those tagged as <none>)
         docker images typo3/core-testing-* --filter "dangling=true" --format "{{.ID}}" | xargs -I {} docker rmi {}
+        ;;
+    yamlLint)
+        setUpDockerComposeDotEnv
+        docker-compose run yaml_lint
+        SUITE_EXIT_CODE=$?
+        docker-compose down
         ;;
     *)
         echo "Invalid -s option argument ${TEST_SUITE}" >&2

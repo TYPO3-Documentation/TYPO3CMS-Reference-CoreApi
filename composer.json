@@ -83,7 +83,7 @@
         "check:yaml": [
             "@check:yaml:lint"
         ],
-        "check:yaml:lint": ".Build/bin/yaml-lint Documentation/",
+        "check:yaml:lint": "Build/Scripts/runTests.sh -s yamlLint",
         "fix": [
             "@fix:composer",
             "@fix:php"

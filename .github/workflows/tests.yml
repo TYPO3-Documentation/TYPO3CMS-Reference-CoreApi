@@ -45,4 +45,4 @@ jobs:
         run: Build/Scripts/runTests.sh -p ${{ env.php }} -s checkRst
 
       - name: Lint YAML
-        run: .Build/bin/yaml-lint Documentation/
+        run: Build/Scripts/runTests.sh -p ${{ env.php }} -s yamlLint
