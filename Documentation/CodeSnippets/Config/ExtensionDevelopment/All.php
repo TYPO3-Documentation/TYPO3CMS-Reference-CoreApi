@@ -4,6 +4,6 @@
 // ddev exec .Build/vendor/bin/typo3 codesnippet:create Documentation/CodeSnippets/
 
 return array_merge(
-    include('Extbase.php'),
-    include('Localization.php'),
+    include ('Extbase.php'),
+    include ('Localization.php'),
 );
