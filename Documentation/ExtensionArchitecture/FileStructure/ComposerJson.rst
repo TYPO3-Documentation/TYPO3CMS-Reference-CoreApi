@@ -29,13 +29,26 @@ can be published by the package maintainers on Packagist to be installable in an
 easy way via the :bash:`composer require` command.
 
 ..  attention::
-    When a Composer package with the :ref:`type <ext-composer-json-property-type>`
-    `typo3-cms-extension` is published on Packagist, it will be made available
-    in the `TYPO3 Extension Repository <https://extensions.typo3.org/>`__
-    automatically. If you do not want this, consider loading an extension from a
-    `VCS repository <https://getcomposer.org/doc/05-repositories.md#vcs>`__
-    instead, or use `Private Packagist <https://packagist.com/>`__ or similar
-    approaches.
+    When a Composer package with the type `typo3-cms-extension` is published on
+    Packagist, it will be made available in the
+    `TYPO3 Extension Repository <https://extensions.typo3.org/>`__
+    automatically. If you do not want this, do not register the extension on
+    Packagist. Instead load an extension from a
+    `VCS repository <https://getcomposer.org/doc/05-repositories.md#vcs>`__, or
+    use `Private Packagist <https://packagist.com/>`__ or similar approaches.
+
+    To get a Composer package listed automatically in TER, the following
+    criteria must match:
+
+    *   `typo3-cms-extension` as :ref:`type <ext-composer-json-property-type>`
+    *   :ref:`extension-key <ext-composer-json-property-extension-key>` in the
+        `extra` section
+    *   Must at least require one `typo3/cms-` dependency (for example,
+        `typo3/cms-core`)
+
+    See also the
+    `issue tracker <https://git.typo3.org/services/t3o-sites/extensions.typo3.org/ter/-/issues/?label_name%5B%5D=Packagist%20Integration>`__
+    for open issues and features.
 
 About the composer.json file
 ============================
@@ -206,6 +219,9 @@ The autoload section defines the namespace/path mapping for
 `PSR-4 autoloading <https://www.php-fig.org/psr/psr-4/>`. In TYPO3 we follow
 the convention that all classes (except test classes) are in the directory
 :file:`Classes/`.
+
+
+..  _ext-composer-json-property-extension-key:
 
 extra.typo3/cms.extension-key
 -----------------------------
