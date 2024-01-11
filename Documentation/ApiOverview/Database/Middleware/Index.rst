@@ -191,3 +191,50 @@ Example:
         :class: with-shadow
 
         Example of the configuration of driver middlewares
+
+
+..  _database-middleware-UsableForConnectionInterface:
+
+The interface :php:`UsableForConnectionInterface`
+=================================================
+
+..  versionadded:: 13.0
+
+Doctrine DBAL driver middlewares can be registered
+:ref:`globally for all connections <database-middleware-global>` or for
+:ref:`specific connections <database-middleware-specific>`. Due to the nature of
+the decorator pattern, it may become hard to determine for a specific
+configuration or drivers, if a middleware needs to be executed only for a
+subset, for example, only specific drivers.
+
+TYPO3 provides a custom :php:`\TYPO3\CMS\Core\Database\Middleware\UsableForConnectionInterface`
+driver middleware interface which requires the implementation of the method
+:php:`canBeUsedForConnection()`:
+
+..  include:: /CodeSnippets/Manual/Database/UsableForConnectionInterface.rst.txt
+
+This allows to decide, if a middleware should be used for a specific connection,
+either based on the :php:`$connectionName` or the :php:`$connectionParams`,
+for example the concrete :php:`$connectionParams['driver']`.
+
+Example
+-------
+
+The custom driver:
+
+..  literalinclude:: _CustomDriver.php
+    :language: php
+    :caption: EXT:my_extension/Classes/DoctrineDBAL/CustomDriver.php
+
+The custom driver middleware which implements the
+:php:`\TYPO3\CMS\Core\Database\Middleware\UsableForConnectionInterface`:
+
+..  literalinclude:: _CustomMiddleware.php
+    :language: php
+    :caption: EXT:my_extension/Classes/DoctrineDBAL/CustomMiddleware.php
+
+Register the custom driver middleware:
+
+..  literalinclude:: _ext_localconf_CustomMiddleware.php
+    :language: php
+    :caption: EXT:my_extension/ext_localconf.php | config/system/additional.php
