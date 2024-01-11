@@ -4,5 +4,5 @@
 // ddev exec .Build/vendor/bin/typo3 codesnippet:create Documentation/
 
 return array_merge(
-    include('CodeSnippets/Config/All.php'),
+    include ('CodeSnippets/Config/All.php'),
 );

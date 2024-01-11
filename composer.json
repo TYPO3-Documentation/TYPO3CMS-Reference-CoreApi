@@ -8,7 +8,8 @@
     },
     "require-dev": {
         "ergebnis/composer-normalize": "~2.41.0",
-        "symfony/yaml": "^6.4",
+        "friendsofphp/php-cs-fixer": "^3.46",
+        "symfony/yaml": "^7.0",
         "t3docs/blog-example": "dev-main",
         "t3docs/codesnippet": "dev-main",
         "t3docs/examples": "dev-main",
@@ -48,8 +49,7 @@
         "typo3/cms-t3editor": "dev-main as 12.4",
         "typo3/cms-tstemplate": "dev-main as 12.4",
         "typo3/cms-viewpage": "dev-main as 12.4",
-        "typo3/cms-workspaces": "dev-main as 12.4",
-        "typo3/coding-standards": "^0.7.1"
+        "typo3/cms-workspaces": "dev-main as 12.4"
     },
     "minimum-stability": "dev",
     "prefer-stable": true,
