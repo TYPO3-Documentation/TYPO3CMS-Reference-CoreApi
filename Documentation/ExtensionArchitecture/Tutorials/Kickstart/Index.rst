@@ -73,10 +73,6 @@ tutorials for common options:
                 based on the domain-driven MVC framework :ref:`Extbase <extbase>`
                 and the templating engine :ref:`Fluid <fluid>`.
 
-..  note::
-    There used to be an extension called "kickstarter" it has however been
-    discontinued since 2012.
-
 
 ..  toctree::
     :titlesonly:
