@@ -272,4 +272,10 @@ return [
         'targetFileName' => 'CodeSnippets/Events/Core/ModifyRecordOverlayIconIdentifierEvent.rst.txt',
         'withCode' => false,
     ],
+    [
+        'action' => 'createPhpClassDocs',
+        'class' => \TYPO3\CMS\Core\Domain\Event\ModifyDefaultConstraintsForDatabaseQueryEvent::class,
+        'targetFileName' => 'CodeSnippets/Events/Core/ModifyDefaultConstraintsForDatabaseQueryEvent.rst.txt',
+        'withCode' => false,
+    ],
 ];
