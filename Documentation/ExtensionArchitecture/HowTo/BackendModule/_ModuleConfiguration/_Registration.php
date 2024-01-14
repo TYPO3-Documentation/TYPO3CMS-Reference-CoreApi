@@ -33,7 +33,7 @@ return [
         'workspaces' => 'live',
         'path' => '/module/system/example',
         'labels' => 'LLL:EXT:examples/Resources/Private/Language/AdminModule/locallang_mod.xlf',
-        // non-Extbase modules is route based, provide them
+        // non-Extbase modules are route-based, provide them
         'routes' => [
             '_default' => [
                 'target' => AdminModuleController::class . '::manage',
