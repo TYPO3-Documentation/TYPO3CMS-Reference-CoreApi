@@ -17,7 +17,7 @@ return [
         'workspaces' => 'live',
         'path' => '/module/page/example',
         'labels' => 'LLL:EXT:examples/Resources/Private/Language/Module/locallang_mod.xlf',
-        // extbase specific configuration telling the TYPO3 core to bootstrap Extbase
+        // Extbase-specific configuration telling the TYPO3 Core to bootstrap Extbase
         'extensionName' => 'Examples',
         'controllerActions' => [
             ModuleController::class => [
