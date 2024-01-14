@@ -304,6 +304,12 @@ Extbase module configuration options
 
 ..  _backend-modules-configuration-extensionName:
 
+..  note::
+    Using these Extbase configurations tells the Core to bootstrap Extbase and expecting
+    controllers based on :php:`\TYPO3\CMS\Extbase\Mvc\Controller\ActionController`.
+    Do not use it for non-Extbase controller. Use :ref:`routes <backend-modules-configuration-routes>`
+    instead.
+
 ..  confval:: extensionName
 
     :Scope: Backend module configuration
