@@ -9,6 +9,7 @@ use T3docs\Examples\Controller\ModuleController;
  * Definitions for modules provided by EXT:examples
  */
 return [
+    // Example for a module registration with extbase controller
     'web_examples' => [
         'parent' => 'web',
         'position' => ['after' => 'web_info'],
@@ -16,6 +17,7 @@ return [
         'workspaces' => 'live',
         'path' => '/module/page/example',
         'labels' => 'LLL:EXT:examples/Resources/Private/Language/Module/locallang_mod.xlf',
+        // extbase specific configuration telling the TYPO3 core to bootstrap extbase
         'extensionName' => 'Examples',
         'controllerActions' => [
             ModuleController::class => [
@@ -23,6 +25,7 @@ return [
             ],
         ],
     ],
+    // non-extbase module registration
     'admin_examples' => [
         'parent' => 'system',
         'position' => ['top'],
@@ -30,9 +33,14 @@ return [
         'workspaces' => 'live',
         'path' => '/module/system/example',
         'labels' => 'LLL:EXT:examples/Resources/Private/Language/AdminModule/locallang_mod.xlf',
-        'controllerActions' => [
-            AdminModuleController::class => [
-                'index',
+        // non-extbase modules is route based, provide them
+        'routes' => [
+            '_default' => [
+                'target' => AdminModuleController::class . '::manage',
+            ],
+            'edit' => [
+                'path' => '/edit-me',
+                'target' => AdminModuleController::class . '::edit',
             ],
         ],
     ],
