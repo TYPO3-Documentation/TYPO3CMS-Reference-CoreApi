@@ -157,10 +157,10 @@ structure for a middleware configuration is:
     after.
 
     ..  note::
-        It is highly advised to define at least the identifier
-        :php:`typo3/core/custom-platform-driver-middleware` to ensure that
-        :php:`getDatabasePlatform()` of the schema manager returns the correct
-        platform instances.
+        All custom driver middlewares, global or connection-based, should be
+        placed after the `'typo3/core/custom-platform-driver-middleware'` and
+        `'typo3/core/custom-pdo-driver-result-middleware'` driver middlewares to
+        ensure essential Core driver middlewares have been processed first.
 
 ..  confval:: disabled
 
@@ -199,6 +199,12 @@ The interface :php:`UsableForConnectionInterface`
 =================================================
 
 ..  versionadded:: 13.0
+
+..  note::
+    Real use cases for this interface should be rare edge cases. Typically,
+    a driver middleware should only be configured on a connection where it is
+    needed - or does not harm, if used for all connection types as a global
+    driver middleware.
 
 Doctrine DBAL driver middlewares can be registered
 :ref:`globally for all connections <database-middleware-global>` or for
