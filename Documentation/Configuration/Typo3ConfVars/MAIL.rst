@@ -230,7 +230,6 @@ transport_smtp_domain
                'defaultMailFromAddress' => 'webserver@example.org',
                'defaultMailFromName' => 'SYSTEMMAIL',
                'transport' => 'smtp',
-               'transport_sendmail_command' => ' -t -i ',
                'transport_smtp_domain' => 'example.org',
                'transport_smtp_encrypt' => '',
                'transport_smtp_password' => '',
@@ -264,7 +263,6 @@ transport_smtp_stream_options
            //....
            'MAIL' => [
                'transport' => 'smtp',
-               'transport_sendmail_command' => ' -t -i ',
                'transport_smtp_server' => 'localhost:1025',
                'transport_smtp_stream_options' => [
                    'ssl' => [
