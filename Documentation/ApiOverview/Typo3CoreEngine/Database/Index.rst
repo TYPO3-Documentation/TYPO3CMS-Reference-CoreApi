@@ -650,20 +650,6 @@ commands or data submission. These are the most significant:
 
 
  - :Variable:
-         ->deleteTree
-   :Type:
-         Boolean
-   :Description:
-         Sets whether a page tree branch can be recursively deleted.
-
-         If this is set, then a page is deleted by deleting the whole branch
-         under it (user must have delete permissions to it all). If not set,
-         then the page is deleted *only* if it has no branch.
-
-         Default is false.
-
-
- - :Variable:
          ->copyTree
    :Type:
          Integer
