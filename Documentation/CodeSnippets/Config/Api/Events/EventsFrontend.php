@@ -99,4 +99,10 @@ return [
         'targetFileName' => 'CodeSnippets/Events/Frontend/AfterImageResourceResolvedEvent.rst.txt',
         'withCode' => false,
     ],
+    [
+        'action' => 'createPhpClassDocs',
+        'class' => \TYPO3\CMS\Frontend\ContentObject\Event\ModifyRecordsAfterFetchingContentEvent::class,
+        'targetFileName' => 'CodeSnippets/Events/Frontend/ModifyRecordsAfterFetchingContentEvent.rst.txt',
+        'withCode' => false,
+    ],
 ];
