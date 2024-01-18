@@ -1,4 +1,4 @@
-import Client from '@typo3/backend/storage/client';
+import Client from '@typo3/backend/storage/client.js';
 
 Client.set('common-prefix-a', 'a');
 Client.set('common-prefix-b', 'b');

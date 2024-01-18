@@ -216,7 +216,7 @@ Here is an example code how a usage of the JavaScript Icon API may look like:
 ..  code-block:: js
     :caption: EXT:my_extension/Resources/Public/JavaScript/my-es6-module.js
 
-    import Icons from '@typo3/backend/icons';
+    import Icons from '@typo3/backend/icons.js';
 
     class MyEs6Module {
         constructor() {
