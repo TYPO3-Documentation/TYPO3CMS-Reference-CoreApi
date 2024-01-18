@@ -1,4 +1,4 @@
-import Modal from '@typo3/backend/modal';
+import Modal from '@typo3/backend/modal.js';
 
 Modal.advanced({
   title: 'Hello',
