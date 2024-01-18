@@ -15,7 +15,7 @@ event unbinding.
     When using :js:`import` statements, it is vital that you use the suffix
     :file:`.js` to any import statements, when you are in the scope of `JavaScript/ES6`.
     Only when you create your code in `TypeScript` (using :file:`.ts` suffix), you
-    need to omit the :file:`.js` filename in :js:`import` statements.
+    need to omit the :file:`.js` extension in :js:`import` statements.
     See https://github.com/microsoft/TypeScript/issues/16577 for the reasoning of this.
 
 Event Binding
