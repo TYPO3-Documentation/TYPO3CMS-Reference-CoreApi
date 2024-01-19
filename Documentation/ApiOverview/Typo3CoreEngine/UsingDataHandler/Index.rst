@@ -22,6 +22,7 @@ array you want to pass to the class and call a few methods.
 
 
 .. index:: pair: DataHandler; Symfony
+.. _dataHandler-cli-command
 
 Using the DataHandler in a Symfony command
 ==========================================
@@ -37,6 +38,11 @@ method, you should make sure that this user is initialized like this:
    :caption: EXT:some_extension/Classes/Command/SomeCommand.php
 
    \TYPO3\CMS\Core\Core\Bootstrap::initializeBackendAuthentication();
+
+If you forget to add the backend user authentication, an error similar to this
+will occur:
+
+ [1.2.1]: Attempt to modify table "pages" without permission
 
 
 .. index:: pair: DataHandler; PHP
