@@ -1,0 +1,6 @@
+SomeVendor\SomeExtension\Seo\HrefLangEvent:
+  tags:
+    - name: event.listener
+      identifier: 'ext-someExtension/modify-hreflang'
+      after: 'typo3-seo/hreflangGenerator'
+      event: TYPO3\CMS\Frontend\Event\ModifyHrefLangTagsEvent

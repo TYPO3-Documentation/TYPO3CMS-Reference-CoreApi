@@ -289,7 +289,8 @@ serves as the listener whose :php:`handleEvent()` method is called, once the
 :yaml:`event` is dispatched. The :yaml:`identifier` is a common name, so
 orderings can be built upon the identifier, the optional :yaml:`before` and
 :yaml:`after` attributes allow for custom sorting against the :yaml:`identifier`
-of other listeners.
+of other listeners. If no :yaml:`identifier` is specified, the fully qualified
+class name is automatically used.
 
 If no attribute :yaml:`method` is given, the class is treated as invokable, thus
 its :php:`__invoke()` method will be called:
@@ -300,8 +301,32 @@ its :php:`__invoke()` method will be called:
 
 Read :ref:`how to configure dependency injection in extensions <dependency-injection-in-extensions>`.
 
+Existing event listeners can be overridden by custom implementations. For example,
+:file:`EXT:news/Configuration/Services.yaml` could listen on the event
+:php:`TYPO3\CMS\Frontend\Event\ModifyHrefLangTagsEvent`:
 
+..  literalinclude:: _ServicesOverrideBase.yaml
+    :language: yaml
+    :caption: EXT:my_extension/Configuration/Services.yaml
 
+If you want to replace this event listener with your custom implementation, your extension can
+achieve this by specifying:
+
+..  literalinclude:: _ServicesOverrideCustom.yaml
+    :language: yaml
+    :caption: EXT:my_extension/Configuration/Services.yaml
+
+Make sure that you set the :yaml:`identifier` attribute to exactly the string that the
+original implementation uses. If that attribute is not mentioned specifically in the original
+implementation, the fully qualified name of the :php:`EventListener` class is used. So if
+:yaml:`identifier: 'ext-someExtension/modify-hreflang'` would not be there, the identifier would be set
+to :yaml:`identifier: 'SomeVendor\SomeExtension\Seo\HrefLangEvent'` and you would need to use that
+identifier in your implementation.
+
+Note that overriding listeners requires your extension to declare a dependency on the :php:`EXT:some_extension`
+extension (through :file:`composer.json`, or for non-composer mode :file:`ext_emconf.php`).
+This ensures the loading order allows your extension to be evaluated after the extension you want
+to override.
 
 ..  index:: Event listener; Best practices
 ..  _EventDispatcherBestPractises:
@@ -321,6 +346,8 @@ Best practices
     :ref:`Dependency Injection <DependencyInjection>` to receive the event
     dispatcher object as a constructor argument, where possible, by adding a
     type declaration for :php:`\Psr\EventDispatcher\EventDispatcherInterface`.
+
+*   A unique and descriptive :yaml:`identifier` should be used for event listeners.
 
 Any kind of event provided by TYPO3 Core falls under TYPO3's Core API
 deprecation policy, except for its constructor arguments, which may vary. Events
