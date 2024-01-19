@@ -278,4 +278,10 @@ return [
         'targetFileName' => 'CodeSnippets/Events/Core/ModifyDefaultConstraintsForDatabaseQueryEvent.rst.txt',
         'withCode' => false,
     ],
+    [
+        'action' => 'createPhpClassDocs',
+        'class' => \TYPO3\CMS\Core\Domain\Event\BeforePageIsRetrievedEvent::class,
+        'targetFileName' => 'CodeSnippets/Events/Core/BeforePageIsRetrievedEvent.rst.txt',
+        'withCode' => false,
+    ],
 ];
