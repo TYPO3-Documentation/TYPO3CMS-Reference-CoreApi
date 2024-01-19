@@ -289,7 +289,7 @@ serves as the listener whose :php:`handleEvent()` method is called, once the
 :yaml:`event` is dispatched. The :yaml:`identifier` is a common name, so
 orderings can be built upon the identifier, the optional :yaml:`before` and
 :yaml:`after` attributes allow for custom sorting against the :yaml:`identifier`
-of other listeners. If no :yaml:`identifier` is specified, the fully qualified
+of other listeners. If no :yaml:`identifier` is specified, the fully-qualified
 class name is automatically used.
 
 If no attribute :yaml:`method` is given, the class is treated as invokable, thus
