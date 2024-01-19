@@ -97,6 +97,12 @@ Create a custom command
 See the :ref:`Tutorial: Create a console command <console-command-tutorial>`
 for details on how to create commands.
 
+DataHandler usage
+=================
+Using the :ref:`DataHandler <tce-database-basics>` in a CLI command requires
+backend authentication.
+See :ref:`dataHandler-cli-command` for more information.
+
 Read more
 ==========
 
