@@ -118,7 +118,7 @@ to render an icon in your view:
 ..  code-block:: html
 
     {namespace core = TYPO3\CMS\Core\ViewHelpers}
-    <core:icon identifier="my-icon-identifier" size="small" />
+    <core:icon identifier="tx-myext-svgicon" size="small" />
 
 This will render the desired icon using an :html:`img` tag. If you prefer having
 the SVG inlined into your HTML (for example, for being able to change colors
@@ -130,7 +130,7 @@ its surrounding element if you use this option.
 
     {namespace core = TYPO3\CMS\Core\ViewHelpers}
     <core:icon
-        identifier="my-icon-identifier"
+        identifier="tx-myext-svgicon"
         size="small"
         alternativeMarkupIdentifier="inline"
     />
@@ -223,7 +223,7 @@ Here is an example code how a usage of the JavaScript Icon API may look like:
 ..  code-block:: js
     :caption: EXT:my_extension/Resources/Public/JavaScript/my-es6-module.js
 
-    import Icons from '@typo3/backend/icons';
+    import Icons from '@typo3/backend/icons.js';
 
     class MyEs6Module {
         constructor() {
