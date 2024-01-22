@@ -303,7 +303,7 @@ Read :ref:`how to configure dependency injection in extensions <dependency-injec
 
 Existing event listeners can be overridden by custom implementations. For example,
 :file:`EXT:some_extension/Configuration/Services.yaml` could listen on the event
-:php:`TYPO3\CMS\Frontend\Event\ModifyHrefLangTagsEvent`:
+:php:`\TYPO3\CMS\Frontend\Event\ModifyHrefLangTagsEvent`:
 
 ..  literalinclude:: _ServicesOverrideBase.yaml
     :language: yaml
