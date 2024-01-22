@@ -15,9 +15,9 @@ Frontend page information
 ..  attention::
     The class is currently still marked as experimental. However, extension
     authors are encouraged to use information from this request attribute
-    instead of the :php:`TyposcriptFrontendController` properties already: TYPO3
-    Core v13 will try to not break especially the getters / properties not
-    marked as :php:`@internal`.
+    instead of the :php:`TyposcriptFrontendController` (TSFE) properties
+    already: TYPO3 Core v13 will try to not break especially the getters /
+    properties not marked as :php:`@internal`.
 
 The :php:`frontend.page.information` frontend request attribute provides
 frequently used page information. The attribute is attached to the PSR-7
@@ -38,6 +38,9 @@ of that attribute.
 
     // Formerly $tsfe->rootLine
     $rootLine = $pageInformation->getRootLine();
+
+    // Formerly $tsfe->config['rootLine']
+    $rootLine = $pageInformation->getLocalRootLine();
 
 
 ..  todo: Add API when class is not marked as internal anymore
