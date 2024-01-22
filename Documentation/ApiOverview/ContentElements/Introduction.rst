@@ -55,7 +55,7 @@ plugins are:
   dynamically displayed via the plugin - often in a list view, a single view,
   optionally with pagination and search functionality. An extension may provide
   several plugins, each with a dedicated function, such as the list view.
-* Plugins are ofen used if more complex functionality is required (than in non-
+* Plugins are often used if more complex functionality is required (than in non-
   plugin content elements)
 * Plugins can be created using the Extbase framework or by Core functionality.
 * ``tt_content.CType`` = ``list`` and ``tt_content.list_type`` contains the
