@@ -325,7 +325,7 @@ identifier in your implementation.
 
 Note that overriding listeners requires your extension to declare a dependency on the :php:`EXT:some_extension`
 extension (through :file:`composer.json`, or for non-Composer mode :file:`ext_emconf.php`).
-This ensures the a proper loading order, so your extension is processed after the extension you want
+This ensures a proper loading order, so your extension is processed after the extension you want
 to override.
 
 ..  index:: Event listener; Best practices
