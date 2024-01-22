@@ -3,5 +3,5 @@ MyVendor\MyExtension\EventListener\Seo\HrefLangEvent:
   tags:
     - name: event.listener
       # Use the same identifier of the extension that you override!
-      identifier: 'ext-someExtension/modify-hreflang'
+      identifier: 'ext-some-extension/modify-hreflang'
       event: TYPO3\CMS\Frontend\Event\ModifyHrefLangTagsEvent

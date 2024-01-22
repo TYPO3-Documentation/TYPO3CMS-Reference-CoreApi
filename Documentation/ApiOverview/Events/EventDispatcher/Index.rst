@@ -302,12 +302,12 @@ its :php:`__invoke()` method will be called:
 Read :ref:`how to configure dependency injection in extensions <dependency-injection-in-extensions>`.
 
 Existing event listeners can be overridden by custom implementations. For example,
-:file:`EXT:news/Configuration/Services.yaml` could listen on the event
+:file:`EXT:some_extension/Configuration/Services.yaml` could listen on the event
 :php:`TYPO3\CMS\Frontend\Event\ModifyHrefLangTagsEvent`:
 
 ..  literalinclude:: _ServicesOverrideBase.yaml
     :language: yaml
-    :caption: EXT:my_extension/Configuration/Services.yaml
+    :caption: EXT:some_extension/Configuration/Services.yaml
 
 If you want to replace this event listener with your custom implementation, your extension can
 achieve this by specifying:
@@ -317,15 +317,15 @@ achieve this by specifying:
     :caption: EXT:my_extension/Configuration/Services.yaml
 
 Make sure that you set the :yaml:`identifier` attribute to exactly the string that the
-original implementation uses. If that attribute is not mentioned specifically in the original
-implementation, the fully qualified name of the :php:`EventListener` class is used. So if
-:yaml:`identifier: 'ext-someExtension/modify-hreflang'` would not be there, the identifier would be set
+original implementation uses. If the identifier is not mentioned specifically in the original
+implementation, the fully-qualified name of the event listener class is used. So if
+:yaml:`identifier: 'ext-some-extension/modify-hreflang'` would not be there, the identifier would be set
 to :yaml:`identifier: 'SomeVendor\SomeExtension\Seo\HrefLangEvent'` and you would need to use that
 identifier in your implementation.
 
 Note that overriding listeners requires your extension to declare a dependency on the :php:`EXT:some_extension`
-extension (through :file:`composer.json`, or for non-composer mode :file:`ext_emconf.php`).
-This ensures the loading order allows your extension to be evaluated after the extension you want
+extension (through :file:`composer.json`, or for non-Composer mode :file:`ext_emconf.php`).
+This ensures the a proper loading order, so your extension is processed after the extension you want
 to override.
 
 ..  index:: Event listener; Best practices
