@@ -114,8 +114,8 @@ Read :ref:`why the check for the TYPO3 constant is necessary <globals-constants-
 
 .. index:: Extension development; PageTSconfig
 
-Adding default PageTSconfig
-~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Adding default page TSconfig
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. todo: What about EXT:some_extension/Configuration/page.tsconfig? Starting with v12
 
@@ -141,8 +141,8 @@ Page TSconfig available via static files can be added inside
 
 .. index:: Extension development; UserTSconfig
 
-Adding default UserTSconfig
-~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Adding default user TSconfig
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 As for default page TSconfig, user TSconfig can be added inside
 :file:`ext_localconf.php`, see:
