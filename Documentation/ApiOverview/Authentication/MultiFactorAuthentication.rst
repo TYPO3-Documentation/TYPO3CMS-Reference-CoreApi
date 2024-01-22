@@ -124,7 +124,7 @@ All TYPO3 core providers also feature the "Last used" and "Last updated" informa
 which can be retrieved in the "Edit/Change" view.
 
 By default, the new field in the :guilabel:`User Settings` module is displayed for
-every backend user. It is possible to disable it for specific users via userTSconfig:
+every backend user. It is possible to disable it for specific users via user TSconfig:
 
 .. code-block:: typoscript
 
@@ -174,7 +174,7 @@ allows 4 options:
 * `3`: Require multi-factor authentication only for admin users
 
 To set this requirement only for a specific user or user group, a new
-userTSconfig option `auth.mfa.required` is introduced. The userTSconfig
+user TSconfig option `auth.mfa.required` is introduced. The user TSconfig
 option overrules the global configuration.
 
 .. code-block:: typoscript
@@ -199,10 +199,10 @@ available in the user groups record in the "Access List" tab.
 
 There may be use cases in which a single provider should be
 disallowed for a specific user, which is configured to be allowed in
-one of the assigned user groups. Therefore, the userTSconfig option
+one of the assigned user groups. Therefore, the user TSconfig option
 `auth.mfa.disableProviders` can be used. It overrules the configuration
 from the "Access List", which means if a provider is allowed in "Access List"
-but disallowed via userTSconfig, it will be disallowed for the user or user
+but disallowed via user TSconfig, it will be disallowed for the user or user
 group the TSconfig applies to.
 
 This does not affect the remaining allowed providers from the "Access List".
@@ -218,7 +218,7 @@ To recommend a specific provider, :php:`$GLOBALS['TYPO3_CONF_VARS']['BE']['recom
 can be used and is set to `totp` (Time-based one-time password) by default.
 
 To set a recommended provider on a per user or user group basis, the new
-userTSconfig option `auth.mfa.recommendedProvider` can be used, which overrules
+user TSconfig option `auth.mfa.recommendedProvider` can be used, which overrules
 the global configuration.
 
 .. code-block:: typoscript
