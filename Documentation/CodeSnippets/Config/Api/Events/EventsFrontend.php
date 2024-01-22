@@ -105,4 +105,34 @@ return [
         'targetFileName' => 'CodeSnippets/Events/Frontend/ModifyRecordsAfterFetchingContentEvent.rst.txt',
         'withCode' => false,
     ],
+    [
+        'action' => 'createPhpClassDocs',
+        'class' => \TYPO3\CMS\Frontend\ContentObject\Event\EnhanceStdWrapEvent::class,
+        'targetFileName' => 'CodeSnippets/Events/Frontend/EnhanceStdWrapEvent.rst.txt',
+        'withCode' => false,
+    ],
+    [
+        'action' => 'createPhpClassDocs',
+        'class' => \TYPO3\CMS\Frontend\ContentObject\Event\BeforeStdWrapFunctionsInitializedEvent::class,
+        'targetFileName' => 'CodeSnippets/Events/Frontend/BeforeStdWrapFunctionsInitializedEvent.rst.txt',
+        'withCode' => false,
+    ],
+    [
+        'action' => 'createPhpClassDocs',
+        'class' => \TYPO3\CMS\Frontend\ContentObject\Event\AfterStdWrapFunctionsInitializedEvent::class,
+        'targetFileName' => 'CodeSnippets/Events/Frontend/AfterStdWrapFunctionsInitializedEvent.rst.txt',
+        'withCode' => false,
+    ],
+    [
+        'action' => 'createPhpClassDocs',
+        'class' => \TYPO3\CMS\Frontend\ContentObject\Event\BeforeStdWrapFunctionsExecutedEvent::class,
+        'targetFileName' => 'CodeSnippets/Events/Frontend/BeforeStdWrapFunctionsExecutedEvent.rst.txt',
+        'withCode' => false,
+    ],
+    [
+        'action' => 'createPhpClassDocs',
+        'class' => \TYPO3\CMS\Frontend\ContentObject\Event\AfterStdWrapFunctionsExecutedEvent::class,
+        'targetFileName' => 'CodeSnippets/Events/Frontend/AfterStdWrapFunctionsExecutedEvent.rst.txt',
+        'withCode' => false,
+    ],
 ];
