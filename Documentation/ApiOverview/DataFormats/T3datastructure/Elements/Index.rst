@@ -132,6 +132,11 @@ must be arrays.)
    :Child elements:
          <[field name]>
 
+Elements can use the attribute type to define their type, e.g. explicitly use boolean.
+An example would look like:
+
+.. code-block: xml
+   <required type="boolean">1<required>
 
 .. _t3ds-elements-value:
 
