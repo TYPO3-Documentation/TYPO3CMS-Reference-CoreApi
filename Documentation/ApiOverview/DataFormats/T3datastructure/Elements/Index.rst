@@ -136,7 +136,7 @@ Elements can use the attribute type to define their type, e.g. explicitly use bo
 An example would look like:
 
 .. code-block: xml
-   <required type="boolean">1<required>
+   <required type="boolean">1</required>
 
 .. _t3ds-elements-value:
 
