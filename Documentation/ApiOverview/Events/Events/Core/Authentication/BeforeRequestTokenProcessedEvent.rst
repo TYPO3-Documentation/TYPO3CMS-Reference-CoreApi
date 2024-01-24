@@ -21,7 +21,7 @@ to submit a request token:
 
 ..  literalinclude:: _BeforeRequestTokenProcessedEvent/_MyEventListener.php
     :language: php
-    :caption: EXT:my_extension/Authentication/EventListener/MyEventListener.php
+    :caption: EXT:my_extension/Classes/Authentication/EventListener/MyEventListener.php
 
 ..  include:: /_includes/EventsAttributeAdded.rst.txt
 
