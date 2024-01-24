@@ -147,3 +147,9 @@ First the :php:`SeoTitlePageTitleProvider` (because it will be handled before
 You can override these settings within your own installation. You can add as
 many providers as you want. Be aware that if a provider returns a non-empty
 value, all provider with a lower priority will not be checked.
+
+
+See also
+========
+The page title is further influenced by :ref:`t3tsref:setup-config-pagetitle`
+and :ref:`sitehandling-basics-websiteTitle`.
