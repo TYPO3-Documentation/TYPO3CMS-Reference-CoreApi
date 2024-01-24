@@ -31,7 +31,7 @@ An implementation of the event listener:
 
 ..  literalinclude:: _BeforeRequestTokenProcessedEvent/_MyEventListener.php
     :language: php
-    :caption: EXT:my_extension/Authentication/EventListener/MyEventListener.php
+    :caption: EXT:my_extension/Classes/Authentication/EventListener/MyEventListener.php
 
 API
 ===

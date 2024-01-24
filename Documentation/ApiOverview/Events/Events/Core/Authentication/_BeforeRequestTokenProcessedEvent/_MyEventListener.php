@@ -21,7 +21,7 @@ final class MyEventListener
         // Validate individual requirements/checks
         // ...
         $event->setRequestToken(
-            RequestToken::create('core/user-auth/' . $user->loginType)
+            RequestToken::create('core/user-auth/' . strtolower($user->loginType))
         );
     }
 }
