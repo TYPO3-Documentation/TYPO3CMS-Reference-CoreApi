@@ -30,6 +30,11 @@ set by a provider, this provider will return the title of the page.
 Besides the providers shipped by the Core, you can add own providers. An
 integrator can define the priority of the providers for his project.
 
+.. seealso::
+
+   The page title is further influenced by :ref:`t3tsref:setup-config-pagetitle`
+   and :ref:`sitehandling-basics-websiteTitle`.
+
 ..  contents:: Table of contents
     :local:
 
