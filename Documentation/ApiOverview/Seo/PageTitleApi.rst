@@ -30,6 +30,11 @@ set by a provider, this provider will return the title of the page.
 Besides the providers shipped by the Core, you can add own providers. An
 integrator can define the priority of the providers for his project.
 
+.. seealso::
+
+   The page title is further influenced by :ref:`t3tsref:setup-config-pagetitle`
+   and :ref:`sitehandling-basics-websiteTitle`.
+
 ..  contents:: Table of contents
     :local:
 
@@ -147,9 +152,3 @@ First the :php:`SeoTitlePageTitleProvider` (because it will be handled before
 You can override these settings within your own installation. You can add as
 many providers as you want. Be aware that if a provider returns a non-empty
 value, all provider with a lower priority will not be checked.
-
-
-See also
-========
-The page title is further influenced by :ref:`t3tsref:setup-config-pagetitle`
-and :ref:`sitehandling-basics-websiteTitle`.
