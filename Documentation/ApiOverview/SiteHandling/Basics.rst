@@ -104,6 +104,8 @@ Root pages are identified by one of these two properties:
         same root page ID is used multiple times.
 
 
+.. _sitehandling-basics-websiteTitle:
+
 websiteTitle
 ------------
 
