@@ -30,3 +30,5 @@ Example:
      * @var \TYPO3\CMS\Frontend\ContentObject\ContentObjectRenderer $currentContentObject
      */
     $currentContentObject = $request->getAttribute('currentContentObject');
+    // ID of current tt_content record
+    $uid = $currentContentObject->data['uid'];
