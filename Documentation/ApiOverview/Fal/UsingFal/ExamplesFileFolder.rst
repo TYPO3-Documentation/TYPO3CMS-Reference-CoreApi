@@ -200,6 +200,11 @@ table:
 where :php:`$uid` is the ID of some page. The return value is an array
 of :php:`\TYPO3\CMS\Core\Resource\FileReference` objects.
 
+.. seealso::
+
+   See :ref:`typo3-request-attribute-current-content-object` about fetching
+   the UID of the current `tt_content` object.
+
 
 ..  _fal-using-fal-examples-file-folder-list-files:
 
