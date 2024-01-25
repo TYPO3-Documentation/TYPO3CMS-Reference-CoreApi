@@ -129,8 +129,9 @@ must be arrays.)
 Elements can use the attribute type to define their type, for example explicitly use boolean.
 An example would look like:
 
-.. code-block: xml
-   <required type="boolean">1</required>
+..  code-block: xml
+
+    <required type="boolean">1</required>
 
 .. _t3ds-elements-value:
 
