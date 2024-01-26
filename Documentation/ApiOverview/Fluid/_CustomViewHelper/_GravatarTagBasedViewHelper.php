@@ -14,7 +14,7 @@ final class GravatarViewHelper extends AbstractTagBasedViewHelper
     {
         parent::initializeArguments();
         $this->registerUniversalTagAttributes();
-        $this->registerTagAttribute('alt', 'string', 'Alternative Text for the image');
+        $this->registerTagAttribute('alt', 'string', 'Alternative text for the image');
         $this->registerArgument('emailAddress', 'string', 'The email address to resolve the gravatar for', true);
     }
 
