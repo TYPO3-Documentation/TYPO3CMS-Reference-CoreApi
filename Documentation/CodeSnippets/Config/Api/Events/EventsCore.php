@@ -296,4 +296,10 @@ return [
         'targetFileName' => 'CodeSnippets/Events/Core/LinkHandling/AfterTypoLinkDecodedEvent.rst.txt',
         'withCode' => false,
     ],
+    [
+        'action' => 'createPhpClassDocs',
+        'class' => \TYPO3\CMS\Core\LinkHandling\Event\AfterLinkResolvedByStringRepresentationEvent::class,
+        'targetFileName' => 'CodeSnippets/Events/Core/LinkHandling/AfterLinkResolvedByStringRepresentationEvent.rst.txt',
+        'withCode' => false,
+    ],
 ];
