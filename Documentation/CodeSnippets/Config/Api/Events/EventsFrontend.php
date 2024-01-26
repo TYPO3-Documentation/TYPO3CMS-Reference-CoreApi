@@ -135,4 +135,10 @@ return [
         'targetFileName' => 'CodeSnippets/Events/Frontend/AfterStdWrapFunctionsExecutedEvent.rst.txt',
         'withCode' => false,
     ],
+    [
+        'action' => 'createPhpClassDocs',
+        'class' => \TYPO3\CMS\Frontend\ContentObject\Event\BeforeStdWrapContentStoredInCacheEvent::class,
+        'targetFileName' => 'CodeSnippets/Events/Frontend/BeforeStdWrapContentStoredInCacheEvent.rst.txt',
+        'withCode' => false,
+    ],
 ];
