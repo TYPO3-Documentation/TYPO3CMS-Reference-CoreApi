@@ -16,7 +16,9 @@ emptied.
 
 ..  versionchanged:: 13.0
     The event is being dispatched after the standard functionality has been
-    executed, such as fetching the URL from the page properties.
+    executed, such as fetching the URL from the page properties. Effectively,
+    this also means that :php:`getUrl()` might already return a non-empty
+    string.
 
 ..  note::
     ..  versionadded:: 13.0
