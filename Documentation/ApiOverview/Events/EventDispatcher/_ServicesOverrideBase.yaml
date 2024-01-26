@@ -1,4 +1,4 @@
-SomeVendor\SomeExtension\Seo\HrefLangEvent:
+SomeVendor\SomeExtension\Seo\HrefLangEventListener:
   tags:
     - name: event.listener
       identifier: 'ext-some-extension/modify-hreflang'

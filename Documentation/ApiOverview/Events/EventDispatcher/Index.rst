@@ -157,9 +157,10 @@ of the event to be listened on. It is the task of the listener provider to
 provide configuration mechanisms to represent this relationship.
 
 If multiple event listeners for a specific event are registered, their order can
-be configured or an event listener can also be overridden with a different one.
+be configured or an existing event listener can also be overridden with a different one.
 
-The TYPO3 `Configuration` backend module reveals an easy overview of all registered
+The :guilabel:`System > Configuration > Event Listeners (PSR-14)` backend module (requires
+the system extension :doc:`lowlevel <ext_lowlevel:Index>`) reveals an easy overview of all registered
 event listeners, see :ref:`EventDebugging`.
 
 
@@ -276,15 +277,13 @@ be written as:
     File; EXT:{extkey}/Configuration/Services.yaml
 ..  _EventDispatcherRegistration:
 
-Registering the event listener via :file:`Services.yaml` (legacy)
+Registering the event listener via :file:`Services.yaml`
 -----------------------------------------------------------------
 
 ..  versionadded:: 13.0
     If using the PHP attribute :php:`\TYPO3\CMS\Core\Attribute\AsEventListener`
     to configure an event listener, the registration in the
     :file:`Configuration/Services.yaml` file is not necessary anymore.
-    However, extensions also supporting TYPO3 v12 may still
-    make use of it.
 
 If an extension author wants to provide a custom event listener, an according
 entry with the tag :yaml:`event.listener` can be added to the
@@ -337,7 +336,7 @@ For example, if a third-party extension listens on the event
     :language: php
     :caption: EXT:some_extension/Classes/EventListener/SeoEvent.php
 
-or via :file:`Services.yaml` legacy declaration:
+or via :file:`Services.yaml` declaration:
 
 ..  literalinclude:: _ServicesOverrideBase.yaml
     :language: yaml
@@ -350,20 +349,28 @@ achieve this by specifying:
     :language: yaml
     :caption: EXT:my_extension/Configuration/Classes/EventListener/MySeoEvent.php
 
-or via :file:`Services.yaml` legacy declaration:
+or via :file:`Services.yaml` declaration:
 
 ..  literalinclude:: _ServicesOverrideCustom.yaml
     :language: yaml
     :caption: EXT:my_extension/Configuration/Services.yaml
 
+..  note::
+
+    When overriding an event listener, be sure to check whatever the
+    listener provided as changes to an event. Your own event listener
+    implementation is now responsible for any functionality, because
+    the original listener will no longer be executed.
+
 Make sure that you set the `identifier` property (either in YAML or the PHP attribute) to exactly
 the string that the original implementation uses. If the identifier is not mentioned specifically
 in the original implementation, the service name (usually the fully-qualified name of the event
-listener class) is used. You can inspect that identifier in the `Configuration` backend module, see
-:ref:`EventDebugging`. In this example, if :yaml:`identifier: 'ext-some-extension/modify-hreflang'`
-would not be there, the identifier will be set to
-:yaml:`identifier: 'SomeVendor\SomeExtension\Seo\HrefLangEvent'` and you could use that
-identifier in your implementation.
+listener class) is used. You can inspect that identifier in the
+:guilabel:`System > Configuration > Event Listeners (PSR-14)` backend module (requires the system extension
+:doc:`lowlevel <ext_lowlevel:Index>`), see :ref:`EventDebugging`. In this example,
+if :yaml:`identifier: 'ext-some-extension/modify-hreflang'` would not be there, the identifier
+will be set to :yaml:`identifier: 'SomeVendor\SomeExtension\Seo\HrefLangEventListener'` and you could
+use that identifier in your implementation.
 
 ..  note::
 
@@ -384,8 +391,12 @@ Best practices
 
 *   When creating a new event PHP class, it is recommended to add an
     :php:`Event` suffix to the PHP class, and to move it into an appropriate
-    folder like :php:`Classes/EventListener` to easily discover events provided by a
+    folder like :file:`Classes/Event` to easily discover events provided by a
     package. Be careful about the context that should be exposed.
+
+*   The same applies to creating a new event listener PHP class: Add
+    an :php:`EventListener` suffix to the PHP class, and move it to a folder
+    :file:`Classes/EventListener`.
 
 *   Emitters (TYPO3 Core or extension authors) should always use
     :ref:`Dependency Injection <DependencyInjection>` to receive the event
