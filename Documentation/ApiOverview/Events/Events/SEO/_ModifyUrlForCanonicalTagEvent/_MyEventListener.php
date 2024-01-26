@@ -16,13 +16,8 @@ final class MyEventListener
     public function __invoke(ModifyUrlForCanonicalTagEvent $event): void
     {
         // Note: $event->getUrl() is dispatched with the empty string value ''
-        $currentUrl = $this->getRequest()->getUri();
+        $currentUrl = $event->getRequest()->getUri();
         $newCanonical = $currentUrl->withHost('example.com');
         $event->setUrl((string)$newCanonical);
-    }
-
-    private function getRequest(): ServerRequestInterface
-    {
-        return $GLOBALS['TYPO3_REQUEST'];
     }
 }
