@@ -21,11 +21,11 @@ emptied.
     string.
 
 ..  note::
-    ..  versionadded:: 13.0
-    The event is even dispatched, in case the canonical tag generation is
+    ..  versionchanged:: 13.0
+    The event is even dispatched in case the canonical tag generation is
     disabled via TypoScript
-    :ref:`disableCanonical <t3tsref:setup-config-disableCanonical>` or via
-    the page property :php:`no_index`. If disabled, the
+    (:ref:`disableCanonical <t3tsref:setup-config-disableCanonical>`) or via
+    the page property :sql:`no_index`. If disabled, the
     :php:`\TYPO3\CMS\Seo\Exception\CanonicalGenerationDisabledException` is
     thrown. The exception is caught and transferred to the event, allowing
     listeners to determine whether the generation is disabled, using the

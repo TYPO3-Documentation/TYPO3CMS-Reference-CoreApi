@@ -19,8 +19,8 @@ final class MyEventListener
             return;
         }
 
-        // Only set the canonical when the tag is not disabled via TypoScript
-        // or via "no_index" in the page properties.
+        // Only set the canonical in our example when the tag is not disabled
+        // via TypoScript or via "no_index" in the page properties.
         $currentUrl = $event->getRequest()->getUri();
         $newCanonical = $currentUrl->withHost('example.com');
         $event->setUrl((string)$newCanonical);
