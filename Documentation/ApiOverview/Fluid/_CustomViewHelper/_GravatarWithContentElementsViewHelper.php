@@ -26,6 +26,6 @@ final class GravatarViewHelper extends AbstractViewHelper
     ): string {
         $emailAddress = $renderChildrenClosure();
 
-        return sprintf('<img src="http://www.gravatar.com/avatar/%s" />', md5($emailAddress));
+        return sprintf('<img src="https://www.gravatar.com/avatar/%s" />', md5($emailAddress));
     }
 }
