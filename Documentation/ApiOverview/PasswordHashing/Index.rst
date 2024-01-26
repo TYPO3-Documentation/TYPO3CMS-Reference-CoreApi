@@ -258,7 +258,7 @@ blowfish
 
 TYPO3's salted password hash implementation based on `blowfish`_ and PHP`s crypt() function. 
 It has been integrated very early to TYPO3 but should no longer be used. It is only included for instances
-that still need to upgrades long time not seen users to better mechanisms. Options:
+that still need to upgrade outdated password hashes to better algorithms. Options:
 
 * hash_count: The default log2 number of iterations for password stretching. Defaults to 7.
 
