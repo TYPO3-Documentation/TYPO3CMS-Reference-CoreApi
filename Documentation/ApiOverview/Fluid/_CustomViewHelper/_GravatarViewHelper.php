@@ -26,6 +26,6 @@ final class GravatarViewHelper extends AbstractViewHelper
         RenderingContextInterface $renderingContext
     ): string {
         // this is improved with the TagBasedViewHelper (see below)
-        return sprintf('<img src="http://www.gravatar.com/avatar/%s" />', md5($arguments['emailAddress']));
+        return sprintf('<img src="https://www.gravatar.com/avatar/%s" />', md5($arguments['emailAddress']));
     }
 }
