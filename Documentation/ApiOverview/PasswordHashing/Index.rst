@@ -305,6 +305,8 @@ Example implementation for TYPO3 frontend:
 .. code-block:: php
    :caption: EXT:some_extension/Classes/Controller/SomeController.php
 
+   use TYPO3\CMS\Core\Crypto\PasswordHashing\PasswordHashFactory;
+   ...
    // Given plain-text password
    $password = 'someHopefullyGoodAndLongPassword';
    // The stored password hash from database
