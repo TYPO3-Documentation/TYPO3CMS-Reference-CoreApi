@@ -10,7 +10,7 @@ Caching
     :local:
 
 Caching in TYPO3
-----------------
+================
 
 TYPO3 uses multiple caching strategies to ensure fast content delivery.
 Depending on the content a page contains, TYPO3 chooses the best caching
@@ -51,7 +51,7 @@ renders all dynamic parts.
 ..  _chash:
 
 Caching variants - or: What is a "cache hash"?
-----------------------------------------------
+==============================================
 
 TYPO3 ideally delivers fully cached pages for maximum performance. However, in
 scenarios where the same page will deliver different content depending on URL
@@ -145,7 +145,7 @@ These indicators can be used for all previously existing sub-properties
 and :php:`requireCacheHashPresenceParameters`.
 
 Example (excerpt of `config/system/additional.php`)
----------------------------------------------------
+===================================================
 
 ..  code-block:: php
     :caption: config/system/additional.php | typo3conf/system/additional.php
@@ -186,7 +186,7 @@ partial matches allow to simplify the configuration and consider all items havin
     ],
 
 Clearing/flushing and warming up caches
----------------------------------------
+=======================================
 
 TYPO3 provides different possibilities to clear all or specific caches.
 Depending on the context, you might want to
@@ -214,7 +214,7 @@ using this cache clearing option will clear all caches including compiled code
 like the dependency injection container.
 
 Clear cache command
-~~~~~~~~~~~~~~~~~~~
+-------------------
 
 In addition to the GUI options explained above, caches can also be cleared
 via a :ref:`CLI command <symfony-console-commands>`:
@@ -237,7 +237,7 @@ but usually the cache flush via cache manager groups will suffice to clear those
 caches, too.
 
 Cache warmup
-~~~~~~~~~~~~
+------------
 
 It is possible to warmup TYPO3 caches using the command line.
 
@@ -265,7 +265,7 @@ via :ref:`CacheWarmupEvent`.
     :ref:`CacheWarmupEvent`.
 
 Use case: deployment
-~~~~~~~~~~~~~~~~~~~~
+--------------------
 
 It is often required to clear caches during deployment of TYPO3 instance.
 The integrator may decide to flush all caches or may alternatively flush
@@ -321,7 +321,7 @@ per release. In other words, share :file:`var/session/`, :file:`var/log/`,
 
 
 Caching framework
------------------
+=================
 
 TYPO3 contains a data caching framework which supports a wide variety of storage
 solutions and options for different caching needs. Each cache can be configured
