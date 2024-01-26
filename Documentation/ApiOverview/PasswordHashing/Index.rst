@@ -144,7 +144,8 @@ hashes upgraded to better algorithms. This is an issue that can't be solved on t
 upgrading the password hash always requires the plain text password submitted by the user. However, it is a
 good idea to clean up dead users from the database anyway. Site administrators should establish processes to
 comply with the idea of data minimisation of person related data (GDPR). TYPO3 helps here for instance with the
-"Table garbage collection" task of the scheduler extension.
+"Table garbage collection" task of the scheduler extension.  
+See :ref:`Scheduler: Garbage Collection <ext_scheduler:table-garbage-collection-task>`   
 
 To verify and select which specific hash algorithm is currently configured for frontend and backend users, a
 preset of the settings module is available. It can be found in
