@@ -132,7 +132,7 @@ must be arrays.)
    :Child elements:
          <[field name]>
 
-Elements can use the attribute type to define their type, for example explicitly use boolean.
+Elements can use the attribute :xml:`type` to define their type, for example explicitly use boolean.
 An example would look like:
 
 ..  code-block: xml
