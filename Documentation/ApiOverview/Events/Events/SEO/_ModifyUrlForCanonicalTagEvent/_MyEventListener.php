@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace MyVendor\MyExtension\Seo\EventListener;
 
-use Psr\Http\Message\ServerRequestInterface;
 use TYPO3\CMS\Core\Attribute\AsEventListener;
 use TYPO3\CMS\Seo\Event\ModifyUrlForCanonicalTagEvent;
 
