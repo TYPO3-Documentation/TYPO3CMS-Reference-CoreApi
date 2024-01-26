@@ -284,4 +284,16 @@ return [
         'targetFileName' => 'CodeSnippets/Events/Core/BeforePageIsRetrievedEvent.rst.txt',
         'withCode' => false,
     ],
+    [
+        'action' => 'createPhpClassDocs',
+        'class' => \TYPO3\CMS\Core\LinkHandling\Event\BeforeTypoLinkEncodedEvent::class,
+        'targetFileName' => 'CodeSnippets/Events/Core/LinkHandling/BeforeTypoLinkEncodedEvent.rst.txt',
+        'withCode' => false,
+    ],
+    [
+        'action' => 'createPhpClassDocs',
+        'class' => \TYPO3\CMS\Core\LinkHandling\Event\AfterTypoLinkDecodedEvent::class,
+        'targetFileName' => 'CodeSnippets/Events/Core/LinkHandling/AfterTypoLinkDecodedEvent.rst.txt',
+        'withCode' => false,
+    ],
 ];
