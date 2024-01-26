@@ -7,7 +7,7 @@ Caching
 =======
 
 Caching in TYPO3
-----------------
+================
 
 TYPO3 uses multiple caching strategies to ensure fast content delivery. Depending
 on the content a page contains, TYPO3 chooses the best caching strategy for that use case.
@@ -46,8 +46,8 @@ dynamic parts.
 
 .. _chash:
 
-Caching Variants - or: What is a "cache hash"?
-----------------------------------------------
+Caching variants - or: What is a "cache hash"?
+==============================================
 
 TYPO3 ideally delivers fully cached pages for maximum performance. However, in scenarios where
 the same page will deliver different content depending on URL parameters, TYPO3 needs a possibility
@@ -126,7 +126,7 @@ These indicators can be used for all previously existing sub-properties
 and :php:`requireCacheHashPresenceParameters`.
 
 Example (excerpt of `AdditionalConfiguration.php`)
---------------------------------------------------
+==================================================
 
 .. code-block:: php
    :caption: typo3conf/AdditionalConfiguration.php
@@ -167,8 +167,8 @@ partial matches allow to simplify the configuration and consider all items havin
       ...
    ],
 
-Clearing/Flushing and warming up caches
----------------------------------------
+Clearing/flushing and warming up caches
+=======================================
 
 TYPO3 provides different possibilities to clear all or specific caches.
 Depending on the context, you might want to
@@ -193,8 +193,8 @@ new classes have been added to the system or in case of problems with the system
 using this cache clearing option will clear all caches including compiled code
 like the dependency injection container.
 
-Clear Cache Command
-^^^^^^^^^^^^^^^^^^^^
+Clear cache command
+-------------------
 
 In addition to the GUI options explained above, caches can also be cleared
 via a CLI command:
@@ -218,8 +218,8 @@ Extensions that register custom caches may listen to the
 via :php:`TYPO3\CMS\Core\Cache\Event\CacheFlushEvent`, but usually the
 cache flush via CacheManager groups will suffice to clear those caches, too.
 
-Cache Warmup
-^^^^^^^^^^^^
+Cache warmup
+------------
 
 It is possible to warmup TYPO3 caches using the command line.
 
@@ -249,7 +249,7 @@ via :php:`TYPO3\CMS\Core\Cache\Event\CacheWarmupEvent`.
    :php:`TYPO3\CMS\Core\Cache\Event\CacheWarmupEvent`.
 
 Use Case - Deployment
-^^^^^^^^^^^^^^^^^^^^^
+---------------------
 
 It is often required to clear caches during deployment of TYPO3 instance.
 The integrator may decide to flush all caches or may alternatively flush selected groups
@@ -298,9 +298,8 @@ per release. In other words, share :file:`var/session`, :file:`var/log`,
 :file:`var/cache` be associated only with one release.
 
 
-
-Caching Framework
------------------
+Caching framework
+=================
 
 Since TYPO3 v4.3, the Core contains a data caching framework
 which supports a wide variety of storage solutions and options
