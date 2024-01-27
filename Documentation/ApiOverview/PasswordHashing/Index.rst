@@ -96,7 +96,7 @@ is pretty straight forward and helps you to compare passwords with their stored 
 extensions.
 
 One last point on this basic hash knowledge section: Password hashes are always only as secure as
-the user password: If a user has a trivial password like "foo", an attacker who has gotten hold
+the chosen password: If a user has a trivial password like "foo", an attacker who has gotten hold
 of the salted password hash will always be successful to crack the hash with a common password hash
 crack tool, no matter how expensive the calculation is. Good password hashing does **not** rescue
 users from short or simple passwords that can be found in a dictionary. It is usually a
