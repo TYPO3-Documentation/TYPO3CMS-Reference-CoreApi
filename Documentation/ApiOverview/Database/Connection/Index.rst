@@ -366,8 +366,12 @@ Remarks:
 lastInsertId()
 ==============
 
+..  versionchanged:: 13.0
+    The method no longer accepts the table name as first argument and the
+    name of the auto-increment field as second argument.
+
 This method returns the :sql:`uid` of the last :ref:`insert()
-<database-connection-insert>` statement. This is useful if the id is to be used
+<database-connection-insert>` statement. This is useful if the ID is to be used
 directly afterwards:
 
 ..  literalinclude:: _MyTableRepository_lastinsertId.php
@@ -379,13 +383,9 @@ with the connection pool.
 
 Remarks:
 
-*   :php:`->lastInsertId($tableName)` takes the table name as first argument.
-    Although it is optional, you should always specify the table name for
-    Doctrine DBAL compatibility with engines like PostgreSQL.
-
-*   If the name of the auto increment field is not :sql:`uid`, the second
-    argument must be specified with the name of that field. For simple TYPO3
-    tables, :sql:`uid` is fine and the argument can be omitted.
+*   The last inserted ID needs to be retrieved directly before inserting a
+    record to another table. That should be the usual workflow used in the wild
+    - but be aware of this.
 
 
 .. _database-connection-create-query-builder:
