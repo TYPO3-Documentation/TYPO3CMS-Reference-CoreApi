@@ -4,16 +4,16 @@
 .. code-block:: php
    :caption: Class TTN\\Tea\\Domain\\Model\\Product\\Tea
 
-   use TYPO3\CMS\Extbase\Annotation\ORM\Lazy;
+   use TYPO3\CMS\Extbase\Annotation as Extbase;
    use TYPO3\CMS\Extbase\Domain\Model\FileReference;
    use TYPO3\CMS\Extbase\Persistence\Generic\LazyLoadingProxy;
 
    class Tea extends AbstractEntity
    {
        /**
-        * @phpstan-var \TYPO3\CMS\Extbase\Domain\Model\FileReference|LazyLoadingProxy|null
-        * @var \TYPO3\CMS\Extbase\Domain\Model\FileReference|null
-        * @Lazy
+        * @var FileReference|null
+        * @phpstan-var FileReference|LazyLoadingProxy|null
+        * @Extbase\ORM\Lazy
         */
        protected $image;
 
