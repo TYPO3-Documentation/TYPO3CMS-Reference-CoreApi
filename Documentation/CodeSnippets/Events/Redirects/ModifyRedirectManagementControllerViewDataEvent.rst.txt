@@ -67,3 +67,11 @@
    .. php:method:: setView(TYPO3\\CMS\\Core\\View\\ViewInterface $view)
 
       :param TYPO3\\CMS\\Core\\View\\ViewInterface $view: the view
+
+   .. php:method:: getIntegrityStatusCodes()
+
+      :returntype: array
+
+   .. php:method:: setIntegrityStatusCodes(array $integrityStatusCodes)
+
+      :param array $integrityStatusCodes: the integrityStatusCodes
