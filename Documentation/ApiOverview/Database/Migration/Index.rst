@@ -27,6 +27,8 @@ layer. In :php:`$GLOBALS['TYPO3_DB']`, the final query statement is usually retr
 .. code-block:: php
    :caption: EXT:some_extension/Classes/SomeClass.php
 
+   // use TYPO3\CMS\Core\Database\Connection;
+
    // Initial code:
    $res = $GLOBALS['TYPO3_DB']->exec_SELECTquery('*', 'index_fulltext', 'phash=' . (int)$phash);
 
@@ -40,7 +42,7 @@ layer. In :php:`$GLOBALS['TYPO3_DB']`, the final query statement is usually retr
    $queryBuilder->select('*')
    ->from('index_fulltext')
    ->where(
-      $queryBuilder->expr()->eq('phash', $queryBuilder->createNamedParameter($phash, \PDO::PARAM_INT))
+      $queryBuilder->expr()->eq('phash', $queryBuilder->createNamedParameter($phash, Connection::PARAM_INT))
    );
    debug($queryBuilder->getSQL());
 
@@ -154,6 +156,8 @@ calls as the `DefaultRestrictionContainer`. No further configuration needed:
 .. code-block:: php
    :caption: EXT:some_extension/Classes/SomeClass.php
 
+   // use TYPO3\CMS\Core\Database\Connection;
+
    // Before:
    $GLOBALS['TYPO3_DB']->exec_SELECTquery(
       '*', $table,
@@ -170,7 +174,7 @@ calls as the `DefaultRestrictionContainer`. No further configuration needed:
    $queryBuilder->select('*')
       ->from($table)
       ->where(
-         $queryBuilder->expr()->eq('pid', $queryBuilder->createNamedParameter($pid, \PDO::PARAM_INT))
+         $queryBuilder->expr()->eq('pid', $queryBuilder->createNamedParameter($pid, Connection::PARAM_INT))
       )
    );
 
