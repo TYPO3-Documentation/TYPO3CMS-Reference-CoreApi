@@ -23,6 +23,9 @@ view. With :ref:`overriding the backend view template <t3tsconfig:pagetemplates>
 via :ref:`page TSconfig <t3tsconfig:pagetsconfig>` this custom data can be
 displayed where it is needed and rendered the way it is wanted.
 
+..  versionadded:: 13.0
+    The methods :php:`getIntegrityStatusCodes()` and
+    :php:`setIntegrityStatusCodes()` have been added to the event class.
 
 Example
 =======

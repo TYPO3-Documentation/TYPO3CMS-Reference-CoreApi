@@ -10,60 +10,102 @@
 
    .. php:method:: getDemand()
 
+      Return the demand object used to retrieve the redirects.
+
       :returntype: TYPO3\\CMS\\Redirects\\Repository\\Demand
 
    .. php:method:: setDemand(TYPO3\\CMS\\Redirects\\Repository\\Demand $demand)
+
+      Can be used to set the demand object.
 
       :param TYPO3\\CMS\\Redirects\\Repository\\Demand $demand: the demand
 
    .. php:method:: getRedirects()
 
+      Return the retrieved redirects.
+
       :returntype: array
 
    .. php:method:: setRedirects(array $redirects)
+
+      Can be used to set the redirects, for example, after enriching redirect fields.
 
       :param array $redirects: the redirects
 
    .. php:method:: getRequest()
 
+      Return the current PSR-7 request.
+
       :returntype: Psr\\Http\\Message\\ServerRequestInterface
 
    .. php:method:: getHosts()
+
+      Returns the hosts to be used for the host filter select box.
 
       :returntype: array
 
    .. php:method:: setHosts(array $hosts)
 
+      Can be used to update which hosts are available in the filter select box.
+
       :param array $hosts: the hosts
 
    .. php:method:: getStatusCodes()
+
+      Returns the status codes for the filter select box.
 
       :returntype: array
 
    .. php:method:: setStatusCodes(array $statusCodes)
 
+      Can be used to update which status codes are available in the filter select box.
+
       :param array $statusCodes: the statusCodes
 
    .. php:method:: getCreationTypes()
+
+      Returns creation types for the filter select box.
 
       :returntype: array
 
    .. php:method:: setCreationTypes(array $creationTypes)
 
+      Can be used to update which creation types are available in the filter select box.
+
       :param array $creationTypes: the creationTypes
 
    .. php:method:: getShowHitCounter()
+
+      Returns, if hit counter should be displayed.
 
       :returntype: bool
 
    .. php:method:: setShowHitCounter(bool $showHitCounter)
 
+      Can be used to manage, if the hit counter should be displayed.
+
       :param bool $showHitCounter: the showHitCounter
 
    .. php:method:: getView()
+
+      Returns the current view object, without controller data assigned yet.
 
       :returntype: TYPO3\\CMS\\Core\\View\\ViewInterface
 
    .. php:method:: setView(TYPO3\\CMS\\Core\\View\\ViewInterface $view)
 
+      Can be used to assign additional data to the view.
+
       :param TYPO3\\CMS\\Core\\View\\ViewInterface $view: the view
+
+   .. php:method:: getIntegrityStatusCodes()
+
+      Returns all integrity status codes.
+
+      :returntype: array
+
+   .. php:method:: setIntegrityStatusCodes(array $integrityStatusCodes)
+
+      Allows to set integrity status codes. It can be used to filter for integrity status codes.
+
+      :param array $integrityStatusCodes: the integrityStatusCodes
