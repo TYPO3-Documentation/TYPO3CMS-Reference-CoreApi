@@ -254,13 +254,15 @@ Workspace-related API for backend modules
    .. code-block:: php
       :caption: EXT:some_extension/Classes/SomeClass.php
 
-      // use \TYPO3\CMS\Backend\Utility\BackendUtility
+      // use TYPO3\CMS\Backend\Utility\BackendUtility
+      // use TYPO3\CMS\Core\Database\Connection;
+
       $result = $queryBuilder
          ->select('*')
          ->from('pages')
          ->where(
             $queryBuilder->expr()->eq('uid',
-               $queryBuilder->createNamedParameter($id, \PDO::PARAM_INT)
+               $queryBuilder->createNamedParameter($id, Connection::PARAM_INT)
             )
          )
          ->executeQuery();

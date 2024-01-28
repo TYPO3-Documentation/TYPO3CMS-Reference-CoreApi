@@ -162,6 +162,8 @@ Examples:
 ..  code-block:: php
     :caption: EXT:my_extension/Classes/Domain/Repository/MyTableRepository.php
 
+    // use TYPO3\CMS\Core\Database\Connection;
+
     // `bodytext` = 'foo' - string comparison
     ->eq('bodytext', $queryBuilder->createNamedParameter('foo'))
 
@@ -172,10 +174,10 @@ Examples:
     ->eq('aTableAlias.bodytext', $queryBuilder->createNamedParameter('foo'))
 
     // `uid` = 42 - integer comparison
-    ->eq('uid', $queryBuilder->createNamedParameter(42, \PDO::PARAM_INT))
+    ->eq('uid', $queryBuilder->createNamedParameter(42, Connection::PARAM_INT))
 
     // `uid` >= 42
-    ->gte('uid', $queryBuilder->createNamedParameter(42, \PDO::PARAM_INT))
+    ->gte('uid', $queryBuilder->createNamedParameter(42, Connection::PARAM_INT))
 
     // `bodytext` LIKE 'lorem'
     ->like(
