@@ -565,6 +565,8 @@ of the table on the right, and the join restriction as fourth argument:
 ..  code-block:: php
     :caption: EXT:my_extension/Classes/Domain/Repository/MyRepository.php
 
+    // use TYPO3\CMS\Core\Database\Connection;
+
     // SELECT `sys_language`.`uid`, `sys_language`.`title`
     // FROM `sys_language`
     // INNER JOIN `pages` `p`
@@ -590,7 +592,7 @@ of the table on the right, and the join restriction as fourth argument:
            $queryBuilder->expr()->eq('p.sys_language_uid', $queryBuilder->quoteIdentifier('sys_language.uid'))
        )
        ->where(
-           $queryBuilder->expr()->eq('p.uid', $queryBuilder->createNamedParameter(42, \PDO::PARAM_INT))
+           $queryBuilder->expr()->eq('p.uid', $queryBuilder->createNamedParameter(42, Connection::PARAM_INT))
        )
        ->executeQuery();
 
@@ -642,6 +644,8 @@ uses the alias of the first join target as left side:
 ..  code-block:: php
     :caption: EXT:my_extension/Classes/Domain/Repository/MyRepository.php
 
+    // use TYPO3\CMS\Core\Database\Connection;
+
     // SELECT `tt_content_orig`.`sys_language_uid`
     // FROM `tt_content`
     // INNER JOIN `tt_content` `tt_content_orig` ON `tt_content`.`t3_origuid` = `tt_content_orig`.`uid`
@@ -654,9 +658,9 @@ uses the alias of the first join target as left side:
     // GROUP BY `tt_content_orig`.`sys_language_uid`
     $queryBuilder = $this->connectionPool->getQueryBuilderForTable('sys_language')
     $constraints = [
-        $queryBuilder->expr()->eq('tt_content.colPos', $queryBuilder->createNamedParameter(1, \PDO::PARAM_INT)),
-        $queryBuilder->expr()->eq('tt_content.pid', $queryBuilder->createNamedParameter(42, \PDO::PARAM_INT)),
-        $queryBuilder->expr()->eq('tt_content.sys_language_uid', $queryBuilder->createNamedParameter(2, \PDO::PARAM_INT)),
+        $queryBuilder->expr()->eq('tt_content.colPos', $queryBuilder->createNamedParameter(1, Connection::PARAM_INT)),
+        $queryBuilder->expr()->eq('tt_content.pid', $queryBuilder->createNamedParameter(42, Connection::PARAM_INT)),
+        $queryBuilder->expr()->eq('tt_content.sys_language_uid', $queryBuilder->createNamedParameter(2, Connection::PARAM_INT)),
     ];
     $queryBuilder
         ->select('tt_content_orig.sys_language_uid')
