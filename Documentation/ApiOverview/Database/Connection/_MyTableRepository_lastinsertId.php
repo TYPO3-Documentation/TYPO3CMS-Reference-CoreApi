@@ -24,6 +24,6 @@ final class MyTableRepository
                 self::TABLE_NAME,
                 $someData
             );
-        return (int)$connection->lastInsertId(self::TABLE_NAME);
+        return (int)$connection->lastInsertId();
     }
 }
