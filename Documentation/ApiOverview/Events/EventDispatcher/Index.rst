@@ -150,8 +150,7 @@ cannot be guaranteed to be immutable.
 The listeners
 -------------
 
-Extensions and PHP packages can add listeners that are registered via YAML (or starting
-with TYPO3 v13 also natively in :ref:`PHP using attributes <EventDispatcherImplementation>`). They
+Extensions and PHP packages can add listeners that are registered via YAML. They
 are usually associated to :php:`Event` objects by the fully-qualified class name
 of the event to be listened on. It is the task of the listener provider to
 provide configuration mechanisms to represent this relationship.
@@ -278,7 +277,7 @@ be written as:
 ..  _EventDispatcherRegistration:
 
 Registering the event listener via :file:`Services.yaml`
------------------------------------------------------------------
+--------------------------------------------------------
 
 ..  versionadded:: 13.0
     If using the PHP attribute :php:`\TYPO3\CMS\Core\Attribute\AsEventListener`
@@ -326,17 +325,10 @@ Overriding event listeners
 --------------------------
 
 Existing event listeners can be overridden by custom implementations. This can be
-performed with both methods, using the PHP :php:`#[AsEventListener}` attribute or
-via :file:`EXT:some_extension/Configuration/Services.yaml`.
+performed via :file:`EXT:some_extension/Configuration/Services.yaml`.
 
-For example, if a third-party extension listens on the event
+For example, a third-party extension listens on the event
 :php:`\TYPO3\CMS\Frontend\Event\ModifyHrefLangTagsEvent` with the following code:
-
-..  literalinclude:: _ServicesOverrideBase.php
-    :language: php
-    :caption: EXT:some_extension/Classes/EventListener/SeoEvent.php
-
-or via :file:`Services.yaml` declaration:
 
 ..  literalinclude:: _ServicesOverrideBase.yaml
     :language: yaml
@@ -344,12 +336,6 @@ or via :file:`Services.yaml` declaration:
 
 If you want to replace this event listener with your custom implementation, your extension can
 achieve this by specifying:
-
-..  literalinclude:: _ServicesOverrideCustom.php
-    :language: yaml
-    :caption: EXT:my_extension/Configuration/Classes/EventListener/MySeoEvent.php
-
-or via :file:`Services.yaml` declaration:
 
 ..  literalinclude:: _ServicesOverrideCustom.yaml
     :language: yaml
@@ -362,8 +348,8 @@ or via :file:`Services.yaml` declaration:
     implementation is now responsible for any functionality, because
     the original listener will no longer be executed.
 
-Make sure that you set the `identifier` property (either in YAML or the PHP attribute) to exactly
-the string that the original implementation uses. If the identifier is not mentioned specifically
+Make sure that you set the `identifier` property to exactly
+the string which the original implementation uses. If the identifier is not mentioned specifically
 in the original implementation, the service name (usually the fully-qualified name of the event
 listener class) is used. You can inspect that identifier in the
 :guilabel:`System > Configuration > Event Listeners (PSR-14)` backend module (requires the system extension
