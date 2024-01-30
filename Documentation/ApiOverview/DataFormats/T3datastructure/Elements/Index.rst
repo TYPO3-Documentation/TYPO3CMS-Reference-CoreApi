@@ -189,16 +189,16 @@ must be strings or integers.)
 
 .. versionchanged:: 13.0
 
-    The usage of available element types within flex form sections is
+    The usage of available element types within FlexForm sections is
     restricted. You should only use simple TCA types like 
-    :php:`type => 'input' within sections, and relations (:php:`type =>
-    'group'`, :php:`type => 'inline', :php:`type => 'select'` and similar)`
+    :php:`type => 'input'` within sections, and relations (:php:`type =>
+    'group'`, :php:`type => 'inline'`, :php:`type => 'select'` and similar)
     should be avoided.
     TYPO3 v13 specifically disallows using :php:`type => 'select'` with
     a :php:`foreign_table` set, which will raise an exception.
-    This does not apply for flex form fields outside of a :xml:`<section>`.
-    Details can be found in the
-    `patch notes <https://review.typo3.org/c/Packages/TYPO3.CMS/+/82689>`__.
+    This does not apply for FlexForm fields outside of a :xml:`<section>`.
+    Details can be found in
+    :ref:`ext_core:breaking-102970-1706447911`.
 
 
 .. _t3ds-elements-example:
