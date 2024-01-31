@@ -18,7 +18,7 @@ Those are, for example:
 *   on extension installation by the extension manager
 *   on calling the :bash:`typo3 extension:setup` command.
 
-However, the main component, dispatching the event, is the
+The main component dispatching the event is the
 :php:`\TYPO3\CMS\Core\Package\PackageActivationService`.
 
 Developers are able to listen to the new event before or after the TYPO3 Core
