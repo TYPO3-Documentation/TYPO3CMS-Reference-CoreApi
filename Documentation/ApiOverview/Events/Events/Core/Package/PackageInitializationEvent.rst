@@ -9,10 +9,10 @@ PackageInitializationEvent
 ..  versionadded:: 13.0
 
 The PSR-14 event :php:`\TYPO3\CMS\Core\Package\Event\PackageInitializationEvent`
-allows listeners to execute custom functionality after a package has been
+allows listeners to execute custom functionality after an extension has been
 activated.
 
-The event is being dispatched at several places, where packages get activated.
+The event is being dispatched at several places, where extensions get activated.
 Those are, for example:
 
 *   on extension installation by the extension manager
