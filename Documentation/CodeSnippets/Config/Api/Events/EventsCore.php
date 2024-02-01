@@ -302,4 +302,10 @@ return [
         'targetFileName' => 'CodeSnippets/Events/Core/LinkHandling/AfterLinkResolvedByStringRepresentationEvent.rst.txt',
         'withCode' => false,
     ],
+    [
+        'action' => 'createPhpClassDocs',
+        'class' => \TYPO3\CMS\Core\Package\Event\PackageInitializationEvent::class,
+        'targetFileName' => 'CodeSnippets/Events/Core/Package/PackageInitializationEvent.rst.txt',
+        'withCode' => false,
+    ],
 ];
