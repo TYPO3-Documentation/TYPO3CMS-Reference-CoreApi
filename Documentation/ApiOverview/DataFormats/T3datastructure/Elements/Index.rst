@@ -182,9 +182,21 @@ must be strings or integers.)
          Defines for an object of the type <array> that it must contain other
          "array" type objects in each item of <el>. The meaning of this is application specific. For
          FlexForms it will allow the user to select between possible arrays of
-         objects to create in the form. For TemplaVoila it will select a
-         "container" element for another set of elements inside. This is quite
-         fuzzy unless you understand the contexts.
+         objects to create in the form. This is similar to the concept of
+         :ref:`IRRE / inline TCA definitions <t3tca:columns-inline>`.
+
+..  versionchanged:: 13.0
+
+    The usage of available element types within FlexForm sections is
+    restricted. You should only use simple TCA types like 
+    :php:`type => 'input'` within sections, and relations (:php:`type =>
+    'group'`, :php:`type => 'inline'`, :php:`type => 'select'` and similar)
+    should be avoided.
+    TYPO3 v13 specifically disallows using :php:`type => 'select'` with
+    a :php:`foreign_table` set, which will raise an exception.
+    This does not apply for FlexForm fields outside of a :xml:`<section>`.
+    Details can be found in
+    :ref:`ext_core:breaking-102970-1706447911`.
 
 
 .. _t3ds-elements-example:
