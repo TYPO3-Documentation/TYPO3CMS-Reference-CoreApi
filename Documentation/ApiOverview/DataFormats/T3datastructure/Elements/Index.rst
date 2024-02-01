@@ -185,7 +185,7 @@ must be strings or integers.)
          objects to create in the form. This is similar to the concept of
          :ref:`IRRE / inline TCA definitions <t3tca:columns-inline>`.
 
-.. versionchanged:: 13.0
+..  versionchanged:: 13.0
 
     The usage of available element types within FlexForm sections is
     restricted. You should only use simple TCA types like 
