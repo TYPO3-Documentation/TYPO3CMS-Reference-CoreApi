@@ -184,8 +184,6 @@ must be strings or integers.)
          FlexForms it will allow the user to select between possible arrays of
          objects to create in the form. This is similar to the concept of
          :ref:`IRRE / inline TCA definitions <t3tca:columns-inline>`.
-         For TemplaVoila it will select a "container" element for another set
-         of elements inside. This is quite fuzzy unless you understand the contexts.
 
 .. versionchanged:: 13.0
 
