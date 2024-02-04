@@ -24,6 +24,8 @@ The constructor accepts the following arguments:
 
 ..  code-block:: js
 
+    import RequestAnimationFrameEvent from '@typo3/core/event/request-animation-frame-event.js';
+
     const el = document.querySelector('.item');
     new RequestAnimationFrameEvent('scroll', function () {
         el.target.style.width = window.scrollY + 100 + 'px';
