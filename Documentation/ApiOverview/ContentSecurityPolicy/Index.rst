@@ -24,6 +24,7 @@ web page context.
     If you are not familiar with Content Security Policy, please read the
     following resources:
 
+    *   `Introduction to Content Security Policy (CSP) <https://b13.com/blog/introduction-to-content-security-policy-csp>`__
     *   https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP
     *   https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy
 
