@@ -9,28 +9,22 @@
 Static SQL tables and their data.
 
 If the extension requires static data you can dump it into an SQL file
-by this name. Example for dumping mysql data from bash (being in the
-extension directory):
+by this name. Example for dumping MySQL/MariaDB data from shell (executed in the
+extension's root directory):
 
 .. code-block:: shell
 
-   mysqldump --add-drop-table \
-               --password=[password] [database name] \
-               [tablename]  > ./ext_tables_static+adt.sql
+   mysqldump --user=[user] --password [database name] \
+             [tablename] > ./ext_tables_static+adt.sql
 
-:code:`--add-drop-table` will make sure to include a DROP TABLE
-statement so any data is inserted in a fresh table.
+Note that only :sql:`INSERT INTO` statements are allowed. If the contents of the
+SQL file change, the table is truncated and the new data is inserted.
 
-You can also drop the table content using the Extension Manager in the backend.
-
-.. note::
-
-   The table structure of static tables needs to be in the
-   :file:`ext_tables.sql` file as well - otherwise an installed static
-   table will be reported as being in excess in the Install Tool.
+The table structure of static tables needs to be in the
+:file:`ext_tables.sql` file as well - otherwise an installed static
+table will be reported as being in excess in the Install Tool.
 
 .. warning::
 
    Static data is not meant to be extended by other extensions. On
-   re-import all extended fields and data is lost due to `DROP TABLE`
-   statements.
+   re-import all extended fields and data is lost.
