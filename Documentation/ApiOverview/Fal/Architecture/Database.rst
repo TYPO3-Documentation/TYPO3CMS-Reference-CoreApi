@@ -100,7 +100,10 @@ content elements. The most important fields are:
     Name of the field of the related record where the relation was created.
 
 :sql:`table_local`
-    Always :sql:`sys_file`.
+    ..  versionchanged:: 12.0
+        The field is no longer evaluated by TYPO3 and has therefore been
+        dropped. Remove any usage of the :sql:`table_local` field of table
+        :sql:`sys_file_reference` in custom extension code.
 
 :sql:`title`
     When a file is referenced, normally its title is used (for
