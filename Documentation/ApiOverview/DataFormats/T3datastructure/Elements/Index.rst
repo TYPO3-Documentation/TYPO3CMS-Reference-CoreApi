@@ -129,7 +129,7 @@ must be arrays.)
 Elements can use the attribute :xml:`type` to define their type, for example explicitly use boolean.
 An example would look like:
 
-..  code-block: xml
+..  code-block:: xml
 
     <required type="boolean">1</required>
 
@@ -188,7 +188,7 @@ must be strings or integers.)
 ..  versionchanged:: 13.0
 
     The usage of available element types within FlexForm sections is
-    restricted. You should only use simple TCA types like 
+    restricted. You should only use simple TCA types like
     :php:`type => 'input'` within sections, and relations (:php:`type =>
     'group'`, :php:`type => 'inline'`, :php:`type => 'select'` and similar)
     should be avoided.
