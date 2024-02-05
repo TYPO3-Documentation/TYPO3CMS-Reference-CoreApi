@@ -24,6 +24,8 @@ accepts the following arguments:
 
 ..  code-block:: js
 
+    import DebounceEvent from '@typo3/core/event/debounce-event.js';
+
     new DebounceEvent('mousewheel', function (e) {
         console.log('Executed 200ms after the last mousewheel event was fired');
     }, 200).bindTo(document.body);
