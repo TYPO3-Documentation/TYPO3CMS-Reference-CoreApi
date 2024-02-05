@@ -22,6 +22,8 @@ accepts the following arguments:
 
 ..  code-block:: js
 
+    import ThrottleEvent from '@typo3/core/event/throttle-event.js';
+
     new ThrottleEvent('mousewheel', function (e) {
         console.log('Executed every 50ms during the overall event time span');
     }, 50).bindTo(document.body);
