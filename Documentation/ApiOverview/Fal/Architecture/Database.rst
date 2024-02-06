@@ -99,9 +99,6 @@ content elements. The most important fields are:
 :sql:`fieldname`
     Name of the field of the related record where the relation was created.
 
-:sql:`table_local`
-    Always :sql:`sys_file`.
-
 :sql:`title`
     When a file is referenced, normally its title is used (for
     whatever purpose, like displaying a caption for example). However it is
