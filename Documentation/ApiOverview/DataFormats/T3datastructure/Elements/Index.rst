@@ -135,7 +135,7 @@ must be arrays.)
 Elements can use the attribute :xml:`type` to define their type, for example explicitly use boolean.
 An example would look like:
 
-..  code-block: xml
+..  code-block:: xml
 
     <required type="boolean">1</required>
 
