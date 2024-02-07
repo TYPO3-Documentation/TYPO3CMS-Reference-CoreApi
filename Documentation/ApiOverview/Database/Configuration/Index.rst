@@ -23,6 +23,21 @@ configuration is done in :file:`config/system/settings.php` and ends up in
 <bootstrapping>`. The specific sub-array is
 :php:`$GLOBALS['TYPO3_CONF_VARS']['DB']`.
 
+..  attention::
+    ..  versionchanged:: 13.0
+
+    All Core database system tables (:sql:`sys_*`, :sql:`pages`,
+    :sql:`tt_content`), and especially all tables from extensions that have
+    :ref:`TCA <t3tca:start>` attached, are expected to be configured for the
+    main `Default` connection.
+
+    One use case for configuring additional database connections is querying
+    data directly from a third-party application in a custom extension.
+    Another scenario are database-based caches: A typical use is to configure a
+    dedicated database server for speed over integrity and persistence (for
+    instance, RAM-driven) to speed up the page cache tables.
+
+
 Example: one connection
 =======================
 
