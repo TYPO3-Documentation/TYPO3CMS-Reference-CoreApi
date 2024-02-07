@@ -17,12 +17,16 @@ extension's root directory):
    mysqldump --user=[user] --password [database name] \
              [tablename] > ./ext_tables_static+adt.sql
 
-Note that only :sql:`INSERT INTO` statements are allowed. If the contents of the
-SQL file change, the table is truncated and the new data is inserted.
+Note that only :sql:`INSERT INTO` statements are allowed. The file is
+interpreted whenever the corresponding extension's setup routines get called:
+Upon first time installation, command task execution of
+:bash:`bin/typo3 extension:setup` or via the :guilabel:`Admin Tools > Extensions`
+interface and the :guilabel:`Reload extension data` action. The static data is
+then only re-evaluated, if the file has different contents than on the last
+execution. In that case, the table is truncated and the new data imported.
 
-The table structure of static tables needs to be in the
-:file:`ext_tables.sql` file as well - otherwise an installed static
-table will be reported as being in excess in the Install Tool.
+The table structure of static tables must be declared in the file
+:file:`ext_tables.sql` file, otherwise data cannot be added to a static table.
 
 .. warning::
 
