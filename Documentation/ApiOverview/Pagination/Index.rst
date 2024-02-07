@@ -54,6 +54,14 @@ Code example for the :php:`ArrayPaginator`:
    $pagination->getNextPageNumber(); // returns null
    // …
 
+   $this->view->assign(
+       'pagination',
+       [
+           'pagination' => $pagination,
+           'paginator' => $paginator,
+       ]
+   );
+
 .. code-block:: html
 
    <ul class="pagination">
