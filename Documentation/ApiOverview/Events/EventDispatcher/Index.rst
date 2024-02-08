@@ -159,7 +159,7 @@ If multiple event listeners for a specific event are registered, their order can
 be configured or an existing event listener can also be overridden with a different one.
 
 The :guilabel:`System > Configuration > Event Listeners (PSR-14)` backend module (requires
-the system extension :doc:`lowlevel <ext_lowlevel:Index>`) reveals an easy overview of all registered
+the system extension :doc:`lowlevel <ext_lowlevel:Index>`) reveals an overview of all registered
 event listeners, see :ref:`EventDebugging`.
 
 
@@ -237,19 +237,19 @@ following properties (which are all optional):
 
 :php:`before`
     This property allows a custom sorting of registered listeners. The listener
-    is then dispatched before the given listener. The value is the identifier of
-    another event listener.
+    is then dispatched before the given listener. The values are the identifier(s) of
+    another event listeners.
 
 :php:`after`
     This property allows a custom sorting of registered listeners. The listener
-    is then dispatched after the given listener. The value is the identifier of
-    another event listener.
+    is then dispatched after the given listener. The values are the identifier(s) of
+    another event listeners.
 
 :php:`event`
     The fully-qualified class name (FQCN) of the dispatched event, that the
     listener wants to react to. It is recommended to not specify this property,
     but to use the FQCN as type declaration of the argument within the dispatched method
-    (usually :php:`__invoke(EventName $event) ` unless overridden with a custom :php:`method`).
+    (usually :php:`__invoke(EventName $event)`).
 
 :php:`method`
     The method to be called. If this property is not given, the listener class
@@ -350,11 +350,11 @@ achieve this by specifying:
 
 Make sure that you set the `identifier` property to exactly
 the string which the original implementation uses. If the identifier is not mentioned specifically
-in the original implementation, the service name (usually the fully-qualified name of the event
+in the original implementation, the service name (when unspecified, the fully-qualified name of the event
 listener class) is used. You can inspect that identifier in the
 :guilabel:`System > Configuration > Event Listeners (PSR-14)` backend module (requires the system extension
 :doc:`lowlevel <ext_lowlevel:Index>`), see :ref:`EventDebugging`. In this example,
-if :yaml:`identifier: 'ext-some-extension/modify-hreflang'` would not be there, the identifier
+if :yaml:`identifier: 'ext-some-extension/modify-hreflang'` is not defined, the identifier
 will be set to :yaml:`identifier: 'SomeVendor\SomeExtension\Seo\HrefLangEventListener'` and you could
 use that identifier in your implementation.
 
