@@ -121,7 +121,7 @@ This makes it possible to include e.g. Javascript for all actions in the control
 Actions
 =======
 
-Now create an example :php:`indexAction()` and assign variables to your view
+Now create an example :php:`debugAction()` and assign variables to your view
 as you would normally do.
 
 .. code-block:: php
