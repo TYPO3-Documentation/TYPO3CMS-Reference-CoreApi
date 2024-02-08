@@ -25,7 +25,7 @@ interface and the :guilabel:`Reload extension data` action. The static data is
 then only re-evaluated, if the file has different contents than on the last
 execution. In that case, the table is truncated and the new data imported.
 
-The table structure of static tables must be declared in the file
+The table structure of static tables must be declared in the
 :file:`ext_tables.sql` file, otherwise data cannot be added to a static table.
 
 .. warning::
