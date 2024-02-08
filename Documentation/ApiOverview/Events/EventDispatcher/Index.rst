@@ -43,7 +43,7 @@ Dispatching an event
 
 This quick start section shows how to create your own event class and dispatch it.
 If you just want to listen on an existing event, see section
-:ref:`_EventDispatcherImplementation`.
+:ref:`EventDispatcherImplementation`.
 
 ..  rst-class:: bignums
 
@@ -360,7 +360,7 @@ use that identifier in your implementation.
 
 ..  note::
 
-    Note that overriding listeners requires your extension to declare a dependency on the
+   Overriding listeners requires your extension to declare a dependency on the
     :php:`EXT:some_extension` extension (through :file:`composer.json`, or for non-Composer
     mode :file:`ext_emconf.php`).
     This ensures a proper loading order, so your extension is processed after the extension you want
