@@ -334,7 +334,7 @@ Best practices
 
 *   The same applies to creating a new event listener PHP class: Add
     an :php:`EventListener` suffix to the PHP class, and move it to a folder
-    :file:`Classes/EventListener`.
+    :file:`Classes/EventListener/`.
 
 *   Emitters (TYPO3 Core or extension authors) should always use
     :ref:`Dependency Injection <DependencyInjection>` to receive the event
