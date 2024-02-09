@@ -237,13 +237,15 @@ following properties (which are all optional):
 
 :php:`before`
     This property allows a custom sorting of registered listeners. The listener
-    is then dispatched before the given listener. The values are the identifier(s) of
-    another event listeners.
+    is then dispatched before the given listener. The value is the identifier of 
+    another event listener. Also, multiple event identifiers can be entered here,
+    separated by a comma.
 
 :php:`after`
     This property allows a custom sorting of registered listeners. The listener
-    is then dispatched after the given listener. The values are the identifier(s) of
-    another event listeners.
+    is then dispatched after the given listener. The value is the identifier of
+    another event listener. Also, multiple event identifiers can be entered here,
+    separated by a comma.
 
 :php:`event`
     The fully-qualified class name (FQCN) of the dispatched event, that the
