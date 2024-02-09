@@ -241,6 +241,53 @@ Once the emitter is triggering an event, this listener is called automatically.
 Be sure to inspect the event's PHP class to fully understand the capabilities
 provided by an event.
 
+..  index:: Override Event Listener; Event override
+..  _EventListenerOverride:
+
+Overriding event listeners
+--------------------------
+
+Existing event listeners can be overridden by custom implementations. This can be
+performed via :file:`EXT:some_extension/Configuration/Services.yaml`.
+
+For example, a third-party extension listens on the event
+:php:`\TYPO3\CMS\Frontend\Event\ModifyHrefLangTagsEvent` with the following code:
+
+..  literalinclude:: _ServicesOverrideBase.yaml
+    :language: yaml
+    :caption: EXT:some_extension/Configuration/Services.yaml
+
+If you want to replace this event listener with your custom implementation, your extension can
+achieve this by specifying:
+
+..  literalinclude:: _ServicesOverrideCustom.yaml
+    :language: yaml
+    :caption: EXT:my_extension/Configuration/Services.yaml
+
+..  note::
+
+    When overriding an event listener, be sure to check whatever the
+    listener provided as changes to an event. Your own event listener
+    implementation is now responsible for any functionality, because
+    the original listener will no longer be executed.
+
+Make sure that you set the `identifier` property to exactly
+the string which the original implementation uses. If the identifier is not mentioned specifically
+in the original implementation, the service name (when unspecified, the fully-qualified name of the event
+listener class) is used. You can inspect that identifier in the
+:guilabel:`System > Configuration > Event Listeners (PSR-14)` backend module (requires the system extension
+:doc:`lowlevel <ext_lowlevel:Index>`), see :ref:`EventDebugging`. In this example,
+if :yaml:`identifier: 'ext-some-extension/modify-hreflang'` is not defined, the identifier
+will be set to :yaml:`identifier: 'SomeVendor\SomeExtension\Seo\HrefLangEventListener'` and you could
+use that identifier in your implementation.
+
+..  note::
+
+   Overriding listeners requires your extension to declare a dependency on the
+    :php:`EXT:some_extension` extension (through :file:`composer.json`, or for non-Composer
+    mode :file:`ext_emconf.php`).
+    This ensures a proper loading order, so your extension is processed after the extension you want
+    to override.
 
 ..  index:: Event listener; Best practices
 ..  _EventDispatcherBestPractises:
