@@ -1,0 +1,6 @@
+# Provide your custom event class:
+MyVendor\MyExtension\EventListener\Seo\HrefLangEventListener:
+  tags:
+    - name: event.listener
+      # Use the same identifier of the extension that you override!
+      identifier: 'ext-some-extension/modify-hreflang'
