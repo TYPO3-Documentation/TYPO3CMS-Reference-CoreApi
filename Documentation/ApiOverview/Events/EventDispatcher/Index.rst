@@ -329,7 +329,7 @@ Best practices
 
 *   When creating a new event PHP class, it is recommended to add an
     :php:`Event` suffix to the PHP class, and to move it into an appropriate
-    folder like :file:`Classes/Event` to easily discover events provided by a
+    folder like :file:`Classes/Event/` to easily discover events provided by a
     package. Be careful about the context that should be exposed.
 
 *   The same applies to creating a new event listener PHP class: Add
