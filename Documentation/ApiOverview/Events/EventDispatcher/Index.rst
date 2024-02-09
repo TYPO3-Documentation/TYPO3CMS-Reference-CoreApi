@@ -302,7 +302,7 @@ The custom PHP class :php:`\MyVendor\MyExtension\EventListener\NullMailer`
 serves as the listener whose :php:`handleEvent()` method is called, once the
 :yaml:`event` is dispatched. The name of the listened event is specified as
 a typed argument to that dispatch method.
-:php`handleEvent(\TYPO3\CMS\Core\Mail\Event\AfterMailerInitializationEvent $event)` will
+:php:`handleEvent(\TYPO3\CMS\Core\Mail\Event\AfterMailerInitializationEvent $event)` will
 for example listen on the event `AfterMailerInitializationEvent`.
 
 The :yaml:`identifier` is a common name, so
