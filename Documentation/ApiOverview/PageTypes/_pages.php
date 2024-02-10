@@ -9,11 +9,16 @@ defined('TYPO3') or die();
     $customIconClass = 'tx_examples-archive-page';
 
     // Add the new doktype to the page type selector
-    $GLOBALS['TCA']['pages']['columns']['doktype']['config']['items'][] = [
-        'LLL:EXT:examples/Resources/Private/Language/locallang.xlf:archive_page_type',
-        $customPageDoktype,
-        $customIconClass,
-    ];
+    \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTcaSelectItem(
+        'pages',
+        'doktype',
+        [
+            'label' => 'LLL:EXT:examples/Resources/Private/Language/locallang.xlf:archive_page_type',
+            'value' => $customPageDoktype,
+            'icon'  => $customIconClass,
+            'group' => 'special',
+        ]
+    );
     // Add the icon to the icon class configuration
     $GLOBALS['TCA']['pages']['ctrl']['typeicon_classes'][$customPageDoktype] = 'tx_examples-archive-page';
 })();
