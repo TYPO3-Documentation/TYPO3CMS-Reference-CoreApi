@@ -453,3 +453,10 @@ the :php:`uid` of the translated record is kept in the :php:`_localizedUid`.
     workspace overlays.
 
 .. TODO: Explain workspaces in Extbase context
+
+Extending existing models
+=========================
+
+It is possible, with some limitations, to extend existing Extbase models in
+another extension. See also :ref:`Tutorial: Extending an Extbase model
+<extending-extbase-model>`.
