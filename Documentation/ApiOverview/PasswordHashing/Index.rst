@@ -101,7 +101,7 @@ of the salted password hash will always be successful to crack the hash with a c
 crack tool, no matter how expensive the calculation is. Good password hashing does **not** rescue
 users from short or simple passwords that can be found in a dictionary. It is usually a
 good idea to force users to register with a password that has for instance at least some minimum length
-and contains even some special characters.
+and contains even some special characters. See also :ref:`password-policies`.
 
 
 What does it look like?
