@@ -9,7 +9,9 @@ Persistence
 
 It is possible to define models that are not persisted to the database. However, in
 the most common use cases you will want to save your model to the database and load
-it from there.
+it from there. If you want to extend an existing model you can also follow the
+steps on this page. See also :ref:`Tutorial: Extending an Extbase model
+<extending-extbase-model>`.
 
 .. contents::
    :local:
@@ -70,6 +72,8 @@ class will only be used for administrators but not plain frontend users.
 
 The array stored in :php:`properties` to match properties to database field
 names if the names do not match.
+
+..  _extbase-persistance-record-types:
 
 Record types and persistence
 ============================
