@@ -131,7 +131,7 @@ Configuration
 Configuration of password hashing is done by TYPO3 automatically and
 administrators usually do not need to worry about details too much: The
 installation process will configure the best available hash algorithm by default.
-This is at the moment Argon2i. Only if the PHP build is incomplete, some less secure
+Some of the most secure algorithms currently are Argon2i and Argon2id. Only if the PHP build is incomplete, some less secure
 fallback will be selected.
 
 Switching between hash algorithms in a TYPO3 instance is unproblematic: Password hashes of the old selected
