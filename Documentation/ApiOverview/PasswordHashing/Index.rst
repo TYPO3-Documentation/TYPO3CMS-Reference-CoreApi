@@ -213,7 +213,7 @@ Competition in July 2015. There are two available versions:
 
 Options:
 
-* memory_cost: Maximum memory (in kibibytes) that may be used to compute the Argon2 hash. Defaults to 16384.
+* memory_cost: Maximum memory (in kibibytes) that may be used to compute the Argon2 hash. Defaults to 65536.
 * time_cost: Maximum amount of time it may take to compute the Argon2 hash. This is the execution time, given in number of iterations. Defaults to 16.
 * threads: Number of threads to use for computing the Argon2 hash. Defaults to 2.
 
