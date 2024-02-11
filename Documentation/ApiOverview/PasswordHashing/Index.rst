@@ -143,7 +143,7 @@ Note that "dead" users (users that don't use the site anymore and never login) w
 hashes upgraded to better algorithms. This is an issue that can't be solved on this hash level directly since
 upgrading the password hash always requires the plain text password submitted by the user. However, it is a
 good idea to clean up dead users from the database anyway. Site administrators should establish processes to
-comply with the idea of data minimisation of person related data (GDPR). TYPO3 helps here for instance with the
+comply with the idea of data minimisation of person related data (General Data Protection Regulation, GDPR). TYPO3 helps here for instance with the
 "Table garbage collection" task of the scheduler extension.  
 See :ref:`Scheduler: Garbage Collection <ext_scheduler:table-garbage-collection-task>`   
 
