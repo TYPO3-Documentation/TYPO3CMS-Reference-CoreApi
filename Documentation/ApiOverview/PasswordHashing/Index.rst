@@ -155,8 +155,8 @@ preset of the settings module is available. It can be found in
 .. include:: /Images/AutomaticScreenshots/AdminTools/PasswordHashingSettings.rst.txt
 
 The image shows settings for an instance that runs with frontend and backend users having their passwords
-stored as Argon2i hashes in the database. The other listed algorithms are deemed less secure. They however
-rely on different PHP capabilities and might be suitable fall backs if Argon2i is not available for whatever
+stored as Argon2i hashes in the database. You should use one of the Argon2 algorithms, as the other listed algorithms are deemed less secure.
+They rely on different PHP capabilities and might be suitable fall backs, if Argon2i or Argon2id are not available for whatever
 reason.
 
 
