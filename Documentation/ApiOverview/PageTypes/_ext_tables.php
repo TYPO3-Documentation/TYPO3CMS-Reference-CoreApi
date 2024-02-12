@@ -17,8 +17,3 @@ $dokTypeRegistry->add(
         'allowedTables' => '*',
     ]
 );
-
-// Add custom doktype to the page tree toolbar
-ExtensionManagementUtility::addUserTSConfig(
-    "@import 'EXT:examples/Configuration/TsConfig/User/*.tsconfig'"
-);
