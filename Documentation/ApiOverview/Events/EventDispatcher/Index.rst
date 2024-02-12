@@ -41,6 +41,10 @@ Quick start
 Dispatching an event
 --------------------
 
+This quick start section shows how to create your own event class and dispatch it.
+If you just want to listen on an existing event, see section
+:ref:`EventDispatcherImplementation`.
+
 ..  rst-class:: bignums
 
 #.  Create an event class.
@@ -111,7 +115,7 @@ The listener provider
 
 A :php:`ListenerProvider` object that contains all listeners which have been
 registered for all events. TYPO3 has a custom listener provider that collects
-all listeners during compile time. This component is not exposed outside of
+all listeners during compile time. This component is only used internally inside of
 TYPO3's Core Framework.
 
 
@@ -130,7 +134,7 @@ stop further execution of other event listeners. This is especially useful, if
 the listeners are candidates to provide information to the emitter. This allows
 to finish event dispatching, once this information has been acquired.
 
-If an event can be modified, appropriate methods should be available, although
+If an event allows modifications, appropriate methods should be available, although
 due to PHP's nature of handling objects and the PSR-14 listener signature, it
 cannot be guaranteed to be immutable.
 
@@ -150,6 +154,13 @@ Extensions and PHP packages can add listeners that are registered via YAML. They
 are usually associated to :php:`Event` objects by the fully-qualified class name
 of the event to be listened on. It is the task of the listener provider to
 provide configuration mechanisms to represent this relationship.
+
+If multiple event listeners for a specific event are registered, their order can
+be configured or an existing event listener can also be overridden with a different one.
+
+The :guilabel:`System > Configuration > Event Listeners (PSR-14)` backend module (requires
+the system extension :doc:`lowlevel <ext_lowlevel:Index>`) reveals an overview of all registered
+event listeners, see :ref:`EventDebugging`.
 
 
 Advantages of the event dispatcher over hooks
@@ -220,24 +231,27 @@ The PHP attribute :php:`\TYPO3\CMS\Core\Attribute\AsEventListener` supports the
 following properties (which are all optional):
 
 :php:`identifier`
-    A unique identifier must be declared which identifies the event listener,
-    and orderings can be build upon the identifier. It this property is not
-    explicitly defined, the service name is used instead.
+    A unique identifier should be declared which identifies the event listener,
+    and orderings can be build upon the identifier. If this property is not
+    explicitly defined, the service name is automatically used instead.
 
 :php:`before`
     This property allows a custom sorting of registered listeners. The listener
-    is then dispatched before the given listener. The value is the identifier of
-    another event listeners.
+    is then dispatched before the given listener. The value is the identifier of 
+    another event listener. Also, multiple event identifiers can be entered here,
+    separated by a comma.
 
 :php:`after`
     This property allows a custom sorting of registered listeners. The listener
     is then dispatched after the given listener. The value is the identifier of
-    another event listeners.
+    another event listener. Also, multiple event identifiers can be entered here,
+    separated by a comma.
 
 :php:`event`
-    The fully-qualified class name (FQCN) of the event to be dispatched. This
-    property can be omitted, if the FQCN is used as type declaration of the
-    argument of the dispatched method.
+    The fully-qualified class name (FQCN) of the dispatched event, that the
+    listener wants to react to. It is recommended to not specify this property,
+    but to use the FQCN as type declaration of the argument within the dispatched method
+    (usually :php:`__invoke(EventName $event)`).
 
 :php:`method`
     The method to be called. If this property is not given, the listener class
@@ -286,10 +300,16 @@ The tag name :yaml:`event.listener` identifies that a listener should be registe
 
 The custom PHP class :php:`\MyVendor\MyExtension\EventListener\NullMailer`
 serves as the listener whose :php:`handleEvent()` method is called, once the
-:yaml:`event` is dispatched. The :yaml:`identifier` is a common name, so
+:yaml:`event` is dispatched. The name of the listened event is specified as
+a typed argument to that dispatch method.
+:php:`handleEvent(\TYPO3\CMS\Core\Mail\Event\AfterMailerInitializationEvent $event)` will
+for example listen on the event `AfterMailerInitializationEvent`.
+
+The :yaml:`identifier` is a common name, so
 orderings can be built upon the identifier, the optional :yaml:`before` and
 :yaml:`after` attributes allow for custom sorting against the :yaml:`identifier`
-of other listeners.
+of other listeners. If no :yaml:`identifier` is specified, the service name (usually
+the fully-qualified class name of the listener) is automatically used.
 
 If no attribute :yaml:`method` is given, the class is treated as invokable, thus
 its :php:`__invoke()` method will be called:
@@ -359,13 +379,19 @@ Best practices
 
 *   When creating a new event PHP class, it is recommended to add an
     :php:`Event` suffix to the PHP class, and to move it into an appropriate
-    folder like :php:`Classes/Event` to easily discover events provided by a
+    folder like :file:`Classes/Event/` to easily discover events provided by a
     package. Be careful about the context that should be exposed.
+
+*   The same applies to creating a new event listener PHP class: Add
+    an :php:`EventListener` suffix to the PHP class, and move it to a folder
+    :file:`Classes/EventListener/`.
 
 *   Emitters (TYPO3 Core or extension authors) should always use
     :ref:`Dependency Injection <DependencyInjection>` to receive the event
     dispatcher object as a constructor argument, where possible, by adding a
     type declaration for :php:`\Psr\EventDispatcher\EventDispatcherInterface`.
+
+*   A unique and descriptive :yaml:`identifier` should be used for event listeners.
 
 Any kind of event provided by TYPO3 Core falls under TYPO3's Core API
 deprecation policy, except for its constructor arguments, which may vary. Events
