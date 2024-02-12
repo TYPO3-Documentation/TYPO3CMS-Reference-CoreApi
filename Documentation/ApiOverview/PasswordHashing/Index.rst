@@ -268,7 +268,7 @@ md5salt
 
 TYPO3's salted password hash implementation based on `md5`_ and PHP`s crypt() function.
 It should not be used any longer and is only included for instances that still need 
-to upgrade upgrade outdated password hashes to better algorithms.
+to upgrade outdated password hashes to better algorithms.
 
 
 PHP API
