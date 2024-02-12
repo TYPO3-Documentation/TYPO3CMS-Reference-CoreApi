@@ -327,7 +327,7 @@ If you want to replace this event listener with your custom implementation, your
 achieve this by specifying:
 
 ..  literalinclude:: _ServicesOverrideCustom.php
-    :language: yaml
+    :language: php
     :caption: EXT:my_extension/Configuration/Classes/EventListener/MySeoEvent.php
 
 or via :file:`Services.yaml` declaration:
