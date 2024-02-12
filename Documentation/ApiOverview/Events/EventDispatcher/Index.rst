@@ -248,7 +248,7 @@ Overriding event listeners
 --------------------------
 
 Existing event listeners can be overridden by custom implementations. This can be
-performed via :file:`EXT:some_extension/Configuration/Services.yaml`.
+performed via :file:`EXT:my_extension/Configuration/Services.yaml`.
 
 For example, a third-party extension listens on the event
 :php:`\TYPO3\CMS\Frontend\Event\ModifyHrefLangTagsEvent` with the following code:
