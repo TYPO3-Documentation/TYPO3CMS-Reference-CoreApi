@@ -307,10 +307,17 @@ Overriding event listeners
 --------------------------
 
 Existing event listeners can be overridden by custom implementations. This can be
-performed via :file:`EXT:some_extension/Configuration/Services.yaml`.
+performed with both methods, either by using the PHP :php:`#[AsEventListener]`
+attribute, or via :file:`EXT:some_extension/Configuration/Services.yaml`.
 
 For example, a third-party extension listens on the event
 :php:`\TYPO3\CMS\Frontend\Event\ModifyHrefLangTagsEvent` with the following code:
+
+..  literalinclude:: _ServicesOverrideBase.php
+    :language: php
+    :caption: EXT:some_extension/Classes/EventListener/SeoEvent.php
+
+or via :file:`Services.yaml` declaration:
 
 ..  literalinclude:: _ServicesOverrideBase.yaml
     :language: yaml
@@ -318,6 +325,12 @@ For example, a third-party extension listens on the event
 
 If you want to replace this event listener with your custom implementation, your extension can
 achieve this by specifying:
+
+..  literalinclude:: _ServicesOverrideCustom.php
+    :language: yaml
+    :caption: EXT:my_extension/Configuration/Classes/EventListener/MySeoEvent.php
+
+or via :file:`Services.yaml` declaration:
 
 ..  literalinclude:: _ServicesOverrideCustom.yaml
     :language: yaml
