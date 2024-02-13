@@ -225,7 +225,7 @@ processor_stripColorProfileParameters
    :Default: :php:`['+profile', '*']`
 
    Specifies the parameters to strip the profile information, which can reduce
-   thumbnail size up to 60KB. Command can differ in IM/GM, IM also know the
+   thumbnail size up to 60KB. Command can differ in IM/GM, IM also knows the
    :bash:`-strip` command. See
    `imagemagick.org <https://legacy.imagemagick.org/Usage/thumbnails/#profiles>`__
    for details.
