@@ -275,7 +275,7 @@ webp_quality
     :Allowed values: Between 1 (low quality, small file size) and 100 (best quality, large file size), or "lossless"
 
     Default WebP generation quality. Setting the quality to "lossless"
-is equivalent to `"lossless" compression`_.
+    is equivalent to `"lossless" compression`_.
 
     ..  _"lossless" compression: https://developers.google.com/speed/webp/docs/compression#lossless_webp
 
