@@ -65,7 +65,7 @@ lockRootPath
 
 ..  versionchanged:: 11.5.35/12.4.11
     This option has been extended to support an array of root path prefixes to
-    allow for multiple storages to be listed (before a string was expected).
+    allow for multiple storages to be listed (a string was expected before).
 
     It is suggested to use the new array-based syntax, which will be applied
     automatically once this setting is updated via Install Tool configuration
