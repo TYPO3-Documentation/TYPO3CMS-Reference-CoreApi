@@ -183,16 +183,53 @@ processor_stripColorProfileByDefault
 processor_stripColorProfileCommand
 ==================================
 
-.. confval:: $GLOBALS['TYPO3_CONF_VARS']['GFX']['processor_stripColorProfileCommand']
+..  versionchanged:: 11.5.35/12.4.11
+    This string-based configuration option has been superseded by
+    :ref:`$GLOBALS['TYPO3_CONF_VARS']['GFX']['processor_stripColorProfileParameters'] <typo3ConfVars_gfx_processor_stripColorProfileParameters>`
+    for `security reasons <https://typo3.org/security/advisory/typo3-core-sa-2024-002>`__.
 
-   :type: text
-   :Default: \+profile \'\*\'
+..  confval:: $GLOBALS['TYPO3_CONF_VARS']['GFX']['processor_stripColorProfileCommand']
 
-   Specifies the command to strip the profile information, which can reduce
+    :type: string
+
+    This option expected a string of command line parameters. The defined
+    parameters had to be shell-escaped beforehand, while the new option
+    :ref:`typo3ConfVars_gfx_processor_stripColorProfileParameters` expects
+    an array of strings that will be shell-escaped by TYPO3 when used.
+
+    The existing configuration will continue to be supported. Still, it is
+    suggested to use the new configuration format, as the Install Tool is
+    adapted to allow modification of the new configuration option only:
+
+    ..  code-block:: php
+
+        // Before
+        $GLOBALS['TYPO3_CONF_VARS']['GFX']['processor_stripColorProfileCommand'] = '+profile \'*\'';
+
+        // After
+        $GLOBALS['TYPO3_CONF_VARS']['GFX']['processor_stripColorProfileParameters'] = [
+            '+profile',
+            '*'
+        ];
+
+.. index::
+   TYPO3_CONF_VARS GFX; processor_stripColorProfileParameters
+.. _typo3ConfVars_gfx_processor_stripColorProfileParameters:
+
+processor_stripColorProfileParameters
+=====================================
+
+.. confval:: $GLOBALS['TYPO3_CONF_VARS']['GFX']['processor_stripColorProfileParameters']
+
+   :type: array of strings
+   :Default: :php:`['+profile', '*']`
+
+   Specifies the parameters to strip the profile information, which can reduce
    thumbnail size up to 60KB. Command can differ in IM/GM, IM also know the
-   -strip command. See
+   :bash:`-strip` command. See
    `imagemagick.org <https://legacy.imagemagick.org/Usage/thumbnails/#profiles>`__
-   for details
+   for details.
+
 
 ..  index::
     TYPO3_CONF_VARS GFX; processor_colorspace
