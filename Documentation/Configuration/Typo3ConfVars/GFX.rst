@@ -270,7 +270,7 @@ processor_stripColorProfileByDefault
 processor_stripColorProfileCommand
 ==================================
 
-..  versionchanged:: 11.5.35/12.4.11
+..  versionchanged:: 11.5.35
     This string-based configuration option has been superseded by
     :ref:`$GLOBALS['TYPO3_CONF_VARS']['GFX']['processor_stripColorProfileParameters'] <typo3ConfVars_gfx_processor_stripColorProfileParameters>`
     for `security reasons <https://typo3.org/security/advisory/typo3-core-sa-2024-002>`__.
