@@ -59,7 +59,7 @@ Is online?
     Assuming that a web project is located in the directory
     :file:`/var/www/example.org/` (the "project root path" for Composer-based
     projects) and the publicly accessible directory is located at
-    :file:`/var/www/example.org/public/` (the "public root path"), accessing
+    :file:`/var/www/example.org/public/` (the "public root path" or "web root"), accessing
     resources via the File Abstraction Layer component is limited to the
     mentioned directories and its sub-directories.
 
