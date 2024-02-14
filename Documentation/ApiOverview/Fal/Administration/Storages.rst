@@ -61,7 +61,7 @@ Is online?
     projects) and the publicly accessible directory is located at
     :file:`/var/www/example.org/public/` (the "public root path"), accessing
     resources via the File Abstraction Layer component is limited to the
-    mentioned directories.
+    mentioned directories and its sub-directories.
 
     To grant **additional** access to directories, they must be explicitly
     configured in the system settings of
