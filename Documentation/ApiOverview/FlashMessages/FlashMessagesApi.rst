@@ -70,9 +70,8 @@ In backend modules you can then make that message appear on top of the
 module after a page refresh or the rendering of the next page request
 or render it on your own where ever you want.
 
-This example adds the flash message at the top of modules when
-rendering the next request:
-
+In this example the :php:`FlashMessageService` (:php:`TYPO3\CMS\Core\Messaging\FlashMessageService`) 
+is used to add a flash message at the top a module:
 
 .. code-block:: php
    :caption: EXT:my_extension/Classes/Controller/SomeController.php
