@@ -306,6 +306,8 @@ processor_stripColorProfileCommand
 processor_stripColorProfileParameters
 =====================================
 
+..  versionadded:: 11.5.35
+
 .. confval:: $GLOBALS['TYPO3_CONF_VARS']['GFX']['processor_stripColorProfileParameters']
 
    :type: array of strings
