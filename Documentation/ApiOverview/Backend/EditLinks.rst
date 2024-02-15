@@ -48,7 +48,7 @@ The examples above leads to the normal edit form for a page:
 
 .. _edit-links-edit-restricted:
 
-Additional options for editing redords
+Additional options for editing records
 ======================================
 
 When creating the link via php it is possible to add more options.
