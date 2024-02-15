@@ -75,7 +75,9 @@ The wording must not be changed/updated/extended, under any circumstances.
 Namespace Imports
 =================
 
-Necessary PHP Classes should be imported like explained in PSR-2:
+Necessary PHP Classes should be imported like explained in the
+`TYPO3 Coding Standards <https://github.com/TYPO3/coding-standards>`__,
+(based on PHP-FIG, PSR-1/PSR-2 and PSR-12 at the time of this writing):
 
 .. code-block:: php
    :caption: EXT:some_extension/Classes/SomeClass.php
