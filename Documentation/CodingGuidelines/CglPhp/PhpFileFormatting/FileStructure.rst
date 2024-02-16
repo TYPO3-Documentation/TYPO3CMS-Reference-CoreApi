@@ -77,7 +77,8 @@ Namespace Imports
 
 Necessary PHP classes should be imported like explained in the
 `TYPO3 Coding Standards <https://github.com/TYPO3/coding-standards>`__,
-(based on PHP-FIG, PSR-1/PSR-2 and PSR-12 at the time of this writing):
+(based on PER-CS1.0 / PSR-12 at the time of this writing, transitioning towards
+PER-CS2.0):
 
 .. code-block:: php
    :caption: EXT:some_extension/Classes/SomeClass.php
