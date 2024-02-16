@@ -11,11 +11,15 @@ TYPO3 Coding Standards
 ======================
 
 The package `TYPO3 Coding Standards <https://github.com/TYPO3/coding-standards>`__
-(based on PHP-FIG, PSR-1/PSR-2 and PSR-12 at the time of this writing)
 provides the most up-to-date recommendation for using and enforcing common
-coding guidelines. That repository also offers toolchain configuration for
-automatically adjusting created code to these standards and is kept up to
-date.
+coding guidelines, which are continuously improved. The package also offers
+toolchain configuration for automatically adjusting code to these standards.
+Specifically, a `PHP CS Fixer configuration
+<https://github.com/TYPO3/typo3/blob/main/Build/php-cs-fixer/config.php>`__
+is provided, that is based on PER-CS1.0 (PSR-12) at the time of this
+writing, and transitioning towards PER-CS2.0.
+
+
 
 File Names
 ==========
@@ -103,7 +107,6 @@ Whitespace and Indentation
 
 TYPO3 uses space characters to indent source code. Following the
 `TYPO3 Coding Standards <https://github.com/TYPO3/coding-standards>`__,
-(based on PHP-FIG, PSR-1/PSR-2 and PSR-12 at the time of this writing),
 one indentation level consists of four spaces.
 
 There must be no white spaces in the end of a line. This can be done
