@@ -7,7 +7,6 @@ namespace MyVendor\MyExtension\ContentSecurityPolicy\EventListener;
 use TYPO3\CMS\Core\Attribute\AsEventListener;
 use TYPO3\CMS\Core\Security\ContentSecurityPolicy\Directive;
 use TYPO3\CMS\Core\Security\ContentSecurityPolicy\Event\PolicyMutatedEvent;
-use TYPO3\CMS\Core\Security\ContentSecurityPolicy\Scope;
 use TYPO3\CMS\Core\Security\ContentSecurityPolicy\UriValue;
 
 #[AsEventListener(
