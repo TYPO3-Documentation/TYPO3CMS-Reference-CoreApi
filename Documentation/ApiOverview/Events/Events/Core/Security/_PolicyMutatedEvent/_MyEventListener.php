@@ -13,8 +13,8 @@ final class MyEventListener
 {
     public function __invoke(PolicyMutatedEvent $event): void
     {
-        if ($event->scope !== Scope::backend()) {
-            // Only the backend policy should be adjusted
+        if ($event->scope->type->isFrontend()) {
+            // In our example, only the backend policy should be adjusted
             return;
         }
 
