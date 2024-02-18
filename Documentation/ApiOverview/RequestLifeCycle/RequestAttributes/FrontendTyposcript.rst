@@ -29,4 +29,8 @@ current TypoScript, it can retrieve it using this API:
 API
 ===
 
+..  versionadded:: 13.0
+    The method :php:`getConfigArray()` has been added. This supersedes the
+    :php:`TSFE->config['config']` array.
+
 ..  include:: /CodeSnippets/Manual/Entity/FrontendTypoScript.rst.txt
