@@ -72,8 +72,8 @@ Connections
         ]
 
     It is possible to swap out tables from the default database and use a specific
-    setup (e.g. for logging or caching). For example, the following snippet could
-    be used to swap the :sql:`sys_log` table to another database or even another
+    setup (for instance, for caching). For example, the following snippet could
+    be used to swap the :sql:`be_sessions` table to another database or even another
     database server:
 
     ..  code-block:: php
@@ -89,18 +89,18 @@ Connections
                 'port' => 3306,
                 'user' => 'typo3',
             ],
-            'Syslog' => [
+            'Sessions' => [
                 'charset' => 'utf8mb4',
                 'driver' => 'mysqli',
-                'dbname' => 'syslog_dbname',
-                'host' => 'syslog_host',
+                'dbname' => 'sessions_dbname',
+                'host' => 'sessions_host',
                 'password' => '***',
                 'port' => 3306,
-                'user' => 'syslog_user',
+                'user' => 'some_user',
             ],
         ],
         'TableMapping' => [
-            'sys_log' => 'Syslog',
+            'be_sessions' => 'Sessions',
         ]
 
     ..  note::
@@ -298,7 +298,8 @@ TableMapping
     When a TYPO3 table is swapped to another database (either on the same host
     or another host) this table must be mapped to the other database.
 
-    For example, the :sql:`sys_log` table should be swapped to another database:
+    For example, the :sql:`be_sessions` table should be swapped to another
+    database:
 
     ..  code-block:: php
         :caption: config/system/settings.php | typo3conf/system/settings.php
@@ -307,16 +308,16 @@ TableMapping
             'Default' => [
                 // ...
             ],
-            'Syslog' => [
+            'Sessions' => [
                 'charset' => 'utf8mb4',
                 'driver' => 'mysqli',
-                'dbname' => 'syslog_dbname',
-                'host' => 'syslog_host',
+                'dbname' => 'sessions_dbname',
+                'host' => 'sessions_host',
                 'password' => '***',
                 'port' => 3306,
-                'user' => 'syslog_user',
+                'user' => 'some_user',
             ],
         ],
         'TableMapping' => [
-            'sys_log' => 'Syslog',
+            'be_sessions' => 'Sessions',
         ]
