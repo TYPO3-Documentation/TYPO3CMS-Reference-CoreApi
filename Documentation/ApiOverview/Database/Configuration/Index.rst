@@ -76,8 +76,8 @@ Remarks:
 Example: two connections
 ========================
 
-Another example with two connections, where the :sql:`sys_log` table is mapped
-to a different endpoint:
+Another example with two connections, where the :sql:`be_sessions` table is
+mapped to a different endpoint:
 
 ..  code-block:: php
     :caption: typo3conf/LocalConfiguration.php
@@ -94,19 +94,19 @@ to a different endpoint:
                 'port' => 3306,
                 'user' => 'default_user',
             ],
-            'Syslog' => [
-                'charset' => 'utf8',
-                'dbname' => 'syslog_dbname',
+            'Sessions' => [
+                'charset' => 'utf8mb4',
                 'driver' => 'mysqli',
-                'host' => 'syslog_host',
+                'dbname' => 'sessions_dbname',
+                'host' => 'sessions_host',
                 'password' => '***',
                 'port' => 3306,
-                'user' => 'syslog_user',
+                'user' => 'some_user',
             ],
         ],
         'TableMapping' => [
-            'sys_log' => 'Syslog'
-        ],
+            'be_sessions' => 'Sessions',
+        ]
     ],
     // [...]
 
