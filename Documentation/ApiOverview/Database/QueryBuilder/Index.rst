@@ -834,6 +834,20 @@ Remarks:
 add()
 =====
 
+..  tip::
+    This method will be removed with TYPO3 v13. You can prepare yourself by
+    using the dedicated methods instead (with at least TYPO3 v12.4.11 or
+    Doctrine DBAL v3.8):
+
+    ..  csv-table:: Replacements
+        :header: "Before", "After"
+
+        ":php:`->add('select', $array)`", ":php:`->select(...$array)`"
+        ":php:`->add('where', $constraints)`", ":php:`->where(...$contraints)`"
+        ":php:`->add('having', $havings)`", ":php:`->having(...$havings)`"
+        ":php:`->add('orderBy', $orderBy)`", ":php:`->orderBy($orderByField, $orderByDirection)->addOrderBy($orderByField2)`"
+        ":php:`->add('groupBy', $groupBy)`", ":php:`->groupBy($groupField)->addGroupBy($groupField2)`"
+
 The :php:`->add()` method appends or replaces a single, generic query part. It
 can be used as a low level call when more specific calls do not provide enough
 freedom to express parts of statements:
