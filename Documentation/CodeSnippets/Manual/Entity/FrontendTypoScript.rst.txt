@@ -56,3 +56,13 @@
       not exist, or when the page contains COA_INT or USER_INT objects.
 
       :returntype: array
+
+   .. php:method:: getConfigArray()
+
+      The merged TypoScript 'config'.
+
+      This is the result of the "global" TypoScript 'config' section, merged with
+      the 'config' section of the determined PAGE object which can override
+      "global" 'config' per type / typeNum.
+
+      :returntype: array
