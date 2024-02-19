@@ -828,6 +828,8 @@ Remarks:
     out the first n records". Internally, :sql:`LIMIT` will be added by
     Doctrine DBAL and set to a very high value.
 
+*   Use :php:`->setMaxResults(null)` to retrieve all results.
+
 
 .. _database-query-builder-add:
 
