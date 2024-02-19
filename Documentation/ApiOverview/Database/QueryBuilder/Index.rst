@@ -800,7 +800,7 @@ setMaxResults() and setFirstResult()
 ====================================
 
 ..  versionchanged:: 13.0
-    Using :php:`->setMaxResults(0)` will no longer work and returns no records.
+    Using :php:`->setMaxResults(0)` returns no records.
     Use :php:`->setMaxResults(null)` instead to get all records (which can be
     used already with TYPO3 v12 and v11).
 
