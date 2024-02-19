@@ -113,7 +113,7 @@ mapped to a different endpoint:
 
 Remarks:
 
-*   The array key :php:`Syslog` is just a name. It can be different, but it is
+*   The array key :php:`Sessions` is just a name. It can be different, but it is
     good practice to give it a useful, descriptive name.
 
 *   It is possible to map multiple tables to a different endpoint by adding
@@ -123,7 +123,7 @@ Remarks:
     example, if a join query is executed that spans different connections, an
     exception will be thrown. It is up to the administrator to group the
     affected tables to the same connection in those cases, or a developer should
-    implementfallback logic to suppress the :sql:`join()`.
+    implement fallback logic to suppress the :sql:`join()`.
 
 
 ..  attention::
