@@ -834,32 +834,19 @@ Remarks:
 add()
 =====
 
-The :php:`->add()` method appends or replaces a single, generic query part. It
-can be used as a low level call when more specific calls do not provide enough
-freedom to express parts of statements:
+..  versionchanged:: 13.0
+    With the upgrade to Doctrine DBAL version 4 this method has been removed.
 
-..  code-block:: php
-    :caption: EXT:my_extension/Classes/Domain/Repository/MyRepository.php
+**Migration:** use the direct methods instead:
 
-    $queryBuilder = $this->connectionPool->getQueryBuilderForTable('sys_language');
-    $queryBuilder
-        ->select('*')
-        ->from('sys_language')
-        ->add('orderBy', 'FIELD(eventtype, 0, 4, 1, 2, 3)');
+..  csv-table:: Replacements
+    :header: "Before", "After"
 
-Read :ref:`how to correctly instantiate <database-query-builder-instantiation>`
-a query builder with the connection pool.
-
-Remarks:
-
-*   The first argument is the SQL part. One of: :php:`select`, :php:`from`,
-    :php:`set`, :php:`where`, :php:`groupBy`, :php:`having` or :php:`orderBy`.
-
-*   The second argument is the (properly quoted!) SQL segment of this part.
-
-*   The optional third boolean argument specifies whether the SQL fragment
-    should be appended (:php:`true`) or replace a possibly existing SQL part of
-    this name (:php:`false`, default).
+    ":php:`->add('select', $array)`", ":php:`->select(...$array)`"
+    ":php:`->add('where', $constraints)`", ":php:`->where(...$contraints)`"
+    ":php:`->add('having', $havings)`", ":php:`->having(...$havings)`"
+    ":php:`->add('orderBy', $orderBy)`", ":php:`->orderBy($orderByField, $orderByDirection)->addOrderBy($orderByField2)`"
+    ":php:`->add('groupBy', $groupBy)`", ":php:`->groupBy($groupField)->addGroupBy($groupField2)`"
 
 
 .. _database-query-builder-get-sql:
