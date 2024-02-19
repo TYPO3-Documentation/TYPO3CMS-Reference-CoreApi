@@ -141,4 +141,22 @@ return [
         'targetFileName' => 'CodeSnippets/Events/Frontend/BeforeStdWrapContentStoredInCacheEvent.rst.txt',
         'withCode' => false,
     ],
+    [
+        'action' => 'createPhpClassDocs',
+        'class' => \TYPO3\CMS\Frontend\Event\BeforePageCacheIdentifierIsHashedEvent::class,
+        'targetFileName' => 'CodeSnippets/Events/Frontend/BeforePageCacheIdentifierIsHashedEvent.rst.txt',
+        'withCode' => false,
+    ],
+    [
+        'action' => 'createPhpClassDocs',
+        'class' => \TYPO3\CMS\Frontend\Event\ModifyTypoScriptConfigEvent::class,
+        'targetFileName' => 'CodeSnippets/Events/Frontend/ModifyTypoScriptConfigEvent.rst.txt',
+        'withCode' => false,
+    ],
+    [
+        'action' => 'createPhpClassDocs',
+        'class' => \TYPO3\CMS\Frontend\Event\AfterTypoScriptDeterminedEvent::class,
+        'targetFileName' => 'CodeSnippets/Events/Frontend/AfterTypoScriptDeterminedEvent.rst.txt',
+        'withCode' => false,
+    ],
 ];
