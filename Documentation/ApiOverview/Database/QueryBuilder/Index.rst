@@ -799,6 +799,11 @@ Remarks:
 setMaxResults() and setFirstResult()
 ====================================
 
+..  versionchanged:: 13.0
+    Using :php:`->setMaxResults(0)` will no longer work and returns no records.
+    Use :php:`->setMaxResults(null)` instead to get all records (which can be
+    used already with TYPO3 v12 and v11).
+
 Add :sql:`LIMIT` to restrict the number of records and :sql:`OFFSET` for
 pagination of query parts. Both methods should be called only once per
 statement:
