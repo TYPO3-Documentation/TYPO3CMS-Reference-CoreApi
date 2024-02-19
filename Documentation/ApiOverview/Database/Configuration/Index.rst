@@ -76,6 +76,20 @@ Remarks:
 Example: two connections
 ========================
 
+..  attention::
+    ..  versionchanged:: 13.0
+
+    TYPO3 expects all "main" Core system tables to be configured for the
+    :php:`Default` connection (especially :sql:`sys_*`, :sql:`pages`,
+    :sql:`tt_content` and in general all tables that have
+    :ref:`TCA <t3tca:start>` configured). The reason for this is to improve
+    performance with joins between tables. Cross-database joins are almost
+    impossible.
+
+    One scenario for using a separate database connection is to query data
+    directly from a third-party application in a custom extension. Another
+    use case is database-based caches.
+
 Another example with two connections, where the :sql:`be_sessions` table is
 mapped to a different endpoint:
 
@@ -118,12 +132,6 @@ Remarks:
 
 *   It is possible to map multiple tables to a different endpoint by adding
     further table name / connection name pairs to :php:`TableMapping`.
-
-*   However, this "connection per table" approach is limited: In the above
-    example, if a join query is executed that spans different connections, an
-    exception will be thrown. It is up to the administrator to group the
-    affected tables to the same connection in those cases, or a developer should
-    implement fallback logic to suppress the :sql:`join()`.
 
 
 ..  attention::
