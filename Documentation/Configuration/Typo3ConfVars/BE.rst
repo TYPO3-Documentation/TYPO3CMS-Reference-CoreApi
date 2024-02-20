@@ -63,7 +63,7 @@ fileadminDir
 lockRootPath
 ============
 
-..  versionchanged:: 11.5.35/12.4.11
+..  versionchanged:: 11.5.35
     This option has been extended to support an array of root path prefixes to
     allow for multiple storages to be listed (a string was expected before).
 
