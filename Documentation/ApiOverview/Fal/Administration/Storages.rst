@@ -71,7 +71,7 @@ Is online?
     Example:
 
     ..  code-block:: php
-        :caption: config/system/settings.php
+        :caption: typo3conf/LocalConfiguration.php
 
         // Configure additional directories outside of the project's folder
         // as absolute paths
