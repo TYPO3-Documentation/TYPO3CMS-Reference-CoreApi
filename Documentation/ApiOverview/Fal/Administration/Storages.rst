@@ -53,3 +53,35 @@ Is online?
         within your web root or accessible via a third-party storage service
         which is publicly available. The files will still be available to anyone
         who knows the path to the file.
+
+    ..  versionchanged:: 11.5.35/12.4.11
+
+    Assuming that a web project is located in the directory
+    :file:`/var/www/example.org/` (the "project root path" for Composer-based
+    projects) and the publicly accessible directory is located at
+    :file:`/var/www/example.org/public/` (the "public root path" or "web root"), accessing
+    resources via the File Abstraction Layer component is limited to the
+    mentioned directories and its sub-directories.
+
+    To grant **additional** access to directories, they must be explicitly
+    configured in the system settings of
+    :ref:`$GLOBALS['TYPO3_CONF_VARS']['BE']['lockRootPath'] <typo3ConfVars_be_lockRootPath>`
+    - either using the Install Tool or according to deployment techniques.
+
+    Example:
+
+    ..  code-block:: php
+        :caption: config/system/settings.php
+
+        // Configure additional directories outside of the project's folder
+        // as absolute paths
+        $GLOBALS['TYPO3_CONF_VARS']['BE']['lockRootPath'] = [
+            ‘/var/shared/documents/’,
+            ‘/var/shared/images/’,
+        ];
+
+    Storages that reference directories not explicitly granted will be marked as
+    "offline" internally - no resources can be used in the website's frontend
+    and backend context.
+
+    See also the `security bulletin "Path Traversal in TYPO3 File Abstraction Layer Storages" <https://typo3.org/security/advisory/typo3-core-sa-2024-001>`__.
