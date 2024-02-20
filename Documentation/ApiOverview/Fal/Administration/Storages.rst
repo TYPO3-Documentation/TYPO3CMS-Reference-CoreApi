@@ -54,7 +54,7 @@ Is online?
         which is publicly available. The files will still be available to anyone
         who knows the path to the file.
 
-    ..  versionchanged:: 11.5.35/12.4.11
+    ..  versionchanged:: 11.5.35
 
     Assuming that a web project is located in the directory
     :file:`/var/www/example.org/` (the "project root path" for Composer-based
