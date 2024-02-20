@@ -72,7 +72,7 @@ lockRootPath
     wizard. Migration:
 
     ..  code-block:: php
-        :caption: config/system/settings.php
+        :caption: typo3conf/LocalConfiguration.php
 
         // Before
         $GLOBALS['TYPO3_CONF_VARS']['BE']['lockRootPath'] = '/var/extra-storage';
