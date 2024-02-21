@@ -6,8 +6,8 @@
    This event is fired before the Mailer has sent a message and
    allows listeners to manipulate the RawMessage and the Envelope.
 
-   Note: Usually TYPO3\CMS\Core\Mail\Mailer is given to the event. This implementation
-   allows to retrieve the TransportInterface using the getTransport() method.
+   Note: Usually :php:`TYPO3\CMS\Core\Mail\Mailer` is given to the event. This implementation
+   allows to retrieve the :php:`TransportInterface` using the :php:`$mailer->getTransport()` method.
 
    .. php:method:: getMessage()
 
