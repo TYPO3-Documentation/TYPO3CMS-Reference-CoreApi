@@ -270,6 +270,7 @@ The service chain will stop as soon as one user is found.
 Developing an authentication service
 ====================================
 
+Use the :ref:`services-developer-service-api` to implement your service class.
 When developing your own "auth" services, the chances are high
 that you will want to implement only the "getUser\*" and "authUser\*"
 subtypes.
