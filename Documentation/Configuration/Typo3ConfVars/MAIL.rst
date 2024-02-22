@@ -430,7 +430,7 @@ transport_spool_type
 
    file
       Messages get stored to the file system till they get sent through the
-      command mailer:spool:send.
+      command :bash:`mailer:spool:send`.
    memory
       Messages get sent at the end of the running process.
    *classname*
