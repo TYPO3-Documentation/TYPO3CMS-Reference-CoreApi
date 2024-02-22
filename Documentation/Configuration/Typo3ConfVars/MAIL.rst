@@ -176,7 +176,7 @@ transport
 
    *classname*
       Custom class which implements
-      \\Symfony\\Component\\Mailer\\Transport\\TransportInterface. The constructor
+      :php:`\Symfony\Component\Mailer\Transport\TransportInterface`. The constructor
       receives all settings from the MAIL section to make it possible to add
       custom settings.
 
