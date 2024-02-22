@@ -175,9 +175,10 @@ transport
       setting below
 
    *classname*
-      Custom class which implements Swift_Transport. The constructor
-      receives all settings from the MAIL section to make it possible to
-      add custom settings.
+      Custom class which implements
+      :php:`\Symfony\Component\Mailer\Transport\TransportInterface`. The constructor
+      receives all settings from the MAIL section to make it possible to add
+      custom settings.
 
 .. index::
    TYPO3_CONF_VARS MAIL; transport_smtp_server
@@ -428,12 +429,13 @@ transport_spool_type
    :Default: ''
 
    file
-      Messages get stored to the file system till they get sent through
-      the command swiftmailerspoolsend.
+      Messages get stored to the file system till they get sent through the
+      command :bash:`mailer:spool:send`.
    memory
-      Messages get send at the end of the running process.
+      Messages get sent at the end of the running process.
    *classname*
-      Custom class which implements the Swift_Spool interface.
+      Custom class which implements the
+      :php:`\TYPO3\CMS\Core\Mail\DelayedTransportInterface` interface.
 
 .. index::
    TYPO3_CONF_VARS MAIL; transport_spool_filepath
