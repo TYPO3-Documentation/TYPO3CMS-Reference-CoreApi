@@ -384,7 +384,7 @@ transport_spool_type
       Messages get sent at the end of the running process.
    *classname*
       Custom class which implements the
-      \\TYPO3\\CMS\\Core\\Mail\\DelayedTransportInterface interface.
+      :php:`\TYPO3\CMS\Core\Mail\DelayedTransportInterface` interface.
 
 .. index::
    TYPO3_CONF_VARS MAIL; transport_spool_filepath
