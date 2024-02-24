@@ -443,7 +443,8 @@ Description of keywords in syntax:
    FlexForm fields always end with a "regular value" of course.
 
 
-.. caution::
+..  caution::
+    ..  versionchanged:: 13.0.1/12.4.11/11.5.35
    Modifying the :sql:`sys_file` table using DataHandler is blocked since TYPO3
    version 11.5.35, 12.4.11, and 13.0.1. The table
    should not be extended and additional fields should be added to 
