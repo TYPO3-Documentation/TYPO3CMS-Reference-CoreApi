@@ -445,7 +445,7 @@ Description of keywords in syntax:
 
 .. caution::
    Modifying the :sql:`sys_file` table using DataHandler is blocked since TYPO3
-   version 8.7.57, 9.5.46, 10.4.43, 11.5.35, 12.4.11, and 13.0.1. The table
+   version 11.5.35, 12.4.11, and 13.0.1. The table
    should not be extended and additional fields should be added to 
    :sql:`sys_file_metadata`. See `security advisory TYPO3-CORE-SA-2024-006 <https://typo3.org/security/advisory/typo3-core-sa-2024-006>`__ 
    for more information.
