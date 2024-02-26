@@ -718,6 +718,32 @@ An :php:`Error` is thrown on missing dependency injection for
     Call to a member function methodName() on null
 
 
+User functions and their restrictions
+-------------------------------------
+
+It is possible to use dependency injection when calling custom user functions,
+for example :ref:`.userFunc within TypoScript <t3tsref:cobj-user-properties>` or
+:ref:`in (legacy) hooks <hooks-general>`, usually via
+:php:`\TYPO3\CMS\Core\Utility\GeneralUtility::callUserFunction()`.
+
+This method :php:`callUserFunction()` internally uses the dependency-injection-aware
+helper :php:`GeneralUtility::makeInstance()`, which can recognize and inject
+classes/services that are marked public.
+
+..  attention::
+
+    The backend module :guilabel:`Admin Tools > Extensions > Configuration` is also
+    able to specify user functions for input options provided via an
+    :file:`ext_conf_template.txt` (see :ref:`extension-configuration`).
+
+    However, this backend module is executed in a special low-level context
+    that disables some functionality for failsafe-reasons. Specifically,
+    this prevents dependency injection from being used in this scenario.
+
+    If you need to utilize services and other classes inside user functions
+    that are called there, you need to perform custom :php:`GeneralUtility::makeInstance()`
+    calls inside your own user function method to initialize those needed classes/services.
+
 Dependency injection in a XCLASSed class
 ----------------------------------------
 
