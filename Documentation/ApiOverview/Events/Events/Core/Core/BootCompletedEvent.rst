@@ -1,43 +1,34 @@
-.. include:: /Includes.rst.txt
-.. index:: Events; BootCompletedEvent
-.. _BootCompletedEvent:
+..  include:: /Includes.rst.txt
+..  index:: Events; BootCompletedEvent
+..  _BootCompletedEvent:
 
 ==================
 BootCompletedEvent
 ==================
 
-.. versionadded:: 11.4
+..  versionadded:: 11.4
 
-The :php:`BootCompletedEvent` is fired on every request when TYPO3 has been
-fully booted, right after all configuration files have been added.
+The PSR-14 event :php:`\TYPO3\CMS\Core\Core\Event\BootCompletedEvent` is fired
+on every request when TYPO3 has been fully booted, right after all configuration
+files have been added.
 
-This new event complements the :ref:`AfterTcaCompilationEvent` which
-is executed after TCA configuration has been assembled.
+This event complements the :ref:`AfterTcaCompilationEvent` which is executed
+after TCA configuration has been assembled.
 
-Use cases for this event include running extensions'
-code which needs to be executed at any time, and needs
-TYPO3's full configuration including all loaded extensions.
+Use cases for this event include running extension's code which needs to be
+executed at any time and needs TYPO3's full configuration including all loaded
+extensions.
 
-Registration of the event in the :file:`Services.yaml`:
+Example
+=======
 
-.. code-block:: yaml
+..  literalinclude:: _BootCompletedEvent/_MyEventListener.php
+    :language: php
+    :caption: EXT:my_extension/Classes/Bootstrap/EventListener/MyEventListener.php
 
-  MyVendor\MyPackage\Bootstrap\MyEventListener:
-    tags:
-      - name: event.listener
-        identifier: 'my-package/my-listener'
-
-.. code-block:: php
-
-    class MyEventListener {
-        public function __invoke(BootCompletedEvent $e): void
-        {
-            // do your magic
-        }
-    }
-
+..  include:: /_includes/EventsAttributeAdded.rst.txt
 
 API
----
+===
 
-.. include:: /CodeSnippets/Events/Core/BootCompletedEvent.rst.txt
+..  include:: /CodeSnippets/Events/Core/BootCompletedEvent.rst.txt

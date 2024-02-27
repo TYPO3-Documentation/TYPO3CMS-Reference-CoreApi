@@ -8,12 +8,15 @@ ActionController
 ================
 
 Most Extbase controllers are based on the
-:php:`TYPO3\CMS\Extbase\Mvc\Controller\ActionController`. It is theoretically
+:php:`\TYPO3\CMS\Extbase\Mvc\Controller\ActionController`. It is theoretically
 possible to base a controller directly on the
 :php:`\TYPO3\CMS\Extbase\Mvc\Controller\ControllerInterface`, however there are
 rarely use cases for that. Implementing the :php:`ControllerInterface` does not
 guarantee a controller to be dispatchable. It is not recommended to base
 your controller directly on the :php:`ControllerInterface`.
+
+.. contents::
+   :local:
 
 .. _extbase_class_hierarchy-actions:
 
@@ -101,6 +104,8 @@ If you need a to handle errors differently this method can be overridden.
    editing process, the validation of that object can be disabled by the
    annotation :php:`@TYPO3\CMS\Extbase\Annotation\IgnoreValidation`.
 
+..  _extbase-action-controller-forward:
+
 Forward to a different controller
 =================================
 
@@ -114,3 +119,50 @@ index action of the :php:`PostController`, we follow to the list of blogs
 displayed by the :php:`indexAction` of the :php:`BlogController`.
 
 .. include:: /CodeSnippets/Extbase/Controllers/ForwardAction.rst.txt
+
+Forwards only work when the target controller and action is properly registered
+as an allowed pair. This can be done via an extension's :file:`ext_localconf.php` file
+in the relevant :php:`ExtensionUtility::configurePlugin()` section, or by
+filling the :php:`$GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['extbase']['extensions']`
+array and :typoscript:`tt_content.list.20.(pluginSignature)` TypoScript.
+Otherwise, the object class name of your target controller cannot be resolved properly,
+and container instantiation will fail.
+
+The corresponding example is:
+
+.. include:: /CodeSnippets/Extbase/FrontendPlugins/ConfigurePlugin.rst.txt
+
+Here, the plugin `BlogExample` would allow jumping between the controllers
+:php:`PostController` and :php:`CommentController`. To also allow
+:php:`BlogController` in the example above, it would need to get added
+like this:
+
+.. code-block:: php
+   :caption: EXT:blog_example/ext_localconf.php
+
+   <?php
+   // ...
+   use FriendsOfTYPO3\BlogExample\Controller\CommentController;
+   use FriendsOfTYPO3\BlogExample\Controller\PostController;
+   use FriendsOfTYPO3\BlogExample\Controller\CommentController;
+   use TYPO3\CMS\Extbase\Utility\ExtensionUtility;
+
+   ExtensionUtility::configurePlugin(
+      'BlogExample',
+      'PostSingle',
+      [
+         PostController::class => 'show',
+         CommentController::class => 'create',
+         BlogController::class => 'index'
+      ],
+      [CommentController::class => 'create']
+   );
+
+
+Events
+======
+
+Two :ref:`PSR-14 events <EventDispatcher>` are available:
+
+*   :ref:`AfterRequestDispatchedEvent`
+*   :ref:`BeforeActionCallEvent`

@@ -58,6 +58,6 @@ Register a new toplevel module in your extension:
        'myextension' => [
            'labels' => 'LLL:EXT:my_extension/Resources/Private/Language/locallang_mod_web.xlf',
            'iconIdentifier' => 'modulegroup-myextension',
-           'navigationComponent' => 'TYPO3/CMS/Backend/PageTree/PageTreeElement',
+           'navigationComponent' => '@typo3/backend/page-tree/page-tree-element',
        ]
    ];

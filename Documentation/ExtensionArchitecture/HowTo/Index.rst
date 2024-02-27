@@ -16,14 +16,5 @@ existing TCA.
     :titlesonly:
     :glob:
 
-    Configuration
-    CreateNewExtension
-    CreateNewDistribution
-    ExtensionManagement
-    Documentation
-    FrontendPlugin/Index
-    BackendModule/Index
-    Localization/Index
-    ExtendingTca/Index
-    PublishExtension/Index
-    CustomExtensionRepository
+    */Index
+    *

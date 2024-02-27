@@ -1,0 +1,53 @@
+rootPageId: 12
+base: 'https://example.org/'
+websiteTitle: Example
+languages:
+  - title: English
+    enabled: true
+    locale: en_US.UTF-8
+    base: /
+    websiteTitle: ''
+    navigationTitle: English
+    flag: gb
+    languageId: 0
+  - title: 'danish'
+    enabled: true
+    locale: da_DK.UTF-8
+    base: /da/
+    websiteTitle: ''
+    navigationTitle: Dansk
+    fallbackType: strict
+    fallbacks: ''
+    flag: dk
+    languageId: 1
+  - title: Deutsch
+    enabled: true
+    locale: de_DE.UTF-8
+    base: 'https://example.net/'
+    websiteTitle: ''
+    navigationTitle: Deutsch
+    fallbackType: fallback
+    fallbacks: '1,0'
+    flag: de
+    languageId: 2
+errorHandling:
+  - errorCode: '404'
+    errorHandler: Page
+    errorContentSource: 't3://page?uid=8'
+  - errorCode: '403'
+    errorHandler: Fluid
+    errorFluidTemplate: 'EXT:my_extension/Resources/Private/Templates/ErrorPages/403.html'
+    errorFluidTemplatesRootPath: 'EXT:my_extension/Resources/Private/Templates/ErrorPages'
+    errorFluidLayoutsRootPath: 'EXT:my_extension/Resources/Private/Layouts/ErrorPages'
+    errorFluidPartialsRootPath: 'EXT:my_extension/Resources/Private/Partials/ErrorPages'
+  - errorCode: '0'
+    errorHandler: PHP
+    errorPhpClassFQCN: MyVendor\ExtensionName\ErrorHandlers\GenericErrorhandler
+routes:
+  route: robots.txt
+  type: staticText
+  content: |
+    Sitemap: https://example.org/sitemap.xml
+    User-agent: *
+    Allow: /
+    Disallow: /forbidden/

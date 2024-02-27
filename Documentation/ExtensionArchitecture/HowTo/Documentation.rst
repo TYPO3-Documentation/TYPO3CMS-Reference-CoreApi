@@ -36,7 +36,7 @@ We recommend the first approach for the following reasons:
 
 For more details on both approaches see the :ref:`File structure <h2document:file-structure>`
 page and for more information on writing TYPO3 documentation in general, see the
-:doc:`Writing documentation <h2document:Index>` guide.
+:ref:`Writing documentation <h2document:start>` guide.
 
 .. _extension-documentation-tools:
 

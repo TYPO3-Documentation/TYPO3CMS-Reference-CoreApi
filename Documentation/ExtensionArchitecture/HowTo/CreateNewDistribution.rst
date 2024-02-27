@@ -16,7 +16,7 @@ Concept of distributions
 
 The distributions are full TYPO3 CMS websites that only need to be unpacked.
 They offer a simple and quick introduction to the use of the TYPO3 CMS. The
-best known distribution is the :t3ext:`introduction/`.
+best known distribution is the :t3ext:`introduction`.
 Distributions are easiest to install via the :ref:`Extension Manager <extension-manager>` (EM)
 under "Get preconfigured distribution".
 
@@ -91,14 +91,14 @@ related assets within your dump.
 If there are files not directly referenced in tables selected for export
 (for example ext:form .yml form configurations), you can locate them
 within :file:`fileadmin/<extkey>`, too. Only those need to be copied to
-:file:`Initialization/Files` - all other files referenced in database rows
+:file:`Initialisation/Files` - all other files referenced in database rows
 will be within your export dump.
 
 Note that you should *not* put your website configuration
 (TypoScript files, JavaScript, CSS, logos, etc.) in :file:`fileadmin/`,
 which is intended for editors only, but in a separate extension.
 In the case of the Introduction Package, the configuration is located in the
-:t3ext:`bootstrap_package/`
+:t3ext:`bootstrap_package`
 extension, and the Introduction Package depends on it. In this way,
 the Introduction Package provides only the database dump and asset files which
 results in only content-related files being in :file:`fileadmin/`,
@@ -172,12 +172,12 @@ from the root of the page tree using the :ref:`export module <ext_impexp:export>
 
    To finish the export, click the :guilabel:`Save to filename` button. Copy
    the export file from :file:`/fileadmin/user_upload/_temp_/importtexport/data.xml`
-   to the distribution folder under :file:`Initialization/data.xml`.
+   to the distribution folder under :file:`Initialisation/data.xml`.
 
    If referenced files were exported, copy the
    :file:`fileadmin/user_upload/_temp_/importtexport/data.xml.files/` folder
    containing the files with hashed filenames to the distribution folder
-   under :file:`initialization/data.xml.files/`.
+   under :file:`Initialisation/data.xml.files/`.
 
 .. note::
 
@@ -243,7 +243,7 @@ scheme) on the fly.
 Test Your Distribution
 ======================
 
-To test your distribution, simply copy your extension to an empty
+To test your distribution, copy your extension to an empty
 TYPO3 CMS installation and try to install it from the Extension
 Manager.
 

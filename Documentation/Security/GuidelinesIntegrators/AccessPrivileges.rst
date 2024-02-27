@@ -30,10 +30,10 @@ using DB mounts only is not the best way. In order to really deny
 access, page permissions need to be set correctly.
 
 It is always a good approach to set these permissions on a group level
-(for example use a group such as "editors"), so you can simply create
+(for example use a group such as "editors"), so you can create
 a new user and assign this user to the appropriate group. It is not
 necessary to update the access privileges for every user if you want
-to adjust something in the future – simply update the group's
+to adjust something in the future – update the group's
 permissions instead.
 
 When creating a new user, do not use generic user names such as

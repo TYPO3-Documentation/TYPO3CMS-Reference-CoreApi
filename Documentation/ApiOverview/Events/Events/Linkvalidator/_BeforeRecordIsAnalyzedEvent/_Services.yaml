@@ -1,0 +1,7 @@
+services:
+  # Place here the default dependency injection configuration
+
+  T3docs\Examples\EventListener\LinkValidator\CheckExternalLinksToLocalPagesEventListener:
+    tags:
+      - name: event.listener
+        identifier: 'txExampleCheckExternalLinksToLocalPages'

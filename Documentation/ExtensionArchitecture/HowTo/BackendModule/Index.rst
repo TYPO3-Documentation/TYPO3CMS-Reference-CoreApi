@@ -101,6 +101,19 @@ backend. They are described in this chapter.
 
          .. rst-class:: card-header h3
 
+            .. rubric:: :ref:`Button components <button-components>`
+
+         .. container:: card-body
+
+            The menu button bar of a backend module can hold various components.
+
+
+   .. container:: col-md-6 pl-0 pr-3 py-3 m-0
+
+      .. container:: card px-0 h-100
+
+         .. rst-class:: card-header h3
+
             .. rubric:: :ref:`BeforeModuleCreationEvent <BeforeModuleCreationEvent>`
 
          .. container:: card-body

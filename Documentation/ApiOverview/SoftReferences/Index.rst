@@ -1,25 +1,26 @@
-﻿.. include:: /Includes.rst.txt
-.. index:: Soft references
-.. _soft-references:
+..  include:: /Includes.rst.txt
+..  index:: Soft references
+..  _soft-references:
 
 ===============
 Soft references
 ===============
 
-**Soft References** are references to database elements, files, email addresses,
-URLs etc. which are found inside of text fields.
+Soft references are references to database elements, files, email addresses,
+URLs, etc. which are found inside of text fields.
 
-For example, `tt_content.bodytext` can contain soft references to pages,
-content elements and files. The page reference looks like this:
+For example, the :sql:`tt_content.bodytext` database field can contain soft
+references to pages, content elements and files. The page reference looks like
+this:
 
-.. code-block:: html
+..  code-block:: html
 
-   <a href="t3://page?uid=1">link to page 1</a>
+    <a href="t3://page?uid=1">link to page 1</a>
 
-In contrast to this, the field `pages.shortcut` contains the page id of a
+In contrast to this, the field :sql:`pages.shortcut` contains the page ID of a
 shortcut. This is a reference, but not a *soft* reference.
 
-The Soft Reference parsers are used by the system to find these references and
+The soft reference parsers are used by the system to find these references and
 process them accordingly in import/export actions and copy operations. Also, the
 soft references are used by integrity checking functions. For example, when you
 try to delete a page, TYPO3 will warn you if there are incoming page links to
@@ -33,207 +34,94 @@ You can define which soft reference parsers to use in the TCA field
 TCA column types :ref:`text <t3tca:columns-text>` and
 :ref:`input <t3tca:columns-input>`.
 
-.. index::
-   Soft references; Default parsers
-   Soft references; SoftReferenceIndex
+..  index::
+    Soft references; Default parsers
+    Soft references; SoftReferenceIndex
 
-.. _soft-references-default-parsers:
+..  _soft-references-default-parsers:
 
 Default soft reference parsers
 ==============================
 
-The :php:`TYPO3\CMS\Core\DataHandling\SoftReference` namespace contains generic
+The :php:`\TYPO3\CMS\Core\DataHandling\SoftReference` namespace contains generic
 parsers for the most well-known types, which are the default for most TYPO3
 installations. This is the list of the pre-registered keys:
 
-.. _soft-references-default-parsers-substitute:
+..  _soft-references-default-parsers-substitute:
 
 substitute
-----------
+    A full field value targeted for manual substitution (for import/export
+    features).
 
-.. container:: table-row
-
-   softref key
-         substitute
-
-   Description
-         A full field value targeted for manual substitution (for import
-         /export features)
-
-
-
-.. _soft-references-default-parsers-notify:
-
-notify
-------
-
-.. container:: table-row
-
-   softref key
-         notify
-
-   Description
-         Just report if a value is found, nothing more.
-
-
-.. _soft-references-default-parsers-typolink:
+..  _soft-references-default-parsers-typolink:
 
 typolink
---------
+    References to page ID, record or file in typolink format. The typolink
+    soft reference parser can take an additional argument, which can be
+    `linklist` (`typolink['linklist']`). In this case the links will be
+    separated by commas.
 
-.. container:: table-row
-
-   softref key
-         typolink
-
-   Description
-         References to page id, record or file in typolink format. The typolink
-         soft reference parser can take an additional argument, which can be
-         `linklist` (`typolink['linklist']`). In this case the links will be
-         separated by commas.
-
-
-.. _soft-references-default-parsers-typolink-tag:
+..  _soft-references-default-parsers-typolink-tag:
 
 typolink\_tag
--------------
+    Same as :ref:`typolink <soft-references-default-parsers-typolink>`, but with
+    an :html:`<a>` tag encapsulating it.
 
-.. container:: table-row
-
-   softref key
-         typolink\_tag
-
-   Description
-         Same as typolink, but with an :html:`<a>` tag encapsulating it.
-
-.. _soft-references-default-parsers-ext-fileref:
+..  _soft-references-default-parsers-ext-fileref:
 
 ext\_fileref
-------------
+    Relative file reference, prefixed :code:`EXT:[extkey]/` - for finding
+    extension dependencies.
 
-.. container:: table-row
-
-   softref key
-         ext\_fileref
-
-   Description
-         Relative file reference, prefixed :code:`EXT:[extkey]/` - for finding
-         extension dependencies.
-
-
-
-.. _soft-references-default-parsers-email:
+..  _soft-references-default-parsers-email:
 
 email
------
+    Email highlight.
 
-.. container:: table-row
-
-   softref key
-         email
-
-   Description
-         Email highlight.
-
-
-
-.. _soft-references-default-parsers-url:
+..  _soft-references-default-parsers-url:
 
 url
----
+    URL highlights (with a scheme).
 
-.. container:: table-row
+The default setup is found in :t3src:`core/Configuration/Services.yaml`:
 
-   softref key
-         url
+..  literalinclude:: _Services.yaml
+    :language: yaml
+    :caption: Excerpt from EXT:core/Configuration/Services.yaml
 
-   Description
-         URL highlights (with a scheme).
-
-
-
-The default set up is found in
-:file:`typo3/sysext/core/Configuration/Services.yaml`:
-
-.. code-block:: yaml
-
-  # Soft Reference Parsers
-  TYPO3\CMS\Core\DataHandling\SoftReference\SubstituteSoftReferenceParser:
-    tags:
-      - name: softreference.parser
-        parserKey: substitute
-
-  TYPO3\CMS\Core\DataHandling\SoftReference\NotifySoftReferenceParser:
-    tags:
-      - name: softreference.parser
-        parserKey: notify
-
-  TYPO3\CMS\Core\DataHandling\SoftReference\TypolinkSoftReferenceParser:
-    tags:
-      - name: softreference.parser
-        parserKey: typolink
-
-  TYPO3\CMS\Core\DataHandling\SoftReference\TypolinkTagSoftReferenceParser:
-    tags:
-      - name: softreference.parser
-        parserKey: typolink_tag
-
-  TYPO3\CMS\Core\DataHandling\SoftReference\ExtensionPathSoftReferenceParser:
-    tags:
-      - name: softreference.parser
-        parserKey: ext_fileref
-
-  TYPO3\CMS\Core\DataHandling\SoftReference\EmailSoftReferenceParser:
-    tags:
-      - name: softreference.parser
-        parserKey: email
-
-  TYPO3\CMS\Core\DataHandling\SoftReference\UrlSoftReferenceParser:
-    tags:
-      - name: softreference.parser
-        parserKey: url
+..  _soft-references-examples:
 
 Examples
 ========
 
-For the `tt_content.bodytext` field of type text from the example
+For the :sql:`tt_content.bodytext` field of type text from the example
 above, the configuration looks like this:
 
-.. code-block:: php
+..  literalinclude:: _tt_content_bodytext.php
+    :language: php
+    :caption: Excerpt from EXT:frontend/Configuration/TCA/tt_content.php
 
-   $GLOBALS['TCA']['tt_content']['columns']['bodytext'] =>
-      // ...
-
-      'config' => [
-         'type' => 'text',
-         'softref' => 'typolink_tag,email[subst],url',
-         // ...
-      ],
-
-      // ...
-   ];
-
-This means, the parsers for the softref types `typolink_tag`, `email` and
-`url` will all be applied. The email soft reference parser gets the additional
-parameter `subst`.
+This means, the parsers for the soft reference types `typolink_tag`, `email` and
+`url` will all be applied. The email soft reference parser receives the
+additional parameter `subst`.
 
 The content could look like this:
 
-.. code-block:: html
+..  code-block:: html
 
-   <p><a href="t3://page?uid=96">Congratulations</a></p>
-   <p>To read more about <a href="https://example.org/some-cool-feature">this cool feature</a></p>
-   <p>Contact: email@example.org</p>
+    <p><a href="t3://page?uid=96">Congratulations</a></p>
+    <p>To read more about <a href="https://example.org/some-cool-feature">this cool feature</a></p>
+    <p>Contact: email@example.org</p>
 
 The parsers will return an instance of
-:php:`TYPO3\CMS\Core\DataHandling\SoftReference\SoftReferenceParserResult`
+:php:`\TYPO3\CMS\Core\DataHandling\SoftReference\SoftReferenceParserResult`
 containing information about the references contained in the string.
 This object has two properties: :php:`$content` and :php:`$elements`.
 
 Property :php:`$content`
 ------------------------
 
-.. code-block:: html
+..  code-block:: html
 
     <p><a href="{softref:424242}">Congratulations</a></p>
     <p>To read more about <a href="{softref:78910}">this cool feature</a></p>
@@ -254,7 +142,7 @@ below.
 Property :php:`$elements`
 -------------------------
 
-.. code-block:: php
+..  code-block:: php
 
     [
         [
@@ -287,74 +175,80 @@ Property :php:`$elements`
 
 This property is an array of arrays, each with these keys:
 
-*  :php:`matchString`: The value of the match. This is only for informational
-   purposes to show, what was found.
-*  :php:`error`: An error message can be set here, like "file not found" etc.
-*  :php:`subst`: exists on a successful match and defines the token from
-   :php:`content`
+*   :php:`matchString`: The value of the match. This is only for informational
+    purposes to show, what was found.
+*   :php:`error`: An error message can be set here, like "file not found" etc.
+*   :php:`subst`: exists on a successful match and defines the token from
+    :php:`content`
 
-   *  :php:`tokenID`: The tokenID string corresponding to the token in output
-      content, `{softref:[tokenID]}`. This is typically a md5 hash of a string
-      uniquely defining the position of the element.
-   *  :php:`tokenValue`: The value that the token substitutes in the text.
-      If this value is inserted instead of the token, the content
-      should match what was inputted originally.
-   *  :php:`type`: the type of substitution. :php:`file` is a relative file
-      reference, :php:`db` is a database record reference, :php:`string` is a
-      manually modified string content (email, external url, phone number)
-   *  :php:`relFileName`: (for :php:`file` type): Relative filename.
-   *  :php:`recordRef`: (for :php:`db` type): Reference to DB record on the form
-      `<table>:<uid>`.
+    *   :php:`tokenID`: The tokenID string corresponding to the token in output
+        content, `{softref:[tokenID]}`. This is typically a md5 hash of a string
+        uniquely defining the position of the element.
+    *   :php:`tokenValue`: The value that the token substitutes in the text.
+        If this value is inserted instead of the token, the content
+        should match what was inputted originally.
+    *   :php:`type`: the type of substitution. :php:`file` is a relative file
+        reference, :php:`db` is a database record reference, :php:`string` is a
+        manually modified string content (email, external url, phone number)
+    *   :php:`relFileName`: (for :php:`file` type): Relative filename.
+    *   :php:`recordRef`: (for :php:`db` type): Reference to DB record on the form
+        `<table>:<uid>`.
 
-.. index:: Soft references; Custom parsers
-.. _soft-references-custom-parsers:
+..  index:: Soft references; Custom parsers
+..  _soft-references-custom-parsers:
 
 User-defined soft reference parsers
 ===================================
 
-Soft Reference Parsers can also be user-defined. It is easy to set them up by
-registering them in your Services.(yaml|php) file. This will load them
-via dependency injection:
+Soft reference parsers can be user-defined. They are set up by
+registering them in your :file:`Services.yaml` file. This will load them
+via :ref:`dependency injection <Dependency-Injection>`:
 
-.. code-block:: yaml
+..  literalinclude:: _YourSoftReferenceParser.yaml
+    :language: yaml
+    :caption: EXT:my_extension/Configuration/Services.yaml
 
-    VENDOR\Extension\SoftReference\YourSoftReferenceParser:
-      tags:
-        - name: softreference.parser
-          parserKey: your_key
+Read :ref:`how to configure dependency injection in extensions <dependency-injection-in-extensions>`.
 
-Don't forget to clear the hard caches in the admin tool after modifying DI
-configuration.
+Do not forget to clear the hard caches in :guilabel:`Admin Tools > Maintenance`
+or via the :bash:`cache:flush` :ref:`CLI <symfony-console-commands>` command
+after modifying the :abbr:`DI (Dependency Injection)` configuration.
 
 The soft reference parser class registered there must implement
-:php:`TYPO3\CMS\Core\DataHandling\SoftReference\SoftReferenceParserInterface`.
+:t3src:`core/DataHandling/SoftReference/SoftReferenceParserInterface.php`.
 This interface describes the :php:`parse` method, which takes 5 parameters in
-total as arguments: :php:`$table`, :php:`$field`, :php:`$uid`, :php:`$content`
-and an optional argument :php:`$structurePath`. The return type must be an
-instance of
-:php:`TYPO3\CMS\Core\DataHandling\SoftReference\SoftReferenceParserResult`.
+total as arguments:
+
+*   :php:`$table`
+*   :php:`$field`
+*   :php:`$uid`
+*   :php:`$content`
+*   :php:`$structurePath` (optional)
+
+The return type must be an instance of
+:t3src:`core/DataHandling/SoftReference/SoftReferenceParserResult.php`.
 This model possesses the properties :php:`$content` and :php:`$elements` and has
 appropriate getter methods for them. The structure of these properties has been
-already described above. This result object should be created by its own factory
-method :php:`SoftReferenceParserResult::create`, which expects both
+described in the :ref:`examples <soft-references-examples>` section. This
+result object should be created by its own factory method
+:php:`SoftReferenceParserResult::create()`, which expects both
 above-mentioned arguments to be provided. If the result is empty,
-:php:`SoftReferenceParserResult::createWithoutMatches` should be used instead.
+:php:`SoftReferenceParserResult::createWithoutMatches()` should be used instead.
 If :php:`$elements` is an empty array, this method will also be used internally.
 
-.. index::
-   Soft references; Usage
-   BackendUtility; softRefParserObj
+..  index::
+    Soft references; Usage
+    BackendUtility; softRefParserObj
 
 Using the soft reference parser
 ===============================
 
 To get an instance of a soft reference parser, it is recommended to use the
-:php:`TYPO3\CMS\Core\DataHandling\SoftReference\SoftReferenceParserFactory`
+:php:`\TYPO3\CMS\Core\DataHandling\SoftReference\SoftReferenceParserFactory`
 class. This factory class already holds all registered instances of the parsers.
-They can be retrieved with the :php:`getSoftReferenceParser` method. You
+They can be retrieved with the :php:`getSoftReferenceParser()` method. You
 have to provide the desired key as the first and only argument.
 
-.. code-block:: php
-
-    $softReferenceParserFactory = GeneralUtility::makeInstance(SoftReferenceParserFactory::class);
-    $softReferenceParser = $softReferenceParserFactory->getSoftReferenceParser('your_key');
+..  literalinclude:: _MyController.php
+    :language: php
+    :caption: EXT:my_extension/Classes/MyController.php

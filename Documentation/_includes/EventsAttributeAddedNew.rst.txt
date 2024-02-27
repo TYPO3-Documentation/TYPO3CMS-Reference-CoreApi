@@ -1,0 +1,5 @@
+..  versionadded:: 13.0
+    The PHP attribute :php:`\TYPO3\CMS\Core\Attribute\AsEventListener` has been
+    introduced to tag a PHP class as an event listener. Alternatively, you can also
+    register an event listener via the :file:`Configuration/Services.yaml` file. Have
+    a look into the section :ref:`EventDispatcherImplementation`.

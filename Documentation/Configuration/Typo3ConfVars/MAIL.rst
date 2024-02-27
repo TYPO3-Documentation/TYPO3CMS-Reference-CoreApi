@@ -21,8 +21,8 @@ the sending mails by TYPO3:
 
     This variable can be set in one of the following files:
 
-    *   :ref:`typo3conf/LocalConfiguration.php <typo3ConfVars-localConfiguration>`
-    *   :ref:`typo3conf/AdditionalConfiguration.php <typo3ConfVars-additionalConfiguration>`
+    *   :ref:`config/system/settings.php <typo3ConfVars-settings>`
+    *   :ref:`config/system/additional.php <typo3ConfVars-additional>`
 
 .. index::
    TYPO3_CONF_VARS MAIL; format
@@ -175,9 +175,10 @@ transport
       setting below
 
    *classname*
-      Custom class which implements Swift_Transport. The constructor
-      receives all settings from the MAIL section to make it possible to
-      add custom settings.
+      Custom class which implements
+      :php:`\Symfony\Component\Mailer\Transport\TransportInterface`. The constructor
+      receives all settings from the MAIL section to make it possible to add
+      custom settings.
 
 .. index::
    TYPO3_CONF_VARS MAIL; transport_smtp_server
@@ -215,14 +216,14 @@ transport_smtp_domain
    this isn't done, sending emails via such servers will fail.
 
    Setting a valid SMTP domain can be achieved by setting
-   :confval:`transport_smtp_domain` in the :file:`LocalConfiguration.php`.
+   `transport_smtp_domain` in the :file:`config/system/settings.php`.
    This will set the given domain to the EsmtpTransport agent and send the
    correct EHLO-command to the relay-server.
 
    **Configuration Example for GSuite:**
 
    .. code-block:: php
-      :caption: `typo3conf/LocalConfiguration.php`
+      :caption: `config/system/settings.php`
 
        return [
            //....
@@ -230,7 +231,6 @@ transport_smtp_domain
                'defaultMailFromAddress' => 'webserver@example.org',
                'defaultMailFromName' => 'SYSTEMMAIL',
                'transport' => 'smtp',
-               'transport_sendmail_command' => ' -t -i ',
                'transport_smtp_domain' => 'example.org',
                'transport_smtp_encrypt' => '',
                'transport_smtp_password' => '',
@@ -258,13 +258,12 @@ transport_smtp_stream_options
    Configuration Example:
 
    .. code-block:: php
-      :caption: typo3conf/AdditionalConfiguration.php
+      :caption: config/system/additional.php | typo3conf/system/additional.php
 
        return [
            //....
            'MAIL' => [
                'transport' => 'smtp',
-               'transport_sendmail_command' => ' -t -i ',
                'transport_smtp_server' => 'localhost:1025',
                'transport_smtp_stream_options' => [
                    'ssl' => [
@@ -430,12 +429,13 @@ transport_spool_type
    :Default: ''
 
    file
-      Messages get stored to the file system till they get sent through
-      the command swiftmailerspoolsend.
+      Messages get stored to the file system till they get sent through the
+      command :bash:`mailer:spool:send`.
    memory
-      Messages get send at the end of the running process.
+      Messages get sent at the end of the running process.
    *classname*
-      Custom class which implements the Swift_Spool interface.
+      Custom class which implements the
+      :php:`\TYPO3\CMS\Core\Mail\DelayedTransportInterface` interface.
 
 .. index::
    TYPO3_CONF_VARS MAIL; transport_spool_filepath

@@ -1,21 +1,21 @@
-.. include:: /Includes.rst.txt
-.. index:: Events; LoginConfirmedEvent
-.. _LoginConfirmedEvent:
+..  include:: /Includes.rst.txt
+..  index:: Events; LoginConfirmedEvent
+..  _LoginConfirmedEvent:
 
 
 ===================
 LoginConfirmedEvent
 ===================
 
-.. versionadded:: 10.4
-   This event replaces the :php:`$GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['felogin']['login_confirmed']`
-   hook from the pibase plugin.
+The PSR-14 event :php:`\TYPO3\CMS\FrontendLogin\Event\LoginConfirmedEvent` is
+triggered when a login was successful.
 
+Example
+=======
 
-The notification event is triggered when a login was successful.
-
+..  include:: /_includes/EventsContributeNote.rst.txt
 
 API
----
+===
 
-.. include:: /CodeSnippets/Events/FrontendLogin/LoginConfirmedEvent.rst.txt
+..  include:: /CodeSnippets/Events/FrontendLogin/LoginConfirmedEvent.rst.txt

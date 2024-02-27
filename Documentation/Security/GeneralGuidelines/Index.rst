@@ -20,7 +20,7 @@ It is critical that every user is using secure passwords to
 authenticate themselfs at systems like TYPO3. Below are rules that
 should be implemented in a password policy:
 
-#. Ensure that the passwords you use have a minimum length of 9 or more
+#. Ensure that the passwords you use have a minimum length of 8 or more
    characters.
 
 #. Passwords should have a mix of upper and lower case letters, numbers
@@ -61,6 +61,11 @@ In a perfect world you should use "trusted" computers, only. Public
 computers in libraries, internet cafés, and sometimes even computers
 of work colleagues and friends can be manipulated (with or without the
 knowledge of the owner) and log your keyboard input.
+
+..  tip::
+    Since TYPO3 v12.0 password policies can be configured in backend and/or
+    frontend context. Have a look into the chapter :ref:`password-policies`.
+
 
 .. _security-update-operating-system:
 .. _security-update-browser:
@@ -131,13 +136,13 @@ Keep the TYPO3 Core up-to-date
 ==============================
 
 As described in :ref:`TYPO3 versions <security-typo3-versions>` chapter, a
-new version of TYPO3 can either be a major update (e.g. from version 7.x.x to
-version 8.x.x), a minor update (e.g. from version 8.4.x to version
-8.5.x) or a maintenance/bugfix/security release (e.g. from version
-8.7.11 to 8.7.12).
+new version of TYPO3 can either be a major update (e.g. from version 10.x.x to
+version 11.x.x), a minor update (e.g. from version 11.4.x to version
+11.5.x) or a maintenance/bugfix/security release (e.g. from version
+11.5.11 to 11.5.12).
 
 In most cases, a maintenance/bugfix/security update is a no-brainer,
-see :doc:`TYPO3 Installation and Upgrade Guide <t3install:Index>`
+see :ref:`TYPO3 Installation and Upgrade Guide <t3install:start>`
 for further details.
 
 When you extract the archive file of new TYPO3 sources into the
@@ -178,6 +183,8 @@ contain known security vulnerabilities to detect points of attack.
 These "components" can be specific software packages on a system
 level, scripts running on the web server but also specific TYPO3
 versions or TYPO3 extensions.
+
+..  todo: Update this to include Composer
 
 The recommended way to update TYPO3 extensions is to use TYPO3's
 internal Extension Manager (EM). The EM takes care of the download of

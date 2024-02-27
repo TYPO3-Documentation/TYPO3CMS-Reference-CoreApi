@@ -5,7 +5,7 @@
 Introduction
 ============
 
-This chapter defines coding guidelines for the TYPO3 CMS project.
+This chapter defines coding guidelines for the TYPO3 project.
 Following these guidelines is mandatory for TYPO3 Core  developers and
 contributors to the TYPO3 Core .
 
@@ -41,7 +41,7 @@ be easily replayed locally: If the test setup votes negative on a
 Core patch in the review system due to CGL violations, the patch
 can be easily fixed locally by calling :file:`./Build/Scripts/cglFixMyCommit.sh`
 and pushed another time. For details on Core contributions, have a look at the
-:doc:`TYPO3 Contribution Guide <t3contribute:Index>`.
+:ref:`TYPO3 Contribution Guide <t3contribute:start>`.
 
 
 .. _cgl-general-recommendations:
@@ -58,7 +58,7 @@ General Recommendations
 Setup IDE / Editor
 ------------------
 
-.. important::
+.. attention::
 
    You are strongly advised to set up your editor / IDE properly so that the
    standards get checked and enforced automatically!

@@ -1,6 +1,6 @@
-.. include:: /Includes.rst.txt
-.. index:: Page types; Custom
-.. _page-types-example:
+..  include:: /Includes.rst.txt
+..  index:: Page types; Custom
+..  _page-types-example:
 
 ====================
 Create new Page Type
@@ -8,125 +8,72 @@ Create new Page Type
 
 The following example adds a new page type called "Archive".
 
-.. include:: /Images/AutomaticScreenshots/PageTypes/NewPageType.rst.txt
+..  include:: /Images/AutomaticScreenshots/PageTypes/NewPageType.rst.txt
 
-The whole code to add a page type is shown below with the according file names above.
+Changes need to be made in several files to create a new page type. Follow
+the directions below to the end:
 
-The first step is to add the new page type to the global array described above. Then you need to add
-the icon chosen for the new page type and allow users to drag and drop the new page type to the page
-tree.
+..  versionchanged:: 12.0
+    A new :php:`PageDoktypeRegistry` was introduced replacing the
+    :php:`$GLOBALS['PAGES_TYPES']` array. Use the version selector to look up
+    the syntax in the corresponding documentation version for older TYPO3 versions.
 
-.. note::
+The first step is to add the new page type to the
+:php:`\TYPO3\CMS\Core\DataHandling\PageDoktypeRegistry`. Then you need to add
+the icon chosen for the new page type and allow users to drag and drop the new
+page type to the page tree.
 
-   You have to change :code:`example` in the argument of the anonymous function
-   to your own extension key.
-
-The new page type is added to :php:`$GLOBALS['PAGES_TYPES']` in
+The new page type is added to the :php:`PageDoktypeRegistry` in
 :file:`ext_tables.php`:
 
-.. code-block:: php
-   :caption: EXT:some_extension/ext_tables.php
+..  literalinclude:: _ext_tables.php
+    :language: php
+    :caption: EXT:examples/ext_tables.php
 
-   (function ($extKey='some_extension') {
-      $archiveDoktype = 116;
+We need to add the following :ref:`user TSconfig <t3tsconfig:usertsconfig>`
+to all users, so that the new page type is displayed in the wizard:
 
-      // Add new page type:
-      $GLOBALS['PAGES_TYPES'][$archiveDoktype] = [
-          'type' => 'web',
-          'allowedTables' => '*',
-      ];
+..  literalinclude:: _user.tsconfig
+    :language: typoscript
+    :caption: EXT:examples/Configuration/user.tsconfig
 
-   })();
+The :ref:`icon <icon>` is registered in :file:`Configuration/Icons.php`:
 
-User TSconfig is added and an icon is registed in :file:`ext_localconf.php`:
+..  literalinclude:: _Icons.php
+    :language: php
+    :caption: EXT:examples/Configuration/Icons.php
 
-.. code-block:: php
-   :caption: EXT:some_extension/ext_localconf.php
-
-   (function ($extKey='some_extension') {
-      $archiveDoktype = 116;
-
-      // Provide icon for page tree, list view, ... :
-      $iconRegistry = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\TYPO3\CMS\Core\Imaging\IconRegistry::class);
-      $iconRegistry
-          ->registerIcon(
-              'apps-pagetree-archive',
-              TYPO3\CMS\Core\Imaging\IconProvider\SvgIconProvider::class,
-              [
-                  'source' => 'EXT:' . $extKey . '/Resources/Public/Icons/Archive.svg',
-              ]
-          );
-      $iconRegistry
-          ->registerIcon(
-              'apps-pagetree-archive-contentFromPid',
-              TYPO3\CMS\Core\Imaging\IconProvider\SvgIconProvider::class,
-              [
-                  'source' => 'EXT:' . $extKey . '/Resources/Public/Icons/ArchiveContentFromPid.svg',
-              ]
-          );
-      // ... register other icons in the same way, see below.
-
-      // Allow backend users to drag and drop the new page type:
-      \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addUserTSConfig(
-          'options.pageTree.doktypesToShowInNewPageDragArea := addToList(' . $archiveDoktype . ')'
-      );
-   })();
-
-Furthermore we need to modify the configuration of "pages" records. As one can modify the pages, we
-need to add the new doktype as select item and associate it with the configured icon. That's done in
+Furthermore we need to modify the configuration of page records. As one can modify the pages, we
+need to add the new doktype as an select option and associate it with the configured icon. That is done in
 :file:`Configuration/TCA/Overrides/pages.php`:
 
-.. code-block:: php
-   :caption: EXT:Configuration/TCA/Overrides/pages.php
 
-   (function ($extKey='example', $table='pages') {
-      $archiveDoktype = 116;
+..  literalinclude:: _pages.php
+    :language: php
+    :caption: EXT:examples/Configuration/TCA/Overrides/pages.php
 
-      // Add new page type as possible select item:
-      \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTcaSelectItem(
-          $table,
-          'doktype',
-          [
-              'LLL:EXT:' . $extKey . '/Resources/Private/Language/locallang.xlf:archive_page_type',
-              $archiveDoktype,
-              'EXT:' . $extKey . '/Resources/Public/Icons/Archive.svg'
-          ],
-          '1',
-          'after'
-      );
+As you can see from the example, to make sure you get the correct icons,
+you can utilize :php:`typeicon_classes`.
 
-      \TYPO3\CMS\Core\Utility\ArrayUtility::mergeRecursiveWithOverrule(
-          $GLOBALS['TCA'][$table],
-          [
-              // add icon for new page type:
-              'ctrl' => [
-                  'typeicon_classes' => [
-                      $archiveDoktype => 'apps-pagetree-archive',
-                      $archiveDoktype . '-contentFromPid' => "apps-pagetree-archive-contentFromPid",
-                      $archiveDoktype . '-root' => "apps-pagetree-archive-root",
-                      $archiveDoktype . '-hideinmenu' => "apps-pagetree-archive-hideinmenu",
-                  ],
-              ],
-              // add all page standard fields and tabs to your new page type
-              'types' => [
-                  $archiveDoktype => [
-                      'showitem' => $GLOBALS['TCA'][$table]['types'][\TYPO3\CMS\Core\Domain\Repository\PageRepository::DOKTYPE_DEFAULT]['showitem']
-                  ]
-              ]
-          ]
-      );
-   })();
+It is possible to define additional type icons for special case pages:
 
-As you can see from the example, to make sure you get the correct icons, you can utilize :php:`typeicon_classes`.
+*   Page contains content from another page `<doktype>-mountpoint`,
+    For example: :php:`$GLOBALS['TCA']['pages']['ctrl']['typeicon_classes']['116-mountpoint']`.
+*   Page is hidden in navigation `<doktype>-hideinmenu`
+    For example: :php:`$GLOBALS['TCA']['pages']['ctrl']['typeicon_classes']['116-hideinmenu']`.
+*   Page is the root of the site `<doktype>-root`
+    For example: :php:`$GLOBALS['TCA']['pages']['ctrl']['typeicon_classes']['116-root']`.
 
-For the following cases you need to configure icons explicitly, otherwise they will automatically fall back to the
-variant for regular page doktypes.
+..  note::
 
-* Page contains content from another page (`<doktype>-contentFromPid`)
-* Page is hidden in navigation (`<doktype>-hideinmenu`)
-* Page is site-root (`<doktype>-root`)
+    Make sure to add the additional icons using the :ref:`Icon API <icon>`!
 
-.. note::
 
-   Make sure to add the additional icons using the icon registry!
+Further Information
+-------------------
 
+*   :doc:`ext_core:Changelog/11.4/Feature-94692-RegisteringIconsViaServiceContainer`
+
+*   :doc:`ext_core:Changelog/12.0/Breaking-98487-GLOBALSPAGES_TYPESRemoved`
+
+*   :doc:`ext_core:Changelog/12.3/Feature-99739-AssociativeArrayKeysForTCAItems`

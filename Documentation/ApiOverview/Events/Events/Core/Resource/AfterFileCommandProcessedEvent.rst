@@ -1,43 +1,31 @@
-.. include:: /Includes.rst.txt
-
-.. _AfterFileCommandProcessedEvent:
+..  include:: /Includes.rst.txt
+..  index:: Events; AfterFileCommandProcessedEvent
+..  _AfterFileCommandProcessedEvent:
 
 ==============================
 AfterFileCommandProcessedEvent
 ==============================
 
-.. versionadded:: 11.4
+..  versionadded:: 11.4
 
-The :php:`AfterFileCommandProcessedEvent` can be used to perform additional tasks for specific file commands. For example, trigger a custom indexer after a file has been uploaded.
+The PSR-14 event
+:php:`\TYPO3\CMS\Core\Resource\Event\AfterFileCommandProcessedEvent` can be used
+to perform additional tasks for specific file commands. For example, trigger a
+custom indexer after a file has been uploaded.
 
-The `AfterFileCommandProcessedEvent` is fired in the :php:`ExtendedFileUtility`
-class.
+This event is fired in the
+:php:`\TYPO3\CMS\Core\Utility\File\ExtendedFileUtility` class.
 
-Registration of the event in the :file:`Services.yaml`:
+Example
+=======
 
-.. code-block:: yaml
+..  literalinclude:: _AfterFileCommandProcessedEvent/_MyEventListener.php
+    :language: php
+    :caption: EXT:my_extension/Classes/Resource/EventListener/MyEventListener.php
 
-   MyVendor\MyPackage\File\MyEventListener:
-     tags:
-       - name: event.listener
-         identifier: 'my-package/file/my-event-listener'
-
-The corresponding event listener class:
-
-.. code-block:: php
-
-    use TYPO3\CMS\Core\Resource\Event\AfterFileCommandProcessedEvent;
-
-    class MyEventListener {
-
-        public function __invoke(AfterFileCommandProcessedEvent $event): void
-        {
-            // do magic here
-        }
-
-    }
+..  include:: /_includes/EventsAttributeAdded.rst.txt
 
 API
----
+===
 
-.. include:: /CodeSnippets/Events/Core/Resource/AfterFileCommandProcessedEvent.rst.txt
+..  include:: /CodeSnippets/Events/Core/Resource/AfterFileCommandProcessedEvent.rst.txt

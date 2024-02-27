@@ -2,9 +2,9 @@
 .. index:: ! File; EXT:{extkey}/ext_tables.php
 .. _ext-tables-php:
 
-=======================================
+======================
 :file:`ext_tables.php`
-=======================================
+======================
 
 *-- optional*
 
@@ -29,30 +29,25 @@ information is loaded, and a backend user is authenticated.
 Should not be used for
 ======================
 
-*  TCA configurations for new tables.
-   They should go in :ref:`Configuration/TCA/sometable.php <extension-configuration-tca>`.
-*  TCA overrides of existing tables. They should go in
-   :ref:`Configuration/TCA/Overrides/somefile.php <extension-configuration-tca-overrides>`.
-*  calling :php:`ExtensionManagementUtility::addToInsertRecords()`
-   as this might break the frontend. They should go in
-   :ref:`Configuration/TCA/Overrides/somefile.php <extension-configuration-tca-overrides>`.
-*  calling :php:`ExtensionManagementUtility::addStaticFile()`
-   as this might break the frontend. They should go in
-   :file:`Configuration/TCA/Overrides/sys_template.php`
+*   TCA configurations for new tables.
+    They should go in :ref:`Configuration/TCA/sometable.php <extension-configuration-tca>`.
+*   TCA overrides of existing tables. They should go in
+    :ref:`Configuration/TCA/Overrides/somefile.php <extension-configuration-tca-overrides>`.
+*   calling :php:`ExtensionManagementUtility::addToInsertRecords()`
+    as this might break the frontend. They should go in
+    :ref:`Configuration/TCA/Overrides/somefile.php <extension-configuration-tca-overrides>`.
+*   calling :php:`ExtensionManagementUtility::addStaticFile()`
+    as this might break the frontend. They should go in
+    :file:`Configuration/TCA/Overrides/sys_template.php`
 
 Should be used for
 ==================
 
 These are the typical functions that should be placed inside :file:`ext_tables.php`
 
-*  Registering of :ref:`backend modules <backend-modules-api>` or adding a new
-   main module :ref:`Example <extension-configuration-files-backend-module>`
-*  Adding table options via :php:`ExtensionManagementUtility::allowTableOnStandardPages()`
-   :ref:`Example <extension-configuration-files-allow-table-standard>`
 *  Registering a scheduler tasks:
    :ref:`extension-configuration-files-scheduler`
-*  Assignments to the global configuration arrays :php:`$GLOBALS['TBE_STYLES']`
-   and :php:`$GLOBALS['PAGES_TYPES']`
+*  Registration of :ref:`custom page types <page-types-example>`
 *  Extending the :ref:`Backend user settings <user-settings-extending>`
 
 Examples
@@ -62,64 +57,11 @@ Put the following in a file called :file:`ext_tables.php` in the main directory
 of your extension. The file does not need to be registered but will be loaded
 automatically:
 
-.. code-block:: php
-   :caption: EXT:site_package/ext_tables.php
+..  literalinclude:: _ext_tables.php
+    :language: php
+    :caption: EXT:site_package/ext_tables.php
 
-   <?php
-   // all use statements must come first
-   use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
-
-   defined('TYPO3') or die();
-
-   (function () {
-     // Add your code here
-   })();
-
-.. index:: Extension development; Backend module registration
-.. _extension-configuration-files-backend-module:
-
-Registering a backend module
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-You can register a new backend module for your extension via :php:`ExtensionUtility::registerModule()`:
-
-.. code-block:: php
-   :caption: EXT:my_extension/ext_tables.php
-
-   // use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
-
-   ExtensionUtility::registerModule(
-      'ExtensionName', // Extension Name in CamelCase
-      'web', // the main module
-      'mysubmodulekey', // Submodule key
-      'bottom', // Position
-      [
-          'MyController' => 'list,show,new',
-      ],
-      [
-          'access' => 'user,group',
-          'icon'   => 'EXT:my_extension/ext_icon.svg',
-          'labels' => 'LLL:EXT:my_extension/Resources/Private/Language/locallang_statistics.xlf',
-      ]
-   );
-
-For more information on backend modules see :ref:`backend module API <backend-modules-api>`.
-
-.. index:: Extension development; allowTableOnStandardPages
-.. _extension-configuration-files-allow-table-standard:
-
-Allowing a tables records to be added to Standard pages
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-By default new records of tables may only be added to Sysfolders in TYPO3. If you need to allow
-new records of your table to be added on Standard pages call:
-
-.. code-block:: php
-   :caption: EXT:site_package/ext_tables.php
-
-   // use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
-
-   ExtensionManagementUtility::allowTableOnStandardPages(
-      'tx_myextension_domain_model_mymodel'
-   );
+Read :ref:`why the check for the TYPO3 constant is necessary <globals-constants-typo3>`.
 
 .. index:: Extension development; Scheduler task registration
 .. _extension-configuration-files-scheduler:
@@ -127,21 +69,35 @@ new records of your table to be added on Standard pages call:
 Registering a scheduler task
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Scheduler tasks get registered in the ext_tables.php as well. Note that the Sysext "scheduler" has
+Scheduler tasks get registered in :file:`ext_tables.php` as well. Note that the system extension "scheduler" has
 to be installed for this to work.
 
-.. code-block:: php
-   :caption: EXT:site_package/ext_tables.php
 
-   // use TYPO3\CMS\Scheduler\Task\CachingFrameworkGarbageCollectionTask;
-   // use TYPO3\CMS\Scheduler\Task\CachingFrameworkGarbageCollectionAdditionalFieldProvider;
+..  literalinclude:: _ext_tables_scheduler.php
+    :language: php
+    :caption: EXT:site_package/ext_tables.php
 
-   // Add caching framework garbage collection task
-   $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['scheduler']['tasks'][CachingFrameworkGarbageCollectionTask::class] = array(
-        'extension' => 'your_extension_key',
-        'title' => 'LLL:EXT:your_extension_key/locallang.xlf:cachingFrameworkGarbageCollection.name',
-        'description' => 'LLL:EXT:your_extension_key/locallang.xlf:cachingFrameworkGarbageCollection.description',
-        'additionalFields' => \CachingFrameworkGarbageCollectionAdditionalFieldProvider::class
-   );
+.. index:: Extension development; Backend module registration
+.. _extension-configuration-files-backend-module:
 
-For more information see the documentation of the Sys-Extension scheduler.
+Registering a backend module
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+..  versionchanged:: 13.0
+    The method
+    :php:`\use TYPO3\CMS\Extbase\Utility\ExtensionUtility::registerModule()`
+    has been removed. Register modules in
+    :ref:`extension-configuration-backend-modules`.
+
+
+.. index:: Extension development; allowTableOnStandardPages
+.. _extension-configuration-files-allow-table-standard:
+
+Allowing a tables records to be added to Standard pages
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+..  versionchanged:: 13.0
+    The method :php:`ExtensionManagementUtility::allowTableOnStandardPages()`
+    has been removed. Use the TCA ctrl option
+    :ref:`ignorePageTypeRestriction <t3tca:ctrl-security-ignorePageTypeRestriction>`
+    instead.

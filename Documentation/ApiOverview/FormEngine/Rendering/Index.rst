@@ -8,7 +8,7 @@ Rendering
 
 This is the second step of the processing chain: The rendering part gets the data array prepared
 by :php:`FormDataCompiler` and creates a result array containing HTML, CSS and JavaScript. This
-is then post-processed by a controller to feed it to the :php:`PageRenderer` or to create an ajax
+is then post-processed by a controller to feed it to the :php:`PageRenderer` or to create an Ajax
 response.
 
 The rendering is a tree: The controller initializes this by setting one :php:`container` as :php:`renderType`
@@ -28,21 +28,9 @@ can *not* be given "up" in a changed way again. Inheritance of a data array is a
 or JavaScript created by a sub-class is returned by the sub-class "up" again in a "result" array of a specified
 format.
 
-.. code-block:: php
-
-    class SomeContainer extends AbstractContainer
-    {
-        public function render()
-        {
-            $result = $this->initializeResultArray();
-            $data = $this->data;
-            $data['renderType'] = 'subContainer';
-            $childArray = $this->nodeFactory->create($data)->render();
-            $resultArray = $this->mergeChildReturnIntoExistingResult($result, $childArray, false);
-            $result['html'] = '<h1>A headline</h1>' . $childArray['html'];
-            return $result;
-        }
-    }
+..  literalinclude:: _SomeContainer.php
+    :language: php
+    :caption: EXT:my_extension/Classes/Containers/SomeContainer.php
 
 Above example lets :php:`NodeFactory` find and compile some data from "subContainer", and merges the child result
 with its own. The helper methods :php:`initializeResultArray()` and :php:`mergeChildReturnIntoExistingResult()`
@@ -54,23 +42,13 @@ array as :php:`$data['renderType']` and then gives the data array to the :php:`N
 an appropriate class name, instantiates and initializes the class, gives it the data array, and calls :php:`render()`
 on it.
 
-.. note::
-   The :php:`SingleFieldContainer` and :php:`FlexFormElementContainer` will probably vanish with Core version 9.
-
-.. note::
-   Data set by containers and given down to children will likely change in Core version 9: All fields not registered
-   in the main data array of :php:`FormDataCompiler` and only added within containers will move into section
-   :php:`renderData`. Furthermore, it is planned to *remove* :php:`parameterArray` and substitute it with something
-   better. This will affect most elements and will probably break a lot of these elements.
-
-
 .. _FormEngine-Rendering-ClassInheritance:
 
 Class Inheritance
 =================
 
-.. figure:: /Images/Plantuml/FormEngine/FormEngineRenderClasses.svg
-   :alt: Main render class inheritance
+..  figure:: /Images/Plantuml/FormEngine/FormEngineRenderClasses.svg
+    :alt: Main render class inheritance
 
 All classes must implement :php:`NodeInterface` to be routed through the :php:`NodeFactory`. The :php:`AbstractNode`
 implements some basic helpers for nodes, the two classes :php:`AbstractContainer` and :php:`AbstractFormElement`
@@ -93,60 +71,39 @@ including containers, elements, fieldInformation, fieldWizards and fieldControls
 can be fully adapted and extended if needed. It is possible to transparently "kick-out" a Core container and to
 substitute it with an own implementation.
 
-As example, the TemplaVoila implementation needs to add additional render capabilities of the flex form rendering
+For example, the TemplaVoila implementation needs to add additional render capabilities of the FlexForm rendering
 to add for instance an own multi-language rendering of flex fields. It does that by overriding the default
 flex container with own implementation:
 
-.. code-block:: php
-
-    // Default registration of "flex" in NodeFactory:
-    // 'flex' => \TYPO3\CMS\Backend\Form\Container\FlexFormEntryContainer::class,
-
-    // Register language aware flex form handling in FormEngine
-    $GLOBALS['TYPO3_CONF_VARS']['SYS']['formEngine']['nodeRegistry'][1443361297] = [
-        'nodeName' => 'flex',
-        'priority' => 40,
-        'class' => \TYPO3\CMS\Compatibility6\Form\Container\FlexFormEntryContainer::class,
-    ];
+..  literalinclude:: _ext_localconf_flex.php
+    :language: php
+    :caption: EXT:my_extension/ext_localconf.php
 
 This re-routes the :php:`renderType` "flex" to an own class. If multiple registrations for a single renderType exist,
 the one with highest priority wins.
 
-.. note::
-   The :php:`NodeFactory` uses :php:`$data['renderType']`. This has been introduced with Core version 7 in TCA, and
-   a couple of TCA fields actively use this renderType. However, it is important to understand the renderType is *only*
-   used within the FormEngine and :php:`type` is still a must-have setting for columns fields in TCA. Additionally,
-   :php:`type` can *not* be overridden in :php:`columnsOverrides`. Basically, :php:`type` specifies how the DataHandler
-   should put data into the database, while :php:`renderType` specifies how a single field is rendered. This additionally
-   means there can exist multiple different renderTypes for a single type, and it means it is possible to invent a new
-   renderType to render a single field differently, but still let the DataHandler persist it the usual way.
+..  note::
+    The :php:`NodeFactory` uses :php:`$data['renderType']`.
+    A couple of TCA fields actively use this renderType. However, it is important to understand the renderType is *only*
+    used within the FormEngine and :php:`type` is still a must-have setting for columns fields in TCA. Additionally,
+    :php:`type` can *not* be overridden in :php:`columnsOverrides`. Basically, :php:`type` specifies how the DataHandler
+    should put data into the database, while :php:`renderType` specifies how a single field is rendered. This additionally
+    means there can exist multiple different renderTypes for a single type, and it means it is possible to invent a new
+    renderType to render a single field differently, but still let the DataHandler persist it the usual way.
 
 
 Adding a new renderType in :file:`ext_localconf.php`
 
-.. code-block:: php
-
-    // Add new field type to NodeFactory
-    $GLOBALS['TYPO3_CONF_VARS']['SYS']['formEngine']['nodeRegistry'][1487112284] = [
-        'nodeName' => 'selectTagCloud',
-        'priority' => '70',
-        'class' => \MyVendor\CoolTagCloud\Form\Element\SelectTagCloudElement::class,
-    ];
+..  literalinclude:: _ext_localconf.php
+    :language: php
+    :caption: EXT:my_extension/ext_localconf.php
 
 And use it in TCA for a specific field, keeping the full database functionality in DataHandler together with the
 data preparation of FormDataCompiler, but just routing the rendering of that field to the new element:
 
-.. code-block:: php
-
-    $GLOBALS['TCA']['myTable']['columns']['myField'] = [
-        'label' => 'Cool Tag cloud',
-        'config' => [
-            'type' => 'select',
-            'renderType' => 'selectTagCloud',
-            'foreign_table' => 'tx_cooltagcloud_availableTags',
-        ],
-    ];
-
+..  literalinclude:: _tx_cooltagcloud.php
+    :language: php
+    :caption: EXT:cool_tag_cloud/Configuration/TCA/overrides/tx_cooltagcloud.php
 
 The above examples are a static list of nodes that can be changed by settings in :file:`ext_localconf.php`. If that
 is not enough, the :php:`NodeFactory` can be extended with a resolver that is called dynamically for specific renderTypes.
@@ -158,16 +115,11 @@ that are called for node name "text", and if the TCA config enables the editor, 
 editing in his user settings, then the resolvers return their own :php:`RichTextElement` class names to render a given text
 field:
 
-.. code-block:: php
+..  literalinclude:: _ext_localconf_rte.php
+    :language: php
+    :caption: EXT:my_extension/ext_localconf.php
 
-    // Register FormEngine node type resolver hook to render RTE in FormEngine if enabled
-    $GLOBALS['TYPO3_CONF_VARS']['SYS']['formEngine']['nodeResolver'][1480314091] = [
-        'nodeName' => 'text',
-        'priority' => 50,
-        'class' => \TYPO3\CMS\RteCKEditor\Form\Resolver\RichTextNodeResolver::class,
-    ];
-
-The trick is here that "ckeditor" registers his resolver with ah higher priority (50) than "rtehtmlarea" (40), so the
+The trick here is that CKEditor registers his resolver with a higher priority (50) than "rtehtmlarea" (40), so the
 "ckeditor" resolver is called first and wins if both extensions are loaded and if both return a valid class name.
 
 
@@ -190,62 +142,49 @@ of a child can be slightly different. For instance, a :php:`FieldControl` "wizar
 result key key. Using :php:`$this->initializeResultArray()` is not appropriate in these cases but depends on the specific
 expansion type. See below for more details on node expansion.
 
-The result array for container and element nodes looks like this. :php:`$resultArray = $this->initializeResultArray()`
-takes care of basic keys:
+The result array for container and element nodes looks like this.
+:php:`$resultArray = $this->initializeResultArray()` takes care of basic keys:
 
-.. code-block:: php
+..  code-block:: php
 
     [
         'html' => '',
         'additionalInlineLanguageLabelFiles' => [],
         'stylesheetFiles' => [],
+        'javaScriptModules' => $javaScriptModules,
+        /** @deprecated requireJsModules will be removed in TYPO3 v13.0 */
         'requireJsModules' => [],
+        'inlineData' => [],
+        'html' => '',
     ]
 
-CSS and language labels (which can be used in JS) are added with their file names in format :php:`EXT:extName/path/to/file`.
+CSS and language labels (which can be used in JS) are added with their file
+names in format :php:`EXT:my_extension/path/to/file`.
 
-.. note::
-   The result array handled by :php:`$this->mergeChildReturnIntoExistingResult()` contains a couple of more keys, those
-   will vanish with further FormEngine refactoring steps. If using them, be prepared to adapt extensions later.
+..  note::
+    Nodes must never add assets like JavaScript or CSS using the
+    :php:`PageRenderer`. This fails as soon as this container / element /
+    wizard is called via Ajax, for instance within inline. Instead,
+    those resources must be registered via the result array only,
+    using :php:`stylesheetFiles` and :php:`javaScriptModules`.
 
-.. note::
-   Nodes must never add JavaScript or CSS or similar stuff using the :php:`PageRenderer`. This fails as soon
-   as this container / element / wizard is called via AJAX, for instance within inline. Instead, those resources
-   must be registered via the result array only, using :php:`stylesheetFiles` and :php:`requireJsModules`.
+Adding JavaScript modules
+-------------------------
 
-Adding RequireJS modules
-------------------------
+JavaScript is added as ES6 modules using the
+function :php:`JavaScriptModuleInstruction::create()`.
 
-.. deprecated:: 11.5
-   Using callback functions is deprecated and shall be replaced with new
-   JavaScriptModuleInstruction declarations. In FormEngine, loading the RequireJS
-   module via arrays is deprecated and has to be migrated as well.
+You can for example use it in a container:
 
-JavaScript is added via RequireJS modules using the
-function :php:` JavaScriptModuleInstruction::forRequireJS`.
+..  literalinclude:: _SomeContainerJavaScript.php
+    :language: php
+    :caption: EXT:my_extension/Classes/Backend/SomeContainer.php
 
-.. code-block:: php
-   :caption: Example in a FormEngine component
+Or a controller:
 
-   $resultArray['requireJsModules'][] = JavaScriptModuleInstruction::forRequireJS(
-       'TYPO3/CMS/Backend/FormEngine/Element/InputDateTimeElement'
-   )->instance($fieldId);
-
-:php:`JavaScriptModuleInstruction` allows the following
-aspects to be declared when loading RequireJS modules:
-
-*  :php:`$instruction = JavaScriptModuleInstruction::forRequireJS('TYPO3/CMS/Module')`
-   creates corresponding loading instruction that can be enriched with following declarations
-*  :php:`$instruction->assign(['key' => 'value'])` allows to assign key-value pairs
-   directly to the loaded RequireJS module object or instance
-*  :php:`$instruction->invoke('method', 'value-a', 'value-b')` allows to invoke
-   a particular method of the loaded RequireJS instance with given argument values
-*  :php:`$instruction->instance('value-a', 'value-b')` allows to invoke the
-   constructor of the loaded RequireJS class with given argument values
-
-Initializations other than the provided aspects have to be implemented in
-custom module implementations, for example triggered by corresponding on-ready handlers.
-
+..  literalinclude:: _SomeController.php
+    :language: php
+    :caption: EXT:my_extension/Classes/Backend/Controller/SomeController.php
 
 .. _FormEngine-Rendering-NodeExpansion:
 
@@ -255,21 +194,19 @@ Node Expansion
 The "node expansion" classes :php:`FieldControl`, :php:`FieldInformation` and :php:`FieldWizard` are called by containers
 and elements and allow "enriching" containers and elements. Which enrichments are called can be configured via TCA.
 
-This API is the substitution of the old "TCA wizards array" and has been introduced with Core version 8.
-
 FieldInformation
-  Additional information. In elements, their output is shown between the field label and the element itself. They can
-  not add functionality, but only simple and restricted HTML strings. No buttons, no images. An example usage could be
-  an extension that auto-translates a field content and outputs an information like "Hey, this field was auto-filled
-  for you by an automatic translation wizard. Maybe you want to check the content".
+    Additional information. In elements, their output is shown between the field label and the element itself. They can
+    not add functionality, but only simple and restricted HTML strings. No buttons, no images. An example usage could be
+    an extension that auto-translates a field content and outputs an information like "Hey, this field was auto-filled
+    for you by an automatic translation wizard. Maybe you want to check the content".
 
 FieldWizard
-  Wizards shown below the element. "enrich" an element with additional functionality. The localization wizard and
-  the file upload wizard of :php:`type=group` fields are examples of that.
+    Wizards shown below the element. "enrich" an element with additional functionality. The localization wizard and
+    the file upload wizard of :php:`type=group` fields are examples of that.
 
 FieldControl
-  "Buttons", usually shown next to the element. For :php:`type=group` the "list" button and the "element browser" button
-  are examples. A field control *must* return an icon identifier.
+    "Buttons", usually shown next to the element. For :php:`type=group` the "list" button and the "element browser" button
+    are examples. A field control *must* return an icon identifier.
 
 Currently, all elements usually implement all three of these, except in cases where it does not make sense. This API allows
 adding functionality to single nodes, without overriding the whole node. Containers and elements can come with default
@@ -282,52 +219,9 @@ for containers in TCA.
 Example. The :php:`InputTextElement` (standard input element) defines a couple of default wizards and embeds them in its
 main result HTML:
 
-.. code-block:: php
-
-    class InputTextElement extends AbstractFormElement
-    {
-        protected $defaultFieldWizard = [
-            'localizationStateSelector' => [
-                'renderType' => 'localizationStateSelector',
-            ],
-            'otherLanguageContent' => [
-                'renderType' => 'otherLanguageContent',
-                'after' => [
-                    'localizationStateSelector'
-                ],
-            ],
-            'defaultLanguageDifferences' => [
-                'renderType' => 'defaultLanguageDifferences',
-                'after' => [
-                    'otherLanguageContent',
-                ],
-            ],
-        ];
-
-        public function render()
-        {
-            $resultArray = $this->initializeResultArray();
-
-            $fieldWizardResult = $this->renderFieldWizard();
-            $fieldWizardHtml = $fieldWizardResult['html'];
-            $resultArray = $this->mergeChildReturnIntoExistingResult($resultArray, $fieldWizardResult, false);
-
-            $mainFieldHtml = [];
-            $mainFieldHtml[] = '<div class="form-control-wrap">';
-            $mainFieldHtml[] =  '<div class="form-wizards-wrap">';
-            $mainFieldHtml[] =      '<div class="form-wizards-element">';
-            // Main HTML of element done here ...
-            $mainFieldHtml[] =      '</div>';
-            $mainFieldHtml[] =      '<div class="form-wizards-items-bottom">';
-            $mainFieldHtml[] =          $fieldWizardHtml;
-            $mainFieldHtml[] =      '</div>';
-            $mainFieldHtml[] =  '</div>';
-            $mainFieldHtml[] = '</div>';
-
-            $resultArray['html'] = implode(LF, $mainFieldHtml);
-            return $resultArray;
-        }
-    }
+..  literalinclude:: _InputTextElement.php
+    :language: php
+    :caption: EXT:my_extension/Classes/Backend/Form/InputTextElement.php
 
 This element defines three wizards to be called by default. The :php:`renderType` concept is re-used, the
 values :php:`localizationStateSelector` are registered within the :php:`NodeFactory` and resolve to class names. They
@@ -336,10 +230,10 @@ by the helper method :php:`renderFieldWizards()`, which uses the :php:`Dependenc
 
 It is possible to:
 
-* Override existing expansion nodes with own ones from extensions, even using the resolver mechanics is possible.
-* It is possible to disable single wizards via TCA
-* It is possible to add own expansion nodes at any position relative to the other nodes by specifying "before" and
-  "after" in TCA.
+*   Override existing expansion nodes with own ones from extensions, even using the resolver mechanics is possible.
+*   It is possible to disable single wizards via TCA
+*   It is possible to add own expansion nodes at any position relative to the other nodes by specifying "before" and
+    "after" in TCA.
 
 
 Add fieldControl Example
@@ -347,171 +241,52 @@ Add fieldControl Example
 
 To illustrate the principals discussed in this chapter see the following
 example which registers a fieldControl (button) next to a field in the pages
-table to trigger a data import via ajax.
+table to trigger a data import via Ajax.
 
 Add a new renderType in :file:`ext_localconf.php`:
 
-.. code-block:: php
-   :caption: EXT:some_extension/ext_localconf.php
-
-   $GLOBALS['TYPO3_CONF_VARS']['SYS']['formEngine']['nodeRegistry'][1485351217] = [
-      'nodeName' => 'importDataControl',
-      'priority' => 30,
-      'class' => \T3G\Something\FormEngine\FieldControl\ImportDataControl::class
-   ];
+..  literalinclude:: _ext_localconf_fieldcontrol.php
+    :language: php
+    :caption: EXT:my_extension/ext_localconf.php
 
 Register the control in :file:`Configuration/TCA/Overrides/pages.php`:
 
-.. code-block:: php
-   :caption: EXT:some_extension/Configuration/TCA/Overrides/pages.php
 
-   'somefield' => [
-      'label'   => $langFile . ':pages.somefield',
-      'config'  => [
-         'type' => 'input',
-         'eval' => 'int, unique',
-         'fieldControl' => [
-            'importControl' => [
-               'renderType' => 'importDataControl'
-            ]
-         ]
-      ]
-   ],
+..  literalinclude:: _pages.php
+    :language: php
+    :caption: EXT:my_extension/Configuration/TCA/Overrides/pages.php
 
 Add the php class for rendering the control in
 :file:`Classes/FormEngine/FieldControl/ImportDataControl.php`:
 
-.. code-block:: php
-   :caption: EXT:some_extension/Classes/FormEngine/FieldControl/ImportDataControl.php
+..  literalinclude:: _ImportDataControl.php
+    :language: php
+    :caption: EXT:my_extension/Classes/FormEngine/FieldControl/ImportDataControl.php
 
-   declare(strict_types=1);
+..  todo: switch from RequireJS to ES6
 
-   namespace Vendor\SomeExtension\FormEngine\FieldControl;
-
-   use TYPO3\CMS\Backend\Form\AbstractNode;
-
-   class ImportDataControl extends AbstractNode
-   {
-      public function render()
-      {
-         $result = [
-            'iconIdentifier' => 'import-data',
-            'title' => $GLOBALS['LANG']->sL('LLL:EXT:something/Resources/Private/Language/locallang_db.xlf:pages.importData'),
-            'linkAttributes' => [
-               'class' => 'importData ',
-               'data-id' => $this->data['databaseRow']['somefield']
-            ],
-            'requireJsModules' => ['TYPO3/CMS/Something/ImportData'],
-         ];
-         return $result;
-      }
-   }
+..  attention::
+    This example is still in RequireJS. RequireJS has been deprecated with
+    TYPO3 v12. Help us transferring the example into ES6.
+    See :ref:`h2document:contribute`.
 
 Add the JavaScript for defining the behavior of the control in
 :file:`Resources/Public/JavaScript/ImportData.js`:
 
-.. code-block:: javascript
-   :caption: EXT:some_extension/Resources/Public/JavaScript/ImportData.js
+..  literalinclude:: _ImportData.js
+    :language: js
+    :caption: EXT:my_extension/Resources/Public/JavaScript/ImportData.js
 
-   /**
-   * Module: TYPO3/CMS/Something/ImportData
-   *
-   * JavaScript to handle data import
-   * @exports TYPO3/CMS/Something/ImportData
-   */
-   define(function () {
-      'use strict';
-
-      /**
-      * @exports TYPO3/CMS/Something/ImportData
-      */
-      var ImportData = {};
-
-      /**
-      * @param {int} id
-      */
-      ImportData.import = function (id) {
-         $.ajax({
-            type: 'POST',
-            url: TYPO3.settings.ajaxUrls['something-import-data'],
-            data: {
-               'id': id
-            }
-         }).done(function (response) {
-            if (response.success) {
-               top.TYPO3.Notification.success('Import Done', response.output);
-            } else {
-               top.TYPO3.Notification.error('Import Error!');
-            }
-         });
-      };
-
-      /**
-      * initializes events using deferred bound to document
-      * so AJAX reloads are no problem
-      */
-      ImportData.initializeEvents = function () {
-
-         $('.importData').on('click', function (evt) {
-            evt.preventDefault();
-            ImportData.import($(this).attr('data-id'));
-         });
-      };
-
-      $(ImportData.initializeEvents);
-
-      return ImportData;
-   });
-
-Add an ajax route for the request in
+Add an Ajax route for the request in
 :file:`Configuration/Backend/AjaxRoutes.php`:
 
-.. code-block:: php
-   :caption: EXT:some_extension/Configuration/Backend/AjaxRoutes.php
+..  literalinclude:: _AjaxRoutes.php
+    :language: php
+    :caption: EXT:my_extension/Configuration/Backend/AjaxRoutes.php
 
-   <?php
-   return [
-      'something-import-data' => [
-         'path' => '/something/import-data',
-         'target' => \T3G\Something\Controller\Ajax\ImportDataController::class . '::importDataAction'
-      ],
-   ];
-
-Add the ajax controller class in
+Add the Ajax controller class in
 :file:`Classes/Controller/Ajax/ImportDataController.php`:
 
-.. code-block:: php
-   :caption: EXT:some_extension/Classes/Controller/Ajax/ImportDataController.php
-
-   declare(strict_types=1);
-
-   namespace T3G\Something\Controller\Ajax;
-
-   use Psr\Http\Message\ResponseInterface;
-   use Psr\Http\Message\ServerRequestInterface;
-
-   class ImportDataController
-   {
-      /**
-      * @param ServerRequestInterface $request
-      * @param ResponseInterface $response
-      * @return ResponseInterface
-      */
-      public function importDataAction(ServerRequestInterface $request, ResponseInterface $response)
-      {
-         $queryParameters = $request->getParsedBody();
-         $id = (int)$queryParameters['id'];
-
-         if (empty($id)) {
-            $response->getBody()->write(json_encode(['success' => false]));
-            return $response;
-         }
-         $param = ' -id=' . $id;
-
-         // trigger data import (simplified as example)
-         $output = shell_exec('.' . DIRECTORY_SEPARATOR . 'import.sh' . $param);
-
-         $response->getBody()->write(json_encode(['success' => true, 'output' => $output]));
-         return $response;
-      }
-   }
+..  literalinclude:: _ImportDataController.php
+    :language: php
+    :caption: EXT:my_extension/Classes/Controller/Ajax/ImportDataController.php

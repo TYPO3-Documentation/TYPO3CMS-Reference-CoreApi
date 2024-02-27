@@ -1,15 +1,15 @@
-.. include:: /Includes.rst.txt
+..  include:: /Includes.rst.txt
 
-.. _fal-administration:
+..  _fal-administration:
 
 ==============
 Administration
 ==============
 
 
-.. toctree::
+..  toctree::
 
-   Permissions
-   Storages
-   Maintenance
+    Permissions
+    Storages
+    Maintenance
 

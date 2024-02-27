@@ -2,10 +2,11 @@
 .. index:: ! Namespaces
 .. _namespaces:
 
+==========
 Namespaces
 ==========
 
-Since version 6.0, TYPO3 CMS uses PHP namespaces for all classes in the Core.
+TYPO3 uses PHP namespaces for all classes in the Core.
 
 The general structure of namespaces is the following:
 
@@ -26,13 +27,6 @@ Finally the *class name* is the same as the corresponding file name, without the
 :file:`.php` extension.
 
 "UpperCamelCase" is used for all segments.
-
-.. tip::
-
-   `See the chapter about 'ClassAliasMap.php' in the 6.2 documentation.
-   <https://docs.typo3.org/typo3cms/CoreApiReference/6.2/ApiOverview/Namespaces/Index.html#namespaces-migrations-classaliasmap>`__.
-   It may help you with migrating code from old to new conventions.
-
 
 .. index:: pair: Namespaces; Core
 .. _namespaces-example:
@@ -122,28 +116,15 @@ extension key is used.
 
 For a backend module:
 
-.. code-block:: php
-   :caption: EXT:my_extension/ext_tables.php
-
-   use TYPO3\CMS\Extbase\Utility\ExtensionUtility;
-
-   ExtensionUtility::registerModule(
-       '<ExtensionName>',
-       // ...
-   );
+..  literalinclude:: _Modules.php
+    :language: php
+    :caption: EXT:my_extension/Configuration/Backend/Modules.php
 
 For a frontend module:
 
-.. code-block:: php
-   :caption: EXT:my_extension/ext_tables.php
-
-   use TYPO3\CMS\Extbase\Utility\ExtensionUtility;
-
-   ExtensionUtility::configurePlugin(
-       '<ExtensionName>',
-       // ...
-   );
-
+..  literalinclude:: _ext_localconf.php
+    :language: php
+    :caption: EXT:my_extension/ext_localconf.php
 
 .. index:: pair: Namespaces; Tests
 .. _namespaces-test:
@@ -160,7 +141,7 @@ which is the fourth segment of the namespace. Any further subfolders will
 be subsequent segments.
 
 So a test class in :file:`EXT:foo_bar_baz/Tests/Unit/Bla/` will have as namespace
-:code:`\Vendor\FooBarBaz\Tests\Unit\Bla`.
+:code:`\MyVendor\FooBarBaz\Tests\Unit\Bla`.
 
 
 .. _namespaces-instances:

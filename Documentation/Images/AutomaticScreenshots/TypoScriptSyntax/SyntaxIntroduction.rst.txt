@@ -1,6 +1,0 @@
-.. Automatic screenshot: Remove this line if you want to manually change this file
-
-.. figure:: /Images/AutomaticScreenshots/TypoScriptSyntax/SyntaxIntroduction.png
-   :class: with-shadow
-
-   Example TypoScript code viewed in the TypoScript object browser

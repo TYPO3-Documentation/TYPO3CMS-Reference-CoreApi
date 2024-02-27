@@ -1,56 +1,74 @@
-.. include:: /Includes.rst.txt
-.. index:: Site handling; Settings
-.. _sitehandling-settings:
+..  include:: /Includes.rst.txt
+..  index:: Site handling; Settings
+..  _sitehandling-settings:
 
 =============
 Site settings
 =============
 
-It is possible to define a `settings` block in a site's :file:`config.yml` which
-can be accessed both in backend and frontend via the site object.
+..  versionchanged:: 12.1
+    Before TYPO3 v12.1 the site settings were stored in the :file:`config.yaml`
+    file under the :yaml:`settings` key. An upgrade wizard copies the settings
+    to the new :file:`settings.yaml` file.
 
-Additionally, these settings are available as "constants" in both TSConfig
-and TypoScript templates making it possible to configure for example site-wide
-storage PIDs which can be used in both frontend and backend.
+    Settings are not removed from the :file:`config.yaml` file for now, but will
+    not have any effect anymore as soon as a :file:`settings.yaml` file exists.
+
+    Please review your settings in the :file:`config.yaml` file and remove them
+    manually. Eventually, you need and/or want to adopt your deployment
+    workflow.
+
+Site settings can be used to provide settings for a site. They can be accessed
+via
+
+*   the :ref:`\\TYPO3\\CMS\\Core\\Site\\Entity\\Site <sitehandling-site-object>`
+    object in frontend and backend context using PHP
+*   the :ref:`siteSettings <t3tsref:data-type-siteSettings>` key of the
+    :ref:`data <t3tsref:data-type-gettext>` function in
+    :ref:`TypoScript <t3tsref:start>`
+*   constants in :ref:`TypoScript <t3tsref:start>` or :ref:`page TSconfig <t3tsconfig:pagetsconfig>`
+
+For instance, settings can be used in custom frontend code to deliver features
+which might vary per site for extensions. An example may be to configure
+storage page IDs.
+
+The settings are defined in the :file:`config/sites/<my_site>/settings.yaml`
+file.
 
 Adding site settings
 ====================
 
-Add a `settings` block to the :file:`config.yml`:
+Add settings to the :file:`settings.yaml`:
 
-.. code-block:: yaml
+..  literalinclude:: _site-settings.yaml
+    :language: yaml
+    :caption: config/sites/<my_site>/settings.yaml | typo3conf/sites/<my_site>/settings.yaml
 
-   settings:
-      categoryPid: 658
-      styles:
-         content:
-            loginform:
-               pid: 23
-
-.. note::
-
-   This example shows how to fill a constant of EXT:felogin via site settings (`styles.content.loginform.pid`) and
-   configures a custom `categoryPid`.
+..  note::
+    This example shows how to fill a constant of
+    :doc:`EXT:felogin <ext_felogin:Index>` via site settings
+    (:typoscript:`styles.content.loginform.pid`) and configures a custom
+    :yaml:`categoryPid`.
 
 
-.. index:: Site handling; TypoScript access to settings
+..  index:: Site handling; TypoScript access to settings
 
-Accessing site settings in page TSConfig or TypoScript
+Accessing site settings in page TSconfig or TypoScript
 ======================================================
 
-.. code-block:: typoscript
+..  code-block:: typoscript
 
-   // store tx_ext_data records on the given storage page by default (e.g. through IRRE)
-   TCAdefaults.tx_ext_data.pid = {$categoryPid}
+    // store tx_ext_data records on the given storage page by default (e.g. through IRRE)
+    TCAdefaults.tx_ext_data.pid = {$categoryPid}
 
-   // load category selection for plugin from out dedicated storage page
-   TCEFORM.tt_content.pi_flexform.ext_pi1.sDEF.categories.PAGE_TSCONFIG_ID = {$categoryPid}
+    // load category selection for plugin from out dedicated storage page
+    TCEFORM.tt_content.pi_flexform.ext_pi1.sDEF.categories.PAGE_TSCONFIG_ID = {$categoryPid}
 
+..  note::
+    The TypoScript constants are evaluated in this order:
 
-.. note::
-
-   The TypoScript constants are evaluated in this order:
-
-   #. Global :php:`'defaultTypoScript_constants'`
-   #. Site specific settings from the site configuration
-   #. Constants from :sql:`sys_template` database records
+    #.  Configuration from
+        :ref:`$GLOBALS['TYPO3_CONF_VARS']['FE']['defaultTypoScript_constants']
+        <typo3ConfVars_fe_defaultTypoScript_constants>`
+    #.  Site specific settings from the site configuration
+    #.  Constants from :sql:`sys_template` database records

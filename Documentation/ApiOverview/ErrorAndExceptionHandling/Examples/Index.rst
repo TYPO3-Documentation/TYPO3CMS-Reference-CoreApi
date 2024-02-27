@@ -11,7 +11,7 @@ Examples
 Debugging and development setup
 ===============================
 
-.. important::
+.. attention::
    Do not use **debug / development setup** in production. This setup generates error
    messages in the Frontend and a number of log messages for low severity errors.
    The messages in the Frontend will be visible to the user, give a potential attacker
@@ -23,13 +23,13 @@ Debugging and development setup
 Very verbose configuration which logs and displays all errors and
 exceptions.
 
-In :file:`LocalConfiguration.php` or :file:`AdditionalConfiguration.php`:
+In :file:`config/system/settings.php` or :file:`config/system/additional.php`:
 
 .. code-block:: php
-   :caption: typo3conf/AdditionalConfiguration.php
+   :caption: config/system/additional.php | typo3conf/system/additional.php
 
     $changeSettings['SYS'] => array(
-      'displayErrors' => '1',
+      'displayErrors' => 1,
       'devIPmask' => '*',
       'errorHandler' => 'TYPO3\\CMS\\Core\\Error\\ErrorHandler',
       'errorHandlerErrors' => E_ALL ^ E_NOTICE,
@@ -61,7 +61,7 @@ In :file:`.htaccess`
 
 Use this setting, to get more context and a stacktrace in the Frontend in case of an exception.
 
-.. important::
+.. attention::
    Do not set `config.contentObjectExceptionHandler` to 0 in production. It will
    display a complete stack dump in the Frontend, when an exception occurs. Use
    `config.contentObjectExceptionHandler = 1`, which is the default, in production.
@@ -77,16 +77,18 @@ Production setup
 ================
 
 Example for a production configuration which displays only errors and
-exceptions if the devIPmask matches. Errors and exceptions are only
-logged if their level is at least 2 (=Warning).
+exceptions, if the :ref:`devIPmask <typo3ConfVars_sys_devIPmask>` setting
+matches. Errors and exceptions are only logged, if their
+:ref:`log level <logging-logger-shortcuts>` is at least
+:php:`\Psr\Log\LogLevel::WARNING`.
 
-In :file:`LocalConfiguration.php` or :file:`AdditionalConfiguration.php`:
+In :file:`config/system/settings.php` or :file:`config/system/additional.php`:
 
 .. code-block:: php
-   :caption: typo3conf/AdditionalConfiguration.php
+   :caption: config/system/additional.php | typo3conf/system/additional.php
 
     $changeSettings['SYS'] => array(
-      'displayErrors' => '2',
+      'displayErrors' => -1,
       'devIPmask' => '[your.IP.address]',
       'errorHandler' => 'TYPO3\\CMS\\Core\\Error\\ErrorHandler',
       'belogErrorReporting' => '0',
@@ -116,13 +118,13 @@ Since the error and exception handling and also the logging need some
 performance, here's an example how to disable error and exception
 handling completely.
 
-In :file:`LocalConfiguration.php` or :file:`AdditionalConfiguration.php`:
+In :file:`config/system/settings.php` or :file:`config/system/additional.php`:
 
 .. code-block:: php
-   :caption: typo3conf/AdditionalConfiguration.php
+   :caption: config/system/additional.php | typo3conf/system/additional.php
 
     $changeSettings['SYS'] => array(
-      'displayErrors' => '0',
+      'displayErrors' => 0,
       'devIPmask' => '',
       'errorHandler' => '',
       'debugExceptionHandler' => '',

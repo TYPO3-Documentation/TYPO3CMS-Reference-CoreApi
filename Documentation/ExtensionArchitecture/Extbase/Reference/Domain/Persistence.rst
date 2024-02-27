@@ -3,19 +3,24 @@
 .. index:: Extbase; Persistence
 .. _extbase-Persistence:
 
-================
+===========
 Persistence
-================
+===========
 
-It is possible to define models that are not persisted to the database. However in
+It is possible to define models that are not persisted to the database. However, in
 the most common use cases you will want to save your model to the database and load
-it from there.
+it from there. If you want to extend an existing model you can also follow the
+steps on this page. See also :ref:`Tutorial: Extending an Extbase model
+<extending-extbase-model>`.
+
+.. contents::
+   :local:
 
 Connecting the model to the database
 ====================================
 
 The SQL structure for the database needs to be defined in the file
-:ref:`EXT:{ext_key}/ext_tables.sql <ext_tables-sql>`. An Extbase model requires 
+:ref:`EXT:{ext_key}/ext_tables.sql <ext_tables-sql>`. An Extbase model requires
 a valid TCA for the table that should be used as a base for the model.
 Therefore you have to create a TCA definition in file
 :file:`EXT:{ext_key}/Configuration/TCA/tx_{extkey}_domain_model_{mymodel}.php`.
@@ -43,6 +48,8 @@ The according TCA definition could look like that:
 
 .. include:: /CodeSnippets/Extbase/Persistence/TCA.rst.txt
 
+.. _extbase_manual_mapping:
+
 Use arbitrary database tables with an Extbase model
 ---------------------------------------------------
 
@@ -65,6 +72,8 @@ class will only be used for administrators but not plain frontend users.
 
 The array stored in :php:`properties` to match properties to database field
 names if the names do not match.
+
+..  _extbase-persistance-record-types:
 
 Record types and persistence
 ============================
@@ -112,3 +121,53 @@ It is then possible to have a general repository, :php:`SomethingRepository`
 which returns both SubClass1 and SubClass2 objects depending on the value of
 the :sql:`record_type` field. This way related domain objects can as one
 in some contexts.
+
+
+Create a custom model for a Core table
+======================================
+
+This example adds a custom model for the :sql:`tt_content` table. Three steps
+are required:
+
+..  rst-class:: bignums
+
+#.  Create a model
+
+    In this example, we assume that we need the two fields :sql:`header` and
+    :sql:`bodytext`, so only these two fields are available in the
+    :ref:`model <extbase-model>` class.
+
+    ..  literalinclude:: _Content.php
+        :caption: EXT:my_extension/Classes/Domain/Model/Content.php
+
+    ..  note::
+        It is not necessary to define a property in the model for each field in
+        the table. Define only the properties for the fields you need!
+
+#.  Create the repository
+
+    We need a :ref:`repository <extbase-repository>` to query the data from the
+    table:
+
+    ..  literalinclude:: _ContentRepository.php
+        :caption: EXT:my_extension/Classes/Domain/Repository/ContentRepository.php
+
+#.  Connect table with model
+
+    Finally, we need to :ref:`connect the table to the model <extbase_manual_mapping>`:
+
+    ..  literalinclude:: _Classes.php
+        :caption: EXT:my_extension/Configuration/Extbase/Persistence/Classes.php
+
+
+Events
+======
+
+Some :ref:`PSR-14 events <EventDispatcher>` are available:
+
+*   :ref:`EntityAddedToPersistenceEvent`
+*   :ref:`EntityPersistedEvent`
+*   :ref:`EntityRemovedFromPersistenceEvent`
+*   :ref:`EntityUpdatedInPersistenceEvent`
+*   :ref:`ModifyQueryBeforeFetchingObjectDataEvent`
+*   :ref:`ModifyResultAfterFetchingObjectDataEvent`

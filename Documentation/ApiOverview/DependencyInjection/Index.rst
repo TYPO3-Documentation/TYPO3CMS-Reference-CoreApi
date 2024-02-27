@@ -12,9 +12,6 @@
 Dependency injection
 ====================
 
-.. versionadded:: 10.0
-
-   :doc:`Changelog/10.0/Feature-84112-SymfonyDependencyInjectionForCoreAndExtbase`
 
 .. rst-class:: compact-list
 .. contents:: This page
@@ -66,8 +63,8 @@ also talk about how to transition away from it towards the core-wide Symfony sol
 Background and history
 ======================
 
-Obtaining object instances in TYPO3 has always been pretty straight: Just call
-:php:`GeneralUtility::makeInstance(\Vendor\MyExtension\Some\Class::class)` and hand over
+Obtaining object instances in TYPO3 has always been straightforward: Call
+:php:`GeneralUtility::makeInstance(\MyVendor\MyExtension\Some\Class::class)` and hand over
 mandatory and optional :php:`__construct()` arguments as additional arguments.
 
 There are two quirks to that:
@@ -240,8 +237,8 @@ Service
    - non static - utilities, repositories and obvious classes like mailers and similar. To emphasize:
    Not only classes named with a :php:`*Service` suffix are services but basically anything. It
    does not matter much if those services are stateless or not. Controllers, for instance,
-   are usually *not* stateless. ((this is just a configuration detail from this point of view.))
-   Note the TYPO3 core does not strictly follow this in all cases yet, but strives
+   are usually *not* stateless. (This is just a configuration detail from this point of view.)
+   Note: The TYPO3 Core does not strictly follow this behavior in all cases yet, but it strives
    to get this more clean over time.
 
 Data object
@@ -280,6 +277,14 @@ be instantiated via :php:`\TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance()
 if they are non-final and support XCLASSing. For final classes without
 dependencies plain instantiation via the `new` keyword must be used.
 
+In some APIs dependency injection cannot be used yet. This applies to classes that need
+specific data in their constructors or classes that are serialized and deserialized as, for
+example, scheduler tasks.
+
+When dependency injection cannot be used directly yet, create a service class and make it public
+in the  :file:`Configuration/Services.yaml`. Create an instance of the service class via
+:php:`GeneralUtility::makeInstance(...)` you can then use dependency injection in the service class.
+
 
 .. _Constructor-injection:
 
@@ -291,26 +296,15 @@ found using a custom :php:`UserRepository`, so the repository service is a direc
 controller service. A typical constructor dependency injection to resolve the
 dependency by the framework looks like this:
 
-.. code-block:: php
-   :caption: EXT:my_extension/Controller/UserController.php
-
-   namespace Vendor\MyExtension\Controller;
-
-   use Vendor\MyExtension\Repository\UserRepository;
-
-   final class UserController
-   {
-        private UserRepository $userRepository;
-
-        public function __construct(UserRepository $userRepository)
-        {
-             $this->userRepository = $userRepository;
-        }
-   }
+..  literalinclude:: _ConstructorInjection.php
+    :language: php
+    :caption: EXT:my_extension/Controller/UserController.php
 
 Here the Symfony container sees a dependency to :php:`UserRepository` when scanning :php:`__construct()`
 of the :php:`UserController`. Since autowiring is enabled by default (more on that below), an instance of the
-:php:`UserRepository` is created and provided when the controller is created.
+:php:`UserRepository` is created and provided when the controller is created. The example uses `constructor
+property promotion <https://www.php.net/manual/en/language.oop5.decon.php#language.oop5.decon.constructor.promotion>`__
+and sets the property :php:`readonly`, so it can not be written a second time.
 
 
 .. _Method-injection:
@@ -320,22 +314,9 @@ Method injection
 
 A second way to get services injected is by using :php:`inject*()` methods:
 
-.. code-block:: php
-   :caption: EXT:my_extension/Controller/UserController.php
-
-   namespace Vendor\MyExtension\Controller;
-
-   use Vendor\MyExtension\Repository\UserRepository;
-
-   final class UserController
-   {
-        private ?UserRepository $userRepository = null;
-
-        public function injectUserRepository(UserRepository $userRepository)
-        {
-            $this->userRepository = $userRepository;
-        }
-   }
+..  literalinclude:: _MethodInjection.php
+    :language: php
+    :caption: EXT:my_extension/Controller/UserController.php
 
 This ends up with the basically the same result as above: The controller instance has
 an object of type :php:`UserRepository` in class property :php:`$userRepository`.
@@ -346,35 +327,11 @@ hinted class property needs to be nullable, otherwise PHP >= 7.4 throws a warnin
 since the instance is not set during :php:`__construct()`. But that's just an
 implementation detail. More important is an abstraction scenario. Consider this case:
 
-.. code-block:: php
-   :caption: EXT:my_extension/Controller/UserController.php
+..  literalinclude:: _MethodInjectionWithAbstract.php
+    :language: php
+    :caption: EXT:my_extension/Controller/UserController.php
 
-   namespace Vendor\MyExtension\Controller;
-
-   use Vendor\MyExtension\Repository\UserRepository;
-   use Vendor\MyExtension\Logger\Logger;
-
-   abstract class AbstractController
-   {
-        protected ?Logger $logger = null;
-
-        public function injectLogger(Logger $logger)
-        {
-            $this->logger = $logger;
-        }
-   }
-
-   final class UserController extends AbstractController
-   {
-        private UserRepository $userRepository;
-
-        public function __construct(UserRepository $userRepository)
-        {
-            $this->userRepository = $userRepository;
-        }
-   }
-
-We have an abstract constroller service with a dependency plus a controller service that extends
+We have an abstract controller service with a dependency plus a controller service that extends
 the abstract and has further dependencies.
 
 Now assume the abstract class is provided by TYPO3 core and the consuming class
@@ -418,22 +375,9 @@ Interface injection
 Apart from constructor injection and :php:`inject*()` method injection, there is another
 useful dependency injection scenario. Look at this example:
 
-.. code-block:: php
-   :caption: EXT:my_extension/Controller/UserController.php
-
-   namespace Vendor\MyExtension\Controller;
-
-   use Vendor\MyExtension\Logger\LoggerInterface;
-
-   final class UserController extends AbstractController
-   {
-        protected LoggerInterface $logger;
-
-        public function __construct(LoggerInterface $logger)
-        {
-            $this->logger = $logger;
-        }
-   }
+..  literalinclude:: _InterfaceInjection.php
+    :language: php
+    :caption: EXT:my_extension/Controller/UserController.php
 
 See the difference? We're requesting the injection of an interface and not a class!
 It works for both constructor and method injection. It forces the service container
@@ -445,6 +389,25 @@ the consuming class does not care, it just knows about the interface methods. An
 instance administrator can decide to configure the framework to inject some
 different implementation than the default, and that's fully transparent
 for consuming classes.
+
+Here's an example scenario that demonstrates how you can define the specific
+implementations that shall be used for an interface type hint:
+
+..  literalinclude:: _MyController.php
+    :language: php
+    :caption: EXT:my_extension/Controller/MyController.php
+
+..  literalinclude:: _MySecondController.php
+    :language: php
+    :caption: EXT:my_extension/Controller/MySecondController.php
+
+..  literalinclude:: _MyThirdController.php
+    :language: php
+    :caption: EXT:my_extension/Controller/MyThirdController.php
+
+..  literalinclude:: _ServicesWithInterfaceInjection.yaml
+    :language: yaml
+    :caption: EXT:my_extension/Configuration/Services.yaml
 
 
 Using container->get()
@@ -465,60 +428,60 @@ to instantiate services. This is useful for factory-like services where the exac
 .. _configure-dependency-injection-in-extensions:
 .. _dependency-injection-Configuration:
 
-[WIP] Configuration
-===================
+Configuration
+=============
 
-.. _dependency-injection-autoconfigure:
+..  _dependency-injection-in-extensions:
 
 Configure dependency injection in extensions
 --------------------------------------------
 
 Extensions have to configure their classes to make use of the
 dependency injection. This can be done in :file:`Configuration/Services.yaml`.
-Alternatively :file:`Configuration/Services.php` can be used.
+Alternatively, :file:`Configuration/Services.php` can also be used.
 A basic :file:`Services.yaml` file of an extension looks like the following.
 
-*Note:*
-Whenever service configuration or class dependencies change, the Core cache needs
-to be flushed in the Install Tool to rebuild the compiled Symfony container.
-Flushing all caches from the cache clear menu does not flush the compiled Symfony container.
+..  note::
+    Whenever the service configuration or class dependencies change, the Core
+    cache must be flushed in the :guilabel:`Admin Tools > Maintenance` or via the :ref:`CLI <cli-mode>`
+    command `cache:flush` to rebuild the compiled Symfony container. Flushing
+    all caches from the :guilabel:`Clear cache` menu does not flush the compiled Symfony
+    container.
 
-.. code-block:: yaml
-   :caption: EXT:my_extension/Configuration/Services.yaml
+..  literalinclude:: _Services.yaml
+    :language: yaml
+    :caption: EXT:my_extension/Configuration/Services.yaml
 
-   services:
-     _defaults:
-       autowire: true
-       autoconfigure: true
-       public: false
 
-     Vendor\MyExtension\:
-       resource: '../Classes/*'
-       exclude: '../Classes/Domain/Model/*'
+.. _dependency-injection-autowire:
 
 autowire
-   :yaml:`autowire: true` instructs the dependency injection component
-   to calculate the required dependencies from type declarations. This works for constructor
-   and :php:`inject*()` methods. The calculation generates some service initialization code
-   which is cached in the TYPO3 Core cache.
-   **Attention:**
-   An extension doesn't need to use autowiring, it is free to manually
-   wire dependencies in the service configuration file.
+    :yaml:`autowire: true` instructs the dependency injection component to
+    calculate the required dependencies from type declarations. This works for
+    constructor injection and :php:`inject*()` methods. The calculation
+    generates a service initialization code which is cached in the TYPO3 Core
+    cache.
+
+    ..  attention::
+        An extension does not have to use autowiring, but can wire
+        dependencies manually in the service configuration file.
+
+.. _dependency-injection-autoconfigure:
 
 autoconfigure
-   It is suggested to enable :yaml:`autoconfigure: true` as this will automatically
-   add Symfony service tags based on implemented interfaces or base classes.
-   For example autoconfiguration ensures that classes which implement
-   :php:`\TYPO3\CMS\Core\SingletonInterface` will be publicly available from the
-   Symfony container and marked as shared (:yaml:`shared: true`).
-
+    It is suggested to enable :yaml:`autoconfigure: true` as this
+    automatically adds Symfony service tags based on implemented interfaces or
+    base classes. For example, autoconfiguration ensures that classes
+    implementing :php:`\TYPO3\CMS\Core\SingletonInterface` are publicly
+    available from the Symfony container and marked as shared
+    (:yaml:`shared: true`).
 
 Model exclusion
-   The path exclusion :yaml:`exclude: '../Classes/Domain/Model/*'` excludes
-   your models from the DI container, which means that you cannot inject them nor inject
-   dependencies into them.
-   Models are not services and should therefore not require dependency injection.
-   Also, these objects are created by the Extbase persistence layer which does not support the DI container.
+    The path exclusion :yaml:`exclude: '../Classes/Domain/Model/*'` excludes
+    your models from the dependency injection container, which means you cannot inject them
+    nor inject dependencies into them. Models are not services and therefore
+    should not require dependency injection. Also, these objects are created by
+    the Extbase persistence layer, which does not support the DI container.
 
 
 .. _DependencyInjectionArguments:
@@ -526,59 +489,39 @@ Model exclusion
 Arguments
 ---------
 
-In case you turned autowire off or need special arguments set, you can configure
-those as well.
-This means you could set :yaml:`autowire: false` for an extension but provide the needed
-arguments via config specifically for classes you want to.
-This can be done in chronological order or by naming them.
+In case you turned off :yaml:`autowire` or need special arguments, you can
+configure those as well. This means that you can set :yaml:`autowire: false` for
+an extension, but provide the required arguments via config specifically for
+the desired classes. This can be done in chronological order or by naming.
 
-.. code-block:: yaml
-   :caption: EXT:my_extension/Configuration/Services.yaml
+..  literalinclude:: _ServicesWithoutAutowire.yaml
+    :language: yaml
+    :caption: EXT:my_extension/Configuration/Services.yaml
 
-   Vendor\MyExtension\UserFunction\ClassA:
-     arguments:
-       $argA: '@TYPO3\CMS\Core\Database\ConnectionPool'
+This allows you to inject concrete objects like the :ref:`Connection
+<database-connection>`:
 
-   Vendor\MyExtension\UserFunction\ClassB:
-     arguments:
-       - '@TYPO3\CMS\Core\Database\ConnectionPool'
+..  literalinclude:: _ServicesWithConnection.yaml
+    :language: yaml
+    :caption: EXT:my_extension/Configuration/Services.yaml
 
-This enables you to inject concrete objects like the QueryBuilder or Database Connection:
-
-.. code-block:: yaml
-   :caption: EXT:my_extension/Configuration/Services.yaml
-
-   querybuilder.pages:
-     class: 'TYPO3\CMS\Core\Database\Query\QueryBuilder'
-     factory:
-       - '@TYPO3\CMS\Core\Database\ConnectionPool'
-       - 'getQueryBuilderForTable'
-     arguments:
-       - 'pages'
-
-   Vendor\MyExtension\UserFunction\ClassA:
-     public: true
-     arguments:
-       - '@querybuilder.pages'
-
-Now you can access the QueryBuilder instance within ClassA. With this you can
-call your queries without further instantiation. Be aware to clone your object or
-resetting the query parts to prevent side effects in case of multiple usages.
-This method of injecting objects does also work, for example, with extension
-configurations and with TypoScript settings.
+Now you can access the :php:`Connection` instance within :php:`ClassA`. This
+allows you to execute your queries without further instantiation. For example,
+this method of injecting objects also works with extension configurations and
+with TypoScript settings.
 
 
 Public
 ------
 
-:yaml:`public: false` is a performance optimization and is therefore suggested to be
-set in extensions. This settings controls which services are available
-through the dependency injection container which is used internally by
-:php:`GeneralUtility::makeInstance()`.
-However some classes that need to be public will be marked public automatically
-due to :yaml:`autoconfigure: true`.
-These classes include singletons, because they need to be shared with code that uses
-:php:`GeneralUtility::makeInstance()` and Extbase controllers.
+:yaml:`public: false` is a performance optimization and should therefore be set
+in extensions. This settings controls which services are available through the
+dependency injection container used internally by
+:php:`GeneralUtility::makeInstance()`. However, some classes that need to be
+public are automatically marked as public due to :yaml:`autoconfigure: true`
+being set. These classes include singletons, as they must be shared with code
+that uses :php:`GeneralUtility::makeInstance()` and :ref:`Extbase controllers
+<extbase-controller>`.
 
 
 .. index:: Dependency injection; Public
@@ -588,54 +531,50 @@ These classes include singletons, because they need to be shared with code that 
 What to make public
 -------------------
 
-Instances of :php:`\TYPO3\CMS\Core\SingletonInterface` and Extbase controllers are
-automatically marked as public. Some further classes must be marked as public, too.
-As the Symfony documentation `Public and private services
-<https://symfony.com/doc/current/service_container/alias_private.html>`__ puts
+Instances of :php:`\TYPO3\CMS\Core\SingletonInterface` and Extbase controllers
+are automatically marked as public. Some further classes must be marked as
+public, too. As the Symfony documentation "Public and private services" puts
 it:
 
-   Simply said: A service can be marked as private if you do not want to access
-   it directly from your code.
+    Simply said: A service can be marked as private if you do not want to access
+    it directly from your code.
 
-   -- `Symfony documentation <https://symfony.com/doc/current/service_container/alias_private.html>`__
+    -- `Symfony documentation`_
 
-Direct access includes instantiation via :php:`GeneralUtility::makeInstance()` with constructor arguments.
+..  _Symfony documentation: https://symfony.com/doc/current/service_container/alias_private.html
 
-This means every class that is retrieved directly using :php:`GeneralUtility::makeInstance()` *and* needs dependency injection, *must* be marked as public.
-Any other class which needs dependency injection and is retrieved by dependency injection
-itself can be private.
-Instances of :php:`\TYPO3\CMS\Core\SingletonInterface` and Extbase controllers are
-automatically marked as public because they are retrieved using :php:`GeneralUtility::makeInstance()`.
-More examples for classes which must be marked as public:
+Direct access includes instantiation via :php:`GeneralUtility::makeInstance()`
+with constructor arguments.
 
-* User functions
-* Non-Extbase controllers
-* Classes registered in hooks
-* Authentication services
-* Fluid data processors
+This means every class that is directly retrieved using
+:php:`GeneralUtility::makeInstance()` *and* requires dependency injection
+**must** be marked as public. Any other class which requires dependency injection
+and is retrieved by dependency injection itself can be private. Instances of
+:php:`\TYPO3\CMS\Core\SingletonInterface` and Extbase controllers are
+automatically marked as public because they are retrieved using
+:php:`GeneralUtility::makeInstance()`. More examples of classes that must be
+marked as public:
 
-For such classes an extension can override the global :yaml:`public: false` configuration in the
-:file:`Configuration/Services.yaml` for each affected class.
+*   :ref:`User functions <t3tsref:cobj-user-int>`
+*   Non-Extbase controllers
+*   Classes registered in :ref:`hooks <hooks-general>`
+*   :ref:`Authentication services <authentication>`
+*   :ref:`Fluid data processors <content-elements-custom-data-processor>`
+    (only necessary if not tagged as
+    :ref:`data.processor <content-elements-custom-data-processor_alias>`).
 
-.. code-block:: yaml
-   :caption: EXT:my_extension/Configuration/Services.yaml
+For such classes, an extension can override the global configuration
+:yaml:`public: false` in :file:`Configuration/Services.yaml` for each affected
+class:
 
-   services:
-     _defaults:
-       autowire: true
-       autoconfigure: true
-       public: false
+..  literalinclude:: _ServicesWithPublic.yaml
+    :language: yaml
+    :caption: EXT:my_extension/Configuration/Services.yaml
 
-     Vendor\MyExtension\:
-       resource: '../Classes/*'
-       exclude: '../Classes/Domain/Model/*'
-
-     Vendor\MyExtension\UserFunction\ClassA:
-       public: true
-
-With this configuration you can use dependency injection in :php:`\Vendor\MyExtension\UserFunction\ClassA`
-when it is created, for example in the context of a :typoscript:`USER` TypoScript object which would not be possible if this
-class was private.
+With this configuration, you can use dependency injection in
+:php:`\MyVendor\MyExtension\UserFunction\ClassA` when it is created, for example
+in the context of a :typoscript:`USER` TypoScript object, which would not be
+possible if this class were private.
 
 .. index:: Dependency injection; Errors
 .. _errors-resulting-from-wrong-configuration:
@@ -643,42 +582,109 @@ class was private.
 Errors resulting from wrong configuration
 -----------------------------------------
 
-When objects using dependency injection are not configured properly, one or more
-of the following issues can be the result. In such a case, check whether the
+If objects that use dependency injection are not configured properly, one or
+more of the following issues may result. In such a case, check whether the
 class has to be configured as :yaml:`public: true`.
 
 :php:`ArgumentCountError` is raised on missing dependency injection for
 :ref:`constructor-injection`:
 
-.. code-block:: text
+..  code-block:: text
 
-   (1/1) ArgumentCountError
+    (1/1) ArgumentCountError
 
-   Too few arguments to function Vendor\MyExtension\Namespace\Class::__construct(),
-   0 passed in typo3/sysext/core/Classes/Utility/GeneralUtility.php on line 3461 and exactly 1 expected
+    Too few arguments to function MyVendor\MyExtension\Namespace\Class::__construct(),
+    0 passed in typo3/sysext/core/Classes/Utility/GeneralUtility.php on line 3461 and exactly 1 expected
 
-An :php:`Error` is raised on missing dependency injection for
+An :php:`Error` is thrown on missing dependency injection for
 :ref:`method-injection`, once the dependency is used within the code:
 
-.. code-block:: text
+..  code-block:: text
 
-   (1/1) Error
+    (1/1) Error
 
-   Call to a member function methodName() on null
+    Call to a member function methodName() on null
 
+.. index:: Dependency injection; Installation-wide configuration
+.. _dependency-injection-installation-wide:
+
+Installation-wide configuration
+-------------------------------
+
+..  versionadded:: 12.1
+
+One can set up a global service configuration for a project that can be used in
+multiple project-specific extensions. For example, this way you can alias an
+interface with a concrete implementation that can be used in several extensions.
+It is also possible to register project-specific :ref:`CLI commands
+<symfony-console-commands>` without requiring a project-specific extension.
+
+However, this only works - due to security restrictions - if TYPO3 is configured
+in a way that the project root is outside the document root, which is usually
+the case in Composer-based installations.
+
+The global service configuration files :file:`services.yaml` and
+:file:`services.php` are now read within the :file:`config/system/` path
+of a TYPO3 project in Composer-based installations.
+
+**Example:**
+
+You want to use the PSR-20 clock interface as a type hint for dependency
+injection in the service classes of your project's various extensions. Then the
+concrete implementation may change without touching your code. In this example,
+we use `lcobucci/clock` for the concrete implementation.
+
+..  literalinclude:: _servicesInstallationWide.php
+    :language: php
+    :caption: config/system/services.php
+
+The concrete clock implementation is now injected when a type hint to the
+interface is given:
+
+..  literalinclude:: _MyClass.php
+    :language: php
+    :caption: EXT:my_extension/Classes/MyClass.php
+
+
+User functions and their restrictions
+-------------------------------------
+
+It is possible to use dependency injection when calling custom user functions,
+for example :ref:`.userFunc within TypoScript <t3tsref:cobj-user-properties>` or
+:ref:`in (legacy) hooks <hooks-general>`, usually via
+:php:`\TYPO3\CMS\Core\Utility\GeneralUtility::callUserFunction()`.
+
+This method :php:`callUserFunction()` internally uses the dependency-injection-aware
+helper :php:`GeneralUtility::makeInstance()`, which can recognize and inject
+classes/services that are marked public.
+
+..  attention::
+
+    The backend module :guilabel:`Admin Tools > Extensions > Configuration` is also
+    able to specify user functions for input options provided via an
+    :file:`ext_conf_template.txt` (see :ref:`extension-configuration`).
+
+    However, this backend module is executed in a special low-level context
+    that disables some functionality for failsafe-reasons. Specifically,
+    this prevents dependency injection from being used in this scenario.
+
+    If you need to utilize services and other classes inside user functions
+    that are called there, you need to perform custom :php:`GeneralUtility::makeInstance()`
+    calls inside your own user function method to initialize those needed classes/services.
 
 Dependency injection in a XCLASSed class
 ----------------------------------------
 
-If an existing class (for example an Extbase controller) is extended using XCLASS and additional
-dependencies are injected using constructor injection, it must be ensured that a
-reference to the extended class is added in the :file:`Configuration/Services.yaml` file of the
-extending extension as shown in the example below:
+When extending an existing class (for example, an Extbase controller) using
+:ref:`XCLASS <xclasses>` and injecting additional dependencies using constructor
+injection, ensure that a reference to the extended class is added in the
+:file:`Configuration/Services.yaml` file of the extending extension, as shown in
+the example below:
 
-.. code-block:: yaml
-   :caption: EXT:my_extension/Configuration/Services.yaml
+..  code-block:: yaml
+    :caption: EXT:my_extension/Configuration/Services.yaml
 
-   TYPO3\CMS\Belog\Controller\BackendLogController: '@Vendor\MyExtension\Controller\ExtendedBackendLogController'
+    TYPO3\CMS\Belog\Controller\BackendLogController: '@MyVendor\MyExtension\Controller\ExtendedBackendLogController'
 
 
 Further information
@@ -689,11 +695,6 @@ Further information
 *  `Symfony dependency injection component <https://symfony.com/doc/current/components/dependency_injection.html>`_
 
 *  `Symfony service container <https://symfony.com/doc/current/service_container.html>`_
-
-*  :doc:`ext_core:Changelog/10.0/Feature-84112-SymfonyDependencyInjectionForCoreAndExtbase`
-   of the TYPO3 Core .
-
-*  :doc:`ext_core:Changelog/10.4/Deprecation-90803-DeprecationOfObjectManagergetInExtbaseContext`
 
 *  `Dependency Injection in TYPO3 - Blog Article by Daniel Goerz <https://usetypo3.com/dependency-injection.html>`_
 

@@ -6,11 +6,9 @@
 Backend layout
 ==============
 
-Since TYPO3 v4.5 there has been a database record type "backend layout" to define a combination of rows and columns
-to which content can be added in the page module.
-
-With TYPO3 v7.4 a new feature was introduced to define backend layouts in TYPO3 via page TSconfig. It implements a
-generic page TSconfig provider for backend layouts to make backend layouts reusable across installations.
+Backend layouts can be defined as database records or via :ref:`page TSconfig <t3tsconfig:pagetsconfig>`.
+Page TSconfig should be preferred as it can be stored in the file system and
+be kept under version control.
 
 .. _be-layout-video:
 
@@ -227,7 +225,7 @@ In the Fluid template the column positions can be accessed now via content mappi
 Reference implementations of backend layouts
 ============================================
 
-The extension :t3ext:`bootstrap_package/` ships several
+The extension :t3ext:`bootstrap_package` ships several
 `Backend layouts <https://github.com/benjaminkott/bootstrap_package/tree/1b00a01e362d2460af92f754ee10e507edb70568/Configuration/TsConfig/Page/Mod/WebLayout/BackendLayouts>`__
 as well as an example configuration of how to include frontend templates for backend layouts (see its
 `setup.typoscript <https://github.com/benjaminkott/bootstrap_package/blob/1b00a01e362d2460af92f754ee10e507edb70568/Configuration/TypoScript/setup.typoscript#L99-L113>`__)
@@ -240,8 +238,8 @@ Extensions for backend layouts
 
 In many cases besides defining fixed backend layouts a more modular approach with the possibility of combining different
 backend layouts and frontend layouts may be feasible. The extension
-:t3ext:`gridelements/`
+:t3ext:`container`
 integrates the grid layout concept also to regular content elements.
 
-The extension :t3ext:`content_defender/` offers advanced options to
-the column positions i.e. allowed or disallowed content elements, a maximal number of contend elements.
+The extension :t3ext:`content_defender` offers advanced options to
+the column positions i.e. allowed or disallowed content elements, a maximal number of content elements.

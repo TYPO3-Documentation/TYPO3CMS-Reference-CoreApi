@@ -1,17 +1,17 @@
-.. include:: /Includes.rst.txt
-.. index:: Events; AfterExtensionStaticDatabaseContentHasBeenImportedEvent
-.. _AfterExtensionStaticDatabaseContentHasBeenImportedEvent:
+..  include:: /Includes.rst.txt
+..  _AfterExtensionStaticDatabaseContentHasBeenImportedEvent:
 
 
 =======================================================
 AfterExtensionStaticDatabaseContentHasBeenImportedEvent
 =======================================================
 
-.. versionadded:: 10.3
+..  versionchanged:: 13.0
+    The PSR-14 event
+    :php:`\TYPO3\CMS\Extensionmanager\Event\AfterExtensionStaticDatabaseContentHasBeenImportedEvent`
+    has been removed. The information provided by this event can be accessed by
+    fetching the corresponding storage entry from the
+    :ref:`PackageInitializationEvent`.
 
-Event that is triggered after a package has imported the database file shipped within "ext_tables_static+adt.sql".
-
-API
----
-
-.. include:: /CodeSnippets/Events/ExtensionManager/AfterExtensionStaticDatabaseContentHasBeenImportedEvent.rst.txt
+..  seealso::
+    :ref:`Changelog describing the background and migration <ext_core:breaking-102935-1706258423>`

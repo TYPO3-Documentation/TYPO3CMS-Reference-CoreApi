@@ -1,0 +1,4 @@
+rootPageId: 1
+base: https://example.org/
+myProject:
+  recordStorage: 15

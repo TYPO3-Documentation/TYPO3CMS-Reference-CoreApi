@@ -1,0 +1,36 @@
+rootPageId: 1
+base: 'https://example.org/'
+baseVariants:
+  - base: 'https://example.localhost/'
+    condition: 'applicationContext == "Development"'
+  - base: 'https://staging.example.org/'
+    condition: 'applicationContext == "Production/Sydney"'
+  - base: 'https://testing.example.org/'
+    condition: 'applicationContext == "Testing/Paris"'
+  - base: '%env("TYPO3_BASE")%'
+    condition: 'getenv("TYPO3_BASE")'
+languages:
+  - title: English
+    enabled: true
+    locale: en_US.UTF-8
+    base: /
+    websiteTitle: ''
+    navigationTitle: English
+    flag: gb
+    languageId: 0
+  - title: Deutsch
+    enabled: true
+    locale: de_DE.UTF-8
+    base: 'https://example.net/'
+    baseVariants:
+      - base: 'https://de.example.localhost/'
+        condition: 'applicationContext == "Development"'
+      - base: 'https://staging.example.net/'
+        condition: 'applicationContext == "Production/Sydney"'
+      - base: 'https://testing.example.net/'
+        condition: 'applicationContext == "Testing/Paris"'
+    websiteTitle: ''
+    navigationTitle: Deutsch
+    fallbackType: strict
+    flag: de
+    languageId: 1

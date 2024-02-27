@@ -1,15 +1,23 @@
-.. include:: /Includes.rst.txt
-.. index:: Events; AfterDataGeneratedForWorkspaceEvent
-.. _AfterDataGeneratedForWorkspaceEvent:
+..  include:: /Includes.rst.txt
+..  index:: Events; AfterDataGeneratedForWorkspaceEvent
+..  _AfterDataGeneratedForWorkspaceEvent:
 
 
 ===================================
 AfterDataGeneratedForWorkspaceEvent
 ===================================
 
-Used in the workspaces module to find all data of versions of a workspace.
+The PSR-14 event
+:php:`\TYPO3\CMS\Workspaces\Event\AfterDataGeneratedForWorkspaceEvent`
+is used in the :guilabel:`Web > Workspaces` module to find all data of versions
+of a workspace.
+
+Example
+=======
+
+..  include:: /_includes/EventsContributeNote.rst.txt
 
 API
----
+===
 
-.. include:: /CodeSnippets/Events/Workspaces/AfterDataGeneratedForWorkspaceEvent.rst.txt
+..  include:: /CodeSnippets/Events/Workspaces/AfterDataGeneratedForWorkspaceEvent.rst.txt

@@ -1,173 +1,85 @@
-.. include:: /Includes.rst.txt
-.. index::
+..  include:: /Includes.rst.txt
+..  index::
     Form protection tool
     Cross-site request forgery
     CSRF
-.. _csrf:
+..  _csrf:
+..  _csrf-backend:
 
 ====================
 Form protection tool
 ====================
 
-Since TYPO3 v4.5, the TYPO3 Core provides a generic way of protecting
-forms against cross-site request forgery (CSRF).
+..  versionchanged:: 12.1
+    Before TYPO3 v12.1, the :php:`FormProtectionFactory` provided only static
+    methods to get the concrete form protection implementation. Since
+    TYPO3 v12.1, the :php:`FormProtectionFactory` can be instantiated and
+    therefore injected into the constructor. The static methods are deprecated
+    and will be removed in TYPO3 v13.
 
+The TYPO3 Core provides a generic way of protecting forms against cross-site
+request forgery (CSRF).
 
-.. index:: pair; Form protection tool; Backend
-.. _csrf-backend:
+..  attention::
+    This **requires a logged-in user** whether in frontend or backend. CSRF
+    protection is not supported for anonymous users. Without a logged-in user
+    the token will always be :php:`dummyToken`. See :forge:`77403` for details.
 
-Usage in the backend
-====================
+For each form in the backend/frontend (or link that changes some data), create a
+token and insert it as a hidden form element. The name of the form element does
+not matter; you only need it to get the form token for verifying it.
 
-For each form in the BE (or link that changes some data), create a token and insert is as a hidden form element.
-The name of the form element does not matter; you only need it to get the form token for verifying it.
+Examples
+========
 
-.. code-block:: php
+..  literalinclude:: _FormProtectionExample.php
+    :caption: EXT:my_extension/Classes/Controller/FormProtectionExample.php
 
-   $formToken = TYPO3\CMS\Core\FormProtection\FormProtectionFactory::get()
-      ->generateToken('BE user setup', 'edit')
-   );
-   $this->content .= '<input type="hidden" name="formToken" value="' . $formToken . '" />';
+The three parameters of the :php:`generateToken()` method:
 
-The three parameters :code:`$formName`, :code:`$action` and :code:`$formInstanceName` can be arbitrary strings,
-but they should make the form token as specific as possible. For different forms
-(e.g. BE user setup and editing a tt_content record) or different records (with different UIDs)
-from the same table, those values should be different.
+-   :php:`$formName`
+-   :php:`$action` (optional)
+-   :php:`$formInstanceName` (optional)
 
-For editing a tt_content record, the call could look like this:
+can be arbitrary strings, but they should make the form token as specific as
+possible. For different forms (for example, BE user setup and editing a
+:sql:`tt_content` record) or different records (with different UIDs) from the
+same table, those values should be different.
 
-.. code-block:: php
+For editing a :sql:`tt_content` record, the call could look like this:
 
-   $formToken = TYPO3\CMS\Core\FormProtection\FormProtectionFactory::get()->generateToken('tt_content', 'edit', $uid);
+..  code-block:: php
+    :caption: EXT:my_extension/Classes/Controller/FormProtectionExample.php (Excerpt)
 
-At the end of the form, you need to persist the tokens. This makes sure that generated tokens get saved,
-and also that removed tokens stay removed:
+    $formToken = $formProtection->generateToken('tt_content', 'edit', (string)$uid);
 
-.. code-block:: php
+When processing the data that has been submitted by the form, you can check that
+the form token is valid like this:
 
-   TYPO3\CMS\Core\FormProtection\FormProtectionFactory::get()->persistTokens();
+..  code-block:: php
+    :caption: EXT:my_extension/Classes/Controller/FormProtectionExample.php (Excerpt)
 
-In BE lists, it might be necessary to generate hundreds of tokens.
-So the tokens do not get automatically persisted after creation for performance reasons.
+    if ($dataHasBeenSubmitted &&
+        $formProtection->validateToken(
+            $request->getParsedBody()['formToken'] ?? '',
+            'BE user setup',
+            'edit'
+        ) ) {
+        // process the data
+    } else {
+        // No need to do anything here, as the backend form protection will
+        // create a flash message for an invalid token
+    }
 
-When processing the data that has been submitted by the form,
-you can check that the form token is valid like this:
+As it is recommended to use :php:`FormProtectionFactory->createForRequest()`
+to auto-detect which type is needed, one can also create a specific type
+directly:
 
-.. code-block:: php
+..  code-block:: php
+    :caption: EXT:my_extension/Classes/Controller/FormProtectionExample.php (Excerpt)
 
-   if ($dataHasBeenSubmitted &&
-      TYPO3\CMS\Core\FormProtection\FormProtectionFactory::get()->validateToken(
-         (string) \TYPO3\CMS\Core\Utility\GeneralUtility::_POST('formToken'),
-         'BE user setup', 'edit'
-      ) ) {
-      // processes the data
-   } else {
-      // no need to do anything here as the BE form protection will create a
-      // flash message for an invalid token
- }
+    // For backend
+    $formProtection = $this->formProtectionFactory->createFromType('backend');
 
-Note that :code:`validateToken` invalidates the token with the token ID.
-So calling the validation with the same parameters twice in a row
-will always return :code:`FALSE` for the second call.
-
-It is important that the tokens get validated **before** the tokens are persisted.
-This makes sure that the tokens that get invalidated by :code:`validateToken`
-cannot be used again.
-
-
-.. index:: pair: Form protection tool; Install tool
-.. _csrf-install:
-
-Usage in the install tool
-=========================
-
-For each form in the Install Tool (or link that changes some data),
-create a token and insert is as a hidden form element.
-The name of the form element does not matter;
-you only need it to get the form token for verifying it.
-
-.. code-block:: php
-
-   $formToken = $this->formProtection->generateToken('installToolPassword', 'change');
-   // then puts the generated form token in a hidden field in the template
-
-The three parameters :code:`$formName`, :code:`$action` and :code:`$formInstanceName`
-can be arbitrary strings, but they should make the form token as specific as possible.
-For different forms (e.g. the password change and editing a the configuration),
-those values should be different.
-
-At the end of the form, you need to persist the tokens.
-This makes sure that generated tokens get saved, and also that removed tokens stay removed:
-
-.. code-block:: php
-
-   $this->formProtection()->persistTokens();
-
-When processing the data that has been submitted by the form, you can check that the form token is valid like this:
-
-.. code-block:: php
-
-   if ($dataHasBeenSubmitted &&
-      $this->formProtection()->validateToken(
-         (string) $_POST['formToken'],
-         'installToolPassword',
-         'change')
-   ) {
-      // processes the data
-   } else {
-      // no need to do anything here as the Install Tool form protection will
-      // create an error message for an invalid token
-   }
-
-Note that :code:`validateToken` invalidates the token with the token ID.
-So calling the validation with the same parameters twice in a row
-will always return :code:`FALSE` for the second call.
-
-It is important that the tokens get validated **before** the tokens are persisted.
-This makes sure that the tokens that get invalidated by :code:`validateToken`
-cannot be used again.
-
-
-.. index:: pair: Form protection tool; Frontend
-
-Usage in the frontend
-=====================
-
-.. versionadded:: 7.6
-
-:doc:`ext_core:Changelog/7.6/Feature-56633-FormProtectionAPIForFrontEndUsage` introduced a new
-class to allow usage of the FormProtection (CSRF protection) API in the frontend.
-
-Usage is the same as in backend context:
-
-.. code-block:: php
-
-	$formToken = \TYPO3\CMS\Core\FormProtection\FormProtectionFactory::get()
-		->getFormProtection()->generateToken('news', 'edit', $uid);
-
-
-	if ($dataHasBeenSubmitted
-		&& \TYPO3\CMS\Core\FormProtection\FormProtectionFactory::get()->validateToken(
-			\TYPO3\CMS\Core\Utility\GeneralUtility::_POST('formToken'),
-			'news',
-			'edit',
-			$uid
-		)
-	) {
-		// Processes the data.
-	} else {
-		// Create a flash message for the invalid token or just discard this request.
-	}
-
-
-Note that :code:`validateToken` invalidates the token with the token ID.
-So calling the validation with the same parameters twice in a row
-will always return :code:`FALSE` for the second call.
-
-It is important that the tokens get validated **before** the tokens are persisted.
-This makes sure that the tokens that get invalidated by :code:`validateToken`
-cannot be used again.
-
-Note that this **requires a logged on user** whether in frontend or backend. CSRF protection
-is not supported for anonymous users. Without a logged on user the token will always be
-:code:`dummyToken`. See :forge:`77403` for details.
+    // For frontend
+    $formProtection = $this->formProtectionFactory->createFromType('frontend');

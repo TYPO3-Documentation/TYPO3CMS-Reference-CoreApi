@@ -44,8 +44,8 @@ directly by using HTTP requests:
 * :samp:`https://example.org/typo3_src/INSTALL.txt`
 * :samp:`https://example.org/typo3_src/ChangeLog`
 * :samp:`https://example.org/typo3_src/vendor/autoload.php`
-* :samp:`https://example.org/typo3conf/LocalConfiguration.php`
-* :samp:`https://example.org/typo3conf/AdditionalConfiguration.php`
+* :samp:`https://example.org/typo3conf/system/settings.php`
+* :samp:`https://example.org/typo3conf/system/additional.php`
 * :samp:`https://example.org/typo3temp/var/log/`
 * :samp:`https://example.org/typo3temp/var/session/`
 * :samp:`https://example.org/typo3temp/var/tests/`
@@ -68,7 +68,7 @@ Apache and Microsoft IIS web servers
 ====================================
 
 To increase protection of TYPO3 instances, the Core Team however decided to
-install default web server configuration files since TYPO3 Core  version v9 under certain
+install default web server configuration files under certain
 circumstances: If an Apache web server is detected by the web based installation
 procedure, a default :file:`.htaccess` file is written to the document root, and if
 a Microsoft IIS web server is detected, a default :file:`web.config` file is written
@@ -80,10 +80,9 @@ and common package files like :file:`composer.json`.
 
 This "black list" approach needs maintenance: The Core Team tries to keep the template files
 :file:`.htaccess` and :file:`web.config` updated. If running Apache or IIS, administrators
-should compare their specific version with the reference files found at `root-htaccess
-<https://github.com/typo3/typo3/blob/main/typo3/sysext/install/Resources/Private/FolderStructureTemplateFiles/root-htaccess>`_
-and `root-web-config
-<https://github.com/typo3/typo3/blob/main/typo3/sysext/install/Resources/Private/FolderStructureTemplateFiles/root-web-config>`_
+should compare their specific version with the reference files found at
+:t3src:`install/Resources/Private/FolderStructureTemplateFiles/root-htaccess`
+and :t3src:`install/Resources/Private/FolderStructureTemplateFiles/root-web-config`
 and adapt or update local versions if needed.
 
 

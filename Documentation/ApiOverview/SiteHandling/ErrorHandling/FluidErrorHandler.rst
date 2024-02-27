@@ -1,93 +1,60 @@
-.. include:: /Includes.rst.txt
-.. index:: pair: Error handling; fluid
-.. _sitehandling-errorHandling_fluid:
+..  include:: /Includes.rst.txt
+..  index:: pair: Error handling; fluid
+..  _sitehandling-errorHandling_fluid:
 
 =========================
 Fluid-based error handler
 =========================
 
-The fluid-based error handler is defined in
-`\TYPO3\CMS\Core\Error\PageErrorHandler\FluidPageErrorHandler
-<https://github.com/typo3/typo3/blob/main/typo3/sysext/core/Classes/Error/PageErrorHandler/FluidPageErrorHandler.php>`__.
+The Fluid-based error handler is defined in
+:t3src:`core/Classes/Error/PageErrorHandler/FluidPageErrorHandler.php`.
 
 Properties
 ==========
 
-The fluid-based error handler has the properties
+The Fluid-based error handler has the properties
 :ref:`sitehandling-errorHandling_errorCode` and
-:ref:`sitehandling-errorHandling_errorHandler` and the following:
+:ref:`sitehandling-errorHandling_errorHandler`, and the following:
 
-errorFluidTemplate
-------------------
+..  option:: errorFluidTemplate
 
-:aspect:`Datatype`
-    string
+    :type: string
+    :Example: `EXT:my_sitepackage/Resources/Private/Templates/Sites/Error.html`
 
-:aspect:`Description`
-    Path to fluid template file. Path may be
+    The path to the Fluid template file. Path may be
 
-    * absolute
-    * relative to site root
-    * starting with `EXT:` for files from an extension
+    *   absolute
+    *   relative to site root
+    *   starting with `EXT:` for files from an extension
 
-:aspect:`Example`
-    `EXT:sitepackage/Resources/Private/Templates/Error.html`
+..  option:: errorFluidTemplatesRootPath
 
+    :type: string [optional]
+    :Example: `EXT:my_sitepackage/Resources/Private/Templates/Sites/`
 
-errorFluidTemplatesRootPath
----------------------------
+    The paths to the Fluid templates in case more flexibility is needed.
 
-:aspect:`Datatype`
-    string [optional]
+..  option:: errorFluidPartialsRootPath
 
-:aspect:`Description`
-    Paths to Fluid Templates, Partials and Layouts in
-    case more flexibility is needed.
+    :type: string [optional]
+    :Example: `EXT:my_sitepackage/Resources/Private/Partials/Sites/`
 
-:aspect:`Example`
-    `EXT:sitepackage/Resources/Private/Templates/`
+    The paths to the Fluid partials in case more flexibility is needed.
 
+..  option:: errorFluidLayoutsRootPath
 
-errorFluidPartialsRootPath
---------------------------
+    :type: string [optional]
+    :Example: `EXT:my_sitepackage/Resources/Private/Layouts/Sites/`
 
-:aspect:`Datatype`
-    string [optional]
-
-:aspect:`Description`
-    Paths to Fluid Templates, Partials and Layouts in
-    case more flexibility is needed.
-
-:aspect:`Example`
-    `EXT:sitepackage/Resources/Private/Partials/`
+    The paths to Fluid layouts in case more flexibility is needed.
 
 
-errorFluidLayoutsRootPath
--------------------------
+Example
+=======
 
-:aspect:`Datatype`
-    string [optional]
+Show the content of a Fluid template in case of an error with HTTP status 404:
 
-:aspect:`Description`
-    Paths to Fluid Templates, Partials and Layouts in
-    case more flexibility is needed.
+..  literalinclude:: _fluid-error-handler.yaml
+    :language: yaml
+    :caption: config/sites/<some_site>/config.yaml | typo3conf/sites/<some_site>/config.yaml
 
-:aspect:`Example`
-    `EXT:sitepackage/Resources/Private/Layouts/`
-
-
-Examples
-========
-
-Shows the content of a Fluid template on error with HTTP status 404.
-
-.. code-block:: yaml
-
-   errorHandling:
-     -
-       errorCode: 404
-       errorHandler: Fluid
-       errorFluidTemplate: 'EXT:my_sitepackage/Resources/Private/Templates/Sites/Error.html'
-       errorFluidTemplatesRootPath: ''
-       errorFluidLayoutsRootPath: ''
-       errorFluidPartialsRootPath: 'EXT:my_sitepackage/Resources/Private/Partials/Sites/'

@@ -1,9 +1,0 @@
-.. Automatic screenshot: Remove this line if you want to manually change this file
-
-.. code-block:: typoscript
-   :caption: Extension examples, file Configuration/TypoScript/Conditions/OrConditions/setup.typoscript
-
-   [condition1() or condition2()]
-      temp.value = Condition 1 or condition 2 met
-   [END]
-   

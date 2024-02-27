@@ -1,0 +1,9 @@
+services:
+  # Place here the default dependency injection configuration
+
+  MyVendor\MyExtension\EventListener\NullMailer:
+    tags:
+      - name: event.listener
+        method: handleEvent
+        identifier: 'my-extension/null-mailer'
+        before: 'someIdentifier, anotherIdentifier'

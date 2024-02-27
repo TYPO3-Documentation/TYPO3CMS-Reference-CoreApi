@@ -20,7 +20,7 @@ backend modules:
 
 
 In this simple piece of code we instantiate a clipboard object and make it
-load its content. We then simply dump this content into the BE module's debug
+load its content. We then dump this content into the BE module's debug
 window, with the following result:
 
 .. include:: /Images/AutomaticScreenshots/Examples/Clipboard/ClipboardDump.rst.txt

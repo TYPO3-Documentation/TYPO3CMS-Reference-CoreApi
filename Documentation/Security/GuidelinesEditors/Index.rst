@@ -115,7 +115,7 @@ should get in touch with the system provider to solve this issue.
 Notify at login
 ---------------
 
-TYPO3 CMS offers the feature to notify backend users by email, when
+TYPO3 offers the feature to notify backend users by email, when
 somebody logs in from your account. If you set this option in your
 user settings, you will receive an email from TYPO3 each time you (or
 "someone") logs in using your login details. Receiving such a

@@ -66,7 +66,7 @@ keys on the first level:
     Settings for the complete table, such as a record title, a label
     for a single record, default sorting, and the names of some
     internal fields.
-    
+
 :php:`columns`
     Here we define all fields that can be used for user input in the
     backend.
@@ -136,7 +136,7 @@ These fields are used to keep timestamp and status information for each record. 
 ..  _extbase_tutorial_tea_model_columns:
 
 TCA :php:`columns` - Defining the fields
--------------------------------------------------
+----------------------------------------
 
 All fields that can be changed in the TYPO3 backend or used in the Extbase
 model have to be listed here. Otherwise they will not be recognized by TYPO3.
@@ -158,6 +158,10 @@ The other text fields are defined in a similar manner.
 
 The :php:`image` field
 ~~~~~~~~~~~~~~~~~~~~~~
+
+As the tea extension always supports two major TYPO3 versions it still uses
+the deprecated way of creating an image field in TCA. If your extension only
+has to support TYPO3 v12, you should use the field type :ref:`t3tca:columns-file`.
 
 The image field is a special case, as it is created by a call to the API function
 :php:`\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::getFileFieldTCAConfig()`.

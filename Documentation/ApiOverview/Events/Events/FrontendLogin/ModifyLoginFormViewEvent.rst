@@ -1,26 +1,26 @@
-.. include:: /Includes.rst.txt
-.. index:: Events; ModifyLoginFormViewEvent
-.. _ModifyLoginFormViewEvent:
+..  include:: /Includes.rst.txt
+..  index:: Events; ModifyLoginFormViewEvent
+..  _ModifyLoginFormViewEvent:
 
 
 ========================
 ModifyLoginFormViewEvent
 ========================
 
-.. versionadded:: 10.4
-   This event replaces the :php:`$GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['felogin']['loginFormOnSubmitFuncs']`
-   hook from the pibase plugin.
+The PSR-14 event :php:`\TYPO3\CMS\FrontendLogin\Event\ModifyLoginFormViewEvent`
+allows to inject custom variables into the login form.
 
+..  versionchanged:: 12.0
+    The interface :php:`\TYPO3\CMS\Extbase\Mvc\View\ViewInterface` has been
+    removed with v12. The :php:`getView()` method signature has been changed
+    to :php:`TYPO3Fluid\Fluid\View\ViewInterface` with the v12 release.
 
-Allows to inject custom variables into the login form.
+Example
+=======
 
-.. versionchanged:: 12.0
-   The interface :php:`TYPO3\CMS\Extbase\Mvc\View\ViewInterface` has been
-   removed with v12. The :php:`getView()` method signature has been changed
-   to :php:`TYPO3Fluid\Fluid\View\ViewInterface` with the v12 release.
-
+..  include:: /_includes/EventsContributeNote.rst.txt
 
 API
----
+===
 
-.. include:: /CodeSnippets/Events/FrontendLogin/ModifyLoginFormViewEvent.rst.txt
+..  include:: /CodeSnippets/Events/FrontendLogin/ModifyLoginFormViewEvent.rst.txt

@@ -18,7 +18,7 @@ are based on the extension key.
     * underscores (`_`) in the extension key should be replaced by dashes (`-`), when used in the
       package name in the file :file:`composer.json` (e.g. `cool_shop` becomes `<vendor>/cool-shop`)
     * underscores in the extension key should be removed by converting the extension key
-      to UpperCamelCase in namespaces (e.g. `cool_shop` becomes :php:`VendorName\CoolShop`)
+      to UpperCamelCase in namespaces (e.g. `cool_shop` becomes :php:`MyVendor\CoolShop`)
 
 
 Abbreviations & Glossary
@@ -43,15 +43,23 @@ TER
     :guilabel:`My Extensions`.
 
 extkey
-    The extension key.
+    The extension key as is (e.g. 'my_extension').
+
+extkeyprefix
+    The extension key with stripped away underscores (e.g. extkey='my_extension'
+    becomes extkeyprefix='myextension').
+
+..  _extension-naming-extensionName:
 
 ExtensionName
     The term ExtensionName means the extension key in UpperCamelCase.
 
     Example: for an extkey `bootstrap_package` the ExtensionName would be `BootstrapPackage`.
 
-    The ExtensionName is used as first parameter in the Extbase methods
-    :php:`ExtensionUtility::configurePlugin()` or :php:`ExtensionUtility::registerModule()`.
+    The ExtensionName is used as first parameter in the Extbase method
+    :php:`ExtensionUtility::configurePlugin()` and as value for the
+    :php:`extensionName` key when
+    :ref:`registering a backend module <backend-modules-configuration>`.
 
 modkey
     The backend module key.
@@ -104,10 +112,10 @@ Derived names are:
 * package name in :file:`composer.json` `<vendor-name>/<package-name>`.
   Underscores (`_`) should be replaced by dashes (`-`)
 * namespaces: Underscores in the extension key are removed by converting the extension key
-  to UpperCamelCase in namespaces (e.g. `cool_shop` becomes `VendorName\CoolShop`).
+  to UpperCamelCase in namespaces (e.g. `cool_shop` becomes `MyVendor\CoolShop`).
 
 
-.. important::
+.. attention::
 
    If you plan to :ref:`publish your extension <publish-extension>`,
    the extension key must be unique worldwide. This will be checked
@@ -136,7 +144,7 @@ Examples for names that are derived from the extkey:
 
 Here, the *extkey* is `my_extension`:
 
-* namespace: :php:`VendorName\MyExtension\...`
+* namespace: :php:`MyVendor\MyExtension\...`
 * package name in :file:`composer.json`: ``vendor-name/my-extension`` (the underscore is replaced by
   a dash)
 
@@ -150,7 +158,7 @@ The vendor name is used in:
 * namespaces
 * package name in :file:`composer.json`, e.g. ``myvendor/cool-shop`` (all lowercase)
 
-.. important::
+.. attention::
 
    The vendor name MUST be unique (if you publish your extensions
    on packagist).
@@ -180,6 +188,7 @@ Examples:
 
    * `PSR-0 <https://www.php-fig.org/psr/psr-0/>`__
 
+..  _naming-tables:
 
 Database table name
 ===================
@@ -190,23 +199,28 @@ Database table names **should** follow this pattern:
 
 .. code-block:: none
 
-   tx_<extension-prefix>_<table-name>
+   tx_<extkeyprefix>_<table_name>
 
-* `<extension-prefix>` is the extension key without underscores, so `foo_bar` becomes `foobar`
-* `<table-name>` should clearly describe the purpose of the table
+* `<extkeyprefix>` is the extension key without underscores, so `foo_bar` becomes `foobar`
+* `<table_name>` should clearly describe the purpose of the table
 
 Examples for an extension named `cool_shop`:
 
 *  :sql:`tx_coolshop_product`
 *  :sql:`tx_coolshop_category`
 
+..  _naming-tables-extbase:
+
+Extbase domain model tables
+---------------------------
+
 Extbase domain model tables **should** follow this pattern:
 
 .. code-block:: none
 
-   tx_<extension-prefix>_domain_model_<model-name>
+   tx_<extkeyprefix>_domain_model_<model-name>
 
-* `<extension-prefix>` is the extension key without underscores, so `foo_bar` becomes `foobar`
+* `<extkeyprefix>` is the extension key without underscores, so `foo_bar` becomes `foobar`
 * `<model-name>` should match the domain model name
 
 Examples for Extbase domain models and table names of an extension named `cool_shop`:
@@ -223,8 +237,12 @@ Examples for Extbase domain models and table names of an extension named `cool_s
 .. tip::
    You may notice, that the names above use the singular form, e.g. `post` and
    not `posts`. This is recommended, but not always followed. If you do not follow this pattern,
-   you may need :ref:`manual mapping <t3extbasebook:using-foreign-data-sources>`.
+   you may need :ref:`manual mapping <extbase_manual_mapping>`.
 
+..  _naming-tables-mm:
+
+MM-tables for multiple-multiple relations between tables
+---------------------------------------------------------
 
 **MM** tables (for multiple-multiple relations between tables) follow these rules.
 
@@ -233,8 +251,8 @@ Extbase:
 .. code-block:: none
 
    # rule for Extbase
-   tx_<extension-prefix>_domain_model_<model-name-1>_<model-name-2>_mm
-   # example: EXT:news with relation between news and tag
+   tx_<extkeyprefix>_domain_model_<model-name-1>_<model-name-2>_mm
+   # example: EXT:blog with relation between post and comment
    tx_blogexample_domain_model_post_comment_mm
 
 Non-Extbase tables usually use a similar rule, without the "domain_model" part:
@@ -242,7 +260,7 @@ Non-Extbase tables usually use a similar rule, without the "domain_model" part:
 .. code-block:: none
 
    # recommendation for non-Extbase third party extensions
-   tx_<extension-prefix>_<model-1>_<model-2>_mm
+   tx_<extkeyprefix>_<model-1>_<model-2>_mm
    # Example
    tx_myextension_address_category_mm
 
@@ -257,9 +275,9 @@ follow this pattern:
 
 .. code-block:: none
 
-   tx_<extension-prefix>_<column-name>
+   tx_<extkeyprefix>_<column-name>
 
-* `<extension-prefix>` is the extension key without underscores, so `foo_bar` becomes `foobar`
+* `<extkeyprefix>` is the extension key without underscores, so `foo_bar` becomes `foobar`
 * `<column-name>` should clearly describe the purpose of the column
 
 .. _BackendModuleKey:
@@ -279,18 +297,19 @@ Example:
 Example usage:
 
 .. code-block:: php
-    :caption: EXT:my_extension/ext_tables.php
+    :caption: EXT:my_extension/Configuration/Backend/Modules.php
 
-    // Module System > Backend Users
-    \TYPO3\CMS\Extbase\Utility\ExtensionUtility::registerModule(
-        // ExtensionName
-        'CoolShop',
-        // Main module key (use existing main module 'web' here)
-        'web',
+    return [
         // Submodule key
-        'ProductManagement'
-        // ...
-    );
+        'web_productmanagement' => [
+            // Main module key (use existing main module 'web' here)
+            'parent' => 'web',
+            // ...
+        ],
+    ];
+
+For more details have a look into the :ref:`backend-modules-configuration`
+chapter.
 
 Backend module signature
 ========================
@@ -303,18 +322,15 @@ key <BackendModuleKey>`, separated by an underscore.
 Conversions, such as underscore to UpperCamelCase or conversions to lowercase
 may be applied in this process.
 
-Examples (from TYPO3 core extennsions):
+Examples (from TYPO3 Core extensions):
 
 *  web_info
 *  web_FormFormbuilder
 *  site_redirects
 
-.. tip::
-
-   Registered modules are added to :php:`$GLOBALS['TBE_MODULES']`.
-
-   You can look at existing module signatures in
-   :guilabel:`System > Configuration > Backend Modules`.
+..  tip::
+    You can look at existing module signatures in
+    :guilabel:`System > Configuration > Backend Modules`.
 
 .. _naming-conventions-plugin-signature:
 

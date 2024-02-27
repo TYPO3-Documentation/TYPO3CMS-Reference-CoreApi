@@ -1,18 +1,23 @@
-.. include:: /Includes.rst.txt
-.. index:: Events; BeforeFolderDeletedEvent
-.. _BeforeFolderDeletedEvent:
-
+..  include:: /Includes.rst.txt
+..  index:: Events; BeforeFolderDeletedEvent
+..  _BeforeFolderDeletedEvent:
 
 ========================
 BeforeFolderDeletedEvent
 ========================
 
-This event is fired before a folder is about to be deleted.
+The PSR-14 event :php:`\TYPO3\CMS\Core\Resource\Event\BeforeFolderDeletedEvent`
+is fired before a folder is about to be deleted.
 
 Listeners can use this event to clean up further external references
 to a folder / files in this folder.
 
-API
----
+Example
+=======
 
-.. include:: /CodeSnippets/Events/Core/Resource/BeforeFolderDeletedEvent.rst.txt
+..  include:: /_includes/EventsContributeNote.rst.txt
+
+API
+===
+
+..  include:: /CodeSnippets/Events/Core/Resource/BeforeFolderDeletedEvent.rst.txt

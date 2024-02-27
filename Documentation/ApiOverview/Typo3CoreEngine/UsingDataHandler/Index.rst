@@ -22,6 +22,7 @@ array you want to pass to the class and call a few methods.
 
 
 .. index:: pair: DataHandler; Symfony
+.. _dataHandler-cli-command:
 
 Using the DataHandler in a Symfony command
 ==========================================
@@ -37,6 +38,11 @@ method, you should make sure that this user is initialized like this:
    :caption: EXT:some_extension/Classes/Command/SomeCommand.php
 
    \TYPO3\CMS\Core\Core\Bootstrap::initializeBackendAuthentication();
+
+If you forget to add the backend user authentication, an error similar to this
+will occur:
+
+ [1.2.1]: Attempt to modify table "pages" without permission
 
 
 .. index:: pair: DataHandler; PHP
@@ -66,7 +72,6 @@ database.
 
 .. code-block:: php
    :caption: EXT:some_extension/Classes/SomeClass.php
-   :linenos:
 
    $dataHandler = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\TYPO3\CMS\Core\DataHandling\DataHandler::class);
    $dataHandler->start($data, []);
@@ -87,7 +92,6 @@ The most basic way of executing commands:
 
 .. code-block:: php
    :caption: EXT:some_extension/Classes/SomeClass.php
-   :linenos:
 
    $dataHandler = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\TYPO3\CMS\Core\DataHandling\DataHandler::class);
    $dataHandler->start([], $cmd);
@@ -110,7 +114,6 @@ calling the :php:`start()` method (which will initialize internal state).
 
 .. code-block:: php
    :caption: EXT:some_extension/Classes/SomeClass.php
-   :linenos:
 
    $dataHandler = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\TYPO3\CMS\Core\DataHandling\DataHandler::class);
    $dataHandler->start([], []);
@@ -130,7 +133,6 @@ Imagine the :php:`$data` array something like this:
 
 .. code-block:: php
    :caption: EXT:some_extension/Classes/SomeClass.php
-   :linenos:
 
    $data = [
        'pages' => [
@@ -162,7 +164,6 @@ all pages is cleared.
 
 .. code-block:: php
    :caption: EXT:some_extension/Classes/SomeClass.php
-   :linenos:
 
    $dataHandler = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\TYPO3\CMS\Core\DataHandling\DataHandler::class);
    $dataHandler->reverseOrder = 1;
@@ -191,7 +192,6 @@ should not set this argument since you want TCE to use the global
 
 .. code-block:: php
    :caption: EXT:some_extension/Classes/SomeClass.php
-   :linenos:
 
    $dataHandler = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\TYPO3\CMS\Core\DataHandling\DataHandler::class);
    $dataHandler->start($data, $cmd, $alternative_BE_USER);
@@ -212,7 +212,6 @@ You can use these e.g to logging or another error handling.
 
 .. code-block:: php
    :caption: EXT:some_extension/Classes/SomeClass.php
-   :linenos:
 
    if ($dataHandler->errorLog !== []) {
        $this->logger->error('Error(s) while creating content element');

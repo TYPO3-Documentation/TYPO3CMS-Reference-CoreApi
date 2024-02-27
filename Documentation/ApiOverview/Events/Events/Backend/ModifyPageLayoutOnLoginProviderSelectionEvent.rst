@@ -1,15 +1,22 @@
-.. include:: /Includes.rst.txt
-.. index:: Events; ModifyPageLayoutOnLoginProviderSelectionEvent
-.. _ModifyPageLayoutOnLoginProviderSelectionEvent:
+..  include:: /Includes.rst.txt
+..  index:: Events; ModifyPageLayoutOnLoginProviderSelectionEvent
+..  _ModifyPageLayoutOnLoginProviderSelectionEvent:
 
 =============================================
 ModifyPageLayoutOnLoginProviderSelectionEvent
 =============================================
 
-Allows to modify variables for the view depending
-on a special login provider set in the controller.
+The PSR-14 event
+:php:`\TYPO3\CMS\Backend\LoginProvider\Event\ModifyPageLayoutOnLoginProviderSelectionEvent`
+allows to modify variables for the view depending on a special login provider
+set in the controller.
+
+Example
+=======
+
+..  include:: /_includes/EventsContributeNote.rst.txt
 
 API
----
+===
 
-.. include:: /CodeSnippets/Events/Backend/ModifyPageLayoutOnLoginProviderSelectionEvent.rst.txt
+..  include:: /CodeSnippets/Events/Backend/ModifyPageLayoutOnLoginProviderSelectionEvent.rst.txt

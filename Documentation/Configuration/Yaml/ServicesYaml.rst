@@ -9,8 +9,6 @@
 Services.yaml
 =============
 
-.. versionadded:: 10
-
 Services can be configured in this file. TYPO3 uses it for:
 
 *  :ref:`Dependency Injection <configure-dependency-injection-in-extensions>`

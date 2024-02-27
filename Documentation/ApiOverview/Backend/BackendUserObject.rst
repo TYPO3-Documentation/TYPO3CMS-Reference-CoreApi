@@ -10,9 +10,11 @@ Backend user object
 
 The backend user of a session is always available in extensions
 as the global variable :php:`$GLOBALS['BE_USER']`. The object is created in
-:php:`\TYPO3\CMS\Core\Core\Bootstrap::initializeBackendUser()`
-and is an instance of the class :code:`\TYPO3\CMS\Core\Authentication\BackendUserAuthentication`
+:php:`\TYPO3\CMS\Backend\Middleware\BackendUserAuthenticator` middleware for a standard web request
+and is an instance of the class :php:`\TYPO3\CMS\Core\Authentication\BackendUserAuthentication`
 (which extends :php:`\TYPO3\CMS\Core\Authentication\AbstractUserAuthentication`).
+
+When working with CLI and commands you might initialize the backend user object with :php:`\TYPO3\CMS\Core\Core\Bootstrap::initializeBackendUser()`.
 
 .. index:: Backend user; Access
 .. _be-user-check:
@@ -22,22 +24,6 @@ Checking user access
 
 The :php:`$GLOBALS['BE_USER']` object is mostly used to check user access right,
 but contains other helpful information. This is presented here by a few examples:
-
-
-.. _be-user-access-current:
-
-Checking access to current backend module
-=========================================
-
-:php:`$MCONF` is module configuration and the key :php:`$MCONF['access']` determines
-the access scope for the module. This function call will check if the
-:php:`$GLOBALS['BE_USER']` is allowed to access the module and if not, the function
-will exit with an error message.
-
-.. code-block:: php
-   :caption: EXT:some_extension/Classes/Controller/SomeModuleController.php
-
-   $GLOBALS['BE_USER']->modAccess($MCONF);
 
 
 .. _be-user-access-any:
@@ -176,14 +162,17 @@ and "4" is "delete" permission. The result from the above query could be this st
 Saving module data
 ==================
 
-This stores the input variable :php:`$compareFlags` (an array!) with the key
-"tools\_beuser/index.php/compare"
+This stores the input variable :php:`$compareFlags` (an array!, retrieved from
+the :ref:`request object <typo3-request>`) with the key
+"tools\_beuser/index.php/compare":
 
-.. code-block:: php
-   :caption: EXT:some_extension/Classes/Controller/SomeModuleController.php
+..  code-block:: php
+    :caption: EXT:some_extension/Classes/Controller/SomeModuleController.php
 
-   $compareFlags = \TYPO3\CMS\Core\Utility\GeneralUtility::_GP('compareFlags');
-   $GLOBALS['BE_USER']->pushModuleData('tools_beuser/index.php/compare', $compareFlags);
+    $compareFlags = $request->getParsedBody()['compareFlags'])
+        ?? $request->getQueryParams()['compareFlags'])
+        ?? null;
+    $GLOBALS['BE_USER']->pushModuleData('tools_beuser/index.php/compare', $compareFlags);
 
 
 .. index:: Backend user; pushModuleData

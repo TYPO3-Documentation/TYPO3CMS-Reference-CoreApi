@@ -15,7 +15,7 @@ XCLASSes (Extending Classes)
 Introduction
 ============
 
-XCLASSing is a mechanism in TYPO3 CMS to extend classes or overwrite methods from the Core or extensions
+XCLASSing is a mechanism in TYPO3 to extend classes or overwrite methods from the Core or extensions
 with one's own code. This enables a developer to easily change a given functionality,
 if other options like :ref:`hooks <hooks>`, signals, :ref:`events <EventDispatcher>`
 or the dependency injection mechanisms do not work or do not exist.
@@ -28,7 +28,7 @@ or the dependency injection mechanisms do not work or do not exist.
 
 If you need a hook or event that does not exist, feel free to submit
 a feature request and - even better - a patch. Consult the
-`TYPO3 Contribution Guide <https://docs.typo3.org/typo3cms/ContributionWorkflowGuide/>`__
+:ref:`TYPO3 Contribution Guide <t3contribute:start>`
 about how to do this.
 
 
@@ -59,7 +59,7 @@ Limitations
   and has to be maintained and fixed if the underlying code changes.
   If possible, you should use a hook instead of an XCLASS.
 
-- XCLASSes do **not** work for static classes, static methods or final classes.
+- XCLASSes do **not** work for static classes, static methods, abstract classes or final classes.
 
 - There can be **only one** XCLASS per base class, but an XCLASS can be XCLASSed again.
   Be aware that such a construct is even more risky and definitely not advisable.
@@ -82,21 +82,15 @@ of overloaded (XCLASSed) classes.
 The syntax is as follows and is commonly located in an extension's
 :file:`ext_localconf.php` file:
 
-.. code-block:: php
-   :caption: EXT:some_extension/ext_localconf.php
-
-   use TYPO3\CMS\Backend\Controller\NewRecordController;
-
-   $GLOBALS['TYPO3_CONF_VARS']['SYS']['Objects'][NewRecordController::class] = [
-       'className' => Vendor\SomeExtension\Xclass\NewRecordController::class
-   ];
-
+..  literalinclude:: _ext_localconf.php
+    :language: php
+    :caption: EXT:my_extension/ext_localconf.php
 
 In this example, we declare that the :code:`\TYPO3\CMS\Backend\Controller\NewRecordController` class
 will be overridden by the :code:`\T3docs\Examples\Xclass\NewRecordController`
-class, the latter being part of the :t3ext:`examples/` extension.
+class, the latter being part of the :t3ext:`examples` extension.
 
-When XCLASSing a class that does not use namespaces, simply use that class' name
+When XCLASSing a class that does not use namespaces, use that class name
 in the declaration.
 
 
@@ -112,7 +106,7 @@ XCLASS breaking after a code update.
 .. tip::
 
    You're even safer if you can do your changes before or after the parent method
-   and just call the latter with :code:`parent::`.
+   and call the latter with :code:`parent::`.
 
 The example below extends the new record wizard screen. It first calls the original
 method and then adds its own content:

@@ -25,19 +25,25 @@ Configuration overview: files
 Global files
 ------------
 
-:file:`<webroot>/typo3conf/LocalConfiguration.php`:
-   Contains the persisted :ref:`$GLOBALS['TYPO3_CONF_VARS'] <typo3ConfVars>` array.
-   Settings configured in the backend by system maintainers in
-   :guilabel:`Admin Tools > Settings > Configure Installation-Wide Options`
-   are written to this file.
+:file:`config/system/settings.php`:
+    Contains the persisted :ref:`$GLOBALS['TYPO3_CONF_VARS'] <typo3ConfVars>` array.
+    Settings configured in the backend by system maintainers in
+    :guilabel:`Admin Tools > Settings > Configure Installation-Wide Options`
+    are written to this file.
 
-:file:`<webroot>/typo3conf/AdditionalConfiguration.php`:
-   Can be used to **override** settings defined in :file:`LocalConfiguration.php`
+:file:`config/system/additional.php`:
+    Can be used to **override** settings defined in :file:`config/system/settings.php`
+
+:file:`config/system/services.php` and :file:`config/system/services.yaml`:
+    These two files can be used to set up a global service configuration for
+    a project that can be used in several project-specific extensions. This
+    is explained in detail in the :ref:`Dependency Injection: Installation-wide
+    configuration <dependency-injection-installation-wide>` section.
 
 :file:`config/sites/<site>/config.yaml`
-   This file is located in :file:`webroot/typo3conf/sites` in non-Composer installations.
-   The Site configuration configured in the :guilabel:`SITE MANAGEMENT > Sites`
-   backend module is written to this file.
+    This file is located in :file:`webroot/typo3conf/sites` in non-Composer installations.
+    The site configuration configured in the :guilabel:`Site Management > Sites`
+    backend module is written to this file.
 
 Extension files
 ---------------
@@ -64,13 +70,13 @@ Extension files
    :ref:`Dependency injection <DependencyInjection>`.
 
 :file:`Configuration/TCA`
-   :doc:`TCA configuration <t3tca:Index>`.
+   :ref:`TCA configuration <t3tca:start>`.
 
 :file:`Configuration/TSconfig/`
-   :doc:`TSconfig configuration <t3tsconfig:Index>`.
+   :ref:`TSconfig configuration <t3tsconfig:start>`.
 
 :file:`Configuration/TypoScript/`
-   :doc:`TypoScript configuration <t3tsref:Index>`.
+   :ref:`TypoScript configuration <t3tsref:start>`.
 
 
 .. hint::
@@ -113,7 +119,7 @@ what they mean) are not.
 Configuration methods
 =====================
 
-:doc:`TSconfig <t3tsconfig:Index>`
+:ref:`TSconfig <t3tsconfig:start>`
 ----------------------------------
 
 While Frontend TypoScript is used to steer the rendering of the frontend, TSconfig is used
@@ -127,13 +133,13 @@ in :ref:`typoscript-syntax-start`. Other than that, TSconfig and Frontend TypoSc
 don't have much more in common - they consist of entirely different properties.
 
 A full reference of properties as well as an introduction to explain details configuration usage, API and
-load orders can be found in the :doc:`TSconfig Reference document <t3tsconfig:Index>`. While Developers
+load orders can be found in the :ref:`TSconfig Reference document <t3tsconfig:start>`. While Developers
 should have an eye on this document, it is mostly used as a reference for Integrators who make life as
 easy as possible for backend users.
 
 
 
-:doc:`TypoScript Templating <t3tsref:Index>`
+:ref:`TypoScript Templating <t3tsref:start>`
 --------------------------------------------
 
 TypoScript - or more precisely "TypoScript Templating" - is used in TYPO3 to steer
@@ -146,15 +152,15 @@ often used. Nowadays, TypoScript in real life projects is often not much more th
 set a series of options for plugins, to set some global config options, and to act as a simple
 pre processor between database data and Fluid templates.
 
-Still, the :doc:`TypoScript Reference <t3tsref:Index>` manual that goes deep into
+Still, the :ref:`TypoScript Reference <t3tsref:start>` manual that goes deep into
 the incredible power of TypoScript Templating is daily bread for Integrators.
 
 
 For an introduction, you may want to read one of the following tutorials:
 
 
-* :doc:`t3ts45:Index` - Introduction to TypoScript Templating.
-* :doc:`t3sitepackage:Index` - Start a Sitepackage Extension to create a theme
+* :ref:`t3ts45:start` - Introduction to TypoScript Templating.
+* :ref:`t3sitepackage:start` - Start a Sitepackage Extension to create a theme
   for your site using TypoScript and Fluid.
 
 .. note::
@@ -183,7 +189,7 @@ The :php:`$GLOBALS` PHP array consists of:
    TCA is the backbone of database tables displayed in the backend, it configures
    how data is stored if editing records in the backend, how fields are displayed,
    relations to other tables and much more. It is a huge array loaded in almost all
-   access contexts. TCA is documented in the :doc:`TCA Reference <t3tca:Index>`.
+   access contexts. TCA is documented in the :ref:`TCA Reference <t3tca:start>`.
    Next to a small introduction, the document forms a complete reference of all
    different TCA options, with bells and whistles. The document is a must-read for
    Developers, partially for Integrators, and is often used as a reference book
@@ -193,8 +199,8 @@ The :php:`$GLOBALS` PHP array consists of:
 :ref:`$GLOBALS['TYPO3_CONF_VARS'] <typo3ConfVars>`:
    is used for system wide configuration. Most of the settings can be
    modified in the backend :guilabel:`Admin Tools > Settings > Global Configuration`
-   and will be persisted to the file file:`typo3conf/LocalConfiguration.php`.
-   The settings can be overridden by using :file:`typo3conf/AdditionalConfiguration.php`.
+   and will be persisted to the file :file:`config/system/settings.php`.
+   The settings can be overridden by using :file:`config/system/additional.php`.
 
 :ref:`Extension Configuration <extension-options>`:
    is a subset of :php:`$GLOBALS['TYPO3_CONF_VARS']`.
@@ -232,7 +238,7 @@ system maintainers. TCA cannot be modified in the backend.
 Configuration of the :ref:`Logging Framework <logging-configuration>` and
 :ref:`Caching Framework <caching-configuration>` - while being a part of the
 :php:`$GLOBALS['TYPO3_CONF_VARS']` array - can also not be changed in the
-backend. They must be modified in the file :file:`typo3conf/AdditionalConfiguration.php`.
+backend. They must be modified in the file :file:`config/system/additional.php`.
 
 
 :ref:`Flexform <flexforms>`
@@ -271,10 +277,4 @@ Some system extensions use YAML for configuration:
 
 There is a :ref:`YamlFileLoader <yamlFileLoader>` which can be used to load YAML
 files.
-
-
-
-
-
-
 

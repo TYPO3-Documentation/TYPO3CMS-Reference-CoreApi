@@ -23,5 +23,5 @@ Database (Doctrine DBAL)
    ExpressionBuilder/Index
    RestrictionBuilder/Index
    Statement/Index
-   QueryHelper/Index
+   Middleware/Index
    TipsAndTricks/Index

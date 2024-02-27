@@ -1,6 +1,0 @@
-.. Automatic screenshot: Remove this line if you want to manually change this file
-
-.. figure:: /Images/AutomaticScreenshots/TypoScriptSyntax/SyntaxCopying1.png
-   :class: with-shadow
-
-   An object and its copy

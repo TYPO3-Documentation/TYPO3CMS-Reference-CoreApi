@@ -6,13 +6,15 @@
 File/directory permissions
 ==========================
 
+..  todo: This describes the situation in legacy installations only
+
 The correct and secure setup of the underlying server is an essential
 prerequisite for a secure web application. Well-considered access
 permissions on files and directories are an important part of this
 strategy. However, too strict permissions may stop TYPO3 from working
 properly and/or restrict integrators or editors from using all
 features of the CMS. The official
-:doc:`TYPO3 Installation and Upgrade Guide <t3install:Index>`
+:ref:`TYPO3 Installation and Upgrade Guide <t3install:start>`
 provides further information about the install procedure.
 
 We do not need to mention that only privileged system users should
@@ -29,7 +31,7 @@ server misconfiguration of file/directory permissions may occur if all
 virtual hosts run as the same user, for example the default web server
 user. The risk with this setup is, that a script on another virtual
 host includes files from the TYPO3 instance or writes or manipulates
-files. The TYPO3 configuration file :file:`LocalConfiguration.php`, which
+files. The TYPO3 configuration file :file:`config/system/settings.php`, which
 contains sensitive data, would be a typical example.
 
 Besides the strict separation between multiple virtual hosts, it is

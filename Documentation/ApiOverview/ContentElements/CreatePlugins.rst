@@ -16,7 +16,6 @@ There are basically three ways to create plugins in TYPO3:
     :file:`ext_localconf.php` and :php:`registerPlugin()` in the file
     :file:`Configuration/TCA/Overrides/tt_content.php`
 #.  Create a frontend plugin using Core functionality and a custom controller
-#.  Create a plugin using :ref:`AbstractPlugin` **without** Extbase
 
 Generally speaking, if you already use Extbase, it is good practice to
 create your plugins using the Extbase framework. This also involves:

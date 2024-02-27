@@ -14,7 +14,7 @@ Fluid is based on XML and you can use HTML markup in Fluid.
 
 Fluid ViewHelpers can be used for various purposes. Some transform data, some include
 Partials, some loop over data or even set variables. You can find a complete list of
-them in the :doc:`ViewHelper Reference <t3viewhelper:Index>`.
+them in the :ref:`ViewHelper Reference <t3viewhelper:start>`.
 
 You can :ref:`write your own custom ViewHelper <fluid-custom-viewhelper>`,
 which is a PHP component.
@@ -87,15 +87,14 @@ In your extension, the following directory structure should be used for Fluid fi
         ├── Partials
         └── Templates
 
-This directory structure is the convention used by TYPO3 CMS. When using Fluid outside of
-TYPO3 CMS you can use any folder structure you like.
+This directory structure is the convention used by TYPO3. When using Fluid outside of
+TYPO3 you can use any folder structure you like.
 
 If you are using Extbase controller actions in combination with Fluid,
 Extbase defines how files and directories should be named within these directories.
 Extbase uses sub directories located within the "Templates" directory to group
 templates by controller name and the filename of templates to correspond to a
-certain action on that controller
-(see :ref:`t3extbasebook:template-creation-by-example`).
+certain action on that controller.
 
 .. code-block:: none
 
@@ -159,10 +158,10 @@ The layout defines which sections are rendered and in which order. It can
 contain additional arbitrary Fluid / HTML. How you name the sections and which
 sections you use is up to you.
 
-The template should include the sections which are to be rendered.
+The corresponding template should include the sections which are to be rendered.
 
 .. code-block:: html
-   :caption:  EXT:my_extension/Resources/Private/Layouts/Default.html
+   :caption:  EXT:my_extension/Resources/Private/Templates/Default.html
 
    <f:layout name="Default" />
 
@@ -216,7 +215,7 @@ Example: Using Fluid to create a theme
 ======================================
 
 This example was taken from the `example extension <https://github.com/TYPO3-Documentation/TYPO3CMS-Tutorial-SitePackage-Code/>`__
-for :doc:`t3sitepackage:Index` and reduced to a very basic example.
+for :ref:`t3sitepackage:start` and reduced to a very basic example.
 
 The Sitepackage Tutorial walks you through the creation of a sitepackage
 (theme) using Fluid. In our simplified example, the overall structure of
@@ -295,7 +294,6 @@ Set the Fluid paths with TypoScript using :ref:`t3tsref:cobj-fluidtemplate`
 
 .. code-block:: html
    :caption: Resources/Private/Templates/Page/ThreeColumn.html
-   :linenos:
 
    <f:layout name="Default" />
 

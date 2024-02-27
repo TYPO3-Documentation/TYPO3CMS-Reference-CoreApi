@@ -15,8 +15,8 @@ Introduction
 TYPO3 never stores passwords in plain text in the database. If the latest configured hash algorithm has been changed,
 TYPO3 will update the stored frontend and backend user password hashes upon user login.
 
-TYPO3 uses modern hash algorithms suitable for the given PHP platform, the default being Argon2i since
-the release of TYPO3 Core  version 9.
+TYPO3 uses modern hash algorithms suitable for the given PHP platform, the
+default being Argon2i.
 
 This section is for administrators and users who want to know more about TYPO3 password hashing and
 have a basic understanding of hashing algorithms and configuration in TYPO3.
@@ -84,9 +84,7 @@ approaches: Core version v4.3 from 2009 added salted password storing, v4.5 from
 storing using the algorithm 'phpass' by default, v6.2 from 2014 made salted passwords storing mandatory,
 v8 added the improved hash algorithm 'PBKDF2' and used it by default.
 
-With TYPO3 Core  version 9, the password hashing has been refactored and modern hash algorithms such as
-Argon2i have been added. PHP improved in this area a lot and PHP 7.2 brings `Argon2i` by default, so this
-algorithm could be easily integrated as available Core hash mechanism to the existing hash family.
+Currently Argon2i is the default and provided automatically by PHP.
 Argon2i is rather resilient against GPU and some other attacks, the default TYPO3 Core  configuration even raises
 the default PHP configuration to make attacks on stored Argon2i user password hashes even more unfeasible.
 
@@ -98,11 +96,12 @@ is pretty straight forward and helps you to compare passwords with their stored 
 extensions.
 
 One last point on this basic hash knowledge section: Password hashes are always only as secure as
-the user submitted password: If a user has a trivial password like "foo", an attacker who got hold
+the chosen password: If a user has a trivial password like "foo", an attacker who has gotten hold
 of the salted password hash will always be successful to crack the hash with a common password hash
 crack tool, no matter how expensive the calculation is. Good password hashing does **not** rescue
-users from short passwords or simple passwords that can be found in a dictionary. It is usually a
-good idea to force users to register with a password that for instance at least has some minimum length.
+users from short passwords, or simple passwords that can be found in a dictionary. It is usually a
+good idea to force users to register with a password that has for instance at least some minimum length
+and contains even some special characters. See also :ref:`password-policies`.
 
 
 What does it look like?
@@ -129,39 +128,35 @@ used hash algorithm. In this case it is `$argon2i` which denotes the Argon2i has
 Configuration
 =============
 
-Configuration of password hashing is done by TYPO3 automatically and administrators usually do not need
-to worry about details too much: If installing a TYPO3 instance with Core version v9 or higher, the
-installation process will configure the best available hash algorithm by default. Since Core version v9 requires
-at least PHP version 7.2, this is usually Argon2i. Only if the PHP build is incomplete, some less secure
+Configuration of password hashing is done by TYPO3 automatically and
+administrators usually do not need to worry about details too much: The
+installation process will configure the best available hash algorithm by default.
+Some of the most secure algorithms currently are Argon2i and Argon2id. Only if the PHP build is incomplete, some less secure
 fallback will be selected.
 
-If upgrading from a version smaller than v9, the upgrade process will automatically upgrade to the best
-available hash algorithm, which is again usually Argon2i if PHP 7.2 on the server has been set up
-in a sane way.
-
 Switching between hash algorithms in a TYPO3 instance is unproblematic: Password hashes of the old selected
-algorithm are just kept but newly created users automatically use the new hash algorithms. If a user
+algorithm are just kept but newly created users automatically use the new configured hash algorithm. If a user
 successfully logs in and a hash in the database for that user is found that uses an algorithm no longer
-configured as default hash algorithm, the user password hash will be upgraded to the currently selected hash
-algorithm. This way, existing user password hashes are updated to better hash algorithms over time, upon login.
+configured as default hash algorithm, the user password hash will be upgraded to it. This way, existing user password hashes are updated to newer and better hash algorithms over time, upon login.
 
 Note that "dead" users (users that don't use the site anymore and never login) will thus never get their
 hashes upgraded to better algorithms. This is an issue that can't be solved on this hash level directly since
 upgrading the password hash always requires the plain text password submitted by the user. However, it is a
-good idea to clean up dead users from the database anyway, site administrators should establish processes to
-comply with the idea of data minimisation of person related data. TYPO3 helps here for instance with the
-"Table garbage collection" task of the scheduler extension, details on this are however out-of-scope of this section.
+good idea to clean up dead users from the database anyway. Site administrators should establish processes to
+comply with the idea of data minimisation of person related data (General Data Protection Regulation, GDPR). TYPO3 helps here for instance with the
+"Table garbage collection" task of the scheduler extension.  
+See :ref:`Scheduler: Garbage Collection <ext_scheduler:table-garbage-collection-task>`   
 
 To verify and select which specific hash algorithm is currently configured for frontend and backend users, a
-preset of the settings module has been established with Core v9. It can be found in
+preset of the settings module is available. It can be found in
 :guilabel:`Admin Tools > Settings
 > Configuration presets > Password hashing settings`:
 
 .. include:: /Images/AutomaticScreenshots/AdminTools/PasswordHashingSettings.rst.txt
 
 The image shows settings for an instance that runs with frontend and backend users having their passwords
-stored as Argon2i hashes in the database. The other listed algorithms are deemed less secure, they however
-rely on different PHP capabilities and might be suitable fall backs if Argon2i is not available for whatever
+stored as Argon2i hashes in the database. You should use one of the Argon2 algorithms, as the other listed algorithms are deemed less secure.
+They rely on different PHP capabilities and might be suitable fall backs, if Argon2i or Argon2id are not available for whatever
 reason.
 
 
@@ -173,7 +168,7 @@ reason.
 Configuration options
 =====================
 
-Configuration of password hashing is stored in :file:`LocalConfiguration.php` with defaults in
+Configuration of password hashing is stored in :file:`config/system/settings.php` with defaults in
 :file:`DefaultConfiguration.php` at five places:
 
 * :php:`$GLOBALS['TYPO3_CONF_VARS']['SYS']['availablePasswordHashAlgorithms']`: An array of class names.
@@ -198,7 +193,7 @@ Configuration of password hashing is stored in :file:`LocalConfiguration.php` wi
 Available Hash Algorithms
 =========================
 
-The list of available hash mechanisms is pretty rich since Core version v9 and may be extended further
+The list of available hash mechanisms is pretty rich and may be extended further
 if better hash algorithms over time. Most algorithms have additional configuration options that may be
 used to increase or lower the needed computation power to calculated hashes. Administrators usually do
 not need to fiddle with these and should go with defaults configured by the Core. If changing these options,
@@ -218,8 +213,8 @@ Competition in July 2015. There are two available versions:
 
 Options:
 
-* memory_cost: Maximum memory (in kibibytes) that may be used to compute the Argon2 hash. Defaults to 16384.
-* time_cost: Maximum amount of time it may take to compute the Argon2 hash. Defaults to 16.
+* memory_cost: Maximum memory (in kibibytes) that may be used to compute the Argon2 hash. Defaults to 65536.
+* time_cost: Maximum amount of time it may take to compute the Argon2 hash. This is the execution time, given in number of iterations. Defaults to 16.
 * threads: Number of threads to use for computing the Argon2 hash. Defaults to 2.
 
 
@@ -231,7 +226,7 @@ bcrypt
 `bcrypt`_ is a password hashing algorithm based on blowfish and has been presented in 1999. It needs some
 additional quirks for long passwords in PHP and should only be used if Argon2i is not available. Options:
 
-* cost: Denotes the algorithmic cost that should be used. Defaults to 12.
+* cost: Denotes the algorithmic time cost that should be used, given in number of iterations. Defaults to 12.
 
 
 .. index:: Password hashing;
@@ -243,7 +238,7 @@ PBKDF2
 though newer password hashing functions such as Argon2i are designed to address weaknesses of PBKDF2.
 It could be a preferred password hash algorithm if storing passwords in a FIPS compliant way is necessary. Options:
 
-* hash_count: Number of hash iterations. Defaults to 25000.
+* hash_count: Number of hash iterations (time cost). Defaults to 25000.
 
 
 .. index:: Password hashing;
@@ -254,7 +249,7 @@ phpass
 `phpass`_ phpass is a portable public domain password hashing framework for use in PHP applications since 2005.
 The implementation should work on almost all PHP builds. Options:
 
-* hash_count: The default log2 number of iterations for password stretching. Defaults to 14.
+* hash_count: The default log2 number of iterations (time cost) for password stretching. Defaults to 14.
 
 
 .. index:: Password hashing;
@@ -262,17 +257,18 @@ The implementation should work on almost all PHP builds. Options:
 blowfish
 --------
 
-TYPO3's salted password hash implementation based on `blowfish`_ and PHP`s crypt() function. It has
-been integrated very early to TYPO3 but should no longer be used. It is only included for instances
-that still need to upgrades users to better mechanisms. Options:
+TYPO3's salted password hash implementation based on `blowfish`_ and PHP`s crypt() function. 
+It has been integrated very early to TYPO3 but should no longer be used. It is only included for instances
+that still need to upgrade outdated password hashes to better algorithms. Options:
 
 * hash_count: The default log2 number of iterations for password stretching. Defaults to 7.
 
 md5salt
 -------
 
-TYPO3's salted password hash implementation based on `md5`_ and PHP`s crypt() function. It should not be used
-any longer and is only included for instances that still need to upgrade users to better mechanisms.
+TYPO3's salted password hash implementation based on `md5`_ and PHP`s crypt() function.
+It should not be used any longer and is only included for instances that still need 
+to upgrade outdated password hashes to better algorithms.
 
 
 PHP API
@@ -309,6 +305,8 @@ Example implementation for TYPO3 frontend:
 .. code-block:: php
    :caption: EXT:some_extension/Classes/Controller/SomeController.php
 
+   use TYPO3\CMS\Core\Crypto\PasswordHashing\PasswordHashFactory;
+   // ...
    // Given plain-text password
    $password = 'someHopefullyGoodAndLongPassword';
    // The stored password hash from database

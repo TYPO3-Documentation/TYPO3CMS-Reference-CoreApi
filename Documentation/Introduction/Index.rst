@@ -67,13 +67,13 @@ A basic installation
 ====================
 
 To follow this document, it might help to have a totally trimmed down
-installation of TYPO3 CMS with *only* the Core and the required system
+installation of TYPO3 with *only* the Core and the required system
 extensions at hand.
 
 The installation process is covered in the :doc:`Getting started
 Guide <t3start:Index>`.
 You should perform the basic installation steps and not install any
-distribution. This will give you the "lightest" possible version of TYPO3 CMS.
+distribution. This will give you the "lightest" possible version of TYPO3.
 
 In your basic installation, go to the :guilabel:`Admin Tools > Extensions`
 module. You will see all extensions installed by Composer are activated by

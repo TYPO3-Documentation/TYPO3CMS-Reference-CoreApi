@@ -1,0 +1,19 @@
+mod.wizards.newContentElement.wizardItems {
+  // add the content elementS to the tab "plugins"
+  plugins {
+    elements {
+      // ...
+      blogexample_postsingle {
+        iconIdentifier = blog_example_icon
+        title = PostSingle
+        description = Display a single blog post
+        tt_content_defValues {
+          CType = list
+          list_type = = blogexample_postsingle
+        }
+      }
+    }
+
+    show := addToList(blogexample_postlist,blogexample_postsingle,blogexample_blogadmin)
+  }
+}

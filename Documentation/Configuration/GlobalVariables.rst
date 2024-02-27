@@ -9,11 +9,6 @@
 $GLOBALS
 ========
 
-.. versionchanged:: 12.0
-   The global variable :php:`$GLOBALS['TBE_MODULES']` was removed. Setting it
-   has no effect anymore. Use the
-   :ref:`ModuleProvider <backend-modules-api>` instead.
-
 .. confval:: TYPO3_CONF_VARS
 
    :Path: $GLOBALS
@@ -35,42 +30,38 @@ $GLOBALS
    :Defined: :php:`\TYPO3\CMS\Core\Core\Bootstrap::loadExtensionTables()`
    :Frontend: Yes, partly
 
-   See :doc:`TCA Reference <t3tca:Index>`
+   See :ref:`TCA Reference <t3tca:start>`
 
 
 .. confval:: T3_SERVICES
 
    :Path: $GLOBALS
    :type: array
-   :Defined: :php:`SystemEnvironmentBuilder::initializeGlobalVariables()`
+   :Defined: :php:`\TYPO3\CMS\Core\Core\SystemEnvironmentBuilder::initializeGlobalVariables()`
    :Frontend: Yes
 
    Global registration of :ref:`services <services-introduction>`.
 
-.. confval:: TBE_MODULES_EXT
+
+.. confval:: TSFE
 
    :Path: $GLOBALS
-   :type: array
-   :Defined: [In :file:`ext_tables.php` files of extensions]
-   :Frontend: (occasionally)
-
-   Used to store information about modules from extensions that should be
-   included in "function menus" of real modules. See the Extension API
-   for details.
-
-   This variable *may* be set in a script prior to
-   the bootstrap process so it is optional.
-
-
-.. confval:: TBE_STYLES
-
-   :Path: $GLOBALS
-   :type: array
+   :type: TypoScriptFrontendController
    :Defined: :file:`typo3/sysext/core/ext_tables.php`
-   :Frontend: (occasionally)
+   :Frontend: yes
 
-   Contains information related to BE skinning.
+   Contains an instantiation of :php:`\TYPO3\CMS\Frontend\Controller\TypoScriptFrontendController`.
 
+   .. attention::
+
+        Directly access :php:`$GLOBALS['TSFE']` only as a last resort. It is
+        strongly discouraged if not absolutely necessary.
+
+   Provides some public properties and methods which can be used by extensions.
+   The public properties can also be used in TypoScript via
+   :ref:`TSFE <t3tsref:data-type-gettext-tsfe>`.
+
+   More information is available in :ref:`tsfe`.
 
 .. confval:: TYPO3_USER_SETTINGS
 
@@ -98,7 +89,7 @@ $GLOBALS
 .. confval:: BE_USER
 
    :Path: $GLOBALS
-   :type: TYPO3\CMS\Core\Authentication\BackendUserAuthentication
+   :type: :php:`\TYPO3\CMS\Core\Authentication\BackendUserAuthentication`
    :Defined: :php:`\TYPO3\CMS\Core\Core\Bootstrap::initializeBackendUser()`
    :Frontend: (depends)
 
@@ -109,7 +100,7 @@ $GLOBALS
 
    :Path: $GLOBALS
    :type: int
-   :Defined: :php:`SystemEnvironmentBuilder::initializeGlobalTimeTrackingVariables()`
+   :Defined: :php:`\TYPO3\CMS\Core\Core\SystemEnvironmentBuilder::initializeGlobalTimeTrackingVariables()`
    :Frontend: yes
 
    Is set to :php:`time()` so that the rest of the script has a common value
@@ -125,7 +116,7 @@ $GLOBALS
 
    :Path: $GLOBALS
    :type: int
-   :Defined: :php:`SystemEnvironmentBuilder::initializeGlobalTimeTrackingVariables()`
+   :Defined: :php:`\TYPO3\CMS\Core\Core\SystemEnvironmentBuilder::initializeGlobalTimeTrackingVariables()`
    :Frontend: yes
 
    Is set to :php:`$GLOBALS['EXEC_TIME']` but can be altered later in the script if we
@@ -136,6 +127,26 @@ $GLOBALS
 
       Should not be used anymore, rather use the
       :ref:`DateTime Aspect <context_api_aspects_datetime>`.
+
+.. confval:: LANG
+
+   :Path: $GLOBALS
+   :type: :php:`\TYPO3\CMS\Core\Localization\LanguageService`
+   :Defined: is initialized via :php:`\TYPO3\CMS\Core\Localization\LanguageServiceFactory`
+   :Frontend: no
+
+   .. attention::
+
+        It is discouraged to use this variable directly. The
+        :php:`LanguageServiceFactory` should be used instead to retrieve the
+        :php:`LanguageService`.
+
+   The :php:`LanguageService` can be used to fetch
+   translations.
+
+   More information about retrieving the
+   :php:`LanguageService` is available in
+   :ref:`extension-localization-php`.
 
 
 .. index:: $GLOBALS; Admin Tools

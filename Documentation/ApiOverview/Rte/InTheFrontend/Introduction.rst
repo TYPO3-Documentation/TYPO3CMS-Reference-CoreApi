@@ -54,15 +54,15 @@ The optional features
    links can be added as internal instead of external links but require
    a visual and functional option to select from existing pages.
 
-   *This option requires an AJAX-connection to interact with TYPO3.*
+   *This option requires an Ajax-connection to interact with TYPO3.*
 
 *  For special websites like intranets it might be desired additionally
    to not only allow the upload of media but also to choose media out of
    those that exist already in a public directory on the server.
 
-   *This option requires an AJAX-connection to interact with TYPO3.*
+   *This option requires an Ajax-connection to interact with TYPO3.*
 
-.. important::
+.. attention::
 
    User input in the frontend always represents a general security risk.
 

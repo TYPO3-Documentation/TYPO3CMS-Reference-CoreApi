@@ -33,11 +33,12 @@ site configuration.
     lib.something = TEXT
     [siteLanguage("locale") == "de_CH"]
         lib.something.value = This site has the locale "de_CH"
-    [end]
+    [END]
     [siteLanguage("title") == "Italy"]
         lib.something.value = This site has the title "Italy"
-    [end]
+    [END]
 
+.. _localization-typoscript-LOCAL_LANG:
 
 Changing localized terms using TypoScript
 =========================================
@@ -51,10 +52,7 @@ Changing localized terms using TypoScript
 It is possible to override texts in the plugin configuration in
 TypoScript for Extbase based plugins.
 
-Overriding translations in non-Extbase plugins might work depending on
-how they are implemented. Overriding translations works if the plugin is
-based on the class :ref:`AbstractPlugin <abstractplugin>` and uses the function
-:php:`$this->pi_getLL(...)`.
+Overriding translations in non-Extbase plugins does not work out of the box.
 
 ..  attention::
     Setting :php:`_LOCAL_LANG` has no effect if the ViewHelper

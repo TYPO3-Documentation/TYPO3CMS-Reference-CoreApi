@@ -32,7 +32,7 @@ Using Categories
 Managing Categories
 -------------------
 
-System categories are defined just like any other record. Each category
+System categories are defined like any other record. Each category
 can have a parent, making a tree-like structure.
 
 .. include:: /Images/AutomaticScreenshots/Categories/Editing.rst.txt

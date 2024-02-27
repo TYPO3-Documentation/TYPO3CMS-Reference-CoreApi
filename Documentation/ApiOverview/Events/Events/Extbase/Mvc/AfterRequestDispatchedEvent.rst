@@ -1,17 +1,22 @@
-.. include:: /Includes.rst.txt
-.. index:: Events; AfterRequestDispatchedEvent
-.. _AfterRequestDispatchedEvent:
+..  include:: /Includes.rst.txt
+..  index:: Events; AfterRequestDispatchedEvent
+..  _AfterRequestDispatchedEvent:
 
 
 ===========================
 AfterRequestDispatchedEvent
 ===========================
 
-:php:`TYPO3\CMS\Extbase\Event\Mvc\AfterRequestDispatchedEvent`
+The PSR-14 event :php:`\TYPO3\CMS\Extbase\Event\Mvc\AfterRequestDispatchedEvent`
+is fired after the dispatcher has successfully dispatched a request to a
+controller action.
 
-Event which is fired after the dispatcher has successfully dispatched a request to a controller/action.
+Example
+=======
+
+..  include:: /_includes/EventsContributeNote.rst.txt
 
 API
----
+===
 
-.. include:: /CodeSnippets/Events/Extbase/AfterRequestDispatchedEvent.rst.txt
+..  include:: /CodeSnippets/Events/Extbase/AfterRequestDispatchedEvent.rst.txt

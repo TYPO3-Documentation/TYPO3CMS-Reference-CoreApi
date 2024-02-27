@@ -32,7 +32,7 @@ as is done for example in the *table* content element with the field `bodytext`.
 In these cases Fluid does not have to deal with these manipulations or transformation.
 
 You can find the example below in the TYPO3 Documentation Team extension
-:t3ext:`examples/`.
+:t3ext:`examples`.
 
 
 Prerequisites
@@ -77,23 +77,9 @@ available in :guilabel:`Type` dropdown in the backend.
 The following call needs to be added to the file
 :file:`Configuration/TCA/Overrides/tt_content.php`.
 
-.. code-block:: php
-
-   // Adds the content element to the "Type" dropdown
-   \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTcaSelectItem(
-      'tt_content',
-      'CType',
-       [
-           // title
-           'LLL:EXT:examples/Resources/Private/Language/locallang.xlf:examples_newcontentelement_title',
-           // plugin signature: extkey_identifier
-           'examples_newcontentelement',
-           // icon identifier
-           'content-text',
-       ],
-       'textmedia',
-       'after'
-   );
+..  literalinclude:: _AddingYourOwnContentElements/_tt_content.php
+    :language: php
+    :caption: EXT:my_extension/Configuration/TCA/Overrides/tt_content.php
 
 Now the new content element is available in the backend form. However it
 currently contains no fields but the CType field.
@@ -123,25 +109,9 @@ Content elements in the :guilabel:`New Content Element Wizard` are easier
 to find for editors. It is therefore advised to add the new content element
 to this wizard (via page TSconfig).
 
-.. code-block:: typoscript
-   :caption: EXT:examples/Configuration/page.tsconfig
-
-   mod.wizards.newContentElement.wizardItems {
-      // add the content element to the tab "common"
-      common {
-         elements {
-            examples_newcontentelement {
-               iconIdentifier = content-text
-               title = LLL:EXT:examples/Resources/Private/Language/locallang.xlf:examples_newcontentelement_title
-               description = LLL:EXT:examples/Resources/Private/Language/locallang.xlf:examples_newcontentelement_description
-               tt_content_defValues {
-                  CType = examples_newcontentelement
-               }
-            }
-         }
-         show := addToList(examples_newcontentelement)
-      }
-   }
+..  literalinclude:: _AddingYourOwnContentElements/_page.tsconfig
+    :language: typoscript
+    :caption: EXT:my_extension/Configuration/page.tsconfig
 
 .. versionchanged:: 12.0
 
@@ -150,7 +120,12 @@ to this wizard (via page TSconfig).
    :file:`ext_localconf.php`. See :ref:`Setting global page TSconfig, compatible with TYPO3
    11 and 12 <t3tsconfig:page-tsconfig-v11-v12>`.
 
-.. include:: /Images/AutomaticScreenshots/CustomContentElements/ContentElementWizard.rst.txt
+.. figure:: /Images/ManualScreenshots/Backend/ContentElementWizard.png
+   :class: with-shadow
+   :alt: Content element wizard with the new content element
+
+   Content element wizard with the new content element
+
 
 The content element wizard configuration is described in detail in
 :ref:`content-element-wizard`.
@@ -165,28 +140,9 @@ Configure the backend form
 Then you need to configure the backend fields for your new content element in
 the file :file:`Configuration/TCA/Overrides/tt_content.php`:
 
-.. code-block:: php
-
-   // Configure the default backend fields for the content element
-   $GLOBALS['TCA']['tt_content']['types']['examples_newcontentelement'] = [
-      'showitem' => '
-            --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:general,
-               --palette--;;general,
-               header; Internal title (not displayed),
-               bodytext;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:bodytext_formlabel,
-            --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:access,
-               --palette--;;hidden,
-               --palette--;;access,
-         ',
-      'columnsOverrides' => [
-         'bodytext' => [
-            'config' => [
-               'enableRichtext' => true,
-               'richtextConfiguration' => 'default',
-            ],
-         ],
-      ],
-   ];
+..  literalinclude:: _AddingYourOwnContentElements/_tt_content_2.php
+    :language: php
+    :caption: EXT:my_extension/Configuration/TCA/Overrides/tt_content.php
 
 Now the backend form for the new content elements looks like this:
 
@@ -210,25 +166,18 @@ The Fluid templates for our custom content element will be saved in our
 extension. Therefore we need to add the path to the
 :ref:`t3tsref:cobj-fluidtemplate-properties-templaterootpaths`:
 
-.. code-block:: typoscript
-
-   lib.contentElement {
-       templateRootPaths.200 = EXT:examples/Resources/Private/Templates/
-   }
+..  literalinclude:: _AddingYourOwnContentElements/_setup.typoscript
+    :language: typoscript
+    :caption: EXT:my_extension/Configuration/TypoScript/setup.typoscript
 
 You can use any index (`200` in this example), just make sure it is unique.
 If needed you can also add paths for partials and layouts.
 
 Now you can register the rendering of your custom content element:
 
-.. code-block:: typoscript
-
-   tt_content {
-       examples_newcontentelement =< lib.contentElement
-       examples_newcontentelement {
-           templateName = NewContentElement
-       }
-   }
+..  literalinclude:: _AddingYourOwnContentElements/_setup_2.typoscript
+    :language: typoscript
+    :caption: EXT:my_extension/Configuration/TypoScript/setup.typoscript
 
 The :typoscript:`lib.contentElement` path is defined in file
 :file:`EXT:fluid_styled_content/Configuration/TypoScript/Helper/ContentElement.typoscript`.
@@ -259,20 +208,22 @@ All fields of the table :php:`tt_content` are now available in the variable
 have to run it through `f:format.html` to resolve all links and other
 formatting. Read more about :ref:`fluid`.
 
-.. tip::
+..  tip::
 
-   During development you can output all available variables in a Fluid
-   template by adding :html:`<f:debug>{_all}</f:debug>`.
+    During development you can output all available variables in a Fluid
+    template by adding :html:`<f:debug>{_all}</f:debug>`.
 
-   Even more convenient:
-   :html:`<f:if condition="{condition}"><f:debug>{_all}</f:debug></f:if>`
-   lets you easily turn debugging on or off, depending on whether you
-   fill in "1" or "0" for *condition*.
+    Even more convenient:
+    :html:`<f:if condition="{condition}"><f:debug>{_all}</f:debug></f:if>`
+    lets you easily turn debugging on or off, depending on whether you
+    fill in "1" or "0" for *condition*.
 
-   | Example lines:
-   |    :html:`<f:if condition="1"><f:debug>{settings}</f:debug></f:if>`
-   |    :html:`<f:if condition="0"><f:debug>{data}</f:debug></f:if>`
-   |    :html:`<f:if condition="1"><f:debug>{current}</f:debug></f:if>`
+    ..  code-block:: html
+        :caption: Example lines
+
+        <f:if condition="1"><f:debug>{settings}</f:debug></f:if>
+        <f:if condition="0"><f:debug>{data}</f:debug></f:if>
+        <f:if condition="1"><f:debug>{current}</f:debug></f:if>
 
 
 Below you can see the example output of the new content element and a
@@ -289,7 +240,7 @@ Extended example: Extend tt_content and use data processing
 ===========================================================
 
 You can find the complete example in the  TYPO3 Documentation Team extension
-:t3ext:`examples/`. The steps for
+:t3ext:`examples`. The steps for
 creating a simple new content element as above need to be repeated. We use the
 key *examples_newcontentcsv* in this example.
 
@@ -321,17 +272,29 @@ Extending the database schema
 First we extend the database schema by adding the following to the file
 :file:`ext_tables.sql`:
 
-.. code-block:: sql
-
-   CREATE TABLE tt_content (
-      tx_examples_separator VARCHAR(255) DEFAULT '0' NOT NULL,
-   );
+..  literalinclude:: _AddingYourOwnContentElements/_ext_tables.sql
+    :language: sql
+    :caption: EXT:my_extension/ext_tables.sql
 
 .. tip::
 
-   Remember to do a database compare in the Install Tool after changing the
-   database schema.
+    Do a database compare in the :guilabel:`Admin Tools > Maintenance` module
+    after changing the database schema (system maintainers only). Or call the
+    console command:
 
+    .. tabs::
+
+       .. group-tab:: Composer-based installation
+
+          .. code-block:: bash
+
+             vendor/bin/typo3 extension:setup
+
+       .. group-tab:: Legacy installation
+
+          .. code-block:: bash
+
+             typo3/sysext/core/bin/typo3 extension:setup
 
 .. index::
    pair: Content element; TCA
@@ -344,95 +307,50 @@ Defining the field in the TCA
 The new field *tx_examples_separator* is added to the TCA definition of the table *tt_content* in the file
 :file:`Configuration/TCA/Overrides/tt_content.php`:
 
-.. code-block:: php
-   :caption: EXT:examples/Configuration/TCA/Overrides/tt_content.php
+..  literalinclude:: _AddingYourOwnContentElements/_tt_content_temporary_column.php
+    :language: php
+    :caption: EXT:my_extension/Configuration/TCA/Overrides/tt_content.php
 
-   $temporaryColumn = [
-      'tx_examples_separator' => [
-         'exclude' => 0,
-         'label' => 'LLL:EXT:examples/Resources/Private/Language/locallang_db.xlf:tt_content.tx_examples_separator',
-         'config' => [
-            'type' => 'select',
-            'renderType' => 'selectSingle',
-            'items' => [
-               ['Standard CSV data formats', '--div--'],
-               ['Comma separated', ','],
-               ['Semicolon separated', ';'],
-               ['Special formats', '--div--'],
-               ['Pipe separated (TYPO3 tables)', '|'],
-               ['Tab separated', "\t"],
-            ],
-            'default' => ','
-         ],
-      ],
-   ];
-   \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTCAcolumns('tt_content', $temporaryColumn);
-
-You can read more about defining fields via TCA in the :doc:`t3tca:Index`.
+You can read more about defining fields via TCA in the :ref:`t3tca:start`.
 
 Now the new field can be used in your Fluid template just like any other
 tt_content field.
 
 Another example shows the connection to a foreign table. This allows you to be
 more flexible with the possible values in the select box. The new field
-:sql:`tx_examples_main_category` is a connection to the TYPO3 system category
-table :sql:`sys_category`:
+:sql:`myextension_reference` is a reference to another table of the extension
+called :sql:`tx_myextension_mytable`:
 
-.. code-block:: php
-   :caption: EXT:examples/Configuration/TCA/Overrides/tt_content.php
 
-   'tx_examples_main_category' => [
-        'exclude' => 0,
-        'label' => 'LLL:EXT:examples/Resources/Private/Language/locallang_db.xlf:tt_content.tx_examples_main_category',
-        'config' => [
-            'type' => 'select',
-            'renderType' => 'selectSingle',
-            'items' => [
-                ['None', '0'],
-            ],
-            'foreign_table' => 'sys_category',
-            'foreign_table_where' => 'AND {#sys_category}.{#pid} = ###PAGE_TSCONFIG_ID### AND {#sys_category}.{#hidden} = 0 ' .
-                'AND {#sys_category}.{#deleted} = 0 AND {#sys_category}.{#sys_language_uid} IN (0,-1) ORDER BY sys_category.uid',
-            'default' => '0'
-        ],
-   ],
-
-.. todo:: this example is not valid anymore as there is the field type "category"
-   now. Let us find another example.
-
+..  literalinclude:: _AddingYourOwnContentElements/_tt_content_reference.php
+    :language: php
+    :caption: EXT:my_extension/Configuration/TCA/Overrides/tt_content.php
 
 Defining the field in the TCE
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-An individual modification of the newly added field *tx_examples_main_category*
-to the TCA definition of the table *tt_content* can be done in the TCE
-(TYPO3 Core Engine) TSConfig. In most cases it is necessary to set the page
-id of the general storage folder (available as a plugin select box to select a
-starting point page until TYPO3 v6.2). Then the examples extension will only use
+An individual modification of the newly added field :sql:`myextension_reference`
+to the TCA definition of the table :sql:`tt_content` can be done in the
+TYPO3 Core Engine (TCE) page TSconfig. In most cases it is necessary to set the page
+id of the general storage folder. Then the examples extension will only use
 the content records from the given page id.
 
-.. code-block:: typoscript
-   :caption: EXT:some_extension/Configuration/page.tsconfig
-
-   TCEFORM.tt_content.tx_examples_main_category.PAGE_TSCONFIG_ID = 18
+..  literalinclude:: _AddingYourOwnContentElements/_page-page-id.tsconfig
+    :language: typoscript
+    :caption: EXT:my_extension/Configuration/page.tsconfig
 
 If more than one page id is allowed, this configuration must be used instead
-(and the above TCA must be modified to use the marker ###PAGE_TSCONFIG_IDLIST###
-instead of ###PAGE_TSCONFIG_ID###):
+(and the above TCA must be modified to use the marker `###PAGE_TSCONFIG_IDLIST###`
+instead of `###PAGE_TSCONFIG_ID###`):
 
-.. code-block:: typoscript
-   :caption: EXT:some_extension/Configuration/page.tsconfig
+..  literalinclude:: _AddingYourOwnContentElements/_page-page-id-list.tsconfig
+    :language: typoscript
+    :caption: EXT:my_extension/Configuration/page.tsconfig
 
-   TCEFORM.tt_content.tx_examples_main_category.PAGE_TSCONFIG_IDLIST = 18, 19, 20
+..  note::
 
-.. code-block:: html
-
-   <h2>Content separated by sign {data.tx_examples_separator}</h2>
-
-.. note::
-
-   As we are working with pure Fluid without Extbase here the new fields can
-   be used right away. They need not be added to a model.
+    As we are working with pure Fluid without Extbase here the new fields can
+    be used right away. They need not be added to a model.
 
 
 .. index:: pair: Content element; Data processing
@@ -456,22 +374,9 @@ data processor <content-elements-custom-data-processor>`.
 Each processor has to be added with a fully qualified class name and optional
 parameters to be used in the data processor:
 
-.. code-block:: typoscript
-
-   tt_content {
-      examples_newcontentcsv =< lib.contentElement
-      examples_newcontentcsv {
-         templateName = DataProcCsv
-         dataProcessing.10 = TYPO3\CMS\Frontend\DataProcessing\CommaSeparatedValueProcessor
-         dataProcessing.10 {
-            fieldName = bodytext
-            fieldDelimiter.field = tx_examples_separator
-            fieldEnclosure = "
-            maximumColumns.field = imagecols
-            as = myTable
-         }
-      }
-   }
+..  literalinclude:: _AddingYourOwnContentElements/_setup_myextension_newcontentcsv.typoscript
+    :language: typoscript
+    :caption: EXT:my_extension/Configuration/TypoScript/setup.typoscript
 
 You can now iterate over the variable `myTable` in the Fluid template, in this
 example :file:`Resources/Private/Templates/ContentElements/DataProcCsv.html`

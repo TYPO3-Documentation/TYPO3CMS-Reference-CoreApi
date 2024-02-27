@@ -470,7 +470,7 @@ at least if there is enough memory available to hold the complete set in memory.
 At the moment only one redis server can be used at a time per cache,
 but one redis instance can handle multiple caches without performance loss when flushing a single cache.
 
-.. important::
+.. attention::
 
    The scheduler garbage collection task should be run regularly to
    find and delete old cache tags entries. These do not expire on their own and
@@ -507,8 +507,8 @@ backends, but there is one caveat.
 TYPO3 caches should be separated in case the same keys are used.
 This applies to the `pages` and `pagesection` caches.
 Both use "tagIdents:pageId_21566" for a page with an id of 21566.
-How you separate them is more of a system administrator decision. We provide 
-examples with several databases but this may not be the best option 
+How you separate them is more of a system administrator decision. We provide
+examples with several databases but this may not be the best option
 in production where you might want to use multiple cores (which do not
 support databases). The separation has the additional advantage that
 caches can be flushed individually.
@@ -518,49 +518,19 @@ by using a different prefix for the cache identifier for each cache), you can
 store them in the same database, but it is good practice to separate the core
 caches.
 
-.. intentional quote!
+    In practical terms, Redis databases should be used to separate different keys
+    belonging to the same application (if needed), and not to use a single Redis
+    instance for multiple unrelated applications.
 
-   In practical terms, Redis databases should be used to separate different keys
-   belonging to the same application (if needed), and not to use a single Redis
-   instance for multiple unrelated applications.
+    https://redis.io/commands/select/
 
-   https://redis.io/commands/select/
+..  The paragraph above is an intentional quote!
 
 
-.. code-block:: php
-   :caption: public/typo3conf/AdditionalConfiguration.php
+..  literalinclude:: _redis.php
+    :language: php
+    :caption: config/system/additional.php | typo3conf/system/additional.php
 
-   $redisHost = '127.0.0.1';
-   $redisPort = 6390;
-   $redisCaches = [
-       'pages' => [
-            'defaultLifetime' => 86400*7,
-            'compression' => true,
-       ],
-       'pagesection' => [
-            'defaultLifetime' => 86400*7,
-       ],
-       'hash' => [],
-       'rootline' => [],
-   ];
-   $redisDatabase = 0;
-   foreach ($redisCaches as $name => $values) {
-       $GLOBALS['TYPO3_CONF_VARS']['SYS']['caching']['cacheConfigurations'][$name]['backend']
-         = \TYPO3\CMS\Core\Cache\Backend\RedisBackend::class;
-       $GLOBALS['TYPO3_CONF_VARS']['SYS']['caching']['cacheConfigurations'][$name]['options'] = [
-           'database' => $redisDatabase++,
-           'hostname' => $redisHost,
-           'port' => $redisPort
-       ];
-       if (isset($values['defaultLifetime'])) {
-              $GLOBALS['TYPO3_CONF_VARS']['SYS']['caching']['cacheConfigurations'][$name]['options']['defaultLifetime']
-                  = $values['lifetime'];
-       }
-       if (isset($values['compression'])) {
-              $GLOBALS['TYPO3_CONF_VARS']['SYS']['caching']['cacheConfigurations'][$name]['options']['compression']
-                  = $values['compression'];
-       }
-   }
 
 .. _caching-backend-redis-options:
 
@@ -734,16 +704,6 @@ allkeys-lru, allkeys-lfu, allkeys-random
    *  `Redis eviction policies <https://redis.io/docs/manual/eviction/>`__
    *  `Redis configuration <https://redis.io/docs/manual/config/>`__
 
-.. _caching-backend-wincache:
-
-Wincache Backend
-================
-
-`Wincache <https://www.iis.net/downloads/microsoft/wincache-extension>`_ is a PHP opcode cache similar to APC, but
-dedicated to the Windows OS platform. Similar to APC, the cache can also be used as in-memory key/value cache.
-
-The cache backend implementation is nearly identical to the implementation of `APC backend <https://docs.typo3.org/m/typo3/reference-coreapi/9.5/en-us/ApiOverview/CachingFramework/FrontendsBackends/Index.html#apc-backend>`_ and has the same design constrains.
-
 
 .. _caching-backend-file:
 
@@ -891,7 +851,7 @@ Transient Memory Backend
 
 The transient memory backend stores data in a PHP array. It is only valid for one request. This becomes handy if code
 logic needs to do expensive calculations or must look up identical information from a database over and over again
-during its execution. In this case it is useful to store the data in an array once and just lookup the entry from the
+during its execution. In this case it is useful to store the data in an array once and lookup the entry from the
 cache for consecutive calls to get rid of the otherwise additional overhead. Since caches are available system wide and
 shared between Core and extensions they can profit from each other if they need the same information.
 

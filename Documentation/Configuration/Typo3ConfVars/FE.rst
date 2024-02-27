@@ -20,8 +20,8 @@ the TYPO3 frontend:
 
     This variable can be set in one of the following files:
 
-    *   :ref:`typo3conf/LocalConfiguration.php <typo3ConfVars-localConfiguration>`
-    *   :ref:`typo3conf/AdditionalConfiguration.php <typo3ConfVars-additionalConfiguration>`
+    *   :ref:`config/system/settings.php <typo3ConfVars-settings>`
+    *   :ref:`config/system/additional.php <typo3ConfVars-additional>`
 
 .. index::
    TYPO3_CONF_VARS FE; addAllowedPaths
@@ -35,17 +35,16 @@ addAllowedPaths
    :type: list
    :Default: ''
 
-   Additional relative paths (comma-list) to allow TypoScript resources be in.
-   Should be prepended with /. If not, then any path where the first part is
-   like this path will match. That is myfolder/ , myarchive will match
-   for example myfolder/, myarchive/, myarchive_one/, myarchive_2/ ...
+   Additional relative paths where resources may be placed. Used in some
+   frontend-related places for images and TypoScript.
+   It should be prefixed with :file:`/`. If not, then any path whose the first
+   part is like this path will match. That is, `myfolder/ , myarchive` will
+   match, for example, :file:`myfolder/`, :file:`myarchive/`,
+   :file:`myarchive_one/`, :file:`myarchive_2/`, etc.
 
-   No check is done to see if this directory actually exists in the
-   root of the site. Paths are matched by simply checking if these strings
-   equals the first part of any TypoScript resource filepath.
+   No check is done whether this directory actually exists in the root folder
+   of the site.
 
-   (See class template, function init() in
-   :php:`\TYPO3\CMS\Core\TypoScript\Parser\TypoScriptParser`)
 
 .. index::
    TYPO3_CONF_VARS FE; debug
@@ -189,7 +188,7 @@ loginRateLimitInterval
    Allowed time interval for the configured rate limit. Individual values
    using
    `PHP relative formats <https://www.php.net/manual/de/datetime.formats.relative.php>`__
-   can be set in :file:`AdditionalConfiguration.php`.
+   can be set in :file:`config/system/additional.php`.
 
 
 .. index::
@@ -241,6 +240,10 @@ lockIP
    during their session (in which case you can lower it). The integer indicates
    how many parts of the IP address to include in the check for the session.
 
+   Have also a look into the :ref:`security guidelines
+   <security-global-typo3-options-lockIP>`.
+
+
 .. index::
    TYPO3_CONF_VARS FE; lockIPv6
 .. _typo3ConfVars_fe_lockIPv6:
@@ -290,20 +293,6 @@ lockIPv6
    IPv6-address. Enhances security but may throw off users that may change IP
    during their session (in which case you can lower it).
    The integer indicates how many parts of the IP address to include in the check for the session.
-
-.. index::
-   TYPO3_CONF_VARS FE; loginSecurityLevel
-.. _typo3ConfVars_fe_loginSecurityLevel:
-
-loginSecurityLevel
-==================
-
-.. deprecated:: 11.3
-   This option got removed with version 11.3. The only possible
-   value has been 'normal'. This behaviour stays unchanged.  When this option
-   has been set in your :file:`LocalConfiguration.php`
-   or :file:`AdditionalConfiguration.php` files, they are automatically
-   removed when accessing the admin tool or system maintenance area.
 
 .. index::
    TYPO3_CONF_VARS FE; lifetime
@@ -440,20 +429,6 @@ cookieSameSite
    can be shared (first-party cookies vs. third-party cookies) in TYPO3 Frontend.
 
 .. index::
-   TYPO3_CONF_VARS FE; defaultUserTSconfig
-.. _typo3ConfVars_fe_defaultUserTSconfig:
-
-defaultUserTSconfig
-===================
-
-.. confval:: $GLOBALS['TYPO3_CONF_VARS']['FE']['defaultUserTSconfig']
-
-   :type: multiline
-   :Default: ''
-
-    Enter lines of default frontend user/group TSconfig.
-
-.. index::
    TYPO3_CONF_VARS FE; defaultTypoScript_constants
 .. _typo3ConfVars_fe_defaultTypoScript_constants:
 
@@ -490,12 +465,16 @@ additionalAbsRefPrefixDirectories
 
 .. confval:: $GLOBALS['TYPO3_CONF_VARS']['FE']['additionalAbsRefPrefixDirectories']
 
-   :type: text
-   :Default: ''
+    :type: text
+    :Default: ''
 
-   Enter additional directories to be prepended with absRefPrefix.
-   Directories must be comma-separated. TYPO3 already prepends the following
-   directories typo3/, typo3temp/, typo3conf/ext/ and all local storages
+    Enter additional directories to be prepended with absRefPrefix.
+    Directories must be comma-separated. TYPO3 already prepends the following
+    directories :file:`public/_assets/`, :file:`public/typo3temp/` and all
+    local storages including :file:`public/fileadmin/`.
+
+    In legacy installations without Composer :file:`typo3conf/ext`
+    and :file:`typo3/` are also prefixed.
 
 .. index::
    TYPO3_CONF_VARS FE; enable_mount_pids
@@ -548,7 +527,7 @@ eID_include
    to include the code file which renders the page from that point.
 
    (Useful for functionality that requires a low initialization footprint,
-   for example frontend ajax applications)
+   for example frontend Ajax applications)
 
 
 .. index::
@@ -608,7 +587,7 @@ _________________________
    Example:
 
    .. code-block:: php
-      :caption: typo3conf/AdditionalConfiguration.php
+      :caption: config/system/additional.php | typo3conf/system/additional.php
 
       $GLOBALS['TYPO3_CONF_VARS']['FE']['cacheHash']['cachedParametersWhiteList'][] = 'tx_news_pi1[uid]';
 
@@ -644,7 +623,7 @@ __________________
    Example:
 
    .. code-block:: php
-      :caption: typo3conf/AdditionalConfiguration.php
+      :caption: config/system/additional.php | typo3conf/system/additional.php
 
       $GLOBALS['TYPO3_CONF_VARS']['FE']['cacheHash']['excludedParameters'] = ['L','tx_search_pi1[query]'];
 
@@ -679,6 +658,45 @@ _________________________
    If true, all parameters which are relevant for cHash are only considered
    if they are non-empty.
 
+..  index::
+    TYPO3_CONF_VARS FE; cacheHash enforceValidation
+..  _typo3ConfVars_fe_cacheHash_enforceValidation:
+
+enforceValidation
+_________________
+
+..  versionadded:: 10.4.35/11.5.23/12.2
+
+..  confval:: $GLOBALS['TYPO3_CONF_VARS']['FE']['cacheHash']['enforceValidation']
+
+    :type: bool
+    :Default: false (for existing installations), true (for new installations)
+
+    If this option is enabled, the same validation is used to calculate a
+    "cHash" value as when a valid or invalid "cHash" parameter is given to a
+    request, even when no "cHash" is given.
+
+    ..  note::
+        The option is disabled for existing installations, but enabled for new
+        installations. It is also highly recommended to enable this option in
+        your existing installations as well.
+
+    **Details:**
+
+    Since TYPO3 v9 and the :ref:`PSR-15 middleware concept <request-handling>`,
+    cHash validation has been moved outside of plugins and rendering code inside
+    a validation middleware to check if a given "cHash" acts as a signature of
+    other query parameters in order to use a cached version of a frontend page.
+
+    However, the check only provided information about an invalid "cHash" in the
+    query parameters. If no "cHash" was given, the only option was to add a
+    "required list" (global TYPO3 configuration option
+    :ref:`requireCacheHashPresenceParameters <typo3ConfVars_fe_cacheHash_requireCacheHashPresenceParameters>`),
+    but not based on the final
+    :ref:`excludedParameters <typo3ConfVars_fe_cacheHash_excludedParameters>`
+    for the cache hash calculation of the given query parameters.
+
+
 .. index::
    TYPO3_CONF_VARS FE; workspacePreviewLogoutTemplate
 .. _typo3ConfVars_fe_workspacePreviewLogoutTemplate:
@@ -705,29 +723,23 @@ workspacePreviewLogoutTemplate
 versionNumberInFilename
 =======================
 
-.. confval:: $GLOBALS['TYPO3_CONF_VARS']['FE']['versionNumberInFilename']
+..  confval:: $GLOBALS['TYPO3_CONF_VARS']['FE']['versionNumberInFilename']
 
-   :type: dropdown
-   :Default: 'querystring'
-   :allowedValues:
-      ''
-         "Do not include the version/timestamp of the file at all"
-      'embed'
-         Include the timestamp of the last modification timestamp of files
-         embedded in the filename - for example :file:`filename.1269312081.js`
-      'querystring'
-         Default - Append the last modification timestamp of the file as
-         query string for example :file:`filename.js?1269312081`
+    :type: bool
+    :Default: false
 
+    If enabled, included CSS and JS files loaded in the TYPO3 frontend will
+    have the timestamp embedded in the filename, for example,
+    :php:`filename.1676276352.js`. This will make browsers and proxies reload
+    the files, if they change (thus avoiding caching issues).
 
-   Allows to automatically include a version number (timestamp of the file)
-   to referred CSS and JS filenames on the rendered page. This will make
-   browsers and proxies reload the files if they change (thus avoiding
-   caching issues).
+    ..  attention::
+        This feature requires extra :file:`.htaccess` rules to work (please
+        refer to the :t3src:`install/Resources/Private/FolderStructureTemplateFiles/root-htaccess`
+        file shipped with TYPO3).
 
-   **IMPORTANT** embed requires extra :file:`.htaccess` rules to work
-   (please refer to the :file:`root-htaccess` file shipped with TYPO3 in
-   :file:`typo3/sysext/install/Resources/Private/FolderStructureTemplateFiles`)
+    If disabled, the last modification date of the file will be appended as a
+    query string.
 
 
 .. index::
@@ -750,7 +762,7 @@ contentRenderingTemplates
    the content templates.
 
    See :file:`EXT:fluid_styled_content/ext_localconf.php` and
-   :file:`EXT:frontend/Classes/TypoScript/TemplateService.php`
+   :file:`EXT:core/Classes/TypoScript/IncludeTree/TreeBuilder.php`
 
 .. index::
    TYPO3_CONF_VARS FE; ContentObjects
@@ -790,7 +802,10 @@ typolinkBuilder
 
    :type: array
 
-   Matches the LinkService implementations for generating URL, link text via typolink
+   Matches the LinkService implementations for generating URLs and link texts
+   via typolink. This configuration value can be used to register a
+   :ref:`custom link builder <tutorial-typolink-builder>` for the frontend
+   generation of links.
 
    .. code-block:: php
       :caption: Default value of $GLOBALS['TYPO3_CONF_VARS']['FE']['typolinkBuilder']
@@ -852,6 +867,23 @@ _______
    Special settings for specific hashes.
 
 
+..  index::
+    TYPO3_CONF_VARS FE; passwordPolicy
+..  _typo3ConfVars_fe_passwordPolicy:
+
+passwordPolicy
+==============
+
+..  versionadded:: 12.0
+
+..  confval:: $GLOBALS['TYPO3_CONF_VARS']['FE']['passwordPolicy']
+
+    :type: string
+    :Default: default
+
+    Defines the :ref:`password policy <password-policies>` in frontend context.
+
+
 .. index::
    TYPO3_CONF_VARS FE; exposeRedirectInformation
 .. _typo3ConfVars_fe_exposeRedirectInformation:
@@ -867,3 +899,28 @@ exposeRedirectInformation
    If set, redirects executed by TYPO3 publicly expose the page ID in the HTTP
    header. As this is an internal information about the TYPO3 system, it should
    only be enabled for debugging purposes.
+
+..  index::
+    TYPO3_CONF_VARS FE; contentSecurityPolicyReportingUrl
+..  _typo3ConfVars_fe_contentSecurityPolicyReportingUrl:
+
+contentSecurityPolicyReportingUrl
+=================================
+
+..  versionadded:: 12.3
+
+..  confval:: $GLOBALS['TYPO3_CONF_VARS']['FE']['contentSecurityPolicyReportingUrl']
+
+    :type: string
+    :Default: ''
+
+    Configure the reporting HTTP endpoint of
+    :ref:`Content Security Policy <content-security-policy>` violations in the
+    frontend; if it is empty, the TYPO3 endpoint will be used.
+
+    Example:
+
+    ..  code-block:: php
+
+        $GLOBALS['TYPO3_CONF_VARS']['FE']['contentSecurityPolicyReportingUrl']
+            = 'https://csp-violation.example.org/';

@@ -21,7 +21,7 @@ Format
 
 * Use spaces, not TABs.
 
-* Indent with 3 spaces per indent level.
+* Indent with 4 spaces per indent level.
 
 More Information
 ================

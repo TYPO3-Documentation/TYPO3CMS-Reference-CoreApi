@@ -23,7 +23,7 @@ create a new record.
 system.
 
 The data and commands are created as multidimensional arrays and to
-understand the API of DataHandler you simply need to understand the
+understand the API of DataHandler you need to understand the
 hierarchy of these two arrays.
 
 .. caution::
@@ -44,15 +44,26 @@ Basic Usage
 
 .. code-block:: php
 
-   use TYPO3\CMS\Core\Utility\GeneralUtility;
-   use TYPO3\CMS\Core\DataHandling\DataHandler;
+    use TYPO3\CMS\Core\Utility\GeneralUtility;
+    use TYPO3\CMS\Core\DataHandling\DataHandler;
 
-   $dataHandler = GeneralUtility::makeInstance(DataHandler::class);
+    $dataHandler = GeneralUtility::makeInstance(DataHandler::class);
 
-   $cmd = [];
-   $data = [];
-   $dataHandler->start($data, $cmd);
+    $cmd = [];
+    $data = [];
+    $dataHandler->start($data, $cmd);
 
+After this initialization you usually want to perform the actual operations by
+calling one (or both) of these two methods:
+
+.. code-block:: php
+
+    $dataHandler->process_datamap();
+    $dataHandler->process_cmdmap();
+
+.. note::
+    Any error that might have occured during your DataHandler operations can be
+    accessed via its public property :php:`$dataHandler->errorLog`.
 
 Commands array
 ==============
@@ -61,7 +72,7 @@ Syntax:
 
 .. code-block:: none
 
-   $cmd[ tablename ][ uid ][ command ] = value
+    $cmd[ tablename ][ uid ][ command ] = value
 
 Description of keywords in syntax:
 
@@ -316,10 +327,10 @@ Examples of commands:
 .. code-block:: php
    :caption: EXT:some_extension/Classes/SomeClass.php
 
-   $cmd['tt_content'][54]['delete'] = 1;    // Deletes tt_content record with uid=54
-   $cmd['tt_content'][1203]['copy'] = -303; // Copies tt_content uid=1203 to the position after tt_content uid=303 (new record will have the same pid as tt_content uid=1203)
-   $cmd['tt_content'][1203]['copy'] = 400;  // Copies tt_content uid=1203 to first position in page uid=400
-   $cmd['tt_content'][1203]['move'] = 400;  // Moves tt_content uid=1203 to the first position in page uid=400
+    $cmd['tt_content'][54]['delete'] = 1;    // Deletes tt_content record with uid=54
+    $cmd['tt_content'][1203]['copy'] = -303; // Copies tt_content uid=1203 to the position after tt_content uid=303 (new record will have the same pid as tt_content uid=1203)
+    $cmd['tt_content'][1203]['copy'] = 400;  // Copies tt_content uid=1203 to first position in page uid=400
+    $cmd['tt_content'][1203]['move'] = 400;  // Moves tt_content uid=1203 to the first position in page uid=400
 
 .. index:: DataHandler; Data array
 .. _tce-data:
@@ -327,33 +338,42 @@ Examples of commands:
 Accessing the uid of copied records:
 ------------------------------------
 
-The :php:`DataHandler` keeps track of records created by :code:`copy` operations in its :php:`$copyMappingArray_merged` property. This property is public and can be used to determine the UID of a record copy based on the UID of the copied record.
+The :php:`DataHandler` keeps track of records created by :code:`copy`
+operations in its :php:`$copyMappingArray_merged` property. This
+property is public but marked as :php:`@internal`. So it is subject to change
+in future TYPO3 versions without notice.
 
-.. caution::
-   The :php:`$copyMappingArray_merged` property should not be confused with the :php:`$copyMappingArray` property which contains only information about the last copy operation and is cleared between each operation.
+The :php:`$copyMappingArray_merged` property can be used to determine the UID
+of a record copy based on the UID of the copied record.
+
+..  caution::
+    The :php:`$copyMappingArray_merged` property should not be mixed up with
+    the :php:`$copyMappingArray` property which contains only information
+    about the last copy operation and is cleared between each operation.
 
 The structure of the :php:`$copyMappingArray_merged` property looks like this:
 
+..  code-block:: php
+    :caption: EXT:some_extension/Classes/SomeClass.php
+
+    $copyMappingArray_merged = [
+       <table> => [
+          <original-record-uid> => <record-copy-uid>,
+       ],
+    ];
+
+The property contains the names of the manipulated tables as keys and a map
+of original record UIDs and UIDs of record copies as values.
+
+
 .. code-block:: php
    :caption: EXT:some_extension/Classes/SomeClass.php
 
-   $copyMappingArray_merged = [
-      <table> => [
-         <original-record-uid> => <record-copy-uid>,
-      ],
-   ];
+    $cmd['tt_content'][1203]['copy'] = 400;  // Copies tt_content uid=1203 to first position in page uid=400
+    $dataHandler->start([], $cmd);
+    $dataHandler->process_cmdmap()
 
-The property contains the names of the manipulated tables as keys and a map of original record UIDs and UIDs of record copies as values.
-
-
-.. code-block:: php
-   :caption: EXT:some_extension/Classes/SomeClass.php
-
-   $cmd['tt_content'][1203]['copy'] = 400;  // Copies tt_content uid=1203 to first position in page uid=400
-   $dataHandler->start([], $cmd);
-   $dataHandler->process_cmdmap()
-
-   $uid = $dataHandler->copyMappingArray_merged['tt_content'][1203];
+    $uid = $dataHandler->copyMappingArray_merged['tt_content'][1203];
 
 
 Data Array
@@ -431,11 +451,11 @@ inside page id 45:
 .. code-block:: php
    :caption: EXT:some_extension/Classes/SomeClass.php
 
-   $data['pages']['NEW9823be87'] = [
-      'title' => 'The page title',
-      'subtitle' => 'Other title stuff',
-      'pid' => '45'
-   ];
+    $data['pages']['NEW9823be87'] = [
+        'title' => 'The page title',
+        'subtitle' => 'Other title stuff',
+        'pid' => '45'
+    ];
 
 This creates a new page titled "The page title" right after page id 45
 in the tree:
@@ -443,11 +463,11 @@ in the tree:
 .. code-block:: php
    :caption: EXT:some_extension/Classes/SomeClass.php
 
-   $data['pages']['NEW9823be87'] = [
-      'title' => 'The page title',
-      'subtitle' => 'Other title stuff',
-      'pid' => '-45'
-   ];
+    $data['pages']['NEW9823be87'] = [
+        'title' => 'The page title',
+        'subtitle' => 'Other title stuff',
+        'pid' => '-45'
+    ];
 
 This creates two new pages right after each other, located right after
 the page id 45:
@@ -455,14 +475,14 @@ the page id 45:
 .. code-block:: php
    :caption: EXT:some_extension/Classes/SomeClass.php
 
-   $data['pages']['NEW9823be87'] = [
-      'title' => 'Page 1',
-      'pid' => '-45'
-   ];
-   $data['pages']['NEWbe68s587'] = [
-      'title' => 'Page 2',
-      'pid' => '-NEW9823be87'
-   ];
+    $data['pages']['NEW9823be87'] = [
+        'title' => 'Page 1',
+        'pid' => '-45'
+    ];
+    $data['pages']['NEWbe68s587'] = [
+        'title' => 'Page 2',
+        'pid' => '-NEW9823be87'
+    ];
 
 Notice how the second "pid" value points to the "NEW..." id
 placeholder of the first record. This works because the new id of the
@@ -476,19 +496,19 @@ one new system category:
 .. code-block:: php
    :caption: EXT:some_extension/Classes/SomeClass.php
 
-   $data['sys_category']['NEW9823be87'] = [
-       'title' => 'New category',
-       'pid' => 1,
-   ];
-   $data['tt_content']['NEWbe68s587'] = [
-       'header' => 'Look ma, categories!',
-       'pid' => 45,
-       'categories' => [
-           1,
-           2,
-           'NEW9823be87', // You can also use placeholders here
-       ],
-   ];
+    $data['sys_category']['NEW9823be87'] = [
+        'title' => 'New category',
+        'pid' => 1,
+    ];
+    $data['tt_content']['NEWbe68s587'] = [
+        'header' => 'Look ma, categories!',
+        'pid' => 45,
+        'categories' => [
+            1,
+            2,
+            'NEW9823be87', // You can also use placeholders here
+        ],
+    ];
 
 .. note::
    To get real uid of the record you have just created use DataHandler's `substNEWwithIDs` property like: :php:`$uid = $dataHandler->substNEWwithIDs['NEW9823be87'];`
@@ -499,10 +519,10 @@ this page", and no\_cache checked:
 .. code-block:: php
    :caption: EXT:some_extension/Classes/SomeClass.php
 
-   $data['pages'][9834] = [
-       'title' => 'New title for this page',
-       'no_cache' => '1'
-   ];
+    $data['pages'][9834] = [
+        'title' => 'New title for this page',
+        'no_cache' => '1'
+    ];
 
 
 
@@ -519,7 +539,7 @@ Syntax
 .. code-block:: php
    :caption: EXT:some_extension/Classes/SomeClass.php
 
-   $dataHandler->clear_cacheCmd($cacheCmd);
+    $dataHandler->clear_cacheCmd($cacheCmd);
 
 .. t3-field-list-table::
  :header-rows: 1
@@ -586,19 +606,19 @@ your Extbase plugin (e.g. controller or a custom viewhelper):
 .. code-block:: php
    :caption: EXT:some_extension/Classes/Controller/SomeController.php
 
-   public function __construct(TypoScriptFrontendController $frontendController)
-   {
-       $this->frontendController = $frontendController;
-   }
+    public function __construct(TypoScriptFrontendController $frontendController)
+    {
+        $this->frontendController = $frontendController;
+    }
 
-   public function showAction(ExampleModel $example): ResponseInterface
-   {
-      // ...
+    public function showAction(ExampleModel $example): ResponseInterface
+    {
+        // ...
 
-      $this->frontendController->addCacheTags([
-          sprintf('tx_myextension_example_%d', $example->getUid()),
-      ]);
-   }
+        $this->frontendController->addCacheTags([
+            sprintf('tx_myextension_example_%d', $example->getUid()),
+        ]);
+    }
 
 Hook for Cache Post-processing
 ------------------------------
@@ -607,12 +627,10 @@ You can configure cache post-processing with a user defined PHP
 function. Configuration of the hook can be done from
 :file:`ext_localconf.php`. An example might look like:
 
-.. code-block:: php
-   :caption: EXT:some_extension/ext_localconf.php
 
-   $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['t3lib/class.t3lib_tcemain.php']['clearCachePostProc'][] =
-       \Vendor\SomeExtension\Hook\DataHandlerHook::class . '->postProcessClearCache';
-
+..  literalinclude:: _ext_localconf.php
+    :language: php
+    :caption: EXT:my_extension/ext_localconf.php
 
 .. index:: DataHandler; Flags
 .. _tce-flags:
@@ -629,20 +647,6 @@ commands or data submission. These are the most significant:
  - :Variable,30: Internal variable
    :Type,20: Data type
    :Description,50: Description
-
-
- - :Variable:
-         ->deleteTree
-   :Type:
-         Boolean
-   :Description:
-         Sets whether a page tree branch can be recursively deleted.
-
-         If this is set, then a page is deleted by deleting the whole branch
-         under it (user must have delete permissions to it all). If not set,
-         then the page is deleted *only* if it has no branch.
-
-         Default is false.
 
 
  - :Variable:

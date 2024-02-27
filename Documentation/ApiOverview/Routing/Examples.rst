@@ -28,7 +28,6 @@ If you use the *category menu* or *tag list* plugins to filter news records, the
 * Tag filter: :samp:`https://example.org/news/my-tag`
 
 .. code-block:: yaml
-   :linenos:
 
    routeEnhancers:
      News:
@@ -73,7 +72,8 @@ If you use the *category menu* or *tag list* plugins to filter news records, the
            tableName: tx_news_domain_model_tag
            routeFieldName: slug
 
-For more examples and background information see `News manual <https://docs.typo3.org/p/georgringer/news/main/en-us/AdministratorManual/BestPractice/Routing/Index.html>`__.
+For more examples and background information see the
+:ref:`routing examples in the "News" manual <ext_news:routing>`.
 
 
 .. index:: Routing; EXT: Blog
@@ -87,7 +87,6 @@ Archive
 ^^^^^^^
 
 .. code-block:: yaml
-   :linenos:
 
    routeEnhancers:
      BlogArchive:
@@ -99,26 +98,26 @@ Archive
            routePath: '/{year}'
            _controller: 'Post::listPostsByDate'
            _arguments:
-           year: year
+             year: year
          -
            routePath: '/{year}/page-{page}'
            _controller: 'Post::listPostsByDate'
            _arguments:
-           year: year
-           page: '@widget_0/currentPage'
+             year: year
+             page: '@widget_0/currentPage'
          -
            routePath: '/{year}/{month}'
            _controller: 'Post::listPostsByDate'
            _arguments:
-           year: year
-           month: month
+             year: year
+             month: month
          -
            routePath: '/{year}/{month}/page-{page}'
            _controller: 'Post::listPostsByDate'
            _arguments:
-           year: year
-           month: month
-           page: '@widget_0/currentPage'
+             year: year
+             month: month
+             page: '@widget_0/currentPage'
        defaultController: 'Post::listPostsByDate'
        aspects:
          year:
@@ -183,7 +182,6 @@ Posts by Author
 ^^^^^^^^^^^^^^^
 
 .. code-block:: yaml
-   :linenos:
 
    routeEnhancers:
      AuthorPosts:
@@ -217,7 +215,6 @@ Category pages
 ^^^^^^^^^^^^^^^
 
 .. code-block:: yaml
-   :linenos:
 
    routeEnhancers:
      BlogCategory:
@@ -251,7 +248,6 @@ Blog Feeds
 ^^^^^^^^^^
 
 .. code-block:: yaml
-   :linenos:
 
    routeEnhancers:
      PageTypeSuffix:
@@ -268,7 +264,6 @@ Blog Posts
 ^^^^^^^^^^
 
 .. code-block:: yaml
-   :linenos:
 
    routeEnhancers:
      BlogPosts:
@@ -292,7 +287,6 @@ Posts by Tag
 ^^^^^^^^^^^^
 
 .. code-block:: yaml
-   :linenos:
 
    routeEnhancers:
      BlogTag:
@@ -326,7 +320,6 @@ BlogStaticDatabaseMapper
 ^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. code-block:: php
-   :linenos:
 
    <?php
         declare(strict_types = 1);
@@ -486,7 +479,6 @@ Usage with imports
 On typo3.com we are using imports to make routing configurations easier to manage:
 
 .. code-block:: yaml
-   :linenos:
 
    imports:
      - { resource: "EXT:template/Configuration/Routes/Blog/BlogCategory.yaml" }
@@ -502,7 +494,6 @@ Full project example config
 Taken from an anonymous live project:
 
 .. code-block:: yaml
-   :linenos:
 
    routeEnhancers:
      news:
@@ -662,7 +653,6 @@ EXT: DpnGlossary
 * Detail view: :samp:`https://example.org/<YOUR_PLUGINPAGE_SLUG>/term/the-term-title`
 
 .. code-block:: yaml
-   :linenos:
 
    routeEnhancers:
      DpnGlossary:
@@ -693,4 +683,4 @@ EXT: DpnGlossary
             - locale: 'de_DE.*'
               value: 'begriff'
 
-Taken from `dpn_glossary manual <https://docs.typo3.org/typo3cms/extensions/dpn_glossary/3.0.2/Configuration/ExampleTypoScriptSetup/Index.html#configure-routing-for-terms-and-pagination>`__.
+Taken from dpn_glossary extension manual.

@@ -1,38 +1,26 @@
-.. include:: /Includes.rst.txt
-.. index:: Events; AvailableActionsForExtensionEvent
-.. _AvailableActionsForExtensionEvent:
-
+..  include:: /Includes.rst.txt
+..  index:: Events; AvailableActionsForExtensionEvent
+..  _AvailableActionsForExtensionEvent:
 
 =================================
 AvailableActionsForExtensionEvent
 =================================
 
-.. versionadded:: 10.3
+..  versionadded:: 10.3
+    The event was introduced to replace the Signal/Slot
+    `\TYPO3\CMS\Extensionmanager\ViewHelper\ProcessAvailableActionsViewHelper::processActions`.
 
-Event that is triggered when rendering an additional action (currently within
-a Fluid ViewHelper) in the Extension Manager.
+The PSR-14 event
+:php:`\TYPO3\CMS\Extensionmanager\Event\AvailableActionsForExtensionEvent`
+is triggered when rendering an additional action (currently within
+a Fluid ViewHelper) in the extension manager.
 
-.. code-block:: php
-   :caption: EXT:some_extension/Classes/EventListener/MyEventListener.php
+Example
+=======
 
-
-   public function getActions(): array
-   {
-       return $this->actions;
-   }
-
-   public function addAction(string $actionKey, string $content): void
-   {
-       $this->actions[$actionKey] = $content;
-   }
-
-   public function setActions(array $actions): void
-   {
-       $this->actions = $actions;
-   }
-
+..  include:: /_includes/EventsContributeNote.rst.txt
 
 API
----
+===
 
-.. include:: /CodeSnippets/Events/ExtensionManager/AvailableActionsForExtensionEvent.rst.txt
+..  include:: /CodeSnippets/Events/ExtensionManager/AvailableActionsForExtensionEvent.rst.txt

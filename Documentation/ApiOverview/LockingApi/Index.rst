@@ -14,7 +14,7 @@ where concurrent access can be a problem. For example if you are getting a
 cache entry, while another process sets the same entry. This may
 result in incomplete or corrupt data, if locking is not used.
 
-.. important::
+.. attention::
 
    The :ref:`TYPO3 Caching Framework <caching>` does not use locking internally.
    If you use the Caching Framework to cache entries in your extension, you may
@@ -37,7 +37,7 @@ available, :php:`SemaphoreLockStrategy` will not be used).
    The directory can be overwritten by configuration:
 
    .. code-block:: php
-      :caption: typo3conf/AdditionalConfiguration.php
+      :caption: config/system/additional.php | typo3conf/system/additional.php
 
       use TYPO3\CMS\Core\Locking\FileLockStrategy;
 
@@ -75,8 +75,8 @@ locking strategy supported on system
 Capabilities
 ------------
 
-These are the current capabilities, that can be used (see `LockingStrategyInterface
-<https://github.com/typo3/typo3/blob/main/typo3/sysext/core/Classes/Locking/LockingStrategyInterface.php>`__):
+These are the current capabilities, that can be used (see
+:t3src:`core/Classes/Locking/LockingStrategyInterface.php`:
 
 In general, the concept of locking, using shared or exclusive + blocking or non-blocking
 locks is not TYPO3-specific. You can find more resources under :ref:`locking-api-more-info`.
@@ -140,7 +140,7 @@ To change the locking strategy priority, the priority can be overwritten by conf
 for example in additional configuration:
 
 .. code-block:: php
-   :caption: typo3conf/AdditionalConfiguration.php
+   :caption: config/system/additional.php | typo3conf/system/additional.php
 
    use TYPO3\CMS\Core\Locking\FileLockStrategy;
 
@@ -218,8 +218,7 @@ Extend locking in Extensions
 
 An extension can extend the locking functionality by adding a new locking
 strategy. This can be done by writing a new class which implements the
-`LockingStrategyInterface
-<https://github.com/typo3/typo3/blob/main/typo3/sysext/core/Classes/Locking/LockingStrategyInterface.php>`__.
+:t3src:`core/Classes/Locking/LockingStrategyInterface.php`.
 
 Each locking strategy has a set of capabilities (getCapabilities()), and a
 priority (getPriority()), so give your strategy a priority higher than 75
@@ -236,10 +235,7 @@ as is done in the TYPO3 Core:
            ?? self::DEFAULT_PRIORITY;
    }
 
-See `FileLockStrategy
-<https://github.com/typo3/typo3/blob/main/typo3/sysext/core/Classes/Locking/FileLockStrategy.php>`__
-for an example.
-
+See :t3src:`core/Classes/Locking/FileLockStrategy.php` for an example.
 
 .. index:: Locking; Caveats
 .. _locking-api-caveats:

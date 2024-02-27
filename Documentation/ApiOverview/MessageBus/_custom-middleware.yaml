@@ -1,0 +1,13 @@
+Symfony\Component\Messenger\Middleware\SendMessageMiddleware:
+  arguments:
+    $sendersLocator: '@Symfony\Component\Messenger\Transport\Sender\SendersLocatorInterface'
+    $eventDispatcher: '@Psr\EventDispatcher\EventDispatcherInterface'
+  tags:
+    - { name: 'messenger.middleware' }
+
+Symfony\Component\Messenger\Middleware\HandleMessageMiddleware:
+  arguments:
+    $handlersLocator: '@Symfony\Component\Messenger\Handler\HandlersLocatorInterface'
+  tags:
+    - name: 'messenger.middleware'
+      after: 'Symfony\Component\Messenger\Middleware\SendMessageMiddleware'

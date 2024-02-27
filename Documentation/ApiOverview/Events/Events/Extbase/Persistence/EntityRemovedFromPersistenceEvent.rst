@@ -1,14 +1,21 @@
-.. include:: /Includes.rst.txt
-.. index:: Events; EntityRemovedFromPersistenceEvent
-.. _EntityRemovedFromPersistenceEvent:
+..  include:: /Includes.rst.txt
+..  index:: Events; EntityRemovedFromPersistenceEvent
+..  _EntityRemovedFromPersistenceEvent:
 
 =================================
 EntityRemovedFromPersistenceEvent
 =================================
 
-Event which is fired after an object/entity was sent to persistence layer to be removed.
+The PSR-14 event
+:php:`\TYPO3\CMS\Extbase\Event\Persistence\EntityRemovedFromPersistenceEvent`
+is fired after an object/entity was sent to the persistence layer to be removed.
+
+Example
+=======
+
+..  include:: /_includes/EventsContributeNote.rst.txt
 
 API
----
+===
 
-.. include:: /CodeSnippets/Events/Extbase/EntityRemovedFromPersistenceEvent.rst.txt
+..  include:: /CodeSnippets/Events/Extbase/EntityRemovedFromPersistenceEvent.rst.txt

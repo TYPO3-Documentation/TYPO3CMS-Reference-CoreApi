@@ -21,8 +21,8 @@ configurations.
 
     This variable can be set in one of the following files:
 
-    *   :ref:`typo3conf/LocalConfiguration.php <typo3ConfVars-localConfiguration>`
-    *   :ref:`typo3conf/AdditionalConfiguration.php <typo3ConfVars-additionalConfiguration>`
+    *   :ref:`config/system/settings.php <typo3ConfVars-settings>`
+    *   :ref:`config/system/additional.php <typo3ConfVars-additional>`
 
 .. index::
    TYPO3_CONF_VARS SYS; fileCreateMask
@@ -195,8 +195,11 @@ trustedHostsPattern
 
    for example :php:`example\.org:88` allows only :file:`example.org:88`,
    **not** :file:`example.org`. To disable this check completely
-
    (not recommended because it is **insecure**) you can use :php:`.*` as pattern.
+
+   Have also a look into the :ref:`security guidelines
+   <security-global-typo3-options-trustedHostsPattern>`.
+
 
 .. index::
    TYPO3_CONF_VARS SYS; devIPmask
@@ -211,11 +214,14 @@ devIPmask
    :type: text
    :Default: '127.0.0.1,::1'
 
-   Defines a list of IP addresses which will allow development-output to
+   Defines a list of IP addresses which will allow development output to
    display. The :php:`debug()` function will use this as a filter. See the
    function :php:`\TYPO3\CMS\Core\Utility\GeneralUtilitycmpIP()` for details
    on syntax. Setting this to blank value will deny all.
    Setting to "*" will allow all.
+
+   Have also a look into the :ref:`security guidelines
+   <security-global-typo3-options-devIpMask>`.
 
 .. index::
    TYPO3_CONF_VARS SYS; ddmmyy
@@ -418,7 +424,7 @@ UTF8filesystem
    file name consists only of "special" characters such as Japanese, then the file will be renamed to
    something "safe" when uploaded in the backend.
 
-   .. important::
+   .. attention::
       This requires a UTF-8 compatible locale in order to work. Otherwise
       problems with filenames containing special characters will occur.
       See :ref:`[SYS][systemLocale]<typo3ConfVars_sys_UTF8filesystem>` and
@@ -551,7 +557,7 @@ displayErrors
    :type: int
    :Default: -1
    :allowedValues:
-      -1
+      `-1`
          TYPO3 does not touch the PHP setting. If
          :ref:`[SYS][devIPmask] <typo3ConfVars_sys_devIPmask>` matches the users
          IP address, the configured
@@ -560,7 +566,7 @@ displayErrors
          :ref:`[SYS][productionExceptionHandler] <typo3ConfVars_sys_productionExceptionHandler>`
          to handle exceptions.
 
-      0
+      `0`
          Live: Do not display any PHP error message. Sets :php:`display_errors=0`.
          Overrides the value of
          :ref:`[SYS][exceptionalErrors]<typo3ConfVars_sys_exceptionalErrors>`
@@ -569,7 +575,7 @@ displayErrors
          :ref:`[SYS][productionExceptionHandler]<typo3ConfVars_sys_productionExceptionHandler>`
          is used as exception handler.
 
-      1
+      `1`
          Debug: Display error messages with the registered
          :ref:`[SYS][errorHandler]<typo3ConfVars_sys_errorHandler>`.
          Sets :php:`display_errors=1`. The configured
@@ -577,8 +583,11 @@ displayErrors
          is used as exception handler.
 
 
-   Configures whether PHP errors or Exceptions should be displayed,
+   Configures whether PHP errors or exceptions should be displayed,
    effectively setting the PHP option :php:`display_errors` during runtime.
+
+   Have also a look into the :ref:`security guidelines
+   <security-global-typo3-options-displayErrors>`.
 
 .. index::
    TYPO3_CONF_VARS SYS; productionExceptionHandler
@@ -685,7 +694,7 @@ exceptionalErrors
    :Default: :php:`E_ALL & ~(E_STRICT | E_NOTICE | E_COMPILE_WARNING | E_COMPILE_ERROR | E_CORE_WARNING | E_CORE_ERROR | E_PARSE | E_ERROR | E_DEPRECATED | E_USER_DEPRECATED | E_WARNING | E_USER_ERROR | E_USER_NOTICE | E_USER_WARNING)`
 
    The E_* constant that will be converted into an exception by the default
-   ref:`[SYS][errorHandler]<typo3ConfVars_sys_errorHandler>`. Default is
+   :ref:`[SYS][errorHandler]<typo3ConfVars_sys_errorHandler>`. Default is
    4096 = :php:`E_ALL & ~(E_STRICT | E_NOTICE | E_COMPILE_WARNING | E_COMPILE_ERROR | E_CORE_WARNING | E_CORE_ERROR | E_PARSE | E_ERROR | E_DEPRECATED | E_USER_DEPRECATED | E_WARNING | E_USER_ERROR | E_USER_NOTICE | E_USER_WARNING)`
    (see `PHP documentation <https://www.php.net/manual/en/errorfunc.constants.php>`__).
 
@@ -833,21 +842,72 @@ security.backend.enforceReferrer
    potential same-site request forgery attacks. The behavior can be disabled in case HTTP proxies filter
    required referer header. As this is a potential security risk, it is recommended to enable this option.
 
+..  index::
+    TYPO3_CONF_VARS SYS; features security.frontend.enforceContentSecurityPolicy
+..  _typo3ConfVars_sys_features_security.frontend.enforceContentSecurityPolicy:
 
-.. index::
-   TYPO3_CONF_VARS SYS; features yamlImportsFollowDeclarationOrder
-.. _typo3ConfVars_sys_features_yamlImportsFollowDeclarationOrder:
+security.frontend.enforceContentSecurityPolicy
+----------------------------------------------
 
-yamlImportsFollowDeclarationOrder
----------------------------------
+..  versionadded:: 12.3
 
-.. confval:: $GLOBALS['TYPO3_CONF_VARS']['SYS']['features']['yamlImportsFollowDeclarationOrder']
+..  confval:: $GLOBALS['TYPO3_CONF_VARS']['SYS']['features']['security.frontend.enforceContentSecurityPolicy']
 
-   :Path: $GLOBALS['TYPO3_CONF_VARS']['SYS']['features']
-   :type: bool
-   :Default: false
+    :Path: $GLOBALS['TYPO3_CONF_VARS']['SYS']['features']
+    :type: bool
+    :Default: false
 
-   If on, the YAML imports are imported in the order they are defined in the importing YAML configuration.
+    If enabled, the :ref:`Content Security Policy <content-security-policy>`
+    is applied in frontend scope.
+
+..  index::
+    TYPO3_CONF_VARS SYS; features security.frontend.allowInsecureSiteResolutionByQueryParameters
+..  _typo3ConfVars_sys_features_security.frontend.allowInsecureSiteResolutionByQueryParameters:
+
+security.frontend.allowInsecureSiteResolutionByQueryParameters
+--------------------------------------------------------------
+
+..  versionadded:: 12.4.4/11.5.30
+
+..  confval:: $GLOBALS['TYPO3_CONF_VARS']['SYS']['features']['security.frontend.allowInsecureSiteResolutionByQueryParameters']
+
+    :Path: $GLOBALS['TYPO3_CONF_VARS']['SYS']['features']
+    :type: bool
+    :Default: false
+
+    ..  note::
+        This change was introduced as part of the
+        `TYPO3 12.4.4 and 11.5.30 security releases <https://typo3.org/security/advisory/typo3-core-sa-2023-003>`__.
+
+    Resolving sites by the `id` and `L` HTTP query parameters is now denied by
+    default. However, it is still allowed to resolve a particular page by, for
+    example, "example.org" - as long as the page ID `123` is in the scope of the
+    site configured for the base URL "example.org".
+
+    The flag can be used to reactivate the previous behavior:
+
+    ..  code-block:: php
+
+        $GLOBALS['TYPO3_CONF_VARS']['SYS']['features']['security.frontend.allowInsecureSiteResolutionByQueryParameters'] = true;
+
+
+..  index::
+    TYPO3_CONF_VARS SYS; features security.usePasswordPolicyForFrontendUsers
+..  _typo3ConfVars_sys_features_security.usePasswordPolicyForFrontendUsers:
+
+security.usePasswordPolicyForFrontendUsers
+------------------------------------------
+
+..  versionchanged:: 13.0
+    This feature toggle has been removed, because TypoScript-based password
+    validation in :doc:`EXT:felogin <ext_felogin:Index>` has been removed, too.
+
+    The :ref:`password policy <password-policies>` configured in
+    :ref:`$GLOBALS['TYPO3_CONF_VARS']['FE']['passwordPolicy'] <typo3ConfVars_fe_passwordPolicy>`
+    is now always active for frontend user records in
+    :ref:`DataHandler <datahandler-basics>` and for the password recovery
+    functionality in EXT:felogin.
+
 
 .. index::
    TYPO3_CONF_VARS SYS; availablePasswordHashAlgorithms
@@ -864,3 +924,171 @@ availablePasswordHashAlgorithms
 
    A list of available password hash mechanisms. Extensions may register
    additional mechanisms here.
+
+
+..  index::
+    TYPO3_CONF_VARS SYS; linkHandler
+..  _typo3ConfVars_sys_linkHandler:
+
+linkHandler
+===========
+
+..  confval:: $GLOBALS['TYPO3_CONF_VARS']['SYS']['linkHandler']
+
+    :Path: $GLOBALS['TYPO3_CONF_VARS']['SYS']['linkHandler']
+    :type: array
+
+    Links entered in the TYPO3 backend are stored in an internal format in the
+    database, like `t3://page?uid=42`. The handlers for the different resource
+    keys (like `page` in the example) are registered as link handlers.
+
+    The TYPO3 Core registers the following link handlers:
+
+    *   `page` (see :t3src:`core/Classes/LinkHandling/PageLinkHandler.php`)
+    *   `file` (see :t3src:`core/Classes/LinkHandling/FileLinkHandler.php`)
+    *   `folder` (see :t3src:`core/Classes/LinkHandling/FolderLinkHandler.php`)
+    *   `url` (see :t3src:`core/Classes/LinkHandling/UrlLinkHandler.php`)
+    *   `email` (see :t3src:`core/Classes/LinkHandling/EmailLinkHandler.php`)
+    *   `record` (see :t3src:`core/Classes/LinkHandling/RecordLinkHandler.php`)
+    *   `phone` (see :t3src:`core/Classes/LinkHandling/TelephoneLinkHandler.php`)
+
+    Additional link handlers can be added by extensions.
+
+    ..  seealso::
+        :ref:`LinkHandling`
+
+
+..  index::
+    TYPO3_CONF_VARS SYS; lang
+..  _typo3ConfVars_sys_lang:
+
+lang
+====
+
+..  index::
+    TYPO3_CONF_VARS SYS; lang requireApprovedLocalizations
+..  _typo3ConfVars_sys_lang_requireApprovedLocalizations:
+
+requireApprovedLocalizations
+----------------------------
+
+..  versionadded:: 12.0
+    Before TYPO3 v12.0 all translations are taken into account when parsing XLF
+    files. As of TYPO3 v12.0, only approved translations are available by
+    default.
+
+..  confval:: $GLOBALS['TYPO3_CONF_VARS']['SYS']['lang']['requireApprovedLocalizations']
+
+    :Path: $GLOBALS['TYPO3_CONF_VARS']['SYS']['lang']['requireApprovedLocalizations']
+    :type: bool
+    :Default: true
+
+    The attribute :xml:`approved` of the :ref:`XLIFF <xliff>` standard is
+    respected by TYPO3 since version 12.0 when parsing XLF files. This attribute
+    can either have the value :xml:`yes` or :xml:`no` and indicates whether the
+    translation is final or not.
+
+    ..  code-block:: xml
+        :caption: EXT:my_extension/Resources/Private/Language/locallang.xml
+
+        <trans-unit id="label2" resname="label2" approved="yes">
+            <source>This is label #2</source>
+            <target>Ceci est le libellé no. 2</target>
+        </trans-unit>
+
+    This setting can be used to control the behavior:
+
+    :php:`true`
+        Only translations with the attribute :xml:`approved` set to :xml:`yes`
+        will be used. Any non-approved translation (value is set to :xml:`no`)
+        will be ignored. If the attribute :xml:`approved` is omitted, the
+        translation is still taken into account.
+
+    :php:`false`
+        All translations are used.
+
+
+..  index::
+    TYPO3_CONF_VARS SYS; passwordPolicies
+..  _typo3ConfVars_sys_passwordPolicies:
+
+passwordPolicies
+================
+
+..  versionadded:: 12.0
+
+..  confval:: $GLOBALS['TYPO3_CONF_VARS']['SYS']['passwordPolicies']
+
+    :Path: $GLOBALS['TYPO3_CONF_VARS']['SYS']['passwordPolicies']
+    :type: array
+
+    Defines the available :ref:`password policies <password-policies>`. Each
+    policy must have a unique identifier (the identifier `default` is reserved
+    by TYPO3) and must at least contain one validator.
+
+    The default configuration:
+
+    ..  code-block:: php
+
+        $GLOBALS['TYPO3_CONF_VARS']['SYS']['passwordPolicies']['default'] = [
+            'validators' => [
+                \TYPO3\CMS\Core\PasswordPolicy\Validator\CorePasswordValidator::class => [
+                    'options' => [
+                        'minimumLength' => 8,
+                        'upperCaseCharacterRequired' => true,
+                        'lowerCaseCharacterRequired' => true,
+                        'digitCharacterRequired' => true,
+                        'specialCharacterRequired' => true,
+                    ],
+                    'excludeActions' => [],
+                ],
+                \TYPO3\CMS\Core\PasswordPolicy\Validator\NotCurrentPasswordValidator::class => [
+                    'options' => [],
+                    'excludeActions' => [
+                        \TYPO3\CMS\Core\PasswordPolicy\PasswordPolicyAction::NEW_USER_PASSWORD,
+                    ],
+                ],
+            ],
+        ];
+
+
+..  index::
+    TYPO3_CONF_VARS SYS; messenger
+..  _typo3ConfVars_sys_messenger:
+
+messenger
+=========
+
+..  index::
+    TYPO3_CONF_VARS SYS; messenger routing
+..  _typo3ConfVars_sys_messenger_routing:
+
+routing
+-------
+
+..  versionadded:: 12.2
+
+..  confval:: $GLOBALS['TYPO3_CONF_VARS']['SYS']['messenger']['routing']
+
+    :Path: $GLOBALS['TYPO3_CONF_VARS']['SYS']['messenger']['routing']
+    :type: array
+
+    The configuration of the routing for the
+    :ref:`messenger component <message-bus>`. By default, TYPO3 uses a
+    synchronous transport (:php:`default`) for all messages (:php:`*`):
+
+    ..  code-block:: php
+
+        $GLOBALS['TYPO3_CONF_VARS']['SYS']['messenger']['routing'] = [
+            '*' => 'default',
+        ];
+
+    You can set a different transport for a specific message, for example:
+
+    ..  code-block:: php
+
+        $GLOBALS['TYPO3_CONF_VARS']['SYS']['messenger']['routing'][\MyVendor\MyExtension\Queue\Message\DemoMessage::class]
+            = 'doctrine';
+
+    ..  seealso::
+        :ref:`message-bus-routing`

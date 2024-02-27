@@ -153,7 +153,7 @@ can jump from a file to the according test file by hitting `CTRL+Shift+T`.
 Keep it simple
 ==============
 
-This is an importing rule in testing: Keep tests as simple as possible! Tests should be easy
+This is an important rule in testing: Keep tests as simple as possible! Tests should be easy
 to write, understand, read and refactor. There is no point in complex and overly abstracted
 tests. Those are pain to work with. The basic guides are: No loops, no additional class
 inheritance, no additional helper methods if not really needed, no additional state. As simple
@@ -210,10 +210,10 @@ General hints
 * Only use :php:`getAccessibleMock()` if parts of the system under test class itself needs to be
   mocked. Never use it for an object that is created by the system under test itself.
 
-* Since TYPO3 v9, unit tests are by default configured to fail if a notice level PHP error is triggered.
+* Unit tests are by default configured to fail if a notice level PHP error is triggered.
   This has been used in the Core to slowly make the framework notice free. Extension authors may fall
   into a trap here: First, the unit test code itself, or the system under test may trigger notices.
-  Developers should fix that. But, TYPO3 v9 is not yet fully notice free, and it may happen a Core
+  Developers should fix that. But it may happen a Core
   dependency triggers a notice that in turn lets the extensions unit test fail. At best, the extension
   developer pushes a patch to the Core to fix that notice. Another solution is to mock the dependency
   away, which may however not be desired or possible - especially with static dependencies.

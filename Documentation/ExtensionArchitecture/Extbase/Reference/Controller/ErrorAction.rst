@@ -26,7 +26,7 @@ How it works
    #. Clear cache in case :typoscript:`persistence.enableAutomaticCacheClearing` is
       activated and current scope is frontend.
 
-   #. Add an error :ref:`Flash Message <t3coreapi:flash-messages>`
+   #. Add an error :ref:`Flash Message <flash-messages>`
       by calling :php:`addErrorFlashMessage()`.
       It will in turn call :php:`getErrorFlashMessage()` to retrieve the
       message to show.

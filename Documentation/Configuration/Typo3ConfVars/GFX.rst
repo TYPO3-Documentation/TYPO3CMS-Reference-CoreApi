@@ -21,8 +21,8 @@ the handling of images and graphics:
 
     This variable can be set in one of the following files:
 
-    *   :ref:`typo3conf/LocalConfiguration.php <typo3ConfVars-localConfiguration>`
-    *   :ref:`typo3conf/AdditionalConfiguration.php <typo3ConfVars-additionalConfiguration>`
+    *   :ref:`config/system/settings.php <typo3ConfVars-settings>`
+    *   :ref:`config/system/additional.php <typo3ConfVars-additional>`
 
 
 .. index::
@@ -39,82 +39,32 @@ thumbnails
 
    Enables the use of thumbnails in the backend interface.
 
-.. index::
-   TYPO3_CONF_VARS GFX; thumbnails_png
-.. _typo3ConfVars_gfx_thumbnails_png:
-
-thumbnails_png
-==============
-
-.. confval:: $GLOBALS['TYPO3_CONF_VARS']['GFX']['thumbnails_png']
-
-   :type: bool
-   :Default: true
-
-   If disabled, thumbnails from non-image files will be converted
-   to gif, otherwise png (default).
-
-.. index::
-   TYPO3_CONF_VARS GFX; gif_compress
-.. _typo3ConfVars_gfx_gif_compress:
-
-gif_compress
-============
-
-.. confval:: $GLOBALS['TYPO3_CONF_VARS']['GFX']['gif_compress']
-
-   :type: bool
-   :Default: true
-
-   Enables the use of the
-   :php:`\TYPO3\CMS\Core\Imaging\GraphicalFunctionsgifCompress()` workaround
-   function for compressing .gif files made with GD or IM, which probably use
-   only RLE or no compression at all.
-
-.. index::
-   TYPO3_CONF_VARS GFX; imagefile_ext
-.. _typo3ConfVars_gfx_imagefile_ext:
+..  index::
+    TYPO3_CONF_VARS GFX; imagefile_ext
+..  _typo3ConfVars_gfx_imagefile_ext:
 
 imagefile_ext
 =============
 
-.. confval:: $GLOBALS['TYPO3_CONF_VARS']['GFX']['imagefile_ext']
+..  versionadded:: 13.0
+    "webp" has been added to the list of default image file extensions.
 
-   :type: list
-   :Default: 'gif,jpg,jpeg,tif,tiff,bmp,pcx,tga,png,pdf,ai,svg'
+    If the underlying ImageMagick / GraphicsMagick library is not built with
+    WebP support, the server administrators can install or recompile the library
+    with WebP support by installing the "cwebp" or "dwebp" libraries.
 
-   Comma-separated list of file extensions perceived as images by TYPO3.
-   List should be set to :php:`'gif,png,jpeg,jpg'` if IM is not available.
-   Lowercase and no spaces between!
+..  confval:: $GLOBALS['TYPO3_CONF_VARS']['GFX']['imagefile_ext']
 
-.. index::
-   TYPO3_CONF_VARS GFX; gdlib
-.. _typo3ConfVars_gfx_gdlib:
+    :type: list
+    :Default: 'gif,jpg,jpeg,tif,tiff,bmp,pcx,tga,png,pdf,ai,svg,webp'
 
-gdlib
-=====
+    Comma-separated list of file extensions recognized as images by TYPO3.
+    List should be set to :php:`'gif,png,jpeg,jpg,webp'`, if ImageMagick /
+    GraphicsMagick is not available.
 
-.. confval:: $GLOBALS['TYPO3_CONF_VARS']['GFX']['gdlib']
-
-   :type: bool
-   :Default: true
-
-   Enables the use of GD.
-
-.. index::
-   TYPO3_CONF_VARS GFX; gdlib_png
-.. _typo3ConfVars_gfx_gdlib_png:
-
-gdlib_png
-=========
-
-.. confval:: $GLOBALS['TYPO3_CONF_VARS']['GFX']['gdlib_png']
-
-   :type: bool
-   :Default: false
-
-   Enables the use of GD, with PNG only. This means that all items normally
-   generated as gif-files will be png-files instead!
+    ..  caution::
+        The file extensions must be in lowercase and there must be no spaces
+        between the commas and the file extensions!
 
 .. index::
    TYPO3_CONF_VARS GFX;
@@ -211,21 +161,6 @@ processor_allowFrameSelection
    frame selection.
 
 .. index::
-   TYPO3_CONF_VARS GFX; processor_allowTemporaryMasksAsPng
-.. _typo3ConfVars_gfx_processor_allowTemporaryMasksAsPng:
-
-processor_allowTemporaryMasksAsPng
-==================================
-
-.. confval:: $GLOBALS['TYPO3_CONF_VARS']['GFX']['processor_allowTemporaryMasksAsPng']
-
-   :type: bool
-   :Default: false
-
-   This should be set if your processor supports using PNGs as masks as this
-   is usually faster.
-
-.. index::
    TYPO3_CONF_VARS GFX;
 .. _typo3ConfVars_gfx_processor_stripColorProfileByDefault:
 
@@ -248,35 +183,84 @@ processor_stripColorProfileByDefault
 processor_stripColorProfileCommand
 ==================================
 
-.. confval:: $GLOBALS['TYPO3_CONF_VARS']['GFX']['processor_stripColorProfileCommand']
+..  versionchanged:: 11.5.35/12.4.11
+    This string-based configuration option has been superseded by
+    :ref:`$GLOBALS['TYPO3_CONF_VARS']['GFX']['processor_stripColorProfileParameters'] <typo3ConfVars_gfx_processor_stripColorProfileParameters>`
+    for `security reasons <https://typo3.org/security/advisory/typo3-core-sa-2024-002>`__.
 
-   :type: text
-   :Default: \+profile \'\*\'
+..  confval:: $GLOBALS['TYPO3_CONF_VARS']['GFX']['processor_stripColorProfileCommand']
 
-   Specifies the command to strip the profile information, which can reduce
-   thumbnail size up to 60KB. Command can differ in IM/GM, IM also know the
-   -strip command. See
-   `imagemagick.org <https://legacy.imagemagick.org/Usage/thumbnails/#profiles>`__
-   for details
+    :type: string
+
+    This option expected a string of command line parameters. The defined
+    parameters had to be shell-escaped beforehand, while the new option
+    :ref:`typo3ConfVars_gfx_processor_stripColorProfileParameters` expects
+    an array of strings that will be shell-escaped by TYPO3 when used.
+
+    The existing configuration will continue to be supported. Still, it is
+    suggested to use the new configuration format, as the Install Tool is
+    adapted to allow modification of the new configuration option only:
+
+    ..  code-block:: php
+
+        // Before
+        $GLOBALS['TYPO3_CONF_VARS']['GFX']['processor_stripColorProfileCommand'] = '+profile \'*\'';
+
+        // After
+        $GLOBALS['TYPO3_CONF_VARS']['GFX']['processor_stripColorProfileParameters'] = [
+            '+profile',
+            '*'
+        ];
 
 .. index::
-   TYPO3_CONF_VARS GFX; processor_colorspace
-.. _typo3ConfVars_gfx_processor_colorspace:
+   TYPO3_CONF_VARS GFX; processor_stripColorProfileParameters
+.. _typo3ConfVars_gfx_processor_stripColorProfileParameters:
+
+processor_stripColorProfileParameters
+=====================================
+
+..  versionchanged:: 11.5.35/12.4.11
+
+.. confval:: $GLOBALS['TYPO3_CONF_VARS']['GFX']['processor_stripColorProfileParameters']
+
+   :type: array of strings
+   :Default: :php:`['+profile', '*']`
+
+   Specifies the parameters to strip the profile information, which can reduce
+   thumbnail size up to 60KB. Command can differ in IM/GM, IM also knows the
+   :bash:`-strip` command. See
+   `imagemagick.org <https://legacy.imagemagick.org/Usage/thumbnails/#profiles>`__
+   for details.
+
+
+..  index::
+    TYPO3_CONF_VARS GFX; processor_colorspace
+..  _typo3ConfVars_gfx_processor_colorspace:
 
 processor_colorspace
 ====================
 
-.. confval:: $GLOBALS['TYPO3_CONF_VARS']['GFX']['processor_colorspace']
+..  versionchanged:: 13.0
+    The setting defaults to an empty value and - if not changed - is adjusted
+    automatically to the recommended colorspace for the given processor ("sRGB"
+    for ImageMagick, "RGB" for GraphicsMagick).
 
-   :type: text
-   :Default: RGB
+..  confval:: $GLOBALS['TYPO3_CONF_VARS']['GFX']['processor_colorspace']
 
-   Specifes the colorspace to use. Some ImageMagick versions (like 6.7.0 and
-   above) use the sRGB colorspace, so all images are darker then the original.
+    :type: text
+    :Default: ''
 
-   Possible Values: CMY, CMYK, Gray, HCL, HSB, HSL, HWB, Lab, LCH, LMS, Log,
-   Luv, OHTA, Rec601Luma, Rec601YCbCr, Rec709Luma, Rec709YCbCr, RGB, sRGB,
-   Transparent, XYZ, YCbCr, YCC, YIQ, YCbCr, YUV
+    Specifies the colorspace to use. Defaults to "RGB" when using GraphicsMagick
+    as :ref:`processor <typo3ConfVars_gfx_processor>` and "sRGB" when using
+    ImageMagick.
+
+    ..  note::
+        Images would be rendered darker than the original when using ImageMagick
+        in combination with "RGB".
+
+    Possible values: CMY, CMYK, Gray, HCL, HSB, HSL, HWB, Lab, LCH, LMS, Log,
+    Luv, OHTA, Rec601Luma, Rec601YCbCr, Rec709Luma, Rec709YCbCr, RGB, sRGB,
+    Transparent, XYZ, YCbCr, YCC, YIQ, YCbCr, YUV
 
 .. index::
    TYPO3_CONF_VARS GFX; processor_interlace
@@ -296,16 +280,110 @@ processor_interlace
 
    Possible values: None, Line, Plane, Partition
 
-.. index::
-   TYPO3_CONF_VARS GFX; jpg_quality
-.. _typo3ConfVars_gfx_jpg_quality:
+..  index::
+    TYPO3_CONF_VARS GFX; jpg_quality
+..  _typo3ConfVars_gfx_jpg_quality:
 
 jpg_quality
 ===========
 
-.. confval:: $GLOBALS['TYPO3_CONF_VARS']['GFX']['jpg_quality']
+..  versionadded:: 13.0
+    Lowest quality can be "1". Previously the lowest quality setting was "10".
 
-   :type: int
-   :Default: 85
+..  confval:: $GLOBALS['TYPO3_CONF_VARS']['GFX']['jpg_quality']
 
-   Default JPEG generation quality
+    :type: int
+    :Default: 85
+    :Allowed values: Between 1 (low quality, small file size) and 100 (best quality, large file size)
+
+    Default JPEG generation quality
+
+..  index::
+    TYPO3_CONF_VARS GFX; webp_quality
+..  _typo3ConfVars_gfx_webp_quality:
+
+webp_quality
+============
+
+..  versionadded:: 13.0
+
+..  confval:: $GLOBALS['TYPO3_CONF_VARS']['GFX']['webp_quality']
+
+    :type: int | string
+    :Default: 85
+    :Allowed values: Between 1 (low quality, small file size) and 100 (best quality, large file size), or "lossless"
+
+    Default WebP generation quality. Setting the quality to "lossless"
+    is equivalent to `"lossless" compression`_.
+
+    ..  _"lossless" compression: https://developers.google.com/speed/webp/docs/compression#lossless_webp
+
+..  index::
+    TYPO3_CONF_VARS GFX; thumbnails_png
+..  _typo3ConfVars_gfx_thumbnails_png:
+
+thumbnails_png
+==============
+
+..  confval:: $GLOBALS['TYPO3_CONF_VARS']['GFX']['thumbnails_png']
+
+    ..  versionchanged:: 13.0
+        This setting has been removed. Thumbnails from non-image files (like
+        PDF) are always generated as PNG.
+
+..  index::
+    TYPO3_CONF_VARS GFX; gif_compress
+..  _typo3ConfVars_gfx_gif_compress:
+
+gif_compress
+============
+
+..  confval:: $GLOBALS['TYPO3_CONF_VARS']['GFX']['gif_compress']
+
+    ..  versionchanged:: 13.0
+        This setting has been removed.
+
+..  index::
+    TYPO3_CONF_VARS GFX; processor_allowTemporaryMasksAsPng
+..  _typo3ConfVars_gfx_processor_allowTemporaryMasksAsPng:
+
+processor_allowTemporaryMasksAsPng
+==================================
+
+..  confval:: $GLOBALS['TYPO3_CONF_VARS']['GFX']['processor_allowTemporaryMasksAsPng']
+
+    ..  versionchanged:: 13.0
+        This setting has been removed. Temporarily saved masking images are
+        always saved as PNG files rather than GIF images.
+
+.. index::
+   TYPO3_CONF_VARS GFX; gdlib
+.. _typo3ConfVars_gfx_gdlib:
+
+gdlib
+=====
+
+.. confval:: $GLOBALS['TYPO3_CONF_VARS']['GFX']['gdlib']
+
+    ..  versionchanged:: 13.0
+        This setting has been removed. GDLib functionality is enabled as soon as
+        relevant `GDLib`_ classes are found.
+
+        Custom code that relied on :php:`$GLOBALS['TYPO3_CONF_VARS']['GFX']['gdlib']`
+        should instead adopt the simpler check
+        :php:`if (class_exists(\GdImage::class))`.
+
+        ..  _GDLib: https://www.php.net/manual/en/book.image.php
+
+.. index::
+   TYPO3_CONF_VARS GFX; gdlib_png
+.. _typo3ConfVars_gfx_gdlib_png:
+
+gdlib_png
+=========
+
+..  confval:: $GLOBALS['TYPO3_CONF_VARS']['GFX']['gdlib_png']
+
+    ..  versionchanged:: 13.0
+        This setting has been removed. Temporary layers/masks are always saved
+        as PNG files instead of GIF files.

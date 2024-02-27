@@ -11,9 +11,10 @@ functionalities of the backend.
 
 **Contents:**
 
-.. toctree::
-   :titlesonly:
-   :glob:
+..  toctree::
+    :titlesonly:
+    :glob:
 
-   *
+    */Index
+    *
 

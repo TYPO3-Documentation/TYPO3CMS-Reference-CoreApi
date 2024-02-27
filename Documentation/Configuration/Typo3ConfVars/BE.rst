@@ -4,9 +4,9 @@
    TYPO3_CONF_VARS; BE
 .. _typo3ConfVars_be:
 
-====================================
+==========================
 BE - backend configuration
-====================================
+==========================
 
 The following configuration variables can be used to configure settings for
 the TYPO3 backend:
@@ -20,22 +20,8 @@ the TYPO3 backend:
 
     This variable can be set in one of the following files:
 
-    *   :ref:`typo3conf/LocalConfiguration.php <typo3ConfVars-localConfiguration>`
-    *   :ref:`typo3conf/AdditionalConfiguration.php <typo3ConfVars-additionalConfiguration>`
-
-.. index::
-   TYPO3_CONF_VARS BE; languageDebug
-.. _typo3ConfVars_be_languageDebug:
-
-languageDebug
-=============
-
-.. confval:: $GLOBALS['TYPO3_CONF_VARS']['BE']['languageDebug']
-
-   :type: bool
-   :Default: false
-
-   If enabled, language labels will be shown with additional debug information.
+    *   :ref:`config/system/settings.php <typo3ConfVars-settings>`
+    *   :ref:`config/system/additional.php <typo3ConfVars-additional>`
 
 
 .. index::
@@ -56,20 +42,46 @@ fileadminDir
    :php:`\TYPO3\CMS\Core\Resource\ResourceFactory::getDefaultStorage().`
 
 
-.. index::
-   TYPO3_CONF_VARS BE; lockRootPath
-.. _typo3ConfVars_be_lockRootPath:
+..  index::
+    TYPO3_CONF_VARS BE; lockRootPath
+..  _typo3ConfVars_be_lockRootPath:
 
 lockRootPath
 ============
 
-.. confval:: $GLOBALS['TYPO3_CONF_VARS']['BE']['lockRootPath']
+..  versionchanged:: 11.5.35/12.4.11
+    This option has been extended to support an array of root path prefixes to
+    allow for multiple storages to be listed (a string was expected before).
 
-   :type: text
-   :Default: ''
+    It is suggested to use the new array-based syntax, which will be applied
+    automatically once this setting is updated via Install Tool configuration
+    wizard. Migration:
 
-   This path is used to evaluate if paths outside of the public web path should be
-   allowed. Ending slash required!
+    ..  code-block:: php
+        :caption: config/system/settings.php
+
+        // Before
+        $GLOBALS['TYPO3_CONF_VARS']['BE']['lockRootPath'] = '/var/extra-storage';
+
+        // After
+        $GLOBALS['TYPO3_CONF_VARS']['BE']['lockRootPath'] =  [
+            '/var/extra-storage1/',
+            '/var/extra-storage2/',
+        ];
+
+    See also the `security bulletin "Path Traversal in TYPO3 File Abstraction Layer Storages" <https://typo3.org/security/advisory/typo3-core-sa-2024-001>`__.
+
+..  confval:: $GLOBALS['TYPO3_CONF_VARS']['BE']['lockRootPath']
+
+    :type: array of file paths
+    :Default: :php:`[]`
+
+    These absolute paths are used to evaluate, if paths outside of the project
+    path should be allowed. This restriction also applies for the local driver
+    of the :ref:`File Abstraction Layer <fal>`.
+
+    ..  attention::
+        Trailing slashes are enforced automatically.
 
 
 .. index::
@@ -141,6 +153,10 @@ warning_email_addr
    whenever more than 3 failed backend login attempts (regardless of user)
    are detected within an hour.
 
+   Have also a look into the :ref:`security guidelines
+   <security-global-typo3-options-warning-email-addr>`.
+
+
 .. index::
    TYPO3_CONF_VARS BE; warning_mode
 .. _typo3ConfVars_be_warning_mode:
@@ -161,6 +177,10 @@ warning_mode
          Send a notification-email every time an **admin** backend user logs in
 
    Send emails to :php:`warning_email_addr`  upon backend-login
+
+   Have also a look into the :ref:`security guidelines
+   <security-global-typo3-options-warning-mode>`.
+
 
 .. index::
    TYPO3_CONF_VARS BE; passwordReset
@@ -270,7 +290,7 @@ loginRateLimitInterval
    Allowed time interval for the configured rate limit. Individual values
    using
    `PHP relative formats <https://www.php.net/manual/de/datetime.formats.relative.php>`__
-   can be set in :file:`AdditionalConfiguration.php`.
+   can be set in :file:`config/system/additional.php`.
 
 
 .. index::
@@ -314,6 +334,10 @@ lockIP
          Use the editors full IPv4 address (for example "192.168.13.84") as part of the session locking of Backend Users (highest security)
 
    Session IP locking for backend users. See :ref:`[FE][lockIP]<typo3ConfVars_fe_lockIP>` for details.
+
+   Have also a look into the :ref:`security guidelines
+   <security-global-typo3-options-lockIP>`.
+
 
 .. index::
    TYPO3_CONF_VARS BE; lockIPv6
@@ -382,6 +406,10 @@ IPmaskList
    See syntax for that (or look up syntax for the function
    :php:`\TYPO3\CMS\Core\Utility\GeneralUtility::cmpIP())`
 
+   Have also a look into the :ref:`security guidelines
+   <security-global-typo3-options-IPmaskList>`.
+
+
 .. index::
    TYPO3_CONF_VARS BE; lockSSL
 .. _typo3ConfVars_be_lockSSL:
@@ -397,6 +425,10 @@ lockSSL
    If set, the backend can only be operated from an SSL-encrypted
    connection (https). A redirect to the SSL version of a URL will happen
    when a user tries to access non-https admin-urls
+
+   Have also a look into the :ref:`security guidelines
+   <security-global-typo3-options-lockSSL>`.
+
 
 .. index::
    TYPO3_CONF_VARS BE; lockSSLPort
@@ -469,20 +501,6 @@ cookieSameSite
 
    Indicates that the cookie should send proper information where the cookie
    can be shared (first-party cookies vs. third-party cookies) in TYPO3 Backend.
-
-.. index::
-   TYPO3_CONF_VARS BE; loginSecurityLevel
-.. _typo3ConfVars_be_loginSecurityLevel:
-
-Removed: loginSecurityLevel
-===========================
-
-.. deprecated:: 11.3
-   This option was removed with version 11.3. The only possible
-   value has been 'normal'. This behaviour stays unchanged.  When this option
-   has been set in your :file:`LocalConfiguration.php`
-   or :file:`AdditionalConfiguration.php` files, they are automatically
-   removed when accessing the admin tool or system maintenance area.
 
 .. index::
    TYPO3_CONF_VARS BE; showRefreshLoginPopup
@@ -586,13 +604,10 @@ installToolPassword
 checkStoredRecords
 ==================
 
-.. confval:: $GLOBALS['TYPO3_CONF_VARS']['BE']['checkStoredRecords']
-
-   :type: bool
-   :Default: true
-
-   If set, values of the record are validated after saving in DataHandler.
-   Disable only if using a database in strict mode.
+..  versionchanged:: 13.0
+    This setting is obsolete. Instances setting this option in
+    :file:`settings.php` are updated silently by the install tool during the
+    upgrade process to TYPO3 v13.
 
 .. index::
    TYPO3_CONF_VARS BE; checkStoredRecordsLoose
@@ -601,14 +616,10 @@ checkStoredRecords
 checkStoredRecordsLoose
 =======================
 
-.. confval:: $GLOBALS['TYPO3_CONF_VARS']['BE']['checkStoredRecordsLoose']
-
-   :type: bool
-   :Default: true
-
-   If set, make a loose comparison ( equals 0) when validating record
-   values after saving in DataHandler.
-
+..  versionchanged:: 13.0
+    This setting is obsolete. Instances setting this option in
+    :file:`settings.php` are updated silently by the install tool during the
+    upgrade process to TYPO3 v13.
 
 
 .. index::
@@ -617,6 +628,11 @@ checkStoredRecordsLoose
 
 defaultUserTSconfig
 ===================
+
+..  deprecated:: 13.0
+    This setting will be ignored with TYPO3 v14.0. Use
+    :ref:`Configuration/user.tsconfig <extension-configuration-user_tsconfig>`
+    instead.
 
 .. confval:: $GLOBALS['TYPO3_CONF_VARS']['BE']['defaultUserTSconfig']
 
@@ -647,6 +663,10 @@ defaultUserTSconfig
 
 defaultPageTSconfig
 ===================
+
+..  deprecated:: 13.0
+    This setting will be ignored with TYPO3 v14.0.
+    Use :ref:`Configuration/page.tsconfig <extension-configuration-page_tsconfig>` instead.
 
 .. confval:: $GLOBALS['TYPO3_CONF_VARS']['BE']['defaultPageTSconfig']
 
@@ -696,7 +716,7 @@ defaultPermissions
    Example (which reflects the default permissions):
 
    .. code-block:: php
-      :caption: typo3conf/AdditionalConfiguration.php
+      :caption: config/system/additional.php | typo3conf/system/additional.php
 
       $GLOBALS['TYPO3_CONF_VARS']['BE']['defaultPermissions'] = [
          'user' => 'show,edit,delete,new,editcontent',
@@ -708,7 +728,7 @@ defaultPermissions
    you only need to modify the key you wish to change:
 
    .. code-block:: php
-      :caption: typo3conf/AdditionalConfiguration.php
+      :caption: config/system/additional.php | typo3conf/system/additional.php
 
       $GLOBALS['TYPO3_CONF_VARS']['BE']['defaultPermissions'] = [
          'everybody' => 'show',
@@ -736,7 +756,7 @@ defaultUC
    Example (which reflects the default user settings):
 
    .. code-block:: php
-      :caption: typo3conf/AdditionalConfiguration.php
+      :caption: config/system/additional.php | typo3conf/system/additional.php
 
       $GLOBALS['TYPO3_CONF_VARS']['BE']['defaultUC'] = [
          'emailMeAtLogin' => 0,
@@ -765,7 +785,7 @@ customPermOptions
 
 
    .. code-block:: php
-      :caption: typo3conf/AdditionalConfiguration.php
+      :caption: config/system/additional.php | typo3conf/system/additional.php
 
       'key' => array(
          'header' => 'header string, language split',
@@ -798,7 +818,12 @@ fileDenyPattern
    handler in an arbitrary position. Also, ".htaccess" files have to be denied.
    Matching is done case-insensitive.
 
-   Default value is stored in PHP constant :php:`FILE_DENY_PATTERN_DEFAULT`
+   Default value is stored in class constant
+   :php:`\TYPO3\CMS\Core\Resource\Security\FileNameValidator::FILE_DENY_PATTERN_DEFAULT`.
+
+   Have also a look into the :ref:`security guidelines
+   <security-global-typo3-options-fileDenyPattern>`.
+
 
 .. index::
    TYPO3_CONF_VARS BE; interfaces
@@ -832,14 +857,8 @@ explicitADmode
 flexformForceCDATA
 ==================
 
-.. confval:: flexformForceCDATA']
-
-   :type: bool
-   :Default: 0
-
-   If set, will add CDATA to Flexform XML. Some versions of libxml have a bug
-   that causes HTML entities to be stripped from any XML content and this
-   setting will avoid the bug by adding CDATA.
+.. versionchanged:: 13.0
+   This option was removed with TYPO3 v13.0.
 
 .. index::
    TYPO3_CONF_VARS BE; versionNumberInFilename
@@ -916,18 +935,35 @@ HTTP
 
 .. confval:: $GLOBALS['TYPO3_CONF_VARS']['BE']['HTTP']
 
-   :type: array
-   :Default:
-      .. code-block:: php
+    :type: array
 
-         [
+    Set HTTP headers to be sent with each backend request. Other keys than
+    :php:`['Response']['Headers']` are ignored.
+
+    The default configuration:
+
+    ..  code-block:: php
+
+        [
             'Response' => [
-               'Headers' => ['clickJackingProtection' => 'X-Frame-Options: SAMEORIGIN']
-            ]
-         ]
+                'Headers' => [
+                    'clickJackingProtection' => 'X-Frame-Options: SAMEORIGIN',
+                    'strictTransportSecurity' => 'Strict-Transport-Security: max-age=31536000',
+                    'avoidMimeTypeSniffing' => 'X-Content-Type-Options: nosniff',
+                    'referrerPolicy' => 'Referrer-Policy: strict-origin-when-cross-origin',
+                ],
+            ],
+        ]
 
-   Set HTTP headers to be sent with each backend request. Other keys than
-   :php:`['Response']['Headers']` are ignored.
+    ..  versionchanged:: 12.3
+        The options :php:`strictTransportSecurity`, :php:`avoidMimeTypeSniffing`
+        and :php:`referrerPolicy` were added.
+
+    ..  note::
+        The `Strict-Transport-Security` is only active, if the option
+        :ref:`$GLOBALS[TYPO3_CONF_VARS][BE][lockSSL] <typo3ConfVars_be_lockSSL>`
+        is enabled.
+
 
 .. index::
    TYPO3_CONF_VARS BE; passwordHashing className
@@ -970,3 +1006,80 @@ options
    :Default: []
 
    Special settings for specific hashes.
+
+
+..  index::
+    TYPO3_CONF_VARS BE; passwordPolicy
+..  _typo3ConfVars_be_passwordPolicy:
+
+passwordPolicy
+==============
+
+..  versionadded:: 12.0
+
+..  confval:: $GLOBALS['TYPO3_CONF_VARS']['BE']['passwordPolicy']
+
+    :type: string
+    :Default: default
+
+    Defines the :ref:`password policy <password-policies>` in backend context.
+
+
+..  index::
+    TYPO3_CONF_VARS BE; stylesheets
+..  _typo3ConfVars_be_stylesheets:
+
+stylesheets
+===========
+
+..  versionadded:: 12.3
+
+..  confval:: $GLOBALS['TYPO3_CONF_VARS']['BE']['stylesheets']
+
+    :type: string
+    :Default: default
+
+    Load additional CSS files for the TYPO3 backend interface. This setting
+    can be set per site or within an extension's :file:`ext_localconf.php`.
+
+    **Examples:**
+
+    Add a specific stylesheet:
+
+    ..  code-block:: php
+
+        $GLOBALS['TYPO3_CONF_VARS']['BE']['stylesheets']['my_extension']
+            = 'EXT:my_extension/Resources/Public/Css/myfile.css';
+
+    Add all stylesheets from a folder:
+
+    ..  code-block:: php
+
+        $GLOBALS['TYPO3_CONF_VARS']['BE']['stylesheets']['my_extension']
+            = 'EXT:my_extension/Resources/Public/Css/';
+
+
+..  index::
+    TYPO3_CONF_VARS BE; contentSecurityPolicyReportingUrl
+..  _typo3ConfVars_be_contentSecurityPolicyReportingUrl:
+
+contentSecurityPolicyReportingUrl
+=================================
+
+..  versionadded:: 12.3
+
+..  confval:: $GLOBALS['TYPO3_CONF_VARS']['BE']['contentSecurityPolicyReportingUrl']
+
+    :type: string
+    :Default: ''
+
+    Configure the reporting HTTP endpoint of
+    :ref:`Content Security Policy <content-security-policy>` violations in the
+    backend; if it is empty, the TYPO3 endpoint will be used.
+
+    Example:
+
+    ..  code-block:: php
+
+        $GLOBALS['TYPO3_CONF_VARS']['BE']['contentSecurityPolicyReportingUrl']
+            = 'https://csp-violation.example.org/';

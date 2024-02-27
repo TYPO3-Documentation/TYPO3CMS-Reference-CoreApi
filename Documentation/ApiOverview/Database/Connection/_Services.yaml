@@ -1,0 +1,18 @@
+services:
+  _defaults:
+    autowire: true
+    autoconfigure: true
+    public: false
+
+  MyVendor\MyExtension\:
+    resource: '../Classes/*'
+
+  connection.tx_myextension_domain_model_mytable:
+    class: 'TYPO3\CMS\Core\Database\Connection'
+    factory: ['@TYPO3\CMS\Core\Database\ConnectionPool', 'getConnectionForTable']
+    arguments:
+      - 'tx_myextension_domain_model_mytable'
+
+  MyVendor\MyExtension\Domain\Repository\MyTableRepository:
+    arguments:
+      - '@connection.tx_myextension_domain_model_mytable'

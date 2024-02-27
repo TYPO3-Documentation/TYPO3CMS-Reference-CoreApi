@@ -1,16 +1,21 @@
-.. include:: /Includes.rst.txt
-.. index:: Events; ModifyQueryBeforeFetchingObjectDataEvent
-.. _ModifyQueryBeforeFetchingObjectDataEvent:
+..  include:: /Includes.rst.txt
+..  index:: Events; ModifyQueryBeforeFetchingObjectDataEvent
+..  _ModifyQueryBeforeFetchingObjectDataEvent:
 
 ========================================
 ModifyQueryBeforeFetchingObjectDataEvent
 ========================================
 
-:php:`TYPO3\CMS\Extbase\Event\Persistence\ModifyQueryBeforeFetchingObjectDataEvent`
+The PSR-14 event
+:php:`\TYPO3\CMS\Extbase\Event\Persistence\ModifyQueryBeforeFetchingObjectDataEvent`
+is fired before the storage backend is asked for results from a given query.
 
-Event which is fired before the storage backend is asked for results from a given query.
+Example
+=======
+
+..  include:: /_includes/EventsContributeNote.rst.txt
 
 API
----
+===
 
-.. include:: /CodeSnippets/Events/Extbase/ModifyQueryBeforeFetchingObjectDataEvent.rst.txt
+..  include:: /CodeSnippets/Events/Extbase/ModifyQueryBeforeFetchingObjectDataEvent.rst.txt

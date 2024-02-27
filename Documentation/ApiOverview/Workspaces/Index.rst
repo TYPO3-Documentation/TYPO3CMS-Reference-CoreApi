@@ -8,7 +8,7 @@
 Versioning and Workspaces
 =========================
 
-TYPO3 CMS provides a feature called "workspaces", whereby changes
+TYPO3 provides a feature called "workspaces", whereby changes
 can be made to the content of the web site without affecting the
 currently visible (live) version. Changes can be previewed and
 go through an approval process before publishing.
@@ -29,7 +29,7 @@ The only way to do so is with a :file:`Configuration/TCA/Overrides/example_table
 
    $GLOBALS['TCA']['example_table']['ctrl']['versioningWS'] = false;
 
-See :doc:`t3sitepackage:Index` and :ref:`storing-changes-extension-overrides` .
+See :ref:`t3sitepackage:start` and :ref:`storing-changes-extension-overrides` .
 
 .. note::
 
@@ -69,7 +69,7 @@ The most basic form of a preview is when a live record is selected and
 you lookup a future version of that record belonging to the current
 workspace of the logged in backend user. This is very easy as long as
 a record is selected based on its "uid" or "pid" fields which are not
-subject to versioning; You simply call :code:`sys_page->versionOL()` after
+subject to versioning: call :code:`sys_page->versionOL()` after
 record selection.
 
 However, when other fields are involved in the where clause it gets
@@ -254,13 +254,15 @@ Workspace-related API for backend modules
    .. code-block:: php
       :caption: EXT:some_extension/Classes/SomeClass.php
 
-      // use \TYPO3\CMS\Backend\Utility\BackendUtility
+      // use TYPO3\CMS\Backend\Utility\BackendUtility
+      // use TYPO3\CMS\Core\Database\Connection;
+
       $result = $queryBuilder
          ->select('*')
          ->from('pages')
          ->where(
             $queryBuilder->expr()->eq('uid',
-               $queryBuilder->createNamedParameter($id, \PDO::PARAM_INT)
+               $queryBuilder->createNamedParameter($id, Connection::PARAM_INT)
             )
          )
          ->executeQuery();
@@ -296,39 +298,8 @@ Workspace-related API for backend modules
 :php:`BackendUtility::getLiveVersionOfRecord()`
    Returns live version of workspace version.
 
-
-:php:`BackendWorkspaceRestriction`
-   Adds a WHERE-clause to the QueryBuilder which will deselect placeholder
-   records from other workspaces. This should be implemented almost everywhere
-   records are selected in the backend based on other fields than uid and where
-   a :code:`DeletedRestriction` is used.
-
-   **Example:**
-
-   .. code-block:: php
-      :caption: EXT:some_extension/Classes/SomeClass.php
-
-      // use TYPO3\CMS\Core\Database\Query\Restriction\BackendWorkspaceRestriction;
-      // use TYPO3\CMS\Core\Database\Query\Restriction\DeletedRestriction;
-
-      $queryBuilder = GeneralUtility::makeInstance(ConnectionPool::class)
-          ->getQueryBuilderForTable('pages');
-      $queryBuilder->getRestrictions()
-          ->removeAll()
-          ->add(GeneralUtility::makeInstance(DeletedRestriction::class))
-          ->add(GeneralUtility::makeInstance(BackendWorkspaceRestriction::class));
-
-:php:`FrontendWorkspaceRestriction`
-   Restriction for filtering records for fronted workspaces preview:
-
-   .. code-block:: php
-
-      // use TYPO3\CMS\Core\Database\Query\Restriction\FrontendWorkspaceRestriction;
-
-
 :php:`WorkspaceRestriction`
-   This `WorkspaceRestriction` has been added to overcome certain downsides of the `BackendWorkspaceRestriction`
-   and `FrontendWorkspaceRestriction`. It limits a SQL query to only select records which are "online" (pid != -1)
+   It limits an SQL query to only select records which are "online" (pid != -1)
    and in live or current workspace:
 
    .. code-block:: php
@@ -362,18 +333,31 @@ Workspace-related API for backend modules
 Backend module access
 =====================
 
-You can restrict access to backend modules by using
-:code:`$MCONF['workspaces']` in the :file:`conf.php` files. The variable is a list of
-keywords defining where the module is available:
+..  versionchanged:: 12.0
+    If you are using an older version of TYPO3, please use the version switcher
+    on the top left of this document to go to the respective version.
 
-.. code-block:: php
-   :caption: conf.php
+You can restrict access to backend modules by setting the value of the
+:php:`workspaces` key in the
+:ref:`backend module configuration <backend-modules-configuration>`:
 
-   $MCONF['workspaces'] = online,offline,custom
+..  code-block:: php
+    :caption: EXT:my_extension/Configuration/Backend/Modules.php
 
-You can also restrict function menu items to certain workspaces if you
-like. This is done by an argument sent to the function
-:code:`\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::insertModuleFunction()`. See that file for more details.
+    return [
+        'web_examples' => [
+            'parent' => 'web',
+            // Only available in live workspace
+            'workspaces' => 'live',
+            // ... other configuration
+        ],
+    ];
+
+The value can be one of:
+
+*   :php:`*` (always)
+*   :php:`live`
+*   :php:`offline`
 
 
 .. _workspaces-detection:
@@ -423,9 +407,9 @@ will take over the pid / "sortby" value upon publishing.
 Preview of move operations is almost fully functional through the
 :code:`\TYPO3\CMS\Core\Domain\Repository\PageRepository::versionOL()` and
 :code:`\TYPO3\CMS\Backend\Utility\BackendUtility::workspaceOL()` functions.
-When the online placeholder is selected it simply looks up the source
+When the online placeholder is selected it looks up the source
 record, overlays any version on top and displays it. When the source
-record is selected it should simply be discarded in case shown in
+record is selected it should be discarded in case shown in
 context where ordering or position matters (like in menus or column
 based page content). This is done in the appropriate places.
 

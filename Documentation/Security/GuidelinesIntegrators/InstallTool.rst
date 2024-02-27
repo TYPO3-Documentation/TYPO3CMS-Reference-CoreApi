@@ -24,11 +24,31 @@ passwords.
 The Install Tool can be found as a stand alone application via :samp:`https://example.org/typo3/install.php`.
 It also integrates with the backend, but is only available for logged in users with administrator privileges.
 
-The :file:`ENABLE_INSTALL_TOOL` file can be created by putting an empty
-file into the :ref:`config directory<Environment-config-path>`. You usually
-need write access to this directory on a server level (for example via SSH, SFTP, etc.)
-or you can create this file as a backend user with administrator
-privileges.
+The :file:`ENABLE_INSTALL_TOOL` file can be created by placing an empty
+file in one of the following file paths:
+
+..  versionchanged:: 12.2
+
+..  tabs::
+
+    ..  group-tab:: Composer-based installation
+
+        *   :file:`var/transient/ENABLE_INSTALL_TOOL`
+        *   :file:`config/ENABLE_INSTALL_TOOL`
+
+    ..  group-tab:: Legacy installation
+
+        *   :file:`typo3temp/var/transient/ENABLE_INSTALL_TOOL`
+        *   :file:`typo3conf/ENABLE_INSTALL_TOOL`
+
+You usually need write access to this directory on a server level (for example,
+via SSH, SFTP, etc.) or you can create this file as a backend user with
+administrator privileges.
+
+..  tip::
+    Add the :file:`ENABLE_INSTALL_TOOL` file to your project's :php:`.gitignore`
+    file to avoid accidentally committing and deploying it to production
+    environments.
 
 .. include:: /Images/AutomaticScreenshots/AdminTools/EnableInstallTool.rst.txt
 
@@ -42,10 +62,10 @@ not recommended.
 
 The password for accessing the Install Tool is stored using the
 :ref:`configured password hash mechanism <password-hashing>` set for the backend
-in the global configuration file :file:`typo3conf/LocalConfiguration.php`:
+in the global configuration file :file:`config/system/settings.php`:
 
 .. code-block:: php
-   :caption: typo3conf/LocalConfiguration.php
+   :caption: config/system/settings.php
 
    <?php
    return [
@@ -55,7 +75,7 @@ in the global configuration file :file:`typo3conf/LocalConfiguration.php`:
        ],
    ];
 
-Since TYPO3 version 6.2, the Install Tool password is set during the
+The Install Tool password is set during the
 installation process. This means, in the case that a system administrator
 hands over the TYPO3 instance to you, it should also provide you
 with the appropriate password.
@@ -66,16 +86,16 @@ Log-in to the Install Tool and change it there.
 
 .. include:: /Images/AutomaticScreenshots/AdminTools/ChangeInstallToolPassword.rst.txt
 
-Since TYPO3 v9, the role of system maintainer has been introduced. It allows for selected
-BE users to access the Install Tool components from within the backend without further
+The role of system maintainer allows for selected
+backend users to access the :guilabel:`Admin Tools` components from within the backend without further
 security measures.
 The number of system maintainers should be as small as possible to mitigate the risks of corrupted accounts.
 
 The role can be provided in the Settings Section of the Install Tool -> Manage System Maintainers. It is also
-possible to manually modify the list by adding or removing the be_users.uid of the user in :file:`LocalConfiguration.php`:
+possible to manually modify the list by adding or removing the be_users.uid of the user in :file:`config/system/settings.php`:
 
 .. code-block:: php
-   :caption: typo3conf/LocalConfiguration.php
+   :caption: config/system/settings.php
 
    <?php
    return [
@@ -98,8 +118,8 @@ definitely discuss your intention with the team.
 TYPO3 Core updates
 ==================
 
-Since TYPO3 CMS 6.2, the Install Tool allows integrators to update the
-TYPO3 Core with a click of a button. This feature can be found under
+In legacy installations the Install Tool allows integrators to update the
+TYPO3 Core with a click on a button. This feature can be found under
 "Important actions" and it checks/installs revision updates only (e.g.
 bug fixes and security updates).
 
@@ -130,5 +150,22 @@ information, cache content, etc. and you should clear all caches after
 you changed this value in order to force the rebuild of this data with
 the new encryption key.
 
-Keep in mind that this string is security-related and you should keep
-it in a safe place.
+..  attention::
+    Keep in mind that this string is security-related and you should keep
+    it in a safe place.
+
+The encryption key should be a random hexadecimal key of length 96. You can 
+for example create it with OpenSSL:
+
+..  code-block:: bash
+
+    openssl rand -hex 48 
+    
+From within TYPO3 it is possible to generate it via API:
+
+
+..  code-block:: php
+
+    use  \TYPO3\CMS\Core\Crypto\Random;
+    
+    $this->random->generateRandomHexString(96);

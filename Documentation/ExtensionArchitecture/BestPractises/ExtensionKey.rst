@@ -82,7 +82,7 @@ TYPO3 Extension API is designed to make sharing of your work easy as
 well as using others' work easy. Remember TYPO3 is Open Source Software
 and we rely on each other in the community to develop it further.
 
-.. important::
+.. attention::
    It's also your responsibility to make sure that
    all content of your extensions is legally covered by GPL. The
    webmaster of TYPO3.org reserves the right to kick out any extension

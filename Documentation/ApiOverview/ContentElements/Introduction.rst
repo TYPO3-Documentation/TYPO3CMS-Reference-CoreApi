@@ -55,10 +55,9 @@ plugins are:
   dynamically displayed via the plugin - often in a list view, a single view,
   optionally with pagination and search functionality. An extension may provide
   several plugins, each with a dedicated function, such as the list view.
-* Plugins are ofen used if more complex functionality is required (than in non-
+* Plugins are often used if more complex functionality is required (than in non-
   plugin content elements)
-* Plugins can be created using the Extbase framework or as pibase (AbstractPlugin)
-  plugin.
+* Plugins can be created using the Extbase framework or by Core functionality.
 * ``tt_content.CType`` = ``list`` and ``tt_content.list_type`` contains the
   :ref:`plugin signature <naming-conventions-plugin-signature>`.
 
@@ -87,7 +86,7 @@ Indexed search plugin type, provided by the TYPO3 core.
 Editing
 =======
 
-The :doc:`Editors Tutorial <t3editors:Index>` describes how to work with
+The :ref:`Editors Tutorial <t3editors:start>` describes how to work with
 :ref:`page content <t3editors:content-working>` and
 lists the :ref:`basic TYPO3 content elements <t3editors:content-types>`
 and how to work with them.

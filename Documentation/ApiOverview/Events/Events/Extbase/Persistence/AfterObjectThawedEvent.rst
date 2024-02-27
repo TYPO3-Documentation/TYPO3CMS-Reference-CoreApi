@@ -1,16 +1,22 @@
-.. include:: /Includes.rst.txt
-.. index:: Events; AfterObjectThawedEvent
-.. _AfterObjectThawedEvent:
+..  include:: /Includes.rst.txt
+..  index:: Events; AfterObjectThawedEvent
+..  _AfterObjectThawedEvent:
 
 ======================
 AfterObjectThawedEvent
 ======================
 
-:php:`TYPO3\CMS\Extbase\Event\Persistence\AfterObjectThawedEvent`
+The PSR-14 event
+:php:`\TYPO3\CMS\Extbase\Event\Persistence\AfterObjectThawedEvent`
+allows to modify values when
+:ref:`creating domain objects <extbase-model-hydrating>`.
 
-Allows to modify values when creating domain objects.
+Example
+=======
+
+..  include:: /_includes/EventsContributeNote.rst.txt
 
 API
----
+===
 
-.. include:: /CodeSnippets/Events/Extbase/AfterObjectThawedEvent.rst.txt
+..  include:: /CodeSnippets/Events/Extbase/AfterObjectThawedEvent.rst.txt

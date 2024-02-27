@@ -1,14 +1,22 @@
-.. include:: /Includes.rst.txt
-.. index:: Events; AlterTableDefinitionStatementsEvent
-.. _AlterTableDefinitionStatementsEvent:
+..  include:: /Includes.rst.txt
+..  index:: Events; AlterTableDefinitionStatementsEvent
+..  _AlterTableDefinitionStatementsEvent:
 
 ===================================
 AlterTableDefinitionStatementsEvent
 ===================================
 
-Event to intercept the "CREATE TABLE" statement from all loaded extensions.
+The PSR-14 event
+:php:`\TYPO3\CMS\Core\Database\Event\AlterTableDefinitionStatementsEvent`
+allows to intercept the :sql:`CREATE TABLE` statement from all loaded
+extensions.
+
+Example
+=======
+
+..  include:: /_includes/EventsContributeNote.rst.txt
 
 API
----
+===
 
-.. include:: /CodeSnippets/Events/Core/AlterTableDefinitionStatementsEvent.rst.txt
+..  include:: /CodeSnippets/Events/Core/AlterTableDefinitionStatementsEvent.rst.txt

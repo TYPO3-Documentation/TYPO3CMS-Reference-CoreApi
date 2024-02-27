@@ -22,8 +22,8 @@ for more background information on those settings.
 
     This variable can be set in one of the following files:
 
-    *   :ref:`typo3conf/LocalConfiguration.php <typo3ConfVars-localConfiguration>`
-    *   :ref:`typo3conf/AdditionalConfiguration.php <typo3ConfVars-additionalConfiguration>`
+    *   :ref:`config/system/settings.php <typo3ConfVars-settings>`
+    *   :ref:`config/system/additional.php <typo3ConfVars-additional>`
 
 
 .. index::
@@ -90,7 +90,7 @@ cert
 
    Set to a string to specify the path to a file containing a
    PEM formatted client side certificate. See
-   `Guzzle option cert<http//docs.guzzlephp.org/en/latest/request-options.html#cert>`
+   `Guzzle option cert <http//docs.guzzlephp.org/en/latest/request-options.html#cert>`__
 
 .. index::
    TYPO3_CONF_VARS HTTP; connect_timeout
@@ -123,11 +123,11 @@ proxy
 
    Multiple proxies for different protocols can be added separately as an
    array as authentication and port; see
-   `Guzzle documentation <https://docs.guzzlephp.org/en/latest/request-options.html#proxy>`
+   `Guzzle documentation <https://docs.guzzlephp.org/en/latest/request-options.html#proxy>`__
    for details.
 
    The configuration with an array must be made in the
-   :file:`AdditionalConfiguration.php`; see :ref:`typo3ConfVars-additionalConfiguration`
+   :file:`config/system/additional.php`; see :ref:`typo3ConfVars-additional`
    for details.
 
 .. index::

@@ -1,16 +1,22 @@
-.. include:: /Includes.rst.txt
-.. index:: Events; EntityAddedToPersistenceEvent
-.. _EntityAddedToPersistenceEvent:
+..  include:: /Includes.rst.txt
+..  index:: Events; EntityAddedToPersistenceEvent
+..  _EntityAddedToPersistenceEvent:
 
 =============================
 EntityAddedToPersistenceEvent
 =============================
 
-Event which is fired after an object/entity was persisted on add.
+The PSR-14 event
+:php:`\TYPO3\CMS\Extbase\Event\Persistence\EntityAddedToPersistenceEvent`
+is dispatched after persisting the object, but before updating the reference
+index and adding the object to the persistence session.
 
-The event is dispatched after persisting the object, before updating the reference index and adding the object to the persistence session.
+Example
+=======
+
+..  include:: /_includes/EventsContributeNote.rst.txt
 
 API
----
+===
 
-.. include:: /CodeSnippets/Events/Extbase/EntityAddedToPersistenceEvent.rst.txt
+..  include:: /CodeSnippets/Events/Extbase/EntityAddedToPersistenceEvent.rst.txt

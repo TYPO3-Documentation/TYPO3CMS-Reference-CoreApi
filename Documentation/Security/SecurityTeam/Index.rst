@@ -64,7 +64,7 @@ of the appropriate component of the system, after verifying the
 problem. A fix for the vulnerability will be developed, carefully
 tested and reviewed. Together with a public security bulletin, a TYPO3
 Core update will be released. Please see next chapter for further
-details about TYPO3 CMS versions and security bulletins.
+details about TYPO3 versions and security bulletins.
 
 
 Security issues in TYPO3 extensions

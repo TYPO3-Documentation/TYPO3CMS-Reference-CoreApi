@@ -23,15 +23,15 @@ FlexForms are used in the contexts:
    this sense the Data Structure is like a DTD (Document Type
    Definition) for the backend which can render a dynamic form based on
    the Data Structure.
-   
--  The configuration of plugins of many common extensions with FlexForms like 
-   `news <https://extensions.typo3.org/extension/news>`__. 
-   
+
+-  The configuration of plugins of many common extensions with FlexForms like
+   `news <https://extensions.typo3.org/extension/news>`__.
+
 -  FlexForms can be used for containers created by the extensions like
-   `container <https://extensions.typo3.org/extension/container>`__ or 
+   `container <https://extensions.typo3.org/extension/container>`__ or
    `gridelements <https://extensions.typo3.org/extension/gridelements>`__
 
--  `dce <https://extensions.typo3.org/extension/dce>`__ an an extension to 
+-  `dce <https://extensions.typo3.org/extension/dce>`__ an an extension to
    create content elements based on FlexForms.
 
 This documentation of a data structure will document the general
@@ -51,8 +51,8 @@ Some other facts about Data Structures (DS):
   sheets will depend on the application. Basically sheets are like a
   one-dimensional internal categorization of Data Structures.
 
-- Parsing a Data Structure into a PHP array is incredibly easy - just
-  pass it to :php:`GeneralUtility::xml2array()` (see the :ref:`t3ds-parsing` section).
+- Parsing a Data Structure into a PHP array can be achieved by passing it to
+  :php:`GeneralUtility::xml2array()` (see the :ref:`t3ds-parsing` section).
 
 - "DS" is sometimes used as short for Data Structure
 

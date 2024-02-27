@@ -42,11 +42,11 @@ locallang.xlf
 This file commonly contains translated labels to be used in the frontend.
 
 In the templates of Extbase plugins all labels in the file
-:file:`EXT:my_extension/Configuration/Resources/Private/locallang.xlf` can
+:file:`EXT:my_extension/Resources/Private/Language/locallang.xlf` can
 be accessed without using the complete path:
 
 ..  code-block:: html
-    :caption: EXT:my_extension/Configuration/Resources/Templates/MyTemplate.html
+    :caption: EXT:my_extension/Resources/Private/Templates/MyTemplate.html
 
     <f:translate key="key1" extensionName="MyExtension"/>
 
@@ -54,7 +54,7 @@ From other template contexts the labels can be used by using the complete
 :html:`LLL:EXT` path:
 
 ..  code-block:: html
-    :caption: EXT:my_extension/Configuration/Resources/Templates/MyTemplate.html
+    :caption: EXT:my_extension/Resources/Private/Templates/MyTemplate.html
 
     <f:translate key="LLL:EXT:my_extension/Resources/Private/Language/locallang.xlf:key1" />
 
@@ -68,8 +68,8 @@ the complete path.
 locallang_db.xlf
 ================
 
-By convention the file
-:file:`EXT:my_extension/Configuration/Resources/Private/locallang_db.xlf` should contain
+By convention, the file
+:file:`EXT:my_extension/Resources/Private/Language/locallang_db.xlf` should contain
 all localized labels used for the TCA labels, descriptions etc.
 
 These labels need to be always accessed by their complete path in the TCA

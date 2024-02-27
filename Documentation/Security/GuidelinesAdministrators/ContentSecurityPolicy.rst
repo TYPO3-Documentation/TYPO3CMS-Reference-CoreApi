@@ -1,15 +1,20 @@
-.. include:: /Includes.rst.txt
-.. index::
-   Security guidelines; Content security policy
-   Content security policy
-   Cross-site scripting; Content security policy
-   see: CSP; Content security policy
-   CSP
-.. _security-content-security-policy:
+..  include:: /Includes.rst.txt
+..  index::
+    Security guidelines; Content security policy
+    Content security policy
+    Cross-site scripting; Content security policy
+    see: CSP; Content security policy
+    CSP
+..  _security-content-security-policy:
 
 =======================
 Content security policy
 =======================
+
+..  versionadded:: 12.3
+    Content Security Policy declarations can be applied to a TYPO3 website in
+    frontend and backend scope with a dedicated API.
+    See :ref:`content-security-policy`.
 
 Content security policy (CSP_) is an added layer of security that helps
 to detect and mitigate certain types of attacks, including cross-site
@@ -31,27 +36,27 @@ file storages (`sys_file_storage`).
 The following example sends a corresponding CSP_ header for any file
 accessed via :samp:`https://example.org/fileadmin/...`:
 
-.. code-block:: apacheconf
+..  code-block:: apacheconf
 
-   # placed in fileadmin/.htaccess on Apache 2.x webserver
-   <IfModule mod_headers.c>
-     Header set Content-Security-Policy "default-src 'self'; script-src 'none'; style-src 'none'; object-src 'none';"
-   </IfModule>
+    # placed in fileadmin/.htaccess on Apache 2.x webserver
+    <IfModule mod_headers.c>
+        Header set Content-Security-Policy "default-src 'self'; script-src 'none'; style-src 'none'; object-src 'none';"
+    </IfModule>
 
 For nginx webservers, the following configuration example can be used to send
 a CSP_ header for any file accessed via :samp:`https://example.org/fileadmin/...`:
 
-.. code-block:: nginx
+..   code-block:: nginx
 
-   map $request_uri $csp_header {
-      ~^/fileadmin/ "default-src 'self'; script-src 'none'; style-src 'none'; object-src 'none';";
-   }
+    map $request_uri $csp_header {
+        ~^/fileadmin/ "default-src 'self'; script-src 'none'; style-src 'none'; object-src 'none';";
+    }
 
-   server {
+    server {
         # Add strict CSP header depending on mapping (fileadmin only)
         add_header Content-Security-Policy $csp_header;
         # ... other add_header declarations can follow here
-   }
+    }
 
 The nginx example configuration uses a map, since top level `add_header`
 declarations will be overwritten if `add_header` is used in sublevels
@@ -59,6 +64,6 @@ declarations will be overwritten if `add_header` is used in sublevels
 
 CSP rules can be verified with a CSP-Evaluator_
 
-.. _CSP: https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP
-.. _TYPO3-PSA-2019-010: https://typo3.org/security/advisory/typo3-psa-2019-010
-.. _CSP-Evaluator: https://csp-evaluator.withgoogle.com/
+..  _CSP: https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP
+..  _TYPO3-PSA-2019-010: https://typo3.org/security/advisory/typo3-psa-2019-010
+..  _CSP-Evaluator: https://csp-evaluator.withgoogle.com/

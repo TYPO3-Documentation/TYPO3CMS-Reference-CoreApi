@@ -25,7 +25,7 @@ You can also use this extension to manage your collection of delicious teas.
 Blog example
 ------------
 
-The extension :t3ext:`blog_extensions` contains working examples of all the features documented in the :ref:`Extbase Reference <extbase_reference>` manual.
+The extension :t3ext:`blog_example` contains working examples of all the features documented in the :ref:`Extbase Reference <extbase_reference>` manual.
 
 This extension should not be used as a base for building your own extension or used to blog in a live environment.
 

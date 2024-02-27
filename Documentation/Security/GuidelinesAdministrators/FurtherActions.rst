@@ -55,10 +55,10 @@ handled by external tools, such as `fail2ban <https://www.fail2ban.org>`_.
 Example logging configuration:
 
 .. code-block:: php
-  :caption: typo3conf/AdditionalConfiguration.php
+  :caption: config/system/additional.php | typo3conf/system/additional.php
 
    $GLOBALS['TYPO3_CONF_VARS']['LOG']['TYPO3']['CMS']['Core']['Authentication']['writerConfiguration'] = [
-       \TYPO3\CMS\Core\Log\LogLevel::INFO => [
+       \Psr\Log\LogLevel::INFO => [
            \TYPO3\CMS\Core\Log\Writer\FileWriter::class => [
                'logFile' => \TYPO3\CMS\Core\Core\Environment::getVarPath() . '/log/typo3_auth.log',
            ]

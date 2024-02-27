@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<!-- EXT:examples/Resources/Private/Language/locallang.xlf -->
+<xliff version="1.0">
+    <file source-language="en" datatype="plaintext" original="messages" date="2013-03-09T18:44:59Z" product-name="examples">
+        <header />
+        <body>
+            <trans-unit id="new_relation" xml:space="preserve">
+                <source>Content element "%1$s" (uid: %2$d) has the following relations:</source>
+            </trans-unit>
+        </body>
+    </file>
+</xliff>

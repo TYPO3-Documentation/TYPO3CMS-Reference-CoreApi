@@ -25,7 +25,7 @@ The result::
 
    <h1>An example title</h1>
 
-In the template's HTML code, simply wrap the variable name into curly
+In the template's HTML code, wrap the variable name into curly
 braces to output it:
 
 .. _fluid-arrays:
@@ -82,7 +82,7 @@ functionality such as loops or generating links.
 The functionality of the ViewHelper is implemented in PHP, every ViewHelper has
 its own PHP class.
 
-See the :doc:`Fluid Viewhelper Reference <t3viewhelper:Index>` for a complete
+See the :ref:`Fluid Viewhelper Reference <t3viewhelper:start>` for a complete
 list of all available ViewHelpers.
 
 Within Fluid, the ViewHelper is used as a special HTML element with a namespace
@@ -153,12 +153,9 @@ There are 3 ways to import ViewHelper namespaces in TYPO3. In all three examples
    Namespaces are registered within
    :php:`$GLOBALS['TYPO3_CONF_VARS']['SYS']['fluid']['namespaces']`, for example:
 
-   .. code-block:: php
-      :caption: EXT:blog_example/ext_localconf.php
-
-       $GLOBALS['TYPO3_CONF_VARS']['SYS']['fluid']['namespaces']['blog'] = [
-           'MyVendor\BlogExample\ViewHelpers',
-       ];
+    ..  literalinclude:: _Syntax/_ext_localconf.php
+        :language: php
+        :caption: EXT:mye_extension/ext_localconf.php
 
 
 Viewhelper attributes
@@ -241,8 +238,8 @@ Boolean conditions can be used as ViewHelper arguments, whenever the datatype
 2. The expression can be a statement consisting of: term1 operator term2, for
    example :html:`{variable} > 3`
 
-   *  The ooperator can be one of :html:`>`, :html:`>=`, :html:`<`, :html:`<=`,
-      :html:`==`, :html:`!=` or :html:`%`,
+   *  The operator can be one of :html:`>`, :html:`>=`, :html:`<`, :html:`<=`,
+      :html:`==`, :html:`===`, :html:`!=`, :html:`!==` or :html:`%`,
 
 3. The previous expressions can be combined with :html:`||` (or) or :html:`&&`
    (and).
@@ -265,7 +262,7 @@ Examples:
       </f:else>
    </f:if>
 
-   <my:custom showLabel"{myString} == 'something'">
+   <my:custom showLabel="{myString} === 'something'">
      ...
    </my:custom>
 

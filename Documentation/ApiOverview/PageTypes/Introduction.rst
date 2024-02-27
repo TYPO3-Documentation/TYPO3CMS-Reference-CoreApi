@@ -19,7 +19,7 @@ allowed on a certain page type.
 
 .. note::
    The "default" entry in the :php:`$GLOBALS['PAGES_TYPES']` array is the "base"
-   for all types, and for every type the entries simply overrides the
+   for all types, and for every type the entries overrides the
    entries in the "default" type!!
 
 This is the default array as set in :file:`EXT:core/ext_tables.php`:
@@ -74,7 +74,7 @@ Each array has the following options available:
  - :Key:
          type
    :Description:
-         Can be "sys" or "web". This is purely informative, as TYPO3 CMS does
+         Can be "sys" or "web". This is purely informative, as TYPO3 does
          nothing with that piece of data.
 
 

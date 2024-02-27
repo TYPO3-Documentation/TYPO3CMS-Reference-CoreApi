@@ -1,8 +1,8 @@
-.. include:: /Includes.rst.txt
-.. index::
-   ! YAML
-   pair: API; YAML
-.. _yaml-api:
+..  include:: /Includes.rst.txt
+..  index::
+    ! YAML
+    pair: API; YAML
+..  _yaml-api:
 
 ========
 YAML API
@@ -10,129 +10,135 @@ YAML API
 
 YAML is used in TYPO3 for various configurations; most notable are
 
-* :ref:`Event listeners <EventDispatcher>` in :file:`Configuration/Services.yaml`
-* :ref:`Dependency injection <DependencyInjection>` information in :file:`Configuration/Services.yaml`
-* :ref:`Site configuration <sitehandling>` in :file:`sites/<identifier>/config.yaml`
-* System extension :doc:`form <ext_form:Index>` configuration
-* System extension :doc:`rte_ckeditor <ext_rte_ckeditor:Index>` configuration
+*   :ref:`Event listeners <EventDispatcher>` in :file:`Configuration/Services.yaml`
+*   :ref:`Dependency injection <DependencyInjection>` information in
+    :file:`Configuration/Services.yaml`
+*   :ref:`Site configuration <sitehandling>` in :file:`sites/<identifier>/config.yaml`
+*   System extension :doc:`form <ext_form:Index>` configuration
+*   System extension :doc:`rte_ckeditor <ext_rte_ckeditor:Index>` configuration
 
 
-.. index:: YamlFileLoader
-.. _yamlFileLoader:
+..  index:: YamlFileLoader
+..  _yamlFileLoader:
 
 YamlFileLoader
 ==============
 
-TYPO3 is using a custom YAML loader for handling YAML in TYPO3 based on the Symfony YAML package. It's located at
-:php:`\TYPO3\CMS\Core\Configuration\Loader\YamlFileLoader` and can be used when YAML parsing is required.
+TYPO3 is using a custom YAML loader for handling YAML in TYPO3 based on the
+`symfony/yaml`_ package. It is located at
+:php:`\TYPO3\CMS\Core\Configuration\Loader\YamlFileLoader` and can be used when
+YAML parsing is required.
 
-The TYPO3 Core YAML resolves environment variables. Resolving of variables in the loader can be enabled or
-disabled via flags. For example, when editing the site configuration through the backend interface the resolving
-of environment variables needs to be disabled to be able to add environment configuration through
-the interface.
+..  _symfony/yaml: https://symfony.com/doc/current/components/yaml.html
 
-The format for environment variables is :yaml:`%env(ENV_NAME)%`. Environment variables may be used to replace
-complete values or parts of a value.
+The TYPO3 Core YAML file loader resolves environment variables. Resolving of
+variables in the loader can be enabled or disabled via flags. For example, when
+editing the site configuration through the backend interface the resolving of
+environment variables needs to be disabled to be able to add environment
+configuration through the interface.
 
-The YAML Loader class has two flags: :yaml:`PROCESS_PLACEHOLDERS` and :yaml:`PROCESS_IMPORTS`.
+The format for environment variables is :yaml:`%env(ENV_NAME)%`. Environment
+variables may be used to replace complete values or parts of a value.
 
-* :yaml:`PROCESS_PLACEHOLDERS` decides whether or not placeholders (`%abc%`) will be resolved.
-* :yaml:`PROCESS_IMPORTS` decides whether or not imports (`imports` key) will be resolved.
+The YAML loader class has two flags: :php:`PROCESS_PLACEHOLDERS` and
+:php:`PROCESS_IMPORTS`.
 
-Use the method :php:`YamlFileLoader::load()`
-to make use of the loader in your extensions:
+*   :php:`PROCESS_PLACEHOLDERS` decides whether or not placeholders (`%abc%`)
+    will be resolved.
+*   :php:`PROCESS_IMPORTS` decides whether or not imports (`imports` key) will
+    be resolved.
 
-.. code-block:: php
-   :caption: EXT:some_extension/Classes/SomeClass.php
+Use the method :php:`YamlFileLoader::load()` to make use of the loader in your
+extensions:
 
-   use TYPO3\CMS\Core\Configuration\Loader\YamlFileLoader;
+..  code-block:: php
+    :caption: EXT:some_extension/Classes/SomeClass.php
 
-   // ...
+    use TYPO3\CMS\Core\Configuration\Loader\YamlFileLoader;
 
-   (new YamlFileLoader())->load(string $fileName, int $flags = self::PROCESS_PLACEHOLDERS | self::PROCESS_IMPORTS)
+    // ...
 
-Configuration files can make use of import functionality to reference to the contents of different files.
+    (new YamlFileLoader())
+        ->load(string $fileName, int $flags = self::PROCESS_PLACEHOLDERS | self::PROCESS_IMPORTS)
 
-Examples:
+Configuration files can make use of import functionality to reference to the
+contents of different files.
 
-.. code-block:: yaml
+Example:
 
-   imports:
-     - { resource: "EXT:rte_ckeditor/Configuration/RTE/Processing.yaml" }
-     - { resource: "misc/my_options.yaml" }
-     - { resource: "../path/to/something/within/the/project-folder/generic.yaml" }
+..  code-block:: yaml
+
+    imports:
+        - { resource: "EXT:rte_ckeditor/Configuration/RTE/Processing.yaml" }
+        - { resource: "misc/my_options.yaml" }
+        - { resource: "../path/to/something/within/the/project-folder/generic.yaml" }
+        - { resource: "./**/*.yaml", glob: true }
+        - { resource: "EXT:core/Tests/**/Configuration/**/SiteConfigs/*.yaml", glob: true }
+
+..  versionadded:: 12.1
+    The YAML file loader supports importing of files with `glob`_ patterns.
+    To enable globbing, set the option :yaml:`glob: true` on the import level.
+
+..  _glob: https://www.php.net/manual/en/function.glob.php
+
+..  versionchanged:: 12.0
+    In TYPO3 v10.4.14 the feature flag :php:`yamlImportsFollowDeclarationOrder`
+    was introduced to enable natural order of YAML imports. For existing
+    installations it was set to :php:`false` (resources are imported in reverse
+    order), for new installations to :php:`true` (resources are imported in
+    declared order). In TYPO3 v12.0 the feature flag was removed and the
+    resources are now imported in the exact same order as they are configured in
+    the importing file.
 
 
 
-.. index:: YAML; Custom placeholder
+..  index:: YAML; Custom placeholder
 
 Custom placeholder processing
 -----------------------------
 
-It is possible to register custom placeholder processors to allow fetching data from
-different sources. To do so, register a custom processor via :file:`LocalConfiguration.php`:
+It is possible to register custom placeholder processors to allow fetching data
+from different sources. To do so, register a custom processor via
+:file:`config/system/settings.php`:
 
-.. code-block:: php
+..  code-block:: php
+    :caption: config/system/settings.php | typo3conf/system/settings.php
 
-   $GLOBALS['TYPO3_CONF_VARS']['SYS']['yamlLoader']['placeholderProcessors'][\Vendor\MyExtension\PlaceholderProcessor\CustomPlaceholderProcessor::class] = [];
+    $GLOBALS['TYPO3_CONF_VARS']['SYS']['yamlLoader']['placeholderProcessors']
+        [\Vendor\MyExtension\PlaceholderProcessor\CustomPlaceholderProcessor::class] = [];
 
-There are some options available to sort or disable placeholder processors if necessary:
+There are some options available to sort or disable placeholder processors, if
+necessary:
 
-.. code-block:: php
+..  code-block:: php
+    :caption: config/system/settings.php | typo3conf/system/settings.php
 
-   $GLOBALS['TYPO3_CONF_VARS']['SYS']['yamlLoader']['placeholderProcessors'][\Vendor\MyExtension\PlaceholderProcessor\CustomPlaceholderProcessor::class] = [
-      'before' => [
-         \TYPO3\CMS\Core\Configuration\Processor\Placeholder\ValueFromReferenceArrayProcessor::class
-      ],
-      'after' => [
-         \TYPO3\CMS\Core\Configuration\Processor\Placeholder\EnvVariableProcessor::class
-      ],
-      'disabled' => false,
-   ];
+    $GLOBALS['TYPO3_CONF_VARS']['SYS']['yamlLoader']['placeholderProcessors']
+        [\Vendor\MyExtension\PlaceholderProcessor\CustomPlaceholderProcessor::class] = [
+            'before' => [
+                \TYPO3\CMS\Core\Configuration\Processor\Placeholder\ValueFromReferenceArrayProcessor::class
+            ],
+            'after' => [
+                \TYPO3\CMS\Core\Configuration\Processor\Placeholder\EnvVariableProcessor::class
+            ],
+            'disabled' => false,
+        ];
 
-New placeholder processors must implement the :php:`\TYPO3\CMS\Core\Configuration\Processor\Placeholder\PlaceholderProcessorInterface`
+New placeholder processors must implement the
+:php:`\TYPO3\CMS\Core\Configuration\Processor\Placeholder\PlaceholderProcessorInterface`.
 An implementation may look like the following:
 
-.. code-block:: php
+..  literalinclude:: _ExamplePlaceholderProcessor.php
+    :caption: EXT:my_extension/Classes/Configuration/Processor/Placeholder/ExamplePlaceholderProcessor.php
 
-   class ExamplePlaceholderProcessor implements PlaceholderProcessorInterface
-   {
-      public function canProcess(string $placeholder, array $referenceArray): bool
-      {
-         return strpos($placeholder, '%example(') !== false;
-      }
+This may be used, for example, in the site configuration:
 
-      public function process(string $value, array $referenceArray)
-      {
-         // do some processing
-         $result = $this->getValue($value);
+..  code-block:: yaml
+    :caption: config/sites/<some_site>/config.yaml
 
-         // Throw this exception if the placeholder can't be substituted
-         if ($result === null) {
-            throw new \UnexpectedValueException('Value not found', 1581596096);
-         }
-         return $result;
-      }
+    someVariable: '%example(somevalue)%'
+    anotherVariable: 'inline::%example(anotherValue)%::placeholder'
 
-      private function getValue(string $value): ?string
-      {
-         // implement logic to fetch specific values from an external service
-         // or just add simple mapping logic - whatever is appropriate
-         $aliases = [
-            'foo' => 'F-O-O',
-            'bar' => 'ARRRRR',
-         ];
-         return $aliases[$value] ?? null;
-      }
-   }
-
-
-This may be used for example in the site configuration:
-
-.. code-block:: yaml
-
-   someVariable: '%example(somevalue)%'
-   anotherVariable: 'inline::%example(anotherValue)%::placeholder'
-
-If a new processor returns a string or number, it may also be used inline as above.
-If it returns an array, it cannot be used inline since the whole content will be replaced with the new value.
+If a new processor returns a string or number, it may also be used inline as
+above. If it returns an array, it cannot be used inline since the whole content
+will be replaced with the new value.

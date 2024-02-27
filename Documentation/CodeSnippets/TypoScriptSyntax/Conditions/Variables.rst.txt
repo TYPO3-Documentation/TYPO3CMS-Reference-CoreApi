@@ -1,9 +1,0 @@
-.. Automatic screenshot: Remove this line if you want to manually change this file
-
-.. code-block:: typoscript
-   :caption: Extension examples, file Configuration/TypoScript/Conditions/Variables/setup.typoscript
-
-   [page["backend_layout"] == 1]
-      page.42.value = Backend layout 1 choosen
-   [END]
-   

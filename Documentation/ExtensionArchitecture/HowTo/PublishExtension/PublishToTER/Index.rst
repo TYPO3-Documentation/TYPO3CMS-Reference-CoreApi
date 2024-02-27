@@ -14,8 +14,8 @@ First of all ask yourself some questions before publishing or even putting some
 effort in coding:
 
 *  What additional benefit does your extension have for the TYPO3 community?
-*  Does your extension key describe the extension? See the extension key
-   requirements.
+*  Does your extension key describe the extension? See the :ref:`extension key
+   requirements <extension-key>`.
 *  Are there any extensions in the TER yet which have the same functionalities?
 *  If yes, why do we need your one? Wouldn't it be an option to contribute to
    other extensions?
@@ -91,11 +91,3 @@ releasing an extension:
    simplify the integration into common CI / CD pipelines:
 
    GitHub: https://github.com/tomasnorre/typo3-upload-ter
-
-#. Via the SOAP interface (shut down on July 30, 2022):
-
-   Use the PHP CLI application
-   `TYPO3 Repository Client <https://github.com/NamelessCoder/typo3-repository-client>`__
-   , or the `TER Client <https://github.com/helhum/ter-client>`__ based on the
-   TYPO3 Repository Client.
-

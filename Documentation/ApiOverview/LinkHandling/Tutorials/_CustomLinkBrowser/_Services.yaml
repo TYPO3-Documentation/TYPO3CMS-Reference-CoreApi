@@ -1,0 +1,10 @@
+services:
+  _defaults:
+    autowire: true
+    autoconfigure: true
+    public: false
+
+  T3docs\Examples\LinkHandler\GitHubLinkHandler:
+    public: true
+    # The link handler keeps a state and can therefore be no singleton
+    shared: false

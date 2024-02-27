@@ -1,22 +1,21 @@
-.. include:: /Includes.rst.txt
-.. index:: Events; LogoutConfirmedEvent
-.. _LogoutConfirmedEvent:
+..  include:: /Includes.rst.txt
+..  index:: Events; LogoutConfirmedEvent
+..  _LogoutConfirmedEvent:
 
 
 ====================
 LogoutConfirmedEvent
 ====================
 
-.. versionadded:: 10.4
-   This event replaces the :php:`$GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['felogin']['logout_confirmed']`
-   hook from the pibase plugin.
+The PSR-14 event :php:`\TYPO3\CMS\FrontendLogin\Event\LogoutConfirmedEvent` is
+triggered when a logout was successful.
 
+Example
+=======
 
-The event is triggered when a logout was successful.
-
-
+..  include:: /_includes/EventsContributeNote.rst.txt
 
 API
----
+===
 
-.. include:: /CodeSnippets/Events/FrontendLogin/LogoutConfirmedEvent.rst.txt
+..  include:: /CodeSnippets/Events/FrontendLogin/LogoutConfirmedEvent.rst.txt

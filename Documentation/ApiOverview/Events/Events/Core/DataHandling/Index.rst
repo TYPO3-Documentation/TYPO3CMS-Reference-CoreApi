@@ -1,6 +1,6 @@
-.. include:: /Includes.rst.txt
-.. index:: pair: Events; Core DataHandling
-.. _eventlist-core-Datahandling:
+..  include:: /Includes.rst.txt
+..  index:: pair: Events; Core DataHandling
+..  _eventlist-core-Datahandling:
 
 
 ============
@@ -12,8 +12,8 @@ in EXT:core, namespace Database.
 
 **Contents:**
 
-.. toctree::
-   :titlesonly:
-   :glob:
+..  toctree::
+    :titlesonly:
+    :glob:
 
-   *
+    *

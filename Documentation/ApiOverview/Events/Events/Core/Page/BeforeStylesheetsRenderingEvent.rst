@@ -1,19 +1,25 @@
-.. include:: /Includes.rst.txt
-
-
-.. _BeforeStylesheetsRenderingEvent:
+..  include:: /Includes.rst.txt
+..  index:: Events; BeforeStylesheetsRenderingEvent
+..  _BeforeStylesheetsRenderingEvent:
 
 
 ===============================
 BeforeStylesheetsRenderingEvent
 ===============================
 
-.. versionadded:: 10.4
+The PSR-14 event
+:php:`\TYPO3\CMS\Core\Page\Event\BeforeStylesheetsRenderingEvent`
+is fired once before
+:php:`\TYPO3\CMS\Core\Page\AssetRenderer::render[Inline]Stylesheets`
+renders the output.
 
-This event is fired once before :php:`\TYPO3\CMS\Core\Page\AssetRenderer::render[Inline]Stylesheets` renders the output.
+Example
+=======
+
+..  include:: /_includes/EventsContributeNote.rst.txt
 
 API
 ===
 
-.. include:: /CodeSnippets/Events/Core/BeforeStylesheetsRenderingEvent.rst.txt
+..  include:: /CodeSnippets/Events/Core/BeforeStylesheetsRenderingEvent.rst.txt
 

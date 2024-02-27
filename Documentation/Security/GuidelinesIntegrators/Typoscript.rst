@@ -193,8 +193,8 @@ The following TypoScript adds the appropriate line to the HTTP header:
 Integrity of external JavaScript files
 ======================================
 
-The TypoScript property :code:`integrity` has been introduced with TYPO3 v7. This
-configuration allows integrators to specify a SRI hash in order to allow a verification
+The TypoScript property :typoscript:`integrity`
+allows integrators to specify a SRI hash in order to allow a verification
 of the integrity of externally hosted JavaScript files. SRI (Sub-Resource Integrity) is a
 `W3C specification <https://www.w3.org/TR/SRI/>`_ that allows web developers to ensure
 that resources hosted on third-party servers have not been tampered with.

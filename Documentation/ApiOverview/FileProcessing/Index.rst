@@ -33,7 +33,7 @@ To register a new processor, add the following code to :file:`ext_localconf.php`
 .. code-block:: php
 
    $GLOBALS['TYPO3_CONF_VARS']['SYS']['fal']['processors']['MyNewImageProcessor'] = [
-       'className' => \Vendor\ExtensionName\Resource\Processing\MyNewImageProcessor::class,
+       'className' => \MyVendor\ExtensionName\Resource\Processing\MyNewImageProcessor::class,
        'before' => ['LocalImageProcessor'],
    ];
 

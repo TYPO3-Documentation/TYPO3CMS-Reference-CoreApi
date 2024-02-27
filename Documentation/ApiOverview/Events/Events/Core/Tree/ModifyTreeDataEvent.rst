@@ -1,15 +1,20 @@
-.. include:: /Includes.rst.txt
-.. index:: Events; ModifyTreeDataEvent
-.. _ModifyTreeDataEvent:
-
+..  include:: /Includes.rst.txt
+..  index:: Events; ModifyTreeDataEvent
+..  _ModifyTreeDataEvent:
 
 ===================
 ModifyTreeDataEvent
 ===================
 
-Allows to modify tree data for any database tree.
+The PSR-14 event :php:`\TYPO3\CMS\Core\Tree\Event\ModifyTreeDataEvent` allows
+to modify tree data for any database tree.
+
+Example
+=======
+
+..  include:: /_includes/EventsContributeNote.rst.txt
 
 API
----
+===
 
-.. include:: /CodeSnippets/Events/Core/ModifyTreeDataEvent.rst.txt
+..  include:: /CodeSnippets/Events/Core/ModifyTreeDataEvent.rst.txt

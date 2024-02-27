@@ -9,7 +9,6 @@ Elements
 
 This is the list of elements and their nesting in the Data Structure.
 
-
 .. _t3ds-elements-array:
 
 Elements Nesting Other Elements ("Array" Elements)
@@ -20,6 +19,12 @@ contain another set of elements.
 
 (In a PHP array this corresponds to saying that all these elements
 must be arrays.)
+
+..  versionchanged:: 12.0
+    The superfluous array key `TCEforms` was removed and is not evaluated
+    anymore. Its sole purpose was to wrap real TCA definitions. The `TCEforms` tags **should**
+    be removed upon dropping TYPO3 v11 support. In TYPO3 v12 there is an automatic migration
+    that will be removed in a future version.
 
 .. t3-field-list-table::
  :header-rows: 1
@@ -79,17 +84,6 @@ must be arrays.)
 
 
  - :Element:
-         <TCEforms>
-   :Description:
-         Contains details about visual representation of sheets. If there is
-         only a single sheet, applies to implicit single sheet.
-   :Child elements:
-         <sheetTitle>
-
-         <displayCond>
-
-
- - :Element:
          <sheetTitle>
    :Description:
          Title of the sheet. Mandatory for any sheet except the first (which
@@ -132,6 +126,12 @@ must be arrays.)
    :Child elements:
          <[field name]>
 
+Elements can use the attribute :xml:`type` to define their type, for example explicitly use boolean.
+An example would look like:
+
+..  code-block:: xml
+
+    <required type="boolean">1</required>
 
 .. _t3ds-elements-value:
 
@@ -161,7 +161,7 @@ must be strings or integers.)
    :Description:
          Defines the type of object.
 
-         - "array" means that the object simply contains a collection of other
+         - "array" means that the object contains a collection of other
            objects defined inside the <el> tag on the same level. If the value is
            "array" you can use the boolean "<section>". See below.
 
@@ -182,9 +182,21 @@ must be strings or integers.)
          Defines for an object of the type <array> that it must contain other
          "array" type objects in each item of <el>. The meaning of this is application specific. For
          FlexForms it will allow the user to select between possible arrays of
-         objects to create in the form. For TemplaVoila it will select a
-         "container" element for another set of elements inside. This is quite
-         fuzzy unless you understand the contexts.
+         objects to create in the form. This is similar to the concept of
+         :ref:`IRRE / inline TCA definitions <t3tca:columns-inline>`.
+
+..  versionchanged:: 13.0
+
+    The usage of available element types within FlexForm sections is
+    restricted. You should only use simple TCA types like
+    :php:`type => 'input'` within sections, and relations (:php:`type =>
+    'group'`, :php:`type => 'inline'`, :php:`type => 'select'` and similar)
+    should be avoided.
+    TYPO3 v13 specifically disallows using :php:`type => 'select'` with
+    a :php:`foreign_table` set, which will raise an exception.
+    This does not apply for FlexForm fields outside of a :xml:`<section>`.
+    Details can be found in
+    :ref:`ext_core:breaking-102970-1706447911`.
 
 
 .. _t3ds-elements-example:
@@ -192,89 +204,14 @@ must be strings or integers.)
 Example
 =======
 
-Below is the (truncated) structure for the plugin options of
-system extension "felogin". It shows an example of relative complex
-data structure used in a FlexForm. More information about such usage
-of FlexForms can be found in the :ref:`relevant section of the TCA reference <t3tca:columns-flex>`.
+Below is the structure of a basic FlexForm from the example extension
+:t3ext:`styleguide`:
 
-.. code-block:: xml
+..  include:: /CodeSnippets/FlexForms/Simple.rst.txt
 
-   <T3DataStructure>
-      <sheets>
-         <sDEF>
-            <ROOT>
-               <TCEforms>
-                  <sheetTitle>LLL:EXT:felogin/locallang_db.xml:tt_content.pi_flexform.sheet_general</sheetTitle>
-               </TCEforms>
-               <type>array</type>
-               <el>
-                  <showForgotPassword>
-                     <TCEforms>
-                        <label>LLL:EXT:felogin/locallang_db.xml:tt_content.pi_flexform.show_forgot_password</label>
-                        <config>
-                           <type>check</type>
-                           <items type="array">
-                              <numIndex index="1" type="array">
-                                 <numIndex index="0">LLL:EXT:core/Resources/Private/Language/locallang_core.xml:labels.enabled</numIndex>
-                                 <numIndex index="1">1</numIndex>
-                              </numIndex>
-                           </items>
-                        </config>
-                     </TCEforms>
-                  </showForgotPassword>
-                  <showPermaLogin>
-                     <TCEforms>
-                        <label>LLL:EXT:felogin/locallang_db.xml:tt_content.pi_flexform.show_permalogin</label>
-                        <config>
-                           <default>1</default>
-                           <type>check</type>
-                           <items type="array">
-                              <numIndex index="1" type="array">
-                                 <numIndex index="0">LLL:EXT:core/Resources/Private/Language/locallang_core.xml:labels.enabled</numIndex>
-                                 <numIndex index="1">1</numIndex>
-                              </numIndex>
-                           </items>
-                        </config>
-                     </TCEforms>
-                  </showPermaLogin>
-                  // ...
-               </el>
-            </ROOT>
-         </sDEF>
-         <s_redirect>
-            <ROOT>
-               <TCEforms>
-                  <sheetTitle>LLL:EXT:felogin/locallang_db.xml:tt_content.pi_flexform.sheet_redirect</sheetTitle>
-               </TCEforms>
-               <type>array</type>
-               <el>
-                  <redirectMode>
-                     <TCEforms>
-                        <label>LLL:EXT:felogin/locallang_db.xml:tt_content.pi_flexform.redirectMode</label>
-                        <config>
-                           <type>select</type>
-                           <items type="array">
-                              <numIndex index="0" type="array">
-                                 <numIndex index="0">LLL:EXT:felogin/locallang_db.xml:tt_content.pi_flexform.redirectMode.I.0</numIndex>
-                                 <numIndex index="1">groupLogin</numIndex>
-                              </numIndex>
-                              <numIndex index="1" type="array">
-                                 <numIndex index="0">LLL:EXT:felogin/locallang_db.xml:tt_content.pi_flexform.redirectMode.I.1</numIndex>
-                                 <numIndex index="1">userLogin</numIndex>
-                              </numIndex>
-                              // ...
-                           </items>
-                           <size>8</size>
-                           <minitems>0</minitems>
-                           <maxitems>8</maxitems>
-                        </config>
-                     </TCEforms>
-                  </redirectMode>
-               </el>
-            </ROOT>
-         </s_redirect>
-         <s_messages>
-            // ...
-         </s_messages>
-      </sheets>
-   </T3DataStructure>
+For a more elaborate example, have a look at the plugin configuration of
+system extension `felogin` (:t3src:`felogin/Configuration/FlexForms/Login.xml`).
+It shows an example of relative complex data structure used in a FlexForm.
+
+More information about such usage of FlexForms can be found in the
+:ref:`relevant section of the TCA reference <t3tca:columns-flex>`.

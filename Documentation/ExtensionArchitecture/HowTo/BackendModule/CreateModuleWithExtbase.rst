@@ -27,20 +27,33 @@ To access these resources, inject the
 :php:`TYPO3\CMS\Backend\Template\ModuleTemplateFactory` into your backend module
 controller:
 
-.. code-block:: php
+..  code-block:: php
 
-   // use TYPO3\CMS\Backend\Template\ModuleTemplateFactory;
-   // use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
-   class MyController extends ActionController
-   {
-       protected ModuleTemplateFactory $moduleTemplateFactory;
+    use TYPO3\CMS\Backend\Attribute\AsController;
+    use TYPO3\CMS\Backend\Template\ModuleTemplateFactory;
+    use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
 
-       public function __construct(
-           ModuleTemplateFactory $moduleTemplateFactory,
-       ) {
-           $this->moduleTemplateFactory = $moduleTemplateFactory;
-       }
+    #[AsController]
+    final class MyController extends ActionController
+    {
+        public function __construct(
+            protected readonly ModuleTemplateFactory $moduleTemplateFactory,
+        ) {
+        }
    }
+
+..  versionadded:: 12.1/12.4.9
+    A backend controller can be tagged with the
+    :php:`\TYPO3\CMS\Backend\Attribute\AsController` attribute. This way, the
+    :ref:`registration of the controller <backend-modules-template-without-extbase-manual-tagging>`
+    in the :file:`Configuration/Services.yaml` file is no longer necessary.
+
+    ..  note::
+        Until TYPO3 v12.4.8 the attribute was named
+        :php:`\TYPO3\CMS\Backend\Attribute\Controller` and has been renamed to
+        :php:`AsController` with TYPO3 v12.4.9. Both work with TYPO3 v12 and v13,
+        but developers should use :php:`#[AsController]` for upwards compatibility,
+        since :php:`#[Controller]` has been deprecated with TYPO3 v13.
 
 
 After that you can add titles, menus and buttons using :php:`ModuleTemplate`:
@@ -56,6 +69,10 @@ After that you can add titles, menus and buttons using :php:`ModuleTemplate`:
         $moduleTemplate->setContent($this->view->render());
         return $this->htmlResponse($moduleTemplate->renderContent());
     }
+
+..  seealso::
+    :ref:`dropdown-button-components`
+
 
 Using this :php:`ModuleTemplate` class, the Fluid templates for
 your module need only take care of the actual content of your module.
