@@ -16,7 +16,7 @@ final class MyController
     public function __construct() {}
 
     public function injectContext(
-        private readonly Context $context
+        Context $context
     )
     {
         $this->context = $context;

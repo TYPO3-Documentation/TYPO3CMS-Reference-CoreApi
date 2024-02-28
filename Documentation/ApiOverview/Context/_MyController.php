@@ -10,8 +10,5 @@ final class MyController
 {
     public function __construct(
         private readonly Context $context
-    )
-    {
-        $this->context = $context;
-    }
+    ) {}
 }
