@@ -6,8 +6,7 @@
 MetaTag API
 ============
 
-The MetaTag API is available for setting meta tags in a flexible (but
-controlled) way.
+The MetaTag API is available for setting meta tags in a flexible way.
 
 .. note::
 
