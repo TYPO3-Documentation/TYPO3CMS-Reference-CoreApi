@@ -9,6 +9,6 @@ use TYPO3\CMS\Core\Context\Context;
 final class MyController
 {
     public function __construct(
-        private readonly Context $context
+        private readonly Context $context,
     ) {}
 }

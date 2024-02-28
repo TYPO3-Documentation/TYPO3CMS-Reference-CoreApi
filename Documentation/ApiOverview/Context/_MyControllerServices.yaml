@@ -5,4 +5,4 @@ services:
     public: false
   MyVendor\MyExtension\:
     resource: '../Classes/*'
-    exclude: '../Classes/Api/*'
+    exclude: '../Classes/FolderToExclude/*'
