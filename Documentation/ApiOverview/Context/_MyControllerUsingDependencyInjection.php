@@ -17,8 +17,7 @@ final class MyController
 
     public function injectContext(
         Context $context
-    )
-    {
+    ) {
         $this->context = $context;
     }
 }
