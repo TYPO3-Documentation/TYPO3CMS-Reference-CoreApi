@@ -6,7 +6,8 @@
 MetaTag API
 ============
 
-In order to have the possibility to set metatags in a flexible (but regulated way), a new MetaTag API is introduced.
+The MetaTag API is available for setting meta tags in a flexible (but
+controlled) way.
 
 .. note::
 
