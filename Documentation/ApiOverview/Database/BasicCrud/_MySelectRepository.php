@@ -24,7 +24,7 @@ final class MySelectRepository
             ->select(
                 ['uid', 'pid', 'bodytext'], // fields to select
                 'tt_content',               // from
-                ['uid' => $uid],             // where
+                ['uid' => $uid],            // where
             )
             ->fetchAssociative();
     }
