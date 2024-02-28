@@ -18,13 +18,27 @@ track of, for example, the current time, if a user is logged in and which
 workspace is currently accessed.
 
 The :php:`\TYPO3\CMS\Core\Context\Context` object can be retrieved via
-:ref:`dependency injection <DependencyInjection>`:
+:ref:`dependency injection <DependencyInjection>` in the injection method:
+
+..  literalinclude:: _MyControllerUsingDependencyInjection.php
+    :language: php
+    :caption: EXT:my_extension/Classes/Controller/MyController.php
+
+This requires under some circumstances also an entry in the :file:`Services.yaml` file (:ref:`more in <ServicesYaml>`):
+
+..  literalinclude:: _MyControllerServices.yaml
+    :language: yaml
+    :caption: EXT:my_extension/Configuration/Services.yaml
+
+
+Alternatively the :php:`\TYPO3\CMS\Core\Context\Context` object can also be retrieved in the constructor:
 
 ..  literalinclude:: _MyController.php
     :language: php
     :caption: EXT:my_extension/Classes/Controller/MyController.php
 
-This information is separated in so-called
+
+Context information is separated in so-called
 ":ref:`aspects <context_api_aspects>`", each being responsible for a certain
 area.
 

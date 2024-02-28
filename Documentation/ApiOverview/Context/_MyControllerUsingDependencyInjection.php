@@ -13,7 +13,10 @@ final class MyController
      */
     protected Context $context;
 
-    public function __construct(
+    public function __construct()
+        {}
+
+    public function injectContext(
         private readonly Context $context
     )
     {
