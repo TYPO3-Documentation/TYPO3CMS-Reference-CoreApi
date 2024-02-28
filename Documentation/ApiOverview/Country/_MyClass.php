@@ -9,6 +9,6 @@ use TYPO3\CMS\Core\Country\CountryProvider;
 final class MyClass
 {
     public function __construct(
-        private readonly CountryProvider $countryProvider
+        private readonly CountryProvider $countryProvider,
     ) {}
 }

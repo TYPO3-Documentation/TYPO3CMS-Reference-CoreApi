@@ -12,7 +12,7 @@ use TYPO3\CMS\Core\Utility\GeneralUtility;
 final class MyQueryBuilderSelectRepository
 {
     public function __construct(
-        private readonly ConnectionPool $connectionPool
+        private readonly ConnectionPool $connectionPool,
     ) {}
 
     public function selectSomeData(): array
@@ -36,13 +36,13 @@ final class MyQueryBuilderSelectRepository
                 $queryBuilder->expr()->or(
                     $queryBuilder->expr()->eq(
                         'bodytext',
-                        $queryBuilder->createNamedParameter('lorem')
+                        $queryBuilder->createNamedParameter('lorem'),
                     ),
                     $queryBuilder->expr()->eq(
                         'uid',
-                        $queryBuilder->createNamedParameter($uid, Connection::PARAM_INT)
-                    )
-                )
+                        $queryBuilder->createNamedParameter($uid, Connection::PARAM_INT),
+                    ),
+                ),
             )
             ->executeQuery()
             ->fetchAllAssociative();

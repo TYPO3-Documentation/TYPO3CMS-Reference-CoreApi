@@ -8,7 +8,7 @@ use TYPO3\CMS\Backend\Controller\Event\ModifyLinkHandlersEvent;
 use TYPO3\CMS\Core\Attribute\AsEventListener;
 
 #[AsEventListener(
-    identifier: 'my-extension/backend/link-handlers'
+    identifier: 'my-extension/backend/link-handlers',
 )]
 final class MyEventListener
 {

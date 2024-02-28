@@ -10,12 +10,12 @@ use TYPO3\CMS\Core\Mail\Event\AfterMailerSentMessageEvent;
 use TYPO3\CMS\Core\Mail\Mailer;
 
 #[AsEventListener(
-    identifier: 'my-extension/process-sent-message'
+    identifier: 'my-extension/process-sent-message',
 )]
 final class MyEventListener
 {
     public function __construct(
-        private readonly LoggerInterface $logger
+        private readonly LoggerInterface $logger,
     ) {}
 
     public function __invoke(AfterMailerSentMessageEvent $event): void

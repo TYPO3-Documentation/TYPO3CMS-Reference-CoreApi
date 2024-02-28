@@ -10,16 +10,16 @@ use TYPO3\CMS\Core\Mail\Event\BeforeMailerSentMessageEvent;
 
 #[AsEventListener(
     identifier: 'my-extension/null-mailer-initialization',
-    event: AfterMailerInitializationEvent::class
+    event: AfterMailerInitializationEvent::class,
 )]
 #[AsEventListener(
     identifier: 'my-extension/null-mailer-sent-message',
-    event: BeforeMailerSentMessageEvent::class
+    event: BeforeMailerSentMessageEvent::class,
 )]
 final class NullMailer
 {
     public function __invoke(
-        AfterMailerInitializationEvent | BeforeMailerSentMessageEvent $event
+        AfterMailerInitializationEvent | BeforeMailerSentMessageEvent $event,
     ): void {
         $event->getMailer()->injectMailSettings(['transport' => 'null']);
     }

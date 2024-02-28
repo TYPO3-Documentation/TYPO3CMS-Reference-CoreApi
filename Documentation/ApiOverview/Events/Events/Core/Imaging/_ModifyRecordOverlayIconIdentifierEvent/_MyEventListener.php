@@ -10,7 +10,7 @@ use TYPO3\CMS\Core\Imaging\Event\ModifyRecordOverlayIconIdentifierEvent;
 final class MyEventListener
 {
     #[AsEventListener(
-        identifier: 'my-extension/imaging/modify-record-overlay-icon-identifier'
+        identifier: 'my-extension/imaging/modify-record-overlay-icon-identifier',
     )]
     public function __invoke(ModifyRecordOverlayIconIdentifierEvent $event): void
     {

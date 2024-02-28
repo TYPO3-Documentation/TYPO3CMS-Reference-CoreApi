@@ -8,7 +8,7 @@ use TYPO3\CMS\Backend\Controller\Event\AfterBackendPageRenderEvent;
 use TYPO3\CMS\Core\Attribute\AsEventListener;
 
 #[AsEventListener(
-    identifier: 'my-extension/backend/after-backend-page-render'
+    identifier: 'my-extension/backend/after-backend-page-render',
 )]
 final class MyEventListener
 {

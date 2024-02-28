@@ -7,6 +7,6 @@ namespace MyVendor\MyExtension\Queue\Message;
 final class DemoMessage
 {
     public function __construct(
-        public readonly string $content
+        public readonly string $content,
     ) {}
 }

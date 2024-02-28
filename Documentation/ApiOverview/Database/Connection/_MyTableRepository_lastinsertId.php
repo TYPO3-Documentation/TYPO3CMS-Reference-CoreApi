@@ -11,18 +11,18 @@ final class MyTableRepository
     private const TABLE_NAME = 'tx_myextension_mytable';
 
     public function __construct(
-        private readonly ConnectionPool $connectionPool
+        private readonly ConnectionPool $connectionPool,
     ) {}
 
     public function insertSomething(
-        array $someData
+        array $someData,
     ): int {
         $connection = $this->connectionPool
             ->getConnectionForTable(self::TABLE_NAME);
         $connection
             ->insert(
                 self::TABLE_NAME,
-                $someData
+                $someData,
             );
         return (int)$connection->lastInsertId();
     }

@@ -8,7 +8,7 @@ use TYPO3\CMS\Core\Attribute\AsEventListener;
 use TYPO3\CMS\Filelist\Event\ModifyEditFileFormDataEvent;
 
 #[AsEventListener(
-    identifier: 'my-extension/modify-edit-file-form-data'
+    identifier: 'my-extension/modify-edit-file-form-data',
 )]
 final class MyEventListener
 {

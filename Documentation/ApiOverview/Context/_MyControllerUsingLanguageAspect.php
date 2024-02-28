@@ -16,7 +16,7 @@ final class MyController
     {
         $fallbackChain = $this->context->getPropertyFromAspect(
             'language',
-            'fallbackChain'
+            'fallbackChain',
         );
 
         // ... do something with $fallbackChain

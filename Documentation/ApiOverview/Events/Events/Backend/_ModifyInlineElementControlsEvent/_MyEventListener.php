@@ -13,11 +13,11 @@ use TYPO3\CMS\Core\Utility\GeneralUtility;
 
 #[AsEventListener(
     identifier: 'my-extension/backend/modify-enabled-controls',
-    method: 'modifyEnabledControls'
+    method: 'modifyEnabledControls',
 )]
 #[AsEventListener(
     identifier: 'my-extension/backend/modify-controls',
-    method: 'modifyControls'
+    method: 'modifyControls',
 )]
 final class MyEventListener
 {
@@ -38,7 +38,7 @@ final class MyEventListener
                 'tx_my_control',
                 '<a href="/some/url" class="btn btn-default t3js-modal-trigger">'
                 . $iconFactory->getIcon('my-icon-identifier', Icon::SIZE_SMALL)->render()
-                . '</a>'
+                . '</a>',
             );
         }
     }

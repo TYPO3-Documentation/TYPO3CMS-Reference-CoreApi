@@ -16,8 +16,8 @@ final class MyRepository extends Repository
             new LanguageAspect(
                 $languageId,
                 $contentId,
-                LanguageAspect::OVERLAYS_MIXED
-            )
+                LanguageAspect::OVERLAYS_MIXED,
+            ),
         );
         // query something
     }

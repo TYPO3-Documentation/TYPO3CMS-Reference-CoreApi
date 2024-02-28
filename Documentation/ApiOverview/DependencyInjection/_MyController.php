@@ -9,6 +9,6 @@ use MyVendor\MyExtension\Service\MyServiceInterface;
 class MyController
 {
     public function __construct(
-        private readonly MyServiceInterface $myService
+        private readonly MyServiceInterface $myService,
     ) {}
 }

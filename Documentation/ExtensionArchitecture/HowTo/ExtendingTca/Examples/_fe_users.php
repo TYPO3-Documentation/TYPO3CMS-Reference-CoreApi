@@ -7,6 +7,6 @@ call_user_func(static function () {
         'fe_users',
         'tx_myextension_options, tx_myextension_special',
         '',
-        'after:password'
+        'after:password',
     );
 });

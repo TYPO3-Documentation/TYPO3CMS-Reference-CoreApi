@@ -6,7 +6,7 @@ return [
     'my/addon' => [
         'module' => JavaScriptModuleInstruction::create(
             '@codemirror/addon',
-            'addon'
+            'addon',
         )->invoke(),
         'cssFiles' => [
             'EXT:my_extension/Resources/Public/Css/MyAddon.css',

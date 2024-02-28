@@ -10,7 +10,7 @@ use TYPO3\CMS\Core\Imaging\IconSize;
 final class MyClass
 {
     public function __construct(
-        private readonly IconFactory $iconFactory
+        private readonly IconFactory $iconFactory,
     ) {}
 
     public function doSomething()
@@ -18,7 +18,7 @@ final class MyClass
         $icon = $this->iconFactory->getIcon(
             'tx-myext-action-preview',
             IconSize::SMALL,
-            'overlay-identifier'
+            'overlay-identifier',
         );
 
         // Do something with the icon, for example, assign it to the view

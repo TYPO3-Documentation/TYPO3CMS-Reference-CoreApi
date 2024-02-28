@@ -8,7 +8,7 @@ use TYPO3\CMS\Backend\View\Event\ModifyDatabaseQueryForRecordListingEvent;
 use TYPO3\CMS\Core\Attribute\AsEventListener;
 
 #[AsEventListener(
-    identifier: 'my-extension/backend/modify-database-query-for-record-list'
+    identifier: 'my-extension/backend/modify-database-query-for-record-list',
 )]
 final class MyEventListener
 {

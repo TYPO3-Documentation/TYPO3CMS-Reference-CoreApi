@@ -21,7 +21,7 @@ final class SomeClass
 
         // Load JavaScript via JavaScriptRenderer
         $this->pageRenderer->getJavaScriptRenderer()->addJavaScriptModuleInstruction(
-            JavaScriptModuleInstruction::create('@vendor/my-extension/example.js')
+            JavaScriptModuleInstruction::create('@vendor/my-extension/example.js'),
         );
     }
 }

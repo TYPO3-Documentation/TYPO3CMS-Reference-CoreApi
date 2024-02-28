@@ -20,7 +20,7 @@ final class CustomMiddleware implements DoctrineDriverMiddlewareInterface, Usabl
 
     public function canBeUsedForConnection(
         string $identifier,
-        array $connectionParams
+        array $connectionParams,
     ): bool {
         // Only use this driver middleware, if the configured connection driver
         // is 'pdo_sqlite' (sqlite using php-ext PDO).

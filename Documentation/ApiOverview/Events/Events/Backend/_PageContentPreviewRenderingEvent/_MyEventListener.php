@@ -8,7 +8,7 @@ use TYPO3\CMS\Backend\View\Event\PageContentPreviewRenderingEvent;
 use TYPO3\CMS\Core\Attribute\AsEventListener;
 
 #[AsEventListener(
-    identifier: 'my-extension/preview-rendering-example-ctype'
+    identifier: 'my-extension/preview-rendering-example-ctype',
 )]
 final class MyEventListener
 {

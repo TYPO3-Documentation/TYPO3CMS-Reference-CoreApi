@@ -19,14 +19,14 @@ use TYPO3\CMS\Redirects\RedirectUpdate\RedirectSourceInterface;
 
 #[AsEventListener(
     identifier: 'my-extension/custom-page-type-redirect',
-    after: 'redirects-add-page-type-zero-source'
+    after: 'redirects-add-page-type-zero-source',
 )]
 final class MyEventListener
 {
     protected array $customPageTypes = [1234, 169999];
 
     public function __invoke(
-        SlugRedirectChangeItemCreatedEvent $event
+        SlugRedirectChangeItemCreatedEvent $event,
     ): void {
         $changeItem = $event->getSlugRedirectChangeItem();
         $sources = $changeItem->getSourcesCollection()->all();
@@ -58,8 +58,8 @@ final class MyEventListener
         // update sources
         $changeItem = $changeItem->withSourcesCollection(
             new RedirectSourceCollection(
-                ...array_values($sources)
-            )
+                ...array_values($sources),
+            ),
         );
 
         // update change item with updated sources
@@ -68,7 +68,7 @@ final class MyEventListener
 
     private function isDuplicate(
         PageTypeSource $pageTypeSource,
-        RedirectSourceInterface ...$sources
+        RedirectSourceInterface ...$sources,
     ): bool {
         foreach ($sources as $existingSource) {
             if ($existingSource instanceof PageTypeSource
@@ -88,7 +88,7 @@ final class MyEventListener
         int $pageUid,
         int $pageType,
         Site $site,
-        SiteLanguage $siteLanguage
+        SiteLanguage $siteLanguage,
     ): ?PageTypeSource {
         if ($pageType === 0) {
             // pageType 0 is handled by \TYPO3\CMS\Redirects\EventListener\AddPageTypeZeroSource
@@ -104,7 +104,7 @@ final class MyEventListener
                     'type' => $pageType,
                 ],
                 '',
-                RouterInterface::ABSOLUTE_URL
+                RouterInterface::ABSOLUTE_URL,
             );
             return new PageTypeSource(
                 $uri->getHost() ?: '*',
@@ -120,10 +120,10 @@ final class MyEventListener
                     'The link to the page with ID "%d" and type "%d" could not be generated: %s',
                     $pageUid,
                     $pageType,
-                    $e->getMessage()
+                    $e->getMessage(),
                 ),
                 1675618235,
-                $e
+                $e,
             );
         }
     }

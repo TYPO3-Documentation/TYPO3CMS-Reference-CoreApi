@@ -11,7 +11,7 @@ final class MyTableRepository
     private const TABLE_NAME = 'tx_myextension_mytable';
 
     public function __construct(
-        private readonly ConnectionPool $connectionPool
+        private readonly ConnectionPool $connectionPool,
     ) {}
 
     public function countSomething(
@@ -22,7 +22,7 @@ final class MyTableRepository
         return $connection->count(
             '*',
             self::TABLE_NAME,
-            ['some_value' => $something]
+            ['some_value' => $something],
         );
     }
 }

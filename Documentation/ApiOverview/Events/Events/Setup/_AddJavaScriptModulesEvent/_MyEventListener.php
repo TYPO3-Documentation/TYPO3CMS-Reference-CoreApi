@@ -8,7 +8,7 @@ use TYPO3\CMS\Core\Attribute\AsEventListener;
 use TYPO3\CMS\Setup\Event\AddJavaScriptModulesEvent;
 
 #[AsEventListener(
-    identifier: 'my-extension/my-event-listener'
+    identifier: 'my-extension/my-event-listener',
 )]
 final class MyEventListener
 {

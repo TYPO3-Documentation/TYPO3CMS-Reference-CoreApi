@@ -14,7 +14,7 @@ final class MyController
     {
         // Get the soft reference parser with the key "my_softref_key"
         $mySoftRefParser = $this->softReferenceParserFactory->getSoftReferenceParser(
-            'my_softref_key'
+            'my_softref_key',
         );
 
         // ... do something with $mySoftRefParser

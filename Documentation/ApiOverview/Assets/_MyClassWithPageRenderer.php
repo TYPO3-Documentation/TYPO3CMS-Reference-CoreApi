@@ -9,7 +9,7 @@ use TYPO3\CMS\Core\Page\PageRenderer;
 final class MyClass
 {
     public function __construct(
-        private readonly PageRenderer $pageRenderer
+        private readonly PageRenderer $pageRenderer,
     ) {}
 
     public function doSomething()

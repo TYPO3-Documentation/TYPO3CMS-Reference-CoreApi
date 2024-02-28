@@ -14,7 +14,7 @@ final class ExampleController
         $input = $request->getQueryParams()['input']
             ?? throw new \InvalidArgumentException(
                 'Please provide a number',
-                1580585107
+                1580585107,
             );
 
         $result = $input ** 2;

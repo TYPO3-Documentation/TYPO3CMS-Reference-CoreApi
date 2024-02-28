@@ -15,7 +15,7 @@ use TYPO3\CMS\Core\Localization\LanguageService;
 use TYPO3\CMS\Core\Localization\LanguageServiceFactory;
 
 #[AsEventListener(
-    identifier: 'my-extension/add-live-search-result-actions-listener'
+    identifier: 'my-extension/add-live-search-result-actions-listener',
 )]
 final class MyEventListener
 {
@@ -24,7 +24,7 @@ final class MyEventListener
     public function __construct(
         private readonly IconFactory $iconFactory,
         LanguageServiceFactory $languageServiceFactory,
-        private readonly UriBuilder $uriBuilder
+        private readonly UriBuilder $uriBuilder,
     ) {
         $this->languageService = $languageServiceFactory->createFromUserPreferences($GLOBALS['BE_USER']);
     }

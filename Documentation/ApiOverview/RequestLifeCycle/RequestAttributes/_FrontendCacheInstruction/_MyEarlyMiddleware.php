@@ -13,7 +13,7 @@ final class MyEarlyMiddleware implements MiddlewareInterface
 {
     public function process(
         ServerRequestInterface $request,
-        RequestHandlerInterface $handler
+        RequestHandlerInterface $handler,
     ): ResponseInterface {
         // Get the attribute, if not available, use a new CacheInstruction object
         $cacheInstruction = $request->getAttribute(

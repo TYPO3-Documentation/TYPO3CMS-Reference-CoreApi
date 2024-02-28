@@ -8,7 +8,7 @@ use TYPO3\CMS\Core\Attribute\AsEventListener;
 use TYPO3\CMS\Workspaces\Event\AfterRecordPublishedEvent;
 
 #[AsEventListener(
-    identifier: 'my-extension/after-record-published'
+    identifier: 'my-extension/after-record-published',
 )]
 final class MyEventListener
 {
