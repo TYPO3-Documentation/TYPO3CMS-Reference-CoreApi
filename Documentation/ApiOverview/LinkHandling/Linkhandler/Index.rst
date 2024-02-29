@@ -132,7 +132,7 @@ which does not contain Hooks.
 .. attention::
 
     It is important, that the `storagePid` is hard coded in TSConfig, because using
-    constants, e.g. from the site configuration, won't work here.
+    constants, for example from the site configuration, will not work here.
 
 .. index::
    pair: LinkHandler; TypoScript
