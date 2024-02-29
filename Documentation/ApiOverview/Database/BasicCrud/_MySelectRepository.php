@@ -9,7 +9,7 @@ use TYPO3\CMS\Core\Database\ConnectionPool;
 final class MySelectRepository
 {
     public function __construct(
-        private readonly ConnectionPool $connectionPool
+        private readonly ConnectionPool $connectionPool,
     ) {}
 
     /**
@@ -24,7 +24,7 @@ final class MySelectRepository
             ->select(
                 ['uid', 'pid', 'bodytext'], // fields to select
                 'tt_content',               // from
-                ['uid' => $uid]             // where
+                ['uid' => $uid],            // where
             )
             ->fetchAssociative();
     }

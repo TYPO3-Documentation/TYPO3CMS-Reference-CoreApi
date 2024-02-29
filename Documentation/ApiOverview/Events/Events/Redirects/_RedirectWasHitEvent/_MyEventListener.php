@@ -20,15 +20,15 @@ final class MyEventListener
         ) {
             $matchedRedirect['disable_hitcount'] = true;
             $event->setMatchedRedirect(
-                $matchedRedirect
+                $matchedRedirect,
             );
 
             // Also add a custom response header
             $event->setResponse(
                 $event->getResponse()->withAddedHeader(
                     'X-My-Custom-Header',
-                    'Hit count increment skipped'
-                )
+                    'Hit count increment skipped',
+                ),
             );
         }
     }

@@ -9,7 +9,7 @@ use TYPO3\CMS\Core\Database\ConnectionPool;
 final class MyDeleteRepository
 {
     public function __construct(
-        private readonly ConnectionPool $connectionPool
+        private readonly ConnectionPool $connectionPool,
     ) {}
 
     public function deleteSomeData()
@@ -17,7 +17,7 @@ final class MyDeleteRepository
         $this->connectionPool->getConnectionForTable('tt_content')
             ->delete(
                 'tt_content', // from
-                ['uid' => 4711]  // where
+                ['uid' => 4711],  // where
             );
     }
 }

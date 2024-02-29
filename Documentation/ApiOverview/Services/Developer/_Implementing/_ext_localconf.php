@@ -28,5 +28,5 @@ ExtensionManagementUtility::addService(
         'exec' => '',
 
         'className' => Translator::class,
-    ]
+    ],
 );

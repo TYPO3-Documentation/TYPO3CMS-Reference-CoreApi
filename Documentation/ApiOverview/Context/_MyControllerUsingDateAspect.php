@@ -16,7 +16,7 @@ final class MyController
     {
         $currentTimestamp = $this->context->getPropertyFromAspect(
             'date',
-            'timestamp'
+            'timestamp',
         );
 
         // ... do something with $currentTimestamp

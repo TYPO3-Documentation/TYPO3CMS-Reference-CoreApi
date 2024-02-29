@@ -20,6 +20,6 @@ abstract class AbstractController
 final class UserController extends AbstractController
 {
     public function __construct(
-        private readonly UserRepository $userRepository
+        private readonly UserRepository $userRepository,
     ) {}
 }

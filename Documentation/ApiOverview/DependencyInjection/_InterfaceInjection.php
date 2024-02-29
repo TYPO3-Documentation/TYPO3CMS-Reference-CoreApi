@@ -9,6 +9,6 @@ use MyVendor\MyExtension\Logger\LoggerInterface;
 final class UserController extends AbstractController
 {
     public function __construct(
-        private readonly LoggerInterface $logger
+        private readonly LoggerInterface $logger,
     ) {}
 }

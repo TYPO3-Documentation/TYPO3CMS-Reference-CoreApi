@@ -11,5 +11,5 @@ defined('TYPO3') or die();
 ExtensionUtility::configurePlugin(
     'BlogExample',
     'PostListRss',
-    [PostController::class => 'displayRssList']
+    [PostController::class => 'displayRssList'],
 );

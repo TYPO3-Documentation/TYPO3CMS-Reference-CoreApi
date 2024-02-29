@@ -12,7 +12,7 @@ use Symfony\Component\Console\Output\OutputInterface;
 #[AsCommand(
     name: 'examples:dosomething',
     description: 'A command that does nothing and always succeeds.',
-    aliases: ['examples:dosomethingalias']
+    aliases: ['examples:dosomethingalias'],
 )]
 class DoSomethingCommand extends Command
 {

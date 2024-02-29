@@ -17,22 +17,22 @@ final class MyUserFunction
     ) {}
 
     private function getLanguageService(
-        ServerRequestInterface $request
+        ServerRequestInterface $request,
     ): LanguageService {
         return $this->languageServiceFactory->createFromSiteLanguage(
             $request->getAttribute('language')
-            ?? $request->getAttribute('site')->getDefaultLanguage()
+            ?? $request->getAttribute('site')->getDefaultLanguage(),
         );
     }
 
     public function main(
         string $content,
         array $conf,
-        ServerRequestInterface $request
+        ServerRequestInterface $request,
     ): string {
         $this->languageService = $this->getLanguageService($request);
         return $this->languageService->sL(
-            'LLL:EXT:my_extension/Resources/Private/Language/locallang.xlf:something'
+            'LLL:EXT:my_extension/Resources/Private/Language/locallang.xlf:something',
         );
     }
 }

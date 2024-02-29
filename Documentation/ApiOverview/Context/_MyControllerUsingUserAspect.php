@@ -16,7 +16,7 @@ final class MyController
     {
         $userIsLoggedIn = $this->context->getPropertyFromAspect(
             'frontend.user',
-            'isLoggedIn'
+            'isLoggedIn',
         );
 
         // ... do something with $userIsLoggedIn

@@ -16,5 +16,5 @@ ExtensionUtility::configurePlugin(
     // all actions
     [PostController::class => 'show', CommentController::class => 'create'],
     // non-cacheable actions
-    [CommentController::class => 'create']
+    [CommentController::class => 'create'],
 );

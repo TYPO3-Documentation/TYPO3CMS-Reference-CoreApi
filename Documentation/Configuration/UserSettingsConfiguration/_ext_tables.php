@@ -15,5 +15,5 @@ $GLOBALS['TYPO3_USER_SETTINGS']['columns']['tx_examples_mobile'] = [
 ];
 ExtensionManagementUtility::addFieldsToUserSettings(
     $lll . 'be_users.tx_examples_mobile,tx_examples_mobile',
-    'after:email'
+    'after:email',
 );

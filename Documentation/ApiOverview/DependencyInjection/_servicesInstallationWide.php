@@ -9,7 +9,7 @@ use Symfony\Component\DependencyInjection\Loader\Configurator\ContainerConfigura
 
 return static function (
     ContainerConfigurator $containerConfigurator,
-    ContainerBuilder $containerBuilder
+    ContainerBuilder $containerBuilder,
 ): void {
     $services = $containerConfigurator->services();
     $services->set(ClockInterface::class)

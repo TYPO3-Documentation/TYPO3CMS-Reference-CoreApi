@@ -11,7 +11,7 @@ final class MyEventListener
     public function __invoke(AfterVideoPreviewFetchedEvent $event): void
     {
         $event->setPreviewImageFilename(
-            '/var/www/html/typo3temp/assets/online_media/new-preview-image.jpg'
+            '/var/www/html/typo3temp/assets/online_media/new-preview-image.jpg',
         );
     }
 }

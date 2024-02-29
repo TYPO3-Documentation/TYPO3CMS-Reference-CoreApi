@@ -21,7 +21,7 @@ final class MyClass
         $newFile = $storage->addFile(
             '/tmp/temporary_file_name.ext',
             $storage->getFolder('some/nested/folder'),
-            'final_file_name.ext'
+            'final_file_name.ext',
         );
 
         // ... more logic

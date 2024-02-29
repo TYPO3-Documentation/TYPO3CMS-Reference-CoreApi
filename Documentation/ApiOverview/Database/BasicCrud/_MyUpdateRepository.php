@@ -9,7 +9,7 @@ use TYPO3\CMS\Core\Database\ConnectionPool;
 final class MyUpdateRepository
 {
     public function __construct(
-        private readonly ConnectionPool $connectionPool
+        private readonly ConnectionPool $connectionPool,
     ) {}
 
     public function updateSomeData()
@@ -18,7 +18,7 @@ final class MyUpdateRepository
             ->update(
                 'tt_content',
                 [ 'bodytext' => 'ipsum' ], // set
-                [ 'bodytext' => 'lorem' ]  // where
+                [ 'bodytext' => 'lorem' ], // where
             );
     }
 }

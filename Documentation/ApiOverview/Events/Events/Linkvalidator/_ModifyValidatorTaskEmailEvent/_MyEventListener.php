@@ -20,7 +20,7 @@ final class MyEventListener
         }
 
         $fluidEmail->subject(
-            $linkAnalyzerResult->getTotalBrokenLinksCount() . ' new broken links'
+            $linkAnalyzerResult->getTotalBrokenLinksCount() . ' new broken links',
         );
 
         $fluidEmail->to(new Address('custom@mail.com'));

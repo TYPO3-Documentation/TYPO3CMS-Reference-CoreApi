@@ -21,7 +21,7 @@ final class MyEventListener
                     'CType' => 'my_element',
                 ],
             ],
-            ['after' => 'common_textpic']
+            ['after' => 'common_textpic'],
         );
     }
 }

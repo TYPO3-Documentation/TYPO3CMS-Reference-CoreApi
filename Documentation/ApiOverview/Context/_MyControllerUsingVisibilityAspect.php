@@ -16,7 +16,7 @@ final class MyController
     {
         $showHiddenPages = $this->context->getPropertyFromAspect(
             'visibility',
-            'includeHiddenPages'
+            'includeHiddenPages',
         );
 
         // ... do something with $showHiddenPages

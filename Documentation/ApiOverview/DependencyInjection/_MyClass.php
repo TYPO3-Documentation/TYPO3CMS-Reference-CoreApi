@@ -9,7 +9,7 @@ use Psr\Clock\ClockInterface;
 final class MyClass
 {
     public function __construct(
-        private readonly ClockInterface $clock
+        private readonly ClockInterface $clock,
     ) {}
 
     // ...

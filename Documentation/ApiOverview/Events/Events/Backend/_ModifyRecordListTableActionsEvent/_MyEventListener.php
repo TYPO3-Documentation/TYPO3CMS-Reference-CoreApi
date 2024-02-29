@@ -28,7 +28,7 @@ final class MyEventListener
                 '<button>My Action</button>',
                 'myAction',
                 'secondary',
-                'move'
+                'move',
             );
         }
 

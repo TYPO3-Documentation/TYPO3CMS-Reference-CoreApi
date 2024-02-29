@@ -29,7 +29,7 @@ final class MyEventListener
                 'tx_my_control',
                 '<a href="/some/url" class="btn btn-default t3js-modal-trigger">'
                 . $iconFactory->getIcon('my-icon-identifier', Icon::SIZE_SMALL)->render()
-                . '</a>'
+                . '</a>',
             );
         }
     }

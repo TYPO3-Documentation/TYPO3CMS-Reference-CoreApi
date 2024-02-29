@@ -20,7 +20,7 @@ final class MyEventListener
     public function __construct(
         private readonly IconFactory $iconFactory,
         LanguageServiceFactory $languageServiceFactory,
-        private readonly UriBuilder $uriBuilder
+        private readonly UriBuilder $uriBuilder,
     ) {
         $this->languageService = $languageServiceFactory->createFromUserPreferences($GLOBALS['BE_USER']);
     }
