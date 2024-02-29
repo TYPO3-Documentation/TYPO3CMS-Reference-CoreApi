@@ -12,7 +12,7 @@ final class MyEventListener
     {
         $linkResult = $event->getLinkResult()->withAttribute(
             'data-enable-lightbox',
-            'true'
+            'true',
         );
         $event->setLinkResult($linkResult);
     }

@@ -12,7 +12,7 @@ final class MyClassWithTranslation
 {
     public function __construct(
         private readonly CountryProvider $countryProvider,
-        private readonly LanguageServiceFactory $languageServiceFactory
+        private readonly LanguageServiceFactory $languageServiceFactory,
     ) {}
 
     public function doSomething()

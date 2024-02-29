@@ -25,8 +25,8 @@ final class MyEventListener
         $queryBuilder = $queryBuilder->andWhere(
             $queryBuilder->expr()->neq(
                 'some_field',
-                $queryBuilder->createNamedParameter(1, Connection::PARAM_INT)
-            )
+                $queryBuilder->createNamedParameter(1, Connection::PARAM_INT),
+            ),
         );
 
         // Set updated QueryBuilder to event

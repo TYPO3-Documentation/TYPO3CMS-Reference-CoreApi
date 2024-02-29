@@ -12,7 +12,7 @@ final class MyTableRepository
     private const TABLE_NAME = 'tx_myextension_mytable';
 
     public function __construct(
-        private readonly ConnectionPool $connectionPool
+        private readonly ConnectionPool $connectionPool,
     ) {}
 
     public function insertSomething(
@@ -30,7 +30,7 @@ final class MyTableRepository
                 [
                     Connection::PARAM_INT,
                     Connection::PARAM_STR,
-                ]
+                ],
             );
     }
 }

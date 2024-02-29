@@ -17,7 +17,7 @@ defined('TYPO3') or die();
             'value' => $customPageDoktype,
             'icon'  => $customIconClass,
             'group' => 'special',
-        ]
+        ],
     );
     // Add the icon to the icon class configuration
     $GLOBALS['TCA']['pages']['ctrl']['typeicon_classes'][$customPageDoktype] = $customIconClass;

@@ -10,7 +10,7 @@ use TYPO3\CMS\Redirects\RedirectUpdate\PlainSlugReplacementRedirectSource;
 final class MyEventListener
 {
     public function __invoke(
-        ModifyAutoCreateRedirectRecordBeforePersistingEvent $event
+        ModifyAutoCreateRedirectRecordBeforePersistingEvent $event,
     ): void {
         // Only work on plain slug replacement redirect sources.
         if (!($event->getSource() instanceof PlainSlugReplacementRedirectSource)) {

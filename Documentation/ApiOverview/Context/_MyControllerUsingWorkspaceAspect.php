@@ -16,7 +16,7 @@ final class MyController
     {
         $showHiddenPages = $this->context->getPropertyFromAspect(
             'workspace',
-            'id'
+            'id',
         );
 
         // ... do something with $showHiddenPages

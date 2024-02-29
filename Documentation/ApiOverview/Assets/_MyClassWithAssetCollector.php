@@ -9,7 +9,7 @@ use TYPO3\CMS\Core\Page\AssetCollector;
 final class MyClass
 {
     public function __construct(
-        private readonly AssetCollector $assetCollector
+        private readonly AssetCollector $assetCollector,
     ) {}
 
     public function doSomething()

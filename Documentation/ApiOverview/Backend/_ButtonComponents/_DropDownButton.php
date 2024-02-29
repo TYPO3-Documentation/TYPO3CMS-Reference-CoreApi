@@ -40,12 +40,12 @@ final class MyBackendController
             ->addItem(
                 GeneralUtility::makeInstance(DropDownItem::class)
                     ->setLabel('Item')
-                    ->setHref('#')
+                    ->setHref('#'),
             );
         $buttonBar->addButton(
             $dropDownButton,
             ButtonBar::BUTTON_POSITION_RIGHT,
-            2
+            2,
         );
     }
 }

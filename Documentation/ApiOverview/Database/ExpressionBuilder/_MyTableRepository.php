@@ -11,7 +11,7 @@ final class MyTableRepository
     private const TABLE_NAME = 'tt_content';
 
     public function __construct(
-        private readonly ConnectionPool $connectionPool
+        private readonly ConnectionPool $connectionPool,
     ) {}
 
     public function findSomething()
@@ -25,12 +25,12 @@ final class MyTableRepository
                 // `bodytext` = 'lorem' AND `header` = 'dolor'
                 $queryBuilder->expr()->eq(
                     'bodytext',
-                    $queryBuilder->createNamedParameter('lorem')
+                    $queryBuilder->createNamedParameter('lorem'),
                 ),
                 $queryBuilder->expr()->eq(
                     'header',
-                    $queryBuilder->createNamedParameter('dolor')
-                )
+                    $queryBuilder->createNamedParameter('dolor'),
+                ),
             )
             ->executeQuery()
             ->fetchAllAssociative();

@@ -11,7 +11,7 @@ use Psr\Http\Message\ServerRequestInterface;
 final class ExampleController
 {
     public function __construct(
-        private readonly ResponseFactoryInterface $responseFactory
+        private readonly ResponseFactoryInterface $responseFactory,
     ) {}
 
     public function doSomethingAction(ServerRequestInterface $request): ResponseInterface
@@ -19,7 +19,7 @@ final class ExampleController
         $input = $request->getQueryParams()['input']
             ?? throw new \InvalidArgumentException(
                 'Please provide a number',
-                1580585107
+                1580585107,
             );
 
         $result = $input ** 2;
@@ -27,7 +27,7 @@ final class ExampleController
         $response = $this->responseFactory->createResponse()
             ->withHeader('Content-Type', 'application/json; charset=utf-8');
         $response->getBody()->write(
-            json_encode(['result' => $result], JSON_THROW_ON_ERROR)
+            json_encode(['result' => $result], JSON_THROW_ON_ERROR),
         );
         return $response;
     }

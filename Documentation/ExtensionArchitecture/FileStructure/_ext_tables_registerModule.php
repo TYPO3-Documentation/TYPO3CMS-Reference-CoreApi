@@ -23,6 +23,6 @@ if ($versionInformation->getMajorVersion() < 12) {
             'access' => 'user,group',
             'icon'   => 'EXT:my_extension/ext_icon.svg',
             'labels' => 'LLL:EXT:my_extension/Resources/Private/Language/locallang_statistics.xlf',
-        ]
+        ],
     );
 }

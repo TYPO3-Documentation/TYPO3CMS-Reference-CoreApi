@@ -14,8 +14,8 @@ final class MyEventListener
         $event->setAdditionalQueryParameters(
             array_replace_recursive(
                 $event->getAdditionalQueryParameters(),
-                ['myParam' => 'paramValue']
-            )
+                ['myParam' => 'paramValue'],
+            ),
         );
     }
 }

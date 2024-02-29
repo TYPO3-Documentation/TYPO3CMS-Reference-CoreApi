@@ -21,7 +21,7 @@ final class GravatarViewHelper extends AbstractTagBasedViewHelper
 
         $this->tag->addAttribute(
             'src',
-            'https://www.gravatar.com/avatar/' . md5($emailAddress)
+            'https://www.gravatar.com/avatar/' . md5($emailAddress),
         );
 
         return $this->tag->render();

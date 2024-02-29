@@ -9,6 +9,6 @@ defined('TYPO3') or die();
         // arbitrary, but unique plugin name (not visible in the backend)
         'PostSingle',
         // plugin title, as visible in the drop-down in the backend, use "LLL:" for localization
-        'Single Post (BlogExample)'
+        'Single Post (BlogExample)',
     );
 })();

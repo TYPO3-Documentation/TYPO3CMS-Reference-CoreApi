@@ -20,7 +20,7 @@ defined('TYPO3') or die();
         'description' => 'LLL:EXT:my_extension/Resources/Private/Language/locallang.xlf:myextension_newcontentelement_description',
     ],
     'textmedia',
-    'after'
+    'after',
 );
 
 // Adds the content element icon to TCA typeicon_classes

@@ -20,7 +20,7 @@ final class MyEventListener
         // Allow images from example.org
         $event->getCurrentPolicy()->extend(
             Directive::ImgSrc,
-            new UriValue('https://example.org/')
+            new UriValue('https://example.org/'),
         );
     }
 }

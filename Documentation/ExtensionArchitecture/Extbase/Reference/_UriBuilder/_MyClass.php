@@ -13,7 +13,7 @@ use TYPO3\CMS\Extbase\Mvc\Web\Routing\UriBuilder;
 final class MyClass
 {
     public function __construct(
-        private readonly UriBuilder $uriBuilder
+        private readonly UriBuilder $uriBuilder,
     ) {}
 
     public function doSomething()
@@ -30,7 +30,7 @@ final class MyClass
                 ],
                 'MyController',
                 'myextension',
-                'myplugin'
+                'myplugin',
             );
 
         // do something with $url
@@ -43,7 +43,7 @@ final class MyClass
 
         // We have to provide an Extbase request object
         return new Request(
-            $request->withAttribute('extbase', new ExtbaseRequestParameters())
+            $request->withAttribute('extbase', new ExtbaseRequestParameters()),
         );
     }
 }

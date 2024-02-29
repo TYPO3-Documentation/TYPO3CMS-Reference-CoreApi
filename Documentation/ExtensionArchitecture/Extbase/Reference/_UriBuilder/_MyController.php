@@ -21,7 +21,7 @@ final class MyController extends ActionController
                 ],
                 'MyController',
                 'myextension',
-                'myplugin'
+                'myplugin',
             );
 
         // do something with $url

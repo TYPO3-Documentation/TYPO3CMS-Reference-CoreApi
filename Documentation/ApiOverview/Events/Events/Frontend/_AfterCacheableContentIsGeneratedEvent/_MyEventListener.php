@@ -17,7 +17,7 @@ final class MyEventListener
         $event->getController()->content = str_replace(
             'foo',
             'bar',
-            $event->getController()->content
+            $event->getController()->content,
         );
     }
 }

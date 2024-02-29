@@ -11,7 +11,7 @@ use TYPO3\CMS\Frontend\Controller\TypoScriptFrontendController;
 final class WebsiteTitleProvider implements PageTitleProviderInterface
 {
     public function __construct(
-        private readonly SiteFinder $siteFinder
+        private readonly SiteFinder $siteFinder,
     ) {}
 
     public function getTitle(): string
