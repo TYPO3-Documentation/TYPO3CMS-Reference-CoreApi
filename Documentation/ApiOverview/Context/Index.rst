@@ -24,6 +24,11 @@ The :php:`\TYPO3\CMS\Core\Context\Context` object can be retrieved via
     :language: php
     :caption: EXT:my_extension/Classes/Controller/MyController.php
 
+The chapter on :ref:`dependency injection <DependencyInjection>` describes
+all scenarios to decide whether you need the recommended constructor-based
+injection, or method-based injection if you need to access the Context API
+inside nested object/abstract instantiation.
+
 This information is separated in so-called
 ":ref:`aspects <context_api_aspects>`", each being responsible for a certain
 area.
