@@ -11,11 +11,11 @@ final class MyTableRepository
     private const TABLE_NAME = 'tx_myextension_mytable';
 
     public function __construct(
-        private readonly ConnectionPool $connectionPool
+        private readonly ConnectionPool $connectionPool,
     ) {}
 
     public function useQueryBuilder(
-        array $someData
+        array $someData,
     ): void {
         $connection = $this->connectionPool->getConnectionForTable(self::TABLE_NAME);
         foreach ($someData as $value) {
@@ -26,7 +26,7 @@ final class MyTableRepository
                 ->where(
                     $queryBuilder->expr()->eq(
                         'some_field',
-                        $queryBuilder->createNamedParameter($value)
+                        $queryBuilder->createNamedParameter($value),
                     ),
                 )
                 ->executeQuery()

@@ -7,7 +7,7 @@ use TYPO3\CMS\Core\Cache\Frontend\FrontendInterface;
 final class MyClass
 {
     public function __construct(
-        private readonly FrontendInterface $cache
+        private readonly FrontendInterface $cache,
     ) {}
 
     //...

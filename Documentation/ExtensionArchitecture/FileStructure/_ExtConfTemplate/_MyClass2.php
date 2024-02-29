@@ -9,7 +9,7 @@ use TYPO3\CMS\Core\Configuration\ExtensionConfiguration;
 final class MyClass
 {
     public function __construct(
-        private readonly ExtensionConfiguration $extensionConfiguration
+        private readonly ExtensionConfiguration $extensionConfiguration,
     ) {}
 
     public function doSomething()

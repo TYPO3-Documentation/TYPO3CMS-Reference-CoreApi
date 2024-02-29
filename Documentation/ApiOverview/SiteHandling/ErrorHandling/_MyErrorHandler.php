@@ -25,7 +25,7 @@ final class ErrorHandler implements PageErrorHandlerInterface
     public function handlePageError(
         ServerRequestInterface $request,
         string $message,
-        array $reasons = []
+        array $reasons = [],
     ): ResponseInterface {
         return new HtmlResponse('<h1>Not found, sorry</h1>', $this->statusCode);
     }

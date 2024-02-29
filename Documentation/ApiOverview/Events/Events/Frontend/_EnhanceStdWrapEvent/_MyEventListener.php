@@ -13,7 +13,7 @@ use TYPO3\CMS\Frontend\ContentObject\Event\EnhanceStdWrapEvent;
 final class MyEventListener
 {
     #[AsEventListener(
-        identifier: 'my-extension/my-stdwrap-enhancement'
+        identifier: 'my-extension/my-stdwrap-enhancement',
     )]
     public function __invoke(EnhanceStdWrapEvent $event): void
     {
@@ -21,7 +21,7 @@ final class MyEventListener
     }
 
     #[AsEventListener(
-        identifier: 'my-extension/my-stdwrap-before-initialized'
+        identifier: 'my-extension/my-stdwrap-before-initialized',
     )]
     public function individualListener(BeforeStdWrapFunctionsInitializedEvent $event): void
     {
@@ -29,10 +29,10 @@ final class MyEventListener
     }
 
     #[AsEventListener(
-        identifier: 'my-extension/my-stdwrap-after-initialized-executed'
+        identifier: 'my-extension/my-stdwrap-after-initialized-executed',
     )]
     public function listenOnMultipleEvents(
-        AfterStdWrapFunctionsInitializedEvent|AfterStdWrapFunctionsExecutedEvent $event
+        AfterStdWrapFunctionsInitializedEvent|AfterStdWrapFunctionsExecutedEvent $event,
     ): void {
         // Union type to listen to different events
     }

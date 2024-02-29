@@ -14,5 +14,5 @@ $dokTypeRegistry->add(
     [
         'type' => 'web',
         'allowedTables' => '*',
-    ]
+    ],
 );

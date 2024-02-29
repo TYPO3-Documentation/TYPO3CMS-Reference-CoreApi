@@ -9,7 +9,7 @@ use TYPO3\CMS\Core\Core\Environment;
 use TYPO3\CMS\Frontend\Event\ModifyCacheLifetimeForPageEvent;
 
 #[AsEventListener(
-    identifier: 'my-extension/cache-timeout'
+    identifier: 'my-extension/cache-timeout',
 )]
 final class MyEventListener
 {

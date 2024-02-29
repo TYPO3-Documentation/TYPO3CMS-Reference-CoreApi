@@ -8,7 +8,7 @@ use TYPO3\CMS\Backend\View\Event\IsContentUsedOnPageLayoutEvent;
 use TYPO3\CMS\Core\Attribute\AsEventListener;
 
 #[AsEventListener(
-    identifier: 'my-extension/view/content-used-on-page'
+    identifier: 'my-extension/view/content-used-on-page',
 )]
 final class ContentUsedOnPage
 {

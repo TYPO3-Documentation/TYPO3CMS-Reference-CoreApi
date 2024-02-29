@@ -8,7 +8,7 @@ use TYPO3\CMS\Backend\Routing\Event\AfterPagePreviewUriGeneratedEvent;
 use TYPO3\CMS\Core\Attribute\AsEventListener;
 
 #[AsEventListener(
-    identifier: 'my-extension/backend/modify-preview-uri'
+    identifier: 'my-extension/backend/modify-preview-uri',
 )]
 final class MyEventListener
 {

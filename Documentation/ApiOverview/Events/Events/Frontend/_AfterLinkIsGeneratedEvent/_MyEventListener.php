@@ -8,7 +8,7 @@ use TYPO3\CMS\Core\Attribute\AsEventListener;
 use TYPO3\CMS\Frontend\Event\AfterLinkIsGeneratedEvent;
 
 #[AsEventListener(
-    identifier: 'my-extension/link-modifier'
+    identifier: 'my-extension/link-modifier',
 )]
 final class MyEventListener
 {
@@ -16,7 +16,7 @@ final class MyEventListener
     {
         $linkResult = $event->getLinkResult()->withAttribute(
             'data-enable-lightbox',
-            'true'
+            'true',
         );
         $event->setLinkResult($linkResult);
     }

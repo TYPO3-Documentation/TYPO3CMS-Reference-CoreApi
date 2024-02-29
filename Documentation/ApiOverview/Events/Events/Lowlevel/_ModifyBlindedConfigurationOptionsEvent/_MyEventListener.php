@@ -8,7 +8,7 @@ use TYPO3\CMS\Core\Attribute\AsEventListener;
 use TYPO3\CMS\Lowlevel\Event\ModifyBlindedConfigurationOptionsEvent;
 
 #[AsEventListener(
-    identifier: 'my-extension/blind-configuration-options'
+    identifier: 'my-extension/blind-configuration-options',
 )]
 final class MyEventListener
 {

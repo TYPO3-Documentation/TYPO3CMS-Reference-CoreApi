@@ -22,7 +22,7 @@ return Map::fromEntries([
         new Mutation(
             MutationMode::Set,
             Directive::DefaultSrc,
-            SourceKeyword::self
+            SourceKeyword::self,
         ),
 
         // Extends the ancestor directive ('default-src'),
@@ -32,7 +32,7 @@ return Map::fromEntries([
             MutationMode::Extend,
             Directive::ImgSrc,
             SourceScheme::data,
-            new UriValue('https://*.typo3.org')
+            new UriValue('https://*.typo3.org'),
         ),
         // NOTICE: the following two instructions for `Directive::ImgSrc` are identical to the previous instruction,
         // `MutationMode::Extend` is a shortcut for `MutationMode::InheritOnce` and `MutationMode::Append`
@@ -46,7 +46,7 @@ return Map::fromEntries([
         new Mutation(
             MutationMode::Extend,
             Directive::ScriptSrc,
-            SourceKeyword::nonceProxy
+            SourceKeyword::nonceProxy,
         ),
 
         // Sets (overrides) the directive,
@@ -55,7 +55,7 @@ return Map::fromEntries([
         new Mutation(
             MutationMode::Set,
             Directive::WorkerSrc,
-            SourceScheme::blob
+            SourceScheme::blob,
         ),
     ),
 ]);

@@ -12,15 +12,15 @@ use TYPO3\CMS\Core\Attribute\AsEventListener;
 
 #[AsEventListener(
     identifier: 'my-extension/recordlist/my-event-listener',
-    method: 'modifyRecordActions'
+    method: 'modifyRecordActions',
 )]
 #[AsEventListener(
     identifier: 'my-extension/recordlist/my-event-listener',
-    method: 'modifyHeaderColumns'
+    method: 'modifyHeaderColumns',
 )]
 #[AsEventListener(
     identifier: 'my-extension/recordlist/my-event-listener',
-    method: 'modifyTableActions'
+    method: 'modifyTableActions',
 )]
 final class MyEventListener
 {
@@ -41,7 +41,7 @@ final class MyEventListener
                 '<button>My Action</button>',
                 'myAction',
                 'secondary',
-                'move'
+                'move',
             );
         }
 

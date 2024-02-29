@@ -8,7 +8,7 @@ use TYPO3\CMS\Backend\Controller\Event\AfterPageTreeItemsPreparedEvent;
 use TYPO3\CMS\Core\Attribute\AsEventListener;
 
 #[AsEventListener(
-    identifier: 'my-extension/backend/modify-page-tree-items'
+    identifier: 'my-extension/backend/modify-page-tree-items',
 )]
 final class MyEventListener
 {

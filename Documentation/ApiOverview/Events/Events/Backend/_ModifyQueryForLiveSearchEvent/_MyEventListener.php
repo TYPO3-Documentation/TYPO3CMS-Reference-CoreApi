@@ -8,7 +8,7 @@ use TYPO3\CMS\Backend\Search\Event\ModifyQueryForLiveSearchEvent;
 use TYPO3\CMS\Core\Attribute\AsEventListener;
 
 #[AsEventListener(
-    identifier: 'my-extension/modify-query-for-live-search-event-listener'
+    identifier: 'my-extension/modify-query-for-live-search-event-listener',
 )]
 final class MyEventListener
 {

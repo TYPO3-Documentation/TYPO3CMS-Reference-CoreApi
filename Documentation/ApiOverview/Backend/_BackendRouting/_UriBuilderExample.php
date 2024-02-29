@@ -11,7 +11,7 @@ use TYPO3\CMS\Backend\Routing\UriBuilder;
 final class MyRouteController
 {
     public function __construct(
-        private readonly UriBuilder $uriBuilder
+        private readonly UriBuilder $uriBuilder,
     ) {}
 
     public function handle(ServerRequestInterface $request): ResponseInterface
@@ -21,7 +21,7 @@ final class MyRouteController
         // Using a route identifier
         $uri = $this->uriBuilder->buildUriFromRoute(
             'web_layout',
-            ['id' => 42]
+            ['id' => 42],
         );
 
         // Using a route path
@@ -33,7 +33,7 @@ final class MyRouteController
                         123 => 'edit',
                     ],
                 ],
-            ]
+            ],
         );
 
         // Using a PSR-7 request object

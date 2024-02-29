@@ -12,14 +12,14 @@ final class NullMailer
 {
     #[AsEventListener(
         identifier: 'my-extension/null-mailer-initialization',
-        event: AfterMailerInitializationEvent::class
+        event: AfterMailerInitializationEvent::class,
     )]
     #[AsEventListener(
         identifier: 'my-extension/null-mailer-sent-message',
-        event: BeforeMailerSentMessageEvent::class
+        event: BeforeMailerSentMessageEvent::class,
     )]
     public function __invoke(
-        AfterMailerInitializationEvent | BeforeMailerSentMessageEvent $event
+        AfterMailerInitializationEvent | BeforeMailerSentMessageEvent $event,
     ): void {
         $event->getMailer()->injectMailSettings(['transport' => 'null']);
     }

@@ -8,7 +8,7 @@ use TYPO3\CMS\Core\Attribute\AsEventListener;
 use TYPO3\CMS\Install\Service\Event\ModifyLanguagePacksEvent;
 
 #[AsEventListener(
-    identifier: 'my-extension/modify-language-packs'
+    identifier: 'my-extension/modify-language-packs',
 )]
 final class MyEventListener
 {

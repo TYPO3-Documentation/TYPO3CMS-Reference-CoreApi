@@ -8,7 +8,7 @@ use TYPO3\CMS\Core\Attribute\AsEventListener;
 use TYPO3\CMS\Core\LinkHandling\Event\AfterLinkResolvedByStringRepresentationEvent;
 
 #[AsEventListener(
-    identifier: 'my-extension/after-link-resolved-by-string-representation'
+    identifier: 'my-extension/after-link-resolved-by-string-representation',
 )]
 final class MyEventListener
 {

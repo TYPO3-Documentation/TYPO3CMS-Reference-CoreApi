@@ -15,17 +15,17 @@ use TYPO3\CMS\Redirects\RedirectUpdate\RedirectSourceInterface;
     identifier: 'my-extension/custom-page-type-redirect',
     // Registering after Core listener is important, otherwise we would
     // not know if there is a PageType source for page type 0
-    after: 'redirects-add-page-type-zero-source'
+    after: 'redirects-add-page-type-zero-source',
 )]
 final class MyEventListener
 {
     public function __invoke(
-        SlugRedirectChangeItemCreatedEvent $event
+        SlugRedirectChangeItemCreatedEvent $event,
     ): void {
         $changeItem = $event->getSlugRedirectChangeItem();
         $sources = $changeItem->getSourcesCollection()->all();
         $pageTypeZeroSource = $this->getPageTypeZeroSource(
-            ...array_values($sources)
+            ...array_values($sources),
         );
         if ($pageTypeZeroSource === null) {
             // nothing we can do - no page type 0 source found
@@ -37,14 +37,14 @@ final class MyEventListener
         // 0 source, therefor it is safe to simply remove it by class check.
         $sources = array_filter(
             $sources,
-            static fn($source) => !($source instanceof PlainSlugReplacementRedirectSource)
+            static fn($source) => !($source instanceof PlainSlugReplacementRedirectSource),
         );
 
         // update sources
         $changeItem = $changeItem->withSourcesCollection(
             new RedirectSourceCollection(
-                ...array_values($sources)
-            )
+                ...array_values($sources),
+            ),
         );
 
         // update change item with updated sources
@@ -52,7 +52,7 @@ final class MyEventListener
     }
 
     private function getPageTypeZeroSource(
-        RedirectSourceInterface ...$sources
+        RedirectSourceInterface ...$sources,
     ): ?PageTypeSource {
         foreach ($sources as $source) {
             if ($source instanceof PageTypeSource

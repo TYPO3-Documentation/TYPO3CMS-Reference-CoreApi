@@ -12,6 +12,6 @@ $versionInformation = GeneralUtility::makeInstance(Typo3Version::class);
 
 if ($versionInformation->getMajorVersion() < 12) {
     ExtensionManagementUtility::allowTableOnStandardPages(
-        'tx_myextension_domain_model_mymodel'
+        'tx_myextension_domain_model_mymodel',
     );
 }

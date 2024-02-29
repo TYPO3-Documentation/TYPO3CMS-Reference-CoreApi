@@ -8,7 +8,7 @@ use TYPO3\CMS\Backend\Controller\Event\ModifyPageLayoutContentEvent;
 use TYPO3\CMS\Core\Attribute\AsEventListener;
 
 #[AsEventListener(
-    identifier: 'my-extension/backend/modify-page-module-content'
+    identifier: 'my-extension/backend/modify-page-module-content',
 )]
 final class MyEventListener
 {

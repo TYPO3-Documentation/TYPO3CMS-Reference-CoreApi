@@ -8,7 +8,7 @@ use TYPO3\CMS\Core\Attribute\AsEventListener;
 use TYPO3\CMS\Frontend\Event\ModifyPageLinkConfigurationEvent;
 
 #[AsEventListener(
-    identifier: 'my-extension/modify-page-link-configuration'
+    identifier: 'my-extension/modify-page-link-configuration',
 )]
 final class MyEventListener
 {

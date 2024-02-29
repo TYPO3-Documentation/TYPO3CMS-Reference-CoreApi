@@ -9,7 +9,7 @@ use TYPO3\CMS\Redirects\Event\AfterAutoCreateRedirectHasBeenPersistedEvent;
 use TYPO3\CMS\Redirects\RedirectUpdate\PlainSlugReplacementRedirectSource;
 
 #[AsEventListener(
-    identifier: 'my-extension/after-auto-create-redirect-has-been-persisted'
+    identifier: 'my-extension/after-auto-create-redirect-has-been-persisted',
 )]
 final class MyEventListener
 {

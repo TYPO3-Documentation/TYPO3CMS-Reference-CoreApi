@@ -9,12 +9,12 @@ use TYPO3\CMS\Redirects\Event\ModifyAutoCreateRedirectRecordBeforePersistingEven
 use TYPO3\CMS\Redirects\RedirectUpdate\PlainSlugReplacementRedirectSource;
 
 #[AsEventListener(
-    identifier: 'my-extension/modify-auto-create-redirect-record-before-persisting'
+    identifier: 'my-extension/modify-auto-create-redirect-record-before-persisting',
 )]
 final class MyEventListener
 {
     public function __invoke(
-        ModifyAutoCreateRedirectRecordBeforePersistingEvent $event
+        ModifyAutoCreateRedirectRecordBeforePersistingEvent $event,
     ): void {
         // Only work on plain slug replacement redirect sources.
         if (!($event->getSource() instanceof PlainSlugReplacementRedirectSource)) {

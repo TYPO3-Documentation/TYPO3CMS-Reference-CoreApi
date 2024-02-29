@@ -11,5 +11,5 @@ defined('TYPO3') or die();
 $metaTagManagerRegistry = GeneralUtility::makeInstance(MetaTagManagerRegistry::class);
 $metaTagManagerRegistry->registerManager(
     'custom',
-    CustomMetaTagManager::class
+    CustomMetaTagManager::class,
 );

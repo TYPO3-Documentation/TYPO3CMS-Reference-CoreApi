@@ -8,7 +8,7 @@ use TYPO3\CMS\Core\Attribute\AsEventListener;
 use TYPO3\CMS\Info\Controller\Event\ModifyInfoModuleContentEvent;
 
 #[AsEventListener(
-    identifier: 'my-extension/content-to-info-module'
+    identifier: 'my-extension/content-to-info-module',
 )]
 final class MyEventListener
 {

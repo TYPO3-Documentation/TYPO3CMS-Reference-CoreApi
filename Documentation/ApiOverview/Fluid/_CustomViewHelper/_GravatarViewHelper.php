@@ -23,7 +23,7 @@ final class GravatarViewHelper extends AbstractViewHelper
     public static function renderStatic(
         array $arguments,
         \Closure $renderChildrenClosure,
-        RenderingContextInterface $renderingContext
+        RenderingContextInterface $renderingContext,
     ): string {
         // this is improved with the TagBasedViewHelper (see below)
         return sprintf('<img src="https://www.gravatar.com/avatar/%s" />', md5($arguments['emailAddress']));

@@ -8,7 +8,7 @@ use TYPO3\CMS\Core\Attribute\AsEventListener;
 use TYPO3\CMS\Frontend\Event\ShouldUseCachedPageDataIfAvailableEvent;
 
 #[AsEventListener(
-    identifier: 'my-extension/avoid-cache-loading'
+    identifier: 'my-extension/avoid-cache-loading',
 )]
 final class MyEventListener
 {

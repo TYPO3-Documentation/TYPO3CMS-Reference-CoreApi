@@ -9,7 +9,7 @@ use TYPO3\CMS\Core\Utility\DiffUtility;
 use TYPO3\CMS\Workspaces\Event\ModifyVersionDifferencesEvent;
 
 #[AsEventListener(
-    identifier: 'my-extension/modify-version-differences'
+    identifier: 'my-extension/modify-version-differences',
 )]
 final class MyEventListener
 {

@@ -8,7 +8,7 @@ use TYPO3\CMS\Core\Package\Initialization\ImportExtensionDataOnPackageInitializa
 
 #[AsEventListener(
     identifier: 'my-extension/package-initialization',
-    after: ImportExtensionDataOnPackageInitialization::class
+    after: ImportExtensionDataOnPackageInitialization::class,
 )]
 final class MyEventListener
 {

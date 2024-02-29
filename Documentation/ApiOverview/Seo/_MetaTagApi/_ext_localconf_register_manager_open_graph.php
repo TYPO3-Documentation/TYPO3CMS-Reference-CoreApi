@@ -12,5 +12,5 @@ $metaTagManagerRegistry = GeneralUtility::makeInstance(MetaTagManagerRegistry::c
 $metaTagManagerRegistry->registerManager(
     'myOwnOpenGraphManager',
     MyOpenGraphMetaTagManager::class,
-    ['opengraph']
+    ['opengraph'],
 );

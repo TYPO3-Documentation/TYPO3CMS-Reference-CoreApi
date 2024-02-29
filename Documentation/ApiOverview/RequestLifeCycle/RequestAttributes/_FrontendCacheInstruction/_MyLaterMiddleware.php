@@ -12,7 +12,7 @@ final class MyLaterMiddleware implements MiddlewareInterface
 {
     public function process(
         ServerRequestInterface $request,
-        RequestHandlerInterface $handler
+        RequestHandlerInterface $handler,
     ): ResponseInterface {
         // Get the attribute
         $cacheInstruction = $request->getAttribute('frontend.cache.instruction');

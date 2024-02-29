@@ -15,5 +15,5 @@ $GLOBALS['SiteConfiguration']['site']['columns']['myNewField'] = [
 $GLOBALS['SiteConfiguration']['site']['types']['0']['showitem'] = str_replace(
     'base,',
     'base, myNewField, ',
-    $GLOBALS['SiteConfiguration']['site']['types']['0']['showitem']
+    $GLOBALS['SiteConfiguration']['site']['types']['0']['showitem'],
 );

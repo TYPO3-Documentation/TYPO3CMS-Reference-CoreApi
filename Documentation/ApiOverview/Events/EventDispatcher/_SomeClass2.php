@@ -19,7 +19,7 @@ final class SomeClass
 
         /** @var DoingThisAndThatEvent $event */
         $event = $this->eventDispatcher->dispatch(
-            new DoingThisAndThatEvent('foo', 2)
+            new DoingThisAndThatEvent('foo', 2),
         );
         $someChangedValue = $event->getMutableProperty();
 

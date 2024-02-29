@@ -9,7 +9,7 @@ use TYPO3\CMS\Core\Attribute\AsEventListener;
 use TYPO3\CMS\Core\Database\Connection;
 
 #[AsEventListener(
-    identifier: 'my-extension/backend/modify-database-query-for-content'
+    identifier: 'my-extension/backend/modify-database-query-for-content',
 )]
 final class MyEventListener
 {
@@ -29,8 +29,8 @@ final class MyEventListener
         $queryBuilder = $queryBuilder->andWhere(
             $queryBuilder->expr()->neq(
                 'some_field',
-                $queryBuilder->createNamedParameter(1, Connection::PARAM_INT)
-            )
+                $queryBuilder->createNamedParameter(1, Connection::PARAM_INT),
+            ),
         );
 
         // Set updated QueryBuilder to event

@@ -8,7 +8,7 @@ use TYPO3\CMS\Backend\Form\Event\ModifyImageManipulationPreviewUrlEvent;
 use TYPO3\CMS\Core\Attribute\AsEventListener;
 
 #[AsEventListener(
-    identifier: 'my-extension/backend/modify-imagemanipulation-previewurl'
+    identifier: 'my-extension/backend/modify-imagemanipulation-previewurl',
 )]
 final class MyEventListener
 {

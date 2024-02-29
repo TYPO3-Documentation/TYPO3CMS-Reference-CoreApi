@@ -9,7 +9,7 @@ use TYPO3\CMS\Core\Attribute\AsEventListener;
 use TYPO3\CMS\Linkvalidator\Event\ModifyValidatorTaskEmailEvent;
 
 #[AsEventListener(
-    identifier: 'my-extension/modify-validation-task-email'
+    identifier: 'my-extension/modify-validation-task-email',
 )]
 final class MyEventListener
 {
@@ -24,7 +24,7 @@ final class MyEventListener
         }
 
         $fluidEmail->subject(
-            $linkAnalyzerResult->getTotalBrokenLinksCount() . ' new broken links'
+            $linkAnalyzerResult->getTotalBrokenLinksCount() . ' new broken links',
         );
 
         $fluidEmail->to(new Address('custom@mail.com'));

@@ -9,7 +9,7 @@ use TYPO3\CMS\Core\Authentication\BackendUserAuthentication;
 use TYPO3\CMS\Core\Authentication\Event\AfterUserLoggedInEvent;
 
 #[AsEventListener(
-    identifier: 'my-extension/after-user-logged-in'
+    identifier: 'my-extension/after-user-logged-in',
 )]
 final class MyEventListener
 {

@@ -22,7 +22,7 @@ final class StrtolowerViewHelper extends AbstractViewHelper
     public static function renderStatic(
         array $arguments,
         \Closure $renderChildrenClosure,
-        RenderingContextInterface $renderingContext
+        RenderingContextInterface $renderingContext,
     ): string {
         return strtolower($arguments['string']);
     }
@@ -32,7 +32,7 @@ final class StrtolowerViewHelper extends AbstractViewHelper
         $closureName,
         &$initializationPhpCode,
         ViewHelperNode $node,
-        TemplateCompiler $compiler
+        TemplateCompiler $compiler,
     ): string {
         return 'strtolower(' . $argumentsName . '[\'string\'])';
     }

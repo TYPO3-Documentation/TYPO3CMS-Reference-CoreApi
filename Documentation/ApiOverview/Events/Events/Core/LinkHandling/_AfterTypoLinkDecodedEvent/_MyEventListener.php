@@ -8,7 +8,7 @@ use TYPO3\CMS\Core\Attribute\AsEventListener;
 use TYPO3\CMS\Core\LinkHandling\Event\AfterTypoLinkDecodedEvent;
 
 #[AsEventListener(
-    identifier: 'my-extension/after-typolink-decoded'
+    identifier: 'my-extension/after-typolink-decoded',
 )]
 final class MyEventListener
 {
