@@ -4,7 +4,7 @@
 // ddev exec .Build/vendor/bin/typo3 codesnippet:create Documentation/CodeSnippets/
 
 return array_merge(
-    include('Tea.php'),
-    include('CommandControllers.php'),
-    include('LinkBrowser.php'),
+    include ('Tea.php'),
+    include ('CommandControllers.php'),
+    include ('LinkBrowser.php'),
 );
