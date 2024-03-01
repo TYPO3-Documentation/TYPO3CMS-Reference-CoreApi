@@ -176,28 +176,28 @@ come before and after that.
 
 In a download action, this would be unwanted content. To prevent that
 from happening, you have multiple options. While you might think placing
-an :php:`die()` or :php:`exit()` after your download action processing
+a :php:`die()` or :php:`exit()` after your download action processing
 is a good way, it is not very clean.
 
 The recommended way to deal with this, is to use a
-:ref:`PSR-15 Middleware <request-handling>` implementation. This is more performant,
+:ref:`PSR-15 middleware <request-handling>` implementation. This is more performant,
 because all other request workflows do not even need to be executed, because no other
 plugin on the same page needs to be rendered. You would refactor your code so that
 :php:`downloadAction()` is not executed (e.g. via :html:`<f:form.action>`), but instead
-point to your Middleware routing URI, let the Middleware properly
-create output, and finally stop it's processing by a concrete :php:`ResponseFactory` result object,
+point to your middleware routing URI, let the middleware properly
+create output, and finally stop its processing by a concrete :php:`ResponseFactory` result object,
 as described in the Middleware chapters.
 
-If there still are reasons for you to to utilize Extbase for this, you can use
+If there are still reasons for you to utilize Extbase for this, you can use
 a special method to stop the request workflow. In such a case a
-:php:`TYPO3\CMS\Core\Http\PropagateResponseException` can be thrown. This is automatically
+:php:`\TYPO3\CMS\Core\Http\PropagateResponseException` can be thrown. This is automatically
 caught by a PSR-15 middleware and the given PSR-7 response is then returned directly.
 
 Example:
 
 ..  literalinclude::  ../_FrontendPlugin/_PropagateResponseExceptionController.php
     :language: php
-    :caption: EXT:my_extension/Controller/MyController.php
+    :caption: EXT:my_extension/Classes/Controller/MyController.php
     :emphasize-lines: 21
 
 Also, if your controller needs to perform a redirect to a defined URI (internal or external),
@@ -205,7 +205,7 @@ you can return a specific :php:`responseFactory()` object:
 
 ..  literalinclude::  ../_FrontendPlugin/_ExternalRedirectController.php
     :language: php
-    :caption: EXT:my_extension/Controller/MyController.php
+    :caption: EXT:my_extension/Classes/Controller/MyController.php
     :emphasize-lines: 17-18
 
 ..  hint::
