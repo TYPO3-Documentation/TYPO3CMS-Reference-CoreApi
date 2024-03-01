@@ -158,6 +158,61 @@ like this:
       [CommentController::class => 'create']
    );
 
+Stop further processing in a controller's action
+================================================
+
+Sometimes you may want to use an Extbase controller action to
+return a specific output, and then stop the whole request flow.
+
+For example, a :php:`downloadAction()` might provide some binary data,
+and should then stop.
+
+By default, Extbase actions need to return an object of type
+:php:`\Psr\Http\Message\ResponseInterface` as described above. The actions
+are chained into the TYPO3 request flow (via the page renderer), so the
+returned object will be enriched by further processing of TYPO3. Most
+importantly, the usual layout of your website will be surrounded
+by your Extbase action's returned contents, and other plugin outputs may
+come before and after that.
+
+In a download action, this would be unwanted content. To prevent that
+from happening, you have multiple options. While you might think placing
+a :php:`die()` or :php:`exit()` after your download action processing
+is a good way, it is not very clean.
+
+The recommended way to deal with this, is to use a
+:ref:`PSR-15 middleware <request-handling>` implementation. This is more performant,
+because all other request workflows do not even need to be executed, because no other
+plugin on the same page needs to be rendered. You would refactor your code so that
+:php:`downloadAction()` is not executed (e.g. via :html:`<f:form.action>`), but instead
+point to your middleware routing URI, let the middleware properly
+create output, and finally stop its processing by a concrete
+:php:`\Psr\Http\Message\ResponseFactoryInterface` result object,
+as described in the Middleware chapters.
+
+If there are still reasons for you to utilize Extbase for this, you can use
+a special method to stop the request workflow. In such a case a
+:php:`\TYPO3\CMS\Core\Http\PropagateResponseException` can be thrown. This is automatically
+caught by a PSR-15 middleware and the given PSR-7 response is then returned directly.
+
+Example:
+
+..  literalinclude::  ../_FrontendPlugin/_PropagateResponseExceptionController.php
+    :language: php
+    :caption: EXT:my_extension/Classes/Controller/MyController.php
+    :emphasize-lines: 21
+
+Also, if your controller needs to perform a redirect to a defined URI (internal or external),
+you can return a specific object through the :php:`responseFactory`:
+
+..  literalinclude::  ../_FrontendPlugin/_ExternalRedirectController.php
+    :language: php
+    :caption: EXT:my_extension/Classes/Controller/MyController.php
+    :emphasize-lines: 17-18
+
+..  hint::
+    If you want to return a JSON response, see :ref:`extbase_responses` to achieve this
+    with a special :php:`$this->jsonResponse()` method.
 
 Events
 ======
