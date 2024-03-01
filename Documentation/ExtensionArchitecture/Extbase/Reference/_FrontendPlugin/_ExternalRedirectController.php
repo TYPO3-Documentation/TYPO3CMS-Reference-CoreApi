@@ -5,13 +5,14 @@ use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
 
 final class MyController extends ActionController
 {
-    public function downloadAction(): ResponseInterface
+    public function redirectAction(): ResponseInterface
     {
         // ... do something (set $value, ...)
 
         $uri = $this->uriBuilder->uriFor('show', ['parameter' => $value]);
 
         // $uri could also be https://example.com/any/uri
+        // $this->resourceFactory is injected as part of the `ActionController` inheritance
         return $this->responseFactory->createResponse(307)
             ->withHeader('Location', $uri);
     }
