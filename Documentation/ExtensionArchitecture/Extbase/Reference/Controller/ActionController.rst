@@ -164,13 +164,14 @@ Stop further processing in a controller's action
 Sometimes you may want to use an Extbase controller action to
 return a specific output, and then stop the whole request flow.
 
-For example, a :php:`downloadAction()` might retrieve some binary data,
+For example, a :php:`downloadAction()` might provide some binary data,
 and should then stop.
 
 By default, Extbase actions need to return an object of type
-:php:`ResponseInterface` as described above. The actions are chained into the TYPO3 request
-flow (via the page renderer), so the returned object will be enriched by further processing
-of TYPO3: Most importantly, the usual layout of your website will be surrounded
+:php:`Psr\Http\Message\ResponseInterface` as described above. The actions
+are chained into the TYPO3 request flow (via the page renderer), so the
+returned object will be enriched by further processing of TYPO3. Most
+importantly, the usual layout of your website will be surrounded
 by your Extbase action's returned contents, and other plugin outputs may
 come before and after that.
 
@@ -185,7 +186,8 @@ because all other request workflows do not even need to be executed, because no 
 plugin on the same page needs to be rendered. You would refactor your code so that
 :php:`downloadAction()` is not executed (e.g. via :html:`<f:form.action>`), but instead
 point to your middleware routing URI, let the middleware properly
-create output, and finally stop its processing by a concrete :php:`ResponseFactory` result object,
+create output, and finally stop its processing by a concrete
+:php:`Psr\Http\Message\ResponseFactoryInterface` result object,
 as described in the Middleware chapters.
 
 If there are still reasons for you to utilize Extbase for this, you can use
@@ -201,7 +203,7 @@ Example:
     :emphasize-lines: 21
 
 Also, if your controller needs to perform a redirect to a defined URI (internal or external),
-you can return a specific :php:`responseFactory()` object:
+you can return a specific object through the :php:`responseFactory`:
 
 ..  literalinclude::  ../_FrontendPlugin/_ExternalRedirectController.php
     :language: php
