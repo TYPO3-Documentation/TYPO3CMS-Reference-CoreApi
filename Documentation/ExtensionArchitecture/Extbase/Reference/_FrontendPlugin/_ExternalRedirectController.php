@@ -3,7 +3,6 @@
 use Psr\Http\Message\ResponseInterface;
 use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
 
-// Example by: https://brot.krue.ml/extbase-controller-action-responses-in-typo3/
 final class MyController extends ActionController
 {
     public function downloadAction(): ResponseInterface
