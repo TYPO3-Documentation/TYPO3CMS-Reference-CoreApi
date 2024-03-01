@@ -187,7 +187,7 @@ plugin on the same page needs to be rendered. You would refactor your code so th
 :php:`downloadAction()` is not executed (e.g. via :html:`<f:form.action>`), but instead
 point to your middleware routing URI, let the middleware properly
 create output, and finally stop its processing by a concrete
-:php:`Psr\Http\Message\ResponseFactoryInterface` result object,
+:php:`\Psr\Http\Message\ResponseFactoryInterface` result object,
 as described in the Middleware chapters.
 
 If there are still reasons for you to utilize Extbase for this, you can use
