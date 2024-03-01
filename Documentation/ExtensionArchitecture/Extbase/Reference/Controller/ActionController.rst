@@ -168,7 +168,7 @@ For example, a :php:`downloadAction()` might provide some binary data,
 and should then stop.
 
 By default, Extbase actions need to return an object of type
-:php:`Psr\Http\Message\ResponseInterface` as described above. The actions
+:php:`\Psr\Http\Message\ResponseInterface` as described above. The actions
 are chained into the TYPO3 request flow (via the page renderer), so the
 returned object will be enriched by further processing of TYPO3. Most
 importantly, the usual layout of your website will be surrounded
