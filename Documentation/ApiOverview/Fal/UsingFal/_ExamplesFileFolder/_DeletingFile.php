@@ -29,7 +29,7 @@ final class MyClass
         if ($file->delete()) {
             // ... file was deleted successfully
         } else {
-            // ... an error occured
+            // ... an error occurred
         }
 
         // ... more logic

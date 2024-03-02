@@ -90,7 +90,7 @@ cert
 
    Set to a string to specify the path to a file containing a
    PEM formatted client side certificate. See
-   `Guzzle option cert <http//docs.guzzlephp.org/en/latest/request-options.html#cert>`__
+   `Guzzle option cert <https://docs.guzzlephp.org/en/latest/request-options.html#cert>`__
 
 .. index::
    TYPO3_CONF_VARS HTTP; connect_timeout

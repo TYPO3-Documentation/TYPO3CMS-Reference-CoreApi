@@ -244,12 +244,12 @@ BackendUtility::workspaceOL()
    passed by reference.
 
    .. todo: Find a better example
-            If looped (while), resultset is retrieved and looped completly, as there is
+            If looped (while), resultset is retrieved and looped completely, as there is
             no "break" which could leave unretrieved results. So the single retrieve
             statement after the loop do not make any sense, as resultset is at the end,
             and would return false instead of a row ....
             Next point is, that queryBuilder createNamedParameter does not make any
-            sense either, as it not assigned anyware or used?
+            sense either, as it not assigned anywhere or used?
 
    **Example:**
 

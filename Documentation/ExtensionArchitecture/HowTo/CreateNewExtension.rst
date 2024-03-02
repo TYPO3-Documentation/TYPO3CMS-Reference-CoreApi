@@ -13,7 +13,7 @@ Creating a new extension
 First choose a unique `Composer name <https://getcomposer.org/doc/04-schema.md#name>`__
 for your extension. Additionally, an extension key is required.
 
-If you plan to ever publish your extension in the TYPO3 Extension Repositiory
+If you plan to ever publish your extension in the TYPO3 Extension Repository
 (TER), :ref:`register an extension key <extension-key>`.
 
 Kickstarting the extension

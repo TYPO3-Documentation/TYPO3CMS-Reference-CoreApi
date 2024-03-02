@@ -62,7 +62,7 @@ Minimal extension - step-by-step
 4.  The namespace and PSR-4 autoloading
 
     TYPO3 features :ref:`PSR-4 autoloading <autoload>`. If a PHP class is
-    withing the correct namespace and path it will be available automatically.
+    within the correct namespace and path it will be available automatically.
 
     Now what is the correct namespace for your extension? Look for the
     keyword "autoload" in the :file:`composer.json` of your extension. You

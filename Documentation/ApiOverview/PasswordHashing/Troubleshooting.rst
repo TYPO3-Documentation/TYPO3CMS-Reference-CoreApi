@@ -68,7 +68,7 @@ working algorithm.
 Manually disable argon2i in the LocalConfiguration.php
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-This may be nessesary if access to the install tool is not possible.
+This may be necessary if access to the install tool is not possible.
 This can happen when the first installation was done on a system with argon2i
 and the installation was then copied to a target system that doesn't support
 this encryption type.

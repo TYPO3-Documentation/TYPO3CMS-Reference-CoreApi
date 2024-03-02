@@ -57,7 +57,7 @@ tutorials for common options:
                 The `Sitepackage Builder <https://www.sitepackagebuilder.com/>`__
                 can be used to conveniently create an extension containing the
                 sitepackage (theme) of a site. It can also be used to kickstart
-                an arbitary extension by removing unneeded files.
+                an arbitrary extension by removing unneeded files.
 
     ..  container:: col-md-6 pl-0 pr-3 py-3 m-0
 
