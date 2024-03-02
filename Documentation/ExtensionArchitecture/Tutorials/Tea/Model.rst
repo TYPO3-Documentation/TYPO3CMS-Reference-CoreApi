@@ -149,7 +149,7 @@ The title of the field is displayed above the input field. The type is a (string
 input field. The other configuration values influence display (size of the input
 field) and or processing on saving ( :php:`'eval' => 'trim'` removes whitespace).
 
-You can find a complete list of available input types and their propererties in
+You can find a complete list of available input types and their properties in
 the :ref:`TCA Reference, chapter "Field types (config > type)" <t3tca:columns-types>`.
 
 The other text fields are defined in a similar manner.

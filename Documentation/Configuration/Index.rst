@@ -14,7 +14,7 @@ Configuration
 features a short description for each topic and links to more information.
 
 
-We have categorized information about configuration into *configration
+We have categorized information about configuration into *configuration
 syntax* and *methods*. Configuration that can be changed in the backend
 is usually referred to as *Settings*. The :ref:`glossary` explains how we use
 these terms in this chapter.

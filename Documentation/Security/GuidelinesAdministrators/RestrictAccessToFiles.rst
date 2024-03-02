@@ -150,7 +150,7 @@ servers virtual host configuration. A typical example looks like this:
             deny all;
         }
 
-        # TYPO3 - Block access to libaries, source and temporary compiled data
+        # TYPO3 - Block access to libraries, source and temporary compiled data
         location ~ ^(?:vendor|typo3_src|typo3temp/var) {
             deny all;
         }

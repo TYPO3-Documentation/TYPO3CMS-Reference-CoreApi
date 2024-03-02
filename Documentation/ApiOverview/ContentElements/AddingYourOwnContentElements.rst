@@ -48,7 +48,7 @@ It can be installed via Composer with:
    composer req typo3/cms-fluid-styled-content
 
 
-.. index:: Extension devolopment; Custom content element
+.. index:: Extension development; Custom content element
 .. _AddingCE-use-an-extension:
 
 Use an extension
