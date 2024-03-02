@@ -17,7 +17,7 @@ All resources that only get accessed by the web server
 (templates, language files, etc.) go to the folder :file:`Private/`.
 
 .. note::
-   Non–TYPO3 files such as third party JavaScript libaries are commonly stored
+   Non–TYPO3 files such as third party JavaScript libraries are commonly stored
    in this folder.
 
    TYPO3 is licensed under GPL version 2 or any later version. Any non–TYPO3

@@ -277,7 +277,7 @@ sitemap:
 
 The :php:`loc` element is the URL of the page to be crawled by a search engine.
 The :php:`lastMod` element contains the date of the last update of the
-specific item. This value is a UNIX timestamp. In additiona, you can include
+specific item. This value is a UNIX timestamp. In addition, you can include
 :php:`changefreq` and :php:`priority` as keys in the array to give
 :ref:`search engines a hint <xmlsitemap-changefreq-priority>`.
 

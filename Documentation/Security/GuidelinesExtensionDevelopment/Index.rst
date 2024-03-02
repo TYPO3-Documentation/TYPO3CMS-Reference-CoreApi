@@ -89,7 +89,7 @@ The form looks like this:
       <f:form.textbox property="description" />
    </f:form>
 
-If the form is sent, the argument mapping for the user object recieves
+If the form is sent, the argument mapping for the user object receives
 this array:
 
 .. code-block:: none
