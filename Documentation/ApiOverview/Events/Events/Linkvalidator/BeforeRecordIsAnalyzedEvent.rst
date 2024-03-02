@@ -44,7 +44,7 @@ For the implementation we need the
 additional link errors and the
 :php:`\TYPO3\CMS\Core\DataHandling\SoftReference\SoftReferenceParserFactory` so
 we can automatically parse for links. These two classes have to be injected via
-:ref:`dependeny injection <Dependency-Injection>`:
+:ref:`dependency injection <Dependency-Injection>`:
 
 ..  include:: /CodeSnippets/Events/Linkvalidator/BeforeRecordIsAnalyzedEvent/ExampleInject.rst.txt
 

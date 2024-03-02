@@ -51,7 +51,7 @@ For performance reasons, it should be quick to calculate.
 Suppose a resource-intensive extension is added as a plugin on two different
 pages. The calculated content depends on the page on which it is inserted and
 if a user is logged in or not. So, the plugin creates at maximum four different
-ontent outputs, which can be cached in four different cache entries:
+content outputs, which can be cached in four different cache entries:
 
 *   page 1, no user logged in
 *   page 1, a user is logged in

@@ -97,7 +97,7 @@ setups like these can be found in the `ddev documentation
 To execute acceptance tests in this installation you have to activate this file, usually it is now appended
 with the suffix `.inactive` and therefore not used when DDEV starts. To activate acceptance tests the file
 :file:`.ddev/docker-compose.chrome.yaml.inactive` has to be renamed to :file:`.ddev/docker-compose.chrome.yaml`.
-By default acceptance tests are disabled because they slow down other tests significantally.
+By default acceptance tests are disabled because they slow down other tests significantly.
 
 Next, after adding codeception as require-dev dependency in :file:`composer.json`, we need a
 basic :file:`Tests/codeception.yml` file:
