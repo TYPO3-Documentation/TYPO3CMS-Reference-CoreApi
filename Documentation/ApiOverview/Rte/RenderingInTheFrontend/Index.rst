@@ -35,7 +35,7 @@ of the form `t3://page?uid=51` that need to be processed. Usually those links sh
 be transformed already because the ViewHelper is using by default `lib.parseFunc_RTE`
 to parse the content.
 
-Nevertheless it's possible to define the parsing function explicitely and also to
+Nevertheless it's possible to define the parsing function explicitly and also to
 define a different parsing function:
 
 .. code-block:: xml

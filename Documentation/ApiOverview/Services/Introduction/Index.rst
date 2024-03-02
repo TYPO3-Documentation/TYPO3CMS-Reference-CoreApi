@@ -98,7 +98,7 @@ Reasons for using the Services API
    The abstract class :php:`\TYPO3\CMS\Core\Service\AbstractService` has been
    removed. See :ref:`services-developer-service-api-migration`.
 
-The :php:`AbstractService` has been removed and it is planed to also
+The :php:`AbstractService` has been removed and it is planned to also
 deprecate the other methods of the Service API in the future. The Service API
 should only be used for frontend and backend user :ref:`authentication
 <authentication>`.

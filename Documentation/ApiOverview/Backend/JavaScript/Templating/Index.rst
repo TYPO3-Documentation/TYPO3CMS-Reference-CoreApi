@@ -1,5 +1,5 @@
 .. include:: /Includes.rst.txt
-.. index:: 
+.. index::
    JavaScript (Backend); lit-html engine
    Templating
    pair: Templating; Client-side
@@ -155,7 +155,7 @@ This is rendered as:
 .. code-block:: html
 
    <my-element value="World">
-      <p>Hellow world!</p>
+      <p>Hello world!</p>
    </my-element>
 
 .. _web-components: https://developer.mozilla.org/en-US/docs/Web/Web_Components/Using_custom_elements

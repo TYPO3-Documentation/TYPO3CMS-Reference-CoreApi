@@ -66,7 +66,7 @@ you can decide to introduce a new type and
 only extend that one type. This is, for example, commonly done when extending
 the model of :t3ext:`news`.
 
-If you are planing to publish your extension that extends another extensions
+If you are planning to publish your extension that extends another extensions
 model, research on `Packagist <https://packagist.org/>`__ and the
 `TER (TYPO3 extension repository) <https://extensions.typo3.org/>`__ for
 extensions that are already extending the model. If necessary, put them in
