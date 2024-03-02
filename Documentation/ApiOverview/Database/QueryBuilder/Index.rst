@@ -135,7 +135,7 @@ With :php:`->select()` the list of fields to be selected is specified, and with
 :php:`->addSelect()` further elements can be added to an existing list.
 
 Mind that :php:`->select()` **replaces** any formerly registered list instead of
-appending it. Thus, it is not very usefule to call :php:`select()` twice in a
+appending it. Thus, it is not very useful to call :php:`select()` twice in a
 code flow or **after** an :php:`->addSelect()`. The methods :php:`->where()` and
 :php:`->andWhere()` share the same behavior: :php:`->where()` replaces all
 formerly registered constraints, :php:`->andWhere()` appends additional

@@ -6,7 +6,7 @@
 Update your extension for new TYPO3 versions
 ============================================
 
-The following tool are helpfull when updating your extension:
+The following tool are helpful when updating your extension:
 
 ..  toctree::
     :titlesonly:

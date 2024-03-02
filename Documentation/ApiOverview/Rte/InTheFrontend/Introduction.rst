@@ -50,7 +50,7 @@ The optional features
    with existing data. This might require some considerations concerning
    multiple aspects.
 
-*  Links might be choosen out of the existing pages of the website, those
+*  Links might be chosen out of the existing pages of the website, those
    links can be added as internal instead of external links but require
    a visual and functional option to select from existing pages.
 

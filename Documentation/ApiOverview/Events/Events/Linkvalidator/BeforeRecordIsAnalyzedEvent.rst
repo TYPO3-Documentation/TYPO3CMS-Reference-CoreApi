@@ -52,7 +52,7 @@ The listener must then be registered in the extensions :php:`Services.yaml`:
 For the implementation we need the :php:`BrokenLinkRepository` to register
 additional link errors and the :php:`SoftReferenceParserFactory` so we can
 automatically parse for links. These two classes have to be injected via
-:ref:`dependeny injection <Dependency-Injection>`:
+:ref:`dependency injection <Dependency-Injection>`:
 
 ..  include:: /CodeSnippets/Events/Linkvalidator/BeforeRecordIsAnalyzedEvent/ExampleInject.rst.txt
 

@@ -124,7 +124,7 @@ There are 3 ways to import ViewHelper namespaces in TYPO3. In all three examples
       :caption: EXT:blog_example/Resources/Private/Templates/SomeTemplate.html
 
       <html
-       xmlns:blog="http://typo3.org/ns/Myvendr/MyExtension/ViewHelpers"
+       xmlns:blog="http://typo3.org/ns/Myvendor/MyExtension/ViewHelpers"
        data-namespace-typo3-fluid="true">
 
       </html>
