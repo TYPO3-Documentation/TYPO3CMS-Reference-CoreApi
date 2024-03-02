@@ -45,6 +45,8 @@ context:
 ..  literalinclude:: _MyTableRepository.php
     :caption: EXT:my_extension/Classes/Domain/Repository/MyTableRepository.php
 
+See available :ref:`parameter types <database-connection-parameter-types>`.
+
 ..  warning::
     It is of crucial importance to quote values correctly to not introduce SQL
     injection attack vectors into your application. See the :ref:`according
@@ -75,6 +77,8 @@ Example to find :sql:`tt_content` records:
 ..  code-block:: php
     :caption: EXT:my_extension/Classes/Domain/Repository/MyTableRepository.php
 
+    // use TYPO3\CMS\Core\Database\Connection;
+
     // WHERE
     //     (`tt_content`.`CType` = 'list')
     //     AND (
@@ -88,17 +92,18 @@ Example to find :sql:`tt_content` records:
         $queryBuilder->expr()->or(
             $queryBuilder->expr()->eq(
                 'list_type',
-                $queryBuilder->createNamedParameter('example_pi1')
+                $queryBuilder->createNamedParameter('example_pi1', Connection::PARAM_STR)
             ),
             $queryBuilder->expr()->eq(
                 'list_type',
-                $queryBuilder->createNamedParameter('example_pi2')
+                $queryBuilder->createNamedParameter('example_pi2', Connection::PARAM_STR)
             )
         )
     )
 
 Read :ref:`how to correctly instantiate <database-query-builder-instantiation>`
 a query builder with the connection pool.
+See available :ref:`parameter types <database-connection-parameter-types>`.
 
 
 Comparisons
@@ -218,6 +223,7 @@ Examples:
         )
     )
 
+See available :ref:`parameter types <database-connection-parameter-types>`.
 
 Aggregate Functions
 ===================
@@ -290,6 +296,7 @@ database level. The following examples give a better idea of what is possible:
 
 Read :ref:`how to correctly instantiate <database-query-builder-instantiation>`
 a query builder with the connection pool.
+See available :ref:`parameter types <database-connection-parameter-types>`.
 
 The call to :php:`$queryBuilder->expr()-trim()` can be one of the following:
 
@@ -324,3 +331,4 @@ with an optional alias :php:`->length(string $fieldName, string $alias = null)`:
 
 Read :ref:`how to correctly instantiate <database-query-builder-instantiation>`
 a query builder with the connection pool.
+See available :ref:`parameter types <database-connection-parameter-types>`.
