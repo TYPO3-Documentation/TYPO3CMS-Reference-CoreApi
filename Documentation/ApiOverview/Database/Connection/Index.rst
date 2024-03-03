@@ -99,6 +99,50 @@ Another way is to inject the :php:`Connection` object directly via
         :caption: EXT:my_extension/Classes/Domain/Repository/MyTableRepository.php
 
 
+.. _database-connection-parameter-types:
+
+Parameter types
+===============
+
+The parameter types are used in various places to bind values to types, for
+example, when using named parameters in the
+:ref:`query builder <database-query-builder>`:
+
+..  code-block:: php
+
+    // use TYPO3\CMS\Core\Database\Connection;
+
+    $queryBuilder->createNamedParameter(42, Connection::PARAM_INT);
+
+The following parameter types are available:
+
+:php:`\TYPO3\CMS\Core\Database\Connection::PARAM_NULL`
+    Represents an SQL :sql:`NULL` data type.
+
+:php:`\TYPO3\CMS\Core\Database\Connection::PARAM_INT`
+    Represents an SQL :sql:`INTEGER` data type.
+
+:php:`\TYPO3\CMS\Core\Database\Connection::PARAM_STR`
+    Represents an SQL :sql:`CHAR` or `VARCHAR` data type.
+
+:php:`\TYPO3\CMS\Core\Database\Connection::PARAM_LOB`
+    Represents an SQL large object data type.
+
+:php:`\TYPO3\CMS\Core\Database\Connection::PARAM_BOOL`
+    Represents a boolean data type.
+
+:php:`\TYPO3\CMS\Core\Database\Connection::PARAM_INT_ARRAY`
+    Represents an array of integer values.
+
+:php:`\TYPO3\CMS\Core\Database\Connection::PARAM_STR_ARRAY`
+    Represents an array of string values.
+
+The default parameter type is :php:`Connection::PARAM_STR`, if this argument
+is omitted.
+
+Internally, these parameter types are mapped to the types Doctrine DBAL expects.
+
+
 .. _database-connection-insert:
 
 insert()
@@ -126,6 +170,7 @@ A (slightly simplified) example from the Registry API:
 
 Read :ref:`how to instantiate <database-connection-instantiation>` a connection
 with the connection pool.
+See available :ref:`parameter types <database-connection-parameter-types>`.
 
 Arguments of the :php:`insert()` method:
 
@@ -160,6 +205,7 @@ Arguments of the :php:`insert()` method:
 
     Read :ref:`how to instantiate <database-connection-instantiation>` a
     connection with the connection pool.
+    See available :ref:`parameter types <database-connection-parameter-types>`.
 
 :php:`insert()` returns the number of affected rows. Guess what? That is the
 number `1` ... If something goes wrong, a :php:`\Doctrine\DBAL\DBALException` is
@@ -200,6 +246,7 @@ This method insert multiple rows at once:
 
 Read :ref:`how to instantiate <database-connection-instantiation>` a connection
 with the connection pool.
+See available :ref:`parameter types <database-connection-parameter-types>`.
 
 Arguments of the :php:`bulkInsert()` method:
 
@@ -248,6 +295,7 @@ Create an :sql:`UPDATE` statement and execute it. The example from FAL's
 
 Read :ref:`how to instantiate <database-connection-instantiation>` a connection
 with the connection pool.
+See available :ref:`parameter types <database-connection-parameter-types>`.
 
 Arguments of the :php:`update()` method:
 
@@ -293,6 +341,7 @@ from :php:`BackendUtility`, to mark rows as no longer locked by a user:
 
 Read :ref:`how to instantiate <database-connection-instantiation>` a connection
 with the connection pool.
+See available :ref:`parameter types <database-connection-parameter-types>`.
 
 Arguments of the :php:`delete()` method:
 
