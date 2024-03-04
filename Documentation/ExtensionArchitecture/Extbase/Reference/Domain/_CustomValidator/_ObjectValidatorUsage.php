@@ -8,6 +8,7 @@ use Psr\Http\Message\ResponseInterface;
 use T3docs\BlogExample\Domain\Model\Blog;
 use T3docs\BlogExample\Exception\NoBlogAdminAccessException;
 use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
+use TYPO3\CMS\Extbase\Annotation\Validate;
 
 class BlogController extends ActionController
 {
