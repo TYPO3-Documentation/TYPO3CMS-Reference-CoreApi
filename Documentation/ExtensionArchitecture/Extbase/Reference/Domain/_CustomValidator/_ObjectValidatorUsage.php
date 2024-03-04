@@ -7,6 +7,7 @@ namespace T3docs\BlogExample\Controller;
 use Psr\Http\Message\ResponseInterface;
 use T3docs\BlogExample\Domain\Model\Blog;
 use T3docs\BlogExample\Exception\NoBlogAdminAccessException;
+use TYPO3\CMS\Extbase\Annotation\Validate;
 use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
 
 class BlogController extends ActionController
