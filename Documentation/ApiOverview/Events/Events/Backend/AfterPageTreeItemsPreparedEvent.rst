@@ -21,6 +21,9 @@ class after the page tree items have been resolved and prepared. The event
 provides the current PSR-7 request object as well as the page tree items. All
 items contain the corresponding page record in the special :php:`_page` key.
 
+..  versionadded:: 13.1
+    Tree node labels can be defined.
+
 Example
 =======
 
