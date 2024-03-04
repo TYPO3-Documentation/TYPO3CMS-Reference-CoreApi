@@ -12,7 +12,7 @@ use TYPO3\CMS\Core\Security\ContentSecurityPolicy\UriValue;
 #[AsEventListener(
     identifier: 'my-extension/mutate-policy',
 )]
-final class MyEventListener
+final readonly class MyEventListener
 {
     public function __invoke(PolicyMutatedEvent $event): void
     {

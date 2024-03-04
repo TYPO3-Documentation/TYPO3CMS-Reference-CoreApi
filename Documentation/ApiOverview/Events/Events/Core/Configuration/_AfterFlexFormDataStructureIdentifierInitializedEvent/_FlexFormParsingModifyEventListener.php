@@ -26,7 +26,7 @@ use TYPO3\CMS\Core\Configuration\Event\BeforeFlexFormDataStructureParsedEvent;
     identifier: 'my-extension/modify-data-structure-identifier',
     method: 'modifyDataStructureIdentifier',
 )]
-final class FlexFormParsingModifyEventListener
+final readonly class FlexFormParsingModifyEventListener
 {
     public function setDataStructure(BeforeFlexFormDataStructureParsedEvent $event): void
     {

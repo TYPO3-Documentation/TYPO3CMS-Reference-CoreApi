@@ -10,7 +10,7 @@ use TYPO3\CMS\Core\LinkHandling\Event\AfterTypoLinkDecodedEvent;
 #[AsEventListener(
     identifier: 'my-extension/after-typolink-decoded',
 )]
-final class MyEventListener
+final readonly class MyEventListener
 {
     public function __invoke(AfterTypoLinkDecodedEvent $event): void
     {

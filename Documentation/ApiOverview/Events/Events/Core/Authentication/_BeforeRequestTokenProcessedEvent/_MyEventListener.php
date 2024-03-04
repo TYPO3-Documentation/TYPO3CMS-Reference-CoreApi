@@ -11,7 +11,7 @@ use TYPO3\CMS\Core\Security\RequestToken;
 #[AsEventListener(
     identifier: 'my-extension/process-request-token-listener',
 )]
-final class MyEventListener
+final readonly class MyEventListener
 {
     public function __invoke(BeforeRequestTokenProcessedEvent $event): void
     {

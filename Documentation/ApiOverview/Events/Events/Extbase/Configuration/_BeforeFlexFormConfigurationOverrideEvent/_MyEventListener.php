@@ -10,7 +10,7 @@ use TYPO3\CMS\Extbase\Event\Configuration\BeforeFlexFormConfigurationOverrideEve
 #[AsEventListener(
     identifier: 'my-extension/before-flexform-configuration-override',
 )]
-final class MyEventListener
+final readonly class MyEventListener
 {
     public function __invoke(BeforeFlexFormConfigurationOverrideEvent $event): void
     {

@@ -8,7 +8,7 @@ use TYPO3\CMS\Core\Attribute\AsEventListener;
 use TYPO3\CMS\Core\Mail\Event\AfterMailerInitializationEvent;
 use TYPO3\CMS\Core\Mail\Event\BeforeMailerSentMessageEvent;
 
-final class NullMailer
+final readonly class NullMailer
 {
     #[AsEventListener(
         identifier: 'my-extension/null-mailer-initialization',

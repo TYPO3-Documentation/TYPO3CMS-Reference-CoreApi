@@ -10,7 +10,7 @@ use TYPO3\CMS\Core\TypoScript\IncludeTree\Event\AfterTemplatesHaveBeenDetermined
 #[AsEventListener(
     identifier: 'my-extension/post-process-sys-templates',
 )]
-final class MyEventListener
+final readonly class MyEventListener
 {
     public function __invoke(AfterTemplatesHaveBeenDeterminedEvent $event): void
     {

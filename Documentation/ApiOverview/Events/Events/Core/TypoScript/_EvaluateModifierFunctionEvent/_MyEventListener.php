@@ -10,7 +10,7 @@ use TYPO3\CMS\Core\TypoScript\AST\Event\EvaluateModifierFunctionEvent;
 #[AsEventListener(
     identifier: 'my-extension/evaluate-modifier-function',
 )]
-final class MyEventListener
+final readonly class MyEventListener
 {
     public function __invoke(EvaluateModifierFunctionEvent $event): void
     {

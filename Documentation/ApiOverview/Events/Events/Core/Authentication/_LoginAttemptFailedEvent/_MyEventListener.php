@@ -10,7 +10,7 @@ use TYPO3\CMS\Core\Authentication\Event\LoginAttemptFailedEvent;
 #[AsEventListener(
     identifier: 'my-extension/login-attempt-failed',
 )]
-final class MyEventListener
+final readonly class MyEventListener
 {
     public function __invoke(LoginAttemptFailedEvent $event): void
     {

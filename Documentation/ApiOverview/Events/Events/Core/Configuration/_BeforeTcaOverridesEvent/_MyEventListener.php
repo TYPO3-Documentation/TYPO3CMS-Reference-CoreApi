@@ -10,7 +10,7 @@ use TYPO3\CMS\Core\Configuration\Event\BeforeTcaOverridesEvent;
 #[AsEventListener(
     identifier: 'my-extension/before-tca-overrides',
 )]
-final class MyEventListener
+final readonly class MyEventListener
 {
     public function __invoke(BeforeTcaOverridesEvent $event): void
     {

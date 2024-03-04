@@ -10,7 +10,7 @@ use TYPO3\CMS\Frontend\ContentObject\Event\AfterStdWrapFunctionsInitializedEvent
 use TYPO3\CMS\Frontend\ContentObject\Event\BeforeStdWrapFunctionsInitializedEvent;
 use TYPO3\CMS\Frontend\ContentObject\Event\EnhanceStdWrapEvent;
 
-final class MyEventListener
+final readonly class MyEventListener
 {
     #[AsEventListener(
         identifier: 'my-extension/my-stdwrap-enhancement',

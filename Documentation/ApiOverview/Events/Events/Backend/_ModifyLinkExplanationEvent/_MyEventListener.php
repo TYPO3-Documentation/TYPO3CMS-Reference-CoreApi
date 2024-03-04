@@ -12,7 +12,7 @@ use TYPO3\CMS\Core\Imaging\IconFactory;
 #[AsEventListener(
     identifier: 'my-extension/backend/modify-link-explanation',
 )]
-final class MyEventListener
+final readonly class MyEventListener
 {
     public function __construct(
         private readonly IconFactory $iconFactory,

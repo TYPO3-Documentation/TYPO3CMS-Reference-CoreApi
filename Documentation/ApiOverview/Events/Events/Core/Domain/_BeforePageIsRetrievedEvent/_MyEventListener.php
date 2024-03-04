@@ -11,7 +11,7 @@ use TYPO3\CMS\Core\Domain\Page;
 #[AsEventListener(
     identifier: 'my-extension/my-custom-page-resolver',
 )]
-final class MyEventListener
+final readonly class MyEventListener
 {
     public function __invoke(BeforePageIsRetrievedEvent $event): void
     {

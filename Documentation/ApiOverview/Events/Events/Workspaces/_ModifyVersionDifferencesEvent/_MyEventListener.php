@@ -11,7 +11,7 @@ use TYPO3\CMS\Workspaces\Event\ModifyVersionDifferencesEvent;
 #[AsEventListener(
     identifier: 'my-extension/modify-version-differences',
 )]
-final class MyEventListener
+final readonly class MyEventListener
 {
     public function __construct(private readonly DiffUtility $diffUtility)
     {

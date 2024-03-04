@@ -19,7 +19,7 @@ use TYPO3\CMS\Core\Utility\GeneralUtility;
     identifier: 'my-extension/backend/modify-controls',
     method: 'modifyControls',
 )]
-final class MyEventListener
+final readonly class MyEventListener
 {
     public function modifyEnabledControls(ModifyInlineElementEnabledControlsEvent $event): void
     {

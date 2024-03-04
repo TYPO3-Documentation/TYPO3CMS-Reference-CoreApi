@@ -10,7 +10,7 @@ use TYPO3\CMS\Lowlevel\Event\ModifyBlindedConfigurationOptionsEvent;
 #[AsEventListener(
     identifier: 'my-extension/blind-configuration-options',
 )]
-final class MyEventListener
+final readonly class MyEventListener
 {
     public function __invoke(ModifyBlindedConfigurationOptionsEvent $event): void
     {

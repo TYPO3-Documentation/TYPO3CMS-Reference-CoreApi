@@ -11,7 +11,7 @@ use TYPO3\CMS\Redirects\Event\RedirectWasHitEvent;
     identifier: 'my-extension/redirects/validate-hit-count',
     before: 'redirects-increment-hit-count',
 )]
-final class MyEventListener
+final readonly class MyEventListener
 {
     public function __invoke(RedirectWasHitEvent $event): void
     {

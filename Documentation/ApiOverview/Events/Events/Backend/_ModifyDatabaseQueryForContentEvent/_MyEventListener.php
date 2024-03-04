@@ -11,7 +11,7 @@ use TYPO3\CMS\Core\Database\Connection;
 #[AsEventListener(
     identifier: 'my-extension/backend/modify-database-query-for-content',
 )]
-final class MyEventListener
+final readonly class MyEventListener
 {
     public function __invoke(ModifyDatabaseQueryForContentEvent $event): void
     {

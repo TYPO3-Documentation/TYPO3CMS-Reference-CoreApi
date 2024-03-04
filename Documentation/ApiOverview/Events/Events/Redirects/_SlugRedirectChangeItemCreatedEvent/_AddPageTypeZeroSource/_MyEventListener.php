@@ -17,7 +17,7 @@ use TYPO3\CMS\Redirects\RedirectUpdate\RedirectSourceInterface;
     // not know if there is a PageType source for page type 0
     after: 'redirects-add-page-type-zero-source',
 )]
-final class MyEventListener
+final readonly class MyEventListener
 {
     public function __invoke(
         SlugRedirectChangeItemCreatedEvent $event,

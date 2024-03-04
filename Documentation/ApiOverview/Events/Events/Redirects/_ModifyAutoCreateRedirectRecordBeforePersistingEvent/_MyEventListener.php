@@ -11,7 +11,7 @@ use TYPO3\CMS\Redirects\RedirectUpdate\PlainSlugReplacementRedirectSource;
 #[AsEventListener(
     identifier: 'my-extension/modify-auto-create-redirect-record-before-persisting',
 )]
-final class MyEventListener
+final readonly class MyEventListener
 {
     public function __invoke(
         ModifyAutoCreateRedirectRecordBeforePersistingEvent $event,

@@ -11,7 +11,7 @@ use TYPO3\CMS\Core\Authentication\Event\AfterUserLoggedInEvent;
 #[AsEventListener(
     identifier: 'my-extension/after-user-logged-in',
 )]
-final class MyEventListener
+final readonly class MyEventListener
 {
     public function __invoke(AfterUserLoggedInEvent $event): void
     {

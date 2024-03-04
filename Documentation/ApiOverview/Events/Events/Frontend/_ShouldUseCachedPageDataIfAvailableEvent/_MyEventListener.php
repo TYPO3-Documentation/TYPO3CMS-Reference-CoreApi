@@ -10,7 +10,7 @@ use TYPO3\CMS\Frontend\Event\ShouldUseCachedPageDataIfAvailableEvent;
 #[AsEventListener(
     identifier: 'my-extension/avoid-cache-loading',
 )]
-final class MyEventListener
+final readonly class MyEventListener
 {
     public function __invoke(ShouldUseCachedPageDataIfAvailableEvent $event): void
     {

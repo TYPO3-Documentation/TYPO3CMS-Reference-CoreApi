@@ -10,7 +10,7 @@ use TYPO3\CMS\Core\Resource\OnlineMedia\Event\AfterVideoPreviewFetchedEvent;
 #[AsEventListener(
     identifier: 'my-extension/after-video-preview-fetched',
 )]
-final class MyEventListener
+final readonly class MyEventListener
 {
     public function __invoke(AfterVideoPreviewFetchedEvent $event): void
     {

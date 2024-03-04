@@ -10,7 +10,7 @@ use TYPO3\CMS\Core\Package\Initialization\ImportExtensionDataOnPackageInitializa
     identifier: 'my-extension/package-initialization',
     after: ImportExtensionDataOnPackageInitialization::class,
 )]
-final class MyEventListener
+final readonly class MyEventListener
 {
     public function __invoke(PackageInitializationEvent $event): void
     {

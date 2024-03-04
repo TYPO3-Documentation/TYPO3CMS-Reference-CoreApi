@@ -11,7 +11,7 @@ use TYPO3\CMS\Redirects\Event\BeforeRedirectMatchDomainEvent;
 #[AsEventListener(
     identifier: 'my-extension/before-redirect-match-domain',
 )]
-final class MyEventListener
+final readonly class MyEventListener
 {
     public function __invoke(BeforeRedirectMatchDomainEvent $event): void
     {

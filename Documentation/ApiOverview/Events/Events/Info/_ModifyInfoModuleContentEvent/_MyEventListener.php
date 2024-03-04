@@ -10,7 +10,7 @@ use TYPO3\CMS\Info\Controller\Event\ModifyInfoModuleContentEvent;
 #[AsEventListener(
     identifier: 'my-extension/content-to-info-module',
 )]
-final class MyEventListener
+final readonly class MyEventListener
 {
     public function __invoke(ModifyInfoModuleContentEvent $event): void
     {

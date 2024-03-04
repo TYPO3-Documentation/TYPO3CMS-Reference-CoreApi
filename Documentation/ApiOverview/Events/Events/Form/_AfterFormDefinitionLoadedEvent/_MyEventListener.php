@@ -10,7 +10,7 @@ use TYPO3\CMS\Form\Mvc\Persistence\Event\AfterFormDefinitionLoadedEvent;
 #[AsEventListener(
     identifier: 'my-extension/after-form-definition-loaded',
 )]
-final class MyEventListener
+final readonly class MyEventListener
 {
     public function __invoke(AfterFormDefinitionLoadedEvent $event): void
     {

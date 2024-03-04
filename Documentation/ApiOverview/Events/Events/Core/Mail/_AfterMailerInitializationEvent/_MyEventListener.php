@@ -10,7 +10,7 @@ use TYPO3\CMS\Core\Mail\Event\AfterMailerInitializationEvent;
 #[AsEventListener(
     identifier: 'my-extension/after-mailer-initialization',
 )]
-final class MyEventListener
+final readonly class MyEventListener
 {
     public function __invoke(AfterMailerInitializationEvent $event): void
     {

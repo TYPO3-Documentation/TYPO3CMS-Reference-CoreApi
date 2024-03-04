@@ -11,7 +11,7 @@ use TYPO3\CMS\Frontend\Event\ModifyCacheLifetimeForPageEvent;
 #[AsEventListener(
     identifier: 'my-extension/cache-timeout',
 )]
-final class MyEventListener
+final readonly class MyEventListener
 {
     public function __invoke(ModifyCacheLifetimeForPageEvent $event): void
     {
