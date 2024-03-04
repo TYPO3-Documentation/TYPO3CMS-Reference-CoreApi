@@ -16,7 +16,7 @@ final class MyEventListener
     {
         $items = $event->getItems();
         foreach ($items as $item) {
-            // Setting special item for page with id 123
+            // Set special icon for page with ID 123
             if ($item['_page']['uid'] === 123) {
                 $item['icon'] = 'my-special-icon';
             }
