@@ -21,7 +21,7 @@ final class MyEventListener
             if ($item['_page']['uid'] === 123) {
                 $item['icon'] = 'my-special-icon';
 
-                // Set a label
+                // Set a tree node label
                 $item['labels'][] = new Label(
                     'Campaign B', // Label
                     '#00658f', // Color as RGB value
