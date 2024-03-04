@@ -72,7 +72,7 @@ model variant of the main domain model, and exclude all the properties that
 you do not want validation for in your Extbase context, and transport
 the contents from and between your original domain model to this instance.
 Read more about this on https://usetypo3.com/dtos-in-extbase/ or see a
-CRUD example for this on
+:abbr:`CRUD (Create, Read, Update, Delete)` example for this on
 https://github.com/garvinhicking/gh_validationdummy/
 
 .. _extbase-annotation-orm:
