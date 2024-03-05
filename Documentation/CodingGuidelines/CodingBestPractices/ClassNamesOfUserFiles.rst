@@ -1,9 +1,9 @@
-.. include:: /Includes.rst.txt
-.. index:: Coding guidelines; Namespaces
-.. _cgl-namespaces-class-names:
+..  include:: /Includes.rst.txt
+..  index:: Coding guidelines; Namespaces
+..  _cgl-namespaces-class-names:
 
 ========================================
-Namespaces and Class Names of User Files
+Namespaces and class names of user files
 ========================================
 
 The namespace and class names of user files follow the same rules as

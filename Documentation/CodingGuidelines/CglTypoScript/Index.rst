@@ -3,10 +3,10 @@
 .. _cgl-typoscript:
 
 ============================
-TypoScript Coding Guidelines
+TypoScript coding guidelines
 ============================
 
-Directory and File Names
+Directory and file names
 ========================
 
 * The file extension **should** be :file:`.typoscript`.
@@ -38,7 +38,7 @@ Format
 
 * Use 2 spaces per indenting level.
 
-More Information
+More information
 ================
 
 * See :ref:`cgl-ide` in this manual for information about setting up your Editor / IDE to adhere to

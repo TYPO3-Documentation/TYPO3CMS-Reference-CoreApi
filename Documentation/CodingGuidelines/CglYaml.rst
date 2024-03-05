@@ -3,12 +3,12 @@
 .. _cgl-yaml:
 
 ======================
-Yaml Coding Guidelines
+Yaml coding guidelines
 ======================
 
 Yaml is (one of the languages) used for configuration in TYPO3.
 
-Directory and File Names
+Directory and file names
 ========================
 
 * Files have the ending :file:`.yaml`.
@@ -21,7 +21,7 @@ Format
 * Favor single-quoted strings (' ') over double-quoted or multi-line strings where
   possible
 * Double quoted strings should only be used when more complex escape
-  characters are required.  String values with line breaks should use multi-line 
+  characters are required.  String values with line breaks should use multi-line
   block strings in YAML.
 * The quotes on a trivial string value (a single word or similar) may be omitted.
 
@@ -32,12 +32,12 @@ Format
    complex: "This string has unicode escaped characters, like \x0d\x0a"
    multi: |
       This is a multi-line string.
-      
+
       Line breaks are preserved in this value. It's good for including
-      
+
       <em>HTML snippets</em>.
 
-More Information
+More information
 ================
 
 * See :ref:`cgl-ide` in this manual for information about setting up your Editor / IDE to adhere to

@@ -1,9 +1,9 @@
-.. include:: /Includes.rst.txt
-.. index:: Coding guidelines; PHP syntax
-.. _cgl-php-syntax-formatting:
+..  include:: /Includes.rst.txt
+..  index:: Coding guidelines; PHP syntax
+..  _cgl-php-syntax-formatting:
 
 =====================
-PHP Syntax Formatting
+PHP syntax formatting
 =====================
 
 
@@ -16,30 +16,30 @@ encouraged. Abbreviations should be avoided. Examples of good
 identifiers:
 
 
-.. code-block:: php
+..  code-block:: php
 
-   $goodName
-   $anotherGoodName
+    $goodName
+    $anotherGoodName
 
 Examples of bad identifiers:
 
-.. code-block:: php
+..  code-block:: php
 
-   $BAD_name
-   $unreasonablyLongNamesAreBadToo
-   $noAbbrAlwd
+    $BAD_name
+    $unreasonablyLongNamesAreBadToo
+    $noAbbrAlwd
 
 The lower camel case rule also applies to acronyms. Thus:
 
-.. code-block:: php
+..  code-block:: php
 
-   $someNiceHtmlCode
+    $someNiceHtmlCode
 
 is correct, whereas :
 
-.. code-block:: php
+..  code-block:: php
 
-   $someNiceHTMLCode
+    $someNiceHTMLCode
 
 is not.
 
@@ -55,31 +55,31 @@ The same rules apply to functions and class methods. In contrast to
 class names, function and method names should not only use nouns, but
 also verbs. Examples:
 
-.. code-block:: php
+..  code-block:: php
 
-   protected function getFeedbackForm()
-   public function processSubmission()
+    protected function getFeedbackForm()
+    public function processSubmission()
 
 Class constants should be clear about what they define. Correct:
 
-.. code-block:: php
+..  code-block:: php
 
-   const USERLEVEL_MEMBER = 1;
+    const USERLEVEL_MEMBER = 1;
 
 Incorrect:
 
-.. code-block:: php
+..  code-block:: php
 
-   const UL_MEMBER = 1;
+    const UL_MEMBER = 1;
 
 Variables on the global scope may use uppercase and underscore
 characters.
 
 Examples:
 
-.. code-block:: php
+..  code-block:: php
 
-   $GLOBALS['TYPO3_CONF_VARS']
+    $GLOBALS['TYPO3_CONF_VARS']
 
 
 Comments
@@ -90,16 +90,16 @@ comments must precede the commented line and be indented with
 the same number of spaces as the commented line.
 Example:
 
-.. code-block:: php
+..  code-block:: php
 
-   protected function processSubmission()
-   {
-       $context = GeneralUtility::makeInstance(Context::class);
-       // Check if user is logged in
-       if ($context->getPropertyFromAspect('frontend.user', 'isLoggedIn')) {
-           …
-       }
-   }
+    protected function processSubmission()
+    {
+        $context = GeneralUtility::makeInstance(Context::class);
+        // Check if user is logged in
+        if ($context->getPropertyFromAspect('frontend.user', 'isLoggedIn')) {
+            …
+        }
+    }
 
 Comments must start with ":php:`//`". Starting comments with
 ":php:`#`" is not allowed.
@@ -109,17 +109,17 @@ precede the variable. The variable type must be specified for
 non–trivial types and is optional for trivial types. Example:
 
 
-.. code-block:: php
+..  code-block:: php
 
-   /** Number of images submitted by user */
-   protected $numberOfImages;
+    /** Number of images submitted by user */
+    protected $numberOfImages;
 
-   /**
-    * Local instance of the ContentObjectRenderer class
-    *
-    * @var ContentObjectRenderer
-    */
-   protected $localCobj;
+    /**
+     * Local instance of the ContentObjectRenderer class
+     *
+     * @var ContentObjectRenderer
+     */
+    protected $localCobj;
 
 Single line comments are allowed when there is no type declaration for
 the class variable or constant.
@@ -128,7 +128,7 @@ If a variable can hold values of different types, use :php:`mixed` as
 type.
 
 
-Debug Output
+Debug output
 ============
 
 During development it is allowed to use :php:`debug()` or
@@ -139,7 +139,7 @@ is it allowed to even *think* of leaving a debug statement, if it is
 definitely a major help when developing user code for the TYPO3 Core.
 
 
-Curly Braces
+Curly braces
 ============
 
 Usage of opening and closing curly braces is mandatory in all cases
@@ -156,28 +156,28 @@ The closing curly brace must start on a new line and be indented to
 the same level as the construct with the opening brace. Example:
 
 
-.. code-block:: php
+..  code-block:: php
 
-   protected function getForm()
-   {
-       if ($this->extendedForm) {
-           // generate extended form here
-       } else {
-           // generate simple form here
-       }
+    protected function getForm()
+    {
+        if ($this->extendedForm) {
+            // generate extended form here
+        } else {
+            // generate simple form here
+        }
    }
 
 The following is not allowed:
 
 
-.. code-block:: php
+..  code-block:: php
 
-   protected function getForm() {
-       if ($this->extendedForm) { // generate extended form here
-       } else {
-           // generate simple form here
-       }
-   }
+    protected function getForm() {
+        if ($this->extendedForm) { // generate extended form here
+        } else {
+            // generate simple form here
+        }
+    }
 
 
 Conditions
@@ -189,39 +189,41 @@ keywords. TYPO3 code must not use the :php:`else if` construct.
 The following is the correct layout for conditions:
 
 
-.. code-block:: php
+..  code-block:: php
 
-   if ($this->processSubmission) {
-       // Process submission here
-   } elseif ($this->internalError) {
-       // Handle internal error
-   } else {
-       // Something else here
-   }
+    if ($this->processSubmission) {
+        // Process submission here
+    } elseif ($this->internalError) {
+        // Handle internal error
+    } else {
+        // Something else here
+    }
 
 Here is an example of the incorrect layout:
 
 
-.. code-block:: php
+..  code-block:: php
 
-   if ($this->processSubmission) {
-       // Process submission here
-   }
-   elseif ($this->internalError) {
-       // Handle internal error
-   } else // Something else here
+    if ($this->processSubmission) {
+        // Process submission here
+    }
+    elseif ($this->internalError) {
+        // Handle internal error
+    } else {
+        // Something else here
+    }
 
 It is recommended to create conditions so that the shortest block of
 code goes first. For example:
 
 
-.. code-block:: php
+..  code-block:: php
 
-   if (!$this->processSubmission) {
-       // Generate error message, 2 lines
-   } else {
-       // Process submission, 30 lines
-   }
+    if (!$this->processSubmission) {
+        // Generate error message, 2 lines
+    } else {
+        // Process submission, 30 lines
+    }
 
 If the condition is long, it must be split into several lines.
 The logical operators must be put in front of the
@@ -229,26 +231,26 @@ next condition and be indented to the same level as the first condition.
 The closing round and opening curly bracket after the last condition
 should be on a new line, indented to the same level as the :php:`if`:
 
-.. code-block:: php
+..  code-block:: php
 
-   if ($this->getSomeCondition($this->getSomeVariable())
-       && $this->getAnotherCondition()
-   ) {
-       // Code follows here
-   }
+    if ($this->getSomeCondition($this->getSomeVariable())
+        && $this->getAnotherCondition()
+    ) {
+        // Code follows here
+    }
 
 The ternary conditional operator :php:`? :` must be used only, if it
 has exactly two outcomes. Example:
 
-.. code-block:: php
+..  code-block:: php
 
-   $result = ($useComma ? ',' : '.');
+    $result = ($useComma ? ',' : '.');
 
 Wrong usage of the ternary conditional operator:
 
-.. code-block:: php
+..  code-block:: php
 
-   $result = ($useComma ? ',' : $useDot ? '.' : ';');
+    $result = ($useComma ? ',' : $useDot ? '.' : ';');
 
 
 Switch
@@ -269,18 +271,18 @@ in the code.
 
 Examples:
 
-.. code-block:: php
+..  code-block:: php
 
-   switch ($useType) {
-       case 'extended':
-           $content .= $this->extendedUse();
-           // Fall through
-       case 'basic':
-           $content .= $this->basicUse();
-           break;
-       default:
-           $content .= $this->errorUse();
-   }
+    switch ($useType) {
+        case 'extended':
+            $content .= $this->extendedUse();
+            // Fall through
+        case 'basic':
+            $content .= $this->basicUse();
+            break;
+        default:
+            $content .= $this->errorUse();
+    }
 
 
 Loops
@@ -301,39 +303,39 @@ The use of :php:`each` is not allowed in loops.
 :php:`for` loops must contain only variables inside (no function
 calls). The following is correct:
 
-.. code-block:: php
+..  code-block:: php
 
-   $size = count($dataArray);
-   for ($element = 0; $element < $size; $element++) {
-       // Process element here
-   }
+    $size = count($dataArray);
+    for ($element = 0; $element < $size; $element++) {
+        // Process element here
+    }
 
 The following is not allowed:
 
-.. code-block:: php
+..  code-block:: php
 
-   for ($element = 0; $element < count($dataArray); $element++) {
-       // Process element here
-   }
+    for ($element = 0; $element < count($dataArray); $element++) {
+        // Process element here
+    }
 
 :php:`do` and :php:`while` loops must use extra brackets, if an
 assignment happens in the loop:
 
-.. code-block:: php
+..  code-block:: php
 
-   while (($fields = $this->getFields())) {
-       // Do something
-   }
+    while (($fields = $this->getFields())) {
+        // Do something
+    }
 
 There's a special case for :php:`foreach` loops when the value is not
 used inside the loop. In this case the dummy variable :php:`$_`
 (underscore) is used:
 
-.. code-block:: php
+..  code-block:: php
 
-   foreach ($GLOBALS['TCA'] as $table => $_) {
-       // Do something with $table
-   }
+    foreach ($GLOBALS['TCA'] as $table => $_) {
+        // Do something with $table
+    }
 
 This is done for performance reasons, as it is faster than calling
 :php:`array_keys()` and looping on its result.
@@ -347,7 +349,7 @@ create the new line character (:php:`"\n"`).
 
 String concatenation operators must be surrounded by spaces. Example:
 
-.. code-block:: php
+..  code-block:: php
 
     $content = 'Hello ' . 'world!';
 
@@ -357,13 +359,13 @@ about white spaces for more information.
 
 Variables must not be embedded into strings. Correct:
 
-.. code-block:: php
+..  code-block:: php
 
     $content = 'Hello ' . $userName;
 
 Incorrect:
 
-.. code-block:: php
+..  code-block:: php
 
     $content = "Hello $userName";
 
@@ -373,16 +375,16 @@ second must be indented relatively to the first line. It is recommended
 to indent lines one level from the start of the string on the first
 level.
 
-.. note::
+..  note::
 
-   The old rule allowed the operator only at the end. Both are still
-   valid. Please do no "mass-change" across the Core. Use the new rule for
-   future changes or patches currently under review but do **not** block reviews
-   because of the legacy concatenation. If you change a line/method anyway,
-   you can of course adapt CGL-changes as well (as long as it's no
-   "mass-change").
+    The old rule allowed the operator only at the end. Both are still
+    valid. Please do no "mass-change" across the Core. Use the new rule for
+    future changes or patches currently under review but do **not** block reviews
+    because of the legacy concatenation. If you change a line/method anyway,
+    you can of course adapt CGL-changes as well (as long as it's no
+    "mass-change").
 
-.. code-block:: php
+..  code-block:: php
 
     $content = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. '
                     . 'Donec varius libero non nisi. Proin eros.';
@@ -409,9 +411,9 @@ Arrays
 Array declarations use the short array syntax :php:`[]`, instead of the
 ":php:`array`" keyword. Thus:
 
-.. code-block:: php
+..  code-block:: php
 
-   $a = [];
+    $a = [];
 
 Array components are declared each on a separate line. Such
 lines are indented with four more spaces than the start of the
@@ -420,26 +422,26 @@ the variable. Every line containing an array item ends with a comma.
 This may be omitted if there are no further elements, at the
 developer's choice. Example:
 
-.. code-block:: php
+..  code-block:: php
 
-   $thisIsAnArray = [
-       'foo' => 'bar',
-       'baz' => [
-           0 => 1
-       ]
-   ];
+    $thisIsAnArray = [
+        'foo' => 'bar',
+        'baz' => [
+            0 => 1
+        ]
+    ];
 
 Nested arrays follow the same pattern. This formatting applies even to
 very small and simple array declarations, e.g. :
 
-.. code-block:: php
+..  code-block:: php
 
-   $a = [
-       0 => 'b',
-   ];
+    $a = [
+        0 => 'b',
+    ];
 
 
-PHP Features
+PHP features
 ============
 
 The use of the newest PHP features is strongly recommended for
@@ -456,35 +458,35 @@ keyword.
 Type hinting must be used when the function expects an :php:`array` or
 an :php:`instance` of a certain class. Example:
 
-.. code-block:: php
+..  code-block:: php
 
-      protected function executeAction(MyAction &$action, array $extraParameters)
-      {
-          // Do something
-      }
+    protected function executeAction(MyAction &$action, array $extraParameters)
+    {
+        // Do something
+    }
 
 Static functions must use the :php:`static` keyword. This keyword must
 be after the visibility declaration in the function definition:
 
 
-.. code-block:: php
+..  code-block:: php
 
-      public static function executeAction(MyAction &$action, array $extraParameters)
-      {
-          // Do something
-      }
+    public static function executeAction(MyAction &$action, array $extraParameters)
+    {
+        // Do something
+    }
 
 The :php:`abstract` keyword also must be after the visibility declaration in the
 function declaration:
 
 
-.. code-block:: php
+..  code-block:: php
 
-      protected abstract function render();
+    protected abstract function render();
 
 
 
-Global Variables
+Global variables
 ================
 
 Use of :php:`global` is not recommended. Always use
@@ -504,65 +506,65 @@ All data types must be documented in the phpDoc block of the function.
 If a function is declared to return a value, all code paths must *always* return a value. The following is *not allowed*:
 
 
-.. code-block:: php
+..  code-block:: php
 
-   /**
-    * @param bool $enabled
-    * @return string
-    */
-   function extendedUse(bool $enabled): string
-   {
-       if ($enabled) {
-           return 'Extended use';
-       }
-   }
+    /**
+     * @param bool $enabled
+     * @return string
+     */
+    function extendedUse(bool $enabled): string
+    {
+        if ($enabled) {
+            return 'Extended use';
+        }
+    }
 
 The following is the correct behavior:
 
 
-.. code-block:: php
+..  code-block:: php
 
-   /**
-    * @param bool $enabled
-    * @return string
-    */
-   function extendedUse(bool $enabled): string
-   {
+    /**
+     * @param bool $enabled
+     * @return string
+     */
+    function extendedUse(bool $enabled): string
+    {
        $content = '';
        if ($enabled) {
            $content = 'Extended use';
        }
        return $content;
-   }
+    }
 
 In general there should be a single :php:`return` statement in the
 function (see the preceding example). However a function can return
 during parameter validation (guards) before it starts its main logic. Example:
 
 
-.. code-block:: php
+..  code-block:: php
 
-   /**
-    * @param bool $enabled
-    * @param MyUseParameters $useParameters
-    * @return string
-    */
-   function extendedUse(bool $enabled, MyUseParameters $useParameters): string
-   {
-       // Validation
-       if (count($useParameters->urlParts) < 5) {
-           return 'Parameter validation failed';
-       }
+    /**
+     * @param bool $enabled
+     * @param MyUseParameters $useParameters
+     * @return string
+     */
+    function extendedUse(bool $enabled, MyUseParameters $useParameters): string
+    {
+        // Validation
+        if (count($useParameters->urlParts) < 5) {
+            return 'Parameter validation failed';
+        }
 
-       // Main functionality
-       $content = '';
-       if ($enabled) {
-           $content = 'Extended use';
-       } else {
-           $content = 'Only basic use is available to you!';
-       }
-       return $content;
-   }
+        // Main functionality
+        $content = '';
+        if ($enabled) {
+            $content = 'Extended use';
+        } else {
+            $content = 'Only basic use is available to you!';
+        }
+        return $content;
+    }
 
 Functions should not be long. "Long" is not defined in terms of lines.
 General rule is that function should fit into :sup:`2` / :sub:`3` of
