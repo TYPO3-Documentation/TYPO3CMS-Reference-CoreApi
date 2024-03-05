@@ -12,5 +12,4 @@ PHP Coding Guidelines
    :titlesonly:
 
    PhpFileFormatting/Index
-   PhpArchitecture/Index
    CodingBestPractices/Index
