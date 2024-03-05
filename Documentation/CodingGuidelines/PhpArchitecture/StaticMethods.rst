@@ -1,6 +1,6 @@
-.. include:: /Includes.rst.txt
-.. index:: Coding guidelines; Static methods
-.. _cgl-model-static-methods:
+..  include:: /Includes.rst.txt
+..  index:: Coding guidelines; Static methods
+..  _cgl-model-static-methods:
 
 ===============================================
 Static Methods, static Classes, Utility Classes
@@ -10,29 +10,29 @@ Static Methods, static Classes, Utility Classes
 Characteristica
 ===============
 
-* A utility class MUST contain only static methods.
+*   A utility class MUST contain only static methods.
 
-* Utility classes MUST NOT have state, no local properties, no DB
-  access, … .
+*   Utility classes MUST NOT have state, no local properties, no DB
+    access, … .
 
-* Utility methods MAY call other utility methods.
+*   Utility methods MAY call other utility methods.
 
-* Utility class methods MUST NOT have dependencies to non static
-  methods like other class instances or global variables.
+*   Utility class methods MUST NOT have dependencies to non static
+    methods like other class instances or global variables.
 
-* Utility class methods MUST have high unit test coverage.
+*   Utility class methods MUST have high unit test coverage.
 
-* Utility class scope MUST be small and domain logic MUST NOT be
-  encapsulated in static methods.
+*   Utility class scope MUST be small and domain logic MUST NOT be
+    encapsulated in static methods.
 
-* Utility classes MUST be located in a utility sub folder and MUST end
-  with :php:`Utility`, eg. :php:`FoobarUtility`.
+*   Utility classes MUST be located in a utility sub folder and MUST end
+    with :php:`Utility`, eg. :php:`FoobarUtility`.
 
-* Static methods MUST be located in utility classes and SHOULD NOT be
-  added to other classes, except a specific pattern has a hard
-  requirement to a static helper method within its class. All classes
-  outside a utility folder MUST be instantiated and handled as object
-  instances.
+*   Static methods MUST be located in utility classes and SHOULD NOT be
+    added to other classes, except a specific pattern has a hard
+    requirement to a static helper method within its class. All classes
+    outside a utility folder MUST be instantiated and handled as object
+    instances.
 
 
 Rationale
@@ -91,53 +91,53 @@ edge cases.
 Good Examples
 =============
 
-* :php:`Core/Utility/ArrayUtility`
+*   :php:`Core/Utility/ArrayUtility`
 
-  * Clear scope - array manipulation helpers.
+    *   Clear scope - array manipulation helpers.
 
-  * Well documented, distinct and short methods doing only one thing at
-    a time with decent names and examples.
+    *   Well documented, distinct and short methods doing only one thing at
+        a time with decent names and examples.
 
-  * High test coverage taking care of edge case input output scenarios
-    acting as additional documentation of the system.
+    *   High test coverage taking care of edge case input output scenarios
+        acting as additional documentation of the system.
 
-  * No further dependencies.
+    *   No further dependencies.
 
-* :php:`Core/Utility/VersionNumberUtility`
+*   :php:`Core/Utility/VersionNumberUtility`
 
-  * Clear scope - a group of helper methods to process version number
-    handling.
+    *   Clear scope - a group of helper methods to process version number
+        handling.
 
-  * Good test coverage defining the edge cases.
+    *   Good test coverage defining the edge cases.
 
-  * Defines how version handling is done in TYPO3 and encapsulates this
-    concern well.
+    *   Defines how version handling is done in TYPO3 and encapsulates this
+        concern well.
 
 
 Bad Examples
 ============
 
-* :php:`Backend/Utility/BackendUtility`
+*   :php:`Backend/Utility/BackendUtility`
 
-  * Global access, third party dependencies.
+    *   Global access, third party dependencies.
 
-  * Stateful methods.
+    *   Stateful methods.
 
-  * No clear concern.
+    *   No clear concern.
 
-  * God methods.
+    *   God methods.
 
-* :php:`Core/Utility/MailUtility`
+*   :php:`Core/Utility/MailUtility`
 
-  * Good: Relatively clear focus, but:
+    *   Good: Relatively clear focus, but:
 
-  * Stateful, external dependencies to objects, depends on configuration.
+    *   Stateful, external dependencies to objects, depends on configuration.
 
-  * Relatively inflexible.
+    *   Relatively inflexible.
 
-  * This should probably “at least” be a service.
+    *   This should probably “at least” be a service.
 
-* :php:`Core/Utility/RootlineUtility`
+*   :php:`Core/Utility/RootlineUtility`
 
   * Not static.
 
@@ -148,5 +148,5 @@ Bad Examples
 Red Flags
 =========
 
-* :php:`$GLOBALS: Utility` code should not have dependencies to global
-  state or global objects.
+*   :php:`$GLOBALS: Utility` code should not have dependencies to global
+    state or global objects.

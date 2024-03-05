@@ -1,29 +1,29 @@
-.. include:: /Includes.rst.txt
-.. index:: pair: Coding guidelines; Services
-.. _cgl-services:
+..  include:: /Includes.rst.txt
+..  index:: pair: Coding guidelines; Services
+..  _cgl-services:
 
 ========
 Services
 ========
 
 
-Characteristica
+Characteristics
 ===============
 
-* Services MUST be used as objects, they are never static.
+*   Services MUST be used as objects, they are never static.
 
-* A single service MUST consist of one class only.
+*   A single service MUST consist of one class only.
 
-* Services MUST be located in a :file:`Service/` directory and the class and file name MUST end
-  with :code:`Service`, eg. :file:`Service/FoobarService.php`.
+*   Services MUST be located in a :file:`Service/` directory and the class and file name MUST end
+    with :code:`Service`, eg. :file:`Service/FoobarService.php`.
 
-* Service instances MAY hold a state, but they SHOULD be stateless.
+*   Service instances MAY hold a state, but they SHOULD be stateless.
 
-* Services MAY use their own configuration, but they SHOULD not.
+*   Services MAY use their own configuration, but they SHOULD not.
 
-* Services MAY have multiple entry points, but they SHOULD have only one.
+*   Services MAY have multiple entry points, but they SHOULD have only one.
 
-* Services SHOULD NOT be singletons
+*   Services SHOULD NOT be singletons
 
 
 Rationale
@@ -59,21 +59,21 @@ within the scope of a specific extension.
 Good Examples
 =============
 
-* :php:`\TYPO3\CMS\Extbase\Service\CacheService`
+*   :php:`\TYPO3\CMS\Extbase\Service\CacheService`
 
-  * Small and straight scope with useful helpers
+    *   Small and straight scope with useful helpers
 
-  * It is a singleton, but that is feasible in this case
+    *   It is a singleton, but that is feasible in this case
 
 
 Bad Examples
 ============
 
-* :php:`\TYPO3\CMS\Core\Service\AbstractAuthenticationService`,
+*   :php:`\TYPO3\CMS\Core\Service\AbstractAuthenticationService`,
 
-  * Not modeled in a sane way, this should be within :file:`Core/Authentication`
+    *   Not modeled in a sane way, this should be within :file:`Core/Authentication`
 
-  * Far too complex, class abstraction and extending classes
+    *   Far too complex, class abstraction and extending classes
 
 
 Further Reading
