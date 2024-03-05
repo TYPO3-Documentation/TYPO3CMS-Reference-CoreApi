@@ -23,9 +23,9 @@ final class MyEventListener
 
                 // Set a tree node label
                 $item['labels'][] = new Label(
-                    'Campaign B', // Label
-                    '#00658f', // Color as RGB value
-                    1, // Priority
+                    label: 'Campaign B',
+                    color: '#00658f',
+                    priority: 1,
                 );
             }
         }
