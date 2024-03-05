@@ -1,5 +1,5 @@
-.. include:: /Includes.rst.txt
-.. _cgl-traits:
+..  include:: /Includes.rst.txt
+..  _cgl-traits:
 
 ======
 Traits

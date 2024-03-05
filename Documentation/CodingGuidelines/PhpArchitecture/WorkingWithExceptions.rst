@@ -266,6 +266,6 @@ Bad Examples
 
 
 Further readings
-----------------
+================
 
 See `How to Design Exception Hierarchies <https://learn.microsoft.com/de-de/archive/blogs/kcwalina/how-to-design-exception-hierarchies>`__.
