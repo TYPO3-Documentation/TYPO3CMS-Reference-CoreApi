@@ -45,13 +45,17 @@ Can be used in the context of a model property.
 ..  literalinclude:: _Annotations/_Validate.php
     :caption: EXT:blog_example/Classes/Domain/Model/Blog.php, modified
 
+`Validate` annotations for a controller action are executed additionally
+to possible domain model validators.
+
 .. _extbase-annotation-ignore-validation:
 
 IgnoreValidation
 ----------------
 
 :php:`\TYPO3\CMS\Extbase\Annotation\IgnoreValidation()`: Allows to ignore
-Extbase default validation for a given argument.
+all Extbase default validations for a given argument (for example a domain
+model object).
 
 Used in context of a controller action.
 
@@ -59,6 +63,17 @@ Used in context of a controller action.
 
 ..  literalinclude:: _Annotations/_IgnoreValidation.php
     :caption: EXT:blog_example/Classes/Controller/BlogController.php, modified
+
+You can not exclude specific properties of a object specified in an argument.
+
+If you need to exclude certain validators of a domain model, you could adapt
+the concept of a "Data Transfer Object" (DTO). You would create a distinct
+model variant of the main domain model, and exclude all the properties that
+you do not want validation for in your Extbase context, and transport
+the contents from and between your original domain model to this instance.
+Read more about this on https://usetypo3.com/dtos-in-extbase/ or see a
+:abbr:`CRUD (Create, Read, Update, Delete)` example for this on
+https://github.com/garvinhicking/gh_validationdummy/
 
 .. _extbase-annotation-orm:
 
