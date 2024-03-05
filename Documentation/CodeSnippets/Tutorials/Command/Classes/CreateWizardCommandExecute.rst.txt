@@ -14,7 +14,7 @@
    {
        protected function execute(
            InputInterface $input,
-           OutputInterface $output
+           OutputInterface $output,
        ): int {
            $io = new SymfonyStyle($input, $output);
            $wizardName = $input->getArgument('wizardName');
