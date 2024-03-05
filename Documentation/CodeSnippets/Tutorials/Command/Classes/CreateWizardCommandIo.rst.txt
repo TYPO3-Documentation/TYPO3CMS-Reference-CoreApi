@@ -12,13 +12,13 @@
        private function doMagic(
            SymfonyStyle $io,
            mixed $wizardName,
-           bool $bruteForce
+           bool $bruteForce,
        ) {
            $io->comment('Trying to create wizard ' . $wizardName . '...');
            if ($wizardName === null) {
                $wizardName = (string)$io->ask(
                    'Enter the wizard\'s name (e.g. "Gandalf the Grey")',
-                   'Lord Voldermort'
+                   'Lord Voldermort',
                );
            }
            if (!$bruteForce && $wizardName === 'Oz') {

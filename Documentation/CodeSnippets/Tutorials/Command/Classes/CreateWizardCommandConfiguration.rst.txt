@@ -16,13 +16,13 @@
                ->addArgument(
                    'wizardName',
                    InputArgument::OPTIONAL,
-                   'The wizard\'s name'
+                   'The wizard\'s name',
                )
                ->addOption(
                    'brute-force',
                    'b',
                    InputOption::VALUE_NONE,
-                   'Allow the "Wizard of Oz". You can use --brute-force or -b when running command'
+                   'Allow the "Wizard of Oz". You can use --brute-force or -b when running command',
                );
        }
    }

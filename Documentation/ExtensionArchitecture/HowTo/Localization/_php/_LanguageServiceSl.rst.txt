@@ -14,7 +14,7 @@
        private function getSeasons(ServerRequestInterface $request): array
        {
            $languageService = $this->languageServiceFactory->createFromSiteLanguage(
-               $request->getAttribute('language') ?? $request->getAttribute('site')->getDefaultLanguage()
+               $request->getAttribute('language') ?? $request->getAttribute('site')->getDefaultLanguage(),
            );
 
            $translatedSeasons = [];

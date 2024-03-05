@@ -21,13 +21,13 @@
            $message = LocalizationUtility::translate(
                key: 'record_count_message',
                extensionName: 'examples',
-               arguments: [$count, $tablename]
+               arguments: [$count, $tablename],
            );
 
            $this->addFlashMessage(
                messageBody: $message,
                messageTitle: 'Information',
-               severity: ContextualFeedbackSeverity::INFO
+               severity: ContextualFeedbackSeverity::INFO,
            );
            return $this->redirect('flash');
        }
