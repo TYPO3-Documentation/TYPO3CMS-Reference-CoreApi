@@ -12,7 +12,7 @@ use TYPO3\CMS\Frontend\Event\ModifyHrefLangTagsEvent;
     identifier: 'ext-some-extension/modify-hreflang',
     after: 'typo3-seo/hreflangGenerator',
 )]
-final class MySeoEventListener
+final readonly class MySeoEventListener
 {
     public function __invoke(ModifyHrefLangTagsEvent $event): void
     {

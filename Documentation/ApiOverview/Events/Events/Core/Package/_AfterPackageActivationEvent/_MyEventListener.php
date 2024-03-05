@@ -8,7 +8,7 @@ use TYPO3\CMS\Core\Package\Event\AfterPackageActivationEvent;
 #[AsEventListener(
     identifier: 'my-extension/extension-activated',
 )]
-final class MyEventListener
+final readonly class MyEventListener
 {
     public function __invoke(AfterPackageActivationEvent $event)
     {

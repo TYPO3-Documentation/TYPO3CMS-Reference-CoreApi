@@ -10,7 +10,7 @@ use TYPO3\CMS\Core\Attribute\AsEventListener;
 #[AsEventListener(
     identifier: 'my-extension/backend/modify-preview-uri',
 )]
-final class MyEventListener
+final readonly class MyEventListener
 {
     public function __invoke(AfterPagePreviewUriGeneratedEvent $event): void
     {

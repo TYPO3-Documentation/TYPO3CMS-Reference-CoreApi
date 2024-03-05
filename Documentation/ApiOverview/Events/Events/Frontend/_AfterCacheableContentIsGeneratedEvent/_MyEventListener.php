@@ -10,7 +10,7 @@ use TYPO3\CMS\Frontend\Event\AfterCacheableContentIsGeneratedEvent;
 #[AsEventListener(
     identifier: 'my-extension/content-modifier',
 )]
-final class MyEventListener
+final readonly class MyEventListener
 {
     public function __invoke(AfterCacheableContentIsGeneratedEvent $event): void
     {

@@ -10,7 +10,7 @@ use TYPO3\CMS\Core\LinkHandling\Event\BeforeTypoLinkEncodedEvent;
 #[AsEventListener(
     identifier: 'my-extension/before-typolink-encoded',
 )]
-final class MyEventListener
+final readonly class MyEventListener
 {
     public function __invoke(BeforeTypoLinkEncodedEvent $event): void
     {

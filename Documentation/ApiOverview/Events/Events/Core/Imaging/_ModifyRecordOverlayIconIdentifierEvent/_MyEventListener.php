@@ -7,7 +7,7 @@ namespace Vendor\MyExtension\Imaging\EventListener;
 use TYPO3\CMS\Core\Attribute\AsEventListener;
 use TYPO3\CMS\Core\Imaging\Event\ModifyRecordOverlayIconIdentifierEvent;
 
-final class MyEventListener
+final readonly class MyEventListener
 {
     #[AsEventListener(
         identifier: 'my-extension/imaging/modify-record-overlay-icon-identifier',

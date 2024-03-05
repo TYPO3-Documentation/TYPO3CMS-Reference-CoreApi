@@ -10,7 +10,7 @@ use TYPO3\CMS\Frontend\Event\AfterLinkIsGeneratedEvent;
 #[AsEventListener(
     identifier: 'my-extension/link-modifier',
 )]
-final class MyEventListener
+final readonly class MyEventListener
 {
     public function __invoke(AfterLinkIsGeneratedEvent $event): void
     {

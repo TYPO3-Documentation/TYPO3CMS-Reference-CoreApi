@@ -12,7 +12,7 @@ use TYPO3\CMS\Core\Mail\Mailer;
 #[AsEventListener(
     identifier: 'my-extension/process-sent-message',
 )]
-final class MyEventListener
+final readonly class MyEventListener
 {
     public function __construct(
         private readonly LoggerInterface $logger,

@@ -10,7 +10,7 @@ use TYPO3\CMS\Core\Attribute\AsEventListener;
 #[AsEventListener(
     identifier: 'my-extension/view/content-used-on-page',
 )]
-final class ContentUsedOnPage
+final readonly class ContentUsedOnPage
 {
     public function __invoke(IsContentUsedOnPageLayoutEvent $event): void
     {

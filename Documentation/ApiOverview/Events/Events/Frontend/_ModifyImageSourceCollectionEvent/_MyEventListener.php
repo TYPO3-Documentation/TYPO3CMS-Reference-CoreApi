@@ -10,7 +10,7 @@ use TYPO3\CMS\Frontend\ContentObject\Event\ModifyImageSourceCollectionEvent;
 #[AsEventListener(
     identifier: 'my-extension/my-event-listener',
 )]
-final class MyEventListener
+final readonly class MyEventListener
 {
     public function __invoke(ModifyImageSourceCollectionEvent $event): void
     {

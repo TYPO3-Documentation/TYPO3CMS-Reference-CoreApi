@@ -17,7 +17,7 @@ use TYPO3\CMS\Core\Localization\LanguageServiceFactory;
 #[AsEventListener(
     identifier: 'my-extension/add-live-search-result-actions-listener',
 )]
-final class MyEventListener
+final readonly class MyEventListener
 {
     private readonly LanguageService $languageService;
 

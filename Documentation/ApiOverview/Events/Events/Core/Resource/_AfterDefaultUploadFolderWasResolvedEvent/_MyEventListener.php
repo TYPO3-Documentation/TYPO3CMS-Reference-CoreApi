@@ -10,7 +10,7 @@ use TYPO3\CMS\Core\Resource\Event\AfterDefaultUploadFolderWasResolvedEvent;
 #[AsEventListener(
     identifier: 'my-extension/after-default-upload-folder-was-resolved',
 )]
-final class MyEventListener
+final readonly class MyEventListener
 {
     public function __invoke(AfterDefaultUploadFolderWasResolvedEvent $event): void
     {

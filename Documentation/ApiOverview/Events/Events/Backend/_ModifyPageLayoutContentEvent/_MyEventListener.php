@@ -10,7 +10,7 @@ use TYPO3\CMS\Core\Attribute\AsEventListener;
 #[AsEventListener(
     identifier: 'my-extension/backend/modify-page-module-content',
 )]
-final class MyEventListener
+final readonly class MyEventListener
 {
     public function __invoke(ModifyPageLayoutContentEvent $event): void
     {

@@ -10,7 +10,7 @@ use TYPO3\CMS\Core\Attribute\AsEventListener;
 #[AsEventListener(
     identifier: 'my-extension/modify-query-for-live-search-event-listener',
 )]
-final class MyEventListener
+final readonly class MyEventListener
 {
     public function __invoke(ModifyQueryForLiveSearchEvent $event): void
     {

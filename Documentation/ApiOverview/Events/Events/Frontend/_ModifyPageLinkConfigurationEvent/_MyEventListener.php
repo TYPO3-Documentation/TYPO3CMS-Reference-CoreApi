@@ -10,7 +10,7 @@ use TYPO3\CMS\Frontend\Event\ModifyPageLinkConfigurationEvent;
 #[AsEventListener(
     identifier: 'my-extension/modify-page-link-configuration',
 )]
-final class MyEventListener
+final readonly class MyEventListener
 {
     public function __invoke(ModifyPageLinkConfigurationEvent $event): void
     {

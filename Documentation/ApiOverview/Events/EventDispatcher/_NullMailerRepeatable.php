@@ -16,7 +16,7 @@ use TYPO3\CMS\Core\Mail\Event\BeforeMailerSentMessageEvent;
     identifier: 'my-extension/null-mailer-sent-message',
     event: BeforeMailerSentMessageEvent::class,
 )]
-final class NullMailer
+final readonly class NullMailer
 {
     public function __invoke(
         AfterMailerInitializationEvent | BeforeMailerSentMessageEvent $event,

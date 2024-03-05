@@ -11,7 +11,7 @@ use TYPO3\CMS\Core\Mail\Event\AfterMailerInitializationEvent;
     identifier: 'my-extension/null-mailer',
     before: 'someIdentifier, anotherIdentifier',
 )]
-final class NullMailer
+final readonly class NullMailer
 {
     public function __invoke(AfterMailerInitializationEvent $event): void
     {

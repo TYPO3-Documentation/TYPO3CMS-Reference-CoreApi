@@ -21,9 +21,9 @@ use TYPO3\CMS\Redirects\RedirectUpdate\RedirectSourceInterface;
     identifier: 'my-extension/custom-page-type-redirect',
     after: 'redirects-add-page-type-zero-source',
 )]
-final class MyEventListener
+final readonly class MyEventListener
 {
-    protected array $customPageTypes = [1234, 169999];
+    private const CUSTOM_PAGE_TYPES = [1234, 169999];
 
     public function __invoke(
         SlugRedirectChangeItemCreatedEvent $event,
@@ -31,7 +31,7 @@ final class MyEventListener
         $changeItem = $event->getSlugRedirectChangeItem();
         $sources = $changeItem->getSourcesCollection()->all();
 
-        foreach ($this->customPageTypes as $pageType) {
+        foreach (self::CUSTOM_PAGE_TYPES as $pageType) {
             try {
                 $pageTypeSource = $this->createPageTypeSource(
                     $changeItem->getPageId(),

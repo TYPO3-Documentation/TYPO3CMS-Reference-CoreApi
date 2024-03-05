@@ -22,7 +22,7 @@ use TYPO3\CMS\Core\Attribute\AsEventListener;
     identifier: 'my-extension/recordlist/my-event-listener',
     method: 'modifyTableActions',
 )]
-final class MyEventListener
+final readonly class MyEventListener
 {
     private LoggerInterface $logger;
 

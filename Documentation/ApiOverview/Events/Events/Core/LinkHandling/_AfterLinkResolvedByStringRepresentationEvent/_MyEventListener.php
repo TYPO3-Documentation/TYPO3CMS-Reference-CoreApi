@@ -10,7 +10,7 @@ use TYPO3\CMS\Core\LinkHandling\Event\AfterLinkResolvedByStringRepresentationEve
 #[AsEventListener(
     identifier: 'my-extension/after-link-resolved-by-string-representation',
 )]
-final class MyEventListener
+final readonly class MyEventListener
 {
     public function __invoke(AfterLinkResolvedByStringRepresentationEvent $event): void
     {

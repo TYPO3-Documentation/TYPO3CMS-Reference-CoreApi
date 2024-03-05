@@ -10,7 +10,7 @@ use TYPO3\CMS\Core\Attribute\AsEventListener;
 #[AsEventListener(
     identifier: 'my-extension/backend/modify-wizard-items',
 )]
-final class MyEventListener
+final readonly class MyEventListener
 {
     public function __invoke(ModifyNewContentElementWizardItemsEvent $event): void
     {
