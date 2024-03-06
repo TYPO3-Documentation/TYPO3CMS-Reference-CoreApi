@@ -7,12 +7,12 @@
 .. _cgl-tsconfig:
 
 ==========================
-TSconfig Coding Guidelines
+TSconfig coding guidelines
 ==========================
 
 TSconfig files use TypoScript syntax.
 
-Directory and File Names
+Directory and file names
 ========================
 
 * Files have the ending :file:`.tsconfig`
@@ -34,7 +34,7 @@ Format
 See `.editorconfig <https://github.com/typo3/typo3/blob/main/.editorconfig>`__ in core.
 
 
-More Information
+More information
 ================
 
 * See :ref:`cgl-ide` in this manual for information about setting up your Editor / IDE to adhere to

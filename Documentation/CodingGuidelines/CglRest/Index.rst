@@ -9,7 +9,7 @@ reStructuredText (reST)
 Documentation is typically stored in `reST <https://en.wikipedia.org/wiki/ReStructuredText>`__
 files.
 
-Directory and File Names
+Directory and file names
 ========================
 
 * Files have the ending :file:`.rst`.
@@ -23,7 +23,7 @@ Format
 
 * Indent with 4 spaces per indent level.
 
-More Information
+More information
 ================
 
 * See :ref:`cgl-ide` in this manual for information about setting up your Editor / IDE

@@ -1,9 +1,9 @@
-.. include:: /Includes.rst.txt
-.. index:: ! Coding guidelines
-.. _cgl:
+..  include:: /Includes.rst.txt
+..  index:: ! Coding guidelines
+..  _cgl:
 
 =================
-Coding Guidelines
+Coding guidelines
 =================
 
 This chapter contains description of the formal requirements or standards
@@ -27,17 +27,18 @@ For the files that are not specifically covered in the subchapters (e.g.
 Fluid, .json, or .sql), the information in the .editorconfig file
 should be sufficient.
 
-.. toctree::
-   :maxdepth: 1
-   :titlesonly:
+..  toctree::
+    :maxdepth: 1
+    :titlesonly:
 
-   Introduction
-   PhpArchitecture/Index
-   CglPhp/Index
-   CglJavaScript/Index
-   CglTypeScript/Index
-   CglTypoScript/Index
-   CglTsConfig
-   CglXliff/Index
-   CglYaml
-   CglRest/Index
+    Introduction
+    PhpArchitecture/Index
+    CglPhp/Index
+    CodingBestPractices/Index
+    CglJavaScript/Index
+    CglTypeScript/Index
+    CglTypoScript/Index
+    CglTsConfig
+    CglXliff/Index
+    CglYaml
+    CglRest/Index

@@ -1,6 +1,6 @@
-.. include:: /Includes.rst.txt
-.. index:: pair: Coding guidelines; phpDoc
-.. _cgl-using-phpdoc:
+..  include:: /Includes.rst.txt
+..  index:: pair: Coding guidelines; phpDoc
+..  _cgl-using-phpdoc:
 
 ============
 Using phpDoc
@@ -9,17 +9,17 @@ Using phpDoc
 "phpDocumentor" (`phpDoc <https://www.phpdoc.org/>`_) is used for documenting
 source code. TYPO3 code typically uses the following phpDoc_ keywords:
 
-- :php:`@global`
+-   :php:`@global`
 
-- :php:`@param`
+-   :php:`@param`
 
-- :php:`@return`
+-   :php:`@return`
 
-- :php:`@see`
+-   :php:`@see`
 
-- :php:`@var`
+-   :php:`@var`
 
-- :php:`@deprecated`
+-   :php:`@deprecated`
 
 For more information on phpDoc_ see the phpDoc_ web site at
 https://www.phpdoc.org/.
@@ -33,20 +33,20 @@ docblock is mandatory to describe the types..
 Additionally you should add a phpDoc_ block if additional information seems
 appropriate:
 
-* An example would be the detailed description of the content of arrays using
-  the Object[] notation.
+*   An example would be the detailed description of the content of arrays using
+    the Object[] notation.
 
-* If the return type is mixed and cannot be annotated strictly, add a
-  @return tag.
+*   If the return type is mixed and cannot be annotated strictly, add a
+    @return tag.
 
-* If parameters or return types have specific syntactical requirements:
-  document that!
+*   If parameters or return types have specific syntactical requirements:
+    document that!
 
 The different parts of a phpDoc_ statement after the keyword are separated by
 **one single space.**
 
 
-Class Information Block
+Class information block
 =======================
 
 ((to be written))
@@ -55,30 +55,30 @@ Class Information Block
 information block".))
 
 
-Function Information Block
+Function information block
 ==========================
 
 Functions should have *parameters* and *the return type* documented. Example:
 
-.. code-block:: php
-   :caption: EXT:some_extension/Classes/SomeClass.php
+..  code-block:: php
+    :caption: EXT:some_extension/Classes/SomeClass.php
 
-   /**
-    * Initializes the plugin.
-    *
-    * Checks the configuration and substitutes defaults for missing values.
-    *
-    * @param array $conf Plugin configuration from TypoScript
-    * @return bool true if initialization was successful, false otherwise
-    * @see MyClass:anotherFunc()
-    */
-   protected function initialize(array $conf): bool
-   {
-       // Do something
-   }
+    /**
+     * Initializes the plugin.
+     *
+     * Checks the configuration and substitutes defaults for missing values.
+     *
+     * @param array $conf Plugin configuration from TypoScript
+     * @return bool true if initialization was successful, false otherwise
+     * @see MyClass:anotherFunc()
+     */
+    protected function initialize(array $conf): bool
+    {
+        // Do something
+    }
 
 
-Short and Long Description
+Short and long description
 --------------------------
 
 A method or class may have both a short and a long description. The
