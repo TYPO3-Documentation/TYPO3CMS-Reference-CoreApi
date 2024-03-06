@@ -140,7 +140,7 @@ Restrictions
 
 :php:`\TYPO3\CMS\Core\Database\Query\Restriction\StartTimeRestriction` (default)
     Evaluates :php:`['ctrl']['enablecolumns']['starttime']`, typically adds
-    something like :sql:`AND (`tt_content`.`starttime` <= 1475580240)`.
+    something like ``AND (`tt_content`.`starttime` <= 1475580240)``.
 
 :php:`\TYPO3\CMS\Core\Database\Query\Restriction\EndTimeRestriction` (default)
     Evaluates :php:`['ctrl']['enablecolumns']['endtime']`.
