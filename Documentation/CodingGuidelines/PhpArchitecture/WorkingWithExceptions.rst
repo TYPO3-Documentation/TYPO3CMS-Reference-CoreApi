@@ -242,7 +242,7 @@ Good examples
         explain in more detail on what went wrong.
 
 
-Bad Examples
+Bad examples
 ============
 
 *   :php:`\TYPO3\CMS\Core\Resource\FileRepository` method :php:`findFileReferenceByUid()`
