@@ -151,7 +151,7 @@ Restrictions
     Evaluates :php:`['enablecolumns']['fe_group']`.
 
 :php:`\TYPO3\CMS\Core\Database\Query\Restriction\RootlevelRestriction`
-    Match records on root level, adds :sql:`AND (`pid` = 0)`
+    Match records on root level, adds ``AND (`pid` = 0)``
 
 :php:`\TYPO3\CMS\Core\Database\Query\Restriction\BackendWorkspaceRestriction`
     ..  deprecated:: 12.1
