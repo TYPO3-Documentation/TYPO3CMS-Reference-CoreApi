@@ -139,3 +139,26 @@ can be configured on a per-class and per-namespace basis with the sub-key
 
 For a list of processors shipped with the TYPO3 Core, see the section about
 :ref:`logging-processors`.
+
+..    _logging-configuration-disable:
+
+Disable all logging
+===================
+
+In some setups it is desirable to disable all logs and to only enable them on demand.
+You can disable all logs by unsetting :php:`$GLOBALS['TYPO3_CONF_VARS']['LOG']` at the 
+end of your :ref:`additional.php <typo3ConfVars-additional>`:
+
+..  code-block:: php
+    :caption: config/system/additional.php | typo3conf/system/additional.php
+
+    // disable all logging
+    unset($GLOBALS['TYPO3_CONF_VARS']['LOG']);    
+
+You can then temporarily enable logging by commenting out this line:
+
+..  code-block:: php
+    :caption: config/system/additional.php | typo3conf/system/additional.php
+
+    // unset($GLOBALS['TYPO3_CONF_VARS']['LOG']); 
+    // By commenting out the line above you can enable logging again.
