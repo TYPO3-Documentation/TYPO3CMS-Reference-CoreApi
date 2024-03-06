@@ -6,7 +6,7 @@ defined('TYPO3') or die();
 (function () {
     // SAME as registered in ext_tables.php
     $customPageDoktype = 116;
-    $customIconClass = 'tx_examples-archive-page';
+    $customIconClass = 'tx-examples-archive-page';
 
     // Add the new doktype to the page type selector
     \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTcaSelectItem(
