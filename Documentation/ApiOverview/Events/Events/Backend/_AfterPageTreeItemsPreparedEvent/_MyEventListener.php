@@ -6,7 +6,9 @@ namespace MyVendor\MyExtension\Backend\EventListener;
 
 use TYPO3\CMS\Backend\Controller\Event\AfterPageTreeItemsPreparedEvent;
 use TYPO3\CMS\Backend\Dto\Tree\Label\Label;
+use TYPO3\CMS\Backend\Dto\Tree\Status\StatusInformation;
 use TYPO3\CMS\Core\Attribute\AsEventListener;
+use TYPO3\CMS\Core\Type\ContextualFeedbackSeverity;
 
 #[AsEventListener(
     identifier: 'my-extension/backend/modify-page-tree-items',
@@ -17,8 +19,8 @@ final class MyEventListener
     {
         $items = $event->getItems();
         foreach ($items as &$item) {
-            // Set special icon for page with ID 123
             if ($item['_page']['uid'] === 123) {
+                // Set special icon for page with ID 123
                 $item['icon'] = 'my-special-icon';
 
                 // Set a tree node label
@@ -26,6 +28,15 @@ final class MyEventListener
                     label: 'Campaign B',
                     color: '#00658f',
                     priority: 1,
+                );
+
+                // Set a status information
+                $item['statusInformation'][] = new StatusInformation(
+                    label: 'A warning message',
+                    severity: ContextualFeedbackSeverity::WARNING,
+                    priority: 0,
+                    icon: 'actions-dot',
+                    overlayIcon: '',
                 );
             }
         }
