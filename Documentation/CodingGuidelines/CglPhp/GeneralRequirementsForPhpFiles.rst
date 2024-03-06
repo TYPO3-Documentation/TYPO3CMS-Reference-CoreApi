@@ -1,13 +1,13 @@
-.. include:: /Includes.rst.txt
+..  include:: /Includes.rst.txt
 
 
-.. _cgl-general-requirements-for-php-files:
+..  _cgl-general-requirements-for-php-files:
 
 ==================================
-General Requirements for PHP Files
+General requirements for PHP files
 ==================================
 
-TYPO3 Coding Standards
+TYPO3 coding standards
 ======================
 
 The package `TYPO3 Coding Standards <https://github.com/TYPO3/coding-standards>`__
@@ -21,7 +21,7 @@ writing, and transitioning towards PER-CS2.0.
 
 
 
-File Names
+File names
 ==========
 
 The file name describes the functionality included in the file. It
@@ -39,26 +39,26 @@ One file can contain only one class or interface.
 Extension for PHP files is always :code:`php`.
 
 
-PHP Tags
+PHP tags
 ========
 
 Each PHP file in TYPO3 must use the full (as opposed to short) opening
 PHP tag. There must be exactly one opening tag (no closing and opening
 tags in the middle of the file). Example:
 
-.. code-block:: php
-   :caption: EXT:some_extension/Classes/SomeClass.php
+..  code-block:: php
+    :caption: EXT:some_extension/Classes/SomeClass.php
 
-   <?php
-   declare(strict_types = 1);
-   // File content goes here
+    <?php
+    declare(strict_types = 1);
+    // File content goes here
 
 Closing PHP tags (e.g. at the end of the file) are not used.
 
 Each newly introduced file **MUST** declare strict types for the given file.
 
 
-Line Breaks
+Line breaks
 ===========
 
 TYPO3 uses Unix line endings (`\n`, PHP `chr(10)`). If
@@ -66,7 +66,7 @@ a developer uses Windows or Mac OS X platform, the editor must be
 configured to use Unix line endings.
 
 
-Line Length
+Line length
 ===========
 
 Very long lines of code should be avoided for questions of
@@ -75,8 +75,8 @@ spaces) is fine. Longer lines should be split into several lines whenever
 possible. Each line fragment starting from the second must - compared
 to the first one - be indented with four space characters more. Example:
 
-.. code-block:: php
-   :caption: EXT:some_extension/Classes/SomeClass.php
+..  code-block:: php
+    :caption: EXT:some_extension/Classes/SomeClass.php
 
     BackendUtility::viewOnClick(
         (int)$this->pageInfo['uid'],
@@ -87,7 +87,7 @@ to the first one - be indented with four space characters more. Example:
 Comment lines should be kept within a limit of about 80 characters
 (**excluding** the leading spaces) as it makes them easier to read.
 
-.. note::
+..  note::
 
     When splitting a line, try to split it at a point that makes as much
     sense as possible. In the above example, the line is split between two
@@ -95,14 +95,14 @@ Comment lines should be kept within a limit of about 80 characters
     expressions, put the logical operator at the beginning of the next
     line, example:
 
-    .. code-block:: php
+    ..  code-block:: php
 
         if ($GLOBALS['TYPO3_CONF_VARS']['SYS']['curlUse'] == '1'
             && preg_match('/^(?:http|ftp)s?|s(?:ftp|cp):/', $url)
         ) {
 
 
-Whitespace and Indentation
+Whitespace and indentation
 ==========================
 
 TYPO3 uses space characters to indent source code. Following the
@@ -114,28 +114,28 @@ manually or using a text editor that takes care of this.
 
 Spaces must be added:
 
-* On both sides of string, arithmetic, assignment and other similar
-  operators (for example `.`, `=`, `+`, `-`,
-  `?`, `:`, `*`, etc).
+*   On both sides of string, arithmetic, assignment and other similar
+    operators (for example `.`, `=`, `+`, `-`,
+    `?`, `:`, `*`, etc).
 
-* After commas.
+*   After commas.
 
-* In single line comments after the comment sign (double slash).
+*   In single line comments after the comment sign (double slash).
 
-* After asterisks in multiline comments.
+*   After asterisks in multiline comments.
 
-* After conditional keywords like `if (` and `switch (`.
+*   After conditional keywords like `if (` and `switch (`.
 
-* Before conditional keywords if the keyword is not the first
-  character like `} elseif {`.
+*   Before conditional keywords if the keyword is not the first
+    character like `} elseif {`.
 
 Spaces must not be present:
 
-* After an opening brace and before a closing brace. For example:
-  `explode( 'blah', 'someblah' )` needs to be written as `explode('blah', 'someblah')`.
+*   After an opening brace and before a closing brace. For example:
+    `explode( 'blah', 'someblah' )` needs to be written as `explode('blah', 'someblah')`.
 
 
-Character Set
+Character set
 =============
 
 All TYPO3 source files use the UTF-8 character set without byte order

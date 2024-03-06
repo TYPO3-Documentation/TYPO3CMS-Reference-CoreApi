@@ -11,16 +11,15 @@ instantiated only once per request regardless of the number of
 calls to :php:`GeneralUtility::makeInstance()`. To use a singleton
 pattern, a class must implement the :php:`SingletonInterface`:
 
-.. code-block:: php
-   :caption: EXT:some_extension/Classes/MySingletonClass.php
+..  code-block:: php
+    :caption: EXT:some_extension/Classes/MySingletonClass.php
 
+    namespace Vendor\SomeExtension;
 
-   namespace Vendor\SomeExtension;
-
-   class MySingletonClass implements \TYPO3\CMS\Core\SingletonInterface
-   {
-       // …
-   }
+    class MySingletonClass implements \TYPO3\CMS\Core\SingletonInterface
+    {
+        // …
+    }
 
 This interface has no methods to implement.
 

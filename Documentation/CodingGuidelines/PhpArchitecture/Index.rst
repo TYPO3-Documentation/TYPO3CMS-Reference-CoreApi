@@ -4,7 +4,7 @@
 ..  _cgl-php-architecture:
 
 ================
-PHP Architecture
+PHP architecture
 ================
 
 This chapter aims to give developers some ideas and practices at hand

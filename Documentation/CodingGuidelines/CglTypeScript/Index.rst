@@ -3,14 +3,14 @@
 .. _cgl-typescript:
 
 ============================
-TypeScript Coding Guidelines
+TypeScript coding guidelines
 ============================
 
 `Excel Micro TypeScript Style Guide for TypeScript
 <https://github.com/excelmicro/typescript>`__ should be used throughout the
 TYPO3 Core for TypeScript files.
 
-Directories and File Names
+Directories and file names
 ==========================
 
 * TypeScript files should have the file ending :file:`.ts`
