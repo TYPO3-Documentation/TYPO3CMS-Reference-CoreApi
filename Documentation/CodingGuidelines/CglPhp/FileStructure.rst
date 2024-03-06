@@ -1,10 +1,10 @@
-.. include:: /Includes.rst.txt
+..  include:: /Includes.rst.txt
 
 
-.. _cgl-file-structure:
+..  _cgl-file-structure:
 
 ==============
-File Structure
+File structure
 ==============
 
 TYPO3 files use the following structure:
@@ -48,8 +48,8 @@ version 2 or any later version. The copyright notice with a reference
 to the license text must be included at the top of every TYPO3 PHP class
 file. User files must have this copyright notice as well. Example:
 
-.. code-block:: php
-   :caption: EXT:some_extension/Classes/SomeClass.php
+..  code-block:: php
+    :caption: EXT:some_extension/Classes/SomeClass.php
 
    <?php
    declare(strict_types = 1);
@@ -72,7 +72,7 @@ file. User files must have this copyright notice as well. Example:
 The wording must not be changed/updated/extended, under any circumstances.
 
 
-Namespace Imports
+Namespace imports
 =================
 
 Necessary PHP classes should be imported like explained in the
@@ -80,31 +80,31 @@ Necessary PHP classes should be imported like explained in the
 (based on PER-CS1.0 / PSR-12 at the time of this writing, transitioning towards
 PER-CS2.0):
 
-.. code-block:: php
-   :caption: EXT:some_extension/Classes/SomeClass.php
+..  code-block:: php
+    :caption: EXT:some_extension/Classes/SomeClass.php
 
-   use TYPO3\CMS\Core\Utility\GeneralUtility;
-   use TYPO3\CMS\Core\Utility\HttpUtility;
-   use TYPO3\CMS\Core\Cache\Backend\BackendInterface;
+    use TYPO3\CMS\Core\Utility\GeneralUtility;
+    use TYPO3\CMS\Core\Utility\HttpUtility;
+    use TYPO3\CMS\Core\Cache\Backend\BackendInterface;
 
 Put one blank line before and after import statements.
 Also put one import statement per line.
 
-Class Information Block
+Class information block
 =======================
 
 The class information block provides basic information about the class
 in the file. It should include a description of the class. Example:
 
-.. code-block:: php
-   :caption: EXT:some_extension/Classes/SomeClass.php
+..  code-block:: php
+    :caption: EXT:some_extension/Classes/SomeClass.php
 
-   /**
-    * This class provides XYZ plugin implementation.
-    */
+    /**
+     * This class provides XYZ plugin implementation.
+     */
 
 
-PHP Class
+PHP class
 =========
 
 The PHP class follows the class information block. PHP code must be
@@ -115,26 +115,26 @@ identical to the file name and must be written in upper camel case.
 
 The PHP class declaration looks like the following:
 
-.. code-block:: php
-   :caption: EXT:some_extension/Classes/SomeClass.php
+..  code-block:: php
+    :caption: EXT:some_extension/Classes/SomeClass.php
 
-   class SomeClass extends AbstractBackend implements BackendInterface
-   {
-       // ...
-   }
+    class SomeClass extends AbstractBackend implements BackendInterface
+    {
+        // ...
+    }
 
 
-Optional Module Execution Code
+Optional module execution code
 ==============================
 
 Module execution code instantiates the class and runs its method(s).
 Typically this code can be found in :code:`eID` scripts and old Backend
 modules. Here is how it may look like:
 
-.. code-block:: php
-   :caption: EXT:some_extension/Classes/SomeClass.php
+..  code-block:: php
+    :caption: EXT:some_extension/Classes/SomeClass.php
 
-   $someClass = GeneralUtility::makeInstance(SomeClass::class);
-   $someClass->main();
+    $someClass = GeneralUtility::makeInstance(SomeClass::class);
+    $someClass->main();
 
 This code must appear **after** the PHP class.

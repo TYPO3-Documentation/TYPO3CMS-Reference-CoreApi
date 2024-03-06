@@ -3,7 +3,7 @@
 ..  _cgl-database-access:
 
 ======================
-Accessing the Database
+Accessing the database
 ======================
 
 The TYPO3 database should always be accessed using the :php:`QueryBuilder` of

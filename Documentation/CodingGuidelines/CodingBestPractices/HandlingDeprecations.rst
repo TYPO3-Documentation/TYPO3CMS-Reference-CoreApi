@@ -3,9 +3,9 @@
 
 .. _cgl-deprecation:
 
-====================
-Handling Deprecation
-====================
+=====================
+Handling deprecations
+=====================
 
 .. note::
 

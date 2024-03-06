@@ -1,9 +1,9 @@
-.. include:: /Includes.rst.txt
-.. index:: Coding guidelines; Static methods
-.. _cgl-static-methods:
+..  include:: /Includes.rst.txt
+..  index:: Coding guidelines; Static methods
+..  _cgl-static-methods:
 
 ==============
-Static Methods
+Static methods
 ==============
 
 When a given class calls one of its own static methods (or one from one
