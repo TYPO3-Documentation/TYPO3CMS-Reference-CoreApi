@@ -22,7 +22,7 @@ flavors the Core tries to follow.
 .. index:: Coding guidelines; Quality assurance
 .. _cgl-quality-assurance:
 
-The CGL as a Means of Quality Assurance
+The CGL as a means of quality assurance
 =======================================
 
 Our programmers know the CGL and are encouraged to inform authors,
@@ -46,7 +46,7 @@ and pushed another time. For details on Core contributions, have a look at the
 
 .. _cgl-general-recommendations:
 
-General Recommendations
+General recommendations
 =======================
 
 .. index::
@@ -55,7 +55,7 @@ General Recommendations
 
 .. _cgl-ide:
 
-Setup IDE / Editor
+Setup IDE / editor
 ------------------
 
 .. attention::
@@ -67,7 +67,7 @@ Setup IDE / Editor
 .. index:: pair: Coding guidelines; EditorConfig
 .. _cgl-editorconfig:
 
-EditorConfig
+.editorconfig
 ~~~~~~~~~~~~
 
 One method to set up your IDE / editor to adhere to specific Coding Guidelines,

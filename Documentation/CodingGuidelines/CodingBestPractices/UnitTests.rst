@@ -1,13 +1,13 @@
-.. include:: /Includes.rst.txt
-.. index:: pair: Coding guidelines; Unit tests
-.. _cgl-unit-tests:
+..  include:: /Includes.rst.txt
+..  index:: pair: Coding guidelines; Unit tests
+..  _cgl-unit-tests:
 
 ==========
 Unit Tests
 ==========
 
 
-Unit Test Files
+Unit test files
 ===============
 
 Unit test files are located in the ":file:`Tests/Unit/`" folder of the
@@ -20,7 +20,7 @@ As example, the unit test class file for
 at :file:`typo3/sysext/core/Tests/Unit/Database/PreparedStatementTest.php`.
 
 
-Using Unit Tests
+Using unit tests
 ================
 
 Although the coverage is far from complete, there are already quite a
@@ -29,7 +29,7 @@ the Core, all existing unit tests are run to ensure that nothing
 is broken.
 
 
-Adding Unit Tests
+Adding unit tests
 =================
 
 The use of unit tests is strongly encouraged. Every time a new feature
@@ -37,7 +37,7 @@ is introduced or an existing one is modified, a unit test should be
 added.
 
 
-Conventions for Unit Tests
+Conventions for unit tests
 ==========================
 
 Unit tests should be as concise as possible. Since the :php:`setUp()`
