@@ -19,7 +19,7 @@
        public function indexAction(
            ?Blog $blog = null,
            string $tag = '',
-           int $currentPage = 1
+           int $currentPage = 1,
        ): ResponseInterface {
            if ($blog == null) {
                return (new ForwardResponse('index'))

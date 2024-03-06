@@ -20,7 +20,7 @@
            $this->view->assign('newBlog', $newBlog);
            $this->view->assign(
                'administrators',
-               $this->administratorRepository->findAll()
+               $this->administratorRepository->findAll(),
            );
            return $this->htmlResponse();
        }

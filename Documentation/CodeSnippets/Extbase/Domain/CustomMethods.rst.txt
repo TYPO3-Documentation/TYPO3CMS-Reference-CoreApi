@@ -12,15 +12,15 @@
    {
        public function findByTagAndBlog(
            string $tag,
-           Blog $blog
+           Blog $blog,
        ): QueryResultInterface {
            $query = $this->createQuery();
            return $query
                ->matching(
                    $query->logicalAnd(
                        $query->equals('blog', $blog),
-                       $query->equals('tags.name', $tag)
-                   )
+                       $query->equals('tags.name', $tag),
+                   ),
                )
                ->execute();
        }
