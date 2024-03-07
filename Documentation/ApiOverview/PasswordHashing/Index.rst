@@ -6,6 +6,8 @@
 Password hashing
 ================
 
+..  versionchanged:: 13.0
+    The default hash algorithm has been changed from Argon2i to Argon2id.
 
 .. _password-hashing-introduction:
 
@@ -16,7 +18,7 @@ TYPO3 never stores passwords in plain text in the database. If the latest config
 TYPO3 will update the stored frontend and backend user password hashes upon user login.
 
 TYPO3 uses modern hash algorithms suitable for the given PHP platform, the
-default being Argon2i.
+default being Argon2id.
 
 This section is for administrators and users who want to know more about TYPO3 password hashing and
 have a basic understanding of hashing algorithms and configuration in TYPO3.
@@ -84,9 +86,9 @@ approaches: Core version v4.3 from 2009 added salted password storing, v4.5 from
 storing using the algorithm 'phpass' by default, v6.2 from 2014 made salted passwords storing mandatory,
 v8 added the improved hash algorithm 'PBKDF2' and used it by default.
 
-Currently Argon2i is the default and provided automatically by PHP.
-Argon2i is rather resilient against GPU and some other attacks, the default TYPO3 Core  configuration even raises
-the default PHP configuration to make attacks on stored Argon2i user password hashes even more unfeasible.
+Currently, Argon2id is the default and provided automatically by PHP.
+Argon2id is rather resilient against GPU and some other attacks, the default TYPO3 Core configuration even raises
+the default PHP configuration to make attacks on stored Argon2id user password hashes even more unfeasible.
 
 This is the current state if you are reading this document. The rest is about details: It is possible
 to register own password hash algorithms with an extension if you really think this is needed. And it is possible
@@ -109,17 +111,17 @@ What does it look like?
 
 Below is an example of a frontend user with its stored password hash. Since TYPO3 can handle multiple
 different hash mechanisms in parallel, each hash is prefixed with a unique string that identifies the
-used hash algorithm. In this case it is `$argon2i` which denotes the Argon2i hash algorithm:
+used hash algorithm. In this case it is `$argon2id` which denotes the Argon2id hash algorithm:
 
 .. code-block:: none
    :caption: Data of a frontend user in the database
 
    MariaDB [cms]> SELECT uid,username,password FROM fe_users WHERE uid=2;
-   +-----+----------+---------------------------------------------------------------------------------------------------+
-   | uid | username | password                                                                                          |
-   +-----+----------+---------------------------------------------------------------------------------------------------+
-   |   2 | someuser | $argon2i$v=19$m=16384,t=16,p=2$WFdVRjdqVy9TbVJPajNqcA$vMDP/TBSR0MSA6yalyMpBmFRbCD8UR4bbHZma59yNjQ |
-   +-----+----------+---------------------------------------------------------------------------------------------------+
+   +-----+----------+----------------------------------------------------------------------------------------------------+
+   | uid | username | password                                                                                           |
+   +-----+----------+----------------------------------------------------------------------------------------------------+
+   |   2 | someuser | $argon2id$v=19$m=65536,t=16,p=1$NkVhNmt5Ynl6ZDRkV1RlZw$16iztnV7xYJDlsG0hEL9sLGDGFC/WQx34ogfoWHBVJI |
+   +-----+----------+----------------------------------------------------------------------------------------------------+
    1 row in set (0.01 sec)
 
 
@@ -152,10 +154,14 @@ preset of the settings module is available. It can be found in
 :guilabel:`Admin Tools > Settings
 > Configuration presets > Password hashing settings`:
 
-.. include:: /Images/AutomaticScreenshots/AdminTools/PasswordHashingSettings.rst.txt
+..  figure:: /Images/ManualScreenshots/AdminTools/PasswordHashingSettings.png
+    :class: with-shadow
+    :alt: Argon2id active for frontend and backend users
+
+    Argon2id active for frontend and backend users
 
 The image shows settings for an instance that runs with frontend and backend users having their passwords
-stored as Argon2i hashes in the database. You should use one of the Argon2 algorithms, as the other listed algorithms are deemed less secure.
+stored as Argon2id hashes in the database. You should use one of the Argon2 algorithms, as the other listed algorithms are deemed less secure.
 They rely on different PHP capabilities and might be suitable fall backs, if Argon2i or Argon2id are not available for whatever
 reason.
 
