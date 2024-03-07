@@ -3,7 +3,7 @@
 
 .. php:class:: Module
 
-   A standard backend module
+   A standard backend nodule
 
    .. php:method:: getRoutes()
 

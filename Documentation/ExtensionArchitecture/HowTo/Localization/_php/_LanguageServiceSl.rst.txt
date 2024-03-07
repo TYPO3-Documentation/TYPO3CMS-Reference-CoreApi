@@ -6,7 +6,7 @@
 
    use Psr\Http\Message\ServerRequestInterface;
 
-   final class HaikuSeasonList implements MiddlewareInterface
+   final readonly class HaikuSeasonList implements MiddlewareInterface
    {
        private const SEASONS = ['spring', 'summer', 'autumn', 'winter', 'theFifthSeason'];
        private const TRANSLATION_PATH = 'LLL:EXT:examples/Resources/Private/Language/PluginHaiku/locallang.xlf:season.';

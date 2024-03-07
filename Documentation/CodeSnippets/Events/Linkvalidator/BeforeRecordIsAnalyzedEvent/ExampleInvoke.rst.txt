@@ -6,7 +6,7 @@
 
    use TYPO3\CMS\Linkvalidator\Event\BeforeRecordIsAnalyzedEvent;
 
-   final class CheckExternalLinksToLocalPagesEventListener
+   final readonly class CheckExternalLinksToLocalPagesEventListener
    {
        private const LOCAL_DOMAIN = 'example.org';
        private const TABLE_NAME = 'tt_content';

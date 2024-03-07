@@ -19,7 +19,7 @@
            ];
            return $this->propertyMapper->convert(
                $input,
-               Tag::class
+               Tag::class,
            );
        }
    }

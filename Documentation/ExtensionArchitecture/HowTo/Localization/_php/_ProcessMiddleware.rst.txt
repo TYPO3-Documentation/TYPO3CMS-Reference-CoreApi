@@ -8,7 +8,7 @@
    use Psr\Http\Message\ServerRequestInterface;
    use Psr\Http\Server\RequestHandlerInterface;
 
-   final class HaikuSeasonList implements MiddlewareInterface
+   final readonly class HaikuSeasonList implements MiddlewareInterface
    {
        private const URL_SEGMENT = '/haiku-season-list.json';
 
