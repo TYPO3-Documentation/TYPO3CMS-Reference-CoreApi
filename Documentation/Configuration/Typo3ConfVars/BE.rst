@@ -1024,3 +1024,5 @@ options
    :Default: []
 
    Special settings for specific hashes.
+   See :ref:`password-hashing-available-algorithms` for the different options
+   depending on the algorithm.
