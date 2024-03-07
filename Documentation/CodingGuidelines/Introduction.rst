@@ -68,7 +68,7 @@ Setup IDE / editor
 .. _cgl-editorconfig:
 
 .editorconfig
-~~~~~~~~~~~~
+~~~~~~~~~~~~~
 
 One method to set up your IDE / editor to adhere to specific Coding Guidelines,
 is to use an .editorconfig file. Read `EditorConfig.org <https://EditorConfig.org>`__
