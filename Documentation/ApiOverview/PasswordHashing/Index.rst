@@ -168,28 +168,26 @@ Configuration options
 =====================
 
 Configuration of password hashing is stored in :file:`LocalConfiguration.php` with defaults in
-:file:`DefaultConfiguration.php` at five places:
+:t3src:`core/Configuration/DefaultConfiguration.php` at five places:
 
-* :php:`$GLOBALS['TYPO3_CONF_VARS']['SYS']['availablePasswordHashAlgorithms']`: An array of class names.
-  This is the list of available password hash algorithms. Extensions may extend this list if they need to
-  register new (and hopefully even more secure) hash algorithms.
+:ref:`$GLOBALS['TYPO3_CONF_VARS']['SYS']['availablePasswordHashAlgorithms'] <typo3ConfVars_sys_availablePasswordHashAlgorithms>`
+    An array of class names. This is the list of available password hash
+    algorithms. Extensions may extend this list if they need to register new
+    (and hopefully even more secure) hash algorithms.
 
-* :php:`$GLOBALS['TYPO3_CONF_VARS']['FE']['passwordHashing']['className']`: The salt class name configured
-  as default hash mechanism for frontend users.
+:ref:`$GLOBALS['TYPO3_CONF_VARS']['FE']['passwordHashing']['className'] <typo3ConfVars_be_passwordHashing_className>`
+    The salt class name configured as default hash mechanism for frontend users.
 
-* :php:`$GLOBALS['TYPO3_CONF_VARS']['FE']['passwordHashing']['options']`: Special options of the configured
-  hash algorithm. This is usually an empty array to fall back to defaults, see below for more details.
+:ref:`$GLOBALS['TYPO3_CONF_VARS']['FE']['passwordHashing']['options'] <typo3ConfVars_be_passwordHashing_options>`
+    Special options of the configured hash algorithm. This is usually an empty
+    array to fall back to defaults, see below for more details.
 
-* :php:`$GLOBALS['TYPO3_CONF_VARS']['BE']['passwordHashing']['className']`: The salt class name configured
-  as default hash mechanism for backend users.
-
-* :php:`$GLOBALS['TYPO3_CONF_VARS']['BE']['passwordHashing']['options']`: Special options of the configured
-  hash algorithm. This is usually an empty array to fall back to defaults, see below for more details.
 
 
 .. index:: Password hashing;
+.. _password-hashing-available-algorithms:
 
-Available Hash Algorithms
+Available hash algorithms
 =========================
 
 The list of available hash mechanisms is pretty rich and may be extended further
@@ -256,23 +254,24 @@ The implementation should work on almost all PHP builds. Options:
 blowfish
 --------
 
-TYPO3's salted password hash implementation based on `blowfish`_ and PHP`s crypt() function. It has
-been integrated very early to TYPO3 but should no longer be used. It is only included for instances
-that still need to upgrades users to better mechanisms. Options:
+TYPO3's salted password hash implementation based on `blowfish`_ and PHP`s crypt() function.
+It has been integrated very early to TYPO3 but should no longer be used. It is only included for instances
+that still need to upgrade outdated password hashes to better algorithms. Options:
 
 * hash_count: The default log2 number of iterations for password stretching. Defaults to 7.
 
 md5salt
 -------
 
-TYPO3's salted password hash implementation based on `md5`_ and PHP`s crypt() function. It should not be used
-any longer and is only included for instances that still need to upgrade users to better mechanisms.
+TYPO3's salted password hash implementation based on `md5`_ and PHP`s crypt() function.
+It should not be used any longer and is only included for instances that still need
+to upgrade outdated password hashes to better algorithms.
 
 
 PHP API
 =======
 
-Creating a Hash
+Creating a hash
 ---------------
 
 To create a new password hash from a given plain-text password, these are the steps to be done:
@@ -290,7 +289,7 @@ Example implementation for TYPO3 frontend:
    $hashInstance = GeneralUtility::makeInstance(PasswordHashFactory::class)->getDefaultHashInstance('FE');
    $hashedPassword = $hashInstance->getHashedPassword($password);
 
-Checking a Password
+Checking a password
 -------------------
 
 To check a plain-text password against a password hash, these are the steps to be done:
@@ -318,8 +317,10 @@ Adding a new hash mechanism
 
 To add an additional hash algorithm, these steps are necessary:
 
-* Create a new class that implements interface :code:`TYPO3\CMS\Core\Crypto\PasswordHashing\PasswordHashInterface`
-* Register the class as additional entry in :code:`$GLOBALS['TYPO3_CONF_VARS']['SYS']['availablePasswordHashAlgorithms']`
+*   Create a new class that implements interface
+    :t3src:`core/Classes/Crypto/PasswordHashing/PasswordHashInterface.php`
+*   Register the class as additional entry in
+    :ref:`$GLOBALS['TYPO3_CONF_VARS']['SYS']['availablePasswordHashAlgorithms'] <typo3ConfVars_sys_availablePasswordHashAlgorithms>`
 
 
 .. _hash: https://en.wikipedia.org/wiki/Cryptographic_hash_function
@@ -332,7 +333,7 @@ To add an additional hash algorithm, these steps are necessary:
 .. _md5: https://en.wikipedia.org/wiki/MD5
 
 
-More Information
+More information
 ================
 
 .. toctree::
