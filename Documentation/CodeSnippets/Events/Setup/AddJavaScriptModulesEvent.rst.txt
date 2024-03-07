@@ -5,7 +5,6 @@
 
    Collects additional JavaScript modules to be loaded in SetupModuleController.
 
-
    .. php:method:: addJavaScriptModule(string $specifier)
 
       :param string $specifier: Bare module identifier like @my/package/filename.js
@@ -13,8 +12,6 @@
    .. php:method:: addModule(string $moduleName)
 
       **Deprecated:** will be removed in TYPO3 v13.0. Use addJavaScriptModule() instead, available since TYPO3 v12.0.
-
-
 
       :param string $moduleName: the moduleName
 
@@ -26,3 +23,4 @@
    .. php:method:: getModules()
 
       :returntype: array
+      :returns: string[]
