@@ -14,25 +14,16 @@
             "web-dir": ".Build/public"
         }
     },
-    "repositories": {
-        "1a_git": {
-            "type": "vcs",
-            "url": "https://github.com/TYPO3-Documentation/tea.git"
-        },
-        "1c_git": {
-            "type": "vcs",
-            "url": "https://github.com/TYPO3-Documentation/blog_example.git"
-        }
-    },
     "config": {
         "allow-plugins": {
             "typo3/cms-composer-installers": true,
-            "typo3/class-alias-loader": true
+            "typo3/class-alias-loader": true,
+            "ergebnis/composer-normalize": true
         },
         "vendor-dir": ".Build/vendor"
     },
     "require-dev": {
-        "t3docs/codesnippet": "dev-main",
+        "t3docs/codesnippet": "^11.5",
         "friendsoftypo3/blog-example": "^11.0",
         "typo3/cms-adminpanel": "^11.5",
         "typo3/cms-backend": "^11.5",
@@ -68,8 +59,8 @@
         "typo3/cms-tstemplate": "^11.5",
         "typo3/cms-viewpage": "^11.5",
         "typo3/cms-workspaces": "^11.5",
-        "ttn/tea": "dev-lwolf-v12-compability",
-        "t3docs/examples": "11.5.x-dev",
+        "ttn/tea": "^3.1",
+        "t3docs/examples": "^11.1",
         "t3docs/site-package": "^11.5",
         "typo3-documentation-team/speeddemo": "^11.4",
         "typo3/cms-styleguide": "^11.4"
