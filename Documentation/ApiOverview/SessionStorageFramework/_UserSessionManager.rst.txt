@@ -16,9 +16,6 @@
        $loginType = 'BE'; // or 'FE' for frontend
        $userSessionManager = UserSessionManager::create($loginType);
 
-
-
-
    .. php:method:: createFromRequestOrAnonymous(Psr\\Http\\Message\\ServerRequestInterface $request, string $cookieName)
 
       Creates and returns a session from the given request. If the given
@@ -28,7 +25,7 @@
       :param Psr\\Http\\Message\\ServerRequestInterface $request: the request
       :param string $cookieName: Name of the cookie that might contain the session
       :returntype: TYPO3\\CMS\\Core\\Session\\UserSession
-      :returns: An existing session if one is stored in the cookie, an anonymous session otherwise
+      :returns: \UserSession An existing session if one is stored in the cookie, an anonymous session otherwise
 
    .. php:method:: createFromGlobalCookieOrAnonymous(string $cookieName)
 
@@ -71,7 +68,7 @@
       :param TYPO3\\CMS\\Core\\Session\\UserSession $session: The user session to fixate
       :param bool $isPermanent: If `true`, the session will get the `ses_permanent` flag, default: false
       :returntype: TYPO3\\CMS\\Core\\Session\\UserSession
-      :returns: a new session object with an updated `ses_tstamp` (allowing to keep the session alive)
+      :returns: \UserSession a new session object with an updated `ses_tstamp` (allowing to keep the session alive)
 
    .. php:method:: elevateToFixatedUserSession(TYPO3\\CMS\\Core\\Session\\UserSession $session, int $userId, bool $isPermanent = false)
 
@@ -83,7 +80,7 @@
       :param int $userId: The user id the session belongs to
       :param bool $isPermanent: If `true`, the session will get the `ses_permanent` flag, default: false
       :returntype: TYPO3\\CMS\\Core\\Session\\UserSession
-      :returns: The newly created user session object
+      :returns: \UserSession The newly created user session object
 
    .. php:method:: regenerateSession(string $sessionId, array $existingSessionRecord = [], bool $anonymous = false)
 
@@ -104,7 +101,7 @@
 
       :param TYPO3\\CMS\\Core\\Session\\UserSession $session: the session
       :returntype: TYPO3\\CMS\\Core\\Session\\UserSession
-      :returns: a modified user session with a last updated value if needed
+      :returns: \UserSession a modified user session with a last updated value if needed
 
    .. php:method:: isSessionPersisted(TYPO3\\CMS\\Core\\Session\\UserSession $session)
 
@@ -146,6 +143,7 @@
       :param TYPO3\\CMS\\Core\\Session\\SessionManager $sessionManager: the sessionManager, default: NULL
       :param TYPO3\\CMS\\Core\\Authentication\\IpLocker $ipLocker: the ipLocker, default: NULL
       :returntype: self
+      :returns: static
 
    .. php:method:: setLogger(Psr\\Log\\LoggerInterface $logger)
 

@@ -10,7 +10,7 @@
 
    /*
     * This file is part of the TYPO3 CMS project. [...]
-    */
+    */ 
 
    namespace T3docs\Examples\Http;
 
@@ -59,7 +59,8 @@
            }
            // Get the content as a string on a successful request
            $content = $response->getBody()->getContents();
-           return (string)json_decode($content, true, flags: JSON_THROW_ON_ERROR)['fact']??
+           return (string)json_decode($content, true, flags: JSON_THROW_ON_ERROR)['fact'] ??
                throw new \RuntimeException('The service returned an unexpected format.', 1666413230);
        }
    }
+   

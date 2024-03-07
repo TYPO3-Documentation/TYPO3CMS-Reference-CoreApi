@@ -22,22 +22,20 @@
    A permanent session is not issued by a session-based cookie but a
    time-based cookie. The session might be persisted in the user's browser.
 
-
-
    .. php:method:: getIdentifier()
 
       :returntype: string
-      :returns: the session ID. This is the `ses_id` respectively the `AbstractUserAuthentication->id`
+      :returns: string the session ID. This is the `ses_id` respectively the `AbstractUserAuthentication->id`
 
    .. php:method:: getUserId()
 
       :returntype: int
-      :returns: the user ID the session belongs to. Can also return `0` or `NULL` Which indicates an anonymous session. This is the `ses_userid`.
+      :returns: ?int the user ID the session belongs to. Can also return `0` or `NULL` Which indicates an anonymous session. This is the `ses_userid`.
 
    .. php:method:: getLastUpdated()
 
       :returntype: int
-      :returns: the timestamp of the last session data update. This is the `ses_tstamp`.
+      :returns: int the timestamp of the last session data update. This is the `ses_tstamp`.
 
    .. php:method:: set(string $key, mixed $value)
 
@@ -64,7 +62,7 @@
    .. php:method:: getData()
 
       :returntype: array
-      :returns: the whole data array.
+      :returns: array the whole data array.
 
    .. php:method:: overrideData(array $data)
 
@@ -90,7 +88,7 @@
    .. php:method:: getIpLock()
 
       :returntype: string
-      :returns: the `ipLock` state of the session
+      :returns: string the `ipLock` state of the session
 
    .. php:method:: isNew()
 
@@ -118,7 +116,7 @@
 
       :param TYPO3\\CMS\\Core\\Http\\CookieScope $scope: the scope, default: NULL
       :returntype: string
-      :returns: the session ID wrapped in JWT to be used for emitting a new cookie
+      :returns: string the session ID wrapped in JWT to be used for emitting a new cookie
 
    .. php:method:: createFromRecord(string $id, array $record, bool $markAsNew = false)
 
@@ -145,4 +143,4 @@
       :param string $cookieValue: submitted cookie value
       :param TYPO3\\CMS\\Core\\Http\\CookieScope $scope: the scope
       :returntype: string
-      :returns: session ID, null in case verification failed
+      :returns: non-empty-string|null session ID, null in case verification failed
