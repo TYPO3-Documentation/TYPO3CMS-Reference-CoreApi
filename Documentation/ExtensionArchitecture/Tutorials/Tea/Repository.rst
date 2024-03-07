@@ -64,8 +64,10 @@ from each other.
 Using the repository
 ====================
 
-The :php:`TeaRepository` can now be used in a controller or another class
-after it was injected by :ref:`Dependency Injection <Dependency-Injection>`:
+The :php:`\TTN\Tea\Domain\Repository\Product\TeaRepository` can now be used in a
+controller or another class.
+
+Require it via :ref:`Dependency Injection <Dependency-Injection>`:
 
 ..  include:: /CodeSnippets/Tutorials/Tea/Classes/Domain/Repository/InjectRepository.rst.txt
 

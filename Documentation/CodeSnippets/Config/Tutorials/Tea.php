@@ -142,7 +142,7 @@ return [
         'class' => TTN\Tea\Controller\TeaController::class,
         'members' => [
             'teaRepository',
-            'injectTeaRepository',
+            '__construct',
         ],
         'targetFileName' => 'CodeSnippets/Tutorials/Tea/Classes/Domain/Repository/InjectRepository.rst.txt',
     ],
@@ -167,7 +167,7 @@ return [
         'action' => 'createPhpClassCodeSnippet',
         'class' => TTN\Tea\Controller\TeaController::class,
         'members' => [
-            'teaRepository', 'injectTeaRepository', 'indexAction',
+            'teaRepository', '__construct', 'indexAction',
         ],
         'targetFileName' => '/ExtensionArchitecture/Tutorials/Tea/_Controller/_IndexAction.rst.txt',
     ],
