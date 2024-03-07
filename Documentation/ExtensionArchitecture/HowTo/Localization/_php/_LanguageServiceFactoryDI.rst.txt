@@ -16,12 +16,12 @@
     * "/de/haiku-season-list.json" for German translation (if /de is the configured base path)
     * If the base path is not available in the according site the default language will be used.
     */
-   final class HaikuSeasonList implements MiddlewareInterface
+   final readonly class HaikuSeasonList implements MiddlewareInterface
    {
        public function __construct(
-           private readonly LanguageServiceFactory $languageServiceFactory,
-           private readonly ResponseFactoryInterface $responseFactory,
-           private readonly StreamFactoryInterface $streamFactory,
+           private LanguageServiceFactory $languageServiceFactory,
+           private ResponseFactoryInterface $responseFactory,
+           private StreamFactoryInterface $streamFactory,
        ) {}
    }
    

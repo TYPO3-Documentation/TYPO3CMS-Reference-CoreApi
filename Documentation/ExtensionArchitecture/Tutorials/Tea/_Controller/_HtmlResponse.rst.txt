@@ -12,7 +12,7 @@
        {
            return $this->responseFactory->createResponse()
                ->withHeader('Content-Type', 'text/html; charset=utf-8')
-               ->withBody($this->streamFactory->createStream((string)($html ?? $this->view->render())));
+               ->withBody($this->streamFactory->createStream(($html ?? $this->view->render())));
        }
    }
    

@@ -7,12 +7,12 @@
    use TYPO3\CMS\Core\DataHandling\SoftReference\SoftReferenceParserFactory;
    use TYPO3\CMS\Linkvalidator\Repository\BrokenLinkRepository;
 
-   final class CheckExternalLinksToLocalPagesEventListener
+   final readonly class CheckExternalLinksToLocalPagesEventListener
    {
 
        public function __construct(
-           private readonly BrokenLinkRepository $brokenLinkRepository,
-           private readonly SoftReferenceParserFactory $softReferenceParserFactory,
+           private BrokenLinkRepository $brokenLinkRepository,
+           private SoftReferenceParserFactory $softReferenceParserFactory,
        ) {}
    }
    
