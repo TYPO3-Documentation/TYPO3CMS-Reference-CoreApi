@@ -7,8 +7,8 @@ Introduction
 
 
 .. index::
-   pair: TYPO3 Core engine; Database
-   pair: TYPO3 Core engine; TCA
+   pair: DataHandler; Database
+   pair: DataHandler; TCA
 .. _tce-database:
 
 Database
@@ -38,7 +38,7 @@ to be done from the frontend *without* DataHandler.
 The features of the $TCA are described in the :ref:`TCA Reference <t3tca:start>`.
 
 
-.. index:: pair: TYPO3 Core engine; Files
+.. index:: pair: DataHandler; Files
 .. _tce-files:
 
 Files

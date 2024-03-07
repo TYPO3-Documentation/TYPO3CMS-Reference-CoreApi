@@ -1,14 +1,11 @@
 .. include:: /Includes.rst.txt
-.. index::
-   DataHandler
-   TCEmain
-   see: TCEmain; DataHandler
+.. index:: DataHandler; Basics
 .. _tce-database-basics:
 .. _datahandler-basics:
 
-========================================================
-Database: DataHandler basics (Formerly Known as TCEmain)
-========================================================
+==================
+DataHandler basics
+==================
 
 When you are using TCE from your backend applications you need to
 prepare two arrays of information which contain the instructions to
@@ -39,7 +36,7 @@ hierarchy of these two arrays.
 .. index:: DataHandler; Commands array
 .. _tce-commands:
 
-Basic Usage
+Basic usage
 ===========
 
 .. code-block:: php
