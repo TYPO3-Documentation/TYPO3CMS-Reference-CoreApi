@@ -4,7 +4,7 @@
 .. php:class:: Locale
 
    A representation of
-      language key (based on ISO 639-1 / ISO 639-2)
+     - language key (based on ISO 639-1 / ISO 639-2)
      - the optional four-letter script code that can follow the language code according to the Unicode ISO 15924 Registry (e.g. Hans in zh_Hans)
      - region / country (based on ISO 3166-1)
    separated with a "-".
@@ -13,7 +13,9 @@
 
    .. php:const:: RIGHT_TO_LEFT_LANGUAGE_CODES
 
-      :php:`array (
+   ..  code-block:: php
+
+     [
         0 => 'ar',
         1 => 'arc',
         2 => 'arz',
@@ -29,7 +31,7 @@
         12 => 'ur',
         13 => 'uz-AF',
         14 => 'yi',
-      )`, type array
+      ]
 
    .. php:method:: getName()
 
