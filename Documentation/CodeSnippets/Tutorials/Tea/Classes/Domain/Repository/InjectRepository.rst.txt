@@ -10,8 +10,8 @@
     {
         private TeaRepository $teaRepository;
 
-        public function __construct(TeaRepository $teaRepository)
-        {
-            $this->teaRepository = $teaRepository;
-        }
-    }
+       public function __construct(TeaRepository $teaRepository)
+       {
+           $this->teaRepository = $teaRepository;
+       }
+   }
