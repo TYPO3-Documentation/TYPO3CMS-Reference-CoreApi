@@ -30,25 +30,11 @@ easy way via the :bash:`composer require` command.
 
 ..  attention::
     When a Composer package with the type `typo3-cms-extension` is published on
-    Packagist, it will be made available in the
+    Packagist, it may be made available in the
     `TYPO3 Extension Repository <https://extensions.typo3.org/>`__
-    automatically. If you do not want this, do not register the extension on
-    Packagist. Instead load an extension from a
-    `VCS repository <https://getcomposer.org/doc/05-repositories.md#vcs>`__, or
-    use `Private Packagist <https://packagist.com/>`__ or similar approaches.
-
-    To get a Composer package listed automatically in TER, the following
-    criteria must match:
-
-    *   `typo3-cms-extension` as :ref:`type <ext-composer-json-property-type>`
-    *   :ref:`extension-key <ext-composer-json-property-extension-key>` in the
-        `extra` section
-    *   Must at least require one `typo3/cms-` dependency (for example,
-        `typo3/cms-core`)
-
-    See also the
-    `issue tracker <https://git.typo3.org/services/t3o-sites/extensions.typo3.org/ter/-/issues/?label_name%5B%5D=Packagist%20Integration>`__
-    for open issues and features.
+    automatically. See
+    `TYPO3 TER Packagist Integration <https://extensions.typo3.org/about-extension-repository/ter-packagist-integration>`__
+    for more information.
 
 About the composer.json file
 ============================
