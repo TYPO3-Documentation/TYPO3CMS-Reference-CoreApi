@@ -21,7 +21,7 @@ array you want to pass to the class and call a few methods.
    :local:
 
 
-.. index:: pair: DataHandler; Symfony
+.. index:: pair: DataHandler; Symfony command
 .. _dataHandler-cli-command:
 
 Using the DataHandler in a Symfony command
