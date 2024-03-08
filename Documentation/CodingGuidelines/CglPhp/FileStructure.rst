@@ -51,23 +51,23 @@ file. User files must have this copyright notice as well. Example:
 ..  code-block:: php
     :caption: EXT:some_extension/Classes/SomeClass.php
 
-   <?php
-   declare(strict_types = 1);
+    <?php
+    declare(strict_types = 1);
 
-   /*
-    * This file is part of the TYPO3 CMS project.
-    *
-    * It is free software; you can redistribute it and/or modify it under
-    * the terms of the GNU General Public License, either version 2
-    * of the License, or any later version.
-    *
-    * For the full copyright and license information, please read the
-    * LICENSE.txt file that was distributed with this source code.
-    *
-    * The TYPO3 project - inspiring people to share!
-    */
+    /*
+     * This file is part of the TYPO3 CMS project.
+     *
+     * It is free software; you can redistribute it and/or modify it under
+     * the terms of the GNU General Public License, either version 2
+     * of the License, or any later version.
+     *
+     * For the full copyright and license information, please read the
+     * LICENSE.txt file that was distributed with this source code.
+     *
+     * The TYPO3 project - inspiring people to share!
+     */
 
-    namespace Vendor\SomeExtension\SomeFolder;
+     namespace Vendor\SomeExtension\SomeFolder;
 
 The wording must not be changed/updated/extended, under any circumstances.
 
