@@ -32,7 +32,7 @@ TYPO3 installation.
     For example,
     :ref:`conditions using the request object <t3tsref:condition-function-request>`
     may cause problems. Use the :ref:`query builder <database-query-builder>`
-    or :ref:`DataHandler <tce-database-basics>` where appropriate.
+    or :ref:`DataHandler <datahandler-basics>` where appropriate.
 
 .. _symfony-console-commands-cli:
 
@@ -99,7 +99,7 @@ for details on how to create commands.
 
 DataHandler usage
 =================
-Using the :ref:`DataHandler <tce-database-basics>` in a CLI command requires
+Using the :ref:`DataHandler <datahandler-basics>` in a CLI command requires
 backend authentication.
 See :ref:`dataHandler-cli-command` for more information.
 
