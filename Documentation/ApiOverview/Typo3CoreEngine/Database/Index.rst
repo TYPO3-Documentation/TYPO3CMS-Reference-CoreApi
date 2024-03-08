@@ -1,16 +1,13 @@
 .. include:: /Includes.rst.txt
-.. index::
-   DataHandler
-   TCEmain
-   see: TCEmain; DataHandler
+.. index:: DataHandler; Basics
 .. _tce-database-basics:
 .. _datahandler-basics:
 
-========================================================
-Database: DataHandler basics (Formerly Known as TCEmain)
-========================================================
+==================
+DataHandler basics
+==================
 
-When you are using TCE from your backend applications you need to
+When you are using DataHandler from your backend applications you need to
 prepare two arrays of information which contain the instructions to
 DataHandler (:php:`\TYPO3\CMS\Core\DataHandling\DataHandler`)
 of what actions to perform. They fall into two categories:
@@ -39,7 +36,7 @@ hierarchy of these two arrays.
 .. index:: DataHandler; Commands array
 .. _tce-commands:
 
-Basic Usage
+Basic usage
 ===========
 
 .. code-block:: php
@@ -111,7 +108,7 @@ Description of keywords in syntax:
          .. note:: Only *one* command can be executed at a time for each
                    record! The first command in the array will be taken.
 
-         See table below for :ref:`command keywords and values <tce-command-keywords>`
+         See table below for :ref:`command keywords and values <datahandler-command-keywords>`
 
 
  - :Key:
@@ -121,11 +118,12 @@ Description of keywords in syntax:
    :Description:
          The value for the command
 
-         See table below for :ref:`command keywords and values <tce-command-keywords>`
+         See table below for :ref:`command keywords and values <datahandler-command-keywords>`
 
 
 .. index:: DataHandler; Commands keywords
 .. _tce-command-keywords:
+.. _datahandler-command-keywords:
 
 Command keywords and values
 ---------------------------
@@ -546,7 +544,7 @@ this page", and no\_cache checked:
 Clear cache
 ===========
 
-TCE also has an API for clearing the cache tables of TYPO3:
+DataHandler also has an API for clearing the cache tables of TYPO3:
 
 Syntax
 
