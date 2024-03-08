@@ -1,13 +1,11 @@
 .. include:: /Includes.rst.txt
-.. index::
-   TYPO3 Core engine
-   TCE
-   see: TCE; TYPO3 Core engine
+.. index:: DataHandler
 .. _tce:
+.. _data-handler:
 
-=====================================
-TCE (TYPO3 Core engine) & DataHandler
-=====================================
+===========
+DataHandler
+===========
 
 
 .. toctree::
@@ -17,7 +15,5 @@ TCE (TYPO3 Core engine) & DataHandler
    Database/Index
    UsingDataHandler/Index
    TceDb/Index
-   Files/Index
-   TceFile/Index
 
 
