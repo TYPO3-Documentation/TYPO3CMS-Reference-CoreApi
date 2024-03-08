@@ -8,7 +8,7 @@ Introduction
 Looking at TYPO3's main constructs from an abstract position, the system splits into three most important pillars:
 
 DataHandler
-    :php:`TYPO3\CMS\Core\DataHandling\...`: :ref:`Construct taking care of persisting data into the database <tce>`.
+    :php:`TYPO3\CMS\Core\DataHandling\...`: :ref:`Construct taking care of persisting data into the database <data-handler>`.
     The DataHandler takes an array representing one or more records, inserts, deletes or updates them in the database
     and takes care of relations between multiple records. If editing content in the backend, this construct does
     all main database munging. DataHandler is fed by some controller that most often gets :code:`GET`

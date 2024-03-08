@@ -21,7 +21,7 @@ array you want to pass to the class and call a few methods.
    :local:
 
 
-.. index:: pair: DataHandler; Symfony
+.. index:: pair: DataHandler; Symfony command
 .. _dataHandler-cli-command:
 
 Using the DataHandler in a Symfony command
@@ -55,7 +55,8 @@ DataHandler examples
 What follows are a few code listings with comments which will provide you with
 enough knowledge to get started. It is assumed that you have populated
 the :php:`$data` and :php:`$cmd` arrays correctly prior to these chunks of code. The
-syntax for these two arrays is explained in the :ref:`previous chapter <tce-database>`.
+syntax for these two arrays is explained in the :ref:`DataHandler basics <datahandler-basics>`
+chapter.
 
 .. _tcemain-submit-data:
 
@@ -186,7 +187,7 @@ First the :php:`start()` method is called, but this time with the third
 possible argument which is an alternative :php:`$GLOBALS['BE_USER']` object.
 This allows you to force another backend user account to create stuff in the
 database. This may be useful in certain special cases. Normally you
-should not set this argument since you want TCE to use the global
+should not set this argument since you want DataHandler to use the global
 :php:`$GLOBALS['BE_USER']`.
 
 

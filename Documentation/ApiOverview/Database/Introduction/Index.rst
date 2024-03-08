@@ -80,7 +80,7 @@ Low-level and high-level database calls
 
 This documentation focuses on low-level database calls. In many cases, it is
 better to use higher level APIs such as the :ref:`DataHandler
-<tce-database-basics>` or :ref:`Extbase repositories <extbase-repository>` and
+<datahandler-basics>` or :ref:`Extbase repositories <extbase-repository>` and
 to let the framework handle persistence details internally.
 
 ..  tip::
