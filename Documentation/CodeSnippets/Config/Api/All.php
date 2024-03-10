@@ -4,8 +4,9 @@
 // ddev exec .Build/vendor/bin/typo3 codesnippet:create Documentation/CodeSnippets/
 
 return array_merge(
-    include('Events/All.php'),
-    include('Entity.php'),
-    include('LanguageServiceApi.php'),
-    include('Resource.php'),
+    include ('Events/All.php'),
+    include ('Entity.php'),
+    include ('LanguageServiceApi.php'),
+    include ('Registry.php'),
+    include ('Resource.php'),
 );
