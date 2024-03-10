@@ -205,8 +205,8 @@ implementing the proxy pattern: `Extbase Domain Model Extender
 (evoweb/extender) <https://extensions.typo3.org/extension/extender>`__.
 
 This extension can - for example - be used to
-:ref:`Extend models of tt_address <ext_tt_address:development-extend-ttaddress>`.
+:ref:`Extend models of tt_address <friendsoftypo3/tt-address:development-extend-ttaddress>`.
 
 The commonly used extension `EXT:news (georgringer/news)` supplies a special
 generator that can be used to :ref:`add custom fields to news models
-<ext_news:proxyClassGenerator>`.
+<georgringer/news:proxyClassGenerator>`.

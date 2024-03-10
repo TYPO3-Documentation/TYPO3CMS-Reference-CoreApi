@@ -8,7 +8,7 @@ Browse records of a table
 
 This tutorial explains how to create a link browser to the records of a table.
 It can be used to create links to a news detail page (See also the
-:ref:`Link browser example in tutorial in the news extension manual <ext_news:linkhandler>`)
+:ref:`Link browser example in tutorial in the news extension manual <georgringer/news:linkhandler>`)
 or to the record of another third-party extension.
 
 In our example extension `t3docs/examples <https://github.com/TYPO3-Documentation/t3docs-examples>`__
