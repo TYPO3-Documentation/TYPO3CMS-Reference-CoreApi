@@ -7,8 +7,8 @@
 
    .. php:method:: getUser()
 
-      :returntype: TYPO3\\CMS\\Core\\Authentication\\AbstractUserAuthentication
+      :returntype: `TYPO3\CMS\Core\Authentication\AbstractUserAuthentication`
 
    .. php:method:: getRequest()
 
-      :returntype: Psr\\Http\\Message\\ServerRequestInterface
+      :returntype: `Psr\Http\Message\ServerRequestInterface`

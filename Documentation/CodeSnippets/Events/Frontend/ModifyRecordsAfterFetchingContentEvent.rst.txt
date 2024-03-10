@@ -13,7 +13,7 @@
 
    .. php:method:: getRecords()
 
-      :returntype: array
+      :returntype: `array`
 
    .. php:method:: setRecords(array $records)
 
@@ -21,7 +21,7 @@
 
    .. php:method:: getFinalContent()
 
-      :returntype: string
+      :returntype: `string`
 
    .. php:method:: setFinalContent(string $finalContent)
 
@@ -29,7 +29,7 @@
 
    .. php:method:: getSlide()
 
-      :returntype: int
+      :returntype: `int`
 
    .. php:method:: setSlide(int $slide)
 
@@ -37,7 +37,7 @@
 
    .. php:method:: getSlideCollect()
 
-      :returntype: int
+      :returntype: `int`
 
    .. php:method:: setSlideCollect(int $slideCollect)
 
@@ -45,7 +45,7 @@
 
    .. php:method:: getSlideCollectReverse()
 
-      :returntype: bool
+      :returntype: `bool`
 
    .. php:method:: setSlideCollectReverse(bool $slideCollectReverse)
 
@@ -53,7 +53,7 @@
 
    .. php:method:: getSlideCollectFuzzy()
 
-      :returntype: bool
+      :returntype: `bool`
 
    .. php:method:: setSlideCollectFuzzy(bool $slideCollectFuzzy)
 
@@ -61,7 +61,7 @@
 
    .. php:method:: getConfiguration()
 
-      :returntype: array
+      :returntype: `array`
 
    .. php:method:: setConfiguration(array $configuration)
 

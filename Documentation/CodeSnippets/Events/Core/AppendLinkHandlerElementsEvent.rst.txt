@@ -7,23 +7,23 @@
 
    .. php:method:: getLinkParts()
 
-      :returntype: array
+      :returntype: `array`
 
    .. php:method:: getContent()
 
-      :returntype: string
+      :returntype: `string`
 
    .. php:method:: getElements()
 
-      :returntype: array
+      :returntype: `array`
 
    .. php:method:: getIdx()
 
-      :returntype: int
+      :returntype: `int`
 
    .. php:method:: getTokenId()
 
-      :returntype: string
+      :returntype: `string`
 
    .. php:method:: setLinkParts(array $linkParts)
 
@@ -43,4 +43,4 @@
 
    .. php:method:: isResolved()
 
-      :returntype: bool
+      :returntype: `bool`

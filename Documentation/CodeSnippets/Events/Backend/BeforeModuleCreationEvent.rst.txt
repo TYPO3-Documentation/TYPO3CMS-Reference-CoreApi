@@ -7,11 +7,11 @@
 
    .. php:method:: getIdentifier()
 
-      :returntype: string
+      :returntype: `string`
 
    .. php:method:: getConfiguration()
 
-      :returntype: array
+      :returntype: `array`
 
    .. php:method:: setConfiguration(array $configuration)
 
@@ -20,13 +20,13 @@
    .. php:method:: hasConfigurationValue(string $key)
 
       :param string $key: the key
-      :returntype: bool
+      :returntype: `bool`
 
    .. php:method:: getConfigurationValue(string $key, mixed $default = NULL)
 
       :param string $key: the key
       :param mixed $default: the default, default: NULL
-      :returntype: mixed
+      :returntype: `mixed`
 
    .. php:method:: setConfigurationValue(string $key, mixed $value)
 

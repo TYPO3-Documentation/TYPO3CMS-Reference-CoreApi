@@ -7,4 +7,4 @@
 
    .. php:method:: getView()
 
-      :returntype: TYPO3Fluid\\Fluid\\View\\ViewInterface
+      :returntype: `TYPO3Fluid\Fluid\View\ViewInterface`

@@ -8,7 +8,7 @@
 
    .. php:method:: getPageInput()
 
-      :returntype: array
+      :returntype: `array`
 
    .. php:method:: setPageInput(array $pageInput)
 
@@ -16,7 +16,7 @@
 
    .. php:method:: getPageIds()
 
-      :returntype: array
+      :returntype: `array`
 
    .. php:method:: setPageIds(array $pageIds)
 
@@ -24,7 +24,7 @@
 
    .. php:method:: getLanguageAspect()
 
-      :returntype: TYPO3\\CMS\\Core\\Context\\LanguageAspect
+      :returntype: `TYPO3\CMS\Core\Context\LanguageAspect`
 
    .. php:method:: setLanguageAspect(TYPO3\\CMS\\Core\\Context\\LanguageAspect $languageAspect)
 

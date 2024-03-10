@@ -11,15 +11,15 @@
 
    .. php:method:: getFrameworkConfiguration()
 
-      :returntype: array
+      :returntype: `array`
 
    .. php:method:: getOriginalFlexFormConfiguration()
 
-      :returntype: array
+      :returntype: `array`
 
    .. php:method:: getFlexFormConfiguration()
 
-      :returntype: array
+      :returntype: `array`
 
    .. php:method:: setFlexFormConfiguration(array $flexFormConfiguration)
 

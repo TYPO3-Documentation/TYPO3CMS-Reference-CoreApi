@@ -9,11 +9,11 @@
 
    .. php:method:: getLoginType()
 
-      :returntype: string
+      :returntype: `string`
 
    .. php:method:: getRedirectUrl()
 
-      :returntype: string
+      :returntype: `string`
 
    .. php:method:: setRedirectUrl(string $redirectUrl)
 
@@ -21,4 +21,4 @@
 
    .. php:method:: getRequest()
 
-      :returntype: Psr\\Http\\Message\\ServerRequestInterface
+      :returntype: `Psr\Http\Message\ServerRequestInterface`

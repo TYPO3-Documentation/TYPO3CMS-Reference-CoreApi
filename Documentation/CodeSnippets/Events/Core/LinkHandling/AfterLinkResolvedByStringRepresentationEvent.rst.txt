@@ -7,7 +7,7 @@
 
    .. php:method:: getResult()
 
-      :returntype: array
+      :returntype: `array`
 
    .. php:method:: setResult(array $result)
 
@@ -15,8 +15,8 @@
 
    .. php:method:: getUrn()
 
-      :returntype: string
+      :returntype: `string`
 
    .. php:method:: getResolveException()
 
-      :returntype: TYPO3\\CMS\\Core\\Exception
+      :returntype: `TYPO3\CMS\Core\Exception`

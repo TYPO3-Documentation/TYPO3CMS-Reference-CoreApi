@@ -8,4 +8,4 @@
 
    .. php:method:: getToolbarItem()
 
-      :returntype: TYPO3\\CMS\\Backend\\Backend\\ToolbarItems\\SystemInformationToolbarItem
+      :returntype: `TYPO3\CMS\Backend\Backend\ToolbarItems\SystemInformationToolbarItem`

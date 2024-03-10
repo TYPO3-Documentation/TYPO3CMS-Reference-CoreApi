@@ -7,7 +7,7 @@
 
    .. php:method:: getQueryBuilder()
 
-      :returntype: TYPO3\\CMS\\Core\\Database\\Query\\QueryBuilder
+      :returntype: `TYPO3\CMS\Core\Database\Query\QueryBuilder`
 
    .. php:method:: setQueryBuilder(TYPO3\\CMS\\Core\\Database\\Query\\QueryBuilder $queryBuilder)
 
@@ -15,8 +15,8 @@
 
    .. php:method:: getTable()
 
-      :returntype: string
+      :returntype: `string`
 
    .. php:method:: getPageId()
 
-      :returntype: int
+      :returntype: `int`

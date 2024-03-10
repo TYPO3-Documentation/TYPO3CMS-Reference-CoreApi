@@ -7,7 +7,7 @@
 
    .. php:method:: getExtensions()
 
-      :returntype: array
+      :returntype: `array`
 
    .. php:method:: removeExtension(string $extension)
 

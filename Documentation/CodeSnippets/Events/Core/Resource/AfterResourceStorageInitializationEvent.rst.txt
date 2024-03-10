@@ -9,7 +9,7 @@
 
    .. php:method:: getStorage()
 
-      :returntype: TYPO3\\CMS\\Core\\Resource\\ResourceStorage
+      :returntype: `TYPO3\CMS\Core\Resource\ResourceStorage`
 
    .. php:method:: setStorage(TYPO3\\CMS\\Core\\Resource\\ResourceStorage $storage)
 

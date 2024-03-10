@@ -12,4 +12,4 @@
 
    .. php:method:: getMailer()
 
-      :returntype: Symfony\\Component\\Mailer\\MailerInterface
+      :returntype: `Symfony\Component\Mailer\MailerInterface`

@@ -8,25 +8,25 @@
 
    .. php:method:: getResource()
 
-      :returntype: TYPO3\\CMS\\Core\\Resource\\ResourceInterface
+      :returntype: `TYPO3\CMS\Core\Resource\ResourceInterface`
 
    .. php:method:: getIconSize()
 
-      :returntype: TYPO3\\CMS\\Core\\Imaging\\IconSize
+      :returntype: `TYPO3\CMS\Core\Imaging\IconSize`
 
    .. php:method:: getSize()
 
       **Deprecated:** will be removed in v13, use getIconSize instead.
 
-      :returntype: string
+      :returntype: `string`
 
    .. php:method:: getOptions()
 
-      :returntype: array
+      :returntype: `array`
 
    .. php:method:: getIconIdentifier()
 
-      :returntype: string
+      :returntype: `string`
 
    .. php:method:: setIconIdentifier(string $iconIdentifier)
 
@@ -34,7 +34,7 @@
 
    .. php:method:: getOverlayIdentifier()
 
-      :returntype: string
+      :returntype: `string`
 
    .. php:method:: setOverlayIdentifier(string $overlayIdentifier)
 

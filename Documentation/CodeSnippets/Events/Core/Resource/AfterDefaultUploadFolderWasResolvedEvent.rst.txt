@@ -7,7 +7,7 @@
 
    .. php:method:: getUploadFolder()
 
-      :returntype: TYPO3\\CMS\\Core\\Resource\\FolderInterface
+      :returntype: `TYPO3\CMS\Core\Resource\FolderInterface`
 
    .. php:method:: setUploadFolder(TYPO3\\CMS\\Core\\Resource\\FolderInterface $uploadFolder)
 
@@ -15,12 +15,12 @@
 
    .. php:method:: getPid()
 
-      :returntype: int
+      :returntype: `int`
 
    .. php:method:: getTable()
 
-      :returntype: string
+      :returntype: `string`
 
    .. php:method:: getFieldName()
 
-      :returntype: string
+      :returntype: `string`

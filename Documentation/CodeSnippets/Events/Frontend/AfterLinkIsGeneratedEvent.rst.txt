@@ -16,14 +16,14 @@
 
    .. php:method:: getLinkResult()
 
-      :returntype: TYPO3\\CMS\\Frontend\\Typolink\\LinkResultInterface
+      :returntype: `TYPO3\CMS\Frontend\Typolink\LinkResultInterface`
 
    .. php:method:: getContentObjectRenderer()
 
-      :returntype: TYPO3\\CMS\\Frontend\\ContentObject\\ContentObjectRenderer
+      :returntype: `TYPO3\CMS\Frontend\ContentObject\ContentObjectRenderer`
 
    .. php:method:: getLinkInstructions()
 
       Returns the original instructions / $linkConfiguration that were used to build the link
 
-      :returntype: array
+      :returntype: `array`

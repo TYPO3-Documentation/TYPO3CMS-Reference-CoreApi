@@ -9,4 +9,4 @@
 
    .. php:method:: getFileUid()
 
-      :returntype: int
+      :returntype: `int`

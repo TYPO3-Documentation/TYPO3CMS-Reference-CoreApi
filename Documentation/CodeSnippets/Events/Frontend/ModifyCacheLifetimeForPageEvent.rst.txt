@@ -12,20 +12,20 @@
 
    .. php:method:: getCacheLifetime()
 
-      :returntype: int
+      :returntype: `int`
 
    .. php:method:: getPageId()
 
-      :returntype: int
+      :returntype: `int`
 
    .. php:method:: getPageRecord()
 
-      :returntype: array
+      :returntype: `array`
 
    .. php:method:: getRenderingInstructions()
 
-      :returntype: array
+      :returntype: `array`
 
    .. php:method:: getContext()
 
-      :returntype: TYPO3\\CMS\\Core\\Context\\Context
+      :returntype: `TYPO3\CMS\Core\Context\Context`

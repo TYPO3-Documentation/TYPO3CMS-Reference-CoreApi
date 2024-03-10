@@ -10,26 +10,26 @@
    .. php:method:: has(string $identifier)
 
       :param string $identifier: the identifier
-      :returntype: bool
+      :returntype: `bool`
 
    .. php:method:: isEmpty()
 
-      :returntype: bool
+      :returntype: `bool`
 
    .. php:method:: get(string $identifier, mixed $defaultValue = NULL)
 
       :param string $identifier: the identifier
       :param mixed $defaultValue: the defaultValue, default: NULL
-      :returntype: mixed
+      :returntype: `mixed`
 
    .. php:method:: getAll()
 
-      :returntype: array
+      :returntype: `array`
 
    .. php:method:: getAllFlat()
 
-      :returntype: array
+      :returntype: `array`
 
    .. php:method:: jsonSerialize()
 
-      :returntype: mixed
+      :returntype: `mixed`

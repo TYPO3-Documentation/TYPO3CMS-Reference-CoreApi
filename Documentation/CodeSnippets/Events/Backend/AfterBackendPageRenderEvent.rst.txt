@@ -10,7 +10,7 @@
 
    .. php:method:: getContent()
 
-      :returntype: string
+      :returntype: `string`
 
    .. php:method:: setContent(string $content)
 
@@ -18,4 +18,4 @@
 
    .. php:method:: getView()
 
-      :returntype: TYPO3\\CMS\\Core\\View\\ViewInterface
+      :returntype: `TYPO3\CMS\Core\View\ViewInterface`

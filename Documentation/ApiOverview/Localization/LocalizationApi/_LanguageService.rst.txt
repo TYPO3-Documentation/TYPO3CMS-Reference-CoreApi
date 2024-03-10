@@ -42,7 +42,7 @@
       This looks up the given .xlf file path in the 'core' extension for label labels.depth_0
 
       :param string $input: Label key/reference
-      :returntype: string
+      :returntype: `string`
 
    .. php:method:: overrideLabels(string $fileRef, array $labels)
 
@@ -54,4 +54,4 @@
 
    .. php:method:: getLocale()
 
-      :returntype: TYPO3\\CMS\\Core\\Localization\\Locale
+      :returntype: `TYPO3\CMS\Core\Localization\Locale`

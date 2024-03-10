@@ -9,16 +9,16 @@
 
       The table name of the record.
 
-      :returntype: string
+      :returntype: `string`
 
    .. php:method:: getRecordId()
 
       The uid of the record
 
-      :returntype: int
+      :returntype: `int`
 
    .. php:method:: getWorkspaceId()
 
       The workspace the record has been published in.
 
-      :returntype: int
+      :returntype: `int`

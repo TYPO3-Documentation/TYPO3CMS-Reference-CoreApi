@@ -8,11 +8,11 @@
 
    .. php:method:: getTableName()
 
-      :returntype: string
+      :returntype: `string`
 
    .. php:method:: getRecord()
 
-      :returntype: array
+      :returntype: `array`
 
    .. php:method:: setRecord(array $record)
 
@@ -20,11 +20,11 @@
 
    .. php:method:: getFields()
 
-      :returntype: array
+      :returntype: `array`
 
    .. php:method:: getResults()
 
-      :returntype: array
+      :returntype: `array`
 
    .. php:method:: setResults(array $results)
 
@@ -32,4 +32,4 @@
 
    .. php:method:: getLinkAnalyzer()
 
-      :returntype: TYPO3\\CMS\\Linkvalidator\\LinkAnalyzer
+      :returntype: `TYPO3\CMS\Linkvalidator\LinkAnalyzer`
