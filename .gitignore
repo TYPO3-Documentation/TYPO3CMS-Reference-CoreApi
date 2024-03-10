@@ -9,6 +9,7 @@
 .cache
 .DS_Store
 .env
+.php-cs-fixer.cache
 .project
 .session
 .settings
