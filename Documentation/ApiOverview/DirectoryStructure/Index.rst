@@ -103,6 +103,10 @@ further storage locations configured outside of :file:`fileadmin/`, even
 pointing to different servers or using 3rd party digital asset management
 systems.
 
+Depending on the configuration in
+:ref:`$GLOBALS['TYPO3_CONF_VARS']['BE']['fileadminDir'] <typo3ConfVars_be_fileadminDir>`
+another folder name than :file:`fileadmin/` can be in use.
+
 ..  note::
     This directory is meant for editors! Integrators should
     *not* locate frontend website layout related files in here: Storing
