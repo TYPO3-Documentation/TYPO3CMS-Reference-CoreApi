@@ -7,7 +7,7 @@
 
    .. php:method:: getResult()
 
-      :returntype: mixed
+      :returntype: `mixed`
 
    .. php:method:: setResult(mixed $result)
 
@@ -15,12 +15,12 @@
 
    .. php:method:: getParameterString()
 
-      :returntype: string
+      :returntype: `string`
 
    .. php:method:: getAlternativeFieldArray()
 
-      :returntype: array
+      :returntype: `array`
 
    .. php:method:: getContentObjectRenderer()
 
-      :returntype: TYPO3\\CMS\\Frontend\\ContentObject\\ContentObjectRenderer
+      :returntype: `TYPO3\CMS\Frontend\ContentObject\ContentObjectRenderer`

@@ -11,5 +11,5 @@
 
    .. php:method:: getJavaScriptModules()
 
-      :returntype: array
+      :returntype: `array`
       :returns: string[]

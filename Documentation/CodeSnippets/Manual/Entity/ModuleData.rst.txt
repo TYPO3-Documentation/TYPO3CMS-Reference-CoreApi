@@ -14,22 +14,22 @@
 
       :param TYPO3\\CMS\\Backend\\Module\\ModuleInterface $module: the module
       :param array $data: the data
-      :returntype: self
+      :returntype: `self`
 
    .. php:method:: getModuleIdentifier()
 
-      :returntype: string
+      :returntype: `string`
 
    .. php:method:: get(string $propertyName, mixed $default = NULL)
 
       :param string $propertyName: the propertyName
       :param mixed $default: the default, default: NULL
-      :returntype: mixed
+      :returntype: `mixed`
 
    .. php:method:: has(string $propertyName)
 
       :param string $propertyName: the propertyName
-      :returntype: bool
+      :returntype: `bool`
 
    .. php:method:: set(string $propertyName, mixed $value)
 
@@ -44,7 +44,7 @@
 
       :param string $propertyName: the propertyName
       :param array $allowedValues: the allowedValues
-      :returntype: bool
+      :returntype: `bool`
       :returns: bool True if something has been cleaned up
 
    .. php:method:: cleanUp(array $allowedData, bool $useKeys = true)
@@ -54,8 +54,8 @@
 
       :param array $allowedData: the allowedData
       :param bool $useKeys: the useKeys, default: true
-      :returntype: bool
+      :returntype: `bool`
 
    .. php:method:: toArray()
 
-      :returntype: array
+      :returntype: `array`

@@ -8,12 +8,12 @@
 
    .. php:method:: getControllerClassName()
 
-      :returntype: string
+      :returntype: `string`
 
    .. php:method:: getActionMethodName()
 
-      :returntype: string
+      :returntype: `string`
 
    .. php:method:: getPreparedArguments()
 
-      :returntype: array
+      :returntype: `array`

@@ -15,7 +15,7 @@
       - label: The corresponding field label
       - content: The field values difference
 
-      :returntype: array
+      :returntype: `array`
       :returns: list<array{field: string, label: string, content: string}>
 
    .. php:method:: setVersionDifferences(array $versionDifferences)
@@ -28,11 +28,11 @@
 
       Returns the records live data (used to create the version difference)
 
-      :returntype: array
+      :returntype: `array`
       :returns: list<array{field: string, label: string, content: string}>
 
    .. php:method:: getParameters()
 
       Returns meta information like current stage and current workspace
 
-      :returntype: stdClass
+      :returntype: `stdClass`

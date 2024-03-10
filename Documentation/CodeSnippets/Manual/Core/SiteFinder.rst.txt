@@ -10,7 +10,7 @@
       Return a list of all configured sites
 
       :param bool $useCache: the useCache, default: true
-      :returntype: array
+      :returntype: `array`
       :returns: \Site[]
 
    .. php:method:: getSiteByIdentifier(string $identifier)
@@ -18,7 +18,7 @@
       Find a site by given identifier
 
       :param string $identifier: the identifier
-      :returntype: TYPO3\\CMS\\Core\\Site\\Entity\\Site
+      :returntype: `TYPO3\CMS\Core\Site\Entity\Site`
 
    .. php:method:: getSiteByPageId(int $pageId, array $rootLine = NULL, string $mountPointParameter = NULL)
 
@@ -27,4 +27,4 @@
       :param int $pageId: the pageId
       :param array $rootLine: the rootLine, default: NULL
       :param string $mountPointParameter: the mountPointParameter, default: NULL
-      :returntype: TYPO3\\CMS\\Core\\Site\\Entity\\Site
+      :returntype: `TYPO3\CMS\Core\Site\Entity\Site`

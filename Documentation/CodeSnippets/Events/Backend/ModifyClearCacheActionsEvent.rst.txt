@@ -15,7 +15,7 @@
 
    .. php:method:: getCacheActions()
 
-      :returntype: array
+      :returntype: `array`
 
    .. php:method:: addCacheActionIdentifier(string $cacheActionIdentifier)
 
@@ -27,4 +27,4 @@
 
    .. php:method:: getCacheActionIdentifiers()
 
-      :returntype: array
+      :returntype: `array`

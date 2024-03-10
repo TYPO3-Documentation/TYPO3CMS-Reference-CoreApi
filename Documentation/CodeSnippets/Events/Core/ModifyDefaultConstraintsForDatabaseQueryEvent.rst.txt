@@ -13,19 +13,19 @@
 
    .. php:method:: getTable()
 
-      :returntype: string
+      :returntype: `string`
 
    .. php:method:: getTableAlias()
 
-      :returntype: string
+      :returntype: `string`
 
    .. php:method:: getExpressionBuilder()
 
-      :returntype: TYPO3\\CMS\\Core\\Database\\Query\\Expression\\ExpressionBuilder
+      :returntype: `TYPO3\CMS\Core\Database\Query\Expression\ExpressionBuilder`
 
    .. php:method:: getConstraints()
 
-      :returntype: array
+      :returntype: `array`
 
    .. php:method:: setConstraints(array $constraints)
 
@@ -33,8 +33,8 @@
 
    .. php:method:: getEnableFieldsToIgnore()
 
-      :returntype: array
+      :returntype: `array`
 
    .. php:method:: getContext()
 
-      :returntype: TYPO3\\CMS\\Core\\Context\\Context
+      :returntype: `TYPO3\CMS\Core\Context\Context`

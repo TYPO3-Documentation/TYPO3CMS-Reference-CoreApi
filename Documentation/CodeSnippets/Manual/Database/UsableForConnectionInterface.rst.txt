@@ -18,4 +18,4 @@
 
       :param string $identifier: the identifier
       :param array $connectionParams: the connectionParams
-      :returntype: bool
+      :returntype: `bool`

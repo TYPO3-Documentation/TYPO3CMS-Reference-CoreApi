@@ -18,11 +18,11 @@
 
    .. php:method:: getRequest()
 
-      :returntype: Psr\\Http\\Message\\ServerRequestInterface
+      :returntype: `Psr\Http\Message\ServerRequestInterface`
 
    .. php:method:: getPageCacheIdentifierParameters()
 
-      :returntype: array
+      :returntype: `array`
 
    .. php:method:: setPageCacheIdentifierParameters(array $pageCacheIdentifierParameters)
 

@@ -7,7 +7,7 @@
 
    .. php:method:: getParameters()
 
-      :returntype: array
+      :returntype: `array`
 
    .. php:method:: setParameters(array $parameters)
 
@@ -15,12 +15,12 @@
 
    .. php:method:: getTypoLinkParts()
 
-      :returntype: array
+      :returntype: `array`
 
    .. php:method:: getDelimiter()
 
-      :returntype: string
+      :returntype: `string`
 
    .. php:method:: getEmptyValueSymbol()
 
-      :returntype: string
+      :returntype: `string`

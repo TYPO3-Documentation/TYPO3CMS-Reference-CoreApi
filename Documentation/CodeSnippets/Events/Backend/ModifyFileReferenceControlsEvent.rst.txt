@@ -10,7 +10,7 @@
 
       Returns all controls with their markup
 
-      :returntype: array
+      :returntype: `array`
 
    .. php:method:: setControls(array $controls)
 
@@ -23,7 +23,7 @@
       Returns the markup for the requested control
 
       :param string $identifier: the identifier
-      :returntype: string
+      :returntype: `string`
 
    .. php:method:: setControl(string $identifier, string $markup)
 
@@ -38,48 +38,48 @@
       Returns whether a control exists for the given identifier
 
       :param string $identifier: the identifier
-      :returntype: bool
+      :returntype: `bool`
 
    .. php:method:: removeControl(string $identifier)
 
       Removes a control from the file reference, if it exists
 
       :param string $identifier: the identifier
-      :returntype: bool
+      :returntype: `bool`
       :returns: bool Whether the control could be removed
 
    .. php:method:: getElementData()
 
       Returns the whole element data
 
-      :returntype: array
+      :returntype: `array`
 
    .. php:method:: getRecord()
 
       Returns the current record, the controls are created for
 
-      :returntype: array
+      :returntype: `array`
 
    .. php:method:: getParentUid()
 
       Returns the uid of the parent (embedding) record (uid or NEW...)
 
-      :returntype: string
+      :returntype: `string`
 
    .. php:method:: getForeignTable()
 
       Returns the table (foreign_table) the controls are created for
 
-      :returntype: string
+      :returntype: `string`
 
    .. php:method:: getFieldConfiguration()
 
       Returns the TCA configuration of the TCA type=file field
 
-      :returntype: array
+      :returntype: `array`
 
    .. php:method:: isVirtual()
 
       Returns whether the current records is only virtually shown and not physically part of the parent record
 
-      :returntype: bool
+      :returntype: `bool`

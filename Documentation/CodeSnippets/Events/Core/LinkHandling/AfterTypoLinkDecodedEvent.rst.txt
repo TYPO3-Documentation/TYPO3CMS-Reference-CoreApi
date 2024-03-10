@@ -7,7 +7,7 @@
 
    .. php:method:: getTypoLinkParts()
 
-      :returntype: array
+      :returntype: `array`
 
    .. php:method:: setTypoLinkParts(array $typoLinkParts)
 
@@ -15,12 +15,12 @@
 
    .. php:method:: getTypoLink()
 
-      :returntype: string
+      :returntype: `string`
 
    .. php:method:: getDelimiter()
 
-      :returntype: string
+      :returntype: `string`
 
    .. php:method:: getEmptyValueSymbol()
 
-      :returntype: string
+      :returntype: `string`

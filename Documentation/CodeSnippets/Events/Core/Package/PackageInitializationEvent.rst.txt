@@ -8,29 +8,29 @@
 
    .. php:method:: getExtensionKey()
 
-      :returntype: string
+      :returntype: `string`
 
    .. php:method:: getPackage()
 
-      :returntype: TYPO3\\CMS\\Core\\Package\\PackageInterface
+      :returntype: `TYPO3\CMS\Core\Package\PackageInterface`
 
    .. php:method:: getContainer()
 
-      :returntype: Psr\\Container\\ContainerInterface
+      :returntype: `Psr\Container\ContainerInterface`
 
    .. php:method:: getEmitter()
 
-      :returntype: object
+      :returntype: `object`
 
    .. php:method:: hasStorageEntry(string $identifier)
 
       :param string $identifier: the identifier
-      :returntype: bool
+      :returntype: `bool`
 
    .. php:method:: getStorageEntry(string $identifier)
 
       :param string $identifier: the identifier
-      :returntype: TYPO3\\CMS\\Core\\Package\\PackageInitializationResult
+      :returntype: `TYPO3\CMS\Core\Package\PackageInitializationResult`
 
    .. php:method:: addStorageEntry(string $identifier, mixed $data)
 

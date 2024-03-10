@@ -11,11 +11,11 @@
 
    .. php:method:: getRequest()
 
-      :returntype: Psr\\Http\\Message\\ServerRequestInterface
+      :returntype: `Psr\Http\Message\ServerRequestInterface`
 
    .. php:method:: getPageInformation()
 
-      :returntype: TYPO3\\CMS\\Frontend\\Page\\PageInformation
+      :returntype: `TYPO3\CMS\Frontend\Page\PageInformation`
 
    .. php:method:: setPageInformation(TYPO3\\CMS\\Frontend\\Page\\PageInformation $pageInformation)
 
@@ -23,7 +23,7 @@
 
    .. php:method:: getResponse()
 
-      :returntype: Psr\\Http\\Message\\ResponseInterface
+      :returntype: `Psr\Http\Message\ResponseInterface`
 
    .. php:method:: setResponse(Psr\\Http\\Message\\ResponseInterface $response)
 

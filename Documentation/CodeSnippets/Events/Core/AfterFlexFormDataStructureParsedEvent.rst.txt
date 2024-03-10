@@ -15,7 +15,7 @@
 
    .. php:method:: getIdentifier()
 
-      :returntype: array
+      :returntype: `array`
 
    .. php:method:: getDataStructure()
 
@@ -23,7 +23,7 @@
       parsed by the `FlexFormTools` component. Might contain additional
       data from previously called listeners.
 
-      :returntype: array
+      :returntype: `array`
 
    .. php:method:: setDataStructure(array $dataStructure)
 

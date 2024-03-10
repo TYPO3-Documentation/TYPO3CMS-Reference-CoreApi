@@ -21,21 +21,21 @@
       Returns the full TCA of the currently handled field, having
       `type=flex` set.
 
-      :returntype: array
+      :returntype: `array`
 
    .. php:method:: getTableName()
 
-      :returntype: string
+      :returntype: `string`
 
    .. php:method:: getFieldName()
 
-      :returntype: string
+      :returntype: `string`
 
    .. php:method:: getRow()
 
       Returns the whole database row of the current record.
 
-      :returntype: array
+      :returntype: `array`
 
    .. php:method:: setIdentifier(array $identifier)
 
@@ -50,4 +50,4 @@
       either been defined by an event listener or set to the default
       by the `FlexFormTools` component.
 
-      :returntype: array
+      :returntype: `array`

@@ -12,7 +12,7 @@
       module is registered. Does NOT perform any access checks.
 
       :param string $identifier: the identifier
-      :returntype: bool
+      :returntype: `bool`
 
    .. php:method:: getModule(string $identifier, TYPO3\\CMS\\Core\\Authentication\\BackendUserAuthentication $user = NULL, bool $respectWorkspaceRestrictions = true)
 
@@ -21,7 +21,7 @@
       :param string $identifier: the identifier
       :param TYPO3\\CMS\\Core\\Authentication\\BackendUserAuthentication $user: the user, default: NULL
       :param bool $respectWorkspaceRestrictions: the respectWorkspaceRestrictions, default: true
-      :returntype: TYPO3\\CMS\\Backend\\Module\\ModuleInterface
+      :returntype: `TYPO3\CMS\Backend\Module\ModuleInterface`
 
    .. php:method:: getModules(TYPO3\\CMS\\Core\\Authentication\\BackendUserAuthentication $user = NULL, bool $respectWorkspaceRestrictions = true, bool $grouped = true)
 
@@ -32,7 +32,7 @@
       :param TYPO3\\CMS\\Core\\Authentication\\BackendUserAuthentication $user: the user, default: NULL
       :param bool $respectWorkspaceRestrictions: the respectWorkspaceRestrictions, default: true
       :param bool $grouped: the grouped, default: true
-      :returntype: array
+      :returntype: `array`
       :returns: \ModuleInterface[]
 
    .. php:method:: getModuleForMenu(string $identifier, TYPO3\\CMS\\Core\\Authentication\\BackendUserAuthentication $user, bool $respectWorkspaceRestrictions = true)
@@ -44,7 +44,7 @@
       :param string $identifier: the identifier
       :param TYPO3\\CMS\\Core\\Authentication\\BackendUserAuthentication $user: the user
       :param bool $respectWorkspaceRestrictions: the respectWorkspaceRestrictions, default: true
-      :returntype: TYPO3\\CMS\\Backend\\Module\\MenuModule
+      :returntype: `TYPO3\CMS\Backend\Module\MenuModule`
 
    .. php:method:: getModulesForModuleMenu(TYPO3\\CMS\\Core\\Authentication\\BackendUserAuthentication $user, bool $respectWorkspaceRestrictions = true)
 
@@ -55,7 +55,7 @@
 
       :param TYPO3\\CMS\\Core\\Authentication\\BackendUserAuthentication $user: the user
       :param bool $respectWorkspaceRestrictions: the respectWorkspaceRestrictions, default: true
-      :returntype: array
+      :returntype: `array`
       :returns: \MenuModule[]
 
    .. php:method:: accessGranted(string $identifier, TYPO3\\CMS\\Core\\Authentication\\BackendUserAuthentication $user, bool $respectWorkspaceRestrictions = true)
@@ -65,4 +65,4 @@
       :param string $identifier: the identifier
       :param TYPO3\\CMS\\Core\\Authentication\\BackendUserAuthentication $user: the user
       :param bool $respectWorkspaceRestrictions: the respectWorkspaceRestrictions, default: true
-      :returntype: bool
+      :returntype: `bool`

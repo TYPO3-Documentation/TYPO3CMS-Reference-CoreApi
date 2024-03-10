@@ -21,7 +21,7 @@
       Gets the currently running session backend for the given context
 
       :param string $identifier: the identifier
-      :returntype: TYPO3\\CMS\\Core\\Session\\Backend\\SessionBackendInterface
+      :returntype: `TYPO3\CMS\Core\Session\Backend\SessionBackendInterface`
 
    .. php:method:: invalidateAllSessionsByUserId(TYPO3\\CMS\\Core\\Session\\Backend\\SessionBackendInterface $backend, int $userId, TYPO3\\CMS\\Core\\Authentication\\AbstractUserAuthentication $userAuthentication = NULL)
 

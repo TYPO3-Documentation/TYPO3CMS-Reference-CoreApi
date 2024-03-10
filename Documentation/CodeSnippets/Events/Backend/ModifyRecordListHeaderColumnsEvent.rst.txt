@@ -25,14 +25,14 @@
       Whether the column exists
 
       :param string $columnName: the columnName
-      :returntype: bool
+      :returntype: `bool`
 
    .. php:method:: getColumn(string $columnName)
 
       Get column by its name
 
       :param string $columnName: the columnName
-      :returntype: string
+      :returntype: `string`
       :returns: string|null The column or NULL if the column does not exist
 
    .. php:method:: removeColumn(string $columnName)
@@ -40,7 +40,7 @@
       Remove column by its name
 
       :param string $columnName: the columnName
-      :returntype: bool
+      :returntype: `bool`
       :returns: bool Whether the column could be removed - Will therefore
       return FALSE if the column to remove does not exist.
 
@@ -50,7 +50,7 @@
 
    .. php:method:: getColumns()
 
-      :returntype: array
+      :returntype: `array`
 
    .. php:method:: setHeaderAttributes(array $headerAttributes)
 
@@ -58,18 +58,18 @@
 
    .. php:method:: getHeaderAttributes()
 
-      :returntype: array
+      :returntype: `array`
 
    .. php:method:: getTable()
 
-      :returntype: string
+      :returntype: `string`
 
    .. php:method:: getRecordIds()
 
-      :returntype: array
+      :returntype: `array`
 
    .. php:method:: getRecordList()
 
       Returns the current DatabaseRecordList instance.
 
-      :returntype: TYPO3\\CMS\\Backend\\RecordList\\DatabaseRecordList
+      :returntype: `TYPO3\CMS\Backend\RecordList\DatabaseRecordList`

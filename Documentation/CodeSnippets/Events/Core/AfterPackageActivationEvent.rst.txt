@@ -7,12 +7,12 @@
 
    .. php:method:: getPackageKey()
 
-      :returntype: string
+      :returntype: `string`
 
    .. php:method:: getType()
 
-      :returntype: string
+      :returntype: `string`
 
    .. php:method:: getEmitter()
 
-      :returntype: object
+      :returntype: `object`

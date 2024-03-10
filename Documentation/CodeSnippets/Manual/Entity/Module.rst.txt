@@ -7,69 +7,69 @@
 
    .. php:method:: getRoutes()
 
-      :returntype: array
+      :returntype: `array`
 
    .. php:method:: getDefaultRouteOptions()
 
-      :returntype: array
+      :returntype: `array`
 
    .. php:method:: createFromConfiguration(string $identifier, array $configuration)
 
       :param string $identifier: the identifier
       :param array $configuration: the configuration
-      :returntype: static
+      :returntype: `static`
 
    .. php:method:: getIdentifier()
 
-      :returntype: string
+      :returntype: `string`
 
    .. php:method:: getPath()
 
-      :returntype: string
+      :returntype: `string`
 
    .. php:method:: getIconIdentifier()
 
-      :returntype: string
+      :returntype: `string`
 
    .. php:method:: getTitle()
 
-      :returntype: string
+      :returntype: `string`
 
    .. php:method:: getDescription()
 
-      :returntype: string
+      :returntype: `string`
 
    .. php:method:: getShortDescription()
 
-      :returntype: string
+      :returntype: `string`
 
    .. php:method:: isStandalone()
 
-      :returntype: bool
+      :returntype: `bool`
 
    .. php:method:: getNavigationComponent()
 
-      :returntype: string
+      :returntype: `string`
 
    .. php:method:: getComponent()
 
-      :returntype: string
+      :returntype: `string`
 
    .. php:method:: getPosition()
 
-      :returntype: array
+      :returntype: `array`
 
    .. php:method:: getAccess()
 
-      :returntype: string
+      :returntype: `string`
 
    .. php:method:: getWorkspaceAccess()
 
-      :returntype: string
+      :returntype: `string`
 
    .. php:method:: getParentIdentifier()
 
-      :returntype: string
+      :returntype: `string`
 
    .. php:method:: setParentModule(TYPO3\\CMS\\Backend\\Module\\ModuleInterface $module)
 
@@ -77,11 +77,11 @@
 
    .. php:method:: getParentModule()
 
-      :returntype: TYPO3\\CMS\\Backend\\Module\\ModuleInterface
+      :returntype: `TYPO3\CMS\Backend\Module\ModuleInterface`
 
    .. php:method:: hasParentModule()
 
-      :returntype: bool
+      :returntype: `bool`
 
    .. php:method:: addSubModule(TYPO3\\CMS\\Backend\\Module\\ModuleInterface $module)
 
@@ -90,16 +90,16 @@
    .. php:method:: hasSubModule(string $identifier)
 
       :param string $identifier: the identifier
-      :returntype: bool
+      :returntype: `bool`
 
    .. php:method:: hasSubModules()
 
-      :returntype: bool
+      :returntype: `bool`
 
    .. php:method:: getSubModule(string $identifier)
 
       :param string $identifier: the identifier
-      :returntype: TYPO3\\CMS\\Backend\\Module\\ModuleInterface
+      :returntype: `TYPO3\CMS\Backend\Module\ModuleInterface`
 
    .. php:method:: removeSubModule(string $identifier)
 
@@ -107,17 +107,17 @@
 
    .. php:method:: getSubModules()
 
-      :returntype: array
+      :returntype: `array`
       :returns: array<string,\ModuleInterface>
 
    .. php:method:: getAppearance()
 
-      :returntype: array
+      :returntype: `array`
 
    .. php:method:: getAliases()
 
-      :returntype: array
+      :returntype: `array`
 
    .. php:method:: getDefaultModuleData()
 
-      :returntype: array
+      :returntype: `array`

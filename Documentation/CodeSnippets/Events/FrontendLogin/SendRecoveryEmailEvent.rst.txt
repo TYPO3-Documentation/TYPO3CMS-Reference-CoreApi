@@ -11,8 +11,8 @@
 
    .. php:method:: getUserInformation()
 
-      :returntype: array
+      :returntype: `array`
 
    .. php:method:: getEmail()
 
-      :returntype: TYPO3\\CMS\\Core\\Mail\\FluidEmail
+      :returntype: `TYPO3\CMS\Core\Mail\FluidEmail`

@@ -7,56 +7,56 @@
 
    .. php:method:: areDirty()
 
-      :returntype: bool
+      :returntype: `bool`
 
    .. php:method:: getRouteArguments()
 
-      :returntype: array
+      :returntype: `array`
       :returns: array<string,string|array>
 
    .. php:method:: getPageId()
 
-      :returntype: int
+      :returntype: `int`
 
    .. php:method:: getPageType()
 
-      :returntype: string
+      :returntype: `string`
 
    .. php:method:: get(string $name)
 
       :param string $name: the name
-      :returntype: mixed
+      :returntype: `mixed`
       :returns: string|array<string,string|array>|null
 
    .. php:method:: getArguments()
 
-      :returntype: array
+      :returntype: `array`
       :returns: array<string,string|array>
 
    .. php:method:: getStaticArguments()
 
-      :returntype: array
+      :returntype: `array`
       :returns: array<string,string|array>
 
    .. php:method:: getDynamicArguments()
 
-      :returntype: array
+      :returntype: `array`
       :returns: array<string,string|array>
 
    .. php:method:: getQueryArguments()
 
-      :returntype: array
+      :returntype: `array`
       :returns: array<string,string|array>
 
    .. php:method:: offsetExists(mixed $offset)
 
       :param mixed $offset: the offset
-      :returntype: bool
+      :returntype: `bool`
 
    .. php:method:: offsetGet(mixed $offset)
 
       :param mixed $offset: the offset
-      :returntype: mixed
+      :returntype: `mixed`
       :returns: string|array<string,string|array>|null
 
    .. php:method:: offsetSet(mixed $offset, mixed $value)

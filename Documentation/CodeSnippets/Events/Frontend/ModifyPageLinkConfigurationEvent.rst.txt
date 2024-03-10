@@ -10,7 +10,7 @@
 
    .. php:method:: getConfiguration()
 
-      :returntype: array
+      :returntype: `array`
 
    .. php:method:: setConfiguration(array $configuration)
 
@@ -18,11 +18,11 @@
 
    .. php:method:: getLinkDetails()
 
-      :returntype: array
+      :returntype: `array`
 
    .. php:method:: getPage()
 
-      :returntype: array
+      :returntype: `array`
 
    .. php:method:: setPage(array $page)
 
@@ -30,7 +30,7 @@
 
    .. php:method:: getQueryParameters()
 
-      :returntype: array
+      :returntype: `array`
 
    .. php:method:: setQueryParameters(array $queryParameters)
 
@@ -38,7 +38,7 @@
 
    .. php:method:: getFragment()
 
-      :returntype: string
+      :returntype: `string`
 
    .. php:method:: setFragment(string $fragment)
 
@@ -46,4 +46,4 @@
 
    .. php:method:: pageWasModified()
 
-      :returntype: bool
+      :returntype: `bool`
