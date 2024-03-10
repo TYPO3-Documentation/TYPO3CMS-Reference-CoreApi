@@ -26,5 +26,5 @@ displayed again), the cache of the current page is deleted to force a new
 representation of the form.
 
 The automatic cache clearing is enabled by default, you can use the TypoScript configuration
-:ref:`persistence.enableAutomaticCacheClearing <extbase_persistence-enableAutomaticCacheClearing>` to disable
+:ref:`persistence.enableAutomaticCacheClearing <t3tsref:extbase_persistence-enableAutomaticCacheClearing>` to disable
 it.

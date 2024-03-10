@@ -9,7 +9,7 @@ ModifyValidatorTaskEmailEvent
 The PSR-14 event
 :php:`\TYPO3\CMS\Linkvalidator\Event\ModifyValidatorTaskEmailEvent`
 can be used to manipulate the
-:ref:`\\TYPO3\\CMS\\Linkvalidator\\Result\\LinkAnalyzerResult <ext_linkvalidator:linkvalidatorapi-LinkAnalyzerResult>`,
+:php:`\TYPO3\CMS\Linkvalidator\Result\LinkAnalyzerResult`,
 which contains all information from the linkvalidator API. Also the
 :ref:`FluidEmail <mail-fluid-email>` object can be adjusted there. This allows
 to pass additional information to the view by using :php:`$fluidEmail->assign()`

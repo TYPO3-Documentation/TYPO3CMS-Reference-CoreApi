@@ -19,7 +19,7 @@ It is also possible to add extra fields to the `tt_content`
 table, see :ref:`ConfigureCE-Extend-tt_content`.
 
 The data of the content element is then passed to a TypoScript object, in most
-cases to a :ref:`cobj-fluidtemplate`.
+cases to a :ref:`t3tsref:cobj-fluidtemplate`.
 
 Some data might need additional :ref:`ConfigureCE-DataProcessors`. Data
 processors are frequently used for example to process files
