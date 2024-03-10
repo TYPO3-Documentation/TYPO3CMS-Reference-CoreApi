@@ -7,7 +7,7 @@
 
    .. php:method:: getSourceDatabaseTable()
 
-      :returntype: string
+      :returntype: `string`
       :returns: string 'be_groups' or 'fe_groups' depending on context.
 
    .. php:method:: getGroups()
@@ -18,7 +18,7 @@
       results in "3,1,2" as record list array - sub groups are listed before the group
       that includes the sub group.
 
-      :returntype: array
+      :returntype: `array`
 
    .. php:method:: setGroups(array $groups)
 
@@ -30,10 +30,10 @@
 
       List of group uids directly attached to the user
 
-      :returntype: array
+      :returntype: `array`
 
    .. php:method:: getUserData()
 
       Full user record with all fields
 
-      :returntype: array
+      :returntype: `array`

@@ -33,28 +33,28 @@
 
    .. php:method:: getName()
 
-      :returntype: string
+      :returntype: `string`
 
    .. php:method:: getLanguageCode()
 
-      :returntype: string
+      :returntype: `string`
 
    .. php:method:: isRightToLeftLanguageDirection()
 
-      :returntype: bool
+      :returntype: `bool`
 
    .. php:method:: getLanguageScriptCode()
 
-      :returntype: string
+      :returntype: `string`
 
    .. php:method:: getCountryCode()
 
-      :returntype: string
+      :returntype: `string`
 
    .. php:method:: getDependencies()
 
-      :returntype: array
+      :returntype: `array`
 
    .. php:method:: __toString()
 
-      :returntype: string
+      :returntype: `string`

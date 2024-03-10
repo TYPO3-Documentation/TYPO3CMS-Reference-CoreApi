@@ -9,4 +9,4 @@
 
    .. php:method:: getFolder()
 
-      :returntype: TYPO3\\CMS\\Core\\Resource\\Folder
+      :returntype: `TYPO3\CMS\Core\Resource\Folder`

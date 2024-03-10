@@ -31,7 +31,7 @@
 
       :param string $actionName: the actionName
       :param string $group: the group, default: ''
-      :returntype: bool
+      :returntype: `bool`
 
    .. php:method:: getAction(string $actionName, string $group = '')
 
@@ -41,7 +41,7 @@
 
       :param string $actionName: the actionName
       :param string $group: the group, default: ''
-      :returntype: string
+      :returntype: `string`
 
    .. php:method:: removeAction(string $actionName, string $group = '')
 
@@ -51,7 +51,7 @@
 
       :param string $actionName: the actionName
       :param string $group: the group, default: ''
-      :returntype: bool
+      :returntype: `bool`
       :returns: bool Whether the action could be removed - Will therefore
       return FALSE if the action to remove does not exist.
 
@@ -60,7 +60,7 @@
       Get the actions of a specific group
 
       :param string $group: the group
-      :returntype: array
+      :returntype: `array`
 
    .. php:method:: setActions(array $actions)
 
@@ -68,18 +68,18 @@
 
    .. php:method:: getActions()
 
-      :returntype: array
+      :returntype: `array`
 
    .. php:method:: getTable()
 
-      :returntype: string
+      :returntype: `string`
 
    .. php:method:: getRecord()
 
-      :returntype: array
+      :returntype: `array`
 
    .. php:method:: getRecordList()
 
       Returns the current DatabaseRecordList instance.
 
-      :returntype: TYPO3\\CMS\\Backend\\RecordList\\DatabaseRecordList
+      :returntype: `TYPO3\CMS\Backend\RecordList\DatabaseRecordList`

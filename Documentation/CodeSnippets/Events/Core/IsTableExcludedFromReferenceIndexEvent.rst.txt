@@ -10,14 +10,14 @@
 
    .. php:method:: getTable()
 
-      :returntype: string
+      :returntype: `string`
 
    .. php:method:: markAsExcluded()
 
    .. php:method:: isTableExcluded()
 
-      :returntype: bool
+      :returntype: `bool`
 
    .. php:method:: isPropagationStopped()
 
-      :returntype: bool
+      :returntype: `bool`

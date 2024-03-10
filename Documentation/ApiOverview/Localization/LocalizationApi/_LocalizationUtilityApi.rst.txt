@@ -13,5 +13,5 @@
       :param string $extensionName: The name of the extension, default: NULL
       :param array $arguments: The arguments of the extension, being passed over to sprintf, default: NULL
       :param TYPO3\\CMS\\Core\\Localization\\Locale|string|null $languageKey: The language key or null for using the current language from the system, default: NULL
-      :returntype: string
+      :returntype: `string`
       :returns: string|null The value from LOCAL_LANG or null if no translation was found.

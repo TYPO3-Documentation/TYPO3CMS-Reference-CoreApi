@@ -11,7 +11,7 @@
 
    .. php:method:: getMessage()
 
-      :returntype: Symfony\\Component\\Mime\\RawMessage
+      :returntype: `Symfony\Component\Mime\RawMessage`
 
    .. php:method:: setMessage(Symfony\\Component\\Mime\\RawMessage $message)
 
@@ -19,7 +19,7 @@
 
    .. php:method:: getEnvelope()
 
-      :returntype: Symfony\\Component\\Mailer\\Envelope
+      :returntype: `Symfony\Component\Mailer\Envelope`
 
    .. php:method:: setEnvelope(Symfony\\Component\\Mailer\\Envelope $envelope = NULL)
 
@@ -27,4 +27,4 @@
 
    .. php:method:: getMailer()
 
-      :returntype: Symfony\\Component\\Mailer\\MailerInterface
+      :returntype: `Symfony\Component\Mailer\MailerInterface`

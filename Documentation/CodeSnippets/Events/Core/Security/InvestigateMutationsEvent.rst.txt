@@ -12,13 +12,13 @@
 
    .. php:method:: isPropagationStopped()
 
-      :returntype: bool
+      :returntype: `bool`
 
    .. php:method:: stopPropagation()
 
    .. php:method:: getMutationSuggestions()
 
-      :returntype: array
+      :returntype: `array`
       :returns: list<\MutationSuggestion>
 
    .. php:method:: setMutationSuggestions(TYPO3\\CMS\\Core\\Security\\ContentSecurityPolicy\\MutationSuggestion $mutationSuggestions)

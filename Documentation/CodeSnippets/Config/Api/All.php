@@ -10,6 +10,7 @@ return array_merge(
     include ('Database.php'),
     include ('Entity.php'),
     include ('LanguageServiceApi.php'),
+    include ('Registry.php'),
     include ('SessionManagement.php'),
     include ('Resource.php'),
 );

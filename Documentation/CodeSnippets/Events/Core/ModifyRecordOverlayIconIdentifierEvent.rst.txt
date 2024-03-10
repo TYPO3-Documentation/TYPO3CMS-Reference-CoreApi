@@ -11,16 +11,16 @@
 
    .. php:method:: getOverlayIconIdentifier()
 
-      :returntype: string
+      :returntype: `string`
 
    .. php:method:: getTable()
 
-      :returntype: string
+      :returntype: `string`
 
    .. php:method:: getRow()
 
-      :returntype: array
+      :returntype: `array`
 
    .. php:method:: getStatus()
 
-      :returntype: array
+      :returntype: `array`

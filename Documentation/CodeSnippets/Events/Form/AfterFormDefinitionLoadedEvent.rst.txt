@@ -7,7 +7,7 @@
 
    .. php:method:: getFormDefinition()
 
-      :returntype: array
+      :returntype: `array`
 
    .. php:method:: setFormDefinition(array $formDefinition)
 
@@ -15,8 +15,8 @@
 
    .. php:method:: getPersistenceIdentifier()
 
-      :returntype: string
+      :returntype: `string`
 
    .. php:method:: getCacheKey()
 
-      :returntype: string
+      :returntype: `string`

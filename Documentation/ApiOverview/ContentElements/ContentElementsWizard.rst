@@ -58,7 +58,7 @@ plugin is `registration`.
    .. note::
       The usage of :file:`Configuration/page.tsconfig` is only valid in TYPO3
       v12+. If you want to stay compatible with TYPO3 v11 and v12 have a look
-      into :ref:`setting-page-tsconfig`.
+      into :ref:`t3tsconfig:setting-page-tsconfig`.
 
 #. :ref:`Register your icon <icon-registration>`
 

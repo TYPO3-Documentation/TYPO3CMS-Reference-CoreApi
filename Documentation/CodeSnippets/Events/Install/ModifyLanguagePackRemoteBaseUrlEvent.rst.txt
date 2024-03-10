@@ -7,7 +7,7 @@
 
    .. php:method:: getBaseUrl()
 
-      :returntype: Psr\\Http\\Message\\UriInterface
+      :returntype: `Psr\Http\Message\UriInterface`
 
    .. php:method:: setBaseUrl(Psr\\Http\\Message\\UriInterface $baseUrl)
 
@@ -15,4 +15,4 @@
 
    .. php:method:: getPackageKey()
 
-      :returntype: string
+      :returntype: `string`

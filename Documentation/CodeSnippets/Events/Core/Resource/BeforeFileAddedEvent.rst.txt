@@ -9,7 +9,7 @@
 
    .. php:method:: getFileName()
 
-      :returntype: string
+      :returntype: `string`
 
    .. php:method:: setFileName(string $fileName)
 
@@ -17,16 +17,16 @@
 
    .. php:method:: getSourceFilePath()
 
-      :returntype: string
+      :returntype: `string`
 
    .. php:method:: getTargetFolder()
 
-      :returntype: TYPO3\\CMS\\Core\\Resource\\Folder
+      :returntype: `TYPO3\CMS\Core\Resource\Folder`
 
    .. php:method:: getStorage()
 
-      :returntype: TYPO3\\CMS\\Core\\Resource\\ResourceStorage
+      :returntype: `TYPO3\CMS\Core\Resource\ResourceStorage`
 
    .. php:method:: getDriver()
 
-      :returntype: TYPO3\\CMS\\Core\\Resource\\Driver\\DriverInterface
+      :returntype: `TYPO3\CMS\Core\Resource\Driver\DriverInterface`

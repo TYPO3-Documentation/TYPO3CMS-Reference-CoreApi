@@ -8,25 +8,25 @@
 
    .. php:method:: getRoute()
 
-      :returntype: TYPO3\\CMS\\Backend\\Routing\\Route
+      :returntype: `TYPO3\CMS\Backend\Routing\Route`
 
    .. php:method:: getRouteName()
 
-      :returntype: string
+      :returntype: `string`
 
    .. php:method:: getArguments()
 
-      :returntype: array
+      :returntype: `array`
 
    .. php:method:: offsetExists(mixed $offset)
 
       :param mixed $offset: the offset
-      :returntype: bool
+      :returntype: `bool`
 
    .. php:method:: offsetGet(mixed $offset)
 
       :param mixed $offset: the offset
-      :returntype: mixed
+      :returntype: `mixed`
 
    .. php:method:: offsetSet(mixed $offset = '', mixed $value = '')
 

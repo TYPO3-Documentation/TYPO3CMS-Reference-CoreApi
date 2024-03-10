@@ -7,15 +7,15 @@
 
    .. php:method:: getFile()
 
-      :returntype: TYPO3\\CMS\\Core\\Resource\\File|TYPO3\\CMS\\Core\\Resource\\FileReference|string
+      :returntype: `TYPO3\CMS\Core\Resource\File|TYPO3\CMS\Core\Resource\FileReference|string`
 
    .. php:method:: getFileArray()
 
-      :returntype: array
+      :returntype: `array`
 
    .. php:method:: getImageResource()
 
-      :returntype: TYPO3\\CMS\\Core\\Imaging\\ImageResource
+      :returntype: `TYPO3\CMS\Core\Imaging\ImageResource`
 
    .. php:method:: setImageResource(TYPO3\\CMS\\Core\\Imaging\\ImageResource $imageResource)
 

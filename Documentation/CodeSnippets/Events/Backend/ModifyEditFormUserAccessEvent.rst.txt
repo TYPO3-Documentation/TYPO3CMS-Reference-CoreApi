@@ -18,30 +18,30 @@
 
       Returns the current user access state
 
-      :returntype: bool
+      :returntype: `bool`
 
    .. php:method:: getAccessDeniedException()
 
       If Core's DataProvider previously denied access, this returns the corresponding
       exception, `null` otherwise
 
-      :returntype: TYPO3\\CMS\\Backend\\Form\\Exception\\AccessDeniedException
+      :returntype: `TYPO3\CMS\Backend\Form\Exception\AccessDeniedException`
 
    .. php:method:: getTableName()
 
       Returns the table name of the record in question
 
-      :returntype: string
+      :returntype: `string`
 
    .. php:method:: getCommand()
 
       Returns the requested command, either `new` or `edit`
 
-      :returntype: string
+      :returntype: `string`
       :returns: "new"|"edit"
 
    .. php:method:: getDatabaseRow()
 
       Returns the record's database row
 
-      :returntype: array
+      :returntype: `array`

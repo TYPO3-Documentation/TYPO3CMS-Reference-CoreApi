@@ -8,15 +8,15 @@
 
    .. php:method:: getFileUid()
 
-      :returntype: int
+      :returntype: `int`
 
    .. php:method:: getMetaDataUid()
 
-      :returntype: int
+      :returntype: `int`
 
    .. php:method:: getRecord()
 
-      :returntype: array
+      :returntype: `array`
 
    .. php:method:: setRecord(array $record)
 

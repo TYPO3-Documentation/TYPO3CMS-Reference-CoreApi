@@ -10,7 +10,7 @@
 
    .. php:method:: getUser()
 
-      :returntype: TYPO3\\CMS\\Core\\Authentication\\AbstractUserAuthentication
+      :returntype: `TYPO3\CMS\Core\Authentication\AbstractUserAuthentication`
 
    .. php:method:: disableRegularLogoutProcess()
 
@@ -18,8 +18,8 @@
 
    .. php:method:: shouldLogout()
 
-      :returntype: bool
+      :returntype: `bool`
 
    .. php:method:: getUserSession()
 
-      :returntype: TYPO3\\CMS\\Core\\Session\\UserSession
+      :returntype: `TYPO3\CMS\Core\Session\UserSession`

@@ -7,12 +7,12 @@
 
    .. php:method:: getLinkAnalyzerResult()
 
-      :returntype: TYPO3\\CMS\\Linkvalidator\\Result\\LinkAnalyzerResult
+      :returntype: `TYPO3\CMS\Linkvalidator\Result\LinkAnalyzerResult`
 
    .. php:method:: getFluidEmail()
 
-      :returntype: TYPO3\\CMS\\Core\\Mail\\FluidEmail
+      :returntype: `TYPO3\CMS\Core\Mail\FluidEmail`
 
    .. php:method:: getModTSconfig()
 
-      :returntype: array
+      :returntype: `array`

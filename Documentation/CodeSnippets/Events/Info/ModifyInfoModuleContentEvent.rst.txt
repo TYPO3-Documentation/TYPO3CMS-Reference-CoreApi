@@ -13,19 +13,19 @@
       decide on their own if their content should be added to the module even if
       the user does not have access to the main module content.
 
-      :returntype: bool
+      :returntype: `bool`
 
    .. php:method:: getRequest()
 
-      :returntype: Psr\\Http\\Message\\ServerRequestInterface
+      :returntype: `Psr\Http\Message\ServerRequestInterface`
 
    .. php:method:: getCurrentModule()
 
-      :returntype: TYPO3\\CMS\\Backend\\Module\\ModuleInterface
+      :returntype: `TYPO3\CMS\Backend\Module\ModuleInterface`
 
    .. php:method:: getModuleTemplate()
 
-      :returntype: TYPO3\\CMS\\Backend\\Template\\ModuleTemplate
+      :returntype: `TYPO3\CMS\Backend\Template\ModuleTemplate`
 
    .. php:method:: setHeaderContent(string $content)
 
@@ -43,7 +43,7 @@
 
    .. php:method:: getHeaderContent()
 
-      :returntype: string
+      :returntype: `string`
 
    .. php:method:: setFooterContent(string $content)
 
@@ -61,4 +61,4 @@
 
    .. php:method:: getFooterContent()
 
-      :returntype: string
+      :returntype: `string`

@@ -7,19 +7,19 @@
 
    .. php:method:: isPropagationStopped()
 
-      :returntype: bool
+      :returntype: `bool`
 
    .. php:method:: getLinkType()
 
       Returns the link type as string
 
-      :returntype: string
+      :returntype: `string`
 
    .. php:method:: getLinkData()
 
       Returns resolved LinkService data, depending on the type
 
-      :returntype: array
+      :returntype: `array`
 
    .. php:method:: markAsCheckedLink()
 
@@ -29,8 +29,8 @@
 
    .. php:method:: isBrokenLink()
 
-      :returntype: bool
+      :returntype: `bool`
 
    .. php:method:: getReason()
 
-      :returntype: string
+      :returntype: `string`

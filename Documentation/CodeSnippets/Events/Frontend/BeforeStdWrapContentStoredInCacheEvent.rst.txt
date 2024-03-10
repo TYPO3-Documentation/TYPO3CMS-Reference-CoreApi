@@ -11,7 +11,7 @@
 
    .. php:method:: getContent()
 
-      :returntype: string
+      :returntype: `string`
 
    .. php:method:: setContent(string $content)
 
@@ -19,7 +19,7 @@
 
    .. php:method:: getTags()
 
-      :returntype: array
+      :returntype: `array`
 
    .. php:method:: setTags(array $tags)
 
@@ -27,7 +27,7 @@
 
    .. php:method:: getKey()
 
-      :returntype: string
+      :returntype: `string`
 
    .. php:method:: setKey(string $key)
 
@@ -35,7 +35,7 @@
 
    .. php:method:: getLifetime()
 
-      :returntype: int
+      :returntype: `int`
 
    .. php:method:: setLifetime(int $lifetime)
 
@@ -43,8 +43,8 @@
 
    .. php:method:: getConfiguration()
 
-      :returntype: array
+      :returntype: `array`
 
    .. php:method:: getContentObjectRenderer()
 
-      :returntype: TYPO3\\CMS\\Frontend\\ContentObject\\ContentObjectRenderer
+      :returntype: `TYPO3\CMS\Frontend\ContentObject\ContentObjectRenderer`

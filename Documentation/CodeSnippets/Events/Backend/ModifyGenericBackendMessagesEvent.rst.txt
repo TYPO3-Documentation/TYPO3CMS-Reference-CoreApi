@@ -7,7 +7,7 @@
 
    .. php:method:: getMessages()
 
-      :returntype: array
+      :returntype: `array`
 
    .. php:method:: addMessage(TYPO3\\CMS\\Core\\Messaging\\AbstractMessage $message)
 
