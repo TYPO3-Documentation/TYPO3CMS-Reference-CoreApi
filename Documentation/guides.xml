@@ -9,14 +9,14 @@
         project-contact="https://typo3.slack.com/archives/C028JEPJL"
         project-repository="https://github.com/TYPO3-Documentation/TYPO3CMS-Reference-CoreApi"
         project-issues="https://github.com/TYPO3-Documentation/TYPO3CMS-Reference-CoreApi/issues"
-        edit-on-github-branch="main"
+        edit-on-github-branch="12.4"
         edit-on-github="TYPO3-Documentation/TYPO3CMS-Reference-CoreApi"
-        typo3-core-preferred="main"
+        typo3-core-preferred="12.4"
         interlink-shortcode="t3coreapi"
     />
     <project title="TYPO3 Explained"
-             release="main (development)"
-             version="main (development)"
+             release="12.4"
+             version="12.4"
              copyright="since 2012 by the TYPO3 contributors"
     />
     <inventory id="tailor"

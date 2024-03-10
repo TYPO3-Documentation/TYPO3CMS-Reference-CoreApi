@@ -154,5 +154,5 @@ configuration module. Therefore, the PSR-14 event
 configuration options.
 
 For compatibility with TYPO3 v11 and v12 you can use the deprecated hook
-:ref:`modifyBlindedConfigurationOptions <t3coreapi11:config-module-blind-options>`
+:ref:`modifyBlindedConfigurationOptions <t3coreapi-v11:config-module-blind-options>`
 which will be removed with TYPO3 v13.
