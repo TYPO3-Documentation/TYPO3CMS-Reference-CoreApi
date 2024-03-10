@@ -12,7 +12,7 @@
     Starting with TYPO3 version 13.0 user TSconfig from
     :file:`Configuration/user.tsconfig` is automatically included.
 
-In this file global :ref:`user TSconfig <usertsconfig>` can be stored. It will
+In this file global :ref:`user TSconfig <t3tsconfig:usertsconfig>` can be stored. It will
 be automatically included for the whole TYPO3 installation during build time.
 
 For details see
