@@ -54,4 +54,3 @@ management system TYPO3.
 
    About
    Sitemap
-   genindex
