@@ -334,9 +334,6 @@ Examples of commands:
     $cmd['tt_content'][1203]['copy'] = 400;  // Copies tt_content uid=1203 to first position in page uid=400
     $cmd['tt_content'][1203]['move'] = 400;  // Moves tt_content uid=1203 to the first position in page uid=400
 
-.. index:: DataHandler; Data array
-.. _tce-data:
-
 Accessing the uid of copied records:
 ------------------------------------
 
@@ -377,6 +374,9 @@ of original record UIDs and UIDs of record copies as values.
 
     $uid = $dataHandler->copyMappingArray_merged['tt_content'][1203];
 
+
+.. index:: DataHandler; Data array
+.. _tce-data:
 
 Data Array
 ==========
