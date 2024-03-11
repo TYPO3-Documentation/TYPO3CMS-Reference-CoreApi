@@ -11,11 +11,11 @@ use TYPO3\CMS\Core\Registry;
 
 final class MyCommand extends Command
 {
+    private Registry $registry;
     private int $startTime;
 
-    public function __construct(
-        private readonly Registry $registry,
-    ) {
+    public function __construct(Registry $registry) {
+        $this->registry = $registry;
         parent::__construct();
     }
 

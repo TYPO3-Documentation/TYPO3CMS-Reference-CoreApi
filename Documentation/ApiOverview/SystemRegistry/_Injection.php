@@ -8,9 +8,11 @@ use TYPO3\CMS\Core\Registry;
 
 final class MyClass
 {
-    public function __construct(
-        private readonly Registry $registry,
-    ) {}
+    private Registry $registry;
+
+    public function __construct(Registry $registry) {
+        $this->registry = $registry;
+    }
 
     public function doSomething()
     {
