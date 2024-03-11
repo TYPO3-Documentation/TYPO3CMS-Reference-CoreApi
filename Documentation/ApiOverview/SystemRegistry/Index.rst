@@ -6,6 +6,12 @@
 System registry
 ===============
 
+.. contents::
+   :local:
+
+Introduction
+============
+
 The purpose of the registry is to store key-value pairs of information. It can
 be considered an equivalent to the Windows registry (only not as complicated).
 
@@ -27,6 +33,56 @@ cron job.
 The registry is not intended to store things that are supposed to go into
 a :ref:`session <sessions>` or a :ref:`cache <caching>`, use the appropriate
 API for them instead.
+
+
+..  index:: System registry; API
+..  _registry-api:
+
+The registry API
+================
+
+TYPO3 provides an API for using the registry. You can inject an instance of
+the :php:`Registry` class via :ref:`dependency injection <DependencyInjection>`.
+The instance returned will always be the same, as the registry is a singleton:
+
+..  literalinclude:: _Injection.php
+    :language: php
+    :caption: EXT:my_extension/Classes/MyClass.php
+
+You can access registry values through its :php:`get()` method. The :php:`get()`
+method provides a third parameter to specify a default value that is returned,
+if the requested entry is not found in the registry. This happens, for example,
+the first time an entry is accessed. A value can be set with the :php:`set()`
+method.
+
+..  note::
+    Do not store binary data in the registry, it it not intended for this
+    purpose. Use the file system instead, if you have such needs.
+
+
+..  _registry-examples:
+
+Example
+-------
+
+The registry can be used, for example, to write run information of a
+:ref:`console command <symfony-console-commands>` into the registry:
+
+..  literalinclude:: _MyCommand.php
+    :language: php
+    :caption: EXT:my_extension/Classes/Command/MyCommand.php
+
+This information can be retrieved later using:
+
+..  literalinclude:: _MyClass.php
+    :language: php
+    :caption: EXT:my_extension/Classes/MyClass.php
+
+
+API
+---
+
+..  include:: /CodeSnippets/Manual/Registry/Registry.rst.txt
 
 
 ..  index:: Table; sys_registry
@@ -71,62 +127,3 @@ table:
     The entry's actual value. The value is stored as a serialized string,
     thus you can even store arrays or objects in a registry entry – it is
     not recommended though. The value in this field is stored as a binary.
-
-
-..  index:: System registry; API
-..  _registry-api:
-
-The registry API
-================
-
-TYPO3 provides an API for using the registry. You can use the following
-code to retrieve an instance of the registry. The instance returned will always
-be the same, as the registry is a singleton:
-
-..  literalinclude:: _instance.php
-    :language: php
-    :caption: EXT:my_extension/Classes/MyClass.php
-
-After retrieving an instance of the registry, you can access the registry values
-through its :php:`get()` method. The :php:`get()` method provides an
-interesting third parameter to specify a default value that is returned, if the
-requested entry is not found in the registry. This happens, for example, the
-first time an entry is accessed. A value can be set with the :php:`set()` method.
-
-..  note::
-    Do not store binary data in the registry, it it not intended for this
-    purpose. Use the file system instead, if you have such needs.
-
-
-..  _registry-examples:
-
-Examples
---------
-
-Here is an example taken from the Scheduler system extension:
-
-..  code-block:: php
-    :caption: typo3/sysext/scheduler/Classes/Scheduler.php
-
-    use TYPO3\CMS\Core\Utility\GeneralUtility;
-    use TYPO3\CMS\Core\Registry;
-
-    $context = GeneralUtility::makeInstance(Context::class);
-    $requestStartTimestamp = $context->getPropertyFromAspect('date', 'timestamp');
-    $registry = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\TYPO3\CMS\Core\Registry::class);
-    $runInformation = array('start' => $requestStartTimestamp, 'end' => time(), 'type' => $type);
-    $registry->set('tx_scheduler', 'lastRun', $runInformation);
-
-It is retrieved later using:
-
-..  code-block:: php
-    :caption: typo3/sysext/scheduler/Classes/Scheduler.php
-
-    $registry = GeneralUtility::makeInstance(Registry::class);
-    $lastRun = $registry->get('tx_scheduler', 'lastRun');
-
-
-API
----
-
-..  include:: /CodeSnippets/Manual/Registry/Registry.rst.txt
