@@ -7,7 +7,7 @@
 
    .. php:method:: getTsConfig()
 
-      :returntype: array
+      :returntype: `array`
 
    .. php:method:: addTsConfig(string $tsConfig)
 
@@ -19,4 +19,4 @@
 
    .. php:method:: getRootLine()
 
-      :returntype: array
+      :returntype: `array`

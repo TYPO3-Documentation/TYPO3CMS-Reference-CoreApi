@@ -7,7 +7,7 @@
 
    .. php:method:: getWizardItems()
 
-      :returntype: array
+      :returntype: `array`
 
    .. php:method:: setWizardItems(array $wizardItems)
 
@@ -16,12 +16,12 @@
    .. php:method:: hasWizardItem(string $identifier)
 
       :param string $identifier: the identifier
-      :returntype: bool
+      :returntype: `bool`
 
    .. php:method:: getWizardItem(string $identifier)
 
       :param string $identifier: the identifier
-      :returntype: array
+      :returntype: `array`
 
    .. php:method:: setWizardItem(string $identifier, array $configuration, array $position = [])
 
@@ -36,28 +36,28 @@
    .. php:method:: removeWizardItem(string $identifier)
 
       :param string $identifier: the identifier
-      :returntype: bool
+      :returntype: `bool`
 
    .. php:method:: getPageInfo()
 
       Provides information about the current page making use of the wizard.
 
-      :returntype: array
+      :returntype: `array`
 
    .. php:method:: getColPos()
 
       Provides information about the column position of the button that triggered the wizard.
 
-      :returntype: int
+      :returntype: `int`
 
    .. php:method:: getSysLanguage()
 
       Provides information about the language used while triggering the wizard.
 
-      :returntype: int
+      :returntype: `int`
 
    .. php:method:: getUidPid()
 
       Provides information about the element to position the new element after (uid) or into (pid).
 
-      :returntype: int
+      :returntype: `int`

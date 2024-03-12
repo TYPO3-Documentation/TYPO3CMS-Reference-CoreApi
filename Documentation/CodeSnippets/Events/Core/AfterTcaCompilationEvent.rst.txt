@@ -10,7 +10,7 @@
 
    .. php:method:: getTca()
 
-      :returntype: array
+      :returntype: `array`
 
    .. php:method:: setTca(array $tca)
 

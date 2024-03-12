@@ -10,19 +10,19 @@
 
    .. php:method:: getResource()
 
-      :returntype: TYPO3\\CMS\\Core\\Resource\\ResourceInterface
+      :returntype: `TYPO3\CMS\Core\Resource\ResourceInterface`
 
    .. php:method:: getStorage()
 
-      :returntype: TYPO3\\CMS\\Core\\Resource\\ResourceStorage
+      :returntype: `TYPO3\CMS\Core\Resource\ResourceStorage`
 
    .. php:method:: getDriver()
 
-      :returntype: TYPO3\\CMS\\Core\\Resource\\Driver\\DriverInterface
+      :returntype: `TYPO3\CMS\Core\Resource\Driver\DriverInterface`
 
    .. php:method:: getPublicUrl()
 
-      :returntype: string
+      :returntype: `string`
 
    .. php:method:: setPublicUrl(string $publicUrl)
 

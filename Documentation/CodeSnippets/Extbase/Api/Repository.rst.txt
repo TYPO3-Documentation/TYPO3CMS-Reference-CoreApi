@@ -97,16 +97,16 @@
       :param array $orderBy: the orderBy, default: NULL
       :param int $limit: the limit, default: NULL
       :param int $offset: the offset, default: NULL
-      :returntype: TYPO3\\CMS\\Extbase\\Persistence\\QueryResultInterface
+      :returntype: `TYPO3\CMS\Extbase\Persistence\QueryResultInterface`
       :returns: \QueryResultInterface
 
    .. php:method:: findOneBy(array $criteria, array $orderBy = NULL)
 
       :param array $criteria: the criteria
       :param array $orderBy: the orderBy, default: NULL
-      :returntype: object
+      :returntype: `object`
 
    .. php:method:: count(array $criteria)
 
       :param array $criteria: the criteria
-      :returntype: int
+      :returntype: `int`

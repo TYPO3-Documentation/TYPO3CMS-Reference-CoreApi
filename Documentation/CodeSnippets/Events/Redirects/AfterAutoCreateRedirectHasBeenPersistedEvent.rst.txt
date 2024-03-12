@@ -12,12 +12,12 @@
 
    .. php:method:: getSlugRedirectChangeItem()
 
-      :returntype: TYPO3\\CMS\\Redirects\\RedirectUpdate\\SlugRedirectChangeItem
+      :returntype: `TYPO3\CMS\Redirects\RedirectUpdate\SlugRedirectChangeItem`
 
    .. php:method:: getSource()
 
-      :returntype: TYPO3\\CMS\\Redirects\\RedirectUpdate\\RedirectSourceInterface
+      :returntype: `TYPO3\CMS\Redirects\RedirectUpdate\RedirectSourceInterface`
 
    .. php:method:: getRedirectRecord()
 
-      :returntype: array
+      :returntype: `array`

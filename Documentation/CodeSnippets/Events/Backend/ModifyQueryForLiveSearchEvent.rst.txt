@@ -7,8 +7,8 @@
 
    .. php:method:: getQueryBuilder()
 
-      :returntype: TYPO3\\CMS\\Core\\Database\\Query\\QueryBuilder
+      :returntype: `TYPO3\CMS\Core\Database\Query\QueryBuilder`
 
    .. php:method:: getTableName()
 
-      :returntype: string
+      :returntype: `string`

@@ -7,15 +7,15 @@
 
    .. php:method:: getPackageKey()
 
-      :returntype: string
+      :returntype: `string`
 
    .. php:method:: getPackageData()
 
-      :returntype: array
+      :returntype: `array`
 
    .. php:method:: getActions()
 
-      :returntype: array
+      :returntype: `array`
 
    .. php:method:: addAction(string $actionKey, string $content)
 

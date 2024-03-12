@@ -7,19 +7,19 @@
 
    .. php:method:: getLinkData()
 
-      :returntype: array
+      :returntype: `array`
 
    .. php:method:: getLinkParts()
 
-      :returntype: array
+      :returntype: `array`
 
    .. php:method:: getElementData()
 
-      :returntype: array
+      :returntype: `array`
 
    .. php:method:: getLinkExplanation()
 
-      :returntype: array
+      :returntype: `array`
 
    .. php:method:: setLinkExplanation(array $linkExplanation)
 
@@ -29,7 +29,7 @@
 
       :param string $key: the key
       :param mixed $default: the default, default: NULL
-      :returntype: mixed
+      :returntype: `mixed`
 
    .. php:method:: setLinkExplanationValue(string $key, mixed $value)
 

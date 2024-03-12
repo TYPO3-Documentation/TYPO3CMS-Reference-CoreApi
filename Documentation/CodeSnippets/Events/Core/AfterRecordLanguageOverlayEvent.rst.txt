@@ -7,15 +7,15 @@
 
    .. php:method:: getTable()
 
-      :returntype: string
+      :returntype: `string`
 
    .. php:method:: getRecord()
 
-      :returntype: array
+      :returntype: `array`
 
    .. php:method:: getLanguageAspect()
 
-      :returntype: TYPO3\\CMS\\Core\\Context\\LanguageAspect
+      :returntype: `TYPO3\CMS\Core\Context\LanguageAspect`
 
    .. php:method:: setLocalizedRecord(array $localizedRecord)
 
@@ -23,10 +23,10 @@
 
    .. php:method:: getLocalizedRecord()
 
-      :returntype: array
+      :returntype: `array`
 
    .. php:method:: overlayingWasAttempted()
 
       Determines if the overlay functionality happened, thus, returning the lo
 
-      :returntype: bool
+      :returntype: `bool`

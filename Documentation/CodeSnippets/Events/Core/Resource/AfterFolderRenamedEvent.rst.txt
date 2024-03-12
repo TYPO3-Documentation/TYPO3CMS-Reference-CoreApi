@@ -9,8 +9,8 @@
 
    .. php:method:: getFolder()
 
-      :returntype: TYPO3\\CMS\\Core\\Resource\\Folder
+      :returntype: `TYPO3\CMS\Core\Resource\Folder`
 
    .. php:method:: getSourceFolder()
 
-      :returntype: TYPO3\\CMS\\Core\\Resource\\Folder
+      :returntype: `TYPO3\CMS\Core\Resource\Folder`

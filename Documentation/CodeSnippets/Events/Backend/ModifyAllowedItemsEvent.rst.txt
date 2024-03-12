@@ -7,20 +7,20 @@
 
    .. php:method:: getAllowedItems()
 
-      :returntype: array
+      :returntype: `array`
       :returns: string[]
 
    .. php:method:: addAllowedItem(string $item)
 
       :param string $item: the item
-      :returntype: self
+      :returntype: `self`
 
    .. php:method:: removeAllowedItem(string $new)
 
       :param string $new: the new
-      :returntype: self
+      :returntype: `self`
 
    .. php:method:: getCurrentLinkParts()
 
-      :returntype: array
+      :returntype: `array`
       :returns: array<string,mixed>

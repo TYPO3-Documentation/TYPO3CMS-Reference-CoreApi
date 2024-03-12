@@ -7,20 +7,20 @@
 
    .. php:method:: getUser()
 
-      :returntype: TYPO3\\CMS\\Core\\Authentication\\AbstractUserAuthentication
+      :returntype: `TYPO3\CMS\Core\Authentication\AbstractUserAuthentication`
 
    .. php:method:: getLoginData()
 
-      :returntype: array
+      :returntype: `array`
 
    .. php:method:: isFrontendAttempt()
 
-      :returntype: bool
+      :returntype: `bool`
 
    .. php:method:: isBackendAttempt()
 
-      :returntype: bool
+      :returntype: `bool`
 
    .. php:method:: getRequest()
 
-      :returntype: Psr\\Http\\Message\\ServerRequestInterface
+      :returntype: `Psr\Http\Message\ServerRequestInterface`

@@ -10,7 +10,7 @@
       Enable a control, if it exists
 
       :param string $identifier: the identifier
-      :returntype: bool
+      :returntype: `bool`
       :returns: bool Whether the control could be enabled
 
    .. php:method:: disableControl(string $identifier)
@@ -18,7 +18,7 @@
       Disable a control, if it exists
 
       :param string $identifier: the identifier
-      :returntype: bool
+      :returntype: `bool`
       :returns: bool Whether the control could be disabled
 
    .. php:method:: hasControl(string $identifier)
@@ -26,7 +26,7 @@
       Returns whether a control exists for the given identifier
 
       :param string $identifier: the identifier
-      :returntype: bool
+      :returntype: `bool`
 
    .. php:method:: isControlEnabled(string $identifier)
 
@@ -35,52 +35,52 @@
       Note: Will also return FALSE in case no control exists for the requested identifier
 
       :param string $identifier: the identifier
-      :returntype: bool
+      :returntype: `bool`
 
    .. php:method:: getControlsState()
 
       Returns all controls with their state (enabled or disabled)
 
-      :returntype: array
+      :returntype: `array`
 
    .. php:method:: getEnabledControls()
 
       Returns all enabled controls
 
-      :returntype: array
+      :returntype: `array`
 
    .. php:method:: getElementData()
 
       Returns the whole element data
 
-      :returntype: array
+      :returntype: `array`
 
    .. php:method:: getRecord()
 
       Returns the current record of the controls are created for
 
-      :returntype: array
+      :returntype: `array`
 
    .. php:method:: getParentUid()
 
       Returns the uid of the parent (embedding) record (uid or NEW...)
 
-      :returntype: string
+      :returntype: `string`
 
    .. php:method:: getForeignTable()
 
       Returns the table (foreign_table) the controls are created for
 
-      :returntype: string
+      :returntype: `string`
 
    .. php:method:: getFieldConfiguration()
 
       Returns the TCA configuration of the inline record field
 
-      :returntype: array
+      :returntype: `array`
 
    .. php:method:: isVirtual()
 
       Returns whether the current records is only virtually shown and not physically part of the parent record
 
-      :returntype: bool
+      :returntype: `bool`
