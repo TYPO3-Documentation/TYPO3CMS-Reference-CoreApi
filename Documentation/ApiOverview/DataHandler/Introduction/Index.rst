@@ -19,7 +19,7 @@ The DataHandler is the class that handles **all** :ref:`data <tce-data>`
 writing to database tables configured in TCA. In addition the class handles
 :ref:`commands <tce-commands>` such as copy, move, delete. It will handle
 undo/history and versioning of records and everything will be logged
-to the `sys_log` table. It will make sure that write permissions are
+to the :sql:`sys_log` table. It will make sure that write permissions are
 evaluated correctly for the user trying to write to the database. Generally,
 any processing specific option in the `$GLOBALS['TCA']` array is handled
 by DataHandler.
