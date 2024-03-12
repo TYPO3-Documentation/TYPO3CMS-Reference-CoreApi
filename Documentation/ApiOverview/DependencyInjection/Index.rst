@@ -14,13 +14,13 @@ Dependency injection
 
 .. versionadded:: 10.0
 
-   :doc:`Changelog/10.0/Feature-84112-SymfonyDependencyInjectionForCoreAndExtbase`
+   :doc:`changelog:Changelog/10.0/Feature-84112-SymfonyDependencyInjectionForCoreAndExtbase`
 
 .. note::
 
    .. deprecated:: 11.4
 
-      :doc:`Changelog/11.4/Deprecation-94619-ExtbaseObjectManager`
+      :doc:`changelog:Changelog/11.4/Deprecation-94619-ExtbaseObjectManager`
 
       The class :php:`\TYPO3\CMS\Extbase\Object\ObjectManager` has been deprecated
       with TYPO3 v11.4. Classes should be updated to avoid both,
@@ -293,12 +293,12 @@ be instantiated via :php:`\TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance()
 if they are non-final and support XCLASSing. For final classes without
 dependencies plain instantiation via the `new` keyword must be used.
 
-In some APIs dependency injection cannot be used yet. This applies to classes that need 
-specific data in their constructors or classes that are serialized and deserialized as, for 
+In some APIs dependency injection cannot be used yet. This applies to classes that need
+specific data in their constructors or classes that are serialized and deserialized as, for
 example, scheduler tasks.
 
-When dependency injection cannot be used directly yet, create a service class and make it public 
-in the  :file:`Configuration/Services.yaml`. Create an instance of the service class via 
+When dependency injection cannot be used directly yet, create a service class and make it public
+in the  :file:`Configuration/Services.yaml`. Create an instance of the service class via
 :php:`GeneralUtility::makeInstance(...)` you can then use dependency injection in the service class.
 
 

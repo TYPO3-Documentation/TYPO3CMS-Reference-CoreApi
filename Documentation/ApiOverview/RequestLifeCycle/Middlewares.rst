@@ -143,18 +143,6 @@ that already use Extbase in a middleware have the following options:
     designed to be executed like this, the TSFE bootstrap will take care of
     properly calculating TypoScript, and Extbase will run as expected.
 
-
-.. _request-handling-middleware-examples:
-
-Middleware examples
-===================
-
-The following list shows typical use cases for middlewares.
-
-*   :ref:`A middleware to return a JSON response with localized
-    strings <example-localization-middleware>`.
-
-
 .. index:: Request handling; Custom response
 .. _request-handling-returning-custom-response:
 

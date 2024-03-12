@@ -102,7 +102,7 @@ Obtain TSFE from request attribute 'frontend.controller':
     $frontendController = $request->getAttribute('frontend.controller');
     $cObj = $frontendController->cObj;
 
-In the case of :ref:`user function <tsref:cobj-user-int>` (for example, a non-Extbase plugin) via setter injection:
+In the case of :ref:`user function <t3tsref:cobj-user-int>` (for example, a non-Extbase plugin) via setter injection:
 
 ..  code-block:: php
 

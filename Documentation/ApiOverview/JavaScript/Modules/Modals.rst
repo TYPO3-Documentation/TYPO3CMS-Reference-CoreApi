@@ -17,7 +17,7 @@ to highlight it.
 
 Modals should be used rarely and only for confirmations. For information that
 does not require a confirmation
-the :ref:`Notification API (flash message) <notification_api>` should be used.
+the :ref:`Notification API (flash message) <flash-messages-javascript>` should be used.
 
 For complex content, like forms or a lot of information, use normal pages.
 

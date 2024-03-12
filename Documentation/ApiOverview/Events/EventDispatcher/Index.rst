@@ -199,7 +199,7 @@ entry with the tag :yaml:`event.listener` can be added to the
     :language: yaml
     :caption: EXT:my_extension/Configuration/Services.yaml
 
-Read :ref:`how to configure dependency injection in extensions <dependency-injection-in-extensions>`.
+Read :ref:`how to configure dependency injection in extensions <configure-dependency-injection-in-extensions>`.
 
 The tag name :yaml:`event.listener` identifies that a listener should be registered.
 
@@ -217,7 +217,7 @@ its :php:`__invoke()` method will be called:
     :language: yaml
     :caption: EXT:my_extension/Configuration/Services.yaml
 
-Read :ref:`how to configure dependency injection in extensions <dependency-injection-in-extensions>`.
+Read :ref:`how to configure dependency injection in extensions <configure-dependency-injection-in-extensions>`.
 
 .. versionchanged:: 11.3
    The :yaml:`event` tag can be omitted if the listener implementation has a corresponding

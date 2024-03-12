@@ -23,7 +23,7 @@ script, which currently is not possible with :ref:`TypoScript <t3tsref:start>`.
 
 Another example: The :ref:`Scheduler system extension <ext_scheduler:start>`
 stores when it ran the last time. The
-:doc:`Reports system extension <ext_reports:Index>` then checks that value, in
+Reports system extension then checks that value, in
 case it determines that the Scheduler has not run for a while, it issues
 a warning. While this might not be of much use to someone who has set up an
 actual cron job for the Scheduler, but it is useful for users who

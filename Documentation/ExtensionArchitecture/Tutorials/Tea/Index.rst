@@ -15,7 +15,7 @@ on automatic code checks.
 
 ..  hint::
     If you want to learn more about automatic code checks
-    see the :doc:`documentation of tea <ext_tea:Index>` and the chapter on
+    see the :doc:`documentation of tea <ttn/tea:Index>` and the chapter on
     :ref:`Testing <testing>` in this manual.
 
 In this manual, however we will ignore the testing and just explain how this

@@ -13,8 +13,7 @@ be stored in the folder :file:`EXT:my_extension/Configuration/TypoScript/`.
 
 .. note::
    It is possible, though usually not recommended, to provide TypoScript
-   that is always included. See :ref:`ext_typoscript_constants_typoscript` and
-   :ref:`ext_typoscript_setup_typoscript`.
+   that is always included. See :ref:`ext_typoscript_setup_typoscript`.
 
 TypoScript constants should be stored in a file called :file:`constants.typoscript`
 and TypoScript setup in a file called :file:`setup.typoscript`.

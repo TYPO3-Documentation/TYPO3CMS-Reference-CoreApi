@@ -79,7 +79,36 @@ Example
 In this example the content of the flash message to be displayed in the backend
 gets translated:
 
-..  include:: /CodeSnippets/Extbase/Controllers/PhpLocalization.rst.txt
+..  code-block:: php
+    :caption: Class T3docs\Examples\Controller\ModuleController
+
+    use Psr\Http\Message\ResponseInterface;
+    use TYPO3\CMS\Core\Type\ContextualFeedbackSeverity;
+    use TYPO3\CMS\Extbase\Utility\LocalizationUtility;
+
+    class ModuleController extends ActionController implements LoggerAwareInterface
+    {
+        /**
+         * Adds a count of entries to the flash message
+         */
+        public function countAction(string $tablename = 'pages'): ResponseInterface
+        {
+            $count = $this->tableInformationService->countRecords($tablename);
+
+            $message = LocalizationUtility::translate(
+                key: 'record_count_message',
+                extensionName: 'examples',
+                arguments: [$count, $tablename]
+            );
+
+            $this->addFlashMessage(
+                messageBody: $message,
+                messageTitle: 'Information',
+                severity: ContextualFeedbackSeverity::INFO
+            );
+            return $this->redirect('flash');
+        }
+    }
 
 The string in the translation file is defined like this:
 
@@ -91,7 +120,7 @@ The :php:`arguments` will be replaced in the localized strings by
 the `PHP function sprintf <https://www.php.net/manual/en/function.sprintf.php>`__.
 
 This behaviour is the same like in a
-:ref:`Fluid translate ViewHelper with arguments <extension-localization-fluid-arguments>`.
+:ref:`Fluid translate ViewHelper with arguments <extension-localization-fluid>`.
 
 
 

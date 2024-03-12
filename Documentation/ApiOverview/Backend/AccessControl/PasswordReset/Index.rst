@@ -57,6 +57,8 @@ the following system-wide option to :php:`false`.
 ..  code-block:: php
     :caption: typo3conf/AdditionalConfiguration.php
 
+    $GLOBALS['TYPO3_CONF_VARS']['BE']['passwordResetForAdmins'] = false;
+
 Both options are available to be configured within the :guilabel:`Admin Tools > Settings`
 module or in the :guilabel:`Install Tool` but can be set manually via :file:`typo3conf/LocalConfiguration.php` or :file:`typo3conf/AdditionalConfiguration.php`.
 

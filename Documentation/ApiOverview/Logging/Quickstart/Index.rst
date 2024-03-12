@@ -15,7 +15,7 @@ Instantiate a logger for the current class
 ==========================================
 
 ..  versionadded:: 11.4
-    :doc:`Changelog/11.4/Feature-95044-SupportAutowiredLoggerInterfaceInjection`
+    :doc:`changelog:Changelog/11.4/Feature-95044-SupportAutowiredLoggerInterfaceInjection`
 
 :ref:`Constructor injection <Constructor-injection>` can be used to
 automatically instantiate the logger:
