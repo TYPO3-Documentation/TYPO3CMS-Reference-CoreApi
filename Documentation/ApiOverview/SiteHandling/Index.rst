@@ -18,7 +18,6 @@ through the features of the module and goes into API and programming details.
    BaseVariants
    AddLanguages
    ErrorHandling/Index
-   ErrorHandling/WriteCustomErrorHandler
    StaticRoutes
    UsingEnvVars
    UseSiteInTypoScript
