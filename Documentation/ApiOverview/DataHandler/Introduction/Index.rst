@@ -21,7 +21,7 @@ writing to database tables configured in TCA. In addition the class handles
 undo/history and versioning of records and everything will be logged
 to the :sql:`sys_log` table. It will make sure that write permissions are
 evaluated correctly for the user trying to write to the database. Generally,
-any processing specific option in the `$GLOBALS['TCA']` array is handled
+any processing specific option in the :php:`$GLOBALS['TCA']` array is handled
 by DataHandler.
 
 Using DataHandler for manipulation of the database content in the TCA-configured
