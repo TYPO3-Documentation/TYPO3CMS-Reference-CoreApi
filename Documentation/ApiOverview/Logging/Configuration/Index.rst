@@ -146,19 +146,19 @@ Disable all logging
 ===================
 
 In some setups it is desirable to disable all logs and to only enable them on demand.
-You can disable all logs by unsetting :php:`$GLOBALS['TYPO3_CONF_VARS']['LOG']` at the 
-end of your :ref:`additional.php <typo3ConfVars-additional>`:
+You can disable all logs by unsetting :php:`$GLOBALS['TYPO3_CONF_VARS']['LOG']` at the
+end of your :ref:`AdditionalConfiguration.php <typo3ConfVars-additionalConfiguration>`:
 
 ..  code-block:: php
-    :caption: config/system/additional.php | typo3conf/system/additional.php
+    :caption: typo3conf/AdditionalConfiguration.php
 
     // disable all logging
-    unset($GLOBALS['TYPO3_CONF_VARS']['LOG']);    
+    unset($GLOBALS['TYPO3_CONF_VARS']['LOG']);
 
 You can then temporarily enable logging by commenting out this line:
 
 ..  code-block:: php
-    :caption: config/system/additional.php | typo3conf/system/additional.php
+    :caption: typo3conf/AdditionalConfiguration.php
 
-    // unset($GLOBALS['TYPO3_CONF_VARS']['LOG']); 
+    // unset($GLOBALS['TYPO3_CONF_VARS']['LOG']);
     // By commenting out the line above you can enable logging again.

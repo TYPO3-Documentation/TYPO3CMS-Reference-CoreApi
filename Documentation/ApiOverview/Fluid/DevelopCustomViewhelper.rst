@@ -35,9 +35,6 @@ ViewHelper from within this namespace:
 
    {namespace blog=MyVendor\BlogExample\ViewHelpers}
 
-For further information about namespace import, see
-:ref:`fluid-syntax-viewhelpers-import-namespaces`.
-
 The ViewHelper should be given the name "gravatar" and only take an email
 address as a parameter. The ViewHelper is called in the template as follows:
 
@@ -45,9 +42,6 @@ address as a parameter. The ViewHelper is called in the template as follows:
    :caption: EXT:blog_example/Resources/Private/Templates/SomeTemplate.html
 
    <blog:gravatar emailAddress="username@example.org" />
-
-See :ref:`global-namespace-import` for information how to import
-namespaces globally.
 
 AbstractViewHelper implementation
 =================================

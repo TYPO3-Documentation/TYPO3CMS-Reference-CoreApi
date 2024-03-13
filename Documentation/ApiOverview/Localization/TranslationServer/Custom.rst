@@ -21,7 +21,7 @@ file:
     :language: yaml
     :caption: EXT:my_extension/Configuration/Services.yaml
 
-Read :ref:`how to configure dependency injection in extensions <dependency-injection-in-extensions>`.
+Read :ref:`how to configure dependency injection in extensions <configure-dependency-injection-in-extensions>`.
 
 The class (listener) that receives the event might look something like this:
 

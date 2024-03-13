@@ -36,7 +36,7 @@ with the parameter array provided by the
 :ref:`Core link handler <core-link-handler>`.
 
 If the link can be rendered,
-it returns a new :ref:`link result <link-result>`. The
+it returns a new link result. The
 actual rendering of the link depends on the context the link is rendered in
 (for example HTML or JSON).
 

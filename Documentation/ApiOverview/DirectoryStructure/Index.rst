@@ -87,7 +87,7 @@ Otherwise, replace  :file:`public` with the path to your web root.
 ..  note::
     If you find a directory called :file:`_assets/` in this directory, you are
     running either :ref:`composer-installer-v4` or
-    :ref:`TYPO3 v12 <t3coreapi12:directory-structure>` and above.
+    :ref:`TYPO3 v12 <t3coreapi-12:directory-structure>` and above.
 
 .. _directory-public-fileadmin:
 
@@ -133,7 +133,7 @@ for more information on how single extensions are structured.
 ..  note::
     If you cannot find the TYPO3 Core source in the directory
     :file:`public/typo3/sysext/` you are running either :ref:`composer-installer-v4` or
-    :ref:`TYPO3 v12 <t3coreapi12:directory-structure>` and above.
+    :ref:`TYPO3 v12 <t3coreapi-12:directory-structure>` and above.
 
 .. _directory-public-typo3conf:
 
@@ -155,7 +155,7 @@ contains one extension.
 ..  note::
     If you cannot find the directory called :file:`public/typo3conf/ext/` you are
     running either :ref:`composer-installer-v4` or
-    :ref:`TYPO3 v12 <t3coreapi12:directory-structure>` and above.
+    :ref:`TYPO3 v12 <t3coreapi-12:directory-structure>` and above.
 
 .. _directory-public-typo3temp:
 
@@ -246,7 +246,7 @@ TYPO3 v11 uses version 3 of the Composer plugin by default.
 With the new major version 4 extensions are installed always in the
 :ref:`directory-vendor` folder. The directory structure of the TYPO3
 project is similar to the :ref:`directory structure of TYPO3 v12
-<t3coreapi12:directory-structure>`. Most notably public assets provided by
+<t3coreapi-12:directory-structure>`. Most notably public assets provided by
 extensions will be available in :ref:`public/_assets/ <directory-public-assets>`.
 
 At time of writing the usage of version 4 is available as release candidate and

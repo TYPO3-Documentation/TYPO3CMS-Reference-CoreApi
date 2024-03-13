@@ -80,7 +80,7 @@ they should be set in the method :php:`initializeObject()` method.
     visible. This might cause sensitive information to be disclosed. Use with care.
 
 ..  attention::
-    Since introduction of :ref:`dependency injection via Services.yaml <dependency-injection-in-extensions>` 
+    Since introduction of :ref:`dependency injection via Services.yaml <configure-dependency-injection-in-extensions>`
     with TYPO3 v10 you may have to flush
     cache in maintenance module of TYPO3 to register that method to be loaded
     while instanciating that object.

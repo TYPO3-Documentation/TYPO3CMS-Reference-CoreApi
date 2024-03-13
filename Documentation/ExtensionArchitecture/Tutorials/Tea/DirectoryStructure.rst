@@ -175,5 +175,5 @@ Contains the automatic tests. This topic is not covered by this tutorial.
 
 ..  hint::
     If you want to learn more about automatic code checks
-    see the :doc:`documentation of tea <ext_tea:Index>` and the chapter on
+    see the :doc:`documentation of tea <ttn/tea:Index>` and the chapter on
     :ref:`Testing <testing>` in this manual.

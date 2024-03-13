@@ -82,7 +82,7 @@ the following properties:
     :Call: :php:`$this->context->getPropertyFromAspect('date', 'full');`
 
     Returns the complete
-    :ref:`\DateTimeImmutable <https://www.php.net/manual/class.datetimeimmutable.php>`
+    `\DateTimeImmutable <https://www.php.net/manual/class.datetimeimmutable.php>`__
     object.
 
 

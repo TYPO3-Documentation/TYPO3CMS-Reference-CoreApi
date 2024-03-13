@@ -32,7 +32,7 @@ could look like this:
     contains roughly the same information in a different format. Have a look
     at the tab "Legacy" above.
 
-With just the :file:`composer.json` present (and for legacy installations additionally 
+With just the :file:`composer.json` present (and for legacy installations additionally
 :file:`ext_emconf.php`) you would be able to install the extension
 but it would not do anything.
 
@@ -43,4 +43,4 @@ to be located at :file:`EXT:tea/Resources/Public/Icons/Extension.svg`.
 Install the extension locally
 =============================
 
-See :ref:`Extension installation <extension-installation>`.
+See :ref:`Extension installation <t3start:install-extension-with-composer>`.

@@ -193,7 +193,7 @@ point once the code has been refactored enough to not rely on it anymore.
 
 The following attributes are available in **frontend** context:
 
-..  toctree::
+..  menu::
     :titlesonly:
 
     RequestAttributes/ApplicationType
@@ -206,7 +206,7 @@ The following attributes are available in **frontend** context:
 
 The following attributes are available in **backend** context:
 
-..  toctree::
+..  menu::
     :titlesonly:
 
     RequestAttributes/ApplicationType

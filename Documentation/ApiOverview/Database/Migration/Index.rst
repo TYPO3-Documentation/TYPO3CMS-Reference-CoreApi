@@ -329,7 +329,7 @@ places where SQL fragments are specified:
     'foreign_table_where' => 'AND {#tx_some_foreign_table_name}.{#pid} = 42',
 
 If using MySQL, this fragment will be parsed to ``AND `tx_some_foreign_table_name`.`pid` = 42`` (note the backticks)
-with the help of :ref:`QueryHelper::quoteDatabaseIdentifiers() <database-query-helper-quoteDatabaseIdentifiers>`.
+with the help of :php:`QueryHelper::quoteDatabaseIdentifiers()`.
 
 
 Extbase QueryBuilder

@@ -105,7 +105,7 @@ It is also possible to do a file search for :php:`@deprecated` and
 :php:`E_USER_DEPRECATED`. Using an IDE you can find all calls to the affected
 methods.
 
-The deprecations are also listed in the :doc:`changelog <ext_core:Index>` of the
+The deprecations are also listed in the :doc:`changelog <changelog:Index>` of the
 corresponding TYPO3 version.
 
 

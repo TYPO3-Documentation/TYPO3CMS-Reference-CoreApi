@@ -55,14 +55,11 @@ Persistence
 Settings, relevant to the persistence layer of Extbase.
 
 `persistence.enableAutomaticCacheClearing`
-    Enables the automatic cache clearing when changing data sets (see also the
-    section :ref:`extbase_caching_of_actions_and_records`).
+    Enables the automatic cache clearing when changing data sets.
     Default is `true`.
 
 `persistence.storagePid`
-    List of Page-IDs, from which all records are read (see the section
-    ":ref:`Procedure to fetch objects <procedure_to_fetch_objects>`" in Chapter 6).
-
+    List of Page-IDs, from which all records are read.
 
 .. _extbase_typoscript_configuration-settings:
 
@@ -114,7 +111,7 @@ View and template settings.
 
 `view.defaultPid`
     This can be used to specify a default target page ID. If this value is set, this value will
-    be used as target page ID. If `defaultPid` is set to `auto`, a pid is determined 
+    be used as target page ID. If `defaultPid` is set to `auto`, a pid is determined
     by loading the tt_content record that contains this plugin. An error will be thrown if more than
     one record matches the `list_type`.
 
