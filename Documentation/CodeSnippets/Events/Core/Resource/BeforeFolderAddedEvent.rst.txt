@@ -9,8 +9,8 @@
 
    .. php:method:: getParentFolder()
 
-      :returntype: TYPO3\\CMS\\Core\\Resource\\Folder
+      :returntype: `TYPO3\CMS\Core\Resource\Folder`
 
    .. php:method:: getFolderName()
 
-      :returntype: string
+      :returntype: `string`

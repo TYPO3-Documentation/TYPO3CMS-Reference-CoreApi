@@ -7,8 +7,8 @@
 
    .. php:method:: getRequest()
 
-      :returntype: TYPO3\\CMS\\Extbase\\Mvc\\RequestInterface
+      :returntype: `TYPO3\CMS\Extbase\Mvc\RequestInterface`
 
    .. php:method:: getResponse()
 
-      :returntype: Psr\\Http\\Message\\ResponseInterface
+      :returntype: `Psr\Http\Message\ResponseInterface`

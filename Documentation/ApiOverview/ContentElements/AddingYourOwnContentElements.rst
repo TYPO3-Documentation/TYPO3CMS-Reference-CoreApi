@@ -19,7 +19,7 @@ It is also possible to add extra fields to the `tt_content`
 table, see :ref:`ConfigureCE-Extend-tt_content`.
 
 The data of the content element is then passed to a TypoScript object, in most
-cases to a :ref:`cobj-fluidtemplate`.
+cases to a :ref:`t3tsref:cobj-fluidtemplate`.
 
 Some data might need additional :ref:`ConfigureCE-DataProcessors`. Data
 processors are frequently used for example to process files
@@ -39,7 +39,7 @@ Prerequisites
 =============
 
 The following examples require the system extension
-:doc:`fluid_styled_content <ext_fsc:Index>`.
+:doc:`fluid_styled_content <typo3/cms-fluid-styled-content:Index>`.
 
 It can be installed via Composer with:
 
@@ -183,7 +183,7 @@ The :typoscript:`lib.contentElement` path is defined in file
 :file:`EXT:fluid_styled_content/Configuration/TypoScript/Helper/ContentElement.typoscript`.
 and uses a :ref:`t3tsref:cobj-fluidtemplate`.
 
-We reference :doc:`fluid_styled_contents <ext_fsc:Index>`
+We reference :doc:`fluid_styled_contents <typo3/cms-fluid-styled-content:Index>`
 :typoscript:`lib.contentElement` from our new content element and only change
 the Fluid template to be used.
 

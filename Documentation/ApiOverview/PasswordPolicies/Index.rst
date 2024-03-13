@@ -41,7 +41,7 @@ The password policy applies to:
 *   Password fields in tables :sql:`be_users` and :sql:`fe_users`
 
 Optionally, a password policy can be configured for custom TCA fields of the
-type :ref:`password <columns-password>`.
+type :ref:`password <t3tca:columns-password>`.
 
 ..  note::
     During the development of TYPO3 v12 LTS more areas are added where the

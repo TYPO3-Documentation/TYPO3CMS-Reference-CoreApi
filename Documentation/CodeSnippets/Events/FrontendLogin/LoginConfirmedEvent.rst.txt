@@ -8,8 +8,8 @@
 
    .. php:method:: getController()
 
-      :returntype: TYPO3\\CMS\\FrontendLogin\\Controller\\LoginController
+      :returntype: `TYPO3\CMS\FrontendLogin\Controller\LoginController`
 
    .. php:method:: getView()
 
-      :returntype: TYPO3Fluid\\Fluid\\View\\ViewInterface
+      :returntype: `TYPO3Fluid\Fluid\View\ViewInterface`

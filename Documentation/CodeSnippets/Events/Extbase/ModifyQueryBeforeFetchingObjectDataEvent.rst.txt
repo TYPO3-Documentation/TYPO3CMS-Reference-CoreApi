@@ -7,7 +7,7 @@
 
    .. php:method:: getQuery()
 
-      :returntype: TYPO3\\CMS\\Extbase\\Persistence\\QueryInterface
+      :returntype: `TYPO3\CMS\Extbase\Persistence\QueryInterface`
 
    .. php:method:: setQuery(TYPO3\\CMS\\Extbase\\Persistence\\QueryInterface $query)
 

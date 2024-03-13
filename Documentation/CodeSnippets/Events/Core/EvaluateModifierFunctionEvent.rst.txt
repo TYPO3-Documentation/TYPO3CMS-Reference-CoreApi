@@ -15,13 +15,13 @@
 
       The function name, for example "extNewsSortFunction" when using "foo := extNewsSortFunction()"
 
-      :returntype: string
+      :returntype: `string`
 
    .. php:method:: getFunctionArgument()
 
       Optional function argument, for example "myArgument" when using "foo := extNewsSortFunction(myArgument)"
 
-      :returntype: string
+      :returntype: `string`
 
    .. php:method:: getOriginalValue()
 
@@ -29,7 +29,7 @@
       foo = fooValue
       foo := extNewsSortFunction(myArgument)
 
-      :returntype: string
+      :returntype: `string`
 
    .. php:method:: setValue(string $value)
 
@@ -47,4 +47,4 @@
       Can be used by Listeners to see if a previous listener changed the value already
       by comparing with getOriginalValue().
 
-      :returntype: string
+      :returntype: `string`

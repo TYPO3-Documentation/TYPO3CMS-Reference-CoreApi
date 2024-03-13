@@ -7,16 +7,16 @@
 
    .. php:method:: getGroups()
 
-      :returntype: array
+      :returntype: `array`
 
    .. php:method:: hasGroup(string $group)
 
       :param string $group: the group
-      :returntype: bool
+      :returntype: `bool`
 
    .. php:method:: getErrors()
 
-      :returntype: array
+      :returntype: `array`
 
    .. php:method:: addError(string $error)
 

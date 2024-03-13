@@ -8,7 +8,7 @@
 
    .. php:method:: getQueryBuilder()
 
-      :returntype: TYPO3\\CMS\\Core\\Database\\Query\\QueryBuilder
+      :returntype: `TYPO3\CMS\Core\Database\Query\QueryBuilder`
 
    .. php:method:: setQueryBuilder(TYPO3\\CMS\\Core\\Database\\Query\\QueryBuilder $queryBuilder)
 
@@ -16,24 +16,24 @@
 
    .. php:method:: getTable()
 
-      :returntype: string
+      :returntype: `string`
 
    .. php:method:: getPageId()
 
-      :returntype: int
+      :returntype: `int`
 
    .. php:method:: getFields()
 
-      :returntype: array
+      :returntype: `array`
 
    .. php:method:: getFirstResult()
 
-      :returntype: int
+      :returntype: `int`
 
    .. php:method:: getMaxResults()
 
-      :returntype: int
+      :returntype: `int`
 
    .. php:method:: getDatabaseRecordList()
 
-      :returntype: TYPO3\\CMS\\Backend\\RecordList\\DatabaseRecordList
+      :returntype: `TYPO3\CMS\Backend\RecordList\DatabaseRecordList`

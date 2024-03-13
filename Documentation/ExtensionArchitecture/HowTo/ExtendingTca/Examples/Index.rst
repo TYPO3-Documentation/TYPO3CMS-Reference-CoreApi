@@ -188,7 +188,7 @@ Then we add it to the :php:`$GLOBALS['TCA']` in :file:`Configuration/TCA/Overrid
 
 The code is mostly the same as in the first example, but the last method call
 is different and requires an explanation. The tables :code:`pages` and
-:code:`tt_content` use :ref:`palettes <palettes>` extensively. This increases
+:code:`tt_content` use :ref:`palettes <t3tca:palettes>` extensively. This increases
 flexibility.
 
 Therefore we call :code:`ExtensionManagementUtility::addFieldsToPalette()`

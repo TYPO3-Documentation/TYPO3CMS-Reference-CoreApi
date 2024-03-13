@@ -14,5 +14,5 @@
       :param array $arguments: The arguments of the extension, being passed over to sprintf, default: NULL
       :param TYPO3\\CMS\\Core\\Localization\\Locale|string|null $languageKey: The language key or null for using the current language from the system, default: NULL
       :param array $alternativeLanguageKeys: The alternative language keys if no translation was found. @deprecated will be removed in TYPO3 v13.0, default: NULL
-      :returntype: string
+      :returntype: `string`
       :returns: string|null The value from LOCAL_LANG or null if no translation was found.

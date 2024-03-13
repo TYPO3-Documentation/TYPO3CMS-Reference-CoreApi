@@ -44,7 +44,7 @@ Minimal extension - step-by-step
 
 2.  Install the extension locally
 
-    See :ref:`Extension installation <extension-installation>`.
+    See :ref:`Extension installation <t3start:install-extension-with-composer>`.
 
 3.  Remove all the fluff
 

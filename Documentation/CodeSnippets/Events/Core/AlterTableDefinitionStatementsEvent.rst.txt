@@ -13,7 +13,7 @@
 
    .. php:method:: getSqlData()
 
-      :returntype: array
+      :returntype: `array`
 
    .. php:method:: setSqlData(array $sqlData)
 

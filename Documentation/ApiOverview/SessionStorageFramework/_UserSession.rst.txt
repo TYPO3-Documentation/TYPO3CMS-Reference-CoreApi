@@ -24,17 +24,17 @@
 
    .. php:method:: getIdentifier()
 
-      :returntype: string
+      :returntype: `string`
       :returns: string the session ID. This is the `ses_id` respectively the `AbstractUserAuthentication->id`
 
    .. php:method:: getUserId()
 
-      :returntype: int
+      :returntype: `int`
       :returns: ?int the user ID the session belongs to. Can also return `0` or `NULL` Which indicates an anonymous session. This is the `ses_userid`.
 
    .. php:method:: getLastUpdated()
 
-      :returntype: int
+      :returntype: `int`
       :returns: int the timestamp of the last session data update. This is the `ses_tstamp`.
 
    .. php:method:: set(string $key, mixed $value)
@@ -49,7 +49,7 @@
 
       Checks whether the session has data assigned
 
-      :returntype: bool
+      :returntype: `bool`
 
    .. php:method:: get(string $key)
 
@@ -61,7 +61,7 @@
 
    .. php:method:: getData()
 
-      :returntype: array
+      :returntype: `array`
       :returns: array the whole data array.
 
    .. php:method:: overrideData(array $data)
@@ -76,37 +76,37 @@
 
       Checks whether the session data has been updated
 
-      :returntype: bool
+      :returntype: `bool`
 
    .. php:method:: isAnonymous()
 
       Checks if the user session is an anonymous one. This means, the
       session does not belong to a logged-in user
 
-      :returntype: bool
+      :returntype: `bool`
 
    .. php:method:: getIpLock()
 
-      :returntype: string
+      :returntype: `string`
       :returns: string the `ipLock` state of the session
 
    .. php:method:: isNew()
 
       Checks whether the session is marked as new
 
-      :returntype: bool
+      :returntype: `bool`
 
    .. php:method:: isPermanent()
 
       Checks whether the session was marked as permanent
 
-      :returntype: bool
+      :returntype: `bool`
 
    .. php:method:: needsUpdate()
 
       Checks whether the session has to be updated
 
-      :returntype: bool
+      :returntype: `bool`
 
    .. php:method:: getJwt(TYPO3\\CMS\\Core\\Http\\CookieScope $scope = NULL)
 
@@ -115,7 +115,7 @@
       `Cookie: <JWT(HS256, [identifier => <session-id>], <signature(encryption-key, cookie-domain)>)>`
 
       :param TYPO3\\CMS\\Core\\Http\\CookieScope $scope: the scope, default: NULL
-      :returntype: string
+      :returntype: `string`
       :returns: string the session ID wrapped in JWT to be used for emitting a new cookie
 
    .. php:method:: createFromRecord(string $id, array $record, bool $markAsNew = false)
@@ -125,7 +125,7 @@
       :param string $id: the session identifier
       :param array $record: the record
       :param bool $markAsNew: the markAsNew, default: false
-      :returntype: self
+      :returntype: `self`
 
    .. php:method:: createNonFixated(string $identifier)
 
@@ -133,7 +133,7 @@
       session does not belong to a logged-in user
 
       :param string $identifier: the identifier
-      :returntype: self
+      :returntype: `self`
 
    .. php:method:: resolveIdentifierFromJwt(string $cookieValue, TYPO3\\CMS\\Core\\Http\\CookieScope $scope)
 
@@ -142,5 +142,5 @@
 
       :param string $cookieValue: submitted cookie value
       :param TYPO3\\CMS\\Core\\Http\\CookieScope $scope: the scope
-      :returntype: string
+      :returntype: `string`
       :returns: non-empty-string|null session ID, null in case verification failed

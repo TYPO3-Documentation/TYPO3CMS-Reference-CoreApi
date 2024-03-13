@@ -7,4 +7,4 @@
 
    .. php:method:: getObject()
 
-      :returntype: TYPO3\\CMS\\Extbase\\DomainObject\\DomainObjectInterface
+      :returntype: `TYPO3\CMS\Extbase\DomainObject\DomainObjectInterface`

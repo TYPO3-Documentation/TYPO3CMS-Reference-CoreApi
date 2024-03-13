@@ -8,32 +8,32 @@
 
    .. php:method:: getName()
 
-      :returntype: string
+      :returntype: `string`
 
    .. php:method:: getLocalizedNameLabel()
 
-      :returntype: string
+      :returntype: `string`
 
    .. php:method:: getOfficialName()
 
-      :returntype: string
+      :returntype: `string`
 
    .. php:method:: getLocalizedOfficialNameLabel()
 
-      :returntype: string
+      :returntype: `string`
 
    .. php:method:: getAlpha2IsoCode()
 
-      :returntype: string
+      :returntype: `string`
 
    .. php:method:: getAlpha3IsoCode()
 
-      :returntype: string
+      :returntype: `string`
 
    .. php:method:: getNumericRepresentation()
 
-      :returntype: string
+      :returntype: `string`
 
    .. php:method:: getFlag()
 
-      :returntype: string
+      :returntype: `string`

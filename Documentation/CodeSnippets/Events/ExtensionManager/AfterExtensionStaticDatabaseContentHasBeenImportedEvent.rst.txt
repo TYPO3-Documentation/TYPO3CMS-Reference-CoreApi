@@ -7,12 +7,12 @@
 
    .. php:method:: getPackageKey()
 
-      :returntype: string
+      :returntype: `string`
 
    .. php:method:: getSqlFileName()
 
-      :returntype: string
+      :returntype: `string`
 
    .. php:method:: getEmitter()
 
-      :returntype: TYPO3\\CMS\\Extensionmanager\\Utility\\InstallUtility
+      :returntype: `TYPO3\CMS\Extensionmanager\Utility\InstallUtility`

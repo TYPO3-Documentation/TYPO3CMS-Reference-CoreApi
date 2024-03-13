@@ -7,12 +7,12 @@
 
    .. php:method:: getSessionId()
 
-      :returntype: string
+      :returntype: `string`
 
    .. php:method:: getTargetUser()
 
-      :returntype: array
+      :returntype: `array`
 
    .. php:method:: getCurrentUser()
 
-      :returntype: array
+      :returntype: `array`

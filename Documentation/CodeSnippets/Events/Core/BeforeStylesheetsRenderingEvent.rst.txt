@@ -7,12 +7,12 @@
 
    .. php:method:: getAssetCollector()
 
-      :returntype: TYPO3\\CMS\\Core\\Page\\AssetCollector
+      :returntype: `TYPO3\CMS\Core\Page\AssetCollector`
 
    .. php:method:: isInline()
 
-      :returntype: bool
+      :returntype: `bool`
 
    .. php:method:: isPriority()
 
-      :returntype: bool
+      :returntype: `bool`

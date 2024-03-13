@@ -8,8 +8,8 @@
 
    .. php:method:: getFile()
 
-      :returntype: TYPO3\\CMS\\Core\\Resource\\FileInterface
+      :returntype: `TYPO3\CMS\Core\Resource\FileInterface`
 
    .. php:method:: getTargetFileName()
 
-      :returntype: string
+      :returntype: `string`

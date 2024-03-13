@@ -18,16 +18,16 @@
               'data' => '1'
           ]
 
-      :returntype: array
+      :returntype: `array`
       :returns: array<string,array<string,mixed>>
 
    .. php:method:: getResult()
 
-      :returntype: mixed
+      :returntype: `mixed`
       :returns: mixed The result - Depending on the performed action,
       this could e.g. be a File or just a boolean.
 
    .. php:method:: getConflictMode()
 
-      :returntype: string
+      :returntype: `string`
       :returns: string The current conflict mode

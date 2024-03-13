@@ -24,7 +24,7 @@
 
       :param Psr\\Http\\Message\\ServerRequestInterface $request: the request
       :param string $cookieName: Name of the cookie that might contain the session
-      :returntype: TYPO3\\CMS\\Core\\Session\\UserSession
+      :returntype: `TYPO3\CMS\Core\Session\UserSession`
       :returns: \UserSession An existing session if one is stored in the cookie, an anonymous session otherwise
 
    .. php:method:: createFromGlobalCookieOrAnonymous(string $cookieName)
@@ -37,20 +37,20 @@
       PSR-7-Request based method instead.
 
       :param string $cookieName: the cookieName
-      :returntype: TYPO3\\CMS\\Core\\Session\\UserSession
+      :returntype: `TYPO3\CMS\Core\Session\UserSession`
 
    .. php:method:: createAnonymousSession()
 
       Creates and returns an anonymous session object (which is not persisted)
 
-      :returntype: TYPO3\\CMS\\Core\\Session\\UserSession
+      :returntype: `TYPO3\CMS\Core\Session\UserSession`
 
    .. php:method:: hasExpired(TYPO3\\CMS\\Core\\Session\\UserSession $session)
 
       Checks whether a session has expired. This is also the case if `sessionLifetime` is `0`
 
       :param TYPO3\\CMS\\Core\\Session\\UserSession $session: the session
-      :returntype: bool
+      :returntype: `bool`
 
    .. php:method:: willExpire(TYPO3\\CMS\\Core\\Session\\UserSession $session, int $gracePeriod)
 
@@ -58,7 +58,7 @@
 
       :param TYPO3\\CMS\\Core\\Session\\UserSession $session: the session
       :param int $gracePeriod: in seconds
-      :returntype: bool
+      :returntype: `bool`
 
    .. php:method:: fixateAnonymousSession(TYPO3\\CMS\\Core\\Session\\UserSession $session, bool $isPermanent = false)
 
@@ -67,7 +67,7 @@
 
       :param TYPO3\\CMS\\Core\\Session\\UserSession $session: The user session to fixate
       :param bool $isPermanent: If `true`, the session will get the `ses_permanent` flag, default: false
-      :returntype: TYPO3\\CMS\\Core\\Session\\UserSession
+      :returntype: `TYPO3\CMS\Core\Session\UserSession`
       :returns: \UserSession a new session object with an updated `ses_tstamp` (allowing to keep the session alive)
 
    .. php:method:: elevateToFixatedUserSession(TYPO3\\CMS\\Core\\Session\\UserSession $session, int $userId, bool $isPermanent = false)
@@ -79,7 +79,7 @@
       :param TYPO3\\CMS\\Core\\Session\\UserSession $session: The user session to recreate
       :param int $userId: The user id the session belongs to
       :param bool $isPermanent: If `true`, the session will get the `ses_permanent` flag, default: false
-      :returntype: TYPO3\\CMS\\Core\\Session\\UserSession
+      :returntype: `TYPO3\CMS\Core\Session\UserSession`
       :returns: \UserSession The newly created user session object
 
    .. php:method:: regenerateSession(string $sessionId, array $existingSessionRecord = [], bool $anonymous = false)
@@ -91,7 +91,7 @@
       :param string $sessionId: The session id
       :param array $existingSessionRecord: If given, this session record will be used instead of fetching again, default: []
       :param bool $anonymous: If true session will be regenerated as anonymous session, default: false
-      :returntype: TYPO3\\CMS\\Core\\Session\\UserSession
+      :returntype: `TYPO3\CMS\Core\Session\UserSession`
 
    .. php:method:: updateSessionTimestamp(TYPO3\\CMS\\Core\\Session\\UserSession $session)
 
@@ -100,7 +100,7 @@
       greater than "last updated + a specified grace-time").
 
       :param TYPO3\\CMS\\Core\\Session\\UserSession $session: the session
-      :returntype: TYPO3\\CMS\\Core\\Session\\UserSession
+      :returntype: `TYPO3\CMS\Core\Session\UserSession`
       :returns: \UserSession a modified user session with a last updated value if needed
 
    .. php:method:: isSessionPersisted(TYPO3\\CMS\\Core\\Session\\UserSession $session)
@@ -108,7 +108,7 @@
       Checks whether a given session is already persisted
 
       :param TYPO3\\CMS\\Core\\Session\\UserSession $session: the session
-      :returntype: bool
+      :returntype: `bool`
 
    .. php:method:: removeSession(TYPO3\\CMS\\Core\\Session\\UserSession $session)
 
@@ -121,7 +121,7 @@
       Updates the session data + timestamp in the session backend
 
       :param TYPO3\\CMS\\Core\\Session\\UserSession $session: the session
-      :returntype: TYPO3\\CMS\\Core\\Session\\UserSession
+      :returntype: `TYPO3\CMS\Core\Session\UserSession`
 
    .. php:method:: collectGarbage(int $garbageCollectionProbability = 1)
 
@@ -142,7 +142,7 @@
       :param int $sessionLifetime: the sessionLifetime, default: NULL
       :param TYPO3\\CMS\\Core\\Session\\SessionManager $sessionManager: the sessionManager, default: NULL
       :param TYPO3\\CMS\\Core\\Authentication\\IpLocker $ipLocker: the ipLocker, default: NULL
-      :returntype: self
+      :returntype: `self`
       :returns: static
 
    .. php:method:: setLogger(Psr\\Log\\LoggerInterface $logger)

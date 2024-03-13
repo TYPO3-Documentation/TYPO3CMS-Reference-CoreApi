@@ -17,10 +17,10 @@
 
    .. php:method:: getJavaScriptModules()
 
-      :returntype: array
+      :returntype: `array`
       :returns: string[]
 
    .. php:method:: getModules()
 
-      :returntype: array
+      :returntype: `array`
       :returns: string[]

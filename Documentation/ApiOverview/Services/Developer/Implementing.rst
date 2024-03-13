@@ -160,7 +160,7 @@ $info
 
       .. code-block:: php
 
-			'className' => \Foo\Babelfish\Service\Translator::class
+         'className' => \Foo\Babelfish\Service\Translator::class
 
 
 .. index:: Services API; AbstractService

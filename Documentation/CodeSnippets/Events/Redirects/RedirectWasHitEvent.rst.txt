@@ -12,11 +12,11 @@
 
    .. php:method:: getRequest()
 
-      :returntype: Psr\\Http\\Message\\ServerRequestInterface
+      :returntype: `Psr\Http\Message\ServerRequestInterface`
 
    .. php:method:: getTargetUrl()
 
-      :returntype: Psr\\Http\\Message\\UriInterface
+      :returntype: `Psr\Http\Message\UriInterface`
 
    .. php:method:: setMatchedRedirect(array $matchedRedirect)
 
@@ -24,7 +24,7 @@
 
    .. php:method:: getMatchedRedirect()
 
-      :returntype: array
+      :returntype: `array`
 
    .. php:method:: setResponse(Psr\\Http\\Message\\ResponseInterface $response)
 
@@ -32,4 +32,4 @@
 
    .. php:method:: getResponse()
 
-      :returntype: Psr\\Http\\Message\\ResponseInterface
+      :returntype: `Psr\Http\Message\ResponseInterface`

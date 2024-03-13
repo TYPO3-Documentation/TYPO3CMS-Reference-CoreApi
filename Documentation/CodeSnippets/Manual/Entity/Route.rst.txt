@@ -27,7 +27,7 @@
 
       An empty array means that any method is allowed.
 
-      :returntype: array
+      :returntype: `array`
       :returns: string[] The methods
 
    .. php:method:: setMethods(array $methods)
@@ -39,7 +39,7 @@
       This method implements a fluent interface.
 
       :param array $methods: The array of allowed methods
-      :returntype: self
+      :returntype: `self`
 
    .. php:method:: getOptions()
 

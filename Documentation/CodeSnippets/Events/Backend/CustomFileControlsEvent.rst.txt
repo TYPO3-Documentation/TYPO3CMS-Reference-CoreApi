@@ -7,7 +7,7 @@
 
    .. php:method:: getResultArray()
 
-      :returntype: array
+      :returntype: `array`
 
    .. php:method:: setResultArray(array $resultArray)
 
@@ -18,7 +18,7 @@
 
    .. php:method:: getControls()
 
-      :returntype: array
+      :returntype: `array`
 
    .. php:method:: setControls(array $controls)
 
@@ -32,28 +32,28 @@
    .. php:method:: removeControl(string $identifier)
 
       :param string $identifier: the identifier
-      :returntype: bool
+      :returntype: `bool`
 
    .. php:method:: getTableName()
 
-      :returntype: string
+      :returntype: `string`
 
    .. php:method:: getFieldName()
 
-      :returntype: string
+      :returntype: `string`
 
    .. php:method:: getDatabaseRow()
 
-      :returntype: array
+      :returntype: `array`
 
    .. php:method:: getFieldConfig()
 
-      :returntype: array
+      :returntype: `array`
 
    .. php:method:: getFormFieldIdentifier()
 
-      :returntype: string
+      :returntype: `string`
 
    .. php:method:: getFormFieldName()
 
-      :returntype: string
+      :returntype: `string`

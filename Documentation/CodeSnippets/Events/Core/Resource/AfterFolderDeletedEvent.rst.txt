@@ -8,8 +8,8 @@
 
    .. php:method:: getFolder()
 
-      :returntype: TYPO3\\CMS\\Core\\Resource\\Folder
+      :returntype: `TYPO3\CMS\Core\Resource\Folder`
 
    .. php:method:: isDeleted()
 
-      :returntype: bool
+      :returntype: `bool`
