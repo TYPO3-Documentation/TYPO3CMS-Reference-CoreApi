@@ -68,5 +68,5 @@ setup as array:
 
         $fullTypoScript = $request->getAttribute('frontend.typoscript')->getSetupArray();
 
-Read more about :ref:`Getting the PSR-7 request object <t3coreapi:getting-typo3-request-object>`
+Read more about :ref:`Getting the PSR-7 request object <getting-typo3-request-object>`
 from different contexts.
