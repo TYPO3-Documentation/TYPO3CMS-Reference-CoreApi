@@ -15,6 +15,7 @@ part is just an overview of common pitfalls and generic tips.
    :maxdepth: 1
    :titlesonly:
 
+   NamedArguments
    AccessingTheDatabase
    Singletons
    StaticMethods
