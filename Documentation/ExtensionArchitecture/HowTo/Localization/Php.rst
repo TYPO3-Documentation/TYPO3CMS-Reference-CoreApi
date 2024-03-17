@@ -62,7 +62,7 @@ Localization in Extbase
 =======================
 
 In :ref:`Extbase <extbase>` context you can use the method
-:ref:`\TYPO3\CMS\Extbase\Utility\LocalizationUtility::translate($key, $extensionName) <extbase-localization-utility-api>`.
+:ref:`\\TYPO3\\CMS\\Extbase\\Utility\\LocalizationUtility::translate($key, $extensionName) <extbase-localization-utility-api>`.
 
 This method requires the localization key as the first and the extension's
 name as optional second parameter. For all available parameters
