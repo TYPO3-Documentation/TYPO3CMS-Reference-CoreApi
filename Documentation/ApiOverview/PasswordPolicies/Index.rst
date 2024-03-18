@@ -201,6 +201,21 @@ for a detailed implementation example.
     password validators. It can also be used as a resource for writing your
     own password validator.
 
+Validate a password manually
+============================
+
+You can use the :php:`\TYPO3\CMS\Core\PasswordPolicy\PasswordPolicyValidator` to validate a
+password using the validators configured in :php:`$GLOBALS['TYPO3_CONF_VARS']['SYS']['passwordPolicies']`.
+
+The class cannot be injected as it must be instantiated with an action. Available actions can be found in
+enum :php:`\TYPO3\CMS\Core\PasswordPolicy\PasswordPolicyAction`.
+
+Example:
+
+..  literalinclude:: _PasswordCommand.php
+    :language: php
+    :caption: EXT:my_extension/Classes/Command/PasswordCommand.php
+
 Event
 =====
 
