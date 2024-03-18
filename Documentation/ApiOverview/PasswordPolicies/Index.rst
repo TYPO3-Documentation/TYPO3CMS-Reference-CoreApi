@@ -43,9 +43,7 @@ The password policy applies to:
 Optionally, a password policy can be configured for custom TCA fields of the
 type :ref:`password <t3tca:columns-password>`.
 
-..  note::
-    During the development of TYPO3 v12 LTS more areas are added where the
-    password policy is considered.
+..  _configure-password-policies:
 
 Configuring password policies
 =============================
