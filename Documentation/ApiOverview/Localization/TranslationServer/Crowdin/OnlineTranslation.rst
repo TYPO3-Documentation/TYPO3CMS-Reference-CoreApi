@@ -194,8 +194,8 @@ If the process takes too long, please write an email to `localization@typo3.org`
 ..  _localization@typo3.org: mailto:localization@typo3.org
 
 
-How can I be sure what way a word, term or sting is to be translated?
----------------------------------------------------------------------
+How can I be sure what way a word, term or string is to be translated?
+----------------------------------------------------------------------
 
 There are several ways to get help: In the left panel you can either search
 the translation memory (TM) or the term base. You can also drop a comment to
