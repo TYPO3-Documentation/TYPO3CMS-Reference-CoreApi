@@ -201,6 +201,25 @@ for a detailed implementation example.
     password validators. It can also be used as a resource for writing your
     own password validator.
 
+Validate a password manually
+============================
+
+You can use the :php:`\TYPO3\CMS\Core\PasswordPolicy\PasswordPolicyValidator` to validate a
+password using the validators configured in :php:`$GLOBALS['TYPO3_CONF_VARS']['SYS']['passwordPolicies']`.
+
+The class cannot be injected as it must be instantiated with an action. Available actions can be found in
+enum :php:`\TYPO3\CMS\Core\PasswordPolicy\PasswordPolicyAction`.
+
+..  rubric:: Example
+
+In the following example a :ref:`command <symfony-console-commands>` to generate
+a public-private key pair validates the password from user input against the
+default policy of the current TYPO3 installation.
+
+..  literalinclude:: _PrivateKeyGeneratorCommand.php
+    :language: php
+    :caption: EXT:my_extension/Classes/Command/PrivateKeyGeneratorCommand.php
+
 Event
 =====
 
