@@ -105,7 +105,7 @@ Objects with such class signatures MUST be instantiated using named arguments to
 maintain API consistency. Standardizing named argument usage allows the TYPO3
 core to introduce deprecations for argument removals seamlessly.
 
-Invoking 2nd Party Dependency Methods
+Invoking 2nd-party (non-Core library) dependency methods
 -------------------------------------
 
 The TYPO3 core refrains from employing named arguments when calling library
