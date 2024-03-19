@@ -18,7 +18,11 @@ use TYPO3\CMS\Core\PasswordPolicy\PasswordPolicyValidator;
 )]
 final class PrivateKeyGeneratorCommand extends Command
 {
-    // inject $myService
+    // Implement class MyService
+    public function __construct(private readonly MyService $myService)
+    {
+    }
+
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $io = new SymfonyStyle($input, $output);
@@ -31,7 +35,7 @@ final class PrivateKeyGeneratorCommand extends Command
             $this->myService->generatePrivateKey($passwort);
             return Command::SUCCESS;
         }
-        $io->error('The password must be at least 8 chars long and contain upper case and lower case letters.');
+        $io->error('The password must adhere to the default password policy.');
         return Command::FAILURE;
     }
 }
