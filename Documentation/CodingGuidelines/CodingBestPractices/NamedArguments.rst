@@ -27,7 +27,7 @@ outlining best practices for TYPO3 extension and core developers regarding the
 adoption and avoidance of this language feature.
 
 
-Named Arguments in Public APIs
+Named arguments in public APIs
 ==============================
 
 The key consideration when using this feature is outlined in the
