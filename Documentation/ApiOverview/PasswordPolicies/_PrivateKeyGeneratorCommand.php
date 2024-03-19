@@ -21,6 +21,7 @@ final class PrivateKeyGeneratorCommand extends Command
     // Implement class MyService
     public function __construct(private readonly MyService $myService)
     {
+        parent::__construct();
     }
 
     protected function execute(InputInterface $input, OutputInterface $output): int
