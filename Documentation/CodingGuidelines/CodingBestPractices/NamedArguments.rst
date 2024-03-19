@@ -130,7 +130,7 @@ the reasons for not using named arguments:
 
 * TYPO3 core tries to be as consistent as possible
 
-* Setting a good example for extensions
+* Setting a good example for extension authors
 
 * Avoiding complications and side effects during refactoring
 
