@@ -196,7 +196,7 @@ instance where PHPUnit utilizes the array keys :php:`languageKey` and
         }
     }
 
-Leveraging Named Arguments When Invoking PHP Functions
+Leveraging named arguments when invoking PHP functions
 ------------------------------------------------------
 
 TYPO3 core may leverage named arguments when calling PHP functions, provided it
