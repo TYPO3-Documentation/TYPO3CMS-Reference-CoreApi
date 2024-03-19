@@ -20,7 +20,5 @@ Example:
     $locale = $language->getLocale();
 
 
-API
-===
-
-..  include:: /CodeSnippets/Manual/Entity/SiteLanguage.rst.txt
+..  seealso::
+    For the API see :php:class:`\TYPO3\CMS\Core\Site\Entity\SiteLanguage`.

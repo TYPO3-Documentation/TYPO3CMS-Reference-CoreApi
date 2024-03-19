@@ -103,26 +103,26 @@ The language aspect, :php:`\TYPO3\CMS\Core\Context\LanguageAspect` accepts the
 following properties:
 
 ..  confval:: id
-
+    :name: language-aspect-id
     :Call: :php:`$this->context->getPropertyFromAspect('language', 'id');`
 
     Returns the requested language of the current page as integer (uid).
 
 ..  confval:: contentId
-
+    :name: language-aspect-contentId
     :Call: :php:`$this->context->getPropertyFromAspect('language', 'contentId');`
 
     Returns the language ID of records to be fetched in translation scenarios as
     integer (uid).
 
 ..  confval:: fallbackChain
-
+    :name: language-aspect-fallbackChain
     :Call: :php:`$this->context->getPropertyFromAspect('language', 'fallbackChain');`
 
     Returns the fallback steps as array.
 
 ..  confval:: overlayType
-
+    :name: language-aspect-overlayType
     :Call: :php:`$this->context->getPropertyFromAspect('language', 'overlayType');`
 
     Returns one of
@@ -135,7 +135,7 @@ following properties:
     See :ref:`context_api_aspects_language_overlay-types` for more details.
 
 ..  confval:: legacyLanguageMode
-
+    :name: language-aspect-legacyLanguageMode
     :Call: :php:`$this->context->getPropertyFromAspect('language', 'legacyLanguageMode');`
 
     Returns one of
@@ -148,7 +148,7 @@ following properties:
     necessary, the option will be removed rather sooner than later.
 
 ..  confval:: legacyOverlayType
-
+    :name: language-aspect-legacyOverlayType
     :Call: :php:`$this->context->getPropertyFromAspect('language', 'legacyOverlayType');`
 
     Returns one of
@@ -211,7 +211,7 @@ The preview aspect, :php:`\TYPO3\CMS\Frontend\Aspect\PreviewAspect`, contains
 the following property:
 
 ..  confval:: isPreview
-
+    :name: Preview-aspect-isPreview
     :Call: :php:`$this->context->getPropertyFromAspect('frontend.preview', 'isPreview');`
 
 Returns, whether the frontend is currently in preview mode.
@@ -232,40 +232,40 @@ The user aspect, :php:`\TYPO3\CMS\Core\Context\UserAspect`, accepts the
 following properties:
 
 ..  confval:: id
-
+    :name: user-aspect-id
     :Call: :php:`$this->context->getPropertyFromAspect('frontend.user', 'id');` or :php:`$this->context->getPropertyFromAspect('backend.user', 'id');`
 
     Returns the uid of the currently logged in user, `0` if no user is logged
     in.
 
 ..  confval:: username
-
+    :name: user-aspect-username
     :Call: :php:`$this->context->getPropertyFromAspect('frontend.user', 'username');` or :php:`$this->context->getPropertyFromAspect('backend.user', 'username');`
 
     Returns the username of the currently authenticated user. Empty string, if
     no user is logged in.
 
 ..  confval:: isLoggedIn
-
+    :name: user-aspect-isLoggedIn
     :Call: :php:`$this->context->getPropertyFromAspect('frontend.user', 'isLoggedIn');` or :php:`$this->context->getPropertyFromAspect('backend.user', 'isLoggedIn');`
 
     Returns, whether a user is logged in, as boolean.
 
 ..  confval:: isAdmin
-
+    :name: user-aspect-isAdmin
     :Call: :php:`$this->context->getPropertyFromAspect('backend.user', 'isAdmin');`
 
     Returns, whether the user is an administrator, as boolean. It is only useful
     for backend users.
 
 ..  confval:: groupIds
-
+    :name: user-aspect-groupIds
     :Call: :php:`$this->context->getPropertyFromAspect('frontend.user', 'groupIds');` or :php:`$this->context->getPropertyFromAspect('backend.user', 'groupIds');`
 
     Returns the groups the user is a member of, as array.
 
 ..  confval:: groupNames
-
+    :name: user-aspect-groupNames
     :Call: :php:`$this->context->getPropertyFromAspect('frontend.user', 'groupNames');` or :php:`$this->context->getPropertyFromAspect('backend.user', 'groupNames');`
 
     Returns the names of all groups the user belongs to, as array.
@@ -295,19 +295,19 @@ The visibility aspect, :php:`\TYPO3\CMS\Core\Context\VisibilityAspect`, accepts
 the following properties:
 
 ..  confval:: includeHiddenPages
-
+    :name: visibility-aspect-includeHiddenPages
     :Call: :php:`$this->context->getPropertyFromAspect('visibility', 'includeHiddenPages');`
 
     Returns, whether hidden pages should be displayed, as boolean.
 
 ..  confval:: includeHiddenContent
-
+    :name: visibility-aspect-includeHiddenContent
     :Call: :php:`$this->context->getPropertyFromAspect('visibility', 'includeHiddenContent');`
 
     Returns, whether hidden content should be displayed, as boolean.
 
 ..  confval:: includeDeletedRecords
-
+    :name: visibility-aspect-includeDeletedRecords
     :Call: :php:`$this->context->getPropertyFromAspect('visibility', 'includeDeletedRecords');`
 
     Returns, whether deleted records should be displayed, as boolean.
@@ -337,20 +337,20 @@ The workspace aspect, :php:`\TYPO3\CMS\Core\Context\WorkspaceAspect`, accepts
 the following properties:
 
 ..  confval:: id
-
+    :name: workspace-aspect-id
     :Call: :php:`$this->context->getPropertyFromAspect('workspace', 'id');`
 
     Returns the UID of the currently accessed workspace, as integer.
 
 ..  confval:: isLive
-
+    :name: workspace-aspect-isLive
     :Call: :php:`$this->context->getPropertyFromAspect('workspace', 'isLive');`
 
     Returns whether the current workspace is live, or a custom offline
     workspace, as boolean.
 
 ..  confval:: isOffline
-
+    :name: workspace-aspect-isOffline
     :Call: :php:`$this->context->getPropertyFromAspect('workspace', 'isOffline');`
 
     Returns, whether the current workspace is offline, as boolean.

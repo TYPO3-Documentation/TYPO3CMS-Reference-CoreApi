@@ -24,8 +24,5 @@ Example:
     :php:`\TYPO3\CMS\Core\Site\Entity\NullSite` object when the module does not
     provide a page tree or no page in the page tree is selected.
 
-
-API
-===
-
-..  include:: /CodeSnippets/Manual/Entity/Site.rst.txt
+..  seealso::
+    For the API see :php:class:`\TYPO3\CMS\Core\Site\Entity\Site`.

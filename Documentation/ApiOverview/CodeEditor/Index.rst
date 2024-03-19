@@ -115,7 +115,7 @@ To register an addon, the following code may be used:
 The following configuration options are available:
 
 ..  confval:: <identifier>
-
+    :name: code-editor-register-addon-identifier
     :type: string
     :Required: true
 
@@ -123,26 +123,26 @@ The following configuration options are available:
     example).
 
 ..  confval:: module
-
+    :name: code-editor-register-addon-module
     :type: string
     :Required: true
 
     Holds the JavaScriptModuleInstruction of the CodeMirror module.
 
 ..  confval:: cssFiles
-
+    :name: code-editor-register-addon-cssFiles
     :type: array
 
     Holds all CSS files that must be loaded for the module.
 
 ..  confval:: options
-
+    :name: code-editor-register-addon-options
     :type: array
 
     Options that are used by the addon.
 
 ..  confval:: modes
-
+    :name: code-editor-register-addon-modes
     :type: array
 
     If set, the addon is only loaded if any of the modes supplied here is used.
@@ -162,7 +162,7 @@ To register a mode, the following code may be used:
 The following configuration options are available:
 
 ..  confval:: <identifier>
-
+    :name: code-editor-register-mode-identifier
     :type: string
     :Required: true
 
@@ -177,21 +177,21 @@ The following configuration options are available:
         $GLOBALS['TCA']['tt_content']['types']['css']['columnsOverrides']['bodytext']['config']['format'] = 'css';
 
 ..  confval:: module
-
+    :name: code-editor-register-mode-module
     :type: string
     :Required: true
 
     Holds the JavaScriptModuleInstruction of the CodeMirror module.
 
 ..  confval:: extensions
-
+    :name: code-editor-register-mode-extensions
     :type: array
 
     Binds the mode to specific file extensions. This is important for using
     the code editor in the module :guilabel:`File > Filelist`.
 
 ..  confval:: default
-
+    :name: code-editor-register-mode-default
     :type: bool
 
     If set, the mode is used as fallback if no sufficient mode is available.
