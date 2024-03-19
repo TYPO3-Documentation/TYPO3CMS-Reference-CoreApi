@@ -1,17 +1,23 @@
-.. include:: /Includes.rst.txt
-.. index:: DataHandler; Basics
-.. _tce-database-basics:
-.. _datahandler-basics:
+..  include:: /Includes.rst.txt
+..  index:: DataHandler; Basics
+..  _tce-database-basics:
+..  _datahandler-basics:
 
 ==================
 DataHandler basics
 ==================
 
+..  contents::
+    :local:
+
+Introduction
+============
+
 When you are using DataHandler from your backend applications you need to
 prepare two arrays of information which contain the instructions to
 DataHandler (:php:`\TYPO3\CMS\Core\DataHandling\DataHandler`)
 of what actions to perform. They fall into two categories:
-data and commands.
+:ref:`data <datahandler-data>` and :ref:`commands <datahandler-commands>`.
 
 "Data" is when you want to write information to a database table or
 create a new record.
@@ -19,46 +25,38 @@ create a new record.
 "Commands" is when you want to move, copy or delete a record in the
 system.
 
-The data and commands are created as multidimensional arrays and to
+The data and commands are created as multidimensional arrays, and to
 understand the API of DataHandler you need to understand the
 hierarchy of these two arrays.
 
-.. caution::
+..  caution::
+    The DataHandler needs a properly configured :ref:`TCA <t3tca:start>`. If
+    your field is not configured in the TCA the DataHandler will not be able to
+    interact with it. This also is the case if you configured
+    `"type"="none"` (which is in fact a valid type) or if an invalid
+    type is specified. In that case, the DataHandler is not
+    able to determine the correct value of the field.
 
-   The DataHandler needs a properly configured TCA. If your field
-   is not configured in the TCA the DataHandler will not be able to
-   interact with it. This also is the case if you configured
-   "type"="none" (which is in fact a valid type) or if an invalid
-   type is specified. In that case the DataHandler is not
-   able to determine the correct value of the field.
 
-
-.. index:: DataHandler; Commands array
-.. _tce-commands:
+..  index:: DataHandler; Commands array
+..  _tce-commands:
+..  _datahandler-commands:
 
 Basic usage
 ===========
 
-.. code-block:: php
-
-    use TYPO3\CMS\Core\Utility\GeneralUtility;
-    use TYPO3\CMS\Core\DataHandling\DataHandler;
-
-    $dataHandler = GeneralUtility::makeInstance(DataHandler::class);
-
-    $cmd = [];
-    $data = [];
-    $dataHandler->start($data, $cmd);
+..  literalinclude:: _basic_usage.php
+    :language: php
 
 After this initialization you usually want to perform the actual operations by
 calling one (or both) of these two methods:
 
-.. code-block:: php
+..  code-block:: php
 
     $dataHandler->process_datamap();
     $dataHandler->process_cmdmap();
 
-.. note::
+..  note::
     Any error that might have occurred during your DataHandler operations can be
     accessed via its public property :php:`$dataHandler->errorLog`.
 
@@ -67,7 +65,7 @@ Commands array
 
 Syntax:
 
-.. code-block:: none
+..  code-block:: text
 
     $cmd[ tablename ][ uid ][ command ] = value
 
@@ -105,8 +103,9 @@ Description of keywords in syntax:
    :Description:
          The command type you want to execute.
 
-         .. note:: Only *one* command can be executed at a time for each
-                   record! The first command in the array will be taken.
+         .. note::
+            Only *one* command can be executed at a time for each
+            record! The first command in the array will be taken.
 
          See table below for :ref:`command keywords and values <datahandler-command-keywords>`
 
@@ -121,9 +120,9 @@ Description of keywords in syntax:
          See table below for :ref:`command keywords and values <datahandler-command-keywords>`
 
 
-.. index:: DataHandler; Commands keywords
-.. _tce-command-keywords:
-.. _datahandler-command-keywords:
+..  index:: DataHandler; Commands keywords
+..  _tce-command-keywords:
+..  _datahandler-command-keywords:
 
 Command keywords and values
 ---------------------------
@@ -315,23 +314,22 @@ Command keywords and values
              - [comment]: Comment string that goes into the log.
 
 
-.. index:: DataHandler; Commands examples
-.. _tce-command-examples:
+..  index:: DataHandler; Commands examples
+..  _tce-command-examples:
 
-Examples of commands:
----------------------
+Examples of commands
+--------------------
 
-
-.. code-block:: php
-   :caption: EXT:some_extension/Classes/SomeClass.php
+..  code-block:: php
+    :caption: EXT:my_extension/Classes/MyClass.php
 
     $cmd['tt_content'][54]['delete'] = 1;    // Deletes tt_content record with uid=54
     $cmd['tt_content'][1203]['copy'] = -303; // Copies tt_content uid=1203 to the position after tt_content uid=303 (new record will have the same pid as tt_content uid=1203)
     $cmd['tt_content'][1203]['copy'] = 400;  // Copies tt_content uid=1203 to first position in page uid=400
     $cmd['tt_content'][1203]['move'] = 400;  // Moves tt_content uid=1203 to the first position in page uid=400
 
-Accessing the uid of copied records:
-------------------------------------
+Accessing the uid of copied records
+-----------------------------------
 
 The :php:`DataHandler` keeps track of records created by :code:`copy`
 operations in its :php:`$copyMappingArray_merged` property. This
@@ -349,7 +347,7 @@ of a record copy based on the UID of the copied record.
 The structure of the :php:`$copyMappingArray_merged` property looks like this:
 
 ..  code-block:: php
-    :caption: EXT:some_extension/Classes/SomeClass.php
+    :caption: EXT:my_extension/Classes/MyClass.php
 
     $copyMappingArray_merged = [
        <table> => [
@@ -361,8 +359,8 @@ The property contains the names of the manipulated tables as keys and a map
 of original record UIDs and UIDs of record copies as values.
 
 
-.. code-block:: php
-   :caption: EXT:some_extension/Classes/SomeClass.php
+..  code-block:: php
+    :caption: EXT:my_extension/Classes/MyClass.php
 
     $cmd['tt_content'][1203]['copy'] = 400;  // Copies tt_content uid=1203 to first position in page uid=400
     $dataHandler->start([], $cmd);
@@ -371,10 +369,11 @@ of original record UIDs and UIDs of record copies as values.
     $uid = $dataHandler->copyMappingArray_merged['tt_content'][1203];
 
 
-.. index:: DataHandler; Data array
-.. _tce-data:
+..  index:: DataHandler; Data array
+..  _tce-data:
+..  _datahandler-data:
 
-Data Array
+Data array
 ==========
 
 Syntax: :php:`$data['<tablename>'][<uid>]['<fieldname>'] = 'value'`
@@ -430,25 +429,25 @@ Description of keywords in syntax:
          referenced records.
 
 
-.. note::
-   For FlexForms the data array of the FlexForm field is
-   deeper than three levels. The number of possible levels for FlexForms
-   is infinite and defined by the data structure of the FlexForm. But
-   FlexForm fields always end with a "regular value" of course.
+..  note::
+    For :ref:FlexForms <flexforms>` the data array of the FlexForm field is
+    deeper than three levels. The number of possible levels for FlexForms
+    is infinite and defined by the data structure of the FlexForm. But
+    FlexForm fields always end with a "regular value" of course.
 
 
-.. caution::
-   .. versionchanged:: 13.0.1/12.4.11/11.5.35
+..  caution::
+    .. versionchanged:: 13.0.1/12.4.11/11.5.35
 
-   Modifying the :sql:`sys_file` table using DataHandler is blocked since TYPO3
-   version 11.5.35, 12.4.11, and 13.0.1. The table
-   should not be extended and additional fields should be added to
-   :sql:`sys_file_metadata`. See `security advisory TYPO3-CORE-SA-2024-006 <https://typo3.org/security/advisory/typo3-core-sa-2024-006>`__
-   for more information.
+    Modifying the :sql:`sys_file` table using DataHandler is blocked since TYPO3
+    version 11.5.35, 12.4.11, and 13.0.1. The table
+    should not be extended and additional fields should be added to
+    :sql:`sys_file_metadata`. See `security advisory TYPO3-CORE-SA-2024-006 <https://typo3.org/security/advisory/typo3-core-sa-2024-006>`__
+    for more information.
 
 
-.. index:: DataHandler; Data submission
-.. _tce-data-examples:
+..  index:: DataHandler; Data submission
+..  _tce-data-examples:
 
 Examples of data submission
 ---------------------------
@@ -456,8 +455,8 @@ Examples of data submission
 This creates a new page titled "The page title" as the first page
 inside page id 45:
 
-.. code-block:: php
-   :caption: EXT:some_extension/Classes/SomeClass.php
+..  code-block:: php
+    :caption: EXT:my_extension/Classes/MyClass.php
 
     $data['pages']['NEW9823be87'] = [
         'title' => 'The page title',
@@ -468,8 +467,8 @@ inside page id 45:
 This creates a new page titled "The page title" right after page id 45
 in the tree:
 
-.. code-block:: php
-   :caption: EXT:some_extension/Classes/SomeClass.php
+..  code-block:: php
+    :caption: EXT:my_extension/Classes/MyClass.php
 
     $data['pages']['NEW9823be87'] = [
         'title' => 'The page title',
@@ -480,8 +479,8 @@ in the tree:
 This creates two new pages right after each other, located right after
 the page id 45:
 
-.. code-block:: php
-   :caption: EXT:some_extension/Classes/SomeClass.php
+..  code-block:: php
+    :caption: EXT:my_extension/Classes/MyClass.php
 
     $data['pages']['NEW9823be87'] = [
         'title' => 'Page 1',
@@ -501,8 +500,8 @@ happens in that order!
 This creates a new content record with references to existing and
 one new system category:
 
-.. code-block:: php
-   :caption: EXT:some_extension/Classes/SomeClass.php
+..  code-block:: php
+    :caption: EXT:my_extension/Classes/MyClass.php
 
     $data['sys_category']['NEW9823be87'] = [
         'title' => 'New category',
@@ -518,14 +517,16 @@ one new system category:
         ],
     ];
 
-.. note::
-   To get real uid of the record you have just created use DataHandler's `substNEWwithIDs` property like: :php:`$uid = $dataHandler->substNEWwithIDs['NEW9823be87'];`
+..  note::
+    To get real uid of the record you have just created use DataHandler's
+    `substNEWwithIDs` property like:
+    :php:`$uid = $dataHandler->substNEWwithIDs['NEW9823be87'];`
 
 This updates the page with uid=9834 to a new title, "New title for
 this page", and no\_cache checked:
 
 .. code-block:: php
-   :caption: EXT:some_extension/Classes/SomeClass.php
+   :caption: EXT:my_extension/Classes/MyClass.php
 
     $data['pages'][9834] = [
         'title' => 'New title for this page',
@@ -533,9 +534,8 @@ this page", and no\_cache checked:
     ];
 
 
-
-.. index:: DataHandler; Clear cache
-.. _tce-clear-cache:
+..  index:: DataHandler; Clear cache
+..  _tce-clear-cache:
 
 Clear cache
 ===========
@@ -544,8 +544,8 @@ DataHandler also has an API for clearing the cache tables of TYPO3:
 
 Syntax
 
-.. code-block:: php
-   :caption: EXT:some_extension/Classes/SomeClass.php
+..  code-block:: php
+    :caption: EXT:my_extension/Classes/MyClass.php
 
     $dataHandler->clear_cacheCmd($cacheCmd);
 
@@ -581,8 +581,8 @@ Syntax
          TSconfig "options.clearCache.pages".
 
 
-.. index:: Hook; Clear cache
-.. _tce-cache-hook:
+..  index:: Hook; Clear cache
+..  _tce-cache-hook:
 
 Clear cache using cache tags
 ----------------------------
@@ -591,28 +591,36 @@ Every processing of data or commands is finalized with flushing a few caches in 
 
 By default the following cache tags are flushed:
 
-*  The table name of the updated record, e.g. :php:`pages` when updating a page or
-   :php:`tx_myextension_mytable` when updating a record of this table.
-*  A combination of table name and record UID, e.g. :php:`pages_10` when
-   updating the page with UID 10 or :php:`tx_myextension_mytable_20` when
-   updating the record with UID 20 of this table.
-*  A page UID prefixed with :php:`pageID_` (:php:`pageId_<page-uid>`), e.g.
-   :php:`pageId_10` when updating a page with UID 10 (additionally all related
-   pages, see
-   :ref:`clearcache-pagegrandparent <t3tsconfig:pagetcemain-clearcache-pagegrandparent>`
-   and
-   :ref:`clearcache-pagesiblingchildren <t3tsconfig:pagetcemain-clearcache-pagesiblingchildren>`)
-   and :php:`pageId_10` when
-   updating a record if a record of any table placed on the page with UID 10
-   (:php:`<table>.pid = 10`) is updated.
+*   The table name of the updated record, e.g. :php:`pages` when updating a page or
+    :php:`tx_myextension_mytable` when updating a record of this table.
+*   A combination of table name and record UID, e.g. :php:`pages_10` when
+    updating the page with UID 10 or :php:`tx_myextension_mytable_20` when
+    updating the record with UID 20 of this table.
+*   A page UID prefixed with :php:`pageID_` (:php:`pageId_<page-uid>`), e.g.
+    :php:`pageId_10` when updating a page with UID 10 (additionally all related
+    pages, see
+    :ref:`clearcache-pagegrandparent <t3tsconfig:pagetcemain-clearcache-pagegrandparent>`
+    and
+    :ref:`clearcache-pagesiblingchildren <t3tsconfig:pagetcemain-clearcache-pagesiblingchildren>`)
+    and :php:`pageId_10` when
+    updating a record if a record of any table placed on the page with UID 10
+    (:php:`<table>.pid = 10`) is updated.
 
-Notice that you can also use the :php:`TypoScriptFrontendController::addCacheTags()` method to register additional tags for the cache entry of the current page while it is rendered. This way you can implement an elaborate caching behavior which ensures that every record update in the TYPO3 backend (which is processed by the :php:`DataHandler`) automatically flushes the cache of all pages where that record is displayed.
+Notice that you can also use the :php:`TypoScriptFrontendController::addCacheTags()`
+method to register additional tags for the cache entry of the current page while
+it is rendered. This way you can implement an elaborate caching behavior which
+ensures that every record update in the TYPO3 backend (which is processed by the
+:php:`DataHandler`) automatically flushes the cache of all pages where that
+record is displayed.
 
-Following the rules mentioned above you could register cache tags from within
-your Extbase plugin (e.g. controller or a custom viewhelper):
+Following the rules mentioned above you could register :ref:`cache tags <caching>`
+from within your :ref:`Extbase <extbase>` plugin (for example, controller or a
+custom ViewHelper):
 
-.. code-block:: php
-   :caption: EXT:some_extension/Classes/Controller/SomeController.php
+..  todo: Adjust example as TSFE cannot be injected anymore since TYPO3 v12
+
+..  code-block:: php
+    :caption: EXT:my_extension/Classes/Controller/SomeController.php
 
     public function __construct(TypoScriptFrontendController $frontendController)
     {
@@ -628,7 +636,7 @@ your Extbase plugin (e.g. controller or a custom viewhelper):
         ]);
     }
 
-Hook for Cache Post-processing
+Hook for cache post-processing
 ------------------------------
 
 You can configure cache post-processing with a user defined PHP
@@ -640,8 +648,8 @@ function. Configuration of the hook can be done from
     :language: php
     :caption: EXT:my_extension/ext_localconf.php
 
-.. index:: DataHandler; Flags
-.. _tce-flags:
+..  index:: DataHandler; Flags
+..  _tce-flags:
 
 Flags in DataHandler
 ====================
