@@ -109,7 +109,7 @@ Invoking 2nd-party (non-Core library) dependency methods
 -------------------------------------
 
 The TYPO3 core refrains from employing named arguments when calling library
-code from dependent packages unless the library explicitly mandates such usage
+code ("2nd-party") from dependent packages unless the library explicitly mandates such usage
 and defines its variable names as part of the API, a practice seldom observed
 currently.
 
