@@ -208,7 +208,7 @@ You can use the :php:`\TYPO3\CMS\Core\PasswordPolicy\PasswordPolicyValidator` to
 password using the validators configured in :php:`$GLOBALS['TYPO3_CONF_VARS']['SYS']['passwordPolicies']`.
 
 The class cannot be injected as it must be instantiated with an action. Available actions can be found in
-enum :php:`\TYPO3\CMS\Core\PasswordPolicy\PasswordPolicyAction`.
+enum :t3src:`core/Classes/PasswordPolicy/PasswordPolicyAction.php`.
 
 ..  rubric:: Example:
 
