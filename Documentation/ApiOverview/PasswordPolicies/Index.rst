@@ -210,7 +210,7 @@ password using the validators configured in :php:`$GLOBALS['TYPO3_CONF_VARS']['S
 The class cannot be injected as it must be instantiated with an action. Available actions can be found in
 enum :php:`\TYPO3\CMS\Core\PasswordPolicy\PasswordPolicyAction`.
 
-..  rubric:: Example
+..  rubric:: Example:
 
 In the following example a :ref:`command <symfony-console-commands>` to generate
 a public-private key pair validates the password from user input against the
