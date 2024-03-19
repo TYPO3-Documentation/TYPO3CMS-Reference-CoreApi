@@ -89,7 +89,7 @@ Then assign the custom password policy `simple` to frontend and/or backend
 context:
 
 ..  code-block:: php
-    :caption: config/system/settings.php | typo3conf/system/settings.php
+    :caption: config/system/additional.php | typo3conf/system/additional.php
 
     $GLOBALS['TYPO3_CONF_VARS']['BE']['passwordPolicy'] = 'simple';
     $GLOBALS['TYPO3_CONF_VARS']['FE']['passwordPolicy'] = 'simple';
