@@ -67,7 +67,7 @@ or vice versa without clear further benefits.
 Leveraging Named Arguments in PCPP Value Objects
 ------------------------------------------------
 
-Recent advancements in the TYPO3 core codebase emphasize the separation of
+Advancements in the TYPO3 Core codebase emphasize the separation of
 functionality and state, leading to the broad utilisation of value objects.
 Consider the following example:
 
