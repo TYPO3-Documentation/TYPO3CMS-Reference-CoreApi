@@ -168,7 +168,7 @@ transport
       setting.
 
    mbox
-      This doesn't send any mail out, but instead will write every outgoing mail
+      This does not send any mail out, but instead will write every outgoing mail
       to a file adhering to the RFC 4155 mbox format, which is a simple text
       file where the mails are concatenated. Useful for debugging the mail
       sending process and on development machines which cannot send mails to the
