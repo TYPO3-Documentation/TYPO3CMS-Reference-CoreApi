@@ -610,7 +610,7 @@ productionExceptionHandler
    Note: The configured "productionExceptionHandler" is used if
    :ref:`[SYS][displayErrors]<typo3ConfVars_sys_displayErrors>` is set to "0"
    or is set to "-1" and
-   :ref:`[SYS][devIPmask]<typo3ConfVars_sys_devIPmask>` doesn't match the user's IP.
+   :ref:`[SYS][devIPmask]<typo3ConfVars_sys_devIPmask>` does not match the user's IP.
 
 .. index::
    TYPO3_CONF_VARS SYS; debugExceptionHandler
