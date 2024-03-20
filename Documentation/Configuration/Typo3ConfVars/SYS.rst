@@ -610,7 +610,7 @@ productionExceptionHandler
    Note: The configured "productionExceptionHandler" is used if
    :ref:`[SYS][displayErrors]<typo3ConfVars_sys_displayErrors>` is set to "0"
    or is set to "-1" and
-   :ref:`[SYS][devIPmask]<typo3ConfVars_sys_devIPmask>` doesnt match the user's IP.
+   :ref:`[SYS][devIPmask]<typo3ConfVars_sys_devIPmask>` doesn't match the user's IP.
 
 .. index::
    TYPO3_CONF_VARS SYS; debugExceptionHandler
@@ -950,7 +950,7 @@ linkHandler
     *   `url` (see :t3src:`core/Classes/LinkHandling/UrlLinkHandler.php`)
     *   `email` (see :t3src:`core/Classes/LinkHandling/EmailLinkHandler.php`)
     *   `record` (see :t3src:`core/Classes/LinkHandling/RecordLinkHandler.php`)
-    *   `phone` (see :t3src:`core/Classes/LinkHandling/TelephoneLinkHandler.php`)
+    *   `telephone` (see :t3src:`core/Classes/LinkHandling/TelephoneLinkHandler.php`)
 
     Additional link handlers can be added by extensions.
 
