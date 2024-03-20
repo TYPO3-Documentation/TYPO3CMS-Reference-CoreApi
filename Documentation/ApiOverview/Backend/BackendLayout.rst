@@ -59,7 +59,7 @@ The entries title and icon are being used to display the backend layout options 
 
 The overall grid size will be defined by :typoscript:`config.backend_layout.colCount` and :typoscript:`rowCount`.
 Additional rows in the :typoscript:`rows` array and additional columns in the each rows :typoscript:`columns` section
-will be ignored when they are greater then :typoscript:`rowCount` or :typoscript:`colCount` respectively.
+will be ignored when they are greater than :typoscript:`rowCount` or :typoscript:`colCount` respectively.
 
 Each column position can span several columns and or several rows. Each column position must have a distinct number
 between 0 and n. It is best practice to always assign "0" to the main column if there is such a thing as a

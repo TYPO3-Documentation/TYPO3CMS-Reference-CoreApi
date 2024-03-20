@@ -10,7 +10,7 @@ MAIL settings
 =============
 
 The following configuration variables can be used to configure settings for
-the sending mails by TYPO3:
+the sending of mails by TYPO3:
 
 ..  contents::
     :local:
@@ -132,8 +132,9 @@ validators
    Available validators are:
 
    *  :php:`\Egulias\EmailValidator\Validation\DNSCheckValidation`
-   *  :php:`\Egulias\EmailValidator\Validation\SpoofCheckValidation`
    *  :php:`\Egulias\EmailValidator\Validation\NoRFCWarningsValidation`
+   *  :php:`\Egulias\EmailValidator\Validation\RFCValidation`
+   *  :php:`\Egulias\EmailValidator\Validation\SpoofCheckValidation`
 
    or by implementing a custom validator.
 
@@ -158,7 +159,7 @@ transport
 
    sendmail
       Sends messages by communicating with a locally installed MTA -
-      such as sendmail. See setting transport_sendmail_command bellow.
+      such as sendmail. See setting transport_sendmail_command below.
 
    dsn
       Sends messages with the Symfony mailer, see
@@ -167,7 +168,7 @@ transport
       setting.
 
    mbox
-      This doesnt send any mail out, but instead will write every outgoing mail
+      This doesn't send any mail out, but instead will write every outgoing mail
       to a file adhering to the RFC 4155 mbox format, which is a simple text
       file where the mails are concatenated. Useful for debugging the mail
       sending process and on development machines which cannot send mails to the
@@ -250,8 +251,8 @@ transport_smtp_stream_options
 .. confval:: $GLOBALS['TYPO3_CONF_VARS']['MAIL']['transport_smtp_stream_options']
 
    :Path: $GLOBALS['TYPO3_CONF_VARS']['MAIL']
-   :type: bool
-   :Default: false
+   :type: array
+   :Default: null
 
    *only with transport=smtp* Sets additional stream options.
 

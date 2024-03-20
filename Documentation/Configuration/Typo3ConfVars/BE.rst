@@ -325,7 +325,7 @@ loginRateLimitIpExcludeList
    :type: string
    :Default: ''
 
-   IP-numbers (with :php:`*`-wildcards) that are excluded from rate limiting.
+   IP addresses (with :php:`*`-wildcards) that are excluded from rate limiting.
    Syntax similar to :ref:`[BE][IPmaskList]<typo3ConfVars_be_IPmaskList>`.
    An empty value disables the exclude list check.
 
@@ -418,7 +418,7 @@ IPmaskList
    :type: list
    :Default: ''
 
-   Lets you define a list of IP-numbers (with \*-wildcards) that are the
+   Lets you define a list of IP addresses (with \*-wildcards) that are the
    ONLY ones allowed access to ANY backend activity. On error an error header
    is sent and the script exits. Works like IP masking for users
    configurable through TSconfig.
