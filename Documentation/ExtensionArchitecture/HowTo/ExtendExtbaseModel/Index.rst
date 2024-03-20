@@ -156,17 +156,20 @@ Register the extended model
 ---------------------------
 
 The extended model needs to be registered for :ref:`Extbase persistence <extbase-Persistence>` in file
-:file:`Configuration/Extbase/Persistence/Classes.php`.
+:file:`Configuration/Extbase/Persistence/Classes.php` and :file:`ext_localconf.php`.
 
 ..  literalinclude:: _Classes.php
     :language: php
     :caption: EXT:my_extension/Configuration/Extbase/Persistence/Classes.php
 
+..  literalinclude:: _ext_localconf.php
+    :language: php
+    :caption: EXT:my_extension/ext_localconf.php
 
 ..  _extending-extbase-model_extend_original_repository:
 
-Extend the original repository
-------------------------------
+Extend the original repository (optional)
+-----------------------------------------
 
 Likewise extend the original repository:
 
@@ -182,7 +185,6 @@ If you have no need for additional repository methods you can leave the body of
 this class empty. However, for Extbase internal reasons you have to create this
 repository even if you need no additional functionality.
 
-
 ..  _extending-extbase-model_register_extended_repository:
 
 Register the extended repository
@@ -193,7 +195,7 @@ The extended repository needs to be registered with Extbase in your extensions
 Extbase to use your repository instead of the original one whenever the original
 repository is requested via Dependency Injection in a controller or service.
 
-..  literalinclude:: _ext_localconf.php
+..  literalinclude:: _ext_localconf_repository.php
     :language: php
     :caption: EXT:my_extension/ext_localconf.php
 
