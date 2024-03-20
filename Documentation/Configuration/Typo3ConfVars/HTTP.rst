@@ -105,7 +105,7 @@ connect_timeout
    :Default: 10
 
    Default timeout for connection in seconds. Exception will be thrown if
-   connecting to a remote host takes longer then this timeout.
+   connecting to a remote host takes longer than this timeout.
 
 .. index::
    TYPO3_CONF_VARS HTTP; proxy
