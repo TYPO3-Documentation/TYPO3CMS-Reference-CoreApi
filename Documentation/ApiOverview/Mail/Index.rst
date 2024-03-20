@@ -394,7 +394,7 @@ Read more aboout :ref:`Getting the PSR-7 request object <getting-typo3-request-o
 contexts. In a context where no valid request object can be retrieved, such as in a 
 :ref:`Console command <t3coreapi:symfony-console-commands>` the affected ViewHelpers cannot be used.
 
-Trying to use these ViewHelpers without a valid requst throws an :ref:`error <t3exceptions:Exceptions/1639819269>` 
+Trying to use these ViewHelpers without a valid request throws an :ref:`error <t3exceptions:Exceptions/1639819269>` 
 like the following:
 
 ..  code-block:: plain
