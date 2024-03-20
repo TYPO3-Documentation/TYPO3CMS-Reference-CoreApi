@@ -397,7 +397,7 @@ contexts. In a context where no valid request object can be retrieved, such as i
 Trying to use these ViewHelpers without a valid request throws an :ref:`error <t3exceptions:Exceptions/1639819269>` 
 like the following:
 
-..  code-block:: plain
+..  code-block:: text
     :caption: Example error output
 
     [ERROR] The rendering context of ViewHelper f:link.page is missing a valid request object.  
