@@ -329,7 +329,7 @@ sure the paths are setup as described in :ref:`mail-configuration-fluid`:
     use TYPO3\CMS\Core\Mail\FluidEmail;
     use TYPO3\CMS\Core\Mail\MailerInterface;
 
-    $email = GeneralUtility::makeInstance(FluidEmail::class);
+    $email = new FluidEmail();
     $email
         ->to('contact@example.org')
         ->from(new Address('jeremy@example.org', 'Jeremy'))
@@ -363,7 +363,7 @@ and use this within the Fluid template:
 
 ..  code-block:: php
 
-    $email = GeneralUtility::makeInstance(FluidEmail::class);
+    $email = new FluidEmail();
     $email
         ->to('contact@example.org')
         ->assign('language', 'de');
@@ -393,6 +393,7 @@ Fluid:
 
     // Create the message
     $mail = GeneralUtility::makeInstance(MailMessage::class);
+    $email = new MailMessage();
 
     // Prepare and send the message
     $mail
@@ -433,7 +434,7 @@ Or, if you prefer, do not concatenate the calls:
     use TYPO3\CMS\Core\Utility\GeneralUtility;
     use TYPO3\CMS\Core\Mail\MailMessage;
 
-    $mail = GeneralUtility::makeInstance(MailMessage::class);
+    $email = new MailMessage();
     $mail->from(new Address('john.doe@example.org', 'John Doe'));
     $mail->to(
         new Address('receiver@example.org', 'Max Mustermann'),
@@ -525,12 +526,12 @@ This is how you can use these defaults:
     use TYPO3\CMS\Core\Utility\MailUtility;
 
     $from = MailUtility::getSystemFrom();
-    $mail = GeneralUtility::makeInstance(MailMessage::class);
+    $email = new MailMessage();
 
     // As getSystemFrom() returns an array we need to use the setFrom method
-    $mail->setFrom($from);
+    $email->setFrom($from);
     // ...
-    $mail->send();
+    $email->send();
 
 In case of the problem "Mails are not sent" in your extension, try to set a
 ``ReturnPath:``. Start as before but add:
