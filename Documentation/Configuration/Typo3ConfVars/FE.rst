@@ -203,8 +203,9 @@ loginRateLimitIpExcludeList
    :type: string
    :Default: ''
 
-   IP-numbers (with :php:`*`-wildcards) that are excluded from rate limiting.
-   Syntax similar to :ref:`[BE][IPmaskList]<typo3ConfVars_be_IPmaskList>`.
+   IP addresses (with :php:`*`-wildcards) that are excluded from rate limiting.
+   Syntax similar to :ref:`[BE][IPmaskList]<typo3ConfVars_be_IPmaskList>`
+   and :ref:`[BE][loginRateLimitIpExcludeList]<typo3ConfVars_be_loginRateLimitIpExcludeList>`.
    An empty value disables the exclude list check.
 
 .. index::
@@ -306,7 +307,7 @@ lifetime
    :type: int
    :Default: 0
 
-   If greater then 0 and the option permalogin is greater or equal 0, the
+   If greater than 0 and the option permalogin is greater or equal 0, the
    cookie of FE users will have a lifetime of the number of seconds this
    value indicates. Otherwise it will be a session cookie (deleted when
    browser is shut down). Setting this value to 604800 will result in automatic
@@ -340,7 +341,7 @@ sessionDataLifetime
    :type: int
    :Default: 86400
 
-   If greater then 0, the session data of an anonymous session will timeout
+   If greater than 0, the session data of an anonymous session will timeout
    and be removed after the number of seconds given
    (86400 seconds represents 24 hours).
 
@@ -371,7 +372,7 @@ permalogin
       Permanent login is forced to be enabled.
 
    In any case, permanent login is only possible if
-   :ref:`[FE][lifetime] <typo3ConfVars_fe_lifetime>` lifetime is greater then 0.
+   :ref:`[FE][lifetime] <typo3ConfVars_fe_lifetime>` lifetime is greater than 0.
 
 .. index::
    TYPO3_CONF_VARS FE; cookieDomain
@@ -578,7 +579,7 @@ cacheHash
 cachedParametersWhiteList
 _________________________
 
-.. confval:: $GLOBALS['TYPO3_CONF_VARS']['FE']['cacheHash']['cachedParametersWhiteList']['cacheHash']
+.. confval:: $GLOBALS['TYPO3_CONF_VARS']['FE']['cacheHash']['cachedParametersWhiteList']
 
    :type: array
    :Default: []
