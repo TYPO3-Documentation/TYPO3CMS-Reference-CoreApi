@@ -104,7 +104,7 @@ The :file:`Configuration` folder contains several subfolders:
 :file:`Configuration/FlexForms/`
     Contains the configuration of additional input fields to
     configure plugins using the :ref:`FlexForm <flexforms>` format.
-:file:`Configuration/TCA`
+:file:`Configuration/TCA/`
     Contains the :ref:`TYPO3 configuration array (TCA) <t3tca:introduction>`
     (PHP arrays).
 :file:`Configuration/TCA/Overrides`
