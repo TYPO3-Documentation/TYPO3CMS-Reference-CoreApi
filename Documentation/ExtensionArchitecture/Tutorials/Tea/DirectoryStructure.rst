@@ -107,7 +107,7 @@ The :file:`Configuration` folder contains several subfolders:
 :file:`Configuration/TCA/`
     Contains the :ref:`TYPO3 configuration array (TCA) <t3tca:introduction>`
     (PHP arrays).
-:file:`Configuration/TCA/Overrides`
+:file:`Configuration/TCA/Overrides/`
     Can be used to extend the TCA of other extensions. They can be extended
     by direct array manipulation or preferably by calls to
     API functions.
