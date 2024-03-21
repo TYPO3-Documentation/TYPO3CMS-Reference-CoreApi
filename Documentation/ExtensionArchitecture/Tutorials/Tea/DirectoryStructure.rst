@@ -111,7 +111,7 @@ The :file:`Configuration` folder contains several subfolders:
     Can be used to extend the TCA of other extensions. They can be extended
     by direct array manipulation or preferably by calls to
     API functions.
-:file:`Configuration/TsConfig`
+:file:`Configuration/TsConfig/`
     Contains :ref:`TSconfig <t3tsconfig:start>` configuration for the TYPO3
     backend on page or user level in TypoScript syntax. Our extension
     does not contain TSconfig, so the folder is only a placeholder here.
