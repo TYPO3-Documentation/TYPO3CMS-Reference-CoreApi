@@ -30,7 +30,7 @@ On the first level `EXT:tea <https://github.com/TYPO3-Documentation/tea>`__ has 
 Directory :file:`Classes`
 -------------------------
 
-The :file:`Classes` folder should contain all the PHP classes provided by the
+The :file:`Classes/` folder should contain all the PHP classes provided by the
 extension. Otherwise they will not be available in the default
 :ref:`autoloading <autoload>`. (See documentation on the :ref:`extension-classes` folder).
 
