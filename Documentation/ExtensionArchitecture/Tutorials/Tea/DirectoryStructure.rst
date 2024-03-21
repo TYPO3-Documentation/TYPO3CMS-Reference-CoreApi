@@ -136,7 +136,7 @@ Directory :file:`Resources/`
 
 See also documentation on the :ref:`extension-Resources` folder.
 
-The :file:`Resources` folder contains two sub folders that are
+The :file:`Resources/` folder contains two sub folders that are
 further divided up:
 
 ..  code-block:: none
