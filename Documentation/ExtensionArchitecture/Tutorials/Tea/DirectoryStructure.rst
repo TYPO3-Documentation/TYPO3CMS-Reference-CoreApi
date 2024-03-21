@@ -53,7 +53,7 @@ The key of the psr-4 array, here :php:`'TTN\\Tea\\'`, defines the namespace
 for all classes in order to be found by
 :ref:`PSR-4 autoloading <autoload>`.
 
-The :file:`Classes` folder contains subfolders:
+The :file:`Classes/` folder contains subfolders:
 
 ..  code-block:: none
     :caption: Directory structure of EXT:tea
