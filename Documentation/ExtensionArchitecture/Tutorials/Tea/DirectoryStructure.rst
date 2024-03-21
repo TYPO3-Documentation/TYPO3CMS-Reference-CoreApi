@@ -131,7 +131,7 @@ Directory :file:`Documentation/`
 The :file:`Documentation` folder contains files from which
 documentation is rendered. See :ref:`extension-files-documentation`.
 
-Directory :file:`Resources`
+Directory :file:`Resources/`
 ---------------------------
 
 See also documentation on the :ref:`extension-Resources` folder.
