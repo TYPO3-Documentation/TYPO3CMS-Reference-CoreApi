@@ -125,7 +125,7 @@ The :file:`Configuration` folder contains several subfolders:
     :ref:`dependency injection <Dependency-Injection>`. See also
     :ref:`extension-configuration-services-yaml`.
 
-Directory :file:`Documentation`
+Directory :file:`Documentation/`
 -------------------------------
 
 The :file:`Documentation` folder contains files from which
