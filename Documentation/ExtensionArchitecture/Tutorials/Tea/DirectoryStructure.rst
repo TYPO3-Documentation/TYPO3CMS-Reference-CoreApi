@@ -101,7 +101,7 @@ The :file:`Configuration` folder contains several subfolders:
         |   └── setup.typoscript
         └──  Services.yaml
 
-:file:`Configuration/FlexForms`
+:file:`Configuration/FlexForms/`
     Contains the configuration of additional input fields to
     configure plugins using the :ref:`FlexForm <flexforms>` format.
 :file:`Configuration/TCA`
