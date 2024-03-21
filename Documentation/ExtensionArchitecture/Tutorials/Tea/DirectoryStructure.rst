@@ -36,7 +36,7 @@ extension. Otherwise they will not be available in the default
 
 
 In the :file:`composer.json` we define that all PHP classes are
-automatically loaded from the :file:`Classes` directory (also
+automatically loaded from the :file:`Classes/` directory (also
 defined in file:`ext_emconf.php` in legacy installations):
 
 ..  tabs::
