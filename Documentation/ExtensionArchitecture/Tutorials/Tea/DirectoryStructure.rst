@@ -128,7 +128,7 @@ The :file:`Configuration` folder contains several subfolders:
 Directory :file:`Documentation/`
 -------------------------------
 
-The :file:`Documentation` folder contains files from which
+The :file:`Documentation/` folder contains files from which
 documentation is rendered. See :ref:`extension-files-documentation`.
 
 Directory :file:`Resources/`
