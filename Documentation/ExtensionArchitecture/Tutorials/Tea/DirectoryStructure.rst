@@ -165,7 +165,7 @@ further divided up:
     **must** go in this directory. Otherwise they are not accessible
     (depending on the setup of the installation).
 
-Directory :file:`Tests`
+Directory :file:`Tests/`
 -----------------------
 
 Contains automatic tests (topic not covered by this tutorial).
