@@ -49,21 +49,21 @@ submitting log messages, the :php:`log()` method:
 
 which takes three parameters:
 
-..  option:: $level
-
+..  confval:: $level
+    :name: logger-log-level
     :Type: integer
 
     One of the defined log levels, see the section
     :ref:`logging-logger-shortcuts`.
 
-..  option:: $message
-
+..  confval:: $message
+    :name: logger-log-message
     :Type: string | :php:`\Stringable`
 
     The log message itself.
 
-..  option:: $data
-
+..  confval:: $data
+    :name: logger-log-data
     :Type: array
 
     Optional parameter, it can contain additional data, which is added to the
@@ -104,8 +104,8 @@ For each of the severity levels mentioned below, a shorthand method exists in
 ..  _RFC 3164: https://datatracker.ietf.org/doc/html/rfc3164
 
 ..  _label-Debug:
-..  option:: Debug
-
+..  confval:: Debug
+    :name: logger-debug
     :Class constant: :php:`\Psr\Log\LogLevel::DEBUG`
     :Shorthand method: :php:`$this->logger->debug($message, $context);`
 
@@ -113,8 +113,8 @@ For each of the severity levels mentioned below, a shorthand method exists in
     development of PHP code.
 
 ..  _label-Informational:
-..  option:: Informational
-
+..  confval:: Informational
+    :name: logger-info
     :Class constant: :php:`\Psr\Log\LogLevel::INFO`
     :Shorthand method: :php:`$this->logger->info($message, $context);`
 
@@ -125,8 +125,8 @@ For each of the severity levels mentioned below, a shorthand method exists in
     *   Logging of SQL statements.
 
 ..  _label-notice:
-..  option:: Notice
-
+..  confval:: Notice
+    :name: logger-notice
     :Class constant: :php:`\Psr\Log\LogLevel::NOTICE`
     :Shorthand method: :php:`$this->logger->notice($message, $context);`
 
@@ -137,8 +137,8 @@ For each of the severity levels mentioned below, a shorthand method exists in
     *   Logging of SQL statements.
 
 ..  _label-warning:
-..  option:: Warning
-
+..  confval:: Warning
+    :name: logger-warning
     :Class constant: :php:`\Psr\Log\LogLevel::WARNING`
     :Shorthand method: :php:`$this->logger->warning($message, $context);`
 
@@ -148,8 +148,8 @@ For each of the severity levels mentioned below, a shorthand method exists in
     *   Undesirable events that are not necessarily wrong.
 
 ..  _label-error:
-..  option:: Error
-
+..  confval:: Error
+    :name: logger-error
     :Class constant: :php:`\Psr\Log\LogLevel::ERROR`
     :Shorthand method: :php:`$this->logger->error($message, $context);`
 
@@ -160,8 +160,8 @@ For each of the severity levels mentioned below, a shorthand method exists in
     *   A white screen is shown.
 
 ..  _label-critical:
-..  option:: Critical
-
+..  confval:: Critical
+    :name: logger-critical
     :Class constant: :php:`\Psr\Log\LogLevel::CRITICAL`
     :Shorthand method: :php:`$this->logger->critical($message, $context);`
 
@@ -172,8 +172,8 @@ For each of the severity levels mentioned below, a shorthand method exists in
     *   Data is corrupt or outdated.
 
 ..  _label-alert:
-..  option:: Alert
-
+..  confval:: Alert
+    :name: logger-alert
     :Class constant: :php:`\Psr\Log\LogLevel::ALERT`
     :Shorthand method: :php:`$this->logger->alert($message, $context);`
 
@@ -183,10 +183,10 @@ For each of the severity levels mentioned below, a shorthand method exists in
     *   The database is unavailable.
 
 .. _label-emergency:
-..  option:: Emergency
-
-   :Class constant: :php:`\Psr\Log\LogLevel::EMERGENCY`
-   :Shorthand method: :php:`$this->logger->emergency($message, $context);`
+..  confval:: Emergency
+    :name: logger-emergency
+    :Class constant: :php:`\Psr\Log\LogLevel::EMERGENCY`
+    :Shorthand method: :php:`$this->logger->emergency($message, $context);`
 
     Nothing works, the system is unusable. You will likely not be able to reach
     the system. You better have a system administrator reachable when this
