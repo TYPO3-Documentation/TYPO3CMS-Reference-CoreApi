@@ -225,7 +225,7 @@ Examples:
 
 See available :ref:`parameter types <database-connection-parameter-types>`.
 
-Aggregate Functions
+Aggregate functions
 ===================
 
 Aggregate functions used in :sql:`SELECT` parts, often combined with
@@ -273,8 +273,32 @@ Read :ref:`how to correctly instantiate <database-query-builder-instantiation>`
 a query builder with the connection pool.
 
 
-Various Expressions
+Various expressions
 ===================
+
+length()
+--------
+
+The :php:`->length()` string function can be used to return the length of a
+string in bytes. The signature of the method signature is :php:`$fieldName`
+with an optional alias :php:`->length(string $fieldName, string $alias = null)`:
+
+..  code-block:: php
+    :caption: EXT:my_extension/Classes/Domain/Repository/MyTableRepository.php
+
+    // use TYPO3\CMS\Core\Database\Connection;
+    // use TYPO3\CMS\Core\Database\Query\Expression\ExpressionBuilder;
+    $queryBuilder = $this->connectionPool->getQueryBuilderForTable('tt_content');
+    $queryBuilder->expr()->comparison(
+        $queryBuilder->expr()->length($fieldName),
+        ExpressionBuilder::GT,
+        $queryBuilder->createNamedParameter(0, Connection::PARAM_INT)
+    );
+
+Read :ref:`how to correctly instantiate <database-query-builder-instantiation>`
+a query builder with the connection pool.
+See available :ref:`parameter types <database-connection-parameter-types>`.
+
 
 trim()
 ------
@@ -308,27 +332,3 @@ The call to :php:`$queryBuilder->expr()-trim()` can be one of the following:
     results in :code:`TRIM(TRAILING "x" FROM "tableName"."fieldName")`
 *   :php:`trim('fieldName', TrimMode::BOTH, 'x')`
     results in :code:`TRIM(BOTH "x" FROM "tableName"."fieldName")`
-
-
-length()
---------
-
-The :php:`->length()` string function can be used to return the length of a
-string in bytes. The signature of the method signature is :php:`$fieldName`
-with an optional alias :php:`->length(string $fieldName, string $alias = null)`:
-
-..  code-block:: php
-    :caption: EXT:my_extension/Classes/Domain/Repository/MyTableRepository.php
-
-    // use TYPO3\CMS\Core\Database\Connection;
-    // use TYPO3\CMS\Core\Database\Query\Expression\ExpressionBuilder;
-    $queryBuilder = $this->connectionPool->getQueryBuilderForTable('tt_content');
-    $queryBuilder->expr()->comparison(
-        $queryBuilder->expr()->length($fieldName),
-        ExpressionBuilder::GT,
-        $queryBuilder->createNamedParameter(0, Connection::PARAM_INT)
-    );
-
-Read :ref:`how to correctly instantiate <database-query-builder-instantiation>`
-a query builder with the connection pool.
-See available :ref:`parameter types <database-connection-parameter-types>`.
