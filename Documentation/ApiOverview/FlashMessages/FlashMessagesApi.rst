@@ -88,7 +88,7 @@ module after a page refresh or the rendering of the next page request
 or render it on your own where ever you want.
 
 In this example the :php:`FlashMessageService` (:php:`TYPO3\CMS\Core\Messaging\FlashMessageService`) 
-is used to add a flash message at the top a module:
+is used to add a flash message at the bottom right of a module:
 
 .. code-block:: php
    :caption: EXT:my_extension/Classes/Controller/SomeController.php
