@@ -17,7 +17,7 @@ final class LogoutEventListener
 {
     public function __construct(
         private readonly KeyFileService $keyFileService,
-        protected readonly Context $context,
+        private readonly Context $context,
     ) {}
 
     public function __invoke(LogoutConfirmedEvent $event): void
