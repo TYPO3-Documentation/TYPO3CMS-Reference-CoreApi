@@ -1,0 +1,13 @@
+services:
+  _defaults:
+    autowire: true
+    autoconfigure: true
+    public: false
+
+  # [...]
+
+  # TODO: delete on dropping TYPO3 v12.4 support
+  MyVendor\MyExtension\EventListener\DeletePrivateKeyOnLogout:
+    tags:
+      - name: event.listener
+        identifier: 'my-extension/delete-private-key-on-logout'
