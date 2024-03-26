@@ -29,6 +29,8 @@ out. This logic is not part of the example below.
     :language: php
     :caption: EXT:my_extension/Classes/EventListeners/DeletePrivateKeyOnLogout.php
 
+..  include:: /_includes/EventsAttributeAdded.rst.txt
+
 To support both TYPO3 v13 and v12.4 register the event listener in the
 :file:`Services.yaml`:
 

@@ -9,10 +9,13 @@ use TYPO3\CMS\Core\Context\UserAspect;
 use TYPO3\CMS\Core\Type\ContextualFeedbackSeverity;
 use TYPO3\CMS\FrontendLogin\Event\LogoutConfirmedEvent;
 
+/*
+TODO: Comment this in once you drop TYPO3 v12.5 support
 #[AsEventListener(
     identifier: 'my-extension/delete-private-key-on-logout',
     before: 'someIdentifier, anotherIdentifier',
 )]
+*/
 final class LogoutEventListener
 {
     public function __construct(
