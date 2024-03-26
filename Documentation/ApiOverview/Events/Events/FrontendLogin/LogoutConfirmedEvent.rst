@@ -17,7 +17,7 @@ Upon logout a private key the user uploaded for decryption of private
 information should be deleted at once. There is only a logout event if the user
 actively clicks the logout button, so if the user would just close the browser
 window there would be no :php:`LogoutConfirmedEvent`. For this case we need
-a second line of defense like a scheduler task (out of scope of this project).
+a second line of defense like a scheduler task (out of scope of this example).
 
 The currently logged in user derived from the :php:`TYPO3\CMS\Core\Context\Context`
 is now an anonymous user that is not logged in. The information on which user
