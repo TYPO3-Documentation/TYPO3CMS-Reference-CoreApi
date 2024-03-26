@@ -23,7 +23,7 @@ The currently logged-in user derived from the :php:`\TYPO3\CMS\Core\Context\Cont
 is now an anonymous user that is not logged in. The information on which user
 just logged out cannot be determined from the context or the methods from the
 event. We therefore need different logic to determine the user who just logged
-out. This logic is not part of the example bellow.
+out. This logic is not part of the example below.
 
 ..  literalinclude:: _LogoutConfirmedEvent/_DeletePrivateKeyOnLogout.php
     :language: php
