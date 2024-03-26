@@ -19,7 +19,7 @@ actively clicks the logout button, so if the user would just close the browser
 window there would be no :php:`LogoutConfirmedEvent`. For this case we need
 a second line of defense like a scheduler task (out of scope of this example).
 
-The currently logged in user derived from the :php:`TYPO3\CMS\Core\Context\Context`
+The currently logged-in user derived from the :php:`\TYPO3\CMS\Core\Context\Context`
 is now an anonymous user that is not logged in. The information on which user
 just logged out cannot be determined from the context or the methods from the
 event. We therefore need different logic to determine the user who just logged
