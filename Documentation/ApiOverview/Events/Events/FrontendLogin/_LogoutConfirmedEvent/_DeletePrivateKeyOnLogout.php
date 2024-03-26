@@ -3,7 +3,6 @@
 namespace MyVendor\MyExtension\EventListener;
 
 use MyVendor\MyExtension\KeyPairHandling\KeyFileService;
-use TYPO3\CMS\Core\Attribute\AsEventListener;
 use TYPO3\CMS\Core\Context\Context;
 use TYPO3\CMS\Core\Context\UserAspect;
 use TYPO3\CMS\Core\Type\ContextualFeedbackSeverity;
