@@ -96,7 +96,7 @@ located in the extension root directory.
 
     files:
       - source: /Resources/Private/Language/
-        translation: /%original_path%/%two_letters_code%.%original_file_name%
+        translation: /Resources/Private/Language/%two_letters_code%.%original_file_name%
         ignore:
           - /Resources/Private/Language/de.*
 
