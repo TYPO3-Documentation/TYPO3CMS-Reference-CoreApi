@@ -485,7 +485,7 @@ Classpath Exclusion
     should not require dependency injection. Also, these objects are created by
     the Extbase persistence layer, which does not support the DI container.
     There are other possible error cases with classes called from outside of an extension
-    or too early during the boot process. It can be necessary to exclude several classes at once with
+    or getting utilized early during the boot process. Then it can be necessary to exclude several classes at once with
     :yaml:`exclude: '../Classes/{Model,Middleware,UserFunc,Api}/*'`  
 
 .. _DependencyInjectionArguments:
