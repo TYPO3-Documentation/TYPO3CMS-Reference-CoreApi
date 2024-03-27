@@ -25,6 +25,7 @@ to return the rendered template:
 
    class ListController
    {
+       protected StandaloneView $view;
        protected ModuleTemplate $moduleTemplate;
 
        /**
@@ -34,6 +35,7 @@ to return the rendered template:
         */
        public function __construct(ModuleTemplate $moduleTemplate = null)
        {
+           $this->view = GeneralUtility::makeInstance(StandaloneView::class);
            $this->moduleTemplate = $moduleTemplate ?? GeneralUtility::makeInstance(ModuleTemplate::class);
        }
 
@@ -62,7 +64,6 @@ This makes it possible to include e.g. Javascript for all actions in the control
       /**
        * Configure template paths for your backend module
        */
-      $this->view = GeneralUtility::makeInstance(StandaloneView::class);
       $this->view->setTemplateRootPaths(['EXT:extension_key/Resources/Private/Templates/List']);
       $this->view->setPartialRootPaths(['EXT:extension_key/Resources/Private/Partials/']);
       $this->view->setLayoutRootPaths(['EXT:extension_key/Resources/Private/Layouts/']);
