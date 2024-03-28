@@ -1,0 +1,7 @@
+services:
+  # Place here the default dependency injection configuration
+
+  MyVendor\MyExtension\EventListener\DeletePrivateKeyOnLogout:
+    tags:
+      - name: event.listener
+        identifier: 'my-extension/delete-private-key-on-logout'
