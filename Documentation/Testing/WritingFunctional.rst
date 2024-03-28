@@ -142,7 +142,8 @@ call :php:`parent::setUp()` before doing own stuff. An example can be found in
         {
             parent::setUp();
 
-            $this->setUpBackendUserFromFixture(1);
+            $this->importCSVDataSet(__DIR__ . '/Fixtures/be_users.csv');
+            $this->setUpBackendUser(1);
             Bootstrap::initializeLanguageObject();
 
             $this->importCSVDataSet(ORIGINAL_ROOT . 'typo3/sysext/backend/Tests/Functional/Domain/Repository/Localization/Fixtures/DefaultPagesAndContent.csv');
