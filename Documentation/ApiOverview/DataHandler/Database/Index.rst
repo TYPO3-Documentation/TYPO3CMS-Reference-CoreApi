@@ -71,53 +71,40 @@ Syntax:
 
 Description of keywords in syntax:
 
-.. t3-field-list-table::
- :header-rows: 1
+..  confval:: tablename
+    :name: datahandler-cmd-tablename
+    :Data type: string
 
- - :Key,20: Key
-   :Type,20: Data type
-   :Description,60: Description
+    Name of the database table. It must be configured in the
+    :php:`$GLOBALS['TCA']` array, otherwise it cannot be processed.
 
+..  confval:: uid
+    :name: datahandler-cmd-uid
+    :Data type: integer
 
- - :Key:
-         tablename
-   :Type:
-         string
-   :Description:
-         Name of the database table. Must be configured in :php:`$GLOBALS['TCA']` array,
-         otherwise it cannot be processed.
+    The UID of the record that is manipulated. This is always an integer.
 
+..  confval:: command
+    :name: datahandler-cmd-command
+    :Data type: string (command keyword)
 
- - :Key:
-         uid
-   :Type:
-         integer
-   :Description:
-         The UID of the record that is manipulated. This is always an integer.
+    The command type you want to execute.
 
+    ..  note::
+        Only *one* command can be executed at a time for each
+        record! The first command in the array will be taken.
 
- - :Key:
-         command
-   :Type:
-         string (command keyword)
-   :Description:
-         The command type you want to execute.
+    See table below for
+    :ref:`command keywords and values <datahandler-command-keywords>`
 
-         .. note::
-            Only *one* command can be executed at a time for each
-            record! The first command in the array will be taken.
+..  confval:: value
+    :name: datahandler-cmd-value
+    :Data type: mixed
 
-         See table below for :ref:`command keywords and values <datahandler-command-keywords>`
+    The value for the command.
 
-
- - :Key:
-         value
-   :Type:
-         mixed
-   :Description:
-         The value for the command
-
-         See table below for :ref:`command keywords and values <datahandler-command-keywords>`
+    See table below for
+    :ref:`command keywords and values <datahandler-command-keywords>`
 
 
 ..  index:: DataHandler; Commands keywords
