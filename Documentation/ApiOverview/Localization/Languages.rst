@@ -6,6 +6,9 @@
 Supported languages
 ===================
 
+..  versionadded:: 13.1
+    Irish Gaelic (ga), Scottish Gaelic (gd) and Maltese (mt) are supported.
+
 The list of supported languages is defined in
 :php:`\TYPO3\CMS\Core\Localization\Locales::$languages`.
 
@@ -33,6 +36,8 @@ The list of supported languages is defined in
         "fo", "Faroese"
         "fr", "French"
         "fr_CA", "French (Canada)"
+        "ga", "Irish Gaelic"
+        "gd", "Scottish Gaelic"
         "gl", "Galician"
         "he", "Hebrew"
         "hi", "Hindi"
@@ -51,6 +56,7 @@ The list of supported languages is defined in
         "mi", "Maori"
         "mk", "Macedonian"
         "ms", "Malay"
+        "mt", "Maltese"
         "nl", "Dutch"
         "no", "Norwegian"
         "pl", "Polish"
