@@ -19,48 +19,46 @@ While page-based routing works out of the box, routing for extensions has to be
 configured explicitly in your :ref:`site configuration <sitehandling>`.
 
 ..  note::
-    There is no graphical user interface available to configure extended
-    routing. All adjustments need to be done via manual editing your website's
+    There is no graphical user interface for configuring extended
+    routing. All adjustments need to be made by manually editing your website's
     :file:`config.yaml` site configuration file (located in
     :file:`config/sites/<yoursite>/config.yaml`).
 
-To map GET parameters to routes, a concept called "enhancers and aspects" has
-been introduced.
+Enhancers and aspects are an important concept in TYPO3 and they are used to map
+GET parameters to routes.
 
 An :ref:`enhancer <routing-advanced-routing-configuration-enhancers>` creates
-variants of a specific page-based route for a specific purpose (e.g. an
-:ref:`Extbase <extbase>` plugin) and enhances the existing route path, which
-can then contain flexible values, so-called "placeholders".
+variations of a specific page-based route for a specific purpose (e.g. an
+:ref:`Extbase <extbase>` plugin) and "enhances" an existing route path, which
+can contain flexible values, so-called "placeholders".
 
-On top, :ref:`aspects <routing-advanced-routing-configuration-aspects>` can be
-registered for a specific enhancer to modify a specific placeholder, like static
+:ref:`Aspects <routing-advanced-routing-configuration-aspects>` can
+be registered for a specific enhancer to modify placeholders, adding static,
 human readable names within the route path or dynamically generated values.
 
-To give you an overview of what the distinction is, we take a regular page which
+To give you an overview of what the distinction is, imagine a web page which
 is available at
 
 :samp:`https://example.org/path-to/my-page`
 
-to access the page with ID *13*.
+(the path mirrors the page structure in the backend) and has page ID *13*.
 
-Enhancers are a way to extend this route with placeholders on top of this
-specific route to a page:
+Enhancers can transform this route to:
 
 :samp:`https://example.org/path-to/my-page/products/<product-name>`
 
-The suffix `/products/<product-name>` to the base route of the page is added by
-an enhancer. The placeholder variable added by the curly braces can then be
-resolved statically or dynamically, or built by an aspect (more commonly
-known as a "mapper").
+An enhancer adds the suffix `/products/<product-name>` to the base route of the
+page. The enhancer uses a placeholder variable which is resolved statically,
+dynamically or built by an aspect or "mapper".
 
 It is possible to use the same enhancer multiple times with different
 configurations. Be aware that it is not possible to combine multiple variants /
 enhancers matching multiple configurations.
 
-However, custom enhancers can be created to overcome special use cases, for
+However, custom enhancers can be created for special use cases, for
 example, when two plugins with multiple parameters each could be configured.
-Otherwise, the first variant matching the URL parameters is used for generation
-and resolving.
+Otherwise, the first variant matching the URL parameters is used for generating
+and resolving the route.
 
 
 .. index:: Routing; Enhancers
@@ -71,11 +69,11 @@ Enhancers
 =========
 
 There are two types of enhancers: decorators and route enhancers. A route
-enhancer is there to replace a set of placeholders and fill in URL parameters
-during URL generation and resolve them properly later. The substitution of
-values with aliases can be achieved by aspects. To simplify, a route enhancer
-specifies how the full route path looks like and which variables are available,
-whereas an aspect takes care of mapping a single variable to a value.
+enhancer replaces a set of placeholders, inserts URL parameters
+during URL generation and then resolves them properly later. The substitution of
+values with aliases can be done by aspects. To simplify, a route enhancer
+specifies what the full route path looks like and which variables are available,
+whereas an aspect maps a single variable to a value.
 
 TYPO3 comes with the following route enhancers out of the box:
 
@@ -150,8 +148,8 @@ a static list of expected values.
 Simple enhancer
 ---------------
 
-The simple enhancer works with various route arguments to map them to an
-argument to be used later.
+The simple enhancer works with route arguments. It maps them to an
+argument to make a URL that can be used later.
 
 ..  code-block:: none
 
@@ -181,8 +179,7 @@ The configuration looks like this:
         _arguments:
           category_id: 'category'
 
-The configuration option :yaml:`routePath` defines the static keyword and the
-available placeholders.
+:yaml:`routePath` defines the static keyword and the placeholders.
 
 ..  note::
     For people coming from :t3ext:`realurl` in previous TYPO3 versions: The
@@ -212,9 +209,9 @@ The result will be an URL like this:
 The base for the plugin enhancer is the configuration of a so-called
 "namespace", in this case `tx_felogin_pi1` - the plugin's namespace.
 
-The plugin enhancer explicitly sets exactly one additional variant for a
-specific use case. In case of the :doc:`frontend login <ext_felogin:Index>`, we
-would need to set up multiple configurations of the plugin enhancer for
+The plugin enhancer explicitly sets exactly one additional variation for a
+specific use case. For the :doc:`frontend login <ext_felogin:Index>`, we
+would need to set up two configurations of the plugin enhancer for
 "forgot password" and "recover password".
 
 ..  code-block:: yaml
@@ -231,24 +228,24 @@ would need to set up multiple configurations of the plugin enhancer for
           user: '[0-9]{1,3}'
           hash: '^[a-zA-Z0-9]{32}$'
 
-If a URL is generated with the given parameters to link to a page, the result
-will look like this:
+If a URL is generated with the above parameters the resulting link
+will be this:
 
 ..  code-block:: none
 
     https://example.org/path-to/my-page/forgot-password/82/ABCDEFGHIJKLMNOPQRSTUVWXYZ012345
 
 ..  note::
-    If the input given to generate the URL does not meet the requirements, the
-    route enhancer does not offer the variant, and the parameters are added to
-    the URL as regular query parameters. For example, if the user parameter
-    would be more than three characters or non-numeric, this enhancer would not
-    match anymore.
+    If the input given to generate the URL does not match, the
+    route enhancer is not triggered, and the parameters are added to
+    the URL as normal query parameters. For example, if the user parameter
+    is more than three characters or non-numeric, this enhancer would not
+    match.
 
 As you see, the plugin enhancer is used to specify placeholders and
 requirements with a given namespace.
 
-If you want to replace the user ID (in this example "82") with the username,
+If you want to replace the user ID (in this example "82") with a username,
 you would need an aspect that can be registered within any enhancer, see
 :ref:`below for details <routing-advanced-routing-configuration-aspects>`.
 
@@ -447,19 +444,19 @@ so instead of having `/en/.html` it would then result in
 Aspects
 =======
 
-Now that we have looked at how to extend a route to a page with arguments and
-insert them as segments in the URL, the detailed logic within a placeholder is
-in an aspect. The most common practice of an aspect is called a mapper. For
-example, a parameter :yaml:`{news}`, which is a UID within TYPO3, is mapped to
-the actual news slug, which is a field within the database table containing the
-cleaned/sanitized title of the news (for example, "software-updates-2022" maps
-to news ID 10).
+Now that we have looked at how to transform a route to a page by using arguments
+inserted into a URL, we will look at aspects. An aspect handles
+the detailed logic within placeholders. The most common part of an aspect is
+called a mapper. For example, parameter :yaml:`{news}`, is a UID within TYPO3,
+and is mapped to the current news slug, which is a field within the database
+table containing the cleaned/sanitized title of the news (for example,
+"software-updates-2022" maps to news ID 10).
 
-An aspect can be a way to modify, beautify or map an argument from the URL
-generation into a placeholder. That's why the terms "mapper" and "modifier" will
-pop up, depending on the different cases.
+An aspect is a way to modify, beautify or map an argument into a placeholder.
+That's why the terms "mapper" and "modifier" will pop up, depending on the
+different cases.
 
-Aspects are registered within one single enhancer configuration with the option
+Aspects are registered within a single enhancer configuration with the option
 :yaml:`aspects` and can be used with any enhancer.
 
 Let us start with some examples first:
@@ -565,10 +562,10 @@ locale of a value to use in multi-language setups:
 LocaleModifier
 --------------
 
-The enhanced part of a route path could be `/archive/{year}/{month}` - however,
-in multi-language setups, it should be possible to rename `/archive/` depending
-on the language that is given for this page translation. This modifier is a
-good example where a route path is modified, but is not affected by arguments.
+If we have an enhanced route path such as `/archive/{year}/{month}`
+it should be possible in multi-language setups to change `/archive/` depending
+on the language of the page. This modifier is a
+good example where a route path is modified, but not affected by arguments.
 
 The configuration could look like this:
 
@@ -593,8 +590,8 @@ The configuration could look like this:
               - locale: 'de_DE.*'
                 value: 'archiv'
 
-You will see the placeholder :yaml:`localized_archive` where the aspect
-replaces the localized archive based on the locale of the language of that page.
+This aspect replaces the placeholder :yaml:`localized_archive` depending on the
+locale of the language of that page.
 
 
 .. index:: Routing; StaticRangeMapper
