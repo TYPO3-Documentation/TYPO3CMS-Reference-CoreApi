@@ -1,10 +1,5 @@
 services:
-  _defaults:
-    autowire: true
-    autoconfigure: true
-    public: false
-
-  # [...]
+  # Place here the default dependency injection configuration
 
   MyVendor\MyExtension\EventListener\DeletePrivateKeyOnLogout:
     tags:
