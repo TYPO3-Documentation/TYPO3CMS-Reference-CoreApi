@@ -610,7 +610,7 @@ By default the following cache tags are flushed:
     updating a record if a record of any table placed on the page with UID 10
     (:php:`<table>.pid = 10`) is updated.
 
-Notice that you can also use the :php:`TypoScriptFrontendController::addCacheTags()`
+Notice that you can also use the :php:`TypoScriptFrontendController->addCacheTags()`
 method to register additional tags for the cache entry of the current page while
 it is rendered. This way you can implement an elaborate caching behavior which
 ensures that every record update in the TYPO3 backend (which is processed by the
@@ -621,24 +621,9 @@ Following the rules mentioned above you could register :ref:`cache tags <caching
 from within your :ref:`Extbase <extbase>` plugin (for example, controller or a
 custom ViewHelper):
 
-..  todo: Adjust example as TSFE cannot be injected anymore since TYPO3 v12
-
-..  code-block:: php
+..  literalinclude:: _SomeController.php
+    :language: php
     :caption: EXT:my_extension/Classes/Controller/SomeController.php
-
-    public function __construct(TypoScriptFrontendController $frontendController)
-    {
-        $this->frontendController = $frontendController;
-    }
-
-    public function showAction(ExampleModel $example): ResponseInterface
-    {
-        // ...
-
-        $this->frontendController->addCacheTags([
-            sprintf('tx_myextension_example_%d', $example->getUid()),
-        ]);
-    }
 
 Hook for cache post-processing
 ------------------------------
