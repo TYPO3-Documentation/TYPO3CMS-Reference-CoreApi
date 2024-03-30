@@ -37,8 +37,6 @@ Read :ref:`how to configure dependency injection in extensions <dependency-injec
     :language: php
     :caption: EXT:my_extension/Classes/EventListeners/DeletePrivateKeyOnLogout.php
 
-..  include:: /_includes/EventsAttributeAdded.rst.txt
-
 API
 ===
 
