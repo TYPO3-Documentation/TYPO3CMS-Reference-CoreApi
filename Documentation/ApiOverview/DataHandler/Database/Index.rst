@@ -94,8 +94,7 @@ Description of keywords in syntax:
         Only *one* command can be executed at a time for each
         record! The first command in the array will be taken.
 
-    See table below for
-    :ref:`command keywords and values <datahandler-command-keywords>`
+    See :ref:`command keywords and values <datahandler-command-keywords>`
 
 ..  confval:: value
     :name: datahandler-cmd-value
@@ -103,8 +102,7 @@ Description of keywords in syntax:
 
     The value for the command.
 
-    See table below for
-    :ref:`command keywords and values <datahandler-command-keywords>`
+    See :ref:`command keywords and values <datahandler-command-keywords>`
 
 
 ..  index:: DataHandler; Commands keywords
@@ -114,195 +112,210 @@ Description of keywords in syntax:
 Command keywords and values
 ---------------------------
 
-.. t3-field-list-table::
- :header-rows: 1
+..  confval:: copy
+    :name: datahandler-cmd-copy
+    :Data type: integer or array
 
- - :Command,20: Command
-   :Type,20: Data type
-   :Value,60: Value
+    The significance of the value depends on whether it is positive or
+    negative:
 
+    Positive value
+        The value points to a page UID. A copy of the record
+        (and possibly child elements/tree below) will be inserted inside that
+        page as the first element.
 
- - :Command:
-         copy
-   :Type:
-         integer
-   :Value:
-         The significance of the value depends on whether it is positive or
-         negative:
+    Negative value
+        The (absolute) value points to another record from the
+        same table as the record being copied. The new record will be inserted
+        on the same page as that record and if :php:`$GLOBALS['TCA'][...]['ctrl']['sortby']`
+        is set, then it will be positioned *after*.
 
-         - Positive value: The value points to a page UID. A copy of the record
-           (and possibly child elements/tree below) will be inserted inside that
-           page as the first element.
+    Zero value
+        Record is inserted on tree root level.
 
-         - Negative value: The (absolute) value points to another record from the
-           same table as the record being copied. The new record will be inserted
-           on the same page as that record and if :php:`$GLOBALS['TCA'][...]['ctrl']['sortby']` is
-           set, then it will be positioned *after*.
+    array
+        The array has to contain the integer value as in examples above and
+        may contain field => value pairs for updates. The array is structured
+        like:
 
-         - Zero value: Record is inserted on tree root level.
+        ..  code-block:: php
 
-         - array: The array has to contain the integer value as in examples above and
-           may contain field => value pairs for updates. The array is structured
-           like:
-
-           .. code-block:: php
-
-              [
-                 'action' => 'paste', // 'paste' is used for both move and copy commands
-                 'target' => $pUid, // Defines the page to insert the record, or record uid to copy after
-                 'update' => $update, // Array with field => value to be updated.
-              ]
+            [
+                'action' => 'paste', // 'paste' is used for both move and copy commands
+                'target' => $pUid,   // Defines the page to insert the record, or record uid to copy after
+                'update' => $update, // Array with field => value to be updated.
+            ]
 
 
- - :Command:
-         move
-   :Type:
-         integer
-   :Value:
-         Works like "copy" but moves the record instead of making a copy.
+..  confval:: move
+    :name: datahandler-cmd-move
+    :DataType: integer
+
+    Works like :php:`copy` but moves the record instead of making a copy.
 
 
- - :Command:
-         delete
-   :Type:
-         1
-   :Value:
-         Value should always be "1"
+..  confval:: delete
+    :name: datahandler-cmd-delete
+    :Data Type: integer (1)
 
-         This action will delete the record (or mark the record "deleted" if
-         configured in :php:`$GLOBALS['TCA']`).
+    Value should always be "1".
 
-
- - :Command:
-         undelete
-   :Type:
-         1
-   :Value:
-         Value should always be "1".
-
-         This action will set the deleted-flag back to 0.
+    This action will delete the record (or mark the record "deleted", if
+    configured in :php:`$GLOBALS['TCA']`).
 
 
- - :Command:
-         localize
-   :Type:
-         integer
-   :Value:
-         Value is an uid of the :php:`sys_language` to localize the record into.
-         Basically a localization of a record is making a copy of the record
-         (possibly excluding certain fields defined with :php:`l10n_mode`) but
-         changing relevant fields to point to the right :php:`sys_language` / original
-         language record.
+..  confval:: undelete
+    :name: datahandler-cmd-undelete
+    :Data Type: integer (1)
 
-         Requirements for a successful localization is this:
+    Value should always be "1".
 
-         - :php:`[ctrl]` options "languageField" and "transOrigPointerField" must be
-           defined for the table
-
-         - A :php:`sys_language` record with the given :php:`sys_language_uid` must
-           exist.
-
-         - The record to be localized by currently be set to "Default" language
-           and not have any value set for the TCA :php:`transOrigPointerField` either.
-
-         - There cannot exist another localization to the given language for the
-           record (looking in the original record PID).
-
-         Apart from this, ordinary permissions apply as if the user wants to
-         make a copy of the record on the same page.
-
-         The :php:`localize` DataHandler command should be used when translating records in "Connected Mode"
-         (strict translation of records from the default language).
-         This command is used when selecting the "Translate" strategy in the content elements translation wizard.
+    This action will set the "deleted" flag back to 0.
 
 
- - :Command:
-         copyToLanguage
-   :Type:
-         integer
-   :Value:
-         It behaves like :php:`localize` command (both record and child records are copied to given language),
-         but does not set :php:`transOrigPointerField` fields (e.g. :php:`l10n_parent`).
+..  confval:: localize
+    :name: datahandler-cmd-localize
+    :Data type: integer
 
-         The :php:`copyToLanguage` command should be used when localizing records in the "Free Mode".
-         This command is used when localizing content elements using translation wizard's "Copy" strategy.
+    The value is an uid of the :php:`sys_language` to localize the record into.
+    Basically a localization of a record is making a copy of the record
+    (possibly excluding certain fields defined with :php:`l10n_mode`) but
+    changing relevant fields to point to the right :php:`sys_language` / original
+    language record.
 
-         .. deprecated:: 11.5
-            Legacy syntax as comma separated value for IRRE localize synchronize
-            command in DataHandler was removed.
+    Requirements for a successful localization is this:
 
- - :Command:
-         inlineLocalizeSynchronize
-   :Type:
-         array
-   :Value:
-         Performs localization or synchronization of child records.
-         The command structure is like:
+    *   :php:`[ctrl]` options "languageField" and "transOrigPointerField" must
+        be defined for the table
 
-         .. code-block:: php
+    *   A :php:`sys_language` record with the given :php:`sys_language_uid` must
+        exist.
 
-             $cmd['tt_content'][13]['inlineLocalizeSynchronize'] = [ // 13 is a parent record uid
-               'field' => 'tx_myfieldname', // field we want to synchronize
-               'language' => 2, // uid of the target language
-               // either the key 'action' or 'ids' must be set
-               'action' => 'localize' // or 'synchronize'
-               'ids' =>  [1, 2, 3] // array of child-ids to be localized
-             ]
+    *   The record to be localized by currently be set to "Default" language
+        and not have any value set for the TCA :php:`transOrigPointerField` either.
 
- - :Command:
-         version
-   :Type:
-         array
-   :Value:
-         Versioning action.
+    *   There cannot exist another localization to the given language for the
+        record (looking in the original record PID).
 
-         **Keys:**
+    Apart from this, ordinary permissions apply as if the user wants to
+    make a copy of the record on the same page.
 
-         - [action] : Keyword determining the versioning action. Options are:
+    The :php:`localize` DataHandler command should be used when translating
+    records in "connected mode" (strict translation of records from the default
+    language). This command is used when selecting the "Translate" strategy in
+    the content elements translation wizard.
 
-           - "new": Indicates that a new version of the record should be
-             created.Additional keys, specific for "new" action:
 
-             - [treeLevels]: *(Only pages)* Integer, -1 to 4, indicating the number
-               of levels of the page tree to version together with a page. This is
-               also referred to as the versioning type:-1 ("element") means only the
-               page record gets versioned (default)0 ("page") means the page +
-               content tables (defined by ctrl-flag :code:`versioning_followPages` )>0
-               ("branch") means the the whole branch is versioned ( *full copy* of
-               all tables), down to the level indicated by the value (1= 1 level
-               down, 2= 2 levels down, etc.). The treeLevel is recorded in the field
-               :code:`t3ver_swapmode` and will be observed when the record is swapped
-               during publishing.
+..  confval:: copyToLanguage
+    :name: datahandler-cmd-copyToLanguage
+    :Data type: integer
 
-             - [label]: Indicates the version label to apply. If not given, a
-               standard label including version number and date is added.
+    It behaves like :php:`localize` command (both record and child records are
+    copied to given language), but does not set :php:`transOrigPointerField`
+    fields (e.g. :php:`l10n_parent`).
 
-           - "swap": Indicates that the current online version should be swapped
-             with another.Additional keys, specific for "swap" action:
+    The :php:`copyToLanguage` command should be used when localizing records in
+    the "free mode". This command is used when localizing content elements using
+    translation wizard's "Copy" strategy.
 
-             - [swapWith]: Indicates the uid of the record to swap current version
-               with!
+    ..  deprecated:: 11.5
+        Legacy syntax as comma-separated value for IRRE localize synchronize
+        command in DataHandler was removed.
 
-             - [swapIntoWS]: Boolean, indicates that when a version is published it
-               should be swapped into the workspace of the offline record.
 
-           - "clearWSID": Indicates that the workspace of the record should be set
-             to zero (0). This removes versions out of workspaces without
-             publishing them.
+..  confval:: inlineLocalizeSynchronize
+    :name: datahandler-cmd-inlineLocalizeSynchronize
+    :Data type: array
 
-           - "flush": Completely deletes a version without publishing it.
+    Performs localization or synchronization of child records.
+    The command structure is like:
 
-           - "setStage": Sets the stage of an element. *Special feature: The id-
-             key in the array can be a comma list of ids in order to perform the
-             stageChange over a number of records. Also, the internal variable
-             ->generalComment (also available through `/record/commit` route as
-             `&generalComment`) can be used to set a default comment for all stage
-             changes of an instance of the data handler.* Additional keys for this action
-             are:
+    ..  code-block:: php
 
-             - [stageId]: Values are: -1 (rejected), 0 (editing, default), 1 (review), 10 (publish)
+        $cmd['tt_content'][13]['inlineLocalizeSynchronize'] = [ // 13 is a parent record uid
+            'field' => 'tx_myfieldname', // field we want to synchronize
+            'language' => 2,             // uid of the target language
+            // either the key 'action' or 'ids' must be set
+            'action' => 'localize'       // or 'synchronize'
+            'ids' =>  [1, 2, 3]          // array of child IDs to be localized
+        ]
 
-             - [comment]: Comment string that goes into the log.
+
+..  confval:: version
+    :name: datahandler-cmd-version
+    :Data type: array
+
+    Versioning action.
+
+    **Keys:**
+
+    [action]
+        Keyword determining the versioning action. Options are:
+
+        "new"
+            Indicates that a new version of the record should be
+            created. Additional keys, specific for "new" action:
+
+            [treeLevels]
+                *(Only pages)* Integer, -1 to 4, indicating the number of levels
+                of the page tree to version together with a page. This is also
+                referred to as the versioning type:
+
+                *   -1 ("element") means only the page record gets versioned
+                    (default)
+
+                *   0 ("page") means the page + content tables (defined by ctrl
+                    flag :code:`versioning_followPages` )
+
+                *   >0 ("branch") means the the whole branch is versioned
+                    (*full copy* of all tables), down to the level indicated by
+                    the value (1 = 1 level down, 2 = 2 levels down, etc.). The
+                    treeLevel is recorded in the field :code:`t3ver_swapmode`
+                    and will be observed when the record is swapped during
+                    publishing.
+
+            [label]
+                Indicates the version label to apply. If not given, a standard
+                label including version number and date is added.
+
+        "swap"
+            Indicates that the current online version should be swapped
+            with another. Additional keys, specific for "swap" action:
+
+            [swapWith]
+                Indicates the uid of the record to swap current version with!
+
+            [swapIntoWS]
+                Boolean, indicates that when a version is published it should be
+                swapped into the workspace of the offline record.
+
+        "clearWSID"
+            Indicates that the workspace of the record should be set to zero
+            (0). This removes versions out of workspaces without publishing
+            them.
+
+        "flush"
+            Completely deletes a version without publishing it.
+
+        "setStage"
+            Sets the stage of an element. *Special feature: The id key in the
+            array can be a comma-separated list of ids in order to perform the
+            stageChange over a number of records. Also, the internal variable
+            ->generalComment (also available through `/record/commit` route as
+            `&generalComment`) can be used to set a default comment for all
+            stage changes of an instance of the data handler.* Additional keys
+            for this action are:
+
+            [stageId]
+                Values are:
+
+                *   -1 (rejected)
+                *   0 (editing, default)
+                *   1 (review),
+                *   10 (publish)
+
+            [comment]
+                Comment string that goes into the log.
 
 
 ..  index:: DataHandler; Commands examples
