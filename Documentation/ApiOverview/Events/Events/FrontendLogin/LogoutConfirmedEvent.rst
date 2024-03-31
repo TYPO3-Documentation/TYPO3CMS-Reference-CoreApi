@@ -25,14 +25,6 @@ just logged out cannot be determined from the context or the methods from the
 event. We therefore need different logic to determine the user who just logged
 out. This logic is not part of the example below.
 
-Register the event listener in the :file:`Services.yaml`:
-
-..  literalinclude:: _LogoutConfirmedEvent/_Services.yaml
-    :language: yaml
-    :caption: EXT:my_extension/Configuration/Services.yaml
-
-Read :ref:`how to configure dependency injection in extensions <dependency-injection-in-extensions>`.
-
 ..  literalinclude:: _LogoutConfirmedEvent/_DeletePrivateKeyOnLogout.php
     :language: php
     :caption: EXT:my_extension/Classes/EventListeners/DeletePrivateKeyOnLogout.php
