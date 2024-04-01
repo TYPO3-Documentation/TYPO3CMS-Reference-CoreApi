@@ -21,5 +21,21 @@
        \T3docs\BlogExample\Domain\Model\FrontendUserGroup::class => [
            'tableName' => 'fe_groups',
        ],
+       \T3docs\BlogExample\Domain\Model\Blog::class => [
+           'tableName' => 'tx_blogexample_domain_model_blog',
+           'properties' => [
+               'categories' => [
+                   'fieldName' => 'category',
+               ],
+           ],
+       ],
+       \T3docs\BlogExample\Domain\Model\Post::class => [
+           'tableName' => 'tx_blogexample_domain_model_post',
+           'properties' => [
+               'categories' => [
+                   'fieldName' => 'category',
+               ],
+           ],
+       ],
    ];
    
