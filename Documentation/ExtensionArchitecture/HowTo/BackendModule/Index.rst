@@ -135,6 +135,20 @@ backend. They are described in this chapter.
             A video series from Susanne Moog demonstrating how to register
             and style a TYPO3 backend module.
 
+   .. container:: col-md-6 pl-0 pr-3 py-3 m-0
+
+      .. container:: card px-0 h-100
+
+         .. rst-class:: card-header h3
+
+            .. rubric:: :ref:`Override backend templates <t3tsconfig:pagetemplates>`
+
+         .. container:: card-body
+
+            Backend templates can be overridden via page TSconfig. But you
+            should be careful: backend templates are mostly not API and can
+            break on updates.
+
 
 ..  toctree::
     :hidden:
