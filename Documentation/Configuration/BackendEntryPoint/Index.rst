@@ -120,7 +120,7 @@ A silent update is in place which automatically updates the webserver
 configuration file when accessing the install tool, at least for Apache and
 Microsoft IIS webservers.
 
-..  important::
+..  attention::
     The silent update does not work, if you are not using the default
     configuration, which is shipped with Core and automatically applied during
     the TYPO3 installation process, as basis.
