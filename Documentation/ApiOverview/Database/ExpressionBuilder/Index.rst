@@ -280,8 +280,7 @@ length()
 --------
 
 The :php:`->length()` string function can be used to return the length of a
-string in bytes. The signature of the method signature is :php:`$fieldName`
-with an optional alias :php:`->length(string $fieldName, string $alias = null)`:
+string in bytes.
 
 ..  code-block:: php
     :caption: EXT:my_extension/Classes/Domain/Repository/MyTableRepository.php
@@ -298,6 +297,11 @@ with an optional alias :php:`->length(string $fieldName, string $alias = null)`:
 Read :ref:`how to correctly instantiate <database-query-builder-instantiation>`
 a query builder with the connection pool.
 See available :ref:`parameter types <database-connection-parameter-types>`.
+
+API
+~~~
+
+..  include:: /CodeSnippets/Manual/Database/ExpressionBuilderLength.rst.txt
 
 
 trim()
@@ -325,10 +329,15 @@ See available :ref:`parameter types <database-connection-parameter-types>`.
 The call to :php:`$queryBuilder->expr()-trim()` can be one of the following:
 
 *   :php:`trim('fieldName')`
-    results in :code:`TRIM("tableName"."fieldName")`
+    results in :sql:`TRIM("tableName"."fieldName")`
 *   :php:`trim('fieldName', TrimMode::LEADING, 'x')`
-    results in :code:`TRIM(LEADING "x" FROM "tableName"."fieldName")`
+    results in :sql:`TRIM(LEADING "x" FROM "tableName"."fieldName")`
 *   :php:`trim('fieldName', TrimMode::TRAILING, 'x')`
-    results in :code:`TRIM(TRAILING "x" FROM "tableName"."fieldName")`
+    results in :sql:`TRIM(TRAILING "x" FROM "tableName"."fieldName")`
 *   :php:`trim('fieldName', TrimMode::BOTH, 'x')`
-    results in :code:`TRIM(BOTH "x" FROM "tableName"."fieldName")`
+    results in :sql:`TRIM(BOTH "x" FROM "tableName"."fieldName")`
+
+API
+~~~
+
+..  include:: /CodeSnippets/Manual/Database/ExpressionBuilderTrim.rst.txt
