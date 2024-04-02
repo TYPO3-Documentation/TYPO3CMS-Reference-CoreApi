@@ -222,7 +222,7 @@ Error handling
 
 The data handler has a property `errorLog` as an `array`.
 In this property, the data handler collects all errors.
-You can use these, for example, to logging or another error handling.
+You can use these, for example, for logging or other error handling.
 
 ..  code-block:: php
     :caption: EXT:my_extension/Classes/MyClass.php
