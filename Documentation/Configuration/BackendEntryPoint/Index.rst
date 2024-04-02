@@ -97,7 +97,7 @@ adapted yet and the maintenance and emergency tool is still available via
 routing.
 
 In Composer mode, an additional configuration option for the deactivation of
-the legacy entry point which can be defined in the project's
+the legacy entry point is provided, which can be defined in the project's
 :file:`composer.json`.
 
 ..  code-block:: json
