@@ -117,8 +117,8 @@ Migration
 =========
 
 A silent update is in place which automatically updates the webserver
-configuration file when accessing the install tool, at least for Apache and
-Microsoft IIS webservers.
+configuration file when accessing the install tool, at least for Apache
+(:file:`.htaccess`) and Microsoft IIS (:file:`web.config`) webservers.
 
 ..  attention::
     The silent update does not work, if you are not using the default
