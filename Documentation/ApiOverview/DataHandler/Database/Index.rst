@@ -196,7 +196,7 @@ Command keywords and values
 
     *   A :yaml:`languageId` must be configured in the site configuration.
 
-    *   The record to be localized by currently be set to "default" language
+    *   The record to be localized by currently be set to default language
         and not have any value set for the TCA :php:`transOrigPointerField` either.
 
     *   There cannot exist another localization to the given language for the
