@@ -96,7 +96,7 @@ adapted yet and the maintenance and emergency tool is still available via
 :samp:`/typo3/install.php` in order to work in edge cases like broken web server
 routing.
 
-In Composer mode is an additional configuration option for the deactivation of
+In Composer mode, an additional configuration option for the deactivation of
 the legacy entry point which can be defined in the project's
 :file:`composer.json`.
 
