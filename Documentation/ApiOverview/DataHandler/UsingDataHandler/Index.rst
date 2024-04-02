@@ -142,7 +142,7 @@ for more details about available caches and groups.
 Complex data submission
 -----------------------
 
-Imagine the :php:`$data` array something like this:
+Imagine the :php:`$data` array contains something like this:
 
 ..  code-block:: php
     :caption: EXT:my_extension/Classes/MyClass.php
