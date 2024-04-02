@@ -9,9 +9,6 @@ Data Formats
 
 This content has moved to:
 
-.. rst-class:: horizbuttons-tip-xxl
-
-
 **Contents:**
 
 .. toctree::
