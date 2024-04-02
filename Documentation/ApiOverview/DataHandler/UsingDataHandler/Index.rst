@@ -1,105 +1,116 @@
-.. include:: /Includes.rst.txt
-.. index:: DataHandler; Usage
-.. _Using-DataHandler:
-.. _using-tcemain:
+..  include:: /Includes.rst.txt
+..  index:: DataHandler; Usage
+..  _Using-DataHandler:
+..  _using-tcemain:
 
 ================================
 Using the DataHandler in scripts
 ================================
 
-It's really easy to use the class :php:`\TYPO3\CMS\Core\DataHandling\DataHandler` in your own
-scripts. All you need to do is include the class, build a :php:`$data`/:php:`$cmd`
-array you want to pass to the class and call a few methods.
+You can use the class :php:`\TYPO3\CMS\Core\DataHandling\DataHandler` in your
+own scripts: Inject the :php:`DataHandler` class, build a
+:php:`$data`/:php:`$cmd` array you want to pass to the class, and call a few
+methods.
 
-.. attention::
-   Mind that these scripts have to be run in the
-   **backend scope**! There must be a global :php:`$GLOBALS['BE_USER']` object.
-
-
-.. contents:: Table of Contents
-   :depth: 2
-   :local:
+..  attention::
+    Mind that these scripts have to be run in the
+    **backend scope**! There must be a global :php:`$GLOBALS['BE_USER']` object.
 
 
-.. index:: pair: DataHandler; Symfony command
-.. _dataHandler-cli-command:
+..  contents:: Table of Contents
+    :depth: 2
+    :local:
+
+
+..  index:: pair: DataHandler; Symfony command
+..  _dataHandler-cli-command:
 
 Using the DataHandler in a Symfony command
 ==========================================
 
-It is possible to use the DataHandler for scripts started from the command line or by
-the scheduler as well. You can do this by creating a :ref:`Symfony Command <cli-mode-command-controllers>`.
+It is possible to use the DataHandler for scripts started from the command line
+or by the :doc:`scheduler <ext_scheduler:Index>` as well. You can do this by
+creating a :ref:`Symfony Command <cli-mode-command-controllers>`.
 
-These scripts use the `_cli_` backend user. Before using the DataHandler in your :php:`execute()`
-method, you should make sure that this user is initialized like this:
+These scripts use the `_cli_` backend user. Before using the DataHandler in your
+:php:`execute()` method, you should make sure that this user is initialized like
+this:
 
+..  code-block:: php
+    :caption: EXT:my_extension/Classes/Command/MyCommand.php
 
-.. code-block:: php
-   :caption: EXT:some_extension/Classes/Command/SomeCommand.php
-
-   \TYPO3\CMS\Core\Core\Bootstrap::initializeBackendAuthentication();
+    \TYPO3\CMS\Core\Core\Bootstrap::initializeBackendAuthentication();
 
 If you forget to add the backend user authentication, an error similar to this
 will occur:
 
- [1.2.1]: Attempt to modify table "pages" without permission
+..  code-block:: text
+
+    [1.2.1]: Attempt to modify table "pages" without permission
 
 
-.. index:: pair: DataHandler; PHP
-.. _dataHandler-examples:
-.. _tcemain-examples:
+..  index:: pair: DataHandler; PHP
+..  _dataHandler-examples:
+..  _tcemain-examples:
 
 DataHandler examples
 ====================
 
 What follows are a few code listings with comments which will provide you with
 enough knowledge to get started. It is assumed that you have populated
-the :php:`$data` and :php:`$cmd` arrays correctly prior to these chunks of code. The
-syntax for these two arrays is explained in the :ref:`DataHandler basics <datahandler-basics>`
-chapter.
+the :php:`$data` and :php:`$cmd` arrays correctly prior to these chunks of code.
+The syntax for these two arrays is explained in the
+:ref:`DataHandler basics <datahandler-basics>` chapter.
 
-.. _tcemain-submit-data:
+..  _tcemain-submit-data:
 
 Submitting data
 ---------------
 
-This is the most basic example of how to submit data into the
-database.
+This is the most basic example of how to submit data into the database.
 
-* Line 1: Instantiate the class.
-* Line 2: Register the :php:`$data` array inside the class and initialize the class internally.
-* Line 3: Submit data and have all records created/updated.
+..  todo: Use dependency injection instead GeneralUtility::makeInstance()
 
-
-.. code-block:: php
-   :caption: EXT:some_extension/Classes/SomeClass.php
-
-   $dataHandler = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\TYPO3\CMS\Core\DataHandling\DataHandler::class);
-   $dataHandler->start($data, []);
-   $dataHandler->process_datamap();
+*   Line 1: Instantiate the class.
+*   Line 2: Register the :php:`$data` array inside the class and initialize the
+    class internally.
+*   Line 3: Submit data and have all records created/updated.
 
 
-.. _tcemain-execute-commands:
+..  code-block:: php
+    :caption: EXT:my_extension/Classes/MyClass.php
+    :linenos:
+
+    $dataHandler = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\TYPO3\CMS\Core\DataHandling\DataHandler::class);
+    $dataHandler->start($data, []);
+    $dataHandler->process_datamap();
+
+
+..  _tcemain-execute-commands:
 
 Executing commands
 ------------------
 
 The most basic way of executing commands:
 
-* Line 1: Instantiate the class.
-* Line 2: Registers the :php:`$cmd` array inside the class and initialize the class internally.
-* Line 3: Execute the commands.
+..  todo: Use dependency injection instead GeneralUtility::makeInstance()
+
+*   Line 1: Instantiate the class.
+*   Line 2: Registers the :php:`$cmd` array inside the class and initialize the
+    class internally.
+*   Line 3: Execute the commands.
 
 
-.. code-block:: php
-   :caption: EXT:some_extension/Classes/SomeClass.php
+..  code-block:: php
+    :caption: EXT:my_extension/Classes/MyClass.php
+    :linenos:
 
-   $dataHandler = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\TYPO3\CMS\Core\DataHandling\DataHandler::class);
-   $dataHandler->start([], $cmd);
-   $dataHandler->process_cmdmap();
+    $dataHandler = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\TYPO3\CMS\Core\DataHandling\DataHandler::class);
+    $dataHandler->start([], $cmd);
+    $dataHandler->process_cmdmap();
 
 
-.. _tcemain-clear-cache:
+..  _tcemain-clear-cache:
 
 Clearing cache
 --------------
@@ -108,45 +119,46 @@ In this example the cache clearing API is used. No data is submitted, no
 commands are executed. Still you will have to initialize the class by
 calling the :php:`start()` method (which will initialize internal state).
 
-.. note::
-   Clearing a given cache is possible only for users that are
-   "admin" or have :ref:`specific permissions <t3tsconfig:useroptions>` to do so.
+..  note::
+    Clearing a given cache is possible only for users that are
+    "admin" or have :ref:`specific permissions <t3tsconfig:useroptions>` to do so.
 
+..  todo: Use dependency injection instead GeneralUtility::makeInstance()
 
-.. code-block:: php
-   :caption: EXT:some_extension/Classes/SomeClass.php
+..  code-block:: php
+    :caption: EXT:my_extension/Classes/MyClass.php
 
-   $dataHandler = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\TYPO3\CMS\Core\DataHandling\DataHandler::class);
-   $dataHandler->start([], []);
-   $dataHandler->clear_cacheCmd('all');
+    $dataHandler = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\TYPO3\CMS\Core\DataHandling\DataHandler::class);
+    $dataHandler->start([], []);
+    $dataHandler->clear_cacheCmd('all');
 
 Caches are organized in groups. Clearing "all" caches will actually clear caches
 from the "all" group and not really **all** caches. Check the
 :ref:`caching framework architecture section <caching-architecture-core>`
 for more details about available caches and groups.
 
-.. _tcemain-complex-submission:
+..  _tcemain-complex-submission:
 
 Complex data submission
 -----------------------
 
-Imagine the :php:`$data` array something like this:
+Imagine the :php:`$data` array contains something like this:
 
-.. code-block:: php
-   :caption: EXT:some_extension/Classes/SomeClass.php
+..  code-block:: php
+    :caption: EXT:my_extension/Classes/MyClass.php
 
-   $data = [
-       'pages' => [
-           'NEW_1' => [
-               'pid' => 456,
-               'title' => 'Title for page 1',
-           ],
-           'NEW_2' => [
-               'pid' => 456,
-               'title' => 'Title for page 2',
-           ],
-       ]
-   ];
+    $data = [
+        'pages' => [
+            'NEW_1' => [
+                'pid' => 456,
+                'title' => 'Title for page 1',
+            ],
+            'NEW_2' => [
+                'pid' => 456,
+                'title' => 'Title for page 2',
+            ],
+        ]
+    ];
 
 This aims to create two new pages in the page with uid "456". In the
 following code this is submitted to the database. Notice the reversing of
@@ -162,19 +174,20 @@ Apart from this a "signal" will be send that the page tree should
 be updated at the earliest occasion possible. Finally, the cache for
 all pages is cleared.
 
+..  todo: Use dependency injection instead GeneralUtility::makeInstance()
 
-.. code-block:: php
-   :caption: EXT:some_extension/Classes/SomeClass.php
+..  code-block:: php
+    :caption: EXT:my_extension/Classes/MyClass.php
 
-   $dataHandler = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\TYPO3\CMS\Core\DataHandling\DataHandler::class);
-   $dataHandler->reverseOrder = 1;
-   $dataHandler->start($data, []);
-   $dataHandler->process_datamap();
-   \TYPO3\CMS\Backend\Utility\BackendUtility::setUpdateSignal('updatePageTree');
-   $dataHandler->clear_cacheCmd('pages');
+    $dataHandler = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\TYPO3\CMS\Core\DataHandling\DataHandler::class);
+    $dataHandler->reverseOrder = 1;
+    $dataHandler->start($data, []);
+    $dataHandler->process_datamap();
+    \TYPO3\CMS\Backend\Utility\BackendUtility::setUpdateSignal('updatePageTree');
+    $dataHandler->clear_cacheCmd('pages');
 
 
-.. _tcemain-data-command-user:
+..  _tcemain-data-command-user:
 
 Both data and commands executed with alternative user object
 ------------------------------------------------------------
@@ -190,34 +203,34 @@ database. This may be useful in certain special cases. Normally you
 should not set this argument since you want DataHandler to use the global
 :php:`$GLOBALS['BE_USER']`.
 
+..  todo: Use dependency injection instead GeneralUtility::makeInstance()
 
-.. code-block:: php
-   :caption: EXT:some_extension/Classes/SomeClass.php
+..  code-block:: php
+    :caption: EXT:my_extension/Classes/MyClass.php
 
-   $dataHandler = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\TYPO3\CMS\Core\DataHandling\DataHandler::class);
-   $dataHandler->start($data, $cmd, $alternative_BE_USER);
-   $dataHandler->process_datamap();
-   $dataHandler->process_cmdmap();
+    $dataHandler = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\TYPO3\CMS\Core\DataHandling\DataHandler::class);
+    $dataHandler->start($data, $cmd, $alternative_BE_USER);
+    $dataHandler->process_datamap();
+    $dataHandler->process_cmdmap();
 
 
-.. index:: pair: DataHandler; Error handling
-.. _tcemain-error-handling:
+..  index:: pair: DataHandler; Error handling
+..  _tcemain-error-handling:
 
 Error handling
 ==============
 
 The data handler has a property `errorLog` as an `array`.
 In this property, the data handler collects all errors.
-You can use these e.g to logging or another error handling.
+You can use these, for example, for logging or other error handling.
 
+..  code-block:: php
+    :caption: EXT:my_extension/Classes/MyClass.php
 
-.. code-block:: php
-   :caption: EXT:some_extension/Classes/SomeClass.php
-
-   if ($dataHandler->errorLog !== []) {
-       $this->logger->error('Error(s) while creating content element');
-       foreach ($dataHandler->errorLog as $log) {
-           // handle error e.g. in a log
-           $this->logger->error($log);
-       }
-   }
+    if ($dataHandler->errorLog !== []) {
+        $this->logger->error('Error(s) while creating content element');
+        foreach ($dataHandler->errorLog as $log) {
+            // handle error e.g. in a log
+            $this->logger->error($log);
+        }
+    }
