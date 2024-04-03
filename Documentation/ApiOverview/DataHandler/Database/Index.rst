@@ -127,7 +127,8 @@ Command keywords and values
     Negative value
         The (absolute) value points to another record from the
         same table as the record being copied. The new record will be inserted
-        on the same page as that record and if :php:`$GLOBALS['TCA'][...]['ctrl']['sortby']`
+        on the same page as that record and if
+        :ref:`$GLOBALS['TCA'][$table]['ctrl']['sortby'] <t3tca:ctrl-reference-sortby>`
         is set, then it will be positioned *after*.
 
     Zero value
@@ -151,7 +152,8 @@ Command keywords and values
     :name: datahandler-cmd-move
     :DataType: integer
 
-    Works like :php:`copy` but moves the record instead of making a copy.
+    Works like :confval:`datahandler-cmd-copy` but moves the record instead of
+    making a copy.
 
 
 ..  confval:: delete
@@ -161,7 +163,8 @@ Command keywords and values
     Value should always be "1".
 
     This action will delete the record (or mark the record "deleted", if
-    configured in :php:`$GLOBALS['TCA']`).
+    configured in
+    :ref:`$GLOBALS['TCA'][$table]['ctrl']['delete'] <t3tca:ctrl-reference-delete>`).
 
 
 ..  confval:: undelete
@@ -177,21 +180,23 @@ Command keywords and values
     :name: datahandler-cmd-localize
     :Data type: integer
 
-    The value is an uid of the :php:`sys_language` to localize the record into.
-    Basically a localization of a record is making a copy of the record
-    (possibly excluding certain fields defined with :php:`l10n_mode`) but
-    changing relevant fields to point to the right :php:`sys_language` / original
-    language record.
+    The value is the :yaml:`languageId` (defined in the
+    :ref:`site configuation <sitehandling-addingLanguages>`) to localize the
+    record into. Basically a localization of a record is making a copy of the
+    record (possibly excluding certain fields defined with
+    :ref:`l10n_mode <t3tca:columns-properties-l10n-mode>`) but
+    changing relevant fields to point to the right language ID.
 
     Requirements for a successful localization is this:
 
-    *   :php:`[ctrl]` options "languageField" and "transOrigPointerField" must
-        be defined for the table
+    *   :php:`[ctrl]` options
+        :ref:`languageField <t3tca:ctrl-reference-languagefield>` and
+        :ref:`transOrigPointerField <t3tca:ctrl-reference-transorigpointerfield>`
+        must be defined for the table
 
-    *   A :php:`sys_language` record with the given :php:`sys_language_uid` must
-        exist.
+    *   A :yaml:`languageId` must be configured in the site configuration.
 
-    *   The record to be localized by currently be set to "Default" language
+    *   The record to be localized by currently be set to default language
         and not have any value set for the TCA :php:`transOrigPointerField` either.
 
     *   There cannot exist another localization to the given language for the
@@ -201,22 +206,25 @@ Command keywords and values
     make a copy of the record on the same page.
 
     The :php:`localize` DataHandler command should be used when translating
-    records in "connected mode" (strict translation of records from the default
-    language). This command is used when selecting the "Translate" strategy in
-    the content elements translation wizard.
+    records in ":ref:`connected mode <t3translate:localized-connected-content>`"
+    (strict translation of records from the default language). This command is
+    used when selecting the "Translate" strategy in the content elements
+    translation wizard.
 
 
 ..  confval:: copyToLanguage
     :name: datahandler-cmd-copyToLanguage
     :Data type: integer
 
-    It behaves like :php:`localize` command (both record and child records are
-    copied to given language), but does not set :php:`transOrigPointerField`
-    fields (e.g. :php:`l10n_parent`).
+    It behaves like :confval:`datahandler-cmd-localize` command (both record and
+    child records are copied to given language), but does not set
+    :ref:`transOrigPointerField <t3tca:ctrl-reference-transorigpointerfield>`
+    fields (for example, :php:`l10n_parent`).
 
     The :php:`copyToLanguage` command should be used when localizing records in
-    the "free mode". This command is used when localizing content elements using
-    translation wizard's "Copy" strategy.
+    the ":ref:`free mode <t3translate:localized-content-free-content>`". This
+    command is used when localizing content elements using translation wizard's
+    "Copy" strategy.
 
     ..  deprecated:: 11.5
         Legacy syntax as comma-separated value for IRRE localize synchronize
@@ -246,6 +254,13 @@ Command keywords and values
     :Data type: array
 
     Versioning action.
+
+    ..  todo:
+        - "versioning_followPages" was deprecated in v8: https://docs.typo3.org/c/typo3/cms-core/main/en-us/Changelog/8.5/Deprecation-78524-TCAOptionVersioning_followPagesRemoved.html
+        - "t3ver_swapmode" has been removed in v11: https://docs.typo3.org/c/typo3/cms-core/main/en-us/Changelog/11.0/Breaking-92206-RemoveWorkspaceSwappingOfElements.html
+
+    ..  note::
+        This section is currently outdated.
 
     **Keys:**
 
