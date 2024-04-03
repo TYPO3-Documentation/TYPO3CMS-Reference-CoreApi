@@ -28,7 +28,7 @@ In :file:`config/system/settings.php` or :file:`config/system/additional.php`:
 .. code-block:: php
    :caption: config/system/additional.php | typo3conf/system/additional.php
 
-    $changeSettings['SYS'] => array(
+    $changeSettings['SYS'] => [
       'displayErrors' => 1,
       'devIPmask' => '*',
       'errorHandler' => 'TYPO3\\CMS\\Core\\Error\\ErrorHandler',
@@ -36,7 +36,7 @@ In :file:`config/system/settings.php` or :file:`config/system/additional.php`:
       'exceptionalErrors' => E_ALL ^ E_NOTICE ^ E_WARNING ^ E_USER_ERROR ^ E_USER_NOTICE ^ E_USER_WARNING,
       'debugExceptionHandler' => 'TYPO3\\CMS\\Core\\Error\\DebugExceptionHandler',
       'productionExceptionHandler' => 'TYPO3\\CMS\\Core\\Error\\DebugExceptionHandler',
-   );
+   ];
 
    $GLOBALS['TYPO3_CONF_VARS'] = array_replace_recursive($GLOBALS['TYPO3_CONF_VARS'], $changeSettings);
 
@@ -87,12 +87,12 @@ In :file:`config/system/settings.php` or :file:`config/system/additional.php`:
 .. code-block:: php
    :caption: config/system/additional.php | typo3conf/system/additional.php
 
-    $changeSettings['SYS'] => array(
+    $changeSettings['SYS'] => [
       'displayErrors' => -1,
       'devIPmask' => '[your.IP.address]',
       'errorHandler' => 'TYPO3\\CMS\\Core\\Error\\ErrorHandler',
       'belogErrorReporting' => '0',
-   );
+   ];
 
    $GLOBALS['TYPO3_CONF_VARS'] = array_replace_recursive($GLOBALS['TYPO3_CONF_VARS'], $changeSettings);
 
@@ -123,14 +123,14 @@ In :file:`config/system/settings.php` or :file:`config/system/additional.php`:
 .. code-block:: php
    :caption: config/system/additional.php | typo3conf/system/additional.php
 
-    $changeSettings['SYS'] => array(
+    $changeSettings['SYS'] => [
       'displayErrors' => 0,
       'devIPmask' => '',
       'errorHandler' => '',
       'debugExceptionHandler' => '',
       'productionExceptionHandler' => '',
       'belogErrorReporting' => '0',
-   );
+   ];
 
    $GLOBALS['TYPO3_CONF_VARS'] = array_replace_recursive($GLOBALS['TYPO3_CONF_VARS'], $changeSettings);
 
