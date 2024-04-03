@@ -230,11 +230,15 @@ devIPmask
 ddmmyy
 ======
 
+..  versionchanged:: 12.4.14/13.1.0
+    The default value has been changed from 'd-m-y' to 'Y-m-d' (ISO 8601) to
+    avoid unclear dates.
+
 .. confval:: $GLOBALS['TYPO3_CONF_VARS']['SYS']['ddmmyy']
 
    :Path: $GLOBALS['TYPO3_CONF_VARS']['SYS']
    :type: text
-   :Default: 'd-m-y'
+   :Default: 'Y-m-d'
 
    Format of Day-Month-Year - see PHP-function `date() <https://www.php.net/manual/en/function.date.php>`__
 
