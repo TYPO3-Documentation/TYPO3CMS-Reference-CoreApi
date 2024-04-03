@@ -1085,3 +1085,31 @@ contentSecurityPolicyReportingUrl
 
         $GLOBALS['TYPO3_CONF_VARS']['BE']['contentSecurityPolicyReportingUrl']
             = 'https://csp-violation.example.org/';
+
+
+..  index::
+    TYPO3_CONF_VARS BE; entryPoint
+..  _typo3ConfVars_be_entryPoint:
+
+entryPoint
+==========
+
+..  versionadded:: 13.0
+
+..  confval:: $GLOBALS['TYPO3_CONF_VARS']['BE']['entryPoint']
+
+    :type: string
+    :Default: '/typo3'
+
+    A custom backend entry point can be configured by specifying a custom URL
+    path or domain name.
+
+    Example:
+
+    ..  code-block:: php
+
+        $GLOBALS['TYPO3_CONF_VARS']['BE']['entryPoint'] = '/my-specific-path';
+
+
+..  seealso::
+    :ref:`backend-entry-point`
