@@ -421,7 +421,8 @@ Description of keywords in syntax:
 
     If you are creating new records, use a random string prefixed with `NEW`,
     for example, `NEW7342abc5e6d`. You can use static strings (`NEW1`, `NEW2`,
-    ...) or generate them using :php:`StringUtility::getUniqueId('NEW')`.
+    ...) or generate them using
+    :php:`\TYPO3\CMS\Core\Utility\StringUtility::getUniqueId('NEW')`.
 
 
 ..  confval:: fieldname
@@ -429,7 +430,8 @@ Description of keywords in syntax:
     :Data type: string
 
     Name of the database field you want to set a value for. The columns of the
-    table must be configured in :php:`$GLOBALS['TCA'][$table]['columns']`.
+    table must be configured in
+    :ref:`$GLOBALS['TCA'][$table]['columns'] <t3tca:columns>`.
 
 
 ..  confval:: value
@@ -438,8 +440,8 @@ Description of keywords in syntax:
 
     Value for "fieldname".
 
-    For fields of type `inline` this is a comma-separated list (CSV) of UIDs of
-    referenced records.
+    For fields of type :ref:`inline <t3tca:columns-inline>` this is a
+    comma-separated list of UIDs of referenced records.
 
 
 ..  note::
