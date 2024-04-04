@@ -9,10 +9,14 @@ use TYPO3\CMS\Core\DataHandling\DataHandler;
 
 final class MyClass
 {
-    public function __construct(
-        private readonly DataHandler $dataHandler,
-        private readonly LoggerInterface $logger,
-    ) {}
+    private DataHandler $dataHandler;
+    private LoggerInterface $logger;
+
+    public function __construct(DataHandler $dataHandler, LoggerInterface $logger)
+    {
+        $this->dataHandler = $dataHandler;
+        $this->logger = $logger;
+    }
 
     public function handleError(): void
     {

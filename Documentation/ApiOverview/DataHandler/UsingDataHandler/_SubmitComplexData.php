@@ -9,9 +9,12 @@ use TYPO3\CMS\Core\DataHandling\DataHandler;
 
 final class MyClass
 {
-    public function __construct(
-        private readonly DataHandler $dataHandler,
-    ) {}
+    private DataHandler $dataHandler;
+
+    public function __construct(DataHandler $dataHandler)
+    {
+        $this->dataHandler = $dataHandler;
+    }
 
     public function submitComplexData(): void
     {
