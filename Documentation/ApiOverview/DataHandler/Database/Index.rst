@@ -575,7 +575,7 @@ Values for the :php:`$cacheCmd` argument:
 
 
 ..  confval:: "pages"
-    :name: datahandler-clear-cachecmd-all
+    :name: datahandler-clear-cachecmd-pages
 
     Clears all pages from :code:`cache_pages`.
 
