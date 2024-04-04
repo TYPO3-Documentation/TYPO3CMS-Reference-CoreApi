@@ -240,7 +240,8 @@ ddmmyy
    :type: text
    :Default: 'Y-m-d'
 
-   Format of Day-Month-Year - see PHP-function `date() <https://www.php.net/manual/en/function.date.php>`__
+   On how to format a date, see PHP function
+    `date() <https://www.php.net/manual/en/function.date.php>`__.
 
 .. index::
    TYPO3_CONF_VARS SYS; hhmm
