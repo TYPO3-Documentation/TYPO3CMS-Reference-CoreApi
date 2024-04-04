@@ -384,7 +384,7 @@ of original record UIDs and UIDs of record copies as values.
 
     $cmd['tt_content'][1203]['copy'] = 400;  // Copies tt_content uid=1203 to first position in page uid=400
     $this->dataHandler->start([], $cmd);
-    $this->dataHandler->process_cmdmap()
+    $this->dataHandler->process_cmdmap();
 
     $uid = $this->dataHandler->copyMappingArray_merged['tt_content'][1203];
 
