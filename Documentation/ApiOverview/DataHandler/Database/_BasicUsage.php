@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace MyVendor\MyExtension\DataHandling;
 
+use TYPO3\CMS\Core\DataHandling\DataHandler;
+
 final class MyClass
 {
     public function __construct(
