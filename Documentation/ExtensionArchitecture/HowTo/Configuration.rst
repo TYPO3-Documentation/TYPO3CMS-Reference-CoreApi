@@ -68,10 +68,6 @@ override settings made in the TypoScript configuration of that plugin.
     :php:`$this->settings`, the name of the setting must begin with **settings**,
     directly followed by a dot (`.`).
 
-..  seealso::
-
-    *   :ref:`flexforms`
-
 
 Example
 -------
