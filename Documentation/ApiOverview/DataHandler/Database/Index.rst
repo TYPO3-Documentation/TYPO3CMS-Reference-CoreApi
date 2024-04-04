@@ -45,20 +45,25 @@ hierarchy of these two arrays.
 Basic usage
 ===========
 
-..  literalinclude:: _basic_usage.php
+The :php:`DataHandler` class can be injected into the constructor via
+:ref:`dependency injection <DependencyInjection>`.
+
+..  literalinclude:: _BasicUsage.php
     :language: php
+    :caption: EXT:my_extension/Classes/DataHandling/MyClass.php
 
 After this initialization you usually want to perform the actual operations by
 calling one (or both) of these two methods:
 
 ..  code-block:: php
 
-    $dataHandler->process_datamap();
-    $dataHandler->process_cmdmap();
+    $this->dataHandler->process_datamap();
+    $this->dataHandler->process_cmdmap();
 
 ..  note::
     Any error that might have occurred during your DataHandler operations can be
-    accessed via its public property :php:`$dataHandler->errorLog`.
+    accessed via its public property :php:`$this->dataHandler->errorLog`.
+    See :ref:`tcemain-error-handling`.
 
 Commands array
 ==============
@@ -340,7 +345,7 @@ Examples of commands
 --------------------
 
 ..  code-block:: php
-    :caption: EXT:my_extension/Classes/MyClass.php
+    :caption: EXT:my_extension/Classes/DataHandling/MyClass.php
 
     $cmd['tt_content'][54]['delete'] = 1;    // Deletes tt_content record with uid=54
     $cmd['tt_content'][1203]['copy'] = -303; // Copies tt_content uid=1203 to the position after tt_content uid=303 (new record will have the same pid as tt_content uid=1203)
@@ -366,7 +371,7 @@ of a record copy based on the UID of the copied record.
 The structure of the :php:`$copyMappingArray_merged` property looks like this:
 
 ..  code-block:: php
-    :caption: EXT:my_extension/Classes/MyClass.php
+    :caption: EXT:my_extension/Classes/DataHandling/MyClass.php
 
     $copyMappingArray_merged = [
        <table> => [
@@ -379,13 +384,13 @@ of original record UIDs and UIDs of record copies as values.
 
 
 ..  code-block:: php
-    :caption: EXT:my_extension/Classes/MyClass.php
+    :caption: EXT:my_extension/Classes/DataHandling/MyClass.php
 
     $cmd['tt_content'][1203]['copy'] = 400;  // Copies tt_content uid=1203 to first position in page uid=400
-    $dataHandler->start([], $cmd);
-    $dataHandler->process_cmdmap();
+    $this->dataHandler->start([], $cmd);
+    $this->dataHandler->process_cmdmap();
 
-    $uid = $dataHandler->copyMappingArray_merged['tt_content'][1203];
+    $uid = $this->dataHandler->copyMappingArray_merged['tt_content'][1203];
 
 
 ..  index:: DataHandler; Data array
@@ -475,7 +480,7 @@ This creates a new page titled "The page title" as the first page
 inside page id 45:
 
 ..  code-block:: php
-    :caption: EXT:my_extension/Classes/MyClass.php
+    :caption: EXT:my_extension/Classes/DataHandling/MyClass.php
 
     $data['pages']['NEW9823be87'] = [
         'title' => 'The page title',
@@ -487,7 +492,7 @@ This creates a new page titled "The page title" right after page id 45
 in the tree:
 
 ..  code-block:: php
-    :caption: EXT:my_extension/Classes/MyClass.php
+    :caption: EXT:my_extension/Classes/DataHandling/MyClass.php
 
     $data['pages']['NEW9823be87'] = [
         'title' => 'The page title',
@@ -499,7 +504,7 @@ This creates two new pages right after each other, located right after
 the page id 45:
 
 ..  code-block:: php
-    :caption: EXT:my_extension/Classes/MyClass.php
+    :caption: EXT:my_extension/Classes/DataHandling/MyClass.php
 
     $data['pages']['NEW9823be87'] = [
         'title' => 'Page 1',
@@ -520,7 +525,7 @@ This creates a new content record with references to existing and
 one new system category:
 
 ..  code-block:: php
-    :caption: EXT:my_extension/Classes/MyClass.php
+    :caption: EXT:my_extension/Classes/DataHandling/MyClass.php
 
     $data['sys_category']['NEW9823be87'] = [
         'title' => 'New category',
@@ -539,13 +544,13 @@ one new system category:
 ..  note::
     To get real uid of the record you have just created use DataHandler's
     `substNEWwithIDs` property like:
-    :php:`$uid = $dataHandler->substNEWwithIDs['NEW9823be87'];`
+    :php:`$uid = $this->dataHandler->substNEWwithIDs['NEW9823be87'];`
 
 This updates the page with uid=9834 to a new title, "New title for
 this page", and no\_cache checked:
 
 .. code-block:: php
-   :caption: EXT:my_extension/Classes/MyClass.php
+   :caption: EXT:my_extension/Classes/DataHandling/MyClass.php
 
     $data['pages'][9834] = [
         'title' => 'New title for this page',
@@ -564,9 +569,9 @@ DataHandler also has an API for clearing the cache tables of TYPO3:
 Syntax
 
 ..  code-block:: php
-    :caption: EXT:my_extension/Classes/MyClass.php
+    :caption: EXT:my_extension/Classes/DataHandling/MyClass.php
 
-    $dataHandler->clear_cacheCmd($cacheCmd);
+    $this->dataHandler->clear_cacheCmd($cacheCmd);
 
 .. t3-field-list-table::
  :header-rows: 1
