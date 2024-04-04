@@ -400,57 +400,46 @@ Syntax: :php:`$data['<tablename>'][<uid>]['<fieldname>'] = 'value'`
 
 Description of keywords in syntax:
 
-.. t3-field-list-table::
- :header-rows: 1
+..  confval:: tablename
+    :name: datahandler-data-tablename
+    :Data type: string
 
- - :Key,20: Key
-   :Type,20: Data type
-   :Description,60: Description
-
-
- - :Key:
-         tablename
-   :Type:
-         string
-   :Description:
-         Name of the database table. Must be configured in :php:`$GLOBALS['TCA']` array,
-         otherwise it cannot be processed.
+    Name of the database table. There must be a configuration for the table in
+    :php:`$GLOBALS['TCA']` array, otherwise it cannot be processed.
 
 
- - :Key:
-         uid
-   :Type:
-         mixed
-   :Description:
-         The UID of the record that is modified. If the record already exists,
-         this is an integer.
+..  confval:: uid
+    :name: datahandler-data-uid
+    :Data type: string|int
 
-         If you're creating new records, use a random string prefixed with `NEW`, e.g. `NEW7342abc5e6d`.
-         You can use static strings (`NEW1`, `NEW2`, ...) or generate them using :php:`StringUtility::getUniqueId('NEW')`.
+    The UID of the record that is modified. If the record already exists,
+    this is an integer.
 
-
- - :Key:
-         fieldname
-   :Type:
-         string
-   :Description:
-         Name of the database field you want to set a value for. Must be
-         configured in :php:`$GLOBALS['TCA'][*tablename*]['columns']`.
+    If you are creating new records, use a random string prefixed with `NEW`,
+    for example, `NEW7342abc5e6d`. You can use static strings (`NEW1`, `NEW2`,
+    ...) or generate them using :php:`StringUtility::getUniqueId('NEW')`.
 
 
- - :Key:
-         value
-   :Type:
-         string
-   :Description:
-         Value for "fieldname".
+..  confval:: fieldname
+    :name: datahandler-data-fieldname
+    :Data type: string
 
-         For fields of type ``inline`` this is a comma separated list (CSV) of UIDs of
-         referenced records.
+    Name of the database field you want to set a value for. The columns of the
+    table must be configured in :php:`$GLOBALS['TCA'][$table]['columns']`.
+
+
+..  confval:: value
+    :name: datahandler-data-value
+    :Data type: string
+
+    Value for "fieldname".
+
+    For fields of type `inline` this is a comma-separated list (CSV) of UIDs of
+    referenced records.
 
 
 ..  note::
-    For :ref:FlexForms <flexforms>` the data array of the FlexForm field is
+    For :ref:`FlexForms <flexforms>` the data array of the FlexForm field is
     deeper than three levels. The number of possible levels for FlexForms
     is infinite and defined by the data structure of the FlexForm. But
     FlexForm fields always end with a "regular value" of course.
