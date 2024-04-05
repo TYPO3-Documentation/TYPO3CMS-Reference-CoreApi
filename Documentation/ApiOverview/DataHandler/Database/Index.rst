@@ -555,43 +555,36 @@ Clear cache
 
 DataHandler also has an API for clearing the cache tables of TYPO3:
 
-Syntax
-
 ..  code-block:: php
     :caption: EXT:my_extension/Classes/DataHandling/MyClass.php
 
     $this->dataHandler->clear_cacheCmd($cacheCmd);
 
-.. t3-field-list-table::
- :header-rows: 1
+Values for the :php:`$cacheCmd` argument:
 
- - :Value,30: $cacheCmd values
-   :Description,70: Description
+..  confval:: [integer]
+    :name: datahandler-clear-cachecmd-integer
 
-
- - :Value:
-         [integer]
-   :Description:
-         Clear the cache for the page id given.
+    Clear the cache for the page ID given.
 
 
- - :Value:
-         "all"
-   :Description:
-         Clears all cache tables (:code:`cache_pages`, :code:`cache_pagesection`,
-         :code:`cache_hash`).
+..  confval:: "all"
+    :name: datahandler-clear-cachecmd-all
 
-         Only available for admin-users unless explicitly allowed by User
-         TSconfig "options.clearCache.all".
+    Clears all cache tables (:code:`cache_pages`, :code:`cache_pagesection`,
+    :code:`cache_hash`).
+
+    Only available for admin-users unless explicitly allowed by User
+    TSconfig "options.clearCache.all".
 
 
- - :Value:
-         "pages"
-   :Description:
-         Clears all pages from :code:`cache_pages`.
+..  confval:: "pages"
+    :name: datahandler-clear-cachecmd-pages
 
-         Only available for admin-users unless explicitly allowed by User
-         TSconfig "options.clearCache.pages".
+    Clears all pages from :code:`cache_pages`.
+
+    Only available for admin-users unless explicitly allowed by User
+    TSconfig "options.clearCache.pages".
 
 
 ..  index:: Hook; Clear cache
@@ -600,24 +593,26 @@ Syntax
 Clear cache using cache tags
 ----------------------------
 
-Every processing of data or commands is finalized with flushing a few caches in the :php:`pages` group. Cache tags are used to specifically flush the the relevant cache entries instead of the cache as whole.
+Every processing of data or commands is finalized with flushing a few caches in
+the :php:`pages` group. Cache tags are used to specifically flush the the
+relevant cache entries instead of the cache as whole.
 
 By default the following cache tags are flushed:
 
-*   The table name of the updated record, e.g. :php:`pages` when updating a page or
-    :php:`tx_myextension_mytable` when updating a record of this table.
-*   A combination of table name and record UID, e.g. :php:`pages_10` when
-    updating the page with UID 10 or :php:`tx_myextension_mytable_20` when
+*   The table name of the updated record, for example, :php:`pages` when
+    updating a page or :php:`tx_myextension_mytable` when updating a record of
+    this table.
+*   A combination of table name and record UID, for example, :php:`pages_10`
+    when updating the page with UID 10 or :php:`tx_myextension_mytable_20` when
     updating the record with UID 20 of this table.
-*   A page UID prefixed with :php:`pageID_` (:php:`pageId_<page-uid>`), e.g.
-    :php:`pageId_10` when updating a page with UID 10 (additionally all related
-    pages, see
+*   A page UID prefixed with :php:`pageID_` (:php:`pageId_<page-uid>`), for
+    example, :php:`pageId_10` when updating a page with UID 10 (additionally all
+    related pages, see
     :ref:`clearcache-pagegrandparent <t3tsconfig:pagetcemain-clearcache-pagegrandparent>`
     and
     :ref:`clearcache-pagesiblingchildren <t3tsconfig:pagetcemain-clearcache-pagesiblingchildren>`)
-    and :php:`pageId_10` when
-    updating a record if a record of any table placed on the page with UID 10
-    (:php:`<table>.pid = 10`) is updated.
+    and :php:`pageId_10` when updating a record if a record of any table placed
+    on the page with UID 10 (:php:`<table>.pid = 10`) is updated.
 
 Notice that you can also use the :php:`TypoScriptFrontendController->addCacheTags()`
 method to register additional tags for the cache entry of the current page while
