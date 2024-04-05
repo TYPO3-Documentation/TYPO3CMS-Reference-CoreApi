@@ -15,15 +15,12 @@ final class SomeController extends ActionController
     {
         // ...
 
-        $this->getFrontendController()->addCacheTags([
+        /** @var TypoScriptFrontendController $frontendController */
+        $frontendController = $this->request->getAttribute('frontend.controller');
+        $frontendController->addCacheTags([
             sprintf('tx_myextension_example_%d', $example->getUid()),
         ]);
 
         // ...
-    }
-
-    private function getFrontendController(): TypoScriptFrontendController
-    {
-        return $GLOBALS['TSFE'];
     }
 }

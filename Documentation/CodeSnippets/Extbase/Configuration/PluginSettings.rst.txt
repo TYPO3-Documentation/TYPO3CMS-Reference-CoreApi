@@ -3,7 +3,7 @@
 
 .. code-block:: xml
    :caption: EXT:blog_example/Configuration/FlexForms/PluginSettings.xml
-   :emphasize-lines: 10
+   :emphasize-lines: 8
 
    <T3DataStructure>
        <sheets>
@@ -27,4 +27,3 @@
            </sDEF>
        </sheets>
    </T3DataStructure>
-   

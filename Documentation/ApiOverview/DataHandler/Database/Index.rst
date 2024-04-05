@@ -45,20 +45,25 @@ hierarchy of these two arrays.
 Basic usage
 ===========
 
-..  literalinclude:: _basic_usage.php
+The :php:`DataHandler` class can be injected into the constructor via
+:ref:`dependency injection <DependencyInjection>`.
+
+..  literalinclude:: _BasicUsage.php
     :language: php
+    :caption: EXT:my_extension/Classes/DataHandling/MyClass.php
 
 After this initialization you usually want to perform the actual operations by
 calling one (or both) of these two methods:
 
 ..  code-block:: php
 
-    $dataHandler->process_datamap();
-    $dataHandler->process_cmdmap();
+    $this->dataHandler->process_datamap();
+    $this->dataHandler->process_cmdmap();
 
 ..  note::
     Any error that might have occurred during your DataHandler operations can be
-    accessed via its public property :php:`$dataHandler->errorLog`.
+    accessed via its public property :php:`$this->dataHandler->errorLog`.
+    See :ref:`tcemain-error-handling`.
 
 Commands array
 ==============
@@ -127,7 +132,8 @@ Command keywords and values
     Negative value
         The (absolute) value points to another record from the
         same table as the record being copied. The new record will be inserted
-        on the same page as that record and if :php:`$GLOBALS['TCA'][...]['ctrl']['sortby']`
+        on the same page as that record and if
+        :ref:`$GLOBALS['TCA'][$table]['ctrl']['sortby'] <t3tca:ctrl-reference-sortby>`
         is set, then it will be positioned *after*.
 
     Zero value
@@ -151,7 +157,8 @@ Command keywords and values
     :name: datahandler-cmd-move
     :DataType: integer
 
-    Works like :php:`copy` but moves the record instead of making a copy.
+    Works like :confval:`datahandler-cmd-copy` but moves the record instead of
+    making a copy.
 
 
 ..  confval:: delete
@@ -161,7 +168,8 @@ Command keywords and values
     Value should always be "1".
 
     This action will delete the record (or mark the record "deleted", if
-    configured in :php:`$GLOBALS['TCA']`).
+    configured in
+    :ref:`$GLOBALS['TCA'][$table]['ctrl']['delete'] <t3tca:ctrl-reference-delete>`).
 
 
 ..  confval:: undelete
@@ -177,21 +185,23 @@ Command keywords and values
     :name: datahandler-cmd-localize
     :Data type: integer
 
-    The value is an uid of the :php:`sys_language` to localize the record into.
-    Basically a localization of a record is making a copy of the record
-    (possibly excluding certain fields defined with :php:`l10n_mode`) but
-    changing relevant fields to point to the right :php:`sys_language` / original
-    language record.
+    The value is the :yaml:`languageId` (defined in the
+    :ref:`site configuation <sitehandling-addingLanguages>`) to localize the
+    record into. Basically a localization of a record is making a copy of the
+    record (possibly excluding certain fields defined with
+    :ref:`l10n_mode <t3tca:columns-properties-l10n-mode>`) but
+    changing relevant fields to point to the right language ID.
 
     Requirements for a successful localization is this:
 
-    *   :php:`[ctrl]` options "languageField" and "transOrigPointerField" must
-        be defined for the table
+    *   :php:`[ctrl]` options
+        :ref:`languageField <t3tca:ctrl-reference-languagefield>` and
+        :ref:`transOrigPointerField <t3tca:ctrl-reference-transorigpointerfield>`
+        must be defined for the table
 
-    *   A :php:`sys_language` record with the given :php:`sys_language_uid` must
-        exist.
+    *   A :yaml:`languageId` must be configured in the site configuration.
 
-    *   The record to be localized by currently be set to "Default" language
+    *   The record to be localized by currently be set to default language
         and not have any value set for the TCA :php:`transOrigPointerField` either.
 
     *   There cannot exist another localization to the given language for the
@@ -201,22 +211,25 @@ Command keywords and values
     make a copy of the record on the same page.
 
     The :php:`localize` DataHandler command should be used when translating
-    records in "connected mode" (strict translation of records from the default
-    language). This command is used when selecting the "Translate" strategy in
-    the content elements translation wizard.
+    records in ":ref:`connected mode <t3translate:localized-connected-content>`"
+    (strict translation of records from the default language). This command is
+    used when selecting the "Translate" strategy in the content elements
+    translation wizard.
 
 
 ..  confval:: copyToLanguage
     :name: datahandler-cmd-copyToLanguage
     :Data type: integer
 
-    It behaves like :php:`localize` command (both record and child records are
-    copied to given language), but does not set :php:`transOrigPointerField`
-    fields (e.g. :php:`l10n_parent`).
+    It behaves like :confval:`datahandler-cmd-localize` command (both record and
+    child records are copied to given language), but does not set
+    :ref:`transOrigPointerField <t3tca:ctrl-reference-transorigpointerfield>`
+    fields (for example, :php:`l10n_parent`).
 
     The :php:`copyToLanguage` command should be used when localizing records in
-    the "free mode". This command is used when localizing content elements using
-    translation wizard's "Copy" strategy.
+    the ":ref:`free mode <t3translate:localized-content-free-content>`". This
+    command is used when localizing content elements using translation wizard's
+    "Copy" strategy.
 
 
 ..  confval:: inlineLocalizeSynchronize
@@ -242,6 +255,13 @@ Command keywords and values
     :Data type: array
 
     Versioning action.
+
+    ..  todo:
+        - "versioning_followPages" was deprecated in v8: https://docs.typo3.org/c/typo3/cms-core/main/en-us/Changelog/8.5/Deprecation-78524-TCAOptionVersioning_followPagesRemoved.html
+        - "t3ver_swapmode" has been removed in v11: https://docs.typo3.org/c/typo3/cms-core/main/en-us/Changelog/11.0/Breaking-92206-RemoveWorkspaceSwappingOfElements.html
+
+    ..  note::
+        This section is currently outdated.
 
     **Keys:**
 
@@ -321,7 +341,7 @@ Examples of commands
 --------------------
 
 ..  code-block:: php
-    :caption: EXT:my_extension/Classes/MyClass.php
+    :caption: EXT:my_extension/Classes/DataHandling/MyClass.php
 
     $cmd['tt_content'][54]['delete'] = 1;    // Deletes tt_content record with uid=54
     $cmd['tt_content'][1203]['copy'] = -303; // Copies tt_content uid=1203 to the position after tt_content uid=303 (new record will have the same pid as tt_content uid=1203)
@@ -347,7 +367,7 @@ of a record copy based on the UID of the copied record.
 The structure of the :php:`$copyMappingArray_merged` property looks like this:
 
 ..  code-block:: php
-    :caption: EXT:my_extension/Classes/MyClass.php
+    :caption: EXT:my_extension/Classes/DataHandling/MyClass.php
 
     $copyMappingArray_merged = [
        <table> => [
@@ -360,13 +380,13 @@ of original record UIDs and UIDs of record copies as values.
 
 
 ..  code-block:: php
-    :caption: EXT:my_extension/Classes/MyClass.php
+    :caption: EXT:my_extension/Classes/DataHandling/MyClass.php
 
     $cmd['tt_content'][1203]['copy'] = 400;  // Copies tt_content uid=1203 to first position in page uid=400
-    $dataHandler->start([], $cmd);
-    $dataHandler->process_cmdmap()
+    $this->dataHandler->start([], $cmd);
+    $this->dataHandler->process_cmdmap();
 
-    $uid = $dataHandler->copyMappingArray_merged['tt_content'][1203];
+    $uid = $this->dataHandler->copyMappingArray_merged['tt_content'][1203];
 
 
 ..  index:: DataHandler; Data array
@@ -380,57 +400,48 @@ Syntax: :php:`$data['<tablename>'][<uid>]['<fieldname>'] = 'value'`
 
 Description of keywords in syntax:
 
-.. t3-field-list-table::
- :header-rows: 1
+..  confval:: tablename
+    :name: datahandler-data-tablename
+    :Data type: string
 
- - :Key,20: Key
-   :Type,20: Data type
-   :Description,60: Description
-
-
- - :Key:
-         tablename
-   :Type:
-         string
-   :Description:
-         Name of the database table. Must be configured in :php:`$GLOBALS['TCA']` array,
-         otherwise it cannot be processed.
+    Name of the database table. There must be a configuration for the table in
+    :php:`$GLOBALS['TCA']` array, otherwise it cannot be processed.
 
 
- - :Key:
-         uid
-   :Type:
-         mixed
-   :Description:
-         The UID of the record that is modified. If the record already exists,
-         this is an integer.
+..  confval:: uid
+    :name: datahandler-data-uid
+    :Data type: string|int
 
-         If you're creating new records, use a random string prefixed with `NEW`, e.g. `NEW7342abc5e6d`.
-         You can use static strings (`NEW1`, `NEW2`, ...) or generate them using :php:`StringUtility::getUniqueId('NEW')`.
+    The UID of the record that is modified. If the record already exists,
+    this is an integer.
 
-
- - :Key:
-         fieldname
-   :Type:
-         string
-   :Description:
-         Name of the database field you want to set a value for. Must be
-         configured in :php:`$GLOBALS['TCA'][*tablename*]['columns']`.
+    If you are creating new records, use a random string prefixed with `NEW`,
+    for example, `NEW7342abc5e6d`. You can use static strings (`NEW1`, `NEW2`,
+    ...) or generate them using
+    :php:`\TYPO3\CMS\Core\Utility\StringUtility::getUniqueId('NEW')`.
 
 
- - :Key:
-         value
-   :Type:
-         string
-   :Description:
-         Value for "fieldname".
+..  confval:: fieldname
+    :name: datahandler-data-fieldname
+    :Data type: string
 
-         For fields of type ``inline`` this is a comma separated list (CSV) of UIDs of
-         referenced records.
+    Name of the database field you want to set a value for. The columns of the
+    table must be configured in
+    :ref:`$GLOBALS['TCA'][$table]['columns'] <t3tca:columns>`.
+
+
+..  confval:: value
+    :name: datahandler-data-value
+    :Data type: string
+
+    Value for "fieldname".
+
+    For fields of type :ref:`inline <t3tca:columns-inline>` this is a
+    comma-separated list of UIDs of referenced records.
 
 
 ..  note::
-    For :ref:FlexForms <flexforms>` the data array of the FlexForm field is
+    For :ref:`FlexForms <flexforms>` the data array of the FlexForm field is
     deeper than three levels. The number of possible levels for FlexForms
     is infinite and defined by the data structure of the FlexForm. But
     FlexForm fields always end with a "regular value" of course.
@@ -456,7 +467,7 @@ This creates a new page titled "The page title" as the first page
 inside page id 45:
 
 ..  code-block:: php
-    :caption: EXT:my_extension/Classes/MyClass.php
+    :caption: EXT:my_extension/Classes/DataHandling/MyClass.php
 
     $data['pages']['NEW9823be87'] = [
         'title' => 'The page title',
@@ -468,7 +479,7 @@ This creates a new page titled "The page title" right after page id 45
 in the tree:
 
 ..  code-block:: php
-    :caption: EXT:my_extension/Classes/MyClass.php
+    :caption: EXT:my_extension/Classes/DataHandling/MyClass.php
 
     $data['pages']['NEW9823be87'] = [
         'title' => 'The page title',
@@ -480,7 +491,7 @@ This creates two new pages right after each other, located right after
 the page id 45:
 
 ..  code-block:: php
-    :caption: EXT:my_extension/Classes/MyClass.php
+    :caption: EXT:my_extension/Classes/DataHandling/MyClass.php
 
     $data['pages']['NEW9823be87'] = [
         'title' => 'Page 1',
@@ -501,7 +512,7 @@ This creates a new content record with references to existing and
 one new system category:
 
 ..  code-block:: php
-    :caption: EXT:my_extension/Classes/MyClass.php
+    :caption: EXT:my_extension/Classes/DataHandling/MyClass.php
 
     $data['sys_category']['NEW9823be87'] = [
         'title' => 'New category',
@@ -520,13 +531,13 @@ one new system category:
 ..  note::
     To get real uid of the record you have just created use DataHandler's
     `substNEWwithIDs` property like:
-    :php:`$uid = $dataHandler->substNEWwithIDs['NEW9823be87'];`
+    :php:`$uid = $this->dataHandler->substNEWwithIDs['NEW9823be87'];`
 
 This updates the page with uid=9834 to a new title, "New title for
 this page", and no\_cache checked:
 
 .. code-block:: php
-   :caption: EXT:my_extension/Classes/MyClass.php
+   :caption: EXT:my_extension/Classes/DataHandling/MyClass.php
 
     $data['pages'][9834] = [
         'title' => 'New title for this page',
@@ -542,43 +553,36 @@ Clear cache
 
 DataHandler also has an API for clearing the cache tables of TYPO3:
 
-Syntax
-
 ..  code-block:: php
-    :caption: EXT:my_extension/Classes/MyClass.php
+    :caption: EXT:my_extension/Classes/DataHandling/MyClass.php
 
-    $dataHandler->clear_cacheCmd($cacheCmd);
+    $this->dataHandler->clear_cacheCmd($cacheCmd);
 
-.. t3-field-list-table::
- :header-rows: 1
+Values for the :php:`$cacheCmd` argument:
 
- - :Value,30: $cacheCmd values
-   :Description,70: Description
+..  confval:: [integer]
+    :name: datahandler-clear-cachecmd-integer
 
-
- - :Value:
-         [integer]
-   :Description:
-         Clear the cache for the page id given.
+    Clear the cache for the page ID given.
 
 
- - :Value:
-         "all"
-   :Description:
-         Clears all cache tables (:code:`cache_pages`, :code:`cache_pagesection`,
-         :code:`cache_hash`).
+..  confval:: "all"
+    :name: datahandler-clear-cachecmd-all
 
-         Only available for admin-users unless explicitly allowed by User
-         TSconfig "options.clearCache.all".
+    Clears all cache tables (:code:`cache_pages`, :code:`cache_pagesection`,
+    :code:`cache_hash`).
+
+    Only available for admin-users unless explicitly allowed by User
+    TSconfig "options.clearCache.all".
 
 
- - :Value:
-         "pages"
-   :Description:
-         Clears all pages from :code:`cache_pages`.
+..  confval:: "pages"
+    :name: datahandler-clear-cachecmd-pages
 
-         Only available for admin-users unless explicitly allowed by User
-         TSconfig "options.clearCache.pages".
+    Clears all pages from :code:`cache_pages`.
+
+    Only available for admin-users unless explicitly allowed by User
+    TSconfig "options.clearCache.pages".
 
 
 ..  index:: Hook; Clear cache
@@ -587,24 +591,26 @@ Syntax
 Clear cache using cache tags
 ----------------------------
 
-Every processing of data or commands is finalized with flushing a few caches in the :php:`pages` group. Cache tags are used to specifically flush the the relevant cache entries instead of the cache as whole.
+Every processing of data or commands is finalized with flushing a few caches in
+the :php:`pages` group. Cache tags are used to specifically flush the the
+relevant cache entries instead of the cache as whole.
 
 By default the following cache tags are flushed:
 
-*   The table name of the updated record, e.g. :php:`pages` when updating a page or
-    :php:`tx_myextension_mytable` when updating a record of this table.
-*   A combination of table name and record UID, e.g. :php:`pages_10` when
-    updating the page with UID 10 or :php:`tx_myextension_mytable_20` when
+*   The table name of the updated record, for example, :php:`pages` when
+    updating a page or :php:`tx_myextension_mytable` when updating a record of
+    this table.
+*   A combination of table name and record UID, for example, :php:`pages_10`
+    when updating the page with UID 10 or :php:`tx_myextension_mytable_20` when
     updating the record with UID 20 of this table.
-*   A page UID prefixed with :php:`pageID_` (:php:`pageId_<page-uid>`), e.g.
-    :php:`pageId_10` when updating a page with UID 10 (additionally all related
-    pages, see
+*   A page UID prefixed with :php:`pageID_` (:php:`pageId_<page-uid>`), for
+    example, :php:`pageId_10` when updating a page with UID 10 (additionally all
+    related pages, see
     :ref:`clearcache-pagegrandparent <t3tsconfig:pagetcemain-clearcache-pagegrandparent>`
     and
     :ref:`clearcache-pagesiblingchildren <t3tsconfig:pagetcemain-clearcache-pagesiblingchildren>`)
-    and :php:`pageId_10` when
-    updating a record if a record of any table placed on the page with UID 10
-    (:php:`<table>.pid = 10`) is updated.
+    and :php:`pageId_10` when updating a record if a record of any table placed
+    on the page with UID 10 (:php:`<table>.pid = 10`) is updated.
 
 Notice that you can also use the :php:`TypoScriptFrontendController->addCacheTags()`
 method to register additional tags for the cache entry of the current page while

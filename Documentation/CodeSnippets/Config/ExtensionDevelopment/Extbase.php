@@ -322,7 +322,7 @@ return [
         'caption' => 'EXT:blog_example/Configuration/FlexForms/PluginSettings.xml',
         'sourceFile' => 'EXT:blog_example/Configuration/FlexForms/PluginSettings.xml',
         'targetFileName' => 'CodeSnippets/Extbase/Configuration/PluginSettings.rst.txt',
-        'emphasizeLines' => [10],
+        'emphasizeLines' => [8],
     ],
     [
         'action' => 'createPhpClassCodeSnippet',
