@@ -638,11 +638,11 @@ You can configure cache post-processing with a user defined PHP
 function. Configuration of the hook can be done from
 :file:`ext_localconf.php`. An example might look like:
 
-.. code-block:: php
-   :caption: EXT:some_extension/ext_localconf.php
+..  code-block:: php
+    :caption: EXT:my_extension/ext_localconf.php
 
-   $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['t3lib/class.t3lib_tcemain.php']['clearCachePostProc'][] =
-       \Vendor\SomeExtension\Hook\DataHandlerHook::class . '->postProcessClearCache';
+    $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['t3lib/class.t3lib_tcemain.php']['clearCachePostProc'][] =
+        \MyVendor\MyExtension\Hook\DataHandlerHook::class . '->postProcessClearCache';
 
 
 ..  index:: DataHandler; Flags
@@ -654,45 +654,39 @@ Flags in DataHandler
 There are a few internal variables you can set prior to executing
 commands or data submission. These are the most significant:
 
-.. t3-field-list-table::
- :header-rows: 1
+..  confval:: ->copyTree
+    :name: datahandler-flags-copyTree
+    :Data type: integer
+    :Default: 0
 
- - :Variable,30: Internal variable
-   :Type,20: Data type
-   :Description,50: Description
+    Sets the number of branches on a page tree to copy.
 
+    0
+        Branch is *not* copied
 
- - :Variable:
-         ->copyTree
-   :Type:
-         Integer
-   :Description:
-         Sets the number of branches on a page tree to copy.
+    1
+        Pages on the first level are copied.
 
-         If :code:`0` then branch is *not* copied. If :code:`1` then pages on the 1st level is
-         copied. If :code:`2` then pages on the second level is copied, and so on.
+    2
+        Pages on the second level are copied.
 
-         Default is zero.
+    And so on.
 
 
- - :Variable:
-         ->reverseOrder
-   :Type:
-         Boolean
-   :Description:
-         If set, the data array is reversed in the order, which is a nice thing
-         if you're creating a whole bunch of new records.
+..  confval:: ->reverseOrder
+    :name: datahandler-flags-reverseOrder
+    :Data type: boolean
+    :Default: false
 
-         Default is zero.
+    If set, the data array is reversed in the order, which is a nice thing
+    if you are creating a whole bunch of new records.
 
 
- - :Variable:
-         ->copyWhichTables
-   :Type:
-         list of strings (tables)
-   :Description:
-         This list of tables decides which tables will be copied. If empty then
-         none will. If "\*" then all will (that the user has permission to of
-         course).
+..  confval:: ->copyWhichTables
+    :name: datahandler-flags-copyWhichTables
+    :Data type: list of strings (tables)
+    :Default: "*"
 
-         Default is "\*".
+    This list of tables decides which tables will be copied. If empty then
+    none will. If "*" then all will (that the user has permission to, of
+    course).
