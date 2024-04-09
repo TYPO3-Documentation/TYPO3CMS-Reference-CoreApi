@@ -28,7 +28,7 @@ In :file:`LocalConfiguration.php` or :file:`AdditionalConfiguration.php`:
 .. code-block:: php
    :caption: typo3conf/AdditionalConfiguration.php
 
-    $changeSettings['SYS'] => [
+    $changeSettings['SYS'] = [
       'displayErrors' => 1,
       'devIPmask' => '*',
       'errorHandler' => 'TYPO3\\CMS\\Core\\Error\\ErrorHandler',
@@ -87,7 +87,7 @@ In :file:`LocalConfiguration.php` or :file:`AdditionalConfiguration.php`:
 .. code-block:: php
    :caption: typo3conf/AdditionalConfiguration.php
 
-    $changeSettings['SYS'] => [
+    $changeSettings['SYS'] = [
       'displayErrors' => -1,
       'devIPmask' => '[your.IP.address]',
       'errorHandler' => 'TYPO3\\CMS\\Core\\Error\\ErrorHandler',
@@ -123,7 +123,7 @@ In :file:`LocalConfiguration.php` or :file:`AdditionalConfiguration.php`:
 .. code-block:: php
    :caption: typo3conf/AdditionalConfiguration.php
 
-    $changeSettings['SYS'] => [
+    $changeSettings['SYS'] = [
       'displayErrors' => 0,
       'devIPmask' => '',
       'errorHandler' => '',
