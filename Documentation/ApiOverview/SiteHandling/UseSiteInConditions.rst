@@ -38,6 +38,18 @@ The identifier of the site name is evaluated:
     [GLOBAL]
 
 
+A custom field is evaluated:
+
+.. code-block:: typoscript
+
+    [site("configuration")["custom_field"] == "compareValue"]
+       page.35.value = abc
+    [GLOBAL]
+
+*site("methodName")* is equivalent to a call of "methodName" on the current site object.
+
+You can take a look at :php:`\TYPO3\CMS\Core\Site\Entity\SiteInterface` for accessible methods.
+
 Property of the current site language is evaluated:
 
 ..  code-block:: typoscript
