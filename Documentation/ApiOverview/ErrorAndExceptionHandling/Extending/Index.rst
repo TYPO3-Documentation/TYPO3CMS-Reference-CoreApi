@@ -43,7 +43,7 @@ This uses the default Core exception handler `DebugExceptionHandler` and overrid
 of the functionality:
 
 .. code-block:: php
-   :caption: EXT:some_extension/Clases/Error/PostExceptionsOnTwitter.php
+   :caption: EXT:some_extension/Classes/Error/PostExceptionsOnTwitter.php
 
    namespace Vendor\SomeExtension\Error;
 
