@@ -46,7 +46,7 @@ A custom field is evaluated:
        page.35.value = abc
     [GLOBAL]
 
-*site("methodName")* is equivalent to a call of "methodName" on the current site object.
+:typoscript:`site("methodName")` is equivalent to a call of "methodName" on the current site object.
 
 You can take a look at :php:`\TYPO3\CMS\Core\Site\Entity\SiteInterface` for accessible methods.
 
