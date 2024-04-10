@@ -363,3 +363,24 @@ Example
 ..  literalinclude:: _MyControllerUsingWorkspaceAspect.php
     :language: php
     :caption: EXT:my_extension/Classes/Controller/MyController.php
+
+
+..  _context_api_aspects_typoscript:
+
+Typoscript aspect
+-----------------
+
+The aspect contains how to handle TypoScript related `Context` settings.
+It can be used to manipulate/check whether template rendering is forced.
+The Typoscript aspect :php:`\TYPO3\CMS\Core\Context\WorkspaceAspect`.
+
+Example usage:
+
+..  code-block:: php
+
+    use TYPO3\CMS\Core\Context\TypoScriptAspect;
+
+    GeneralUtility::makeInstance(Context::class)->getAspect('typoscript');
+    GeneralUtility::makeInstance(Context::class)->getPropertyFromAspect('typoscript', 'forcedTemplateParsing');
+    $context->setAspect('typoscript', GeneralUtility::makeInstance(TypoScriptAspect::class, true));
+
