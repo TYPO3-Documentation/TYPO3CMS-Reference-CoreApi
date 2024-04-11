@@ -9,7 +9,7 @@ FlexForms
 FlexForms can be used to store data within an XML structure inside a single DB
 column.
 
-More information on this Data Structure is available in the section
+More information on this data structure is available in the section
 :ref:`t3ds`.
 
 FlexForms can be used to configure :ref:`content elements (CE) or plugins
