@@ -9,7 +9,7 @@ TypoScript coding guidelines
 Directory and file names
 ========================
 
-* The file extension **should** be :file:`.typoscript`.
+* The file extension **must** be :file:`.typoscript`.
 
 * TypoScript files are located in the directory :file:`<extension>/Configuration/TypoScript`.
 
@@ -17,17 +17,12 @@ Directory and file names
 
 * File name for TypoScript in static templates: :file:`setup.typoscript`.
 
-More information about the file ending:
-
-* TypoScript files used to have the ending :file:`.txt`.
-
-* It is also possible to use the ending :file:`.ts`. This is
-  not recommended because it is also used by TypeScript.
-
-* Therefore, you should use :file:`.typoscript`.
-
+..  attention::
+    Support for other TypoScript file extensions, such as :file:`.txt` or :file:`.ts`, have been removed in TYPO3 v12.
 
 .. seealso::
+
+   Changelog: :doc:`ext_core:Changelog/12.0/Breaking-97816-TypoScriptSyntaxChanges`
 
    Changelog: :doc:`ext_core:Changelog/8.7.x/Feature-78161-IntroduceTypoScriptFileExtension`
 
