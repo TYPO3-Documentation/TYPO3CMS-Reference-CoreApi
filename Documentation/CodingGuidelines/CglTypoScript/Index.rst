@@ -18,7 +18,7 @@ Directory and file names
 * File name for TypoScript in static templates: :file:`setup.typoscript`.
 
 ..  attention::
-    Support for other TypoScript file extensions, such as :file:`.txt` or :file:`.ts`, has been removed in TYPO3 v12.
+    Support for other TypoScript file extensions, such as :file:`.txt` or :file:`.ts`, have been removed in TYPO3 v12.
 
 .. seealso::
 
