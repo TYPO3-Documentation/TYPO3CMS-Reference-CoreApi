@@ -1,4 +1,4 @@
-import {Hotkeys, ModifierKeys} from '@typo3/backend/hotkeys.js';
+import Hotkeys, {ModifierKeys} from '@typo3/backend/hotkeys.js';
 
 Hotkeys.register([Hotkeys.normalizedCtrlModifierKey, ModifierKeys.ALT, 'e'], keyboardEvent => {
   console.log('Triggered on Ctrl/Cmd+Alt+E');
