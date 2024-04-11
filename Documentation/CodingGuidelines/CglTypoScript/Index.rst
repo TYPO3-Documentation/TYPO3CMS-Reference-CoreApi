@@ -1,6 +1,6 @@
-.. include:: /Includes.rst.txt
-.. index:: pair: Coding guidelines; TypoScript
-.. _cgl-typoscript:
+..  include:: /Includes.rst.txt
+..  index:: pair: Coding guidelines; TypoScript
+..  _cgl-typoscript:
 
 ============================
 TypoScript coding guidelines
@@ -9,32 +9,28 @@ TypoScript coding guidelines
 Directory and file names
 ========================
 
-* The file extension **must** be :file:`.typoscript`.
+..  versionchanged:: 12.0
+    Support for other TypoScript file extensions, such as :file:`.txt` or
+    :file:`.ts`, have been removed in TYPO3 v12.
 
-* TypoScript files are located in the directory :file:`<extension>/Configuration/TypoScript`.
+*   The file extension **must** be :file:`.typoscript`.
 
-* File name for constants in static templates: :file:`constants.typoscript`.
+*   TypoScript files are located in the directory
+    :file:`<extension>/Configuration/TypoScript`.
 
-* File name for TypoScript in static templates: :file:`setup.typoscript`.
+*   File name for constants in static templates: :file:`constants.typoscript`.
 
-..  attention::
-    Support for other TypoScript file extensions, such as :file:`.txt` or :file:`.ts`, have been removed in TYPO3 v12.
-
-.. seealso::
-
-   Changelog: :doc:`ext_core:Changelog/12.0/Breaking-97816-TypoScriptSyntaxChanges`
-
-   Changelog: :doc:`ext_core:Changelog/8.7.x/Feature-78161-IntroduceTypoScriptFileExtension`
+*   File name for TypoScript in static templates: :file:`setup.typoscript`.
 
 Format
 ======
 
-* Use spaces, not TABs.
+*   Use spaces, not TABs.
 
-* Use 2 spaces per indenting level.
+*   Use 2 spaces per indenting level.
 
 More information
 ================
 
-* See :ref:`cgl-ide` in this manual for information about setting up your Editor / IDE to adhere to
-  the coding guidelines.
+*   See :ref:`cgl-ide` in this manual for information about setting up your
+    editor / IDE to adhere to the coding guidelines.
