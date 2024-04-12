@@ -9,6 +9,9 @@ FlexForms
 FlexForms can be used to store data within an XML structure inside a single DB
 column.
 
+More information on this data structure is available in the section
+:ref:`t3ds`.
+
 FlexForms can be used to configure :ref:`content elements (CE) or plugins
 <content-elements>`, but they are optional so you can create plugins or
 content elements without using FlexForms.
@@ -602,3 +605,14 @@ and :t3ext:`bootstrap_package`
 (by Benjamin Kott).
 
 Further enhancements by the TYPO3 community are welcome!
+
+T3DataStructure
+===============
+
+More information on the used data structures within FlexForms can be found
+in these following chapters:
+
+.. toctree::
+   :titlesonly:
+
+   T3datastructure/Index
