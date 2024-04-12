@@ -9,7 +9,7 @@ Register a toplevel module (Extbase)
 
 This page describes how to register a toplevel menu with extbase.
 
-Toplevel modules like "Web" or "File" are registered with the same A
+Toplevel modules like "Web" or "File" are registered with the same API:
 
 :file:`ext_tables.php`:
 
