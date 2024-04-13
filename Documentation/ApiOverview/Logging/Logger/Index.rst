@@ -49,21 +49,21 @@ submitting log messages, the :php:`log()` method:
 
 which takes three parameters:
 
-..  option:: $level
-
+..  confval:: $level
+    :name: logger-log-level
     :Type: integer
 
     One of the defined log levels, see the section
     :ref:`logging-logger-shortcuts`.
 
-..  option:: $message
-
+..  confval:: $message
+    :name: logger-log-message
     :Type: string | :php:`\Stringable`
 
     The log message itself.
 
-..  option:: $data
-
+..  confval:: $data
+    :name: logger-log-data
     :Type: array
 
     Optional parameter, it can contain additional data, which is added to the
