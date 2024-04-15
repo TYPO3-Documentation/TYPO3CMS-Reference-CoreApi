@@ -128,6 +128,23 @@ After triggering the upload, Crowdin tries to find the matching source files and
 target languages. You may have to accept both if they are not found
 automatically.
 
+..  index:: Crowdin; Disable pushing of changes
+..  _crowdin-faq-disable-push-changes:
+
+How can I disable the pushing of changes?
+-----------------------------------------
+
+By default, Crowdin pushes changes made in translations back to the
+repository. This is not necessary, as the translation server provided by TYPO3
+handles the distribution of translations, so your extension does not need to
+ship the translations.
+
+You can disable the pushing of changes back into your repository in the
+Crowdin configuration. Navigate in your Crowdin project to
+:guilabel:`Integrations` and select your integration (for example, GitHub). Then
+click on the :guilabel:`Edit` button and disable the :guilabel:`Push Sources`
+checkbox.
+
 
 ..  index:: Crowdin; Migration from Pootle
 ..  _migrate-from-pootle:
