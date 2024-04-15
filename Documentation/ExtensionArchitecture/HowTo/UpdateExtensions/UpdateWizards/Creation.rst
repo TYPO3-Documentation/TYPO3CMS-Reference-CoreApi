@@ -94,6 +94,23 @@ Method :php:`getPrerequisites()`
             ];
         }
 
+..  note::
+    Your extension must define a
+    :ref:`Configuration/Services.yaml <t3coreapi:extension-configuration-services-yaml>`
+    file. Either :yaml:`autoconfigure: true` must be set, or you have to
+    manually register the upgrade wizard by adding the tag
+    :yaml:`install.upgradewizard`:
+
+    ..  literalinclude:: _tagUpgradeWizard.yaml
+        :language: yaml
+        :caption: EXT:my_extension/Configuration/Services.yaml
+
+After creating the new upgrade wizard, delete all caches in
+:guilabel:`Admin tools > Maintanance > Flush TYPO3 and PHP Cache` or via console
+command:
+
+..  include:: /_includes/CliCacheFlush.rst.txt
+
 
 .. index:: Upgrade wizards; Identifier
 .. _upgrade-wizards-identifier:
