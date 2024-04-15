@@ -97,24 +97,11 @@ Method :php:`getPrerequisites()`
             ];
         }
 
-After creating the new upgrade wizard, delete all caches in  
+After creating the new upgrade wizard, delete all caches in
 :guilabel:`Admin tools > Maintanance > Flush TYPO3 and PHP Cache` or via console
 command:
 
-.. tabs::
-
-   .. group-tab:: Composer-based installation
-
-      .. code-block:: bash
-
-         vendor/bin/typo3 cache:flush
-
-   .. group-tab:: Legacy installation
-
-      .. code-block:: bash
-
-         vendor/bin/typo3 cache:flush
-
+..  include:: /_includes/CliCacheFlush.rst.txt
 
 
 .. index:: Upgrade wizards; Identifier
