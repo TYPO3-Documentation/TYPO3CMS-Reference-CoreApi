@@ -23,8 +23,6 @@ Get in contact with the team in the TYPO3 Slack channel
 `#cig-crowdin-localization`_ with the following information:
 
 #.  Extension name
-#.  Information if your extension is already available on the previous
-    translation server
 #.  Your email address for an invitation to Crowdin, so you will get the correct
     role for your project.
 
