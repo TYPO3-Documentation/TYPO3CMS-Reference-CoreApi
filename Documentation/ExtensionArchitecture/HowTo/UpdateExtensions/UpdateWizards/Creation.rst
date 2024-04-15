@@ -42,9 +42,6 @@ The registration of an upgrade wizard is done directly in the class by adding
 the class attribute :php:`\TYPO3\CMS\Install\Attribute\UpgradeWizard`. The
 :ref:`unique identifier <upgrade-wizards-identifier>` is passed as an argument.
 
-Your extension must have a :ref:`Services.yaml <t3coreapi:extension-configuration-services-yaml>`
-with `autowire = true` for the upgrade wizard to be detected.
-
 ..  literalinclude:: _ExampleUpgradeWizard.php
     :caption: EXT:my_extension/Classes/Upgrades/ExampleUpgradeWizard.php
 
@@ -91,6 +88,17 @@ Method :php:`getPrerequisites()`
                 ReferenceIndexUpdatedPrerequisite::class,
             ];
         }
+
+..  note::
+    Your extension must define a
+    :ref:`Configuration/Services.yaml <t3coreapi:extension-configuration-services-yaml>`
+    file. Either :yaml:`autoconfigure: true` must be set, or you have to
+    manually register the upgrade wizard by adding the tag
+    :yaml:`install.upgradewizard`:
+
+    ..  literalinclude:: _tagUpgradeWizard.yaml
+        :language: yaml
+        :caption: EXT:my_extension/Configuration/Services.yaml
 
 After creating the new upgrade wizard, delete all caches in
 :guilabel:`Admin tools > Maintanance > Flush TYPO3 and PHP Cache` or via console
