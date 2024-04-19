@@ -181,12 +181,6 @@ option overrules the global configuration.
 
    auth.mfa.required = 1
 
-.. note::
-
-   Requiring MFA has currently limited effect. Only an information is
-   displayed in the MFA configuration module. This will change in future
-   releases when this setting will require MFA being configured on accessing
-   the TYPO3 Backend the first time. You are still already able to try it out.
 
 Allowed provider
 ~~~~~~~~~~~~~~~~
@@ -228,12 +222,6 @@ the global configuration.
 
 TYPO3 Integration and API
 -------------------------
-
-.. important::
-
-   The MFA API is still experimental and subject to change until v11 LTS,
-   since we are looking forward to receive feedback, especially for custom
-   use-cases, the API is not capable yet.
 
 To register a custom MFA provider, the provider class has to implement the new
 :php:`MfaProviderInterface`, shipped via a third-party extension. The provider
