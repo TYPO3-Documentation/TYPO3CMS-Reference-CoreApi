@@ -141,3 +141,7 @@ The object-oriented rules of PHP, such as rules about visibility, apply here.
 As you are extending the original class you can overload or call methods
 marked as public and protected but not private or static ones. Read more about
 `visibility and inheritance at php.net <https://www.php.net/manual/en/language.oop5.visibility.php>`__
+
+..  seealso::
+    `How to use constructor dependency injection in a XCLASSed TYPO3 class 
+    <https://www.derhansen.de/2021/06/how-to-use-constructor-injection-with-typo3-xclass.html>`__
