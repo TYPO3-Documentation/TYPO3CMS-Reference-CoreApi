@@ -45,6 +45,9 @@ The :guilabel:`Account security` tab displays the current state:
 -   whether MFA is activated or
 -   whether some MFA providers are locked
 
+
+..  _multi-factor-authentication-included-providers:
+
 Included MFA providers
 ----------------------
 
