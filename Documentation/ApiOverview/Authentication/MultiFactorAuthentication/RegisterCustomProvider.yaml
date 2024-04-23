@@ -1,0 +1,11 @@
+services:
+  # Place here the default dependency injection configuration
+
+  MyVender\MyExtension\Authentication\Mfa\MyProvider:
+    tags:
+      - name: mfa.provider
+        identifier: 'my-provider'
+        title: 'LLL:EXT:my_extension/Resources/Private/Language/locallang.xlf:myProvider.title'
+        description: 'LLL:EXT:my_extension/Resources/Private/Language/locallang.xlf:myProvider.description'
+        setupInstructions: 'LLL:EXT:my_extension/Resources/Private/Language/locallang.xlf:myProvider.setupInstructions'
+        icon: 'tx-myextension-provider-icon'
