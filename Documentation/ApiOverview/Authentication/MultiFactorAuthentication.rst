@@ -1,6 +1,6 @@
-.. include:: /Includes.rst.txt
-.. index:: Authentication, MFA, OTP
-.. _multi-factor-authentication:
+..  include:: /Includes.rst.txt
+..  index:: Authentication, MFA, OTP
+..  _multi-factor-authentication:
 
 ===========================
 Multi-Factor Authentication
@@ -11,17 +11,16 @@ TYPO3 is capable of authentication via multiple factors, in short
 "2FA" as a 2-Factor Authentication process, where - in order to log in - the
 user needs
 
-1) "something you know" (= the password) and
-2) "something you own" (= an authenticator device, or an authenticator app
-   on mobile phones or desktop devices).
+1.  "something you know" (= the password) and
+2.  "something you own" (= an authenticator device, or an authenticator app
+    on mobile phones or desktop devices).
 
-Read more about the concepts of MFA here https://en.wikipedia.org/wiki/Multi-factor_authentication
+Read more about the concepts of MFA here:
+https://en.wikipedia.org/wiki/Multi-factor_authentication
 
-
-.. figure:: /Images/ManualScreenshots/Frontend/Authentication/MfaEnterCode.png
-   :alt: TYPO3 Login Screen for entering MFA code (TOTP)
-   :class: with-border with-shadow
-
+..  figure:: /Images/ManualScreenshots/Frontend/Authentication/MfaEnterCode.png
+    :alt: TYPO3 Login Screen for entering MFA code (TOTP)
+    :class: with-border with-shadow
 
 TYPO3 ships with some built-in MFA providers by default. But more importantly,
 TYPO3 provides an API to allow extension authors to integrate their own
@@ -30,22 +29,21 @@ MFA providers.
 The API is designed in a way to allow providers to be used for TYPO3 Backend
 Authentication or Frontend Authentication with a multi-factor step in-between.
 
-.. note::
-
-   TYPO3 Core currently provides the integration for the TYPO3 Backend, but will
-   fully support multi-factor authentication for the Frontend in future releases.
+..  note::
+    TYPO3 Core currently provides the integration for the TYPO3 Backend, but will
+    fully support multi-factor authentication for the Frontend in future releases.
 
 
 Managing MFA providers is currently possible via the :guilabel:`User Settings` module in
 the tab called :guilabel:`Account security`.
 
-.. include:: /Images/AutomaticScreenshots/Authentication/MfaActivate.rst.txt
+..  include:: /Images/AutomaticScreenshots/Authentication/MfaActivate.rst.txt
 
 The :guilabel:`Account security` tab displays the current state:
 
--  whether MFA can be configured
--  whether MFA is activated or
--  whether some MFA providers are locked
+-   whether MFA can be configured
+-   whether MFA is activated or
+-   whether some MFA providers are locked
 
 Included MFA providers
 ----------------------
@@ -69,7 +67,7 @@ provider is active, as it's only meant as a fallback provider, in case the
 authentication credentials for the "main" provider(s) are lost. It is encouraged
 to activate this provider, and keep the codes at a safe place.
 
-.. include:: /Images/AutomaticScreenshots/Authentication/MfaSelectProvider.rst.txt
+..  include:: /Images/AutomaticScreenshots/Authentication/MfaSelectProvider.rst.txt
 
 Setting up MFA for a backend user
 ---------------------------------
@@ -85,15 +83,15 @@ this state with a "star" icon, next to the providers' title.
 Each inactive provider contains a :guilabel:`Setup` button which opens the corresponding
 configuration view. This view can be different depending on the MFA provider.
 
-.. include:: /Images/AutomaticScreenshots/Authentication/MfaQrCode.rst.txt
+..  include:: /Images/AutomaticScreenshots/Authentication/MfaQrCode.rst.txt
 
 Each provider contains an :guilabel:`Edit/Change` button, which allows to adjust the
 providers' settings. This view allows for example to set a provider as the
 default (primary) provider, to be used on authentication.
 
-.. note::
-   The default provider setting will be automatically applied on activation of the
-   first provider or in case it is the recommended provider for this user.
+..  note::
+    The default provider setting will be automatically applied on activation of the
+    first provider or in case it is the recommended provider for this user.
 
 In case the provider is locked, the :guilabel:`Edit/Change` button changes its button
 title to :guilabel:`Unlock`. This button can be used to unlock the provider.
@@ -126,9 +124,9 @@ which can be retrieved in the "Edit/Change" view.
 By default, the new field in the :guilabel:`User Settings` module is displayed for
 every backend user. It is possible to disable it for specific users via user TSconfig:
 
-.. code-block:: typoscript
+..  code-block:: typoscript
 
-   setup.fields.mfaProviders.disabled = 1
+    setup.fields.mfaProviders.disabled = 1
 
 Administration of users' MFA providers
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -142,9 +140,9 @@ user record. The new :guilabel:`Multi-factor authentication` field displays a
 list of active providers and a button to deactivate MFA for the user, or
 only a specific MFA provider.
 
-.. note::
-   All of these deactivate buttons are executed immediately, after
-   confirming the dialog, and cannot be undone.
+..  note::
+    All of these deactivate buttons are executed immediately, after
+    confirming the dialog, and cannot be undone.
 
 The backend users listing in the backend user module also displays whether MFA
 is enabled or currently locked, for each user. This allows an administrator to
@@ -155,7 +153,7 @@ of all currently registered providers in the installation. This is especially
 helpful to find out the exact provider identifier, needed for some
 user TSconfig options.
 
-.. include:: /Images/AutomaticScreenshots/Authentication/MfaConfigurationModule.rst.txt
+..  include:: /Images/AutomaticScreenshots/Authentication/MfaConfigurationModule.rst.txt
 
 
 Configuration
@@ -168,18 +166,25 @@ It seems reasonable to require MFA for specific users or user groups. This can
 be achieved with :php:`$GLOBALS['TYPO3_CONF_VARS']['BE']['requireMfa']` which
 allows 4 options:
 
-* `0`: Do not require multi-factor authentication (default)
-* `1`: Require multi-factor authentication for all users
-* `2`: Require multi-factor authentication only for non-admin users
-* `3`: Require multi-factor authentication only for admin users
+`0`
+    Do not require multi-factor authentication (default)
+
+`1`
+    Require multi-factor authentication for all users
+
+`2`
+    Require multi-factor authentication only for non-admin users
+
+`3`
+    Require multi-factor authentication only for admin users
 
 To set this requirement only for a specific user or user group, a new
 user TSconfig option `auth.mfa.required` is introduced. The user TSconfig
 option overrules the global configuration.
 
-.. code-block:: typoscript
+..  code-block:: typoscript
 
-   auth.mfa.required = 1
+    auth.mfa.required = 1
 
 
 Allowed provider
@@ -201,9 +206,9 @@ group the TSconfig applies to.
 
 This does not affect the remaining allowed providers from the "Access List".
 
-.. code-block:: typoscript
+..  code-block:: typoscript
 
-   auth.mfa.disableProviders := addToList(totp)
+    auth.mfa.disableProviders := addToList(totp)
 
 Recommended provider
 ~~~~~~~~~~~~~~~~~~~~
@@ -215,9 +220,9 @@ To set a recommended provider on a per user or user group basis, the new
 user TSconfig option `auth.mfa.recommendedProvider` can be used, which overrules
 the global configuration.
 
-.. code-block:: typoscript
+..  code-block:: typoscript
 
-   auth.mfa.recommendedProvider = totp
+    auth.mfa.recommendedProvider = totp
 
 
 TYPO3 Integration and API
@@ -228,16 +233,16 @@ To register a custom MFA provider, the provider class has to implement the new
 then has to be configured in the extensions' :file:`Services.yaml` or
 :file:`Services.php` file with the :yaml:`mfa.provider` tag.
 
-.. code-block:: yaml
+..  code-block:: yaml
 
-   Vender\Extension\Authentication\Mfa\MyProvider:
+    Vender\Extension\Authentication\Mfa\MyProvider:
       tags:
-         - name: mfa.provider
-           identifier: 'my-provider'
-           title: 'LLL:EXT:extension/Resources/Private/Language/locallang.xlf:myProvider.title'
-           description: 'LLL:EXT:extension/Resources/Private/Language/locallang.xlf:myProvider.description'
-           setupInstructions: 'LLL:EXT:extension/Resources/Private/Language/locallang.xlf:myProvider.setupInstructions'
-           icon: 'tx-extension-provider-icon'
+        - name: mfa.provider
+          identifier: 'my-provider'
+          title: 'LLL:EXT:extension/Resources/Private/Language/locallang.xlf:myProvider.title'
+          description: 'LLL:EXT:extension/Resources/Private/Language/locallang.xlf:myProvider.description'
+          setupInstructions: 'LLL:EXT:extension/Resources/Private/Language/locallang.xlf:myProvider.setupInstructions'
+          icon: 'tx-extension-provider-icon'
 
 This will register the provider `MyProvider` with the `my-provider` identifier.
 To change the position of your provider the :yaml:`before` and :yaml:`after`
@@ -251,9 +256,9 @@ If you don't want your provider to be selectable as a default provider, set the
 
 You can also completely deactivate existing providers with:
 
-.. code-block:: yaml
+..  code-block:: yaml
 
-   TYPO3\CMS\Core\Authentication\Mfa\Provider\TotpProvider: ~
+    TYPO3\CMS\Core\Authentication\Mfa\Provider\TotpProvider: ~
 
 The :php:`MfaProviderInterface` contains a lot of methods to be implemented by
 the providers. This can be split up into state-providing ones,
