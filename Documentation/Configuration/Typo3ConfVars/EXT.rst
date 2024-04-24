@@ -1,8 +1,8 @@
-.. include:: /Includes.rst.txt
+..  include:: /Includes.rst.txt
 
-.. index::
-   TYPO3_CONF_VARS; EXT
-.. _typo3ConfVars_ext:
+..  index::
+    TYPO3_CONF_VARS; EXT
+..  _typo3ConfVars_ext:
 
 =====================================
 EXT - Extension manager configuration
@@ -28,19 +28,19 @@ the Extension manager:
     *   :ref:`config/system/additional.php <typo3ConfVars-additional>`
 
 
-.. index::
-   TYPO3_CONF_VARS SYS; excludeForPackaging
-.. _typo3ConfVars_ext_excludeForPackaging:
+..  index::
+    TYPO3_CONF_VARS SYS; excludeForPackaging
+..  _typo3ConfVars_ext_excludeForPackaging:
 
 excludeForPackaging
 ===================
 
-.. confval:: $GLOBALS['TYPO3_CONF_VARS']['EXT']['excludeForPackaging']
+..  confval:: $GLOBALS['TYPO3_CONF_VARS']['EXT']['excludeForPackaging']
 
-   :Path: $GLOBALS['TYPO3_CONF_VARS']['EXT']
-   :type: list
-   :Default: :php:`'(?:\\.(?!htaccess$).*|.*~|.*\\.swp|.*\\.bak|node_modules|bower_components)'`
+    :Path: $GLOBALS['TYPO3_CONF_VARS']['EXT']
+    :type: list
+    :Default: :php:`'(?:\\.(?!htaccess$).*|.*~|.*\\.swp|.*\\.bak|node_modules|bower_components)'`
 
-   List of directories and files which will not be packaged into extensions nor
-   taken into account otherwise by the Extension Manager. Perl regular
-   expression syntax!
+    List of directories and files which will not be packaged into extensions nor
+    taken into account otherwise by the Extension Manager. Perl regular
+    expression syntax!
