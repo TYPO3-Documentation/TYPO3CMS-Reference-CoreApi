@@ -1,0 +1,4 @@
+services:
+  # Place here the default dependency injection configuration
+
+  TYPO3\CMS\Core\Authentication\Mfa\Provider\TotpProvider: ~
