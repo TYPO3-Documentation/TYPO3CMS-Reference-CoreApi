@@ -37,11 +37,13 @@ My favorite language is not available for an extension
 
 If you are missing the support for a specific language in an extension on
 Crowdin please contact either the maintainer of the extension or the
-:ref:`crowdin-initiative`.
+`Localization Team`_.
 
 ..  seealso::
     The language needs to be supported by TYPO3 itself as well, see
     :ref:`i18n_languages` for a list of all languages.
+
+..  _Localization Team: https://typo3.org/community/teams/localization
 
 
 ..  _crowdin-faq-pootle:
