@@ -77,6 +77,17 @@ to activate this provider, and keep the codes at a safe place.
 
 ..  include:: /Images/AutomaticScreenshots/Authentication/MfaSelectProvider.rst.txt
 
+Third-party MFA providers
+-------------------------
+
+Some third-party MFA providers are available:
+
+*   `E-Mail MFA Provider <https://extensions.typo3.org/extension/mfa_email>`__
+*   `HOTP MFA Provider <https://extensions.typo3.org/extension/mfa_hotp>`__
+*   `WebAuthn Provider (FIDO2/U2F) for MFA <https://extensions.typo3.org/extension/mfa_webauthn>`__
+*   `YubiKey OTP MFA provider <https://extensions.typo3.org/extension/mfa_yubikey>`__
+
+
 Setting up MFA for a backend user
 ---------------------------------
 
