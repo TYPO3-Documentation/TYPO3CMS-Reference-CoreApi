@@ -33,20 +33,6 @@ Translation memory
 ..  _Crowdin: https://crowdin.com/
 
 
-.. index:: Crowdin; Initiative
-.. _crowdin-initiative:
-
-Crowdin initiative
-==================
-
-The `Localization with Crowdin Initiative`_ was created to take care of the
-integration of Crowdin into TYPO3. The scope of the initiative is to fulfill all
-the features that were available with the previously used translation server
-powered by Pootle and its integration.
-
-..  _Localization with Crowdin Initiative: https://typo3.org/community/teams/typo3-development/initiatives/localization-with-crowdin
-
-
 ..  index:: Crowdin; Translations
 
 Contribute translations
@@ -54,7 +40,7 @@ Contribute translations
 
 There are basically two cases where you can provide a helping hand:
 
-Join us and help where you can. This can be the translation of a whole extension into your language or the revision of a part of the Core.
+Join the `Localization Team`_ and help where you can. This can be the translation of a whole extension into your language or the revision of a part of the Core.
 
 #.  Contribution to the general translation of the TYPO3 Core and extensions:
     As TYPO3 is growing in features and functionality, the need for translating
@@ -85,6 +71,8 @@ All services and documents that are visible to the user are translated by the
 translation team. It does not matter which language you speak. We already have
 many language teams that are very active. Our goal is more diversity to help us
 with our work on internationalization.
+
+..  _Localization Team: https://typo3.org/community/teams/localization
 
 
 More to read
