@@ -110,7 +110,7 @@ The language aspect, :php:`\TYPO3\CMS\Core\Context\LanguageAspect` accepts the
 following properties:
 
 ..  confval:: id
-
+    :name: language-aspect-id
     :Call: :php:`$this->context->getPropertyFromAspect('language', 'id');`
 
     Returns the requested language of the current page as integer (uid).
@@ -259,7 +259,7 @@ The user aspect, :php:`\TYPO3\CMS\Core\Context\UserAspect`, accepts the
 following properties:
 
 ..  confval:: id
-
+    :name: user-aspect-id
     :Call: :php:`$this->context->getPropertyFromAspect('frontend.user', 'id');` or :php:`$this->context->getPropertyFromAspect('backend.user', 'id');`
 
     Returns the uid of the currently logged in user, `0` if no user is logged
@@ -364,7 +364,7 @@ The workspace aspect, :php:`\TYPO3\CMS\Core\Context\WorkspaceAspect`, accepts
 the following properties:
 
 ..  confval:: id
-
+    :name: workspace-aspect-id
     :Call: :php:`$this->context->getPropertyFromAspect('workspace', 'id');`
 
     Returns the UID of the currently accessed workspace, as integer.
