@@ -6,10 +6,10 @@
 Debugging
 =========
 
-Let's take a look at what debugging possibilities TYPO3 provides.
+..  contents::
+    :local:
 
 ..  todo: Revise this chapter, for example:
-          - Debugging PHP code should be done with an IDE and Xdebug
           - Add Extbase's DebuggerUtility::var_dump()
           - Add Fluid's f:debug ViewHelper
           - Add Configuration backend module for TCA, Middlewares, Events, etc.
@@ -17,12 +17,42 @@ Let's take a look at what debugging possibilities TYPO3 provides.
 
 ..  index::
     pair: Debugging; PHP
+
+PHP
+===
+
+Xdebug
+------
+
+First of all: best practice to debug PHP code is using an IDE (like `PhpStorm`_
+or `Visual Studio Code`_) with `Xdebug`_. Advantages are:
+
+*   You can investigate the values of variables and class properties when
+    setting a breakpoint.
+*   You can move forward line by line and see how the variables and properties
+    change.
+*   You can also step into calling methods and functions.
+*   You see the calling code as a stack trace.
+
+
+..  seealso::
+    *   `Configure Xdebug in PhpStorm`_
+    *   `Configure Xdebug in Visual Studio Code`_
+
+..  _PhpStorm: https://www.jetbrains.com/phpstorm/
+..  _Visual Studio Code: https://code.visualstudio.com/
+..  _Xdebug: https://xdebug.org/
+..  _Configure Xdebug in PhpStorm: https://www.jetbrains.com/help/phpstorm/configuring-xdebug.html
+..  _Configure Xdebug in Visual Studio Code: https://tommcfarlin.com/xdebug-in-visual-studio-code/
+
+
+..  index::
     GlobalDebugFunctions
     DebugUtility
     TYPO3_CONF_VARS; SYS devIPmask
 
-Debugging PHP code
-==================
+`DebugUtility::debug()`
+-----------------------
 
 The TYPO3 Core provides a simple :php:`debug()` (defined in
 :file:`EXT:core/Classes/Core/GlobalDebugFunctions.php`). It wraps around
@@ -45,8 +75,8 @@ debugging tools.
     pair: Debugging; Backend
     TYPO3_CONF_VARS; BE debug
 
-Backend debug mode
-==================
+TYPO3 backend debug mode
+========================
 
 To display additional debug information in the backend, set
 :ref:`$GLOBALS['TYPO3_CONF_VARS']['BE']['debug'] <typo3ConfVars_be_debug>`
