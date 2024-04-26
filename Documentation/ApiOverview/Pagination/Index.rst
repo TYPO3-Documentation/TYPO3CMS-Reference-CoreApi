@@ -54,8 +54,7 @@ Code example for the :php:`ArrayPaginator`:
    $pagination->getNextPageNumber(); // returns null
    // …
 
-   $this->view->assign(
-       'pagination',
+   $this->view->assignMultiple(
        [
            'pagination' => $pagination,
            'paginator' => $paginator,
@@ -104,8 +103,8 @@ the 2nd argument to the maximum number of links which should be rendered.
    // use TYPO3\CMS\Extbase\Pagination\QueryResultPaginator;
    // use TYPO3\CMS\Core\Pagination\SlidingWindowPagination;
 
-   $currentPage = $this->request->hasArgument('currentPage')
-       ? (int)$this->request->getArgument('currentPage')
+   $currentPage = $this->request->hasArgument('currentPageNumber')
+       ? (int)$this->request->getArgument('currentPageNumber')
        : 1;
    $itemsPerPage = 10;
    $maximumLinks = 15;
