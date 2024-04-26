@@ -238,7 +238,8 @@ requireMfa
       4:
          Require multi-factor authentication only for system maintainers
 
-   Define users which should be required to set up multi-factor authentication.
+   Define users which should be required to set up
+   :ref:`multi-factor authentication <multi-factor-authentication>`.
 
 .. index::
    TYPO3_CONF_VARS BE; recommendedMfaProvider
@@ -252,8 +253,9 @@ recommendedMfaProvider
    :type: text
    :Default: 'totp'
 
-   Set the identifier of the multi-factor authentication provider, recommended
-   for all users.
+   Set the identifier of the
+   :ref:`multi-factor authentication provider <multi-factor-authentication-included-providers>`,
+   recommended for all users.
 
 
 .. index::
