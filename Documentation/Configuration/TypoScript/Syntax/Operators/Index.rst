@@ -1,6 +1,6 @@
-.. include:: /Includes.rst.txt
-.. index:: TypoScript; Operator
-.. _typoscript-syntax-syntax-operator:
+..  include:: /Includes.rst.txt
+..  index:: TypoScript; Operator
+..  _typoscript-syntax-syntax-operator:
 
 =========
 Operators
@@ -10,15 +10,14 @@ TypoScript syntax comes with a couple of operators to assign
 values, copy from other identifier paths, and to manipulate values.
 Let's have a closer look at them.
 
-
-.. index::
-   TypoScript; Operator "="
-   TypoScript; Value assignment
-.. _typoscript-syntax-syntax-equal-operator:
-.. _typoscript-syntax-syntax-value-assignment:
+..  index::
+    TypoScript; Operator "="
+    TypoScript; Value assignment
+..  _typoscript-syntax-syntax-equal-operator:
+..  _typoscript-syntax-syntax-value-assignment:
 
 Value assignment with "="
--------------------------
+=========================
 
 This most common operator assigns a single line value to an identifier path.
 Everything after the :typoscript:`=` character until the end of the line is
@@ -34,7 +33,7 @@ exist, it falls back to the string literal including the :typoscript:`{$` and
 
 A couple of examples:
 
-.. include:: /CodeSnippets/TypoScriptSyntax/OperatorAssignment.rst.txt
+..  include:: /CodeSnippets/TypoScriptSyntax/OperatorAssignment.rst.txt
 
 ..  caution::
     The TypoScript parser looks for valid operators first, then parses things
@@ -59,14 +58,14 @@ A couple of examples:
 
         lib.nav.wrap = <ul id="nav">|</ul>
 
-.. index::
-   TypoScript; Operator "( )"
-   TypoScript; Multi-line values
-.. _typoscript-syntax-syntax-round-brackets:
-.. _typoscript-syntax-syntax-multiline-values:
+..  index::
+    TypoScript; Operator "( )"
+    TypoScript; Multi-line values
+..  _typoscript-syntax-syntax-round-brackets:
+..  _typoscript-syntax-syntax-multiline-values:
 
 Multiline assignment with "(" and ")"
--------------------------------------
+=====================================
 
 Opening and closing parenthesis are used to assign multi-line values. This allows
 defining values that span several lines and thus include line breaks.
@@ -86,32 +85,32 @@ backend modules.
 
 A couple of examples:
 
-.. include:: /CodeSnippets/TypoScriptSyntax/OperatorMultiLine.rst.txt
+..  include:: /CodeSnippets/TypoScriptSyntax/OperatorMultiLine.rst.txt
 
 
-.. index::
-   TypoScript; Operator ">"
-   TypoScript; Object unsetting
-.. _typoscript-syntax-syntax-bigger-than-operator:
-.. _typoscript-syntax-syntax-unsetting-operator:
+..  index::
+    TypoScript; Operator ">"
+    TypoScript; Object unsetting
+..  _typoscript-syntax-syntax-bigger-than-operator:
+..  _typoscript-syntax-syntax-unsetting-operator:
 
 Unset with ">"
---------------
+==============
 
 This can be used to unset a previously defined identifier path value, and
 all of its sub identifiers:
 
-.. include:: /CodeSnippets/TypoScriptSyntax/OperatorUnset.rst.txt
+..  include:: /CodeSnippets/TypoScriptSyntax/OperatorUnset.rst.txt
 
 
-.. index::
-   TypoScript; Operator "<"
-   TypoScript; Object copying
-.. _typoscript-syntax-syntax-smaller-than-operator:
-.. _typoscript-syntax-syntax-object-copying:
+..  index::
+    TypoScript; Operator "<"
+    TypoScript; Object copying
+..  _typoscript-syntax-syntax-smaller-than-operator:
+..  _typoscript-syntax-syntax-object-copying:
 
 Copy with "<"
--------------
+=============
 
 The :typoscript:`<` character is used to copy one identifier path to another.
 The whole current identifier state is copied: both value and sub identifiers.
@@ -125,36 +124,36 @@ used at further places when needed again.
 The result of the below TypoScript is two independent sets which are duplicates.
 They are not references to each other but actual copies:
 
-.. include:: /CodeSnippets/TypoScriptSyntax/OperatorCopy1.rst.txt
+..  include:: /CodeSnippets/TypoScriptSyntax/OperatorCopy1.rst.txt
 
 The copy operator is allowed within code blocks as well:
 
-.. include:: /CodeSnippets/TypoScriptSyntax/OperatorCopy2.rst.txt
+..  include:: /CodeSnippets/TypoScriptSyntax/OperatorCopy2.rst.txt
 
 In the above example, the copied identifier path is referred to with its full path
 :typoscript:`myIdentifier.10`. When copying on the same level, it is allowed
 to use a relative path, indicated by a prepended dot. The following produces
 the same result as above:
 
-.. include:: /CodeSnippets/TypoScriptSyntax/OperatorCopy3.rst.txt
+..  include:: /CodeSnippets/TypoScriptSyntax/OperatorCopy3.rst.txt
 
 Using the copy operator creates a copy of the source path at exactly this point
 in the parsing process. Changing the source afterwards does not change the
 target, and changing the target afterwards does not change the source:
 
-.. include:: /CodeSnippets/TypoScriptSyntax/OperatorCopy4.rst.txt
+..  include:: /CodeSnippets/TypoScriptSyntax/OperatorCopy4.rst.txt
 
 
-.. index::
-   TypoScript; Operator "=<"
-   TypoScript; References
-.. _typoscript-syntax-syntax-equal-smaller-than-operator:
-.. _typoscript-syntax-syntax-object-referencing:
+..  index::
+    TypoScript; Operator "=<"
+    TypoScript; References
+..  _typoscript-syntax-syntax-equal-smaller-than-operator:
+..  _typoscript-syntax-syntax-object-referencing:
 
 References with "=<"
---------------------
+====================
 
-.. note::
+..  note::
 
     The reference operator :typoscript:`=<` is not a general syntax construct.
     Even though the TypoScript and TSconfig backend modules show usages of
@@ -172,17 +171,16 @@ identifier path without making an actual copy. This allows changes to the
 source identifier afterwards, which changes the targets as well. References can
 be convenient for this special case, but should be used with caution.
 
-.. include:: /CodeSnippets/TypoScriptSyntax/OperatorReference.rst.txt
+..  include:: /CodeSnippets/TypoScriptSyntax/OperatorReference.rst.txt
 
-
-.. index::
-   TypoScript; Operator ":="
-   TypoScript; Value modifications
-.. _typoscript-syntax-syntax-colon-equal-operator:
-.. _typoscript-syntax-syntax-value-modification:
+..  index::
+    TypoScript; Operator ":="
+    TypoScript; Value modifications
+..  _typoscript-syntax-syntax-colon-equal-operator:
+..  _typoscript-syntax-syntax-value-modification:
 
 Value modifications with ":="
------------------------------
+=============================
 
 This operator assigns a value to an identifier path by calling a
 predefined function which modifies the existing value in different ways.
@@ -192,47 +190,47 @@ redefining it again.
 A modifier is referenced by its modifier name, plus arguments in
 parenthesis. These predefined functions are available:
 
-* prependString()
+`prependString()`
     Add a string to the beginning of the existing value.
 
-    .. code-block:: typoscript
+    ..  code-block:: typoscript
 
         foo = cd
         foo := prependString(ab)
         # foo is "abcd"
 
-* appendString()
+`appendString()`
     Add a string to the end of the existing value.
 
-    .. code-block:: typoscript
+    ..  code-block:: typoscript
 
         foo = ab
         foo := appendString(cd)
         # foo is "abcd"
 
-* removeString()
+`removeString()`
     Remove a string from the existing value.
 
-    .. code-block:: typoscript
+    ..  code-block:: typoscript
 
         foo = foobarfoo
         foo := removeString(foo)
         # foo is "bar"
 
-* replaceString()
+`replaceString()`
     Replace old with new value. Separate these using :code:`|`.
 
-    .. code-block:: typoscript
+    ..  code-block:: typoscript
 
         foo = abcd
         foo := replaceString(bc|123)
         # foo is "a123d"
 
-* addToList()
+`addToList()`
     Add values to the end of a list of existing values. There is no check for
     duplicate values, and the list is not sorted in any way.
 
-    .. code-block:: typoscript
+    ..  code-block:: typoscript
 
         foo = 123,456
         foo := addToList(789)
@@ -242,35 +240,35 @@ parenthesis. These predefined functions are available:
         foo := addToList(123)
         # foo is "123" (no leading comma added on empty existing value)
 
-* removeFromList()
+`removeFromList()`
     Remove a comma-separated list of values from an existing comma-separated
     list of values. Empty values are removed as well.
 
-    .. code-block:: typoscript
+    ..  code-block:: typoscript
 
         foo = foo,123,bar,456,foo,,789
         foo:= removeFromList(foo,bar)
         # foo is "123,456,789"
 
-* uniqueList()
+`uniqueList()`
     Remove duplicate entries from a comma-separated list of values.
 
-    .. code-block:: typoscript
+    ..  code-block:: typoscript
 
         foo = 123,456,abc,456,456
         foo := uniqueList()
         # foo is "123,456,abc"
 
-* reverseList()
+`reverseList()`
     Reverses the order of entries in a comma-separated list of values.
 
-    .. code-block:: typoscript
+    ..  code-block:: typoscript
 
         foo = 123,456,abc,456
         foo := reverseList()
         # foo is "456,abc,456,123"
 
-* sortList()
+`sortList()`
     Sorts the entries in a comma-separated list of values. There are optional
     sorting parameters, multiple can be separated using :typoscript:`,`:
 
@@ -285,7 +283,7 @@ parenthesis. These predefined functions are available:
     numeric
         Apply numeric sorting: Numbers from small to big, letters sorted after "0".
 
-    .. code-block:: typoscript
+    ..  code-block:: typoscript
 
         foo = 10,100,0,20,abc
         foo := sortList()
@@ -299,16 +297,16 @@ parenthesis. These predefined functions are available:
         foo := sortList(numeric,descending)
         # foo is "100,20,10,0,-20"
 
-* getEnv()
+`getEnv()`
     Access a $_ENV value. Resolves to empty value if not set.
 
-    .. code-block:: typoscript
+    ..  code-block:: typoscript
 
         # $_ENV['foo'] = 'fooValue'
         foo := getEnv(foo);
         # foo is "fooValue"
 
-* "myCustomFunction()"
+`myCustomFunction()`
     ..  versionchanged:: 12.0
 
     The PSR-14 event :php:`\TYPO3\CMS\Core\TypoScript\AST\Event\EvaluateModifierFunctionEvent`
