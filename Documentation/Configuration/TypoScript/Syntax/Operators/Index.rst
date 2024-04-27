@@ -315,3 +315,22 @@ parenthesis. These predefined functions are available:
 
     The section :ref:`EvaluateModifierFunctionEvent <EvaluateModifierFunctionEvent>`
     provides an example and the API.
+
+Null coalescing operator `??` for  TypoScript constants
+=======================================================
+
+..  versionadded:: 13.1
+
+TypoScript constants expressions support a null coalescing
+operator (`??`) as a way for providing a migration path from a legacy constant
+name to a newer name, while providing full backwards compatibility for the
+legacy constant name, if still defined.
+
+Example that evaluates to `$config.oldThing` if set, otherwise the newer setting
+`$myext.thing` would be used:
+
+..  code-block:: typoscript
+    :caption: EXT:my_extension/Configuration/TypoScript/setup.typoscript
+
+    plugin.tx_myext.settings.example = {$config.oldThing ?? $myext.thing}
+
