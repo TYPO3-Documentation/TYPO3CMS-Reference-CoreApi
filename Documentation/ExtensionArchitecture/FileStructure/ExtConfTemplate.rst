@@ -3,7 +3,6 @@
    ! File; EXT:{extkey}/ext_conf_template.txt
    Extension development; Extension configuration
 .. _extension-options:
-.. _extension-configuration:
 
 ===============================================
 :file:`ext_conf_template.txt`
