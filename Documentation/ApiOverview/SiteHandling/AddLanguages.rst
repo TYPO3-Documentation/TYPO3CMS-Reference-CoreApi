@@ -42,20 +42,21 @@ Example of a language configuration (excerpt):
     :caption: config/sites/<some_site>/config.yaml | typo3conf/sites/<some_site>/config.yaml
 
 ..  index:: pair: Site handling; Languages properties
+..  _sitehandling-addingLanguages-properties:
 
 Configuration properties
 ========================
 
-..  option:: enabled
-
+..  confval:: enabled
+    :name: sitehandling-addingLanguages-enabled
     :type: bool
     :Example: :yaml:`true`
 
     Defines, if the language is visible on the frontend. Editors in the TYPO3
     backend will still be able to translate content for the language.
 
-..  option:: languageId
-
+..  confval:: languageId
+    :name: sitehandling-addingLanguages-languageId
     :type: integer
     :Example: :yaml:`1`
 
@@ -67,37 +68,37 @@ Configuration properties
         Once pages, content or records are created in a specific language, the
         :yaml:`languageId` must not be changed anymore.
 
-..  option:: title
-
+..  confval:: title
+    :name: sitehandling-addingLanguages-title
     :type: string
     :Example: :yaml:`English`
 
     The internal human-readable name for this language.
 
-..  option:: websiteTitle
-
+..  confval:: websiteTitle
+    :name: sitehandling-addingLanguages-websiteTitle
     :type: string
     :Example: :yaml:`My custom very British title`
 
     Overrides the global website title for this language.
 
-..  option:: navigationTitle
-
+..  confval:: navigationTitle
+    :name: sitehandling-addingLanguages-navigationTitle
     :type: string
     :Example: :yaml:`British`
 
     Optional navigation title which is used in
     :typoscript:`HMENU.special = language`.
 
-..  option:: base
-
+..  confval:: base
+    :name: sitehandling-addingLanguages-base
     :type: string / URL
     :Example: :yaml:`/uk/`
 
     The language base accepts either a URL or a path segment like :yaml:`/en/`.
 
-..  option:: baseVariants
-
+..  confval:: baseVariants
+    :name: sitehandling-addingLanguages-baseVariants
     :type: array
 
     Allows different base URLs for the same language. They follow the same
@@ -121,8 +122,8 @@ Configuration properties
 
 ..  _sitehandling-addingLanguages-locale:
 
-..  option:: locale
-
+..  confval:: locale
+    :name: sitehandling-addingLanguages-locale
     :type: string / locale
     :Example: :yaml:`en_GB` or :yaml:`de_DE.utf8,de_DE`
 
@@ -133,8 +134,8 @@ Configuration properties
     iterate through the locales from left to right until it finds a locale that
     is installed on the server.
 
-..  option:: iso-639-1
-
+..  confval:: iso-639-1
+    :name: sitehandling-addingLanguages-iso-639-1
     :type: string
     :Example: :yaml:`en`
 
@@ -148,16 +149,16 @@ Configuration properties
     `ISO-639 <https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes>`__
     nomenclature.
 
-..  option:: hreflang
-
+..  confval:: hreflang
+    :name: sitehandling-addingLanguages-hreflang
     :type: string
     :Example: :yaml:`en-GB`
 
     ..  versionchanged:: 12.4
-        The information is now automatically derived from the 
+        The information is now automatically derived from the
         :ref:`locale <sitehandling-addingLanguages-locale>` setting.
 
-    Use this property to override the automatic hreflang tag value for this 
+    Use this property to override the automatic hreflang tag value for this
     language.
 
     **Example setups:**
@@ -169,8 +170,8 @@ Configuration properties
     *   You want to explicitly set :yaml:`x-default` for a specific language,
         which is clearly not a valid language key.
 
-..  option:: direction
-
+..  confval:: direction
+    :name: sitehandling-addingLanguages-direction
     :type: string
     :Example: :yaml:`ltr`
 
@@ -183,8 +184,8 @@ Configuration properties
     The text direction for content in this language (left-to-right or
     right-to-left).
 
-..  option:: typo3Language
-
+..  confval:: typo3Language
+    :name: sitehandling-addingLanguages-typo3Language
     :type: string
     :Example: :yaml:`en`
 
@@ -196,16 +197,16 @@ Configuration properties
 
     Language identifier to use in TYPO3 :ref:`XLIFF files <xliff_api>`.
 
-..  option:: flag
-
+..  confval:: flag
+    :name: sitehandling-addingLanguages-flag
     :type: string
     :Example: :yaml:`gb`
 
     The flag identifier. For example, the flag is displayed in the backend page
     module.
 
-..  option:: fallbackType
-
+..  confval:: fallbackType
+    :name: sitehandling-addingLanguages-fallbackType
     :type: string
     :Example: :yaml:`strict`
 
@@ -234,8 +235,8 @@ Configuration properties
 
         It behaves like old :typoscript:`config.sys_language_overlay = 0`.
 
-..  option:: fallbacks
-
+..  confval:: fallbacks
+    :name: sitehandling-addingLanguages-fallbacks
     :type: comma-separated list of language IDs
     :Example: :yaml:`1,0`
 
