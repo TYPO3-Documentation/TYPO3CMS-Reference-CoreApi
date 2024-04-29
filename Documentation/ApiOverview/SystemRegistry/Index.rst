@@ -34,7 +34,6 @@ The registry is not intended to store things that are supposed to go into
 a :ref:`session <sessions>` or a :ref:`cache <caching>`, use the appropriate
 API for them instead.
 
-
 ..  index:: System registry; API
 ..  _registry-api:
 
@@ -95,14 +94,14 @@ Following a description of the fields that can be found in the `sys_registry`
 table:
 
 ..  confval:: uid
-
-    :Type: int
+    :name: sys-registry-uid
+    :type: int
 
     Primary key, needed for replication and also useful as an index.
 
 ..  confval:: entry_namespace
-
-    :Type: varchar(128)
+    :name: sys-registry-entry-namespace
+    :type: varchar(128)
 
     Represents an entry's namespace. In general, the namespace is an
     extension key starting with `tx_`, a user script's prefix `user_`,
@@ -112,8 +111,8 @@ table:
     within different namespaces.
 
 ..  confval:: entry_key
-
-    :Type: varchar(128)
+    :name: sys-registry-entry-key
+    :type: varchar(128)
 
     The entry's key. Together with the namespace, the key is unique for the
     whole table. The key can be any string to identify the entry. It is
@@ -121,8 +120,8 @@ table:
     naming is similar to the syntax already known in TypoScript.
 
 ..  confval:: entry_value
-
-    :Type: mediumblob
+    :name: sys-registry-entry-value
+    :type: mediumblob
 
     The entry's actual value. The value is stored as a serialized string,
     thus you can even store arrays or objects in a registry entry – it is
