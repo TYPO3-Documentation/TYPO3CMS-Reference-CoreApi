@@ -58,19 +58,19 @@ The date time aspect, :php:`\TYPO3\CMS\Core\Context\DateTimeAspect`, accepts
 the following properties:
 
 ..  confval:: timestamp
-
+    :name: datetime-aspect-timestamp
     :Call: :php:`$this->context->getPropertyFromAspect('date', 'timestamp');`
 
     Returns the Unix timestamp as an integer value.
 
 ..  confval:: timezone
-
+    :name: datetime-aspect-timezone
     :Call: :php:`$this->context->getPropertyFromAspect('date', 'timezone');`
 
     Returns the timezone name, for example, "Germany/Berlin".
 
 ..  confval:: iso
-
+    :name: datetime-aspect-iso
     :Call: :php:`$this->context->getPropertyFromAspect('date', 'iso');`
 
     Returns the datetime as string in
@@ -78,7 +78,7 @@ the following properties:
     "2004-02-12T15:19:21+00:00".
 
 ..  confval:: full
-
+    :name: datetime-aspect-full
     :Call: :php:`$this->context->getPropertyFromAspect('date', 'full');`
 
     Returns the complete
