@@ -2,7 +2,6 @@
 
 .. index::
    Extension development; Create an extension
-.. _extension-builder:
 
 .. _extension-create-new:
 

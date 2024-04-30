@@ -216,7 +216,7 @@ you can import them.
 Questions about TYPO3 Core integration
 ======================================
 
-.. _crowdin-faq-duplicated-labels:
+.. _crowdin-faq-new-system-extension:
 
 The Core Team added a new system extension. Why are language packs not available even though it has already been translated into language XY?
 ---------------------------------------------------------------------------------------------------------------------------------------------
