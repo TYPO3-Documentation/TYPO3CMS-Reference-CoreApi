@@ -44,7 +44,7 @@ The following configuration values are of interest:
     If enabled, the login refresh is disabled and pageRenderer is set to debug
     mode. Furthermore the fieldname is appended to the label of fields.
 
-:confval:`$GLOBALS['TYPO3_CONF_VARS']['FE']['debug']`
+:confval:`$GLOBALS['TYPO3_CONF_VARS']['FE']['debug'] <typo3-conf-vars-fe-debug>`
     If enabled, the total parse time of the page is added as HTTP response
     header :html:`X-TYPO3-Parsetime`.
 
