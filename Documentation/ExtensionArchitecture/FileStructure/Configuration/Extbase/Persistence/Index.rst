@@ -8,6 +8,8 @@
 
 This folder can contain the following files:
 
+..  _extension-configuration-extbase-persistence-classes:
+
 :file:`Classes.php`
 ===================
 
