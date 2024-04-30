@@ -32,7 +32,7 @@ additionalQueryRestrictions
 ===========================
 
 ..  confval:: $GLOBALS['TYPO3_CONF_VARS']['DB']['additionalQueryRestrictions']
-
+    :name: typo3-conf-vars-db-additionalQueryRestrictions
     :type: array
     :Default: []
 
@@ -49,7 +49,7 @@ Connections
 ===========
 
 ..  confval:: $GLOBALS['TYPO3_CONF_VARS']['DB']['Connections']
-
+    :name: typo3-conf-vars-db-connections
     :type: array
 
     One or more database connections can be configured under the
@@ -132,7 +132,7 @@ charset
 -------
 
 ..  confval:: $GLOBALS['TYPO3_CONF_VARS']['DB']['Connections'][<connection_name>]['charset']
-
+    :name: typo3-conf-vars-db-connection-name-charset
     :type: string
     :Default: 'utf8'
 
@@ -148,7 +148,7 @@ dbname
 ------
 
 ..  confval:: $GLOBALS['TYPO3_CONF_VARS']['DB']['Connections'][<connection_name>]['dbname']
-
+    :name: typo3-conf-vars-db-connection-name-dbname
     :type: string
 
     Name of the database/schema to connect to. Can be used with
@@ -163,7 +163,7 @@ driver
 ------
 
 ..  confval:: $GLOBALS['TYPO3_CONF_VARS']['DB']['Connections'][<connection_name>]['driver']
-
+    :name: typo3-conf-vars-db-connection-name-driver
     :type: string
 
     The built-in driver implementation to use. The following drivers are
@@ -187,7 +187,7 @@ host
 ----
 
 ..  confval:: $GLOBALS['TYPO3_CONF_VARS']['DB']['Connections'][<connection_name>]['host']
-
+    :name: typo3-conf-vars-db-connection-name-host
     :type: string
 
     Hostname or IP address of the database to connect to. Can be used with
@@ -202,7 +202,7 @@ password
 --------
 
 ..  confval:: $GLOBALS['TYPO3_CONF_VARS']['DB']['Connections'][<connection_name>]['password']
-
+    :name: typo3-conf-vars-db-connection-name-password
     :type: string
 
     Password to use when connecting to the database.
@@ -216,7 +216,7 @@ path
 ----
 
 ..  confval:: $GLOBALS['TYPO3_CONF_VARS']['DB']['Connections'][<connection_name>]['path']
-
+    :name: typo3-conf-vars-db-connection-name-path
     :type: string
 
     The filesystem path to the SQLite database file.
@@ -230,7 +230,7 @@ port
 ----
 
 ..  confval:: $GLOBALS['TYPO3_CONF_VARS']['DB']['Connections'][<connection_name>]['port']
-
+    :name: typo3-conf-vars-db-connection-name-port
     :type: string
 
     Port of the database to connect to. Can be used with MySQL/MariaDB and
@@ -245,7 +245,7 @@ tableoptions
 ------------
 
 ..  confval:: $GLOBALS['TYPO3_CONF_VARS']['DB']['Connections'][<connection_name>]['tableoptions']
-
+    :name: typo3-conf-vars-db-connection-name-tableoptions
     :type: array
     :Default: []
 
@@ -277,7 +277,7 @@ unix_socket
 -----------
 
 ..  confval:: $GLOBALS['TYPO3_CONF_VARS']['DB']['Connections'][<connection_name>]['unix_socket']
-
+    :name: typo3-conf-vars-db-connection-name-unix-socket
     :type: string
 
     Name of the socket used to connect to the database. Can be used with
@@ -291,7 +291,7 @@ user
 ----
 
 ..  confval:: $GLOBALS['TYPO3_CONF_VARS']['DB']['Connections'][<connection_name>]['user']
-
+    :name: typo3-conf-vars-db-connection-name-user
     :type: string
 
     Username to use when connecting to the database.
@@ -305,7 +305,7 @@ TableMapping
 ============
 
 ..  confval:: $GLOBALS['TYPO3_CONF_VARS']['DB']['TableMapping']
-
+    :name: typo3-conf-vars-db-tableMapping
     :type: array
     :Default: []
 
