@@ -18,7 +18,6 @@ shipped with TYPO3 Core.
 ..  contents:: **Table of Contents**
     :local:
 
-
 ..  _logging-writers-builtin:
 
 Built-in log writers
@@ -41,7 +40,7 @@ in the database used by TYPO3 and is **not** automatically created.
 The following option is available:
 
 ..  confval:: logTable
-
+    :name: database-writer-logTable
     :type: string
     :Mandatory: no
     :Default: :sql:`sys_log`
@@ -130,7 +129,7 @@ set, TYPO3 will use a filename containing a random hash, like
 The following options are available:
 
 ..  confval:: logFile
-
+    :name: file-writer-logFile
     :type: string
     :Mandatory: no
     :Default: :file:`typo3temp/logs/typo3_<hash>.log`
@@ -139,7 +138,7 @@ The following options are available:
     The path to the log file.
 
 ..  confval:: logFileInfix
-
+    :name: file-writer-logFileInfix
     :type: string
     :Mandatory: no
     :Default: (empty string)
@@ -193,7 +192,7 @@ The syslog writer logs into the syslog (Unix only).
 The following option is available:
 
 ..  confval:: facility
-
+    :name: syslog-writer-facility
     :type: string
     :Mandatory: no
     :Default: ``USER``
