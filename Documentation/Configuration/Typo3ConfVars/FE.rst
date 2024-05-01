@@ -31,7 +31,7 @@ addAllowedPaths
 ===============
 
 ..  confval:: $GLOBALS['TYPO3_CONF_VARS']['FE']['addAllowedPaths']
-
+    :name: typo3-conf-vars-fe-addAllowedPaths
     :type: list
     :Default: ''
 
@@ -54,7 +54,7 @@ debug
 =====
 
 ..  confval:: $GLOBALS['TYPO3_CONF_VARS']['FE']['debug']
-
+    :name: typo3-conf-vars-fe-debug
     :type: bool
     :Default: false
 
@@ -70,7 +70,7 @@ compressionLevel
 ================
 
 ..  confval:: $GLOBALS['TYPO3_CONF_VARS']['FE']['compressionLevel']
-
+    :name: typo3-conf-vars-fe-compressionLevel
     :type: int
     :Default: 0
 
@@ -95,7 +95,7 @@ pageNotFoundOnCHashError
 ========================
 
 ..  confval:: $GLOBALS['TYPO3_CONF_VARS']['FE']['pageNotFoundOnCHashError']
-
+    :name: typo3-conf-vars-fe-pageNotFoundOnCHashError
     :type: bool
     :Default: true
 
@@ -110,7 +110,7 @@ pageUnavailable_force
 =====================
 
 ..  confval:: $GLOBALS['TYPO3_CONF_VARS']['FE']['pageUnavailable_force']
-
+    :name: typo3-conf-vars-fe-pageUnavailable-force
     :type: bool
     :Default: false
 
@@ -126,7 +126,7 @@ addRootLineFields
 =================
 
 ..  confval:: $GLOBALS['TYPO3_CONF_VARS']['FE']['addRootLineFields']
-
+    :name: typo3-conf-vars-fe-addRootLineFields
     :type: list
     :Default: ''
 
@@ -141,7 +141,7 @@ checkFeUserPid
 ==============
 
 ..  confval:: $GLOBALS['TYPO3_CONF_VARS']['FE']['checkFeUserPid']
-
+    :name: typo3-conf-vars-fe-checkFeUserPid
     :type: bool
     :Default: true
 
@@ -162,7 +162,7 @@ loginRateLimit
 ==============
 
 ..  confval:: $GLOBALS['TYPO3_CONF_VARS']['FE']['loginRateLimit']
-
+    :name: typo3-conf-vars-fe-loginRateLimit
     :type: int
     :Default: 5
 
@@ -180,7 +180,7 @@ loginRateLimitInterval
 ======================
 
 ..  confval:: $GLOBALS['TYPO3_CONF_VARS']['FE']['loginRateLimitInterval']
-
+    :name: typo3-conf-vars-fe-loginRateLimitInterval
     :type: string, PHP relative format
     :Default: '15 minutes'
     :allowedValues: '1 minute', '5 minutes', '15 minutes', '30 minutes'
@@ -199,7 +199,7 @@ loginRateLimitIpExcludeList
 ===========================
 
 ..  confval:: $GLOBALS['TYPO3_CONF_VARS']['FE']['loginRateLimitIpExcludeList']
-
+    :name: typo3-conf-vars-fe-loginRateLimitIpExcludeList
     :type: string
     :Default: ''
 
@@ -216,7 +216,7 @@ lockIP
 ======
 
 ..  confval:: $GLOBALS['TYPO3_CONF_VARS']['FE']['lockIP']
-
+    :name: typo3-conf-vars-fe-lockIP
     :type: int
     :Default: 0
     :allowedValues:
@@ -253,7 +253,7 @@ lockIPv6
 ========
 
 ..  confval:: $GLOBALS['TYPO3_CONF_VARS']['FE']['lockIPv6']
-
+    :name: typo3-conf-vars-fe-lockIPv6
     :type: int
     :Default: 0
     :allowedValues:
@@ -303,7 +303,7 @@ lifetime
 ========
 
 ..  confval:: $GLOBALS['TYPO3_CONF_VARS']['FE']['lifetime']
-
+    :name: typo3-conf-vars-fe-lifetime
     :type: int
     :Default: 0
 
@@ -322,7 +322,7 @@ sessionTimeout
 ==============
 
 ..  confval:: $GLOBALS['TYPO3_CONF_VARS']['FE']['sessionTimeout']
-
+    :name: typo3-conf-vars-fe-sessionTimeout
     :type: int
     :Default: 6000
 
@@ -337,7 +337,7 @@ sessionDataLifetime
 ===================
 
 ..  confval:: $GLOBALS['TYPO3_CONF_VARS']['FE']['sessionDataLifetime']
-
+    :name: typo3-conf-vars-fe-sessionDataLifetime
     :type: int
     :Default: 86400
 
@@ -353,7 +353,7 @@ permalogin
 ==========
 
 ..  confval:: $GLOBALS['TYPO3_CONF_VARS']['FE']['permalogin']
-
+    :name: typo3-conf-vars-fe-permalogin
     :type: text
     :Default: 0
 
@@ -382,7 +382,7 @@ cookieDomain
 ============
 
 ..  confval:: $GLOBALS['TYPO3_CONF_VARS']['FE']['cookieDomain']
-
+    :name: typo3-conf-vars-fe-cookieDomain
     :type: text
     :Default: ''
 
@@ -398,7 +398,7 @@ cookieName
 ==========
 
 ..  confval:: $GLOBALS['TYPO3_CONF_VARS']['FE']['cookieName']
-
+    :name: typo3-conf-vars-fe-cookieName
     :type: text
     :Default: 'fe_typo_user'
 
@@ -412,7 +412,7 @@ cookieSameSite
 ==============
 
 ..  confval:: $GLOBALS['TYPO3_CONF_VARS']['FE']['cookieSameSite']
-
+    :name: typo3-conf-vars-fe-cookieSameSite
     :type: text
     :Default: 'lax'
     :allowedValues:
@@ -437,7 +437,7 @@ defaultTypoScript_constants
 ===========================
 
 ..  confval:: $GLOBALS['TYPO3_CONF_VARS']['FE']['defaultTypoScript_constants']
-
+    :name: typo3-conf-vars-fe-defaultTypoScript-constants
     :type: multiline
     :Default: ''
 
@@ -451,7 +451,7 @@ defaultTypoScript_setup
 =======================
 
 ..  confval:: $GLOBALS['TYPO3_CONF_VARS']['FE']['defaultTypoScript_setup']
-
+    :name: typo3-conf-vars-fe-defaultTypoScript-setup
     :type: multiline
     :Default: ''
 
@@ -465,7 +465,7 @@ additionalAbsRefPrefixDirectories
 =================================
 
 ..  confval:: $GLOBALS['TYPO3_CONF_VARS']['FE']['additionalAbsRefPrefixDirectories']
-
+    :name: typo3-conf-vars-fe-additionalAbsRefPrefixDirectories
     :type: text
     :Default: ''
 
@@ -485,7 +485,7 @@ enable_mount_pids
 =================
 
 ..  confval:: $GLOBALS['TYPO3_CONF_VARS']['FE']['enable_mount_pids']
-
+    :name: typo3-conf-vars-fe-enable-mount-pids
     :type: bool
     :Default: true
 
@@ -500,7 +500,7 @@ hidePagesIfNotTranslatedByDefault
 =================================
 
 ..  confval:: $GLOBALS['TYPO3_CONF_VARS']['FE']['hidePagesIfNotTranslatedByDefault']
-
+    :name: typo3-conf-vars-fe-hidePagesIfNotTranslatedByDefault
     :type: bool
     :Default: false
 
@@ -518,7 +518,7 @@ eID_include
 ===========
 
 ..  confval:: $GLOBALS['TYPO3_CONF_VARS']['FE']['eID_include']
-
+    :name: typo3-conf-vars-fe-eID-include
     :type: array
     :Default: []
 
@@ -539,7 +539,7 @@ disableNoCacheParameter
 =======================
 
 ..  confval:: $GLOBALS['TYPO3_CONF_VARS']['FE']['disableNoCacheParameter']
-
+    :name: typo3-conf-vars-fe-disableNoCacheParameter
     :type: bool
     :Default: false
 
@@ -558,7 +558,7 @@ additionalCanonicalizedUrlParameters
 ====================================
 
 ..  confval:: $GLOBALS['TYPO3_CONF_VARS']['FE']['additionalCanonicalizedUrlParameters']
-
+    :name: typo3-conf-vars-fe-additionalCanonicalizedUrlParameters
     :type: array
     :Default: []
 
@@ -580,7 +580,7 @@ cachedParametersWhiteList
 _________________________
 
 ..  confval:: $GLOBALS['TYPO3_CONF_VARS']['FE']['cacheHash']['cachedParametersWhiteList']
-
+    :name: typo3-conf-vars-fe-cachedParametersWhiteList
     :type: array
     :Default: []
 
@@ -600,7 +600,7 @@ requireCacheHashPresenceParameters
 __________________________________
 
 ..  confval:: $GLOBALS['TYPO3_CONF_VARS']['FE']['cacheHash']['requireCacheHashPresenceParameters']
-
+    :name: typo3-conf-vars-fe-requireCacheHashPresenceParameters
     :type: array
     :Default: []
 
@@ -616,7 +616,7 @@ excludedParameters
 __________________
 
 ..  confval:: $GLOBALS['TYPO3_CONF_VARS']['FE']['cacheHash']['excludedParameters']
-
+    :name: typo3-conf-vars-fe-excludedParameters
     :type: array
     :Default: ['L', 'pk_campaign', 'pk_kwd', 'utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content', 'gclid', 'fbclid']
 
@@ -636,7 +636,7 @@ excludedParametersIfEmpty
 _________________________
 
 ..  confval:: $GLOBALS['TYPO3_CONF_VARS']['FE']['cacheHash']['excludedParametersIfEmpty']
-
+    :name: typo3-conf-vars-fe-excludedParametersIfEmpty
     :type: array
     :Default: []
 
@@ -652,7 +652,7 @@ excludeAllEmptyParameters
 _________________________
 
 ..  confval:: $GLOBALS['TYPO3_CONF_VARS']['FE']['cacheHash']['excludeAllEmptyParameters']
-
+    :name: typo3-conf-vars-fe-excludeAllEmptyParameters
     :type: bool
     :Default: false
 
@@ -669,7 +669,7 @@ _________________
 ..  versionadded:: 10.4.35/11.5.23/12.2
 
 ..  confval:: $GLOBALS['TYPO3_CONF_VARS']['FE']['cacheHash']['enforceValidation']
-
+    :name: typo3-conf-vars-fe-enforceValidation
     :type: bool
     :Default: false (for existing installations), true (for new installations)
 
@@ -706,7 +706,7 @@ workspacePreviewLogoutTemplate
 ==============================
 
 ..  confval:: $GLOBALS['TYPO3_CONF_VARS']['FE']['workspacePreviewLogoutTemplate']
-
+    :name: typo3-conf-vars-fe-workspacePreviewLogoutTemplate
     :type: text
     :Default: ''
 
@@ -725,7 +725,7 @@ versionNumberInFilename
 =======================
 
 ..  confval:: $GLOBALS['TYPO3_CONF_VARS']['FE']['versionNumberInFilename']
-
+    :name: typo3-conf-vars-fe-versionNumberInFilename
     :type: bool
     :Default: false
 
@@ -751,7 +751,7 @@ contentRenderingTemplates
 =========================
 
 ..  confval:: $GLOBALS['TYPO3_CONF_VARS']['FE']['contentRenderingTemplates']
-
+    :name: typo3-conf-vars-fe-contentRenderingTemplates
     :type: array
     :Default: []
 
@@ -800,7 +800,7 @@ typolinkBuilder
 ===============
 
 ..  confval:: $GLOBALS['TYPO3_CONF_VARS']['FE']['typolinkBuilder']
-
+    :name: typo3-conf-vars-fe-typolinkBuilder
     :type: array
 
     Matches the LinkService implementations for generating URLs and link texts
@@ -837,7 +837,7 @@ className
 _________
 
 ..  confval:: $GLOBALS['TYPO3_CONF_VARS']['FE']['passwordHashing']['className']
-
+    :name: typo3-conf-vars-fe-className
     :type: string
     :Default: :php:`\TYPO3\CMS\Core\Crypto\PasswordHashing\Argon2iPasswordHash::class`
     :allowedValues:
@@ -861,7 +861,7 @@ options
 _______
 
 ..  confval:: $GLOBALS['TYPO3_CONF_VARS']['FE']['passwordHashing']['options']
-
+    :name: typo3-conf-vars-fe-options
     :type: array
     :Default: []
 
@@ -878,7 +878,7 @@ passwordPolicy
 ..  versionadded:: 12.0
 
 ..  confval:: $GLOBALS['TYPO3_CONF_VARS']['FE']['passwordPolicy']
-
+    :name: typo3-conf-vars-fe-passwordPolicy
     :type: string
     :Default: default
 
@@ -893,7 +893,7 @@ exposeRedirectInformation
 =========================
 
 ..  confval:: $GLOBALS['TYPO3_CONF_VARS']['FE']['exposeRedirectInformation']
-
+    :name: typo3-conf-vars-fe-exposeRedirectInformation
     :type: bool
     :Default: false
 
@@ -911,7 +911,7 @@ contentSecurityPolicyReportingUrl
 ..  versionadded:: 12.3
 
 ..  confval:: $GLOBALS['TYPO3_CONF_VARS']['FE']['contentSecurityPolicyReportingUrl']
-
+    :name: typo3-conf-vars-fe-contentSecurityPolicyReportingUrl
     :type: string
     :Default: ''
 
