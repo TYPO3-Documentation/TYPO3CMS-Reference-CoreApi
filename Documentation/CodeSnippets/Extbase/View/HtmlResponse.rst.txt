@@ -18,11 +18,10 @@
         */
        public function newAction(?Blog $newBlog = null): ResponseInterface
        {
-           $this->view->assign('newBlog', $newBlog);
-           $this->view->assign(
-               'administrators',
-               $this->administratorRepository->findAll()
-           );
+           $this->view->assignMultiple([
+               'newBlog' => $newBlog,
+               'administrators' => $this->administratorRepository->findAll(),
+           ]);
            return $this->htmlResponse();
        }
    }

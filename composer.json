@@ -13,7 +13,7 @@
         "t3docs/blog-example": "^12.0",
         "t3docs/codesnippet": "dev-main",
         "t3docs/examples": "^12.0",
-        "t3docs/site-package": "dev-main",
+        "t3docs/site-package": "^12.0",
         "ttn/tea": "^3.0",
         "typo3/cms-adminpanel": "^12.4",
         "typo3/cms-backend": "^12.4",

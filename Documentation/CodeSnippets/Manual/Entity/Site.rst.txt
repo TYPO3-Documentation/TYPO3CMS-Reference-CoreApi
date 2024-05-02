@@ -26,9 +26,13 @@
 
    .. php:method:: getLanguages()
 
+      Returns all available languages of this site
+
       :returntype: `array`
 
    .. php:method:: getAllLanguages()
+
+      Returns all available languages of this site, even the ones disabled for frontend usages
 
       :returntype: `array`
 
