@@ -20,8 +20,8 @@ of the project itself, as editors tend to set external links on internal pages
 at times.
 
 The following code can be put in a custom
-:ref:`minimal extension <extension-minimal>`. You can find a live example in
-our example extension
+:ref:`extension, for example kickstarted with make <extension-make-kickstart>`.
+You can find a live example in our example extension
 `EXT:examples <https://github.com/TYPO3-Documentation/t3docs-examples>`__.
 
 Create a class that works as event listener. This class does not implement or

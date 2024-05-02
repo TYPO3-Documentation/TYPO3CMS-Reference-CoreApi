@@ -15,7 +15,6 @@
         "t3docs/examples": "dev-main",
         "t3docs/site-package": "dev-main",
         "ttn/tea": "^3.0",
-        "typo3-documentation-team/speeddemo": "^11.4",
         "typo3/cms-adminpanel": "dev-main as 12.4",
         "typo3/cms-backend": "dev-main as 12.4",
         "typo3/cms-belog": "dev-main as 12.4",
