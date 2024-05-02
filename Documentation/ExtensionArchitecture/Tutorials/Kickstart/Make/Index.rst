@@ -7,6 +7,8 @@
 Make
 ====
 
+.. _extension-make-kickstart:
+
 Kickstart a TYPO3 Extension with "Make"
 =======================================
 
