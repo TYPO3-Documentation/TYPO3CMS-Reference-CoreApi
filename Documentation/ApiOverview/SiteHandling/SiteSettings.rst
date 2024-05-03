@@ -27,6 +27,8 @@ via
     :ref:`data <t3tsref:data-type-gettext>` function in
     :ref:`TypoScript <t3tsref:start>`
 *   constants in :ref:`TypoScript <t3tsref:start>` or :ref:`page TSconfig <t3tsconfig:pagetsconfig>`
+*   as variables (for example, :fluid:`{site.configuration.settings.mySettingKey}`) in Fluid templates
+    using the :typoscript:`SiteProcessor data processor`, see :ref:`<sitehandling-inTypoScript`.
 
 For instance, settings can be used in custom frontend code to deliver features
 which might vary per site for extensions. An example may be to configure
