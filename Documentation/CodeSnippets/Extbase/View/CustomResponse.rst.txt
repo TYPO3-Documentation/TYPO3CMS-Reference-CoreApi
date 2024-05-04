@@ -7,7 +7,7 @@
 
    use Psr\Http\Message\ResponseInterface;
 
-   class PostController extends \T3docs\BlogExample\Controller\AbstractController
+   class PostController extends AbstractController
    {
        /**
         * Displays a list of posts as RSS feed

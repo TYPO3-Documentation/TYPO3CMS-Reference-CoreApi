@@ -8,20 +8,25 @@
 
    declare(strict_types=1);
 
+   use T3docs\BlogExample\Domain\Model\Administrator;
+   use T3docs\BlogExample\Domain\Model\Blog;
+   use T3docs\BlogExample\Domain\Model\FrontendUserGroup;
+   use T3docs\BlogExample\Domain\Model\Post;
+
    return [
-       \T3docs\BlogExample\Domain\Model\Administrator::class => [
+       Administrator::class => [
            'tableName' => 'fe_users',
-           'recordType' => \T3docs\BlogExample\Domain\Model\Administrator::class,
+           'recordType' => Administrator::class,
            'properties' => [
                'administratorName' => [
                    'fieldName' => 'username',
                ],
            ],
        ],
-       \T3docs\BlogExample\Domain\Model\FrontendUserGroup::class => [
+       FrontendUserGroup::class => [
            'tableName' => 'fe_groups',
        ],
-       \T3docs\BlogExample\Domain\Model\Blog::class => [
+       Blog::class => [
            'tableName' => 'tx_blogexample_domain_model_blog',
            'properties' => [
                'categories' => [
@@ -29,7 +34,7 @@
                ],
            ],
        ],
-       \T3docs\BlogExample\Domain\Model\Post::class => [
+       Post::class => [
            'tableName' => 'tx_blogexample_domain_model_post',
            'properties' => [
                'categories' => [

@@ -9,7 +9,7 @@
    use TYPO3\CMS\Core\Type\ContextualFeedbackSeverity;
    use TYPO3\CMS\Extbase\Utility\LocalizationUtility;
 
-   class ModuleController extends ActionController implements LoggerAwareInterface
+   class ModuleController extends ActionController
    {
        /**
         * Adds a count of entries to the flash message
@@ -19,15 +19,15 @@
            $count = $this->tableInformationService->countRecords($tablename);
 
            $message = LocalizationUtility::translate(
-               key: 'record_count_message',
-               extensionName: 'examples',
-               arguments: [$count, $tablename],
+               'record_count_message',
+               'examples',
+               [$count, $tablename],
            );
 
            $this->addFlashMessage(
-               messageBody: $message,
-               messageTitle: 'Information',
-               severity: ContextualFeedbackSeverity::INFO,
+               $message ?? '',
+               'Information',
+               ContextualFeedbackSeverity::INFO,
            );
            return $this->redirect('flash');
        }

@@ -3,8 +3,8 @@
 return [
     [
         'action' => 'createCodeSnippet',
-        'caption' => 'EXT:blog_example/Configuration/TypoScript/RssFeed/setup.typoscript',
-        'sourceFile' => 'EXT:blog_example/Configuration/TypoScript/RssFeed/setup.typoscript',
+        'caption' => 'EXT:blog_example/Configuration/Sets/RssFeed/setup.typoscript',
+        'sourceFile' => 'EXT:blog_example/Configuration/Sets/RssFeed/setup.typoscript',
         'targetFileName' => 'CodeSnippets/Extbase/FrontendPlugins/TypoScriptPluginRss.rst.txt',
     ],
     [
