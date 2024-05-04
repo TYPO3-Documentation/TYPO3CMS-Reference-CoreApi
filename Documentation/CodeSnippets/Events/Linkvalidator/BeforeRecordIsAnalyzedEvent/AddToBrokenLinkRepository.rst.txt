@@ -10,6 +10,10 @@
        private const TABLE_NAME = 'tt_content';
        private const FIELD_NAME = 'bodytext';
 
+       /**
+        * @param array<mixed> $record
+        * @param array<mixed> $results
+        */
        private function matchUrl(string $foundUrl, array $record, array &$results): void
        {
            if (str_contains($foundUrl, self::LOCAL_DOMAIN)) {
@@ -18,6 +22,9 @@
            }
        }
 
+       /**
+        * @param array<string, scalar> $record
+        */
        private function addItemToBrokenLinkRepository(array $record, string $foundUrl): void
        {
            $link = [

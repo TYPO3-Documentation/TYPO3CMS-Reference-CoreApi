@@ -33,3 +33,12 @@
    .. php:method:: jsonSerialize()
 
       :returntype: `mixed`
+
+   .. php:method:: __set_state(array $state)
+
+      :param array $state: the state
+      :returntype: `self`
+
+   .. php:method:: getIdentifiers()
+
+      :returntype: `array`

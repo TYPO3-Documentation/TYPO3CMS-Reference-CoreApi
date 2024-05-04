@@ -26,9 +26,20 @@
 
    .. php:method:: getLanguages()
 
+      Returns all available languages of this site
+
       :returntype: `array`
 
+   .. php:method:: getSets()
+
+      Returns configured sets of this site
+
+      :returntype: `array`
+      :returns: list<string>
+
    .. php:method:: getAllLanguages()
+
+      Returns all available languages of this site, even the ones disabled for frontend usages
 
       :returntype: `array`
 
@@ -66,6 +77,10 @@
    .. php:method:: getSettings()
 
       :returntype: `TYPO3\CMS\Core\Site\Entity\SiteSettings`
+
+   .. php:method:: getTypoScript()
+
+      :returntype: `TYPO3\CMS\Core\Site\Entity\SiteTypoScript`
 
    .. php:method:: getAttribute(string $attributeName)
 

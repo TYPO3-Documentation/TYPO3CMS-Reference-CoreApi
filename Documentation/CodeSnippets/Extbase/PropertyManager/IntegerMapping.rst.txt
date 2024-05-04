@@ -4,11 +4,13 @@
 .. code-block:: php
    :caption: Class T3docs\\BlogExample\\Controller\\PostController
 
-   class PostController extends \T3docs\BlogExample\Controller\AbstractController
+   use TYPO3\CMS\Extbase\Property\Exception;
+
+   class PostController extends AbstractController
    {
        /**
         * This method demonstrates property mapping to an integer
-        * @throws \TYPO3\CMS\Extbase\Property\Exception
+        * @throws Exception
         */
        protected function mapIntegerFromString(string $numberString = '42'): int
        {

@@ -9,7 +9,7 @@
     */
    class GitHubLinkHandling implements LinkHandlingInterface
    {
-       protected $baseUrn = 't3://github';
+       protected string $baseUrn = 't3://github';
 
        public function asString(array $parameters): string
        {

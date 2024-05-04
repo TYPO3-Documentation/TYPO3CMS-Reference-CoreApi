@@ -7,22 +7,18 @@
 
    use Psr\Http\Message\ResponseInterface;
    use T3docs\BlogExample\Domain\Model\Blog;
-   use TYPO3\CMS\Extbase\Annotation\IgnoreValidation;
 
    class BlogController extends AbstractController
    {
        /**
         * Displays a form for creating a new blog
-        *
-        * @IgnoreValidation("newBlog")
         */
        public function newAction(?Blog $newBlog = null): ResponseInterface
        {
-           $this->view->assign('newBlog', $newBlog);
-           $this->view->assign(
-               'administrators',
-               $this->administratorRepository->findAll(),
-           );
+           $this->view->assignMultiple([
+               'newBlog' => $newBlog,
+               'administrators' => $this->administratorRepository->findAll(),
+           ]);
            return $this->htmlResponse();
        }
    }

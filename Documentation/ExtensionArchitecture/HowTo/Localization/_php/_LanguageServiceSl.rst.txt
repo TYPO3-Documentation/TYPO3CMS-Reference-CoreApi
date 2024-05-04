@@ -11,6 +11,9 @@
        private const SEASONS = ['spring', 'summer', 'autumn', 'winter', 'theFifthSeason'];
        private const TRANSLATION_PATH = 'LLL:EXT:examples/Resources/Private/Language/PluginHaiku/locallang.xlf:season.';
 
+       /**
+        * @return array<string, string>
+        */
        private function getSeasons(ServerRequestInterface $request): array
        {
            $languageService = $this->languageServiceFactory->createFromSiteLanguage(

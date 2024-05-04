@@ -10,14 +10,14 @@
    {
        /**
         * The posts of this blog
-        * @var ObjectStorage<Post>
+        * @var ObjectStorage<Post>|null
         */
-       public $posts;
+       public ObjectStorage|null $posts;
 
        /**
         * Adds a post to this blog
         */
-       public function addPost(Post $post)
+       public function addPost(Post $post): void
        {
            $this->posts->attach($post);
        }
@@ -25,7 +25,7 @@
        /**
         * Remove a post from this blog
         */
-       public function removePost(Post $postToRemove)
+       public function removePost(Post $postToRemove): void
        {
            $this->posts->detach($postToRemove);
        }
@@ -33,7 +33,7 @@
        /**
         * Returns all posts in this blog
         *
-        * @return ObjectStorage
+        * @return ObjectStorage<Post>
         */
        public function getPosts(): ObjectStorage
        {
