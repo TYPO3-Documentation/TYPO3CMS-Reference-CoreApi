@@ -80,3 +80,17 @@ In the Fluid template the properties of the site entity can be accessed with:
 
    <p>{site.rootPageId}</p>
    <p>{site.configuration.someCustomConfiguration}</p>
+
+Specific :ref:`sitehandling-settings` can be accessed via:
+
+.. code-block:: html
+
+   <p>{site.configuration.settings.mySettingKey}</p>
+   <p>{site.settings.all.mySettingKey}</p>
+
+..  todo: We do not have a Fluid StandaloneView documentation yet?
+
+In a Fluid :php:`StandaloneView` you can use the PHP API to access the
+site settings (see :ref:`sitehandling-site-object`), then assign that object
+to your Fluid standalone template, and finally access it through the same
+notation as above.
