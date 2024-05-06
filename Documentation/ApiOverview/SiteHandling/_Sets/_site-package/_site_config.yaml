@@ -1,0 +1,4 @@
+base: 'https://site-package.ddev.site'
+dependencies:
+  - t3docs/site-package
+rootPageId: 1
