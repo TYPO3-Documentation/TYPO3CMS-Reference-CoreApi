@@ -52,7 +52,7 @@ Show detailed exception output
 When the frontend debugging is activated, a detailed exception message is output
 instead of the generic "Oops, an error occurred!" message.
 
-By default debugging is enabled in the
+By default, debugging is enabled in the
 :ref:`TYPO3 contexts <Environment-context>` starting with `Development`. It can
 also be enabled by setting
 :ref:`config.contentObjectExceptionHandler <t3tsref:setup-config-contentObjectExceptionHandler>`
