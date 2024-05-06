@@ -89,8 +89,8 @@ containing the data structure for each extension. These include the properties:
  - :Key:
          packagePath
    :Description:
-         Path to the package. Can be used to determine, if the extension is
-         local or global scope.
+         Path to the package. Can be used to determine, if the extension is in the
+         local :file:`typo3conf/ext` or system :file:`typo3/sysext` scope.
 
  - :Key:
          composerManifest
