@@ -7,8 +7,10 @@ Site sets
 =========
 
 Site sets ship parts of the site configuration as composable pieces. They are
-intended to deliver settings, TypoScript, TSconfig and reference enabled content
-blocks for the scope of a site.
+intended to deliver :ref:`settings <sitehandling-settings>`,
+:ref:`TypoScript <t3tsref:start>` and
+:ref:`page TSconfig <t3tsconfig:include-static-page-tsconfig-per-site>`
+for the scope of a site.
 
 Extensions can provide multiple sets in order to ship presets for different
 sites or subsets (think of frameworks) where selected features are exposed
@@ -32,7 +34,7 @@ extension. It may differ if needed for compatibility reasons (for example when
 sets are moved to other extensions). If an extension provides exactly one set
 , it should have the same `name` as defined in :file:`composer.json`.
 
-The :file:`config.yaml` for a set that is composed of three subsets looks as
+The :file:`config.yaml` for a set that depends on two other sets looks as
 follows:
 
 ..  code-block:: yaml
@@ -267,20 +269,21 @@ TypoScript imports.
 Using the site set to override default settings
 -----------------------------------------------
 
-You can use the file
-:file:`EXT:site_package/Configuration/Sets/SitePackage/settings.yaml` to
-override default settings made by the by the set of `EXT:fluid_styled_content`:
+In this example the file
+:file:`EXT:site_package/Configuration/Sets/SitePackage/settings.yaml`
+is used to
+override default settings made by the by the set of
+:ref:`EXT:fluid_styled_content <typo3/cms-fluid-styled-content:start>`:
 
 ..  include:: _Sets/_site-package/_settings.rst.txt
-
 
 ..  _site-sets-example-extension:
 
 Example: Providing a site set in an extension
 =============================================
 
-Extensions can also provide site sets. These can be used by sites or site sets
-to include dependant TypoScript and settings.
+Non site-package extensions can also provide site sets. These can be used by
+sites or site sets to include dependant TypoScript and settings.
 
 The example extension :t3ext:`blog_example` offers one main site set and several
 site sets for special use-cases. It has the following file structure:
