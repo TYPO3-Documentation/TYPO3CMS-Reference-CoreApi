@@ -121,7 +121,8 @@ TypoScript provider
 ===================
 
 TypoScript dependencies can be included via set dependencies. This mechanism is
-much more effective than the previous static_file_include's or manual
+much more effective than the previous
+:ref:`static includes <t3tsref:extdev-static-includes>` or manual
 :typoscript:`@import` statements.
 
 TypoScript dependencies via sets are automatically ordered and
