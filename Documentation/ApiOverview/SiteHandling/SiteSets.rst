@@ -30,7 +30,7 @@ is the `name` defined in :file:`config.yaml`. The `name` uses a `vendor/name`
 scheme by convention, and *should* use the same vendor as the containing
 extension. It may differ if needed for compatibility reasons (for example when
 sets are moved to other extensions). If an extension provides exactly one set
-that should have the same `name` as defined in :file:`composer.json`.
+, it should have the same `name` as defined in :file:`composer.json`.
 
 The :file:`config.yaml` for a set that is composed of three subsets looks as
 follows:
@@ -122,7 +122,7 @@ TypoScript dependencies can be included via set dependencies. This mechanism is
 much more effective than the previous static_file_include's or manual
 :typoscript:`@import` statements.
 
-TypoScript dependencies via sets are  automatically ordered and
+TypoScript dependencies via sets are automatically ordered and
 deduplicated.
 
 Set-defined TypoScript can be shipped within a set. The files
@@ -255,7 +255,7 @@ Loading TypoScript via the site package's set
 The example site package also loads its TypoScript by placing the files
 :file:`constants.typoscript` and :file:`setup.typoscript` into the folder of the
 site set. These TypoScript files use :typoscript:`@import` statements to import
-files from the extension`s directory :path:`Configuration/TypoScript`:
+files from the extension's directory :path:`Configuration/TypoScript`:
 
 ..  include:: _Sets/_site-package/_setup.rst.txt
 
