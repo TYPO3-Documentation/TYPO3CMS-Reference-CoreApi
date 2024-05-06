@@ -2,16 +2,18 @@
 
 declare(strict_types=1);
 
-namespace Vendor\MyExtension\EventListener;
+namespace MyVendor\MyExtension\EventListener;
 
 use TYPO3\CMS\Core\Attribute\AsEventListener;
 use TYPO3\CMS\FrontendLogin\Event\ModifyRedirectUrlValidationResultEvent;
 
-final class ValidateRedirectUrl
+final readonly class ValidateRedirectUrl
 {
-    public const TRUSTED_HOST_FOR_REDIRECT = 'example.org';
+    private const TRUSTED_HOST_FOR_REDIRECT = 'example.org';
 
-    #[AsEventListener('validate-custom-redirect-url')]
+    #[AsEventListener(
+        identifier: 'validate-custom-redirect-url'
+    )]
     public function __invoke(ModifyRedirectUrlValidationResultEvent $event): void
     {
         $parsedUrl = parse_url($event->getRedirectUrl());

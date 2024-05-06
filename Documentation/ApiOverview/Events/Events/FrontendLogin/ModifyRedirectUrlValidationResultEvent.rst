@@ -17,7 +17,7 @@ provides developers with the possibility and flexibility to implement custom
 validation for the redirect URL in the frontend login.
 
 This may be useful, if TYPO3 frontend login
-acts as an SSO system or if users should be redirected to an external URL after
+acts as an :abbr:`SSO (Single-Sign On)` system, or if users should be redirected to an external URL after
 login.
 
 Example: Validate that the redirect after frontend login goes to a trusted domain
