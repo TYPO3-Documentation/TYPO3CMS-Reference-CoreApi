@@ -60,7 +60,7 @@ in TypoScript.
 
 ..  _error-handling-oops-an-error-detail-admin:
 
-Example: prevent "Oops, an error occurred!" messages for logged in admins
+Example: prevent "Oops, an error occurred!" messages for logged-in admins
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 ..  code-block:: typoscript
