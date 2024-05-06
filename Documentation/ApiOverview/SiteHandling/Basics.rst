@@ -42,6 +42,7 @@ in the backend module :guilabel:`Site`.
     Site handling; Directory
     Path; <project-root>/config/sites
     Path; typo3conf/sites
+..  _site-storage:
 
 Site configuration storage
 ==========================
@@ -59,6 +60,7 @@ configuration is stored in a file called :file:`config.yaml`.
 
 
 ..  index:: Site handling; File
+..  _site-configuration-file:
 
 The configuration file
 ======================
