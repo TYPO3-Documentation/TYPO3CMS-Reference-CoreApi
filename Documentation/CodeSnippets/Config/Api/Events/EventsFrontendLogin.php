@@ -33,6 +33,12 @@ return [
     ],
     [
         'action' => 'createPhpClassDocs',
+        'class' => \TYPO3\CMS\FrontendLogin\Event\ModifyRedirectUrlValidationResultEvent::class,
+        'targetFileName' => 'CodeSnippets/Events/FrontendLogin/ModifyRedirectUrlValidationResultEvent.rst.txt',
+        'withCode' => false,
+    ],
+    [
+        'action' => 'createPhpClassDocs',
         'class' => \TYPO3\CMS\FrontendLogin\Event\PasswordChangeEvent::class,
         'targetFileName' => 'CodeSnippets/Events/FrontendLogin/PasswordChangeEvent.rst.txt',
         'withCode' => false,
