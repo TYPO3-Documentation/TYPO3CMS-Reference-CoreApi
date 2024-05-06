@@ -259,7 +259,7 @@ files from the extension's directory :path:`Configuration/TypoScript`:
 
 ..  include:: _Sets/_site-package/_setup.rst.txt
 
-Dependant TypoScript is included by including dependant sets and not by
+Dependant TypoScript is included by the dependant sets and not by
 TypoScript imports.
 
 ..  _site-sets-example-settings:
