@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 use PhpCsFixer\Config;
@@ -7,8 +8,7 @@ use PhpCsFixer\Finder;
 return (new Config())
     ->setFinder(
         (new Finder())
-            ->ignoreVCSIgnored(true)
-            ->in(realpath(__DIR__))
+            ->in(__DIR__.'/Documentation')
     )
     ->setRiskyAllowed(true)
     ->setRules([
