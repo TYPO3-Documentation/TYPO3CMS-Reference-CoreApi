@@ -36,7 +36,7 @@ The generic error message "Oops, an error occurred!" is displayed when an
 exception or error happens within a TypoScript content object like
 :ref:`FLUIDTEMPLATE <t3tsref:cobj-template>` or a plugin. When the exception
 affects only one content element or plugin it is displayed in place of that
-elements. However if it affects the content element representing the whole page
+elements. However, if it affects the content element representing the whole page
 like :ref:`PAGEVIEW <t3tsref:cobj-pageview>` only a plain page with this text on
 it is displayed.
 
