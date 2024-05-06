@@ -30,6 +30,7 @@ A typical :file:`Configuration/Services.yaml` may look like this:
 
      TYPO3\CMS\Core\:
        resource: '../Classes/*'
+       exclude: '../Classes/Domain/Model/*'
 
      # dependency injection (override public setting)
      TYPO3\CMS\Core\Mail\Mailer:
