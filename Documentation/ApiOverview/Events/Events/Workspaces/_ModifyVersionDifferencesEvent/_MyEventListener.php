@@ -13,8 +13,9 @@ use TYPO3\CMS\Workspaces\Event\ModifyVersionDifferencesEvent;
 )]
 final readonly class MyEventListener
 {
-    public function __construct(private readonly DiffUtility $diffUtility)
-    {
+    public function __construct(
+        private DiffUtility $diffUtility,
+    ) {
         $this->diffUtility->stripTags = false;
     }
 

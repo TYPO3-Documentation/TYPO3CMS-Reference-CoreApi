@@ -12,11 +12,11 @@ use TYPO3\CMS\FrontendLogin\Event\LogoutConfirmedEvent;
 #[AsEventListener(
     identifier: 'my-extension/delete-private-key-on-logout',
 )]
-final class LogoutEventListener
+final readonly class LogoutEventListener
 {
     public function __construct(
-        private readonly KeyFileService $keyFileService,
-        private readonly Context $context,
+        private KeyFileService $keyFileService,
+        private Context $context,
     ) {}
 
     public function __invoke(LogoutConfirmedEvent $event): void
