@@ -46,7 +46,7 @@ or manually inserted in this directory.
 System Extensions
 =================
 
-System extensions have the composer type `typo3-cms-framework`:
+System extensions have the Composer type `typo3-cms-framework`:
 
 ..  code-block:: json
     :caption: EXT:core/composer.json`

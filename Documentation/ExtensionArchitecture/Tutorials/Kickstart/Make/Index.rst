@@ -113,7 +113,7 @@ Call the CLI script on the console:
 `May we create a ext_emconf.php for you? (yes/no) [no]:`
     Mandatory for extensions supporting TYPO3 v10. Starting with v11:
     If your extension should be installable in legacy TYPO3 installations
-    choose `yes`. This is not necessary for local extensions in composer-based
+    choose `yes`. This is not necessary for local extensions in Composer-based
     installations.
 
 4.  Have a look at the result
@@ -137,7 +137,7 @@ the following files:
 5. Install the extension
 ========================
 
-On composer-based installations the extension is not installed yet.
+On Composer-based installations the extension is not installed yet.
 It will not be displayed in the :guilabel:`Extension Manager` in the backend.
 
 To install it, open the main :file:`composer.json` of your **project** (not the
@@ -158,7 +158,7 @@ one in the created extension) and add the extension directory as new repository:
         "...": "..."
     }
 
-Then require the extension on composer-based systems, using the composer
+Then require the extension on Composer-based systems, using the composer
 name defined in the prompt of the script:
 
 ..  tabs::

@@ -228,7 +228,7 @@ Defining the site set with a fluid_styled_content dependency
 ------------------------------------------------------------
 
 As our example site package only contains one site set the name of that set
-is the same like the composer name of the site package.
+is the same as the Composer name of the site package.
 
 The site package depends on
 :ref:`EXT:fluid_styled_content <typo3/cms-fluid-styled-content:start>`.

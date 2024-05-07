@@ -64,7 +64,7 @@ Testing enetcache
 =================
 
 The extension `enetcache <https://github.com/lolli42/enetcache>`_ is a small extension that helps
-with frontend plugin based caches. It has been available as composer package and a TER extension for quite
+with frontend plugin based caches. It has been available as Composer package and a TER extension for quite
 some time and is loosely maintained to keep up with current Core versions.
 
 The following is based on the current (May, 2023) main branch of enetcache,
@@ -99,8 +99,8 @@ Starting point
 As outlined in the general strategy, we need to extend the existing :file:`composer.json` file by
 adding some root composer.json specific things. This does not harm the functionality of the existing
 composer.json properties if the extension is a project dependency and not used as root composer.json:
-Root properties are ignored in composer if the file is not used as root project file, see the
-notes "root-only" of the `composer documentation <https://getcomposer.org/doc/04-schema.md>`_ for details.
+Root properties are ignored in Composer if the file is not used as root project file, see the
+notes "root-only" of the `Composer documentation <https://getcomposer.org/doc/04-schema.md>`_ for details.
 
 This is how the composer.json file looks before we add a test setup:
 
@@ -782,13 +782,13 @@ Now we want all of this automatically checked using Github Actions. As before, w
 .. code-block:: yaml
 
     name: tests
-    
+
     on:
       push:
       pull_request:
       schedule:
         - cron:  '42 5 * * *'
-    
+
     jobs:
       testsuite:
         name: all tests
@@ -802,43 +802,43 @@ Now we want all of this automatically checked using Github Actions. As before, w
         steps:
           - name: Checkout
             uses: actions/checkout@v3
-    
+
           - name: Install dependencies
             run: Build/Scripts/runTests.sh -p ${{ matrix.php }} -s composerUpdate
-    
+
           - name: Composer validate
             run: Build/Scripts/runTests.sh -p ${{ matrix.php }} -s composerValidate
-    
+
           - name: Lint PHP
             run: Build/Scripts/runTests.sh -p ${{ matrix.php }} -s lint
-    
+
           - name: CGL
             run: Build/Scripts/runTests.sh -n -p ${{ matrix.php }} -s cgl
-    
+
           - name: phpstan
             run: Build/Scripts/runTests.sh -p ${{ matrix.php }} -s phpstan -e "--error-format=github"
-    
+
           - name: Unit Tests
             run: Build/Scripts/runTests.sh -p ${{ matrix.php }} -s unit
-    
+
           - name: Functional Tests with mariadb and mysqli
             run: Build/Scripts/runTests.sh -p ${{ matrix.php }} -d mariadb -a mysqli -s functional
-    
+
           - name: Functional Tests with mariadb and pdo_mysql
             run: Build/Scripts/runTests.sh -p ${{ matrix.php }} -d mariadb -a pdo_mysql -s functional
-    
+
           - name: Functional Tests with mysql and mysqli
             run: Build/Scripts/runTests.sh -p ${{ matrix.php }} -d mysql -a mysqli -s functional
-    
+
           - name: Functional Tests with mysql and pdo_mysql
             run: Build/Scripts/runTests.sh -p ${{ matrix.php }} -d mysql -a pdo_mysql -s functional
-    
+
           - name: Functional Tests with postgres
             run: Build/Scripts/runTests.sh -p ${{ matrix.php }} -d postgres -s functional
-    
+
           - name: Functional Tests with sqlite
             run: Build/Scripts/runTests.sh -p ${{ matrix.php }} -d sqlite -s functional
-    
+
           - name: Build CSS
             run: Build/Scripts/runTests.sh -s buildCss
 

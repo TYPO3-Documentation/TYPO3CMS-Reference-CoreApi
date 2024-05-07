@@ -51,7 +51,7 @@ The examples above leads to the normal edit form for a page:
 Additional options for editing records
 ======================================
 
-When creating the link via php it is possible to add more options.
+When creating the link via PHP it is possible to add more options.
 
 You can specify as many tables and uids you like and you will get them all in
 one single form!
@@ -104,7 +104,7 @@ There is a backend viewhelper to display a "create new record" link:
 		<f:translate key="function_links_new_haiku"/>
 	</a>
 
-If you create the backend link via php it is possible to add more options like
+If you create the backend link via PHP it is possible to add more options like
 default values for certain fields.
 
 .. code-block:: php

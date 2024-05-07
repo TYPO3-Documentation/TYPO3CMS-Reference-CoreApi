@@ -19,7 +19,7 @@ final readonly class MyEventListener
         // Remove wildcard host from list
         $hosts = array_filter($hosts, static fn($host) => $host['name'] !== '*');
 
-        // Ipdate changed hosts list
+        // Update changed hosts list
         $event->setHosts($hosts);
     }
 }

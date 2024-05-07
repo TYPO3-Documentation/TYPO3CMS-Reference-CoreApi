@@ -14,7 +14,7 @@ use TYPO3\CMS\Redirects\RedirectUpdate\RedirectSourceCollection;
     identifier: 'my-extension/redirects/add-redirect-source',
     after: 'redirects-add-plain-slug-replacement-source',
 )]
-final class MyEventListener
+final readonly class MyEventListener
 {
     public function __invoke(SlugRedirectChangeItemCreatedEvent $event): void
     {

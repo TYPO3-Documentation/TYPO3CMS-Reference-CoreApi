@@ -64,20 +64,20 @@ running on the host system. Executing the basic Core unit test suite boils down 
 
     # Initial core clone
     git clone git@github.com:typo3/typo3.git && cd typo3
-    # Install composer dependencies
+    # Install Composer dependencies
     Build/Scripts/runTests.sh -s composerInstall
     # Run unit tests
     Build/Scripts/runTests.sh
 
 That's it. You just executed the entire unit test suite.
-Now that we have examined the initial Core clone and a composer install process, we will then look at the
+Now that we have examined the initial Core clone and a Composer install process, we will then look at the
 different ways we can apply the :file:`runTests.sh` or other scenarios.
 
 
 Overview
 ========
 
-So what just happened? We cloned a Core, composer installed dependencies and executed Core
+So what just happened? We cloned a Core, Composer installed dependencies and executed Core
 unit tests. Let's have a look at some more details: :file:`runTests.sh` is a shell script that figures out
 which test suite with which options a user wants to execute, does some error handling for broken
 combinations, writes the file `Build/testing-docker/local/.env` according to its findings and then executes a
@@ -193,7 +193,7 @@ tests, but there is more:
     # Execute the cgl fixer
     Build/Scripts/runTests.sh -s cglGit
 
-    # Verbose runTests.sh output. Shows main steps and composer commands for debugging
+    # Verbose runTests.sh output. Shows main steps and Composer commands for debugging
     Build/Scripts/runTests.sh -v
 
 As shown there are various combinations available. Just go ahead, read the help output and play around.

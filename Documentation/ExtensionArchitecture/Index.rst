@@ -20,7 +20,7 @@ Extension development
          .. container:: card-body
 
             Learn about the concept of extensions
-            in TYPO3, the difference between system extension and local
+            in TYPO3, the difference between system extensions and local
             extensions. Learn about Extbase as an MVC basis for extension
             development.
 
@@ -34,11 +34,11 @@ Extension development
 
          .. container:: card-body
 
-            Lists reserved file and directory names within and extension. Also
+            Lists reserved file and directory names within an extension. Also
             lists file names that are used in a certain way by convention.
 
             This chapter should also help you to find your way around in
-            extensions and sitepackages that where automatically generated or
+            extensions and sitepackages that were automatically generated or
             that you downloaded as an example.
 
    .. container:: col-md-6 pl-0 pr-3 py-3 m-0

@@ -102,7 +102,7 @@ are located in directory :file:`typo3/sysext`.
 Core
   As its name implies, this extension is crucial to the working of TYPO3 CMS.
   It defines the main database tables (BE users, BE groups, pages and all the
-  "sys\_*" tables. It also contains the default global configuration
+  "sys\_*" tables). It also contains the default global configuration
   (in :file:`typo3/sysext/core/Configuration/DefaultConfiguration.php`). Last
   but not least, it delivers a huge number of base PHP classes, far too many
   to describe here.
