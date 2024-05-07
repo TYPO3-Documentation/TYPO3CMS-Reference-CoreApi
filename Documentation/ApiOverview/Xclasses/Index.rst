@@ -36,10 +36,10 @@ about how to do this.
 How does it work?
 =================
 
-In general every class instance in the Core and in extensions that stick to
+In general every class instance in the Core and in extensions that sticks to
 the recommended :ref:`coding guidelines <cgl>` is created with the API call
 :code:`\TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance()`.
-The methods takes care of singletons and also searches for existing XCLASSes.
+This method takes care of singletons and also searches for existing XCLASSes.
 If there is an XCLASS registered for the specific class that should be instantiated,
 an instance of that XCLASS is returned instead of an instance of the original class.
 
@@ -136,5 +136,5 @@ marked as public and protected but not private or static ones. Read more about
 `visibility and inheritance at php.net <https://www.php.net/manual/en/language.oop5.visibility.php>`__
 
 ..  seealso::
-    `How to use constructor dependency injection in a XCLASSed TYPO3 class 
+    `How to use constructor dependency injection in a XCLASSed TYPO3 class
     <https://www.derhansen.de/2021/06/how-to-use-constructor-injection-with-typo3-xclass.html>`__

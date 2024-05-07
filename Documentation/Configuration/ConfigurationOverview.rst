@@ -261,7 +261,7 @@ YAML
 Some system extensions use YAML for configuration:
 
 * :ref:`Site <sitehandling>` configuration is stored in :file:`<project-root>/config/sites/<identifier>/config.yaml`.
-  It can be configured in the backend module "Site" or changed directly in
+  It can be configured in the backend module "Sites" or changed directly in
   the configuration file.
 
 * :ref:`routing` is also defined in the file :file:`<project-root>/config/sites/<identifier>/config.yaml`.

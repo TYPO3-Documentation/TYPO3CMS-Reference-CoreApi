@@ -13,7 +13,7 @@ Integrating Composer class loader into TYPO3
 
 In our efforts to make TYPO3 faster and closer oriented
 to common PHP standard systems, we looked into the integration of the
-class loader that is used by all composer-based projects. We consider
+class loader that is used by all Composer-based projects. We consider
 this functionality a crucial feature for the future of TYPO3 on the
 base level, but also as a dramatic increase of the overall performance
 of every request inside TYPO3.
@@ -60,7 +60,7 @@ ensured.
 Understanding the Composer class loader
 =======================================
 
-Compared to the TYPO3 class loader, the composer class loader
+Compared to the TYPO3 class loader, the Composer class loader
 concept differs in the following major points:
 
 Caching on build stage
@@ -78,7 +78,7 @@ Using PSR-4 compatible prefix-based resolving
 ---------------------------------------------
 
 Instead of looking up every single class and caching the information
-away, composer works on a “prefix”-based resolution. As an example, the
+away, Composer works on a “prefix”-based resolution. As an example, the
 Composer class loader only needs to know that all PHP classes starting
 with :php:`TYPO3\CMS\Core` are located within :file:`EXT:core/Classes`. The
 rest is done by a simple resolution to include the necessary PHP class
@@ -91,7 +91,7 @@ package or distribution / project.
 Autoloading developer-specific data differently
 -----------------------------------------------
 
-The composer class loader checks the :file:`composer.json` for a development
+The Composer class loader checks the :file:`composer.json` for a development
 installation differently, including for example unit and functional tests
 separately to the rest of the installation. The static map with all
 namespaces are thus different when using Composer with `composer
@@ -119,14 +119,14 @@ the :file:`typo3_src` directory. The generated class information is available
 under :file:`typo3/contrib/vendor/composer/`. For TYPO3 installations that are
 set up with composer, the TYPO3 bootstrap checks
 :file:`Packages/Libraries/autoload.php` first which can be shipped with any
-composer-based project and include many more PHP Composer packages than
+Composer-based project and include many more PHP Composer packages than
 just TYPO3 extensions. To ensure maximum backwards-compatibility, the
 option to load from :file:`Packages/Library/autoload.php` instead of the shipped
 "required-core-packages-only" needs to be activated via an environment
 variable called :php:`TYPO3_COMPOSER_AUTOLOAD` which needs to be set on
 server-side level.
 
-If the composer-based logic is not used in some legacy cases (for
+If the Composer-based logic is not used in some legacy cases (for
 extensions etc), the usual TYPO3 class loader comes into play and does
 the same logic as before.
 

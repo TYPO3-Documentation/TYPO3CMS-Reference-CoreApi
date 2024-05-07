@@ -91,7 +91,7 @@ could be shared with multiple TYPO3 installations.
 
 TYPO3 v12 has a strong support for Composer and TYPO3's own code base has
 progressed since 2012, when TYPO3 v6.0 was released. TYPO3 Core itself now
-only consists of extensions which are available as native composer packages.
+only consists of extensions which are available as native Composer packages.
 The concept of global extensions has been phased out over the past versions.
 
 Instead, TYPO3 installations now distinguish between "dependencies" such as

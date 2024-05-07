@@ -70,7 +70,7 @@ In backend modules you can then make that message appear on top of the
 module after a page refresh or the rendering of the next page request
 or render it on your own where ever you want.
 
-In this example the :php:`FlashMessageService` (:php:`TYPO3\CMS\Core\Messaging\FlashMessageService`) 
+In this example the :php:`FlashMessageService` (:php:`TYPO3\CMS\Core\Messaging\FlashMessageService`)
 is used to add a flash message at the bottom right of a module:
 
 .. code-block:: php
@@ -128,5 +128,5 @@ as top-right notifications, instead of inline:
     $notificationQueue->enqueue($flashMessage);
 
 The recommended way to show flash messages is to use the Fluid ViewHelper :html:`<f:flashMessages />`.
-This ViewHelper works in any context because it use the :php:`FlashMessageRendererResolver` class
+This ViewHelper works in any context because it uses the :php:`FlashMessageRendererResolver` class
 to find the correct renderer for the current context.

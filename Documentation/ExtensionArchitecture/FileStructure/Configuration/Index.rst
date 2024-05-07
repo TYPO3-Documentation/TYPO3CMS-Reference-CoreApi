@@ -14,8 +14,8 @@ configuration of different types.
 
 Some of the sub directories in here have reserved names with special meanings.
 
-All files in this directory and in the sub directories :file:`TCA` and :
-file:`Backend` are automatically included during the TYPO3 bootstrap.
+All files in this directory and in the sub directories :file:`TCA` and
+:file:`Backend` are automatically included during the TYPO3 bootstrap.
 
 The following files and folders are commonly found in the :file:`Configuration`
 folder:

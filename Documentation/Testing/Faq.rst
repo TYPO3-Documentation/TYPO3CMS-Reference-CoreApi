@@ -18,7 +18,7 @@ Why do you docker everything?
 
 Executing tests in a containerized environment like docker has significant advantages over
 local execution. It takes away all the demanding setup needs of additional services like
-selenium, various database systems, different php versions in parallel on the same system and
+selenium, various database systems, different PHP versions in parallel on the same system and
 so on. It also creates a well defined environment that is identical for everyone: Extension
 authors rely on the same system dependencies as the Core does, local test execution is identical
 to what the continuous integration system bamboo does. All dependencies and setup details are open
