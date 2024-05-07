@@ -1,6 +1,8 @@
 .. include:: /Includes.rst.txt
 .. index:: Path; EXT:{extkey}/Tests
 
+..  _extension-files-tests:
+
 =============
 :file:`Tests`
 =============
