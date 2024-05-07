@@ -15,7 +15,7 @@ use TYPO3\CMS\Core\Mail\Mailer;
 final readonly class MyEventListener
 {
     public function __construct(
-        private readonly LoggerInterface $logger,
+        private LoggerInterface $logger,
     ) {}
 
     public function __invoke(AfterMailerSentMessageEvent $event): void

@@ -13,7 +13,7 @@ use TYPO3\CMS\Core\Type\ContextualFeedbackSeverity;
 #[AsEventListener(
     identifier: 'my-extension/backend/modify-page-tree-items',
 )]
-final class MyEventListener
+final readonly class MyEventListener
 {
     public function __invoke(AfterPageTreeItemsPreparedEvent $event): void
     {

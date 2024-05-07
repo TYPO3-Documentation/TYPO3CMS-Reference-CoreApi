@@ -19,12 +19,12 @@ use TYPO3\CMS\Core\Localization\LanguageServiceFactory;
 )]
 final readonly class MyEventListener
 {
-    private readonly LanguageService $languageService;
+    private LanguageService $languageService;
 
     public function __construct(
-        private readonly IconFactory $iconFactory,
+        private IconFactory $iconFactory,
         LanguageServiceFactory $languageServiceFactory,
-        private readonly UriBuilder $uriBuilder,
+        private UriBuilder $uriBuilder,
     ) {
         $this->languageService = $languageServiceFactory->createFromUserPreferences($GLOBALS['BE_USER']);
     }
