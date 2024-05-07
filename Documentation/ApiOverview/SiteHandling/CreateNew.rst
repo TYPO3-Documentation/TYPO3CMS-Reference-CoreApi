@@ -68,7 +68,7 @@ language IDs between sites in sync, 2. is a quick start to set up a new site.
 
 ..  include:: /Images/AutomaticScreenshots/SiteHandling/SiteHandlingCreateNewSite-3.rst.txt
 
-Check and correct all other settings as they will automatically used for
+Check and correct all other settings as they will be automatically used for
 features like the locale or displaying language flags in the backend.
 
 That is all that is required for a new site.

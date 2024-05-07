@@ -48,7 +48,7 @@ Navigation frame
   when you move from the :guilabel:`Web > Page` module to the
   :guilabel:`Web > List` module, the same page stays selected in the page tree.
 
-Docheader
+DocHeader
   This part is always located above the Content area. It will generally
   contain a drop-down menu called the "Function menu", which allows to
   navigate into the various functions offered by the module. When editing

@@ -24,7 +24,7 @@ This document has been written to explain the design goals of the scanner, to po
 and can't do. The document should help extension and project developers to get the best out of the tool,
 and it should help Core developers to add Core patches which use the scanner.
 
-This module has been featured on the TYPO3 youtube channel:
+This module has been featured on the TYPO3 YouTube channel:
 
 .. youtube:: UdIYDZgBrQU
 
@@ -70,11 +70,11 @@ Goals and non goals
 
 * Core developers should be able to easily register and maintain matchers for new deprecations or breaking patches.
 
-* Implementation within the TYPO3 Core backend has been primary goal. While it might be possible, integration
+* Implementation within the TYPO3 Core backend has been the primary goal. While it might be possible, integration
   into IDEs like PhpStorm has not been a design goal. Also, matcher configuration is bound to the Core version,
   e.g. tests concerning v12 are not intended to be executed on v11.
 
-* Some of reST files that document a breaking change or deprecated API can be used to scan extensions.
+* Some of the reST files that document a breaking change or deprecated API can be used to scan extensions.
   If those find no matches, the reST documentation files are tagged with a "no match" label telling integrators
   and project developers that they do not need to concern themselves with that particular change.
 

@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace MyVendor\MyExtension\Package\EventListener;
 
 use TYPO3\CMS\Core\Package\Event\AfterPackageActivationEvent;

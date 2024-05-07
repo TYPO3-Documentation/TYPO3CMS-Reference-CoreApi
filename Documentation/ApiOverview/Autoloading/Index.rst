@@ -166,7 +166,7 @@ Best practices
 
 ..  tip::
     PSR-4 is a standard that has been developed by the PHP Framework Interop
-    Group (FIG). PSR-4 is an advanced standard for autoloading php classes and
+    Group (FIG). PSR-4 is an advanced standard for autoloading PHP classes and
     replaces PSR-0. If you want to know more about the PHP FIG in general and
     PSR-4 in specific, please visit https://www.php-fig.org/psr/psr-4/.
 

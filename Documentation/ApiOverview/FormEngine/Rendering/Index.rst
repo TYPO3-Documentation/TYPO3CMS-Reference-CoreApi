@@ -285,7 +285,7 @@ Register the control in :file:`Configuration/TCA/Overrides/pages.php`:
     :language: php
     :caption: EXT:my_extension/Configuration/TCA/Overrides/pages.php
 
-Add the php class for rendering the control in
+Add the PHP class for rendering the control in
 :file:`Classes/FormEngine/FieldControl/ImportDataControl.php`:
 
 ..  literalinclude:: _ImportDataControl.php

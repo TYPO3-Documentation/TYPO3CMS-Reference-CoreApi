@@ -115,7 +115,7 @@ servers virtual host configuration. A typical example looks like this:
             deny all;
         }
 
-        # TYPO3 - Block access to composer files
+        # TYPO3 - Block access to Composer files
         location ~* composer\.(?:json|lock) {
             deny all;
         }

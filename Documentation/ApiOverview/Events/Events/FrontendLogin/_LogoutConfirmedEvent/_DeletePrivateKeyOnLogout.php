@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace MyVendor\MyExtension\EventListener;
 
 use MyVendor\MyExtension\KeyPairHandling\KeyFileService;
@@ -22,7 +24,7 @@ final class LogoutEventListener
         if ($this->keyFileService->deletePrivateKey($userAspect)) {
             $event->getController()->addFlashMessage('Your private key has been deleted. ', '', ContextualFeedbackSeverity::NOTICE);
         } else {
-            $event->getController()->addFlashMessage('Deletion of your private key failed. It will be deleted automatically withing 15 minutes by a scheduler task. ', '', ContextualFeedbackSeverity::WARNING);
+            $event->getController()->addFlashMessage('Deletion of your private key failed. It will be deleted automatically within 15 minutes by a scheduler task. ', '', ContextualFeedbackSeverity::WARNING);
         }
     }
 }

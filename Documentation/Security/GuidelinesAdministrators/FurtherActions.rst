@@ -35,7 +35,7 @@ Due to the fact that TYPO3 is a PHP application, secure PHP settings
 are also important, of course. PHP settings, such as `open_basedir`,
 `disable_functions` often improve the security of your system and should be considered.
 
-In use cases where you rely on outbound connections and your php comes without support
+In use cases where you rely on outbound connections and your PHP comes without support
 for curl it might be required to set `allow_url_fopen` to true.
 
 Note that disallowing remote connections (e.g. by blocking outgoing traffic on a firewall in
