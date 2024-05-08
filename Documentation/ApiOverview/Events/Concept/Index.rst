@@ -64,7 +64,7 @@ yet, then you should suggest emitting an event. Normally that is rather easily
 done by the author of the source you want to extend:
 
 *   For the TYPO3 Core create an issue on `forge.typo3.org`_.
-*   For a third-party extension create in issue in the according issue tracker
+*   For a third-party extension create an issue in the according issue tracker
     of that extension.
 
 ..  _forge.typo3.org: https://forge.typo3.org/projects/typo3cms-core/issues

@@ -10,7 +10,7 @@ can get passed the property :html:`additionalAttributes`.
 
 A tag-based Fluid ViewHelper generally supports most attributes that are
 also available in HTML. There are, for example, the attributes `class` and
-`id`, which exists in all tag-based ViewHelpers.
+`id`, which exist in all tag-based ViewHelpers.
 
 Sometimes attributes are needed that are not provided by the
 ViewHelper. A common example are data attributes.
@@ -21,7 +21,7 @@ ViewHelper. A common example are data attributes.
     <f:form.textbox additionalAttributes="{data-anything: 'some info', data-something: some.variable}" />
 
 
-The property `additionalAttributes` are especially helpful if only a
+The property `additionalAttributes` is especially helpful if only a
 few of these additional attributes are needed. Otherwise, it is often
 reasonable to write an own ViewHelper which extends the corresponding
 ViewHelper.

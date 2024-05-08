@@ -8,7 +8,7 @@ AfterFileCreatedEvent
 
 The PSR-14 event
 :php:`\TYPO3\CMS\Core\Resource\Event\AfterFileCreatedEvent`
-is fired before a file was created within a resource
+is fired after a file was created within a resource
 :ref:`storage <fal-architecture-components-storage>` /
 :ref:`driver <fal-architecture-components-drivers>`.
 The folder represents the "target folder".

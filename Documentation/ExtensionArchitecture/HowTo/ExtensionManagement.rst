@@ -6,7 +6,7 @@
 Extension management
 ====================
 
-.. todo: Mention composer here
+.. todo: Mention Composer here
 
 Extensions are managed from the Extension Manager inside TYPO3 by
 "admin" users. The module is located at :guilabel:`Admin Tools > Extensions`
@@ -95,7 +95,7 @@ containing the data structure for each extension. These include the properties:
  - :Key:
          composerManifest
    :Description:
-         A large array containing the composer manifest. (the
+         A large array containing the Composer manifest. (the
          :file:`composer.json` of the extension, if it exists)
 
  - :Key:

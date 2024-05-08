@@ -302,7 +302,7 @@ Set the Fluid paths with TypoScript using :ref:`t3tsref:cobj-fluidtemplate`
    </f:section>
 
    <f:section name="Main">
-      <f:render partial="Jumbotron" />
+       <f:render partial="Jumbotron" />
        <div class="container">
          <div class="row">
            <div class="col-md-4">

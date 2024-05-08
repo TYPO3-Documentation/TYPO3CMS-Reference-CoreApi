@@ -46,7 +46,7 @@ the servers web root.
 Alternatives: :file:`Resources/Public/Icons/Extension.png`,
 :file:`Resources/Public/Icons/Extension.gif`
 
-These file names are reserved for th extension icon, which will be displayed
+These file names are reserved for the extension icon, which will be displayed
 in the extension manager.
 
 It must be in format SVG (preferred), PNG or GIF and should have at least 16x16
@@ -65,7 +65,7 @@ Resources/Public/Css
 .. index:: Path; EXT:{extkey}/Resources/Public/Images
 
 Resources/Public/Images
-  Any images used by the extension.
+  Any image used by the extension.
 
 .. index::
    Path; EXT:{extkey}/Resources/Public/JavaScript
