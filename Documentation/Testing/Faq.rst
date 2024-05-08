@@ -98,7 +98,7 @@ Why do you not use native PHP on Travis CI?
 The documentation about extension and project testing using Travis CI sets up an environment that
 is identical to the local testing with the same containers used locally. This circumvents
 the PHP versions that Travis comes with and again runs everything in docker containers. It would
-also possible be to use the native Travis environments. This however requires additional
+also be possible to use the native Travis environments. This however requires additional
 fiddling and more knowledge of the testing internals, especially when it comes to functional and
 acceptance testing. Extension authors may very well decide to do that, but a setup like that is
 out of scope of this document. Torturing Travis CI to fetch and run the docker containers all the
@@ -118,7 +118,7 @@ time being it is how it is.
 Can I provide more hardware for bamboo?
 =======================================
 
-Yes and no. We indeed consume quite some hardware to keep the TYPO3 Core  testing at a decent speed
+Yes and no. We indeed consume quite some hardware to keep the TYPO3 Core testing at a decent speed
 and we are always looking for more. Under normal operation, we currently consume 64 CPU's and
 half a terabyte of RAM. This is something. However, it is not trivial to help us: With the current
 system, we need root access to the host, a host needs 8 hardware CPU's with 64 GB of RAM, the
