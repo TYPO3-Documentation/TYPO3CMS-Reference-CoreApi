@@ -1,0 +1,13 @@
+services:
+  _defaults:
+    autowire: true
+    autoconfigure: true
+    public: false
+
+  T3docs\Examples\:
+    resource: '../Classes/*'
+    exclude: '../Classes/Domain/Model/*'
+
+  MyVendor\MyExtension\LinkValidator\LinkType\ExampleLinkType:
+    tags:
+      -  name: linkvalidator.linktype
