@@ -217,7 +217,7 @@ with field name), the second argument is an optional alias.
 
 Examples:
 
-..  code-block:: _RepositoryAgregate.php
+..  literalinclude:: _RepositoryAgregate.php
     :langauge: php
     :caption: EXT:my_extension/Classes/Domain/Repository/MyTableRepository.php
 
@@ -250,7 +250,7 @@ trim()
 Using the :php:`->trim()` expression ensures that the fields are trimmed at the
 database level. The following examples give a better idea of what is possible:
 
-..  code-block:: _RepositoryWithTrim.php
+..  literalinclude:: _RepositoryWithTrim.php
     :language: php
     :caption: EXT:my_extension/Classes/Domain/Repository/MyTableRepository.php
 
