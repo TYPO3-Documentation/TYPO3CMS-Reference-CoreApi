@@ -74,32 +74,9 @@ one argument.
 
 Example to find :sql:`tt_content` records:
 
-..  code-block:: php
+..  literalinclude:: _RepositoryWithJunctions.php
+    :language: php
     :caption: EXT:my_extension/Classes/Domain/Repository/MyTableRepository.php
-
-    // use TYPO3\CMS\Core\Database\Connection;
-
-    // WHERE
-    //     (`tt_content`.`CType` = 'list')
-    //     AND (
-    //        (`tt_content`.`list_type` = 'example_pi1')
-    //        OR
-    //        (`tt_content`.`list_type` = 'example_pi2')
-    //     )
-    $queryBuilder = $this->connectionPool->getQueryBuilderForTable('tt_content');
-    $queryBuilder->where(
-        $queryBuilder->expr()->eq('CType', $queryBuilder->createNamedParameter('list')),
-        $queryBuilder->expr()->or(
-            $queryBuilder->expr()->eq(
-                'list_type',
-                $queryBuilder->createNamedParameter('example_pi1', Connection::PARAM_STR)
-            ),
-            $queryBuilder->expr()->eq(
-                'list_type',
-                $queryBuilder->createNamedParameter('example_pi2', Connection::PARAM_STR)
-            )
-        )
-    )
 
 Read :ref:`how to correctly instantiate <database-query-builder-instantiation>`
 a query builder with the connection pool.
@@ -233,41 +210,16 @@ Aggregate functions used in :sql:`SELECT` parts, often combined with
 with field name), the second argument is an optional alias.
 
 *   :php:`->min($fieldName, $alias = NULL)` "MIN()" calculation
-
 *   :php:`->max($fieldName, $alias = NULL)` "MAX()" calculation
-
 *   :php:`->avg($fieldName, $alias = NULL)` "AVG()" calculation
-
 *   :php:`->sum($fieldName, $alias = NULL)` "SUM()" calculation
-
 *   :php:`->count($fieldName, $alias = NULL)` "COUNT()" calculation
 
 Examples:
 
-..  code-block:: php
+..  code-block:: _RepositoryAgregate.php
+    :langauge: php
     :caption: EXT:my_extension/Classes/Domain/Repository/MyTableRepository.php
-
-    // Calculate the average creation timestamp of all rows from tt_content
-    // SELECT AVG(`crdate`) AS `averagecreation` FROM `tt_content`
-    $queryBuilder = $this->connectionPool->getQueryBuilderForTable('tt_content');
-    $result = $queryBuilder
-        ->addSelectLiteral(
-            $queryBuilder->expr()->avg('crdate', 'averagecreation')
-        )
-        ->from('tt_content')
-        ->executeQuery()
-        ->fetchAssociative();
-
-    // Distinct list of all existing endtime values from tt_content
-    // SELECT `uid`, MAX(`endtime`) AS `maxendtime` FROM `tt_content` GROUP BY `endtime`
-    $statement = $queryBuilder
-        ->select('uid')
-        ->addSelectLiteral(
-            $queryBuilder->expr()->max('endtime', 'maxendtime')
-        )
-        ->from('tt_content')
-        ->groupBy('endtime')
-        ->executeQuery();
 
 Read :ref:`how to correctly instantiate <database-query-builder-instantiation>`
 a query builder with the connection pool.
@@ -283,17 +235,9 @@ The :php:`->length()` string function can be used to return the length of a
 string in bytes. The signature of the method signature is :php:`$fieldName`
 with an optional alias :php:`->length(string $fieldName, string $alias = null)`:
 
-..  code-block:: php
+..  literalinclude::  _RepositoryLength.php
+    :language: php
     :caption: EXT:my_extension/Classes/Domain/Repository/MyTableRepository.php
-
-    // use TYPO3\CMS\Core\Database\Connection;
-    // use TYPO3\CMS\Core\Database\Query\Expression\ExpressionBuilder;
-    $queryBuilder = $this->connectionPool->getQueryBuilderForTable('tt_content');
-    $queryBuilder->expr()->comparison(
-        $queryBuilder->expr()->length($fieldName),
-        ExpressionBuilder::GT,
-        $queryBuilder->createNamedParameter(0, Connection::PARAM_INT)
-    );
 
 Read :ref:`how to correctly instantiate <database-query-builder-instantiation>`
 a query builder with the connection pool.
@@ -306,17 +250,9 @@ trim()
 Using the :php:`->trim()` expression ensures that the fields are trimmed at the
 database level. The following examples give a better idea of what is possible:
 
-..  code-block:: php
+..  code-block:: _RepositoryWithTrim.php
+    :language: php
     :caption: EXT:my_extension/Classes/Domain/Repository/MyTableRepository.php
-
-    // use TYPO3\CMS\Core\Database\Connection
-    // use TYPO3\CMS\Core\Database\Query\Expression\ExpressionBuilder;
-    $queryBuilder = $this->connectionPool->getQueryBuilderForTable('tt_content');
-    $queryBuilder->expr()->comparison(
-        $queryBuilder->expr()->trim($fieldName),
-        ExpressionBuilder::EQ,
-        $queryBuilder->createNamedParameter('', Connection::PARAM_STR)
-    );
 
 Read :ref:`how to correctly instantiate <database-query-builder-instantiation>`
 a query builder with the connection pool.
