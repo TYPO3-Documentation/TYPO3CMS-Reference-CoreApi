@@ -59,12 +59,13 @@ Line 1: :yaml:`name: my-vendor/my-set`
 Line 2: :yaml:`label: My Set`
     This label will be used in the new select box of the site module. Should
     be as unique as possible to avoid duplication in the site module.
-Line 3-5: Settings
+Line 3-6: Settings
     Define settings for the website
     **Never** nest settings with a dot! e.g. website.background.colour
     Otherwise the new settings definitions will not work later.
     If a setting contains special characters or spaces, it is recommended to
-    wrap the value in inverted commas.
+    wrap the value in inverted commas. You can also define settings in a
+    separate file `settings.yaml`. See section below.
 Line 7: Dependencies
     Load setup.typoscript, constants.typoscript, page.tsconfig and
     config.yaml from the site set definitions of this or other extensions.
