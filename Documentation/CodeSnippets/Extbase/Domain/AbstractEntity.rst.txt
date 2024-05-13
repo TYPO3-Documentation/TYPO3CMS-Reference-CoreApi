@@ -4,7 +4,7 @@
 .. code-block:: php
    :caption: Class T3docs\\BlogExample\\Domain\\Model\\Comment
 
-   class Comment extends AbstractEntity implements \Stringable
+   class Comment extends AbstractEntity
    {
        protected string $author = '';
 

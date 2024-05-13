@@ -3,15 +3,6 @@
 return [
     [
         'action' => 'createPhpClassDocs',
-        'class' => \TYPO3\CMS\Core\Database\Middleware\UsableForConnectionInterface::class,
-        'members' => [
-            'canBeUsedForConnection',
-        ],
-        'targetFileName' => 'CodeSnippets/Manual/Database/UsableForConnectionInterface.rst.txt',
-        'withCode' => false,
-    ],
-    [
-        'action' => 'createPhpClassDocs',
         'class' => \TYPO3\CMS\Core\Database\Query\Expression\ExpressionBuilder::class,
         'targetFileName' => 'ApiOverview/Database/ExpressionBuilder/_ExpressionBuilderLength.rst.txt',
         'includeClassComment' => false,

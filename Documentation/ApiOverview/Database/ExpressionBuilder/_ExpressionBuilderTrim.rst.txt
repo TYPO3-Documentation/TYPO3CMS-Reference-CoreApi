@@ -4,11 +4,10 @@
 .. php:class:: ExpressionBuilder
    :noindex:
 
-   .. php:method:: trim(string $fieldName, Doctrine\\DBAL\\Platforms\\TrimMode $position = \Doctrine\DBAL\Platforms\TrimMode::UNSPECIFIED, string $char = NULL)
+   .. php:method:: trim(string $fieldName, int $position, string $char = NULL)
 
       Creates a TRIM expression for the given field.
 
       :param string $fieldName: Field name to build expression for
-      :param Doctrine\\DBAL\\Platforms\\TrimMode $position: Either constant out of LEADING, TRAILING, BOTH, default: \Doctrine\DBAL\Platforms\TrimMode::UNSPECIFIED
+      :param int $position: Either constant out of LEADING, TRAILING, BOTH
       :param string $char: Character to be trimmed (defaults to space), default: NULL
-      :returntype: `string`

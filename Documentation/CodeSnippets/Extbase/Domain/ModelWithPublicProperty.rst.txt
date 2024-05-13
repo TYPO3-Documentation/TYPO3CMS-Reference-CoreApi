@@ -4,8 +4,9 @@
 .. code-block:: php
    :caption: Class T3docs\\BlogExample\\Domain\\Model\\Tag
 
-   final class Tag extends AbstractValueObject implements \Stringable
+   final class Tag extends AbstractValueObject
    {
+       public string $name = '';
 
        public int $priority = 0;
    }
