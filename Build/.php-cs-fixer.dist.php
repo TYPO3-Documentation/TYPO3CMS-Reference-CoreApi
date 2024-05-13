@@ -8,7 +8,7 @@ use PhpCsFixer\Finder;
 return (new Config())
     ->setFinder(
         (new Finder())
-            ->in(__DIR__.'/Documentation')
+            ->in(__DIR__.'/../Documentation')
     )
     ->setRiskyAllowed(true)
     ->setRules([

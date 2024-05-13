@@ -67,34 +67,5 @@
             "extension-key": "t3docs-reference-coreapi",
             "web-dir": ".Build/web"
         }
-    },
-    "scripts": {
-        "check": [
-            "@check:php",
-            "@check:yaml"
-        ],
-        "check:php": [
-            "@check:php:lint",
-            "@check:php:cs"
-        ],
-        "check:php:cs": "Build/Scripts/runTests.sh -n -s cgl",
-        "check:php:lint": "Build/Scripts/runTests.sh -s lint",
-        "check:yaml": [
-            "@check:yaml:lint"
-        ],
-        "check:yaml:lint": ".Build/bin/yaml-lint Documentation/",
-        "fix": [
-            "@fix:php"
-        ],
-        "fix:php": [
-            "@fix:php:cs"
-        ],
-        "fix:php:cs": "Build/Scripts/runTests.sh -s cgl",
-        "generate": [
-            "@generate:codesnippets"
-        ],
-        "generate:codesnippets": [
-            ".Build/bin/typo3 codesnippet:create Documentation/"
-        ]
     }
 }
