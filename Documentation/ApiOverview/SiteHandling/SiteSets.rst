@@ -46,10 +46,9 @@ unique `name` and preferably also a unique `label` to the site set definition.
       - my-vendor/my-other-set
       - other-namespace/fancy-carousel
 
-
 Line 1: :yaml:`name: my-vendor/my-set`
     Site Set Name
-    Similar to the package name of Composer: [Vendor]/[Package]
+    Similar to the package name of Composer: `[Vendor]/[Package]`
     Is required to uniquely identify the site set
     and to resolve dependencies to other site sets.
     This name does NOT reflect an extension, but only the provider of an
@@ -67,11 +66,12 @@ Line 3-6: Settings
     wrap the value in inverted commas. You can also define settings in a
     separate file `settings.yaml`. See section below.
 Line 7: Dependencies
-    Load setup.typoscript, constants.typoscript, page.tsconfig and
-    config.yaml from the site set definitions of this or other extensions.
-    These dependencies are loaded before your own site set. For example
-    a dependency to a site set definition in your own site package and/or
-    a dependency to  a site set definition from another provider (vendor)
+    Load :file:`setup.typoscript`, :file:`constants.typoscript`,
+    :file:`page.tsconfig` and :file:`config.yaml` from the site set definitions
+    of this or other extensions. These dependencies are loaded before your own
+    site set. For example a dependency to a site set definition in your own
+    site package and/or a dependency to a site set definition from
+    another provider (vendor)
 
 ..  _site-sets-usage:
 
