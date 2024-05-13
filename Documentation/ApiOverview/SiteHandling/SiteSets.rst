@@ -116,8 +116,12 @@ site setting.
       # defined in config.yaml
       default: '#129845'
 
+..  _definition-types:
+
 Definition Types
 ----------------
+
+..  _definition-type-int:
 
 int
 ~~~
@@ -125,12 +129,16 @@ int
 Checks whether the value is already an integer or can be interpreted as an
 integer. If yes, the string is converted into an integer.
 
+..  _definition-type-number:
+
 number
 ~~~~~~
 
 Checks whether the value is already an integer or float or whether the string
 can be interpreted as an integer or float. If yes, the string is converted to
 an integer or float.
+
+..  _definition-type-bool:
 
 bool
 ~~~~
@@ -142,6 +150,8 @@ If the value is an integer, then `false` is returned for 0 and `true` for 1.
 If the value is a string, the corresponding Boolean value is returned for
 `true`, `false`, `yes`, `no`, `on`, `off`, `0` and `1`.
 
+..  _definition-type-string:
+
 string
 ~~~~~~
 
@@ -149,11 +159,15 @@ Converts almost all data types into a string. If an object has been specified,
 it must be `stringable`, otherwise no conversion takes place. Boolean values
 are converted to `true` and `false`.
 
+..  _definition-type-text:
+
 text
 ~~~~
 
 Exactly the same as the `string` type. Use it as an alias if someone doesn't
 know what to do with `string`.
+
+..  _definition-type-stringlist:
 
 stringlist
 ~~~~~~~~~~
@@ -164,6 +178,8 @@ element. The list in this type is derived from the internal PHP method
 can also be converted here.
 
 The `string` type is executed for each array entry.
+
+..  _definition-type-color:
 
 color
 ~~~~~
@@ -437,8 +453,12 @@ the base site set. They do not use :typoscript:`@include` statements to include
 the base TypoScript. The dependencies defined in the site set take care of the
 correct loading order of the TypoScript.
 
+..  _site-sets-php-api:
+
 Site Set PHP API
 ================
+
+..  _site-sets-php-api-site:
 
 Site
 ----
@@ -452,6 +472,8 @@ The site settings can be read out via the site object:
 If a settings definition exists for this setting, the returned value has
 already been validated, converted and, if not set, the default value is used.
 
+..  _site-sets-php-api-setregistry:
+
 SetRegistry
 -----------
 
@@ -462,12 +484,16 @@ site set definitions in order as defined by dependencies, then `SetRegistry`
 is the right place to go. To read all site set definitions, please
 use `SetCollector`.
 
+..  _site-sets-php-api-setregistry-getsets:
+
 getSets
 ~~~~~~~
 
 Reads one or more site set definitions including their dependencies.
 
 $sets = $setRegistry->getSets(‘stefanfroemken/bootstrap’, ‘in2code/powermail’);
+
+..  _site-sets-php-api-setregistry-hasset:
 
 hasSet
 ~~~~~~
@@ -476,12 +502,16 @@ Checks whether a site set definition is available.
 
 $hasSet = $setRegistry->hasSet(‘stefanfroemken/bootstrap’);
 
+..  _site-sets-php-api-setregistry-getset:
+
 getSet
 ~~~~~~
 
 Reads a site set definition WITHOUT dependencies.
 
 $set = $setRegistry->getSet(‘stefanfroemken/bootstrap’);
+
+..  _site-sets-php-api-setcollector:
 
 SetCollector
 ~~~~~~~~~~~~
