@@ -26,3 +26,4 @@ Thumbs.db
 var/
 .cache/
 Build/.cache/
+/composer.json.testing
