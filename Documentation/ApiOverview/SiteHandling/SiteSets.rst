@@ -24,28 +24,48 @@ as a subset (example: `typo3/seo-xml-sitemap`).
 Site set definition
 ===================
 
-A set is defined in an extension's sub folder in :path:`Configuration/Sets/`, for
-example :file:`EXT:my_extension/Configuration/Sets/MySet/config.yaml`.
-
-The folder name in :path:`Configuration/Sets/` is arbitrary, significant
-is the `name` defined in :file:`config.yaml`. The `name` uses a `vendor/name`
-scheme by convention, and *should* use the same vendor as the containing
-extension. It may differ if needed for compatibility reasons (for example when
-sets are moved to other extensions). If an extension provides exactly one set
-, it should have the same `name` as defined in :file:`composer.json`.
-
-The :file:`config.yaml` for a set that depends on two other sets looks as
-follows:
+A site set definition contains the configuration for site settings, TypoScript
+and PageTSConfig and can be assigned to one or more sites via the site module.
+Site set definitions are created in the :path:`Configuration/Sets/` directory
+and separated from each other by a sub-folder with any name. In this way,
+it is also possible to create several site set definitions per extension. Each
+of these sub-folders must have a :file:`config.yaml` that assigns at least a
+unique `name` and preferably also a unique `label` to the site set definition.
 
 ..  code-block:: yaml
     :caption: EXT:my_extension/Configuration/Sets/MySet/config.yaml
 
+    # Site Set Name
+    # Similar to the package name of Composer: [Vendor]/[Package]
+    # Is required to uniquely identify the site set
+    # and to resolve dependencies to other site sets.
+    # This name does NOT reflect an extension, but only the provider of an
+    # extension through the vendor name.
+    # There are NO conclusions from the name here as to which extension
+    # provided the site set definition.
     name: my-vendor/my-set
+
+    # This label will be used in the new selectbox of the Site-Module. Should
+    # be as unique as possible to avoid duplication in the site module.
     label: My Set
 
-    # Load TypoScript, TSconfig and settings from dependencies
+    # Define settings for the website
+    # Never nest settings with a dot!!! e.g. website.background.colour
+    # Otherwise the new settings definitions will not work later.
+    # If a setting contains special characters or spaces, it is recommended to
+    # wrap the value in inverted commas.
+    settings:
+      website:
+        background:
+          color: '#386492'
+
+    # Load setup.typoscript, constants.typoscript, page.tsconfig and
+    # config.yaml from the site set definitions of this or other extensions.
+    # These dependencies are loaded before your own site set.
     dependencies:
-      - some-namespace/slider
+      # Dependency to a site set definition of your own extensions
+      - my-vendor/my-other-set
+      # Dependency on a site set definition from another provider (vendor)
       - other-namespace/fancy-carousel
 
 ..  _site-sets-usage:
@@ -58,7 +78,7 @@ Sets are applied to sites via `dependencies` array in site configuration:
 ..  code-block:: yaml
     :caption: config/sites/my-site/config.yaml
 
-    base: 'http://example.com/'
+    base: 'https://example.com/'
     rootPageId: 1
     dependencies:
       - my-vendor/my-set
@@ -71,21 +91,88 @@ Site sets can also be added to a site via the backend module
 Settings definitions
 ====================
 
-Sets can define settings definitions which contain more metadata than just a
-value: They contain UI-relevant options like `label`, `description`, `category`
-and `tags` and types like `int`, `bool`, `string`, `stringlist`, `text` or
-`color`. These definitions are placed in :file:`settings.definitions.yaml`
-next to the site set file :file:`config.yaml`.
+The big problem with TypoScript and TSConfig is that each specified value can
+only ever be a string. It is up to the developer alone to read these values
+and convert them into the desired data type such as integer.
+
+TYPO3 wants to remedy this with settings definitions and now provides an API
+with which you can add additional descriptive definitions for each individual
+site setting.
 
 ..  code-block:: yaml
     :caption: EXT:my_extension/Configuration/Sets/MySet/settings.definitions.yaml
 
     settings:
-      foo.bar.baz:
-        label: 'My example baz setting'
-        description: 'Configure baz to be used in bar'
-        type: int
-        default: 5
+      website.background.color:
+      # A label for the setting
+      label: 'Background color'
+      # A detailed description of the setting
+      description: 'This will validate the given color string'
+      # Which kind of validation/conversion should be applied?
+      # See below
+      # See: [sysext]/core/Classes/Settings/Type/*
+      type: color
+      # A default values as fallback, if there was no default
+      # defined in config.yaml
+      default: '#129845'
+
+Definition Types
+----------------
+
+int
+~~~
+
+Checks whether the value is already an integer or can be interpreted as an
+integer. If yes, the string is converted into an integer.
+
+number
+~~~~~~
+
+Checks whether the value is already an integer or float or whether the string
+can be interpreted as an integer or float. If yes, the string is converted to
+an integer or float.
+
+bool
+~~~~
+
+If the value is already a boolean, it is returned directly 1 to 1.
+
+If the value is an integer, then `false` is returned for 0 and `true` for 1.
+
+If the value is a string, the corresponding Boolean value is returned for
+`true`, `false`, `yes`, `no`, `on`, `off`, `0` and `1`.
+
+string
+~~~~~~
+
+Converts almost all data types into a string. If an object has been specified,
+it must be `stringable`, otherwise no conversion takes place. Boolean values
+are converted to `true` and `false`.
+
+text
+~~~~
+
+Exactly the same as the `string` type. Use it as an alias if someone doesn't
+know what to do with `string`.
+
+stringlist
+~~~~~~~~~~
+
+The value must be an array whose array keys start at 0 and increase by 1 per
+element. The list in this type is derived from the internal PHP method
+`array_is_list` and has nothing to do with the fact that comma-separated lists
+can also be converted here.
+
+The `string` type is executed for each array entry.
+
+color
+~~~~~
+
+Checks whether the specified string can be interpreted as a colour code. Entries
+starting with `rgb`, `rgba` and `#` are permitted here.
+
+For `#` color codes, for example, the system checks whether they
+have 3, 6 or 8 digits.
 
 ..  _site-sets-settings:
 
@@ -349,3 +436,71 @@ The additional site sets provide TypoScript configuration that depends on
 the base site set. They do not use :typoscript:`@include` statements to include
 the base TypoScript. The dependencies defined in the site set take care of the
 correct loading order of the TypoScript.
+
+Site Set PHP API
+================
+
+Site
+----
+
+The site settings can be read out via the site object:
+
+..  code-block:: php
+
+    $color = $site->getSettings()->get(‘website.background.colour’);
+
+If a settings definition exists for this setting, the returned value has
+already been validated, converted and, if not set, the default value is used.
+
+SetRegistry
+-----------
+
+The `SetRegistry` retrieves the site sets found in an ordered sequence, as
+defined by `dependencies` in `config.yaml`. Please preferably use the site
+object to access the required data. However, if you need to query one or more
+site set definitions in order as defined by dependencies, then `SetRegistry`
+is the right place to go. To read all site set definitions, please
+use `SetCollector`.
+
+getSets
+~~~~~~~
+
+Reads one or more site set definitions including their dependencies.
+
+$sets = $setRegistry->getSets(‘stefanfroemken/bootstrap’, ‘in2code/powermail’);
+
+hasSet
+~~~~~~
+
+Checks whether a site set definition is available.
+
+$hasSet = $setRegistry->hasSet(‘stefanfroemken/bootstrap’);
+
+getSet
+~~~~~~
+
+Reads a site set definition WITHOUT dependencies.
+
+$set = $setRegistry->getSet(‘stefanfroemken/bootstrap’);
+
+SetCollector
+~~~~~~~~~~~~
+
+TYPO3 comes with a new `ServiceProvider`, which goes through all extensions
+with the first instantiation of the `SetCollector` and reads all site set
+definitions found.
+
+..  code-block:: php
+
+    public function __construct(
+        #[Autowire(lazy: true)]
+        protected SetCollector $setCollector,
+    ) {}
+
+However, this is not the official way to access the site set definitions and
+their dependencies. Please access the configuration via the site object.
+Alternatively, you can also use the `SetRegistry`, as only this manages the
+site sets in the order declared by the dependency specification.
+
+Only use the `SetCollector` if you need to read all site set definitions.
+Dependencies are not taken into account here.
