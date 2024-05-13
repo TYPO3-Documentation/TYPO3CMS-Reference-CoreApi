@@ -20,7 +20,7 @@ final class MyTableRepository
         $queryBuilder->expr()->comparison(
             $queryBuilder->expr()->trim($fieldName),
             ExpressionBuilder::EQ,
-            $queryBuilder->createNamedParameter('', Connection::PARAM_STR)
+            $queryBuilder->createNamedParameter('', Connection::PARAM_STR),
         );
         return $queryBuilder;
     }
