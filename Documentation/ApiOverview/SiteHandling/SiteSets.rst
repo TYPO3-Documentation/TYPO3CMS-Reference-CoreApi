@@ -60,7 +60,7 @@ Line 2: :yaml:`label: My Set`
     be as unique as possible to avoid duplication in the site module.
 Line 3-6: Settings
     Define settings for the website
-    **Never** nest settings with a dot! e.g. website.background.colour
+    **Never** nest settings with a dot! e.g. `website.background.color`
     Otherwise the new settings definitions will not work later.
     If a setting contains special characters or spaces, it is recommended to
     wrap the value in inverted commas. You can also define settings in a
@@ -189,7 +189,7 @@ Definition Types
     :type: string
     :Path: settings.[my_val].type = color
 
-    Checks whether the specified string can be interpreted as a colour code.
+    Checks whether the specified string can be interpreted as a color code.
     Entries starting with `rgb`, `rgba` and `#` are permitted here.
 
     For `#` color codes, for example, the system checks whether they
@@ -472,7 +472,7 @@ The site settings can be read out via the site object:
 
 ..  code-block:: php
 
-    $color = $site->getSettings()->get('website.background.colour');
+    $color = $site->getSettings()->get('website.background.color');
 
 If a settings definition exists for this setting, the returned value has
 already been validated, converted and, if not set, the default value is used.
