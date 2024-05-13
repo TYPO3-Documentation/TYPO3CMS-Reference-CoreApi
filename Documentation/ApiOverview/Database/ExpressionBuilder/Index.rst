@@ -9,28 +9,14 @@ Expression builder
 .. contents:: **Table of Contents**
    :local:
 
+..  include:: _ExpressionBuilder.rst.txt
 
-Introduction
-============
-
-The :php:`\TYPO3\CMS\Core\Database\Query\Expression\ExpressionBuilder` class is
-responsible for dynamically creating SQL query parts for :sql:`WHERE` and
-:sql:`JOIN ON` conditions. Functions like :php:`->min()` may also be used in
-:sql:`SELECT` parts.
-
-It takes care of building query conditions and ensures that table and column
-names are quoted within the created expressions / SQL fragments. It is a facade
-to the actual Doctrine DBAL :php:`ExpressionBuilder`.
-
-The expression builder is used in the context of the :ref:`query builder
-<database-query-builder>` to ensure that queries are built based on the
-requirements of the database platform being used.
-
+..  _database-expression-builder-basic-usage:
 
 Basic usage
 ===========
 
-An instance of the :php:`ExpressionBuilder` is retrieved from the
+An instance of the :php:class:`ExpressionBuilder <TYPO3\CMS\Core\Database\Query\Expression\ExpressionBuilder>` is retrieved from the
 :php:`QueryBuilder` object:
 
 ..  code-block:: php
@@ -38,7 +24,7 @@ An instance of the :php:`ExpressionBuilder` is retrieved from the
 
     $expressionBuilder = $queryBuilder->expr();
 
-It is good practice not to assign an instance of the :php:`ExpressionBuilder` to
+It is good practice not to assign an instance of the :php:class:`ExpressionBuilder <TYPO3\CMS\Core\Database\Query\Expression\ExpressionBuilder>` to
 a variable, but to use it directly within the code flow of the query builder
 context:
 
@@ -53,6 +39,7 @@ See available :ref:`parameter types <database-connection-parameter-types>`.
     section of the query builder <database-query-builder-create-named-parameter>`
     for details.
 
+..  _database-expression-builder-basic-junctions:
 
 Junctions
 =========
@@ -82,44 +69,14 @@ Read :ref:`how to correctly instantiate <database-query-builder-instantiation>`
 a query builder with the connection pool.
 See available :ref:`parameter types <database-connection-parameter-types>`.
 
+..  _database-expression-builder-basic-comparisons:
 
 Comparisons
 ===========
 
 A set of methods to create various comparison expressions or SQL functions:
 
-*   :php:`->eq($fieldName, $value)` "equal" comparison `=`
-
-*   :php:`->neq($fieldName, $value)` "not equal" comparison `!=`
-
-*   :php:`->lt($fieldName, $value)` "less than" comparison `<`
-
-*   :php:`->lte($fieldName, $value)` "less than or equal" comparison `<=`
-
-*   :php:`->gt($fieldName, $value)` "greater than" comparison `>`
-
-*   :php:`->gte($fieldName, $value)` "greater than or equal" comparison `>=`
-
-*   :php:`->isNull($fieldName)` "IS NULL" comparison
-
-*   :php:`->isNotNull($fieldName)` "IS NOT NULL" comparison
-
-*   :php:`->like($fieldName, $value)` "LIKE" comparison
-
-*   :php:`->notLike($fieldName, $value)` "NOT LIKE" comparison
-
-*   :php:`->in($fieldName, $valueArray)` "IN ()" comparison
-
-*   :php:`->notIn($fieldName, $valueArray)` "NOT IN ()" comparison
-
-*   :php:`->inSet($fieldName, $value)` "FIND_IN_SET('42', `aField`)"
-    Find a value in a comma separated list of values
-
-*   :php:`->notInSet($fieldName, $value)` "NOT FIND_IN_SET('42', `aField`)"
-    Find a value not in a comma separated list of values
-
-*   :php:`->bitAnd($fieldName, $value)` A bitwise AND operation `&`
-
+..  include:: _ExpressionBuilderComparisons.rst.txt
 
 Remarks and warnings:
 
@@ -202,6 +159,8 @@ Examples:
 
 See available :ref:`parameter types <database-connection-parameter-types>`.
 
+..  _database-expression-builder-basic-aggregate-functions:
+
 Aggregate functions
 ===================
 
@@ -209,27 +168,26 @@ Aggregate functions used in :sql:`SELECT` parts, often combined with
 :sql:`GROUP BY`. The first argument is the field name (or table name / alias
 with field name), the second argument is an optional alias.
 
-*   :php:`->min($fieldName, $alias = NULL)` "MIN()" calculation
-*   :php:`->max($fieldName, $alias = NULL)` "MAX()" calculation
-*   :php:`->avg($fieldName, $alias = NULL)` "AVG()" calculation
-*   :php:`->sum($fieldName, $alias = NULL)` "SUM()" calculation
-*   :php:`->count($fieldName, $alias = NULL)` "COUNT()" calculation
+..  include:: _ExpressionBuilderAggregate.rst.txt
 
 Examples:
 
 ..  literalinclude:: _RepositoryAgregate.php
-    :langauge: php
+    :language: php
     :caption: EXT:my_extension/Classes/Domain/Repository/MyTableRepository.php
 
 Read :ref:`how to correctly instantiate <database-query-builder-instantiation>`
 a query builder with the connection pool.
 
+..  _database-expression-builder-basic-various-expressions:
 
 Various expressions
 ===================
 
 length()
 --------
+
+..  include:: _ExpressionBuilderLength.rst.txt
 
 The :php:`->length()` string function can be used to return the length of a
 string in bytes.
@@ -242,14 +200,11 @@ Read :ref:`how to correctly instantiate <database-query-builder-instantiation>`
 a query builder with the connection pool.
 See available :ref:`parameter types <database-connection-parameter-types>`.
 
-API
-~~~
-
-..  include:: /CodeSnippets/Manual/Database/ExpressionBuilderLength.rst.txt
-
 
 trim()
 ------
+
+..  include:: _ExpressionBuilderTrim.rst.txt
 
 Using the :php:`->trim()` expression ensures that the fields are trimmed at the
 database level. The following examples give a better idea of what is possible:
@@ -273,7 +228,3 @@ The call to :php:`$queryBuilder->expr()-trim()` can be one of the following:
 *   :php:`trim('fieldName', TrimMode::BOTH, 'x')`
     results in :sql:`TRIM(BOTH "x" FROM "tableName"."fieldName")`
 
-API
-~~~
-
-..  include:: /CodeSnippets/Manual/Database/ExpressionBuilderTrim.rst.txt

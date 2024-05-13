@@ -2,6 +2,7 @@
 .. php:namespace::  TYPO3\CMS\Core\Database\Query\Expression
 
 .. php:class:: ExpressionBuilder
+   :noindex:
 
    .. php:method:: trim(string $fieldName, Doctrine\\DBAL\\Platforms\\TrimMode $position = \Doctrine\DBAL\Platforms\TrimMode::UNSPECIFIED, string $char = NULL)
 

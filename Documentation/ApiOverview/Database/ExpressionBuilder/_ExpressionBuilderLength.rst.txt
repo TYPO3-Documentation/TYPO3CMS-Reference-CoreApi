@@ -2,6 +2,7 @@
 .. php:namespace::  TYPO3\CMS\Core\Database\Query\Expression
 
 .. php:class:: ExpressionBuilder
+   :noindex:
 
    .. php:method:: length(string $fieldName, string $alias = NULL)
 
