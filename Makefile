@@ -20,7 +20,7 @@ generate: ## Regenerate code snippets
 	ddev exec .Build/bin/typo3 codesnippet:create Documentation/
 
 .PHONY: test-lint
-test-cgl: ## Regenerate code snippets
+test-lint: ## Regenerate code snippets
 	Build/Scripts/runTests.sh -s lint
 
 .PHONY: test-cgl
