@@ -38,7 +38,7 @@ return [
         'targetFileName' => 'ApiOverview/Database/ExpressionBuilder/_ExpressionBuilderAggregate.rst.txt',
         'includeClassComment' => false,
         'members' => [
-            'min', 'max', 'avg','sum', 'count'
+            'min', 'max', 'avg', 'sum', 'count',
         ],
         'withCode' => false,
         'noindexInClass' => true,
@@ -49,7 +49,7 @@ return [
         'targetFileName' => 'ApiOverview/Database/ExpressionBuilder/_ExpressionBuilderComparisons.rst.txt',
         'includeClassComment' => false,
         'members' => [
-            'eq', 'neq', 'lt','lte', 'gt', 'gte', 'isNull', 'isNotNull', 'like', 'notLike', 'in', 'notIn', 'inSet', 'notInSet', 'bitAnd'
+            'eq', 'neq', 'lt', 'lte', 'gt', 'gte', 'isNull', 'isNotNull', 'like', 'notLike', 'in', 'notIn', 'inSet', 'notInSet', 'bitAnd',
         ],
         'withCode' => false,
         'noindexInClass' => true,
@@ -59,7 +59,7 @@ return [
         'class' => \TYPO3\CMS\Core\Database\Query\Expression\ExpressionBuilder::class,
         'targetFileName' => 'ApiOverview/Database/ExpressionBuilder/_ExpressionBuilder.rst.txt',
         'members' => [
-            '__construct'
+            '__construct',
         ],
         'withCode' => false,
     ],

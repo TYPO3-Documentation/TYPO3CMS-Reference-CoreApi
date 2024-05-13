@@ -28,13 +28,13 @@ final class MyTableRepository
             $queryBuilder->expr()->or(
                 $queryBuilder->expr()->eq(
                     'list_type',
-                    $queryBuilder->createNamedParameter('example_pi1', Connection::PARAM_STR)
+                    $queryBuilder->createNamedParameter('example_pi1', Connection::PARAM_STR),
                 ),
                 $queryBuilder->expr()->eq(
                     'list_type',
-                    $queryBuilder->createNamedParameter('example_pi2', Connection::PARAM_STR)
-                )
-            )
+                    $queryBuilder->createNamedParameter('example_pi2', Connection::PARAM_STR),
+                ),
+            ),
         );
         return $queryBuilder;
     }
