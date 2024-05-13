@@ -34,39 +34,43 @@ unique `name` and preferably also a unique `label` to the site set definition.
 
 ..  code-block:: yaml
     :caption: EXT:my_extension/Configuration/Sets/MySet/config.yaml
+    :linenos:
 
-    # Site Set Name
-    # Similar to the package name of Composer: [Vendor]/[Package]
-    # Is required to uniquely identify the site set
-    # and to resolve dependencies to other site sets.
-    # This name does NOT reflect an extension, but only the provider of an
-    # extension through the vendor name.
-    # There are NO conclusions from the name here as to which extension
-    # provided the site set definition.
     name: my-vendor/my-set
-
-    # This label will be used in the new selectbox of the Site-Module. Should
-    # be as unique as possible to avoid duplication in the site module.
     label: My Set
-
-    # Define settings for the website
-    # Never nest settings with a dot!!! e.g. website.background.colour
-    # Otherwise the new settings definitions will not work later.
-    # If a setting contains special characters or spaces, it is recommended to
-    # wrap the value in inverted commas.
     settings:
       website:
         background:
           color: '#386492'
-
-    # Load setup.typoscript, constants.typoscript, page.tsconfig and
-    # config.yaml from the site set definitions of this or other extensions.
-    # These dependencies are loaded before your own site set.
     dependencies:
-      # Dependency to a site set definition of your own extensions
       - my-vendor/my-other-set
-      # Dependency on a site set definition from another provider (vendor)
       - other-namespace/fancy-carousel
+
+
+Line 1: :yaml:`name: my-vendor/my-set`
+    Site Set Name
+    Similar to the package name of Composer: [Vendor]/[Package]
+    Is required to uniquely identify the site set
+    and to resolve dependencies to other site sets.
+    This name does NOT reflect an extension, but only the provider of an
+    extension through the vendor name.
+    There are NO conclusions from the name here as to which extension
+    provided the site set definition.
+Line 2: :yaml:`label: My Set`
+    This label will be used in the new select box of the site module. Should
+    be as unique as possible to avoid duplication in the site module.
+Line 3-5: Settings
+    Define settings for the website
+    **Never** nest settings with a dot! e.g. website.background.colour
+    Otherwise the new settings definitions will not work later.
+    If a setting contains special characters or spaces, it is recommended to
+    wrap the value in inverted commas.
+Line 7: Dependencies
+    Load setup.typoscript, constants.typoscript, page.tsconfig and
+    config.yaml from the site set definitions of this or other extensions.
+    These dependencies are loaded before your own site set. For example
+    a dependency to a site set definition in your own site package and/or
+    a dependency to  a site set definition from another provider (vendor)
 
 ..  _site-sets-usage:
 
@@ -104,91 +108,91 @@ site setting.
 
     settings:
       website.background.color:
-      # A label for the setting
-      label: 'Background color'
-      # A detailed description of the setting
-      description: 'This will validate the given color string'
-      # Which kind of validation/conversion should be applied?
-      # See below
-      # See: [sysext]/core/Classes/Settings/Type/*
-      type: color
-      # A default values as fallback, if there was no default
-      # defined in config.yaml
-      default: '#129845'
+        # A label for the setting
+        label: 'Background color'
+        # A detailed description of the setting
+        description: 'This will validate the given color string'
+        # Which kind of validation/conversion should be applied?
+        # See below
+        # See: [sysext]/core/Classes/Settings/Type/*
+        type: color
+        # A default values as fallback, if there was no default
+        # defined in config.yaml
+        default: '#129845'
 
 ..  _definition-types:
 
 Definition Types
 ----------------
 
-..  _definition-type-int:
+..  confval:: int
 
-int
-~~~
+    :type: string
+    :Path: settings.[my_val].type = int
 
-Checks whether the value is already an integer or can be interpreted as an
-integer. If yes, the string is converted into an integer.
+    Checks whether the value is already an integer or can be interpreted as an
+    integer. If yes, the string is converted into an integer.
 
-..  _definition-type-number:
+..  confval:: number
 
-number
-~~~~~~
+    :type: string
+    :Path: settings.[my_val].type = number
 
-Checks whether the value is already an integer or float or whether the string
-can be interpreted as an integer or float. If yes, the string is converted to
-an integer or float.
+    Checks whether the value is already an integer or float or whether the
+    string can be interpreted as an integer or float. If yes, the string is
+    converted to an integer or float.
 
-..  _definition-type-bool:
+..  confval:: bool
 
-bool
-~~~~
+    :type: string
+    :Path: settings.[my_val].type = bool
 
-If the value is already a boolean, it is returned directly 1 to 1.
+    If the value is already a boolean, it is returned directly 1 to 1.
 
-If the value is an integer, then `false` is returned for 0 and `true` for 1.
+    If the value is an integer, then `false` is returned for 0 and `true` for 1.
 
-If the value is a string, the corresponding Boolean value is returned for
-`true`, `false`, `yes`, `no`, `on`, `off`, `0` and `1`.
+    If the value is a string, the corresponding Boolean value is returned for
+    `true`, `false`, `yes`, `no`, `on`, `off`, `0` and `1`.
 
-..  _definition-type-string:
+..  confval:: string
 
-string
-~~~~~~
+    :type: string
+    :Path: settings.[my_val].type = string
 
-Converts almost all data types into a string. If an object has been specified,
-it must be `stringable`, otherwise no conversion takes place. Boolean values
-are converted to `true` and `false`.
+    Converts almost all data types into a string. If an object has been
+    specified, it must be `stringable`, otherwise no conversion takes place.
+    Boolean values are converted to `true` and `false`.
 
-..  _definition-type-text:
+..  confval:: text
 
-text
-~~~~
+    :type: string
+    :Path: settings.[my_val].type = text
 
-Exactly the same as the `string` type. Use it as an alias if someone doesn't
-know what to do with `string`.
+    Exactly the same as the `string` type. Use it as an alias if someone doesn't
+    know what to do with `string`.
 
-..  _definition-type-stringlist:
+..  confval:: stringlist
 
-stringlist
-~~~~~~~~~~
+    :type: string
+    :Path: settings.[my_val].type = stringlist
 
-The value must be an array whose array keys start at 0 and increase by 1 per
-element. The list in this type is derived from the internal PHP method
-`array_is_list` and has nothing to do with the fact that comma-separated lists
-can also be converted here.
+    The value must be an array whose array keys start at 0 and increase by 1 per
+    element. The list in this type is derived from the internal PHP method
+    `array_is_list` and has nothing to do with the fact that comma-separated
+    lists can also be converted here.
 
-The `string` type is executed for each array entry.
+    The `string` type is executed for each array entry.
 
-..  _definition-type-color:
+..  confval:: color
 
-color
-~~~~~
+    :type: string
+    :Path: settings.[my_val].type = color
 
-Checks whether the specified string can be interpreted as a colour code. Entries
-starting with `rgb`, `rgba` and `#` are permitted here.
+    Checks whether the specified string can be interpreted as a colour code.
+    Entries starting with `rgb`, `rgba` and `#` are permitted here.
 
-For `#` color codes, for example, the system checks whether they
-have 3, 6 or 8 digits.
+    For `#` color codes, for example, the system checks whether they
+    have 3, 6 or 8 digits.
 
 ..  _site-sets-settings:
 
@@ -467,7 +471,7 @@ The site settings can be read out via the site object:
 
 ..  code-block:: php
 
-    $color = $site->getSettings()->get(‘website.background.colour’);
+    $color = $site->getSettings()->get('website.background.colour');
 
 If a settings definition exists for this setting, the returned value has
 already been validated, converted and, if not set, the default value is used.
@@ -491,7 +495,9 @@ getSets
 
 Reads one or more site set definitions including their dependencies.
 
-$sets = $setRegistry->getSets(‘stefanfroemken/bootstrap’, ‘in2code/powermail’);
+..  code-block:: php
+
+    $sets = $setRegistry->getSets('my-vendor/my-set', 'my-vendor/my-set');
 
 ..  _site-sets-php-api-setregistry-hasset:
 
@@ -500,7 +506,9 @@ hasSet
 
 Checks whether a site set definition is available.
 
-$hasSet = $setRegistry->hasSet(‘stefanfroemken/bootstrap’);
+..  code-block:: php
+
+    $hasSet = $setRegistry->hasSet('my-vendor/my-set');
 
 ..  _site-sets-php-api-setregistry-getset:
 
@@ -509,7 +517,9 @@ getSet
 
 Reads a site set definition WITHOUT dependencies.
 
-$set = $setRegistry->getSet(‘stefanfroemken/bootstrap’);
+..  code-block:: php
+
+    $set = $setRegistry->getSet('my-vendor/my-set');
 
 ..  _site-sets-php-api-setcollector:
 
