@@ -127,7 +127,7 @@ Definition Types
 ----------------
 
 ..  confval:: int
-
+    :name: site-setting-type-int
     :type: string
     :Path: settings.[my_val].type = int
 
@@ -135,7 +135,7 @@ Definition Types
     integer. If yes, the string is converted into an integer.
 
 ..  confval:: number
-
+    :name: site-setting-type-number
     :type: string
     :Path: settings.[my_val].type = number
 
@@ -144,7 +144,7 @@ Definition Types
     converted to an integer or float.
 
 ..  confval:: bool
-
+    :name: site-setting-type-bool
     :type: string
     :Path: settings.[my_val].type = bool
 
@@ -156,7 +156,7 @@ Definition Types
     `true`, `false`, `yes`, `no`, `on`, `off`, `0` and `1`.
 
 ..  confval:: string
-
+    :name: site-setting-type-string
     :type: string
     :Path: settings.[my_val].type = string
 
@@ -165,7 +165,7 @@ Definition Types
     Boolean values are converted to `true` and `false`.
 
 ..  confval:: text
-
+    :name: site-setting-type-text
     :type: string
     :Path: settings.[my_val].type = text
 
@@ -173,7 +173,7 @@ Definition Types
     know what to do with `string`.
 
 ..  confval:: stringlist
-
+    :name: site-setting-type-stringlist
     :type: string
     :Path: settings.[my_val].type = stringlist
 
@@ -185,7 +185,7 @@ Definition Types
     The `string` type is executed for each array entry.
 
 ..  confval:: color
-
+    :name: site-setting-type-color
     :type: string
     :Path: settings.[my_val].type = color
 
