@@ -14,3 +14,22 @@ test-docs: ## Test the documentation rendering
 	mkdir -p Documentation-GENERATED-temp
 
 	docker run --rm --pull always -v "$(shell pwd)":/project -t ghcr.io/typo3-documentation/render-guides:latest --config=Documentation --no-progress --fail-on-log
+
+.PHONY: generate
+generate: ## Regenerate code snippets
+	ddev exec .Build/bin/typo3 codesnippet:create Documentation/
+
+.PHONY: test-lint
+test-cgl: ## Regenerate code snippets
+	Build/Scripts/runTests.sh -s lint
+
+.PHONY: test-cgl
+test-cgl: ## Regenerate code snippets
+	Build/Scripts/runTests.sh -s cgl
+
+.PHONY: test-yaml
+test-yaml: ## Regenerate code snippets
+	Build/Scripts/runTests.sh -s yamlLint
+
+.PHONY: test
+test: test-docs test-lint test-cgl test-yaml## Test the documentation rendering

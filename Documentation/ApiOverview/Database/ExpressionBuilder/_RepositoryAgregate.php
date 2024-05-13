@@ -9,7 +9,6 @@ use TYPO3\CMS\Core\Database\ConnectionPool;
 
 final class MyTableRepository
 {
-
     private const TABLE_NAME = 'tt_content';
     public function __construct(private readonly ConnectionPool $connectionPool) {}
 
@@ -24,7 +23,7 @@ final class MyTableRepository
         $queryBuilder = $this->connectionPool->getQueryBuilderForTable(self::TABLE_NAME);
         $result = $queryBuilder
             ->addSelectLiteral(
-                $queryBuilder->expr()->avg('crdate', 'averagecreation')
+                $queryBuilder->expr()->avg('crdate', 'averagecreation'),
             )
             ->from(self::TABLE_NAME)
             ->executeQuery()
@@ -44,7 +43,7 @@ final class MyTableRepository
         $result = $queryBuilder
             ->select('uid')
             ->addSelectLiteral(
-                $queryBuilder->expr()->max('endtime', 'maxendtime')
+                $queryBuilder->expr()->max('endtime', 'maxendtime'),
             )
             ->from('tt_content')
             ->groupBy('endtime')
