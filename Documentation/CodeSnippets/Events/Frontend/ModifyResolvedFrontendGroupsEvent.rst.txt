@@ -17,4 +17,4 @@
 
     ..  php:method:: setGroups(array $groups)
 
-        :param array $groups: the groups
+        :param $groups: the groups

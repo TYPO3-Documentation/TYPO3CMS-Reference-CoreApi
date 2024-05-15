@@ -53,7 +53,7 @@
 
         Returns the RFC 1766 / 3066 language tag for hreflang tags
 
-        :param bool $fetchCustomSetting: the fetchCustomSetting, default: false
+        :param $fetchCustomSetting: the fetchCustomSetting, default: false
 
     ..  php:method:: getDirection()
         :returns: string

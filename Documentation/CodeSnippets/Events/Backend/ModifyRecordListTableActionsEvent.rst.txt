@@ -15,24 +15,24 @@
         to define the position of an action with either the "before" or "after"
         argument, while their value must be an existing action.
 
-        :param string $action: the action
-        :param string $actionName: the actionName, default: ''
-        :param string $before: the before, default: ''
-        :param string $after: the after, default: ''
+        :param $action: the action
+        :param $actionName: the actionName, default: ''
+        :param $before: the before, default: ''
+        :param $after: the after, default: ''
 
     ..  php:method:: hasAction(string $actionName)
         :returns: bool
 
         Whether the action exists
 
-        :param string $actionName: the actionName
+        :param $actionName: the actionName
 
     ..  php:method:: getAction(string $actionName)
         :returns: string|null The action or NULL if the action does not exist
 
         Get action by its name
 
-        :param string $actionName: the actionName
+        :param $actionName: the actionName
 
     ..  php:method:: removeAction(string $actionName)
         :returns: bool Whether the action could be removed - Will therefore
@@ -40,18 +40,18 @@
 
         Remove action by its name
 
-        :param string $actionName: the actionName
+        :param $actionName: the actionName
 
     ..  php:method:: setActions(array $actions)
 
-        :param array $actions: the actions
+        :param $actions: the actions
 
     ..  php:method:: getActions()
         :returns: array
 
     ..  php:method:: setNoActionLabel(string $noActionLabel)
 
-        :param string $noActionLabel: the noActionLabel
+        :param $noActionLabel: the noActionLabel
 
     ..  php:method:: getNoActionLabel()
         :returns: string

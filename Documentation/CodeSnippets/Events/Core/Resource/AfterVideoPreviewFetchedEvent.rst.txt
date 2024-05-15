@@ -16,4 +16,4 @@
 
     ..  php:method:: setPreviewImageFilename(string $previewImageFilename)
 
-        :param string $previewImageFilename: the previewImageFilename
+        :param $previewImageFilename: the previewImageFilename

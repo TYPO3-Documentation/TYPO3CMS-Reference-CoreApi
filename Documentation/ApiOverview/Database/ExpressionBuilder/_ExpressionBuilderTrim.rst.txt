@@ -4,10 +4,10 @@
 ..  php:class:: ExpressionBuilder
     :noindex:
 
-    ..  php:method:: trim(string $fieldName, int $position, string $char = NULL)
+    ..  php:method:: trim(string $fieldName, int $position, ?string $char = NULL)
 
         Creates a TRIM expression for the given field.
 
-        :param string $fieldName: Field name to build expression for
-        :param int $position: Either constant out of LEADING, TRAILING, BOTH
-        :param string $char: Character to be trimmed (defaults to space), default: NULL
+        :param $fieldName: Field name to build expression for
+        :param $position: Either constant out of LEADING, TRAILING, BOTH
+        :param $char: Character to be trimmed (defaults to space), default: NULL

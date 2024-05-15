@@ -15,7 +15,7 @@
 
     ..  php:method:: setRedirectUrl(string $redirectUrl)
 
-        :param string $redirectUrl: the redirectUrl
+        :param $redirectUrl: the redirectUrl
 
     ..  php:method:: getRequest()
         :returns: Psr\Http\Message\ServerRequestInterface

@@ -13,7 +13,7 @@
 
     ..  php:method:: setConfiguration(array $configuration)
 
-        :param array $configuration: the configuration
+        :param $configuration: the configuration
 
     ..  php:method:: getLinkDetails()
         :returns: array
@@ -23,21 +23,21 @@
 
     ..  php:method:: setPage(array $page)
 
-        :param array $page: the page
+        :param $page: the page
 
     ..  php:method:: getQueryParameters()
         :returns: array
 
     ..  php:method:: setQueryParameters(array $queryParameters)
 
-        :param array $queryParameters: the queryParameters
+        :param $queryParameters: the queryParameters
 
     ..  php:method:: getFragment()
         :returns: string
 
     ..  php:method:: setFragment(string $fragment)
 
-        :param string $fragment: the fragment
+        :param $fragment: the fragment
 
     ..  php:method:: pageWasModified()
         :returns: bool

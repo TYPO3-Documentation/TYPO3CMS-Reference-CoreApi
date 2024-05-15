@@ -8,7 +8,7 @@
 
     ..  php:method:: setCacheLifetime(int $cacheLifetime)
 
-        :param int $cacheLifetime: the cacheLifetime
+        :param $cacheLifetime: the cacheLifetime
 
     ..  php:method:: getCacheLifetime()
         :returns: int

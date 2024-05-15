@@ -24,6 +24,6 @@
     ..  php:method:: getMatchedRedirect()
         :returns: array|null Returns the matched `sys_redirect` record or null
 
-    ..  php:method:: setMatchedRedirect(array $matchedRedirect)
+    ..  php:method:: setMatchedRedirect(?array $matchedRedirect)
 
-        :param array $matchedRedirect: Set matched `sys_redirect` record or null to clear prior set record
+        :param $matchedRedirect: Set matched `sys_redirect` record or null to clear prior set record

@@ -10,11 +10,11 @@
 
     ..  php:method:: addContentAbove(string $contentAbove)
 
-        :param string $contentAbove: the contentAbove
+        :param $contentAbove: the contentAbove
 
     ..  php:method:: addContentBelow(string $contentBelow)
 
-        :param string $contentBelow: the contentBelow
+        :param $contentBelow: the contentBelow
 
     ..  php:method:: getAdditionalContentAbove()
         :returns: string

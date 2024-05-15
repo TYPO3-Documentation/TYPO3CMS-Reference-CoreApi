@@ -12,4 +12,4 @@
         :returns: TYPO3\CMS\Core\Authentication\AbstractUserAuthentication
 
     ..  php:method:: getRequest()
-        :returns: Psr\Http\Message\ServerRequestInterface
+        :returns: ?Psr\Http\Message\ServerRequestInterface

@@ -11,26 +11,26 @@
         :returns: \Country[]
 
     ..  php:method:: getByIsoCode(string $isoCode)
-        :returns: TYPO3\CMS\Core\Country\Country
+        :returns: ?TYPO3\CMS\Core\Country\Country
 
-        :param string $isoCode: the isoCode
+        :param $isoCode: the isoCode
 
     ..  php:method:: getByAlpha2IsoCode(string $isoCode)
-        :returns: TYPO3\CMS\Core\Country\Country
+        :returns: ?TYPO3\CMS\Core\Country\Country
 
-        :param string $isoCode: the isoCode
+        :param $isoCode: the isoCode
 
     ..  php:method:: getByAlpha3IsoCode(string $isoCode)
-        :returns: TYPO3\CMS\Core\Country\Country
+        :returns: ?TYPO3\CMS\Core\Country\Country
 
-        :param string $isoCode: the isoCode
+        :param $isoCode: the isoCode
 
     ..  php:method:: getByEnglishName(string $name)
-        :returns: TYPO3\CMS\Core\Country\Country
+        :returns: ?TYPO3\CMS\Core\Country\Country
 
-        :param string $name: the name
+        :param $name: the name
 
     ..  php:method:: getFiltered(TYPO3\CMS\Core\Country\CountryFilter $filter)
         :returns: array<string,\Country>
 
-        :param TYPO3\CMS\Core\Country\CountryFilter $filter: the filter
+        :param $filter: the filter

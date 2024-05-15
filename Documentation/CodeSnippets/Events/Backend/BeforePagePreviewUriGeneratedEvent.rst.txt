@@ -8,10 +8,10 @@
 
     ..  php:method:: setPreviewUri(Psr\Http\Message\UriInterface $uri)
 
-        :param Psr\Http\Message\UriInterface $uri: the uri
+        :param $uri: the uri
 
     ..  php:method:: getPreviewUri()
-        :returns: Psr\Http\Message\UriInterface
+        :returns: ?Psr\Http\Message\UriInterface
 
     ..  php:method:: isPropagationStopped()
         :returns: bool
@@ -21,35 +21,35 @@
 
     ..  php:method:: setPageId(int $pageId)
 
-        :param int $pageId: the pageId
+        :param $pageId: the pageId
 
     ..  php:method:: getLanguageId()
         :returns: int
 
     ..  php:method:: setLanguageId(int $languageId)
 
-        :param int $languageId: the languageId
+        :param $languageId: the languageId
 
     ..  php:method:: getRootline()
         :returns: array
 
     ..  php:method:: setRootline(array $rootline)
 
-        :param array $rootline: the rootline
+        :param $rootline: the rootline
 
     ..  php:method:: getSection()
         :returns: string
 
     ..  php:method:: setSection(string $section)
 
-        :param string $section: the section
+        :param $section: the section
 
     ..  php:method:: getAdditionalQueryParameters()
         :returns: array
 
     ..  php:method:: setAdditionalQueryParameters(array $additionalQueryParameters)
 
-        :param array $additionalQueryParameters: the additionalQueryParameters
+        :param $additionalQueryParameters: the additionalQueryParameters
 
     ..  php:method:: getContext()
         :returns: TYPO3\CMS\Core\Context\Context

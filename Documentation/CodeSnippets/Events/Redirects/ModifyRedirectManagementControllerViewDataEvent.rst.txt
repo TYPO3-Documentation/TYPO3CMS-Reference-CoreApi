@@ -13,14 +13,14 @@
 
     ..  php:method:: setDemand(TYPO3\CMS\Redirects\Repository\Demand $demand)
 
-        :param TYPO3\CMS\Redirects\Repository\Demand $demand: the demand
+        :param $demand: the demand
 
     ..  php:method:: getRedirects()
         :returns: array
 
     ..  php:method:: setRedirects(array $redirects)
 
-        :param array $redirects: the redirects
+        :param $redirects: the redirects
 
     ..  php:method:: getRequest()
         :returns: Psr\Http\Message\ServerRequestInterface
@@ -30,32 +30,32 @@
 
     ..  php:method:: setHosts(array $hosts)
 
-        :param array $hosts: the hosts
+        :param $hosts: the hosts
 
     ..  php:method:: getStatusCodes()
         :returns: array
 
     ..  php:method:: setStatusCodes(array $statusCodes)
 
-        :param array $statusCodes: the statusCodes
+        :param $statusCodes: the statusCodes
 
     ..  php:method:: getCreationTypes()
         :returns: array
 
     ..  php:method:: setCreationTypes(array $creationTypes)
 
-        :param array $creationTypes: the creationTypes
+        :param $creationTypes: the creationTypes
 
     ..  php:method:: getShowHitCounter()
         :returns: bool
 
     ..  php:method:: setShowHitCounter(bool $showHitCounter)
 
-        :param bool $showHitCounter: the showHitCounter
+        :param $showHitCounter: the showHitCounter
 
     ..  php:method:: getView()
         :returns: TYPO3\CMS\Core\View\ViewInterface
 
     ..  php:method:: setView(TYPO3\CMS\Core\View\ViewInterface $view)
 
-        :param TYPO3\CMS\Core\View\ViewInterface $view: the view
+        :param $view: the view

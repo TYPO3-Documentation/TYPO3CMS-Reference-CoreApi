@@ -13,7 +13,7 @@
 
     ..  php:method:: setFilteredMenuItems(array $filteredMenuItems)
 
-        :param array $filteredMenuItems: the filteredMenuItems
+        :param $filteredMenuItems: the filteredMenuItems
 
     ..  php:method:: getMenuConfiguration()
         :returns: array

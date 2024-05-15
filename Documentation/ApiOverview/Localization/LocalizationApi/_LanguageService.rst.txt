@@ -33,7 +33,7 @@
 
         If true, will show the key/location of labels in the backend.
 
-    ..  php:method:: getLL(string $index)
+    ..  php:method:: getLL(?string $index)
 
         **Deprecated:** will be removed in TYPO3 v13.0. Use sL() instead.
 
@@ -41,9 +41,9 @@
 
         Mostly used from modules with only one LOCAL_LANG file loaded into the global space.
 
-        :param string $index: Label key
+        :param $index: Label key
 
-    ..  php:method:: sL(string $input)
+    ..  php:method:: sL(?string $input)
         :returns: string
 
         Main and most often used method.
@@ -56,15 +56,15 @@
 
         This looks up the given .xlf file path in the 'core' extension for label labels.depth_0
 
-        :param string $input: Label key/reference
+        :param $input: Label key/reference
 
     ..  php:method:: overrideLabels(string $fileRef, array $labels)
 
         Define custom labels which can be overridden for a given file. This is typically
         the case for TypoScript plugins.
 
-        :param string $fileRef: the fileRef
-        :param array $labels: the labels
+        :param $fileRef: the fileRef
+        :param $labels: the labels
 
     ..  php:method:: getLocale()
-        :returns: TYPO3\CMS\Core\Localization\Locale
+        :returns: ?TYPO3\CMS\Core\Localization\Locale

@@ -11,25 +11,25 @@
     ..  php:method:: createForSearchTerm(string $searchTerm)
         :returns: self
 
-        :param string $searchTerm: the searchTerm
+        :param $searchTerm: the searchTerm
 
     ..  php:method:: getSearchTerm()
-        :returns: string
+        :returns: ?string
 
     ..  php:method:: getFolder()
-        :returns: TYPO3\CMS\Core\Resource\Folder
+        :returns: ?TYPO3\CMS\Core\Resource\Folder
 
     ..  php:method:: getFirstResult()
-        :returns: int
+        :returns: ?int
 
     ..  php:method:: getMaxResults()
-        :returns: int
+        :returns: ?int
 
     ..  php:method:: getSearchFields()
-        :returns: array
+        :returns: ?array
 
     ..  php:method:: getOrderings()
-        :returns: array
+        :returns: ?array
 
     ..  php:method:: isRecursive()
         :returns: bool
@@ -37,12 +37,12 @@
     ..  php:method:: withSearchTerm(string $searchTerm)
         :returns: self
 
-        :param string $searchTerm: the searchTerm
+        :param $searchTerm: the searchTerm
 
     ..  php:method:: withFolder(TYPO3\CMS\Core\Resource\Folder $folder)
         :returns: self
 
-        :param TYPO3\CMS\Core\Resource\Folder $folder: the folder
+        :param $folder: the folder
 
     ..  php:method:: withStartResult(int $firstResult)
         :returns: self
@@ -51,25 +51,25 @@
 
         Same as in QueryBuilder it is the index of the result set, with 0 being the first result.
 
-        :param int $firstResult: the firstResult
+        :param $firstResult: the firstResult
 
     ..  php:method:: withMaxResults(int $maxResults)
         :returns: self
 
-        :param int $maxResults: the maxResults
+        :param $maxResults: the maxResults
 
     ..  php:method:: addSearchField(string $tableName, string $field)
         :returns: self
 
-        :param string $tableName: the tableName
-        :param string $field: the field
+        :param $tableName: the tableName
+        :param $field: the field
 
     ..  php:method:: addOrdering(string $tableName, string $fieldName, string $direction = 'ASC')
         :returns: self
 
-        :param string $tableName: the tableName
-        :param string $fieldName: the fieldName
-        :param string $direction: the direction, default: 'ASC'
+        :param $tableName: the tableName
+        :param $fieldName: the fieldName
+        :param $direction: the direction, default: 'ASC'
 
     ..  php:method:: withRecursive()
         :returns: self

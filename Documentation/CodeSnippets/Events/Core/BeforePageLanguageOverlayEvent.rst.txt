@@ -11,18 +11,18 @@
 
     ..  php:method:: setPageInput(array $pageInput)
 
-        :param array $pageInput: the pageInput
+        :param $pageInput: the pageInput
 
     ..  php:method:: getPageIds()
         :returns: array
 
     ..  php:method:: setPageIds(array $pageIds)
 
-        :param array $pageIds: the pageIds
+        :param $pageIds: the pageIds
 
     ..  php:method:: getLanguageAspect()
         :returns: TYPO3\CMS\Core\Context\LanguageAspect
 
     ..  php:method:: setLanguageAspect(TYPO3\CMS\Core\Context\LanguageAspect $languageAspect)
 
-        :param TYPO3\CMS\Core\Context\LanguageAspect $languageAspect: the languageAspect
+        :param $languageAspect: the languageAspect

@@ -36,24 +36,24 @@
 
         Returns a language of this site, given by the sys_language_uid
 
-        :param int $languageId: the languageId
+        :param $languageId: the languageId
 
     ..  php:method:: getDefaultLanguage()
         :returns: TYPO3\CMS\Core\Site\Entity\SiteLanguage
 
-    ..  php:method:: getAvailableLanguages(TYPO3\CMS\Core\Authentication\BackendUserAuthentication $user, bool $includeAllLanguagesFlag = false, int $pageId = NULL)
+    ..  php:method:: getAvailableLanguages(TYPO3\CMS\Core\Authentication\BackendUserAuthentication $user, bool $includeAllLanguagesFlag = false, ?int $pageId = NULL)
         :returns: array
 
-        :param TYPO3\CMS\Core\Authentication\BackendUserAuthentication $user: the user
-        :param bool $includeAllLanguagesFlag: the includeAllLanguagesFlag, default: false
-        :param int $pageId: the pageId, default: NULL
+        :param $user: the user
+        :param $includeAllLanguagesFlag: the includeAllLanguagesFlag, default: false
+        :param $pageId: the pageId, default: NULL
 
     ..  php:method:: getErrorHandler(int $statusCode)
         :returns: TYPO3\CMS\Core\Error\PageErrorHandler\PageErrorHandlerInterface
 
         Returns a ready-to-use error handler, to be used within the ErrorController
 
-        :param int $statusCode: the statusCode
+        :param $statusCode: the statusCode
 
     ..  php:method:: getConfiguration()
         :returns: array
@@ -67,11 +67,11 @@
 
         Returns a single configuration attribute
 
-        :param string $attributeName: the attributeName
+        :param $attributeName: the attributeName
 
-    ..  php:method:: getRouter(TYPO3\CMS\Core\Context\Context $context = NULL)
+    ..  php:method:: getRouter(?TYPO3\CMS\Core\Context\Context $context = NULL)
         :returns: TYPO3\CMS\Core\Routing\RouterInterface
 
         Returns the applicable router for this site. This might be configurable in the future.
 
-        :param TYPO3\CMS\Core\Context\Context $context: the context, default: NULL
+        :param $context: the context, default: NULL

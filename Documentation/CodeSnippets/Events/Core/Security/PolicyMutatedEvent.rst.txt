@@ -17,11 +17,11 @@
 
     ..  php:method:: setCurrentPolicy(TYPO3\CMS\Core\Security\ContentSecurityPolicy\Policy $currentPolicy)
 
-        :param TYPO3\CMS\Core\Security\ContentSecurityPolicy\Policy $currentPolicy: the currentPolicy
+        :param $currentPolicy: the currentPolicy
 
     ..  php:method:: getMutationCollections()
         :returns: list<\MutationCollection>
 
-    ..  php:method:: setMutationCollections(TYPO3\CMS\Core\Security\ContentSecurityPolicy\MutationCollection $mutationCollections)
+    ..  php:method:: setMutationCollections(TYPO3\CMS\Core\Security\ContentSecurityPolicy\MutationCollection ...$mutationCollections)
 
-        :param TYPO3\CMS\Core\Security\ContentSecurityPolicy\MutationCollection $mutationCollections: the mutationCollections
+        :param $mutationCollections: the mutationCollections

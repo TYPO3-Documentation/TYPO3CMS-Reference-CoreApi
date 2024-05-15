@@ -4,42 +4,42 @@
 ..  php:class:: ExpressionBuilder
     :noindex:
 
-    ..  php:method:: min(string $fieldName, string $alias = NULL)
+    ..  php:method:: min(string $fieldName, ?string $alias = NULL)
         :returns: string
 
         Creates a MIN expression for the given field/alias.
 
-        :param string $fieldName: the fieldName
-        :param string $alias: the alias, default: NULL
+        :param $fieldName: the fieldName
+        :param $alias: the alias, default: NULL
 
-    ..  php:method:: max(string $fieldName, string $alias = NULL)
+    ..  php:method:: max(string $fieldName, ?string $alias = NULL)
         :returns: string
 
         Creates a MAX expression for the given field/alias.
 
-        :param string $fieldName: the fieldName
-        :param string $alias: the alias, default: NULL
+        :param $fieldName: the fieldName
+        :param $alias: the alias, default: NULL
 
-    ..  php:method:: avg(string $fieldName, string $alias = NULL)
+    ..  php:method:: avg(string $fieldName, ?string $alias = NULL)
         :returns: string
 
         Creates an AVG expression for the given field/alias.
 
-        :param string $fieldName: the fieldName
-        :param string $alias: the alias, default: NULL
+        :param $fieldName: the fieldName
+        :param $alias: the alias, default: NULL
 
-    ..  php:method:: sum(string $fieldName, string $alias = NULL)
+    ..  php:method:: sum(string $fieldName, ?string $alias = NULL)
         :returns: string
 
         Creates a SUM expression for the given field/alias.
 
-        :param string $fieldName: the fieldName
-        :param string $alias: the alias, default: NULL
+        :param $fieldName: the fieldName
+        :param $alias: the alias, default: NULL
 
-    ..  php:method:: count(string $fieldName, string $alias = NULL)
+    ..  php:method:: count(string $fieldName, ?string $alias = NULL)
         :returns: string
 
         Creates a COUNT expression for the given field/alias.
 
-        :param string $fieldName: the fieldName
-        :param string $alias: the alias, default: NULL
+        :param $fieldName: the fieldName
+        :param $alias: the alias, default: NULL

@@ -13,17 +13,17 @@
 
     ..  php:method:: setRecord(array $record)
 
-        :param array $record: the record
+        :param $record: the record
 
     ..  php:method:: getPageLayoutContext()
         :returns: TYPO3\CMS\Backend\View\PageLayoutContext
 
     ..  php:method:: getPreviewContent()
-        :returns: string
+        :returns: ?string
 
     ..  php:method:: setPreviewContent(string $content)
 
-        :param string $content: the content
+        :param $content: the content
 
     ..  php:method:: isPropagationStopped()
         :returns: bool

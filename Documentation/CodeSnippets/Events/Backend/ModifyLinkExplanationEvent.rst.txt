@@ -19,15 +19,15 @@
 
     ..  php:method:: setLinkExplanation(array $linkExplanation)
 
-        :param array $linkExplanation: the linkExplanation
+        :param $linkExplanation: the linkExplanation
 
-    ..  php:method:: getLinkExplanationValue(string $key, mixed $default = NULL)
-        :returns: mixed
+    ..  php:method:: getLinkExplanationValue(string $key, ?mixed $default = NULL)
+        :returns: ?mixed
 
-        :param string $key: the key
-        :param mixed $default: the default, default: NULL
+        :param $key: the key
+        :param $default: the default, default: NULL
 
-    ..  php:method:: setLinkExplanationValue(string $key, mixed $value)
+    ..  php:method:: setLinkExplanationValue(string $key, ?mixed $value)
 
-        :param string $key: the key
-        :param mixed $value: the value
+        :param $key: the key
+        :param $value: the value

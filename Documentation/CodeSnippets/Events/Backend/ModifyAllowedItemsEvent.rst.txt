@@ -11,12 +11,12 @@
     ..  php:method:: addAllowedItem(string $item)
         :returns: self
 
-        :param string $item: the item
+        :param $item: the item
 
     ..  php:method:: removeAllowedItem(string $new)
         :returns: self
 
-        :param string $new: the new
+        :param $new: the new
 
     ..  php:method:: getCurrentLinkParts()
         :returns: array<string,mixed>

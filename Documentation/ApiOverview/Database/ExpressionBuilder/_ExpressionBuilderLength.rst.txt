@@ -4,10 +4,10 @@
 ..  php:class:: ExpressionBuilder
     :noindex:
 
-    ..  php:method:: length(string $fieldName, string $alias = NULL)
+    ..  php:method:: length(string $fieldName, ?string $alias = NULL)
         :returns: string
 
         Creates a LENGTH expression for the given field/alias.
 
-        :param string $fieldName: the fieldName
-        :param string $alias: the alias, default: NULL
+        :param $fieldName: the fieldName
+        :param $alias: the alias, default: NULL

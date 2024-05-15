@@ -10,7 +10,7 @@
 
         Allows to define configuration options to be blinded
 
-        :param array $blindedConfigurationOptions: the blindedConfigurationOptions
+        :param $blindedConfigurationOptions: the blindedConfigurationOptions
 
     ..  php:method:: getBlindedConfigurationOptions()
         :returns: array

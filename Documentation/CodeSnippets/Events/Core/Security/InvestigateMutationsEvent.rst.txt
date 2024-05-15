@@ -18,12 +18,12 @@
     ..  php:method:: getMutationSuggestions()
         :returns: list<\MutationSuggestion>
 
-    ..  php:method:: setMutationSuggestions(TYPO3\CMS\Core\Security\ContentSecurityPolicy\MutationSuggestion $mutationSuggestions)
+    ..  php:method:: setMutationSuggestions(TYPO3\CMS\Core\Security\ContentSecurityPolicy\MutationSuggestion ...$mutationSuggestions)
 
         Overrides all mutation suggestions (use carefully).
 
-        :param TYPO3\CMS\Core\Security\ContentSecurityPolicy\MutationSuggestion $mutationSuggestions: the mutationSuggestions
+        :param $mutationSuggestions: the mutationSuggestions
 
-    ..  php:method:: appendMutationSuggestions(TYPO3\CMS\Core\Security\ContentSecurityPolicy\MutationSuggestion $mutationSuggestions)
+    ..  php:method:: appendMutationSuggestions(TYPO3\CMS\Core\Security\ContentSecurityPolicy\MutationSuggestion ...$mutationSuggestions)
 
-        :param TYPO3\CMS\Core\Security\ContentSecurityPolicy\MutationSuggestion $mutationSuggestions: the mutationSuggestions
+        :param $mutationSuggestions: the mutationSuggestions

@@ -41,10 +41,10 @@
         :returns: bool
 
     ..  php:method:: getLanguageScriptCode()
-        :returns: string
+        :returns: ?string
 
     ..  php:method:: getCountryCode()
-        :returns: string
+        :returns: ?string
 
     ..  php:method:: getDependencies()
         :returns: array

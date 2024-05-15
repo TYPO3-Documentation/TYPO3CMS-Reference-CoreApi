@@ -14,11 +14,11 @@
 
     ..  php:method:: setRecord(array $record)
 
-        :param array $record: the record
+        :param $record: the record
 
     ..  php:method:: getLanguageAspect()
         :returns: TYPO3\CMS\Core\Context\LanguageAspect
 
     ..  php:method:: setLanguageAspect(TYPO3\CMS\Core\Context\LanguageAspect $languageAspect)
 
-        :param TYPO3\CMS\Core\Context\LanguageAspect $languageAspect: the languageAspect
+        :param $languageAspect: the languageAspect

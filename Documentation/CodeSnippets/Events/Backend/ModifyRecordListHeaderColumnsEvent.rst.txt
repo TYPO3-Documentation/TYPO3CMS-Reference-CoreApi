@@ -17,22 +17,22 @@
         Therefore, this method should mainly be used to edit existing columns, e.g.
         change their label.
 
-        :param string $column: the column
-        :param string $columnName: the columnName, default: ''
+        :param $column: the column
+        :param $columnName: the columnName, default: ''
 
     ..  php:method:: hasColumn(string $columnName)
         :returns: bool
 
         Whether the column exists
 
-        :param string $columnName: the columnName
+        :param $columnName: the columnName
 
     ..  php:method:: getColumn(string $columnName)
         :returns: string|null The column or NULL if the column does not exist
 
         Get column by its name
 
-        :param string $columnName: the columnName
+        :param $columnName: the columnName
 
     ..  php:method:: removeColumn(string $columnName)
         :returns: bool Whether the column could be removed - Will therefore
@@ -40,18 +40,18 @@
 
         Remove column by its name
 
-        :param string $columnName: the columnName
+        :param $columnName: the columnName
 
     ..  php:method:: setColumns(array $columns)
 
-        :param array $columns: the columns
+        :param $columns: the columns
 
     ..  php:method:: getColumns()
         :returns: array
 
     ..  php:method:: setHeaderAttributes(array $headerAttributes)
 
-        :param array $headerAttributes: the headerAttributes
+        :param $headerAttributes: the headerAttributes
 
     ..  php:method:: getHeaderAttributes()
         :returns: array

@@ -13,24 +13,24 @@
         WARNING: Modifying the result array should be used with care. It mostly
         only exists to allow additional $resultArray['javaScriptModules'].
 
-        :param array $resultArray: the resultArray
+        :param $resultArray: the resultArray
 
     ..  php:method:: getControls()
         :returns: array
 
     ..  php:method:: setControls(array $controls)
 
-        :param array $controls: the controls
+        :param $controls: the controls
 
     ..  php:method:: addControl(string $control, string $identifier = '')
 
-        :param string $control: the control
-        :param string $identifier: the identifier, default: ''
+        :param $control: the control
+        :param $identifier: the identifier, default: ''
 
     ..  php:method:: removeControl(string $identifier)
         :returns: bool
 
-        :param string $identifier: the identifier
+        :param $identifier: the identifier
 
     ..  php:method:: getTableName()
         :returns: string

@@ -17,7 +17,7 @@
 
     ..  php:method:: setResponse(Psr\Http\Message\ResponseInterface $response)
 
-        :param Psr\Http\Message\ResponseInterface $response: the response
+        :param $response: the response
 
     ..  php:method:: getResponse()
-        :returns: Psr\Http\Message\ResponseInterface
+        :returns: ?Psr\Http\Message\ResponseInterface

@@ -13,4 +13,4 @@
 
     ..  php:method:: setResult(array $result)
 
-        :param array $result: the result
+        :param $result: the result

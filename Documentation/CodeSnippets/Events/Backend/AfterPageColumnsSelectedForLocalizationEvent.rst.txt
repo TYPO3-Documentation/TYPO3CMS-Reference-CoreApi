@@ -16,7 +16,7 @@
 
     ..  php:method:: setColumns(array $columns)
 
-        :param array $columns: the columns
+        :param $columns: the columns
 
     ..  php:method:: getColumnList()
         :returns: array
@@ -25,7 +25,7 @@
 
     ..  php:method:: setColumnList(array $columnList)
 
-        :param array $columnList: the columnList
+        :param $columnList: the columnList
 
     ..  php:method:: getBackendLayout()
         :returns: TYPO3\CMS\Backend\View\BackendLayout\BackendLayout

@@ -20,7 +20,7 @@
         Returns the current user access state
 
     ..  php:method:: getAccessDeniedException()
-        :returns: TYPO3\CMS\Backend\Form\Exception\AccessDeniedException
+        :returns: ?TYPO3\CMS\Backend\Form\Exception\AccessDeniedException
 
         If Core's DataProvider previously denied access, this returns the corresponding
         exception, `null` otherwise

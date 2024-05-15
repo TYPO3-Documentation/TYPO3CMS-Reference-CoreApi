@@ -18,11 +18,11 @@
         Note: In case non or an invalid $group is provided, the new action will
         be added to the secondary group.
 
-        :param string $action: the action
-        :param string $actionName: the actionName, default: ''
-        :param string $group: the group, default: ''
-        :param string $before: the before, default: ''
-        :param string $after: the after, default: ''
+        :param $action: the action
+        :param $actionName: the actionName, default: ''
+        :param $group: the group, default: ''
+        :param $before: the before, default: ''
+        :param $after: the after, default: ''
 
     ..  php:method:: hasAction(string $actionName, string $group = '')
         :returns: bool
@@ -30,18 +30,18 @@
         Whether the action exists in the given group. In case non or
         an invalid $group is provided, both groups will be checked.
 
-        :param string $actionName: the actionName
-        :param string $group: the group, default: ''
+        :param $actionName: the actionName
+        :param $group: the group, default: ''
 
     ..  php:method:: getAction(string $actionName, string $group = '')
-        :returns: string
+        :returns: ?string
 
         Get action by its name. In case the action exists in both groups
         and non or an invalid $group is provided, the action from the
         "primary" group will be returned.
 
-        :param string $actionName: the actionName
-        :param string $group: the group, default: ''
+        :param $actionName: the actionName
+        :param $group: the group, default: ''
 
     ..  php:method:: removeAction(string $actionName, string $group = '')
         :returns: bool Whether the action could be removed - Will therefore
@@ -51,19 +51,19 @@
         and non or an invalid $group is provided, the action will be removed
         from both groups.
 
-        :param string $actionName: the actionName
-        :param string $group: the group, default: ''
+        :param $actionName: the actionName
+        :param $group: the group, default: ''
 
     ..  php:method:: getActionGroup(string $group)
-        :returns: array
+        :returns: ?array
 
         Get the actions of a specific group
 
-        :param string $group: the group
+        :param $group: the group
 
     ..  php:method:: setActions(array $actions)
 
-        :param array $actions: the actions
+        :param $actions: the actions
 
     ..  php:method:: getActions()
         :returns: array
