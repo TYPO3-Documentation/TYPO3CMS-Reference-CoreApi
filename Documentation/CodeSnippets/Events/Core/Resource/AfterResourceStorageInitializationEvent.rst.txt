@@ -12,4 +12,4 @@
 
     ..  php:method:: setStorage(TYPO3\CMS\Core\Resource\ResourceStorage $storage)
 
-        :param TYPO3\CMS\Core\Resource\ResourceStorage $storage: the storage
+        :param $storage: the storage

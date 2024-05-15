@@ -16,4 +16,4 @@
 
     ..  php:method:: setActionItems(array $actionItems)
 
-        :param array $actionItems: the actionItems
+        :param $actionItems: the actionItems

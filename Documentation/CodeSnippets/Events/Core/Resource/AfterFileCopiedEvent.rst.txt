@@ -19,4 +19,4 @@
         :returns: string
 
     ..  php:method:: getNewFile()
-        :returns: TYPO3\CMS\Core\Resource\FileInterface
+        :returns: ?TYPO3\CMS\Core\Resource\FileInterface

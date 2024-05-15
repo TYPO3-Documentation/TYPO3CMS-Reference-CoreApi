@@ -13,26 +13,26 @@
         :returns: TYPO3\CMS\Core\Package\PackageInterface
 
     ..  php:method:: getContainer()
-        :returns: Psr\Container\ContainerInterface
+        :returns: ?Psr\Container\ContainerInterface
 
     ..  php:method:: getEmitter()
-        :returns: object
+        :returns: ?object
 
     ..  php:method:: hasStorageEntry(string $identifier)
         :returns: bool
 
-        :param string $identifier: the identifier
+        :param $identifier: the identifier
 
     ..  php:method:: getStorageEntry(string $identifier)
         :returns: TYPO3\CMS\Core\Package\PackageInitializationResult
 
-        :param string $identifier: the identifier
+        :param $identifier: the identifier
 
-    ..  php:method:: addStorageEntry(string $identifier, mixed $data)
+    ..  php:method:: addStorageEntry(string $identifier, ?mixed $data)
 
-        :param string $identifier: the identifier
-        :param mixed $data: the data
+        :param $identifier: the identifier
+        :param $data: the data
 
     ..  php:method:: removeStorageEntry(string $identifier)
 
-        :param string $identifier: the identifier
+        :param $identifier: the identifier

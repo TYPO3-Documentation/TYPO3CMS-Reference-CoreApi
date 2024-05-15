@@ -7,7 +7,7 @@
 
     ..  php:method:: addJavaScriptModule(string $specifier)
 
-        :param string $specifier: Bare module identifier like @my/package/filename.js
+        :param $specifier: Bare module identifier like @my/package/filename.js
 
     ..  php:method:: getJavaScriptModules()
         :returns: string[]

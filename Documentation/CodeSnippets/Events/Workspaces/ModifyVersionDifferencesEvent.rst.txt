@@ -20,7 +20,7 @@
 
         Modifies the version differences data
 
-        :param array $versionDifferences: the versionDifferences
+        :param $versionDifferences: the versionDifferences
 
     ..  php:method:: getLiveRecordData()
         :returns: list<array{field: string, label: string, content: string}>

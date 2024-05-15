@@ -14,8 +14,8 @@
     ..  php:method:: createFromConfiguration(string $identifier, array $configuration)
         :returns: static
 
-        :param string $identifier: the identifier
-        :param array $configuration: the configuration
+        :param $identifier: the identifier
+        :param $configuration: the configuration
 
     ..  php:method:: getIdentifier()
         :returns: string
@@ -58,34 +58,34 @@
 
     ..  php:method:: setParentModule(TYPO3\CMS\Backend\Module\ModuleInterface $module)
 
-        :param TYPO3\CMS\Backend\Module\ModuleInterface $module: the module
+        :param $module: the module
 
     ..  php:method:: getParentModule()
-        :returns: TYPO3\CMS\Backend\Module\ModuleInterface
+        :returns: ?TYPO3\CMS\Backend\Module\ModuleInterface
 
     ..  php:method:: hasParentModule()
         :returns: bool
 
     ..  php:method:: addSubModule(TYPO3\CMS\Backend\Module\ModuleInterface $module)
 
-        :param TYPO3\CMS\Backend\Module\ModuleInterface $module: the module
+        :param $module: the module
 
     ..  php:method:: hasSubModule(string $identifier)
         :returns: bool
 
-        :param string $identifier: the identifier
+        :param $identifier: the identifier
 
     ..  php:method:: hasSubModules()
         :returns: bool
 
     ..  php:method:: getSubModule(string $identifier)
-        :returns: TYPO3\CMS\Backend\Module\ModuleInterface
+        :returns: ?TYPO3\CMS\Backend\Module\ModuleInterface
 
-        :param string $identifier: the identifier
+        :param $identifier: the identifier
 
     ..  php:method:: removeSubModule(string $identifier)
 
-        :param string $identifier: the identifier
+        :param $identifier: the identifier
 
     ..  php:method:: getSubModules()
         :returns: array<string,\ModuleInterface>

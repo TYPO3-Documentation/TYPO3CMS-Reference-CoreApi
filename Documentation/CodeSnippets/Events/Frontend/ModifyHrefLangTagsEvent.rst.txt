@@ -23,11 +23,11 @@
                 'nl-NL' => 'https://example.com/nl'
             ]
 
-        :param array $hrefLangs: the hrefLangs
+        :param $hrefLangs: the hrefLangs
 
     ..  php:method:: addHrefLang(string $languageCode, string $url)
 
         Add a hreflang tag to the current list of hreflang tags
 
-        :param string $languageCode: The language of the hreflang tag you would like to add. For example: nl-NL
-        :param string $url: The URL of the translation. For example: https://example.com/nl
+        :param $languageCode: The language of the hreflang tag you would like to add. For example: nl-NL
+        :param $url: The URL of the translation. For example: https://example.com/nl

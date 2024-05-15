@@ -15,36 +15,36 @@
 
         Overwrite the controls
 
-        :param array $controls: the controls
+        :param $controls: the controls
 
     ..  php:method:: getControl(string $identifier)
         :returns: string
 
         Returns the markup for the requested control
 
-        :param string $identifier: the identifier
+        :param $identifier: the identifier
 
     ..  php:method:: setControl(string $identifier, string $markup)
 
         Set a control with the given identifier and markup
         IMPORTANT: Overwrites an existing control with the same identifier
 
-        :param string $identifier: the identifier
-        :param string $markup: the markup
+        :param $identifier: the identifier
+        :param $markup: the markup
 
     ..  php:method:: hasControl(string $identifier)
         :returns: bool
 
         Returns whether a control exists for the given identifier
 
-        :param string $identifier: the identifier
+        :param $identifier: the identifier
 
     ..  php:method:: removeControl(string $identifier)
         :returns: bool Whether the control could be removed
 
         Removes a control from the file reference, if it exists
 
-        :param string $identifier: the identifier
+        :param $identifier: the identifier
 
     ..  php:method:: getElementData()
         :returns: array

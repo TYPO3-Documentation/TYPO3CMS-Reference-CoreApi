@@ -21,7 +21,7 @@
 
         List of group records as manipulated by the event.
 
-        :param array $groups: the groups
+        :param $groups: the groups
 
     ..  php:method:: getOriginalGroupIds()
         :returns: array

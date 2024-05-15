@@ -13,11 +13,11 @@
 
     ..  php:method:: setData(array $data)
 
-        :param array $data: the data
+        :param $data: the data
 
     ..  php:method:: getVersions()
         :returns: array
 
     ..  php:method:: setVersions(array $versions)
 
-        :param array $versions: the versions
+        :param $versions: the versions

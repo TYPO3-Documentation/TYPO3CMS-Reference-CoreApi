@@ -11,7 +11,7 @@
 
     ..  php:method:: setFileName(string $fileName)
 
-        :param string $fileName: the fileName
+        :param $fileName: the fileName
 
     ..  php:method:: getTargetFolder()
         :returns: TYPO3\CMS\Core\Resource\Folder

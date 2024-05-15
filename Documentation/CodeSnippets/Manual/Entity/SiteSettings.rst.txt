@@ -10,16 +10,16 @@
     ..  php:method:: has(string $identifier)
         :returns: bool
 
-        :param string $identifier: the identifier
+        :param $identifier: the identifier
 
     ..  php:method:: isEmpty()
         :returns: bool
 
-    ..  php:method:: get(string $identifier, mixed $defaultValue = NULL)
-        :returns: mixed
+    ..  php:method:: get(string $identifier, ?mixed $defaultValue = NULL)
+        :returns: ?mixed
 
-        :param string $identifier: the identifier
-        :param mixed $defaultValue: the defaultValue, default: NULL
+        :param $identifier: the identifier
+        :param $defaultValue: the defaultValue, default: NULL
 
     ..  php:method:: getAll()
         :returns: array
@@ -28,12 +28,12 @@
         :returns: array
 
     ..  php:method:: jsonSerialize()
-        :returns: mixed
+        :returns: ?mixed
 
     ..  php:method:: __set_state(array $state)
         :returns: self
 
-        :param array $state: the state
+        :param $state: the state
 
     ..  php:method:: getIdentifiers()
         :returns: array

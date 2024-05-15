@@ -10,7 +10,7 @@
 
         Sets the current request
 
-        :param TYPO3\CMS\Extbase\Mvc\RequestInterface $request: the request
+        :param $request: the request
 
     ..  php:method:: setArguments(array $arguments)
         :returns: static the current UriBuilder to allow method chaining
@@ -20,42 +20,42 @@
         If you want to "prefix" arguments, you can pass in multidimensional arrays:
         array('prefix1' => array('foo' => 'bar')) gets "&prefix1[foo]=bar"
 
-        :param array $arguments: the arguments
+        :param $arguments: the arguments
 
     ..  php:method:: setSection(string $section)
         :returns: static the current UriBuilder to allow method chaining
 
         If specified, adds a given HTML anchor to the URI (#...)
 
-        :param string $section: the section
+        :param $section: the section
 
     ..  php:method:: setFormat(string $format)
         :returns: static the current UriBuilder to allow method chaining
 
         Specifies the format of the target (e.g. "html" or "xml")
 
-        :param string $format: the format
+        :param $format: the format
 
     ..  php:method:: setCreateAbsoluteUri(bool $createAbsoluteUri)
         :returns: static the current UriBuilder to allow method chaining
 
         If set, the URI is prepended with the current base URI. Defaults to FALSE.
 
-        :param bool $createAbsoluteUri: the createAbsoluteUri
+        :param $createAbsoluteUri: the createAbsoluteUri
 
     ..  php:method:: setAbsoluteUriScheme(string $absoluteUriScheme)
         :returns: static the current UriBuilder to allow method chaining
 
         Sets the scheme that should be used for absolute URIs in FE mode
 
-        :param string $absoluteUriScheme: the scheme to be used for absolute URIs
+        :param $absoluteUriScheme: the scheme to be used for absolute URIs
 
-    ..  php:method:: setLanguage(string $language)
+    ..  php:method:: setLanguage(?string $language)
         :returns: TYPO3\CMS\Extbase\Mvc\Web\Routing\UriBuilder
 
         Enforces a URI / link to a page to a specific language (or use "current")
 
-        :param string $language: the language
+        :param $language: the language
 
     ..  php:method:: setAddQueryString(string|int|bool $addQueryString)
         :returns: static the current UriBuilder to allow method chaining
@@ -66,7 +66,7 @@
         Page Routing. To include any - possible "unsafe" - GET parameters, the property has to be set
         to "untrusted". Defaults to FALSE.
 
-        :param string|int|bool $addQueryString: is set to "1", "true", "0", "false" or "untrusted"
+        :param $addQueryString: is set to "1", "true", "0", "false" or "untrusted"
 
     ..  php:method:: setArgumentsToBeExcludedFromQueryString(array $argumentsToBeExcludedFromQueryString)
         :returns: static the current UriBuilder to allow method chaining
@@ -74,60 +74,60 @@
         A list of arguments to be excluded from the query parameters
         Only active if addQueryString is set
 
-        :param array $argumentsToBeExcludedFromQueryString: the argumentsToBeExcludedFromQueryString
+        :param $argumentsToBeExcludedFromQueryString: the argumentsToBeExcludedFromQueryString
 
     ..  php:method:: setArgumentPrefix(string $argumentPrefix)
         :returns: static the current UriBuilder to allow method chaining
 
         Specifies the prefix to be used for all arguments.
 
-        :param string $argumentPrefix: the argumentPrefix
+        :param $argumentPrefix: the argumentPrefix
 
     ..  php:method:: setLinkAccessRestrictedPages(bool $linkAccessRestrictedPages)
         :returns: static the current UriBuilder to allow method chaining
 
         If set, URIs for pages without access permissions will be created
 
-        :param bool $linkAccessRestrictedPages: the linkAccessRestrictedPages
+        :param $linkAccessRestrictedPages: the linkAccessRestrictedPages
 
     ..  php:method:: setTargetPageUid(int $targetPageUid)
         :returns: static the current UriBuilder to allow method chaining
 
         Uid of the target page
 
-        :param int $targetPageUid: the targetPageUid
+        :param $targetPageUid: the targetPageUid
 
     ..  php:method:: setTargetPageType(int $targetPageType)
         :returns: static the current UriBuilder to allow method chaining
 
         Sets the page type of the target URI. Defaults to 0
 
-        :param int $targetPageType: the targetPageType
+        :param $targetPageType: the targetPageType
 
     ..  php:method:: setNoCache(bool $noCache)
         :returns: static the current UriBuilder to allow method chaining
 
         by default FALSE; if TRUE, &no_cache=1 will be appended to the URI
 
-        :param bool $noCache: the noCache
+        :param $noCache: the noCache
 
     ..  php:method:: reset()
         :returns: static the current UriBuilder to allow method chaining
 
         Resets all UriBuilder options to their default value
 
-    ..  php:method:: uriFor(string $actionName = NULL, array $controllerArguments = NULL, string $controllerName = NULL, string $extensionName = NULL, string $pluginName = NULL)
+    ..  php:method:: uriFor(?string $actionName = NULL, ?array $controllerArguments = NULL, ?string $controllerName = NULL, ?string $extensionName = NULL, ?string $pluginName = NULL)
         :returns: string the rendered URI
 
         Creates a URI used for linking to an Extbase action.
 
         Works in Frontend and Backend mode of TYPO3.
 
-        :param string $actionName: Name of the action to be called, default: NULL
-        :param array $controllerArguments: Additional query parameters. Will be "namespaced" and merged with $this->arguments., default: NULL
-        :param string $controllerName: Name of the target controller. If not set, current ControllerName is used., default: NULL
-        :param string $extensionName: Name of the target extension, without underscores. If not set, current ExtensionName is used., default: NULL
-        :param string $pluginName: Name of the target plugin. If not set, current PluginName is used., default: NULL
+        :param $actionName: Name of the action to be called, default: NULL
+        :param $controllerArguments: Additional query parameters. Will be "namespaced" and merged with $this->arguments., default: NULL
+        :param $controllerName: Name of the target controller. If not set, current ControllerName is used., default: NULL
+        :param $extensionName: Name of the target extension, without underscores. If not set, current ExtensionName is used., default: NULL
+        :param $pluginName: Name of the target plugin. If not set, current PluginName is used., default: NULL
 
     ..  php:method:: build()
         :returns: string The URI

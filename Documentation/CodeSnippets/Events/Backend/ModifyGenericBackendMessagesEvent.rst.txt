@@ -10,8 +10,8 @@
 
     ..  php:method:: addMessage(TYPO3\CMS\Core\Messaging\AbstractMessage $message)
 
-        :param TYPO3\CMS\Core\Messaging\AbstractMessage $message: the message
+        :param $message: the message
 
     ..  php:method:: setMessages(array $messages)
 
-        :param array $messages: the messages
+        :param $messages: the messages

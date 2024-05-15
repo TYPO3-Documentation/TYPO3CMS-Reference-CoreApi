@@ -17,11 +17,11 @@
 
     ..  php:method:: setPageInformation(TYPO3\CMS\Frontend\Page\PageInformation $pageInformation)
 
-        :param TYPO3\CMS\Frontend\Page\PageInformation $pageInformation: the pageInformation
+        :param $pageInformation: the pageInformation
 
     ..  php:method:: getResponse()
-        :returns: Psr\Http\Message\ResponseInterface
+        :returns: ?Psr\Http\Message\ResponseInterface
 
     ..  php:method:: setResponse(Psr\Http\Message\ResponseInterface $response)
 
-        :param Psr\Http\Message\ResponseInterface $response: the response
+        :param $response: the response

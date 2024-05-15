@@ -15,21 +15,21 @@
     ..  php:method:: getArguments()
         :returns: array
 
-    ..  php:method:: offsetExists(mixed $offset)
+    ..  php:method:: offsetExists(?mixed $offset)
         :returns: bool
 
-        :param mixed $offset: the offset
+        :param $offset: the offset
 
-    ..  php:method:: offsetGet(mixed $offset)
-        :returns: mixed
+    ..  php:method:: offsetGet(?mixed $offset)
+        :returns: ?mixed
 
-        :param mixed $offset: the offset
+        :param $offset: the offset
 
-    ..  php:method:: offsetSet(mixed $offset = '', mixed $value = '')
+    ..  php:method:: offsetSet(?mixed $offset = '', ?mixed $value = '')
 
-        :param mixed $offset: the offset, default: ''
-        :param mixed $value: the value, default: ''
+        :param $offset: the offset, default: ''
+        :param $value: the value, default: ''
 
-    ..  php:method:: offsetUnset(mixed $offset)
+    ..  php:method:: offsetUnset(?mixed $offset)
 
-        :param mixed $offset: the offset
+        :param $offset: the offset

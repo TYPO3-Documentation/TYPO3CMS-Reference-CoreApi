@@ -17,5 +17,5 @@
 
         Return true if the driver middleware should be used for the concrete connection.
 
-        :param string $identifier: the identifier
-        :param array $connectionParams: the connectionParams
+        :param $identifier: the identifier
+        :param $connectionParams: the connectionParams

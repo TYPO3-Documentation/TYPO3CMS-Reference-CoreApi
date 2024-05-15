@@ -13,15 +13,15 @@
 
         Gets an individual handler by name.
 
-        :param string $name: The handler name, including trailing period.
+        :param $name: The handler name, including trailing period.
 
     ..  php:method:: setLinkHandler(string $name, array $handler)
         :returns: $this
 
         Sets a handler by name, overwriting it if it already exists.
 
-        :param string $name: The handler name, including trailing period.
-        :param array $handler: the handler
+        :param $name: The handler name, including trailing period.
+        :param $handler: the handler
 
     ..  php:method:: getCurrentLinkParts()
         :returns: array<string,mixed>

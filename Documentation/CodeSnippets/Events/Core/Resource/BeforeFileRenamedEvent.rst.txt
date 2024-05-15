@@ -10,4 +10,4 @@
         :returns: TYPO3\CMS\Core\Resource\FileInterface
 
     ..  php:method:: getTargetFileName()
-        :returns: string
+        :returns: ?string

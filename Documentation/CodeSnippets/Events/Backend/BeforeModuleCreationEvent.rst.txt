@@ -13,20 +13,20 @@
 
     ..  php:method:: setConfiguration(array $configuration)
 
-        :param array $configuration: the configuration
+        :param $configuration: the configuration
 
     ..  php:method:: hasConfigurationValue(string $key)
         :returns: bool
 
-        :param string $key: the key
+        :param $key: the key
 
-    ..  php:method:: getConfigurationValue(string $key, mixed $default = NULL)
-        :returns: mixed
+    ..  php:method:: getConfigurationValue(string $key, ?mixed $default = NULL)
+        :returns: ?mixed
 
-        :param string $key: the key
-        :param mixed $default: the default, default: NULL
+        :param $key: the key
+        :param $default: the default, default: NULL
 
-    ..  php:method:: setConfigurationValue(string $key, mixed $value)
+    ..  php:method:: setConfigurationValue(string $key, ?mixed $value)
 
-        :param string $key: the key
-        :param mixed $value: the value
+        :param $key: the key
+        :param $value: the value

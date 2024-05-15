@@ -13,18 +13,18 @@
 
     ..  php:method:: setData(array $data)
 
-        :param array $data: the data
+        :param $data: the data
 
     ..  php:method:: getSortColumn()
         :returns: string
 
     ..  php:method:: setSortColumn(string $sortColumn)
 
-        :param string $sortColumn: the sortColumn
+        :param $sortColumn: the sortColumn
 
     ..  php:method:: getSortDirection()
         :returns: string
 
     ..  php:method:: setSortDirection(string $sortDirection)
 
-        :param string $sortDirection: the sortDirection
+        :param $sortDirection: the sortDirection

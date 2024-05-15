@@ -12,7 +12,7 @@
 
     ..  php:method:: setProcessedFile(TYPO3\CMS\Core\Resource\ProcessedFile $processedFile)
 
-        :param TYPO3\CMS\Core\Resource\ProcessedFile $processedFile: the processedFile
+        :param $processedFile: the processedFile
 
     ..  php:method:: getDriver()
         :returns: TYPO3\CMS\Core\Resource\Driver\DriverInterface

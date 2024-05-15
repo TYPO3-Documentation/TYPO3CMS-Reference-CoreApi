@@ -6,11 +6,11 @@
     Event is called directly after the recursive stdWrap function call but still before the content gets modified
 
     ..  php:method:: getContent()
-        :returns: string
+        :returns: ?string
 
     ..  php:method:: setContent(string $content)
 
-        :param string $content: the content
+        :param $content: the content
 
     ..  php:method:: getConfiguration()
         :returns: array

@@ -10,7 +10,7 @@
 
     ..  php:method:: setTreeData(TYPO3\CMS\Backend\Tree\TreeNode $treeData)
 
-        :param TYPO3\CMS\Backend\Tree\TreeNode $treeData: the treeData
+        :param $treeData: the treeData
 
     ..  php:method:: getProvider()
         :returns: TYPO3\CMS\Core\Tree\TableConfiguration\AbstractTableConfigurationTreeDataProvider

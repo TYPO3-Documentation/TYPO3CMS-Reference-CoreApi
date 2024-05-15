@@ -28,4 +28,4 @@
         Allows to modify or completely replace the parsed data
         structure identifier.
 
-        :param array $dataStructure: the dataStructure
+        :param $dataStructure: the dataStructure

@@ -7,7 +7,7 @@
 
     ..  php:method:: setSourceCollection(string $sourceCollection)
 
-        :param string $sourceCollection: the sourceCollection
+        :param $sourceCollection: the sourceCollection
 
     ..  php:method:: getSourceCollection()
         :returns: string

@@ -29,7 +29,7 @@
 
         This is set to the language that is currently running for the user
 
-    ..  php:method:: sL(string $input)
+    ..  php:method:: sL(?string $input)
         :returns: string
 
         Main and most often used method.
@@ -42,15 +42,15 @@
 
         This looks up the given .xlf file path in the 'core' extension for label labels.depth_0
 
-        :param string $input: Label key/reference
+        :param $input: Label key/reference
 
     ..  php:method:: overrideLabels(string $fileRef, array $labels)
 
         Define custom labels which can be overridden for a given file. This is typically
         the case for TypoScript plugins.
 
-        :param string $fileRef: the fileRef
-        :param array $labels: the labels
+        :param $fileRef: the fileRef
+        :param $labels: the labels
 
     ..  php:method:: getLocale()
-        :returns: TYPO3\CMS\Core\Localization\Locale
+        :returns: ?TYPO3\CMS\Core\Localization\Locale

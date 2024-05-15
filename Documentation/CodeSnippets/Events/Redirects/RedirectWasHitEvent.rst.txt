@@ -18,14 +18,14 @@
 
     ..  php:method:: setMatchedRedirect(array $matchedRedirect)
 
-        :param array $matchedRedirect: the matchedRedirect
+        :param $matchedRedirect: the matchedRedirect
 
     ..  php:method:: getMatchedRedirect()
         :returns: array
 
     ..  php:method:: setResponse(Psr\Http\Message\ResponseInterface $response)
 
-        :param Psr\Http\Message\ResponseInterface $response: the response
+        :param $response: the response
 
     ..  php:method:: getResponse()
         :returns: Psr\Http\Message\ResponseInterface

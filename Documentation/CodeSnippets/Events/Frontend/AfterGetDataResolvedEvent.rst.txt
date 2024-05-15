@@ -6,11 +6,11 @@
     Listeners are able to modify the resolved ContentObjectRenderer->getData() result
 
     ..  php:method:: getResult()
-        :returns: mixed
+        :returns: ?mixed
 
-    ..  php:method:: setResult(mixed $result)
+    ..  php:method:: setResult(?mixed $result)
 
-        :param mixed $result: the result
+        :param $result: the result
 
     ..  php:method:: getParameterString()
         :returns: string

@@ -22,19 +22,19 @@
 
     ..  php:method:: setLinkParts(array $linkParts)
 
-        :param array $linkParts: the linkParts
+        :param $linkParts: the linkParts
 
     ..  php:method:: setContent(string $content)
 
-        :param string $content: the content
+        :param $content: the content
 
     ..  php:method:: setElements(array $elements)
 
-        :param array $elements: the elements
+        :param $elements: the elements
 
     ..  php:method:: addElements(array $elements)
 
-        :param array $elements: the elements
+        :param $elements: the elements
 
     ..  php:method:: isResolved()
         :returns: bool

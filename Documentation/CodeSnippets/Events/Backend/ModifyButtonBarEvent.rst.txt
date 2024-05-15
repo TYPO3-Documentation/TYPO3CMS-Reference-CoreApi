@@ -10,7 +10,7 @@
 
     ..  php:method:: setButtons(array $buttons)
 
-        :param array $buttons: the buttons
+        :param $buttons: the buttons
 
     ..  php:method:: getButtonBar()
         :returns: TYPO3\CMS\Backend\Template\Components\ButtonBar

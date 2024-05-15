@@ -25,7 +25,7 @@
 
     ..  php:method:: setConstraints(array $constraints)
 
-        :param array $constraints: the constraints
+        :param $constraints: the constraints
 
     ..  php:method:: getEnableFieldsToIgnore()
         :returns: array

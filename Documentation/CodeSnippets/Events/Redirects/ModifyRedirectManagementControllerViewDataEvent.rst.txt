@@ -17,7 +17,7 @@
 
         Can be used to set the demand object.
 
-        :param TYPO3\CMS\Redirects\Repository\Demand $demand: the demand
+        :param $demand: the demand
 
     ..  php:method:: getRedirects()
         :returns: array
@@ -28,7 +28,7 @@
 
         Can be used to set the redirects, for example, after enriching redirect fields.
 
-        :param array $redirects: the redirects
+        :param $redirects: the redirects
 
     ..  php:method:: getRequest()
         :returns: Psr\Http\Message\ServerRequestInterface
@@ -44,7 +44,7 @@
 
         Can be used to update which hosts are available in the filter select box.
 
-        :param array $hosts: the hosts
+        :param $hosts: the hosts
 
     ..  php:method:: getStatusCodes()
         :returns: array
@@ -55,7 +55,7 @@
 
         Can be used to update which status codes are available in the filter select box.
 
-        :param array $statusCodes: the statusCodes
+        :param $statusCodes: the statusCodes
 
     ..  php:method:: getCreationTypes()
         :returns: array
@@ -66,7 +66,7 @@
 
         Can be used to update which creation types are available in the filter select box.
 
-        :param array $creationTypes: the creationTypes
+        :param $creationTypes: the creationTypes
 
     ..  php:method:: getShowHitCounter()
         :returns: bool
@@ -77,7 +77,7 @@
 
         Can be used to manage, if the hit counter should be displayed.
 
-        :param bool $showHitCounter: the showHitCounter
+        :param $showHitCounter: the showHitCounter
 
     ..  php:method:: getView()
         :returns: TYPO3\CMS\Core\View\ViewInterface
@@ -88,7 +88,7 @@
 
         Can be used to assign additional data to the view.
 
-        :param TYPO3\CMS\Core\View\ViewInterface $view: the view
+        :param $view: the view
 
     ..  php:method:: getIntegrityStatusCodes()
         :returns: array
@@ -99,4 +99,4 @@
 
         Allows to set integrity status codes. It can be used to filter for integrity status codes.
 
-        :param array $integrityStatusCodes: the integrityStatusCodes
+        :param $integrityStatusCodes: the integrityStatusCodes

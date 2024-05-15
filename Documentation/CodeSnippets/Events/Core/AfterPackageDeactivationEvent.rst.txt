@@ -12,4 +12,4 @@
         :returns: string
 
     ..  php:method:: getEmitter()
-        :returns: object
+        :returns: ?object

@@ -48,10 +48,10 @@
         setting this parameter to an empty array as this will also stop
         propagation.
 
-        :param array $identifier: the identifier
+        :param $identifier: the identifier
 
     ..  php:method:: getIdentifier()
-        :returns: array
+        :returns: ?array
 
         Returns the current data structure identifier, which will always be
         `null` for listeners, since the event propagation is

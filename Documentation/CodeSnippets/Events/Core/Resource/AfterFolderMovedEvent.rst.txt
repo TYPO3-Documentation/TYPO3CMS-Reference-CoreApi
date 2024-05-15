@@ -14,4 +14,4 @@
         :returns: TYPO3\CMS\Core\Resource\Folder
 
     ..  php:method:: getTargetFolder()
-        :returns: TYPO3\CMS\Core\Resource\FolderInterface
+        :returns: ?TYPO3\CMS\Core\Resource\FolderInterface

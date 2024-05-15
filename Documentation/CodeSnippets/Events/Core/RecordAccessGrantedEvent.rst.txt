@@ -13,7 +13,7 @@
 
     ..  php:method:: setAccessGranted(bool $accessGranted)
 
-        :param bool $accessGranted: the accessGranted
+        :param $accessGranted: the accessGranted
 
     ..  php:method:: getTable()
         :returns: string
@@ -23,7 +23,7 @@
 
     ..  php:method:: updateRecord(array $record)
 
-        :param array $record: the record
+        :param $record: the record
 
     ..  php:method:: getContext()
         :returns: TYPO3\CMS\Core\Context\Context

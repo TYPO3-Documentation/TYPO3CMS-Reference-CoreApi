@@ -10,21 +10,21 @@
 
         Enable a control, if it exists
 
-        :param string $identifier: the identifier
+        :param $identifier: the identifier
 
     ..  php:method:: disableControl(string $identifier)
         :returns: bool Whether the control could be disabled
 
         Disable a control, if it exists
 
-        :param string $identifier: the identifier
+        :param $identifier: the identifier
 
     ..  php:method:: hasControl(string $identifier)
         :returns: bool
 
         Returns whether a control exists for the given identifier
 
-        :param string $identifier: the identifier
+        :param $identifier: the identifier
 
     ..  php:method:: isControlEnabled(string $identifier)
         :returns: bool
@@ -33,7 +33,7 @@
 
         Note: Will also return FALSE in case no control exists for the requested identifier
 
-        :param string $identifier: the identifier
+        :param $identifier: the identifier
 
     ..  php:method:: getControlsState()
         :returns: array

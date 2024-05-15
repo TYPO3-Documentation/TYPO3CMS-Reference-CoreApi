@@ -25,7 +25,7 @@
         stack to estimate the performance impact of this call. It's of course best to not use
         the 'disable cache' mechanic at all, but to handle caching properly in extensions.
 
-        :param string $reason: the reason
+        :param $reason: the reason
 
     ..  php:method:: isCachingAllowed()
         :returns: bool

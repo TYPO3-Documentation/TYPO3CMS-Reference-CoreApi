@@ -10,7 +10,7 @@
 
     ..  php:method:: setFormDefinition(array $formDefinition)
 
-        :param array $formDefinition: the formDefinition
+        :param $formDefinition: the formDefinition
 
     ..  php:method:: getPersistenceIdentifier()
         :returns: string

@@ -13,27 +13,27 @@
     ..  php:method:: createFromModule(TYPO3\CMS\Backend\Module\ModuleInterface $module, array $data)
         :returns: self
 
-        :param TYPO3\CMS\Backend\Module\ModuleInterface $module: the module
-        :param array $data: the data
+        :param $module: the module
+        :param $data: the data
 
     ..  php:method:: getModuleIdentifier()
         :returns: string
 
-    ..  php:method:: get(string $propertyName, mixed $default = NULL)
-        :returns: mixed
+    ..  php:method:: get(string $propertyName, ?mixed $default = NULL)
+        :returns: ?mixed
 
-        :param string $propertyName: the propertyName
-        :param mixed $default: the default, default: NULL
+        :param $propertyName: the propertyName
+        :param $default: the default, default: NULL
 
     ..  php:method:: has(string $propertyName)
         :returns: bool
 
-        :param string $propertyName: the propertyName
+        :param $propertyName: the propertyName
 
-    ..  php:method:: set(string $propertyName, mixed $value)
+    ..  php:method:: set(string $propertyName, ?mixed $value)
 
-        :param string $propertyName: the propertyName
-        :param mixed $value: the value
+        :param $propertyName: the propertyName
+        :param $value: the value
 
     ..  php:method:: clean(string $propertyName, array $allowedValues)
         :returns: bool True if something has been cleaned up
@@ -42,8 +42,8 @@
         is the default data list. If this list does also not contain an
         allowed value, the first value from the allowed list is taken.
 
-        :param string $propertyName: the propertyName
-        :param array $allowedValues: the allowedValues
+        :param $propertyName: the propertyName
+        :param $allowedValues: the allowedValues
 
     ..  php:method:: cleanUp(array $allowedData, bool $useKeys = true)
         :returns: bool
@@ -51,8 +51,8 @@
         Cleans up all module data, which are defined in the
         given allowed data list. Usually called with $MOD_MENU.
 
-        :param array $allowedData: the allowedData
-        :param bool $useKeys: the useKeys, default: true
+        :param $allowedData: the allowedData
+        :param $useKeys: the useKeys, default: true
 
     ..  php:method:: toArray()
         :returns: array

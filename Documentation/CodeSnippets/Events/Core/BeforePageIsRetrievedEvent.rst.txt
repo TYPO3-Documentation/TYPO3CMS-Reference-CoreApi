@@ -9,11 +9,11 @@
     with custom overlaying, or to fully resolve the page on your own.
 
     ..  php:method:: getPage()
-        :returns: TYPO3\CMS\Core\Domain\Page
+        :returns: ?TYPO3\CMS\Core\Domain\Page
 
     ..  php:method:: setPage(TYPO3\CMS\Core\Domain\Page $page)
 
-        :param TYPO3\CMS\Core\Domain\Page $page: the page
+        :param $page: the page
 
     ..  php:method:: hasPage()
         :returns: bool
@@ -23,7 +23,7 @@
 
     ..  php:method:: setPageId(int $pageId)
 
-        :param int $pageId: the pageId
+        :param $pageId: the pageId
 
     ..  php:method:: isGroupAccessCheckSkipped()
         :returns: bool

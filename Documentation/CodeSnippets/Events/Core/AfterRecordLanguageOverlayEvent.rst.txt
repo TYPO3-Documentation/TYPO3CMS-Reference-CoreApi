@@ -14,12 +14,12 @@
     ..  php:method:: getLanguageAspect()
         :returns: TYPO3\CMS\Core\Context\LanguageAspect
 
-    ..  php:method:: setLocalizedRecord(array $localizedRecord)
+    ..  php:method:: setLocalizedRecord(?array $localizedRecord)
 
-        :param array $localizedRecord: the localizedRecord
+        :param $localizedRecord: the localizedRecord
 
     ..  php:method:: getLocalizedRecord()
-        :returns: array
+        :returns: ?array
 
     ..  php:method:: overlayingWasAttempted()
         :returns: bool

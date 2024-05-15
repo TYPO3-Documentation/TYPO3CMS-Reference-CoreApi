@@ -12,8 +12,8 @@
         :returns: array
 
     ..  php:method:: getImageResource()
-        :returns: TYPO3\CMS\Core\Imaging\ImageResource
+        :returns: ?TYPO3\CMS\Core\Imaging\ImageResource
 
-    ..  php:method:: setImageResource(TYPO3\CMS\Core\Imaging\ImageResource $imageResource)
+    ..  php:method:: setImageResource(?TYPO3\CMS\Core\Imaging\ImageResource $imageResource)
 
-        :param TYPO3\CMS\Core\Imaging\ImageResource $imageResource: the imageResource
+        :param $imageResource: the imageResource

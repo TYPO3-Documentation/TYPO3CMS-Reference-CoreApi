@@ -11,7 +11,7 @@
 
     ..  php:method:: setFormData(array $formData)
 
-        :param array $formData: the formData
+        :param $formData: the formData
 
     ..  php:method:: getFile()
         :returns: TYPO3\CMS\Core\Resource\FileInterface

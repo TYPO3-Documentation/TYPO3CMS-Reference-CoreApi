@@ -10,20 +10,20 @@
 
         Return a list of all configured sites
 
-        :param bool $useCache: the useCache, default: true
+        :param $useCache: the useCache, default: true
 
     ..  php:method:: getSiteByIdentifier(string $identifier)
         :returns: TYPO3\CMS\Core\Site\Entity\Site
 
         Find a site by given identifier
 
-        :param string $identifier: the identifier
+        :param $identifier: the identifier
 
-    ..  php:method:: getSiteByPageId(int $pageId, array $rootLine = NULL, string $mountPointParameter = NULL)
+    ..  php:method:: getSiteByPageId(int $pageId, ?array $rootLine = NULL, ?string $mountPointParameter = NULL)
         :returns: TYPO3\CMS\Core\Site\Entity\Site
 
         Traverses the rootline of a page up until a Site was found.
 
-        :param int $pageId: the pageId
-        :param array $rootLine: the rootLine, default: NULL
-        :param string $mountPointParameter: the mountPointParameter, default: NULL
+        :param $pageId: the pageId
+        :param $rootLine: the rootLine, default: NULL
+        :param $mountPointParameter: the mountPointParameter, default: NULL

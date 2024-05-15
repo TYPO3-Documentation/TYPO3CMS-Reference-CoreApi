@@ -11,10 +11,10 @@
         :returns: array
 
     ..  php:method:: getRequest()
-        :returns: Psr\Http\Message\ServerRequestInterface
+        :returns: ?Psr\Http\Message\ServerRequestInterface
 
     ..  php:method:: getSite()
-        :returns: TYPO3\CMS\Core\Site\Entity\SiteInterface
+        :returns: ?TYPO3\CMS\Core\Site\Entity\SiteInterface
 
         Convenience method to directly retrieve the Site. May be null though!
 
@@ -23,4 +23,4 @@
 
     ..  php:method:: setTemplateRows(array $templateRows)
 
-        :param array $templateRows: the templateRows
+        :param $templateRows: the templateRows
