@@ -1,4 +1,4 @@
-:navigation-title: Best
+:navigation-title: PHP
 .. include:: /Includes.rst.txt
 
 .. _cgl-best-practices:
