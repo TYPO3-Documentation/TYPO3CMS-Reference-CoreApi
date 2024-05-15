@@ -1,3 +1,4 @@
+:navigation-title: Extbase
 .. include:: /Includes.rst.txt
 
 .. index:: Extbase; Tutorials

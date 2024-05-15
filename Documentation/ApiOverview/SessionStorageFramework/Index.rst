@@ -1,3 +1,4 @@
+:navigation-title: Sessions
 .. include:: /Includes.rst.txt
 .. index:: Sessions; Handling
 .. _sessions:

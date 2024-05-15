@@ -1,3 +1,4 @@
+:navigation-title: SEO
 .. include:: /Includes.rst.txt
 .. index::
    ! SEO

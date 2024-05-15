@@ -1,3 +1,4 @@
+:navigation-title: Creation
 ..  include:: /Includes.rst.txt
 ..  index:: Site handling; Create new
 ..  _sitehandling-create-new:

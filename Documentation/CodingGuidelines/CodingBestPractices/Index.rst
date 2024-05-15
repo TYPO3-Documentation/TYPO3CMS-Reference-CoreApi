@@ -1,3 +1,4 @@
+:navigation-title: Best
 .. include:: /Includes.rst.txt
 
 .. _cgl-best-practices:

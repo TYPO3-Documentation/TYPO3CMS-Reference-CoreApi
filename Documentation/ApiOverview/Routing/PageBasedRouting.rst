@@ -1,3 +1,4 @@
+:navigation-title: Page based
 .. include:: /Includes.rst.txt
 .. index:: Routing; Page based
 .. _routing-page-based-routing:
