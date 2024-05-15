@@ -1,4 +1,4 @@
-:navigation-title: Cropping Images
+:navigation-title: Cropping images
 .. include:: /Includes.rst.txt
 
 .. _cropvariants:
