@@ -37,13 +37,13 @@ final class MyTableRepository
             )
             ->executeQuery();
         while ($row = $result->fetchAssociative()) {
-            // $row = array{
+            // $row = [
             //  'uid' => 1,
             //  'pid' => 0,
             //  'title' => 'Site Root Page',
             //  'page_title_info' => 'Site Root Page - [1|0]',
-            // }
-            $this->doSomething($row);
+            // ]
+            // ...
         }
     }
 }

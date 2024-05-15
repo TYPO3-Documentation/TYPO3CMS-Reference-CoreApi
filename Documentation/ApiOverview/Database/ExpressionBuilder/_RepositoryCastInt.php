@@ -33,6 +33,7 @@ final class MyTableRepository
             ),
         );
 
+// cast the contents of a specific field to integer
         $expression3 = $queryBuilder->expr()->castInt(
             $queryBuilder->quoteIdentifier('uid'),
         );

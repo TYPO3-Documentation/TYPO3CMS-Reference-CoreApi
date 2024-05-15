@@ -15,18 +15,21 @@ final class MyTableRepository
     {
         $queryBuilder = $this->connectionPool
             ->getQueryBuilderForTable(self::TABLE_NAME);
+        // Left-pad "123" with "0" to an amount of 10 times, resulting in "0000000123"
         $expression1 = $queryBuilder->expr()->leftPad(
             $queryBuilder->quote('123'),
             10,
             '0',
         );
 
+        // Left-pad contents of the "uid" field with "0" to an amount of 10 times, a uid=1 would return "0000000001"
         $expression2 = $queryBuilder->expr()->leftPad(
             $queryBuilder->expr()->castVarchar($queryBuilder->quoteIdentifier('uid')),
             10,
             '0',
         );
 
+        // Sub-expression to left-pad the concated string result ("1" + "2" + "3") up to 10 times with 0, resulting in "0000000123".
         $expression3 = $queryBuilder->expr()->leftPad(
             $queryBuilder->expr()->concat(
                 $queryBuilder->quote('1'),

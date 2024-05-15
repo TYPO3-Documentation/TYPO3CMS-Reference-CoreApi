@@ -15,13 +15,15 @@ final class MyTableRepository
     {
         $queryBuilder = $this->connectionPool
             ->getQueryBuilderForTable(self::TABLE_NAME);
+        // Returns the right-side 6 characters of "some-string" (result: "string")
         $expression1 = $queryBuilder->expr()->right(
             6,
             $queryBuilder->quote('some-string'),
         );
 
+        // Returns the right-side calculated 7 characters of "some-string" (result: "-string")
         $expression2 = $queryBuilder->expr()->right(
-            '6',
+            '(3+4)',
             $queryBuilder->quote('some-string'),
         );
 
@@ -30,8 +32,9 @@ final class MyTableRepository
             $queryBuilder->quote('some-string'),
         );
 
+        // Return the right-side 23 characters from column "table_field_name"
         $expression4 = $queryBuilder->expr()->right(
-            $queryBuilder->expr()->castInt('(23)'),
+            23,
             $queryBuilder->quoteIdentifier('table_field_name'),
         );
     }

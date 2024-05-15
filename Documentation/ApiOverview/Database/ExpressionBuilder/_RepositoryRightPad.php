@@ -15,18 +15,21 @@ final class MyTableRepository
     {
         $queryBuilder = $this->connectionPool
             ->getQueryBuilderForTable(self::TABLE_NAME);
+        // Right-pad the string "123" up to ten times with "0", resulting in "1230000000"
         $expression1 = $queryBuilder->expr()->rightPad(
             $queryBuilder->quote('123'),
             10,
             '0',
         );
 
+        // Right-pad the cnotents of field "uid" up to ten times with 0, for uid=1 results in "1000000000".
         $expression2 = $queryBuilder->expr()->rightPad(
             $queryBuilder->expr()->castVarchar($queryBuilder->quoteIdentifier('uid')),
             10,
             '0',
         );
 
+        // Right-pad the results of concatenating "1" + "2" + "3" ("123") up to 10 times with 0, resulting in "1230000000"
         $expression3 = $queryBuilder->expr()->rightPad(
             $queryBuilder->expr()->concat(
                 $queryBuilder->quote('1'),
@@ -43,6 +46,7 @@ final class MyTableRepository
             '0',
         );
 
+        // Right-pad the string "123" up to 10 times with "0" and make the result ("1230000000") available as "virtual_field"
         $expression5 = $queryBuilder->expr()->rightPad(
             $queryBuilder->quote('123'),
             10,
