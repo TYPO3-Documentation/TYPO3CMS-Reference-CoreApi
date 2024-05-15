@@ -197,8 +197,8 @@ Creates a statement to append a field alias to a value, identifier or sub-expres
 
 ..  note::
 
-    Some :php:`ExpressionBuilder` methods provides a argument to directly add
-    the expression alias to reduce some nesting. This method can be used for
+    Some :php:`ExpressionBuilder` methods (like :php:`select()` and :php:`from()`) provide an argument to directly add
+    the expression alias to reduce some nesting. This new method can be used for
     custom expressions and avoids recurring conditional quoting and alias appending.
 
 ..  literalinclude:: _RepositoryAs.php
@@ -216,13 +216,14 @@ Creates a statement to append a field alias to a value, identifier or sub-expres
 Can be used to concatenate values, row field values or expression results into
 a single string value.
 
-The created expression is built on the proper platform specific and preferred
-concatenation method, for example :sql:`string || string || string || ...`
-for SQLite and :sql:`CONCAT(...string)` for other database vendors.
+The created expression is built on the proper platform-specific and preferred
+concatenation method, for example :sql:`field1 || field2 || field3 || ...`
+for SQLite and :sql:`CONCAT(field1, field2, field3, ...)` for other database vendors.
 
 ..  warning::
 
-    Be aware to properly quote values, identifiers and sub-expressions.
+    Be aware to properly quote values identifiers and sub-expressions by using
+    QueryBuilder methods like :php:`quote()`, :php:`quoteIdentifier` or :php:`createNamedParameter`.
     No automatic quoting will be applied.
 
 ..  literalinclude:: _RepositoryConcat.php
@@ -241,7 +242,7 @@ for SQLite and :sql:`CONCAT(...string)` for other database vendors.
 Can be used to create an expression which converts a value, row field value or
 the result of an expression to signed integer type.
 
-Uses the platform specific preferred way for casting to dynamic length
+Uses the platform-specific preferred way for casting to dynamic length
 character type, which means :sql:`CAST("value" AS INTEGER)` for most database vendors
 except PostgreSQL. For PostgreSQL the :sql:`"value"::INTEGER` cast notation
 is used.
@@ -262,9 +263,9 @@ is used.
 Can be used to create an expression which converts a value, row field value or
 the result of an expression to varchar type with dynamic length.
 
-Uses the platform specific preferred way for casting to dynamic length
+Uses the platform-specific preferred way for casting to dynamic length
 character type, which means :sql:`CAST("value" AS VARCHAR(<LENGTH>))`
-or :sql:`CAST("value" AS CHAR(<LENGTH>))` is used, except PostgreSQL.
+or :sql:`CAST("value" AS CHAR(<LENGTH>))` is used, except for PostgreSQL.
 For PostgreSQL the :sql:`"value"::INTEGER` cast notation is used.
 
 ..  warning::
@@ -284,9 +285,9 @@ For PostgreSQL the :sql:`"value"::INTEGER` cast notation is used.
 
 ..  include:: _ExpressionBuilderLeft.rst.txt
 
-Extract :php:`$length` character of :php:`$value` from the left side.
+Extract :php:`$length` characters of :php:`$value` from the left side.
 
-Creates a :sql:`LEFT(string, number_of_chars)` expression for all supported
+Creates a :sql:`LEFT("value", number_of_chars)` expression for all supported
 database vendors except SQLite, where :sql:`substring(string, integer[, integer])`
 is used to provide a compatible expression.
 
@@ -305,7 +306,7 @@ is used to provide a compatible expression.
 
 ..  include:: _ExpressionBuilderLeftPad.rst.txt
 
-Left-pad the value or sub-expression result with $paddingValue, to a total
+Left-pad the value or sub-expression result with :php:`$paddingValue`, to a total
 length of $length.
 
 SQLite does not support :sql:`LPAD(string, integer, string)`, therefore a
