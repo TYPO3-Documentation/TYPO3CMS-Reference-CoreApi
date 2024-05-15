@@ -33,11 +33,7 @@ context:
 
 See available :ref:`parameter types <database-connection-parameter-types>`.
 
-..  warning::
-    It is of crucial importance to quote values correctly to not introduce SQL
-    injection attack vectors into your application. See the :ref:`according
-    section of the query builder <database-query-builder-create-named-parameter>`
-    for details.
+..  include:: _EscapeWarning.rst.txt
 
 ..  _database-expression-builder-basic-junctions:
 
@@ -220,11 +216,7 @@ The created expression is built on the proper platform-specific and preferred
 concatenation method, for example :sql:`field1 || field2 || field3 || ...`
 for SQLite and :sql:`CONCAT(field1, field2, field3, ...)` for other database vendors.
 
-..  warning::
-
-    Be aware to properly quote values identifiers and sub-expressions by using
-    QueryBuilder methods like :php:`quote()`, :php:`quoteIdentifier` or :php:`createNamedParameter`.
-    No automatic quoting will be applied.
+..  include:: _EscapeWarning.rst.txt
 
 ..  literalinclude:: _RepositoryConcat.php
     :language: php
@@ -268,9 +260,7 @@ character type, which means :sql:`CAST("value" AS VARCHAR(<LENGTH>))`
 or :sql:`CAST("value" AS CHAR(<LENGTH>))` is used, except for PostgreSQL.
 For PostgreSQL the :sql:`"value"::INTEGER` cast notation is used.
 
-..  warning::
-    Be aware to properly quote values, identifiers and sub-expressions.
-    No automatic quoting will be applied.
+..  include:: _EscapeWarning.rst.txt
 
 ..  literalinclude:: _RepositoryCastVarChar.php
     :language: php
@@ -312,10 +302,7 @@ length of :php:`$length`.
 SQLite does not support :sql:`LPAD(string, integer, string)`, therefore a
 more complex compatible replacement expression construct is created.
 
-..  warning::
-
-    Be aware to properly quote values, identifiers and sub-expressions.
-    No automatic quoting will be applied.
+..  include:: _EscapeWarning.rst.txt
 
 ..  literalinclude:: _RepositoryLeftPad.php
     :language: php
@@ -358,10 +345,7 @@ vendors except SQLite for which the compatible replacement construct expression
 :sql:`REPLACE(PRINTF('%.' || <valueOrStatement> || 'c', '/'),'/', <repeatValue>)`
 is used, based on :sql:`REPLACE()` and the built-in :sql:`printf()`.
 
-..  warning::
-
-    Be aware to properly quote values, identifiers and sub-expressions.
-    No automatic quoting will be applied.
+..  include:: _EscapeWarning.rst.txt
 
 ..  literalinclude:: _RepositoryRepeat.php
     :language: php
@@ -382,10 +366,7 @@ Creates a :sql:`RIGHT("value", length)` expression for all supported
 database vendors except SQLite, where :sql:`substring("value", start_of_string[, length])`
 is used to provide a compatible expression.
 
-..  warning::
-
-    Be aware to properly quote values, identifiers and sub-expressions.
-    No automatic quoting will be applied.
+..  include:: _EscapeWarning.rst.txt
 
 ..  literalinclude:: _RepositoryRight.php
     :language: php
@@ -407,10 +388,7 @@ total length of :php:`$length`.
 SQLite does not support :sql:`RPAD("value", length, "paddingValue")`, therefore a
 more complex compatible replacement expression construct is created.
 
-..  warning::
-
-    Be aware to properly quote values, identifiers and sub-expressions.
-    No automatic quoting will be applied.
+..  include:: _EscapeWarning.rst.txt
 
 ..  literalinclude:: _RepositoryRightPad.php
     :language: php
@@ -431,10 +409,7 @@ The :sql:`SPACE(numberOfSpaces)` expression is used for MariaDB and MySQL and
 :php:`ExpressionBuilder::repeat()` expression as fallback for PostgreSQL
 and SQLite.
 
-..  warning::
-
-    Be aware to properly quote values, identifiers and sub-expressions.
-    No automatic quoting will be applied.
+..  include:: _EscapeWarning.rst.txt
 
 ..  literalinclude:: _RepositorySpace.php
     :language: php

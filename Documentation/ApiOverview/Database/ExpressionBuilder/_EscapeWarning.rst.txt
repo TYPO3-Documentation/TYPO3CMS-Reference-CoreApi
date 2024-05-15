@@ -1,0 +1,10 @@
+..  warning::
+
+    Be aware to properly quote values identifiers and sub-expressions by using
+    QueryBuilder methods like :php:`quote()`, :php:`quoteIdentifier` or :php:`createNamedParameter`.
+    No automatic quoting will be applied.
+
+    It is of crucial importance to quote values correctly to not introduce SQL
+    injection attack vectors into your application. See the :ref:`according
+    section of the query builder <database-query-builder-create-named-parameter>`
+    for details.
