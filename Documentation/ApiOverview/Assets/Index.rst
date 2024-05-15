@@ -1,3 +1,4 @@
+:navigation-title: Assets
 ..  include:: /Includes.rst.txt
 ..  index::
     ! Assets

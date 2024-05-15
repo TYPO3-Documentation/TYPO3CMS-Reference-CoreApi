@@ -1,3 +1,4 @@
+:navigation-title: For extensions
 .. include:: /Includes.rst.txt
 .. index::
    Routing; Advanced configuration

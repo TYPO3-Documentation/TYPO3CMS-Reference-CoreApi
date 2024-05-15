@@ -1,3 +1,4 @@
+:navigation-title: Commands
 .. include:: /Includes.rst.txt
 
 .. _cli-mode:

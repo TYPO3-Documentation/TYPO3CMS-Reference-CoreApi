@@ -1,3 +1,4 @@
+:navigation-title: RTE
 .. include:: /Includes.rst.txt
 .. index::
    Rich text editor

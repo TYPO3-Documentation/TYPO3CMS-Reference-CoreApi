@@ -1,3 +1,4 @@
+:navigation-title: Typo3Information
 .. include:: /Includes.rst.txt
 
 .. _typo3Information:
