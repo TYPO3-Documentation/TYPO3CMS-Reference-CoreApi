@@ -185,3 +185,18 @@ Therefore it behaves differently than a regular query by :php:`uid`.
 The bottom line is you can use :php:`$repository->findByUid()` with the translated
 record uid to get the translated content, independently of the language set in the
 global context.
+
+..  _extbase-repository-debug-query:
+
+Debugging an Extbase query
+==========================
+
+When using complex queries in Extbase repositories it sometimes comes handy
+to debug them using the Extbase debug utilities.
+
+..  literalinclude:: _Repository/_DebugQuery.php
+    :language: php
+    :caption: EXT:my_extension/Classes/Repository/MyRepository.php
+
+Please note that :php:`\TYPO3\CMS\Extbase\Persistence\Generic\Storage\Typo3DbQueryParser`
+is marked as `@internal` and subject to unannounced changes.
