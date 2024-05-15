@@ -21,15 +21,15 @@
         :returns: array
 
     ..  php:method:: getIconIdentifier()
-        :returns: string
+        :returns: ?string
 
-    ..  php:method:: setIconIdentifier(string $iconIdentifier)
+    ..  php:method:: setIconIdentifier(?string $iconIdentifier)
 
-        :param string $iconIdentifier: the iconIdentifier
+        :param $iconIdentifier: the iconIdentifier
 
     ..  php:method:: getOverlayIdentifier()
-        :returns: string
+        :returns: ?string
 
-    ..  php:method:: setOverlayIdentifier(string $overlayIdentifier)
+    ..  php:method:: setOverlayIdentifier(?string $overlayIdentifier)
 
-        :param string $overlayIdentifier: the overlayIdentifier
+        :param $overlayIdentifier: the overlayIdentifier

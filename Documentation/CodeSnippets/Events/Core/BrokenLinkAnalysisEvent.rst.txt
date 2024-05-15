@@ -22,7 +22,7 @@
 
     ..  php:method:: markAsBrokenLink(string $reason = '')
 
-        :param string $reason: the reason, default: ''
+        :param $reason: the reason, default: ''
 
     ..  php:method:: isBrokenLink()
         :returns: bool

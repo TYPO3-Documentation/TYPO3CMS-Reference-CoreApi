@@ -16,14 +16,14 @@
 
     ..  php:method:: setData(array $data)
 
-        :param array $data: the data
+        :param $data: the data
 
     ..  php:method:: getDataArrayPart()
         :returns: array
 
     ..  php:method:: setDataArrayPart(array $dataArrayPart)
 
-        :param array $dataArrayPart: the dataArrayPart
+        :param $dataArrayPart: the dataArrayPart
 
     ..  php:method:: getStart()
         :returns: int

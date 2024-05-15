@@ -76,7 +76,7 @@
         The identifier of the parent module during registration
 
     ..  php:method:: getParentModule()
-        :returns: TYPO3\CMS\Backend\Module\ModuleInterface
+        :returns: ?TYPO3\CMS\Backend\Module\ModuleInterface
 
         Get the reference to the next upper menu item
 
@@ -90,7 +90,7 @@
 
         Checks whether this module has a submodule with the given identifier
 
-        :param string $identifier: the identifier
+        :param $identifier: the identifier
 
     ..  php:method:: hasSubModules()
         :returns: bool
@@ -98,11 +98,11 @@
         Checks if this module has further submodules
 
     ..  php:method:: getSubModule(string $identifier)
-        :returns: TYPO3\CMS\Backend\Module\ModuleInterface
+        :returns: ?TYPO3\CMS\Backend\Module\ModuleInterface
 
         Return a submodule given by its full identifier
 
-        :param string $identifier: the identifier
+        :param $identifier: the identifier
 
     ..  php:method:: getSubModules()
         :returns: \ModuleInterface[]

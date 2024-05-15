@@ -16,46 +16,46 @@
 
     ..  php:method:: setRecords(array $records)
 
-        :param array $records: the records
+        :param $records: the records
 
     ..  php:method:: getFinalContent()
         :returns: string
 
     ..  php:method:: setFinalContent(string $finalContent)
 
-        :param string $finalContent: the finalContent
+        :param $finalContent: the finalContent
 
     ..  php:method:: getSlide()
         :returns: int
 
     ..  php:method:: setSlide(int $slide)
 
-        :param int $slide: the slide
+        :param $slide: the slide
 
     ..  php:method:: getSlideCollect()
         :returns: int
 
     ..  php:method:: setSlideCollect(int $slideCollect)
 
-        :param int $slideCollect: the slideCollect
+        :param $slideCollect: the slideCollect
 
     ..  php:method:: getSlideCollectReverse()
         :returns: bool
 
     ..  php:method:: setSlideCollectReverse(bool $slideCollectReverse)
 
-        :param bool $slideCollectReverse: the slideCollectReverse
+        :param $slideCollectReverse: the slideCollectReverse
 
     ..  php:method:: getSlideCollectFuzzy()
         :returns: bool
 
     ..  php:method:: setSlideCollectFuzzy(bool $slideCollectFuzzy)
 
-        :param bool $slideCollectFuzzy: the slideCollectFuzzy
+        :param $slideCollectFuzzy: the slideCollectFuzzy
 
     ..  php:method:: getConfiguration()
         :returns: array
 
     ..  php:method:: setConfiguration(array $configuration)
 
-        :param array $configuration: the configuration
+        :param $configuration: the configuration

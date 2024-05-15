@@ -10,7 +10,7 @@
 
     ..  php:method:: setTypoLinkParts(array $typoLinkParts)
 
-        :param array $typoLinkParts: the typoLinkParts
+        :param $typoLinkParts: the typoLinkParts
 
     ..  php:method:: getTypoLink()
         :returns: string

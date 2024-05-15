@@ -11,11 +11,11 @@
     ..  php:method:: hasGroup(string $group)
         :returns: bool
 
-        :param string $group: the group
+        :param $group: the group
 
     ..  php:method:: getErrors()
         :returns: array
 
     ..  php:method:: addError(string $error)
 
-        :param string $error: the error
+        :param $error: the error

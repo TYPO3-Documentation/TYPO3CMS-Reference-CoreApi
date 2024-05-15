@@ -16,9 +16,9 @@
 
     ..  php:method:: addAction(string $actionKey, string $content)
 
-        :param string $actionKey: the actionKey
-        :param string $content: the content
+        :param $actionKey: the actionKey
+        :param $content: the content
 
     ..  php:method:: setActions(array $actions)
 
-        :param array $actions: the actions
+        :param $actions: the actions

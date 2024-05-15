@@ -10,7 +10,7 @@
 
     ..  php:method:: setQueryBuilder(TYPO3\CMS\Core\Database\Query\QueryBuilder $queryBuilder)
 
-        :param TYPO3\CMS\Core\Database\Query\QueryBuilder $queryBuilder: the queryBuilder
+        :param $queryBuilder: the queryBuilder
 
     ..  php:method:: getTable()
         :returns: string

@@ -6,11 +6,11 @@
     Event is called after the content has been modified by the rest of the stdWrap functions
 
     ..  php:method:: getContent()
-        :returns: string
+        :returns: ?string
 
     ..  php:method:: setContent(string $content)
 
-        :param string $content: the content
+        :param $content: the content
 
     ..  php:method:: getConfiguration()
         :returns: array

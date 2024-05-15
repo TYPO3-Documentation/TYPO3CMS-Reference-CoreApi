@@ -8,7 +8,7 @@
 
     ..  php:method:: setPreviewUri(Psr\Http\Message\UriInterface $previewUri)
 
-        :param Psr\Http\Message\UriInterface $previewUri: the previewUri
+        :param $previewUri: the previewUri
 
     ..  php:method:: getPreviewUri()
         :returns: Psr\Http\Message\UriInterface

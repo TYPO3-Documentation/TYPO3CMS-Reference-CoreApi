@@ -10,11 +10,11 @@
 
     ..  php:method:: addTsConfig(string $tsConfig)
 
-        :param string $tsConfig: the tsConfig
+        :param $tsConfig: the tsConfig
 
     ..  php:method:: setTsConfig(array $tsConfig)
 
-        :param array $tsConfig: the tsConfig
+        :param $tsConfig: the tsConfig
 
     ..  php:method:: getRootLine()
         :returns: array

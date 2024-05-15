@@ -10,7 +10,7 @@
 
     ..  php:method:: setParameters(array $parameters)
 
-        :param array $parameters: the parameters
+        :param $parameters: the parameters
 
     ..  php:method:: getTypoLinkParts()
         :returns: array

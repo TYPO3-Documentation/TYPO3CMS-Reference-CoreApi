@@ -11,7 +11,7 @@
 
         Returns the path
 
-    ..  php:method:: setPath(string $pattern)
+    ..  php:method:: setPath(?string $pattern)
 
         Sets the pattern for the path
         A pattern must start with a slash and must not have multiple slashes at the beginning because the
@@ -19,7 +19,7 @@
 
         This method implements a fluent interface.
 
-        :param string $pattern: The path pattern
+        :param $pattern: The path pattern
 
     ..  php:method:: getMethods()
         :returns: string[] The methods
@@ -37,7 +37,7 @@
 
         This method implements a fluent interface.
 
-        :param array $methods: The array of allowed methods
+        :param $methods: The array of allowed methods
 
     ..  php:method:: getOptions()
 
@@ -49,25 +49,25 @@
 
         This method implements a fluent interface.
 
-        :param array $options: The options
+        :param $options: The options
 
-    ..  php:method:: setOption(string $name, mixed $value)
+    ..  php:method:: setOption(?string $name, ?mixed $value)
 
         Sets an option value
 
         This method implements a fluent interface.
 
-        :param string $name: An option name
-        :param mixed $value: The option value
+        :param $name: An option name
+        :param $value: The option value
 
-    ..  php:method:: getOption(string $name)
+    ..  php:method:: getOption(?string $name)
 
         Get an option value
 
-        :param string $name: An option name
+        :param $name: An option name
 
-    ..  php:method:: hasOption(string $name)
+    ..  php:method:: hasOption(?string $name)
 
         Checks if an option has been set
 
-        :param string $name: An option name
+        :param $name: An option name

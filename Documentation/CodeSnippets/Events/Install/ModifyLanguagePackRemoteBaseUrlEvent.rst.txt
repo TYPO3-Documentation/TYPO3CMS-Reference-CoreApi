@@ -10,7 +10,7 @@
 
     ..  php:method:: setBaseUrl(Psr\Http\Message\UriInterface $baseUrl)
 
-        :param Psr\Http\Message\UriInterface $baseUrl: the baseUrl
+        :param $baseUrl: the baseUrl
 
     ..  php:method:: getPackageKey()
         :returns: string

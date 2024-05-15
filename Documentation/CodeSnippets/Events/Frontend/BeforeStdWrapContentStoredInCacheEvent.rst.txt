@@ -10,32 +10,32 @@
     as well as the lifetime. Therefore, the whole configuration is available.
 
     ..  php:method:: getContent()
-        :returns: string
+        :returns: ?string
 
     ..  php:method:: setContent(string $content)
 
-        :param string $content: the content
+        :param $content: the content
 
     ..  php:method:: getTags()
         :returns: array
 
     ..  php:method:: setTags(array $tags)
 
-        :param array $tags: the tags
+        :param $tags: the tags
 
     ..  php:method:: getKey()
         :returns: string
 
     ..  php:method:: setKey(string $key)
 
-        :param string $key: the key
+        :param $key: the key
 
     ..  php:method:: getLifetime()
-        :returns: int
+        :returns: ?int
 
-    ..  php:method:: setLifetime(int $lifetime)
+    ..  php:method:: setLifetime(?int $lifetime)
 
-        :param int $lifetime: the lifetime
+        :param $lifetime: the lifetime
 
     ..  php:method:: getConfiguration()
         :returns: array

@@ -18,4 +18,4 @@
 
     ..  php:method:: setShouldUseCachedPageData(bool $shouldUseCachedPageData)
 
-        :param bool $shouldUseCachedPageData: the shouldUseCachedPageData
+        :param $shouldUseCachedPageData: the shouldUseCachedPageData

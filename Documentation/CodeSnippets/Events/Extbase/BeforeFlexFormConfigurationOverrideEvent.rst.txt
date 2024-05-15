@@ -20,4 +20,4 @@
 
     ..  php:method:: setFlexFormConfiguration(array $flexFormConfiguration)
 
-        :param array $flexFormConfiguration: the flexFormConfiguration
+        :param $flexFormConfiguration: the flexFormConfiguration

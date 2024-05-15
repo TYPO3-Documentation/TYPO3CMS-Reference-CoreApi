@@ -10,7 +10,7 @@
 
     ..  php:method:: setUrl(string $url)
 
-        :param string $url: the url
+        :param $url: the url
 
     ..  php:method:: getRequest()
         :returns: Psr\Http\Message\ServerRequestInterface
@@ -19,4 +19,4 @@
         :returns: TYPO3\CMS\Core\Domain\Page
 
     ..  php:method:: getCanonicalGenerationDisabledException()
-        :returns: TYPO3\CMS\Seo\Exception\CanonicalGenerationDisabledException
+        :returns: ?TYPO3\CMS\Seo\Exception\CanonicalGenerationDisabledException

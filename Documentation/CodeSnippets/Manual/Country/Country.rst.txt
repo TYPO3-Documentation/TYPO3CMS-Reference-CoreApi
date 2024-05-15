@@ -13,7 +13,7 @@
         :returns: string
 
     ..  php:method:: getOfficialName()
-        :returns: string
+        :returns: ?string
 
     ..  php:method:: getLocalizedOfficialNameLabel()
         :returns: string

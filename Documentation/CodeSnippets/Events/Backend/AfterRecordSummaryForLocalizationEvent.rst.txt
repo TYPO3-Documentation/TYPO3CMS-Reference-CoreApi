@@ -8,11 +8,11 @@
 
     ..  php:method:: setColumns(array $columns)
 
-        :param array $columns: the columns
+        :param $columns: the columns
 
     ..  php:method:: getRecords()
         :returns: array
 
     ..  php:method:: setRecords(array $records)
 
-        :param array $records: the records
+        :param $records: the records

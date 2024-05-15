@@ -13,7 +13,7 @@
 
     ..  php:method:: setUsed(bool $isUsed)
 
-        :param bool $isUsed: the isUsed
+        :param $isUsed: the isUsed
 
     ..  php:method:: getKnownColumnPositionNumbers()
         :returns: array

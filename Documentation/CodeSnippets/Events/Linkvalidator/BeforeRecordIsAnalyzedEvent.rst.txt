@@ -14,7 +14,7 @@
 
     ..  php:method:: setRecord(array $record)
 
-        :param array $record: the record
+        :param $record: the record
 
     ..  php:method:: getFields()
         :returns: array
@@ -24,7 +24,7 @@
 
     ..  php:method:: setResults(array $results)
 
-        :param array $results: the results
+        :param $results: the results
 
     ..  php:method:: getLinkAnalyzer()
         :returns: TYPO3\CMS\Linkvalidator\LinkAnalyzer

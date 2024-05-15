@@ -13,18 +13,18 @@
 
     ..  php:method:: setStorageUid(int $storageUid)
 
-        :param int $storageUid: the storageUid
+        :param $storageUid: the storageUid
 
     ..  php:method:: getRecord()
         :returns: array
 
     ..  php:method:: setRecord(array $record)
 
-        :param array $record: the record
+        :param $record: the record
 
     ..  php:method:: getFileIdentifier()
-        :returns: string
+        :returns: ?string
 
-    ..  php:method:: setFileIdentifier(string $fileIdentifier)
+    ..  php:method:: setFileIdentifier(?string $fileIdentifier)
 
-        :param string $fileIdentifier: the fileIdentifier
+        :param $fileIdentifier: the fileIdentifier

@@ -10,17 +10,17 @@
 
     ..  php:method:: setWizardItems(array $wizardItems)
 
-        :param array $wizardItems: the wizardItems
+        :param $wizardItems: the wizardItems
 
     ..  php:method:: hasWizardItem(string $identifier)
         :returns: bool
 
-        :param string $identifier: the identifier
+        :param $identifier: the identifier
 
     ..  php:method:: getWizardItem(string $identifier)
-        :returns: array
+        :returns: ?array
 
-        :param string $identifier: the identifier
+        :param $identifier: the identifier
 
     ..  php:method:: setWizardItem(string $identifier, array $configuration, array $position = [])
 
@@ -28,14 +28,14 @@
 
         Can also be used to relocate existing items and to modify their configuration.
 
-        :param string $identifier: the identifier
-        :param array $configuration: the configuration
-        :param array $position: the position, default: []
+        :param $identifier: the identifier
+        :param $configuration: the configuration
+        :param $position: the position, default: []
 
     ..  php:method:: removeWizardItem(string $identifier)
         :returns: bool
 
-        :param string $identifier: the identifier
+        :param $identifier: the identifier
 
     ..  php:method:: getPageInfo()
         :returns: array
@@ -43,7 +43,7 @@
         Provides information about the current page making use of the wizard.
 
     ..  php:method:: getColPos()
-        :returns: int
+        :returns: ?int
 
         Provides information about the column position of the button that triggered the wizard.
 

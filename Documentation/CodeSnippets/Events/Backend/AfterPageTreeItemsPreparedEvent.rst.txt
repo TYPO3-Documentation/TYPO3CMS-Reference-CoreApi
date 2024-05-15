@@ -13,4 +13,4 @@
 
     ..  php:method:: setItems(array $items)
 
-        :param array $items: the items
+        :param $items: the items

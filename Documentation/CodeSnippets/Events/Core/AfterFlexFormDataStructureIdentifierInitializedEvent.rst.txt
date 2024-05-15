@@ -38,7 +38,7 @@
         Allows to modify or completely replace the initialized data
         structure identifier.
 
-        :param array $identifier: the identifier
+        :param $identifier: the identifier
 
     ..  php:method:: getIdentifier()
         :returns: array

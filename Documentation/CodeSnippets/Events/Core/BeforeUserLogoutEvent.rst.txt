@@ -19,4 +19,4 @@
         :returns: bool
 
     ..  php:method:: getUserSession()
-        :returns: TYPO3\CMS\Core\Session\UserSession
+        :returns: ?TYPO3\CMS\Core\Session\UserSession

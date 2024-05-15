@@ -10,10 +10,10 @@
 
     ..  php:method:: setResult(array $result)
 
-        :param array $result: the result
+        :param $result: the result
 
     ..  php:method:: getUrn()
         :returns: string
 
     ..  php:method:: getResolveException()
-        :returns: TYPO3\CMS\Core\Exception
+        :returns: ?TYPO3\CMS\Core\Exception

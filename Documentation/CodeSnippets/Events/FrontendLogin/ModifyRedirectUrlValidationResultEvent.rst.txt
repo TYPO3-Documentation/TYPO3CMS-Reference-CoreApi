@@ -13,7 +13,7 @@
 
     ..  php:method:: setValidationResult(bool $validationResult)
 
-        :param bool $validationResult: the validationResult
+        :param $validationResult: the validationResult
 
     ..  php:method:: getRequest()
         :returns: Psr\Http\Message\ServerRequestInterface

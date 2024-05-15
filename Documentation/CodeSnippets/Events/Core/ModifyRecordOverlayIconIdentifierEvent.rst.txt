@@ -7,7 +7,7 @@
 
     ..  php:method:: setOverlayIconIdentifier(string $overlayIconIdentifier)
 
-        :param string $overlayIconIdentifier: the overlayIconIdentifier
+        :param $overlayIconIdentifier: the overlayIconIdentifier
 
     ..  php:method:: getOverlayIconIdentifier()
         :returns: string

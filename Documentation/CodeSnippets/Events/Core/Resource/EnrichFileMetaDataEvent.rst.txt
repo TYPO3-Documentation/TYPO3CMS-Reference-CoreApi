@@ -18,4 +18,4 @@
 
     ..  php:method:: setRecord(array $record)
 
-        :param array $record: the record
+        :param $record: the record

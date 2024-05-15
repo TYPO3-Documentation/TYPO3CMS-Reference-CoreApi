@@ -21,12 +21,12 @@
 
         Gets the currently running session backend for the given context
 
-        :param string $identifier: the identifier
+        :param $identifier: the identifier
 
-    ..  php:method:: invalidateAllSessionsByUserId(TYPO3\CMS\Core\Session\Backend\SessionBackendInterface $backend, int $userId, TYPO3\CMS\Core\Authentication\AbstractUserAuthentication $userAuthentication = NULL)
+    ..  php:method:: invalidateAllSessionsByUserId(TYPO3\CMS\Core\Session\Backend\SessionBackendInterface $backend, int $userId, ?TYPO3\CMS\Core\Authentication\AbstractUserAuthentication $userAuthentication = NULL)
 
         Removes all sessions for a specific user ID
 
-        :param TYPO3\CMS\Core\Session\Backend\SessionBackendInterface $backend: see constants
-        :param int $userId: the userId
-        :param TYPO3\CMS\Core\Authentication\AbstractUserAuthentication $userAuthentication: the userAuthentication, default: NULL
+        :param $backend: see constants
+        :param $userId: the userId
+        :param $userAuthentication: the userAuthentication, default: NULL

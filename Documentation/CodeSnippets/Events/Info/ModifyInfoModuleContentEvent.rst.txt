@@ -29,13 +29,13 @@
 
         IMPORTANT: This overwrites existing content from previous listeners!
 
-        :param string $content: the content
+        :param $content: the content
 
     ..  php:method:: addHeaderContent(string $content)
 
         Add additional content to the header
 
-        :param string $content: the content
+        :param $content: the content
 
     ..  php:method:: getHeaderContent()
         :returns: string
@@ -46,13 +46,13 @@
 
         IMPORTANT: This overwrites existing content from previous listeners!
 
-        :param string $content: the content
+        :param $content: the content
 
     ..  php:method:: addFooterContent(string $content)
 
         Add additional content to the footer
 
-        :param string $content: the content
+        :param $content: the content
 
     ..  php:method:: getFooterContent()
         :returns: string
