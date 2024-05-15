@@ -307,7 +307,7 @@ is used to provide a compatible expression.
 ..  include:: _ExpressionBuilderLeftPad.rst.txt
 
 Left-pad the value or sub-expression result with :php:`$paddingValue`, to a total
-length of $length.
+length of :php:`$length`.
 
 SQLite does not support :sql:`LPAD(string, integer, string)`, therefore a
 more complex compatible replacement expression construct is created.
@@ -329,7 +329,7 @@ more complex compatible replacement expression construct is created.
 
 ..  include:: _ExpressionBuilderLength.rst.txt
 
-The :php:`->length()` string function can be used to return the length of a
+The :php:`length()` string function can be used to return the length of a
 string in bytes.
 
 ..  literalinclude:: _RepositoryLength.php
@@ -353,7 +353,7 @@ Create a statement to generate a value repeating defined :php:`$value` for
 :php:`$numberOfRepeats` times. This method can be used to provide the
 repeat number as a sub-expression or calculation.
 
-:sql:`REPEAT(string, number)` is used to build this expression for all database
+:sql:`REPEAT("value", numberOfRepeats)` is used to build this expression for all database
 vendors except SQLite for which the compatible replacement construct expression
 :sql:`REPLACE(PRINTF('%.' || <valueOrStatement> || 'c', '/'),'/', <repeatValue>)`
 is used, based on :sql:`REPLACE()` and the built-in :sql:`printf()`.
@@ -376,10 +376,10 @@ is used, based on :sql:`REPLACE()` and the built-in :sql:`printf()`.
 
 ..  include:: _ExpressionBuilderRight.rst.txt
 
-Extract :php:`$length` character of :php:`$value` from the right side.
+Extract :php:`$length` characters of :php:`$value` from the right side.
 
-Creates a :sql:`RIGHT(string, number_of_chars)` expression for all supported
-database vendors except SQLite, where :sql:`substring(string, integer[, integer])`
+Creates a :sql:`RIGHT("value", length)` expression for all supported
+database vendors except SQLite, where :sql:`substring("value", start_of_string[, length])`
 is used to provide a compatible expression.
 
 ..  warning::
@@ -404,8 +404,8 @@ is used to provide a compatible expression.
 Right-pad the value or sub-expression result with :php:`$paddingValue`, to a
 total length of :php:`$length`.
 
-SQLite does not support :sql:`RPAD(string, integer, string)`, therefore a
-complexer compatible replacement expression construct is created.
+SQLite does not support :sql:`RPAD("value", length, "paddingValue")`, therefore a
+more complex compatible replacement expression construct is created.
 
 ..  warning::
 
@@ -425,9 +425,9 @@ complexer compatible replacement expression construct is created.
 
 ..  include:: _ExpressionBuilderSpace.rst.txt
 
-Create statement containing :php:`$numberOfSpaces` spaces.
+Create a statement containing :php:`$numberOfSpaces` space characters.
 
-The :sql:`SPACE(number)` expression is used for MariaDB and MySQL and
+The :sql:`SPACE(numberOfSpaces)` expression is used for MariaDB and MySQL and
 :php:`ExpressionBuilder::repeat()` expression as fallback for PostgreSQL
 and SQLite.
 
