@@ -40,12 +40,16 @@ final class MyTableRepository
             '0',
         );
 
+        // Left-pad the result of sub-expression casting "1123" to a string,
+        // resulting in "0000001123".
         $expression4 = $queryBuilder->expr()->leftPad(
             $queryBuilder->expr()->castVarchar('( 1123 )'),
             10,
             '0',
         );
 
+        // Left-pad the result of sub-expression casting "1123" to a string,
+        // resulting in "0000001123" being assigned to "virtual_field" 
         $expression5 = $queryBuilder->expr()->leftPad(
             $queryBuilder->expr()->castVarchar('( 1123 )'),
             10,

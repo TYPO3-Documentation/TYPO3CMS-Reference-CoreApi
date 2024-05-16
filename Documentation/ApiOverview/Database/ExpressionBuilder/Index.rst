@@ -278,7 +278,7 @@ For PostgreSQL the :sql:`"value"::INTEGER` cast notation is used.
 Extract :php:`$length` characters of :php:`$value` from the left side.
 
 Creates a :sql:`LEFT("value", number_of_chars)` expression for all supported
-database vendors except SQLite, where :sql:`substring(string, integer[, integer])`
+database vendors except SQLite, where :sql:`substring("value", start[, number_of_chars])`
 is used to provide a compatible expression.
 
 ..  tip::
@@ -299,7 +299,7 @@ is used to provide a compatible expression.
 Left-pad the value or sub-expression result with :php:`$paddingValue`, to a total
 length of :php:`$length`.
 
-SQLite does not support :sql:`LPAD(string, integer, string)`, therefore a
+SQLite does not support :sql:`LPAD("value", length, "paddingValue")`, therefore a
 more complex compatible replacement expression construct is created.
 
 ..  include:: _EscapeWarning.rst.txt

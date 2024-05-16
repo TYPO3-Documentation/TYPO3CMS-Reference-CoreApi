@@ -40,6 +40,8 @@ final class MyTableRepository
             '0',
         );
 
+        // Left-pad the result of sub-expression casting "1123" to a string,
+        // resulting in "1123000000""
         $expression4 = $queryBuilder->expr()->rightPad(
             $queryBuilder->expr()->castVarchar('( 1123 )'),
             10,

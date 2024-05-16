@@ -27,9 +27,10 @@ final class MyTableRepository
             $queryBuilder->quote('some-string'),
         );
 
+        // Returns a sub-expression (casting "8" as integer) to return "g-string"
         $expression3 = $queryBuilder->expr()->right(
-            $queryBuilder->expr()->castInt('(23)'),
-            $queryBuilder->quote('some-string'),
+            $queryBuilder->expr()->castInt('(8)'),
+            $queryBuilder->quote('some-very-log-string'),
         );
 
         // Return the right-side 23 characters from column "table_field_name"

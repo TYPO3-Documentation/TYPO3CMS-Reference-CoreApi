@@ -27,6 +27,5 @@ final class MyTableRepository
             100,                     // dynamic varchar(100) field
             'new_field_identifier',
         );
-        $this->doSomething($fieldVarcharCastExpression, $fieldExpressionCastExpression2);
     }
 }
