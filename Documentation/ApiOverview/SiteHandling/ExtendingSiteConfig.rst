@@ -1,3 +1,4 @@
+:navigation-title: Extended configuration
 ..  include:: /Includes.rst.txt
 ..  index:: Site handling; Extending
 ..  _sitehandling-extendingSiteConfiguration:
