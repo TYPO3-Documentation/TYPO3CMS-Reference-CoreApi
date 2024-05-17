@@ -1,12 +1,13 @@
+:navigation-title: Basics
 ..  include:: /Includes.rst.txt
 ..  index::
     Site handling; Basics
     Module; Site management
 ..  _sitehandling-basics:
 
-======
-Basics
-======
+====================
+Site handling basics
+====================
 
 TYPO3 site handling and configuration is the starting point for creating new
 websites. The corresponding modules are found in the TYPO3 backend in the

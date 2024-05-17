@@ -1,3 +1,4 @@
+:navigation-title: Environment variables
 ..  include:: /Includes.rst.txt
 ..  index::
     Site handling; Environment variables

@@ -1,3 +1,4 @@
+:navigation-title: Examples
 .. include:: /Includes.rst.txt
 .. index:: Routing; Examples
 .. _routing-examples:

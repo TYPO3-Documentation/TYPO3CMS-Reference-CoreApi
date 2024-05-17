@@ -1,3 +1,4 @@
+:navigation-title: Tea
 ..  include:: /Includes.rst.txt
 
 ..  index::
