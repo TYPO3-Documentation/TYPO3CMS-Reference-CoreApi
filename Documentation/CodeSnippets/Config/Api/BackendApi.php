@@ -1,5 +1,6 @@
 <?php
 
+use TYPO3\CMS\Backend\Template\ModuleTemplate;
 use TYPO3\CMS\Backend\Template\ModuleTemplateFactory;
 
 return [
@@ -25,6 +26,12 @@ return [
         'action' => 'createPhpClassDocs',
         'class' => ModuleTemplateFactory::class,
         'targetFileName' => 'ApiOverview/Backend/BackendModules/_ModuleTemplateFactory.rst.txt',
+        'withCode' => false,
+    ],
+    [
+        'action' => 'createPhpClassDocs',
+        'class' => ModuleTemplate::class,
+        'targetFileName' => 'ApiOverview/Backend/BackendModules/_ModuleTemplate.rst.txt',
         'withCode' => false,
     ],
 ];
