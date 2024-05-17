@@ -1,5 +1,7 @@
 <?php
 
+use TYPO3\CMS\Backend\Template\ModuleTemplateFactory;
+
 return [
     [
         'action' => 'createPhpClassDocs',
@@ -17,6 +19,12 @@ return [
         'action' => 'createPhpClassDocs',
         'class' => \TYPO3\CMS\Backend\Preview\PreviewRendererInterface::class,
         'targetFileName' => 'CodeSnippets/Manual/Backend/PreviewRendererInterface.rst.txt',
+        'withCode' => false,
+    ],
+    [
+        'action' => 'createPhpClassDocs',
+        'class' => ModuleTemplateFactory::class,
+        'targetFileName' => 'ApiOverview/Backend/BackendModules/_ModuleTemplateFactory.rst.txt',
         'withCode' => false,
     ],
 ];
