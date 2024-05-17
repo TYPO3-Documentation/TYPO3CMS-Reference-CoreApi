@@ -1,8 +1,6 @@
 .. include:: /Includes.rst.txt
-.. index:: ! Backend modules
-.. index:: Backend modules; API
-.. _backend-modules-api:
-.. _backend-modules:
+.. index:: Backend modules; How to
+.. _backend-modules-how-to:
 
 ===============
 Backend modules
