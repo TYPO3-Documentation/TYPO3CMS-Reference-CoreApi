@@ -1,3 +1,4 @@
+:navigation-title: Introduction
 .. include:: /Includes.rst.txt
 .. index::
    pair: Extension development; Extbase introduction

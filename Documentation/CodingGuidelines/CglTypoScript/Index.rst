@@ -1,6 +1,7 @@
-.. include:: /Includes.rst.txt
-.. index:: pair: Coding guidelines; TypoScript
-.. _cgl-typoscript:
+:navigation-title: TypoScript
+..  include:: /Includes.rst.txt
+..  index:: pair: Coding guidelines; TypoScript
+..  _cgl-typoscript:
 
 ============================
 TypoScript coding guidelines

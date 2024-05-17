@@ -1,3 +1,4 @@
+:navigation-title: Reference
 .. include:: /Includes.rst.txt
 
 .. index:: Extbase; Reference

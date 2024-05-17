@@ -1,3 +1,4 @@
+:navigation-title: Console tools
 ..  include:: /Includes.rst.txt
 ..  index:: Site handling; CLI tools
 ..  _sitehandling-cliTools:

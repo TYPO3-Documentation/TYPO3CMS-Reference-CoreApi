@@ -1,3 +1,4 @@
+:navigation-title: JavaScript
 .. include:: /Includes.rst.txt
 .. index:: pair: Coding guidelines; JavaScript
 .. _cgl-javascript:

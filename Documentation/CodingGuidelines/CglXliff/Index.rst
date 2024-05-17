@@ -1,3 +1,4 @@
+:navigation-title: XLIFF
 ..  include:: /Includes.rst.txt
 ..  index::
     pair: Coding guidelines; Xliff

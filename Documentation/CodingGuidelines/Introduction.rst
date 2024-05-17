@@ -1,9 +1,10 @@
+:navigation-title: Introduction
 .. include:: /Includes.rst.txt
 .. _cgl-introduction:
 
-============
-Introduction
-============
+=================================================
+Introduction to the TYPO3 coding guidelines (CGL)
+=================================================
 
 This chapter defines coding guidelines for the TYPO3 project.
 Following these guidelines is mandatory for TYPO3 Core  developers and

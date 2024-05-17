@@ -1,3 +1,4 @@
+:navigation-title: XCLASSes
 ..  include:: /Includes.rst.txt
 ..  index::
     ! XCLASS

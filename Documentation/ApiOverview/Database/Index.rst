@@ -1,3 +1,4 @@
+:navigation-title: Database
 .. include:: /Includes.rst.txt
 .. index:: ! Database
 .. _database:

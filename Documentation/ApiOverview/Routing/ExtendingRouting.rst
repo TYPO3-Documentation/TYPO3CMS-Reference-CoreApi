@@ -1,3 +1,4 @@
+:navigation-title: Extending
 .. include:: /Includes.rst.txt
 .. index:: Routing; Extending
 .. _routing-extending-routing:
