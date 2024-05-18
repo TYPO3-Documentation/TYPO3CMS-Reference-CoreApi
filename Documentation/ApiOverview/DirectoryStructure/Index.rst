@@ -157,7 +157,7 @@ directory :file:`_assets/`.
 
 ..  tip::
     When creating an extension without a :file:`Resources/Public/` folder, the
-    corresponding :file:`assets/` folder for that extension can not be symlinked
+    corresponding :file:`_assets/` folder for that extension can not be symlinked
     as the extension's :file:`Resources/Public/` folder does not exist. When you
     create it later after the installation of the extension, run a
     :bash:`composer dumpautoload` and the :file:`Resources/Public/` folder for
@@ -165,6 +165,7 @@ directory :file:`_assets/`.
 
 ..  seealso::
 
+    -   :ref:`<t3upgrade:migrate-public-assets>`
     -   `TYPO3 and Composer — we've come a long way <https://b13.com/core-insights/typo3-and-composer-weve-come-a-long-way>`__
     -   `Composer changes for TYPO3 v11 and v12 <https://usetypo3.com/composer-changes-for-typo3-v11-and-v12.html>`__
     -   `Migration to typo3/composer-cms-installers version 4+ <https://brot.krue.ml/migration-typo3-composer-cms-installers-version-4/>`__
