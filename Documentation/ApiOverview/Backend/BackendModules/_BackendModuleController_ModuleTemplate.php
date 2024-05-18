@@ -33,6 +33,7 @@ final class BackendModuleController extends ActionController
 
         return $moduleTemplate;
     }
+
     private function getLanguageService(): LanguageService
     {
         return $GLOBALS['LANG'];

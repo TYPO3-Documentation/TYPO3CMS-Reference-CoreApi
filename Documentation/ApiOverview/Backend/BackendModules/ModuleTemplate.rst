@@ -1,4 +1,4 @@
-.. include:: /Includes.rst.txt
+..  include:: /Includes.rst.txt
 .. index:: Backend modules; ModuleTemplateFactory
 .. _ModuleTemplate:
 
@@ -7,7 +7,7 @@ ModuleTemplate
 ==============
 
 Backend controllers should use :ref:`ModuleTemplateFactory:create <ModuleTemplateFactory>`
-to create instances of a :php:`\TYPO3\CMS\Backend\Template\ModuleTemplate.`.
+to create instances of a :php:`\TYPO3\CMS\Backend\Template\ModuleTemplate`.
 
 ..  include:: _ModuleTemplate.rst.txt
 
