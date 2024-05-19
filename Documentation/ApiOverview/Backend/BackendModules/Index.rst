@@ -17,3 +17,8 @@ Backend modules API
 This chapter describes the API that can be used to create custom backend modules
 in extensions. See the following chapter for a tutorial on :ref:`how to create
 custom backend modules <backend-modules-how-to>`.
+
+..  toctree::
+    :glob:
+
+    *
