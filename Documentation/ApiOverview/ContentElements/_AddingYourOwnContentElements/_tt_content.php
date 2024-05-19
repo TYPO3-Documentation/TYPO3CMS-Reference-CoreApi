@@ -15,7 +15,7 @@ defined('TYPO3') or die();
         // icon identifier
         'icon' => 'content-text',
         // group
-        'group' => 'common',
+        'group' => 'default',
         // description
         'description' => 'LLL:EXT:my_extension/Resources/Private/Language/locallang.xlf:myextension_newcontentelement_description',
     ],
