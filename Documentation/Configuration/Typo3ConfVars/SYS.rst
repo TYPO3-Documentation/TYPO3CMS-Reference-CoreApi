@@ -811,6 +811,9 @@ features
 New features of TYPO3 that are activated on new installations but upgrading
 installations may still use the old behaviour.
 
+These settings are :ref:`feature toggles <feature-toggles>` and can be
+changed in the Backend module :guilabel:`Settings` in the section
+:guilabel:`Feature Toggles`, but not in :guilabel:`Configure Installation-Wide Options`.
 
 .. index::
    TYPO3_CONF_VARS SYS; features form.legacyUploadMimeTypes
