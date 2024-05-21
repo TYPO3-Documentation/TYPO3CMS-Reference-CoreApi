@@ -1122,7 +1122,7 @@ fileExtensionToMimeType
 
     This is the default:
 
-    .. code-block:: php
+    ..  code-block:: php
 
         $GLOBALS['TYPO3_CONF_VARS']['SYS']['FileInfo']['fileExtensionToMimeType'] = [
             'fileExtensionToMimeType' => [
