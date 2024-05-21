@@ -1141,7 +1141,7 @@ FileInfo
 fileExtensionToMimeType
 -----------------------
 
-.. confval:: $GLOBALS['TYPO3_CONF_VARS']['SYS']['FileInfo']['fileExtensionToMimeType']
+..  confval:: $GLOBALS['TYPO3_CONF_VARS']['SYS']['FileInfo']['fileExtensionToMimeType']
 
     :Path: $GLOBALS['TYPO3_CONF_VARS']['SYS']['FileInfo']
     :type: array
