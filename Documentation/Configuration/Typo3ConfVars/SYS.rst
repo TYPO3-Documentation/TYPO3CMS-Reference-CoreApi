@@ -1103,7 +1103,7 @@ FileInfo
 
 .. index::
    TYPO3_CONF_VARS SYS; FileInfo fileExtensionToMimeType
-.. _typo3ConfVars_sys_FileInfo_fileExtensionToMimeType:
+..  _typo3ConfVars_sys_FileInfo_fileExtensionToMimeType:
 
 fileExtensionToMimeType
 -----------------------
