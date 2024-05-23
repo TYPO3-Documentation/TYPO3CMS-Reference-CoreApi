@@ -21,7 +21,7 @@ dependencies are loaded from this file as well.
 
 It is also needed for :ref:`Writing functional tests <t3coreapi:testing-writing-functional>`
 with the `typo3/testing-framework <https://github.com/TYPO3/testing-framework>` in v8 and 
-bellow.
+earlier.
 
 ..  versionchanged:: 11.4
     In Composer-based installations, the ordering of installed extensions and
