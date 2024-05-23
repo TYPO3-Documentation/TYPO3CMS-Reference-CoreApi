@@ -19,6 +19,10 @@ supply information about an extension in the :guilabel:`Admin Tools > Extensions
 module. In these installations the ordering of installed extensions and their
 dependencies are loaded from this file as well.
 
+It is also needed for :ref:`Writing functional tests <t3coreapi:testing-writing-functional>`
+with the `typo3/testing-framework <https://github.com/TYPO3/testing-framework>` in v8 and 
+bellow.
+
 ..  versionchanged:: 11.4
     In Composer-based installations, the ordering of installed extensions and
     their dependencies is loaded from the :file:`composer.json` file, instead of
