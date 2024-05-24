@@ -1,3 +1,4 @@
+:navigation-title: Plain controller
 .. include:: /Includes.rst.txt
 
 .. _backend-modules-template-without-extbase:
