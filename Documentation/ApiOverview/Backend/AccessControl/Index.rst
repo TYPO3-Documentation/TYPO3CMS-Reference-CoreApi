@@ -1,3 +1,5 @@
+:navigation-title: Access control
+
 .. include:: /Includes.rst.txt
 .. index:: pair: Backend; Access control
 .. _access:

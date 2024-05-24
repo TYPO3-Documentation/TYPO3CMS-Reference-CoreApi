@@ -1,3 +1,5 @@
+:navigation-title: LoginProvider
+
 .. include:: /Includes.rst.txt
 
 .. _login-provider:

@@ -1,3 +1,5 @@
+:navigation-title: Custom Permissions
+
 .. include:: /Includes.rst.txt
 
 .. _custom-permissions:
