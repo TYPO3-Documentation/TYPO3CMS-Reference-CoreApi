@@ -5,7 +5,7 @@
     :noindex:
 
     ..  php:method:: leftPad(string $value, string|int $length, string $paddingValue, string $asIdentifier = '')
-        :returns: string Returns database connection platform compatible left-pad expression.
+        :returns: `string Returns database connection platform compatible left-pad expression.`
 
         :param $value: Value, identifier or expression defining the value which should be left padded
         :param $length: Padded length, to either fill up with $paddingValue on the left side or crop to

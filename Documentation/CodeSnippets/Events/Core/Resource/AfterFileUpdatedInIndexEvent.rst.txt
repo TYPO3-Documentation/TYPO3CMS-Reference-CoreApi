@@ -8,10 +8,10 @@
     Custom listeners can update further index values when a file was updated.
 
     ..  php:method:: getFile()
-        :returns: TYPO3\CMS\Core\Resource\File
+        :returns: `\TYPO3\CMS\Core\Resource\File`
 
     ..  php:method:: getRelevantProperties()
-        :returns: array
+        :returns: `array`
 
     ..  php:method:: getUpdatedFields()
-        :returns: array
+        :returns: `array`

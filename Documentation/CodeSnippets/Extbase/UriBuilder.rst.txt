@@ -5,15 +5,15 @@
 
     URI Builder for extbase requests.
 
-    ..  php:method:: setRequest(TYPO3\CMS\Extbase\Mvc\RequestInterface $request)
-        :returns: static the current UriBuilder to allow method chaining
+    ..  php:method:: setRequest(\TYPO3\CMS\Extbase\Mvc\RequestInterface $request)
+        :returns: `static the current UriBuilder to allow method chaining`
 
         Sets the current request
 
         :param $request: the request
 
     ..  php:method:: setArguments(array $arguments)
-        :returns: static the current UriBuilder to allow method chaining
+        :returns: `static the current UriBuilder to allow method chaining`
 
         Additional query parameters.
 
@@ -23,42 +23,42 @@
         :param $arguments: the arguments
 
     ..  php:method:: setSection(string $section)
-        :returns: static the current UriBuilder to allow method chaining
+        :returns: `static the current UriBuilder to allow method chaining`
 
         If specified, adds a given HTML anchor to the URI (#...)
 
         :param $section: the section
 
     ..  php:method:: setFormat(string $format)
-        :returns: static the current UriBuilder to allow method chaining
+        :returns: `static the current UriBuilder to allow method chaining`
 
         Specifies the format of the target (e.g. "html" or "xml")
 
         :param $format: the format
 
     ..  php:method:: setCreateAbsoluteUri(bool $createAbsoluteUri)
-        :returns: static the current UriBuilder to allow method chaining
+        :returns: `static the current UriBuilder to allow method chaining`
 
         If set, the URI is prepended with the current base URI. Defaults to FALSE.
 
         :param $createAbsoluteUri: the createAbsoluteUri
 
     ..  php:method:: setAbsoluteUriScheme(string $absoluteUriScheme)
-        :returns: static the current UriBuilder to allow method chaining
+        :returns: `static the current UriBuilder to allow method chaining`
 
         Sets the scheme that should be used for absolute URIs in FE mode
 
         :param $absoluteUriScheme: the scheme to be used for absolute URIs
 
     ..  php:method:: setLanguage(?string $language)
-        :returns: TYPO3\CMS\Extbase\Mvc\Web\Routing\UriBuilder
+        :returns: `\TYPO3\CMS\Extbase\Mvc\Web\Routing\UriBuilder`
 
         Enforces a URI / link to a page to a specific language (or use "current")
 
         :param $language: the language
 
     ..  php:method:: setAddQueryString(string|int|bool $addQueryString)
-        :returns: static the current UriBuilder to allow method chaining
+        :returns: `static the current UriBuilder to allow method chaining`
 
         If set, the current query parameters will be merged with $this->arguments in backend context.
 
@@ -69,7 +69,7 @@
         :param $addQueryString: is set to "1", "true", "0", "false" or "untrusted"
 
     ..  php:method:: setArgumentsToBeExcludedFromQueryString(array $argumentsToBeExcludedFromQueryString)
-        :returns: static the current UriBuilder to allow method chaining
+        :returns: `static the current UriBuilder to allow method chaining`
 
         A list of arguments to be excluded from the query parameters
         Only active if addQueryString is set
@@ -77,47 +77,47 @@
         :param $argumentsToBeExcludedFromQueryString: the argumentsToBeExcludedFromQueryString
 
     ..  php:method:: setArgumentPrefix(string $argumentPrefix)
-        :returns: static the current UriBuilder to allow method chaining
+        :returns: `static the current UriBuilder to allow method chaining`
 
         Specifies the prefix to be used for all arguments.
 
         :param $argumentPrefix: the argumentPrefix
 
     ..  php:method:: setLinkAccessRestrictedPages(bool $linkAccessRestrictedPages)
-        :returns: static the current UriBuilder to allow method chaining
+        :returns: `static the current UriBuilder to allow method chaining`
 
         If set, URIs for pages without access permissions will be created
 
         :param $linkAccessRestrictedPages: the linkAccessRestrictedPages
 
     ..  php:method:: setTargetPageUid(int $targetPageUid)
-        :returns: static the current UriBuilder to allow method chaining
+        :returns: `static the current UriBuilder to allow method chaining`
 
         Uid of the target page
 
         :param $targetPageUid: the targetPageUid
 
     ..  php:method:: setTargetPageType(int $targetPageType)
-        :returns: static the current UriBuilder to allow method chaining
+        :returns: `static the current UriBuilder to allow method chaining`
 
         Sets the page type of the target URI. Defaults to 0
 
         :param $targetPageType: the targetPageType
 
     ..  php:method:: setNoCache(bool $noCache)
-        :returns: static the current UriBuilder to allow method chaining
+        :returns: `static the current UriBuilder to allow method chaining`
 
         by default FALSE; if TRUE, &no_cache=1 will be appended to the URI
 
         :param $noCache: the noCache
 
     ..  php:method:: reset()
-        :returns: static the current UriBuilder to allow method chaining
+        :returns: `static the current UriBuilder to allow method chaining`
 
         Resets all UriBuilder options to their default value
 
     ..  php:method:: uriFor(?string $actionName = NULL, ?array $controllerArguments = NULL, ?string $controllerName = NULL, ?string $extensionName = NULL, ?string $pluginName = NULL)
-        :returns: string the rendered URI
+        :returns: `string the rendered URI`
 
         Creates a URI used for linking to an Extbase action.
 
@@ -130,7 +130,7 @@
         :param $pluginName: Name of the target plugin. If not set, current PluginName is used., default: NULL
 
     ..  php:method:: build()
-        :returns: string The URI
+        :returns: `string The URI`
 
         Builds the URI
         Depending on the current context this calls buildBackendUri() or buildFrontendUri()

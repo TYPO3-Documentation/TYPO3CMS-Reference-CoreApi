@@ -9,7 +9,7 @@
     $frontendTypoScript = $request->getAttribute('frontend.typoscript');
 
     ..  php:method:: getFlatSettings()
-        :returns: array
+        :returns: `array`
 
         This is *always* set up by the middleware / factory: Current settings ("constants")
         are needed for page cache identifier calculation.
@@ -33,7 +33,7 @@
             ];
 
     ..  php:method:: getSetupArray()
-        :returns: array
+        :returns: `array`
 
         The full Frontend TypoScript array.
 
@@ -42,6 +42,6 @@
         not exist, or when the page contains COA_INT or USER_INT objects.
 
     ..  php:method:: getConfigArray()
-        :returns: array
+        :returns: `array`
 
         Array representation of getConfigTree().

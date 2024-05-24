@@ -6,19 +6,19 @@
     Event fired so listeners can intercept add elements when checking links within the SoftRef parser
 
     ..  php:method:: getLinkParts()
-        :returns: array
+        :returns: `array`
 
     ..  php:method:: getContent()
-        :returns: string
+        :returns: `string`
 
     ..  php:method:: getElements()
-        :returns: array
+        :returns: `array`
 
     ..  php:method:: getIdx()
-        :returns: int
+        :returns: `int`
 
     ..  php:method:: getTokenId()
-        :returns: string
+        :returns: `string`
 
     ..  php:method:: setLinkParts(array $linkParts)
 
@@ -37,4 +37,4 @@
         :param $elements: the elements
 
     ..  php:method:: isResolved()
-        :returns: bool
+        :returns: `bool`

@@ -6,9 +6,9 @@
     This event is triggered when an import file is about to be imported
 
     ..  php:method:: getImport()
-        :returns: TYPO3\CMS\Impexp\Import
+        :returns: `\TYPO3\CMS\Impexp\Import`
 
     ..  php:method:: getFile()
-        :returns: string
+        :returns: `string`
 
         The file being about to be imported

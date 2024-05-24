@@ -13,7 +13,7 @@
     a special implementation detail for the TYPO3 core.
 
     ..  php:method:: canBeUsedForConnection(string $identifier, array $connectionParams)
-        :returns: bool
+        :returns: `bool`
 
         Return true if the driver middleware should be used for the concrete connection.
 

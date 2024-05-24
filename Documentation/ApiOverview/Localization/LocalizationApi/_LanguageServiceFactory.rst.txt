@@ -4,18 +4,18 @@
 ..  php:class:: LanguageServiceFactory
 
     ..  php:method:: create(TYPO3\CMS\Core\Localization\Locale|string $locale)
-        :returns: TYPO3\CMS\Core\Localization\LanguageService
+        :returns: `\TYPO3\CMS\Core\Localization\LanguageService`
 
         Factory method to create a language service object.
 
         :param $locale: the locale
 
-    ..  php:method:: createFromUserPreferences(?TYPO3\CMS\Core\Authentication\AbstractUserAuthentication $user)
-        :returns: TYPO3\CMS\Core\Localization\LanguageService
+    ..  php:method:: createFromUserPreferences(?\TYPO3\CMS\Core\Authentication\AbstractUserAuthentication $user)
+        :returns: `\TYPO3\CMS\Core\Localization\LanguageService`
 
         :param $user: the user
 
-    ..  php:method:: createFromSiteLanguage(TYPO3\CMS\Core\Site\Entity\SiteLanguage $language)
-        :returns: TYPO3\CMS\Core\Localization\LanguageService
+    ..  php:method:: createFromSiteLanguage(\TYPO3\CMS\Core\Site\Entity\SiteLanguage $language)
+        :returns: `\TYPO3\CMS\Core\Localization\LanguageService`
 
         :param $language: the language

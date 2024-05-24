@@ -10,13 +10,13 @@
         :param $overlayIconIdentifier: the overlayIconIdentifier
 
     ..  php:method:: getOverlayIconIdentifier()
-        :returns: string
+        :returns: `string`
 
     ..  php:method:: getTable()
-        :returns: string
+        :returns: `string`
 
     ..  php:method:: getRow()
-        :returns: array
+        :returns: `array`
 
     ..  php:method:: getStatus()
-        :returns: array
+        :returns: `array`

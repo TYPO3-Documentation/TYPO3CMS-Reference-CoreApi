@@ -6,11 +6,11 @@
     Event to modify the main URL of a language
 
     ..  php:method:: getBaseUrl()
-        :returns: Psr\Http\Message\UriInterface
+        :returns: `\Psr\Http\Message\UriInterface`
 
-    ..  php:method:: setBaseUrl(Psr\Http\Message\UriInterface $baseUrl)
+    ..  php:method:: setBaseUrl(\Psr\Http\Message\UriInterface $baseUrl)
 
         :param $baseUrl: the baseUrl
 
     ..  php:method:: getPackageKey()
-        :returns: string
+        :returns: `string`

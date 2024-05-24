@@ -8,7 +8,7 @@
     Allows to further manipulate $tca before it is cached and set as $GLOBALS['TCA'].
 
     ..  php:method:: getTca()
-        :returns: array
+        :returns: `array`
 
     ..  php:method:: setTca(array $tca)
 

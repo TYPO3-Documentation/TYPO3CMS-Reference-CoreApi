@@ -17,10 +17,10 @@
     if an outer middleware did not return early (for instance due to permission issues).
 
     ..  php:method:: getRequest()
-        :returns: Psr\Http\Message\ServerRequestInterface
+        :returns: `\Psr\Http\Message\ServerRequestInterface`
 
     ..  php:method:: getPageCacheIdentifierParameters()
-        :returns: array
+        :returns: `array`
 
     ..  php:method:: setPageCacheIdentifierParameters(array $pageCacheIdentifierParameters)
 

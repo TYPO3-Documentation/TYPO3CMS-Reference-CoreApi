@@ -10,19 +10,19 @@
     record data.
 
     ..  php:method:: getDomain()
-        :returns: string Request domain name (host)
+        :returns: `string Request domain name (host)`
 
     ..  php:method:: getPath()
-        :returns: string Request path
+        :returns: `string Request path`
 
     ..  php:method:: getQuery()
-        :returns: string Request query parameters
+        :returns: `string Request query parameters`
 
     ..  php:method:: getMatchDomainName()
-        :returns: string Domain name which should be checked, and `getRedirects()` items are provided for
+        :returns: `string Domain name which should be checked, and `getRedirects()` items are provided for`
 
     ..  php:method:: getMatchedRedirect()
-        :returns: array|null Returns the matched `sys_redirect` record or null
+        :returns: `array|null Returns the matched `sys_redirect` record or null`
 
     ..  php:method:: setMatchedRedirect(?array $matchedRedirect)
 

@@ -9,11 +9,11 @@
     version if appropriate.
 
     ..  php:method:: getContent()
-        :returns: string
+        :returns: `string`
 
     ..  php:method:: setContent(string $content)
 
         :param $content: the content
 
     ..  php:method:: getView()
-        :returns: TYPO3\CMS\Core\View\ViewInterface
+        :returns: `\TYPO3\CMS\Core\View\ViewInterface`

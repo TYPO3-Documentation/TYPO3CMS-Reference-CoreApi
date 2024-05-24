@@ -6,32 +6,32 @@
     Listeners to this Event will be able to modify items for a menu generated with HMENU
 
     ..  php:method:: getAllMenuItems()
-        :returns: array
+        :returns: `array`
 
     ..  php:method:: getFilteredMenuItems()
-        :returns: array
+        :returns: `array`
 
     ..  php:method:: setFilteredMenuItems(array $filteredMenuItems)
 
         :param $filteredMenuItems: the filteredMenuItems
 
     ..  php:method:: getMenuConfiguration()
-        :returns: array
+        :returns: `array`
 
     ..  php:method:: getItemConfiguration()
-        :returns: array
+        :returns: `array`
 
     ..  php:method:: getBannedMenuItems()
-        :returns: array
+        :returns: `array`
 
     ..  php:method:: getExcludedDoktypes()
-        :returns: array
+        :returns: `array`
 
     ..  php:method:: getSite()
-        :returns: TYPO3\CMS\Core\Site\Entity\Site
+        :returns: `\TYPO3\CMS\Core\Site\Entity\Site`
 
     ..  php:method:: getContext()
-        :returns: TYPO3\CMS\Core\Context\Context
+        :returns: `\TYPO3\CMS\Core\Context\Context`
 
     ..  php:method:: getCurrentPage()
-        :returns: array
+        :returns: `array`

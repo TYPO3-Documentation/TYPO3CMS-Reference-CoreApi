@@ -5,7 +5,7 @@
     :noindex:
 
     ..  php:method:: right(string|int $length, string $value, string $asIdentifier = '')
-        :returns: string Return the expression to extract defined substring from the right side
+        :returns: `string Return the expression to extract defined substring from the right side`
 
         :param $length: Integer value or expression providing the length as integer
         :param $value: Value, identifier or expression defining the value to extract from the left

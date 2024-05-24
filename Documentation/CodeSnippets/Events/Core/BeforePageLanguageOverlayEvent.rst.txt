@@ -7,22 +7,22 @@
     pages are about to be translated (or tried to be localized).
 
     ..  php:method:: getPageInput()
-        :returns: array
+        :returns: `array`
 
     ..  php:method:: setPageInput(array $pageInput)
 
         :param $pageInput: the pageInput
 
     ..  php:method:: getPageIds()
-        :returns: array
+        :returns: `array`
 
     ..  php:method:: setPageIds(array $pageIds)
 
         :param $pageIds: the pageIds
 
     ..  php:method:: getLanguageAspect()
-        :returns: TYPO3\CMS\Core\Context\LanguageAspect
+        :returns: `\TYPO3\CMS\Core\Context\LanguageAspect`
 
-    ..  php:method:: setLanguageAspect(TYPO3\CMS\Core\Context\LanguageAspect $languageAspect)
+    ..  php:method:: setLanguageAspect(\TYPO3\CMS\Core\Context\LanguageAspect $languageAspect)
 
         :param $languageAspect: the languageAspect

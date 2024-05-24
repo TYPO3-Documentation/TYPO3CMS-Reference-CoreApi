@@ -24,19 +24,19 @@
     See the note on FlexFormTools regarding the schema of $dataStructure.
 
     ..  php:method:: getFieldTca()
-        :returns: array
+        :returns: `array`
 
         Returns the full TCA of the currently handled field, having
         `type=flex` set.
 
     ..  php:method:: getTableName()
-        :returns: string
+        :returns: `string`
 
     ..  php:method:: getFieldName()
-        :returns: string
+        :returns: `string`
 
     ..  php:method:: getRow()
-        :returns: array
+        :returns: `array`
 
         Returns the whole database row of the current record.
 
@@ -51,11 +51,11 @@
         :param $identifier: the identifier
 
     ..  php:method:: getIdentifier()
-        :returns: ?array
+        :returns: `?array`
 
         Returns the current data structure identifier, which will always be
         `null` for listeners, since the event propagation is
         stopped as soon as a listener defines an identifier.
 
     ..  php:method:: isPropagationStopped()
-        :returns: bool
+        :returns: `bool`

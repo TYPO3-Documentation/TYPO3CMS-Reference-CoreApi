@@ -6,17 +6,17 @@
     Listeners are able to modify the resolved ContentObjectRenderer->getData() result
 
     ..  php:method:: getResult()
-        :returns: ?mixed
+        :returns: `?mixed`
 
     ..  php:method:: setResult(?mixed $result)
 
         :param $result: the result
 
     ..  php:method:: getParameterString()
-        :returns: string
+        :returns: `string`
 
     ..  php:method:: getAlternativeFieldArray()
-        :returns: array
+        :returns: `array`
 
     ..  php:method:: getContentObjectRenderer()
-        :returns: TYPO3\CMS\Frontend\ContentObject\ContentObjectRenderer
+        :returns: `\TYPO3\CMS\Frontend\ContentObject\ContentObjectRenderer`

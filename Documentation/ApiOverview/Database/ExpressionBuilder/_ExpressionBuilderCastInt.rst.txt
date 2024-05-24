@@ -5,7 +5,7 @@
     :noindex:
 
     ..  php:method:: castInt(string $value, string $asIdentifier = '')
-        :returns: string Returns the integer cast expression compatible with the connection database platform
+        :returns: `string Returns the integer cast expression compatible with the connection database platform`
 
         :param $value: Quoted value or expression result which should be cast to integer type
         :param $asIdentifier: Optionally add a field identifier alias (`AS`), default: ''

@@ -6,41 +6,41 @@
     Contains all resolved parameters when a page is resolved from a page path segment plus all fragments.
 
     ..  php:method:: areDirty()
-        :returns: bool
+        :returns: `bool`
 
     ..  php:method:: getRouteArguments()
-        :returns: array<string,string|array>
+        :returns: `array<string,string|array>`
 
     ..  php:method:: getPageId()
-        :returns: int
+        :returns: `int`
 
     ..  php:method:: getPageType()
-        :returns: string
+        :returns: `string`
 
     ..  php:method:: get(string $name)
-        :returns: string|array<string,string|array>|null
+        :returns: `string|array<string,string|array>|null`
 
         :param $name: the name
 
     ..  php:method:: getArguments()
-        :returns: array<string,string|array>
+        :returns: `array<string,string|array>`
 
     ..  php:method:: getStaticArguments()
-        :returns: array<string,string|array>
+        :returns: `array<string,string|array>`
 
     ..  php:method:: getDynamicArguments()
-        :returns: array<string,string|array>
+        :returns: `array<string,string|array>`
 
     ..  php:method:: getQueryArguments()
-        :returns: array<string,string|array>
+        :returns: `array<string,string|array>`
 
     ..  php:method:: offsetExists(?mixed $offset)
-        :returns: bool
+        :returns: `bool`
 
         :param $offset: the offset
 
     ..  php:method:: offsetGet(?mixed $offset)
-        :returns: string|array<string,string|array>|null
+        :returns: `string|array<string,string|array>|null`
 
         :param $offset: the offset
 

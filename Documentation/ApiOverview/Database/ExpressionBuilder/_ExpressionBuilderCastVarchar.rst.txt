@@ -5,7 +5,7 @@
     :noindex:
 
     ..  php:method:: castVarchar(string $value, int $length = 255, string $asIdentifier = '')
-        :returns: string Returns the cast expression compatible for the database platform
+        :returns: `string Returns the cast expression compatible for the database platform`
 
         :param $value: Unquoted value or expression, which should be cast
         :param $length: Dynamic varchar field length, default: 255

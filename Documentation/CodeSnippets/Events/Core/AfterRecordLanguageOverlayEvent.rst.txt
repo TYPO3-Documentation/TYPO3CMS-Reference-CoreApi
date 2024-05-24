@@ -6,22 +6,22 @@
     Event which is fired after a record was translated (or tried to be localized).
 
     ..  php:method:: getTable()
-        :returns: string
+        :returns: `string`
 
     ..  php:method:: getRecord()
-        :returns: array
+        :returns: `array`
 
     ..  php:method:: getLanguageAspect()
-        :returns: TYPO3\CMS\Core\Context\LanguageAspect
+        :returns: `\TYPO3\CMS\Core\Context\LanguageAspect`
 
     ..  php:method:: setLocalizedRecord(?array $localizedRecord)
 
         :param $localizedRecord: the localizedRecord
 
     ..  php:method:: getLocalizedRecord()
-        :returns: ?array
+        :returns: `?array`
 
     ..  php:method:: overlayingWasAttempted()
-        :returns: bool
+        :returns: `bool`
 
         Determines if the overlay functionality happened, thus, returning the lo

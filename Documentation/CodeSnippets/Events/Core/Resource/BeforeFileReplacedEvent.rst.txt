@@ -8,7 +8,7 @@
     Custom listeners can check for file integrity or analyze the content of the file before it gets added.
 
     ..  php:method:: getFile()
-        :returns: TYPO3\CMS\Core\Resource\FileInterface
+        :returns: `\TYPO3\CMS\Core\Resource\FileInterface`
 
     ..  php:method:: getLocalFilePath()
-        :returns: string
+        :returns: `string`

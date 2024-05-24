@@ -10,18 +10,18 @@
     allows to retrieve the TransportInterface using the getTransport() method.
 
     ..  php:method:: getMessage()
-        :returns: Symfony\Component\Mime\RawMessage
+        :returns: `\Symfony\Component\Mime\RawMessage`
 
-    ..  php:method:: setMessage(Symfony\Component\Mime\RawMessage $message)
+    ..  php:method:: setMessage(\Symfony\Component\Mime\RawMessage $message)
 
         :param $message: the message
 
     ..  php:method:: getEnvelope()
-        :returns: ?Symfony\Component\Mailer\Envelope
+        :returns: `?\Symfony\Component\Mailer\Envelope`
 
-    ..  php:method:: setEnvelope(?Symfony\Component\Mailer\Envelope $envelope = NULL)
+    ..  php:method:: setEnvelope(?\Symfony\Component\Mailer\Envelope $envelope = NULL)
 
         :param $envelope: the envelope, default: NULL
 
     ..  php:method:: getMailer()
-        :returns: Symfony\Component\Mailer\MailerInterface
+        :returns: `\Symfony\Component\Mailer\MailerInterface`

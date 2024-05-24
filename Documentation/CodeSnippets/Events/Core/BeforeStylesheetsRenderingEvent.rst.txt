@@ -6,10 +6,10 @@
     This event is fired once before \TYPO3\CMS\Core\Page\AssetRenderer::render[Inline]Stylesheets renders the output.
 
     ..  php:method:: getAssetCollector()
-        :returns: TYPO3\CMS\Core\Page\AssetCollector
+        :returns: `\TYPO3\CMS\Core\Page\AssetCollector`
 
     ..  php:method:: isInline()
-        :returns: bool
+        :returns: `bool`
 
     ..  php:method:: isPriority()
-        :returns: bool
+        :returns: `bool`

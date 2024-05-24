@@ -8,7 +8,7 @@
     This allows to further specify folder names according to regulations for a specific project.
 
     ..  php:method:: getParentFolder()
-        :returns: TYPO3\CMS\Core\Resource\Folder
+        :returns: `\TYPO3\CMS\Core\Resource\Folder`
 
     ..  php:method:: getFolderName()
-        :returns: string
+        :returns: `string`

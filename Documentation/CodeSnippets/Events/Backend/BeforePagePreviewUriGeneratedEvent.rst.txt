@@ -6,53 +6,53 @@
     Listeners to this event will be able to modify the corresponding parameters, before
     the page preview URI is being generated, when linking to a page in the frontend.
 
-    ..  php:method:: setPreviewUri(Psr\Http\Message\UriInterface $uri)
+    ..  php:method:: setPreviewUri(\Psr\Http\Message\UriInterface $uri)
 
         :param $uri: the uri
 
     ..  php:method:: getPreviewUri()
-        :returns: ?Psr\Http\Message\UriInterface
+        :returns: `?\Psr\Http\Message\UriInterface`
 
     ..  php:method:: isPropagationStopped()
-        :returns: bool
+        :returns: `bool`
 
     ..  php:method:: getPageId()
-        :returns: int
+        :returns: `int`
 
     ..  php:method:: setPageId(int $pageId)
 
         :param $pageId: the pageId
 
     ..  php:method:: getLanguageId()
-        :returns: int
+        :returns: `int`
 
     ..  php:method:: setLanguageId(int $languageId)
 
         :param $languageId: the languageId
 
     ..  php:method:: getRootline()
-        :returns: array
+        :returns: `array`
 
     ..  php:method:: setRootline(array $rootline)
 
         :param $rootline: the rootline
 
     ..  php:method:: getSection()
-        :returns: string
+        :returns: `string`
 
     ..  php:method:: setSection(string $section)
 
         :param $section: the section
 
     ..  php:method:: getAdditionalQueryParameters()
-        :returns: array
+        :returns: `array`
 
     ..  php:method:: setAdditionalQueryParameters(array $additionalQueryParameters)
 
         :param $additionalQueryParameters: the additionalQueryParameters
 
     ..  php:method:: getContext()
-        :returns: TYPO3\CMS\Core\Context\Context
+        :returns: `\TYPO3\CMS\Core\Context\Context`
 
     ..  php:method:: getOptions()
-        :returns: array
+        :returns: `array`

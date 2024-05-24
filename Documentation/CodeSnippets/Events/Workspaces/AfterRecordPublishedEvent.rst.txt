@@ -6,16 +6,16 @@
     Event that is fired after a record has been published in a workspace.
 
     ..  php:method:: getTable()
-        :returns: string
+        :returns: `string`
 
         The table name of the record.
 
     ..  php:method:: getRecordId()
-        :returns: int
+        :returns: `int`
 
         The uid of the record
 
     ..  php:method:: getWorkspaceId()
-        :returns: int
+        :returns: `int`
 
         The workspace the record has been published in.

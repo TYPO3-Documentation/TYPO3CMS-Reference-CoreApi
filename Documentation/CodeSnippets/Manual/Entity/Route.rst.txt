@@ -22,14 +22,14 @@
         :param $pattern: The path pattern
 
     ..  php:method:: getMethods()
-        :returns: string[] The methods
+        :returns: `string[] The methods`
 
         Returns the uppercased HTTP methods this route is restricted to.
 
         An empty array means that any method is allowed.
 
     ..  php:method:: setMethods(array $methods)
-        :returns: self
+        :returns: `self`
 
         Sets the HTTP methods (e.g. ['POST']) this route is restricted to.
 

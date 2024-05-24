@@ -8,8 +8,8 @@
     Custom handlers can be initialized at this moment for any kind of source  as well.
 
     ..  php:method:: getStorage()
-        :returns: TYPO3\CMS\Core\Resource\ResourceStorage
+        :returns: `\TYPO3\CMS\Core\Resource\ResourceStorage`
 
-    ..  php:method:: setStorage(TYPO3\CMS\Core\Resource\ResourceStorage $storage)
+    ..  php:method:: setStorage(\TYPO3\CMS\Core\Resource\ResourceStorage $storage)
 
         :param $storage: the storage

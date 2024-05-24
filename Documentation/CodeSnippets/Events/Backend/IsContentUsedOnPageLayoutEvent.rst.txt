@@ -6,17 +6,17 @@
     Use this Event to identify whether a content element is used.
 
     ..  php:method:: getRecord()
-        :returns: array
+        :returns: `array`
 
     ..  php:method:: isRecordUsed()
-        :returns: bool
+        :returns: `bool`
 
     ..  php:method:: setUsed(bool $isUsed)
 
         :param $isUsed: the isUsed
 
     ..  php:method:: getKnownColumnPositionNumbers()
-        :returns: array
+        :returns: `array`
 
     ..  php:method:: getPageLayoutContext()
-        :returns: TYPO3\CMS\Backend\View\PageLayoutContext
+        :returns: `\TYPO3\CMS\Backend\View\PageLayoutContext`

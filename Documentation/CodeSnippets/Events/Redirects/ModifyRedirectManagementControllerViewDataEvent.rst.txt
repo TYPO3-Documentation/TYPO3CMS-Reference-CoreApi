@@ -9,18 +9,18 @@
     It can be used to further enrich view data for the management view.
 
     ..  php:method:: getDemand()
-        :returns: TYPO3\CMS\Redirects\Repository\Demand
+        :returns: `\TYPO3\CMS\Redirects\Repository\Demand`
 
         Return the demand object used to retrieve the redirects.
 
-    ..  php:method:: setDemand(TYPO3\CMS\Redirects\Repository\Demand $demand)
+    ..  php:method:: setDemand(\TYPO3\CMS\Redirects\Repository\Demand $demand)
 
         Can be used to set the demand object.
 
         :param $demand: the demand
 
     ..  php:method:: getRedirects()
-        :returns: array
+        :returns: `array`
 
         Return the retrieved redirects.
 
@@ -31,12 +31,12 @@
         :param $redirects: the redirects
 
     ..  php:method:: getRequest()
-        :returns: Psr\Http\Message\ServerRequestInterface
+        :returns: `\Psr\Http\Message\ServerRequestInterface`
 
         Return the current PSR-7 request.
 
     ..  php:method:: getHosts()
-        :returns: array
+        :returns: `array`
 
         Returns the hosts to be used for the host filter select box.
 
@@ -47,7 +47,7 @@
         :param $hosts: the hosts
 
     ..  php:method:: getStatusCodes()
-        :returns: array
+        :returns: `array`
 
         Returns the status codes for the filter select box.
 
@@ -58,7 +58,7 @@
         :param $statusCodes: the statusCodes
 
     ..  php:method:: getCreationTypes()
-        :returns: array
+        :returns: `array`
 
         Returns creation types for the filter select box.
 
@@ -69,7 +69,7 @@
         :param $creationTypes: the creationTypes
 
     ..  php:method:: getShowHitCounter()
-        :returns: bool
+        :returns: `bool`
 
         Returns, if hit counter should be displayed.
 
@@ -80,18 +80,18 @@
         :param $showHitCounter: the showHitCounter
 
     ..  php:method:: getView()
-        :returns: TYPO3\CMS\Core\View\ViewInterface
+        :returns: `\TYPO3\CMS\Core\View\ViewInterface`
 
         Returns the current view object, without controller data assigned yet.
 
-    ..  php:method:: setView(TYPO3\CMS\Core\View\ViewInterface $view)
+    ..  php:method:: setView(\TYPO3\CMS\Core\View\ViewInterface $view)
 
         Can be used to assign additional data to the view.
 
         :param $view: the view
 
     ..  php:method:: getIntegrityStatusCodes()
-        :returns: array
+        :returns: `array`
 
         Returns all integrity status codes.
 

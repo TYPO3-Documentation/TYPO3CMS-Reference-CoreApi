@@ -6,4 +6,4 @@
     Listeners are able to modify the initialized ContentObjectRenderer instance
 
     ..  php:method:: getContentObjectRenderer()
-        :returns: TYPO3\CMS\Frontend\ContentObject\ContentObjectRenderer
+        :returns: `\TYPO3\CMS\Frontend\ContentObject\ContentObjectRenderer`

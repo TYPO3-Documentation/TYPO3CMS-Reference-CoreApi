@@ -6,14 +6,14 @@
     Listeners are able to modify the resolved link result data
 
     ..  php:method:: getResult()
-        :returns: array
+        :returns: `array`
 
     ..  php:method:: setResult(array $result)
 
         :param $result: the result
 
     ..  php:method:: getUrn()
-        :returns: string
+        :returns: `string`
 
     ..  php:method:: getResolveException()
-        :returns: ?TYPO3\CMS\Core\Exception
+        :returns: `?\TYPO3\CMS\Core\Exception`

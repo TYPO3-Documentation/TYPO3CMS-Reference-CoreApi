@@ -7,7 +7,7 @@
     third-party processed files with this event.
 
     ..  php:method:: getFolder()
-        :returns: TYPO3\CMS\Core\Resource\Folder
+        :returns: `\TYPO3\CMS\Core\Resource\Folder`
 
     ..  php:method:: isDeleted()
-        :returns: bool
+        :returns: `bool`

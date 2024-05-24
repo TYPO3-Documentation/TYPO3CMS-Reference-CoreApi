@@ -10,13 +10,13 @@
     in `$originalFlexFormConfiguration`.
 
     ..  php:method:: getFrameworkConfiguration()
-        :returns: array
+        :returns: `array`
 
     ..  php:method:: getOriginalFlexFormConfiguration()
-        :returns: array
+        :returns: `array`
 
     ..  php:method:: getFlexFormConfiguration()
-        :returns: array
+        :returns: `array`
 
     ..  php:method:: setFlexFormConfiguration(array $flexFormConfiguration)
 

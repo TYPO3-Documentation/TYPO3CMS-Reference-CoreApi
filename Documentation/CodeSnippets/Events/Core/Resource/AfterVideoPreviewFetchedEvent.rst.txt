@@ -6,13 +6,13 @@
     Allows to modify a generated YouTube/Vimeo (or other Online Media) preview images
 
     ..  php:method:: getFile()
-        :returns: TYPO3\CMS\Core\Resource\File
+        :returns: `\TYPO3\CMS\Core\Resource\File`
 
     ..  php:method:: getOnlineMediaId()
-        :returns: string
+        :returns: `string`
 
     ..  php:method:: getPreviewImageFilename()
-        :returns: string
+        :returns: `string`
 
     ..  php:method:: setPreviewImageFilename(string $previewImageFilename)
 

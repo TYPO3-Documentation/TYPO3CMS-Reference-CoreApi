@@ -6,10 +6,10 @@
     Event that is triggered after a package has been activated
 
     ..  php:method:: getPackageKey()
-        :returns: string
+        :returns: `string`
 
     ..  php:method:: getType()
-        :returns: string
+        :returns: `string`
 
     ..  php:method:: getEmitter()
-        :returns: ?object
+        :returns: `?object`

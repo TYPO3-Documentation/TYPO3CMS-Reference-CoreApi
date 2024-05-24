@@ -10,35 +10,35 @@
     as well as the lifetime. Therefore, the whole configuration is available.
 
     ..  php:method:: getContent()
-        :returns: ?string
+        :returns: `?string`
 
     ..  php:method:: setContent(string $content)
 
         :param $content: the content
 
     ..  php:method:: getTags()
-        :returns: array
+        :returns: `array`
 
     ..  php:method:: setTags(array $tags)
 
         :param $tags: the tags
 
     ..  php:method:: getKey()
-        :returns: string
+        :returns: `string`
 
     ..  php:method:: setKey(string $key)
 
         :param $key: the key
 
     ..  php:method:: getLifetime()
-        :returns: ?int
+        :returns: `?int`
 
     ..  php:method:: setLifetime(?int $lifetime)
 
         :param $lifetime: the lifetime
 
     ..  php:method:: getConfiguration()
-        :returns: array
+        :returns: `array`
 
     ..  php:method:: getContentObjectRenderer()
-        :returns: TYPO3\CMS\Frontend\ContentObject\ContentObjectRenderer
+        :returns: `\TYPO3\CMS\Frontend\ContentObject\ContentObjectRenderer`

@@ -5,7 +5,7 @@
 
     Interface for Backend Login providers
 
-    ..  php:method:: render(TYPO3\CMS\Fluid\View\StandaloneView $view, TYPO3\CMS\Core\Page\PageRenderer $pageRenderer, TYPO3\CMS\Backend\Controller\LoginController $loginController)
+    ..  php:method:: render(\TYPO3\CMS\Fluid\View\StandaloneView $view, \TYPO3\CMS\Core\Page\PageRenderer $pageRenderer, \TYPO3\CMS\Backend\Controller\LoginController $loginController)
 
         Render the login HTML
 

@@ -25,7 +25,7 @@
         :param $after: the after, default: ''
 
     ..  php:method:: hasAction(string $actionName, string $group = '')
-        :returns: bool
+        :returns: `bool`
 
         Whether the action exists in the given group. In case non or
         an invalid $group is provided, both groups will be checked.
@@ -34,7 +34,7 @@
         :param $group: the group, default: ''
 
     ..  php:method:: getAction(string $actionName, string $group = '')
-        :returns: ?string
+        :returns: `?string`
 
         Get action by its name. In case the action exists in both groups
         and non or an invalid $group is provided, the action from the
@@ -44,8 +44,8 @@
         :param $group: the group, default: ''
 
     ..  php:method:: removeAction(string $actionName, string $group = '')
-        :returns: bool Whether the action could be removed - Will therefore
-    return FALSE if the action to remove does not exist.
+        :returns: `bool Whether the action could be removed - Will therefore
+    return FALSE if the action to remove does not exist.`
 
         Remove action by its name. In case the action exists in both groups
         and non or an invalid $group is provided, the action will be removed
@@ -55,7 +55,7 @@
         :param $group: the group, default: ''
 
     ..  php:method:: getActionGroup(string $group)
-        :returns: ?array
+        :returns: `?array`
 
         Get the actions of a specific group
 
@@ -66,15 +66,15 @@
         :param $actions: the actions
 
     ..  php:method:: getActions()
-        :returns: array
+        :returns: `array`
 
     ..  php:method:: getTable()
-        :returns: string
+        :returns: `string`
 
     ..  php:method:: getRecord()
-        :returns: array
+        :returns: `array`
 
     ..  php:method:: getRecordList()
-        :returns: TYPO3\CMS\Backend\RecordList\DatabaseRecordList
+        :returns: `\TYPO3\CMS\Backend\RecordList\DatabaseRecordList`
 
         Returns the current DatabaseRecordList instance.

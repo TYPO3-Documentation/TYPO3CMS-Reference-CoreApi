@@ -12,7 +12,7 @@
         :param $data: the data
 
     ..  php:method:: getSqlData()
-        :returns: array
+        :returns: `array`
 
     ..  php:method:: setSqlData(array $sqlData)
 

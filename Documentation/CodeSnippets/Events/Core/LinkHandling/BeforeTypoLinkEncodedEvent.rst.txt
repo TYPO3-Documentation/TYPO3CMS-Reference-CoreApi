@@ -6,17 +6,17 @@
     Listeners are able to modify the to be encoded TypoLink parameters
 
     ..  php:method:: getParameters()
-        :returns: array
+        :returns: `array`
 
     ..  php:method:: setParameters(array $parameters)
 
         :param $parameters: the parameters
 
     ..  php:method:: getTypoLinkParts()
-        :returns: array
+        :returns: `array`
 
     ..  php:method:: getDelimiter()
-        :returns: string
+        :returns: `string`
 
     ..  php:method:: getEmptyValueSymbol()
-        :returns: string
+        :returns: `string`

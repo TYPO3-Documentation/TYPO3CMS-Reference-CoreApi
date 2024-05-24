@@ -5,7 +5,7 @@
     :noindex:
 
     ..  php:method:: length(string $fieldName, ?string $alias = NULL)
-        :returns: string
+        :returns: `string`
 
         Creates a LENGTH expression for the given field/alias.
 

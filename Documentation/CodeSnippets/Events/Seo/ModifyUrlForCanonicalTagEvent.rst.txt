@@ -6,17 +6,17 @@
     PSR-14 event to alter (or empty) a canonical URL for the href="" attribute of a canonical URL.
 
     ..  php:method:: getUrl()
-        :returns: string
+        :returns: `string`
 
     ..  php:method:: setUrl(string $url)
 
         :param $url: the url
 
     ..  php:method:: getRequest()
-        :returns: Psr\Http\Message\ServerRequestInterface
+        :returns: `\Psr\Http\Message\ServerRequestInterface`
 
     ..  php:method:: getPage()
-        :returns: TYPO3\CMS\Core\Domain\Page
+        :returns: `\TYPO3\CMS\Core\Domain\Page`
 
     ..  php:method:: getCanonicalGenerationDisabledException()
-        :returns: ?TYPO3\CMS\Seo\Exception\CanonicalGenerationDisabledException
+        :returns: `?\TYPO3\CMS\Seo\Exception\CanonicalGenerationDisabledException`

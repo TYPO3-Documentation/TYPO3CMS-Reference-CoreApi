@@ -5,6 +5,6 @@
     :noindex:
 
     ..  php:method:: concat(string ...$parts)
-        :returns: string Returns the concatenation expression compatible with the database connection platform
+        :returns: `string Returns the concatenation expression compatible with the database connection platform`
 
         :param $parts: the parts

@@ -28,4 +28,4 @@
         :param $reason: the reason
 
     ..  php:method:: isCachingAllowed()
-        :returns: bool
+        :returns: `bool`

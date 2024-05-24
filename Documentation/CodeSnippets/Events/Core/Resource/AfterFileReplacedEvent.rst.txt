@@ -8,7 +8,7 @@
     Example: Further process a file or create variants, or index the contents of a file for AI analysis etc.
 
     ..  php:method:: getFile()
-        :returns: TYPO3\CMS\Core\Resource\FileInterface
+        :returns: `\TYPO3\CMS\Core\Resource\FileInterface`
 
     ..  php:method:: getLocalFilePath()
-        :returns: string
+        :returns: `string`

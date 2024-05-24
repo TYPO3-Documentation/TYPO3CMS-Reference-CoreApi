@@ -8,7 +8,7 @@
     Allows to manipulate $tca, before overrides are merged.
 
     ..  php:method:: getTca()
-        :returns: array
+        :returns: `array`
 
     ..  php:method:: setTca(array $tca)
 

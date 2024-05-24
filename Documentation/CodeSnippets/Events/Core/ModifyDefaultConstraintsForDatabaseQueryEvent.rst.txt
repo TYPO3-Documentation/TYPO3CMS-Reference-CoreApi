@@ -12,23 +12,23 @@
     than one usergroup to content and page records
 
     ..  php:method:: getTable()
-        :returns: string
+        :returns: `string`
 
     ..  php:method:: getTableAlias()
-        :returns: string
+        :returns: `string`
 
     ..  php:method:: getExpressionBuilder()
-        :returns: TYPO3\CMS\Core\Database\Query\Expression\ExpressionBuilder
+        :returns: `\TYPO3\CMS\Core\Database\Query\Expression\ExpressionBuilder`
 
     ..  php:method:: getConstraints()
-        :returns: array
+        :returns: `array`
 
     ..  php:method:: setConstraints(array $constraints)
 
         :param $constraints: the constraints
 
     ..  php:method:: getEnableFieldsToIgnore()
-        :returns: array
+        :returns: `array`
 
     ..  php:method:: getContext()
-        :returns: TYPO3\CMS\Core\Context\Context
+        :returns: `\TYPO3\CMS\Core\Context\Context`

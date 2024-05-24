@@ -6,28 +6,28 @@
     Listeners to this Event will be able to modify the state (enabled or disabled) for controls of a file reference
 
     ..  php:method:: enableControl(string $identifier)
-        :returns: bool Whether the control could be enabled
+        :returns: `bool Whether the control could be enabled`
 
         Enable a control, if it exists
 
         :param $identifier: the identifier
 
     ..  php:method:: disableControl(string $identifier)
-        :returns: bool Whether the control could be disabled
+        :returns: `bool Whether the control could be disabled`
 
         Disable a control, if it exists
 
         :param $identifier: the identifier
 
     ..  php:method:: hasControl(string $identifier)
-        :returns: bool
+        :returns: `bool`
 
         Returns whether a control exists for the given identifier
 
         :param $identifier: the identifier
 
     ..  php:method:: isControlEnabled(string $identifier)
-        :returns: bool
+        :returns: `bool`
 
         Returns whether the control is enabled.
 
@@ -36,41 +36,41 @@
         :param $identifier: the identifier
 
     ..  php:method:: getControlsState()
-        :returns: array
+        :returns: `array`
 
         Returns all controls with their state (enabled or disabled)
 
     ..  php:method:: getEnabledControls()
-        :returns: array
+        :returns: `array`
 
         Returns all enabled controls
 
     ..  php:method:: getElementData()
-        :returns: array
+        :returns: `array`
 
         Returns the whole element data
 
     ..  php:method:: getRecord()
-        :returns: array
+        :returns: `array`
 
         Returns the current record of the controls are created for
 
     ..  php:method:: getParentUid()
-        :returns: string
+        :returns: `string`
 
         Returns the uid of the parent (embedding) record (uid or NEW...)
 
     ..  php:method:: getForeignTable()
-        :returns: string
+        :returns: `string`
 
         Returns the table (foreign_table) the controls are created for
 
     ..  php:method:: getFieldConfiguration()
-        :returns: array
+        :returns: `array`
 
         Returns the TCA configuration of the TCA type=file field
 
     ..  php:method:: isVirtual()
-        :returns: bool
+        :returns: `bool`
 
         Returns whether the current records is only virtually shown and not physically part of the parent record

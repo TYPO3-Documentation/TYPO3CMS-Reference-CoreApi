@@ -6,17 +6,17 @@
     This event allows extensions to add or remove from the list of allowed link types.
 
     ..  php:method:: getAllowedItems()
-        :returns: string[]
+        :returns: `string[]`
 
     ..  php:method:: addAllowedItem(string $item)
-        :returns: self
+        :returns: `self`
 
         :param $item: the item
 
     ..  php:method:: removeAllowedItem(string $new)
-        :returns: self
+        :returns: `self`
 
         :param $new: the new
 
     ..  php:method:: getCurrentLinkParts()
-        :returns: array<string,mixed>
+        :returns: `array<string,mixed>`

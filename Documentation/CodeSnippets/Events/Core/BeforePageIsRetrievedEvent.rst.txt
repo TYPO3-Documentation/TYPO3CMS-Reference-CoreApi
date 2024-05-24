@@ -9,24 +9,28 @@
     with custom overlaying, or to fully resolve the page on your own.
 
     ..  php:method:: getPage()
-        :returns: ?TYPO3\CMS\Core\Domain\Page
+        :returns: `?\TYPO3\CMS\Core\Domain\Page`
 
-    ..  php:method:: setPage(TYPO3\CMS\Core\Domain\Page $page)
+    ..  php:method:: setPage(\TYPO3\CMS\Core\Domain\Page $page)
 
         :param $page: the page
 
     ..  php:method:: hasPage()
-        :returns: bool
+        :returns: `bool`
 
     ..  php:method:: getPageId()
-        :returns: int
+        :returns: `int`
 
     ..  php:method:: setPageId(int $pageId)
 
         :param $pageId: the pageId
 
+    ..  php:method:: skipGroupAccessCheck()
+
+    ..  php:method:: respectGroupAccessCheck()
+
     ..  php:method:: isGroupAccessCheckSkipped()
-        :returns: bool
+        :returns: `bool`
 
     ..  php:method:: getContext()
-        :returns: TYPO3\CMS\Core\Context\Context
+        :returns: `\TYPO3\CMS\Core\Context\Context`

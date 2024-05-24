@@ -7,14 +7,14 @@
     but before any content gets modified or replaced.
 
     ..  php:method:: getContent()
-        :returns: ?string
+        :returns: `?string`
 
     ..  php:method:: setContent(string $content)
 
         :param $content: the content
 
     ..  php:method:: getConfiguration()
-        :returns: array
+        :returns: `array`
 
     ..  php:method:: getContentObjectRenderer()
-        :returns: TYPO3\CMS\Frontend\ContentObject\ContentObjectRenderer
+        :returns: `\TYPO3\CMS\Frontend\ContentObject\ContentObjectRenderer`

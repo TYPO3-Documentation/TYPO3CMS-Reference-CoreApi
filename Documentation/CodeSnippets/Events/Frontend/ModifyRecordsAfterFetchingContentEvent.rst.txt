@@ -12,49 +12,49 @@
     and options, such as the "value" or "slide".
 
     ..  php:method:: getRecords()
-        :returns: array
+        :returns: `array`
 
     ..  php:method:: setRecords(array $records)
 
         :param $records: the records
 
     ..  php:method:: getFinalContent()
-        :returns: string
+        :returns: `string`
 
     ..  php:method:: setFinalContent(string $finalContent)
 
         :param $finalContent: the finalContent
 
     ..  php:method:: getSlide()
-        :returns: int
+        :returns: `int`
 
     ..  php:method:: setSlide(int $slide)
 
         :param $slide: the slide
 
     ..  php:method:: getSlideCollect()
-        :returns: int
+        :returns: `int`
 
     ..  php:method:: setSlideCollect(int $slideCollect)
 
         :param $slideCollect: the slideCollect
 
     ..  php:method:: getSlideCollectReverse()
-        :returns: bool
+        :returns: `bool`
 
     ..  php:method:: setSlideCollectReverse(bool $slideCollectReverse)
 
         :param $slideCollectReverse: the slideCollectReverse
 
     ..  php:method:: getSlideCollectFuzzy()
-        :returns: bool
+        :returns: `bool`
 
     ..  php:method:: setSlideCollectFuzzy(bool $slideCollectFuzzy)
 
         :param $slideCollectFuzzy: the slideCollectFuzzy
 
     ..  php:method:: getConfiguration()
-        :returns: array
+        :returns: `array`
 
     ..  php:method:: setConfiguration(array $configuration)
 
