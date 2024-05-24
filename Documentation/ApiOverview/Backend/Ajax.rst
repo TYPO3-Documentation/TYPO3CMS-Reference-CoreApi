@@ -1,3 +1,5 @@
+:navigation-title: Ajax
+
 ..  include:: /Includes.rst.txt
 ..  index:: pair: Ajax; Backend
 ..  _ajax-backend:
