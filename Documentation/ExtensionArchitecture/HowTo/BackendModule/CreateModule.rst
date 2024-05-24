@@ -8,7 +8,7 @@ Create a backend module with Core functionality
 ===============================================
 
 This page covers the backend template view, using only Core functionality
-without Extbase.
+without Extbase. See also the :ref:`Backend module API <backend-modules>`.
 
 .. tip::
 

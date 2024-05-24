@@ -13,6 +13,7 @@ Create a backend module with Extbase
    If you don't want to do extensive data modeling templates can be written
    :ref:`without Extbase. <backend-modules-template-without-extbase>`
 
+See also the :ref:`Backend module API <backend-modules>`.
 
 Backend modules can be written using the Extbase/Fluid combination.
 

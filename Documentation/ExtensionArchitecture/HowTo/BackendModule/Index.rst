@@ -16,6 +16,10 @@ backend. They are described in this chapter.
     :class: pb-4
     :card-height: 100
 
+    ..  card:: :ref:`Backend module API <backend-modules>`
+
+        See the API about classes and configuration for backend modules.
+
     ..  card:: :ref:`Backend module configuration examples <backend-modules-configuration-examples>`
 
         Howto register custom modules provided by extensions.
@@ -24,7 +28,6 @@ backend. They are described in this chapter.
 
         Explains how to create a module with Extbase and Fluid. This is
         the preferred method if extensive data modeling is involved.
-
 
     ..  card:: :ref:`Create a module with Core functionality <backend-modules-template-without-extbase>`
 
