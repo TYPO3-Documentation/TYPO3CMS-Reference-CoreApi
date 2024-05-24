@@ -1,14 +1,13 @@
+:navigation-title: Tutorials
+
 .. include:: /Includes.rst.txt
 .. index:: Backend modules; Tutorials
 
 .. _backend-modules-tutorials:
 
-=========
-Tutorials
-=========
-
-Tutorial - Backend Module Registration - Part 1
-===============================================
+======================================
+Tutorial - Backend Module Registration
+======================================
 
 Susanne Moog demonstrates how to register a TYPO3 backend module. The backend
 module is based on a regular TYPO3 installation. Extbase is not used.
@@ -25,10 +24,7 @@ is still possible to use PHP 7.4. So either require PHP 8.0 and
 above in your :file:`composer.json` or use a normal constructor
 for the dependency injection and refrain from using named arguments.
 
-Tutorial - Backend Module Registration - Part 2
-===============================================
-
-Susanne Moog shows you how to create a TYPO3 backend module that looks
+In part two she shows you how to create a TYPO3 backend module that looks
 and behaves like other backend modules and uses the Fluid templating engine for its content.
 
 ..  youtube:: hnksXYtFgbY
