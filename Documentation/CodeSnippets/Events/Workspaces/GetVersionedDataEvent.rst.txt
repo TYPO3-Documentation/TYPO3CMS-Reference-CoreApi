@@ -9,24 +9,24 @@
     cleaned / prepared data with an optional limit applied depending on the view.
 
     ..  php:method:: getGridService()
-        :returns: TYPO3\CMS\Workspaces\Service\GridDataService
+        :returns: `\TYPO3\CMS\Workspaces\Service\GridDataService`
 
     ..  php:method:: getData()
-        :returns: array
+        :returns: `array`
 
     ..  php:method:: setData(array $data)
 
         :param $data: the data
 
     ..  php:method:: getDataArrayPart()
-        :returns: array
+        :returns: `array`
 
     ..  php:method:: setDataArrayPart(array $dataArrayPart)
 
         :param $dataArrayPart: the dataArrayPart
 
     ..  php:method:: getStart()
-        :returns: int
+        :returns: `int`
 
     ..  php:method:: getLimit()
-        :returns: int
+        :returns: `int`

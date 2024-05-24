@@ -9,14 +9,14 @@
     listeners to be called on each step, see child Events:
 
     ..  php:method:: getContent()
-        :returns: ?string
+        :returns: `?string`
 
     ..  php:method:: setContent(string $content)
 
         :param $content: the content
 
     ..  php:method:: getConfiguration()
-        :returns: array
+        :returns: `array`
 
     ..  php:method:: getContentObjectRenderer()
-        :returns: TYPO3\CMS\Frontend\ContentObject\ContentObjectRenderer
+        :returns: `\TYPO3\CMS\Frontend\ContentObject\ContentObjectRenderer`

@@ -6,80 +6,80 @@
     A standard backend nodule
 
     ..  php:method:: getRoutes()
-        :returns: array
+        :returns: `array`
 
     ..  php:method:: getDefaultRouteOptions()
-        :returns: array
+        :returns: `array`
 
     ..  php:method:: createFromConfiguration(string $identifier, array $configuration)
-        :returns: static
+        :returns: `static`
 
         :param $identifier: the identifier
         :param $configuration: the configuration
 
     ..  php:method:: getIdentifier()
-        :returns: string
+        :returns: `string`
 
     ..  php:method:: getPath()
-        :returns: string
+        :returns: `string`
 
     ..  php:method:: getIconIdentifier()
-        :returns: string
+        :returns: `string`
 
     ..  php:method:: getTitle()
-        :returns: string
+        :returns: `string`
 
     ..  php:method:: getDescription()
-        :returns: string
+        :returns: `string`
 
     ..  php:method:: getShortDescription()
-        :returns: string
+        :returns: `string`
 
     ..  php:method:: isStandalone()
-        :returns: bool
+        :returns: `bool`
 
     ..  php:method:: getNavigationComponent()
-        :returns: string
+        :returns: `string`
 
     ..  php:method:: getComponent()
-        :returns: string
+        :returns: `string`
 
     ..  php:method:: getPosition()
-        :returns: array
+        :returns: `array`
 
     ..  php:method:: getAccess()
-        :returns: string
+        :returns: `string`
 
     ..  php:method:: getWorkspaceAccess()
-        :returns: string
+        :returns: `string`
 
     ..  php:method:: getParentIdentifier()
-        :returns: string
+        :returns: `string`
 
-    ..  php:method:: setParentModule(TYPO3\CMS\Backend\Module\ModuleInterface $module)
+    ..  php:method:: setParentModule(\TYPO3\CMS\Backend\Module\ModuleInterface $module)
 
         :param $module: the module
 
     ..  php:method:: getParentModule()
-        :returns: ?TYPO3\CMS\Backend\Module\ModuleInterface
+        :returns: `?\TYPO3\CMS\Backend\Module\ModuleInterface`
 
     ..  php:method:: hasParentModule()
-        :returns: bool
+        :returns: `bool`
 
-    ..  php:method:: addSubModule(TYPO3\CMS\Backend\Module\ModuleInterface $module)
+    ..  php:method:: addSubModule(\TYPO3\CMS\Backend\Module\ModuleInterface $module)
 
         :param $module: the module
 
     ..  php:method:: hasSubModule(string $identifier)
-        :returns: bool
+        :returns: `bool`
 
         :param $identifier: the identifier
 
     ..  php:method:: hasSubModules()
-        :returns: bool
+        :returns: `bool`
 
     ..  php:method:: getSubModule(string $identifier)
-        :returns: ?TYPO3\CMS\Backend\Module\ModuleInterface
+        :returns: `?\TYPO3\CMS\Backend\Module\ModuleInterface`
 
         :param $identifier: the identifier
 
@@ -88,13 +88,13 @@
         :param $identifier: the identifier
 
     ..  php:method:: getSubModules()
-        :returns: array<string,\ModuleInterface>
+        :returns: `array<string,\ModuleInterface>`
 
     ..  php:method:: getAppearance()
-        :returns: array
+        :returns: `array`
 
     ..  php:method:: getAliases()
-        :returns: array
+        :returns: `array`
 
     ..  php:method:: getDefaultModuleData()
-        :returns: array
+        :returns: `array`

@@ -32,22 +32,22 @@
         )`, type array
 
     ..  php:method:: getName()
-        :returns: string
+        :returns: `string`
 
     ..  php:method:: getLanguageCode()
-        :returns: string
+        :returns: `string`
 
     ..  php:method:: isRightToLeftLanguageDirection()
-        :returns: bool
+        :returns: `bool`
 
     ..  php:method:: getLanguageScriptCode()
-        :returns: ?string
+        :returns: `?string`
 
     ..  php:method:: getCountryCode()
-        :returns: ?string
+        :returns: `?string`
 
     ..  php:method:: getDependencies()
-        :returns: array
+        :returns: `array`
 
     ..  php:method:: __toString()
-        :returns: string
+        :returns: `string`

@@ -5,7 +5,7 @@
 
     The base repository - will usually be extended by a more concrete repository.
 
-    ..  php:method:: injectPersistenceManager(TYPO3\CMS\Extbase\Persistence\PersistenceManagerInterface $persistenceManager)
+    ..  php:method:: injectPersistenceManager(\TYPO3\CMS\Extbase\Persistence\PersistenceManagerInterface $persistenceManager)
 
         :param $persistenceManager: the persistenceManager
 
@@ -64,7 +64,7 @@
 
         :param $defaultOrderings: The property names to order by
 
-    ..  php:method:: setDefaultQuerySettings(TYPO3\CMS\Extbase\Persistence\Generic\QuerySettingsInterface $defaultQuerySettings)
+    ..  php:method:: setDefaultQuerySettings(\TYPO3\CMS\Extbase\Persistence\Generic\QuerySettingsInterface $defaultQuerySettings)
 
         Sets the default query settings to be used in this repository.
 
@@ -92,7 +92,7 @@
         :param $arguments: The arguments of the magic method
 
     ..  php:method:: findBy(array $criteria, ?array $orderBy = NULL, ?int $limit = NULL, ?int $offset = NULL)
-        :returns: \QueryResultInterface
+        :returns: `\QueryResultInterface`
 
         :param $criteria: the criteria
         :param $orderBy: the orderBy, default: NULL
@@ -100,12 +100,12 @@
         :param $offset: the offset, default: NULL
 
     ..  php:method:: findOneBy(array $criteria, ?array $orderBy = NULL)
-        :returns: ?object
+        :returns: `?object`
 
         :param $criteria: the criteria
         :param $orderBy: the orderBy, default: NULL
 
     ..  php:method:: count(array $criteria)
-        :returns: int
+        :returns: `int`
 
         :param $criteria: the criteria

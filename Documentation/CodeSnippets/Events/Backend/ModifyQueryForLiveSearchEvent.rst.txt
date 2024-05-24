@@ -6,7 +6,7 @@
     PSR-14 event to modify the query builder instance for the live search
 
     ..  php:method:: getQueryBuilder()
-        :returns: TYPO3\CMS\Core\Database\Query\QueryBuilder
+        :returns: `\TYPO3\CMS\Core\Database\Query\QueryBuilder`
 
     ..  php:method:: getTableName()
-        :returns: string
+        :returns: `string`

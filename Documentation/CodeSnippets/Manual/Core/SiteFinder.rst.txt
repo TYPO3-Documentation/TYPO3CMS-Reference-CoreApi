@@ -6,21 +6,21 @@
     Is used in backend and frontend for all places where to read / identify sites and site languages.
 
     ..  php:method:: getAllSites(bool $useCache = true)
-        :returns: \Site[]
+        :returns: `\Site[]`
 
         Return a list of all configured sites
 
         :param $useCache: the useCache, default: true
 
     ..  php:method:: getSiteByIdentifier(string $identifier)
-        :returns: TYPO3\CMS\Core\Site\Entity\Site
+        :returns: `\TYPO3\CMS\Core\Site\Entity\Site`
 
         Find a site by given identifier
 
         :param $identifier: the identifier
 
     ..  php:method:: getSiteByPageId(int $pageId, ?array $rootLine = NULL, ?string $mountPointParameter = NULL)
-        :returns: TYPO3\CMS\Core\Site\Entity\Site
+        :returns: `\TYPO3\CMS\Core\Site\Entity\Site`
 
         Traverses the rootline of a page up until a Site was found.
 

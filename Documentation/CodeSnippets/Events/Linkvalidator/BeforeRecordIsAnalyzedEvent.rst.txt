@@ -7,24 +7,24 @@
     the record.
 
     ..  php:method:: getTableName()
-        :returns: string
+        :returns: `string`
 
     ..  php:method:: getRecord()
-        :returns: array
+        :returns: `array`
 
     ..  php:method:: setRecord(array $record)
 
         :param $record: the record
 
     ..  php:method:: getFields()
-        :returns: array
+        :returns: `array`
 
     ..  php:method:: getResults()
-        :returns: array
+        :returns: `array`
 
     ..  php:method:: setResults(array $results)
 
         :param $results: the results
 
     ..  php:method:: getLinkAnalyzer()
-        :returns: TYPO3\CMS\Linkvalidator\LinkAnalyzer
+        :returns: `\TYPO3\CMS\Linkvalidator\LinkAnalyzer`

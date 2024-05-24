@@ -6,9 +6,9 @@
     Listeners to this event are able to add or change messages for the "Help > About" module.
 
     ..  php:method:: getMessages()
-        :returns: array
+        :returns: `array`
 
-    ..  php:method:: addMessage(TYPO3\CMS\Core\Messaging\AbstractMessage $message)
+    ..  php:method:: addMessage(\TYPO3\CMS\Core\Messaging\AbstractMessage $message)
 
         :param $message: the message
 

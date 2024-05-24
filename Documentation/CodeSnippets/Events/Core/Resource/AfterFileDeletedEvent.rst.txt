@@ -9,4 +9,4 @@
     up their custom handling. This can also be used for versioning of files.
 
     ..  php:method:: getFile()
-        :returns: TYPO3\CMS\Core\Resource\FileInterface
+        :returns: `\TYPO3\CMS\Core\Resource\FileInterface`

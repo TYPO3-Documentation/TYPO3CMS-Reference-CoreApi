@@ -6,4 +6,4 @@
     Event that is triggered before a number of packages should become active
 
     ..  php:method:: getPackageKeys()
-        :returns: array
+        :returns: `array`

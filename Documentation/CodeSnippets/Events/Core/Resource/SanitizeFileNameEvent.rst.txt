@@ -7,17 +7,17 @@
     to modify the file name, and name the files according to naming conventions of a specific project.
 
     ..  php:method:: getFileName()
-        :returns: string
+        :returns: `string`
 
     ..  php:method:: setFileName(string $fileName)
 
         :param $fileName: the fileName
 
     ..  php:method:: getTargetFolder()
-        :returns: TYPO3\CMS\Core\Resource\Folder
+        :returns: `\TYPO3\CMS\Core\Resource\Folder`
 
     ..  php:method:: getStorage()
-        :returns: TYPO3\CMS\Core\Resource\ResourceStorage
+        :returns: `\TYPO3\CMS\Core\Resource\ResourceStorage`
 
     ..  php:method:: getDriver()
-        :returns: TYPO3\CMS\Core\Resource\Driver\DriverInterface
+        :returns: `\TYPO3\CMS\Core\Resource\Driver\DriverInterface`

@@ -7,10 +7,10 @@
     before it is cached - allows dynamic modification of the site's configuration.
 
     ..  php:method:: getSiteIdentifier()
-        :returns: string
+        :returns: `string`
 
     ..  php:method:: getConfiguration()
-        :returns: array
+        :returns: `array`
 
     ..  php:method:: setConfiguration(array $configuration)
 

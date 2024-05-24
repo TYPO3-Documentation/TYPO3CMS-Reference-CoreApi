@@ -8,32 +8,32 @@
     for a specific page.
 
     ..  php:method:: has(string $identifier)
-        :returns: bool
+        :returns: `bool`
 
         :param $identifier: the identifier
 
     ..  php:method:: isEmpty()
-        :returns: bool
+        :returns: `bool`
 
     ..  php:method:: get(string $identifier, ?mixed $defaultValue = NULL)
-        :returns: ?mixed
+        :returns: `?mixed`
 
         :param $identifier: the identifier
         :param $defaultValue: the defaultValue, default: NULL
 
     ..  php:method:: getAll()
-        :returns: array
+        :returns: `array`
 
     ..  php:method:: getAllFlat()
-        :returns: array
+        :returns: `array`
 
     ..  php:method:: jsonSerialize()
-        :returns: ?mixed
+        :returns: `?mixed`
 
     ..  php:method:: __set_state(array $state)
-        :returns: self
+        :returns: `self`
 
         :param $state: the state
 
     ..  php:method:: getIdentifiers()
-        :returns: array
+        :returns: `array`

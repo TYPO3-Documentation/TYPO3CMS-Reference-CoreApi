@@ -10,7 +10,7 @@
     Additional validation can happen here.
 
     ..  php:method:: getUserInformation()
-        :returns: array
+        :returns: `array`
 
     ..  php:method:: getEmail()
-        :returns: TYPO3\CMS\Core\Mail\FluidEmail
+        :returns: `\TYPO3\CMS\Core\Mail\FluidEmail`

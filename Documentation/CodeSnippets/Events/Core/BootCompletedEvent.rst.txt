@@ -6,4 +6,4 @@
     Executed when TYPO3 has fully booted (after all ext_tables.php files have been processed)
 
     ..  php:method:: isCachingEnabled()
-        :returns: bool
+        :returns: `bool`

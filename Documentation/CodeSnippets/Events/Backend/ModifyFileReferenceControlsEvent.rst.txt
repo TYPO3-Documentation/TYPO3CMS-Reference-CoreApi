@@ -7,7 +7,7 @@
     of a single file reference of a TCA type=file field.
 
     ..  php:method:: getControls()
-        :returns: array
+        :returns: `array`
 
         Returns all controls with their markup
 
@@ -18,7 +18,7 @@
         :param $controls: the controls
 
     ..  php:method:: getControl(string $identifier)
-        :returns: string
+        :returns: `string`
 
         Returns the markup for the requested control
 
@@ -33,45 +33,45 @@
         :param $markup: the markup
 
     ..  php:method:: hasControl(string $identifier)
-        :returns: bool
+        :returns: `bool`
 
         Returns whether a control exists for the given identifier
 
         :param $identifier: the identifier
 
     ..  php:method:: removeControl(string $identifier)
-        :returns: bool Whether the control could be removed
+        :returns: `bool Whether the control could be removed`
 
         Removes a control from the file reference, if it exists
 
         :param $identifier: the identifier
 
     ..  php:method:: getElementData()
-        :returns: array
+        :returns: `array`
 
         Returns the whole element data
 
     ..  php:method:: getRecord()
-        :returns: array
+        :returns: `array`
 
         Returns the current record, the controls are created for
 
     ..  php:method:: getParentUid()
-        :returns: string
+        :returns: `string`
 
         Returns the uid of the parent (embedding) record (uid or NEW...)
 
     ..  php:method:: getForeignTable()
-        :returns: string
+        :returns: `string`
 
         Returns the table (foreign_table) the controls are created for
 
     ..  php:method:: getFieldConfiguration()
-        :returns: array
+        :returns: `array`
 
         Returns the TCA configuration of the TCA type=file field
 
     ..  php:method:: isVirtual()
-        :returns: bool
+        :returns: `bool`
 
         Returns whether the current records is only virtually shown and not physically part of the parent record

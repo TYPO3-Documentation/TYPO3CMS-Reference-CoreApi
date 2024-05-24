@@ -7,26 +7,26 @@
     before it is executed.
 
     ..  php:method:: getQueryBuilder()
-        :returns: TYPO3\CMS\Core\Database\Query\QueryBuilder
+        :returns: `\TYPO3\CMS\Core\Database\Query\QueryBuilder`
 
-    ..  php:method:: setQueryBuilder(TYPO3\CMS\Core\Database\Query\QueryBuilder $queryBuilder)
+    ..  php:method:: setQueryBuilder(\TYPO3\CMS\Core\Database\Query\QueryBuilder $queryBuilder)
 
         :param $queryBuilder: the queryBuilder
 
     ..  php:method:: getTable()
-        :returns: string
+        :returns: `string`
 
     ..  php:method:: getPageId()
-        :returns: int
+        :returns: `int`
 
     ..  php:method:: getFields()
-        :returns: array
+        :returns: `array`
 
     ..  php:method:: getFirstResult()
-        :returns: int
+        :returns: `int`
 
     ..  php:method:: getMaxResults()
-        :returns: int
+        :returns: `int`
 
     ..  php:method:: getDatabaseRecordList()
-        :returns: TYPO3\CMS\Backend\RecordList\DatabaseRecordList
+        :returns: `\TYPO3\CMS\Backend\RecordList\DatabaseRecordList`

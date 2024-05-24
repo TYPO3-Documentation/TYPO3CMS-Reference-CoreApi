@@ -21,4 +21,4 @@
     and (@internal) 'page' may not be set.
 
     ..  php:method:: getFrontendTypoScript()
-        :returns: TYPO3\CMS\Core\TypoScript\FrontendTypoScript
+        :returns: `\TYPO3\CMS\Core\TypoScript\FrontendTypoScript`

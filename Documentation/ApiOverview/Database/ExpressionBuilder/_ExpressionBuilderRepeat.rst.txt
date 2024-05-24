@@ -5,7 +5,7 @@
     :noindex:
 
     ..  php:method:: repeat(string|int $numberOfRepeats, string $value, string $asIdentifier = '')
-        :returns: string Returns the platform compatible statement to create the x-times repeated value
+        :returns: `string Returns the platform compatible statement to create the x-times repeated value`
 
         :param $numberOfRepeats: Statement or value defining how often the $value should be repeated. Proper quoting must be ensured.
         :param $value: Value which should be repeated. Proper quoting must be ensured

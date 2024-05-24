@@ -6,19 +6,19 @@
     Listeners to this Event will be able to modify the wizard items of the new content element wizard component
 
     ..  php:method:: getWizardItems()
-        :returns: array
+        :returns: `array`
 
     ..  php:method:: setWizardItems(array $wizardItems)
 
         :param $wizardItems: the wizardItems
 
     ..  php:method:: hasWizardItem(string $identifier)
-        :returns: bool
+        :returns: `bool`
 
         :param $identifier: the identifier
 
     ..  php:method:: getWizardItem(string $identifier)
-        :returns: ?array
+        :returns: `?array`
 
         :param $identifier: the identifier
 
@@ -33,26 +33,26 @@
         :param $position: the position, default: []
 
     ..  php:method:: removeWizardItem(string $identifier)
-        :returns: bool
+        :returns: `bool`
 
         :param $identifier: the identifier
 
     ..  php:method:: getPageInfo()
-        :returns: array
+        :returns: `array`
 
         Provides information about the current page making use of the wizard.
 
     ..  php:method:: getColPos()
-        :returns: ?int
+        :returns: `?int`
 
         Provides information about the column position of the button that triggered the wizard.
 
     ..  php:method:: getSysLanguage()
-        :returns: int
+        :returns: `int`
 
         Provides information about the language used while triggering the wizard.
 
     ..  php:method:: getUidPid()
-        :returns: int
+        :returns: `int`
 
         Provides information about the element to position the new element after (uid) or into (pid).

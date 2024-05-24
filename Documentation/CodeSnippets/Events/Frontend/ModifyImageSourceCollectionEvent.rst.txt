@@ -10,16 +10,16 @@
         :param $sourceCollection: the sourceCollection
 
     ..  php:method:: getSourceCollection()
-        :returns: string
+        :returns: `string`
 
     ..  php:method:: getFullSourceCollection()
-        :returns: string
+        :returns: `string`
 
     ..  php:method:: getSourceConfiguration()
-        :returns: array
+        :returns: `array`
 
     ..  php:method:: getSourceRenderConfiguration()
-        :returns: array
+        :returns: `array`
 
     ..  php:method:: getContentObjectRenderer()
-        :returns: TYPO3\CMS\Frontend\ContentObject\ContentObjectRenderer
+        :returns: `\TYPO3\CMS\Frontend\ContentObject\ContentObjectRenderer`

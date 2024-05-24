@@ -7,28 +7,28 @@
     to modify the icon or overlay in an event listener.
 
     ..  php:method:: getResource()
-        :returns: TYPO3\CMS\Core\Resource\ResourceInterface
+        :returns: `\TYPO3\CMS\Core\Resource\ResourceInterface`
 
     ..  php:method:: getIconSize()
-        :returns: TYPO3\CMS\Core\Imaging\IconSize
+        :returns: `\TYPO3\CMS\Core\Imaging\IconSize`
 
     ..  php:method:: getSize()
-        :returns: string
+        :returns: `string`
 
         **Deprecated:** will be removed in v13, use getIconSize instead.
 
     ..  php:method:: getOptions()
-        :returns: array
+        :returns: `array`
 
     ..  php:method:: getIconIdentifier()
-        :returns: ?string
+        :returns: `?string`
 
     ..  php:method:: setIconIdentifier(?string $iconIdentifier)
 
         :param $iconIdentifier: the iconIdentifier
 
     ..  php:method:: getOverlayIdentifier()
-        :returns: ?string
+        :returns: `?string`
 
     ..  php:method:: setOverlayIdentifier(?string $overlayIdentifier)
 

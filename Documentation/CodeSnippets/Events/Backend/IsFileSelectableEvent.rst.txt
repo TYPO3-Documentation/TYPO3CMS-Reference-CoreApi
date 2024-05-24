@@ -6,10 +6,10 @@
     Listeners to this event are able to define whether a file can be selected in the file browser
 
     ..  php:method:: getFile()
-        :returns: TYPO3\CMS\Core\Resource\FileInterface
+        :returns: `\TYPO3\CMS\Core\Resource\FileInterface`
 
     ..  php:method:: isFileSelectable()
-        :returns: bool
+        :returns: `bool`
 
     ..  php:method:: allowFileSelection()
 

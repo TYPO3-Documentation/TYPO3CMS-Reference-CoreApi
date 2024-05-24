@@ -7,10 +7,10 @@
     of its subclasses.
 
     ..  php:method:: getControllerClassName()
-        :returns: string
+        :returns: `string`
 
     ..  php:method:: getActionMethodName()
-        :returns: string
+        :returns: `string`
 
     ..  php:method:: getPreparedArguments()
-        :returns: array
+        :returns: `array`

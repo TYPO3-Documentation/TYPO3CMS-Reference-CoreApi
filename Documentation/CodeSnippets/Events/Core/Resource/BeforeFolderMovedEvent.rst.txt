@@ -9,10 +9,10 @@
     or specific rules when moving folders.
 
     ..  php:method:: getFolder()
-        :returns: TYPO3\CMS\Core\Resource\Folder
+        :returns: `\TYPO3\CMS\Core\Resource\Folder`
 
     ..  php:method:: getTargetParentFolder()
-        :returns: TYPO3\CMS\Core\Resource\Folder
+        :returns: `\TYPO3\CMS\Core\Resource\Folder`
 
     ..  php:method:: getTargetFolderName()
-        :returns: string
+        :returns: `string`

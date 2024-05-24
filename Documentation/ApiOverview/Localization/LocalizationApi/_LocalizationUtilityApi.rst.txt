@@ -6,7 +6,7 @@
     Localization helper which should be used to fetch localized labels.
 
     ..  php:method:: translate(string $key, ?string $extensionName = NULL, ?array $arguments = NULL, ?TYPO3\CMS\Core\Localization\Locale|string|null $languageKey = NULL)
-        :returns: string|null The value from LOCAL_LANG or null if no translation was found.
+        :returns: `string|null The value from LOCAL_LANG or null if no translation was found.`
 
         Returns the localized label of the LOCAL_LANG key, $key.
 

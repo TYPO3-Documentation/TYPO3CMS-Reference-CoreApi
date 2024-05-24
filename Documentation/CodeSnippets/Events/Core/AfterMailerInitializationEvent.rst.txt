@@ -8,4 +8,4 @@
     So it is possible to add custom mailing settings.
 
     ..  php:method:: getMailer()
-        :returns: Symfony\Component\Mailer\MailerInterface
+        :returns: `\Symfony\Component\Mailer\MailerInterface`

@@ -17,87 +17,87 @@
     This class substitutes the old GeneralUtility::getIndpEnv() method.
 
     ..  php:method:: getDocumentRoot()
-        :returns: string Absolute path to web document root, eg. /var/www/typo3
+        :returns: `string Absolute path to web document root, eg. /var/www/typo3`
 
     ..  php:method:: getHttpAcceptEncoding()
-        :returns: string HTTP_ACCEPT_ENCODING, eg. 'gzip, deflate'
+        :returns: `string HTTP_ACCEPT_ENCODING, eg. 'gzip, deflate'`
 
         Will be deprecated later, use $request->getServerParams()['HTTP_ACCEPT_ENCODING'] instead
 
     ..  php:method:: getHttpAcceptLanguage()
-        :returns: string HTTP_ACCEPT_LANGUAGE, eg. 'de-DE,de;q=0.9,en-US;q=0.8,en;q=0.7'
+        :returns: `string HTTP_ACCEPT_LANGUAGE, eg. 'de-DE,de;q=0.9,en-US;q=0.8,en;q=0.7'`
 
         Will be deprecated later, use $request->getServerParams()['HTTP_ACCEPT_LANGUAGE'] instead
 
     ..  php:method:: getHttpHost()
-        :returns: string Sanitized HTTP_HOST value host[:port]
+        :returns: `string Sanitized HTTP_HOST value host[:port]`
 
     ..  php:method:: getHttpReferer()
-        :returns: string HTTP_REFERER, eg. 'https://www.domain.com/typo3/index.php?id=42'
+        :returns: `string HTTP_REFERER, eg. 'https://www.domain.com/typo3/index.php?id=42'`
 
         Will be deprecated later, use $request->getServerParams()['HTTP_REFERER'] instead
 
     ..  php:method:: getHttpUserAgent()
-        :returns: string HTTP_USER_AGENT identifier
+        :returns: `string HTTP_USER_AGENT identifier`
 
         Will be deprecated later, use $request->getServerParams()['HTTP_USER_AGENT'] instead
 
     ..  php:method:: getQueryString()
-        :returns: string QUERY_STRING, eg 'id=42&foo=bar'
+        :returns: `string QUERY_STRING, eg 'id=42&foo=bar'`
 
         Will be deprecated later, use $request->getServerParams()['QUERY_STRING'] instead
 
     ..  php:method:: getPathInfo()
-        :returns: string Script path part of URI, eg. 'typo3/index.php'
+        :returns: `string Script path part of URI, eg. 'typo3/index.php'`
 
         Will be deprecated later, use getScriptName() as reliable solution instead
 
     ..  php:method:: getRemoteAddress()
-        :returns: string Client IP
+        :returns: `string Client IP`
 
     ..  php:method:: getRemoteHost()
-        :returns: string REMOTE_HOST if configured in web server, eg. 'www.clientDomain.com'
+        :returns: `string REMOTE_HOST if configured in web server, eg. 'www.clientDomain.com'`
 
         Will be deprecated later, use $request->getServerParams()['REMOTE_HOST'] instead
 
     ..  php:method:: getRequestDir()
-        :returns: string REQUEST URI without script file name and query parts, eg. http://www.domain.com/typo3/
+        :returns: `string REQUEST URI without script file name and query parts, eg. http://www.domain.com/typo3/`
 
     ..  php:method:: getRequestHost()
-        :returns: string Sanitized HTTP_HOST with protocol scheme://host[:port], eg. https://www.domain.com/
+        :returns: `string Sanitized HTTP_HOST with protocol scheme://host[:port], eg. https://www.domain.com/`
 
     ..  php:method:: getRequestHostOnly()
-        :returns: string Host / domain /IP only, eg. www.domain.com
+        :returns: `string Host / domain /IP only, eg. www.domain.com`
 
     ..  php:method:: getRequestPort()
-        :returns: int Requested port if given, eg. 8080 - often not explicitly given, then 0
+        :returns: `int Requested port if given, eg. 8080 - often not explicitly given, then 0`
 
     ..  php:method:: getRequestScript()
-        :returns: string REQUEST URI without query part, eg. http://www.domain.com/typo3/index.php
+        :returns: `string REQUEST URI without query part, eg. http://www.domain.com/typo3/index.php`
 
     ..  php:method:: getRequestUri()
-        :returns: string Request Uri without domain and protocol, eg. /index.php?id=42
+        :returns: `string Request Uri without domain and protocol, eg. /index.php?id=42`
 
     ..  php:method:: getRequestUrl()
-        :returns: string Full REQUEST_URI, eg. http://www.domain.com/typo3/foo/bar?id=42
+        :returns: `string Full REQUEST_URI, eg. http://www.domain.com/typo3/foo/bar?id=42`
 
     ..  php:method:: getScriptFilename()
-        :returns: string Absolute entry script path on server, eg. /var/www/typo3/index.php
+        :returns: `string Absolute entry script path on server, eg. /var/www/typo3/index.php`
 
     ..  php:method:: getScriptName()
-        :returns: string Script path part of URI, eg. '/typo3/index.php'
+        :returns: `string Script path part of URI, eg. '/typo3/index.php'`
 
     ..  php:method:: getSitePath()
-        :returns: string Path part to frontend, eg. /some/sub/dir/
+        :returns: `string Path part to frontend, eg. /some/sub/dir/`
 
     ..  php:method:: getSiteScript()
-        :returns: string Path part to entry script with parameters, without sub dir, eg 'typo3/index.php?id=42'
+        :returns: `string Path part to entry script with parameters, without sub dir, eg 'typo3/index.php?id=42'`
 
     ..  php:method:: getSiteUrl()
-        :returns: string Website frontend url, eg. https://www.domain.com/some/sub/dir/
+        :returns: `string Website frontend url, eg. https://www.domain.com/some/sub/dir/`
 
     ..  php:method:: isBehindReverseProxy()
-        :returns: bool True if request comes from a configured reverse proxy
+        :returns: `bool True if request comes from a configured reverse proxy`
 
     ..  php:method:: isHttps()
-        :returns: bool True if client request has been done using HTTPS
+        :returns: `bool True if client request has been done using HTTPS`

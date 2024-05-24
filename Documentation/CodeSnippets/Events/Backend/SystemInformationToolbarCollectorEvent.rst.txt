@@ -7,4 +7,4 @@
     with various information
 
     ..  php:method:: getToolbarItem()
-        :returns: TYPO3\CMS\Backend\Backend\ToolbarItems\SystemInformationToolbarItem
+        :returns: `\TYPO3\CMS\Backend\Backend\ToolbarItems\SystemInformationToolbarItem`

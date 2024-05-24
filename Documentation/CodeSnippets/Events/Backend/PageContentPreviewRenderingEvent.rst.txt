@@ -6,24 +6,24 @@
     Use this Event to have a custom preview for a content type in the Page Module
 
     ..  php:method:: getTable()
-        :returns: string
+        :returns: `string`
 
     ..  php:method:: getRecord()
-        :returns: array
+        :returns: `array`
 
     ..  php:method:: setRecord(array $record)
 
         :param $record: the record
 
     ..  php:method:: getPageLayoutContext()
-        :returns: TYPO3\CMS\Backend\View\PageLayoutContext
+        :returns: `\TYPO3\CMS\Backend\View\PageLayoutContext`
 
     ..  php:method:: getPreviewContent()
-        :returns: ?string
+        :returns: `?string`
 
     ..  php:method:: setPreviewContent(string $content)
 
         :param $content: the content
 
     ..  php:method:: isPropagationStopped()
-        :returns: bool
+        :returns: `bool`

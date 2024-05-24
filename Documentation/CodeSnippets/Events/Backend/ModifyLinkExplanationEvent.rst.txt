@@ -6,23 +6,23 @@
     Listeners to this Event will be able to modify the link explanation array, used in FormEngine for link fields
 
     ..  php:method:: getLinkData()
-        :returns: array
+        :returns: `array`
 
     ..  php:method:: getLinkParts()
-        :returns: array
+        :returns: `array`
 
     ..  php:method:: getElementData()
-        :returns: array
+        :returns: `array`
 
     ..  php:method:: getLinkExplanation()
-        :returns: array
+        :returns: `array`
 
     ..  php:method:: setLinkExplanation(array $linkExplanation)
 
         :param $linkExplanation: the linkExplanation
 
     ..  php:method:: getLinkExplanationValue(string $key, ?mixed $default = NULL)
-        :returns: ?mixed
+        :returns: `?mixed`
 
         :param $key: the key
         :param $default: the default, default: NULL

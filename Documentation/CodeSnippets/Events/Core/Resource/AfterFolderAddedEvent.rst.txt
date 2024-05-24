@@ -8,4 +8,4 @@
     This allows to customize permissions or set up editor permissions automatically via listeners.
 
     ..  php:method:: getFolder()
-        :returns: TYPO3\CMS\Core\Resource\Folder
+        :returns: `\TYPO3\CMS\Core\Resource\Folder`

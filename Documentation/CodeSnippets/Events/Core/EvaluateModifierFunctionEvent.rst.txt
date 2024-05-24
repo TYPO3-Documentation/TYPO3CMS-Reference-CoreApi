@@ -12,17 +12,17 @@
     from other extensions and should thus namespace, example naming: "extNewsSortFunction()"
 
     ..  php:method:: getFunctionName()
-        :returns: string
+        :returns: `string`
 
         The function name, for example "extNewsSortFunction" when using "foo := extNewsSortFunction()"
 
     ..  php:method:: getFunctionArgument()
-        :returns: ?string
+        :returns: `?string`
 
         Optional function argument, for example "myArgument" when using "foo := extNewsSortFunction(myArgument)"
 
     ..  php:method:: getOriginalValue()
-        :returns: ?string
+        :returns: `?string`
 
         Original / current value, for example "fooValue" when using:
         foo = fooValue
@@ -38,7 +38,7 @@
         :param $value: the value
 
     ..  php:method:: getValue()
-        :returns: ?string
+        :returns: `?string`
 
         Used by AstBuilder to fetch the updated value, falls back to given original value.
 

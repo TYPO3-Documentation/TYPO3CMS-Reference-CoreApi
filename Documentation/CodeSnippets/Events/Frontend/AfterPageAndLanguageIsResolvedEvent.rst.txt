@@ -10,18 +10,18 @@
     This event also allows to send a custom Response via Event Listeners (e.g. a custom 403 response)
 
     ..  php:method:: getRequest()
-        :returns: Psr\Http\Message\ServerRequestInterface
+        :returns: `\Psr\Http\Message\ServerRequestInterface`
 
     ..  php:method:: getPageInformation()
-        :returns: TYPO3\CMS\Frontend\Page\PageInformation
+        :returns: `\TYPO3\CMS\Frontend\Page\PageInformation`
 
-    ..  php:method:: setPageInformation(TYPO3\CMS\Frontend\Page\PageInformation $pageInformation)
+    ..  php:method:: setPageInformation(\TYPO3\CMS\Frontend\Page\PageInformation $pageInformation)
 
         :param $pageInformation: the pageInformation
 
     ..  php:method:: getResponse()
-        :returns: ?Psr\Http\Message\ResponseInterface
+        :returns: `?\Psr\Http\Message\ResponseInterface`
 
-    ..  php:method:: setResponse(Psr\Http\Message\ResponseInterface $response)
+    ..  php:method:: setResponse(\Psr\Http\Message\ResponseInterface $response)
 
         :param $response: the response

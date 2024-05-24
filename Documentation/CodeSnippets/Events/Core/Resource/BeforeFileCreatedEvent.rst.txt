@@ -10,7 +10,7 @@
     This allows to further analyze or modify the file or filename before it is written by the driver.
 
     ..  php:method:: getFileName()
-        :returns: string
+        :returns: `string`
 
     ..  php:method:: getFolder()
-        :returns: TYPO3\CMS\Core\Resource\Folder
+        :returns: `\TYPO3\CMS\Core\Resource\Folder`

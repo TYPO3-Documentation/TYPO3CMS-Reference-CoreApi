@@ -4,8 +4,8 @@
 ..  php:class:: ExpressionBuilder
     :noindex:
 
-    ..  php:method:: trim(string $fieldName, Doctrine\DBAL\Platforms\TrimMode $position = \Doctrine\DBAL\Platforms\TrimMode::UNSPECIFIED, ?string $char = NULL)
-        :returns: string
+    ..  php:method:: trim(string $fieldName, \Doctrine\DBAL\Platforms\TrimMode $position = \Doctrine\DBAL\Platforms\TrimMode::UNSPECIFIED, ?string $char = NULL)
+        :returns: `string`
 
         Creates a TRIM expression for the given field.
 

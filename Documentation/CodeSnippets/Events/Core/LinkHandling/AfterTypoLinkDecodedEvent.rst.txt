@@ -6,17 +6,17 @@
     Listeners are able to modify the decoded link parts of a TypoLink
 
     ..  php:method:: getTypoLinkParts()
-        :returns: array
+        :returns: `array`
 
     ..  php:method:: setTypoLinkParts(array $typoLinkParts)
 
         :param $typoLinkParts: the typoLinkParts
 
     ..  php:method:: getTypoLink()
-        :returns: string
+        :returns: `string`
 
     ..  php:method:: getDelimiter()
-        :returns: string
+        :returns: `string`
 
     ..  php:method:: getEmptyValueSymbol()
-        :returns: string
+        :returns: `string`

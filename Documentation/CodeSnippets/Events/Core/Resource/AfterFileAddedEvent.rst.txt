@@ -9,7 +9,7 @@
     specific analysis of files like additional metadata analysis after adding them to TYPO3.
 
     ..  php:method:: getFile()
-        :returns: TYPO3\CMS\Core\Resource\FileInterface
+        :returns: `\TYPO3\CMS\Core\Resource\FileInterface`
 
     ..  php:method:: getFolder()
-        :returns: TYPO3\CMS\Core\Resource\Folder
+        :returns: `\TYPO3\CMS\Core\Resource\Folder`

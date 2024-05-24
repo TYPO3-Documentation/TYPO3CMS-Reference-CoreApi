@@ -21,22 +21,22 @@
         :param $columnName: the columnName, default: ''
 
     ..  php:method:: hasColumn(string $columnName)
-        :returns: bool
+        :returns: `bool`
 
         Whether the column exists
 
         :param $columnName: the columnName
 
     ..  php:method:: getColumn(string $columnName)
-        :returns: string|null The column or NULL if the column does not exist
+        :returns: `string|null The column or NULL if the column does not exist`
 
         Get column by its name
 
         :param $columnName: the columnName
 
     ..  php:method:: removeColumn(string $columnName)
-        :returns: bool Whether the column could be removed - Will therefore
-    return FALSE if the column to remove does not exist.
+        :returns: `bool Whether the column could be removed - Will therefore
+    return FALSE if the column to remove does not exist.`
 
         Remove column by its name
 
@@ -47,22 +47,22 @@
         :param $columns: the columns
 
     ..  php:method:: getColumns()
-        :returns: array
+        :returns: `array`
 
     ..  php:method:: setHeaderAttributes(array $headerAttributes)
 
         :param $headerAttributes: the headerAttributes
 
     ..  php:method:: getHeaderAttributes()
-        :returns: array
+        :returns: `array`
 
     ..  php:method:: getTable()
-        :returns: string
+        :returns: `string`
 
     ..  php:method:: getRecordIds()
-        :returns: array
+        :returns: `array`
 
     ..  php:method:: getRecordList()
-        :returns: TYPO3\CMS\Backend\RecordList\DatabaseRecordList
+        :returns: `\TYPO3\CMS\Backend\RecordList\DatabaseRecordList`
 
         Returns the current DatabaseRecordList instance.

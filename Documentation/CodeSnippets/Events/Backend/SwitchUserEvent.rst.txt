@@ -6,10 +6,10 @@
     This event is triggered when a "SU" (switch user) action has been triggered
 
     ..  php:method:: getSessionId()
-        :returns: string
+        :returns: `string`
 
     ..  php:method:: getTargetUser()
-        :returns: array
+        :returns: `array`
 
     ..  php:method:: getCurrentUser()
-        :returns: array
+        :returns: `array`

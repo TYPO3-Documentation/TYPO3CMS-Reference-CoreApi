@@ -7,24 +7,24 @@
     mode), allowing listeners to execute initialization tasks, such as importing static data.
 
     ..  php:method:: getExtensionKey()
-        :returns: string
+        :returns: `string`
 
     ..  php:method:: getPackage()
-        :returns: TYPO3\CMS\Core\Package\PackageInterface
+        :returns: `\TYPO3\CMS\Core\Package\PackageInterface`
 
     ..  php:method:: getContainer()
-        :returns: ?Psr\Container\ContainerInterface
+        :returns: `?\Psr\Container\ContainerInterface`
 
     ..  php:method:: getEmitter()
-        :returns: ?object
+        :returns: `?object`
 
     ..  php:method:: hasStorageEntry(string $identifier)
-        :returns: bool
+        :returns: `bool`
 
         :param $identifier: the identifier
 
     ..  php:method:: getStorageEntry(string $identifier)
-        :returns: TYPO3\CMS\Core\Package\PackageInitializationResult
+        :returns: `\TYPO3\CMS\Core\Package\PackageInitializationResult`
 
         :param $identifier: the identifier
 

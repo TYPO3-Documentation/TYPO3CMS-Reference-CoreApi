@@ -6,70 +6,70 @@
     Entity representing a single site with available languages
 
     ..  php:method:: getIdentifier()
-        :returns: string
+        :returns: `string`
 
         Gets the identifier of this site,
         mainly used when maintaining / configuring sites.
 
     ..  php:method:: getBase()
-        :returns: Psr\Http\Message\UriInterface
+        :returns: `\Psr\Http\Message\UriInterface`
 
         Returns the base URL of this site
 
     ..  php:method:: getRootPageId()
-        :returns: int
+        :returns: `int`
 
         Returns the root page ID of this site
 
     ..  php:method:: getLanguages()
-        :returns: array
+        :returns: `array`
 
         Returns all available languages of this site
 
     ..  php:method:: getSets()
-        :returns: list<string>
+        :returns: `list<string>`
 
         Returns configured sets of this site
 
     ..  php:method:: getAllLanguages()
-        :returns: array
+        :returns: `array`
 
         Returns all available languages of this site, even the ones disabled for frontend usages
 
     ..  php:method:: getLanguageById(int $languageId)
-        :returns: TYPO3\CMS\Core\Site\Entity\SiteLanguage
+        :returns: `\TYPO3\CMS\Core\Site\Entity\SiteLanguage`
 
         Returns a language of this site, given by the sys_language_uid
 
         :param $languageId: the languageId
 
     ..  php:method:: getDefaultLanguage()
-        :returns: TYPO3\CMS\Core\Site\Entity\SiteLanguage
+        :returns: `\TYPO3\CMS\Core\Site\Entity\SiteLanguage`
 
-    ..  php:method:: getAvailableLanguages(TYPO3\CMS\Core\Authentication\BackendUserAuthentication $user, bool $includeAllLanguagesFlag = false, ?int $pageId = NULL)
-        :returns: array
+    ..  php:method:: getAvailableLanguages(\TYPO3\CMS\Core\Authentication\BackendUserAuthentication $user, bool $includeAllLanguagesFlag = false, ?int $pageId = NULL)
+        :returns: `array`
 
         :param $user: the user
         :param $includeAllLanguagesFlag: the includeAllLanguagesFlag, default: false
         :param $pageId: the pageId, default: NULL
 
     ..  php:method:: getErrorHandler(int $statusCode)
-        :returns: TYPO3\CMS\Core\Error\PageErrorHandler\PageErrorHandlerInterface
+        :returns: `\TYPO3\CMS\Core\Error\PageErrorHandler\PageErrorHandlerInterface`
 
         Returns a ready-to-use error handler, to be used within the ErrorController
 
         :param $statusCode: the statusCode
 
     ..  php:method:: getConfiguration()
-        :returns: array
+        :returns: `array`
 
         Returns the whole configuration for this site
 
     ..  php:method:: getSettings()
-        :returns: TYPO3\CMS\Core\Site\Entity\SiteSettings
+        :returns: `\TYPO3\CMS\Core\Site\Entity\SiteSettings`
 
     ..  php:method:: getTypoScript()
-        :returns: ?TYPO3\CMS\Core\Site\Entity\SiteTypoScript
+        :returns: `?\TYPO3\CMS\Core\Site\Entity\SiteTypoScript`
 
     ..  php:method:: getAttribute(string $attributeName)
 
@@ -77,8 +77,8 @@
 
         :param $attributeName: the attributeName
 
-    ..  php:method:: getRouter(?TYPO3\CMS\Core\Context\Context $context = NULL)
-        :returns: TYPO3\CMS\Core\Routing\RouterInterface
+    ..  php:method:: getRouter(?\TYPO3\CMS\Core\Context\Context $context = NULL)
+        :returns: `\TYPO3\CMS\Core\Routing\RouterInterface`
 
         Returns the applicable router for this site. This might be configurable in the future.
 

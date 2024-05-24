@@ -9,4 +9,4 @@
     where editors also work via FTP.
 
     ..  php:method:: getFileUid()
-        :returns: int
+        :returns: `int`

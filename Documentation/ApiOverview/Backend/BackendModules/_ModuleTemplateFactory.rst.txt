@@ -5,7 +5,7 @@
 
     A factory class creating backend related ModuleTemplate view objects.
 
-    ..  php:method:: create(Psr\Http\Message\ServerRequestInterface $request)
-        :returns: TYPO3\CMS\Backend\Template\ModuleTemplate
+    ..  php:method:: create(\Psr\Http\Message\ServerRequestInterface $request)
+        :returns: `\TYPO3\CMS\Backend\Template\ModuleTemplate`
 
         :param $request: the request

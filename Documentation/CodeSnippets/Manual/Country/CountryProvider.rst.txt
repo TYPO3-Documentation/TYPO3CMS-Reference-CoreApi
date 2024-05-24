@@ -8,29 +8,29 @@
     Country data is generated from "Build/Scripts/updateIsoDatabase.php" (which in turn stems from https://github.com/sokil/php-isocodes-db-i18n)
 
     ..  php:method:: getAll()
-        :returns: \Country[]
+        :returns: `\Country[]`
 
     ..  php:method:: getByIsoCode(string $isoCode)
-        :returns: ?TYPO3\CMS\Core\Country\Country
+        :returns: `?\TYPO3\CMS\Core\Country\Country`
 
         :param $isoCode: the isoCode
 
     ..  php:method:: getByAlpha2IsoCode(string $isoCode)
-        :returns: ?TYPO3\CMS\Core\Country\Country
+        :returns: `?\TYPO3\CMS\Core\Country\Country`
 
         :param $isoCode: the isoCode
 
     ..  php:method:: getByAlpha3IsoCode(string $isoCode)
-        :returns: ?TYPO3\CMS\Core\Country\Country
+        :returns: `?\TYPO3\CMS\Core\Country\Country`
 
         :param $isoCode: the isoCode
 
     ..  php:method:: getByEnglishName(string $name)
-        :returns: ?TYPO3\CMS\Core\Country\Country
+        :returns: `?\TYPO3\CMS\Core\Country\Country`
 
         :param $name: the name
 
-    ..  php:method:: getFiltered(TYPO3\CMS\Core\Country\CountryFilter $filter)
-        :returns: array<string,\Country>
+    ..  php:method:: getFiltered(\TYPO3\CMS\Core\Country\CountryFilter $filter)
+        :returns: `array<string,\Country>`
 
         :param $filter: the filter

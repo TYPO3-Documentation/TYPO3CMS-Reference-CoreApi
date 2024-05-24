@@ -9,16 +9,16 @@
     authorized deeplinks.
 
     ..  php:method:: getResource()
-        :returns: TYPO3\CMS\Core\Resource\ResourceInterface
+        :returns: `\TYPO3\CMS\Core\Resource\ResourceInterface`
 
     ..  php:method:: getStorage()
-        :returns: TYPO3\CMS\Core\Resource\ResourceStorage
+        :returns: `\TYPO3\CMS\Core\Resource\ResourceStorage`
 
     ..  php:method:: getDriver()
-        :returns: TYPO3\CMS\Core\Resource\Driver\DriverInterface
+        :returns: `\TYPO3\CMS\Core\Resource\Driver\DriverInterface`
 
     ..  php:method:: getPublicUrl()
-        :returns: ?string
+        :returns: `?string`
 
     ..  php:method:: setPublicUrl(?string $publicUrl)
 

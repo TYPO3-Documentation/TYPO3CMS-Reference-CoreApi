@@ -8,10 +8,10 @@
     This allows to further analyze or modify the content of a file before it is written by the driver.
 
     ..  php:method:: getFile()
-        :returns: TYPO3\CMS\Core\Resource\FileInterface
+        :returns: `\TYPO3\CMS\Core\Resource\FileInterface`
 
     ..  php:method:: getContent()
-        :returns: string
+        :returns: `string`
 
     ..  php:method:: setContent(string $content)
 

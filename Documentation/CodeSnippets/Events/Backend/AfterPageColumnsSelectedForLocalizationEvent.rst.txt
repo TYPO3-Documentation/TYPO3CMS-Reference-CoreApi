@@ -10,7 +10,7 @@
     "translate" modal in the page module.
 
     ..  php:method:: getColumns()
-        :returns: array
+        :returns: `array`
 
         Returns list of columns, indexed by column position number, value is label (either LLL: or hardcoded).
 
@@ -19,7 +19,7 @@
         :param $columns: the columns
 
     ..  php:method:: getColumnList()
-        :returns: array
+        :returns: `array`
 
         Returns a list of integer column position numbers used in the BackendLayout.
 
@@ -28,15 +28,15 @@
         :param $columnList: the columnList
 
     ..  php:method:: getBackendLayout()
-        :returns: TYPO3\CMS\Backend\View\BackendLayout\BackendLayout
+        :returns: `\TYPO3\CMS\Backend\View\BackendLayout\BackendLayout`
 
     ..  php:method:: getRecords()
-        :returns: array
+        :returns: `array`
 
         Returns an array of records which were used when building the original column
         manifest and column position numbers list.
 
     ..  php:method:: getParameters()
-        :returns: array
+        :returns: `array`
 
         Returns request parameters passed to LocalizationController.

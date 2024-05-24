@@ -8,10 +8,10 @@
     The folder represents the "target folder".
 
     ..  php:method:: getFile()
-        :returns: TYPO3\CMS\Core\Resource\FileInterface
+        :returns: `\TYPO3\CMS\Core\Resource\FileInterface`
 
     ..  php:method:: getFolder()
-        :returns: TYPO3\CMS\Core\Resource\Folder
+        :returns: `\TYPO3\CMS\Core\Resource\Folder`
 
     ..  php:method:: getTargetFileName()
-        :returns: string
+        :returns: `string`

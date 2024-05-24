@@ -6,11 +6,11 @@
     Allows to modify tree data for any database tree
 
     ..  php:method:: getTreeData()
-        :returns: TYPO3\CMS\Backend\Tree\TreeNode
+        :returns: `\TYPO3\CMS\Backend\Tree\TreeNode`
 
-    ..  php:method:: setTreeData(TYPO3\CMS\Backend\Tree\TreeNode $treeData)
+    ..  php:method:: setTreeData(\TYPO3\CMS\Backend\Tree\TreeNode $treeData)
 
         :param $treeData: the treeData
 
     ..  php:method:: getProvider()
-        :returns: TYPO3\CMS\Core\Tree\TableConfiguration\AbstractTableConfigurationTreeDataProvider
+        :returns: `\TYPO3\CMS\Core\Tree\TableConfiguration\AbstractTableConfigurationTreeDataProvider`

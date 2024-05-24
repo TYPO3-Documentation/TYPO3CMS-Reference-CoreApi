@@ -8,20 +8,20 @@
     This allows to further customize a file object's processed file.
 
     ..  php:method:: getProcessedFile()
-        :returns: TYPO3\CMS\Core\Resource\ProcessedFile
+        :returns: `\TYPO3\CMS\Core\Resource\ProcessedFile`
 
-    ..  php:method:: setProcessedFile(TYPO3\CMS\Core\Resource\ProcessedFile $processedFile)
+    ..  php:method:: setProcessedFile(\TYPO3\CMS\Core\Resource\ProcessedFile $processedFile)
 
         :param $processedFile: the processedFile
 
     ..  php:method:: getDriver()
-        :returns: TYPO3\CMS\Core\Resource\Driver\DriverInterface
+        :returns: `\TYPO3\CMS\Core\Resource\Driver\DriverInterface`
 
     ..  php:method:: getFile()
-        :returns: TYPO3\CMS\Core\Resource\FileInterface
+        :returns: `\TYPO3\CMS\Core\Resource\FileInterface`
 
     ..  php:method:: getTaskType()
-        :returns: string
+        :returns: `string`
 
     ..  php:method:: getConfiguration()
-        :returns: array
+        :returns: `array`

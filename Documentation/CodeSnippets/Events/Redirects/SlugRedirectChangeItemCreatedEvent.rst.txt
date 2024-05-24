@@ -12,8 +12,8 @@
     for this slug change.
 
     ..  php:method:: getSlugRedirectChangeItem()
-        :returns: TYPO3\CMS\Redirects\RedirectUpdate\SlugRedirectChangeItem
+        :returns: `\TYPO3\CMS\Redirects\RedirectUpdate\SlugRedirectChangeItem`
 
-    ..  php:method:: setSlugRedirectChangeItem(TYPO3\CMS\Redirects\RedirectUpdate\SlugRedirectChangeItem $slugRedirectChangeItem)
+    ..  php:method:: setSlugRedirectChangeItem(\TYPO3\CMS\Redirects\RedirectUpdate\SlugRedirectChangeItem $slugRedirectChangeItem)
 
         :param $slugRedirectChangeItem: the slugRedirectChangeItem

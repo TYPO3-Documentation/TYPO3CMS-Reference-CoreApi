@@ -10,7 +10,7 @@
     config and thus should be identical on every request.
 
     ..  php:method:: getTsConfig()
-        :returns: array
+        :returns: `array`
 
     ..  php:method:: addTsConfig(string $tsConfig)
 
