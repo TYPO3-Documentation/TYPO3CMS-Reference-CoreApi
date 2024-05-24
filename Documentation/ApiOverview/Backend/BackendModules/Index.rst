@@ -10,9 +10,7 @@ Backend modules API
 
 ..  versionchanged:: 12.0
     Registration of backend modules was changed with version 12. Read more:
-    :ref:`backend-modules-configuration <Backend module configuration>`.
-
-..  note:: This section is currently (Mai 2024) work in progress.
+    :ref:`Backend module configuration <backend-modules-configuration>`.
 
 This chapter describes the API that can be used to create custom backend modules
 in extensions. See the following chapter for a tutorial on :ref:`how to create
@@ -62,6 +60,10 @@ custom backend modules <backend-modules-how-to>`.
         Backend templates can be overridden via page TSconfig. But you
         should be careful: backend templates are mostly not API and can
         break on updates.
+
+    ..  card:: :ref:`Tutorial and how to <backend-modules-how-to>`
+
+        Learn how to create a backend module step-by-step.
 
 ..  toctree::
     :glob:
