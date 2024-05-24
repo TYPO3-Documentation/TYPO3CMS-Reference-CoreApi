@@ -167,7 +167,7 @@ directory :file:`_assets/`.
 
 ..  warning::
     The :file:`_assets/` directory is not meant to be manually changed. Also, it
-    is important for local development that all subdirectories are symlinks
+    is important for local development that all its subdirectories are symlinks
     to the specific Composer packages. Do not synchronize this directory
     from a production instance back to your development instance (only the other
     way round). Thus, the whole :file:`_assets/` directory should always be removable and
