@@ -1,3 +1,5 @@
+:navigation-title: ModuleData
+
 .. include:: /Includes.rst.txt
 .. index::
    Backend modules; Module data object

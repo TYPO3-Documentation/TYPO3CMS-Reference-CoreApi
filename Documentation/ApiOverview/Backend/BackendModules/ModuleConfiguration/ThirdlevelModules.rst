@@ -1,3 +1,5 @@
+:navigation-title: 3rd level
+
 .. include:: /Includes.rst.txt
 .. index::
    Backend modules; Thirdlevel
