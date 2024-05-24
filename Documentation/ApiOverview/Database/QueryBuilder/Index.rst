@@ -1098,7 +1098,7 @@ createNamedParameter()
 ..  note::
     Doctrine DBAL v4 (used with TYPO3 v13) dropped the support for using the :php:`\PDO::PARAM_*`
     constants in favor of the enum types. Be aware of this and use
-    :php:`\TYPO3\CMS\Core\Database\Connection\::PARAM_*`, which can already be
+    :php:`\TYPO3\CMS\Core\Database\Connection::PARAM_*`, which can already be
     used in TYPO3 v12 and v11 (like in the examples below).
 
 This method creates a placeholder for a field value of a prepared statement.
