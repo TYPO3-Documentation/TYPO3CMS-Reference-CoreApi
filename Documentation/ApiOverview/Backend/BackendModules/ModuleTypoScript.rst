@@ -8,7 +8,7 @@ TypoScript configuration of modules
 
 The backend module of an extension can be configured via TypoScript.
 The configuration is done
-in :typoscript:`module.tx_<lowercaseextensionname>_<lowercasepluginname>` or 
+in :typoscript:`module.tx_<lowercaseextensionname>_<lowercasepluginname>` or
 in :typoscript:`module.tx_<lowercaseextensionname>`.
 If the part :typoscript:`_<lowercasepluginname>` is omitted, then the setting is used
 for all backend modules of that extension.
@@ -20,4 +20,3 @@ Therefore they are usually set in the file
 
 See the :ref:`toplevel object "module" <t3tsref:tlo-module>` in the
 TypoScript reference for the available options.
-
