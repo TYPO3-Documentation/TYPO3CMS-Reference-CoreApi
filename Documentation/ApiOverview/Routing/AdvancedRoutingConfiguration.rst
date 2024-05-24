@@ -25,8 +25,26 @@ configured explicitly in your :ref:`site configuration <sitehandling>`.
     :file:`config.yaml` site configuration file (located in
     :file:`config/sites/<yoursite>/config.yaml`).
 
-Enhancers and aspects are an important concept in TYPO3 and they are used to map
+Enhancers and aspects are an important concept in TYPO3 and they are based on patterns to map
 GET parameters to routes.
+Symfony's behavior on applying patterns for parameters just concerns values
+to be passed either to the URL or to internal parameters - they are always the
+same, without any transformation.
+TYPO3 extends ("enhances") this behavior by making a difference between values
+for generation (resulting in a speaking URL) and matching (resulting in query parameter values for PHP)
+having the following implications and meaning:
+
+Since requirements patterns in classic Symfony focus on parameters in URLs
+and aspects define a mapping between a URL part (e.g. 'some-example-news')
+and the corresponding internal parameter argument (e.g. 'tx_news_pi1[news]=123')
+without the routing enhancement for a speaking URL generation.
+Therefore the requirement definition cannot be used for resolving and generating
+a route at the same time. It would have to be e.g. `[\w_._]+` and `\d+`.
+Symfony's default regular expression pattern `[^/]+` (see
+`RouteCompiler::compilePattern()`) has to be overridden with `.+` to
+allow URI parameters like `some-example-news/january` as well.
+`requirements` for TYPO3 route enhancers 
+that are not defined and would use Symfony's default pattern are set to `.+`.
 
 An :ref:`enhancer <routing-advanced-routing-configuration-enhancers>` creates
 variations of a specific page-based route for a specific purpose (e.g. an
