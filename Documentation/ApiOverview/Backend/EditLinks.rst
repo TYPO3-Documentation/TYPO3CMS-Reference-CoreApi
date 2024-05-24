@@ -1,3 +1,5 @@
+:navigation-title: UriBuilder
+
 .. include:: /Includes.rst.txt
 
 .. _edit-links:

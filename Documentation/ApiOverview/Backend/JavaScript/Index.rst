@@ -1,3 +1,5 @@
+:navigation-title: JavaScript
+
 ..  include:: /Includes.rst.txt
 ..  index::
     pair: JavaScript; Backend
