@@ -62,8 +62,16 @@ the :php:`$data` and :php:`$cmd` arrays correctly prior to these chunks of code.
 The syntax for these two arrays is explained in the
 :ref:`DataHandler basics <datahandler-basics>` chapter.
 
-The :php:`DataHandler` class can be injected into the constructor via
-:ref:`dependency injection <DependencyInjection>`.
+..  warning::
+    A new :php:`DataHandler` object **should** be created using
+    :php:`GeneralUtility::makeInstance(DataHandler::class)` before each use.
+    It is a stateful service and has to be considered polluted after use. Do not
+    call :php:`DataHandler::start()` or :php:`DataHandler::process_datamap()`
+    multiple time on the same instance.
+
+    The :php:`DataHandler` class **must not** be injected into the constructor via
+    :ref:`dependency injection <DependencyInjection>`. This can cause unexpected
+    side effects.
 
 ..  _tcemain-submit-data:
 

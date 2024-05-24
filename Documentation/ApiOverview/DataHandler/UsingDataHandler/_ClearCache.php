@@ -5,16 +5,17 @@ declare(strict_types=1);
 namespace MyVendor\MyExtension\Classes\DataHandling;
 
 use TYPO3\CMS\Core\DataHandling\DataHandler;
+use TYPO3\CMS\Core\Utility\GeneralUtility;
 
 final class MyClass
 {
-    public function __construct(
-        private readonly DataHandler $dataHandler,
-    ) {}
-
     public function clearCache(): void
     {
-        $this->dataHandler->start([], []);
-        $this->dataHandler->clear_cacheCmd('all');
+        /** @var DataHandler $dataHandler */
+        // Do not inject or reuse the DataHander as it holds state!
+        // Do not use `new` as GeneralUtility::makeInstance handles dependencies
+        $dataHandler = GeneralUtility::makeInstance(DataHandler::class);
+        $dataHandler->start([], []);
+        $dataHandler->clear_cacheCmd('all');
     }
 }
