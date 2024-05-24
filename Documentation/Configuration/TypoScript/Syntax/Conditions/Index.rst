@@ -78,6 +78,11 @@ These general rules apply:
 * :typoscript:`[END]` and :typoscript:`[GLOBAL]` stop a given condition scope.
   This is similar to a closing curly brace :code:`}` in programming languages like PHP.
 
+* Multiple condition criteria can be combined using :typoscript:`or` or :typoscript:`||`,
+  as well as :typoscript:`and` or :typoscript:`&&`
+
+* Single criteria can be negated using :typoscript:`!`
+
   .. versionchanged:: 12.0
 
   :typoscript:`[END]` and :typoscript:`[GLOBAL]` behave exactly the same. Both
@@ -92,11 +97,6 @@ These general rules apply:
       [traverse(page, "uid") == {$myPageUid}]
           page.10.value = Page uid is 42
       [end]
-
-* Multiple condition criteria can be combined using :typoscript:`or` or :typoscript:`||`,
-  as well as :typoscript:`and` or :typoscript:`&&`
-
-* Single criteria can be negated using :typoscript:`!`
 
 * Conditions can *not* be nested within code blocks.
 
