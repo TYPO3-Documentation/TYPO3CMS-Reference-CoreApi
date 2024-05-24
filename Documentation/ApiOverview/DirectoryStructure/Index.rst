@@ -163,6 +163,21 @@ directory :file:`_assets/`.
     :bash:`composer dumpautoload` and the :file:`Resources/Public/` folder for
     that extension is symlinked to :file:`_assets/`.
 
+..  warning::
+    The :file:`_assets/` directory is not meant be manually changed. Also, it
+    is important for local development that all subdirectories are symlinks
+    to the specific Composer packages. Do not synchronize this directory
+    from a production instance back to your development instance (only the other
+    way round). Thus, the whole :file:`_assets/` directory should always be removable and
+    can be re-created with proper contents via :bash:`composer dumpautoload`.
+    This will create symlinks for all installed Composer packages containing public
+    assets.
+
+    If the :file:`_assets/` directory would not contain symlinks, any Composer update
+    would never refer to updated versions of any JavaScript and CSS assets
+    (including TYPO3 CMS Backend), leading to incompatible code
+    being loaded and causing errors in both Backend and Frontend.
+
 ..  seealso::
 
     -   :ref:`<t3upgrade:migrate-public-assets>`
