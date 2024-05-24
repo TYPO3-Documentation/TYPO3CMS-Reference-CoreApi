@@ -7,94 +7,55 @@
 Extension development
 =====================
 
-.. container:: row m-0 p-0
+..  card-grid::
+    :columns: 1
+    :columns-md: 2
+    :gap: 4
+    :class: pb-4
+    :card-height: 100
 
-   .. container:: col-md-6 pl-0 pr-3 py-3 m-0
+    ..  card:: :ref:`Concepts <extension-concepts>`
 
-      .. container:: card px-0 h-100
+        Learn about the concept of extensions
+        in TYPO3, the difference between system extensions and local
+        extensions. Learn about Extbase as an MVC basis for extension
+        development.
 
-         .. rst-class:: card-header h3
+    ..  card:: :ref:`File structure <extension-files-locations>`
 
-            .. rubric:: :ref:`Concepts <extension-concepts>`
+        Lists reserved file and directory names within an extension. Also
+        lists file names that are used in a certain way by convention.
 
-         .. container:: card-body
+        This chapter should also help you to find your way around in
+        extensions and sitepackages that were automatically generated or
+        that you downloaded as an example.
 
-            Learn about the concept of extensions
-            in TYPO3, the difference between system extensions and local
-            extensions. Learn about Extbase as an MVC basis for extension
-            development.
 
-   .. container:: col-md-6 pl-0 pr-3 py-3 m-0
+    ..  card:: :ref:`Howto <extension-howto>`
 
-      .. container:: card px-0 h-100
+        Helps you kickstart your own extension or sitepackage. Explains how
+        to publish an extension. Contains howto for different situations
+        like creating a frontend plugin, a backend module or to extend
+        existing TCA.
 
-         .. rst-class:: card-header h3
 
-            .. rubric:: :ref:`File structure <extension-files-locations>`
+    ..  card:: :ref:`Extbase <extbase>`
 
-         .. container:: card-body
+        Extbase is an extension framework to create TYPO3 frontend plugins
+        and TYPO3 backend modules.
 
-            Lists reserved file and directory names within an extension. Also
-            lists file names that are used in a certain way by convention.
 
-            This chapter should also help you to find your way around in
-            extensions and sitepackages that were automatically generated or
-            that you downloaded as an example.
+    ..  card:: :ref:`Best practises and conventions <extension-Best-practises>`
 
-   .. container:: col-md-6 pl-0 pr-3 py-3 m-0
+        Explains how to pick an extensions key, how things should be named
+        and how to best use configuration files
+        (:ref:`ext_localconf.php <ext-localconf-php>` and
+        :ref:`ext_tables.php <ext-tables-php>`)
 
-      .. container:: card px-0 h-100
 
-         .. rst-class:: card-header h3
+    ..  card:: :ref:`Tutorials <extension-tutorials>`
 
-            .. rubric:: :ref:`Howto <extension-howto>`
-
-         .. container:: card-body
-
-            Helps you kickstart your own extension or sitepackage. Explains how
-            to publish an extension. Contains howto for different situations
-            like creating a frontend plugin, a backend module or to extend
-            existing TCA.
-
-   .. container:: col-md-6 pl-0 pr-3 py-3 m-0
-
-      .. container:: card px-0 h-100
-
-         .. rst-class:: card-header h3
-
-            .. rubric:: :ref:`Extbase <extbase>`
-
-         .. container:: card-body
-
-            Extbase is an extension framework to create TYPO3 frontend plugins
-            and TYPO3 backend modules.
-
-   .. container:: col-md-6 pl-0 pr-3 py-3 m-0
-
-      .. container:: card px-0 h-100
-
-         .. rst-class:: card-header h3
-
-            .. rubric:: :ref:`Best practises and conventions <extension-Best-practises>`
-
-         .. container:: card-body
-
-            Explains how to pick an extensions key, how things should be named
-            and how to best use configuration files
-            (:ref:`ext_localconf.php <ext-localconf-php>` and
-            :ref:`ext_tables.php <ext-tables-php>`)
-
-   .. container:: col-md-6 pl-0 pr-3 py-3 m-0
-
-      .. container:: card px-0 h-100
-
-         .. rst-class:: card-header h3
-
-            .. rubric:: :ref:`Tutorials <extension-tutorials>`
-
-         .. container:: card-body
-
-            Contains tutorials on extension development in TYPO3.
+        Contains tutorials on extension development in TYPO3.
 
 .. toctree::
    :hidden:
