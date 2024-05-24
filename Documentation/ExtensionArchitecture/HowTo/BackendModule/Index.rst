@@ -9,47 +9,33 @@ Backend modules
 TYPO3 CMS offers a number of ways to attach custom functionality to the
 backend. They are described in this chapter.
 
-.. container:: row m-0 p-0
+..  card-grid::
+    :columns: 1
+    :columns-md: 2
+    :gap: 4
+    :class: pb-4
+    :card-height: 100
 
-   .. container:: col-md-6 pl-0 pr-3 py-3 m-0
+    ..  card:: :ref:`Backend module configuration examples <backend-modules-configuration-examples>`
 
-      .. container:: card px-0 h-100
+        Howto register custom modules provided by extensions.
 
-         .. rst-class:: card-header h3
+    ..  card:: :ref:`Create a module with Extbase <backend-modules-extbase>`
 
-            .. rubric:: :ref:`Create a module with Extbase <backend-modules-extbase>`
+        Explains how to create a module with Extbase and Fluid. This is
+        the preferred method if extensive data modeling is involved.
 
-         .. container:: card-body
 
-            Explains how to create a module with Extbase and Fluid. This is
-            the preferred method if extensive data modeling is involved.
+    ..  card:: :ref:`Create a module with Core functionality <backend-modules-template-without-extbase>`
 
-   .. container:: col-md-6 pl-0 pr-3 py-3 m-0
+        Explains how to create a module without Extbase. Fluid can still be
+        used, however there are some limitations. This is the preferred way
+        if no extensive data modelling is needed.
 
-      .. container:: card px-0 h-100
+    ..  card:: :ref:`Tutorials <backend-modules-tutorials>`
 
-         .. rst-class:: card-header h3
-
-            .. rubric:: :ref:`Create a module with Core functionality <backend-modules-template-without-extbase>`
-
-         .. container:: card-body
-
-            Explains how to create a module without Extbase. Fluid can still be
-            used, however there are some limitations. This is the preferred way
-            if no extensive data modelling is needed.
-
-   .. container:: col-md-6 pl-0 pr-3 py-3 m-0
-
-      .. container:: card px-0 h-100
-
-         .. rst-class:: card-header h3
-
-            .. rubric:: :ref:`Tutorials <backend-modules-tutorials>`
-
-         .. container:: card-body
-
-            A video series from Susanne Moog demonstrating how to register
-            and style a TYPO3 backend module.
+        A video series from Susanne Moog demonstrating how to register
+        and style a TYPO3 backend module.
 
 ..  toctree::
     :hidden:
