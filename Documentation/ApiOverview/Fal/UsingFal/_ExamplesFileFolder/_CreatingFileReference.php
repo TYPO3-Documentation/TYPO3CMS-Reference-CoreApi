@@ -6,19 +6,14 @@ namespace MyVendor\MyExtension\Classes;
 
 use TYPO3\CMS\Backend\Utility\BackendUtility;
 use TYPO3\CMS\Core\DataHandling\DataHandler;
-use TYPO3\CMS\Core\Resource\File;
 use TYPO3\CMS\Core\Resource\ResourceFactory;
+use TYPO3\CMS\Core\Utility\GeneralUtility;
 
 final class MyClass
 {
-    private DataHandler $dataHandler;
-    private ResourceFactory $resourceFactory;
-
-    public function __construct(DataHandler $dataHandler, ResourceFactory $resourceFactory)
-    {
-        $this->dataHandler = $dataHandler;
-        $this->resourceFactory = $resourceFactory;
-    }
+    public function __construct(
+        private readonly ResourceFactory $resourceFactory,
+    ) {}
 
     public function doSomething(): void
     {
@@ -42,13 +37,17 @@ final class MyClass
         $data['tt_content'][$contentElement['uid']] = [
             'assets' => $newId, // For multiple new references $newId is a comma-separated list
         ];
+        /** @var DataHandler $dataHandler */
+        // Do not inject or reuse the DataHander as it holds state!
+        // Do not use `new` as GeneralUtility::makeInstance handles dependencies
+        $dataHandler = GeneralUtility::makeInstance(DataHandler::class);
 
         // Process the DataHandler data
-        $this->dataHandler->start($data, []);
-        $this->dataHandler->process_datamap();
+        $dataHandler->start($data, []);
+        $dataHandler->process_datamap();
 
         // Error or success reporting
-        if ($this->dataHandler->errorLog === []) {
+        if ($dataHandler->errorLog === []) {
             // ... handle success
         } else {
             // ... handle errors

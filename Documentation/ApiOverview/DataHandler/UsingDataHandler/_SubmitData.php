@@ -5,16 +5,10 @@ declare(strict_types=1);
 namespace MyVendor\MyExtension\Classes\DataHandling;
 
 use TYPO3\CMS\Core\DataHandling\DataHandler;
+use TYPO3\CMS\Core\Utility\GeneralUtility;
 
 final class MyClass
 {
-    private DataHandler $dataHandler;
-
-    public function __construct(DataHandler $dataHandler)
-    {
-        $this->dataHandler = $dataHandler;
-    }
-
     public function submitData(): void
     {
         // Prepare the data array
@@ -22,11 +16,16 @@ final class MyClass
             // ... the data ...
         ];
 
+        /** @var DataHandler $dataHandler */
+        // Do not inject or reuse the DataHander as it holds state!
+        // Do not use `new` as GeneralUtility::makeInstance handles dependencies
+        $dataHandler = GeneralUtility::makeInstance(DataHandler::class);
+
         // Register the $data array inside DataHandler and initialize the
         // class internally.
-        $this->dataHandler->start($data, []);
+        $dataHandler->start($data, []);
 
         // Submit data and have all records created/updated.
-        $this->dataHandler->process_datamap();
+        $dataHandler->process_datamap();
     }
 }

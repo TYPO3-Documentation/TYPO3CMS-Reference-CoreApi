@@ -5,18 +5,17 @@ declare(strict_types=1);
 namespace MyVendor\MyExtension\Classes\DataHandling;
 
 use TYPO3\CMS\Core\DataHandling\DataHandler;
+use TYPO3\CMS\Core\Utility\GeneralUtility;
 
 final class MyClass
 {
-    private DataHandler $dataHandler;
-
-    public function __construct(DataHandler $dataHandler)
-    {
-        $this->dataHandler = $dataHandler;
-    }
-
     public function executeCommands(): void
     {
+        /** @var DataHandler $dataHandler */
+        // Do not inject or reuse the DataHander as it holds state!
+        // Do not use `new` as GeneralUtility::makeInstance handles dependencies
+        $dataHandler = GeneralUtility::makeInstance(DataHandler::class);
+
         // Prepare the cmd array
         $cmd = [
             // ... the cmd structure ...
@@ -24,9 +23,9 @@ final class MyClass
 
         // Registers the $cmd array inside the class and initialize the
         // class internally.
-        $this->dataHandler->start([], $cmd);
+        $dataHandler->start([], $cmd);
 
         // Execute the commands.
-        $this->dataHandler->process_cmdmap();
+        $dataHandler->process_cmdmap();
     }
 }

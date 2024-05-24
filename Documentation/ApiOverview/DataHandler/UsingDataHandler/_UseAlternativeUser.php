@@ -6,16 +6,10 @@ namespace MyVendor\MyExtension\Classes\DataHandling;
 
 use TYPO3\CMS\Core\Authentication\BackendUserAuthentication;
 use TYPO3\CMS\Core\DataHandling\DataHandler;
+use TYPO3\CMS\Core\Utility\GeneralUtility;
 
 final class MyClass
 {
-    private DataHandler $dataHandler;
-
-    public function __construct(DataHandler $dataHandler)
-    {
-        $this->dataHandler = $dataHandler;
-    }
-
     public function useAlternativeUser(BackendUserAuthentication $alternativeBackendUser): void
     {
         // Prepare the data array
@@ -28,8 +22,13 @@ final class MyClass
             // ... the cmd structure ...
         ];
 
-        $this->dataHandler->start($data, $cmd, $alternativeBackendUser);
-        $this->dataHandler->process_datamap();
-        $this->dataHandler->process_cmdmap();
+        /** @var DataHandler $dataHandler */
+        // Do not inject or reuse the DataHander as it holds state!
+        // Do not use `new` as GeneralUtility::makeInstance handles dependencies
+        $dataHandler = GeneralUtility::makeInstance(DataHandler::class);
+
+        $dataHandler->start($data, $cmd, $alternativeBackendUser);
+        $dataHandler->process_datamap();
+        $dataHandler->process_cmdmap();
     }
 }

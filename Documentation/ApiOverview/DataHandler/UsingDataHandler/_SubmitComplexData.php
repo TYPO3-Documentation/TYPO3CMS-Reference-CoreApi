@@ -6,16 +6,10 @@ namespace MyVendor\MyExtension\Classes\DataHandling;
 
 use TYPO3\CMS\Backend\Utility\BackendUtility;
 use TYPO3\CMS\Core\DataHandling\DataHandler;
+use TYPO3\CMS\Core\Utility\GeneralUtility;
 
 final class MyClass
 {
-    private DataHandler $dataHandler;
-
-    public function __construct(DataHandler $dataHandler)
-    {
-        $this->dataHandler = $dataHandler;
-    }
-
     public function submitComplexData(): void
     {
         $data = [
@@ -31,10 +25,15 @@ final class MyClass
             ],
         ];
 
-        $this->dataHandler->reverseOrder = true;
-        $this->dataHandler->start($data, []);
-        $this->dataHandler->process_datamap();
+        /** @var DataHandler $dataHandler */
+        // Do not inject or reuse the DataHander as it holds state!
+        // Do not use `new` as GeneralUtility::makeInstance handles dependencies
+        $dataHandler = GeneralUtility::makeInstance(DataHandler::class);
+
+        $dataHandler->reverseOrder = true;
+        $dataHandler->start($data, []);
+        $dataHandler->process_datamap();
         BackendUtility::setUpdateSignal('updatePageTree');
-        $this->dataHandler->clear_cacheCmd('pages');
+        $dataHandler->clear_cacheCmd('pages');
     }
 }
