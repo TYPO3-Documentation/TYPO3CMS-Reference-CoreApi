@@ -1,3 +1,4 @@
+:navigation-title: Extbase controller
 .. include:: /Includes.rst.txt
 
 .. _backend-modules-extbase:
