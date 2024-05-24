@@ -163,6 +163,8 @@ directory :file:`_assets/`.
     :bash:`composer dumpautoload` and the :file:`Resources/Public/` folder for
     that extension is symlinked to :file:`_assets/`.
 
+..  todo:: This may be fixed/addressed with this issue: https://review.typo3.org/c/Packages/TYPO3.CMS/+/84383
+
 ..  warning::
     The :file:`_assets/` directory is not meant to be manually changed. Also, it
     is important for local development that all subdirectories are symlinks
