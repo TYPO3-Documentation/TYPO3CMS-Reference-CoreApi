@@ -1130,3 +1130,37 @@ routing
 
     ..  seealso::
         :ref:`message-bus-routing`
+
+FileInfo
+========
+
+.. index::
+   TYPO3_CONF_VARS SYS; FileInfo fileExtensionToMimeType
+..  _typo3ConfVars_sys_FileInfo_fileExtensionToMimeType:
+
+fileExtensionToMimeType
+-----------------------
+
+..  confval:: $GLOBALS['TYPO3_CONF_VARS']['SYS']['FileInfo']['fileExtensionToMimeType']
+
+    :Path: $GLOBALS['TYPO3_CONF_VARS']['SYS']['FileInfo']
+    :type: array
+    :Default: see :file:`EXT:core/Configuration/DefaultConfiguration.php`
+
+    Static mapping for file extensions to mime types. In special cases the mime
+    type is not detected correctly. Override this array only for cases where the
+    automatic detection does not work correctly!
+
+    It is not possible to change this value in the Backend!
+
+    This is the default:
+
+    ..  code-block:: php
+
+        $GLOBALS['TYPO3_CONF_VARS']['SYS']['FileInfo']['fileExtensionToMimeType'] = [
+            'fileExtensionToMimeType' => [
+                'svg' => 'image/svg+xml',
+                'youtube' => 'video/youtube',
+                'vimeo' => 'video/vimeo',
+            ],
+        ],
