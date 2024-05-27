@@ -63,6 +63,7 @@ Extension development
 
    Concepts/Index
    FileStructure/Index
+   ComponentsOfTYPO3Extension/Index
    HowTo/Index
    Extbase/Index
    BestPractises/Index
