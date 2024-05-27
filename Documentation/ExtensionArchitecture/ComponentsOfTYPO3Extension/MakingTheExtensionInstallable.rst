@@ -1,7 +1,7 @@
 .. _making-the-extension-installable:
 
 ================================
-Making the Extension Installable
+Making the extension installable
 ================================
 
 To make your TYPO3 extension installable, follow these steps:
