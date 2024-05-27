@@ -1,4 +1,5 @@
-.. _making-the-extension-installable:
+..  include:: /Includes.rst.txt
+..  _making-the-extension-installable:
 
 ================================
 Making the extension installable
