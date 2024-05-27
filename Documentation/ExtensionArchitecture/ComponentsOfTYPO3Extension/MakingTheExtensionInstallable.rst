@@ -1,15 +1,15 @@
 .. _making-the-extension-installable:
 
-=============================
+================================
 Making the Extension Installable
-=============================
+================================
 
 To make your TYPO3 extension installable, follow these steps:
 
 Add `example-extension/composer.json`
 -------------------------------------
 
-Your `composer.json` file should contain the following essential information:
+Your `composer.json` file should contain the following essential information (for more information see :ref:`composer.json <t3coreapi:files-composer-json>`):
 
 * Composer name (invisible in Extension Manager)
 * Composer type
