@@ -1,8 +1,9 @@
+..  include:: /Includes.rst.txt
 .. _creating-database-model:
 
-===================================
+=============================
 Creating a new database model
-===================================
+=============================
 
 Create SQL database schema
 ---------------------------

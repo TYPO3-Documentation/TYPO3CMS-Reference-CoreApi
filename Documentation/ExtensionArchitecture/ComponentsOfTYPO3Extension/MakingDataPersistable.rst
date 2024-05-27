@@ -1,4 +1,5 @@
-.. _making-data-persistable:
+..  include:: /Includes.rst.txt
+..  _making-data-persistable:
 
 ===================================
 Making data persistable by Extbase
