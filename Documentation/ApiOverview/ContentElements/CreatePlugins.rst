@@ -15,7 +15,7 @@ There are basically two ways to create frontend plugins in TYPO3:
 #.  With the Extbase framework using :php:`configurePlugin()` in the file
     :file:`ext_localconf.php` and :php:`registerPlugin()` in the file
     :file:`Configuration/TCA/Overrides/tt_content.php`
-#.  Create a plugin using Core functionality and a custom controller
+#.  Create a plugin using Core functionality (without Extbase) and a custom controller
 
 Generally speaking, if you already use **Extbase**, it is good practice to
 create your plugins using the Extbase framework. This also involves:
