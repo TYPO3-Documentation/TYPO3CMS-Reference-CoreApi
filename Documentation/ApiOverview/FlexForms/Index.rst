@@ -116,7 +116,7 @@ Steps to perform (extension developer)
         );
 
 
-    If you are using a content element plugin without Extbase, the example
+    If you are using a content element instead (not a "General Plugin" which has :sql:`CType` set to `list` and uses :sql:`list_type` to be configured), the example
     looks like this:
 
     ..  code-block:: php
