@@ -116,7 +116,8 @@ Steps to perform (extension developer)
         );
 
 
-    If you are using a content element with a custom CType (recommended), the example
+    If you are using a content element with a custom CType (recommend, both with and without 
+    Extbase), the example
     looks like this:
 
     ..  code-block:: php
