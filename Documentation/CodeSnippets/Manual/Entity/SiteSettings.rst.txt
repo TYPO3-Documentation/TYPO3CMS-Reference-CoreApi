@@ -37,3 +37,4 @@
 
     ..  php:method:: getIdentifiers()
         :returns: `array`
+

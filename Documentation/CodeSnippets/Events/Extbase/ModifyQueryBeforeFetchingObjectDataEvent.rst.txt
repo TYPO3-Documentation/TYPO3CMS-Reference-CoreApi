@@ -11,3 +11,4 @@
     ..  php:method:: setQuery(\TYPO3\CMS\Extbase\Persistence\QueryInterface $query)
 
         :param $query: the query
+

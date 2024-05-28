@@ -28,3 +28,4 @@
     ..  php:method:: setSortDirection(string $sortDirection)
 
         :param $sortDirection: the sortDirection
+

@@ -13,3 +13,4 @@
 
     ..  php:method:: getTargetName()
         :returns: `string`
+

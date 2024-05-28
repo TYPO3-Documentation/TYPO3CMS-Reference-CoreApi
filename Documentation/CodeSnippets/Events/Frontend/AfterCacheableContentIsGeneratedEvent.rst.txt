@@ -23,3 +23,4 @@
 
     ..  php:method:: getCacheIdentifier()
         :returns: `string`
+

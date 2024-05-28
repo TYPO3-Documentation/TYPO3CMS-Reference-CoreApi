@@ -97,8 +97,7 @@
         Creates an IN () comparison expression with the given arguments.
 
         :param $fieldName: The fieldname. Will be quoted according to database platform automatically.
-        :param $value: The placeholder or the array of values to be used by IN() comparison.
-        No automatic quoting/escaping is done.
+        :param $value: The placeholder or the array of values to be used by IN() comparison.No automatic quoting/escaping is done.
 
     ..  php:method:: notIn(string $fieldName, ?string|array $value)
         :returns: `string`
@@ -106,8 +105,7 @@
         Creates a NOT IN () comparison expression with the given arguments.
 
         :param $fieldName: The fieldname. Will be quoted according to database platform automatically.
-        :param $value: The placeholder or the array of values to be used by NOT IN() comparison.
-        No automatic quoting/escaping is done.
+        :param $value: The placeholder or the array of values to be used by NOT IN() comparison.No automatic quoting/escaping is done.
 
     ..  php:method:: inSet(string $fieldName, string $value, bool $isColumn = false)
         :returns: `string`
@@ -134,3 +132,4 @@
 
         :param $fieldName: The fieldname. Will be quoted according to database platform automatically.
         :param $value: Argument to be used in the bitwise AND operation
+

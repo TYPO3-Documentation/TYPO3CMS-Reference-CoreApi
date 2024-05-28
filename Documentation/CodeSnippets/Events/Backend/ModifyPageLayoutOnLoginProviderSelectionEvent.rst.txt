@@ -13,3 +13,4 @@
 
     ..  php:method:: getPageRenderer()
         :returns: `\TYPO3\CMS\Core\Page\PageRenderer`
+

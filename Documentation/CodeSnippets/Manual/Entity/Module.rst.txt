@@ -98,3 +98,4 @@
 
     ..  php:method:: getDefaultModuleData()
         :returns: `array`
+

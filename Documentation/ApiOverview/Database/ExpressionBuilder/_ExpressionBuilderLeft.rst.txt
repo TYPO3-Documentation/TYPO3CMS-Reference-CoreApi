@@ -5,8 +5,10 @@
     :noindex:
 
     ..  php:method:: left(string|int $length, string $value, string $asIdentifier = '')
-        :returns: `string Return the expression to extract defined substring from the right side.`
+        :returns: `string`
 
         :param $length: Integer value or expression providing the length as integer
         :param $value: Value, identifier or expression defining the value to extract from the left
         :param $asIdentifier: Provide `AS` identifier if not empty, default: ''
+        :Return description: Return the expression to extract defined substring from the right side.
+

@@ -6,18 +6,20 @@
     Listeners to this Event will be able to modify the state (enabled or disabled) for controls of a file reference
 
     ..  php:method:: enableControl(string $identifier)
-        :returns: `bool Whether the control could be enabled`
+        :returns: `bool`
 
         Enable a control, if it exists
 
         :param $identifier: the identifier
+        :Return description: Whether the control could be enabled
 
     ..  php:method:: disableControl(string $identifier)
-        :returns: `bool Whether the control could be disabled`
+        :returns: `bool`
 
         Disable a control, if it exists
 
         :param $identifier: the identifier
+        :Return description: Whether the control could be disabled
 
     ..  php:method:: hasControl(string $identifier)
         :returns: `bool`
@@ -74,3 +76,4 @@
         :returns: `bool`
 
         Returns whether the current records is only virtually shown and not physically part of the parent record
+

@@ -55,3 +55,4 @@
 
     ..  php:method:: getLocale()
         :returns: `?\TYPO3\CMS\Core\Localization\Locale`
+

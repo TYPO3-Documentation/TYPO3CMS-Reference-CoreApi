@@ -29,3 +29,4 @@
     ..  php:method:: setMutationCollections(\TYPO3\CMS\Core\Security\ContentSecurityPolicy\MutationCollection ...$mutationCollections)
 
         :param $mutationCollections: the mutationCollections
+

@@ -19,3 +19,4 @@
     ..  php:method:: addError(string $error)
 
         :param $error: the error
+

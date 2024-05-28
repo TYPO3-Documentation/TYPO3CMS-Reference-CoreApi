@@ -59,3 +59,4 @@
     ..  php:method:: setConfiguration(array $configuration)
 
         :param $configuration: the configuration
+

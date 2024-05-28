@@ -28,19 +28,20 @@
         :param $columnName: the columnName
 
     ..  php:method:: getColumn(string $columnName)
-        :returns: `string|null The column or NULL if the column does not exist`
+        :returns: `string|null`
 
         Get column by its name
 
         :param $columnName: the columnName
+        :Return description: The column or NULL if the column does not exist
 
     ..  php:method:: removeColumn(string $columnName)
-        :returns: `bool Whether the column could be removed - Will therefore
-    return FALSE if the column to remove does not exist.`
+        :returns: `bool`
 
         Remove column by its name
 
         :param $columnName: the columnName
+        :Return description: Whether the column could be removed - Will thereforereturn FALSE if the column to remove does not exist.
 
     ..  php:method:: setColumns(array $columns)
 
@@ -66,3 +67,4 @@
         :returns: `\TYPO3\CMS\Backend\RecordList\DatabaseRecordList`
 
         Returns the current DatabaseRecordList instance.
+

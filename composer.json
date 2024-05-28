@@ -1,10 +1,4 @@
 {
-    "repositories": {
-        "0": {
-            "type": "path",
-            "url": ".Build/codesnippet"
-        }
-    },
     "name": "typo3/reference-coreapi",
     "description": "Main TYPO3 Core documentation",
     "license": "OPL-1.0",

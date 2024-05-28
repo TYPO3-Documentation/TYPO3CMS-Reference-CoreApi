@@ -17,3 +17,4 @@
     ..  php:method:: setActionItems(array $actionItems)
 
         :param $actionItems: the actionItems
+

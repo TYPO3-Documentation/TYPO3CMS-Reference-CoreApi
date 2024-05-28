@@ -16,3 +16,4 @@
     ..  php:method:: setRecords(array $records)
 
         :param $records: the records
+

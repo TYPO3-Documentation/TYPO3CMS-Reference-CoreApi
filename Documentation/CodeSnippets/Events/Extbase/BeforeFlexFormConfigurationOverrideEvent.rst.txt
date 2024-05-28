@@ -21,3 +21,4 @@
     ..  php:method:: setFlexFormConfiguration(array $flexFormConfiguration)
 
         :param $flexFormConfiguration: the flexFormConfiguration
+

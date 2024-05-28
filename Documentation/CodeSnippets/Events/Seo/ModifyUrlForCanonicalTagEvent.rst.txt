@@ -20,3 +20,4 @@
 
     ..  php:method:: getCanonicalGenerationDisabledException()
         :returns: `?\TYPO3\CMS\Seo\Exception\CanonicalGenerationDisabledException`
+

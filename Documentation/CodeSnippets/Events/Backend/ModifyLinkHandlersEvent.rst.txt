@@ -9,11 +9,12 @@
         :returns: `array<string,array>`
 
     ..  php:method:: getLinkHandler(string $name)
-        :returns: `array<string,mixed>|null The handler definition, or null if not defined.`
+        :returns: `array<string,mixed>|null`
 
         Gets an individual handler by name.
 
         :param $name: The handler name, including trailing period.
+        :Return description: The handler definition, or null if not defined.
 
     ..  php:method:: setLinkHandler(string $name, array $handler)
         :returns: `$this`
@@ -25,3 +26,4 @@
 
     ..  php:method:: getCurrentLinkParts()
         :returns: `array<string,mixed>`
+

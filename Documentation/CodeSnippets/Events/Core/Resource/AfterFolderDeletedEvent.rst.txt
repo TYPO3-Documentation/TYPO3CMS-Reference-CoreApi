@@ -11,3 +11,4 @@
 
     ..  php:method:: isDeleted()
         :returns: `bool`
+

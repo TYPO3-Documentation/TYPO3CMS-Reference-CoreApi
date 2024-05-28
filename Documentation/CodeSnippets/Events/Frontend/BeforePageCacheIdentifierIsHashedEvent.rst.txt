@@ -25,3 +25,4 @@
     ..  php:method:: setPageCacheIdentifierParameters(array $pageCacheIdentifierParameters)
 
         :param $pageCacheIdentifierParameters: the pageCacheIdentifierParameters
+

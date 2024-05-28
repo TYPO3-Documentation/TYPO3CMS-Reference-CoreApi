@@ -16,3 +16,4 @@
 
     ..  php:method:: getBackendUserAuthentication()
         :returns: `?\TYPO3\CMS\Core\Authentication\BackendUserAuthentication`
+

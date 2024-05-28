@@ -8,10 +8,14 @@
     The architecture is highly inspired by the Symfony Routing Component.
 
     ..  php:method:: getPath()
+        :returns: `string`
 
         Returns the path
 
+        :Return description: The path pattern
+
     ..  php:method:: setPath(?string $pattern)
+        :returns: `\Route`
 
         Sets the pattern for the path
         A pattern must start with a slash and must not have multiple slashes at the beginning because the
@@ -20,13 +24,16 @@
         This method implements a fluent interface.
 
         :param $pattern: The path pattern
+        :Return description: The current Route instance
 
     ..  php:method:: getMethods()
-        :returns: `string[] The methods`
+        :returns: `string[]`
 
         Returns the uppercased HTTP methods this route is restricted to.
 
         An empty array means that any method is allowed.
+
+        :Return description: The methods
 
     ..  php:method:: setMethods(array $methods)
         :returns: `self`
@@ -40,18 +47,24 @@
         :param $methods: The array of allowed methods
 
     ..  php:method:: getOptions()
+        :returns: `array`
 
         Returns the options set
 
+        :Return description: The options
+
     ..  php:method:: setOptions(array $options)
+        :returns: `\Route`
 
         Sets the options
 
         This method implements a fluent interface.
 
         :param $options: The options
+        :Return description: The current Route instance
 
     ..  php:method:: setOption(?string $name, ?mixed $value)
+        :returns: `\Route`
 
         Sets an option value
 
@@ -59,15 +72,21 @@
 
         :param $name: An option name
         :param $value: The option value
+        :Return description: The current Route instance
 
     ..  php:method:: getOption(?string $name)
+        :returns: `mixed`
 
         Get an option value
 
         :param $name: An option name
+        :Return description: The option value or NULL when not given
 
     ..  php:method:: hasOption(?string $name)
+        :returns: `bool`
 
         Checks if an option has been set
 
         :param $name: An option name
+        :Return description: TRUE if the option is set, FALSE otherwise
+

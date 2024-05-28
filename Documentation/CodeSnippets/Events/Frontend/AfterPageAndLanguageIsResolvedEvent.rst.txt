@@ -25,3 +25,4 @@
     ..  php:method:: setResponse(\Psr\Http\Message\ResponseInterface $response)
 
         :param $response: the response
+

@@ -26,3 +26,4 @@
     ..  php:method:: setLanguageAspect(\TYPO3\CMS\Core\Context\LanguageAspect $languageAspect)
 
         :param $languageAspect: the languageAspect
+

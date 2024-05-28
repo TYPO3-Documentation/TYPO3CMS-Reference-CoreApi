@@ -8,3 +8,4 @@
 
     ..  php:method:: getObject()
         :returns: `\TYPO3\CMS\Extbase\DomainObject\DomainObjectInterface`
+

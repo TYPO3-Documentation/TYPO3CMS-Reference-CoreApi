@@ -13,3 +13,4 @@
 
     ..  php:method:: getCurrentUser()
         :returns: `array`
+

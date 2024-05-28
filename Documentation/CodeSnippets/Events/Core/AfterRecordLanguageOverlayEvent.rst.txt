@@ -25,3 +25,4 @@
         :returns: `bool`
 
         Determines if the overlay functionality happened, thus, returning the lo
+

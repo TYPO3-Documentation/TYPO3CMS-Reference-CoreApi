@@ -10,3 +10,4 @@
 
     ..  php:method:: getResponse()
         :returns: `\Psr\Http\Message\ResponseInterface`
+

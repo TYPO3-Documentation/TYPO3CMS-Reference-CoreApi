@@ -18,3 +18,4 @@
 
     ..  php:method:: getRootLine()
         :returns: `array`
+

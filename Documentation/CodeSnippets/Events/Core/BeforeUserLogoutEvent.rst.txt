@@ -20,3 +20,4 @@
 
     ..  php:method:: getUserSession()
         :returns: `?\TYPO3\CMS\Core\Session\UserSession`
+

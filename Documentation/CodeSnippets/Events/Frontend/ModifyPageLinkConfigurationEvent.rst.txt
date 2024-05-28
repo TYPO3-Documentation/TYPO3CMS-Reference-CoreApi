@@ -41,3 +41,4 @@
 
     ..  php:method:: pageWasModified()
         :returns: `bool`
+

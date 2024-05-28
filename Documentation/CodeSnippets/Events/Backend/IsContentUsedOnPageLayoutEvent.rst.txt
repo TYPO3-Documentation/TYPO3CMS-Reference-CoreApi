@@ -20,3 +20,4 @@
 
     ..  php:method:: getPageLayoutContext()
         :returns: `\TYPO3\CMS\Backend\View\PageLayoutContext`
+

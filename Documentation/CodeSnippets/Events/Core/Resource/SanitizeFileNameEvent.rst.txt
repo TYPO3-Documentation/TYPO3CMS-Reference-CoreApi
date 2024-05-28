@@ -21,3 +21,4 @@
 
     ..  php:method:: getDriver()
         :returns: `\TYPO3\CMS\Core\Resource\Driver\DriverInterface`
+

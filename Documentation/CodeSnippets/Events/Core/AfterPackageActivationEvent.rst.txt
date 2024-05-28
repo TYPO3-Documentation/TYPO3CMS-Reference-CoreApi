@@ -13,3 +13,4 @@
 
     ..  php:method:: getEmitter()
         :returns: `?object`
+
