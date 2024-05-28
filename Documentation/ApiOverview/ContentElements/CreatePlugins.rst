@@ -10,14 +10,14 @@ How to create plugins with the Extbase framework and Fluid templating engine
 is handled in depth in the chapter
 :ref:`extbase_registration_of_frontend_plugins`.
 
-There are basically three ways to create plugins in TYPO3:
+There are basically two ways to create frontend plugins in TYPO3:
 
 #.  With the Extbase framework using :php:`configurePlugin()` in the file
     :file:`ext_localconf.php` and :php:`registerPlugin()` in the file
     :file:`Configuration/TCA/Overrides/tt_content.php`
-#.  Create a frontend plugin using Core functionality and a custom controller
+#.  Create a plugin using Core functionality (without Extbase) and a custom controller
 
-Generally speaking, if you already use Extbase, it is good practice to
+Generally speaking, if you already use **Extbase**, it is good practice to
 create your plugins using the Extbase framework. This also involves:
 
 *   creating controller actions
