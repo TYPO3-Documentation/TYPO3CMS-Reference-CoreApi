@@ -543,7 +543,7 @@ it:
 
 Symfony: How to Create Service Aliases and Mark Services as Private: SymfonyPrivate_
 
-_SymfonyPrivate: https://symfony.com/doc/current/service_container/alias_private.html
+..  _SymfonyPrivate: https://symfony.com/doc/current/service_container/alias_private.html
 
 Direct access includes instantiation via :php:`GeneralUtility::makeInstance()`
 with constructor arguments.
