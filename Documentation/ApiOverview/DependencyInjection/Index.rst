@@ -548,24 +548,30 @@ Symfony: How to Create Service Aliases and Mark Services as Private: SymfonyPriv
 Direct access includes instantiation via :php:`GeneralUtility::makeInstance()`
 with constructor arguments.
 
-This means every class that is directly retrieved using
-:php:`GeneralUtility::makeInstance()` *and* requires dependency injection
-**must** be marked as public. Any other class which requires dependency injection
-and is retrieved by dependency injection itself can be private. Instances of
-:php:`\TYPO3\CMS\Core\SingletonInterface` and Extbase controllers are
-automatically marked as public because they are retrieved using
-:php:`GeneralUtility::makeInstance()`. More examples of classes that must be
-marked as public:
+**private**:
 
-*   :ref:`User functions <t3tsref:cobj-user-int>`
-*   Non-Extbase controllers
-*   Classes registered in :ref:`hooks <hooks-general>`
-*   :ref:`Authentication services <authentication>`
-*   :ref:`Fluid data processors <content-elements-custom-data-processor>`
+*   Any class which requires dependency injection
+    and is retrieved by dependency injection itself can be private.
+
+**public**:
+
+*   Every class that is directly retrieved using :php:`GeneralUtility::makeInstance()` and 
+requires dependency injection **must** be marked as public.  
+*   Instances of :php:`\TYPO3\CMS\Core\SingletonInterface` and Extbase controllers are
+automatically marked as public because they are retrieved using
+:php:`GeneralUtility::makeInstance()`. 
+*    More examples of classes that must be
+marked as **public**:
+
+    *   :ref:`User functions <t3tsref:cobj-user-int>`
+    *   Non-Extbase controllers
+    *   Classes registered in :ref:`hooks <hooks-general>`
+    *   :ref:`Authentication services <authentication>`
+    *   :ref:`Fluid data processors <content-elements-custom-data-processor>`
     (only necessary if not tagged as
     :ref:`data.processor <content-elements-custom-data-processor_alias>`).
 
-For such classes, an extension can override the global configuration
+For such classes an extension must override the global configuration
 :yaml:`public: false` in :file:`Configuration/Services.yaml` for each affected
 class:
 
