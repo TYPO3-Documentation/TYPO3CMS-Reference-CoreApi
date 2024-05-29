@@ -571,7 +571,7 @@ marked as **public**:
     (only necessary if not tagged as
     :ref:`data.processor <content-elements-custom-data-processor_alias>`).
 
-For such classes an extension must override the global configuration
+For such classes an extension can override the global configuration
 :yaml:`public: false` in :file:`Configuration/Services.yaml` for each affected
 class:
 
