@@ -536,12 +536,14 @@ are automatically marked as public. Some further classes must be marked as
 public, too. As the Symfony documentation "Public and private services" puts
 it:
 
-    Simply said: A service can be marked as private if you do not want to access
-    it directly from your code.
+.. note::
 
-    -- `Symfony documentation`_
+   A service can be marked as private if you do not want to call
+   it directly from your code.
 
-..  _Symfony documentation: https://symfony.com/doc/current/service_container/alias_private.html
+Symfony: How to Create Service Aliases and Mark Services as Private: SymfonyPrivate_
+
+..  _SymfonyPrivate: https://symfony.com/doc/current/service_container/alias_private.html
 
 Direct access includes instantiation via :php:`GeneralUtility::makeInstance()`
 with constructor arguments.
