@@ -89,29 +89,11 @@ Use the following steps to add the plugin as content element:
         with :php:`LLL:`.
     #.  (Optional) the :ref:`icon identifier <icon>` or file path prepended with "EXT:"
 
-#.  (Optional) Add to the :guilabel:`New Content Element` wizard
+#.  Add to the :guilabel:`New Content Element` wizard (automatic)
 
-    Add the following :ref:`page TSconfig <t3tsconfig:setting-page-tsconfig>`
-    to add the new plugin to the wizard:
-
-    ..  literalinclude::  _FrontendPlugin/_page.tsconfig
-        :language: typoscript
-        :caption: EXT:blog_example/Configuration/page.tsconfig
-
-    *   Line 6: The plugin signature: The extension name in lowercase without
-        underscores, followed by one underscore, followed by the plugin identifier
-        in lowercase without underscores.
-    *   Line 7: Should be the same icon like used in :php:`registerPlugin()` for consistency
-    *   Line 8: Should be the same title like used in :php:`registerPlugin()` for consistency
-    *   Line 9: Additional description:  Can be a string or a localized string starting
-        with :php:`LLL:`.
-    *   Line 12: The plugin signature as :typoscript:`list_type`
-    *   Line 16: Add the plugin signature as to the list of allowed content elements
-
-    In TYPO3 v11 you still need to include the page TSconfig file, in TYPO3 v12
-    it is automatically globally included.
-
-    See :ref:`t3tsconfig:pagesettingdefaultpagetsconfig`.
+    ..  versionchanged:: 13.0
+        In TYPO3 13 this is now automatically registered by the TCA from the step above.
+        See :ref:`changelog:feature-102834-1705256634`
 
 ..  _extbase_frontend_plugin_typoscript:
 
