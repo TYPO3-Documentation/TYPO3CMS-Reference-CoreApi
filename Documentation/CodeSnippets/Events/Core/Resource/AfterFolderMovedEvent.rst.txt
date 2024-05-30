@@ -8,10 +8,11 @@
     Custom references can be updated via listeners of this event.
 
     ..  php:method:: getFolder()
-        :returns: TYPO3\CMS\Core\Resource\Folder
+        :returns: `\TYPO3\CMS\Core\Resource\Folder`
 
     ..  php:method:: getTargetParentFolder()
-        :returns: TYPO3\CMS\Core\Resource\Folder
+        :returns: `\TYPO3\CMS\Core\Resource\Folder`
 
     ..  php:method:: getTargetFolder()
-        :returns: ?TYPO3\CMS\Core\Resource\FolderInterface
+        :returns: `?\TYPO3\CMS\Core\Resource\FolderInterface`
+

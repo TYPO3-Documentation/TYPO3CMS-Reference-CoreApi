@@ -8,14 +8,15 @@
     will avoid triggering a redirect.
 
     ..  php:method:: getLoginType()
-        :returns: string
+        :returns: `string`
 
     ..  php:method:: getRedirectUrl()
-        :returns: string
+        :returns: `string`
 
     ..  php:method:: setRedirectUrl(string $redirectUrl)
 
         :param $redirectUrl: the redirectUrl
 
     ..  php:method:: getRequest()
-        :returns: Psr\Http\Message\ServerRequestInterface
+        :returns: `\Psr\Http\Message\ServerRequestInterface`
+

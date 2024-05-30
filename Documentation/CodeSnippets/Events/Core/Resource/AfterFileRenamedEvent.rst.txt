@@ -7,7 +7,8 @@
     or update custom references to a file.
 
     ..  php:method:: getFile()
-        :returns: TYPO3\CMS\Core\Resource\FileInterface
+        :returns: `\TYPO3\CMS\Core\Resource\FileInterface`
 
     ..  php:method:: getTargetFileName()
-        :returns: ?string
+        :returns: `?string`
+

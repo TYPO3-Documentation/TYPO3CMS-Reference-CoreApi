@@ -6,46 +6,46 @@
     Immutable value object that represents a search demand for files.
 
     ..  php:method:: create()
-        :returns: self
+        :returns: `self`
 
     ..  php:method:: createForSearchTerm(string $searchTerm)
-        :returns: self
+        :returns: `self`
 
         :param $searchTerm: the searchTerm
 
     ..  php:method:: getSearchTerm()
-        :returns: ?string
+        :returns: `?string`
 
     ..  php:method:: getFolder()
-        :returns: ?TYPO3\CMS\Core\Resource\Folder
+        :returns: `?\TYPO3\CMS\Core\Resource\Folder`
 
     ..  php:method:: getFirstResult()
-        :returns: ?int
+        :returns: `?int`
 
     ..  php:method:: getMaxResults()
-        :returns: ?int
+        :returns: `?int`
 
     ..  php:method:: getSearchFields()
-        :returns: ?array
+        :returns: `?array`
 
     ..  php:method:: getOrderings()
-        :returns: ?array
+        :returns: `?array`
 
     ..  php:method:: isRecursive()
-        :returns: bool
+        :returns: `bool`
 
     ..  php:method:: withSearchTerm(string $searchTerm)
-        :returns: self
+        :returns: `self`
 
         :param $searchTerm: the searchTerm
 
-    ..  php:method:: withFolder(TYPO3\CMS\Core\Resource\Folder $folder)
-        :returns: self
+    ..  php:method:: withFolder(\TYPO3\CMS\Core\Resource\Folder $folder)
+        :returns: `self`
 
         :param $folder: the folder
 
     ..  php:method:: withStartResult(int $firstResult)
-        :returns: self
+        :returns: `self`
 
         Requests the position of the first result to retrieve (the "offset").
 
@@ -54,22 +54,23 @@
         :param $firstResult: the firstResult
 
     ..  php:method:: withMaxResults(int $maxResults)
-        :returns: self
+        :returns: `self`
 
         :param $maxResults: the maxResults
 
     ..  php:method:: addSearchField(string $tableName, string $field)
-        :returns: self
+        :returns: `self`
 
         :param $tableName: the tableName
         :param $field: the field
 
     ..  php:method:: addOrdering(string $tableName, string $fieldName, string $direction = 'ASC')
-        :returns: self
+        :returns: `self`
 
         :param $tableName: the tableName
         :param $fieldName: the fieldName
         :param $direction: the direction, default: 'ASC'
 
     ..  php:method:: withRecursive()
-        :returns: self
+        :returns: `self`
+

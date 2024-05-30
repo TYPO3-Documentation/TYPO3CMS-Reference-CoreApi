@@ -8,4 +8,5 @@
     Event listeners can clean up third-party references with this event.
 
     ..  php:method:: getFile()
-        :returns: TYPO3\CMS\Core\Resource\FileInterface
+        :returns: `\TYPO3\CMS\Core\Resource\FileInterface`
+

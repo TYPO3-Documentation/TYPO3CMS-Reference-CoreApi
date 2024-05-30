@@ -11,14 +11,15 @@
     values to the record.
 
     ..  php:method:: getSlugRedirectChangeItem()
-        :returns: TYPO3\CMS\Redirects\RedirectUpdate\SlugRedirectChangeItem
+        :returns: `\TYPO3\CMS\Redirects\RedirectUpdate\SlugRedirectChangeItem`
 
     ..  php:method:: getSource()
-        :returns: TYPO3\CMS\Redirects\RedirectUpdate\RedirectSourceInterface
+        :returns: `\TYPO3\CMS\Redirects\RedirectUpdate\RedirectSourceInterface`
 
     ..  php:method:: getRedirectRecord()
-        :returns: array
+        :returns: `array`
 
     ..  php:method:: setRedirectRecord(array $redirectRecord)
 
         :param $redirectRecord: the redirectRecord
+

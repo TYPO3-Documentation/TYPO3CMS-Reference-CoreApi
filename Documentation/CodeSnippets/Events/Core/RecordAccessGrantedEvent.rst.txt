@@ -9,21 +9,22 @@
     continue to use the native access check functionality with a modified dataset.
 
     ..  php:method:: isPropagationStopped()
-        :returns: bool
+        :returns: `bool`
 
     ..  php:method:: setAccessGranted(bool $accessGranted)
 
         :param $accessGranted: the accessGranted
 
     ..  php:method:: getTable()
-        :returns: string
+        :returns: `string`
 
     ..  php:method:: getRecord()
-        :returns: array
+        :returns: `array`
 
     ..  php:method:: updateRecord(array $record)
 
         :param $record: the record
 
     ..  php:method:: getContext()
-        :returns: TYPO3\CMS\Core\Context\Context
+        :returns: `\TYPO3\CMS\Core\Context\Context`
+

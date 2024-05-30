@@ -7,7 +7,8 @@
     information can be overridden in Event Listeners.
 
     ..  php:method:: getController()
-        :returns: TYPO3\CMS\FrontendLogin\Controller\LoginController
+        :returns: `\TYPO3\CMS\FrontendLogin\Controller\LoginController`
 
     ..  php:method:: getView()
-        :returns: TYPO3Fluid\Fluid\View\ViewInterface
+        :returns: `\TYPO3Fluid\Fluid\View\ViewInterface`
+

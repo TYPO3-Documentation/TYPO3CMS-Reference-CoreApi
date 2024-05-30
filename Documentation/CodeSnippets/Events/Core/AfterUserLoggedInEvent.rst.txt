@@ -9,7 +9,8 @@
     as well in TYPO3 v13+.
 
     ..  php:method:: getUser()
-        :returns: TYPO3\CMS\Core\Authentication\AbstractUserAuthentication
+        :returns: `\TYPO3\CMS\Core\Authentication\AbstractUserAuthentication`
 
     ..  php:method:: getRequest()
-        :returns: ?Psr\Http\Message\ServerRequestInterface
+        :returns: `?\Psr\Http\Message\ServerRequestInterface`
+

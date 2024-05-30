@@ -8,20 +8,21 @@
     This allows to do custom checks to a file or restrict access to a file before the file is added.
 
     ..  php:method:: getFileName()
-        :returns: string
+        :returns: `string`
 
     ..  php:method:: setFileName(string $fileName)
 
         :param $fileName: the fileName
 
     ..  php:method:: getSourceFilePath()
-        :returns: string
+        :returns: `string`
 
     ..  php:method:: getTargetFolder()
-        :returns: TYPO3\CMS\Core\Resource\Folder
+        :returns: `\TYPO3\CMS\Core\Resource\Folder`
 
     ..  php:method:: getStorage()
-        :returns: TYPO3\CMS\Core\Resource\ResourceStorage
+        :returns: `\TYPO3\CMS\Core\Resource\ResourceStorage`
 
     ..  php:method:: getDriver()
-        :returns: TYPO3\CMS\Core\Resource\Driver\DriverInterface
+        :returns: `\TYPO3\CMS\Core\Resource\Driver\DriverInterface`
+

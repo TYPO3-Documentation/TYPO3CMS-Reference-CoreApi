@@ -6,10 +6,11 @@
     Event that is triggered after a package has imported the database file shipped within "ext_tables_static+adt.sql"
 
     ..  php:method:: getPackageKey()
-        :returns: string
+        :returns: `string`
 
     ..  php:method:: getSqlFileName()
-        :returns: string
+        :returns: `string`
 
     ..  php:method:: getEmitter()
-        :returns: TYPO3\CMS\Extensionmanager\Utility\InstallUtility
+        :returns: `\TYPO3\CMS\Extensionmanager\Utility\InstallUtility`
+

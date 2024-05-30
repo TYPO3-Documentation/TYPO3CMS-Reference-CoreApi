@@ -6,13 +6,14 @@
     This event is fired before a history record rollback starts
 
     ..  php:method:: getRecordHistoryRollback()
-        :returns: TYPO3\CMS\Backend\History\RecordHistoryRollback
+        :returns: `\TYPO3\CMS\Backend\History\RecordHistoryRollback`
 
     ..  php:method:: getRollbackFields()
-        :returns: string
+        :returns: `string`
 
     ..  php:method:: getDiff()
-        :returns: array
+        :returns: `array`
 
     ..  php:method:: getBackendUserAuthentication()
-        :returns: ?TYPO3\CMS\Core\Authentication\BackendUserAuthentication
+        :returns: `?\TYPO3\CMS\Core\Authentication\BackendUserAuthentication`
+

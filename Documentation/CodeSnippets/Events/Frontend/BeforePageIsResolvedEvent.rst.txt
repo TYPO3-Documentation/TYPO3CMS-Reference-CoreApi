@@ -10,7 +10,8 @@
     for resolving a page.
 
     ..  php:method:: getController()
-        :returns: TYPO3\CMS\Frontend\Controller\TypoScriptFrontendController
+        :returns: `\TYPO3\CMS\Frontend\Controller\TypoScriptFrontendController`
 
     ..  php:method:: getRequest()
-        :returns: Psr\Http\Message\ServerRequestInterface
+        :returns: `\Psr\Http\Message\ServerRequestInterface`
+

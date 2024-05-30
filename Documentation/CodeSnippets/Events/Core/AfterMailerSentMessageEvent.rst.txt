@@ -11,4 +11,5 @@
     on the Transport, used to send the message, this might also be NULL.
 
     ..  php:method:: getMailer()
-        :returns: Symfony\Component\Mailer\MailerInterface
+        :returns: `\Symfony\Component\Mailer\MailerInterface`
+

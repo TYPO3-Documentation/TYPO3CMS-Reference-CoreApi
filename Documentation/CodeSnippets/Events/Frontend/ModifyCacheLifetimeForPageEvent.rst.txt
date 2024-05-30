@@ -11,16 +11,17 @@
         :param $cacheLifetime: the cacheLifetime
 
     ..  php:method:: getCacheLifetime()
-        :returns: int
+        :returns: `int`
 
     ..  php:method:: getPageId()
-        :returns: int
+        :returns: `int`
 
     ..  php:method:: getPageRecord()
-        :returns: array
+        :returns: `array`
 
     ..  php:method:: getRenderingInstructions()
-        :returns: array
+        :returns: `array`
 
     ..  php:method:: getContext()
-        :returns: TYPO3\CMS\Core\Context\Context
+        :returns: `\TYPO3\CMS\Core\Context\Context`
+

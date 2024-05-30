@@ -7,4 +7,5 @@
     added previously
 
     ..  php:method:: getFileUid()
-        :returns: int
+        :returns: `int`
+

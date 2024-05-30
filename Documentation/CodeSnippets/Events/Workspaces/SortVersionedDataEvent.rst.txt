@@ -6,25 +6,26 @@
     Used in the workspaces module after sorting all data for versions of a workspace.
 
     ..  php:method:: getGridService()
-        :returns: TYPO3\CMS\Workspaces\Service\GridDataService
+        :returns: `\TYPO3\CMS\Workspaces\Service\GridDataService`
 
     ..  php:method:: getData()
-        :returns: array
+        :returns: `array`
 
     ..  php:method:: setData(array $data)
 
         :param $data: the data
 
     ..  php:method:: getSortColumn()
-        :returns: string
+        :returns: `string`
 
     ..  php:method:: setSortColumn(string $sortColumn)
 
         :param $sortColumn: the sortColumn
 
     ..  php:method:: getSortDirection()
-        :returns: string
+        :returns: `string`
 
     ..  php:method:: setSortDirection(string $sortDirection)
 
         :param $sortDirection: the sortDirection
+

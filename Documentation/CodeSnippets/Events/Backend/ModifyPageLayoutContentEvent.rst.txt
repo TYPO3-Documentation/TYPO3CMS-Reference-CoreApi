@@ -6,10 +6,10 @@
     Listeners to this Event will be able to modify the header and footer content of the page module
 
     ..  php:method:: getRequest()
-        :returns: Psr\Http\Message\ServerRequestInterface
+        :returns: `\Psr\Http\Message\ServerRequestInterface`
 
     ..  php:method:: getModuleTemplate()
-        :returns: TYPO3\CMS\Backend\Template\ModuleTemplate
+        :returns: `\TYPO3\CMS\Backend\Template\ModuleTemplate`
 
     ..  php:method:: setHeaderContent(string $content)
 
@@ -26,7 +26,7 @@
         :param $content: the content
 
     ..  php:method:: getHeaderContent()
-        :returns: string
+        :returns: `string`
 
     ..  php:method:: setFooterContent(string $content)
 
@@ -43,4 +43,5 @@
         :param $content: the content
 
     ..  php:method:: getFooterContent()
-        :returns: string
+        :returns: `string`
+

@@ -8,4 +8,5 @@
     Example can be to further handle files and manage them separately outside of TYPO3's index.
 
     ..  php:method:: getFileUid()
-        :returns: int
+        :returns: `int`
+

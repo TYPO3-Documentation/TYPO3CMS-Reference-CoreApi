@@ -13,41 +13,42 @@
 
     ..  php:const:: RIGHT_TO_LEFT_LANGUAGE_CODES
 
-        :php:`array (
-          0 => 'ar',
-          1 => 'arc',
-          2 => 'arz',
-          3 => 'ckb',
-          4 => 'dv',
-          5 => 'fa',
-          6 => 'ha',
-          7 => 'he',
-          8 => 'khw',
-          9 => 'ks',
-          10 => 'ps',
-          11 => 'sd',
-          12 => 'ur',
-          13 => 'uz-AF',
-          14 => 'yi',
-        )`, type array
+            :php:`array (
+              0 => 'ar',
+              1 => 'arc',
+              2 => 'arz',
+              3 => 'ckb',
+              4 => 'dv',
+              5 => 'fa',
+              6 => 'ha',
+              7 => 'he',
+              8 => 'khw',
+              9 => 'ks',
+              10 => 'ps',
+              11 => 'sd',
+              12 => 'ur',
+              13 => 'uz-AF',
+              14 => 'yi',
+            )`, type array
 
     ..  php:method:: getName()
-        :returns: string
+        :returns: `string`
 
     ..  php:method:: getLanguageCode()
-        :returns: string
+        :returns: `string`
 
     ..  php:method:: isRightToLeftLanguageDirection()
-        :returns: bool
+        :returns: `bool`
 
     ..  php:method:: getLanguageScriptCode()
-        :returns: ?string
+        :returns: `?string`
 
     ..  php:method:: getCountryCode()
-        :returns: ?string
+        :returns: `?string`
 
     ..  php:method:: getDependencies()
-        :returns: array
+        :returns: `array`
 
     ..  php:method:: __toString()
-        :returns: string
+        :returns: `string`
+

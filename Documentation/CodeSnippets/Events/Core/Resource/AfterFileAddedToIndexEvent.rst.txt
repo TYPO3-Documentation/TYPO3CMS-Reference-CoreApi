@@ -8,7 +8,8 @@
     Examples: Allows to additionally populate custom fields of the sys_file/sys_file_metadata database records.
 
     ..  php:method:: getFileUid()
-        :returns: int
+        :returns: `int`
 
     ..  php:method:: getRecord()
-        :returns: array
+        :returns: `array`
+

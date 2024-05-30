@@ -6,34 +6,34 @@
     Entity representing a site_language configuration of a site object.
 
     ..  php:method:: toArray()
-        :returns: array
+        :returns: `array`
 
         Returns the SiteLanguage in an array representation for e.g. the usage
         in TypoScript.
 
     ..  php:method:: getLanguageId()
-        :returns: int
+        :returns: `int`
 
     ..  php:method:: getLocale()
-        :returns: TYPO3\CMS\Core\Localization\Locale
+        :returns: `\TYPO3\CMS\Core\Localization\Locale`
 
     ..  php:method:: getBase()
-        :returns: Psr\Http\Message\UriInterface
+        :returns: `\Psr\Http\Message\UriInterface`
 
     ..  php:method:: getTitle()
-        :returns: string
+        :returns: `string`
 
     ..  php:method:: getNavigationTitle()
-        :returns: string
+        :returns: `string`
 
     ..  php:method:: getWebsiteTitle()
-        :returns: string
+        :returns: `string`
 
     ..  php:method:: getFlagIdentifier()
-        :returns: string
+        :returns: `string`
 
     ..  php:method:: getTypo3Language()
-        :returns: string
+        :returns: `string`
 
         Returns the XLF label language key, returns "default" when it is "en".
 
@@ -42,38 +42,39 @@
         for XLF file prefixes properly.
 
     ..  php:method:: getTwoLetterIsoCode()
-        :returns: string
+        :returns: `string`
 
         **Deprecated:** not needed anymore, use $this->getLocale()->getLanguageCode() instead.
 
         Returns the ISO-639-1 language ISO code
 
     ..  php:method:: getHreflang(bool $fetchCustomSetting = false)
-        :returns: string
+        :returns: `string`
 
         Returns the RFC 1766 / 3066 language tag for hreflang tags
 
         :param $fetchCustomSetting: the fetchCustomSetting, default: false
 
     ..  php:method:: getDirection()
-        :returns: string
+        :returns: `string`
 
         **Deprecated:** in favor of $this->locale->isRightToLeftLanguageDirection()
 
         Returns the language direction
 
     ..  php:method:: enabled()
-        :returns: bool
+        :returns: `bool`
 
         Returns true if the language is available in frontend usage
 
     ..  php:method:: isEnabled()
-        :returns: bool
+        :returns: `bool`
 
         Helper so fluid can work with this as well.
 
     ..  php:method:: getFallbackType()
-        :returns: string
+        :returns: `string`
 
     ..  php:method:: getFallbackLanguageIds()
-        :returns: array
+        :returns: `array`
+

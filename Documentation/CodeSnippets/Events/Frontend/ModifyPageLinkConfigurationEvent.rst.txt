@@ -9,35 +9,36 @@
     parameters / fragments to be generated.
 
     ..  php:method:: getConfiguration()
-        :returns: array
+        :returns: `array`
 
     ..  php:method:: setConfiguration(array $configuration)
 
         :param $configuration: the configuration
 
     ..  php:method:: getLinkDetails()
-        :returns: array
+        :returns: `array`
 
     ..  php:method:: getPage()
-        :returns: array
+        :returns: `array`
 
     ..  php:method:: setPage(array $page)
 
         :param $page: the page
 
     ..  php:method:: getQueryParameters()
-        :returns: array
+        :returns: `array`
 
     ..  php:method:: setQueryParameters(array $queryParameters)
 
         :param $queryParameters: the queryParameters
 
     ..  php:method:: getFragment()
-        :returns: string
+        :returns: `string`
 
     ..  php:method:: setFragment(string $fragment)
 
         :param $fragment: the fragment
 
     ..  php:method:: pageWasModified()
-        :returns: bool
+        :returns: `bool`
+

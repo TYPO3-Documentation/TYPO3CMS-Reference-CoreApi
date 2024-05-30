@@ -6,11 +6,12 @@
     Event which is fired after the storage backend has pulled results from a given query.
 
     ..  php:method:: getQuery()
-        :returns: TYPO3\CMS\Extbase\Persistence\QueryInterface
+        :returns: `\TYPO3\CMS\Extbase\Persistence\QueryInterface`
 
     ..  php:method:: getResult()
-        :returns: array
+        :returns: `array`
 
     ..  php:method:: setResult(array $result)
 
         :param $result: the result
+

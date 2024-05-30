@@ -7,18 +7,19 @@
     that is: Finding a translation for a given record.
 
     ..  php:method:: getTable()
-        :returns: string
+        :returns: `string`
 
     ..  php:method:: getRecord()
-        :returns: array
+        :returns: `array`
 
     ..  php:method:: setRecord(array $record)
 
         :param $record: the record
 
     ..  php:method:: getLanguageAspect()
-        :returns: TYPO3\CMS\Core\Context\LanguageAspect
+        :returns: `\TYPO3\CMS\Core\Context\LanguageAspect`
 
-    ..  php:method:: setLanguageAspect(TYPO3\CMS\Core\Context\LanguageAspect $languageAspect)
+    ..  php:method:: setLanguageAspect(\TYPO3\CMS\Core\Context\LanguageAspect $languageAspect)
 
         :param $languageAspect: the languageAspect
+

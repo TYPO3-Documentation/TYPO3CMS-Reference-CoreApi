@@ -10,23 +10,23 @@
     attribute to the PSR-7 Request and can be further used in components, such as middlewares or
     the route target (usually a backend controller).
 
-    ..  php:method:: createFromModule(TYPO3\CMS\Backend\Module\ModuleInterface $module, array $data)
-        :returns: self
+    ..  php:method:: createFromModule(\TYPO3\CMS\Backend\Module\ModuleInterface $module, array $data)
+        :returns: `self`
 
         :param $module: the module
         :param $data: the data
 
     ..  php:method:: getModuleIdentifier()
-        :returns: string
+        :returns: `string`
 
     ..  php:method:: get(string $propertyName, ?mixed $default = NULL)
-        :returns: ?mixed
+        :returns: `?mixed`
 
         :param $propertyName: the propertyName
         :param $default: the default, default: NULL
 
     ..  php:method:: has(string $propertyName)
-        :returns: bool
+        :returns: `bool`
 
         :param $propertyName: the propertyName
 
@@ -36,7 +36,7 @@
         :param $value: the value
 
     ..  php:method:: clean(string $propertyName, array $allowedValues)
-        :returns: bool True if something has been cleaned up
+        :returns: `bool`
 
         Cleans a single property by the given allowed list. First fallback
         is the default data list. If this list does also not contain an
@@ -44,9 +44,10 @@
 
         :param $propertyName: the propertyName
         :param $allowedValues: the allowedValues
+        :Return description: True if something has been cleaned up
 
     ..  php:method:: cleanUp(array $allowedData, bool $useKeys = true)
-        :returns: bool
+        :returns: `bool`
 
         Cleans up all module data, which are defined in the
         given allowed data list. Usually called with $MOD_MENU.
@@ -55,4 +56,5 @@
         :param $useKeys: the useKeys, default: true
 
     ..  php:method:: toArray()
-        :returns: array
+        :returns: `array`
+

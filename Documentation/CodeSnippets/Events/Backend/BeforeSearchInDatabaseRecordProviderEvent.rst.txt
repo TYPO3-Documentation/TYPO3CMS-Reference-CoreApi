@@ -8,16 +8,16 @@
     further limit the search result on certain page IDs or to modify the search query altogether.
 
     ..  php:method:: getSearchPageIds()
-        :returns: array
+        :returns: `array`
 
     ..  php:method:: setSearchPageIds(array $searchPageIds)
 
         :param $searchPageIds: the searchPageIds
 
     ..  php:method:: getSearchDemand()
-        :returns: TYPO3\CMS\Backend\Search\LiveSearch\SearchDemand\SearchDemand
+        :returns: `\TYPO3\CMS\Backend\Search\LiveSearch\SearchDemand\SearchDemand`
 
-    ..  php:method:: setSearchDemand(TYPO3\CMS\Backend\Search\LiveSearch\SearchDemand\SearchDemand $searchDemand)
+    ..  php:method:: setSearchDemand(\TYPO3\CMS\Backend\Search\LiveSearch\SearchDemand\SearchDemand $searchDemand)
 
         :param $searchDemand: the searchDemand
 
@@ -30,9 +30,10 @@
         :param $tables: the tables
 
     ..  php:method:: isTableIgnored(string $table)
-        :returns: bool
+        :returns: `bool`
 
         :param $table: the table
 
     ..  php:method:: getIgnoredTables()
-        :returns: string[]
+        :returns: `string[]`
+

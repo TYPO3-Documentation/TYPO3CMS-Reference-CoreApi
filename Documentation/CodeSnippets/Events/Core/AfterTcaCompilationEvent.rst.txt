@@ -9,8 +9,9 @@
     before this event is fired.
 
     ..  php:method:: getTca()
-        :returns: array
+        :returns: `array`
 
     ..  php:method:: setTca(array $tca)
 
         :param $tca: the tca
+

@@ -4,24 +4,29 @@
 ..  php:class:: PolicyMutatedEvent
 
     ..  php:attr:: scope
+        :readonly:
+        :public:
 
     ..  php:attr:: defaultPolicy
+        :readonly:
+        :public:
 
     ..  php:method:: isPropagationStopped()
-        :returns: bool
+        :returns: `bool`
 
     ..  php:method:: stopPropagation()
 
     ..  php:method:: getCurrentPolicy()
-        :returns: TYPO3\CMS\Core\Security\ContentSecurityPolicy\Policy
+        :returns: `\TYPO3\CMS\Core\Security\ContentSecurityPolicy\Policy`
 
-    ..  php:method:: setCurrentPolicy(TYPO3\CMS\Core\Security\ContentSecurityPolicy\Policy $currentPolicy)
+    ..  php:method:: setCurrentPolicy(\TYPO3\CMS\Core\Security\ContentSecurityPolicy\Policy $currentPolicy)
 
         :param $currentPolicy: the currentPolicy
 
     ..  php:method:: getMutationCollections()
-        :returns: list<\MutationCollection>
+        :returns: `list<\MutationCollection>`
 
-    ..  php:method:: setMutationCollections(TYPO3\CMS\Core\Security\ContentSecurityPolicy\MutationCollection ...$mutationCollections)
+    ..  php:method:: setMutationCollections(\TYPO3\CMS\Core\Security\ContentSecurityPolicy\MutationCollection ...$mutationCollections)
 
         :param $mutationCollections: the mutationCollections
+

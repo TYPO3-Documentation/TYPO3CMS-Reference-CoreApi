@@ -26,14 +26,17 @@
             ->createFromUserPreferences($GLOBALS['BE_USER']);
 
     ..  php:attr:: lang
+        :public:
 
         This is set to the language that is currently running for the user
 
     ..  php:attr:: debugKey
+        :public:
 
         If true, will show the key/location of labels in the backend.
 
     ..  php:method:: getLL(?string $index)
+        :returns: `string`
 
         **Deprecated:** will be removed in TYPO3 v13.0. Use sL() instead.
 
@@ -44,7 +47,7 @@
         :param $index: Label key
 
     ..  php:method:: sL(?string $input)
-        :returns: string
+        :returns: `string`
 
         Main and most often used method.
 
@@ -67,4 +70,5 @@
         :param $labels: the labels
 
     ..  php:method:: getLocale()
-        :returns: ?TYPO3\CMS\Core\Localization\Locale
+        :returns: `?\TYPO3\CMS\Core\Localization\Locale`
+

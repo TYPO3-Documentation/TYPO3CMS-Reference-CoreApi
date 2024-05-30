@@ -21,40 +21,41 @@
         :param $after: the after, default: ''
 
     ..  php:method:: hasAction(string $actionName)
-        :returns: bool
+        :returns: `bool`
 
         Whether the action exists
 
         :param $actionName: the actionName
 
     ..  php:method:: getAction(string $actionName)
-        :returns: string|null The action or NULL if the action does not exist
+        :returns: `string|null`
 
         Get action by its name
 
         :param $actionName: the actionName
+        :Return description: The action or NULL if the action does not exist
 
     ..  php:method:: removeAction(string $actionName)
-        :returns: bool Whether the action could be removed - Will therefore
-    return FALSE if the action to remove does not exist.
+        :returns: `bool`
 
         Remove action by its name
 
         :param $actionName: the actionName
+        :Return description: Whether the action could be removed - Will thereforereturn FALSE if the action to remove does not exist.
 
     ..  php:method:: setActions(array $actions)
 
         :param $actions: the actions
 
     ..  php:method:: getActions()
-        :returns: array
+        :returns: `array`
 
     ..  php:method:: setNoActionLabel(string $noActionLabel)
 
         :param $noActionLabel: the noActionLabel
 
     ..  php:method:: getNoActionLabel()
-        :returns: string
+        :returns: `string`
 
         Get the label, which will be displayed, in case no
         action is available for the current user. Note: If
@@ -63,12 +64,13 @@
         always fall back to a default if this remains empty.
 
     ..  php:method:: getTable()
-        :returns: string
+        :returns: `string`
 
     ..  php:method:: getRecordIds()
-        :returns: array
+        :returns: `array`
 
     ..  php:method:: getRecordList()
-        :returns: TYPO3\CMS\Backend\RecordList\DatabaseRecordList
+        :returns: `\TYPO3\CMS\Backend\RecordList\DatabaseRecordList`
 
         Returns the current DatabaseRecordList instance.
+

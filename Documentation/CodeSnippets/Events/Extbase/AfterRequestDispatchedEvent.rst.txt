@@ -6,7 +6,8 @@
     Event which is fired after the dispatcher has successfully dispatched a request to a controller/action.
 
     ..  php:method:: getRequest()
-        :returns: TYPO3\CMS\Extbase\Mvc\RequestInterface
+        :returns: `\TYPO3\CMS\Extbase\Mvc\RequestInterface`
 
     ..  php:method:: getResponse()
-        :returns: Psr\Http\Message\ResponseInterface
+        :returns: `\Psr\Http\Message\ResponseInterface`
+

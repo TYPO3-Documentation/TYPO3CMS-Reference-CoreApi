@@ -5,9 +5,11 @@
     :noindex:
 
     ..  php:method:: trim(string $fieldName, int $position, ?string $char = NULL)
+        :returns: `string`
 
         Creates a TRIM expression for the given field.
 
         :param $fieldName: Field name to build expression for
         :param $position: Either constant out of LEADING, TRAILING, BOTH
         :param $char: Character to be trimmed (defaults to space), default: NULL
+

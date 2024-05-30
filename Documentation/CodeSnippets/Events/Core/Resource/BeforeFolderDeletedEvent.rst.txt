@@ -8,4 +8,5 @@
     Listeners can use this event to clean up further external references to a folder / files in this folder.
 
     ..  php:method:: getFolder()
-        :returns: TYPO3\CMS\Core\Resource\Folder
+        :returns: `\TYPO3\CMS\Core\Resource\Folder`
+

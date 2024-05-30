@@ -6,17 +6,18 @@
     This event allows extensions to modify the list of link handlers and their configuration before they are invoked.
 
     ..  php:method:: getLinkHandlers()
-        :returns: array<string,array>
+        :returns: `array<string,array>`
 
     ..  php:method:: getLinkHandler(string $name)
-        :returns: array<string,mixed>|null The handler definition, or null if not defined.
+        :returns: `array<string,mixed>|null`
 
         Gets an individual handler by name.
 
         :param $name: The handler name, including trailing period.
+        :Return description: The handler definition, or null if not defined.
 
     ..  php:method:: setLinkHandler(string $name, array $handler)
-        :returns: $this
+        :returns: `$this`
 
         Sets a handler by name, overwriting it if it already exists.
 
@@ -24,4 +25,5 @@
         :param $handler: the handler
 
     ..  php:method:: getCurrentLinkParts()
-        :returns: array<string,mixed>
+        :returns: `array<string,mixed>`
+

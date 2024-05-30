@@ -6,10 +6,12 @@
     Event fired after user groups have been resolved for a specific user
 
     ..  php:method:: getSourceDatabaseTable()
-        :returns: string 'be_groups' or 'fe_groups' depending on context.
+        :returns: `string`
+
+        :Return description: 'be_groups' or 'fe_groups' depending on context.
 
     ..  php:method:: getGroups()
-        :returns: array
+        :returns: `array`
 
         List of group records including sub groups as resolved by core.
 
@@ -24,11 +26,12 @@
         :param $groups: the groups
 
     ..  php:method:: getOriginalGroupIds()
-        :returns: array
+        :returns: `array`
 
         List of group uids directly attached to the user
 
     ..  php:method:: getUserData()
-        :returns: array
+        :returns: `array`
 
         Full user record with all fields
+

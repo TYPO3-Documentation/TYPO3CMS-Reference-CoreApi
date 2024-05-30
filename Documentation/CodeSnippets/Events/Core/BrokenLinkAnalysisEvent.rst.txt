@@ -6,15 +6,15 @@
     Event that is fired to validate if a link is valid or not.
 
     ..  php:method:: isPropagationStopped()
-        :returns: bool
+        :returns: `bool`
 
     ..  php:method:: getLinkType()
-        :returns: string
+        :returns: `string`
 
         Returns the link type as string
 
     ..  php:method:: getLinkData()
-        :returns: array
+        :returns: `array`
 
         Returns resolved LinkService data, depending on the type
 
@@ -25,7 +25,8 @@
         :param $reason: the reason, default: ''
 
     ..  php:method:: isBrokenLink()
-        :returns: bool
+        :returns: `bool`
 
     ..  php:method:: getReason()
-        :returns: string
+        :returns: `string`
+

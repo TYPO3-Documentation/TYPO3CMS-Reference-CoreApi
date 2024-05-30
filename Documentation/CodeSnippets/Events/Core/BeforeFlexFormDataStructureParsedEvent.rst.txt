@@ -15,7 +15,7 @@
     See the note on FlexFormTools regarding the schema of $dataStructure.
 
     ..  php:method:: getDataStructure()
-        :returns: array|string|?null
+        :returns: `array|string|?null`
 
         Returns the current data structure, which will always be `null`
         for listeners, since the event propagation is stopped as soon as
@@ -31,7 +31,8 @@
         :param $dataStructure: the dataStructure
 
     ..  php:method:: getIdentifier()
-        :returns: array
+        :returns: `array`
 
     ..  php:method:: isPropagationStopped()
-        :returns: bool
+        :returns: `bool`
+

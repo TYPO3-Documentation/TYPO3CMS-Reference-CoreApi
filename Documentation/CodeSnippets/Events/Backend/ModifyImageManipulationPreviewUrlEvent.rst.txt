@@ -6,17 +6,18 @@
     Listeners to this Event will be able to modify the preview url, used in the ImageManipulation element
 
     ..  php:method:: getDatabaseRow()
-        :returns: array
+        :returns: `array`
 
     ..  php:method:: getFieldConfiguration()
-        :returns: array
+        :returns: `array`
 
     ..  php:method:: getFile()
-        :returns: TYPO3\CMS\Core\Resource\File
+        :returns: `\TYPO3\CMS\Core\Resource\File`
 
     ..  php:method:: getPreviewUrl()
-        :returns: string
+        :returns: `string`
 
     ..  php:method:: setPreviewUrl(string $previewUrl)
 
         :param $previewUrl: the previewUrl
+

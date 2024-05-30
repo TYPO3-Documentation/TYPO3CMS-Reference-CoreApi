@@ -16,7 +16,8 @@
         :param $moduleName: the moduleName
 
     ..  php:method:: getJavaScriptModules()
-        :returns: string[]
+        :returns: `string[]`
 
     ..  php:method:: getModules()
-        :returns: string[]
+        :returns: `string[]`
+

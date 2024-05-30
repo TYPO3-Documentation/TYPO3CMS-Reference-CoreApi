@@ -13,11 +13,12 @@
         :param $blindedConfigurationOptions: the blindedConfigurationOptions
 
     ..  php:method:: getBlindedConfigurationOptions()
-        :returns: array
+        :returns: `array`
 
         Returns the blinded configuration options
 
     ..  php:method:: getProviderIdentifier()
-        :returns: string
+        :returns: `string`
 
         Returns the configuration provider identifier, dispatching the event
+

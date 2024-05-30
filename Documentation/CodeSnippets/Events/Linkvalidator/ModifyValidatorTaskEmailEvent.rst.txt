@@ -6,10 +6,11 @@
     Allows to process and modify the LinkAnalyzer result and FluidEmail object
 
     ..  php:method:: getLinkAnalyzerResult()
-        :returns: TYPO3\CMS\Linkvalidator\Result\LinkAnalyzerResult
+        :returns: `\TYPO3\CMS\Linkvalidator\Result\LinkAnalyzerResult`
 
     ..  php:method:: getFluidEmail()
-        :returns: TYPO3\CMS\Core\Mail\FluidEmail
+        :returns: `\TYPO3\CMS\Core\Mail\FluidEmail`
 
     ..  php:method:: getModTSconfig()
-        :returns: array
+        :returns: `array`
+

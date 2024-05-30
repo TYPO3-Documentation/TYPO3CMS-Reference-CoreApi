@@ -10,10 +10,11 @@
     Examples: Use this to update custom third party handlers that rely on specific paths.
 
     ..  php:method:: getFile()
-        :returns: TYPO3\CMS\Core\Resource\FileInterface
+        :returns: `\TYPO3\CMS\Core\Resource\FileInterface`
 
     ..  php:method:: getFolder()
-        :returns: TYPO3\CMS\Core\Resource\Folder
+        :returns: `\TYPO3\CMS\Core\Resource\Folder`
 
     ..  php:method:: getOriginalFolder()
-        :returns: TYPO3\CMS\Core\Resource\FolderInterface
+        :returns: `\TYPO3\CMS\Core\Resource\FolderInterface`
+

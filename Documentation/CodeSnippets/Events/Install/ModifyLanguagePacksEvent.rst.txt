@@ -6,7 +6,7 @@
     Event to modify the language pack array
 
     ..  php:method:: getExtensions()
-        :returns: array
+        :returns: `array`
 
     ..  php:method:: removeExtension(string $extension)
 
@@ -16,3 +16,4 @@
 
         :param $iso: the iso
         :param $extension: the extension
+

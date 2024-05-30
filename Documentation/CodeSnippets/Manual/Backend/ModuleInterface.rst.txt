@@ -6,120 +6,121 @@
     An interface representing a TYPO3 Backend module.
 
     ..  php:method:: getIdentifier()
-        :returns: string
+        :returns: `string`
 
         The internal name of the module, used for referencing in permissions etc
 
     ..  php:method:: getPath()
-        :returns: string
+        :returns: `string`
 
         Return the main route path
 
     ..  php:method:: getIconIdentifier()
-        :returns: string
+        :returns: `string`
 
         The icon identifier for the module
 
     ..  php:method:: getTitle()
-        :returns: string
+        :returns: `string`
 
         The title of the module, used in the menu
 
     ..  php:method:: getDescription()
-        :returns: string
+        :returns: `string`
 
         A longer description, common for the "About" section with a long explanation
 
     ..  php:method:: getShortDescription()
-        :returns: string
+        :returns: `string`
 
         A shorter description, used when hovering over a module in the menu as title attribute
 
     ..  php:method:: isStandalone()
-        :returns: bool
+        :returns: `bool`
 
         Useful for main modules that are also "clickable" such as the dashboard module
 
     ..  php:method:: getComponent()
-        :returns: string
+        :returns: `string`
 
         Returns the view component responsible for rendering the module (iFrame or name of the web component)
 
     ..  php:method:: getNavigationComponent()
-        :returns: string
+        :returns: `string`
 
         The web component to be rendering the navigation area
 
     ..  php:method:: getPosition()
-        :returns: array
+        :returns: `array`
 
         The position of the module, such as [top] or [bottom] or [after => anotherModule] or [before => anotherModule]
 
     ..  php:method:: getAppearance()
-        :returns: array
+        :returns: `array`
 
         Returns a modules appearance options, e.g. used for module menu
 
     ..  php:method:: getAccess()
-        :returns: string
+        :returns: `string`
 
         Can be user (editor permissions), admin, or systemMaintainer
 
     ..  php:method:: getWorkspaceAccess()
-        :returns: string
+        :returns: `string`
 
         Can be "*" (= empty) or "live" or "offline"
 
     ..  php:method:: getParentIdentifier()
-        :returns: string
+        :returns: `string`
 
         The identifier of the parent module during registration
 
     ..  php:method:: getParentModule()
-        :returns: ?TYPO3\CMS\Backend\Module\ModuleInterface
+        :returns: `?\TYPO3\CMS\Backend\Module\ModuleInterface`
 
         Get the reference to the next upper menu item
 
     ..  php:method:: hasParentModule()
-        :returns: bool
+        :returns: `bool`
 
         Can be checked if the module is a "main module"
 
     ..  php:method:: hasSubModule(string $identifier)
-        :returns: bool
+        :returns: `bool`
 
         Checks whether this module has a submodule with the given identifier
 
         :param $identifier: the identifier
 
     ..  php:method:: hasSubModules()
-        :returns: bool
+        :returns: `bool`
 
         Checks if this module has further submodules
 
     ..  php:method:: getSubModule(string $identifier)
-        :returns: ?TYPO3\CMS\Backend\Module\ModuleInterface
+        :returns: `?\TYPO3\CMS\Backend\Module\ModuleInterface`
 
         Return a submodule given by its full identifier
 
         :param $identifier: the identifier
 
     ..  php:method:: getSubModules()
-        :returns: \ModuleInterface[]
+        :returns: `\ModuleInterface[]`
 
         Return all direct descendants of this module
 
     ..  php:method:: getDefaultRouteOptions()
-        :returns: array
+        :returns: `array`
 
         Returns module related route options - used for the router
 
     ..  php:method:: getDefaultModuleData()
-        :returns: array
+        :returns: `array`
 
         Get allowed and available module data properties and their default values.
 
     ..  php:method:: getAliases()
-        :returns: array
+        :returns: `array`
 
         Return a list of identifiers that are aliases to this module
+

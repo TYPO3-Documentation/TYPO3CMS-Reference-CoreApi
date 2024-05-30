@@ -6,8 +6,9 @@
     Event which is fired before the storage backend is asked for results from a given query.
 
     ..  php:method:: getQuery()
-        :returns: TYPO3\CMS\Extbase\Persistence\QueryInterface
+        :returns: `\TYPO3\CMS\Extbase\Persistence\QueryInterface`
 
-    ..  php:method:: setQuery(TYPO3\CMS\Extbase\Persistence\QueryInterface $query)
+    ..  php:method:: setQuery(\TYPO3\CMS\Extbase\Persistence\QueryInterface $query)
 
         :param $query: the query
+

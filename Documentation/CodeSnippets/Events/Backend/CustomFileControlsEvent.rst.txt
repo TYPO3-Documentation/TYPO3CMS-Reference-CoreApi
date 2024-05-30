@@ -6,7 +6,7 @@
     Listeners to this Event will be able to add custom controls to a TCA type="file" field in FormEngine
 
     ..  php:method:: getResultArray()
-        :returns: array
+        :returns: `array`
 
     ..  php:method:: setResultArray(array $resultArray)
 
@@ -16,7 +16,7 @@
         :param $resultArray: the resultArray
 
     ..  php:method:: getControls()
-        :returns: array
+        :returns: `array`
 
     ..  php:method:: setControls(array $controls)
 
@@ -28,24 +28,25 @@
         :param $identifier: the identifier, default: ''
 
     ..  php:method:: removeControl(string $identifier)
-        :returns: bool
+        :returns: `bool`
 
         :param $identifier: the identifier
 
     ..  php:method:: getTableName()
-        :returns: string
+        :returns: `string`
 
     ..  php:method:: getFieldName()
-        :returns: string
+        :returns: `string`
 
     ..  php:method:: getDatabaseRow()
-        :returns: array
+        :returns: `array`
 
     ..  php:method:: getFieldConfig()
-        :returns: array
+        :returns: `array`
 
     ..  php:method:: getFormFieldIdentifier()
-        :returns: string
+        :returns: `string`
 
     ..  php:method:: getFormFieldName()
-        :returns: string
+        :returns: `string`
+

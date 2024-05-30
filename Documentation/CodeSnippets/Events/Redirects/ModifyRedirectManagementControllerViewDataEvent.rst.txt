@@ -9,53 +9,54 @@
     It can be used to further enrich view data for the management view.
 
     ..  php:method:: getDemand()
-        :returns: TYPO3\CMS\Redirects\Repository\Demand
+        :returns: `\TYPO3\CMS\Redirects\Repository\Demand`
 
-    ..  php:method:: setDemand(TYPO3\CMS\Redirects\Repository\Demand $demand)
+    ..  php:method:: setDemand(\TYPO3\CMS\Redirects\Repository\Demand $demand)
 
         :param $demand: the demand
 
     ..  php:method:: getRedirects()
-        :returns: array
+        :returns: `array`
 
     ..  php:method:: setRedirects(array $redirects)
 
         :param $redirects: the redirects
 
     ..  php:method:: getRequest()
-        :returns: Psr\Http\Message\ServerRequestInterface
+        :returns: `\Psr\Http\Message\ServerRequestInterface`
 
     ..  php:method:: getHosts()
-        :returns: array
+        :returns: `array`
 
     ..  php:method:: setHosts(array $hosts)
 
         :param $hosts: the hosts
 
     ..  php:method:: getStatusCodes()
-        :returns: array
+        :returns: `array`
 
     ..  php:method:: setStatusCodes(array $statusCodes)
 
         :param $statusCodes: the statusCodes
 
     ..  php:method:: getCreationTypes()
-        :returns: array
+        :returns: `array`
 
     ..  php:method:: setCreationTypes(array $creationTypes)
 
         :param $creationTypes: the creationTypes
 
     ..  php:method:: getShowHitCounter()
-        :returns: bool
+        :returns: `bool`
 
     ..  php:method:: setShowHitCounter(bool $showHitCounter)
 
         :param $showHitCounter: the showHitCounter
 
     ..  php:method:: getView()
-        :returns: TYPO3\CMS\Core\View\ViewInterface
+        :returns: `\TYPO3\CMS\Core\View\ViewInterface`
 
-    ..  php:method:: setView(TYPO3\CMS\Core\View\ViewInterface $view)
+    ..  php:method:: setView(\TYPO3\CMS\Core\View\ViewInterface $view)
 
         :param $view: the view
+

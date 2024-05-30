@@ -8,7 +8,7 @@
     custom indexer after a file has been uploaded.
 
     ..  php:method:: getCommand()
-        :returns: array<string,array<string,mixed>>
+        :returns: `array<string,array<string,mixed>>`
 
         A single command, e.g.
 
@@ -20,8 +20,12 @@
             ]
 
     ..  php:method:: getResult()
-        :returns: mixed The result - Depending on the performed action,
-    this could e.g. be a File or just a boolean.
+        :returns: `mixed`
+
+        :Return description: The result - Depending on the performed action,this could e.g. be a File or just a boolean.
 
     ..  php:method:: getConflictMode()
-        :returns: string The current conflict mode
+        :returns: `string`
+
+        :Return description: The current conflict mode
+

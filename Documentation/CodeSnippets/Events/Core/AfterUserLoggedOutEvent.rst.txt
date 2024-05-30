@@ -6,4 +6,5 @@
     Event fired after a user has been actively logged out.
 
     ..  php:method:: getUser()
-        :returns: TYPO3\CMS\Core\Authentication\AbstractUserAuthentication
+        :returns: `\TYPO3\CMS\Core\Authentication\AbstractUserAuthentication`
+

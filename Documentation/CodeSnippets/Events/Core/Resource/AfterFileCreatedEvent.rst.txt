@@ -10,7 +10,8 @@
     Example: This allows to modify a file or check for an appropriate signature after a file was created in TYPO3.
 
     ..  php:method:: getFileName()
-        :returns: string
+        :returns: `string`
 
     ..  php:method:: getFolder()
-        :returns: TYPO3\CMS\Core\Resource\Folder
+        :returns: `\TYPO3\CMS\Core\Resource\Folder`
+

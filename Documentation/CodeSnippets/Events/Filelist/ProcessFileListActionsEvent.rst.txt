@@ -6,14 +6,15 @@
     Event fired to modify icons rendered for the file listings
 
     ..  php:method:: getResource()
-        :returns: TYPO3\CMS\Core\Resource\ResourceInterface
+        :returns: `\TYPO3\CMS\Core\Resource\ResourceInterface`
 
     ..  php:method:: isFile()
-        :returns: bool
+        :returns: `bool`
 
     ..  php:method:: getActionItems()
-        :returns: array
+        :returns: `array`
 
     ..  php:method:: setActionItems(array $actionItems)
 
         :param $actionItems: the actionItems
+

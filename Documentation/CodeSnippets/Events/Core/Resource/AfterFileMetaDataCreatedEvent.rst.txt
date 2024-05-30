@@ -7,14 +7,15 @@
     enriched with more information.
 
     ..  php:method:: getFileUid()
-        :returns: int
+        :returns: `int`
 
     ..  php:method:: getMetaDataUid()
-        :returns: int
+        :returns: `int`
 
     ..  php:method:: getRecord()
-        :returns: array
+        :returns: `array`
 
     ..  php:method:: setRecord(array $record)
 
         :param $record: the record
+

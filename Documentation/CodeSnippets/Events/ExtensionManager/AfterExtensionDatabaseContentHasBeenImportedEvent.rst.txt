@@ -6,13 +6,14 @@
     Event that is triggered after a package has imported the database file shipped within a t3d/xml import file
 
     ..  php:method:: getPackageKey()
-        :returns: string
+        :returns: `string`
 
     ..  php:method:: getImportFileName()
-        :returns: string
+        :returns: `string`
 
     ..  php:method:: getImportResult()
-        :returns: int
+        :returns: `int`
 
     ..  php:method:: getEmitter()
-        :returns: TYPO3\CMS\Extensionmanager\Utility\InstallUtility
+        :returns: `\TYPO3\CMS\Extensionmanager\Utility\InstallUtility`
+

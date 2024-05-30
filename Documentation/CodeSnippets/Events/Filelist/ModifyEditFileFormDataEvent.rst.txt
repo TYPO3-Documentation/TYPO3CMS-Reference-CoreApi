@@ -7,14 +7,15 @@
     used to render the edit file form in the filelist module.
 
     ..  php:method:: getFormData()
-        :returns: array
+        :returns: `array`
 
     ..  php:method:: setFormData(array $formData)
 
         :param $formData: the formData
 
     ..  php:method:: getFile()
-        :returns: TYPO3\CMS\Core\Resource\FileInterface
+        :returns: `\TYPO3\CMS\Core\Resource\FileInterface`
 
     ..  php:method:: getRequest()
-        :returns: Psr\Http\Message\ServerRequestInterface
+        :returns: `\Psr\Http\Message\ServerRequestInterface`
+

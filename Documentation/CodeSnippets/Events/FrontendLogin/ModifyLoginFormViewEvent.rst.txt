@@ -6,4 +6,5 @@
     Allows to inject custom variables into the login form.
 
     ..  php:method:: getView()
-        :returns: TYPO3Fluid\Fluid\View\ViewInterface
+        :returns: `\TYPO3Fluid\Fluid\View\ViewInterface`
+

@@ -9,7 +9,8 @@
     or specific rules when renaming folders.
 
     ..  php:method:: getFolder()
-        :returns: TYPO3\CMS\Core\Resource\Folder
+        :returns: `\TYPO3\CMS\Core\Resource\Folder`
 
     ..  php:method:: getTargetName()
-        :returns: string
+        :returns: `string`
+

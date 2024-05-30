@@ -4,15 +4,16 @@
 ..  php:class:: AfterRecordSummaryForLocalizationEvent
 
     ..  php:method:: getColumns()
-        :returns: array
+        :returns: `array`
 
     ..  php:method:: setColumns(array $columns)
 
         :param $columns: the columns
 
     ..  php:method:: getRecords()
-        :returns: array
+        :returns: `array`
 
     ..  php:method:: setRecords(array $records)
 
         :param $records: the records
+

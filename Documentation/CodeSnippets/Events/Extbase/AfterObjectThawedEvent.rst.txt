@@ -6,7 +6,8 @@
     Allows to modify values when creating domain objects.
 
     ..  php:method:: getObject()
-        :returns: TYPO3\CMS\Extbase\DomainObject\DomainObjectInterface
+        :returns: `\TYPO3\CMS\Extbase\DomainObject\DomainObjectInterface`
 
     ..  php:method:: getRecord()
-        :returns: array
+        :returns: `array`
+

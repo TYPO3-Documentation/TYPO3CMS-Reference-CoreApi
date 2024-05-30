@@ -5,7 +5,7 @@
 
     The base repository - will usually be extended by a more concrete repository.
 
-    ..  php:method:: injectPersistenceManager(TYPO3\CMS\Extbase\Persistence\PersistenceManagerInterface $persistenceManager)
+    ..  php:method:: injectPersistenceManager(\TYPO3\CMS\Extbase\Persistence\PersistenceManagerInterface $persistenceManager)
 
         :param $persistenceManager: the persistenceManager
 
@@ -28,12 +28,16 @@
         :param $modifiedObject: The modified object
 
     ..  php:method:: findAll()
+        :returns: `\QueryResultInterface|array`
 
         Returns all objects of this repository.
 
     ..  php:method:: countAll()
+        :returns: `int`
 
         Returns the total number objects of this repository.
+
+        :Return description: The object count
 
     ..  php:method:: removeAll()
 
@@ -41,16 +45,20 @@
         all of them.
 
     ..  php:method:: findByUid(?int $uid)
+        :returns: `object|null`
 
         Finds an object matching the given identifier.
 
         :param $uid: The identifier of the object to find
+        :Return description: The matching object if found, otherwise NULL
 
     ..  php:method:: findByIdentifier(?mixed $identifier)
+        :returns: `object|null`
 
         Finds an object matching the given identifier.
 
         :param $identifier: The identifier of the object to find
+        :Return description: The matching object if found, otherwise NULL
 
     ..  php:method:: setDefaultOrderings(array $defaultOrderings)
 
@@ -64,7 +72,7 @@
 
         :param $defaultOrderings: The property names to order by
 
-    ..  php:method:: setDefaultQuerySettings(TYPO3\CMS\Extbase\Persistence\Generic\QuerySettingsInterface $defaultQuerySettings)
+    ..  php:method:: setDefaultQuerySettings(\TYPO3\CMS\Extbase\Persistence\Generic\QuerySettingsInterface $defaultQuerySettings)
 
         Sets the default query settings to be used in this repository.
 
@@ -79,10 +87,12 @@
         :param $defaultQuerySettings: the defaultQuerySettings
 
     ..  php:method:: createQuery()
+        :returns: `\QueryInterface`
 
         Returns a query for objects of this repository
 
     ..  php:method:: __call(?non-empty-string $methodName, ?array<int,mixed> $arguments)
+        :returns: `mixed`
 
         **Deprecated:** since v12, will be removed in v14, use {@see \findBy}, {@see \findOneBy} and {@see \count} instead
 
@@ -92,7 +102,7 @@
         :param $arguments: The arguments of the magic method
 
     ..  php:method:: findBy(array $criteria, ?array $orderBy = NULL, ?int $limit = NULL, ?int $offset = NULL)
-        :returns: \QueryResultInterface
+        :returns: `\QueryResultInterface`
 
         :param $criteria: the criteria
         :param $orderBy: the orderBy, default: NULL
@@ -100,12 +110,13 @@
         :param $offset: the offset, default: NULL
 
     ..  php:method:: findOneBy(array $criteria, ?array $orderBy = NULL)
-        :returns: ?object
+        :returns: `?object`
 
         :param $criteria: the criteria
         :param $orderBy: the orderBy, default: NULL
 
     ..  php:method:: count(array $criteria)
-        :returns: int
+        :returns: `int`
 
         :param $criteria: the criteria
+

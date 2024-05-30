@@ -7,7 +7,7 @@
     the doc header and other related parts.
 
     ..  php:method:: assign(string $key, ?mixed $value)
-        :returns: self
+        :returns: `self`
 
         Add a variable to the view data collection.
 
@@ -15,21 +15,21 @@
         :param $value: the value
 
     ..  php:method:: assignMultiple(array $values)
-        :returns: self
+        :returns: `self`
 
         Add multiple variables to the view data collection.
 
         :param $values: the values
 
     ..  php:method:: render(string $templateFileName = '')
-        :returns: string
+        :returns: `string`
 
         Render the module.
 
         :param $templateFileName: the templateFileName, default: ''
 
     ..  php:method:: renderResponse(string $templateFileName = '')
-        :returns: Psr\Http\Message\ResponseInterface
+        :returns: `\Psr\Http\Message\ResponseInterface`
 
         Render the module and create an HTML 200 response from it. This is a
         lazy shortcut so controllers don't need to take care of this in the backend.
@@ -37,14 +37,14 @@
         :param $templateFileName: the templateFileName, default: ''
 
     ..  php:method:: setBodyTag(string $bodyTag)
-        :returns: self
+        :returns: `self`
 
         Set to something like '<body id="foo">' when a special body tag is needed.
 
         :param $bodyTag: the bodyTag
 
     ..  php:method:: setTitle(string $title, string $context = '')
-        :returns: self
+        :returns: `self`
 
         Title string of the module: "My module · Edit view"
 
@@ -52,20 +52,20 @@
         :param $context: the context, default: ''
 
     ..  php:method:: getDocHeaderComponent()
-        :returns: TYPO3\CMS\Backend\Template\Components\DocHeaderComponent
+        :returns: `\TYPO3\CMS\Backend\Template\Components\DocHeaderComponent`
 
         Get the DocHeader. Can be used in controllers to add custom
         buttons / menus / ... to the doc header.
 
     ..  php:method:: setForm(string $formTag = '')
-        :returns: self
+        :returns: `self`
 
         A "<form>" tag encapsulating the entire module, including doc-header.
 
         :param $formTag: the formTag, default: ''
 
     ..  php:method:: setModuleId(string $moduleId)
-        :returns: self
+        :returns: `self`
 
         Optional 'data-module-id="{moduleId}"' on first <div> in body.
 
@@ -74,7 +74,7 @@
         :param $moduleId: the moduleId
 
     ..  php:method:: setModuleName(string $moduleName)
-        :returns: self
+        :returns: `self`
 
         Optional 'data-module-name="{moduleName}"' on first <div> in body.
 
@@ -83,7 +83,7 @@
         :param $moduleName: the moduleName
 
     ..  php:method:: setModuleClass(string $moduleClass)
-        :returns: self
+        :returns: `self`
 
         Optional 'class="module {moduleClass}"' on first <div> in body.
 
@@ -91,8 +91,8 @@
 
         :param $moduleClass: the moduleClass
 
-    ..  php:method:: addFlashMessage(string $messageBody, string $messageTitle = '', TYPO3\CMS\Core\Type\ContextualFeedbackSeverity $severity = \TYPO3\CMS\Core\Type\ContextualFeedbackSeverity::OK, bool $storeInSession = true)
-        :returns: self
+    ..  php:method:: addFlashMessage(string $messageBody, string $messageTitle = '', TYPO3\CMS\Core\Type\ContextualFeedbackSeverity|int $severity = \TYPO3\CMS\Core\Type\ContextualFeedbackSeverity::OK, bool $storeInSession = true)
+        :returns: `self`
 
         Creates a message object and adds it to the FlashMessageQueue.
 
@@ -103,8 +103,8 @@
         :param $severity: the severity, default: \TYPO3\CMS\Core\Type\ContextualFeedbackSeverity::OK
         :param $storeInSession: the storeInSession, default: true
 
-    ..  php:method:: setFlashMessageQueue(TYPO3\CMS\Core\Messaging\FlashMessageQueue $flashMessageQueue)
-        :returns: self
+    ..  php:method:: setFlashMessageQueue(\TYPO3\CMS\Core\Messaging\FlashMessageQueue $flashMessageQueue)
+        :returns: `self`
 
         ModuleTemplate by default uses queue 'core.template.flashMessages'. Modules
         may want to maintain an own queue. Use this method to render flash messages
@@ -114,7 +114,7 @@
         :param $flashMessageQueue: the flashMessageQueue
 
     ..  php:method:: setUiBlock(bool $uiBlock)
-        :returns: self
+        :returns: `self`
 
         UI block is a spinner shown during browser rendering phase of the module,
         automatically removed when rendering finished. This is done by default,
@@ -122,9 +122,74 @@
 
         :param $uiBlock: the uiBlock
 
+    ..  php:method:: getView()
+        :returns: `\TYPO3\CMS\Fluid\View\StandaloneView`
+
+        **Deprecated:** since v12, will be removed in v13.
+
+    ..  php:method:: setContent(string $content)
+        :returns: `self`
+
+        **Deprecated:** since v12, will be removed in v13.
+
+        :param $content: the content
+
+    ..  php:method:: renderContent()
+        :returns: `string`
+
+        **Deprecated:** since v12, will be removed in v13. Remove together with $legacyView property and Templates/Module.html.
+
+    ..  php:method:: getBodyTag()
+        :returns: `string`
+
+        **Deprecated:** since v12, will be removed in v13.
+
+        Returns the current body tag.
+
+    ..  php:method:: registerModuleMenu(string $moduleMenuIdentifier)
+        :returns: `self`
+
+        **Deprecated:** since v12, will be removed in v13.
+
+        Generates the Menu for things like Web->Info
+
+        :param $moduleMenuIdentifier: the moduleMenuIdentifier
+
     ..  php:method:: makeDocHeaderModuleMenu(array $additionalQueryParams = [])
-        :returns: self
+        :returns: `self`
 
         Generates a menu in the docheader to access third-level modules
 
         :param $additionalQueryParams: the additionalQueryParams, default: []
+
+    ..  php:method:: getDynamicTabMenu(array $menuItems, string $domId, int $defaultTabIndex = 1, bool $collapsible = false, bool $wrapContent = true, bool $storeLastActiveTab = true)
+        :returns: `string`
+
+        **Deprecated:** since v12, will be removed in v13.
+
+        Creates a tab menu where the tabs or collapsible are rendered with bootstrap markup
+
+        :param $menuItems: Tab elements, each element is an array with "label" and "content"
+        :param $domId: DOM id attribute, will be appended with an iteration number per tab.
+        :param $defaultTabIndex: Default tab to open (for toggle <=0). Value corresponds to integer-array index + 1(index zero is "1", index "1" is 2 etc.). A value of zero (or something non-existingwill result in no default tab open., default: 1
+        :param $collapsible: If set, the tabs are rendered as headers instead over each sheet. Effectively this meansthere is no tab menu, but rather a foldout/fold-in menu., default: false
+        :param $wrapContent: If set, the content is wrapped in div structure which provides a padding and borderstyle. Set this FALSE to get unstyled content pane with fullsize content area., default: true
+        :param $storeLastActiveTab: If set, the last open tab is stored in local storage and will be re-open again.If you don't need this feature, e.g. for wizards like import/export you candisable this behaviour., default: true
+
+    ..  php:method:: header(string $text, bool $inlineEdit = true)
+        :returns: `string`
+
+        **Deprecated:** since v12, will be removed in v13.
+
+        Returns the header-bar in the top of most backend modules
+        Closes section if open.
+
+        :param $text: The text string for the header
+        :param $inlineEdit: Whether the header should be editable (e.g. page title), default: true
+        :Return description: HTML content
+
+    ..  php:method:: isUiBlock()
+        :returns: `bool`
+
+        **Deprecated:** since v12, will be removed in v13.
+

@@ -6,10 +6,11 @@
     This event is fired once metadata of a file was updated, in order to update custom metadata fields accordingly
 
     ..  php:method:: getFileUid()
-        :returns: int
+        :returns: `int`
 
     ..  php:method:: getMetaDataUid()
-        :returns: int
+        :returns: `int`
 
     ..  php:method:: getRecord()
-        :returns: array
+        :returns: `array`
+

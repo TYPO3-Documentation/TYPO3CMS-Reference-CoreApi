@@ -8,10 +8,11 @@
     Example: Custom listeners can analyze contents of a file or add custom permissions to a folder automatically.
 
     ..  php:method:: getFolder()
-        :returns: TYPO3\CMS\Core\Resource\Folder
+        :returns: `\TYPO3\CMS\Core\Resource\Folder`
 
     ..  php:method:: getTargetParentFolder()
-        :returns: TYPO3\CMS\Core\Resource\Folder
+        :returns: `\TYPO3\CMS\Core\Resource\Folder`
 
     ..  php:method:: getTargetFolder()
-        :returns: ?TYPO3\CMS\Core\Resource\FolderInterface
+        :returns: `?\TYPO3\CMS\Core\Resource\FolderInterface`
+

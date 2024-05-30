@@ -7,4 +7,5 @@
     but before updating the reference index and current session.
 
     ..  php:method:: getObject()
-        :returns: TYPO3\CMS\Extbase\DomainObject\DomainObjectInterface
+        :returns: `\TYPO3\CMS\Extbase\DomainObject\DomainObjectInterface`
+

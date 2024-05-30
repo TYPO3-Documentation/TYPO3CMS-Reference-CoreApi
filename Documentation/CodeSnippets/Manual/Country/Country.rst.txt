@@ -7,25 +7,26 @@
     use CountryProvider instead.
 
     ..  php:method:: getName()
-        :returns: string
+        :returns: `string`
 
     ..  php:method:: getLocalizedNameLabel()
-        :returns: string
+        :returns: `string`
 
     ..  php:method:: getOfficialName()
-        :returns: ?string
+        :returns: `?string`
 
     ..  php:method:: getLocalizedOfficialNameLabel()
-        :returns: string
+        :returns: `string`
 
     ..  php:method:: getAlpha2IsoCode()
-        :returns: string
+        :returns: `string`
 
     ..  php:method:: getAlpha3IsoCode()
-        :returns: string
+        :returns: `string`
 
     ..  php:method:: getNumericRepresentation()
-        :returns: string
+        :returns: `string`
 
     ..  php:method:: getFlag()
-        :returns: string
+        :returns: `string`
+

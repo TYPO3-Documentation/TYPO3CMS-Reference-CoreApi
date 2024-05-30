@@ -8,14 +8,15 @@
     Does not have any effect if "no_cache" is activated, or if there is no cached version of a page.
 
     ..  php:method:: getController()
-        :returns: TYPO3\CMS\Frontend\Controller\TypoScriptFrontendController
+        :returns: `\TYPO3\CMS\Frontend\Controller\TypoScriptFrontendController`
 
     ..  php:method:: getRequest()
-        :returns: Psr\Http\Message\ServerRequestInterface
+        :returns: `\Psr\Http\Message\ServerRequestInterface`
 
     ..  php:method:: shouldUseCachedPageData()
-        :returns: bool
+        :returns: `bool`
 
     ..  php:method:: setShouldUseCachedPageData(bool $shouldUseCachedPageData)
 
         :param $shouldUseCachedPageData: the shouldUseCachedPageData
+

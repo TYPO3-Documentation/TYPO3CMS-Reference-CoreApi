@@ -6,16 +6,17 @@
     Event fired when caches are to be warmed up
 
     ..  php:method:: getGroups()
-        :returns: array
+        :returns: `array`
 
     ..  php:method:: hasGroup(string $group)
-        :returns: bool
+        :returns: `bool`
 
         :param $group: the group
 
     ..  php:method:: getErrors()
-        :returns: array
+        :returns: `array`
 
     ..  php:method:: addError(string $error)
 
         :param $error: the error
+

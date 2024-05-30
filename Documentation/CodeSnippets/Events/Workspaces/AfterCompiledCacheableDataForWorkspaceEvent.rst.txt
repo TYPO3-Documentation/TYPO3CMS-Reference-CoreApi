@@ -6,18 +6,19 @@
     Used in the workspaces module to find all cacheable data of versions of a workspace.
 
     ..  php:method:: getGridService()
-        :returns: TYPO3\CMS\Workspaces\Service\GridDataService
+        :returns: `\TYPO3\CMS\Workspaces\Service\GridDataService`
 
     ..  php:method:: getData()
-        :returns: array
+        :returns: `array`
 
     ..  php:method:: setData(array $data)
 
         :param $data: the data
 
     ..  php:method:: getVersions()
-        :returns: array
+        :returns: `array`
 
     ..  php:method:: setVersions(array $versions)
 
         :param $versions: the versions
+

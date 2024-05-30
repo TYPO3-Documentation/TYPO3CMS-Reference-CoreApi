@@ -9,12 +9,13 @@
     ReferenceIndex only handles those.
 
     ..  php:method:: getTable()
-        :returns: string
+        :returns: `string`
 
     ..  php:method:: markAsExcluded()
 
     ..  php:method:: isTableExcluded()
-        :returns: bool
+        :returns: `bool`
 
     ..  php:method:: isPropagationStopped()
-        :returns: bool
+        :returns: `bool`
+

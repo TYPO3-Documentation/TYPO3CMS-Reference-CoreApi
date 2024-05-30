@@ -7,21 +7,21 @@
     containing the matched Route and the related arguments found in the URL
 
     ..  php:method:: getRoute()
-        :returns: TYPO3\CMS\Backend\Routing\Route
+        :returns: `\TYPO3\CMS\Backend\Routing\Route`
 
     ..  php:method:: getRouteName()
-        :returns: string
+        :returns: `string`
 
     ..  php:method:: getArguments()
-        :returns: array
+        :returns: `array`
 
     ..  php:method:: offsetExists(?mixed $offset)
-        :returns: bool
+        :returns: `bool`
 
         :param $offset: the offset
 
     ..  php:method:: offsetGet(?mixed $offset)
-        :returns: ?mixed
+        :returns: `?mixed`
 
         :param $offset: the offset
 
@@ -33,3 +33,4 @@
     ..  php:method:: offsetUnset(?mixed $offset)
 
         :param $offset: the offset
+

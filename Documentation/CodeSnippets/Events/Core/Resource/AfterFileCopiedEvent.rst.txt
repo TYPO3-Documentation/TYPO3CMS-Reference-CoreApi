@@ -10,13 +10,14 @@
     Example: Listeners can sign up for listing duplicates using this event.
 
     ..  php:method:: getFile()
-        :returns: TYPO3\CMS\Core\Resource\FileInterface
+        :returns: `\TYPO3\CMS\Core\Resource\FileInterface`
 
     ..  php:method:: getFolder()
-        :returns: TYPO3\CMS\Core\Resource\Folder
+        :returns: `\TYPO3\CMS\Core\Resource\Folder`
 
     ..  php:method:: getNewFileIdentifier()
-        :returns: string
+        :returns: `string`
 
     ..  php:method:: getNewFile()
-        :returns: ?TYPO3\CMS\Core\Resource\FileInterface
+        :returns: `?\TYPO3\CMS\Core\Resource\FileInterface`
+

@@ -6,17 +6,18 @@
     Event that is fired after the default upload folder for a user was checked
 
     ..  php:method:: getUploadFolder()
-        :returns: ?TYPO3\CMS\Core\Resource\FolderInterface
+        :returns: `?\TYPO3\CMS\Core\Resource\FolderInterface`
 
-    ..  php:method:: setUploadFolder(TYPO3\CMS\Core\Resource\FolderInterface $uploadFolder)
+    ..  php:method:: setUploadFolder(\TYPO3\CMS\Core\Resource\FolderInterface $uploadFolder)
 
         :param $uploadFolder: the uploadFolder
 
     ..  php:method:: getPid()
-        :returns: ?int
+        :returns: `?int`
 
     ..  php:method:: getTable()
-        :returns: ?string
+        :returns: `?string`
 
     ..  php:method:: getFieldName()
-        :returns: ?string
+        :returns: `?string`
+

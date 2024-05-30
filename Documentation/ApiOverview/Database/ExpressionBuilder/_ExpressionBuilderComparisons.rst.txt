@@ -5,7 +5,7 @@
     :noindex:
 
     ..  php:method:: eq(string $fieldName, ?mixed $value)
-        :returns: string
+        :returns: `string`
 
         Creates an equality comparison expression with the given arguments.
 
@@ -13,7 +13,7 @@
         :param $value: The value. No automatic quoting/escaping is done.
 
     ..  php:method:: neq(string $fieldName, ?mixed $value)
-        :returns: string
+        :returns: `string`
 
         Creates a non equality comparison expression with the given arguments.
 
@@ -28,7 +28,7 @@
         :param $value: The value. No automatic quoting/escaping is done.
 
     ..  php:method:: lt(?string $fieldName, ?mixed $value)
-        :returns: string
+        :returns: `string`
 
         Creates a lower-than comparison expression with the given arguments.
 
@@ -36,7 +36,7 @@
         :param $value: The value. No automatic quoting/escaping is done.
 
     ..  php:method:: lte(string $fieldName, ?mixed $value)
-        :returns: string
+        :returns: `string`
 
         Creates a lower-than-equal comparison expression with the given arguments.
 
@@ -44,7 +44,7 @@
         :param $value: The value. No automatic quoting/escaping is done.
 
     ..  php:method:: gt(string $fieldName, ?mixed $value)
-        :returns: string
+        :returns: `string`
 
         Creates a greater-than comparison expression with the given arguments.
 
@@ -52,7 +52,7 @@
         :param $value: The value. No automatic quoting/escaping is done.
 
     ..  php:method:: gte(string $fieldName, ?mixed $value)
-        :returns: string
+        :returns: `string`
 
         Creates a greater-than-equal comparison expression with the given arguments.
 
@@ -60,21 +60,21 @@
         :param $value: The value. No automatic quoting/escaping is done.
 
     ..  php:method:: isNull(string $fieldName)
-        :returns: string
+        :returns: `string`
 
         Creates an IS NULL expression with the given arguments.
 
         :param $fieldName: The fieldname. Will be quoted according to database platform automatically.
 
     ..  php:method:: isNotNull(string $fieldName)
-        :returns: string
+        :returns: `string`
 
         Creates an IS NOT NULL expression with the given arguments.
 
         :param $fieldName: The fieldname. Will be quoted according to database platform automatically.
 
     ..  php:method:: like(string $fieldName, ?mixed $value)
-        :returns: string
+        :returns: `string`
 
         Creates a LIKE() comparison expression with the given arguments.
 
@@ -82,7 +82,7 @@
         :param $value: Argument to be used in LIKE() comparison. No automatic quoting/escaping is done.
 
     ..  php:method:: notLike(string $fieldName, ?mixed $value)
-        :returns: string
+        :returns: `string`
 
         Creates a NOT LIKE() comparison expression with the given arguments.
 
@@ -90,25 +90,23 @@
         :param $value: Argument to be used in NOT LIKE() comparison. No automatic quoting/escaping is done.
 
     ..  php:method:: in(string $fieldName, ?string|array $value)
-        :returns: string
+        :returns: `string`
 
         Creates an IN () comparison expression with the given arguments.
 
         :param $fieldName: The fieldname. Will be quoted according to database platform automatically.
-        :param $value: The placeholder or the array of values to be used by IN() comparison.
-        No automatic quoting/escaping is done.
+        :param $value: The placeholder or the array of values to be used by IN() comparison.No automatic quoting/escaping is done.
 
     ..  php:method:: notIn(string $fieldName, ?string|array $value)
-        :returns: string
+        :returns: `string`
 
         Creates a NOT IN () comparison expression with the given arguments.
 
         :param $fieldName: The fieldname. Will be quoted according to database platform automatically.
-        :param $value: The placeholder or the array of values to be used by NOT IN() comparison.
-        No automatic quoting/escaping is done.
+        :param $value: The placeholder or the array of values to be used by NOT IN() comparison.No automatic quoting/escaping is done.
 
     ..  php:method:: inSet(string $fieldName, string $value, bool $isColumn = false)
-        :returns: string
+        :returns: `string`
 
         Returns a comparison that can find a value in a list field (CSV).
 
@@ -117,7 +115,7 @@
         :param $isColumn: Set when the value to compare is a column on a table to activate casting, default: false
 
     ..  php:method:: notInSet(string $fieldName, string $value, bool $isColumn = false)
-        :returns: string
+        :returns: `string`
 
         Returns a comparison that can find a value in a list field (CSV) but is negated.
 
@@ -126,9 +124,10 @@
         :param $isColumn: Set when the value to compare is a column on a table to activate casting, default: false
 
     ..  php:method:: bitAnd(string $fieldName, int $value)
-        :returns: string
+        :returns: `string`
 
         Creates a bitwise AND expression with the given arguments.
 
         :param $fieldName: The fieldname. Will be quoted according to database platform automatically.
         :param $value: Argument to be used in the bitwise AND operation
+

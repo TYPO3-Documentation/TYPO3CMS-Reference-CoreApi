@@ -10,14 +10,15 @@
     permissions should be checked.
 
     ..  php:method:: getController()
-        :returns: TYPO3\CMS\Frontend\Controller\TypoScriptFrontendController
+        :returns: `\TYPO3\CMS\Frontend\Controller\TypoScriptFrontendController`
 
     ..  php:method:: getRequest()
-        :returns: Psr\Http\Message\ServerRequestInterface
+        :returns: `\Psr\Http\Message\ServerRequestInterface`
 
-    ..  php:method:: setResponse(Psr\Http\Message\ResponseInterface $response)
+    ..  php:method:: setResponse(\Psr\Http\Message\ResponseInterface $response)
 
         :param $response: the response
 
     ..  php:method:: getResponse()
-        :returns: ?Psr\Http\Message\ResponseInterface
+        :returns: `?\Psr\Http\Message\ResponseInterface`
+

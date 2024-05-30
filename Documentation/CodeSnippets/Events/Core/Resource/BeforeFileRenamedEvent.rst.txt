@@ -7,7 +7,8 @@
     according to specific guidelines based on the project.
 
     ..  php:method:: getFile()
-        :returns: TYPO3\CMS\Core\Resource\FileInterface
+        :returns: `\TYPO3\CMS\Core\Resource\FileInterface`
 
     ..  php:method:: getTargetFileName()
-        :returns: ?string
+        :returns: `?string`
+

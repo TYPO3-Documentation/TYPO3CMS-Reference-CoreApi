@@ -14,10 +14,10 @@
     See the note on FlexFormTools regarding the schema of $dataStructure.
 
     ..  php:method:: getIdentifier()
-        :returns: array
+        :returns: `array`
 
     ..  php:method:: getDataStructure()
-        :returns: array
+        :returns: `array`
 
         Returns the current data structure, which has been processed and
         parsed by the `FlexFormTools` component. Might contain additional
@@ -29,3 +29,4 @@
         structure identifier.
 
         :param $dataStructure: the dataStructure
+

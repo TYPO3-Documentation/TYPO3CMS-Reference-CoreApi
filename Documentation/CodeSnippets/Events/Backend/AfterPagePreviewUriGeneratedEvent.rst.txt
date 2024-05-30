@@ -6,30 +6,31 @@
     Listeners to this event will be able to modify the page preview
     URI, which had been generated for a page in the frontend.
 
-    ..  php:method:: setPreviewUri(Psr\Http\Message\UriInterface $previewUri)
+    ..  php:method:: setPreviewUri(\Psr\Http\Message\UriInterface $previewUri)
 
         :param $previewUri: the previewUri
 
     ..  php:method:: getPreviewUri()
-        :returns: Psr\Http\Message\UriInterface
+        :returns: `\Psr\Http\Message\UriInterface`
 
     ..  php:method:: getPageId()
-        :returns: int
+        :returns: `int`
 
     ..  php:method:: getLanguageId()
-        :returns: int
+        :returns: `int`
 
     ..  php:method:: getRootline()
-        :returns: array
+        :returns: `array`
 
     ..  php:method:: getSection()
-        :returns: string
+        :returns: `string`
 
     ..  php:method:: getAdditionalQueryParameters()
-        :returns: array
+        :returns: `array`
 
     ..  php:method:: getContext()
-        :returns: TYPO3\CMS\Core\Context\Context
+        :returns: `\TYPO3\CMS\Core\Context\Context`
 
     ..  php:method:: getOptions()
-        :returns: array
+        :returns: `array`
+

@@ -9,22 +9,23 @@
     creation of a storage
 
     ..  php:method:: getStorageUid()
-        :returns: int
+        :returns: `int`
 
     ..  php:method:: setStorageUid(int $storageUid)
 
         :param $storageUid: the storageUid
 
     ..  php:method:: getRecord()
-        :returns: array
+        :returns: `array`
 
     ..  php:method:: setRecord(array $record)
 
         :param $record: the record
 
     ..  php:method:: getFileIdentifier()
-        :returns: ?string
+        :returns: `?string`
 
     ..  php:method:: setFileIdentifier(?string $fileIdentifier)
 
         :param $fileIdentifier: the fileIdentifier
+

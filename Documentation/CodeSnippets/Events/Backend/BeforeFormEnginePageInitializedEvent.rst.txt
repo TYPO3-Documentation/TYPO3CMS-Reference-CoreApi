@@ -6,7 +6,8 @@
     Event to listen to before the form engine has been initialized (= before all data will be persisted)
 
     ..  php:method:: getController()
-        :returns: TYPO3\CMS\Backend\Controller\EditDocumentController
+        :returns: `\TYPO3\CMS\Backend\Controller\EditDocumentController`
 
     ..  php:method:: getRequest()
-        :returns: Psr\Http\Message\ServerRequestInterface
+        :returns: `\Psr\Http\Message\ServerRequestInterface`
+
