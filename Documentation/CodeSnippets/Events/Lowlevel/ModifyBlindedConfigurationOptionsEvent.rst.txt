@@ -21,3 +21,4 @@
         :returns: `string`
 
         Returns the configuration provider identifier, dispatching the event
+

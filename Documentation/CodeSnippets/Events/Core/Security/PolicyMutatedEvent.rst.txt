@@ -4,8 +4,12 @@
 ..  php:class:: PolicyMutatedEvent
 
     ..  php:attr:: scope
+        :readonly:
+        :public:
 
     ..  php:attr:: defaultPolicy
+        :readonly:
+        :public:
 
     ..  php:method:: isPropagationStopped()
         :returns: `bool`
@@ -25,3 +29,4 @@
     ..  php:method:: setMutationCollections(\TYPO3\CMS\Core\Security\ContentSecurityPolicy\MutationCollection ...$mutationCollections)
 
         :param $mutationCollections: the mutationCollections
+

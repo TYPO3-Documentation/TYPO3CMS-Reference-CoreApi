@@ -17,7 +17,7 @@
         $userSessionManager = UserSessionManager::create($loginType);
 
     ..  php:method:: createFromRequestOrAnonymous(\Psr\Http\Message\ServerRequestInterface $request, string $cookieName)
-        :returns: `\UserSession An existing session if one is stored in the cookie, an anonymous session otherwise`
+        :returns: `\UserSession`
 
         Creates and returns a session from the given request. If the given
         `$cookieName` can not be obtained from the request an anonymous
@@ -25,6 +25,7 @@
 
         :param $request: the request
         :param $cookieName: Name of the cookie that might contain the session
+        :Return description: An existing session if one is stored in the cookie, an anonymous session otherwise
 
     ..  php:method:: createAnonymousSession()
         :returns: `\TYPO3\CMS\Core\Session\UserSession`
@@ -47,16 +48,17 @@
         :param $gracePeriod: in seconds
 
     ..  php:method:: fixateAnonymousSession(\TYPO3\CMS\Core\Session\UserSession $session, bool $isPermanent = false)
-        :returns: `\UserSession a new session object with an updated `ses_tstamp` (allowing to keep the session alive)`
+        :returns: `\UserSession`
 
         Persists an anonymous session without a user logged-in,
         in order to store session data between requests
 
         :param $session: The user session to fixate
         :param $isPermanent: If `true`, the session will get the `ses_permanent` flag, default: false
+        :Return description: A new session object with an updated `ses_tstamp` (allowing to keep the session alive)
 
     ..  php:method:: elevateToFixatedUserSession(\TYPO3\CMS\Core\Session\UserSession $session, int $userId, bool $isPermanent = false)
-        :returns: `\UserSession The newly created user session object`
+        :returns: `\UserSession`
 
         Removes existing entries, creates and returns a new user session object.
 
@@ -65,6 +67,7 @@
         :param $session: The user session to recreate
         :param $userId: The user id the session belongs to
         :param $isPermanent: If `true`, the session will get the `ses_permanent` flag, default: false
+        :Return description: The newly created user session object
 
     ..  php:method:: regenerateSession(string $sessionId, array $existingSessionRecord = [], bool $anonymous = false)
         :returns: `\TYPO3\CMS\Core\Session\UserSession`
@@ -78,13 +81,14 @@
         :param $anonymous: If true session will be regenerated as anonymous session, default: false
 
     ..  php:method:: updateSessionTimestamp(\TYPO3\CMS\Core\Session\UserSession $session)
-        :returns: `\UserSession a modified user session with a last updated value if needed`
+        :returns: `\UserSession`
 
         Updates the session timestamp for the given user session if the session
         is marked as "needs update" (which means the current timestamp is
         greater than "last updated + a specified grace-time").
 
         :param $session: the session
+        :Return description: A modified user session with a last updated value if needed
 
     ..  php:method:: isSessionPersisted(\TYPO3\CMS\Core\Session\UserSession $session)
         :returns: `bool`
@@ -132,3 +136,4 @@
         Sets a logger.
 
         :param $logger: the logger
+

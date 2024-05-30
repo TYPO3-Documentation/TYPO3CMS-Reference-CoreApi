@@ -40,11 +40,12 @@
         :param $identifier: the identifier
 
     ..  php:method:: removeControl(string $identifier)
-        :returns: `bool Whether the control could be removed`
+        :returns: `bool`
 
         Removes a control from the file reference, if it exists
 
         :param $identifier: the identifier
+        :Return description: Whether the control could be removed
 
     ..  php:method:: getElementData()
         :returns: `array`
@@ -75,3 +76,4 @@
         :returns: `bool`
 
         Returns whether the current records is only virtually shown and not physically part of the parent record
+

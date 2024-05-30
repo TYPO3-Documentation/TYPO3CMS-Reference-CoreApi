@@ -28,3 +28,4 @@
 
     ..  php:method:: getLinkAnalyzer()
         :returns: `\TYPO3\CMS\Linkvalidator\LinkAnalyzer`
+

@@ -12,3 +12,4 @@
 
     ..  php:method:: getSourceFolder()
         :returns: `\TYPO3\CMS\Core\Resource\Folder`
+

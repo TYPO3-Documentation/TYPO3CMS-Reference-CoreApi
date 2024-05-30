@@ -6,6 +6,6 @@
 
     class Post extends AbstractEntity implements \Stringable
     {
-        protected Blog $blog;
+        protected ?Blog $blog = null;
     }
     

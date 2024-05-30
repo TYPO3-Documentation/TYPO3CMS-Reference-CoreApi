@@ -7,8 +7,12 @@
     CSP backend module to find potential mutations as a resolution.
 
     ..  php:attr:: policy
+        :readonly:
+        :public:
 
     ..  php:attr:: report
+        :readonly:
+        :public:
 
     ..  php:method:: isPropagationStopped()
         :returns: `bool`
@@ -27,3 +31,4 @@
     ..  php:method:: appendMutationSuggestions(\TYPO3\CMS\Core\Security\ContentSecurityPolicy\MutationSuggestion ...$mutationSuggestions)
 
         :param $mutationSuggestions: the mutationSuggestions
+

@@ -15,3 +15,4 @@
     ..  php:method:: setMessages(array $messages)
 
         :param $messages: the messages
+

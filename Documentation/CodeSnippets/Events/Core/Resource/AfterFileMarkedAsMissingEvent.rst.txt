@@ -10,3 +10,4 @@
 
     ..  php:method:: getFileUid()
         :returns: `int`
+

@@ -19,3 +19,4 @@
     ..  php:method:: setTsConfig(array $tsConfig)
 
         :param $tsConfig: the tsConfig
+

@@ -13,12 +13,14 @@
     being like the Windows Registry in some ways.
 
     ..  php:method:: get(?string $namespace, ?string $key, ?mixed $defaultValue = NULL)
+        :returns: `mixed`
 
         Returns a persistent entry.
 
         :param $namespace: Extension key of extension
         :param $key: Key of the entry to return.
         :param $defaultValue: Optional default value to use if this entry has never been set. Defaults to NULL., default: NULL
+        :Return description: Value of the entry.
 
     ..  php:method:: set(?string $namespace, ?string $key, ?mixed $value)
 
@@ -45,3 +47,4 @@
         Unset all persistent entries of given namespace.
 
         :param $namespace: Extension key of extension
+

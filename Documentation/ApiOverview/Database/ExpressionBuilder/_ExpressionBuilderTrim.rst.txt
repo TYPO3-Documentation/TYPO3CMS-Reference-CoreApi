@@ -12,3 +12,4 @@
         :param $fieldName: Field name to build expression for
         :param $position: Either constant out of LEADING, TRAILING, BOTH, default: \Doctrine\DBAL\Platforms\TrimMode::UNSPECIFIED
         :param $char: Character to be trimmed (defaults to space), default: NULL
+

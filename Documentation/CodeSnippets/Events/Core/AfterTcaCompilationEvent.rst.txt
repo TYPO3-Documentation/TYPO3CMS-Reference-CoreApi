@@ -13,3 +13,4 @@
     ..  php:method:: setTca(array $tca)
 
         :param $tca: the tca
+

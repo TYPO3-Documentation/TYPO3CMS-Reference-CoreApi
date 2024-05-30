@@ -34,3 +34,4 @@
         :returns: `array<string,\Country>`
 
         :param $filter: the filter
+

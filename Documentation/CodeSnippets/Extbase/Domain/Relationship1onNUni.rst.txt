@@ -9,8 +9,8 @@
     class Post extends AbstractEntity implements \Stringable
     {
         /**
-         * @var ObjectStorage<Comment>
+         * @var ?ObjectStorage<Comment>
          */
-        public ObjectStorage $comments;
+        public ?ObjectStorage $comments = null;
     }
     

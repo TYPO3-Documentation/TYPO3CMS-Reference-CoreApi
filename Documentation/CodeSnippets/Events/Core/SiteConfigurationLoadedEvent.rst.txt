@@ -15,3 +15,4 @@
     ..  php:method:: setConfiguration(array $configuration)
 
         :param $configuration: overwrite the configuration array of the site
+

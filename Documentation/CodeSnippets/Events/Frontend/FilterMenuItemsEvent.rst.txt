@@ -35,3 +35,4 @@
 
     ..  php:method:: getCurrentPage()
         :returns: `array`
+

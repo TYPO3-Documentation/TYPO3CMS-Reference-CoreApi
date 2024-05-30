@@ -9,17 +9,16 @@
     class Blog extends AbstractEntity
     {
         /**
-         * The posts of this blog
-         * @var ObjectStorage<Post>|null
+         * @var ?ObjectStorage<Post>
          */
-        public ObjectStorage|null $posts;
+        public ?ObjectStorage $posts = null;
 
         /**
          * Adds a post to this blog
          */
         public function addPost(Post $post): void
         {
-            $this->posts->attach($post);
+            $this->posts?->attach($post);
         }
 
         /**
@@ -27,7 +26,7 @@
          */
         public function removePost(Post $postToRemove): void
         {
-            $this->posts->detach($postToRemove);
+            $this->posts?->detach($postToRemove);
         }
 
         /**

@@ -16,3 +16,4 @@
     ..  php:method:: setContent(string $content)
 
         :param $content: the content
+

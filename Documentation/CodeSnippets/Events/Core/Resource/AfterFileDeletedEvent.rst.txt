@@ -10,3 +10,4 @@
 
     ..  php:method:: getFile()
         :returns: `\TYPO3\CMS\Core\Resource\FileInterface`
+

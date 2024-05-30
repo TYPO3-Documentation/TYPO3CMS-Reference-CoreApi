@@ -20,3 +20,4 @@
     ..  php:method:: setPreviewUrl(string $previewUrl)
 
         :param $previewUrl: the previewUrl
+

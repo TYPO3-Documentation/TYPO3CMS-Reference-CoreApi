@@ -45,3 +45,4 @@
         :returns: `array`
 
         Array representation of getConfigTree().
+

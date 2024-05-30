@@ -9,3 +9,4 @@
         :returns: `\TYPO3\CMS\Backend\Template\ModuleTemplate`
 
         :param $request: the request
+

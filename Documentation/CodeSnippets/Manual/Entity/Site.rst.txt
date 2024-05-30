@@ -72,6 +72,7 @@
         :returns: `?\TYPO3\CMS\Core\Site\Entity\SiteTypoScript`
 
     ..  php:method:: getAttribute(string $attributeName)
+        :returns: `mixed`
 
         Returns a single configuration attribute
 
@@ -83,3 +84,4 @@
         Returns the applicable router for this site. This might be configurable in the future.
 
         :param $context: the context, default: NULL
+

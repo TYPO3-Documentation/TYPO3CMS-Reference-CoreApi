@@ -13,3 +13,4 @@
 
     ..  php:method:: getRecord()
         :returns: `array`
+

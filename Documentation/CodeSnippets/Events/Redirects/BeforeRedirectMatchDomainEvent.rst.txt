@@ -10,20 +10,31 @@
     record data.
 
     ..  php:method:: getDomain()
-        :returns: `string Request domain name (host)`
+        :returns: `string`
+
+        :Return description: Request domain name (host)
 
     ..  php:method:: getPath()
-        :returns: `string Request path`
+        :returns: `string`
+
+        :Return description: Request path
 
     ..  php:method:: getQuery()
-        :returns: `string Request query parameters`
+        :returns: `string`
+
+        :Return description: Request query parameters
 
     ..  php:method:: getMatchDomainName()
-        :returns: `string Domain name which should be checked, and `getRedirects()` items are provided for`
+        :returns: `string`
+
+        :Return description: Domain name which should be checked, and `getRedirects()` items are provided for
 
     ..  php:method:: getMatchedRedirect()
-        :returns: `array|null Returns the matched `sys_redirect` record or null`
+        :returns: `array|null`
+
+        :Return description: Returns the matched `sys_redirect` record or null
 
     ..  php:method:: setMatchedRedirect(?array $matchedRedirect)
 
         :param $matchedRedirect: Set matched `sys_redirect` record or null to clear prior set record
+

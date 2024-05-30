@@ -19,3 +19,4 @@
         :returns: `int`
 
         The workspace the record has been published in.
+

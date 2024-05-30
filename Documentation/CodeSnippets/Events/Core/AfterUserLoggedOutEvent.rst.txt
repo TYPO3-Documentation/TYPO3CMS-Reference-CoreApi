@@ -7,3 +7,4 @@
 
     ..  php:method:: getUser()
         :returns: `\TYPO3\CMS\Core\Authentication\AbstractUserAuthentication`
+

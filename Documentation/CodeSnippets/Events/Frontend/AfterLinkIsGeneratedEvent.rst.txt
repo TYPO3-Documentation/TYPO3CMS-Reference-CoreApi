@@ -24,3 +24,4 @@
         :returns: `array`
 
         Returns the original instructions / $linkConfiguration that were used to build the link
+

@@ -20,3 +20,4 @@
 
     ..  php:method:: getNewFile()
         :returns: `?\TYPO3\CMS\Core\Resource\FileInterface`
+

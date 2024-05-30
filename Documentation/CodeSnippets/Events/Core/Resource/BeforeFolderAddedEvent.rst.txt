@@ -12,3 +12,4 @@
 
     ..  php:method:: getFolderName()
         :returns: `string`
+

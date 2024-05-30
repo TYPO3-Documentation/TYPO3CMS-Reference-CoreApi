@@ -8,3 +8,4 @@
 
     ..  php:method:: getToolbarItem()
         :returns: `\TYPO3\CMS\Backend\Backend\ToolbarItems\SystemInformationToolbarItem`
+

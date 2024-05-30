@@ -5,9 +5,11 @@
     :noindex:
 
     ..  php:method:: rightPad(string $value, string|int $length, string $paddingValue, string $asIdentifier = '')
-        :returns: `string Returns database connection platform compatible right-pad expression`
+        :returns: `string`
 
         :param $value: Value, identifier or expression defining the value which should be right padded
         :param $length: Value, identifier or expression defining the padding length to fill up or crop
         :param $paddingValue: Padding character used to fill up if characters are missing on the right side
         :param $asIdentifier: Provide `AS` identifier if not empty, default: ''
+        :Return description: Returns database connection platform compatible right-pad expression
+

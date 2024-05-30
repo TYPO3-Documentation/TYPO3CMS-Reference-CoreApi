@@ -20,3 +20,4 @@
 
     ..  php:method:: getEmptyValueSymbol()
         :returns: `string`
+

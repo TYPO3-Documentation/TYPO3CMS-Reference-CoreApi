@@ -12,3 +12,4 @@
 
     ..  php:method:: getContent()
         :returns: `string`
+

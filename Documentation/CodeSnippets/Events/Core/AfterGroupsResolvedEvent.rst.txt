@@ -6,7 +6,9 @@
     Event fired after user groups have been resolved for a specific user
 
     ..  php:method:: getSourceDatabaseTable()
-        :returns: `string 'be_groups' or 'fe_groups' depending on context.`
+        :returns: `string`
+
+        :Return description: 'be_groups' or 'fe_groups' depending on context.
 
     ..  php:method:: getGroups()
         :returns: `array`
@@ -32,3 +34,4 @@
         :returns: `array`
 
         Full user record with all fields
+

@@ -40,3 +40,4 @@
         :returns: `array`
 
         Returns request parameters passed to LocalizationController.
+
