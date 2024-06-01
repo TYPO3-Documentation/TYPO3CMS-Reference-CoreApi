@@ -1,5 +1,6 @@
 <?php
 
+use T3docs\BlogExample\Controller\BackendController;
 use TYPO3\CMS\Backend\Template\ModuleTemplate;
 use TYPO3\CMS\Backend\Template\ModuleTemplateFactory;
 
@@ -33,5 +34,16 @@ return [
         'class' => ModuleTemplate::class,
         'targetFileName' => 'ApiOverview/Backend/BackendModules/_ModuleTemplate.rst.txt',
         'withCode' => false,
+    ],
+    [
+        'action' => 'createPhpClassCodeSnippet',
+        'class' => BackendController::class,
+        'members' => [
+            'initializeModuleTemplate',
+            'showPostAction',
+        ],
+        'withComment' => false,
+        'withClassComment' => false,
+        'targetFileName' => 'ApiOverview/Backend/BackendModules/InitializeModuleTemplate.rst.txt',
     ],
 ];
