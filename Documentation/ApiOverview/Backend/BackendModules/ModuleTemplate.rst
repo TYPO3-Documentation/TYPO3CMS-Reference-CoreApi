@@ -26,3 +26,11 @@ API functions of the ModuleTemplate can be used to add buttons to the button bar
 ..  literalinclude:: _BackendModuleController_ModuleTemplate.php
     :language: php
     :caption: EXT:my_extension/Classes/Controller/BackendModuleController.php
+
+Example: Set flash message queue and modify the doc header
+==========================================================
+
+The following example is extracted from the example Extbase extension
+`blog_example <>`
+
+..  include:: InitializeModuleTemplate.rst.txt
