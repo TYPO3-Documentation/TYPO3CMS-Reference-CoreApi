@@ -28,7 +28,7 @@
     ..  php:attr:: lang
         :public:
 
-    This is set to the language that is currently running for the user
+        This is set to the language that is currently running for the user
 
     ..  php:method:: sL(?string $input)
         :returns: `string`
