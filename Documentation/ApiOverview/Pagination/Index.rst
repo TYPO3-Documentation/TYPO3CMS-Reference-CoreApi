@@ -43,8 +43,8 @@ Code example for the :php:`ArrayPaginator`:
    $paginator = new ArrayPaginator($itemsToBePaginated, $currentPageNumber, $itemsPerPage);
    $paginator->getNumberOfPages(); // returns 3
    $paginator->getCurrentPageNumber(); // returns 3, basically just returns the input value
-   $paginator->getKeyOfFirstPaginatedItem(); // returns 5
-   $paginator->getKeyOfLastPaginatedItem(); // returns 5
+   $paginator->getKeyOfFirstPaginatedItem(); // returns 4
+   $paginator->getKeyOfLastPaginatedItem(); // returns 4
 
    // use TYPO3\CMS\Core\Pagination\SimplePagination;
 
