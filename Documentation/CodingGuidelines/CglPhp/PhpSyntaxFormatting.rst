@@ -132,7 +132,7 @@ Debug output
 ============
 
 During development it is allowed to use :php:`debug()` or
-:php:`GeneralUtility::debug()` function calls to produce debug output.
+:php:`\TYPO3\CMS\Core\Utility\DebugUtility::debug()` function calls to produce debug output.
 However all debug statements must be removed (not only commented!)
 before pushing the code to the Git repository. Only very exceptionally
 is it allowed to even *think* of leaving a debug statement, if it is
