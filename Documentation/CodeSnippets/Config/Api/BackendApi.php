@@ -1,6 +1,7 @@
 <?php
 
 use T3docs\BlogExample\Controller\BackendController;
+use TYPO3\CMS\Backend\Template\Components\DocHeaderComponent;
 use TYPO3\CMS\Backend\Template\ModuleTemplate;
 use TYPO3\CMS\Backend\Template\ModuleTemplateFactory;
 
@@ -36,6 +37,12 @@ return [
         'withCode' => false,
     ],
     [
+        'action' => 'createPhpClassDocs',
+        'class' => DocHeaderComponent::class,
+        'targetFileName' => 'ApiOverview/Backend/BackendModules/_DocHeaderComponent.rst.txt',
+        'withCode' => false,
+    ],
+    [
         'action' => 'createPhpClassCodeSnippet',
         'class' => BackendController::class,
         'members' => [
@@ -44,6 +51,17 @@ return [
         ],
         'withComment' => false,
         'withClassComment' => false,
-        'targetFileName' => 'ApiOverview/Backend/BackendModules/InitializeModuleTemplate.rst.txt',
+        'targetFileName' => 'ApiOverview/Backend/BackendModules/_InitializeModuleTemplate.rst.txt',
+    ],
+    [
+        'action' => 'createPhpClassCodeSnippet',
+        'class' => BackendController::class,
+        'members' => [
+            'modifyDocHeaderComponent',
+            'initializeModuleTemplate',
+        ],
+        'withComment' => false,
+        'withClassComment' => false,
+        'targetFileName' => 'ApiOverview/Backend/BackendModules/_ModifyDocHeaderComponent.rst.txt',
     ],
 ];

@@ -14,5 +14,10 @@ The :php:`ModuleInterface` basically provides getters for the options
 defined in the module registration and additionally provides methods for
 relation handling (main modules and sub modules).
 
+..  contents:: Table of contents
+
+ModuleInterface API
+===================
+
 .. include:: /CodeSnippets/Manual/Backend/ModuleInterface.rst.txt
 
