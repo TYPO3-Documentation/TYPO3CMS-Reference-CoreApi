@@ -1,7 +1,7 @@
 :navigation-title: ModuleProvider
 
-.. include:: /Includes.rst.txt
-.. index:: Backend modules; ModuleProvider
+..  include:: /Includes.rst.txt
+..  index:: Backend modules; ModuleProvider
 .. _backend-module-provider:
 
 ==============
