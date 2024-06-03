@@ -2,7 +2,7 @@
 
 ..  include:: /Includes.rst.txt
 ..  index:: Backend modules; ModuleProvider
-.. _backend-module-provider:
+..  _backend-module-provider:
 
 ==============
 ModuleProvider
