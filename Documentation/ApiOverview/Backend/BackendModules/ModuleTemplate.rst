@@ -15,7 +15,7 @@ so values can be assigned to it in the actions.
 
 ..  include:: _ModuleTemplate.rst.txt
 
-.. _ModuleTemplate-examples:
+..  _ModuleTemplate-examples:
 
 Example: Create and use a ModuleTemplate in an Extbase Controller
 =================================================================
