@@ -1,6 +1,6 @@
 ..  include:: /Includes.rst.txt
-.. index:: Backend modules; DocHeaderComponent
-.. _DocHeaderComponent:
+..  index:: Backend modules; DocHeaderComponent
+..  _DocHeaderComponent:
 
 ==================
 DocHeaderComponent
@@ -16,13 +16,13 @@ not desired to display it.
 
     The module header displayed by the DocHeaderComponent
 
-You can get the the :php:`DocHeaderComponent` with
+You can get the :php:`DocHeaderComponent` with
 :php:method:`\TYPO3\CMS\Backend\Template\ModuleTemplate::getDocHeaderComponent`
 from your module template.
 
 ..  contents:: Table of contents
 
-.. _DocHeaderComponent-api:
+..  _DocHeaderComponent-api:
 
 DocHeaderComponent API
 ======================
@@ -31,7 +31,7 @@ It has the following methods:
 
 ..  include:: _DocHeaderComponent.rst.txt
 
-.. _DocHeaderComponent-example:
+..  _DocHeaderComponent-example:
 
 Example: Build a module header with buttons and a menu
 =======================================================

@@ -1,6 +1,6 @@
 ..  include:: /Includes.rst.txt
-.. index:: Backend modules; ModuleTemplate
-.. _ModuleTemplate:
+..  index:: Backend modules; ModuleTemplate
+..  _ModuleTemplate:
 
 ==============
 ModuleTemplate
