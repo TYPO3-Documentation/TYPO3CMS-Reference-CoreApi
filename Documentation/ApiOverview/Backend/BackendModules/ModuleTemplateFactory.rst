@@ -7,12 +7,18 @@ ModuleTemplateFactory
 =====================
 
 The template module factory should be used by backend controllers to create a
-:php:`\TYPO3\CMS\Backend\Template\ModuleTemplate.`
+:php:api:`\TYPO3\CMS\Backend\Template\ModuleTemplate`.
+
+..  contents:: Table of contents
+
+..  _ModuleTemplateFactory-api:
+
+ModuleTemplateFactory API
+=========================
 
 ..  include:: _ModuleTemplateFactory.rst.txt
 
-
-.. _ModuleTemplateFactory-examples:
+..  _ModuleTemplateFactory-examples:
 
 Example: Initialize module template
 ===================================
