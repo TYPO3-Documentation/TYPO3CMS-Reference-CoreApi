@@ -12,7 +12,7 @@ be created directly, therefore its constructor is internal. Create a
 
 In the backend context a :php:`LanguageService` is stored in the global
 variable :php:`$GLOBALS['LANG']`.
-In the frontend it can be accessed via the contentObject:
+In the frontend a :php:`LanguageService` can be accessed via the contentObject:
 
 ..  code-block:: php
     :caption: Classes/Controller/ExampleController.php
