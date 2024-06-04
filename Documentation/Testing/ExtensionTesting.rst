@@ -34,7 +34,7 @@ About this chapter and what it does *not* cover, first.
   file anyway and using Composer for extension testing is quite convenient.
 
 * Similar to Core testing, this documentation relies on docker and docker-compose. See the
-  :ref:`Core testing requirements <testing-core-dependencies>` for more details.
+  :ref:`Core testing requirements <t3contribute:testing-core>` for more details.
 
 * We assume your extensions code is located within github and automatic testing is carried out using GitHub Actions.
   The integration of GitHub Actions into github is easy to set up with plenty of documentation already available.
@@ -379,7 +379,7 @@ for example:
     using `Build/Scripts/runTests.sh -s composerUpdate`
 *   it is possible to execute unit tests with a several different PHP versions
     (with the `-p` option). This is available for PHP linting, too (`-s lint`).
-*   Similar to :ref:`Core test execution <testing-core-examples>` it is possible
+*   Similar to :ref:`Core test execution <t3contribute:testing-core-examples>` it is possible
     to break point tests using xdebug (`-x` option)
 *   typo3gmbh containers can be updated using `runTests.sh -u`
 *   verbose output is available with `-v`
