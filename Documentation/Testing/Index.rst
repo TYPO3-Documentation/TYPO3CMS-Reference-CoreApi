@@ -31,3 +31,5 @@ various scopes. Have fun.
     WritingUnit
     WritingFunctional
     WritingAcceptance
+    Faq
+    Tutorial/Index
