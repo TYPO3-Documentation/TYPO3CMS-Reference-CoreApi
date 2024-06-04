@@ -1,12 +1,14 @@
-.. include:: /Includes.rst.txt
-.. index::
-   ! Testing; Unit
-   Unit tests
-.. _testing-writing-unit:
+..  include:: /Includes.rst.txt
+..  index::
+    ! Testing; Unit
+    Unit tests
+..  _testing-writing-unit:
 
 ==================
 Writing unit tests
 ==================
+
+..  _testing-writing-unit-introduction:
 
 Introduction
 ============
@@ -27,6 +29,8 @@ puts on top.
 Furthermore, this documentation is a general guide. There can be reasons to violate them.
 These are no hard rules to always follow.
 
+
+..  _testing-writing-unit-when:
 
 When to unit test
 =================
@@ -51,6 +55,7 @@ Good to-be-unit-tested code does usually not contain much state, sometimes it's 
 targets for unit testing, sometimes some detail method of a class that has not been extracted
 to an own class, too.
 
+..  _testing-writing-unit-when-not:
 
 When not to unit test
 =====================
@@ -88,7 +93,8 @@ the unit tests needs lots of lines of code to mock dependencies, just to test so
 read some unit tests provided by the Core: We're sure you'll find a bad unit test that could be improved
 by creating a functional test from it.
 
-.. index:: Unit tests; Conventions
+..  index:: Unit tests; Conventions
+..  _testing-writing-unit-conventions:
 
 Unit test conventions
 =====================
@@ -106,49 +112,21 @@ be annotated with :php:`@test`.
 
 Example for a system under test located at :file:`typo3/sysext/core/Utility/ArrayUtility.php` (stripped):
 
-.. code-block:: php
-   :caption: typo3/sysext/core/Utility/ArrayUtility.php
-
-   <?php
-   namespace TYPO3\CMS\Core\Utility;
-   class ArrayUtility
-   {
-
-       //...
-
-       public static function filterByValueRecursive($needle = '', array $haystack = [])
-       {
-           // System under test code
-       }
-   }
+..  literalinclude:: _UnitTests/_ArrayUtility.php
+    :language: php
+    :caption: typo3/sysext/core/Utility/ArrayUtility.php (stripped)
 
 The test file is located at :file:`typo3/sysext/core/Tests/Unit/Utility/ArrayUtilityTest.php` (stripped):
 
-.. code-block:: php
-   :caption: typo3/sysext/core/Tests/Unit/Utility/ArrayUtilityTest.php
-
-   <?php
-   namespace TYPO3\CMS\Core\Tests\Unit\Utility;
-   use TYPO3\CMS\Core\Utility\ArrayUtility;
-   use TYPO3\TestingFramework\Core\Unit\UnitTestCase;
-   class ArrayUtilityTest extends UnitTestCase
-   {
-
-       //...
-
-       /**
-        * @test
-        * @dataProvider filterByValueRecursive
-        */
-       public function filterByValueRecursiveCorrectlyFiltersArray($needle, $haystack, $expectedResult)
-       {
-           // Unit test code
-       }
-   }
+..  literalinclude:: _UnitTests/_ArrayUtilityTest.php
+    :language: php
+    :caption: typo3/sysext/core/Tests/Unit/Utility/ArrayUtilityTest.php  (stripped)
 
 This way it is easy to find unit tests for any given file. Note PhpStorm understands this structure and
 can jump from a file to the according test file by hitting `CTRL+Shift+T`.
 
+
+..  _testing-writing-unit-simple:
 
 Keep it simple
 ==============
@@ -164,7 +142,8 @@ system under test. That is ok. It's better if a single test is very simple and t
 lines from one to the other test over and over again than trying to abstract that away.
 Keep tests as simple as possible to read and don't use fancy abstraction features.
 
-.. index:: Unit tests; Extending UnitTestCase
+..  index:: Unit tests; Extending UnitTestCase
+..  _testing-writing-unit-extending:
 
 Extending UnitTestCase
 ======================
@@ -173,51 +152,55 @@ Extending a unit test from class :php:`TYPO3\TestingFramework\Core\Unit\UnitTest
 `typo3/testing-framework` package instead of the native phpunit class :php:`PHPUnit\Framework\TestCase`
 adds some functionality on top of phpunit:
 
-* Environment backup: If a unit test has to fiddle with the :ref:`Environment <Environment>` class, setting
-  property :php:`$backupEnvironment` to :php:`true` instructs the unit test to reset the state after each call.
+*   Environment backup: If a unit test has to fiddle with the :ref:`Environment <Environment>` class, setting
+    property :php:`$backupEnvironment` to :php:`true` instructs the unit test to reset the state after each call.
 
-* If a system under test creates instances of classes implementing :php:`SingletonInterface`, setting
-  property :php:`$resetSingletonInstances` to :php:`true` instructs the unit test to reset internal
-  :php:`GeneralUtility` scope after each test. :php:`tearDown()` will fail if there are dangling singletons,
-  otherwise.
+*   If a system under test creates instances of classes implementing :php:`SingletonInterface`, setting
+    property :php:`$resetSingletonInstances` to :php:`true` instructs the unit test to reset internal
+    :php:`GeneralUtility` scope after each test. :php:`tearDown()` will fail if there are dangling singletons,
+    otherwise.
 
-* Adding files or directories to array property :php:`$testFilesToDelete` instructs the test to delete
-  certain files or entire directories that have been created by unit tests. This property is useful
-  to keep the system clean.
+*   Adding files or directories to array property :php:`$testFilesToDelete` instructs the test to delete
+    certain files or entire directories that have been created by unit tests. This property is useful
+    to keep the system clean.
 
-* A generic :php:`tearDown()` method: That method is designed to test for TYPO3 specific global state changes
-  and to let a unit test fail if it does not take care of these. For instance, if a unit tests add a singleton
-  class to the system but does not declare that singletons should be flushed, the system will recognize this
-  and let the according test fail. This is a great help for test developers to not run into side effects
-  between unit tests. It is usually not needed to override this method, but if you do, call :php:`parent::tearDown()`
-  at the end of the inherited method to have the parent method kick in!
+*   A generic :php:`tearDown()` method: That method is designed to test for TYPO3 specific global state changes
+    and to let a unit test fail if it does not take care of these. For instance, if a unit tests add a singleton
+    class to the system but does not declare that singletons should be flushed, the system will recognize this
+    and let the according test fail. This is a great help for test developers to not run into side effects
+    between unit tests. It is usually not needed to override this method, but if you do, call :php:`parent::tearDown()`
+    at the end of the inherited method to have the parent method kick in!
 
-* A :php:`getAccessibleMock()` method: This method can be useful if a protected method of the system under test
-  class needs to be accessed. It also allows to "mock-away" other methods, but keep the method that is tested.
-  Note this method should *not* be used if just a full class dependency needs to be mocked. Use prophecy (see below)
-  to do this instead. If you find yourself using that method, it's often a hint that something in the
-  system under test is broken and should be modelled differently. So, don't use that blindly and consider
-  extracting the system under test to a utility or a service. But yes, there are situations when :php:`getAccessibleMock()`
-  can be very helpful to get things done.
+*   A :php:`getAccessibleMock()` method: This method can be useful if a protected method of the system under test
+    class needs to be accessed. It also allows to "mock-away" other methods, but keep the method that is tested.
+    Note this method should *not* be used if just a full class dependency needs to be mocked. Use prophecy (see below)
+    to do this instead. If you find yourself using that method, it's often a hint that something in the
+    system under test is broken and should be modelled differently. So, don't use that blindly and consider
+    extracting the system under test to a utility or a service. But yes, there are situations when :php:`getAccessibleMock()`
+    can be very helpful to get things done.
 
+
+..  _testing-writing-unit-hints:
 
 General hints
 =============
 
-* Creating an instance of the system under test should be done with :php:`new` in the unit test and
-  not using :php:`GeneralUtility::makeInstance()`.
+*   Creating an instance of the system under test should be done with :php:`new` in the unit test and
+    not using :php:`GeneralUtility::makeInstance()`.
 
-* Only use :php:`getAccessibleMock()` if parts of the system under test class itself needs to be
-  mocked. Never use it for an object that is created by the system under test itself.
+*   Only use :php:`getAccessibleMock()` if parts of the system under test class itself needs to be
+    mocked. Never use it for an object that is created by the system under test itself.
 
-* Unit tests are by default configured to fail if a notice level PHP error is triggered.
-  This has been used in the Core to slowly make the framework notice free. Extension authors may fall
-  into a trap here: First, the unit test code itself, or the system under test may trigger notices.
-  Developers should fix that. But it may happen a Core
-  dependency triggers a notice that in turn lets the extensions unit test fail. At best, the extension
-  developer pushes a patch to the Core to fix that notice. Another solution is to mock the dependency
-  away, which may however not be desired or possible - especially with static dependencies.
+*   Unit tests are by default configured to fail if a notice level PHP error is triggered.
+    This has been used in the Core to slowly make the framework notice free. Extension authors may fall
+    into a trap here: First, the unit test code itself, or the system under test may trigger notices.
+    Developers should fix that. But it may happen a Core
+    dependency triggers a notice that in turn lets the extensions unit test fail. At best, the extension
+    developer pushes a patch to the Core to fix that notice. Another solution is to mock the dependency
+    away, which may however not be desired or possible - especially with static dependencies.
 
+
+..  _testing-writing-unit-data-provider:
 
 A casual data provider
 ======================
@@ -227,71 +210,11 @@ some argument and a unit tests feeds it with a series of input arguments to veri
 Data providers are used quite often for this and we encourage developers to do so, too. An example test
 from :php:`ArrayUtilityTest`:
 
-.. code-block:: php
-   :caption: typo3/sysext/core/Tests/Unit/Utility/ArrayUtilityTest.php
 
-   /**
-    * Data provider for removeByPathRemovesCorrectPath
-    */
-   public function removeByPathRemovesCorrectPathDataProvider()
-   {
-       return [
-           'single value' => [
-               [
-                   'foo' => [
-                       'toRemove' => 42,
-                       'keep' => 23
-                   ],
-               ],
-               'foo/toRemove',
-               [
-                   'foo' => [
-                       'keep' => 23,
-                   ],
-               ],
-           ],
-           'whole array' => [
-               [
-                   'foo' => [
-                       'bar' => 42
-                   ],
-               ],
-               'foo',
-               [],
-           ],
-           'sub array' => [
-               [
-                   'foo' => [
-                       'keep' => 23,
-                       'toRemove' => [
-                           'foo' => 'bar',
-                       ],
-                   ],
-               ],
-               'foo/toRemove',
-               [
-                   'foo' => [
-                       'keep' => 23,
-                   ],
-               ],
-           ],
-       ];
-   }
+..  literalinclude:: _UnitTests/_ArrayUtilityTestDataProvider.php
+    :language: php
+    :caption: typo3/sysext/core/Tests/Unit/Utility/ArrayUtilityTest.php (excerpts)
 
-   /**
-    * @test
-    * @dataProvider removeByPathRemovesCorrectPathDataProvider
-    * @param array $array
-    * @param string $path
-    * @param array $expectedResult
-    */
-   public function removeByPathRemovesCorrectPath(array $array, $path, $expectedResult)
-   {
-       $this->assertEquals(
-           $expectedResult,
-           ArrayUtility::removeByPath($array, $path)
-       );
-   }
 
 Some hints on this: Try to give the single data sets good names, here "single value", "whole array" and "sub array".
 This helps to find a broken data set in the code, it forces the test writer to think about what they are feeding
@@ -299,7 +222,8 @@ to the test and it helps avoiding duplicate sets. Additionally, put the data pro
 test and name it "test name" + "DataProvider". Data providers are often not used in multiple tests, so that should
 almost always work.
 
-.. index:: Unit tests; Mocking
+..  index:: Unit tests; Mocking
+..  _testing-writing-unit-mocking:
 
 Mocking
 =======
@@ -308,26 +232,9 @@ Unit tests should test one thing at a time, often one method only. If the system
 like additional objects, they should be usually "mocked away". A simple example is this, taken from
 :php:`TYPO3\CMS\Backend\Tests\Unit\Controller\FormInlineAjaxControllerTest`:
 
-.. code-block:: php
-   :caption: typo3/sysext/backend/Tests/Unit/Controller/FormInlineAjaxControllerTest.php
-
-    /**
-     * @test
-     */
-    public function createActionThrowsExceptionIfContextIsEmpty(): void
-    {
-        $requestProphecy = $this->prophesize(ServerRequestInterface::class);
-        $requestProphecy->getParsedBody()->shouldBeCalled()->willReturn(
-            [
-                'ajax' => [
-                    'context' => '',
-                ],
-            ]
-        );
-        $this->expectException(\RuntimeException::class);
-        $this->expectExceptionCode(1489751361);
-        (new FormInlineAjaxController())->createAction($requestProphecy->reveal());
-    }
+..  literalinclude:: _UnitTests/_FormInlineAjaxControllerTest.php
+    :language: php
+    :caption: typo3/sysext/backend/Tests/Unit/Controller/FormInlineAjaxControllerTest.php
 
 `Prophecy <https://github.com/phpspec/prophecy>`_ is a nice mocking framework bundled into phpunit
 by default. Many people prefer it nowadays over phpunit's own mock framework based on :php:`->getMock()`
@@ -341,33 +248,26 @@ dependency on its own - typically using :php:`GeneralUtility::makeInstance()`, t
 can be manually registered for makeInstance:
 
 
-.. code-block:: php
-   :caption: EXT:my_extension/Tests/Unit/SomeTest.php
-
-   use TYPO3\CMS\Core\Utility\GeneralUtility;
-   use TYPO3\CMS\Core\Imaging\IconFactory;
-
-   GeneralUtility::addInstance(IconFactory::class, $iconFactoryProphecy->reveal());
+..  literalinclude:: _UnitTests/_SomeTest.php
+    :language: php
+    :caption: EXT:my_extension/Tests/Unit/SomeTest.php
 
 This works well for prototypes. :php:`addInstance()` adds objects to a LiFo, multiple instances
 of the same class can be stacked. The generic :php:`->tearDown()` later confirms the stack is
 empty to avoid side effects on other tests. Singleton instances can be registered in a
 similar way:
 
-.. code-block:: php
-   :caption: EXT:my_extension/Tests/Unit/SomeTest.php
+..  literalinclude:: _UnitTests/_SomeTestSingleton.php
+    :language: php
+    :caption: EXT:my_extension/Tests/Unit/SomeTest.php
 
-   use TYPO3\CMS\Core\Utility\GeneralUtility;
-   use TYPO3\CMS\Extbase\Service\EnvironmentService;
-
-    GeneralUtility::setSingletonInstance(EnvironmentService::class, $environmentServiceMock);
-
-.. todo: EnvironmentService has been removed with version 12.0, find another Example here
+..  todo: EnvironmentService has been removed with version 12.0, find another Example here
 
 If adding singletons, make sure to set the property :php:`protected $resetSingletonInstances = true;`,
 otherwise :php:`->tearDown()` will detect a dangling singleton and let's the unit test fail
 to avoid side effects on other tests.
 
+..  _testing-writing-unit-dependencies:
 
 Static dependencies
 ===================
@@ -389,7 +289,8 @@ class as dependency is often very painful. There is not much developers can do i
 Core tries to slowly improve these areas over time and indeed BackendUtility is shrinking
 each version.
 
-.. index:: pair: Unit tests; Exceptions
+..  index:: pair: Unit tests; Exceptions
+..  _testing-writing-unit-exception:
 
 Exception handling
 ==================
@@ -400,19 +301,6 @@ Exceptions are often very easy to unit test and testing them can be beneficial. 
 a simple example, this is from :php:`TYPO3\CMS\Core\Tests\Unit\Cache\CacheManagerTest`
 and tests both the exception class and the exception code:
 
-.. code-block:: php
-   :caption: typo3/sysext/core/Tests/Unit/Cache/CacheManagerTest.php
-
-   use TYPO3\CMS\Core\Cache\CacheManager;
-   use TYPO3\CMS\Core\Cache\Exception\NoSuchCacheGroupException;
-
-   /**
-   * @test
-   */
-   public function flushCachesInGroupThrowsExceptionForNonExistingGroup()
-   {
-     $this->expectException(NoSuchCacheGroupException::class);
-     $this->expectExceptionCode(1390334120);
-     $subject = new CacheManager();
-     $subject->flushCachesInGroup('nonExistingGroup');
-   }
+..  literalinclude:: _UnitTests/_CacheManagerTest.php
+    :language: php
+    :caption: typo3/sysext/core/Tests/Unit/Cache/CacheManagerTest.php
