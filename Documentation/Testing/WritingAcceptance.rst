@@ -1,10 +1,12 @@
-.. include:: /Includes.rst.txt
-.. index:: ! Testing; Acceptance
-.. _testing-writing-acceptance:
+..  include:: /Includes.rst.txt
+..  index:: ! Testing; Acceptance
+..  _testing-writing-acceptance:
 
 ========================
 Writing acceptance tests
 ========================
+
+..  _testing-writing-acceptance-introduction:
 
 Introduction
 ============
@@ -32,6 +34,7 @@ Again, `typo3/testing-framework` helps with managing the instance and contains
 some helper classes to solve various needs in a typical TYPO3 backend, it for instance
 helps with selecting a specific page in the page tree.
 
+..  _testing-writing-acceptance-setup:
 
 Set up
 ======
@@ -49,6 +52,7 @@ is again performed by :file:`runTests.sh` in docker containers. The chapter
 tests and setting up the runtime, while this chapter is about the TYPO3 specific
 acceptance test helpers provided by the `typo3/testing-framework`.
 
+..  _testing-writing-acceptance-login:
 
 Backend login
 =============
@@ -56,43 +60,21 @@ Backend login
 The suite file (for instance :file:`Backend.suite.yml`) should contain a line
 to load and configure the backend login module:
 
-.. code-block:: yaml
-   :caption: EXT:some_extension/Tests/Acceptance/Backend.suite.yml
-
-    modules:
-      enabled:
-        - \TYPO3\TestingFramework\Core\Acceptance\Helper\Login:
-          sessions:
-            # This sessions must exist in the database fixture to get a logged in state.
-            editor: ff83dfd81e20b34c27d3e97771a4525a
-            admin: 886526ce72b86870739cc41991144ec1
+..  literalinclude:: _AcceptanceTests/_Backend.suite.yml
+    :language: yaml
+    :caption: EXT:some_extension/Tests/Acceptance/Backend.suite.yml
 
 This allows an editor and an admin user to easily log into the TYPO3 backend
 without further fuzz. An acceptance test can use it like this:
 
-.. code-block:: php
-   :caption: EXT:styleguide/Tests/Acceptance/Backend/ModuleCest.php
-
-    <?php
-    declare(strict_types = 1);
-    namespace TYPO3\CMS\Styleguide\Tests\Acceptance\Backend;
-
-    use TYPO3\CMS\Styleguide\Tests\Acceptance\Support\BackendTester;
-    use TYPO3\TestingFramework\Core\Acceptance\Helper\Topbar;
-
-    class ModuleCest
-    {
-        /**
-         * @param BackendTester $I
-         */
-        public function _before(BackendTester $I)
-        {
-            $I->useExistingSession('admin');
-        }
+..  literalinclude:: _AcceptanceTests/_ModuleCest.php
+    :language: php
+    :caption: EXT:styleguide/Tests/Acceptance/Backend/ModuleCest.php
 
 The call :php:`$I->useExistingSession('admin')` logs in an admin user into the TYPO3
 backend and lets it call the default view (usually the about module).
 
+..  _testing-writing-acceptance-frames:
 
 Frames
 ======
@@ -103,15 +85,11 @@ should use this trait, which will add two methods. The implementation of these
 methods takes care the according frames are fully loaded before proceeding with
 further tests:
 
-.. code-block:: php
-   :caption: EXT:styleguide/Tests/Acceptance/Backend/SomeCest.php
+..  literalinclude:: _AcceptanceTests/_SomeCest.php
+    :language: php
+    :caption: EXT:styleguide/Tests/Acceptance/Backend/SomeCest.php
 
-   // Switch to "content frame", eg the "list module" content
-   $I->switchToContentFrame();
-
-   // Switch to "main frame", the frame with the main modules and top bar
-   $I->switchToMainFrame();
-
+..  _testing-writing-acceptance-pagetree:
 
 PageTree
 ========
@@ -119,64 +97,23 @@ PageTree
 An abstract class of `typo3/testing-framework` can be extended and used to open and
 select specific pages in the page tree. A typical class looks like this:
 
-.. code-block:: php
-   :caption: typo3/sysext/core/Tests/Acceptance/Support/Helper/PageTree.php
-
-    <?php
-    declare(strict_types = 1);
-    namespace TYPO3\CMS\Core\Tests\Acceptance\Support\Helper;
-
-    use TYPO3\CMS\Core\Tests\Acceptance\Support\BackendTester;
-    use TYPO3\TestingFramework\Core\Acceptance\Helper\AbstractPageTree;
-
-    /**
-     * @see AbstractPageTree
-     */
-    class PageTree extends AbstractPageTree
-    {
-        /**
-         * Inject our Core AcceptanceTester actor into PageTree
-         *
-         * @param BackendTester $I
-         */
-        public function __construct(BackendTester $I)
-        {
-            $this->tester = $I;
-        }
-    }
+..  literalinclude:: _AcceptanceTests/_PageTree.php
+    :language: php
+    :caption: typo3/sysext/core/Tests/Acceptance/Support/Helper/PageTree.php
 
 This example is taken from the Core extension, other extensions should use their own
 instance in an own extension based namespace. If this is done, the PageTree support
 class can be injected into a test:
 
-.. code-block:: php
-   :caption: EXT:some_extension/Tests/Acceptance/Backend/SomeCest.php
-
-    <?php
-    declare(strict_types = 1);
-    namespace Vendor\SomeExtension\Tests\Acceptance\Backend\FormEngine;
-
-    use Codeception\Example;
-    use TYPO3\CMS\Core\Tests\Acceptance\Support\BackendTester;
-    use TYPO3\CMS\Core\Tests\Acceptance\Support\Helper\PageTree;
-
-    class ElementsBasicInputDateCest extends AbstractElementsBasicCest
-    {
-        public function _before(BackendTester $I, PageTree $pageTree)
-        {
-            $I->useExistingSession('admin');
-
-            $I->click('List');
-            $pageTree->openPath(['styleguide TCA demo', 'elements basic']);
-
-            ...
-        }
-    }
+..  literalinclude:: _AcceptanceTests/_ElementsBasicInputDateCest.php
+    :language: php
+    :caption: EXT:some_extension/Tests/Acceptance/Backend/SomeCest.php
 
 The example above (adapt to your namespaces!) instructs the PageTree helper to find
 a page called "styleguide TCA demo" at root level, to extend that part of the tree if
 not yet done, and then select the second level page called "elements basic".
 
+..  _testing-writing-acceptance-modal:
 
 ModalDialog
 ===========
