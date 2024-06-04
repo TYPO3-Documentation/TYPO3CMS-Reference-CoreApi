@@ -15,7 +15,7 @@ variable :php:`$GLOBALS['LANG']`.
 In the frontend a :php:`LanguageService` can be accessed via the contentObject:
 
 ..  code-block:: php
-    :caption: Classes/Controller/ExampleController.php
+    :caption: not Extbase example Classes/Controller/ExampleController.php
 
     use Psr\Http\Message\ServerRequestInterface;
     use TYPO3\CMS\Core\Localization\LanguageServiceFactory;
