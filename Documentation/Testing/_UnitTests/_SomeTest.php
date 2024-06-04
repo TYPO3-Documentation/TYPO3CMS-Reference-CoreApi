@@ -10,7 +10,14 @@ class SomeTest extends UnitTestCase
 {
     public function testSomething(): void
     {
-        $iconFactoryProphecy = $this->prophesize(IconFactory::class);
-        GeneralUtility::addInstance(IconFactory::class, $iconFactoryProphecy->reveal());
+        $iconFactory =
+            $this->createMock(IconFactory::class);
+        GeneralUtility::addInstance(IconFactory::class, $iconFactory);
+    }
+
+    protected function tearDown(): void
+    {
+        GeneralUtility::purgeInstances();
+        parent::tearDown();
     }
 }
