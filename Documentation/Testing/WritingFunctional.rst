@@ -1,10 +1,12 @@
-.. include:: /Includes.rst.txt
-.. index:: ! Testing; Functional
-.. _testing-writing-functional:
+..  include:: /Includes.rst.txt
+..  index:: ! Testing; Functional
+..  _testing-writing-functional:
 
 ========================
 Writing functional tests
 ========================
+
+..  _testing-writing-functional-introduction:
 
 Introduction
 ============
@@ -20,6 +22,7 @@ expected data.
 This chapter goes into details on functional testing and how the `typo3/testing-framework <https://github.com/TYPO3/testing-framework>`_
 helps with setting up, running and verifying scenarios.
 
+..  _testing-writing-functional-overview:
 
 Overview
 ========
@@ -61,6 +64,8 @@ with the according options to do this. The above chapter :ref:`Extension testing
 chapter is about writing tests and setting up the scenario.
 
 
+..  _testing-writing-functional-example-simple:
+
 Simple Example
 ==============
 
@@ -70,42 +75,14 @@ hesitate looking around, there is plenty to discover.
 
 As a starter, let's have a look at a basic scenario from the styleguide example again:
 
-
-.. code-block:: php
-   :caption: EXT:styleguide/Tests/Functional/TcaDataGenerator/GeneratorTest.php
-
-    <?php
-    namespace TYPO3\CMS\Styleguide\Tests\Functional\TcaDataGenerator;
-
-    use TYPO3\CMS\Core\Core\Bootstrap;
-    use TYPO3\CMS\Styleguide\TcaDataGenerator\Generator;
-    use TYPO3\TestingFramework\Core\Functional\FunctionalTestCase;
-
-    /**
-     * Test case
-     */
-    class GeneratorTest extends FunctionalTestCase
-    {
-        /**
-         * @var array Have styleguide loaded
-         */
-        protected $testExtensionsToLoad = [
-            'typo3conf/ext/styleguide',
-        ];
-
-        /**
-         * @test
-         * @group not-mssql
-         */
-        public function generatorCreatesBasicRecord()
-        {
-            ...
-        }
-    }
+..  literalinclude:: _FunctionalTests/_GeneratorTest.php
+    :language: php
+    :caption: EXT:styleguide/Tests/Functional/TcaDataGenerator/GeneratorTest.php
 
 That's the basic setup needed for a functional test: Extend :php:`FunctionalTestCase`,
 declare extension styleguide should be loaded and have a first test.
 
+..  _testing-writing-functional-setup:
 
 Extending setUp
 ===============
@@ -114,45 +91,9 @@ Note :php:`setUp()` is not overridden in this case. If you override it, remember
 call :php:`parent::setUp()` before doing own stuff. An example can be found in
 :php:`TYPO3\CMS\Backend\Tests\Functional\Domain\Repository\Localization\LocalizationRepositoryTest`:
 
-.. code-block:: php
-   :caption: typo3/sysext/backend/Tests/Functional/Domain/Repository/Localization/LocalizationRepositoryTest.php
-
-    <?php
-    declare(strict_types = 1);
-    namespace TYPO3\CMS\Backend\Tests\Functional\Domain\Repository\Localization;
-
-    use TYPO3\CMS\Backend\Domain\Repository\Localization\LocalizationRepository;
-    use TYPO3\CMS\Core\Core\Bootstrap;
-    use TYPO3\TestingFramework\Core\Functional\FunctionalTestCase;
-
-    /**
-     * Test case
-     */
-    class LocalizationRepositoryTest extends FunctionalTestCase
-    {
-        /**
-         * @var LocalizationRepository
-         */
-        protected $subject;
-
-        /**
-         * Sets up this test case.
-         */
-        protected function setUp(): void
-        {
-            parent::setUp();
-
-            $this->importCSVDataSet(__DIR__ . '/Fixtures/be_users.csv');
-            $this->setUpBackendUser(1);
-            Bootstrap::initializeLanguageObject();
-
-            $this->importCSVDataSet(ORIGINAL_ROOT . 'typo3/sysext/backend/Tests/Functional/Domain/Repository/Localization/Fixtures/DefaultPagesAndContent.csv');
-
-            $this->subject = new LocalizationRepository();
-        }
-
-        ...
-    }
+..  literalinclude:: _FunctionalTests/_LocalizationRepositoryTest.php
+    :language: php
+    :caption: typo3/sysext/backend/Tests/Functional/Domain/Repository/Localization/LocalizationRepositoryTest.php
 
 The above example overrides :php:`setUp()` to first call :php:`parent::setUp()`. This is
 critically important to do, if not done the entire test instance set up is not triggered.
@@ -160,6 +101,7 @@ After calling parent, various things needed by all tests of this scenario are ad
 fixture is loaded, a backend user is added, the language object is initialized
 and an instance of the system under test is parked as :php:`$this->subject` within the class.
 
+..  _testing-writing-functional-load-extensions:
 
 Loaded extensions
 =================
@@ -173,22 +115,16 @@ Apart from that default list, it is possible to load additional Core extensions:
 that wants to test if it works well together with workspaces, would for example specify
 the workspaces extension as additional to-load extension:
 
-.. code-block:: php
-   :caption: EXT:some_extension/Tests/Functional/SomeTest.php
+..  literalinclude:: _FunctionalTests/_GeneratorTest.php
+    :language: php
+    :caption: EXT:my_extension/Tests/Functional/SomeTest.php
 
-    protected $coreExtensionsToLoad = [
-        'workspaces',
-    ];
+Furthermore, third party extensions and fixture extensions can be loaded for
+any given test case:
 
-Furthermore, third party extensions and fixture extensions can be loaded for any given test case:
-
-.. code-block:: php
-   :caption: EXT:some_extension/Tests/Functional/SomeTest.php
-
-    protected $testExtensionsToLoad = [
-        'typo3conf/ext/some_extension/Tests/Functional/Fixtures/Extensions/test_extension',
-        'typo3conf/ext/base_extension',
-    ];
+..  literalinclude:: _FunctionalTests/_GeneratorTest.php
+    :language: php
+    :caption: EXT:my_extension/Tests/Functional/SomeTest.php
 
 In this case the fictional extension `some_extension` comes with an own fixture extension that should
 be loaded, and another `base_extension` should be loaded. These extensions will be linked into
@@ -198,6 +134,7 @@ The functional test bootstrap links all extensions to either `typo3/sysext` for 
 `typo3conf/ext` for third party extensions, creates a :file:`PackageStates.php` and then uses the
 database schema analyzer to create all database tables specified in the :file:`ext_tables.sql` files.
 
+..  _testing-writing-functional-fixtures:
 
 Database fixtures
 =================
@@ -208,38 +145,29 @@ database, for instance it is not possible to provide a full `.sqlite` database a
 in the test case. Instead, database rows should be provided as `.csv` files to be loaded into
 the database using :php:`$this->importCSVDataSet()`. An example file could look like this:
 
-.. code-block:: none
-   :caption: A CSV data set
-
-   "pages",,,,,,,,,
-   ,"uid","pid","sorting","deleted","t3_origuid","title",,,
-   ,1,0,256,0,0,"Connected mode",,,
-   "tt_content",,,,,,,,,
-   ,"uid","pid","sorting","deleted","sys_language_uid","l18n_parent","l10n_source","t3_origuid","header"
-   ,297,1,256,0,0,0,0,0,"Regular Element #1"
+..  literalinclude:: _FunctionalTests/_Fixture.csv
+    :language: plaintext
+    :caption: A CSV data set
 
 This file defines one row for the `pages` table
 and one `tt_content` row. So one `.csv` file can contain rows of multiple tables.
 
-.. note::
-   If you need to define a :php:`null` value within CSV files, you need to use the special value `"\NULL"`.
+..  note::
+    If you need to define a :php:`null` value within CSV files, you need to use the special value `"\NULL"`.
 
-There is a similar method called :php:`$this->importDataSet()` that allows loading database
-rows defined as XML instead of CSV, too. Note that XML files are deprecated since testing framework v7 and you should use CSV files.
+..  versionchanged:: Testing Framework 8
+    There was a similar method called :php:`$this->importDataSet()` that allowed
+    loading database rows defined as XML instead of CSV. It was deprecated
+    in testing framework 7 and removed with 8.
 
 In general, the methods need the absolute path to the fixture file to load them. However some
 keywords are allowed:
 
-.. code-block:: php
-   :caption: EXT:some_extension/Tests/Functional/SomeTest.php
+..  literalinclude:: _FunctionalTests/_GeneratorTest.php
+    :language: php
+    :caption: EXT:some_extension/Tests/Functional/SomeTest.php
 
-   // Load a xml file relative to test case file
-   $this->importDataSet(__DIR__ . '/../Fixtures/pages.xml');
-   // Load a xml file of some extension
-   $this->importDataSet('EXT:frontend/Tests/Functional/Fixtures/pages-title-tag.xml');
-   // Load a xml file provided by the typo3/testing-framework package
-   $this->importDataSet('PACKAGE:typo3/testing-framework/Resources/Core/Functional/Fixtures/pages.xml');
-
+..  _testing-writing-functional-assert-database:
 
 Asserting database
 ==================
@@ -252,6 +180,7 @@ then look up the according rows in the database and compare their values with th
 provided in the CSV files. If they are not identical, the test will fail and output a table
 which field values did not match.
 
+..  _testing-writing-functional-load-files:
 
 Loading files
 =============
@@ -260,19 +189,14 @@ If the system under test works on files, those can be provided by the test setup
 example, one may want to check if an image has been properly sized down. The image to work
 on can be linked into the test instance:
 
-.. code-block:: php
-   :caption: EXT:some_extension/Tests/Functional/SomeTest.php
-
-   /**
-   * @var array
-   */
-   protected $pathsToLinkInTestInstance = [
-     'typo3/sysext/impexp/Tests/Functional/Fixtures/Folders/fileadmin/user_upload/typo3_image2.jpg' => 'fileadmin/user_upload/typo3_image2.jpg',
-   ];
+..  literalinclude:: _FunctionalTests/_GeneratorTest.php
+    :language: php
+    :caption: EXT:my_extension/Tests/Functional/SomeTest.php
 
 It is also possible to *copy* the files to the test instance instead of only linking it
 using :php:`$pathsToProvideInTestInstance`.
 
+..  _testing-writing-functional-TYPO3_CONF_VARS:
 
 Setting TYPO3_CONF_VARS
 =======================
@@ -283,37 +207,24 @@ It contains the database credentials and everything else to end up with a workin
 If extensions need additional settings in :file:`config/system/settings.php`, the property
 :php:`$configurationToUseInTestInstance` can be used to specify these:
 
+..  literalinclude:: _FunctionalTests/_SomeTestConfiguration.php
+    :language: php
+    :caption: EXT:my_extension/Tests/Functional/SomeTest.php
 
-.. code-block:: php
-   :caption: EXT:some_extension/Tests/Functional/SomeTest.php
-
-   protected $configurationToUseInTestInstance = [
-       'MAIL' => [
-           'transport' => \Symfony\Component\Mailer\Transport\NullTransport::class,
-       ],
-   ];
-
+..  _testing-writing-functional-frontend:
 
 Frontend tests
 ==============
 
-.. note::
+To prepare a frontend test, the system can be instructed to load a set of
+:file:`.typoscript` files for a working frontend:
 
-    Frontend functional testing is currently still a subject to change and the Core did
-    not fully settle in this area, yet. The docs below outline only the bare minimum to
-    set up and execute these tests and Core usages are hard to explain here in detail
-    since most of them work with additional abstracts and set up tricks.
+..  literalinclude:: _FunctionalTests/_SomeTestConfiguration.php
+    :language: php
+    :caption: EXT:my_extension/Tests/Functional/SomeTest.php
 
-To prepare a frontend test, the system can be instructed to load a set of :file:`.typoscript`
-files for a working frontend:
-
-.. code-block:: php
-   :caption: EXT:some_extension/Tests/Functional/SomeTest.php
-
-    $this->setUpFrontendRootPage(1, ['EXT:fluid_test/Configuration/TypoScript/Basic.ts']);
-
-This instructs the system to load the :file:`Basic.ts` as typoscript file for the frontend
-page with uid 1.
+This instructs the system to load the :file:`Basic.typoscript` as TypoScript
+file for the frontend page with uid 1.
 
 A frontend request can be executed calling :php:`$this->executeFrontendRequest()`. It will
 return a Response object to be further worked on, for instance it is possible to verify
