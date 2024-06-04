@@ -24,6 +24,11 @@ In the frontend a :php:`LanguageService` can be accessed via the contentObject:
     class ExampleController {
         proteced ServerRequestInterface $request;
 
+        public function __construct (
+            private readonly LanguageServiceFactory $LanguageServiceFactory,
+        ) {
+        }
+
         public function processAction(ServerRequestInterface $request): string
             $this->request = $request;
 
@@ -38,7 +43,7 @@ In the frontend a :php:`LanguageService` can be accessed via the contentObject:
         protected function getTranslatedLabel(string $key): string
         {
             $language = $this->request->getAttribute('language') ?? $this->request->getAttribute('site')->getDefaultLanguage();
-            $languageService = GeneralUtility::makeInstance(LanguageServiceFactory::class)
+            $languageService = $this->LanguageServiceFactory
                 ->createFromSiteLanguage($language);
 
             return $languageService->sL($key);
