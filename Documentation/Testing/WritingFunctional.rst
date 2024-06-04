@@ -146,7 +146,7 @@ in the test case. Instead, database rows should be provided as `.csv` files to b
 the database using :php:`$this->importCSVDataSet()`. An example file could look like this:
 
 ..  literalinclude:: _FunctionalTests/_Fixture.csv
-    :language: csv
+    :language: plaintext
     :caption: A CSV data set
 
 This file defines one row for the `pages` table
