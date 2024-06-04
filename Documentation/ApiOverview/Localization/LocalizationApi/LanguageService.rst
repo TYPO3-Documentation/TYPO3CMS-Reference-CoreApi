@@ -17,21 +17,31 @@ In the frontend it can be accessed via the contentObject:
 ..  code-block:: php
     :caption: Classes/Controller/ExampleController.php
 
+    use Psr\Http\Message\ServerRequestInterface;
+    use TYPO3\CMS\Core\Localization\LanguageServiceFactory;
+    use TYPO3\CMS\Core\Utility\GeneralUtility;
+
     class ExampleController {
-        /**
-        * @var \TYPO3\CMS\Frontend\ContentObject\ContentObjectRenderer
-        */
-        public $cObj;
+        proteced ServerRequestInterface $request;
 
-        public function __construct () {
+        public function processAction(ServerRequestInterface $request): string
+            $this->request = $request;
 
-            $this->cObj = GeneralUtility::makeInstance(ContentObjectRenderer::class);
+            $content = '';
+            ...
+            $label = $this->getTranslatedLabel('LLL:EXT:my_extension/Resources/Private/Language/locallang.xlf:labels.exampleLabel');
+            ...
+
+            return $content;
         }
 
-        public function process () {
-           ...
-           $label = $this->cObj->getData('lll:EXT:my_extension/Resources/Private/Language/locallang.xlf:labels.exampleLabel');
-           ...
+        protected function getTranslatedLabel(string $key): string
+        {
+            $language = $this->request->getAttribute('language') ?? $this->request->getAttribute('site')->getDefaultLanguage();
+            $languageService = GeneralUtility::makeInstance(LanguageServiceFactory::class)
+                ->createFromSiteLanguage($language);
+
+            return $languageService->sL($key);
         }
 
 
