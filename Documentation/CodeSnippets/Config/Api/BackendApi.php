@@ -1,6 +1,5 @@
 <?php
 
-use T3docs\BlogExample\Controller\BackendController;
 use TYPO3\CMS\Backend\Template\Components\DocHeaderComponent;
 use TYPO3\CMS\Backend\Template\ModuleTemplate;
 use TYPO3\CMS\Backend\Template\ModuleTemplateFactory;
@@ -41,5 +40,5 @@ return [
         'class' => DocHeaderComponent::class,
         'targetFileName' => 'ApiOverview/Backend/BackendModules/_DocHeaderComponent.rst.txt',
         'withCode' => false,
-    ]
+    ],
 ];

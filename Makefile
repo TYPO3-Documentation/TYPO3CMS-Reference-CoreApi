@@ -28,15 +28,15 @@ command-json: ## Regenerate JSON file containing all console commands
 
 .PHONY: test-lint
 test-lint: ## Regenerate code snippets
-	Build/Scripts/runTests.sh -s lint
+	Build/Scripts/runTests.sh -s lint -p 8.2
 
 .PHONY: test-cgl
 test-cgl: ## Regenerate code snippets
-	Build/Scripts/runTests.sh -s cgl
+	Build/Scripts/runTests.sh -s cgl -p 8.2
 
 .PHONY: test-yaml
 test-yaml: ## Regenerate code snippets
-	Build/Scripts/runTests.sh -s yamlLint
+	Build/Scripts/runTests.sh -s yamlLint -p 8.2
 
 .PHONY: test
 test: test-docs test-lint test-cgl test-yaml## Test the documentation rendering
