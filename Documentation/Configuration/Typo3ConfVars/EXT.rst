@@ -11,9 +11,6 @@ EXT - Extension manager configuration
 The following configuration variables can be used to configure settings for
 the Extension manager:
 
-..  contents::
-    :local:
-
 ..  attention::
     Extension specific configuration should be stored in
     :php:`$GLOBALS['TYPO3_CONF_VARS']['EXTENSION']` and not here.
@@ -28,16 +25,18 @@ the Extension manager:
     *   :ref:`config/system/additional.php <typo3ConfVars-additional>`
 
 
+..  confval-menu::
+    :name: globals-typo3-conf-vars-ext
+    :display: tree
+    :type:
+
 ..  index::
     TYPO3_CONF_VARS SYS; excludeForPackaging
 ..  _typo3ConfVars_ext_excludeForPackaging:
 
-excludeForPackaging
-===================
-
-..  confval:: $GLOBALS['TYPO3_CONF_VARS']['EXT']['excludeForPackaging']
-
-    :Path: $GLOBALS['TYPO3_CONF_VARS']['EXT']
+..  confval:: excludeForPackaging
+    :name: globals-typo3-conf-vars-excludeForPackaging
+    :Path: $GLOBALS['TYPO3_CONF_VARS']['EXT']['excludeForPackaging']
     :type: list
     :Default: :php:`'(?:\\.(?!htaccess$).*|.*~|.*\\.swp|.*\\.bak|node_modules|bower_components)'`
 
