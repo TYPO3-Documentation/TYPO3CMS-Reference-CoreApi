@@ -29,7 +29,11 @@ In the frontend a :php:`LanguageService` can be accessed via the contentObject:
         ) {
         }
 
-        public function processAction(ServerRequestInterface $request): string
+        public function processAction(
+            string $content,
+            array $configurations,
+            ServerRequestInterface $request,
+        ): string
             $this->request = $request;
 
             $content = '';
