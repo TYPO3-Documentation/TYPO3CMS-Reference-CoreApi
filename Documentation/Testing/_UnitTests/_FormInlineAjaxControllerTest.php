@@ -2,27 +2,31 @@
 
 namespace TYPO3\CMS\Core\Tests\Unit\Utility;
 
-use Psr\Http\Message\ServerRequestInterface;
+use PHPUnit\Framework\Attributes\Test;
 use TYPO3\CMS\Backend\Controller\FormInlineAjaxController;
+use TYPO3\CMS\Core\Authentication\BackendUserAuthentication;
 use TYPO3\TestingFramework\Core\Unit\UnitTestCase;
 
 class FormInlineAjaxControllerTest extends UnitTestCase
 {
-    /**
-     * @test
-     */
-    public function createActionThrowsExceptionIfContextIsEmpty(): void
+    #[Test]
+    public function getInlineExpandCollapseStateArraySwitchesToFallbackIfTheBackendUserDoesNotHaveAnUCInlineViewProperty(): void
     {
-        $requestProphecy = $this->prophesize(ServerRequestInterface::class);
-        $requestProphecy->getParsedBody()->shouldBeCalled()->willReturn(
-            [
-                'ajax' => [
-                    'context' => '',
-                ],
-            ],
+        $backendUser =
+            $this->createMock(BackendUserAuthentication::class);
+
+        $mockObject = $this->getAccessibleMock(
+            FormInlineAjaxController::class,
+            ['getBackendUserAuthentication'],
+            [],
+            '',
+            false,
         );
-        $this->expectException(\RuntimeException::class);
-        $this->expectExceptionCode(1489751361);
-        (new FormInlineAjaxController())->createAction($requestProphecy->reveal());
+        $mockObject->method('getBackendUserAuthentication')
+            ->willReturn($backendUser);
+        $result = $mockObject
+            ->_call('getInlineExpandCollapseStateArray');
+
+        self::assertEmpty($result);
     }
 }

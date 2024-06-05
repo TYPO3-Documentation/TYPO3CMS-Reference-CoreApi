@@ -2,71 +2,68 @@
 
 namespace TYPO3\CMS\Core\Tests\Unit\Utility;
 
+use PHPUnit\Framework\Attributes\DataProvider;
+use PHPUnit\Framework\Attributes\Test;
 use TYPO3\CMS\Core\Utility\ArrayUtility;
 use TYPO3\TestingFramework\Core\Unit\UnitTestCase;
 
 class ArrayUtilityTest extends UnitTestCase
 {
     /**
-     * Data provider for removeByPathRemovesCorrectPath
+     * Data provider for filterByValueRecursiveCorrectlyFiltersArray
+     *
+     * Every array splits into:
+     * - String value to search for
+     * - Input array
+     * - Expected result array
      */
-    public function removeByPathRemovesCorrectPathDataProvider()
+    public static function filterByValueRecursive(): array
     {
         return [
-            'single value' => [
-                [
-                    'foo' => [
-                        'toRemove' => 42,
-                        'keep' => 23,
-                    ],
-                ],
-                'foo/toRemove',
-                [
-                    'foo' => [
-                        'keep' => 23,
-                    ],
-                ],
-            ],
-            'whole array' => [
-                [
-                    'foo' => [
-                        'bar' => 42,
-                    ],
-                ],
-                'foo',
+            'empty search array' => [
+                'banana',
+                [],
                 [],
             ],
-            'sub array' => [
+            'empty string as needle' => [
+                '',
                 [
-                    'foo' => [
-                        'keep' => 23,
-                        'toRemove' => [
-                            'foo' => 'bar',
-                        ],
-                    ],
+                    '',
+                    'apple',
                 ],
-                'foo/toRemove',
                 [
-                    'foo' => [
-                        'keep' => 23,
-                    ],
+                    '',
                 ],
             ],
+            'flat array searching for string' => [
+                'banana',
+                [
+                    'apple',
+                    'banana',
+                ],
+                [
+                    1 => 'banana',
+                ],
+            ],
+            // ...
         ];
     }
 
     /**
-     * @test
-     * @dataProvider removeByPathRemovesCorrectPathDataProvider
-     * @param array $array
-     * @param string $path
+     * @param array $needle
+     * @param array $haystack
      * @param array $expectedResult
      */
-    public function removeByPathRemovesCorrectPath(array $array, $path, $expectedResult)
-    {
+    #[DataProvider('filterByValueRecursive')]
+    #[Test]
+    public function filterByValueRecursiveCorrectlyFiltersArray(
+        $needle,
+        $haystack,
+        $expectedResult,
+    ): void {
         self::assertEquals(
             $expectedResult,
-            ArrayUtility::removeByPath($array, $path),
+            ArrayUtility::filterByValueRecursive($needle, $haystack),
         );
     }
 }

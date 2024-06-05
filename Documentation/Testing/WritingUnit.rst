@@ -99,8 +99,9 @@ by creating a functional test from it.
 Unit test conventions
 =====================
 
-TYPO3 unit testing means using the `phpunit <https://phpunit.de/>`_ testing framework. TYPO3 comes with
-as basic `UnitTests.xml <https://github.com/TYPO3/testing-framework/blob/main/Resources/Core/Build/UnitTests.xml>`_
+TYPO3 unit testing means using the `phpunit <https://phpunit.de/>`_ testing
+framework. The TYPO3 testing framework comes with
+a basic `UnitTests.xml <https://github.com/TYPO3/testing-framework/blob/main/Resources/Core/Build/UnitTests.xml>`_
 file that can be used by Core and extensions. This references a phpunit `bootstrap file
 <https://github.com/TYPO3/testing-framework/blob/main/Resources/Core/Build/UnitTestsBootstrap.php>`_ so
 phpunit does find our main classes. Apart from that, there are little conventions: Tests for some "system under test"
@@ -124,7 +125,6 @@ The test file is located at :file:`typo3/sysext/core/Tests/Unit/Utility/ArrayUti
 
 This way it is easy to find unit tests for any given file. Note PhpStorm understands this structure and
 can jump from a file to the according test file by hitting `CTRL+Shift+T`.
-
 
 ..  _testing-writing-unit-simple:
 
@@ -210,7 +210,6 @@ some argument and a unit tests feeds it with a series of input arguments to veri
 Data providers are used quite often for this and we encourage developers to do so, too. An example test
 from :php:`ArrayUtilityTest`:
 
-
 ..  literalinclude:: _UnitTests/_ArrayUtilityTestDataProvider.php
     :language: php
     :caption: typo3/sysext/core/Tests/Unit/Utility/ArrayUtilityTest.php (excerpts)
@@ -228,7 +227,8 @@ almost always work.
 Mocking
 =======
 
-Unit tests should test one thing at a time, often one method only. If the system under test has dependencies
+Unit tests should test one thing at a time, often one method only.
+If the system under test has dependencies
 like additional objects, they should be usually "mocked away". A simple example is this, taken from
 :php:`TYPO3\CMS\Backend\Tests\Unit\Controller\FormInlineAjaxControllerTest`:
 
@@ -236,17 +236,10 @@ like additional objects, they should be usually "mocked away". A simple example 
     :language: php
     :caption: typo3/sysext/backend/Tests/Unit/Controller/FormInlineAjaxControllerTest.php
 
-`Prophecy <https://github.com/phpspec/prophecy>`_ is a nice mocking framework bundled into phpunit
-by default. Many people prefer it nowadays over phpunit's own mock framework based on :php:`->getMock()`
-and we encourage to use prophecy: Prophecy code is often easier to read and the separation of
-the dummy object that is given to the system under test, the "revelation", and the object prophecy
-is quite handy. Prophecy is quite some fun to use, go ahead and play around with it.
-
 The above case is pretty straight since the mocked dependency is hand over as argument to
 the system under test. If the system under test however creates an instance of the to-mock
 dependency on its own - typically using :php:`GeneralUtility::makeInstance()`, the mock instance
 can be manually registered for makeInstance:
-
 
 ..  literalinclude:: _UnitTests/_SomeTest.php
     :language: php
@@ -257,9 +250,9 @@ of the same class can be stacked. The generic :php:`->tearDown()` later confirms
 empty to avoid side effects on other tests. Singleton instances can be registered in a
 similar way:
 
-..  literalinclude:: _UnitTests/_SomeTestSingleton.php
+..  literalinclude:: _UnitTests/_TcaFlexPrepareTest.php
     :language: php
-    :caption: EXT:my_extension/Tests/Unit/SomeTest.php
+    :caption: typo3/sysext/backend/Tests/Unit/Form/FormDataProvider/TcaFlexPrepareTest.php
 
 ..  todo: EnvironmentService has been removed with version 12.0, find another Example here
 
@@ -301,6 +294,6 @@ Exceptions are often very easy to unit test and testing them can be beneficial. 
 a simple example, this is from :php:`TYPO3\CMS\Core\Tests\Unit\Cache\CacheManagerTest`
 and tests both the exception class and the exception code:
 
-..  literalinclude:: _UnitTests/_CacheManagerTest.php
+..  literalinclude:: _UnitTests/_OnTheFlyTest.php
     :language: php
-    :caption: typo3/sysext/core/Tests/Unit/Cache/CacheManagerTest.php
+    :caption: typo3/sysext/backend/Tests/Unit/Form/FormDataGroup/OnTheFlyTest.php
