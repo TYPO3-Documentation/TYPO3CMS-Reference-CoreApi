@@ -41,27 +41,5 @@ return [
         'class' => DocHeaderComponent::class,
         'targetFileName' => 'ApiOverview/Backend/BackendModules/_DocHeaderComponent.rst.txt',
         'withCode' => false,
-    ],
-    [
-        'action' => 'createPhpClassCodeSnippet',
-        'class' => BackendController::class,
-        'members' => [
-            'initializeModuleTemplate',
-            'showPostAction',
-        ],
-        'withComment' => false,
-        'withClassComment' => false,
-        'targetFileName' => 'ApiOverview/Backend/BackendModules/_InitializeModuleTemplate.rst.txt',
-    ],
-    [
-        'action' => 'createPhpClassCodeSnippet',
-        'class' => BackendController::class,
-        'members' => [
-            'modifyDocHeaderComponent',
-            'initializeModuleTemplate',
-        ],
-        'withComment' => false,
-        'withClassComment' => false,
-        'targetFileName' => 'ApiOverview/Backend/BackendModules/_ModifyDocHeaderComponent.rst.txt',
-    ],
+    ]
 ];
