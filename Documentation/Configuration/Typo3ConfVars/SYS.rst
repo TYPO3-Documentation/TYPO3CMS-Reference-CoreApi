@@ -83,11 +83,6 @@ configurations.
    :type: text
    :Default: 'http'
 
-    ..  versionadded:: 12.0
-       The setting :php:`defaultScheme` was added in TYPO3 v12 to make it possible to
-       configure the default URI scheme when links are created by the Core.
-       Previously, :php:`'http'` was always used.
-
    Set the default URI scheme. This is used within links if no scheme is given.
    One can set this to :php:`'https'` if this should be used by default.
 
@@ -318,11 +313,6 @@ configurations.
     :Path: $GLOBALS['TYPO3_CONF_VARS']['SYS']['UTF8filesystem']
     :type: bool
     :Default: true
-
-    ..  versionchanged:: 12.0
-        Before TYPO3 v12 the default value for new installations was always set to :php:`false`.
-        However, because almost every file system now supports UTF-8 the new default value
-        is set to :php:`true`.
 
     If set to :php:`true`, then TYPO3 uses UTF-8 to store file names. This allows for accented
     latin letters as well as any other non-latin characters like Cyrillic and
@@ -659,8 +649,6 @@ configurations.
 
     ..  _typo3ConfVars_sys_features_security.frontend.enforceContentSecurityPolicy:
 
-    ..  versionadded:: 12.3
-
     ..  confval:: security.frontend.enforceContentSecurityPolicy
         :name: globals-typo3-conf-vars-sys-features-security-frontend-enforceContentSecurityPolicy
         :Path: $GLOBALS['TYPO3_CONF_VARS']['SYS']['features']['security.frontend.enforceContentSecurityPolicy']
@@ -671,8 +659,6 @@ configurations.
         is applied in frontend scope.
 
     ..  _typo3ConfVars_sys_features_security.frontend.allowInsecureSiteResolutionByQueryParameters:
-
-    ..  versionadded:: 12.4.4/11.5.30
 
     ..  confval:: security.frontend.allowInsecureSiteResolutionByQueryParameters
         :name: globals-typo3-conf-vars-sys-features-security-frontend-allowInsecureSiteResolutionByQueryParameters
@@ -763,11 +749,6 @@ configurations.
         :type: bool
         :Default: true
 
-        ..  versionadded:: 12.0
-            Before TYPO3 v12.0 all translations are taken into account when parsing XLF
-            files. As of TYPO3 v12.0, only approved translations are available by
-            default.
-
         The attribute :xml:`approved` of the :ref:`XLIFF <xliff>` standard is
         respected by TYPO3 since version 12.0 when parsing XLF files. This attribute
         can either have the value :xml:`yes` or :xml:`no` and indicates whether the
@@ -798,8 +779,6 @@ configurations.
     :name: globals-typo3-conf-vars-sys-passwordPolicies
     :Path: $GLOBALS['TYPO3_CONF_VARS']['SYS']['passwordPolicies']
     :type: array
-
-    ..  versionadded:: 12.0
 
     Defines the available :ref:`password policies <password-policies>`. Each
     policy must have a unique identifier (the identifier `default` is reserved
@@ -841,8 +820,6 @@ configurations.
         :name: globals-typo3-conf-vars-sys-messenger-routing
         :Path: $GLOBALS['TYPO3_CONF_VARS']['SYS']['messenger']['routing']
         :type: array
-
-        ..  versionadded:: 12.2
 
         The configuration of the routing for the
         :ref:`messenger component <message-bus>`. By default, TYPO3 uses a
