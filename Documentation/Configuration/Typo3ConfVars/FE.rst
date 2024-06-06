@@ -11,9 +11,6 @@ FE - frontend configuration
 The following configuration variables can be used to configure settings for
 the TYPO3 frontend:
 
-..  contents::
-    :local:
-
 ..  note::
     The configuration values listed here are keys in the global PHP array
     :php:`$GLOBALS['TYPO3_CONF_VARS']['FE']`.
@@ -23,14 +20,15 @@ the TYPO3 frontend:
     *   :ref:`config/system/settings.php <typo3ConfVars-settings>`
     *   :ref:`config/system/additional.php <typo3ConfVars-additional>`
 
-..  index::
-    TYPO3_CONF_VARS FE; addAllowedPaths
+..  confval-menu::
+    :name: globals-typo3-conf-vars-fe
+    :display: tree
+    :type:
+
 ..  _typo3ConfVars_fe_addAllowedPaths:
 
-addAllowedPaths
-===============
-
-..  confval:: $GLOBALS['TYPO3_CONF_VARS']['FE']['addAllowedPaths']
+..  confval:: addAllowedPaths
+    :Path: $GLOBALS['TYPO3_CONF_VARS']['FE']['addAllowedPaths']
     :name: typo3-conf-vars-fe-addAllowedPaths
     :type: list
     :Default: ''
@@ -45,15 +43,10 @@ addAllowedPaths
     No check is done whether this directory actually exists in the root folder
     of the site.
 
-
-..  index::
-    TYPO3_CONF_VARS FE; debug
 ..  _typo3ConfVars_fe_debug:
 
-debug
-=====
-
-..  confval:: $GLOBALS['TYPO3_CONF_VARS']['FE']['debug']
+..  confval:: debug
+    :Path: $GLOBALS['TYPO3_CONF_VARS']['FE']['debug']
     :name: typo3-conf-vars-fe-debug
     :type: bool
     :Default: false
@@ -62,14 +55,10 @@ debug
     header :html:`X-TYPO3-Parsetime`. This can also be enabled/disabled via the
     TypoScript option :php:`config.debug = 0`.
 
-..  index::
-    TYPO3_CONF_VARS FE; compressionLevel
 ..  _typo3ConfVars_fe_compressionLevel:
 
-compressionLevel
-================
-
-..  confval:: $GLOBALS['TYPO3_CONF_VARS']['FE']['compressionLevel']
+..  confval:: compressionLevel
+    :Path: $GLOBALS['TYPO3_CONF_VARS']['FE']['compressionLevel']
     :name: typo3-conf-vars-fe-compressionLevel
     :type: int
     :Default: 0
@@ -87,14 +76,10 @@ compressionLevel
     compression based on the PHP default settings (usually `5` ). Suggested and
     most optimal value is `5`.
 
-..  index::
-    TYPO3_CONF_VARS FE; pageNotFoundOnCHashError
 ..  _typo3ConfVars_fe_pageNotFoundOnCHashError:
 
-pageNotFoundOnCHashError
-========================
-
-..  confval:: $GLOBALS['TYPO3_CONF_VARS']['FE']['pageNotFoundOnCHashError']
+..  confval:: pageNotFoundOnCHashError
+    :Path: $GLOBALS['TYPO3_CONF_VARS']['FE']['pageNotFoundOnCHashError']
     :name: typo3-conf-vars-fe-pageNotFoundOnCHashError
     :type: bool
     :Default: true
@@ -102,14 +87,10 @@ pageNotFoundOnCHashError
     If TRUE, a page not found call is made when cHash evaluation error occurs,
     otherwise caching is disabled and page output is displayed.
 
-..  index::
-    TYPO3_CONF_VARS FE; pageUnavailable_force
 ..  _typo3ConfVars_fe_pageUnavailable_force:
 
-pageUnavailable_force
-=====================
-
-..  confval:: $GLOBALS['TYPO3_CONF_VARS']['FE']['pageUnavailable_force']
+..  confval:: pageUnavailable_force
+    :Path: $GLOBALS['TYPO3_CONF_VARS']['FE']['pageUnavailable_force']
     :name: typo3-conf-vars-fe-pageUnavailable-force
     :type: bool
     :Default: false
@@ -118,14 +99,10 @@ pageUnavailable_force
     client matches :ref:`[SYS][devIPmask] <typo3ConfVars_sys_devIPmask>`, the page is
     shown as normal. This is useful during temporary site maintenance.
 
-..  index::
-    TYPO3_CONF_VARS FE; addRootLineFields
 ..  _typo3ConfVars_fe_addRootLineFields:
 
-addRootLineFields
-=================
-
-..  confval:: $GLOBALS['TYPO3_CONF_VARS']['FE']['addRootLineFields']
+..  confval:: addRootLineFields
+    :Path: $GLOBALS['TYPO3_CONF_VARS']['FE']['addRootLineFields']
     :name: typo3-conf-vars-fe-addRootLineFields
     :type: list
     :Default: ''
@@ -133,14 +110,10 @@ addRootLineFields
     Comma-list of fields from the pages-table. These fields are added to the
     select query for fields in the rootline.
 
-..  index::
-    TYPO3_CONF_VARS FE; checkFeUserPid
 ..  _typo3ConfVars_fe_checkFeUserPid:
 
-checkFeUserPid
-==============
-
-..  confval:: $GLOBALS['TYPO3_CONF_VARS']['FE']['checkFeUserPid']
+..  confval:: checkFeUserPid
+    :Path: $GLOBALS['TYPO3_CONF_VARS']['FE']['checkFeUserPid']
     :name: typo3-conf-vars-fe-checkFeUserPid
     :type: bool
     :Default: true
@@ -151,17 +124,10 @@ checkFeUserPid
 
     This will do :php:`$TCA[fe_users][columns][username][config][eval]= nospace,lower,required,unique;`
 
-
-
-
-..  index::
-    TYPO3_CONF_VARS FE; loginRateLimit
 ..  _typo3ConfVars_fe_loginRateLimit:
 
-loginRateLimit
-==============
-
-..  confval:: $GLOBALS['TYPO3_CONF_VARS']['FE']['loginRateLimit']
+..  confval:: loginRateLimit
+    :Path: $GLOBALS['TYPO3_CONF_VARS']['FE']['loginRateLimit']
     :name: typo3-conf-vars-fe-loginRateLimit
     :type: int
     :Default: 5
@@ -171,15 +137,10 @@ loginRateLimit
     before further login requests will be denied. Setting this value to
     :php:`"0"` will disable login rate limiting.
 
-
-..  index::
-    TYPO3_CONF_VARS FE; loginRateLimitInterval
 ..  _typo3ConfVars_fe_loginRateLimitInterval:
 
-loginRateLimitInterval
-======================
-
-..  confval:: $GLOBALS['TYPO3_CONF_VARS']['FE']['loginRateLimitInterval']
+..  confval:: loginRateLimitInterval
+    :Path: $GLOBALS['TYPO3_CONF_VARS']['FE']['loginRateLimitInterval']
     :name: typo3-conf-vars-fe-loginRateLimitInterval
     :type: string, PHP relative format
     :Default: '15 minutes'
@@ -190,15 +151,10 @@ loginRateLimitInterval
     `PHP relative formats <https://www.php.net/manual/de/datetime.formats.relative.php>`__
     can be set in :file:`config/system/additional.php`.
 
-
-..  index::
-    TYPO3_CONF_VARS FE; loginRateLimitIpExcludeList
 ..  _typo3ConfVars_fe_loginRateLimitIpExcludeList:
 
-loginRateLimitIpExcludeList
-===========================
-
-..  confval:: $GLOBALS['TYPO3_CONF_VARS']['FE']['loginRateLimitIpExcludeList']
+..  confval:: loginRateLimitIpExcludeList
+    :Path: $GLOBALS['TYPO3_CONF_VARS']['FE']['loginRateLimitIpExcludeList']
     :name: typo3-conf-vars-fe-loginRateLimitIpExcludeList
     :type: string
     :Default: ''
@@ -208,14 +164,10 @@ loginRateLimitIpExcludeList
     and :ref:`[BE][loginRateLimitIpExcludeList]<typo3ConfVars_be_loginRateLimitIpExcludeList>`.
     An empty value disables the exclude list check.
 
-..  index::
-    TYPO3_CONF_VARS FE; lockIP
 ..  _typo3ConfVars_fe_lockIP:
 
-lockIP
-======
-
-..  confval:: $GLOBALS['TYPO3_CONF_VARS']['FE']['lockIP']
+..  confval:: lockIP
+    :Path: $GLOBALS['TYPO3_CONF_VARS']['FE']['lockIP']
     :name: typo3-conf-vars-fe-lockIP
     :type: int
     :Default: 0
@@ -244,15 +196,10 @@ lockIP
     Have also a look into the :ref:`security guidelines
     <security-global-typo3-options-lockIP>`.
 
-
-..  index::
-    TYPO3_CONF_VARS FE; lockIPv6
 ..  _typo3ConfVars_fe_lockIPv6:
 
-lockIPv6
-========
-
-..  confval:: $GLOBALS['TYPO3_CONF_VARS']['FE']['lockIPv6']
+..  confval:: lockIPv6
+    :Path: $GLOBALS['TYPO3_CONF_VARS']['FE']['lockIPv6']
     :name: typo3-conf-vars-fe-lockIPv6
     :type: int
     :Default: 0
@@ -295,14 +242,10 @@ lockIPv6
     during their session (in which case you can lower it).
     The integer indicates how many parts of the IP address to include in the check for the session.
 
-..  index::
-    TYPO3_CONF_VARS FE; lifetime
 ..  _typo3ConfVars_fe_lifetime:
 
-lifetime
-========
-
-..  confval:: $GLOBALS['TYPO3_CONF_VARS']['FE']['lifetime']
+..  confval:: lifetime
+    :Path: $GLOBALS['TYPO3_CONF_VARS']['FE']['lifetime']
     :name: typo3-conf-vars-fe-lifetime
     :type: int
     :Default: 0
@@ -314,14 +257,10 @@ lifetime
     login of FE users during a whole week, 86400 will keep the FE users logged in
     for a day.
 
-..  index::
-    TYPO3_CONF_VARS FE; sessionTimeout
 ..  _typo3ConfVars_fe_sessionTimeout:
 
-sessionTimeout
-==============
-
-..  confval:: $GLOBALS['TYPO3_CONF_VARS']['FE']['sessionTimeout']
+..  confval:: sessionTimeout
+    :Path: $GLOBALS['TYPO3_CONF_VARS']['FE']['sessionTimeout']
     :name: typo3-conf-vars-fe-sessionTimeout
     :type: int
     :Default: 6000
@@ -329,14 +268,10 @@ sessionTimeout
     Server side session timeout for frontend users in seconds. Will
     be overwritten by the lifetime property if the lifetime is longer.
 
-..  index::
-    TYPO3_CONF_VARS FE; sessionDataLifetime
 ..  _typo3ConfVars_fe_sessionDataLifetime:
 
-sessionDataLifetime
-===================
-
-..  confval:: $GLOBALS['TYPO3_CONF_VARS']['FE']['sessionDataLifetime']
+..  confval:: sessionDataLifetime
+    :Path: $GLOBALS['TYPO3_CONF_VARS']['FE']['sessionDataLifetime']
     :name: typo3-conf-vars-fe-sessionDataLifetime
     :type: int
     :Default: 86400
@@ -345,14 +280,10 @@ sessionDataLifetime
     and be removed after the number of seconds given
     (86400 seconds represents 24 hours).
 
-..  index::
-    TYPO3_CONF_VARS FE; permalogin
 ..  _typo3ConfVars_fe_permalogin:
 
-permalogin
-==========
-
-..  confval:: $GLOBALS['TYPO3_CONF_VARS']['FE']['permalogin']
+..  confval:: permalogin
+    :Path: $GLOBALS['TYPO3_CONF_VARS']['FE']['permalogin']
     :name: typo3-conf-vars-fe-permalogin
     :type: text
     :Default: 0
@@ -374,14 +305,10 @@ permalogin
     In any case, permanent login is only possible if
     :ref:`[FE][lifetime] <typo3ConfVars_fe_lifetime>` lifetime is greater than 0.
 
-..  index::
-    TYPO3_CONF_VARS FE; cookieDomain
 ..  _typo3ConfVars_fe_cookieDomain:
 
-cookieDomain
-============
-
-..  confval:: $GLOBALS['TYPO3_CONF_VARS']['FE']['cookieDomain']
+..  confval:: cookieDomain
+    :Path: $GLOBALS['TYPO3_CONF_VARS']['FE']['cookieDomain']
     :name: typo3-conf-vars-fe-cookieDomain
     :type: text
     :Default: ''
@@ -390,28 +317,20 @@ cookieDomain
     but only for FE cookies. If empty, :php:`$TYPO3_CONF_VARS[SYS][cookieDomain]`
     value will be used.
 
-..  index::
-    TYPO3_CONF_VARS FE; cookieName
 ..  _typo3ConfVars_fe_cookieName:
 
-cookieName
-==========
-
-..  confval:: $GLOBALS['TYPO3_CONF_VARS']['FE']['cookieName']
+..  confval:: cookieName
+    :Path: $GLOBALS['TYPO3_CONF_VARS']['FE']['cookieName']
     :name: typo3-conf-vars-fe-cookieName
     :type: text
     :Default: 'fe_typo_user'
 
     Sets the name for the cookie used for the front-end user session
 
-..  index::
-    TYPO3_CONF_VARS FE; cookieSameSite
 ..  _typo3ConfVars_fe_cookieSameSite:
 
-cookieSameSite
-==============
-
-..  confval:: $GLOBALS['TYPO3_CONF_VARS']['FE']['cookieSameSite']
+..  confval:: cookieSameSite
+    :Path: $GLOBALS['TYPO3_CONF_VARS']['FE']['cookieSameSite']
     :name: typo3-conf-vars-fe-cookieSameSite
     :type: text
     :Default: 'lax'
@@ -429,21 +348,16 @@ cookieSameSite
     Indicates that the cookie should send proper information where the cookie
     can be shared (first-party cookies vs. third-party cookies) in TYPO3 Frontend.
 
-..  index::
-    TYPO3_CONF_VARS FE; defaultUserTSconfig
 ..  _typo3ConfVars_fe_defaultUserTSconfig:
-
-defaultUserTSconfig
-===================
-
-..  deprecated:: 12.1
-    This setting will be removed with TYPO3 v13. More information can be found
-    in the :ref:`changelog <ext_core:deprecation-99075-1668337874>`.
-
-..  confval:: $GLOBALS['TYPO3_CONF_VARS']['FE']['defaultUserTSconfig']
-
+..  confval:: defaultUserTSconfig
+    :Path: $GLOBALS['TYPO3_CONF_VARS']['FE']['defaultUserTSconfig']
+    :name: typo3-conf-vars-fe-defaultTypoScript-defaultUserTSconfig
     :type: multiline
     :Default: ''
+
+    ..  deprecated:: 12.1
+        This setting will be removed with TYPO3 v13. More information can be found
+        in the :ref:`changelog <ext_core:deprecation-99075-1668337874>`.
 
     Enter lines of default frontend user/group TSconfig.
 
@@ -451,38 +365,28 @@ defaultUserTSconfig
     TYPO3_CONF_VARS FE; defaultTypoScript_constants
 ..  _typo3ConfVars_fe_defaultTypoScript_constants:
 
-defaultTypoScript_constants
-===========================
-
-..  confval:: $GLOBALS['TYPO3_CONF_VARS']['FE']['defaultTypoScript_constants']
+..  confval:: defaultTypoScript_constants
+    :Path: $GLOBALS['TYPO3_CONF_VARS']['FE']['defaultTypoScript_constants']
     :name: typo3-conf-vars-fe-defaultTypoScript-constants
     :type: multiline
     :Default: ''
 
     Enter lines of default TypoScript, constants-field.
 
-..  index::
-    TYPO3_CONF_VARS FE; defaultTypoScript_setup
 ..  _typo3ConfVars_fe_defaultTypoScript_setup:
 
-defaultTypoScript_setup
-=======================
-
-..  confval:: $GLOBALS['TYPO3_CONF_VARS']['FE']['defaultTypoScript_setup']
+..  confval:: defaultTypoScript_setup
+    :Path: $GLOBALS['TYPO3_CONF_VARS']['FE']['defaultTypoScript_setup']
     :name: typo3-conf-vars-fe-defaultTypoScript-setup
     :type: multiline
     :Default: ''
 
     Enter lines of default TypoScript, setup-field.
 
-..  index::
-    TYPO3_CONF_VARS FE; additionalAbsRefPrefixDirectories
 ..  _typo3ConfVars_fe_additionalAbsRefPrefixDirectories:
 
-additionalAbsRefPrefixDirectories
-=================================
-
-..  confval:: $GLOBALS['TYPO3_CONF_VARS']['FE']['additionalAbsRefPrefixDirectories']
+..  confval:: additionalAbsRefPrefixDirectories
+    :Path: $GLOBALS['TYPO3_CONF_VARS']['FE']['additionalAbsRefPrefixDirectories']
     :name: typo3-conf-vars-fe-additionalAbsRefPrefixDirectories
     :type: text
     :Default: ''
@@ -495,14 +399,10 @@ additionalAbsRefPrefixDirectories
     In legacy installations without Composer :file:`typo3conf/ext`
     and :file:`typo3/` are also prefixed.
 
-..  index::
-    TYPO3_CONF_VARS FE; enable_mount_pids
 ..  _typo3ConfVars_fe_enable_mount_pids:
 
-enable_mount_pids
-=================
-
-..  confval:: $GLOBALS['TYPO3_CONF_VARS']['FE']['enable_mount_pids']
+..  confval:: enable_mount_pids
+    :Path: $GLOBALS['TYPO3_CONF_VARS']['FE']['enable_mount_pids']
     :name: typo3-conf-vars-fe-enable-mount-pids
     :type: bool
     :Default: true
@@ -510,14 +410,10 @@ enable_mount_pids
     If enabled, the mount_pid feature allowing symlinks in the page tree
     (for frontend operation) is allowed.
 
-..  index::
-    TYPO3_CONF_VARS FE; hidePagesIfNotTranslatedByDefault
 ..  _typo3ConfVars_fe_hidePagesIfNotTranslatedByDefault:
 
-hidePagesIfNotTranslatedByDefault
-=================================
-
-..  confval:: $GLOBALS['TYPO3_CONF_VARS']['FE']['hidePagesIfNotTranslatedByDefault']
+..  confval:: hidePagesIfNotTranslatedByDefault
+    :Path: $GLOBALS['TYPO3_CONF_VARS']['FE']['hidePagesIfNotTranslatedByDefault']
     :name: typo3-conf-vars-fe-hidePagesIfNotTranslatedByDefault
     :type: bool
     :Default: false
@@ -527,15 +423,10 @@ hidePagesIfNotTranslatedByDefault
     "Hide page if no translation for current language exists" to
     "Show page even if no translation exists"
 
-
-..  index::
-    TYPO3_CONF_VARS FE; eID_include
 ..  _typo3ConfVars_fe_eID_include:
 
-eID_include
-===========
-
-..  confval:: $GLOBALS['TYPO3_CONF_VARS']['FE']['eID_include']
+..  confval:: eID_include
+    :Path: $GLOBALS['TYPO3_CONF_VARS']['FE']['eID_include']
     :name: typo3-conf-vars-fe-eID-include
     :type: array
     :Default: []
@@ -548,15 +439,10 @@ eID_include
     (Useful for functionality that requires a low initialization footprint,
     for example frontend Ajax applications)
 
-
-..  index::
-    TYPO3_CONF_VARS FE; disableNoCacheParameter
 ..  _typo3ConfVars_fe_disableNoCacheParameter:
 
-disableNoCacheParameter
-=======================
-
-..  confval:: $GLOBALS['TYPO3_CONF_VARS']['FE']['disableNoCacheParameter']
+..  confval:: disableNoCacheParameter
+    :Path: $GLOBALS['TYPO3_CONF_VARS']['FE']['disableNoCacheParameter']
     :name: typo3-conf-vars-fe-disableNoCacheParameter
     :type: bool
     :Default: false
@@ -568,162 +454,132 @@ disableNoCacheParameter
     disable caching for a certain part of the website
     (see `COA_INT/USER_INT<t3tsref:cobj-coa-int>`).
 
-..  index::
-    TYPO3_CONF_VARS FE; additionalCanonicalizedUrlParameters
 ..  _typo3ConfVars_fe_additionalCanonicalizedUrlParameters:
 
-additionalCanonicalizedUrlParameters
-====================================
-
-..  confval:: $GLOBALS['TYPO3_CONF_VARS']['FE']['additionalCanonicalizedUrlParameters']
+..  confval:: additionalCanonicalizedUrlParameters
+    :Path: $GLOBALS['TYPO3_CONF_VARS']['FE']['additionalCanonicalizedUrlParameters']
     :name: typo3-conf-vars-fe-additionalCanonicalizedUrlParameters
     :type: array
     :Default: []
 
     The given parameters will be included when calculating canonicalized URL
 
-
-..  index::
-    TYPO3_CONF_VARS FE; cacheHash
 ..  _typo3ConfVars_fe_cacheHash:
 
-cacheHash
-=========
+..  confval:: cacheHash
+    :name: typo3-conf-vars-fe-cacheHash
+    :Path: $GLOBALS['TYPO3_CONF_VARS']['FE']['cacheHash']
 
-..  index::
-    TYPO3_CONF_VARS FE; cacheHash cachedParametersWhiteList
-..  _typo3ConfVars_fe_cacheHash_cachedParametersWhiteList:
+    ..  _typo3ConfVars_fe_cacheHash_cachedParametersWhiteList:
 
-cachedParametersWhiteList
-_________________________
+    ..  confval:: cachedParametersWhiteList
+        :Path: $GLOBALS['TYPO3_CONF_VARS']['FE']['cacheHash']['cachedParametersWhiteList']
+        :name: typo3-conf-vars-fe-cacheHash-cachedParametersWhiteList
+        :type: array
+        :Default: []
 
-..  confval:: $GLOBALS['TYPO3_CONF_VARS']['FE']['cacheHash']['cachedParametersWhiteList']
-    :name: typo3-conf-vars-fe-cachedParametersWhiteList
-    :type: array
-    :Default: []
+        Only the given parameters will be evaluated in the cHash calculation.
+        Example:
 
-    Only the given parameters will be evaluated in the cHash calculation.
-    Example:
+        ..  code-block:: php
+            :caption: config/system/additional.php | typo3conf/system/additional.php
 
-    ..  code-block:: php
-        :caption: config/system/additional.php | typo3conf/system/additional.php
+            $GLOBALS['TYPO3_CONF_VARS']['FE']['cacheHash']['cachedParametersWhiteList'][] = 'tx_news_pi1[uid]';
 
-        $GLOBALS['TYPO3_CONF_VARS']['FE']['cacheHash']['cachedParametersWhiteList'][] = 'tx_news_pi1[uid]';
+    ..  _typo3ConfVars_fe_cacheHash_requireCacheHashPresenceParameters:
 
-..  index::
-    TYPO3_CONF_VARS FE; cacheHash requireCacheHashPresenceParameters
-..  _typo3ConfVars_fe_cacheHash_requireCacheHashPresenceParameters:
+    ..  confval:: requireCacheHashPresenceParameters
+        :Path: $GLOBALS['TYPO3_CONF_VARS']['FE']['cacheHash']['requireCacheHashPresenceParameters']
+        :name: typo3-conf-vars-fe-cacheHash-requireCacheHashPresenceParameters
+        :type: array
+        :Default: []
 
-requireCacheHashPresenceParameters
-__________________________________
+        Configure Parameters that require a cHash. If no cHash is given but one of
+        the parameters are set, then TYPO3 triggers the configured cHash Error
+        behaviour
 
-..  confval:: $GLOBALS['TYPO3_CONF_VARS']['FE']['cacheHash']['requireCacheHashPresenceParameters']
-    :name: typo3-conf-vars-fe-requireCacheHashPresenceParameters
-    :type: array
-    :Default: []
+    ..  _typo3ConfVars_fe_cacheHash_excludedParameters:
 
-    Configure Parameters that require a cHash. If no cHash is given but one of
-    the parameters are set, then TYPO3 triggers the configured cHash Error
-    behaviour
+    ..  confval:: excludedParameters
+        :Path: $GLOBALS['TYPO3_CONF_VARS']['FE']['cacheHash']['excludedParameters']
+        :name: typo3-conf-vars-fe-cacheHash-excludedParameters
+        :type: array
+        :Default: ['L', 'pk_campaign', 'pk_kwd', 'utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content', 'gclid', 'fbclid']
 
-..  index::
-    TYPO3_CONF_VARS FE; cacheHash excludedParameters
-..  _typo3ConfVars_fe_cacheHash_excludedParameters:
+        The given parameters will be ignored in the cHash calculation.
+        Example:
 
-excludedParameters
-__________________
+        ..  code-block:: php
+            :caption: config/system/additional.php | typo3conf/system/additional.php
 
-..  confval:: $GLOBALS['TYPO3_CONF_VARS']['FE']['cacheHash']['excludedParameters']
-    :name: typo3-conf-vars-fe-excludedParameters
-    :type: array
-    :Default: ['L', 'pk_campaign', 'pk_kwd', 'utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content', 'gclid', 'fbclid']
+            $GLOBALS['TYPO3_CONF_VARS']['FE']['cacheHash']['excludedParameters'] = ['L','tx_search_pi1[query]'];
 
-    The given parameters will be ignored in the cHash calculation.
-    Example:
+    ..  _typo3ConfVars_fe_cacheHash_excludedParametersIfEmpty:
 
-    ..  code-block:: php
-        :caption: config/system/additional.php | typo3conf/system/additional.php
+    ..  confval:: excludedParametersIfEmpty
+        :Path: $GLOBALS['TYPO3_CONF_VARS']['FE']['cacheHash']['excludedParametersIfEmpty']
+        :name: typo3-conf-vars-fe-cacheHash-excludedParametersIfEmpty
+        :type: array
+        :Default: []
 
-        $GLOBALS['TYPO3_CONF_VARS']['FE']['cacheHash']['excludedParameters'] = ['L','tx_search_pi1[query]'];
+        Configure Parameters that are only relevant for the cHash if there's an
+        associated value available. Set excludeAllEmptyParameters to true to skip
+        all empty parameters.
 
-..  index::
-    TYPO3_CONF_VARS FE; cacheHash excludedParametersIfEmpty
-..  _typo3ConfVars_fe_cacheHash_excludedParametersIfEmpty:
+    ..  index::
+        TYPO3_CONF_VARS FE; cacheHash excludeAllEmptyParameters
+    ..  _typo3ConfVars_fe_cacheHash_excludeAllEmptyParameters:
 
-excludedParametersIfEmpty
-_________________________
+    ..  confval:: excludeAllEmptyParameters
+        :Path: $GLOBALS['TYPO3_CONF_VARS']['FE']['cacheHash']['excludeAllEmptyParameters']
+        :name: typo3-conf-vars-fe-cacheHash-excludeAllEmptyParameters
+        :type: bool
+        :Default: false
 
-..  confval:: $GLOBALS['TYPO3_CONF_VARS']['FE']['cacheHash']['excludedParametersIfEmpty']
-    :name: typo3-conf-vars-fe-excludedParametersIfEmpty
-    :type: array
-    :Default: []
+        If true, all parameters which are relevant for cHash are only considered
+        if they are non-empty.
 
-    Configure Parameters that are only relevant for the cHash if there's an
-    associated value available. Set excludeAllEmptyParameters to true to skip
-    all empty parameters.
+    ..  _typo3ConfVars_fe_cacheHash_enforceValidation:
 
-..  index::
-    TYPO3_CONF_VARS FE; cacheHash excludeAllEmptyParameters
-..  _typo3ConfVars_fe_cacheHash_excludeAllEmptyParameters:
+    ..  confval:: enforceValidation
+        :Path: $GLOBALS['TYPO3_CONF_VARS']['FE']['cacheHash']['enforceValidation']
+        :name: typo3-conf-vars-fe-cacheHash-enforceValidation
+        :type: bool
+        :Default: false (for existing installations), true (for new installations)
 
-excludeAllEmptyParameters
-_________________________
+        ..  versionadded:: 10.4.35/11.5.23/12.2
 
-..  confval:: $GLOBALS['TYPO3_CONF_VARS']['FE']['cacheHash']['excludeAllEmptyParameters']
-    :name: typo3-conf-vars-fe-excludeAllEmptyParameters
-    :type: bool
-    :Default: false
+        If this option is enabled, the same validation is used to calculate a
+        "cHash" value as when a valid or invalid "cHash" parameter is given to a
+        request, even when no "cHash" is given.
 
-    If true, all parameters which are relevant for cHash are only considered
-    if they are non-empty.
+        ..  note::
+            The option is disabled for existing installations, but enabled for new
+            installations. It is also highly recommended to enable this option in
+            your existing installations as well.
 
-..  index::
-    TYPO3_CONF_VARS FE; cacheHash enforceValidation
-..  _typo3ConfVars_fe_cacheHash_enforceValidation:
+        **Details:**
 
-enforceValidation
-_________________
+        Since TYPO3 v9 and the :ref:`PSR-15 middleware concept <request-handling>`,
+        cHash validation has been moved outside of plugins and rendering code inside
+        a validation middleware to check if a given "cHash" acts as a signature of
+        other query parameters in order to use a cached version of a frontend page.
 
-..  versionadded:: 10.4.35/11.5.23/12.2
-
-..  confval:: $GLOBALS['TYPO3_CONF_VARS']['FE']['cacheHash']['enforceValidation']
-    :name: typo3-conf-vars-fe-enforceValidation
-    :type: bool
-    :Default: false (for existing installations), true (for new installations)
-
-    If this option is enabled, the same validation is used to calculate a
-    "cHash" value as when a valid or invalid "cHash" parameter is given to a
-    request, even when no "cHash" is given.
-
-    ..  note::
-        The option is disabled for existing installations, but enabled for new
-        installations. It is also highly recommended to enable this option in
-        your existing installations as well.
-
-    **Details:**
-
-    Since TYPO3 v9 and the :ref:`PSR-15 middleware concept <request-handling>`,
-    cHash validation has been moved outside of plugins and rendering code inside
-    a validation middleware to check if a given "cHash" acts as a signature of
-    other query parameters in order to use a cached version of a frontend page.
-
-    However, the check only provided information about an invalid "cHash" in the
-    query parameters. If no "cHash" was given, the only option was to add a
-    "required list" (global TYPO3 configuration option
-    :ref:`requireCacheHashPresenceParameters <typo3ConfVars_fe_cacheHash_requireCacheHashPresenceParameters>`),
-    but not based on the final
-    :ref:`excludedParameters <typo3ConfVars_fe_cacheHash_excludedParameters>`
-    for the cache hash calculation of the given query parameters.
+        However, the check only provided information about an invalid "cHash" in the
+        query parameters. If no "cHash" was given, the only option was to add a
+        "required list" (global TYPO3 configuration option
+        :ref:`requireCacheHashPresenceParameters <typo3ConfVars_fe_cacheHash_requireCacheHashPresenceParameters>`),
+        but not based on the final
+        :ref:`excludedParameters <typo3ConfVars_fe_cacheHash_excludedParameters>`
+        for the cache hash calculation of the given query parameters.
 
 
 ..  index::
     TYPO3_CONF_VARS FE; workspacePreviewLogoutTemplate
 ..  _typo3ConfVars_fe_workspacePreviewLogoutTemplate:
 
-workspacePreviewLogoutTemplate
-==============================
-
-..  confval:: $GLOBALS['TYPO3_CONF_VARS']['FE']['workspacePreviewLogoutTemplate']
+..  confval:: workspacePreviewLogoutTemplate
+    :Path: $GLOBALS['TYPO3_CONF_VARS']['FE']['workspacePreviewLogoutTemplate']
     :name: typo3-conf-vars-fe-workspacePreviewLogoutTemplate
     :type: text
     :Default: ''
@@ -735,30 +591,27 @@ workspacePreviewLogoutTemplate
     Inside you can put the marker :html:`%1$s` to insert the URL to go back to.
     Use this in :html:`<a href="%1$s">Go back...</a>` links.
 
-..  index::
-    TYPO3_CONF_VARS FE; versionNumberInFilename
 ..  _typo3ConfVars_fe_versionNumberInFilename:
 
-versionNumberInFilename
-=======================
-
-..  versionchanged:: 12.3
-    The setting was previously evaluated as a "string" value, having three
-    possible options:
-
-    *   ""
-    *   "querystring"
-    *   "embed"
-
-    When updating TYPO3 and accessing the maintenance area, an explicitly set
-    option is migrated automatically. If this is not possible - for example,
-    the configuration is set in :file:`AdditionalConfiguration.php` - the value
-    is always migrated on-the-fly when the setting is evaluated.
-
-..  confval:: $GLOBALS['TYPO3_CONF_VARS']['FE']['versionNumberInFilename']
+..  confval:: versionNumberInFilename
+    :Path: $GLOBALS['TYPO3_CONF_VARS']['FE']['versionNumberInFilename']
     :name: typo3-conf-vars-fe-versionNumberInFilename
     :type: bool
     :Default: false
+
+    ..  versionchanged:: 12.3
+        The setting was previously evaluated as a "string" value, having three
+        possible options:
+
+        *   ""
+        *   "querystring"
+        *   "embed"
+
+        When updating TYPO3 and accessing the maintenance area, an explicitly set
+        option is migrated automatically. If this is not possible - for example,
+        the configuration is set in :file:`AdditionalConfiguration.php` - the value
+        is always migrated on-the-fly when the setting is evaluated.
+
 
     If enabled, included CSS and JS files loaded in the TYPO3 frontend will
     have the timestamp embedded in the filename, for example,
@@ -778,10 +631,8 @@ versionNumberInFilename
     TYPO3_CONF_VARS FE; contentRenderingTemplates
 ..  _typo3ConfVars_fe_contentRenderingTemplates:
 
-contentRenderingTemplates
-=========================
-
-..  confval:: $GLOBALS['TYPO3_CONF_VARS']['FE']['contentRenderingTemplates']
+..  confval:: contentRenderingTemplates
+    :Path: $GLOBALS['TYPO3_CONF_VARS']['FE']['contentRenderingTemplates']
     :name: typo3-conf-vars-fe-contentRenderingTemplates
     :type: array
     :Default: []
@@ -800,37 +651,36 @@ contentRenderingTemplates
     TYPO3_CONF_VARS FE; ContentObjects
 ..  _typo3ConfVars_fe_ContentObjects:
 
-ContentObjects
-==============
+..  confval:: ContentObjects
+    :Path: $GLOBALS['TYPO3_CONF_VARS']['FE']['ContentObjects']
+    :name: typo3-conf-vars-fe-ContentObjects
+    :type: array
 
-..  versionchanged:: 12.0
+    ..  versionchanged:: 12.0
+        The global variable `$GLOBALS['TYPO3_CONF_VARS']['FE']['ContentObjects']` has
+        no effect anymore in TYPO3 v12.0 and above. It can be defined to achieve
+        backward compatibility with TYPO3 version 11 and below.
 
-    The global variable `$GLOBALS['TYPO3_CONF_VARS']['FE']['ContentObjects']` has
-    no effect anymore in TYPO3 v12.0 and above. It can be defined to achieve
-    backward compatibility with TYPO3 version 11 and below.
+    TypoScript content objects (`cObject`) like :typoscript:`TEXT` or
+    :typoscript:`HMENU` are registered as services:
 
-TypoScript content objects (`cObject`) like :typoscript:`TEXT` or
-:typoscript:`HMENU` are registered as services:
+    ..  code-block:: yaml
+        :caption: EXT:my_extension/Configuration/Services.yaml
 
-..  code-block:: yaml
-    :caption: EXT:my_extension/Configuration/Services.yaml
-
-    services:
-       # ...
-       MyCompany\MyPackage\ContentObject\CustomContentObject:
-         tags:
-           - name: frontend.contentobject
-             identifier: 'MY_OBJ'
+        services:
+           # ...
+           MyCompany\MyPackage\ContentObject\CustomContentObject:
+             tags:
+               - name: frontend.contentobject
+                 identifier: 'MY_OBJ'
 
 
 ..  index::
     TYPO3_CONF_VARS FE; typolinkBuilder
 ..  _typo3ConfVars_fe_typolinkBuilder:
 
-typolinkBuilder
-===============
-
-..  confval:: $GLOBALS['TYPO3_CONF_VARS']['FE']['typolinkBuilder']
+..  confval:: typolinkBuilder
+    :Path: $GLOBALS['TYPO3_CONF_VARS']['FE']['typolinkBuilder']
     :name: typo3-conf-vars-fe-typolinkBuilder
     :type: array
 
@@ -857,17 +707,15 @@ typolinkBuilder
     TYPO3_CONF_VARS FE; passwordHashing
 ..  _typo3ConfVars_fe_passwordHashing:
 
-passwordHashing
-===============
+..  confval:: passwordHashing
+
 
 ..  index::
     TYPO3_CONF_VARS FE; passwordHashing className
 ..  _typo3ConfVars_fe_passwordHashing_className:
 
-className
-_________
-
-..  confval:: $GLOBALS['TYPO3_CONF_VARS']['FE']['passwordHashing']['className']
+..  confval:: className
+    :Path: $GLOBALS['TYPO3_CONF_VARS']['FE']['passwordHashing']['className']
     :name: typo3-conf-vars-fe-className
     :type: string
     :Default: :php:`\TYPO3\CMS\Core\Crypto\PasswordHashing\Argon2iPasswordHash::class`
@@ -888,10 +736,8 @@ _________
     TYPO3_CONF_VARS FE; passwordHashing options
 ..  _typo3ConfVars_fe_passwordHashing_options:
 
-options
-_______
-
-..  confval:: $GLOBALS['TYPO3_CONF_VARS']['FE']['passwordHashing']['options']
+..  confval:: options
+    :Path: $GLOBALS['TYPO3_CONF_VARS']['FE']['passwordHashing']['options']
     :name: typo3-conf-vars-fe-options
     :type: array
     :Default: []
@@ -903,8 +749,8 @@ _______
     TYPO3_CONF_VARS FE; passwordPolicy
 ..  _typo3ConfVars_fe_passwordPolicy:
 
-passwordPolicy
-==============
+..  confval:: passwordPolicy
+
 
 ..  versionadded:: 12.0
 
@@ -920,10 +766,8 @@ passwordPolicy
     TYPO3_CONF_VARS FE; exposeRedirectInformation
 ..  _typo3ConfVars_fe_exposeRedirectInformation:
 
-exposeRedirectInformation
-=========================
-
-..  confval:: $GLOBALS['TYPO3_CONF_VARS']['FE']['exposeRedirectInformation']
+..  confval:: exposeRedirectInformation
+    :Path: $GLOBALS['TYPO3_CONF_VARS']['FE']['exposeRedirectInformation']
     :name: typo3-conf-vars-fe-exposeRedirectInformation
     :type: bool
     :Default: false
@@ -936,15 +780,14 @@ exposeRedirectInformation
     TYPO3_CONF_VARS FE; contentSecurityPolicyReportingUrl
 ..  _typo3ConfVars_fe_contentSecurityPolicyReportingUrl:
 
-contentSecurityPolicyReportingUrl
-=================================
+..  confval:: contentSecurityPolicyReportingUrl
 
-..  versionadded:: 12.3
-
-..  confval:: $GLOBALS['TYPO3_CONF_VARS']['FE']['contentSecurityPolicyReportingUrl']
+    :Path: $GLOBALS['TYPO3_CONF_VARS']['FE']['contentSecurityPolicyReportingUrl']
     :name: typo3-conf-vars-fe-contentSecurityPolicyReportingUrl
     :type: string
     :Default: ''
+
+    ..  versionadded:: 12.3
 
     Configure the reporting HTTP endpoint of
     :ref:`Content Security Policy <content-security-policy>` violations in the

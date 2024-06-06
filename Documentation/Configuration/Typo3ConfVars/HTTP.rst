@@ -1,9 +1,9 @@
-.. include:: /Includes.rst.txt
+..  include:: /Includes.rst.txt
 
-.. index::
-   TYPO3_CONF_VARS; HTTP
-   TYPO3_CONF_VARS HTTP
-.. _typo3ConfVars_http:
+..  index::
+    TYPO3_CONF_VARS; HTTP
+    TYPO3_CONF_VARS HTTP
+..  _typo3ConfVars_http:
 
 ====================
 HTTP - tune requests
@@ -12,9 +12,6 @@ HTTP - tune requests
 HTTP configuration to tune how TYPO3 behaves on HTTP requests made by TYPO3.
 See `Guzzle documentation <https://docs.guzzlephp.org/en/latest/request-options.html>`__
 for more background information on those settings.
-
-..  contents::
-    :local:
 
 ..  note::
     The configuration values listed here are keys in the global PHP array
@@ -25,170 +22,134 @@ for more background information on those settings.
     *   :ref:`config/system/settings.php <typo3ConfVars-settings>`
     *   :ref:`config/system/additional.php <typo3ConfVars-additional>`
 
+..  confval-menu::
+    :name: globals-typo3-conf-vars-http
+    :display: tree
+    :type:
 
-.. index::
-   TYPO3_CONF_VARS HTTP; allow_redirects
-.. _typo3ConfVars_http_allow_redirects:
+..  _typo3ConfVars_http_allow_redirects:
 
-allow_redirects
-===============
+..  confval:: allow_redirects
+    :name: globals-typo3-conf-vars-sys-http-allow_redirects
+    :Path: $GLOBALS['TYPO3_CONF_VARS']['HTTP']['allow_redirects']
+    :type: mixed
 
-.. confval:: $GLOBALS['TYPO3_CONF_VARS']['HTTP']['allow_redirects']
+    Mixed, set to false if you want to disallow redirects, or use it as an
+    array to add more configuration values (see below).
 
-   :type: mixed
+    ..  _typo3ConfVars_http_allow_redirects_strict:
 
-   Mixed, set to false if you want to disallow redirects, or use it as an
-   array to add more configuration values (see below).
+    ..  confval:: strict
+        :name: globals-typo3-conf-vars-sys-http-allow_redirects-strict
+        :Path: $GLOBALS['TYPO3_CONF_VARS']['HTTP']['allow_redirects']['strict']
+        :type: bool
+        :Default: false
 
-.. index::
-   TYPO3_CONF_VARS HTTP; allow_redirects strict
-.. _typo3ConfVars_http_allow_redirects_strict:
+        Whether to keep request method on redirects via status 301 and 302
 
-strict
-------
+        :php:`TRUE`
+            Strict RFC compliant redirects mean that POST redirect requests are
+            sent as POST requests. This is needed for compatibility with
+            `RFC 2616 <http://www.faqs.org/rfcs/rfc2616>`__)
+        :php:`FALSE`
+            redirect POST requests with GET requests,
+            needed for compatibility with most browsers
 
-.. confval:: $GLOBALS['TYPO3_CONF_VARS']['HTTP']['allow_redirects']['strict']
+    ..  _typo3ConfVars_http_allow_redirects_max:
 
-   :type: bool
-   :Default: false
+    ..  confval:: max
+        :name: globals-typo3-conf-vars-sys-http-allow_redirects-max
+        :Path: $GLOBALS['TYPO3_CONF_VARS']['HTTP']['allow_redirects']['max']
+        :type: int
+        :Default: 5
 
-   Whether to keep request method on redirects via status 301 and 302
+        Maximum number of tries before an exception is thrown.
 
-   :php:`TRUE`
-      Strict RFC compliant redirects mean that POST redirect requests are
-      sent as POST requests. This is needed for compatibility with
-      `RFC 2616 <http://www.faqs.org/rfcs/rfc2616>`__)
-   :php:`FALSE`
-      redirect POST requests with GET requests,
-      needed for compatibility with most browsers
+..  _typo3ConfVars_http_cert:
 
-.. index::
-   TYPO3_CONF_VARS HTTP; allow_redirects max
-.. _typo3ConfVars_http_allow_redirects_max:
+..  confval:: cert
+    :name: globals-typo3-conf-vars-sys-http-cert
+    :Path: $GLOBALS['TYPO3_CONF_VARS']['HTTP']['cert']
+    :type: mixed
+    :Default: null
 
-max
----
+    Set to a string to specify the path to a file containing a
+    PEM formatted client side certificate. See
+    `Guzzle option cert <https://docs.guzzlephp.org/en/latest/request-options.html#cert>`__
 
-.. confval:: $GLOBALS['TYPO3_CONF_VARS']['HTTP']['allow_redirects']['max']
+..  _typo3ConfVars_http_connect_timeout:
 
-   :type: int
-   :Default: 5
+..  confval:: connect_timeout
+    :name: globals-typo3-conf-vars-sys-http-connect_timeout
+    :Path: $GLOBALS['TYPO3_CONF_VARS']['HTTP']['connect_timeout']
+    :type: int
+    :Default: 10
 
-   Maximum number of tries before an exception is thrown.
+    Default timeout for connection in seconds. Exception will be thrown if
+    connecting to a remote host
 
-.. index::
-   TYPO3_CONF_VARS HTTP; cert
-.. _typo3ConfVars_http_cert:
+..  _typo3ConfVars_http_proxy:
 
-cert
-====
+..  confval:: proxy
+    :name: globals-typo3-conf-vars-sys-http-proxy
+    :Path: $GLOBALS['TYPO3_CONF_VARS']['HTTP']['proxy']
+    :type: mixed
+    :Default: null
 
-.. confval:: $GLOBALS['TYPO3_CONF_VARS']['HTTP']['cert']
+    Enter a single proxy server as string, for example :php:`'proxy.example.org'`
 
-   :type: mixed
-   :Default: null
+    Multiple proxies for different protocols can be added separately as an
+    array as authentication and port; see
+    `Guzzle documentation <https://docs.guzzlephp.org/en/latest/request-options.html#proxy>`__
+    for details.
 
-   Set to a string to specify the path to a file containing a
-   PEM formatted client side certificate. See
-   `Guzzle option cert <https://docs.guzzlephp.org/en/latest/request-options.html#cert>`__
+    The configuration with an array must be made in the
+    :file:`config/system/additional.php`; see :ref:`typo3ConfVars-additional`
+    for details.
 
-.. index::
-   TYPO3_CONF_VARS HTTP; connect_timeout
-.. _typo3ConfVars_http_connect_timeout:
+..  _typo3ConfVars_http_ssl_key:
 
-connect_timeout
-===============
+..  confval:: ssl_key
+    :name: globals-typo3-conf-vars-sys-http-ssl_key
+    :Path: $GLOBALS['TYPO3_CONF_VARS']['HTTP']['ssl_key']
+    :type: mixed
+    :Default: null
 
-.. confval:: $GLOBALS['TYPO3_CONF_VARS']['HTTP']['connect_timeout']
+    Local certificate and an optional passphrase, see
+    `Guzzle option ssl-key <https://docs.guzzlephp.org/en/latest/request-options.html#ssl-key>`__
 
-   :type: int
-   :Default: 10
+..  _typo3ConfVars_http_timeout:
 
-   Default timeout for connection in seconds. Exception will be thrown if
-   connecting to a remote host takes longer than this timeout.
+..  confval:: timeout
+    :name: globals-typo3-conf-vars-sys-http-timeout
+    :Path: $GLOBALS['TYPO3_CONF_VARS']['HTTP']['timeout']
+    :type: int
+    :Default: 0
 
-.. index::
-   TYPO3_CONF_VARS HTTP; proxy
-.. _typo3ConfVars_http_proxy:
+    Default timeout for whole request. Exception will be thrown if sending the
+    request takes more than this number of seconds.
 
-proxy
-=====
+    Should be greater than the
+    :ref:`connection timeout<typo3ConfVars_http_connect_timeout>` or
+    :php:`0` to not set a limit.
 
-.. confval:: $GLOBALS['TYPO3_CONF_VARS']['HTTP']['proxy']
+..  _typo3ConfVars_http_verify:
 
-   :type: mixed
-   :Default: null
+..  confval:: verify
+    :name: globals-typo3-conf-vars-sys-http-verify
+    :Path: $GLOBALS['TYPO3_CONF_VARS']['HTTP']['verify']
+    :type: mixed
+    :Default: true
 
-   Enter a single proxy server as string, for example :php:`'proxy.example.org'`
+    Describes the SSL certificate verification behavior of a request, see
+    `Guzzle option verify <https://docs.guzzlephp.org/en/latest/request-options.html#verify>`__
 
-   Multiple proxies for different protocols can be added separately as an
-   array as authentication and port; see
-   `Guzzle documentation <https://docs.guzzlephp.org/en/latest/request-options.html#proxy>`__
-   for details.
+..  _typo3ConfVars_http_version:
 
-   The configuration with an array must be made in the
-   :file:`config/system/additional.php`; see :ref:`typo3ConfVars-additional`
-   for details.
+..  confval:: version
+    :name: globals-typo3-conf-vars-sys-http-version
+    :Path: $GLOBALS['TYPO3_CONF_VARS']['HTTP']['version']
+    :type: text
+    :Default: '1.1'
 
-.. index::
-   TYPO3_CONF_VARS HTTP; ssl_key
-.. _typo3ConfVars_http_ssl_key:
-
-ssl_key
-=======
-
-.. confval:: $GLOBALS['TYPO3_CONF_VARS']['HTTP']['ssl_key']
-
-   :type: mixed
-   :Default: null
-
-   Local certificate and an optional passphrase, see
-   `Guzzle option ssl-key <https://docs.guzzlephp.org/en/latest/request-options.html#ssl-key>`__
-
-.. index::
-   TYPO3_CONF_VARS HTTP; timeout
-.. _typo3ConfVars_http_timeout:
-
-timeout
-=======
-
-.. confval:: $GLOBALS['TYPO3_CONF_VARS']['HTTP']['timeout']
-
-   :type: int
-   :Default: 0
-
-   Default timeout for whole request. Exception will be thrown if sending the
-   request takes more than this number of seconds.
-
-   Should be greater than the
-   :ref:`connection timeout<typo3ConfVars_http_connect_timeout>` or
-   :php:`0` to not set a limit.
-
-.. index::
-   TYPO3_CONF_VARS HTTP; verify
-.. _typo3ConfVars_http_verify:
-
-verify
-======
-
-.. confval:: $GLOBALS['TYPO3_CONF_VARS']['HTTP']['verify']
-
-   :type: mixed
-   :Default: true
-
-   Describes the SSL certificate verification behavior of a request, see
-   `Guzzle option verify <https://docs.guzzlephp.org/en/latest/request-options.html#verify>`__
-
-.. index::
-   TYPO3_CONF_VARS HTTP; version
-.. _typo3ConfVars_http_version:
-
-version
-=======
-
-.. confval:: $GLOBALS['TYPO3_CONF_VARS']['HTTP']['version']
-
-   :type: text
-   :Default: '1.1'
-
-   Default HTTP protocol version. Use either "1.0" or "1.1".
+    Default HTTP protocol version. Use either "1.0" or "1.1".
