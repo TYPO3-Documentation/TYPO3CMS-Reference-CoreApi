@@ -162,7 +162,7 @@ The nonce is applied automatically, when scripts or styles are defined with the
 TYPO3 API, like TypoScript (:typoscript:`page.includeJS`, etc.) or the
 :ref:`asset collector <assets>`. This only refers to referenced files
 (via :html:`src` and :html:`href` attributes) and not inline scripts
-or stylesheets. For those, you should either use the PHP/Fluid approach
+or inline styles. For those, you should either use the PHP/Fluid approach
 as listed below, or use TypoScript only for passing DOM attributes
 and using external scripts to actually evaluate these attributes to control
 functionality.
