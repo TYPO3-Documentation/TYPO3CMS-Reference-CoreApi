@@ -26,6 +26,8 @@ the :ref:`Notification API (flash message) <notification_api>` should be used.
 
 For complex content, like forms or a lot of information, use normal pages.
 
+.. _modules-modals-api:
+
 API
 ===
 
@@ -43,73 +45,83 @@ The API provides only two public methods:
 Modal settings
 --------------
 
-..  confval:: title
+..  confval-menu::
+    :name: modules-modals-settings
+    :display: table
+    :type:
 
-    :Required: true
-    :type: string
+    ..  confval:: title
+        :name: modules-modals-settings-title
+        :Required: true
+        :type: string
 
-    The title displayed in the modal
+        The title displayed in the modal
 
-..  confval:: content
+    ..  confval:: content
+        :name: modules-modals-settings-content
+        :Required: true
+        :type: string|jQuery
 
-    :Required: true
-    :type: string|jQuery
+        The content displayed in the modal
 
-    The content displayed in the modal
+    ..  confval:: severity
+        :name: modules-modals-settings-severity
+        :type: int
+        :Default: :js:`TYPO3.Severity.info`
 
-..  confval:: severity
+        Represents the severity of a modal. Please see :js:`TYPO3.Severity`.
 
-    :type: int
-    :Default: :js:`TYPO3.Severity.info`
+    ..  confval:: buttons
+        :name: modules-modals-settings-buttons
+        :type: object[]
 
-    Represents the severity of a modal. Please see :js:`TYPO3.Severity`.
+        Actions rendered into the modal footer. If empty, the footer
+        is not rendered. See section :ref:`modules-modals` on how to configure the buttons.
 
-..  confval:: buttons
+    ..  confval:: staticBackdrop
+        :name: modules-modals-settings-staticBackdrop
+        :type: bool
+        :Default: :js:`false`
 
-    :type: object[]
-
-    Actions rendered into the modal footer. If empty, the footer
-    is not rendered. See section :ref:`modules-modals` on how to configure the buttons.
-
-..  confval:: staticBackdrop
-
-    :type: bool
-    :Default: :js:`false`
-
-    Controls whether a static backdrop should be rendered, which prevents
-    closing the modal by clicking outside of it.
+        Controls whether a static backdrop should be rendered, which prevents
+        closing the modal by clicking outside of it.
 
 .. _modules-modals-button-settings:
 
 Button settings
 ---------------
 
-..  confval:: text
+..  confval-menu::
+    :name: modules-modals-button-settings
+    :display: table
+    :type:
 
-    :Required: true
-    :type: string
+    ..  confval:: text
+        :name: modules-modals-button-settings-text
+        :Required: true
+        :type: string
 
-    The text rendered into the button.
+        The text rendered into the button.
 
-..  confval:: trigger / action
+    ..  confval:: trigger / action
+        :name: modules-modals-button-settings-trigger
+        :Required: true
+        :type: function
 
-    :Required: true
-    :type: function
+        Callback that is triggered on button click - either a simple function or
+        :js:`DeferredAction` / :js:`ImmediateAction`
 
-    Callback that is triggered on button click - either a simple function or
-    :js:`DeferredAction` / :js:`ImmediateAction`
+    ..  confval:: active
+        :name: modules-modals-button-settings-active
+        :type: bool
 
-..  confval:: active
+        Marks the button as active. If true, the button gets the focus.
 
-    :type: bool
+    ..  confval:: btnClass
+        :name: modules-modals-button-settings-btnClass
+        :type: string
 
-    Marks the button as active. If true, the button gets the focus.
-
-..  confval:: btnClass
-
-    :type: string
-
-    The CSS class for the button.
+        The CSS class for the button.
 
 ..  versionchanged:: 12.0
     The :js:`Button` property `dataAttributes` has been removed without
