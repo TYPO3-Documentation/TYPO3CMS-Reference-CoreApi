@@ -159,7 +159,12 @@ or styles are blocked by the browser.
 
 The nonce is applied automatically, when scripts or styles are defined with the
 TYPO3 API, like TypoScript (:typoscript:`page.includeJS`, etc.) or the
-:ref:`asset collector <assets>`.
+:ref:`asset collector <assets>`. This only refers to referenced files
+(via :html:`src` and :html:`href` attributes) and not inline scripts
+or stylesheets. For those, you should either use the PHP/Fluid approach
+as listed below, or use TypoScript only for passing DOM attributes
+and using external scripts to actually evaluate these attributes to control
+functionality.
 
 TYPO3 provides APIs to get the nonce for the current request:
 
@@ -188,6 +193,7 @@ is available, which provides the nonce in a Fluid template, for example:
 ..  code-block:: html
 
     <script nonce="{f:security.nonce()}">const inline = 'script';</script>
+    <f:asset.script useNonce="1">console.log('Something');</f:asset.script>
 
 
 .. _content-security-policy-reporting:
