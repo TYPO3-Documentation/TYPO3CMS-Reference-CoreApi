@@ -621,34 +621,6 @@ the TYPO3 frontend:
     :file:`EXT:core/Classes/TypoScript/IncludeTree/TreeBuilder.php`
 
 ..  index::
-    TYPO3_CONF_VARS FE; ContentObjects
-..  _typo3ConfVars_fe_ContentObjects:
-
-..  confval:: ContentObjects
-    :Path: $GLOBALS['TYPO3_CONF_VARS']['FE']['ContentObjects']
-    :name: typo3-conf-vars-fe-ContentObjects
-    :type: array
-
-    ..  versionchanged:: 12.0
-        The global variable `$GLOBALS['TYPO3_CONF_VARS']['FE']['ContentObjects']` has
-        no effect anymore in TYPO3 v12.0 and above. It can be defined to achieve
-        backward compatibility with TYPO3 version 11 and below.
-
-    TypoScript content objects (`cObject`) like :typoscript:`TEXT` or
-    :typoscript:`HMENU` are registered as services:
-
-    ..  code-block:: yaml
-        :caption: EXT:my_extension/Configuration/Services.yaml
-
-        services:
-           # ...
-           MyCompany\MyPackage\ContentObject\CustomContentObject:
-             tags:
-               - name: frontend.contentobject
-                 identifier: 'MY_OBJ'
-
-
-..  index::
     TYPO3_CONF_VARS FE; typolinkBuilder
 ..  _typo3ConfVars_fe_typolinkBuilder:
 
@@ -723,11 +695,7 @@ the TYPO3 frontend:
 ..  _typo3ConfVars_fe_passwordPolicy:
 
 ..  confval:: passwordPolicy
-
-
-..  versionadded:: 12.0
-
-..  confval:: $GLOBALS['TYPO3_CONF_VARS']['FE']['passwordPolicy']
+    :Path: $GLOBALS['TYPO3_CONF_VARS']['FE']['passwordPolicy']
     :name: typo3-conf-vars-fe-passwordPolicy
     :type: string
     :Default: default
@@ -759,8 +727,6 @@ the TYPO3 frontend:
     :name: typo3-conf-vars-fe-contentSecurityPolicyReportingUrl
     :type: string
     :Default: ''
-
-    ..  versionadded:: 12.3
 
     Configure the reporting HTTP endpoint of
     :ref:`Content Security Policy <content-security-policy>` violations in the

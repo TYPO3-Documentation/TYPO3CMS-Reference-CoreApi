@@ -58,8 +58,6 @@ This file overrides default settings from
 :file:`typo3/sysext/core/Configuration/DefaultConfiguration.php`.
 
 ..  note::
-    ..  versionchanged:: 12.1
-
     The :file:`settings.php` file can be read-only. In this case, the
     sections in the Install Tool that would write to this file inform a
     system maintainer that it is write-protected. All input fields are disabled

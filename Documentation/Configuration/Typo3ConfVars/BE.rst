@@ -521,23 +521,8 @@ the TYPO3 backend:
         :ref:`Configuration/user.tsconfig <extension-configuration-user_tsconfig>`
         instead.
 
-    Contains the default user TSconfig.
-
-    This variable should not be changed directly but by the following API function.
-    This makes your code less likely to break in the future.
-
-    ..  code-block:: php
-        :caption: my_sitepackage/ext_localconf.php
-
-        /**
-        * Adding the default User TSconfig
-        */
-        \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addUserTSConfig('
-            @import 'EXT:my_sitepackage/Configuration/TsConfig/User/default.tsconfig'
-        ');
-
-    Read more about
-    :ref:`Setting default User TSconfig <t3tsconfig:usersettingdefaultusertsconfig>`.
+        See also
+        :ref:`Setting default User TSconfig <t3tsconfig:usersettingdefaultusertsconfig>`.
 
 ..  _typo3ConfVars_be_defaultPageTSconfig:
 
@@ -550,27 +535,7 @@ the TYPO3 backend:
         This setting will be ignored with TYPO3 v14.0.
         Use :ref:`Configuration/page.tsconfig <extension-configuration-page_tsconfig>` instead.
 
-    Contains the default page TSconfig.
-
-    Never set this configuration variable directly. Use the following methods instead:
-
-    ..  versionadded:: 12.0
-        TSconfig stored in a file :file:`EXT:my_sitepackage/Configuration/page.tsconfig`
-        will be automatically loaded before the content of
-        :php:`$TYPO3_CONF_VARS[SYS][defaultPageTSconfig]`.
-
-    Page TSconfig stored in files like
-    :file:`EXT:my_sitepackage/Configuration/page.tsconfig` are loaded before
-    :php:`$TYPO3_CONF_VARS[SYS][defaultPageTSconfig]`.
-    This is done during build-time and therefore more performant than the legacy way of
-    loading default Page Tsconfig during runtime by setting
-    :php:`$TYPO3_CONF_VARS[SYS][defaultPageTSconfig]` or the API function
-    :php:`ExtensionManagementUtility::addPageTSConfig`. It is therefore highly recommended
-    to migrate to using files like :file:`EXT:my_sitepackage/Configuration/page.tsconfig`
-    instead of setting this global variable.
-
-    Read more about
-    :ref:`Setting the Page TSconfig globally <t3tsconfig:pagesettingdefaultpagetsconfig>`.
+        See also :ref:`Setting the page TSconfig globally <t3tsconfig:pagesettingdefaultpagetsconfig>`.
 
 ..  _typo3ConfVars_be_defaultPermissions:
 
@@ -683,31 +648,6 @@ the TYPO3 backend:
     Have also a look into the :ref:`security guidelines
     <security-global-typo3-options-fileDenyPattern>`.
 
-..  _typo3ConfVars_be_interfaces:
-
-..  confval:: interfaces
-    :Path: $GLOBALS['TYPO3_CONF_VARS']['BE']['interfaces']
-    :name: globals-typo3-conf-vars-be-interfaces
-
-    ..  versionchanged:: 12.0
-        This option was removed with TYPO3 v12.0.
-
-    If a TYPO3 project really relies on this feature, create an
-    :ref:`XCLASS <xclasses>` of :php:`\TYPO3\CMS\Backend\Controller\LoginController`,
-    where also a custom Fluid template may be used.
-
-..  _typo3ConfVars_be_explicitADmode:
-
-..  confval:: explicitADmode
-    :Path: $GLOBALS['TYPO3_CONF_VARS']['BE']['explicitADmode']
-    :name: globals-typo3-conf-vars-be-explicitADmode
-
-    ..  versionchanged:: 12.0
-        The handling of :php:`$GLOBALS['TYPO3_CONF_VARS']['BE']['explicitADmode']` has been changed and
-        is now set using :php:`explicitAllow`. Extensions should not assume this global array
-        key is set anymore as of TYPO3 Core v12. Extensions that need to stay compatible with v11
-        and v12 should instead use: :php:`$GLOBALS['TYPO3_CONF_VARS']['BE']['explicitADmode'] ?? 'explicitAllow'`.
-
 ..  _typo3ConfVars_be_flexformForceCDATA:
 
 ..  confval:: flexformForceCDATA
@@ -749,28 +689,6 @@ the TYPO3 backend:
     mode. Furthermore the fieldname is appended to the label of fields. Use
     this to debug the backend only!
 
-..  _typo3ConfVars_be_toolbarItems:
-
-..  confval:: toolbarItems
-    :Path: $GLOBALS['TYPO3_CONF_VARS']['BE']['toolbarItems']
-    :name: globals-typo3-conf-vars-be-toolbarItems
-
-    ..  versionchanged:: 12.0
-        This configuration variable has been removed in TYPO3 version 12.0. Setting
-        it has no effect.
-
-    Starting with version 12.0 toolbar items implementing
-    :php:`\TYPO3\CMS\Backend\Toolbar\ToolbarItemInterface` are automatically
-    registered by adding the tag :yaml:`backend.toolbar.item`, if :yaml:`autoconfigure`
-    is enabled in :file:`Services.yaml`.
-
-    ..  rubric:: Migration
-
-    Remove :php:`$GLOBALS['TYPO3_CONF_VARS']['BE']['toolbarItems']` from your
-    :file:`ext_localconf.php` file. If :yaml:`autoconfigure` is not enabled in
-    your :file:`Configuration/Services.(yaml|php)`, add the tag
-    :yaml:`backend.toolbar.item` to your toolbar item class.
-
 ..  _typo3ConfVars_be_HTTP:
 
 ..  confval:: HTTP
@@ -795,10 +713,6 @@ the TYPO3 backend:
                 ],
             ],
         ]
-
-    ..  versionchanged:: 12.3
-        The options :php:`strictTransportSecurity`, :php:`avoidMimeTypeSniffing`
-        and :php:`referrerPolicy` were added.
 
     ..  note::
         The `Strict-Transport-Security` is only active, if the option
@@ -851,8 +765,6 @@ the TYPO3 backend:
     :type: string
     :Default: default
 
-    ..  versionadded:: 12.0
-
     Defines the :ref:`password policy <password-policies>` in backend context.
 
 ..  _typo3ConfVars_be_stylesheets:
@@ -862,8 +774,6 @@ the TYPO3 backend:
     :name: globals-typo3-conf-vars-be-stylesheets
     :type: string
     :Default: default
-
-    ..  versionadded:: 12.3
 
     Load additional CSS files for the TYPO3 backend interface. This setting
     can be set per site or within an extension's :file:`ext_localconf.php`.
@@ -891,8 +801,6 @@ the TYPO3 backend:
     :name: globals-typo3-conf-vars-be-contentSecurityPolicyReportingUrl
     :type: string
     :Default: ''
-
-    ..  versionadded:: 12.3
 
     Configure the reporting HTTP endpoint of
     :ref:`Content Security Policy <content-security-policy>` violations in the
