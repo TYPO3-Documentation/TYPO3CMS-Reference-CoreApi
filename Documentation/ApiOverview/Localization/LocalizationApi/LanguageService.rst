@@ -22,7 +22,7 @@ In the frontend a :php:`LanguageService` can be accessed via the contentObject:
     use TYPO3\CMS\Core\Utility\GeneralUtility;
 
     class ExampleController {
-        proteced ServerRequestInterface $request;
+        protected ServerRequestInterface $request;
 
         public function __construct (
             private readonly LanguageServiceFactory $LanguageServiceFactory,
