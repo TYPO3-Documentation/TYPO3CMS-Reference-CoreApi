@@ -14,44 +14,11 @@ In the backend context a :php:`LanguageService` is stored in the global
 variable :php:`$GLOBALS['LANG']`.
 In the frontend a :php:`LanguageService` can be accessed via the contentObject:
 
-..  code-block:: php
-    :caption: not Extbase example Classes/Controller/ExampleController.php
-
-    use Psr\Http\Message\ServerRequestInterface;
-    use TYPO3\CMS\Core\Localization\LanguageServiceFactory;
-    use TYPO3\CMS\Core\Utility\GeneralUtility;
-
-    class ExampleController {
-        proteced ServerRequestInterface $request;
-
-        public function __construct (
-            private readonly LanguageServiceFactory $LanguageServiceFactory,
-        ) {
-        }
-
-        public function processAction(
-            string $content,
-            array $configurations,
-            ServerRequestInterface $request,
-        ): string
-            $this->request = $request;
-
-            $content = '';
-            ...
-            $label = $this->getTranslatedLabel('LLL:EXT:my_extension/Resources/Private/Language/locallang.xlf:labels.exampleLabel');
-            ...
-
-            return $content;
-        }
-
-        protected function getTranslatedLabel(string $key): string
-        {
-            $language = $this->request->getAttribute('language') ?? $this->request->getAttribute('site')->getDefaultLanguage();
-            $languageService = $this->LanguageServiceFactory
-                ->createFromSiteLanguage($language);
-
-            return $languageService->sL($key);
-        }
-
-
 ..  include:: _LanguageService.rst.txt
+
+Example: Use
+========
+
+..  literalinclude:: _ExampleController.php
+    :language: php
+    :caption: EXT:my_extension/Classes/Controller/ExampleController.php (not Extbase)
