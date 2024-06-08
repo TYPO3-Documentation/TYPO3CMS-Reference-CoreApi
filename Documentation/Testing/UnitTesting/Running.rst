@@ -8,11 +8,11 @@ Running Unit tests
 
 ..  _testing-unit-run-install:
 
-Install phpunit and the TYPO3 testing framework
+Install PHPUnit and the TYPO3 testing framework
 ===============================================
 
-I order to run unit tests within an extension or project you can require
-phpunit and the testing framework via Composer as development dependency:
+In order to run unit tests within an extension or project you can require
+PHPUnit and the testing framework via Composer as a development dependency:
 
 ..  code-block:: bash
 
@@ -32,7 +32,7 @@ The following matrix can help you to choose the correct versions.
  6.x.x              v10, v11         7.2, 7.3, 7.4, 8.0, 8.1, 8.2, 8.3   ^8, ^9
 ================== ================ =================================== ==========
 
-Testing framework <= 6.x no longer maintained.
+Testing framework <= 6.x is no longer maintained.
 
 ..  _testing-unit-run-configure:
 
@@ -48,7 +48,7 @@ Copy the files `vendor/typo3/testing-framework/Resources/Core/Build/UnitTests.xm
 and `vendor/typo3/testing-framework/Resources/Core/Build/UnitTestsBootstrap.php
 <https://github.com/TYPO3/testing-framework/blob/main/Resources/Core/Build/UnitTestsBootstrap.php>`__
 
-Open file :file:`UnitTests.xml` and adjust the paths to the path or paths where
+Open file :file:`UnitTests.xml` and adjust the paths to the path (or multiple paths) where
 the unit tests are stored. By convention many extensions store them in the
 directory :path:`Tests/Unit` and subdirectories thereof:
 
@@ -64,7 +64,7 @@ directory :path:`Tests/Unit` and subdirectories thereof:
 
 If you are testing in a project you will probably have a directory from where
 local extensions like site packages and client-specific extensions are installed
-you should then also include them:
+, so you can also include them:
 
 ..  code-block:: diff
     :caption: UnitTests.xml for project testing
@@ -80,7 +80,7 @@ you should then also include them:
 Run the unit tests on your system or with DDEV
 ==============================================
 
-If you have the required PHP version installed on your system, you can run the
+If you have the required PHP version installed on your host system, you can run the
 unit tests directly:
 
 ..  code-block:: bash
@@ -104,7 +104,7 @@ test class) you can use the filter option:
     php vendor/bin/phpunit -c Build/phpunit/UnitTests.xml --filter "MyTest"
 
 You can of course define a
-`Composer script <https://getcomposer.org/doc/articles/scripts.md>` as well.
+`Composer script <https://getcomposer.org/doc/articles/scripts.md>` as well, so that this command can be executed easily on the host, within a DDEV container and also in GitHub Actions or Gitlab CI.
 
 Run the unit tests with runTests.sh
 ===================================
@@ -125,5 +125,7 @@ It is also possible to choose the PHP version to run the tests with:
 You can start by copying the
 `runTests.sh of blog_example <https://github.com/TYPO3-Documentation/blog_example/blob/main/Build/Scripts/runTests.sh>`__
 and adjust it to your needs.
+
+runTests.sh is a script that originates from the TYPO3 Core repository and is used as a test and tool execution runner. It is based on running individual Docker containers with several bash commands, and also allows Xdebug integration, different database environments and much more. once you copy such a file to your repository you need to take care of maintaining it when possible bugfixes or changes occur upstream.
 
 ..  todo: once we have a chapter about the runTests.sh, link it from here.
