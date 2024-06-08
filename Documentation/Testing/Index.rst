@@ -30,5 +30,5 @@ various scopes. Have fun.
     ProjectTesting
     UnitTesting/Index
     FunctionalTesting/Index
-    WritingAcceptance
+    AcceptanceTesting/Index
     Tutorial/Index
