@@ -28,7 +28,7 @@ various scopes. Have fun.
 
     ExtensionTesting
     ProjectTesting
-    WritingUnit
+    UnitTesting/Index
     WritingFunctional
     WritingAcceptance
     Tutorial/Index
