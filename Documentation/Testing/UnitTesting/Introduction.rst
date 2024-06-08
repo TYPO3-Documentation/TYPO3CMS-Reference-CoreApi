@@ -3,10 +3,9 @@
 ..  include:: /Includes.rst.txt
 ..  _testing-writing-unit-introduction:
 
-============================
-Introduction into unit tests
-============================
-
+==========================
+Introduction to unit tests
+==========================
 
 This chapter goes into details about writing and maintaining unit tests in the TYPO3
 world. Core developers over the years gained quite some knowledge and experience on
