@@ -17,6 +17,7 @@ Unit testing with the TYPO3 testing framework
     :titlesonly:
 
     Introduction
+    Running
 
 ..  index:: Unit tests; Conventions
 ..  _testing-writing-unit-conventions:
