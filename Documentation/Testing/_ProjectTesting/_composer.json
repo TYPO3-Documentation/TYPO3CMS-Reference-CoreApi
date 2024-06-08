@@ -1,0 +1,29 @@
+{
+    "name": "sbuerk/tf-basics-project",
+    "description": "TYPO3 Demo Project to demonstrate basic testing integration",
+    "license": "GPL-2.0-or-later",
+    "type": "project",
+    "require": {
+        "internal/custom-command": "@dev",
+        "internal/custom-middleware": "@dev",
+        "typo3/cms-core": "^12.4",
+        "typo3/cms-[other_dependencies]": "^12.4"
+    },
+    "repositories": {
+        "extensions": {
+            "type": "path",
+            "url": "packages/*"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "SBUERK\\TfBasicsProject\\Tests\\": "Tests/"
+        }
+    },
+    "config": {
+        "allow-plugins": {
+            "typo3/class-alias-loader": true,
+            "typo3/cms-composer-installers": true
+        }
+    }
+}
