@@ -260,7 +260,7 @@ Green :)
 Summary
 =======
 
-This chapter is a show case how project testing can be done. Our example projects makes it easy for us since
+This chapter is a show case how project testing can be done. Our example project makes it easy for us since
 the ddev setup allows us to fully kickstart the entire instance and then run tests on it. Your project setup
 may be probably different, you may want to run tests against some other web endpoint, you may want to trigger
 that from within your CI and deployment phase and so on. These setups are out of scope of this document, but

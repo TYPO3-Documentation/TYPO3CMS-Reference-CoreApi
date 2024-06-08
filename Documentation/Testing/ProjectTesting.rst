@@ -28,7 +28,7 @@ The Core mono repository is basically a project setup, having local path
 extensions in `typo3/sysexts/*` instead of the more known and lived `packages/*`
 project folder structure.
 
-.. _testing-projects-structure:
+.. _testing-project-structure:
 
 Project structure
 =================
@@ -55,7 +55,7 @@ The :file:`composer.json` looks like this:
 ..  literalinclude:: _ProjectTesting/_composer.json
     :caption: Example project composer.json before testing
 
-.. _testing-projects-installation:
+..  _testing-projects-installation:
 
 Install testing dependencies
 ============================
@@ -100,7 +100,7 @@ TYPO3 testing framework:
 
     composer req --dev typo3/coding-standards typo3/testing-framework
 
-.. _testing-projects-configuration:
+.. _testing-project-configuration:
 
 Test configuration on project level
 ===================================
@@ -111,7 +111,7 @@ one folder per test-type and we will follow that scheme here. If you put
 the configuration in other directories, adjust your configuration files
 accordingly.
 
-.. _testing-projects-configuration-cs:
+..  _testing-projects-configuration-cs:
 
 Code style tests and fixing
 ---------------------------
@@ -124,7 +124,7 @@ your own configuration:
     :caption: Build/php-cs-fixer/.php-cs-fixer.dist.php
 
 It is recommended to also copy the :file:`.editorconfig` from the testing
-framework into your main directory so that your IDE applies the same formating
+framework into your main directory so that your IDE applies the same formatting
 as the php-cs-fixer.
 
 .. _testing-projects-configuration-phpstan:
@@ -141,7 +141,7 @@ should be taken into consideration:
 It also makes sense to exclude the :file:`ext_emconf.php` and any
 :path:`node_modules` directory.
 
-.. _testing-projects-configuration-phpunit:
+..  _testing-projects-configuration-phpunit:
 
 Unit and Functional test configuration
 --------------------------------------
@@ -149,14 +149,14 @@ Unit and Functional test configuration
 See the chapters :ref:`Unit testing <testing-writing-unit>` and
 :ref:`Functional testing <testing-writing-functional>`.
 
-.. _testing-projects-execution:
+..  _testing-projects-execution:
 
 Running the tests locally
 =========================
 
 The tests can be run via PHP on your local machine or with DDEV.
 
-.. _testing-projects-execution-cs:
+..  _testing-projects-execution-cs:
 
 Run the PHP cs fixer
 --------------------
@@ -166,7 +166,7 @@ file:
 
 ..  code-block:: bash
 
-    vendor/bin/php-cs-fixer fix  --config=Build/php-cs-fixer/.php-cs-fixer.dist.php
+    vendor/bin/php-cs-fixer fix --config=Build/php-cs-fixer/.php-cs-fixer.dist.php
 
 .. _testing-projects-execution-phpstan:
 
@@ -185,7 +185,7 @@ Regenerate the baseline:
         --configuration=Build/phpstan/phpstan.neon \
         --generate-baseline=Build/phpstan/phpstan-baseline.neon
 
-.. _testing-projects-execution-phpunit:
+..  _testing-projects-execution-phpunit:
 
 Run Unit tests
 --------------
@@ -198,7 +198,7 @@ on your host system or DDEV:
     vendor/bin/phpunit \
         -c Build/phpunit/UnitTests.xml
 
-.. _testing-projects-execution-functional-sqlite:
+..  _testing-projects-execution-functional-sqlite:
 
 Run Functional tests using sqlite and DDEV
 ------------------------------------------
