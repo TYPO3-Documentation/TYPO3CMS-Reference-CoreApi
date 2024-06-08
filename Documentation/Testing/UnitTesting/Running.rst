@@ -104,7 +104,9 @@ test class) you can use the filter option:
     php vendor/bin/phpunit -c Build/phpunit/UnitTests.xml --filter "MyTest"
 
 You can of course define a
-`Composer script <https://getcomposer.org/doc/articles/scripts.md>` as well, so that this command can be executed easily on the host, within a DDEV container and also in GitHub Actions or Gitlab CI.
+`Composer script <https://getcomposer.org/doc/articles/scripts.md>` as well, so that
+this command can be executed easily on the host, within a DDEV container and also in
+GitHub Actions or Gitlab CI.
 
 Run the unit tests with runTests.sh
 ===================================
@@ -126,6 +128,10 @@ You can start by copying the
 `runTests.sh of blog_example <https://github.com/TYPO3-Documentation/blog_example/blob/main/Build/Scripts/runTests.sh>`__
 and adjust it to your needs.
 
-runTests.sh is a script that originates from the TYPO3 Core repository and is used as a test and tool execution runner. It is based on running individual Docker containers with several bash commands, and also allows Xdebug integration, different database environments and much more. once you copy such a file to your repository you need to take care of maintaining it when possible bugfixes or changes occur upstream.
+runTests.sh is a script that originates from the TYPO3 Core repository and is used as
+a test and tool execution runner. It is based on running individual Docker containers
+with several bash commands, and also allows Xdebug integration, different database
+environments and much more. once you copy such a file to your repository you need to
+take care of maintaining it when possible bugfixes or changes occur upstream.
 
 ..  todo: once we have a chapter about the runTests.sh, link it from here.
