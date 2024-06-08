@@ -10,7 +10,9 @@
 Unit testing with the TYPO3 testing framework
 =============================================
 
-..  toctree::
+..  contents:: Sections on this page
+
+..  toctree:: Subchapters
     :maxdepth: 1
     :titlesonly:
 
