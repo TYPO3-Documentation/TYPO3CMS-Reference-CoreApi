@@ -4,7 +4,6 @@
 ..  index:: ! Testing; Functional
 ..  _testing-writing-functional:
 
-
 ===================================================
 Functional testing with the TYPO3 testing framework
 ===================================================

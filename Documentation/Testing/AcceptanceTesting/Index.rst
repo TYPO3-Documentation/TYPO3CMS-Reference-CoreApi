@@ -1,10 +1,12 @@
+:navigation-title: Acceptance tests
+
 ..  include:: /Includes.rst.txt
 ..  index:: ! Testing; Acceptance
 ..  _testing-writing-acceptance:
 
-========================
-Writing acceptance tests
-========================
+===================================================
+Acceptance testing with the TYPO3 testing framework
+===================================================
 
 ..  _testing-writing-acceptance-introduction:
 
