@@ -158,7 +158,7 @@ The tests can be run via PHP on your local machine or with DDEV.
 
 ..  _testing-projects-execution-cs:
 
-Run the PHP cs fixer
+Run the php-cs-fixer
 --------------------
 
 To run the PHP cs fixer you need to configure the path to the configuration
