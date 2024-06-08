@@ -28,7 +28,7 @@ The Core mono repository is basically a project setup, having local path
 extensions in `typo3/sysexts/*` instead of the more known and lived `packages/*`
 project folder structure.
 
-.. _testing-project-structure:
+.. _testing-projects-structure:
 
 Project structure
 =================
@@ -100,7 +100,7 @@ TYPO3 testing framework:
 
     composer req --dev typo3/coding-standards typo3/testing-framework
 
-.. _testing-project-configuration:
+.. _testing-projects-configuration:
 
 Test configuration on project level
 ===================================
@@ -161,7 +161,7 @@ The tests can be run via PHP on your local machine or with DDEV.
 Run the php-cs-fixer
 --------------------
 
-To run the PHP cs fixer you need to configure the path to the configuration
+To run the php-cs-fixer you need to configure the path to the configuration
 file:
 
 ..  code-block:: bash
