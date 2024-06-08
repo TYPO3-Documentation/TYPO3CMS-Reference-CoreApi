@@ -131,7 +131,7 @@ and adjust it to your needs.
 runTests.sh is a script that originates from the TYPO3 Core repository and is used as
 a test and tool execution runner. It is based on running individual Docker containers
 with several bash commands, and also allows Xdebug integration, different database
-environments and much more. once you copy such a file to your repository you need to
+environments and much more. Once you copy such a file to your repository you need to
 take care of maintaining it when possible bugfixes or changes occur upstream.
 
 ..  todo: once we have a chapter about the runTests.sh, link it from here.
