@@ -29,6 +29,6 @@ various scopes. Have fun.
     ExtensionTesting
     ProjectTesting
     UnitTesting/Index
-    WritingFunctional
+    FunctionalTesting/Index
     WritingAcceptance
     Tutorial/Index
