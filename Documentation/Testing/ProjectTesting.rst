@@ -116,7 +116,7 @@ accordingly.
 Code style tests and fixing
 ---------------------------
 
-:composer:`typo3/testing-framework` comes with a predefined configuration for
+:composer:`typo3/coding-standards` comes with a predefined configuration for
 :composer:`friendsofphp/php-cs-fixer`. You can override rules as needed in
 your own configuration:
 
