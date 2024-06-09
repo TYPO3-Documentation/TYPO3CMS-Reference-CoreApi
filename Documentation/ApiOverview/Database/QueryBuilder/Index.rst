@@ -63,6 +63,7 @@ argument. The :ref:`ConnectionPool <database-connection-pool>` object can be
 injected via :ref:`dependency injection <DependencyInjection>`.
 
 ..  literalinclude:: _MyRepository.php
+    :language: php
     :caption: EXT:my_extension/Classes/Domain/Repository/MyRepository.php
 
 ..  attention::
