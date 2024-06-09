@@ -224,7 +224,7 @@ permissions are not enforced in any way by the TYPO3 Core. It is up to extension
 developers to create tools which make use of these permissions.
 
 As an example, you may want to take a look at extension
-:t3ext:`fal_securedownload`
+:composer:`beechit/fal-securedownload`
 which also makes use of the "Is publicly available?" property of
 :ref:`File storages <fal-administration-storages>`.
 

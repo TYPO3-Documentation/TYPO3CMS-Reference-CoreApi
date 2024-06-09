@@ -163,7 +163,7 @@ stick to this and the other Coding Guidelines, the system helps in various ways.
 PHP classes into the :file:`Classes/` folder and using appropriate namespaces for the classes,
 the system will be able to autoload these files.
 
-Extension kickstarters like the :t3ext:`extension_builder`
+Extension kickstarters like the :composer:`friendsoftypo3/extension-builder`
 will create the correct structure for you.
 
 .. toctree::

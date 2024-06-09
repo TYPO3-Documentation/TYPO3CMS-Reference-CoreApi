@@ -183,7 +183,7 @@ The configuration looks like this:
 :yaml:`routePath` defines the static keyword and the placeholders.
 
 ..  note::
-    For people coming from :t3ext:`realurl` in previous TYPO3 versions: The
+    For people coming from :composer:`dmitryd/typo3-realurl` in previous TYPO3 versions: The
     :yaml:`routePath` can be loosely compared to some as "postVarSets".
 
 .. index:: Routing; Plugin Enhancer

@@ -205,7 +205,7 @@ Example
 =======
 
 Below is the structure of a basic FlexForm from the example extension
-:t3ext:`styleguide`:
+:composer:`typo3/cms-styleguide`:
 
 ..  include:: /CodeSnippets/FlexForms/Simple.rst.txt
 

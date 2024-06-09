@@ -64,7 +64,7 @@ as original model.
 If the model has different :ref:`Record types <extbase-persistance-record-types>`
 you can decide to introduce a new type and
 only extend that one type. This is, for example, commonly done when extending
-the model of :t3ext:`news`.
+the model of :composer:`georgringer/news`.
 
 If you are planning to publish your extension that extends another extensions
 model, research on `Packagist <https://packagist.org/>`__ and the

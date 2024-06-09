@@ -15,7 +15,7 @@ on which system extensions are installed.
 Third party extensions can define :ref:`custom console
 commands <console-command-tutorial>`.
 
-The extension :t3ext:`typo3_console` ships many commands to execute TYPO3
+The extension :composer:`helhum/typo3-console` ships many commands to execute TYPO3
 actions, which otherwise would only be accessible via the TYPO3 backend.
 
 This page assumes that the code is run on a Composer based installation with

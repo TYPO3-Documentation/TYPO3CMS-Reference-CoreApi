@@ -11,7 +11,7 @@
 Tea in a nutshell
 =================
 
-The example extension :t3ext:`tea` was created as an example of best practises
+The example extension :composer:`ttn/tea` was created as an example of best practises
 on automatic code checks.
 
 ..  hint::

@@ -68,7 +68,7 @@ Custom find methods can be implemented. They can be used for complex queries.
 
 **Example:**
 
-The :php:`PostRepository` of the :t3ext:`blog` example extension implements
+The :php:`PostRepository` of the :composer:`t3docs/blog-example` example extension implements
 several custom find methods, two of them are shown below:
 
 ..  include:: /CodeSnippets/Extbase/Domain/CustomMethods.rst.txt

@@ -193,7 +193,7 @@ Please refer to :php:`\TYPO3\CMS\Core\PasswordPolicy\Validator\CorePasswordValid
 for a detailed implementation example.
 
 ..  tip::
-    The third-party extension :t3ext:`add_pwd_policy` provides additional
+    The third-party extension :composer:`derhansen/add_pwd_policy` provides additional
     password validators. It can also be used as a resource for writing your
     own password validator.
 
