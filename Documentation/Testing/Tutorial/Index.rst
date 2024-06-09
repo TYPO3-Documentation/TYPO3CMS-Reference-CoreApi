@@ -8,4 +8,5 @@ Testing tutorials
 ..  toctree::
     :glob:
 
-    *
+    Enetcache
+    Acceptance
