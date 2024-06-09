@@ -21,6 +21,10 @@ Tutorials
         chapter offers tutorials for some common methods to
         kickstart an extension.
 
+    ..  card:: :ref:`Components of TYPO3 extension <extension-components>`
+
+        This section is about the essential components of a TYPO3 extension. It provides a comprehensive overview of the structure and core elements that make up an extension.
+
     ..  card:: :ref:`Tea in a nutshell <extbase_tutorial_tea>`
 
         `tea` is a simple, well-tested extension based on Extbase.
@@ -41,4 +45,5 @@ Tutorials
 
     Kickstart/Index
     Tea/Index
+    ComponentsOfTYPO3Extension/Index
     Extbase
