@@ -1,0 +1,15 @@
+includes:
+  - phpstan-baseline.neon
+parameters:
+  level: 5
+
+  paths:
+    - ../../config
+    - ../../packages
+    - ../../Tests
+
+  tmpDir: .cache/phpstan/
+
+  excludePaths:
+    - '**/node_modules/*'
+    - '**/ext_emconf.php'
