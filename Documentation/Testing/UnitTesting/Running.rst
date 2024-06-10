@@ -111,8 +111,8 @@ GitHub Actions or Gitlab CI.
 Run the unit tests with runTests.sh
 ===================================
 
-If you are using a :file:`runTests.sh` like the one used by the :t3ext:`blog_example`
-you can run the tests with:
+If you are using a :file:`runTests.sh` like the one used by the
+:composer:`t3docs/blog-example` you can run the tests with:
 
 ..  code-block:: bash
 

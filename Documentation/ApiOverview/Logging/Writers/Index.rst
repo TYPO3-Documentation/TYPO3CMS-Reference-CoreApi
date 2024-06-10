@@ -53,7 +53,7 @@ The following option is available:
         that module.
 
     ..  tip::
-        There is the third-party extension :t3ext:`logs` available for viewing
+        There is the third-party extension :composer:`co-stack/logs` available for viewing
         such records in the TYPO3 backend.
 
     Example of a :sql:`CREATE TABLE` statement for :php:`logTable`:
@@ -286,4 +286,4 @@ Examples
 ========
 
 Working examples of the usage of different Log writers can be found in the
-extension :t3ext:`examples`.
+extension :composer:`t3docs/examples`.

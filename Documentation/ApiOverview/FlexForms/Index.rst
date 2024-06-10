@@ -115,7 +115,7 @@ Steps to perform (extension developer)
         );
 
 
-    If you are using a content element with a custom CType (recommend, both with and without 
+    If you are using a content element with a custom CType (recommend, both with and without
     Extbase), the example
     looks like this:
 
@@ -552,8 +552,8 @@ Credits
 =======
 
 Some of the examples were taken from the extensions
-:t3ext:`news` (by Georg Ringer)
-and :t3ext:`bootstrap_package`
+:composer:`georgringer/news` (by Georg Ringer)
+and :composer:`bk2k/bootstrap-package`
 (by Benjamin Kott).
 
 Further enhancements by the TYPO3 community are welcome!

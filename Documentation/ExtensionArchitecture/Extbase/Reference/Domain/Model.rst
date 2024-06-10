@@ -447,7 +447,7 @@ the :php:`uid` of the translated record is kept in the :php:`_localizedUid`.
 +----------------------------------------------------------+-------------------------+---------------------------+
 
 ..  hint::
-    In case your project uses :t3ext:`workspaces` there is yet another
+    In case your project uses :composer:`typo3/cms-workspaces` there is yet another
     additional property, :php:`_versionedUid`. Refer to the
     :doc:`Workspaces documentation <ext_workspaces:Index>` for details on
     workspace overlays.

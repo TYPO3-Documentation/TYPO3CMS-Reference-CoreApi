@@ -14,7 +14,7 @@ define a custom data processor by implementing
 :php:`\TYPO3\CMS\Frontend\ContentObject\DataProcessorInterface`.
 
 You can find the example below in the TYPO3 Documentation Team extension
-:t3ext:`examples`.
+:composer:`t3docs/examples`.
 
 
 ..  index::

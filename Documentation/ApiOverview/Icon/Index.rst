@@ -52,7 +52,8 @@ The TYPO3 Core ships two icon providers which can be used straight away:
 ..  versionchanged:: 12.0
     The :php:`\TYPO3\CMS\Core\Imaging\IconProvider\FontawesomeIconProvider`
     was removed from the Core in 12.0. You can use the polyfill extension from
-    :t3ext:`fontawesome_provider` which is also compatible with TYPO3 v11 LTS.
+    :composer:`friendsoftypo3/fontawesome-provider` which is also compatible
+    with TYPO3 v11 LTS.
 
 If you need a custom icon provider, you can add your own by writing a
 class which implements the

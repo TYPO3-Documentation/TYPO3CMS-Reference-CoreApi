@@ -301,7 +301,6 @@ Example: Using a set within a site package
 ==========================================
 
 You can see an example of using a sets within a site package in the extension
-:t3ext:`site-package`,
 `t3docs/site-package (Source on GitHub) <https://github.com/TYPO3-Documentation/TYPO3CMS-Tutorial-SitePackage-Code>`__.
 
 The site package example extension has the following file structure:
@@ -396,7 +395,7 @@ Example: Providing a site set in an extension
 Non site-package extensions can also provide site sets. These can be used by
 sites or site sets to include dependant TypoScript and settings.
 
-The example extension :t3ext:`blog_example` offers one main site set and several
+The example extension :composer:`t3docs/blog-example` offers one main site set and several
 site sets for special use-cases. It has the following file structure:
 
 ..  directory-tree::
