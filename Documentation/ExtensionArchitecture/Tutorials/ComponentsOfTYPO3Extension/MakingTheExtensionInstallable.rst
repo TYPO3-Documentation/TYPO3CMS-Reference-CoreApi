@@ -12,15 +12,15 @@ Add `example-extension/composer.json`
 
 Your `composer.json` file should contain the following essential information (for more information see :ref:`composer.json <t3coreapi:files-composer-json>`):
 
-* Composer name (invisible in Extension Manager)
-* Composer type
-* Extension description
-* Dependencies
-* Extension key
+*   Composer name (invisible in Extension Manager)
+*   Composer type
+*   Extension description
+*   Dependencies
+*   Extension key
 
 A minimal example:
 
-.. code-block:: json
+..  code-block:: json
 
     {
       "name": "vendor/example-extension",
