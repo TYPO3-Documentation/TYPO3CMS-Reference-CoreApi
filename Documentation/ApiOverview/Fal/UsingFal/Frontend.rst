@@ -73,7 +73,8 @@ Example:
     meta data fields for files, for example :html:`creator`, :html:`publisher`,
     :html:`copyright` and others. To access those fields
     :ref:`(see list) <fal-architecture-database-sys-file-metadata>` in the frontend, you
-    have to use a proxy method named :html:`properties`:
+    have to use the :php:`getProperties()` proxy method, which makes all keys
+    available via :fluid:`fileReference.properties.XXX`:
 
     ..  _filemetadata: https://packagist.org/packages/typo3/cms-filemetadata
 
