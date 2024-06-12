@@ -81,7 +81,8 @@ The :sql:`sys_file_metadata` table is extended by the system extension
 `filemetadata`_. In particular, it adds the necessary definitions
 to categorize files with :ref:`system categories <categories>`.
 
-Also some other helpful metadata attributes are filled, most of them
+Also some other helpful metadata attributes are provided (and some of them
+can be automatically inferred from the file). Most of these attributes
 are self-explanatory; this list may not reflect the most recent TYPO3
 version, so it is recommended to inspect the actual TCA configuration
 of that table:
