@@ -57,8 +57,8 @@ Some important fields:
    .. versionchanged:: 13.0.1/12.4.11/11.5.35
    Modifying the :sql:`sys_file` table using DataHandler is blocked since TYPO3
    version 11.5.35, 12.4.11, and 13.0.1. The table
-   should not be extended and additional fields should be added to 
-   :sql:`sys_file_metadata`. See `security advisory TYPO3-CORE-SA-2024-006 <https://typo3.org/security/advisory/typo3-core-sa-2024-006>`__ 
+   should not be extended and additional fields should be added to
+   :sql:`sys_file_metadata`. See `security advisory TYPO3-CORE-SA-2024-006 <https://typo3.org/security/advisory/typo3-core-sa-2024-006>`__
    for more information.
 
 
@@ -82,6 +82,39 @@ important one is:
 The :sql:`sys_file_metadata` table is extended by the system extension
 `filemetadata`_. In particular, it adds the necessary definitions
 to categorize files with :ref:`system categories <categories>`.
+
+Also some other helpful metadata attributes are provided (and some of them
+can be automatically inferred from the file). Most of these attributes
+are self-explanatory; this list may not reflect the most recent TYPO3
+version, so it is recommended to inspect the actual TCA configuration
+of that table:
+
+*  `:sql:caption`
+*  `:sql:color_space`
+*  `:sql:content_creation_date` - Refers to when the contents of the file were created (retrievable for images through EXIF metadata)
+*  `:sql:content_modification_date`
+*  `:sql:copyright`
+*  `:sql:creator`
+*  `:sql:creator_tool` - Name of a tool that was used to create the file (for example for auto-generated files)
+*  `:sql:download_name` - An alternate name of a file when being downloaded (to protect actual file name security relevance)
+*  `:sql:duration` - length of audio/video files, or "reading time"
+*  `:sql:height`
+*  `:sql:keywords`
+*  `:sql:language` - file content language
+*  `:sql:latitude`
+*  `:sql:location_city`
+*  `:sql:location_country`
+*  `:sql:location_region`
+*  `:sql:longitude`
+*  `:sql:note`
+*  `:sql:pages` - Related pages
+*  `:sql:publisher`
+*  `:sql:ranking` - Information on prioritizing files (like "star ratings")
+*  `:sql:source` - Where a file was fetched from (for example from libraries, clients, remote storage, ...)
+*  `:sql:status` - indicate whether a file may need metadata update based on differences between locally cached metadata and remote/actual file metadata
+*  `:sql:unit` - measurement units
+*  `:sql:visible`
+*  `:sql:width`
 
 ..  _filemetadata: https://packagist.org/packages/typo3/cms-filemetadata
 
