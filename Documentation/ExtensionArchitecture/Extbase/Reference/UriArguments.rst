@@ -1,6 +1,6 @@
-.. include:: /Includes.rst.txt
+..  include:: /Includes.rst.txt
 
-.. index:: Extbase; URI arguments; arguments
+..  index:: Extbase; URI arguments; arguments
 
 ===================================
 URI arguments and reserved keywords
@@ -9,7 +9,7 @@ URI arguments and reserved keywords
 Extbase uses special URI arguments to pass variables
 to Controller arguments and the framework itself.
 
-.. todo: Check for completion of this
+..  todo: Check for completion of this
 
 Extbase uses a prefixed URI argument scheme that relies
 on plugin configuration.
@@ -18,10 +18,10 @@ For example, the example extension `EXT:blog_example` would use:
 
 ..  code-block:: plaintext
 
-    https://example.com/blog/?tx_blogexample_bloglist[action]=show&tx_blogexample_bloglist[controller]=Post&tx_blogexample_bloglist[post]=4711&cHash=...
+    https://example.org/blog/?tx_blogexample_bloglist[action]=show&tx_blogexample_bloglist[controller]=Post&tx_blogexample_bloglist[post]=4711&cHash=...
 
     // Actually, the [] parameters are often URI encoded, so this is emitted:
-    https://example.com/blog/?tx_blogexample_bloglist%5Baction%5D=show&tx_blogexample_bloglist%5Bcontroller%5D=Post&tx_blogexample_bloglist%5Bpost%5D=4711&cHash=...
+    https://example.org/blog/?tx_blogexample_bloglist%5Baction%5D=show&tx_blogexample_bloglist%5Bcontroller%5D=Post&tx_blogexample_bloglist%5Bpost%5D=4711&cHash=...
 
 as the created URI to execute the `showAction` of the Controller `PostController`
 within the plugin `BlogList`.
@@ -30,7 +30,7 @@ The following arguments are evaluated:
 
 *   `tx_(extensionName)_(pluginName)[action]`: Controller action to execute
 *   `tx_(extensionName)_(pluginName)[controller]`: Controller containing the action
-*   `tx_(extensionName)_(pluginName)[format]`: Output format (usually HTML, can also be JSON or custom types)
+*   `tx_(extensionName)_(pluginName)[format]`: Output format (usually `html`, can also be `json` or custom types)
 *   `cHash` - the cHash is always calculated to validate the URI is allowed to be called (see :ref:`chash`)
 
 Any other argument will be passed along to the controller action and can be
