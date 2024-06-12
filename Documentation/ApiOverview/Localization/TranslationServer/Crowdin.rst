@@ -8,6 +8,10 @@
 Localization with Crowdin
 =========================
 
+..  youtube:: 5TnUh0AzqHE
+
+------------
+
 What is Crowdin?
 ================
 
