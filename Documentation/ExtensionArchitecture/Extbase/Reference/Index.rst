@@ -22,3 +22,4 @@ Extbase reference
    Validation
    Caching
    Localization
+   UriArguments
