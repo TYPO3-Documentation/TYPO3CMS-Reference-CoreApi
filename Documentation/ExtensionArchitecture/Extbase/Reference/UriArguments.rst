@@ -56,10 +56,12 @@ These URI arguments can also be used for the routing configuration, see
 When submitting a HTML :html:`<form>`, the same URI arguments will be part of
 a HTTP POST request, with some more special ones:
 
-*   `tx_(extensionName)_(pluginName)[__referrer]`: An array with information
-    of the referring call (subkeys: `@extension`, `@controller`, `@action`,
+ `tx_(extensionName)_(pluginName)[__referrer]`
+     An array with information
+     of the referring call (subkeys: `@extension`, `@controller`, `@action`,
     `arguments` (hashed), `@request` (json)
-*   `tx_(extensionName)_(pluginName)[__trustedProperties]`: List of properties to be submitted to an action (hashed and secured)
+`tx_(extensionName)_(pluginName)[__trustedProperties]`
+    List of properties to be submitted to an action (hashed and secured)
 
 These two keys are also regarded as reserved keywords. Generally, you should
 avoid custom arguments interfering with either the `@...` or `__...` prefix
