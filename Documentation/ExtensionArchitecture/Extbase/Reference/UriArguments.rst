@@ -28,10 +28,14 @@ within the plugin `BlogList`.
 
 The following arguments are evaluated:
 
-*   `tx_(extensionName)_(pluginName)[action]`: Controller action to execute
-*   `tx_(extensionName)_(pluginName)[controller]`: Controller containing the action
-*   `tx_(extensionName)_(pluginName)[format]`: Output format (usually `html`, can also be `json` or custom types)
-*   `cHash` - the cHash always gets calculated to validate that the URI is allowed to be called. (see :ref:`chash`)
+ `tx_(extensionName)_(pluginName)[action]`: 
+     Controller action to execute
+`tx_(extensionName)_(pluginName)[controller]`
+    Controller containing the action
+`tx_(extensionName)_(pluginName)[format]`
+    Output format (usually `html`, can also be `json` or custom types)
+`cHash`
+    the cHash always gets calculated to validate that the URI is allowed to be called. (see :ref:`chash`)
 
 Any other argument will be passed along to the controller action and can be
 retrieved via :php:`$this->request->getArgument()`. Usually this is auto-wired
