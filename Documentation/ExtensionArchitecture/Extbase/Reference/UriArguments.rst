@@ -18,10 +18,17 @@ For example, the example extension `EXT:blog_example` would use:
 
 ..  code-block:: plaintext
 
-    https://example.org/blog/?tx_blogexample_bloglist[action]=show&tx_blogexample_bloglist[controller]=Post&tx_blogexample_bloglist[post]=4711&cHash=...
+    // Linebreaks just for readability.
+    https://example.org/blog/?tx_blogexample_bloglist[action]=show
+    &tx_blogexample_bloglist[controller]=Post
+    &tx_blogexample_bloglist[post]=4711
+    &cHash=...
 
     // Actually, the [] parameters are often URI encoded, so this is emitted:
-    https://example.org/blog/?tx_blogexample_bloglist%5Baction%5D=show&tx_blogexample_bloglist%5Bcontroller%5D=Post&tx_blogexample_bloglist%5Bpost%5D=4711&cHash=...
+    https://example.org/blog/?tx_blogexample_bloglist%5Baction%5D=show
+    &tx_blogexample_bloglist%5Bcontroller%5D=Post
+    &tx_blogexample_bloglist%5Bpost%5D=4711
+    &cHash=...
 
 as the created URI to execute the `showAction` of the Controller `PostController`
 within the plugin `BlogList`.
