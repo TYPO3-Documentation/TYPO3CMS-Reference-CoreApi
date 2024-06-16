@@ -165,7 +165,22 @@ One can check whether a feature is enabled in TypoScript with the function
         # This condition matches if the feature toggle "unifiedPageTranslationHandling" is true
     [END]
 
-    [feature("unifiedPageTranslationHandling") === false]
-        # This condition matches if the feature toggle "unifiedPageTranslationHandling" is false
-    [END]
+..  _feature-toggles-viewhelper:
+
+Feature toggles in Fluid
+========================
+
+..  versionadded:: 13.2
+    A new condition-based Fluid ViewHelper which allows
+    integrators to check for feature flags from within Fluid templates.
+
+The :ref:`t3viewhelper:typo3-fluid-feature` can be used to check for a feature in a Fluid 
+template:
+
+..  code-block:: html
+    :caption: EXT:myExtension/Resources/Private/Templates/SomeTemplate.html
+
+    <f:feature name="myFeatureFlag">
+       This is being shown if the flag is enabled
+    </f:feature>
 
