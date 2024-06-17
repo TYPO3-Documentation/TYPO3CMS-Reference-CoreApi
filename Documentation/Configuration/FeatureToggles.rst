@@ -180,7 +180,7 @@ template:
 ..  code-block:: html
     :caption: EXT:myExtension/Resources/Private/Templates/SomeTemplate.html
 
-    <f:feature name="myFeatureFlag">
+    <f:feature name="unifiedPageTranslationHandling">
        This is being shown if the flag is enabled
     </f:feature>
 
