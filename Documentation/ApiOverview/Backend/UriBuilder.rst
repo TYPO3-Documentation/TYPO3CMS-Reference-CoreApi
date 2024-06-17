@@ -1,154 +1,128 @@
 :navigation-title: UriBuilder
 
-.. include:: /Includes.rst.txt
+..  include:: /Includes.rst.txt
 
-.. _edit-links:
+..  _edit-links:
 
-=====================
-Links to Edit Records
-=====================
+=====================================================
+Use the backend UriBuilder to link to "Edit Records"
+=====================================================
 
 It is often needed to create links to edit records in the TYPO3 backend.
 The same syntax is also used for creating new records.
 TYPO3 provides an API for creating such links, namely
 :code:`\TYPO3\CMS\Backend\Routing\UriBuilder`.
 
-.. hint::
+..  hint::
 
-   Make sure to use :code:`\TYPO3\CMS\Backend\Routing\UriBuilder` to create
-   backend links and not :code:`\TYPO3\CMS\Extbase\Mvc\Web\Routing\UriBuilder`.
+    Make sure to use :code:`\TYPO3\CMS\Backend\Routing\UriBuilder` to create
+    backend links and not :code:`\TYPO3\CMS\Extbase\Mvc\Web\Routing\UriBuilder`.
 
-   The variable available as :code:`$this->uriBuilder` in a controller is the
-   web routing UriBuilder and can only be used for frontend links.
+    The variable available as :code:`$this->uriBuilder` in a controller is the
+    web routing UriBuilder and can only be used for frontend links.
 
-When using Fluid templates, you cannot call PHP code directly. Therefore the uri
-either has to be created via PHP in the controller or a viewhelper to be used.
+When using Fluid templates the URI
+either has to be created via PHP in the controller or a ViewHelper to be used.
 
-Below are a different examples, how edit links can be output in the backend.
+..  _edit-links-basic:
 
-.. include:: /CodeSnippets/Examples/EditLinks/EditLinksDisplay.rst.txt
+Display a link to "Edit Record"
+===============================
 
+The :ref:`t3ViewHelper:typo3-backend-uri-editrecord` can be used to create a
+"create new record" link:
+
+..  literalinclude:: _UriBuilder/_EditRecord.html
+    :caption: EXT:my_extension/Resources/Private/Partials/BackendModule/EditRecordLink.html
+
+If you create the backend link via PHP it is possible to add more options like
+default values for certain fields.
+
+..  literalinclude:: _UriBuilder/_ModuleEditController.php
+    :caption: EXT:my_extension/Classes/Controller.php
+    :emphasize-lines: 20-30
+
+..  _edit-links-examples:
+
+Examples of "Edit record" links
+===============================
+
+..  include:: /CodeSnippets/Examples/EditLinks/EditLinksDisplay.rst.txt
 
 The links appear as one can expect:
 
-.. include:: /Images/AutomaticScreenshots/Examples/EditLinks/EditLinksDisplay.rst.txt
+..  include:: /Images/AutomaticScreenshots/Examples/EditLinks/EditLinksDisplay.rst.txt
 
 For the first link the variable :code:`editPage1Link` has to be set in the controller
 for example like this:
 
-.. include:: /CodeSnippets/Examples/EditLinks/LinksAction.rst.txt
+..  include:: /CodeSnippets/Examples/EditLinks/LinksAction.rst.txt
 
-.. _edit-links-edit:
+..  _edit-links-edit:
 
 Editing a Record
 ================
 
 The examples above leads to the normal edit form for a page:
 
-.. include:: /Images/AutomaticScreenshots/Examples/EditLinks/EditLinksEditFull.rst.txt
+..  include:: /Images/AutomaticScreenshots/Examples/EditLinks/EditLinksEditFull.rst.txt
 
 
-.. _edit-links-edit-restricted:
+..  _edit-links-edit-restricted:
 
 Additional options for editing records
 ======================================
 
 When creating the link via PHP it is possible to add more options.
 
-You can specify as many tables and uids you like and you will get them all in
+You can specify as many tables and UIDs as needed and you will get them all in
 one single form!
 (short way of editing more records from the same table at once).
 
 Also the fields to be displayed can be restricted.
 
-.. code-block:: php
+..  literalinclude:: _UriBuilder/_ModuleController.php
+    :caption: EXT:my_extension/Classes/Controller.php
 
-   $uriParameters =
-      [
-         'edit' =>
-            [
-               'pages' =>
-                  [
-                     1 => 'edit',
-                     2 => 'edit'
-                  ],
-               'tx_examples_haiku' =>
-                  [
-                     1 => 'edit'
-                  ]
-            ],
-         'columnsOnly' => 'title,doktype'
-      ];
-   $editPagesDoktypeLink = $backendUriBuilder->buildUriFromRoute('record_edit', $uriParameters);
-
-The fields to be included can be listed in the "columnsOnly" parameter, as a comma-separated list.
+The fields to be included can be listed in the `columnsOnly` parameter, as a comma-separated list.
 The order of the fields doesn't matter, they get displayed in the order they appear in the TCA.
 If a field is missing or access restricted in one of the tables it just doesn't appear.
 However if one record to be edited is missing none of the records gets displayed.
 
 The example above results in the following:
 
-.. include:: /Images/AutomaticScreenshots/Examples/EditLinks/EditLinksEditRestricted.rst.txt
+..  include:: /Images/AutomaticScreenshots/Examples/EditLinks/EditLinksEditRestricted.rst.txt
 
+..  _edit-links-new:
 
-.. _edit-links-new:
+Display a link to "Create a New Record"
+=======================================
 
-Display a Link to Create a New Record
-=====================================
+The :ref:`t3ViewHelper:typo3-backend-uri-newrecord` can be used to create a
+"create new record" link:
 
-There is a backend viewhelper to display a "create new record" link:
-
-.. code-block:: xml
-
-   <f:comment>Would only output the uri: <be:uri.newRecord pid="1" table="tx_examples_haiku" returnUrl="foo/bar" /></f:comment>
-	<a href="{be:uri.newRecord(pid:1, table:'tx_examples_haiku', returnUrl:'foo/bar')}">
-		<core:icon identifier="actions-document-new"/>
-		<f:translate key="function_links_new_haiku"/>
-	</a>
+..  literalinclude:: _UriBuilder/_CreateNewRecord.html
+    :caption: EXT:my_extension/Resources/Private/Partials/BackendModule/CreateLink.html
 
 If you create the backend link via PHP it is possible to add more options like
 default values for certain fields.
 
-.. code-block:: php
+..  literalinclude:: _UriBuilder/_ModuleCreateController.php
+    :caption: EXT:my_extension/Classes/Controller.php
 
-   $uriParameters =
-   [
-      'edit' =>
-         [
-            'tx_examples_haiku' =>
-               [
-                  1 => 'new'
-               ]
-         ],
-      'defVals' =>
-         [
-            'tx_examples_haiku' =>
-               [
-                  'title' => 'New Haiku?',
-                  'season' => 'Spring'
-               ]
-         ]
-
-      'columnsOnly' => 'title,season,color'
-   ];
-   $createHaikuLink = $backendUriBuilder->buildUriFromRoute('record_edit', $uriParameters);
-
-
-The link triggers the creation a new record for the table "tx_examples_haiku"
-on page 1. It also sets a default value for the "title" field ("New haiku") and
-selects the season "Spring". It only displays the fields defined by "columnsOnly".
+The link triggers the creation a new record for the table `tx_examples_haiku`
+on page 1. It also sets a default value for the `title` field ("New haiku") and
+selects the season "Spring". It only displays the fields defined by `columnsOnly`.
 
 Note the following things:
 
--  the first parameter is still called "edit" even if this is about creating a new record.
-   The creation of a record is indicated by the value "new".
-
--  the key of the entry with value "new" indicates the pid on which the record is to be created.
-
--  the values get automatically url-encoded so you can use any special char in the defaults
+*   the first parameter is called "edit" even if this is about creating a new record.
+    The creation of a record is indicated by the value "new".
+*   the key of the entry with value "new" indicates the pid on which the record is to be created.
+*   the values get automatically url-encoded so you can use any special char in the defaults
 
 
 This results in the following new record form with a pre-filled
 title and season field.
 
-.. include:: /Images/AutomaticScreenshots/Examples/EditLinks/EditLinksNew.rst.txt
+..  include:: /Images/AutomaticScreenshots/Examples/EditLinks/EditLinksNew.rst.txt
