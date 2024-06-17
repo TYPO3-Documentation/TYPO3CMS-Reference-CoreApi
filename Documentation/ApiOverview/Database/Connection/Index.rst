@@ -40,11 +40,8 @@ are executed right away.
 
 .. _database-connection-instantiation:
 
-Instantiation
-=============
-
-Using the connection pool
--------------------------
+Instantiation Using the connection pool
+=======================================
 
 An instance of the :php:`TYPO3\CMS\Core\Database\Connection` class is retrieved
 from the :ref:`ConnectionPool <database-connection-pool>` by calling
@@ -54,33 +51,10 @@ should be executed. The :php:`ConnectionPool` can be injected via constructor:
 ..  literalinclude:: _MyTableRepositoryWithConnectionPool.php
     :caption: EXT:my_extension/Classes/Domain/Repository/MyTableRepository.php
 
-Via dependency injection
-------------------------
-
-Another way is to inject the :php:`Connection` object directly via
-:ref:`dependency injection <DependencyInjection>` if you only use one table.
-
-..  rst-class:: bignums-xxl
-
-#.  Configure the concrete connection as a service
-
-    To make a concrete :php:`Connection` object available as a service, use
-    the factory option in the service configuration:
-
-    ..  literalinclude:: _Services.yaml
-        :language: yaml
-        :caption: EXT:my_extension/Configuration/Services.yaml
-        :emphasize-lines: 10-18
-
-#.  Use constructor injection in your class
-
-    Now the :php:`Connection` object for a specific table can be injected via
-    the constructor:
-
-    ..  literalinclude:: _MyTableRepositoryWithConnection.php
-        :language: php
-        :caption: EXT:my_extension/Classes/Domain/Repository/MyTableRepository.php
-
+..  warning:: 
+    Database connections hold state and must not be reused for 
+    multiple queries. Therefore a database connection should not be injected 
+    directly. The `ConnectionPool` can be injected and reused.
 
 .. _database-connection-parameter-types:
 
