@@ -81,6 +81,11 @@ Another way is to inject the :php:`Connection` object directly via
         :language: php
         :caption: EXT:my_extension/Classes/Domain/Repository/MyTableRepository.php
 
+..  warning::
+    Please do not include the `QueryBuilder` using dependency injection, as it
+    will contain various information about the last executed query (stateful).
+    These information can lead to side-effects if further queries will be
+    executed with the `QueryBuilder`.
 
 .. _database-connection-parameter-types:
 
