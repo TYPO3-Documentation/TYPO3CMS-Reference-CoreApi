@@ -15,11 +15,11 @@ TYPO3 provides an API for creating such links, namely
 
 ..  hint::
 
-   Make sure to use :code:`\TYPO3\CMS\Backend\Routing\UriBuilder` to create
-   backend links and not :code:`\TYPO3\CMS\Extbase\Mvc\Web\Routing\UriBuilder`.
+    Make sure to use :code:`\TYPO3\CMS\Backend\Routing\UriBuilder` to create
+    backend links and not :code:`\TYPO3\CMS\Extbase\Mvc\Web\Routing\UriBuilder`.
 
-   The variable available as :code:`$this->uriBuilder` in a controller is the
-   web routing UriBuilder and can only be used for frontend links.
+    The variable available as :code:`$this->uriBuilder` in a controller is the
+    web routing UriBuilder and can only be used for frontend links.
 
 When using Fluid templates the URI
 either has to be created via PHP in the controller or a ViewHelper to be used.
