@@ -21,7 +21,12 @@
                             1 => 'edit',
                         ],
                     ],
-                    'columnsOnly' => 'title,doktype',
+                    'columnsOnly' => [
+                        'pages' => [
+                            'title',
+                            'doktype',
+                        ],
+                    ],
                     'returnUrl' => $returnUrl,
                 ];
             return $this->backendUriBuilder->buildUriFromRoute(
