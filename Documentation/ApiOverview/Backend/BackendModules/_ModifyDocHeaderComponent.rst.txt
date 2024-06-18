@@ -6,34 +6,20 @@
 
     use Psr\Http\Message\ServerRequestInterface;
     use TYPO3\CMS\Backend\Template\ModuleTemplate;
-    use TYPO3\CMS\Backend\Utility\BackendUtility;
-    use TYPO3\CMS\Core\Type\Bitmask\Permission;
 
     class BackendController extends ActionController
     {
-        private function modifyDocHeaderComponent(ModuleTemplate $view): void
+        private function modifyDocHeaderComponent(ModuleTemplate $view, string &$context): void
         {
-            $context = '';
             $menu = $this->buildMenu($view, $context);
+            $view->getDocHeaderComponent()->getMenuRegistry()->addMenu($menu);
 
             $buttonBar = $view->getDocHeaderComponent()->getButtonBar();
-            $this->addPopulateButton($buttonBar);
-            $this->addShortCutButton($buttonBar);
-            $this->addReloadButton($buttonBar);
+            $this->addButtons($buttonBar);
 
-            $view->getDocHeaderComponent()->getMenuRegistry()->addMenu($menu);
-            $view->setTitle(
-                $this->getLanguageService()->sL('LLL:EXT:blog_example/Resources/Private/Language/Module/locallang_mod.xlf:mlang_tabs_tab'),
-                $context,
-            );
-
-            $permissionClause = $GLOBALS['BE_USER']->getPagePermsClause(Permission::PAGE_SHOW);
-            $pageRecord = BackendUtility::readPageAccess(
-                $this->pageUid,
-                $permissionClause,
-            );
-            if ($pageRecord) {
-                $view->getDocHeaderComponent()->setMetaInformation($pageRecord);
+            $metaInformation = $this->getMetaInformation();
+            if (is_array($metaInformation)) {
+                $view->getDocHeaderComponent()->setMetaInformation($metaInformation);
             }
         }
 
@@ -42,8 +28,13 @@
         ): ModuleTemplate {
             $view = $this->moduleTemplateFactory->create($request);
 
-            $this->modifyDocHeaderComponent($view);
+            $context = '';
+            $this->modifyDocHeaderComponent($view, $context);
             $view->setFlashMessageQueue($this->getFlashMessageQueue());
+            $view->setTitle(
+                $this->getLanguageService()->sL('LLL:EXT:blog_example/Resources/Private/Language/Module/locallang_mod.xlf:mlang_tabs_tab'),
+                $context,
+            );
 
             return $view;
         }

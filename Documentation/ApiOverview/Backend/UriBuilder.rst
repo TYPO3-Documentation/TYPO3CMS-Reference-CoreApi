@@ -47,21 +47,16 @@ default values for certain fields.
 Examples of "Edit record" links
 ===============================
 
-..  include:: /CodeSnippets/Examples/EditLinks/EditLinksDisplay.rst.txt
+The example extension :composer:`t3docs/examples` contains extended examples of
+different types of edit/create record links in the backend.
 
-The links appear as one can expect:
+Here an excerpt:
+
+..  include:: _UriBuilder/_LinksAction.rst.txt
+
+The links appear in the example backend module:
 
 ..  include:: /Images/AutomaticScreenshots/Examples/EditLinks/EditLinksDisplay.rst.txt
-
-For the first link the variable :code:`editPage1Link` has to be set in the controller
-for example like this:
-
-..  include:: /CodeSnippets/Examples/EditLinks/LinksAction.rst.txt
-
-..  _edit-links-edit:
-
-Editing a Record
-================
 
 The examples above leads to the normal edit form for a page:
 
@@ -81,8 +76,7 @@ one single form!
 
 Also the fields to be displayed can be restricted.
 
-..  literalinclude:: _UriBuilder/_ModuleController.php
-    :caption: EXT:my_extension/Classes/Controller.php
+..  include:: _UriBuilder/_GetEditDoktypeLink.rst.txt
 
 The fields to be included can be listed in the `columnsOnly` parameter, as a comma-separated list.
 The order of the fields doesn't matter, they get displayed in the order they appear in the TCA.
@@ -101,14 +95,16 @@ Display a link to "Create a New Record"
 The :ref:`t3ViewHelper:typo3-backend-uri-newrecord` can be used to create a
 "create new record" link:
 
-..  literalinclude:: _UriBuilder/_CreateNewRecord.html
-    :caption: EXT:my_extension/Resources/Private/Partials/BackendModule/CreateLink.html
+..  include:: _UriBuilder/_CreateHaikuBlankLink.rst.txt
 
 If you create the backend link via PHP it is possible to add more options like
 default values for certain fields.
 
-..  literalinclude:: _UriBuilder/_ModuleCreateController.php
-    :caption: EXT:my_extension/Classes/Controller.php
+..  include:: _UriBuilder/_CreateHaikuLinkPhp.rst.txt
+
+It can then be displayed like this:
+
+..  include:: _UriBuilder/_CreateHaikuLink.rst.txt
 
 The link triggers the creation a new record for the table `tx_examples_haiku`
 on page 1. It also sets a default value for the `title` field ("New haiku") and
