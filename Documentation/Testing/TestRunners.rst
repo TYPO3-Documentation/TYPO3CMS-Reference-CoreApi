@@ -267,7 +267,7 @@ Because of the need to run tests reliably the same way for everyone,
 the TYPO3 core internally uses the script
 `runTests.sh <https://github.com/TYPO3/typo3/blob/main/Build/Scripts/runTests.sh>`__.
 
-This is based on the aforementioned :ref:`bash script <testing-projects-organization-bash-script`.
+This is based on the aforementioned :ref:`bash script <testing-projects-organization-bash-script>`.
 
 The script is tailored specifically to running TYPO3 Core tests, which can be
 very close to your own needs. All of the commands in the script are executed
