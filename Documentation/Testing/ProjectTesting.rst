@@ -227,16 +227,9 @@ Run Functional tests using mysqli and DDEV
         typo3DatabaseName='func' \
         php vendor/bin/phpunit -c Build/phpunit/FunctionalTests.xml
 
-.. _testing-projects-organization:
-
 Organizing and storing the commands
 ===================================
 
-There are different solutions to store and execute these commands as some are
-quite long.
+There are different solutions to store and execute these command.
+For details see :ref:`testing-projects-organization`.
 
-*   Write a bash script
-*   Introduce `custom DDEV commands <https://ddev.readthedocs.io/en/stable/users/extend/custom-commands/#custom-commands>`__
-*   Introduce a `Composer script <https://getcomposer.org/doc/articles/scripts.md>`__
-*   Create a Makefile
-*   Use the runTests.sh from the Core
