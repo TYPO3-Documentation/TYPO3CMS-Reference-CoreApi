@@ -18,4 +18,4 @@ extensions for TYPO3.
 *   `Separation of Concerns <https://en.wikipedia.org/wiki/Separation_of_concerns>`__ and `Single-responsibility principle (SRP) <https://en.wikipedia.org/wiki/Single-responsibility_principle>`__ are computer programming principles that help developers create modular, coherent, and maintainable software.
 
 We also recommend to study common `software design
-patterns <https://designpatternsphp.readthedocs.io/en/latest/README.html>`__.
+patterns <https://designpatternsphp.readthedocs.io/en/latest/>`__.
