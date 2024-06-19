@@ -30,7 +30,7 @@ or GitLab Pipelines.
 ..  _testing-projects-organization-why:
 
 What are test runners and why do we need them
----------------------------------------------
+=============================================
 
 As you can read in the chapters about :ref:`Testing <testing>`, there is a multitude
 of available tooling around a project:
@@ -95,7 +95,7 @@ an informed decision on picking what is best for you.
 ..  _testing-projects-organization-bash-alias:
 
 Use a bash alias
-----------------
+================
 
 If all people involved are able to use bash (also available in Windows WSL),
 you could create an alias for each tool (in your bash/shell profile), for example:
@@ -124,7 +124,7 @@ Disadvantages:
 ..  _testing-projects-organization-bash-script:
 
 Write a bash script
--------------------
+===================
 
 Similar to the bash alias, you can also create a script file for
 each of your tasks, like a :file:`execute-phpunit.sh` file:
@@ -155,7 +155,7 @@ Disadvantages:
 ..  _testing-projects-organization-ddev:
 
 Introduce custom DDEV commands
-------------------------------
+==============================
 
 If your project is already utilizing `ddev <https://ddev.com>`__,
 you can make use of custom commands delivered with your project's
@@ -185,7 +185,7 @@ Disadvantages:
 ..  _testing-projects-organization-composer:
 
 Introduce a Composer script
----------------------------
+===========================
 
 Since most projects involving TYPO3 are already Composer-based, you could
 create specific `Composer scripts <https://getcomposer.org/doc/articles/scripts.md>`__
@@ -216,7 +216,7 @@ Disadvantages:
 ..  _testing-projects-organization-makefile:
 
 Create a Makefile
------------------
+=================
 
 On most systems, a `Makefile <https://www.gnu.org/software/make/manual/make.html>`__ can
 be used for scripting and running tasks. The TYPO3 Documentation repositories often
@@ -230,6 +230,7 @@ Advantages:
 *    Makefiles can be easily shared and usually executed on both host side and
      within containers
 *    Makefiles can also be used for automated testing (GitHub Actions, GitLab Pipelines)
+*    Makefiles offer code completion and help texts
 
 Disadvantages:
 
@@ -240,7 +241,7 @@ Disadvantages:
 ..  _testing-projects-organization-just:
 
 Use dedicated tools like `just`
--------------------------------
+===============================
 
 As an alternative to `Makefile`, tools like `just <https://github.com/casey/just>`__
 are aimed to be script runners, cross-platform compatible.
@@ -261,7 +262,7 @@ Disadvantages:
 ..  _testing-projects-organization-runtests-core:
 
 Use the :file:`runTests.sh` script based on the TYPO3-Core
-----------------------------------------------------------
+==========================================================
 
 Because of the need to run tests reliably the same way for everyone,
 the TYPO3 core internally uses the script
@@ -304,7 +305,7 @@ Disadvantages:
 ..  _testing-projects-organization-runtests-blog:
 
 Use a customized :file:`runTests.sh` script based on `blog_example`
--------------------------------------------------------------------
+===================================================================
 
 Because the `runTests.sh` file of the TYPO3 Core may be intimidating,
 several TYPO3 projects have already adapted the script and stripped
@@ -347,12 +348,10 @@ because the TYPO3 Core is not suited to provide `runTests.sh` as an API due to i
 focus. However, this may be a base for your own experiments on making a script runner
 adaptable.
 
-
-
 ..  _testing-projects-organization-generator:
 
 Use a generator
----------------
+===============
 
 All the variants described above have the shared disadvantage,
 that you yourself as a project maintainer are responsible for
