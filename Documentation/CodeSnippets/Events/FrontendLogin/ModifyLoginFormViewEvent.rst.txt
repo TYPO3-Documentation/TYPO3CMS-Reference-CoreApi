@@ -8,3 +8,6 @@
     ..  php:method:: getView()
         :returns: `\TYPO3Fluid\Fluid\View\ViewInterface`
 
+    ..  php:method:: getRequest()
+        :returns: `\Psr\Http\Message\ServerRequestInterface`
+

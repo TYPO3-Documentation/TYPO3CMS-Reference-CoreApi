@@ -8,6 +8,9 @@
     ..  php:method:: getTable()
         :returns: `string`
 
+    ..  php:method:: getRecordType()
+        :returns: `string`
+
     ..  php:method:: getRecord()
         :returns: `array`
 
