@@ -23,7 +23,13 @@
                             'season' => 'Spring',
                         ],
                     ],
-                    'columnsOnly' => 'title,season,color',
+                    'columnsOnly' => [
+                        'tx_examples_haiku' => [
+                            'title',
+                            'season',
+                            'color',
+                        ],
+                    ],
                     'returnUrl' => $returnUrl,
                 ];
             return $this->backendUriBuilder->buildUriFromRoute(
