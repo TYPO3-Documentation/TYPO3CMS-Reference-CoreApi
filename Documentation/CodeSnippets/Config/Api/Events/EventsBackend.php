@@ -255,4 +255,16 @@ return [
         'targetFileName' => 'CodeSnippets/Events/Backend/BeforeRecordDownloadIsExecutedEvent.rst.txt',
         'withCode' => false,
     ],
+    [
+        'action' => 'createPhpClassDocs',
+        'class' => \TYPO3\CMS\Backend\RecordList\Event\BeforeRecordDownloadPresetsAreDisplayedEvent::class,
+        'targetFileName' => 'CodeSnippets/Events/Backend/BeforeRecordDownloadPresetsAreDisplayedEvent.rst.txt',
+        'withCode' => false,
+    ],
+    [
+        'action' => 'createPhpClassDocs',
+        'class' => \TYPO3\CMS\Backend\RecordList\DownloadPreset::class,
+        'targetFileName' => 'CodeSnippets/Events/Backend/DownloadPreset.rst.txt',
+        'withCode' => false,
+    ],
 ];
