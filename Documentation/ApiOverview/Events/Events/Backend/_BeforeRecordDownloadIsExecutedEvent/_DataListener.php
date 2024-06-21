@@ -26,10 +26,10 @@ final readonly class DataListener
         }
 
         // Redact actual content...
-        foreach ($records as $uid => $record) {
+        foreach ($records as $index => $record) {
             foreach ($gdprFields as $gdprField) {
                 if (isset($record[$gdprField])) {
-                    $records[$uid][$gdprField] = '(REDACTED)';
+                    $records[$index][$gdprField] = '(REDACTED)';
                 }
             }
         }
