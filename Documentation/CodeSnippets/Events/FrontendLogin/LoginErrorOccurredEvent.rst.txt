@@ -5,3 +5,6 @@
 
     A notification if something went wrong while trying to log in a user.
 
+    ..  php:method:: getRequest()
+        :returns: `\Psr\Http\Message\ServerRequestInterface`
+
