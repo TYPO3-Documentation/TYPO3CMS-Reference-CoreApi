@@ -13,7 +13,7 @@ can be used to manipulate the list of available download presets in
 the :guilabel:`Web > List` module.
 
 See :confval:`mod.web_list.downloadPresets <t3tsconfig:mod-web-list-downloadpresets>`
-On how to configure download presets.
+on how to configure download presets.
 
 Note that the event is dispatched for one specific database table name. If
 an event listener is created to attach presets to different tables, the
