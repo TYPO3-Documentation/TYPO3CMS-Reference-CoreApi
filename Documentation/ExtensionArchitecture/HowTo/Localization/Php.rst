@@ -58,8 +58,9 @@ custom non-Extbase controllers, user functions, data processors etc.
 Localization in backend context
 -------------------------------
 
-In the backend context you can use the global variable :php:`$GLOBALS['LANG']`
-which contains the :ref:`LanguageService <LanguageService-api>`.
+In the backend context you should use the
+:ref:`LanguageServiceFactory <LanguageServiceFactory-api>`
+to create the required :ref:`LanguageService <LanguageService-api>`.
 
 ..  literalinclude:: _php/MyBackendClass.php
     :caption: EXT:my_extension/Classes/Backend/MyBackendClass.php
