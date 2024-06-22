@@ -8,7 +8,7 @@ use TYPO3\CMS\Backend\RecordList\DownloadPreset;
 use TYPO3\CMS\Backend\RecordList\Event\BeforeRecordDownloadPresetsAreDisplayedEvent;
 use TYPO3\CMS\Core\Attribute\AsEventListener;
 
-#[AsEventListener(identifier: 'my-package/modify-record-list-preset')]
+#[AsEventListener(identifier: 'my-extension/modify-record-list-preset')]
 final readonly class PresetListener
 {
     public function __invoke(BeforeRecordDownloadPresetsAreDisplayedEvent $event): void
