@@ -13,27 +13,24 @@ final readonly class PresetListener
 {
     public function __invoke(BeforeRecordDownloadPresetsAreDisplayedEvent $event): void
     {
-        $presets = $event->getPresets();
+    $presets = $event->getPresets();
 
-        switch ($event->getDatabaseTable()) {
-            case 'be_users':
-                $presets[] = new DownloadPreset('PSR-14 preset', ['uid', 'email']);
-                break;
+    $newPresets = match ($event->getDatabaseTable()) {
+        'be_users' => [new DownloadPreset('PSR-14 preset', ['uid', 'email'])],
+        'pages' => [
+            new DownloadPreset('PSR-14 preset', ['title']),
+            new DownloadPreset('Another PSR-14 preset', ['title', 'doktype']),
+        ],
+        'tx_myvendor_myextension' => [new DownloadPreset('PSR-14 preset', ['uid', 'something'])],
+    };
 
-            case 'pages':
-                $presets[] = new DownloadPreset('PSR-14 preset', ['title']);
-                $presets[] = new DownloadPreset('Another PSR-14 preset', ['title', 'doktype']);
-                break;
+    foreach ($newPresets as $newPreset) {
+        $presets[] = $newPreset;
+    }
 
-            case 'tx_myvendor_myextension':
-                $presets[] = new DownloadPreset('PSR-14 preset', ['uid', 'something']);
-                break;
-        }
+    $presets[] = new DownloadPreset('Available everywhere, simple UID list', ['uid']);
+    $presets['some-identifier'] = new DownloadPreset('Overwrite preset', ['uid', 'pid'], 'some-identifier');
 
-        $presets[] = new DownloadPreset('Available everywhere, simple UID list', ['uid']);
-
-        $presets['some-identifier'] = new DownloadPreset('Overwrite preset', ['uid, pid'], 'some-identifier');
-
-        $event->setPresets($presets);
+    $event->setPresets($presets);
     }
 }
