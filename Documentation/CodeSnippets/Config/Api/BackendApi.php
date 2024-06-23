@@ -103,4 +103,10 @@ return [
         ],
         'targetFileName' => 'ApiOverview/Backend/_UriBuilder/_LinksAction.rst.txt',
     ],
+    [
+        'action' => 'createCodeSnippet',
+        'caption' => 'EXT:examples/Configuration/Backend/Modules.php',
+        'sourceFile' => 'EXT:examples/Configuration/Backend/Modules.php',
+        'targetFileName' => 'ExtensionArchitecture/HowTo/BackendModule/_ModuleConfiguration/_Modules.rst.txt',
+    ],
 ];
