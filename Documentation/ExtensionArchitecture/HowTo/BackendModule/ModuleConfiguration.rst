@@ -22,7 +22,7 @@ You can find the following example in
 Two backend modules are being registered. The first module is based on
 :ref:`Extbase <extbase>` while the second uses a plain controller.
 
-..  linclude:: _ModuleConfiguration/_Modules.rst.txt
+..  include:: _ModuleConfiguration/_Modules.rst.txt
 
 
 .. _backend-modules-configuration-example-debug:
