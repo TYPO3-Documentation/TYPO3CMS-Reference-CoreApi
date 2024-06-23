@@ -22,9 +22,7 @@ You can find the following example in
 Two backend modules are being registered. The first module is based on
 :ref:`Extbase <extbase>` while the second uses a plain controller.
 
-..  literalinclude:: _ModuleConfiguration/_Modules.rst.txt
-    :language: php
-    :caption: EXT:my_extension/Configuration/Backend/Modules.php
+..  linclude:: _ModuleConfiguration/_Modules.rst.txt
 
 
 .. _backend-modules-configuration-example-debug:
