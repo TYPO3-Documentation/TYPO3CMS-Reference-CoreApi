@@ -41,4 +41,10 @@ return [
         'targetFileName' => 'ApiOverview/Backend/BackendModules/_DocHeaderComponent.rst.txt',
         'withCode' => false,
     ],
+    [
+        'action' => 'createCodeSnippet',
+        'caption' => 'EXT:examples/Configuration/Backend/Modules.php',
+        'sourceFile' => 'EXT:examples/Configuration/Backend/Modules.php',
+        'targetFileName' => 'ExtensionArchitecture/HowTo/BackendModule/_ModuleConfiguration/_Modules.rst.txt',
+    ],
 ];
