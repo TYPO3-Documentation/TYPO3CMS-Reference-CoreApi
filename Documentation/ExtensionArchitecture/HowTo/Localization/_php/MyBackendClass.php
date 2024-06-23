@@ -10,12 +10,9 @@ use TYPO3\CMS\Core\Localization\LanguageServiceFactory;
 
 final class MyBackendClass
 {
-    private LanguageServiceFactory $languageServiceFactory;
-
-    public function __construct(LanguageServiceFactory $languageServiceFactory)
-    {
-        $this->languageServiceFactory = $languageServiceFactory;
-    }
+    public function __construct(
+        private readonly LanguageServiceFactory $languageServiceFactory,
+    ) {}
 
     private function translateSomething(string $input): string
     {
