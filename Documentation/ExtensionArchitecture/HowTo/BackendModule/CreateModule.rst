@@ -155,7 +155,7 @@ The DocHeader
 =============
 
 To add a DocHeader button use :php:`$this->moduleTemplate->getDocHeaderComponent()->getButtonBar()`
-and :php:`makeLinkButton()` to create the button. Finally use :php:`addButton()` to add it.
+and :php:`makeLinkButton()` to create the button. Finally, use :php:`addButton()` to add it.
 
 ..  code-block:: php
     :caption: EXT:examples/Classes/Controller/AdminModuleController.php
@@ -166,7 +166,7 @@ and :php:`makeLinkButton()` to create the button. Finally use :php:`addButton()`
             ->setHref('<uri-builder-path>')
             ->setTitle('A Title')
             ->setShowLabelText('Link')
-            ->setIcon($this->moduleTemplate->getIconFactory()->getIcon('actions-extension-import', Icon::SIZE_SMALL));
+            ->setIcon($this->iconFactory->getIcon('actions-extension-import', Icon::SIZE_SMALL));
         $buttonBar->addButton($list, ButtonBar::BUTTON_POSITION_LEFT, 1);
     }
 
