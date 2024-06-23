@@ -25,7 +25,7 @@ use TYPO3\CMS\Core\Attribute\AsEventListener;
 final readonly class MyEventListener
 {
     public function __construct(
-        private LoggerInterface $logger
+        private LoggerInterface $logger,
     ) {}
 
     public function modifyRecordActions(ModifyRecordListRecordActionsEvent $event): void
