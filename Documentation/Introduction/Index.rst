@@ -31,9 +31,10 @@ The most important thing to note is that everything is an extension in TYPO3
 CMS. Even the most basic functions are packaged in a system extension called
 "core".
 
-.. figure:: /Images/Graphics/Typo3CmsStructure.png
+.. figure:: /Images/Graphics/Typo3CmsStructure.svg
    :alt: TYPO3 System layers diagram
    :class: with-border
+   :width: 800px
 
    Diagram showing the layers of the TYPO3 system
 
