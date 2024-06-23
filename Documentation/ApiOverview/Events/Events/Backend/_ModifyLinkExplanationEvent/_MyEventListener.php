@@ -15,7 +15,7 @@ use TYPO3\CMS\Core\Imaging\IconFactory;
 final readonly class MyEventListener
 {
     public function __construct(
-        private readonly IconFactory $iconFactory,
+        private IconFactory $iconFactory,
     ) {}
 
     public function __invoke(ModifyLinkExplanationEvent $event): void
