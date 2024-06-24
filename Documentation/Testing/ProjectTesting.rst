@@ -234,5 +234,5 @@ Organizing and storing the commands
 ===================================
 
 There are different solutions to store and execute these command.
-For details see :ref:`testing-projects-organization`.
+For details see :ref:`testing-organization`.
 
