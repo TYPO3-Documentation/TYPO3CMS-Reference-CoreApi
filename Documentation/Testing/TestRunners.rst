@@ -1,6 +1,6 @@
 ..  include:: /Includes.rst.txt
 ..  index:: Testing; Project; Runners; runTests; make; TestRunners
-..  _testing-projects-organization:
+..  _testing-organization:
 
 ========================================
 Test Runners: Organize and execute tests
@@ -27,7 +27,7 @@ relevant for Continuous Integration (CI),
 Continuous Deployment (CD) - for example via GitHub Actions
 or GitLab Pipelines.
 
-..  _testing-projects-organization-why:
+..  _testing-organization-why:
 
 What are test runners and why do we need them
 =============================================
@@ -92,7 +92,7 @@ The following sections describe each method of running a test with their
 advantages and disadvantages, so that you will hopefully be able to make
 an informed decision on picking what is best for you.
 
-..  _testing-projects-organization-bash-alias:
+..  _testing-organization-bash-alias:
 
 Use a bash alias
 ================
@@ -121,7 +121,7 @@ Disadvantages:
 *   Sharing aliases is cumbersome and requires everyone involved
     to do this in their local environment
 
-..  _testing-projects-organization-bash-script:
+..  _testing-organization-bash-script:
 
 Write a bash script
 ===================
@@ -152,7 +152,7 @@ Disadvantages:
 *   Requires local environment (i.e. proper PHP version)
 *   Maintaining compatibility to other operating systems may be hard
 
-..  _testing-projects-organization-ddev:
+..  _testing-organization-ddev:
 
 Introduce custom DDEV commands
 ==============================
@@ -182,7 +182,7 @@ Disadvantages:
 *   People without ddev cannot execute your commands, even if they could run the
     project itself without ddev. So this would fix your testing on a ddev dependency.
 
-..  _testing-projects-organization-composer:
+..  _testing-organization-composer:
 
 Introduce a Composer script
 ===========================
@@ -213,7 +213,7 @@ Disadvantages:
 *    PHP running certain processes (like Docker containers) may introduce memory or other
      timeout limits and problems
 
-..  _testing-projects-organization-makefile:
+..  _testing-organization-makefile:
 
 Create a Makefile
 =================
@@ -238,7 +238,7 @@ Disadvantages:
      is frowned upon for "abusing" the original intent of Makefiles (compiling software).
 *    Makefiles are considered "legacy" and are not so common within PHP projects
 
-..  _testing-projects-organization-just:
+..  _testing-organization-just:
 
 Use dedicated tools like `just`
 ===============================
@@ -259,7 +259,7 @@ Disadvantages:
 *   Using this in automated testing environments require installation
 
 
-..  _testing-projects-organization-runtests-core:
+..  _testing-organization-runtests-core:
 
 Use the :file:`runTests.sh` script based on the TYPO3-Core
 ==========================================================
@@ -302,7 +302,7 @@ Disadvantages:
     in case of bugs, security issues or new tools
 *   Stripping down and adapting the file to suit your needs takes some effort
 
-..  _testing-projects-organization-runtests-blog:
+..  _testing-organization-runtests-blog:
 
 Use a customized :file:`runTests.sh` script based on `blog_example`
 ===================================================================
@@ -348,7 +348,7 @@ because the TYPO3 Core is not suited to provide `runTests.sh` as an API due to i
 focus. However, this may be a base for your own experiments on making a script runner
 adaptable.
 
-..  _testing-projects-organization-generator:
+..  _testing-organization-generator:
 
 Use a generator
 ===============
