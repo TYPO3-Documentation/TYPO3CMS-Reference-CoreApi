@@ -53,7 +53,7 @@ The "external dependencies" like credentials for the database are submitted as e
 variables. If using the recommended docker based setup to execute tests, these details
 are taken care off by the :file:`runTests.sh`. See
 the :ref:`styleguide example <testing-extensions-styleguide>` for details on how this is
-set up and used, and check out :ref:`testing-projects-organization` for details on test runners.
+set up and used, and check out :ref:`testing-organization` for details on test runners.
 Executing the functional tests on different databases is handled by these
 and it is possible to run one test on different databases by calling :file:`runTests.sh`
 with the according options to do this. The above chapter :ref:`Extension testing
