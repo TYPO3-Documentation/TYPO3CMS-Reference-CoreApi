@@ -128,6 +128,10 @@ You can start by copying the
 `runTests.sh of blog_example <https://github.com/TYPO3-Documentation/blog_example/blob/main/Build/Scripts/runTests.sh>`__
 and adjust it to your needs.
 
+There are different solutions to store and execute these commands.
+For details see :ref:`testing-organization`.
+
+
 runTests.sh is a script that originates from the TYPO3 Core repository and is used as
 a test and tool execution runner. It is based on running individual Docker containers
 with several bash commands, and also allows Xdebug integration, different database
