@@ -129,7 +129,7 @@ You can start by copying the
 and adjust it to your needs.
 
 There are different solutions to store and execute these commands.
-For details see :ref:`testing-projects-organization`.
+For details see :ref:`testing-organization`.
 
 
 runTests.sh is a script that originates from the TYPO3 Core repository and is used as
