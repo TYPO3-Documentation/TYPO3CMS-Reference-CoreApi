@@ -36,7 +36,7 @@ Install Tool against unauthorized access:
 
 The Install Tool can be found as a stand-alone application via :samp:`https://example.org/typo3/install.php`.
 It is also :ref:`accessible in the backend <security-install-tool-backend-access>`, 
-but only for logged-in users with administrator privileges.
+but only for logged-in users with administrator and maintainer privileges.
 
 .. _security-install-tool-access-enable-file:
 
