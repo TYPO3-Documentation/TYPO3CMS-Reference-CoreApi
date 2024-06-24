@@ -135,6 +135,8 @@ scenarios in the TYPO3 backend.
 
 See also :ref:`Writing acceptance tests <testing-writing-acceptance>`
 
+.. _testing-extensions-organization:
+
 Organizing and storing the commands
 ===================================
 
