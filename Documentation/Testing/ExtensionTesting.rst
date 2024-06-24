@@ -141,4 +141,4 @@ Organizing and storing the commands
 ===================================
 
 There are different solutions to store and execute these commands as some are
-quite long. For details see :ref:`testing-projects-organization`.
+quite long. For details see :ref:`testing-organization`.
