@@ -20,7 +20,7 @@ The setup provided by `typo3/testing-framework <https://github.com/TYPO3/testing
 and supported by :file:`runTests.sh` and :file:`docker-compose.yml` as outlined in the
 :ref:`styleguide example <testing-extensions-styleguide>` is based on `codeception <https://codeception.com/>`_
 and `selenium <https://www.seleniumhq.org/>`_, usually using chrome as browser.
-Also see :ref:`testing-projects-organization` for details on test runners.
+Also see :ref:`testing-organization` for details on test runners.
 
 Similar to functional testing, acceptance tests set up an isolated TYPO3 instance
 that contains everything needed for the scenario. In contrast to functional tests, though,
