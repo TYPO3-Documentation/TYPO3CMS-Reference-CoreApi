@@ -20,7 +20,7 @@ Enabling and accessing the Install Tool
 .. _security-install-tool-access-intro:
 
 Introduction
-~~~~~~~~~~~~
+------------
 
 A TYPO3 backend account is not required in order to access the Install 
 Tool, so it is clear that the Install Tool requires some special attention 
@@ -41,7 +41,7 @@ but only for logged-in users with administrator privileges.
 .. _security-install-tool-access-enable-file:
 
 The :file:`ENABLE_INSTALL_TOOL` file
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+------------------------------------
 
 The :file:`ENABLE_INSTALL_TOOL` file can be created by placing an empty
 file in one of the following file paths:
@@ -82,7 +82,7 @@ This is strongly discouraged.
 .. _security-install-tool-password:
 
 The Install Tool password
-~~~~~~~~~~~~~~~~~~~~~~~~~
+-------------------------
 
 The password for accessing the Install Tool is stored using the
 :ref:`configured password hash mechanism <password-hashing>` set for the backend
@@ -113,7 +113,7 @@ Log-in to the Install Tool and change it there.
 .. _security-install-tool-backend-access:
 
 Accessing the Install Tool in the backend
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-----------------------------------------
 
 The System Maintainer role allows for selected backend users to access the 
 :guilabel:`Admin Tools` components from within the backend without further
@@ -190,7 +190,7 @@ to force the rebuild of this data with the new encryption key.
 .. _security-encryption-key-generate:
 
 Generating the encryption key
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-----------------------------
 
 The encryption key should be a random 96 characters long hexadecimal string. 
 You can for example create it with OpenSSL:
