@@ -11,6 +11,9 @@ class Person extends AbstractEntity
 {
     #[Validate([
         'validator' => 'EmailAddress',
+        'options' => [
+            'message' => 'LLL:EXT:extbase/Resources/Language/Private/locallang.xlf:validator.emailaddress.notvalid',
+        ],
     ])]
     protected string $email = '';
     /**
@@ -21,7 +24,10 @@ class Person extends AbstractEntity
 
     #[Validate([
         'validator' => 'StringLength',
-        'options' => ['maximum' => 80],
+        'options' => [
+            'maximum' => 80,
+            'message' => 'A custom, non translatable message',
+        ],
     ])]
     protected string $firstname = '';
     /**
