@@ -881,7 +881,7 @@ configurations.
     A configuration option to adapt the environment check in the :guilabel:`Admin Tools`
     for a list of sanctioned :php:`disable_functions`.
 
-    With tis configuration option
+    With this configuration option
     a system maintainer can add native PHP function names to this list,
     which are then reported as environment warnings instead of errors.
 
