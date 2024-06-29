@@ -140,7 +140,7 @@ Module configuration options
         :name: backend-module-navigationComponent
         :type: string
 
-        ..  versionchanged:: 12.1
+        ..  versionchanged:: 13.1
             :js:`@typo3/backend/page-tree/page-tree-element` has been renamed to
             :js:`@typo3/backend/tree/page-tree-element`. Using old navigation
             ID will trigger a PHP deprecation warning.
