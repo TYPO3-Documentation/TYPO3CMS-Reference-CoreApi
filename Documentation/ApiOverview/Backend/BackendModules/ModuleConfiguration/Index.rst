@@ -140,13 +140,29 @@ Module configuration options
         :name: backend-module-navigationComponent
         :type: string
 
+        ..  versionchanged:: 12.1
+            :js:`@typo3/backend/page-tree/page-tree-element` has been renamed to
+            :js:`@typo3/backend/tree/page-tree-element`. Using old navigation
+            ID will trigger a PHP deprecation warning.
+
         The module navigation component. The following are provided by the Core:
 
-        :js:`@typo3/backend/page-tree/page-tree-element`
+        :js:`@typo3/backend/tree/page-tree-element`
             The page tree as used in the :guilabel:`Web` module.
 
         :js:`@typo3/backend/tree/file-storage-tree-container`
             The file tree as used in the :guilabel:`Filelist` module.
+
+        ..  rubric:: Migration
+
+        ..  code-block:: diff
+
+            'mymodule' => [
+                'parent' => 'web',
+                ...
+            -   'navigationComponent' => '@typo3/backend/page-tree/page-tree-element',
+            +   'navigationComponent' => '@typo3/backend/tree/page-tree-element',
+            ],
 
     ..  confval:: navigationComponentId
         :name: backend-module-navigationComponentId
