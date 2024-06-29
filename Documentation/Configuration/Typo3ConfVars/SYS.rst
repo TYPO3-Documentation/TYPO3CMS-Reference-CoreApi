@@ -869,3 +869,27 @@ configurations.
                     'vimeo' => 'video/vimeo',
                 ],
             ],
+
+..  confval:: allowedPhpDisableFunctions
+    :name: globals-typo3-conf-vars-sys-allowedPhpDisableFunctions
+    :Path: $GLOBALS['TYPO3_CONF_VARS']['SYS']['allowedPhpDisableFunctions']
+    :type: array
+    :Default: `[]`
+
+    ..  versionadded:: 13.2
+
+    A configuration option to adapt the environment check in the :guilabel:`Admin Tools`
+    for a list of sanctioned :php:`disable_functions`.
+
+    With this configuration option
+    a system maintainer can add native PHP function names to this list,
+    which are then reported as environment warnings instead of errors.
+
+    ..  code-block:: php
+        :caption: config/system/additional.php
+
+        $GLOBALS['TYPO3_CONF_VARS']['SYS']['allowedPhpDisableFunctions']
+            = ['set_time_limit', 'set_file_buffer'];
+
+    You can also define this in your :file:`settings.php` file manually
+    or via :guilabel:`Admin Tools > Settings > Configure options`.
