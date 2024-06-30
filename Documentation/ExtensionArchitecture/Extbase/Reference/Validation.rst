@@ -64,7 +64,12 @@ When the validation fails the method
 of the current controller is called.
 
 Validation of model properties
-===============================
+==============================
+
+..  versionchanged:: 13.2
+    All validation messages from included Extbase validators can now be overwritten
+    using validator options. It is possible to provide either a translation key or
+    a custom message as string.
 
 You can define simple validation rules in the domain model by the annotation
 :ref:`extbase-annotation-validate`.
