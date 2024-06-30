@@ -220,6 +220,7 @@ finally retrieve the files:
     :language: php
     :caption: EXT:my_extension/Classes/MyClass.php
 
+..  _fal-using-fal-examples-file-folder-eid:
 
 Dumping a file via eID script
 =============================
@@ -252,46 +253,26 @@ The parameters :code:`width` and :code:`height` can feature the trailing
 :code:`c` or :code:`m` indicator, as known from TypoScript.
 
 The PHP class responsible for handling the file dumping is the
-:php:`FileDumpController`, which you may also use in your code.
+:php:`\TYPO3\CMS\Core\Controller\FileDumpController`, which you may also use
+in your code.
 
 See the following example on how to create a URI using the
 :php:`FileDumpController` for a :sql:`sys_file` record with a fixed image size:
 
-..  code-block:: php
+..  literalinclude:: _ExamplesFileFolder/_SomeFileEid1.php
     :caption: EXT:some_extension/Classes/SomeClass.php
-
-    $queryParameterArray = ['eID' => 'dumpFile', 't' => 'f'];
-    $queryParameterArray['f'] = $resourceObject->getUid();
-    $queryParameterArray['s'] = '320c:280c';
-    $queryParameterArray['token'] = GeneralUtility::hmac(implode('|', $queryParameterArray), 'resourceStorageDumpFile');
-    $publicUrl = GeneralUtility::locationHeaderUrl(PathUtility::getAbsoluteWebPath(Environment::getPublicPath() . '/index.php'));
-    $publicUrl .= '?' . http_build_query($queryParameterArray, '', '&', PHP_QUERY_RFC3986);
 
 In this example, the crop variant :php:`default` and an image size of 320x280
 will be applied to a :sql:`sys_file_reference` record:
 
-..  code-block:: php
+..  literalinclude:: _ExamplesFileFolder/_SomeFileEid2.php
     :caption: EXT:some_extension/Classes/SomeClass.php
-
-    $queryParameterArray = ['eID' => 'dumpFile', 't' => 'r'];
-    $queryParameterArray['f'] = $resourceObject->getUid();
-    $queryParameterArray['s'] = '320c:280c:320:280:320:280';
-    $queryParameterArray['cv'] = 'default';
-    $queryParameterArray['token'] = GeneralUtility::hmac(implode('|', $queryParameterArray), 'resourceStorageDumpFile');
-    $publicUrl = GeneralUtility::locationHeaderUrl(PathUtility::getAbsoluteWebPath(Environment::getPublicPath() . '/index.php'));
-    $publicUrl .= '?' . http_build_query($queryParameterArray, '', '&', PHP_QUERY_RFC3986);
 
 This example shows how to create a URI to load an image of
 `sys_file_processedfile`:
 
-..  code-block:: php
+..  literalinclude:: _ExamplesFileFolder/_SomeFileEid3.php
     :caption: EXT:some_extension/Classes/SomeClass.php
-
-    $queryParameterArray = ['eID' => 'dumpFile', 't' => 'p'];
-    $queryParameterArray['p'] = $resourceObject->getUid();
-    $queryParameterArray['token'] = GeneralUtility::hmac(implode('|', $queryParameterArray), 'resourceStorageDumpFile');
-    $publicUrl = GeneralUtility::locationHeaderUrl(PathUtility::getAbsoluteWebPath(Environment::getPublicPath() . '/index.php'));
-    $publicUrl .= '?' . http_build_query($queryParameterArray, '', '&', PHP_QUERY_RFC3986);
 
 The following restrictions apply:
 
