@@ -258,7 +258,7 @@ in your code.
 
 ..  versionchanged:: 13.1
     Until TYPO3 13 generating the Hash-based Message Authentication Codes (HMACs)
-    was done via :php:`GeneralUtility::hmac()` this has been deprecated with
+    was done via :php:`GeneralUtility::hmac()`; this has been deprecated with
     TYPO3 13.1 in favour of using the `\TYPO3\CMS\Core\Crypto\HashService::hmac`.
 
 See the following example on how to create a URI using the
