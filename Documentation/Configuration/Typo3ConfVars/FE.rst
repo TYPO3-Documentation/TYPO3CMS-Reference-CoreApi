@@ -104,11 +104,13 @@ the TYPO3 frontend:
 ..  confval:: addRootLineFields
     :Path: $GLOBALS['TYPO3_CONF_VARS']['FE']['addRootLineFields']
     :name: typo3-conf-vars-fe-addRootLineFields
-    :type: list
-    :Default: ''
 
-    Comma-list of fields from the pages-table. These fields are added to the
-    select query for fields in the rootline.
+    ..  versionchanged:: 13.2
+        The option `$GLOBALS['TYPO3_CONF_VARS']['FE']['addRootLineFields']`
+        has been removed without replacement with TYPO3 13.2.
+
+        Relations of table :sql:`pages` are now always resolved with nearly
+        no performance penalty in comparison to not having them resolved.
 
 ..  _typo3ConfVars_fe_checkFeUserPid:
 
