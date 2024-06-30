@@ -9,8 +9,10 @@ use TYPO3\CMS\Core\Core\Environment;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Core\Utility\PathUtility;
 
-class SomeClass {
-    public function getPublicUrl(SomeModel $resourceObject): string {
+class SomeClass
+{
+    public function getPublicUrl(SomeModel $resourceObject): string
+    {
         $queryParameterArray = ['eID' => 'dumpFile', 't' => 'p'];
         $queryParameterArray['p'] = $resourceObject->getUid();
         $queryParameterArray['token'] = GeneralUtility::hmac(implode('|', $queryParameterArray), 'resourceStorageDumpFile');
