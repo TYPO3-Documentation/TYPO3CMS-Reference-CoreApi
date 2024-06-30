@@ -9,8 +9,10 @@ use TYPO3\CMS\Core\Core\Environment;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Core\Utility\PathUtility;
 
-class SomeClass {
-    public function getPublicUrl(SomeModel $resourceObject): string {
+class SomeClass
+{
+    public function getPublicUrl(SomeModel $resourceObject): string
+    {
         $queryParameterArray = ['eID' => 'dumpFile', 't' => 'f'];
         $queryParameterArray['f'] = $resourceObject->getUid();
         $queryParameterArray['s'] = '320c:280c';
