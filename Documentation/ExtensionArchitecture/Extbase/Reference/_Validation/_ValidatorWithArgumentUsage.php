@@ -12,7 +12,7 @@ class Person extends AbstractEntity
     #[Validate([
         'validator' => 'EmailAddress',
         'options' => [
-            'message' => 'LLL:EXT:extbase/Resources/Language/Private/locallang.xlf:validator.emailaddress.notvalid',
+            'message' => 'LLL:EXT:extbase/Resources/Private/Language/locallang.xlf:validator.emailaddress.notvalid',
         ],
     ])]
     protected string $email = '';
