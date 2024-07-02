@@ -661,25 +661,20 @@ configurations.
     ..  _typo3ConfVars_sys_features_security.frontend.allowInsecureFrameOptionInShowImageController:
 
     ..  confval:: security.frontend.allowInsecureFrameOptionInShowImageController
-        :name: globals-typo3-conf-vars-sys-features-security-frontend-aallowInsecureFrameOptionInShowImageController
+        :name: globals-typo3-conf-vars-sys-features-security-frontend-allowInsecureFrameOptionInShowImageController
         :Path: $GLOBALS['TYPO3_CONF_VARS']['SYS']['features']['security.frontend.allowInsecureFrameOptionInShowImageController']
         :type: bool
         :Default: false
 
         ..  versionadded:: 13.1, 12.4.15, 11.5.37
 
-        The show image controller (eID `tx_cms_showpic`) lacks a cryptographic
-        HMAC-signature on the frame HTTP query parameter (e.g.
-        `/index.php?eID=tx_cms_showpic?file=3&...&frame=12345`).
-        This allows adversaries to instruct the system to produce an arbitrary number of
-        thumbnail images on the server side.
+        This option configures,  whether the show image controller (eID
+        `tx_cms_showpic`) is allowed to supply an unsecured `&frame` URI
+        parameter for backwards compatibility. The `&frame` parameter is not
+        utilized by the TYPO3 core itself anymore.
 
-        To prevent uncontrolled resource consumption, the frame HTTP query parameter is
-        now ignored, since it could not be used by core APIs.
-
-        The flag
-        `security.frontend.allowInsecureFrameOptionInShowImageController` — which is
-        disabled per default — can be used to reactivate the previous behavior:
+        It is disabled by default and is strongly suggested to leave it
+        turned off, for details see :ref:`<changelog:important-103306-1714976257>`. To enable it:
 
         ..  code-block:: php
 
