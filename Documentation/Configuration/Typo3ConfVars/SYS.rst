@@ -686,6 +686,28 @@ configurations.
         If enabled, the :ref:`Content Security Policy <content-security-policy>`
         is applied in frontend scope.
 
+    ..  _typo3ConfVars_sys_features_security.frontend.allowInsecureFrameOptionInShowImageController:
+
+    ..  confval:: security.frontend.allowInsecureFrameOptionInShowImageController
+        :name: globals-typo3-conf-vars-sys-features-security-frontend-allowInsecureFrameOptionInShowImageController
+        :Path: $GLOBALS['TYPO3_CONF_VARS']['SYS']['features']['security.frontend.allowInsecureFrameOptionInShowImageController']
+        :type: bool
+        :Default: false
+
+        ..  versionadded:: 13.1, 12.4.15, 11.5.37
+
+        This option configures,  whether the show image controller (eID
+        `tx_cms_showpic`) is allowed to supply an unsecured `&frame` URI
+        parameter for backwards compatibility. The `&frame` parameter is not
+        utilized by the TYPO3 core itself anymore.
+
+        It is disabled by default and is strongly suggested to leave it
+        turned off, for details see :ref:`<changelog:important-103306-1714976257>`. To enable it:
+
+        ..  code-block:: php
+
+            $GLOBALS['TYPO3_CONF_VARS']['SYS']['features']['security.frontend.allowInsecureFrameOptionInShowImageController'] = true;
+
     ..  _typo3ConfVars_sys_features_security.frontend.allowInsecureSiteResolutionByQueryParameters:
 
     ..  versionadded:: 12.4.4/11.5.30
