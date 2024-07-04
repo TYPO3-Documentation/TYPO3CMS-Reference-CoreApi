@@ -25,10 +25,10 @@ configured explicitly in your :ref:`site configuration <sitehandling>`.
     :file:`config.yaml` site configuration file (located in
     :file:`config/sites/<yoursite>/config.yaml`).
 
-Enhancers and aspects are an important concept in TYPO3 and they are used to map
+Route enhancers and aspects are an important concept in TYPO3 and they are used to map
 GET parameters to routes.
 
-An :ref:`enhancer <routing-advanced-routing-configuration-enhancers>` creates
+A :ref:`route enhancer <routing-advanced-routing-configuration-enhancers>` creates
 variations of a specific page-based route for a specific purpose (e.g. an
 :ref:`Extbase <extbase>` plugin) and "enhances" an existing route path, which
 can contain flexible values, so-called "placeholders".
@@ -62,15 +62,14 @@ Otherwise, the first variant matching the URL parameters is used for generating
 and resolving the route.
 
 
-.. index:: Routing; Enhancers
+.. index:: Routing; Route Enhancers
 
 .. _routing-advanced-routing-configuration-enhancers:
 
-Enhancers
-=========
+Route Enhancers
+===============
 
-There are two types of enhancers: decorators and route enhancers. A route
-enhancer replaces a set of placeholders, inserts URL parameters
+A route enhancer replaces a set of placeholders, inserts URL parameters
 during URL generation and then resolves them properly later. The substitution of
 values with aliases can be done by aspects. To simplify, a route enhancer
 specifies what the full route path looks like and which variables are available,
@@ -127,7 +126,7 @@ configuration:
 
     Make sure you define your requirements as strict as possible. This is
     necessary so that performance is not reduced and to allow TYPO3 to match the
-    expected route.
+    expected route. If unset all characters are allowed by default: `.+` .
 
 :yaml:`_arguments`
     Defines what route parameters should be available to the system. In the
