@@ -57,25 +57,27 @@ Dispatch a message
     ..  literalinclude:: _MyClass.php
         :caption: EXT:my_extension/Classes/MyClass.php
 
+..  _message-bus-handler:
 
 Register a handler
 ------------------
 
-..  rst-class:: bignums
+..  versionchanged:: 13.0
+    A message handler can be registered using the symfony PHP attribute
+    :php:`\Symfony\Component\Messenger\Attribute\AsMessageHandler`.
 
-#.  Implement the handler class
+Implement the handler class
 
-    ..  literalinclude:: _DemoHandler.php
-        :caption: EXT:my_extension/Classes/Queue/Handler/DemoHandler.php
+..  literalinclude:: _DemoHandler.php
+    :caption: EXT:my_extension/Classes/Queue/Handler/DemoHandler.php
 
-#.  Register the handler
+If your extension needs to be compatible with TYPO3 v13 and v12, use a tag
+to register the handler. A :file:`Services.yaml` entry is also needed to use
+:yaml:`before`/:yaml:`after` to define an order.
 
-    Use a tag to register a handler. Use :yaml:`before`/:yaml:`after` to define
-    an order.
-
-    ..  literalinclude:: _demo-handler.yaml
-        :language: yaml
-        :caption: EXT:my_extension/Configuration/Services.yaml
+..  literalinclude:: _demo-handler.yaml
+    :language: yaml
+    :caption: EXT:my_extension/Configuration/Services.yaml
 
 ..  _message-bus-routing:
 
