@@ -22,6 +22,7 @@ class BlogController extends ActionController
      * @throws NoBlogAdminAccessException
      */
     #[Validate([
+        'param' => 'blog',
         'validator' => BlogValidator::class,
     ])]
     public function updateAction(Blog $blog): ResponseInterface
