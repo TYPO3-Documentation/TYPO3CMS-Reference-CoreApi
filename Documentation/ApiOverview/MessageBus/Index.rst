@@ -72,7 +72,7 @@ Implement the handler class
     :caption: EXT:my_extension/Classes/Queue/Handler/DemoHandler.php
 
 If your extension needs to be compatible with TYPO3 v13 and v12, use a tag
-to register the handler. A :file:`Service.yaml` entry is also needed to use
+to register the handler. A :file:`Services.yaml` entry is also needed to use
 :yaml:`before`/:yaml:`after` to define an order.
 
 ..  literalinclude:: _demo-handler.yaml
