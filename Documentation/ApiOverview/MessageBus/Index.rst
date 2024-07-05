@@ -63,7 +63,7 @@ Register a handler
 ------------------
 
 ..  versionchanged:: 13.0
-    A message handler can be registered using the  symfony PHP attribute
+    A message handler can be registered using the symfony PHP attribute
     :php:`\Symfony\Component\Messenger\Attribute\AsMessageHandler`.
 
 Implement the handler class
