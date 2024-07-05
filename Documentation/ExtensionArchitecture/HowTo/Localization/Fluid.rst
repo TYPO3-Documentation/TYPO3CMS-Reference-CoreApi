@@ -342,4 +342,4 @@ Then you can store another format string for every language in the
     There are other formatting ViewHelpers for adjusting the output of
     currencies or big numbers. These ViewHelpers all starts with
     :html:`<f:format`. You can find an overview of these ViewHelpers in
-    the :doc:`ViewHelper Reference: format <t3viewhelper:typo3/fluid/latest/Format/Index>`.
+    the :doc:`ViewHelper Reference: format <t3viewhelper:Global/Format/Index>`.
