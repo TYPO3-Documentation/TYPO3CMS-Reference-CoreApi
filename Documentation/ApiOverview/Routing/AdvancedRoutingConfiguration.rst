@@ -181,7 +181,7 @@ The configuration looks like this:
           category_id: 'category'
 
 :yaml:`routePath` defines the static keyword and the placeholders.
-:yaml:`requirements.category_id` is a unique integer of the category which can be the uid in its database table.
+:yaml:`requirements.category_id` is a unique integer of the category.
 :yaml:`requirements.tag` is a string parameter with valid characters from `a .. z`, `A .. Z` and `0 .. 9`.
 :yaml:`_arguments.category_id` defines a mapping from the `category` parameter in the URL. 
 Therefore 'category' can be used in the YAML configuration instead of `category_id`. 
