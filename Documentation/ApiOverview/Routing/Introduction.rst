@@ -22,6 +22,8 @@ into sub-components.
 Routing will also take care of beautifying URI parameters, for example converting
 :samp:`https://example.org/profiles?user=magdalena` to :samp:`https://example.org/profiles/magdalena`.
 
+..  _routing-terminology:
+
 Key Terminology
 ===============
 
@@ -38,9 +40,9 @@ all of its components can be broken down to:
 | https:// | subdomain. | example. | com | :80  | /en                  | /about-us/our-team | /john-doe      | /publications/ | index | .xhtml           | ?utm_campaign= | seo            | #start                 |
 +==========+============+==========+=====+======+======================+====================+================+================+=======+==================+================+================+========================+
 | Protocol | Subdomain  | Domain   | TLD | Port | Site Language Prefix | Slug               | Enhanced Route                                             |                |                |                        |
-+----------+------------+----------+-----+------+----------------------+--------------------+----------------+------------------------+------------------+----------------+----------------+------------------------+
-|          | Hostname                    |      |                      |                    | Route Enhancer | Route Decorator        | Page Type Suffix | URI argument   | argument value | Location Hash / Anchor |
-+----------+-----------------------------+------+----------------------+--------------------+----------------+------------------------+------------------+----------------+----------------+------------------------+
++----------+------------+----------+-----+------+----------------------+--------------------+-----------------------------------------+------------------+----------------+----------------+------------------------+
+|          | Hostname                    |      |                      |                    | Route Enhancer                          | Route Decorator  | URI argument   | argument value | Location Hash / Anchor |
++----------+-----------------------------+------+----------------------+--------------------+-----------------------------------------+------------------+----------------+----------------+------------------------+
 |                                               |  Route / Permalink                                                                                     |                                                          |
 +-----------------------------------------------+--------------------------------------------------------------------------------------------------------+----------------+----------------+------------------------+
 | URL (no arguments)                                                                                                                                     |                |                |                        |
@@ -86,18 +88,18 @@ Slug
     * Slugs must be separated by one or more character like "/", "-", "_" and "&".
       Regular characters like letters should not be used as separators for better readability.
 
-    ..  note::
+..  note::
 
-        A slug of a record may contain slashes but this is not recommended:
-        The risk of conflicts is higher when using slashes within slugs. For
-        example, unrelated page hierarchies and records could have slugs
-        forming the same URL path.
+    A slug of a record may contain slashes but this is not recommended:
+    The risk of conflicts is higher when using slashes within slugs. For
+    example, unrelated page hierarchies and records could have slugs
+    forming the same URL path.
 
 .. index:: Routing; Enhancers
 
 
 Enhancers
-    Sections after a slug can be added ("enhanced") both by "Route Enhancers" and also 
+    Sections **after** a slug can be added ("enhanced") both by "Route Enhancers" and also 
     "(Route Enhancing) Decorators", see 
     :ref:`Advanced routing configuration <t3coreapi:routing-advanced-routing-configuration>`.
 
@@ -107,7 +109,9 @@ Page Type Suffix
     A Page Type Suffix indicates the type of a URL, usually ".html". It can also be left out completely.
     If set, it could control alternate variants of a URL, for example an RSS-Feed or a JSON representation.
 
-    A Page Type Suffix can also be regarded as an Enhancer.
+    A Page Type Suffix is regarded as an Enhancer, specifically a "(Route) Decorator".
+    Other kinds of decorators could add additional parts to the route, but
+    only after(!) the initial "Route Enhancer(s)".
 
 .. index:: Routing; Enhanced Route
 
@@ -128,6 +132,8 @@ URI arguments
     after the requested document has been rendered.
 
 
+.. _routing-terminology-symfony:
+
 Routing in TYPO3
 ================
 
@@ -146,6 +152,8 @@ Mathias Schreiber demonstrates this way of handling URLs
 .. youtube:: dUz4B08XFes
 
 
+.. _routing-prerequisites:
+
 Prerequisites
 =============
 
@@ -157,6 +165,7 @@ To ensure Routing in TYPO3 is fully functional the following prerequisites need 
 
 ..  todo:: Move this section to a better place
 
+..  _routing-tips:
 Tips
 ====
 
