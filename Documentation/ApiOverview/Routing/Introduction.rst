@@ -28,7 +28,7 @@ Key Terminology
 ===============
 
 
-.. index:: Routing; Structure
+..  index:: Routing; Structure
 
 Given a complex link (`URI`, `Uniform Resource Identificator`) like
 
@@ -55,20 +55,20 @@ all of its components can be broken down to:
     Please note that the following terminology is based on technical terms used in the TYPO3 Core,
     due to their Class/Object and Interface names.
 
-.. index:: Routing; Route
+..  index:: Routing; Route
 
 Route
    The "speaking URL" as a whole (without the domain parts); for example `/en/about-us/our-team/john-doe/publications/index.xhtml`.
    This is also sometimes referred to as `Permalink`, some definitions also include the `URI arguments`
    for this term.
 
-.. index:: Routing; Site Language Prefix
+..  index:: Routing; Site Language Prefix
 
 Site Language Prefix
     A global site language prefix is not considered part of the slug, but rather as a "prefix" to the slug.
 
 
-.. index:: Routing; Slug
+..  index:: Routing; Slug
  
 Slug
     Unique name for a resource to use when creating URLs; for example the slug of the news detail page
@@ -95,7 +95,7 @@ Slug
     example, unrelated page hierarchies and records could have slugs
     forming the same URL path.
 
-.. index:: Routing; Enhancers
+..  index:: Routing; Enhancers
 
 
 Enhancers
@@ -103,7 +103,7 @@ Enhancers
     "(Route Enhancing) Decorators", see 
     :ref:`Advanced routing configuration <t3coreapi:routing-advanced-routing-configuration>`.
 
-.. index:: Routing; Page Type Suffix
+..  index:: Routing; Page Type Suffix
 
 Page Type Suffix
     A Page Type Suffix indicates the type of a URL, usually ".html". It can also be left out completely.
@@ -113,26 +113,26 @@ Page Type Suffix
     Other kinds of decorators could add additional parts to the route, but
     only after(!) the initial "Route Enhancer(s)".
 
-.. index:: Routing; Enhanced Route
+..  index:: Routing; Enhanced Route
 
 Enhanced Route
     The combination of multiple Enhancers (and the Page Type Suffix) can be referred to as the "Enhanced Route".
 
-.. index:: Routing; URI arguments
+..  index:: Routing; URI arguments
 
 URI arguments
     The main distinction of `URL` (Uniform Resource Locator) and `URI` (Uniform Resource Identifier) is that
     the URI also include arguments/parameters and their values, beginning with a `?` and each argument
     separated by `&`, and the value separated from the argument name by `=`.
 
-.. index:: Routing; Location Hash
+..  index:: Routing; Location Hash
     The Location Hash is the part starting with `#` of a URI. Note that browsers requesting a resource
     never supply the hash to the Webserver, so any kind of Enhancer is not able to use this information
     to match any kind of routing. This can only be done by the Browser (for example via JavaScript),
     after the requested document has been rendered.
 
 
-.. _routing-terminology-symfony:
+..  _routing-terminology-symfony:
 
 Routing in TYPO3
 ================
@@ -149,10 +149,10 @@ whereas Route Enhancements and Aspects take care of all additionally configured 
 Mathias Schreiber demonstrates this way of handling URLs
 (Version 9.5, 28.09.2018).
 
-.. youtube:: dUz4B08XFes
+..  youtube:: dUz4B08XFes
 
 
-.. _routing-prerequisites:
+..  _routing-prerequisites:
 
 Prerequisites
 =============
