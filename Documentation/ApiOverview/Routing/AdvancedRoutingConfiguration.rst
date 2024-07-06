@@ -185,7 +185,7 @@ The configuration looks like this:
 Without using `_arguments` the placeholder name has to exactly match the argument name from URI which is `category`.
 :yaml:`requirements.tag` is a string parameter with valid characters from `a .. z`, `A .. Z` and `0 .. 9`.
 :yaml:`_arguments.category_id` defines a mapping from the `category` parameter in the URL. 
-Therefore 'category' can be used in the YAML configuration instead of `category_id`. 
+Therefore 'category_id' can be used in the YAML configuration instead of `category`. 
 
 
 
