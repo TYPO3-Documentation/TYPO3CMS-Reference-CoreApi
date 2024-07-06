@@ -181,7 +181,7 @@ The configuration looks like this:
           category_id: 'category'
 
 :yaml:`routePath` defines the static keyword and the placeholders.
-:yaml:`requirements.category_id` is a unique integer of the category. 
+:yaml:`requirements.category_id` This slug is checked using a regular expression to determine whether the argument can be interpreted as a number with up to 3 digits. Although the slug appears as an integer, it is treated as a character string, whereby leading zeros are possible.
 Without using `_arguments` the parameter the placeholder has to exactly match the argument name from URI which is `category`.
 :yaml:`requirements.tag` is a string parameter with valid characters from `a .. z`, `A .. Z` and `0 .. 9`.
 :yaml:`_arguments.category_id` defines a mapping from the `category` parameter in the URL. 
