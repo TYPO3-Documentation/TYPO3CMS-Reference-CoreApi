@@ -171,18 +171,18 @@ The configuration looks like this:
       CategoryListing:
         type: Simple
         limitToPages: [13]
-        routePath: '/show-by-category/{category}/{tag}'
+        routePath: '/show-by-category/{category_id}/{tag}'
         defaults:
           tag: ''
         requirements:
-          category: '[0-9]{1,3}'
+          category_id: '[0-9]{1,3}'
           tag: '[a-zA-Z0-9]+'
         _arguments:
           category_id: 'category'
 
-:aspect:`routePath` defines the static keyword and the placeholders.
-:aspect:`category` is a unique integer of the category which can be the uid in its database table.
-:aspect:`tag` is a string parameter with valid characters from `a .. z`, `A .. Z` and `0 .. 9`.
+:yaml:`routePath` defines the static keyword and the placeholders.
+:yaml:`requirements.category_id` is a unique integer of the category which can be the uid in its database table.
+:yaml:`requirements.tag` is a string parameter with valid characters from `a .. z`, `A .. Z` and `0 .. 9`.
 
 
 
