@@ -7,10 +7,6 @@
 Introduction to Routing
 =======================
 
-Mathias Schreiber demonstrates the new way of handling URLs
-(Version 9.5, 28.09.2018).
-
-.. youtube:: dUz4B08XFes
 
 
 What is Routing?
@@ -20,28 +16,64 @@ When TYPO3 serves a request, it maps the incoming URL to a specific page or acti
 For example it maps an URL like :samp:`https://example.org/news` to the News page. This process of
 determining the page and/or action to execute for a specific URL is called "Routing".
 
-Additionally, routing will take care of beautifying URL parameters, for example converting
-:samp:`https://example.org/profiles?user=magdalena` to :samp:`https://example.org/profiles/magdalena`.
+The input of a Route is made up of several components; some components can also be split further
+into sub-components.
 
+Routing will also take care of beautifying URI parameters, for example converting
+:samp:`https://example.org/profiles?user=magdalena` to :samp:`https://example.org/profiles/magdalena`.
 
 Key Terminology
 ===============
 
 
+.. index:: Routing; Structure
+
+Given a complex link (`URI`, `Uniform Resource Identificator`) like
+
+    `https://subdomain.example.com:80/en/about-us/our-team/john-doe/publications/index.xhtml?utm_campaign=seo#start`
+
+all of its components can be broken down to:
+
++----------+------------+----------+-----+------+----------------------+--------------------+----------------+----------------+-------+------------------+----------------+----------------+------------------------+
+| https:// | subdomain. | example. | com | :80  | /en                  | /about-us/our-team | /john-doe      | /publications/ | index | .xhtml           | ?utm_campaign= | seo            | #start                 |
++==========+============+==========+=====+======+======================+====================+================+================+=======+==================+================+================+========================+
+| Protocol | Subdomain  | Domain   | TLD | Port | Site Language Prefix | Slug               | Enhanced Route                                             |                |                |                        |
++----------+------------+----------+-----+------+----------------------+--------------------+----------------+------------------------+------------------+----------------+----------------+------------------------+
+|          | Hostname                    |      |                      |                    | Route Enhancer | Route Decorator        | Page Type Suffix | URI argument   | argument value | Location Hash / Anchor |
++----------+-----------------------------+------+----------------------+--------------------+----------------+------------------------+------------------+----------------+----------------+------------------------+
+|                                               |  Route / Permalink                                                                                     |                                                          |
++-----------------------------------------------+--------------------------------------------------------------------------------------------------------+----------------+----------------+------------------------+
+| URL (no arguments)                                                                                                                                     |                |                |                        |
++--------------------------------------------------------------------------------------------------------------------------------------------------------+----------------+----------------+------------------------+
+| URI (everything)                                                                                                                                                                                                  |
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+..  hint::
+
+    Please note that the following terminology is based on technical terms used in the TYPO3 Core,
+    due to their Class/Object and Interface names.
+
 .. index:: Routing; Route
 
 Route
-   The "speaking URL" as a whole (without the domain part); for example `/news/detail/2019-software-update`
+   The "speaking URL" as a whole (without the domain parts); for example `/en/about-us/our-team/john-doe/publications/index.xhtml`.
+   This is also sometimes referred to as `Permalink`, some definitions also include the `URI arguments`
+   for this term.
+
+.. index:: Routing; Site Language Prefix
+
+Site Language Prefix
+    A global site language prefix is not considered part of the slug, but rather as a "prefix" to the slug.
 
 
 .. index:: Routing; Slug
-
+ 
 Slug
     Unique name for a resource to use when creating URLs; for example the slug of the news detail page
     could be `/news/detail`, and
     the slug of a news record could be `2019-software-update`.
 
-    Within TYPO3, a slug is always a part of the URL "path" - it does not contain scheme, host, HTTP verb, etc.
+    Within TYPO3, a slug is always a part (section) of the URL "path" - it does not contain scheme, host, HTTP verb, etc.
     The URL "path" consists of one or more slugs which are concatenated into a single string.
 
     A slug is usually added to a TCA-based database table, containing rules for evaluation and definition.
@@ -54,12 +86,46 @@ Slug
     * Slugs must be separated by one or more character like "/", "-", "_" and "&".
       Regular characters like letters should not be used as separators for better readability.
 
-..  note::
+    ..  note::
 
-    A slug of a record may contain slashes but this is not recommended:
-    The risk of conflicts is higher when using slashes within slugs. For
-    example, unrelated page hierarchies and records could have slugs
-    forming the same URL path.
+        A slug of a record may contain slashes but this is not recommended:
+        The risk of conflicts is higher when using slashes within slugs. For
+        example, unrelated page hierarchies and records could have slugs
+        forming the same URL path.
+
+.. index:: Routing; Enhancers
+
+
+Enhancers
+    Sections after a slug can be added ("enhanced") both by "Route Enhancers" and also 
+    "(Route Enhancing) Decorators", see 
+    :ref:`Advanced routing configuration <t3coreapi:routing-advanced-routing-configuration>`.
+
+.. index:: Routing; Page Type Suffix
+
+Page Type Suffix
+    A Page Type Suffix indicates the type of a URL, usually ".html". It can also be left out completely.
+    If set, it could control alternate variants of a URL, for example an RSS-Feed or a JSON representation.
+
+    A Page Type Suffix can also be regarded as an Enhancer.
+
+.. index:: Routing; Enhanced Route
+
+Enhanced Route
+    The combination of multiple Enhancers (and the Page Type Suffix) can be referred to as the "Enhanced Route".
+
+.. index:: Routing; URI arguments
+
+URI arguments
+    The main distinction of `URL` (Uniform Resource Locator) and `URI` (Uniform Resource Identifier) is that
+    the URI also include arguments/parameters and their values, beginning with a `?` and each argument
+    separated by `&`, and the value separated from the argument name by `=`.
+
+.. index:: Routing; Location Hash
+    The Location Hash is the part starting with `#` of a URI. Note that browsers requesting a resource
+    never supply the hash to the Webserver, so any kind of Enhancer is not able to use this information
+    to match any kind of routing. This can only be done by the Browser (for example via JavaScript),
+    after the requested document has been rendered.
 
 
 Routing in TYPO3
@@ -70,8 +136,14 @@ Routing in TYPO3 is implemented based on the Symfony Routing components. It cons
 * Page Routing
 * Route Enhancements and Aspects
 
-Page Routing describes the process of resolving the concrete page (in earlier TYPO3 versions this were the `id` and `L` `$_GET` parameters),
+Page Routing describes the process of resolving the concrete page (in earlier TYPO3 versions this were the `id` and `L` `$_GET` parameters,
+now this uses the Site Language Prefix plus one or more slugs),
 whereas Route Enhancements and Aspects take care of all additionally configured parameters (such as beautifying plugin parameters, handling `type` etc.).
+
+Mathias Schreiber demonstrates this way of handling URLs
+(Version 9.5, 28.09.2018).
+
+.. youtube:: dUz4B08XFes
 
 
 Prerequisites
@@ -82,6 +154,8 @@ To ensure Routing in TYPO3 is fully functional the following prerequisites need 
 * web server needs to be configured with rewrites (see :ref:`t3start:system-requirements`)
 * site configuration needs to exist (see :ref:`sitehandling`)
 
+
+..  todo:: Move this section to a better place
 
 Tips
 ====
