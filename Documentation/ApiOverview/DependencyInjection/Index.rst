@@ -532,9 +532,8 @@ What to make public
 -------------------
 
 Instances of :php:`\TYPO3\CMS\Core\SingletonInterface` and Extbase controllers
-are automatically marked as public. Some further classes must be marked as
-public, too. As the Symfony documentation "Public and private services" puts
-it:
+are automatically marked as public. 
+The Symfony documentation "Public and private services" puts it:
 
 .. note::
 
@@ -548,20 +547,29 @@ Symfony: How to Create Service Aliases and Mark Services as Private: SymfonyPriv
 Direct access includes instantiation via :php:`GeneralUtility::makeInstance()`
 with constructor arguments.
 
-**private**:
+**NOTHING TO DO ...**
 
-*   Any class which requires dependency injection
-    and is retrieved by dependency injection itself can be private.
+*   A class not requiring any autowiring (constructor injection, factory values, method 
+    injection) and is instantiable using the plain :php:`new` command does not need
+    any configuration as :php:`GeneralUtility::makeInstance()` is capable of creating the object
+    using :php:`new`. Any `public` setting is ignored, even if this class is injected.
 
-**public**:
+**public: false**:
 
-*   Every class that is directly retrieved using :php:`GeneralUtility::makeInstance()` and 
-requires dependency injection **must** be marked as public.  
+*   A class which needs autowriing by the DI and is at least injected into one class throughout active
+    code and additionally retrieved using :php:`GeneralUtility::makeInstance()` can stay 
+    `public: false`, which should be the default if you follow the suggested default 
+    extension DI snippet for a extension :file:`Services.yaml`.
+
+**public: true**:
+
+*   A class which needs autowiring (injection of other services) by the Dependency Injection, 
+    but is itself not injected anywhere and only retrieved by :php:`GeneralUtility::makeInstance()` 
+    needs to be marked `public: true` to avoid that the Symfony DI container removes this class 
+    because it detects no injection of it.  
 *   Instances of :php:`\TYPO3\CMS\Core\SingletonInterface` and Extbase controllers are
-automatically marked as public because they are retrieved using
-:php:`GeneralUtility::makeInstance()`. 
-*    More examples of classes that must be
-marked as **public**:
+automatically marked as public. 
+*    More examples of **public** classes:
 
     *   :ref:`User functions <t3tsref:cobj-user-int>`
     *   Non-Extbase controllers
@@ -570,6 +578,13 @@ marked as **public**:
     *   :ref:`Fluid data processors <content-elements-custom-data-processor>`
     (only necessary if not tagged as
     :ref:`data.processor <content-elements-custom-data-processor_alias>`).
+
+..  note::
+    These rules also apply if you want to retrieve a class directly from the DI container, 
+    where :php:`GeneralUtility::makeInstance()` is used internally.
+    For GU::makeInstance() it is required to have no constructor arguments.
+    Otherwise it will be created using the new keyword and DI will fail. 
+
 
 For such classes an extension can override the global configuration
 :yaml:`public: false` in :file:`Configuration/Services.yaml` for each affected
