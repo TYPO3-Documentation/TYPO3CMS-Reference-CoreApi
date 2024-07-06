@@ -171,16 +171,20 @@ The configuration looks like this:
       CategoryListing:
         type: Simple
         limitToPages: [13]
-        routePath: '/show-by-category/{category_id}/{tag}'
+        routePath: '/show-by-category/{category}/{tag}'
         defaults:
           tag: ''
         requirements:
-          category_id: '[0-9]{1,3}'
+          category: '[0-9]{1,3}'
           tag: '[a-zA-Z0-9]+'
         _arguments:
           category_id: 'category'
 
-:yaml:`routePath` defines the static keyword and the placeholders.
+:aspect:`routePath` defines the static keyword and the placeholders.
+:aspect:`category` is a unique integer of the category which can be the uid in its database table.
+:aspect:`tag` is a string parameter with valid characters from `a .. z`, `A .. Z` and `0 .. 9`.
+
+
 
 ..  note::
     For people coming from :composer:`dmitryd/typo3-realurl` in previous TYPO3 versions: The
