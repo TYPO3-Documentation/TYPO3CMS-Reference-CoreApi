@@ -35,6 +35,10 @@ If you want to participate, it only takes a few steps to get started:
 Using Crowdin is free for Open Source projects. For private projects, Crowdin's
 pricing model is based on projects and not on individual users.
 
+To help you get started, Tom Warwick has created a short tutorial video for you:
+
+..  youtube:: 5TnUh0AzqHE
+
 
 Teams and roles
 ===============
