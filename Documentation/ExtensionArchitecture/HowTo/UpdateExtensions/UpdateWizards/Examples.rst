@@ -7,7 +7,7 @@ Examples for common upgrade wizards
 
 ..  _upgrade-wizard-examples-switchable-controller-actions:
 
-Upgrade script to replace switchable controller actions
+Upgrade wizard to replace switchable controller actions
 =======================================================
 
 Switchable controller actions in Extbase plugins have been deprecated with
