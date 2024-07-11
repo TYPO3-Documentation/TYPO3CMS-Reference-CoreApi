@@ -12,7 +12,6 @@ Advanced routing configuration (for extensions)
 ..  contents::
     :local:
 
-
 Introduction
 ============
 
