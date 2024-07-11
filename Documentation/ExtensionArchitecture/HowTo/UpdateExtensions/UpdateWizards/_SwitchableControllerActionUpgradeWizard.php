@@ -2,12 +2,9 @@
 
 namespace MyVendor\MyExtension\Upgrades;
 
-use Doctrine\DBAL\Exception;
 use TYPO3\CMS\Core\Database\ConnectionPool;
 use TYPO3\CMS\Core\Service\FlexFormService;
-use TYPO3\CMS\Core\Utility\DebugUtility;
 use TYPO3\CMS\Install\Attribute\UpgradeWizard;
-use TYPO3\CMS\Install\Updates\RepeatableInterface;
 use TYPO3\CMS\Install\Updates\UpgradeWizardInterface;
 
 #[UpgradeWizard('myExtension_switchableControllerActionUpgradeWizard')]
@@ -18,8 +15,7 @@ final class SwitchableControllerActionUpgradeWizard implements UpgradeWizardInte
     public function __construct(
         private readonly ConnectionPool $connectionPool,
         private readonly FlexFormService $flexFormService,
-    ) {
-    }
+    ) {}
 
     public function executeUpdate(): bool
     {
@@ -37,11 +33,11 @@ final class SwitchableControllerActionUpgradeWizard implements UpgradeWizardInte
             ->select('*')
             ->from(self::TABLE)
             ->where(
-                $queryBuilder->expr()->eq('list_type', $queryBuilder->createNamedParameter($plugin))
+                $queryBuilder->expr()->eq('list_type', $queryBuilder->createNamedParameter($plugin)),
             )
             ->executeQuery();
         while ($row = $result->fetchAssociative()) {
-            if (!is_string($row['pi_flexform']??false)) {
+            if (!is_string($row['pi_flexform'] ?? false)) {
                 continue;
             }
             $flexform = $this->loadFlexForm($row['pi_flexform']);
@@ -74,7 +70,7 @@ final class SwitchableControllerActionUpgradeWizard implements UpgradeWizardInte
             ->count('uid')
             ->from(self::TABLE)
             ->where(
-                $queryBuilder->expr()->eq('list_type', self::PLUGIN)
+                $queryBuilder->expr()->eq('list_type', self::PLUGIN),
             )
             ->executeQuery()
             ->fetchOne();
