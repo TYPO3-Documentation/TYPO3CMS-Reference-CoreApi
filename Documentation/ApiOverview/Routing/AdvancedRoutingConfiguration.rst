@@ -122,8 +122,8 @@ configuration:
 
 :yaml:`requirements`
     Specifies exactly what kind of parameter should be added to that route as a
-    regular expression. This way it is configurable to allow only integer
-    values, e.g. for pagination.
+    `regular expressions <https://regex101.com/>`__. This way it is configurable
+    to allow only integer values, for example for pagination.
 
     Make sure you define your requirements as strict as possible. This is
     necessary so that performance is not reduced and to allow TYPO3 to match the
@@ -164,30 +164,16 @@ results in
 
 The configuration looks like this:
 
-..  code-block:: yaml
+..  literalinclude:: _AdvancedRoutingConfiguration/_routeEnhancers.yaml
 
-    routeEnhancers:
-      # Unique name for the enhancers, used internally for referencing
-      CategoryListing:
-        type: Simple
-        limitToPages: [13]
-        routePath: '/show-by-category/{category_id}/{tag}'
-        defaults:
-          tag: ''
-        requirements:
-          category_id: '[0-9]{1,3}'
-          tag: '[a-zA-Z0-9]+'
-        _arguments:
-          category_id: 'category'
-
-:yaml:`routePath` defines the static keyword and the placeholders.
-:yaml:`requirements.category_id` This slug is checked using a regular expression to determine whether the argument can be interpreted as a number with up to 3 digits. Although the slug appears as an integer, it is treated as a character string, whereby leading zeros are possible.
-Without using `_arguments` the placeholder name has to exactly match the argument name from URI which is `category`.
-:yaml:`requirements.tag` is a string parameter with multiple characters from `a .. z`, `A .. Z` and `0 .. 9`.
-:yaml:`_arguments.category_id` defines the mapping from the `category` parameter in the URL. 
-Therefore the 'category_id' placeholder can be used in the YAML configuration instead of `category`. 
-
-
+:yaml:`routePath`
+    defines the static keyword and the placeholders.
+:yaml:`requirements`
+    defines parts that should be replaced in the :yaml:`routePath`. `Regular
+    expressions <https://regex101.com/>`__ limit the allowed chars to be used in those parts.
+:yaml:`_arguments`
+    defines the mapping from the placeholder in the :yaml:`routePath` to the
+    name of the parameter in URL had it not been enhanced.
 
 ..  note::
     For people coming from :composer:`dmitryd/typo3-realurl` in previous TYPO3 versions: The
