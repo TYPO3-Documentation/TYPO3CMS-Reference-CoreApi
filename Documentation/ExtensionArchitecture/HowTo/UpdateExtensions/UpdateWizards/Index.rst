@@ -21,3 +21,4 @@ wizards.
 
     Concept
     Creation
+    Examples
