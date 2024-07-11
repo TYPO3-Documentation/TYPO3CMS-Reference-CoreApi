@@ -1,0 +1,24 @@
+routeEnhancers:
+  MyPlugin:
+    type: 'Plugin'
+    namespace: 'my'
+    routePath: 'overview/{month}'
+    requirements:
+      # note: it does not make any sense to declare all values here again
+      month: '^(\d+|january|february|march|april|...|december)$'
+    aspects:
+      month:
+        type: 'StaticValueMapper'
+        map:
+          january: '1'
+          february: '2'
+          march: '3'
+          april: '4'
+          may: '5'
+          june: '6'
+          july: '7'
+          august: '8'
+          september: '9'
+          october: '10'
+          november: '11'
+          december: '12'
