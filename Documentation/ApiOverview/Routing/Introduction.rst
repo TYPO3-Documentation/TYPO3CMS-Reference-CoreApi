@@ -65,7 +65,7 @@ Route
 ..  index:: Routing; Site Language Prefix
 
 Site Language Prefix
-    A global site language prefix is not considered part of the slug, but rather as a "prefix" to the slug.
+    A global site language prefix (e.g. "/dk" or "/en-us") is not considered part of the slug, but rather a "prefix" to the slug.
 
 
 ..  index:: Routing; Slug
