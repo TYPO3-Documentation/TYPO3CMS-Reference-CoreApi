@@ -99,7 +99,7 @@ Slug
 
 
 Enhancers
-    Sections **after** a slug can be added ("enhanced") both by "Route Enhancers" and also 
+    Sections **after** a slug can be added ("enhancing" the route) both by "Route Enhancers" and also 
     "(Route Enhancing) Decorators", see 
     :ref:`Advanced routing configuration <t3coreapi:routing-advanced-routing-configuration>`.
 
@@ -107,9 +107,9 @@ Enhancers
 
 Page Type Suffix
     A Page Type Suffix indicates the type of a URL, usually ".html". It can also be left out completely.
-    If set, it could control alternate variants of a URL, for example an RSS-Feed or a JSON representation.
+    If set, it could control alternate variants of a URL, for example an RSS feed or a JSON representation.
 
-    A Page Type Suffix is regarded as an Enhancer, specifically a "(Route) Decorator".
+    A Page Type Suffix is treated as an Enhancer, specifically a "(Route) Decorator".
     Other kinds of decorators could add additional parts to the route, but
     only after(!) the initial "Route Enhancer(s)".
 
@@ -122,12 +122,12 @@ Enhanced Route
 
 Query string
     The main distinction of `URL` (Uniform Resource Locator) and `URI` (Uniform Resource Identifier) is that
-    the URI also include arguments/parameters and their values, beginning with a `?` and each argument
+    the URI also includes arguments/parameters and their values, beginning with a `?` and each argument
     separated by `&`, and the value separated from the argument name by `=`. This is commonly refered to as
     "Query string".
 
 ..  index:: Routing; Location Hash
-    The Location Hash is the part starting with `#` of a URI. Note that browsers requesting a resource
+    The Location Hash is the part of a URI starting with `#`. Note that browsers requesting a resource
     never supply the hash to the Webserver, so any kind of Enhancer is not able to use this information
     to match any kind of routing. This can only be done by the Browser (for example via JavaScript),
     after the requested document has been rendered.
