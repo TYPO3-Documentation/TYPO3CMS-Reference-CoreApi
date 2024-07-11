@@ -24,7 +24,7 @@ final class SwitchableControllerActionUpgradeWizard implements UpgradeWizardInte
     public function executeUpdate(): bool
     {
         $result = 0;
-        $result += $this->migratePlugin(self::PLUGIN, 'Videoplayer->list', 'ableplayer_videoplayerlist');
+        $result += $this->migratePlugin(self::PLUGIN, 'Videoplayer->list', 'myextension_videoplayerlist');
         $result += $this->migratePlugin(self::PLUGIN, 'Videoplayer->overview;Videoplayer->detail', 'ableplayer_audioplayeroverviewdetail');
         return $result > 0;
     }
