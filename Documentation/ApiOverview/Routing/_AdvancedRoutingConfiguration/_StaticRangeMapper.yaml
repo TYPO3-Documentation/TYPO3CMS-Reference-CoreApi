@@ -1,0 +1,16 @@
+routeEnhancers:
+  NewsPlugin:
+    type: Extbase
+    limitToPages: [13]
+    extension: News
+    plugin: Pi1
+    routes:
+      - { routePath: '/list/{page}', _controller: 'News::list', _arguments: {'page': '@widget_0/currentPage'} }
+    defaultController: 'News::list'
+    defaults:
+      page: '0'
+    aspects:
+      page:
+        type: StaticRangeMapper
+        start: '1'
+        end: '100'
