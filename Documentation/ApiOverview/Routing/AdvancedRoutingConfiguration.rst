@@ -12,7 +12,6 @@ Advanced routing configuration (for extensions)
 ..  contents::
     :local:
 
-
 Introduction
 ============
 
@@ -482,36 +481,7 @@ create human-readable segments for all available months.
 
 The configuration could look like this:
 
-..  code-block:: yaml
-
-    routeEnhancers:
-      NewsArchive:
-        type: Extbase
-        limitToPages: [13]
-        extension: News
-        plugin: Pi1
-        routes:
-          - { routePath: '/{year}/{month}', _controller: 'News::archive' }
-        defaultController: 'News::list'
-        defaults:
-          month: ''
-        aspects:
-          month:
-            type: StaticValueMapper
-            map:
-              january: 1
-              february: 2
-              march: 3
-              april: 4
-              may: 5
-              june: 6
-              july: 7
-              august: 8
-              september: 9
-              october: 10
-              november: 11
-              december: 12
-
+..  literalinclude:: _AdvancedRoutingConfiguration/_StaticValueMapper.yaml
 
 You see the placeholder :yaml:`month` where the aspect replaces the value to a
 human-readable URL path segment.
@@ -519,51 +489,7 @@ human-readable URL path segment.
 It is possible to add an optional :yaml:`localeMap` to that aspect to use the
 locale of a value to use in multi-language setups:
 
-..  code-block:: yaml
-
-    routeEnhancers:
-      NewsArchive:
-        type: Extbase
-        limitToPages: [13]
-        extension: News
-        plugin: Pi1
-        routes:
-          - { routePath: '/{year}/{month}', _controller: 'News::archive' }
-        defaultController: 'News::list'
-        defaults:
-          month: ''
-        aspects:
-          month:
-            type: StaticValueMapper
-            map:
-              january: 1
-              february: 2
-              march: 3
-              april: 4
-              may: 5
-              june: 6
-              july: 7
-              august: 8
-              september: 9
-              october: 10
-              november: 11
-              december: 12
-            localeMap:
-              - locale: 'de_.*'
-                map:
-                  januar: 1
-                  februar: 2
-                  maerz: 3
-                  april: 4
-                  mai: 5
-                  juni: 6
-                  juli: 7
-                  august: 8
-                  september: 9
-                  oktober: 10
-                  november: 11
-                  dezember: 12
-
+..  literalinclude:: _AdvancedRoutingConfiguration/_localeMap.yaml
 
 .. index:: Routing; LocaleModifier
 
@@ -577,30 +503,10 @@ good example where a route path is modified, but not affected by arguments.
 
 The configuration could look like this:
 
-..  code-block:: yaml
-
-    routeEnhancers:
-      NewsArchive:
-        type: Extbase
-        limitToPages: [13]
-        extension: News
-        plugin: Pi1
-        routes:
-          - { routePath: '/{localized_archive}/{year}/{month}', _controller: 'News::archive' }
-        defaultController: 'News::list'
-        aspects:
-          localized_archive:
-            type: LocaleModifier
-            default: 'archive'
-            localeMap:
-              - locale: 'fr_FR.*|fr_CA.*'
-                value: 'archives'
-              - locale: 'de_DE.*'
-                value: 'archiv'
+..  literalinclude:: _AdvancedRoutingConfiguration/_LocaleModifier.yaml
 
 This aspect replaces the placeholder :yaml:`localized_archive` depending on the
 locale of the language of that page.
-
 
 .. index:: Routing; StaticRangeMapper
 
@@ -611,24 +517,7 @@ A static range mapper allows to avoid the `cHash` and narrow down the available
 possibilities for a placeholder. It explicitly defines a range for a value,
 which is recommended for all kinds of pagination functionality.
 
-..  code-block:: yaml
-
-    routeEnhancers:
-      NewsPlugin:
-        type: Extbase
-        limitToPages: [13]
-        extension: News
-        plugin: Pi1
-        routes:
-          - { routePath: '/list/{page}', _controller: 'News::list', _arguments: {'page': '@widget_0/currentPage'} }
-        defaultController: 'News::list'
-        defaults:
-          page: '0'
-        aspects:
-          page:
-            type: StaticRangeMapper
-            start: '1'
-            end: '100'
+..  literalinclude:: _AdvancedRoutingConfiguration/_StaticRangeMapper.yaml
 
 This limits down the pagination to a maximum of 100 pages. If a user calls the
 news list with page 101, the route enhancer does not match and would not apply
@@ -636,7 +525,6 @@ the placeholder.
 
 ..  note::
     A range larger than 1000 is not allowed.
-
 
 .. index:: Routing; PersistedAliasMapper
 
@@ -646,23 +534,7 @@ PersistedAliasMapper
 If an extension ships with a slug field or a different field used for the
 speaking URL path, this database field can be used to build the URL:
 
-..  code-block:: yaml
-
-    routeEnhancers:
-      NewsPlugin:
-        type: Extbase
-        limitToPages: [13]
-        extension: News
-        plugin: Pi1
-        routes:
-          - { routePath: '/detail/{news_title}', _controller: 'News::detail', _arguments: {'news_title': 'news'} }
-        defaultController: 'News::detail'
-        aspects:
-          news_title:
-            type: PersistedAliasMapper
-            tableName: 'tx_news_domain_model_news'
-            routeFieldName: 'path_segment'
-            routeValuePrefix: '/'
+..  literalinclude:: _AdvancedRoutingConfiguration/_PersistedAliasMapper.yaml
 
 The persisted alias mapper looks up the table and the field to map the given
 value to a URL. The property :yaml:`tableName` points to the database table,
@@ -690,23 +562,7 @@ persisted pattern mapper is for you. It allows to combine various fields into
 one variable, ensuring a unique value, for example by adding the UID to the
 field without having the need of adding a custom slug field to the system.
 
-..  code-block:: yaml
-
-    routeEnhancers:
-      Blog:
-        type: Extbase
-        limitToPages: [13]
-        extension: BlogExample
-        plugin: Pi1
-        routes:
-          - { routePath: '/blog/{blogpost}', _controller: 'Blog::detail', _arguments: {'blogpost': 'post'} }
-        defaultController: 'Blog::detail'
-        aspects:
-          blogpost:
-            type: PersistedPatternMapper
-            tableName: 'tx_blogexample_domain_model_post'
-            routeFieldPattern: '^(?P<title>.+)-(?P<uid>\d+)$'
-            routeFieldResult: '{title}-{uid}'
+..  literalinclude:: _AdvancedRoutingConfiguration/_PersistedPatternMapper.yaml
 
 The :yaml:`routeFieldPattern` option builds the title and uid fields from the
 database, the :yaml:`routeFieldResult` shows how the placeholder will be output.
@@ -730,32 +586,7 @@ explicitly define the :yaml:`requirements` for this case - which is why
 The following example illustrates the mentioned dilemma between route generation
 and resolving:
 
-..  code-block:: yaml
-
-    routeEnhancers:
-      MyPlugin:
-        type: 'Plugin'
-        namespace: 'my'
-        routePath: 'overview/{month}'
-        requirements:
-          # note: it does not make any sense to declare all values here again
-          month: '^(\d+|january|february|march|april|...|december)$'
-        aspects:
-          month:
-            type: 'StaticValueMapper'
-            map:
-              january: '1'
-              february: '2'
-              march: '3'
-              april: '4'
-              may: '5'
-              june: '6'
-              july: '7'
-              august: '8'
-              september: '9'
-              october: '10'
-              november: '11'
-              december: '12'
+..  literalinclude:: _AdvancedRoutingConfiguration/_AspectPrecedence.yaml
 
 The :yaml:`map` in the previous example is already defining all valid values.
 That is why :yaml:`aspects` take precedence over :yaml:`requirements` for a
@@ -788,65 +619,20 @@ scenario better than a "404" HTTP status code.
 Examples
 --------
 
-..  code-block:: yaml
-
-    routeEnhancers:
-      NewsPlugin:
-        type: Extbase
-        extension: News
-        plugin: Pi1
-        routes:
-          - routePath: '/detail/{news_title}'
-            _controller: 'News::detail'
-            _arguments:
-              news_title: 'news'
-        aspects:
-          news_title:
-            type: PersistedAliasMapper
-            tableName: tx_news_domain_model_news
-            routeFieldName: path_segment
-
-            # A string value leads to parameter `&tx_news_pi1[news]=0`
-            fallbackValue: '0'
-
-            # A null value leads to parameter `&tx_news_pi1[news]` being removed
-            fallbackValue: null
+..  literalinclude:: _AdvancedRoutingConfiguration/_NewsPlugin.yaml
 
 Custom mapper implementations can incorporate this behavior by implementing
 the :php:`\TYPO3\CMS\Core\Routing\Aspect\UnresolvedValueInterface` which is
 provided by :php:`\TYPO3\CMS\Core\Routing\Aspect\UnresolvedValueTrait`:
 
-..  code-block:: php
+..  literalinclude:: _AdvancedRoutingConfiguration/_MyCustomEnhancer.php
     :caption: EXT:my_extension/Classes/Routing/Enhancer/MyCustomEnhancer.php
-
-    use TYPO3\CMS\Core\Routing\Aspect\MappableAspectInterface;
-    use TYPO3\CMS\Core\Routing\Aspect\UnresolvedValueInterface;
-    use TYPO3\CMS\Core\Routing\Aspect\UnresolvedValueTrait;
-
-    final class MyCustomEnhancer implements MappableAspectInterface, UnresolvedValueInterface
-    {
-        use UnresolvedValueTrait;
-
-        // ...
-    }
 
 In another example we handle the null value in an Extbase show action
 separately, for instance, to redirect to the list page:
 
-..  code-block:: php
+..  literalinclude:: _AdvancedRoutingConfiguration/_MyCustomEnhancer.php
     :caption: EXT:my_extension/Classes/Controller/MyController.php
-
-    public function showAction(?MyModel $myModel = null): ResponseInterface
-    {
-        if ($myModel === null) {
-            return $this->responseFactory
-                ->createResponse(301)
-                ->withHeader('Location', $this->buildListPageUrl());
-        }
-
-        // ... default handling
-    }
-
 
 .. index::
    Routing; PageArguments
