@@ -17,7 +17,7 @@ final class SwitchableControllerActionUpgradeWizard implements UpgradeWizardInte
     private const PLUGIN = 'myextension_myplugin';
     public function __construct(
         private readonly ConnectionPool $connectionPool,
-        private readonly FlexFormService $flexFormService
+        private readonly FlexFormService $flexFormService,
     ) {
     }
 
