@@ -41,7 +41,7 @@ all of its components can be broken down to:
 +==========+============+==========+=====+======+======================+====================+================+================+=======+==================+================+================+========================+
 | Protocol | Subdomain  | Domain   | TLD | Port | Site Language Prefix | Slug               | Enhanced Route                                             |                |                |                        |
 +----------+------------+----------+-----+------+----------------------+--------------------+-----------------------------------------+------------------+----------------+----------------+------------------------+
-|          | Hostname                    |      |                      |                    | Route Enhancer                          | Route Decorator  | URI argument   | argument value | Location Hash / Anchor |
+|          | Hostname                    |      |                      |                    | Route Enhancer                          | Route Decorator  | Query string   | argument value | Location Hash / Anchor |
 +----------+-----------------------------+------+----------------------+--------------------+-----------------------------------------+------------------+----------------+----------------+------------------------+
 |                                               |  Route / Permalink                                                                                     |                                                          |
 +-----------------------------------------------+--------------------------------------------------------------------------------------------------------+----------------+----------------+------------------------+
@@ -59,7 +59,7 @@ all of its components can be broken down to:
 
 Route
    The "speaking URL" as a whole (without the domain parts); for example `/en/about-us/our-team/john-doe/publications/index.xhtml`.
-   This is also sometimes referred to as `Permalink`, some definitions also include the `URI arguments`
+   This is also sometimes referred to as `Permalink`, some definitions also include the `Query string`
    for this term.
 
 ..  index:: Routing; Site Language Prefix
@@ -118,12 +118,13 @@ Page Type Suffix
 Enhanced Route
     The combination of multiple Enhancers (and the Page Type Suffix) can be referred to as the "Enhanced Route".
 
-..  index:: Routing; URI arguments
+..  index:: Routing; URI arguments; Query string
 
-URI arguments
+Query string
     The main distinction of `URL` (Uniform Resource Locator) and `URI` (Uniform Resource Identifier) is that
     the URI also include arguments/parameters and their values, beginning with a `?` and each argument
-    separated by `&`, and the value separated from the argument name by `=`.
+    separated by `&`, and the value separated from the argument name by `=`. This is commonly refered to as
+    "Query string".
 
 ..  index:: Routing; Location Hash
     The Location Hash is the part starting with `#` of a URI. Note that browsers requesting a resource
