@@ -59,7 +59,7 @@ all of its components can be broken down to:
 
 Route
    The "speaking URL" as a whole (without the domain parts); for example `/en/about-us/our-team/john-doe/publications/index.xhtml`.
-   This is also sometimes referred to as `Permalink`, some definitions also include the `Query string`
+   This is also sometimes referred to as `permalink`, some definitions also include the `Query string`
    for this term.
 
 ..  index:: Routing; Site Language Prefix
