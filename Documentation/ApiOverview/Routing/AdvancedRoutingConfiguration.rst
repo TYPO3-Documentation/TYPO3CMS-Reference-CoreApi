@@ -181,6 +181,13 @@ The configuration looks like this:
           category_id: 'category'
 
 :yaml:`routePath` defines the static keyword and the placeholders.
+:yaml:`requirements.category_id` This slug is checked using a regular expression to determine whether the argument can be interpreted as a number with up to 3 digits. Although the slug appears as an integer, it is treated as a character string, whereby leading zeros are possible.
+Without using `_arguments` the placeholder name has to exactly match the argument name from URI which is `category`.
+:yaml:`requirements.tag` is a string parameter with multiple characters from `a .. z`, `A .. Z` and `0 .. 9`.
+:yaml:`_arguments.category_id` defines the mapping from the `category` parameter in the URL. 
+Therefore the 'category_id' placeholder can be used in the YAML configuration instead of `category`. 
+
+
 
 ..  note::
     For people coming from :t3ext:`realurl` in previous TYPO3 versions: The
