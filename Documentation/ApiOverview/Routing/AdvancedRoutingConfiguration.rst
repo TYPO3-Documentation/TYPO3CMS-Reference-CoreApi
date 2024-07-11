@@ -122,8 +122,8 @@ configuration:
 
 :yaml:`requirements`
     Specifies exactly what kind of parameter should be added to that route as a
-    regular expression. This way it is configurable to allow only integer
-    values, e.g. for pagination.
+    `regular expressions <https://regex101.com/>`__. This way it is configurable
+    to allow only integer values, for example for pagination.
 
     Make sure you define your requirements as strict as possible. This is
     necessary so that performance is not reduced and to allow TYPO3 to match the
