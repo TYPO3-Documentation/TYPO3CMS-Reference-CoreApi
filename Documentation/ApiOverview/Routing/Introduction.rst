@@ -107,7 +107,7 @@ Enhancers
 
 Page Type Suffix
     A Page Type Suffix indicates the type of a URL, usually ".html". It can also be left out completely.
-    If set, it could control alternate variants of a URL, for example an RSS feed or a JSON representation.
+    If set, it could control alternate variants of a URL, for example a RSS feed or a JSON representation.
 
     A Page Type Suffix is treated as an Enhancer, specifically a "(Route) Decorator".
     Other kinds of decorators could add additional parts to the route, but
