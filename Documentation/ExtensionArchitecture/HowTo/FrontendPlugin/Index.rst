@@ -17,9 +17,9 @@ are often able to perform dynamic output (for example with TypoScript
 configuration, Fluid data processors or ViewHelpers).
 
 For a long time, TYPO3 provided a "General Plugin" to be selected as a
-content element (technical: "tt_content.CType=list"), and then the sub-type
+content element (setting the content record :sql:`CType` to :sql:`'list'`), and then the sub-type
 would indicate which kind of frontend plugin to be used
-("tt_content.list_type=XXX").
+(setting the content record :sql:`list_type`).
 
 There are different technology choices to create frontend plugins in TYPO3.
 
