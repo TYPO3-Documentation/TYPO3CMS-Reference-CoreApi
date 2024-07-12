@@ -33,7 +33,13 @@ ViewHelper from within this namespace:
 .. code-block:: html
    :caption: EXT:blog_example/Resources/Private/Templates/SomeTemplate.html
 
-   {namespace blog=MyVendor\BlogExample\ViewHelpers}
+    <html
+        xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+        xmlns:blog="http://typo3.org/ns/MyVendor/BlogExample/ViewHelpers"
+        data-namespace-typo3-fluid="true"
+    >
+        <!-- ... -->
+    </html>
 
 The ViewHelper should be given the name "gravatar" and only take an email
 address as a parameter. The ViewHelper is called in the template as follows:
