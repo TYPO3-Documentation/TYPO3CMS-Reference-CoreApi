@@ -19,7 +19,8 @@ configuration, Fluid data processors or ViewHelpers).
 For a long time, TYPO3 provided a "General Plugin" to be selected as a
 content element (setting the content record :sql:`CType` to :sql:`'list'`), and then the sub-type
 would indicate which kind of frontend plugin to be used
-(setting the content record :sql:`list_type`).
+(setting the content record :sql:`list_type`). It is recommended to only
+use the :sql:`CType` based registration.
 
 There are different technology choices to create frontend plugins in TYPO3.
 
