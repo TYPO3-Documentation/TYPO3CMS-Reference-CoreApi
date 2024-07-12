@@ -138,10 +138,10 @@ There are 3 ways to import ViewHelper namespaces in TYPO3. In all three examples
    by the vendor name, package name and the fixed `ViewHelpers` suffix.
 
    .. important::
-      Do not use `https://typo3.org` (HTTPS instead of HTTP). Fluid will not be
-      able to detect this namespace and convert it to PHP class name prefixes.
-      Remember that this is an XML namespace, not an URI so it only needs to be
-      unique, not a valid URI.
+      Do not use `https://typo3.org` (HTTPS instead of HTTP). Fluid would not be
+      able to detect this namespace to convert it to PHP class name prefixes.
+      Remember: This is a XML namespace, not an URI. It only needs to be
+      matchable by Fluid, not contain a valid URI.
 
 2. Local namespace import via curly braces {}-syntax
 
