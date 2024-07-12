@@ -7,7 +7,8 @@ Registration of frontend plugins
 ================================
 
 When you want to use Extbase controllers in the frontend you need to define a
-so called frontend plugin. Extbase allows to define multiple frontend plugins
+so called :ref:`frontend plugin <t3coreapi:frontend_plugin>`.
+Extbase allows to define multiple frontend plugins
 for different use cases within one extension.
 
 A frontend plugin can be defined as
