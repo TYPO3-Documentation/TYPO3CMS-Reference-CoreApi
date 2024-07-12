@@ -33,7 +33,13 @@ ViewHelper from within this namespace:
 ..  code-block:: html
     :caption: EXT:my_extension/Resources/Private/Templates/SomeTemplate.html
 
-    {namespace m=MyVendor\MyExtension\ViewHelpers}
+    <html
+        xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+        xmlns:m="http://typo3.org/ns/MyVendor/MyExtension/ViewHelpers"
+        data-namespace-typo3-fluid="true"
+    >
+        <!-- ... -->
+    </html>
 
 For further information about namespace import, see
 :ref:`fluid-syntax-viewhelpers-import-namespaces`.
