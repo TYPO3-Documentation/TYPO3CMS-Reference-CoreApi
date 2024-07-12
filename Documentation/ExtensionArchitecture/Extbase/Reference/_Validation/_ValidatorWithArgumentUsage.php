@@ -41,9 +41,4 @@ class Person extends AbstractEntity
         'options' => ['minimum' => 2, 'maximum' => 150],
     ])]
     protected string $lastname = '';
-    /**
-     * Use annotations instead for compatibility with TYPO3 v11 and PHP 7.4:
-     * @Validate("StringLength", options={"minimum": 2, "maximum": 80})
-     */
-    protected string $lastname2 = '';
 }

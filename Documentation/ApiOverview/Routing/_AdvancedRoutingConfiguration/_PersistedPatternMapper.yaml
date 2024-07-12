@@ -1,0 +1,15 @@
+routeEnhancers:
+  Blog:
+    type: Extbase
+    limitToPages: [13]
+    extension: BlogExample
+    plugin: Pi1
+    routes:
+      - { routePath: '/blog/{blogpost}', _controller: 'Blog::detail', _arguments: {'blogpost': 'post'} }
+    defaultController: 'Blog::detail'
+    aspects:
+      blogpost:
+        type: PersistedPatternMapper
+        tableName: 'tx_blogexample_domain_model_post'
+        routeFieldPattern: '^(?P<title>.+)-(?P<uid>\d+)$'
+        routeFieldResult: '{title}-{uid}'

@@ -1,6 +1,0 @@
-services:
-  # This is obsolete when the extension does not support TYPO3 v11 anymore.
-  # @todo: Remove this when v11 compatibility is dropped.
-  MyVendor\MyExtension\Validators\MyCustomValidator:
-    public: true
-    shared: false
