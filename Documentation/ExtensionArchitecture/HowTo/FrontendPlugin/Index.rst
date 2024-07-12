@@ -34,6 +34,6 @@ using :ref:`Extbase <extbase>` (specifically
 :ref:`Registration of frontend plugins <t3coreapi:extbase_registration_of_frontend_plugins>`).
 
 It is also possible to create a frontend plugin using Core functionality
-only, using custom content object renderers.
+only.
 
 ..  todo: Document how to create a frontend plugin without Extbase.
