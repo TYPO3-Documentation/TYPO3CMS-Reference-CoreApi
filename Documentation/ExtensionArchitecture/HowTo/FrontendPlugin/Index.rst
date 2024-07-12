@@ -19,7 +19,8 @@ configuration, Fluid data processors or ViewHelpers).
 For a long time, TYPO3 provided a "General Plugin" to be selected as a
 content element (setting the content record :sql:`CType` to :sql:`'list'`), and then the sub-type
 would indicate which kind of frontend plugin to be used
-(setting the content record :sql:`list_type`).
+(setting the content record :sql:`list_type`). It is recommended to only
+use the :sql:`CType` based registration.
 
 There are different technology choices to create frontend plugins in TYPO3.
 
@@ -33,6 +34,6 @@ using :ref:`Extbase <extbase>` (specifically
 :ref:`Registration of frontend plugins <t3coreapi:extbase_registration_of_frontend_plugins>`).
 
 It is also possible to create a frontend plugin using Core functionality
-only, using custom content object renderers.
+only.
 
 ..  todo: Document how to create a frontend plugin without Extbase.
