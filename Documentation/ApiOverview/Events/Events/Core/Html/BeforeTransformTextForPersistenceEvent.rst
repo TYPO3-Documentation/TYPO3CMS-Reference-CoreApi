@@ -12,7 +12,7 @@ BeforeTransformTextForPersistenceEvent
     :ref:`BeforeTransformTextForRichTextEditorEvent`
     :ref:`AfterTransformTextForRichTextEditorEvent` were introduced as
     replacement for the removed hook
-    :php:`$GLOBALS['TYPO3_CONF_VARS'] ['SC_OPTIONS']['t3lib/class.t3lib_parsehtml_proc.php']['transformation']`.
+    :php:`$GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['t3lib/class.t3lib_parsehtml_proc.php']['transformation']`.
 
 Modify data when saving rich-text-editor (RTE) content to the database
 (persistence). As opposed to :ref:`AfterTransformTextForPersistenceEvent`

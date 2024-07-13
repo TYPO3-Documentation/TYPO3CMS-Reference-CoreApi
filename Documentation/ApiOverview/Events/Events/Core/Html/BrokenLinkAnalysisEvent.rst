@@ -27,7 +27,7 @@ event to override the default behaviour.
 Example
 =======
 
-An event listener class is constructed which will take an RTE input *TYPO3* and internally
+An event listener class is constructed which will take a RTE input *TYPO3* and internally
 store it in the database as *[tag:typo3]*. This could allow a content element data processor
 in the frontend to handle this part of the content with for example internal glossary operations.
 

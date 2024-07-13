@@ -12,7 +12,7 @@ AfterTransformTextForRichTextEditorEvent
     :ref:`BeforeTransformTextForRichTextEditorEvent`
     :ref:`AfterTransformTextForRichTextEditorEvent` were introduced as
     replacement for the removed hook
-    :php:`$GLOBALS['TYPO3_CONF_VARS'] ['SC_OPTIONS']['t3lib/class.t3lib_parsehtml_proc.php']['transformation']`.
+    :php:`$GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['t3lib/class.t3lib_parsehtml_proc.php']['transformation']`.
 
 Modify data when retrieving content from the database and pass to the
 rich-text-editor (RTE). As opposed to :ref:`BeforeTransformTextForRichTextEditorEvent`
@@ -22,10 +22,10 @@ transformations like for links.
 When using a RTE HTML content element, two transformations
 take place within the TYPO3 backend:
 
-*  **From database: Fetching the current content from the database (`persistence`) and
-   preparing it to be displayed inside the RTE HTML component.**
-*  To database: Retrieving the data returned by the RTE and preparing it to
-   be persisted into the database.
+*   **From database: Fetching the current content from the database (`persistence`) and
+    preparing it to be displayed inside the RTE HTML component.**
+*   To database: Retrieving the data returned by the RTE and preparing it to
+    be persisted into the database.
 
 This event can modify the first part. This allows developers to apply
 more customized transformations, apart from the internal and API ones.
