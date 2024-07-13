@@ -27,7 +27,22 @@ event to override the default behaviour.
 Example
 =======
 
-..  include:: /_includes/EventsContributeNote.rst.txt
+An event listener class is constructed which will take an RTE input *TYPO3* and internally
+store it in the database as *[tag:typo3]*. This could allow a content element data processor
+in the frontend to handle this part of the content with for example internal glossary operations.
+
+The workflow would be:
+
+*   Editor enters "TYPO3" in the RTE instance.
+*   When saving, this gets stored as "[tag:typo3]".
+*   When the editor sees the RTE instance again, "[tag:typo3]" gets replaced to "TYPO3" again.
+*   So: The editor will always only see "TYPO3" and not know how it is internally handled.
+*   The frontend output receives "[tag:typo3]" and could do its own content element magic,
+    other services accessing the database could also use the parseable representation.
+
+The corresponding event listener class:
+
+..  include:: _TransformTextEvents/_TransformListener.php
 
 API
 ===
