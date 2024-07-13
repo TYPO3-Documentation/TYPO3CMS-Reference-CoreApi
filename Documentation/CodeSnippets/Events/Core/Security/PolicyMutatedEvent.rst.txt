@@ -7,6 +7,10 @@
         :readonly:
         :public:
 
+    ..  php:attr:: request
+        :readonly:
+        :public:
+
     ..  php:attr:: defaultPolicy
         :readonly:
         :public:

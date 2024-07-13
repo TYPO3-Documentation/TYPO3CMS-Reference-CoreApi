@@ -16,9 +16,8 @@
                             <label>Max. number of posts to display per page
                             </label>
                             <config>
-                                <type>input</type>
+                                <type>number</type>
                                 <size>2</size>
-                                <eval>int</eval>
                                 <default>3</default>
                             </config>
                         </settings.postsPerPage>
