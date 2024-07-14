@@ -432,16 +432,17 @@ the :php:`xml2array` method in :php:`GeneralUtility`  can be used to read
 the FlexForm data, then the :php:`FlexFormTools` can be used to write back the
 changes.
 
-..  code-block:: php
+..  versionchanged:: 13.0
+    :php:`\TYPO3\CMS\Core\Configuration\FlexForm\FlexFormTools` is now a stateless
+    service and can be injected via :ref:`DependencyInjection`.
+    :php:`FlexFormTools::flexArray2Xml()` is now marked as internal.
 
-    use \TYPO3\CMS\Core\Utility\GeneralUtility;
-    use \TYPO3\CMS\Core\Configuration\FlexForm\FlexFormTools;
+..  literalinclude:: _FlexformModificationService.php
+    :caption: EXT:my_extension/Classes/Service/FlexformModificationService.php
 
-    $flexFormArray = GeneralUtility::xml2array($flexFormString);
-    $changedFlexFormArray = $this->doSomething($flexFormArray);
-
-    $flexFormTools = new FlexFormTools();
-    $flexFormString = $flexFormTools->flexArray2Xml($changedFlexFormArray, addPrologue: true);
+..  note::
+    The method FlexFormTools::flexArray2Xml() is marked as internal and subject
+    to unannounced changes. Use at your own risk.
 
 
 .. index:: pair: FlexForms; TypoScript
