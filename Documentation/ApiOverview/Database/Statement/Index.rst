@@ -169,19 +169,13 @@ handy when the same query is executed over and over again with different
 arguments. The example below prepares a statement for the :sql:`pages` table
 and executes it twice with different arguments.
 
-.. todo: Update this code example when https://review.typo3.org/c/Packages/TYPO3.CMS/+/72610
-         is merged.
-
-The following code example is probably outdated:
-
 ..  code-block:: php
     :caption: EXT:my_extension/Classes/Domain/Repository/MyRepository.php
 
     // use TYPO3\CMS\Core\Database\Connection;
-    $connection = $this->connectionPool->getConnectionForTable('pages');
-    $queryBuilder = $connection->createQueryBuilder();
-    $queryBuilder->getRestrictions()->removeAll();
-    $sqlStatement = $queryBuilder->select('uid')
+    $queryBuilder = $this->connectionPool->getQueryBuilderForTable('pages');
+    $statement = $queryBuilder
+        ->select('uid')
         ->from('pages')
         ->where(
             $queryBuilder->expr()->eq(
@@ -189,15 +183,16 @@ The following code example is probably outdated:
                 $queryBuilder->createPositionalParameter(0, Connection::PARAM_INT)
             )
         )
-        ->getSQL();
+        ->prepare();
 
-    $statement = $connection->executeQuery($sqlStatement, [ 24 ]);
-    $result1 = $statement->fetchAssociative();
-    $statement->closeCursor(); // free the resources for this result
-    $statement->bindValue(1, 25);
-    $statement->executeQuery();
-    $result2 = $statement->fetchAssociative();
-    $statement->closeCursor(); // free the resources for this result
+    $pages = [];
+    foreach ([24, 25] as $pageId) {
+        // Bind $pageId value to the first (and in this case only) positional parameter
+	    $statement->bindValue(1, $pageId, Connection::PARAM_INT);
+	    $result = $statement->executeQuery();
+        $pages[] = $result->fetchAssociative();
+        $result->free(); // free the resources for this result
+    }
 
 Read :ref:`how to correctly instantiate <database-query-builder-instantiation>`
 a query builder with the connection pool.
