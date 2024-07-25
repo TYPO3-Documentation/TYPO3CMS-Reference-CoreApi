@@ -58,8 +58,8 @@ Method :php:`getDescription()`
 
 Method :php:`executeUpdate()`
     Is called, if the user triggers the wizard. This method should contain, or
-    call, the code that is needed to execute the upgrade. Therefore, a boolean
-    has to be returned.
+    call, the code that is needed to execute the upgrade. Return a boolean
+    indicating whether the update was successfull.
 
 Method :php:`updateNecessary()`
     Is called to check whether the upgrade wizard has to run. Return
