@@ -37,6 +37,8 @@ final class ExampleUpgradeWizard implements UpgradeWizardInterface
      * Execute the update
      *
      * Called when a wizard reports that an update is necessary
+     *
+     * The boolean indicates whether the update was successful
      */
     public function executeUpdate(): bool
     {
