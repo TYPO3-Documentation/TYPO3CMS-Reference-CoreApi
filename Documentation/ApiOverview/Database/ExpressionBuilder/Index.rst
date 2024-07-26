@@ -225,7 +225,7 @@ for SQLite and :sql:`CONCAT(field1, field2, field3, ...)` for other database ven
 ..  _database-expression-builder-castInt:
 
 :php:`ExpressionBuilder::castInt()`
----------------------------------------
+-----------------------------------
 
 ..  versionadded:: 13.1
 
@@ -290,7 +290,7 @@ is used to provide a compatible expression.
 ..  _database-expression-builder-leftPad:
 
 :php:`ExpressionBuilder::leftPad()`
-----------------------------------
+-----------------------------------
 
 ..  versionadded:: 13.1
 
@@ -354,7 +354,7 @@ is used, based on :sql:`REPLACE()` and the built-in :sql:`printf()`.
 ..  _database-expression-builder-right:
 
 :php:`ExpressionBuilder::right()`
-----------------------------------
+---------------------------------
 
 ..  versionadded:: 13.1
 
@@ -376,7 +376,7 @@ is used to provide a compatible expression.
 ..  _database-expression-builder-rightPad:
 
 :php:`ExpressionBuilder::rightPad()`
-----------------------------------
+------------------------------------
 
 ..  versionadded:: 13.1
 
@@ -397,7 +397,7 @@ more complex compatible replacement expression construct is created.
 ..  _database-expression-builder-space:
 
 :php:`ExpressionBuilder::space()`
-----------------------------------
+---------------------------------
 
 ..  versionadded:: 13.1
 
