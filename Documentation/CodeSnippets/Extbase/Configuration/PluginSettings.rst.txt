@@ -12,15 +12,14 @@
                     <sheetTitle>Options</sheetTitle>
                     <type>array</type>
                     <el>
-                        <settings.postsPerPage>
-                            <label>Max. number of posts to display per page
-                            </label>
+                        <settings.itemsPerPage>
+                            <label>Max. number of items to display per page</label>
                             <config>
                                 <type>number</type>
                                 <size>2</size>
                                 <default>3</default>
                             </config>
-                        </settings.postsPerPage>
+                        </settings.itemsPerPage>
                     </el>
                 </ROOT>
             </sDEF>

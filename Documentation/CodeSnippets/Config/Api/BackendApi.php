@@ -1,6 +1,7 @@
 <?php
 
 use T3docs\BlogExample\Controller\BackendController;
+use T3docs\Examples\Controller\AdminModuleController;
 use T3docs\Examples\Controller\ModuleController;
 use TYPO3\CMS\Backend\Template\Components\DocHeaderComponent;
 use TYPO3\CMS\Backend\Template\ModuleTemplate;
@@ -108,5 +109,43 @@ return [
         'caption' => 'EXT:examples/Configuration/Backend/Modules.php',
         'sourceFile' => 'EXT:examples/Configuration/Backend/Modules.php',
         'targetFileName' => 'ExtensionArchitecture/HowTo/BackendModule/_ModuleConfiguration/_Modules.rst.txt',
+    ],
+    [
+        'action' => 'createPhpClassCodeSnippet',
+        'class' => AdminModuleController::class,
+        'members' => [
+            '__construct',
+        ],
+        'targetFileName' => 'ExtensionArchitecture/HowTo/BackendModule/_ModuleConfiguration/_AdminModuleControllerConstruct.rst.txt',
+    ],
+    [
+        'action' => 'createPhpClassCodeSnippet',
+        'class' => AdminModuleController::class,
+        'members' => [
+            'handleRequest',
+        ],
+        'targetFileName' => 'ExtensionArchitecture/HowTo/BackendModule/_ModuleConfiguration/_AdminModuleControllerHandleRequest.rst.txt',
+    ],
+    [
+        'action' => 'createPhpClassCodeSnippet',
+        'class' => AdminModuleController::class,
+        'members' => [
+            'debugAction',
+        ],
+        'targetFileName' => 'ExtensionArchitecture/HowTo/BackendModule/_ModuleConfiguration/_AdminModuleControllerDebugAction.rst.txt',
+    ],
+    [
+        'action' => 'createPhpClassCodeSnippet',
+        'class' => AdminModuleController::class,
+        'members' => [
+            'setUpDocHeader',
+        ],
+        'targetFileName' => 'ExtensionArchitecture/HowTo/BackendModule/_ModuleConfiguration/_AdminModuleControllerSetUpDocHeader.rst.txt',
+    ],
+    [
+        'action' => 'createCodeSnippet',
+        'caption' => 'EXT:examples/Resources/Private/Templates/AdminModule/Debug.html',
+        'sourceFile' => 'EXT:examples/Resources/Private/Templates/AdminModule/Debug.html',
+        'targetFileName' => 'ExtensionArchitecture/HowTo/BackendModule/_ModuleConfiguration/_DebugHtml.rst.txt',
     ],
 ];
