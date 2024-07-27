@@ -16,7 +16,6 @@ final readonly class MyEventListener
     public function __construct(
         private DiffUtility $diffUtility,
     ) {
-        $this->diffUtility->stripTags = false;
     }
 
     public function __invoke(ModifyVersionDifferencesEvent $event): void
@@ -24,7 +23,7 @@ final readonly class MyEventListener
         $differences = $event->getVersionDifferences();
         foreach ($differences as $key => $difference) {
             if ($difference['field'] === 'my_test_field') {
-                $differences[$key]['content'] = $this->diffUtility->makeDiffDisplay('a', 'b');
+                $differences[$key]['content'] = $this->diffUtility->diff('a', 'b');
             }
         }
 
