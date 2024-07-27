@@ -142,12 +142,21 @@ The trait :php:`CompileWithRenderStatic` must be used if the class implements
 Creating HTML/XML tags with the :php:`AbstractTagBasedViewHelper`
 =================================================================
 
+..  versionchanged:: Fluid Standalone 2.12 / TYPO3 13.2
+    All TagBasedViewHelpers (such as :html:`<f:image />` or :html:`<f:form.*>`) can now receive
+    arbitrary tag attributes which will be appended to the resulting HTML tag. In the past,
+    this was only possible for a small list of tag attributes, like class, id or lang.
+
+    See also :ref:`AbstractTagBasedViewHelper-registerTagAttribute-migration`.
+
 For ViewHelpers which create HTML/XML tags, Fluid provides an enhanced base
 class: :php:`\TYPO3Fluid\Fluid\Core\ViewHelper\AbstractTagBasedViewHelper`.  This
 base class provides an instance of
 :php:`\TYPO3Fluid\Fluid\Core\ViewHelper\TagBuilder` that can be used to create
 HTML-tags. It takes care of the syntactically correct creation and, for example,
-escapes single and double quotes in attribute values.
+escapes single and double quotes in attribute values. All TagBasedViewHelpers
+can receive arbitrary tag attributes which will be appended to the resulting
+HTML tag.
 
 ..  attention::
 
@@ -166,6 +175,9 @@ What is different in this code?
 
 The attribute :php:`$escapeOutput` is no longer necessary.
 
+
+..  _AbstractTagBasedViewHelper:
+
 :php:`AbstractTagBasedViewHelper`
 ---------------------------------
 
@@ -173,6 +185,9 @@ The attribute :php:`$escapeOutput` is no longer necessary.
 
 The ViewHelper does not inherit directly from :php:`AbstractViewHelper` but
 from :php:`AbstractTagBasedViewHelper`, which provides and initializes the tag builder.
+
+
+..  _AbstractTagBasedViewHelper-tagname:
 
 :php:`$tagName`
 ---------------
@@ -182,6 +197,8 @@ from :php:`AbstractTagBasedViewHelper`, which provides and initializes the tag b
 There is a class property :php:`$tagName` which stores the name of the tag to be
 created (:html:`<img>`).
 
+..  _AbstractTagBasedViewHelper-addAttribute:
+
 :php:`$this->tag->addAttribute()`
 ---------------------------------
 
@@ -190,6 +207,8 @@ created (:html:`<img>`).
 The tag builder is available at property :php:`$this->tag`. It offers the method
 :php:`addAttribute()` to add new tag attributes. In our example the attribute
 `src` is added to the tag.
+
+..  _AbstractTagBasedViewHelper-render:
 
 :php:`$this->tag->render()`
 ---------------------------------
@@ -206,42 +225,51 @@ markup is returned.
     generate the output. :php:`renderStatic()` would have no access. For further
     information take a look at :ref:`the-different-render-methods`.
 
+
+..  _AbstractTagBasedViewHelper-registerTagAttribute:
+
 :php:`$this->registerTagAttribute()`
 ------------------------------------
 
-Furthermore the :php:`TagBasedViewHelper` offers assistance for ViewHelper
-arguments that should recur directly and unchanged as tag attributes. These
-must be registered with the method :php:`$this->registerTagAttribute()`
-within :php:`initializeArguments`.
-If support for the :html:`<img>` attribute :html:`alt`
-should be provided in the ViewHelper, this can be done by initializing this in
-:php:`initializeArguments()` in the following way:
+..  deprecated:: Fluid standalone 2.12 / TYPO3 v13.2
+    The methods php:`$this->registerTagAttribute()` and
+    :php:`registerUniversalTagAttributes()` have been deprecated. They can be
+    removed on dropping TYPO3 v12.4 support.
 
-..  code-block:: php
+..  _AbstractTagBasedViewHelper-registerTagAttribute-migration:
+
+Migration: Remove registerUniversalTagAttributes and registerTagAttribute
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+..  code-block:: diff
+    :caption: EXT:my_extension/Classes/ViewHelpers/GravatarViewHelper.php
+
+      public function initializeArguments(): void
+      {
+          parent::initializeArguments();
+    -     $this->registerUniversalTagAttributes();
+    -     $this->registerTagAttribute('alt', 'string', 'Alternative Text for the image');
+      }
+
+When removing the call, attributes registered by the call are now available in
+:php:`$this->additionalArguments`, and no longer in :php:`$this->arguments`.
+This *may* need adaption within single ViewHelpers, *if* they handle such
+attributes on their own.
+
+If you need to support both TYPO3 v12.4 and 13, you can leave the calls
+in until dropping TYPO3 v12.4 support.
+
+
+..  code-block:: diff
     :caption: EXT:my_extension/Classes/ViewHelpers/GravatarViewHelper.php
 
     public function initializeArguments(): void
     {
-       // registerTagAttribute($name, $type, $description, $required = false)
-       $this->registerTagAttribute('alt', 'string', 'Alternative Text for the image');
-    }
-
-For registering the universal attributes id, class, dir, style, lang, title,
-accesskey and tabindex there is a helper method
-:php:`registerUniversalTagAttributes()` available.
-
-If support for universal attributes should be provided and in addition to the
-`alt` attribute in the Gravatar ViewHelper the following
-:php:`initializeArguments()` method will be necessary:
-
-..  code-block:: php
-    :caption: EXT:my_extension/Classes/ViewHelpers/GravatarViewHelper.php
-
-    public function initializeArguments(): void
-    {
-       parent::initializeArguments();
-       $this->registerUniversalTagAttributes();
-       $this->registerTagAttribute('alt', 'string', 'Alternative Text for the image');
+        parent::initializeArguments();
+        // TODO: Remove registerUniversalTagAttributes and registerTagAttribute
+        // On dropping TYPO3 v12.4 support.
+        $this->registerUniversalTagAttributes();
+        $this->registerTagAttribute('alt', 'string', 'Alternative Text for the image');
     }
 
 ..  _insert-optional-arguments:
