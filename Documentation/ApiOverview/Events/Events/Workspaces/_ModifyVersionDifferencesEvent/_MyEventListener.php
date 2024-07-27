@@ -15,8 +15,7 @@ final readonly class MyEventListener
 {
     public function __construct(
         private DiffUtility $diffUtility,
-    ) {
-    }
+    ) {}
 
     public function __invoke(ModifyVersionDifferencesEvent $event): void
     {
