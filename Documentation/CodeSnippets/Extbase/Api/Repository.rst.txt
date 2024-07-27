@@ -94,7 +94,7 @@
     ..  php:method:: __call(?non-empty-string $methodName, ?array<int,mixed> $arguments)
         :returns: `mixed`
 
-        **Deprecated:** since v12, will be removed in v14, use {@see \findBy}, {@see \findOneBy} and {@see \count} instead
+        **Deprecated:** since v12, will be removed in v14, use {@see \self::findBy()}, {@see \self::findOneBy()} and {@see \self::count()} instead
 
         Dispatches magic methods (findBy[Property]())
 

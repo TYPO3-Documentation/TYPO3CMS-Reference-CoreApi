@@ -10,7 +10,7 @@
         :returns: `\TYPO3\CMS\FrontendLogin\Controller\LoginController`
 
     ..  php:method:: getView()
-        :returns: `\TYPO3Fluid\Fluid\View\ViewInterface`
+        :returns: `\TYPO3\CMS\Core\View\ViewInterface`
 
     ..  php:method:: getRequest()
         :returns: `\Psr\Http\Message\ServerRequestInterface`
