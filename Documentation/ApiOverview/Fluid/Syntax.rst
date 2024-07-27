@@ -69,7 +69,7 @@ It is possible to access array or object values by a dynamic index:
 .. code-block:: html
    :caption: EXT:site_package/Resources/Private/Templates/SomeTemplate.html
 
-   myArray.{myIndex}
+   {myArray.{myIndex}}
 
 .. _fluid-syntax-viewhelpers:
 
