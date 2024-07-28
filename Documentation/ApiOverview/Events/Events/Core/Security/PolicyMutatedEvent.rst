@@ -9,7 +9,7 @@ PolicyMutatedEvent
 ..  versionadded:: 12.3
 
 ..  versionchanged:: 12.4.17 | 13.2
-    The event also providse the current PSR-7 :php:`\Psr\Http\Message\ServerRequestInterface`
+    The event also provides the current PSR-7 :php:`\Psr\Http\Message\ServerRequestInterface`
     for additional context
 
 The PSR-14 event
