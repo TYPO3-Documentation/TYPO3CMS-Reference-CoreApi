@@ -68,7 +68,7 @@ A configuration example:
     :language: yaml
     :caption: config/sites/<some_site>/config.yaml | typo3conf/sites/<some_site>/config.yaml
 
-This would enable to you to reach the files at :samp:`https://example.org/example.svg`
+This enables you to reach the files at :samp:`https://example.org/example.svg`
 and :samp:`https://example.org/favicon.ico`.
 
 TYPO3 URL (t3://)
