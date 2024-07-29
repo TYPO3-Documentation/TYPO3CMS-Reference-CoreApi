@@ -53,7 +53,7 @@ all of its components can be broken down to:
 ..  hint::
 
     Please note that the following terminology is based on technical terms used in the TYPO3 Core,
-    due to their Class/Object and Interface names.
+    due to their class/object and interface names.
 
 ..  index:: Routing; Route
 
