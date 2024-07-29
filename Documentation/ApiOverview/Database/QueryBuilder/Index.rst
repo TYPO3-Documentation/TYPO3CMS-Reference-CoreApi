@@ -853,7 +853,12 @@ Remarks:
     out the first n records". Internally, :sql:`LIMIT` will be added by
     Doctrine DBAL and set to a very high value.
 
-*   Use :php:`->setMaxResults(null)` to retrieve all results.
+*   In TYPO3 v13 it will be possible to use :php:`->setMaxResults(null)` to retrieve 
+    all results.
+    
+*   In older Versions up to TYPO3 v12 it is possible to use :php:`->setMaxResults(0)` 
+    to retrieve all results. But this ist not possible in TYPO3 v13 anymore. This is 
+    because of changes in change from Doctrine DBAL 4.
 
 
 .. _database-query-builder-add:
