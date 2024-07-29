@@ -858,7 +858,7 @@ Remarks:
     
 *   In older Versions up to TYPO3 v12 it is possible to use :php:`->setMaxResults(0)` 
     to retrieve all results. But this ist not possible in TYPO3 v13 anymore. This is 
-    because of changes in change from Doctrine DBAL 4.
+    because of changes in Doctrine DBAL 4.
 
 
 .. _database-query-builder-add:
