@@ -853,11 +853,19 @@ Remarks:
     out the first n records". Internally, :sql:`LIMIT` will be added by
     Doctrine DBAL and set to a very high value.
 
-*   :php:`->setMaxResults()` can be called with the argument :php:`0` to return
-    the complete result set without any :sql:`LIMIT` in versions prior to
-    TYPO3 v13. Starting with TYPO3 v13, the argument must instead be set
+*   Starting with TYPO3 v13, the argument must instead be set
     to :php:`null` to achieve the same effect due to changes in the underlying
     library Doctrine DBAL v4. If an unlimited result set is needed, and no
+    reset of previous instructions is required, this method call should best
+    be omitted for best compatibility.
+
+..  versionchanged:: 13.0 
+    Starting with TYPO3 13 `null`instead of argument argument `0` (integer)
+    must be used in :php:`->setMaxResults()` to return
+    the complete result set without any :sql:`LIMIT` in versions prior to
+    TYPO3 v13.
+
+    If an unlimited result set is needed, and no
     reset of previous instructions is required, this method call should best
     be omitted for best compatibility.
 
