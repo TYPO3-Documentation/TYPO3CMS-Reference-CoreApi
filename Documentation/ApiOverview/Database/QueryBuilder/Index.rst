@@ -824,11 +824,6 @@ Remarks:
 setMaxResults() and setFirstResult()
 ====================================
 
-..  versionchanged:: 13.0
-    Using :php:`->setMaxResults(0)` returns no records.
-    Use :php:`->setMaxResults(null)` instead to get all records (which can be
-    used already with TYPO3 v12 and v11).
-
 Add :sql:`LIMIT` to restrict the number of records and :sql:`OFFSET` for
 pagination of query parts. Both methods should be called only once per
 statement:
@@ -858,8 +853,15 @@ Remarks:
     out the first n records". Internally, :sql:`LIMIT` will be added by
     Doctrine DBAL and set to a very high value.
 
-*   Use :php:`->setMaxResults(null)` to retrieve all results.
+*   :php:`->setMaxResults(null)` can be used to retrieve all results. 
+    If an unlimited result set is needed, and no
+    reset of previous instructions is required, this method call should best
+    be omitted for best compatibility.
 
+..  versionchanged:: 13.0 
+    Starting with TYPO3 13 `null` instead of argument `0` (integer)
+    must be used in :php:`->setMaxResults()` to return
+    the complete result set without any :sql:`LIMIT`.
 
 .. _database-query-builder-add:
 
