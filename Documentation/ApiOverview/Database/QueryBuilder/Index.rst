@@ -857,7 +857,7 @@ Remarks:
     all results.
     
 *   In older Versions up to TYPO3 v12 it is possible to use :php:`->setMaxResults(0)` 
-    to retrieve all results. But this ist not possible in TYPO3 v13 anymore. This is 
+    to retrieve all results. This is not possible in TYPO3 v13 anymore due to changes in the underlying Doctrine DBAL v4.
     because of changes in Doctrine DBAL 4.
 
 
