@@ -859,10 +859,9 @@ Remarks:
     be omitted for best compatibility.
 
 ..  versionchanged:: 13.0 
-    Starting with TYPO3 13 `null`instead of argument argument `0` (integer)
+    Starting with TYPO3 13 `null` instead of argument `0` (integer)
     must be used in :php:`->setMaxResults()` to return
-    the complete result set without any :sql:`LIMIT` in versions prior to
-    TYPO3 v13.
+    the complete result set without any :sql:`LIMIT`.
 
 .. _database-query-builder-add:
 
