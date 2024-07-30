@@ -25,7 +25,7 @@ final class MyClass
         $contentElement = BackendUtility::getRecord('tt_content', 21);
 
         // Assemble DataHandler data
-        $newId =  StringUtility::getUniqueId('NEW') // random string prefixed with NEW
+        $newId =  StringUtility::getUniqueId('NEW'); // random string prefixed with NEW
         $data = [];
         $data['sys_file_reference'][$newId] = [
             'uid_local' => $fileObject->getUid(),
