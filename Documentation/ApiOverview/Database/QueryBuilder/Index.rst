@@ -856,7 +856,7 @@ Remarks:
 *   In TYPO3 v13 it will be possible to use :php:`->setMaxResults(null)` to retrieve 
     all results.
     
-*   In older Versions up to TYPO3 v12 it is possible to use :php:`->setMaxResults(0)` 
+*   In versions before TYPO3 v13 it is possible to use :php:`->setMaxResults(0)` 
     to retrieve all results. This is not possible in TYPO3 v13 anymore due to changes in the underlying Doctrine DBAL v4.
     because of changes in Doctrine DBAL 4.
 
