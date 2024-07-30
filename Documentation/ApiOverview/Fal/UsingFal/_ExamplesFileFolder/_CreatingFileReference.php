@@ -8,6 +8,7 @@ use TYPO3\CMS\Backend\Utility\BackendUtility;
 use TYPO3\CMS\Core\DataHandling\DataHandler;
 use TYPO3\CMS\Core\Resource\ResourceFactory;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
+use TYPO3\CMS\Core\Utility\StringUtility;
 
 final class MyClass
 {
@@ -24,7 +25,7 @@ final class MyClass
         $contentElement = BackendUtility::getRecord('tt_content', 21);
 
         // Assemble DataHandler data
-        $newId = 'NEW1234';
+        $newId =  StringUtility::getUniqueId('NEW'); // random string prefixed with NEW
         $data = [];
         $data['sys_file_reference'][$newId] = [
             'uid_local' => $fileObject->getUid(),
