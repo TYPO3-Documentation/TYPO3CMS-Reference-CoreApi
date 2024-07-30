@@ -68,7 +68,7 @@ Remarks:
 
 *   The option :php:`wrapperClass` is used by TYPO3 to insert the extended
     :ref:`Connection <database-connection>` class
-    :php:`TYPO3\CMS\Database\Connection` as main facade around Doctrine DBAL.
+    :php:`\TYPO3\CMS\Core\Database\Connection` as main facade around Doctrine DBAL.
 
 .. _doctrine connection docs: https://www.doctrine-project.org/projects/doctrine-dbal/en/latest/reference/configuration.html
 
