@@ -40,7 +40,7 @@ names accordingly, for instance.
 ..  _database-connection-pool-beware:
 
 Beware
-======
+------
 
 However, the transparency of tables for different database endpoints is limited.
 
