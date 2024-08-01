@@ -7,8 +7,9 @@ ConnectionPool
 ==============
 
 TYPO3's interface for executing queries via Doctrine DBAL starts with
-a request to the :php:`ConnectionPool` for a :php:`QueryBuilder` or a
-:php:`Connection` object and passing the table name to be queried:
+a request to the :php-short:`\TYPO3\CMS\Core\Database\ConnectionPool` for a 
+:php-short:`\TYPO3\CMS\Core\Database\Query\QueryBuilder` or a
+:php-short:`\TYPO3\CMS\Core\Database\Connection` object and passing the table name to be queried:
 
 ..  literalinclude:: _MyTableRepository.php
     :caption: EXT:my_extension/Classes/Domain/Repository/MyTableRepository.php
@@ -17,8 +18,10 @@ The :php:`QueryBuilder` is the default object used by extension
 authors to express complex queries, while a :php:`Connection` instance can be
 used as a shortcut to handle some simple query cases.
 
-Pooling
-=======
+..  _database-connection-pool-pooling:
+
+Pooling: multiple connections to different database endpoints
+=============================================================
 
 TYPO3 can handle multiple connections to different database endpoints at the
 same time. This can be configured for each individual table in
@@ -26,11 +29,15 @@ same time. This can be configured for each individual table in
 <database-configuration>` for details). This makes it possible to run tables on
 different databases without an extension developer having to worry about it.
 
-The :php:`ConnectionPool` implements this feature: It looks for configured
+The :php-short:`\TYPO3\CMS\Core\Database\ConnectionPool` 
+implements this feature: It looks for configured
 table-to-database mapping and can return a :php:`Connection` or a
-:php:`QueryBuilder` instance for that specific connection. These objects know
+:php-short:`\TYPO3\CMS\Core\Database\Query\QueryBuilder` instance 
+for that specific connection. These objects know
 internally which target connection they are dealing with and will quote field
 names accordingly, for instance.
+
+..  _database-connection-pool-beware:
 
 Beware
 ------
