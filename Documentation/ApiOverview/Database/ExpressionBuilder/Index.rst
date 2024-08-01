@@ -266,6 +266,56 @@ For PostgreSQL the :sql:`"value"::INTEGER` cast notation is used.
     :language: php
     :caption: EXT:my_extension/Classes/Domain/Repository/MyTableRepository.php
 
+
+..  _database-expression-builder-if:
+
+:php:`ExpressionBuilder::if()`
+------------------------------
+
+..  versionadded:: 13.3
+
+..  include:: _ExpressionBuilderIf.rst.txt
+
+This method enables to phrase "if-then-else" expressions. Those are
+translated into :sql:`IF` or :sql:`CASE` statements depending on the
+used database engine.
+
+..  warning::
+    No automatic quoting or escaping is done for the condition and true/false
+    part. Extension authors need to ensure proper quoting for each part or use
+    API calls doing the quoting, for example the
+    :php:`TYPO3\CMS\Core\Database\Query\Expression\CompositeExpression` or
+    :ref:`ExpressionBuilder calls <database-expression-builder-basic-comparisons>`.
+
+Example:
+
+..  code-block:: php
+
+    // use TYPO3\CMS\Core\Database\Connection;
+
+    $queryBuilder
+        ->selectLiteral(
+            $queryBuilder->expr()->if(
+                $queryBuilder->expr()->eq(
+                    'hidden',
+                    $queryBuilder->createNamedParameter(0, Connection::PARAM_INT)
+                ),
+                $queryBuilder->quote('page-is-visible'),
+                $queryBuilder->quote('page-is-not-visible'),
+                'result_field_name'
+            ),
+        )
+        ->from('pages');
+
+Result with MySQL/MariaDB:
+
+..  code-block:: sql
+
+    SELECT
+        (IF(`hidden` = 0, 'page-is-visible', 'page-is-not-visible')) AS `result_field_name`
+        FROM `pages`
+
+
 ..  _database-expression-builder-left:
 
 :php:`ExpressionBuilder::left()`
