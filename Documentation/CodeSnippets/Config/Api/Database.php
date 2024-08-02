@@ -177,6 +177,18 @@ return [
     [
         'action' => 'createPhpClassDocs',
         'class' => \TYPO3\CMS\Core\Database\Query\Expression\ExpressionBuilder::class,
+        'targetFileName' => 'ApiOverview/Database/ExpressionBuilder/_ExpressionBuilderIf.rst.txt',
+        'includeClassComment' => false,
+        'includeMemberComment' => false,
+        'members' => [
+            'If',
+        ],
+        'withCode' => false,
+        'noindexInClass' => true,
+    ],
+    [
+        'action' => 'createPhpClassDocs',
+        'class' => \TYPO3\CMS\Core\Database\Query\Expression\ExpressionBuilder::class,
         'targetFileName' => 'ApiOverview/Database/ExpressionBuilder/_ExpressionBuilder.rst.txt',
         'includeMemberComment' => false,
         'members' => [
