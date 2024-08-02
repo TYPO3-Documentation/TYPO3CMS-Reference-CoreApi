@@ -278,7 +278,7 @@ For PostgreSQL the :sql:`"value"::INTEGER` cast notation is used.
 
 This method is used for "if-then-else" expressions. These are
 translated into :sql:`IF` or :sql:`CASE` statements depending on the
-used database engine.
+database engine in use.
 
 ..  warning::
     No automatic quoting or escaping is done for the condition and true/false
