@@ -283,7 +283,7 @@ database engine in use.
 ..  warning::
     No automatic quoting or escaping is done for the condition and true/false
     part. Extension authors need to ensure proper quoting for each part or use
-    API calls doing the quoting, for example the
+    API calls for doing the quoting, for example the
     :php:`TYPO3\CMS\Core\Database\Query\Expression\CompositeExpression` or
     :ref:`ExpressionBuilder calls <database-expression-builder-basic-comparisons>`.
 
