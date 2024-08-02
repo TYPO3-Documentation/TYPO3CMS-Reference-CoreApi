@@ -276,7 +276,7 @@ For PostgreSQL the :sql:`"value"::INTEGER` cast notation is used.
 
 ..  include:: _ExpressionBuilderIf.rst.txt
 
-This method enables to phrase "if-then-else" expressions. Those are
+This method is used for "if-then-else" expressions. These are
 translated into :sql:`IF` or :sql:`CASE` statements depending on the
 used database engine.
 
