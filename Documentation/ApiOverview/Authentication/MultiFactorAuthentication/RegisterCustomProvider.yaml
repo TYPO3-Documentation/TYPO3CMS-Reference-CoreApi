@@ -1,7 +1,7 @@
 services:
   # Place here the default dependency injection configuration
 
-  MyVender\MyExtension\Authentication\Mfa\MyProvider:
+  MyVendor\MyExtension\Authentication\Mfa\MyProvider:
     tags:
       - name: mfa.provider
         identifier: 'my-provider'
