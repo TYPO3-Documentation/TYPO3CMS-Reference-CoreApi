@@ -284,6 +284,12 @@ You can also completely deactivate existing providers with:
     :language: yaml
     :caption: EXT:my_extension/Configuration/Services.yaml
 
+You can also register multiple providers:
+
+..  literalinclude:: MultiFactorAuthentication/RegisterMultipleProviders.yaml
+    :language: yaml
+    :caption: EXT:my_extension/Configuration/Services.yaml
+
 The :php:`MfaProviderInterface` contains a lot of methods to be implemented by
 the providers. This can be split up into state-providing ones, for example,
 :php:`isActive()` or :php:`isLocked()`, and functional ones, for example,
