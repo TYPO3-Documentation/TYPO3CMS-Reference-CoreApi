@@ -26,3 +26,4 @@ Database (Doctrine DBAL)
    Statement/Index
    Middleware/Index
    TipsAndTricks/Index
+   Troubleshooting/Index
