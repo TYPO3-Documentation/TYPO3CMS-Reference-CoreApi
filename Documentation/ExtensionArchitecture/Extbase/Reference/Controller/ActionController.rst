@@ -144,7 +144,7 @@ like this:
    // ...
    use FriendsOfTYPO3\BlogExample\Controller\CommentController;
    use FriendsOfTYPO3\BlogExample\Controller\PostController;
-   use FriendsOfTYPO3\BlogExample\Controller\CommentController;
+   use FriendsOfTYPO3\BlogExample\Controller\BlogController;
    use TYPO3\CMS\Extbase\Utility\ExtensionUtility;
 
    ExtensionUtility::configurePlugin(
