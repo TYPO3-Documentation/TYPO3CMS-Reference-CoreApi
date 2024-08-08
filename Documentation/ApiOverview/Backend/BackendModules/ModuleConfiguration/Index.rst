@@ -112,7 +112,7 @@ Module configuration options
 
     ..  confval:: labels
         :name: backend-module-labels
-        :type: array or string
+        :type: array of strings or string
 
         An :php:`array` with the following keys:
 
@@ -120,10 +120,10 @@ Module configuration options
         *   `description`
         *   `shortDescription`
 
-        The value can either be a static string or a locallang label reference.                                                       |
-
-        It is also possible to define the path to a locallang file.
-        The referenced file should contain the following label keys:
+        The value of each array entry can either be a `string` containing the static text, or a locallang label reference.
+       
+        Alternatively define the path of a locallang file reference.
+        A referenced file should contain the following label keys:
 
         *   `mlang_tabs_tab` (used as module title)
         *   `mlang_labels_tabdescr` (used as module description)
