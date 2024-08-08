@@ -120,7 +120,7 @@ Module configuration options
         *   `description`
         *   `shortDescription`
 
-        The value can either be a `string` containing the static text, or a locallang label reference.
+        The value of each array entry can either be a `string` containing the static text, or a locallang label reference.
        
         Alternatively define the path of a locallang file reference.
         A referenced file should contain the following label keys:
