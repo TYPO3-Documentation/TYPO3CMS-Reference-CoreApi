@@ -120,7 +120,7 @@ Module configuration options
         *   `description`
         *   `shortDescription`
 
-        The value can either be a text :php:`string` or a locallang label reference.
+        The value can either be a text `string` or a locallang label reference.
        
         Alternatively define the path of a locallang file reference.
         A referenced file should contain the following label keys:
