@@ -112,7 +112,7 @@ Module configuration options
 
     ..  confval:: labels
         :name: backend-module-labels
-        :type: array of string or string
+        :type: array of strings or string
 
         An :php:`array` with the following keys:
 
