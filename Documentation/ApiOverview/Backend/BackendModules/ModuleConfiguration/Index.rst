@@ -100,7 +100,7 @@ Module configuration options
         :name: backend-module-iconIdentifier
         :type: string
 
-        The module icon identifier
+        The module :ref:`icon identifier <t3coreapi:icon>`
 
     ..  confval:: icon
         :name: backend-module-icon
