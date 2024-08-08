@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-use MyVendor\MyExtension\Classes\Controller\MyModuleController;
+use MyVendor\MyExtension\Controller\MyModuleController;
 
 return [
     'my_module' => [
