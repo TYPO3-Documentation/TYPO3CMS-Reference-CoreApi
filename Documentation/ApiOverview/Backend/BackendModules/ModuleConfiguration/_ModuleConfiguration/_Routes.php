@@ -2,8 +2,8 @@
 
 declare(strict_types=1);
 
-use MyVendor\MyExtension\Classes\Controller\MyModuleController;
 use MyVendor\MyExtension\Classes\Controller\AnotherController;
+use MyVendor\MyExtension\Classes\Controller\MyModuleController;
 
 return [
     'my_module' => [
