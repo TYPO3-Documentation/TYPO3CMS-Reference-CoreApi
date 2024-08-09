@@ -71,6 +71,10 @@ A configuration example:
 This enables you to reach the files at :samp:`https://example.org/example.svg`
 and :samp:`https://example.org/favicon.ico`.
 
+The asset URL is configured on a per-site basis.
+This allows to deliver site-dependent custom favicon or manifest
+assets, for example.
+
 TYPO3 URL (t3://)
 =================
 
