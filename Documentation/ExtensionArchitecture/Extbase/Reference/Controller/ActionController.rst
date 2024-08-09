@@ -102,7 +102,7 @@ If you need a to handle errors differently this method can be overridden.
     editing process, the validation of that object can be disabled by the
     annotation :php:`@TYPO3\CMS\Extbase\Annotation\IgnoreValidation`.
 
-..    _extbase-action-controller-forward:
+..  _extbase-action-controller-forward:
 
 Forward to a different controller
 =================================
@@ -177,27 +177,27 @@ caught by a PSR-15 middleware and the given PSR-7 response is then returned dire
 
 Example:
 
-..    literalinclude::  ../_FrontendPlugin/_PropagateResponseExceptionController.php
-     :language: php
-     :caption: EXT:my_extension/Classes/Controller/MyController.php
-     :emphasize-lines: 21
+..  literalinclude::  ../_FrontendPlugin/_PropagateResponseExceptionController.php
+    :language: php
+    :caption: EXT:my_extension/Classes/Controller/MyController.php
+    :emphasize-lines: 21
 
 Also, if your controller needs to perform a redirect to a defined URI (internal or external),
 you can return a specific object through the :php:`responseFactory`:
 
-..    literalinclude::  ../_FrontendPlugin/_ExternalRedirectController.php
-     :language: php
-     :caption: EXT:my_extension/Classes/Controller/MyController.php
-     :emphasize-lines: 17-18
+..  literalinclude::  ../_FrontendPlugin/_ExternalRedirectController.php
+    :language: php
+    :caption: EXT:my_extension/Classes/Controller/MyController.php
+    :emphasize-lines: 17-18
 
-..    hint::
-     If you want to return a JSON response, see :ref:`extbase_responses` to achieve this
-     with a special :php:`$this->jsonResponse()` method.
+..  hint::
+    If you want to return a JSON response, see :ref:`extbase_responses` to achieve this
+    with a special :php:`$this->jsonResponse()` method.
 
 Events
 ======
 
 Two :ref:`PSR-14 events <EventDispatcher>` are available:
 
-*    :ref:`AfterRequestDispatchedEvent`
-*    :ref:`BeforeActionCallEvent`
+*   :ref:`AfterRequestDispatchedEvent`
+*   :ref:`BeforeActionCallEvent`
