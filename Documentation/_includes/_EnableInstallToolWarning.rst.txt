@@ -1,0 +1,12 @@
+..  caution::
+    This file should be removed or renamed after use to secure the
+    Install Tool and prevent unauthorized access.
+
+    TYPO3 automatically
+    deletes the :file:`ENABLE_INSTALL_TOOL` file when you log out of the Install
+    Tool or if the file is older than 60 minutes (expiry time).
+
+    The file can be prevented from being deleted if it contains "KEEP_FILE" as
+    content. In this case it will not be deleted automatically! Only use this
+    feature during local development, for example in
+    :ref:`DDEV <t3start:installation-ddev-tutorial>`!
