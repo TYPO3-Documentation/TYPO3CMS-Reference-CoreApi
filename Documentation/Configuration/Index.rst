@@ -37,6 +37,7 @@ these terms in this chapter.
     TypoScript/Index
     UserSettingsConfiguration/Index
     Yaml/Index
+    FlagFiles/Index
 
 **More ...**
 
