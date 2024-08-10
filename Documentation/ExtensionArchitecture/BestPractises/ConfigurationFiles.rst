@@ -129,7 +129,12 @@ Safety with Closures
 ====================
 You **do not have to** use a directly called closure function after dropping
 TYPO3 v10.4 support. But it is still recommended in other included files to 
-wrap them in a function. This is a list of those Files where wrapping is still 
+wrap them in a function.
+
+..  literalinclude:: _function_wrap.php
+    :language: php
+
+This is a list of those Files where wrapping is still 
 recommended:
     
 -   ext_localconf.php (kinda fine since 8.7)
