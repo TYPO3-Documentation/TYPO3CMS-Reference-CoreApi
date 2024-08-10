@@ -147,7 +147,7 @@ recommended:
 -   Configuration/Backend/T3editor/Modes.php
 -   Configuration/Backend/T3editor/Addons.php
 -   Configuration/Extbase/Persistence/Classes.php
--   ext_emconf (funnily here you have to overwrite the $EM_CONF variable)
+-   ext_emconf.php (funnily here you have to overwrite the $EM_CONF variable)
     
 
 The following example contains the complete code:
