@@ -134,9 +134,9 @@ wrap them in a function.
 ..  literalinclude:: _function_wrap.php
     :language: php
 
-This is a list of those Files where wrapping is still 
+This is a list of those files where wrapping is still 
 recommended:
-    
+
 -   ext_localconf.php (kinda fine since 8.7)
 -   ext_tables.php (kinda fine since 8.7)
 -   Configuration/RequestMiddlewares.php (fixed with 13.2)
