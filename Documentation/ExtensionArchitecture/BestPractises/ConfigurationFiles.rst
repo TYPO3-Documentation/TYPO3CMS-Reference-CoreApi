@@ -125,9 +125,30 @@ file with all configuration of other extensions.
 -   However, due to limitations in the TYPO3 Extension Repository, the
     :php:`$_EXTKEY` option **must** be kept within an extension's
     :ref:`ext_emconf.php <extension-declaration>` file.
-
--   You **do not have to** use a directly called closure function after dropping
-    TYPO3 v10.4 support.
+Safety with Closures 
+====================
+You **do not have to** use a directly called closure function after dropping
+TYPO3 v10.4 support. But it is still recommended in other included files to 
+wrap them in a function. This is a list of those Files where wrapping is still 
+recommended:
+    
+-   ext_localconf.php (kinda fine since 8.7)
+-   ext_tables.php (kinda fine since 8.7)
+-   Configuration/RequestMiddlewares.php (fixed with 13.2)
+-   Configuration/Backend/Routes.php (fixed with 13.2)
+-   Configuration/Backend/AjaxRoutes.php (fixed with 13.2)
+-   Configuration/Backend/Modules.php (fixed with 13.2)
+-   Configuration/Backend/DashboardPresets.php (fixed with 13.2)
+-   Configuration/Backend/DashboardPresets.php (fixed with 13.2)
+-   Configuration/Backend/DashboardPresets.php (fixed with 13.2)
+-   Configuration/ContentSecurityPolicies.php (fixed with 13.2)
+-   Configuration/Icons.php (fixed with 13.2)
+-   Configuration/ExpressionLanguage.php
+-   Configuration/Backend/T3editor/Modes.php
+-   Configuration/Backend/T3editor/Addons.php
+-   Configuration/Extbase/Persistence/Classes.php
+-   ext_emconf (funnily here you have to overwrite the $EM_CONF variable)
+    
 
 The following example contains the complete code:
 
