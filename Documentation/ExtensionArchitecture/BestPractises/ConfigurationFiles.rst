@@ -125,6 +125,10 @@ file with all configuration of other extensions.
 -   However, due to limitations in the TYPO3 Extension Repository, the
     :php:`$_EXTKEY` option **must** be kept within an extension's
     :ref:`ext_emconf.php <extension-declaration>` file.
+
+
+..  _configuration_php_use_closures:
+
 Safety with Closures 
 ====================
 You **do not have to** use a directly called closure function after dropping
