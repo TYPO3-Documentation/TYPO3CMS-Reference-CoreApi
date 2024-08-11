@@ -42,7 +42,7 @@ The file needs to return a PHP configuration array with the following keys:
     Do not overwrite the $icons variable in this file. This can lead to the error: 
     "Fatal error: Uncaught Error: Call to a member function exchangeArray() on array in typo3/cms-core/Classes/Package/AbstractServiceProvider.php" 
     (assuming you replaced the $icons variable with an array) 
-    :ref:`As with all .php files getting included by TYPO3, you should use a closure/anonymous function to encapsulate variables. <extension-architecture:bestpractices:configuration-files>`
+    :ref:`As with all .php files getting included by TYPO3, you should use a closure/anonymous function to encapsulate variables. <configuration-php-use-closures>`
 
 ..  index:: Icon API; IconProviderInterface
 
