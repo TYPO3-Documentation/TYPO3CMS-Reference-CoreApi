@@ -155,6 +155,9 @@ equal to the old password. The validator must always be configured with
 the exclude action :php:`\TYPO3\CMS\Core\PasswordPolicy\PasswordPolicyAction::NEW_USER_PASSWORD`,
 because it should be excluded, when a new user account is created.
 
+
+..  _password-policies-third-party-validators:
+
 Third-party validators
 ----------------------
 
