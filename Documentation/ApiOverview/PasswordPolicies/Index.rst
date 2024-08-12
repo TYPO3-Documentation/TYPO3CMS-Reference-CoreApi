@@ -159,6 +159,13 @@ the exclude action :php:`\TYPO3\CMS\Core\PasswordPolicy\PasswordPolicyAction::NE
 because it should be excluded, when a new user account is created.
 
 
+..  _password-policies-third-party-validators:
+
+Third-party validators
+----------------------
+
+The extension :t3ext:`add_pwd_policy` provides additional validators.
+
 Disable password policies globally
 ==================================
 
