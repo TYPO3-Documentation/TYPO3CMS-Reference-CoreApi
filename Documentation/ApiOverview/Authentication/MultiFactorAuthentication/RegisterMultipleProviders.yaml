@@ -1,0 +1,26 @@
+services:
+  # Place here the default dependency injection configuration
+
+  MyVendor\MyExtension\Authentication\Mfa\MyFirstProvider:
+    tags:
+      - name: mfa.provider
+        identifier: 'my-provider-1'
+        title: 'LLL:EXT:my_extension/Resources/Private/Language/locallang.xlf:myProvider1.title'
+        description: 'LLL:EXT:my_extension/Resources/Private/Language/locallang.xlf:myProvider1.description'
+        setupInstructions: 'LLL:EXT:my_extension/Resources/Private/Language/locallang.xlf:myProvider1.setupInstructions'
+        icon: 'tx-myextension-provider1-icon'
+
+  MyVendor\MyExtension\Authentication\Mfa\MySecondProvider:
+    class: TYPO3\CMS\Core\Authentication\Mfa\Provider\TotpProvider
+    tags:
+      - name: mfa.provider
+        identifier: 'my-provider-2'
+        title: 'LLL:EXT:my_extension/Resources/Private/Language/locallang.xlf:myProvider2.title'
+        description: 'LLL:EXT:my_extension/Resources/Private/Language/locallang.xlf:myProvider2.description'
+        setupInstructions: 'LLL:EXT:my_extension/Resources/Private/Language/locallang.xlf:myProvider2.setupInstructions'
+        icon: 'tx-myextension-provider2-icon'
+        # Important so that this provider acts as a fallback
+        defaultProviderAllowed: true
+        before: 'recovery-codes'
+        # Execute after the primary totp
+        after: 'totp'
