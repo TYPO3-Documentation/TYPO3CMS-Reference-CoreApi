@@ -63,8 +63,8 @@ you can utilize :php:`typeicon_classes`.
 
 It is possible to define additional type icons for special case pages:
 
-*   Page contains content from another page `<doktype>-mountpoint`,
-    For example: :php:`$GLOBALS['TCA']['pages']['ctrl']['typeicon_classes']['116-mountpoint']`.
+*   Page contains content from another page `<doktype>-contentFromPid`,
+    For example: :php:`$GLOBALS['TCA']['pages']['ctrl']['typeicon_classes']['116-contentFromPid']`.
 *   Page is hidden in navigation `<doktype>-hideinmenu`
     For example: :php:`$GLOBALS['TCA']['pages']['ctrl']['typeicon_classes']['116-hideinmenu']`.
 *   Page is the root of the site `<doktype>-root`
