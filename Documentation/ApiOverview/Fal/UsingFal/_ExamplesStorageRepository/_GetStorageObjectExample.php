@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace MyVendor\MyExtension\Classes\Resource;
+namespace MyVendor\MyExtension\Resource;
 
 use TYPO3\CMS\Core\Resource\StorageRepository;
 

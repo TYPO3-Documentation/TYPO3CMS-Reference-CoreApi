@@ -14,9 +14,4 @@ class Blog extends AbstractEntity
         'validator' => TitleValidator::class,
     ])]
     public string $title = '';
-    /**
-     * Use annotations instead for compatibility with TYPO3 v11 and PHP 7.4:
-     * @Validate("T3docs\BlogExample\Domain\Validator\TitleValidator")
-     */
-    public string $title2 = '';
 }

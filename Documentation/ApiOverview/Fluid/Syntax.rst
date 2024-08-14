@@ -69,7 +69,7 @@ It is possible to access array or object values by a dynamic index:
 .. code-block:: html
    :caption: EXT:site_package/Resources/Private/Templates/SomeTemplate.html
 
-   myArray.{myIndex}
+   {myArray.{myIndex}}
 
 .. _fluid-syntax-viewhelpers:
 
@@ -124,14 +124,23 @@ There are 3 ways to import ViewHelper namespaces in TYPO3. In all three examples
       :caption: EXT:blog_example/Resources/Private/Templates/SomeTemplate.html
 
       <html
-       xmlns:blog="http://typo3.org/ns/Myvendor/MyExtension/ViewHelpers"
-       data-namespace-typo3-fluid="true">
+         xmlns:blog="http://typo3.org/ns/Myvendor/MyExtension/ViewHelpers"
+         data-namespace-typo3-fluid="true"
+      >
 
       </html>
 
-   If the attribute :html:`data-namespace-typo3-fluid="true"` is specified on the
-   :html:`html` element, the HTML element itself won’t be rendered. This is useful
-   for various IDEs and HTML auto-completion.
+   This is useful for various IDEs and HTML auto-completion. The :html:`<html>`
+   element itself will not be rendered if the attribute
+   :html:`data-namespace-typo3-fluid="true"` is specified.
+
+   The namespace is built using the fixed `http://typo3.org/ns` prefix followed
+   by the vendor name, package name and the fixed `ViewHelpers` suffix.
+
+   .. important::
+      Do not use `https://typo3.org` (HTTPS instead of HTTP). Fluid would not be
+      able to detect this namespace to convert it to PHP class name prefixes.
+      Remember: This is a unique XML namespace, it does not need to contain a valid URI.
 
 2. Local namespace import via curly braces {}-syntax
 

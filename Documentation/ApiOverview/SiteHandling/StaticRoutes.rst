@@ -52,6 +52,29 @@ A configuration example:
    t3://
    see: t3://; TYPO3 URL
 
+
+Static routes to assets
+=======================
+
+..  versionadded:: 13.3
+
+The type :yaml:`assets` allows to expose
+resources which are typically located in the directory
+:file:`EXT:my_extension/Resources/Public/`.
+
+A configuration example:
+
+..  literalinclude:: _static-routes-assets.yaml
+    :language: yaml
+    :caption: config/sites/<some_site>/config.yaml | typo3conf/sites/<some_site>/config.yaml
+
+This enables you to reach the files at :samp:`https://example.org/example.svg`
+and :samp:`https://example.org/favicon.ico`.
+
+The asset URL is configured on a per-site basis.
+This allows to deliver site-dependent custom favicon or manifest
+assets, for example.
+
 TYPO3 URL (t3://)
 =================
 

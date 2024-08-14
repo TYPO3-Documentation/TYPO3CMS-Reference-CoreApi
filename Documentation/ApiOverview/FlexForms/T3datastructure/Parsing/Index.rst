@@ -24,7 +24,4 @@ If the Data Structure uses referenced sheets, for example
    </T3DataStructure>
 
 Additional operations must be performed to resolve the sheet's content. See
-class :php:`FlexFormTools`.
-
-
-
+class :ref:`modify-flexforms-php`.

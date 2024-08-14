@@ -1,0 +1,18 @@
+routeEnhancers:
+  NewsArchive:
+    type: Extbase
+    limitToPages: [13]
+    extension: News
+    plugin: Pi1
+    routes:
+      - { routePath: '/{localized_archive}/{year}/{month}', _controller: 'News::archive' }
+    defaultController: 'News::list'
+    aspects:
+      localized_archive:
+        type: LocaleModifier
+        default: 'archive'
+        localeMap:
+          - locale: 'fr_FR.*|fr_CA.*'
+            value: 'archives'
+          - locale: 'de_DE.*'
+            value: 'archiv'

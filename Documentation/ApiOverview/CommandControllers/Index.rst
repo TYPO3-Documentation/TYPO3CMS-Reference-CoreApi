@@ -38,7 +38,7 @@ TYPO3 installation.
 .. _symfony-console-commands-cli:
 
 Run a command from the command line
-=====================================
+===================================
 
 You can list the available commands by calling:
 
@@ -105,7 +105,7 @@ backend authentication.
 See :ref:`dataHandler-cli-command` for more information.
 
 Read more
-==========
+=========
 
 ..  toctree::
     :titlesonly:

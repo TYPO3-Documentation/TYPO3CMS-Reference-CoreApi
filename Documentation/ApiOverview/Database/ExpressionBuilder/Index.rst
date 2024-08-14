@@ -225,7 +225,7 @@ for SQLite and :sql:`CONCAT(field1, field2, field3, ...)` for other database ven
 ..  _database-expression-builder-castInt:
 
 :php:`ExpressionBuilder::castInt()`
----------------------------------------
+-----------------------------------
 
 ..  versionadded:: 13.1
 
@@ -266,6 +266,56 @@ For PostgreSQL the :sql:`"value"::INTEGER` cast notation is used.
     :language: php
     :caption: EXT:my_extension/Classes/Domain/Repository/MyTableRepository.php
 
+
+..  _database-expression-builder-if:
+
+:php:`ExpressionBuilder::if()`
+------------------------------
+
+..  versionadded:: 13.3
+
+..  include:: _ExpressionBuilderIf.rst.txt
+
+This method is used for "if-then-else" expressions. These are
+translated into :sql:`IF` or :sql:`CASE` statements depending on the
+database engine in use.
+
+..  warning::
+    No automatic quoting or escaping is done for the condition and true/false
+    part. Extension authors need to ensure proper quoting for each part or use
+    API calls for doing the quoting, for example the
+    :php:`TYPO3\CMS\Core\Database\Query\Expression\CompositeExpression` or
+    :ref:`ExpressionBuilder calls <database-expression-builder-basic-comparisons>`.
+
+Example:
+
+..  code-block:: php
+
+    // use TYPO3\CMS\Core\Database\Connection;
+
+    $queryBuilder
+        ->selectLiteral(
+            $queryBuilder->expr()->if(
+                $queryBuilder->expr()->eq(
+                    'hidden',
+                    $queryBuilder->createNamedParameter(0, Connection::PARAM_INT)
+                ),
+                $queryBuilder->quote('page-is-visible'),
+                $queryBuilder->quote('page-is-not-visible'),
+                'result_field_name'
+            ),
+        )
+        ->from('pages');
+
+Result with MySQL/MariaDB:
+
+..  code-block:: sql
+
+    SELECT
+        (IF(`hidden` = 0, 'page-is-visible', 'page-is-not-visible')) AS `result_field_name`
+        FROM `pages`
+
+
 ..  _database-expression-builder-left:
 
 :php:`ExpressionBuilder::left()`
@@ -290,7 +340,7 @@ is used to provide a compatible expression.
 ..  _database-expression-builder-leftPad:
 
 :php:`ExpressionBuilder::leftPad()`
-----------------------------------
+-----------------------------------
 
 ..  versionadded:: 13.1
 
@@ -354,7 +404,7 @@ is used, based on :sql:`REPLACE()` and the built-in :sql:`printf()`.
 ..  _database-expression-builder-right:
 
 :php:`ExpressionBuilder::right()`
-----------------------------------
+---------------------------------
 
 ..  versionadded:: 13.1
 
@@ -376,7 +426,7 @@ is used to provide a compatible expression.
 ..  _database-expression-builder-rightPad:
 
 :php:`ExpressionBuilder::rightPad()`
-----------------------------------
+------------------------------------
 
 ..  versionadded:: 13.1
 
@@ -397,7 +447,7 @@ more complex compatible replacement expression construct is created.
 ..  _database-expression-builder-space:
 
 :php:`ExpressionBuilder::space()`
-----------------------------------
+---------------------------------
 
 ..  versionadded:: 13.1
 
