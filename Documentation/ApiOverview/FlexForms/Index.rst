@@ -233,7 +233,7 @@ Populate a `select` field with a PHP Function (itemsProcFunc)
     </settings.orderBy>
 
 The function :php:`user_orderBy` populates the select field in
-:file:`Backend\ItemsProcFunc.php`:
+:file:`Backend\\ItemsProcFunc.php`:
 
 ..  code-block:: php
 
