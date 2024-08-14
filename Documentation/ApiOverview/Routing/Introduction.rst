@@ -16,7 +16,7 @@ When TYPO3 serves a request, it maps the incoming URL to a specific page or acti
 For example it maps an URL like :samp:`https://example.org/news` to the News page. This process of
 determining the page and/or action to execute for a specific URL is called "Routing".
 
-The input of a Route is made up of several components; some components can also be split further
+The input of a route is made up of several components; some components can also be split further
 into sub-components.
 
 Routing will also take care of beautifying URI parameters, for example converting
