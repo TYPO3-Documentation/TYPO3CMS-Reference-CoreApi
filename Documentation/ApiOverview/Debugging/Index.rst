@@ -17,6 +17,8 @@ Debugging
     pair: Debugging; PHP
 
 
+.. _examples-debug-backend:
+
 TYPO3 backend debug mode
 ========================
 
@@ -37,6 +39,8 @@ database table or field is appended to the select options in the
 Additionally, in debug mode, the page renderer does not compress or concatenate
 JavaScript or CSS resources.
 
+
+.. _examples-debug-utility:
 
 DebugUtility::debug()
 =====================
@@ -63,6 +67,8 @@ debugging tools.
     TYPO3_CONF_VARS; BE debug
 
 
+.. _examples-debug-extbase-utility:
+
 Extbase DebuggerUtility
 =======================
 
@@ -76,6 +82,8 @@ You can also use the Extbase DebuggerUtility to debug SQL Querys for example. To
 
 :php:`\TYPO3\CMS\Extbase\Utility\DebuggerUtility::var_dump($queryBuilder->getSQL());`
 
+
+.. _examples-debug-fluid:
 
 Fluid Debug ViewHelper
 ======================
@@ -97,6 +105,7 @@ To display all available variables in your Fluid template, you can use the _all 
 Get more information in the Fluid ViewHelper Reference :ref:`t3viewhelper:typo3-fluid-debug`
 
 
+.. _examples-debug-xdebug:
 Xdebug
 ======
 
