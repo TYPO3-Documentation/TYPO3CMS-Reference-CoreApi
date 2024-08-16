@@ -68,7 +68,12 @@ and resolving the route.
 Enhancers
 =========
 
-There are two types of enhancers: decorators and route enhancers. A route
+..  tip::
+
+    See :ref:`routing-terminology` for an introduction to the used
+    terminology here.
+
+There are two types of enhancers: route decorators and route enhancers. A route
 enhancer replaces a set of placeholders, inserts URL parameters
 during URL generation and then resolves them properly later. The substitution of
 values with aliases can be done by aspects. To simplify, a route enhancer
@@ -84,7 +89,7 @@ TYPO3 comes with the following route enhancers out of the box:
 -   :ref:`Extbase plugin enhancer <routing-extbase-plugin-enhancer>`
     (enhancer type :yaml:`Extbase`)
 
-TYPO3 provides the following decorator out of the box:
+TYPO3 provides the following route decorator out of the box:
 
 -   :ref:`Page type decorator <routing-pagetype-decorator>`
     (enhancer type :yaml:`PageType`)
@@ -377,7 +382,7 @@ To understand what is happening in the :yaml:`aspects` part, read on.
 PageType decorator
 ------------------
 
-The PageType enhancer (decorator) allows to add a suffix to the existing route
+The PageType enhancer (route decorator) allows to add a suffix to the existing route
 (including existing other enhancers) to map a page type (GET parameter `&type=`)
 to a suffix.
 
