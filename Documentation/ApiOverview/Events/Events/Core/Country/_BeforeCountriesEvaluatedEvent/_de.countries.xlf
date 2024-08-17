@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+    <file source-language="en" target-language="de" datatype="plaintext" date="2024-01-08T18:44:59Z" product-name="my_extension">
+        <body>
+            <trans-unit id="XX.name" resname="XX.name" approved="yes">
+                <source>Magic Kingdom</source>
+                <target>Magisches Königreich</target>
+            </trans-unit>
+            <trans-unit id="XX.official_name" resname="XX.official_name" approved="yes">
+                <source>Kingdom of Magic and Wonders</source>
+                <target>Königreich der Magie und Wunder</target>
+            </trans-unit>
+        </body>
+    </file>
+</xliff>
