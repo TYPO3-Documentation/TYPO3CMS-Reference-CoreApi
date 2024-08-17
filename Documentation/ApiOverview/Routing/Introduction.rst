@@ -45,7 +45,7 @@ all of its components can be broken down to:
 +----------+-----------------------------+------+----------------------+--------------------+-----------------------------------------+------------------+----------------+----------------+------------------------+
 |                                               |  Route / Permalink                                                                                     |                                                          |
 +-----------------------------------------------+--------------------------------------------------------------------------------------------------------+----------------+----------------+------------------------+
-| URL (no arguments, unlike the URI)                                                                                                                                     |                |                |                        |
+| URL (no arguments, unlike the URI)                                                                                                                     |                |                |                        |
 +--------------------------------------------------------------------------------------------------------------------------------------------------------+----------------+----------------+------------------------+
 | URI (everything)                                                                                                                                                                                                  |
 +-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -69,7 +69,7 @@ Site Language Prefix
 
 
 ..  index:: Routing; Slug
- 
+
 Slug
     Unique name for a resource to use when creating URLs; for example the slug of the news detail page
     could be `/news/detail`, and
@@ -99,8 +99,8 @@ Slug
 
 
 Enhancers
-    Sections **after** a slug can be added ("enhancing" the route) both by "Route Enhancers" and also 
-    "(Route Enhancing) Decorators", see 
+    Sections **after** a slug can be added ("enhancing" the route) both by "Route Enhancers" and also
+    "(Route Enhancing) Decorators", see
     :ref:`Advanced routing configuration <t3coreapi:routing-advanced-routing-configuration>`.
 
 ..  index:: Routing; Page Type Suffix
