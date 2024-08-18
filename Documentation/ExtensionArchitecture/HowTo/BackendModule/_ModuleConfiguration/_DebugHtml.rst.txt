@@ -14,4 +14,3 @@
           <p><f:debug inline="1">{cookies}</f:debug></p>
        </f:section>
     </html>
-    

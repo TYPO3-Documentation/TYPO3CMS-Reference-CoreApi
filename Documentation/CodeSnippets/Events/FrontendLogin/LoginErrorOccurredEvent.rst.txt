@@ -4,4 +4,3 @@
 ..  php:class:: LoginErrorOccurredEvent
 
     A notification if something went wrong while trying to log in a user.
-

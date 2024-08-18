@@ -383,4 +383,3 @@ Disadvantages:
 *   Updates to configuration and new tooling will need you to regard this
     as a dependency, and require you to update your command configuration to fix
     bugs or security issues
-

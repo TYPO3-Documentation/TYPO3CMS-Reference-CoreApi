@@ -15,5 +15,3 @@ DataHandler
    Database/Index
    UsingDataHandler/Index
    TceDb/Index
-
-

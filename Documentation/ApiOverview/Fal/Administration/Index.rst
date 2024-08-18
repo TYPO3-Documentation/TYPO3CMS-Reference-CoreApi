@@ -12,4 +12,3 @@ Administration
     Permissions
     Storages
     Maintenance
-

@@ -59,4 +59,3 @@
     ..  php:method:: setView(\TYPO3\CMS\Core\View\ViewInterface $view)
 
         :param $view: the view
-

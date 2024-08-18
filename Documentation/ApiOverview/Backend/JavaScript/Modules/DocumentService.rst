@@ -32,5 +32,3 @@ Above jQuery code can be transformed into the following using :js:`DocumentServi
    DocumentService.ready().then(() => {
      // your application code
    });
-
-

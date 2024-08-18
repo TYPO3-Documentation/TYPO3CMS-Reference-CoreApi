@@ -54,4 +54,3 @@ The object has the same name as the module. In our case "MyMagicModule":
       // To let the module be a dependency of another module, we return our object
       return MyMagicModule;
    });
-

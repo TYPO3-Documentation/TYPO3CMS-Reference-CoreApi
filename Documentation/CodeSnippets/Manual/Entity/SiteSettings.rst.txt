@@ -29,4 +29,3 @@
 
     ..  php:method:: jsonSerialize()
         :returns: `?mixed`
-

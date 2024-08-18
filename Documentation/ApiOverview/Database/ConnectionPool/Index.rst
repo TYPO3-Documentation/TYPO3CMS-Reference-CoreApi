@@ -7,7 +7,7 @@ ConnectionPool
 ==============
 
 TYPO3's interface for executing queries via Doctrine DBAL starts with
-a request to the :php-short:`\TYPO3\CMS\Core\Database\ConnectionPool` for a 
+a request to the :php-short:`\TYPO3\CMS\Core\Database\ConnectionPool` for a
 :php-short:`\TYPO3\CMS\Core\Database\Query\QueryBuilder` or a
 :php-short:`\TYPO3\CMS\Core\Database\Connection` object and passing the table name to be queried:
 
@@ -29,10 +29,10 @@ same time. This can be configured for each individual table in
 <database-configuration>` for details). This makes it possible to run tables on
 different databases without an extension developer having to worry about it.
 
-The :php-short:`\TYPO3\CMS\Core\Database\ConnectionPool` 
+The :php-short:`\TYPO3\CMS\Core\Database\ConnectionPool`
 implements this feature: It looks for configured
 table-to-database mapping and can return a :php:`Connection` or a
-:php-short:`\TYPO3\CMS\Core\Database\Query\QueryBuilder` instance 
+:php-short:`\TYPO3\CMS\Core\Database\Query\QueryBuilder` instance
 for that specific connection. These objects know
 internally which target connection they are dealing with and will quote field
 names accordingly, for instance.

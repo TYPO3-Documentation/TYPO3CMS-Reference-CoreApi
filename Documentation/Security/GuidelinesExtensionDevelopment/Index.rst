@@ -220,5 +220,3 @@ htmlspecialchars(), the content of `{variable2}` is not
 changed. The ViewHelper must retrieve the unchanged data because we can not
 foresee what should be done with it. For this reason, ViewHelpers
 that output parameters directly have to handle special characters correctly.
-
-

@@ -28,4 +28,3 @@
     ..  php:method:: setFileIdentifier(?string $fileIdentifier)
 
         :param $fileIdentifier: the fileIdentifier
-

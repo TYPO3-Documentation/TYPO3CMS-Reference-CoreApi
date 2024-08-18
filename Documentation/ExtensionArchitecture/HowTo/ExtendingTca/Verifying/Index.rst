@@ -27,4 +27,3 @@ made some mistake.
 This view is also useful when trying to find out where to insert a new
 field, to explore the combination of types and palettes that may be
 used for the table that we want to extend.
-

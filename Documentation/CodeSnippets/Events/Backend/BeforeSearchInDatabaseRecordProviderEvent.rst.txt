@@ -36,4 +36,3 @@
 
     ..  php:method:: getIgnoredTables()
         :returns: `string[]`
-

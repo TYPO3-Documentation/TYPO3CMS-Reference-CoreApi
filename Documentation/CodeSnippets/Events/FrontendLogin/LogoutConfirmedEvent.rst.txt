@@ -11,4 +11,3 @@
 
     ..  php:method:: getView()
         :returns: `\TYPO3Fluid\Fluid\View\ViewInterface`
-

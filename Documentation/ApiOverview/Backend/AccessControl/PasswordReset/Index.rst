@@ -120,4 +120,3 @@ where usage is described like this:
 ..  note::
     The backend URL is necessary to generate the correct links to the TYPO3
     instance from CLI context.
-

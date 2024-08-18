@@ -16,4 +16,3 @@
         :param $languageKey: The language key or null for using the current language from the system, default: NULL
         :param $alternativeLanguageKeys: The alternative language keys if no translation was found. @deprecated will be removed in TYPO3 v13.0, default: NULL
         :Return description: The value from LOCAL_LANG or null if no translation was found.
-

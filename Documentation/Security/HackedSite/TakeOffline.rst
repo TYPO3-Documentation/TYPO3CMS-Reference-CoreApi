@@ -47,4 +47,3 @@ Today, more and more servers are virtual machines, not physical
 hardware. This often makes creating a full backup of a virtual server
 very easy because system administrators or hosting providers can
 simply copy the image file.
-

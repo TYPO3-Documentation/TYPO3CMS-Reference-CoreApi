@@ -179,7 +179,7 @@ A usage example in TypoScript could be this:
        page.10 = TEXT
        page.10.value = Matched
    [GLOBAL]
-   
+
    # if there are no parameters, your own conditions still need brackets
    [conditionWithoutParameters()]
        # do something

@@ -42,4 +42,3 @@
         :returns: `array`
 
         Returns the abstract content of the docHeader as an array
-

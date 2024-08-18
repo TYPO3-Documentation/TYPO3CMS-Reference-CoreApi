@@ -26,4 +26,3 @@
                 ->withBody($this->streamFactory->createStream($this->view->render()));
         }
     }
-    

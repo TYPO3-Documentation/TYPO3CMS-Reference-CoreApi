@@ -35,4 +35,3 @@
         :returns: `\stdClass`
 
         Returns meta information like current stage and current workspace
-

@@ -12,4 +12,3 @@
                 . $this->configuration['action'] . '/' . $this->linkParts['issue'] ?? '';
         }
     }
-    

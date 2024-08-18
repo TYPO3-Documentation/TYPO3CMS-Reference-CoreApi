@@ -157,4 +157,3 @@ Examples for using a configuration definition file in TYPO3:
 * TypoScript constant syntax is used to define Extension Configuration in the
   file :file:`ext_conf_template.txt` of an extension.
 * Flexforms are defined using XML in an extension.
-

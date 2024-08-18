@@ -26,4 +26,3 @@
         :returns: `int`
 
         The amount of seconds until the cache entry is invalid.
-

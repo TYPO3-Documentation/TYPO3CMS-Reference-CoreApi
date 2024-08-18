@@ -17,4 +17,3 @@
     ..  php:method:: setRequestToken(?TYPO3\CMS\Core\Security\RequestToken|false|null $requestToken)
 
         :param $requestToken: the requestToken
-

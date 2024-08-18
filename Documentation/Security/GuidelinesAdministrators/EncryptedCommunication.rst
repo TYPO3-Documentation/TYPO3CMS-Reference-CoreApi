@@ -101,4 +101,3 @@ services than the TYPO3 frontend and backend should be considered,
 too. For example, it is highly recommended to use encrypted services
 such as `SSH` (secure shell), `SFTP` (SSH file transfer protocol) or `FTPS`
 (FTP-Secure) instead of `FTP`, where data is transferred unencrypted.
-

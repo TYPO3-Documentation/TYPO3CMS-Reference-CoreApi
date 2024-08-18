@@ -112,4 +112,3 @@
             0 => ['showitem' => 'sys_language_uid, l10n_parent, hidden, name, bodytext'],
         ],
     ];
-    

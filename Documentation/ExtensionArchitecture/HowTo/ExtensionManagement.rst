@@ -108,4 +108,3 @@ containing the data structure for each extension. These include the properties:
 
 The order of the registered extensions in this array corresponds to
 the order they were listed in :file:`PackageStates.php` in legacy installations.
-

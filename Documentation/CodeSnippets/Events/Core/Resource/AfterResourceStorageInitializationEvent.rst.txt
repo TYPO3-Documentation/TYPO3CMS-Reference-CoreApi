@@ -13,4 +13,3 @@
     ..  php:method:: setStorage(\TYPO3\CMS\Core\Resource\ResourceStorage $storage)
 
         :param $storage: the storage
-

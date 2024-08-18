@@ -19,4 +19,3 @@ or useful examples for common use cases.
     ExamplesFileFolder
     ExamplesCollection
     ExamplesFileSearch
-

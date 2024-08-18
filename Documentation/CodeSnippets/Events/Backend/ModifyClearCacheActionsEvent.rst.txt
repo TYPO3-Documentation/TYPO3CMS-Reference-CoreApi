@@ -26,4 +26,3 @@
 
     ..  php:method:: getCacheActionIdentifiers()
         :returns: `array`
-

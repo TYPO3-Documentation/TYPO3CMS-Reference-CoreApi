@@ -31,4 +31,3 @@
     ..  php:method:: appendMutationSuggestions(\TYPO3\CMS\Core\Security\ContentSecurityPolicy\MutationSuggestion ...$mutationSuggestions)
 
         :param $mutationSuggestions: the mutationSuggestions
-

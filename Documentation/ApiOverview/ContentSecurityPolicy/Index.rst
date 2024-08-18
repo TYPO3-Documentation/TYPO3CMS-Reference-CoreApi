@@ -256,4 +256,3 @@ The following PSR-14 events are available:
 
 *   :ref:`InvestigateMutationsEvent`
 *   :ref:`PolicyMutatedEvent`
-

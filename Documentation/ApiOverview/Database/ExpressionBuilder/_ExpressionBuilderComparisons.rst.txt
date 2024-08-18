@@ -130,4 +130,3 @@
 
         :param $fieldName: The fieldname. Will be quoted according to database platform automatically.
         :param $value: Argument to be used in the bitwise AND operation
-

@@ -26,4 +26,3 @@ Example:
 This configuration can be placed in a local configuration file
 (:file:`ext_localconf.php` ). There's no API for retrieving these
 values. It's just a best practice recommendation.
-

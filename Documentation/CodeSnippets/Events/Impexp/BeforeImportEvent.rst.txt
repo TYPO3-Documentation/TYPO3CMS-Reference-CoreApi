@@ -12,4 +12,3 @@
         :returns: `string`
 
         The file being about to be imported
-

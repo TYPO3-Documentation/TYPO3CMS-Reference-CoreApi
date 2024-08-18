@@ -53,4 +53,3 @@
         This is always set up as soon as the Frontend rendering needs to actually render something and
         can not get the full content from page cache. This is the case when a page cache entry does
         not exist, or when the page contains COA_INT or USER_INT objects.
-

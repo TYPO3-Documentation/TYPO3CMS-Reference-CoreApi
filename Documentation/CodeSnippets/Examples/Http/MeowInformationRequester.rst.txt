@@ -10,7 +10,7 @@
 
     /*
      * This file is part of the TYPO3 CMS project. [...]
-     */ 
+     */
 
     namespace T3docs\Examples\Http;
 
@@ -63,4 +63,3 @@
                 throw new \RuntimeException('The service returned an unexpected format.', 1666413230);
         }
     }
-    

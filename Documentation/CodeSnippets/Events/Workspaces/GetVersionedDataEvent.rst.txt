@@ -30,4 +30,3 @@
 
     ..  php:method:: getLimit()
         :returns: `int`
-

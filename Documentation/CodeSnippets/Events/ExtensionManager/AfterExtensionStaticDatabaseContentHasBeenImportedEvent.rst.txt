@@ -13,4 +13,3 @@
 
     ..  php:method:: getEmitter()
         :returns: `\TYPO3\CMS\Extensionmanager\Utility\InstallUtility`
-

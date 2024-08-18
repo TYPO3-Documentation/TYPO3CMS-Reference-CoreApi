@@ -48,4 +48,3 @@
             $this->posts = $posts;
         }
     }
-    

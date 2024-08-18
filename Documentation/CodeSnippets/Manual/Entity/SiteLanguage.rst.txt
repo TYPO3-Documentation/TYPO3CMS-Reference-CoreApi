@@ -77,4 +77,3 @@
 
     ..  php:method:: getFallbackLanguageIds()
         :returns: `array`
-

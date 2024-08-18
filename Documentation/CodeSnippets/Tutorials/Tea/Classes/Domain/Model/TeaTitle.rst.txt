@@ -18,4 +18,3 @@
             $this->title = $title;
         }
     }
-    

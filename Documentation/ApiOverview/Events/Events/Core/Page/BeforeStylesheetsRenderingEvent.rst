@@ -22,4 +22,3 @@ API
 ===
 
 ..  include:: /CodeSnippets/Events/Core/BeforeStylesheetsRenderingEvent.rst.txt
-

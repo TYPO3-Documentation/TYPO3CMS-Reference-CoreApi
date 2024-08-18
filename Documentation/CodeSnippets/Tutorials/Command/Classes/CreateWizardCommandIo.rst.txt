@@ -28,4 +28,3 @@
             $io->success('The wizard ' . $wizardName . ' was created');
         }
     }
-    

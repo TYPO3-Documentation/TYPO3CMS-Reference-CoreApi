@@ -192,4 +192,3 @@
         :returns: `bool`
 
         **Deprecated:** since v12, will be removed in v13.
-

@@ -39,4 +39,3 @@
                 ->withLinkText($linkText);
         }
     }
-    
