@@ -37,6 +37,8 @@ storage page IDs.
 The settings are defined in the :file:`config/sites/<my_site>/settings.yaml`
 file.
 
+..  _sitehandling-settings-add:
+
 Adding site settings
 ====================
 
@@ -54,6 +56,7 @@ Add settings to the :file:`settings.yaml`:
 
 
 ..  index:: Site handling; TypoScript access to settings
+..  _sitehandling-settings-access:
 
 Accessing site settings in page TSconfig or TypoScript
 ======================================================
