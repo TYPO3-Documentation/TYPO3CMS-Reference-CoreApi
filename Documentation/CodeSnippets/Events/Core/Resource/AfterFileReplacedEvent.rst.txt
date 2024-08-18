@@ -12,4 +12,3 @@
 
     ..  php:method:: getLocalFilePath()
         :returns: `string`
-

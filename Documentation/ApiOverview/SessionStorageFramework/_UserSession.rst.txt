@@ -138,4 +138,3 @@
         :param $cookieValue: submitted cookie value
         :param $scope: the scope
         :Return description: Session ID, null in case verification failed
-

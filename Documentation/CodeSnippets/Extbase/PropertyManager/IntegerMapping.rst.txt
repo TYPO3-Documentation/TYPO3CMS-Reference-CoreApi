@@ -17,4 +17,3 @@
             return $output = $this->propertyMapper->convert($numberString, 'integer');
         }
     }
-    

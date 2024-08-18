@@ -15,4 +15,3 @@
 
     ..  php:method:: getTargetFileName()
         :returns: `string`
-

@@ -72,5 +72,3 @@ Example configuration to switch the *extbase_reflection* cache to use the
 ..  literalinclude:: _null.php
     :language: php
     :caption: config/system/additional.php | typo3conf/system/additional.php
-
-

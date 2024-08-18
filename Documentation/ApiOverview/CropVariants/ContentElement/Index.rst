@@ -76,4 +76,3 @@ Please note, as the array for ``overrideChildTca`` is merged with the child TCA,
 in the child TCA (most likely sys_file_reference). Because you cannot remove crop variants easily, it is possible to disable them
 for certain field types by setting the array key for a crop variant ``disabled`` to the value ``true`` as you can see in the
 example above for the default variant.
-

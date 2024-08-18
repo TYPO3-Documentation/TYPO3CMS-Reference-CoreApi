@@ -17,4 +17,3 @@
 
     ..  php:method:: getPageId()
         :returns: `int`
-

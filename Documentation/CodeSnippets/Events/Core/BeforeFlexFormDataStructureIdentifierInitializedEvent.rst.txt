@@ -59,4 +59,3 @@
 
     ..  php:method:: isPropagationStopped()
         :returns: `bool`
-

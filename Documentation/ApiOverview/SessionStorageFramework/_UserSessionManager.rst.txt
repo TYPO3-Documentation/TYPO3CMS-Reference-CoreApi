@@ -136,4 +136,3 @@
         Sets a logger.
 
         :param $logger: the logger
-

@@ -146,4 +146,3 @@ The executed query looks like this:
 
     DELETE FROM `tt_content`
         WHERE `uid` = '4711'
-

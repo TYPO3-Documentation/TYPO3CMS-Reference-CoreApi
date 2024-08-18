@@ -14,4 +14,3 @@
 
     ..  php:method:: getButtonBar()
         :returns: `\TYPO3\CMS\Backend\Template\Components\ButtonBar`
-

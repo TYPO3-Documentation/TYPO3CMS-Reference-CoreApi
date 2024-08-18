@@ -15,4 +15,3 @@
             return $this->name . ': ' . $this->bodytext;
         }
     }
-    

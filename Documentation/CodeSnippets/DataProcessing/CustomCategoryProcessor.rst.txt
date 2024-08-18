@@ -10,7 +10,7 @@
 
     /*
      * This file is part of the TYPO3 CMS project. [...]
-     */ 
+     */
 
     namespace T3docs\Examples\DataProcessing;
 
@@ -59,4 +59,3 @@
             return $processedData;
         }
     }
-    

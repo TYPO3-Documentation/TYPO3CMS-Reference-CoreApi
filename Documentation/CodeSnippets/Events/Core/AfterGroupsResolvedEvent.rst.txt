@@ -34,4 +34,3 @@
         :returns: `array`
 
         Full user record with all fields
-

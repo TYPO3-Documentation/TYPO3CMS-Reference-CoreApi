@@ -35,4 +35,3 @@
             return $view->renderResponse('AdminModule/Debug');
         }
     }
-    

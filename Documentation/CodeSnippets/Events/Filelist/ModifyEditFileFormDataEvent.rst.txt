@@ -18,4 +18,3 @@
 
     ..  php:method:: getRequest()
         :returns: `\Psr\Http\Message\ServerRequestInterface`
-

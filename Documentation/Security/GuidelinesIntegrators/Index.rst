@@ -90,4 +90,3 @@ for integrators:
    Extensions
    Typoscript
    ContentElements
-

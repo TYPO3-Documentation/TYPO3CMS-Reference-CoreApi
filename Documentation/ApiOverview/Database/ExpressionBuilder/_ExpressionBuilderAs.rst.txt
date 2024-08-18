@@ -10,4 +10,3 @@
         :param $expression: Value, identifier or expression which should be aliased
         :param $asIdentifier: Alias identifier, default: ''
         :Return description: Returns aliased expression
-

@@ -12,4 +12,3 @@
     The ExpressionBuilder is used within the context of the QueryBuilder to ensure
     queries are being build based on the requirements of the database platform in
     use.
-

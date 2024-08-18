@@ -16,4 +16,3 @@
             parent::__construct();
         }
     }
-    

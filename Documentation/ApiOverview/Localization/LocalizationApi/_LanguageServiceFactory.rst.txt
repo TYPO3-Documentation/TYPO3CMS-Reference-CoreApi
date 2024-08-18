@@ -19,4 +19,3 @@
         :returns: `\TYPO3\CMS\Core\Localization\LanguageService`
 
         :param $language: the language
-

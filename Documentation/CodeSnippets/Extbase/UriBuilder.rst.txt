@@ -152,4 +152,3 @@
         Depending on the current context this calls buildBackendUri() or buildFrontendUri()
 
         :Return description: The URI
-

@@ -23,4 +23,3 @@
     ..  php:method:: setPublicUrl(?string $publicUrl)
 
         :param $publicUrl: the publicUrl
-

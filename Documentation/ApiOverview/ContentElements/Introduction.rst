@@ -127,4 +127,3 @@ plugins:
 How to make your plugins or content elements configurable by editors with
 
 *  :ref:`flexforms`
-

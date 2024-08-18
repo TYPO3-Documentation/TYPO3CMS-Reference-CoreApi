@@ -58,4 +58,3 @@
         :param $previewHeader: the previewHeader
         :param $previewContent: the previewContent
         :param $item: the item
-

@@ -18,4 +18,3 @@
 
     ..  php:method:: getRedirectRecord()
         :returns: `array`
-

@@ -34,4 +34,3 @@ that **FTP is classified as insecure** in general. They have experienced
 that many websites have been hacked by a compromised client and/or unencrypted
 `FTP` connections and as a consequence, it strongly is advised that `FTP`
 must not be used at all.
-

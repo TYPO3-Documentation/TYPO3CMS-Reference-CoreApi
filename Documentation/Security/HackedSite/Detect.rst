@@ -134,4 +134,3 @@ vulnerability.
 The combination of some of the recommendations in this document
 reduces the risk (e.g. locking backend users to specific IP addresses,
 store your backup files outside the web server's document root, etc.).
-

@@ -47,4 +47,3 @@
         Unset all persistent entries of given namespace.
 
         :param $namespace: Extension key of extension
-

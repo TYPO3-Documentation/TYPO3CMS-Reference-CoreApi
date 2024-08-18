@@ -115,4 +115,3 @@ the child record.
 ..  literalinclude:: _JavaScriptModulesBackendForm.php
     :language: php
     :caption: EXT:my_extension/Configuration/JavaScriptModules.php
-

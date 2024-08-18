@@ -17,4 +17,3 @@
 
     ..  php:method:: getResolveException()
         :returns: `?\TYPO3\CMS\Core\Exception`
-

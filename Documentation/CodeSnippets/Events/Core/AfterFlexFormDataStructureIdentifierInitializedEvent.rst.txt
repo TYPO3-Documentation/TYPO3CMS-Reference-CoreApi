@@ -46,4 +46,3 @@
         Returns the initialized data structure identifier, which has
         either been defined by an event listener or set to the default
         by the `FlexFormTools` component.
-

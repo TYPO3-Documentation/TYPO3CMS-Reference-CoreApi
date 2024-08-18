@@ -39,4 +39,3 @@
         :returns: `array`
 
         Returns the record's database row
-

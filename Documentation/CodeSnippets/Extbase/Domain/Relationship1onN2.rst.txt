@@ -47,4 +47,3 @@
             $this->posts = $posts;
         }
     }
-    

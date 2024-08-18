@@ -11,4 +11,3 @@
         :param $length: Dynamic varchar field length, default: 255
         :param $asIdentifier: Used to add a field identifier alias (`AS`) if non-empty string (optional), default: ''
         :Return description: Returns the cast expression compatible for the database platform
-

@@ -31,4 +31,3 @@
 
     ..  php:method:: __toString()
         :returns: `string`
-

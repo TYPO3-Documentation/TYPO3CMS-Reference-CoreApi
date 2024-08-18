@@ -13,4 +13,3 @@ Page types
    TypesOfPages
    RedirectHeaders
    CreateNewPageType
-
