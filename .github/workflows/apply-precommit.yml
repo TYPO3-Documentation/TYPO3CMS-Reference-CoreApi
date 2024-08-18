@@ -1,0 +1,32 @@
+name: Check and Fix Whitespace
+
+on: [pull_request]
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+        with:
+          ref: ${{ github.ref }}
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.x'
+
+      - name: Install pre-commit
+        run: pip install pre-commit
+
+      - name: Run pre-commit hooks
+        id: pre-commit
+        run: |
+          # Run pre-commit and capture output
+          pre-commit run --all-files --show-diff-on-failure --hook-stage=manual
+          # Capture the status code from pre-commit
+          STATUS=$?
+          # Display the status code
+          echo "Pre-commit status code: $STATUS"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
