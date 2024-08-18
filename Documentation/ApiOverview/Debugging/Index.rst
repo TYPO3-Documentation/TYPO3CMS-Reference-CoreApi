@@ -18,8 +18,12 @@ Debugging
 ..  index::
     pair: Debugging; PHP
 
+..  _examples-debug-php:
+
 PHP
 ===
+
+..  _examples-debug-xdebug:
 
 Xdebug
 ------
@@ -51,6 +55,8 @@ or `Visual Studio Code`_) with `Xdebug`_. Advantages are:
     DebugUtility
     TYPO3_CONF_VARS; SYS devIPmask
 
+..  _examples-debug-debugutility:
+
 `DebugUtility::debug()`
 -----------------------
 
@@ -74,6 +80,8 @@ debugging tools.
 ..  index::
     pair: Debugging; Backend
     TYPO3_CONF_VARS; BE debug
+
+..  _examples-debug-mode:
 
 TYPO3 backend debug mode
 ========================
