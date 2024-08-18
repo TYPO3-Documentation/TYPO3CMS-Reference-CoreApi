@@ -30,7 +30,7 @@ their functions and typical use cases.
         :Legacy Location: typo3conf/LOCK_BACKEND
         :TYPO3 Commands: `vendor/bin/typo3 backend:lock`, `vendor/bin/typo3 backend:unlock`
 
-        If the file is set an error message is displayed when you try to log into
+        If the file exists, an error message is displayed when you try to log into
         the backend:
 
         ..  warning::
