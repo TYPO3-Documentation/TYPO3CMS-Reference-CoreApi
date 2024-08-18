@@ -28,4 +28,3 @@
         :returns: `string`
 
         :Return description: The current conflict mode
-

@@ -7,4 +7,3 @@
 
     ..  php:method:: getContentObjectRenderer()
         :returns: `\TYPO3\CMS\Frontend\ContentObject\ContentObjectRenderer`
-

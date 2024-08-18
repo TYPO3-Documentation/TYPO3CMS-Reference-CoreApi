@@ -20,4 +20,3 @@
 
     ..  php:method:: getCurrentLinkParts()
         :returns: `array<string,mixed>`
-

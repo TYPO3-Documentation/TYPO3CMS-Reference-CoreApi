@@ -24,4 +24,3 @@ TYPO3 also provides APIs for making this simpler.
    StoringChanges/Index
    Examples/Index
    Verifying/Index
-

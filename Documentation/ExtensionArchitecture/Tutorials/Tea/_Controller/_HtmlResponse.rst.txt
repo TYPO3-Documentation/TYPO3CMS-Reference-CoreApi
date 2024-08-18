@@ -15,4 +15,3 @@
                ->withBody($this->streamFactory->createStream(($html ?? $this->view->render())));
        }
    }
-   

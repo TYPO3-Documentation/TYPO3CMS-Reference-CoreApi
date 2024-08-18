@@ -15,4 +15,3 @@
 
     ..  php:method:: getTargetFolder()
         :returns: `?\TYPO3\CMS\Core\Resource\FolderInterface`
-

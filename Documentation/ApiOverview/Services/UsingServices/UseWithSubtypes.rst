@@ -26,4 +26,3 @@ from the file.
 
 If several services are available for the same subtype, the one with
 the highest priority (or quality if priority are equals) will be used.
-

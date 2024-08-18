@@ -130,4 +130,3 @@
         :returns: `bool`
 
         :param $fileName: the fileName
-

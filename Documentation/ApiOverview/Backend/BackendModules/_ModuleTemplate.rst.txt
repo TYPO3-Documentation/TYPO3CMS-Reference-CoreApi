@@ -128,4 +128,3 @@
         Generates a menu in the docheader to access third-level modules
 
         :param $additionalQueryParams: the additionalQueryParams, default: []
-

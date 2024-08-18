@@ -31,4 +31,3 @@
 
         :param $languageCode: The language of the hreflang tag you would like to add. For example: nl-NL
         :param $url: The URL of the translation. For example: https://example.com/nl
-

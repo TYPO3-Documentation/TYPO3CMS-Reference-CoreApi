@@ -54,4 +54,3 @@ when checking URLs, e.g. by using `curl`:
    Expires: Thu, 17 Sep 2020 17:45:34 GMT
    X-UA-Compatible: IE=edge
    Content-Type: text/html; charset=UTF-8
-

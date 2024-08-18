@@ -30,4 +30,3 @@
 
     ..  php:method:: getDatabaseRecordList()
         :returns: `\TYPO3\CMS\Backend\RecordList\DatabaseRecordList`
-

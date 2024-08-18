@@ -49,4 +49,3 @@
 
     ..  php:method:: getFormFieldName()
         :returns: `string`
-

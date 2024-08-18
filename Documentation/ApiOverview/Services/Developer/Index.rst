@@ -18,4 +18,3 @@ including advice to developing good services.
    Implementing
    ServiceApi
    ServiceRelatedApi
-

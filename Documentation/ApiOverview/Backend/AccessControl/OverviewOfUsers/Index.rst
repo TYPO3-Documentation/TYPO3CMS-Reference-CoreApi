@@ -40,4 +40,3 @@ use the "Exit" button (which replaces the usual "Logout"
 button).
 
 .. include:: /Images/AutomaticScreenshots/AccessControl/SimulatedUser.rst.txt
-

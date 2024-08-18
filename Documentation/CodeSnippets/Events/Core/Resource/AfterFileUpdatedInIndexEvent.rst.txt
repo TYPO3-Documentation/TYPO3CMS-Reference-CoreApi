@@ -15,4 +15,3 @@
 
     ..  php:method:: getUpdatedFields()
         :returns: `array`
-

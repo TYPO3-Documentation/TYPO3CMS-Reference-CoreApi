@@ -38,4 +38,3 @@ changes in access rights, firewall settings, policies for log file
 analysis, the implementation of an intrusion detection system, etc. A
 system that has been compromised once should be carefully monitored in
 the following months for any signs of new attacks.
-

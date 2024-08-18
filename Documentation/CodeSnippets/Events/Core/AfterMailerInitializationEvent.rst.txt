@@ -9,4 +9,3 @@
 
     ..  php:method:: getMailer()
         :returns: `\Symfony\Component\Mailer\MailerInterface`
-

@@ -28,5 +28,3 @@ stolen email addresses, passwords, names, addresses and credit card
 details of users. In most cases, you should definitely not trifle with
 your reputation and you should not conceal the fact that your site has
 been hacked.
-
-

@@ -13,10 +13,10 @@ Create SQL database schema
 *   Insert your SQL database schema definition into that file
 
     * Each entity is represented by one database table
-    
+
         * Table name has the following structure: `tx_{extension key without underscores}_domain_model_{entity name}`
         * Each entity property is represented by one database column
-        
+
 
 ..  code-block:: sql
 

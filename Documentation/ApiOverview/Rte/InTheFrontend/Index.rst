@@ -8,4 +8,3 @@ Rich Text Editors (RTE) in the TYPO3 frontend
 .. toctree::
 
    Introduction
-

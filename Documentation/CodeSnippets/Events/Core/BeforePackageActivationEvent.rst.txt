@@ -7,4 +7,3 @@
 
     ..  php:method:: getPackageKeys()
         :returns: `array`
-
