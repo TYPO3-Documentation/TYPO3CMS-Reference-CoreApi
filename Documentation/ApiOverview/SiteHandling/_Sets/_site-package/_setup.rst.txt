@@ -5,4 +5,3 @@
     :caption: EXT:site_package/Configuration/Sets/SitePackage/setup.typoscript
 
     @import 'EXT:site_package/Configuration/TypoScript/Setup/*.typoscript'
-    

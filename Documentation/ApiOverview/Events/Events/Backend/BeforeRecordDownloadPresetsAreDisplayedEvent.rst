@@ -53,4 +53,3 @@ API of DownloadPreset
 =====================
 
 ..  include:: /CodeSnippets/Events/Backend/DownloadPreset.rst.txt
-

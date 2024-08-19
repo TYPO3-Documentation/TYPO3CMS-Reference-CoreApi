@@ -9,4 +9,3 @@ Rich text editors in the TYPO3 backend
 
    Introduction
    PlugRte
-

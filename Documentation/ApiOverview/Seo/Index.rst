@@ -73,4 +73,3 @@ SEO for Developers
     :glob:
 
     *
-

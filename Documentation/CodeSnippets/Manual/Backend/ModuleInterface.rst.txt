@@ -123,4 +123,3 @@
         :returns: `array`
 
         Return a list of identifiers that are aliases to this module
-

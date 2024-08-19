@@ -89,4 +89,3 @@
 
         :param $name: An option name
         :Return description: TRUE if the option is set, FALSE otherwise
-

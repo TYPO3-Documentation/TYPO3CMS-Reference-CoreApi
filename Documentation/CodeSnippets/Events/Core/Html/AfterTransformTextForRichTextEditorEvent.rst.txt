@@ -18,4 +18,3 @@
 
     ..  php:method:: getProcessingConfiguration()
         :returns: `array`
-

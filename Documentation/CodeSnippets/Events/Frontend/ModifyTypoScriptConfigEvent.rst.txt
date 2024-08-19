@@ -33,4 +33,3 @@
     ..  php:method:: setConfigTree(\TYPO3\CMS\Core\TypoScript\AST\Node\RootNode $configTree)
 
         :param $configTree: the configTree
-

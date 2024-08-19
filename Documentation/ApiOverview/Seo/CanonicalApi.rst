@@ -49,4 +49,3 @@ Using an event to define the URL
 ================================
 
 The process will trigger the event :ref:`ModifyUrlForCanonicalTagEvent` which can be used to set the actual URL to use.
-

@@ -84,4 +84,3 @@
         Returns the applicable router for this site. This might be configurable in the future.
 
         :param $context: the context, default: NULL
-

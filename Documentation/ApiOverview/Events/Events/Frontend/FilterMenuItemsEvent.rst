@@ -36,4 +36,3 @@ API
 ===
 
 ..  include:: /CodeSnippets/Events/Frontend/FilterMenuItemsEvent.rst.txt
-

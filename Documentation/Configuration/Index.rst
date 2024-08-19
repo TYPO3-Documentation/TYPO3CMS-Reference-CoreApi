@@ -37,6 +37,7 @@ these terms in this chapter.
     TypoScript/Index
     UserSettingsConfiguration/Index
     Yaml/Index
+    FlagFiles/Index
 
 **More ...**
 
@@ -55,4 +56,3 @@ away from this chapter.
 * :doc:`TCA Reference ➜ <t3tca:Index>`
 * :doc:`TSconfig Reference ➜ <t3tsconfig:Index>`
 * :doc:`TypoScript Templating Reference ➜ <t3tsref:Index>`
-

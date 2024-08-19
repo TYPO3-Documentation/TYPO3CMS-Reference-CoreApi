@@ -121,7 +121,7 @@ Module configuration options
         *   `shortDescription`
 
         The value of each array entry can either be a `string` containing the static text, or a locallang label reference.
-       
+
         Alternatively define the path of a :ref:`locallang file reference <t3coreapi:xliff-files>`.
         A referenced file should contain the following label keys:
 

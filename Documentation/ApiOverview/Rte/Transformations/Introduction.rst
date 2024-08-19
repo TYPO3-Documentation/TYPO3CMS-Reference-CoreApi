@@ -137,4 +137,3 @@ The transformations are invoked in two cases:
   :code:`\TYPO3\CMS\Core\Html\RteHtmlParser::transformTextForPersistence()`.
 
 The rationale for transformations is discussed in :ref:`appendix-a`.
-

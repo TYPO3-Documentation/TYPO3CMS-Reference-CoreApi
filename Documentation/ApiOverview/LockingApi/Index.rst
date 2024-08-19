@@ -300,4 +300,3 @@ If you do find better resources, feel free to make changes or add to this list!
 * Explains shared / exclusive locks `IBM CICS Transaction Server: Exclusive locks and shared locks
   <https://www.ibm.com/support/knowledgecenter/SSGMGV_3.2.0/com.ibm.cics.ts.applicationprogramming.doc/topics/dfhp39o.html>`__
 * `Oracle JE: Locks, Blocks and Deadlocks <https://docs.oracle.com/cd/E17277_02/html/TransactionGettingStarted/blocking_deadlocks.html>`__
-

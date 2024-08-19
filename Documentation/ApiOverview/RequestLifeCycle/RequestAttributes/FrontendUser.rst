@@ -17,4 +17,3 @@ Example:
 
     $frontendUser = $request->getAttribute('frontend.user');
     $groupData = $frontendUser->fetchGroupData($request);
-

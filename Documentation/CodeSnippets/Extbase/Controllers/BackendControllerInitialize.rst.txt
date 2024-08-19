@@ -11,4 +11,3 @@
             $this->pageUid = (int)($this->request->getQueryParams()['id'] ?? 0);
         }
     }
-    

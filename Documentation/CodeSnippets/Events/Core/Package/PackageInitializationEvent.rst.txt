@@ -36,4 +36,3 @@
     ..  php:method:: removeStorageEntry(string $identifier)
 
         :param $identifier: the identifier
-

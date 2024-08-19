@@ -15,4 +15,3 @@
         :param $arguments: The arguments of the extension, being passed over to sprintf, default: NULL
         :param $languageKey: The language key or null for using the current language from the system, default: NULL
         :Return description: The value from LOCAL_LANG or null if no translation was found.
-

@@ -30,5 +30,3 @@ Above jQuery code can be transformed into the following using :js:`DocumentServi
        // your application code
      });
    });
-
-

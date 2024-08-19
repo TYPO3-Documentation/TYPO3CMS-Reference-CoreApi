@@ -22,4 +22,3 @@
 
     ..  php:method:: getFrontendTypoScript()
         :returns: `\TYPO3\CMS\Core\TypoScript\FrontendTypoScript`
-

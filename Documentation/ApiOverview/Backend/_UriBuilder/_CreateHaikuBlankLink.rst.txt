@@ -14,4 +14,3 @@
           <f:translate key="function_links_new_haiku"/>
        </a>
     </html>
-    

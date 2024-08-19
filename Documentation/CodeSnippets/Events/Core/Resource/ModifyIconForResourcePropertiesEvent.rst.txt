@@ -33,4 +33,3 @@
     ..  php:method:: setOverlayIdentifier(?string $overlayIdentifier)
 
         :param $overlayIdentifier: the overlayIdentifier
-

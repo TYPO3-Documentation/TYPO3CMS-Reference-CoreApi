@@ -22,4 +22,3 @@
     ..  php:method:: setRedirectRecord(array $redirectRecord)
 
         :param $redirectRecord: the redirectRecord
-

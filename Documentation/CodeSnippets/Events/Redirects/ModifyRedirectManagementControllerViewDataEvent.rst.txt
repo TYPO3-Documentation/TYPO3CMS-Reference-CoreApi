@@ -100,4 +100,3 @@
         Allows to set integrity status codes. It can be used to filter for integrity status codes.
 
         :param $integrityStatusCodes: the integrityStatusCodes
-

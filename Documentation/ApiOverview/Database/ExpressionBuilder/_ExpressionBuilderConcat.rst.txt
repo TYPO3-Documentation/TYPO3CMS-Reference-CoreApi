@@ -9,4 +9,3 @@
 
         :param $parts: the parts
         :Return description: Returns the concatenation expression compatible with the database connection platform
-

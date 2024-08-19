@@ -33,4 +33,3 @@ service type by using the keyword "default" instead of a service key:
 The available configuration settings should be described in the
 service's documentation. See :ref:`Service API <services-developer-service-api>`
 to see how you can read these values properly inside your service.
-

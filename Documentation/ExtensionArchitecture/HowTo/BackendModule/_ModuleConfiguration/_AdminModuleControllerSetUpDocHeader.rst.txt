@@ -25,4 +25,3 @@
             $buttonBar->addButton($list, ButtonBar::BUTTON_POSITION_LEFT, 1);
         }
     }
-    

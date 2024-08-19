@@ -149,4 +149,3 @@
         :returns: `bool`
 
         :Return description: True if client request has been done using HTTPS
-

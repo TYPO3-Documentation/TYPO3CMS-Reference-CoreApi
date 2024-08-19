@@ -238,5 +238,3 @@ grossly negligent implemented, without security aspects in mind.
 Staging servers also help keeping the production sites slim and clean
 and reduce maintenance work (e.g. updating extensions which are not in
 use).
-
-

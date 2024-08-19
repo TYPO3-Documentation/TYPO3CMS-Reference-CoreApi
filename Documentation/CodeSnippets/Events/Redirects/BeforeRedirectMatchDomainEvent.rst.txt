@@ -37,4 +37,3 @@
     ..  php:method:: setMatchedRedirect(?array $matchedRedirect)
 
         :param $matchedRedirect: Set matched `sys_redirect` record or null to clear prior set record
-

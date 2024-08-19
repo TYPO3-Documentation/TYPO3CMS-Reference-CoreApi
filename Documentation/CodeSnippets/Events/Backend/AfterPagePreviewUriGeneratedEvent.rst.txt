@@ -33,4 +33,3 @@
 
     ..  php:method:: getOptions()
         :returns: `array`
-

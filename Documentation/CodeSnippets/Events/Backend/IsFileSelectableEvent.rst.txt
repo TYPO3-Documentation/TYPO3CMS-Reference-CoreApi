@@ -14,4 +14,3 @@
     ..  php:method:: allowFileSelection()
 
     ..  php:method:: denyFileSelection()
-

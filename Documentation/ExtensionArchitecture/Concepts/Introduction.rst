@@ -133,4 +133,3 @@ Fluid
 
 install
   This system extension is the package containing the TYPO3 CMS Install Tool.
-

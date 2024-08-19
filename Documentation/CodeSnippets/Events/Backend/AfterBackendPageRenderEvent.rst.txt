@@ -17,4 +17,3 @@
 
     ..  php:method:: getView()
         :returns: `\TYPO3\CMS\Core\View\ViewInterface`
-

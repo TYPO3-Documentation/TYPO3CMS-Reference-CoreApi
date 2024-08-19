@@ -73,4 +73,3 @@ Resources/Public/Images
 
 Resources/Public/JavaScript
   Any JS file used by the extension.
-

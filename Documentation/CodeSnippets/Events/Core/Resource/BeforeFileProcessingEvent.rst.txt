@@ -25,4 +25,3 @@
 
     ..  php:method:: getConfiguration()
         :returns: `array`
-

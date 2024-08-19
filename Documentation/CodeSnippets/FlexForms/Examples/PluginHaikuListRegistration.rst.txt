@@ -9,13 +9,13 @@
 
     /*
      * This file is part of the TYPO3 CMS project. [...]
-     */ 
+     */
 
     use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
 
     /*
      * This file is part of the TYPO3 CMS project. [...]
-     */ 
+     */
 
     defined('TYPO3') or die();
 
@@ -37,4 +37,3 @@
         'examples_haiku_list',
         'FILE:EXT:examples/Configuration/Flexforms/PluginHaikuList.xml',
     );
-    

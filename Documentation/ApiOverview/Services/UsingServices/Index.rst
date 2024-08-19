@@ -16,4 +16,3 @@ services: precedence.
    SimpleUse
    UseWithSubtypes
    ServiceChain
-

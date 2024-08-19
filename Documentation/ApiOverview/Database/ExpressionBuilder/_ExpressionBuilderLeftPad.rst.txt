@@ -12,4 +12,3 @@
         :param $paddingValue: Padding character used to fill up if characters are missing on the left side
         :param $asIdentifier: Provide `AS` identifier if not empty, default: ''
         :Return description: Returns database connection platform compatible left-pad expression.
-

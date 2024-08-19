@@ -20,4 +20,3 @@ ModuleInterface API
 ===================
 
 ..  include:: /CodeSnippets/Manual/Backend/ModuleInterface.rst.txt
-

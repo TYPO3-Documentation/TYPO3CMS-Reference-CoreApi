@@ -161,4 +161,3 @@ separated string.
      ];
 
      GeneralUtility::makeInstance(UriBuilder::class)->buildUriFromRoute('record_edit', $urlParameters);
-

@@ -17,4 +17,3 @@
 
     ..  php:method:: getOriginalFolder()
         :returns: `\TYPO3\CMS\Core\Resource\FolderInterface`
-
