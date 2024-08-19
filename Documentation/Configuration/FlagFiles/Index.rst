@@ -25,12 +25,12 @@ their functions and typical use cases.
 
     ..  confval:: LOCK_BACKEND
         :name: flag-file-lock-backend
-        :Content: empty or arbitrary text file
+        :Content: empty or Uri to forward to
         :Location: typo3conf/LOCK_BACKEND
         :Legacy Location: typo3conf/LOCK_BACKEND
         :TYPO3 Commands: `vendor/bin/typo3 backend:lock`, `vendor/bin/typo3 backend:unlock`
 
-        If the file exists, an error message is displayed when you try to log into
+        If the file exists and is empty, an error message is displayed when you try to log into
         the backend:
 
         ..  warning::
@@ -50,6 +50,9 @@ their functions and typical use cases.
         users from logging into the backend, often used during maintenance or
         for security reasons.
 
+        If the file contains an URI users will be forwarded to that URI when
+        they try to lock into the backend.
+
         **Use Case**: Temporarily restrict backend access to prevent unauthorized
         changes or when performing critical updates.
 
@@ -59,6 +62,7 @@ their functions and typical use cases.
         :Content: empty or arbitrary text file
         :Location: public/FIRST_INSTALL
         :Legacy Location: FIRST_INSTALL
+        :TYPO3 Commands: `vendor/bin/typo3 setup`
 
         This file initiates the TYPO3 installation process. If the file exists,
         TYPO3 directs the user to the installation wizard.
@@ -68,10 +72,13 @@ their functions and typical use cases.
 
         See also: :ref:`Installing TYPO3 <t3start:install>`.
 
-        If you are working with the :composer:`helhum/typo3-console` there is
-        also a console command available to do the first installation:
+        There is also a console command available to do the first installation:
 
-        :ref:`install:setup <helhum/typo3-console:typo3_console-command-reference-install-setup>`
+        ..  code-block:: bash
+            :caption: Console command for first install
+
+            # Lock the TYPO3 Backend for everyone including administrators
+            vendor/bin/typo3 setup
 
     ..  confval:: ENABLE_INSTALL_TOOL
         :name: flag-file-enable-install-tool
