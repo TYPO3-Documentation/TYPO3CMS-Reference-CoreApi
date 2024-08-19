@@ -50,7 +50,7 @@ their functions and typical use cases.
         users from logging into the backend, often used during maintenance or
         for security reasons.
 
-        If the file contains an URI users will be forwarded to that URI when
+        If the file contains an URI, users will be forwarded to that URI when
         they try to lock into the backend.
 
         **Use Case**: Temporarily restrict backend access to prevent unauthorized
