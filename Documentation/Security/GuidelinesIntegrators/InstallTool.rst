@@ -43,22 +43,13 @@ but only for logged-in users with administrator and maintainer privileges.
 The :file:`ENABLE_INSTALL_TOOL` file
 ------------------------------------
 
-The :file:`ENABLE_INSTALL_TOOL` file can be created by placing an empty
+The :confval:`flag-file-enable-install-tool` flag file can be created by placing an empty
 file in one of the following file paths:
 
 ..  versionchanged:: 12.2
 
-..  tabs::
-
-    ..  group-tab:: Composer-based installation
-
-        *   :file:`var/transient/ENABLE_INSTALL_TOOL`
-        *   :file:`config/ENABLE_INSTALL_TOOL`
-
-    ..  group-tab:: Legacy installation
-
-        *   :file:`typo3temp/var/transient/ENABLE_INSTALL_TOOL`
-        *   :file:`typo3conf/ENABLE_INSTALL_TOOL`
+..  include:: /_includes/_EnableInstallTool.rst.txt
+    :show-buttons:
 
 You usually need write access to this directory on the server level (for example,
 via SSH, SFTP, etc.) or you can create this file as a backend user with
@@ -69,15 +60,10 @@ administrator privileges.
     file to avoid accidentally committing and deploying it to production
     environments.
 
-.. include:: /Images/AutomaticScreenshots/AdminTools/EnableInstallTool.rst.txt
+..  include:: /Images/AutomaticScreenshots/AdminTools/EnableInstallTool.rst.txt
 
-Conversely, this also means, you should delete this file as soon as
-you do not need to access the Install Tool any more. TYPO3 automatically
-deletes the :file:`ENABLE_INSTALL_TOOL` file when you log out of the Install
-Tool or if the file is older than 60 minutes (expiry time).
-
-Both features can be deactivated if the content of this file is `KEEP_FILE`.
-This is strongly discouraged.
+..  include:: /_includes/_EnableInstallToolWarning.rst.txt
+    :show-buttons:
 
 .. _security-install-tool-password:
 
