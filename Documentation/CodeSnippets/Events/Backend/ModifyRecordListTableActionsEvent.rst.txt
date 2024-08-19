@@ -73,4 +73,3 @@
         :returns: `\TYPO3\CMS\Backend\RecordList\DatabaseRecordList`
 
         Returns the current DatabaseRecordList instance.
-

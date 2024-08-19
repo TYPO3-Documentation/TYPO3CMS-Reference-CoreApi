@@ -20,7 +20,7 @@ module. In these installations the ordering of installed extensions and their
 dependencies are loaded from this file as well.
 
 It is also needed for :ref:`Writing functional tests <t3coreapi:testing-writing-functional>`
-with the `typo3/testing-framework <https://github.com/TYPO3/testing-framework>` in v8 and 
+with the `typo3/testing-framework <https://github.com/TYPO3/testing-framework>` in v8 and
 earlier.
 
 ..  versionchanged:: 11.4
@@ -66,7 +66,8 @@ Example:
 
 ..  attention::
     Due to limitations of the TER (`TYPO3 Extension Repository <https://extensions.typo3.org>`__),
-    `$_EXTKEY` should be used here and **not** a constant or a string.
+    `$_EXTKEY` should be used here and **not** a constant or a string. Furthermore, the
+    `ext_emconf.php` must not declare `strict_types=1`, otherwise TER upload will fail.
 
 
 ..  t3-field-list-table::

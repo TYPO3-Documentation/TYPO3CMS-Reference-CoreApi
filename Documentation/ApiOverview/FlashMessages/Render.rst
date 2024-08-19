@@ -49,4 +49,3 @@ or the new :php:`FlashMessageRendererResolver` class:
    $out = GeneralUtility::makeInstance(FlashMessageRendererResolver::class)
       ->resolve()
       ->render($flashMessages);
-

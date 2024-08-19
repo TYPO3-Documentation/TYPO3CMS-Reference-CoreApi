@@ -11,4 +11,3 @@
         :param $truePart: the truePart
         :param $falsePart: the falsePart
         :param $as: the as, default: NULL
-

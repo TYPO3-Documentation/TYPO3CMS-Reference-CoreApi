@@ -174,7 +174,7 @@ Feature toggles in Fluid
     A new condition-based Fluid ViewHelper was added. It allows
     integrators to check for feature flags from within Fluid templates.
 
-The :ref:`t3viewhelper:typo3-fluid-feature` can be used to check for a feature in a Fluid 
+The :ref:`t3viewhelper:typo3-fluid-feature` can be used to check for a feature in a Fluid
 template:
 
 ..  code-block:: html
@@ -183,4 +183,3 @@ template:
     <f:feature name="unifiedPageTranslationHandling">
        This is being shown if the flag is enabled
     </f:feature>
-

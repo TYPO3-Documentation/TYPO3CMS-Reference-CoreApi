@@ -14,4 +14,3 @@
 
     ..  php:method:: getEmail()
         :returns: `\TYPO3\CMS\Core\Mail\FluidEmail`
-

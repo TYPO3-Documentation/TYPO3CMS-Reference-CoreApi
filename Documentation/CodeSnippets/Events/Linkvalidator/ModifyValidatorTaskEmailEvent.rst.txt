@@ -13,4 +13,3 @@
 
     ..  php:method:: getModTSconfig()
         :returns: `array`
-

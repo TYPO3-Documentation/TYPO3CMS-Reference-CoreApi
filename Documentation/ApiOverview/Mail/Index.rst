@@ -390,17 +390,17 @@ pass the current request to the FluidEmail instance:
     $email = new FluidEmail();
     $email->setRequest($this->request);
 
-Read more aboout :ref:`Getting the PSR-7 request object <getting-typo3-request-object>` in different 
-contexts. In a context where no valid request object can be retrieved, such as in a 
+Read more aboout :ref:`Getting the PSR-7 request object <getting-typo3-request-object>` in different
+contexts. In a context where no valid request object can be retrieved, such as in a
 :ref:`Console command <t3coreapi:symfony-console-commands>` the affected ViewHelpers cannot be used.
 
-Trying to use these ViewHelpers without a valid request throws an :doc:`error <t3exceptions:Exceptions/1639819269>` 
+Trying to use these ViewHelpers without a valid request throws an :doc:`error <t3exceptions:Exceptions/1639819269>`
 like the following:
 
 ..  code-block:: text
     :caption: Example error output
 
-    [ERROR] The rendering context of ViewHelper f:link.page is missing a valid request object.  
+    [ERROR] The rendering context of ViewHelper f:link.page is missing a valid request object.
 
 ..  index:: Mail; MailMessage
 ..  _mail-mail-message:

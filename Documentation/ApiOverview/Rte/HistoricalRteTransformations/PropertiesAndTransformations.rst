@@ -37,5 +37,3 @@ which you may further customize through page TSconfig (local
 configuration for specific branches of the website). The issue of
 transformations is best explained by the following example from the
 table, tt\_content (the content elements).
-
-

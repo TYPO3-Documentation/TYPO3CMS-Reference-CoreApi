@@ -17,4 +17,3 @@
     ..  php:method:: setImageResource(?\TYPO3\CMS\Core\Imaging\ImageResource $imageResource)
 
         :param $imageResource: the imageResource
-

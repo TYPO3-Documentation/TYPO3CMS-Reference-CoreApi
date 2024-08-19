@@ -27,4 +27,3 @@ service type. It is then easier to develop services based on this type
 as you can start by extending the base class. You should also provide
 a documentation, that describes the API. It should be clear to other
 developers what each method of the API is supposed to do.
-

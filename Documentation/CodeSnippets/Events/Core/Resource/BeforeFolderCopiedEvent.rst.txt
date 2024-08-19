@@ -15,4 +15,3 @@
 
     ..  php:method:: getTargetFolderName()
         :returns: `string`
-

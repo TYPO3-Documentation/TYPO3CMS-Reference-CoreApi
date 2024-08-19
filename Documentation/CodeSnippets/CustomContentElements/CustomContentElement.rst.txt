@@ -10,4 +10,3 @@
       <h2>Output</h2>
       <div><f:format.html>{data.bodytext}</f:format.html></div>
    </html>
-   

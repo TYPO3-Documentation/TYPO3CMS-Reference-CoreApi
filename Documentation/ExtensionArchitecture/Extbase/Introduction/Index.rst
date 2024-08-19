@@ -93,5 +93,3 @@ advantages of Extbase and have to write more code yourself.
 
    For more information to get started with Extension development, see
    :ref:`extension-create-new`.
-
-

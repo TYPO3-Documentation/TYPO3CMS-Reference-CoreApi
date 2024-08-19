@@ -66,4 +66,3 @@ tab for an existing link.
 Most likely your links will start with a specific prefix to identify them.
 Therefore you should register your tab at least before the 'url' handler, so your handler can advertise itself as responsible for the given link.
 The 'url' handler should be treated as last resort as it will work with any link.
-

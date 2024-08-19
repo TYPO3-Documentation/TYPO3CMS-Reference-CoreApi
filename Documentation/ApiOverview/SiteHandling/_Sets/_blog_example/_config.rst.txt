@@ -6,4 +6,3 @@
 
     name: t3docs/blog-example
     label: Blog example set
-    

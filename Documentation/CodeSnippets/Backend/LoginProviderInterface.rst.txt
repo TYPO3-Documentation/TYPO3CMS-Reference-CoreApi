@@ -22,4 +22,3 @@
         :param $view: the view
         :param $pageRenderer: the pageRenderer
         :param $loginController: the loginController
-

@@ -28,4 +28,3 @@
         :param $backend: see constants
         :param $userId: the userId
         :param $userAuthentication: the userAuthentication, default: NULL
-

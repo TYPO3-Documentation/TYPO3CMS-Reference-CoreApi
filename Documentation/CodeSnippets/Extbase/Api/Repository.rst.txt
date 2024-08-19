@@ -119,4 +119,3 @@
         :returns: `int`
 
         :param $criteria: the criteria
-

@@ -152,4 +152,3 @@ so it may continuously be edited by non-RTE browsers and users. And
 furthermore it allows us to insert TYPO3-bulletlists and headers
 (especially graphical headers) visually by the editor while still
 having TYPO3 controlling the output.
-

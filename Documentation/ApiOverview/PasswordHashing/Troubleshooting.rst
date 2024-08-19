@@ -102,4 +102,3 @@ Add or edit the following in your :file:`config/system/settings.php`.
 
 If this doesn't work then check file :file:`config/system/additional.php` which
 overrides :file:`config/system/settings.php`.
-

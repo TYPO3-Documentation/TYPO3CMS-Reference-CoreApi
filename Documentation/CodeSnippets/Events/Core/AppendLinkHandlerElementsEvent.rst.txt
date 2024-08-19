@@ -38,4 +38,3 @@
 
     ..  php:method:: isResolved()
         :returns: `bool`
-

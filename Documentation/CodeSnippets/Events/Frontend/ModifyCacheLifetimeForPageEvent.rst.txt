@@ -24,4 +24,3 @@
 
     ..  php:method:: getContext()
         :returns: `\TYPO3\CMS\Core\Context\Context`
-

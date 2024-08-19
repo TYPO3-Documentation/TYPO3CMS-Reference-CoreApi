@@ -29,4 +29,3 @@
 
     ..  php:method:: isCachingAllowed()
         :returns: `bool`
-

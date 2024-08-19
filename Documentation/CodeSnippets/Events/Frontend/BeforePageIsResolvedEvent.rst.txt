@@ -18,4 +18,3 @@
     ..  php:method:: setPageInformation(\TYPO3\CMS\Frontend\Page\PageInformation $pageInformation)
 
         :param $pageInformation: the pageInformation
-

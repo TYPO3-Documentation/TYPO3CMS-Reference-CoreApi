@@ -29,4 +29,3 @@
 
     ..  php:method:: getReason()
         :returns: `string`
-

@@ -493,4 +493,3 @@ The call to :php:`$queryBuilder->expr()-trim()` can be one of the following:
     results in :sql:`TRIM(TRAILING "x" FROM "tableName"."fieldName")`
 *   :php:`trim('fieldName', TrimMode::BOTH, 'x')`
     results in :sql:`TRIM(BOTH "x" FROM "tableName"."fieldName")`
-

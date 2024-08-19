@@ -56,4 +56,3 @@
 
     ..  php:method:: getFooterContent()
         :returns: `string`
-

@@ -17,4 +17,3 @@
 
     ..  php:method:: getCacheKey()
         :returns: `string`
-

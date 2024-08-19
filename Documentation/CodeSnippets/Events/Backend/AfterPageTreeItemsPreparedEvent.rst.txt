@@ -14,4 +14,3 @@
     ..  php:method:: setItems(array $items)
 
         :param $items: the items
-

@@ -43,4 +43,3 @@
 
         :param $fieldName: the fieldName
         :param $alias: the alias, default: NULL
-

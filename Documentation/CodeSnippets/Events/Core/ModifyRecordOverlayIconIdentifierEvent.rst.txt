@@ -20,4 +20,3 @@
 
     ..  php:method:: getStatus()
         :returns: `array`
-

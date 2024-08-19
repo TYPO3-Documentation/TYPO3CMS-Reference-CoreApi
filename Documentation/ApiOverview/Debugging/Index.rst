@@ -16,8 +16,10 @@ Debugging
 ..  index::
     pair: Debugging; PHP
 
+..  _examples-debug-php:
 
-.. _examples-debug-backend:
+PHP
+===
 
 TYPO3 backend debug mode
 ========================
@@ -42,8 +44,9 @@ JavaScript or CSS resources.
 
 .. _examples-debug-utility:
 
-DebugUtility::debug()
-=====================
+
+`DebugUtility::debug()`
+-----------------------
 
 The TYPO3 Core provides a simple :php:`debug()` (defined in
 :file:`EXT:core/Classes/Core/GlobalDebugFunctions.php`). It wraps around
@@ -65,7 +68,6 @@ debugging tools.
 ..  index::
     pair: Debugging; Backend
     TYPO3_CONF_VARS; BE debug
-
 
 .. _examples-debug-extbase-utility:
 
@@ -106,6 +108,7 @@ Get more information in the Fluid ViewHelper Reference :ref:`t3viewhelper:typo3-
 
 
 .. _examples-debug-xdebug:
+
 Xdebug
 ======
 

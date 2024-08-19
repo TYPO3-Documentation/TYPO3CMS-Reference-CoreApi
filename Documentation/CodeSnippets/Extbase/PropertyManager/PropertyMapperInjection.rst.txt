@@ -25,4 +25,3 @@
             protected readonly BlogPageTitleProvider $blogPageTitleProvider,
         ) {}
     }
-    

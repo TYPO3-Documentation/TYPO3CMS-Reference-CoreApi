@@ -16,4 +16,3 @@
           linkWrap:
             lightboxEnabled: true
             lightboxCssClass: lightbox
-    

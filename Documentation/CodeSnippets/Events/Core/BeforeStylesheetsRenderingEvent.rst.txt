@@ -13,4 +13,3 @@
 
     ..  php:method:: isPriority()
         :returns: `bool`
-

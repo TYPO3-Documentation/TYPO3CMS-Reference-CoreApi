@@ -205,4 +205,3 @@ software.
 In the standard configuration of TYPO3 you will automatically be
 logged out after 8 hour of inactivity or when you access TYPO3 with
 a different IP address.
-

@@ -18,4 +18,3 @@
     ..  php:method:: setGroups(array $groups)
 
         :param $groups: the groups
-

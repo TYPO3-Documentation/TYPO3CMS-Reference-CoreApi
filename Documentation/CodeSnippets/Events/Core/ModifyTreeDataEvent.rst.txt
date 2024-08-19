@@ -14,4 +14,3 @@
 
     ..  php:method:: getProvider()
         :returns: `\TYPO3\CMS\Core\Tree\TableConfiguration\AbstractTableConfigurationTreeDataProvider`
-

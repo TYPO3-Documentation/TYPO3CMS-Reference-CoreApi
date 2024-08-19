@@ -333,4 +333,3 @@ Example that evaluates to `$config.oldThing` if set, otherwise the newer setting
     :caption: EXT:my_extension/Configuration/TypoScript/setup.typoscript
 
     plugin.tx_myext.settings.example = {$config.oldThing ?? $myext.thing}
-

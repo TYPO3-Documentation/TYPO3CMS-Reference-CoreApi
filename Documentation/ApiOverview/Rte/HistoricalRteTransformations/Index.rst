@@ -19,5 +19,3 @@ exist. The argumentation is still valid.
 
    PropertiesAndTransformations
    RteTransformationsInContentElements
-
-
