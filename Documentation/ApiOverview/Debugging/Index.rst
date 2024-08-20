@@ -138,4 +138,3 @@ or `Visual Studio Code`_) with `Xdebug`_. Advantages are:
     GlobalDebugFunctions
     DebugUtility
     TYPO3_CONF_VARS; SYS devIPmask
-
