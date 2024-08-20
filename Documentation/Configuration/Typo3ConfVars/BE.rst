@@ -24,6 +24,7 @@ the TYPO3 backend:
     :name: globals-typo3-conf-vars-be
     :display: tree
     :type:
+    :Default: max=50
 
 ..  _typo3ConfVars_be_fileadminDir:
 
@@ -38,6 +39,19 @@ the TYPO3 backend:
     Do not access manually but via
     :php:`\TYPO3\CMS\Core\Resource\ResourceFactory::getDefaultStorage()`.
 
+..  _typo3ConfVars_be_lockBackendFile:
+
+..  confval:: lockBackendFile
+    :Path: $GLOBALS['TYPO3_CONF_VARS']['BE']['lockBackendFile']
+    :name: globals-typo3-conf-vars-be-lockBackendFile
+    :type: string (file path)
+    :Default: `"var/lock/LOCK_BACKEND"` (Composer mode) | `"config/LOCK_BACKEND"` (Legacy mode)
+
+    ..  versionadded:: 13.3
+
+    Defines the location of the flag file :confval:`flag-file-lock-backend`, which
+    is used to temporarily restrict backend access to prevent unauthorized
+    changes or when performing critical updates.
 
 ..  _typo3ConfVars_be_lockRootPath:
 
