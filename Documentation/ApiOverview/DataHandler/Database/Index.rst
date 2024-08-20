@@ -45,9 +45,6 @@ hierarchy of these two arrays.
 Basic usage
 ===========
 
-The :php:`DataHandler` class can be injected into the constructor via
-:ref:`dependency injection <DependencyInjection>`.
-
 ..  literalinclude:: _BasicUsage.php
     :language: php
     :caption: EXT:my_extension/Classes/DataHandling/MyClass.php
