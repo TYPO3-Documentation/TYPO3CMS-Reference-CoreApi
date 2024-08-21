@@ -20,7 +20,7 @@ setting it to false displays it:
 
 ..  warning::
     **Unused elements detected on this page**
-    These elements don't belong to any of the available columns of this page. You should either delete 
+    These elements don't belong to any of the available columns of this page. You should either delete
     them or move them to existing columns. We highlighted the problematic records for you.
 
 ..  _IsContentUsedOnPageLayoutEvent-example:
