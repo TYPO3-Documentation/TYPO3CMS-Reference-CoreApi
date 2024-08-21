@@ -57,8 +57,8 @@ Overriding translations in non-Extbase plugins does not work out of the box.
 ..  attention::
     Setting :php:`_LOCAL_LANG` has no effect if the ViewHelper
     :html:`<f:translate>` is used outside of the Extbase context
-    and the `extensionName` attribute is not set and the key used
-    does not follow the LLL:EXT:extensionkey syntax.
+    and the :html:`extensionName` ViewHelper attribute is not set and the key used
+    does not follow the `LLL:EXT:extensionkey` syntax.
 
 See :ref:`TypoScript reference,
 _LOCAL_LANG <t3tsref:setup-plugin-local-lang-lang-key-label-key>`.
