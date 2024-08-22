@@ -94,7 +94,7 @@ their functions and typical use cases.
             :path:`var/transient/ENABLE_INSTALL_TOOL`
 
         When this file is set, it allows access to the TYPO3 Install Tool.
-        See also :ref:`The ENABLE_INSTALL_TOOL file <security-install-tool-access-enable-file>`.
+        See also :ref:`The ENABLE_INSTALL_TOOL file <security-install-tool>`.
 
         ..  include:: /_includes/_EnableInstallTool.rst.txt
             :show-buttons:
