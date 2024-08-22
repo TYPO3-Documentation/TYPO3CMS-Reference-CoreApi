@@ -193,24 +193,18 @@ point once the code has been refactored enough to not rely on it anymore.
 
 The following attributes are available in **frontend** context:
 
-..  menu::
-    :titlesonly:
-
-    RequestAttributes/ApplicationType
-    RequestAttributes/FrontendController
-    RequestAttributes/FrontendUser
-    RequestAttributes/Language
-    RequestAttributes/NormalizedParams
-    RequestAttributes/Routing
-    RequestAttributes/Site
+*    :doc:`RequestAttributes/ApplicationType`
+*    :doc:`RequestAttributes/FrontendController`
+*    :doc:`RequestAttributes/FrontendUser`
+*    :doc:`RequestAttributes/Language`
+*    :doc:`RequestAttributes/NormalizedParams`
+*    :doc:`RequestAttributes/Routing`
+*    :doc:`RequestAttributes/Site`
 
 The following attributes are available in **backend** context:
 
-..  menu::
-    :titlesonly:
-
-    RequestAttributes/ApplicationType
-    RequestAttributes/NormalizedParams
-    RequestAttributes/Route
-    RequestAttributes/Site
-    RequestAttributes/Target
+*   :doc:`RequestAttributes/ApplicationType`
+*   :doc:`RequestAttributes/NormalizedParams`
+*   :doc:`RequestAttributes/Route`
+*   :doc:`RequestAttributes/Site`
+*   :doc:`RequestAttributes/Target`
