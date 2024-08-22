@@ -15,14 +15,22 @@ IsContentUsedOnPageLayoutEvent
 Use the PSR-14 event :php:`\TYPO3\CMS\Backend\View\Event\IsContentUsedOnPageLayoutEvent`
 to identify if content has been used in a column that is not in a backend layout.
 
-Example
-=======
+Setting :php:`$event->setUsed(true)` prevent the following message for the affected content element,
+setting it to false displays it:
 
-Registration of the event in your extension's :file:`Services.yaml`:
+..  warning::
+    **Unused elements detected on this page**
+    These elements don't belong to any of the available columns of this page. You should either delete
+    them or move them to existing columns. We highlighted the problematic records for you.
 
-..  literalinclude:: _IsContentUsedOnPageLayoutEvent/_Services.yaml
-    :language: yaml
-    :caption: EXT:my_extension/Configuration/Services.yaml
+..  _IsContentUsedOnPageLayoutEvent-example:
+
+Example: Display "Unused elements detected on this page" for elements with missing parent
+=========================================================================================
+
+..  literalinclude:: _IsContentUsedOnPageLayoutEvent/_ContentUsedOnPage.php
+    :language: php
+    :caption: EXT:my_extension/Classes/Listener/ContentUsedOnPage.php
 
 Read :ref:`how to configure dependency injection in extensions <dependency-injection-in-extensions>`.
 
@@ -32,7 +40,9 @@ The corresponding event listener class:
     :language: php
     :caption: EXT:my_extension/Classes/Listener/ContentUsedOnPage.php
 
-API
-===
+..  _IsContentUsedOnPageLayoutEvent-api:
+
+API of IsContentUsedOnPageLayoutEvent
+=====================================
 
 ..  include:: /CodeSnippets/Events/Backend/IsContentUsedOnPageLayoutEvent.rst.txt
