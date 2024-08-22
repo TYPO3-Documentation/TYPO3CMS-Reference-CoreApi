@@ -11,12 +11,12 @@
     */
    define(function () {
        'use strict';
-   
+
        /**
         * @exports TYPO3/CMS/Example/ContextMenuActions
         */
        var ContextMenuActions = {};
-   
+
        /**
         * Say hello
         *
@@ -27,10 +27,10 @@
            if (table === 'pages') {
                //If needed, you can access other 'data' attributes here from $(this).data('someKey')
                //see item provider getAdditionalAttributes method to see how to pass custom data attributes
-   
+
                top.TYPO3.Notification.error('Hello World', 'Hi there!', 5);
            }
        };
-   
+
        return ContextMenuActions;
    });

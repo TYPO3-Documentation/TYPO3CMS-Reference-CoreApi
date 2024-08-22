@@ -139,18 +139,18 @@ the new encryption key.
     Keep in mind that this string is security-related and you should keep
     it in a safe place.
 
-The encryption key should be a random hexadecimal key of length 96. You can 
+The encryption key should be a random hexadecimal key of length 96. You can
 for example create it with OpenSSL:
 
 ..  code-block:: bash
 
-    openssl rand -hex 48 
-    
+    openssl rand -hex 48
+
 From within TYPO3 it is possible to generate it via API:
 
 
 ..  code-block:: php
 
     use  \TYPO3\CMS\Core\Crypto\Random;
-    
+
     $this->random->generateRandomHexString(96);

@@ -6,7 +6,7 @@
    use Psr\Http\Message\ResponseInterface;
    use TYPO3\CMS\Core\Utility\GeneralUtility;
    use TYPO3\CMS\Extbase\Mvc\Web\Routing\UriBuilder;
-   
+
    class ModuleController extends ActionController implements LoggerAwareInterface
    {
        public function linksAction(): ResponseInterface
@@ -14,7 +14,7 @@
            $backendUriBuilder = GeneralUtility::makeInstance(\TYPO3\CMS\Backend\Routing\UriBuilder::class);
            $uriParameters = ['edit' => ['pages' => [1 => 'edit']]];
            $editPage1Link = $backendUriBuilder->buildUriFromRoute('record_edit', $uriParameters);
-   
+
            $uriParameters =
                [
                    'edit' =>
@@ -62,4 +62,3 @@
            return $this->htmlResponse();
        }
    }
-   

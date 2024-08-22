@@ -25,6 +25,3 @@ If the Data Structure uses referenced sheets, for example
 
 Additional operations must be performed to resolve the sheet's content. See
 class :php:`FlexFormTools`.
-
-
-

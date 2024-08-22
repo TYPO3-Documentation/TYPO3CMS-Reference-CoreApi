@@ -59,4 +59,3 @@ This works for FlexForms too:
    Don't forget to enable Rich Text Editor in the back end,
    in User Settings -> Edit and Advanced functions,
    check "Enable Rich Text Editor", if not already done.
-

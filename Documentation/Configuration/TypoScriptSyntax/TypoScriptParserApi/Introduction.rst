@@ -21,4 +21,3 @@ TypoScript.
 
    The following pages are for experienced TYPO3 developers
    and require a good knowledge of PHP.
-

@@ -116,5 +116,3 @@ through till the end - even when it means spending days writing good
 documents. Go for completeness!
 
 \- kasper
-
-

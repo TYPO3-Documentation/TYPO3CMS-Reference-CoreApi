@@ -4,4 +4,3 @@
    :caption: Extension examples, file Configuration/TypoScript/Syntax/Escaping/setup.typoscript
 
    my\.escaped\.key = test
-   

@@ -6,4 +6,3 @@
    myObject = TEXT
    myObject.stdWrap.field = title
    myObject.stdWrap.ifEmpty.data = leveltitle:0
-   

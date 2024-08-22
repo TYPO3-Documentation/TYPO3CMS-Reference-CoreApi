@@ -20,4 +20,3 @@ This chapter describes the most important elements of the API.
    :glob:
 
    */Index
-

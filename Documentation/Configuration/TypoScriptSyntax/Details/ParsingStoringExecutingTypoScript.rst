@@ -94,4 +94,3 @@ Since TypoScript itself contains only information you cannot
 you take the PHP array with the parsed TypoScript structure and pass
 it to a PHP function which *then* performs whatever actions according
 to the values found in the array.
-

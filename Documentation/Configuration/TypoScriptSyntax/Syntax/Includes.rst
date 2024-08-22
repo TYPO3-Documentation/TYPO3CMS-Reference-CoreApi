@@ -186,4 +186,3 @@ It is recommended to separate files with different directories:
 
 However, we understand that filtering by extension could make sense in
 some situations and this is why there is this additional option.
-

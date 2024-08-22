@@ -266,6 +266,3 @@ navigation frame).
 .. include:: /Images/AutomaticScreenshots/BackendModules/BackendModulesConfiguration.rst.txt
 
 The list of modules is parsed by the class :php:`\TYPO3\CMS\Backend\Module\ModuleLoader`.
-
-
-

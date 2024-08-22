@@ -122,6 +122,3 @@ the `PHP function sprintf <https://www.php.net/manual/en/function.sprintf.php>`_
 
 This behaviour is the same like in a
 :ref:`Fluid translate ViewHelper with arguments <extension-localization-fluid>`.
-
-
-

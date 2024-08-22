@@ -102,4 +102,3 @@ Add or edit the following in your :file:`typo3conf/LocalConfiguration.php`.
 
 If this doesn't work then check file :file:`typo3conf/AdditionalConfiguration.php` which
 overrides :file:`typo3conf/LocalConfiguration.php`.
-

@@ -142,4 +142,3 @@ In :file:`.htaccess`:
 
    php_flag display_errors off
    php_flag log_errors off
-

@@ -11,4 +11,3 @@
       2property = 567
       [GLOBAL]
    }
-   

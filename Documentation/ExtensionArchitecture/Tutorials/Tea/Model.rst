@@ -66,7 +66,7 @@ keys on the first level:
     Settings for the complete table, such as a record title, a label
     for a single record, default sorting, and the names of some
     internal fields.
-    
+
 :php:`columns`
     Here we define all fields that can be used for user input in the
     backend.

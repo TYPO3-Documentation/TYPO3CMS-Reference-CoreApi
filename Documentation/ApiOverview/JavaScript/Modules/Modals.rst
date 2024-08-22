@@ -159,4 +159,3 @@ done, the modal disappears automatically.
 
 Buttons of the type :js:`DeferredAction` render a spinner on activation
 into the button.
-

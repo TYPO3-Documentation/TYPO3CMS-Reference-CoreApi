@@ -129,4 +129,3 @@ variant for regular page doktypes.
 .. note::
 
    Make sure to add the additional icons using the icon registry!
-

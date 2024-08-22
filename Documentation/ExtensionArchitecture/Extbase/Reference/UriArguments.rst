@@ -35,7 +35,7 @@ within the plugin `BlogList`.
 
 The following arguments are evaluated:
 
- `tx_(extensionName)_(pluginName)[action]`: 
+ `tx_(extensionName)_(pluginName)[action]`:
      Controller action to execute
 `tx_(extensionName)_(pluginName)[controller]`
     Controller containing the action
@@ -73,4 +73,3 @@ a HTTP POST request, with some more special ones:
 These two keys are also regarded as reserved keywords. Generally, you should
 avoid custom arguments interfering with either the `@...` or `__...` prefix
 notation.
-

@@ -161,4 +161,3 @@ One can check whether a feature is enabled in TypoScript with the function
     [feature("unifiedPageTranslationHandling") === false]
         # This condition matches if the feature toggle "unifiedPageTranslationHandling" is false
     [END]
-

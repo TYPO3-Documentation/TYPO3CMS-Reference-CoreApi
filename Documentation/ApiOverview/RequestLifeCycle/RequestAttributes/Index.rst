@@ -13,4 +13,3 @@ TYPO3 request attributes
     :glob:
 
     *
-

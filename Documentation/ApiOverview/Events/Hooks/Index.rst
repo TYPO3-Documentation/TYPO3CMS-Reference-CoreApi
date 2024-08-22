@@ -388,4 +388,3 @@ function name is called for processing.
            $wizardItems = $modObj->proc($wizardItems);
        }
    }
-

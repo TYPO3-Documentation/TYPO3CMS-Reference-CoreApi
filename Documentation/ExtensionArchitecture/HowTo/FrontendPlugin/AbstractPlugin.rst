@@ -166,5 +166,3 @@ $type
 
 $extensionKey
    :php:`string`: The extension key in snake_case, for example :php`'my_extension'`
-
-

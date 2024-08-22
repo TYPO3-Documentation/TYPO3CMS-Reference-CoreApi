@@ -116,7 +116,7 @@ $reasonPhrase
 .. code-block:: php
 
    use Psr\Http\Message\ResponseFactoryInterface;
-   
+
    public function __construct(
        private readonly ResponseFactoryInterface $responseFactory
    ) {

@@ -33,4 +33,3 @@ Let us combine jQuery with our own module from the :ref:`Extension example <requ
          MyMagicModule.init();
       }
    });
-

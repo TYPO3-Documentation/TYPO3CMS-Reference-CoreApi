@@ -80,4 +80,3 @@ create identifiers. Note that `'icon'` still works. Within custom packages it is
 to use. Example::
 
    'icon' => 'EXT:extkey/Resources/Public/Icons/smile.svg',
-

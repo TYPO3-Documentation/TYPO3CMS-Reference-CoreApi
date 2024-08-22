@@ -34,5 +34,3 @@ Upgrading
 An upgrade wizard has been provided that will take care of generating slugs for all existing pages. If you used RealURL before, the
 wizard tries to use the RealURL caches to generate matching slugs. However, this will not be successful in all cases and you should
 recheck the generated slugs if you want the URL structure to stay the same after an upgrade.
-
-

@@ -6,7 +6,7 @@
    page = PAGE
    page.10 = TEXT
    page.10.value = HELLO WORLD!
-   
+
    [loginUser('*') or ip('127.0.0.1')]
       page.20 = TEXT
       page.20 {
@@ -14,4 +14,3 @@
          stdWrap.case = upper
       }
    [GLOBAL]
-   
