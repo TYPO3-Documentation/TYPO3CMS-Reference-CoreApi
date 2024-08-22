@@ -77,4 +77,3 @@ as is usual for relations field:
    CREATE TABLE tt_content (
       image int(11) unsigned DEFAULT '0' NOT NULL,
    );
-

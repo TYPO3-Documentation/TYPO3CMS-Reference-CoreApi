@@ -15,4 +15,3 @@ This chapter looks at some more technical details about TypoScript.
 
    ParsingStoringExecutingTypoScript
    MythsFaqAcknowledgements
-

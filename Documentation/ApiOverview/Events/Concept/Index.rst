@@ -61,4 +61,3 @@ Proposing Events
 If you need to extend something which has no event, hook or signal yet, then you
 should suggest emitting an event. Normally that is rather easily done by the
 author of the source you want to extend.
-

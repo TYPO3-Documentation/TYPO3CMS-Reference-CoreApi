@@ -21,4 +21,3 @@ file system level.
 
 The role of a system administrator often overlaps with a TYPO3
 integrator and it happens that one person has both roles.
-

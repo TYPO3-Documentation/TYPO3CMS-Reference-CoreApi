@@ -4,4 +4,3 @@
    :caption: Extension examples, file Configuration/TypoScript/Syntax/General/setup.typoscript
 
    myObject.myProperty = value 2
-   

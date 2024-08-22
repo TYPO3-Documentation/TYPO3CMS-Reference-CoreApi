@@ -72,5 +72,3 @@ These properties apply to all error handlers.
         a page
     *   :ref:`PHP <sitehandling-customErrorHandler>` for a custom
         implementation
-
-

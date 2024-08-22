@@ -271,10 +271,3 @@ Some system extensions use YAML for configuration:
 
 There is a :ref:`YamlFileLoader <yamlFileLoader>` which can be used to load YAML
 files.
-
-
-
-
-
-
-

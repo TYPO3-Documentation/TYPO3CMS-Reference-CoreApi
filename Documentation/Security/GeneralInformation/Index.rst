@@ -197,4 +197,3 @@ and impacts of vulnerabilities in Information Technology. It enables
 analysts to understand and properly communicate disclosed vulnerabilities
 and allows responsible personnel to prioritize risks. Further details
 about CVSS are available at https://www.first.org/cvss/user-guide
-

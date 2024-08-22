@@ -132,5 +132,3 @@ Frontend plugin as pure TypoScript
    for the RSS feed and display the plugin via typoscript there:
 
    .. include:: /CodeSnippets/Extbase/FrontendPlugins/TypoScriptPluginRss.rst.txt
-
-

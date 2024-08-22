@@ -17,4 +17,3 @@ services as well as generic mechanisms which are described below.
    RegistrationChanges
    ServiceConfiguration
    ServiceTypeConfiguration
-

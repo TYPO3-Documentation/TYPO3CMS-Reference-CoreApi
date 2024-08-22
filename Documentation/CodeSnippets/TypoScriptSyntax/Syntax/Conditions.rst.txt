@@ -8,4 +8,3 @@
    [ELSE]
       page.10.value = It is NOT the 9th day of the month!
    [END]
-   

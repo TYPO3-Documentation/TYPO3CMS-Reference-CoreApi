@@ -31,5 +31,3 @@ this extension and how it can be configured.
    InTheFrontend/Index
    Transformations/Index
    HistoricalRteTransformations/Index
-
-

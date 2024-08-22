@@ -64,5 +64,3 @@ additional fields in pages to be filled out:
 
 `DOKTYPE_RECYCLER` - ID: `255`
    Recycler
-
-

@@ -134,6 +134,5 @@ By using the new API it is not possible to have duplicate metatags, unless this 
 meta tags and want to have multiple occurrences of the same meta tag, you have to create your own :php:`MetaTagManager`.
 
 ..  seealso::
-   
-    :ref:`config.meta <t3tsref:setup-page-meta>` in the TypoScript reference
 
+    :ref:`config.meta <t3tsref:setup-page-meta>` in the TypoScript reference

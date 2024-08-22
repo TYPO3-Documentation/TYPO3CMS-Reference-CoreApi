@@ -154,4 +154,3 @@ As for default page TSconfig, user TSconfig can be added inside
    //use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
 
    ExtensionManagementUtility::addUserTSConfig();
-

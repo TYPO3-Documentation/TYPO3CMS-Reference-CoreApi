@@ -10,4 +10,3 @@
    }
    anotherObject < someObject
    someObject.stdWrap.wrap = <h1>|<h1
-   

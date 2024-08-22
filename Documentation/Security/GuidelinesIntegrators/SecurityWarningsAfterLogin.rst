@@ -20,4 +20,3 @@ password, etc.
 If you, as an TYPO3 integrator, should ever come across those
 warnings, react immediately and update the appropriate setting (e.g.
 change the password).
-

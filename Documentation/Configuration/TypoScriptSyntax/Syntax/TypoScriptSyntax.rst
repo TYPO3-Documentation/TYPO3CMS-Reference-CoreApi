@@ -468,4 +468,3 @@ parenthesis operator below).
 **Example:**
 
 .. include:: /CodeSnippets/TypoScriptSyntax/Syntax/CommentsBlock.rst.txt
-

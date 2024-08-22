@@ -53,4 +53,3 @@ or an extension could be the cause, and no security-bulletin lists
 this specific version, please :ref:`contact the TYPO3 Security Team
 <security-team-contact>`. The policy dictates not to disclose the issue
 in public (mailing lists, forums, Twitter or any other 3rd party website).
-

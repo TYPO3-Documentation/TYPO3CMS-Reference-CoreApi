@@ -187,4 +187,3 @@ example in your understanding of what TypoScript is compared to XML.
 The reasonable application for using XML as an alternative solution to
 TypoScript is if an XML editor existed which in some way made the
 entering of XML data into a structure like this possible and easy.
-

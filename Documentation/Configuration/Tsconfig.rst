@@ -86,4 +86,3 @@ The string can then be put in proper TSconfig array syntax:
       $tsConfigString,
       $conditionMatcher
    );
-

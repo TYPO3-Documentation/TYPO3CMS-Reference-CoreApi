@@ -26,4 +26,3 @@ This is what you should do:
 
 #. Consider having a general group which all other groups include - this
    would basically configure a shared set of permissions for all users.
-

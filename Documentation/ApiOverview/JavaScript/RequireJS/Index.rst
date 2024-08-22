@@ -28,5 +28,3 @@ Overview
    Dependency/Index
    Loading/Index
    Shim/Index
-
-

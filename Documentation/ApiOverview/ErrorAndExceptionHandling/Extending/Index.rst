@@ -64,4 +64,3 @@ of the functionality:
    :caption: typo3conf/AdditionalConfiguration.php
 
    $GLOBALS['TYPO3_CONF_VARS']['SYS']['debugExceptionHandler'] = \Vendor\SomeExtension\Error\PostExceptionsOnTwitter::class;
-

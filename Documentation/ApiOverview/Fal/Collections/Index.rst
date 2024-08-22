@@ -98,4 +98,3 @@ depend on the content of the selection):
     :class: with-shadow
 
     Typical output from the "Collections" plugin
-

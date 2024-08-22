@@ -190,4 +190,3 @@ Related TypoScript properties:
 * :ref:`config.MP_mapRootPoints <t3tsref:setup-config-mp-maprootpoints>`
 
 * :ref:`config.MP_disableTypolinkClosestMPvalue <t3tsref:setup-config-mp-disabletypolinkclosestmpvalue>`
-
