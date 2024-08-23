@@ -50,15 +50,7 @@ Changing localized terms using TypoScript
     overlooked when introducing future translations.
 
 It is possible to override texts in the plugin configuration in
-TypoScript for Extbase based plugins.
-
-Overriding translations in non-Extbase plugins does not work out of the box.
-
-..  attention::
-    Setting :php:`_LOCAL_LANG` has no effect if the ViewHelper
-    :html:`<f:translate>` is used outside of the Extbase context
-    and the :html:`extensionName` ViewHelper attribute is not set and the key used
-    does not follow the `LLL:EXT:extensionkey` syntax.
+TypoScript.
 
 See :ref:`TypoScript reference,
 _LOCAL_LANG <t3tsref:setup-plugin-local-lang-lang-key-label-key>`.
@@ -81,6 +73,35 @@ in the blog example.
 
 The :file:`locallang.xlf` files of the extension do not need to be changed for
 this.
+
+..  attention::
+    Setting :php:`_LOCAL_LANG` might not work for the ViewHelper
+    :html:`<f:translate>` if used outside of the Extbase request.
+    and the :html:`extensionName` ViewHelper attribute is not set and the key used
+    does not follow the `LLL:EXT:extensionkey` syntax.
+
+Outside of an Extbase request TYPO3 tries to infer the the extension key
+from the :html:`extensionName` ViewHelper attribute or the language key
+itself.
+
+.. code-block:: typoscript
+    :caption: Fictional root template
+
+    page = PAGE
+    page.10 = FLUIDTEMPLATE
+    page.10.template = TEXT
+    page.10.template.value (
+        # infer from extensionName
+        <f:translate key="onlineDocumentation" extensionName="backend" />
+
+        # infer from language key
+        <f:translate key="LLL:EXT:backend/Resources/Private/Language/locallang.xlf:onlineDocumentation" />
+
+        # should not work because the locallang.xlf does not exist, but works right now
+        <f:translate key="LLL:EXT:backend/Resources/locallang.xlf:onlineDocumentation" />
+    )
+    # Note the tx_ prefix
+    plugin.tx_backend._LOCAL_LANG.default.onlineDocumentation = TYPO3 Online Documentation from Typoscript
 
 
 :typoscript:`stdWrap.lang`
