@@ -1,9 +1,12 @@
-.. include:: /Includes.rst.txt
-.. index:: Localization; TypoScript
+..  include:: /Includes.rst.txt
+..  index:: Localization; TypoScript
+.. _extension-localization-typoscript:
 
 ==========
 TypoScript
 ==========
+
+.. _extension-localization-typoscript-gettext:
 
 Output localized strings with Typoscript
 ========================================
@@ -12,11 +15,15 @@ The :ref:`getText property LLL <t3tsref:data-type-gettext-lll>` can be
 used to fetch translations from a translation file and output it
 in the current language:
 
-.. code-block:: typoscript
-   :caption: EXT:site_package/Configuration/TypoScript/setup.typoscript
+..  code-block:: typoscript
+    :caption: EXT:site_package/Configuration/TypoScript/setup.typoscript
 
-   lib.blogListTitle = TEXT
-   lib.blogListTitle.data = LLL : EXT:blog_example/Resources/Private/Language/locallang.xlf:blog.list
+    lib.blogListTitle = TEXT
+    lib.blogListTitle {
+        data = LLL : EXT:blog_example/Resources/Private/Language/locallang.xlf:blog.list
+    }
+
+.. _extension-localization-typoscript-conditions:
 
 TypoScript conditions based on the current language
 ===================================================
@@ -27,18 +34,10 @@ can be used to provide certain TypoScript configurations only for certain
 languages. You can query for any property of the language in the
 site configuration.
 
-..  code-block:: typoscript
+..  literalinclude:: _TypoScript/_currentLanguageCondition.typoscript
     :caption: EXT:site_package/Configuration/TypoScript/setup.typoscript
 
-    lib.something = TEXT
-    [siteLanguage("locale") == "de_CH"]
-        lib.something.value = This site has the locale "de_CH"
-    [END]
-    [siteLanguage("title") == "Italy"]
-        lib.something.value = This site has the title "Italy"
-    [END]
-
-.. _localization-typoscript-LOCAL_LANG:
+..  _localization-typoscript-LOCAL_LANG:
 
 Changing localized terms using TypoScript
 =========================================
@@ -60,12 +59,8 @@ text "Comments", you can overwrite the identifier
 :html:`comment_header` for the affected languages. For this, you can
 add the following line to your TypoScript template:
 
-..  code-block:: typoscript
+..  literalinclude:: _TypoScript/_locallang_extbase.typoscript
     :caption: EXT:blog_example/Configuration/TypoScript/setup.typoscript
-
-    plugin.tx_blogexample._LOCAL_LANG.default.comment_header = Remarks
-    plugin.tx_blogexample._LOCAL_LANG.de.comment_header = Bemerkungen
-    plugin.tx_blogexample._LOCAL_LANG.zh.comment_header = 备注
 
 With this, you will overwrite the localization of the term
 :html:`comment_header` for the default language and the languages "de" and "zh"
@@ -84,25 +79,10 @@ Outside of an Extbase request TYPO3 tries to infer the the extension key
 from the :html:`extensionName` ViewHelper attribute or the language key
 itself.
 
-.. code-block:: typoscript
+..  literalinclude:: _TypoScript/_locallang_fluidtemplate.typoscript
     :caption: Fictional root template
 
-    page = PAGE
-    page.10 = FLUIDTEMPLATE
-    page.10.template = TEXT
-    page.10.template.value (
-        # infer from extensionName
-        <f:translate key="onlineDocumentation" extensionName="backend" />
-
-        # infer from language key
-        <f:translate key="LLL:EXT:backend/Resources/Private/Language/locallang.xlf:onlineDocumentation" />
-
-        # should not work because the locallang.xlf does not exist, but works right now
-        <f:translate key="LLL:EXT:backend/Resources/locallang.xlf:onlineDocumentation" />
-    )
-    # Note the tx_ prefix
-    plugin.tx_backend._LOCAL_LANG.default.onlineDocumentation = TYPO3 Online Documentation from Typoscript
-
+..  _localization-typoscript-stdWrap.lang:
 
 :typoscript:`stdWrap.lang`
 ==========================
