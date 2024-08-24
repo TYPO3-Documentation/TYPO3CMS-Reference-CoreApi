@@ -8,7 +8,7 @@ return [
             ],
             'before' => [
                 '3rd-middleware-identifier',
-            ]
+            ],
         ],
-    ]
+    ],
 ];
