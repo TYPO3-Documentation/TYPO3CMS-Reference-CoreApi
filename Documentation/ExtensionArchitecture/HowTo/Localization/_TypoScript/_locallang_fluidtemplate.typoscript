@@ -1,0 +1,17 @@
+page = PAGE
+page.10 = FLUIDTEMPLATE
+page.10.template = TEXT
+page.10.template.value (
+  # infer from extensionName
+  <f:translate key="onlineDocumentation" extensionName="backend" />
+
+  # infer from language key
+  <f:translate key="LLL:EXT:backend/Resources/Private/Language/locallang.xlf:onlineDocumentation" />
+
+  # should not work because the locallang.xlf does not exist, but works right now
+  <f:translate key="LLL:EXT:backend/Resources/locallang.xlf:onlineDocumentation" />
+)
+# Note the tx_ prefix
+plugin.tx_backend._LOCAL_LANG.default {
+  onlineDocumentation = TYPO3 Online Documentation from Typoscript
+}

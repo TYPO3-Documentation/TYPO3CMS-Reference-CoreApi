@@ -1,0 +1,7 @@
+plugin.tx_blogexample {
+  _LOCAL_LANG {
+    default.comment_header = Remarks
+    de.comment_header = Bemerkungen
+    zh.comment_header = 备注
+  }
+}
