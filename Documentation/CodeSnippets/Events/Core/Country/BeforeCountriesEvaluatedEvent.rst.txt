@@ -11,4 +11,3 @@
     ..  php:method:: setCountries(array $countries)
 
         :param $countries: the countries
-
