@@ -3,7 +3,7 @@
 return [
     'frontend' => [
         'middleware-identifier' => [
-            'disabled' => true
+            'disabled' => true,
         ],
         'overwrite-middleware-identifier' => [
             'target' => \MyVendor\SomeExtension\Middleware\MyMiddleware::class,
@@ -12,7 +12,7 @@ return [
             ],
             'before' => [
                 '3rd-middleware-identifier',
-            ]
-        ]
-    ]
+            ],
+        ],
+    ],
 ];

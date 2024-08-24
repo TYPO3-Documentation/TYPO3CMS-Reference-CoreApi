@@ -17,9 +17,8 @@ class ExampleMiddleware implements MiddlewareInterface
     public function __construct(
         private readonly ResponseFactoryInterface $responseFactory,
         private readonly RequestFactoryInterface $requestFactory,
-        private readonly ClientInterface $client
-    ) {
-    }
+        private readonly ClientInterface $client,
+    ) {}
 
     public function process(ServerRequestInterface $request, RequestHandlerInterface $handler): ResponseInterface
     {
@@ -29,7 +28,7 @@ class ExampleMiddleware implements MiddlewareInterface
             $res = $this->client->sendRequest($req);
             // Process data
             $data = [
-                'content' => json_decode((string)$res->getBody())
+                'content' => json_decode((string)$res->getBody()),
             ];
             $response = $this->responseFactory->createResponse()
                 ->withHeader('Content-Type', 'application/json; charset=utf-8');
