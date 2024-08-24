@@ -1,0 +1,7 @@
+lib.something = TEXT
+[siteLanguage("locale") == "de_CH"]
+  lib.something.value = This site has the locale "de_CH"
+[END]
+[siteLanguage("title") == "Italy"]
+  lib.something.value = This site has the title "Italy"
+[END]
