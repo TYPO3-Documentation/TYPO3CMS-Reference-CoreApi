@@ -26,16 +26,23 @@ their functions and typical use cases.
     ..  confval:: LOCK_BACKEND
         :name: flag-file-lock-backend
         :Content: empty or Uri to forward to
-        :Location: typo3conf/LOCK_BACKEND
-        :Legacy Location: typo3conf/LOCK_BACKEND
+        :Location: var/lock/LOCK_BACKEND
+        :Legacy Location: config/LOCK_BACKEND
+        :Location configuration: :php:`$GLOBALS['TYPO3_CONF_VARS']['BE']['lockBackendFile']`
         :TYPO3 Commands: `vendor/bin/typo3 backend:lock`, `vendor/bin/typo3 backend:unlock`
 
-        If the file exists and is empty, an error message is displayed when you try to log into
+        ..  versionchanged:: 13.3
+            The :file:`LOCK_BACKEND` file is now expected in :file:`var/lock/LOCK_BACKEND` (Composer mode) or
+            :file:`config/LOCK_BACKEND` (legacy mode) unless otherwise defined in
+            :php:`$GLOBALS['TYPO3_CONF_VARS']['BE']['lockBackendFile']`.
+
+        If the file exists in the location specified by :php:`$GLOBALS['TYPO3_CONF_VARS']['BE']['lockBackendFile']`
+        or the default and is empty, an error message is displayed when you try to log into
         the backend:
 
         ..  warning::
             Backend access by browser is locked for maintenance. Remove lock by
-            removing the file "typo3conf/LOCK_BACKEND" or use CLI-scripts.
+            removing the file "var/lock/LOCK_BACKEND" or use CLI-scripts.
 
         ..  code-block:: bash
             :caption: Console commands to lock/unlock the backend
@@ -53,9 +60,14 @@ their functions and typical use cases.
         If the file contains an URI, users will be forwarded to that URI when
         they try to lock into the backend.
 
+        If you want locked backend state to persist between deployments, ensure that the
+        used directory (`var/lock` by default) is shared between deployment releases.
+
+        The backend locking functionality is now contained in a distinct service class
+        :php:`TYPO3\CMS\Backend\Authentication\BackendLocker` to allow future flexibility.
+
         **Use Case**: Temporarily restrict backend access to prevent unauthorized
         changes or when performing critical updates.
-
 
     ..  confval:: FIRST_INSTALL
         :name: flag-file-first-install
