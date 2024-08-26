@@ -28,4 +28,4 @@ A typical :file:`Configuration/Services.yaml` may look like this:
      https://symfony.com/doc/current/service_container.html
 
    * The technology used for inluding files and folders is  called
-     Glob Patterns <https://www.malikbrowne.com/blog/a-beginners-guide-glob-patterns/>`__. 
+     `Glob Patterns <https://www.malikbrowne.com/blog/a-beginners-guide-glob-patterns/>`__. 
