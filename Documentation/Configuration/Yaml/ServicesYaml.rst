@@ -27,4 +27,5 @@ A typical :file:`Configuration/Services.yaml` may look like this:
    * TYPO3 uses the Symfony Dependency Injection component. The official documentation can be found at
      https://symfony.com/doc/current/service_container.html
 
-   * The PHP class file names must match the Glob Pattern. 
+   * It is possible to use a glob pattern for the file paths, for example `'../Classes/*'`.
+   
