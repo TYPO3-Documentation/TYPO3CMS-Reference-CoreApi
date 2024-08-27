@@ -24,5 +24,7 @@ A typical :file:`Configuration/Services.yaml` may look like this:
 
 .. seealso::
 
-   * TYPO3 uses the Symfony Dependency Injection component, so official documentation can be found at
+   * TYPO3 uses the Symfony Dependency Injection component. The official documentation can be found at
      https://symfony.com/doc/current/service_container.html
+
+   * It is possible to use a glob pattern for the file paths, for example `'../Classes/*'`.
