@@ -332,4 +332,10 @@ return [
         'targetFileName' => 'CodeSnippets/Events/Core/Html/AfterTransformTextForRichTextEditorEvent.rst.txt',
         'withCode' => false,
     ],
+    [
+        'action' => 'createPhpClassDocs',
+        'class' => \TYPO3\CMS\Core\Country\Event\BeforeCountriesEvaluatedEvent::class,
+        'targetFileName' => 'CodeSnippets/Events/Core/Country/BeforeCountriesEvaluatedEvent.rst.txt',
+        'withCode' => false,
+    ],
 ];
