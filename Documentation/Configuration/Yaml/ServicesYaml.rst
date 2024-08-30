@@ -27,4 +27,8 @@ A typical :file:`Configuration/Services.yaml` may look like this:
    * TYPO3 uses the Symfony Dependency Injection component. The official documentation can be found at
      https://symfony.com/doc/current/service_container.html
 
-   * It is possible to use a glob pattern for the file paths, for example `'../Classes/*'`.
+   * The paths for :yaml:`resource` and :yaml:`exclude` can use a glob pattern. 
+
+   * :yaml:`exclude` can use an array and curly braces with items separated by comma to match folders and files.
+
+   * :yaml:`resource` will match all files of all folders under a configured folder.
