@@ -33,7 +33,7 @@ final class SwitchableControllerActionUpgradeWizard implements UpgradeWizardInte
             ->select('*')
             ->from(self::TABLE)
             ->where(
-                $queryBuilder->expr()->eq('list_type', $queryBuilder->createNamedParameter($plugin)),
+                $queryBuilder->expr()->eq('list_type', $queryBuilder->quote($plugin)),
             )
             ->executeQuery();
         while ($row = $result->fetchAssociative()) {
