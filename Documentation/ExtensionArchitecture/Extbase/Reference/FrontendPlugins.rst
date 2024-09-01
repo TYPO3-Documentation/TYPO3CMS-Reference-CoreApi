@@ -39,6 +39,7 @@ Use the following steps to add the plugin as content element:
     ..  literalinclude:: _FrontendPlugin/_ext_localconf.php
         :language: php
         :caption: EXT:blog_example/ext_localconf.php
+        :linenos:
 
     Use the following parameters:
 
@@ -79,6 +80,7 @@ Use the following steps to add the plugin as content element:
     ..  literalinclude::  _FrontendPlugin/_tt_content.php
         :language: php
         :caption: EXT:blog_example/Configuration/TCA/Overrides/tt_content.php
+        :linenos:
 
     Use the following parameters:
 
@@ -132,6 +134,7 @@ Frontend plugin as pure TypoScript
     ..  literalinclude::  _FrontendPlugin/_ext_localconf_rss.php
         :language: php
         :caption: EXT:blog_example/ext_localconf.php
+        :linenos:
 
 #.  Display the plugin via TypoScript
 
@@ -143,3 +146,4 @@ Frontend plugin as pure TypoScript
     ..  literalinclude::  _FrontendPlugin/_setup.typoscript
         :language: typoscript
         :caption: EXT:blog_example/Configuration/TypoScript/RssFeed/setup.typoscript
+        :linenos:
