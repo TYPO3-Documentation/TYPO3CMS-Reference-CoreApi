@@ -100,6 +100,7 @@ Use the following steps to add the plugin as content element:
     ..  literalinclude::  _FrontendPlugin/_page.tsconfig
         :language: typoscript
         :caption: EXT:blog_example/Configuration/page.tsconfig
+        :linenos:
 
     *   Line 6: The plugin signature: The extension name in lowercase without
         underscores, followed by one underscore, followed by the plugin identifier
