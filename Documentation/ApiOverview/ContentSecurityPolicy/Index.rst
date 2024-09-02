@@ -115,7 +115,7 @@ used to declare policies for a specific site, for example:
     :language: yaml
     :caption: config/sites/<my_site>/csp.yaml | typo3conf/sites/<my_site>/csp.yaml
 
-.. _content-security-policy-modes:
+..  _content-security-policy-modes:
 
 Modes
 -----
