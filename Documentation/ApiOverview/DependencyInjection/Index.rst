@@ -634,29 +634,19 @@ that uses :php:`GeneralUtility::makeInstance()` and :ref:`Extbase controllers
 What to make public
 -------------------
 
+Every class that is instantiated using :php:`GeneralUtility::makeInstance()`
+**and** requires dependency injection must be marked as public. The same goes
+for instantiation via :php:`GeneralUtility::makeInstance()` using constructor
+arguments.
+
+Any other class which requires dependency injection and is retrieved by
+dependency injection itself can be private.
+
 Instances of :php:`\TYPO3\CMS\Core\SingletonInterface` and Extbase controllers
-are automatically marked as public. Some further classes must be marked as
-public, too. As the Symfony documentation "Public and private services" puts
-it:
+are automatically marked as public. This allows them to be retrieved using
+:php:`GeneralUtility::makeInstance()` as done by TYPO3 internally.
 
-    Simply said: A service can be marked as private if you do not want to access
-    it directly from your code.
-
-    -- `Symfony documentation`_
-
-..  _Symfony documentation: https://symfony.com/doc/current/service_container/alias_private.html
-
-Direct access includes instantiation via :php:`GeneralUtility::makeInstance()`
-with constructor arguments.
-
-This means every class that is directly retrieved using
-:php:`GeneralUtility::makeInstance()` *and* requires dependency injection
-**must** be marked as public. Any other class which requires dependency injection
-and is retrieved by dependency injection itself can be private. Instances of
-:php:`\TYPO3\CMS\Core\SingletonInterface` and Extbase controllers are
-automatically marked as public because they are retrieved using
-:php:`GeneralUtility::makeInstance()`. More examples of classes that must be
-marked as public:
+More examples of classes that must be marked as public:
 
 *   :ref:`User functions <t3tsref:cobj-user-int>`
 *   Non-Extbase controllers
@@ -688,6 +678,9 @@ With this configuration, you can use dependency injection in
 :php:`\MyVendor\MyExtension\UserFunction\ClassA` when it is created, for example
 in the context of a :typoscript:`USER` TypoScript object, which would not be
 possible if this class were private.
+
+..  seealso::
+    Symfony: `How to Create Service Aliases and Mark Services as Private <https://symfony.com/doc/current/service_container/alias_private.html>`_
 
 .. index:: Dependency injection; Errors
 .. _errors-resulting-from-wrong-configuration:
