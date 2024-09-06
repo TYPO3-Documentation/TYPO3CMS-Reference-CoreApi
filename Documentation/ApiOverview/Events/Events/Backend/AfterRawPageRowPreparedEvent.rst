@@ -16,9 +16,6 @@ the page is displayed in a page tree.
 This can be used, for example, to change the title of a page or apply a
 different sorting to its children.
 
-This event is called in the internal class
-:php:`\TYPO3\CMS\Backend\Tree\Repository\PageTreeRepository`.
-
 ..  _AfterRawPageRowPreparedEvent-example:
 
 Example: Sort pages by title in the page tree
