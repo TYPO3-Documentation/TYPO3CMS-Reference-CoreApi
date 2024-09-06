@@ -267,4 +267,10 @@ return [
         'targetFileName' => 'CodeSnippets/Events/Backend/DownloadPreset.rst.txt',
         'withCode' => false,
     ],
+    [
+        'action' => 'createPhpClassDocs',
+        'class' => \TYPO3\CMS\Backend\Tree\Repository\AfterRawPageRowPreparedEvent::class,
+        'targetFileName' => 'CodeSnippets/Events/Backend/AfterRawPageRowPreparedEvent.rst.txt',
+        'withCode' => false,
+    ],
 ];
