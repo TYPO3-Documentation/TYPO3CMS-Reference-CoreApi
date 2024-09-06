@@ -16,7 +16,7 @@ final class MyEventListener
         if ((int)$rawPage['uid'] === 123) {
             // Sort pages alphabetically in the page tree
             $rawPage['_children'] = usort(
-                $rawPage['__children'],
+                $rawPage['_children'],
                 static fn(array $a, array $b) => strcmp($a['title'], $b['title']),
             );
             $rawPage['title'] = 'Some special title';
