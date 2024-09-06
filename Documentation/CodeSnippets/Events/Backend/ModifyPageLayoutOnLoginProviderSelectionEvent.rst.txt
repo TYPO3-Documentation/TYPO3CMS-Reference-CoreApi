@@ -8,8 +8,15 @@
     ..  php:method:: getController()
         :returns: `\TYPO3\CMS\Backend\Controller\LoginController`
 
+        **Deprecated:** Remove in v14.
+
     ..  php:method:: getView()
-        :returns: `\TYPO3\CMS\Fluid\View\StandaloneView`
+        :returns: `\TYPO3\CMS\Fluid\View\StandaloneView|\TYPO3\CMS\Core\View\ViewInterface`
 
     ..  php:method:: getPageRenderer()
         :returns: `\TYPO3\CMS\Core\Page\PageRenderer`
+
+        **Deprecated:** Remove in v14.
+
+    ..  php:method:: getRequest()
+        :returns: `\Psr\Http\Message\ServerRequestInterface`
