@@ -13,7 +13,7 @@ The PSR-14 event
 allows to modify the populated properties of a page and children records before
 the page is displayed in a page tree.
 
-This can be used to, for example, change the title of a page or apply a
+This can be used, for example, to change the title of a page or apply a
 different sorting to its children.
 
 This event is called in the internal class
