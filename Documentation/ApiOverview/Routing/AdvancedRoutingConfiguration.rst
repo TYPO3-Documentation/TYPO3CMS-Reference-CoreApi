@@ -133,7 +133,7 @@ configuration:
     necessary so that performance is not reduced and to allow TYPO3 to match the
     expected route.
 
-:yaml:`_arguments`
+:yaml:``
     Defines what route parameters should be available to the system. In the
     following example, the placeholder is called :yaml:`category_id`, but the
     URL generation receives the argument :yaml:`category`. It is mapped to that
@@ -178,9 +178,9 @@ The configuration looks like this:
 :yaml:`_arguments`
     defines the mapping from the placeholder in the :yaml:`routePath` to the
     name of the parameter in the URL as it would appear without enhancement.
-    Note that it is also possible to map to nested parameters by providing a 
-    path-like parameter name. For example, specifying `my_array/my_key` as the 
-    parameter name would set the GET parameter `my_array[my_key]` to the value 
+    Note that it is also possible to map to nested parameters by providing a
+    path-like parameter name. For example, specifying `my_array/my_key` as the
+    parameter name would set the GET parameter `my_array[my_key]` to the value
     of the specified placeholder.
 
 ..  note::
