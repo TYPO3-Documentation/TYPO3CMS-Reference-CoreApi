@@ -177,7 +177,11 @@ The configuration looks like this:
     expressions <https://regex101.com/>`__ limit the allowed chars to be used in those parts.
 :yaml:`_arguments`
     defines the mapping from the placeholder in the :yaml:`routePath` to the
-    name of the parameter in URL had it not been enhanced.
+    name of the parameter in the URL as it would appear without enhancement.
+    Note that it is also possible to map to nested parameters by providing a
+    path-like parameter name. For example, specifying `my_array/my_key` as the
+    parameter name would set the GET parameter `my_array[my_key]` to the value
+    of the specified placeholder.
 
 ..  note::
     For people coming from :t3ext:`realurl` in previous TYPO3 versions: The
