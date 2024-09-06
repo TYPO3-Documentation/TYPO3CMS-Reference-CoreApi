@@ -133,7 +133,7 @@ configuration:
     necessary so that performance is not reduced and to allow TYPO3 to match the
     expected route.
 
-:yaml:``
+:yaml:`_arguments`
     Defines what route parameters should be available to the system. In the
     following example, the placeholder is called :yaml:`category_id`, but the
     URL generation receives the argument :yaml:`category`. It is mapped to that
