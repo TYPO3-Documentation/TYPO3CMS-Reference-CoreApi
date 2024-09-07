@@ -34,6 +34,7 @@ In these cases Fluid does not have to deal with these manipulations or transform
 You can find the example below in the TYPO3 Documentation Team extension
 :composer:`t3docs/examples`.
 
+.. _adding-your-own-content-elements-prerequisites:
 
 Prerequisites
 =============
@@ -46,7 +47,6 @@ It can be installed via Composer with:
 .. code-block:: console
 
    composer req typo3/cms-fluid-styled-content
-
 
 .. index:: Extension development; Custom content element
 .. _AddingCE-use-an-extension:
@@ -78,58 +78,53 @@ The following call needs to be added to the file
 :file:`Configuration/TCA/Overrides/tt_content.php`.
 
 ..  literalinclude:: _AddingYourOwnContentElements/_tt_content.php
-    :language: php
     :caption: EXT:my_extension/Configuration/TCA/Overrides/tt_content.php
+    :linenos:
+    :emphasize-lines: 12
 
-Now the new content element is available in the backend form. However it
-currently contains no fields but the CType field.
-
-.. include:: /Images/AutomaticScreenshots/CustomContentElements/CType.rst.txt
-
+Now the new content element is available in the CType selector and the
+"New Content Element" wizard.
 
 .. index:: Content element; Icon
 .. _AddingCE-Icon:
 
-About the icon
---------------
+Display an icon
+---------------
 
-You can either use an existing `icon from the TYPO3 core
+If you define no item a default item will be displayed.
+
+You can use an existing `icon from the TYPO3 core
 <https://typo3.github.io/TYPO3.Icons/icons/content.html>`__  or register your
-own icon using the :ref:`Icon API <icon>`. In this example we use the icon
-`content-text`, the same icon as the :guilabel:`Regular Text Element` uses.
+own icon using the :ref:`Icon API <icon>`.
 
+..  literalinclude:: _AddingYourOwnContentElements/_tt_content_icon.diff
 
 .. index:: Content element; Wizard
 .. _AddingCE-PageTSconfig:
 
-Add it to the new content element wizard
-========================================
+The new content element wizard
+==============================
 
-Content elements in the :guilabel:`New Content Element Wizard` are easier
-to find for editors. It is therefore advised to add the new content element
-to this wizard (via page TSconfig).
+..  versionchanged:: 13.0
+    Starting with TYPO3 13.0 content elements added via TCA are automatically
+    displayed in the :guilabel:`New Content Element` wizard. To stay compatible
+    with both TYPO3 v12.4 and v13 keep the page TSconfig for TYPO3 v12.4.
+    See :ref:`New Content Element wizard in TYPo3 12.4 <t3coreapi/v12:AddingCE-PageTSconfig>`.
 
-..  literalinclude:: _AddingYourOwnContentElements/_page.tsconfig
-    :language: typoscript
-    :caption: EXT:my_extension/Configuration/page.tsconfig
+..  literalinclude:: _AddingYourOwnContentElements/_tt_content.php
+    :caption: EXT:my_extension/Configuration/TCA/Overrides/tt_content.php
+    :linenos:
+    :emphasize-lines: 16,17,18
 
-.. versionchanged:: 12.0
+The values in the array highlighted in the code example above are used for the
+display in the :guilabel:`New Content Element` wizard.
 
-   Starting with TYPO3 version 12.0 file :file:`EXT:examples/Configuration/page.tsconfig`
-   is automatically included. For version 11.5 and below this file has to be included in the
-   :file:`ext_localconf.php`. See :ref:`Setting global page TSconfig, compatible with TYPO3
-   11 and 12 <t3tsconfig:page-tsconfig-v11-v12>`.
+It is also possible to define a description and an :ref:`icon <AddingCE-Icon>`:
 
-.. figure:: /Images/ManualScreenshots/Backend/ContentElementWizard.png
-   :class: with-shadow
-   :alt: Content element wizard with the new content element
-
-   Content element wizard with the new content element
-
+..  literalinclude:: _AddingYourOwnContentElements/_tt_content_description.diff
 
 The content element wizard configuration is described in detail in
 :ref:`content-element-wizard`.
-
 
 .. index:: Content element; Backend form
 .. _ConfigureCE-Fields:
@@ -137,17 +132,28 @@ The content element wizard configuration is described in detail in
 Configure the backend form
 ==========================
 
-Then you need to configure the backend fields for your new content element in
+..  versionchanged:: 13.3
+    System fields are now added automatically to custom content element
+    definitions. See also :ref:`Automatically added system fields to content
+    types (tt_content) <t3tca:types-content>`. To stay compatible with
+    both TYPO3 12 and 13 define the content element as described in
+    version 12.4 of TYPO3 explained, see
+    :ref:`Configure the backend form (TYPO3 v12.4) <t3coreapi/v12:ConfigureCE-Fields>`.
+
+Configure the backend fields for your new content element in
 the file :file:`Configuration/TCA/Overrides/tt_content.php`:
 
-..  literalinclude:: _AddingYourOwnContentElements/_tt_content_2.php
-    :language: php
+..  literalinclude:: _AddingYourOwnContentElements/_tt_content.php
     :caption: EXT:my_extension/Configuration/TCA/Overrides/tt_content.php
+    :linenos:
+    :emphasize-lines: 27,28
 
-Now the backend form for the new content elements looks like this:
+In line 27 a custom :ref:`palette <t3tca:palettes>` with the header and related
+fields is displayed. This palette and its fields are defined in
+:t3src:`typo3/sysext/frontend/Configuration/TCA/tt_content.php`.
 
-.. include:: /Images/AutomaticScreenshots/CustomContentElements/ContentElementFields.rst.txt
-
+In line 28 a predefined field, `bodytext` is added to be displayed in the
+form of the new content element type.
 
 .. index:: Content element; Frontend rendering
 .. _ConfigureCE-Frontend:
@@ -160,7 +166,7 @@ The output in the frontend gets configured in the setup TypoScript. See
 to add TypoScript.
 
 In the :file:`examples` extension the TypoScript can be found at
-:file:`Configuration/TypoScript/setup.typoscript`
+:file:`Configuration/TypoScript/CustomContentElements/Basic.typoscript`
 
 The Fluid templates for our custom content element will be saved in our
 extension. Therefore we need to add the path to the
@@ -180,7 +186,7 @@ Now you can register the rendering of your custom content element:
     :caption: EXT:my_extension/Configuration/TypoScript/setup.typoscript
 
 The :typoscript:`lib.contentElement` path is defined in file
-:file:`EXT:fluid_styled_content/Configuration/TypoScript/Helper/ContentElement.typoscript`.
+:t3src:`typo3/sysext/fluid_styled_content/Configuration/TypoScript/Helper/ContentElement.typoscript`.
 and uses a :ref:`t3tsref:cobj-fluidtemplate`.
 
 We reference :doc:`fluid_styled_contents <typo3/cms-fluid-styled-content:Index>`
@@ -191,22 +197,22 @@ The Fluid template is configured by the
 :ref:`t3tsref:cobj-fluidtemplate-properties-templatename` property as
 `NewContentElement`.
 
-This will load a :file:`NewContentElement.html` template file from the path
+This will load a :file:`BasicContent.html` template file from the path
 defined at the :typoscript:`templateRootPaths`.
 
 In the example extension you can find the file at
-:file:`EXT:examples/Resources/Private/Templates/NewContentElement.html`
+:file:`EXT:examples/Resources/Private/Templates/ContentElements/BasicContent.html`
 
-`tt_content` fields can now be used in the Fluid template by accessing them via the `data` variable.
-The following example shows the text entered in the richtext enabled field `bodytext`, using the html
-saved by the richtext editor:
+`tt_content` fields can now be used in the Fluid template by accessing them via
+the `data` variable.
+
+The following example shows the text entered in the text field. New lines are
+converted to `<br>` tags.
 
 .. include:: /CodeSnippets/CustomContentElements/CustomContentElement.rst.txt
 
 All fields of the table :php:`tt_content` are now available in the variable
-`data`. Since we saved the content of `bodytext` in the richt text editor we
-have to run it through `f:format.html` to resolve all links and other
-formatting. Read more about :ref:`fluid`.
+`data`. Read more about :ref:`fluid`.
 
 ..  tip::
 
@@ -224,7 +230,6 @@ formatting. Read more about :ref:`fluid`.
         <f:if condition="1"><f:debug>{settings}</f:debug></f:if>
         <f:if condition="0"><f:debug>{data}</f:debug></f:if>
         <f:if condition="1"><f:debug>{current}</f:debug></f:if>
-
 
 Below you can see the example output of the new content element and a
 dump of all available data:

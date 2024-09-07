@@ -1,6 +1,6 @@
 tt_content {
-  myextension_newcontentelement =< lib.contentElement
-  myextension_newcontentelement {
-    templateName = NewContentElement
+  examples_basiccontent =< lib.contentElement
+  examples_basiccontent {
+    templateName = BasicContent
   }
 }
