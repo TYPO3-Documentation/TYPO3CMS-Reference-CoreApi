@@ -68,35 +68,49 @@ characteristics:
 
 ..  _content-elements:
 
-What are content elements?
---------------------------
+Content elements in TYPO3
+-------------------------
 
-**Content elements** (often abbreviated as CE) are the building blocks
-that make up a page in TYPO3.
+A **content element** is a standard unit for managing and displaying content,
+such as text, images, videos, tables, and more.
 
-Content elements are stored in the database table ``tt_content``. Each content
+In the TYPO3 backend, content elements are commonly managed in module
+:guilabel:`Web > Page`.
+
+From a technical point of view content elements are records stored in the
+database table `tt_content`. Each content
 element has a specific content element type, specified by the database field
-``tt_content.CType``. A content element can be of a type
-supplied by TYPO3, such as 'textmedia' (text with or without images or videos).
-Or it can have a custom type supplied
-by an extension such as 'carousel' provided by the bootstrap_package extension.
+`tt_content.CType`. This type influences both the backend form and the frontend
+output.
 
-Content elements are one of the elements (along with pages) that can be filled
-with content by editors and will be rendered in the frontend when a page is
-generated.
+The appearance of a content element in the backend form is defined via the
+:ref:`TYPO3 Configuration Array (TCA) <t3tca:start>` of table `tt_content`.
+Each content element type is configured by one entry in the section
+:ref:`$TCA['types'] <t3tca:types>`.
 
-Content elements are arranged on a page, depending on their
+The output of the content element in the frontend is configured by an entry in
+the :ref:`TypoScript  <t3tsref:start>` top-level object `tt_content` using the
+same key as in TCA. In most cases a :ref:`FLUIDTEMPLATE <t3tsref:cobj-template>`
+is used delegating the actual output to the templating engine
+:ref:`Fluid <fluid>`.
 
-*   language (field: ``tt_content.sys_language_uid``)
-*   sorting (field: ``tt_content.sorting``)
-*   column (field: ``tt_content.colPos``)
-*   etc.
+A content element can be of a type
+supplied by TYPO3, such as `textmedia` (text with or without images or videos).
+Or it can have a custom type supplied by an extension such as `carousel`
+provided by the :composer:`bk2k/bootstrap-package` extension.
 
-..  note::
+You can :ref:`add custom content elements <adding-your-own-content-elements>`
+to your extension or :ref:`site package <t3sitepackage:start>`.
 
-    Sometimes, the term "content element" is used to mean a content element type
-    which is not a plugin. On this page and in this chapter, "content element"
-    means any content element type including plugins.
+It is also possible to use an extension such as :composer:`contentblocks/content-blocks`,
+:composer:`mask/mask`, or :composer:`t3/dce` to add custom content elements to
+your projects.
+
+:ref:`Adding custom content elements <adding-your-own-content-elements>` is
+possible without writing PHP code and can therefore also be done by
+TYPO3 integrators.
+
+
 
 ..  _plugins:
 ..  _plugins-extbase:
