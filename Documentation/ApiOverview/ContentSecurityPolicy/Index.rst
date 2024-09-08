@@ -192,9 +192,27 @@ is available, which provides the nonce in a Fluid template, for example:
 
 ..  code-block:: html
 
-    <script nonce="{f:security.nonce()}">const inline = 'script';</script>
-    <f:asset.script useNonce="1">console.log('Something');</f:asset.script>
+    <script nonce="{f:security.nonce()}">
+        const inline = 'script';
+    </script>
 
+    <style nonce="{f:security.nonce()}">
+        .some-style { color: red; }
+    </style>
+
+You can also use the :ref:`f:asset.script <t3viewhelper:typo3-fluid-asset-script>`
+or :ref:`f:asset.css <t3viewhelper:typo3-fluid-asset-css>`
+ViewHelpers with the `useNonce` attribute:
+
+..  code-block:: html
+
+    <f:asset.script identifier="my-inline-script" useNonce="1">
+        const inline = 'script';
+    </f:asset.script>
+
+    <f:asset.css identifier="my-inline-style" useNonce="1">
+        .some-style { color: red; }
+    </f:asset.css>
 
 .. _content-security-policy-reporting:
 
