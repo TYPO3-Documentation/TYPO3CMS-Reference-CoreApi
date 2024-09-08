@@ -2,167 +2,197 @@
 .. index:: pair: Add; Content elements
 .. _content-element-wizard:
 
-==================================================
-Add content elements to the Content Element Wizard
-==================================================
+==========================
+New content element wizard
+==========================
+
+..  versionchanged:: 13.0
+    Custom content element types are auto-registered for the
+    :guilabel:`New Content Element` wizard. The listing can be configured using
+    TCA.
+
+..  contents:: Table of contents
 
 The content element wizard opens when a new content element is
 created. It can be fully configured using :ref:`TSConfig <t3tsconfig:start>`.
 
-Our extension key is `example` and the name of the content element or
-plugin is `registration`.
+The wizard looks like this:
 
-.. rst-class:: bignums-xxl
+..  figure:: /Images/ManualScreenshots/Backend/NewContentElementWizardAnnotated.png
 
-#. Create page TSconfig
+1.  The `title` can be a string or, recommended, a language reference.
+2.  The `description` can be a string or, recommended, a language reference.
+3.  The `group` can be one of the existing group identifiers or a new one.
+4.  The `icon` can be one of the existing registered icon keys or a custom
+    icon key registered in the :ref:`icon API <icon>`.
 
-   .. code-block:: typoscript
-      :caption: EXT:example/Configuration/TsConfig/Page/Mod/Wizards/NewContentElement.tsconfig
+Any of these entries can be omitted. You **should** at
+least define a title.
 
-      mod.wizards {
-          newContentElement.wizardItems {
-              plugins {
-                  elements {
-                      example_registration {
-                          iconIdentifier = example-registration
-                          title = Registration Example
-                          description = Create a registration form
-                          tt_content_defValues {
-                              CType = list
-                              list_type = example_registration
-                          }
-                      }
-                  }
-              }
-          }
-      }
+New content elements are usually added in extensions in file
+:file:`EXT:my_extension/Configuration/Overrides/tt_content.php`.
 
-   You may want to replace :typoscript:`title` and :typoscript:`description`
-   from above, using language files for translation, for example:
+The following groups are available by default:
 
-   .. code-block:: typoscript
+default
+    ..  versionchanged:: 13.0 This group was renamed from group `common`.
 
-      title = LLL:EXT:example/Resources/Private/Language/locallang.xlf:registration_title
-      description = LLL:EXT:example/Resources/Private/Language/locallang.xlf:registration_description
+    Default group for commonly used content elements
+forms
+    Content elements representing forms like a contact form or a login form
+lists
 
-#. Include TSconfig
+menu
+    Menus that can be inserted as content elements like a sitemap or a menu
+    of all subpages.
+plugins
+    Plugins provided by extensions
+special
+    Content elements that are used of special cases
 
-   .. code-block:: typoscript
-      :caption: EXT:example/Configuration/page.tsconfig
+All content element groups are listed in
+:php:`$TCA['tt_content']['columns']['CType']['config']['itemGrops']` you can
+debug them in the TYPO3 backend using the backend module
+:guilabel:`System > Configuration` if :composer:`typo3/cms-lowlevel` is installed
+and you are and administrator.
 
-      @import 'EXT:example/Configuration/TsConfig/Page/Mod/Wizards/NewContentElement.tsconfig'
+Some third party extensions like :composer:`bk2k/bootstrap-package` are altering
+the available groups.
 
-   This always includes the above page TSconfig. It is better practice to make this configurable by
-   :ref:`registering this file as static page TSconfig <t3tsconfig:register-static-page-tsconfig>`.
+.. _content-element-wizard-plain:
 
-   .. note::
-      The usage of :file:`Configuration/page.tsconfig` is only valid in TYPO3
-      v12+. If you want to stay compatible with TYPO3 v11 and v12 have a look
-      into :ref:`t3tsconfig:setting-page-tsconfig`.
+Plain content elements or plugins
+=================================
 
-#. :ref:`Register your icon <icon-registration>`
+You can add a plain content element or non-extbase plugin using method
+`ExtensionManagementUtility::addPlugin() <https://api.typo3.org/main/classes/TYPO3-CMS-Core-Utility-ExtensionManagementUtility.html#method_addPlugin>`__:
+of class :php:`\TYPO3\CMS\Core\Utility\ExtensionManagementUtility`.
 
-   .. code-block:: php
-      :caption: EXT:example/Configuration/Icons.php
+..  literalinclude:: _AddingYourOwnContentElements/_tt_content_plugin.php
+    :caption: EXT:my_extension/Configuration/Overrides/tt_content.php
 
-      <?php
+The key `value` in the parameter `$itemArray` is used as key of the newly added
+content element representing the plugin.
 
-      return [
-         // use same identifier as used in TSconfig for icon
-         'example-registration' => [
-            'provider' => \TYPO3\CMS\Core\Imaging\IconProvider\SvgIconProvider::class,
-            'source' => 'EXT:example/Resources/Public/Icons/example-registration.svg',
-         ],
-      ];
+When you are using `CType` (recommended) for parameter `$type` the content
+element is added to the select item list of column `CType` in table `tt_content`.
 
-#. After clearing cache, create a new content element
+If you are using the default `list_type` for the parameter it is added as
+subtype.
 
-   After clearing the cache via :guilabel:`Admin Tools > Maintenance` or the
-   command :bash:`vendor/bin/typo3 cache:flush` you should now see the icon,
-   title and description you just added!
+This method supplies some default values:
 
-   .. figure:: /Images/ManualScreenshots/Backend/ContentElementWizard.png
-      :class: with-shadow
-      :alt: Content element wizard with the new content element
+`group`
+    Defaults to `default`
+`icon`
+    Icon of the extension if defined
 
-      Content element wizard with the new content element
+While it is still possible to use
+`ExtensionManagementUtility::addTcaSelectItem() <https://api.typo3.org/main/classes/TYPO3-CMS-Core-Utility-ExtensionManagementUtility.html#method_addTcaSelectItem>`__
+as is commonly seen in older extensions this method is not specific to content
+elements and therefore sets not default values for group and icon.
 
-.. seealso::
+.. _content-element-wizard-extbase:
 
-   * :ref:`t3tsconfig:pagenewcontentelementwizard` in TSconfig Reference
-   * :ref:`Register your icon <icon-registration>` in TYPO3 Explained
-   * :ref:`adding-your-own-content-elements`
-
-
-Add your plugin or content element to a different tab
+Plugins (Extbase) in the "New Content Element" wizard
 =====================================================
 
-The above example adds your plugin to the tab "Plugin" in the content element wizard.
-You can add it to one of the other existing tabs or create a new one.
+To add an Extbase plugin you can use `ExtensionManagementUtility::registerPlugin`
+of class :php:`\TYPO3\CMS\Extbase\Utility\ExtensionManagementUtility`.
 
-.. tip::
+This method is only available for Extbase plugins defined via
+`ExtensionManagementUtility::addPlugin` in file :file:`EXT:my_extension/ext_localconf.php`
 
-   Look into the module :guilabel:`Info > Page TSconfig` for existing
-   configurations of :typoscript:`mod.wizards.newContentElement.wizardItems`.
+..  literalinclude:: _AddingYourOwnContentElements/_tt_content_register_plugin.php
+    :caption: EXT:my_extension/Configuration/Overrides/tt_content.php
 
+.. _content-element-wizard-page-tsconfig:
 
-If you add it to any of the other tabs (other than plugins), you must add
-the name to :typoscript:`show` as well:
+Override the wizard with page TSconfig
+======================================
 
-.. code-block:: typoscript
-   :caption: EXT:example/Configuration/TsConfig/Page/Mod/Wizards/NewContentElement.tsconfig
+The TCA is always set globally for the complete TYPO3 installation. If you have
+a multi-site installation and want to alter the appearance of content elements
+in the wizard or remove certain content elements this can be done via
+:ref:` page TSconfig <t3tsconfig:setting-page-tsconfig>`.
+This is commonly done on
 
-   mod.wizards.newContentElement.wizardItems.common {
-       elements {
-           example_registration {
-               iconIdentifier = example-registration
-               title = Example title
-               description = Example description
-               tt_content_defValues {
-                   CType = list
-                   list_type = example_registration
-               }
-           }
-       }
-       show := addToList(example_registration)
-   }
+a per site basis so you can use the :ref:`Site set page TSconfig provider <site-sets-page-tsconfig>`
+in your :ref:`site package <t3sitepackage:start>`.
 
-When you look at existing page TSconfig in the :guilabel:`Info` module, you may
-notice that :typoscript:`show` has been set to include all for the
-:guilabel:`Plugins` tab:
-
-.. code-block:: typoscript
-
-   show = *
+You can use the settings of :ref:`newContentElement.wizardItems <t3tsconfig:pagenewcontentelementwizard>`.
 
 
-Create a new tab
-================
+.. _content-element-wizard-page-tsconfig-remove:
 
-See the `bootstrap_package <https://github.com/benjaminkott/bootstrap_package>`__
-for an example of creating a new tab :guilabel:`Interactive` and adding
-elements to it:
+Remove items from the "New Content Element" wizard
+--------------------------------------------------
 
-.. code-block:: typoscript
-   :caption: EXT:bootstrap_package/Configuration/TsConfig/Page/ContentElement/Categories.tsconfig
+Using :confval:`[group].removeItems <t3tsconfig:mod-wizards-newcontentelement-wizarditems-group-removeitems>`
+you can remove a content element type from the wizard.
 
-    mod.wizards.newContentElement.wizardItems {
-        interactive.header = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:content_group.interactive
-    }
+..  literalinclude:: _AddingYourOwnContentElements/_page_remove_item.tsconfig
+    :caption: EXT:my_sitepackage/Configuration/Sets/MySet/page.tsconfig
 
-.. code-block:: typoscript
-   :caption: EXT:bootstrap_package/Configuration/TsConfig/Page/ContentElement/Element/Accordion.tsconfig
+This removes the content element "Plain HTML" from the group `special`.
 
-    mod.wizards.newContentElement.wizardItems.interactive {
-        elements {
-            accordion {
-                iconIdentifier = content-bootstrappackage-accordion
-                title = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:content_element.accordion
-                description = LLL:EXT:bootstrap_package/Resources/Private/Language/Backend.xlf:content_element.accordion.description
-                tt_content_defValues {
-                    CType = accordion
-                }
-            }
-        }
-        show := addToList(accordion)
-    }
+..  note::
+    The affected content elements are only removed from the specified group and
+    only in the wizard. Editors can still switch the `CType` selector to create
+    such a content element. The content element might also appear in another tab.
+
+    Use :ref:`User settings configuration <user-settings>` to effectively ban
+    usage for non-admin users.
+
+You can also remove whole groups of content elements from the wizard:
+
+..  literalinclude:: _AddingYourOwnContentElements/_page_remove_group.tsconfig
+    :caption: EXT:my_sitepackage/Configuration/Sets/MySet/page.tsconfig
+
+.. _content-element-wizard-page-tsconfig-change:
+
+Change title, description, icon and default values in the wizard
+----------------------------------------------------------------
+
+You can use the following page tsconfig properties to change the display
+of the element in the wizard:
+
+*   :confval:`iconIdentifier <t3tsconfig:mod-wizards-newcontentelement-wizarditems-group-elements-name-iconidentifier>`
+*   :confval:`iconOverlay <t3tsconfig:mod-wizards-newcontentelement-wizarditems-group-elements-name-iconoverlay>`
+*   :confval:`title <t3tsconfig:mod-wizards-newcontentelement-wizarditems-group-elements-name-title>`
+*   :confval:`description <t3tsconfig:mod-wizards-newcontentelement-wizarditems-group-elements-name-description>`
+*   :confval:`tt_content_defValues <t3tsconfig:mod-wizards-newcontentelement-wizarditems-group-elements-name-tt-content-defvalues>`
+*   :confval:`saveAndClose <t3tsconfig:mod-wizards-newcontentelement-wizarditems-group-elements-name-saveandclose>`
+
+..  literalinclude:: _AddingYourOwnContentElements/_page_change_item.tsconfig
+    :caption: EXT:my_sitepackage/Configuration/Sets/MySet/page.tsconfig
+
+.. _content-element-wizard-create-group:
+
+Register a new group in the "New Content Element" wizard
+========================================================
+
+New groups are added on the fly, however it is recommended to set a localized
+header:
+
+..  literalinclude:: _AddingYourOwnContentElements/_tt_content_register_group.php
+    :caption: EXT:my_extension/Configuration/Overrides/tt_content.php
+
+The headers can also be overrriden on a per site basis using page TSconfig.
+
+..  literalinclude:: _AddingYourOwnContentElements/_page_change_group_header.tsconfig
+    :caption: EXT:my_sitepackage/Configuration/Sets/MySet/page.tsconfig
+
+.. _content-element-wizard-v12:
+
+Content elements compatible with TYPO3 v12.4 and v13
+====================================================
+
+If your extension supplies content elements or plugins and supports both TYPO3
+v12.4 and v13 you can keep the :ref:`Page TsConfig for the New Content Element
+Wizard <t3coreapi/v12:content-element-wizard>` while you additionally supply
+the TCA settings for TYPO3 v13.
+
+You should use the same content element group for both definition ways or
+the content element will be displayed twice, once in each group. Group `common`
+is automatically migrated to `default` for TYPO3 v13.

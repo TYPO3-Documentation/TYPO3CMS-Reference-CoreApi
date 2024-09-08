@@ -1,0 +1,10 @@
+mod.wizards.newContentElement.wizardItems {
+  special.html {
+    title = Plain HTML(use wit care!!)
+    description (
+      Attention: This HTML is output unsanized! The editor is responsible
+      to only use safe HTML content.
+    )
+    icon = mysitepackage_htmlattention
+  }
+}
