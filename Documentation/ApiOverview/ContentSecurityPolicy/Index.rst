@@ -191,6 +191,7 @@ The :ref:`f:security.nonce <t3viewhelper:typo3-fluid-security-nonce>` ViewHelper
 is available, which provides the nonce in a Fluid template, for example:
 
 ..  code-block:: html
+    :caption: EXT:my_extension/Resources/Private/Templates/SomeTemplate.html
 
     <script nonce="{f:security.nonce()}">
         const inline = 'script';
