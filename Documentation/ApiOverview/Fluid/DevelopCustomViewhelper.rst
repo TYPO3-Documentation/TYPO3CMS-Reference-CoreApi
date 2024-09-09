@@ -8,7 +8,13 @@
 Developing a custom ViewHelper
 ==============================
 
-This chapter will demonstrate how to write a custom Fluid ViewHelper in TYPO3.
+..  deprecated:: Fluid v2.15 (TYPO3 v13.3 / TYPO3 12.4)
+    The traits
+    :php:`\TYPO3Fluid\Fluid\Core\ViewHelper\Traits\CompileWithRenderStatic` and
+    :php:`\TYPO3Fluid\Fluid\Core\ViewHelper\Traits\CompileWithContentArgumentAndRender`
+    are deprecated. See section :ref:`migration <fluid-custom-viewhelper-migration>`.
+
+This chapter demonstrates how to write a custom Fluid ViewHelper in TYPO3.
 
 A "Gravatar" ViewHelper is created, which uses an email address as parameter
 and shows the picture from gravatar.com if it exists.
@@ -18,7 +24,7 @@ within the Fluid documentation: :ref:`fluid:creating-viewhelpers`.
 
 ..  contents:: Contents of this page
     :local:
-    :depth: 2
+    :depth: 1
 
 ..  _fluid-custom-viewhelper-fluid:
 
@@ -33,24 +39,24 @@ ViewHelper from within this namespace.
 For further information about namespace import, see
 :ref:`fluid-syntax-viewhelpers-import-namespaces`.
 
-The ViewHelper should be given the name "gravatar" and only take an email
-address as a parameter. The ViewHelper is called in the template as follows:
+The ViewHelper should be given the name "gravatar" and take an email
+address and an optional alt-text  as a parameters.
+The ViewHelper is called in the template as follows:
 
 ..  literalinclude:: _CustomViewHelper/_SomeTemplate.html
     :caption: EXT:my_extension/Resources/Private/Templates/SomeTemplate.html
-
 
 ..  _fluid-custom-viewhelper-implementation:
 
 AbstractViewHelper implementation
 =================================
 
-Every ViewHelper is a PHP class. For the Gravatar ViewHelper, the name of the
-class is :php:`\MyVendor\MyExtension\ViewHelpers\GravatarViewHelper`.
+Every ViewHelper is a PHP class. For the Gravatar ViewHelper, the fully
+qualified name of the class is
+:php:`\MyVendor\MyExtension\ViewHelpers\GravatarViewHelper`.
 
 ..  literalinclude:: _CustomViewHelper/_GravatarViewHelper.php
-    :language: php
-    :caption: EXT:my_extension/Classes/ViewHelpers/GravatarViewHelper.php
+    :caption: Example 1: EXT:my_extension/Classes/ViewHelpers/GravatarViewHelper.php
     :linenos:
 
 ..  _fluid-custom-viewhelper-AbstractViewHelper:
@@ -58,25 +64,27 @@ class is :php:`\MyVendor\MyExtension\ViewHelpers\GravatarViewHelper`.
 :php:`AbstractViewHelper`
 -------------------------
 
-*line 11*
+*line 9* `extends AbstractViewHelper`
 
 Every ViewHelper must inherit from the class
 :php:`\TYPO3Fluid\Fluid\Core\ViewHelper\AbstractViewHelper`.
 
-A ViewHelper can also inherit from subclasses of :php:`AbstractViewHelper`, e.g.
+A ViewHelper can also inherit from subclasses of
+:php-short:`\TYPO3Fluid\Fluid\Core\ViewHelper\AbstractViewHelper`, for example
 from :php:`\TYPO3Fluid\Fluid\Core\ViewHelper\AbstractTagBasedViewHelper`.
 Several subclasses are offering additional functionality. The
-:php:`TagBasedViewHelper` will be explained :ref:`later on in this chapter
+:php-short:`\TYPO3Fluid\Fluid\Core\ViewHelper\AbstractTagBasedViewHelper`
+will be explained :ref:`later on in this chapter
 <creating-xml-tags-using-tagbasedviewhelper>` in detail.
 
 ..  _fluid-viewhelper-custom-escaping-of-output:
 
-Escaping of output
-------------------
+Disable escaping the output
+---------------------------
 
-*line 15*
+*line 11* `protected $escapeOutput = false;`
 
-By default, all output is escaped by :php:`htmlspecialchars` to prevent cross
+By default, all output is escaped by :php:`htmlspecialchars()` to prevent cross
 site scripting.
 
 Setting the property :php:`$escapeOutput` to false is necessary to prevent
@@ -96,36 +104,62 @@ Passing in children is explained in :ref:`prepare-viewhelper-for-inline-syntax`.
 :php:`initializeArguments()`
 ----------------------------
 
-*line 17*
+*line 13* `public function initializeArguments(): void`
 
 The :php:`Gravatar` ViewHelper must hand over the email address which
-identifies the Gravatar. Every ViewHelper has to declare which parameters are
-accepted explicitly. The registration happens inside :php:`initializeArguments()`.
+identifies the Gravatar. An alt text for the image is passed as optional parameter.
 
-In the example above, the ViewHelper receives the argument `emailAddress` of
-type `string`. These arguments can be accessed
-through the array :php:`$arguments`, which is passed into the :php:`renderStatic()`
-method (see :ref:`next section <fluid-viewhelper-custom-renderStatic>`).
+ViewHelpers have to register (line 16, `$this->registerArgument`) parameters.
+The registration happens inside method `initializeArguments()`.
+
+In the example above, the ViewHelper receives the argument `emailAddress` (line 17) of
+type `string` (line 18) which is mandatory (line 19). The optional argument `alt`
+is defined in lines 22-26.
+
+These arguments can be accessed
+through the array :php:`$this->arguments`, in method :php:`render()`.
 
 ..  tip::
 
     Sometimes arguments can take various types. In this case, the type `mixed`
     should be used.
 
-..  _fluid-viewhelper-custom-renderStatic:
+`render()`
+----------
 
-:php:`renderStatic()`
----------------------
+*line 29* `public function render(): string`
 
-*line 23*
+The method :php:`render()` is called once the ViewHelper is rendered. Its return
+value can be directly output in Fluid or passed to another ViewHelper.
 
-The method :php:`renderStatic()` is called once the ViewHelper is rendered. The
-return value of the method is rendered directly.
+In *line 30 an 31* we retrieve the arguments from the `$arguments` class
+property. `alt` is an optional argument and therefore nullable. Fluid ensures,
+the declared type is passed for non-null values. These arguments can contain
+user input.
 
-*line 13*
+..  attention::
+    Prevent :ref:`XSS (Cross-Site Scripting) attacks <prevent-cross-site-scripting>`.
 
-The trait :php:`CompileWithRenderStatic` must be used if the class implements
-:php:`renderStatic()`.
+    The returned string is displayed raw, without being passed through
+    :php:`htmlspecialchars()` as we have
+    :ref:`disabled escaping <fluid-viewhelper-custom-escaping-of-output>`.
+
+When escapting is diabled, the `render()` method is responsible to prevent
+:ref:`XSS attacks <prevent-cross-site-scripting>`.
+
+Therefore all arguments **must** be sanitized before they are returned.
+
+Passing the email address through
+`md5() <https://www.php.net/manual/en/function.md5.php>`__ ensures that
+we only have a hexadecimal number, it can contain no harmful chars.
+
+The alt text is passed through `htmlspecialchars()`, therefore potentially
+harmful chars are escaped.
+
+..  hint::
+    The `render()` method usually returns a string that should be displayed
+    directly in the Fluid template. But it is also possible to return another
+    type and use it as argument for another ViewHelper who expects that type.
 
 ..  _creating-xml-tags-using-tagbasedviewhelper:
 ..  _creating-html-tags-using-tagbasedviewhelper:
@@ -145,37 +179,43 @@ class: :php:`\TYPO3Fluid\Fluid\Core\ViewHelper\AbstractTagBasedViewHelper`.  Thi
 base class provides an instance of
 :php:`\TYPO3Fluid\Fluid\Core\ViewHelper\TagBuilder` that can be used to create
 HTML-tags. It takes care of the syntactically correct creation and, for example,
-escapes single and double quotes in attribute values. All TagBasedViewHelpers
+escapes single and double quotes in attribute values.
+
+*line 11* `protected $tagName = 'img'` configures the name of the HTML/XML tag
+to be output.
+
+All ViewHelpers extending :php-short:`\TYPO3Fluid\Fluid\Core\ViewHelper\AbstractTagBasedViewHelper`
 can receive arbitrary tag attributes which will be appended to the resulting
-HTML tag.
+HTML tag and escaped automatically. For example we do not have to declare or
+escape the `alt` argument as we did in
+:ref:`Example 1 <fluid-custom-viewhelper-implementation>`.
 
-..  attention::
-
-    Correctly escaping the attribute values is mandatory as it affects security
-    and prevents cross-site scripting attacks.
-
-Because the Gravatar ViewHelper creates an :html:`img` tag the use of the
-:php:`\TYPO3Fluid\Fluid\Core\ViewHelper\TagBuilder` is advised:
+Because the Gravatar ViewHelper creates an :html:`<img>` tag the use of the
+:php-short:`\TYPO3Fluid\Fluid\Core\ViewHelper\TagBuilder`, stored in class property
+`$this->tag` is advised:
 
 ..  literalinclude:: _CustomViewHelper/_GravatarTagBasedViewHelper.php
     :language: php
-    :caption: EXT:my_extension/Classes/ViewHelpers/GravatarViewHelper.php
+    :caption: EXT:my_extension/Classes/ViewHelpers/GravatarViewHelper.php (Example 2, tag-based)
     :linenos:
 
-What is different in this code?
-
-The attribute :php:`$escapeOutput` is no longer necessary.
-
+*line 32* `$this->tag->render()` creates the :html:`<img>` tag with all
+explicitly added arguments  (*line 28-31* `$this->tag->addAttribute()`) and all
+arbitrary tag attributes passed to the ViewHelper when it is used.
 
 ..  _AbstractTagBasedViewHelper:
 
-:php:`AbstractTagBasedViewHelper`
----------------------------------
+`AbstractTagBasedViewHelper`
+----------------------------
 
-*line 6*
+*line 6* `class GravatarViewHelper extends AbstractTagBasedViewHelper`
 
-The ViewHelper does not inherit directly from :php:`AbstractViewHelper` but
-from :php:`AbstractTagBasedViewHelper`, which provides and initializes the tag builder.
+The ViewHelper does not inherit directly from
+:php-short:`\TYPO3Fluid\Fluid\Core\ViewHelper\AbstractViewHelper` but
+from :php-short:`\TYPO3Fluid\Fluid\Core\ViewHelper\AbstractTagBasedViewHelper`,
+which provides and initializes the
+:php-short:`\TYPO3Fluid\Fluid\Core\ViewHelper\TagBuilder` and passes on and
+escapes arbitrary tag attributes.
 
 
 ..  _AbstractTagBasedViewHelper-tagname:
@@ -183,7 +223,7 @@ from :php:`AbstractTagBasedViewHelper`, which provides and initializes the tag b
 :php:`$tagName`
 ---------------
 
-*line 9*
+*line 9* `protected $tagName = 'img';`
 
 There is a class property :php:`$tagName` which stores the name of the tag to be
 created (:html:`<img>`).
@@ -193,29 +233,22 @@ created (:html:`<img>`).
 :php:`$this->tag->addAttribute()`
 ---------------------------------
 
-*line 23*
+*line 28 - 31* `$this->tag->addAttribute(...)`
 
-The tag builder is available at property :php:`$this->tag`. It offers the method
-:php:`addAttribute()` to add new tag attributes. In our example the attribute
-`src` is added to the tag.
+The tag builder is available as class property :php:`$this->tag`. It offers
+the method :php:`TagBuilder::addAttribute()` to add new tag attributes. In our
+example the attribute `src` is added to the tag.
 
 ..  _AbstractTagBasedViewHelper-render:
 
 :php:`$this->tag->render()`
 ---------------------------
 
-*line 27*
+*line 32* `return $this->tag->render();`
 
 The GravatarViewHelper creates an img tag builder, which has a method named
 :php:`render()`. After configuring the tag builder instance, the rendered tag
 markup is returned.
-
-..  note::
-
-    As :php:`$this->tag` is an object property, :php:`render()` is used to
-    generate the output. :php:`renderStatic()` would have no access. For further
-    information take a look at :ref:`the-different-render-methods`.
-
 
 ..  _AbstractTagBasedViewHelper-registerTagAttribute:
 
@@ -248,8 +281,8 @@ in until dropping TYPO3 v12.4 support.
 
 ..  _insert-optional-arguments:
 
-Insert optional arguments
-=========================
+Insert optional arguments with default values
+=============================================
 
 An optional size for the image can be provided to the Gravatar ViewHelper. This
 size parameter will determine the height and width in pixels of the
@@ -268,6 +301,11 @@ the `size` attribute becomes optional.
 
 Prepare ViewHelper for inline syntax
 ====================================
+
+..  deprecated:: Fluid v2.15 (TYPO3 v13.3 / TYPO3 12.4)
+    In former versions this was done by using the now deprecated trait
+    :php-short:`\TYPO3Fluid\Fluid\Core\ViewHelper\Traits\CompileWithContentArgumentAndRender`.
+    See section :ref:`migration <fluid-custom-viewhelper-migration>`.
 
 So far, the Gravatar ViewHelper has focused on the tag structure of the
 ViewHelper. The call to render the ViewHelper was written with tag syntax, which
@@ -308,36 +346,13 @@ support both tag mode and inline syntax.
 Depending on the implemented method for rendering, the implementation is
 different:
 
-..  _with-renderstatic:
-
-With :php:`renderStatic()`
---------------------------
-
-To fetch the content of the ViewHelper, the argument
-:php:`$renderChildrenClosure` is available.  This returns the evaluated object
-between the opening and closing tag.
-
-Lets have a look at the new code of the :php:`renderStatic()` method:
-
-..  literalinclude:: _CustomViewHelper/_GravatarWithContentElementsViewHelper.php
-    :language: php
-    :caption: EXT:my_extension/Classes/ViewHelpers/GravatarViewHelper.php
-    :linenos:
-
-..  _with-render:
-
-With :php:`render()`
---------------------
-
 To fetch the content of the ViewHelper the method :php:`renderChildren()` is
-available in the :php:`AbstractViewHelper`. This returns the evaluated object
-between the opening and closing tag.
+available in the :php-short:`\TYPO3Fluid\Fluid\Core\ViewHelper\AbstractViewHelper`.
+This returns the evaluated object between the opening and closing tag.
 
-Lets have a look at the new code of the :php:`render()` method:
-
-..  literalinclude:: _CustomViewHelper/_GravatarTagBasedViewHelper2.php
+..  literalinclude:: _CustomViewHelper/_GravatarTagBasedViewHelper_getContentArgumentName.php
     :language: php
-    :caption: EXT:my_extension/Classes/ViewHelpers/GravatarViewHelper.php
+    :caption: EXT:my_extension/Classes/ViewHelpers/GravatarViewHelper.php  (Example 3, with content arguments)
     :linenos:
 
 ..  _handle-additional-arguments:
@@ -345,36 +360,35 @@ Lets have a look at the new code of the :php:`render()` method:
 Handle additional arguments
 ===========================
 
+..  versionchanged:: Fluid Standalone 2.12 / TYPO3 13.2
+    All ViewHelpers implementing
+    :php-short:`\TYPO3Fluid\Fluid\Core\ViewHelper\AbstractTagBasedViewHelper`
+    can now receive arbitrary tag attributes which will be appended to the
+    resulting HTML tag. In the past, this was only possible for
+    explicitly registered arguments.
+
+    See also :ref:`AbstractTagBasedViewHelper-registerTagAttribute-migration`.
+
 If a ViewHelper allows further arguments which have not been explicitly
 configured, the :php:`handleAdditionalArguments()` method can be implemented.
 
-The :php:`\TYPO3Fluid\Fluid\Core\ViewHelper\AbstractTagBasedViewHelper` makes use
-of this, to allow setting any `data-` argument for tag based ViewHelpers.
-
-For example, the
-:php-short:`\TYPO3Fluid\Fluid\Core\ViewHelper\AbstractTagBasedViewHelper`
-implements the following:
-
-..  literalinclude:: _CustomViewHelper/_AbstractTagBasedViewHelper.php
-    :caption: EXT:fluid/Classes/ViewHelpers/AbstractTagBasedViewHelper.php
-
-To keep the default behavior, all unwanted arguments should be passed to the
-parent method call :php:`parent::handleAdditionalArguments($unassigned);`, to
-throw exceptions accordingly.
+ViewHelper implementing
+:php-short:`\TYPO3Fluid\Fluid\Core\ViewHelper\AbstractTagBasedViewHelper` do
+not need to use this as all arguments are passed on automatically.
 
 ..  _the-different-render-methods:
 
 The different render methods
 ============================
 
-ViewHelpers can have one or more of the following three methods for
+ViewHelpers can have one or more of the following methods for
 implementing the rendering. The following section will describe the differences
-between all three implementations.
+between the implementations.
 
 ..  _compile-method:
 
-:php:`compile()`-Method
------------------------
+`compile()`-Method
+------------------
 
 This method can be overwritten to define how the ViewHelper should be compiled.
 That can make sense if the ViewHelper itself is a wrapper for another native PHP
@@ -385,12 +399,6 @@ The :php:`compile()` has to return the compiled PHP code for the ViewHelper.
 Also the argument :php:`$initializationPhpCode` can be used to add further PHP
 code before the execution.
 
-..  note::
-
-    The :php:`renderStatic()` method still has to be implemented for the non
-    compiled version of the ViewHelper. In the future, this should no longer be
-    necessary.
-
 Example implementation:
 
 ..  literalinclude:: _CustomViewHelper/_StrtolowerViewHelper.php
@@ -398,30 +406,78 @@ Example implementation:
 
 ..  _renderstatic-method:
 
-:php:`renderStatic()`-Method
-----------------------------
+`renderStatic()` method
+-----------------------
 
-Most of the time, this method is implemented. It's the one that is called by
-default from within the compiled Fluid.
-
-It is, however, not called on AbstractTagBasedViewHelper implementations. With these classes
-you still need to use the :php:`render()` method since that is the only way you can access :php:`$this->tag`
-which contains the tag builder that generates the actual XML tag.
-
-As this method has to be static, there is no access to object properties such as
-:php:`$this->tag` (in a subclass of :php:`AbstractTagBasedViewHelper`) from within
-:php:`renderStatic`.
-
-..  note::
-
-    This method can not be used when access to child nodes is necessary. This is
-    the case for ViewHelpers like `if` or `switch` which need to access their
-    children like `then` or `else`. In that case, :php:`render()` has to be used.
+..  deprecated:: Fluid v2.15 (TYPO3 v13.3 / TYPO3 12.4)
+    The trait
+    :php-short:`\TYPO3Fluid\Fluid\Core\ViewHelper\Traits\CompileWithRenderStatic`,
+    which is responsible for calling `renderStatic()` is deprecated.
+    See section :ref:`migration <fluid-custom-viewhelper-migration>`.
 
 ..  _render-method:
 
-:php:`render()`-Method
-----------------------
+`render()` method
+-----------------
 
-This method is the slowest one. Only use this method if it is necessary, for
-example if access to properties is necessary.
+Most of the time, this method is implemented.
+
+
+..  _fluid-custom-viewhelper-migration:
+
+Migration: Remove deprecated compliling traits
+==============================================
+
+..  _fluid-viewhelper-custom-renderStatic:
+
+Migration: Remove deprecated trait `CompileWithRenderStatic`
+-------------------------------------------------------------
+
+To remove the deprecated trait
+:php:`\TYPO3Fluid\Fluid\Core\ViewHelper\Traits\CompileWithRenderStatic` switch
+to use the `render()` method instead of the `renderStatic()`.
+
+..  literalinclude:: _CustomViewHelper/MigrateRenderStatic.diff
+    :caption: EXT:my_extension/Classes/ViewHelpers/GravatarViewHelper.php (diff removing CompileWithRenderStatic)
+
+*line 13*
+    Remove the trait :php-short:`\TYPO3Fluid\Fluid\Core\ViewHelper\Traits\CompileWithRenderStatic`.
+*lines 23, 24*
+    Switch the render method from `renderStatic()` to `render()`.
+*lines 25, 26*
+    Fetch the arguments from the class property instead method argument.
+
+
+..  _fluid-custom-viewhelper-CompileWithContentArgumentAndRenderStatic-migration:
+
+Migration: Remove deprecated trait `CompileWithContentArgumentAndRenderStatic`
+------------------------------------------------------------------------------
+
+If :php:`\TYPO3Fluid\Fluid\Core\ViewHelper\Traits\CompileWithContentArgumentAndRender`
+was also used in your ViewHelper implementation, further steps are needed:
+
+..  literalinclude:: _CustomViewHelper/_MigrateCompileWithContentArgumentAndRender.diff
+    :caption: EXT:my_extension/Classes/ViewHelpers/GravatarViewHelper.php (diff removing CompileWithContentArgumentAndRender)
+
+*line 13*
+    Remove the trait :php-short:`\TYPO3Fluid\Fluid\Core\ViewHelper\Traits\CompileWithContentArgumentAndRender`.
+*lines 22, 23*
+    Switch the render method from `renderStatic()` to `render()`.
+*lines 24, 25*
+    Use the non-static method :php:`$this->renderChildren()` instead of the
+    closure `$renderChildrenClosure()`.
+
+Remove calls to removed `renderStatic()` method of another ViewHelper
+---------------------------------------------------------------------
+
+If you called a now removed `renderStatic()` method from within another
+ViewHelper's `renderStatic()` method  you can replace the code like this:
+
+..  literalinclude:: _CustomViewHelper/_MigrateRenderStaticInvocation.diff
+    :caption: EXT:my_extension/Classes/ViewHelpers/GravatarViewHelper.php (diff replacing renderStatic() calls)
+
+*line 27, 28ff*
+    Replace the static call to the `renderStatic()` method of another ViewHelper
+    by calling `$this->renderingContext->getViewHelperInvoker()->invoke()` instead.
+
+    See also :php:`TYPO3Fluid\Fluid\Core\ViewHelper\ViewHelperInvoker`.

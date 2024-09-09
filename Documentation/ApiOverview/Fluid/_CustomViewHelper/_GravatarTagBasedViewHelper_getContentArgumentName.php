@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace MyVendor\BlogExample\ViewHelpers;
+namespace MyVendor\MyExtension\ViewHelpers;
 
 use TYPO3Fluid\Fluid\Core\ViewHelper\AbstractTagBasedViewHelper;
 
@@ -12,12 +12,17 @@ final class GravatarViewHelper extends AbstractTagBasedViewHelper
 
     public function initializeArguments(): void
     {
-        $this->registerArgument('emailAddress', 'string', 'The email address to resolve the gravatar for', false, null);
+        $this->registerArgument(
+            'emailAddress',
+            'string',
+            'The email address to resolve the gravatar for',
+            // The argument is optional now
+        );
     }
 
     public function render(): string
     {
-        $emailAddress = $this->arguments['emailAddress'] ?? $this->renderChildren();
+        $emailAddress = $this->renderChildren();
 
         $this->tag->addAttribute(
             'src',
@@ -25,5 +30,10 @@ final class GravatarViewHelper extends AbstractTagBasedViewHelper
         );
 
         return $this->tag->render();
+    }
+
+    public function getContentArgumentName(): string
+    {
+        return 'emailAddress';
     }
 }
