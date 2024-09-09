@@ -28,9 +28,43 @@ Introduction
 ..  contents::
     :local:
 
-..  term clarification:
-..  1. "content elements" is used as general term, including plugins
-..  2. use "content element types" when talking about the type
+In TYPO3, content elements and plugins are both used to present and manage
+content on a website, but they serve different purposes and have distinct
+characteristics:
+
+..  card-grid::
+    :columns: 1
+    :columns-md: 2
+    :card-height: 100
+
+    ..  card:: :ref:`Content elements <content-elements>`
+
+        ..  card-image:: /Images/ManualScreenshots/Backend/content_element_example.png
+            :alt: Content element Text & Media
+
+        A content element is a standard unit for managing and displaying content,
+        such as text, images, videos, tables, and more.
+        TYPO3 provides a variety of built-in content elements. It is possible
+        to define custom content elements.
+
+        ..  card-footer:: :ref:`Content elements <content-elements>` :ref:`Custom content elements <adding-your-own-content-elements>`
+            :button-style: btn btn-primary
+
+    ..  card:: :ref:`Plugins <plugins>`
+
+        ..  card-image:: /Images/ManualScreenshots/Backend/plugin_example.png
+            :alt: Plugin news article detail
+
+        A plugin in TYPO3 is more complex, typically providing dynamic
+        or interactive functionality. Plugins are usually provided by extensions
+        that introduce new features to the website.
+
+        The data to be displayed is usually supplied by a special PHP class
+        called a "controller". Depending on the technology used in the controller
+        the plugin can be an Extbase plugin or a plain plugin.
+
+        ..  card-footer:: :ref:`Plugins <plugins>` :ref:`Extbase plugins <plugins-extbase>`
+            :button-style: btn btn-secondary
 
 ..  _content-elements:
 
@@ -65,6 +99,8 @@ Content elements are arranged on a page, depending on their
     means any content element type including plugins.
 
 ..  _plugins:
+..  _plugins-extbase:
+..  todo: Introduce Extbase plugins
 
 What are plugins?
 -----------------
