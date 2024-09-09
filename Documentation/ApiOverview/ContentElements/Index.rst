@@ -55,7 +55,7 @@ characteristics:
         ..  card-image:: /Images/ManualScreenshots/Backend/plugin_example.png
             :alt: Plugin news article detail
 
-        A plugin in TYPO3 is a more complex module, typically providing dynamic
+        A plugin in TYPO3 is more complex, typically providing dynamic
         or interactive functionality. Plugins are usually provided by extensions
         that introduce new features to the website.
 
