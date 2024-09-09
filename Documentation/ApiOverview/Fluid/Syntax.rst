@@ -37,15 +37,28 @@ Reserved variables in Fluid
 ---------------------------
 
 ..  deprecated:: Fluid 2.15 / TYPO3 v12.4
-    Usage of `{true}`, `{false}` or `{null}` as variable name will throw
+    Assigning variables of names `true`, `false` or `null` will throw
     an exception in Fluid v4. In preparation of this change, Fluid v2.15 logs a
     deprecation level error message if any of these variable names are used.
+    See also :ref:`fluid-variables-reserved-migration`.
 
 The following variable names are reserved and may not be used:
 
-*   `{false}`
-*   `{null}`
-*   `{true}`
+*   `false`
+*   `null`
+*   `true`
+
+..  _fluid-variables-reserved-migration:
+
+Migration
+~~~~~~~~~
+
+..  literalinclude:: _Syntax/_MyController.diff
+    :caption: EXT:my_extension/Classes/Controller/MyController.php (diff)
+
+
+..  literalinclude:: _Syntax/_MyTemplate.diff
+    :caption: EXT:my_extension/Resources/Private/Templates/MyTemplate.html (diff)
 
 ..  _fluid-arrays:
 
