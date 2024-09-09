@@ -1,0 +1,6 @@
+ public function initializeArguments(): void
+ {
+     parent::initializeArguments();
++    $this->registerUniversalTagAttributes();
++    $this->registerTagAttribute('alt', 'string', 'Alternative Text for the image');
+ }

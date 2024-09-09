@@ -1,5 +1,5 @@
-.. include:: /Includes.rst.txt
-.. index:: Fluid; additionalAttributes
+..  include:: /Includes.rst.txt
+..  index:: Fluid; additionalAttributes
 
 =============================
 Property additionalAttributes
@@ -19,7 +19,6 @@ ViewHelper. A common example are data attributes.
     :caption: EXT:my_extension/Resources/Private/Templates/SomeTemplate.html
 
     <f:form.textbox additionalAttributes="{data-anything: 'some info', data-something: some.variable}" />
-
 
 The property `additionalAttributes` is especially helpful if only a
 few of these additional attributes are needed. Otherwise, it is often
