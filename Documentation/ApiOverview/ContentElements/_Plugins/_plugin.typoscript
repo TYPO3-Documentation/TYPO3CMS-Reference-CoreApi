@@ -1,0 +1,6 @@
+plugin.tx_myextension_myplugin = USER_INT
+plugin.tx_myextension_myplugin {
+  userFunc = MyVendor\MyPlugin\Controller\MyController->doSomething
+}
+
+tt_content.myextension_myplugin < plugin.tx_myextension_myplugin
