@@ -219,8 +219,8 @@ Module configuration options
             :caption: Excerpt of EXT:my_extension/Configuration/Backend/Modules.php
 
     ..  confval:: routeOptions
-        :name: backend-module-aliases
-        :type: routeOptions
+        :name: backend-module-routeOptions
+        :type: array
 
         Generic side information that will be merged with each generated
         :php:`\TYPO3\CMS\Backend\Routing\Route::$options` array. This can be
