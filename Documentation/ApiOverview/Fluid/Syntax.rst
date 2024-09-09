@@ -31,6 +31,22 @@ The result:
 In the template's HTML code, wrap the variable name into curly
 braces to output it.
 
+..  _fluid-variables-reserved:
+
+Reserved variables in Fluid
+---------------------------
+
+..  deprecated:: Fluid 2.15 / TYPO3 v12.4
+    Usage of `{true}`, `{false}` or `{null}` as variable name will throw
+    an exception in Fluid v4. In preparation of this change, Fluid v2.15 logs a
+    deprecation level error message if any of these variable names are used.
+
+The following variable names are reserved and may not be used:
+
+*   `{false}`
+*   `{null}`
+*   `{true}`
+
 ..  _fluid-arrays:
 
 Arrays and objects
