@@ -1,7 +1,7 @@
-.. include:: /Includes.rst.txt
-.. highlight:: xml
-.. index:: ! Fluid
-.. _fluid:
+..  include:: /Includes.rst.txt
+..  highlight:: xml
+..  index:: ! Fluid
+..  _fluid:
 
 =====
 Fluid

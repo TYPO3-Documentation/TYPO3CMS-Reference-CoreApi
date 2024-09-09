@@ -20,6 +20,7 @@ within the Fluid documentation: :ref:`fluid:creating-viewhelpers`.
     :local:
     :depth: 2
 
+..  _fluid-custom-viewhelper-fluid:
 
 Fluid
 =====
@@ -28,29 +29,18 @@ The custom ViewHelper is not part of the default distribution. Therefore a
 namespace import is necessary to use this ViewHelper. In the following example,
 the namespace :php:`\MyVendor\MyExtension\ViewHelpers` is imported with the
 prefix `m`. Now, all tags starting with `m:` are interpreted as
-ViewHelper from within this namespace:
-
-..  code-block:: html
-    :caption: EXT:my_extension/Resources/Private/Templates/SomeTemplate.html
-
-    <html
-        xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
-        xmlns:m="http://typo3.org/ns/MyVendor/MyExtension/ViewHelpers"
-        data-namespace-typo3-fluid="true"
-    >
-        <!-- ... -->
-    </html>
-
+ViewHelper from within this namespace.
 For further information about namespace import, see
 :ref:`fluid-syntax-viewhelpers-import-namespaces`.
 
 The ViewHelper should be given the name "gravatar" and only take an email
 address as a parameter. The ViewHelper is called in the template as follows:
 
-..  code-block:: html
+..  literalinclude:: _CustomViewHelper/_SomeTemplate.html
     :caption: EXT:my_extension/Resources/Private/Templates/SomeTemplate.html
 
-    <m:gravatar emailAddress="username@example.org" />
+
+..  _fluid-custom-viewhelper-implementation:
 
 AbstractViewHelper implementation
 =================================
@@ -63,6 +53,7 @@ class is :php:`\MyVendor\MyExtension\ViewHelpers\GravatarViewHelper`.
     :caption: EXT:my_extension/Classes/ViewHelpers/GravatarViewHelper.php
     :linenos:
 
+..  _fluid-custom-viewhelper-AbstractViewHelper:
 
 :php:`AbstractViewHelper`
 -------------------------
@@ -211,7 +202,7 @@ The tag builder is available at property :php:`$this->tag`. It offers the method
 ..  _AbstractTagBasedViewHelper-render:
 
 :php:`$this->tag->render()`
----------------------------------
+---------------------------
 
 *line 27*
 
@@ -241,36 +232,19 @@ markup is returned.
 Migration: Remove registerUniversalTagAttributes and registerTagAttribute
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-..  code-block:: diff
+..  literalinclude:: _CustomViewHelper/_GravatarViewHelper13.diff
     :caption: EXT:my_extension/Classes/ViewHelpers/GravatarViewHelper.php
-
-      public function initializeArguments(): void
-      {
-          parent::initializeArguments();
-    -     $this->registerUniversalTagAttributes();
-    -     $this->registerTagAttribute('alt', 'string', 'Alternative Text for the image');
-      }
 
 When removing the call, attributes registered by the call are now available in
 :php:`$this->additionalArguments`, and no longer in :php:`$this->arguments`.
 This *may* need adaption within single ViewHelpers, *if* they handle such
 attributes on their own.
 
-If you need to support both TYPO3 v12.4 and 13, you can leave the calls
+If you need to support both TYPO3 v12.4 and v13, you can leave the calls
 in until dropping TYPO3 v12.4 support.
 
-
-..  code-block:: diff
+..  literalinclude:: _CustomViewHelper/_GravatarViewHelper_Initialize.diff
     :caption: EXT:my_extension/Classes/ViewHelpers/GravatarViewHelper.php
-
-    public function initializeArguments(): void
-    {
-        parent::initializeArguments();
-        // TODO: Remove registerUniversalTagAttributes and registerTagAttribute
-        // On dropping TYPO3 v12.4 support.
-        $this->registerUniversalTagAttributes();
-        $this->registerTagAttribute('alt', 'string', 'Alternative Text for the image');
-    }
 
 ..  _insert-optional-arguments:
 
@@ -284,25 +258,8 @@ generated.
 
 The :php:`render()` method can be improved like this:
 
-..  code-block:: php
+..  literalinclude:: _CustomViewHelper/_GravatarViewHelper_Render.php
     :caption: EXT:my_extension/Classes/ViewHelpers/GravatarViewHelper.php
-
-    public function initializeArguments(): void
-    {
-       $this->registerArgument('emailAddress', 'string', 'The email address to resolve the gravatar for', true);
-       $this->registerArgument('size', 'integer', 'The size of the gravatar, ranging from 1 to 512', false, 80);
-    }
-
-    public function render(): string
-    {
-       $this->tag->addAttribute(
-          'src',
-          'http://www.gravatar.com/avatar/' .
-              md5($this->arguments['emailAddress']) .
-              '?s=' . urlencode($this->arguments['size'])
-       );
-       return $this->tag->render();
-    }
 
 With this setting of a default value and setting the fourth argument to `false`,
 the `size` attribute becomes optional.
@@ -394,16 +351,12 @@ configured, the :php:`handleAdditionalArguments()` method can be implemented.
 The :php:`\TYPO3Fluid\Fluid\Core\ViewHelper\AbstractTagBasedViewHelper` makes use
 of this, to allow setting any `data-` argument for tag based ViewHelpers.
 
-For example, the :php:`AbstractTagBasedViewHelper` implements the following:
+For example, the
+:php-short:`\TYPO3Fluid\Fluid\Core\ViewHelper\AbstractTagBasedViewHelper`
+implements the following:
 
-..  code-block:: php
+..  literalinclude:: _CustomViewHelper/_AbstractTagBasedViewHelper.php
     :caption: EXT:fluid/Classes/ViewHelpers/AbstractTagBasedViewHelper.php
-
-    public function handleAdditionalArguments(array $arguments)
-    {
-        $this->additionalArguments = $arguments;
-        parent::handleAdditionalArguments($arguments);
-    }
 
 To keep the default behavior, all unwanted arguments should be passed to the
 parent method call :php:`parent::handleAdditionalArguments($unassigned);`, to
@@ -441,7 +394,6 @@ code before the execution.
 Example implementation:
 
 ..  literalinclude:: _CustomViewHelper/_StrtolowerViewHelper.php
-    :language: php
     :caption: EXT:my_extension/Classes/ViewHelpers/StrtolowerViewHelper.php
 
 ..  _renderstatic-method:
