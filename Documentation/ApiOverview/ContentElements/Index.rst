@@ -28,53 +28,168 @@ Introduction
 ..  contents::
     :local:
 
-..  term clarification:
-..  1. "content elements" is used as general term, including plugins
-..  2. use "content element types" when talking about the type
+In TYPO3, content elements and plugins are both used to present and manage
+content on a website, but they serve different purposes and have distinct
+characteristics:
+
+..  card-grid::
+    :columns: 1
+    :columns-md: 2
+    :card-height: 100
+
+    ..  card:: :ref:`Content elements <content-elements>`
+
+        ..  card-image:: /Images/ManualScreenshots/Backend/content_element_example.png
+            :alt: Content element Text & Media
+
+        A content element is a standard unit for managing and displaying content,
+        such as text, images, videos, tables, and more.
+        TYPO3 provides a variety of built-in content elements. It is possible
+        to define custom content elements.
+
+        ..  card-footer:: :ref:`Content elements <content-elements>` :ref:`Custom content elements <adding-your-own-content-elements>`
+            :button-style: btn btn-primary
+
+    ..  card:: :ref:`Plugins <plugins>`
+
+        ..  card-image:: /Images/ManualScreenshots/Backend/plugin_example.png
+            :alt: Plugin news article detail
+
+        A plugin in TYPO3 is more complex, typically providing dynamic
+        or interactive functionality. Plugins are usually provided by extensions
+        that introduce new features to the website.
+
+        The data to be displayed is usually supplied by a special PHP class
+        called a "controller". Depending on the technology used in the controller
+        the plugin can be an Extbase plugin or a plain plugin.
+
+        ..  card-footer:: :ref:`Plugins <plugins>` :ref:`Extbase plugins <plugins-extbase>`
+            :button-style: btn btn-secondary
 
 ..  _content-elements:
 
-What are content elements?
---------------------------
+Content elements in TYPO3
+-------------------------
 
-**Content elements** (often abbreviated as CE) are the building blocks
-that make up a page in TYPO3.
+A **content element** is a standard unit for managing and displaying content,
+such as text, images, videos, tables, and more.
 
-Content elements are stored in the database table ``tt_content``. Each content
+In the TYPO3 backend, content elements are commonly managed in module
+:guilabel:`Web > Page`.
+
+From a technical point of view content elements are records stored in the
+database table `tt_content`. Each content
 element has a specific content element type, specified by the database field
-``tt_content.CType``. A content element can be of a type
-supplied by TYPO3, such as 'textmedia' (text with or without images or videos).
-Or it can have a custom type supplied
-by an extension such as 'carousel' provided by the bootstrap_package extension.
+`tt_content.CType`. This type influences both the backend form and the frontend
+output.
 
-Content elements are one of the elements (along with pages) that can be filled
-with content by editors and will be rendered in the frontend when a page is
-generated.
+The appearance of a content element in the backend form is defined via the
+:ref:`TYPO3 Configuration Array (TCA) <t3tca:start>` of table `tt_content`.
+Each content element type is configured by one entry in the section
+:ref:`$TCA['types'] <t3tca:types>`.
 
-Content elements are arranged on a page, depending on their
+The output of the content element in the frontend is configured by an entry in
+the :ref:`TypoScript  <t3tsref:start>` top-level object `tt_content` using the
+same key as in TCA. In most cases a :ref:`FLUIDTEMPLATE <t3tsref:cobj-template>`
+is used delegating the actual output to the templating engine
+:ref:`Fluid <fluid>`.
 
-*   language (field: ``tt_content.sys_language_uid``)
-*   sorting (field: ``tt_content.sorting``)
-*   column (field: ``tt_content.colPos``)
-*   etc.
+A content element can be of a type
+supplied by TYPO3, such as `textmedia` (text with or without images or videos).
+Or it can have a custom type supplied by an extension such as `carousel`
+provided by the :composer:`bk2k/bootstrap-package` extension.
 
-..  note::
+You can :ref:`add custom content elements <adding-your-own-content-elements>`
+to your extension or :ref:`site package <t3sitepackage:start>`.
 
-    Sometimes, the term "content element" is used to mean a content element type
-    which is not a plugin. On this page and in this chapter, "content element"
-    means any content element type including plugins.
+It is also possible to use an extension such as :composer:`contentblocks/content-blocks`,
+:composer:`mask/mask`, or :composer:`t3/dce` to add custom content elements to
+your projects.
+
+:ref:`Adding custom content elements <adding-your-own-content-elements>` is
+possible without writing PHP code and can therefore also be done by
+TYPO3 integrators.
 
 ..  _plugins:
 
-What are plugins?
------------------
+Plugins in TYPO3
+----------------
+
+A **plugin** in TYPO3 is a more complex implementation, typically providing dynamic
+or interactive functionality. Plugins are usually provided by extensions
+that introduce new features to the website.
+
+The data to be displayed is usually supplied by a special PHP class
+called a "controller". Depending on the technology used in the controller
+the plugin can be an Extbase plugin or a plain plugin.
+
+..  _plugins-extbase:
+
+Extbase plugins
+~~~~~~~~~~~~~~~
+
+For usage in the TYPO3 backend Extbase plugins are registered with utility
+functions of class :php:`\TYPO3\CMS\Extbase\Utility\ExtensionUtility` (not to
+be confused with :php:`\TYPO3\CMS\Core\Utility\ExtensionManagementUtility`).
+
+An Extbase plugin is configured for the frontend with
+:php:`ExtensionUtility::configurePlugin()` in file
+:file:`EXT:my_extension/ext_localconf.php`:
+
+..  literalinclude:: _Plugins/_ext_localconf_extbase_plugin.php
+    :caption: EXT:my_extension/ext_localconf.php
+
+By using `ExtensionUtility::PLUGIN_TYPE_PLUGIN` as fifth parameter is is also
+possible to add the plugin as a list type. See :ref:`plugins-list_type`.
+
+Method :php:`ExtensionUtility::configurePlugin()` also takes care of registering
+the plugin for frontend output in TypoScript using an object of type
+:ref:`EXTBASEPLUGIN <t3tsref:cobj-extbaseplugin>`.
+
+If it is desired that editors can insert the Extbase plugin like a content
+element into the page it also needs to be registered with
+:php:`ExtensionUtility::registerPlugin()` in the TCA Overrides, for example file
+:file:`EXT:my_extension/Configuration/TCA/Overrides/tt_content.php`:
+
+..  literalinclude:: _Plugins/_tt_content_extbase_plugin.php
+    :caption: EXT:my_extension/Configuration/TCA/Overrides/tt_content.php
+
+For a detailed explanation of Extbase plugins including examples for controllers
+see chapter :ref:`extbase`.
+
+..  _plugins-non-extbase:
+
+Plugins without Extbase
+~~~~~~~~~~~~~~~~~~~~~~~
+
+It is possible to create a plugin without using Extbase by creating a plain PHP
+class as a controller.
+
+In this case you have to define the TypoScript configuration yourself. A
+:ref:`USER or USER_INT <t3tsref:cobj-user-int>` TypoScript object can be used
+to delegate the rendering to your controller:
+
+..  literalinclude:: _Plugins/_plugin.typoscript
+    :caption: EXT:my_extension/Configuration/TypoScript/setup.typoscript
+
+To register such a plugin as content element you can use function
+:php:`ExtensionManagementUtility::addPlugin()` in the TCA overrides, for example
+:file:`EXT:my_extension/Configuration/TCA/Overrides/tt_content.php`:
+
+..  literalinclude:: _Plugins/_tt_content_plugin.php
+    :caption: EXT:my_extension/Configuration/TCA/Overrides/tt_content.php
+
+By using `'list-type'` as second parameter is is also possible to add the plugin
+as a list type. See :ref:`plugins-list_type`.
 
 **Plugins** are a specific type of content elements. Plugins use the CType='list'.
 Each plugin has its own plugin type, which is used in the database field
 tt_content.list_type. The list_type could be understood as subtype of CType.
 
-Typical characteristics of
-plugins are:
+..  _plugins-characteristics:
+
+Typical characteristics of plugins
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 *   Plugins often use additional database tables which contain records which are
     dynamically displayed via the plugin - often in a list view, a single view,
@@ -83,33 +198,45 @@ plugins are:
 *   Plugins are often used if more complex functionality is required (than in non-
     plugin content elements)
 *   Plugins can be created using the Extbase framework or by Core functionality.
-*   ``tt_content.CType`` = ``list`` and ``tt_content.list_type`` contains the
-    :ref:`plugin signature <naming-conventions-plugin-signature>`.
 
-A typical extension with plugins is the 'news' extension which comes with plugins
-to display news records in lists or as a single view with only one news record.
-The news records are stored in a custom database table (tx_news_domain_model_news)
+A typical extension with plugins is the :composer:`georgringer/news` extension
+which comes with plugins to display news records in lists or as a single view
+with only one news record.
+
+The news records are stored in a custom database table (`tx_news_domain_model_news`)
 and can be edited in the backend.
 
+There are also system extensions that have plugins. :composer:`typo3/cms-felogin`
+has a plugin that allow frontend users, stored in table `fe_user` to log into
+the website. :composer:`typo3/cms-indexed-search` has a plugin that can be
+used to search in the index and display search results.
 
-..  _plugins-examples:
+..  _plugins-list_type:
 
-Examples
---------
+CType vs list_type plugins
+~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-..  code-block:: none
+Historically it was common to add plugins as a list type to the content element
+types. In this case the column `CType` is set to `'list'` for all plugins while
+the field `list_type` contains the key of the actual plugin.
 
-    CType='textmedia'
-    list_type=''
+As different plugins need different fields in the backend form this let to
+the creation of all type of complicated TCA constructs to influence the
+behaviour of backend forms for plugins.
 
-Content element type "Text & Media" shipped with the TYPO3 core
+The existence of the `list_type` also made a separate layer of content element
+definitions in the TypoScript necessary.
 
-..  code-block:: none
+Therefore the `list_type` complicates registration and configuration of plugins
+while it poses no advantages. Therefore it is recommended to always use the
+CType for new plugin types while the `list_type` is retained for now for
+backward compatibility.
 
-    CType='list'
-    list_type='indexedsearch_pi2'
-
-Indexed search plugin type, provided by the TYPO3 core.
+If you are refactoring the plugins of your extension, for example while getting
+rid of switchable controller actions it is recommended to migrate your plugins
+to use the CType. You should then supply a
+:ref:`upgrade wizard <upgrade-wizard-examples-switchable-controller-actions>`
+for easy migration for your users.
 
 ..  _plugins-editing:
 

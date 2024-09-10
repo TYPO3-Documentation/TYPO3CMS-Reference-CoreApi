@@ -1,5 +1,5 @@
 mod.wizards.newContentElement.wizardItems {
-  // add the content element to the tab "common"
+  // group "common" is automatically remapped to "default"
   common {
     elements {
       myextension_newcontentelement {
