@@ -84,7 +84,7 @@ The transition should be smooth. Consumers that need
 :ref:`dependency injection <dependency-injection>` to receive an instance
 of it.
 
-A :php-short:`\TYPO3\CMS\Backend\LoginProvider\LoginProviderInterface` could
+An implementation of :php-short:`\TYPO3\CMS\Backend\LoginProvider\LoginProviderInterface` could
 look like this for TYPO3 v13:
 
 ..  literalinclude:: _LoginProvider/_MyLoginProvider.php
