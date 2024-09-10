@@ -169,7 +169,7 @@ In this case you have to define the TypoScript configuration yourself. A
 :ref:`USER or USER_INT <t3tsref:cobj-user-int>` TypoScript object can be used
 to delegate the rendering to your controller:
 
-..  literalinclude:: _Plugins/plugin.typoscript
+..  literalinclude:: _Plugins/_plugin.typoscript
     :caption: EXT:my_extension/Configuration/TypoScript/setup.typoscript
 
 To register such a plugin as content element you can use function
