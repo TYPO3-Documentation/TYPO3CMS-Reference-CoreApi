@@ -109,7 +109,7 @@ Passing in children is explained in :ref:`prepare-viewhelper-for-inline-syntax`.
 The :php:`Gravatar` ViewHelper must hand over the email address which
 identifies the Gravatar. An alt text for the image is passed as optional parameter.
 
-ViewHelpers have to register (line 16, `$this->registerArgument`) parameters.
+ViewHelpers have to register (line 16, `$this->registerArgument()`) parameters.
 The registration happens inside method `initializeArguments()`.
 
 In the example above, the ViewHelper receives the argument `emailAddress` (line 17) of
