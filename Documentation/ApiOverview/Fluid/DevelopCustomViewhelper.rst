@@ -159,7 +159,7 @@ harmful chars are escaped.
 ..  hint::
     The `render()` method usually returns a string that should be displayed
     directly in the Fluid template. But it is also possible to return another
-    type and use it as argument for another ViewHelper who expects that type.
+    type and use it as argument for another ViewHelper which expects that type.
 
 ..  _creating-xml-tags-using-tagbasedviewhelper:
 ..  _creating-html-tags-using-tagbasedviewhelper:
