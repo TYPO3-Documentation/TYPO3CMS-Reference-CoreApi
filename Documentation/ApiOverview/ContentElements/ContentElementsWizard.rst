@@ -51,10 +51,10 @@ special
     Content elements that are used of special cases
 
 All content element groups are listed in
-:php:`$TCA['tt_content']['columns']['CType']['config']['itemGrops']` you can
+:php:`$GLOBALS['TCA']['tt_content']['columns']['CType']['config']['itemGrops']` you can
 debug them in the TYPO3 backend using the backend module
 :guilabel:`System > Configuration` if :composer:`typo3/cms-lowlevel` is installed
-and you are and administrator.
+and you are an administrator.
 
 Some third party extensions like :composer:`bk2k/bootstrap-package` are altering
 the available groups.
@@ -64,7 +64,7 @@ the available groups.
 Plain content elements or plugins
 =================================
 
-You can add a plain content element or non-extbase plugin using method
+You can add a content element or plain plugin (non-extbase) using method
 `ExtensionManagementUtility::addPlugin() <https://api.typo3.org/main/classes/TYPO3-CMS-Core-Utility-ExtensionManagementUtility.html#method_addPlugin>`__:
 of class :php:`\TYPO3\CMS\Core\Utility\ExtensionManagementUtility`.
 
@@ -101,7 +101,7 @@ To add an Extbase plugin you can use `ExtensionManagementUtility::registerPlugin
 of class :php:`\TYPO3\CMS\Extbase\Utility\ExtensionManagementUtility`.
 
 This method is only available for Extbase plugins defined via
-`ExtensionManagementUtility::addPlugin` in file :file:`EXT:my_extension/ext_localconf.php`
+`ExtensionUtility::configurePlugin` in file :file:`EXT:my_extension/ext_localconf.php`
 
 ..  literalinclude:: _AddingYourOwnContentElements/_tt_content_register_plugin.php
     :caption: EXT:my_extension/Configuration/Overrides/tt_content.php
@@ -115,9 +115,7 @@ The TCA is always set globally for the complete TYPO3 installation. If you have
 a multi-site installation and want to alter the appearance of content elements
 in the wizard or remove certain content elements this can be done via
 :ref:` page TSconfig <t3tsconfig:setting-page-tsconfig>`.
-This is commonly done on
-
-a per site basis so you can use the :ref:`Site set page TSconfig provider <site-sets-page-tsconfig>`
+This is commonly done on a per site basis so you can use the :ref:`Site set page TSconfig provider <site-sets-page-tsconfig>`
 in your :ref:`site package <t3sitepackage:start>`.
 
 You can use the settings of :ref:`newContentElement.wizardItems <t3tsconfig:pagenewcontentelementwizard>`.
