@@ -1,17 +1,21 @@
 <?php
 
 use TYPO3\CMS\Core\Security\RequestToken;
-use TYPO3\CMS\Fluid\View\StandaloneView;
+use TYPO3\CMS\Core\View\ViewFactoryData;
+use TYPO3\CMS\Core\View\ViewFactoryInterface;
 
 final class MyController
 {
-    private StandaloneView $view;
+    public function __construct(
+        private readonly ViewFactoryInterface $viewFactory,
+    ) {}
 
     public function showFormAction()
     {
+        $view = $this->viewFactory->create(new ViewFactoryData(/* ... */));
         // creating new request token with scope 'my/process' and hand over to view
         $requestToken = RequestToken::create('my/process');
-        $this->view->assign('requestToken', $requestToken);
+        $view->assign('requestToken', $requestToken);
         // ...
     }
 
