@@ -1,0 +1,12 @@
+mutations:
+  - mode: set
+    directive: "img-src"
+    sources:
+      - "'self'"
+      - "data:"
+      - "example.com"
+
+  - mode: reduce
+    directive: "img-src"
+    sources:
+      - "data:"
