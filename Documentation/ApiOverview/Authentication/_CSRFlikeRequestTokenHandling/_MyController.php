@@ -3,7 +3,6 @@
 use TYPO3\CMS\Core\Security\RequestToken;
 use TYPO3\CMS\Core\View\ViewFactoryData;
 use TYPO3\CMS\Core\View\ViewFactoryInterface;
-use TYPO3\CMS\Fluid\View\StandaloneView;
 
 final class MyController
 {
