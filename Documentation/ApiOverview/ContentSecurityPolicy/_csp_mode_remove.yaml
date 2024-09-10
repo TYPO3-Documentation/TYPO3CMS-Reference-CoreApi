@@ -1,0 +1,13 @@
+mutations:
+  - mode: set
+    directive: "default-src"
+    sources:
+      - "'self'"
+
+  - mode: set
+    directive: "img-src"
+    sources:
+      - "data:"
+
+  - mode: remove
+    directive: "img-src"
