@@ -235,7 +235,7 @@ backward compatibility.
 If you are refactoring the plugins of your extension, for example while getting
 rid of switchable controller actions it is recommended to migrate your plugins
 to use the CType. You should then supply a
-:ref:`upgrade wizard <upgrade-wizard-examples-switchable-controller-actions>`
+:ref:`upgrade wizard <t3coreapi/v13:upgrade-wizard-examples-switchable-controller-actions>`
 for easy migration for your users.
 
 ..  _plugins-editing:
