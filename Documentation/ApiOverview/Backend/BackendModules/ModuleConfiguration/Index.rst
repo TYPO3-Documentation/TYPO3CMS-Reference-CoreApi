@@ -202,6 +202,16 @@ Module configuration options
             :language: php
             :caption: Excerpt of EXT:my_extension/Configuration/Backend/Modules.php
 
+    ..  confval:: routeOptions
+        :name: backend-module-routeOptions
+        :type: array
+
+        Generic side information that will be merged with each generated
+        :php:`\TYPO3\CMS\Backend\Routing\Route::$options` array. This can be
+        used for information, that is not relevant for a module aspect,
+        but more relevant for the routing aspect, for example
+        :ref:`sudo mode <backend-routing-sudo>`.
+
 
 ..  _backend-modules-api-default:
 
@@ -308,3 +318,15 @@ module.
 
 The :ref:`ModuleProvider <backend-module-provider-api>` API allows extension
 authors to work with the registered modules.
+
+..  _backend-module-configuration-sudo:
+
+Backend modules with sudo mode
+==============================
+
+You can configure the sudo mode in your backend module like this:
+
+..  literalinclude:: _ModuleConfiguration/_sudo_modules.php
+    :caption: EXT:my_extension/Configuration/Backend/Modules.php
+
+See also :ref:`backend-module-sudo-modules`.
