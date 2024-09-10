@@ -77,7 +77,8 @@ Migration
 ---------
 
 Consumers of :php-short:`\TYPO3\CMS\Backend\LoginProvider\LoginProviderInterface`
-should implement :php:`modifyView()` instead of the :php:`render()` method.
+should implement the :php:`modifyView()` method and and retain a stub for the
+:php:`render()` method to satisfy the interface. See the example below.
 
 The transition should be smooth. Consumers that need
 :php:`\TYPO3\CMS\Core\Page\PageRenderer` for JavaScript magic, should use
