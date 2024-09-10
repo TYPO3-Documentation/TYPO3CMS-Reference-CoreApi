@@ -139,6 +139,22 @@ Example within a controller (we use here a non-Extbase controller):
     :caption: EXT:my_extension/Classes/Controller/MyRouteController.php
 
 
+..  _backend-routing-sudo:
+
+Sudo mode
+=========
+
+..  versionadded:: 12.4
+    Starting with TYPO3 v12.4 a the sudo mode, like for the install tool,
+    can be request for arbitrary backend modules.
+
+You can configure the sudo mode in your backend routing like this:
+
+..  literalinclude:: /ApiOverview/Backend/_BackendRouting/_sudo_routes.php
+    :caption: EXT:my_extension/Configuration/Backend/Routes.php
+
+See also :ref:`backend-module-sudo-modules`.
+
 More information
 ================
 
