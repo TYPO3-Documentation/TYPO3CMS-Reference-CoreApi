@@ -1,6 +1,6 @@
-.. include:: /Includes.rst.txt
-.. index:: LinkHandlers; CustomLinkHandlers
-.. _customlinkhandler:
+..  include:: /Includes.rst.txt
+..  index:: LinkHandlers; CustomLinkHandlers
+..  _customlinkhandler:
 
 =================================
 Implementing a custom LinkHandler
@@ -15,6 +15,8 @@ The example below is part of the TYPO3 Documentation Team extension `examples
 ..  todo: Replace the source code here with the code from EXT:examples
     and adjust the texts
     https://github.com/TYPO3-Documentation/TYPO3CMS-Reference-CoreApi/issues/2298
+
+..  _customlinkhandler-implementation:
 
 Implementing the LinkHandler
 ============================
@@ -31,191 +33,34 @@ You can have a look at the existing LinkHandler in the system extension
     For TYPO3 v12 the moved classes are available as an alias under the old
     namespace to allow extensions to be compatible with TYPO3 v11 and v12.
 
-However please note that all these extensions extend the :php:`AbstractLinkHandler`,
+However please note that all these extensions extend the
+:php:`\TYPO3\CMS\Backend\LinkHandler\AbstractLinkHandler`,
 which is marked as :php:`@internal` and subject to change without further notice.
 
-You should therefore implement the interface :php:`LinkHandlerInterface` in your
-custom LinkHandlers:
-
+You should therefore implement the interface
+:php:`\TYPO3\CMS\Backend\LinkHandler\LinkHandlerInterface` in your custom
+LinkHandlers:
 
 ..  todo: \TYPO3\CMS\Core\Page\PageRenderer->loadRequireJsModule was removed with
     TYPO3 v13.0, please update this example
 
-.. code-block:: php
-   :caption: EXT:some_extension/Classes/LinkHandler/GitHubLinkHandler.php
-
-   <?php
-   namespace T3docs\Examples\LinkHandler;
-
-   # use ...
-   use TYPO3\CMS\Backend\LinkHandler\LinkHandlerInterface;
-
-   class GitHubLinkHandler implements LinkHandlerInterface
-   {
-      protected $linkAttributes = ['target', 'title', 'class', 'params', 'rel'];
-      protected $view;
-      protected $configuration;
-
-      /**
-      * Initialize the handler
-      *
-      * @param AbstractLinkBrowserController $linkBrowser
-      * @param string $identifier
-      * @param array $configuration Page TSconfig
-      */
-      public function initialize(AbstractLinkBrowserController $linkBrowser, $identifier, array $configuration)
-      {
-         $this->linkBrowser = $linkBrowser;
-         $this->iconFactory = GeneralUtility::makeInstance(IconFactory::class);
-         $this->view = GeneralUtility::makeInstance(StandaloneView::class);
-         $this->view->getRequest()->setControllerExtensionName('examples');
-         $this->view->setTemplateRootPaths([GeneralUtility::getFileAbsFileName('EXT:examples/Resources/Private/Templates/LinkBrowser')]);
-         $this->configuration = $configuration;
-      }
-
-      /**
-      * Checks if this is the handler for the given link
-      *
-      * Also stores information locally about currently linked issue
-      *
-      * @param array $linkParts Link parts as returned from TypoLinkCodecService
-      *
-      * @return bool
-      */
-      public function canHandleLink(array $linkParts)
-      {
-         if (isset($linkParts['url']['github'])) {
-            $this->linkParts = $linkParts;
-            return true;
-         }
-         return false;
-      }
-
-      /**
-      * Format the current link for HTML output
-      *
-      * @return string
-      */
-      public function formatCurrentUrl(): string
-      {
-         return $this->linkParts['url']['github'];
-      }
-
-
-      /**
-      * Render the link handler
-      *
-      * @param ServerRequestInterface $request
-      *
-      * @return string
-      */
-      public function render(ServerRequestInterface $request): string
-      {
-         GeneralUtility::makeInstance(PageRenderer::class)
-            ->loadRequireJsModule('TYPO3/CMS/Examples/GitHubLinkHandler');
-
-         $this->view->assign('project', $this->configuration['project']);
-         $this->view->assign('action', $this->configuration['action']);
-         $this->view->assign('github', !empty($this->linkParts) ? $this->linkParts['url']['github'] : '');
-         return $this->view->render('GitHub');
-      }
-
-      /**
-      * @return string[] Array of body-tag attributes
-      */
-      public function getBodyTagAttributes(): array
-      {
-         return [];
-      }
-
-      /**
-      * @return array
-      */
-      public function getLinkAttributes()
-      {
-         return $this->linkAttributes;
-      }
-
-      /**
-      * @param string[] $fieldDefinitions Array of link attribute field definitions
-      * @return string[]
-      */
-      public function modifyLinkAttributes(array $fieldDefinitions)
-      {
-         return $fieldDefinitions;
-      }
-
-      /**
-      * We don't support updates since there is no difference to simply set the link again.
-      *
-      * @return bool
-      */
-      public function isUpdateSupported()
-      {
-         return FALSE;
-      }
-   }
+..  literalinclude:: _CustomLinkHandlers/_GitHubLinkHandler.php
+    :caption: EXT:my_extension/Classes/LinkHandler/GitHubLinkHandler.php
 
 The LinkHandler then has to be registered via page TSconfig:
 
-
-.. code-block:: typoscript
-   :caption: EXT:some_extension/Configuration/page.tsconfig
-
-   TCEMAIN.linkHandler {
-      github {
-         handler = T3docs\\Examples\\LinkHandler\\GitHubLinkHandler
-         label = LLL:EXT:examples/Resources/Private/Language/locallang_browse_links.xlf:github
-         displayAfter = url
-         scanBefore = url
-         configuration {
-             project = TYPO3-Documentation/TYPO3CMS-Reference-CoreApi
-             action = issues
-         }
-      }
-   }
-
+..  literalinclude:: _CustomLinkHandlers/_page.tsconfig
+    :caption: EXT:my_extension/Configuration/page.tsconfig
 
 And the JavaScript, depending on :ref:`requirejs`, has to be added in a file
-:file:`examples/Resources/Public/JavaScript/GitHubLinkHandler.js`:
+:file:`Resources/Public/JavaScript/GitHubLinkHandler.js`:
 
-.. code-block:: javascript
-
-   /**
-    * Module: TYPO3/CMS/Examples/GitHubLinkHandler
-    * Github issue link interaction
-    */
-   define(['jquery', 'TYPO3/CMS/Recordlist/LinkBrowser'], function($, LinkBrowser) {
-      'use strict';
-
-      /**
-       *
-       * @type {{}}
-       * @exports T3docs/Examples/GitHubLinkHandler
-       */
-      var GitHubLinkHandler = {};
-
-      $(function() {
-         $('#lgithubform').on('submit', function(event) {
-            event.preventDefault();
-
-            var value = $(this).find('[name="lgithub"]').val();
-            if (value === 'github:') {
-               return;
-            }
-            if (value.indexOf('github:') === 0) {
-               value = value.substr(7);
-            }
-            LinkBrowser.finalizeFunction('github:' + value);
-         });
-      });
-
-      return GitHubLinkHandler;
-   });
+..  literalinclude:: _CustomLinkHandlers/_GitHubLinkHandler.js
+    :caption: EXT:my_extension/Resources/Public/JavaScript/GitHubLinkHandler.js
 
 This would create a link looking like this:
 
-.. code-block:: html
+..  code-block:: html
 
    <a href="github:123">Example Link</a>
 
