@@ -17,7 +17,6 @@ The TYPO3 request object is an implementation of the PSR-7 based
 .. contents::
    :local:
 
-
 ..  _getting-typo3-request-object:
 
 Getting the PSR-7 request object
