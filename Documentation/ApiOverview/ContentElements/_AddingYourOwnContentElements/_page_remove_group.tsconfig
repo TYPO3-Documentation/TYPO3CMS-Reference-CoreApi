@@ -1,0 +1,2 @@
+# This will remove the "menu" group
+mod.wizards.newContentElement.wizardItems.removeItems := addToList(menu)

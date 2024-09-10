@@ -27,6 +27,7 @@ The PSR-7 based request object is available in most contexts. In some scenarios,
 like :ref:`PSR-15 middlewares <request-handling>` or backend module controllers,
 the PSR-7 base request object is given as argument to the called method.
 
+..  _typo3-request-extbase-controller:
 
 Extbase controller
 ------------------
@@ -65,22 +66,32 @@ The request object compatible with the PSR-7
     TYPO3 v10 and TYPO3 v11 you have to use the :ref:`global variable
     <typo3-request-global-variable>`.
 
+..  _typo3-request-viewhelper:
+
 ViewHelper
 ----------
 
-In a ViewHelper you can get the rendering request from the rendering context.
-For this you have to rely on the fact that a
-:php:`TYPO3\CMS\Fluid\Core\Rendering\RenderingContext` is passed to the
-ViewHelpers :php:`renderStatic` method, even though it is declared as
-:php:`RenderingContextInterface`, which does not have the method:
+..  deprecated:: 13.3
+    The following methods have been marked as deprecated in TYPO3 v13.3 and will
+    be removed with TYPO3 v14:
 
-..  literalinclude:: _ViewHelper.php
-    :language: php
+    * :php:`TYPO3\CMS\Fluid\Core\Rendering\RenderingContext->setRequest()`
+    * :php:`TYPO3\CMS\Fluid\Core\Rendering\RenderingContext->getRequest()`
+
+
+In a ViewHelper you can get the rendering request from the rendering context if
+it is set.
+
+..  literalinclude:: _CodeSnippets/_ViewHelper.php
     :caption: EXT:my_extension/Classes/ViewHelpers/MyViewHelper.php
 
-Note, that :php:`RenderingContext::getRequest()` is internal and subject to
-change in future versions of TYPO3.
+To stay compatible to previous TYPO3 versions while avoiding deprecation notices,
+the following code can be used:
 
+..  literalinclude:: _CodeSnippets/_ViewHelperV12.php
+    :caption: EXT:my_extension/Classes/ViewHelpers/MyViewHelper.php
+
+..  _typo3-request-user-function:
 
 User function
 -------------
@@ -109,6 +120,7 @@ is available as third parameter of the called class method:
         }
     }
 
+..  _typo3-request-data-processor:
 
 Data processor
 --------------

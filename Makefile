@@ -38,9 +38,20 @@ test-cgl: ## Regenerate code snippets
 test-yaml: ## Regenerate code snippets
 	Build/Scripts/runTests.sh -s yamlLint
 
-.PHONY: install
-install: ## Úpdate all dependencies (the composer.lock is not commited)
+
+.PHONY: composerUpdate
+composerUpdate: ## Update all dependencies (the composer.lock is not commited)
 	Build/Scripts/runTests.sh -s composerUpdate
+
+.PHONY: install
+install: composerUpdate## Update all dependencies (the composer.lock is not commited)
 
 .PHONY: test
 test: test-docs test-lint test-cgl test-yaml## Test the documentation rendering
+
+.PHONY: fix-cgl
+fix-cgl: ## Fix cgl
+	Build/Scripts/runTests.sh -s cgl
+
+.PHONY: Fix all
+fix: fix-cgl## Test the documentation rendering
