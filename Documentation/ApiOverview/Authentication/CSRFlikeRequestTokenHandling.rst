@@ -49,6 +49,7 @@ Submitting request token value to application:
 .. _JSON Web Token (JWT): https://jwt.io/
 .. _nonce: https://en.wikipedia.org/wiki/Cryptographic_nonce
 
+..  _authentication-request-token-workflow:
 
 Workflow
 ========
@@ -64,28 +65,8 @@ The sequence looks like the following:
     objects (later created implicitly in this example) are organized in the
     :php:`\TYPO3\CMS\Core\Context\SecurityAspect`.
 
-    ..  code-block:: php
+    ..  literalinclude:: _CSRFlikeRequestTokenHandling/_MyController.php
         :caption: EXT:my_extension/Classes/Controller/MyController.php
-
-        use TYPO3\CMS\Core\Security\RequestToken;
-        use TYPO3\CMS\Fluid\View\StandaloneView;
-
-        final class MyController
-        {
-            private StandaloneView $view;
-
-            public function showFormAction()
-            {
-                // creating new request token with scope 'my/process' and hand over to view
-                $requestToken = RequestToken::create('my/process');
-                $this->view->assign('requestToken', $requestToken);
-                // ...
-            }
-
-            public function processAction() {
-                // for the implementation, see below
-            }
-        }
 
     ..  code-block:: html
         :caption: EXT:my_extension/Resources/Private/Templates/ShowForm.html
@@ -126,43 +107,5 @@ The sequence looks like the following:
     action needs to verify that the request token has the expected
     `'my/process'` scope.
 
-    ..  code-block:: php
+    ..  literalinclude:: _CSRFlikeRequestTokenHandling/_MyProcessController.php
         :caption: EXT:my_extension/Classes/Controller/MyController.php
-
-        use TYPO3\CMS\Core\Context\SecurityAspect;
-
-        final class MyController
-        {
-            private Context $context;
-
-            public function showFormAction() {
-                // for the implementation, see above
-            }
-
-            public function processAction()
-            {
-                $securityAspect = SecurityAspect::provideIn($this->context);
-                $requestToken = $securityAspect->getReceivedRequestToken();
-
-                if ($requestToken === null) {
-                    // No request token was provided in the request
-                    // for example, (overridden) templates need to be adjusted
-                } elseif ($requestToken === false) {
-                    // There was a request token, which could not be verified with the nonce
-                    // for example, when nonce cookie has been overridden by another HTTP request
-                } elseif ($requestToken->scope !== 'my/process') {
-                    // There was a request token, but for a different scope
-                    // for example, when a form with different scope was submitted
-                } else {
-                    // The request token was valid and for the expected scope
-                    $this->doTheMagic();
-                    // The middleware takes care to remove the the cookie in case no other
-                    // nonce value shall be emitted during the current HTTP request
-                    $requestToken->getSigningSecretIdentifier() !== null) {
-                        $securityAspect->getSigningSecretResolver()->revokeIdentifier(
-                            $requestToken->getSigningSecretIdentifier()
-                        );
-                    }
-                }
-            }
-        }
