@@ -115,7 +115,7 @@ TYPO3 integrators.
 Plugins in TYPO3
 ----------------
 
-A **plugin** in TYPO3 is a more complex module, typically providing dynamic
+A **plugin** in TYPO3 is a more complex implementation, typically providing dynamic
 or interactive functionality. Plugins are usually provided by extensions
 that introduce new features to the website.
 
@@ -154,7 +154,7 @@ element into the page it also needs to be registered with
 ..  literalinclude:: _Plugins/_tt_content_extbase_plugin.php
     :caption: EXT:my_extension/Configuration/TCA/Overrides/tt_content.php
 
-For a detailed discussion of Extbase plugins including examples for controllers
+For a detailed explanation of Extbase plugins including examples for controllers
 see chapter :ref:`extbase`.
 
 ..  _plugins-non-extbase:
