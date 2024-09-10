@@ -1,0 +1,3 @@
+mod.wizards.newContentElement.wizardItems {
+  mygroup.header = LLL:EXT:my_extension/Resources/Private/Language/locallang.xlf:mygroup.header
+}
