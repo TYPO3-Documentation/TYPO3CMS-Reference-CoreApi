@@ -53,7 +53,7 @@ You can :ref:`inject <dependency-injection>` an instance of the
     :php:`$this->view`.
 
 ..  literalinclude:: _UsingFluid/_MyController.php
-    :caption: EXT:my_extension/Classes/Controller/MyController.php
+    :caption: EXT:my_extension/Classes/Controller/MyController.php (Not Extbase)
 
 The :php-short:`TYPO3\CMS\Core\View\ViewFactoryInterface` needs an instance of
 :php:`\TYPO3\CMS\Core\View\ViewFactoryData`, which is a data object and should
