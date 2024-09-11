@@ -1,12 +1,14 @@
 :navigation-title: LoginProvider
 
-.. include:: /Includes.rst.txt
+..  include:: /Includes.rst.txt
 
-.. _login-provider:
+..  _login-provider:
 
 ======================
 Backend login form API
 ======================
+
+..  _login-provider-registration:
 
 Registering a login provider
 ============================
@@ -25,11 +27,6 @@ or :file:`config/system/additional.php`  like this:
         'iconIdentifier' => 'actions-key',
         'label' => 'LLL:EXT:backend/Resources/Private/Language/locallang.xlf:login.link'
     ];
-
-..  versionadded:: 11.5
-    The option :php:`iconIdentifier` has been introduced. As FontAwesome will
-    be phased out developers are encouraged to use this option instead of
-    :php:`icon-class`, which expects a FontAwesome class.
 
 The settings are defined as:
 
@@ -58,50 +55,70 @@ replace its registered :php:`provider` class with your custom class.
     $GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['backend']['loginProviders'][1433416020]['provider'] =
         \MyVendor\MyExtension\LoginProvider\CustomProviderExtendingUsernamePasswordLoginProvider::class
 
+..  _login-provider-interface:
+
 LoginProviderInterface
 ======================
 
-The LoginProviderInterface contains only one method:
+..  deprecated:: 13.3
+    Method :php:`LoginProviderInterface->render()` has been marked as deprecated
+    and is substituted by  :php:`LoginProviderInterface->modifyView()` that will
+    be added to the interface in TYPO3 v14, removing :php:`render()` from the
+    interface in v14. See section :ref:`login-provider-interface-migration`.
+
+The :php-short:`TYPO3\CMS\Backend\LoginProvider\LoginProviderInterface` contains
+only the deprecated `render()` method in TYPO3 v13.
 
 ..  include:: /CodeSnippets/Backend/LoginProviderInterface.rst.txt
 
+..  _login-provider-interface-migration:
 
-The View
+Migration
+---------
+
+Consumers of :php-short:`\TYPO3\CMS\Backend\LoginProvider\LoginProviderInterface`
+should implement the :php:`modifyView()` method and and retain a stub for the
+:php:`render()` method to satisfy the interface. See the example below.
+
+The transition should be smooth. Consumers that need
+:php:`\TYPO3\CMS\Core\Page\PageRenderer` for JavaScript magic, should use
+:ref:`dependency injection <dependency-injection>` to receive an instance
+of it.
+
+An implementation of :php-short:`\TYPO3\CMS\Backend\LoginProvider\LoginProviderInterface` could
+look like this for TYPO3 v13:
+
+..  literalinclude:: _LoginProvider/_MyLoginProvider.php
+
+..  _login-provider-view:
+
+The view
 ========
 
-As mentioned above, the `render` method gets the Fluid StandaloneView as first parameter.
-You have to set the template path and filename using the methods of this object.
+..  deprecated:: 13.3
+    Method :php:`LoginProviderInterface->render()` has been marked as deprecated
+    and is substituted by  :php:`LoginProviderInterface->modifyView()` that will
+    be added to the interface in TYPO3 v14, removing :php:`render()` from the
+    interface in v14. See section :ref:`login-provider-interface-migration`.
+
+The name of the template must be returned by the `modifyView()` method of the
+login provider. Variables can be assigned to the view supplied as
+second parameter.
+
 The template file must only contain the form fields, not the form-tag.
 Later on, the view renders the complete login screen.
 
 View requirements:
 
-*   The template must use the `Login`-layout provided by the Core `<f:layout name="Login">`.
-*   Form fields must be provided within the section `<f:section name="loginFormFields">`.
+*   The template must use the `Login`-layout provided by the
+    Core `<f:layout name="Login">`.
+*   Form fields must be provided within the section
+    `<f:section name="loginFormFields">`.
 
-..  code-block:: html
+..  literalinclude:: _LoginProvider/_MyLoginForm.html
     :caption: EXT:my_sitepackage/Resources/Private/Templates/MyLoginForm.html
 
-    <f:layout name="Login" />
-    <f:section name="loginFormFields">
-        <div class="form-group t3js-login-openid-section" id="t3-login-openid_url-section">
-            <div class="input-group">
-                <input
-                    type="text"
-                    id="openid_url"
-                    name="openid_url"
-                    value="{presetOpenId}"
-                    autofocus="autofocus"
-                    placeholder="{f:translate(key: 'openId', extensionName: 'openid')}"
-                    class="form-control input-login t3js-clearable t3js-login-openid-field"
-                >
-                <div class="input-group-addon">
-                    <span class="fa fa-openid"></span>
-                </div>
-            </div>
-        </div>
-    </f:section>
-
+..  _login-provider-examples:
 
 Examples
 ========
