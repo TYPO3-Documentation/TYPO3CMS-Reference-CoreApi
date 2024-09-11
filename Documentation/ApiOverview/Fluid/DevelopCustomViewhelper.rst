@@ -8,7 +8,7 @@
 Developing a custom ViewHelper
 ==============================
 
-..  deprecated:: Fluid v2.15 (TYPO3 v13.3 / TYPO3 12.4)
+..  deprecated:: Fluid v2.15 (TYPO3 12.4)
     The traits
     :php:`\TYPO3Fluid\Fluid\Core\ViewHelper\Traits\CompileWithRenderStatic` and
     :php:`\TYPO3Fluid\Fluid\Core\ViewHelper\Traits\CompileWithContentArgumentAndRender`
@@ -167,7 +167,7 @@ harmful chars are escaped.
 Creating HTML/XML tags with the :php:`AbstractTagBasedViewHelper`
 =================================================================
 
-..  versionchanged:: Fluid Standalone 2.12 / TYPO3 13.2
+..  versionchanged:: Fluid Standalone 2.12 / TYPO3 12.4
     All TagBasedViewHelpers (such as :html:`<f:image />` or :html:`<f:form.*>`) can now receive
     arbitrary tag attributes which will be appended to the resulting HTML tag. In the past,
     this was only possible for a small list of tag attributes, like class, id or lang.
@@ -360,7 +360,7 @@ This returns the evaluated object between the opening and closing tag.
 Handle additional arguments
 ===========================
 
-..  versionchanged:: Fluid Standalone 2.12 / TYPO3 13.2
+..  versionchanged:: Fluid Standalone 2.12 / TYPO3 12.4
     All ViewHelpers implementing
     :php-short:`\TYPO3Fluid\Fluid\Core\ViewHelper\AbstractTagBasedViewHelper`
     can now receive arbitrary tag attributes which will be appended to the
@@ -409,7 +409,7 @@ Example implementation:
 `renderStatic()` method
 -----------------------
 
-..  deprecated:: Fluid v2.15 (TYPO3 v13.3 / TYPO3 12.4)
+..  deprecated:: Fluid v2.15 (TYPO3 12.4)
     The trait
     :php-short:`\TYPO3Fluid\Fluid\Core\ViewHelper\Traits\CompileWithRenderStatic`,
     which is responsible for calling `renderStatic()` is deprecated.
