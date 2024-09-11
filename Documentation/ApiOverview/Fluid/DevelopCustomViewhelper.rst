@@ -167,7 +167,7 @@ harmful chars are escaped.
 Creating HTML/XML tags with the :php:`AbstractTagBasedViewHelper`
 =================================================================
 
-..  versionchanged:: Fluid Standalone 2.12 / TYPO3 12.4
+..  versionchanged:: Fluid Standalone v2.12 / TYPO3 v12.4
     All TagBasedViewHelpers (such as :html:`<f:image />` or :html:`<f:form.*>`) can now receive
     arbitrary tag attributes which will be appended to the resulting HTML tag. In the past,
     this was only possible for a small list of tag attributes, like class, id or lang.
