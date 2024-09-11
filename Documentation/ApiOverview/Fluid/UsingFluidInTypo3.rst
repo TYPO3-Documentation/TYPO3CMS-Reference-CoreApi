@@ -49,7 +49,7 @@ You can :ref:`inject <dependency-injection>` an instance of the
 
 ..  note::
     :ref:`Extbase-based controllers <extbase-controller>` create a view
-    instance based on this factory by default and are accessible as
+    instance based on this factory by default and which is accessible as
     :php:`$this->view`.
 
 ..  literalinclude:: _UsingFluid/_MyController.php
@@ -65,7 +65,7 @@ instance:
 *   Hand over request of type :php:`\Psr\Http\Message\ServerRequestInterface`
     if possible. See :ref:`getting-typo3-request-object`.
 *   Use the tuple `$templateRootPaths`, `$partialRootPaths` and
-    `$layoutRootPaths` if possible, using an array of "base" paths
+    `$layoutRootPaths` if possible by providing an array of "base" paths
     like `'EXT:my_extension/Resources/Private/(Templates|Partials|Layouts)'`
 *   Avoid using parameter `$templatePathAndFilename`
 *   Call `render('path/within/templateRootPath')` without file-ending on the
