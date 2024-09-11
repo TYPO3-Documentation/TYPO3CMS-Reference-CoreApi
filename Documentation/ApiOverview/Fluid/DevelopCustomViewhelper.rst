@@ -302,7 +302,7 @@ the `size` attribute becomes optional.
 Prepare ViewHelper for inline syntax
 ====================================
 
-..  deprecated:: Fluid v2.15 (TYPO3 v13.3 / TYPO3 12.4)
+..  deprecated:: Fluid v2.15 (TYPO3 v13.3 / TYPO3 v12.4)
     In former versions this was done by using the now deprecated trait
     :php-short:`\TYPO3Fluid\Fluid\Core\ViewHelper\Traits\CompileWithContentArgumentAndRender`.
     See section :ref:`migration <fluid-custom-viewhelper-migration>`.
