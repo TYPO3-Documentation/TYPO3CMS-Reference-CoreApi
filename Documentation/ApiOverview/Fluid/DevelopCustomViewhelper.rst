@@ -8,7 +8,7 @@
 Developing a custom ViewHelper
 ==============================
 
-..  deprecated:: Fluid v2.15 (TYPO3 12.4)
+..  deprecated:: Fluid v2.15 (TYPO3 v12.4)
     The traits
     :php:`\TYPO3Fluid\Fluid\Core\ViewHelper\Traits\CompileWithRenderStatic` and
     :php:`\TYPO3Fluid\Fluid\Core\ViewHelper\Traits\CompileWithContentArgumentAndRender`
