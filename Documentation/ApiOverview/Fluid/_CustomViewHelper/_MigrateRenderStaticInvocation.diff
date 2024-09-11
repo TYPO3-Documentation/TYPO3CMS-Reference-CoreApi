@@ -25,13 +25,13 @@
 -        $emailAddress = $arguments['emailAddress'];
 +        $emailAddress = $this->arguments['emailAddress'];
 -        $gravatorUrl = GravatarUrlViewHelper::renderStatic(['email', $emailAddress], $renderChildrenClosure, $renderingContext);
-+        $gravatorUrl = $this->renderingContext->getViewHelperInvoker()->invoke(
++        $gravatarUrl = $this->renderingContext->getViewHelperInvoker()->invoke(
 +            GravatarUrlViewHelper::class,
 +            ['email', $emailAddress],
 +            $this->renderingContext,
 +            $this->renderChildren(),
 +        );
 
-         return sprintf('<img src="%s" />', $gravatorUrl);
+         return sprintf('<img src="%s" />', $gravatarUrl);
      }
  }

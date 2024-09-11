@@ -27,7 +27,7 @@ final class GravatarViewHelper extends AbstractTagBasedViewHelper
         // The children of the ViewHelper might be empty now
         if ($emailAddress === null) {
             throw new \Exception(
-                'The Gravator ViewHelper expects either the '
+                'The Gravatar ViewHelper expects either the '
                 . 'argument "emailAddress" or the content to be set. ',
                 1726035545,
             );
@@ -35,7 +35,7 @@ final class GravatarViewHelper extends AbstractTagBasedViewHelper
         // Or someone could pass a non-string value
         if (!is_string($emailAddress) || !filter_var($emailAddress, FILTER_VALIDATE_EMAIL)) {
             throw new \Exception(
-                'The Gravator ViewHelper expects a valid ' .
+                'The Gravatar ViewHelper expects a valid ' .
                 'e-mail address as input. ',
                 1726035546,
             );

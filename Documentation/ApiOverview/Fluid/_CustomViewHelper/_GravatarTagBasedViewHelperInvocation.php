@@ -21,13 +21,13 @@ final class GravatarViewHelper extends AbstractViewHelper
     public function render(): string
     {
         $emailAddress = $this->arguments['emailAddress'];
-        $gravatorUrl = $this->renderingContext->getViewHelperInvoker()->invoke(
+        $gravatarUrl = $this->renderingContext->getViewHelperInvoker()->invoke(
             GravatarUrlViewHelper::class,
             ['email', $emailAddress],
             $this->renderingContext,
             $this->renderChildren(),
         );
 
-        return sprintf('<img src="%s" />', $gravatorUrl);
+        return sprintf('<img src="%s" />', $gravatarUrl);
     }
 }
