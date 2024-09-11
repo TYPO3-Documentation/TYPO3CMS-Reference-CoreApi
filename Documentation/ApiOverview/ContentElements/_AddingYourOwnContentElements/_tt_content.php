@@ -7,7 +7,7 @@ defined('TYPO3') or die();
 
 call_user_func(function () {
 
-    $key = 'examples_basiccontent';
+    $key = 'myextension_basiccontent';
 
     // Adds the content element to the "Type" dropdown
     ExtensionManagementUtility::addTcaSelectItem(
