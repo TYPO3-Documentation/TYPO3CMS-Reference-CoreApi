@@ -41,11 +41,12 @@ You should therefore implement the interface
 :php:`\TYPO3\CMS\Backend\LinkHandler\LinkHandlerInterface` in your custom
 LinkHandlers:
 
-..  todo: \TYPO3\CMS\Core\Page\PageRenderer->loadRequireJsModule was removed with
-    TYPO3 v13.0, please update this example
-
 ..  literalinclude:: _CustomLinkHandlers/_GitHubLinkHandler.php
     :caption: EXT:my_extension/Classes/LinkHandler/GitHubLinkHandler.php
+
+..  versionchanged:: 13.3
+    Use the :ref:`generic-view-factory` to create a view, previously
+    used :php:`TYPO3\CMS\Fluid\View\StandaloneView` is deprecated.
 
 The LinkHandler then has to be registered via page TSconfig:
 
