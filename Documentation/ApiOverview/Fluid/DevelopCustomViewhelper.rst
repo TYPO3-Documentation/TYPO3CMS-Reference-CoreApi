@@ -255,7 +255,7 @@ markup is returned.
 :php:`$this->registerTagAttribute()`
 ------------------------------------
 
-..  deprecated:: Fluid standalone 2.12 / TYPO3 v13.2
+..  deprecated:: Fluid Standalone v2.12 / TYPO3 v13.2
     The methods php:`$this->registerTagAttribute()` and
     :php:`registerUniversalTagAttributes()` have been deprecated. They can be
     removed on dropping TYPO3 v12.4 support.
