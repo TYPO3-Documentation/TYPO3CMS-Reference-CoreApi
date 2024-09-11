@@ -91,7 +91,7 @@ Now the new content element is available in the CType selector and the
 Display an icon
 ---------------
 
-If you define no item a default item will be displayed.
+If you define no icon a default icon will be displayed.
 
 You can use an existing `icon from the TYPO3 core
 <https://typo3.github.io/TYPO3.Icons/icons/content.html>`__  or register your
@@ -109,12 +109,12 @@ The new content element wizard
     Starting with TYPO3 13.0 content elements added via TCA are automatically
     displayed in the :guilabel:`New Content Element` wizard. To stay compatible
     with both TYPO3 v12.4 and v13 keep the page TSconfig for TYPO3 v12.4.
-    See :ref:`New Content Element wizard in TYPo3 12.4 <t3coreapi/v12:AddingCE-PageTSconfig>`.
+    See :ref:`New Content Element wizard in TYPO3 12.4 <t3coreapi/v12:AddingCE-PageTSconfig>`.
 
 ..  literalinclude:: _AddingYourOwnContentElements/_tt_content.php
     :caption: EXT:my_extension/Configuration/TCA/Overrides/tt_content.php
     :linenos:
-    :emphasize-lines: 16,17,18
+    :emphasize-lines: 17,18,19
 
 The values in the array highlighted in the code example above are used for the
 display in the :guilabel:`New Content Element` wizard.
@@ -146,13 +146,13 @@ the file :file:`Configuration/TCA/Overrides/tt_content.php`:
 ..  literalinclude:: _AddingYourOwnContentElements/_tt_content.php
     :caption: EXT:my_extension/Configuration/TCA/Overrides/tt_content.php
     :linenos:
-    :emphasize-lines: 27,28
+    :emphasize-lines: 28,29
 
-In line 27 a custom :ref:`palette <t3tca:palettes>` with the header and related
+In line 28 a custom :ref:`palette <t3tca:palettes>` with the header and related
 fields is displayed. This palette and its fields are defined in
 :t3src:`typo3/sysext/frontend/Configuration/TCA/tt_content.php`.
 
-In line 28 a predefined field, `bodytext` is added to be displayed in the
+In line 29 a predefined field, `bodytext` is added to be displayed in the
 form of the new content element type.
 
 .. index:: Content element; Frontend rendering
