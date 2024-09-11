@@ -97,7 +97,7 @@ Non-Extbase Fluid view
 ======================
 
 ..  deprecated:: 13.3
-    Using the :php-short:`\TYPO3\CMS\Fluid\View\StandaloneView` is deprecated switch
+    Using the :php-short:`\TYPO3\CMS\Fluid\View\StandaloneView` is deprecated. Switch
     to a :php-short:`\TYPO3\CMS\Core\View\ViewInterface` instance provided by
     the :ref:`sitehandling-site-object`.
 
