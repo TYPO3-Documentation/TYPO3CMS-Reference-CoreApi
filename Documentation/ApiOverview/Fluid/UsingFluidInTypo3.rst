@@ -23,7 +23,7 @@ Here are some examples of how Fluid can be used in TYPO3:
 *   Use the :ref:`generic view factory <generic-view-factory>` to create a
     Fluid view.
 
-..  versiondeprecated:: 13.3
+..  deprecated:: 13.3
     These classes have been marked as deprecated in TYPO3 v13 and will be removed in v14:
 
     * :php:`TYPO3\CMS\Fluid\View\StandaloneView`
@@ -43,7 +43,7 @@ Using the generic view factory (ViewFactoryInterface)
     :php:`TYPO3\CMS\Core\View\ViewInterface`. This implements the "V" of "MVC"
     in a generic way and is used throughout the TYPO3 core.
 
-You can :ref:`inject <dependency-injections>` an instance of the
+You can :ref:`inject <dependency-injection>` an instance of the
 :php:`TYPO3\CMS\Core\View\ViewFactoryInterface` to create an instance of a
 :php:`TYPO3\CMS\Core\View\ViewInterface` where you need one.
 
