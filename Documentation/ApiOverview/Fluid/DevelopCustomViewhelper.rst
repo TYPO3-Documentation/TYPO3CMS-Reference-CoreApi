@@ -409,7 +409,7 @@ Example implementation:
 `renderStatic()` method
 -----------------------
 
-..  deprecated:: Fluid v2.15 (TYPO3 12.4)
+..  deprecated:: Fluid v2.15 (TYPO3 v12.4)
     The trait
     :php-short:`\TYPO3Fluid\Fluid\Core\ViewHelper\Traits\CompileWithRenderStatic`,
     which is responsible for calling `renderStatic()` is deprecated.
