@@ -1,0 +1,10 @@
+mutations:
+  - mode: set
+    directive: "default-src"
+    sources:
+      - "'self'"
+
+  - mode: extend
+    directive: "img-src"
+    sources:
+      - "example.com"

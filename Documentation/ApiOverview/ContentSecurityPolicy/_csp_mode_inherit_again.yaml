@@ -1,0 +1,22 @@
+inheritDefault: false
+mutations:
+  - mode: "set"
+    directive: "default-src"
+    sources:
+      - "'self'"
+
+  - mode: "inherit-again"
+    directive: "img-src"
+
+  - mode: "append"
+    directive: "img-src"
+    sources:
+      - "example.com"
+
+  - mode: "set"
+    directive: "default-src"
+    sources:
+      - "data:"
+
+  - mode: "inherit-again"
+    directive: "img-src"
