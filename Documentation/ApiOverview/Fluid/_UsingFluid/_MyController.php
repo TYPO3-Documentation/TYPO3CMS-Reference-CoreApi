@@ -15,9 +15,9 @@ final readonly class MyController
     public function myAction(ServerRequestInterface $request): string
     {
         $viewFactoryData = new ViewFactoryData(
-            templateRootPaths: ['EXT:myExtension/Resources/Private/Templates'],
-            partialRootPaths: ['EXT:myExtension/Resources/Private/Partials'],
-            layoutRootPaths: ['EXT:myExtension/Resources/Private/Layouts'],
+            templateRootPaths: ['EXT:my_extension/Resources/Private/Templates'],
+            partialRootPaths: ['EXT:my_extension/Resources/Private/Partials'],
+            layoutRootPaths: ['EXT:my_extension/Resources/Private/Layouts'],
             request: $request,
         );
         $view = $this->viewFactory->create($viewFactoryData);

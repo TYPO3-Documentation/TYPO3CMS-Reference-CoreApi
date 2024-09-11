@@ -26,11 +26,11 @@ Here are some examples of how Fluid can be used in TYPO3:
 ..  deprecated:: 13.3
     These classes have been marked as deprecated in TYPO3 v13 and will be removed in v14:
 
-    * :php:`TYPO3\CMS\Fluid\View\StandaloneView`
-    * :php:`TYPO3\CMS\Fluid\View\TemplateView`
-    * :php:`TYPO3\CMS\Fluid\View\AbstractTemplateView`
-    * :php:`TYPO3\CMS\Extbase\Mvc\View\ViewResolverInterface`
-    * :php:`TYPO3\CMS\Extbase\Mvc\View\GenericViewResolver`
+    *   :php:`TYPO3\CMS\Fluid\View\StandaloneView`
+    *   :php:`TYPO3\CMS\Fluid\View\TemplateView`
+    *   :php:`TYPO3\CMS\Fluid\View\AbstractTemplateView`
+    *   :php:`TYPO3\CMS\Extbase\Mvc\View\ViewResolverInterface`
+    *   :php:`TYPO3\CMS\Extbase\Mvc\View\GenericViewResolver`
 
 ..  _generic-view-factory:
 
@@ -66,7 +66,7 @@ instance:
     if possible. See :ref:`getting-typo3-request-object`.
 *   Use the tuple `$templateRootPaths`, `$partialRootPaths` and
     `$layoutRootPaths` if possible, using an array of "base" paths
-    like `'EXT:Resources/Private/(Templates|Partials|Layouts)'`
+    like `'EXT:my_extension/Resources/Private/(Templates|Partials|Layouts)'`
 *   Avoid using parameter `$templatePathAndFilename`
 *   Call `render('path/within/templateRootPath')` without file-ending on the
     returned ViewInterface instance.
