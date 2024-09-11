@@ -2,23 +2,25 @@
 
 namespace T3docs\Examples\LinkHandler;
 
-// use ...
 use Psr\Http\Message\ServerRequestInterface;
+use Symfony\Component\DependencyInjection\Attribute\Autoconfigure;
 use TYPO3\CMS\Backend\Controller\AbstractLinkBrowserController;
 use TYPO3\CMS\Backend\LinkHandler\LinkHandlerInterface;
-use TYPO3\CMS\Core\Imaging\IconFactory;
 use TYPO3\CMS\Core\Page\PageRenderer;
-use TYPO3\CMS\Core\Utility\GeneralUtility;
-use TYPO3\CMS\Fluid\View\StandaloneView;
+use TYPO3\CMS\Core\View\ViewFactoryData;
+use TYPO3\CMS\Core\View\ViewFactoryInterface;
 
-class GitHubLinkHandler implements LinkHandlerInterface
+#[Autoconfigure(public: true)]
+final class GitHubLinkHandler implements LinkHandlerInterface
 {
     protected $linkAttributes = ['target', 'title', 'class', 'params', 'rel'];
-    protected StandaloneView $view;
     protected $configuration;
-    private IconFactory $iconFactory;
-    private AbstractLinkBrowserController $linkBrowser;
     private array $linkParts;
+
+    public function __construct(
+        private readonly PageRenderer $pageRenderer,
+        private readonly ViewFactoryInterface $viewFactory,
+    ) {}
 
     /**
      * Initialize the handler
@@ -29,11 +31,6 @@ class GitHubLinkHandler implements LinkHandlerInterface
      */
     public function initialize(AbstractLinkBrowserController $linkBrowser, $identifier, array $configuration)
     {
-        $this->linkBrowser = $linkBrowser;
-        $this->iconFactory = GeneralUtility::makeInstance(IconFactory::class);
-        $this->view = GeneralUtility::makeInstance(StandaloneView::class);
-        $this->view->getRequest()->setControllerExtensionName('examples');
-        $this->view->setTemplateRootPaths([GeneralUtility::getFileAbsFileName('EXT:examples/Resources/Private/Templates/LinkBrowser')]);
         $this->configuration = $configuration;
     }
 
@@ -67,20 +64,21 @@ class GitHubLinkHandler implements LinkHandlerInterface
 
     /**
      * Render the link handler
-     *
-     * @param ServerRequestInterface $request
-     *
-     * @return string
      */
     public function render(ServerRequestInterface $request): string
     {
-        GeneralUtility::makeInstance(PageRenderer::class)
-            ->loadRequireJsModule('TYPO3/CMS/Examples/GitHubLinkHandler');
-
-        $this->view->assign('project', $this->configuration['project']);
-        $this->view->assign('action', $this->configuration['action']);
-        $this->view->assign('github', !empty($this->linkParts) ? $this->linkParts['url']['github'] : '');
-        return $this->view->render('GitHub');
+        $this->pageRenderer->loadJavaScriptModule('@vendor/my-extension/GitHubLinkHandler.js');
+        $viewFactoryData = new ViewFactoryData(
+            templateRootPaths: ['EXT:myExt/Resources/Private/Templates/LinkBrowser'],
+            partialRootPaths: ['EXT:myExt/Resources/Private/Partials/LinkBrowser'],
+            layoutRootPaths: ['EXT:myExt/Resources/Private/Layouts/LinkBrowser'],
+            request: $request,
+        );
+        $view = $this->viewFactory->create($viewFactoryData);
+        $view->assign('project', $this->configuration['project']);
+        $view->assign('action', $this->configuration['action']);
+        $view->assign('github', !empty($this->linkParts) ? $this->linkParts['url']['github'] : '');
+        return $view->render('GitHub');
     }
 
     /**
