@@ -360,7 +360,7 @@ This returns the evaluated object between the opening and closing tag.
 Handle additional arguments
 ===========================
 
-..  versionchanged:: Fluid Standalone 2.12 / TYPO3 12.4
+..  versionchanged:: Fluid Standalone v2.12 / TYPO3 v12.4
     All ViewHelpers implementing
     :php-short:`\TYPO3Fluid\Fluid\Core\ViewHelper\AbstractTagBasedViewHelper`
     can now receive arbitrary tag attributes which will be appended to the
