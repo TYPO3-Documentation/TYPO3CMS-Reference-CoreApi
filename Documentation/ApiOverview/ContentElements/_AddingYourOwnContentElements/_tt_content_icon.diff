@@ -1,0 +1,12 @@
+ ExtensionManagementUtility::addTcaSelectItem(
+     'tt_content',
+     'CType',
+     [
+         'label' => 'Example - basic content',
+         'value' => $key,
++        'icon' => 'examples-icon-basic',
+         'group' => 'default',
+     ],
+     'textmedia',
+     'after',
+ );
