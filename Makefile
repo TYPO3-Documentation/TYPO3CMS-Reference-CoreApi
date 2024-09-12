@@ -9,6 +9,15 @@ docs: ## Generate projects documentation (from "Documentation" directory)
 
 	docker run --rm --pull always -v "$(shell pwd)":/project -t ghcr.io/typo3-documentation/render-guides:latest --config=Documentation
 
+.PHONY: docs-live
+docs-live: ## Generate projects documentation (from "Documentation" directory) and serves it on localhost:5173
+	docker run --rm -it --pull always \
+		-v "./Documentation:/project/Documentation" \
+		-v "./Documentation-GENERATED-temp:/project/Documentation-GENERATED-temp" \
+		-p 5173:5173 ghcr.io/garvinhicking/typo3-documentation-browsersync:latest
+
+	xdg-open "http://localhost:5173/Documentation-GENERATED-temp/Index.html"
+
 .PHONY: test-docs
 test-docs: ## Test the documentation rendering
 	mkdir -p Documentation-GENERATED-temp
