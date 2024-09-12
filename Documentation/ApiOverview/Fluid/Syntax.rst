@@ -346,12 +346,19 @@ encapsulate the part in HTML comments:
 
 Note: This way the content will still be transferred to the browser! If
 you want to completely skip parts of your template, you can make use of
-the **f:comment** view helper. To disable parsing you best combine it
+the :ref:`t3viewhelper:typo3fluid-fluid-comment` view helper. To disable parsing you best combine it
 with CDATA tags:
+
+..  versionchanged:: 13.3
+    The content of the :ref:`t3viewhelper:typo3fluid-fluid-comment` is removed
+    before parsing. It is no longer necessary to combine it with CDATA tags
+    to disable parsing.
 
 ..  code-block:: html
     :caption: EXT:my_extension/Resources/Private/Templates/SomeTemplate.html
 
-    <f:comment><![CDATA[
-    This will be ignored by the Fluid parser and won't appear in the source code of the rendered template
-    ]]></f:comment>
+    <f:comment>
+        This will be ignored by the Fluid parser and wil not appear in
+        the source code of the rendered template
+        <x:someBrokenFluid>
+    </f:comment>
