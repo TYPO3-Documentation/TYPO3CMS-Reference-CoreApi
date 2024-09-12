@@ -20,7 +20,7 @@ All files in this directory are automatically included during the TYPO3
 
     ..  note::
         In TYPO3 v11 and below, variables declared in these files were in a shared scope,
-        with the risk of a leakage to the following files. The use of :php:`call_user_func`
+        with the risk of a leakage to the following files. The use of :php:`call_user_func()`
         wrap was a common workaround.
 
 :file:`<tablename>.php`
