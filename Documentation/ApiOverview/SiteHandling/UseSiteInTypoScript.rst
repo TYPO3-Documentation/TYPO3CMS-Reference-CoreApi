@@ -57,6 +57,8 @@ Site configuration can also be used in :ref:`TypoScript conditions <sitehandling
    Site handling; Fluid
    SiteProcessor
 
+.. _sitehandling-fluidtemplate:
+
 FLUIDTEMPLATE
 =============
 
@@ -89,9 +91,18 @@ Specific :ref:`sitehandling-settings` can be accessed via:
    <p>{site.configuration.settings.mySettingKey}</p>
    <p>{site.settings.all.mySettingKey}</p>
 
-..  todo: We do not have a Fluid StandaloneView documentation yet?
+.. _sitehandling-non-extbase-fluid:
 
-In a Fluid :php:`StandaloneView` you can use the PHP API to access the
+Non-Extbase Fluid view
+======================
+
+..  deprecated:: 13.3
+    Using the :php-short:`\TYPO3\CMS\Fluid\View\StandaloneView` is deprecated. Switch
+    to a :php-short:`\TYPO3\CMS\Core\View\ViewInterface` instance provided by
+    the :ref:`sitehandling-site-object`.
+
+In a non-Extbase Fluid view (:php:`\TYPO3\CMS\Core\View\ViewInterface`), created
+manually by the :ref:`generic-view-factory`, you can use the PHP API to access the
 site settings (see :ref:`sitehandling-site-object`), then assign that object
 to your Fluid standalone template, and finally access it through the same
-notation as above.
+notation in the :ref:`Fluid template of a FLUIDTEMPLATE <sitehandling-fluidtemplate>`.
