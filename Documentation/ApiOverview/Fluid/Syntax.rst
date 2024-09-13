@@ -325,7 +325,7 @@ Comments
 ========
 
 If you want to completely skip parts of your template, you can make use of
-the :ref:`t3viewhelper:typo3fluid-fluid-comment`. 
+the :ref:`t3viewhelper:typo3fluid-fluid-comment`.
 
 ..  versionchanged:: 13.3
     The content of the :ref:`t3viewhelper:typo3fluid-fluid-comment` is removed
