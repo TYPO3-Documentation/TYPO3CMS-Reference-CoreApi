@@ -16,7 +16,7 @@ All files in this directory are automatically included during the TYPO3
 
 ..  versionadded:: 12.0
     Files within :file:`Configuration/TCA/` files are loaded within a dedicated scope.
-    This means that variables defined in those files cannot leak to any other 
+    This means that variables defined in those files cannot leak to any other
     TCA file during the TCA compilation process.
 
     ..  note::
