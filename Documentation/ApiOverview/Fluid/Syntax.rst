@@ -338,5 +338,14 @@ the :ref:`t3viewhelper:typo3fluid-fluid-comment`.
     <f:comment>
         This will be ignored by the Fluid parser and will not appear in
         the source code of the rendered template
+    </f:comment>
+
+You can also use the :ref:`t3viewhelper:typo3fluid-fluid-comment` to temporarily comment
+out some Fluid syntax while debugging:
+
+..  code-block:: html
+    :caption: EXT:my_extension/Resources/Private/Templates/SomeTemplate.html
+
+    <f:comment>
         <x:someBrokenFluid>
     </f:comment>
