@@ -5,7 +5,7 @@ import ModuleMenu from "@typo3/backend/module-menu.js";
 class _flashMessageImmediateActionDemo {
   constructor() {
     const immediateActionCallback = new ImmediateAction(function () {
-      ModuleMenu.showModule('web_layout');
+      ModuleMenu.App.showModule('web_layout');
     });
 
     Notification.info('Nearly there', 'You may head to the Page module to see what we did for you', 10, [
