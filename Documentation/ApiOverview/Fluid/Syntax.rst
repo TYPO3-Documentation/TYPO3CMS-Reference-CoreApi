@@ -336,7 +336,7 @@ the :ref:`t3viewhelper:typo3fluid-fluid-comment`.
     :caption: EXT:my_extension/Resources/Private/Templates/SomeTemplate.html
 
     <f:comment>
-        This will be ignored by the Fluid parser and wil not appear in
+        This will be ignored by the Fluid parser and will not appear in
         the source code of the rendered template
         <x:someBrokenFluid>
     </f:comment>
