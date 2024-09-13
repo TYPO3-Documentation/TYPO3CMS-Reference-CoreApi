@@ -36,6 +36,14 @@ will usually take effect without any special measures.
     Loading order also matters if you have multiple extensions overriding the same field,
     probably even contradicting each other.
 
+..  versionadded:: 12.0
+    Files within :file:`Configuration/TCA/` files are loaded within a dedicated scope.
+    This means that variables defined in those files can't leak into the following files.
+
+    ..  note::
+        In TYPO3 v11 and below, variables declared in these files were in a shared scope,
+        with the risk of a leakage to the following files. The use of :php:`call_user_func`
+        wrap was a common workaround.
 
 For more information about an extension's structure, please refer to the
 :ref:`extension architecture <extension-architecture>` chapter.
