@@ -364,34 +364,28 @@ Example using the inline notation:
 Comments
 ========
 
-As the Fluid syntax is basically XML, you can use CDATA tags to comment
-out parts of your template:
+If you want to completely skip parts of your template, you can make use of
+the :ref:`t3viewhelper:typo3fluid-fluid-comment`.
+
+..  versionchanged:: 13.3
+    The content of the :ref:`t3viewhelper:typo3fluid-fluid-comment` is removed
+    before parsing. It is no longer necessary to combine it with CDATA tags
+    to disable parsing.
 
 ..  code-block:: html
     :caption: EXT:my_extension/Resources/Private/Templates/SomeTemplate.html
 
-    <![CDATA[
-    This will be ignored by the Fluid parser
-    ]]>
+    <f:comment>
+        This will be ignored by the Fluid parser and will not appear in
+        the source code of the rendered template
+    </f:comment>
 
-If you want to hide the contents from the browser, you can additionally
-encapsulate the part in HTML comments:
-
-..  code-block:: html
-    :caption: EXT:my_extension/Resources/Private/Templates/SomeTemplate.html
-
-    <!--<![CDATA[
-    This will be ignored by the Fluid parser and by the browser
-    ]]>-->
-
-Note: This way the content will still be transferred to the browser! If
-you want to completely skip parts of your template, you can make use of
-the **f:comment** view helper. To disable parsing you best combine it
-with CDATA tags:
+You can also use the :ref:`t3viewhelper:typo3fluid-fluid-comment` to temporarily comment
+out some Fluid syntax while debugging:
 
 ..  code-block:: html
     :caption: EXT:my_extension/Resources/Private/Templates/SomeTemplate.html
 
-    <f:comment><![CDATA[
-    This will be ignored by the Fluid parser and won't appear in the source code of the rendered template
-    ]]></f:comment>
+    <f:comment>
+        <x:someBrokenFluid>
+    </f:comment>
