@@ -36,10 +36,10 @@ braces to output it.
 Reserved variables in Fluid
 ---------------------------
 
-..  deprecated:: Fluid 2.15 / TYPO3 v12.4
+..  versionchanged:: Fluid 4.0 / TYPO3 v13.3
     Assigning variables of names `true`, `false` or `null` will throw
-    an exception in Fluid v4. In preparation of this change, Fluid v2.15 logs a
-    deprecation level error message if any of these variable names are used.
+    an exception in Fluid v4.
+
     See also :ref:`fluid-variables-reserved-migration`.
 
 The following variable names are reserved and may not be used:
@@ -59,6 +59,46 @@ Migration
 
 ..  literalinclude:: _Syntax/_MyTemplate.diff
     :caption: EXT:my_extension/Resources/Private/Templates/MyTemplate.html (diff)
+
+..  _fluid-boolean:
+
+Boolean values
+--------------
+
+..  versionadded:: Fluid 4.0 / TYPO3 v13.3
+    The boolean literals `{true}` and `{false}` have been introduced.
+
+You can use the boolean literals `{true}` and `{false}` to enable or disable
+properties of tag-based ViewHelpers:
+
+..  code-block:: html
+
+    <my:viewhelper async="{true}" />
+    Result: <tag async="async" />
+
+    <my:viewhelper async="{false}" />
+    Result: <tag />
+
+Of course, any variable containing a boolean can be supplied as well:
+
+..  code-block:: html
+
+    <my:viewhelper async="{isAsync}" />
+
+It is also possible to cast a string to a boolean
+
+..  code-block:: html
+
+    <my:viewhelper async="{myString as boolean}" />
+
+For compatibility reasons empty strings still lead to the attribute
+being omitted from the tag.
+
+..  code-block:: html
+
+    <f:variable name="myEmptyString"></f:variable>
+    <my:viewhelper async="{myEmptyString}" />
+    Result: <tag />
 
 ..  _fluid-arrays:
 
