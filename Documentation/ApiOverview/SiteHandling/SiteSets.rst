@@ -6,6 +6,9 @@
 Site sets
 =========
 
+..  versionadded:: 13.3
+    Site sets have been introduced.
+
 Site sets ship parts of the site configuration as composable pieces. They are
 intended to deliver :ref:`settings <sitehandling-settings>`,
 :ref:`TypoScript <t3tsref:start>` and
@@ -96,109 +99,18 @@ Site sets can also be added to a site via the backend module
 Settings definitions
 ====================
 
-The big problem with TypoScript and TSConfig is that each specified value can
-only ever be a string. It is up to the developer alone to read these values
-and convert them into the desired data type such as integer.
+Settings can be defined in a file called :file:`settings.definitions.yaml` in
+a set, for example :file:`EXT:my_extension/Configuration/Sets/MySet/settings.definitions.yaml`.
 
-TYPO3 wants to remedy this with settings definitions and now provides an API
-with which you can add additional descriptive definitions for each individual
-site setting.
+Read more about :ref:`site-settings-definition`.
 
-..  code-block:: yaml
-    :caption: EXT:my_extension/Configuration/Sets/MySet/settings.definitions.yaml
-
-    settings:
-      website.background.color:
-        # A label for the setting
-        label: 'Background color'
-        # A detailed description of the setting
-        description: 'This will validate the given color string'
-        # Which kind of validation/conversion should be applied?
-        # See below
-        # See: [sysext]/core/Classes/Settings/Type/*
-        type: color
-        # A default values as fallback, if there was no default
-        # defined in config.yaml
-        default: '#129845'
-
-..  _definition-types:
-
-Definition Types
-----------------
-
-..  confval:: int
-    :name: site-setting-type-int
-    :type: string
-    :Path: settings.[my_val].type = int
-
-    Checks whether the value is already an integer or can be interpreted as an
-    integer. If yes, the string is converted into an integer.
-
-..  confval:: number
-    :name: site-setting-type-number
-    :type: string
-    :Path: settings.[my_val].type = number
-
-    Checks whether the value is already an integer or float or whether the
-    string can be interpreted as an integer or float. If yes, the string is
-    converted to an integer or float.
-
-..  confval:: bool
-    :name: site-setting-type-bool
-    :type: string
-    :Path: settings.[my_val].type = bool
-
-    If the value is already a boolean, it is returned directly 1 to 1.
-
-    If the value is an integer, then `false` is returned for 0 and `true` for 1.
-
-    If the value is a string, the corresponding Boolean value is returned for
-    `true`, `false`, `yes`, `no`, `on`, `off`, `0` and `1`.
-
-..  confval:: string
-    :name: site-setting-type-string
-    :type: string
-    :Path: settings.[my_val].type = string
-
-    Converts almost all data types into a string. If an object has been
-    specified, it must be `stringable`, otherwise no conversion takes place.
-    Boolean values are converted to `true` and `false`.
-
-..  confval:: text
-    :name: site-setting-type-text
-    :type: string
-    :Path: settings.[my_val].type = text
-
-    Exactly the same as the `string` type. Use it as an alias if someone doesn't
-    know what to do with `string`.
-
-..  confval:: stringlist
-    :name: site-setting-type-stringlist
-    :type: string
-    :Path: settings.[my_val].type = stringlist
-
-    The value must be an array whose array keys start at 0 and increase by 1 per
-    element. The list in this type is derived from the internal PHP method
-    `array_is_list` and has nothing to do with the fact that comma-separated
-    lists can also be converted here.
-
-    The `string` type is executed for each array entry.
-
-..  confval:: color
-    :name: site-setting-type-color
-    :type: string
-    :Path: settings.[my_val].type = color
-
-    Checks whether the specified string can be interpreted as a color code.
-    Entries starting with `rgb`, `rgba` and `#` are permitted here.
-
-    For `#` color codes, for example, the system checks whether they
-    have 3, 6 or 8 digits.
+Settings have a default value that can be
+:ref:`overridden within a set <site-sets-settings>`.
 
 ..  _site-sets-settings:
 
-Settings for subsets
-====================
+Override site settings defaults in a subsets
+============================================
 
 Settings for subsets (for example to configure settings in declared dependencies)
 can be shipped via :file:`settings.yaml` when placed next to the set file
@@ -218,7 +130,6 @@ provided by `typo3/fluid-styled-content` is configured via
     styles:
       content:
         defaultHeaderType: 1
-
 
 This setting will be exposed as site setting whenever the set
 `my-vendor/my-set` is applied as dependency to a site configuration.

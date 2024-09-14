@@ -1,0 +1,13 @@
+settings:
+  website.background.color:
+    # A label for the setting
+    label: 'Background color'
+    # A detailed description of the setting
+    description: 'This will validate the given color string'
+    # Which kind of validation/conversion should be applied?
+    # See below
+    # See: [sysext]/core/Classes/Settings/Type/*
+    type: color
+    # A default values as fallback, if there was no default
+    # defined in config.yaml
+    default: '#129845'
