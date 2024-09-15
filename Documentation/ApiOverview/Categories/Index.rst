@@ -7,7 +7,8 @@ System categories
 =================
 
 TYPO3 provides a generic categorization system.
-Categories can be created in the backend like any other type of record.
+Categories can be created in the backend like any other type of
+:ref:`record <database-records>`.
 
 A TCA field of the column type :ref:`category<t3tca:columns-category>` is
 available.
