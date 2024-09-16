@@ -1,5 +1,4 @@
 ..  include:: /Includes.rst.txt
-..  highlight:: php
 ..  index::
     pair: Link handler; Events
 ..  _modifyLinkHandlers:

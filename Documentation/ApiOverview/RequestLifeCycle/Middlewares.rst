@@ -1,5 +1,4 @@
 ..  include:: /Includes.rst.txt
-..  highlight:: php
 ..  index::
     Request handling
     PSR-15
