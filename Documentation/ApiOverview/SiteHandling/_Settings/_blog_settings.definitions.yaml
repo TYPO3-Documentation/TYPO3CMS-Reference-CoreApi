@@ -1,0 +1,23 @@
+categories:
+  BlogExample:
+    label: 'Blog Example' # (1)
+  BlogExample.templates:
+    label: 'Templates' # (2)
+    parent: BlogExample
+  BlogExample.pages:
+    label: 'Pages'
+    parent: BlogExample
+
+settings:
+  blogExample.templateRootPath:  # (5)
+    label: 'Templates' # (3)
+    category: BlogExample.templates # (2)
+    description: 'Path to template root'  # (4)
+    type: string  # (6)
+    default: 'EXT:blog_example/Resources/Private/Templates/'  # (7) + (8)
+  blogExample.partialRootPath:
+    label: 'Partials'
+    category: BlogExample.templates
+    description: 'Path to partial root'
+    type: string
+    default: 'EXT:blog_example/Resources/Private/Partials/'
