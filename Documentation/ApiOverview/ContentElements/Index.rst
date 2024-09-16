@@ -28,7 +28,11 @@ Introduction
 ..  contents::
     :local:
 
-In TYPO3, content elements and plugins are both used to present and manage
+In TYPO3, Content elements and plugins are both stored as :ref:`database-records`
+in table :sql:`tt_content`. They are usually edited in the backend in module
+:guilabel:`Web > Page`.
+
+Content elements and plugins are both used to present and manage
 content on a website, but they serve different purposes and have distinct
 characteristics:
 

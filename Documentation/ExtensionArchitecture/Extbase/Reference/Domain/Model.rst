@@ -24,6 +24,8 @@ thread of continuity and identity, for example, a person or a blog post.
 Objects stored in the database are usually entities as they can be identified
 by the :sql:`uid` and are persisted, therefore have continuity.
 
+In the TYPO3 backend models are displayed as :ref:`database-records`.
+
 **Example:**
 
 ..  include:: /CodeSnippets/Extbase/Domain/AbstractEntity.rst.txt
