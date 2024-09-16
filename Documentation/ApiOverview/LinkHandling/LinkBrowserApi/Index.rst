@@ -1,5 +1,4 @@
 .. include:: /Includes.rst.txt
-.. highlight:: php
 .. index:: LinkBrowser
 .. _linkbrowser-api:
 .. _LinkBrowser:
