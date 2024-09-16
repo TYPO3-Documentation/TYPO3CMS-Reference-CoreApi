@@ -96,6 +96,14 @@ Site setting definition properties
             The default value must have the same type like defined in
             :confval:`site-settings-definition-settings-type`.
 
+        ..  confval:: readonly
+            :type: bool
+            :name: site-settings-definition-settings-readonly
+
+            If a site setting is marked as readonly, it can be overridden only
+            by editing  the :file:`config/sites/my-site/settings.yaml` directly,
+            but not from within the editor.
+
 ..  _definition-types:
 
 Definition types
