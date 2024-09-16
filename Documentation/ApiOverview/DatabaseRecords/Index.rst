@@ -53,8 +53,8 @@ Technical structure of a record:
 Each record is stored in a database table. Each row represents one record. Each
 column represents a field of the record or some kind of metadata.
 
-A record typically includes a unique identifier in field `uid`, the id of the
-page record on which it is located in field `pid`, fields for various
+A record typically includes a unique identifier in column `uid`, the id of the
+page record on which it is located in column `pid`, columns for various
 attributes (for example, title, content), and metadata like creation and
 modification timestamps, visibility, information on translation
 and workspace handling. A record can have relations to other records.
