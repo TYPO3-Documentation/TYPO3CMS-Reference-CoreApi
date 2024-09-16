@@ -88,7 +88,7 @@ TCA in :confval:`ctrl > type <t3tca:ctrl-type>`. The types itself are stored in
 
 This allows TYPO3 to store related records, such as different content types,
 in a shared table like :sql:`tt_content` while supporting custom
-fields for each record type. 
+fields for each record type.
 
 For content elements in table :sql:`tt_content` there is a second level of
 subtypes in use where the field `CType` contains the value "list" and the field
