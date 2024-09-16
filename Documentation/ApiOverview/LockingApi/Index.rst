@@ -1,6 +1,4 @@
 .. include:: /Includes.rst.txt
-
-.. highlight:: php
 .. index:: ! Locking
 .. _locking-api:
 

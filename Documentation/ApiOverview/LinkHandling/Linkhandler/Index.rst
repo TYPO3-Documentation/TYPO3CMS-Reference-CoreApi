@@ -1,5 +1,4 @@
 .. include:: /Includes.rst.txt
-.. highlight:: typoscript
 .. index:: LinkHandlers
 .. _linkhandler:
 
