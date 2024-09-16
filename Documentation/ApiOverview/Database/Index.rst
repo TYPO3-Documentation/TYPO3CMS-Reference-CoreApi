@@ -22,7 +22,7 @@ In Extbase based extensions tables are abstracted as
 :ref:`Extbase models <extbase-model>`. Operations like creating, updating and
 deleting database entries are usually done from within a
 :ref:`Extbase repository <extbase-repository>` with methods provided by Extbase
-classes. However Doctrine DBAL can also be used from extensions that use, for
+classes. However, Doctrine DBAL can also be used by extensions that use, for
 example an :ref:`Extbase controller <extbase-controller>`.
 
 ..  toctree::
