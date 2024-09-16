@@ -29,7 +29,7 @@ Page records
     These represent pages in the page tree, which structure the website. They
     are stored in table :sql:`pages`.
 Content records
-    These include text, images, videos, or any other media placed within a
+    These include text, images, videos, or any other element placed within a
     page. They are stored in table :sql:`tt_content`.
 Backend user records
     Information about users who have access to the TYPO3 backend. They
