@@ -20,6 +20,12 @@ for managing content and data within the system.
 ..  contents::
     :caption: Content on this page
 
+..  toctree::
+    :caption: Subpages
+    :glob:
+
+    *
+
 ..  _database-records-examples:
 
 Common examples of records in TYPO3:
