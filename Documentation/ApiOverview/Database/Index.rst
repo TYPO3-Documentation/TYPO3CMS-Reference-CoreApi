@@ -10,7 +10,7 @@ Database (Doctrine DBAL)
 This chapter describes accessing the database on the level of the Doctrine
 Database Abstraction Layer (DBAL).
 
-The Doctrine Database Abstraction Layer (DBAL) in TYPO3 provides developers
+The `Doctrine Database Abstraction Layer (DBAL) <https://www.doctrine-project.org/projects/dbal.html>`__ in TYPO3 provides developers
 with a powerful and flexible way to interact with databases, allowing them to
 perform database operations through an object-oriented API while ensuring
 compatibility across different database systems.
