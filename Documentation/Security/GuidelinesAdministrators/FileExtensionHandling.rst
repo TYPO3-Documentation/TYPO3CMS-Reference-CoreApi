@@ -1,6 +1,5 @@
 .. include:: /Includes.rst.txt
 .. index:: pair: Security guidelines; File extensions
-.. highlight:: apacheconf
 .. _security-file-extension-handling:
 
 =======================

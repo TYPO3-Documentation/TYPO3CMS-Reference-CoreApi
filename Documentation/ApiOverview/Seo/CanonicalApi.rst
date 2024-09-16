@@ -1,6 +1,5 @@
 .. include:: /Includes.rst.txt
 .. index:: Canonical
-.. highlight:: php
 .. _canonicalapi:
 
 =============
