@@ -8,9 +8,9 @@ Site settings editor
 
 ..  versionadded:: 13.3
     The site setting editor has been introduced as backend module
-    :guilabel:`Sites > Settings`.
+    :guilabel:`Site Management > Settings`.
 
-In module :guilabel:`Sites > Settings` you get an overview of all sites in
+In module :guilabel:`Site Management > Settings` you get an overview of all sites in
 the current installation and can edit the :ref:`sitehandling-settings` for
 all pages that contain settings:
 
@@ -29,8 +29,8 @@ and subcategories to order the settings.
     The site in the examples includes the "My Sitepackage" and "Blog Example"
     sets. "My Sitepackage" depends on "Fluid Styled Content"
 
-The settings to be displayed here have to be defined in an extension`s or
-site packages's set in a `setting definition <site-settings-definition>` file, for example
+The settings to be displayed here have to be defined in an extension's or
+site packages's set in a :ref:`setting definition <site-settings-definition>` file, for example
 :file:`EXT:my_sitepackage/Configuration/Sets/MySitepackage/settings.definitions.yaml`.
 
 Settings that have been made directly in the :file:`settings.yaml` file without a
@@ -50,6 +50,7 @@ Configuring the site settings editor
 
 ..  literalinclude:: _Settings/_blog_settings.definitions.yaml
     :caption: EXT:blog_example/Configuration/Sets/BlogExample/settings.definitions.yaml (Excerpt)
+    :linenos:
 
 See the complete example at
 `settings.definitions.yaml (GitHub) <https://github.com/TYPO3-Documentation/blog_example/blob/main/Configuration/Sets/BlogExample/settings.definitions.yaml>`__.
