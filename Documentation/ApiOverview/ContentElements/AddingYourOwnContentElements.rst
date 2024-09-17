@@ -80,7 +80,7 @@ The following call needs to be added to the file
 ..  literalinclude:: _AddingYourOwnContentElements/_tt_content.php
     :caption: EXT:my_extension/Configuration/TCA/Overrides/tt_content.php
     :linenos:
-    :emphasize-lines: 12
+    :emphasize-lines: 10
 
 Now the new content element is available in the CType selector and the
 "New Content Element" wizard.
@@ -114,7 +114,7 @@ The new content element wizard
 ..  literalinclude:: _AddingYourOwnContentElements/_tt_content.php
     :caption: EXT:my_extension/Configuration/TCA/Overrides/tt_content.php
     :linenos:
-    :emphasize-lines: 17,18,19
+    :emphasize-lines: 15,16,17
 
 The values in the array highlighted in the code example above are used for the
 display in the :guilabel:`New Content Element` wizard.
@@ -146,13 +146,13 @@ the file :file:`Configuration/TCA/Overrides/tt_content.php`:
 ..  literalinclude:: _AddingYourOwnContentElements/_tt_content.php
     :caption: EXT:my_extension/Configuration/TCA/Overrides/tt_content.php
     :linenos:
-    :emphasize-lines: 28,29
+    :emphasize-lines: 26,27
 
-In line 28 a custom :ref:`palette <t3tca:palettes>` with the header and related
+In line 27 a custom :ref:`palette <t3tca:palettes>` with the header and related
 fields is displayed. This palette and its fields are defined in
 :t3src:`typo3/sysext/frontend/Configuration/TCA/tt_content.php`.
 
-In line 29 a predefined field, `bodytext` is added to be displayed in the
+In line 28 a predefined field, `bodytext` is added to be displayed in the
 form of the new content element type.
 
 .. index:: Content element; Frontend rendering
