@@ -72,7 +72,7 @@ The sequence looks like the following:
         :caption: EXT:my_extension/Resources/Private/Templates/ShowForm.html
 
         <!-- Assign request token object for ViewHelper -->
-        <f:form action="process" requestToken="{requestToken}>
+        <f:form action="process" requestToken="{requestToken}">
             ...
         </f:form>
 
