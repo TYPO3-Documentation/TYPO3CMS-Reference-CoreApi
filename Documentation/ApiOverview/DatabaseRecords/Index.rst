@@ -101,7 +101,7 @@ subtypes in use where the field `CType` contains the value "list" and the field
 `list-type` contains the actual type. This second level of types exists for
 historic reasons. Read more about it in chapter :ref:`content-element-and-plugin`.
 
-.. _database-record-objects:
+..  _database-record-objects:
 
 Record objects
 ==============
