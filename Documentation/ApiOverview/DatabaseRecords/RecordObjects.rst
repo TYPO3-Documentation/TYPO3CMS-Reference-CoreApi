@@ -1,6 +1,6 @@
 :navigation-title: Record objects
-.. include:: /Includes.rst.txt
-.. _record_objects:
+..  include:: /Includes.rst.txt
+..  _record_objects:
 
 ==============
 Record objects
@@ -30,7 +30,7 @@ In TypoScript you can use the
 usually in combination with the :ref:`DatabaseQueryProcessor <t3tsref:DatabaseQueryProcessor>`
 to pass record objects to the Fluid templating engine.
 
-.. _record_objects_php:
+..  _record_objects_php:
 
 Provide records in PHP
 ======================
@@ -41,7 +41,7 @@ Provide records in PHP
 In PHP a record object can be created by the
 :php:`\TYPO3\CMS\Core\Domain\RecordFactory`.
 
-.. _record_objects_fluid:
+..  _record_objects_fluid:
 
 Use records in Fluid
 ====================
