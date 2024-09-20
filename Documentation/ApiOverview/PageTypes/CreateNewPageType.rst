@@ -89,7 +89,8 @@ need to add the new doktype as select item and associate it with the configured 
           [
               'LLL:EXT:' . $extKey . '/Resources/Private/Language/locallang.xlf:archive_page_type',
               $archiveDoktype,
-              'EXT:' . $extKey . '/Resources/Public/Icons/Archive.svg'
+              'EXT:' . $extKey . '/Resources/Public/Icons/Archive.svg',
+              'default'
           ],
           '1',
           'after'
