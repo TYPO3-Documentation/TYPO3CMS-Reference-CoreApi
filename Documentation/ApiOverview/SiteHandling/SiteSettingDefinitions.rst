@@ -10,11 +10,12 @@ Site settings definitions
 ..  versionadded:: 13.1
     Site-scoped setting definitions where introduced. They will most likely be
     the place to configure site-wide configuration, which was previously only
-    possible to modify via Constant Editor, modifying TypoScript constants.
+    possible to modify via modifying TypoScript constants, for example in the
+    Constant Editor.
 
 Site settings definitions allow to define settings with a type and a guaranteed
 default value. They can be defined in :ref:`site-sets`, in a file called
-:file:`_blog_settins.definitions.yaml`.
+:file:`settings.definitions.yaml`.
 
 It is recommended to use site-sets and their UI configuration in favor of
 TypoScript Constants.
