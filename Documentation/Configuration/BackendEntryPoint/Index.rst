@@ -6,6 +6,10 @@
 Backend entry point
 ===================
 
+..  youtube:: hsrAtnI9244
+
+----
+
 ..  versionadded:: 13.0
     Before TYPO3 v13 the backend entry point path for accessing the backend has
     always been :samp:`/typo3`. Since TYPO3 v13 the backend entry point can be
