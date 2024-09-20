@@ -8,7 +8,7 @@ Backend entry point
 
 ..  youtube:: hsrAtnI9244
 
-------------
+----
 
 ..  versionadded:: 13.0
     Before TYPO3 v13 the backend entry point path for accessing the backend has
