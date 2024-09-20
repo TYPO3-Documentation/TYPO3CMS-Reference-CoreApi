@@ -166,10 +166,9 @@ Definition types
         :type: string
         :Path: settings.[my_val].type = stringlist
 
-        The value must be an array whose array keys start at 0 and increase by 1 per
-        element. The list in this type is derived from the internal PHP method
-        `array_is_list` and has nothing to do with the fact that comma-separated
-        lists can also be converted here.
+        The value must be an array whose array key starts at 0 and increases by 1 per element. This sequence is                 
+        checked using the internal PHP method array_is_list in order to prevent named array keys from the outset. 
+        This also means that comma-separated lists cannot be converted here.
 
         The `string` type is executed for each array entry.
 
