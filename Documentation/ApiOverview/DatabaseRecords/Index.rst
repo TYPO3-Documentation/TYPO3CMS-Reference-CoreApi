@@ -20,6 +20,12 @@ for managing content and data within the system.
 ..  contents::
     :caption: Content on this page
 
+..  toctree::
+    :caption: Subpages
+    :glob:
+
+    *
+
 ..  _database-records-examples:
 
 Common examples of records in TYPO3:
@@ -94,6 +100,22 @@ For content elements in table :sql:`tt_content` there is a second level of
 subtypes in use where the field `CType` contains the value "list" and the field
 `list-type` contains the actual type. This second level of types exists for
 historic reasons. Read more about it in chapter :ref:`content-element-and-plugin`.
+
+..  _database-record-objects:
+
+Record objects
+==============
+
+..  versionadded:: 13.2
+    Record objects have been introduced as an experimental feature.
+
+Record objects are instances of :php:`\TYPO3\CMS\Core\Domain\Record` and
+contain an object-oriented representation of a database record.
+
+A record object can be used to output a database record in :ref:`Fluid <fluid>`
+when no :ref:`extbase domain model <database-records-models>` is available.
+
+Read more in chapter :ref:`record_objects`.
 
 .. _database-records-models:
 

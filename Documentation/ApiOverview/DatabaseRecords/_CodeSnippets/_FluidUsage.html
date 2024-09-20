@@ -1,0 +1,49 @@
+<!-- Any property, which is available in the Record (like normal) -->
+{record.title}
+{record.uid}
+{record.pid}
+
+<!-- Language related properties -->
+{record.languageId}
+{record.languageInfo.translationParent}
+{record.languageInfo.translationSource}
+
+<!-- The overlaid uid -->
+{record.overlaidUid}
+
+<!-- Types are a combination of the table name and the Content Type name. -->
+<!-- Example for table "tt_content" and CType "textpic": -->
+
+<!-- "tt_content" (this is basically the table name) -->
+{record.mainType}
+
+<!-- "textpic" (this is the CType) -->
+{record.recordType}
+
+<!-- "tt_content.textpic" (Combination of mainType and record type, separated by a dot) -->
+{record.fullType}
+
+<!-- System related properties -->
+{data.systemProperties.isDeleted}
+{data.systemProperties.isDisabled}
+{data.systemProperties.isLockedForEditing}
+{data.systemProperties.createdAt}
+{data.systemProperties.lastUpdatedAt}
+{data.systemProperties.publishAt}
+{data.systemProperties.publishUntil}
+{data.systemProperties.userGroupRestriction}
+{data.systemProperties.sorting}
+{data.systemProperties.description}
+
+<!-- Computed properties depending on the request context -->
+{data.computedProperties.versionedUid}
+{data.computedProperties.localizedUid}
+{data.computedProperties.requestedOverlayLanguageId}
+{data.computedProperties.translationSource} <!-- Only for pages, contains the Page model -->
+
+<!-- Workspace related properties -->
+{data.versionInfo.workspaceId}
+{data.versionInfo.liveId}
+{data.versionInfo.state.name}
+{data.versionInfo.state.value}
+{data.versionInfo.stageId}
