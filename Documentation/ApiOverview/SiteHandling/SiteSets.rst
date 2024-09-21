@@ -6,7 +6,7 @@
 Site sets
 =========
 
-..  versionadded:: 13.3
+..  versionadded:: 13.1
     Site sets have been introduced.
 
 Site sets ship parts of the site configuration as composable pieces. They are
