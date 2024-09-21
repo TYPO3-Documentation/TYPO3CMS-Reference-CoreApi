@@ -29,6 +29,7 @@ setup-typo3: ## Setup TYPO3 stub
 .PHONY: command-json
 command-json: ## Regenerate JSON file containing all console commands
 	ddev exec .Build/bin/typo3 clinspector:gadget > Documentation/ApiOverview/CommandControllers/commands.json
+	echo "" >> Documentation/ApiOverview/CommandControllers/commands.json
 
 .PHONY: test-lint
 test-lint: ## Regenerate code snippets
