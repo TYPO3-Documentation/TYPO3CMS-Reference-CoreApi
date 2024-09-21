@@ -16,15 +16,19 @@ test-docs: ## Test the documentation rendering
 	docker run --rm --pull always -v "$(shell pwd)":/project -t ghcr.io/typo3-documentation/render-guides:latest --config=Documentation --no-progress --fail-on-log
 
 .PHONY: generate
-generate: codesnippets command-json ## Regenerate automatic code documentation
+generate: setup-typo3 codesnippets command-json ## Regenerate automatic code documentation
 
 .PHONY: codesnippets
 codesnippets: ## Regenerate code snippets
 	ddev exec .Build/bin/typo3 codesnippet:create Documentation/
 
+.PHONY: setup-typo3
+setup-typo3: ## Setup TYPO3 stub
+	ddev exec '.Build/bin/typo3 setup --driver=sqlite --username=db --password=db --admin-username=john-doe --admin-user-password="John-Doe-1701D." --admin-email="john.doe@example.com" --project-name="TYPO3 Docs" --no-interaction --server-type=apache --force'
+
 .PHONY: command-json
 command-json: ## Regenerate JSON file containing all console commands
-	ddev exec .Build/bin/typo3 list --format=json > Documentation/ApiOverview/CommandControllers/commands.json
+	ddev exec .Build/bin/typo3 clinspector:gadget > Documentation/ApiOverview/CommandControllers/commands.json
 
 .PHONY: test-lint
 test-lint: ## Regenerate code snippets
