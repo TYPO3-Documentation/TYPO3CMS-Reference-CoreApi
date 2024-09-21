@@ -4,6 +4,7 @@
     "license": "OPL-1.0",
     "type": "typo3-cms-documentation",
     "require": {
+        "garvinhicking/clinspector-gadget": "^0.1.1",
         "typo3/cms-core": "dev-main as 13.1"
     },
     "require-dev": {
