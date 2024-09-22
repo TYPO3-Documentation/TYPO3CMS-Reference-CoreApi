@@ -18,8 +18,31 @@ extensions.
 The module provides an enum with common modifier keys: :kbd:`Ctrl`, :kbd:`Meta`,
 :kbd:`Alt`, and :kbd:`Shift`), and also a public property describing the common
 hotkey modifier based on the user's operating system: :kbd:`Cmd` (Meta) on macOS,
-:kbd:`Ctrl` on anything else. Using any modifier is optional, but highly
+:kbd:`Ctrl` on anything else (this can be normalized via 
+:javascript:`Hotkeys.normalizedCtrlModifierKey`. Using any modifier is optional, but highly
 recommended.
+
+..  hint::
+
+    Note that on macOS, using the :javascript:`ModifierKeys.ALT` to query a
+    pressed key needs you to listen on the key that results in using this
+    modifier. So, if you listen on:
+
+    ..  code-block:: javascript
+
+        [Hotkeys.normalizedCtrlModifierKey, ModifierKeys.ALT, 'e']
+
+    this will not work, because on macOS :kbd:`ALT+e` results in `€`,
+    and you would need to bind to:
+
+    ..  code-block:: javascript
+
+        [Hotkeys.normalizedCtrlModifierKey, ModifierKeys.ALT, '€']
+
+    instead. To make this work across different operating systems,
+    it would be recommended to listen on both variants with distinct
+    javascript callbacks executing the same action. Or, try avoiding
+    to bind to `ModifierKeys.ALT` altogether.
 
 A hotkey is registered with the :js:`register()` method. The method takes three
 arguments:
