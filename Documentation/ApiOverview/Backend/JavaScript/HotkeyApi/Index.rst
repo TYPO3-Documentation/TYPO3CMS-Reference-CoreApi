@@ -18,7 +18,7 @@ extensions.
 The module provides an enum with common modifier keys: :kbd:`Ctrl`, :kbd:`Meta`,
 :kbd:`Alt`, and :kbd:`Shift`), and also a public property describing the common
 hotkey modifier based on the user's operating system: :kbd:`Cmd` (Meta) on macOS,
-:kbd:`Ctrl` on anything else (this can be normalized via 
+:kbd:`Ctrl` on anything else (this can be normalized via
 :javascript:`Hotkeys.normalizedCtrlModifierKey`. Using any modifier is optional, but highly
 recommended.
 
