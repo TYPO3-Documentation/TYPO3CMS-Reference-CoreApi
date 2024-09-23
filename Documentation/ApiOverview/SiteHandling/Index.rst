@@ -27,6 +27,7 @@ through the features of the module and goes into API and programming details.
     SiteSets
     SiteSettings
     SiteSettingDefinitions
+    SiteSettingsEditor
     CliTools
     AccessingSiteConfiguration
     ExtendingSiteConfig
