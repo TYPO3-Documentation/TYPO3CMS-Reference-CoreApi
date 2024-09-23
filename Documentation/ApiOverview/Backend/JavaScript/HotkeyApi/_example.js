@@ -1,7 +1,7 @@
 import Hotkeys, {ModifierKeys} from '@typo3/backend/hotkeys.js';
 
-Hotkeys.register([Hotkeys.normalizedCtrlModifierKey, ModifierKeys.ALT, 'e'], keyboardEvent => {
-  console.log('Triggered on Ctrl/Cmd+Alt+E');
+Hotkeys.register([Hotkeys.normalizedCtrlModifierKey, ModifierKeys.SHIFT, 'e'], keyboardEvent => {
+  console.log('Triggered on Ctrl/Cmd+Shift+E');
 }, {
   scope: 'my-extension/module',
   bindElement: document.querySelector('.some-element')

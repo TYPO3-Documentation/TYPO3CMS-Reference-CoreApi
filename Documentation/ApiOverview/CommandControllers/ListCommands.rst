@@ -7,8 +7,6 @@
 List of TYPO3 console commands
 ==============================
 
-..  todo: List all common commands once https://forge.typo3.org/issues/103858 is resolved
-
 By default TYPO3 ships the listed console commands, depending
 on which system extensions are installed.
 
@@ -28,7 +26,8 @@ on legacy installations:
 List all TYPO3 console commands
 ===============================
 
-..  console:command:: list
+..  console:command-list::
     :json: commands.json
     :script: vendor/bin/typo3
     :exclude-option: help, quiet, verbose, version, ansi, no-ansi, no-interaction
+    :exclude-namespace: clinspector, codesnippet, examples, styleguide
