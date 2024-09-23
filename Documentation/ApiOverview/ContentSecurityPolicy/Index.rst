@@ -36,9 +36,15 @@ web page context.
 Content Security Policy declarations can be applied to a TYPO3 website in
 frontend and backend scope with a dedicated API.
 
-To delegate Content Security Policy handling to TYPO3 frontend, the feature flag
-:ref:`security.frontend.enforceContentSecurityPolicy <typo3ConfVars_sys_features_security.frontend.enforceContentSecurityPolicy>`
-needs to be enabled.
+To delegate Content Security Policy handling to TYPO3 frontend, at least one of
+the feature flags
+
+*   :confval:`globals-typo3-conf-vars-sys-features-security-frontend-enforceContentSecurityPolicy`
+    (for enforcing)
+*   :confval:`globals-typo3-conf-vars-sys-features-security-frontend-reportContentSecurityPolicy`
+    (for report-only mode, available since TYPO3 v12.4.20)
+
+need to be enabled.
 
 ..  versionchanged:: 13.0
 
