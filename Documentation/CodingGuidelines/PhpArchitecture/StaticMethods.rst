@@ -138,10 +138,9 @@ Bad Examples
 
 *   :php:`Core/Utility/RootlineUtility`
 
-  * Not static.
+    *   Not static.
 
-  * Should probably be a dedicated class construct, probably a service
-    is not enough. Why is this not part of a tree structure?
+    *   Should probably be a dedicated class construct, probably a service is not enough. Why is this not part of a tree structure?
 
 
 Red Flags
