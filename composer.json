@@ -4,12 +4,12 @@
     "license": "OPL-1.0",
     "type": "typo3-cms-documentation",
     "require": {
-        "garvinhicking/clinspector-gadget": "^0.1.1",
         "typo3/cms-core": "dev-main as 13.1"
     },
     "require-dev": {
         "ergebnis/composer-normalize": "~2.41.0",
         "friendsofphp/php-cs-fixer": "^3.46",
+        "garvinhicking/clinspector-gadget": "^0.1.1",
         "symfony/yaml": "^7.0",
         "t3docs/blog-example": "dev-main",
         "t3docs/codesnippet": "dev-main",
