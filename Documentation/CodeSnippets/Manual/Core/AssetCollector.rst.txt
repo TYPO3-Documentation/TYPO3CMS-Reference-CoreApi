@@ -3,20 +3,24 @@
 
 ..  php:class:: AssetCollector
 
-    The Asset Collector is responsible for keeping track of
-    - everything within <script> tags: javascript files and inline javascript code
-    - inline CSS and CSS files
+    The Asset Collector is responsible for keeping track of:
+
+    - everything within <script> tags: javascript files and inline javascript code,
+    - inline CSS and CSS files.
 
     The goal of the asset collector is to:
-    - utilize a single "runtime-based" store for adding assets of certain kinds that are added to the output
-    - allow to deal with assets from non-cacheable plugins and cacheable content in the Frontend
-    - reduce the "power" and flexibility (I'd say it's a burden) of the "god class" PageRenderer.
-    - reduce the burden of storing everything in PageRenderer
+
+    - utilize a single "runtime-based" store for adding assets of certain kinds that are added to the output,
+    - allow to deal with assets from non-cacheable plugins and cacheable content in the Frontend,
+    - reduce the "power" and flexibility (I'd say it's a burden) of the "god class" PageRenderer,
+    - reduce the burden of storing everything in PageRenderer.
 
     As a side effect this allows to:
+
     - Add a single CSS snippet or CSS file per content block, but assure that the CSS is only added once to the output.
 
     Note on the implementation:
+
     - We use a Singleton to make use of the AssetCollector throughout Frontend process (similar to PageRenderer).
     - Although this is not optimal, I don't see any other way to do so in the current code.
 
