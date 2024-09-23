@@ -9,7 +9,7 @@ Site settings
 ..  versionadded:: 13.1
     Site settings can receive a type, a default value and some documentation in
     :ref:`site settings definitions <site-sets-settings-definition>`. It is
-    recommended to always define a site setting before using is as only this way
+    recommended to always define a site setting before using it, as only this way
     you can ensure proper types and default values.
 
 Site settings can be used to provide settings for a site. They can be accessed
