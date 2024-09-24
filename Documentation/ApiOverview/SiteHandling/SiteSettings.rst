@@ -6,17 +6,11 @@
 Site settings
 =============
 
-..  versionchanged:: 12.1
-    Before TYPO3 v12.1 the site settings were stored in the :file:`config.yaml`
-    file under the :yaml:`settings` key. An upgrade wizard copies the settings
-    to the new :file:`settings.yaml` file.
-
-    Settings are not removed from the :file:`config.yaml` file for now, but will
-    not have any effect anymore as soon as a :file:`settings.yaml` file exists.
-
-    Please review your settings in the :file:`config.yaml` file and remove them
-    manually. Eventually, you need and/or want to adopt your deployment
-    workflow.
+..  versionadded:: 13.1
+    Site settings can receive a type, a default value and some documentation in
+    :ref:`site settings definitions <site-sets-settings-definition>`. It is
+    recommended to always define a site setting before using it, as only this way
+    you can ensure proper types and default values.
 
 Site settings can be used to provide settings for a site. They can be accessed
 via
