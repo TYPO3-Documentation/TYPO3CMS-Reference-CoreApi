@@ -684,7 +684,29 @@ configurations.
         :Default: false
 
         If enabled, the :ref:`Content Security Policy <content-security-policy>`
-        is applied in frontend scope.
+        is enforced in frontend scope (HTTP header `Content-Security-Policy`).
+
+        This option can be enabled in combination with
+        :confval:`globals-typo3-conf-vars-sys-features-security-frontend-reportContentSecurityPolicy`.
+        Then both headers are set.
+
+    ..  _typo3ConfVars_sys_features_security.frontend.reportContentSecurityPolicy:
+
+    ..  confval:: security.frontend.reportContentSecurityPolicy
+        :name: globals-typo3-conf-vars-sys-features-security-frontend-reportContentSecurityPolicy
+        :Path: $GLOBALS['TYPO3_CONF_VARS']['SYS']['features']['security.frontend.reportContentSecurityPolicy']
+        :type: bool
+        :Default: false
+
+        ..  versionadded:: 12.4.20
+
+        If enabled, the :ref:`Content Security Policy <content-security-policy>`
+        is applied in frontend scope as report-only (HTTP header
+        `Content-Security-Policy-Report-Only`).
+
+        This option can be enabled in combination with
+        :confval:`globals-typo3-conf-vars-sys-features-security-frontend-enforceContentSecurityPolicy`.
+        Then both headers are set.
 
     ..  _typo3ConfVars_sys_features_security.frontend.allowInsecureFrameOptionInShowImageController:
 
