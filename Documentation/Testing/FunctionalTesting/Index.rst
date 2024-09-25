@@ -171,7 +171,7 @@ Frontend tests
 To prepare a frontend test, the system can be instructed to load a set of
 :file:`.typoscript` files for a working frontend:
 
-..  literalinclude:: _FunctionalTests/_SomeTestConfiguration.php
+..  literalinclude:: _FunctionalTests/_SomeTestFrontend.php
     :language: php
     :caption: EXT:my_extension/Tests/Functional/SomeTest.php
 
