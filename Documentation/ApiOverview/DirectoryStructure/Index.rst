@@ -261,7 +261,7 @@ the new version in your project's :file:`composer.json`:
 
     -   `TYPO3 and Composer — we've come a long way <https://b13.com/core-insights/typo3-and-composer-weve-come-a-long-way>`__
     -   `Composer changes for TYPO3 v11 and v12 <https://usetypo3.com/composer-changes-for-typo3-v11-and-v12.html>`__
-    -   `Migration to typo3/composer-cms-installers version 4+ <https://brot.krue.ml/migration-typo3-composer-cms-installers-version-4/>`__
+    -   `Migration to typo3/composer-cms-installers version 4+ <https://brotkrueml.dev/migration-typo3-composer-cms-installers-version-4/>`__
 
 
 .. _directory-public-assets:
