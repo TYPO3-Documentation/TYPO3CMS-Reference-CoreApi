@@ -1,6 +1,7 @@
 *.bak
 *.idea
 .Build/*
+config/
 *.project
 *.swp
 *NOT_VERSIONED*
