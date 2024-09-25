@@ -14,4 +14,8 @@ jobs:
         run: |
           mkdir -p Documentation-GENERATED-temp \
           && docker run --rm --pull always -v $(pwd):/project \
-             ghcr.io/typo3-documentation/render-guides:latest --config=Documentation --no-progress --fail-on-log
+             ghcr.io/typo3-documentation/render-guides:latest \
+             --config=Documentation \
+             --output-format=singlepage \
+             --no-progress \
+             --fail-on-log
