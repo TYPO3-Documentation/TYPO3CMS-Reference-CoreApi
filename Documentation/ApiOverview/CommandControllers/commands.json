@@ -65,7 +65,7 @@
                         "accept_value": false,
                         "is_value_required": false,
                         "is_multiple": false,
-                        "description": "Display help for the given command. When no command is given display help for the list<\/info> command",
+                        "description": "Display help for the given command. When no command is given display help for the <info>list<\/info> command",
                         "default": false
                     },
                     "quiet": {
@@ -132,7 +132,7 @@
             "usage": [
                 "completion [--debug] [--] [<shell>]"
             ],
-            "help": "The completion<\/> command dumps the shell completion script required\nto use shell autocompletion (currently, bash, fish, zsh completion are supported).\n\nStatic installation\n-------------------<\/>\n\nDump the script to a global completion file and restart your shell:\n\n    .Build\/bin\/typo3 completion  | sudo tee \/etc\/bash_completion.d\/typo3<\/>\n\nOr dump the script to a local file and source it:\n\n    .Build\/bin\/typo3 completion  > completion.sh<\/>\n\n    # source the file whenever you use the project<\/>\n    source completion.sh<\/>\n\n    # or add this line at the end of your \"~\/.bashrc\" file:<\/>\n    source \/path\/to\/completion.sh<\/>\n\nDynamic installation\n--------------------<\/>\n\nAdd this to the end of your shell configuration file (e.g. \"~\/.bashrc\"<\/>):\n\n    eval \"$(\/var\/www\/html\/.Build\/bin\/typo3 completion )\"<\/>",
+            "help": "The <info>completion<\/> command dumps the shell completion script required\nto use shell autocompletion (currently, bash, fish, zsh completion are supported).\n\n<comment>Static installation\n-------------------<\/>\n\nDump the script to a global completion file and restart your shell:\n\n    <info>.Build\/bin\/typo3 completion  | sudo tee \/etc\/bash_completion.d\/typo3<\/>\n\nOr dump the script to a local file and source it:\n\n    <info>.Build\/bin\/typo3 completion  > completion.sh<\/>\n\n    <comment># source the file whenever you use the project<\/>\n    <info>source completion.sh<\/>\n\n    <comment># or add this line at the end of your \"~\/.bashrc\" file:<\/>\n    <info>source \/path\/to\/completion.sh<\/>\n\n<comment>Dynamic installation\n--------------------<\/>\n\nAdd this to the end of your shell configuration file (e.g. <info>\"~\/.bashrc\"<\/>):\n\n    <info>eval \"$(\/var\/www\/html\/.Build\/bin\/typo3 completion )\"<\/>",
             "definition": {
                 "arguments": {
                     "shell": {
@@ -159,7 +159,7 @@
                         "accept_value": false,
                         "is_value_required": false,
                         "is_multiple": false,
-                        "description": "Display help for the given command. When no command is given display help for the list<\/info> command",
+                        "description": "Display help for the given command. When no command is given display help for the <info>list<\/info> command",
                         "default": false
                     },
                     "quiet": {
@@ -226,7 +226,7 @@
             "usage": [
                 "help [--format FORMAT] [--raw] [--] [<command_name>]"
             ],
-            "help": "The help<\/info> command displays help for a given command:\n\n  .Build\/bin\/typo3 help list<\/info>\n\nYou can also output the help in other formats by using the --format<\/comment> option:\n\n  .Build\/bin\/typo3 help --format=xml list<\/info>\n\nTo display the list of available commands, please use the list<\/info> command.",
+            "help": "The <info>help<\/info> command displays help for a given command:\n\n  <info>.Build\/bin\/typo3 help list<\/info>\n\nYou can also output the help in other formats by using the <comment>--format<\/comment> option:\n\n  <info>.Build\/bin\/typo3 help --format=xml list<\/info>\n\nTo display the list of available commands, please use the <info>list<\/info> command.",
             "definition": {
                 "arguments": {
                     "command_name": {
@@ -262,7 +262,7 @@
                         "accept_value": false,
                         "is_value_required": false,
                         "is_multiple": false,
-                        "description": "Display help for the given command. When no command is given display help for the list<\/info> command",
+                        "description": "Display help for the given command. When no command is given display help for the <info>list<\/info> command",
                         "default": false
                     },
                     "quiet": {
@@ -329,7 +329,7 @@
             "usage": [
                 "list [--raw] [--format FORMAT] [--short] [--] [<namespace>]"
             ],
-            "help": "The list<\/info> command lists all commands:\n\n  .Build\/bin\/typo3 list<\/info>\n\nYou can also display the commands for a specific namespace:\n\n  .Build\/bin\/typo3 list test<\/info>\n\nYou can also output the information in other formats by using the --format<\/comment> option:\n\n  .Build\/bin\/typo3 list --format=xml<\/info>\n\nIt's also possible to get raw list of commands (useful for embedding command runner):\n\n  .Build\/bin\/typo3 list --raw<\/info>",
+            "help": "The <info>list<\/info> command lists all commands:\n\n  <info>.Build\/bin\/typo3 list<\/info>\n\nYou can also display the commands for a specific namespace:\n\n  <info>.Build\/bin\/typo3 list test<\/info>\n\nYou can also output the information in other formats by using the <comment>--format<\/comment> option:\n\n  <info>.Build\/bin\/typo3 list --format=xml<\/info>\n\nIt's also possible to get raw list of commands (useful for embedding command runner):\n\n  <info>.Build\/bin\/typo3 list --raw<\/info>",
             "definition": {
                 "arguments": {
                     "namespace": {
@@ -374,7 +374,7 @@
                         "accept_value": false,
                         "is_value_required": false,
                         "is_multiple": false,
-                        "description": "Display help for the given command. When no command is given display help for the list<\/info> command",
+                        "description": "Display help for the given command. When no command is given display help for the <info>list<\/info> command",
                         "default": false
                     },
                     "quiet": {
@@ -441,7 +441,7 @@
             "usage": [
                 "setup [--driver [DRIVER]] [--host HOST] [--port [PORT]] [--dbname DBNAME] [--username USERNAME] [--password PASSWORD] [--admin-username [ADMIN-USERNAME]] [--admin-user-password ADMIN-USER-PASSWORD] [--admin-email ADMIN-EMAIL] [--project-name PROJECT-NAME] [--create-site [CREATE-SITE]] [--server-type [SERVER-TYPE]] [--force] [-n|--no-interaction]"
             ],
-            "help": "The command offers 3 ways to setup TYPO3:\n 1. environment variables\n 2. commandline options\n 3. interactive guided walk-through\n\nAll values are validated no matter where it was set.\nIf a value is missing, the user will be asked for it.\n\nSetup using environment variables<\/>\n---------------------------------\nTYPO3_DB_DRIVER=mysqli \\\nTYPO3_DB_USERNAME=db \\\nTYPO3_DB_PORT=3306 \\\nTYPO3_DB_HOST=db \\\nTYPO3_DB_DBNAME=db \\\nTYPO3_SETUP_ADMIN_EMAIL=admin@example.com \\\nTYPO3_SETUP_ADMIN_USERNAME=admin \\\nTYPO3_SETUP_CREATE_SITE=\"https:\/\/your-typo3-site.com\/\" \\\nTYPO3_PROJECT_NAME=\"Automated Setup\" \\\nTYPO3_SERVER_TYPE=\"apache\" \\\n.\/bin\/typo3 setup --force\n---------------------------------\n\n\nVariable `TYPO3_DB_PASSWORD` (option `--password`) can be used to provide a\npassword for the database and `TYPO3_SETUP_ADMIN_PASSWORD`\n(option `--admin-user-password`) for the admin user password.\nUsing this can be a security risk since the password may end up in shell\nhistory files. Prefer the interactive mode. Additionally, writing a command\nto shell history can be suppressed by prefixing the command with a space\nwhen using `bash` or `zsh`.\n<\/>",
+            "help": "The command offers 3 ways to setup TYPO3:\n 1. environment variables\n 2. commandline options\n 3. interactive guided walk-through\n\nAll values are validated no matter where it was set.\nIf a value is missing, the user will be asked for it.\n\n<fg=green>Setup using environment variables<\/>\n---------------------------------\nTYPO3_DB_DRIVER=mysqli \\\nTYPO3_DB_USERNAME=db \\\nTYPO3_DB_PORT=3306 \\\nTYPO3_DB_HOST=db \\\nTYPO3_DB_DBNAME=db \\\nTYPO3_SETUP_ADMIN_EMAIL=admin@example.com \\\nTYPO3_SETUP_ADMIN_USERNAME=admin \\\nTYPO3_SETUP_CREATE_SITE=\"https:\/\/your-typo3-site.com\/\" \\\nTYPO3_PROJECT_NAME=\"Automated Setup\" \\\nTYPO3_SERVER_TYPE=\"apache\" \\\n.\/bin\/typo3 setup --force\n---------------------------------\n\n<fg=yellow>\nVariable `TYPO3_DB_PASSWORD` (option `--password`) can be used to provide a\npassword for the database and `TYPO3_SETUP_ADMIN_PASSWORD`\n(option `--admin-user-password`) for the admin user password.\nUsing this can be a security risk since the password may end up in shell\nhistory files. Prefer the interactive mode. Additionally, writing a command\nto shell history can be suppressed by prefixing the command with a space\nwhen using `bash` or `zsh`.\n<\/>",
             "definition": {
                 "arguments": [],
                 "options": {
@@ -577,7 +577,7 @@
                         "accept_value": false,
                         "is_value_required": false,
                         "is_multiple": false,
-                        "description": "Display help for the given command. When no command is given display help for the list<\/info> command",
+                        "description": "Display help for the given command. When no command is given display help for the <info>list<\/info> command",
                         "default": false
                     },
                     "quiet": {
@@ -653,7 +653,7 @@
                         "accept_value": false,
                         "is_value_required": false,
                         "is_multiple": false,
-                        "description": "Display help for the given command. When no command is given display help for the list<\/info> command",
+                        "description": "Display help for the given command. When no command is given display help for the <info>list<\/info> command",
                         "default": false
                     },
                     "quiet": {
@@ -745,7 +745,7 @@
                         "accept_value": false,
                         "is_value_required": false,
                         "is_multiple": false,
-                        "description": "Display help for the given command. When no command is given display help for the list<\/info> command",
+                        "description": "Display help for the given command. When no command is given display help for the <info>list<\/info> command",
                         "default": false
                     },
                     "quiet": {
@@ -822,7 +822,7 @@
                         "accept_value": false,
                         "is_value_required": false,
                         "is_multiple": false,
-                        "description": "Display help for the given command. When no command is given display help for the list<\/info> command",
+                        "description": "Display help for the given command. When no command is given display help for the <info>list<\/info> command",
                         "default": false
                     },
                     "quiet": {
@@ -889,7 +889,7 @@
             "usage": [
                 "backend:user:create [-u|--username USERNAME] [-p|--password PASSWORD] [-e|--email EMAIL] [-g|--groups GROUPS] [-a|--admin] [-m|--maintainer]"
             ],
-            "help": "\nCreate a backend user using environment variables<\/>\n\nExample:\n-------------------------------------------------\nTYPO3_BE_USER_NAME=username \\\nTYPO3_BE_USER_EMAIL=admin@example.com \\\nTYPO3_BE_USER_GROUPS=<comma-separated-list-of-group-ids> \\\nTYPO3_BE_USER_ADMIN=0 \\\nTYPO3_BE_USER_MAINTAINER=0 \\\n.\/bin\/typo3 backend:user:create --no-interaction\n-------------------------------------------------\n\nVariable \"TYPO3_BE_USER_PASSWORD\" and options \"-p\" or \"--password\" can be\nused to provide a password. Using this can be a security risk since the password\nmay end up in shell history files. Prefer the interactive mode. Additionally,\nwriting a command to shell history can be suppressed by prefixing the command\nwith a space when using `bash` or `zsh`.\n<\/>",
+            "help": "\n<fg=green>Create a backend user using environment variables<\/>\n\nExample:\n-------------------------------------------------\nTYPO3_BE_USER_NAME=username \\\nTYPO3_BE_USER_EMAIL=admin@example.com \\\nTYPO3_BE_USER_GROUPS=<comma-separated-list-of-group-ids> \\\nTYPO3_BE_USER_ADMIN=0 \\\nTYPO3_BE_USER_MAINTAINER=0 \\\n.\/bin\/typo3 backend:user:create --no-interaction\n-------------------------------------------------\n<fg=yellow>\nVariable \"TYPO3_BE_USER_PASSWORD\" and options \"-p\" or \"--password\" can be\nused to provide a password. Using this can be a security risk since the password\nmay end up in shell history files. Prefer the interactive mode. Additionally,\nwriting a command to shell history can be suppressed by prefixing the command\nwith a space when using `bash` or `zsh`.\n<\/>",
             "definition": {
                 "arguments": [],
                 "options": {
@@ -953,7 +953,7 @@
                         "accept_value": false,
                         "is_value_required": false,
                         "is_multiple": false,
-                        "description": "Display help for the given command. When no command is given display help for the list<\/info> command",
+                        "description": "Display help for the given command. When no command is given display help for the <info>list<\/info> command",
                         "default": false
                     },
                     "quiet": {
@@ -1039,7 +1039,7 @@
                         "accept_value": false,
                         "is_value_required": false,
                         "is_multiple": false,
-                        "description": "Display help for the given command. When no command is given display help for the list<\/info> command",
+                        "description": "Display help for the given command. When no command is given display help for the <info>list<\/info> command",
                         "default": false
                     },
                     "quiet": {
@@ -1125,7 +1125,7 @@
                         "accept_value": false,
                         "is_value_required": false,
                         "is_multiple": false,
-                        "description": "Display help for the given command. When no command is given display help for the list<\/info> command",
+                        "description": "Display help for the given command. When no command is given display help for the <info>list<\/info> command",
                         "default": false
                     },
                     "quiet": {
@@ -1238,7 +1238,7 @@
                         "accept_value": false,
                         "is_value_required": false,
                         "is_multiple": false,
-                        "description": "Display help for the given command. When no command is given display help for the list<\/info> command",
+                        "description": "Display help for the given command. When no command is given display help for the <info>list<\/info> command",
                         "default": false
                     },
                     "quiet": {
@@ -1342,7 +1342,7 @@
                         "accept_value": false,
                         "is_value_required": false,
                         "is_multiple": false,
-                        "description": "Display help for the given command. When no command is given display help for the list<\/info> command",
+                        "description": "Display help for the given command. When no command is given display help for the <info>list<\/info> command",
                         "default": false
                     },
                     "quiet": {
@@ -1437,7 +1437,7 @@
                         "accept_value": false,
                         "is_value_required": false,
                         "is_multiple": false,
-                        "description": "Display help for the given command. When no command is given display help for the list<\/info> command",
+                        "description": "Display help for the given command. When no command is given display help for the <info>list<\/info> command",
                         "default": false
                     },
                     "quiet": {
@@ -1532,7 +1532,7 @@
                         "accept_value": false,
                         "is_value_required": false,
                         "is_multiple": false,
-                        "description": "Display help for the given command. When no command is given display help for the list<\/info> command",
+                        "description": "Display help for the given command. When no command is given display help for the <info>list<\/info> command",
                         "default": false
                     },
                     "quiet": {
@@ -1618,7 +1618,7 @@
                         "accept_value": false,
                         "is_value_required": false,
                         "is_multiple": false,
-                        "description": "Display help for the given command. When no command is given display help for the list<\/info> command",
+                        "description": "Display help for the given command. When no command is given display help for the <info>list<\/info> command",
                         "default": false
                     },
                     "quiet": {
@@ -1695,7 +1695,7 @@
                         "accept_value": false,
                         "is_value_required": false,
                         "is_multiple": false,
-                        "description": "Display help for the given command. When no command is given display help for the list<\/info> command",
+                        "description": "Display help for the given command. When no command is given display help for the <info>list<\/info> command",
                         "default": false
                     },
                     "quiet": {
@@ -1808,7 +1808,7 @@
                         "accept_value": false,
                         "is_value_required": false,
                         "is_multiple": false,
-                        "description": "Display help for the given command. When no command is given display help for the list<\/info> command",
+                        "description": "Display help for the given command. When no command is given display help for the <info>list<\/info> command",
                         "default": false
                     },
                     "quiet": {
@@ -1885,7 +1885,7 @@
                         "accept_value": false,
                         "is_value_required": false,
                         "is_multiple": false,
-                        "description": "Display help for the given command. When no command is given display help for the list<\/info> command",
+                        "description": "Display help for the given command. When no command is given display help for the <info>list<\/info> command",
                         "default": false
                     },
                     "quiet": {
@@ -1962,7 +1962,7 @@
                         "accept_value": false,
                         "is_value_required": false,
                         "is_multiple": false,
-                        "description": "Display help for the given command. When no command is given display help for the list<\/info> command",
+                        "description": "Display help for the given command. When no command is given display help for the <info>list<\/info> command",
                         "default": false
                     },
                     "quiet": {
@@ -2047,7 +2047,7 @@
                         "accept_value": false,
                         "is_value_required": false,
                         "is_multiple": false,
-                        "description": "Display help for the given command. When no command is given display help for the list<\/info> command",
+                        "description": "Display help for the given command. When no command is given display help for the <info>list<\/info> command",
                         "default": false
                     },
                     "quiet": {
@@ -2141,7 +2141,7 @@
                         "accept_value": false,
                         "is_value_required": false,
                         "is_multiple": false,
-                        "description": "Display help for the given command. When no command is given display help for the list<\/info> command",
+                        "description": "Display help for the given command. When no command is given display help for the <info>list<\/info> command",
                         "default": false
                     },
                     "quiet": {
@@ -2218,7 +2218,7 @@
                         "accept_value": false,
                         "is_value_required": false,
                         "is_multiple": false,
-                        "description": "Display help for the given command. When no command is given display help for the list<\/info> command",
+                        "description": "Display help for the given command. When no command is given display help for the <info>list<\/info> command",
                         "default": false
                     },
                     "quiet": {
@@ -2295,7 +2295,7 @@
                         "accept_value": false,
                         "is_value_required": false,
                         "is_multiple": false,
-                        "description": "Display help for the given command. When no command is given display help for the list<\/info> command",
+                        "description": "Display help for the given command. When no command is given display help for the <info>list<\/info> command",
                         "default": false
                     },
                     "quiet": {
@@ -2390,7 +2390,7 @@
                         "accept_value": false,
                         "is_value_required": false,
                         "is_multiple": false,
-                        "description": "Display help for the given command. When no command is given display help for the list<\/info> command",
+                        "description": "Display help for the given command. When no command is given display help for the <info>list<\/info> command",
                         "default": false
                     },
                     "quiet": {
@@ -2476,7 +2476,7 @@
                         "accept_value": false,
                         "is_value_required": false,
                         "is_multiple": false,
-                        "description": "Display help for the given command. When no command is given display help for the list<\/info> command",
+                        "description": "Display help for the given command. When no command is given display help for the <info>list<\/info> command",
                         "default": false
                     },
                     "quiet": {
@@ -2705,7 +2705,7 @@
                         "accept_value": false,
                         "is_value_required": false,
                         "is_multiple": false,
-                        "description": "Display help for the given command. When no command is given display help for the list<\/info> command",
+                        "description": "Display help for the given command. When no command is given display help for the <info>list<\/info> command",
                         "default": false
                     },
                     "quiet": {
@@ -2842,7 +2842,7 @@
                         "accept_value": false,
                         "is_value_required": false,
                         "is_multiple": false,
-                        "description": "Display help for the given command. When no command is given display help for the list<\/info> command",
+                        "description": "Display help for the given command. When no command is given display help for the <info>list<\/info> command",
                         "default": false
                     },
                     "quiet": {
@@ -2954,7 +2954,7 @@
                         "accept_value": false,
                         "is_value_required": false,
                         "is_multiple": false,
-                        "description": "Display help for the given command. When no command is given display help for the list<\/info> command",
+                        "description": "Display help for the given command. When no command is given display help for the <info>list<\/info> command",
                         "default": false
                     },
                     "quiet": {
@@ -3059,7 +3059,7 @@
                         "accept_value": false,
                         "is_value_required": false,
                         "is_multiple": false,
-                        "description": "Display help for the given command. When no command is given display help for the list<\/info> command",
+                        "description": "Display help for the given command. When no command is given display help for the <info>list<\/info> command",
                         "default": false
                     },
                     "quiet": {
@@ -3126,7 +3126,7 @@
             "usage": [
                 "messenger:consume [--sleep SLEEP] [--queues QUEUES] [--exit-code-on-limit EXIT-CODE-ON-LIMIT] [--] [<receivers>...]"
             ],
-            "help": "The messenger:consume<\/info> command consumes messages and dispatches them to the message bus.\n\n    php .Build\/bin\/typo3 messenger:consume <receiver-name><\/info>\n\nTo receive from multiple transports, pass each name:\n\n    php .Build\/bin\/typo3 messenger:consume receiver1 receiver2<\/info>\n\nUse the --queues option to limit a receiver to only certain queues (only supported by some receivers):\n\n    php .Build\/bin\/typo3 messenger:consume <receiver-name> --queues=fasttrack<\/info>\n",
+            "help": "The <info>messenger:consume<\/info> command consumes messages and dispatches them to the message bus.\n\n    <info>php .Build\/bin\/typo3 messenger:consume <receiver-name><\/info>\n\nTo receive from multiple transports, pass each name:\n\n    <info>php .Build\/bin\/typo3 messenger:consume receiver1 receiver2<\/info>\n\nUse the --queues option to limit a receiver to only certain queues (only supported by some receivers):\n\n    <info>php .Build\/bin\/typo3 messenger:consume <receiver-name> --queues=fasttrack<\/info>\n",
             "definition": {
                 "arguments": {
                     "receivers": {
@@ -3171,7 +3171,7 @@
                         "accept_value": false,
                         "is_value_required": false,
                         "is_multiple": false,
-                        "description": "Display help for the given command. When no command is given display help for the list<\/info> command",
+                        "description": "Display help for the given command. When no command is given display help for the <info>list<\/info> command",
                         "default": false
                     },
                     "quiet": {
@@ -3256,7 +3256,7 @@
                         "accept_value": false,
                         "is_value_required": false,
                         "is_multiple": false,
-                        "description": "Display help for the given command. When no command is given display help for the list<\/info> command",
+                        "description": "Display help for the given command. When no command is given display help for the <info>list<\/info> command",
                         "default": false
                     },
                     "quiet": {
@@ -3387,7 +3387,7 @@
                         "accept_value": false,
                         "is_value_required": false,
                         "is_multiple": false,
-                        "description": "Display help for the given command. When no command is given display help for the list<\/info> command",
+                        "description": "Display help for the given command. When no command is given display help for the <info>list<\/info> command",
                         "default": false
                     },
                     "quiet": {
@@ -3473,7 +3473,7 @@
                         "accept_value": false,
                         "is_value_required": false,
                         "is_multiple": false,
-                        "description": "Display help for the given command. When no command is given display help for the list<\/info> command",
+                        "description": "Display help for the given command. When no command is given display help for the <info>list<\/info> command",
                         "default": false
                     },
                     "quiet": {
@@ -3559,7 +3559,7 @@
                         "accept_value": false,
                         "is_value_required": false,
                         "is_multiple": false,
-                        "description": "Display help for the given command. When no command is given display help for the list<\/info> command",
+                        "description": "Display help for the given command. When no command is given display help for the <info>list<\/info> command",
                         "default": false
                     },
                     "quiet": {
@@ -3654,7 +3654,7 @@
                         "accept_value": false,
                         "is_value_required": false,
                         "is_multiple": false,
-                        "description": "Display help for the given command. When no command is given display help for the list<\/info> command",
+                        "description": "Display help for the given command. When no command is given display help for the <info>list<\/info> command",
                         "default": false
                     },
                     "quiet": {
@@ -3758,7 +3758,7 @@
                         "accept_value": false,
                         "is_value_required": false,
                         "is_multiple": false,
-                        "description": "Display help for the given command. When no command is given display help for the list<\/info> command",
+                        "description": "Display help for the given command. When no command is given display help for the <info>list<\/info> command",
                         "default": false
                     },
                     "quiet": {
@@ -3835,7 +3835,7 @@
                         "accept_value": false,
                         "is_value_required": false,
                         "is_multiple": false,
-                        "description": "Display help for the given command. When no command is given display help for the list<\/info> command",
+                        "description": "Display help for the given command. When no command is given display help for the <info>list<\/info> command",
                         "default": false
                     },
                     "quiet": {
@@ -3920,7 +3920,7 @@
                         "accept_value": false,
                         "is_value_required": false,
                         "is_multiple": false,
-                        "description": "Display help for the given command. When no command is given display help for the list<\/info> command",
+                        "description": "Display help for the given command. When no command is given display help for the <info>list<\/info> command",
                         "default": false
                     },
                     "quiet": {
@@ -4023,7 +4023,7 @@
                         "accept_value": false,
                         "is_value_required": false,
                         "is_multiple": false,
-                        "description": "Display help for the given command. When no command is given display help for the list<\/info> command",
+                        "description": "Display help for the given command. When no command is given display help for the <info>list<\/info> command",
                         "default": false
                     },
                     "quiet": {
@@ -4100,7 +4100,7 @@
                         "accept_value": false,
                         "is_value_required": false,
                         "is_multiple": false,
-                        "description": "Display help for the given command. When no command is given display help for the list<\/info> command",
+                        "description": "Display help for the given command. When no command is given display help for the <info>list<\/info> command",
                         "default": false
                     },
                     "quiet": {
@@ -4177,7 +4177,7 @@
                         "accept_value": false,
                         "is_value_required": false,
                         "is_multiple": false,
-                        "description": "Display help for the given command. When no command is given display help for the list<\/info> command",
+                        "description": "Display help for the given command. When no command is given display help for the <info>list<\/info> command",
                         "default": false
                     },
                     "quiet": {
@@ -4263,7 +4263,7 @@
                         "accept_value": false,
                         "is_value_required": false,
                         "is_multiple": false,
-                        "description": "Display help for the given command. When no command is given display help for the list<\/info> command",
+                        "description": "Display help for the given command. When no command is given display help for the <info>list<\/info> command",
                         "default": false
                     },
                     "quiet": {
@@ -4348,7 +4348,7 @@
                         "accept_value": false,
                         "is_value_required": false,
                         "is_multiple": false,
-                        "description": "Display help for the given command. When no command is given display help for the list<\/info> command",
+                        "description": "Display help for the given command. When no command is given display help for the <info>list<\/info> command",
                         "default": false
                     },
                     "quiet": {
@@ -4425,7 +4425,7 @@
                         "accept_value": false,
                         "is_value_required": false,
                         "is_multiple": false,
-                        "description": "Display help for the given command. When no command is given display help for the list<\/info> command",
+                        "description": "Display help for the given command. When no command is given display help for the <info>list<\/info> command",
                         "default": false
                     },
                     "quiet": {
