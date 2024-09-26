@@ -640,7 +640,7 @@ provided by :php:`\TYPO3\CMS\Core\Routing\Aspect\UnresolvedValueTrait`:
 In another example we handle the null value in an Extbase show action
 separately, for instance, to redirect to the list page:
 
-..  literalinclude:: _AdvancedRoutingConfiguration/_MyCustomEnhancer.php
+..  literalinclude:: _AdvancedRoutingConfiguration/_MyController.php
     :caption: EXT:my_extension/Classes/Controller/MyController.php
 
 .. index::
