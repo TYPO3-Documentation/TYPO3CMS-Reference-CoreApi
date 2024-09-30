@@ -2,11 +2,9 @@
 
 namespace TYPO3\CMS\Styleguide\Tests\Functional\TcaDataGenerator;
 
+use PHPUnit\Framework\Attributes\Test;
 use TYPO3\TestingFramework\Core\Functional\FunctionalTestCase;
 
-/**
- * Test case
- */
 class GeneratorTest extends FunctionalTestCase
 {
     /**
@@ -16,10 +14,8 @@ class GeneratorTest extends FunctionalTestCase
         'typo3conf/ext/styleguide',
     ];
 
-    /**
-     * @test
-     */
-    public function generatorCreatesBasicRecord()
+    #[Test]
+    public function generatorCreatesBasicRecord(): void
     {
         //...
     }

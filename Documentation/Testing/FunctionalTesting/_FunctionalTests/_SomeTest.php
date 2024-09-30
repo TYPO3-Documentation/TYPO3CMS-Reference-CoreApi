@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace MyVendor\MyExtension\Tests\Functional;
 
+use PHPUnit\Framework\Attributes\Test;
 use TYPO3\TestingFramework\Core\Functional\FunctionalTestCase;
 
 class SomeTest extends FunctionalTestCase
@@ -12,9 +13,7 @@ class SomeTest extends FunctionalTestCase
         'workspaces',
     ];
 
-    /**
-     * @test
-     */
+    #[Test]
     public function somethingWithWorkspaces(): void
     {
         //...
