@@ -1,15 +1,15 @@
 mutations:
-  - mode: set
+  - mode: "set"
     directive: "default-src"
     sources:
       - "'self'"
 
-  - mode: set
+  - mode: "set"
     directive: "img-src"
     sources:
-      - example.org
+      - "example.org"
 
-  - mode: append
+  - mode: "append"
     directive: "img-src"
     sources:
-      - example.com
+      - "example.com"
