@@ -1,15 +1,17 @@
 <?php
 
+declare(strict_types=1);
+
 namespace MyVendor\MyExtension\Tests\Functional;
 
 use TYPO3\TestingFramework\Core\Functional\FunctionalTestCase;
 
-/**
- * Test case
- */
 class SomeTest extends FunctionalTestCase
 {
-    public function testSomethingWithWorkspaces()
+    /**
+     * @test
+     */
+    public function somethingWithWorkspaces(): void
     {
         $this->setUpFrontendRootPage(
             1,
