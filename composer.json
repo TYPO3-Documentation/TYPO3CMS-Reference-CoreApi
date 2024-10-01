@@ -49,7 +49,8 @@
         "typo3/cms-t3editor": "^12.4",
         "typo3/cms-tstemplate": "^12.4",
         "typo3/cms-viewpage": "^12.4",
-        "typo3/cms-workspaces": "^12.4"
+        "typo3/cms-workspaces": "^12.4",
+        "typo3/testing-framework": "^8.2"
     },
     "minimum-stability": "dev",
     "prefer-stable": true,
