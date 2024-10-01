@@ -1,10 +1,10 @@
 mutations:
-  - mode: set
+  - mode: "set"
     directive: "default-src"
     sources:
       - "'self'"
 
-  - mode: extend
+  - mode: "extend"
     directive: "img-src"
     sources:
       - "example.com"
