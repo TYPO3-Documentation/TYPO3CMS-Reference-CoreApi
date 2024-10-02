@@ -37,7 +37,7 @@ The password policy applies to:
 *   Setting a new password for a backend user in :guilabel:`User settings`
 *   Resetting a password for a backend user
 *   Resetting a password for a frontend user (see also the feature toggle
-    ":confval:`security.usePasswordPolicyForFrontendUsers <t3coreapi:globals-typo3-conf-vars-sys-features-security-usepasswordpolicyforfrontendusers>`")
+    ":confval:`security.usePasswordPolicyForFrontendUsers <globals-typo3-conf-vars-sys-features-security-usepasswordpolicyforfrontendusers>`")
 *   Password fields in tables :sql:`be_users` and :sql:`fe_users`
 
 Optionally, a password policy can be configured for custom TCA fields of the
