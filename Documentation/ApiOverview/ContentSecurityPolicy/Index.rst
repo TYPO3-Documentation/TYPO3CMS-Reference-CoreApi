@@ -121,6 +121,8 @@ used to declare policies for a specific site, for example:
     :caption: config/sites/<my_site>/csp.yaml | typo3conf/sites/<my_site>/csp.yaml
 
 
+..  _content-security-policy-site-active:
+
 Disable CSP for a site
 ~~~~~~~~~~~~~~~~~~~~~~
 
