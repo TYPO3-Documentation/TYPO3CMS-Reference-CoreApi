@@ -30,53 +30,17 @@ Two concrete paginators are available:
 *  For type :php:`\TYPO3\CMS\Extbase\Persistence\QueryResultInterface`:
    :php:`\TYPO3\CMS\Extbase\Pagination\QueryResultPaginator`
 
-Code example for the :php:`ArrayPaginator`:
+Code example for the :php:`ArrayPaginator` in an
+:ref:`Extbase controller <extbase-action-controller>`:
 
-.. code-block:: php
+..  literalinclude:: _ArrayPaginatorExampleController.php
+    :caption: EXT:my_extension/Controller/ExampleController.php
 
-   // use TYPO3\CMS\Core\Pagination\ArrayPaginator;
+And the corresponding Fluid template:
 
-   $itemsToBePaginated = ['apple', 'banana', 'strawberry', 'raspberry', 'pineapple'];
-   $itemsPerPage = 2;
-   $currentPageNumber = 3;
+..  literalinclude:: _ArrayPaginatorExamplePagination.html
+    :caption: EXT:my_extension/Resources/Private/Templates/ExamplePagination.html
 
-   $paginator = new ArrayPaginator($itemsToBePaginated, $currentPageNumber, $itemsPerPage);
-   $paginator->getNumberOfPages(); // returns 3
-   $paginator->getCurrentPageNumber(); // returns 3, basically just returns the input value
-   $paginator->getKeyOfFirstPaginatedItem(); // returns 4
-   $paginator->getKeyOfLastPaginatedItem(); // returns 4
-
-   // use TYPO3\CMS\Core\Pagination\SimplePagination;
-
-   $pagination = new SimplePagination($paginator);
-   $pagination->getAllPageNumbers(); // returns [1, 2, 3]
-   $pagination->getPreviousPageNumber(); // returns 2
-   $pagination->getNextPageNumber(); // returns null
-   // …
-
-   $this->view->assignMultiple(
-       [
-           'pagination' => $pagination,
-           'paginator' => $paginator,
-       ]
-   );
-
-.. code-block:: html
-
-   <ul class="pagination">
-      <f:for each="{pagination.allPageNumbers}" as="page">
-         <li class="page-item">
-            <f:link.action arguments="{currentPageNumber:page}"
-                           class="page-link {f:if(condition:'{currentPageNumber}=={page}',then:'active')}">
-               {page}
-            </f:link.action>
-         </li>
-      </f:for>
-   </ul>
-
-   <f:for each="{paginator.paginatedItems}" as="item">
-       {item}
-   </f:for>
 
 Sliding window pagination
 =========================
@@ -99,31 +63,5 @@ Replace the usage of :php:`SimplePagination` with
 :php:`\TYPO3\CMS\Core\Pagination\SlidingWindowPagination` and you are done. Set
 the 2nd argument to the maximum number of links which should be rendered.
 
-.. code-block:: php
-
-   // use TYPO3\CMS\Extbase\Pagination\QueryResultPaginator;
-   // use TYPO3\CMS\Core\Pagination\SlidingWindowPagination;
-
-   $currentPage = $this->request->hasArgument('currentPageNumber')
-       ? (int)$this->request->getArgument('currentPageNumber')
-       : 1;
-   $itemsPerPage = 10;
-   $maximumLinks = 15;
-
-   $paginator = new QueryResultPaginator(
-       $allItems,
-       $currentPage,
-       $itemsPerPage
-   );
-   $pagination = new SlidingWindowPagination(
-       $paginator,
-       $maximumLinks
-   );
-
-   $this->view->assign(
-       'pagination',
-       [
-           'pagination' => $pagination,
-           'paginator' => $paginator,
-       ]
-   );
+..  literalinclude:: _SlidingWindowExampleController.php
+    :caption: EXT:my_extension/Controller/ExampleController.php
