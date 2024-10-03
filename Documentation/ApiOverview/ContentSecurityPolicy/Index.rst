@@ -120,6 +120,22 @@ used to declare policies for a specific site, for example:
     :language: yaml
     :caption: config/sites/<my_site>/csp.yaml | typo3conf/sites/<my_site>/csp.yaml
 
+
+..  _content-security-policy-site-active:
+
+Disable CSP for a site
+~~~~~~~~~~~~~~~~~~~~~~
+
+..  versionadded:: 12.4.20
+
+The Content Security Policy for a particular site can be disabled with the
+:yaml:`active` key set to :yaml:`false`:
+
+..  literalinclude:: _csp_active.yaml
+    :language: yaml
+    :caption: config/sites/<my_site>/csp.yaml | typo3conf/sites/<my_site>/csp.yaml
+
+
 ..  _content-security-policy-modes:
 
 Modes
