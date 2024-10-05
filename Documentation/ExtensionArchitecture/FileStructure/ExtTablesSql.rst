@@ -87,9 +87,6 @@ auto-generated fields, if they are not manually defined in the
     Often set to sql:`cruser` or sql:`createdby`
 
 :php:`['ctrl']['delete'] = 'my_field_name'`
-    Often set to :php:`deleted`
-
-:php:`['ctrl']['delete'] = 'my_field_name'`
     Often set to :sql:`deleted`.
 
 :php:`['ctrl']['enablecolumns']['disabled'] = 'my_field_name'`
