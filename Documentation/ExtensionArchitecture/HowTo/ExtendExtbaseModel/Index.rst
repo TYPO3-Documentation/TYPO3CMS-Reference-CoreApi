@@ -169,7 +169,7 @@ The extended model needs to be registered for :ref:`Extbase persistence <extbase
 ..  _extending-extbase-model_extend_original_repository:
 
 Extend the original repository
------------------------------------------
+------------------------------
 
 Likewise extend the original repository:
 
