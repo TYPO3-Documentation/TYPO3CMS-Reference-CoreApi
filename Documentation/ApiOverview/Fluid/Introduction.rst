@@ -207,7 +207,7 @@ import can be done in the template or the partial.
 Example: Using Fluid to create a theme
 ======================================
 
-This example was taken from the `example extension <https://github.com/TYPO3-Documentation/TYPO3CMS-Tutorial-SitePackage-Code/>`__
+This example was taken from the `example extension <https://github.com/TYPO3-Documentation/site_package/>`__
 for :ref:`t3sitepackage:start` and reduced to a very basic example.
 
 The site package tutorial walks you through the creation of a site package
