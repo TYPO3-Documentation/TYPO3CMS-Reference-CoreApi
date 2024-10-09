@@ -44,7 +44,7 @@ class BlogController extends ActionController
         // Create the FileReference Object
         $fileReference = $this->resourceFactory->createFileReferenceObject($newObject);
 
-        // Port the FielReference Object to an Extbase FileReference
+        // Port the FileReference Object to an Extbase FileReference
         $fileReferenceObject = GeneralUtility::makeInstance(FileReference::class);
         $fileReferenceObject->setOriginalResource($fileReference);
 
