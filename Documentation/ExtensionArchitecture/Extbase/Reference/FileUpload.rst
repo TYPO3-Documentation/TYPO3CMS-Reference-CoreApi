@@ -39,8 +39,8 @@ controller and Fluid template, you can display an image:
 ..  literalinclude:: _FileUpload/_Show.html
     :caption: EXT:my_extension/Resources/Private/Templates/Blog/Show.html
 
-On the PHP-side within controllers, you can use the usual
-:php:`$blogItem->getSingleFile()` and :php:`$blogItem->getMultipleFilers()`
+On the PHP side within controllers, you can use the usual
+:php:`$blogItem->getSingleFile()` and :php:`$blogItem->getMultipleFiles()`
 Extbase getters to retrieve the FileReference object.
 
 ..  _extbase_fileupload_writing:
@@ -53,7 +53,7 @@ Writing FileReference entries
 Manual handling
 ...............
 
-With TYPO3 versions below v13, attaching files to an Extbase Domain Model
+With TYPO3 versions below v13.3, attaching files to an Extbase Domain Model
 was only possible by either:
 
 *  Manually evaluate the :php:`$_FILES` data, process and validate the data,
@@ -75,10 +75,10 @@ was only possible by either:
 
 ..  _extbase_fileupload_writing-attributes:
 
-Automatic handling based on PHP Attributes
+Automatic handling based on PHP attributes
 ..........................................
 
-Starting with TYPO3 v13 it is finally possible to streamline this with commonly
+Starting with TYPO3 v13.3 it is finally possible to streamline this with commonly
 know Extbase logic, as implemented via
 :ref:`Feature: #103511 - Introduce Extbase file upload and deletion handling <changelog:feature-103511-1711894330>`.
 
@@ -265,7 +265,7 @@ In addition, Extbase includes the following validators to validate an
 Those validators can either be configured with the
 :php-short:`\TYPO3\CMS\Extbase\Annotation\FileUpload` attribute or added
 manually to the configuration object
-with the :php:`addValidator` method.
+with the :php:`addValidator()` method.
 
 ..  _extbase_fileupload_attribute-required:
 
