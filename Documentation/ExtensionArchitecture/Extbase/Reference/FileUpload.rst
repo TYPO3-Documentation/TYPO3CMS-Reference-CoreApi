@@ -20,7 +20,7 @@ takes more effort.
 Accessing a file reference in an Extbase Domain Model
 -----------------------------------------------------
 
-You need two components for the structural information: The Domain
+You need two components for the structural information: the Domain
 Model definition and the TCA entry.
 
 ..  literalinclude:: _FileUpload/_Blog.php
