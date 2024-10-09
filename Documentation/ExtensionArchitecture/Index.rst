@@ -30,6 +30,11 @@ Extension development
         extensions and sitepackages that were automatically generated or
         that you downloaded as an example.
 
+    ..  card:: :ref:`Site package <site-package>`
+
+        A site package is a custom TYPO3 extension that contains files regarding the
+        theme of a site.
+
 
     ..  card:: :ref:`Howto <extension-howto>`
 
@@ -57,13 +62,14 @@ Extension development
 
         Contains tutorials on extension development in TYPO3.
 
-.. toctree::
-   :hidden:
-   :titlesonly:
+..  toctree::
+    :hidden:
+    :titlesonly:
 
-   Concepts/Index
-   FileStructure/Index
-   HowTo/Index
-   Extbase/Index
-   BestPractises/Index
-   Tutorials/Index
+    Concepts/Index
+    FileStructure/Index
+    SitePackage/Index
+    HowTo/Index
+    Extbase/Index
+    BestPractises/Index
+    Tutorials/Index
