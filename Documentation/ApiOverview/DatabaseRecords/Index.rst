@@ -48,7 +48,7 @@ System records
     System records control the configuration and management of the TYPO3 system.
     Examples include file references, file mounts, or categories. For example,
     you can create a category and assign it to some content records in order to
-    point out that they belong together.
+    indicate that they belong together.
 Extension-specific records
     Extensions often define custom records to store specific data, such as
     products for a shop system or events for a calendar.
