@@ -35,15 +35,20 @@ Page records
     These represent pages in the page tree, which structure the website. They
     are stored in table :sql:`pages`.
 Content records
-    These include text, images, videos, or any other element placed within a
-    page. They are stored in table :sql:`tt_content`.
+    Every content record consists of some sub entities like texts, images,
+    videos, and so on. Content records can be placed on a page. They are stored
+    in table :sql:`tt_content`. TYPO3 has some pre configured content elements
+    like for example `Header Only`, `Regular Text Element`, `Text & Images`,
+    and `Text & Images`.
 Backend user records
-    Information about users who have access to the TYPO3 backend. They
-    are stored in table :sql:`be_users`. The backend user groups they are
-    organized in are stored in table :sql:`be_groups`.
+    The user records consist of information about the users who have access to
+    the TYPO3 backend. They are stored in table :sql:`be_users`. The backend
+    user groups they are organized in are stored in table :sql:`be_groups`.
 System records
     System records control the configuration and management of the TYPO3 system.
-    Examples include file references, file mounts, or categories.
+    Examples include file references, file mounts, or categories. For example,
+    you can create a category and assign it to some content records in order to
+    point out that they belong together.
 Extension-specific records
     Extensions often define custom records to store specific data, such as
     products for a shop system or events for a calendar.
