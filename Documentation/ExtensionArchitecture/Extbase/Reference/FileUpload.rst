@@ -8,16 +8,16 @@
 File upload
 ===========
 
-Implementing file uploads / attachments to Extbase Domain Models
+Implementing file uploads / attachments to Extbase domain models
 has always been a bit of a challenge.
 
-While it is easy to access an existing file reference in a Domain Model,
+While it is straight-forward to access an existing file reference in a domain model,
 writing new files to the :ref:`FAL (File Access Layer) <t3coreapi:using-fal>`
 takes more effort.
 
 ..  _extbase_fileupload_accessing:
 
-Accessing a file reference in an Extbase Domain Model
+Accessing a file reference in an Extbase domain model
 -----------------------------------------------------
 
 You need two components for the structural information: the Domain
@@ -53,7 +53,7 @@ Writing FileReference entries
 Manual handling
 ...............
 
-With TYPO3 versions below v13.3, attaching files to an Extbase Domain Model
+With TYPO3 versions below v13.3, attaching files to an Extbase domain model
 was only possible by either:
 
 *  Manually evaluate the :php:`$_FILES` data, process and validate the data,
@@ -95,17 +95,17 @@ use a custom ViewHelper:
 ..  literalinclude:: _FileUpload/_Upload.html
     :caption: EXT:my_extension/Resources/Private/Templates/Blog/New.html
 
-You can actually easily also allow to remove already uploaded files:
+You can also allow to remove already uploaded files (for the user):
 
 ..  literalinclude:: _FileUpload/_UploadDelete.html
     :caption: EXT:my_extension/Resources/Private/Templates/Blog/New.html
 
 The controller action part with persisting the data needs no further custom code,
-Extbase can automatically do all the Domain Model handling on its own. The TCA can
-also stay the same as configured for simply read-access to a Domain Model.
+Extbase can automatically do all the domain model handling on its own. The TCA can
+also stay the same as configured for simply read-access to a domain model.
 
 The actual file upload processing is performed just before Extbase persists a
-Domain Model Entity, so only if the full validation has taken place and no errors
+domain model Entity, so only if the full validation has taken place and no errors
 occurred. This means, if any error occurs, a user will have to re-upload a file.
 
 The implementation is done like this to prevent stale temporary files that would
