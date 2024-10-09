@@ -42,7 +42,7 @@ Content records
     and `Images Only`.
 Backend user records
     The user records consist of information about the users who have access to
-    the TYPO3 backend. They are stored in table :sql:`be_users`. The backend
+    the TYPO3 backend. They are stored in table :sql:`be_users`. Users are
     organized in user groups which are stored in table :sql:`be_groups`.
 System records
     System records control the configuration and management of the TYPO3 system.
