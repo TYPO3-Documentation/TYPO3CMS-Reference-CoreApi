@@ -56,4 +56,3 @@ class BlogController extends ActionController
         // Note: For multiple files, a wrapping ObjectStorage would be needed
     }
 }
-
