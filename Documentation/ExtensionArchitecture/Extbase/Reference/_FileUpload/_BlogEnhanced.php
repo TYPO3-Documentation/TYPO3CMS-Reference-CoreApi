@@ -19,7 +19,7 @@ class Blog extends AbstractEntity
             'maxFiles' => 1,
             'fileSize' => ['minimum' => '0K', 'maximum' => '2M'],
             'allowedMimeTypes' => ['image/jpeg'],
-            'imageDimensions' => ['maxWidth' => 4096, 'maxHeight' => 4096]
+            'imageDimensions' => ['maxWidth' => 4096, 'maxHeight' => 4096],
         ],
         'uploadFolder' => '1:/user_upload/extbase_single_file/',
         'addRandomSuffix' => false,
@@ -31,9 +31,9 @@ class Blog extends AbstractEntity
         'validation' => [
             'required' => true,
             'fileSize' => ['minimum' => '0K', 'maximum' => '2M'],
-            'allowedMimeTypes' => ['image/jpeg']
+            'allowedMimeTypes' => ['image/jpeg'],
         ],
-        'uploadFolder' => '1:/user_upload/extbase_single_file/'
+        'uploadFolder' => '1:/user_upload/extbase_single_file/',
     ])]
     /**
      * A collection of files.

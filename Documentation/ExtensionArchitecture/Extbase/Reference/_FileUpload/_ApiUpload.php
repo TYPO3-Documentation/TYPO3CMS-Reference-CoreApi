@@ -18,9 +18,7 @@ class BlogController extends ActionController
     public function __construct(
         protected ResourceFactory $resourceFactory,
         protected BlogRepository $blogRepository,
-    )
-    {
-    }
+    ) {}
 
     public function attachFileUpload(Blog $blog): void
     {
@@ -32,7 +30,8 @@ class BlogController extends ActionController
         $fileObject = $falFolder->addFile(
             $yourFile,
             basename($yourFile),
-            DuplicationBehavior::REPLACE);
+            DuplicationBehavior::REPLACE,
+        );
 
         // Initialize a new storage object
         $newObject = [
