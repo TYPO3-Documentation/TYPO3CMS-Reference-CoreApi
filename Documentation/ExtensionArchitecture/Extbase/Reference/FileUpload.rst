@@ -31,7 +31,7 @@ Model definition and the TCA entry.
 
 Once this is set up, you can create/edit records through the TYPO3
 backend, attach a single or multiple files in it. Then using a normal
-controller and fluid template, you can display an image:
+controller and Fluid template, you can display an image:
 
 ..  literalinclude:: _FileUpload/_BlogController.php
     :caption: EXT:my_extension/Classes/Controller/BlogController.php
