@@ -35,7 +35,7 @@ Page records
     These represent pages in the page tree, which structure the website. They
     are stored in table :sql:`pages`.
 Content records
-    Every content record consists of some sub entities like texts, images,
+    Every content record consists of sub entities like text, images,
     videos, and so on. Content records can be placed on a page. They are stored
     in table :sql:`tt_content`. TYPO3 has some pre configured content elements
     like for example `Header Only`, `Regular Text Element`, `Text & Images`,
