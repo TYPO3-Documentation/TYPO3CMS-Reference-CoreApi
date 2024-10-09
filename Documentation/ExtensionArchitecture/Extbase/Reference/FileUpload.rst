@@ -1,6 +1,6 @@
 ..  include:: /Includes.rst.txt
 
-.. index:: Extbase, FileUpload
+..  index:: Extbase, FileUpload
 
 ..  _extbase_fileupload:
 
