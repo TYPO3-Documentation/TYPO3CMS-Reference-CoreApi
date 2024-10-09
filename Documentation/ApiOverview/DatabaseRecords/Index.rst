@@ -39,7 +39,7 @@ Content records
     videos, and so on. Content records can be placed on a page. They are stored
     in table :sql:`tt_content`. TYPO3 has some pre configured content elements
     like for example `Header Only`, `Regular Text Element`, `Text & Images`,
-    and `Text & Images`.
+    and `Images Only`.
 Backend user records
     The user records consist of information about the users who have access to
     the TYPO3 backend. They are stored in table :sql:`be_users`. The backend
