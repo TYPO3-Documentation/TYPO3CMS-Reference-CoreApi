@@ -104,7 +104,7 @@ Or it can have a custom type supplied by an extension such as `carousel`
 provided by the :composer:`bk2k/bootstrap-package` extension.
 
 You can :ref:`add custom content elements <adding-your-own-content-elements>`
-to your extension or :ref:`site package <t3sitepackage:start>`.
+to your extension or :ref:`site package <site-package>`.
 
 It is also possible to use an extension such as :composer:`contentblocks/content-blocks`,
 :composer:`mask/mask`, or :composer:`t3/dce` to add custom content elements to

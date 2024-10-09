@@ -33,7 +33,7 @@ Follow these steps:
     to the extension's documentation on how to display additional fields.
 
 #.  :ref:`Extend the original model <extending-extbase-model_extend_original_model>`
-    in your custom extension or :ref:`sitepackage <t3sitepackage:start>`.
+    in your custom extension or :ref:`sitepackage <site-package>`.
 
 #.  :ref:`Register your extended model <extending-extbase-model_register_extended_model>`
     with the according database table in

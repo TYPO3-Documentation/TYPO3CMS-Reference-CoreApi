@@ -116,7 +116,7 @@ a multi-site installation and want to alter the appearance of content elements
 in the wizard or remove certain content elements this can be done via
 :ref:` page TSconfig <t3tsconfig:setting-page-tsconfig>`.
 This is commonly done on a per site basis so you can use the :ref:`Site set page TSconfig provider <site-sets-page-tsconfig>`
-in your :ref:`site package <t3sitepackage:start>`.
+in your :ref:`site package <site-package>`.
 
 You can use the settings of :ref:`newContentElement.wizardItems <t3tsconfig:pagenewcontentelementwizard>`.
 
