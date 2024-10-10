@@ -117,7 +117,9 @@ configurations.
    value to ".example.org" (replace example.org with your domain!), login
    sessions will be shared across subdomains. Alternatively, if you have more
    than one domain with sub-domains, you can set the value to a regular
-   expression to match against the domain of the HTTP request.
+   expression to match against the domain of the HTTP request. This however requires
+   that all sub-domains are within the same TYPO3 instance, because a session can be tied
+   to only one database.
 
    The result of the match is used as the domain for the cookie. for example :
    php:`/\.(example1|example2)\.com$/` or :php:`/\.(example1\.com)|(example2\.net)$/`.
