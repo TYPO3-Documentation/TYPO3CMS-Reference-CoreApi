@@ -23,18 +23,27 @@ Accessing a file reference in an Extbase domain model
 You need two components for the structural information: the Domain
 Model definition and the TCA entry.
 
+The domain model definition:
+
 ..  literalinclude:: _FileUpload/_Blog.php
     :caption: EXT:my_extension/Classes/Domain/Model/Blog.php
+
+and the TCA definition:
 
 ..  literalinclude:: _FileUpload/_tx_myextension_domain_model_blog.php
     :caption: EXT:my_extension/Configuration/TCA/tx_myextension_domain_model_blog.php
 
 Once this is set up, you can create/edit records through the TYPO3
-backend, attach a single or multiple files in it. Then using a normal
-controller and Fluid template, you can display an image:
+backend (for example via :guilabel:`Web > List`), attach a single or
+multiple files in it. Then using a normal
+controller and Fluid template, you can display an image.
+
+The relevant Extbase controller part:
 
 ..  literalinclude:: _FileUpload/_BlogController.php
     :caption: EXT:my_extension/Classes/Controller/BlogController.php
+
+and the corresponding Fluid template:
 
 ..  literalinclude:: _FileUpload/_Show.html
     :caption: EXT:my_extension/Resources/Private/Templates/Blog/Show.html
@@ -60,8 +69,8 @@ was only possible by either:
    use raw QueryBuilder write actions on :sql:`sys_file` and :sql:`sys_file_reference`
    to persist the files quickly, or use at least some API methods:
 
-    ..  literalinclude:: _FileUpload/_ApiUpload.php
-        :caption: EXT:my_extension/Classes/Controller/BlogController.php, excerpt
+   ..  literalinclude:: _FileUpload/_ApiUpload.php
+       :caption: EXT:my_extension/Classes/Controller/BlogController.php, excerpt
 
    Instead of raw access to :php:`$_FILES`, starting with TYPO3 v12 the recommendation
    is to utilize the :ref:`UploadedFile objects instead of $_FILES <changelog:breaking-97214>`.
@@ -87,10 +96,14 @@ An example implementation of this can be found on
 repository.
 
 The general idea is to use PHP attributes within the Extbase Model, and for the upload
-use a custom ViewHelper:
+use a custom ViewHelper.
+
+The domain model:
 
 ..  literalinclude:: _FileUpload/_BlogEnhanced.php
     :caption: EXT:my_extension/Classes/Domain/Model/Blog.php, using FileUpload attributes
+
+and the corresponding Fluid template utilizing the ViewHelper:
 
 ..  literalinclude:: _FileUpload/_Upload.html
     :caption: EXT:my_extension/Resources/Private/Templates/Blog/New.html
@@ -109,7 +122,8 @@ domain model Entity, so only if the full validation has taken place and no error
 occurred. This means, if any error occurs, a user will have to re-upload a file.
 
 The implementation is done like this to prevent stale temporary files that would
-need cleanup or could raise issues with Denial of Service.
+need cleanup or could raise issues with Denial of Service (by filling up disk-space
+with these temporarily uploaded files).
 
 
 ..  _extbase_fileupload_attribute:
@@ -149,18 +163,9 @@ newly introduced :php:`\TYPO3\CMS\Extbase\Annotation\FileUpload` attribute.
 
 Example:
 
-..  code-block:: php
-
-    #[FileUpload([
-        'validation' => [
-            'required' => true,
-            'maxFiles' => 1,
-            'fileSize' => ['minimum' => '0K', 'maximum' => '2M'],
-            'allowedMimeTypes' => ['image/jpeg', 'image/png'],
-        ],
-        'uploadFolder' => '1:/user_upload/files/',
-    ])]
-    protected ?FileReference $file = null;
+..  literalinclude:: _FileUpload/_BlogExcerpt.php
+    :caption: EXT:my_extension/Classes/Domain/Model/Blog.php (example excerpt of an Extbase domain model)
+    :emphasize-lines: 13-21
 
 All configuration settings of the
 :php:`\TYPO3\CMS\Extbase\Mvc\Controller\FileUploadConfiguration` object can
@@ -196,6 +201,7 @@ done in the :php:`initialize*Action`.
 Example:
 
 ..  code-block:: php
+    :caption: Excerpt of an Extbase controller class
 
     public function initializeCreateAction(): void
     {
@@ -269,30 +275,30 @@ with the :php:`addValidator()` method.
 
 ..  _extbase_fileupload_attribute-required:
 
-Required:
-~~~~~~~~~
+Required
+~~~~~~~~
 
 Defines whether a file must be uploaded. If it is set to `true`, the
 :php:`minFiles` configuration is set to `1`.
 
 ..  _extbase_fileupload_attribute-minimum-files:
 
-Minimum files:
-~~~~~~~~~~~~~~
+Minimum files
+~~~~~~~~~~~~~
 
 Defines the minimum amount of files to be uploaded.
 
 ..  _extbase_fileupload_attribute-maximum-files:
 
-Maximum files:
-~~~~~~~~~~~~~~
+Maximum files
+~~~~~~~~~~~~~
 
 Defines the maximum amount of files to be uploaded.
 
 ..  _extbase_fileupload_attribute-upload-folder:
 
-Upload folder:
-~~~~~~~~~~~~~~
+Upload folder
+~~~~~~~~~~~~~
 
 Defines the upload path for the file upload. This configuration expects a
 storage identifier (e.g. :php:`1:/user_upload/folder/`). If the given target
@@ -300,17 +306,17 @@ folder in the storage does not exist, it is created automatically.
 
 ..  _extbase_fileupload_attribute-upload-folder-creation:
 
-Upload folder creation, when missing:
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Upload folder creation, when missing
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 The default creation of a missing storage folder can be disabled via the
-configuration attribute :php:`createUploadFolderIfNotExist`
+property :php:`createUploadFolderIfNotExist` of the :php:`#[FileUpload([...])]` attribute
 (:php:`bool`, default :php:`true`).
 
 ..  _extbase_fileupload_attribute-random-suffix:
 
-Add random suffix:
-~~~~~~~~~~~~~~~~~~
+Add random suffix
+~~~~~~~~~~~~~~~~~
 
 When enabled, the filename of an uploaded and persisted file will contain a
 random 16 char suffix. As an example, an uploaded file named
@@ -324,12 +330,14 @@ This configuration only has an effect when uploaded files are persisted.
 
 ..  _extbase_fileupload_attribute-duplication-behavior:
 
-Duplication behavior:
-~~~~~~~~~~~~~~~~~~~~~
+Duplication behavior
+~~~~~~~~~~~~~~~~~~~~
 
 Defines the FAL behavior, when a file with the same name exists in the target
-folder. Possible values are :php:`DuplicationBehavior::RENAME` (default),
-:php:`DuplicationBehavior::REPLACE` and :php:`DuplicationBehavior::CANCEL`.
+folder. Possible values are
+:php-short:`\TYPO3\CMS\Core\Resource\Enum\DuplicationBehavior::RENAME` (default),
+:php-short:`\TYPO3\CMS\Core\Resource\Enum\DuplicationBehavior::REPLACE` and
+:php-short:`\TYPO3\CMS\Core\Resource\Enum\DuplicationBehavior::CANCEL`.
 
 
 ..  _extbase_fileupload_attribute-configuration-change:
@@ -344,6 +352,7 @@ changed in the :php:`initialize*Action`.
 Example:
 
 ..  code-block:: php
+    :caption: Excerpt of an Extbase controller class
 
     public function initializeCreateAction(): void
     {
@@ -381,6 +390,7 @@ from TypoScript to a file upload configuration.
 Example:
 
 ..  code-block:: php
+    :caption: Exercept of an Extbase controller class
 
     public function initializeCreateAction(): void
     {
@@ -412,6 +422,7 @@ section of the :php-short:`\TYPO3\CMS\Extbase\Annotation\FileUpload` attribute:
 Example:
 
 ..  code-block:: php
+    :caption: Excerpt of an attribute withhin an Extbase domain model class
 
     #[FileUpload([
         'validation' => [
@@ -448,6 +459,7 @@ can be used to show a "delete file" checkbox in a form.
 Example for object with :php-short:`\TYPO3\CMS\Core\Resource\FileReference` property:
 
 ..  code-block:: php
+    :caption: Fluid code example
 
     <f:form.uploadDeleteCheckbox property="file" fileReference="{object.file}" />
 
@@ -456,6 +468,7 @@ containing multiple files and allowing to delete the first one
 (iteration is possible within Fluid, to do that for every object of the collection):
 
 ..  code-block:: php
+    :caption: Fluid code example
 
     <f:form.uploadDeleteCheckbox property="file.0" fileReference="{object.file}" />
 

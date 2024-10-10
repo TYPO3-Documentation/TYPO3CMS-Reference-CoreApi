@@ -22,7 +22,7 @@ class Blog extends AbstractEntity
             'imageDimensions' => ['maxWidth' => 4096, 'maxHeight' => 4096],
         ],
         'uploadFolder' => '1:/user_upload/extbase_single_file/',
-        'addRandomSuffix' => false,
+        'addRandomSuffix' => true,
         'duplicationBehavior' => DuplicationBehavior::RENAME,
     ])]
     protected ?FileReference $singleFile = null;
