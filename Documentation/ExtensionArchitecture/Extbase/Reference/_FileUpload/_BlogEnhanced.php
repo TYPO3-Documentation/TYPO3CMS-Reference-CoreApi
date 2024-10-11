@@ -33,8 +33,9 @@ class Blog extends AbstractEntity
             'fileSize' => ['minimum' => '0K', 'maximum' => '2M'],
             'allowedMimeTypes' => ['image/jpeg'],
         ],
-        'uploadFolder' => '1:/user_upload/extbase_single_file/',
+        'uploadFolder' => '1:/user_upload/extbase_multiple_files/',
     ])]
+
     /**
      * A collection of files.
      * @var ObjectStorage<FileReference>
@@ -44,12 +45,15 @@ class Blog extends AbstractEntity
     // When using ObjectStorages, it is vital to initialize these.
     public function __construct()
     {
-        $this->initializeObjectStorage();
+        $this->multipleFiles = new ObjectStorage();
     }
 
-    public function initializeObjectStorage(): void
+    /**
+     * Called again with initialize object, as fetching an entity from the DB does not use the constructor
+     */
+    public function initializeObject(): void
     {
-        $this->multipleFiles = new ObjectStorage();
+        $this->multipleFiles = $this->multipleFiles ?? new ObjectStorage();
     }
 
     // Typical getters
@@ -58,6 +62,9 @@ class Blog extends AbstractEntity
         return $this->singleFile;
     }
 
+    /**
+     * @return ObjectStorage|FileReference[]
+     */
     public function getMultipleFiles(): ObjectStorage
     {
         return $this->multipleFiles;
