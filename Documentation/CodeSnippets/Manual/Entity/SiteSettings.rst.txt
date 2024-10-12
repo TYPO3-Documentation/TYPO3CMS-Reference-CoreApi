@@ -24,16 +24,19 @@
     ..  php:method:: getAll()
         :returns: `array`
 
+    ..  php:method:: getMap()
+        :returns: `array`
+
     ..  php:method:: getAllFlat()
         :returns: `array`
 
     ..  php:method:: jsonSerialize()
         :returns: `?mixed`
 
-    ..  php:method:: __set_state(array $state)
-        :returns: `self`
-
-        :param $state: the state
-
     ..  php:method:: getIdentifiers()
         :returns: `array`
+
+    ..  php:method:: __set_state(array $state)
+        :returns: `static`
+
+        :param $state: the state
