@@ -191,7 +191,7 @@ Acquire and use an exclusive, non-blocking lock:
 
    // now use the locker to lock something exclusively, this will not block, so handle retry / abort yourself,
    // e.g. by using a loop
-   if ($locker->acquire(LockingStrategyInterface::LOCK_CAPABILITY_EXCLUSIVE)) {
+   if ($locker->acquire(LockingStrategyInterface::LOCK_CAPABILITY_EXCLUSIVE | LockingStrategyInterface::LOCK_CAPABILITY_NOBLOCK)) {
        // ... some work to be done that requires locking
 
        // after you did your stuff, you must release
