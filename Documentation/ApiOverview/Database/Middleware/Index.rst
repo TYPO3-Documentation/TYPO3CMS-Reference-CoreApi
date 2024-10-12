@@ -1,11 +1,12 @@
+:navigation-title: Driver middlewares
 ..  include:: /Includes.rst.txt
 ..  index::
     Database; Middleware
 ..  _database-middleware:
 
-===========
-Middlewares
-===========
+================================
+Doctrine DBAL driver middlewares
+================================
 
 ..  versionadded:: 12.3
 
