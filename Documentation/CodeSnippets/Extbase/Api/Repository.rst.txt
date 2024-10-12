@@ -9,6 +9,14 @@
 
         :param $persistenceManager: the persistenceManager
 
+    ..  php:method:: injectEventDispatcher(\Psr\EventDispatcher\EventDispatcherInterface $eventDispatcher)
+
+        :param $eventDispatcher: the eventDispatcher
+
+    ..  php:method:: injectFeatures(\TYPO3\CMS\Core\Configuration\Features $features)
+
+        :param $features: the features
+
     ..  php:method:: add(?object $object)
 
         Adds an object to this repository
