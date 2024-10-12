@@ -46,6 +46,7 @@ to be placed within code blocks.
           20.value = bar
         }
 
+.. _typoscript-syntax-import:
 
 @import
 =======
