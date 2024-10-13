@@ -43,10 +43,16 @@ Use the following steps to add the plugin as content element:
 
     Use the following parameters:
 
-    #. Extension key :php:`'blog_example'` or name :php:`BlogExample`.
-    #. A unique identifier for your plugin in UpperCamelCase: :php:`'PostSingle'`
-    #. An array of allowed combinations of controllers and actions stored in an array
-    #. (Optional) an array of controller name and  action names which should not be cached
+    #.  Extension key :php:`'blog_example'` or name :php:`BlogExample`.
+    #.  A unique identifier for your plugin in UpperCamelCase: :php:`'PostSingle'`
+    #.  An array of allowed combinations of controllers and actions stored in an array
+    #.  (Optional) an array of controller name and  action names which should not be cached
+    #.  Using any value but `ExtensionUtility::PLUGIN_TYPE_CONTENT_ELEMENT` is
+        deprecated in TYPO3 v13.4.
+
+    ..  deprecated:: 13.4
+        Setting the fifth parameter to any value but `ExtensionUtility::PLUGIN_TYPE_CONTENT_ELEMENT`
+        is deprecated. See :ref:`plugins-list_type-migration`.
 
     :php:`TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin()` generates
     the necessary TypoScript to display the plugin in the frontend.
@@ -66,16 +72,16 @@ Use the following steps to add the plugin as content element:
     the lists of allowed and non-cacheable actions have been added to the
     according global variables.
 
-#.  :php:`registerPlugin()`: Add to :sql:`list_type` :sql:`tt_content`.
+#.  :php:`registerPlugin()`: Add the plugin as option to the field "Type" of
+    the content element (column :sql:`CType` of table :sql:`tt_content`).
 
-    Make the plugin available in the field
-    :guilabel:`Plugin > Selected Plugin`, :sql:`list_type` of the table
-    :sql:`tt_content`.
+    This makes the plugin available in the field
+    :guilabel:`Type` of the content elements and automatically registers it for
+    the :ref:`New Content Element Wizard <t3coreapi:content-element-wizard>`.
 
-    ..  figure:: /Images/ManualScreenshots/Extbase/ListType.png
-        :class: with-shadow
-
-    The new plugin in the content record at :guilabel:`Plugin > Selected Plugin`
+    ..  versionchanged:: 13.0
+        In TYPO3 13 this is now automatically registered by the TCA from the step above.
+        See :ref:`changelog:feature-102834-1705256634`
 
     ..  literalinclude::  _FrontendPlugin/_tt_content.php
         :language: php
@@ -92,11 +98,6 @@ Use the following steps to add the plugin as content element:
         with :php:`LLL:`.
     #.  (Optional) the :ref:`icon identifier <icon>` or file path prepended with "EXT:"
 
-#.  Add to the :guilabel:`New Content Element` wizard (automatic)
-
-    ..  versionchanged:: 13.0
-        In TYPO3 13 this is now automatically registered by the TCA from the step above.
-        See :ref:`changelog:feature-102834-1705256634`
 
 ..  _extbase_frontend_plugin_typoscript:
 
@@ -120,8 +121,8 @@ Frontend plugin as pure TypoScript
 
 #.  Display the plugin via TypoScript
 
-    The TypoScript :ref:`USER <t3tsref:cobj-user>` object saved at
-    :typoscript:`tt_content.list.20.blogexample_postlistrss` can now be used
+    The TypoScript :ref:`EXTBASEPLUGIN <t3tsref:cobj-extbaseplugin>` object saved at
+    :typoscript:`tt_content.blogexample_postlistrss` can now be used
     to display the frontend plugin. In this example we create a special page type
     for the RSS feed and display the plugin via TypoScript there:
 
