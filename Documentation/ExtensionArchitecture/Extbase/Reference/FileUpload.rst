@@ -519,6 +519,8 @@ used for persistence of a configured uploaded file. The filename can then be
 adjusted via `setTargetFilename()`. The relevant configuration can be retrieved
 via `getConfiguration()`.
 
+..  _extbase_fileupload_multistep:
+
 Multi-step form handling
 ------------------------
 
