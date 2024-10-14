@@ -88,7 +88,7 @@ Automatic handling based on PHP attributes
 ..........................................
 
 Starting with TYPO3 v13.3 it is finally possible to streamline this with commonly
-know Extbase logic, as implemented via
+known Extbase logic, as implemented via
 :ref:`Feature: #103511 - Introduce Extbase file upload and deletion handling <changelog:feature-103511-1711894330>`.
 
 An example implementation of this can be found on
@@ -115,16 +115,34 @@ You can also allow to remove already uploaded files (for the user):
 
 The controller action part with persisting the data needs no further custom code,
 Extbase can automatically do all the domain model handling on its own. The TCA can
-also stay the same as configured for simply read-access to a domain model.
+also stay the same as configured for simply read-access to a domain model. The only
+requirement is that you take care of persisting the domain model after create/update
+actions:
 
-The actual file upload processing is performed just before Extbase persists a
-domain model Entity, so only if the full validation has taken place and no errors
-occurred. This means, if any error occurs, a user will have to re-upload a file.
+..  literalinclude:: _FileUpload/_BlogControllerUpload.php
+    :emphasize-lines: 41,54
+    :caption: EXT:my_extension/Resources/Private/Templates/Blog/New.html
+
+The actual file upload processing is done after extbase property mapping was successful.
+If not all properties of a domain model are valid, the file will not be uploaded.
+This means, if any error occurs, a user will have to re-upload a file.
 
 The implementation is done like this to prevent stale temporary files that would
 need cleanup or could raise issues with Denial of Service (by filling up disk-space
 with these temporarily uploaded files).
 
+..  note::
+
+    File upload handling for nested domain models (e.g. modelA.modelB.fileReference)
+    is not supported.
+
+..  important::
+
+    When working with file uploads in domain models, it is required to persist the
+    model within the same request in your Controller of the target action, for example
+    via :php:`$myRepository->add($myModel)`. Otherwise, dangling `sys_file` records will
+    be created, without a :php:`FileReference` in place, leading to stale temporary
+    files that will need cleanup.
 
 ..  _extbase_fileupload_attribute:
 
@@ -500,3 +518,37 @@ Event listeners can use the method `getTargetFilename()` to retrieve the filenam
 used for persistence of a configured uploaded file. The filename can then be
 adjusted via `setTargetFilename()`. The relevant configuration can be retrieved
 via `getConfiguration()`.
+
+Multi-step form handling
+------------------------
+
+The implementation of the file upload feature in Extbase intentionally requires to
+handle the FileUpload directly within the validation/persistence step of a controller
+action.
+
+If you have a multi-step process in place, where the final persistence of a domain model
+object is only performed later on, you will need to deal with the created files.
+
+For example, you may want to implement a preview before the final domain model
+entity is persisted.
+
+Some possible ways to deal with this:
+
+*   Implement the file handling as a DTO. The key idea here is to decouple the uploaded
+    file into its own domain model object. You can pass that along (including its
+    persistence identity) from one form step to the next, and only in the final step
+    you would take care of transferring the data of this DTO into your actual domain
+    model, and attach the FileReference object.
+
+*   Or use client-side JavaScript. You could create a stub in your Fluid template that
+    has placeholders for user-specified data, and then fills the actual data (before
+    the form is submitted) into these placeholders. You can use the JavaScript :js:`FileReader()`
+    object to access and render uploaded files.
+
+*   Or pass along the created :php:`FileReference` object from the action that processes
+    the actual file upload data in a session variable or a hidden entity, so that you can
+    later access that before the final domain model persistence action. Note however that
+    requires you to also handle stale/temporary files manually, and manage possible outdated
+    :sql:`sys_file` records. In this case you might better use the regular PHP `UploadedFile`
+    handling to manage file uploads, as you are bypassing key concepts of the extbase file
+    upload handling feature.
