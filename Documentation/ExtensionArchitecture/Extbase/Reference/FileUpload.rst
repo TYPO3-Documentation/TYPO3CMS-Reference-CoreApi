@@ -87,4 +87,3 @@ is only possible by either:
    as provided by `Helmut Hummel's EXT:upload_example <https://github.com/helhum/upload_example>`__.
    This extension is no longer maintained and will not work without larger adaptation for
    TYPO3 v12 compatibility.
-
