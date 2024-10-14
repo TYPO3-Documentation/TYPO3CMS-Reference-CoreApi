@@ -20,6 +20,7 @@ Extbase reference
    TypoScriptConfiguration
    Annotations
    Validation
+   FileUpload
    Caching
    Localization
    UriArguments
