@@ -538,17 +538,9 @@ Some possible ways to deal with this:
     to decouple the uploaded file into its own domain model object. You can pass that
     along (including its persistence identity) from one form step to the next, and only
     in the final step you would take care of transferring the data of this DTO into
-    your actual domain model, and attach the FileReference object.
+    your actual domain model, and attach the `FileReference` object.
 
 *   Or use client-side JavaScript. You could create a stub in your Fluid template that
     has placeholders for user-specified data, and then fills the actual data (before
     the form is submitted) into these placeholders. You can use the JavaScript :js:`FileReader()`
     object to access and render uploaded files.
-
-*   Or pass along the created :php:`FileReference` object from the action that processes
-    the actual file upload data in a session variable or a hidden entity, so that you can
-    later access that before the final domain model persistence action. Note however that
-    requires you to also handle stale/temporary files manually, and manage possible outdated
-    :sql:`sys_file` records. In this case you might better use the regular PHP `UploadedFile`
-    handling to manage file uploads, as you are bypassing key concepts of the extbase file
-    upload handling feature.
