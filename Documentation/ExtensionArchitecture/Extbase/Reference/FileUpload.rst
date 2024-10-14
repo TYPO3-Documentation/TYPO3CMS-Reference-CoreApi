@@ -62,16 +62,16 @@ Writing FileReference entries
 Manual handling
 ...............
 
-..  versionchanged:: 13.3
+..  hint::
     With TYPO3 v13.3
     :ref:`Feature: #103511 - Introduce Extbase file upload and deletion handling <changelog:feature-103511-1711894330>`
     was introduced and allows a simplified file upload handling. See
     :ref:`<t3coreapi/13:extbase_fileupload_writing-manual>` for details.
 
 With TYPO3 versions 12.4 and below, attaching files to an Extbase domain model
-is only possible by either:
+is possible by either:
 
-*  Manually evaluate the :php:`$_FILES` data, process and validate the data,
+*  Manually evaluating the :php:`$_FILES` data, process and validate the data,
    use raw QueryBuilder write actions on :sql:`sys_file` and :sql:`sys_file_reference`
    to persist the files quickly, or use at least some API methods:
 
@@ -83,7 +83,7 @@ is only possible by either:
    In that case, validators can be used for custom UploadedFile objects to specify restrictions
    on file types, file sizes and image dimensions.
 
-*  Use (or better: adapt) a more complex implementation by using Extbase TypeConverters,
+*  Using (or better: adapting) a more complex implementation by using Extbase TypeConverters,
    as provided by `Helmut Hummel's EXT:upload_example <https://github.com/helhum/upload_example>`__.
    This extension is no longer maintained and will not work without larger adaptation for
    TYPO3 v12 compatibility.
