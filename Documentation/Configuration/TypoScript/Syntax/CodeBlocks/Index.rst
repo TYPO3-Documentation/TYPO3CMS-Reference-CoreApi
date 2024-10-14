@@ -46,8 +46,9 @@ Some rules apply during parsing:
 
 - Nesting is per-file / per-text-snippet: It does not "swap" into included files. This
   was the case with the old TypoScript parser. It has been a nasty side-effect, leading
-  to hard to debug problems. File includes with :typoscript:`@import` and
-  :typoscript:`<INCLUDE_TYPOSCRIPT:` within curly braces are not relative (anymore).
+  to hard to debug problems. File includes with :typoscript:`@import`
+  within curly braces are not relative (anymore).
+
   A construct like this is invalid, the TypoScript and TSconfig backend modules will mumble
   with a "missing closing brace" warning:
 
