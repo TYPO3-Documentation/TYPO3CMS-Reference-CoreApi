@@ -1,0 +1,45 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+      xmlns:form="http://typo3.org/ns/TYPO3/CMS/Form/ViewHelpers"
+      data-namespace-typo3-fluid="true">
+
+<f:layout name="Default" />
+
+<f:section name="main">
+    <f:form action="create" name="blog" object="{blog}" enctype="multipart/form-data">
+        <div>
+            <p>Single file</p>
+
+            <f:if condition="{blog.singleFile}">
+                <div>
+                    <f:form.uploadDeleteCheckbox id="singleFile"
+                                                 property="singleFile"
+                                                 fileReference="{blog.singleFile}" />
+                    <label for="singleFile">Delete file</label>
+                </div>
+            </f:if>
+
+            <f:form.upload property="singleFile" />
+        </div>
+
+        <div>
+            <p>Multiple files</p>
+
+            <f:if condition="{blog.multipleFiles}">
+                <f:for each="{blog.multipleFiles}" as="file" iteration="i">
+                    <div>
+                        <f:form.uploadDeleteCheckbox id="multipleFiles.{i.index}"
+                                                     property="multipleFiles"
+                                                     fileReference="{file}" />
+                        <label for="multipleFiles.{i.index}">Delete file</label>
+                    </div>
+                </f:for>
+            </f:if>
+
+            <f:form.upload property="multipleFiles" multiple="1" />
+        </div>
+
+        <div>
+            <f:form.submit value="Save" />
+        </div>
+    </f:form>
+</f:section>

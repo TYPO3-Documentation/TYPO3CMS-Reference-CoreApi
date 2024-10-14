@@ -1,0 +1,23 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+      xmlns:form="http://typo3.org/ns/TYPO3/CMS/Form/ViewHelpers"
+      data-namespace-typo3-fluid="true">
+
+<f:layout name="Default" />
+
+<f:section name="main">
+    <f:form action="create" name="blog" object="{blog}" enctype="multipart/form-data">
+        <div>
+            <p>Single file</p>
+            <f:form.upload property="singleFile" />
+        </div>
+
+        <div>
+            <p>Multiple files</p>
+            <f:form.upload property="multipleFiles" multiple="1" />
+        </div>
+
+        <div>
+            <f:form.submit value="Save" />
+        </div>
+    </f:form>
+</f:section>
