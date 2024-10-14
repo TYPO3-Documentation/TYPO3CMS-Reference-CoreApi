@@ -180,8 +180,8 @@ The simplest solution is to create a database entry into table
 using the :ref:`database connection <database-connection>` class or the
 :ref:`query builder <database-query-builder>` provided by TYPO3.
 
-A cleaner solution using :ref:`Extbase <extbase>` requires far more work. An
-example can be found here: https://github.com/helhum/upload_example
+See :ref:`Extbase file upload <extbase_fileupload>` for details on how
+to achieve this using :ref:`Extbase <extbase>`.
 
 
 ..  _fal-using-fal-examples-file-folder-get-references:
