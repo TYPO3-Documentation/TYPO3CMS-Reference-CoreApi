@@ -5,6 +5,9 @@
 
     Entity representing a single site with available languages
 
+    ..  php:attr:: invalidSets
+        :public:
+
     ..  php:method:: getIdentifier()
         :returns: `string`
 
@@ -64,6 +67,9 @@
         :returns: `array`
 
         Returns the whole configuration for this site
+
+    ..  php:method:: getRawConfiguration()
+        :returns: `array`
 
     ..  php:method:: getSettings()
         :returns: `\TYPO3\CMS\Core\Site\Entity\SiteSettings`
