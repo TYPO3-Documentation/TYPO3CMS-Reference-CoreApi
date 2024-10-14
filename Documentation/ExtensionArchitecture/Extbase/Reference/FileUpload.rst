@@ -534,11 +534,11 @@ entity is persisted.
 
 Some possible ways to deal with this:
 
-*   Implement the file handling as a DTO. The key idea here is to decouple the uploaded
-    file into its own domain model object. You can pass that along (including its
-    persistence identity) from one form step to the next, and only in the final step
-    you would take care of transferring the data of this DTO into your actual domain
-    model, and attach the FileReference object.
+*   Implement the file handling as a :ref:`DTO <concept-dto>`. The key idea here is
+    to decouple the uploaded file into its own domain model object. You can pass that
+    along (including its persistence identity) from one form step to the next, and only
+    in the final step you would take care of transferring the data of this DTO into
+    your actual domain model, and attach the FileReference object.
 
 *   Or use client-side JavaScript. You could create a stub in your Fluid template that
     has placeholders for user-specified data, and then fills the actual data (before
