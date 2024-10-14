@@ -61,18 +61,16 @@ class Person extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
 // An Extbase controller utilizing DTO-to-entity transfer
 class DtoController extends TYPO3\CMS\Extbase\Mvc\Controller\ActionController
 {
-    public function __construct(protected MyVendor\MyExtension\Domain\Repository\PersonRepository $personRepository)
-    {
-    }
+    public function __construct(protected MyVendor\MyExtension\Domain\Repository\PersonRepository $personRepository) {}
 
-    function createAction(): Psr\Http\Message\ResponseInterface
+    public function createAction(): Psr\Http\Message\ResponseInterface
     {
         // Set up a DTO to be filled with input data.
         // The Fluid template would use <f:form> and its helpers.
         $this->view->assign('personDTO', new PersonDTO());
     }
 
-    function saveAction(PersonDTO $personDTO): Psr\Http\Message\ResponseInterface
+    public function saveAction(PersonDTO $personDTO): Psr\Http\Message\ResponseInterface
     {
         // Transfer all data to a proper Extbase entity.
         // Create an empty entity first:
