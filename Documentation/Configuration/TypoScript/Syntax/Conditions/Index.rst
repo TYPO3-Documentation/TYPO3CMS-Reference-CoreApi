@@ -112,7 +112,7 @@ These general rules apply:
 
 * .. versionchanged:: 12.0
 
-  :typoscript:`@import` and :typoscript:`<INCLUDE_TYPOSCRIPT: ...` *can* be nested
+  :typoscript:`@import` *can* be nested
   inside conditions. This allows conditional includes and is a new feature of the
   TYPO3 v12 parser.
 
