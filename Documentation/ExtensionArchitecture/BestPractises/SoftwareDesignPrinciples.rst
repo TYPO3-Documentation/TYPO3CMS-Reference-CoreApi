@@ -19,3 +19,40 @@ extensions for TYPO3.
 
 We also recommend to study common `software design
 patterns <https://designpatternsphp.readthedocs.io/en/latest/>`__.
+
+.. _concept-dto:
+
+DTO / Data Transfer Objects
+----------------------------
+
+A very common pattern in Extbase extensions is a "DTO" ("Data Transfer Object").
+
+A DTO is an instance of a basic class that usually only has a constructor,
+getters and setters. It is not meant to be an extension of an Extbase `AbstractEntity`.
+
+This DTO serves as pure data storage. You can use it to receive and retrieve
+data in a `<f:form>` fluid
+`CRUD <https://en.wikipedia.org/wiki/Create,_read,_update_and_delete>`__
+("Create Read Update Delete") setup.
+
+Later on, the DTO can be accessed and converted into a "proper" Extbase domain model
+entity: The DTO getters retrieve the data, and the Extbase domain model entity's setters
+receive that data:
+
+..  literalinclude:: _dto.php
+    :language: php
+    :caption: Example of DTO and AbstractEntity used in an Extbase controller
+
+DTOs are helpful because:
+
+*   They allow to decouple pure data from processed/validated data in entities.
+*   They allow to structure data into distinct data models.
+*   They allow to use good type hinting and using setters/getters instead of using
+    untyped and unstructured PHP arrays for data storage.
+*   They can be used to hide implementation details of your actual entities by transferring
+    data like filter settings that internally gets applied to actual data models.
+
+
+Some more reading:
+
+*   `<https://usetypo3.com/dtos-in-extbase/>`__
