@@ -18,7 +18,4 @@ Example
 API
 ===
 
-..  versionadded:: 12.4.10
-    The method :php:`getFile()` has been added.
-
 ..  include:: /CodeSnippets/Events/Impexp/BeforeImportEvent.rst.txt

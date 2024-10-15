@@ -179,7 +179,7 @@ FAQ
 ===
 
 
-Should I localize both 12.4 and main?
+Should I localize both 13.4 and main?
 ---------------------------------------
 
 The main branch is the leading version. Any string that is also present in the

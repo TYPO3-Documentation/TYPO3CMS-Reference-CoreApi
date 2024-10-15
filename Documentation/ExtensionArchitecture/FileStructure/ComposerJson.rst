@@ -150,10 +150,6 @@ type
 
 (*required*)
 
-..  versionchanged:: 12.4
-    Extensions in Composer-based installations are installed into the
-    :file:`vendor/` folder.
-
 Use `typo3-cms-extension` for third-party extensions.
 The :file:`Resources/Public/` folder will be symlinked into the
 :ref:`_assets/ <directory-public-assets>` folder of your web root.

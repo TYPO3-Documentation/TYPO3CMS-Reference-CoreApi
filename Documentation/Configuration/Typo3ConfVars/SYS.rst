@@ -672,8 +672,6 @@ configurations.
         :type: bool
         :Default: false
 
-        ..  versionadded:: 12.4.20
-
         If enabled, the :ref:`Content Security Policy <content-security-policy>`
         is applied in frontend scope as report-only (HTTP header
         `Content-Security-Policy-Report-Only`).
@@ -711,10 +709,6 @@ configurations.
         :Path: $GLOBALS['TYPO3_CONF_VARS']['SYS']['features']['security.frontend.allowInsecureSiteResolutionByQueryParameters']
         :type: bool
         :Default: false
-
-        ..  note::
-            This change was introduced as part of the
-            `TYPO3 12.4.4 and 11.5.30 security releases <https://typo3.org/security/advisory/typo3-core-sa-2023-003>`__.
 
         Resolving sites by the `id` and `L` HTTP query parameters is now denied by
         default. However, it is still allowed to resolve a particular page by, for

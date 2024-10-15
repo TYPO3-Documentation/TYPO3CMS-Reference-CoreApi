@@ -604,8 +604,6 @@ An :php:`Error` is thrown on missing dependency injection for
 Installation-wide configuration
 -------------------------------
 
-..  versionadded:: 12.1
-
 One can set up a global service configuration for a project that can be used in
 multiple project-specific extensions. For example, this way you can alias an
 interface with a concrete implementation that can be used in several extensions.

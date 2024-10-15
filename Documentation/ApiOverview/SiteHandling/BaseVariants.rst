@@ -66,14 +66,14 @@ Properties
 ..  option:: typo3.version
 
     :type: string
-    :Example: `12.4.0`
+    :Example: `13.4.0`
 
     The current TYPO3 version.
 
 ..  option:: typo3.branch
 
     :type: string
-    :Example: `12.4`
+    :Example: `13.4`
 
     The current TYPO3 branch.
 
@@ -115,7 +115,7 @@ are available:
 ..  option:: compatVersion
 
     :type: string
-    :Example: `compatVersion("12.4.0")`, `compatVersion("11.5")`
+    :Example: `compatVersion("13.4.0")`, `compatVersion("12.4")`
 
     Match a TYPO3 version.
 

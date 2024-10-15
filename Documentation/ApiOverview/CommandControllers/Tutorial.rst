@@ -32,9 +32,9 @@ This command can be found in the
 1. Register the command
 -----------------------
 
-..  versionadded:: 12.4.8
+..  note::
     The Symfony PHP attribute :php:`\Symfony\Component\Console\Attribute\AsCommand`
-    is now accepted to register console commands.
+    registers console commands.
     See the section :ref:`console-command-tutorial-registration-attribute`
     for more details.
 
@@ -155,8 +155,6 @@ succeeded.
 
 Use the PHP attribute to register commands
 ==========================================
-
-..  versionadded:: 12.4.8
 
 CLI commands can be registered by setting the attribute
 :php:`\Symfony\Component\Console\Attribute\AsCommand` on the command class.

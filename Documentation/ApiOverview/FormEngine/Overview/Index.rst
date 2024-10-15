@@ -50,14 +50,6 @@ In code, this basic workflow looks like this:
     :language: php
     :caption: EXT:my_extension/Classes/SomeClass.php
 
-..  deprecated:: 12.4
-    Using the FormEngine data provider to render records without passing the
-    current :ref:`request object <typo3-request>` is deprecated. Additionally,
-    when instantiating the backend FormEngine-related :php:`FormDataCompiler`,
-    the constructor argument :php:`FormDataGroupInterface` should be omitted,
-    the form data group should be provided as second argument to :php:`compile()`
-    instead. Failing to do so will stop working with TYPO3 v13.
-
 This basically means the main FormEngine concept is a two-fold process: First create an array to gather all
 render-relevant information, then call the render engine using this array to come up with output.
 

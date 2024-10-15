@@ -42,10 +42,6 @@ invocations.
 Custom backend modules requiring the sudo mode
 ==============================================
 
-..  versionadded:: 12.4
-    With TYPO3 v12.4 sudo mode has been changed to a generic configuration for
-    backend routes (and implicitly modules).
-
 In general, the configuration for a particular route or module looks like this:
 
 ..  code-block:: diff

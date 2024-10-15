@@ -51,7 +51,7 @@ Example:
         'version' => '1.0.0',
         'constraints' => [
             'depends' => [
-                'typo3' => '12.0.0-12.4.99',
+                'typo3' => '13.4.0-12.3.99',
             ],
             'conflicts' => [
             ],
@@ -153,14 +153,14 @@ Example:
          array
    :Description:
          List of requirements, suggestions or conflicts with other extensions
-         or TYPO3 or PHP version. Here's how a typical setup might look:
+         or TYPO3 or PHP version. Here is how a typical setup might look:
 
          .. code-block:: php
             :caption: EXT:some_extension/ext_emconf.php
 
             'constraints' => [
                 'depends' => [
-                    'typo3' => '11.5.0-12.4.99',
+                    'typo3' => '12.4.0-13.4.99',
                     'php' => '7.4.0-8.1.99'
                 ],
                 'conflicts' => [
@@ -186,7 +186,7 @@ Example:
            Loading order especially matters when overriding TCA or SQL of another extension.
 
          The above example indicates that the extension depends on a
-         version of TYPO3 between 11.4 and 12.4 (as only bug and security fixes are
+         version of TYPO3 between 12.4 and 13.4 (as only bug and security fixes are
          integrated into TYPO3 when the last digit of the version changes, it is
          safe to assume it will be compatible with any upcoming version of the
          corresponding branch, thus ``.99``). Also the extension has been

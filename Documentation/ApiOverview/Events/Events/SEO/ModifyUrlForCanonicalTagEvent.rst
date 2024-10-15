@@ -11,9 +11,6 @@ With the PSR-14 event `\TYPO3\CMS\Seo\Event\ModifyUrlForCanonicalTagEvent`
 the URL for the :html:`href` attribute of the canonical tag can be altered or
 emptied.
 
-..  versionadded:: 12.4.9
-    The methods :php:`getRequest()` and :php:`getPage()` have been added.
-
 ..  versionchanged:: 13.0
     The event is being dispatched after the standard functionality has been
     executed, such as fetching the URL from the page properties. Effectively,
