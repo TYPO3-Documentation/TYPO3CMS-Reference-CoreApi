@@ -1,7 +1,7 @@
 ﻿..  You can put central messages to display on all pages here
 
 ..  attention::
-    TYPO3 v11 has reached end-of-life as of Oktober 15th 2024 and
+    TYPO3 v11 has reached end-of-life as of October 15th 2024 and
     is no longer being maintained. Use the version switcher on the top
     left of this page to select documentation for a supported version of TYPO3.
 
