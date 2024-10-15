@@ -392,7 +392,7 @@ already been validated, converted and, if not set, the default value is used.
 SetRegistry
 -----------
 
-The :php:`TYPO3\CMS\Core\Site\Set\SetRegistry` retrieves the site sets found in an ordered sequence, as
+The :php:`\TYPO3\CMS\Core\Site\Set\SetRegistry` retrieves the site sets found in an ordered sequence, as
 defined by `dependencies` in `config.yaml`. Please preferably use the site
 object to access the required data. However, if you need to query one or more
 site set definitions in order as defined by dependencies, then 
