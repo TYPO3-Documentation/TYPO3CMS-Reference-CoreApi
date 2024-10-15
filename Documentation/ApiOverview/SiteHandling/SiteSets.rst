@@ -451,7 +451,7 @@ definitions found.
 
 However, this is not the official way to access the site set definitions and
 their dependencies. Please access the configuration via the site object.
-Alternatively, you can also use the :short:`SetRegistry`, as only this manages the
+Alternatively, you can also use the :php-short:`\TYPO3\CMS\Core\Site\Set\SetRegistry`, as only this manages the
 site sets in the order declared by the dependency specification.
 
 Only use the :php-short:`\TYPO3\CMS\Core\Site\Set\SetCollector` if you need to read all site set definitions.
