@@ -5,18 +5,17 @@
         links-are-relative="true">
     <extension
         class="\T3Docs\Typo3DocsTheme\DependencyInjection\Typo3DocsThemeExtension"
-        project-home="https://docs.typo3.org/m/typo3/reference-coreapi/main/en-us/"
+        project-home="https://docs.typo3.org/m/typo3/reference-coreapi/13.4/en-us/"
         project-contact="https://typo3.slack.com/archives/C028JEPJL"
         project-repository="https://github.com/TYPO3-Documentation/TYPO3CMS-Reference-CoreApi"
         project-issues="https://github.com/TYPO3-Documentation/TYPO3CMS-Reference-CoreApi/issues"
-        edit-on-github-branch="main"
+        edit-on-github-branch="13.4"
         edit-on-github="TYPO3-Documentation/TYPO3CMS-Reference-CoreApi"
-        typo3-core-preferred="main"
+        typo3-core-preferred="13"
         interlink-shortcode="t3coreapi"
     />
     <project title="TYPO3 Explained"
-             release="main (development)"
-             version="main (development)"
+             version="13-dev"
              copyright="since 2012 by the TYPO3 contributors"
     />
     <inventory id="tailor"
