@@ -395,7 +395,8 @@ SetRegistry
 The :php:`TYPO3\CMS\Core\Site\Set\SetRegistry` retrieves the site sets found in an ordered sequence, as
 defined by `dependencies` in `config.yaml`. Please preferably use the site
 object to access the required data. However, if you need to query one or more
-site set definitions in order as defined by dependencies, then :short:`SetRegistry`
+site set definitions in order as defined by dependencies, then 
+:php-short:`\TYPO3\CMS\Core\Site\Set\SetRegistry`
 is the right place to go. To read all site set definitions, please
 use :php:`TYPO3\CMS\Core\Site\Set\SetCollector`.
 
@@ -438,7 +439,7 @@ SetCollector
 ~~~~~~~~~~~~
 
 TYPO3 comes with a new `ServiceProvider`, which goes through all extensions
-with the first instantiation of the :short:`SetCollector` and reads all site set
+with the first instantiation of the :php-short:`\TYPO3\CMS\Core\Site\Set\SetCollector` and reads all site set
 definitions found.
 
 ..  code-block:: php
@@ -453,5 +454,5 @@ their dependencies. Please access the configuration via the site object.
 Alternatively, you can also use the :short:`SetRegistry`, as only this manages the
 site sets in the order declared by the dependency specification.
 
-Only use the :short:`SetCollector` if you need to read all site set definitions.
+Only use the :php-short:`\TYPO3\CMS\Core\Site\Set\SetCollector` if you need to read all site set definitions.
 Dependencies are not taken into account here.
