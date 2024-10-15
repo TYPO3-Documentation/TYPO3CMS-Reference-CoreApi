@@ -453,5 +453,5 @@ their dependencies. Please access the configuration via the site object.
 Alternatively, you can also use the :short:`SetRegistry`, as only this manages the
 site sets in the order declared by the dependency specification.
 
-Only use the `SetCollector` if you need to read all site set definitions.
+Only use the :short:`SetCollector` if you need to read all site set definitions.
 Dependencies are not taken into account here.
