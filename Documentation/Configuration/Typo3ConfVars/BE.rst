@@ -61,32 +61,15 @@ the TYPO3 backend:
     :type: array of file paths
     :Default: :php:`[]`
 
-    ..  versionchanged:: 11.5.35/12.4.11
-        This option has been extended to support an array of root path prefixes to
-        allow for multiple storages to be listed (a string was expected before).
-
-        It is suggested to use the new array-based syntax, which will be applied
-        automatically once this setting is updated via Install Tool configuration
-        wizard. Migration:
-
-        ..  code-block:: php
-            :caption: config/system/settings.php
-
-            // Before
-            $GLOBALS['TYPO3_CONF_VARS']['BE']['lockRootPath'] = '/var/extra-storage';
-
-            // After
-            $GLOBALS['TYPO3_CONF_VARS']['BE']['lockRootPath'] =  [
-                '/var/extra-storage1/',
-                '/var/extra-storage2/',
-            ];
-
-        See also the `security bulletin "Path Traversal in TYPO3 File Abstraction Layer Storages" <https://typo3.org/security/advisory/typo3-core-sa-2024-001>`__.
-
-
     These absolute paths are used to evaluate, if paths outside of the project
     path should be allowed. This restriction also applies for the local driver
     of the :ref:`File Abstraction Layer <fal>`.
+
+    This option supports an array of root path prefixes to
+    allow for multiple storages to be listed.
+
+    See also the `Security bulletin "Path Traversal in TYPO3 File Abstraction
+    Layer Storages" <https://typo3.org/security/advisory/typo3-core-sa-2024-001>`__.
 
     ..  attention::
         Trailing slashes are enforced automatically.

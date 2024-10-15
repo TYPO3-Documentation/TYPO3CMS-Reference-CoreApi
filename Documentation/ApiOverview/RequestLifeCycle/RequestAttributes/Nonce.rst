@@ -8,8 +8,6 @@
 Nonce
 =====
 
-..  versionadded:: 12.4
-
 The :php:`nonce` request attribute is related to :ref:`content-security-policy`.
 
 ..  seealso::

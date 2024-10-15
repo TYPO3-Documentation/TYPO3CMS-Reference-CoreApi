@@ -146,9 +146,8 @@ Example within a controller (we use here a non-Extbase controller):
 Sudo mode
 =========
 
-..  versionadded:: 12.4
-    Starting with TYPO3 v12.4 a the sudo mode, like for the install tool,
-    can be request for arbitrary backend modules.
+The sudo mode, as known from the install tool,
+can be request for arbitrary backend modules.
 
 You can configure the sudo mode in your backend routing like this:
 

@@ -241,8 +241,6 @@ The following caches exist in the TYPO3 Core:
     *   Cache for :ref:`TypoScript <t3tsref:start>`.
 
 `database_schema`
-    .. versionadded:: 12.4.2
-
     **group**: system
 
     Cache for database schema information.

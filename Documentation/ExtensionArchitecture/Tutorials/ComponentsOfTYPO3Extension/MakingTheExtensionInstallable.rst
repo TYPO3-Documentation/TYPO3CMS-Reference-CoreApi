@@ -28,10 +28,10 @@ A minimal example:
       "type": "typo3-cms-extension",
       "require": {
         "php": "~8.2.0 || ~8.3.0",
-        "typo3/cms-core": "^12.4.0",
-        "typo3/cms-extbase": "^12.4.0",
-        "typo3/cms-fluid": "^12.4.0",
-        "typo3/cms-frontend": "^12.4.0"
+        "typo3/cms-core": "^13.4.0",
+        "typo3/cms-extbase": "^13.4.0",
+        "typo3/cms-fluid": "^13.4.0",
+        "typo3/cms-frontend": "^13.4.0"
       },
       "extra": {
         "typo3/cms": {

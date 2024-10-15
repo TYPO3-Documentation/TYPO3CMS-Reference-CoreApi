@@ -42,7 +42,7 @@ the feature flags
 *   :confval:`globals-typo3-conf-vars-sys-features-security-frontend-enforceContentSecurityPolicy`
     (for enforcing)
 *   :confval:`globals-typo3-conf-vars-sys-features-security-frontend-reportContentSecurityPolicy`
-    (for report-only mode, available since TYPO3 v12.4.20)
+    (for report-only mode)
 
 need to be enabled.
 
@@ -126,8 +126,6 @@ used to declare policies for a specific site, for example:
 
 Disable CSP for a site
 ~~~~~~~~~~~~~~~~~~~~~~
-
-..  versionadded:: 12.4.20
 
 The Content Security Policy for a particular site can be disabled with the
 :yaml:`active` key set to :yaml:`false`:

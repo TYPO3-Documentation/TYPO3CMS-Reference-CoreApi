@@ -6,8 +6,8 @@
     "require": {
         "internal/custom-command": "@dev",
         "internal/custom-middleware": "@dev",
-        "typo3/cms-core": "^12.4",
-        "typo3/cms-[other_dependencies]": "^12.4"
+        "typo3/cms-core": "^13.4",
+        "typo3/cms-[other_dependencies]": "^13.4"
     },
     "repositories": {
         "extensions": {

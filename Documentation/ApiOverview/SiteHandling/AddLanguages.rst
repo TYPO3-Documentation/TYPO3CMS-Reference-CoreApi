@@ -139,12 +139,11 @@ Configuration properties
     :type: string
     :Example: :yaml:`en-GB`
 
-    ..  versionchanged:: 12.4
-        The information is now automatically derived from the
-        :ref:`locale <sitehandling-addingLanguages-locale>` setting.
-
     Use this property to override the automatic hreflang tag value for this
     language.
+
+    The information is automatically derived from the
+    :ref:`locale <sitehandling-addingLanguages-locale>` setting.
 
     **Example setups:**
 

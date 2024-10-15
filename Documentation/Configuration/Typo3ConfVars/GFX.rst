@@ -150,7 +150,7 @@ the handling of images and graphics:
     :Path: $GLOBALS['TYPO3_CONF_VARS']['GFX']['processor_stripColorProfileCommand']
     :type: string
 
-    ..  versionchanged:: 11.5.35/12.4.11
+    ..  note::
         This string-based configuration option has been superseded by
         :ref:`$GLOBALS['TYPO3_CONF_VARS']['GFX']['processor_stripColorProfileParameters'] <typo3ConfVars_gfx_processor_stripColorProfileParameters>`
         for `security reasons <https://typo3.org/security/advisory/typo3-core-sa-2024-002>`__.
@@ -182,8 +182,6 @@ the handling of images and graphics:
     :Path: $GLOBALS['TYPO3_CONF_VARS']['GFX']['processor_stripColorProfileParameters']
     :type: array of strings
     :Default: :php:`['+profile', '*']`
-
-    ..  versionchanged:: 11.5.35/12.4.11
 
     Specifies the parameters to strip the profile information, which can reduce
     thumbnail size up to 60KB. Command can differ in IM/GM, IM also knows the
