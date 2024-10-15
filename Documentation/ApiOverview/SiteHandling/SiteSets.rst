@@ -65,8 +65,8 @@ Line 3-6: Settings
     Define settings for the website
     **Never** nest settings with a dot! e.g. `website.background.color`
     Otherwise the new settings definitions will not work later.
-    If a setting contains special characters or spaces, it is recommended to
-    wrap the value in inverted commas. You can also define settings in a
+    If a setting value contains special characters or spaces, it is recommended to
+    wrap the value in single quotes. You can also define settings in a
     separate file :file:`settings.yaml`. See section below.
 Line 7: Dependencies
     Load :file:`setup.typoscript`, :file:`constants.typoscript`,
