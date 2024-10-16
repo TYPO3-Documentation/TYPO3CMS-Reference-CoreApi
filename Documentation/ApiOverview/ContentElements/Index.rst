@@ -211,7 +211,7 @@ The news records are stored in a custom database table (`tx_news_domain_model_ne
 and can be edited in the backend.
 
 There are also system extensions that have plugins. :composer:`typo3/cms-felogin`
-has a plugin that allow frontend users, stored in table `fe_user` to log into
+has a plugin that allow frontend users, stored in table `fe_users` to log into
 the website. :composer:`typo3/cms-indexed-search` has a plugin that can be
 used to search in the index and display search results.
 
