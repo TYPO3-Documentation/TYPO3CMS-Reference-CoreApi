@@ -41,6 +41,7 @@ management system TYPO3.
     :maxdepth: 1
 
     ApiOverview/Index
+    Administration/Index
     CodingGuidelines/Index
     Configuration/Index
     ExtensionArchitecture/Index
