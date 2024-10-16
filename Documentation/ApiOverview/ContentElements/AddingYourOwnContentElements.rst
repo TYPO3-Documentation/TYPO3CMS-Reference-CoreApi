@@ -183,7 +183,7 @@ The :typoscript:`lib.contentElement` path is defined in file
 :file:`EXT:fluid_styled_content/Configuration/TypoScript/Helper/ContentElement.typoscript`.
 and uses a :ref:`t3tsref:cobj-fluidtemplate`.
 
-We reference :doc:`fluid_styled_contents <typo3/cms-fluid-styled-content:Index>`
+We reference :doc:`fluid_styled_content <typo3/cms-fluid-styled-content:Index>`'s 
 :typoscript:`lib.contentElement` from our new content element and only change
 the Fluid template to be used.
 
