@@ -8,7 +8,7 @@ File imports
 
 ..  deprecated:: 13.4
     The old school :typoscript:`<INCLUDE_TYPOSCRIPT:` syntax has been deprecated
-    and will be removed with TYPO3 14.0. See :ref:`typoscript-syntax-includes-migration`.
+    and will be removed with TYPO3 v14.0. See :ref:`typoscript-syntax-includes-migration`.
 
 To structure and reuse single TypoScript snippets and not stuffing everything
 into one file or record, the syntax allows loading TypoScript content from sub files.
@@ -16,7 +16,7 @@ into one file or record, the syntax allows loading TypoScript content from sub f
 The keyword :typoscript:`@import` is a syntax construct and
 thus available in both frontend TypoScript and backend TSconfig.
 
-:typoscript:`@import` allows including additional files using wildcards the file
+:typoscript:`@import` allows including additional files using wildcards on the file
 level. Wildcards in paths are not allowed.
 
 The TypoScript parser allows to place :typoscript:`@import` within condition
@@ -161,7 +161,7 @@ easily. A few examples:
     # Including .typoscript and .ts files in a single (non recursive!) directory
     -<INCLUDE_TYPOSCRIPT: source="DIR:EXT:my_extension/Configuration/TypoScript/" extensions="typoscript,ts">
     +@import 'EXT:my_extension/Configuration/TypoScript/*.typoscript'
-     # Rename all files ending on .ts to .typoscript
+     # Rename all files ending from .ts to .typoscript
 
      # Including a file conditionally
     -<INCLUDE_TYPOSCRIPT: source="FILE:EXT:my_extension/Configuration/TypoScript/user.typoscript" condition="[frontend.user.isLoggedIn]">
