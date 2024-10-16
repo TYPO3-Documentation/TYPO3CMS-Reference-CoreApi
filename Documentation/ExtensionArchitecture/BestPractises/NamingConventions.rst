@@ -43,7 +43,7 @@ TER
     :guilabel:`My Extensions`.
 
 extkey
-    The extension key as is (e.g. 'my_extension').
+    The extension key as it is (e.g. 'my_extension').
 
 extkeyprefix
     The extension key with stripped away underscores (e.g. extkey='my_extension'
