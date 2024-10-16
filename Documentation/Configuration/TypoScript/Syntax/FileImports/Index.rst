@@ -6,45 +6,25 @@
 File imports
 ============
 
+..  deprecated:: 13.4
+    The old school :typoscript:`<INCLUDE_TYPOSCRIPT:` syntax has been deprecated
+    and will be removed with TYPO3 v14.0. See :ref:`typoscript-syntax-includes-migration`.
+
 To structure and reuse single TypoScript snippets and not stuffing everything
 into one file or record, the syntax allows loading TypoScript content from sub files.
 
-The two keywords are :typoscript:`@import` and the old school
-:typoscript:`<INCLUDE_TYPOSCRIPT:`. They are a syntax construct and
-thus available in both frontend Typoscript and backend TSconfig.
+The keyword :typoscript:`@import` is a syntax construct and
+thus available in both frontend TypoScript and backend TSconfig.
 
-Both :typoscript:`@import` and :typoscript:`<INCLUDE_TYPOSCRIPT:` allow
-including additional files using wildcards. :typoscript:`@import` is a bit
-more restricted, though. The TYPO3 Core strives to get rid of
-:typoscript:`<INCLUDE_TYPOSCRIPT:` mid-term, and :typoscript:`@import` has
-been tuned with TYPO3 v12 to show good performance metrics. Integrators
-should prefer :typoscript:`@import` over :typoscript:`<INCLUDE_TYPOSCRIPT:`
-since it is best practice and more future proof.
+:typoscript:`@import` allows including additional files using wildcards on the file
+level. Wildcards in paths are not allowed.
 
-The TypoScript parser allows to place :typoscript:`@import` and
-:typoscript:`<INCLUDE_TYPOSCRIPT:` within condition bodies, which obsoletes the
-:typoscript:`condition` keyword of :typoscript:`<INCLUDE_TYPOSCRIPT:` and allows conditional
-imports with :typoscript:`@import`.
+The TypoScript parser allows to place :typoscript:`@import` within condition
+bodies, which allows conditional imports with :typoscript:`@import`.
 
-Neither :typoscript:`@import` nor :typoscript:`<INCLUDE_TYPOSCRIPT:` are allowed
-to be placed within code blocks.
-
-..  versionchanged:: 12.2
-    :typoscript:`@import` and :typoscript:`<INCLUDE_TYPOSCRIPT:` basically
-    break any curly braces level, resetting current scope to top level. While
-    inclusion of files has never been documented to be valid within braces
-    assignments, it still worked until TYPO3 v11. This is now disallowed and
-    must not be used anymore. For example, a construct like this is **invalid**:
-
-    ..  code-block:: typoscript
-
-        page = PAGE
-        page {
-          # This import won't work!
-          @import 'EXT:my_extension/Configuration/TypoScript/bar.typoscript'
-          20 = TEXT
-          20.value = bar
-        }
+:typoscript:`@import` is not allowed to be placed within code blocks
+and breaks any curly braces level, resetting current scope
+to top level.
 
 .. _typoscript-syntax-import:
 
@@ -132,77 +112,123 @@ Some examples:
     @import './subDirectory/*.setup.typoscript'
 
 
+.. _typoscript-syntax-includes-alternatives:
+
+Alternatives to using file imports
+==================================
+
+The following features can make file inclusion unnecessary:
+
+*   :ref:`Automatic global inclusion of user TSconfig of extensions <t3tsconfig:usersettingdefaultusertsconfig>`
+*   :ref:`Automatic global inclusion of page TSconfig of extensions <t3tsconfig:pagesettingdefaultpagetsconfig>`
+*   :ref:`Automatic page TSconfig on site level <t3tsconfig:include-static-page-tsconfig-per-site>`
+*   :ref:`TypoScript provider for sites and sets <site-sets-typoscript>`
+    automatically loads TypoScript per site when the site set is included in the
+    site configuration.
+
+
 .. index:: TypoScript; Includes by conditions
 .. _typoscript-syntax-includes-conditions:
 .. _typoscript-syntax-includes-best-practices:
+.. _typoscript-syntax-includes-migration:
 
-<INCLUDE_TYPOSCRIPT:
-====================
+Migration from `<INCLUDE_TYPOSCRIPT:` to `@import`
+==================================================
 
-This traditional include instruction works as well. It is more clumsy and permissive,
-does not follow best practices. It should be avoided as of TYPO3 v12 and is likely
-to be deprecated with TYPO3 v13. It looks like this:
+..  important::
+    :typoscript:`@import` does not support recursively including all `.typoscript`
+    files from sub directories. You need to list each directory with its own
+    :typoscript:`@import` statement.
+    See :ref:`typoscript-syntax-includes-migration-recursive`.
 
-.. code-block:: typoscript
+..  important::
+    :typoscript:`@import` supports the file endings `.typoscript` and `.tsconfig`
+    only. All other file names will be ignored. Rename all TypoScript files to
+    these endings.
 
-   <INCLUDE_TYPOSCRIPT: source="FILE:EXT:my_extension/Configuration/TypoScript/myMenu.typoscript">
+Most usages of :typoscript:`<INCLUDE_TYPOSCRIPT:` can be turned into :typoscript:`@import`
+easily. A few examples:
 
-More details:
+..  code-block:: diff
 
-* Keyword "FILE":
+    -<INCLUDE_TYPOSCRIPT: source="FILE:EXT:my_extension/Configuration/TypoScript/myMenu.typoscript">
+    +@import 'EXT:my_extension/Configuration/TypoScript/myMenu.typoscript'
 
-  A reference to a single file relative to :php:`\TYPO3\CMS\Core\Core\Environment::getPublicPath()`.
+     # Including .typoscript files in a single (non recursive!) directory
+    -<INCLUDE_TYPOSCRIPT: source="DIR:EXT:my_extension/Configuration/TypoScript/" extensions="typoscript">
+    +@import 'EXT:my_extension/Configuration/TypoScript/*.typoscript'
 
-  Paths relative to the including file can be used, if the inclusion is called
-  from inside a file. These paths start with :file:`FILE:./`. This allows simple, nested
-  TypoScript templates that can be moved or copied without the need to adapt all includes.
+    # Including .typoscript and .ts files in a single (non recursive!) directory
+    -<INCLUDE_TYPOSCRIPT: source="DIR:EXT:my_extension/Configuration/TypoScript/" extensions="typoscript,ts">
+    +@import 'EXT:my_extension/Configuration/TypoScript/*.typoscript'
+     # Rename all files ending from .ts to .typoscript
 
-  Files within extensions can be used using :file:`FILE:EXT:my_extension/path/to/file.typoscript`.
-  This should be the preferred usage, importing files not located within extensions is
-  likely to be deprecated with TYPO3 v13, along with the file ending :file:`.txt`.
+     # Including a file conditionally
+    -<INCLUDE_TYPOSCRIPT: source="FILE:EXT:my_extension/Configuration/TypoScript/user.typoscript" condition="[frontend.user.isLoggedIn]">
+    +[frontend.user.isLoggedIn]
+    +    @import 'EXT:my_extension/Configuration/TypoScript/user.typoscript'
+    +[END]
 
-* Keyword "DIR":
+There are a few more use cases that cannot be transitioned so easily since
+:typoscript:`@import` is a bit more restrictive.
 
-  Can be used instead of :typoscript:`FILE` to include multiple files at once.
-  It includes all files from a directory relative to :php:`\TYPO3\CMS\Core\Core\Environment::getPublicPath()`,
-  including subdirectories.
+As one restriction :typoscript:`@import` cannot include files from arbitrary directories
+like :file:`fileadmin/`, but only from extensions by using the :typoscript:`EXT:`
+prefix. Instances that use :typoscript:`<INCLUDE_TYPOSCRIPT:` with :typoscript:`source="FILE:./someDirectory/..."`
+should move these TypoScript files into a project or site extension. Such instances are also encouraged to
+look into the TYPO3 v13 :ref:`Site sets <site-sets>` feature and eventually transition towards it along the way.
 
-  Files are included in alphabetical. Also files are included first, then directories.
+:typoscript:`@import` allows to import files with the file ending `.typoscript`
+and `.tsconfig`. If you used any of the outdated file endings like `.ts` or
+`.txt` rename those files before switching to the :typoscript:`@import` syntax.
 
-  .. attention::
-     :typoscript:`<INCLUDE_TYPOSCRIPT:` with :typoscript:`DIR:` and relative
-     paths always assumes the web root directory as base directory.
-     (Before TYPO3 v12 it was relative to the file holding the include statement.)
+.. _typoscript-syntax-includes-migration-recursive:
 
-* Keyword "extensions":
+Migrating recursive TypoScript file inclusion
+---------------------------------------------
 
-  Only valid in combination with "DIR" to restrict inclusion to files ending with
-  specified string. Multiple extensions are separated by comma.
+If you have such a tree of TypoScript files:
 
-  This includes all those files from the directory :file:`fileadmin/templates/`
-  and from subdirectories, which have the file extension :file:`.typoscript`:
+..  directory-tree::
+    :show-file-icons: true
 
-  .. code-block:: typoscript
+    *   EXT:my_sitepackage/Configuration/TypoScript/
 
-      <INCLUDE_TYPOSCRIPT: source="DIR:fileadmin/templates/" extensions="typoscript">
+        *   Setup
 
-* Keyword "condition":
+            *   Extensions
 
-  Conditions are the same as was presented in the :ref:`condition chapter <typoscript-syntax-conditions>`.
-  The files or directories will be included only if the condition is met. Note this is obsolete
-  with TYPO3 v12 since :typoscript:`<INCLUDE_TYPOSCRIPT:` can be placed inside a native condition
-  as well, just like :typoscript:`@import`.
+                *   Solr
 
-  .. code-block:: typoscript
+                    *   indexing.typoscript
+                    *   searchPlugin.typoscript
 
-      <INCLUDE_TYPOSCRIPT: source="FILE:EXT:my_extension/Configuration/TypoScript/user.typoscript" condition="[frontend.user.isLoggedIn]">
+                *   news.typoscript
+                *   tt_address.typoscript
 
-      # Identical to:
-      [frontend.user.isLoggedIn]
-        <INCLUDE_TYPOSCRIPT: source="FILE:EXT:my_extension/Configuration/TypoScript/user.typoscript">
-      [END]
+            *   ContentElements
 
-      # And identical to:
-      [frontend.user.isLoggedIn]
-        @import 'EXT:my_extension/Configuration/TypoScript/user.typoscript'
-      [END]
+                *   file1.typoscript
+                *   file2.typoscript
+                *   file3.typoscript
+
+            *   myProject.typoscript
+            *   someSettings.typoscript
+
+        *   setup.typoscript
+
+Each directory **must** be listed separately for inclusion when migrating to
+the `@import` statement:
+
+..  code-block:: diff
+    :caption: EXT:my_sitepackage/Configuration/TypoScript/setup.typoscript (Difference)
+
+    -<INCLUDE_TYPOSCRIPT: source="FILE:EXT:my_sitepackage/Configuration/TypoScript/Setup">
+
+    +@import 'EXT:my_sitepackage/Configuration/TypoScript/Setup'
+    +@import 'EXT:my_sitepackage/Configuration/TypoScript/Extensions'
+    +@import 'EXT:my_sitepackage/Configuration/TypoScript/Extensions/Solr'
+    +@import 'EXT:my_sitepackage/Configuration/TypoScript/ContentElements'
+
+The need for recursive includes may also be mitigated by restructuring
+TypoScript based functionality using :ref:`Site sets <t3coreapi:site-sets>`.
