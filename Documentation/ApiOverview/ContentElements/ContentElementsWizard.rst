@@ -33,6 +33,7 @@ plugin is `registration`.
                           }
                       }
                   }
+                  show := addToList(example_registration)
               }
           }
       }
