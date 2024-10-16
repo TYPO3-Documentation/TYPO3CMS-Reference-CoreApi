@@ -126,9 +126,9 @@ External file inclusion
 =======================
 
 ..  deprecated:: 13.4
-    The `<INCLUDE_TYPOSCRIPT` Syntax used for inclusion of TypoScript files
+    The `<INCLUDE_TYPOSCRIPT` syntax used for inclusion of TypoScript files
     from the "fileadmin" or other publicly available folders has been deprecated
-    and will be removed with TYPO3 14.0. See migration.
+    and will be removed with TYPO3 v14.0. See migration.
 
 A typical line to include an external TypoScript file looks like this:
 
