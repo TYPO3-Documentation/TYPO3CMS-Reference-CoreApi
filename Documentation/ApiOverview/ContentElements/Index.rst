@@ -252,7 +252,7 @@ The :ref:`Editors Tutorial <t3editors:start>` describes how to work with
 lists the :ref:`basic TYPO3 content elements <t3editors:content-types>`
 and how to work with them.
 
-Additional descriptions can be found the
+Additional descriptions can be found in the
 :ref:`fluid_styled_content <typo3/cms-fluid-styled-content:content-elements>` documentation.
 
 ..  _cePluginsCustomize:
