@@ -183,7 +183,7 @@ To register such a plugin as content element you can use function
 ..  literalinclude:: _Plugins/_tt_content_plugin.php
     :caption: EXT:my_extension/Configuration/TCA/Overrides/tt_content.php
 
-By using `'list-type'` as second parameter is is also possible to add the plugin
+By using `'list_type'` as second parameter is is also possible to add the plugin
 as a list type. See :ref:`plugins-list_type`.
 
 **Plugins** are a specific type of content elements. Plugins use the CType='list'.
