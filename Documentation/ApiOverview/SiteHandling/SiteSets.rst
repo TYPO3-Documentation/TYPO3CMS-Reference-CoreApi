@@ -165,7 +165,8 @@ previous include via `static_file_include` or manual :typoscript:`@import` state
 sets are automatically ordered and deduplicated. That means TypoScript will not
 be loaded multiple times, if a shared dependency is required by multiple sets.
 
-..  note:: :typoscript:`@import` statements are still fine to be used for local
+..  note::
+    :typoscript:`@import` statements are still fine to be used for local
     includes, but should be avoided for cross-set/extensions dependencies.
 
 ..  _site-sets-page-tsconfig:
