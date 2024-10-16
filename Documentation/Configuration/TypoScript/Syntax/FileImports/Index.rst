@@ -176,7 +176,7 @@ As one restriction :typoscript:`@import` cannot include files from arbitrary dir
 like :file:`fileadmin/`, but only from extensions by using the :typoscript:`EXT:`
 prefix. Instances that use :typoscript:`<INCLUDE_TYPOSCRIPT:` with :typoscript:`source="FILE:./someDirectory/..."`
 should move this TypoScript into a project or site extension. Such instances are also encouraged to
-look into the TYPO3 v13 "Site sets" feature and eventually transition towards it along the way.
+look into the TYPO3 v13 :ref:`Site sets <site-sets>` feature and eventually transition towards it along the way.
 
 :typoscript:`@import` allows to import files with the file ending `.typoscript`
 and `.tsconfig`. If you used any of the outdated file endings like `.ts` or
