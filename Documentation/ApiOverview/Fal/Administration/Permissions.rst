@@ -33,7 +33,7 @@ local file system).
 File mounts
 ===========
 
-:ref:`File mounts <t3start:file-mounts>`
+:ref:`File mounts <file-mounts>`
 restrict users to a certain folder in a certain storage. This is
 an obvious permission restriction: users will never be able to act
 on a file or folder outside of their allotted file mounts.
@@ -45,7 +45,7 @@ User permissions
 ================
 
 User permissions for files can be set in the
-:ref:`"Fileoperation permissions" section <t3start:file-permissions>`
+:ref:`"File operation permissions" section <access-lists-file-permissions>`
 of the backend user or backend user group records.
 
 It is also possible to set permissions using :ref:`user TSconfig <t3tsconfig:usertsconfig>`,
