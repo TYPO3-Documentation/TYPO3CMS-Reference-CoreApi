@@ -1,0 +1,7 @@
+.. Automatic screenshot: Remove this line if you want to manually change this file
+
+.. figure:: /Images/AutomaticScreenshots/BackendUsers/CreateAdministratorForm.png
+   :alt: Form to create an administrator
+   :class: with-shadow
+
+   Fill in the fields for the new administrative user

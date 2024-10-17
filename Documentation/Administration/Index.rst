@@ -28,3 +28,10 @@ TYPO3 administration
         Composer <t3upgrade:migratetocomposer>`.
 
         :ref:`TYPO3 Upgrade Guide <t3upgrade:upgrading>`
+
+..  toctree::
+    :hidden:
+    :glob:
+
+    */Index
+    *
