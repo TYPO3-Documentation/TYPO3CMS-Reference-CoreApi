@@ -19,11 +19,11 @@ plugins:
     and add :php:`list_type` to :php:`CType` mapping for each plugin to migrate.
 *   Migrate possible FlexForm registration and add dedicated :php:`showitem` TCA
     configuration
-*   Migrate possible PreviewRenderer registration in TCA
-*   Adapt possible content element wizard items in Page TSConfig, where
+*   Migrate possible `PreviewRenderer` registration in TCA
+*   Adapt possible content element wizard items in page TSconfig, where
     :php:`list_type` is used
 *   Adapt possible content element restrictions in backend layouts or container
-    elements defined by third-party extensions like ext:content_defender
+    elements defined by third-party extensions like :t3ext:`content_defender`
 
 ..  contents:: Table of content
 

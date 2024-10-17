@@ -64,7 +64,7 @@ the available groups.
 Plain content elements or plugins
 =================================
 
-You can add a content element or plain plugin (non-Extbase) using method
+You can add a content element or plain plugin (no Extbase) using method
 `ExtensionManagementUtility::addPlugin() <https://api.typo3.org/main/classes/TYPO3-CMS-Core-Utility-ExtensionManagementUtility.html#method_addPlugin>`__:
 of class :php:`\TYPO3\CMS\Core\Utility\ExtensionManagementUtility`.
 
@@ -79,7 +79,7 @@ element is added to the select item list of column `CType` in table `tt_content`
 
 ..  deprecated:: 13.4
     Using the default `list_type` for the parameter is deprecated. All content
-    elements and plugins should be added as sing `CType` for parameter `$type`.
+    elements and plugins should be added with string `CType` for parameter `$type`.
 
 This method supplies some default values:
 

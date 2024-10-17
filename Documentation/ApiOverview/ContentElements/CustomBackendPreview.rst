@@ -119,7 +119,7 @@ approaches:
     determined by the :ref:`type field <t3tca:types>` of your table.
 
 ..  deprecated:: 13.4
-    Registration of subtypes has been deprecated.  Registration of custom
+    Registration of subtypes has been deprecated. Registration of custom
     types should therefore always be done by using
     :confval:`record types <t3tca:ctrl-type>`.
 
