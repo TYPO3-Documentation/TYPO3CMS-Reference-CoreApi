@@ -1,0 +1,42 @@
+.. include:: /Includes.rst.txt
+
+.. _system-requirements-apache:
+
+During the initial installation, TYPO3's default :file:`.htaccess` file is copied to the installation root folder.
+
+**Virtual Host Record**
+
+*  `AllowOverride <https://httpd.apache.org/docs/current/mod/core.html#allowoverride>`__ needs to include "Indexes" and "FileInfo" in the Virtual Host record.
+
+**Apache Modules**
+
+The following Apache modules are required. The list is based on what is used in
+the default TYPO3
+`.htaccess <https://github.com/TYPO3/typo3/blob/main/typo3/sysext/install/Resources/Private/FolderStructureTemplateFiles/root-htaccess>`__.
+In some cases, it is not a "hard" requirement, but is strongly recommended for
+security or performance reasons, but you can also handle the desired outcome
+in a different way with a different module.
+
+mod_alias:
+   Block access to vcs directories
+
+mod_authz_core:
+   Block access to specific files and directories
+
+mod_deflate:
+   Used for compression and performance.
+
+mod_expires:
+   Adds HTTP headers for browser caching and performance.
+
+mod_filter:
+   Used with mod_deflate.
+
+mod_headers:
+   Used in combination with `mod_deflate`.
+
+mod_rewrite:
+   Enable human readable urls.
+
+mod_setenvif:
+   Also used with `mod_deflate`.

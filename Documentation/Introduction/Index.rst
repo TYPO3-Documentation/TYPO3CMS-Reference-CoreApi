@@ -62,7 +62,7 @@ The frontend doesn't have to be a website, it could be a native mobile
 application, a web application built in a frontend framework,  or an API to
 interface with other systems.
 
-.. _installation:
+.. _introduction-installation:
 
 A basic installation
 ====================
