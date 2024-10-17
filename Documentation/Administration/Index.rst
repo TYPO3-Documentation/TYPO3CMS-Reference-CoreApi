@@ -14,7 +14,7 @@ TYPO3 administration
 
     ..  card:: TYPO3 Installation (Composer)
 
-        The getting started guides covers each of the steps required to
+        The getting started guide covers every step required to
         install TYPO3 using Composer.
 
         :ref:`Getting started: TYPO3 installation <t3start:install>`
