@@ -1,0 +1,70 @@
+@startuml
+skinparam nodesep 10
+skinparam ranksep 20
+
+rectangle "Website A" #line.dotted {
+    rectangle "R_website_a_editor" as R_website_a_editor #Implementation
+    rectangle "PG_website_a" as PG_website_a #Application
+    rectangle "DBM_website_a" as DBM_website_a #Application
+    rectangle "FM_website_a" as FM_website_a #Application
+    rectangle "FO_all" as FO_all #Application
+    rectangle "L_all" as L_all #Application
+    rectangle "CM_website_a" as CM_website_a #Application
+    rectangle "ACL_content_elements" as ACL_content_elements #Technology
+    rectangle "ACL_news" as ACL_news #Technology
+    rectangle "ACL_gallery" as ACL_gallery #Technology
+    rectangle "ACL_pages_custom" as ACL_pages_custom #Technology
+    rectangle "ACL_contact_forms" as ACL_contact_forms #Technology
+    R_website_a_editor <-- PG_website_a
+    PG_website_a -- DBM_website_a
+    DBM_website_a -- FM_website_a
+    FM_website_a -- FO_all
+    FO_all -- L_all
+    L_all -- CM_website_a
+    CM_website_a -- ACL_content_elements
+    ACL_content_elements -- ACL_news
+    ACL_news -- ACL_gallery
+    ACL_gallery -- ACL_pages_custom
+    ACL_pages_custom -- ACL_contact_forms
+}
+
+rectangle "Website B" #line.dotted {
+    rectangle "R_website_b_editor" as R_website_b_editor #Implementation
+    rectangle "PG_website_b" as PG_website_b #Application
+    rectangle "DBM_website_b" as DBM_website_b #Application
+    rectangle "FM_website_b" as FM_website_b #Application
+    rectangle "FO_all" as FO_all1 #Application
+    rectangle "L_english" as L_english #Application
+    rectangle "CM_website_b" as CM_website_b #Application
+    rectangle "ACL_content_elements" as ACL_content_elements1 #Technology
+    rectangle "ACL_survey" as ACL_survey #Technology
+    R_website_b_editor <-- PG_website_b
+    PG_website_b -- DBM_website_b
+    DBM_website_b -- FM_website_b
+    FM_website_b -- FO_all1
+    FO_all1 -- L_english
+    L_english -- CM_website_b
+    CM_website_b -- ACL_content_elements1
+    ACL_content_elements1 -- ACL_survey
+}
+
+rectangle "Website C" #line.dotted {
+    rectangle "R_website_c_editor" as R_website_c_editor #Implementation
+    rectangle "PG_website_c" as PG_website_c #Application
+    rectangle "DBM_website_c" as DBM_website_c #Application
+    rectangle "FM_website_c" as FM_website_c #Application
+    rectangle "FO_all" as FO_all2 #Application
+    rectangle "L_all" as L_all1 #Application
+    rectangle "CM_website_c" as CM_website_c #Application
+    rectangle "ACL_content_elements" as ACL_content_elements2 #Technology
+    rectangle "ACL_news" as ACL_news1 #Technology
+    R_website_c_editor <-- PG_website_c
+    PG_website_c -- DBM_website_c
+    DBM_website_c -- FM_website_c
+    FM_website_c -- FO_all2
+    FO_all2 -- L_all1
+    L_all1 -- CM_website_c
+    CM_website_c -- ACL_content_elements2
+    ACL_content_elements2 -- ACL_news1
+}
+@enduml

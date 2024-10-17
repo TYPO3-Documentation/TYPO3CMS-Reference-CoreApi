@@ -1,0 +1,6 @@
+.. Automatic screenshot: Remove this line if you want to manually change this file
+
+.. figure:: /Images/AutomaticScreenshots/BackendUsers/SwitchUserLanguage.png
+   :class: with-shadow
+
+   Change interface language for a backend user

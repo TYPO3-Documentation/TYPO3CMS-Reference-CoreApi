@@ -1,0 +1,26 @@
+@startuml
+skinparam nodesep 10
+skinparam ranksep 20
+
+rectangle "Shared System groups" AS Shared_System_Groups #line.dotted {
+  rectangle "FO_all" AS FO_all #Application
+  rectangle "L_all" AS L_all #Application
+  rectangle "L_english" AS L_english #Application
+  FO_all -[hidden]-> L_all
+  L_all -[hidden]-> L_english
+}
+
+rectangle "Shared ACL groups" AS Shared_ACL_Groups #line.dotted {
+  rectangle "ACL_content_elements" AS ACL_content_elements #Technology
+  rectangle "ACL_news" AS ACL_news #Technology
+  rectangle "ACL_gallery" AS ACL_gallery #Technology
+  rectangle "ACL_survey" AS ACL_survey #Technology
+  rectangle "ACL_contact_forms" AS ACL_contact_forms #Technology
+  rectangle "ACL_pages_custom" AS ACL_pages_custom #Technology
+  ACL_content_elements -[hidden]-> ACL_news
+  ACL_news -[hidden]-> ACL_gallery
+  ACL_gallery -[hidden]-> ACL_survey
+  ACL_survey -[hidden]-> ACL_contact_forms
+  ACL_contact_forms -[hidden]-> ACL_pages_custom
+}
+@enduml
