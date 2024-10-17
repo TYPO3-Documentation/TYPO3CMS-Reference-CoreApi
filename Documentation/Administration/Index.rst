@@ -21,7 +21,7 @@ TYPO3 administration
 
     ..  card:: Upgrading TYPO3
 
-        The TYPO3 upgrade guide explains how to do patch level update, how
+        The TYPO3 upgrade guide explains how to do patch level updates and how
         to update major Core versions and extensions.
 
         It also explains how to :ref:`Migrate a TYPO3 project to
