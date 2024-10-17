@@ -382,7 +382,7 @@ The plugin signature is used in:
 *   As :ref:`record type <t3tca:types>` in TCA. It can therefore be used to
     define which fields should be visible in the TYPO3 backend.
 
-.. _naming-conventions-plugin-signature-non-extbase:
+..  _naming-conventions-plugin-signature-non-extbase:
 
 Example register and configure a non-Extbase plugin:
 ----------------------------------------------------
@@ -421,7 +421,7 @@ Example register and configure a non-Extbase plugin:
       settings.pageId = 42
    }
 
-.. _naming-conventions-plugin-key:
+..  _naming-conventions-plugin-key:
 
 Plugin key (Extbase only)
 =========================
@@ -498,7 +498,7 @@ Example register and configure an Extbase plugin:
     :caption: EXT:examples/Configuration/setup.typoscript
 
     plugin.tx_examples_htmlparser {
-       settings.pageId = 42
+      settings.pageId = 42
     }
 
 Class name
