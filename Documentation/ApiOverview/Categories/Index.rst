@@ -146,6 +146,6 @@ has access to and if the table :sql:`sys_category` is allowed in the field
 :guilabel:`Access Lists` of the user group.
 
 Additionally it is possible to set :guilabel:`Mounts and Workspaces >
-Category Mounts` in the :ref:`user group <t3start:category-permissions>`. If at
+Category Mounts` in the :ref:`user group <access-lists-category-permissions>`. If at
 least one category is set in the category mounts only the chosen categories are
 allowed to be attached to records.

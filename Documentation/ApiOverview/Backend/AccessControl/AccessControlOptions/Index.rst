@@ -41,7 +41,7 @@ Access Lists
 ============
 
 Access lists are defined at group-level. Usage of access lists for defining
-user rights is described in the :ref:`Getting Started tutorial <t3start:setting-up-user-permissions>`.
+user rights is described in chapter :ref:`setting-up-user-permissions`.
 The various access lists are described here for reference, with
 additional technical details, where necessary.
 
@@ -253,8 +253,8 @@ module:
 .. include:: /Images/AutomaticScreenshots/AccessControl/AccessModule.rst.txt
 
 
-Editing permissions is described in details in the
-:ref:`Getting Started Tutorial <t3start:page-permissions>`.
+Editing permissions is described in details in chapter
+:ref:`page-permissions`.
 
 A user must be "admin" *or* the owner of a page in order to edit its
 permissions.
