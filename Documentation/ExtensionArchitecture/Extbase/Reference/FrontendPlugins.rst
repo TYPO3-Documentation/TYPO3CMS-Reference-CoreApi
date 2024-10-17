@@ -46,7 +46,8 @@ Use the following steps to add the plugin as content element:
     #. Extension key :php:`'blog_example'` or name :php:`BlogExample`.
     #. A unique identifier for your plugin in UpperCamelCase: :php:`'PostSingle'`
     #. An array of allowed combinations of controllers and actions stored in an array
-    #. (Optional) an array of controller name and  action names which should not be cached
+    #. An array of controller name and action names which should not be cached.
+    #. Plugin type is always :php:`TYPO3\CMS\Extbase\Utility\ExtensionUtility::PLUGIN_TYPE_CONTENT_ELEMENT`
 
     :php:`TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin()` generates
     the necessary TypoScript to display the plugin in the frontend.
@@ -62,20 +63,14 @@ Use the following steps to add the plugin as content element:
     action is therefore not allowed in this plugin.
 
     The TypoScript of the plugin will be available at
-    :typoscript:`tt_content.list.20.blogexample_postsingle`. Additionally
+    :typoscript:`tt_content.blogexample_postsingle`. Additionally
     the lists of allowed and non-cacheable actions have been added to the
     according global variables.
 
-#.  :php:`registerPlugin()`: Add to :sql:`list_type` :sql:`tt_content`.
+#.  :php:`registerPlugin()`: Add to :sql:`CType` :sql:`tt_content`.
 
     Make the plugin available in the field
-    :guilabel:`Plugin > Selected Plugin`, :sql:`list_type` of the table
-    :sql:`tt_content`.
-
-    ..  figure:: /Images/ManualScreenshots/Extbase/ListType.png
-        :class: with-shadow
-
-    The new plugin in the content record at :guilabel:`Plugin > Selected Plugin`
+    :guilabel:`General > Type`, :sql:`CType` of the table :sql:`tt_content`.
 
     ..  literalinclude::  _FrontendPlugin/_tt_content.php
         :language: php
@@ -121,7 +116,7 @@ Frontend plugin as pure TypoScript
 #.  Display the plugin via TypoScript
 
     The TypoScript :ref:`USER <t3tsref:cobj-user>` object saved at
-    :typoscript:`tt_content.list.20.blogexample_postlistrss` can now be used
+    :typoscript:`tt_content.blogexample_postlistrss` can now be used
     to display the frontend plugin. In this example we create a special page type
     for the RSS feed and display the plugin via TypoScript there:
 
