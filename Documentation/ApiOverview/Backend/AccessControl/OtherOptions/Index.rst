@@ -19,7 +19,7 @@ Backend users
 Default language
    This is the language in which the backend will be localized for the
    user. The users can change the language themselves in the
-   :ref:`User Settings <t3start:backendlanguages>`
+   :ref:`User Settings <backendlanguages>`
    module.
 
    .. note::
