@@ -1,0 +1,43 @@
+@startuml
+  skinparam defaultTextAlignment center
+
+  rectangle "**Storage**\n<size:10>fileadmin/</size>" as FileAdmin
+  rectangle "**Website B Files**\n<size:10>fileadmin/website_b/</size>" as Storage_B
+  rectangle "**Shared Files**\n<size:10>fileadmin/shared/</size>" as Storage_Shared
+  rectangle "**Website A Files**\n<size:10>fileadmin/website_a/</size>" as Storage_A
+
+  FileAdmin -down- Storage_B
+  FileAdmin -down- Storage_Shared
+  FileAdmin -down- Storage_A
+
+  rectangle "**File Mount**\n<size:10>fileadmin/website_a/</size>" as FM_B #Business;line.dotted
+  rectangle "**File Mount**\n<size:10>fileadmin/shared/</size>" as FM_S #Business;line.dotted
+  rectangle "**File Mount**\n<size:10>fileadmin/website_a/</size>" as FM_A #Business;line.dotted
+
+  FM_B -up-> Storage_B
+  FM_S -up-> Storage_Shared
+  FM_A -up-> Storage_A
+
+  rectangle "**FM_website_b**\n<size:10>Backend Group</size>" as FM_Website_B #Application
+  rectangle "**FM_shared**\n<size:10>Backend Group</size>" as FM_Shared #Application
+  rectangle "**FM_website_a**\n<size:10>Backend Group</size>" as FM_Website_A #Application
+
+  FM_Website_B -up-> FM_B
+  FM_Shared -up-> FM_S
+  FM_Website_A -up-> FM_A
+
+  rectangle "**R_website_b_editor**\n<size:10>Backend Group (Role)</size>" as R_Website_B_Editor #Implementation
+  rectangle "**R_website_a_editor**\n<size:10>Backend Group (Role)</size>" as R_Website_A_Editor #Implementation
+
+  R_Website_B_Editor -up-> FM_Website_B
+  R_Website_B_Editor -up-> FM_Shared
+  R_Website_A_Editor -up-> FM_Website_A
+  R_Website_A_Editor -up-> FM_Shared
+
+  rectangle "**Jane Doe**\n<size:10>User - editor role on Website B</size>" as Editor_B #Motivation
+  rectangle "**John Doe**\n<size:10>User - editor role on Website A</size>" as Editor_A #Motivation
+
+  Editor_B -up-> R_Website_B_Editor
+  Editor_A -up-> R_Website_A_Editor
+
+@enduml
