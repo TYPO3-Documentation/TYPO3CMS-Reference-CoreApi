@@ -1,0 +1,7 @@
+settings:
+  my.enumSetting:
+    label: 'My setting with options'
+    type: string
+    enum:
+      valueA: 'Label of value A'
+      valueB: 'Label of value B'
