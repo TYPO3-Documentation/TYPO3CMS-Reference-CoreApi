@@ -3,11 +3,10 @@
 
  ExtensionUtility::configurePlugin(
      'Examples',
-     'FalExamples',
-        'HtmlParser',
-        [
-            HtmlParserController::class => 'index',
-        ],
-+       [],
+     'HtmlParser',
+     [
+         HtmlParserController::class => 'index',
+     ],
++    [],
 +    ExtensionUtility::PLUGIN_TYPE_CONTENT_ELEMENT,
  );
