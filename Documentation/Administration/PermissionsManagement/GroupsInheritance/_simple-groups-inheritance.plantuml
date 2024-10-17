@@ -1,0 +1,46 @@
+@startuml
+skinparam defaultTextAlignment center
+skinparam nodesep 10
+skinparam ranksep 20
+
+rectangle "User" AS User #Motivation {
+}
+
+rectangle "First level" AS First_Level #line.dotted {
+    rectangle "R_role_group" AS R_role_group #Implementation {
+    }
+}
+
+User <-down- First_Level
+
+rectangle "Second level" AS Second_Level #line.dotted {
+    rectangle "System Groups" AS System_Groups #line.dotted {
+        rectangle "PG_website_a" as PG_website_a #Application
+        rectangle "DBM_website_a" as DBM_website_a #Application
+        rectangle "FM_website_a" as FM_website_a #Application
+        rectangle "CM_website_a" as CM_website_a #Application
+        rectangle "FO_all" as FO_all #Application
+        rectangle "L_all" as L_all #Application
+        PG_website_a -[hidden]-> DBM_website_a
+        DBM_website_a -[hidden]-> FM_website_a
+        FM_website_a -[hidden]-> CM_website_a
+        CM_website_a -[hidden]-> FO_all
+        FO_all -[hidden]-> L_all
+    }
+
+    rectangle "ACL Groups" AS ACL_Groups #line.dotted {
+      rectangle "ACL_content_elements" as ACL_content_elements #Technology
+      rectangle "ACL_news" as ACL_news #Technology
+      rectangle "ACL_gallery" as ACL_gallery #Technology
+      rectangle "ACL_survey" as ACL_survey #Technology
+      ACL_content_elements -[hidden]-> ACL_news
+      ACL_news -[hidden]-> ACL_gallery
+      ACL_gallery -[hidden]-> ACL_survey
+    }
+
+    System_Groups -[hidden]right-> ACL_Groups
+}
+
+First_Level <-down- Second_Level
+
+@enduml
