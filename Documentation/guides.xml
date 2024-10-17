@@ -21,6 +21,7 @@
     />
     <inventory id="tailor"
                url="https://docs.typo3.org/other/typo3/tailor/main/en-us/"/>
+    <inventory id="ext_surf" url="https://docs.typo3.org/other/typo3/surf/main/en-us/" />
     <inventory id="fluid"
                url="https://docs.typo3.org/other/typo3fluid/fluid/main/en-us/"/>
 </guides>
