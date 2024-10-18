@@ -8,6 +8,10 @@
 Frontend plugin
 ===============
 
+..  deprecated:: 13.4
+    Adding frontend plugins as a "General Plugin", setting the content
+    record :sql:`CType` to :sql:`'list'` is deprecated. See :ref:`plugins-list_type-migration`.
+
 The term "frontend plugin" describes a part of a TYPO3 extension that is
 handled like a content element (can be inserted like a record/element in
 the TYPO3 backend by editors), which will deliver dynamic output when
@@ -15,12 +19,6 @@ rendered in the frontend. The distinction and boundaries to regular content
 are sometimes not easy to draw, because also "regular" content elements
 are often able to perform dynamic output (for example with TypoScript
 configuration, Fluid data processors or ViewHelpers).
-
-For a long time, TYPO3 provided a "General Plugin" to be selected as a
-content element (setting the content record :sql:`CType` to :sql:`'list'`), and then the sub-type
-would indicate which kind of frontend plugin to be used
-(setting the content record :sql:`list_type`). It is recommended to only
-use the :sql:`CType` based registration.
 
 There are different technology choices to create frontend plugins in TYPO3.
 
