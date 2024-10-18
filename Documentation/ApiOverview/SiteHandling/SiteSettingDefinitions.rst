@@ -105,6 +105,17 @@ Site setting definition properties
             by editing  the :file:`config/sites/my-site/settings.yaml` directly,
             but not from within the editor.
 
+        ..  confval:: enum
+            :type: array
+            :name: enum
+            :types: :confval:`site-setting-type-string`
+
+            Site settings can provide possible options via the `enum` specifier,
+            that will be selectable in the editor GUI.
+
+            ..  literalinclude:: _Settings/_enum_settings.definitions.yaml
+                :caption: EXT:my_extension/Configuration/Sets/MySet/settings.definitions.yaml
+
 ..  _definition-types:
 
 Definition types
