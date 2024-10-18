@@ -12,12 +12,12 @@ TYPO3 administration
     :gap: 4
     :card-height: 100
 
-    ..  card:: TYPO3 Installation (Composer)
+    ..  card:: TYPO3 Installation
 
-        The getting started guide covers every step required to
-        install TYPO3 using Composer.
+        This chapter covers topics about :ref:`system-requirements`, :ref:`installation`,
+        :ref:`production-settings`, :ref:`deploytypo3` and :ref:`tunetypo3`.
 
-        :ref:`Getting started: TYPO3 installation <t3start:install>`
+        :ref:`TYPO3 installation <installation_index>`
 
     ..  card:: Upgrading TYPO3
 
@@ -33,5 +33,6 @@ TYPO3 administration
     :hidden:
     :glob:
 
+    Installation/Index
     */Index
     *

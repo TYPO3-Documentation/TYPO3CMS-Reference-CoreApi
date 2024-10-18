@@ -21,4 +21,5 @@
     />
     <inventory id="tailor"
                url="https://docs.typo3.org/other/typo3/tailor/main/en-us/"/>
+    <inventory id="ext_surf" url="https://docs.typo3.org/other/typo3/surf/main/en-us/" />
 </guides>

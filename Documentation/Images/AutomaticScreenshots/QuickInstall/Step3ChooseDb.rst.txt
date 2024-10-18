@@ -1,0 +1,6 @@
+.. Automatic screenshot: Remove this line if you want to manually change this file
+
+.. figure:: /Images/AutomaticScreenshots/QuickInstall/Step3ChooseDb.png
+   :class: with-shadow
+
+   Install Tool in 1-2-3 mode, third step.
