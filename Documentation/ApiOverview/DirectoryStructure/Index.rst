@@ -122,7 +122,7 @@ and might contain publicly available files like a :file:`robots.txt` and
 files needed for the server configuration like a :file:`.htaccess`.
 
 If required, this directory can be renamed by setting `extra > typo3/cms > web-dir`
-in the composer.json, for example to :file:`web`:
+in the composer.json, for example to :file:`public`:
 
 ..  code-block:: json
     :caption: composer.json
@@ -130,7 +130,7 @@ in the composer.json, for example to :file:`web`:
     {
         "extra": {
             "typo3/cms": {
-                "web-dir": "web"
+                "web-dir": "public"
             }
         },
         "...": "..."
