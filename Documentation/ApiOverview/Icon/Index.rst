@@ -103,7 +103,7 @@ The following icon sizes are available as enum values:
     One can also use the class constants of :php:`\TYPO3\CMS\Core\Imaging\Icon`
     if an extension should remain compatible with TYPO3 v13 and older versions.
 
-    The class constants will be removed in a future version of TYPO3.
+    The class constants will be removed in TYPO3 v14.
 
 
 ..  index::
