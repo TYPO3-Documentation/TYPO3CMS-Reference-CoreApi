@@ -9,8 +9,8 @@ use TYPO3\CMS\Backend\Search\Event\ModifyResultItemInLiveSearchEvent;
 use TYPO3\CMS\Backend\Search\LiveSearch\DatabaseRecordProvider;
 use TYPO3\CMS\Backend\Search\LiveSearch\ResultItemAction;
 use TYPO3\CMS\Core\Attribute\AsEventListener;
-use TYPO3\CMS\Core\Imaging\Icon;
 use TYPO3\CMS\Core\Imaging\IconFactory;
+use TYPO3\CMS\Core\Imaging\IconSize;
 use TYPO3\CMS\Core\Localization\LanguageService;
 use TYPO3\CMS\Core\Localization\LanguageServiceFactory;
 
@@ -42,7 +42,7 @@ final readonly class MyEventListener
              */
             $showHistoryAction = (new ResultItemAction('view_history'))
                 ->setLabel($this->languageService->sL('LLL:EXT:core/Resources/Private/Language/locallang_mod_web_list.xlf:history'))
-                ->setIcon($this->iconFactory->getIcon('actions-document-history-open', Icon::SIZE_SMALL))
+                ->setIcon($this->iconFactory->getIcon('actions-document-history-open', IconSize::SMALL))
                 ->setUrl((string)$this->uriBuilder->buildUriFromRoute('record_history', [
                     'element' => $resultItem->getExtraData()['table'] . ':' . $resultItem->getExtraData()['uid'],
                 ]));
