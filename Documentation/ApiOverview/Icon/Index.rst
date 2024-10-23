@@ -90,20 +90,9 @@ The following icon sizes are available as enum values:
 *   :php:`\TYPO3\CMS\Core\Imaging\IconSize::LARGE`: fixed to 48px
 *   :php:`\TYPO3\CMS\Core\Imaging\IconSize::MEGA`: fixed to 64px
 
-..  deprecated:: 13.0
-    In TYPO3 versions up to 12.4 class constants from
-    :php:`\TYPO3\CMS\Core\Imaging\Icon` must be used:
-
-    *   :php:`\TYPO3\CMS\Core\Imaging\Icon::SIZE_DEFAULT`
-    *   :php:`\TYPO3\CMS\Core\Imaging\Icon::SIZE_SMALL`
-    *   :php:`\TYPO3\CMS\Core\Imaging\Icon::SIZE_MEDIUM`
-    *   :php:`\TYPO3\CMS\Core\Imaging\Icon::SIZE_LARGE`
-    *   :php:`\TYPO3\CMS\Core\Imaging\Icon::SIZE_MEGA`
-
-    One can also use the class constants of :php:`\TYPO3\CMS\Core\Imaging\Icon`
-    if an extension should remain compatible with TYPO3 v13 and older versions.
-
-    The class constants will be removed in TYPO3 v14.
+..  versionchanged:: 14.0
+    The icon size class constants :php:`\TYPO3\CMS\Core\Imaging\Icon::SIZE_*`
+    deprecated in v13.0 have been removed. Use the enum values described above.
 
 
 ..  index::
