@@ -96,10 +96,11 @@ Specific :ref:`sitehandling-settings` can be accessed via:
 Non-Extbase Fluid view
 ======================
 
-..  deprecated:: 13.3
-    Using the :php-short:`\TYPO3\CMS\Fluid\View\StandaloneView` is deprecated. Switch
-    to a :php-short:`\TYPO3\CMS\Core\View\ViewInterface` instance provided by
-    the :ref:`sitehandling-site-object`.
+..  versionchanged:: 14.0
+    The :php-short:`\TYPO3\CMS\Fluid\View\StandaloneView` was deprecated with
+    TYPO3 v13.3 and has been removed with v14.0. Use a
+    :php-short:`\TYPO3\CMS\Core\View\ViewInterface` instance provided by the
+    :ref:`sitehandling-site-object`.
 
 In a non-Extbase Fluid view (:php:`\TYPO3\CMS\Core\View\ViewInterface`), created
 manually by the :ref:`generic-view-factory`, you can use the PHP API to access the
