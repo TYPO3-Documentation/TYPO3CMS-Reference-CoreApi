@@ -24,7 +24,7 @@ Here are some examples of how Fluid can be used in TYPO3:
     Fluid view.
 
 ..  versionchanged:: 14.0
-    These classes were marked as deprecated in TYPO3 v13.3 and has been
+    These classes were marked as deprecated in TYPO3 v13.3 and have been
     removed in v14:
 
     *   :php:`TYPO3\CMS\Fluid\View\StandaloneView`
