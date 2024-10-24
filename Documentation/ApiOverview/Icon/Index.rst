@@ -246,30 +246,9 @@ Available icons
 
 The TYPO3 Core comes with a number of icons that may be used in your extensions.
 
-To search for available icons, you can use one of these possibilities:
-
-
-Install the styleguide extension
---------------------------------
-
-Install the extension *styleguide* as described in the Readme in the `installation
-<https://github.com/TYPO3/styleguide#installation>`__ section.
-
-Once installed, you can view available icons by selecting help (?) on the top in the
-TYPO3 backend, then *Styleguide* and then *Icons*, *All Icons*.
-
-There, browse through existing icons. Use the name under the icon (for example
-:code:`actions-add`) as first parameter for :php:`IconFactory::getIcon()` in PHP or as value for
-the argument :code:`identifier` in Fluid (see code examples above).
-
-
-.. include:: /Images/AutomaticScreenshots/Icon/IconProviders.rst.txt
-
-Use TYPO3.Icons
----------------
-
-An alternative way to look for existing icons is to browse through
+To search for available icons, you can browse through
 `TYPO3.Icons <https://typo3.github.io/TYPO3.Icons/>`__.
+
 
 ..  _icon_migration:
 
