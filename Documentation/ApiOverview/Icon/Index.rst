@@ -244,7 +244,7 @@ To search for available icons, you can browse through
 Migration
 =========
 
-The Rector rule `\\Ssch\\TYPO3Rector\\Rector\\v11\\v4\\RegisterIconToIconFileRector`_
+The Rector v1 rule `\Ssch\TYPO3Rector\Rector\v11\v4\RegisterIconToIconFileRector`_
 can be used for automatic migration.
 
 For manual migration remove all calls
@@ -253,4 +253,4 @@ your :file:`EXT:my_extension/ext_localconf.php` and move the content to
 :file:`Configuration/Icons.php` instead.
 
 
-..  _\\Ssch\\TYPO3Rector\\Rector\\v11\\v4\\RegisterIconToIconFileRector: https://github.com/sabbelasichon/typo3-rector/blob/main/docs/all_rectors_overview.md#registericontoiconfilerector
+..  _\Ssch\TYPO3Rector\Rector\v11\v4\RegisterIconToIconFileRector: https://github.com/sabbelasichon/typo3-rector/blob/1.x/docs/all_rectors_overview.md#registericontoiconfilerector
