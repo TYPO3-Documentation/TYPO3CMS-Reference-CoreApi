@@ -234,7 +234,7 @@ the connection to the database:
             which is the proper Doctrine DBAL connection option for MariaDB and
             MySQL.
 
-            Furthermore, Doctrine DBAL 3.x switched from using they array key
+            Furthermore, Doctrine DBAL 3.x switched from using the array key
             :php:`collate` to :php:`collation`, ignoring the old array key with
             Doctrine DBAL 4.x. This was silently migrated by TYPO3, too.
 
