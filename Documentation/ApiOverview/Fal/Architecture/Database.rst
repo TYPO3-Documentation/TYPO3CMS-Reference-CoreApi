@@ -26,8 +26,8 @@ Some important fields:
     ID of the storage where the file is stored.
 
 :sql:`type`
-    The type of the file represented by an integer defined in
-    :php:`\TYPO3\CMS\Core\Resource\AbstractFile`.
+    The type of the file represented by an integer defined by an enum
+    :php:`\TYPO3\CMS\Core\Resource\FileType` value.
 
     See :ref:`globals-constants-file-types` for more details.
 
