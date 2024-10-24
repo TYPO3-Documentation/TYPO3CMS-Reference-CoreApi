@@ -138,8 +138,6 @@ the connection to the database:
         Name of the database/schema to connect to. Can be used with
         MySQL/MariaDB and PostgreSQL.
 
-    ..  _typo3ConfVars_db_connections_defaulttableoptions:
-
     ..  confval:: defaultTableOptions
         :Path: $GLOBALS['TYPO3_CONF_VARS']['DB']['Connections'][<connection_name>]['defaultTableOptions']
         :name: typo3-conf-vars-db-connection-name-defaultTableOptions
