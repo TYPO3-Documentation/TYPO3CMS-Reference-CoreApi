@@ -1,0 +1,7 @@
+.. Automatic screenshot: Remove this line if you want to manually change this file
+
+.. figure:: /Images/AutomaticScreenshots/DebugSettings/ConfigurationPresets.png
+   :alt: Configuration Presets Card
+   :class: with-shadow
+
+   Choose a configuration preset
