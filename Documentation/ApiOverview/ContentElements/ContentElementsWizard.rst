@@ -51,7 +51,7 @@ special
     Content elements that are used of special cases
 
 All content element groups are listed in
-:php:`$GLOBALS['TCA']['tt_content']['columns']['CType']['config']['itemGrops']` you can
+:php:`$GLOBALS['TCA']['tt_content']['columns']['CType']['config']['itemGroups']` you can
 debug them in the TYPO3 backend using the backend module
 :guilabel:`System > Configuration` if :composer:`typo3/cms-lowlevel` is installed
 and you are an administrator.
