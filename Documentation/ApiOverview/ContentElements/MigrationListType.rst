@@ -62,9 +62,10 @@ Core-based plugin.
 
 ..  literalinclude:: _Migration/_tca_registration.php.diff
     :caption: EXT:examples/Configuration/TCA/Overrides/tt_content.php (difference)
+    :linenos:
 
 The `CType` based plugin does not inherit the standard fields provided by the
-TCA of the content-element "List". These where in many cases removed by
+TCA of the content element "List". These where in many cases removed by
 using :confval:`subtypes_excludelist <t3tca:types-subtypes-excludelist>`.
 
 As these fields are not displayed automatically anymore you can remove this
@@ -90,6 +91,8 @@ it to the `CType`.
 ----------------------------
 
 ..  versionadded:: 13.4
+    If your extension also should support TYPO3 version 12.4 or even 11.5 see
+    Example: :ref:`plugins-list-type-migration-core-plugin-migration`.
 
 You can extend class :php-short:`TYPO3\CMS\Install\Updates\AbstractListTypeToCTypeUpdate`
 to provide a custom upgrade wizard that moves existing plugins from the
@@ -114,7 +117,44 @@ options
 Migration example: Core-based plugin
 ====================================
 
-..  _plugins-list-type-migration-core-registration:
+..  _plugins-list-type-migration-core-plugin-registration:
 
 1.  Adjust the plugin registration
-==================================
+----------------------------------
+
+..  literalinclude:: _Migration/_non_extbase_tca.diff
+    :caption: EXT:my_extension/Configuration/TCA/tt_content.php (diff)
+
+..  _plugins-list-type-migration-core-plugin-typoscript:
+
+2.  Adjust the TypoScript of the plugin
+---------------------------------------
+
+If your plugin was rendered using :composer:`typo3/cms-fluid-styled-content` you are
+probably using the top level TypoScript object
+:ref:`tt_content <t3tsref:tlo-tt_content>` to render the plugin. The path to
+the plugin rendering needs to be adjusted as you cannot use the deprecated content
+element "list" anymore:
+
+..  literalinclude:: _Migration/_typoscript.diff
+    :caption: EXT:my_extension/Configuration/Sets/MyPluginSet/setup.typoscript (diff)
+
+..  _plugins-list-type-migration-core-plugin-migration:
+
+3.  Provide an upgrade wizard for automatic content migration for TYPO3 v13.4 and v12.4
+---------------------------------------------------------------------------------------
+
+If you extension only support TYPO3 v13 and above you can extend the Core class
+:php:`\TYPO3\CMS\Install\Updates\AbstractListTypeToCTypeUpdate`.
+
+If your extension also supports TYPO3 v12 and maybe even TYPO3 v11 you can use
+class :php:`Linawolf\ListTypeMigration\Upgrades\AbstractListTypeToCTypeUpdate`
+instead. Require via composer: :composer:`linawolf/list-type-migration` or
+copy the file into your extension using your own namespaces:
+
+..  literalinclude:: _Migration/PluginListTypeToCTypeUpdate.php
+    :caption: EXT:my_extension/Classes/Upgrades/PluginListTypeToCTypeUpdate.php
+
+If you also have to be compatible with TYPO3 v11, register the upgrade wizard
+manually:
+:ref:`Registering wizards for TYPO3 v11 <t3coreapi/11:upgrade-wizards-register>`.
