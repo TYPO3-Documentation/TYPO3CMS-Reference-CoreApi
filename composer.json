@@ -7,7 +7,7 @@
         "typo3/cms-core": "^12.4"
     },
     "require-dev": {
-        "ergebnis/composer-normalize": "~2.41.0",
+        "ergebnis/composer-normalize": "~2.44.0",
         "friendsofphp/php-cs-fixer": "^3.51",
         "garvinhicking/clinspector-gadget": "^0.1.2",
         "symfony/yaml": "^6.4",
