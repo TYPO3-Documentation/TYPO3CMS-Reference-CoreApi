@@ -1,0 +1,7 @@
+.. Automatic screenshot: Remove this line if you want to manually change this file
+
+.. figure:: /Images/AutomaticScreenshots/DebugSettings/DebugSettings.png
+   :alt: Debug Presets
+   :class: with-shadow
+
+   Choose the debug preset
