@@ -4,14 +4,13 @@ declare(strict_types=1);
 
 namespace MyVendor\MyExtension\Upgrades;
 
-# composer req linawolf/list-type-migration
+// composer req linawolf/list-type-migration
 use Linawolf\ListTypeMigration\Upgrades\AbstractListTypeToCTypeUpdate;
 use TYPO3\CMS\Install\Attribute\UpgradeWizard;
 
 #[UpgradeWizard('myExtensionPluginListTypeToCTypeUpdate')]
 final class PluginListTypeToCTypeUpdate extends AbstractListTypeToCTypeUpdate
 {
-
     protected function getListTypeToCTypeMapping(): array
     {
         return [

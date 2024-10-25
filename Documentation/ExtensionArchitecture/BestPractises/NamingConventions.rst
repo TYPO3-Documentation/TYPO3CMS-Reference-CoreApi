@@ -405,7 +405,7 @@ Example register and configure a non-Extbase plugin:
         'tt_content',
         '--div--;Configuration,pi_flexform,',
         $pluginSignature,
-        'after:subheader',
+        'after:header',
     );
 
     ExtensionManagementUtility::addPiFlexFormValue(
