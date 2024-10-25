@@ -71,7 +71,7 @@ using :confval:`subtypes_excludelist <t3tca:types-subtypes-excludelist>`.
 
 As these fields are not displayed automatically anymore you can remove this
 definition without replacement: Line 15 in the diff. If they have not been
-removed and still needed you need to add them manually to your plugins type.
+removed and are still needed, you will need to manually add them to your plugin type.
 
 The :confval:`subtypes_addlist <t3tca:types-subtypes-addlist>` was used to
 display the field containing the FlexForm, an possibly other fields in the
