@@ -44,9 +44,10 @@ LinkHandlers:
 ..  literalinclude:: _CustomLinkHandlers/_GitHubLinkHandler.php
     :caption: EXT:my_extension/Classes/LinkHandler/GitHubLinkHandler.php
 
-..  versionchanged:: 13.3
+..  versionchanged:: 14.0
     Use the :ref:`generic-view-factory` to create a view, previously
-    used :php:`TYPO3\CMS\Fluid\View\StandaloneView` is deprecated.
+    used :php:`TYPO3\CMS\Fluid\View\StandaloneView` was deprecated with TYPO3
+    v13.3 and removed with v14.0.
 
 The LinkHandler then has to be registered via page TSconfig:
 

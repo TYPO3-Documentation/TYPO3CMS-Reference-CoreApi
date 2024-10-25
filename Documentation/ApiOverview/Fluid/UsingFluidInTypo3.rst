@@ -23,8 +23,9 @@ Here are some examples of how Fluid can be used in TYPO3:
 *   Use the :ref:`generic view factory <generic-view-factory>` to create a
     Fluid view.
 
-..  deprecated:: 13.3
-    These classes have been marked as deprecated in TYPO3 v13 and will be removed in v14:
+..  versionchanged:: 14.0
+    These classes were marked as deprecated in TYPO3 v13.3 and have been
+    removed in v14:
 
     *   :php:`TYPO3\CMS\Fluid\View\StandaloneView`
     *   :php:`TYPO3\CMS\Fluid\View\TemplateView`

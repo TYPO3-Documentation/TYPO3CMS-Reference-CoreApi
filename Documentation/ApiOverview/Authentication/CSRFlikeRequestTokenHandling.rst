@@ -67,7 +67,8 @@ The sequence looks like the following:
 
     ..  versionchanged:: 13.3
         Use the :ref:`generic-view-factory` to create a view, previously
-        used :php:`TYPO3\CMS\Fluid\View\StandaloneView` is deprecated.
+        used :php:`\TYPO3\CMS\Fluid\View\StandaloneView` was deprecated with
+        TYPO3 v13.3 and removed with TYPO3 v14.0.
 
     ..  literalinclude:: _CSRFlikeRequestTokenHandling/_MyController.php
         :caption: EXT:my_extension/Classes/Controller/MyController.php
