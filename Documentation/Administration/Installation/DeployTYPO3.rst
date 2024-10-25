@@ -3,6 +3,7 @@
 ..  index:: deployment, composer, production setup
 
 ..  _deploytypo3:
+..  _deployment:
 
 ===============
 Deploying TYPO3
@@ -16,6 +17,8 @@ There are several different ways to deploy TYPO3. One of the more simple
 options is to manually copy its files and database
 from a local machine to the live server, adjusting the configuration where
 necessary.
+
+..  _deployment-steps:
 
 General Deployment Steps
 ========================
@@ -36,6 +39,8 @@ General Deployment Steps
     the server's PHP version can be defined in the :file:`composer.json` file
     (e.g. ``{"platform": {"php": "8.2"}}``), so Composer will always check
     the correct dependencies.
+
+..  _deployment-automatic:
 
 Deployment Automation
 =====================
