@@ -64,7 +64,7 @@ Core-based plugin.
     :caption: EXT:examples/Configuration/TCA/Overrides/tt_content.php (difference)
     :linenos:
 
-The `CType` based plugin does not inherit the standard fields provided by the
+The `CType` based plugin does not inherit the default fields provided by the
 TCA of the content element "List". These where in many cases removed by
 using :confval:`subtypes_excludelist <t3tca:types-subtypes-excludelist>`.
 
