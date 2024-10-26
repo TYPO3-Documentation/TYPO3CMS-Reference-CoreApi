@@ -141,7 +141,7 @@ Module configuration options
         :type: string
 
         ..  versionchanged:: 14.0
-            The in TYPO3 v13.1 deprecated :js:`@typo3/backend/page-tree/page-tree-element`
+            The :js:`@typo3/backend/page-tree/page-tree-element`, which was deprecated in TYPO3 v13.1, 
             has been removed in favor of :js:`@typo3/backend/tree/page-tree-element`.
 
         The module navigation component. The following are provided by the Core:
