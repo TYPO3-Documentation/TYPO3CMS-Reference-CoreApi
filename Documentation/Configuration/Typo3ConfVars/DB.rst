@@ -143,7 +143,7 @@ the connection to the database:
         :name: typo3-conf-vars-db-connection-name-defaultTableOptions
         :type: array
 
-        Defines the charset and collation options for tables for MySQL/MariaDB:
+        Defines the charset and collation options when new tables are created (MySQL/MariaDB only):
 
         .. code-block:: php
             :caption: config/system/settings.php | typo3conf/system/settings.php
