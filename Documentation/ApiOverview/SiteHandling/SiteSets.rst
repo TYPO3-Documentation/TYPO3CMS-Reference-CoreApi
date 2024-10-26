@@ -170,9 +170,9 @@ be loaded multiple times, if a shared dependency is required by multiple sets.
     includes, but should be avoided for cross-set/extensions dependencies.
 
 ..  attention::
-    If the website uses a mixed setup consisting of a TypoScript template (`sys_template`) 
+    If the website uses a mixed setup consisting of a TypoScript template (`sys_template`)
     and site sets, it is important to uncheck the "Clear" flag for constants and
-    setup in the TypoScript template. If the "Clear" flag is checked (default), 
+    setup in the TypoScript template. If the "Clear" flag is checked (default),
     TypoScript settings from site sets are cleared and do therefore not apply.
 
 ..  _site-sets-page-tsconfig:
