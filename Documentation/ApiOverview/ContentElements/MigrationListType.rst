@@ -63,7 +63,6 @@ Core-based plugin.
 ..  literalinclude:: _Migration/_tca_registration.php.diff
     :caption: EXT:examples/Configuration/TCA/Overrides/tt_content.php (difference)
     :linenos:
-    :linenos:
 
 The `CType` based plugin does not inherit the standard fields provided by the
 TCA of the content element "List". These where in many cases removed by
