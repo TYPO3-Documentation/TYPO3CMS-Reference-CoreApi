@@ -89,32 +89,32 @@ are self-explanatory; this list may not reflect the most recent TYPO3
 version, so it is recommended to inspect the actual TCA configuration
 of that table:
 
-*  `:sql:caption`
-*  `:sql:color_space`
-*  `:sql:content_creation_date` - Refers to when the contents of the file were created (retrievable for images through EXIF metadata)
-*  `:sql:content_modification_date`
-*  `:sql:copyright`
-*  `:sql:creator`
-*  `:sql:creator_tool` - Name of a tool that was used to create the file (for example for auto-generated files)
-*  `:sql:download_name` - An alternate name of a file when being downloaded (to protect actual file name security relevance)
-*  `:sql:duration` - length of audio/video files, or "reading time"
-*  `:sql:height`
-*  `:sql:keywords`
-*  `:sql:language` - file content language
-*  `:sql:latitude`
-*  `:sql:location_city`
-*  `:sql:location_country`
-*  `:sql:location_region`
-*  `:sql:longitude`
-*  `:sql:note`
-*  `:sql:pages` - Related pages
-*  `:sql:publisher`
-*  `:sql:ranking` - Information on prioritizing files (like "star ratings")
-*  `:sql:source` - Where a file was fetched from (for example from libraries, clients, remote storage, ...)
-*  `:sql:status` - indicate whether a file may need metadata update based on differences between locally cached metadata and remote/actual file metadata
-*  `:sql:unit` - measurement units
-*  `:sql:visible`
-*  `:sql:width`
+*  :sql:`caption`
+*  :sql:`color_space`
+*  :sql:`content_creation_date` - Refers to when the contents of the file were created (retrievable for images through EXIF metadata)
+*  :sql:`content_modification_date`
+*  :sql:`copyright`
+*  :sql:`creator`
+*  :sql:`creator_tool` - Name of a tool that was used to create the file (for example for auto-generated files)
+*  :sql:`download_name` - An alternate name of a file when being downloaded (to protect actual file name security relevance)
+*  :sql:`duration` - length of audio/video files, or "reading time"
+*  :sql:`height`
+*  :sql:`keywords`
+*  :sql:`language` - file content language
+*  :sql:`latitude`
+*  :sql:`location_city`
+*  :sql:`location_country`
+*  :sql:`location_region`
+*  :sql:`longitude`
+*  :sql:`note`
+*  :sql:`pages` - Related pages
+*  :sql:`publisher`
+*  :sql:`ranking` - Information on prioritizing files (like "star ratings")
+*  :sql:`source` - Where a file was fetched from (for example from libraries, clients, remote storage, ...)
+*  :sql:`status` - indicate whether a file may need metadata update based on differences between locally cached metadata and remote/actual file metadata
+*  :sql:`unit` - measurement units
+*  :sql:`visible`
+*  :sql:`width`
 
 ..  _filemetadata: https://packagist.org/packages/typo3/cms-filemetadata
 
