@@ -11,6 +11,7 @@
      * This file is part of the TYPO3 CMS project. [...]
      */
 
+    use TYPO3\CMS\Core\Schema\Struct\SelectItem;
     use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
 
     /*
@@ -19,21 +20,30 @@
 
     defined('TYPO3') or die();
 
+    $pluginSignature = 'examples_haiku_list';
+
     ExtensionManagementUtility::addPlugin(
-        [
+        new SelectItem(
+            'select',
             'LLL:EXT:examples/Resources/Private/Language/PluginHaiku/locallang_db.xlf:list.title',
-            'examples_haiku_list',
+            $pluginSignature,
             'tx_examples-haiku',
-        ],
-        'list_type',
+            'plugins',
+            'LLL:EXT:examples/Resources/Private/Language/PluginHaiku/locallang_db.xlf:list.description',
+        ),
+        'CType',
         'examples',
     );
 
-    $GLOBALS['TCA']['tt_content']['types']['list']['subtypes_excludelist']['examples_haiku_list'] = 'pages,layout,select_key,recursive';
-
-    $GLOBALS['TCA']['tt_content']['types']['list']['subtypes_addlist']['examples_haiku_list'] = 'pi_flexform';
+    ExtensionManagementUtility::addToAllTCAtypes(
+        'tt_content',
+        '--div--;Configuration,pi_flexform,',
+        $pluginSignature,
+        'after:header',
+    );
 
     ExtensionManagementUtility::addPiFlexFormValue(
-        'examples_haiku_list',
+        '*',
         'FILE:EXT:examples/Configuration/Flexforms/PluginHaikuList.xml',
+        $pluginSignature,
     );
