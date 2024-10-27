@@ -140,10 +140,9 @@ Module configuration options
         :name: backend-module-navigationComponent
         :type: string
 
-        ..  versionchanged:: 13.1
-            :js:`@typo3/backend/page-tree/page-tree-element` has been renamed to
-            :js:`@typo3/backend/tree/page-tree-element`. Using old navigation
-            ID will trigger a PHP deprecation warning.
+        ..  versionchanged:: 14.0
+            The :js:`@typo3/backend/page-tree/page-tree-element`, which was deprecated in TYPO3 v13.1,
+            has been removed in favor of :js:`@typo3/backend/tree/page-tree-element`.
 
         The module navigation component. The following are provided by the Core:
 
