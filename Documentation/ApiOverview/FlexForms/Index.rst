@@ -123,7 +123,6 @@ Steps to perform (extension developer)
         :caption: EXT:my_extension/Configuration/TCA/Overrides/tt_content.php
 
         \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPiFlexFormValue(
-            // 'list_type' does not apply here
             '*',
             // FlexForm configuration schema file
             'FILE:EXT:example/Configuration/FlexForms/Registration.xml',
