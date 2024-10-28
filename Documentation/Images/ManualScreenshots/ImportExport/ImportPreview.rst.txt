@@ -1,0 +1,5 @@
+.. figure:: /Images/ManualScreenshots/ImportExport/ImportPreview.png
+      :class: with-shadow
+      :alt: Preview the data
+
+      Preview the data
