@@ -1,0 +1,7 @@
+.. Automatic screenshot: Remove this line if you want to manually change this file
+
+.. figure:: /Images/AutomaticScreenshots/AdminTools/ResetUserPreferences.png
+   :alt: Reset User Preferences
+   :class: with-shadow
+
+   The option "Reset Backend User Preferences" in the Install Tool

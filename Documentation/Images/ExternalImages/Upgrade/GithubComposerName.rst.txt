@@ -1,0 +1,2 @@
+.. image:: /Images/ExternalImages/Upgrade/GithubComposerName.png
+   :scale: 80 %

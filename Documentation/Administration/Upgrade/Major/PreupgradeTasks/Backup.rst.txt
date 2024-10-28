@@ -1,0 +1,16 @@
+..  include:: /Includes.rst.txt
+
+Make a backup first! If things go wrong, you can at least go back to the old
+version. You need a backup of
+
+*   all files of your TYPO3 installation (by using FTP, SCP, rsync, or any other
+    method)
+
+*   the database (by exporting the database to an SQL file)
+
+Also, you may prefer to upgrade a copy of your site first, if there have been a
+lot of changes and some of them might interfere with functions of your site.
+See the :doc:`changelog <ext_core:Index>` to check that.
+
+For more detailed information about TYPO3 backups see :ref:`t3coreapi:security-backups`
+in *TYPO3 Explained*.
