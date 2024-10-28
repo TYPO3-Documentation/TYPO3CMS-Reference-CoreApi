@@ -1,10 +1,11 @@
+:navigation-title: Backend users
 ..  include:: /Includes.rst.txt
 
 
 ..  _user-management:
 
 =======================
-Backend User Management
+Backend user management
 =======================
 
 ..  important::
