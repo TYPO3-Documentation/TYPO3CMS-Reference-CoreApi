@@ -6,8 +6,8 @@ namespace MyVendor\MyExtension\Backend\EventListener;
 
 use TYPO3\CMS\Backend\Form\Event\ModifyLinkExplanationEvent;
 use TYPO3\CMS\Core\Attribute\AsEventListener;
-use TYPO3\CMS\Core\Imaging\Icon;
 use TYPO3\CMS\Core\Imaging\IconFactory;
+use TYPO3\CMS\Core\Imaging\IconSize;
 
 #[AsEventListener(
     identifier: 'my-extension/backend/modify-link-explanation',
@@ -26,7 +26,7 @@ final readonly class MyEventListener
                 'icon',
                 $this->iconFactory->getIcon(
                     'my-custom-link-icon',
-                    Icon::SIZE_SMALL,
+                    IconSize::SMALL,
                 )->render(),
             );
         }

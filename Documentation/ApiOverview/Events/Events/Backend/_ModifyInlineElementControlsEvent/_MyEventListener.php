@@ -7,8 +7,8 @@ namespace MyVendor\MyExtension\Backend\EventListener;
 use TYPO3\CMS\Backend\Form\Event\ModifyInlineElementControlsEvent;
 use TYPO3\CMS\Backend\Form\Event\ModifyInlineElementEnabledControlsEvent;
 use TYPO3\CMS\Core\Attribute\AsEventListener;
-use TYPO3\CMS\Core\Imaging\Icon;
 use TYPO3\CMS\Core\Imaging\IconFactory;
+use TYPO3\CMS\Core\Imaging\IconSize;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 
 #[AsEventListener(
@@ -37,7 +37,7 @@ final readonly class MyEventListener
             $event->setControl(
                 'tx_my_control',
                 '<a href="/some/url" class="btn btn-default t3js-modal-trigger">'
-                . $iconFactory->getIcon('my-icon-identifier', Icon::SIZE_SMALL)->render()
+                . $iconFactory->getIcon('my-icon-identifier', IconSize::SMALL)->render()
                 . '</a>',
             );
         }

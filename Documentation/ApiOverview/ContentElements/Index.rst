@@ -19,6 +19,7 @@ created, how existing content elements or plugins can be customized etc.
     CustomBackendPreview
     ContentElementsWizard
     BestPractices
+    MigrationListType
 
 ..  _cePluginsIntroduction:
 
@@ -143,8 +144,9 @@ An Extbase plugin is configured for the frontend with
 ..  literalinclude:: _Plugins/_ext_localconf_extbase_plugin.php
     :caption: EXT:my_extension/ext_localconf.php
 
-By using `ExtensionUtility::PLUGIN_TYPE_PLUGIN` as fifth parameter is is also
-possible to add the plugin as a list type. See :ref:`plugins-list_type`.
+..  deprecated:: 13.4
+    Setting the fifth parameter to any value but `ExtensionUtility::PLUGIN_TYPE_CONTENT_ELEMENT`
+    is deprecated. See :ref:`plugins-list_type-migration`.
 
 Method :php:`ExtensionUtility::configurePlugin()` also takes care of registering
 the plugin for frontend output in TypoScript using an object of type
@@ -183,12 +185,9 @@ To register such a plugin as content element you can use function
 ..  literalinclude:: _Plugins/_tt_content_plugin.php
     :caption: EXT:my_extension/Configuration/TCA/Overrides/tt_content.php
 
-By using `'list_type'` as second parameter is is also possible to add the plugin
-as a list type. See :ref:`plugins-list_type`.
-
-**Plugins** are a specific type of content elements. Plugins use the CType='list'.
-Each plugin has its own plugin type, which is used in the database field
-tt_content.list_type. The list_type could be understood as subtype of CType.
+..  deprecated:: 13.4
+    Setting the second parameter to `list_type`
+    is deprecated. See :ref:`plugins-list_type-migration`.
 
 ..  _plugins-characteristics:
 
@@ -215,32 +214,6 @@ has a plugin that allow frontend users, stored in table `fe_users` to log into
 the website. :composer:`typo3/cms-indexed-search` has a plugin that can be
 used to search in the index and display search results.
 
-..  _plugins-list_type:
-
-CType vs list_type plugins
-~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-Historically it was common to add plugins as a list type to the content element
-types. In this case the column `CType` is set to `'list'` for all plugins while
-the field `list_type` contains the key of the actual plugin.
-
-As different plugins need different fields in the backend form this let to
-the creation of all type of complicated TCA constructs to influence the
-behaviour of backend forms for plugins.
-
-The existence of the `list_type` also made a separate layer of content element
-definitions in the TypoScript necessary.
-
-Therefore the `list_type` complicates registration and configuration of plugins
-while it poses no advantages. Therefore it is recommended to always use the
-CType for new plugin types while the `list_type` is retained for now for
-backward compatibility.
-
-If you are refactoring the plugins of your extension, for example while getting
-rid of switchable controller actions it is recommended to migrate your plugins
-to use the CType. You should then supply a
-:ref:`upgrade wizard <upgrade-wizard-examples-switchable-controller-actions>`
-for easy migration for your users.
 
 ..  _plugins-editing:
 

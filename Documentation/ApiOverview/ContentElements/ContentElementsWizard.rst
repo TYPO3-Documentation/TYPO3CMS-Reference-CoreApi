@@ -51,7 +51,7 @@ special
     Content elements that are used of special cases
 
 All content element groups are listed in
-:php:`$GLOBALS['TCA']['tt_content']['columns']['CType']['config']['itemGrops']` you can
+:php:`$GLOBALS['TCA']['tt_content']['columns']['CType']['config']['itemGroups']` you can
 debug them in the TYPO3 backend using the backend module
 :guilabel:`System > Configuration` if :composer:`typo3/cms-lowlevel` is installed
 and you are an administrator.
@@ -64,7 +64,7 @@ the available groups.
 Plain content elements or plugins
 =================================
 
-You can add a content element or plain plugin (non-extbase) using method
+You can add a content element or plain plugin (no Extbase) using method
 `ExtensionManagementUtility::addPlugin() <https://api.typo3.org/main/classes/TYPO3-CMS-Core-Utility-ExtensionManagementUtility.html#method_addPlugin>`__:
 of class :php:`\TYPO3\CMS\Core\Utility\ExtensionManagementUtility`.
 
@@ -74,11 +74,12 @@ of class :php:`\TYPO3\CMS\Core\Utility\ExtensionManagementUtility`.
 The key `value` in the parameter `$itemArray` is used as key of the newly added
 content element representing the plugin.
 
-When you are using `CType` (recommended) for parameter `$type` the content
+When you are using `CType` for parameter `$type` the content
 element is added to the select item list of column `CType` in table `tt_content`.
 
-If you are using the default `list_type` for the parameter it is added as
-subtype.
+..  deprecated:: 13.4
+    Using the default `list_type` for the parameter is deprecated. All content
+    elements and plugins should be added with string `CType` for parameter `$type`.
 
 This method supplies some default values:
 

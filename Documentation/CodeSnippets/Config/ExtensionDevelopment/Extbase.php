@@ -1,5 +1,7 @@
 <?php
 
+use T3docs\Examples\Upgrades\ExtbasePluginListTypeToCTypeUpdate;
+
 return [
     [
         'action' => 'createCodeSnippet',
@@ -340,5 +342,12 @@ return [
         'class' => \TYPO3\CMS\Extbase\Mvc\Web\Routing\UriBuilder::class,
         'targetFileName' => 'CodeSnippets/Extbase/UriBuilder.rst.txt',
         'withCode' => false,
+    ],
+    [
+        'action' => 'createPhpClassCodeSnippet',
+        'class' => ExtbasePluginListTypeToCTypeUpdate::class,
+        'withComment' => true,
+        'withClassComment' => false,
+        'targetFileName' => 'CodeSnippets/Extbase/Upgrades/ExtbasePluginListTypeToCTypeUpdate.rst.txt',
     ],
 ];

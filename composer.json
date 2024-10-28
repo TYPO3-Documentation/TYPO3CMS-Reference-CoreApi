@@ -7,7 +7,7 @@
         "typo3/cms-core": "dev-main as 13.1"
     },
     "require-dev": {
-        "ergebnis/composer-normalize": "~2.41.0",
+        "ergebnis/composer-normalize": "~2.44.0",
         "friendsofphp/php-cs-fixer": "^3.46",
         "garvinhicking/clinspector-gadget": "^0.1.1",
         "symfony/yaml": "^7.0",
@@ -45,7 +45,6 @@
         "typo3/cms-setup": "dev-main as 13.1",
         "typo3/cms-styleguide": "dev-main as 13.1",
         "typo3/cms-sys-note": "dev-main as 13.1",
-        "typo3/cms-t3editor": "dev-main as 13.1",
         "typo3/cms-tstemplate": "dev-main as 13.1",
         "typo3/cms-viewpage": "dev-main as 13.1",
         "typo3/cms-workspaces": "dev-main as 13.1",

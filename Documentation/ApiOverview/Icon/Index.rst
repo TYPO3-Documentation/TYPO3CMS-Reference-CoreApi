@@ -90,20 +90,9 @@ The following icon sizes are available as enum values:
 *   :php:`\TYPO3\CMS\Core\Imaging\IconSize::LARGE`: fixed to 48px
 *   :php:`\TYPO3\CMS\Core\Imaging\IconSize::MEGA`: fixed to 64px
 
-..  deprecated:: 13.0
-    In TYPO3 versions up to 12.4 class constants from
-    :php:`\TYPO3\CMS\Core\Imaging\Icon` must be used:
-
-    *   :php:`\TYPO3\CMS\Core\Imaging\Icon::SIZE_DEFAULT`
-    *   :php:`\TYPO3\CMS\Core\Imaging\Icon::SIZE_SMALL`
-    *   :php:`\TYPO3\CMS\Core\Imaging\Icon::SIZE_MEDIUM`
-    *   :php:`\TYPO3\CMS\Core\Imaging\Icon::SIZE_LARGE`
-    *   :php:`\TYPO3\CMS\Core\Imaging\Icon::SIZE_MEGA`
-
-    One can also use the class constants of :php:`\TYPO3\CMS\Core\Imaging\Icon`
-    if an extension should remain compatible with TYPO3 v13 and older versions.
-
-    The class constants will be removed in TYPO3 v14.
+..  versionchanged:: 14.0
+    The icon size class constants :php:`\TYPO3\CMS\Core\Imaging\Icon::SIZE_*`
+    deprecated in v13.0 have been removed. Use the enum values described above.
 
 
 ..  index::
@@ -255,7 +244,7 @@ To search for available icons, you can browse through
 Migration
 =========
 
-The Rector rule `\\Ssch\\TYPO3Rector\\Rector\\v11\\v4\\RegisterIconToIconFileRector`_
+The Rector v1 rule `\Ssch\TYPO3Rector\Rector\v11\v4\RegisterIconToIconFileRector`_
 can be used for automatic migration.
 
 For manual migration remove all calls
@@ -264,4 +253,4 @@ your :file:`EXT:my_extension/ext_localconf.php` and move the content to
 :file:`Configuration/Icons.php` instead.
 
 
-..  _\\Ssch\\TYPO3Rector\\Rector\\v11\\v4\\RegisterIconToIconFileRector: https://github.com/sabbelasichon/typo3-rector/blob/main/docs/all_rectors_overview.md#registericontoiconfilerector
+..  _\Ssch\TYPO3Rector\Rector\v11\v4\RegisterIconToIconFileRector: https://github.com/sabbelasichon/typo3-rector/blob/1.x/docs/all_rectors_overview.md#registericontoiconfilerector

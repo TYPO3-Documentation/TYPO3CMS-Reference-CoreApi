@@ -1,0 +1,7 @@
+.. Automatic screenshot: Remove this line if you want to manually change this file
+
+.. figure:: /Images/AutomaticScreenshots/AdminTools/ClearAllCache.png
+   :alt: Flush Caches
+   :class: with-shadow
+
+   The option "Flush" in the Admin Tool.

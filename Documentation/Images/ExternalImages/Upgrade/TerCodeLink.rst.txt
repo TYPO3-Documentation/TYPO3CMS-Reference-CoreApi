@@ -1,0 +1,2 @@
+.. image:: /Images/ExternalImages/Upgrade/TerCodeLink.png
+     :scale: 65 %

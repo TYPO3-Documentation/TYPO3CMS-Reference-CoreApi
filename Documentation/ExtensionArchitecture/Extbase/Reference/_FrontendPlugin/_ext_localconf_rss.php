@@ -12,4 +12,6 @@ ExtensionUtility::configurePlugin(
     'BlogExample',
     'PostListRss',
     [PostController::class => 'displayRssList'],
+    [],
+    ExtensionUtility::PLUGIN_TYPE_CONTENT_ELEMENT,
 );
