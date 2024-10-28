@@ -4,5 +4,5 @@ services:
     autoconfigure: true
     public: false
 
-  MyVendor\MySitepackge\PageTitle\WebsiteTitleProvider:
+  MyVendor\MySitepackage\PageTitle\WebsiteTitleProvider:
     public: true
