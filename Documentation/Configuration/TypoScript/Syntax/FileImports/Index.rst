@@ -6,9 +6,10 @@
 File imports
 ============
 
-..  deprecated:: 13.4
+..  versionchanged:: 14.0
     The old school :typoscript:`<INCLUDE_TYPOSCRIPT:` syntax has been deprecated
-    and will be removed with TYPO3 v14.0. See :ref:`typoscript-syntax-includes-migration`.
+    with version 13.4 and was removed with TYPO3 v14.0.
+    See :ref:`t3coreapi/13:typoscript-syntax-includes-migration`.
 
 To structure and reuse single TypoScript snippets and not stuffing everything
 into one file or record, the syntax allows loading TypoScript content from sub files.
@@ -50,10 +51,6 @@ The following rules apply:
 
 * Recursion is allowed: Imported files can have :typoscript:`@import` statements.
 
-* The :typoscript:`@import` statement does not take a condition clause as the old
-  :typoscript:`<INCLUDE_TYPOSCRIPT condition="">` statement did. That kind of condition
-  should be considered a conceptual mistake. It should not be used.
-
 * .. versionchanged:: 12.0
 
   It is allowed to put :typoscript:`@import` within a condition. This example imports
@@ -64,9 +61,6 @@ The following rules apply:
       [frontend.user.isLoggedIn]
           @import './userIsLoggedIn.typoscript'
       [END]
-
-* Both the old syntax :typoscript:`<INCLUDE_TYPOSCRIPT>` and the new one :typoscript:`@import`
-  can be used at the same time.
 
 * Directory imports are not recursive, meaning that a directory import does
   not automatically travel down its subdirectories.
@@ -125,110 +119,3 @@ The following features can make file inclusion unnecessary:
 *   :ref:`TypoScript provider for sites and sets <site-sets-typoscript>`
     automatically loads TypoScript per site when the site set is included in the
     site configuration.
-
-
-.. index:: TypoScript; Includes by conditions
-.. _typoscript-syntax-includes-conditions:
-.. _typoscript-syntax-includes-best-practices:
-.. _typoscript-syntax-includes-migration:
-
-Migration from `<INCLUDE_TYPOSCRIPT:` to `@import`
-==================================================
-
-..  important::
-    :typoscript:`@import` does not support recursively including all `.typoscript`
-    files from sub directories. You need to list each directory with its own
-    :typoscript:`@import` statement.
-    See :ref:`typoscript-syntax-includes-migration-recursive`.
-
-..  important::
-    :typoscript:`@import` supports the file endings `.typoscript` and `.tsconfig`
-    only. All other file names will be ignored. Rename all TypoScript files to
-    these endings.
-
-Most usages of :typoscript:`<INCLUDE_TYPOSCRIPT:` can be turned into :typoscript:`@import`
-easily. A few examples:
-
-..  code-block:: diff
-
-    -<INCLUDE_TYPOSCRIPT: source="FILE:EXT:my_extension/Configuration/TypoScript/myMenu.typoscript">
-    +@import 'EXT:my_extension/Configuration/TypoScript/myMenu.typoscript'
-
-     # Including .typoscript files in a single (non recursive!) directory
-    -<INCLUDE_TYPOSCRIPT: source="DIR:EXT:my_extension/Configuration/TypoScript/" extensions="typoscript">
-    +@import 'EXT:my_extension/Configuration/TypoScript/*.typoscript'
-
-    # Including .typoscript and .ts files in a single (non recursive!) directory
-    -<INCLUDE_TYPOSCRIPT: source="DIR:EXT:my_extension/Configuration/TypoScript/" extensions="typoscript,ts">
-    +@import 'EXT:my_extension/Configuration/TypoScript/*.typoscript'
-     # Rename all files ending from .ts to .typoscript
-
-     # Including a file conditionally
-    -<INCLUDE_TYPOSCRIPT: source="FILE:EXT:my_extension/Configuration/TypoScript/user.typoscript" condition="[frontend.user.isLoggedIn]">
-    +[frontend.user.isLoggedIn]
-    +    @import 'EXT:my_extension/Configuration/TypoScript/user.typoscript'
-    +[END]
-
-There are a few more use cases that cannot be transitioned so easily since
-:typoscript:`@import` is a bit more restrictive.
-
-As one restriction :typoscript:`@import` cannot include files from arbitrary directories
-like :file:`fileadmin/`, but only from extensions by using the :typoscript:`EXT:`
-prefix. Instances that use :typoscript:`<INCLUDE_TYPOSCRIPT:` with :typoscript:`source="FILE:./someDirectory/..."`
-should move these TypoScript files into a project or site extension. Such instances are also encouraged to
-look into the TYPO3 v13 :ref:`Site sets <site-sets>` feature and eventually transition towards it along the way.
-
-:typoscript:`@import` allows to import files with the file ending `.typoscript`
-and `.tsconfig`. If you used any of the outdated file endings like `.ts` or
-`.txt` rename those files before switching to the :typoscript:`@import` syntax.
-
-.. _typoscript-syntax-includes-migration-recursive:
-
-Migrating recursive TypoScript file inclusion
----------------------------------------------
-
-If you have such a tree of TypoScript files:
-
-..  directory-tree::
-    :show-file-icons: true
-
-    *   EXT:my_sitepackage/Configuration/TypoScript/
-
-        *   Setup
-
-            *   Extensions
-
-                *   Solr
-
-                    *   indexing.typoscript
-                    *   searchPlugin.typoscript
-
-                *   news.typoscript
-                *   tt_address.typoscript
-
-            *   ContentElements
-
-                *   file1.typoscript
-                *   file2.typoscript
-                *   file3.typoscript
-
-            *   myProject.typoscript
-            *   someSettings.typoscript
-
-        *   setup.typoscript
-
-Each directory **must** be listed separately for inclusion when migrating to
-the `@import` statement:
-
-..  code-block:: diff
-    :caption: EXT:my_sitepackage/Configuration/TypoScript/setup.typoscript (Difference)
-
-    -<INCLUDE_TYPOSCRIPT: source="FILE:EXT:my_sitepackage/Configuration/TypoScript/Setup">
-
-    +@import 'EXT:my_sitepackage/Configuration/TypoScript/Setup'
-    +@import 'EXT:my_sitepackage/Configuration/TypoScript/Extensions'
-    +@import 'EXT:my_sitepackage/Configuration/TypoScript/Extensions/Solr'
-    +@import 'EXT:my_sitepackage/Configuration/TypoScript/ContentElements'
-
-The need for recursive includes may also be mitigated by restructuring
-TypoScript based functionality using :ref:`Site sets <t3coreapi:site-sets>`.

@@ -116,30 +116,6 @@ This code snippet is harmless of course but it shows how malicious
 code (e.g. JavaScript) can be placed in the HTML content of a page by
 using `TypoScript`.
 
-
-.. index:: Security guidelines; External files
-
-
-.. _security-typoscript-external-inclusion:
-
-External file inclusion
-=======================
-
-..  deprecated:: 13.4
-    The `<INCLUDE_TYPOSCRIPT` syntax used for inclusion of TypoScript files
-    from the "fileadmin" or other publicly available folders has been deprecated
-    and will be removed with TYPO3 v14.0. See migration.
-
-A typical line to include an external TypoScript file looks like this:
-
-..  code-block:: typoscript
-
-    <INCLUDE_TYPOSCRIPT: source="FILE:fileadmin/setup/myConfig.typoscript">
-
-This method is deprecated with TYPO3 v13.4 and will stop working with v14.0.
-Move any TypoScript file either to a custom :ref:`site package <site-package>`
-or use the :ref:`Site as a TypoScript provider <t3tsref:typoscript-site-sets-site>`.
-
 .. index::
    ! Clickjacking
    pair: TypoScript; Clickjacking
