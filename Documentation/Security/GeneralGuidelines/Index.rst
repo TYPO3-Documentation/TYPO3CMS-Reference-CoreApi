@@ -142,7 +142,7 @@ version 11.x.x), a minor update (e.g. from version 11.4.x to version
 11.5.11 to 11.5.12).
 
 In most cases, a maintenance/bugfix/security update is a no-brainer,
-see :ref:`TYPO3 Installation and Upgrade Guide <t3install:start>`
+see chapter ::ref:`Patch/Bugfix updates <t3coreapi:minor>`
 for further details.
 
 When you extract the archive file of new TYPO3 sources into the

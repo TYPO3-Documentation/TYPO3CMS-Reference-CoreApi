@@ -80,13 +80,13 @@ example the site title, you can implement a page title provider as follows:
 ..  literalinclude:: _ExampleWebsiteTitle/_WebsiteTitleProvider.php
     :caption: EXT:my_sitepackage/Classes/PageTitle/WebsiteTitleProvider.php
 
-As we need to :ref:`inject <DependencyInjection>` the class :php:`SiteFinder`
-to retrieve the current site configuration, we must make the new page title
-provider :ref:`public <knowing-what-to-make-public>`:
+..  versionchanged:: 13.0
+    The :ref:`frontend.page.information attribute <typo3-request-attribute-frontend-page-information>`
+    has been introduced.
 
-..  literalinclude:: _ExampleWebsiteTitle/_Services.yaml
-    :language: yaml
-    :caption: EXT:my_sitepackage/Configuration/Services.yaml
+The class must be set to :ref:`public <t3coreapi:What-to-make-public>`, because
+we :ref:`inject <DependencyInjection>` the class :php:`SiteFinder` as
+dependency.
 
 Then **flush the cache** in :guilabel:`Admin Tools > Maintenance > Flush TYPO3
 and PHP Cache`.

@@ -482,36 +482,6 @@ the TYPO3 backend:
 
     The hash of the install tool password.
 
-..  index::
-    TYPO3_CONF_VARS BE; defaultUserTSconfig
-..  _typo3ConfVars_be_defaultUserTSconfig:
-
-..  confval:: defaultUserTSconfig
-    :Path: $GLOBALS['TYPO3_CONF_VARS']['BE']['defaultUserTSconfig']
-    :name: globals-typo3-conf-vars-be-defaultUserTSconfig
-    :type: text
-
-    ..  deprecated:: 13.0
-        This setting will be ignored with TYPO3 v14.0. Use
-        :ref:`Configuration/user.tsconfig <extension-configuration-user_tsconfig>`
-        instead.
-
-        See also
-        :ref:`Setting default User TSconfig <t3tsconfig:usersettingdefaultusertsconfig>`.
-
-..  _typo3ConfVars_be_defaultPageTSconfig:
-
-..  confval:: defaultPageTSconfig
-    :Path: $GLOBALS['TYPO3_CONF_VARS']['BE']['defaultPageTSconfig']
-    :name: globals-typo3-conf-vars-be-defaultPageTSconfig
-    :type: text
-
-    ..  deprecated:: 13.0
-        This setting will be ignored with TYPO3 v14.0.
-        Use :ref:`Configuration/page.tsconfig <extension-configuration-page_tsconfig>` instead.
-
-        See also :ref:`Setting the page TSconfig globally <t3tsconfig:pagesettingdefaultpagetsconfig>`.
-
 ..  _typo3ConfVars_be_defaultPermissions:
 
 ..  confval:: defaultPermissions

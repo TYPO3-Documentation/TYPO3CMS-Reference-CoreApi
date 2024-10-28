@@ -36,7 +36,9 @@ The :php:`BlogRepository` sets some default orderings and is otherwise empty:
 Find methods
 ============
 
-..  versionadded:: 12.3
+..  versionchanged:: 14.0
+    The "magic" find methods `findByX()`, `findOneByX()` and `countByX()` have
+    been removed. See :ref:`t3coreapi/13:extbase-repository-find-by-magic-migration`
 
 The :php:`Repository` class provides the following methods for querying against
 arbitrary criteria:
@@ -73,59 +75,6 @@ The :php:`PostRepository` of the :composer:`t3docs/blog-example` example extensi
 several custom find methods, two of them are shown below:
 
 ..  include:: /CodeSnippets/Extbase/Domain/CustomMethods.rst.txt
-
-..  _extbase-repository-find-by-magic:
-
-Magic find methods
-==================
-
-..  deprecated:: 12.3
-    As these methods are widely used in almost all Extbase-based extensions,
-    they are marked as deprecated in TYPO3 v12, but will only trigger a
-    deprecation notice in TYPO3 v13, as they will be removed in TYPO3 v14.
-    Migrate the usage of these methods to the new
-    :ref:`find methods <extbase-repository-find-methods>`.
-
-The :php:`Repository` class creates "magic" methods to find by attributes of
-model.
-
-:php:`findBy[PropertyName]`
-   Finds all objects with the provided property.
-
-:php:`findOneBy[PropertyName]`
-   Returns the first object found with the provided property.
-
-:php:`countBy[PropertyName]`
-   Counts all objects with the provided property.
-
-If necessary, these methods can also be overridden by implementing them in the
-concrete repository.
-
-..  _extbase-repository-find-by-magic-migration:
-
-Migration
----------
-
-:php:`findBy[PropertyName]($propertyValue)` can be replaced with a call to
-:php:`findBy()`:
-
-..  code-block:: php
-
-    $this->myRepository->findBy(['propertyName' => $propertyValue]);
-
-:php:`findOneBy[PropertyName]($propertyValue)` can be replaced with a call to
-:php:`findOneBy`:
-
-..  code-block:: php
-
-    $this->myRepository->findOneBy(['propertyName' => $propertyValue]);
-
-:php:`countBy[PropertyName]($propertyValue)` can be replaced with a call to
-:php:`count`:
-
-..  code-block:: php
-
-    $this->myRepository->count(['propertyName' => $propertyValue]);
 
 ..  _extbase-repository-query-setting:
 

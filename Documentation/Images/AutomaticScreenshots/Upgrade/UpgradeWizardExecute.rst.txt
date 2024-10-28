@@ -1,0 +1,5 @@
+.. Automatic screenshot: Remove this line if you want to manually change this file
+
+.. figure:: /Images/AutomaticScreenshots/Upgrade/UpgradeWizardExecute.png
+   :alt: Choose "No, do not execute"
+   :class: with-shadow
