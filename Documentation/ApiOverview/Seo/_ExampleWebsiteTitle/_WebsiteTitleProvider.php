@@ -5,10 +5,12 @@ declare(strict_types=1);
 namespace MyVendor\MySitepackage\PageTitle;
 
 use Psr\Http\Message\ServerRequestInterface;
+use Symfony\Component\DependencyInjection\Attribute\Autoconfigure;
 use TYPO3\CMS\Core\PageTitle\PageTitleProviderInterface;
 use TYPO3\CMS\Core\Site\SiteFinder;
 use TYPO3\CMS\Frontend\Page\PageInformation;
 
+#[Autoconfigure(public: true)]
 final readonly class WebsiteTitleProvider implements PageTitleProviderInterface
 {
     public function __construct(
