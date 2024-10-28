@@ -80,6 +80,10 @@ example the site title, you can implement a page title provider as follows:
 ..  literalinclude:: _ExampleWebsiteTitle/_WebsiteTitleProvider.php
     :caption: EXT:my_sitepackage/Classes/PageTitle/WebsiteTitleProvider.php
 
+..  versionchanged:: 13.0
+    The :ref:`frontend.page.information attribute <typo3-request-attribute-frontend-page-information>`
+    has been introduced.
+
 As we need to :ref:`inject <DependencyInjection>` the class :php:`SiteFinder`
 to retrieve the current site configuration, we must make the new page title
 provider :ref:`public <knowing-what-to-make-public>`:
