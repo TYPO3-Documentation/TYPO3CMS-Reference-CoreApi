@@ -99,7 +99,7 @@ the configuration is not applied. This is usually no problem - Extbase plugins
 are typically either included as :ref:`USER content object <t3tsref:cobj-user>`
 (its content is cached and returned together with other content elements in
 fully-cached page context), or the Extbase plugin is registered as USER_INT. In
-this case, the :ref:`TSFE <tsfe>` takes care of calculating TypoScript before
+this case, the TYPO3 Core takes care of calculating TypoScript before
 the plugin is rendered, while other USER content objects are fetched from page
 cache.
 
@@ -117,7 +117,7 @@ that already use Extbase in a middleware have the following options:
 
 *   Move away from the middleware and register the Extbase instance as a casual
     :ref:`USER_INT <t3tsref:cobj-user-int>` object via TypoScript: Extbase is
-    designed to be executed like this, the TSFE bootstrap will take care of
+    designed to be executed like this, the bootstrap will take care of
     properly calculating TypoScript, and Extbase will run as expected.
 
     Note that with TYPO3 v12, the overhead of USER_INT content objects has been
