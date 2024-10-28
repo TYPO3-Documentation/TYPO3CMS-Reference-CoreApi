@@ -56,6 +56,7 @@ Example:
 
     $this->blogRepository->findBy(['author' => 1, 'published' => true]);
 
+..  _extbase-repository-find-by-custom:
 
 Custom find methods
 ===================
@@ -73,6 +74,7 @@ several custom find methods, two of them are shown below:
 
 ..  include:: /CodeSnippets/Extbase/Domain/CustomMethods.rst.txt
 
+..  _extbase-repository-find-by-magic:
 
 Magic find methods
 ==================
@@ -99,6 +101,8 @@ model.
 If necessary, these methods can also be overridden by implementing them in the
 concrete repository.
 
+..  _extbase-repository-find-by-magic-migration:
+
 Migration
 ---------
 
@@ -123,6 +127,7 @@ Migration
 
     $this->myRepository->count(['propertyName' => $propertyValue]);
 
+..  _extbase-repository-query-setting:
 
 Query settings
 ===============
@@ -141,11 +146,15 @@ set in the method itself:
 
 ..  include:: /CodeSnippets/Extbase/Domain/SpecialQuerySettings.rst.txt
 
+..  _extbase-repository-api:
 
 Repository API
 ===============
 
 ..  include:: /CodeSnippets/Extbase/Api/Repository.rst.txt
+
+
+..  _extbase-repository-localization:
 
 Typo3QuerySettings and localization
 ===================================
