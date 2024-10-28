@@ -117,6 +117,9 @@ rendered after their page renderer counterparts. The order is:
     JavaScript registered with the asset collector is not affected by
     :ref:`config.moveJsFromHeaderToFooter <t3tsref:setup-config-movejsfromheadertofooter>`.
 
+
+..  _assets-examples:
+
 Examples
 --------
 
@@ -223,7 +226,13 @@ Using the TypoScriptFrontendController
 
 ..  versionchanged:: 13.0
     The property :php:`additionalHeaderData` has been marked as internal
-    and should not be used.
+    and should not be used. Use :php:`AssetCollector->addJavaScript()` instead
+    (like described in the :ref:`examples <assets-examples>` above).
+
+..  deprecated:: 13.4
+    The class :php:`\TYPO3\CMS\Frontend\Controller\TypoScriptFrontendController`
+    and its global instance :php:`$GLOBALS['TSFE']` have been marked as
+    deprecated. The class will be removed with TYPO3 v14.
 
 ..  code-block:: php
 
