@@ -278,6 +278,5 @@ It is also possible to execute the wizard from the command line:
                 typo3/sysext/core/bin/typo3 '\\MyVendor\\MyExtension\\Upgrade\\ExampleUpgradeWizard'
 
 ..  seealso::
-    You can find more information about running upgrade wizards in the
-    :ref:`Upgrade wizard section <t3install:use-the-upgrade-wizard>` of the
-    Installation Guide.
+    You can find more information about running upgrade wizards in the section
+    :ref:`Upgrade wizards <use-the-upgrade-wizard>`.

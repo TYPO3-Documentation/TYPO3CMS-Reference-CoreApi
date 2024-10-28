@@ -48,8 +48,8 @@ installation.
 ..  include:: /Images/AutomaticScreenshots/AdminTools/DatabaseAnalyzer.rst.txt
 
 ..  seealso::
-    For more information about the process of upgrading TYPO3, see the
-    :ref:`Upgrade Guide <t3install:start>`.
+    For more information about the process of upgrading TYPO3, see chapter
+    :ref:`Upgrades <upgrading>`.
 
 
 ..  index::
