@@ -57,7 +57,7 @@ reasons:
 #.  Working with Composer in general is strongly recommended for TYPO3.
 
     If you are not using Composer for your projects yet, see
-    :ref:`t3install:migratetocomposer` in the "Upgrade Guide".
+    :ref:`migratetocomposer` in the "Upgrade Guide".
 
 
 ..  _ext-composer-json-minimal:

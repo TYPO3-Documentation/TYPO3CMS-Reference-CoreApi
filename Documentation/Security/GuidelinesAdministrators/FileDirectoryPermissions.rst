@@ -13,8 +13,8 @@ prerequisite for a secure web application. Well-considered access
 permissions on files and directories are an important part of this
 strategy. However, too strict permissions may stop TYPO3 from working
 properly and/or restrict integrators or editors from using all
-features of the CMS. The official
-:ref:`TYPO3 Installation and Upgrade Guide <t3install:start>`
+features of the CMS. The section
+:ref:`TYPO3 administration <t3coreapi:administration>`
 provides further information about the install procedure.
 
 We do not need to mention that only privileged system users should
