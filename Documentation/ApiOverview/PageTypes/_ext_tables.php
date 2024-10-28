@@ -12,7 +12,6 @@ $dokTypeRegistry = GeneralUtility::makeInstance(PageDoktypeRegistry::class);
 $dokTypeRegistry->add(
     $customPageDoktype,
     [
-        'type' => 'web',
         'allowedTables' => '*',
     ],
 );
