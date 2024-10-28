@@ -78,10 +78,10 @@ Also the fields to be displayed can be restricted.
 
 ..  include:: _UriBuilder/_GetEditDoktypeLink.rst.txt
 
-..  deprecated:: 13.2
+..  versionchanged:: 14.0
 
-    Passing a comma-separated list of fields as value for `columnsOnly`
-    has been deprecated. See :ref:`edit-links-columnsOnly-migration`.
+    Accepting  a comma-separated list of fields as value for `columnsOnly`
+    has been removed. See :ref:`t3coreapi/13:edit-links-columnsOnly-migration`.
 
 The fields to be included can be listed in the `columnsOnly` parameter, as a comma-separated list.
 The order of the fields doesn't matter, they get displayed in the order they appear in the TCA.
@@ -107,10 +107,11 @@ default values for certain fields.
 
 ..  include:: _UriBuilder/_CreateHaikuLinkPhp.rst.txt
 
-..  deprecated:: 13.2
 
-    Passing a comma-separated list of fields as value for `columnsOnly`
-    has been deprecated. See :ref:`edit-links-columnsOnly-migration`.
+..  versionchanged:: 14.0
+
+    Accepting  a comma-separated list of fields as value for `columnsOnly`
+    has been removed. See :ref:`t3coreapi/13:edit-links-columnsOnly-migration`.
 
 It can then be displayed like this:
 
@@ -132,32 +133,3 @@ This results in the following new record form with a pre-filled
 title and season field.
 
 ..  include:: /Images/AutomaticScreenshots/Examples/EditLinks/EditLinksNew.rst.txt
-
-..  _edit-links-columnsOnly-migration:
-
-Migration: Table dependant definition of columnsOnly
-====================================================
-
-The fields to be rendered in a Backend `UriBuilder` have to be passed as
-:php:`array` under the corresponding table name instead of using a comma
-separated string.
-
-.. code-block:: diff
-
-     $urlParameters = [
-        'edit' => [
-            'pages' => [
-                1 => 'edit',
-            ],
-        ],
-     -   'columnsOnly' => 'title,slug',
-     +   'columnsOnly' => [
-     +       'pages' => [
-     +           'title',
-     +           'slug'
-     +       ]
-     +   ],
-        'returnUrl' => $request->getAttribute('normalizedParams')->getRequestUri(),
-     ];
-
-     GeneralUtility::makeInstance(UriBuilder::class)->buildUriFromRoute('record_edit', $urlParameters);
