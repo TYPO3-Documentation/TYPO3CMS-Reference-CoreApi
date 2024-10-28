@@ -1,0 +1,28 @@
+..  include:: /Includes.rst.txt
+
+In addition to the deprecations you may want to read the information about important
+changes, new features and breaking changes for the release you are updating to.
+
+The changelog is divided into four sections "Breaking Changes", "Features", "Deprecation" and
+"Important". Before upgrading you should at least take a look at the sections "Breaking Changes"
+and "Important" - changes described in those areas might affect your website.
+
+..  tip::
+    Breaking changes should be of no concern to you if you already handled the
+    deprecations before upgrading.
+
+The detailed information contains a section called "Affected Installations" which contains hints
+whether or not your website is affected by the change.
+
+There are 3 different methods you can use to read the changelogs:
+
+#.  Look through the :doc:`changelogs <ext_core:Index>`
+    online. This has the advantage that code blocks will be formatted nicely with
+    syntax highlighting.
+#.  Read the changelogs in the backend: :guilabel:`Upgrade > View Upgrade Documentation`.
+    This has the advantage that you can filter by tags and mark individual changelogs
+    as done. This way, it is possible to use the list like a todo list.
+#.  Read the changelog in the :ref:`Extension Scanner <t3coreapi:extension-scanner>`
+    (as explained above).
+
+..  include:: /Images/AutomaticScreenshots/Upgrade/UpgradeAnalysis.rst.txt

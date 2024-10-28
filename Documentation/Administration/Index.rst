@@ -25,9 +25,9 @@ TYPO3 administration
         to update major Core versions and extensions.
 
         It also explains how to :ref:`Migrate a TYPO3 project to
-        Composer <t3upgrade:migratetocomposer>`.
+        Composer <migratetocomposer>`.
 
-        :ref:`TYPO3 Upgrade Guide <t3upgrade:upgrading>`
+        :ref:`TYPO3 Upgrade Guide <upgrading>`
 
 ..  toctree::
     :hidden:

@@ -1,0 +1,2 @@
+.. image:: /Images/ExternalImages/Upgrade/PackagistMask.png
+   :scale: 65 %
