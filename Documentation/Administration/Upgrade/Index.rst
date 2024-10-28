@@ -1,13 +1,11 @@
-.. include:: /Includes.rst.txt
+:navigation-title: Upgrades
+..  include:: /Includes.rst.txt
 
-.. _upgrading:
+..  _upgrading:
 
-===================
-TYPO3 Upgrade Guide
-===================
-
-This chapter explains how to upgrade TYPO3 and migrate from Legacy to Composer
-mode.
+=======================================
+Upgrading the TYPO3 Core and extensions
+=======================================
 
 ..  card-grid::
     :columns: 1
@@ -54,14 +52,14 @@ mode.
 
         This chapter details how pages and content can be exported and then imported into another installation of TYPO3.
 
-.. toctree::
-   :hidden:
+..  toctree::
+    :hidden:
 
-   Minor/Index
-   Major/Index
-   UpgradingExtensions/Index
-   Tools/Index
-   Legacy/Index
-   ApplyingCorePatches/Index
-   MigrateToComposer/Index
-   MigrateContent/Index
+    Minor/Index
+    Major/Index
+    UpgradingExtensions/Index
+    Tools/Index
+    Legacy/Index
+    ApplyingCorePatches/Index
+    MigrateToComposer/Index
+    MigrateContent/Index
