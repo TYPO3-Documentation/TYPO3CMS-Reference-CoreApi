@@ -482,28 +482,6 @@ the TYPO3 backend:
 
     The hash of the install tool password.
 
-..  _typo3ConfVars_be_checkStoredRecords:
-
-..  confval:: checkStoredRecords
-    :Path: $GLOBALS['TYPO3_CONF_VARS']['BE']['checkStoredRecords']
-    :name: globals-typo3-conf-vars-be-checkStoredRecords
-
-    ..  versionchanged:: 13.0
-        This setting is obsolete. Instances setting this option in
-        :file:`settings.php` are updated silently by the install tool during the
-        upgrade process to TYPO3 v13.
-
-..  _typo3ConfVars_be_checkStoredRecordsLoose:
-
-..  confval:: checkStoredRecordsLoose
-    :Path: $GLOBALS['TYPO3_CONF_VARS']['BE']['checkStoredRecordsLoose']
-    :name: globals-typo3-conf-vars-be-checkStoredRecordsLoose
-
-    ..  versionchanged:: 13.0
-        This setting is obsolete. Instances setting this option in
-        :file:`settings.php` are updated silently by the install tool during the
-        upgrade process to TYPO3 v13.
-
 ..  index::
     TYPO3_CONF_VARS BE; defaultUserTSconfig
 ..  _typo3ConfVars_be_defaultUserTSconfig:
