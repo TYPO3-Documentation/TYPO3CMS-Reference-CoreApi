@@ -8,7 +8,7 @@ File imports
 
 ..  versionchanged:: 14.0
     The old school :typoscript:`<INCLUDE_TYPOSCRIPT:` syntax has been deprecated
-    with version 13.4 and removed with TYPO3 v14.0.
+    with version 13.4 and was removed with TYPO3 v14.0.
     See :ref:`t3coreapi/13:typoscript-syntax-includes-migration`.
 
 To structure and reuse single TypoScript snippets and not stuffing everything
