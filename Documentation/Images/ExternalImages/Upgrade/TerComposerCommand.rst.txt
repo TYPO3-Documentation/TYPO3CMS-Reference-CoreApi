@@ -1,0 +1,2 @@
+.. image:: /Images/ExternalImages/Upgrade/TerComposerCommand.png
+   :scale: 65 %

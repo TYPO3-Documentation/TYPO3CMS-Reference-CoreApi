@@ -76,6 +76,32 @@ Line 7: Dependencies
     site package and/or a dependency to a site set definition from
     another provider (vendor)
 
+..  _site-sets-hidden:
+
+Hidden site sets
+----------------
+
+Sets may be hidden from the backend set selection in
+:guilabel:`Site Management > Sites` and the console command
+:bash:`bin/typo3 site:sets:list` by adding a `hidden` flag to the
+:file:`config.yaml` definition:
+
+..  code-block:: yaml
+    :caption: EXT:my_extension/Configuration/Sets/MyHelperSet/config.yaml
+
+    name: my-vendor/my-helperset
+    label: A helper Set that is not visible inside the GUI
+    hidden: true
+
+Integrators may choose to hide existing sets from the list of available
+sets for backend users via user TSconfig, in case only a curated list of sets
+shall be selectable:
+
+..  code-block:: typoscript
+    :caption: EXT:my_extension/Configuration/user.tsconfig
+
+    options.sites.hideSets := addToList(typo3/fluid-styled-content)
+
 ..  _site-sets-usage:
 
 Using a site set as dependency in a site
