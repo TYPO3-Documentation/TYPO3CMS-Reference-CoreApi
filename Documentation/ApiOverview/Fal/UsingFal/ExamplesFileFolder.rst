@@ -256,10 +256,11 @@ The PHP class responsible for handling the file dumping is the
 :php:`\TYPO3\CMS\Core\Controller\FileDumpController`, which you may also use
 in your code.
 
-..  versionchanged:: 13.1
-    Until TYPO3 13 generating the Hash-based Message Authentication Codes (HMACs)
+..  versionchanged:: 14.0
+    Until TYPO3 v13 generating the Hash-based Message Authentication Codes (HMACs)
     was done via :php:`GeneralUtility::hmac()`; this has been deprecated with
-    TYPO3 13.1 in favour of using the `\TYPO3\CMS\Core\Crypto\HashService::hmac`.
+    TYPO3 v13.1 and removed with TYPO3 v14.0. Use the
+    :php:`\TYPO3\CMS\Core\Crypto\HashService::hmac()` method instead.
 
 See the following example on how to create a URI using the
 :php:`FileDumpController` for a :sql:`sys_file` record with a fixed image size:

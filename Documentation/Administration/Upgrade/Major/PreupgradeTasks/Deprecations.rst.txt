@@ -1,0 +1,41 @@
+..  include:: /Includes.rst.txt
+
+If you notice some API you are using is deprecated, you should look up the
+corresponding :doc:`changelog <ext_core:Index>`
+entry and see how to migrate your code corresponding to the documentation.
+
+Since TYPO3 v9 an :ref:`extension scanner <t3coreapi:extension-scanner>` is
+included, that provides basic scanning of your extensions for deprecated code.
+While it does not catch everything, it can be used as a base for an upgrade. You
+can either access the extension scanner via the TYPO3 admin tools (in the
+Backend: :guilabel:`Module "Upgrade" > "Scan Extension Files"`)
+or as a standalone tool (https://github.com/tuurlijk/typo3scan).
+
+The extension scanner will show the corresponding changelog which contains
+a description of how to migrate your code. See :ref:`check-the-changelog-and-news-md`
+for more information about the changelogs and how to read them.
+
+In addition, you can use the tool `typo3-rector <https://github.com/sabbelasichon/typo3-rector>`__
+to automatically refactor the code for a lot of deprecations.
+
+..  note::
+
+    TYPO3 aims at providing a reliable backwards compatibility between versions:
+
+    *   Minor versions are always backwards compatible - unless explicitly stated
+        otherwise (for example in case of security updates)
+
+    *   Major versions may contain breaking changes - normally these are
+        deprecated one major version in advance
+
+    *   Most breaking changes usually happen in the first Sprint Release
+
+    If PHP classes, methods, constants, functions or parameters are to be
+    removed, they will be *marked as deprecated* first and not removed until the
+    next major release of TYPO3. For example: a method that gets deprecated in
+    version 12.3.0 will remain fully functional in all 12.x.y releases, but will
+    be removed in version 13.
+
+    This strategy gives developers sufficient time to adjust their TYPO3
+    extensions, assuming many agencies upgrade from one LTS release to the next
+    (usually 1.5 years).

@@ -5,20 +5,13 @@
 
     Interface for Backend Login providers
 
-    ..  php:method:: render(\TYPO3\CMS\Fluid\View\StandaloneView $view, \TYPO3\CMS\Core\Page\PageRenderer $pageRenderer, \TYPO3\CMS\Backend\Controller\LoginController $loginController)
+    ..  php:method:: modifyView(\Psr\Http\Message\ServerRequestInterface $request, \TYPO3\CMS\Core\View\ViewInterface $view)
+        :returns: `string`
 
-        Render the login HTML
+        Interface to render the backend login view.
 
-        Implement this method and set the template for your form.
-        This is also the right place to assign data to the view
-        and add necessary JavaScript resources to the page renderer.
+        See UsernamePasswordLoginProvider on how this can be used.
 
-        A good example is EXT:openid
-
-        Example:
-           $view->setTemplatePathAndFilename($pathAndFilename);
-           $view->assign('foo', 'bar');
-
+        :param $request: the request
         :param $view: the view
-        :param $pageRenderer: the pageRenderer
-        :param $loginController: the loginController
+        :Return description: Template file to render

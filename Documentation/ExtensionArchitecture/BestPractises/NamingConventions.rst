@@ -337,6 +337,11 @@ Examples (from TYPO3 Core extensions):
 Plugin signature
 ================
 
+..  deprecated:: 13.4
+    Adding frontend plugins as a "General Plugin", setting the content
+    record :sql:`CType` to :sql:`'list'` and `list_type` to the plugin signature
+    is deprecated. See :ref:`plugins-list_type-migration`.
+
 The plugin signature of non-Extbase plugins, registered via
 :php:`ExtensionManagementUtility::addPlugin()` is an arbitrarily defined string.
 By convention it should always be the extension name with all underscores removed
@@ -365,45 +370,49 @@ Example:
 
    $extensionName = 'my_extension';
    $pluginName = 'MyCoolPlugin';
-   $pluginSignature == "myextension_mycoolplugin"
+   $pluginSignature = "myextension_mycoolplugin"
 
 The plugin signature is used in:
 
-*  the database field `tt_content.list_type`
-*  when defining a :ref:`FlexForm <flexforms>` to be used for the plugin in
-   :php:`addPiFlexFormValue()`
-*  in TypoScript, :typoscript:`plugin.tx_myexample_myplugin` to define settings
-   for the plugin etc.
-*  As :ref:`record type <t3tca:types>` in TCA. It can therefore be used to
-   define which fields should be visible in the TYPO3 backend.
+*   the database field `tt_content.CType`
+*   when defining a :ref:`FlexForm <flexforms>` to be used for the plugin in
+    :php:`addPiFlexFormValue()`
+*   in TypoScript, :typoscript:`plugin.tx_myexample_myplugin` to define settings
+    for the plugin etc.
+*   As :ref:`record type <t3tca:types>` in TCA. It can therefore be used to
+    define which fields should be visible in the TYPO3 backend.
 
+..  _naming-conventions-plugin-signature-non-extbase:
 
 Example register and configure a non-Extbase plugin:
 ----------------------------------------------------
 
-.. code-block:: php
-   :caption: EXT:examples/Configuration/TCA/Overrides/tt_content_plugin_htmlparser.php
+..  code-block:: php
+    :caption: EXT:examples/Configuration/TCA/Overrides/tt_content_plugin_htmlparser.php
 
-   use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
+    use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
 
-   $pluginSignature = 'examples_pi1';
-   $pluginTitle = 'LLL:EXT:examples/Resources/Private/Language/locallang_db.xlf:tt_content.list_type_pi1';
-   $extensionKey = 'examples';
+    $pluginSignature = 'examples_pi1';
+    $pluginTitle = 'LLL:EXT:examples/Resources/Private/Language/locallang_db.xlf:tt_content.list_type_pi1';
+    $extensionKey = 'examples';
 
-   // Add the plugins to the list of plugins
-   ExtensionManagementUtility::addPlugin (
-       [ $pluginTitle, $pluginSignature,],'list_type', $extensionKey
-   );
+    // Add the plugins to the list of plugins
+    ExtensionManagementUtility::addPlugin (
+        [ $pluginTitle, $pluginSignature,],'CType', $extensionKey
+    );
 
-   // Disable the display of layout and select_key fields for the plugin
-   $GLOBALS['TCA']['tt_content']['types']['list']['subtypes_excludelist'][$pluginSignature]
-       = 'layout,select_key,pages';
+    ExtensionManagementUtility::addToAllTCAtypes(
+        'tt_content',
+        '--div--;Configuration,pi_flexform,',
+        $pluginSignature,
+        'after:header',
+    );
 
-   // Activate the display of the plug-in flexform field and set FlexForm definition
-   $GLOBALS['TCA']['tt_content']['types']['list']['subtypes_addlist']['examples_pi1'] = 'pi_flexform';
-   ExtensionManagementUtility::addPiFlexFormValue(
-       $pluginSignature, 'FILE:EXT:examples/Configuration/Flexforms/flexform_ds1.xml'
-   );
+    ExtensionManagementUtility::addPiFlexFormValue(
+        '*',
+        'FILE:EXT:example/Configuration/FlexForms/Registration.xml',
+        $pluginSignature,
+    );
 
 .. code-block:: typoscript
    :caption: EXT:examples/Configuration/setup.typoscript
@@ -411,6 +420,8 @@ Example register and configure a non-Extbase plugin:
    plugin.tx_examples_pi1 {
       settings.pageId = 42
    }
+
+..  _naming-conventions-plugin-key:
 
 Plugin key (Extbase only)
 =========================
@@ -438,49 +449,57 @@ The plugin key used in :php:`registerPlugin()` and :php:`configurePlugin()`
 Example register and configure an Extbase plugin:
 -------------------------------------------------
 
-.. code-block:: php
-   :caption: EXT:examples/Configuration/TCA/Overrides/tt_content_plugin_htmlparser.php
+..  code-block:: php
+    :caption: EXT:examples/Configuration/TCA/Overrides/tt_content_plugin_htmlparser.php
 
-   use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
-   use TYPO3\CMS\Extbase\Utility\ExtensionUtility;
+    use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
+    use TYPO3\CMS\Extbase\Utility\ExtensionUtility;
 
-   $extensionKey = 'Examples';
-   $pluginName = 'HtmlParser';
-   $pluginTitle = 'LLL:EXT:examples/Resources/Private/Language/locallang.xlf:htmlparser_plugin_title';
+    $extensionKey = 'Examples';
+    $pluginName = 'HtmlParser';
+    $pluginTitle = 'LLL:EXT:examples/Resources/Private/Language/locallang.xlf:htmlparser_plugin_title';
 
-   $pluginSignature = ExtensionUtility::registerPlugin($extensionKey, $pluginName,
-       $pluginTitle);
+    $pluginSignature = ExtensionUtility::registerPlugin(
+        $extensionKey,
+        $pluginName,
+        $pluginTitle
+    );
 
-   // $pluginSignature == "examples_htmlparser"
+    // $pluginSignature == "examples_htmlparser"
 
-   $GLOBALS['TCA']['tt_content']['types']['list']['subtypes_excludelist'][$pluginSignature]
-       = 'layout,select_key,pages';
-   $GLOBALS['TCA']['tt_content']['types']['list']['subtypes_addlist'][$pluginSignature]
-       = 'pi_flexform';
+    ExtensionManagementUtility::addToAllTCAtypes(
+        'tt_content',
+        '--div--;Configuration,pi_flexform,',
+        $pluginSignature,
+        'after:subheader',
+    );
 
-   ExtensionManagementUtility::addPiFlexFormValue(
-       $pluginSignature, 'FILE:EXT:examples/Configuration/Flexforms/HtmlParser.xml'
-   );
+    ExtensionManagementUtility::addPiFlexFormValue(
+        '*',
+        'FILE:EXT:example/Configuration/FlexForms/Registration.xml',
+        $pluginSignature,
+    );
 
-.. code-block:: php
-   :caption: EXT:examples/ext_localconf.php
+..  code-block:: php
+    :caption: EXT:examples/ext_localconf.php
 
-   use TYPO3\CMS\Extbase\Utility\ExtensionUtility;
+    use TYPO3\CMS\Extbase\Utility\ExtensionUtility;
 
-   ExtensionUtility::configurePlugin(
-       'Examples',
-       'HtmlParser',
-       [
-           \T3docs\Examples\Controller\HtmlParserController::class => 'index',
-       ]
-   );
+    ExtensionUtility::configurePlugin(
+        'Examples',
+        'HtmlParser',
+        [
+            \T3docs\Examples\Controller\HtmlParserController::class => 'index',
+        ],
+        ExtensionUtility::PLUGIN_TYPE_CONTENT_ELEMENT,
+    );
 
-.. code-block:: typoscript
-   :caption: EXT:examples/Configuration/setup.typoscript
+..  code-block:: typoscript
+    :caption: EXT:examples/Configuration/setup.typoscript
 
-   plugin.tx_examples_htmlparser {
+    plugin.tx_examples_htmlparser {
       settings.pageId = 42
-   }
+    }
 
 Class name
 ==========

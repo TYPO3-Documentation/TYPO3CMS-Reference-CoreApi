@@ -1,0 +1,20 @@
+-tt_content.list.20.examples_pi1 = USER
+-tt_content.list.20.examples_pi1 {
++tt_content.examples_pi1 = USER
++tt_content.examples_pi1 {
+     userFunc = MyVendor\Examples\Controller\ExampleController->example
+     settings {
+         singlePid = 42
+         listPid = 55
+     }
+     view {
+         templateRootPath = {$templateRootPath}
+         partialRootPath = {$partialRootPath}
+         layoutRootPath = {$layoutRootPath}
+     }
+ }
+
+ # Or if you used the plugin top level object:
+
+-tt_content.list.20.examples_pi1 < plugin.tx_examples_pi1
++tt_content.examples_pi1 < plugin.tx_examples_pi1

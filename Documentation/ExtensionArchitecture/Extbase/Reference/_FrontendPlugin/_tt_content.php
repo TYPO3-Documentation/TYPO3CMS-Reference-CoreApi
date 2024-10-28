@@ -1,9 +1,11 @@
 <?php
 
+use TYPO3\CMS\Extbase\Utility\ExtensionUtility;
+
 defined('TYPO3') or die();
 
 (static function (): void {
-    \TYPO3\CMS\Extbase\Utility\ExtensionUtility::registerPlugin(
+    $pluginKey = ExtensionUtility::registerPlugin(
         // extension name, matching the PHP namespaces (but without the vendor)
         'BlogExample',
         // arbitrary, but unique plugin name (not visible in the backend)

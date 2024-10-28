@@ -88,12 +88,8 @@ File types
 ..  versionchanged:: 13.0
     The PHP backed enum :php:`\TYPO3\CMS\Core\Resource\FileType` has been
     introduced as a drop-in replacement for the public :php:`FILETYPE_*`
-    constants in :php:`\TYPO3\CMS\Core\Resource\AbstractFile`. See
-    :ref:`globals-constants-file-types-migration`.
-
-    The constant file types have been marked as deprecated and will be
-    removed with TYPO3 v14.0. To be compatible with TYPO3 v12 and v13 use
-    the constants from :php:`\TYPO3\CMS\Core\Resource\AbstractFile`.
+    constants in :php:`\TYPO3\CMS\Core\Resource\AbstractFile`. The constants
+    have been removed with TYPO3 v14.0.
 
 Different types of file constants are defined in the enum
 :php:`\TYPO3\CMS\Core\Resource\FileType`. These cases are available for
@@ -114,22 +110,6 @@ Enum case                    Value Description
 :php:`FileType::VIDEO`           4 Any kind of video
 :php:`FileType::APPLICATION`     5 Any kind of application
 ============================ ===== =======================
-
-
-..  _globals-constants-file-types-migration:
-
-Migration
----------
-
-Migrate all usages to use the new enum :php:`\TYPO3\CMS\Core\Resource\FileType`
-as follows:
-
-* :php:`\TYPO3\CMS\Core\Resource\AbstractFile::FILETYPE_UNKNOWN` → :php:`\TYPO3\CMS\Core\Resource\FileType::UNKNOWN->value`
-* :php:`\TYPO3\CMS\Core\Resource\AbstractFile::FILETYPE_TEXT` → :php:`\TYPO3\CMS\Core\Resource\FileType::TEXT->value`
-* :php:`\TYPO3\CMS\Core\Resource\AbstractFile::FILETYPE_IMAGE` → :php:`\TYPO3\CMS\Core\Resource\FileType::IMAGE->value`
-* :php:`\TYPO3\CMS\Core\Resource\AbstractFile::FILETYPE_AUDIO` → :php:`\TYPO3\CMS\Core\Resource\FileType::AUDIO->value`
-* :php:`\TYPO3\CMS\Core\Resource\AbstractFile::FILETYPE_VIDEO` → :php:`\TYPO3\CMS\Core\Resource\FileType::VIDEO->value`
-* :php:`\TYPO3\CMS\Core\Resource\AbstractFile::FILETYPE_APPLICATION` → :php:`\TYPO3\CMS\Core\Resource\FileType::APPLICATION->value`
 
 
 .. index:: Constants; HTTP status codes

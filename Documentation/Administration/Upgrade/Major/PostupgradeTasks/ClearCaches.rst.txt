@@ -1,0 +1,24 @@
+..  include:: /Includes.rst.txt
+
+..  _clear_caches:
+
+You have to clear all caches when upgrading.
+
+Go to the :guilabel:`Admin Tools > Maintenance` backend module and click on the
+:guilabel:`Flush cache` button:
+
+..  include:: /Images/AutomaticScreenshots/AdminTools/ClearAllCache.rst.txt
+
+Additionally, after an upgrade to a new major version, you should also delete
+the other temporary files, which TYPO3 saves in the :file:`typo3temp/` folder.
+In the :guilabel:`Admin Tools > Maintenance` module click on the
+:guilabel:`Remove Temporary Assets > Scan temporary files` button and select the
+appropriate folders.
+
+..  note::
+    When you delete the :file:`_processed_/` folder of a file storage all scaled
+    images will be removed and the according images processed again when
+    visiting a webpage the next time. This may slow down the first rendering of
+    the webpage.
+
+..  include:: /Images/AutomaticScreenshots/AdminTools/RemoveTemporaryAssets.rst.txt

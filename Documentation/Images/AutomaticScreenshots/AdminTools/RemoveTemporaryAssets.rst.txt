@@ -1,0 +1,7 @@
+.. Automatic screenshot: Remove this line if you want to manually change this file
+
+.. figure:: /Images/AutomaticScreenshots/AdminTools/RemoveTemporaryAssets.png
+   :alt: Remove temporary assets
+   :class: with-shadow
+
+   The option "Remove temporary assets" in the Install Tool.

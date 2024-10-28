@@ -1,0 +1,8 @@
+..  include:: /Includes.rst.txt
+
+You might consider clearing the Backend user preferences. This
+can avoid problems, if something in the upgrade requires this. Go to
+"Clean up", scroll to "Reset user preferences" and click "Reset backend
+user preferences".
+
+..  include:: /Images/AutomaticScreenshots/AdminTools/ResetUserPreferences.rst.txt

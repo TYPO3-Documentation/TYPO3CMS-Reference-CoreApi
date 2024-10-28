@@ -118,23 +118,12 @@ approaches:
     This specifies the preview renderer only for records of type :php:`$type` as
     determined by the :ref:`type field <t3tca:types>` of your table.
 
-#.  Table and field have a :php:`subtype_value_field` TCA setting
+..  deprecated:: 13.4
+    Registration of subtypes has been deprecated. Registration of custom
+    types should therefore always be done by using
+    :confval:`record types <t3tca:ctrl-type>`.
 
-    If your table and field have a
-    :ref:`subtype_value_field <t3tca:types-properties-subtype-value-field>` TCA
-    setting (like :php:`tt_content.list_type` for example) and you want to
-    register a preview renderer that applies only when that value is selected
-    (assume, when a certain plugin type is selected and you can't match it with
-    the "type" of the record alone):
-
-    ..  code-block:: php
-
-        $GLOBALS['TCA'][$table]['types'][$type]['previewRenderer'][$subType]
-            = MyVendor\MyExtension\Preview\MyPreviewRenderer::class;
-
-    Where :php:`$type` is, for example, :php:`list` (indicating a plugin) and
-    :php:`$subType` is the value of the :php:`list_type` field when the type of
-    plugin you want to target is selected as plugin type.
+    See also :ref:`t3tca:migration-subtype-previewrenderer`.
 
 ..  note::
     The :ref:`recommended location <extension-configuration-tca>` is in the

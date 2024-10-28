@@ -16,23 +16,23 @@ final class MyTableRepository
     public function findSomething(): QueryBuilder
     {
         // WHERE
-        //     (`tt_content`.`CType` = 'list')
+        //     (`tt_content`.`CType` = 'header')
         //     AND (
-        //        (`tt_content`.`list_type` = 'example_pi1')
+        //        (`tt_content`.`header_position` = 'center')
         //        OR
-        //        (`tt_content`.`list_type` = 'example_pi2')
+        //        (`tt_content`.`header_position` = 'right')
         //     )
-        $queryBuilder = $this->connectionPool->getQueryBuilderForTable('tt_content');
+        $queryBuilder = $this->connectionPool->getQueryBuilderForTable(self::TABLE_NAME);
         $queryBuilder->where(
-            $queryBuilder->expr()->eq('CType', $queryBuilder->createNamedParameter('list')),
+            $queryBuilder->expr()->eq('CType', $queryBuilder->createNamedParameter('header')),
             $queryBuilder->expr()->or(
                 $queryBuilder->expr()->eq(
-                    'list_type',
-                    $queryBuilder->createNamedParameter('example_pi1', Connection::PARAM_STR),
+                    'header_position',
+                    $queryBuilder->createNamedParameter('center', Connection::PARAM_STR),
                 ),
                 $queryBuilder->expr()->eq(
-                    'list_type',
-                    $queryBuilder->createNamedParameter('example_pi2', Connection::PARAM_STR),
+                    'header_position',
+                    $queryBuilder->createNamedParameter('right', Connection::PARAM_STR),
                 ),
             ),
         );
