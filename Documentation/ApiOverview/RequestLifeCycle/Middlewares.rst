@@ -106,7 +106,7 @@ cache.
 With TYPO3 v11, the "calling Extbase in a context where TypoScript has not been
 calculated" scenario did not fail, but simply returned an empty array for
 TypoScript, crippling the configuration of the plugin in question. This
-mitigation hack will be removed in TYPO3 v13, though. Extension developers
+mitigation hack has been removed in TYPO3 v13, though. Extension developers
 that already use Extbase in a middleware have the following options:
 
 *   Consider not using Extbase for the use case: Extbase is quite expensive.
