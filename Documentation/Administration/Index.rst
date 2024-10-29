@@ -34,5 +34,8 @@ TYPO3 administration
     :glob:
 
     Installation/Index
+    Upgrade/Index
+    UserManagement/Index
+    Troubleshooting/Index
     */Index
     *
