@@ -8,7 +8,7 @@
 ..  _Enumerations:
 
 ======================
-Enumerations & bitsets
+Bitsets & Enumerations
 ======================
 
 *   Use an enumeration, if you have a fixed list of values.

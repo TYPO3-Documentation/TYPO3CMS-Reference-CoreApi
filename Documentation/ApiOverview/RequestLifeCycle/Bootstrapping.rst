@@ -12,8 +12,8 @@ calling  :php:`Bootstrap::init()` and serves as an entry point for later calling
 an application class, depending on several context-dependant constraints.
 
 Each application class registers request handlers to
-run a certain request type (e.g. eID or TSFE-logic, or Ajax requests in the Backend). Each application is handed
-over the class loader provided by Composer.
+run a certain request type (e.g. eID or Ajax requests in the backend). Each
+application is handed over the class loader provided by Composer.
 
 Applications
 ============
@@ -25,7 +25,7 @@ There are four types of applications provided by the TYPO3 Core:
 -----------------------------------------
 
 This class handles all incoming web requests coming through :file:`index.php`
-in the public web directory. It handles all regular page (TSFE) and eID requests.
+in the public web directory. It handles all regular page and eID requests.
 
 It checks if all configuration is set, otherwise redirects to the TYPO3 Install
 Tool.

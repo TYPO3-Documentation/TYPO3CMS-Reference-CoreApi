@@ -4,30 +4,35 @@ declare(strict_types=1);
 
 namespace MyVendor\MySitepackage\PageTitle;
 
+use Psr\Http\Message\ServerRequestInterface;
+use Symfony\Component\DependencyInjection\Attribute\Autoconfigure;
 use TYPO3\CMS\Core\PageTitle\PageTitleProviderInterface;
 use TYPO3\CMS\Core\Site\SiteFinder;
-use TYPO3\CMS\Frontend\Controller\TypoScriptFrontendController;
+use TYPO3\CMS\Frontend\Page\PageInformation;
 
-final class WebsiteTitleProvider implements PageTitleProviderInterface
+#[Autoconfigure(public: true)]
+final readonly class WebsiteTitleProvider implements PageTitleProviderInterface
 {
     public function __construct(
-        private readonly SiteFinder $siteFinder,
+        private SiteFinder $siteFinder,
     ) {}
 
     public function getTitle(): string
     {
-        $site = $this->siteFinder->getSiteByPageId($this->getTypoScriptFrontendController()->page['uid']);
+        /** @var PageInformation $pageInformation */
+        $pageInformation = $this->getRequest()->getAttribute('frontend.page.information');
+
+        $site = $this->siteFinder->getSiteByPageId($pageInformation->getId());
         $titles = [
-            $this->getTypoScriptFrontendController()->page['title'],
+            $pageInformation->getPageRecord()['title'],
             $site->getAttribute('websiteTitle'),
         ];
 
-        // do something
         return implode(' - ', $titles);
     }
 
-    private function getTypoScriptFrontendController(): TypoScriptFrontendController
+    private function getRequest(): ServerRequestInterface
     {
-        return $GLOBALS['TSFE'];
+        return $GLOBALS['TYPO3_REQUEST'];
     }
 }
