@@ -1,5 +1,7 @@
 .. include:: /Includes.rst.txt
 
+..  _api:
+
 =======
 API A-Z
 =======
@@ -15,8 +17,8 @@ This chapter describes the most important elements of the API.
 
 **Contents:**
 
-.. toctree::
-   :titlesonly:
-   :glob:
+..  toctree::
+    :titlesonly:
+    :glob:
 
-   */Index
+    */Index
