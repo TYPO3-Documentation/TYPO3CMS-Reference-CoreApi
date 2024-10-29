@@ -139,7 +139,7 @@ Examples:
         'uid',
         $queryBuilder->createNamedParameter(
             GeneralUtility::intExplode(',', '42, karl, 44', true),
-            Connection::PARAM_INT_ARRAY
+            ArrayParameterType::INTEGER
         )
     )
 
@@ -149,7 +149,7 @@ Examples:
         'CType',
         $queryBuilder->createNamedParameter(
             ['media', 'multimedia'],
-            Connection::PARAM_STR_ARRAY
+            ArrayParameterType::STRING
         )
     )
 
