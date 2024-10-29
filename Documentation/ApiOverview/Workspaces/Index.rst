@@ -129,7 +129,7 @@ frontend:
 
 .. rst-class:: dl-parameters
 
-$GLOBALS['TSFE']->sys\_page->versionOL($table, &$row, $unsetMovePointers=FALSE)
+\\TYPO3\\CMS\\Core\\Domain\\Repository\\PageRepository->versionOL($table, &$row, $unsetMovePointers=FALSE)
    Versioning Preview Overlay.
 
    Generally ALWAYS used when records are selected based on uid or pid.
@@ -148,9 +148,13 @@ $GLOBALS['TSFE']->sys\_page->versionOL($table, &$row, $unsetMovePointers=FALSE)
    .. code-block:: php
       :caption: EXT:some_extension/Classes/SomeClass.php
 
+      // use TYPO3\CMS\Core\Domain\Repository\PageRepository;
+      // use TYPO3\CMS\Core\Utility\GeneralUtility;
+
+      $pageRepository = GeneralUtility::makeInstance(PageRepository);
       $result = $queryBuilder->executeQuery();
       while ($row = $result->fetchAssociative()) {
-          $GLOBALS['TSFE']->sys_page->versionOL($table,$row);
+          $pageRepository->versionOL($table, $row);
           if (is_array($row)) {
               // ...
           }
