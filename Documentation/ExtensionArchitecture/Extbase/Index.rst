@@ -20,7 +20,7 @@ problem - Extbase plugins are typically either included as
 :ref:`USER content object <t3tsref:cobj-user>` (its content is cached and
 returned together with other content elements in fully-cached page context), or
 the Extbase plugin is registered as USER_INT. In this case, the
-:ref:`TSFE <tsfe>` takes care of calculating TypoScript before the plugin is
+TYPO3 Core takes care of calculating TypoScript before the plugin is
 rendered, while other USER content objects are fetched from page cache. This in
 mind you should not use Extbase in another context, like in
 :ref:`middlewares <request-handling-middlewares-extbase>`.
