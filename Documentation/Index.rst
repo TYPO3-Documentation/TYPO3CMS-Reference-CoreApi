@@ -31,7 +31,7 @@ TYPO3 Explained
 
     ..  card:: :ref:`Coding guidelines <cgl>`
 
-        This chapter contains description of the formal requirements or standards
+        This chapter contains a description of the formal requirements or standards
         regarding coding that you should adhere to when you develop TYPO3
         extensions or Core parts.
 
@@ -45,7 +45,7 @@ TYPO3 Explained
         This chapter describes some typical risks and advises how to protect a
         TYPO3 site in order to ensure it is and stays secure and stable.
 
-    ..  card:: :ref:`Automated testing <security>`
+    ..  card:: :ref:`Automated testing <testing>`
 
         This chapter goes into details about automatic testing: Writing,
         maintaining and running them in various scopes.
