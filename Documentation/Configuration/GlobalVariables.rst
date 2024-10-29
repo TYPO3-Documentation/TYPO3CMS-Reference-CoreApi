@@ -50,6 +50,11 @@ $GLOBALS
     :Defined: :file:`typo3/sysext/core/ext_tables.php`
     :Frontend: yes
 
+    ..  deprecated:: 13.4
+        The class :php:`\TYPO3\CMS\Frontend\Controller\TypoScriptFrontendController`
+        and its global instance :php:`$GLOBALS['TSFE']` have been marked as
+        deprecated. The class will be removed with TYPO3 v14.
+
     Contains an instantiation of :php:`\TYPO3\CMS\Frontend\Controller\TypoScriptFrontendController`.
 
     ..  attention::
