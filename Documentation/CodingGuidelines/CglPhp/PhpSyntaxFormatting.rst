@@ -165,7 +165,7 @@ the same level as the construct with the opening brace. Example:
         } else {
             // generate simple form here
         }
-   }
+    }
 
 The following is not allowed:
 
