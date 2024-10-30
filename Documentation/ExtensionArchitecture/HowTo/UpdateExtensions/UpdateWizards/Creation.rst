@@ -23,7 +23,7 @@ These steps create an upgrade wizard:
     *   :ref:`ChattyInterface <uprade-wizards-chatty-interface>` for generating
         output
 
-    *   :php:`ConfirmableInferface` for wizards that need user confirmation
+    *   :php:`ConfirmableInterface` for wizards that need user confirmation
 
 #.  :ref:`Register the wizard <upgrade-wizards-register>` in the file
     :ref:`ext_localconf.php <ext-localconf-php>`
