@@ -24,7 +24,7 @@ The class *may* implement other interfaces (optional):
     as done after execution
 *   :ref:`ChattyInterface <uprade-wizards-chatty-interface>` for generating
     output
-*   :php:`ConfirmableInferface` for wizards that need user confirmation
+*   :php:`ConfirmableInterface` for wizards that need user confirmation
 
 
 .. index:: Upgrade wizards; Registration
