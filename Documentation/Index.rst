@@ -16,7 +16,7 @@ TYPO3 Explained
 
     ..  card:: :ref:`API A-Z <api>`
 
-        This chapter describes the core functionality of TYPO3 including API and framework configuration
+        This chapter describes the core functionality of TYPO3 including API and framework configuration.
 
     ..  card:: :ref:`Administrations <administration>`
 
