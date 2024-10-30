@@ -13,7 +13,8 @@ use TYPO3\CMS\Frontend\Page\PageInformation;
 #[Autoconfigure(public: true)]
 final readonly class WebsiteTitleProvider implements PageTitleProviderInterface
 {
-    protected ServerRequestInterface $request;
+    private ServerRequestInterface $request;
+    
     public function __construct(
         private SiteFinder $siteFinder,
     ) {}
@@ -38,7 +39,7 @@ final readonly class WebsiteTitleProvider implements PageTitleProviderInterface
     {
         $pageInformation = $this->request->getAttribute('frontend.page.information');
         if (!$pageInformation instanceof PageInformation) {
-            throw new \Exception('Current frontend page information not found', 1730098625);
+            throw new \Exception('Current frontend page information not available', 1730098625);
         }
         return $pageInformation;
     }
