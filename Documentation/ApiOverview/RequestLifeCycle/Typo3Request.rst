@@ -206,6 +206,7 @@ The following attributes are available in **frontend** context:
 
 *    :doc:`RequestAttributes/ApplicationType`
 *    :doc:`RequestAttributes/CurrentContentObject`
+*    :doc:`RequestAttributes/FrontendCacheCollector`
 *    :doc:`RequestAttributes/FrontendCacheInstruction`
 *    :doc:`RequestAttributes/FrontendController`
 *    :doc:`RequestAttributes/FrontendPageInformation`
