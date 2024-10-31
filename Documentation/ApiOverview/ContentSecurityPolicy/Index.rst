@@ -305,7 +305,7 @@ The following modes are available:
 
         ..  code-block:: http
 
-            Content-Security-Policy: img-src 'self'
+            Content-Security-Policy: default-src 'self'
 
     ..  confval:: set
         :name: content-security-policy-mode-set
