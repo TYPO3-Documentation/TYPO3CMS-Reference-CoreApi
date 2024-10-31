@@ -247,7 +247,7 @@ summarized here:
    Here "Page content" means all records related to that page,
    except other pages.
 
-Page permissions are set and viewed with the module :guilabel:`System > Access`
+Page permissions are set and viewed with the module :guilabel:`System > Permissions`
 module:
 
 .. include:: /Images/AutomaticScreenshots/AccessControl/AccessModule.rst.txt
