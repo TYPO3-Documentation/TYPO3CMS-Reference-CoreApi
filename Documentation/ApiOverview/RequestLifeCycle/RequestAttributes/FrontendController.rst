@@ -8,6 +8,14 @@
 Frontend controller
 ===================
 
+..  deprecated:: 13.4
+    The class :php:`\TYPO3\CMS\Frontend\Controller\TypoScriptFrontendController`
+    and its global instance :php:`$GLOBALS['TSFE']` have been marked as
+    deprecated. The class will be removed with TYPO3 v14.
+
+    Use the :ref:`frontend.page.information <typo3-request-attribute-frontend-page-information>`
+    request attribute for page-related properties.
+
 The :php:`frontend.controller` frontend request attribute provides access to the
 :php:`\TYPO3\CMS\Frontend\Controller\TypoScriptFrontendController` object.
 
