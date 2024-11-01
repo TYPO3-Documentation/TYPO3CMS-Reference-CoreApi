@@ -13,26 +13,34 @@ use TYPO3\CMS\Frontend\Page\PageInformation;
 #[Autoconfigure(public: true)]
 final readonly class WebsiteTitleProvider implements PageTitleProviderInterface
 {
+    private ServerRequestInterface $request;
+
     public function __construct(
         private SiteFinder $siteFinder,
     ) {}
 
     public function getTitle(): string
     {
-        /** @var PageInformation $pageInformation */
-        $pageInformation = $this->getRequest()->getAttribute('frontend.page.information');
-
-        $site = $this->siteFinder->getSiteByPageId($pageInformation->getId());
+        $site = $this->siteFinder->getSiteByPageId($this->getPageInformation()->getId());
         $titles = [
-            $pageInformation->getPageRecord()['title'],
+            $this->getPageInformation()->getPageRecord()['title'] ?? '',
             $site->getAttribute('websiteTitle'),
         ];
 
         return implode(' - ', $titles);
     }
 
-    private function getRequest(): ServerRequestInterface
+    public function setRequest(ServerRequestInterface $request): void
     {
-        return $GLOBALS['TYPO3_REQUEST'];
+        $this->request = $request;
+    }
+
+    private function getPageInformation(): PageInformation
+    {
+        $pageInformation = $this->request->getAttribute('frontend.page.information');
+        if (!$pageInformation instanceof PageInformation) {
+            throw new \Exception('Current frontend page information not available', 1730098625);
+        }
+        return $pageInformation;
     }
 }
