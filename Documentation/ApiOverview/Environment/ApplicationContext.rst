@@ -2,6 +2,7 @@
 
 ..  include:: /Includes.rst.txt
 ..  index:: ! Application Context
+
 ..  _application-context:
 
 ===================
@@ -55,6 +56,8 @@ as follows:
         for :ref:`Class Loading <composer-class-loader>` is switched off or is
         only valid for one request.
 
+..  _default-application-context:
+
 Default ApplicationContext
 ==========================
 
@@ -67,8 +70,10 @@ The following order applies from high priority to no priority:
 *   Environment variable: :php:`HTTP_TYPO3_CONTEXT`
 *   `ApplicationContext` is set to `Production`
 
+..  _set-application-context:
+
 Set the ApplicationContext
-======================
+==========================
 
 The `ApplicationContext` is read very early in TYPO3. Even before the actual
 TYPO3 bootstrap process. This means that even if you set the
@@ -78,6 +83,8 @@ TYPO3 bootstrap process. This means that even if you set the
 It is best to set the `ApplicationContext` as an environment variable in the
 server configuration. Alternatively, you need a solution to set the environment
 variable at PHP level before the actual TYPO3 call.
+
+..  _set-application-context-apache:
 
 Apache
 ------
@@ -95,6 +102,8 @@ In the vhost configuration as well as in the :file:`.htaccess`, the
     `.htaccess`. In this case, you will have to find another solution. Have a
     look at the following examples below.
 
+..  _set-application-context-nginx:
+
 Nginx
 -----
 
@@ -102,6 +111,8 @@ Nginx
     :caption: /etc/nginx/nginx.conf
 
     fastcgi_param TYPO3_CONTEXT Development;
+
+..  _set-application-context-env:
 
 .env (Composer only)
 --------------------
@@ -131,6 +142,8 @@ Please make sure not to insert any spaces before and after the `=`
 
     TYPO3_CONTEXT=Development/Dev1
 
+..  _set-application-context-autoloader:
+
 AutoLoader (Composer only)
 --------------------------
 
@@ -157,6 +170,8 @@ property to load a specific file with each request before all other files.
             <?php
             putenv('TYPO3_CONTEXT=Development');
 
+..  _set-application-context-php-ini:
+
 php.ini
 -------
 
@@ -178,6 +193,8 @@ hosting package.
     `.user.ini`, `php.ini` and also `.php.ini`. If in doubt, ask the hoster
     what alternative options are available.
 
+..  _set-application-context-index-php:
+
 index.php
 ---------
 
@@ -195,6 +212,8 @@ actual `index.php` from there.
     <?php
     putenv(‘TYPO3_CONTEXT=Development’);
     require_once(‘typo3_src/index.php’)
+
+..  _sub-application-context:
 
 Sub `ApplicationContext`
 ========================
@@ -220,6 +239,8 @@ again and use it to set a different base URI using the
 *   Development/Dev4 -> dev4.example.com
 *   Development/Dev5 -> dev5.example.com
 
+..  _root-application-context:
+
 Root ApplicationContext
 =======================
 
@@ -228,6 +249,8 @@ or with an `ApplicationContext` divided several times by a slash (`/`). The
 first part is always the root `ApplicationContext` and must always be either
 `Production`, `Development` or `Testing`, otherwise the `isProduction`,
 `isDevelopment` and `isTesting` methods will not work.
+
+..  _parent-application-context:
 
 Parent ApplicationContext
 =========================
@@ -255,11 +278,15 @@ PHP class :php:`ApplicationContext`! You only have the option of using
 string. This means that `Local/Ddev/Dev2` is returned at level 2
 and `Ddev/Dev2` at level 3.
 
+..  _read-application-context:
+
 Reading the ApplicationContext
 ==============================
 
 TYPO3 itself already queries the `ApplicationContext` in various places, but
 you can also react to the `ApplicationContext` in various places.
+
+..  _read-application-context-php:
 
 PHP
 ---
@@ -283,6 +310,8 @@ Here are a few examples of how to access the `ApplicationContext` with the
         }
     }
 
+..  _read-application-context-site-configuration:
+
 Site Config
 -----------
 
@@ -292,6 +321,8 @@ Site Config
     -
       base: ‘https://dev-1.example.com/’
       condition: ‘applicationContext == “Development/Dev1”’
+
+..  _read-application-context-typoscript:
 
 TypoScript
 ----------
@@ -308,6 +339,8 @@ TypoScript
     [applicationContext == ‘Development/Dev1’]
     page.10.wrap = <div style=‘border: 3px red solid;’>|</div>
     [END]
+
+..  _application-context-presets:
 
 Presets
 =======
