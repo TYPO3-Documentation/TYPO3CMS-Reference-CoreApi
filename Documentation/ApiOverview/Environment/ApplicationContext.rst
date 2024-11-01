@@ -31,7 +31,7 @@ as follows:
         of a password.
     *   Only admins with system maintainer authorisation can see the
         Installtool menu items in the TYPO3 backend.
-    *   This mode is the best performing and most secure.
+    *   This mode offers the most performance and is most secure.
 
 *   Development
 
