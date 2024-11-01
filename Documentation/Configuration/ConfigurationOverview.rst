@@ -89,7 +89,7 @@ Configuration languages
 
 These are the main languages TYPO3 uses for configuration:
 
-* :ref:`TypoScript syntax <typoscript-syntax-start>` is used for TypoScript
+* :ref:`TypoScript syntax <t3tsref:typoscript-syntax>` is used for TypoScript
   and TSconfig.
 * :ref:`TypoScript constant syntax <t3tsref:typoscript-syntax-constant-editor>` is
   used for Extension Configuration and for defining constants for TypoScript.
@@ -129,7 +129,7 @@ line of PHP. `TSconfig` can be set on a page (page TSconfig), as well as a user 
 basis.
 
 TSconfig uses the same syntax as Frontend TypoScript, the syntax is outlined in detail
-in :ref:`typoscript-syntax-start`. Other than that, TSconfig and Frontend TypoScript
+in :ref:`t3tsref:typoscript-syntax`. Other than that, TSconfig and Frontend TypoScript
 don't have much more in common - they consist of entirely different properties.
 
 A full reference of properties as well as an introduction to explain details configuration usage, API and
@@ -144,7 +144,7 @@ easy as possible for backend users.
 
 TypoScript - or more precisely "TypoScript Templating" - is used in TYPO3 to steer
 the frontend rendering (the actual website) of a TYPO3 instance. It is based on the
-TypoScript syntax which is outlined in detail in :ref:`typoscript-syntax-start`.
+TypoScript syntax which is outlined in detail in :ref:`t3tsref:typoscript-syntax`.
 
 TypoScript Templating is very powerful and has been the backbone of frontend rendering ever since.
 However, with the rise of the Fluid templating engine, many parts of Frontend TypoScript are much less

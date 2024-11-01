@@ -116,7 +116,7 @@ The :file:`Configuration` folder contains several subfolders:
     backend on page or user level in TypoScript syntax. Our extension
     does not contain TSconfig, so the folder is only a placeholder here.
 :file:`Configuration/TypoScript/`
-    Contains :ref:`TypoScript <typoscript-syntax-about>` configuration for
+    Contains :ref:`TypoScript <typoscript>` configuration for
     the frontend. In some contexts the configuration contained here is also
     used in the backend.
 :file:`Configuration/Services.yaml`
