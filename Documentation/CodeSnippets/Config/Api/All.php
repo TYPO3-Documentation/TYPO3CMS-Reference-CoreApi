@@ -6,6 +6,7 @@
 return array_merge(
     include ('Events/All.php'),
     include ('BackendApi.php'),
+    include ('Cache.php'),
     include ('CountryApi.php'),
     include ('Database.php'),
     include ('Entity.php'),

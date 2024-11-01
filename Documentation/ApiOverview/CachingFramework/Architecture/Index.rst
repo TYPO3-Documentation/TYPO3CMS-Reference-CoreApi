@@ -118,6 +118,8 @@ an arbitrary number of tags can be assigned to an entry and one specific tag
 can be assigned to multiple cache entries. All tags a cache entry has are given
 to the cache when the entry is stored ("set").
 
+..  seealso::
+    :ref:`Frontend cache collector <typo3-request-attribute-frontend-cache-collector>`
 
 ..  _caching-architecture-core:
 

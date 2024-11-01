@@ -113,3 +113,13 @@ This setup allows you to freely inject the very same cache into any class.
     <symfony-console-commands>` `cache:flush`:
 
     .. include:: /_includes/CliCacheFlush.rst.txt
+
+
+..  _caching-developer-cache-tags:
+
+Working with cache tags
+=======================
+
+The frontend cache collector API is available as a PSR-7 request attribute to
+collect cache tags and their corresponding lifetime. Find more information in
+the chapter :ref:`typo3-request-attribute-frontend-cache-collector`.
