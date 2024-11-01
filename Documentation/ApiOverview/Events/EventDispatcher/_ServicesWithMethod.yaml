@@ -7,3 +7,4 @@ services:
         method: handleEvent
         identifier: 'my-extension/null-mailer'
         before: 'someIdentifier, anotherIdentifier'
+        event: TYPO3\CMS\Core\Mail\Event\AfterMailerInitializationEvent
