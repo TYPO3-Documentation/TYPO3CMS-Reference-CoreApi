@@ -14,7 +14,7 @@ use TYPO3\CMS\Frontend\Page\PageInformation;
 final readonly class WebsiteTitleProvider implements PageTitleProviderInterface
 {
     private ServerRequestInterface $request;
-    
+
     public function __construct(
         private SiteFinder $siteFinder,
     ) {}
