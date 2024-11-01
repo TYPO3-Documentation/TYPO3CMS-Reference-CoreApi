@@ -6,6 +6,11 @@
 TSFE
 ====
 
+..  deprecated:: 13.4
+    The class :php:`\TYPO3\CMS\Frontend\Controller\TypoScriptFrontendController`
+    and its global instance :php:`$GLOBALS['TSFE']` have been marked as
+    deprecated. The class will be removed with TYPO3 v14.
+
 ..  contents::
     :local:
 
@@ -99,13 +104,12 @@ Access the :php:`\TYPO3\CMS\Frontend\ContentObject\ContentObjectRenderer`
     // !!! discouraged
     $cObj = $GLOBALS['TSFE']->cObj;
 
-Obtain TSFE from the request attribute
-:ref:`frontend.controller <typo3-request-attribute-frontend-controller>`:
+Obtain the current content object in an Extbase controller from the request attribute
+:ref:`currentContentObject <typo3-request-attribute-current-content-object>`:
 
 ..  code-block:: php
 
-    $frontendController = $request->getAttribute('frontend.controller');
-    $cObj = $frontendController->cObj;
+    $currentContentObject = $request->getAttribute('currentContentObject');
 
 In the case of the :ref:`USER content object <t3tsref:cobj-user>` (for example,
 a non-Extbase plugin) use setter injection:
