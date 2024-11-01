@@ -67,7 +67,7 @@ The following order applies from high priority to no priority:
 *   Environment variable: :php:`HTTP_TYPO3_CONTEXT`
 *   `ApplicationContext` is set to `Production`
 
-Set ApplicationContext
+Set the ApplicationContext
 ======================
 
 The `ApplicationContext` is read very early in TYPO3. Even before the actual
