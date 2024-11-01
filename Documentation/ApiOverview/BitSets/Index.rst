@@ -1,44 +1,35 @@
 ..  include:: /Includes.rst.txt
 
 ..  index::
-    PHP; Constants
-    Deprecation; Constants
-    ! Enumerations
-    ! Bitsets
-..  _Enumerations:
+    Bitsets; Usage
+    Boolean flags
 
-======================
-Bitsets & Enumerations
-======================
+..  _BitSet:
 
-*   Use an enumeration, if you have a fixed list of values.
-*   Use a bitset, if you have a list of boolean flags.
+=======
+Bitsets
+=======
 
-Do not use PHP constants directly, if your code is meant to be extendable,
-as constants cannot be deprecated, but the values of an enumeration or
-methods of a bitset can.
+Bitsets are used to handle boolean flags efficiently.
 
-..  toctree::
-    :titlesonly:
+The class :php:`\TYPO3\CMS\Core\Type\BitSet` provides a TYPO3 implementation of
+a bitset. It can be used standalone and accessed from the outside, but we
+recommend creating specific bitset classes that extend the TYPO3
+:php:`BitSet` class.
 
-    Enumeration
-    BitSet
+The functionality is best described by an example:
 
+..  literalinclude:: _BitSet/_PlainExample.php
+    :language: php
 
-Background and history
-======================
+The example above uses global constants. Implementing that via an
+extended bitset class makes it clearer and easier to use:
 
-Before version 8.1, PHP had no enumeration concept as part of the language.
-Therefore the TYPO3 Core includes a custom enumeration implementation.
+..  literalinclude:: _BitSet/_Permissions.php
+    :language: php
+    :caption: EXT:my_extension/Classes/Bitmask/Permissions.php
 
-In TYPO3, enumerations are implemented by extending the abstract class
-:php:`\TYPO3\CMS\Core\Type\Enumeration`. It was originally implemented similar
-to :php:`\SplEnum` which is unfortunately part of the unmaintained package
-`PECL spl_types`_.
+Then use your custom bitset class:
 
-With PHP version 8.1, an enumeration concept was implemented (see the
-`Enumeration documentation`_ for more details). This makes it possible to drop
-the custom enumeration concept from the Core in a future TYPO3 version.
-
-..  _PECL spl_types: https://pecl.php.net/package/spl_types
-..  _Enumeration documentation: https://www.php.net/manual/en/language.enumerations.php
+..  literalinclude:: _BitSet/_PlainExample2.php
+    :language: php
