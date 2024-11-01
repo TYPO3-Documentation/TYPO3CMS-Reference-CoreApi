@@ -6,16 +6,12 @@
 Syntax
 ======
 
-This chapter is about the syntax of TypoScript: The rules you must obey in order to
-store configuration in this structure.
+The TypoScript syntax is describes in-depth in the chapter
+:ref:`TypoScript syntax <t3tsref:typoscript-syntax>` of the
+:ref:`TypoScript Reference <t3tsref:start>`.
 
-.. toctree::
-   :titlesonly:
-   :glob:
+The TypoScript Syntax can be used for both Frontend TypoScript and TSconfig as
+backend configuration langauge.
 
-   Identifiers/Index
-   CodeBlocks/Index
-   Operators/Index
-   Comments/Index
-   Conditions/Index
-   FileImports/Index
+The syntax works different then other known configuration languages, therefore
+it takes some time to get used to it.
