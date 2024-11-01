@@ -138,6 +138,31 @@ the connection to the database:
         Name of the database/schema to connect to. Can be used with
         MySQL/MariaDB and PostgreSQL.
 
+    ..  confval:: defaultTableOptions
+        :Path: $GLOBALS['TYPO3_CONF_VARS']['DB']['Connections'][<connection_name>]['defaultTableOptions']
+        :name: typo3-conf-vars-db-connection-name-defaultTableOptions
+        :type: array
+
+        Defines the charset and collation options when new tables are created (MySQL/MariaDB only):
+
+        .. code-block:: php
+            :caption: config/system/settings.php | typo3conf/system/settings.php
+
+            'Connections' => [
+                'Default' => [
+                    'driver' => 'mysqli',
+                    // ...
+                    'charset' => 'utf8mb4',
+                    'defaultTableOptions' => [
+                        'charset' => 'utf8mb4',
+                        'collation' => 'utf8mb4_unicode_ci',
+                    ],
+                ],
+            ]
+
+        For new installations the above is the default.
+
+
     ..  _typo3ConfVars_db_connections_driver:
 
     ..  confval:: driver
@@ -203,24 +228,35 @@ the connection to the database:
         :type: array
         :Default: []
 
-        Defines the charset and collate options for tables for MySQL/MariaDB:
+        ..  deprecated:: 13.4
+            Since TYPO3 v11 the :php:`tableoptions` keys were silently migrated
+            to :confval:`typo3-conf-vars-db-connection-name-defaultTableOptions`,
+            which is the proper Doctrine DBAL connection option for MariaDB and
+            MySQL.
 
-        .. code-block:: php
-            :caption: config/system/settings.php | typo3conf/system/settings.php
+            Furthermore, Doctrine DBAL 3.x switched from using the array key
+            :php:`collate` to :php:`collation`, ignoring the old array key with
+            Doctrine DBAL 4.x. This was silently migrated by TYPO3, too.
 
-            'Connections' => [
-                'Default' => [
-                    'driver' => 'mysqli',
-                    // ...
-                    'charset' => 'utf8mb4',
-                    'tableoptions' => [
-                        'charset' => 'utf8mb4',
-                        'collate' => 'utf8mb4_unicode_ci',
-                    ],
-                ],
-            ]
+            These silent migrations are now deprecated in favor of using the
+            final array keys.
 
-        For new installations the above is the default.
+        **Migration:**
+
+        Review :php:`settings.php` and :php:`additional.php` and adapt the
+        deprecated configuration by renaming affected array keys.
+
+        ..  code-block:: diff
+
+             'Connections' => [
+                 'Default' => [
+            -        'tableoptions' => [
+            +        'defaultTableOptions' => [
+            -            'collate' => 'utf8mb4_unicode_ci',
+            +            'collation' => 'utf8mb4_unicode_ci',
+                     ],
+                 ],
+             ],
 
     ..  _typo3ConfVars_db_connections_unixsocket:
 
