@@ -23,4 +23,8 @@
                url="https://docs.typo3.org/other/typo3/tailor/main/en-us/"/>
     <inventory id="fluid"
                url="https://docs.typo3.org/other/typo3fluid/fluid/main/en-us/"/>
+    <inventory id="t3install"
+               url="https://docs.typo3.org/m/typo3/guide-installation/11.5/en-us/"/>
+    <inventory id="t3ts45"
+               url="https://docs.typo3.org/m/typo3/tutorial-typoscript-in-45-minutes/11.5/en-us/"/>
 </guides>
