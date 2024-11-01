@@ -26,11 +26,11 @@ as follows:
     *   In the event of an error, the frontend only displays:
         `Oops, an error occurred! Code: {code}`.
     *   The :ref:`Dependency injection <Dependency-Injection>` cache can only
-        be emptied using the Flush Cache button in the Installtool.
-    *   Calling up the Installtool menu items requires the additional entry
+        be emptied using the Flush Cache button in the install tool.
+    *   Calling up the install tool menu items requires the additional entry
         of a password.
     *   Only admins with system maintainer authorisation can see the
-        Installtool menu items in the TYPO3 backend.
+        install tool menu items in the TYPO3 backend.
     *   This mode offers the most performance and is most secure.
 
 *   Development
