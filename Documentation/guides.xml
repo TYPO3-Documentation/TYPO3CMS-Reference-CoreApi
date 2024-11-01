@@ -9,7 +9,7 @@
         project-contact="https://typo3.slack.com/archives/C028JEPJL"
         project-repository="https://github.com/TYPO3-Documentation/TYPO3CMS-Reference-CoreApi"
         project-issues="https://github.com/TYPO3-Documentation/TYPO3CMS-Reference-CoreApi/issues"
-        edit-on-github-branch="11.5"
+        edit-on-github-branch="main"
         edit-on-github="TYPO3-Documentation/TYPO3CMS-Reference-CoreApi"
         typo3-core-preferred="11.5"
         interlink-shortcode="t3coreapi"
