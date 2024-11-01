@@ -145,8 +145,8 @@ property to load a specific file with each request before all other files.
         ..  code-block:: json
 
             {
-                ‘autoload’: {
-                    ‘files’: [‘Source/Scripts/ApplicationContext.php’]
+                'autoload': {
+                    'files': ['Source/Scripts/ApplicationContext.php']
                 }
             }
 
