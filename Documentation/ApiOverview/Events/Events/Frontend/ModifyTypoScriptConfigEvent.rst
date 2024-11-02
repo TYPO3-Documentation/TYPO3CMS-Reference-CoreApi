@@ -19,7 +19,7 @@ written to the cache, and *not* when a page can be successfully retrieved from
 the cache, which is typically the case in "page is fully cached" scenarios.
 
 This incoming :php:`$configTree` has already been merged with the determined
-PAGE :typoscript:`page.config` TypoScript of the requested "type" /
+PAGE :typoscript:`page.config` TypoScript of the requested :typoscript:`type` /
 :typoscript:`typeNum` and the global TypoScript setup :typoscript:`config`.
 
 The result of this event is available as a
@@ -27,10 +27,12 @@ The result of this event is available as a
 
 ..  code-block:: php
 
-    $request->getAttribute('frontend.typoscript')->getConfigArray()
+    $configArray = $request->getAttribute('frontend.typoscript')->getConfigArray();
+    $configTree = $request->getAttribute('frontend.typoscript')->getConfigTree();
+
 
 ..  caution::
-    Registered listener can *set* a modified setup config
+    Registered listeners can *set* a modified setup config
     :abbr:`AST (Abstract Syntax Tree)`. Note the TypoScript AST structure is
     still marked **internal** within TYPO3 v13 and may change later, using the
     event to **write** different :typoscript:`config` data is thus still a bit
