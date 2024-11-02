@@ -10,9 +10,7 @@ use TYPO3Fluid\Fluid\Core\ViewHelper\AbstractViewHelper;
 
 final class MyLinkViewHelper extends AbstractViewHelper
 {
-    public function __construct(private UriBuilder $uriBuilder)
-    {
-    }
+    public function __construct(private UriBuilder $uriBuilder) {}
 
     public function render(): string
     {
@@ -25,7 +23,7 @@ final class MyLinkViewHelper extends AbstractViewHelper
         } else {
             throw new \RuntimeException(
                 'The rendering context of this ViewHelper is missing a valid request object, probably because it is used outside of Extbase context.',
-                1730537505
+                1730537505,
             );
         }
 
