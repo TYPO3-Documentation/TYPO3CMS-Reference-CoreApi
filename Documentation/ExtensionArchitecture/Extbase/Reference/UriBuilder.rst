@@ -79,6 +79,7 @@ Example in Extbase ViewHelper
     provides a constructor, be sure to call :php:`parent::_construct()` in your custom constructor.
     Alternatively (though less recommendable), you can use :php:`GeneralUtility::makeInstance()` to retrieve
     the UriBuilder instance, or use method-based injection (:php:`injectUriBuilder(UriBuilder $uriBuilder)`).
+    Note, always flush the TYPO3 cache after adding/modifying ViewHelpers with new injected dependencies.
     See :ref:`Dependency injection <t3coreapi:Dependency-Injection>` for more details.
 
 

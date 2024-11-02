@@ -16,7 +16,11 @@ final class MyLinkViewHelper extends AbstractViewHelper
 
     public function render(): string
     {
-        if ($this->renderingContext->hasAttribute(ServerRequestInterface::class)) {
+        if (method_exists($this->renderingContext, 'getRequest')) {
+            // TYPO3 v12 compatibility
+            $request = $this->renderingContext->getRequest();
+        } elseif ($this->renderingContext->hasAttribute(ServerRequestInterface::class)) {
+            // TYPO3 v13+ compatibility
             $request = $this->renderingContext->getAttribute(ServerRequestInterface::class);
         } else {
             throw new \RuntimeException(
