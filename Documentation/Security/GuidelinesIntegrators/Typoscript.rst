@@ -12,6 +12,8 @@ TypoScript
    pair: TypoScript; SQL injection
    pair: Security guidelines; SQL injection
 
+.. _security-typoscript-sql:
+
 SQL injection
 =============
 
@@ -62,6 +64,8 @@ user input, other servers, etc.).
    ! Cross-site scripting
    XSS
    pair: TypoScript; Cross-site scripting
+
+.. _security-typoscript-xss:
 
 Cross-site scripting (XSS)
 ==========================
@@ -169,6 +173,8 @@ in case of a compromised editor account).
    ! Clickjacking
    pair: TypoScript; Clickjacking
 
+.. _security-typoscript-clickjacking:
+
 Clickjacking
 ============
 
@@ -189,6 +195,7 @@ The following TypoScript adds the appropriate line to the HTTP header:
 
 
 .. index:: Security guidelines; External JavaScript
+.. _security-typoscript-integrity-js:
 
 Integrity of external JavaScript files
 ======================================
@@ -222,6 +229,7 @@ A typical example in TypoScript looks like:
 
 
 .. index:: Security guidelines; External JavaScript libraries
+.. _security-typoscript-risk-external-js:
 
 Risk of externally hosted JavaScript libraries
 ==============================================
