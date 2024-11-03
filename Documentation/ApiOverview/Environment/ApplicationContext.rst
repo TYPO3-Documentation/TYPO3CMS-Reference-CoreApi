@@ -261,10 +261,13 @@ first slash is used to instantiate a new `ApplicationContext`. The so-called
 parent `ApplicationContext`. Here you can see how the context is nested:
 
 *   ApplicationContext: `Development/Local/Ddev/Dev2`
+
     *   Root ApplicationContext: `Development`
     *   Parent ApplicationContext: `Local/Ddev/Dev2`
+
         *   Root ApplicationContext: `Local`
         *   Parent ApplicationContext: `Ddev/Dev2`
+
             *   Root ApplicationContext: `Ddev`
             *   Parent ApplicationContext: `Dev2`
 
