@@ -184,7 +184,7 @@ hosting package.
 ..  code-block:: php
 
     <?php
-    putenv(‘TYPO3_CONTEXT=Development’);
+    putenv('TYPO3_CONTEXT=Development');
 
 ..  attention::
     Some hosters do not offer the option of setting this value in their
@@ -210,8 +210,8 @@ actual `index.php` from there.
 ..  code-block:: php
 
     <?php
-    putenv(‘TYPO3_CONTEXT=Development’);
-    require_once(‘typo3_src/index.php’)
+    putenv('TYPO3_CONTEXT=Development');
+    require_once('typo3_src/index.php')
 
 ..  _sub-application-context:
 
@@ -322,8 +322,8 @@ Site Config
 
     baseVariants:
     -
-      base: ‘https://dev-1.example.com/’
-      condition: ‘applicationContext == “Development/Dev1”’
+      base: 'https://dev-1.example.com/'
+      condition: 'applicationContext == "Development/Dev1"'
 
 ..  _read-application-context-typoscript:
 
@@ -339,8 +339,8 @@ TypoScript
 
 ..  code-block:: typoscript
 
-    [applicationContext == ‘Development/Dev1’]
-    page.10.wrap = <div style=‘border: 3px red solid;’>|</div>
+    [applicationContext == "Development/Dev1"]
+    page.10.wrap = <div style="border: 3px red solid;">|</div>
     [END]
 
 ..  _application-context-presets:
