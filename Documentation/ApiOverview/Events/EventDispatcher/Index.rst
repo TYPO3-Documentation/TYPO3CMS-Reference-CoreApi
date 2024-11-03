@@ -321,7 +321,7 @@ Best practices
     package. Be careful about the context that should be exposed.
 
 *   The same applies to creating a new event listener PHP class: Add
-    an :php:`EventListener` suffix to the PHP class, and move it to a folder
+    an :php:`Listener` suffix to the PHP class, and move it to a folder
     :file:`Classes/EventListener/`.
 
 *   Emitters (TYPO3 Core or extension authors) should always use
