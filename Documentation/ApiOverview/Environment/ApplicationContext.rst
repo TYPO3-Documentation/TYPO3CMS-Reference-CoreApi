@@ -318,6 +318,13 @@ Here are a few examples of how to access the `ApplicationContext` with the
 Site Config
 -----------
 
+In the "baseVariants" section of the Site Config, the :yaml:`condition`
+property, which specifies under what circumstances a variant applies, is
+exclusively available for the :yaml:`baseVariant` configuration. For example,
+in the provided code, the baseVariant hosted at 'https://dev-1.example.com/'
+is used when the 'applicationContext == "Development/Dev1"' condition is
+fulfilled.
+
 ..  code-block:: php
 
     baseVariants:
