@@ -131,7 +131,7 @@ in listings and in backend forms:
 :php:`tstamp`, :php:`deleted`, ...
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-These fields are used to keep timestamp and status information for each record. You can read more about them in the `TCA Reference, chapter ctrl <t3tca:ctrl>`.
+These fields are used to keep timestamp and status information for each record. You can read more about them in the :ref:`TCA Reference, chapter Table properties (ctrl) <t3tca:ctrl>`.
 
 ..  _extbase_tutorial_tea_model_columns:
 
