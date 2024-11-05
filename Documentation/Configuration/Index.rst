@@ -32,6 +32,7 @@ these terms in this chapter.
     ConfigurationModule/Index
     FeatureToggles
     GlobalVariables
+    ApplicationContext
     Typo3ConfVars/Index
     Typo3Information
     TypoScript/Index
