@@ -183,7 +183,7 @@ Command keywords and values
     :Data type: integer
 
     The value is the :yaml:`languageId` (defined in the
-    :ref:`site configuation <sitehandling-addingLanguages>`) to localize the
+    :ref:`site configuration <sitehandling-addingLanguages>`) to localize the
     record into. Basically a localization of a record is making a copy of the
     record (possibly excluding certain fields defined with
     :ref:`l10n_mode <t3tca:columns-properties-l10n-mode>`) but
