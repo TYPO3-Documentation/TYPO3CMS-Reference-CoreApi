@@ -338,10 +338,10 @@ TypoScript
     page.10.wrap = <div style="border: 3px red solid;">|</div>
     [END]
 
-..  _application-context-presets:
+..  _application-context-configuration-presets:
 
-Presets
-=======
+Configuration presets
+=====================
 
 As mentioned at the beginning, the `ApplicationContext` affects certain TYPO3
 settings. Let's take a closer look at the presets from
