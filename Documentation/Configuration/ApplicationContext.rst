@@ -1,5 +1,3 @@
-:orphan:
-
 ..  include:: /Includes.rst.txt
 ..  index:: ! Application Context
 
@@ -9,7 +7,7 @@
 Application Context
 ===================
 
-In previous TYPO3 versions, error messages were displayed unfiltered in the
+In outdated TYPO3 versions, error messages were displayed unfiltered in the
 frontend and often revealed security-relevant data such as database access,
 e-mail addresses, SMTP access and similar to the public. The so-called
 `ApplicationContext` was introduced to prevent this. These contexts can
