@@ -24,8 +24,10 @@ as follows:
     *   There is no logging of obsolete (deprecated) function calls.
     *   In the event of an error, the frontend only displays:
         `Oops, an error occurred! Code: {code}`.
-    *   The :ref:`Dependency injection <Dependency-Injection>` cache can only
-        be emptied using the Flush Cache button in the install tool.
+    *   The :ref:`Dependency injection <Dependency-Injection>` cache can not be
+        cleared by :guilabel:`Clear All Cache` button, and has to be emptied
+        using the :guilabel:`Flush Cache` button in the install tool or via
+        CLI command :bash:`cache:flush`.
     *   Calling up the install tool menu items requires the additional entry
         of a password.
     *   Only admins with system maintainer authorisation can see the
@@ -227,7 +229,7 @@ few examples:
 You can use this subdivision to realise different acceptance domains for
 customers. Using the option of composer files described above, you can create
 a file to set the `ApplicationContext` individually depending on the
-`HTTP_HOST`. In the site configuration, you can query the `ApplicationContext`
+domain name. In the site configuration, you can query the `ApplicationContext`
 again and use it to set a different base URI using the
 :ref:`base variants <sitehandling-baseVariants>`:
 
@@ -295,33 +297,20 @@ PHP
 Here are a few examples of how to access the `ApplicationContext` with the
 :php:`Environment` class:
 
-..  code-block:: php
-
-    <?php
-    use TYPO3\CMS\Core\Core\Environment;
-    class SunnyProducts
-    {
-        public function getDiscount(): int
-        {
-            if (Environment::getContext()->isDevelopment()) {
-                return 20;
-            }
-
-            return 4;
-        }
-    }
+..  literalinclude:: _CodeSnippets/ApplicationContext/SunnyProducts.php
+    :language: php
 
 ..  _read-application-context-site-configuration:
 
-Site Config
------------
+Site configuration
+------------------
 
-In the "baseVariants" section of the Site Config, the :yaml:`condition`
-property, which specifies under what circumstances a variant applies, is
-exclusively available for the :yaml:`baseVariant` configuration. For example,
-in the provided code, the baseVariant hosted at 'https://dev-1.example.com/'
-is used when the 'applicationContext == "Development/Dev1"' condition is
-fulfilled.
+In the "baseVariants" section of the :ref:`site configuration <sitehandling>`,
+the :yaml:`condition` property, which specifies under what circumstances a
+variant applies, is exclusively available for the :yaml:`baseVariant`
+configuration. For example, in the provided code, the baseVariant hosted at
+'https://dev-1.example.com/' is used when the
+'applicationContext == "Development/Dev1"' condition is fulfilled.
 
 ..  code-block:: php
 
