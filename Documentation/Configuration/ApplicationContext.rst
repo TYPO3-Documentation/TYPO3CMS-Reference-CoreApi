@@ -29,7 +29,7 @@ as follows:
         using the :guilabel:`Flush Cache` button in the install tool or via
         CLI command :bash:`cache:flush`.
     *   Calling up the install tool menu items requires the additional entry
-        of a password.
+        of a password ("sudo mode").
     *   Only admins with system maintainer authorisation can see the
         install tool menu items in the TYPO3 backend.
     *   This mode offers the most performance and is most secure.
