@@ -58,3 +58,4 @@ Installation
     TuneTYPO3
     DeployTYPO3
     LegacyInstallation
+    LegacyExtensionInstallation
