@@ -160,7 +160,7 @@ Without a Layout
 
 For example, the layout may like this
 
-..  literalinclude:: _Introduction/_ExtensionDefault.html
+..  literalinclude:: _Introduction/_LayoutExtensionDefault.html
     :caption: EXT:my_extension/Resources/Private/Layouts/Default.html
 
 The layout defines which sections are rendered and in which order. It can
