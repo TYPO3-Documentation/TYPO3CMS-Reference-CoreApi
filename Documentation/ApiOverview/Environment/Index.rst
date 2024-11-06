@@ -17,6 +17,10 @@ class provides static methods to access the necessary information.
 To simulate environments in testing scenarios, the :php:`initialize()`-method can
 be called to adjust the information.
 
+..  contents:: Table of Contents
+    :local:
+    :depth: 2
+
 .. _Environment-php-api:
 
 Environment PHP API
