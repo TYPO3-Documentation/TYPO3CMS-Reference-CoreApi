@@ -188,7 +188,6 @@ this will typically go through such important steps like:
    chapter :ref:`request-handling`.
 
 .. _bootstrapping-context:
-.. _application-context:
 
 Application context
 ===================
