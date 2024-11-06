@@ -29,8 +29,8 @@ Markup
 
     *   :html:`class="t3js-contextmenutrigger"` with :html:`data-contextmenu-trigger="click"`
     *   :html:`data-table="pages"` with :html:`data-contextmenu-table="pages"`
-    *   :html:`data-uid="10" with :html:`data-contextmenu-uid="10"`
-    *   :html:`data-context="tree" with :html:`data-contextmenu-context="tree"`
+    *   :html:`data-uid="10"` with :html:`data-contextmenu-uid="10"`
+    *   :html:`data-context="tree"` with :html:`data-contextmenu-context="tree"`
 
     to be compatible with TYPO3 v12+.
 
