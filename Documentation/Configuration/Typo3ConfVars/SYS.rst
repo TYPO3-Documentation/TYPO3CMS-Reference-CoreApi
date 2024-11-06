@@ -308,9 +308,9 @@ configurations.
     A list of supported values can be found at
     `php.net <https://www.php.net/manual/en/timezones.php>`__.
 
-    If blank, a valid fallback will be searched for by PHP (php.inis
+    If blank, a valid fallback will be searched for by PHP (
     `date.timezone <https://www.php.net/manual/en/datetime.configuration.php#ini.date.timezone>`__
-    setting, server defaults, etc); and if no fallback is found, the value of
+    in :file:`php.ini`, server defaults, etc); and if no fallback is found, the value of
     "UTC" is used instead.
 
 ..  _typo3ConfVars_sys_UTF8filesystem:
