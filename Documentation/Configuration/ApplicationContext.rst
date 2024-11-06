@@ -56,6 +56,10 @@ as follows:
         for :ref:`Class Loading <composer-class-loader>` is switched off or is
         only valid for one request.
 
+..  contents:: Table of Contents
+    :local:
+    :depth: 2
+
 ..  _default-application-context:
 
 Default ApplicationContext
