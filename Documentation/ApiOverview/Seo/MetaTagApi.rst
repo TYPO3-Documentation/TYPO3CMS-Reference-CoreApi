@@ -10,7 +10,7 @@ The MetaTag API is available for setting meta tags in a flexible way.
 
 .. note::
 
-    Usually, it is sufficient to set meta tags using the API of the 
+    Usually, it is sufficient to set meta tags using the API of the
     :php:`\TYPO3\CMS\Core\Page\PageRenderer` which uses the MetaTag API
     internally. For all other cases, use the MetaTag API directly.
 
