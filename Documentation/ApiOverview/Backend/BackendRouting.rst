@@ -132,6 +132,29 @@ it be a module, a typical route or an Ajax call. Therefore use either
 cast to a string when needed. Furthermore, the :php:`UriBuilder` automatically
 generates and applies the mentioned session token.
 
+To generate a backend URL via the :php:`UriBuilder` you'd usually use the route
+identifier and optional :php:`parameters`.
+
+In case of Extbase controllers you can append the controller action to the route
+identifier to directly target those actions. See also module configuration: :confval:`controllerActions <t3coreapi:backend-module-controlleractions>`.
+
+Via Fluid ViewHelper
+--------------------
+
+To generate a backend URL in Fluid you can simply use html:`<f:be.link>` (which
+is using :php:`UriBuilder` internally).
+
+..  code-block:: html
+
+    <f:be.link route="web_layout" parameters="{id:42}">go to page 42</f:be.link>
+    <f:be.link route="web_ExtkeyExample">go to custom BE module</f:be.link>
+    <f:be.link route="web_ExtkeyExample.MyModuleController_list">
+        go to custom BE module but specific controller action
+    </f:be.link>
+
+Via PHP
+-------
+
 Example within a controller (we use here a non-Extbase controller):
 
 ..  literalinclude:: _BackendRouting/_UriBuilderExample.php
