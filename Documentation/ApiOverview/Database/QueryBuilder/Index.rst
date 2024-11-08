@@ -791,7 +791,7 @@ Remarks:
 *   To achieve more complex sortings, which can't be created with QueryBuilder,
     you can fall back on the underlying raw Doctrine QueryBuilder. This is
     accessible with :php:`->getConcreteQueryBuilder()`. It doesn't do any
-    quoting, so you can do something like   
+    quoting, so you can do something like
     :php:`$concreteQueryBuilder->orderBy('FIELD(eventtype, 0, 4, 1, 2, 3)');`.
     Make sure to quote properly as this is entirely your responsibility with the
     Doctrine QueryBuilder!
