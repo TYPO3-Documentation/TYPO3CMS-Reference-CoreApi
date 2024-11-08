@@ -744,6 +744,7 @@ Further remarks:
     :php:`->update()`, :php:`->insert()` and :php:`->delete()` methods, because
     such a statement is not cross-platform compatible.
 
+.. _database-query-builder-orderby:
 
 orderBy() and addOrderBy()
 ==========================
@@ -787,9 +788,13 @@ Remarks:
     :php:`->orderBy('header')->addOrderBy('bodytext')->addOrderBy('uid', 'DESC')`
     creates ``ORDER BY `header` ASC, `bodytext` ASC, `uid` DESC``
 
-*   To add more complex sorting you can use
-    :php:`->add('orderBy', 'FIELD(eventtype, 0, 4, 1, 2, 3)', true)`,
-    remember to quote properly!
+*   To achieve more complex sortings, which can't be created with QueryBuilder,
+    you can fall back on the underlying raw Doctrine QueryBuilder. This is
+    accessible with :php:`->getConcreteQueryBuilder()`. It doesn't do any
+    quoting, so you can do something like
+    :php:`$concreteQueryBuilder->orderBy('FIELD(eventtype, 0, 4, 1, 2, 3)');`.
+    Make sure to quote properly as this is entirely your responsibility with the
+    Doctrine QueryBuilder!
 
 
 groupBy() and addGroupBy()
@@ -817,8 +822,8 @@ Remarks:
 *   :php:`->groupBy()` resets all previously defined group specification and
     should only be called once per statement.
 
-*   For more complex statements you can use
-    :php:`->add('groupBy', $sql, $append)`, remember to quote properly!
+*   For more complex statements you can use the raw Doctrine QueryBuilder.
+    See remarks for :ref:`orderBy() <database-query-builder-orderby>`
 
 
 setMaxResults() and setFirstResult()
