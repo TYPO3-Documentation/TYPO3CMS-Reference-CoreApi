@@ -28,12 +28,13 @@ jobs:
           # Run pre-commit with auto-fix and ignore exit code
           pre-commit run --all-files --hook-stage=manual --show-diff-on-failure || true
           # Check if any files were modified
-          git diff --exit-code || FIX_NEEDED=true
+          git diff --exit-code || echo "FIX_NEEDED=true" >> $GITHUB_ENV
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Create and push changes if needed
         if: env.FIX_NEEDED == 'true'
+        id: create_branch
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
@@ -43,6 +44,7 @@ jobs:
           git add .
           git commit -m "fix: apply whitespace fixes"
           git push origin "$BRANCH_NAME"
+          echo "branch_name=$BRANCH_NAME" >> $GITHUB_ENV
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
@@ -50,7 +52,7 @@ jobs:
         if: env.FIX_NEEDED == 'true'
         uses: repo-sync/pull-request@v2
         with:
-          source_branch: ${{ steps.pre-commit.outputs.BRANCH_NAME }}
+          source_branch: ${{ env.branch_name }}
           destination_branch: ${{ github.ref_name }}
           pr_title: "Fix whitespace issues"
           pr_body: "This PR automatically applies whitespace fixes."
