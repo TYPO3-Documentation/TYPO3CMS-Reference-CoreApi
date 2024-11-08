@@ -1,8 +1,6 @@
 .. include:: /Includes.rst.txt
 
-
 .. _system-requirements-nginx:
-
 
 NGINX does not support static configuration files that are stored in a projects root like Apache and IIS would. Instead, NGINX requires a configuration file
 to be created within the applications own configuration directory.
@@ -90,7 +88,7 @@ Example NGINX configuration file:
 
    location /typo3/ {
        absolute_redirect off;
-       try_files $uri /typo3/index.php$is_args$args;
+       try_files $uri /index.php$is_args$args;
    }
 
    location ~ [^/]\.php(/|$) {
