@@ -44,6 +44,10 @@ For an example implementation of the :php:`PageErrorHandlerInterface`, take a
 look at :t3src:`core/Classes/Error/PageErrorHandler/PageContentErrorHandler.php`
 or :t3src:`core/Classes/Error/PageErrorHandler/FluidPageErrorHandler.php`.
 
+For a custom 403 error handler with redirect to a login form, please see
+:ref:`Custom error handler implementation for 403 redirects
+<typo3/cms-felogin:felogin-how-to-implement-403redirect-error-handler>`.
+
 Properties
 ==========
 
