@@ -2,8 +2,8 @@ name: Check and Fix Whitespace on Schedule
 
 on:
   schedule:
-    # Runs every day
-    - cron: '0 0 * * *'
+    # Runs daily at midnight
+    - cron: '0 7 * * *'
   workflow_dispatch:
 
 jobs:
@@ -52,7 +52,7 @@ jobs:
         uses: repo-sync/pull-request@v2
         with:
           source_branch: ${{ steps.pre-commit.outputs.BRANCH_NAME }}
-          destination_branch: main
+          destination_branch: ${{ github.ref_name }}
           pr_title: "Fix whitespace issues"
           pr_body: "This PR automatically applies whitespace fixes."
           token: ${{ secrets.GITHUB_TOKEN }}
