@@ -138,6 +138,8 @@ identifier and optional :php:`parameters`.
 In case of Extbase controllers you can append the controller action to the route
 identifier to directly target those actions. See also module configuration: :confval:`controllerActions <t3coreapi:backend-module-controlleractions>`.
 
+.. _backend-routing-url-viewhelper:
+
 Via Fluid ViewHelper
 --------------------
 
@@ -151,6 +153,8 @@ is using :php:`UriBuilder` internally).
     <f:be.link route="web_ExtkeyExample.MyModuleController_list">
         go to custom BE module but specific controller action
     </f:be.link>
+    
+.. _backend-routing-url-php:
 
 Via PHP
 -------
