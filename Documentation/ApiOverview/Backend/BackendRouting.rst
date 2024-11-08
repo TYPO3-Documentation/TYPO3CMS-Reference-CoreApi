@@ -153,7 +153,6 @@ is using :php:`UriBuilder` internally).
     <f:be.link route="web_ExtkeyExample.MyModuleController_list">
         go to custom BE module but specific controller action
     </f:be.link>
-    
 .. _backend-routing-url-php:
 
 Via PHP
