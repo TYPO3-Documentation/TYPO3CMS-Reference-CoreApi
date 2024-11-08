@@ -2,8 +2,7 @@ name: Check and Fix Whitespace on Schedule
 
 on:
   schedule:
-    # Runs daily at midnight
-    - cron: '0 7 * * *'
+    - cron: '0 0 * * *'
   workflow_dispatch:
 
 jobs:
@@ -26,9 +25,9 @@ jobs:
       - name: Run pre-commit hooks and apply fixes
         id: pre-commit
         run: |
-          # Run pre-commit with auto-fix
-          pre-commit run --all-files --hook-stage=manual --show-diff-on-failure
-          # Check if any files have been modified
+          # Run pre-commit with auto-fix and ignore exit code
+          pre-commit run --all-files --hook-stage=manual --show-diff-on-failure || true
+          # Check if any files were modified
           git diff --exit-code || FIX_NEEDED=true
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
