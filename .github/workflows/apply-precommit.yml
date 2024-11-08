@@ -1,6 +1,10 @@
-name: Check Whitespace on Pull Request
+name: Check and Fix Whitespace on Schedule
 
-on: [pull_request]
+on:
+  schedule:
+    # Runs daily at midnight
+    - cron: '0 7 * * *'
+  workflow_dispatch:
 
 jobs:
   lint:
@@ -9,7 +13,7 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
         with:
-          ref: ${{ github.ref }}
+          token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Set up Python
         uses: actions/setup-python@v2
@@ -19,14 +23,36 @@ jobs:
       - name: Install pre-commit
         run: pip install pre-commit
 
-      - name: Run pre-commit hooks
+      - name: Run pre-commit hooks and apply fixes
         id: pre-commit
         run: |
-          # Run pre-commit and capture output
-          pre-commit run --all-files --show-diff-on-failure --hook-stage=manual
-          # Capture the status code from pre-commit
-          STATUS=$?
-          # Display the status code
-          echo "Pre-commit status code: $STATUS"
+          # Run pre-commit with auto-fix
+          pre-commit run --all-files --hook-stage=manual --show-diff-on-failure
+          # Check if any files have been modified
+          git diff --exit-code || FIX_NEEDED=true
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Create and push changes if needed
+        if: env.FIX_NEEDED == 'true'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          # Create a new branch for the changes
+          BRANCH_NAME="fix/whitespace-$(date +'%Y%m%d%H%M%S')"
+          git checkout -b "$BRANCH_NAME"
+          git add .
+          git commit -m "fix: apply whitespace fixes"
+          git push origin "$BRANCH_NAME"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Open Pull Request
+        if: env.FIX_NEEDED == 'true'
+        uses: repo-sync/pull-request@v2
+        with:
+          source_branch: ${{ steps.pre-commit.outputs.BRANCH_NAME }}
+          destination_branch: ${{ github.ref_name }}
+          pr_title: "Fix whitespace issues"
+          pr_body: "This PR automatically applies whitespace fixes."
+          token: ${{ secrets.GITHUB_TOKEN }}
