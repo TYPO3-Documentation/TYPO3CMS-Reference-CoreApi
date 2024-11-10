@@ -76,7 +76,7 @@ content element representing the plugin.
 
 ..  versionchanged:: 14.0
 
-    The methods second and third parameter have been dropped. This method can
+    The method's second and third parameter have been dropped. This method can
     only be used with the field `CType` of table `tt_content`.
 
 This method supplies some default values:
