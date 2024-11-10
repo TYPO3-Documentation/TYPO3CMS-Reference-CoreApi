@@ -70,9 +70,8 @@ The request object compatible with the PSR-7
 ViewHelper
 ----------
 
-..  deprecated:: 13.3
-    The following methods have been marked as deprecated in TYPO3 v13.3 and will
-    be removed with TYPO3 v14:
+..  versionchanged:: 14.0
+    The following methods have been removed with TYPO3 v14:
 
     * :php:`TYPO3\CMS\Fluid\Core\Rendering\RenderingContext->setRequest()`
     * :php:`TYPO3\CMS\Fluid\Core\Rendering\RenderingContext->getRequest()`
@@ -82,12 +81,6 @@ In a ViewHelper you can get the rendering request from the rendering context if
 it is set.
 
 ..  literalinclude:: _CodeSnippets/_ViewHelper.php
-    :caption: EXT:my_extension/Classes/ViewHelpers/MyViewHelper.php
-
-To stay compatible to previous TYPO3 versions while avoiding deprecation notices,
-the following code can be used:
-
-..  literalinclude:: _CodeSnippets/_ViewHelperV12.php
     :caption: EXT:my_extension/Classes/ViewHelpers/MyViewHelper.php
 
 ..  _typo3-request-user-function:
