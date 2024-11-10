@@ -187,7 +187,7 @@ To register such a plugin as content element you can use function
 
 ..  versionchanged:: 14.0
 
-    The methods second and third parameter have been dropped. This method can
+    The method's second and third parameter have been dropped. This method can
     only be used with the field `CType` of table `tt_content`.
 
 ..  _plugins-characteristics:
