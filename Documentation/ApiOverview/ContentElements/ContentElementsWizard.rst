@@ -74,19 +74,15 @@ of class :php:`\TYPO3\CMS\Core\Utility\ExtensionManagementUtility`.
 The key `value` in the parameter `$itemArray` is used as key of the newly added
 content element representing the plugin.
 
-When you are using `CType` for parameter `$type` the content
-element is added to the select item list of column `CType` in table `tt_content`.
+..  versionchanged:: 14.0
 
-..  deprecated:: 13.4
-    Using the default `list_type` for the parameter is deprecated. All content
-    elements and plugins should be added with string `CType` for parameter `$type`.
+    The methods second and third parameter have been dropped. This method can
+    only be used with the field `CType` of table `tt_content`.
 
 This method supplies some default values:
 
 `group`
-    Defaults to `default`
-`icon`
-    Icon of the extension if defined
+    Defaults to `plugins`
 
 While it is still possible to use
 `ExtensionManagementUtility::addTcaSelectItem() <https://api.typo3.org/main/classes/TYPO3-CMS-Core-Utility-ExtensionManagementUtility.html#method_addTcaSelectItem>`__
@@ -177,7 +173,7 @@ header:
 ..  literalinclude:: _AddingYourOwnContentElements/_tt_content_register_group.php
     :caption: EXT:my_extension/Configuration/Overrides/tt_content.php
 
-The headers can also be overrriden on a per site basis using page TSconfig.
+The headers can also be overridden on a per site basis using page TSconfig.
 
 ..  literalinclude:: _AddingYourOwnContentElements/_page_change_group_header.tsconfig
     :caption: EXT:my_sitepackage/Configuration/Sets/MySet/page.tsconfig

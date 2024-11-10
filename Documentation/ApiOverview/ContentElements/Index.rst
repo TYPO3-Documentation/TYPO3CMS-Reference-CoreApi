@@ -185,9 +185,10 @@ To register such a plugin as content element you can use function
 ..  literalinclude:: _Plugins/_tt_content_plugin.php
     :caption: EXT:my_extension/Configuration/TCA/Overrides/tt_content.php
 
-..  deprecated:: 13.4
-    Setting the second parameter to `list_type`
-    is deprecated. See :ref:`plugins-list_type-migration`.
+..  versionchanged:: 14.0
+
+    The methods second and third parameter have been dropped. This method can
+    only be used with the field `CType` of table `tt_content`.
 
 ..  _plugins-characteristics:
 

@@ -337,10 +337,10 @@ Examples (from TYPO3 Core extensions):
 Plugin signature
 ================
 
-..  deprecated:: 13.4
+..  versionchanged:: 14.0
     Adding frontend plugins as a "General Plugin", setting the content
     record :sql:`CType` to :sql:`'list'` and `list_type` to the plugin signature
-    is deprecated. See :ref:`plugins-list_type-migration`.
+    is not possible anymore. See :ref:`plugins-list_type-migration`.
 
 The plugin signature of non-Extbase plugins, registered via
 :php:`ExtensionManagementUtility::addPlugin()` is an arbitrarily defined string.
@@ -387,32 +387,8 @@ The plugin signature is used in:
 Example register and configure a non-Extbase plugin:
 ----------------------------------------------------
 
-..  code-block:: php
+..  literalinclude:: _snippets/_tt_content_plugin_htmlparser.php
     :caption: EXT:examples/Configuration/TCA/Overrides/tt_content_plugin_htmlparser.php
-
-    use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
-
-    $pluginSignature = 'examples_pi1';
-    $pluginTitle = 'LLL:EXT:examples/Resources/Private/Language/locallang_db.xlf:tt_content.list_type_pi1';
-    $extensionKey = 'examples';
-
-    // Add the plugins to the list of plugins
-    ExtensionManagementUtility::addPlugin (
-        [ $pluginTitle, $pluginSignature,],'CType', $extensionKey
-    );
-
-    ExtensionManagementUtility::addToAllTCAtypes(
-        'tt_content',
-        '--div--;Configuration,pi_flexform,',
-        $pluginSignature,
-        'after:header',
-    );
-
-    ExtensionManagementUtility::addPiFlexFormValue(
-        '*',
-        'FILE:EXT:example/Configuration/FlexForms/Registration.xml',
-        $pluginSignature,
-    );
 
 .. code-block:: typoscript
    :caption: EXT:examples/Configuration/setup.typoscript

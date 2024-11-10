@@ -7,8 +7,7 @@
  ExtensionManagementUtility::addPlugin(
      [$pluginTitle, $pluginSignature, '', 'plugin'],
 -    'list_type',
-+    'CType',
-     $extensionKey,
+-    $extensionKey,
  );
 
 -// Disable the display of layout and select_key fields for the plugin

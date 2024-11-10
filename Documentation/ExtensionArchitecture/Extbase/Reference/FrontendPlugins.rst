@@ -68,7 +68,7 @@ Use the following steps to add the plugin as content element:
     action is therefore not allowed in this plugin.
 
     The TypoScript of the plugin will be available at
-    :typoscript:`tt_content.list.20.blogexample_postsingle`. Additionally
+    :typoscript:`tt_content.blogexample_postsingle`. Additionally
     the lists of allowed and non-cacheable actions have been added to the
     according global variables.
 
