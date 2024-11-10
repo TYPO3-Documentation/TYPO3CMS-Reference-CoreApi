@@ -219,13 +219,12 @@ another folder name than :file:`fileadmin/` can be in use.
 :file:`public/typo3/`
 ~~~~~~~~~~~~~~~~~~~~~
 
-This directory contains the two PHP files for accessing the TYPO3
-backend (:file:`typo3/index.php`) and install tool (:file:`typo3/install.php`).
+If :composer:`typo3/cms-install` is installed, this directory contains the PHP
+file for accessing the install tool (:file:`public/typo3/install.php`).
 
-..  versionchanged:: 12.0
-    Starting with TYPO3 v12 (or v11 using `typo3/cms-composer-installers` v4)
-    the system extensions are not located in this directory anymore. They can now
-    be found in the :ref:`directory-vendor` folder.
+..  versionchanged:: 14.0
+    The TYPO3 backend entry point PHP file :file:`public/typo3/index.php` has
+    been removed. The backend can be accessed via the :ref:`backend-entry-point`.
 
 .. _directory-public-typo3temp:
 

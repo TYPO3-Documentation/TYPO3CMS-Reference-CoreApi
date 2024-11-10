@@ -240,7 +240,7 @@ developers often overlook argument positions and names:
             [
                 'RewriteCond %{REQUEST_FILENAME} !-d',
                 'RewriteCond %{REQUEST_FILENAME} !-l',
-                'RewriteRule ^typo3/(.*)$ %{ENV:CWD}typo3/index.php [QSA,L]',
+                'RewriteRule ^typo3/(.*)$ %{ENV:CWD}index.php [QSA,L]',
             ]
         ))),
         replacement: 'RewriteRule ^typo3/(.*)$ %{ENV:CWD}index.php [QSA,L]',
