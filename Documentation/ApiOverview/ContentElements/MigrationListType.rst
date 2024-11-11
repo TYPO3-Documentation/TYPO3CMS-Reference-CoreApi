@@ -144,7 +144,7 @@ element "list" anymore:
 3.  Provide an upgrade wizard for automatic content migration for TYPO3 v13.4 and v12.4
 ---------------------------------------------------------------------------------------
 
-If you extension only support TYPO3 v13 and above you can extend the Core class
+If your extension only supports TYPO3 v13 and above you can extend the Core class
 :php:`\TYPO3\CMS\Install\Updates\AbstractListTypeToCTypeUpdate`.
 
 If your extension also supports TYPO3 v12 and maybe even TYPO3 v11 you can use
