@@ -28,7 +28,7 @@ To register icons for your own extension, create a file called
     It is not possible anymore to register icons in the
     :file:`ext_localconf.php` file.
 
-    :ref:`Migrates the icon registration <icon_migration>` to
+    :ref:`Migrate the icon registration <icon_migration>` to
     new format. There is also a Rector rule.
 
 The file needs to return a PHP configuration array with the following keys:
