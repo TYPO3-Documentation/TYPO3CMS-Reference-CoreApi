@@ -6,7 +6,7 @@ namespace MyVendor\MyExtension\Controller;
 
 use MyVendor\MyExtension\Domain\Model\Blog;
 use MyVendor\MyExtension\Domain\Repository\BlogRepository;
-use TYPO3\CMS\Core\Resource\DuplicationBehavior;
+use TYPO3\CMS\Core\Resource\Enum\DuplicationBehavior;
 use TYPO3\CMS\Core\Resource\ResourceFactory;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Core\Utility\StringUtility;
