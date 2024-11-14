@@ -24,13 +24,12 @@ To register icons for your own extension, create a file called
 :file:`Configuration/Icons.php` in your extension - for example:
 :file:`EXT:my_extension/Configuration/Icons.php`.
 
-..  note::
-    In versions below TYPO3 v11.4 the configuration was done in the
+..  versionchanged:: 14.0
+    It is not possible anymore to register icons in the
     :file:`ext_localconf.php` file.
 
-    It :ref:`migrates the icon registration <icon_migration>` to
+    :ref:`Migrate the icon registration <icon_migration>` to
     new format. There is also a Rector rule.
-
 
 The file needs to return a PHP configuration array with the following keys:
 
