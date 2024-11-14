@@ -12,12 +12,14 @@ Backend entry point
 
 ..  versionadded:: 13.0
     Before TYPO3 v13 the backend entry point path for accessing the backend has
-    always been :samp:`/typo3`. Since TYPO3 v13 the backend entry point can be
+    always been :path:`/typo3`. Since TYPO3 v13 the backend entry point can be
     adjusted to something else. See :ref:`backend-entry-point-configuration`
     and :ref:`backend-entry-point-migration`.
 
-    The legacy entry point :samp:`/typo3/index.php` is no longer needed and
-    therefore deprecated. See :ref:`backend-entry-point-legacy-free`.
+..  versionchanged:: 14.0
+
+    The legacy entry point :file:`/typo3/index.php` is no longer needed and
+    has been removed.
 
 The TYPO3 backend URL is configurable in order to enable optional protection
 against application administrator interface infrastructure enumeration
@@ -88,33 +90,6 @@ Note that the :php:`$GLOBALS['TYPO3_CONF_VARS']['SYS']['cookieDomain']` is
 necessary, so that backend users can preview website pages or use the admin
 panel.
 
-..  _backend-entry-point-legacy-free:
-
-Legacy-free installation
-------------------------
-
-The legacy entry point `/typo3/index.php` is no longer needed and deprecated in
-favor of handling all backend and frontend requests with :samp:`/index.php`. The
-entry point is still in place in case webserver configuration has not been
-adapted yet and the maintenance and emergency tool is still available via
-:samp:`/typo3/install.php` in order to work in edge cases like broken web server
-routing.
-
-In Composer mode, an additional configuration option for the deactivation of
-the legacy entry point is provided, which can be defined in the project's
-:file:`composer.json`.
-
-..  code-block:: json
-    :caption: /path/to/project/composer.json (Excerpt)
-
-    {
-        "extra": {
-            "typo3/cms": {
-                "install-deprecated-typo3-index-php": false
-            }
-        }
-    }
-
 ..  _backend-entry-point-migration:
 
 Migration
@@ -136,7 +111,7 @@ Apache configuration
 
 It is most important to rewrite all `typo3/*` requests to `/index.php`, but also
 `RewriteCond %{REQUEST_FILENAME} !-d` should be removed in order for a request
-to `/typo3/` to be directly served via `/index.php` instead of the deprecated
+to `/typo3/` to be directly served via `/index.php` instead of the removed
 entry point `/typo3/index.php`.
 
 Apache configuration before:

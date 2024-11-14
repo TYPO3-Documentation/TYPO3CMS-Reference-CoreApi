@@ -95,7 +95,7 @@ Loading classes without Composer mode
 
 This means, you did not install TYPO3 via a `require` statement inside your
 :file:`composer.json`. It's a regular old-school install where the TYPO3 source
-and the symlinks (:file:`typo3/index.php`) are setup manually.
+and the symlinks (:file:`index.php`) are setup manually.
 
 In this case, every time you install an extension, the autoloader scans the
 whole extension directory for classes. No matter if they follow any convention

@@ -54,8 +54,12 @@ structure.
 :file:`typo3/`
 --------------
 
-Among others, this directory contains the two PHP files for accessing the TYPO3
-backend (:file:`typo3/index.php`) and install tool (:file:`typo3/install.php`).
+Among others, this directory contains the PHP
+file for accessing the install tool (:file:`public/typo3/install.php`).
+
+..  versionchanged:: 14.0
+    The TYPO3 backend entry point PHP file :file:`typo3/index.php` has
+    been removed. The backend can be accessed via the :ref:`backend-entry-point`.
 
 
 .. _legacy-directory-typo3-sysext:

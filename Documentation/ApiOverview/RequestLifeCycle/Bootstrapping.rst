@@ -124,7 +124,7 @@ to have an overview of these base values, it is worth taking a look into the fol
 
 -  :php:`SystemEnvironmentBuilder::calculateScriptPath()` calculates the script
    path. This is the absolute path to the entry script. This can be something
-   like '.../public/index.php' or '.../public/typo3/index.php' for web calls,
+   like '.../public/index.php' for web calls,
    or '.../bin/typo3' or similar for CLI calls.
 
 -  :php:`SystemEnvironmentBuilder::initializeGlobalVariables()` sets
