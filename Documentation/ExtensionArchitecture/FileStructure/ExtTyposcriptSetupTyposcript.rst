@@ -13,7 +13,7 @@ TypoScript **records**. Takes no effect in sites using :ref:`Site sets <t3coreap
 
     ..  versionchanged:: 13.1
 
-    This file takes no effect in sites that use :ref:`Site sets <t3coreapi:site-sets>`
+    This file takes no effect in sites that use :ref:`Site sets <t3coreapi:site-sets>`.
     This file works for backward compability reasons only in installations that depend
     on TypoScript records only.
 
