@@ -12,6 +12,10 @@ depend - partly - on what you are trying to achieve and - a lot -
 on the version of TYPO3 CMS which you are targeting. The TCA can only be
 changed from within an extension.
 
+.. versionchanged:: 14.0
+	There are two changes for :php:`\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPlugin()`.
+	The second argument :php:`$type` and the third argument :php:`$extensionKey`
+	have been dropped.
 
 ..  _storing-changes-extension:
 
@@ -27,23 +31,17 @@ case you are modifying Core TCA, you usually don't have to worry about that**. S
 custom extensions are always loaded *after* the Core's TCA, changes from custom extensions
 will usually take effect without any special measures.
 
-..  attention::
-    If your extension modifies another extension, you actively need to make sure your
-    extension is loaded *after* the extension you are modifying. This can be achieved
-    by registering that other extension as a dependency (or suggestion) of yours. See
-    the :ref:`description of constraints in Core APIs <extension-declaration>`.
+In case your extension modifies another extension, you actively need to make
+sure your extension is loaded *after* the extension you are modifying. This can
+be achieved by registering that other extension as a dependency (or suggestion)
+of yours. See the :ref:`description of constraints in Core APIs <extension-declaration>`.
 
-    Loading order also matters if you have multiple extensions overriding the same field,
-    probably even contradicting each other.
+The loading order also matters if you have multiple extensions overriding the
+same field, probably even contradicting each other.
 
-..  versionadded:: 12.0
-    Files within :file:`Configuration/TCA/` files are loaded within a dedicated scope.
-    This means that variables defined in those files can't leak into the following files.
-
-    ..  note::
-        In TYPO3 v11 and below, variables declared in these files were in a shared scope,
-        with the risk of a leakage to the following files. The use of :php:`call_user_func`
-        wrap was a common workaround.
+Since version 12.0 files within :file:`Configuration/TCA/` files are loaded
+within a dedicated scope. This means that variables defined in those files
+can't leak into the following files.
 
 For more information about an extension's structure, please refer to the
 :ref:`extension architecture <extension-architecture>` chapter.
