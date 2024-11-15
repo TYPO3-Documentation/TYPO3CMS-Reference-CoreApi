@@ -9,9 +9,13 @@
 Preset TypoScript setup. Will be included in the setup section of all
 TypoScript templates.
 
-.. attention::
+..  attention::
 
-   Use such a file if you absolutely need to load some TypoScript (because you
-   would get serious errors without it). Otherwise static templates or
-   usage of the *Extension Management API* of class
-   :php:`TYPO3\CMS\Core\Utility\ExtensionManagementUtility` are preferred.
+    ..  versionchanged:: 13.1
+
+    This file takes no effect in sites that use :ref:`Site sets <t3coreapi:site-sets>`
+    This file works for backward compability reasons only in installations that depend
+    on TypoScript records only.
+
+    Provide the TypoScript in your site set. TypoScript that has to be loaded globally
+    can be loaded via :ref:`ExtensionManagementUtility::addTypoScript <t3tsref:extdev-always-load>`.
