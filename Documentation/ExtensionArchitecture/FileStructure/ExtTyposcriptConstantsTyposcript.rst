@@ -6,7 +6,7 @@
 :file:`ext_typoscript_constants.typoscript`
 ===========================================
 
-reset TypoScript constants. Will be included in the constants section of all
+Preset TypoScript constants. Will be included in the constants section of all
 TypoScript **records**. Takes no effect in sites using :ref:`Site sets <t3coreapi:site-sets>`.
 
 ..  attention::
