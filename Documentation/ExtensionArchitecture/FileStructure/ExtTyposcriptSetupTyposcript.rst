@@ -7,7 +7,7 @@
 =======================================
 
 Preset TypoScript setup. Will be included in the setup section of all
-TypoScript templates.
+TypoScript **records**. Takes no effect in sites using :ref:`Site sets <t3coreapi:site-sets>`.
 
 ..  attention::
 
