@@ -11,6 +11,6 @@ ExtensionUtility::registerPlugin(
     'MyPlugin',
     'LLL:EXT:my_extension/Resources/Private/Language/locallang.xlf:myextension_myplugin_title',
     'myextension_myplugin',
-    'plugin',
+    'plugins',
     'LLL:EXT:my_extension/Resources/Private/Language/locallang.xlf:myextension_myplugin_description',
 );
