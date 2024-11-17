@@ -39,7 +39,7 @@ of yours. See the :ref:`description of constraints in Core APIs <extension-decla
 The loading order also matters if you have multiple extensions overriding the
 same field, probably even contradicting each other.
 
-Since version 12.0 files within :file:`Configuration/TCA/` files are loaded
+Files within :file:`Configuration/TCA/` files are loaded
 within a dedicated scope. This means that variables defined in those files
 cannot leak into the following files.
 
