@@ -17,6 +17,6 @@ TypoScript **records**. Takes no effect in sites using :ref:`Site sets <t3coreap
     This file works for backward compability reasons only in installations that depend
     on TypoScript records only.
 
-    Provide settings in your :ref:`Site settings definitions <t3coreapi:site-settings-definition>` 
+    Provide settings in your :ref:`Site settings definitions <t3coreapi:site-settings-definition>`
     in your site set. TypoScript constants that have to be loaded globally
     can be loaded via :ref:`ExtensionManagementUtility::addTypoScript <t3tsref:extdev-always-load>`.
