@@ -41,7 +41,7 @@ same field, probably even contradicting each other.
 
 Since version 12.0 files within :file:`Configuration/TCA/` files are loaded
 within a dedicated scope. This means that variables defined in those files
-can't leak into the following files.
+cannot leak into the following files.
 
 For more information about an extension's structure, please refer to the
 :ref:`extension architecture <extension-architecture>` chapter.
