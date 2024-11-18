@@ -85,9 +85,10 @@ be installed on your production system when Composer is executed with option
 ..  todo: Link to a dedicated php-cs-fixer section once it exists
 
 For TYPO3 project you can use the package :composer:`typo3/coding-standards`
-which bundles :composer:`friendsofphp/php-cs-fixer`, :composer:`phpstan/phpstan`,
-:composer:`phpunit/phpunit` and some other helpful tools and comes with useful
-configurations for these.
+which already requires :composer:`friendsofphp/php-cs-fixer` and a set of
+useful configuration and rules. Inside it's repository you can also see an example how the
+extension makes use of :composer:`phpstan/phpstan` and :composer:`phpunit/phpunit`
+as a `require-dev`-dependency.
 
 ..  code-block:: bash
     :caption: Require development dependencies
