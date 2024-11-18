@@ -14,6 +14,4 @@ ExtensionManagementUtility::addPlugin(
         'group' => 'plugin',
         'description' => 'LLL:EXT:my_extension/Resources/Private/Language/locallang.xlf:myextension_myplugin_description',
     ],
-    'CType',
-    'my_extension',
 );
