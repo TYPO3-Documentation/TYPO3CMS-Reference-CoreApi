@@ -1,6 +1,7 @@
-"pages",,,,,,,,,
+"pages"
 ,"uid","pid","sorting","deleted","t3_origuid","title",,,
 ,1,0,256,0,0,"Connected mode",,,
-"tt_content",,,,,,,,,
+
+"tt_content"
 ,"uid","pid","sorting","deleted","sys_language_uid","l18n_parent","l10n_source","t3_origuid","header"
 ,297,1,256,0,0,0,0,0,"Regular Element #1"
