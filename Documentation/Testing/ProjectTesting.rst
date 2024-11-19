@@ -86,7 +86,7 @@ be installed on your production system when Composer is executed with option
 
 For TYPO3 project you can use the package :composer:`typo3/coding-standards`
 which already requires :composer:`friendsofphp/php-cs-fixer` and a set of
-useful configuration and rules. 
+useful configuration and rules.
 
 ..  code-block:: bash
     :caption: Require development dependencies
