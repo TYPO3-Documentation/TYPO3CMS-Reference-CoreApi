@@ -1,9 +1,8 @@
-..  _maintain-htaccess:
-
 After an update, the :file:`.htaccess` file may need adoption for the latest TYPO3
 major version (for Apache webservers), :ref:`see details on .htaccess <htaccess>`.
 
 Compare the file :file:`vendor/typo3/cms-install/Resources/Private/FolderStructureTemplateFiles/root-htaccess`
+(or `.htaccess <https://github.com/TYPO3/typo3/blob/main/typo3/sysext/install/Resources/Private/FolderStructureTemplateFiles/root-htaccess>`__)
 with your project's :file:`.htaccess` file and adapt new rules accordingly. If you never
 edited the file, copy it over to your project to ensure using the most recent version.
 
