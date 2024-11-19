@@ -12,7 +12,7 @@ Frequently asked questions (FAQ)
 
 ..  note::
     If you miss a question, please share it in the Slack channel
-    `#cig-crowdin-localization <https://typo3.slack.com/app_redirect?channel=CMUG7C04F>`__.
+    `#typo3-localization-team <https://typo3.slack.com/app_redirect?channel=CR75200FL>`__.
 
 
 General questions

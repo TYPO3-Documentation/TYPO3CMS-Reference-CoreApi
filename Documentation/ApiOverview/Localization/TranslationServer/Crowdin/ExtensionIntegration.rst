@@ -20,13 +20,13 @@ Setup
 =====
 
 Get in contact with the team in the TYPO3 Slack channel
-`#cig-crowdin-localization`_ with the following information:
+`#typo3-localization-team`_ with the following information:
 
 #.  Extension name
 #.  Your email address for an invitation to Crowdin, so you will get the correct
     role for your project.
 
-..  _#cig-crowdin-localization: https://typo3.slack.com/app_redirect?channel=CMUG7C04F
+..  _#typo3-localization-team: https://typo3.slack.com/app_redirect?channel=CR75200FL
 
 
 Integration
