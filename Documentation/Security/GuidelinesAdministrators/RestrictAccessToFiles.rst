@@ -85,6 +85,9 @@ should compare their specific version with the reference files found at
 and :t3src:`install/Resources/Private/FolderStructureTemplateFiles/root-web-config`
 and adapt or update local versions if needed.
 
+See :ref:`<maintain-htaccess>` for details on maintaining the file after a major
+version upgrade.
+
 
 NGINX web servers
 =================

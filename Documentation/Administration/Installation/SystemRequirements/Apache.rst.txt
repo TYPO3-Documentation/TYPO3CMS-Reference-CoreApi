@@ -5,7 +5,8 @@ During the initial installation, TYPO3's default :file:`.htaccess` file is copie
 
 ..  _htaccess:
 
-**.htaccess**
+.htaccess
+=========
 
 The :file:`.htaccess` file allows to configure Apache-specific TYPO3-related webserver settings.
 
@@ -22,12 +23,17 @@ version upgrade.
 
 The TYPO3 environment check (:guilabel:`Admin Tools > Environment > Check Directory Status`) will report whether a :file:`.htaccess` file differs from the default.
 
+..  _vhost-records:
 
-**Virtual Host Record**
+Virtual Host Record
+===================
 
 *  `AllowOverride <https://httpd.apache.org/docs/current/mod/core.html#allowoverride>`__ needs to include "Indexes" and "FileInfo" in the Virtual Host record.
 
-**Apache Modules**
+..  _apache-modules:
+
+Apache Modules
+==============
 
 The following Apache modules are required. The list is based on what is used in
 the default TYPO3
