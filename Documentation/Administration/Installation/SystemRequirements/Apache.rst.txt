@@ -1,8 +1,28 @@
-.. include:: /Includes.rst.txt
+..  include:: /Includes.rst.txt
 
-.. _system-requirements-apache:
+..  _system-requirements-apache:
 
 During the initial installation, TYPO3's default :file:`.htaccess` file is copied to the installation root folder.
+
+..  _htaccess:
+
+**.htaccess**
+
+The :file:`.htaccess` file allows to configure Apache-specific TYPO3-related webserver settings.
+
+The most important use of the file is to configure `RewriteRules`, security settings, PHP settings and MIME-type
+handling.
+
+TYPO3 ships a boilerplate configuration file (`.htaccess <https://github.com/TYPO3/typo3/blob/main/typo3/sysext/install/Resources/Private/FolderStructureTemplateFiles/root-htaccess>`__),
+which is installed on first-time installation and then is assumed to be maintained depending on your project.
+
+This means, on major TYPO3 updates, you need to ensure possible new TYPO3 adjustments are integrated in your
+configuration. If you never update the file manually, copy over the contents of the new file from the
+TYPO3 upgrade release. See :ref:`<maintain-htaccess>` for details on maintaining the file after a major
+version upgrade.
+
+The TYPO3 environment check (:guilabel:`Admin Tools > Environment > Check Directory Status`) will report whether a :file:`.htaccess` file differs from the default.
+
 
 **Virtual Host Record**
 
