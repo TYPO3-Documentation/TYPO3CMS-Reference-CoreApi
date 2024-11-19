@@ -1,5 +1,3 @@
-..  include:: /Includes.rst.txt
-
 ..  _clear_caches:
 
 You have to clear all caches when upgrading.
