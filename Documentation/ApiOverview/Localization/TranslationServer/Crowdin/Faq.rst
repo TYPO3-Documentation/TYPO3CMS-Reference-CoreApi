@@ -212,6 +212,7 @@ you can import them.
 #.  **Upload the Translations**
     Have a look at :ref:`crowdin-faq-upload-xliff-files`.
 
+..  _crowdin-faq-crowdin-yml:
 
 crowdin.yml, .crowdin.yml or crowdin.yaml?
 ------------------------------------------
