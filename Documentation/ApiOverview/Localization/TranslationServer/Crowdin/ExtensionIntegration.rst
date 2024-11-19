@@ -40,9 +40,13 @@ Crowdin:
 *   `GitLab integration <https://support.crowdin.com/gitlab-integration/>`__
 *   `BitBucket integration <https://support.crowdin.com/bitbucket-integration/>`__
 
+.. _crowdin-extension-integration-github:
 
 Step-by-step instructions for GitHub
 ------------------------------------
+
+
+.. _crowdin-extension-integration-github-crowdin-config:
 
 Step 1: Create a Crowdin configuration file
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -58,6 +62,9 @@ with the following content:
         translation: /%original_path%/%two_letters_code%.%original_file_name%
         ignore:
           - /**/%two_letters_code%.%original_file_name%
+
+
+.. _crowdin-extension-integration-github-configure:
 
 Step 2: Configure the GitHub integration
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -93,6 +100,9 @@ Then follow the instructions to configure the integration:
 #. Do not tick the checkbox "Push Sources" as the sources are already in the repository
    and changes are managed within the extension repository **and not in Crowdin**.
 #. Click the "Save" button to save the configuration of the integration.
+
+
+.. _crowdin-extension-integration-github-import:
 
 Step 3: Import existing translations
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
