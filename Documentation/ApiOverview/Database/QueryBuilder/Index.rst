@@ -747,7 +747,7 @@ Further remarks:
 
 *   Multiple join condition expressions can be resolved as strings like:
 
-    ..  code-block:: sql
+    ..  code-block:: php
 
         $joinConditionExpression = $queryBuilder->expr()->and(
             $queryBuilder->expr()->eq(
