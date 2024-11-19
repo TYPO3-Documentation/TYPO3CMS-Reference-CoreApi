@@ -55,6 +55,7 @@ Within your TYPO3 extension repository, create a :file:`.crowdin.yml` file at ro
 with the following content:
 
 ..  code-block:: yaml
+    :caption: EXT:my_extension/.crowdin.yml
 
     preserve_hierarchy: 1
     files:
