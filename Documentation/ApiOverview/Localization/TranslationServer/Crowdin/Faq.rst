@@ -90,11 +90,11 @@ Why does Crowdin show me translations in source language?
 If you have just set up Crowdin and ship translated XLIFF files in your
 extension, they will also show up as files to be translated.
 
-You need to exclude them in your :file:`crowdin.yml` configuration, which is
+You need to exclude them in your :file:`.crowdin.yml` configuration, which is
 located in the extension root directory.
 
 ..  code-block:: yaml
-    :caption: EXT:my_extension/crowdin.yml
+    :caption: EXT:my_extension/.crowdin.yml
 
     files:
       - source: /Resources/Private/Language/
@@ -212,6 +212,12 @@ you can import them.
 #.  **Upload the Translations**
     Have a look at :ref:`crowdin-faq-upload-xliff-files`.
 
+
+crowdin.yml, .crowdin.yml or crowdin.yaml?
+------------------------------------------
+
+All three filenames are valid names for for Crowdin CLI to detect the configuration file.
+We recommend using `.crowdin.yml` to make it more obvious that it's a configuration file.
 
 Questions about TYPO3 Core integration
 ======================================
