@@ -387,15 +387,15 @@ The plugin signature is used in:
 Example register and configure a non-Extbase plugin:
 ----------------------------------------------------
 
-..  literalinclude:: _snippets/_tt_content_plugin_htmlparser.php
+..  literalinclude:: _snippets/_tt_content_plugin_register.php
     :caption: EXT:examples/Configuration/TCA/Overrides/tt_content_plugin_htmlparser.php
 
-.. code-block:: typoscript
-   :caption: EXT:examples/Configuration/setup.typoscript
+..  code-block:: typoscript
+    :caption: EXT:examples/Configuration/setup.typoscript
 
-   plugin.tx_examples_pi1 {
+    plugin.tx_examples_pi1 {
       settings.pageId = 42
-   }
+    }
 
 ..  _naming-conventions-plugin-key:
 
