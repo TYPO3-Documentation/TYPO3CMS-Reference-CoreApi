@@ -575,6 +575,7 @@ Remarks:
     discouraged and usually used only in rare cases where expression strings
     are created in a different place that can not be easily resolved.
 
+..  dbal-join
 
 join(), innerJoin(), rightJoin() and leftJoin()
 ===============================================
@@ -743,6 +744,27 @@ Further remarks:
 *   Doctrine DBAL does not support the use of join methods in combination with
     :php:`->update()`, :php:`->insert()` and :php:`->delete()` methods, because
     such a statement is not cross-platform compatible.
+
+*   Multiple join condition expressions can be resolved as strings like:
+
+    ..  code-block:: sql
+
+        $joinConditionExpression = $queryBuilder->expr()->and(
+            $queryBuilder->expr()->eq(
+                'tt_content_orig.sys_language_uid',
+                $queryBuilder->quoteIdentifier('sys_language.uid')
+            ),
+            $queryBuilder->expr()->eq(
+                'tt_content_orig.sys_language_uid',
+                $queryBuilder->quoteIdentifier('sys_language.uid')
+            ),
+        );
+        $queryBuilder->leftJoin(
+            'tt_content_orig',
+            'sys_language',
+            'sys_language',
+            (string)$joinConditionExpression
+        );
 
 .. _database-query-builder-orderby:
 
