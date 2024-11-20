@@ -48,10 +48,10 @@ User permissions for files can be set in the
 :ref:`"File operation permissions" section <access-lists-file-permissions>`
 of the backend user or backend user group records.
 
-It is also possible to set permissions using :ref:`user TSconfig <t3tsconfig:usertsconfig>`,
+It is also possible to set permissions using :ref:`user TSconfig <t3tsref:usertsconfig>`,
 defined either at backend user or backend user group level. The TSconfig way is
 recommended because it allows for more flexibility. See some examples below and
-read on in the section about :ref:`permissions <t3tsconfig:userTsConfigPermissions>`
+read on in the section about :ref:`permissions <t3tsref:userTsConfigPermissions>`
 in the user TSconfig reference.
 
 The default permissions for backend users and backend user groups
@@ -88,7 +88,7 @@ default permissions for all :ref:`storages <fal-architecture-components-storage>
 User permissions per storage
 ----------------------------
 
-Using :ref:`user TSconfig <t3tsconfig:usertsconfig>` it is possible to set
+Using :ref:`user TSconfig <t3tsref:usertsconfig>` it is possible to set
 different permissions for different
 :ref:`storages <fal-architecture-components-storage>`. This syntax uses the uid
 of the targeted storage record.
@@ -193,7 +193,7 @@ Default upload folder
 
 When nothing else is defined, any file uploaded by a user will end up
 in :file:`fileadmin/user_upload/`. The user TSconfig property
-:ref:`defaultUploadFolder <t3tsconfig:useroptions-defaultuploadfolder>`, allows
+:ref:`defaultUploadFolder <t3tsref:useroptions-defaultuploadfolder>`, allows
 to define a different default upload folder on a backend user or backend user
 group level, for example:
 

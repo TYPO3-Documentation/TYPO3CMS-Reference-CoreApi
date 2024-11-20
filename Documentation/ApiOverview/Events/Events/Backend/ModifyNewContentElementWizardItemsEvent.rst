@@ -14,7 +14,7 @@ The PSR-14 event
 :php:`\TYPO3\CMS\Backend\Controller\Event\ModifyNewContentElementWizardItemsEvent`
 is called after TYPO3 has already prepared the wizard items,
 defined in page TSconfig (:ref:`mod.wizards.newContentElement.wizardItems
-<t3tsconfig:pagenewcontentelementwizard>`).
+<t3tsref:pagenewcontentelementwizard>`).
 
 The event allows listeners to modify any available wizard item as well
 as adding new ones. It is therefore possible for the listeners to, for example,

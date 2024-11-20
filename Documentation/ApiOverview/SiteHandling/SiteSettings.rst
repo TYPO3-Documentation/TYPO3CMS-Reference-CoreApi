@@ -26,7 +26,7 @@ via
 *   the :ref:`siteSettings <t3tsref:data-type-siteSettings>` key of the
     :ref:`data <t3tsref:data-type-gettext>` function in
     :ref:`TypoScript <t3tsref:start>`
-*   constants in :ref:`TypoScript <t3tsref:start>` or :ref:`page TSconfig <t3tsconfig:pagetsconfig>`
+*   constants in :ref:`TypoScript <t3tsref:start>` or :ref:`page TSconfig <t3tsref:pagetsconfig>`
 *   as variables (for example, :fluid:`{site.configuration.settings.mySettingKey}`) in Fluid templates
     using the :typoscript:`SiteProcessor data processor`, see :ref:`<sitehandling-inTypoScript`.
 

@@ -151,7 +151,7 @@ does not belong to a group, it will be flushed when the "all" group is flushed,
 but such caches should normally be :ref:`transient <caching-backend-transient>`
 anyway.
 
-There are :ref:`TSconfig options for permissions <t3tsconfig:useroptions>`
+There are :ref:`TSconfig options for permissions <t3tsref:useroptions>`
 corresponding to each group.
 
 The following caches exist in the TYPO3 Core:

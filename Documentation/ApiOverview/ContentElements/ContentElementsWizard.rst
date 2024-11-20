@@ -7,7 +7,7 @@ Add content elements to the Content Element Wizard
 ==================================================
 
 The content element wizard opens when a new content element is
-created. It can be fully configured using :ref:`TSConfig <t3tsconfig:start>`.
+created. It can be fully configured using ref:`Page TSconfig <t3tsref:pagetsconfig>`.
 
 Our extension key is `example` and the name of the content element or
 plugin is `registration`.
@@ -53,7 +53,7 @@ plugin is `registration`.
       @import 'EXT:example/Configuration/TsConfig/Page/Mod/Wizards/NewContentElement.tsconfig'
 
    This always includes the above page TSconfig. It is better practice to make this configurable by
-   :ref:`registering this file as static page TSconfig <t3tsconfig:register-static-page-tsconfig>`.
+   :ref:`registering this file as static page TSconfig <t3tsref:register-static-page-tsconfig>`.
 
    .. note::
       The usage of :file:`Configuration/page.tsconfig` is only valid in TYPO3

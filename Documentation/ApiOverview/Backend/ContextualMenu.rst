@@ -282,7 +282,7 @@ add the :typoscript:`.tree` key after table name like that:
 If configuration for certain context is available, the default configuration
 is not taken into account.
 
-For more details see :ref:`TSConfig reference <t3tsconfig:useroptions-contextmenu-key-disableitems>`.
+For more details see :ref:`TSConfig reference <t3tsref:useroptions-contextmenu-key-disableitems>`.
 
 .. _csm-adding:
 

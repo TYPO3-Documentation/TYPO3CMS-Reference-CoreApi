@@ -15,10 +15,7 @@ While the underlying TypoScript syntax is described in this chapter, both use ca
 and their details are found in standalone manuals:
 
 *   The :ref:`TypoScript Reference <t3tsref:start>` goes into details about the
-    usage of TypoScript in the frontend.
-
-*   The :ref:`TSconfig Reference <t3tsconfig:start>` goes into details about
-    configuring the TYPO3 backend for backend users.
+    usage of TypoScript in the frontend and backend.
 
 *   A quick kick start to frontend TypoScript is available at
     :ref:`TypoScript guide <t3tsref:guide>`.

@@ -55,7 +55,7 @@ custom backend modules <backend-modules-how-to>`.
 
         The menu button bar of a backend module can hold various components.
 
-    ..  card:: :ref:`Override backend templates <t3tsconfig:pagetemplates>`
+    ..  card:: :ref:`Override backend templates <t3tsref:pagetemplates>`
 
         Backend templates can be overridden via page TSconfig. But you
         should be careful: backend templates are mostly not API and can

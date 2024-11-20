@@ -6,7 +6,7 @@
 ModifyLoadedPageTsConfigEvent
 =============================
 
-Extensions can modify :ref:`page TSconfig <t3tsconfig:pagetoplevelobjects>`
+Extensions can modify :ref:`page TSconfig <t3tsref:pagetoplevelobjects>`
 entries that can be overridden or added, based on the root line.
 
 ..  versionchanged:: 12.2

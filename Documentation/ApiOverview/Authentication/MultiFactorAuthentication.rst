@@ -146,7 +146,7 @@ information which can be retrieved in the "Edit/Change" view.
 
 By default, the field in the :guilabel:`User Settings` module is displayed for
 every backend user. It is possible to
-:ref:`disable <t3tsconfig:user-setup-fields-fieldName-disabled>` it for specific
+:ref:`disable <t3tsref:user-setup-fields-fieldName-disabled>` it for specific
 users via user TSconfig:
 
 ..  code-block:: typoscript
@@ -205,7 +205,7 @@ which allows four options:
     Require multi-factor authentication only for admin users
 
 To set this requirement only for a specific user or user group, a user TSconfig
-option `auth.mfa.required <t3tsconfig:user-auth-mfa-required>` is available.
+option `auth.mfa.required <t3tsref:user-auth-mfa-required>` is available.
 The user TSconfig option overrules the global configuration.
 
 ..  code-block:: typoscript
@@ -225,7 +225,7 @@ available in the user groups record in the "Access List" tab.
 There may be use cases in which a single provider should be
 disallowed for a specific user, which is configured to be allowed in
 one of the assigned user groups. Therefore, the user TSconfig option
-:ref:`auth.mfa.disableProviders <t3tsconfig:user-auth-mfa-disableProviders>` can
+:ref:`auth.mfa.disableProviders <t3tsref:user-auth-mfa-disableProviders>` can
 be used. It overrules the configuration from the "Access List": if a provider is
 allowed in "Access List" but disallowed via user TSconfig, it will be disallowed
 for the user or user group the TSconfig applies to.
@@ -244,7 +244,7 @@ To recommend a specific provider,
 can be used and is set to `totp` (time-based one-time password) by default.
 
 To set a recommended provider on a per user or user group basis, the user
-TSconfig option :ref:`auth.mfa.recommendedProvider <t3tsconfig:user-auth-mfa-recommendedProvider>`
+TSconfig option :ref:`auth.mfa.recommendedProvider <t3tsref:user-auth-mfa-recommendedProvider>`
 can be used, which overrules the global configuration.
 
 ..  code-block:: typoscript

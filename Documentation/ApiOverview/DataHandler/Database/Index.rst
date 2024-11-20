@@ -603,9 +603,9 @@ By default the following cache tags are flushed:
 *   A page UID prefixed with :php:`pageID_` (:php:`pageId_<page-uid>`), for
     example, :php:`pageId_10` when updating a page with UID 10 (additionally all
     related pages, see
-    :ref:`clearcache-pagegrandparent <t3tsconfig:pagetcemain-clearcache-pagegrandparent>`
+    :ref:`clearcache-pagegrandparent <t3tsref:pagetcemain-clearcache-pagegrandparent>`
     and
-    :ref:`clearcache-pagesiblingchildren <t3tsconfig:pagetcemain-clearcache-pagesiblingchildren>`)
+    :ref:`clearcache-pagesiblingchildren <t3tsref:pagetcemain-clearcache-pagesiblingchildren>`)
     and :php:`pageId_10` when updating a record if a record of any table placed
     on the page with UID 10 (:php:`<table>.pid = 10`) is updated.
 
