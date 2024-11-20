@@ -112,7 +112,7 @@ The :file:`Configuration` folder contains several subfolders:
     by direct array manipulation or preferably by calls to
     API functions.
 :file:`Configuration/TsConfig/`
-    Contains :ref:`TSconfig <t3tsconfig:start>` configuration for the TYPO3
+    Contains :ref:`TSconfig <t3tsref:typoscript-syntax-using-setting>` configuration for the TYPO3
     backend on page or user level in TypoScript syntax. Our extension
     does not contain TSconfig, so the folder is only a placeholder here.
 :file:`Configuration/TypoScript/`

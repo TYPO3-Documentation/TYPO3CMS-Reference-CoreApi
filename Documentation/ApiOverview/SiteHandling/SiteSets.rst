@@ -12,7 +12,7 @@ Site sets
 Site sets ship parts of the site configuration as composable pieces. They are
 intended to deliver :ref:`settings <sitehandling-settings>`,
 :ref:`TypoScript <t3tsref:start>` and
-:ref:`page TSconfig <t3tsconfig:include-static-page-tsconfig-per-site>`
+:ref:`page TSconfig <t3tsref:include-static-page-tsconfig-per-site>`
 for the scope of a site.
 
 Extensions can provide multiple sets in order to ship presets for different

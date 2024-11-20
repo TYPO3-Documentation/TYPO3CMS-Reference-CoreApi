@@ -73,7 +73,7 @@ Extension files
    :ref:`TCA configuration <t3tca:start>`.
 
 :file:`Configuration/TSconfig/`
-   :ref:`TSconfig configuration <t3tsconfig:start>`.
+   :ref:`TSconfig <t3tsref:typoscript-syntax-using-setting>`.
 
 :file:`Configuration/TypoScript/`
    :ref:`TypoScript configuration <t3tsref:start>`.
@@ -119,8 +119,9 @@ what they mean) are not.
 Configuration methods
 =====================
 
-:ref:`TSconfig <t3tsconfig:start>`
-----------------------------------
+
+:ref:`TSconfig <t3tsref:typoscript-syntax-using-setting>`
+---------------------------------------------------------
 
 While Frontend TypoScript is used to steer the rendering of the frontend, TSconfig is used
 to configure **backend** details for backend users. Using TSconfig it is possible to enable or
@@ -133,7 +134,8 @@ in :ref:`t3tsref:typoscript-syntax`. Other than that, TSconfig and Frontend Typo
 don't have much more in common - they consist of entirely different properties.
 
 A full reference of properties as well as an introduction to explain details configuration usage, API and
-load orders can be found in the :ref:`TSconfig Reference document <t3tsconfig:start>`. While Developers
+load orders can be found in the :ref:`Page TSconfig Reference <t3tsref:pagetoplevelobjects>` and
+:ref:`User TSconfig reference <t3tsref:usertoplevelobjects>`. While Developers
 should have an eye on this document, it is mostly used as a reference for Integrators who make life as
 easy as possible for backend users.
 

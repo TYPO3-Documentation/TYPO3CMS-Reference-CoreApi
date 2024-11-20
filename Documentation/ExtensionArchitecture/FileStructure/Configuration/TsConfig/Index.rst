@@ -8,12 +8,12 @@
 
 Configuration/TsConfig/Page
   page TSconfig, see chapter :ref:`'page TSconfig' in the TSconfig Reference
-  <t3tsconfig:PageTSconfig>`. Files should have the file extension
+  <t3tsref:PageTSconfig>`. Files should have the file extension
   :file:`.tsconfig`.
 
 .. index:: Path; EXT:{extkey}/Configuration/TsConfig/User
 
 Configuration/TsConfig/User
   User TSconfig, see chapter :ref:`'user TSconfig' in the TSconfig Reference
-  <t3tsconfig:UserTSconfig>`. Files should have the file extension
+  <t3tsref:UserTSconfig>`. Files should have the file extension
   :file:`.tsconfig`.

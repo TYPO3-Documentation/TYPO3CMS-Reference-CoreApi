@@ -115,7 +115,7 @@ Transformations are mainly defined in the
 'special configurations' of the $TCA "types"-configuration.
 See label 'special-configuration' in older versions of the TCA-Reference.
 
-In addition :ref:`transformations can be fine-tuned by page TSconfig <t3tsconfig:pageTsRte>`
+In addition :ref:`transformations can be fine-tuned by page TSconfig <t3tsref:pageTsRte>`
 which means that RTE behaviour can be determined even on page branch level!
 
 
