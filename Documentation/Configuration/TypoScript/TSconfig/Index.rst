@@ -9,8 +9,10 @@ TSconfig
 "user TSconfig" and "page TSconfig" are very flexible concepts for
 adding fine-grained configuration to the TYPO3 backend. It is a text-based
 configuration system where you assign values to keyword strings,
-using the TypoScript syntax. The :ref:`TSconfig Reference <t3tsconfig:start>`
-describes in detail how this works and what can be done with it.
+using the TypoScript syntax. The
+:ref:`Page TSconfig Reference <t3tsref:pagetoplevelobjects>` and
+:ref:`User TSconfig reference <t3tsref:usertoplevelobjects>`
+describe in detail how this works and what can be done with it.
 
 
 .. index::

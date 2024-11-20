@@ -184,6 +184,6 @@ A different icon visually distinguishes automatic file mounts.
    This does not apply to group home directories.
 
 The concept of home directories can be efficiently combined with
-the TSconfig :ref:`defaultUploadFolder <t3tsconfig:useroptions>` option,
+the TSconfig :ref:`defaultUploadFolder <t3tsref:useroptions>` option,
 which automatically directs all files uploaded by the user to the
 given directory.

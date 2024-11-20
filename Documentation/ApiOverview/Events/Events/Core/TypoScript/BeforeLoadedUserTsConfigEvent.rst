@@ -10,7 +10,7 @@ BeforeLoadedUserTsConfigEvent
 
 The PSR-14 event
 :php:`\TYPO3\CMS\Core\TypoScript\IncludeTree\Event\BeforeLoadedUserTsConfigEvent`
-can be used to add global static :ref:`user TSconfig <t3tsconfig:usertsconfig>`
+can be used to add global static :ref:`user TSconfig <t3tsref:usertsconfig>`
 before anything else is loaded. This is especially useful, if user TSconfig is
 generated automatically as a string from a PHP function.
 

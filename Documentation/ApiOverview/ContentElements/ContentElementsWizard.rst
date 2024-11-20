@@ -14,7 +14,7 @@ New content element wizard
 ..  contents:: Table of contents
 
 The content element wizard opens when a new content element is
-created. It can be fully configured using :ref:`TSConfig <t3tsconfig:start>`.
+created. It can be fully configured using ref:`Page TSconfig <t3tsref:pagetsconfig>`.
 
 The wizard looks like this:
 
@@ -111,11 +111,11 @@ Override the wizard with page TSconfig
 The TCA is always set globally for the complete TYPO3 installation. If you have
 a multi-site installation and want to alter the appearance of content elements
 in the wizard or remove certain content elements this can be done via
-:ref:` page TSconfig <t3tsconfig:setting-page-tsconfig>`.
+:ref:` page TSconfig <t3tsref:setting-page-tsconfig>`.
 This is commonly done on a per site basis so you can use the :ref:`Site set page TSconfig provider <site-sets-page-tsconfig>`
 in your :ref:`site package <site-package>`.
 
-You can use the settings of :ref:`newContentElement.wizardItems <t3tsconfig:pagenewcontentelementwizard>`.
+You can use the settings of :ref:`newContentElement.wizardItems <t3tsref:pagenewcontentelementwizard>`.
 
 
 .. _content-element-wizard-page-tsconfig-remove:
@@ -123,7 +123,7 @@ You can use the settings of :ref:`newContentElement.wizardItems <t3tsconfig:page
 Remove items from the "New Content Element" wizard
 --------------------------------------------------
 
-Using :confval:`[group].removeItems <t3tsconfig:mod-wizards-newcontentelement-wizarditems-group-removeitems>`
+Using :confval:`[group].removeItems <t3tsref:mod-wizards-newcontentelement-wizarditems-group-removeitems>`
 you can remove a content element type from the wizard.
 
 ..  literalinclude:: _AddingYourOwnContentElements/_page_remove_item.tsconfig
@@ -152,12 +152,12 @@ Change title, description, icon and default values in the wizard
 You can use the following page tsconfig properties to change the display
 of the element in the wizard:
 
-*   :confval:`iconIdentifier <t3tsconfig:mod-wizards-newcontentelement-wizarditems-group-elements-name-iconidentifier>`
-*   :confval:`iconOverlay <t3tsconfig:mod-wizards-newcontentelement-wizarditems-group-elements-name-iconoverlay>`
-*   :confval:`title <t3tsconfig:mod-wizards-newcontentelement-wizarditems-group-elements-name-title>`
-*   :confval:`description <t3tsconfig:mod-wizards-newcontentelement-wizarditems-group-elements-name-description>`
-*   :confval:`tt_content_defValues <t3tsconfig:mod-wizards-newcontentelement-wizarditems-group-elements-name-tt-content-defvalues>`
-*   :confval:`saveAndClose <t3tsconfig:mod-wizards-newcontentelement-wizarditems-group-elements-name-saveandclose>`
+*   :confval:`iconIdentifier <t3tsref:mod-wizards-newcontentelement-wizarditems-group-elements-name-iconidentifier>`
+*   :confval:`iconOverlay <t3tsref:mod-wizards-newcontentelement-wizarditems-group-elements-name-iconoverlay>`
+*   :confval:`title <t3tsref:mod-wizards-newcontentelement-wizarditems-group-elements-name-title>`
+*   :confval:`description <t3tsref:mod-wizards-newcontentelement-wizarditems-group-elements-name-description>`
+*   :confval:`tt_content_defValues <t3tsref:mod-wizards-newcontentelement-wizarditems-group-elements-name-tt-content-defvalues>`
+*   :confval:`saveAndClose <t3tsref:mod-wizards-newcontentelement-wizarditems-group-elements-name-saveandclose>`
 
 ..  literalinclude:: _AddingYourOwnContentElements/_page_change_item.tsconfig
     :caption: EXT:my_sitepackage/Configuration/Sets/MySet/page.tsconfig

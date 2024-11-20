@@ -35,7 +35,7 @@ Depending on the configuration of the Rich Text Editor (RTE), it is
 also possible to enter raw code in the text mode of the RTE. Given the
 fact that HTML/CSS/JavaScript knowledge is not required, you should
 consider disabling the function by configuring the buttons shown in
-the `RTE`. The :ref:`page TSconfig <t3tsconfig:pageTsRte>` enables you to
+the `RTE`. The :ref:`page TSconfig <t3tsref:pageTsRte>` enables you to
 list all buttons visible in the RTE by using the following TypoScript:
 
 .. code-block:: typoscript
