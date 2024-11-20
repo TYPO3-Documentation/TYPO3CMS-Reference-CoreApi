@@ -6,7 +6,7 @@
 Backend layout
 ==============
 
-Backend layouts can be defined as database records or via :ref:`page TSconfig <t3tsconfig:pagetsconfig>`.
+Backend layouts can be defined as database records or via :ref:`page TSconfig <t3tsref:pagetsconfig>`.
 Page TSconfig should be preferred as it can be stored in the file system and
 be kept under version control.
 

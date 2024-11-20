@@ -33,7 +33,7 @@ accessibility. Each node can support multiple labels, sorted by priority, with
 the highest priority label taking precedence over others.
 
 A label can also be assigned to a node via
-:ref:`user TSconfig <t3tsconfig:useroptions-pageTree-label>`. Please note that
+:ref:`user TSconfig <t3tsref:useroptions-pageTree-label>`. Please note that
 only the marker for the label with the highest priority is rendered. All
 additional labels will only be added to the title of the node.
 

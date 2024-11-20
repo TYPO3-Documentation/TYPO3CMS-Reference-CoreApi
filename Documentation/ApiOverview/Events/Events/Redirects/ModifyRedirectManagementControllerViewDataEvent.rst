@@ -19,8 +19,8 @@ For example, this event can be used to add additional information to current
 page records.
 
 Therefore, it can be used to generate custom data, directly assigning to the
-view. With :ref:`overriding the backend view template <t3tsconfig:pagetemplates>`
-via :ref:`page TSconfig <t3tsconfig:pagetsconfig>` this custom data can be
+view. With :ref:`overriding the backend view template <t3tsref:pagetemplates>`
+via :ref:`page TSconfig <t3tsref:pagetsconfig>` this custom data can be
 displayed where it is needed and rendered the way it is wanted.
 
 ..  versionadded:: 13.0
