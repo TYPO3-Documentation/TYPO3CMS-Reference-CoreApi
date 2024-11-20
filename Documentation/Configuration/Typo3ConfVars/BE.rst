@@ -495,7 +495,7 @@ the TYPO3 backend:
 
     *   :php:`defaultPermissions` from :php:`TYPO3\CMS\Core\DataHandling\PagePermissionAssembler`
     *   :php:`$GLOBALS['TYPO3_CONF_VARS']['BE']['defaultPermissions']` (the option described here)
-    *   Page TSconfig via :ref:`TCEMAIN.permissions <t3tsconfig:pagetcemain-permissions-user-group>`
+    *   Page TSconfig via :ref:`TCEMAIN.permissions <t3tsref:pagetcemain-permissions-user-group>`
 
     Example (which reflects the default permissions):
 
@@ -530,7 +530,7 @@ the TYPO3 backend:
 
     *   :php:`uc_default` in :php:`TYPO3\CMS\Core\Authentication\BackendUserAuthentication`
     *   :php:`$GLOBALS['TYPO3_CONF_VARS']['BE']['defaultUC']` (the option described here)
-    *   User TSconfig via :ref:`setup <t3tsconfig:usersetup>`
+    *   User TSconfig via :ref:`setup <t3tsref:usersetup>`
 
     Example (which reflects the default user settings):
 
@@ -544,7 +544,7 @@ the TYPO3 backend:
             'edit_docModuleUpload' => '1',
         ];
 
-    Visit the :ref:`setup <t3tsconfig:usersetup>` chapter of the User TSconfig guide for
+    Visit the :ref:`setup <t3tsref:usersetup>` chapter of the User TSconfig guide for
     a list of all available options.
 
 ..  _typo3ConfVars_be_customPermOptions:

@@ -22,7 +22,7 @@ pages without them being directly live.
 ..  note::
     In case no site configuration has been created for a tree, all configured
     languages are displayed. In this case the :ref:`page TSconfig options
-    <t3tsconfig:pagemod>` :typoscript:`mod.SHARED.defaultLanguageFlag`,
+    <t3tsref:pagemod>` :typoscript:`mod.SHARED.defaultLanguageFlag`,
     :typoscript:`mod.SHARED.defaultLanguageLabel` and
     :typoscript:`mod.SHARED.disableLanguages` settings are also considered -
     those are obsolete, if a site configuration exists.

@@ -108,7 +108,7 @@ calling the :php:`start()` method (which will initialize internal state).
 
 ..  note::
     Clearing a given cache is possible only for users that are
-    "admin" or have :ref:`specific permissions <t3tsconfig:useroptions>` to do so.
+    "admin" or have :ref:`specific permissions <t3tsref:useroptions>` to do so.
 
 ..  literalinclude:: _ClearCache.php
     :language: php

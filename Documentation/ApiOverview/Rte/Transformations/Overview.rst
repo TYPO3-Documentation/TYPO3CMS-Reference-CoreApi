@@ -35,7 +35,7 @@ database. The order is reversed when the content is loaded into the
 RTE again.
 
 Processing can also be overwritten by page TSconfig, see the
-:ref:`according section of the page TSconfig reference <t3tsconfig:pageTsRte>` for details.
+:ref:`according section of the page TSconfig reference <t3tsref:pageTsRte>` for details.
 
 
 .. index:: Rich text editor; Transformation filters

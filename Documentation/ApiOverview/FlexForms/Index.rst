@@ -492,7 +492,7 @@ FlexForm attribute. If that is missing, an empty value will be
 shown in the backend (:ref:`FormEngine <FormEngine>`)
 fields.
 
-While you can use page TSconfig's :ref:`t3tsconfig:pageTsTcaDefaults` to
+While you can use page TSconfig's :ref:`t3tsref:pageTsTcaDefaults` to
 modify defaults of usual TCA-based attributes, this is not
 possible on FlexForms. This is because the values are calculated
 at an earlier step in the Core workflow, where FlexForm values

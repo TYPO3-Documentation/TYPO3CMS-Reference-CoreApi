@@ -6,7 +6,7 @@
 Link handler configuration
 ==========================
 
-Link browser tabs are registered in :ref:`page TSconfig <t3tsconfig:pagetsconfig>` like this:
+Link browser tabs are registered in :ref:`page TSconfig <t3tsref:pagetsconfig>` like this:
 
 ..  include:: /CodeSnippets/Tutorials/LinkBrowser/Classes/HaikuRecordLinkBrowserTsconfig.rst.txt
 

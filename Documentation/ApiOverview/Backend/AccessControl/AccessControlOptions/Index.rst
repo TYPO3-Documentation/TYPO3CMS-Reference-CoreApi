@@ -32,7 +32,7 @@ User TSconfig
    customize the backend and individual modules.
 
    All user TSconfig options are described in the
-   :ref:`TSconfig Reference <t3tsconfig:usertsconfig>`
+   :ref:`TSconfig Reference <t3tsref:usertsconfig>`
 
 
 .. _access-options-access-lists:
@@ -262,7 +262,7 @@ permissions.
 When a user creates new pages in TYPO3 CMS they will by default get the
 creating user as owner. The owner group will be set to the *first
 listed user group* configured for the users record (if any). These defaults
-can be changed through :ref:`page TSconfig <t3tsconfig:pagetcemain-permissions-user-group>`.
+can be changed through :ref:`page TSconfig <t3tsref:pagetcemain-permissions-user-group>`.
 
 
 .. _access-options-user-tsconfig:
@@ -274,4 +274,4 @@ User TSconfig is a hierarchical configuration structure entered in
 plain text TypoScript. It can be used by all kinds of applications
 inside of TYPO3 CMS to retrieve customized settings for users which
 relates to a certain module or part. The options available are
-described in the :ref:`document TSconfig <t3tsconfig:usertsconfig>` .
+described in the :ref:`document TSconfig <t3tsref:usertsconfig>` .
