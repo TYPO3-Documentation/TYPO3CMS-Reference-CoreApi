@@ -139,6 +139,8 @@ How to create (good) translations
     for collaborating with your team translators, and please join the
     `Translation Slack channel #typo3-translations`_.
 
+..  note::
+    When translating into German, we prefer the informal "du" to the formal "Sie".
 
 Translation styles
 ==================
