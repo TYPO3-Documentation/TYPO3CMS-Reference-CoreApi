@@ -12,7 +12,7 @@ Frontend cache collector
     This request attribute is a replacement for
     :php:`TypoScriptFrontendController->addCacheTags()` and
     :php:`TypoScriptFrontendController->getPageCacheTags()` which has been
-    deprecated with TYPO3 v13.3.
+    deprecated with TYPO3 v13.3 and removed with TYPO3 v14.0.
 
 An API is available to collect cache tags and their corresponding lifetime. This
 API is used in TYPO3 to accumulate cache tags from page cache and content object
