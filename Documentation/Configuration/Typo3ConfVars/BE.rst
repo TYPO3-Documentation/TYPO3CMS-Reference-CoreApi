@@ -519,7 +519,7 @@ the TYPO3 backend:
         instead.
 
         See also
-        :ref:`Setting default User TSconfig <t3tsconfig:usersettingdefaultusertsconfig>`.
+        :ref:`Setting default User TSconfig <t3tsref:usersettingdefaultusertsconfig>`.
 
 ..  _typo3ConfVars_be_defaultPageTSconfig:
 
@@ -532,7 +532,7 @@ the TYPO3 backend:
         This setting will be ignored with TYPO3 v14.0.
         Use :ref:`Configuration/page.tsconfig <extension-configuration-page_tsconfig>` instead.
 
-        See also :ref:`Setting the page TSconfig globally <t3tsconfig:pagesettingdefaultpagetsconfig>`.
+        See also :ref:`Setting the page TSconfig globally <t3tsref:pagesettingdefaultpagetsconfig>`.
 
 ..  _typo3ConfVars_be_defaultPermissions:
 

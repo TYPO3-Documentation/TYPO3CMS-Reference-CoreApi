@@ -75,7 +75,7 @@ file:`ext_localconf.php`
 *   Registering :ref:`hooks <hooks-concept>`, :ref:`XCLASSes <xclasses>`
     or any simple array assignments to :php:`$GLOBALS['TYPO3_CONF_VARS']` options
 *   Registering additional Request Handlers within the :ref:`Bootstrap <bootstrapping>`
-*   Adding any :ref:`page TSconfig <t3tsconfig:pagesettingdefaultpagetsconfig>`
+*   Adding any :ref:`page TSconfig <t3tsref:pagesettingdefaultpagetsconfig>`
 *   Adding default TypoScript via :php:`\TYPO3\CMS\Core\Utility\ExtensionManagementUtility` APIs
 *   Registering Scheduler Tasks
 *   Adding reports to the reports module
@@ -109,11 +109,11 @@ Put all page TSconfig that must always be loaded into file
 :file:`EXT:some_extension/Configuration/page.tsconfig`. If your extension should
 also be compatible with TYPO3 v11, you can additionally load it in the
 :file:`ext_localconf.php`: :ref:`Global page TSconfig, compatible
-with TYPO3 11 and 12 <t3tsconfig:page-tsconfig-v11-v12>`:
+with TYPO3 11 and 12 <t3tsref:page-tsconfig-v11-v12>`:
 
 Page TSconfig that can be added in the page settings should be added in the
 file :file:`Configuration/TCA/Overrides/pages.php`, see
-:ref:`t3tsconfig:pagesettingstaticpagetsconfigfiles`.
+:ref:`t3tsref:pagesettingstaticpagetsconfigfiles`.
 
 .. index:: Extension development; UserTSconfig
 
@@ -133,10 +133,10 @@ Adding default user TSconfig
 
 As for default page TSconfig, user TSconfig can be added inside
 :file:`ext_localconf.php`, see:
-:ref:`t3tsconfig:usersettingdefaultusertsconfig`:
+:ref:`t3tsref:usersettingdefaultusertsconfig`:
 
 ..  literalinclude:: _ext_localconf_user_tsconfig.php
     :language: php
     :caption: EXT:my_extension/ext_localconf.php
 
-See also :ref:`Setting user TSconfig <t3tsconfig:setting-user-tsconfig>`.
+See also :ref:`Setting user TSconfig <t3tsref:setting-user-tsconfig>`.
