@@ -67,6 +67,9 @@ main column. Multiple backend layouts that contain similar parts, i.e. header, f
 assigned the same number within one project. This leads to a uniform position of the content, which makes it more clear
 for further use.
 
+For usage with the :ref:`page-content data processor <t3tsref:PageContentFetchingProcessor>`, an identifier string must
+be assigned to each column. The default backend layout definition uses `identifier = main` for column `0`.
+
 .. index:: Backend layout; Example
 .. _be-layout-simple-example:
 
@@ -90,6 +93,7 @@ The following page TSconfig example creates a simple backend layout consisting o
                  1 {
                    columns {
                      1 {
+                       identifier = border
                        name = LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:colPos.I.3
                        colPos = 3
                        colspan = 1
@@ -99,6 +103,7 @@ The following page TSconfig example creates a simple backend layout consisting o
                  2 {
                    columns {
                      1 {
+                       identifier = main
                        name = Main
                        colPos = 0
                        colspan = 1
@@ -136,6 +141,7 @@ row (here called "header") spans all 3 columns. There is an "aside" spanning two
              1 {
                columns {
                  1 {
+                   identifier = header
                    name = Header
                    colspan = 3
                    colPos = 1
@@ -145,11 +151,13 @@ row (here called "header") spans all 3 columns. There is an "aside" spanning two
              2 {
                columns {
                  1 {
+                   identifier = main
                    name = Main
                    colspan = 2
                    colPos = 0
                  }
                  2 {
+                   identifier = aside
                    name = Aside
                    rowspan = 2
                    colPos = 2
@@ -159,10 +167,12 @@ row (here called "header") spans all 3 columns. There is an "aside" spanning two
              3 {
                columns {
                  1 {
+                   identifier = left
                    name = Main Left
                    colPos = 5
                  }
                  2 {
+                   identifier = right
                    name = Main Right
                    colPos = 6
                  }
