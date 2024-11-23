@@ -118,7 +118,7 @@ to this wizard (via page TSconfig).
    Starting with TYPO3 version 12.0 file :file:`EXT:examples/Configuration/page.tsconfig`
    is automatically included. For version 11.5 and below this file has to be included in the
    :file:`ext_localconf.php`. See :ref:`Setting global page TSconfig, compatible with TYPO3
-   11 and 12 <t3tsconfig:page-tsconfig-v11-v12>`.
+   11 and 12 <t3tsref:page-tsconfig-v11-v12>`.
 
 .. figure:: /Images/ManualScreenshots/Backend/ContentElementWizard.png
    :class: with-shadow

@@ -549,7 +549,7 @@ the TYPO3 backend:
         ');
 
     Read more about
-    :ref:`Setting default User TSconfig <t3tsconfig:usersettingdefaultusertsconfig>`.
+    :ref:`Setting default User TSconfig <t3tsref:usersettingdefaultusertsconfig>`.
 
 ..  _typo3ConfVars_be_defaultPageTSconfig:
 
@@ -578,7 +578,7 @@ the TYPO3 backend:
     instead of setting this global variable.
 
     Read more about
-    :ref:`Setting the Page TSconfig globally <t3tsconfig:pagesettingdefaultpagetsconfig>`.
+    :ref:`Setting the Page TSconfig globally <t3tsref:pagesettingdefaultpagetsconfig>`.
 
 ..  _typo3ConfVars_be_defaultPermissions:
 

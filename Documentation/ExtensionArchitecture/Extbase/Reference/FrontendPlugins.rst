@@ -94,7 +94,7 @@ Use the following steps to add the plugin as content element:
 
 #.  (Optional) Add to the :guilabel:`New Content Element` wizard
 
-    Add the following :ref:`page TSconfig <t3tsconfig:setting-page-tsconfig>`
+    Add the following :ref:`page TSconfig <t3tsref:setting-page-tsconfig>`
     to add the new plugin to the wizard:
 
     ..  literalinclude::  _FrontendPlugin/_page.tsconfig
@@ -115,7 +115,7 @@ Use the following steps to add the plugin as content element:
     In TYPO3 v11 you still need to include the page TSconfig file, in TYPO3 v12
     it is automatically globally included.
 
-    See :ref:`t3tsconfig:pagesettingdefaultpagetsconfig`.
+    See :ref:`t3tsref:pagesettingdefaultpagetsconfig`.
 
 ..  _extbase_frontend_plugin_typoscript:
 
