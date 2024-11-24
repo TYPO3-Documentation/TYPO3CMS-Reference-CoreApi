@@ -45,3 +45,10 @@ Update backend translations
 ===========================
 
 ..  include:: BackendTranslations.rst.txt
+
+..  _maintain-htaccess:
+
+Verify webserver configuration (.htaccess)
+==========================================
+
+..  include:: WebserverConfiguration.rst.txt
