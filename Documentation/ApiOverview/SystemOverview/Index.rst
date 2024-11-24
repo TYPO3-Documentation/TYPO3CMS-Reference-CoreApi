@@ -8,22 +8,22 @@ System Overview
 ===============
 
 The TYPO3 system is multi-layered. The backend and frontend user interfaces
-sit on top of the application layer, which in turn sits on the infrastructure
+sit on top of the application layer, which in turn sits on top of the infrastructure
 layer. The webserver, database and PHP in the infrastructure layer are
 prerequisites for running TYPO3.
 
-TYPO3 Core primarily consists of the API (Application Programming Interface),
-which defines a framework for managing the project content. The base features
-of the API include content storage, user permissions and access, content
-editing, and file management. These features are delivered via system
+The TYPO3 Core primarily consists of an API (Application Programming Interface),
+which defines a framework for managing content in the project. The API
+includes functionality for content storage, user permissions and access, content
+editing, and file management. This functionality is delivered via system
 **extensions** that use the API. All of the content is stored in a database
-that TYPO3 then accesses via the API.
+that TYPO3 accesses via the API.
 
-Extensions are clearly confined code additions, such as plugins, backend
+Extensions are clearly defined parcels of code, such as plugins, backend
 modules, application logic, skins, and third-party apps.
 
-The most important thing to note is that everything is an extension in TYPO3
-CMS. Even the most basic functions are packaged in a system extension called
+The most important thing to note is that the TYPO3 CMS consists solely
+of extensions. The most basic functions are packaged in a system extension called
 "core".
 
 .. figure:: /Images/Graphics/Typo3CmsStructure.svg
@@ -49,13 +49,13 @@ single, unified system.
 User interface layer
 ====================
 
-The backend is the **content-creation** side. It is the administrative area
-where you manage content and configuration based on the extensions that are
+The backend is the **content-creation** side. It is an administrative area
+where you can manage content and configuration based on the extensions that are
 installed.
 
 The frontend is the **content-delivery** side. Typically a website, it is the
-meeting place for templates, CSS, content, and logic from extensions,
+meeting point for templates, CSS, content, and logic from extensions,
 delivering your project to the world.
-The frontend doesn't have to be a website, it could be a native mobile
-application, a web application built in a frontend framework,  or an API to
+The frontend doesn't have to be a website, it can be a native mobile
+application, a web application built in a frontend framework, or an API to
 interface with other systems.
