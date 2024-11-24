@@ -1,5 +1,3 @@
-..  include:: /Includes.rst.txt
-
 ..  _use-the-upgrade-wizard:
 
 Enter the Install Tool at :samp:`https://example.org/typo3/install.php` on your
