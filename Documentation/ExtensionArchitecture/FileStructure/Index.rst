@@ -48,6 +48,15 @@ The following folders and files can typically be found in a TYPO3 extension:
             *   <tablename>.php
             *   ...
 
+        *   :ref:`Sets <extension-configuration-sets>`
+
+            *   <SetIdentifier>
+
+                *   `config.yaml (mandatory) <https://docs.typo3.org/permalink/t3coreapi:extension-configuration-sets-config-yaml>`_
+                *   `settings.definitions.yaml <https://docs.typo3.org/permalink/t3coreapi:extension-configuration-sets-settings-definitions-yaml>`_
+                *   `setup.typoscript <https://docs.typo3.org/permalink/t3coreapi:extension-configuration-sets-setup-typoscript>`_
+                *   ...
+
         *   :ref:`TsConfig <extension-configuration-tsconfig>`
 
             *   ...
@@ -171,5 +180,5 @@ will create the correct structure for you.
    :glob:
    :hidden:
 
-   *
    */Index
+   *
