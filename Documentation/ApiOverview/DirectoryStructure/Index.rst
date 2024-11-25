@@ -85,9 +85,9 @@ This path can be retrieved from the Environment API, see
 :file:`packages/`
 -----------------
 
-Each web site which is run on TYPO3 **should**
-have a sitepackage, an extension with a special purpose containing all
-templates, styles, images, etc. needed for the theme.
+Each web site which is run on TYPO3 **should** have a
+:ref:`sitepackage <t3sitepackage:start>`, an extension with a special purpose
+containing all templates, styles, images, etc. needed for the theme.
 
 It is usually stored locally and then symlinked into the :ref:`directory-vendor`
 folder. Many projects also need custom extensions that can be stored here.
