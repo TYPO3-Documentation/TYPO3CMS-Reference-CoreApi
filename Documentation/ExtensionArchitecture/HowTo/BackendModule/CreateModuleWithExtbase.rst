@@ -58,8 +58,7 @@ After that you can add titles, menus and buttons using :php:`ModuleTemplate`:
         $this->view->assign('someVar', 'someContent');
         $moduleTemplate = $this->moduleTemplateFactory->create($this->request);
         // Adding title, menus, buttons, etc. using $moduleTemplate ...
-        $moduleTemplate->setContent($this->view->render());
-        return $this->htmlResponse($moduleTemplate->renderContent());
+        return $moduleTemplate->renderResponse('MyController/MyAction');
     }
 
 ..  seealso::
