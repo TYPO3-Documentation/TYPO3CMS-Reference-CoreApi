@@ -12,4 +12,3 @@ deployment strategy.
 For NGINX based webservers, you may also need to adapt configuration. The changelogs of
 TYPO3 will contain upgrade instructions, like in
 :ref:`Deprecation: #87889 - TYPO3 backend entry point script deprecated <changelog:deprecation-87889-1705928143>`
-
