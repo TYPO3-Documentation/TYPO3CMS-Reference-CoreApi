@@ -18,7 +18,7 @@ final readonly class MyEventListener
             return;
         }
 
-        if ($event->getRecord()['CType'] === 'example_ctype') {
+        if ($event->getRecordType() === 'example_ctype') {
             $event->setPreviewContent('<div>...</div>');
         }
     }
