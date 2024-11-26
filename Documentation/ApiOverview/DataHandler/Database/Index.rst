@@ -589,7 +589,7 @@ Clear cache using cache tags
 ----------------------------
 
 Every processing of data or commands is finalized with flushing a few caches in
-the :php:`pages` group. Cache tags are used to specifically flush the the
+the :php:`pages` group. Cache tags are used to specifically flush the
 relevant cache entries instead of the cache as whole.
 
 By default the following cache tags are flushed:
