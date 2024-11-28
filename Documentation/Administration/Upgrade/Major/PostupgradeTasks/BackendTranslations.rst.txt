@@ -1,5 +1,3 @@
-..  include:: /Includes.rst.txt
-
 ..  _update-translations:
 
 In the Install tool, go to the module "Maintenance" -> "Manage languages" and

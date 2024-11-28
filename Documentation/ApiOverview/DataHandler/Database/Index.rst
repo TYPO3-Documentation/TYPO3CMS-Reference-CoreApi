@@ -589,7 +589,7 @@ Clear cache using cache tags
 ----------------------------
 
 Every processing of data or commands is finalized with flushing a few caches in
-the :php:`pages` group. Cache tags are used to specifically flush the the
+the :php:`pages` group. Cache tags are used to specifically flush the
 relevant cache entries instead of the cache as whole.
 
 By default the following cache tags are flushed:
@@ -609,7 +609,7 @@ By default the following cache tags are flushed:
     and :php:`pageId_10` when updating a record if a record of any table placed
     on the page with UID 10 (:php:`<table>.pid = 10`) is updated.
 
-Notice that you can also use the :php:`TypoScriptFrontendController->addCacheTags()`
+Notice that you can also use the :php:method:`\TYPO3\CMS\Core\Cache\CacheDataCollector::addCacheTags`
 method to register additional tags for the cache entry of the current page while
 it is rendered. This way you can implement an elaborate caching behavior which
 ensures that every record update in the TYPO3 backend (which is processed by the

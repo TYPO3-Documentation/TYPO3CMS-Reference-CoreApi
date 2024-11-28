@@ -1,5 +1,3 @@
-..  include:: /Includes.rst.txt
-
 ..  _database_analyser:
 
 While in the previous step, tables and columns have been *changed or added* to

@@ -107,7 +107,7 @@ manualy:
          ],
          "...": "..."
       }
-
+      
 .. _directory-public:
 
 :file:`public/`
