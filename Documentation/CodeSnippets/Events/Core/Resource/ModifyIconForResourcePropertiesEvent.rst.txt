@@ -12,11 +12,6 @@
     ..  php:method:: getIconSize()
         :returns: `\TYPO3\CMS\Core\Imaging\IconSize`
 
-    ..  php:method:: getSize()
-        :returns: `string`
-
-        **Deprecated:** will be removed in v13, use getIconSize instead.
-
     ..  php:method:: getOptions()
         :returns: `array`
 
