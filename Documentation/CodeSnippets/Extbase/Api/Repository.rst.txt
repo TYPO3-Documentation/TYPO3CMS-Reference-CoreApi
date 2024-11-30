@@ -99,16 +99,6 @@
 
         Returns a query for objects of this repository
 
-    ..  php:method:: __call(?non-empty-string $methodName, ?array<int,mixed> $arguments)
-        :returns: `mixed`
-
-        **Deprecated:** since v12, will be removed in v14, use {@see \self::findBy()}, {@see \self::findOneBy()} and {@see \self::count()} instead
-
-        Dispatches magic methods (findBy[Property]())
-
-        :param $methodName: The name of the magic method
-        :param $arguments: The arguments of the magic method
-
     ..  php:method:: findBy(array $criteria, ?array $orderBy = NULL, ?int $limit = NULL, ?int $offset = NULL)
         :returns: `\QueryResultInterface`
 

@@ -39,7 +39,7 @@
         'tt_content',
         '--div--;Configuration,pi_flexform,',
         $pluginSignature,
-        'after:header',
+        'after:subheader',
     );
 
     ExtensionManagementUtility::addPiFlexFormValue(

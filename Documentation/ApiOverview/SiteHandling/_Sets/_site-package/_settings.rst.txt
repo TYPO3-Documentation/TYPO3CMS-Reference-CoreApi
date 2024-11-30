@@ -6,9 +6,9 @@
 
     styles:
       templates:
-        layoutRootPath: EXT:site_package/Resources/Private/Layouts/ContentElements
-        partialRootPath: EXT:site_package/Resources/Private/Partials/ContentElements
-        templateRootPath: EXT:site_package/Resources/Private/Templates/ContentElements
+        layoutRootPath: EXT:site_package/Resources/Private/ContentElements/Layouts
+        partialRootPath: EXT:site_package/Resources/Private/ContentElements/Partials
+        templateRootPath: EXT:site_package/Resources/Private/ContentElements/Templates
       content:
         textmedia:
           maxW: 1200
