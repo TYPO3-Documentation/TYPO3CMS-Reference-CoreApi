@@ -181,7 +181,7 @@ files.
         <xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
             <file source-language="en" target-language="gsw_CH" datatype="plaintext" original="EXT:setup/Resources/Private/Language/locallang.xlf">
                 <body>
-                    <trans-unit id="lang_gsw_CH" resname="lang_gsw_CH" approved="yes">
+                    <trans-unit id="lang_gsw_CH" approved="yes">
                         <source>Swiss German</source>
                         <target>Schwiizertüütsch</target>
                     </trans-unit>
