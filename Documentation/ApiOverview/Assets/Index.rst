@@ -65,6 +65,15 @@ inserting JavaScript and CSS code.
 The asset collector also collects information about images on a page,
 which can be used in cached and non-cached components.
 
+..  versionadded:: 13.3
+    Option `external` to skip URL processing in AssetRenderer has been added.
+
+The :php:`AssetCollector` option `external` can be used for
+asset files using :php:`$assetCollector->addStyleSheet()`
+or :php:`$assetCollector->addJavaScript()`. If set all processing of the asset
+URI (like the addition of the cache busting parameter) is skipped and the input
+path will be used as-is in the resulting HTML tag.
+
 ..  _asset-collector-api:
 
 The API
@@ -185,6 +194,24 @@ Check if a JavaScript file with the given identifier exists:
     } else {
         // result: false - JavaScript with identifier $identifier does not exist
     }
+
+The following code skips the cache busting parameter `?1726090820` for the supplied CSS file:
+
+..  code-block:: php
+    :caption: EXT:my_extension/Classes/MyClass.php
+
+    $assetCollector->addStyleSheet(
+        'myCssFile',
+        PathUtility::getAbsoluteWebPath(GeneralUtility::getFileAbsFileName('EXT:my_extension/Resources/Public/MyFile.css')),
+        [],
+        ['external' => true]
+    );
+
+Resulting in the following HTML output:
+
+..  code-block:: html
+
+    <link rel="stylesheet" href="/_assets/<hash>/myFile.css" />
 
 
 .. index::
