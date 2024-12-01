@@ -12,6 +12,7 @@ Assets (CSS, JavaScript, Media)
 ..  contents:: **Table of Contents**
     :local:
 
+..  _assets-introduction:
 
 Introduction
 ============
@@ -33,6 +34,8 @@ more convenient :php:`AssetCollector` is possible.
    AssetCollector
    Fluid; asset.script
    Fluid; asset.css
+
+..  _asset-collector:
 
 Asset collector
 ===============
@@ -62,6 +65,7 @@ inserting JavaScript and CSS code.
 The asset collector also collects information about images on a page,
 which can be used in cached and non-cached components.
 
+..  _asset-collector-api:
 
 The API
 -------
@@ -78,6 +82,8 @@ The API
 
 .. index:: pair: Assets; Viewhelpers
 
+..  _assets-viewhelper:
+
 ViewHelper
 ----------
 
@@ -88,6 +94,8 @@ use the :php:`AssetCollector` API.
 
 
 .. index:: pair: Assets; Rendering order
+
+..  _assets-rendering-order:
 
 Rendering order
 ---------------
@@ -181,6 +189,8 @@ Check if a JavaScript file with the given identifier exists:
    Events; BeforeJavaScriptsRenderingEvent
    Events; BeforeStylesheetsRenderingEvent
 
+..  _assets-events:
+
 Events
 ------
 
@@ -194,6 +204,8 @@ There are two events available that allow additional adjusting of assets:
 
 Former methods to add assets
 ============================
+
+..  _assets-page-renderer:
 
 Using the page renderer
 -----------------------
@@ -217,6 +229,8 @@ The following methods can then be used:
 *   :php:`$this->pageRenderer->addJsInlineCode($name, $javaScriptCode)`
 *   :php:`$this->pageRenderer->addJsLibrary($name, $file)`
 
+
+..  _assets-TypoScriptFrontendController:
 
 Using the TypoScriptFrontendController
 --------------------------------------
