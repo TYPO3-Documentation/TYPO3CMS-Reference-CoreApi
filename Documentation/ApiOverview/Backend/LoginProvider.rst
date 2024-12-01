@@ -89,6 +89,16 @@ An implementation of :php-short:`\TYPO3\CMS\Backend\LoginProvider\LoginProviderI
 look like this for TYPO3 v13:
 
 ..  literalinclude:: _LoginProvider/_MyLoginProvider.php
+    :caption: EXT:my_extension/Clases/Login/MyLoginProvider.php
+    :linenos:
+
+The default implementation in :php-short:`\TYPO3\CMS\Backend\LoginProvider\UsernamePasswordLoginProvider`
+is a good example. Extensions that need to configure additional template, layout or
+partial lookup paths can extend them, see lines 23-28 in the example above-
+
+Consumers of :php-short:`\TYPO3\CMS\Backend\LoginProvider\Event\ModifyPageLayoutOnLoginProviderSelectionEvent`
+should use the request instead, and/or should get an instance of
+:php-short:`\TYPO3\CMS\Core\Page\PageRenderer` injected as well.
 
 ..  _login-provider-view:
 
