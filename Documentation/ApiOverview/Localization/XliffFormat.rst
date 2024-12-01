@@ -35,23 +35,9 @@ Basics
 
 Here is a sample XLIFF file:
 
-..  code-block:: xml
+..  literalinclude:: _snippets/_example.xlf
+    :language: xml
     :caption: EXT:my_ext/Resources/Private/Language/Modules/<file-name>.xlf
-
-    <?xml version="1.0" encoding="UTF-8"?>
-    <xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
-        <file source-language="en" datatype="plaintext" original="EXT:my_ext/Resources/Private/Language/Modules/<file-name>.xlf" date="2020-10-18T18:20:51Z" product-name="my_ext">
-            <header/>
-            <body>
-                <trans-unit id="headerComment" resname="headerComment">
-                    <source>The default Header Comment.</source>
-                </trans-unit>
-                <trans-unit id="generator" resname="generator">
-                    <source>The "Generator" Meta Tag.</source>
-                </trans-unit>
-            </body>
-        </file>
-    </xliff>
 
 The following attributes should be populated properly in order to get the
 best support in external translation tools:
@@ -59,10 +45,8 @@ best support in external translation tools:
 :xml:`original` (in :xml:`<file>` tag)
     This property contains the path to the xlf file.
 
-:xml:`resname` (in :xml:`<trans-unit>` tag)
-    Its content is shown to translators. It should be a copy of the
-    :xml:`id` property.
-
+If the external tool used depends on the attribute `resname` you can also
+define it. TYPO3 does not consider this attribute.
 
 ..  _xliff-translated-file-name:
 
@@ -99,25 +83,9 @@ that contains the translated string.
 
 This is how the translation of our sample file might look like:
 
-..  code-block:: xml
+..  literalinclude:: _snippets/_example2.xlf
+    :language: xml
     :caption: EXT:my_ext/Resources/Private/Language/Modules/<file-name>.xlf
-
-    <?xml version="1.0" encoding="UTF-8"?>
-    <xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
-        <file source-language="en" target-language="de" datatype="plaintext" original="EXT:my_ext/Resources/Private/Language/Modules/<file-name>.xlf" date="2020-10-18T18:20:51Z" product-name="my_ext">
-            <header/>
-            <body>
-                <trans-unit id="headerComment" resname="headerComment" approved="yes">
-                    <source>The default Header Comment.</source>
-                    <target>Der Standard-Header-Kommentar.</target>
-                </trans-unit>
-                <trans-unit id="generator" resname="generator" approved="yes">
-                    <source>The "Generator" Meta Tag.</source>
-                    <target>Der "Generator"-Meta-Tag.</target>
-                </trans-unit>
-            </body>
-        </file>
-    </xliff>
 
 Only one language can be stored per file, and each translation into another
 language is placed in an additional file.
@@ -164,6 +132,8 @@ ID naming
 It is recommended to apply the following rules for defining identifiers (the
 :xml:`id` attribute).
 
+.. _xliff-id-naming-dots:
+
 Separate by dots
 ----------------
 
@@ -184,6 +154,8 @@ Bad examples:
 
 
 ..  index:: XLIFF; Namespace
+
+.. _xliff-id-naming-namespace:
 
 Namespace
 ---------
@@ -208,6 +180,8 @@ Bad example:
 Namespaces should be defined by context.
 ``menuAbstract.CType`` could also be a reasonable namespace
 if the context is about ``menuAbstract``.
+
+.. _xliff-id-naming-lower-camel:
 
 lowerCamelCase
 --------------
