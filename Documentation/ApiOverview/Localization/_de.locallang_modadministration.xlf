@@ -2,7 +2,7 @@
 <xliff version="1.0">
     <file source-language="en" datatype="plaintext" date="2013-03-09T18:44:59Z" product-name="examples">
         <body>
-            <trans-unit id="pages.title_formlabel" resname="pages.title_formlabel" approved="yes">
+            <trans-unit id="pages.title_formlabel" approved="yes">
                 <source>Most important title</source>
                 <target>Wichtigster Titel</target>
             </trans-unit>

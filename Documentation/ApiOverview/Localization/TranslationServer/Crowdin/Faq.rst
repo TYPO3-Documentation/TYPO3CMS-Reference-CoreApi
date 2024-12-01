@@ -65,19 +65,7 @@ How to convert to the new language XLIFF file format
 
 If you have :ref:`downloaded an XLIFF file <migrate-from-pootle>` from the
 deactivated Pootle language server or an old version of an extension, then it
-does not have the correct format. You need to remove some attributes. And you
-need to add the :xml:`resname` attribute. For this you can use a Linux tool or a
-sophisticated editor to copy the :xml:`id` attribute into the :xml:`resname` of
-the :ref:`XLIFF <xliff>` file based on regular expressions.
-
-In most editors you can use regular expressions, for example, in PhpStorm:
-
-#.  Open the XLIFF file in the editor.
-#.  Press :kbd:`Ctrl` + :kbd:`R` to open the search and replace pane
-#.  Find: `id="(.+?)"` / Replace: `id="$1" resname="$1"`
-#.  Click the regex icon (:guilabel:`.*`) to enable regular expressions.
-#.  Click on button :guilabel:`Replace All`
-
+does not have the correct format. You need to remove some attributes.
 
 Questions about extension integration
 =====================================
