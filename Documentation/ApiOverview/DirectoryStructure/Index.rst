@@ -85,30 +85,29 @@ This path can be retrieved from the Environment API, see
 :file:`packages/`
 -----------------
 
-Each web site which is run on TYPO3 **should** have a
-:ref:`sitepackage <t3sitepackage:start>`, an extension with a special purpose
-containing all templates, styles, images, etc. needed for the theme.
+If you installed TYPO3 using the base distribution `composer create "typo3/cms-base-distribution"`
+this folder is automatically created and registered as repository in the the :file:`composer.json`.
 
-It is usually stored locally and then symlinked into the :ref:`directory-vendor`
-folder. Many projects also need custom extensions that can be stored here.
+You can put your site package and other extensions to be installed locally here. Then you can just
+install the extension with `composer install myvendor/my-sitepackage`.
 
-The folder for local packages has to be defined in the project's :file:`composer.json`
-to be used:
+If you did not use the base-distribution, create the directory and add it to your repositories
+manualy:
 
-..  code-block:: json
-    :caption: composer.json
+..  code-block:: diff
+    :caption: composer.json (diff)
 
-    {
-        "name": "myvendor/my-project",
-        "repositories": {
-            "packages": {
-                "type": "path",
-                "url": "packages/*"
-            }
-        },
-        "...": "..."
-    }
-
+      {
+         "name": "myvendor/my-project",
+         "repositories": [
+     +       {
+     +           "type": "path",
+     +           "url": "packages/*"
+             }
+         ],
+         "...": "..."
+      }
+      
 .. _directory-public:
 
 :file:`public/`
