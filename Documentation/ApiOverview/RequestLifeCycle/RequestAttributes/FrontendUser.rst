@@ -17,12 +17,17 @@ The topic is described in depth in chapter
 Example:
 
 ..  code-block:: php
+    :caption: EXT:my_extension/Classes/Service/MyService.php
 
     use TYPO3\CMS\Frontend\Authentication\FrontendUserAuthentication;
-    
-    /** @var FrontendUserAuthentication $frontendUserAuthentification */
-    $frontendUserAuthentification = $request->getAttribute('frontend.user');
-    $frontendUserAuthentification->fetchGroupData($request);
+
+    public function doSomethingToFrontendUser(ServerRequestInterface $request): void
+    {
+        /** @var FrontendUserAuthentication $frontendUserAuthentification */
+        $frontendUserAuthentification = $request->getAttribute('frontend.user');
+        $frontendUserAuthentification->fetchGroupData($request);
+        // do something
+    }
 
 ..  tip::
     The frontend user id and groups are available from the
