@@ -15,5 +15,8 @@ Example:
 
 ..  code-block:: php
 
-    $frontendUser = $request->getAttribute('frontend.user');
-    $groupData = $frontendUser->fetchGroupData($request);
+    use TYPO3\CMS\Frontend\Authentication\FrontendUserAuthentication;
+    
+    /** @var FrontendUserAuthentication $frontendUserAuthentification */
+    $frontendUserAuthentification = $request->getAttribute('frontend.user');
+    $frontendUserAuthentification->fetchGroupData($request);
