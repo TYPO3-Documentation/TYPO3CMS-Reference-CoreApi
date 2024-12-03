@@ -12,6 +12,7 @@ theme of a site.
     :caption: Subpages
     :glob:
     :titlesonly:
+    :hidden:
 
     *
 
@@ -33,12 +34,36 @@ https://github.com/TYPO3-Documentation/site_package/tree/main
 Site package builder
 ====================
 
-You can use the https://www.sitepackagebuilder.com/ to generate a site package
-for you. This is a quick way to generate a custom site package based on
-:composer:`typo3/cms-fluid-styled-content` or :composer:`bk2k/bootstrap-package`.
+You can use the `site package builder <https://get.typo3.org/sitepackage>`_ to
+generate a site package for you.
 
-There are however some down sides:
+..  _extension-sitepackage-builder-bootstrap:
 
-*   At the time of writing it is impossible to create a site package for TYPO3 v13.
-*   A large number of unnecessary, mostly empty files are being generated.
-*   Depending on your prior knowledge you use code that you might not fully understand.
+Bootstrap package
+-----------------
+
+Creates a site package depending extension :composer:`bk2k/bootstrap-package`.
+
+The site package comes with a frontend template that can be configured in
+multiple ways to use your own logo, colors etc. It also comes with a large
+number of predefined content elements.
+
+Use this options if you want to create a web site with TYPO3 quickly and with
+a standardized design.
+
+You can use the extension :composer:`typo3/cms-introduction` to create a page
+tree with some example data demonstrating the capabilities of this package.
+
+At https://www.bootstrap-package.com/ the features of
+:composer:`bk2k/bootstrap-package` are demonstrated.
+
+..  _extension-sitepackage-builder-minimal:
+
+Minimal site package (Fluid Styled Content)
+-------------------------------------------
+
+A minimal site package without styles that you can use as boiler plate to create
+a site package based on a custom HTML structure.
+
+You can use extension :composer:`t3docs/site-package-data` to create a page tree
+and load some example data into your installation.
