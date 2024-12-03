@@ -19,6 +19,7 @@ Example:
 ..  code-block:: php
     :caption: EXT:my_extension/Classes/Service/MyService.php
 
+    use Psr\Http\Message\ServerRequestInterface;
     use TYPO3\CMS\Frontend\Authentication\FrontendUserAuthentication;
 
     public function doSomethingToFrontendUser(ServerRequestInterface $request): void
