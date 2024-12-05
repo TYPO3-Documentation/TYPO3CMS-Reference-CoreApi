@@ -11,7 +11,6 @@ use TYPO3\CMS\Core\View\ViewInterface;
 use TYPO3\CMS\Fluid\View\FluidViewAdapter;
 use TYPO3\CMS\Fluid\View\StandaloneView;
 
-
 #[Autoconfigure(public: true)]
 final readonly class MyLoginProvider implements LoginProviderInterface
 {
