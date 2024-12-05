@@ -159,4 +159,10 @@ return [
         'targetFileName' => 'CodeSnippets/Events/Frontend/AfterTypoScriptDeterminedEvent.rst.txt',
         'withCode' => false,
     ],
+    [
+        'action' => 'createPhpClassDocs',
+        'class' => \TYPO3\CMS\Frontend\Event\AfterContentHasBeenFetchedEvent::class,
+        'targetFileName' => 'CodeSnippets/Events/Frontend/AfterContentHasBeenFetchedEvent.rst.txt',
+        'withCode' => false,
+    ],
 ];
