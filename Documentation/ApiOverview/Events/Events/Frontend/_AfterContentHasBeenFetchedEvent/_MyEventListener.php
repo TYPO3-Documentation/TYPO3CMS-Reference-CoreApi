@@ -7,7 +7,7 @@ namespace MyVendor\MyExtension\Frontend\EventListener;
 use TYPO3\CMS\Core\Attribute\AsEventListener;
 use TYPO3\CMS\Frontend\Event\AfterContentHasBeenFetchedEvent;
 
-final class MyEventListener
+final readonly class MyEventListener
 {
     #[AsEventListener]
     public function removeFetchedPageContent(AfterContentHasBeenFetchedEvent $event): void
