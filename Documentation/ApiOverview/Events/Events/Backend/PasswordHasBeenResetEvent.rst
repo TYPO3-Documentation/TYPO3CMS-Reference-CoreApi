@@ -7,7 +7,7 @@ PasswordHasBeenResetEvent
 =========================
 
 ..  versionadded:: 14.0
-    It is possible to add custom business logic after a Backend user reset their
+    It is possible to add custom business logic after a Backend user resets their
     password using the new PSR-14 event.
 
 The event :php-short:`\TYPO3\CMS\Backend\Authentication\Event\PasswordHasBeenResetEvent`
@@ -25,7 +25,6 @@ The corresponding event listener class:
 
 ..  literalinclude:: _PasswordHasBeenResetEvent/_MyEventListener.php
     :caption: EXT:my_extension/Classes/Backend/EventListener/MyEventListener.php
-
 
 ..  _PasswordHasBeenResetEvent-api:
 
