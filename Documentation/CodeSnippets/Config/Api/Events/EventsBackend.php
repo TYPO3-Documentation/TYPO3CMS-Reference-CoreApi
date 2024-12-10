@@ -273,4 +273,10 @@ return [
         'targetFileName' => 'CodeSnippets/Events/Backend/AfterRawPageRowPreparedEvent.rst.txt',
         'withCode' => false,
     ],
+    [
+        'action' => 'createPhpClassDocs',
+        'class' => \TYPO3\CMS\Backend\Authentication\Event\PasswordHasBeenResetEvent::class,
+        'targetFileName' => 'CodeSnippets/Events/Backend/PasswordHasBeenResetEvent.rst.txt',
+        'withCode' => false,
+    ],
 ];
