@@ -57,7 +57,16 @@ After that you can add titles, menus and buttons using :php:`ModuleTemplate`:
     {
         $this->view->assign('someVar', 'someContent');
         $moduleTemplate = $this->moduleTemplateFactory->create($this->request);
-        // Adding title, menus, buttons, etc. using $moduleTemplate ...
+
+        // Example of adding a page-shortcut button
+        $routeIdentifier = 'web_examples'; // array-key of the module-configuration
+        $buttonBar = $moduleTemplate->getDocHeaderComponent()->getButtonBar();
+        $shortcutButton = $buttonBar->makeShortcutButton()->setDisplayName('Shortcut to my action')->setRouteIdentifier($routeIdentifier);
+        $shortcutButton->setArguments(['controller' => 'MyController', 'action' => 'my']);
+        $buttonBar->addButton($shortcutButton, ButtonBar::BUTTON_POSITION_RIGHT);
+        // Adding title, menus and more buttons using $moduleTemplate ...
+
+        $moduleTemplate->setContent($this->view->render());
         return $moduleTemplate->renderResponse('MyController/MyAction');
     }
 
