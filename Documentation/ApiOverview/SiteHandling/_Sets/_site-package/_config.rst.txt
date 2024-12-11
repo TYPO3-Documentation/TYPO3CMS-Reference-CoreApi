@@ -5,7 +5,7 @@
     :caption: EXT:site_package/Configuration/Sets/SitePackage/config.yaml
 
     name: t3docs/site-package
-    label: Example site package set
+    label: 'Site Package'
     dependencies:
       - typo3/fluid-styled-content
       - typo3/fluid-styled-content-css

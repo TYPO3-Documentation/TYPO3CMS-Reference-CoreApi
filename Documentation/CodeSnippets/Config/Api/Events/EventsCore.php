@@ -338,4 +338,10 @@ return [
         'targetFileName' => 'CodeSnippets/Events/Core/Country/BeforeCountriesEvaluatedEvent.rst.txt',
         'withCode' => false,
     ],
+    [
+        'action' => 'createPhpClassDocs',
+        'class' => \TYPO3\CMS\Core\Domain\Event\RecordCreationEvent::class,
+        'targetFileName' => 'CodeSnippets/Events/Core/RecordCreationEvent.rst.txt',
+        'withCode' => false,
+    ],
 ];
