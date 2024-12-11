@@ -35,11 +35,11 @@ to pass record objects to the Fluid templating engine.
 Provide records in PHP
 ======================
 
-..  note::
-    Creating record objects in PHP is considered experimental.
-
 In PHP a record object can be created by the
 :php:`\TYPO3\CMS\Core\Domain\RecordFactory`.
+
+The event :ref:`RecordCreationEvent` can be used to influence or replace
+the Record object during creation.
 
 ..  _record_objects_fluid:
 
