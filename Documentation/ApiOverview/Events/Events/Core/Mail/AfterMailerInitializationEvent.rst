@@ -6,6 +6,12 @@
 AfterMailerInitializationEvent
 ==============================
 
+..  deprecated:: 14
+    The event :php:`\TYPO3\CMS\Core\Mail\Event\AfterMailerInitializationEvent`
+    has been marked as deprecated as the symfony based mailer makes it redundant.
+    It will be removed in v14.
+
+
 The PSR-14 event :php:`\TYPO3\CMS\Core\Mail\Event\AfterMailerInitializationEvent`
 is fired once a new :ref:`mailer <mail>` is instantiated with specific transport
 settings. So it is possible to add custom mailing settings.
