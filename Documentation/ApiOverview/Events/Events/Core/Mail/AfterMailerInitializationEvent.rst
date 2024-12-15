@@ -1,3 +1,5 @@
+:orphan:
+
 ..  include:: /Includes.rst.txt
 ..  index:: Events; AfterMailerInitializationEvent
 ..  _AfterMailerInitializationEvent:
