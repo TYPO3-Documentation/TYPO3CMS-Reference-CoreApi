@@ -59,7 +59,7 @@ Example:
     $this->blogRepository->findBy(['author' => 1, 'published' => true]);
 
 ..  attention::
-    Saving a :php:`QueryResult` to a cache is not possible, if objects in the 
+    Saving a :php:`QueryResult` to a cache is not possible, if objects in the
     :php:`QueryResult` contain closures. This is typically the case for models
     which use lazy loading on properties.
 
