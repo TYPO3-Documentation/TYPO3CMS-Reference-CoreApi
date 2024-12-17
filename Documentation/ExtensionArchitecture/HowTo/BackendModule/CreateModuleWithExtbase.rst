@@ -55,8 +55,10 @@ After that you can add titles, menus and buttons using :php:`ModuleTemplate`:
     // use Psr\Http\Message\ResponseInterface
     public function myAction(): ResponseInterface
     {
-        $this->view->assign('someVar', 'someContent');
         $moduleTemplate = $this->moduleTemplateFactory->create($this->request);
+
+        // Example of assignung variables to the view 
+        $moduleTemplate->assign('someVar', 'someContent');
 
         // Example of adding a page-shortcut button
         $routeIdentifier = 'web_examples'; // array-key of the module-configuration
@@ -66,7 +68,6 @@ After that you can add titles, menus and buttons using :php:`ModuleTemplate`:
         $buttonBar->addButton($shortcutButton, ButtonBar::BUTTON_POSITION_RIGHT);
         // Adding title, menus and more buttons using $moduleTemplate ...
 
-        $moduleTemplate->setContent($this->view->render());
         return $moduleTemplate->renderResponse('MyController/MyAction');
     }
 
