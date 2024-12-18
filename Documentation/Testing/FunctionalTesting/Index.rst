@@ -67,16 +67,16 @@ Apart from that default list, it is possible to load additional Core extensions:
 that wants to test if it works well together with workspaces, would for example specify
 the workspaces extension as additional to-load extension:
 
-..  literalinclude:: _FunctionalTests/_GeneratorTest.php
+..  literalinclude:: _FunctionalTests/_SomeTest.php
     :language: php
     :caption: EXT:my_extension/Tests/Functional/SomeTest.php
 
 Furthermore, third party extensions and fixture extensions can be loaded for
 any given test case:
 
-..  literalinclude:: _FunctionalTests/_GeneratorTest.php
+..  literalinclude:: _FunctionalTests/_SomeTestExtensions.php
     :language: php
-    :caption: EXT:my_extension/Tests/Functional/SomeTest.php
+    :caption: EXT:my_extension/Tests/Functional/SomeTestExtensions.php
 
 In this case the fictional extension `some_extension` comes with an own fixture extension that should
 be loaded, and another `base_extension` should be loaded. These extensions will be linked into
@@ -115,9 +115,9 @@ and one `tt_content` row. So one `.csv` file can contain rows of multiple tables
 In general, the methods need the absolute path to the fixture file to load them. However some
 keywords are allowed:
 
-..  literalinclude:: _FunctionalTests/_GeneratorTest.php
+..  literalinclude:: _FunctionalTests/_SomeTestImportDataSet.php
     :language: php
-    :caption: EXT:some_extension/Tests/Functional/SomeTest.php
+    :caption: EXT:some_extension/Tests/Functional/SomeTestImportDataSet.php
 
 ..  _testing-writing-functional-assert-database:
 
@@ -141,9 +141,9 @@ If the system under test works on files, those can be provided by the test setup
 example, one may want to check if an image has been properly sized down. The image to work
 on can be linked into the test instance:
 
-..  literalinclude:: _FunctionalTests/_GeneratorTest.php
+..  literalinclude:: _FunctionalTests/_SomeTestFiles.php
     :language: php
-    :caption: EXT:my_extension/Tests/Functional/SomeTest.php
+    :caption: EXT:my_extension/Tests/Functional/SomeTestFiles.php
 
 It is also possible to *copy* the files to the test instance instead of only linking it
 using :php:`$pathsToProvideInTestInstance`.
@@ -161,7 +161,7 @@ If extensions need additional settings in :file:`config/system/settings.php`, th
 
 ..  literalinclude:: _FunctionalTests/_SomeTestConfiguration.php
     :language: php
-    :caption: EXT:my_extension/Tests/Functional/SomeTest.php
+    :caption: EXT:my_extension/Tests/Functional/SomeTestConfiguration.php
 
 ..  _testing-writing-functional-frontend:
 
@@ -173,7 +173,7 @@ To prepare a frontend test, the system can be instructed to load a set of
 
 ..  literalinclude:: _FunctionalTests/_SomeTestFrontend.php
     :language: php
-    :caption: EXT:my_extension/Tests/Functional/SomeTest.php
+    :caption: EXT:my_extension/Tests/Functional/SomeTestFrontend.php
 
 This instructs the system to load the :file:`Basic.typoscript` as TypoScript
 file for the frontend page with uid 1.
