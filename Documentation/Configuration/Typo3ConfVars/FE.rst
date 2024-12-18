@@ -449,7 +449,8 @@ the TYPO3 frontend:
     :type: array
     :Default: []
 
-    The given parameters will be included when calculating canonicalized URL
+    The given parameters will be included when calculating canonicalized URL.
+    See :ref:`canonicalapi-additionalparameters` for details.
 
 ..  _typo3ConfVars_fe_cacheHash:
 
