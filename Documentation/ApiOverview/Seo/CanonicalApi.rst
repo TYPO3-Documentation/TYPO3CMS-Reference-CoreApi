@@ -19,7 +19,7 @@ cHash.
 .. _canonicalapi-additionalparameters:
 
 Including specific arguments for the URL generation
-====================================================
+===================================================
 
 TYPO3 will building a URI of the current page and append query strings
 which are needed for the cHash calculation (vital arguments to uniquely identify
