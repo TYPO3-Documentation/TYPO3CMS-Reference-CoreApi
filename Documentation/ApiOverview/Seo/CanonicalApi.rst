@@ -26,7 +26,7 @@ which are needed for the cHash calculation (vital arguments to uniquely identify
 the given content URI). This is especially important with for example detail pages of records. The query parameters are crucial to show the right content.
 
 It is possible to additionally include specific arguments.
-This is achieved by adding those arguments to a PHP variable:
+This is achieved by adding those arguments to the configuration:
 
 ..  code-block:: php
     :caption: EXT:site_package/ext_localconf.php
