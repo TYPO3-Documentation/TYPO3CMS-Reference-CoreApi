@@ -4,5 +4,5 @@
 ..  code-block:: typoscript
     :caption: EXT:site_package/Configuration/Sets/SitePackage/setup.typoscript
 
-    @import './TypoScript/*.typoscript'
-    @import './TypoScript/Navigation/*.typoscript'
+    @import 'EXT:site_package/Configuration/TypoScript/*.typoscript'
+    @import 'EXT:site_package/Configuration/TypoScript/Navigation/*.typoscript'
