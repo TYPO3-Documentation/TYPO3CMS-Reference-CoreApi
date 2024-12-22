@@ -16,27 +16,32 @@ cHash.
    EXT:seo. You can find information about how to install and use it in the
    :doc:`EXT:seo manual <ext_seo:Index>`.
 
-Excluding arguments from the generation
-=======================================
+.. _canonicalapi-additionalparameters:
 
-TYPO3 will fallback to building a URL of current page and appending query strings.
-It is possible to exclude specific arguments from being appended.
-This is achieved by adding those arguments to a PHP variable:
+Including specific arguments for the URL generation
+===================================================
 
-.. code-block:: php
-   :caption: EXT:site_package/ext_localconf.php
+TYPO3 will building a URI of the current page and append query strings
+which are needed for the cHash calculation (vital arguments to uniquely identify
+the given content URI). This is especially important with for example detail pages of records. The query parameters are crucial to show the right content.
 
-   $GLOBALS['TYPO3_CONF_VARS']['FE']['additionalCanonicalizedUrlParameters'][] = 'example_argument_name';
+It is possible to additionally include specific arguments.
+This is achieved by adding those arguments to the configuration:
 
-It is possible to exclude nested arguments:
+..  code-block:: php
+    :caption: EXT:site_package/ext_localconf.php
 
-.. code-block:: php
-   :caption: EXT:site_package/ext_localconf.php
+    $GLOBALS['TYPO3_CONF_VARS']['FE']['additionalCanonicalizedUrlParameters'][] = 'example_argument_name';
 
-   $GLOBALS['TYPO3_CONF_VARS']['FE']['additionalCanonicalizedUrlParameters'][] = 'example_argument_name[second_level]';
+It is possible to include nested arguments:
 
-Arguments in general should be excluded from cHash as well as ``additionalCanonicalizedUrlParameters``.
-See the possible options in :ref:`caching`, regarding excluding arguments from cHash.
+..  code-block:: php
+    :caption: EXT:site_package/ext_localconf.php
+
+    $GLOBALS['TYPO3_CONF_VARS']['FE']['additionalCanonicalizedUrlParameters'][] = 'example_argument_name[second_level]';
+
+Non-vital arguments in general should be excluded from cHash and not be listed as ``additionalCanonicalizedUrlParameters``.
+See the possible options in :ref:`caching` regarding excluding arguments from cHash.
 
 The idea behind that is:
 
