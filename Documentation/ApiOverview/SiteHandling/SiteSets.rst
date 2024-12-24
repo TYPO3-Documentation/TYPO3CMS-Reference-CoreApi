@@ -311,7 +311,7 @@ Loading TypoScript via the site package's set
 The example site package also loads its TypoScript by placing the files
 :file:`constants.typoscript` and :file:`setup.typoscript` into the folder of the
 site set. These TypoScript files use :typoscript:`@import` statements to import
-files from the extension's directory :path:`Configuration/TypoScript`:
+files from the extension's directory :path:`Configuration/Sets/SitePackage/TypoScript`:
 
 ..  include:: _Sets/_site-package/_setup.rst.txt
 
