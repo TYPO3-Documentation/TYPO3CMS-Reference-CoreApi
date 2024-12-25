@@ -61,7 +61,7 @@ After that you can add titles, menus and buttons using :php:`ModuleTemplate`:
     {
         $moduleTemplate = $this->moduleTemplateFactory->create($this->request);
 
-        // Example of assignung variables to the view 
+        // Example of assignung variables to the view
         $moduleTemplate->assign('someVar', 'someContent');
 
         // Example of adding a page-shortcut button
