@@ -19,14 +19,20 @@ given, which depends on the implementation - usually
 :php:`\Symfony\Component\Mailer\Transport` object, which can be retrieved using
 the :php:`getTransport()` method.
 
+..  _BeforeMailerSentMessageEvent-example:
+
 Example
 =======
 
+This event adds an additional BCC receiver right before the mail is sent:
+
 ..  literalinclude:: _BeforeMailerSentMessageEvent/_MyEventListener.php
     :language: php
-    :caption: EXT:my_extension/Classes/Mail/EventListener/MyEventListener.php
+    :caption: EXT:my_extension/Classes/Mail/EventListener/AddMailMessageBcc.php
 
 ..  include:: /_includes/EventsAttributeAdded.rst.txt
+
+..  _BeforeMailerSentMessageEvent-api:
 
 API
 ===

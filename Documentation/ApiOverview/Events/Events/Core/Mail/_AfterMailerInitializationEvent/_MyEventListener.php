@@ -14,6 +14,6 @@ final readonly class MyEventListener
 {
     public function __invoke(AfterMailerInitializationEvent $event): void
     {
-        $event->getMailer()->injectMailSettings(['transport' => 'null']);
+        // do something
     }
 }
