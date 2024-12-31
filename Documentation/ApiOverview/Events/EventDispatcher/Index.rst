@@ -215,9 +215,9 @@ The event listener class
 An example listener, which hooks into the :ref:`Mailer API <mail>` to modify
 mailer settings to not send any emails, could look like this:
 
-..  literalinclude:: _NullMailer.php
+..  literalinclude:: _MailerEventListener.php
     :language: php
-    :caption: EXT:my_extension/Classes/EventListener/NullMailer.php
+    :caption: EXT:my_extension/Classes/EventListener/MailerEventListener.php
 
 An extension can define multiple listeners. The attribute can be used on class
 and method level. The PHP attribute is repeatable, which allows to register the
@@ -260,16 +260,16 @@ following properties (which are all optional):
 The PHP attribute is repeatable, which allows to register the same class
 to listen for different events, for example:
 
-..  literalinclude:: _NullMailerRepeatable.php
+..  literalinclude:: _MailerEventListenerRepeatable.php
     :language: php
-    :caption: EXT:my_extension/Classes/EventListener/NullMailer.php
+    :caption: EXT:my_extension/Classes/EventListener/MailerEventListener.php
 
 The PHP attribute can also be used on a method level. The above example can also
 be written as:
 
-..  literalinclude:: _NullMailerRepeatable2.php
+..  literalinclude:: _MailerEventListenerRepeatable2.php
     :language: php
-    :caption: EXT:my_extension/Classes/EventListener/NullMailer.php
+    :caption: EXT:my_extension/Classes/EventListener/MailerEventListener.php
 
 
 ..  index::
