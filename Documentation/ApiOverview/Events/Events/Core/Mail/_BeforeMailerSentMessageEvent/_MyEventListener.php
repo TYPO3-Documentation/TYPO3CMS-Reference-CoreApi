@@ -4,23 +4,21 @@ declare(strict_types=1);
 
 namespace MyVendor\MyExtension\Mail\EventListener;
 
-use Symfony\Component\Mime\Address;
-use Symfony\Component\Mime\Email;
 use TYPO3\CMS\Core\Attribute\AsEventListener;
 use TYPO3\CMS\Core\Mail\Event\BeforeMailerSentMessageEvent;
+use TYPO3\CMS\Core\Mail\MailMessage;
 
 #[AsEventListener(
-    identifier: 'my-extension/modify-message',
+    identifier: 'my-extension/add-mail-message-bcc',
 )]
-final readonly class MyEventListener
+final readonly class AddMailMessageBcc
 {
     public function __invoke(BeforeMailerSentMessageEvent $event): void
     {
         $message = $event->getMessage();
-
-        // If $message is an Email implementation, add an additional recipient
-        if ($message instanceof Email) {
-            $message->addCc(new Address('cc_recipient@example.org'));
+        if ($message instanceof MailMessage) {
+            $message->addBcc('me@example.com');
         }
+        $event->setMessage($message);
     }
 }
