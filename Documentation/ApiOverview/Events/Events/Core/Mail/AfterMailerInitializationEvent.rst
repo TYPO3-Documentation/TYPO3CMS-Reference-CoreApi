@@ -6,29 +6,12 @@
 AfterMailerInitializationEvent
 ==============================
 
-..  deprecated:: 14
+..  warning::
     The event :php:`\TYPO3\CMS\Core\Mail\Event\AfterMailerInitializationEvent`
-    has been marked as deprecated as the symfony based mailer makes it redundant.
-    It will be removed in v14.
+    will be removed in v14.
 
-
-The PSR-14 event :php:`\TYPO3\CMS\Core\Mail\Event\AfterMailerInitializationEvent`
-is fired once a new :ref:`mailer <mail>` is instantiated with specific transport
-settings. So it is possible to add custom mailing settings.
-
-Example
-=======
-
-An example listener, which hooks into the Mailer API to modify mailer settings
-to not send any emails ("null mailer"), could look like this:
-
-..  literalinclude:: _AfterMailerInitializationEvent/_MyEventListener.php
-    :language: php
-    :caption: EXT:my_extension/Classes/Mail/EventListener/MyEventListener.php
-
-..  include:: /_includes/EventsAttributeAdded.rst.txt
-
-API
-===
-
-..  include:: /CodeSnippets/Events/Core/AfterMailerInitializationEvent.rst.txt
+    This event became useless with the introduction of the symfony
+    based mailer in TYPO3 v10 and was only able to influence the core handling by
+    calling the :php:`@internal` marked method :php:`injectMailSettings()` *after* the
+    settings have already been determined within the core mailer. The event has been
+    removed since it did not fit a useful use case anymore.
