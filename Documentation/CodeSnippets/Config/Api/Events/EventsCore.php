@@ -57,12 +57,6 @@ return [
     ],
     [
         'action' => 'createPhpClassDocs',
-        'class' => \TYPO3\CMS\Core\Mail\Event\AfterMailerInitializationEvent::class,
-        'targetFileName' => 'CodeSnippets/Events/Core/AfterMailerInitializationEvent.rst.txt',
-        'withCode' => false,
-    ],
-    [
-        'action' => 'createPhpClassDocs',
         'class' => \TYPO3\CMS\Core\Package\Event\AfterPackageActivationEvent::class,
         'targetFileName' => 'CodeSnippets/Events/Core/AfterPackageActivationEvent.rst.txt',
         'withCode' => false,
