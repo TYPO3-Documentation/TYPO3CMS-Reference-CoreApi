@@ -609,7 +609,6 @@ PSR-14 events on sending messages
 
 Some PSR-14 events are available:
 
--   :ref:`AfterMailerInitializationEvent` to add custom mailing settings.
 -   :ref:`BeforeMailerSentMessageEvent` to manipulate messages before they are
     sent by the mailer.
 -   :ref:`AfterMailerSentMessageEvent` to further process a sent message.
