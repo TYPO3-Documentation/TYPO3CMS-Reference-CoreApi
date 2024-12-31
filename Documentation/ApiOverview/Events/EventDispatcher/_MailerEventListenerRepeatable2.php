@@ -5,22 +5,22 @@ declare(strict_types=1);
 namespace MyVendor\MyExtension\EventListener;
 
 use TYPO3\CMS\Core\Attribute\AsEventListener;
-use TYPO3\CMS\Core\Mail\Event\AfterMailerInitializationEvent;
+use TYPO3\CMS\Core\Mail\Event\AfterMailerSentMessageEvent;
 use TYPO3\CMS\Core\Mail\Event\BeforeMailerSentMessageEvent;
 
-final readonly class NullMailer
+final readonly class MailerEventListener
 {
     #[AsEventListener(
         identifier: 'my-extension/null-mailer-initialization',
-        event: AfterMailerInitializationEvent::class,
+        event: AfterMailerSentMessageEvent::class,
     )]
     #[AsEventListener(
         identifier: 'my-extension/null-mailer-sent-message',
         event: BeforeMailerSentMessageEvent::class,
     )]
     public function __invoke(
-        AfterMailerInitializationEvent | BeforeMailerSentMessageEvent $event,
+        AfterMailerSentMessageEvent | BeforeMailerSentMessageEvent $event,
     ): void {
-        $event->getMailer()->injectMailSettings(['transport' => 'null']);
+        // do something
     }
 }
