@@ -77,11 +77,11 @@ and set :ref:`[BE][adminOnly] <t3coreapi:confval-globals-typo3-conf-vars-be-admi
 to `2` if you additionally want to block console commands including scheduler
 tasks, set it to `1`.
 
-It is also possible to add and remove this setting manually to the
+It is also possible to add and remove this setting manually in the
 `additional.php <https://docs.typo3.org/permalink/t3coreapi:configuration-files>`_:
 
 ..  code-block:: php
     :caption: config/system/additional.php | typo3conf/system/additional.php
 
-    // Lock the backend for editors, admins and CLI are allowed
+    // Lock the backend for editors while admins and CLI are still allowed
     $GLOBALS['TYPO3_CONF_VARS']['BE']['adminOnly'] = 2;
