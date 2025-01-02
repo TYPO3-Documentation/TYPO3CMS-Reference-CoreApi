@@ -70,7 +70,7 @@ via command:
 Lock the TYPO3 backend for editors
 ==================================
 
-To prevent an installations editors from logging into the TYPO3 backend during
+To prevent an installation's editors from logging into the TYPO3 backend during
 maintenance, go to module
 :guilabel:`Admin Tools > Settings > Configure Installation-Wide Options`
 and set :ref:`[BE][adminOnly] <t3coreapi:confval-globals-typo3-conf-vars-be-adminonly>`
