@@ -35,6 +35,7 @@ TYPO3 administration
 
     Installation/Index
     Upgrade/Index
+    SystemSettings/Index
     UserManagement/Index
     Troubleshooting/Index
     */Index
