@@ -61,8 +61,8 @@ Configuration properties
     :Example: :yaml:`1`
 
     For the default/main language of the given site, use value :yaml:`0`. For
-    additional languages use a number greater than :yaml:`0`. Every site should
-    have at last one language configured - with :yaml:`languageId: 0`.
+    additional languages use a number greater than :yaml:`0`. Every site must
+    have at last one language configured with :yaml:`languageId: 0`.
 
     ..  attention::
         Once pages, content or records are created in a specific language, the
