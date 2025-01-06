@@ -73,4 +73,5 @@ SEO for Developers
     :glob:
 
     GeneralRecommendations/Index
+    Configuration/Index
     *

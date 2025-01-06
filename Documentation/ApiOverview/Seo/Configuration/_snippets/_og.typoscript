@@ -1,0 +1,15 @@
+page {
+  meta {
+    og:site_name = YOUR_SITE_NAME
+    og:site_name.attribute = property
+
+    og:locale = en_US
+    og:locale.attribute = property
+    og:locale:alternate {
+      attribute = property
+      value {
+        1 = de_DE
+      }
+    }
+  }
+}
