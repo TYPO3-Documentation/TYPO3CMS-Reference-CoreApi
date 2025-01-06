@@ -72,4 +72,5 @@ SEO for Developers
     :maxdepth: 1
     :glob:
 
+    GeneralRecommendations/Index
     *
