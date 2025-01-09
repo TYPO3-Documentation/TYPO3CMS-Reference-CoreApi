@@ -6,7 +6,7 @@ return [
     ],
     'columns' => [
         // ... usual TCA columns
-        'singleFile' => [
+        'single_file' => [
             'exclude' => true,
             'label' => 'Single file',
             'config' => [
@@ -15,7 +15,7 @@ return [
                 'allowed' => 'common-image-types',
             ],
         ],
-        'multipleFiles' => [
+        'multiple_files' => [
             'exclude' => true,
             'label' => 'Multiple files',
             'config' => [
