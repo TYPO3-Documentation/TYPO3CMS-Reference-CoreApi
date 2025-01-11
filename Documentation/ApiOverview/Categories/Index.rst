@@ -15,12 +15,6 @@ available.
 
 Pages, content elements and files contain category fields by default.
 
-.. versionchanged:: 11.4
-   Starting with v11.4 the formerly used PHP function
-   :php:`ExtensionManagementUtility::makeCategorizable()` is deprecated and
-   removed with v12.0. Use a TCA field of the type
-   :ref:`category<t3tca:columns-category>` instead.
-
 
 .. _categories-using:
 
