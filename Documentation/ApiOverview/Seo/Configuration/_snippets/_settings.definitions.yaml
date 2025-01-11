@@ -1,0 +1,11 @@
+categories:
+  MySitePackage:
+    label: 'My Site Package'
+
+settings:
+  MySitePackage.author:
+    label: 'Default Author'
+    category: MySitePackage
+    description: 'The author that will be used for the meta tag "author" unless otherwise set in the page properties. '
+    type: string
+    default: 'J. Doe'

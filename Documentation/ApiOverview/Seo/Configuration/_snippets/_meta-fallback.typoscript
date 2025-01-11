@@ -1,0 +1,6 @@
+page {
+  meta {
+    description = Your fallback description tag
+    og:description = Your fallback OG:description tag
+  }
+}
