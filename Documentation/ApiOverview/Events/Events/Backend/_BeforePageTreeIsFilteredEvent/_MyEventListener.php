@@ -20,9 +20,10 @@ final class MyEventListener
         if (preg_match('/doktype:([0-9]+)/i', $event->searchPhrase, $match)) {
             $doktype = $match[1];
             $event->searchParts = $event->searchParts->with(
-                $event->queryBuilder->expr()->eq('doktype',
-                    $event->queryBuilder->createNamedParameter($doktype, Connection::PARAM_INT)
-                )
+                $event->queryBuilder->expr()->eq(
+                    'doktype',
+                    $event->queryBuilder->createNamedParameter($doktype, Connection::PARAM_INT),
+                ),
             );
         }
     }
