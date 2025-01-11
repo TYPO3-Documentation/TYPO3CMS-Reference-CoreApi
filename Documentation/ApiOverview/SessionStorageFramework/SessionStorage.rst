@@ -7,7 +7,7 @@ Session storage framework
 =========================
 
 TYPO3 comes with the option to choose between different storages for both
-frontend end and backend user sessions (called session backends).
+frontend and backend user sessions (called session backends).
 
 The Core ships two session backends by default:
 
