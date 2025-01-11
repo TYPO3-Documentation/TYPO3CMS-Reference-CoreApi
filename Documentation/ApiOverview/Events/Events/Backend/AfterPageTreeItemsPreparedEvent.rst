@@ -21,6 +21,8 @@ class after the page tree items have been resolved and prepared. The event
 provides the current PSR-7 request object as well as the page tree items. All
 items contain the corresponding page record in the special :php:`_page` key.
 
+..  _AfterPageTreeItemsPreparedEvent-example:
+
 Example
 =======
 
@@ -37,6 +39,8 @@ The corresponding event listener class:
 ..  literalinclude:: _AfterPageTreeItemsPreparedEvent/_MyEventListener.php
     :language: php
     :caption: EXT:my_extension/Classes/Backend/EventListener/MyEventListener.php
+
+..  _AfterPageTreeItemsPreparedEvent-api:
 
 API
 ===
