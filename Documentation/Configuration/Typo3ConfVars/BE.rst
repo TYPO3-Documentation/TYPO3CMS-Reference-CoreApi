@@ -634,6 +634,10 @@ the TYPO3 backend:
     mode. Furthermore the fieldname is appended to the label of fields. Use
     this to debug the backend only!
 
+    Disables the
+    :ref:`$GLOBALS[TYPO3_CONF_VARS][BE][compressionLevel] <typo3ConfVars_be_compressionLevel>`
+    setting.
+
 ..  _typo3ConfVars_be_HTTP:
 
 ..  confval:: HTTP
