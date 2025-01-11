@@ -15,7 +15,8 @@ and `Major upgrade <https://docs.typo3.org/permalink/t3coreapi:major>`_,
 database backups or in any other case where you want to prevent backend
 users from accessing the backend.
 
-..  note:: During maintenance mode the TYPO3 frontend works as usual. Depending
+..  note::
+    During maintenance mode the TYPO3 frontend works as usual. Depending
     on your sites functionality, frontend actions might continue to alter
     certain database tables or files in the file system.
 
