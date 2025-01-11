@@ -19,7 +19,7 @@ final readonly class MyEventListener
     {
         $items = $event->getItems();
         foreach ($items as &$item) {
-            if ($item['_page']['uid'] === 123) {
+            if (($item['_page']['pid'] ?? null) === 123) {
                 // Set special icon for page with ID 123
                 $item['icon'] = 'my-special-icon';
 
