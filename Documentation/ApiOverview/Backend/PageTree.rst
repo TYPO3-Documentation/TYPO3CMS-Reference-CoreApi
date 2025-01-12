@@ -20,7 +20,7 @@ Usage of the page tree is described in
 The page tree can also be navigated via `Keyboard commands (Tutorial for
 Editors) <https://docs.typo3.org/permalink/t3editors:keyboard-commands>`_.
 
-..  contents::
+..  contents:: Table of contents
 
 ..  _page-tree-events:
 
