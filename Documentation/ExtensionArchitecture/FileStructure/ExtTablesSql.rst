@@ -56,9 +56,9 @@ Incorrect definitions may not be recognized
 by the TYPO3 SQL parser or may lead to SQL errors, when TYPO3 tries
 to apply them.
 
-If TYPO3 is not running on MySQL or a directly compatible
-other :abbr:`DBMS (Database Management System)` like MariaDB, the
-system will parse the file towards the target DBMS like PostgreSQL or SQLite.
+The :file:`ext_tables.sql` file in TYPO3 contains SQL statements written in a TYPO3-specific
+format that is not directly valid for any database system. TYPO3 utilizes Doctrine DBAL to
+interpret and translate these statements into valid SQL for the specific target :abbr:DBMS (Database Management System), such as MySQL, MariaDB, PostgreSQL, or SQLite.
 
 ..  _ext-tables-sql-types:
 
