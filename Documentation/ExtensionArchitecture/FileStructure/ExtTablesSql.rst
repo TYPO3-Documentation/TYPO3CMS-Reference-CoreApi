@@ -121,7 +121,7 @@ space, leaving the remaining table row space available for other data.
 
 ..  _ext-tables-sql-types-char-when:
 
-When to user `CHAR` columns
+When to use `CHAR` columns
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 **Rule of thumb for fixed-length** :sql:`CHAR` **columns**
@@ -132,7 +132,7 @@ When to user `CHAR` columns
 
 ..  _ext-tables-sql-types-char-hints:
 
-Hints on using fixed-length** `CHAR` columns
+Hints on using fixed-length `CHAR` columns
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 *   Ensure to write fixed-length values for :sql:`CHAR` (non-space characters),
