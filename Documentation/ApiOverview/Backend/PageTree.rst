@@ -33,7 +33,7 @@ PSR-14 events to influence the functionality of the page tree
     Allows to modify the populated properties of a page and children records
     before the page is displayed in a page tree.
 :ref:`BeforePageTreeIsFilteredEvent`
-    allows developers to extend the page trees filter's functionality and
+    Allows developers to extend the page trees filter's functionality and
     process the given search phrase in more advanced ways.
 
 ..  _page-tree-tsconfig:
