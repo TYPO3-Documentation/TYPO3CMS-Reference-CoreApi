@@ -21,6 +21,7 @@ class after the page tree items have been resolved and prepared. The event
 provides the current PSR-7 request object as well as the page tree items. All
 items contain the corresponding page record in the special :php:`_page` key.
 
+..  _AfterPageTreeItemsPreparedEvent-labels:
 
 Labels
 ======
@@ -37,6 +38,7 @@ A label can also be assigned to a node via
 only the marker for the label with the highest priority is rendered. All
 additional labels will only be added to the title of the node.
 
+..  _AfterPageTreeItemsPreparedEvent-status:
 
 Status information
 ==================
@@ -53,6 +55,7 @@ accessibility.
 Each node can accommodate multiple status information, prioritized by severity
 and urgency. Critical messages take precedence over other status notifications.
 
+..  _AfterPageTreeItemsPreparedEvent-example:
 
 Example
 =======
@@ -62,6 +65,8 @@ Example
     :caption: EXT:my_extension/Classes/Backend/EventListener/MyEventListener.php
 
 ..  include:: /_includes/EventsAttributeAdded.rst.txt
+
+..  _AfterPageTreeItemsPreparedEvent-api:
 
 API
 ===
