@@ -279,4 +279,10 @@ return [
         'targetFileName' => 'CodeSnippets/Events/Backend/PasswordHasBeenResetEvent.rst.txt',
         'withCode' => false,
     ],
+    [
+        'action' => 'createPhpClassDocs',
+        'class' => \TYPO3\CMS\Backend\Tree\Repository\BeforePageTreeIsFilteredEvent::class,
+        'targetFileName' => 'CodeSnippets/Events/Backend/BeforePageTreeIsFilteredEvent.rst.txt',
+        'withCode' => false,
+    ],
 ];
