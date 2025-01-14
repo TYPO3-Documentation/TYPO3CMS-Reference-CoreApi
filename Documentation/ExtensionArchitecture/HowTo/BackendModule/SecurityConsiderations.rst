@@ -85,7 +85,7 @@ dispatch method has been dropped in favour of having dedicated routes to
 each controller action.
 
 ..  code-block:: diff
-    :caption: **Revised** EXT:demo/Classes/Controller/ModuleController.php
+    :caption: **Revised** EXT:demo/Classes/Controller/CustomModuleController.php
     :linenos:
 
       <?php
@@ -191,7 +191,7 @@ The following example demonstrates enforcing HTTP methods in Extbase module
 controllers using :php:`AllowedMethodsTrait`:
 
 ..  code-block:: diff
-    :caption: **Revised** EXT:demo/Classes/Controller/ModuleController.php
+    :caption: **Revised** EXT:demo/Classes/Controller/ExtbaseModuleController.php
     :linenos:
 
       <?php
