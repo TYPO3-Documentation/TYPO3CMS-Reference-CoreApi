@@ -35,6 +35,11 @@ backend. They are described in this chapter.
         used, however there are some limitations. This is the preferred way
         if no extensive data modelling is needed.
 
+    ..  card:: :ref:`Security Considerations <backend-modules-security>`
+
+        Explores web application security considerations when
+        developing custom modules for the backend user interface.
+
     ..  card:: :ref:`Tutorials <backend-modules-tutorials>`
 
         A video series from Susanne Moog demonstrating how to register
@@ -47,4 +52,5 @@ backend. They are described in this chapter.
     ModuleConfiguration
     CreateModule
     CreateModuleWithExtbase
+    SecurityConsiderations
     Tutorials
