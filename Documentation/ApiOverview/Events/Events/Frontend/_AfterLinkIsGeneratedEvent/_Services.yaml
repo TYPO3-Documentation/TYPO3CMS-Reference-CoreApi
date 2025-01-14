@@ -5,3 +5,4 @@ services:
     tags:
       - name: event.listener
         identifier: 'my-extension/link-modifier'
+        event: TYPO3\CMS\Frontend\Event\AfterLinkIsGeneratedEvent
