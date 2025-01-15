@@ -75,6 +75,34 @@ If you want to provide custom templates or layouts, set this in your
         = 'EXT:my_site_extension/Resources/Private/Layouts';
 
 ..  _mail-configuration-transport:
+Here is a minimal example for a Fluid-based email template:
+
+**Directory Structure:**
+
+```
+EXT:my_site_extension/
+├── Resources/
+│   └── Private/
+│       ├── Templates/
+│       │   └── Email/
+│       │       └── MyCustomEmail.html
+```
+
+**`MyCustomEmail.html`:**
+
+..  code-block:: html
+    :caption: EXT:my_site_extension/Resources/Private/Templates/Email/MyCustomEmail.html
+
+    <f:layout name="SystemEmail" />
+
+    <f:section name="Subject">
+        My Custom Subject
+    </f:section>
+
+    <f:section name="Main">
+        Hello, this is a custom email template!
+    </f:section>
+
 
 transport
 ---------
