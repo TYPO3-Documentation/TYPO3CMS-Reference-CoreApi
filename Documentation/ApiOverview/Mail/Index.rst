@@ -70,27 +70,36 @@ If you want to provide custom templates or layouts, set this in your
     :caption: config/system/additional.php | typo3conf/system/additional.php
 
     $GLOBALS['TYPO3_CONF_VARS']['MAIL']['templateRootPaths'][700]
-        = 'EXT:my_site_extension/Resources/Private/Templates/Email';
+        = 'EXT:my_site_package/Resources/Private/Templates/Email';
     $GLOBALS['TYPO3_CONF_VARS']['MAIL']['layoutRootPaths'][700]
         = 'EXT:my_site_extension/Resources/Private/Layouts';
 
-Here is a minimal example for a Fluid-based email template:
+..  _mail-configuration-fluid-example:
+
+Minimal example for a Fluid-based email template
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 **Directory Structure:**
 
-```
-EXT:my_site_extension/
-├── Resources/
-│   └── Private/
-│       ├── Templates/
-│       │   └── Email/
-│       │       └── MyCustomEmail.html
-```
+..  directory-tree::
+    :show-file-icons: true
+
+    *  EXT:my_site_package/
+
+        *   Resources
+
+            *   Private
+
+                *   Templates
+
+                    *   Email
+
+                        *   MyCustomEmail.html
 
 **`MyCustomEmail.html`:**
 
 ..  code-block:: html
-    :caption: EXT:my_site_extension/Resources/Private/Templates/Email/MyCustomEmail.html
+    :caption: EXT:my_site_package/Resources/Private/Templates/Email/MyCustomEmail.html
 
     <f:layout name="SystemEmail" />
 
