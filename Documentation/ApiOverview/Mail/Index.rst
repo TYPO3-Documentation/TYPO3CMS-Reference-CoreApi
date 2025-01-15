@@ -74,7 +74,6 @@ If you want to provide custom templates or layouts, set this in your
     $GLOBALS['TYPO3_CONF_VARS']['MAIL']['layoutRootPaths'][700]
         = 'EXT:my_site_extension/Resources/Private/Layouts';
 
-..  _mail-configuration-transport:
 Here is a minimal example for a Fluid-based email template:
 
 **Directory Structure:**
@@ -103,6 +102,7 @@ EXT:my_site_extension/
         Hello, this is a custom email template!
     </f:section>
 
+..  _mail-configuration-transport:
 
 transport
 ---------
