@@ -11,72 +11,72 @@ Characteristics
 ===============
 
 *   Services MUST be used as objects, they are never static.
-
-*   A single service MUST consist of one class only.
-
-*   Services MUST be located in a :file:`Service/` directory and the class and file name MUST end
-    with :code:`Service`, eg. :file:`Service/FoobarService.php`.
-
-*   Service instances MAY hold a state, but they SHOULD be stateless.
-
+*   Services SHOULD be stateless and shared.
 *   Services MAY use their own configuration, but they SHOULD not.
-
-*   Services MAY have multiple entry points, but they SHOULD have only one.
-
-*   Services SHOULD NOT be singletons
+*   Services MAY have dependencies to other services and SHOULD get them
+    injected using TYPO3 core dependency injection.
 
 
 Rationale
 =========
 
-A “service” in this context is meant as the relatively short-sighted
-process of putting a class into a :file:`Service/` subfolder and calling
-it a :code:`WhateverService`. It does not have too much to do with the
-DDD Service context, which is broader. This section is just about which
-scope can be expected for classes residing in a Service folder within
-Core extensions.
+Modern PHP programming primarily involves two types of classes: Services and
+data objects (DO).
 
-From this point of view, a service in the TYPO3 world is a relatively slim
-class construct that encapsulates a specific concern. It is too big for
-a small static method, it may hold a state, but it is still just a
-relatively small scope. Each service consists typically of only a single
-class. A bigger construct with interfaces, multiple sub classes is not
-called a service anymore.
+This distinction has gained significance with the introduction of
+:ref:`dependency injection <Dependency-Injection>` in the TYPO3 core.
 
-The above characteristica MAY and SHOULD mean that a single service MAY do a single one
-or two of them, but if for instance a service would become relatively big,
-if it would have many entry points, if it would keep states and depend on configuration,
-this would be too much. This would be a sign that it should be modeled in a different and more
-dedicated and more disjoint way.
+A well-designed service class comprise of one or more methods that process data.
+These methods may not return any value, acting as a data sink. For example, a
+mailer service might take a mail data object to send it. Conversely, service
+methods often return new or modified data based on input. A typical example is a
+repository service that accepts an identifier (e.g. the uid of a product) and returns
+a data object (the product).
 
-The main risk with service classes is that they pile up to a
-conglomeration of helper stuff classes that are hanging around without
-good motivation. It is important that a service class should not be a
-bin for something that just does not fit to a different better place
-within the scope of a specific extension.
+Services may depend on other services and should use dependency injection to obtain
+these dependencies, typically via :ref:`constructor injection <Constructor-injection>`.
 
+In TYPO3, most classes are service classes unless they function as data objects to
+transport data.
+
+Services should be stateless. The result of a service method call should only depend
+on the given input arguments and the service should not keep track of previous calls
+made. This is an important aspect of well crafted services. It reduces complexity
+significantly when a service does not hold data itself: It does not matter
+how often or in which context that service may have been called before. It also means
+that stateless services can be "shared" and declared :php:`readonly`: They are instantiated
+only once and the same instance is injected to all dependent services.
+
+TYPO3 core has historically stateful services that blend service class and data object
+characteristics. These stateful services pose issues in a service-oriented architecture:
+Injecting a stateful service into a stateless service make the latter stateful, potentially
+causing unpredictable behavior based on the prior state of the injected service. A clear
+example is the core :php:`DataHandler` class which modifies numerous data properties when
+its primary API methods are called. Such instances become "tainted" after use, and should
+not be injected but created on-demand using :php:`GeneralUtility::makeInstance()`.
 
 Good Examples
 =============
 
-*   :php:`\TYPO3\CMS\Extbase\Service\CacheService`
+*   :php:`\TYPO3\CMS\Core\Configuration\FlexForm\FlexFormTools` has been refactored in
+    TYPO3 v13 to be stateless:
 
-    *   Small and straight scope with useful helpers
-
-    *   It is a singleton, but that is feasible in this case
+    *   A shared and readonly service with a few dependencies
+    *   A clear scope with reasonable API methods
+    *   No data properties
 
 
 Bad Examples
 ============
 
-*   :php:`\TYPO3\CMS\Core\Service\AbstractAuthenticationService`,
+*   :php:`\TYPO3\CMS\Core\DataHandling\DataHandler`
 
-    *   Not modeled in a sane way, this should be within :file:`Core/Authentication`
-
-    *   Far too complex, class abstraction and extending classes
+    *   Far too complex
+    *   Heavily stateful
 
 
 Further Reading
 ===============
 
-See http://gorodinski.com/blog/2012/04/14/services-in-domain-driven-design-ddd/.
+*   http://gorodinski.com/blog/2012/04/14/services-in-domain-driven-design-ddd/
+*   https://igor.io/2013/03/31/stateless-services.html
