@@ -169,32 +169,41 @@ of lines within the :file:`Services.yaml` file. This should be done within all e
 contain PHP classes and it is the fundamental setup we will outline in the following sections.
 
 For developers, it is important to understand that dealing with Symfony DI is
-an *early core bootstrap* thing. The system will fail upon misconfiguration, so
-frontend and backend may be unreachable.
+an *early core bootstrap and cached* thing. The system will fail upon misconfiguration, leading
+to unreachable frontend and backend.
 
 .. attention::
 
-   Errors in the DI cache may block frontend and backend!
+   Errors in the DI configuration may block frontend and backend!
 
    The DI cache does not heal by itself but needs to be cleared manually!
 
-The container cache entry (at the time of this writing) *is not* deleted when a
-backend admin user clicks "Clear all cache" in the backend top toolbar. The only
-way to force a DI recalculation is using the "Admin tools" -> "Maintenance" -> "Flush Caches"
-button of the backend embedded Install Tool or the standalone Install Tool (:file:`/typo3/install.php`) itself. This
-means: Whenever core or an extension fiddles with DI (or more general "Container") configuration,
-this cache has to be manually emptied for a running instance by clicking this button.
-The backend Extension Manager however *does* empty the cache automatically when loading or unloading extensions.
-Another way to quickly drop this cache during development is to remove all
-:file:`var/cache/code/di/*` files, which reside in :file:`typo3temp/` in Legacy Mode
-instances or elsewhere in Composer Mode instances (see :ref:`Environment`). TYPO3 will
-then recalculate the cache upon the next access, no matter if it's a frontend, a backend
-or a CLI request.
+With the container cache entry being a low level early bootstrap thing that is expensive
+to calculate when it has to be rebuild, there is a limited list of options to flush
+this cache:
+
+*   The container cache entry is *not deleted* when a backend user clicks "Flush all caches"
+    in the backend top toolbar if the instance is configured as :ref:`production <Environment-context>`
+    application. For developer convenience, the container cache *is* flushed in development
+    context, though.
+
+*   The container cache *is* flushed using "Admin tools" -> "Maintenance" -> "Flush Caches"
+    of the Install Tool.
+
+*   The container cache *is* flushed using the CLI command :shell:`vendor/bin/typo3 cache:flush`. Using
+    :shell:`vendor/bin/typo3 cache:warmup` afterwards will rebuild and cache the container.
+
+*   The container cache is automatically flushed when using the Extension Manager to load
+    or unload extensions in (non-Composer) classic mode.
+
+*   Another way to quickly drop this cache during development is to remove all
+    :file:`var/cache/code/di/*` files, which reside in :file:`typo3temp/` in classic mode
+    instances or elsewhere in composer mode instances (see :ref:`Environment`).
 
 The main takeaway is: When a developer fiddles with container configuration,
 the cache needs to be manually cleared. And if some configuration issue slipped in,
 which made the container or DI calculation fail, the system does *not* heal itself and
-needs both a fix of the configuration plus probably a cache removal. The standalone Install
+needs both a fix of the `Dependency injection <https://docs.typo3.org/permalink/t3coreapi:dependency-injection>`_ configuration plus probably a cache removal. The standalone Install
 Tool however should *always* work, even if the backend breaks down, so the "Flush caches"
 button is always reachable. Note that *if* the container calculation fails, the
 :file:`var/log/typo3_*` files contain the exception with backtrace!
