@@ -26,8 +26,8 @@ data objects (DO).
 This distinction has gained significance with the introduction of
 :ref:`dependency injection <Dependency-Injection>` in the TYPO3 core.
 
-A well-designed service class comprise of one or more methods that process data.
-These methods may not return any value, acting as a data sink. For example, a
+A well-designed service class comprise of one or more methods that process
+data, or just provide a data sink. For example, a
 mailer service might take a mail data object to send it. Conversely, service
 methods often return new or modified data based on input. A typical example is a
 repository service that accepts an identifier (e.g. the uid of a product) and returns
