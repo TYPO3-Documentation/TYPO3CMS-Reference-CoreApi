@@ -19,4 +19,3 @@ part is just an overview of common pitfalls and generic tips.
    NamedArguments
    Singletons
    HandlingDeprecations
-   ClassNamesOfUserFiles

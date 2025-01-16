@@ -103,17 +103,31 @@ in the file. It should include a description of the class. Example:
      * This class provides XYZ plugin implementation.
      */
 
+..  _cgl-namespaces-class-names:
 
 PHP class
 =========
 
-The PHP class follows the class information block. PHP code must be
-formatted as described in chapter "PHP syntax formatting".
+The PHP class follows the class information block. PHP code must be formatted
+as described in chapter :ref:`"PHP syntax formatting" <cgl-php-syntax-formatting>`.
 
 The class name is expected to follow some conventions. It must be
 identical to the file name and must be written in upper camel case.
 
-The PHP class declaration looks like the following:
+The namespace and class names of user files follow the same rules as
+class names of the TYPO3 Core files do.
+
+The namespace declaration of each user file should show where the file
+belongs inside its extension. The namespace starts with
+:code:`"Vendor\MyNamespace\"`, where "Vendor" is your vendor name and
+"MyNamespace" is the extension name in UpperCamelCase. Then follows the
+name of the subfolder of :file:`Classes/`, in which the file is located
+(if any). E.g. the file
+:file:`EXT:realurl/Classes/Controller/AliasesController.php`
+with the class :php:`AliasesController` is in the namespace
+":php:`DmitryDulepov\Realurl\Controller`".
+
+A PHP class declaration looks like the following:
 
 ..  code-block:: php
     :caption: EXT:some_extension/Classes/SomeClass.php
