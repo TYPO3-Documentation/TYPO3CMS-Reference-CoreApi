@@ -88,16 +88,5 @@ to let the framework handle persistence details internally.
     appropriate!
 
 
-Credits
-=======
-
-Implementing the Doctrine DBAL API into `TYPO3` has been a *huge project in
-2016.* Special thanks goes to awesome Mr. **Morton Jonuschat** for the initial
-design, integration and support and to more than **40 different people** who
-actively contributed to migrate more than 1700 calls from TYPO3_DB-style to
-Doctrine within half a year.
-**This was a huge community achievement, thanks everyone involved!**
-
-
 .. _Doctrine DBAL: https://www.doctrine-project.org/projects/dbal.html
 .. _Doctrine ORM: https://www.doctrine-project.org/projects/orm.html
