@@ -42,13 +42,12 @@ Various tips and tricks
 
         $result = $queryBuilder->executeQuery();
 
-*   Doctrine DBAL throws exceptions if something goes wrong when calling
-    :ref:`executeQuery() <database-query-builder-execute-query>` or
-    :ref:`executeStatement() <database-query-builder-execute-statement>`. The
-    exception type is :php:`\Doctrine\DBAL\Exception`, which can be caught and
-    transferred to a better error message if the application should expect
-    query errors. Note that this is not good habit and often indicates an
-    architectural flaw in the application at a different layer.
+*   Doctrine DBAL throws exceptions if something goes wrong when calling API methods.
+    The exception type is :php:`\Doctrine\DBAL\Exception`. Typical extensions should
+    usually not catch such exceptions but let it bubble up to be handled by the
+    global TYPO3 core error and exception handling: They most often indicate a
+    broken connection, database schema or programming error and extensions should
+    usually not try to hide away or escalate them on their own.
 
 *   :php:`count() <database-query-builder-count>` query types using the
     :ref:`query builder <database-query-builder>` normally call
