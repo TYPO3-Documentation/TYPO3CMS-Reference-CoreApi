@@ -2,6 +2,7 @@
 .. include:: /Includes.rst.txt
 
 .. _cgl-best-practices:
+.. _cgl-deprecation:
 
 ==================
 PHP best practices
@@ -20,5 +21,4 @@ part is just an overview of common pitfalls and generic tips.
    AccessingTheDatabase
    Singletons
    StaticMethods
-   HandlingDeprecations
    ClassNamesOfUserFiles
