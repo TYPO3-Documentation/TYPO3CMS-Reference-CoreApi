@@ -14,7 +14,7 @@ Characteristics
 *   Services SHOULD be stateless and shared.
 *   Services MAY use their own configuration, but they SHOULD not.
 *   Services MAY have dependencies to other services and SHOULD get them
-    injected using TYPO3 core dependency injection.
+    injected using TYPO3 Core dependency injection.
 
 
 Rationale
