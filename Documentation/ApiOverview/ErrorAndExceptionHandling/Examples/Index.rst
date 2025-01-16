@@ -136,10 +136,10 @@ In :file:`config/system/settings.php` or :file:`config/system/additional.php`:
 
 ..  note::
     PHP warnings, among other things, are added to the TYPO3 log via 
-    the [Writer configuration](https://docs.typo3.org/permalink/t3coreapi:logging-configuration-writer) of Logging API. 
+    the `Writer configuration <https://docs.typo3.org/permalink/t3coreapi:logging-configuration-writer>`_ of the Logging API. 
     In production or from a performance perspective, you may not want this. 
     The default value is :php:`\Psr\Log\LogLevel::WARNING`. 
-    Depending on requirements, the loglevel can be increased to :PHP:`\Psr\Log\LogLevel::ERROR`
+    Depending on project requirements, the loglevel can be increased to :PHP:`\Psr\Log\LogLevel::ERROR`
     (or higher).
 
 In :file:`.htaccess`:
