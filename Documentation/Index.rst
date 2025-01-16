@@ -40,6 +40,11 @@ TYPO3 Explained
         Learn how to write site packages and other custom extension with or
         without Extbase.
 
+    ..  card:: :ref:`PHP architecture <cgl-php-architecture>`
+
+        General PHP architectural strategies in TYPO3 core development and best
+        practices for extension developers.
+
     ..  card:: :ref:`Security guidelines <security>`
 
         This chapter describes some typical risks and advises how to protect a
@@ -60,6 +65,7 @@ TYPO3 Explained
     Configuration/Index
     CodingGuidelines/Index
     ExtensionArchitecture/Index
+    PhpArchitecture/Index
     Security/Index
     Testing/Index
 
