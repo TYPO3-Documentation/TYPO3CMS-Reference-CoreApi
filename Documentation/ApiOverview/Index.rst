@@ -6,11 +6,11 @@
 API A-Z
 =======
 
-The TYPO3 core code serves a dual purpose: It functions both an out-of-the-box
+The TYPO3 Core code serves a dual purpose: It functions both as an out-of-the-box
 application and as a library providing APIs for extensions that enhance projects
 with additional functionality.
 
-The TYPO3 core itself organizes its code into extensions as well, with the "core"
+The TYPO3 Core itself organizes its code into extensions as well, with the "core"
 extension offering the majority of API classes. These classes are utilized by
 other key extensions such as "frontend" and "backend". These three extensions
 are mandatory for any TYPO3-based project, while others, like "scheduler,"
