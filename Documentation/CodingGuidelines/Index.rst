@@ -32,9 +32,7 @@ should be sufficient.
     :titlesonly:
 
     Introduction
-    PhpArchitecture/Index
     CglPhp/Index
-    CodingBestPractices/Index
     CglJavaScript/Index
     CglTypeScript/Index
     CglTypoScript/Index
