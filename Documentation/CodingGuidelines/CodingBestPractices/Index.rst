@@ -19,6 +19,5 @@ part is just an overview of common pitfalls and generic tips.
    NamedArguments
    AccessingTheDatabase
    Singletons
-   StaticMethods
    HandlingDeprecations
    ClassNamesOfUserFiles
