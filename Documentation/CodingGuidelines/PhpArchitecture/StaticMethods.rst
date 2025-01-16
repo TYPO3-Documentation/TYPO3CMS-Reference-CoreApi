@@ -1,6 +1,7 @@
 ..  include:: /Includes.rst.txt
 ..  index:: Coding guidelines; Static methods
 ..  _cgl-model-static-methods:
+..  _cgl-static-methods:
 
 ===============================================
 Static Methods, static Classes, Utility Classes
@@ -33,6 +34,9 @@ Characteristica
     requirement to a static helper method within its class. All classes
     outside a utility folder MUST be instantiated and handled as object
     instances.
+
+*   Static methods MUST call other static methods of the same class
+    using the PHP :php:`self` keyword instead of the class name.
 
 
 Rationale
