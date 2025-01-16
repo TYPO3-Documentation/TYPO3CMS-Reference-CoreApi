@@ -190,11 +190,11 @@ this cache:
 *   The container cache *is* flushed using "Admin tools" -> "Maintenance" -> "Flush Caches"
     of the Install Tool.
 
-*   The container cache *is* flushed using the CLI command :shell:`typo3 cache:flush`. Using
-    :shell:`typo3/cache:warmup` afterwards will rebuild and cache the container.
+*   The container cache *is* flushed using the CLI command :shell:`vendor/bin/typo3 cache:flush`. Using
+    :shell:`vendor/bin/typo3 cache:warmup` afterwards will rebuild and cache the container.
 
 *   The container cache is automatically flushed when using the Extension Manager to load
-    or unload extensions in (non-composer) classic mode.
+    or unload extensions in (non-Composer) classic mode.
 
 *   Another way to quickly drop this cache during development is to remove all
     :file:`var/cache/code/di/*` files, which reside in :file:`typo3temp/` in classic mode
@@ -203,7 +203,7 @@ this cache:
 The main takeaway is: When a developer fiddles with container configuration,
 the cache needs to be manually cleared. And if some configuration issue slipped in,
 which made the container or DI calculation fail, the system does *not* heal itself and
-needs both a fix of the DI configuration plus probably a cache removal. The standalone Install
+needs both a fix of the `Dependency injection <https://docs.typo3.org/permalink/t3coreapi:dependency-injection>`_ configuration plus probably a cache removal. The standalone Install
 Tool however should *always* work, even if the backend breaks down, so the "Flush caches"
 button is always reachable. Note that *if* the container calculation fails, the
 :file:`var/log/typo3_*` files contain the exception with backtrace!
