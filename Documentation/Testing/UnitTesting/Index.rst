@@ -21,6 +21,7 @@ Unit testing with the TYPO3 testing framework
 
 ..  index:: Unit tests; Conventions
 ..  _testing-writing-unit-conventions:
+..  _cgl-unit-tests:
 
 Unit test conventions
 =====================
