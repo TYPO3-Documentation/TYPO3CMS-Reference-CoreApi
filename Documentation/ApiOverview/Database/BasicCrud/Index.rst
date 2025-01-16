@@ -3,6 +3,7 @@
     Database; CRUD
     Database; Create, read, update, and delete operations
 ..  _database-basic-crud:
+..  _cgl-database-access:
 
 ========================================================
 Basic create, read, update, and delete operations (CRUD)
