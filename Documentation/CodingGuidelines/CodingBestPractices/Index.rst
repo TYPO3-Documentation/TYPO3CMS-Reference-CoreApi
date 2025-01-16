@@ -18,7 +18,5 @@ part is just an overview of common pitfalls and generic tips.
    :titlesonly:
 
    NamedArguments
-   AccessingTheDatabase
    Singletons
-   StaticMethods
-   ClassNamesOfUserFiles
+
