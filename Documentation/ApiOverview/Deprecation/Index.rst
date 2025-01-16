@@ -11,6 +11,7 @@ Deprecation
 
 ..  index:: Deprecation; Log
 ..  _deprecation_introduction:
+..  _cgl-deprecation:
 
 Introduction
 ============
