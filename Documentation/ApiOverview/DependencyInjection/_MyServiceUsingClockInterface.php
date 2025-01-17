@@ -6,7 +6,7 @@ namespace MyVendor\MyExtension\Controller;
 
 use Psr\Clock\ClockInterface;
 
-final class MyClass
+final class MyServiceUsingClockInterface
 {
     public function __construct(
         private readonly ClockInterface $clock,

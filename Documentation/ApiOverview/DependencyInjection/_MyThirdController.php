@@ -10,7 +10,7 @@ class MyThirdController
 {
     private MyServiceInterface $myService;
 
-    public function injectMyService(MyServiceInterface $myService)
+    public function injectMyService(MyServiceInterface $myService): void
     {
         $this->myService = $myService;
     }
