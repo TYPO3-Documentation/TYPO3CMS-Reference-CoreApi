@@ -1,0 +1,4 @@
+services:
+
+  Psr\Clock\ClockInterface:
+    factory: ['Lcobucci\Clock\SystemClock', 'fromUTC']

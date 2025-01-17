@@ -6,7 +6,7 @@ namespace MyVendor\MyExtension\Controller;
 
 use MyVendor\MyExtension\Service\MyServiceInterface;
 
-class MyController
+class MyFirstController
 {
     public function __construct(
         private readonly MyServiceInterface $myService,
