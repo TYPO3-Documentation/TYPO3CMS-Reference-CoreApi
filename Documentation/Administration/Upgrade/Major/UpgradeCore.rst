@@ -13,6 +13,11 @@ This example details how to upgrade from one LTS release to another. In this
 example, the installation is running TYPO3 version 12.4.25 and the new LTS
 release is version 13.4.3.
 
+Check the required PHP version
+------------------------------
+
+TYPO3 13 requires PHP 8.2 as a minimum.
+
 Check which TYPO3 packages are currently installed
 --------------------------------------------------
 
