@@ -67,12 +67,16 @@ would upgrade each of them to version 13.4.
 
     composer require --update-with-all-dependencies "typo3/cms-adminpanel:^13.4" \
     "typo3/cms-backend:^13.4" "typo3/cms-belog:^13.4" "typo3/cms-beuser:^13.4" \
-    "typo3/cms-core:^13.4" "typo3/cms-dashboard:^13.4" "typo3/cms-felogin:^13.4" \
+    "typo3/cms-core:^13.4" "typo3/cms-dashboard:^13.4"  "typo3/cms-extbase:^13.4" \
+    "typo3/cms-extensionmanager:^13.4" "typo3/cms-felogin:^13.4" "typo3/cms-fluid-styled-content:^13.4" \
     "typo3/cms-filelist:^13.4" "typo3/cms-filemetadata:^13.4" "typo3/cms-fluid:^13.4" \
-    "typo3/cms-form:^13.4" "typo3/cms-frontend:^13.4" "typo3/cms-info:^13.4" \
-    "typo3/cms-install:^13.4" "typo3/cms-linkvalidator:^13.4" "typo3/cms-lowlevel:^13.4" \
-    "typo3/cms-recycler:^13.4" "typo3/cms-rte-ckeditor:^13.4" "typo3/cms-setup:^13.4" \
-    "typo3/cms-t3editor:^13.4" "typo3/cms-tstemplate:^13.4" "typo3/cms-viewpage:^13.4"
+    "typo3/cms-form:^13.4" "typo3/cms-frontend:^13.4" "typo3/cms-impexp:^13.4" \
+    "typo3/cms-info:^13.4" "typo3/cms-install:^13.4" "typo3/cms-linkvalidator:^13.4" \
+    "typo3/cms-lowlevel:^13.4" "typo3/cms-reactions:^13.4" "typo3/cms-recycler:^13.4" \
+    "typo3/cms-rte-ckeditor:^13.4" "typo3/cms-seo:^13.4"  "typo3/cms-setup:^13.4" \
+    "typo3/cms-sys-note:^13.4" "typo3/cms-t3editor:^13.4" "typo3/cms-tstemplate:^13.4" \
+    "typo3/cms-viewpage:^13.4" "typo3/cms-webhooks:^13.4" 
+    
 
 A typical TYPO3 installation is likely to have multiple third-party extensions
 installed and running the above command can create dependency errors.
