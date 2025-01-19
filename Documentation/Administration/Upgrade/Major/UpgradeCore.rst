@@ -10,8 +10,8 @@ Upgrading to a major release using Composer
 ===========================================
 
 This example details how to upgrade from one LTS release to another. In this
-example, the installation is running TYPO3 version 11.5.34 and the new LTS
-release is version 12.4.10.
+example, the installation is running TYPO3 version 12.4.25 and the new LTS
+release is version 13.4.3.
 
 Check which TYPO3 packages are currently installed
 --------------------------------------------------
@@ -34,7 +34,7 @@ To upgrade a Composer package, run :bash:`composer require` with the package nam
 version number.
 
 For example, to upgrade `typo3/cms-backend` run
-:bash:`composer require typo3/cms-backend:^12.4`.
+:bash:`composer require typo3/cms-backend:^13.4`.
 
 When upgrading to a new major release, each of TYPO3's packages will need to be
 upgraded.
@@ -55,28 +55,28 @@ be used to help generate the Composer upgrade command.
         composer remove "typo3/cms-t3editor"
 
 Assuming that the packages below are installed locally, the following example
-would upgrade each of them to version 12.4.
+would upgrade each of them to version 13.4.
 
 ..  code-block:: bash
 
-    composer require --update-with-all-dependencies "typo3/cms-adminpanel:^12.4" \
-    "typo3/cms-backend:^12.4" "typo3/cms-belog:^12.4" "typo3/cms-beuser:^12.4" \
-    "typo3/cms-core:^12.4" "typo3/cms-dashboard:^12.4" "typo3/cms-felogin:^12.4" \
-    "typo3/cms-filelist:^12.4" "typo3/cms-filemetadata:^12.4" "typo3/cms-fluid:^12.4" \
-    "typo3/cms-form:^12.4" "typo3/cms-frontend:^12.4" "typo3/cms-info:^12.4" \
-    "typo3/cms-install:^12.4" "typo3/cms-linkvalidator:^12.4" "typo3/cms-lowlevel:^12.4" \
-    "typo3/cms-recycler:^12.4" "typo3/cms-rte-ckeditor:^12.4" "typo3/cms-setup:^12.4" \
-    "typo3/cms-t3editor:^12.4" "typo3/cms-tstemplate:^12.4" "typo3/cms-viewpage:^12.4"
+    composer require --update-with-all-dependencies "typo3/cms-adminpanel:^13.4" \
+    "typo3/cms-backend:^13.4" "typo3/cms-belog:^13.4" "typo3/cms-beuser:^13.4" \
+    "typo3/cms-core:^13.4" "typo3/cms-dashboard:^13.4" "typo3/cms-felogin:^13.4" \
+    "typo3/cms-filelist:^13.4" "typo3/cms-filemetadata:^13.4" "typo3/cms-fluid:^13.4" \
+    "typo3/cms-form:^13.4" "typo3/cms-frontend:^13.4" "typo3/cms-info:^13.4" \
+    "typo3/cms-install:^13.4" "typo3/cms-linkvalidator:^13.4" "typo3/cms-lowlevel:^13.4" \
+    "typo3/cms-recycler:^13.4" "typo3/cms-rte-ckeditor:^13.4" "typo3/cms-setup:^13.4" \
+    "typo3/cms-t3editor:^13.4" "typo3/cms-tstemplate:^13.4" "typo3/cms-viewpage:^13.4"
 
 A typical TYPO3 installation is likely to have multiple third-party extensions
 installed and running the above command can create dependency errors.
 
-For example, when upgrading from TYPO3 v11 LTS to v12 LTS an error can occur
-stating that `"helhum/typo3-console": "^7.1"` is only compatible with v11 LTS,
-with the new version `^8.1` supporting TYPO3 v12 LTS.
+For example, when upgrading from TYPO3 v12 LTS to v13 LTS an error can occur
+stating that `"helhum/typo3-console": "^8.1"` is only compatible with v12 LTS,
+with the new version `^9.1` supporting TYPO3 v13 LTS.
 
 For each of these dependency errors, add the version requirement
-`"helhum/typo3-console:^8.1"` to the end of your :bash:`composer require` string
+`"helhum/typo3-console:^9.1"` to the end of your :bash:`composer require` string
 and retry the command.
 
 Monitoring changes to TYPO3's Core
