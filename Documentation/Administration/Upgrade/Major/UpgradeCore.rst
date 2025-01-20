@@ -16,8 +16,11 @@ release is version 13.4.3.
 Check the required PHP version
 ------------------------------
 
-TYPO3 13 requires PHP 8.2 as a minimum. Edit the conposer.json file for "config" - "platform" - "php" and set it to a 
-valid PHP version.
+On https://get.typo3.org/ you can find the required PHP versions to run a 
+certain TYPO3 version. For example TYPO3 13 requires at least PHP 8.2.
+
+How to switch your PHP version depends on the hosting you are using. Please 
+check with your hosting provider.
 
 Check which TYPO3 packages are currently installed
 --------------------------------------------------
