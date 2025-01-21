@@ -47,6 +47,7 @@ Installing on a Unix Server
    .. code-block:: bash
       :caption: /var/www/site/$
 
+      mkdir public
       cd public
       ln -s ../typo3_src-13.x.y typo3_src
       ln -s typo3_src/index.php index.php
