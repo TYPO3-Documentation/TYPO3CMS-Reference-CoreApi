@@ -32,11 +32,11 @@ final class MyLinkViewHelper extends AbstractViewHelper
             ->reset()
             ->setTargetPageUid(2751)
             ->uriFor(
-                'anotherAction',
+                'another', // only action name, not `myAction`
                 [
                     'myRecord' => 21,
                 ],
-                'MyController',
+                'My', // only controller name, not `MyController`
                 'myextension',
                 'myplugin',
             );
