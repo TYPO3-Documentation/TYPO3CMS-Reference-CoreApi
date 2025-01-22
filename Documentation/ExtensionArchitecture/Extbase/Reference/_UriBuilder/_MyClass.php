@@ -24,11 +24,11 @@ final class MyClass
             ->reset()
             ->setTargetPageUid(42)
             ->uriFor(
-                'myAction',
+                'my', // only action name, not `myAction`
                 [
                     'myRecord' => 21,
                 ],
-                'MyController',
+                'My', // only controller name, not `MyController`
                 'myextension',
                 'myplugin',
             );
