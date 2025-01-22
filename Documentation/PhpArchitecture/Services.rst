@@ -75,6 +75,25 @@ Bad Examples
     *   Heavily stateful
 
 
+..  _service-aliases:
+
+Service aliases
+===============
+
+TYPO3 core provides several :ref:`service aliases <dependency-injection-autowire>`, but
+it does not add additional aliases arbitrarily. Injecting state, as in the
+:php:`extension-configuration` example, makes services stateful, which is undesirable
+unless the state does not change at runtime. Aliases for services that act as shortcuts
+for factories, like the :php:`cache.runtime` example, will only be added for services
+that are used very frequently.
+
+Service aliases also present backward compatibility challenges when modified.
+To avoid excessive clutter, TYPO3 core limits the number of service aliases.
+Developers needing aliases for core services can always add them in
+instance-specific extensions. The inclusion of such aliases in TYPO3 core will
+remain a case-by-case decision.
+
+
 Further Reading
 ===============
 
