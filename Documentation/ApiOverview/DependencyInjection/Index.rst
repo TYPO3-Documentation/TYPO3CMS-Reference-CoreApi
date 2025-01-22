@@ -4,6 +4,9 @@
    pair: Dependency injection; Extensions
    pair: Dependency injection; Services
    File; EXT:{extkey}/Configuration/Services.yaml
+   File; EXT:{extkey}/Configuration/Services.php
+   File; config/system/services.yaml
+   File; config/system/services.php
 
 .. _DependencyInjection:
 .. _Dependency-Injection:
@@ -14,7 +17,7 @@ Dependency injection
 
 
 .. rst-class:: compact-list
-.. contents:: This page
+.. contents:: Overview of page contents
    :local:
 
 
@@ -423,6 +426,8 @@ Configuration
 
 Extensions have to configure their classes to make use of
 dependency injection. This can be done in :file:`Configuration/Services.yaml`.
+Alternatively, :file:`Configuration/Services.php` can also be used, if
+PHP syntax is required to apply conditional logic to definitions.
 A basic :file:`Services.yaml` file of an extension looks like the following.
 
 ..  note::
@@ -631,9 +636,10 @@ FAQ
 What to make public?
 --------------------
 
-**tl;dr**: "Manually" instantiated services using
-:php:`GeneralUtility::makeInstance(MyService::class)` must be made
-public.
+..  attention::
+    **tl;dr**: "Manually" instantiated services using
+    :php:`GeneralUtility::makeInstance(MyService::class)` must be made
+    public.
 
 The basic difference between public and private is well explained in the
 `symfony documentation <https://symfony.com/doc/current/service_container/alias_private.html>`_:
@@ -721,7 +727,8 @@ be declared public:
 What do declare :php:`shared: false`?
 -------------------------------------
 
-**tl;dr**: Declare a service :php:`shared: false` if it is stateful.
+..  attention::
+    **tl;dr**: Declare a service :php:`shared: false` if it is stateful.
 
 A service declared :php:`shared: false` is not a singleton. Instead, a new instance
 is created each time the consuming service is instantiated. This approach makes the
@@ -734,8 +741,9 @@ than within :php:`__construct()`.
 When to use :php:`GeneralUtility::makeInstance()`?
 --------------------------------------------------
 
-**tl;dr**: Use :php:`GeneralUtility::makeInstance()` to obtain instances of stateful
-services within otherwise stateless services.
+..  attention::
+    **tl;dr**: Use :php:`GeneralUtility::makeInstance()` to obtain instances of stateful
+    services within otherwise stateless services.
 
 Ideally, all :ref:`services <cgl-services>` in a framework are stateless: They depend
 on other stateless services and are always retrieved using dependency injection.
@@ -789,7 +797,8 @@ compatible with dependency injection.
 When to use :php:`new`?
 -----------------------
 
-**tl;dr**: Use :php:`new` to instantiate data objects, not services.
+..  attention::
+    **tl;dr**: Use :php:`new` to instantiate data objects, not services.
 
 Services should be always retrieved using dependency injection. If that is not
 feasible because the dependent service is stateful or because the class is created
@@ -807,7 +816,8 @@ should be instantiated using the PHP keyword :php:`new`.
 Mix manual constructor arguments and service dependencies?
 ----------------------------------------------------------
 
-**tl;dr**: No. For good reason.
+..  attention::
+    **tl;dr**: No. For good reason.
 
 A service can not mix manual constructor arguments with service dependencies
 handled by dependency injection. Manual constructor arguments make services stateful.
