@@ -457,7 +457,7 @@ public
     :yaml:`public: false` is a performance optimization and should therefore be set
     in extensions. This settings controls which services are available through the
     dependency injection container used internally by :php:`GeneralUtility::makeInstance()`.
-    See :ref:`"What to make public?"<What-to-make-public>` for more information.
+    See :ref:`"What to make public?" <What-to-make-public>` for more information.
 
 Model exclusion
     The path exclusion :yaml:`exclude: '../Classes/Domain/Model/*'` excludes
