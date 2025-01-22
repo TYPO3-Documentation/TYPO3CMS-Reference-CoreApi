@@ -231,7 +231,7 @@ Singleton
    the same instance being re-used when a class instance is requested. Symfony understands
    such class instances as being "shared". TYPO3 can also declare a class as "shared" using the
    :php-short:`\TYPO3\CMS\Core\SingletonInterface`, but this is considered
-   :ref:`old-fashioned<cgl-singletons>`. Services are usually declared shared by default.
+   :ref:`old-fashioned <cgl-singletons>`. Services are usually declared shared by default.
    This implies such classes should be stateless and there is trouble ahead when they are not.
 
 Service
