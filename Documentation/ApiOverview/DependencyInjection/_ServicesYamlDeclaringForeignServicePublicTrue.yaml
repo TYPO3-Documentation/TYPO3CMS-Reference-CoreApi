@@ -1,0 +1,15 @@
+services:
+  _defaults:
+    autowire: true
+    autoconfigure: true
+    public: false
+
+  MyVendor\MyExtension\:
+    resource: '../Classes/*'
+
+  # Declare a "foreign" service "public: true" since this extension needs
+  # to instantiate the service using GeneralUtility::makeInstance() and
+  # the service is configured "public: false" by the extension delivering
+  # that service.
+  TYPO3\CMS\Core\Some\Service:
+    public: true
