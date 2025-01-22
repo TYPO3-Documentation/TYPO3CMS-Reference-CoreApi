@@ -15,11 +15,11 @@ final class MyController extends ActionController
             ->reset()
             ->setTargetPageUid(42)
             ->uriFor(
-                'anotherAction',
+                'another', // only action name, not `myAction`
                 [
                     'myRecord' => 21,
                 ],
-                'MyController',
+                'My', // only controller name, not `MyController`
                 'myextension',
                 'myplugin',
             );
