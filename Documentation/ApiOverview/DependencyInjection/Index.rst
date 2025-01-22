@@ -34,7 +34,7 @@ Potencier. Whenever a :ref:`service <cgl-services>` has a *service dependency* t
 class, the technique of *dependency injection* should be used to satisfy that need. TYPO3
 uses a Symfony component for dependency injection. The component is `PSR-11
 <https://www.php-fig.org/psr/psr-11/>`_ compliant, and is used throughout
-core and extensions to standardize the process of obtaining services dependencies.
+core and extensions to standardize the process of obtaining service dependencies.
 
 By default all API services shipped with the TYPO3 Core system extensions offer dependency
 injection. The recommended usage is :ref:`constructor injection
@@ -130,9 +130,7 @@ a single cache file just once, and afterwards no expensive calculation is requir
 for actual creation.
 
 Symfony based DI was implemented in TYPO3 v10 and usage of the Extbase
-ObjectManager was discouraged. With TYPO3 v11 the core doesn't use the
-ObjectManager any more. It is actively deprecated in v11 and thus leads to
-'deprecation' level log entries.
+ObjectManager was discouraged.
 
 The Extbase ObjectManager has been removed with TYPO3 v12. Making use of
 Symfony DI integration continues. There
@@ -571,17 +569,9 @@ injecting values from :file:`ext_conf_templates.txt` files using the
 This example demonstrates the combination of a service class with an alias and
 a consumer utilizing this alias in an :php:`Autowire` attribute.
 
-TYPO3 core provides several service aliases, but it does not add additional aliases
-arbitrarily. Injecting state, as in the example above, makes services stateful,
-which is undesirable unless the state does not change at runtime. Aliases for
-services that act as shortcuts for factories, like the :php:`cache.runtime`
-example, will only be added for services that are used very frequently.
-
-Service aliases also present backward compatibility challenges when modified.
-To avoid excessive clutter, TYPO3 core limits the number of service aliases.
-Developers needing aliases for core services can always add them in
-instance-specific extensions. The inclusion of such aliases in TYPO3 core will
-remain a case-by-case decision.
+The TYPO3 core provides a couple such service aliases, with the above ones being
+the most important ones for extension developers. TYPO3 core does
+:ref:`not arbitrarily add <service-aliases>` aliases.
 
 
 .. _dependency-injection-installation-wide:
