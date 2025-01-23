@@ -27,3 +27,4 @@ specifically for extension developers.
     Traits
     WorkingWithExceptions
     Singletons
+    Readonly
