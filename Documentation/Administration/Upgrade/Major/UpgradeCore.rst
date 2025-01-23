@@ -16,10 +16,10 @@ release is version 13.4.3.
 Check the required PHP version
 ------------------------------
 
-On https://get.typo3.org/ you can find the required PHP versions to run a 
+On https://get.typo3.org/ you can find the required PHP versions to run a
 certain TYPO3 version. For example TYPO3 13 requires at least PHP 8.2.
 
-How to switch your PHP version depends on the hosting you are using. Please 
+How to switch your PHP version depends on the hosting you are using. Please
 check with your hosting provider.
 
 Check which TYPO3 packages are currently installed
@@ -78,8 +78,8 @@ would upgrade each of them to version 13.4.
     "typo3/cms-lowlevel:^13.4" "typo3/cms-reactions:^13.4" "typo3/cms-recycler:^13.4" \
     "typo3/cms-rte-ckeditor:^13.4" "typo3/cms-seo:^13.4"  "typo3/cms-setup:^13.4" \
     "typo3/cms-sys-note:^13.4" "typo3/cms-t3editor:^13.4" "typo3/cms-tstemplate:^13.4" \
-    "typo3/cms-viewpage:^13.4" "typo3/cms-webhooks:^13.4" 
-    
+    "typo3/cms-viewpage:^13.4" "typo3/cms-webhooks:^13.4"
+
 
 A typical TYPO3 installation is likely to have multiple third-party extensions
 installed and running the above command can create dependency errors.
