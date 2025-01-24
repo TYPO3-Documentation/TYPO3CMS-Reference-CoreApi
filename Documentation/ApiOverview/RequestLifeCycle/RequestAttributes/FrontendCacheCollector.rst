@@ -96,7 +96,7 @@ Example: Get minimum lifetime, calculated from all cache tags
     :caption: Get minimum lifetime, calculated from all cache tags
 
     $cacheDataCollector = $request->getAttribute('frontend.cache.collector');
-    $cacheDataCollector->getLifetime();
+    $cacheDataCollector->resolveLifetime();
 
 
 ..  _typo3-request-attribute-frontend-cache-collector-example-get-all-cache-tags:
