@@ -15,10 +15,25 @@ can be used to modify information (such as the
 :ref:`LanguageAspect <context_api_aspects_language>` or the actual incoming
 record from the database) before the database is queried.
 
-Example
-=======
+..  seealso::
+    *   :ref:`AfterRecordLanguageOverlayEvent`
 
-..  include:: /_includes/EventsContributeNote.rst.txt
+..  _BeforeRecordLanguageOverlayEvent-example:
+
+Example: Change the overlay type to "on" (connected)
+====================================================
+
+In this example, we will change the overlay type to "on" (connected). This may
+be necessary if your site is configured with free mode, but you have a record
+type that has languages connected.
+
+..  literalinclude:: _BeforeRecordLanguageOverlayEvent/_MyEventListener.php
+    :language: php
+    :caption: EXT:my_extension/Classes/Domain/Language/MyEventListener.php
+
+..  include:: /_includes/EventsAttributeAdded.rst.txt
+
+..  _BeforeRecordLanguageOverlayEvent-api:
 
 API
 ===
