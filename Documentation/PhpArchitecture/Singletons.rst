@@ -31,7 +31,8 @@ Example:
         // …
     }
 
-:php:`SingletonInterface` has no methods to implement.
+:php:`SingletonInterface` has no methods to implement. Services implementing the
+interface are automatically declared :ref:`public <What-to-make-public>`.
 
 Due to the overlap with "shared services", TYPO3 core development is gradually reducing
 the number of classes that implement :php:`SingletonInterface`. This process often
