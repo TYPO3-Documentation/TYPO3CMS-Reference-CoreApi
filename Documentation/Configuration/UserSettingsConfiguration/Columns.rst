@@ -1,6 +1,6 @@
-.. include:: /Includes.rst.txt
-.. index:: User settings; Columns
-.. _user-settings-columns:
+..  include:: /Includes.rst.txt
+..  index:: User settings; Columns
+..  _user-settings-columns:
 
 ===================
 ['columns'] Section
@@ -9,122 +9,93 @@
 This contains the configuration array for single fields in the user
 settings. This array allows the following configurations:
 
-.. t3-field-list-table::
- :header-rows: 1
+..  confval:: type
+    :name: user-settings-type
+    :type: string
+    :Allowed values: `button`, `check`, `password`, `select`, `text`, `user`
 
- - :Key,20: Key
-   :Data type,20: Data type
-   :Description,60: Description
+    Defines the type of the input field
 
+    If `type == user`, then you need to define your own `renderType` too.
+    If selectable items shall be filled by your own function, then you can use `type == select` and `itemsProcFunc`.
 
- - :Key:
-         type
-   :Data type:
-         string
-   :Description:
-         Defines the type of the input field
+    **Example:**
 
-         If `type == user`, then you need to define your own `renderType` too.
-         If selectable items shall be filled by your own function, then you can use `type == select` and `itemsProcFunc`.
+    ..  code-block:: php
 
-         **Example:**
+        'startModule' => [
+           'type' => 'select',
+           'itemsProcFunc' => 'TYPO3\\CMS\\Setup\\Controller\\SetupModuleController->renderStartModuleSelect',
+           'label' => 'LLL:EXT:setup/mod/locallang.xlf:startModule',
+        ],
 
-         .. code-block:: php
+..  confval:: label
+    :name: user-settings-label
+    :type: string
 
-            'startModule' => array(
-               'type' => 'select',
-               'itemsProcFunc' => 'TYPO3\\CMS\\Setup\\Controller\\SetupModuleController->renderStartModuleSelect',
-               'label' => 'LLL:EXT:setup/mod/locallang.xlf:startModule',
-            ),
-
-         Allowed values: button, check, password, select, text, user
+    Label for the input field, should be a pointer to a localized
+    label using the :code:`LLL:` syntax.
 
 
- - :Key:
-         label
-   :Data type:
-         string
-   :Description:
-         Label for the input field, should be a pointer to a localized
-         label using the :code:`LLL:` syntax.
+..  confval:: buttonLabel
+    :name: user-settings-buttonLabel
+    :type: string
 
+    Text of the button for type=button fields.
+    Should be a pointer to a localized label using the :code:`LLL:` syntax.
 
- - :Key:
-         buttonLabel
-   :Data type:
-         string
-   :Description:
-         Text of the button for type=button fields.
-         Should be a pointer to a localized label using the :code:`LLL:` syntax.
+..  confval:: access
+    :name: user-settings-access
+    :type: string
+    :Allowed values: `admin`
 
+    Access control. At the moment only a admin-check is implemented
 
- - :Key:
-         access
-   :Data type:
-         string
-   :Description:
-         Access control. At the moment only a admin-check is implemented
+..  confval:: table
+    :name: user-settings-table
+    :type: stringstring
+    :Allowed values: `be_users`
 
-         Allowed values: admin
+    If the user setting is saved in a DB table, this property sets the
+    table. At the moment only `be_users` is implemented.
 
+..  confval:: items
+    :name: user-settings-items
+    :type: array
 
- - :Key:
-         table
-   :Data type:
-         string
-   :Description:
-         If the user setting is saved in a DB table, this property sets the
-         table. At the moment only "be\_users" is implemented.
+    List of items for type=select fields. This should be a simple associative
+    array with key-value pairs.
 
-         Allowed values: be\_users
+..  confval:: itemsProcFunc
+    :name: user-settings-itemsProcFunc
+    :type: array
 
+    Defines an external method for rendering items of select-type fields.
+    Contrary to what is done with the TCA you have to render the <select>
+    tag too. Only used by type=select.
 
- - :Key:
-         items
-   :Data type:
-         array
-   :Description:
-         List of items for type=select fields. This should be a simple associative
-         array with key-value pairs.
+    Use the usual class->method syntax.
 
+..  confval:: clickData.eventName
+    :name: user-settings-clickData-eventName
+    :type: string
 
- - :Key:
-         itemsProcFunc
-   :Data type:
-         array
-   :Description:
-         Defines an external method for rendering items of select-type fields.
-         Contrary to what is done with the TCA you have to render the <select>
-         tag too. Only used by type=select.
+    JavaScript event triggered on click.
 
-         Use the usual class->method syntax.
+..  confval:: confirm
+    :name: user-settings-confirm
+    :type: boolean
 
+    If true, JavaScript confirmation dialog is displayed.
 
- - :Key:
-         clickData.eventName
-   :Data type:
-         string
-   :Description:
-         JavaScript event triggered on click.
+..  confval:: confirmData.eventName
+    :name: user-settings-confirmData-eventName
+    :type: string
 
+    JavaScript event triggered on confirmation.
 
- - :Key:
-         confirm
-   :Data type:
-         boolean
-   :Description:
-         If true, JavaScript confirmation dialog is displayed.
+..  confval:: confirmData.message
+    :name: user-settings-type
+    :type: string
 
- - :Key:
-         confirmData.eventName
-   :Data type:
-         string
-   :Description:
-         JavaScript event triggered on confirmation.
-
- - :Key:
-         confirmData.message
-   :Data type:
-         string
-   :Description:
-         Confirmation message.
+    Confirmation message.
