@@ -6,8 +6,9 @@ namespace MyVendor\MyExtension\Controller;
 
 use MyVendor\MyExtension\Domain\Model\ExampleModel;
 use Psr\Http\Message\ResponseInterface;
+use TYPO3\CMS\Core\Cache\CacheDataCollector;
+use TYPO3\CMS\Core\Cache\CacheTag;
 use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
-use TYPO3\CMS\Frontend\Controller\TypoScriptFrontendController;
 
 final class SomeController extends ActionController
 {
@@ -15,11 +16,11 @@ final class SomeController extends ActionController
     {
         // ...
 
-        /** @var TypoScriptFrontendController $frontendController */
-        $frontendController = $this->request->getAttribute('frontend.controller');
-        $frontendController->addCacheTags([
-            sprintf('tx_myextension_example_%d', $example->getUid()),
-        ]);
+        /** @var CacheDataCollector $cacheDataCollector */
+        $cacheDataCollector = $this->request->getAttribute('frontend.cache.collector');
+        $cacheDataCollector->addCacheTags(
+            new CacheTag(sprintf('tx_myextension_example_%d', $example->getUid())),
+        );
 
         // ...
     }
