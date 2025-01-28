@@ -7,6 +7,7 @@ on:
 
 jobs:
   lint:
+    if: github.repository_owner == 'TYPO3-documentation'
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
