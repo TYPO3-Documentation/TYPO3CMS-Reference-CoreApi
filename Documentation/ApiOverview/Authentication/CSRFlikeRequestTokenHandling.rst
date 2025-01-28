@@ -15,7 +15,7 @@ main scope is to ensure a user actually has visited a page, before submitting
 data to the webserver.
 
 This token can only be used for HTTP methods `POST`, `PUT` or `PATCH`, but
-for instance not for `GET` request.
+for instance not for a `GET` request.
 
 The :php:`\TYPO3\CMS\Core\Middleware\RequestTokenMiddleware` resolves
 request tokens and nonce values from a request and enhances responses with
@@ -23,10 +23,10 @@ a nonce value in case the underlying application issues one. Both items are
 serialized as a `JSON Web Token (JWT)`_ hash signed with `HS256`. Request tokens
 use the provided nonce value during signing.
 
-Session cookie names involved for providing the nonce value:
+Session cookie names involved for providing the `nonce`_ value depending on the request:
 
-*   `typo3nonce_[hash]` in case request served with plain HTTP
-*   `__Secure-typo3nonce_[hash]` in case request served with secured HTTPS
+*   `typo3nonce_[hash]` - plain HTTP
+*   `__Secure-typo3nonce_[hash]` - secured HTTPS
 
 Submitting request token value to application:
 
@@ -66,8 +66,8 @@ The sequence looks like the following:
     :php:`\TYPO3\CMS\Core\Context\SecurityAspect`.
 
     ..  versionchanged:: 13.3
-        Use the :ref:`generic-view-factory` to create a view, previously
-        used :php:`\TYPO3\CMS\Fluid\View\StandaloneView` was deprecated with
+        :ref:`generic-view-factory` to create a view. The previously
+        used :php:`\TYPO3\CMS\Fluid\View\StandaloneView` is deprecated with
         TYPO3 v13.3 and removed with TYPO3 v14.0.
 
     ..  literalinclude:: _CSRFlikeRequestTokenHandling/_MyController.php
