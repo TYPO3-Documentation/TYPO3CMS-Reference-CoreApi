@@ -2,31 +2,57 @@
 .. _extension-classes:
 .. index:: Path; EXT:{extkey}/Classes
 
-================================
-:file:`Classes`
-================================
+=========
+`Classes`
+=========
 
 Contains all PHP classes. One class per file. Should have sub folders like
 :code:`Controller/`, :code:`Domain/`, :code:`Service/` or :code:`View/`.
 For more details on class file namings and PHP namespaces, see chapter
 :ref:`namespaces <namespaces>`.
 
-.. index:: Path; EXT:{extkey}/Classes/Controller
+Typical PHP classes in this folder:
 
-Classes/Controller
-  Contains MVC Controller classes.
+..  typo3:file:: SomeController.php
+    :scope: extension
+    :composerPath: /Classes/Controller/
+    :classicPath: /Classes/Controller/
+    :regex: /^.*\/Classes\/Controller\/.*Controller\.php/
+    :shortDescription: Contains MVC Controller classes.
 
-.. index:: Path; EXT:{extkey}/Classes/Domain/Model
+    Contains MVC Controller classes. In Extbase extensions the classes inherit
+    from :php:`\TYPO3\CMS\Extbase\Mvc\Controller\ActionController`.
 
-Classes/Domain/Model
-  Contains MVC Domain model classes.
+    See also chapter `Extbase Controller <https://docs.typo3.org/permalink/t3coreapi:extbase-controller>`_.
 
-.. index:: Path; EXT:{extkey}/Classes/Domain/Repository
+..  typo3:file:: Something.php
+    :scope: extension
+    :composerPath: /Classes/Domain/Model/
+    :classicPath: /Classes/Domain/Model/
+    :regex: /^.*\/Domain\/Model\/.*\.php/
+    :shortDescription: Contains MVC Domain model classes.
 
-Classes/Domain/Repository
-  Contains data repository classes.
+    Contains MVC Domain model classes. In Extbase they inherit from
+    :php:`\TYPO3\CMS\Extbase\DomainObject\AbstractEntity`. See also
+    `Extbase Model <https://docs.typo3.org/permalink/t3coreapi:extbase-model>`_.
 
-.. index:: Path; EXT:{extkey}/Classes/ViewHelpers
+..  typo3:file:: SomethingRepository.php
+    :scope: extension
+    :composerPath: /Classes/Domain/Repository/
+    :classicPath: /Classes/Domain/Repository/
+    :regex: /^.*\/Domain\/Repository\/.*Repository\.php/
+    :shortDescription: Contains data repository classes.
 
-Classes/ViewHelpers
-  Helper classes used in (Fluid) views.
+    Contains data repository classes. In Extbase a repository inherits from
+    :php:`\TYPO3\CMS\Extbase\Persistence\Repository`. See also
+    `Extbase Repository <https://docs.typo3.org/permalink/t3coreapi:extbase-repository>`_.
+
+..  typo3:file:: SomethingRepository.php
+    :scope: extension
+    :composerPath: /Classes/ViewHelpers/
+    :classicPath: /Classes/ViewHelpers/
+    :regex: /^.*\/ViewHelpers\/.*\.php/
+    :shortDescription: Helper classes used in Fluid templates.
+
+    Helper classes used in Fluid templates. See also
+    `Developing a custom ViewHelper <https://docs.typo3.org/permalink/t3coreapi:fluid-custom-viewhelper>`_.
