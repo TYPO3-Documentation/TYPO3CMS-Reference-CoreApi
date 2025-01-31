@@ -2,9 +2,9 @@
 .. _extension-configuration-extbase:
 .. index:: Path; EXT:{extkey}/Configuration/Extbase
 
-================================
-:file:`Extbase`
-================================
+=========
+`Extbase`
+=========
 
 This configuration folder can contain the following subfolders:
 
