@@ -624,6 +624,14 @@ custom ViewHelper):
     :language: php
     :caption: EXT:my_extension/Classes/Controller/SomeController.php
 
+..  versionadded:: 13.3
+    The :ref:`frontend.cache.collector <typo3-request-attribute-frontend-cache-collector>`
+    request attribut has been introduced as a successor of the now deprecated
+    :php:`TypoScriptFrontendController->addCacheTags()` method. Switch to
+    another version of this page for an example in an older TYPO3 version. For
+    compatibility with TYPO3 v12 and v13 use
+    :php:`TypoScriptFrontendController->addCacheTags()`.
+
 Hook for cache post-processing
 ------------------------------
 
