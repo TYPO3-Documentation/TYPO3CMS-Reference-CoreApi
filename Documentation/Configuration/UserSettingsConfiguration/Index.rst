@@ -1,10 +1,10 @@
-.. include:: /Includes.rst.txt
-.. index::
-   User settings
-   Module; User settings
-   $GLOBALS; TYPO3_USER_SETTINGS
-.. _user-settings-reference:
-.. _user-settings:
+..  include:: /Includes.rst.txt
+..  index::
+    User settings
+    Module; User settings
+    $GLOBALS; TYPO3_USER_SETTINGS
+..  _user-settings-reference:
+..  _user-settings:
 
 ===========================
 User settings configuration
@@ -30,10 +30,10 @@ This functionality is provided by the `typo3/cms-setup` Composer package.
 
 **Contents:**
 
-.. toctree::
-   :titlesonly:
+..  toctree::
+    :titlesonly:
 
-   Columns
-   Showitem
-   Extending
-   Checking
+    Columns
+    Showitem
+    Extending
+    Checking
