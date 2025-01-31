@@ -1,13 +1,18 @@
-.. include:: /Includes.rst.txt
-.. index:: File; EXT:{extkey}/ext_typoscript_setup.typoscript
-.. _ext_typoscript_setup_typoscript:
+..  include:: /Includes.rst.txt
+..  index:: File; EXT:{extkey}/ext_typoscript_setup.typoscript
+..  _ext_typoscript_setup_typoscript:
 
-=======================================
-:file:`ext_typoscript_setup.typoscript`
-=======================================
+=================================
+`ext_typoscript_setup.typoscript`
+=================================
 
-Preset TypoScript setup. Will be included in the setup section of all
-TypoScript **records**. Takes no effect in sites using :ref:`Site sets <t3coreapi:site-sets>`.
+..  typo3:file:: ext_typoscript_setup.typoscript
+    :scope: extension
+    :regex: /^.*ext\_typoscript\_setup\.(typoscript|txt|ts)/
+    :shortDescription: Preset TypoScript setup for sites without site sets
+
+    Preset TypoScript setup. Will be included in the setup section of all
+    TypoScript **records**. Takes no effect in sites using :ref:`Site sets <t3coreapi:site-sets>`.
 
 ..  attention::
 
