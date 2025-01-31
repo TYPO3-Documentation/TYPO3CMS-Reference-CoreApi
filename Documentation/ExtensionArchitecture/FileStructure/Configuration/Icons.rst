@@ -8,10 +8,16 @@
 :file:`Icons.php`
 =================
 
-In this file custom icons can be registered in the
-:php:`\TYPO3\CMS\Core\Imaging\IconRegistry`.
+..  typo3:file:: Icons.php
+    :scope: extension
+    :path: /Configuration/
+    :regex: /^.*\/Configuration\/Icons\.php/
+    :shortDescription: Registration of custom icons
 
-See the :ref:`Icon API <icon>` for details.
+    In this file custom icons can be registered in the
+    :php:`\TYPO3\CMS\Core\Imaging\IconRegistry`.
+
+    See the :ref:`Icon API <icon>` for details.
 
 ..  literalinclude:: /ApiOverview/Icon/_Icons.php
     :language: php

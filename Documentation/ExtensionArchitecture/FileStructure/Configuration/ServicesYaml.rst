@@ -4,9 +4,23 @@
    Path; EXT:{extkey}/Configuration/Services.yaml
 .. _extension-configuration-services-yaml:
 
-================================
-:file:`Services.yaml`
-================================
+===============
+`Services.yaml`
+===============
+
+It is possible to use a YAML or PHP format:
+
+..  typo3:file:: Services.yaml
+    :scope: extension
+    :path: /Configuration/
+    :regex: /^.*\/Configuration\/Services\.yaml/
+    :shortDescription: Dependency injection service configuration
+
+..  typo3:file:: Services.php
+    :scope: extension
+    :path: /Configuration/
+    :regex: /^.*\/Configuration\/Services\.php/
+    :shortDescription: Dependency injection service configuration
 
 Services can be configured in this file. TYPO3 uses it for:
 

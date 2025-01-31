@@ -24,18 +24,24 @@ All files in this directory are automatically included during the TYPO3
         with the risk of a leakage to the following files. The use of :php:`call_user_func()`
         wrap was a common workaround.
 
-:file:`<tablename>.php`
-=======================
+`<tablename>.php`
+=================
 
-One file per database table, using the name of the table for the file, plus
-".php". Only for new tables.
+..  typo3:file:: <tablename>.php
+    :scope: extension
+    :path: /Configuration/TCA
+    :regex: /^.*\/Configuration\/TCA\/.*\.php/
+    :shortDescription: Contains the TYPO3 configuration array, which initially defines the table <tablename>. Change existing tables in directory TCA/Overrides
+
+    One file per database table, using the name of the table for the file, plus
+    ".php". Only for new tables.
 
 
 ..  index:: Path; EXT:{extkey}/Configuration/TCA/Overrides
 ..  _extension-configuration-tca-overrides:
 
-:file:`Overrides`
-=================
+`Overrides`
+===========
 
 For extending existing tables.
 
