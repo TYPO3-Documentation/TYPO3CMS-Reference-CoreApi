@@ -34,7 +34,8 @@ repository service that accepts an identifier (e.g. the uid of a product) and re
 a data object (the product).
 
 Services may depend on other services and should use dependency injection to obtain
-these dependencies, typically via :ref:`constructor injection <Constructor-injection>`.
+these dependencies, typically using :ref:`constructor injection <Constructor-injection>`
+for "leaf" classes and :ref:`method injection <method-injection>` for abstract classes.
 
 In TYPO3, most classes are service classes unless they function as data objects to
 transport data.
