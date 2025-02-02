@@ -1,14 +1,17 @@
+:navigation-title: Classic installation
+
 ..  include:: /Includes.rst.txt
 ..  index::
-    Path; Legacy installations
+    Path; Classic installations
     see: Directory structure; Path
 ..  _legacy-directory-structure:
+..  _classic-directory-structure:
 
-=========================================
-Legacy installations: Directory structure
-=========================================
+==========================================
+Classic installations: Directory structure
+==========================================
 
-The structure below describes the directory structure in a legacy
+The structure below describes the directory structure in a Classic
 TYPO3 installation without Composer. For the structure in a Composer-based installation
 see :ref:`Composer-based installations: Directory structure <directory-structure>`.
 
