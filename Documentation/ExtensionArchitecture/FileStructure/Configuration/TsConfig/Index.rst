@@ -31,5 +31,5 @@
     :shortDescription: Contains user TSconfig files. The path is convention, the files must end on .tsconfig.
 
     User TSconfig, see chapter :ref:`'user TSconfig' in the TSconfig Reference
-    <t3tsref:UserTSconfig>`. Files should have the file extension
+    <t3tsref:UserTSconfig>`. Files must have the file extension
     :file:`.tsconfig`.
