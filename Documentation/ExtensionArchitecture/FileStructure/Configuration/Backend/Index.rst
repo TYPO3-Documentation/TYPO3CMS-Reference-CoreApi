@@ -40,7 +40,7 @@ bootstrap.
     :regex: /^.*Configuration\/Backend\/Routes\.php$/
     :shortDescription: Defines routes for backend controllers
 
-    This file maps from paths used in the backend to the controller that should
+    This file maps the URI paths used in the backend to the controller that should
     be used.
 
     Most backend routes defined in the TYPO3 core can be found in the following
