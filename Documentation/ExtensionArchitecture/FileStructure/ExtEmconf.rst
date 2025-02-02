@@ -11,7 +11,7 @@
 `ext_emconf.php`
 ================
 
-*required*  in legacy installations, for functional tests and to upload an
+*required* in legacy installations, for functional tests and to upload an
 extension to the TER (TYPO3 Extension Repository)
 
 ..  typo3:file:: ext_emconf.php
