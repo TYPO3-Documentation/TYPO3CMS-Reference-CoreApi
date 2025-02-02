@@ -1,29 +1,32 @@
-.. include:: /Includes.rst.txt
-.. index:: ! File; EXT:{extkey}/ext_tables.php
-.. _ext-tables-php:
+..  include:: /Includes.rst.txt
+..  index:: ! File; EXT:{extkey}/ext_tables.php
+..  _ext-tables-php:
 
-======================
-:file:`ext_tables.php`
-======================
+================
+`ext_tables.php`
+================
 
-*-- optional*
+..  typo3:file:: ext_tables.php
+    :scope: extension
+    :regex: /^.*ext\_tables\.php$/
+    :shortDescription: This file is loaded in TYPO3 backend or CLI request only.
 
-:file:`ext_tables.php` is *not* always included in the global scope of the
-frontend context.
+    :file:`ext_tables.php` is *not* always included in the global scope of the
+    frontend context.
 
-This file is only included when
+    This file is only included when
 
-*  a TYPO3 Backend or CLI request is happening
-*  or the TYPO3 Frontend is called and a valid backend user is authenticated
+    *   a TYPO3 Backend or CLI request is happening
+    *   or the TYPO3 Frontend is called and a valid backend user is authenticated
 
-This file usually gets included later within the request and after TCA
-information is loaded, and a backend user is authenticated.
+    This file usually gets included later within the request and after TCA
+    information is loaded, and a backend user is authenticated.
 
-.. hint::
+    ..  hint::
 
-   In many cases, the file :file:`ext_tables.php` is no longer needed,
-   since `TCA` definitions must be placed in files located at
-   :ref:`Configuration/TCA/ <extension-configuration-tca>`.
+        In many cases, the file :file:`ext_tables.php` is no longer needed,
+        since `TCA` definitions must be placed in files located at
+        :ref:`Configuration/TCA/ <extension-configuration-tca>`.
 
 
 Should not be used for
@@ -66,8 +69,8 @@ automatically:
 
 Read :ref:`why the check for the TYPO3 constant is necessary <globals-constants-typo3>`.
 
-.. index:: Extension development; Scheduler task registration
-.. _extension-configuration-files-scheduler:
+..  index:: Extension development; Scheduler task registration
+..  _extension-configuration-files-scheduler:
 
 Registering a scheduler task
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -80,8 +83,8 @@ to be installed for this to work.
     :language: php
     :caption: EXT:site_package/ext_tables.php
 
-.. index:: Extension development; Backend module registration
-.. _extension-configuration-files-backend-module:
+..  index:: Extension development; Backend module registration
+..  _extension-configuration-files-backend-module:
 
 Registering a backend module
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -116,8 +119,8 @@ module:
       ]
    );
 
-.. index:: Extension development; allowTableOnStandardPages
-.. _extension-configuration-files-allow-table-standard:
+..  index:: Extension development; allowTableOnStandardPages
+..  _extension-configuration-files-allow-table-standard:
 
 Allowing a tables records to be added to Standard pages
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

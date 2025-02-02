@@ -7,17 +7,23 @@
 ..  _ext_emconf-php:
 
 
-======================
-:file:`ext_emconf.php`
-======================
+================
+`ext_emconf.php`
+================
 
-*-- required*  in legacy installations
+*required* in legacy installations, for functional tests and to upload an
+extension to the TER (TYPO3 Extension Repository)
 
-The :file:`ext_emconf.php` is used in
-:ref:`legacy installations not based on Composer <t3start:legacyinstallation>` to
-supply information about an extension in the :guilabel:`Admin Tools > Extensions`
-module. In these installations the ordering of installed extensions and their
-dependencies are loaded from this file as well.
+..  typo3:file:: ext_emconf.php
+    :scope: extension
+    :regex: /^.*ext\_emconf\.php$/
+    :shortDescription: Provides information about an extension and its dependencies in Classic installations and functional tests.
+
+    The :file:`ext_emconf.php` is used in
+    :ref:`classic installations not based on Composer <t3start:legacyinstallation>` to
+    supply information about an extension in the :guilabel:`Admin Tools > Extensions`
+    module. In these installations the ordering of installed extensions and their
+    dependencies are loaded from this file as well.
 
 It is also needed for :ref:`Writing functional tests <t3coreapi:testing-writing-functional>`
 with the `typo3/testing-framework <https://github.com/TYPO3/testing-framework>` in v8 and
@@ -25,7 +31,7 @@ earlier.
 
 ..  versionchanged:: 11.4
     In Composer-based installations, the ordering of installed extensions and
-    their dependencies is loaded from the :file:`composer.json` file, instead of
+    their dependencies is loaded from the :file:`composer.json <extension-composer-json>` file, instead of
     :file:`ext_emconf.php`
 
 The only content included is an associative array,
@@ -202,10 +208,10 @@ Example:
 
          .. note::
             Extension authors should ensure that the information here is in sync
-            with the :file:`composer.json` file.
+            with the :file:`composer.json <extension-composer-json>` file.
             This is especially important regarding constraints like `depends`,
             `conflicts` and `suggests`. Use the equivalent settings as in
-            :file:`composer.json` `require`, `conflict` and `suggest` to set
+            :file:`composer.json <extension-composer-json>` `require`, `conflict` and `suggest` to set
             dependencies and ensure a specific loading order.
 
  - :Key:

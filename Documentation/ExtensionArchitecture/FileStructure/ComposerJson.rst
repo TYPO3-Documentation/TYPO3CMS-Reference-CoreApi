@@ -6,11 +6,20 @@
 ..  _composer-json:
 ..  _files-composer-json:
 
-=====================
-:file:`composer.json`
-=====================
+===============
+`composer.json`
+===============
 
 *-- required* in Composer-based installations
+
+..  typo3:file:: composer.json
+    :name: extension-composer-json
+    :scope: extension
+    :regex: /^(EXT:[^\/]+\/composer\.json|packages\/[^\/]+\/composer\.json)$/
+    :shortDescription: This file is a tool for dependency management in PHP. It provides information about an extension and its dependencies in Composer-based installations.
+
+..  This regex matches: - EXT:some_extension/composer.json - EXT:gridelements/composer.json - packages/my_extension/composer.json - packages/news/composer.json
+..  It does NOT match: - composer.json (at project root) - project_root/composer.json
 
 ..  contents::
     :local:
@@ -40,15 +49,15 @@ About the composer.json file
 ============================
 
 ..  note::
-    While the file :file:`composer.json` is currently not strictly required
+    While the file :file:`composer.json <extension-composer-json>` is currently not strictly required
     for an extension to function properly in legacy non-Composer installations
     it is recommended to keep it in any public extension that is published to
     `TYPO3 Extension Repository (TER) <https://extensions.typo3.org/>`__.
 
-Including a :file:`composer.json` is strongly recommended for a number of
+Including a :file:`composer.json <extension-composer-json>` is strongly recommended for a number of
 reasons:
 
-#.  The file :file:`composer.json` is required for documentation that should
+#.  The file :file:`composer.json <extension-composer-json>` is required for documentation that should
     appear on `docs.typo3.org <https://docs.typo3.org/>`__.
 
     See :ref:`h2document:migrate` for more information on the necessary changes
@@ -65,7 +74,7 @@ reasons:
 Minimal composer.json
 ---------------------
 
-This is a minimal :file:`composer.json` for a TYPO3 extension:
+This is a minimal :file:`composer.json <extension-composer-json>` for a TYPO3 extension:
 
 *   The vendor name is `MyVendor`.
 *   The :ref:`extension key <extension-key>` is `my_extension`.
@@ -85,15 +94,15 @@ Subsequently:
 
 ..  versionchanged:: 11.4
     The ordering of installed extensions and their dependencies are loaded from
-    the :file:`composer.json` file, instead of :file:`ext_emconf.php` in
+    the :file:`composer.json <extension-composer-json>` file, instead of :file:`ext_emconf.php` in
     Composer-based installations.
 
 ..  note::
     Extension authors should ensure that the information in the
-    :file:`composer.json` file is in sync with the one in the extension's
+    :file:`composer.json <extension-composer-json>` file is in sync with the one in the extension's
     :ref:`ext_emconf.php <ext_emconf-php>` file. This is especially important
     regarding constraints like :php:`depends`, :php:`conflicts` and
-    :php:`suggests`. Use the equivalent settings in :file:`composer.json`
+    :php:`suggests`. Use the equivalent settings in :file:`composer.json <extension-composer-json>`
     `require`, `conflict` and `suggest` to set dependencies and ensure a
     specific loading order.
 
@@ -105,7 +114,7 @@ Extended composer.json
 
 ..  seealso::
     Please see :ref:`testing-extensions` for
-    further changes to :file:`composer.json` for testing extensions.
+    further changes to :file:`composer.json <extension-composer-json>` for testing extensions.
 
 ..  literalinclude:: _ComposerJson/_ExtendedComposer.json
     :language: json
@@ -134,7 +143,7 @@ You must be owner of the vendor name and should register it on
 your namespaces used in the :file:`Classes/` folder, but with different
 uppercase / lowercase spelling, for example: The PHP namespace
 :php:`JohnDoe\SomeExtension` may be `johndoe/some-extension` in
-:file:`composer.json`.
+:file:`composer.json <extension-composer-json>`.
 
 description
 -----------
@@ -279,7 +288,7 @@ TYPO3-specific:
 
 *   The :ref:`section on testing <testing-extensions>` (in this manual) contains
     further information about adding additional properties to
-    :file:`composer.json` that are relevant for testing.
+    :file:`composer.json <extension-composer-json>` that are relevant for testing.
 *   The Composer plugin (not extension)
     `typo3/cms-composer-installers <https://packagist.org/packages/typo3/cms-composer-installers>`__
     is responsible for TYPO3-specific Composer installation. Reading the README

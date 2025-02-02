@@ -16,7 +16,7 @@ are based on the extension key.
     depending on where they are used, for example:
 
     * underscores (`_`) in the extension key should be replaced by dashes (`-`), when used in the
-      package name in the file :file:`composer.json` (e.g. `cool_shop` becomes `<vendor>/cool-shop`)
+      package name in the file :file:`composer.json <extension-composer-json>` (e.g. `cool_shop` becomes `<vendor>/cool-shop`)
     * underscores in the extension key should be removed by converting the extension key
       to UpperCamelCase in namespaces (e.g. `cool_shop` becomes :php:`MyVendor\CoolShop`)
 
@@ -109,7 +109,7 @@ The extension key (extkey) is used **as is** in:
 
 Derived names are:
 
-* package name in :file:`composer.json` `<vendor-name>/<package-name>`.
+* package name in :file:`composer.json <extension-composer-json>` `<vendor-name>/<package-name>`.
   Underscores (`_`) should be replaced by dashes (`-`)
 * namespaces: Underscores in the extension key are removed by converting the extension key
   to UpperCamelCase in namespaces (e.g. `cool_shop` becomes `MyVendor\CoolShop`).
@@ -145,7 +145,7 @@ Examples for names that are derived from the extkey:
 Here, the *extkey* is `my_extension`:
 
 * namespace: :php:`MyVendor\MyExtension\...`
-* package name in :file:`composer.json`: ``vendor-name/my-extension`` (the underscore is replaced by
+* package name in :file:`composer.json <extension-composer-json>`: ``vendor-name/my-extension`` (the underscore is replaced by
   a dash)
 
 .. index:: Vendor name
@@ -156,7 +156,7 @@ Vendor name
 The vendor name is used in:
 
 * namespaces
-* package name in :file:`composer.json`, e.g. ``myvendor/cool-shop`` (all lowercase)
+* package name in :file:`composer.json <extension-composer-json>`, e.g. ``myvendor/cool-shop`` (all lowercase)
 
 .. attention::
 
@@ -172,7 +172,7 @@ rules, but commonly used vendor names begin with a capital letter,
 followed by all lowercase.
 
 The vendor name (as well as the *extkey*) is spelled with all lowercase when
-used in the package name in the file :file:`composer.json`
+used in the package name in the file :file:`composer.json <extension-composer-json>`
 
 For the following examples, we assume:
 
@@ -182,7 +182,7 @@ For the following examples, we assume:
 
 Examples:
    * Namespace: :php:`MyCompany\MyExample\...`
-   * package name (in :file:`composer.json`): `my-company/my-example`
+   * package name (in :file:`composer.json <extension-composer-json>`): `my-company/my-example`
 
 .. seealso::
 
