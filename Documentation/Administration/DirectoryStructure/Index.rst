@@ -42,15 +42,8 @@ contains installation-wide configuration.
 :file:`config/sites/`
 ~~~~~~~~~~~~~~~~~~~~~
 
-The folder :file:`config/sites/` contains subfolders for each site.
-
-The following files are processed:
-
-*   :file:`config.yaml` for the :ref:`site configuration <sitehandling>`
-*   :file:`settings.yaml` for the :ref:`site settings <sitehandling-settings>`
-*   :file:`csp.yaml` for a
-    :ref:`site-specific Content Security Policy <content-security-policy-site>`
-
+The folder :file:`config/sites/` contains subfolders, one for each site
+in the installation. See chapter :ref:`site-folder`.
 
 .. _directory-config-system:
 
@@ -321,5 +314,7 @@ Upon installation , Composer creates a symlink from packages to
 ..  toctree::
     :titlesonly:
     :hidden:
+    :glob:
 
     ClassicInstallations
+    *
