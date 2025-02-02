@@ -1,7 +1,7 @@
 .. include:: /Includes.rst.txt
-.. index::
-   Extension development; Configuration/Services.yaml
-   Path; EXT:{extkey}/Configuration/Services.yaml
+..  index::
+    Extension development; Configuration/Services.yaml
+    Path; EXT:{extkey}/Configuration/Services.yaml
 ..  _extension-configuration-services-yaml:
 
 ===============
