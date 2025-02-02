@@ -14,11 +14,17 @@
 
     Only put page TSconfig in this file which absolutely has to be set globally.
 
-In this file global page TSconfig can be stored. It will be automatically
-included for all pages.
+..  typo3:file:: page.tsconfig
+    :scope: extension
+    :path: /Configuration/
+    :regex: /^.*Configuration\/page\.tsconfig$/
+    :shortDescription: Global page TSconfig
 
-For details see
-:ref:`Setting the page TSconfig globally <t3tsref:pagesettingdefaultpagetsconfig>`.
+    In this file global page TSconfig can be stored. It will be automatically
+    included for all pages.
+
+    For details see
+    :ref:`Setting the page TSconfig globally <t3tsref:pagesettingdefaultpagetsconfig>`.
 
 .. code-block:: typoscript
    :caption: EXT:some_extension/Configuration/page.tsconfig
