@@ -61,7 +61,7 @@ Common locations for Fluid templates TYPO3 extensions with plugins:
     :shortDescription: Fluid Partials for an extension
 
     Folder `Partials` often contains the Fluid partials for a TYPO3 extension.
-    these can be included via the `Render ViewHelper <f:render> <https://docs.typo3.org/permalink/t3viewhelper:typo3-fluid-render>`_
+    These can be included via the `Render ViewHelper <f:render> <https://docs.typo3.org/permalink/t3viewhelper:typo3-fluid-render>`_
     into the main Fluid template.
 
 ..  typo3:file:: SomeLayout.html
