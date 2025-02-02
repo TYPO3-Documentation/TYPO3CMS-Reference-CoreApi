@@ -1,6 +1,6 @@
 .. include:: /Includes.rst.txt
-.. _extension-configuration-extbase:
-.. index:: Path; EXT:{extkey}/Configuration/Extbase
+..  _extension-configuration-extbase:
+..  index:: Path; EXT:{extkey}/Configuration/Extbase
 
 =========
 `Extbase`
