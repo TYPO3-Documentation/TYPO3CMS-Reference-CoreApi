@@ -40,7 +40,7 @@ These two files are made available for inclusion in TypoScript records with
 .. literalinclude:: _snippets/_sys_template.php
    :caption: EXT:my_extension/Configuration/TCA/Overrides/sys_template.php
 
-It is also possible to use subfolders or a differently named folders. The file
+It is also possible to use subfolders or a differently named folder. The file
 names have to stay exactly the same including case.
 
 ..  warning::
