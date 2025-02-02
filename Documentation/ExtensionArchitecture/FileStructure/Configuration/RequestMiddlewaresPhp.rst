@@ -15,9 +15,9 @@
     :regex: /^.*Configuration\/RequestMiddlewares\.php$/
     :shortDescription: Configuration of user-defined middlewares for frontend and backend
 
-    Configuration of user-defined middlewares for frontend and backend. Extensions
-    that add middlewares or disable existing middlewares configure them in this
-    file. The file must return an array with the configuration.
+    Configuration of custom middleware for frontend and backend. Extensions that
+    add middleware or disable existing middleware are configured in this file. The
+    file must return an array with the configuration.
 
     See :ref:`Configuring middlewares <request-handling-configuring-middlewares>`
     for details.
