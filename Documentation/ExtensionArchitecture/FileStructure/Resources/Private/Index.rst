@@ -46,18 +46,23 @@ configurable via:
 Common locations for Fluid templates in TYPO3 extensions with plugins:
 ======================================================================
 
-..  typo3:file:: SomeTemplate.html
+..  typo3:file:: [ActionName].html
     :scope: extension
-    :path: /Resources/Private/Templates/
-    :regex: /^.*\/Resources\/Private\/Templates\/[A-Za-z0-9]+\.html$/
+    :path: /Resources/Private/Templates/[ControllerName]/
+    :regex: /^.*\/Resources\/Private\/Templates(\/[A-Za-z0-9]+)?\/[A-Za-z0-9]+\.html$/
     :shortDescription: Fluid Template for an extension
 
-    Folder `Templates` often contains the Fluid templates for a TYPO3 extension.
+    Folder `Templates` often contains the Fluid templates for a TYPO3 extensions
+    plugins. In Extbase they are stored in a folder with the name of the controller
+    class (without Controller ending), for example the `NewsController.php` has
+    it the template for action "view" in
+    :file:`/Resources/Private/Templates/News/View.html`. Non-Extbase controllers
+    can decide on how to use this folder.
 
 ..  typo3:file:: SomePartials.html
     :scope: extension
     :path: /Resources/Private/Partials/
-    :regex: /^.*\/Resources\/Private\/Partials\/[A-Za-z0-9]+\.html$/
+    :regex: /^.*\/Resources\/Private\/Partials(\/[A-Za-z0-9]+)*\/[A-Za-z0-9]+\.html$/
     :shortDescription: Fluid Partials for an extension
 
     Folder `Partials` often contains the Fluid partials for a TYPO3 extension.
@@ -91,7 +96,7 @@ TypoScript object to display the HTML page output. They have one folder, commonl
     :shortDescription: Fluid Templates for different page layouts
 
     This folder contains one Fluid template for each page layout defined in the
-    site package. See
+    site package. See `Site package Tutorial, the page view <https://docs.typo3.org/permalink/t3sitepackage:pageview>`_.
 
 ..  typo3:file:: SomePartials.html
     :scope: extension
@@ -99,9 +104,9 @@ TypoScript object to display the HTML page output. They have one folder, commonl
     :regex: /^.*\/Resources\/Private\/PageView\/Partials\/[A-Za-z0-9]+\.html$/
     :shortDescription: Fluid Partials for the page view
 
-    Folder `Partials` often contains the Fluid partials for a TYPO3 extension.
+    Folder `Partials` contains the Fluid partials used by the page view.
     These can be included via the `Render ViewHelper <f:render> <https://docs.typo3.org/permalink/t3viewhelper:typo3-fluid-render>`_
-    into the main Fluid template.
+    into the page view template.
 
 ..  typo3:file:: SomeLayout.html
     :scope: extension
@@ -109,12 +114,15 @@ TypoScript object to display the HTML page output. They have one folder, commonl
     :regex: /^.*\/Resources\/Private\/PageView\/Layouts\/[A-Za-z0-9]+\.html$/
     :shortDescription: Fluid Layouts for the page view
 
-    Folder `Layouts` often contains the Fluid layouts for a TYPO3 extension.
+    Folder `Layouts` often contains the Fluid layout(s) used by the page view.
     These can be included via the `Layout ViewHelper <f:layout> <https://docs.typo3.org/permalink/t3viewhelper:typo3fluid-fluid-layout>`_
-    into the main Fluid template.
+    into the page view template.
 
 Templates to override or extend Fluid-Styled Content based content objects are
-typically stored in a folder called `/Resources/Private/ContentElements`:
+typically stored in a folder called `/Resources/Private/ContentElements`. This
+needs to be configured via setting
+:confval:`styles.templates.templateRootPath <typo3/cms-fluid-styled-content:fluid-styled-content-styles-templates-templaterootpath>`
+etc. to work. See also `Site Package Tutorial: Overriding the default templates of content elements <https://docs.typo3.org/permalink/t3sitepackage:content-element-rendering>`_.
 
 ..  typo3:file:: MyPageLayout.html
     :scope: extension
@@ -123,7 +131,7 @@ typically stored in a folder called `/Resources/Private/ContentElements`:
     :shortDescription: Fluid Templates for different content elements
 
     This folder contains one Fluid template for each content element type defined in the
-    site package. See
+    site package.
 
 ..  typo3:file:: SomePartials.html
     :scope: extension
@@ -131,9 +139,7 @@ typically stored in a folder called `/Resources/Private/ContentElements`:
     :regex: /^.*\/Resources\/Private\/ContentElements\/Partials\/[A-Za-z0-9]+\.html$/
     :shortDescription: Fluid Partials for content elements
 
-    Folder `Partials` often contains the Fluid partials for a TYPO3 extension.
-    these can be included via the `Render ViewHelper <f:render> <https://docs.typo3.org/permalink/t3viewhelper:typo3-fluid-render>`_
-    into the main Fluid template.
+    Typically overrides the Fluid-Styled Content partials.
 
 ..  typo3:file:: Default.html
     :scope: extension
