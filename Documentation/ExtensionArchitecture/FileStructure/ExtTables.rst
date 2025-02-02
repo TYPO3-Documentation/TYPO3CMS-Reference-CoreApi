@@ -16,8 +16,8 @@
 
     This file is only included when
 
-    *  a TYPO3 Backend or CLI request is happening
-    *  or the TYPO3 Frontend is called and a valid backend user is authenticated
+    *   a TYPO3 Backend or CLI request is happening
+    *   or the TYPO3 Frontend is called and a valid backend user is authenticated
 
     This file usually gets included later within the request and after TCA
     information is loaded, and a backend user is authenticated.
