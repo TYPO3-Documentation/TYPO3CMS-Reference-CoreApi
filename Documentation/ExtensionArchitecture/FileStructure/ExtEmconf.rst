@@ -31,7 +31,7 @@ earlier.
 
 ..  versionchanged:: 11.4
     In Composer-based installations, the ordering of installed extensions and
-    their dependencies is loaded from the :file:`composer.json` file, instead of
+    their dependencies is loaded from the :file:`composer.json <extension-composer-json>` file, instead of
     :file:`ext_emconf.php`
 
 The only content included is an associative array,
@@ -208,10 +208,10 @@ Example:
 
          .. note::
             Extension authors should ensure that the information here is in sync
-            with the :file:`composer.json` file.
+            with the :file:`composer.json <extension-composer-json>` file.
             This is especially important regarding constraints like `depends`,
             `conflicts` and `suggests`. Use the equivalent settings as in
-            :file:`composer.json` `require`, `conflict` and `suggest` to set
+            :file:`composer.json <extension-composer-json>` `require`, `conflict` and `suggest` to set
             dependencies and ensure a specific loading order.
 
  - :Key:
