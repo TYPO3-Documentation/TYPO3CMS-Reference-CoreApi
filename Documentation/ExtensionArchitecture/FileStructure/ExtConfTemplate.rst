@@ -1,20 +1,23 @@
-.. include:: /Includes.rst.txt
-.. index::
-   ! File; EXT:{extkey}/ext_conf_template.txt
-   Extension development; Extension configuration
-.. _extension-options:
+..  include:: /Includes.rst.txt
+..  index::
+    ! File; EXT:{extkey}/ext_conf_template.txt
+    Extension development; Extension configuration
+..  _extension-options:
 
-===============================================
-:file:`ext_conf_template.txt`
-===============================================
+=======================
+`ext_conf_template.txt`
+=======================
 
-*-- optional*
+..  typo3:file:: ext_conf_template.txt
+    :scope: extension
+    :regex: /^.*ext\_conf\_template\.txt$/
+    :shortDescription: Provides global configuration options for an extension.
 
-In the :file:`ext_conf_template.txt` file configuration options
-for an extension can be defined. They will be accessible in the TYPO3 backend
-from Settings module.
+    In the :file:`ext_conf_template.txt` file configuration options
+    for an extension can be defined. They will be accessible in the TYPO3 backend
+    from :guilabel:`Admin Tools > Settings` module.
 
-.. _extension-options-syntax:
+..  _extension-options-syntax:
 
 Syntax
 ======
@@ -51,7 +54,7 @@ screenshot, the label – split between header and description – is
 visible. Then comes the field itself, in this case an input, because
 the option's type is "string".
 
-.. _extension-options-available-option-types:
+..  _extension-options-available-option-types:
 
 Available option types
 ======================
@@ -89,8 +92,8 @@ Where user functions have to be written the following way:
    myVariable = 1
 
 
-.. _extension-options-accessing-saved-options:
-.. _extension-options-api:
+..  _extension-options-accessing-saved-options:
+..  _extension-options-api:
 
 Accessing saved options
 =======================
@@ -115,27 +118,27 @@ To directly fetch specific values like :typoscript:`myVariable` from the example
     :caption: EXT:my_extension/Classes/MyClass.php
 
 
-.. _extension-options-nested-structure:
+..  _extension-options-nested-structure:
 
 Nested structure
 ================
 
 You can also define nested options using the TypoScript notation:
 
-.. code-block:: typoscript
-   :caption: EXT:some_extension/ext_conf_template.txt
+..  code-block:: typoscript
+    :caption: EXT:some_extension/ext_conf_template.txt
 
-   directories {
-      # cat=basic/enable; type=string; label=Path to the temporary directory
-      tmp =
-      # cat=basic/enable; type=string; label=Path to the cache directory
-      cache =
-   }
+    directories {
+       # cat=basic/enable; type=string; label=Path to the temporary directory
+       tmp =
+       # cat=basic/enable; type=string; label=Path to the cache directory
+       cache =
+    }
 
 This will result in a multidimensional array:
 
-.. code-block:: text
-   :caption: Example output of method `ExtensionConfiguration->get()`
+..  code-block:: text
+    :caption: Example output of method `ExtensionConfiguration->get()`
 
-   $extensionConfiguration['directories']['tmp']
-   $extensionConfiguration['directories']['cache']
+    $extensionConfiguration['directories']['tmp']
+    $extensionConfiguration['directories']['cache']

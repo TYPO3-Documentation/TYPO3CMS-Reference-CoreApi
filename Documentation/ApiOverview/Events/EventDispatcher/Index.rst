@@ -379,8 +379,8 @@ use that identifier in your implementation.
 
 ..  note::
 
-   Overriding listeners requires your extension to declare a dependency on the
-    :php:`EXT:some_extension` extension (through :file:`composer.json`, or for non-Composer
+    Overriding listeners requires your extension to declare a dependency on the
+    :php:`EXT:some_extension` extension (through :file:`composer.json <extension-composer-json>`, or for non-Composer
     mode :file:`ext_emconf.php`).
     This ensures a proper loading order, so your extension is processed after the extension you want
     to override.

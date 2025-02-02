@@ -85,13 +85,13 @@ rest is done by a simple resolution to include the necessary PHP class
 files. This means that the information to be cached away is only the
 list of available namespace prefixes.
 
-The definition of these prefixes is set inside the :file:`composer.json` file of each
+The definition of these prefixes is set inside the :file:`composer.json <extension-composer-json>` file of each
 package or distribution / project.
 
 Autoloading developer-specific data differently
 -----------------------------------------------
 
-The Composer class loader checks the :file:`composer.json` for a development
+The Composer class loader checks the :file:`composer.json <extension-composer-json>` for a development
 installation differently, including for example unit and functional tests
 separately to the rest of the installation. The static map with all
 namespaces are thus different when using Composer with `composer
