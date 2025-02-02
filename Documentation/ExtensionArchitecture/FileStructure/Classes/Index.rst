@@ -1,8 +1,8 @@
 :navigation-title: Classes
 
-.. include:: /Includes.rst.txt
-.. _extension-classes:
-.. index:: Path; EXT:{extkey}/Classes
+..  include:: /Includes.rst.txt
+..  _extension-classes:
+..  index:: Path; EXT:{extkey}/Classes
 
 ==========================================
 Extension folder `Classes` for PHP classes
