@@ -16,7 +16,7 @@
     :name: extension-composer-json
     :scope: extension
     :regex: /^(EXT:[^\/]+\/composer\.json|packages\/[^\/]+\/composer\.json)$/
-    :shortDescription: This file is a tool for dependency management in PHP. It provides information about an extensions and its dependencies in Composer-based installations.
+    :shortDescription: This file is a tool for dependency management in PHP. It provides information about an extension and its dependencies in Composer-based installations.
 
 ..  This regex matches: - EXT:some_extension/composer.json - EXT:gridelements/composer.json - packages/my_extension/composer.json - packages/news/composer.json
 ..  It does NOT match: - composer.json (at project root) - project_root/composer.json
