@@ -12,12 +12,20 @@ TYPO3 administration
     :gap: 4
     :card-height: 100
 
-    ..  card:: TYPO3 Installation
+    ..  card:: TYPO3 installation
 
         This chapter covers topics about :ref:`system-requirements`, :ref:`installation`,
         :ref:`production-settings`, :ref:`deploytypo3` and :ref:`tunetypo3`.
 
         :ref:`TYPO3 installation <installation_index>`
+
+    ..  card:: Common directory structure
+
+        This chapter describes the typical directory structure of a
+        `Composer-based <https://docs.typo3.org/permalink/t3coreapi:directory-structure>`_
+        and `Classic installation <https://docs.typo3.org/permalink/t3coreapi:classic-directory-structure>`_.
+
+        :ref:`Directory structure <directory-structure>`
 
     ..  card:: Upgrading TYPO3
 
@@ -34,6 +42,7 @@ TYPO3 administration
     :glob:
 
     Installation/Index
+    DirectoryStructure/Index
     Upgrade/Index
     SystemSettings/Index
     UserManagement/Index
