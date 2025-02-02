@@ -80,7 +80,7 @@ Common Fluid template locations for site packages
 =================================================
 
 Commonly site package in TYPO3 v13 and above use the `PAGEVIEW <https://docs.typo3.org/permalink/t3tsref:cobj-pageview>`_
-TypoScript object to display the HTMl page output. They have one folder, commonly
+TypoScript object to display the HTML page output. They have one folder, commonly
 `PageView` or `Templates` in folder `Resources/Private` with the subfolders
 `Pages`, `Partials` and `Layouts` (they cannot be renamed).
 
