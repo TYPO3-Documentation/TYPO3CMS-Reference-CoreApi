@@ -29,12 +29,9 @@ Installing the newly created extension
 Starting with TYPO3 v11 it is no longer possible to install extensions in TYPO3
 without using Composer in Composer-based installations.
 
-However during development it is likely that you will want to test your extension locally
-before publishing it.
-
-During development, place the extension in a directory called,
-:file:`packages` in TYPO3s root directory. You can name is directory
-however you choose.
+However during development it is necessary to test your extension locally
+before publishing it. Place the extension directory in a directory called,
+:file:`packages` in TYPO3's root directory. You can freely name the extension directory.
 
 Then edit your projects :file:`composer.json <extension-composer-json>` (The one in the TYPO3 root
 directory, **not the one in the extension**) and add the following repository:
@@ -55,14 +52,13 @@ After that you can install your extension via Composer:
 
 ..  code-block:: bash
 
-    composer req vendor/my-extension:"@dev"
+    composer req my-vendor/my-extension:"@dev"
 
 ..  hint::
     Starting with TYPO3 v11.5 all extensions installed via Composer are
-    automatically activated when they are installed. If you use an older
-    version of TYPO3 you will have to
-    activate the extension in :guilabel:`Admin Tools > Extension Manager`.
+    automatically activated when they are installed.
 
-For legacy installations you can put the extension directly in the directory
-:file:`typo3conf/ext` and then **activate** it in
-:guilabel:`Admin Tools > Extension Manager`.
+..  hint::
+    For legacy installations you can put the extension directly in the directory
+    :file:`typo3conf/ext` and then **activate** it in
+    :guilabel:`Admin Tools > Extension Manager`.
