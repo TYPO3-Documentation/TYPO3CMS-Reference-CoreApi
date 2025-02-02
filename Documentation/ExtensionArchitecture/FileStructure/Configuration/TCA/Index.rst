@@ -52,7 +52,7 @@ All files in this directory are automatically included during the TYPO3
     :scope: extension
     :path: /Configuration/TCA/Overrides
     :regex: /^.*Configuration\/TCA\/Overrides\/.*\.php$/
-    :shortDescription: Extends the TCA (TYPO3 configuration array) of a table
+    :shortDescription: Extends the TCA (Table Configuration Array) of a table
 
     For extending existing tables.
 
