@@ -22,11 +22,11 @@
     This file usually gets included later within the request and after TCA
     information is loaded, and a backend user is authenticated.
 
-    .. hint::
+    ..  hint::
 
-       In many cases, the file :file:`ext_tables.php` is no longer needed,
-       since `TCA` definitions must be placed in files located at
-       :ref:`Configuration/TCA/ <extension-configuration-tca>`.
+        In many cases, the file :file:`ext_tables.php` is no longer needed,
+        since `TCA` definitions must be placed in files located at
+        :ref:`Configuration/TCA/ <extension-configuration-tca>`.
 
 
 Should not be used for
