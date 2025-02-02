@@ -39,7 +39,7 @@ All files in this directory are automatically included during the TYPO3
     :shortDescription: Contains the TCA (Table Configuration Array), which initially defines the table <tablename>. Change TCA of existing tables in directory TCA/Overrides
 
     One file per database table, using the name of the table for the file, plus
-    ".php". Only for new tables.
+    ".php". Only for new tables, provided by the extension itself. **Must not** be used to change existing tables provided by other extensions.
 
 ..  index:: Path; EXT:{extkey}/Configuration/TCA/Overrides
 ..  _extension-configuration-tca-overrides:
