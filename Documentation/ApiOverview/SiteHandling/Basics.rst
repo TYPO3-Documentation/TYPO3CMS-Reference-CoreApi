@@ -51,11 +51,11 @@ Site configuration storage
 
 When creating a new site configuration, a folder is created in the file system,
 located at :file:`<project-root>/config/sites/<identifier>/`. The site
-configuration is stored in a file called :file:`config.yaml`.
+configuration is stored in a file called :file:`config.yaml <site-config-yaml>`.
 
 ..  note::
     If you are using a legacy installation, the location is
-    :file:`typo3conf/sites/`.
+    :file:`typo3conf/sites/config.yaml`.
 
 ..  tip::
     Add this folder to your version control system.
