@@ -19,7 +19,7 @@ Typical PHP classes in this folder:
     :scope: extension
     :composerPath: /Classes/Controller/
     :classicPath: /Classes/Controller/
-    :regex: /^.*\/Classes\/Controller\/.*Controller\.php/
+    :regex: /^.*\/Classes\/Controller\/.*Controller\.php$/
     :shortDescription: Contains MVC Controller classes.
 
     Contains MVC Controller classes. In Extbase extensions the classes inherit
@@ -31,7 +31,7 @@ Typical PHP classes in this folder:
     :scope: extension
     :composerPath: /Classes/Domain/Model/
     :classicPath: /Classes/Domain/Model/
-    :regex: /^.*\/Domain\/Model\/.*\.php/
+    :regex: /^.*\/Domain\/Model\/.*\.php$/
     :shortDescription: Contains MVC Domain model classes.
 
     Contains MVC Domain model classes. In Extbase they inherit from
@@ -42,7 +42,7 @@ Typical PHP classes in this folder:
     :scope: extension
     :composerPath: /Classes/Domain/Repository/
     :classicPath: /Classes/Domain/Repository/
-    :regex: /^.*\/Domain\/Repository\/.*Repository\.php/
+    :regex: /^.*\/Domain\/Repository\/.*Repository\.php$/
     :shortDescription: Contains data repository classes.
 
     Contains data repository classes. In Extbase a repository inherits from
