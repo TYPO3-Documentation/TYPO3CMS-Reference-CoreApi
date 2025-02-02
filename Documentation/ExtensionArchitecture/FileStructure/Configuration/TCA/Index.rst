@@ -1,15 +1,17 @@
+:navigation-title: TCA
+
 ..  include:: /Includes.rst.txt
 ..  index::
     Extension development; Configuration/TCA
     Path; EXT:{extkey}/Configuration/TCA
 ..  _extension-configuration-tca:
 
-===========
-:file:`TCA`
-===========
+====================================
+Extension folder `Configuration/TCA`
+====================================
 
 The folder :file:`EXT:my_extension/Configuration/TCA/` may contain or override
-:ref:`TCA (TYPO3 configuration array) <t3tca:introduction>` data.
+:ref:`TCA (Table Configuration Array) <t3tca:introduction>` data.
 
 All files in this directory are automatically included during the TYPO3
 :ref:`bootstrap <bootstrapping>`.
@@ -24,21 +26,36 @@ All files in this directory are automatically included during the TYPO3
         with the risk of a leakage to the following files. The use of :php:`call_user_func()`
         wrap was a common workaround.
 
-:file:`<tablename>.php`
-=======================
+..  _extension-configuration-tca-table:
 
-One file per database table, using the name of the table for the file, plus
-".php". Only for new tables.
+`Configuration/TCA/<tablename>.php`
+===================================
 
+..  typo3:file:: <tablename>.php
+    :name: configuration-tca
+    :scope: extension
+    :path: /Configuration/TCA
+    :regex: /^.*Configuration\/TCA\/.*\.php$/
+    :shortDescription: Contains the TCA (Table Configuration Array), which initially defines the table <tablename>. Change TCA of existing tables in directory TCA/Overrides
+
+    One file per database table, using the name of the table for the file, plus
+    ".php". Only for new tables, provided by the extension itself. **Must not** be used to change existing tables provided by other extensions.
 
 ..  index:: Path; EXT:{extkey}/Configuration/TCA/Overrides
 ..  _extension-configuration-tca-overrides:
 
-:file:`Overrides`
-=================
+`Configuration/TCA/Overrides/somefile.php`
+==========================================
 
-For extending existing tables.
+..  typo3:file:: somefile.php
+    :name: configuration-tca-overrides
+    :scope: extension
+    :path: /Configuration/TCA/Overrides
+    :regex: /^.*Configuration\/TCA\/Overrides\/.*\.php$/
+    :shortDescription: Extends the TCA (Table Configuration Array) of a table
 
-General advice: One file per database table, using the name of the table for the
-file, plus :file:`.php`. For more information, see the chapter
-:ref:`Extending the TCA array <storing-changes-extension>`.
+    For extending existing tables.
+
+    General advice: One file per database table, using the name of the table for the
+    file, plus :file:`.php`. For more information, see the chapter
+    :ref:`Extending the TCA array <storing-changes-extension>`.

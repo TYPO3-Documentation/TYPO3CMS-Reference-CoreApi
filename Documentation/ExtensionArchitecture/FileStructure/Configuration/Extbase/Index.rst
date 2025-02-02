@@ -1,10 +1,10 @@
 .. include:: /Includes.rst.txt
-.. _extension-configuration-extbase:
-.. index:: Path; EXT:{extkey}/Configuration/Extbase
+..  _extension-configuration-extbase:
+..  index:: Path; EXT:{extkey}/Configuration/Extbase
 
-================================
-:file:`Extbase`
-================================
+=========
+`Extbase`
+=========
 
 This configuration folder can contain the following subfolders:
 

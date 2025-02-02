@@ -1,3 +1,5 @@
+:navigation-title: Configuration
+
 ..  include:: /Includes.rst.txt
 ..  index::
     Extension development; File name conventions
@@ -5,9 +7,9 @@
 ..  _extension-files-configuration:
 ..  _extension-configuration-files:
 
-======================
-:file:`Configuration`
-======================
+================================
+Extension folder `Configuration`
+================================
 
 The folder :file:`EXT:my_extension/Configuration/` may contain
 configuration of different types.
