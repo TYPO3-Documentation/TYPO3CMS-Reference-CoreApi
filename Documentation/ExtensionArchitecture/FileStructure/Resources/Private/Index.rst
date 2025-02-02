@@ -71,7 +71,7 @@ Common locations for Fluid templates TYPO3 extensions with plugins:
     :shortDescription: Fluid Layouts for an extension
 
     Folder `Layouts` often contains the Fluid layouts for a TYPO3 extension.
-    these can be included via the `Layout ViewHelper <f:layout> <https://docs.typo3.org/permalink/t3viewhelper:typo3fluid-fluid-layout>`_
+    These can be included via the `Layout ViewHelper <f:layout> <https://docs.typo3.org/permalink/t3viewhelper:typo3fluid-fluid-layout>`_
     into the main Fluid template.
 
 .. _extension-resources-private-fluid-site-packages:
