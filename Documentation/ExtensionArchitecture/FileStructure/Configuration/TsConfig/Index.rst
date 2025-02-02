@@ -28,7 +28,7 @@
     :scope: extension
     :path: /Configuration/TsConfig/User
     :regex: /^.*Configuration\/TsConfig\/User\/.*\.tsconfig$/
-    :shortDescription: Contains page TSconfig files. The path is convention, the files must end on .tsconfig.
+    :shortDescription: Contains user TSconfig files. The path is convention, the files must end on .tsconfig.
 
     User TSconfig, see chapter :ref:`'user TSconfig' in the TSconfig Reference
     <t3tsref:UserTSconfig>`. Files should have the file extension
