@@ -9,8 +9,8 @@
 `Private`
 =========
 
-This folder contains resources of the that are needed when rendering a page
-but are not needed supplied directly to the browser. This includes:
+This folder contains resources that are needed when rendering a page
+but are not needed directly by the browser. This includes:
 
 *   Fluid templates
 *   :ref:`Language files <extension-Resources-Private-Language>`
@@ -43,8 +43,8 @@ configurable via:
 
 .. _extension-resources-private-fluid-plugin:
 
-Common locations for Fluid templates TYPO3 extensions with plugins:
-===================================================================
+Common locations for Fluid templates in TYPO3 extensions with plugins:
+======================================================================
 
 ..  typo3:file:: SomeTemplate.html
     :scope: extension
@@ -86,7 +86,7 @@ TypoScript object to display the HTMl page output. They have one folder, commonl
 
 ..  typo3:file:: MyPageLayout.html
     :scope: extension
-    :path: /Resources/Private/PageView/Pages$Z/
+    :path: /Resources/Private/PageView/Pages/
     :regex: /^.*\/Resources\/Private\/PageView\/Pages\/[A-Za-z0-9]+\.html$/
     :shortDescription: Fluid Templates for different page layouts
 
@@ -100,7 +100,7 @@ TypoScript object to display the HTMl page output. They have one folder, commonl
     :shortDescription: Fluid Partials for the page view
 
     Folder `Partials` often contains the Fluid partials for a TYPO3 extension.
-    these can be included via the `Render ViewHelper <f:render> <https://docs.typo3.org/permalink/t3viewhelper:typo3-fluid-render>`_
+    These can be included via the `Render ViewHelper <f:render> <https://docs.typo3.org/permalink/t3viewhelper:typo3-fluid-render>`_
     into the main Fluid template.
 
 ..  typo3:file:: SomeLayout.html
@@ -110,7 +110,7 @@ TypoScript object to display the HTMl page output. They have one folder, commonl
     :shortDescription: Fluid Layouts for the page view
 
     Folder `Layouts` often contains the Fluid layouts for a TYPO3 extension.
-    these can be included via the `Layout ViewHelper <f:layout> <https://docs.typo3.org/permalink/t3viewhelper:typo3fluid-fluid-layout>`_
+    These can be included via the `Layout ViewHelper <f:layout> <https://docs.typo3.org/permalink/t3viewhelper:typo3fluid-fluid-layout>`_
     into the main Fluid template.
 
 Templates to override or extend Fluid-Styled Content based content objects are
@@ -122,7 +122,7 @@ typically stored in a folder called `/Resources/Private/ContentElements`:
     :regex: /^.*\/Resources\/Private\/ContentElements\/Pages\/[A-Za-z0-9]+\.html$/
     :shortDescription: Fluid Templates for different content elements
 
-    This folder contains one Fluid template for each page layout defined in the
+    This folder contains one Fluid template for each content element type defined in the
     site package. See
 
 ..  typo3:file:: SomePartials.html
