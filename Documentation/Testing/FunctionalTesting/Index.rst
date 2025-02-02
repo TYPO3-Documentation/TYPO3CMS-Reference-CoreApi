@@ -61,7 +61,7 @@ Loaded extensions
 The :php:`FunctionalTestCase` has a couple of defaults and properties to specify the set of
 loaded extensions of a test case: First, there is a set of default Core extensions that are
 always loaded. Those should be `require` or at least `require-dev` dependencies in a
-:file:`composer.json` file, too: `core`, `backend`, `frontend`, `extbase` and `install`.
+:file:`composer.json <extension-composer-json>` file, too: `core`, `backend`, `frontend`, `extbase` and `install`.
 
 Apart from that default list, it is possible to load additional Core extensions: An extension
 that wants to test if it works well together with workspaces, would for example specify

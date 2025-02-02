@@ -21,7 +21,7 @@ are used in the example.
 
 These features are available starting with PHP 8.0. With TYPO3 v11.5 it
 is still possible to use PHP 7.4. So either require PHP 8.0 and
-above in your :file:`composer.json` or use a normal constructor
+above in your :file:`composer.json <extension-composer-json>` or use a normal constructor
 for the dependency injection and refrain from using named arguments.
 
 In part two she shows you how to create a TYPO3 backend module that looks

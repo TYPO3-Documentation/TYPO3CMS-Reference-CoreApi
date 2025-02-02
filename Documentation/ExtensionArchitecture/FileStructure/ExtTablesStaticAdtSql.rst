@@ -1,21 +1,26 @@
-.. include:: /Includes.rst.txt
-.. index:: File; EXT:{extkey}/ext_tables_static+adt.sql
-.. _ext_tables_static+adt.sql:
+..  include:: /Includes.rst.txt
+..  index:: File; EXT:{extkey}/ext_tables_static+adt.sql
+..  _ext_tables_static+adt.sql:
 
-=======================================
-:file:`ext_tables_static+adt.sql`
-=======================================
+===========================
+`ext_tables_static+adt.sql`
+===========================
 
-Static SQL tables and their data.
+..  typo3:file:: ext_tables_static+adt.sql
+    :scope: extension
+    :regex: /^.*ext\_tables\_static\+adt\.sql$/
+    :shortDescription: Holds static SQL tables and their data.
 
-If the extension requires static data you can dump it into an SQL file
-by this name. Example for dumping MySQL/MariaDB data from shell (executed in the
-extension's root directory):
+    Holds static SQL tables and their data.
 
-.. code-block:: shell
+    If the extension requires static data you can dump it into an SQL file
+    by this name. Example for dumping MySQL/MariaDB data from shell (executed in the
+    extension's root directory):
 
-   mysqldump --user=[user] --password [database name] \
-             [tablename] > ./ext_tables_static+adt.sql
+..  code-block:: shell
+
+    mysqldump --user=[user] --password [database name] \
+              [tablename] > ./ext_tables_static+adt.sql
 
 Note that only :sql:`INSERT INTO` statements are allowed. The file is
 interpreted whenever the corresponding extension's setup routines get called:
@@ -28,7 +33,7 @@ execution. In that case, the table is truncated and the new data imported.
 The table structure of static tables must be declared in the
 :file:`ext_tables.sql` file, otherwise data cannot be added to a static table.
 
-.. warning::
+..  warning::
 
-   Static data is not meant to be extended by other extensions. On
-   re-import all extended fields and data is lost.
+    Static data is not meant to be extended by other extensions. On
+    re-import all extended fields and data is lost.

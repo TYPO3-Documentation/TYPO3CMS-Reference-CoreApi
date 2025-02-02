@@ -35,7 +35,7 @@ extension. Otherwise they will not be available in the default
 :ref:`autoloading <autoload>`. (See documentation on the :ref:`extension-classes` folder).
 
 
-In the :file:`composer.json` we define that all PHP classes are
+In the :file:`composer.json <extension-composer-json>` we define that all PHP classes are
 automatically loaded from the :file:`Classes/` directory (also
 defined in file:`ext_emconf.php` in legacy installations):
 

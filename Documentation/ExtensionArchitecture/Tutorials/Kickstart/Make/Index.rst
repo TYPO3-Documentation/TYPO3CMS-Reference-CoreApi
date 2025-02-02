@@ -99,7 +99,7 @@ Call the CLI script on the console:
 
 `Enter a description of the extension:`
     A description is mandatory. You can change it later in the file
-    :file:`composer.json` of the extension.
+    :file:`composer.json <extension-composer-json>` of the extension.
 
 `Where should the extension be created? [src/extensions/]:`
     If you have a special path for installing local extensions like
@@ -140,7 +140,7 @@ the following files:
 On Composer-based installations the extension is not installed yet.
 It will not be displayed in the :guilabel:`Extension Manager` in the backend.
 
-To install it, open the main :file:`composer.json` of your **project** (not the
+To install it, open the main :file:`composer.json <extension-composer-json>` of your **project** (not the
 one in the created extension) and add the extension directory as new repository:
 
 ..  code-block:: json
