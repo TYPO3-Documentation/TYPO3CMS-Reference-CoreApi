@@ -81,8 +81,8 @@ Common locations for Fluid templates in TYPO3 extensions with plugins:
 
 .. _extension-resources-private-fluid-site-packages:
 
-Common Fluid template locations for site packages
-=================================================
+Common Fluid template locations for the page view in site packages
+==================================================================
 
 Commonly site package in TYPO3 v13 and above use the `PAGEVIEW <https://docs.typo3.org/permalink/t3tsref:cobj-pageview>`_
 TypoScript object to display the HTML page output. They have one folder, commonly
@@ -118,13 +118,18 @@ TypoScript object to display the HTML page output. They have one folder, commonl
     These can be included via the `Layout ViewHelper <f:layout> <https://docs.typo3.org/permalink/t3viewhelper:typo3fluid-fluid-layout>`_
     into the page view template.
 
+.. _extension-resources-private-fluid-site-fsc:
+
+Common locations to override Fluid-Styled content elements
+==========================================================
+
 Templates to override or extend Fluid-Styled Content based content objects are
 typically stored in a folder called `/Resources/Private/ContentElements`. This
 needs to be configured via setting
 :confval:`styles.templates.templateRootPath <typo3/cms-fluid-styled-content:fluid-styled-content-styles-templates-templaterootpath>`
 etc. to work. See also `Site Package Tutorial: Overriding the default templates of content elements <https://docs.typo3.org/permalink/t3sitepackage:content-element-rendering>`_.
 
-..  typo3:file:: MyPageLayout.html
+..  typo3:file:: SomeContentElement.html
     :scope: extension
     :path: /Resources/Private/ContentElements/Pages/
     :regex: /^.*\/Resources\/Private\/ContentElements\/Pages\/[A-Za-z0-9]+\.html$/
@@ -152,6 +157,7 @@ etc. to work. See also `Site Package Tutorial: Overriding the default templates 
     It is possible to define additional custom layouts that can be
     included via the `Layout ViewHelper <f:layout> <https://docs.typo3.org/permalink/t3viewhelper:typo3fluid-fluid-layout>`_
     into content element templates.
+
 
 .. toctree::
    :titlesonly:
