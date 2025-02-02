@@ -30,7 +30,7 @@ configurable via:
 *   TypoScript for `PAGEVIEW <https://docs.typo3.org/permalink/t3tsref:cobj-pageview>`_:
     :ref:`paths.[priority] <t3tsref:confval-pageview-paths>`
 *   TypoScript for `FLUIDTEMPLATE <https://docs.typo3.org/permalink/t3tsref:cobj-template>`_:
-    :ref:`templateRootPaths <t3tsref:confval-fluidtemplate-templaterootpaths>` etc
+    :ref:`templateRootPaths <t3tsref:confval-fluidtemplate-templaterootpaths>` etc.
 *   Mails via global configuration:
     :ref:`$GLOBALS['TYPO3_CONF_VARS']['MAIL']['templateRootPaths'] <t3coreapi:confval-globals-typo3-conf-vars-mail-templaterootpaths>`
 *   Settings of diverse system or third party extensions like
