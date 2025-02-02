@@ -13,6 +13,7 @@
 *-- required* in Composer-based installations
 
 ..  typo3:file:: composer.json
+    :name: extenstion-composer-json
     :scope: extension
     :regex: /^(EXT:[^\/]+\/composer\.json|packages\/[^\/]+\/composer\.json)$/
     :shortDescription: This file is a tool for dependency management in PHP. It provides information about an extensions and its dependencies in Composer-based installations.

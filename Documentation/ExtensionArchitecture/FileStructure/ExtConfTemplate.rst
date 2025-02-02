@@ -10,7 +10,7 @@
 
 ..  typo3:file:: ext_conf_template.txt
     :scope: extension
-    :regex: /^.*ext\_conf\_template\.txt/
+    :regex: /^.*ext\_conf\_template\.txt$/
     :shortDescription: Provides global configuration options for an extension.
 
     In the :file:`ext_conf_template.txt` file configuration options

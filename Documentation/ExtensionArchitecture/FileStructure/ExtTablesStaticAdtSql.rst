@@ -8,7 +8,7 @@
 
 ..  typo3:file:: ext_tables_static+adt.sql
     :scope: extension
-    :regex: /^.*ext\_tables\_static\+adt\.sql/
+    :regex: /^.*ext\_tables\_static\+adt\.sql$/
     :shortDescription: Holds static SQL tables and their data.
 
     Holds static SQL tables and their data.

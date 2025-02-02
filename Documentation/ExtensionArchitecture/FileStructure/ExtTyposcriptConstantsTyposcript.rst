@@ -8,7 +8,7 @@
 
 ..  typo3:file:: ext_typoscript_constants.typoscript
     :scope: extension
-    :regex: /^.*ext\_typoscript\_constants\.(typoscript|txt|ts)/
+    :regex: /^.*ext\_typoscript\_constants\.(typoscript|txt|ts)$/
     :shortDescription: Preset TypoScript constants for sites without site sets
 
     Preset TypoScript constants. Will be included in the constants section of all

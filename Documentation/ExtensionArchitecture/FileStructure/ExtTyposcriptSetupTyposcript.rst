@@ -8,7 +8,7 @@
 
 ..  typo3:file:: ext_typoscript_setup.typoscript
     :scope: extension
-    :regex: /^.*ext\_typoscript\_setup\.(typoscript|txt|ts)/
+    :regex: /^.*ext\_typoscript\_setup\.(typoscript|txt|ts)$/
     :shortDescription: Preset TypoScript setup for sites without site sets
 
     Preset TypoScript setup. Will be included in the setup section of all

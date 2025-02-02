@@ -8,7 +8,7 @@
 
 ..  typo3:file:: ext_tables.sql
     :scope: extension
-    :regex: /^.*ext\_tables\.sql/
+    :regex: /^.*ext\_tables\.sql$/
     :shortDescription: Holds additional SQL definition of database tables.
 
     The :file:`ext_tables.sql` file in the root folder of an extension holds

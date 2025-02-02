@@ -16,7 +16,7 @@ extension to the TER (TYPO3 Extension Repository)
 
 ..  typo3:file:: ext_emconf.php
     :scope: extension
-    :regex: /^.*ext\_emconf\.php/
+    :regex: /^.*ext\_emconf\.php$/
     :shortDescription: Provides information about an extension and its dependencies in Classic installations and functional tests.
 
     The :file:`ext_emconf.php` is used in

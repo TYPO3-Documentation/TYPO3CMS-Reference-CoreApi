@@ -9,7 +9,7 @@
 
 ..  typo3:file:: ext_localconf.php
     :scope: extension
-    :regex: /^.*ext\_localconf\.php/
+    :regex: /^.*ext\_localconf\.php$/
     :shortDescription: Should contain additional configuration of $GLOBALS['TYPO3_CONF_VARS'].
 
     :file:`ext_localconf.php` is always included in global scope of the script,
