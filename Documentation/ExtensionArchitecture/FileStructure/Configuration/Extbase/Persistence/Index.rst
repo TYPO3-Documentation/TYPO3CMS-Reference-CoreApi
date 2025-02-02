@@ -10,12 +10,15 @@ This folder can contain the following files:
 
 ..  _extension-configuration-extbase-persistence-classes:
 
-:file:`Classes.php`
-===================
+..  typo3:file:: Classes.php
+    :scope: extension
+    :path: /Configuration/Extbase/Persistence/Classes.php
+    :regex: /^.*Configuration\/Extbase\/Persistence\/Classes\.php$/
+    :shortDescription: Contains the mapping between a database table and its Extbase model
 
-In the file :file:`EXT:my_extension/Configuration/Extbase/Persistence/Classes.php` the
-mapping between a database table and its model can be configured. The mapping
-in this file overrides the automatic mapping by naming convention.
+    In the file :file:`EXT:my_extension/Configuration/Extbase/Persistence/Classes.php` the
+    mapping between a database table and its model can be configured. The mapping
+    in this file overrides the automatic mapping by naming convention.
 
-..  seealso::
-    :ref:`Connecting the model to the database <extbase-Persistence>`
+    ..  seealso::
+        :ref:`Connecting the model to the database <extbase-Persistence>`

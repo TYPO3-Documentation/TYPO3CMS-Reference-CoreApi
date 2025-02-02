@@ -9,13 +9,17 @@
 :file:`RequestMiddlewares.php`
 ================================
 
-Full path to this file is: :file:`Configuration/RequestMiddlewares.php`.
+..  typo3:file:: RequestMiddlewares.php
+    :scope: extension
+    :path: /Configuration/
+    :regex: /^.*Configuration\/RequestMiddlewares\.php$/
+    :shortDescription: Configuration of user-defined middlewares for frontend and backend
 
-Configuration of user-defined middlewares for frontend and backend. Extensions
-that add middlewares or disable existing middlewares configure them in this
-file. The file must return an array with the configuration.
+    Configuration of custom middleware for frontend and backend. Extensions that
+    add middleware or disable existing middleware are configured in this file. The
+    file must return an array with the configuration.
 
-See :ref:`Configuring middlewares <request-handling-configuring-middlewares>`
-for details.
+    See :ref:`Configuring middlewares <request-handling-configuring-middlewares>`
+    for details.
 
-.. include:: /CodeSnippets/Manual/Extension/Configuration/RequestMiddlewares.rst.txt
+..  include:: /CodeSnippets/Manual/Extension/Configuration/RequestMiddlewares.rst.txt
