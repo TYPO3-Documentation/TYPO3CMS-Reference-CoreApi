@@ -5,7 +5,7 @@
     Extension development; Configuration/Backend
     Path; EXT:{extkey}/Configuration/Backend
 
-.. _extension-configuration-backend:
+..  _extension-configuration-backend:
 
 ========================================
 Extension folder `Configuration/Backend`
