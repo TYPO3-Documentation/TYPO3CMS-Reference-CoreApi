@@ -22,4 +22,4 @@
     See :ref:`Configuring middlewares <request-handling-configuring-middlewares>`
     for details.
 
-.. include:: /CodeSnippets/Manual/Extension/Configuration/RequestMiddlewares.rst.txt
+..  include:: /CodeSnippets/Manual/Extension/Configuration/RequestMiddlewares.rst.txt
