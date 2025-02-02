@@ -18,7 +18,7 @@ following file:
     :regex: /^.*(config|typo3conf)\/sites\/[\w-]+\/config\.yaml$/
     :shortDescription: Contains the site configuration
 
-    Contains the site configuration the site configuration. See chapter
+    Contains the site configuration. See chapter
     `Site handling <https://docs.typo3.org/permalink/t3coreapi:sitehandling>`_
     for details.
 
