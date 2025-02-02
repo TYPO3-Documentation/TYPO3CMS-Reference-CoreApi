@@ -8,7 +8,7 @@
 
 ..  typo3:file:: ext_tables.php
     :scope: extension
-    :regex: /^.*ext\_tables\.php/
+    :regex: /^.*ext\_tables\.php$/
     :shortDescription: This file is loaded in TYPO3 backend or CLI request only.
 
     :file:`ext_tables.php` is *not* always included in the global scope of the
