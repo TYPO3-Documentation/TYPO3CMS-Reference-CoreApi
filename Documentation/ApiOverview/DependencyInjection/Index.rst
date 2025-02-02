@@ -627,7 +627,7 @@ What to make public?
 --------------------
 
 ..  attention::
-    **tl;dr**: "Manually" instantiated services using
+    **In short**: "Manually" instantiated services using
     :php:`GeneralUtility::makeInstance(MyService::class)` must be made
     public.
 
@@ -718,7 +718,7 @@ What do declare :php:`shared: false`?
 -------------------------------------
 
 ..  attention::
-    **tl;dr**: Declare a service :php:`shared: false` if it is stateful.
+    **In short**: Declare a service :php:`shared: false` if it is stateful.
 
 A service declared :php:`shared: false` is not a singleton. Instead, a new instance
 is created each time the consuming service is instantiated. This approach makes the
@@ -732,7 +732,7 @@ When to use :php:`GeneralUtility::makeInstance()`?
 --------------------------------------------------
 
 ..  attention::
-    **tl;dr**: Use :php:`GeneralUtility::makeInstance()` to obtain instances of stateful
+    **In short**: Use :php:`GeneralUtility::makeInstance()` to obtain instances of stateful
     services within otherwise stateless services.
 
 Ideally, all :ref:`services <cgl-services>` in a framework are stateless: They depend
@@ -788,7 +788,7 @@ When to use :php:`new`?
 -----------------------
 
 ..  attention::
-    **tl;dr**: Use :php:`new` to instantiate data objects, not services.
+    **In short**: Use :php:`new` to instantiate data objects, not services.
 
 Services should be always retrieved using dependency injection. If that is not
 feasible because the dependent service is stateful or because the class is created
@@ -807,7 +807,7 @@ Mix manual constructor arguments and service dependencies?
 ----------------------------------------------------------
 
 ..  attention::
-    **tl;dr**: No. For good reason.
+    **In short**: No. For good reason.
 
 A service can not mix manual constructor arguments with service dependencies
 handled by dependency injection. Manual constructor arguments make services stateful.
