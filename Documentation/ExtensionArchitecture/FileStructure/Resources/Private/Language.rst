@@ -64,7 +64,7 @@ The following file names are commonly used:
     The documentation for the ViewHelper can be found at
     :ref:`t3viewhelper:typo3-fluid-translate`.
 
-    Language labels to be used in PHP, TypoScript etc must also be prefixed with
+    Language labels to be used in PHP, TypoScript etc. must also be prefixed with
     the complete path.
 
 ..  typo3:file:: locallang_db.xlf
