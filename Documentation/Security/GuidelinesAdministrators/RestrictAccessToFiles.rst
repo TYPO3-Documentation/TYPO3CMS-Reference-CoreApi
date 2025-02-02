@@ -75,7 +75,7 @@ a Microsoft IIS web server is detected, a default :file:`web.config` file is wri
 to the document root. These files contain web server configurations to deny direct web
 access to a series of common file types and directories, for instance version control system
 directories like :file:`.git/`, all private template directories like :file:`Resources/Private/`
-and common package files like :file:`composer.json`.
+and common package files like :file:`composer.json <extension-composer-json>`.
 
 
 This "black list" approach needs maintenance: The Core Team tries to keep the template files

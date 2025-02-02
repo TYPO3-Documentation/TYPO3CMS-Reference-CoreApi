@@ -1,13 +1,18 @@
-.. include:: /Includes.rst.txt
-.. index:: File; EXT:{extkey}/ext_typoscript_constants.typoscript
-.. _ext_typoscript_constants_typoscript:
+..  include:: /Includes.rst.txt
+..  index:: File; EXT:{extkey}/ext_typoscript_constants.typoscript
+..  _ext_typoscript_constants_typoscript:
 
-===========================================
-:file:`ext_typoscript_constants.typoscript`
-===========================================
+=====================================
+`ext_typoscript_constants.typoscript`
+=====================================
 
-Preset TypoScript constants. Will be included in the constants section of all
-TypoScript **records**. Takes no effect in sites using :ref:`Site sets <t3coreapi:site-sets>`.
+..  typo3:file:: ext_typoscript_constants.typoscript
+    :scope: extension
+    :regex: /^.*ext\_typoscript\_constants\.(typoscript|txt|ts)$/
+    :shortDescription: Preset TypoScript constants for sites without site sets
+
+    Preset TypoScript constants. Will be included in the constants section of all
+    TypoScript **records**. Takes no effect in sites using :ref:`Site sets <t3coreapi:site-sets>`.
 
 ..  attention::
 

@@ -1,21 +1,24 @@
-.. include:: /Includes.rst.txt
-.. index::
-   File; EXT:{extkey}/ext_localconf.php
-.. _ext-localconf-php:
+..  include:: /Includes.rst.txt
+..  index::
+    File; EXT:{extkey}/ext_localconf.php
+..  _ext-localconf-php:
 
-=========================
-:file:`ext_localconf.php`
-=========================
+===================
+`ext_localconf.php`
+===================
 
-*-- optional*
+..  typo3:file:: ext_localconf.php
+    :scope: extension
+    :regex: /^.*ext\_localconf\.php$/
+    :shortDescription: Should contain additional configuration of $GLOBALS['TYPO3_CONF_VARS'].
 
-:file:`ext_localconf.php` is always included in global scope of the script,
-in the frontend, backend and CLI context.
+    :file:`ext_localconf.php` is always included in global scope of the script,
+    in the frontend, backend and CLI context.
 
-It should contain additional configuration of :php:`$GLOBALS['TYPO3_CONF_VARS']`.
+    It should contain additional configuration of :php:`$GLOBALS['TYPO3_CONF_VARS']`.
 
-This file contains hook definitions and plugin configuration. It must
-not contain a PHP encoding declaration.
+    This file contains hook definitions and plugin configuration. It must
+    not contain a PHP encoding declaration.
 
 All :file:`ext_localconf.php` files of loaded extensions are
 included right  *after* the files :file:`config/system/settings.php`
@@ -25,6 +28,7 @@ and :file:`config/system/additional.php` during TYPO3
 Pay attention to the rules for the contents of these files.
 For more details, see the :ref:`section below <extension-configuration-files>`.
 
+..  _ext-localconf-php-no-usage:
 
 Should not be used for
 ======================
@@ -66,11 +70,13 @@ Example:
    $GLOBALS['TYPO3_CONF_VARS']['SYS']['debugExceptionHandler'] =
        \Vendor\Ext\Error\PostExceptionsOnTwitter::class;
 
+..  _ext-localconf-php-usage:
+
 Should be used for
 ==================
 
 These are the typical functions that extension authors should place within
-file:`ext_localconf.php`
+:file:`ext_localconf.php`
 
 *   Registering :ref:`hooks <hooks-concept>`, :ref:`XCLASSes <xclasses>`
     or any simple array assignments to :php:`$GLOBALS['TYPO3_CONF_VARS']` options
@@ -81,6 +87,7 @@ file:`ext_localconf.php`
 *   Adding reports to the reports module
 *   Registering Services via the :ref:`Service API <services-developer-service-api>`
 
+..  _ext-localconf-php-example:
 
 Examples
 --------

@@ -36,7 +36,7 @@ During development, place the extension in a directory called,
 :file:`packages` in TYPO3s root directory. You can name is directory
 however you choose.
 
-Then edit your projects :file:`composer.json` (The one in the TYPO3 root
+Then edit your projects :file:`composer.json <extension-composer-json>` (The one in the TYPO3 root
 directory, **not the one in the extension**) and add the following repository:
 
 .. code-block:: json

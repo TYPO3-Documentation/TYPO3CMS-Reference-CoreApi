@@ -32,7 +32,7 @@ About this chapter and what it does *not* cover, first.
   per Core version. This has various advantages, it is for instance easy to create deprecation
   free extensions this way.
 
-* We assume a Composer based setup. Extensions should provide a :file:`composer.json`
+* We assume a Composer based setup. Extensions should provide a :file:`composer.json <extension-composer-json>`
   file anyway and using Composer for extension testing is quite convenient.
 
 * Similar to Core testing, this documentation relies on docker and docker-compose. See the
@@ -56,7 +56,7 @@ instance which PHP class namespaces it provides and where they can be found. Thi
 integrates the extension into the project and the project then "knows" the location of extension
 classes.
 
-If we want to test extension code directly, we do a similar change: We turn the :file:`composer.json`
+If we want to test extension code directly, we do a similar change: We turn the :file:`composer.json <extension-composer-json>`
 file of the extension into a `root composer.json file <https://getcomposer.org/doc/04-schema.md#root-package>`_.
 That file then serves two needs at the same time: It is used by projects that require the extension
 as a dependency and it is used as the root composer.json to specify dependencies turning the extension
@@ -103,7 +103,7 @@ some PHP linting to verify there is no fatal PHP error.
 Starting point
 --------------
 
-As outlined in the general strategy, we need to extend the existing :file:`composer.json` file by
+As outlined in the general strategy, we need to extend the existing :file:`composer.json <extension-composer-json>` file by
 adding some root composer.json specific things. This does not harm the functionality of the existing
 composer.json properties if the extension is a project dependency and not used as root composer.json:
 Root properties are ignored in Composer if the file is not used as root project file, see the
@@ -173,7 +173,8 @@ unit test class in directory :file:`Tests/Unit/Hooks` (stripped):
 Preparing composer.json
 -----------------------
 
-Now let's add our properties to put these tests into action. First, we add a series of properties to :file:`composer.json`
+Now let's add our properties to put these tests into action. First, we add a series of properties
+to :file:`composer.json <extension-composer-json>`
 to add root :file:`composer.json` details, turning the extension into a project at the same time:
 
 .. code-block:: json
