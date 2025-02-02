@@ -147,12 +147,6 @@ Page Routing describes the process of resolving the concrete page (in earlier TY
 now this uses the Site Language Prefix plus one or more slugs),
 whereas Route Enhancements and Aspects take care of all additionally configured parameters (such as beautifying plugin parameters, handling `type` etc.).
 
-Mathias Schreiber demonstrates this way of handling URLs
-(Version 9.5, 28.09.2018).
-
-..  youtube:: dUz4B08XFes
-
-
 ..  _routing-prerequisites:
 
 Prerequisites
