@@ -14,7 +14,7 @@
     :regex: /^.*Configuration\/ContentSecurityPolicies\.php$/
     :shortDescription: Provides Content Security Policies for frontend and backend.
 
-    .. versionadded:: 12.3
+    ..  versionadded:: 12.3
 
     This file provides :ref:`Content Security Policies <content-security-policy>`
     for frontend and backend.
