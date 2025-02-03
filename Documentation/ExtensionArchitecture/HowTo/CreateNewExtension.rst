@@ -30,8 +30,8 @@ Starting with TYPO3 v11 it is no longer possible to install extensions in TYPO3
 without using Composer in Composer-based installations.
 
 However during development it is necessary to test your extension locally
-before publishing it. Place the extension directory in a directory called,
-:file:`packages` in TYPO3's root directory. You can freely name the extension directory.
+before publishing it. Place the extension directory into the directory called,
+:file:`packages` inside of the TYPO3 project root directory.
 
 Then edit your projects :file:`composer.json <extension-composer-json>` (The one in the TYPO3 root
 directory, **not the one in the extension**) and add the following repository:
