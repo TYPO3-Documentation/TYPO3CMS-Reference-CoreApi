@@ -36,7 +36,7 @@ The site folder may also contain the following files:
     :scope: site
     :composerPath: /config/sites/my-site/
     :classicPath: /typo3conf/sites/my-site/
-    :regex: /^.*(config|typo3conf)\/sites\/\w+\/settings\.yaml$/
+    :regex: /^.*(config|typo3conf)\/sites\/[\w-]+\/settings\.yaml$/
     :shortDescription: Site specific settings
 
     See chapter `Site settings <https://docs.typo3.org/permalink/t3coreapi:sitehandling-settings>`_.
