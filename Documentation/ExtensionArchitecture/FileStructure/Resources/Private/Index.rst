@@ -55,7 +55,7 @@ Common locations for Fluid templates in TYPO3 extensions with plugins:
     Folder `Templates` often contains the Fluid templates for a TYPO3 extensions
     plugins. In Extbase they are stored in a folder with the name of the controller
     class (without Controller ending), for example the `NewsController.php` has
-    it the template for action "view" in
+    the template for action "view" in
     :file:`/Resources/Private/Templates/News/View.html`. Non-Extbase controllers
     can decide on how to use this folder.
 
