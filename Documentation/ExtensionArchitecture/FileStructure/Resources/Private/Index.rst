@@ -49,7 +49,7 @@ Common locations for Fluid templates in TYPO3 extensions with plugins:
 ..  typo3:file:: [ActionName].html
     :scope: extension
     :path: /Resources/Private/Templates/[ControllerName]/
-    :regex: /^.*\/Resources\/Private\/Templates(\/[A-Za-z0-9]+)?\/[A-Za-z0-9]+\.html$/
+    :regex: /^.*\/Resources\/Private\/Templates(\/[A-Za-z0-9]+)?\/[A-Za-z0-9]+\.[a-z0-9]$/
     :shortDescription: Fluid Template for an extension
 
     Folder `Templates` often contains the Fluid templates for a TYPO3 extensions
@@ -59,10 +59,14 @@ Common locations for Fluid templates in TYPO3 extensions with plugins:
     :file:`/Resources/Private/Templates/News/View.html`. Non-Extbase controllers
     can decide on how to use this folder.
 
+..  tip::
+    Other file endings can be used for different formats, for example `.xml`
+    for sitemaps or xml-feeds or `.txt` for plain text.
+
 ..  typo3:file:: SomePartials.html
     :scope: extension
     :path: /Resources/Private/Partials/
-    :regex: /^.*\/Resources\/Private\/Partials(\/[A-Za-z0-9]+)*\/[A-Za-z0-9]+\.html$/
+    :regex: /^.*\/Resources\/Private\/Partials(\/[A-Za-z0-9]+)*\/[A-Za-z0-9]+\.[a-z0-9]$/
     :shortDescription: Fluid Partials for an extension
 
     Folder `Partials` often contains the Fluid partials for a TYPO3 extension.
@@ -72,7 +76,7 @@ Common locations for Fluid templates in TYPO3 extensions with plugins:
 ..  typo3:file:: SomeLayout.html
     :scope: extension
     :path: /Resources/Private/Layouts/
-    :regex: /^.*\/Resources\/Private\/Layouts\/[A-Za-z0-9]+\.html$/
+    :regex: /^.*\/Resources\/Private\/Layouts\/[A-Za-z0-9]+\.[a-z0-9]$/
     :shortDescription: Fluid Layouts for an extension
 
     Folder `Layouts` often contains the Fluid layouts for a TYPO3 extension.
