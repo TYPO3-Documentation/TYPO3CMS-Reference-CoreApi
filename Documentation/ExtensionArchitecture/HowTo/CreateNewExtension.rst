@@ -61,4 +61,4 @@ After that you can install your extension via Composer:
 ..  hint::
     For legacy installations you can put the extension directly in the directory
     :file:`typo3conf/ext` and then **activate** it in
-    :guilabel:`Admin Tools > Extension Manager`.
+    :guilabel:`Admin Tools > Extensions`.
