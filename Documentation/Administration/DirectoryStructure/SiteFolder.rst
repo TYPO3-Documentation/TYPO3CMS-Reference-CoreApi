@@ -39,8 +39,8 @@ The site folder may also contain the following files:
     :regex: /^.*(config|typo3conf)\/sites\/\w+\/settings\.yaml$/
     :shortDescription: Site specific settings
 
-    See chapter `Site settings <https://docs.typo3.org/permalink/t3coreapi:sitehandling-settings>`_
-    if the `Site settings editor <https://docs.typo3.org/permalink/t3coreapi:site-settings-editor>`_
+    See chapter `Site settings <https://docs.typo3.org/permalink/t3coreapi:sitehandling-settings>`_.
+    If the `Site settings editor <https://docs.typo3.org/permalink/t3coreapi:site-settings-editor>`_
     is being used in the backend module :guilabel:`Site Management > Settings`
     changes are saved to this file.
 
