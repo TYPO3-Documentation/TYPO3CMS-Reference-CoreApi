@@ -75,3 +75,23 @@ Enable the field with the following page TSConfig:
    :caption: EXT:some_extension/Configuration/page.tsconfig
 
    TCEMAIN.linkHandler.page.configuration.pageIdSelector.enabled = 1
+
+or by configuring the link button in your ckeditor configuration
+
+.. code-block:: yaml
+   :caption: EXT:some_extension/Configuration/RTE/Default.yaml
+
+   buttons:
+     link:
+       pageIdSelector:
+         enabled: true
+
+.. note::
+   
+   Additionally, you have to allow the pageIdSelector as a link option in your RTE configuration, e.g.
+
+.. code-block:: yaml
+   :caption: EXT:some_extension/Configuration/RTE/Default.yaml
+
+   allowedOptions: 'target,title,class,pageIdSelector'
+
