@@ -32,7 +32,7 @@ and PageTSConfig and can be assigned to one or more sites via the site module.
 Site set definitions are created in the :path:`Configuration/Sets/` directory
 and separated from each other by a sub-folder with any name. In this way,
 it is also possible to create several site set definitions per extension. Each
-of these sub-folders must have a :file:`config.yaml` that assigns at least a
+of these sub-folders must have a :file:`config.yaml <set-config-yaml>` that assigns at least a
 unique `name` and preferably also a unique `label` to the site set definition.
 
 ..  code-block:: yaml
@@ -84,7 +84,7 @@ Hidden site sets
 Sets may be hidden from the backend set selection in
 :guilabel:`Site Management > Sites` and the console command
 :bash:`bin/typo3 site:sets:list` by adding a `hidden` flag to the
-:file:`config.yaml` definition:
+:file:`config.yaml <set-config-yaml>` definition:
 
 ..  code-block:: yaml
     :caption: EXT:my_extension/Configuration/Sets/MyHelperSet/config.yaml
@@ -125,7 +125,7 @@ Site sets can also be added to a site via the backend module
 Settings definitions
 ====================
 
-Settings can be defined in a file called :file:`settings.definitions.yaml` in
+Settings can be defined in a file called :file:`settings.definitions.yaml <set-settings-definitions-yaml>` in
 a set, for example :file:`EXT:my_extension/Configuration/Sets/MySet/settings.definitions.yaml`.
 
 Read more about :ref:`site-settings-definition`.
@@ -139,12 +139,12 @@ Override site settings defaults in a subsets
 ============================================
 
 Settings for subsets (for example to configure settings in declared dependencies)
-can be shipped via :file:`settings.yaml` when placed next to the set file
-:file:`config.yaml`.
+can be shipped via :file:`settings.yaml <set-settings-yaml>` when placed next to the set file
+:file:`config.yaml <set-config-yaml>`.
 
 Note that default values for settings provided by the set do not need to be
 defined here, as defaults are to be provided within
-:file:`settings.definitions.yaml`.
+:file:`settings.definitions.yaml <set-settings-definitions-yaml>`.
 
 Here is an example where the setting `styles.content.defaultHeaderType` as
 provided by `typo3/fluid-styled-content` is configured via
@@ -174,8 +174,9 @@ TypoScript dependencies via sets are automatically ordered and
 deduplicated.
 
 Set-defined TypoScript can be shipped within a set. The files
-:file:`setup.typoscript` and :file:`constants.typoscript` (placed next to the
-:file:`config.yaml` file) will be loaded, if available.
+:file:`setup.typoscript <set-setup-typoscript>` and
+:file:`constants.typoscript <set-constants-typoscript>` (placed next to the
+:file:`config.yaml <set-config-yaml>` file) will be loaded, if available.
 They are inserted (similar to `static_file_include`) into the TypoScript chain
 of the site TypoScript that will be defined by a site that is using sets.
 
@@ -206,8 +207,8 @@ be loaded multiple times, if a shared dependency is required by multiple sets.
 Page TSconfig provider
 ======================
 
-Page TSconfig is loaded from a file :file:`page.tsconfig`, if placed next to the
-site set configuration file :file:`config.yaml` and is scoped to pages within
+Page TSconfig is loaded from a file :file:`page.tsconfig <set-page-tsconfig>`, if placed next to the
+site set configuration file :file:`config.yaml <set-config-yaml>` and is scoped to pages within
 sites that depend on this set.
 
 Therefore, extensions can ship page TSconfig without the need for database entries or
@@ -270,7 +271,7 @@ The site package example extension has the following file structure:
 
         *   ...
 
-    *   composer.json
+    *   :file:`composer.json <extension-composer-json>`
     *   ...
 
 ..  _site-sets-example-site-package-set:

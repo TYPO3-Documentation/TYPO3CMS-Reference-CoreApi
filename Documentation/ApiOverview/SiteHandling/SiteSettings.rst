@@ -28,7 +28,7 @@ For instance, settings can be used in custom frontend code to deliver features
 which might vary per site for extensions. An example may be to configure
 storage page IDs.
 
-The settings are defined in the :file:`config/sites/<my_site>/settings.yaml`
+The settings are defined in the :file:`config/sites/<my_site>/settings.yaml <set-settings-yaml>`
 file.
 
 ..  _sitehandling-settings-add:
@@ -36,7 +36,7 @@ file.
 Adding site settings
 ====================
 
-Add settings to the :file:`settings.yaml`:
+Add settings to the :file:`settings.yaml <set-settings-yaml>`:
 
 ..  literalinclude:: _site-settings.yaml
     :language: yaml

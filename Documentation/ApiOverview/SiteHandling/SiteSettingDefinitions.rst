@@ -15,7 +15,7 @@ Site settings definitions
 
 Site settings definitions allow to define settings with a type and a guaranteed
 default value. They can be defined in :ref:`site-sets`, in a file called
-:file:`settings.definitions.yaml`.
+:file:`settings.definitions.yaml <set-settings-definitions-yaml>`.
 
 It is recommended to use site-sets and their UI configuration in favor of
 TypoScript Constants.
