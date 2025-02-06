@@ -23,7 +23,7 @@ For creating :php:`UserSession` objects the :php:`UserSessionManager` must be us
 since this manager acts as the main factory for user
 sessions and therefore handles all necessary tasks like fetching, evaluating
 and persisting them. It effectively encapsulates all calls to the
-:php:`SessionManager` which is used for the 
+:php:`SessionManager` which is used for the
 :ref:`session backend <session-storage>`.
 
 
