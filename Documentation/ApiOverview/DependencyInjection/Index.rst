@@ -783,6 +783,7 @@ as dependency injection cannot handle consumer state. These services *must* be
 instantiated using :php:`makeInstance()` until their constructors are updated to be
 compatible with dependency injection.
 
+.. _dependency-injection-new:
 
 When to use :php:`new`?
 -----------------------
