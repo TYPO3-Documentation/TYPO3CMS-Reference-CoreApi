@@ -31,11 +31,11 @@ All files in this directory are automatically included during the TYPO3
 `Configuration/TCA/<tablename>.php`
 ===================================
 
-..  typo3:file:: <tablename>.php
+..  typo3:file:: tablename.php
     :name: configuration-tca
     :scope: extension
-    :path: /Configuration/TCA
-    :regex: /^.*Configuration\/TCA\/.*\.php$/
+    :path: /Configuration/TCA/
+    :regex: /^.*Configuration\/TCA\/[\w]+\.php$/
     :shortDescription: Contains the TCA (Table Configuration Array), which initially defines the table <tablename>. Change TCA of existing tables in directory TCA/Overrides
 
     One file per database table, using the name of the table for the file, plus
@@ -51,7 +51,7 @@ All files in this directory are automatically included during the TYPO3
     :name: configuration-tca-overrides
     :scope: extension
     :path: /Configuration/TCA/Overrides
-    :regex: /^.*Configuration\/TCA\/Overrides\/.*\.php$/
+    :regex: /^.*Configuration\/TCA\/Overrides\/[\w]+\.php$/
     :shortDescription: Extends the TCA (Table Configuration Array) of a table
 
     For extending existing tables.
