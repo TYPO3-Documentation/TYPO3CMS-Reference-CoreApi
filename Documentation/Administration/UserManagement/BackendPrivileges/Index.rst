@@ -1,10 +1,12 @@
+:navigation-title: Administrators
+
 .. include:: /Includes.rst.txt
 
 .. _privileges:
 
-==================
-Backend Privileges
-==================
+=========================================================
+Backend privileges: Administrators and System Maintainers
+=========================================================
 
 The following chapters cover modules that will only be available for backend
 users with specific access privileges.
@@ -22,11 +24,6 @@ modules and GUI elements the user does not have access to. It also makes it
 impossible for a user to damage the system by accidentally doing things he or she
 should not have been able to do in the first place.
 
-Before TYPO3 version 9 there was only admin and non admin. Now we have the
-additional access privilege "system maintainer".
-
-
-
 .. _admin-user:
 
 Admin
@@ -42,7 +39,6 @@ Admin
 
 .. image:: /Images/ManualScreenshots/UserManagement/system_open.png
    :class: with-shadow
-
 
 
 .. _user-management-system-maintainers:
