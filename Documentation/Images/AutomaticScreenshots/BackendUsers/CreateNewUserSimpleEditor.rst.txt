@@ -1,6 +1,0 @@
-.. Automatic screenshot: Remove this line if you want to manually change this file
-
-.. figure:: /Images/AutomaticScreenshots/BackendUsers/CreateNewUserSimpleEditor.png
-   :class: with-shadow
-
-   Fill out fields for the new backend user

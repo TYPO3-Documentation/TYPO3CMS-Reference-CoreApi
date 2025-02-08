@@ -34,6 +34,11 @@ permissions.
         Create additional backend users that will have access to TYPO3's
         backend interface.
 
+    ..  card:: :ref:`Groups and Permissions <groups>`
+
+        User user groups to manage the permissions of your backend users /
+        editors.
+
     ..  card:: :ref:`Changing The Backend Language <backendlanguages>`
 
         Setup additional backend languages in TYPO3 allowing users to select
@@ -44,11 +49,9 @@ permissions.
     :titlesonly:
     :glob:
 
-    BackendUsers
-    BackendLanguages
-    BackendPrivileges/Index
     BackendUsers/Index
-    Groups/Index
-    GroupPermissions/Index
-    PagePermissions/Index
     UserSetup/Index
+    BackendPrivileges/Index
+    Groups/Index
+    PagePermissions/Index
+    BackendLanguages
