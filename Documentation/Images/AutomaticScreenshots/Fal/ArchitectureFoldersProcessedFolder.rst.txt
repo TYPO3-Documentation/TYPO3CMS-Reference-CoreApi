@@ -1,6 +1,0 @@
-.. Automatic screenshot: Remove this line if you want to manually change this file
-
-.. figure:: /Images/AutomaticScreenshots/Fal/ArchitectureFoldersProcessedFolder.png
-   :class: with-shadow
-
-   Editing a file storage to define a location for processed files
