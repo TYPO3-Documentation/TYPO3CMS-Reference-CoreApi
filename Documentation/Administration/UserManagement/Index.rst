@@ -10,11 +10,11 @@ Backend user management
 
 ..  important::
 
-    This chapter (and the following) cover modules that will only be available for backend users
+    This chapter (and the following) cover modules that are only available for backend users
     with :ref:`"admin" <admin-user>` access privileges.
 
 We saw earlier that TYPO3 CMS enforces a strict separation of
-so-called "frontend" and "backend". The same is true for users:
+"frontend" and "backend". The same is true for users:
 there are "frontend users", who are web site visitors, and
 "backend users", who are editors and administrators.
 
@@ -34,6 +34,11 @@ permissions.
         Create additional backend users that will have access to TYPO3's
         backend interface.
 
+    ..  card:: :ref:`Groups and Permissions <groups>`
+
+        User user groups to manage the permissions of your backend users /
+        editors.
+
     ..  card:: :ref:`Changing The Backend Language <backendlanguages>`
 
         Setup additional backend languages in TYPO3 allowing users to select
@@ -44,11 +49,9 @@ permissions.
     :titlesonly:
     :glob:
 
-    BackendUsers
-    BackendLanguages
-    BackendPrivileges/Index
     BackendUsers/Index
-    Groups/Index
-    GroupPermissions/Index
-    PagePermissions/Index
     UserSetup/Index
+    BackendPrivileges/Index
+    Groups/Index
+    PagePermissions/Index
+    BackendLanguages

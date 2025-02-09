@@ -1,101 +1,93 @@
-.. include:: /Includes.rst.txt
+..  include:: /Includes.rst.txt
 
-.. _setup-user:
-.. _creating-a-new-user-for-the-introduction-site:
+..  _backendusers:
+..  _creating-a-new-user-for-the-introduction-site:
 
-=================
-Setting up a User
-=================
+====================
+Adding backend users
+====================
 
-To explore the last details of setting up a backend user
-- and as an exercise - this chapter will guide you
-through the process of creating a new user. To make it more
-interesting, we will also create a new user group.
+If you do not have backend user groups set up, go to chapter
+`Backend user groups <https://docs.typo3.org/permalink/t3coreapi:groups>`_.
 
+If you need to create an administrator or system maintainer, go to chapter
+`Backend Privileges <https://docs.typo3.org/permalink/t3coreapi:privileges>`_.
 
-.. _step-create-a-new-group:
+..  contents:: Table of contents
 
-Step 1: Create a New Group
-==========================
+..  _user-management-create-default-editors:
+..  _setup-user:
 
-Let's create a new user group using the *Access* module.
+Create a new backend user via a console command
+=============================================
 
-.. figure:: /Images/ManualScreenshots/UserManagement/BackendAccessCreateNewGroup.png
-   :alt: Creating a new backend group from the Access module
+You can quickly create a backend user using a TYPO3 console command and following
+the prompt:
 
+..  tabs::
 
-Start by entering the name ("Resource editors"), optionally
-a description and choose "All users" as sub-group.
+    ..  group-tab:: DDEV
 
-.. figure:: /Images/ManualScreenshots/UserManagement/BackendAccessNewGroupGeneralTab.png
-   :alt: Entering the general information about the new group
+        ..  code-block:: bash
 
+            ddev typo3 typo3 backend:user:create
 
-Let's keep things simple for the further permissions. Try to do
-the following:
+    ..  group-tab:: Composer
 
-- for **Modules**, just choose "Web > Page" and "Web > View"
-- for **Tables (listing)** and **Tables (modify)**, choose "Page"
-  and "Page content"
-- for **Page types**, select "Standard"
+        ..  code-block:: bash
 
-and save.
+            vendor/bin/typo3 typo3 backend:user:create
 
-Move to the "Mounts and workspaces" tab and select the "Resources"
-page as DB mount. To achieve that easily start typing "Res" in
-the wizard at the right-hand side of the field. It will display
-suggestions, from which you can select the "Resources" page.
+    ..  group-tab:: Classic
 
-.. figure:: /Images/ManualScreenshots/UserManagement/BackendAccessNewGroupDBMount.png
-   :alt: Defining DB mounts using the suggest wizard
+        ..  code-block:: bash
 
+            typo3/sysext/core/bin/typo3 typo3 backend:user:create
 
-Let's ignore all the rest. Use the "Save and close" action
-to get back to the group list.
+..  _step-create-the-user:
 
+Create a backend user in the TYPO3 backend
+==========================================
 
-.. _step-create-the-user:
+If you prefer to use the TYPO3 backend, in the backend module
+:guilabel:`System > Backend Users` use the dropdown in the
+module header to switch back to the "Backend Users" submodule. There is a
+button to create a new backend user there.
 
-Step 2: Create the User
-=======================
+..  figure:: /Images/ManualScreenshots/UserManagement/BackendUserCreate.png
+    :alt: The main submodule Backend users of the backend user module
 
-Similarly to what we have done before, let's create a new
-user using the *Access* module.
+    Click the button "Create new backend user"
 
-.. figure:: /Images/ManualScreenshots/UserManagement/BackendAccessCreateNewUser.png
-   :alt: Creating a new backend user from the Access module
+Enter the username, password and group membership:
 
+..  figure:: /Images/ManualScreenshots/UserManagement/Users/TabGeneral.png
+    :alt: Setting the base information for the new user
 
-Enter the username, password, group membership:
+..  note::
+    If we were creating a new administrator, we would just need
+    to check the "Admin (!)" box. Admin users don't need to belong
+    to a group, although this can still be useful to share
+    special settings among administrators.
 
-.. figure:: /Images/ManualScreenshots/UserManagement/BackendAccessNewUserGeneralTab.png
-   :alt: Setting the base information for the new user
+.. _user-management-advanced-editor:
+.. _user-management-simple-editor:
+.. _simulate-user:
 
-
-.. note::
-
-   If we were creating a new administrator, we would just need
-   to check the "Admin (!)" box. Admin users don't need to belong
-   to any group, although this can still be useful to share
-   special settings among administrators.
-
-Now switch to the "Mounts and workspaces" tab
-to ensure that the "Mount from Groups" settings are set:
-
-.. figure:: /Images/ManualScreenshots/UserManagement/BackendAccessNewUserMountFromGroups.png
-   :alt: Checking the "Mount from groups" setting
-
-
-This makes it so that the DB and File mounts are taken from
-the group(s) the user belongs to and are not defined at user-level.
+Simulate User
+=============
 
 Save and close the record. We will check the result of our work
 by using the simulate user feature we saw earlier.
 
-.. figure:: /Images/ManualScreenshots/UserManagement/BackendAccessSimulateResourceEditor.png
-   :alt: Let's simulate our new user!
+..  figure:: /Images/ManualScreenshots/UserManagement/SimulateEditor.png
+    :alt: A backend user in the backend user module with their action buttons.
 
-You should see the following:
+    Click the switch to user button
 
-.. figure:: /Images/ManualScreenshots/UserManagement/BackendResourceEditorUser.png
-   :alt: The backend as seen by Resource McEditor
+If you used the default "Editors" group you should see this:
+
+..  figure:: /Images/ManualScreenshots/UserManagement/SwitchUserMode.png
+    :alt: The TYPO3 backend viewed by a standard editor
+
+    Use the User menu on the top right to find the "Exit switch user mode" button and switch back to your admin world.
