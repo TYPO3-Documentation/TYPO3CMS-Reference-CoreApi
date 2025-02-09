@@ -1,105 +1,86 @@
-.. include:: /Includes.rst.txt
+..  include:: /Includes.rst.txt
 
-.. _user-management-backend-users:
+..  _user-management-backend-users:
 
-=============
-Backend Users
-=============
+====================
+Backend Users module
+====================
 
-You can manage backend users using the **SYSTEM > Backend users**
+You can manage backend users using the :guilabel:`System > Backend users`
 module.
 
-.. figure:: /Images/ManualScreenshots/UserManagement/BackendBackendUsersModule.png
-   :alt: The Backend Users module
-   :class: with-shadow
+..  figure:: /Images/ManualScreenshots/UserManagement/Module/ModuleBackendUsers.png
+    :alt: Screenshots of the TYPO3 backend module Backend Users
 
+    This module makes it possible to search and filter users. They
+    can also be edited, deleted and disabled.
 
-This module makes it possible to search and filter users. They
-can also be edited, deleted and disabled.
+..  seealso::
 
-.. tip::
+    See section :ref:`privileges` for more information on
+    special backend user roles "admin" and "system maintainers".
 
-   See section :ref:`privileges` for more information on
-   special backend user roles "admin" and "system maintainers".
+The backend module has the following submodules:
 
-Default Editors in the Introduction Package
-===========================================
+..  contents::
 
-The Introduction Package will create two default editors and
-groups for you: "simple_editor" and "advanced_editor".
+..  _user-management-backend-users-main:
 
-.. hint::
+Backend Users submodule
+=======================
 
-   The following steps assume that the editors "simple_editor"
-   and "advanced_editor" exist. In some versions of the
-   "Introduction Package", `they will not get created
-   <https://github.com/FriendsOfTYPO3/introduction/issues/21>`__.
+Will be shown by default unless you have chosen a different submodule from the
+dropdown in the module header. You can
+`Create new backend users <https://docs.typo3.org/permalink/t3coreapi:creating-a-new-user-for-the-introduction-site>`_
+or `Administrators <https://docs.typo3.org/permalink/t3coreapi:admin-user>`_
+here, enable and disable access for your users, reset password of non-admins, etc.
 
-   If these users do not exist in your installation, please
-   follow the steps in :ref:`user-management-create-default-editors`
-   before you continue.
+..  figure:: /Images/ManualScreenshots/UserManagement/Module/BackendUserActions.png
+    Overview of buttons in the entry of a non-admin backend user
 
-.. _simulate-user:
+1.  Edit user settings.
+2.  Disable or enable user.
+3.  Delete user.
+4.  Reset password - only available if the user has an email address in
+    their settings. Will send an email to the user asking them to enter a new
+    password.
+5.  View user details, including a combined view of their permissions incorporating
+    all their groups and settings in the user record. Overview of
+    `User TSconfig reference <https://docs.typo3.org/permalink/t3tsref:usertoplevelobjects>`_
+    that apply to this user.
+6.  The general info module for the record of the backend user including
+    references from other database records.
+7.  Compare the permissions of two or more backend users by adding them to the
+    compare list. You can then click the "Compare selected backend users"
+    button.
+8.  `Simulate the backend user <https://docs.typo3.org/permalink/t3coreapi:simulate-user>`_
+    to try out the permissions.
 
-Simulate User
-=============
+..  _user-management-backend-user-groups:
 
-.. _user-management-simple-editor:
+Backend user groups submodule
+=============================
 
-"simple\_editor"
-----------------
+..  figure:: /Images/ManualScreenshots/UserManagement/Module/BackendUserGroupsModule.png
+    :alt: Screenshot of the Module "Backend Users", submodule "Backend User Groups" in the TYPO3 Backend
 
-The simplest way to check out another user (when one is an
-administrator) is to use the "simulate user" feature:
+Gives you an overview of all backend user groups and allows you to edit, disable,
+delete and compare permissions of groups.
 
-.. figure:: /Images/ManualScreenshots/UserManagement/BackendBackendUsersSimulate.png
-   :alt: The last action icon lets us simulate another user
-   :class: with-shadow
+..  _user-management-backend-users-online:
 
+Online users submodule
+======================
 
-And here is what "simple\_editor" sees when accessing the
-TYPO3 CMS backend:
+Shows you a list of all currently online users, including those who logged in
+during the last two hours but never logged out.
 
-.. figure:: /Images/ManualScreenshots/UserManagement/BackendSimpleEditorUser.png
-   :alt: The backend view for the "simple\_editor"
-   :class: with-shadow
+..  _user-management-backend-users-file-mounts:
 
+File mounts submodule
+=====================
 
-As you can see, this user only has access to the "Page" module.
-Furthermore its view of the page tree is also limited to the
-branch starting with the "Content examples" page.
+..  figure:: /Images/ManualScreenshots/UserManagement/Module/FileMounts.png
+    :alt: Screenshot of the Module "Backend Users", submodule "File mounts" in the TYPO3 Backend
 
-To switch back to the admin account, click on the user's name
-in the top bar and click the "Exit" button (note that this button
-normally reads "Logout").
-
-.. figure:: /Images/ManualScreenshots/UserManagement/BackendBackendUsersSimulateExit.png
-   :alt: Exiting the backend user simulation
-   :class: with-shadow
-
-
-.. _user-management-advanced-editor:
-
-"advanced\_editor"
-------------------
-
-Now try doing the same with the "advanced\_editor". You should
-see the following after switching user:
-
-.. figure:: /Images/ManualScreenshots/UserManagement/BackendAdvancedEditorUser.png
-   :alt: The backend view for the "advanced\_editor"
-   :class: with-shadow
-
-The "advanced\_editor" is allowed to use more modules than
-"simple\_editor" but doesn't have any access to the page tree.
-This is probably a bug of the Introduction Package, but it makes
-for a good exercise for changing user rights in the next chapters.
-
-.. note::
-
-   User records can also be accessed using the **WEB > List** module
-   and clicking on the root node (the one with the TYPO3 CMS logo).
-
-   .. figure:: /Images/ManualScreenshots/UserManagement/BackendBackendUsersList.png
-      :alt: Viewing backend users in the List module
-      :class: with-shadow
+Allows you to view, edit, disable or delete file mounts.
