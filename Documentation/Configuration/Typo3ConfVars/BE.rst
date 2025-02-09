@@ -22,9 +22,8 @@ the TYPO3 backend:
 
 ..  confval-menu::
     :name: globals-typo3-conf-vars-be
-    :display: tree
+    :display: table
     :type:
-    :Default: max=50
 
 ..  _typo3ConfVars_be_fileadminDir:
 
