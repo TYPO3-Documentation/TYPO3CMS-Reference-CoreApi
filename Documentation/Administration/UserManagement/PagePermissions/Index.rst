@@ -12,7 +12,7 @@ Page permissions
 
 :ref:`DB mounts <db-mounts>` are not the whole story about access to pages.
 Users and groups also need to have rights to perform operations on the
-pages like viewing, editing or deleting.
+pages, like viewing, editing or deleting.
 
 This is managed using the :guilabel:`System > Permissions` module:
 
@@ -21,7 +21,7 @@ This is managed using the :guilabel:`System > Permissions` module:
 
     The "Permissions" module with ownerships and permissions
 
-Every page has an owner, who is a user, and also a group
+Every page has an owner, who is a user, and also group
 membership. Rights can be assigned to the owner, to the group
 or to everyone. This will be familiar to Unix users.
 
@@ -37,5 +37,5 @@ recursively, even for the whole page tree. Use the dropdown to select the depth.
     :alt: Preparing for recursively changing the group on the whole page tree
 
 By choosing group "Editors" as group and then "Set recursively 2 levels"
-in the "Depth" dropdown, we will assign **all** the pages in the
+in the "Depth" dropdown, we will assign **all** pages in the
 page tree to the "Editors" group.

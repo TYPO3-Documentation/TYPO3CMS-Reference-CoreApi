@@ -42,12 +42,12 @@ Inherit settings from groups" section of tab "General" in backend user groups
 -----------------------------------------------------------------------------
 
 If you chose groups in the "Inherit settings from groups" section of tab
-"General", the current group inherits all permission of the parent group and
-can add additional permission. It is not possible to revoke permissions granted
+"General", the current group inherits all the permissions of the parent group and
+can add additional permissions. It is not possible to revoke permissions granted
 by the parent group.
 
 User TSconfig of the parent group gets overridden by TSconfig of the child group
-and then in turn by specific TSconfig of the backend user.
+and then, in turn, by the specific TSconfig of the backend user.
 See also `Setting user TSconfig <https://docs.typo3.org/permalink/t3tsref:setting-user-tsconfig>`_.
 
 ..  _access-lists:
@@ -71,13 +71,13 @@ See also :ref:`Editors Guide, page types <t3editors:pages-types>`.
 "Table permissions" section in Record permissions of user group
 ---------------------------------------------------------------
 
-This sections allows you to grant "read" or "read and write" permissions for
+This section allows you to grant "read" or "read and write" permissions for
 different database tables.
 
 If your user should be able to upload and reference images, for example
-use the content element "Text & Images" it is important, that they also may
+use the content element "Text & Images", it is important that they also be able to
 read and write the tables "File Reference" and "File" beside also having
-permissions to actually write save files.
+permissions to actually write saved files.
 
 ..  figure:: /Images/ManualScreenshots/UserManagement/Groups/TablePermission.png
     :alt: Screenshot of Tab "Record Permissions", field "Table Permissions" in a user group record
@@ -156,7 +156,7 @@ one provider in section "Allowed multi-factor authentication providers".
 
 The next tab contains very important fields which define
 which parts of the page tree and the file system the members of
-the group may exert their rights over.
+the group may have rights over.
 
 We will cover only mounts here. Detailed information about
 workspaces can be found in chapter
@@ -168,7 +168,7 @@ workspaces can be found in chapter
 "DB Mounts" in tab "Mounts and Workspaces"
 ------------------------------------------
 
-Unless at least one :abbr:`DB mounts (database mounts)` is chosen your user
+Unless at least one :abbr:`DB mount (database mounts)` is chosen your user
 does not have rights to any page record and will not be able to do anything in
 the backend.
 
@@ -179,11 +179,11 @@ to those pages and their sub-pages.
     :alt: Tab "Mounts and workspaces" in the backend user group edit form.
 
 ..  warning::
-    A user is only able to use a if they have rights to the db mount of that
+    A user is only able to make changes to a page if they have rights to the db mount of that
     page and at least "Show page" permissions for that page:
     `See chapter page permissions <https://docs.typo3.org/permalink/t3coreapi:page-permissions>`_
 
-You can grand additional entry pages in the database record of the backend user.
+You can grant additional entry pages in the database record of the backend user.
 If option "Mount from groups" is not set for "DB Mounts" you can even override
 all db mounts.
 
@@ -192,11 +192,11 @@ all db mounts.
 "File Mounts" in tab "Mounts and Workspaces"
 --------------------------------------------
 
-File mounts are similar to DB mounts but instead are used for manage access to
+File mounts are similar to DB mounts but instead are used to manage access to
 files.
 
 File mounts need to be created first, for example using the context menu on the
-file tree in module "Filelist" or in the
+file tree in module "Filelist", or in the
 `File mounts submodule of the Backend Users module <https://docs.typo3.org/permalink/t3coreapi:user-management-backend-users-file-mounts>`_
 
 They can then be selected when editing a backend user group:
@@ -207,22 +207,22 @@ They can then be selected when editing a backend user group:
     Select the File mount by clicking on the right and adding them to the left.
 
 ..  warning::
-    Adding a file mount is not sufficient so that your editors can upload and
+    Adding a file mount is not sufficient for your editors to upload and
     use files. Due to the :ref:`File Abstraction Layer <t3coreapi:fal>` users
     also need permissions to read and write tables "Files" and "File references".
     Set those in the
     `"Table permissions" section in Record permissions of user group <https://docs.typo3.org/permalink/t3coreapi:access-lists-tables>`_.
 
     It is also necessary to grant Directory and File operation permissions in
-    section `Fileoperation Permissions <https://docs.typo3.org/permalink/t3coreapi:access-lists-file-permissions>`_.
+    section `File operation Permissions <https://docs.typo3.org/permalink/t3coreapi:access-lists-file-permissions>`_.
 
-Just like DB mounts, you can grand additional file mounts in the database record
+Just like DB mounts, you can grant additional file mounts in the database record
 of the backend user. If option "Mount from groups" is not set for "File Mounts"
 you can even override all file mounts.
 
 ..  _access-lists-file-permissions:
 
-"Fileoperation permissions" in tab "Mounts and Workspaces"
+"File operation permissions" in tab "Mounts and Workspaces"
 ----------------------------------------------------------
 
 Specific operations on files and directories must be allowed.
@@ -239,6 +239,6 @@ record by choosing the allowed categories in the field
 all categories are available.
 
 ..  tip::
-    If you want to disallow using categories, remove the read and write
+    If you want to disallow categories, remove the read and write
     permissions for table categories in the
     `"Table permissions" section in tab "Record permissions" <https://docs.typo3.org/permalink/t3coreapi:access-lists-tables>`_.

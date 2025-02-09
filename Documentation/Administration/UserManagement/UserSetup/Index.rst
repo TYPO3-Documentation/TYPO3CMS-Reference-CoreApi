@@ -7,7 +7,7 @@
 Adding backend users
 ====================
 
-If you do not yet have backend user groups set up, go to chapter
+If you do not have backend user groups set up, go to chapter
 `Backend user groups <https://docs.typo3.org/permalink/t3coreapi:groups>`_.
 
 If you need to create an administrator or system maintainer, go to chapter
@@ -18,7 +18,7 @@ If you need to create an administrator or system maintainer, go to chapter
 ..  _user-management-create-default-editors:
 ..  _setup-user:
 
-Create a new backend user via console command
+Create a new backend user via a console command
 =============================================
 
 You can quickly create a backend user using a TYPO3 console command and following
@@ -49,9 +49,9 @@ the prompt:
 Create a backend user in the TYPO3 backend
 ==========================================
 
-If you prefere to use the TYPO3 backend, in the backend module
-:guilabel:`System > Backend Users` use the drop down in
-module header to switch back to the "Backend Users" submodule. You have a
+If you prefer to use the TYPO3 backend, in the backend module
+:guilabel:`System > Backend Users` use the dropdown in the
+module header to switch back to the "Backend Users" submodule. There is a
 button to create a new backend user there.
 
 ..  figure:: /Images/ManualScreenshots/UserManagement/BackendUserCreate.png
@@ -59,7 +59,7 @@ button to create a new backend user there.
 
     Click the button "Create new backend user"
 
-Enter the username, password, group membership:
+Enter the username, password and group membership:
 
 ..  figure:: /Images/ManualScreenshots/UserManagement/Users/TabGeneral.png
     :alt: Setting the base information for the new user
@@ -67,7 +67,7 @@ Enter the username, password, group membership:
 ..  note::
     If we were creating a new administrator, we would just need
     to check the "Admin (!)" box. Admin users don't need to belong
-    to any group, although this can still be useful to share
+    to a group, although this can still be useful to share
     special settings among administrators.
 
 .. _user-management-advanced-editor:
