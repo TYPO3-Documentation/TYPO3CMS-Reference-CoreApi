@@ -22,7 +22,7 @@ the TYPO3 backend:
 
 ..  confval-menu::
     :name: globals-typo3-conf-vars-be
-    :display: tree
+    :display: table
     :type:
 
 .. _typo3ConfVars_be_languageDebug:
