@@ -1,7 +1,0 @@
-.. Automatic screenshot: Remove this line if you want to manually change this file
-
-.. figure:: /Images/AutomaticScreenshots/QuickInstall/EnableFirstInstall.png
-   :alt: Success message after download
-   :class: with-shadow
-
-   Success message after download
