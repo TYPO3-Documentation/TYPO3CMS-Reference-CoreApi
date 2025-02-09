@@ -68,7 +68,7 @@ Change the default backend language of a backend user
 
 As an administrator you can change the backend language of another user.
 
-In the record of the backend user, tab general choose the "User interface language".
+In the record of the backend user, tab general, choose "User interface language".
 
-This setting only takes effect for users that did not yet :ref:`switch the backend
+This setting only takes effect for users that did not :ref:`switch the backend
 language in their user settings <chose-backend-language>`.

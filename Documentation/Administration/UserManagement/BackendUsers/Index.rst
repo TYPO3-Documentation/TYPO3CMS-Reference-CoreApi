@@ -29,28 +29,28 @@ The backend module has the following submodules:
 Backend Users submodule
 =======================
 
-Will be shown by default unless you chose a different submodule from the
+Will be shown by default unless you have chosen a different submodule from the
 dropdown in the module header. You can
 `Create new backend users <https://docs.typo3.org/permalink/t3coreapi:creating-a-new-user-for-the-introduction-site>`_
 or `Administrators <https://docs.typo3.org/permalink/t3coreapi:admin-user>`_
-here, enable and disable access for your users, reset password of non-admins etc.
+here, enable and disable access for your users, reset password of non-admins, etc.
 
 ..  figure:: /Images/ManualScreenshots/UserManagement/Module/BackendUserActions.png
-    Overview of buttons beside the entry of a non-admin backend user
+    Overview of buttons in the entry of a non-admin backend user
 
-1.  Edit the users settings.
-2.  Disable or enable the user.
-3.  Delete the user.
-4.  Reset the password - only available if the user has an email address in
-    their settings. Will send an email to the use asking them to enter a new
+1.  Edit user settings.
+2.  Disable or enable user.
+3.  Delete user.
+4.  Reset password - only available if the user has an email address in
+    their settings. Will send an email to the user asking them to enter a new
     password.
-5.  View user details, including a combined view of their permissions considering
+5.  View user details, including a combined view of their permissions incorporating
     all their groups and settings in the user record. Overview of
     `User TSconfig reference <https://docs.typo3.org/permalink/t3tsref:usertoplevelobjects>`_
-    applying to this user.
+    that apply to this user.
 6.  The general info module for the record of the backend user including
     references from other database records.
-7.  Compare the permissions of to or more backend users by adding them to the
+7.  Compare the permissions of two or more backend users by adding them to the
     compare list. You can then click the "Compare selected backend users"
     button.
 8.  `Simulate the backend user <https://docs.typo3.org/permalink/t3coreapi:simulate-user>`_

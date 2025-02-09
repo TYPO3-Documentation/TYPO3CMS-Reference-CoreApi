@@ -8,8 +8,8 @@
 Backend user groups
 ===================
 
-While it is possible to change permissions on a per user basis,
-it is strongly recommended you use Groups instead. Just as for users,
+While it is possible to change permissions on a user basis,
+it is strongly recommended you use Groups instead. Just like users,
 there are "Backend user groups" and "Frontend user groups".
 
 See chapter `Setting up User Permissions <https://docs.typo3.org/permalink/t3coreapi:setting-up-user-permissions>`_
@@ -84,7 +84,7 @@ possible to specify the groups:
 Using the "Backend Users" module
 ================================
 
-If you did not auto-create the user groups, create one in the backend module
+If you have not auto-created the user groups, create one in the backend module
 :guilabel:`System > Backend Users`. Use the dropdown in the module header
 to switch to the "Backend User Groups" submodule.
 
@@ -93,7 +93,7 @@ to switch to the "Backend User Groups" submodule.
 
     Click the button "+ Create a new backend user group" if you want to create a new group. Or edit one of those created by the command.
 
-Start by entering the name for the new group, optionally inherit from group
+Start by entering the name for the new group. Optionally, inherit from group
 "Editors".
 
 ..  figure:: /Images/ManualScreenshots/UserManagement/Groups/TabGeneral.png
@@ -110,14 +110,14 @@ Go to tab **Module Permissions**:
 
     For **Allowed Modules** choose "Web > Page" and "Web > View"
 
-Then to tab **Record Permissions**:
+Then move to tab **Record Permissions**:
 
 ..  figure:: /Images/ManualScreenshots/UserManagement/Groups/TablePermission.png
     :alt: Tab "Record Permissions", field "Table Permissions" with option Read & Write chosen for tables Page and Page Content
 
     Choose **Table Permissions** choose "Read & Write" for tables Page and Page content
 
-On the same tab in field "Allowed page types" Choose "Standard".
+On the same tab in field "Allowed page types" choose "Standard".
 
 Move to the "Mounts and workspaces" tab.
 

@@ -20,7 +20,7 @@ usually not get access to admin or system modules.
 
 You should only give a backend user
 as much access as is needed. This makes the job easier by automatically deactivating
-modules and GUI elements the user does not have access to. It also makes it
+modules and GUI elements that the user does not have access to. It also makes it
 impossible for a user to damage the system by accidentally doing things he or she
 should not have been able to do in the first place.
 
@@ -51,7 +51,7 @@ The first backend admin created during installation will automatically be a syst
 maintainer as well. To give other users system privileges, you
 can add them in the :guilabel:`ADMIN TOOLS > Settings > Manage System Maintainers`
 configuration.
-Alternatively the website can be set into "Development" mode in the Install
+Alternatively, the website can be set to "Development" mode in the Install
 Tool. This will give all admin users system maintainer access.
 
 .. image:: /Images/ManualScreenshots/UserManagement/admin-tools.png
@@ -60,7 +60,7 @@ Tool. This will give all admin users system maintainer access.
 .. image:: /Images/ManualScreenshots/UserManagement/admin-tools-open.png
    :class: with-shadow
 
-System Maintainers are the only users who are able to see and access the
+System Maintainers are the only users who are able to see and access
 :guilabel:`Admin Tools` and the :guilabel:`Extension Manager`. These users are
 persisted within the :file:`config/system/settings.php` as
 :php:`$GLOBALS['TYPO3_CONF_VARS']['SYS']['systemMaintainers']`.
