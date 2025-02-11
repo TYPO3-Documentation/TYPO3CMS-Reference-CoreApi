@@ -79,6 +79,10 @@ Site setting definition properties
         ..  confval:: description
             :type: string
             :name: site-settings-definition-settings-description
+            :Example: 'Configure `baz` to be used in `bar`.'
+
+            The description can make use of markdown syntax for rich text
+            formatting.
 
         ..  confval:: category
             :type: :confval:`site-settings-definition-categories` key
