@@ -129,7 +129,7 @@ Enhanced Route
 Query string
     The main distinction of `URL` (Uniform Resource Locator) and `URI` (Uniform Resource Identifier) is that
     the URI also includes arguments/parameters and their values, beginning with a `?` and each argument
-    separated by `&`, and the value separated from the argument name by `=`. This is commonly refered to as
+    separated by `&`, and the value separated from the argument name by `=`. This is commonly referred to as
     "Query string".
 
 ..  index:: Routing; Location Hash
