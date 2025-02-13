@@ -135,6 +135,42 @@ The Content Security Policy for a particular site can be disabled with the
     :caption: config/sites/<my_site>/csp.yaml | typo3conf/sites/<my_site>/csp.yaml
 
 
+..  _content-security-policy-site-endpoints:
+
+Site-specific Content-Security-Policy endpoints
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+The disposition-specific property `reportingUrl` can either be:
+
+`true`
+    to enable the reporting endpoint
+`false`
+    to disable the reporting endpoint
+(string)
+    to use the given value as external reporting endpoint
+
+If defined, the site-specific configuration takes precedence over
+the global configuration :ref:`contentSecurityPolicyReportingUrl <content-security-policy-reporting-contentSecurityPolicyReportingUrl>`.
+
+In case the explicitly disabled endpoint still would be called, the
+server-side process responds with a 403 HTTP error message.
+
+..  _content-security-policy-site-endpoints-disable:
+
+Example: Disabling the reporting endpoint
+"""""""""""""""""""""""""""""""""""""""""
+
+..  literalinclude:: _csp_reporting_false.yaml
+    :caption: config/sites/<my-site>/csp.yaml | typo3conf/sites/<my_site>/csp.yaml
+
+..  _content-security-policy-site-endpoints-custom:
+
+Example: Using custom external reporting endpoint
+"""""""""""""""""""""""""""""""""""""""""""""""""
+
+..  literalinclude:: _csp_reporting_custom.yaml
+    :caption: config/sites/<my-site>/csp.yaml | typo3conf/sites/<my_site>/csp.yaml
+
 ..  _content-security-policy-modes:
 
 Modes
@@ -459,6 +495,7 @@ apply this suggestion, or to mute or delete the specific violation.
     :ref:`site-specific <content-security-policy-site>` CSP definitions
     manually.
 
+.. _content-security-policy-reporting-contentSecurityPolicyReportingUrl:
 
 Using a third-party service
 ---------------------------
@@ -467,6 +504,7 @@ As an alternative, the reporting URL can be configured to use a third-party
 service as well:
 
 ..  code-block:: php
+    :caption: config/system/additional.php
 
     // For backend
     $GLOBALS['TYPO3_CONF_VARS']['BE']['contentSecurityPolicyReportingUrl']
@@ -479,6 +517,31 @@ service as well:
 Violations are then sent to the third-party service instead of the TYPO3
 endpoint.
 
+.. _content-security-policy-reporting-disable:
+
+Disabling content security policy reporting globally
+----------------------------------------------------
+
+Administrators can disable the reporting endpoint globally or configure it per
+site as needed. (See :ref:`content-security-policy-site-endpoints-disable`).
+
+If defined, the site-specific configuration takes precedence over
+the global configuration.
+
+In case the explicitly disabled endpoint still would be called, the
+server-side process responds with a 403 HTTP error message.
+
+The global scope-specific setting `contentSecurityPolicyReportingUrl` can
+be set to zero ('0') to disable the CSP reporting endpoint:
+
+..  code-block:: php
+    :caption: config/system/additional.php
+
+    // For backend
+    $GLOBALS['TYPO3_CONF_VARS']['BE']['contentSecurityPolicyReportingUrl'] = '0';
+
+    // For frontend
+    $GLOBALS['TYPO3_CONF_VARS']['FE']['contentSecurityPolicyReportingUrl'] = '0';
 
 ..  _content-security-policy-events:
 
