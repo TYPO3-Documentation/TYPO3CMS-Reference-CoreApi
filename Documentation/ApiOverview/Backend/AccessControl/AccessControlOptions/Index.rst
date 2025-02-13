@@ -134,7 +134,7 @@ tree (typically visible in the :guilabel:`File` module). Each tree is
 generated based on the *mount points* configured for the current user. So a
 page tree is drawn from the *DB Mounts* which are one or more page ids
 telling the Core from which "start page" to draw the tree(s). Likewise
-is the folder tree drawn based on *filemounts* configured for the user.
+is the folder tree drawn based on *file mounts* configured for the user.
 
 **DB mounts** (page mounts) are set by pointing out the
 page that should be mounted for the user (at user or group-level):
