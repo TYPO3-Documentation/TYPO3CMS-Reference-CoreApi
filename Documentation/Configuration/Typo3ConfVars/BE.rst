@@ -909,9 +909,25 @@ the TYPO3 backend:
     :ref:`Content Security Policy <content-security-policy>` violations in the
     backend; if it is empty, the TYPO3 endpoint will be used.
 
-    Example:
+    Setting this configuration to `'0'` disables Content Security Policy
+    reporting. If the endpoint is still called then, the
+    server-side process responds with a 403 HTTP error message.
+
+    If defined, the :ref:`site-specific configuration <content-security-policy-site-endpoints>`
+    in :file:`config/sites/my_site/csp.yaml` takes precedence over the global configuration.
 
     ..  code-block:: php
+        :caption: config/system/additional.php
 
+        // Set a custom endpoint for Content Security Policy reporting
         $GLOBALS['TYPO3_CONF_VARS']['BE']['contentSecurityPolicyReportingUrl']
             = 'https://csp-violation.example.org/';
+
+    ..  code-block:: php
+        :caption: config/system/additional.php
+
+        // Disables Content Security Policy reporting
+        $GLOBALS['TYPO3_CONF_VARS']['BE']['contentSecurityPolicyReportingUrl'] = '0';
+
+    Use :ref:`$GLOBALS['TYPO3_CONF_VARS']['FE']['contentSecurityPolicyReportingUrl'] <t3coreapi:confval-typo3-conf-vars-fe-contentsecuritypolicyreportingurl>`
+    to configure Content Security Policy reporting for the frontend.
