@@ -495,7 +495,7 @@ apply this suggestion, or to mute or delete the specific violation.
     :ref:`site-specific <content-security-policy-site>` CSP definitions
     manually.
 
-.. _content-security-policy-reporting-contentSecurityPolicyReportingUrl:
+..  _content-security-policy-reporting-contentSecurityPolicyReportingUrl:
 
 Using a third-party service
 ---------------------------
@@ -517,7 +517,7 @@ service as well:
 Violations are then sent to the third-party service instead of the TYPO3
 endpoint.
 
-.. _content-security-policy-reporting-disable:
+..  _content-security-policy-reporting-disable:
 
 Disabling content security policy reporting globally
 ----------------------------------------------------
