@@ -1,0 +1,4 @@
+enforce:
+  inheritDefault: true
+  mutations: {}
+  reportingUrl: https://example.org/csp-report
