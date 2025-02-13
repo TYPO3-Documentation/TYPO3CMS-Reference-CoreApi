@@ -187,7 +187,7 @@ items. See following places for a reference:
     :php:`\TYPO3\CMS\Impexp\ContextMenu\ItemProvider` and :ref:`ES6 module <backend-javascript-es6>`
     :js:`@typo3/impexp/context-menu-actions.js`.
 *   EXT:filelist module provides several item providers for files, folders,
-    filemounts, filestorage, and drag-drop context menu for the folder tree.
+    file mounts, filestorage, and drag-drop context menu for the folder tree.
     See following item providers:
     :php:`\TYPO3\CMS\Filelist\ContextMenu\ItemProviders\FileDragProvider`,
     :php:`\TYPO3\CMS\Filelist\ContextMenu\ItemProviders\FileProvider`,
