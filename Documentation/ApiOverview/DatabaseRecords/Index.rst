@@ -118,7 +118,7 @@ Record objects are instances of :php:`\TYPO3\CMS\Core\Domain\Record` and
 contain an object-oriented representation of a database record.
 
 A record object can be used to output a database record in :ref:`Fluid <fluid>`
-when no :ref:`extbase domain model <database-records-models>` is available.
+when no :ref:`Extbase domain model <database-records-models>` is available.
 
 Read more in chapter :ref:`record_objects`.
 
