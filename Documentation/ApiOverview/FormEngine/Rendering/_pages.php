@@ -11,7 +11,7 @@ defined('TYPO3') or die();
             'type' => 'input',
             'eval' => 'int, unique',
             'fieldControl' => [
-                'my_fieldControl_button' => [
+                'my_fieldControl_identifier' => [
                     'renderType' => 'importDataControl',
                 ],
             ],
