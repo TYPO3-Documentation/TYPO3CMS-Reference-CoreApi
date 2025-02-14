@@ -81,8 +81,10 @@ Site setting definition properties
             :name: site-settings-definition-settings-description
             :Example: 'Configure `baz` to be used in `bar`.'
 
-            The description can make use of markdown syntax for rich text
-            formatting.
+            While Markdown syntax can be used in YAML to provide rich text formatting, there are
+            a few gotchas. Because YAML is sensitive to special characters and indentation, you
+            might need to wrap your Markdown text in single quotes (') to prevent it from breaking
+            the YAML syntax.
 
         ..  confval:: category
             :type: :confval:`site-settings-definition-categories` key
