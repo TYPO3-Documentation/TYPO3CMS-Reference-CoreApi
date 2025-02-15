@@ -23,7 +23,7 @@ The API is implemented as a PSR-7 request attribute `frontend.cache.collector`.
 Every cache tag has a lifetime. The minimum lifetime is calculated
 from all given cache tags. API users do not have to deal with it individually.
 
-The default lifetime for a cache tag :php:`PHP_INT_MAX`, so it expires many
+The default lifetime for a cache tag is :php:`PHP_INT_MAX`, so it expires many
 years in the future.
 
 
