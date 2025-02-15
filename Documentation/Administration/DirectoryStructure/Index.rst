@@ -1,8 +1,8 @@
-.. include:: /Includes.rst.txt
-.. index::
-   ! Path
-   see: Directory structure; Path
-.. _directory-structure:
+..  include:: /Includes.rst.txt
+..  index::
+    ! Path
+    see: Directory structure; Path
+..  _directory-structure:
 
 ===================
 Directory structure
@@ -26,10 +26,10 @@ installed versions of each package.
 Directories in a typical project
 ================================
 
-.. contents::
-   :local:
+..  contents::
+    :local:
 
-.. _directory-config:
+..  _directory-config:
 
 :file:`config/`
 ---------------
@@ -37,7 +37,7 @@ Directories in a typical project
 TYPO3 configuration directory. This directory
 contains installation-wide configuration.
 
-.. _directory-config-sites:
+..  _directory-config-sites:
 
 :file:`config/sites/`
 ~~~~~~~~~~~~~~~~~~~~~
@@ -45,7 +45,7 @@ contains installation-wide configuration.
 The folder :file:`config/sites/` contains subfolders, one for each site
 in the installation. See chapter :ref:`site-folder`.
 
-.. _directory-config-system:
+..  _directory-config-system:
 
 :file:`config/system/`
 ~~~~~~~~~~~~~~~~~~~~~~
@@ -73,7 +73,7 @@ This path can be retrieved from the Environment API, see
     *   :file:`public/typo3conf/AdditionalConfiguration.php` is now available
         in :file:`config/system/additional.php`
 
-.. _directory-packages:
+..  _directory-packages:
 
 :file:`packages/`
 -----------------
@@ -101,7 +101,7 @@ manualy:
          "...": "..."
       }
 
-.. _directory-public:
+..  _directory-public:
 
 :file:`public/`
 ---------------
@@ -130,7 +130,7 @@ in the composer.json, for example to :file:`web`:
 
 This directory contains the following subdirectories:
 
-.. _directory-public-assets:
+..  _directory-public-assets:
 
 :file:`public/_assets/`
 ~~~~~~~~~~~~~~~~~~~~~~~
@@ -174,13 +174,13 @@ directory :file:`_assets/`.
 
 ..  seealso::
 
-    -   :ref:`<migrate-public-assets>`
-    -   `TYPO3 and Composer — we've come a long way <https://b13.com/core-insights/typo3-and-composer-weve-come-a-long-way>`__
-    -   `Composer changes for TYPO3 v11 and v12 <https://usetypo3.com/composer-changes-for-typo3-v11-and-v12.html>`__
-    -   `Migration to typo3/composer-cms-installers version 4+ <https://brotkrueml.dev/migration-typo3-composer-cms-installers-version-4/>`__
+    *   :ref:`<migrate-public-assets>`
+    *   `TYPO3 and Composer — we've come a long way <https://b13.com/core-insights/typo3-and-composer-weve-come-a-long-way>`__
+    *   `Composer changes for TYPO3 v11 and v12 <https://usetypo3.com/composer-changes-for-typo3-v11-and-v12.html>`__
+    *   `Migration to typo3/composer-cms-installers version 4+ <https://brotkrueml.dev/migration-typo3-composer-cms-installers-version-4/>`__
 
 
-.. _directory-public-fileadmin:
+..  _directory-public-fileadmin:
 
 :file:`public/fileadmin/`
 ~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -206,7 +206,7 @@ another folder name than :file:`fileadmin/` can be in use.
     and ship these files within a project specific extension.
 
 
-.. _directory-public-typo3:
+..  _directory-public-typo3:
 
 :file:`public/typo3/`
 ~~~~~~~~~~~~~~~~~~~~~
@@ -218,7 +218,7 @@ file for accessing the install tool (:file:`public/typo3/install.php`).
     The TYPO3 backend entry point PHP file :file:`public/typo3/index.php` has
     been removed. The backend can be accessed via the :ref:`backend-entry-point`.
 
-.. _directory-public-typo3temp:
+..  _directory-public-typo3temp:
 
 :file:`public/typo3temp/`
 ~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -233,7 +233,7 @@ for temporary files of extensions and TYPO3 components.
     bad practice to remove the whole folder. Developers should selectively
     remove folders relevant to the changes made.
 
-.. _directory-public-typo3temp-assets:
+..  _directory-public-typo3temp-assets:
 
 :file:`public/typo3temp/assets/`
 """"""""""""""""""""""""""""""""
@@ -242,7 +242,7 @@ The directory :file:`typo3temp/assets/` contains temporary files that should be
 public available. This includes generated images and compressed CSS and
 JavaScript files.
 
-.. _directory-var:
+..  _directory-var:
 
 :file:`var/`
 ------------
@@ -257,14 +257,14 @@ cache and logs files) and should not be publicly available.
     bad practice to remove the whole folder. Developers should selectively
     remove folders relevant to the changes made.
 
-.. _directory-var-cache:
+..  _directory-var-cache:
 
 :file:`var/cache/`
 ~~~~~~~~~~~~~~~~~~
 
 This directory contains internal files needed for the cache.
 
-.. _directory-var-labels:
+..  _directory-var-labels:
 
 :file:`var/labels/`
 ~~~~~~~~~~~~~~~~~~~
@@ -275,7 +275,7 @@ localizations. It contains all downloaded translation files.
 This path can be retrieved from the Environment API, see
 :ref:`Environment-labels-path`.
 
-.. _directory-var-log:
+..  _directory-var-log:
 
 :file:`var/log/`
 ~~~~~~~~~~~~~~~~
@@ -283,7 +283,7 @@ This path can be retrieved from the Environment API, see
 This directory contains log files like the
 TYPO3 log, the deprecations log and logs generated by extensions.
 
-.. _directory-vendor:
+..  _directory-vendor:
 
 :file:`vendor/`
 ---------------
