@@ -887,8 +887,8 @@ Named placeholders, such as created by :php:`QueryBuilder::createNamedParameter(
 
 ..  _database-query-builder-union-db-support:
 
-Database provider support of union() and addUnion
--------------------------------------------------
+Database provider support of union() and addUnion()
+---------------------------------------------------
 
 :php-short:`\TYPO3\CMS\Core\Database\Query\QueryBuilder` can be used create
 :sql:`UNION` clause queries not compatible with all database providers,
