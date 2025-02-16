@@ -874,7 +874,7 @@ queries.
     query builder.
 
     If you decide to do so you **must** take care of quoting, escaping, and
-    valid SQL Syntax for the database system in question.  The `Default Restrictions <https://docs.typo3.org/permalink/t3coreapi:database-query-builder-select-restrictions>`_
+    valid SQL Syntax for the database system in question. The `Default Restrictions <https://docs.typo3.org/permalink/t3coreapi:database-query-builder-select-restrictions>`_
     are **not applied** on that part.
 
 Named placeholders, such as created by :php:`QueryBuilder::createNamedParameter()`
