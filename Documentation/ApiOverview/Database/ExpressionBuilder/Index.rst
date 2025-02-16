@@ -243,6 +243,28 @@ is used.
     :language: php
     :caption: EXT:my_extension/Classes/Domain/Repository/MyTableRepository.php
 
+..  _database-expression-builder-castText:
+
+:php:`ExpressionBuilder::castText()`
+------------------------------------
+
+..  versionadded:: 13.3
+
+..  todo: Add api description as soon as building code-snippets is working again
+
+Can be used to create an expression which converts a value, row field value or
+the result of an expression to type `TEXT` or a large `VARCHAR, depending on the
+database system in use.
+
+Casting is done to large :sql:`VARCHAR/CHAR` types using the :sql:`CAST/CONVERT`
+or similar methods based on the used database engine.
+
+..  include:: _EscapeWarning.rst.txt
+
+..  literalinclude:: _RepositoryCastText.php
+    :language: php
+    :caption: EXT:my_extension/Classes/Domain/Repository/MyTableRepository.php
+
 ..  _database-expression-builder-castVarchar:
 
 :php:`ExpressionBuilder::castVarchar()`
