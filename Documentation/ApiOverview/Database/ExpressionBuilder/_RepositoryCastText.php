@@ -10,9 +10,7 @@ final class MyTableRepository
 {
     private const TABLE_NAME = 'my_table';
 
-    public function __construct(private readonly ConnectionPool $connectionPool)
-    {
-    }
+    public function __construct(private readonly ConnectionPool $connectionPool) {}
 
     public function demonstrateCastText(string $col1, string $col2): array
     {
@@ -26,8 +24,8 @@ final class MyTableRepository
                 // !!! Escape all values passed to castText to prevent SQL injections
                 $queryBuilder->expr()->castText(
                     $queryBuilder->quoteIdentifier($col2) . ' * 10',
-                    'virtual_field'
-                )
+                    'virtual_field',
+                ),
             )
             ->from(self::TABLE_NAME)
             ->executeQuery()
