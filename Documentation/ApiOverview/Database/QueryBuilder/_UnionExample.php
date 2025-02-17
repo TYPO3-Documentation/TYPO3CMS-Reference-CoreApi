@@ -50,7 +50,7 @@ final readonly class MyService
                 $unionExpr->eq(
                     'pages.pid',
                     // Named parameters **must** be created on the outermost (union) query builder
-                    $unionQueryBuilder->createNamedParameter($pageId),
+                    $unionQueryBuilder->createNamedParameter($pageId, Connection::PARAM_INT),
                 ),
             );
         return $queryBuilder;
