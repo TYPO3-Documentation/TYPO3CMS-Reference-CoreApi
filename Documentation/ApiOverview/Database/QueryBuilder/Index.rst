@@ -857,7 +857,9 @@ queries.
 
 :php:`union(string|QueryBuilder $part)`
     Creates the initial :sql:`UNION` query part by accepting either a raw SQL
-    string or a `QueryBuilder` instance.
+    string or a `QueryBuilder` instance. Calling `union()` resets all previous
+    union definitions, it should therefore only be called once, using `addUnion()`
+    to add subsequent union parts.
 
 :php:`addUnion(string|QueryBuilder $part, UnionType $type = UnionType::DISTINCT)`
     Adds additional :sql:`UNION` parts to the query. The `$type` parameter accepts:
