@@ -72,7 +72,7 @@ final readonly class MyService
                 $unionExpr->eq(
                     'tt_content.pid',
                     // Named parameters **must** be created on the outermost (union) query builder
-                    $unionQueryBuilder->createNamedParameter($pageId),
+                    $unionQueryBuilder->createNamedParameter($pageId, Connection::PARAM_INT),
                 ),
             );
         return $queryBuilder;
