@@ -13,11 +13,6 @@ requests. They should therefore be optimized for speed.
 See :ref:`extension-files-locations` for a full list of file and
 directory names typically used in extensions.
 
-..  versionchanged:: 11.4
-    With TYPO3 v11.4 the files :file:`ext_localconf.php` and :file:`ext_tables.php`
-    are scoped into the global namespace on warmup of the cache.
-    Therefore, :php:`use` statements can now be used inside these files.
-
 ..  warning::
     The content of the files :file:`ext_localconf.php` and
     :file:`ext_tables.php` **must not** be wrapped in a

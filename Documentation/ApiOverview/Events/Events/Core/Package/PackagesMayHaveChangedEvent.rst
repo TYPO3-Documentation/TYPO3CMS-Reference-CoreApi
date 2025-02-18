@@ -6,10 +6,6 @@
 PackagesMayHaveChangedEvent
 ===========================
 
-..  versionadded:: 10.3
-    The event was introduced to replace the Signal/Slot
-    `\TYPO3\CMS\Core\Package\PackageManager::packagesMayHaveChanged`.
-
 The PSR-14 event :php:`\TYPO3\CMS\Core\Package\Event\PackagesMayHaveChangedEvent`
 is a marker event to ensure that Core is re-triggering the package ordering and
 package listings.

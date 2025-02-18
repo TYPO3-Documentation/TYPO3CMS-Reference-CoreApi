@@ -31,8 +31,6 @@ the PSR-7 base request object is given as argument to the called method.
 Extbase controller
 ------------------
 
-..  versionadded:: 11.3
-
 The request object compatible with the PSR-7
 :php:`\Psr\Http\Message\ServerRequestInterface` is available in an
 :ref:`Extbase controller <extbase-action-controller>` via the class property

@@ -92,10 +92,9 @@ Subsequently:
   general Composer information
 * see :ref:`ext-composer-json-properties` below for TYPO3 specific hints
 
-..  versionchanged:: 11.4
-    The ordering of installed extensions and their dependencies are loaded from
-    the :file:`composer.json <extension-composer-json>` file, instead of :file:`ext_emconf.php` in
-    Composer-based installations.
+The ordering of installed extensions and their dependencies are loaded from
+the :file:`composer.json <extension-composer-json>` file, instead of :file:`ext_emconf.php` in
+Composer-based installations.
 
 ..  note::
     Extension authors should ensure that the information in the
