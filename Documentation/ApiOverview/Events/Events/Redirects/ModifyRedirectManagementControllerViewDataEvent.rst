@@ -7,8 +7,6 @@
 ModifyRedirectManagementControllerViewDataEvent
 ===============================================
 
-..  versionadded:: 12.3
-
 The PSR-14 event
 :php:`\TYPO3\CMS\Redirects\Event\ModifyRedirectManagementControllerViewDataEvent`
 allows extensions to modify or enrich view data for

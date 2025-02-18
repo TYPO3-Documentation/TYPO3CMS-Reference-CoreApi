@@ -7,8 +7,6 @@
 EnrichPasswordValidationContextDataEvent
 ========================================
 
-..  versionadded:: 12.3
-
 The PSR-14 event
 :php:`\TYPO3\CMS\Core\PasswordPolicy\Event\EnrichPasswordValidationContextDataEvent`
 allows extensions to enrich the

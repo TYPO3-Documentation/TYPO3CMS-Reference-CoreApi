@@ -5,8 +5,6 @@
 Locale
 ======
 
-..  versionadded:: 12.2
-
 The :php:`\TYPO3\CMS\Core\Localization\Locale` class unifies the handling of
 locales instead of dealing with "default" or other TYPO3-specific namings.
 

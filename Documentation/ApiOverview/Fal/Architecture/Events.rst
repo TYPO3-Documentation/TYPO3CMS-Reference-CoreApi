@@ -35,7 +35,6 @@ operation, the other one **after**.
 ===========================================================
 
 :ref:`AfterDefaultUploadFolderWasResolvedEvent`
-    ..  versionadded:: 12.3
 
     Allows to modify the default upload folder after it has been resolved for
     the current page or user.
@@ -47,7 +46,6 @@ operation, the other one **after**.
 ========================================================================
 
 :ref:`AfterVideoPreviewFetchedEvent`
-    ..  versionadded:: 12.2
 
     Modifies the preview file of online media previews (like YouTube and Vimeo).
 

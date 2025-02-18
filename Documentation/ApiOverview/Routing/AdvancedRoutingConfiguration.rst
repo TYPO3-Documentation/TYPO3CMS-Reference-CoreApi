@@ -360,12 +360,6 @@ also provide the :yaml:`namespace` property as in the
         namespace: tx_news_pi1
         # ... further configuration
 
-..  versionchanged:: 12.2
-    Prior to version 12.2 the combination of :yaml:`extension` and
-    :yaml:`plugin` was preferred when all three properties are given. Since
-    v12.2 the :yaml:`namespace` property has precedence.
-
-
 To understand what is happening in the :yaml:`aspects` part, read on.
 
 ..  attention::
@@ -600,8 +594,6 @@ specific :yaml:`routePath` definition.
 
 Aspect fallback value handling
 ==============================
-
-..  versionadded:: 12.1
 
 Imagine a route like `/news/{news_title}` that has been filled with an "invalid"
 value for the `news_title` part. Often these are outdated, deleted or hidden

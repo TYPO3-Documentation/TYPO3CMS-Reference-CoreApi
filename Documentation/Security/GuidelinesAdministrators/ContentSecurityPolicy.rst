@@ -11,10 +11,8 @@
 Content security policy
 =======================
 
-..  versionadded:: 12.3
-    Content Security Policy declarations can be applied to a TYPO3 website in
-    frontend and backend scope with a dedicated API.
-    See :ref:`content-security-policy`.
+..  seealso::
+    *   :ref:`content-security-policy`
 
 Content security policy (CSP_) is an added layer of security that helps
 to detect and mitigate certain types of attacks, including cross-site

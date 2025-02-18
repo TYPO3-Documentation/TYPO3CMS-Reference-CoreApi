@@ -6,8 +6,6 @@
 BeforeMailerSentMessageEvent
 ============================
 
-..  versionadded:: 12.0
-
 The PSR-14 event :php:`\TYPO3\CMS\Core\Mail\Event\BeforeMailerSentMessageEvent`
 is dispatched before the message is sent by the mailer and can be
 used to manipulate the :php:`\Symfony\Component\Mime\RawMessage` and the

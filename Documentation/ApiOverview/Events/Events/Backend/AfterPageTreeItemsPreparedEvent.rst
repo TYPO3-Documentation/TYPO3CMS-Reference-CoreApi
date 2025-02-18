@@ -6,12 +6,6 @@
 AfterPageTreeItemsPreparedEvent
 ===============================
 
-..  versionadded:: 12.0
-    This PSR-14 event replaces the following hooks:
-
-    *   :php:`$GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['TYPO3\CMS\Workspaces\Service\WorkspaceService']['hasPageRecordVersions']`
-    *   :php:`$GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['TYPO3\CMS\Workspaces\Service\WorkspaceService']['fetchPagesWithVersionsInTable']`
-
 The PSR-14 event
 :php:`\TYPO3\CMS\Backend\Controller\Event\AfterPageTreeItemsPreparedEvent`
 allows prepared page tree items to be modified.

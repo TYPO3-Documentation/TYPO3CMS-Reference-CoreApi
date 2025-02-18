@@ -6,10 +6,6 @@
 Introduction
 ============
 
-.. versionchanged:: 12.0
-   The abstract class :php:`\TYPO3\CMS\Core\Service\AbstractService` has been
-   removed. See :ref:`services-developer-service-api-migration`.
-
 This document describes the services functionality included in the
 TYPO3 Core.
 
@@ -93,10 +89,6 @@ is chosen automatically for you.
 
 Reasons for using the Services API
 ==================================
-
-.. versionchanged:: 12.0
-   The abstract class :php:`\TYPO3\CMS\Core\Service\AbstractService` has been
-   removed. See :ref:`services-developer-service-api-migration`.
 
 The :php:`AbstractService` has been removed and it is planned to also
 deprecate the other methods of the Service API in the future. The Service API

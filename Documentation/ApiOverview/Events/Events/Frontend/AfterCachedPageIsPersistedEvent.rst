@@ -6,8 +6,6 @@
 AfterCachedPageIsPersistedEvent
 ===============================
 
-.. versionadded:: 12.0
-
    This event together with :ref:`AfterCacheableContentIsGeneratedEvent` has
    been introduced to serve as a direct replacement for the removed hook:
 

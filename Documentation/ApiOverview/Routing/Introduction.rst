@@ -187,11 +187,7 @@ Example:
         - { resource: "EXT:mynews/Configuration/Routes/Default.yaml" }
         - { resource: "EXT:template/Configuration/Routes/Default.yaml" }
 
-..  versionchanged:: 12.0
-    In TYPO3 v10.4.14 the feature flag :php:`yamlImportsFollowDeclarationOrder`
-    was introduced to enable natural order of YAML imports. For existing
-    installations it was set to :php:`false` (resources are imported in reverse
-    order), for new installations to :php:`true` (resources are imported in
-    declared order). In TYPO3 v12.0 the feature flag was removed and the
-    resources are now imported in the exact same order as they are configured in
-    the importing file.
+..  note::
+    The resources are now imported in the exact same order as they are
+    configured in the importing file. Take care during updating from version
+    below TYPO3 v12.

@@ -50,8 +50,6 @@ In the field :typoscript:`categories` the comma-separated categories are stored.
 Register an alias for the data processor (optional)
 ===================================================
 
-.. versionadded:: 12.1
-
 Instead of using the fully-qualified class name as data processor identifier
 (in the example above :php:`T3docs\Examples\DataProcessing\CustomCategoryProcessor`)
 you can also define a short alias in :file:`Configuration/Services.yaml`:

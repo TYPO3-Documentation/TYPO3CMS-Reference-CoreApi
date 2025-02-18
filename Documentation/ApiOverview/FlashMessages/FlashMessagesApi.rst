@@ -95,14 +95,6 @@ This shows flash messages with 2 types of rendering mechanisms:
 *  and an additional flash message ("Record count") is rendered as top-right
    **notification** (which automatically disappear after a short delay).
 
-.. versionadded:: 12.0
-
-   :php:`FlashMessageQueue::NOTIFICATION_QUEUE` has been added in TYPO3 v12 to
-   provide a simple mechanism to add flash messages (from PHP code) to be
-   displayed as notifications on the top-right edge of the backend. Previously,
-   this had to be implemented in JavaScript (e.g. :js:`Notification.success()`),
-   which is also still possible, see :ref:`flash-messages-javascript`.
-
 Use the :php:`FlashMessageQueue::NOTIFICATION_QUEUE` to submit a flash message
 as top-right notifications, instead of inline:
 

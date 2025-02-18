@@ -6,10 +6,6 @@
 Introducing a new service type
 ==============================
 
-.. versionchanged:: 12.0
-   The abstract class :php:`\TYPO3\CMS\Core\Service\AbstractService` has been
-   removed. See :ref:`services-developer-service-api-migration`.
-
 Every service belongs to a given service type. A service type is
 represented by a key, just like an extension key. In the examples
 above there were mentions of the "auth" and "metaExtract" service types.

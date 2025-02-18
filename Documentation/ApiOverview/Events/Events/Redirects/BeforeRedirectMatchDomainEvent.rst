@@ -7,8 +7,6 @@
 BeforeRedirectMatchDomainEvent
 ==============================
 
-..  versionadded:: 12.3
-
 The PSR-14 event
 :php:`\TYPO3\CMS\Redirects\Event\BeforeRedirectMatchDomainEvent`
 allows extensions to implement a custom redirect matching upon the loaded

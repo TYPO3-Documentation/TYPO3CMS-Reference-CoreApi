@@ -10,13 +10,6 @@
 Form protection tool
 ====================
 
-..  versionchanged:: 12.1
-    Before TYPO3 v12.1, the :php:`FormProtectionFactory` provided only static
-    methods to get the concrete form protection implementation. Since
-    TYPO3 v12.1, the :php:`FormProtectionFactory` can be instantiated and
-    therefore injected into the constructor. The static methods are deprecated
-    and will be removed in TYPO3 v13.
-
 The TYPO3 Core provides a generic way of protecting forms against cross-site
 request forgery (CSRF).
 

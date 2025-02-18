@@ -102,8 +102,6 @@ The request sequence in the TYPO3 Core looks like this:
 Dynamic URL parts in backend URLs
 =================================
 
-..  versionadded:: 12.1
-
 Backend routes can be registered with path segments that contain dynamic parts,
 which are then resolved into a PSR-7 request attribute called
 :ref:`routing <typo3-request-attribute-routing-backend>`.

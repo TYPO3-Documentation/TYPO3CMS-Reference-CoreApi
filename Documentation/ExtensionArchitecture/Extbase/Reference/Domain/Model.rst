@@ -82,12 +82,6 @@ however get displayed when explicitly called:
 Union types
 -----------
 
-..  versionadded:: 12.3
-    Previously, whenever a union type was needed, union type declarations led
-    Extbase not detecting any type at all, resulting in the property not being
-    mapped. However, union types could be resolved via docblocks. Since TYPO3
-    v12.3 native PHP union types can be used.
-
 Union types can be used in properties of an entity, for example:
 
 ..  literalinclude:: _Model/_UnionType1.php

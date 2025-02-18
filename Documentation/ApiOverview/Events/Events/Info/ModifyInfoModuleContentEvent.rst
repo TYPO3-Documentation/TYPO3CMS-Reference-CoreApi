@@ -7,11 +7,6 @@
 ModifyInfoModuleContentEvent
 ============================
 
-..  versionadded:: 12.0
-    This event has been introduced as a more powerful and flexible alternative
-    to :php:`$GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['cms/web_info/class.tx_cms_webinfo.php']['drawFooterHook']`
-    which has now been removed.
-
 The PSR-14 event :php:`\TYPO3\CMS\Info\Controller\Event\ModifyInfoModuleContentEvent`
 allows the content above and below the info module to be modified. The content
 added in the event is displayed in each submodule of :guilabel:`Web > Info`.

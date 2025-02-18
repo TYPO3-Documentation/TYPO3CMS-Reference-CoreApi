@@ -48,12 +48,6 @@ The TYPO3 Core ships two icon providers which can be used straight away:
     kinds of bitmap icons (GIF, PNG, JPEG, etc.)
 *   :php:`\TYPO3\CMS\Core\Imaging\IconProvider\SvgIconProvider` – For SVG icons
 
-..  versionchanged:: 12.0
-    The :php:`\TYPO3\CMS\Core\Imaging\IconProvider\FontawesomeIconProvider`
-    was removed from the Core in 12.0. You can use the polyfill extension from
-    :composer:`friendsoftypo3/fontawesome-provider` which is also compatible
-    with TYPO3 v11 LTS.
-
 If you need a custom icon provider, you can add your own by writing a
 class which implements the
 :t3src:`core/Classes/Imaging/IconProviderInterface.php`.
@@ -137,11 +131,6 @@ The following icon sizes are available:
 
 The JavaScript way
 ------------------
-
-..  versionchanged:: 12.0
-    The JavaScript icon provider has been moved from the RequireJS module
-    :js:`TYPO3/CMS/Backend/Icons` to the ES6 module :js:`@typo3/backend/icons`.
-    See also :ref:`backend-javascript-es6`.
 
 In JavaScript, icons can be only fetched from the Icon Registry. To achieve this,
 add the following dependency to your :ref:`ES6 module <backend-javascript-es6>`:

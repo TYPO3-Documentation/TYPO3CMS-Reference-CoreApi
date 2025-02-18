@@ -10,15 +10,6 @@ Annotations
 All available annotations for Extbase delivered by TYPO3 Core are placed within
 the namespace :php:`\TYPO3\CMS\Extbase\Annotation`.
 
-..  versionchanged:: 12.0
-    Starting with TYPO3 v12.0 Extbase annotations can be supplied as
-    `PHP 8 native attributes <https://www.php.net/manual/en/language.attributes.overview.php>`__.
-
-..  attention::
-    Even if you use PHP 8.0 with TYPO3 v11 LTS native attributes do not work below
-    TYPO3 v12.0. To stay compatible with both TYPO3 v11 and v12, continue to use
-    the Extbase annotations as doc-block comments.
-
 Example in `EXT:blog_example <https://github.com/typo3-documentation/blog_example>`__
 for the annotation :php:`Lazy`:
 

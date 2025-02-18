@@ -121,8 +121,6 @@ API
 The :php:`SiteSettings` object
 ==============================
 
-..  versionadded:: 12.1
-
 The :ref:`site settings <sitehandling-settings>` can be retrieved using the
 :php:`getSettings()` method of the :ref:`Site <sitehandling-site-object>`
 object, which returns a :php:`SiteSettings` object.

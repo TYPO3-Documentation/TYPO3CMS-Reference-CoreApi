@@ -64,15 +64,6 @@ These files define a set of global settings stored in a global array called
 This path can be retrieved from the Environment API, see
 :ref:`Environment-config-path`.
 
-..  versionchanged:: 12.0
-    For Composer-based installations the configuration files have been moved and
-    renamed:
-
-    *   :file:`public/typo3conf/LocalConfiguration.php` is now available in
-        :file:`config/system/settings.php`
-    *   :file:`public/typo3conf/AdditionalConfiguration.php` is now available
-        in :file:`config/system/additional.php`
-
 ..  _directory-packages:
 
 :file:`packages/`
@@ -85,7 +76,7 @@ You can put your site package and other extensions to be installed locally here.
 install the extension with `composer install myvendor/my-sitepackage`.
 
 If you did not use the base-distribution, create the directory and add it to your repositories
-manualy:
+manually:
 
 ..  code-block:: diff
     :caption: composer.json (diff)

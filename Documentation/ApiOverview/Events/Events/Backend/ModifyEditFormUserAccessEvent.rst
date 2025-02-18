@@ -6,11 +6,6 @@
 ModifyEditFormUserAccessEvent
 =============================
 
-..  versionadded:: 12.0
-    This event serves as a more powerful and flexible alternative for the removed
-    :php:`$GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['typo3/alt_doc.php']['makeEditForm_accessCheck']`
-    hook.
-
 The PSR-14 event
 :php:`\TYPO3\CMS\Backend\Form\Event\ModifyEditFormUserAccessEvent\ModifyEditFormUserAccessEvent`
 provides the full database row of the record in question next to the
