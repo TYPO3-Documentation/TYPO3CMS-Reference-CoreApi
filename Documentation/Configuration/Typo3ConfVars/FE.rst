@@ -535,8 +535,6 @@ the TYPO3 frontend:
         :type: bool
         :Default: false (for existing installations), true (for new installations)
 
-        ..  versionadded:: 10.4.35/11.5.23/12.2
-
         If this option is enabled, the same validation is used to calculate a
         "cHash" value as when a valid or invalid "cHash" parameter is given to a
         request, even when no "cHash" is given.
