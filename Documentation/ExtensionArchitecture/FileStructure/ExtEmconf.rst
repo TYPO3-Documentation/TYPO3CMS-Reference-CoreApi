@@ -29,10 +29,9 @@ It is also needed for :ref:`Writing functional tests <t3coreapi:testing-writing-
 with the `typo3/testing-framework <https://github.com/TYPO3/testing-framework>` in v8 and
 earlier.
 
-..  versionchanged:: 11.4
-    In Composer-based installations, the ordering of installed extensions and
-    their dependencies is loaded from the :file:`composer.json <extension-composer-json>` file, instead of
-    :file:`ext_emconf.php`
+In Composer-based installations, the ordering of installed extensions and
+their dependencies is loaded from the :file:`composer.json <extension-composer-json>` file, instead of
+:file:`ext_emconf.php`
 
 The only content included is an associative array,
 :php:`$EM_CONF[extension key]`. The keys are described in the table below.

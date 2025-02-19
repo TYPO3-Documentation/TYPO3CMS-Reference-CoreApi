@@ -274,7 +274,6 @@ for more information about this class.
 =======================================================
 
 :ref:`AfterFileCommandProcessedEvent`
-    ..  versionadded:: 11.4
 
     The event can be used to perform additional tasks for specific file
     commands. For example, trigger a custom indexer after a file has been

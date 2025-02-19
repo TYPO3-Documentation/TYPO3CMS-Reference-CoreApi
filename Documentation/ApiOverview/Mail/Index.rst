@@ -232,8 +232,6 @@ mbox
 Validators
 ----------
 
-..  versionadded:: 11.0
-
 Using additional validators can help to identify if a provided email address
 is valid or not. By default, the validator
 :php:`\Egulias\EmailValidator\Validation\RFCValidation` is used. The following
