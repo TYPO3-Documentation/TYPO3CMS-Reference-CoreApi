@@ -30,14 +30,12 @@ these terms in this chapter.
     ConfigurationFiles
     BackendEntryPoint/Index
     ConfigurationModule/Index
-    FeatureToggles
     GlobalVariables
     ApplicationContext
     Typo3ConfVars/Index
     TypoScript/Index
     UserSettingsConfiguration/Index
     Yaml/Index
-    FlagFiles/Index
 
 **More ...**
 
