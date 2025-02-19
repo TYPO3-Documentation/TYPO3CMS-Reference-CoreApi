@@ -32,7 +32,6 @@ these terms in this chapter.
     FeatureToggles
     GlobalVariables
     Typo3ConfVars/Index
-    Typo3Information
     TypoScript/Index
     UserSettingsConfiguration/Index
     Yaml/Index
