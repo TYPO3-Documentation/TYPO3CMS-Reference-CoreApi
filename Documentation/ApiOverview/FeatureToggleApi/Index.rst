@@ -4,9 +4,9 @@
     TYPO3_CONF_VARS; SYS features
 ..  _feature-toggles:
 
-===============
-Feature toggles
-===============
+==================
+Feature toggle API
+==================
 
 TYPO3 provides an API class for creating so-called "feature toggles". Feature
 toggles provide an easy way to add new implementations of features next to their
