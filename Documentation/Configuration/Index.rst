@@ -34,7 +34,6 @@ these terms in this chapter.
     GlobalVariables
     ApplicationContext
     Typo3ConfVars/Index
-    Typo3Information
     TypoScript/Index
     UserSettingsConfiguration/Index
     Yaml/Index
