@@ -6,8 +6,6 @@
 ModifyQueryForLiveSearchEvent
 =============================
 
-..  versionadded:: 12.0
-
 The PSR-14 event
 :php:`\TYPO3\CMS\Backend\Search\Event\ModifyQueryForLiveSearchEvent`
 can be used to modify the live search queries in the backend.

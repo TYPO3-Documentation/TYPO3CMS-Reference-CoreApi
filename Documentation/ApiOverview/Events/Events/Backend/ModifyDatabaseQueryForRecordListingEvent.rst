@@ -6,14 +6,6 @@
 ModifyDatabaseQueryForRecordListingEvent
 ========================================
 
-..  versionadded:: 12.0
-    This event has been introduced to replace the following removed hooks:
-
-    *   :php:`$GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['typo3/class.db_list_extra.inc']['getTable']`
-    *   :php:`$GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['TYPO3\CMS\Recordlist\RecordList\DatabaseRecordList']['modifyQuery']`
-    *   :php:`$GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['TYPO3\CMS\Recordlist\RecordList\DatabaseRecordList']['makeSearchStringConstraints']`
-
-
 The PSR-14 event
 :php:`\TYPO3\CMS\Backend\View\Event\ModifyDatabaseQueryForRecordListingEvent`
 allows to alter the :ref:`query builder <database-query-builder>` SQL

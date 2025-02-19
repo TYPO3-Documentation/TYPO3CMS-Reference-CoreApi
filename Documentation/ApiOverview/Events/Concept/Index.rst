@@ -18,11 +18,6 @@ be changed by the event.
 :ref:`Hooks <hooks-general>` are basically places in the source code where a
 user function will be called for processing, if such has been configured.
 
-..  versionchanged:: 12.0
-    Signals and slots and all related classes have been removed from the
-    Core. Use :ref:`PSR-14 events <EventDispatcher>` instead.
-
-
 ..  _hooks-video:
 
 TYPO3 extending mechanisms video

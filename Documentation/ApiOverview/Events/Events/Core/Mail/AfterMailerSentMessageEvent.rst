@@ -6,8 +6,6 @@
 AfterMailerSentMessageEvent
 ===========================
 
-..  versionadded:: 12.0
-
 The PSR-14 event :php:`\TYPO3\CMS\Core\Mail\Event\AfterMailerSentMessageEvent`
 is dispatched as soon as the message has been sent via the corresponding
 :php:`\Symfony\Component\Mailer\Transport\TransportInterface`.

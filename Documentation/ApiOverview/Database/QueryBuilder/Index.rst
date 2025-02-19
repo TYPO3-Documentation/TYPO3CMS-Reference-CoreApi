@@ -847,6 +847,86 @@ Remarks:
 *   For more complex statements you can use the raw Doctrine QueryBuilder.
     See remarks for :ref:`orderBy() <database-query-builder-orderby>`
 
+..  _database-query-builder-union:
+
+union() and addUnion()
+======================
+
+Method `union()` provides a streamlined way to combine result sets from multiple
+queries.
+
+:php:`union(string|QueryBuilder $part)`
+    Creates the initial :sql:`UNION` query part by accepting either a raw SQL
+    string or a `QueryBuilder` instance. Calling `union()` resets all previous
+    union definitions, it should therefore only be called once, using `addUnion()`
+    to add subsequent union parts.
+
+:php:`addUnion(string|QueryBuilder $part, UnionType $type = UnionType::DISTINCT)`
+    Adds additional :sql:`UNION` parts to the query. The `$type` parameter accepts:
+
+    `UnionType::DISTINCT`
+        Combines results while eliminating duplicates.
+    `UnionType::ALL`
+        Combines results and retains all duplicates. Not removing duplicates can
+        be a performance improvement.
+
+..  note::
+    While technically possible, it is not recommended to send direct SQL queries
+    as strings to the `union()` and `addUnion()` methods. We recommend to use a
+    query builder.
+
+    If you decide to do so you **must** take care of quoting, escaping, and
+    valid SQL Syntax for the database system in question. The `Default Restrictions <https://docs.typo3.org/permalink/t3coreapi:database-query-builder-select-restrictions>`_
+    are **not applied** on that part.
+
+Named placeholders, such as created by :php:`QueryBuilder::createNamedParameter()`
+**must** be created on the outer most QueryBuilder See the example below.
+
+..  seealso::
+    *   `W3School: SQL UNION Operator <https://www.w3schools.com/sql/sql_union.asp>`_
+    *   For technical details see the changelog entry `Feature: #104631 - Add
+        UNION Clause support to the QueryBuilder <https://docs.typo3.org/permalink/changelog:feature-104631-1723714985>`_.
+
+..  _database-query-builder-union-db-support:
+
+Database provider support of union() and addUnion()
+---------------------------------------------------
+
+:php-short:`\TYPO3\CMS\Core\Database\Query\QueryBuilder` can be used create
+:sql:`UNION` clause queries not compatible with all database providers,
+for example using :sql:`LIMIT/OFFSET` in each part query or other stuff.
+
+When building functional tests, run them on all database types that should
+be supported.
+
+..  _database-query-builder-union-example-querybuilder:
+
+Example using `union()` on two QueryBuilders
+--------------------------------------------
+
+..  literalinclude:: _UnionExample.php
+    :caption: packages/my_extension/classes/Service/MyService.php
+
+Line 18
+    All query parts **must** share the same connection.
+Line 19
+    The outer most QueryBuilder is responsible for the union, it **must** be
+    used to create named parameters and build expressions within the sub queries.
+Line 22-23
+    We therefore pass the central QueryBuilder responsible for the :sql:`UNION`
+    to all subqueries. Same with the ExpressionBuilder.
+Line 25-30
+    We start building the `union()` on the first sub query, then add the
+    second sub query using `addUnion()`
+Line 41
+    Only use the ExpressionBuilder of the sql:`UNION` within the subqueries.
+Line 50
+    Named parameters must also be called on the outer most union query builder.
+
+The `Default Restrictions <https://docs.typo3.org/permalink/t3coreapi:database-query-builder-select-restrictions>`_
+are applied to each subquery automatically.
+
+..  _database-query-builder-setMaxResults:
 
 setMaxResults() and setFirstResult()
 ====================================

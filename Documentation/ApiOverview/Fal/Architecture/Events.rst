@@ -35,7 +35,6 @@ operation, the other one **after**.
 ===========================================================
 
 :ref:`AfterDefaultUploadFolderWasResolvedEvent`
-    ..  versionadded:: 12.3
 
     Allows to modify the default upload folder after it has been resolved for
     the current page or user.
@@ -47,7 +46,6 @@ operation, the other one **after**.
 ========================================================================
 
 :ref:`AfterVideoPreviewFetchedEvent`
-    ..  versionadded:: 12.2
 
     Modifies the preview file of online media previews (like YouTube and Vimeo).
 
@@ -274,7 +272,6 @@ for more information about this class.
 =======================================================
 
 :ref:`AfterFileCommandProcessedEvent`
-    ..  versionadded:: 11.4
 
     The event can be used to perform additional tasks for specific file
     commands. For example, trigger a custom indexer after a file has been

@@ -7,8 +7,6 @@
 RedirectWasHitEvent
 ===================
 
-..  versionadded:: 12.0
-
 The PSR-14 event :php:`\TYPO3\CMS\Redirects\Event\RedirectWasHitEvent` is fired
 in the :php:`\TYPO3\CMS\Redirects\Http\Middleware\RedirectHandler`
 :ref:`middleware <request-handling>` and allows extension authors to further

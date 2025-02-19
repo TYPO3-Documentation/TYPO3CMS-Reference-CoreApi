@@ -169,10 +169,6 @@ direct SQL queries in the source code.
 :sql:`sys_file_collection`
 ==========================
 
-..  versionchanged:: 12.2
-    The two fields :sql:`storage` and :sql:`folder` are now combined into the
-    new field :sql:`folder_identifier`.
-
 FAL offers the possibility to create file collections,
 which can then be used for various purposes. By default,
 they can be used with the "File links" content element.
@@ -221,8 +217,6 @@ The most important fields are:
 
 :sql:`sys_filemounts`
 =====================
-
-.. versionchanged:: 12.0
 
 File mounts are not specifically part of FAL (they existed long
 before), but their definition is based on

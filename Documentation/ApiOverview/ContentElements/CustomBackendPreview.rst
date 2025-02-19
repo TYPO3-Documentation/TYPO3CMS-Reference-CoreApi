@@ -53,10 +53,6 @@ Event listener
 This requires at least some PHP coding, but allows more flexibility in
 accessing and processing the content elements properties.
 
-..  versionadded:: 12.0
-    Since version 12.0 this technique replaces the former hook
-    :php:`$GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['cms/layout/class.tx_cms_layout.php']['tt_content_drawItem']`
-
 The event :php:`PageContentPreviewRenderingEvent` is being dispatched by the
 :php:`StandardContentPreviewRenderer`. You can listen to it with your own
 event listener.

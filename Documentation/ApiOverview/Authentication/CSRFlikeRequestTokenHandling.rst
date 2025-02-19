@@ -6,8 +6,6 @@
 CSRF-like request token handling
 ================================
 
-..  versionadded:: 12.0
-
 A CSRF-like request token handling is available to mitigate potential cross-site
 requests on actions with side effects. This approach does not require an
 existing server-side user session, but uses a `nonce`_ as a "pre-session". The

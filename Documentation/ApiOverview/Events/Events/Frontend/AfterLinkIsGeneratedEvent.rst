@@ -6,17 +6,8 @@
 AfterLinkIsGeneratedEvent
 =========================
 
-..  versionadded:: 12.0
-    This PSR-14 event supersedes the :php:`UrlProcessorInterface` logic
-    which allowed to modify mail URNs or external URLs, but not the
-    full anchor tag.
-
-    In addition, this PSR-14 event also replaces the
-    :php:`$GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['tslib/class.tslib_content.php']['typoLink_PostProc']`
-    hook which was not executed at all times, and had a cumbersome API
-    to modify values.
-
-    It is also recommended to use the PSR-14 event instead of the global
+..  note::
+    It is recommended to use the PSR-14 event instead of the global
     getATagParams hook (:php:`$GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['tslib/class.tslib_content.php']['getATagParamsPostProc']`)
     to add additional attributes (see example below) to links.
 

@@ -39,8 +39,6 @@ API
 Backend
 =======
 
-..  versionadded:: 12.1
-
 The :php:`routing` backend request attribute provides routing information in
 the object :php:`\TYPO3\CMS\Backend\Routing\RouteResult`.
 

@@ -39,8 +39,6 @@ And the corresponding Fluid template:
 Sliding window pagination
 =========================
 
-.. versionadded:: 12.0
-
 The sliding window pagination can be used to paginate array items or query
 results from Extbase. The main advantage is that it reduces the amount of pages
 shown.

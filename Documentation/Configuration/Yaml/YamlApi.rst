@@ -75,22 +75,13 @@ Example:
         - { resource: "./**/*.yaml", glob: true }
         - { resource: "EXT:core/Tests/**/Configuration/**/SiteConfigs/*.yaml", glob: true }
 
-..  versionadded:: 12.1
-    The YAML file loader supports importing of files with `glob`_ patterns.
-    To enable globbing, set the option :yaml:`glob: true` on the import level.
+The YAML file loader supports importing of files with `glob`_ patterns.
+To enable globbing, set the option :yaml:`glob: true` on the import level.
+
+The files are imported in the order they appear in the importing file. It used to be
+the reverse order, take care when updating projects from before v12!
 
 ..  _glob: https://www.php.net/manual/en/function.glob.php
-
-..  versionchanged:: 12.0
-    In TYPO3 v10.4.14 the feature flag :php:`yamlImportsFollowDeclarationOrder`
-    was introduced to enable natural order of YAML imports. For existing
-    installations it was set to :php:`false` (resources are imported in reverse
-    order), for new installations to :php:`true` (resources are imported in
-    declared order). In TYPO3 v12.0 the feature flag was removed and the
-    resources are now imported in the exact same order as they are configured in
-    the importing file.
-
-
 
 ..  index:: YAML; Custom placeholder
 

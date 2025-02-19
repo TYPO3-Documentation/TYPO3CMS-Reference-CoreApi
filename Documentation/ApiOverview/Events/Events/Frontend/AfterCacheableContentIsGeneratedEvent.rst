@@ -6,15 +6,6 @@
 AfterCacheableContentIsGeneratedEvent
 =====================================
 
-..  versionadded:: 12.0
-
-    This event together with :ref:`AfterCachedPageIsPersistedEvent` has
-    been introduced to serve as a direct replacement for the removed hooks:
-
-    * :php:`$GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['tslib/class.tslib_fe.php']['contentPostProc-cached']`
-    * :php:`$GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['tslib/class.tslib_fe.php']['contentPostProc-all']`
-    * :php:`$GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['tslib/class.tslib_fe.php']['usePageCache']`
-
 The PSR-14 event
 :php:`\TYPO3\CMS\Frontend\Event\AfterCacheableContentIsGeneratedEvent` can be
 used to decide if a page should be stored in cache.

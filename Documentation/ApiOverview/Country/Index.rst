@@ -6,8 +6,6 @@
 Country API
 ===========
 
-..  versionadded:: 12.2
-
 TYPO3 ships a list of countries of the world. The list is based on the
 `ISO 3166-1`_ standard, with the alphanumeric short name ("FR" or "FRA" in its
 three-letter short name), the English name ("France"), the official name

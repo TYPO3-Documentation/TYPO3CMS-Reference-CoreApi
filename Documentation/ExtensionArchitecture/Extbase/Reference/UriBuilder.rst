@@ -39,11 +39,7 @@ via constructor in a class:
 ..  literalinclude:: _UriBuilder/_MyClass.php
     :caption: EXT:my_extension/Classes/MyClass.php
 
-..  versionchanged:: 12.2
-    The Extbase request object should be set via the :php:`setRequest()` method
-    before using the URI builder. If not done, a deprecation notice will be
-    raised. In TYPO3 v13 setting the request object before first usage will be
-    mandatory.
+Setting the request object before first usage is mandatory.
 
 ..  note::
     In the above example, the :ref:`PSR-7 request object <typo3-request>` is

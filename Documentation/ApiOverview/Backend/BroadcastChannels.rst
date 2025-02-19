@@ -18,11 +18,6 @@ listened to via JavaScript.
 Send a message
 --------------
 
-..  versionchanged:: 12.0
-    The RequireJS module :js:`TYPO3/CMS/Backend/BroadcastService` has been migrated
-    to the ES6 module :js:`@typo3/backend/broadcast-service.js`.
-    See also :ref:`backend-javascript-es6`.
-
 Any backend module may send a message using the
 :js:`@typo3/backend/broadcast-service.js` :ref:`ES6 module <backend-javascript-es6>`.
 

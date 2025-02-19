@@ -8,10 +8,6 @@
 Backend modules API
 ===================
 
-..  versionchanged:: 12.0
-    Registration of backend modules was changed with version 12. Read more:
-    :ref:`Backend module configuration <backend-modules-configuration>`.
-
 This chapter describes the API that can be used to create custom backend modules
 in extensions. See the following chapter for a tutorial on :ref:`how to create
 custom backend modules <backend-modules-how-to>`.

@@ -6,11 +6,6 @@
 ModifyCacheLifetimeForPageEvent
 ===============================
 
-..  versionadded:: 12.0
-    This event serves as a successor for the
-    :php:`$GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['tslib/class.tslib_fe.php']['get_cache_timeout']`
-    hook.
-
 This event allows to modify the lifetime of how long a rendered page of a
 frontend call should be stored in the "pages" cache.
 

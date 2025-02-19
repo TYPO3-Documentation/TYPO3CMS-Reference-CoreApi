@@ -6,8 +6,6 @@
 SiteConfigurationLoadedEvent
 ============================
 
-..  versionadded:: 12.0
-
 The PSR-14 event
 :php:`\TYPO3\CMS\Core\Configuration\Event\SiteConfigurationLoadedEvent`
 allows the modification of the :ref:`site configuration <sitehandling>` array

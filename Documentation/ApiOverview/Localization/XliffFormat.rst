@@ -54,8 +54,6 @@ The translated file is very similar. If the original file was named
 :file:`locallang.xlf`, the translated file for German (code "de") will be named
 :file:`de.locallang.xlf`.
 
-..  versionchanged:: 12.2
-
 One can use a custom label file, for example, with the locale prefix
 :file:`de_CH.locallang.xlf` in an extension next to :file:`de.locallang.xlf` and
 :file:`locallang.xlf` (default language English).
@@ -97,12 +95,11 @@ language is placed in an additional file.
     Currently, only approved translations are exported and available via the
     TYPO3 :ref:`translation server <xliff-translating-servers>`.
 
-    ..  versionchanged:: 12.0
-        By default, only translations with no :xml:`approved` attribute or with
-        the attribute set to :xml:`yes` are taken into account when parsing XLF
-        files. Set the option :ref:`requireApprovedLocalizations
-        <typo3ConfVars_sys_lang_requireApprovedLocalizations>` to :php:`false`
-        to use translations with the :xml:`approved` attribute set to :xml:`no`.
+    By default, only translations with no :xml:`approved` attribute or with
+    the attribute set to :xml:`yes` are taken into account when parsing XLF
+    files. Set the option :ref:`requireApprovedLocalizations
+    <typo3ConfVars_sys_lang_requireApprovedLocalizations>` to :php:`false`
+    to use translations with the :xml:`approved` attribute set to :xml:`no`.
 
 ..  index:: ! Path; EXT:{extkey}/Resources/Private/Language
 ..  _xliff-files:

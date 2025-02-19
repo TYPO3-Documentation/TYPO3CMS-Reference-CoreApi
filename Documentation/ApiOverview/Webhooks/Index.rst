@@ -8,8 +8,6 @@
 Webhooks and reactions
 ======================
 
-..  versionadded:: 12.1/12.3
-
 A webhook is an automated message sent from one application to another via HTTP.
 It is defined as an authorized POST or GET request to a defined URL. For
 example, a webhook can be used to send a notification to a Slack channel when a

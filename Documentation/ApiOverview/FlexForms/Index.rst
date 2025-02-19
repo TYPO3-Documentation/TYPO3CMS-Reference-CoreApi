@@ -92,9 +92,6 @@ Steps to perform (extension developer)
 
     ..  include:: /CodeSnippets/FlexForms/Examples/PluginHaikuListRegistration.rst.txt
 
-    ..  versionadded:: 12.0
-        The method :php:`ExtensionUtility::registerPlugin()` returns the plugin signature.
-
     When registering Extbase plugins you can use the return value of
     :php:`ExtensionUtility::registerPlugin()` to figure out the plugin
     signature to use:

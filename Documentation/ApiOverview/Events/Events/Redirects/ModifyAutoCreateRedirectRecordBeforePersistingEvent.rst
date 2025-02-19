@@ -7,8 +7,6 @@
 ModifyAutoCreateRedirectRecordBeforePersistingEvent
 ===================================================
 
-..  versionadded:: 12.3
-
 The PSR-14 event
 :php:`\TYPO3\CMS\Redirects\Event\ModifyAutoCreateRedirectRecordBeforePersistingEvent`
 allows extensions to modify the redirect record before it is persisted to

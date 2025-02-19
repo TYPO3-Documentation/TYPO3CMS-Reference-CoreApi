@@ -6,8 +6,6 @@
 ModifyFileDumpEvent
 ===================
 
-..  versionadded:: 11.4
-
 The PSR-14 event :php:`\TYPO3\CMS\Core\Resource\Event\ModifyFileDumpEvent` is
 fired in the :php:`\TYPO3\CMS\Core\Controller\FileDumpController` and allows
 extensions to perform additional access / security checks before dumping a file.

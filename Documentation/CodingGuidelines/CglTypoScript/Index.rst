@@ -10,10 +10,6 @@ TypoScript coding guidelines
 Directory and file names
 ========================
 
-..  versionchanged:: 12.0
-    Support for other TypoScript file extensions, such as :file:`.txt` or
-    :file:`.ts`, has been removed in TYPO3 v12.
-
 *   The file extension **must** be :file:`.typoscript`.
 
 *   TypoScript files are located in the directory

@@ -6,10 +6,6 @@
 ModifyGenericBackendMessagesEvent
 =================================
 
-..  versionadded:: 12.0
-    This event serves as direct replacement for the now removed hook
-    :php:`$GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['t3lib/class.t3lib_befunc.php']['displayWarningMessages']`.
-
 The PSR-14 event
 :php:`\TYPO3\CMS\Backend\Controller\Event\ModifyGenericBackendMessagesEvent`
 allows to add or alter messages that are displayed in the :guilabel:`About`

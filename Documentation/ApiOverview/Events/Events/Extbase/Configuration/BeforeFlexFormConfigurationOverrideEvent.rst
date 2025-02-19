@@ -7,8 +7,6 @@
 BeforeFlexFormConfigurationOverrideEvent
 ========================================
 
-..  versionadded:: 12.3
-
 The PSR-14 event
 :php:`\TYPO3\CMS\Extbase\Event\Configuration\BeforeFlexFormConfigurationOverrideEvent`
 can be used to implement a custom :ref:`FlexForm <flexforms>` override process

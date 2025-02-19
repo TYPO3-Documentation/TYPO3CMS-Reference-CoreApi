@@ -28,8 +28,6 @@ Example on how to use a button component:
 Generic button component
 ========================
 
-..  versionadded:: 12.2
-
 The component :php:`\TYPO3\CMS\Backend\Template\Components\Buttons\GenericButton`
 allows to render any markup in the module menu bar.
 
@@ -53,8 +51,6 @@ Example:
 
 Dropdown button components
 ==========================
-
-..  versionadded:: 12.1
 
 The :ref:`backend module <backend-modules>` menu button bar can display
 dropdowns. This enables interface interactions, such as switching the current

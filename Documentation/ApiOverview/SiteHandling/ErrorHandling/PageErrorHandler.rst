@@ -27,10 +27,8 @@ If dynamic content is required on the error page, it is recommended
 to implement a :ref:`custom PHP based error
 handler <sitehandling-customErrorHandler>`.
 
-..  versionchanged:: 12.0
-    Error pages are always generated via a TYPO3-internal sub-request instead
-    of an external HTTP request (cURL over Guzzle).
-
+Error pages are always generated via a TYPO3-internal sub-request instead
+of an external HTTP request (cURL over Guzzle).
 
 Properties
 ==========
