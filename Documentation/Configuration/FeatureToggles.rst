@@ -146,8 +146,6 @@ Internally, the changes are written to :file:`config/system/settings.php`:
     ]
 
 ..  note::
-    ..  versionadded:: 12.1
-
     If the :file:`config/system/settings.php` file is write-protected an info
     box is rendered. In that case, all input fields are disabled and the save
     button is not available.

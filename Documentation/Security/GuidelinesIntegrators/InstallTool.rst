@@ -46,8 +46,6 @@ The :file:`ENABLE_INSTALL_TOOL` file
 The :file:`ENABLE_INSTALL_TOOL` flag file can be created by placing an empty
 file in one of the following file paths:
 
-..  versionchanged:: 12.2
-
 ..  include:: /_includes/_EnableInstallTool.rst.txt
     :show-buttons:
 

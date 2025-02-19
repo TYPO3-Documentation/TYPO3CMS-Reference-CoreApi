@@ -109,9 +109,6 @@ their functions and typical use cases.
     ..  include:: /_includes/_EnableInstallTool.rst.txt
         :show-buttons:
 
-    ..  include:: /_includes/_EnableInstallToolWarning.rst.txt
-        :show-buttons:
-
     This file unlocks the Install Tool, allowing access for configuration
     and maintenance tasks.
 

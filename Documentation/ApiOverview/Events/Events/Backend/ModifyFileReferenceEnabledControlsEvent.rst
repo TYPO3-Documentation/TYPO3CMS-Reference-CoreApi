@@ -6,8 +6,6 @@
 ModifyFileReferenceEnabledControlsEvent
 =======================================
 
-..  versionadded:: 12.0
-
 Listeners to the PSR-14 event
 :php:`\TYPO3\CMS\Backend\Form\Event\ModifyFileReferenceEnabledControlsEvent`
 are able to modify the state (enabled or disabled) for the controls of a single

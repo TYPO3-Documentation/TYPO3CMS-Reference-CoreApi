@@ -7,8 +7,6 @@
 AfterAutoCreateRedirectHasBeenPersistedEvent
 ============================================
 
-..  versionadded:: 12.3
-
 The PSR-14 event
 :php:`\TYPO3\CMS\Redirects\Event\AfterAutoCreateRedirectHasBeenPersistedEvent`
 allows extensions to react on persisted auto-created redirects. This event

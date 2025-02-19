@@ -230,9 +230,3 @@ The file abstraction layer also comes with a number of services:
     This service provides a single public method which builds a list of
     folders (and subfolders, recursively) inside any given storage. It is
     used when defining :ref:`file mounts <file-mounts>`.
-
-..  versionchanged:: 12.0
-    The service :php:`\TYPO3\CMS\Core\Resource\Service\UserFileInlineLabelService`
-    has been deprecated. With introduction of the new TCA type
-    :ref:`file <t3tca:columns-file>` the service is not needed anymore. Therefore
-    no migration path exists.

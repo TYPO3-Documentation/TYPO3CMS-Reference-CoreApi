@@ -6,10 +6,6 @@
 ModifyButtonBarEvent
 ====================
 
-..  versionadded:: 12.0
-    This event serves as a direct replacement for the removed hook
-    :php:`$GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['Backend\Template\Components\ButtonBar']['getButtonsHook']`.
-
 The PSR-14 event :php:`\TYPO3\CMS\Backend\Template\Components\ModifyButtonBarEvent`
 can be used to modify the button bar in the TYPO3 backend module
 :ref:`docheader <backend-modules-template-without-extbase-docheader>`.

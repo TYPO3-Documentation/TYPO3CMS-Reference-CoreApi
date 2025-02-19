@@ -8,8 +8,6 @@
 Doctrine DBAL driver middlewares
 ================================
 
-..  versionadded:: 12.3
-
 ..  contents::
     :local:
 
@@ -66,8 +64,6 @@ Example:
 
 Register a driver middleware for a specific connection
 ======================================================
-
-..  versionadded:: 12.3
 
 ..  deprecated:: 13.0
     Using the simple :php:`'identifier' => MyClass::class'` configuration schema

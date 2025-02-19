@@ -6,8 +6,6 @@
 CacheWarmupEvent
 ================
 
-..  versionadded:: 11.4
-
 The PSR-14 event :php:`\TYPO3\CMS\Core\Cache\Event\CacheWarmupEvent` is
 fired when :ref:`caches <caching>` are to be warmed up.
 

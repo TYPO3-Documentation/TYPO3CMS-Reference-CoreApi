@@ -9,9 +9,8 @@
 Creating upgrade wizards
 ========================
 
-..  versionchanged:: 12.2
-    The registration of an upgrade wizard has changed. An upgrade wizard class
-    is now registered with an attribute. The registration via
+..  versionchanged:: 13.0
+    The registration via
     :php:`$GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['ext/install']['update']`
     in :file:`ext_localconf.php` was removed in TYPO3 v13.
 

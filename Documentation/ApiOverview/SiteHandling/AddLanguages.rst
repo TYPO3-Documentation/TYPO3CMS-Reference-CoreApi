@@ -154,19 +154,6 @@ Configuration properties
     *   You want to explicitly set :yaml:`x-default` for a specific language,
         which is clearly not a valid language key.
 
-..  confval:: typo3Language
-    :name: sitehandling-addingLanguages-typo3Language
-    :type: string
-    :Example: :yaml:`en`
-
-    ..  deprecated:: 12.3
-        It is not needed to set this property anymore, and is removed from the
-        backend UI. The information is now automatically derived from the
-        :ref:`locale <sitehandling-addingLanguages-locale>` setting.
-        Using this property will trigger a PHP deprecation notice.
-
-    Language identifier to use in TYPO3 :ref:`XLIFF files <xliff_api>`.
-
 ..  confval:: flag
     :name: sitehandling-addingLanguages-flag
     :type: string

@@ -6,8 +6,6 @@
 AfterFileCommandProcessedEvent
 ==============================
 
-..  versionadded:: 11.4
-
 The PSR-14 event
 :php:`\TYPO3\CMS\Core\Resource\Event\AfterFileCommandProcessedEvent` can be used
 to perform additional tasks for specific file commands. For example, trigger a

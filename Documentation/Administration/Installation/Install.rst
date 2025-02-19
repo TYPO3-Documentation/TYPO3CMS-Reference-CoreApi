@@ -107,10 +107,9 @@ Run the setup process
 Setup TYPO3 in the console
 --------------------------
 
-..  versionadded:: 12.1
-    A :ref:`CLI command <t3coreapi:symfony-console-commands>` `setup` has
-    been introduced as an alternative to the existing
-    :abbr:`GUI (Graphical User Interface)`-based web installer.
+A :ref:`CLI command <t3coreapi:symfony-console-commands>` `setup` can be used
+as an alternative to the existing :abbr:`GUI (Graphical User Interface)`-based
+web installer.
 
 Interactive / guided setup (questions/answers):
 

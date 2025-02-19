@@ -6,10 +6,6 @@
 Services API
 ============
 
-.. versionchanged:: 12.0
-   The abstract class :php:`\TYPO3\CMS\Core\Service\AbstractService` has been
-   removed. See :ref:`services-developer-service-api-migration`.
-
 This section describes the methods of the TYPO3 Core that are related
 to the use of services.
 

@@ -232,8 +232,6 @@ mbox
 Validators
 ----------
 
-..  versionadded:: 11.0
-
 Using additional validators can help to identify if a provided email address
 is valid or not. By default, the validator
 :php:`\Egulias\EmailValidator\Validation\RFCValidation` is used. The following
@@ -376,13 +374,8 @@ sure the paths are setup as described in :ref:`mail-configuration-fluid`:
         ->assign('mySecretIngredient', 'Tomato and TypoScript');
     GeneralUtility::makeInstance(MailerInterface::class)->send($email);
 
-
-..  versionchanged:: 12.1
-    Until TYPO3 v12.0 the :php:`\TYPO3\CMS\Core\Mail\Mailer` class
-    implementation has to be retrieved/injected to send an email. Since TYPO3
-    v12.1 it is recommended to use :php:`\TYPO3\CMS\Core\Mail\MailerInterface`
-    instead to be able to use :ref:`custom mailer implementations
-    <register-custom-mailer>`.
+It is recommended to use the :php:`\TYPO3\CMS\Core\Mail\MailerInterface`
+to be able to use :ref:`custom mailer implementations <register-custom-mailer>`.
 
 A file :file:`TipsAndTricks.html` must exist in one of the paths defined in
 :php:`$GLOBALS['TYPO3_CONF_VARS']['MAIL']['templateRootPaths']` for sending the
@@ -622,8 +615,6 @@ In case of the problem "Mails are not sent" in your extension, try to set a
 
 Register a custom mailer
 ========================
-
-..  versionadded:: 12.1
 
 To be able to use a custom mailer implementation in TYPO3, the interface
 :php:`\TYPO3\CMS\Core\Mail\MailerInterface` is available, which extends

@@ -7,8 +7,6 @@
 ModifyLanguagePacksEvent
 ========================
 
-..  versionadded:: 12.2
-
 The PSR-14 event :php:`\TYPO3\CMS\Install\Service\Event\ModifyLanguagePacksEvent`
 allows to ignore extensions or individual language packs for extensions when
 downloading language packs.

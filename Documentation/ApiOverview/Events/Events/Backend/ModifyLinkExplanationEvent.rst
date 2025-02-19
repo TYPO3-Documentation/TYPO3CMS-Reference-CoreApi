@@ -6,11 +6,6 @@
 ModifyLinkExplanationEvent
 ==========================
 
-..  versionadded:: 12.0
-    This event serves as a more powerful and flexible alternative
-    for the removed :php:`$GLOBALS['TYPO3_CONF_VARS']['SYS']['formEngine']['linkHandler']`
-    hook.
-
 While the removed hook effectively only allowed to modify the link explanation
 of TCA `link` fields in case the resolved link type did not already match
 one of those, implemented by TYPO3 itself, the new event allows to

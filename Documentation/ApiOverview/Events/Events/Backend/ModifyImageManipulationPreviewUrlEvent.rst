@@ -7,11 +7,6 @@
 ModifyImageManipulationPreviewUrlEvent
 ======================================
 
-..  versionadded:: 12.0
-    This event serves as a direct replacement for the now removed
-    :php:`$GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['Backend/Form/Element/ImageManipulationElement']['previewUrl']`
-    hook.
-
 The PSR-14 event
 :php:`\TYPO3\CMS\Backend\Form\Event\ModifyImageManipulationPreviewUrlEvent`
 can be used to modify the preview URL within the

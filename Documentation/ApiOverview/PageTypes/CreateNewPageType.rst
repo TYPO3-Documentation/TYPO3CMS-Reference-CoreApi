@@ -13,12 +13,6 @@ The following example adds a new page type called "Archive".
 Changes need to be made in several files to create a new page type. Follow
 the directions below to the end:
 
-..  versionchanged:: 12.0
-    A new :php:`PageDoktypeRegistry` was introduced replacing the
-    :php:`$GLOBALS['PAGES_TYPES']` array. Use the version selector to look up
-    the syntax in the corresponding documentation version for older
-    TYPO3 versions.
-
 ..  rst-class:: bignums
 
 1.  Add new page type to :php:`PageDoktypeRegistry`

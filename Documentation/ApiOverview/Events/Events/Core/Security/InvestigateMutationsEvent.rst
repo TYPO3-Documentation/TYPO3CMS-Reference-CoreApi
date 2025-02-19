@@ -7,8 +7,6 @@
 InvestigateMutationsEvent
 =========================
 
-..  versionadded:: 12.3
-
 The PSR-14 event
 :php:`\TYPO3\CMS\Core\Security\ContentSecurityPolicy\Event\InvestigateMutationsEvent`
 will be dispatched when the

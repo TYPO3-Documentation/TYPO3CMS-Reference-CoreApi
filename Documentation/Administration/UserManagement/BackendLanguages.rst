@@ -39,8 +39,6 @@ An additional language pack can be installed as an administrator in the backend:
     ..  include:: /Images/AutomaticScreenshots/Modules/ManageLanguagePacksAddLanguageAddSuccess.rst.txt
 
 ..  note::
-    ..  versionadded:: 12.1
-
     If the :file:`config/system/settings.php` file is write-protected, all
     buttons are disabled and an info box is rendered.
 

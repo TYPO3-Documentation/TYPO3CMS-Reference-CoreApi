@@ -6,11 +6,6 @@
 BeforePageIsResolvedEvent
 =========================
 
-..  versionadded:: 12.0
-    This PSR-14 event replaces the
-    :php:`$GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['tslib/class.tslib_fe.php']['determineId-PreProcessing']`
-    hook.
-
 ..  versionchanged:: 13.0
     The event no longer receives an instance of
     :php:`TypoScriptFrontendController`, the :php:`getController()` method has

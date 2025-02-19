@@ -7,10 +7,6 @@
 Service API
 ===========
 
-.. versionchanged:: 12.0
-   The abstract class :php:`\TYPO3\CMS\Core\Service\AbstractService` has been
-   removed. See :ref:`services-developer-service-api-migration`.
-
 All service classes should implement the methods mentioned below.
 
 Authentication services should inherit from
@@ -252,29 +248,3 @@ getOutputFile
    Gets the name of the output file. If such file is not defined, a
    temporary file is created with the output content and that file's path
    is returned.
-
-
-.. _services-developer-service-api-migration:
-
-Migration
-=========
-
-.. versionchanged:: 12.0
-   The abstract class :php:`\TYPO3\CMS\Core\Service\AbstractService` has been
-   removed.
-
-Remove any usage of the class :php:`\TYPO3\CMS\Core\Service\AbstractService` in
-your extension. In case you currently
-extend :php:`AbstractService` for use in an authentication service, which
-might be the most common scenario, you can extend the
-:php:`\TYPO3\CMS\Core\Authentication\AbstractAuthenticationService`
-instead.
-
-In case you currently extend :php:`AbstractService` for another kind of
-service, which is rather unlikely, you have to implement the necessary
-methods in your service class yourself. Please see :ref:`Service Implementation
-<services-developer-service-api-implementation>`
-for more details about the required methods. However, even better would be to
-completely migrate away from the Service API (look for
-:php:`GeneralUtility::makeInstanceService()`),
-since the Core will deprecate these related methods in the future.

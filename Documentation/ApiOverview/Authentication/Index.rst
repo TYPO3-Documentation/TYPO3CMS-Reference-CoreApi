@@ -93,14 +93,12 @@ is performed in such a case.
     called `logintype` is submitted with value `login`. The same
     happens for the backend, but with a form field called `login_status`.
 
-    ..  versionadded:: 12.0
-        A :ref:`CSRF-like request token handling <authentication-request-token>`
-        is in place to mitigate potential cross-site requests on actions with
-        side effects
+    A :ref:`CSRF-like request token handling <authentication-request-token>`
+    is in place to mitigate potential cross-site requests on actions with
+    side effects
 
-..  versionchanged:: 12.0
-    `JSON Web Tokens (JWT) <https://jwt.io/>`__ are used to transport user
-    session identifiers in `be_typo_user` and `fe_typo_user` cookies.
+`JSON Web Tokens (JWT) <https://jwt.io/>`__ are used to transport user
+session identifiers in `be_typo_user` and `fe_typo_user` cookies.
 
 Using JWT's `HS256` (HMAC signed based on SHA256) allows to determine whether a
 session cookie is valid before comparing with server-side stored session data.

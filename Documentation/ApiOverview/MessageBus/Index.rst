@@ -6,8 +6,6 @@
 Message bus
 ===========
 
-..  versionadded:: 12.2
-
 TYPO3 provides a message bus solution based on `symfony/messenger`_. It has the
 ability to send messages and then handle them immediately (synchronous) or
 send them through transports (asynchronous, for example, queues) to be handled

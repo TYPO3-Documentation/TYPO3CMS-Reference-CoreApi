@@ -178,10 +178,6 @@ configurations.
 
 ..  _typo3ConfVars_sys_ddmmyy:
 
-..  versionchanged:: 12.4.14/13.1.0
-    The default value has been changed from 'd-m-y' to 'Y-m-d' (ISO 8601) to
-    avoid unclear dates.
-
 ..  confval:: ddmmyy
     :name: globals-typo3-conf-vars-sys-ddmmyy
     :Path: $GLOBALS['TYPO3_CONF_VARS']['SYS']['ddmmyy']

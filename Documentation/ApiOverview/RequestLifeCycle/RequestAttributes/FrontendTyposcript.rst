@@ -8,10 +8,6 @@
 Frontend TypoScript
 ===================
 
-..  versionadded:: 12.1
-    This request attribute obsoletes the usage of
-    :php:`\TYPO3\CMS\Frontend\Controller\TypoScriptFrontendController->tmpl`.
-
 The :php:`frontend.typoscript` frontend request attribute provides access to the
 :php:`\TYPO3\CMS\Core\TypoScript\FrontendTypoScript` object. It contains
 the calculated TypoScript :php:`settings` (formerly :php:`constants`) and

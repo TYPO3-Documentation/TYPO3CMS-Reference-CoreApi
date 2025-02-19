@@ -49,15 +49,6 @@ LinkBrowser tabs are registered in page TSconfig like this:
        }
    }
 
-..  versionchanged:: 12.0
-    Due to the integration of EXT:recordlist into EXT:backend the namespace of
-    LinkHandlers has changed from
-    :php:`TYPO3\CMS\Recordlist\LinkHandler`
-    to
-    :php:`TYPO3\CMS\Backend\LinkHandler`.
-    For TYPO3 v12 the moved classes are available as an alias under the old
-    namespace to allow extensions to be compatible with TYPO3 v11 and v12.
-
 The options `displayBefore` and `displayAfter` define the order how the various tabs are displayed in the LinkBrowser.
 
 The options `scanBefore` and `scanAfter` define the order in which handlers are queried when determining the responsible

@@ -6,11 +6,6 @@
 FilterMenuItemsEvent
 ====================
 
-..  versionadded:: 12.0
-    This event has been introduced to serve as a more powerful and flexible
-    alternative for the removed hook
-    :php:`$GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['cms/tslib/class.tslib_menu.php']['filterMenuPages']`.
-
 The PSR-14 event :php:`\TYPO3\CMS\Frontend\Event\FilterMenuItemsEvent` has
 a variety of properties and getters, along with
 :php:func:`TYPO3\\CMS\\Frontend\\Event\\FilterMenuItemsEvent::getFilteredMenuItems()`

@@ -7,11 +7,6 @@
 BeforeFlexFormDataStructureIdentifierInitializedEvent
 =====================================================
 
-..  versionadded:: 12.0
-    This event was introduced to replace and improve the method
-    :php:`getDataStructureIdentifierPreProcess()` of the hook
-    :php:`$GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS'][FlexFormTools::class]['flexParsing']`.
-
 The PSR-14 event
 :php:`\TYPO3\CMS\Core\Configuration\Event\BeforeFlexFormDataStructureIdentifierInitializedEvent`
 can be used to control the :ref:`FlexForm <flexforms>` parsing in an

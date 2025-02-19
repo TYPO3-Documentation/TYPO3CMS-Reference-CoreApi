@@ -6,10 +6,6 @@
 ModifyBlindedConfigurationOptionsEvent
 ======================================
 
-..  versionadded:: 12.2
-    The event serves as a direct replacement for the deprecated hook
-    :php:`$GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['TYPO3\CMS\Lowlevel\Controller\ConfigurationController']['modifyBlindedConfigurationOptions']`.
-
 The PSR-14 event :php:`\TYPO3\CMS\Lowlevel\Event\ModifyBlindedConfigurationOptionsEvent`
 is fired in the :php:`\TYPO3\CMS\Lowlevel\ConfigurationModuleProvider\GlobalVariableProvider`
 and the :php:`\TYPO3\CMS\Lowlevel\ConfigurationModuleProvider\SitesYamlConfigurationProvider`

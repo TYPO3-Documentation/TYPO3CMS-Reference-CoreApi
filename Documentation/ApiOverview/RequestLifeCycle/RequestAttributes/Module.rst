@@ -8,8 +8,6 @@
 Module
 ======
 
-..  versionadded:: 12.0
-
 The :php:`module` backend request attribute provides information about the
 current backend module in the object :php:`\TYPO3\CMS\Backend\Module\Module`.
 

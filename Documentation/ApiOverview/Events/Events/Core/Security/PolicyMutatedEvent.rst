@@ -6,10 +6,6 @@
 PolicyMutatedEvent
 ==================
 
-..  versionchanged:: 12.4.17 | 13.2
-    The event also provides the current PSR-7 :php:`\Psr\Http\Message\ServerRequestInterface`
-    for additional context
-
 The PSR-14 event
 :php:`\TYPO3\CMS\Core\Security\ContentSecurityPolicy\Event\PolicyMutatedEvent`
 will be dispatched once all mutations have been applied to the current

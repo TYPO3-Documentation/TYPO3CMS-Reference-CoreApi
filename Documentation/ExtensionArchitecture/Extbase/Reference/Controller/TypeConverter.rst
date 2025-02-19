@@ -28,12 +28,6 @@ You can find the type converters provided by Extbase in the directory
 Custom type converters
 ======================
 
-..  versionchanged:: 12.0
-    A type converter has to be registered in your extension's
-    :file:`Configuration/Services.yaml` file. The previous registration method
-    via :php:`\TYPO3\CMS\Extbase\Utility\ExtensionUtility::registerTypeConverter()`
-    is not supported anymore.
-
 A custom type converter must implement the interface
 :php:`\TYPO3\CMS\Extbase\Property\TypeConverterInterface`. In most use cases
 it will extend the abstract class

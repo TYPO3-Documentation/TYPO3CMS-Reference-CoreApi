@@ -9,9 +9,6 @@
 Module data object
 ==================
 
-.. versionadded:: 12.0
-
-
 The :php:`TYPO3\CMS\Backend\Module\ModuleData` object contains the user
 specific module settings, for example whether the clipboard is shown,
 for the requested module. Those settings

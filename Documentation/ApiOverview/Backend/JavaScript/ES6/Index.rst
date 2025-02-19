@@ -6,9 +6,7 @@
 ES6 in the TYPO3 Backend
 ========================
 
-..  versionchanged:: 12.0
-    Starting with TYPO3 v12.0 JavaScript ES6 modules may be used instead of
-    AMD modules, both in backend and frontend context.
+ES6 modules may be used instead of AMD modules, both in backend and frontend context.
 
 JavaScript node-js style path resolutions are managed by
 `import maps <https://html.spec.whatwg.org/multipage/webappapis.html#import-maps>`_, which allow web

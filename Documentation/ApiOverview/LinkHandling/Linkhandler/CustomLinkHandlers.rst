@@ -24,15 +24,6 @@ Implementing the LinkHandler
 You can have a look at the existing LinkHandler in the system extension
 "backend", found at :file:`typo3/sysext/backend/Classes/LinkHandler`.
 
-..  versionchanged:: 12.0
-    Due to the integration of EXT:recordlist into EXT:backend the path has
-    changed from
-    :file:`typo3/sysext/recordlist/Classes/LinkHandler`
-    to
-    :file:`typo3/sysext/backend/Classes/LinkHandler`.
-    For TYPO3 v12 the moved classes are available as an alias under the old
-    namespace to allow extensions to be compatible with TYPO3 v11 and v12.
-
 However please note that all these extensions extend the
 :php:`\TYPO3\CMS\Backend\LinkHandler\AbstractLinkHandler`,
 which is marked as :php:`@internal` and subject to change without further notice.
