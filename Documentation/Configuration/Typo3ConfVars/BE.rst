@@ -48,7 +48,7 @@ the TYPO3 backend:
 
     ..  versionadded:: 13.3
 
-    Defines the location of the flag file :confval:`flag-file-lock-backend`, which
+    Defines the location of the flag file :file:`LOCK_BACKEND`, which
     is used to temporarily restrict backend access to prevent unauthorized
     changes or when performing critical updates.
 

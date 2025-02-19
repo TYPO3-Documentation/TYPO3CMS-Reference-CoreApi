@@ -43,7 +43,7 @@ but only for logged-in users with administrator and maintainer privileges.
 The :file:`ENABLE_INSTALL_TOOL` file
 ------------------------------------
 
-The :confval:`flag-file-enable-install-tool` flag file can be created by placing an empty
+The :file:`ENABLE_INSTALL_TOOL` flag file can be created by placing an empty
 file in one of the following file paths:
 
 ..  include:: /_includes/_EnableInstallTool.rst.txt

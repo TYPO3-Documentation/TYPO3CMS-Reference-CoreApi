@@ -45,7 +45,7 @@ accessing the TYPO3 backend or using any console command in `vendor/bin/typo3`.
 Scheduler tasks will also not be triggered.
 
 A similar effect can be achieved by creating a flag file,
-:ref:`LOCK_BACKEND <t3coreapi:confval-flag-file-lock-backend>` via console
+:file:`LOCK_BACKEND` via console
 command:
 
 ..  code-block:: bash
@@ -61,7 +61,7 @@ via command:
     vendor/bin/typo3 backend:unlock
 
 ..  tip::
-    If you edit the :ref:`var/lock/LOCK_BACKEND <t3coreapi:confval-flag-file-lock-backend>`
+    If you edit the :file:`var/lock/LOCK_BACKEND`
     file and put a valid URL into this file, users trying to log into the backend
     are redirected to that URL instead of being shown an error message. You can
     use this feature to show a custom maintenance message.
