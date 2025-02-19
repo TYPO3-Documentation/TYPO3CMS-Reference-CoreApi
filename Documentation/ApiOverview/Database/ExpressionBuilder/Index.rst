@@ -40,14 +40,7 @@ See available :ref:`parameter types <database-connection-parameter-types>`.
 Junctions
 =========
 
-..  versionchanged:: 11.5.10
-    The :php:`andX()` and :php:`orX()` methods are replaced by :php:`and()` and
-    :php:`or()` to match with Doctrine DBAL, which
-    `deprecated <https://github.com/doctrine/dbal/commit/84328cd947706210caebcaea3ca0394b3ebc4673>`_
-    these methods. Both methods have been removed with TYPO3 v13.0.
-
 *   :php:`->and()` conjunction
-
 *   :php:`->or()` disjunction
 
 Combine multiple single expressions with :sql:`AND` or :sql:`OR`. Nesting is

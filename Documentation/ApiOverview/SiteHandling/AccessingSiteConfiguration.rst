@@ -62,12 +62,9 @@ Methods:
     // current site language
     $siteLanguage = $request->getAttribute('language');
 
-
-..  versionchanged:: 11.3
-    The :ref:`Extbase <extbase>` request class implements the
-    PSR-7 :php:`\Psr\Http\Message\ServerRequestInterface`. Therefore, you can
-    retrieve all needed attributes from the request object.
-
+The :ref:`Extbase <extbase>` request class implements the
+PSR-7 :php:`\Psr\Http\Message\ServerRequestInterface`. Therefore, you can
+retrieve all needed attributes from the request object.
 
 ..  index:: pair: Site handling; SiteFinder
 ..  _sitehandling-sitefinder-object:

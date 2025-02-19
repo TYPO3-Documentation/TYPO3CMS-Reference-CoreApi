@@ -7,8 +7,6 @@
 ModifyClearCacheActionsEvent
 ============================
 
-..  versionadded:: 11.4
-
 The PSR-14 event :php:`\TYPO3\CMS\Backend\Backend\Event\ModifyClearCacheActionsEvent`
 is fired in the :php:`\TYPO3\CMS\Backend\Backend\ToolbarItems\ClearCacheToolbarItem`
 class and allows extension authors to modify the clear cache actions, shown
