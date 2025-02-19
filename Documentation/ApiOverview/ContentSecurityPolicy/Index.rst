@@ -7,8 +7,6 @@
 Content Security Policy
 =======================
 
-..  versionadded:: 12.3
-
 ..  contents::
     :local:
 

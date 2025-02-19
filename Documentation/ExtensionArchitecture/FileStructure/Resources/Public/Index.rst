@@ -17,10 +17,6 @@ Public assets
 Public assets used in extensions (files that should be delivered by the web
 server) **must** be located in the :file:`Resources/Public` folder of the extension.
 
-..  versionchanged:: 12.0
-    Having public assets in any but the folder :file:`Resources/Public` is not
-    possible anymore.
-
 .. note::
    This folder should only be used for static assets.
 

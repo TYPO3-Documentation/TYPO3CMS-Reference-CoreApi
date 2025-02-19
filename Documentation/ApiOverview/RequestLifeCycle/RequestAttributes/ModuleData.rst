@@ -8,8 +8,6 @@
 ModuleData
 ==========
 
-..  versionadded:: 12.0
-
 The :php:`moduleData` backend request attribute is available when a backend
 module is requested. It holds the object :php:`\TYPO3\CMS\Backend\Module\ModuleData`
 which contains the stored module data that might have been overwritten through

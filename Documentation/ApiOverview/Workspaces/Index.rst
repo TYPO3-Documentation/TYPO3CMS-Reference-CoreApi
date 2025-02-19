@@ -337,10 +337,6 @@ Workspace-related API for backend modules
 Backend module access
 =====================
 
-..  versionchanged:: 12.0
-    If you are using an older version of TYPO3, please use the version switcher
-    on the top left of this document to go to the respective version.
-
 You can restrict access to backend modules by setting the value of the
 :php:`workspaces` key in the
 :ref:`backend module configuration <backend-modules-configuration>`:

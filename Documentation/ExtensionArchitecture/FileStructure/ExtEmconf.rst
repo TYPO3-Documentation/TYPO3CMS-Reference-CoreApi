@@ -263,17 +263,6 @@ Example:
            them.
 
  - :Key:
-         clearCacheOnLoad
-   :Data type:
-         boolean
-   :Description:
-         .. deprecated:: 12.1
-            When loading or unloading extensions using the extension manager,
-            all caches are always cleared. Extensions that want to keep
-            compatibility with both TYPO3 v11 and v12 should keep the setting
-            until v11 compatibility is dropped from the extensions.
-
- - :Key:
          author
    :Data type:
          string

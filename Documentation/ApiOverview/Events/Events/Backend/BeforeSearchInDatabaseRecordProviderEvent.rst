@@ -6,12 +6,6 @@
 BeforeSearchInDatabaseRecordProviderEvent
 =========================================
 
-..  versionadded:: 12.1
-
-The TYPO3 backend search (also known as "Live Search") uses the
-:php:`\TYPO3\CMS\Backend\Search\LiveSearch\DatabaseRecordProvider` to search
-for records in database tables, having :php:`searchFields` configured in TCA.
-
 In some individual cases it may not be desirable to search in a specific table.
 Therefore, the PSR-14 event
 :php:`\TYPO3\CMS\Backend\Search\Event\BeforeSearchInDatabaseRecordProviderEvent`

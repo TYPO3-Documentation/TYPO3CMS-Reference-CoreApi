@@ -34,10 +34,6 @@ Markup
 
     to be compatible with TYPO3 v12+.
 
-..  versionadded:: 12.1
-    The context menu JavaScript API was adapted to also support opening
-    the menu through the "contextmenu" event type (right click) only.
-
 The context menu is shown after clicking on the HTML element which has the
 :html:`data-contextmenu-trigger` attribute set together with
 :html:`data-contextmenu-table`, :html:`data-contextmenu-uid` and optional
@@ -54,11 +50,6 @@ The JavaScript click event handler is implemented in the
 data attributes mentioned above and executes an Ajax call to the
 :php:`\TYPO3\CMS\Backend\Controller\ContextMenuController->getContextMenuAction()`.
 
-..  versionchanged:: 12.0
-    The RequireJS module :js:`TYPO3/CMS/Backend/ContextMenu` has been migrated
-    to the ES6 module :js:`@typo3/backend/context-menu.js`.
-    See also :ref:`backend-javascript-es6`.
-
 ContextMenuController
 ---------------------
 
@@ -71,13 +62,6 @@ item providers by asking each whether it can provide items
 
 Item providers registration
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-..  versionchanged:: 12.0
-    ContextMenu item providers, implementing
-    :php:`\TYPO3\CMS\Backend\ContextMenu\ItemProviders\ProviderInterface`
-    are now automatically registered. The registration via
-    :php:`$GLOBALS['TYPO3_CONF_VARS']['BE']['ContextMenu']['ItemProviders']`
-    is not evaluated anymore.
 
 Custom item providers must implement
 :php:`\TYPO3\CMS\Backend\ContextMenu\ItemProviders\ProviderInterface` and can
@@ -112,11 +96,6 @@ After that, a compiled list of items is returned to the
 
 Menu rendering in JavaScript
 ----------------------------
-
-..  versionchanged:: 12.0
-    The RequireJS module :js:`TYPO3/CMS/Backend/ContextMenuActions` has been migrated
-    to the ES6 module :js:`@typo3/backend/context-menu-actions.js`.
-    See also :ref:`backend-javascript-es6`.
 
 Based on the JSON data :file:`context-menu.js` is rendering a context menu. If
 one of the items is clicked, the according JavaScript :js:`callbackAction` is

@@ -99,12 +99,6 @@ their functions and typical use cases.
         :Legacy Location: typo3conf/ENABLE_INSTALL_TOOL
         :TYPO3 Commands: None
 
-        ..  versionchanged:: 12.2
-            The location of this file has been changed for Composer-based
-            installations from :path:`typo3conf/ENABLE_INSTALL_TOOL` to
-            :path:`config/ENABLE_INSTALL_TOOL` or
-            :path:`var/transient/ENABLE_INSTALL_TOOL`
-
         When this file is set, it allows access to the TYPO3 Install Tool.
         See also :ref:`The ENABLE_INSTALL_TOOL file <security-install-tool-access-enable-file>`.
 

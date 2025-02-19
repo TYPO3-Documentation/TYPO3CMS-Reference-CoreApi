@@ -8,11 +8,6 @@
 Modules.php - Backend module configuration
 ==========================================
 
-..  versionchanged:: 12.0
-    Registration of backend modules was changed with version 12. If you are
-    using an older version of TYPO3 please use the version switcher on the top
-    left of this document to go to the respective version.
-
 The configuration of backend modules is placed in the
 dedicated :file:`Configuration/Backend/Modules.php` configuration file.
 

@@ -172,15 +172,6 @@ These files define a set of global settings stored in a global array called
 This path can be retrieved from the Environment API, see
 :ref:`Environment-config-path`.
 
-..  versionchanged:: 12.0
-    For legacy installations the configuration files have been moved and
-    renamed:
-
-    *   :file:`typo3conf/LocalConfiguration.php` is now available in
-        :file:`typo3conf/system/settings.php`
-    *   :file:`typo3conf/AdditionalConfiguration.php` is now available in
-        :file:`typo3conf/system/additional.php`
-
 .. _legacy-directory-typo3temp:
 
 :file:`typo3temp/`

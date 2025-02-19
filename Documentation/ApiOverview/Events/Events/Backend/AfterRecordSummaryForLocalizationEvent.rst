@@ -6,8 +6,6 @@
 AfterRecordSummaryForLocalizationEvent
 ======================================
 
-..  versionadded:: 12.0
-
 The PSR-14 event
 :php:`\TYPO3\CMS\Backend\Controller\Event\AfterRecordSummaryForLocalizationEvent`
 is fired in the

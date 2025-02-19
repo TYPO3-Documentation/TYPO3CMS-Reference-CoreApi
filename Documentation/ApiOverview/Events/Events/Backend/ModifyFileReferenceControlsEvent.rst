@@ -6,8 +6,6 @@
 ModifyFileReferenceControlsEvent
 ================================
 
-..  versionadded:: 12.0
-
 Listeners to the PSR-14 event
 :php:`\TYPO3\CMS\Backend\Form\Event\ModifyFileReferenceControlsEvent`
 are able to modify the controls of a single file reference of a TCA type

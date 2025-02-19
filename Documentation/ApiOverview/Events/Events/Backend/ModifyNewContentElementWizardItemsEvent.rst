@@ -6,10 +6,6 @@
 ModifyNewContentElementWizardItemsEvent
 =======================================
 
-..  versionadded:: 12.0
-    This event serves as a more powerful and flexible alternative
-    for the removed hook :php:`$GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['cms']['db_new_content_el']['wizardItemsHook']`.
-
 The PSR-14 event
 :php:`\TYPO3\CMS\Backend\Controller\Event\ModifyNewContentElementWizardItemsEvent`
 is called after TYPO3 has already prepared the wizard items,

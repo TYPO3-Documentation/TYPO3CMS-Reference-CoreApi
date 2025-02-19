@@ -6,11 +6,6 @@
 AfterTemplatesHaveBeenDeterminedEvent
 =====================================
 
-..  versionadded:: 12.0
-    This event is a substitution for the
-    :php:`$GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['Core/TypoScript/TemplateService']['runThroughTemplatesPostProcessing']`
-    hook.
-
 The PSR-14 event
 :php:`\TYPO3\CMS\Core\TypoScript\IncludeTree\Event\AfterTemplatesHaveBeenDeterminedEvent`
 can be used to manipulate :sql:`sys_template` rows. The event receives the list

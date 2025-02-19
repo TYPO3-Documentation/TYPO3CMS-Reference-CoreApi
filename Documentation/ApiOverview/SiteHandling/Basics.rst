@@ -100,11 +100,8 @@ Root pages are identified by one of these two properties:
 ..  note::
     The same root page ID **should not** be used in multiple site configurations.
     This may lead to misbehavior, since always the last defined site with this
-    root page ID is used by TYPO3.
-
-    ..  versionadded:: 12.1
-        Starting with TYPO3 v12.1 the :guilabel:`Sites` module warns you if the
-        same root page ID is used multiple times.
+    root page ID is used by TYPO3. The :guilabel:`Sites` module warns you if the
+    same root page ID is used multiple times.
 
 
 .. _sitehandling-basics-websiteTitle:

@@ -6,8 +6,6 @@
 AfterVideoPreviewFetchedEvent
 =============================
 
-..  versionadded:: 12.2
-
 The purpose of the PSR-14 event
 :php:`\TYPO3\CMS\Core\Resource\OnlineMedia\Event\AfterVideoPreviewFetchedEvent`
 is to modify the preview file of online media previews (like YouTube and Vimeo).

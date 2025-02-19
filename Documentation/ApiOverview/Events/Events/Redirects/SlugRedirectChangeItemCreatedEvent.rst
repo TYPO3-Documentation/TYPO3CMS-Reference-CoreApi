@@ -7,8 +7,6 @@
 SlugRedirectChangeItemCreatedEvent
 ==================================
 
-..  versionadded:: 12.2
-
 The PSR-14 event :php:`\TYPO3\CMS\Redirects\Event\SlugRedirectChangeItemCreatedEvent`
 is fired in the :php:`\TYPO3\CMS\Redirects\RedirectUpdate\SlugRedirectChangeItemFactory`
 class and allows extensions to manage the redirect sources for which redirects

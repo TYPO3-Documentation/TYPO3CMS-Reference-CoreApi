@@ -6,11 +6,6 @@
 CustomFileControlsEvent
 =======================
 
-..  versionadded:: 12.0
-    This event replaces the :php:`customControls`
-    hook option, which is only available for TCA type
-    :ref:`inline <t3tca:columns-inline>`.
-
 Listeners to the PSR-14 event
 :php:`\TYPO3\CMS\Backend\Form\Event\CustomFileControlsEvent`
 are able to add custom controls to a TCA type

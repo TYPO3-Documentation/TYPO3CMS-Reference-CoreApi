@@ -142,9 +142,8 @@ Read :ref:`how to instantiate <database-connection-instantiation>` a connection
 with the connection pool.
 See available :ref:`parameter types <database-connection-parameter-types>`.
 
-..  versionadded:: 12.1
-    This method supports the native database field declaration :sql:`json`,
-    see :ref:`json_database_type`.
+This method supports the native database field declaration :sql:`json`,
+see :ref:`json_database_type`.
 
 Arguments of the :php:`insert()` method:
 
@@ -225,9 +224,8 @@ Create an :sql:`UPDATE` statement and execute it. The example from FAL's
     :language: php
     :caption: EXT:my_extension/Classes/Domain/Repository/MyTableRepository.php
 
-..  versionadded:: 12.1
-    This method supports the native database field declaration :sql:`json`,
-    see :ref:`json_database_type`.
+This method supports the native database field declaration :sql:`json`,
+see :ref:`json_database_type`.
 
 Read :ref:`how to instantiate <database-connection-instantiation>` a connection
 with the connection pool.
@@ -462,11 +460,6 @@ with the connection pool.
 
 Native JSON database field type support
 =======================================
-
-..  versionadded:: 12.1
-    TYPO3 Core's Database API based on Doctrine DBAL supports the native
-    database field type `json`, which is already available for all supported DBMS
-    of TYPO3 v12.
 
 JSON-like objects or arrays are automatically serialized during writing a
 dataset to the database, when the native JSON type was used in the database

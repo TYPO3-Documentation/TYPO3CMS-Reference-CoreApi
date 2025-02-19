@@ -6,11 +6,6 @@
 EvaluateModifierFunctionEvent
 =============================
 
-..  versionadded:: 12.0
-    This event is a substitution of the
-    :php:`$GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['t3lib/class.t3lib_tsparser.php']['preParseFunc']`
-    hook.
-
 The PSR-14 event
 :php:`\TYPO3\CMS\Core\TypoScript\AST\Event\EvaluateModifierFunctionEvent`
 allows custom TypoScript functions using the :typoscript:`:=` operator.

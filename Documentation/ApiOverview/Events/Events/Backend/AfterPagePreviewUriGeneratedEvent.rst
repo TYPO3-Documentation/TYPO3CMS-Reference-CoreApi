@@ -6,11 +6,6 @@
 AfterPagePreviewUriGeneratedEvent
 =================================
 
-..  versionadded:: 12.0
-    This PSR-14 event replaces the
-    :php:`$GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['t3lib/class.t3lib_befunc.php']['viewOnClickClass']`
-    postProcess hook.
-
 The :php:`\TYPO3\CMS\Backend\Routing\Event\AfterPagePreviewUriGeneratedEvent`
 is executed in :php:`\TYPO3\CMS\Backend\Routing->buildUri()`, after the preview
 URI has been built - or set by an event listener to
