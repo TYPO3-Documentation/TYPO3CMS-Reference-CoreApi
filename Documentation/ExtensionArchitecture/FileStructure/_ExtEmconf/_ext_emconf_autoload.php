@@ -1,4 +1,5 @@
 <?php
+
 $EM_CONF[$_EXTKEY] = [
     'title' => 'Extension title',
     // ...
@@ -6,6 +7,6 @@ $EM_CONF[$_EXTKEY] = [
         'classmap' => [
             'Classes',
             'a-class.php',
-        ]
+        ],
     ],
 ];
