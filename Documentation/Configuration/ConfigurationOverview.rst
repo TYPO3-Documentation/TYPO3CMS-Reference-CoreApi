@@ -1,6 +1,6 @@
-.. include:: /Includes.rst.txt
+..  include:: /Includes.rst.txt
 
-.. _config-overview:
+..  _config-overview:
 
 ======================
 Configuration overview
@@ -84,6 +84,9 @@ Extension files
 
    * :ref:`extension-files-locations`
 
+..  _classification-syntax:
+..  _configuration-syntax:
+
 Configuration languages
 =======================
 
@@ -115,6 +118,8 @@ what they mean) are not.
 
    #. "TypoScript syntax" or "TypoScript language"
    #. "TypoScript configuration method" or "TypoScript Templating"
+
+..  _classification-config-methods:
 
 Configuration methods
 =====================
@@ -255,7 +260,7 @@ A schema defining the values that can be changed in the Flexform is
 specified in the extension which supplies the plugin or content element.
 
 
-.. _config-overview-yaml:
+..  _config-overview-yaml:
 
 YAML
 ----
