@@ -301,7 +301,7 @@ PHP
 Here are a few examples of how to access the `ApplicationContext` with the
 :php:`Environment` class:
 
-..  literalinclude:: _CodeSnippets/ApplicationContext/SunnyProducts.php
+..  literalinclude:: _CodeSnippets/SunnyProducts.php
     :language: php
     :caption: EXT:my_extension/Classes/ApplicationContext/SunnyProducts.php
 

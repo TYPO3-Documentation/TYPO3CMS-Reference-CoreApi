@@ -30,7 +30,6 @@ these terms in this chapter.
     ConfigurationFiles
     ConfigurationModule/Index
     GlobalVariables
-    ApplicationContext
     Typo3ConfVars/Index
     TypoScript/Index
     UserSettingsConfiguration/Index
