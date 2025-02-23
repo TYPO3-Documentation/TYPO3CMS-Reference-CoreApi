@@ -45,9 +45,9 @@ and a Fluid template.
 
 In the Fluid template, the following variables are available:
 
-* All properties of the :php:`tt_content` row (e.g. :php:`{uid}`, :php:`{title}` or :php:`{header}`)
-* The current record as object (:php:`TYPO3\CMS\Core\Domain\Record`) in :php:`{record}`
-* FlexForm settings as array in :php:`{pi_flexform_transformed}`
+*     All properties of the :php:`tt_content` row (for example `{uid}`, `{title}`, and `{header}`)
+*     The current record as object (:php:`\TYPO3\CMS\Core\Domain\Record`) in `{record}`
+*     FlexForm settings as array in `{pi_flexform_transformed}`
 
 For more details see the :ref:`TSconfig Reference <t3tsref:pageweblayoutpreview>`.
 
