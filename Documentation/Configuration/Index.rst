@@ -28,7 +28,6 @@ these terms in this chapter.
     ConfigurationOverview
     Glossary
     ConfigurationFiles
-    BackendEntryPoint/Index
     ConfigurationModule/Index
     GlobalVariables
     ApplicationContext
