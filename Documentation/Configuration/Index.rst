@@ -29,14 +29,11 @@ these terms in this chapter.
     Glossary
     ConfigurationFiles
     ConfigurationModule/Index
-    FeatureToggles
     GlobalVariables
     Typo3ConfVars/Index
-    Typo3Information
     TypoScript/Index
     UserSettingsConfiguration/Index
     Yaml/Index
-    FlagFiles/Index
 
 **More ...**
 
