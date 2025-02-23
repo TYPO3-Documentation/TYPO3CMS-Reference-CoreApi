@@ -107,7 +107,7 @@ manualy:
          ],
          "...": "..."
       }
-      
+
 .. _directory-public:
 
 :file:`public/`
@@ -321,5 +321,7 @@ Upon installation , Composer creates a symlink from packages to
 ..  toctree::
     :titlesonly:
     :hidden:
+    :glob:
 
     ClassicInstallations
+    *
