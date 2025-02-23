@@ -2,9 +2,9 @@
 ..  include:: /Includes.rst.txt
 ..  _system-settings:
 
-========================================
-TYPO3 system settings for administrators
-========================================
+============================
+Common TYPO3 system settings
+============================
 
 ..  toctree::
     :glob:
