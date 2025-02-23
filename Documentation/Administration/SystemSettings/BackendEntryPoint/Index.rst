@@ -106,6 +106,9 @@ configuration file when accessing the install tool, at least for Apache
 
 If you use a custom web server configuration you may adapt as follows.
 
+
+..  _backend-entry-point-migration-apache:
+
 Apache configuration
 --------------------
 
@@ -142,6 +145,7 @@ Apache configuration after:
     RewriteCond %{REQUEST_FILENAME} !-l
     RewriteRule ^.*$ %{ENV:CWD}index.php [QSA,L]
 
+..  _backend-entry-point-migration-nginx:
 
 NGINX configuration
 -------------------
