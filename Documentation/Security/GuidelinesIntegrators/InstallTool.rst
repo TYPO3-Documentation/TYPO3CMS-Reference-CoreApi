@@ -24,7 +24,7 @@ passwords.
 The Install Tool can be found as a stand alone application via :samp:`https://example.org/typo3/install.php`.
 It also integrates with the backend, but is only available for logged in users with administrator privileges.
 
-The :confval:`flag-file-enable-install-tool` flag file can be created by placing an empty
+The :file:`ENABLE_INSTALL_TOOL` flag file can be created by placing an empty
 file in one of the following file paths:
 
 ..  versionchanged:: 12.2
