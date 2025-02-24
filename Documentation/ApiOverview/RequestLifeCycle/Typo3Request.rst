@@ -147,6 +147,16 @@ as first argument for the :php:`process()` method. This object provides a
         }
     }
 
+..  _typo3-request-console-command:
+
+Console command
+---------------
+
+Within a `Console command (CLI) <https://docs.typo3.org/permalink/t3coreapi:symfony-console-commands>`_
+there is no request available. See also https://forge.typo3.org/issues/105554
+
+If a request is needed initialize one as described in
+`Initialize a frontend request in a console command <https://docs.typo3.org/permalink/t3coreapi:console-command-tutorial-fe-request>`_.
 
 ..  _typo3-request-global-variable:
 
