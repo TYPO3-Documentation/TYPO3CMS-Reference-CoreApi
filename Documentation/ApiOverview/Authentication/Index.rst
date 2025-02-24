@@ -65,4 +65,5 @@ frontend users in TYPO3:
     BackendUsers/Index
     FrontendUsers/Index
     AuthenticationService/Index
+    PasswordPolicies/Index
     *
