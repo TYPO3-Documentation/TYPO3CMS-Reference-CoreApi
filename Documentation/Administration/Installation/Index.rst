@@ -21,7 +21,7 @@ Installation
         server and database and how they should be configured prior to
         installation.
 
-    ..  card:: :ref:`Installing TYPO3 <install>`
+    ..  card:: :ref:`Installing TYPO3 <installation>`
 
         The Installation Guide covers everything needed to install TYPO3. Including a preinstallation
         checklist and a detailed walk through that details every step of the installation process.
