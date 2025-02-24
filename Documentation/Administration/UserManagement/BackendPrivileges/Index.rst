@@ -60,6 +60,10 @@ Tool. This will give all admin users system maintainer access.
 .. image:: /Images/ManualScreenshots/UserManagement/admin-tools-open.png
    :class: with-shadow
 
+..  seealso:: 
+    *   `Getting Started: Granting System Maintainer rights <https://docs.typo3.org/permalink/t3start:backend-users-system-maintainer>`_
+    *   `Getting Started:  Create an administrator / System Maintainer using a console command <https://docs.typo3.org/permalink/t3start:backend-users-admin-cli>`_
+
 System Maintainers are the only users who are able to see and access
 :guilabel:`Admin Tools` and the :guilabel:`Extension Manager`. These users are
 persisted within the :file:`config/system/settings.php` as
