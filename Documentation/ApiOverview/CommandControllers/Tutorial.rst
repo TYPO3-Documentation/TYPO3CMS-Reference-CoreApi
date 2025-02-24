@@ -283,6 +283,28 @@ A backend user can be initialized with this call inside :php:`execute()` method:
 This is necessary when using :ref:`DataHandler <datahandler-basics>`
 or other backend permission handling related tasks.
 
+
+..  _console-command-tutorial-fe-request:
+
+Initialize a frontend request in a console command
+==================================================
+
+If you want to use Extbase repositories within the command, or for example
+`Send a FluidEmail <https://docs.typo3.org/permalink/t3coreapi:mail-fluid-email>`_
+you will need a valid frontend request.
+
+A frontend request can be initialized with this call inside :php:`execute()`
+method:
+
+..  literalinclude:: _Tutorial/_InitializeRequest.php
+    :caption: packages/my_extension/Classes/Command/DoBackendRelatedThingsCommand.php
+
+..  note::
+    Creating a request this way is using *internal* functionality and subject to
+    change without notice.
+
+    See the forge issue: https://forge.typo3.org/issues/105554
+
 More information
 ================
 
