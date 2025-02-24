@@ -261,7 +261,7 @@ third-party extension. The provider then has to be configured in the extension's
 :file:`Services.yaml` or :file:`Services.php` file with the :yaml:`mfa.provider`
 tag.
 
-..  literalinclude:: MultiFactorAuthentication/RegisterCustomProvider.yaml
+..  literalinclude:: RegisterCustomProvider.yaml
     :language: yaml
     :caption: EXT:my_extension/Configuration/Services.yaml
 
@@ -280,13 +280,13 @@ If you do not want your provider to be selectable as a default provider, set the
 
 You can also completely deactivate existing providers with:
 
-..  literalinclude:: MultiFactorAuthentication/DeactivateExistingProvider.yaml
+..  literalinclude:: DeactivateExistingProvider.yaml
     :language: yaml
     :caption: EXT:my_extension/Configuration/Services.yaml
 
 You can also register multiple providers:
 
-..  literalinclude:: MultiFactorAuthentication/RegisterMultipleProviders.yaml
+..  literalinclude:: RegisterMultipleProviders.yaml
     :language: yaml
     :caption: EXT:my_extension/Configuration/Services.yaml
 
