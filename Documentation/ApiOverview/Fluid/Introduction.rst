@@ -204,68 +204,72 @@ import can be done in the template or the partial.
 
 ..  _fluid-theme-example:
 
-Example: Using Fluid to create a theme
-======================================
+Example: Using Fluid to create a theme for a site package
+=========================================================
 
-This example was taken from the `example extension <https://github.com/TYPO3-Documentation/site_package/>`__
-for :ref:`t3sitepackage:start` and reduced to a very basic example.
+This example was taken from a theme created by the
+`Site Package Builder <https://get.typo3.org/sitepackage/new/>`_
+ and reduced to a very basic example.
 
-The site package tutorial walks you through the creation of a site package
-(theme) using Fluid. In our simplified example, the overall structure of
-a page is defined by a layout "Default". We show an example of a three
-column layout. Further templates can be added later, using the same layout.
+..  seealso::
+    *   If you want to try this out, you can `Generate a site package with the
+        official builder <https://docs.typo3.org/permalink/t3sitepackage:site-package-builder>`_.
+    *   The `Site package tutorial <https://docs.typo3.org/permalink/t3sitepackage:start>`_
+        describes the usage of the templates step by step.
 
 ..  directory-tree::
     :show-file-icons: true
 
-    *   EXT:my_sitepackage/
+    *   packages/my_sitepackage/
 
-        *   Configuration
+        *   Configuration/Sets/SitePackage/setup.typoscript
 
-            *   Typoscript
+        *   Resources/Private/PageView
 
-                *   setup.typoscript
+            *   Layouts
 
-        *   Resources
+                *   PageLayout.html
 
-            *   Private
+            *   Partials
 
-                *   Layouts
+                *   Content.html
+                *   Footer.html
+                *   ...
 
-                    *   Page
+            *   Pages
 
-                        *   Default.html
+                *   Default.html
+                *   Subpage.html
 
-                *   Partials
+Set the Fluid base path with TypoScript using the
+`PAGEVIEW <https://docs.typo3.org/permalink/t3tsref:cobj-pageview>`_ TypoScript
+object.
 
-                    *   Page
+..  literalinclude:: _Introduction/_pageview.typoscript
+    :caption:  packages/my_sitepackage/Configuration/Sets/SitePackage/setup.typoscript
 
-                        *   Jumbotron.html
-
-                *   Templates
-
-                    *   Page
-
-                        *   ThreeColumn.html
-
-Set the Fluid paths with TypoScript using :ref:`t3tsref:cobj-fluidtemplate`
-
-..  literalinclude:: _Introduction/_lib.dynamicContent.typoscript
-    :caption: my_sitepackage/Configuration/TypoScript/setup.typoscript
+The template in file :file:`Pages/Default.html` is automatically used whenever there is
+no specific template for the current `Backend layout <https://docs.typo3.org/permalink/t3coreapi:be-layout>`_ of the page.
 
 ..  literalinclude:: _Introduction/_Default.html
-    :caption: EXT:my_sitepackage/Resources/Private/Layouts/Page/Default.html
+    :caption: EXT:my_sitepackage/Resources/Private/PageView/Pages/Default.html
 
-..  literalinclude:: _Introduction/_ThreeColumn.html
-    :caption: my_sitepackage/Resources/Private/Templates/Page/ThreeColumn.html
+It includes the layout :file:`Layouts/PageLayout.html`. And uses partial
+:file:`Partials/Content.html` to display its content.
 
-*   The template uses the layout "Default". It must then define all sections that the layout
-    requires: "Header", "Main" and "Footer".
-*   In the section "Main", a partial "Jumbotron" is used.
-*   The template makes use of column positions (colPos). The content elements for each section
-    on the page will be rendered into the correct `div`. Find out more about this in :ref:`be-layout`.
-*   Again, we are using Object Accessors to access data (e.g. `{colPos: '2'}`) that has been
-    generated elsewhere.
+It uses the partial :file:`Partials/Content.html` to display its content.
 
-..  literalinclude:: _Introduction/_Jumbotron.html
-    :caption: Resources/Private/Partials/Page/Jumbotron.html
+..  literalinclude:: _Introduction/_Content.html
+    :caption: Resources/Private/PageView/Partials/Content.html
+
+The template for a different backend layout will look similar, but has for
+example two columns:
+
+..  literalinclude:: _Introduction/_Subpage.html
+    :caption: my_sitepackage/Resources/Private/PageView/Page/Subpage.html
+
+The page layout takes care of elements that are shared across all or most page
+types:
+
+..  literalinclude:: _Introduction/_PageLayout.html
+    :caption: my_sitepackage/Resources/Private/PageView/Layouts/PageLayout.html
