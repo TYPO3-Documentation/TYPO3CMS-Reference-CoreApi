@@ -31,7 +31,7 @@ Services can be configured in this file. TYPO3 uses it for:
    support for console commands <ext_core:Changelog/10.3/Feature-89139-AddDependencyInjectionSupportForConsoleCommands>`)
 *  :ref:`Registering a widget with the dashboard <ext_dashboard:register-new-widget>`
 
-..  literalinclude:: /Configuration/Yaml/_example_services.yaml
+..  literalinclude:: _snippets/_example_services.yaml
     :language: yaml
     :caption: EXT:my_extension/Configuration/Services.yaml
 
