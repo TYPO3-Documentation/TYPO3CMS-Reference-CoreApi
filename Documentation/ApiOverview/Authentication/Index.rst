@@ -41,21 +41,21 @@ frontend users in TYPO3:
         Authentication services in TYPO3 manage user verification, allowing
         flexible and customizable login methods for secure access control.
 
-    ..  card:: :ref:`Multi-factor authentication <multi-factor-authentication>`
+    ..  card:: `Password policies <https://docs.typo3.org/permalink/t3coreapi:password-policies>`_
 
-        Enhance your TYPO3 security with Multi-Factor Authentication (MFA),
-        adding an extra layer of protection beyond passwords for safer logins.
+        The password policy validator is used to validate passwords against
+        configurable password policies.
 
-    ..  card:: `User session management <https://docs.typo3.org/permalink/t3coreapi:session-management>`_
+    ..  card:: `Sessions <https://docs.typo3.org/permalink/t3coreapi:sessions>`_
 
         The user session contains all  information for logged in backend and
         frontend users, as well as anonymous visitors without login. It can be
         used to store session data like a shopping basket.
 
-    ..  card:: `Password policies <https://docs.typo3.org/permalink/t3coreapi:password-policies>`_
+    ..  card:: :ref:`Multi-factor authentication <multi-factor-authentication>`
 
-        The password policy validator is used to validate passwords against
-        configurable password policies.
+        Enhance your TYPO3 security with Multi-Factor Authentication (MFA),
+        adding an extra layer of protection beyond passwords for safer logins.
 
 ..  toctree:: Subpages
     :glob:
@@ -64,6 +64,7 @@ frontend users in TYPO3:
 
     BackendUsers/Index
     FrontendUsers/Index
+    Sessions/Index
     AuthenticationService/Index
     PasswordPolicies/Index
     MultiFactorAuthentication/Index
