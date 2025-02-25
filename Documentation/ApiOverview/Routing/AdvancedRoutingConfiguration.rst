@@ -221,12 +221,14 @@ would need to set up two configurations of the plugin enhancer for
       ForgotPassword:
         type: Plugin
         limitToPages: [13]
-        routePath: '/forgot-password/{user}/{hash}'
+        routePath: '/forgot-password/{user_id}/{hash}'
         namespace: 'tx_felogin_pi1'
+        _arguments:
+          user_id: uid
         defaults:
           forgot: '1'
         requirements:
-          user: '[0-9]{1,3}'
+          user_id: '[a-z]+'
           hash: '^[a-zA-Z0-9]{32}$'
 
 If a URL is generated with the above parameters the resulting link
