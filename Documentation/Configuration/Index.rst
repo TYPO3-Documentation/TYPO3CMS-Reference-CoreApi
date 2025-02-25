@@ -50,7 +50,6 @@ only be changed during deployment.
     Typo3ConfVars/Index
     TypoScript/Index
     UserSettingsConfiguration/Index
-    Yaml/Index
 
 ..  seealso::
 
