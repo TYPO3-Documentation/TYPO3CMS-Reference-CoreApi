@@ -17,6 +17,11 @@ YAML is used in TYPO3 for various configurations; most notable are
 *   System extension :doc:`form <ext_form:Index>` configuration
 *   System extension :doc:`rte_ckeditor <ext_rte_ckeditor:Index>` configuration
 
+..  toctree::
+    :glob:
+    :hidden:
+
+    *
 
 ..  index:: YamlFileLoader
 ..  _yamlFileLoader:
