@@ -305,8 +305,8 @@ Extbase module configuration options
         This leads to the following URLs:
 
         *   :samp:`https://example.com/typo3/module/web/ExtkeyExample`
-        *   :samp:`https://example.com/typo3/module/web/ExtkeyExample/MyModuleController/list`
-        *   :samp:`https://example.com/typo3/module/web/ExtkeyExample/MyModuleController/detail`
+        *   :samp:`https://example.com/typo3/module/web/ExtkeyExample/MyModule/list`
+        *   :samp:`https://example.com/typo3/module/web/ExtkeyExample/MyModule/detail`
 
         The route identifier of corresponding routes is registered with similar
         syntax as :ref:`standard backend modules <backend-modules-api-default>`:
