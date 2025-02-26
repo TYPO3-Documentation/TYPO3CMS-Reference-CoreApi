@@ -304,8 +304,8 @@ Extbase module configuration options
         therefore register the following routes:
 
         *   `web_ExtkeyExample`
-        *   `web_ExtkeyExample.MyModuleController_list`
-        *   `web_ExtkeyExample.MyModuleController_detail`
+        *   `web_ExtkeyExample.MyModule_list`
+        *   `web_ExtkeyExample.MyModule_detail`
 
 Debug the module configuration
 ===============================
