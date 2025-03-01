@@ -1,6 +1,6 @@
-.. include:: /Includes.rst.txt
-.. index:: Extension; Configuration
-.. _extension_configuration:
+..  include:: /Includes.rst.txt
+..  index:: Extension; Configuration
+..  _extension-configuration:
 
 =============
 Configuration
@@ -13,9 +13,10 @@ various options described here each differs in:
     plugin)
 *   the access level required to make the change (editor, admin)
 
-.. index::
+..  index::
    TypoScript
    Configuration; TypoScript
+..  _extension-configuration-typoscript:
 
 TypoScript and constants
 ========================
@@ -24,16 +25,18 @@ You can define configuration options using TypoScript.
 These options can be changed via TypoScript constants and setup in the backend.
 The changes apply to the current page and all subpages.
 
-.. seealso::
+..  seealso::
 
    * :ref:`Extbase TypoScript configuration <extbase_typoscript_configuration>`
 
    * :ref:`t3tsref:typoscript-syntax-what-are-constants`
 
 
-.. index::
+..  index::
    Configuration; Extension configuration
    Files; ext_conf_template.txt
+
+..  _extension-configuration-global:
 
 Extension configuration
 =======================
@@ -46,38 +49,35 @@ backend :guilabel:`Admin Tools > Settings > Extension Configuration` and is stor
 
 Use this file for general options that should be globally applied to the extension.
 
-.. seealso::
+..  seealso::
 
    * :ref:`extension-options`
 
 
-.. index:: FlexForms
+..  index:: FlexForms
+
+..  _extension-configuration-flexforms:
 
 FlexForms
 =========
 
-FlexForms can be configured in the backend by editors. With FlexForms you can
-configure each plugin or content element individually without adding extra fields to the :sql:`tt_content` table.
+`FlexForms <https://docs.typo3.org/permalink/t3coreapi:flexforms>`_ can be
+configured in the backend by editors. With FlexForms you can
+configure each plugin or content element individually without
+adding extra fields to the :sql:`tt_content` table.
 
 In Extbase plugins, settings made in the FlexForm of a plugin
 override settings made in the TypoScript configuration of that plugin.
 
-..  note::
-
-    If you wish to access a setting set via FlexForm in Extbase from your controller via
-    :php:`$this->settings`, the name of the setting must begin with **settings**,
-    directly followed by a dot (`.`).
+If you wish to access a setting set via FlexForm in Extbase from your controller via
+:php:`$this->settings`, the name of the setting must begin with **settings**,
+directly followed by a dot (`.`).
 
 ..  seealso::
 
-    *   :ref:`flexforms`
+    *   `FlexForms <https://docs.typo3.org/permalink/t3coreapi:flexforms>`_
 
-
-Example
--------
-
-..  include:: /CodeSnippets/Extbase/Configuration/PluginSettings.rst.txt
-
+..  _extension-configuration-settings:
 
 Access settings
 ===============
@@ -88,7 +88,9 @@ Extbase controller action and via :html:`{settings}` within Fluid.
 Example: Access settings in an Extbase controller
 --------------------------------------------------
 
-.. include:: /CodeSnippets/Extbase/Controllers/Settings.rst.txt
+..  include:: /CodeSnippets/Extbase/Controllers/Settings.rst.txt
+
+..  _extension-configuration-yaml:
 
 YAML
 ====
