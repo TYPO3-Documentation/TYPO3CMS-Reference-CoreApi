@@ -21,7 +21,7 @@ name of the repository. A repository with the fully qualified name
 models with the fully qualified name :php:`TTN\Tea\Domain\Model\Product\Tea`
 without further configuration.
 
-A special class comment, `@extends Repository<Tea>` tells your IDE and
+A special class comment (not mandatory), `@extends Repository<Tea>` tells your IDE and
 static analytic tools like PHPStan that the find-by methods of this repository
 return objects of type :php-short:`TTN\Tea\Domain\Model\Product\Tea`.
 
