@@ -169,7 +169,7 @@ backend input form, in the order they should be displayed.
     :ref:`TCA reference, showitem <t3tca:types-properties-showitem>` for
     details.
 
-..  _extbase_tutorial_tea_model-tca:
+..  _extbase_tutorial_tea_model-tca-result:
 
 Result - the complete TCA
 --------------------------
