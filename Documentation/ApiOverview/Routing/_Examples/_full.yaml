@@ -7,13 +7,14 @@ routeEnhancers:
     plugin: mynews
     routes:
       - routePath: '/news/detail/{news}'
-          _controller: 'News::show'
-          _arguments:
-            news: news
+        _controller: 'News::show'
+        _arguments:
+          news: 'news'
+
       - routePath: '/search-result/{searchFormHash}'
-          _controller: 'News::list'
-          _arguments:
-            searchForm: searchForm
+        _controller: 'News::list'
+        _arguments:
+          searchForm: 'searchFormHash'
     defaultController: 'News::show'
     aspects:
       news:
