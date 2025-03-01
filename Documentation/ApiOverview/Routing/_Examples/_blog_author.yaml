@@ -1,0 +1,28 @@
+# ...
+routeEnhancers:
+  AuthorPosts:
+    type: Extbase
+    extension: Blog
+    plugin: AuthorPosts
+    routes:
+      -
+        routePath: '/{author_title}'
+        _controller: 'Post::listPostsByAuthor'
+        _arguments:
+          author_title: author
+      -
+        routePath: '/{author_title}/page-{page}'
+        _controller: 'Post::listPostsByAuthor'
+        _arguments:
+          author_title: author
+          page: '@widget_0/currentPage'
+    defaultController: 'Post::listPostsByAuthor'
+    aspects:
+      author_title:
+        type: PersistedAliasMapper
+        tableName: 'tx_blog_domain_model_author'
+        routeFieldName: 'slug'
+      page:
+        type: StaticRangeMapper
+        start: '1'
+        end: '99'
