@@ -15,32 +15,15 @@ to the model class :php:`\TYPO3\CMS\Extbase\Domain\Model\FileReference`, provide
 by Extbase.
 
 ..  _extbase_tutorial_tea_model_database:
-
-The database model
-==================
-
-Let us translate this into SQL and store the schema in a file called
-:file:`ext_tables.sql`:
-
-..  include:: /CodeSnippets/Tutorials/Tea/ExtTablesSql.rst.txt
-
-The image is stored as an integer. However the field :sql:`image` in the
-database does not contains a reference to the image in form of an identifier.
-
-The field :sql:`image` keeps track of the number of attached images. A separate table,
-a so-called MM table, stores the actual relationship. Read about the definition
-of this field here: :ref:`extbase_tutorial_tea_model_columns_image`.
-
-..  hint::
-    If you have had a look at a TYPO3 database before, you might wonder:
-    What about all those special fields like :sql:`uid`, :sql:`pid`,
-    :sql:`deleted`, etc? The answer is that TYPO3 will generate them automatically
-    for you.
-
 ..  _extbase_tutorial_tea_model_tca:
 
 TCA - Table Configuration Array
 ===============================
+
+..  versionchanged:: 13.0
+    TYPO3 creates the database scheme automatically from the TCA
+    definition. The file :file:`ext_tables.sql` can be removed on dropping
+    TYPO3 12.4 support.
 
 The TCA tells TYPO3 about the database model. It defines all fields
 containing data and all semantic fields that have a special meaning within
