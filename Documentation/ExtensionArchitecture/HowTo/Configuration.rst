@@ -16,7 +16,7 @@ various options described here each differs in:
 ..  index::
    TypoScript
    Configuration; TypoScript
-..  _extension-configuration-typoscript:
+..  _extension-configuration-typoscript-constants:
 
 TypoScript and constants
 ========================
