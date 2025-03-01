@@ -289,9 +289,10 @@ or other backend permission handling related tasks.
 Initialize a frontend request in a console command
 ==================================================
 
-If you want to use Extbase repositories within the command, or for example
-`Send a FluidEmail <https://docs.typo3.org/permalink/t3coreapi:mail-fluid-email>`_
-you will need a valid frontend request.
+For certain ViewHelpers and API methods you need a valid frontend request.
+
+For example to `Send a FluidEmail <https://docs.typo3.org/permalink/t3coreapi:mail-fluid-email>`_
+containing a `Link.page ViewHelper <f:link.page> <https://docs.typo3.org/permalink/t3viewhelper:typo3-fluid-link-page>`_.
 
 A frontend request can be initialized with this call inside :php:`execute()`
 method:
