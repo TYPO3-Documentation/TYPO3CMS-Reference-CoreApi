@@ -36,7 +36,7 @@ objects from the repository and hands them over to the view:
 
 The controller has to access the :php:`TeaRepository` to find all available tea
 objects. We use :ref:`Dependency Injection <DependencyInjection>` to make the
-repository available to the controller: The method :php:`injectTeaRepository()`
+repository available to the controller: The constructor
 will be called automatically with an initialized :php:`TeaRepository` when
 the :php:`TeaController` is created.
 
