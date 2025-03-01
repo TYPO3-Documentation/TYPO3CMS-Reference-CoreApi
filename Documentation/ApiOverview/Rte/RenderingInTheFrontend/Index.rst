@@ -1,90 +1,60 @@
-.. include:: /Includes.rst.txt
-.. index::
-   Rich text editor
-   RTE
-   see: RTE; Rich text editor
-   CKEditor
-.. _rte-rendering-frontend:
+:navigation-title: Rendering
 
-=========================
-Rendering in the Frontend
-=========================
+..  include:: /Includes.rst.txt
+..  index::
+    Rich text editor
+    RTE
+    see: RTE; Rich text editor
+    CKEditor
+..  _rte-rendering-frontend:
+
+=====================================
+Rendering RTE content in the Frontend
+=====================================
 
 The explanations on this page don't show how to display an RTE but rather, describe how
 rendering of content should be done in the frontend when it was entered with help
 of an RTE.
 
-.. note::
+..  note::
 
-   For including an RTE in the frontend you can read :ref:`Using an RTE in the frontend <rte-frontend-introduction>`.
+    For including an RTE in the frontend you can read
+    :ref:`Using an RTE in the frontend <rte-frontend-introduction>`.
+
+..  _rte-rendering-fluid:
 
 Fluid templates
 ===============
 
-Rendering in TYPO3 is nowadays done mostly with Fluid templates.
+Rich text editors enrich content with HTML and pseudo HTML (for example a special
+link syntax). You should therefore always render the output of a RTE field
+with the `Format.html ViewHelper <f:format.html> <https://docs.typo3.org/permalink/t3viewhelper:typo3-fluid-format-html>`_:
 
-RTEs enrich content in most cases with HTML, therefore it's advisable to use
-the Fluid ViewHelper `format.html` for this kind of content:
+..  code-block:: html
+    :caption: packages/my_extension/Resources/Private/Templates/MyContentElement.html
 
-.. code-block:: xml
+    <f:format.html>{data.bodytext}</f:format.html>
 
-   <f:format.html><p>Visit the <a href="t3://page?uid=51">example page</a>.</p></f:format.html>
-
-The result might still be missing some important aspects. One example are links
-of the form `t3://page?uid=51` that need to be processed. Usually those links should
-be transformed already because the ViewHelper is using by default `lib.parseFunc_RTE`
-to parse the content.
-
-Nevertheless it's possible to define the parsing function explicitly and also to
-define a different parsing function:
-
-.. code-block:: xml
-
-   <f:format.html parseFuncTSPath="lib.parseFunc"><p>Visit the <a href="t3://page?uid=51">example page</a>.</p></f:format.html>
-
-.. note::
-
-   Details to `format.html` can be found in the :ref:`ViewHelper Reference <t3viewhelper:typo3-fluid-format-html>`.
+..  _rte-rendering-typoscript:
 
 TypoScript
 ==========
 
-Rendering is sometimes done by TypoScript only, in those cases it's possible to
-use `lib.parseFunc_RTE` too for parsing:
+Rendering is sometimes done by TypoScript only, in those cases it is possible to
+use `lib.parseFunc_RTE` for parsing and rendering (see also
+`TypoScript function parseFunc <https://docs.typo3.org/permalink/t3tsref:parsefunc>`_):
 
-.. code-block:: typoscript
+For example to render the `bodytext` filed of table `tt_content` without Fluid:
 
-   20 = TEXT
-   20.value = Visit the <a href="t3://page?uid=51">example page</a>.
-   20.wrap = <p>|</p>
-   20.stdWrap.parseFunc < lib.parseFunc_RTE
+..  literalinclude:: _parsefunc.typoscript
+    :caption: packages/my_extension/Configuration/Sets/MySet/setup.typoscript
 
-So for fields of the content-table in the database the TypoScript could look like this:
+Usually the TypoScript function `typolink` should be used for single links,
+but for text that might include several links that is not possible easily.
+Therefore `lib.parseFunc_RTE` is used to simplify and streamline this process.
 
-.. code-block:: typoscript
+Details to `parseFunc` can be found in the TypoScript Reference:
 
-   20 = TEXT
-   20.field = bodytext
-   20.wrap = <p>|</p>
-   20.stdWrap.parseFunc < lib.parseFunc_RTE
-
-.. note::
-
-   Usually the TypoScript function `typolink` should be used for single links,
-   but for text that might include several links that is not possible easily.
-   Therefore `lib.parseFunc_RTE` is used to simplify and streamline this process.
-
-   Details to `parseFunc` can be found in the TypoScript Reference:
-
-   * :ref:`TypoScript Reference: parseFunc <t3tsref:parsefunc>`
-   * :ref:`TypoScript Reference: stdWrap.parseFunc <t3tsref:stdwrap-parsefunc>`
-   * :ref:`TypoScript Reference: TEXT <t3tsref:cobj-text>`
-
-Further details
-===============
-
-The transformation process during content-rendering is highly configurable.
-You can find further information here:
-
-* :ref:`transformations`
-* :ref:`appendix-a`
+*   :ref:`TypoScript Reference: parseFunc <t3tsref:parsefunc>`
+*   :ref:`TypoScript Reference: stdWrap.parseFunc <t3tsref:stdwrap-parsefunc>`
+*   :ref:`TypoScript Reference: TEXT <t3tsref:cobj-text>`
