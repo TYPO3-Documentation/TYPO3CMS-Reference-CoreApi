@@ -58,4 +58,9 @@ class RichTextNodeResolver implements NodeResolverInterface
     {
         return $GLOBALS['BE_USER'];
     }
+
+    public function setData(array $data): void
+    {
+        // TODO: Implement setData() method.
+    }
 }
