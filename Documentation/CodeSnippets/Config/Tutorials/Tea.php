@@ -39,13 +39,6 @@ return [
         'targetFileName' => 'CodeSnippets/Tutorials/Tea/ExtEmconf.rst.txt',
     ],
     [
-        'action' => 'createCodeSnippet',
-        'caption' => 'EXT:tea/ext_tables.sql',
-        'sourceFile' => 'EXT:tea/ext_tables.sql',
-        'targetFileName' => 'CodeSnippets/Tutorials/Tea/ExtTablesSql.rst.txt',
-        'language' => 'sql',
-    ],
-    [
         'action' => 'createPhpArrayCodeSnippet',
         'caption' => 'EXT:tea/Configuration/TCA/tx_tea_domain_model_product_tea.php',
         'sourceFile' => 'EXT:tea/Configuration/TCA/tx_tea_domain_model_product_tea.php',
@@ -60,14 +53,6 @@ return [
         'fields' => ['columns/title'],
         'showLineNumbers' => true,
         'targetFileName' => 'CodeSnippets/Tutorials/Tea/Configuration/TCA/TeaColumnTitle.rst.txt',
-    ],
-    [
-        'action' => 'createPhpArrayCodeSnippet',
-        'caption' => 'EXT:tea/Configuration/TCA/tx_tea_domain_model_product_tea.php',
-        'sourceFile' => 'EXT:tea/Configuration/TCA/tx_tea_domain_model_product_tea.php',
-        'fields' => ['columns/image'],
-        'showLineNumbers' => true,
-        'targetFileName' => 'CodeSnippets/Tutorials/Tea/Configuration/TCA/TeaColumnImage.rst.txt',
     ],
     [
         'action' => 'createPhpArrayCodeSnippet',
