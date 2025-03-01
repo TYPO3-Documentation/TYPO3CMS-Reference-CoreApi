@@ -122,7 +122,7 @@ EXT: DpnGlossary
 *   List view: :samp:`https://example.org/<YOUR_PLUGINPAGE_SLUG>`
 *   Detail view: :samp:`https://example.org/<YOUR_PLUGINPAGE_SLUG>/term/the-term-title`
 
-..  literalinclude:: _glossary.yaml
+..  literalinclude:: _Examples/_glossary.yaml
     :caption: config/my_site/config.yaml (excerpt)
 
 Taken from dpn_glossary extension manual.
