@@ -150,7 +150,7 @@ Field type :ref:`t3tca:columns-file` can be used to upload files. As the image
 should be an image, we limit the allowed file extensions to the `common-image-types`.
 See also :ref:`TCA type 'file', property 'allowed' <t3tca:confval-file-allowed>`.
 
-..  code-block:: php
+..  literalinclude:: _Model/_image_tca.php
     :caption: EXT:tea/Configuration/TCA/tx_tea_domain_model_tea.php
 
 ..  _extbase_tutorial_tea_model_types:
