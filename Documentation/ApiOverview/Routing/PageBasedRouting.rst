@@ -1,36 +1,30 @@
-:navigation-title: Page based
+:navigation-title: Page-based Routing
+
 .. include:: /Includes.rst.txt
-.. index:: Routing; Page based
+
+.. index:: Routing; Page-based
 .. _routing-page-based-routing:
 
 ==================
-Page based Routing
+Page-based routing
 ==================
 
-TYPO3 allows page based routing (that is mapping pages to routes) out of the box.
+TYPO3 provides built-in support for page-based routing, mapping pages to
+routes automatically.
 
-Configuration
-=============
+Page-based routing is always enabled in TYPO3 and requires a site
+configuration (see :ref:`sitehandling`) for your website. Each page's route
+is determined by its `slug` field, which can be viewed in the page
+properties.
 
-To enable page based routing, add a site configuration (see :ref:`sitehandling`) for your web site.
-To see which route gets mapped to which page, open the page properties and look at the `slug` field.
+..  hint::
+    Ensure that editors have the necessary permissions to modify the `slug`
+    field if they need to change or update slugs when modifying page titles.
 
-.. hint::
-    To enable editors to change the slug (or update the slug when they change the page title for example) make sure that your
-    editor groups have access to the `slug` field.
+The generation of page slugs is controlled via the TCA configuration of the
+`pages` table (`slug` field). This configuration can be customized in your
+extension’s :file:`TCA/Overrides/pages.php`. Refer to the TCA reference
+(:ref:`t3tca:columns-slug`) for available options.
 
-How a page slug is generated is configured via TCA configuration of the pages table (field `slug`). You can adjust that configuration
-in your extensions' :file:`TCA/Overrides/pages.php`. See TCA reference (see :ref:`t3tca:columns-slug` for available options).
-
-
-.. index::
-   Routing; Upgrade
-   RealURL
-   see: RealURL; Routing
-
-Upgrading
-=========
-
-An upgrade wizard has been provided that will take care of generating slugs for all existing pages. If you used RealURL before, the
-wizard tries to use the RealURL caches to generate matching slugs. However, this will not be successful in all cases and you should
-recheck the generated slugs if you want the URL structure to stay the same after an upgrade.
+If the system extension :composer:`typo3/cms-redirects` is installed,
+redirects are automatically generated when a slug is adjusted by and editor.
