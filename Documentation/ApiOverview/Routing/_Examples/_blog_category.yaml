@@ -1,0 +1,28 @@
+# ...
+routeEnhancers:
+  BlogCategory:
+    type: Extbase
+    extension: Blog
+    plugin: Category
+    routes:
+      -
+        routePath: '/{category_title}'
+        _controller: 'Post::listPostsByCategory'
+        _arguments:
+          category_title: category
+      -
+        routePath: '/{category_title}/page-{page}'
+        _controller: 'Post::listPostsByCategory'
+        _arguments:
+          category_title: category
+          page: '@widget_0/currentPage'
+    defaultController: 'Post::listPostsByCategory'
+    aspects:
+      category_title:
+        type: PersistedAliasMapper
+        tableName: sys_category
+        routeFieldName: 'slug'
+      page:
+        type: StaticRangeMapper
+        start: '1'
+        end: '99'

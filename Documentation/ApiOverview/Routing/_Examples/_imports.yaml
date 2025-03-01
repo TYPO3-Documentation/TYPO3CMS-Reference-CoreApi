@@ -1,0 +1,8 @@
+# ...
+imports:
+  - { resource: "EXT:my_extension/Configuration/Routes/Blog/BlogCategory.yaml" }
+  - { resource: "EXT:my_extension/Configuration/Routes/Blog/BlogTag.yaml" }
+  - { resource: "EXT:my_extension/Configuration/Routes/Blog/BlogArchive.yaml" }
+  - { resource: "EXT:my_extension/Configuration/Routes/Blog/BlogAuthorPosts.yaml" }
+  - { resource: "EXT:my_extension/Configuration/Routes/Blog/BlogFeedWidget.yaml" }
+  - { resource: "EXT:my_extension/Configuration/Routes/Blog/BlogPosts.yaml" }
