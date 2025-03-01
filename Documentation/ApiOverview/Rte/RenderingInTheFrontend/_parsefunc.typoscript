@@ -1,0 +1,6 @@
+tt_content.my_content_element = TEXT
+tt_content.my_content_element {
+  field = bodytext
+  wrap = <p>|</p>
+  stdWrap.parseFunc < lib.parseFunc_RTE
+}
