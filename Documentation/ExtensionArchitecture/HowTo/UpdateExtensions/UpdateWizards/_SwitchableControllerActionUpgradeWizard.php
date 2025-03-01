@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace MyVendor\MyExtension\Upgrades;
 
 use TYPO3\CMS\Core\Database\ConnectionPool;
@@ -12,10 +14,21 @@ final class SwitchableControllerActionUpgradeWizard implements UpgradeWizardInte
 {
     private const TABLE = 'tt_content';
     private const PLUGIN = 'myextension_myplugin';
+
     public function __construct(
         private readonly ConnectionPool $connectionPool,
         private readonly FlexFormService $flexFormService,
     ) {}
+
+    public function getTitle(): string
+    {
+        return 'Migrate MyExtension plugins';
+    }
+
+    public function getDescription(): string
+    {
+        return 'Migrate MyExtension plugins from switchable controller actions to specific plugins';
+    }
 
     public function executeUpdate(): bool
     {
@@ -52,11 +65,14 @@ final class SwitchableControllerActionUpgradeWizard implements UpgradeWizardInte
                         'CType' => $newCType,
                         'list_type' => '',
                     ],
-                    [ 'uid' => (int)$row['uid'] ], // where
+                    [ // where
+                        'uid' => (int)$row['uid'],
+                    ],
                 );
         }
         return $updated;
     }
+
     private function loadFlexForm(string $flexFormString): array
     {
         return $this->flexFormService
@@ -66,25 +82,15 @@ final class SwitchableControllerActionUpgradeWizard implements UpgradeWizardInte
     public function updateNecessary(): bool
     {
         $queryBuilder = $this->connectionPool->getQueryBuilderForTable(self::TABLE);
-        $queryBuilder
+        $queryBuilder->getRestrictions()->removeAll();
+        return (bool)$queryBuilder
             ->count('uid')
             ->from(self::TABLE)
             ->where(
-                $queryBuilder->expr()->eq('list_type', self::PLUGIN),
+                $queryBuilder->expr()->eq('list_type', $queryBuilder->createNamedParameter(self::PLUGIN)),
             )
             ->executeQuery()
             ->fetchOne();
-        return true;
-    }
-
-    public function getTitle(): string
-    {
-        return 'Migrate MyExtension plugins';
-    }
-
-    public function getDescription(): string
-    {
-        return 'Migrate MyExtension plugins from switchable controller actions to specific plugins';
     }
 
     /**
