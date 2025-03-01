@@ -1,0 +1,8 @@
+<poem>
+    <label>RTE Example (Flexform)</label>
+    <config>
+        <type>text</type>
+        <enableRichtext>true</enableRichtext>
+        <richtextConfiguration>full</richtextConfiguration>
+    </config>
+</poem>
