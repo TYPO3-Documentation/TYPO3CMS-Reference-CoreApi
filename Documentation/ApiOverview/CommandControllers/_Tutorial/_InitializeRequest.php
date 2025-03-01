@@ -14,7 +14,6 @@ use TYPO3\CMS\Core\Http\ServerRequest;
 use TYPO3\CMS\Core\Mail\FluidEmail;
 use TYPO3\CMS\Core\Mail\MailerInterface;
 use TYPO3\CMS\Core\Site\SiteFinder;
-use TYPO3\CMS\Extbase\Configuration\ConfigurationManagerInterface;
 
 #[AsCommand(
     name: 'examples:dosomething',
@@ -24,10 +23,8 @@ use TYPO3\CMS\Extbase\Configuration\ConfigurationManagerInterface;
 class DoSomethingCommand extends Command
 {
     public function __construct(
-        private readonly ConfigurationManagerInterface $configurationManager,
         private readonly SiteFinder $siteFinder,
         private readonly MailerInterface $mailer,
-        private readonly ExampleRepository $exampleRepository,
     ) {
         parent::__construct();
     }
@@ -42,13 +39,9 @@ class DoSomethingCommand extends Command
             ->withAttribute('applicationType', SystemEnvironmentBuilder::REQUESTTYPE_FE)
             ->withAttribute('site', $site);
         $GLOBALS['TYPO3_REQUEST'] = $request;
-        // Needed if Extbase Repositories should be usable
-        $this->configurationManager->setRequest($request);
-        $someExampleInfo = $this->exampleRepository->findByUid(42);
         // Send some mails with FluidEmail
         $email = new FluidEmail();
         $email->setRequest($request);
-        $email->assign('exampleInfo', $someExampleInfo);
         // Set receiver etc
         $this->mailer->send($email);
         return Command::SUCCESS;
