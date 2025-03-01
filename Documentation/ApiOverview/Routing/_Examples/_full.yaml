@@ -1,0 +1,142 @@
+# ...
+
+routeEnhancers:
+  news:
+    type: Extbase
+    extension: mynews
+    plugin: mynews
+    routes:
+      - routePath: '/news/detail/{news}'
+        _controller: 'News::show'
+        _arguments:
+          news: 'news'
+
+      - routePath: '/search-result/{searchFormHash}'
+        _controller: 'News::list'
+        _arguments:
+          searchForm: 'searchFormHash'
+    defaultController: 'News::show'
+    aspects:
+      news:
+        routeValuePrefix: ''
+        type: PersistedAliasMapper
+        tableName: 'tx_mynews_domain_model_news'
+        routeFieldName: slug
+        valueFieldName: uid
+  videos:
+    type: Extbase
+    extension: myvideos
+    plugin: myvideos
+    routes:
+      -
+        routePath: '/video-detail/detail/{videos}'
+        _controller: 'Videos::show'
+        _arguments:
+          videos: videos
+      -
+        routePath: '/search-result/{searchFormHash}'
+        _controller: 'Videos::list'
+        _arguments:
+          searchForm: searchForm
+    defaultController: 'Videos::show'
+    aspects:
+      videos:
+        routeValuePrefix: ''
+        type: PersistedAliasMapper
+        tableName: 'tx_myvideos_domain_model_videos'
+        routeFieldName: slug
+        valueFieldName: uid
+  discipline:
+    type: Extbase
+    extension: myvideos
+    plugin: overviewlist
+    routes:
+      -
+        routePath: '/video-uebersicht/disziplin/{discipline}'
+        _controller: 'Overview::discipline'
+        _arguments:
+          discipline: discipline
+    defaultController: 'Overview::discipline'
+    aspects:
+      discipline:
+        routeValuePrefix: ''
+        type: PersistedAliasMapper
+        tableName: 'tx_mytaxonomy_domain_model_discipline'
+        routeFieldName: slug
+        valueFieldName: uid
+  events:
+    type: Extbase
+    extension: myapidata
+    plugin: events
+    routes:
+      -
+        routePath: '/events/detail/{uid}'
+        _controller: 'Events::showByUid'
+        _arguments:
+          uid: uid
+      -
+        routePath: '/events/search-result/{searchFormHash}'
+        _controller: 'Events::list'
+        _arguments:
+          searchForm: searchForm
+    defaultController: 'Events::showByUid'
+    aspects:
+      uid:
+        routeValuePrefix: ''
+        type: PersistedAliasMapper
+        tableName: 'tx_myapidata_domain_model_event'
+        routeFieldName: slug
+        valueFieldName: uid
+  results:
+    type: Extbase
+    extension: myapidata
+    plugin: results
+    routes:
+      -
+        routePath: '/resultset/detail/{uid}'
+        _controller: 'Results::showByUid'
+        _arguments:
+          uid: uid
+      -
+        routePath: '/resultset/search-result/{searchFormHash}'
+        _controller: 'Results::list'
+        _arguments:
+          searchForm: searchForm
+    defaultController: 'Results::showByUid'
+    aspects:
+    uid:
+      routeValuePrefix: ''
+      type: PersistedAliasMapper
+      tableName: 'tx_myapidata_domain_model_event'
+      routeFieldName: slug
+      valueFieldName: uid
+  teams:
+    type: Extbase
+    extension: myapidata
+    plugin: teams
+    routes:
+      -
+        routePath: '/detail/{team}'
+        _controller: 'Team::show'
+        _arguments:
+          team: team
+      -
+        routePath: '/player/result/{searchFormHash}'
+        _controller: 'Team::list'
+        _arguments:
+          searchForm: searchForm
+    defaultController: 'Team::show'
+    aspects:
+      team:
+        routeValuePrefix: ''
+        type: PersistedAliasMapper
+        tableName: 'tx_myapidata_domain_model_team'
+        routeFieldName: slug
+        valueFieldName: uid
+  moreLoads:
+    type: PageType
+    map:
+      'videos/events/videos.json': 1381404385
+      'videos/categories/videos.json': 1381404386
+      'videos/favorites/videos.json': 1381404389
+      'videos/newest/videos.json': 1381404390
