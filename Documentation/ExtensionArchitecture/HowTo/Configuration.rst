@@ -27,14 +27,14 @@ The changes apply to the current page and all subpages.
 
 ..  seealso::
 
-   * :ref:`Extbase TypoScript configuration <extbase_typoscript_configuration>`
+    * :ref:`Extbase TypoScript configuration <extbase_typoscript_configuration>`
 
-   * :ref:`t3tsref:typoscript-syntax-what-are-constants`
+    * :ref:`t3tsref:typoscript-syntax-what-are-constants`
 
 
 ..  index::
-   Configuration; Extension configuration
-   Files; ext_conf_template.txt
+    Configuration; Extension configuration
+    Files; ext_conf_template.txt
 
 ..  _extension-configuration-global:
 
@@ -45,13 +45,15 @@ Extension configuration is defined in the file :file:`ext_conf_template.txt`
 using TypoScript constant syntax.
 
 The configuration options you define in this file can be changed in the
-backend :guilabel:`Admin Tools > Settings > Extension Configuration` and is stored in :file:`config/system/settings.php`.
+backend :guilabel:`Admin Tools > Settings > Extension Configuration` and is
+stored in :file:`config/system/settings.php`.
 
-Use this file for general options that should be globally applied to the extension.
+Use this file for general options that should be globally applied to
+the extension.
 
 ..  seealso::
 
-   * :ref:`extension-options`
+    * :ref:`extension-options`
 
 
 ..  index:: FlexForms
@@ -86,7 +88,7 @@ The settings can be read using :php:`$this->settings` in an
 Extbase controller action and via :html:`{settings}` within Fluid.
 
 Example: Access settings in an Extbase controller
---------------------------------------------------
+-------------------------------------------------
 
 ..  include:: /CodeSnippets/Extbase/Controllers/Settings.rst.txt
 
