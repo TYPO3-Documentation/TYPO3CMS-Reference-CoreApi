@@ -14,8 +14,8 @@ various options described here each differs in:
 *   the access level required to make the change (editor, admin)
 
 ..  index::
-   TypoScript
-   Configuration; TypoScript
+    TypoScript
+    Configuration; TypoScript
 ..  _extension-configuration-typoscript-constants:
 
 TypoScript and constants
@@ -69,7 +69,7 @@ adding extra fields to the :sql:`tt_content` table.
 In Extbase plugins, settings made in the FlexForm of a plugin
 override settings made in the TypoScript configuration of that plugin.
 
-If you wish to access a setting set via FlexForm in Extbase from your controller via
+If you want to access a setting via FlexForm in Extbase from your controller via
 :php:`$this->settings`, the name of the setting must begin with **settings**,
 directly followed by a dot (`.`).
 
