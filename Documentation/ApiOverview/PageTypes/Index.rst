@@ -8,7 +8,7 @@ Page types
 ==========
 
 TYPO3 organizes content using different **page types**, each serving a specific
-purpose. See also  `Types of pages <https://docs.typo3.org/permalink/t3coreapi:list-of-page-types>`_.
+purpose. See also `Types of pages <https://docs.typo3.org/permalink/t3coreapi:list-of-page-types>`_.
 
 Each page type serves a different function in TYPO3’s content hierarchy, making
 it easier to manage complex websites.
