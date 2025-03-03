@@ -286,25 +286,63 @@ or other backend permission handling related tasks.
 
 ..  _console-command-tutorial-fe-request:
 
-Initialize a frontend request in a console command
-==================================================
+Simulating a Frontend Request in TYPO3 Commands
+===============================================
 
-For certain ViewHelpers and API methods you need a valid frontend request.
+When executing TYPO3 commands in the CLI, there is no actual frontend (web)
+request. This means that several request attributes required for link generation
+via Fluid or TypoScript are missing by default. While setting the `site`
+attribute in the request is a first step, it does not fully replicate the
+frontend behavior.
 
-For example to `Send a FluidEmail <https://docs.typo3.org/permalink/t3coreapi:mail-fluid-email>`_
-containing a `Link.page ViewHelper <f:link.page> <https://docs.typo3.org/permalink/t3viewhelper:typo3-fluid-link-page>`_.
+The Challenge
+-------------
 
-A frontend request can be initialized with this call inside :php:`execute()`
-method:
+In a web request, TYPO3 automatically provides various objects that influence
+link generation:
+
+*   **ContentObjectRenderer (cObj)**: Processes TypoScript-based rendering,
+    including link generation.
+*   **page Attribute**: Holds the current page context.
+*   **PageInformation Object**: Provides additional metadata about the current
+    page.
+*   **Router**: Ensures proper URL resolution.
+*   **TypoScriptFrontendController (TSFE)**: Manages frontend rendering and
+    applies specific settings like `linkAccessRestrictedPages` and
+    `typolinkLinkAccessRestrictedPages`.
+
+One critical limitation is that the ContentObjectRenderer (cObj) is only
+available when a TypoScript-based content element, such as `FLUIDTEMPLATE`, is
+rendered. Even if `cObj` is manually instantiated in a CLI command, its data
+array remains empty, meaning it lacks the context of a real `tt_content` record.
+As a result, TypoScript properties like `field = my_field` or `data = my_data`
+will not work as expected.
+
+Similarly, the TypoScriptFrontendController (TSFE) is not automatically
+available in CLI. If CLI-generated links should respect settings like
+`linkAccessRestrictedPages`, it would have to be manually instantiated and
+configured. However, a fully functional TSFE cannot be reconstructed in a CLI
+context without significant effort, as many dependencies rely on an actual HTTP
+request and page rendering process.
+
+A Minimal Request Example
+-------------------------
+
+In some cases, a minimal request configuration may be sufficient, such as when
+generating simple links or using FluidEmail. The following example demonstrates
+how to set up a basic CLI request with `applicationType` and `site` attributes:
 
 ..  literalinclude:: _Tutorial/_InitializeRequest.php
     :caption: packages/my_extension/Classes/Command/DoBackendRelatedThingsCommand.php
 
 ..  note::
-    Creating a request this way is using *internal* functionality and subject to
-    change without notice.
-
-    See the forge issue: https://forge.typo3.org/issues/105554
+    It is important to understand that there is no simple way to fully simulate
+    a frontend request in CLI. Some aspects, like basic link generation, can
+    work by manually setting request attributes. However, complex
+    TypoScript-based link modifications, access restrictions, and context-aware
+    rendering will not behave identically to a real web request. Developers
+    need to be aware of these limitations when working with link generation in
+    CLI commands.
 
 More information
 ================
