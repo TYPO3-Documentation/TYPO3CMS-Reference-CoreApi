@@ -1,8 +1,11 @@
-.. include:: /Includes.rst.txt
-.. index::
-   Redirect headers
-   Http; X-Redirect-By
-   Page types; Redirect headers
+:navigation-title: Redirect Headers
+
+..  include:: /Includes.rst.txt
+..  index::
+    Redirect headers
+    Http; X-Redirect-By
+    Page types; Redirect headers
+..  _page-types-redirect-header:
 
 ==================================================
 X-Redirect-By header for pages with redirect types
