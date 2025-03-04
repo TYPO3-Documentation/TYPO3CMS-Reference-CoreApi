@@ -293,6 +293,8 @@ via Fluid or TypoScript are missing by default. While setting the `site`
 attribute in the request is a first step, it does not fully replicate the
 frontend behavior.
 
+..  _console-command-tutorial-fe-request-challenge:
+
 The Challenge
 -------------
 
@@ -322,6 +324,8 @@ available in CLI. If CLI-generated links should respect settings like
 configured. However, a fully functional TSFE cannot be reconstructed in a CLI
 context without significant effort, as many dependencies rely on an actual HTTP
 request and page rendering process.
+
+..  _console-command-tutorial-fe-request-example:
 
 A Minimal Request Example
 -------------------------
