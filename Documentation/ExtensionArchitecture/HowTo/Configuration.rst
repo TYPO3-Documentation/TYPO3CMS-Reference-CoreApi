@@ -63,10 +63,8 @@ the extension.
 FlexForms
 =========
 
-`FlexForms <https://docs.typo3.org/permalink/t3coreapi:flexforms>`_ can be
-configured in the backend by editors. With FlexForms you can
-configure each plugin or content element individually without
-adding extra fields to the :sql:`tt_content` table.
+`FlexForms <https://docs.typo3.org/permalink/t3coreapi:flexforms>`_ define
+forms that can be used by editors to configure plugins and content elements.
 
 In Extbase plugins, settings made in the FlexForm of a plugin
 override settings made in the TypoScript configuration of that plugin.
