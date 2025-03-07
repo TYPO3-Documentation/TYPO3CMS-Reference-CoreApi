@@ -307,8 +307,8 @@ link generation:
 *   **PageInformation Object**: Provides additional metadata about the current
     page.
 *   **Router**: Ensures proper URL resolution.
-*   **TypoScriptFrontendController (TSFE)**: Manages frontend rendering and
-    applies specific settings like `linkAccessRestrictedPages` and
+*   **FrontendTypoScriptFactory (was part of TSFE at the time)**: Collects
+    TypoScript and provides settings like `linkAccessRestrictedPages` and
     `typolinkLinkAccessRestrictedPages`.
 
 One critical limitation is that the ContentObjectRenderer (cObj) is only
@@ -318,12 +318,10 @@ array remains empty, meaning it lacks the context of a real `tt_content` record.
 As a result, TypoScript properties like `field = my_field` or `data = my_data`
 will not work as expected.
 
-Similarly, the TypoScriptFrontendController (TSFE) is not automatically
+Similarly, the FrontendTypoScriptFactory is not automatically
 available in CLI. If CLI-generated links should respect settings like
 `linkAccessRestrictedPages`, it would have to be manually instantiated and
-configured. However, a fully functional TSFE cannot be reconstructed in a CLI
-context without significant effort, as many dependencies rely on an actual HTTP
-request and page rendering process.
+configured.
 
 ..  _console-command-tutorial-fe-request-example:
 
