@@ -13,9 +13,9 @@ FilterMenuItemsEvent
 
 The PSR-14 event :php:`\TYPO3\CMS\Frontend\Event\FilterMenuItemsEvent` has
 a variety of properties and getters, along with
-:php:func:`TYPO3\\CMS\\Frontend\\Event\\FilterMenuItemsEvent::getFilteredMenuItems()`
+:php:func:`TYPO3\CMS\Frontend\Event\FilterMenuItemsEvent::getFilteredMenuItems()`
 and
-:php:func:`TYPO3\\CMS\\Frontend\\Event\\FilterMenuItemsEvent::setFilteredMenuItems()`.
+:php:func:`TYPO3\CMS\Frontend\Event\FilterMenuItemsEvent::setFilteredMenuItems()`.
 Those methods can be used to change the items of a menu, which has been generated
 with :ref:`a TypoScript HMENU <t3tsref:cobj-hmenu>` or
 a :ref:`MenuProcessor <t3tsref:MenuProcessor>`.
