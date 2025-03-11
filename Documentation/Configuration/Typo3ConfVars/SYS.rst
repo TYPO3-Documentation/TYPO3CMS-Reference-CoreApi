@@ -352,7 +352,8 @@ configurations.
     :Default: ''
 
     List of IP addresses. If TYPO3 is behind one or more (intransparent) reverse
-    proxies the IP addresses must be added here.
+    proxies the IP addresses must be added here and 
+    :confval:`globals-typo3-conf-vars-sys-reverseProxyHeaderMultiValue` must be set to `first` or `last`.
 
 ..  _typo3ConfVars_sys_reverseProxyHeaderMultiValue:
 
@@ -372,8 +373,9 @@ configurations.
 
     :Default: 'none'
 
-    Defines which values of a proxy header (for example HTTP_X_FORWARDED_FOR) to use,
-    if more than one is found.
+    Position of the authoritative IP address within the `X-Forwarded-For` header
+    (for example, `X-Forwarded-For: 1.2.3.4, 2.3.4.5, 3.4.5.6` uses `1.2.3.4` 
+    with `first` and `3.4.5.6` with `last`).
 
 ..  _typo3ConfVars_sys_reverseProxyPrefix:
 
