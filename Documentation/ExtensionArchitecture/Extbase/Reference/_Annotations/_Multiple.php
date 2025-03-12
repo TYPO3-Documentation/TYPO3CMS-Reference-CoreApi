@@ -17,11 +17,4 @@ class Post extends AbstractEntity
      * @var ObjectStorage<Comment>
      */
     public ObjectStorage $comments;
-
-    /**
-     * @var ObjectStorage<Comment>
-     * @Lazy
-     * @Cascade("remove")
-     */
-    public ObjectStorage $comments2;
 }
