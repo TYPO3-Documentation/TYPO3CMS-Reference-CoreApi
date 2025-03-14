@@ -1,6 +1,7 @@
-- route: example.svg
-  type: asset
-  asset: 'EXT:backend/Resources/Public/Icons/Extension.svg'
-- route: favicon.ico
-  type: asset
-  asset: 'EXT:my-sitepackage/Resources/Public/Icons/favicon.ico'
+routes:
+  - route: example.svg
+    type: asset
+    asset: 'EXT:backend/Resources/Public/Icons/Extension.svg'
+  - route: favicon.ico
+    type: asset
+    asset: 'EXT:my-sitepackage/Resources/Public/Icons/favicon.ico'
