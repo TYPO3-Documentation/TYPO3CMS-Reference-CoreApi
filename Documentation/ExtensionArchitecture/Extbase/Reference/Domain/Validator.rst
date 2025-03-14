@@ -49,7 +49,7 @@ in the annotation of that parameter:
     Validators added to a property of a model are executed whenever an object
     of that model is passed to a controller action as a parameter.
 
-    The validation of the parameter can be disabled by the annotation
+    The validation result of the parameter can be ignored by using the annotation
     :ref:`extbase-annotation-ignore-validation`.
 
 ..  _extbase_domain_validator-model-complete:
