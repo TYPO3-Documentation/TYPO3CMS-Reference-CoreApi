@@ -1,19 +1,12 @@
+:navigation-title: Model
+
 ..  include:: /Includes.rst.txt
-
 ..  index:: Extbase; Model
-
 ..  _extbase-model:
 
-=====
-Model
-=====
-
-..  contents::
-    :local:
-
-
-Introduction
-============
+========================================
+Extbase model - extending AbstractEntity
+========================================
 
 All classes of the domain model should inherit from the class
 :php:`\TYPO3\CMS\Extbase\DomainObject\AbstractEntity`.
@@ -30,16 +23,22 @@ In the TYPO3 backend models are displayed as :ref:`database-records`.
 
 ..  include:: /CodeSnippets/Extbase/Domain/AbstractEntity.rst.txt
 
+..  contents:: Table of content
+    :local:
 
-Connecting the model to the database
-====================================
+..  _extbase-model-persistence:
+
+Persistence: Connecting the model to the database
+=================================================
 
 It is possible to define models that are not persisted to the database. However in
 the most common use cases you want to save your model to the database and load
 it from there. See :ref:`extbase-Persistence`.
 
-Properties
-==========
+..  _extbase-model-properties:
+
+Properties of an Extbase model
+==============================
 
 The properties of a model can be defined either as public
 class properties:
@@ -78,9 +77,10 @@ however get displayed when explicitly called:
     But it is there:
     <f:debug>{post.info.combinedString}</f:debug>
 
+..  _extbase-model-properties-union-types:
 
-Union types
------------
+Union types of Extbase model properties
+---------------------------------------
 
 ..  versionadded:: 12.3
     Previously, whenever a union type was needed, union type declarations led
@@ -134,11 +134,10 @@ therefore the following code works and has always worked:
 ..  literalinclude:: _Model/_ObjectStorage.php
     :caption: EXT:my_extension/Classes/Domain/Model/Entity.php
 
-
 ..  _extbase-model-enumerations:
 
-Enumerations
-------------
+Enumerations as Extbase model property
+--------------------------------------
 
 ..  versionadded:: 13.0
     Native support for
@@ -159,9 +158,10 @@ The enum can then be used for a property in the model:
     :language: php
     :caption: EXT:my_extension/Classes/Domain/Model/LogEntry.php
 
+..  _extbase-model-relations:
 
-Relations
-=========
+Relations between Extbase models
+================================
 
 Extbase supports different types of hierarchical relationships
 between domain objects.
@@ -195,6 +195,7 @@ There are two ways to allow :php:`null` for a property in PHP:
 
 Both declarations have the same meaning.
 
+..  _extbase-model-relations-one-one:
 
 1:1-relationship
 ----------------
@@ -204,6 +205,8 @@ The info always belongs to exactly one blog post. If the blog post gets deleted,
 the info does get related.
 
 ..  include:: /CodeSnippets/Extbase/Domain/Optional1on1.rst.txt
+
+..  _extbase-model-relations-one-many:
 
 1:n-relationship
 ----------------
@@ -241,6 +244,8 @@ relationship is unidirectional.
 
 The model of the comment has no property to get the blog post in this case.
 
+..  _extbase-model-relations-many-one:
+
 n:1-relationships
 -----------------
 
@@ -257,6 +262,8 @@ authors posts. If you would want to get all posts of an author you would have
 to make a query in the PostRepository taking one or both relationships (first
 author, second author) into account.
 
+..  _extbase-model-relations-many-many:
+
 m:n-relationship
 ----------------
 
@@ -265,11 +272,10 @@ multiple blog posts.
 
 ..  include:: /CodeSnippets/Extbase/Domain/RelationshipNonM.rst.txt
 
-
 ..  _extbase-model-hydrating:
 
-Hydrating objects
-=================
+Hydrating / thawing objects of Extbase models
+=============================================
 
 Hydrating (the term originates from `doctrine/orm`_), or in Extbase terms thawing,
 is the act of creating an object from a given database row. The responsible
@@ -282,8 +288,10 @@ the user's perspective.
 
 ..  _doctrine/orm: https://github.com/doctrine/orm
 
-Creating objects with constructor arguments
--------------------------------------------
+..  _extbase-model-constructor:
+
+Creating model objects with constructor arguments
+-------------------------------------------------
 
 Imagine you have a table :sql:`tx_extension_domain_model_blog` and a
 corresponding model or entity (entity is used as a synonym here)
@@ -299,6 +307,8 @@ constructor with a required argument :php:`string $title`.
 This example also shows how the `posts` property is initialized. It is done in
 the constructor because PHP does not allow setting a default value that is of
 type object.
+
+..  _extbase-model-constructor-hydration:
 
 Hydrating objects with constructor arguments
 --------------------------------------------
@@ -323,6 +333,8 @@ the constructor at all. It does so with the help of the library
 But there is more to all this.
 
 ..  _doctrine/instantiator: https://github.com/doctrine/instantiator
+
+..  _extbase-model-initializing:
 
 Initializing objects
 --------------------
@@ -351,6 +363,8 @@ would then still be to define a :php:`__construct()` and
 ..  literalinclude:: _Hydrating/_Blog3.php
     :caption: EXT:my_extension/Classes/Domain/Model/Blog.php
 
+..  _extbase-model-mutation:
+
 Mutating objects
 ----------------
 
@@ -369,6 +383,8 @@ looks a bit dirty and is a way around all business rules but that is what the
     Extbase do. Both, :ref:`validation <extbase_domain_validator>` and property
     mapping, either use existing mutators or gather type information from them.
 
+..  _extbase-model-visibility:
+
 Property visibility
 -------------------
 
@@ -377,6 +393,8 @@ protected or public. As written in the former paragraph,
 :php:`AbstractDomainObject::_setProperty()` is used to bypass setters.
 However, :php:`AbstractDomainObject` is not able to access private properties of
 child classes, hence the need to have protected or public properties.
+
+..  _extbase-model-dependency-injection:
 
 Dependency injection
 --------------------
@@ -393,12 +411,15 @@ the following statements have to be made:
 If you think that your entities need to use/access services, you need to find
 other ways to implement it.
 
-Event
------
+..  _extbase-model-event:
+
+Using an event when a object is thawed
+--------------------------------------
 
 The PSR-14 event :ref:`AfterObjectThawedEvent` is available to modify values
 when creating domain objects.
 
+..  _extbase-model-lazy-loading:
 
 Eager loading and lazy loading
 ==============================
@@ -409,6 +430,8 @@ The annotation :php:`@TYPO3\CMS\Extbase\Annotation\ORM\Lazy` causes Extbase to
 load and build the objects only when they
 are actually needed (lazy loading). This can lead to a significant
 increase in performance.
+
+..  _extbase-model-cascade-remove:
 
 On cascade remove
 =================
@@ -455,6 +478,8 @@ the :php:`uid` of the translated record is kept in the :php:`_localizedUid`.
     workspace overlays.
 
 .. TODO: Explain workspaces in Extbase context
+
+..  _extbase-extending:
 
 Extending existing models
 =========================

@@ -1,11 +1,12 @@
-.. include:: /Includes.rst.txt
+:navigation-title: Controller
 
-.. index:: Extbase; View
-.. _extbase-controller:
+..  include:: /Includes.rst.txt
+..  index:: Extbase; View
+..  _extbase-controller:
 
-================
-Controller
-================
+==================
+Extbase Controller
+==================
 
 **Contents:**
 

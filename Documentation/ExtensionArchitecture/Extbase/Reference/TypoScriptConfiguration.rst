@@ -1,7 +1,6 @@
 .. include:: /Includes.rst.txt
-
 .. index:: Extbase; TypoScript configuration
-.. _extbase_typoscript_configuration:
+.. _extbase-typoscript-configuration:
 
 ========================
 TypoScript configuration
@@ -30,6 +29,7 @@ in :typoscript:`module.tx_[lowercasedextensionname]`, for example
 For details of the available configuration values see
 :ref:`plugin in the TypoScript Reference <t3tsref:plugin>`.
 
+.. _extbase-typoscript-configuration-plugin:
 
 Plugin configuration
 ====================

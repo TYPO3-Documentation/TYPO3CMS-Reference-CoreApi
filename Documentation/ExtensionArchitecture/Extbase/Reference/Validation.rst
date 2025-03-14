@@ -1,15 +1,15 @@
-.. include:: /Includes.rst.txt
+:navigation-title: Validation
 
-.. index:: Extbase, Validation
+..  include:: /Includes.rst.txt
+..  index:: Extbase, Validation
+..  _extbase-validation:
 
-.. _extbase_validation:
+===================================================
+Using Validation for Extbase models and controllers
+===================================================
 
-==========
-Validation
-==========
-
-.. seealso::
-   *  :ref:`extbase_domain_validator` on how to write a custom validator.
+..  seealso::
+    *  :ref:`extbase_domain_validator` on how to write a custom validator.
 
 Extbase provides a number of validators for standard use cases such as
 e-mail addresses, string length, not empty etc.
@@ -21,6 +21,8 @@ controller action or a property / setter in a model.
 It is also possible to write custom validators for properties or complete
 models. See chapter :ref:`Custom validators <extbase_domain_validator>` for
 more information.
+
+..  _extbase-validation-why:
 
 Why is validation needed?
 =========================
@@ -34,15 +36,17 @@ define such rules explicitly.
 In the blog example for the model :php:`Person` the following rules can
 be defined
 
-*  First name and last name should each have no more then 80 chars.
-*  A last name should have at least 2 chars.
-*  The parameter :php:`email` has to contain a  valid email address.
+*   First name and last name should each have no more then 80 chars.
+*   A last name should have at least 2 chars.
+*   The parameter :php:`email` has to contain a  valid email address.
 
 These rules are called *invariants*, because they must be
 valid during the entire lifetime of the object.
 
 At the beginning of your project, it is important to consider which
 invariants your domain objects will consist of.
+
+..  _extbase-validation-when:
 
 When does validation take place?
 ================================
@@ -63,6 +67,8 @@ When the validation fails the method
 :ref:`errorAction() <extbase_class_hierarchy-catching_validation_errors_with_error_action>`
 of the current controller is called.
 
+..  _extbase-validation-model:
+
 Validation of model properties
 ==============================
 
@@ -82,6 +88,8 @@ You can define simple validation rules in the domain model by the annotation
 In this code section the validator :php:`StringLength` provided by Extbase
 in class :php:`\TYPO3\CMS\Extbase\Validation\Validator\StringLengthValidator`
 is applied with one argument.
+
+..  _extbase-validation-controller:
 
 Validation of controller arguments
 ===================================
@@ -104,6 +112,8 @@ is executed. By default a HTTP response with status 400 is returned. If possible
 the user is forwarded to the previous action. This behaviour can be overridden
 in the controller.
 
+..  _extbase-validation-arguments:
+
 Annotations with arguments
 ===========================
 
@@ -116,6 +126,7 @@ examples:
 Available validators shipped with Extbase can be found within
 :file:`EXT:extbase/Classes/Validation/Validator/`.
 
+..  _extbase-validation-manual-creation:
 
 Manually call a validator
 ==========================
