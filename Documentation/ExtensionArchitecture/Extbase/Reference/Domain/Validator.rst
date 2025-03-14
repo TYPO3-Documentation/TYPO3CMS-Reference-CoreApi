@@ -9,7 +9,7 @@ Custom Extbase Validators
 =========================
 
 ..  seealso::
-    *  :ref:`extbase_validation` for general validation in Extbase.
+    *   :ref:`extbase_validation` for general validation in Extbase.
 
 Custom validators are located in the directory :file:`Classes/Domain/Validator`
 and therefore in the namespace :php:`MyVendor\MyExtension\Domain\Validator`.
