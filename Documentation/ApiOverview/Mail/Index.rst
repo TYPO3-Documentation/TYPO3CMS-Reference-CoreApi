@@ -450,7 +450,6 @@ Fluid:
 
     // Create the message
     $mail = GeneralUtility::makeInstance(MailMessage::class);
-    $email = new MailMessage();
 
     // Prepare and send the message
     $mail
@@ -491,7 +490,7 @@ Or, if you prefer, do not concatenate the calls:
     use TYPO3\CMS\Core\Utility\GeneralUtility;
     use TYPO3\CMS\Core\Mail\MailMessage;
 
-    $email = new MailMessage();
+    $mail = GeneralUtility::makeInstance(MailMessage::class);
     $mail->from(new Address('john.doe@example.org', 'John Doe'));
     $mail->to(
         new Address('receiver@example.org', 'Max Mustermann'),
