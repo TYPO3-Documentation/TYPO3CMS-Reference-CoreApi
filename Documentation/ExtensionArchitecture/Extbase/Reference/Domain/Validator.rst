@@ -95,4 +95,4 @@ You can use the PSR-7 request object in a validator, for example to get
 the site settings:
 
 ..  literalinclude:: _Validator/_RequestValidator.php
-    :caption: EXT:my_extension/Classes/Validators/MyCustomValidator.php
+    :caption: EXT:my_extension/Classes/Domain/Validators/MyCustomValidator.php
