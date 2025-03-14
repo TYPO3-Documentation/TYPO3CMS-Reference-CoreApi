@@ -1,11 +1,12 @@
-.. include:: /Includes.rst.txt
+:navigation-title: Caching
 
-.. index:: Extbase; Caching
-.. _extbase_caching:
+..  include:: /Includes.rst.txt
+..  index:: Extbase; Caching
+..  _extbase_caching:
 
-==============================
-Caching
-==============================
+==========================
+Caching in Extbase plugins
+==========================
 
 Extbase clears the TYPO3 cache automatically for update processes. This is called
 *Automatic cache clearing*. This functionality is activated by default. If a domain object is

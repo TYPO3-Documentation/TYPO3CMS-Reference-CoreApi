@@ -1,17 +1,20 @@
 :navigation-title: Introduction
-.. include:: /Includes.rst.txt
-.. index::
-   pair: Extension development; Extbase introduction
 
-.. _extbase-introduction:
+..  include:: /Includes.rst.txt
+..  index::
+    pair: Extension development; Extbase introduction
+
+..  _extbase-introduction:
 
 ====================
 Extbase introduction
 ====================
 
-.. todo:: Refer to a good example, e.g. tea, blog_example?
+..  todo:: Refer to a good example, e.g. tea, blog_example?
 
-.. todo:: Add tips how to get more information or help
+..  todo:: Add tips how to get more information or help
+
+..  _extbase-introduction-what-is:
 
 What is Extbase?
 ================
@@ -43,13 +46,14 @@ Thus, many things, such as backend modules or plugins can be done "the Extbase
 way" or "the Core way". This is a design decision, the extension developer must
 make for the specific use case.
 
-.. attention::
+..  attention::
 
-   Extbase is one of many options in the "toolbox" of TYPO3 extension development.
+    Extbase is one of many options in the "toolbox" of TYPO3 extension development.
 
-   TYPO3 is flexible, often provides several approaches for one thing and it is
-   up to the extension developer to make an informed choice.
+    TYPO3 is flexible, often provides several approaches for one thing and it is
+    up to the extension developer to make an informed choice.
 
+..  _extbase-introduction-or-not:
 
 Extbase or not?
 ===============
@@ -61,20 +65,20 @@ guidance):
 
 Use Extbase if you:
 
-*  wish to get started quickly, e.g. using the
-   :ref:`extension_builder <extension-builder>`
-*  are a beginner or do not have much experience with TYPO3
-*  want to create a "classic" Extbase extension with plugins and (possibly)
-   backend modules (as created with the extension_builder)
+*   wish to get started quickly, e.g. using the
+    :ref:`extension_builder <extension-builder>`
+*   are a beginner or do not have much experience with TYPO3
+*   want to create a "classic" Extbase extension with plugins and (possibly)
+    backend modules (as created with the extension_builder)
 
 Do not use Extbase
 
-*  if performance might be an issue with the "classic" Extbase approach
-*  if there is no benefit from using the Extbase approach
-*  if you are writing an extension where Extbase does not add any or much value,
-   e.g. an extension consisting only of Backend modules, a site package, a
-   collection of content elements, an Extension which is used as a command line
-   tool.
+*   if performance might be an issue with the "classic" Extbase approach
+*   if there is no benefit from using the Extbase approach
+*   if you are writing an extension where Extbase does not add any or much value,
+    e.g. an extension consisting only of Backend modules, a site package, a
+    collection of content elements, an Extension which is used as a command line
+    tool.
 
 There is also the possibility to use a "mixed" approach, e.g. use Extbase
 controllers, but do not use the persistence of Extbase. Use TYPO3
@@ -89,7 +93,7 @@ using "lazy initialization" which is supported within Extbase.
 However, if you use the "mixed" approach, you will not get some of the
 advantages of Extbase and have to write more code yourself.
 
-.. seealso::
+..  seealso::
 
-   For more information to get started with Extension development, see
-   :ref:`extension-create-new`.
+    For more information to get started with Extension development, see
+    :ref:`extension-create-new`.

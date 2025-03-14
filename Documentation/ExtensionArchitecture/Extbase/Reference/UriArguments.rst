@@ -1,6 +1,8 @@
-..  include:: /Includes.rst.txt
+:navigation-title: URI arguments
 
+..  include:: /Includes.rst.txt
 ..  index:: Extbase; URI arguments; arguments
+..  _extbase-arguments:
 
 ===================================
 URI arguments and reserved keywords
@@ -35,7 +37,7 @@ within the plugin `BlogList`.
 
 The following arguments are evaluated:
 
- `tx_(extensionName)_(pluginName)[action]`:
+`tx_(extensionName)_(pluginName)[action]`:
      Controller action to execute
 `tx_(extensionName)_(pluginName)[controller]`
     Controller containing the action
