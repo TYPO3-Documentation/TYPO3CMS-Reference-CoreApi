@@ -53,3 +53,35 @@ as shown in this excerpt of :file:`EXT:examples/Resources/Private/Layouts/Module
 
 Where to display the flash messages in an Extbase-based backend module is
 as simple as moving the ViewHelper around.
+
+By default, all messages are put into the scope of the
+the current plugin namespace with a prefix `extbase.flashmessages.`. So
+if your plugin namespace is computed as `tx_myvendor_myplugin`, the
+flash message queue identifier will be
+`extbase.flashmessages.tx_myvendor_myplugin`.
+
+If you need distinct queues, you can use a custom identifier to fetch
+and operate on that queue:
+
+..  code-block:: php
+
+    $customQueue = $this->getFlashMessageQueue('tx_myvendor_customqueue');
+    // Instead of using $this->addFlashMessage() you will instead directly
+    // access the custom queue:
+    $flashMessage = GeneralUtility::makeInstance(
+            FlashMessage::class,
+            'My flash message in a custom queue',
+            'My flash message title of a custom queue',
+            ContextualFeedbackSeverity::OK,
+            $storeInSession = true,
+    );
+    $customQueue->enqueue($flashMessage);
+
+To access the message of the custom queue in Fluid, you need to pass the
+identifier:
+
+..  code-block:: html
+
+    <f:flashMessages queueIdentifier="tx_myvendor_customqueue" />
+
+Be sure to pick a unique and distinct identifier for your queue.
