@@ -13,21 +13,17 @@ Extbase is an extension framework to create TYPO3 frontend plugins and TYPO3
 backend modules. Extbase can be used to develop extensions but it does not
 have to be used.
 
-Extbase is included in the TYPO3 Core as system extension :php:`extbase`.
-
-**Please note:** Extbase relies on :ref:`frontend TypoScript <t3tsref:start>`
-being present; otherwise the configuration is not applied. This is usually no
-problem - Extbase plugins are typically either included as
-:ref:`USER content object <t3tsref:cobj-user>` (its content is cached and
-returned together with other content elements in fully-cached page context), or
-the Extbase plugin is registered as USER_INT. In this case, the
-TYPO3 Core takes care of calculating TypoScript before the plugin is
-rendered, while other USER content objects are fetched from page cache. This in
-mind you should not use Extbase in another context, like in
-:ref:`middlewares <request-handling-middlewares-extbase>`.
-
-There are also tutorials in the :ref:`Extension Development -
-Tutorials <extension-tutorials>` section.
+Extbase is a framework for developing TYPO3 extensions, providing a structured
+approach based on the Model-View-Controller (MVC) pattern. It follows
+principles of Domain-Driven Design (DDD), enabling developers to build
+well-structured domain models. By leveraging TYPO3’s object-oriented
+programming concepts and dependency injection, Extbase promotes maintainability
+and testability. It integrates seamlessly with Fluid, TYPO3’s templating
+engine, for flexible rendering of frontend content. Extbase also offers a
+repository pattern and automatic data mapping to interact with the database.
+While it is a supported and widely used framework within TYPO3, developers
+should evaluate whether it fits their specific project needs, as performance
+considerations may lead to :ref:`alternative approaches <extension-tutorials>`.
 
 ..  toctree::
     :titlesonly:
