@@ -1,26 +1,25 @@
 :navigation-title: Reference
-.. include:: /Includes.rst.txt
 
-.. index:: Extbase; Reference
-.. _extbase_reference:
+..  include:: /Includes.rst.txt
+..  index:: Extbase; Reference
+..  _extbase_reference:
 
 =================
 Extbase reference
 =================
 
+..  toctree::
+    :titlesonly:
 
-.. toctree::
-   :titlesonly:
-
-   Domain/Index
-   Controller/Index
-   View/Index
-   UriBuilder
-   FrontendPlugins
-   TypoScriptConfiguration
-   Annotations
-   Validation
-   FileUpload
-   Caching
-   Localization
-   UriArguments
+    Domain/Index
+    Controller/Index
+    View/Index
+    UriBuilder
+    FrontendPlugins
+    TypoScriptConfiguration
+    Annotations
+    Validation
+    FileUpload
+    Caching
+    Localization
+    UriArguments

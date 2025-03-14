@@ -1,12 +1,13 @@
-.. include:: /Includes.rst.txt
-.. index::
-   pair: Extension development; Extbase
+:navigation-title: Extbase
 
-.. _extbase:
+..  include:: /Includes.rst.txt
+..  index::
+    pair: Extension development; Extbase
+..  _extbase:
 
-=======
-Extbase
-=======
+=====================================
+Extbase: Extension framework in TYPO3
+=====================================
 
 Extbase is an extension framework to create TYPO3 frontend plugins and TYPO3
 backend modules. Extbase can be used to develop extensions but it does not

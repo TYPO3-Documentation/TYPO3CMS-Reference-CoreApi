@@ -1,8 +1,8 @@
 :navigation-title: Examples
-.. include:: /Includes.rst.txt
+..  include:: /Includes.rst.txt
 
-.. index:: Extbase; Examples
-.. _extbase_examples:
+..  index:: Extbase; Examples
+..  _extbase-examples:
 
 ================
 Extbase Examples
@@ -11,8 +11,12 @@ Extbase Examples
 ..  contents::
     :local:
 
+..  _extbase-examples-extensions:
+
 Example extensions
 ==================
+
+..  _extbase-examples-extensions-tea:
 
 Tea example
 -----------
@@ -23,17 +27,27 @@ unit/functional/acceptance testing and continuous integration.
 
 You can also use this extension to manage your collection of delicious teas.
 
+..  _extbase-examples-extensions-blog:
+
 Blog example
 ------------
 
-The extension :composer:`t3docs/blog-example` contains working examples of all the features documented in the :ref:`Extbase Reference <extbase_reference>` manual.
+The extension :composer:`t3docs/blog-example` contains working examples of all
+the features documented in the :ref:`Extbase Reference <extbase_reference>` manual.
 
-This extension should not be used as a base for building your own extension or used to blog in a live environment.
+This extension should not be used as a base for building your own extension
+or used to blog in a live environment.
 
-If you want to set up a blog, take a look at the :composer:`t3docs/blog-example` extension or combine :composer:`georgringer/news` with a comment extension of your choice.
+If you want to set up a blog, take a look at the :composer:`t3docs/blog-example`
+extension or combine :composer:`georgringer/news` with a comment extension of
+your choice.
+
+..  _extbase-examples-extensions-real-world:
 
 Real-world examples
 ===================
+
+..  _extbase-examples-user-module:
 
 Backend user module
 -------------------
@@ -41,6 +55,8 @@ Backend user module
 In the TYPO3 Core, the system extension :composer:`typo3/cms-beuser` has backend modules
 based on Extbase. It can therefore be used as a guide on how to develop
 backend modules with Extbase.
+
+..  _extbase-examples-extensions-news:
 
 News
 ----

@@ -1,11 +1,12 @@
-..  include:: /Includes.rst.txt
+:navigation-title: ActionController
 
+..  include:: /Includes.rst.txt
 ..  index:: Extbase; ActionController
 ..  _extbase-action-controller:
 
-================
-ActionController
-================
+==============================
+Extending the ActionController
+==============================
 
 Most Extbase controllers are based on the
 :php:`\TYPO3\CMS\Extbase\Mvc\Controller\ActionController`. It is theoretically
@@ -138,6 +139,8 @@ like this:
 ..  literalinclude:: _Snippets/_ActionController/_ext_localconf.php
     :caption: EXT:blog_example/ext_localconf.php (Excerpt)
 
+..  _extbase-action-controller-stop:
+
 Stop further processing in a controller's action
 ================================================
 
@@ -193,6 +196,8 @@ you can return a specific object through the :php:`responseFactory`:
 ..  hint::
     If you want to return a JSON response, see :ref:`extbase_responses` to achieve this
     with a special :php:`$this->jsonResponse()` method.
+
+..  _extbase-action-controller-events:
 
 Events
 ======

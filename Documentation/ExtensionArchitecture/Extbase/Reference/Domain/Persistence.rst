@@ -1,11 +1,12 @@
-.. include:: /Includes.rst.txt
+:navigation-title: Persistence
 
-.. index:: Extbase; Persistence
-.. _extbase-Persistence:
+..  include:: /Includes.rst.txt
+..  index:: Extbase; Persistence
+..  _extbase-persistence:
 
-===========
-Persistence
-===========
+==================================================
+Persistence: Saving Extbase models to the database
+==================================================
 
 It is possible to define models that are not persisted to the database. However, in
 the most common use cases you will want to save your model to the database and load
@@ -13,8 +14,10 @@ it from there. If you want to extend an existing model you can also follow the
 steps on this page. See also :ref:`Tutorial: Extending an Extbase model
 <extending-extbase-model>`.
 
-.. contents::
+..  contents:: Table of contents
    :local:
+
+..  _extbase-persistence-database-connection:
 
 Connecting the model to the database
 ====================================
@@ -27,28 +30,28 @@ Therefore you have to create a TCA definition in file
 
 It is recommended to stick to the following naming scheme for the table:
 
-.. code-block:: none
-   :caption: Recommended naming scheme for table names
+..  code-block:: none
+    :caption: Recommended naming scheme for table names
 
-   tx_{extkey}_domain_model_{mymodel}
+    tx_{extkey}_domain_model_{mymodel}
 
-   tx_blogexample_domain_model_info
+    tx_blogexample_domain_model_info
 
 The SQL table for the model can be defined like this:
 
-.. code-block:: sql
-   :caption: EXT:blog_example/ext_tables.sql
+..  code-block:: sql
+    :caption: EXT:blog_example/ext_tables.sql
 
-   CREATE TABLE tx_blogexample_domain_model_info (
+    CREATE TABLE tx_blogexample_domain_model_info (
       name varchar(255) DEFAULT '' NOT NULL,
       post int(11) DEFAULT '0' NOT NULL
-   );
+    );
 
 The according TCA definition could look like that:
 
-.. include:: /CodeSnippets/Extbase/Persistence/TCA.rst.txt
+..  include:: /CodeSnippets/Extbase/Persistence/TCA.rst.txt
 
-.. _extbase_manual_mapping:
+..  _extbase_manual_mapping:
 
 Use arbitrary database tables with an Extbase model
 ---------------------------------------------------
@@ -63,7 +66,7 @@ extension `frontend` is used as persistence table for the model
 :php:`Administrator`. Additionally the table :sql:`fe_groups` is used to persist
 the model :php:`FrontendUserGroup`.
 
-.. include:: /CodeSnippets/Extbase/Persistence/ExtbasePersistenceClasses.rst.txt
+..  include:: /CodeSnippets/Extbase/Persistence/ExtbasePersistenceClasses.rst.txt
 
 The key :php:`recordType` makes sure that the defined model is only used if the
 :ref:`type of the record <t3tca:types>` is set to
@@ -122,6 +125,7 @@ which returns both SubClass1 and SubClass2 objects depending on the value of
 the :sql:`record_type` field. This way related domain objects can as one
 in some contexts.
 
+..  _extbase-persistence-custom-model:
 
 Create a custom model for a Core table
 ======================================
@@ -159,9 +163,10 @@ are required:
     ..  literalinclude:: _Classes.php
         :caption: EXT:my_extension/Configuration/Extbase/Persistence/Classes.php
 
+..  _extbase-persistence-events:
 
-Events
-======
+Events related to Extbase Persistence
+=====================================
 
 Some :ref:`PSR-14 events <EventDispatcher>` are available:
 
