@@ -63,6 +63,21 @@ The request object compatible with the PSR-7
     TYPO3 v10 and TYPO3 v11 you have to use the :ref:`global variable
     <typo3-request-global-variable>`.
 
+..  _typo3-request-extbase-validator:
+
+Extbase validator
+-----------------
+
+..  versionadded:: 13.2
+    Extbase :php-short:`\TYPO3\CMS\Extbase\Validation\Validator\AbstractValidator`
+    provides a getter and a setter for the PSR-7 Request object.
+
+In Extbase validators the current request is available with
+`$this->getRequest()` if they extend the :php-short:`\TYPO3\CMS\Extbase\Validation\Validator\AbstractValidator`:
+
+..  literalinclude:: /ExtensionArchitecture/Extbase/Reference/Domain/_Validator/_RequestValidator.php
+    :caption: EXT:my_extension/Classes/Domain/Validators/MyCustomValidator.php
+
 ..  _typo3-request-viewhelper:
 
 ViewHelper
