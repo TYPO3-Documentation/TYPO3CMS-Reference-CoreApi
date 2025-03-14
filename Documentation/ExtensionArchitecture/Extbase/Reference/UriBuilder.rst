@@ -1,5 +1,6 @@
-..  include:: /Includes.rst.txt
+:navigation-title: URI builder
 
+..  include:: /Includes.rst.txt
 ..  index:: Extbase; URI builder
 ..  _extbase-uri-builder:
 
@@ -9,6 +10,7 @@ URI builder (Extbase)
 
 The URI builder offers a convenient way to create links in an Extbase context.
 
+..  _extbase-uri-builder-controller:
 
 Usage in an Extbase controller
 ==============================
@@ -29,6 +31,7 @@ the URI builder.
     As the URI builder holds state, you have to call :php:`reset()` before
     creating a URL.
 
+..  _extbase-uri-builder-other:
 
 Usage in another context
 ========================
@@ -57,6 +60,7 @@ Setting the request object before first usage is mandatory.
     warning. The fallback has been removed in TYPO3 v13.
 
 ..  _extbase-uri-builder-viewhelper:
+
 Example in Extbase ViewHelper
 -----------------------------
 

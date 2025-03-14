@@ -1,7 +1,6 @@
-.. include:: /Includes.rst.txt
-.. index::
-   Extbase; Type converters
-.. _extbase_Type_converters:
+..  include:: /Includes.rst.txt
+..  index:: Extbase; Type converters
+..  _extbase-type-converters:
 
 ===============
 Type converters
@@ -25,6 +24,8 @@ You can find the type converters provided by Extbase in the directory
 `EXT:extbase/Classes/Property/TypeConverter
 <https://github.com/TYPO3/typo3/tree/main/typo3/sysext/extbase/Classes/Property/TypeConverter>`__.
 
+..  _extbase-type-converters-custom:
+
 Custom type converters
 ======================
 
@@ -40,7 +41,7 @@ can be used as singletons and multiple times in succession.
 The registration and configuration of a type converter is done in the extension's
 :file:`Services.yaml`:
 
-..  code-block:: yaml
+..   code-block:: yaml
     :caption: EXT:my_extension/Configuration/Services.yaml
 
     services:
@@ -51,20 +52,19 @@ The registration and configuration of a type converter is done in the extension'
             target: \DateTime
             sources: int,string
 
-.. note::
-   For conversions of Extbase controller action parameters into Extbase domain
-   model objects the incoming data is usually a numeric type, but in case of an update
-   action it might as well be an array containing its ID as property `__identifier`.
+For conversions of Extbase controller action parameters into Extbase domain
+model objects the incoming data is usually a numeric type, but in case of an update
+action it might as well be an array containing its ID as property `__identifier`.
 
-   Thus the configuration should list :php:`array` as one of its sources:
+Thus the configuration should list :php:`array` as one of its sources:
 
-   ..  code-block:: yaml
-       :caption: EXT:my_extension/Configuration/Services.yaml
+..   code-block:: yaml
+    :caption: EXT:my_extension/Configuration/Services.yaml
 
-       services:
-         MyVendor\MyExtension\Property\TypeConverter\MyCustomModelObjectConverter:
-           tags:
-             - name: extbase.type_converter
-               priority: 10
-               target: MyVendor\MyExtension\Domain\Model\MyCustomModel
-               sources: int,string,array
+    services:
+      MyVendor\MyExtension\Property\TypeConverter\MyCustomModelObjectConverter:
+        tags:
+          - name: extbase.type_converter
+            priority: 10
+            target: MyVendor\MyExtension\Domain\Model\MyCustomModel
+            sources: int,string,array
