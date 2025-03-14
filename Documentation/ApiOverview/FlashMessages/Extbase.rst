@@ -55,7 +55,7 @@ Where to display the flash messages in an Extbase-based backend module is
 as simple as moving the ViewHelper around.
 
 By default, all messages are put into the scope of the
-the current plugin namespace with a prefix `extbase.flashmessages.`. So
+current plugin namespace with a prefix `extbase.flashmessages.`. So
 if your plugin namespace is computed as `tx_myvendor_myplugin`, the
 flash message queue identifier will be
 `extbase.flashmessages.tx_myvendor_myplugin`.
