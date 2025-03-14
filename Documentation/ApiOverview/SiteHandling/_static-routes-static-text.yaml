@@ -1,7 +1,8 @@
-route: robots.txt
-type: staticText
-content: |
-  Sitemap: https://example.org/sitemap.xml
-  User-agent: *
-  Allow: /
-  Disallow: /forbidden/
+routes:
+  - route: robots.txt
+    type: staticText
+    content: |
+      Sitemap: https://example.org/sitemap.xml
+      User-agent: *
+      Allow: /
+      Disallow: /forbidden/
