@@ -76,7 +76,7 @@ In Extbase validators the current request is available with
 `$this->getRequest()` if they extend the :php-short:`\TYPO3\CMS\Extbase\Validation\Validator\AbstractValidator`:
 
 ..  literalinclude:: /ExtensionArchitecture/Extbase/Reference/Domain/_Validator/_RequestValidator.php
-    :caption: EXT:my_extension/Classes/Validators/MyCustomValidator.php
+    :caption: EXT:my_extension/Classes/Domain/Validators/MyCustomValidator.php
 
 ..  _typo3-request-viewhelper:
 

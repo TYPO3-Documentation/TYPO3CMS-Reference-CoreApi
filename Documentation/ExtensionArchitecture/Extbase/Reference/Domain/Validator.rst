@@ -15,10 +15,10 @@ Custom validators are located in the directory :file:`Classes/Domain/Validator`
 and therefore in the namespace :php:`MyVendor\MyExtension\Domain\Validator`.
 
 All validators must implement :php-short:`TYPO3\CMS\Extbase\Validation\Validator\ValidatorInterface`.
-The usually extend the :php-short:`\TYPO3\CMS\Extbase\Validation\Validator\AbstractValidator`.
+They usually extend the :php-short:`\TYPO3\CMS\Extbase\Validation\Validator\AbstractValidator`.
 
 ..  note::
-    In the package :php:`\TYPO3\CMS\Extbase\Validation\Validator\*` Extbase
+    In the directory :php:`\TYPO3\CMS\Extbase\Validation\Validator\*` Extbase
     offers many validators for default requirements like the validation of
     emails, numbers and strings. You do not need to implement such basic
     checks yourself.
@@ -80,7 +80,7 @@ Extbase validators are capable of :ref:`dependency injection <Dependency-Injecti
 without further configuration, you can use the constructor method:
 
 ..  literalinclude:: _Validator/_MyCustomValidator.php
-    :caption: EXT:my_extension/Classes/Validators/MyCustomValidator.php
+    :caption: EXT:my_extension/Classes/Domain/Validators/MyCustomValidator.php
 
 ..  _extbase_domain_validator-request:
 
