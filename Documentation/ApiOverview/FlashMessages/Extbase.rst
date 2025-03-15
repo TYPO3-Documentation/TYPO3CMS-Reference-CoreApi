@@ -66,7 +66,7 @@ Using explicit flash message queues in Extbase
 ==============================================
 
 It is possible to add a message to a different flash message queue. Use 
-cases would be detailed display of different Flash message queues in 
+cases could be a detailed display of different flash message queues in 
 different places of the page  or displaying a Flash message when you 
 forward to a different controller or even a different extension. 
 
