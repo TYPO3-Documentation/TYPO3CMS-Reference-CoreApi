@@ -67,7 +67,7 @@ Using explicit flash message queues in Extbase
 
 It is possible to add a message to a different flash message queue. Use 
 cases could be a detailed display of different flash message queues in 
-different places of the page  or displaying a Flash message when you 
+different places of the page  or displaying a flash message when you 
 forward to a different controller or even a different extension. 
 
 If you need distinct queues, you can use a custom identifier to fetch
