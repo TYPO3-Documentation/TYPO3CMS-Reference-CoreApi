@@ -39,8 +39,8 @@ A more elaborate example:
    );
 
 
-The messages are then displayed by Fluid with the relevant Viewhelper
-as shown in this excerpt of :file:`EXT:examples/Resources/Private/Layouts/Module.html`:
+The messages are then displayed by Fluid with the 
+`FlashMessages ViewHelper <f:flashMessages> <https://docs.typo3.org/permalink/t3viewhelper:typo3-fluid-flashmessages>`_:
 
 .. code-block:: html
 
@@ -60,6 +60,16 @@ if your plugin namespace is computed as `tx_myvendor_myplugin`, the
 flash message queue identifier will be
 `extbase.flashmessages.tx_myvendor_myplugin`.
 
+..  _flash-messages-extbase-distinct:
+
+Using explicit flash message queues in Extbase
+==============================================
+
+It is possible to add a message to a different flash message queue. Use 
+cases would be detailed display of different Flash message queues in 
+different places of the page  or displaying a Flash message when you 
+forward to a different controller or even a different extension. 
+
 If you need distinct queues, you can use a custom identifier to fetch
 and operate on that queue:
 
@@ -77,11 +87,15 @@ and operate on that queue:
     );
     $customQueue->enqueue($flashMessage);
 
-To access the message of the custom queue in Fluid, you need to pass the
-identifier:
+..  _flash-messages-extbase-fluid-queueidentifier:
+
+Fluid flash messages ViewHelper with explicit queue identifier
+==============================================================
+
+When you used an :ref:`explicit flash message queue <flash-messages-extbase-distinct>`
+during enqueueing the message it will only be displayed on the page if you use the
+same identifier in the `FlashMessages ViewHelper <f:flashMessages> <https://docs.typo3.org/permalink/t3viewhelper:typo3-fluid-flashmessages>`_.
 
 ..  code-block:: html
 
     <f:flashMessages queueIdentifier="tx_myvendor_customqueue" />
-
-Be sure to pick a unique and distinct identifier for your queue.
