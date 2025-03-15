@@ -93,7 +93,7 @@ Fluid flash messages ViewHelper with explicit queue identifier
 ==============================================================
 
 When you used an :ref:`explicit flash message queue <flash-messages-extbase-distinct>`
-during enqueueing the message it will only be displayed on the page if you use the
+during enqueueing the message, it will only be displayed on the page if you use the
 same identifier in the `FlashMessages ViewHelper <f:flashMessages> <https://docs.typo3.org/permalink/t3viewhelper:typo3-fluid-flashmessages>`_.
 
 ..  code-block:: html
