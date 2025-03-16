@@ -13,21 +13,50 @@ Extbase is an extension framework to create TYPO3 frontend plugins and TYPO3
 backend modules. Extbase can be used to develop extensions but it does not
 have to be used.
 
-Extbase is included in the TYPO3 Core as system extension :php:`extbase`.
+..  _extbase-start-overview:
 
-**Please note:** Extbase relies on :ref:`frontend TypoScript <t3tsref:start>`
-being present; otherwise the configuration is not applied. This is usually no
-problem - Extbase plugins are typically either included as
-:ref:`USER content object <t3tsref:cobj-user>` (its content is cached and
-returned together with other content elements in fully-cached page context), or
-the Extbase plugin is registered as USER_INT. In this case, the
-TYPO3 Core takes care of calculating TypoScript before the plugin is
-rendered, while other USER content objects are fetched from page cache. This in
-mind you should not use Extbase in another context, like in
-:ref:`middlewares <request-handling-middlewares-extbase>`.
+Overview
+========
 
-There are also tutorials in the :ref:`Extension Development -
-Tutorials <extension-tutorials>` section.
+Extbase is a framework for developing TYPO3 extensions, providing a structured
+approach based on the `Model-View-Controller (MVC) pattern <https://de.wikipedia.org/wiki/Model_View_Controller>`_.
+
+..  _extbase-start-principles:
+
+Key Principles
+==============
+
+Extbase follows principles of `Domain-Driven Design (DDD) <https://en.wikipedia.org/wiki/Domain-driven_design>`_,
+enabling developers to build well-structured domain models. By leveraging
+object-oriented programming concepts and dependency injection, Extbase
+promotes maintainability and testability.
+
+..  _extbase-start-fluid-integration:
+
+Integration with Fluid
+======================
+
+Extbase integrates seamlessly with `Fluid <https://docs.typo3.org/permalink/t3coreapi:fluid>`_,
+TYPO3's templating engine, for flexible rendering of frontend content.
+
+..  _extbase-start-database-interaction:
+
+Database Interaction
+====================
+
+Extbase offers a repository pattern and automatic data mapping to interact with
+the database.
+
+..  _extbase-start-considerations:
+
+Considerations
+==============
+
+While Extbase is a supported and widely used framework within TYPO3, developers
+should evaluate whether it fits their specific project needs, as performance
+considerations may lead to different implementation strategies. For practical
+guidance, refer to :ref:`extension tutorials <extension-tutorials>`, which
+demonstrate best practices for using Extbase in various scenarios.
 
 ..  toctree::
     :titlesonly:
