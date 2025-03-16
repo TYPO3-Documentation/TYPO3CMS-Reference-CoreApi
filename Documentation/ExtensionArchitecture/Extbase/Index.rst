@@ -19,7 +19,7 @@ approach based on the
 It follows principles of
 `Domain-Driven Design (DDD) <https://en.wikipedia.org/wiki/Domain-driven_design>`,
 enabling developers to build well-structured domain models. By leveraging
-TYPO3's object-oriented programming concepts and dependency injection, Extbase
+object-oriented programming concepts and dependency injection, Extbase
 promotes maintainability and testability. It integrates seamlessly with
 `Fluid <https://docs.typo3.org/permalink/t3coreapi:fluid>`_,
 TYPO3's templating engine, for flexible rendering of frontend content. Extbase
