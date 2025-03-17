@@ -31,7 +31,7 @@ A basic site package
 To get started you need a basic
 `site package <https://docs.typo3.org/permalink/t3coreapi:site-package>`_.
 
-You can use the `official Site Package Builder <https://get.typo3.org.ddev.site/sitepackage>`_
+You can use the official `Site Package Builder <https://get.typo3.org/sitepackage>`_
 to generate one for you or follow the :ref:`site package tutorial <t3sitepackage:start>`.
 
 .. _introduction-getting-help:
