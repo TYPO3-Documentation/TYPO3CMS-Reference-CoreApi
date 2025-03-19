@@ -31,6 +31,11 @@ impractical for some sites) or add content security policy headers for
 these directories - basically all public available base directories of
 file storages (`sys_file_storage`).
 
+Please note that the CSP configuration mentioned in :ref:`content-security-policy`
+only applies to pages served by the TYPO3 Middleware. Direct access to
+files not served by TYPO3 (=PHP), as is the case with files in `fileadmin`, needs
+manual server configuration.
+
 The following example sends a corresponding CSP_ header for any file
 accessed via :samp:`https://example.org/fileadmin/...`:
 
