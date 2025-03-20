@@ -108,9 +108,8 @@ intimidating, here are a few key concepts:
     exemptions are valid in a policy, a so-called "Nonce" (Hash) is created.
 
     *   TYPO3 can manage these Nonces and apply them were configured.
-    *   Nonces are set from a pool of available hashes, and whenever a Nonce is used
-        ("consumed") it will be unique to a specific directive and change in the next
-        request.
+    *   Nonces are retrieved from :php:`\TYPO3\CMS\Core\Security\ContentSecurityPolicy\ConsumableNonce`
+        and will be used for any directive within the scope of a single HTTP request.
 
 *   When a webpage with activated policies is shown in a client's browser, each HTML tag
     violating the policy will not be interpreted by the browser.
