@@ -65,8 +65,8 @@ via constructor in a class:
 
 ..  _extbase-uri-builder-viewhelper:
 
-Example in Extbase ViewHelper
------------------------------
+Example in Fluid ViewHelper
+---------------------------
 
 ..  literalinclude:: _UriBuilder/_MyLinkViewHelper.php
     :caption: EXT:my_extension/Classes/ViewHelper/MyLinkViewHelper.php
