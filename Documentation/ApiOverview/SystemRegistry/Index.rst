@@ -55,7 +55,7 @@ the first time an entry is accessed. A value can be set with the :php:`set()`
 method.
 
 ..  note::
-    Do not store binary data in the registry, it it not intended for this
+    Do not store binary data in the registry, it is not intended for this
     purpose. Use the file system instead, if you have such needs.
 
 
