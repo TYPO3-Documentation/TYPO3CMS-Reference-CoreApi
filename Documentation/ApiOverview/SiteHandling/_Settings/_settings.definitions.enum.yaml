@@ -1,0 +1,13 @@
+settings:
+  example.types.string-enum:
+    type: string
+    default: 'summer'
+    category: Example.types
+    label: 'Type string with enum'
+    enum:
+      spring: 'Spring time'
+      summer: 'Seasons in the sun'
+      fall: 'Wine harvest'
+      winter: 'Cold'
+    description: 'Site settings can provide possible options via the `enum`
+    specifier, that will be selectable in the editor GUI.'
