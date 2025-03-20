@@ -105,7 +105,8 @@ intimidating, here are a few key concepts:
 
 *   There are possible exemptions to directives for specific content created on specific
     pages created by TYPO3 in your frontend (or backend modules). To verify, that these
-    exemptions are valid in a policy, a so-called "Nonce" (Hash) is created.
+    exemptions are valid in a policy, a so-called "Nonce" (unique hash, a "**n**umber used **once**")
+    is created (details on `https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/nonce`__).
 
     *   TYPO3 can manage these Nonces and apply them were configured.
     *   Nonces are retrieved from :php:`\TYPO3\CMS\Core\Security\ContentSecurityPolicy\ConsumableNonce`
