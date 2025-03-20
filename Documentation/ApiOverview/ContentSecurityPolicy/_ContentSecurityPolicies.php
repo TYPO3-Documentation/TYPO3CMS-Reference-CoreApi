@@ -73,5 +73,5 @@ return Map::fromEntries(
                 new UriValue('https://*.workers.example.com'),
             ),
         ),
-    ]
+    ],
 );
