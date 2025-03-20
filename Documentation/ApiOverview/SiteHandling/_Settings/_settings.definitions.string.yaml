@@ -1,0 +1,10 @@
+settings:
+  example.types.string:
+    type: string
+    default: 'EXT:example/Resources/Private/Templates/'
+    category: Example.types
+    label: 'Type string'
+    description: 'Converts almost all data types into a string. If an object
+    has been specified, it must be stringable, otherwise no conversion
+    takes place.
+    Boolean values are converted to "true" and "false".'

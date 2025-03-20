@@ -138,8 +138,13 @@ Definition types
         :type: string
         :Path: settings.[my_val].type = int
 
+        ..  figure:: /Images/ManualScreenshots/SiteHandling/SiteSettingsTypeInt.png
+            :alt: Screenshot of a site setting field of type int
+
         Checks whether the value is already an integer or can be interpreted as an
         integer. If yes, the string is converted into an integer.
+
+        ..  literalinclude:: _Settings/_settings.definitions.int.yaml
 
     ..  confval:: number
         :name: site-setting-type-number
@@ -150,10 +155,15 @@ Definition types
         string can be interpreted as an integer or float. If yes, the string is
         converted to an integer or float.
 
+        ..  literalinclude:: _Settings/_settings.definitions.number.yaml
+
     ..  confval:: bool
         :name: site-setting-type-bool
         :type: string
         :Path: settings.[my_val].type = bool
+
+        ..  figure:: /Images/ManualScreenshots/SiteHandling/SiteSettingsTypeBool.png
+            :alt: Screenshot of a site setting field of type enum
 
         If the value is already a boolean, it is returned directly 1 to 1.
 
@@ -162,14 +172,21 @@ Definition types
         If the value is a string, the corresponding Boolean value is returned for
         `true`, `false`, `yes`, `no`, `on`, `off`, `0` and `1`.
 
+        ..  literalinclude:: _Settings/_settings.definitions.bool.yaml
+
     ..  confval:: string
         :name: site-setting-type-string
         :type: string
         :Path: settings.[my_val].type = string
 
+        ..  figure:: /Images/ManualScreenshots/SiteHandling/SiteSettingsTypeString.png
+            :alt: Screenshot of a site setting field of type string
+
         Converts almost all data types into a string. If an object has been
         specified, it must be `stringable`, otherwise no conversion takes place.
         Boolean values are converted to `true` and `false`.
+
+        ..  literalinclude:: _Settings/_settings.definitions.string.yaml
 
     ..  confval:: text
         :name: site-setting-type-text
@@ -179,10 +196,28 @@ Definition types
         Exactly the same as the `string` type. Use it as an alias if someone doesn't
         know what to do with `string`.
 
+        ..  literalinclude:: _Settings/_settings.definitions.text.yaml
+
+    ..  confval:: enum
+        :name: site-setting-type-enum
+        :type: string
+        :Path: settings.[my_val].type = enum
+
+        ..  figure:: /Images/ManualScreenshots/SiteHandling/SiteSettingsTypeEnum.png
+            :alt: Screenshot of a site setting field of type enum
+
+        Site settings can provide possible options via the `enum` specifier, that will
+        be selectable in the editor GUI.
+
+        ..  literalinclude:: _Settings/_settings.definitions.enum.yaml
+
     ..  confval:: stringlist
         :name: site-setting-type-stringlist
         :type: string
         :Path: settings.[my_val].type = stringlist
+
+        ..  figure:: /Images/ManualScreenshots/SiteHandling/SiteSettingsTypeStringlist.png
+            :alt: Screenshot of a site setting field of type stringlist
 
         The value must be an array whose array key starts at 0 and increases by 1 per element. This sequence is
         checked using the internal PHP method array_is_list in order to prevent named array keys from the outset.
@@ -190,10 +225,15 @@ Definition types
 
         The `string` type is executed for each array entry.
 
+        ..  literalinclude:: _Settings/_settings.definitions.stringlist.yaml
+
     ..  confval:: color
         :name: site-setting-type-color
         :type: string
         :Path: settings.[my_val].type = color
+
+        ..  figure:: /Images/ManualScreenshots/SiteHandling/SiteSettingsTypeColor.png
+            :alt: Screenshot of a site setting field of type color
 
         Checks whether the specified string can be interpreted as a color code.
         Entries starting with `rgb`, `rgba` and `#` are permitted here.
@@ -201,11 +241,4 @@ Definition types
         For `#` color codes, for example, the system checks whether they
         have 3, 6 or 8 digits.
 
-
-    ..  figure:: /Images/ManualScreenshots/SiteHandling/SiteSettingsTypes1.png
-        :alt: Screenshot demonstration the input fields for different setting types (Part 1)
-
-    ..  figure:: /Images/ManualScreenshots/SiteHandling/SiteSettingsTypes2.png
-        :alt: Screenshot demonstration the input fields for different setting types (Part 2)
-
-        A demonstration of the different setting types
+        ..  literalinclude:: _Settings/_settings.definitions.color.yaml

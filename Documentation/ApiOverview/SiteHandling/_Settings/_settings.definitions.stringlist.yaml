@@ -1,0 +1,12 @@
+settings:
+  example.types.stringlist:
+    type: stringlist
+    default:  ['Dog', 'Cat', 'Bird', 'Spider']
+    category: Example.types
+    label: 'Type stringlist'
+    description: 'The value must be an array whose array keys start at 0 and
+    increase by 1 per element. The list in this type is derived from the
+    internal PHP method array_is_list() and has nothing to do with the fact
+    that comma-separated lists can also be converted here.
+
+    The `string` type is executed for each array entry.'

@@ -1,0 +1,8 @@
+settings:
+  example.types.text:
+    type: text
+    default: 'EXT:example/Resources/Private/Templates/'
+    category: Example.types
+    label: 'Type text'
+    description: 'Exactly the same as the `string` type. Use it as an alias if
+    someone doesn''t know what to do with `string`.'
