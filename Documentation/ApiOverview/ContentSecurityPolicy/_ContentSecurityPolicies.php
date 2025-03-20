@@ -58,4 +58,18 @@ return Map::fromEntries([
             SourceScheme::blob,
         ),
     ),
+],
+[
+    // You can also additionally provide frontend declarations
+    Scope::frontend(),
+    new MutationCollection(
+        // Sets (overrides) the directive,
+        // thus ignores 'self' of the 'default-src' directive
+        // Results in `worker-src https://*.workers.example.com:`
+        new Mutation(
+            MutationMode::Set,
+            Directive::WorkerSrc,
+            new UriValue('https://*.workers.example.com'),
+        ),
+    ),
 ]);

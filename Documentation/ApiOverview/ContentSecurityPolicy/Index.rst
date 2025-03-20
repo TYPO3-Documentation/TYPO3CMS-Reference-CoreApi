@@ -7,6 +7,8 @@
 Content Security Policy
 =======================
 
+..  todo: Split this up into sub-pages?
+
 ..  contents::
     :local:
 
@@ -17,6 +19,8 @@ Content Security Policy (CSP) is a security standard introduced to prevent
 :ref:`cross-site scripting (XSS) <security-xss>`, clickjacking and other code
 injection attacks resulting of malicious content being executed in the trusted
 web page context.
+
+Think of CSP in terms of a "allow/deny" list for remote contents.
 
 ..  seealso::
     If you are not familiar with Content Security Policy, please read the
@@ -39,7 +43,9 @@ the browser, and the browser will enforce these rules (and reject non-allowed co
 This rejection can also be logged.
 
 Content Security Policy declarations can be applied to a TYPO3 website in
-frontend and backend scope with a dedicated API.
+frontend and backend scope with a dedicated API. This API allows for specific, site or
+extension-specific configuration instead of manually setting the CSP rules with
+server-side configuration through `httpd.conf/nginx.conf` or `.htaccess` files.
 
 To delegate Content Security Policy handling to TYPO3 frontend, at least one of
 the feature flags
@@ -63,11 +69,20 @@ see section :ref:`content-security-policy-backend-rules`.
 ..  _content-security-policy-terminology:
 
 Terminology
-=============
+===========
 
 This document will use very specific wording that is part of the CSP W3C specification,
 these terms are not "invented" by TYPO3. Since reading the W3C RFC can be very
-intimidating, here are a few key concepts:
+intimidating, here are a few key concepts.
+
+..  note::
+    Skip to the section :ref:`content-security-policy-example` to see a "real-life" usage
+    scenario, if you can better understand from actual code examples.
+
+..  _content-security-policy-terminology-directives:
+
+Directives
+----------
 
 *   CSP consists of multiple rules (or "directives"), that are part of a "policy". This
     policy says, what functionality the site's output is allowed to use.
@@ -85,11 +100,21 @@ intimidating, here are a few key concepts:
     and called "mutations". The relation of a "child rule" to it's "parent" is
     also called "ancestor chain".
 
+..  _content-security-policy-terminology-policy:
+
+Applying the policy
+-------------------
+
 *   A final policy is compiled of all these directives, and then sent as a HTTP
     response header `Content-Security-Policy: ...`.
 
 *   In TYPO3, directives can be specified via PHP syntax (within Extensions) and
     YAML syntax (within site configuration).
+
+..  _content-security-policy-terminology-mutations:
+
+Mutations
+---------
 
 *   These rules can influence each other, this is where the concept of "mutations" come in.
     The "policy builder" of TYPO3 applies each configured mutation, no matter where it was
@@ -103,6 +128,11 @@ intimidating, here are a few key concepts:
     "sources" with the values of additional parameters of a directive. Sources are
     web site addresses / URLs.
 
+..  _content-security-policy-terminology-nonces:
+
+Nonces
+------
+
 *   There are possible exemptions to directives for specific content created on specific
     pages created by TYPO3 in your frontend (or backend modules). To verify, that these
     exemptions are valid in a policy, a so-called "Nonce" (unique hash, a "**n**umber used **once**")
@@ -111,6 +141,12 @@ intimidating, here are a few key concepts:
     *   TYPO3 can manage these Nonces and apply them were configured.
     *   Nonces are retrieved from :php:`\TYPO3\CMS\Core\Security\ContentSecurityPolicy\ConsumableNonce`
         and will be used for any directive within the scope of a single HTTP request.
+    *   More details are covered in :ref:`content-security-policy-nonce`.
+
+..  _content-security-policy-terminology-violations:
+
+Policy violations and reporting
+-------------------------------
 
 *   When a webpage with activated policies is shown in a client's browser, each HTML tag
     violating the policy will not be interpreted by the browser.
@@ -126,6 +162,81 @@ intimidating, here are a few key concepts:
 
 *   All active rules can be seen in the backend configuration section, see
     :ref:`content-security-policy-backend-rules`.
+
+..  _content-security-policy-example:
+
+Example scenario
+================
+
+Let's define a small real-world scenario:
+
+*   You have one TYPO3 installation with two sites (frontend), `example.com` and `example.org`.
+*   You have created custom backend modules for some distinct functionality.
+*   `example.com` is a site where your editors fully control all frontend content, and they
+    want to have full flexibility of what and how to embed. You use a CDN network to deliver
+    your own large assets, like videos.
+*   `example.org` is a community-driven site, where users can manage profiles and post chats,
+    and where you want to prevent exploits on your site. Some embedding to a set of allowed
+    web services (YouTube, Google Analytics) must be possible.
+
+So you need to take care of security measures, and find a pragmatic way how to allow foreign
+content (like YouTube, widgets, tracking codes, assets)
+
+Specifically you want to to set these rules, as an example:
+
+Rules for example.com (editorial)
+---------------------------------
+
+*    :html:`<iframe>` to anyhwere should be allowed
+*    :html:`<img>` sources to anywhere should be allowed
+*    :html:`<script>` sources to `cdn.example.com` and `*.youtube.com` and `*.google.com`
+     should be allowed
+
+Rules for example.org (community)
+---------------------------------
+
+*    :html:`<iframe>` to `cdn.example.com`, `*.youtube.com` should be allowed
+*    :html:`<img>` sources to `cdn.example.com` and `*.instagram.com` should be allowed
+*    :html:`<script>` sources to `cdn.example.com` and `*.youtube.com` and `*.google.com`
+     should be allowed
+
+Rules for TYPO3 Backend
+-----------------------
+
+Normal TYPO3 backend rules need to be applied, so we only want to add some
+rules for custom backend modules:
+
+*    :html:`<iframe>` to `cdn.example.com` should be allowed
+*    :html:`<img>` sources to `cdn.example.com` should be allowed
+*    :html:`<script>` sources to `cdn.example.com` should be allowed
+
+Resulting configuration example:
+--------------------------------
+
+And this is how you would do that with a CSP YAML configuration file, one per site:
+
+..  literalinclude:: _csp_example_com.yaml
+    :language: yaml
+    :caption: config/sites/example-com/csp.yaml | typo3conf/sites/example-com/csp.yaml
+
+..  literalinclude:: _csp_example_org.yaml
+    :language: yaml
+    :caption: config/sites/example-org/csp.yaml | typo3conf/sites/example-org/csp.yaml
+
+..  literalinclude:: _ContentSecurityPolicies_example.php
+    :language: yaml
+    :caption: EXT:my_extension/Configuration/ContentSecurityPolicies.php
+
+This is really just a simple demo, that has room for improvements. For example,
+the allowed list of `src` values to any directive could actually be set through their common
+parent, the `default-src` attribute. There is a very deep and nested possibility
+to address the attributes of many HTML5 tags, which is covered in depth on
+`https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy#directives`__.
+
+You can take a look into the PHP enum :php:`TYPO3\CMS\Core\Security\ContentSecurityPolicy\Directive`,
+which gives you an overview of all supported directives.
+
+Read on to understand more of the underlying API builder concepts below.
 
 ..  _content-security-policy-configuration:
 
@@ -183,8 +294,35 @@ example:
 ..  literalinclude:: _ContentSecurityPolicies.php
     :caption: EXT:my_extension/Configuration/ContentSecurityPolicies.php
 
-..  todo: Explain "Scope", "MutationCollection", "Mutation", "MutationMode", ...
+The API here is much like the YAML syntax. The PHP code needs to return
+an mapped array of an :php:`MutationCollection` instance with all rules
+put into a sub-array, containing instances of a single :php:`Mutation`.
 
+Each :php:`Mutation` instance is like a Data Object (DO) where it's constructor
+allows you to specifiy a `mode` (type :php:`MutationMode`), a `directive`
+(type :php:`Directive`) and one ore more actual values ("sources", type :php:`UriValue`
+or `SourceKeyword`).
+
+Additionally, a :php:`Scope` instance object is included, which can either
+be :php:`Scope::backend()` or :php:`Scope::frontend()`.
+
+A good PHP IDE will allow for good autocompletion and hinting, and using
+a boilerplate configuration like the example above helps you to get started.
+
+..  todo: Better explain "Scope", "MutationCollection", "Mutation", "MutationMode"
+..  todo: Link to API docs / FQDNs?
+
+.. _content-security-policy-backend-specification:
+
+Backend-specific
+------------------
+
+The YAML configuration only applies to the frontend part of TYPO3.
+Backend policies need to be set using the PHP API, within an extension
+as described in the :ref:`section above <content-security-policy-extension>`.
+
+You need to ensure that `Scope::backend()` is set in the mapped return array
+for the rules you want to setup.
 
 .. _content-security-policy-site:
 
@@ -575,7 +713,9 @@ This can be done with sha256/sha384/sha512 hashing of referenced script, and inc
 them as a valid directive, like this:
 
 ..  code-block
+    :caption: Example YAML configuration directive, for example in config/sitepackage/csp.yaml
 
+    #...
     - mode: "extend"
       directive: "script-src"
       sources:
@@ -586,10 +726,15 @@ The "sha256-..." block would be the SHA256 hash created from a file like 'script
 For example, a file like this:
 
 ..  code-block:: javascript
+    :caption: script.js (some javascript file that is included in your website)
 
     console.log('Hello.');
 
-would correspond to a SHA256 hash of `6c7d3c1bf856597a2c8ae2ca7498cb4454a32286670b20cf36202fa578b491a9`
+would correspond to a SHA256 hash of `6c7d3c1bf856597a2c8ae2ca7498cb4454a32286670b20cf36202fa578b491a9`.
+
+..  note::
+    These hashes can be created by shell scripts like `sha256` and several libraries,
+    also in nodeJS bundling tools.
 
 The browser would evaluate a reference JavaScript file and calculate it's SHA256
 hash and compare it to the list of allowed hashes.
@@ -599,7 +744,8 @@ the CSP SHA hash would need to be adopted. This could be automated by a PHP defi
 of CSP rules and hashing files automatically, which would be a performance-intense
 process and call for its own caching.
 
-There is no automatism for this kind of hashing in TYPO3 (yet), so it has to be done manually.
+There is no automatism for this kind of hashing in TYPO3 (yet), so it has to be done manually
+as outlined above.
 
 .. _content-security-policy-backend:
 .. _content-security-policy-reporting:

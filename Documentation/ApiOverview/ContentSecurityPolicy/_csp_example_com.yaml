@@ -1,0 +1,23 @@
+# Inherits default site-unspecific frontend policy mutations (enabled per default)
+inheritDefault: true
+mutations:
+  # Allow iframes to anywhere (HTTPS only, not HTTP)
+  # (Note: it's "frame-src" not "iframe-src")
+  - mode: "extend"
+    directive: "frame-src"
+    sources:
+      - "https:"
+
+  # Allow img src to anyhwere (HTTPS only, not HTTP)
+  - mode: "extend"
+    directive: "img-src"
+    sources:
+      - "https:"
+
+  # Allow script src to the specified domains (HTTPS only)
+  - mode: "extend"
+    directive: "script-src"
+    sources:
+      - "https://cdn.example.com"
+      - "https://*.youtube.com"
+      - "https://*.google.com"
