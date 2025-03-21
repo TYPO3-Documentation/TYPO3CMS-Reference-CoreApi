@@ -201,7 +201,7 @@ Rules for example.org (community)
      should be allowed
 
 Rules for the TYPO3 backend
------------------------
+---------------------------
 
 Normal TYPO3 backend rules need to be applied, so we only want to add some
 rules for custom backend modules:
