@@ -200,7 +200,7 @@ Rules for example.org (community)
 *    :html:`<script>` sources to `cdn.example.com` and `*.youtube.com` and `*.google.com`
      should be allowed
 
-Rules for TYPO3 Backend
+Rules for the TYPO3 backend
 -----------------------
 
 Normal TYPO3 backend rules need to be applied, so we only want to add some
