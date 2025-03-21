@@ -59,7 +59,7 @@ need to be enabled.
 
 ..  versionchanged:: 13.0
 
-    In TYPO3 backend the Content Security Policy is always enforced.
+    In the TYPO3 backend the Content Security Policy is always enforced.
 
 Within the TYPO3 backend, a specific backend module is available to inspect policy
 violations / reports, and there is also a list to see all configured CSP rules,
