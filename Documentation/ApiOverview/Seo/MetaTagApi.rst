@@ -37,7 +37,7 @@ You can use that manager to add your meta tag; see the example below for the :ht
     $metaTagManager = GeneralUtility::makeInstance(MetaTagManagerRegistry::class)->getManagerForProperty('og:title');
     $metaTagManager->addProperty('og:title', 'This is the OG title from a controller');
 
-This code will result in a :html:`<meta property="og:title" content="This is the OG title from a controller" />` tag in frontend.
+This code will result in a :html:`<meta name="og:title" content="This is the OG title from a controller" />` tag in frontend.
 
 If you need to specify sub-properties, e.g. :html:`og:image:width`, you can use the following code:
 
