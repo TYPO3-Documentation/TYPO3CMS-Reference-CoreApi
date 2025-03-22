@@ -97,7 +97,7 @@ Directives
 
 *   Directives may build upon each other, a bit like CSS definitions (`Cascading Style Sheet`)
     do. However, these are more meant to modify a basic rule on an earlier level,
-    and called "mutations". The relation of a "child rule" to it's "parent" is
+    and called "mutations". The relation of a "child rule" to its "parent" is
     also called "ancestor chain".
 
 ..  _content-security-policy-terminology-policy:
