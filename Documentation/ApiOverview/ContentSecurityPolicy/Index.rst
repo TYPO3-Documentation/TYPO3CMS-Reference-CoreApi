@@ -295,7 +295,7 @@ example:
     :caption: EXT:my_extension/Configuration/ContentSecurityPolicies.php
 
 The API here is much like the YAML syntax. The PHP code needs to return
-an mapped array of an :php:`MutationCollection` instance with all rules
+a mapped array of an :php:`MutationCollection` instance with all rules
 put into a sub-array, containing instances of a single :php:`Mutation`.
 
 Each :php:`Mutation` instance is like a Data Object (DO) where it's constructor
