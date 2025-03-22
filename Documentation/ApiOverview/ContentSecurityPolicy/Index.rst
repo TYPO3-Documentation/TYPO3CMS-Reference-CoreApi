@@ -43,7 +43,7 @@ the browser, and the browser will enforce these rules (and reject non-allowed co
 This rejection can also be logged.
 
 Content Security Policy declarations can be applied to a TYPO3 website in
-frontend and backend scope with a dedicated API. This API allows for specific, site or
+frontend and backend scope with a dedicated API. This API allows for site-specific or
 extension-specific configuration instead of manually setting the CSP rules with
 server-side configuration through `httpd.conf/nginx.conf` or `.htaccess` files.
 
