@@ -33,7 +33,7 @@ file storages (`sys_file_storage`).
 
 Please note that the CSP configuration mentioned in :ref:`content-security-policy`
 only applies to pages served by the TYPO3 Middleware. Direct access to
-files not served by TYPO3 (=PHP), as is the case with files in `fileadmin`, needs
+files not served by TYPO3 (=PHP), as is the case with files in :file:`fileadmin/`, needs
 manual server configuration.
 
 The following example sends a corresponding CSP_ header for any file
