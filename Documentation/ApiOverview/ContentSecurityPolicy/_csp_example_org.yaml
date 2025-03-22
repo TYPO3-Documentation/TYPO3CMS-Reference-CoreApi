@@ -1,7 +1,7 @@
 # Inherits default site-unspecific frontend policy mutations (enabled per default)
 inheritDefault: true
 mutations:
-  # Allow iframe src to the specified domains (HTTPS only)
+  # Allow frame/iframe src to the specified domains (HTTPS only)
   - mode: "extend"
     # (Note: it's "frame-src" not "iframe-src")
     directive: "frame-src"
