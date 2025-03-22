@@ -228,7 +228,7 @@ And this is how you would do that with a CSP YAML configuration file, one per si
     :caption: EXT:my_extension/Configuration/ContentSecurityPolicies.php
 
 This is really just a simple demo, that has room for improvements. For example,
-the allowed list of `src` values to any directive could actually be set through their common
+the allowed list of `*-src` values to any directive could actually be set through their common
 parent, the `default-src` attribute. There is a very deep and nested possibility
 to address the attributes of many HTML5 tags, which is covered in depth on
 `https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy#directives`__.
