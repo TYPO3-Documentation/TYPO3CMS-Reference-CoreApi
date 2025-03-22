@@ -298,7 +298,7 @@ The API here is much like the YAML syntax. The PHP code needs to return
 a mapped array of an :php:`MutationCollection` instance with all rules
 put into a sub-array, containing instances of a single :php:`Mutation`.
 
-Each :php:`Mutation` instance is like a Data Object (DO) where it's constructor
+Each :php:`Mutation` instance is like a Data Object (DO) where its constructor
 allows you to specifiy a `mode` (type :php:`MutationMode`), a `directive`
 (type :php:`Directive`) and one ore more actual values ("sources", type :php:`UriValue`
 or `SourceKeyword`).
