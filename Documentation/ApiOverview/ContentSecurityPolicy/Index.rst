@@ -20,7 +20,7 @@ Content Security Policy (CSP) is a security standard introduced to prevent
 injection attacks resulting of malicious content being executed in the trusted
 web page context.
 
-Think of CSP in terms of a "allow/deny" list for remote contents.
+Think of CSP in terms of an "allow/deny" list for remote contents.
 
 ..  seealso::
     If you are not familiar with Content Security Policy, please read the
