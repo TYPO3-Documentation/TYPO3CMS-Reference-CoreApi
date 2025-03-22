@@ -364,7 +364,7 @@ and might need inclusion into the policy.
 
 Since reports can be sent by any browser, they can possibly easily flood
 a site with requests and take up storage space. Reports are stored in the
-:sql:`sys_http_report` database table.
+:sql:`sys_http_report` database table when using the endpoint provided by TYPO3.
 
 To influence whether this endpoint accepts reports,
 the disposition-specific property `reportingUrl` can be configured and
