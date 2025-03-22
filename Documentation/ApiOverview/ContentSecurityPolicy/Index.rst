@@ -156,7 +156,7 @@ Policy violations and reporting
     and display reports in a backend module.
 
 *   Policies can be declared with "dispositions", to indicate how they are handled.
-    "Enforce" means that a policy is in effect, and "Report-Only" allows to only pretend
+    "Enforce" means that a policy is in effect, and "Report" allows to only pretend
     a policy is in effect, to gather knowledge about possible improvements of a
     webpage's output. Both dispositions can be set independently in TYPO3.
 
