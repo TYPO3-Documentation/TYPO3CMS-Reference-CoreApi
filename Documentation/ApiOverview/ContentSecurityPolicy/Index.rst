@@ -356,7 +356,7 @@ Site-specific Content-Security-Policy endpoints
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 The reporting endpoint is used to receive browser reports about violations to
-the security policy, for example if a YouTube-URL was requested, but could
+the security policy, for example if a YouTube URL was requested, but could
 not be displayed in an iframe due to a directive not allowing this.
 
 Reports like this can help to gain insight, what URLs are used by editors
