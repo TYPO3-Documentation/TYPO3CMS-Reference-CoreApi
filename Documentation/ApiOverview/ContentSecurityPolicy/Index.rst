@@ -35,7 +35,7 @@ Think of CSP in terms of an "allow/deny" list for remote contents.
 
     *   https://www.youtube.com/watch?v=a_cS2XfCplI&t=28766s
 
-CSP rules are used to describe, which external links or functionality are allowed for
+CSP rules are used to describe, which external assets or functionality are allowed for
 certain HTML tags (like :html:`<script>`, :html:`<img>`, :html:`<iframe>`). This allows
 to restrict external resources or JavaScript execution with security in mind. When
 accessing a page, these rules are sent as part of the HTTP Request from the server to
