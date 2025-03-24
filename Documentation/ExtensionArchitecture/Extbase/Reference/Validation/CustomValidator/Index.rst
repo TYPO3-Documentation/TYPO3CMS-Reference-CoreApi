@@ -1,12 +1,12 @@
-:navigation-title: Validator
+:navigation-title: Custom Validator
 
-..  include:: /Includes.rst.txt
-..  index:: Extbase; Validator
-..  _extbase_domain_validator:
+.. include:: /Includes.rst.txt
+.. index:: Extbase; Validator
+.. _extbase_domain_validator:
 
-=========================
-Custom Extbase Validators
-=========================
+=======================================
+Custom Extbase validator implementation
+=======================================
 
 ..  seealso::
     *   :ref:`extbase_validation` for general validation in Extbase.
@@ -42,7 +42,7 @@ can be uniquely identified.
 This validator can be used for any string property of model now by including it
 in the annotation of that parameter:
 
-..  literalinclude:: _CustomValidator/_PropertyValidatorUsage.php
+..  literalinclude:: _PropertyValidatorUsage.php
     :caption: EXT:blog_example/Classes/Domain/Model/Blog.php, modified
 
 ..  note::
@@ -68,7 +68,7 @@ function :php:`addErrorForProperty()` should be used instead of :php:`addError()
 
 The validator is used as annotation in the action methods of the controller:
 
-..  literalinclude:: _CustomValidator/_ObjectValidatorUsage.php
+..  literalinclude:: _ObjectValidatorUsage.php
     :caption: EXT:blog_example/Classes/Controller/BlogController.php, modified
 
 ..  _extbase_domain_validator-di:
@@ -79,7 +79,7 @@ Dependency injection in validators
 Extbase validators are capable of :ref:`dependency injection <Dependency-Injection>`
 without further configuration, you can use the constructor method:
 
-..  literalinclude:: _Validator/_MyCustomValidator.php
+..  literalinclude:: _MyCustomValidator.php
     :caption: EXT:my_extension/Classes/Domain/Validators/MyCustomValidator.php
 
 ..  _extbase_domain_validator-request:
@@ -94,5 +94,5 @@ Request object in Extbase validators
 You can use the PSR-7 request object in a validator, for example to get
 the site settings:
 
-..  literalinclude:: _Validator/_RequestValidator.php
+..  literalinclude:: _RequestValidator.php
     :caption: EXT:my_extension/Classes/Domain/Validators/MyCustomValidator.php
