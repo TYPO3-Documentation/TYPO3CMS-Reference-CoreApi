@@ -52,10 +52,10 @@ server-side configuration through `httpd.conf/nginx.conf` or `.htaccess` files.
 To delegate Content Security Policy handling to the TYPO3 frontend, at least one of
 the feature flags:
 
-    *   :confval:`globals-typo3-conf-vars-sys-features-security-frontend-enforceContentSecurityPolicy`
-        (for enforcing)
-    *   :confval:`globals-typo3-conf-vars-sys-features-security-frontend-reportContentSecurityPolicy`
-        (for report-only mode)
+*   :confval:`globals-typo3-conf-vars-sys-features-security-frontend-enforceContentSecurityPolicy`
+    (for enforcing)
+*   :confval:`globals-typo3-conf-vars-sys-features-security-frontend-reportContentSecurityPolicy`
+    (for report-only mode)
 
 needs to be enabled, **or** the site-specific :file:`csp.yaml` configuration
 file needs to set the `enforce` or `reporting` disposition like this:
