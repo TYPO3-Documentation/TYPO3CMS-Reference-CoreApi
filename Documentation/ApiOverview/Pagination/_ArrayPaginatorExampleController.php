@@ -32,12 +32,7 @@ final class ExampleController extends ActionController
 
         // ... more logic ...
 
-        $this->view->assignMultiple(
-            [
-                'pagination' => $pagination,
-                'paginator' => $paginator,
-            ],
-        );
+        $this->view->assign('pagination', $pagination);
 
         return $this->htmlResponse();
     }
