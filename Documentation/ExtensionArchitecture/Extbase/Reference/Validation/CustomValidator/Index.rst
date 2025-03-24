@@ -1,12 +1,12 @@
+:navigation-title: Custom Validator
+
 .. include:: /Includes.rst.txt
-
 .. index:: Extbase; Validator
-
 .. _extbase_domain_validator:
 
-=========
-Validator
-=========
+=======================================
+Custom Extbase validator implementation
+=======================================
 
 .. seealso::
    *  :ref:`extbase_validation` for general validation in Extbase.
@@ -40,7 +40,7 @@ can be uniquely identified.
 This validator can be used for any string property of model now by including it
 in the annotation of that parameter:
 
-..  literalinclude:: _CustomValidator/_PropertyValidatorUsage.php
+..  literalinclude:: _PropertyValidatorUsage.php
     :caption: EXT:blog_example/Classes/Domain/Model/Blog.php, modified
 
 .. note::
@@ -64,7 +64,7 @@ function :php:`addErrorForProperty()` should be used instead of :php:`addError()
 
 The validator is used as annotation in the action methods of the controller:
 
-..  literalinclude:: _CustomValidator/_ObjectValidatorUsage.php
+..  literalinclude:: _ObjectValidatorUsage.php
     :caption: EXT:blog_example/Classes/Controller/BlogController.php, modified
 
 Dependency injection in validators
@@ -73,20 +73,20 @@ Dependency injection in validators
 Starting with TYPO3 v12 Extbase validators are capable of :ref:`dependency injection <Dependency-Injection>`
 without further configuration, you can use the constructor method:
 
-..  literalinclude:: _Validator/_MyCustomValidator.php
+..  literalinclude:: _MyCustomValidator.php
     :language: php
     :caption: EXT:my_extension/Classes/Validators/MyCustomValidator.php
 
 Extensions that want to support both TYPO3 v12 and v11 have to implement the
 method :php:`setOptions` and use the injector method for dependency injection:
 
-..  literalinclude:: _Validator/_MyCustomValidatorv11v12.php
+..  literalinclude:: _MyCustomValidatorv11v12.php
     :language: php
     :caption: EXT:my_extension/Classes/Validators/MyCustomValidator.php
 
 Additionally, the validator requiring dependency injection has to be registered
 in the extension's :file:`Services.yaml` until TYPO3 v11 support is dropped:
 
-..  literalinclude:: _Validator/_Services.yaml
+..  literalinclude:: _Services.yaml
     :language: yaml
     :caption: EXT:my_extension/Configuration/Services.yaml
