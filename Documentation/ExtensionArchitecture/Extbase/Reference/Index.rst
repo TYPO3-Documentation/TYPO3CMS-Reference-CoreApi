@@ -19,7 +19,7 @@ Extbase reference
    FrontendPlugins
    TypoScriptConfiguration
    Annotations
-   Validation
+   Validation/Index
    FileUpload
    Caching
    Localization

@@ -22,6 +22,15 @@ It is also possible to write custom validators for properties or complete
 models. See chapter :ref:`Custom validators <extbase_domain_validator>` for
 more information.
 
+..  contents:: Table of contents
+
+..  toctree::
+    :caption: Subpages
+    :glob:
+    :titlesonly:
+
+    */Index
+
 Why is validation needed?
 =========================
 
@@ -71,7 +80,7 @@ You can define simple validation rules in the domain model by the annotation
 
 **Example:**
 
-..  literalinclude:: _Annotations/_Validate.php
+..  literalinclude:: ../_Annotations/_Validate.php
     :caption: EXT:blog_example/Classes/Domain/Model/Blog.php, modified
 
 In this code section the validator :php:`StringLength` provided by Extbase
@@ -105,7 +114,7 @@ Annotations with arguments
 Annotations can be called with zero, one or more arguments. See the following
 examples:
 
-..  literalinclude:: _Annotations/_Validate.php
+..  literalinclude:: ../_Annotations/_Validate.php
     :caption: EXT:blog_example/Classes/Domain/Model/Person.php, modified
 
 Available validators shipped with Extbase can be found within
