@@ -1,0 +1,9 @@
+settings:
+  example.types.number:
+    type: number
+    default: 3.16
+    category: Example.types
+    label: 'Type number'
+    description: 'Checks whether the value is already an integer or float or
+      whether the string can be interpreted as an integer or float. If yes,
+      the string is converted to an integer or float.'
