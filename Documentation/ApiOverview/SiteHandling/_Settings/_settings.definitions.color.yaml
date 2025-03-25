@@ -1,0 +1,11 @@
+settings:
+  example.types.color:
+    type: color
+    default: '#FF8700'
+    category: Example.types
+    label: 'Type color'
+    description: 'Checks whether the specified string can be interpreted as a
+    color code. Entries starting with `rgb`, `rgba` and `#` are permitted here.
+
+    For `#` color codes, for example, the system checks whether they
+    have 3, 6 or 8 digits.'

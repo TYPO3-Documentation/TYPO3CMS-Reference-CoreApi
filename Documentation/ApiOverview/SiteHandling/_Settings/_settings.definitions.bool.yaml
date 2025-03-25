@@ -1,0 +1,13 @@
+settings:
+  example.types.bool:
+    type: bool
+    default: true
+    category: Example.types
+    label: 'Type bool'
+    description: 'Casts the value to a boolean.'
+  example.types.bool-false:
+    type: bool
+    default: false
+    category: Example.types
+    label: 'Type bool'
+    description: 'Casts the value to a boolean.'
