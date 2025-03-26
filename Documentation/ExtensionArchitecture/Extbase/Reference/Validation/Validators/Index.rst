@@ -21,7 +21,19 @@ along with example usage for each using PHP attributes.
 AlphanumericValidator
 =====================
 
-Ensures a value contains only letters and numbers.
+Checks that a value contains **only letters and numbers** — no spaces, symbols,
+or special characters.
+
+This includes letters from **many languages**, not just A–Z. For example,
+letters from alphabets like **Hebrew, Arabic, Cyrillic**, and others are also
+allowed.
+
+This is useful for fields like usernames or codes where only plain text
+characters are allowed.
+
+If you want to allow any symbols (like `@`, `#`, `-`) or spaces, use the
+`RegularExpressionValidator <https://docs.typo3.org/permalink/t3coreapi:extbase-validator-regularexpression>`_
+instead.
 
 ..  code-block:: php
 
