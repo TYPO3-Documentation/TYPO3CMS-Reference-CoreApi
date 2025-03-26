@@ -4,10 +4,10 @@
 ..  _extbase-validator:
 
 =======================================
-Built-in Validators provided by Extbase
+Built-in validators provided by Extbase
 =======================================
 
-This document lists all built-in Extbase validators available in TYPO3 13,
+This document lists all built-in Extbase validators,
 along with example usage for each using PHP attributes.
 
 ..  seealso::
