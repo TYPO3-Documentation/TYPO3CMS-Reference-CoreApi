@@ -508,6 +508,8 @@ StringLengthValidator
 The :php-short:`\TYPO3\CMS\Extbase\Validation\Validator\StringLengthValidator`
 validates the length of a string.
 
+The check is also multi-byte save. For example "Ö" is counted as ONE charakter.
+
 ..  code-block:: php
 
     #[Validate([
@@ -601,7 +603,7 @@ Use cases
 
 ..  note::
 
-    If you need to validate other URI schemes (e.g. `mailto:`, `ftp:`, `tel:`),
+    If you need to validate other URI schemes (e.g. `mailto:`, `tel:`),
     use a custom validator or the
     `RegularExpressionValidator <https://docs.typo3.org/permalink/extbase-validator-regularexpression>`_.
 
