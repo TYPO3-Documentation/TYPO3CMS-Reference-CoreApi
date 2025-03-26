@@ -213,7 +213,7 @@ FileNameValidator
 
 The :php-short:`TYPO3\CMS\Extbase\Validation\Validator\FileNameValidator`
 validates, that the given :php-short:`\TYPO3\CMS\Core\Http\UploadedFile` or
-:php-short:`\TYPO3\CMS\Extbase\Persistence\ObjectStorage` of `UploadedFile`
+:php-short:`\TYPO3\CMS\Extbase\Persistence\ObjectStorage` with objects of type `UploadedFile`
 objects does not contain a PHP executable file by checking the given file
 extension.
 
@@ -229,7 +229,7 @@ FileSizeValidator
 
 The :php-short:`TYPO3\CMS\Extbase\Validation\Validator\FileSizeValidator`
 validates, that the given :php-short:`\TYPO3\CMS\Core\Http\UploadedFile`
-:php-short:`\TYPO3\CMS\Extbase\Persistence\ObjectStorage` of `UploadedFile`
+:php-short:`\TYPO3\CMS\Extbase\Persistence\ObjectStorage` with objects of type `UploadedFile`
 objects do not exceed the file size configured via the options.
 
 Options:
@@ -266,7 +266,7 @@ ImageDimensionsValidator
 
 The :php-short:`\TYPO3\CMS\Extbase\Validation\Validator\ImageDimensionsValidator`
 validates image dimensions of a given :php-short:`\TYPO3\CMS\Core\Http\UploadedFile` or
-:php-short:`\TYPO3\CMS\Extbase\Persistence\ObjectStorage` of `UploadedFile`
+:php-short:`\TYPO3\CMS\Extbase\Persistence\ObjectStorage` with objects of type `UploadedFile`
 objects.
 
 Options:
@@ -312,7 +312,7 @@ MimeTypeValidator
 
 The :php-short:`\TYPO3\CMS\Extbase\Validation\Validator\MimeTypeValidator`
 validates MIME types of a given :php-short:`\TYPO3\CMS\Core\Http\UploadedFile` or
-:php-short:`\TYPO3\CMS\Extbase\Persistence\ObjectStorage` of `UploadedFile`
+:php-short:`\TYPO3\CMS\Extbase\Persistence\ObjectStorage` with objects of type `UploadedFile`
 objects.
 
 Does also validate, if the extension of the validated file matches the allowed file extensions
