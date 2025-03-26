@@ -16,7 +16,7 @@ along with example usage for each using PHP attributes.
 
 ..  contents:: Validators in Extbase
 
-..  _extbase-validator-alpanumeric:
+..  _extbase-validator-alphanumeric:
 
 AlphanumericValidator
 =====================
@@ -30,7 +30,6 @@ Ensures a value contains only letters and numbers.
 
 ..  _extbase-validator-boolean:
 
-
 BooleanValidator
 ================
 
@@ -39,7 +38,7 @@ Checks if a value matches a specific boolean value (`true` or `false`).
 This validator is useful when you want to enforce that a property explicitly
 evaluates to either `true` or `false`, such as for checkboxes in forms.
 
-By default, it does not enforce any specific value unless the `is` option is
+By default, it accepts any boolean value unless the `is` option is
 set.
 
 **Options:**
@@ -57,14 +56,14 @@ Require that a value must be `true` (e.g. checkbox must be checked):
 
 ..  code-block:: php
 
-    #[Validate(['validator' => 'Boolean', 'options' => ['is' => 'false']])]
+    #[Validate(['validator' => 'Boolean', 'options' => ['is' => true]])]
     protected bool $termsAccepted;
 
 Require that a value must be `false`:
 
 ..  code-block:: php
 
-    #[Validate(['validator' => 'Boolean', 'options' => ['is' => 'false']])]
+    #[Validate(['validator' => 'Boolean', 'options' => ['is' => false]])]
     protected bool $isBlocked;
 
 ..  _extbase-validator-collection:
@@ -75,7 +74,7 @@ CollectionValidator
 The `CollectionValidator` is a built-in Extbase validator for validating arrays
 or collections, such as arrays of DTOs or `ObjectStorage<T>` elements.
 
-It allows you to apply validation rules to **each individual item** in a
+It allows you to apply a single validation to **each individual item** in a
 collection. The validation is recursive: every item is passed through the
 validator you specify.
 
@@ -201,7 +200,7 @@ FileNameValidator
 =================
 
 The :php-short:`TYPO3\CMS\Extbase\Validation\Validator\FileNameValidator`
-validates, that the given :php-short:`\TYPO3\CMS\Core\Http\UploadedFile`
+validates, that the given :php-short:`\TYPO3\CMS\Core\Http\UploadedFile` or
 :php-short:`\TYPO3\CMS\Extbase\Persistence\ObjectStorage` of `UploadedFile`
 objects does not contain a PHP executable file by checking the given file
 extension.
@@ -224,7 +223,7 @@ objects do not exceed the file size configured via the options.
 Options:
 
 `minimum`
-    The minimum file size to accept
+    The minimum file size to accept in bytes, accepts `K` / `M` / `G` suffixes
 `maximum`
     The maximum file size to accept
 
@@ -241,7 +240,7 @@ size.
 FloatValidator
 ==============
 
-Checks if a value is a float.
+Checks if a value is a floating point number.
 
 ..  code-block:: php
 
@@ -254,7 +253,7 @@ ImageDimensionsValidator
 ========================
 
 The :php-short:`\TYPO3\CMS\Extbase\Validation\Validator\ImageDimensionsValidator`
-validate image dimensions of a given :php-short:`\TYPO3\CMS\Core\Http\UploadedFile`
+validates image dimensions of a given :php-short:`\TYPO3\CMS\Core\Http\UploadedFile` or
 :php-short:`\TYPO3\CMS\Extbase\Persistence\ObjectStorage` of `UploadedFile`
 objects.
 
@@ -300,21 +299,21 @@ MimeTypeValidator
 =================
 
 The :php-short:`\TYPO3\CMS\Extbase\Validation\Validator\MimeTypeValidator`
-validates mime types of a given :php-short:`\TYPO3\CMS\Core\Http\UploadedFile`
+validates MIME types of a given :php-short:`\TYPO3\CMS\Core\Http\UploadedFile` or
 :php-short:`\TYPO3\CMS\Extbase\Persistence\ObjectStorage` of `UploadedFile`
 objects.
 
-Does also validate, if the given file extension matches allowed file extensions
-for the detected mime type.
+Does also validate, if the extension of the validated file matches the allowed file extensions
+for the detected MIME type.
 
 Options:
 
 `allowedMimeTypes`
-    Allowed mime types (using */* IANA media types)
+    Allowed MIME types (using */* IANA media types)
 
 `ignoreFileExtensionCheck`
-    If set to "true", the file extension check is disabled.
-    Be aware of security considerations when setting this to "true".
+    If set to :php:`true`, the file extension check is disabled.
+    Be aware of security considerations when setting this to :php:`true`.
 
 ..  include:: _NoExamples.rst.txt
 
@@ -517,7 +516,6 @@ validates the length of a string.
     ])]
     protected string $description;
 
-
 ..  _extbase-validator-string:
 
 StringValidator
@@ -536,7 +534,7 @@ validates that a mixed variable is a string. Fails for array, numbers and bools.
 TextValidator
 =============
 
-Checks if the given value is a valid text (contains no XML tags).
+Checks if the given value is a valid text (contains no HTML/XML tags).
 
 ..  note::
     Be aware that the value of this check entirely depends on the output context.
