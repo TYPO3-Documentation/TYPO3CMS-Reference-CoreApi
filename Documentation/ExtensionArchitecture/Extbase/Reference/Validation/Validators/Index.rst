@@ -26,7 +26,8 @@ along with example usage for each using PHP attributes.
 AlphanumericValidator
 =====================
 
-Checks that a value contains **only letters and numbers** — no spaces, symbols,
+The :php-short:`\TYPO3\CMS\Extbase\Validation\Validator\AlphanumericValidator`
+checks that a value contains **only letters and numbers** — no spaces, symbols,
 or special characters.
 
 This includes letters from **many languages**, not just A–Z. For example,
@@ -50,10 +51,8 @@ instead.
 BooleanValidator
 ================
 
-Checks if a value matches a specific boolean value (`true` or `false`).
-
-This validator is useful when you want to enforce that a property explicitly
-evaluates to either `true` or `false`, such as for checkboxes in forms.
+The :php-short:`\TYPO3\CMS\Extbase\Validation\Validator\BooleanValidator`
+checks if a value matches a specific boolean value (`true` or `false`).
 
 By default, it accepts any boolean value unless the `is` option is
 set.
@@ -61,6 +60,9 @@ set.
 Options:
 
 `is`
+    This option enforces that a property explicitly
+    evaluates to either `true` or `false`, such as for checkboxes in forms.
+
     Interprets strings `'true'`, `'1'`, `'false'`, `'0'`.
     Values of other types are converted to boolean directly.
 
@@ -95,7 +97,8 @@ Require that a value must be `false`:
 CollectionValidator
 ===================
 
-The `CollectionValidator` is a built-in Extbase validator for validating arrays
+The :php-short:`\TYPO3\CMS\Extbase\Validation\Validator\CollectionValidator`
+is a built-in Extbase validator for validating arrays
 or collections, such as arrays of DTOs or `ObjectStorage<T>` elements.
 
 It allows you to apply a single validation to **each individual item** in a
@@ -128,7 +131,8 @@ Use cases:
 ConjunctionValidator
 ====================
 
-The `ConjunctionValidator` allows you to combine multiple validators into a
+The :php-short:`\TYPO3\CMS\Extbase\Validation\Validator\ConjunctionValidator`
+allows you to combine multiple validators into a
 **logical AND**. All validators in the conjunction must return valid results
 for the overall validation to pass.
 
@@ -158,7 +162,8 @@ validators.
 DateTimeValidator
 =================
 
-Ensures a value is a valid \DateTimeInterface.
+The :php-short:`\TYPO3\CMS\Extbase\Validation\Validator\DateTimeValidator`
+ensures a value is a valid :php:`\DateTimeInterface`.
 
 ..  code-block:: php
 
@@ -170,7 +175,7 @@ Ensures a value is a valid \DateTimeInterface.
 DisjunctionValidator
 ====================
 
-The `DisjunctionValidator` is a composite Extbase validator that allows you to
+The :php-short:`\TYPO3\CMS\Extbase\Validation\Validator\DisjunctionValidator` is a composite Extbase validator that allows you to
 combine multiple validators using a **logical OR**.
 
 It is the inverse of the `ConjunctionValidator`: the value is considered valid
