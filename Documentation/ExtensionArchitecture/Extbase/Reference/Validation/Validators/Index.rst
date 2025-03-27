@@ -66,7 +66,7 @@ Options:
 
 ..  note::
     Empty strings `''` and `null` are always validated, regardless of the `is` option.
-    If you want to disallow empty strings an `null` combine this validator with
+    If you want to deny empty strings a `null`, combine this validator with
     the `NotEmptyValidator <https://docs.typo3.org/permalink/t3coreapi:extbase-validator-notempty>`_.
 
 Ensure that a value is a boolean (no strict check, default behavior):
@@ -339,7 +339,7 @@ Options:
 
 `ignoreFileExtensionCheck`
     If set to :php:`true`, the file extension check is disabled.
-    Be aware of security considerations when setting this to :php:`true`.
+    Be aware of security implications when setting this to :php:`true`.
 
 ..  include:: _NoExamples.rst.txt
 
