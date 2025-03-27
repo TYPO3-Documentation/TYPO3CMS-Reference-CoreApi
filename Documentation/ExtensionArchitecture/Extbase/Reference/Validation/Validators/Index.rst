@@ -507,11 +507,6 @@ validators. Prefer these built-in validators when applicable:
 
 These are easier to configure, localized by default, and more robust.
 
-..  note::
-
-    - This is a valid list inside a note.
-    - Just make sure it's indented consistently.
-
 ..  _extbase-validator-stringlength:
 
 StringLengthValidator
