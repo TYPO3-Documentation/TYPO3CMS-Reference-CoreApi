@@ -5,7 +5,7 @@
 ..  _extbase-validation:
 
 ===================================================
-Using Validation for Extbase models and controllers
+Using validation for Extbase models and controllers
 ===================================================
 
 ..  seealso::
@@ -21,7 +21,6 @@ controller action or a property / setter in a model.
 It is also possible to write custom validators for properties or complete
 models. See chapter :ref:`Custom validators <extbase_domain_validator>` for
 more information.
-
 
 ..  contents:: Table of contents
 
