@@ -241,8 +241,6 @@ Options:
 `maximum`
     The maximum file size to accept
 
-Internally the :php:`\TYPO3\CMS\Core\Resource\Security\FileNameValidator` is
-used to validate the file name.
 
 Internally :php:`\TYPO3\CMS\Core\Type\File\FileInfo` is used to determine the
 size.
