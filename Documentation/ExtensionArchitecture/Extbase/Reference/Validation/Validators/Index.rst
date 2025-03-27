@@ -255,8 +255,6 @@ Options:
 `maximum`
     The maximum file size to accept
 
-Internally the :php:`\TYPO3\CMS\Core\Resource\Security\FileNameValidator` is
-used to validate the file name.
 
 Internally :php:`\TYPO3\CMS\Core\Type\File\FileInfo` is used to determine the
 size.
@@ -522,11 +520,6 @@ validators. Prefer these built-in validators when applicable:
 -   `UrlValidator` – for URLs
 
 These are easier to configure, localized by default, and more robust.
-
-..  note::
-
-    - This is a valid list inside a note.
-    - Just make sure it's indented consistently.
 
 ..  _extbase-validator-stringlength:
 
