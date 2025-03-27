@@ -53,9 +53,11 @@ evaluates to either `true` or `false`, such as for checkboxes in forms.
 By default, it accepts any boolean value unless the `is` option is
 set.
 
-**Options:**
--   `is`: Accepts `'true'`, `'1'`, `'false'`, `'0'`, or `''`. Values are
-  converted internally to boolean `true` or `false`.
+Options:
+
+`is`
+    Interprets strings `'true'`, `'1'`, `'false'`, `'0'`, or `''`.
+    Values of other types are converted to boolean directly.
 
 Ensure that a value is a boolean (no strict check, default behavior):
 
@@ -342,6 +344,8 @@ ensures that a value is not considered empty.
 -   An empty string (`''`)
 -   `null`
 -   An empty array (`[]`)
+-   An empty :php-short:`\TYPO3\CMS\Extbase\Persistence\ObjectStorage`
+-   Any empty countable object like :php:`\SplObjectStorage`
 
 This validator is commonly used to enforce required fields.
 
@@ -367,14 +371,22 @@ constraints.
 Validator options
 -----------------
 
--   `minimum` (int|float, optional):
+`minimum`
     Lower boundary of the valid range (inclusive).
 
--   `maximum` (int|float, optional):
+`maximum`
     Upper boundary of the valid range (inclusive).
 
--   `message` (string, optional):
+`message`
     Custom error message or translation key for out-of-range values.
+
+If only `minimum` is set, the validator checks for values **greater than
+or equal to** that minimum.
+
+If only `maximum` is set, it checks for values **less than or equal to**
+that maximum.
+
+You may use both together to define an inclusive range.
 
 ..  _extbase-validator-numberrange-example:
 
@@ -394,16 +406,6 @@ Example: Validate percentage
         protected int $percentage;
     }
 
-..  note::
-
-    If only `minimum` is set, the validator checks for values **greater than
-    or equal to** that minimum.
-
-    If only `maximum` is set, it checks for values **less than or equal to**
-    that maximum.
-
-    You may use both together to define an inclusive range.
-
 ..  _extbase-validator-regularexpression:
 
 RegularExpressionValidator
@@ -417,23 +419,23 @@ built-in validators.
 For example, it can enforce ID formats, postal codes, or other structured
 inputs.
 
-..  _extbase-validator-regularexpression-options:
+..  note::
+    The default error message of the RegularExpressionValidator looks very
+    cryptic for end users as it repeats the regular expression. Provide
+    an individualized error message.
 
-Validator options
------------------
+Options:
 
--   `regularExpression` (string, required):
+`regularExpression`
     The regular expression to validate against.
     Must be a valid PCRE pattern, including delimiters (e.g. `/^...$/`).
 
--   `message` (string, optional):
+`message`
     Custom error message or translation key. If not set, a localized default
-    message will be used.
+    message will be used. The default message looks cryptic and should not be
+    shown to website visitors as-is.
 
-..  _extbase-validator-regularexpression-behavior:
-
-Validation behavior
--------------------
+Validation behavior:
 
 -   If the value does not match, an error is added.
 -   If the regex is invalid, an exception is thrown.
@@ -522,6 +524,14 @@ validates the length of a string.
 
 The check is also multi-byte save. For example "Ö" is counted as ONE charakter.
 
+Options:
+
+`minimum`
+    Minimum length for a valid string. Defaults to `0`. If it is 0 empty
+    strings are allowed.
+`maximum`
+    Maximum length for a valid string.
+
 ..  code-block:: php
 
     #[Validate([
@@ -583,9 +593,6 @@ Validation behavior
 -   Only string values are accepted.
 -   The URL must include a valid scheme (e.g. `https://`).
 -   Validation will fail for incomplete or malformed URLs.
--   Non-HTTP(S) schemes (e.g. `mailto:`, `ftp:`, `tel:`) are not supported.
--   The default error message key is:
-    `LLL:EXT:extbase/.../locallang.xlf:validator.url.notvalid`
 
 ..  _extbase-validator-url-example-basic:
 
@@ -612,12 +619,6 @@ Use cases
 -   Website or blog URLs
 -   Social media profile links
 -   User-submitted external links
-
-..  note::
-
-    If you need to validate other URI schemes (e.g. `mailto:`, `tel:`),
-    use a custom validator or the
-    `RegularExpressionValidator <https://docs.typo3.org/permalink/extbase-validator-regularexpression>`_.
 
 ..  _extbase-validator-multiple-example:
 
