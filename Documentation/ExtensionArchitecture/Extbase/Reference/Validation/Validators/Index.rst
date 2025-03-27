@@ -14,6 +14,11 @@ along with example usage for each using PHP attributes.
     *   `Using validation for Extbase models and controllers <https://docs.typo3.org/permalink/t3coreapi:extbase-validation>`_
     *   `Custom Extbase validator implementation <https://docs.typo3.org/permalink/t3coreapi:extbase-domain-validator>`_
 
+..  note::
+    All validators except the `NotEmptyValidator <https://docs.typo3.org/permalink/t3coreapi:extbase-validator-notempty>`_
+    accept empty values as valid. If empty values should not be possible,
+    combine these validators with the `NotEmptyValidator`.
+
 ..  contents:: Validators in Extbase
 
 ..  _extbase-validator-alphanumeric:
@@ -56,8 +61,13 @@ set.
 Options:
 
 `is`
-    Interprets strings `'true'`, `'1'`, `'false'`, `'0'`, or `''`.
+    Interprets strings `'true'`, `'1'`, `'false'`, `'0'`.
     Values of other types are converted to boolean directly.
+
+..  note::
+    Empty strings `''` and `null` always validate not matter the `is` option.
+    If you want to disallow empty strings an `null` combine this validator with
+    the `NotEmptyValidator <https://docs.typo3.org/permalink/t3coreapi:extbase-validator-notempty>`_.
 
 Ensure that a value is a boolean (no strict check, default behavior):
 
@@ -201,7 +211,11 @@ EmailAddressValidator
 =====================
 
 The :php-short:`\TYPO3\CMS\Extbase\Validation\Validator\EmailAddressValidator`
-an email address using method :php:`\TYPO3\CMS\Core\Utility\GeneralUtility::validEmail()`.
+an email address using method :php:`\TYPO3\CMS\Core\Utility\GeneralUtility::validEmail()`,
+which uses the validators defined in
+:ref:`$GLOBALS['TYPO3_CONF_VARS']['MAIL']['validators'] <t3coreapi:confval-globals-typo3-conf-vars-mail-validators>`.
+
+It respects
 
 ..  code-block:: php
 
@@ -527,8 +541,7 @@ The check is also multi-byte save. For example "Ö" is counted as ONE charakter.
 Options:
 
 `minimum`
-    Minimum length for a valid string. Defaults to `0`. If it is 0 empty
-    strings are allowed.
+    Minimum length for a valid string.
 `maximum`
     Maximum length for a valid string.
 
@@ -539,6 +552,11 @@ Options:
         'options' => ['minimum' => 5, 'maximum' => 50],
     ])]
     protected string $description;
+
+..  note::
+    Even if the `minimum` option is set, empty strings are accepted as valid.
+    Combine this validator with the `NotEmptyValidator <https://docs.typo3.org/permalink/t3coreapi:extbase-validator-notempty>`_
+    to disallow empty strings.
 
 ..  _extbase-validator-string:
 
