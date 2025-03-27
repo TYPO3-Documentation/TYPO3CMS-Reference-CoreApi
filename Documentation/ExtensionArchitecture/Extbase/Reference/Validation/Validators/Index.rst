@@ -65,7 +65,7 @@ Options:
     Values of other types are converted to boolean directly.
 
 ..  note::
-    Empty strings `''` and `null` always validate not matter the `is` option.
+    Empty strings `''` and `null` are always validated, regardless of the `is` option.
     If you want to disallow empty strings an `null` combine this validator with
     the `NotEmptyValidator <https://docs.typo3.org/permalink/t3coreapi:extbase-validator-notempty>`_.
 
