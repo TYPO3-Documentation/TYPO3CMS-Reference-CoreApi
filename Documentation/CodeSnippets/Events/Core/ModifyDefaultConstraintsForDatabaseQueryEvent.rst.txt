@@ -21,7 +21,7 @@
         :returns: `\TYPO3\CMS\Core\Database\Query\Expression\ExpressionBuilder`
 
     ..  php:method:: getConstraints()
-        :returns: `array`
+        :returns: `array<string,\CompositeExpression|string>`
 
     ..  php:method:: setConstraints(array $constraints)
 

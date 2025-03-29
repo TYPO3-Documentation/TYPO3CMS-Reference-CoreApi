@@ -145,23 +145,6 @@ return [
         'emphasizeLines' => [17, 18, 19],
     ],
     [
-        'action' => 'createPhpClassCodeSnippet',
-        'class' => \T3docs\BlogExample\Domain\Validator\TitleValidator::class,
-        'members' => [
-            'isValid',
-        ],
-        'targetFileName' => 'ExtensionArchitecture/Extbase/Reference/Domain/_CustomValidator/_PropertyValidator.rst.txt',
-        'emphasizeLines' => [8],
-    ],
-    [
-        'action' => 'createPhpClassCodeSnippet',
-        'class' => \T3docs\BlogExample\Domain\Validator\BlogValidator::class,
-        'members' => [
-            'isValid',
-        ],
-        'targetFileName' => 'ExtensionArchitecture/Extbase/Reference/Domain/_CustomValidator/_ObjectValidator.rst.txt',
-    ],
-    [
         'action' => 'createCodeSnippet',
         'caption' => 'EXT:blog_example/Configuration/TCA/tx_blogexample_domain_model_info.php',
         'sourceFile' => 'EXT:blog_example/Configuration/TCA/tx_blogexample_domain_model_info.php',
