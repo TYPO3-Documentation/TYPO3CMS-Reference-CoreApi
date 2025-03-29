@@ -1,5 +1,6 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
@@ -20,7 +21,7 @@ class SomeController extends ActionController
                 ->setRequired()
                 ->addValidator($mimeTypeValidator)
                 ->setMaxFiles(1)
-                ->setUploadFolder('1:/user_upload/files/')
+                ->setUploadFolder('1:/user_upload/files/'),
         );
 
         $this->arguments->getArgument('myArgument')->getPropertyMappingConfiguration()->skipProperties('myPropertyName');

@@ -1,5 +1,6 @@
 <?php
-declare(strict_types = 1);
+
+declare(strict_types=1);
 
 use TYPO3\CMS\Extbase\Annotation\FileUpload;
 use TYPO3\CMS\Extbase\Domain\Model\FileReference;
