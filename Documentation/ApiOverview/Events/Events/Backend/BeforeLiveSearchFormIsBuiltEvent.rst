@@ -14,8 +14,8 @@ the live search form or change the search demand object.
 
 Furthermore, additional view data can be provided and used in a
 overridden module action template. This avoids the need for using
-the `XCLASS <https://docs.typo3.org/permalink/t3coreapi:xclasses>`_ t
-echnique to provide additional data.
+the `XCLASS <https://docs.typo3.org/permalink/t3coreapi:xclasses>`_
+technique to provide additional data.
 
 ..  _BeforeLiveSearchFormIsBuiltEvent-example:
 
