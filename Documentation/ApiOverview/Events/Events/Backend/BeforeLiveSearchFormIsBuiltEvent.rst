@@ -37,5 +37,5 @@ API
 
     :php:`setAdditionalViewData()` becomes handy to provide additional data to
     the template without the need to cross class ("xclass") the controller. The
-    additional view data can be used in a overridden backend template of the
+    additional view data can be used in an overridden backend template of the
     live search form.
