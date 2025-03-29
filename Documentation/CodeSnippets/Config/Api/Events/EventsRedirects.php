@@ -37,4 +37,10 @@ return [
         'targetFileName' => 'CodeSnippets/Events/Redirects/BeforeRedirectMatchDomainEvent.rst.txt',
         'withCode' => false,
     ],
+    [
+        'action' => 'createPhpClassDocs',
+        'class' => TYPO3\CMS\Redirects\Event\AfterPageUrlsForSiteForRedirectIntegrityHaveBeenCollectedEvent::class,
+        'targetFileName' => 'CodeSnippets/Events/Redirects/AfterPageUrlsForSiteForRedirectIntegrityHaveBeenCollectedEvent.rst.txt',
+        'withCode' => false,
+    ],
 ];
