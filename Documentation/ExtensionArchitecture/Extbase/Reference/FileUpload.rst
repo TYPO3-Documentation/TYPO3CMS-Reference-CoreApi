@@ -183,7 +183,7 @@ Example:
 
 ..  literalinclude:: _FileUpload/_BlogExcerpt.php
     :caption: EXT:my_extension/Classes/Domain/Model/Blog.php (example excerpt of an Extbase domain model)
-    :emphasize-lines: 13-21
+    :emphasize-lines: 13-26
 
 All configuration settings of the
 :php:`\TYPO3\CMS\Extbase\Mvc\Controller\FileUploadConfiguration` object can
@@ -196,7 +196,7 @@ can achieve with a manual configuration as shown below.
 The currently available configuration array keys are:
 
 *   `validation` (:php:`array` with keys `required`, `maxFiles`, `minFiles`,
-    `fileSize`, `allowedMimeTypes`, `imageDimensions`, see
+    `fileSize`, `mimeType`, `imageDimensions`, see
     :ref:`extbase_fileupload_attribute-validationkeys`)
 *   `uploadFolder` (:php:`string`, destination folder)
 *   `duplicationBehavior` (:php:`object`, behaviour when file exists)
@@ -218,26 +218,8 @@ done in the :php:`initialize*Action`.
 
 Example:
 
-..  code-block:: php
-    :caption: Excerpt of an Extbase controller class
-
-    public function initializeCreateAction(): void
-    {
-        $mimeTypeValidator = GeneralUtility::makeInstance(MimeTypeValidator::class);
-        $mimeTypeValidator->setOptions(['allowedMimeTypes' => ['image/jpeg']]);
-
-        $fileHandlingServiceConfiguration = $this->arguments->getArgument('myArgument')->getFileHandlingServiceConfiguration();
-        $fileHandlingServiceConfiguration->addFileUploadConfiguration(
-            (new FileUploadConfiguration('myPropertyName'))
-                ->setRequired()
-                ->addValidator($mimeTypeValidator)
-                ->setMaxFiles(1)
-                ->setUploadFolder('1:/user_upload/files/')
-        );
-
-        $this->arguments->getArgument('myArgument')->getPropertyMappingConfiguration()->skipProperties('myPropertyName');
-    }
-
+..  literalinclude:: Validation/Validators/_FileUploadController.php
+    :caption: EXT:my_extension/Classes/Controllers/ExampleController.php (example excerpt of an Extbase Controller)
 
 ..  _extbase_fileupload_attribute-options:
 
@@ -433,28 +415,37 @@ section of the :php-short:`\TYPO3\CMS\Extbase\Annotation\FileUpload` attribute:
 *   :php:`required`
 *   :php:`minFiles`
 *   :php:`maxFiles`
-*   :php:`fileSize`
-*   :php:`allowedMimeTypes`
-*   :php:`imageDimensions`
+*   :php:`fileSize`  (for :php:`TYPO3\CMS\Extbase\Validation\Validator\FilesizeValidator`)
+*   :php:`imageDimensions` (for :php:`TYPO3\CMS\Extbase\Validation\Validator\ImageDimensionsValidator`)
+*   :php:`mimeType` (for :php:`TYPO3\CMS\Extbase\Validation\Validator\MimeTypeValidator`)
+*   :php:`allowedMimeTypes` (shorthand notation for configuration option :php:`allowedMimeTypes` of the :php:`MimeTypeValidator`, see below)
 
 Example:
 
 ..  code-block:: php
-    :caption: Excerpt of an attribute withhin an Extbase domain model class
+    :caption: Excerpt of an attribute within an Extbase domain model class
 
     #[FileUpload([
         'validation' => [
             'required' => true,
             'maxFiles' => 1,
             'fileSize' => ['minimum' => '0K', 'maximum' => '2M'],
-            'allowedMimeTypes' => ['image/jpeg'],
+            'mimeType' => [
+                'allowedMimeTypes' => ['image/jpeg'],
+                'ignoreFileExtensionCheck' => false,
+                'notAllowedMessage' => 'LLL:EXT:my_extension/...',
+                'invalidExtensionMessage' => 'LLL:EXT:my_extension/...',
+            ],
             'imageDimensions' => ['maxWidth' => 4096, 'maxHeight' => 4096]
         ],
         'uploadFolder' => '1:/user_upload/extbase_single_file/',
     ])]
 
 Extbase will internally use the Extbase file upload validators for
-:php:`fileSize`, :php:`allowedMimeTypes` and :php:`imageDimensions` validation.
+:php:`fileSize`, :php:`mimeType` and :php:`imageDimensions` validation.
+
+All options of the :php:`\TYPO3\CMS\Extbase\Validation\Validator\MimeTypeValidator` can be set
+by the :php:`mimeType` array key.
 
 Custom validators can be created according to project requirements and must
 extend the Extbase :php-short:`\TYPO3\CMS\Extbase\Validation\Validator\AbstractValidator`.
@@ -462,7 +453,39 @@ The value to be validated is
 always a PSR-7 :php-short:`\TYPO3\CMS\Core\Http\UploadedFile` object.
 Custom validators can however not
 be used in the :php-short:`\TYPO3\CMS\Extbase\Annotation\FileUpload` attribute
-and must be configured manually.
+and must be configured manually as shown in :ref:`extbase_fileupload_attribute-manual-configuration`.
+
+..  _extbase_fileupload_attribute-validationkeys_shorthand_allowedmimetypes:
+
+Shorthand notation for `allowedMimeTypes`
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+..  versionchanged:: 13.4.1
+    The main validation array key `mimeType` with all available subkeys was added to replace
+    the restricted shorthand notation `allowedMimeTypes`. The former option only allowed to
+    configure `allowedMimeTypes` and no other subkeys.
+
+Using the :php:`mimeType` configuration array, all options of the `MimeTypeValidator`
+can be set as sub-keys:
+
+..  code-block:: php
+
+    #[FileUpload([
+        'validation' => [
+            'required' => true,
+            'mimeType' => [
+                'allowedMimeTypes' => ['image/jpeg'],
+                'ignoreFileExtensionCheck' => false,
+                'notAllowedMessage' => 'LLL:EXT:my_extension/...',
+                'invalidExtensionMessage' => 'LLL:EXT:my_extension/...',
+            ],
+        ],
+        'uploadFolder' => '1:/user_upload/files/',
+    ])]
+
+The shorthand notation via :php:`'allowedMimeTypes'` continues to
+exist, in case only the mime type validation is needed. However, it is recommended
+to utilize the full :php:`'mimeType'` configuration array.
 
 
 ..  _extbase_fileupload_attribute-deletion:
