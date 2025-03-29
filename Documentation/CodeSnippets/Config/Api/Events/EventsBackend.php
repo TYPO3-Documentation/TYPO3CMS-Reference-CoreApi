@@ -285,4 +285,10 @@ return [
         'targetFileName' => 'CodeSnippets/Events/Backend/BeforePageTreeIsFilteredEvent.rst.txt',
         'withCode' => false,
     ],
+    [
+        'action' => 'createPhpClassDocs',
+        'class' => \TYPO3\CMS\Backend\Search\Event\BeforeLiveSearchFormIsBuiltEvent::class,
+        'targetFileName' => 'CodeSnippets/Events/Backend/BeforeLiveSearchFormIsBuiltEvent.rst.txt',
+        'withCode' => false,
+    ],
 ];
