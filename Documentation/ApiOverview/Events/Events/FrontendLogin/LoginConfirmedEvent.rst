@@ -12,7 +12,7 @@ triggered when a login was successful.
 
 ..  versionchanged:: 14.0
     This event is now correctly dispatched, when a
-    logout redirect is configured. Previously the now removed `actionUri` was used as target 
+    logout redirect is configured. Previously the now removed `actionUri` was used as target
     for the logout form action, in which case the `LogoutConfirmedEvent` was not triggered on logout.
 
 Example
