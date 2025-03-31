@@ -123,7 +123,7 @@ Applying the policy
 
 *   In TYPO3, directives can be specified via PHP syntax (within Extensions) and
     YAML syntax (within site configuration). Additionally, rules can be
-    set via the PSR-14 :php:`PolicyMutatedEvent`.
+    set via the PSR-14 event :ref:`PolicyMutatedEvent`.
 
 ..  _content-security-policy-terminology-mutations:
 
