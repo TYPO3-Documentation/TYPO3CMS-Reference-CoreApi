@@ -36,6 +36,13 @@ Think of CSP in terms of an "allow/deny" list for remote contents.
 
     *   https://www.youtube.com/watch?v=a_cS2XfCplI&t=28766s
 
+    Another great and often updated resource from Chris Müller from his CSP workshops:
+
+    * `Google translation <https://brotkrueml-dev.translate.goog/presentations/t3cmd25/csp_einfuehrung.html?_x_tr_sl=auto&_x_tr_tl=en&_x_tr_hl=en&_x_tr_pto=wapp&_x_tr_hist=true>`__
+      of `Introduction to CSP <https://brotkrueml.dev/presentations/t3cmd25/csp_einfuehrung.html>`__
+    * `Google translation <https://brotkrueml-dev.translate.goog/presentations/t3cmd25/csp_typo3.html?_x_tr_sl=auto&_x_tr_tl=en&_x_tr_hl=en&_x_tr_pto=wapp&_x_tr_hist=true>`__
+      of `CSP in TYPO3 <https://brotkrueml.dev/presentations/t3cmd25/csp_typo3.html>`__
+
 CSP rules are used to describe, which external assets or functionality are allowed for
 certain HTML tags (like :html:`<script>`, :html:`<img>`, :html:`<iframe>`). This allows
 to restrict external resources or JavaScript execution with security in mind. When
