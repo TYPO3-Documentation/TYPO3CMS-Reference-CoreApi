@@ -122,7 +122,7 @@ Applying the policy
     `Content-Security-Policy-Reporty-Only`).
 
 *   In TYPO3, directives can be specified via PHP syntax (within Extensions) and
-    YAML syntax (within site configuration). Additionally, Rules can be
+    YAML syntax (within site configuration). Additionally, rules can be
     set via the PSR-14 :php:`PolicyMutatedEvent`.
 
 ..  _content-security-policy-terminology-mutations:
