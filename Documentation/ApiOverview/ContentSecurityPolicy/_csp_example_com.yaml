@@ -1,4 +1,4 @@
-# Inherits default site-unspecific frontend policy mutations (enabled per default)
+# Inherits default frontend policy mutations provided by Core and 3rd-party extensions (enabled per default)
 inheritDefault: true
 mutations:
   # Allow frames/iframes to anywhere (HTTPS only, not HTTP)
