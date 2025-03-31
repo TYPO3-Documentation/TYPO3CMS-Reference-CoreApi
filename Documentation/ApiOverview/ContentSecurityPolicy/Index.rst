@@ -428,7 +428,7 @@ Example: Using custom external reporting endpoint
 
 ..  _content-security-policy-modes:
 
-Content Security Police modes:
+Content Security Police modes
 ------------------------------
 
 Adjusting specific directives / mutations for a policy can be performed
