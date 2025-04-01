@@ -1,0 +1,21 @@
+enforce:
+  inheritDefault: true
+  # site-specific mutations could also be listed, like this:
+  # mutations:
+  #  - mode: "append"
+  #    directive: "img-src"
+  #    sources:
+  #      - "cdn.example.com"
+  #      - "assets.example.com"
+
+# alternatively (or additionally!), reporting can be set too,
+# for example when testing stricter rules than above
+# (note the missing 'assets.example.com')
+# reporting:
+#   inheritDefault: true
+#   mutations:
+#    - mode: "append"
+#      directive: "img-src"
+#      sources:
+#        - "cdn.example.com"
+#
