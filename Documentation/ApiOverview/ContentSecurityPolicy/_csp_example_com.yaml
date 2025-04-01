@@ -1,0 +1,30 @@
+# Inherits default frontend policy mutations provided by Core and 3rd-party extensions (enabled per default)
+inheritDefault: true
+mutations:
+  # Allow frames/iframes to TRUSTED specific locations
+  # Avoid "protocol only" white-list like "https:" here,
+  # because it could inject javascript easily, the most important reason
+  # why CSP was invented was to block security issues like this.
+  # (Note: it's "frame-src" not "iframe-src")
+  - mode: "extend"
+    directive: "frame-src"
+    sources:
+      - "https://*.example.org"
+      - "https://*.example.com"
+      - "https://*.instagram.com"
+      - "https://*.vimeo.com"
+      - "https://*.youtube.com"
+
+  # Allow img src to anyhwere (HTTPS only, not HTTP)
+  - mode: "extend"
+    directive: "img-src"
+    sources:
+      - "https:"
+
+  # Allow script src to the specified domains (HTTPS only)
+  - mode: "extend"
+    directive: "script-src"
+    sources:
+      - "https://cdn.example.com"
+      - "https://*.youtube.com"
+      - "https://*.google.com"

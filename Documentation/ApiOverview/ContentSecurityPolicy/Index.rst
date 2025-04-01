@@ -7,6 +7,9 @@
 Content Security Policy
 =======================
 
+..  todo: Split this up into sub-pages!
+..  todo: List FQCN where applicable
+
 ..  contents::
     :local:
 
@@ -17,6 +20,8 @@ Content Security Policy (CSP) is a security standard introduced to prevent
 :ref:`cross-site scripting (XSS) <security-xss>`, clickjacking and other code
 injection attacks resulting of malicious content being executed in the trusted
 web page context.
+
+Think of CSP in terms of an "allow/deny" list for remote contents.
 
 ..  seealso::
     If you are not familiar with Content Security Policy, please read the
@@ -31,22 +36,236 @@ web page context.
 
     *   https://www.youtube.com/watch?v=a_cS2XfCplI&t=28766s
 
-Content Security Policy declarations can be applied to a TYPO3 website in
-frontend and backend scope with a dedicated API.
+    Another great and often updated resource from Chris Müller from his CSP workshops:
 
-To delegate Content Security Policy handling to TYPO3 frontend, at least one of
-the feature flags
+    * `Google translation <https://brotkrueml-dev.translate.goog/presentations/t3cmd25/csp_einfuehrung.html?_x_tr_sl=auto&_x_tr_tl=en&_x_tr_hl=en&_x_tr_pto=wapp&_x_tr_hist=true>`__
+      of `Introduction to CSP <https://brotkrueml.dev/presentations/t3cmd25/csp_einfuehrung.html>`__
+    * `Google translation <https://brotkrueml-dev.translate.goog/presentations/t3cmd25/csp_typo3.html?_x_tr_sl=auto&_x_tr_tl=en&_x_tr_hl=en&_x_tr_pto=wapp&_x_tr_hist=true>`__
+      of `CSP in TYPO3 <https://brotkrueml.dev/presentations/t3cmd25/csp_typo3.html>`__
+
+CSP rules are used to describe, which external assets or functionality are allowed for
+certain HTML tags (like :html:`<script>`, :html:`<img>`, :html:`<iframe>`). This allows
+to restrict external resources or JavaScript execution with security in mind. When
+accessing a page, these rules are sent as part of the HTTP request from the server to
+the browser, and the browser will enforce these rules (and reject non-allowed content).
+These rejection are always logged in the browser console. Additionally, external tools
+can be configured to receive and track violations of the policy.
+
+Content Security Policy declarations can be applied to a TYPO3 website in
+frontend and backend scope with a dedicated API. This API allows for site-specific or
+extension-specific configuration instead of manually setting the CSP rules with
+server-side configuration through `httpd.conf/nginx.conf` or `.htaccess` files.
+
+To delegate Content Security Policy handling to the TYPO3 frontend, at least one of
+the feature flags:
 
 *   :confval:`globals-typo3-conf-vars-sys-features-security-frontend-enforceContentSecurityPolicy`
     (for enforcing)
 *   :confval:`globals-typo3-conf-vars-sys-features-security-frontend-reportContentSecurityPolicy`
     (for report-only mode)
 
-need to be enabled.
+needs to be enabled, **or** the site-specific :file:`csp.yaml` configuration
+file needs to set the `enforce` or `reporting` disposition like this:
+
+..  literalinclude:: _csp_enforce.yaml
+    :language: yaml
+    :caption: config/sites/<my_site>/csp.yaml | typo3conf/sites/<my_site>/csp.yaml
 
 ..  versionchanged:: 13.0
 
-In TYPO3 backend the Content Security Policy is always enforced.
+    In the TYPO3 backend the Content Security Policy is always enforced.
+
+Within the TYPO3 backend, a specific backend module is available to inspect policy
+violations / reports, and there is also a list to see all configured CSP rules,
+see section :ref:`content-security-policy-backend-rules`.
+
+
+..  _content-security-policy-terminology:
+
+Terminology
+===========
+
+This document will use very specific wording that is part of the CSP W3C specification,
+these terms are not "invented" by TYPO3. Since reading the W3C RFC can be very
+intimidating, here are a few key concepts.
+
+..  note::
+    Skip to the section :ref:`content-security-policy-example` to see a "real-life" usage
+    scenario, if you can better understand from actual code examples.
+
+..  _content-security-policy-terminology-directives:
+
+Directives
+----------
+
+*   CSP consists of multiple rules (or "directives"), that are part of a "policy". This
+    policy says, what functionality the site's output is allowed to use.
+
+*   With that, several HTML tags can be controlled, like from which URLs images can be
+    requested from, if and from where iframes are allowed, if and from where JavaScripts
+    are allowed and so on. There is a long list of applicable directives, see
+    `https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy#directives`__
+    with specific identifiers like `default-src`, `img-src` and so on.
+
+*   Each directive may have several "attributes" (like the allowed URLs).
+
+*   Directives may build upon each other, a bit like CSS definitions (`Cascading Style Sheet`)
+    do. However, these are more meant to modify a basic rule on an earlier level,
+    and called "mutations". The relation of a "child rule" to its "parent" is
+    also called "ancestor chain". An example:
+
+    If `frame-src` is not defined, it falls back to `child-src`, and finally falls
+    back to `default-src`. But if `frame-src` is defined, it is used, and
+    the sources from `default-src` are not used. In such a case, `default-src` listed
+    sources have to be repeated (when wanted) explicitly in `frame-src`.
+
+..  _content-security-policy-terminology-policy:
+
+Applying the policy
+-------------------
+
+*   A final policy is compiled of all these directives, and then sent as a HTTP
+    response header `Content-Security-Policy: ...` (respectively
+    `Content-Security-Policy-Reporty-Only`).
+
+*   In TYPO3, directives can be specified via PHP syntax (within Extensions) and
+    YAML syntax (within site configuration). Additionally, rules can be
+    set via the PSR-14 event :ref:`PolicyMutatedEvent`.
+
+..  _content-security-policy-terminology-mutations:
+
+Mutations
+---------
+
+*   These rules can influence each other, this is where the concept of "mutations" come in.
+    The "policy builder" of TYPO3 applies each configured mutation, no matter where it was
+    defined.
+
+*   Because of this, each mutation (directive definition) needs a specific "mode" that can
+    instruct, how this mutation is applied: Should an existing directive be
+    set, inherited, appended, remove or extended to the final policy (see
+    :ref:`content-security-policy-modes`).
+
+*   Each directive is then applied in regard to its defined mode and can list one or more
+    "sources" with the values of additional parameters of a directive. Sources are
+    web site addresses / URLs (or just protocols), and also include some special keywords like
+    `self`/`none`/`data:`.
+
+..  _content-security-policy-terminology-nonces:
+
+Nonces
+------
+
+*   There are possible exemptions to directives for specific content created on specific
+    pages created by TYPO3 in your frontend (or backend modules). To verify, that these
+    exemptions are valid in a policy, a so-called "Nonce" (a unique "**n**umber used **once**")
+    is created (details on `https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/nonce`__).
+
+    *   TYPO3 can manage these Nonces and apply them were configured.
+    *   Nonces are retrieved from :php:`\TYPO3\CMS\Core\Security\ContentSecurityPolicy\ConsumableNonce`
+        and will be used for any directive within the scope of a single HTTP request.
+    *   More details are covered in :ref:`content-security-policy-nonce`.
+
+..  _content-security-policy-terminology-violations:
+
+Policy violations and reporting
+-------------------------------
+
+*   When a webpage with activated policies is shown in a client's browser, each HTML tag
+    violating the policy will not be interpreted by the browser.
+
+*   Depending on a configuration of a possible "Report", such violations can be submitted
+    back to a server and be evaluated there. TYPO3 provides such an endpoint to receive
+    and display reports in a backend module, but also third-party servers are usable.
+
+*   Policies can be declared with "dispositions", to indicate how they are handled.
+    "Enforce" means that a policy is in effect, and "Report" allows to only pretend
+    a policy is in effect, to gather knowledge about possible improvements of a
+    webpage's output. Both dispositions can be set independently in TYPO3.
+
+*   All active rules can be seen in the backend configuration section, see
+    :ref:`content-security-policy-backend-rules`.
+
+..  _content-security-policy-example:
+
+Example scenario
+================
+
+Let's define a small real-world scenario:
+
+*   You have one TYPO3 installation with two sites (frontend), `example.com` and `example.org`.
+*   You have created custom backend modules for some distinct functionality.
+*   `example.com` is a site where your editors fully control all frontend content, and they
+    want to have full flexibility of what and how to embed. You use a CDN network to deliver
+    your own large assets, like videos.
+*   `example.org` is a community-driven site, where users can manage profiles and post chats,
+    and where you want to prevent exploits on your site. Some embedding to a set of allowed
+    web services (YouTube, Google Analytics) must be possible.
+
+So you need to take care of security measures, and find a pragmatic way how to allow foreign
+content (like YouTube, widgets, tracking codes, assets)
+
+Specifically you want to to set these following rules, as an example.
+
+..  note::
+
+    The domains listed are for demonstration only, and will not match real requirements;
+    for example, YouTube is already allowed by the default TYPO3 frontend CSP configuration,
+    which can be inherited.
+
+Rules for example.com (editorial)
+---------------------------------
+
+*    :html:`<iframe>` to many services should be allowed
+*    :html:`<img>` sources to anywhere should be allowed
+*    :html:`<script>` sources to `cdn.example.com` and `*.youtube.com` and `*.google.com`
+     should be allowed
+
+Rules for example.org (community)
+---------------------------------
+
+*    :html:`<iframe>` to `cdn.example.com`, `*.youtube.com` should be allowed
+*    :html:`<img>` sources to `cdn.example.com` and `*.instagram.com` should be allowed
+*    :html:`<script>` sources to `cdn.example.com` and `*.youtube.com` and `*.google.com`
+     should be allowed
+
+Rules for the TYPO3 backend
+---------------------------
+
+Normal TYPO3 backend rules need to be applied, so we only want to add some
+rules for custom backend modules:
+
+*    :html:`<iframe>` to `cdn.example.com` should be allowed
+*    :html:`<img>` sources to `cdn.example.com` should be allowed
+*    :html:`<script>` sources to `cdn.example.com` should be allowed
+
+Resulting configuration example:
+--------------------------------
+
+And this is how you would do that with a CSP YAML configuration file, one per site:
+
+..  literalinclude:: _csp_example_com.yaml
+    :language: yaml
+    :caption: config/sites/example-com/csp.yaml | typo3conf/sites/example-com/csp.yaml
+
+..  literalinclude:: _csp_example_org.yaml
+    :language: yaml
+    :caption: config/sites/example-org/csp.yaml | typo3conf/sites/example-org/csp.yaml
+
+..  literalinclude:: _ContentSecurityPolicies_example.php
+    :language: yaml
+    :caption: EXT:my_extension/Configuration/ContentSecurityPolicies.php
+
+This is really just a simple demo, that has room for improvements. For example,
+the allowed list of `*-src` values to any directive could actually be set through their common
+parent, the `default-src` attribute. There is a very deep and nested possibility
+to address the attributes of many HTML5 tags, which is covered in depth on
+`https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy#directives`__.
+
+You can take a look into the PHP enum :php:`TYPO3\CMS\Core\Security\ContentSecurityPolicy\Directive`,
+which gives you an overview of all supported directives.
+
+Read on to understand more of the underlying API builder concepts below.
 
 ..  _content-security-policy-configuration:
 
@@ -85,7 +304,7 @@ different techniques for the declarations):
     is an example to show the basic principle without having to explain
     :ref:`PSR-7 <typo3-request>`/:ref:`PSR-15 <request-handling>` details.
 
-    For project integrations the "mutations" (via
+    For project integrations, the "mutations" (via
     :ref:`configuration <content-security-policy-extension>`,
     :ref:`YAML <content-security-policy-site>`,
     :ref:`resolutions in the UI <content-security-policy-reporting>` or
@@ -104,8 +323,35 @@ example:
 ..  literalinclude:: _ContentSecurityPolicies.php
     :caption: EXT:my_extension/Configuration/ContentSecurityPolicies.php
 
-..  todo: Explain "Scope", "MutationCollection", "Mutation", "MutationMode", ...
+The API here is much like the YAML syntax. The PHP code needs to return
+a mapped array of an :php:`MutationCollection` instance with all rules
+put into a sub-array, containing instances of a single :php:`Mutation`.
 
+Each :php:`Mutation` instance is like a Data Object (DO) where its constructor
+allows you to specifiy a `mode` (type :php:`MutationMode`), a `directive`
+(type :php:`Directive`) and one ore more actual values ("sources", type :php:`UriValue`
+or `SourceKeyword`).
+
+Additionally, a :php:`Scope` instance object is included, which can either
+be :php:`Scope::backend()` or :php:`Scope::frontend()`.
+
+A good PHP IDE will allow for good autocompletion and hinting, and using
+a boilerplate configuration like the example above helps you to get started.
+
+..  todo: Better explain "Scope", "MutationCollection", "Mutation", "MutationMode"
+..  todo: Link to API docs / FQDNs?
+
+.. _content-security-policy-backend-specification:
+
+Backend-specific
+------------------
+
+The YAML configuration only applies to the frontend part of TYPO3.
+Backend policies need to be set using the PHP API, within an extension
+as described in the :ref:`section above <content-security-policy-extension>`.
+
+You need to ensure that `Scope::backend()` is set in the mapped return array
+for the rules you want to setup.
 
 .. _content-security-policy-site:
 
@@ -138,7 +384,20 @@ The Content Security Policy for a particular site can be disabled with the
 Site-specific Content-Security-Policy endpoints
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-The disposition-specific property `reportingUrl` can either be:
+The reporting endpoint is used to receive browser reports about violations to
+the security policy, for example if a YouTube URL was requested, but could
+not be displayed in an iframe due to a directive not allowing this.
+
+Reports like this can help to gain insight, what URLs are used by editors
+and might need inclusion into the policy.
+
+Since reports can be sent by any browser, they can possibly easily flood
+a site with requests and take up storage space. Reports are stored in the
+:sql:`sys_http_report` database table when using the endpoint provided by TYPO3.
+
+To influence whether this endpoint accepts reports,
+the disposition-specific property `reportingUrl` can be configured and
+set to either:
 
 `true`
     to enable the reporting endpoint
@@ -152,6 +411,11 @@ the global configuration :ref:`contentSecurityPolicyReportingUrl <content-securi
 
 In case the explicitly disabled endpoint still would be called, the
 server-side process responds with a 403 HTTP error message.
+
+..  versionchanged:: 12.4.27 / 13.4.5
+
+    This `reportingUrl` setting has been introduced with
+    `https://docs.typo3.org/permalink/changelog:important-105856-1737555887`__.
 
 ..  _content-security-policy-site-endpoints-disable:
 
@@ -171,10 +435,11 @@ Example: Using custom external reporting endpoint
 
 ..  _content-security-policy-modes:
 
-Modes
------
+Content Security Police modes
+-----------------------------
 
-The following modes are available:
+Adjusting specific directives / mutations for a policy can be performed
+via the following modes:
 
 ..  confval-menu::
     :name: content-security-policy-modes
@@ -464,10 +729,64 @@ ViewHelpers with the `useNonce` attribute:
         .some-style { color: red; }
     </f:asset.css>
 
+.. _content-security-policy-nonce-caching:
+
+Notes about nonces and caching
+------------------------------
+
+Nonces are implemented via a PSR middleware and thus applied dynamically. This
+also means, they are somewhat "bad" for caching (especially for reverse proxies),
+since they create unique output for a specific visitor.
+
+Since the goal of nonces are to allow "exemptions" for otherwise forbidden content,
+this closely relates to validity or integrity of this forbidden content. Instead
+of emitting unique nonces, another possibility is to utilize hashing functionality
+to content regarded as "safe".
+
+This can be done with sha256/sha384/sha512 hashing of referenced script, and including
+them as a valid directive, like this:
+
+..  code-block
+    :caption: Example YAML configuration directive, for example in config/sitepackage/csp.yaml
+
+    #...
+    - mode: "extend"
+      directive: "script-src"
+      sources:
+        - "sha256-6c7d3c1bf856597a2c8ae2ca7498cb4454a32286670b20cf36202fa578b491a9"
+
+The "sha256-..." block would be the SHA256 hash created from a file like 'script.js'.
+
+For example, a file like this:
+
+..  code-block:: javascript
+    :caption: script.js (some javascript file that is included in your website)
+
+    console.log('Hello.');
+
+would correspond to a SHA256 hash of `6c7d3c1bf856597a2c8ae2ca7498cb4454a32286670b20cf36202fa578b491a9`.
+
+..  note::
+    These hashes can be created by shell scripts like `sha256` and several libraries,
+    also in nodeJS bundling tools.
+
+The browser would evaluate a reference JavaScript file and calculate it's SHA256
+hash and compare it to the list of allowed hashes.
+
+The downside of this is: Everytime an embedded file changes (like via build processes),
+the CSP SHA hash would need to be adopted. This could be automated by a PHP definition
+of CSP rules and hashing files automatically, which would be a performance-intense
+process and call for its own caching.
+
+There is no automatism for this kind of hashing in TYPO3 (yet, see
+`https://forge.typo3.org/issues/100887`__), so it has to be done manually
+as outlined above.
+
+.. _content-security-policy-backend:
 .. _content-security-policy-reporting:
 
-Reporting of violations
-=======================
+Reporting of violations, CSP Backend module
+===========================================
 
 Potential CSP violations are reported back to the TYPO3 system and persisted
 internally in the database table :sql:`sys_http_report`. A corresponding
@@ -493,13 +812,18 @@ apply this suggestion, or to mute or delete the specific violation.
     :ref:`site-specific <content-security-policy-site>` CSP definitions
     manually.
 
+..  warning::
+    Resolutions, once applied, can not be removed again via the GUI. You would
+    need to manually remove entries in the :sql:`sys_csp_resolution` database
+    table.
+
 ..  _content-security-policy-reporting-contentSecurityPolicyReportingUrl:
 
 Using a third-party service
 ---------------------------
 
-As an alternative, the reporting URL can be configured to use a third-party
-service as well:
+As an alternative to the built-in reporting module, an external reporting URL
+can be configured to use a third-party service as well:
 
 ..  code-block:: php
     :caption: config/system/additional.php
@@ -513,7 +837,7 @@ service as well:
         = 'https://csp-violation.example.org/';
 
 Violations are then sent to the third-party service instead of the TYPO3
-endpoint.
+endpoint. Resolutions would then not be applied dynamically.
 
 ..  _content-security-policy-reporting-disable:
 
@@ -540,6 +864,22 @@ be set to zero ('0') to disable the CSP reporting endpoint:
 
     // For frontend
     $GLOBALS['TYPO3_CONF_VARS']['FE']['contentSecurityPolicyReportingUrl'] = '0';
+
+..  _content-security-policy-backend-rules:
+
+Active content security policy rules
+------------------------------------
+
+The backend module :guilabel:`System > Configuration > Content Security Policy Mutations`
+uses a simple tree display of all configured directives, grouped by
+frontend or backend. Each rule shows where it is defined, and what
+its final policy is set to:
+
+..  figure:: /Images/ManualScreenshots/ContentSecurityPolicy/CspBackendConfiguration.png
+    :class: with-shadow
+
+    Backend module "Configuration > Content Security Policy Mutations" which displays
+    a tree of all policy directives.
 
 ..  _content-security-policy-events:
 
