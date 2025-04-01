@@ -216,7 +216,7 @@ Specifically you want to to set these following rules, as an example.
 Rules for example.com (editorial)
 ---------------------------------
 
-*    :html:`<iframe>` to anyhwere should be allowed
+*    :html:`<iframe>` to many services should be allowed
 *    :html:`<img>` sources to anywhere should be allowed
 *    :html:`<script>` sources to `cdn.example.com` and `*.youtube.com` and `*.google.com`
      should be allowed
