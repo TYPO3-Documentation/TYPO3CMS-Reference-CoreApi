@@ -139,11 +139,11 @@ checkbox.
 ..  index:: Crowdin; Migration from Pootle
 ..  _migrate-from-pootle:
 
-My integration stopped working and I saved the setup again. Now, the language files is shown twice?
----------------------------------------------------------------------------------------------------
+My integration stopped working and I saved the setup again. Now, the language files are shown twice?
+----------------------------------------------------------------------------------------------------
 
 If there was an attempt to connect another repository to the project before, this
-might happen. In this case, to prevent overwrites, Crowdin rename the existing
+might happen. In this case, to prevent overwrites, Crowdin renames the existing
 master branch to [repo_name] master and it allows you to keep [repo_name] master
 and [another_repo] master in the same project, but if you delete all existing
 integrations, the system forgets about the multi-repo logic in the project, and
@@ -153,14 +153,14 @@ What to do:
 
 - Delete newly uploaded master
 - Rename [repo_name] master branch in Crowdin to master
-- Paused/Resumed GItHub sync, so the system has updated existing old files in the master branch
+- Pause/resume GitHub sync, so the system has updated existing old files in the master branch
 
-The reason why the integration disconnected previously - it creates crowdin.yml
-configuration file by default, but (probably)at some point it was renamed to
-.crowdin.yml in the repo, so integration was suspended as it couldn't locate the
+The reason why the integration disconnected previously - it creates :file:`crowdin.yml`
+configuration file by default, but (probably) at some point it was renamed to
+:file:`.crowdin.yml` (mind the dot at the start) in the repo, so integration was suspended as it couldn't locate the
 original configuration file.
 
-When you re-connected the repo, you specified .crowdin.yml as configuration file
+When you re-connected the repo, you specified :file:`.crowdin.yml` as configuration file
 name, so now it should work.
 
 
