@@ -346,7 +346,18 @@ Options:
     If set to :php:`true`, the file extension check is disabled.
     Be aware of security implications when setting this to :php:`true`.
 
-..  include:: _NoExamples.rst.txt
+When using the :php-short:`\TYPO3\CMS\Extbase\Annotation\FileUpload` attribute
+the `MimeTypeValidator` is used internally when defined in the validation
+section:
+
+..  literalinclude:: _FileUploadArgument.php
+    :caption: packages/my_extension/Classes/Domain/Model/Dto/SomeDto.php
+
+When you do manual validation in an `initialize*Action` you can call and
+configure the validator directly:
+
+..  literalinclude:: _FileUploadController.php
+    :caption: packages/my_extension/Classes/Controller/SomeController.php
 
 ..  _extbase-validator-notempty:
 
