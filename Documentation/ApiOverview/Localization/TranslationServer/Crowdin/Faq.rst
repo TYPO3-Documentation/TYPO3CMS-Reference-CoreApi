@@ -135,9 +135,8 @@ Crowdin configuration. Navigate in your Crowdin project to
 click on the :guilabel:`Edit` button and disable the :guilabel:`Push Sources`
 checkbox.
 
-
-..  index:: Crowdin; Migration from Pootle
-..  _migrate-from-pootle:
+..  index:: Crowdin; Reconnect your project
+..  _reconnect-your-project:
 
 My integration stopped working and I saved the setup again. Now, the language files are shown twice?
 ----------------------------------------------------------------------------------------------------
@@ -163,9 +162,8 @@ original configuration file.
 When you re-connected the repo, you specified :file:`.crowdin.yml` as configuration file
 name, so now it should work.
 
-
-..  index:: Crowdin; Reconnect your project
-..  _reconnect-your-project:
+..  index:: Crowdin; Migration from Pootle
+..  _migrate-from-pootle:
 
 How can I migrate translations from Pootle?
 -------------------------------------------
