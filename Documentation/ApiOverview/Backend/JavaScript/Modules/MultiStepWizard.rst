@@ -73,7 +73,7 @@ You have to define at least one slide :javascript:`MultiStepWizard.addSlide()`.
         :Required: true
         :type: SlideCallback
 
-        A JS callback function which will be called after the slide was
+        A JavaScript callback function which will be called after the slide was
         rendered completely.
 
 ..  _modules-multistepwizard-show-hide-wizard:
