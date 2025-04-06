@@ -720,7 +720,7 @@ How to override service arguments?
 
 Some services in the TYPO3 core use service arguments, which can be overridden by third-party extensions.  
 For example, the :php:`$rateLimiterFactory` argument in the :php-short:`\TYPO3\CMS\FrontendLogin\ControllerPasswordRecoveryController` of the 
-:php:`felogin` extension  uses a service with the ID :php:`feloginPasswordRecovery.rateLimiterFactory`. 
+:composer:`typo3/cms-felogin` extension  uses a service with the ID :yaml:`feloginPasswordRecovery.rateLimiterFactory`. 
 This service is defined in the :php:`Services.yaml` file of :php:`ext:felogin` and includes a service 
 argument named :php:`$config`, which specifies the configuration for the Symfony Rate Limiter used in 
 the class.
