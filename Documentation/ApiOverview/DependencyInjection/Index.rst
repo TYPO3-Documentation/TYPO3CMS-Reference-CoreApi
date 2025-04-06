@@ -728,7 +728,8 @@ the class.
 A third-party extension can override the :php:`feloginPasswordRecovery.rateLimiterFactory` service in 
 its own :file:`Services.yaml` file, as shown in the example below:
 
-.. code-block:: php
+..  code-block:: yaml
+    :caption: packages/my-extension/Configuration/Services.yaml
 
     feloginPasswordRecovery.rateLimiterFactory:
       class: Symfony\Component\RateLimiter\RateLimiterFactory
