@@ -726,7 +726,7 @@ argument named :php:`$config`, which specifies the configuration for the Symfony
 the class.
 
 A third-party extension can override the :php:`feloginPasswordRecovery.rateLimiterFactory` service in 
-its own :php:`Services.yaml` file, as shown in the example below:
+its own :file:`Services.yaml` file, as shown in the example below:
 
 .. code-block:: php
 
