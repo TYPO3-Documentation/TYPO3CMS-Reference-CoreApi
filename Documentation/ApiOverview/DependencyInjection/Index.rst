@@ -742,7 +742,7 @@ its own :file:`Services.yaml` file, as shown in the example below:
         $storage: '@storage.cachingFramework'
 
 It is important that the 3rd party extension is loaded **after** the extension whose service it overrides.
-This can be achieved by requiring the original extension as a dependency in the :php:`composer.json` file
+This can be achieved by requiring the original extension as a dependency in the :file:`packages/my-extension/composer.json` file
 of the 3rd party extension.
 
 
