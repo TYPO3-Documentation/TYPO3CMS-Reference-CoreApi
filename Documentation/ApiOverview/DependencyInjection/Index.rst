@@ -713,6 +713,7 @@ be declared public:
 
     Call to a member function methodName() on null
 
+..  dependency-injection-override-service-arguments:
 
 How to override service arguments?
 ----------------------------------
