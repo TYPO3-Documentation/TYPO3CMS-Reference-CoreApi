@@ -45,11 +45,27 @@ You have to define at least one slide :javascript:`MultiStepWizard.addSlide()`.
         :type: string|JQuery|Element|DocumentFragment
 
         The content of the slide. If `string` any HTML will be escaped. To
-        prevent that wrap your content into a jquery object:
+        prevent that, chose one of the other allowed types:
+
+        **JQuery**:
 
         ..  code-block:: js
 
-            $(`Your HTML content`);
+            $(`<div>Your HTML content</div>`);
+
+        **Element**:
+
+        ..  code-block:: js
+
+            Object.assign(document.createElement('div'), {
+              innerHTML: 'Your HTML content'
+            });
+
+        **DocumentFragment**:
+
+        ..  code-block:: js
+
+            document.createRange().createContextualFragment("<div>Your HTML content</div>");
 
     ..  confval:: severity
         :name: multi-step-wizard-settings-severity
@@ -103,42 +119,24 @@ methods to lock or unlock them:
 
 ..  _modules-multistepwizard-full-example:
 
-Full Example
-============
+"Hello world" Example
+=====================
+
+This JavaScript snippet will create a new multi-step wizard with just one
+sheet. As it used :javascript:`SeverityEnum.warning` the title and buttons
+will be colored in yellow.
+
+..  literalinclude:: _Modals/_multi-step-wizard.js
+    :language: javascript
+    :caption: EXT:my_extension/Resources/Public/JavaScript/HelloWorldModule.js
+
+To call the JavaScript from above you have to use the
+:ref:`JavaScriptModuleInstruction<backend-javascript-es6-loading>`) technique.
+In following snippet you see how to add a JavaScript module to field within
+:ref:`Form Engine<FormEngine>`:
 
 ..  code-block:: js
 
-    import {SeverityEnum} from "@typo3/backend/enum/severity.js"
-    import MultiStepWizard from "@typo3/backend/multi-step-wizard.js"
-    import $ from "jquery";
-
-    export default class HelloWorldModule {
-      constructor(triggerHelloWorldWizardButtonClass) {
-        $("." + triggerHelloWorldWizardButtonClass).on("click", function () {
-          MultiStepWizard.addSlide(
-            "UniqueHelloWorldIdentifier",
-            "Title of the Hello World example slide",
-            $(`<div>Hello world</div>`),
-            SeverityEnum.warning,
-            "Step Hello World",
-            function ($slide) {
-              let $modal = $slide.closest(".modal");
-              let $nextButton = $modal.find(".modal-footer").find("button[name='next']");
-              MultiStepWizard.unlockNextStep();
-
-              $nextButton.off().on("click", function () {
-                // Process whatever you want from current slide, just before wizard will be closed or next slide
-
-                // Close wizard
-                MultiStepWizard.dismiss();
-
-                // Go to next slide, if any
-                // MultiStepWizard.setup.$carousel.carousel("next");
-              });
-            }
-          );
-
-          MultiStepWizard.show();
-        });
-      }
-    }
+    $resultArray['javaScriptModules'][] = JavaScriptModuleInstruction::create(
+        '@stefanfroemken/dropbox/AccessTokenModule.js'
+    )->instance($fieldId);
