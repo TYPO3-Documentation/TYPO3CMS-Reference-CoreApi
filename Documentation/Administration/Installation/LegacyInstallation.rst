@@ -1,104 +1,130 @@
-.. include:: /Includes.rst.txt
+:navigation-title: Legacy installation
 
-.. index:: legacy installation
+..  include:: /Includes.rst.txt
+..  index:: legacy installation
 
-.. _legacyinstallation:
+..  _legacyinstallation:
 
-===================
-Legacy Installation
-===================
+=========================
+Legacy TYPO3 installation
+=========================
+
+On any webserver that full fills the `System Requirements <https://docs.typo3.org/permalink/t3coreapi:system-requirements>`_,
+including a suitable PHP version and Database it is possible to install TYPO3
+by downloading and unpacking a `.tar` or `.zip` file. You can download
+this file from https://get.typo3.org/ or - if available - via wget or curl.
+
+..  todo: Document recommended Server tools like ssh, cronjob, etc and link to
+    that chapter
+
+To ensure future updates can be achieved smoothly and without noticeable downtime
+it is highly recommended to use symlinks.
+
+..  tip::
+    It is recommended to use the dependency manager `Composer <https://getcomposer.org/>`_
+    if possible: See :ref:`Composer-based installation instructions <install>`.
 
 ..  warning::
-    This guide details how TYPO3 can be installed without using Composer. This method of installation
-    is now considered **out of date**, users are strongly encouraged to use the
-    :ref:`Composer-based installation instructions <install>`.
+    Do not change any files belonging to the TYPO3 Core source as it makes updating
+    hard or impossible.
 
-Installing on a Unix Server
-===========================
+    You can use `Events and hooks <https://docs.typo3.org/permalink/t3coreapi:hooks>`_
+    or third party extensions.
 
-#. Download TYPO3's source package from `https://get.typo3.org/
-   <https://get.typo3.org/>`_:
+    If you absolutely have to change files in the Core source, keep a
+    `.diff <https://en.wikipedia.org/wiki/Diff>`_ file so you can reapply the
+    changes to the next TYPO3 version on update.
 
-   .. code-block:: bash
-      :caption: /var/www/site/$
+..  _legacyinstallation-linux:
 
-      wget --content-disposition https://get.typo3.org/13
+Installing on a Linux/Unix server
+=================================
 
-   Ensure that the package is one level above the web server's document root.
+#.  Download TYPO3's source package from `https://get.typo3.org/
+    <https://get.typo3.org/>`_:
 
-   .. note::
-      Make sure to check the :ref:`release_integrity` of the downloaded files.
+    ..  code-block:: bash
+        :caption: /var/www/site/$
 
+        wget --content-disposition https://get.typo3.org/13
 
-#. Unpack the :file:`typo3_src-13.x.y.tar.gz`:
+    Ensure that the package is one level above the web server's document root.
 
-   .. code-block:: bash
-      :caption: /var/www/site/$
-
-      tar xzf typo3_src-13.x.y.tar.gz
-
-   Note that the `x` in the extracted folder will be replaced with the latest
-   minor number and the `y` by the bugfix number of TYPO3.
+    ..  note::
+        Make sure to check the :ref:`release_integrity` of the downloaded files.
 
 
-#. Create the following symlinks in the document root:
+#.  Unpack the :file:`typo3_src-13.4.y.tar.gz`:
+
+    ..  code-block:: bash
+        :caption: /var/www/site/$
+
+        tar xzf typo3_src-13.4.y.tar.gz
+
+    Note that the `x` in the extracted folder will be replaced with the latest
+    minor number and the `y` by the bugfix number of TYPO3.
 
 
-   .. code-block:: bash
-      :caption: /var/www/site/$
+#.  Create the following symlinks in the document root:
 
-      cd public
-      ln -s ../typo3_src-13.x.y typo3_src
-      ln -s typo3_src/index.php index.php
-      ln -s typo3_src/typo3 typo3
 
-   .. important::
-      Make sure to upload the whole TYPO3 source directory including the
-      :path:`vendor` directory, otherwise you will miss important dependencies.
+    ..  code-block:: bash
+        :caption: /var/www/site/$
 
-#. This will then create the following structure:
+        cd public
+        ln -s ../typo3_src-13.4.y typo3_src
+        ln -s typo3_src/index.php index.php
+        ln -s typo3_src/typo3 typo3
+
+    ..  important::
+        Make sure to upload the whole TYPO3 source directory including the
+        :path:`vendor` directory, otherwise you will miss important dependencies.
+
+#.  This will then create the following structure:
 
 ..  directory-tree::
 
-    *   :path:`typo3_src-13.x.y/`
+    *   :path:`typo3_src-13.4.y/`
     *   :path:`public/`
 
-        *   :path:`typo3_src -> ../typo3_src-13.x.y/`
+        *   :path:`typo3_src -> ../typo3_src-13.4.y/`
         *   :path:`typo3 -> typo3_src/typo3/`
         *   :file:`index.php -> typo3_src/index.php`
 
-Installing on a Windows Server
+..  _legacyinstallation-windows:
+
+Installing on a Windows server
 ==============================
 
-#. Download TYPO3's source package from `https://get.typo3.org/
-   <https://get.typo3.org/>`_ and extract the :file:`.zip` file on the web server.
+#.  Download TYPO3's source package from `https://get.typo3.org/
+    <https://get.typo3.org/>`_ and extract the :file:`.zip` file on the web server.
 
-   Ensure that the package is one level above the web server's document root.
+    Ensure that the package is one level above the web server's document root.
 
+#.  Use the shell to create the following symlinks in the document root:
 
-#. Use the shell to create the following symlinks in the document root:
+    .. code-block:: bash
+       :caption: /var/www/site/$
 
-   .. code-block:: bash
-      :caption: /var/www/site/$
+       cd public
+       mklink /d typo3_src ..\typo3_src-13.4.y
+       mklink /d typo3 typo3_src\typo3
+       mklink index.php typo3_src\index.php
 
-      cd public
-      mklink /d typo3_src ..\typo3_src-13.x.y
-      mklink /d typo3 typo3_src\typo3
-      mklink index.php typo3_src\index.php
-
-#. This will then create the following structure:
+#.  This will then create the following structure:
 
     ..  directory-tree::
 
-        *   :path:`typo3_src-13.x.y/`
+        *   :path:`typo3_src-13.4.y/`
         *   :path:`public/`
 
-            *   :path:`typo3_src -> ../typo3_src-13.x.y/`
+            *   :path:`typo3_src -> ../typo3_src-13.4.y/`
             *   :path:`typo3 -> typo3_src/typo3/`
             *   :file:`index.php -> typo3_src/index.php`
 
+..  _legacyinstallation-completion:
 
-Completing The Installation
+Completing the installation
 ===========================
 
 After the source package has been extracted and the symlinks created, continue from the
@@ -106,8 +132,8 @@ After the source package has been extracted and the symlinks created, continue f
 section of the :ref:`instructions for installing TYPO3 using Composer <install>` to
 complete the installation.
 
-.. toctree::
-   :hidden:
-   :titlesonly:
+..  toctree::
+    :hidden:
+    :titlesonly:
 
-   ReleaseIntegrity
+    ReleaseIntegrity
