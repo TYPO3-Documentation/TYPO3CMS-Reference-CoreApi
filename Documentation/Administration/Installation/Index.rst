@@ -56,6 +56,6 @@ Installation
     EnvironmentConfiguration
     ProductionSettings
     TuneTYPO3
-    DeployTYPO3
+    Deployment/Index
     LegacyInstallation
     LegacyExtensionInstallation
