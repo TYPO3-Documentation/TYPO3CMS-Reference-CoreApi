@@ -16,4 +16,4 @@ Best practises and conventions
     NamingConventions
     ConfigurationFiles
     SoftwareDesignPrinciples
-    ExtensionLoadOrder
+    ExtensionLoadingOrder
