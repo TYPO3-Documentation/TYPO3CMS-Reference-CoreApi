@@ -4,11 +4,11 @@ declare(strict_types=1);
 
 use TYPO3\CMS\Extbase\DomainObject\AbstractEntity;
 
-class Blog extends AbstractEntity {
-
+class Blog extends AbstractEntity
+{
     // The constructor defaults are applied **only** when you create a new
     // object with $blog = new Blog();
-    public function __construct (
+    public function __construct(
         protected string $title = '',
         protected ?\Datetime $modified = null,
     ) {}
