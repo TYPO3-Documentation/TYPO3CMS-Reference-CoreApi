@@ -111,7 +111,8 @@ types such as strings, integers, booleans or nullable properties:
 ..  code-block:: php
     :caption: EXT:my_extension/Classes/Domain/Model/Blog.php
 
-    class Blog extends AbstractEntity {
+    class Blog extends AbstractEntity
+    {
         protected string $title = '';
         protected ?\DateTime $modified = null;
     }
