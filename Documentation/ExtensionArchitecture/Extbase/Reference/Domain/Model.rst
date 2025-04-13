@@ -23,6 +23,12 @@ In the TYPO3 backend models are displayed as :ref:`database-records`.
 
 ..  include:: /CodeSnippets/Extbase/Domain/AbstractEntity.rst.txt
 
+..  warning::
+    Extbase does not call the constructor when thawing objects. Therefore you
+    cannot set default values or initialize properties in the constructor.
+    This includes properties that are defined via constructor parameter
+    promotion. See also `Default values for model properties <https://docs.typo3.org/permalink/t3coreapi:extbase-model-properties-default-values>`_.
+
 ..  contents:: Table of content
     :local:
 
@@ -76,6 +82,81 @@ however get displayed when explicitly called:
 
     But it is there:
     <f:debug>{post.info.combinedString}</f:debug>
+
+..  _extbase-model-properties-default-values:
+
+Default values for model properties
+-----------------------------------
+
+When Extbase loads an object from the database, it does **not** call the
+constructor.
+
+This is explained in more detail in the section
+`thawing objects of Extbase models <https://docs.typo3.org/permalink/t3coreapi:extbase-model-hydrating>`_.
+
+This means:
+
+-   Property promotion in the constructor (for example
+    :php:`__construct(public string $title = '')`) **does not work**
+-   Properties must be initialized in a different way to avoid runtime errors
+
+..  _extbase-model-properties-default-values-directly:
+
+Good: Set default values directly
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+You can assign default values when defining the property. This works for simple
+types such as strings, integers, booleans or nullable properties:
+
+..  code-block:: php
+    :caption: EXT:my_extension/Classes/Domain/Model/Blog.php
+
+    class Blog extends AbstractEntity {
+        protected string $title = '';
+        protected ?\DateTime $modified = null;
+    }
+
+..  _extbase-model-properties-default-values-initialize:
+
+Good: Use ``initializeObject()`` for setup
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+If a property needs special setup (for example, using `new ObjectStorage()`),
+you can put that logic into a method called `initializeObject()`. Extbase
+calls this method automatically after loading the object:
+
+..  literalinclude:: _Hydrating/_Blog3.php
+    :caption: EXT:my_extension/Classes/Domain/Model/Blog.php
+
+..  _extbase-model-properties-default-values-cpp:
+
+Avoid: Constructor property promotion
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+This will **not** work when the object comes from the database:
+
+..  code-block:: php
+
+    public function __construct(protected string $title = '') {}
+
+Since the constructor is never called during hydration, such properties remain
+uninitialized and can cause errors like:
+
+    Error: Typed property MyVendor\MyExtension\Domain\Model\Blog::$title
+    must not be accessed before initialization
+
+To prevent this, always initialize properties either where they are defined or
+inside the `initializeObject()` method.
+
+..  _extbase-model-properties-default-values-tca:
+
+TCA default values
+~~~~~~~~~~~~~~~~~~
+
+If the TCA configuration of a field defines a
+:ref:`default value <t3tca:confval-input-default>`, that value is applied **after**
+`initializeObject()` has been called, and **before** data from the database is
+mapped to the object.
 
 ..  _extbase-model-properties-union-types:
 
