@@ -54,13 +54,13 @@ This dependency will ensure that TYPO3 loads the extension **after** the
 .. _extension-loading-order-composer-and-classic:
 
 Extensions compatible with both composer and classic mode
------------------------------------------------
+---------------------------------------------------------
 
 Extension authors providing an extension for both TYPO3 composer and classic
 installations should ensure that the information in the
 :file:`composer.json <extension-composer-json>` file is in sync with the
 information in the :ref:`ext_emconf.php <ext_emconf-php>` file. This is
 especially important when it comes to dependency constraints like :php:`depends`,
-:php:`conflicts` and :php:`suggests`. Use the equivalent key words in
+:php:`conflicts` and :php:`suggests`. Use the equivalent keywords in
 :file:`composer.json <extension-composer-json>` `require`, `conflict` and
 `suggest` to set dependencies and ensure there is a specific order.
