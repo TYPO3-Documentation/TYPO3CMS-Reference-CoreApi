@@ -126,7 +126,7 @@ This JavaScript snippet will create a new multi-step wizard with just one
 sheet. As it used :javascript:`SeverityEnum.warning` the title and buttons
 will be colored in yellow.
 
-..  literalinclude:: _Modals/_multi-step-wizard.js
+..  literalinclude:: _MultiStepWizard/_multi-step-wizard.js
     :language: javascript
     :caption: EXT:my_extension/Resources/Public/JavaScript/HelloWorldModule.js
 
