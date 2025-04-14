@@ -8,5 +8,5 @@ use TYPO3\CMS\Extbase\DomainObject\AbstractEntity;
 
 class Entity extends AbstractEntity
 {
-    private string|int $property;
+    protected string|int $property;
 }
