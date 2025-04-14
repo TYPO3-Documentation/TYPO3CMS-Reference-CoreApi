@@ -13,6 +13,8 @@ class Blog extends AbstractEntity
 
     public function __construct(protected string $title)
     {
+        // Posts is not initialized on thawing / fetching from database!!
+        // Must be initialized in initializeObject()!!
         $this->posts = new ObjectStorage();
     }
 }
