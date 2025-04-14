@@ -18,7 +18,7 @@ Composer-based installations
 ----------------------------
 
 In Composer-based installations, extensions and dependencies are
-installed based on the order specified in the
+installed based on dependencies specified in the
 :file:`composer.json <extension-composer-json>` file.
 
 For example, if an extension relies on or modifies functionality provided by
@@ -31,6 +31,15 @@ as follows:
 
 This dependency will ensure that TYPO3 loads the extension **after** the
 :php:`ext:felogin` system extension.
+
+Extensions can also "suggest" instead of "require" other extensions. The 3rd
+party extension will then only optionally add further functionality.
+
+In this case, suggested extensions will be loaded **before** the current
+extensions, just as if it was required. So this acts as a kind of "loading
+order suggestion".
+
+An example for this would be an extension providing optional widgets for EXT:dashboard.
 
 .. _extension-loading-order-classic:
 
@@ -61,6 +70,6 @@ installations should ensure that the information in the
 :file:`composer.json <extension-composer-json>` file is in sync with the
 information in the :ref:`ext_emconf.php <ext_emconf-php>` file. This is
 especially important when it comes to dependency constraints like :php:`depends`,
-:php:`conflicts` and :php:`suggests`. Use the equivalent keywords in
+:php:`conflicts` and :php:`suggests`. Use the equivalents in
 :file:`composer.json <extension-composer-json>` `require`, `conflict` and
 `suggest` to set dependencies and ensure there is a specific order.
