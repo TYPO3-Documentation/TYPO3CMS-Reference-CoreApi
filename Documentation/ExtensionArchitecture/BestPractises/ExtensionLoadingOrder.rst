@@ -1,6 +1,6 @@
-.. include:: /Includes.rst.txt
-.. index:: Extension development; Software Design Principles
-.. _extension-loading-order:
+..  include:: /Includes.rst.txt
+..  index:: Extension development; Software Design Principles
+..  _extension-loading-order:
 
 =======================
 Extension loading order
@@ -12,7 +12,7 @@ the functionality of another. TYPO3 initializes extensions in a defined order,
 and if dependencies are not loaded beforehand, it can lead to unintended
 behavior.
 
-.. _extension-loading-order-composer:
+..  _extension-loading-order-composer:
 
 Composer-based installations
 ----------------------------
@@ -41,7 +41,7 @@ order suggestion".
 
 An example for this would be an extension providing optional widgets for EXT:dashboard.
 
-.. _extension-loading-order-classic:
+..  _extension-loading-order-classic:
 
 Classic installations
 ---------------------
@@ -60,7 +60,7 @@ as follows:
 This dependency will ensure that TYPO3 loads the extension **after** the
 :php:`ext:felogin` system extension.
 
-.. _extension-loading-order-composer-and-classic:
+..  _extension-loading-order-composer-and-classic:
 
 Extensions compatible with both composer and classic mode
 ---------------------------------------------------------
