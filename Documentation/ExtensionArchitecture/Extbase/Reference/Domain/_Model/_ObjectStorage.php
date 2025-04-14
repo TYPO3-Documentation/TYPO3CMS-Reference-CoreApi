@@ -13,5 +13,10 @@ class Entity extends AbstractEntity
      * @var ObjectStorage<ChildEntity>
      * @TYPO3\CMS\Extbase\Annotation\ORM\Lazy
      */
-    private ObjectStorage $property;
+    protected ObjectStorage $property;
+
+    public function initializeObject(): void
+    {
+        $this->property = new ObjectStorage();
+    }
 }
