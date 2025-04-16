@@ -61,7 +61,7 @@ Steps:
 
             ..  code-block:: bash
 
-                mysqldump -u <user> -p <database_name> > dump.sql
+                mysqldump -u <user> -p -h <host> <database_name> > dump.sql
 
         ..  group-tab:: DDEV
 
@@ -83,7 +83,7 @@ Steps:
 
     ..  code-block:: bash
 
-        mysql -u <user> -p <database_name> < dump.sql
+        mysql -u <user> -p -h <host> <database_name> < dump.sql
 
     ..  note::
 
@@ -137,7 +137,10 @@ Steps:
     Include:
 
     -   `public/` (excluding `fileadmin/`, `uploads/`)
-    -   `config/`, `vendor/`, `composer.lock`, etc.
+    -   `config/`
+    -   `vendor/`
+    -   `composer.lock`
+    -   etc.
 
     Do not include dynamic or environment-specific files such as:
 
