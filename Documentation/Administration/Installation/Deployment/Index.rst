@@ -73,7 +73,7 @@ Steps:
 
     Folders to include:
 
-    -   :path:`public/` (except cache/session folders)
+    -   :path:`public/`
     -   :path:`config/`
     -   :path:`vendor/`,
     -   Files from the project directory: :file:`composer.json`, :path:`composer.lock`
