@@ -119,7 +119,7 @@ Steps:
 Regular deployment
 ------------------
 
-After the initial setup, regular deployments are used to update code and
+After the initial deployment, regular deployments are used to update code and
 configuration.
 
 Steps:
