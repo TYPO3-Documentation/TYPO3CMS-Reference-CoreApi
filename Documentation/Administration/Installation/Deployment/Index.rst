@@ -129,7 +129,7 @@ Steps:
     -   Apply code or configuration changes
     -   Run:
 
-        .. code-block:: bash
+        ..  code-block:: bash
 
             composer install --no-dev
 
