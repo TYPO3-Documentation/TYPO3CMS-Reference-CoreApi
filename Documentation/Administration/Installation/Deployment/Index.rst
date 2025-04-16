@@ -93,7 +93,7 @@ Steps:
 #.  Set up shared and writable directories on the server:
 
     -   :path:`public/fileadmin/`
-    -   :path:`var/` and its subfolders
+    -   :path:`var/`
 
 #.  Adjust web server configuration:
 
