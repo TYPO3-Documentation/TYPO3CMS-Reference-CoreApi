@@ -110,9 +110,8 @@ Steps:
 
     You can use the `Admin Tools <https://docs.typo3.org/permalink/t3start:admin-tools>`_
     to verify folder permissions and environment compatibility.
-    Open: `https://example.org/typo3/install.php`
-
-    and go to the **System Environment** section.
+    Open: `https://example.org/typo3/install.php` and go to
+    the **System Environment** section.
 
 ..  _manual-deployment-regular:
 
