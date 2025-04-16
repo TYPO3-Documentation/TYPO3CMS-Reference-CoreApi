@@ -1,5 +1,6 @@
-..  include:: /Includes.rst.txt
+:navigation-title: Deployment
 
+..  include:: /Includes.rst.txt
 ..  index:: deployment, composer, production setup
 
 ..  _deploytypo3:
@@ -9,36 +10,159 @@
 Deploying TYPO3
 ===============
 
-This guide outlines the steps required to manually deploy TYPO3 and ensure the installation
-is secure and ready to be used in a production context. This guide also highlights a number of
-automation tools that can help automate the deployment process.
+This guide explains how to deploy a TYPO3 project to a production environment
+securely and efficiently. It covers both **manual** deployment and
+**automated** strategies using deployment tools.
 
-There are several different ways to deploy TYPO3. One of the more simple
-options is to manually copy its files and database
-from a local machine to the live server, adjusting the configuration where
-necessary.
+TYPO3 can be deployed in various ways. A common and simple approach is to
+copy files and the database from a local environment to the live server.
+
+However, for larger or more professional projects,
+`automated deployments <https://docs.typo3.org/permalink/t3coreapi:deployment-automatic>`_
+using tools are highly recommended.
+
+..  contents:: Table of contents
 
 ..  _deployment-steps:
+..  _manual-deployment:
 
-General Deployment Steps
-========================
+Manual deployment of a Composer-based installation
+==================================================
 
-*   Build the local environment (installing everything necessary for the website)
-*   Run :bash:`composer install --no-dev` to install without development dependencies
-*   Copy files to the production server
-*   Copy the database to the production server
-*   Clearing the caches
+The deployment process for TYPO3 can be divided into two parts:
 
-.. note::
+1.  **Initial Deployment** – the first time the project is set up on the
+    server.
+2.  **Regular Deployment** – ongoing updates to code or configuration.
 
-    The :bash:`composer install` command should not be run on the live environment.
-    Ideally, Composer should only run locally or on a dedicated deployment machine,
-    to allow testing before going live.
+..  _manual-deployment-initial:
 
-    To avoid conflicts between the local and the server's PHP version,
-    the server's PHP version can be defined in the :file:`composer.json` file
-    (e.g. ``{"platform": {"php": "8.2"}}``), so Composer will always check
-    the correct dependencies.
+Initial deployment
+------------------
+
+This is the first deployment of TYPO3 to a production environment. It includes
+setting up the full application, database, and user-generated content.
+
+Steps:
+
+#.  Build the project locally:
+
+    ..  code-block:: bash
+
+        composer install --no-dev
+
+#.  Export the local database using `mysqldump <https://dev.mysql.com/doc/refman/8.0/en/mysqldump.html>`_,
+    `ddev export-db <https://ddev.readthedocs.io/en/stable/users/cli-usage/>`_,
+    or a GUI-based tool like Heidi SQL or phpmyadmin.
+
+    ..  tabs::
+
+        ..  group-tab:: Linux / macOS / WSL
+
+            ..  code-block:: bash
+
+                mysqldump -u <user> -p -h <host> <database_name> > dump.sql
+
+        ..  group-tab:: DDEV
+
+            ..  code-block:: bash
+
+                ddev export-db --file=dump.sql
+
+#.  Transfer all necessary files to the server.
+
+    Folders to include:
+
+    -   :path:`public/`
+    -   :path:`config/`
+    -   :path:`vendor/`,
+    -   Files from the project directory: :file:`composer.json`, :path:`composer.lock`
+
+#.  Import the database on the production server, for example using
+    `mysql <https://dev.mysql.com/doc/refman/8.0/en/mysql.html>`_:
+
+    ..  code-block:: bash
+
+        mysql -u <user> -p -h <host> <database_name> < dump.sql
+
+    ..  note::
+
+        You will be prompted to enter the MySQL user password. Make sure the
+        target database exists before running this command.
+
+#.  Set up shared and writable directories on the server:
+
+    -   :path:`public/fileadmin/`
+    -   :path:`var/`
+
+#.  Adjust web server configuration:
+
+    -   Set the document root to `public/`
+    -   Ensure correct permissions for writable folders
+
+#.  Flush TYPO3 caches:
+
+    .. code-block:: bash
+
+        ./vendor/bin/typo3 cache:flush
+
+..  note::
+
+    You can use the `Admin Tools <https://docs.typo3.org/permalink/t3start:admin-tools>`_
+    to verify folder permissions and environment compatibility.
+    Open: `https://example.org/typo3/install.php` and go to
+    the **System Environment** section.
+
+..  _manual-deployment-regular:
+
+Regular deployment
+------------------
+
+After the initial deployment, regular deployments are used to update code and
+configuration.
+
+Steps:
+
+#.  Prepare the updated version locally:
+
+    -   Apply code or configuration changes
+    -   Run:
+
+        ..  code-block:: bash
+
+            composer install --no-dev
+
+#.  Transfer only updated files to the server.
+
+    Include:
+
+    -   `public/` (excluding `fileadmin/`, `uploads/`)
+    -   `config/`
+    -   `vendor/`
+    -   `composer.lock`
+    -   etc.
+
+    Do not include dynamic or environment-specific files such as:
+
+    -   :path:`var/`, :path:`public/fileadmin/`, (these are managed on the server)
+
+3.  If database changes are required:
+
+    -   Run the Upgrade Wizard in the TYPO3 backend
+    -   Or apply schema changes via CLI tools
+
+4.  Flush TYPO3 caches:
+
+    .. code-block:: bash
+
+        ./vendor/bin/typo3 cache:flush
+
+..  note::
+
+    Use a deployment script or tool such as `rsync` or
+    `Deployer <https://docs.typo3.org/permalink/t3coreapi:deployment-deployer>`_
+    to automate regular deployments and avoid overwriting persistent data.
+
 
 ..  _deployment-automatic:
 
