@@ -9,7 +9,7 @@
 TYPO3 installation overview
 ===========================
 
-TYPO3 can be installed in two fully supported ways:
+TYPO3 can be installed in two ways:
 
 ..  card-grid::
     :columns: 1
@@ -20,9 +20,9 @@ TYPO3 can be installed in two fully supported ways:
 
     ..  card:: `Composer-based installation <https://docs.typo3.org/permalink/t3coreapi:installation>`_
 
-        Composer-based setups are common in professional development
-        environments. Extensions are installed via Packagist
-        (not directly from TER), and this approach offers more flexibility,
+        Composer-based setups are common in professional
+        environments with development teams. Extensions are installed via Packagist
+        (not from the TER), providing more flexibility,
         better integration with version control, and easier environment
         automation. It is ideal for advanced projects or team-based workflows.
 
@@ -31,12 +31,12 @@ TYPO3 can be installed in two fully supported ways:
 
     ..  card:: `Classic installation <https://docs.typo3.org/permalink/t3coreapi:legacyinstallation>`_
 
-        This method provides access to the TYPO3 Extension Repository (TER)
-        via the backend. It’s ideal for managed hosting, automated updates,
-        and simpler setups. Also well suited for beginners due to its GUI-based
+        This method includes access to the TYPO3 Extension Repository (TER)
+        via the backend. It is ideal for managed hosting, automated updates,
+        and simpler setups. Also well suited for beginners due to GUI-based
         extension handling.
 
-        Switching to Composer later is possible, but takes effort and involves
+        Switching to Composer later is possible, but takes effort and means
         restructuring the project.
 
         ..  card-footer:: `Classic installation <https://docs.typo3.org/permalink/t3coreapi:legacyinstallation>`_ `Migrate to Composer <https://docs.typo3.org/permalink/t3coreapi:migratetocomposer>`_
@@ -45,8 +45,7 @@ TYPO3 can be installed in two fully supported ways:
 Both methods are fully supported and recommended depending on your project
 needs and environment.
 
-As of now, there is **no official plan to deprecate the classic installation**
-method.
+As of now, there is **no official plan to deprecate the classic installation method.**
 
 ..  card-grid::
     :columns: 1
