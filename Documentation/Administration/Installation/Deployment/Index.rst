@@ -78,6 +78,9 @@ Steps:
     -   :path:`vendor/`,
     -   Files from the project directory: :file:`composer.json`, :path:`composer.lock`
 
+    You can speed up the transfer using archive tools like zip or tar, or use
+    `rsync <https://docs.typo3.org/permalink/t3coreapi:deployment-rsync>`_.
+
 #.  Import the database on the production server, for example using
     `mysql <https://dev.mysql.com/doc/refman/8.0/en/mysql.html>`_:
 
@@ -146,6 +149,10 @@ Steps:
 
     -   :path:`var/`, :path:`public/fileadmin/`, (these are managed on the server)
 
+    You can speed up the transfer using archive tools like zip or tar, or use
+    `rsync deployment of TYPO3 <https://docs.typo3.org/permalink/t3coreapi:deployment-rsync>`_
+    to copy only changed files.
+
 3.  If database changes are required:
 
     -   Run the Upgrade Wizard in the TYPO3 backend
@@ -159,7 +166,8 @@ Steps:
 
 ..  note::
 
-    Use a deployment script or tool such as `rsync` or
+    Use a deployment script or tool such as
+    `Rsync <https://docs.typo3.org/permalink/t3coreapi:deployment-rsync>`_ or
     `Deployer <https://docs.typo3.org/permalink/t3coreapi:deployment-deployer>`_
     to automate regular deployments and avoid overwriting persistent data.
 
@@ -235,6 +243,7 @@ The following section contains examples for various deployment tools and how the
 ..  toctree::
     :titlesonly:
 
+    Rsync/Index
     Deployer/Index
     Surf/Index
     Magallanes/Index
