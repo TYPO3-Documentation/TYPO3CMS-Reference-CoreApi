@@ -22,7 +22,7 @@ rsync is often used for **small to medium-sized projects** or teams who prefer
 a controlled and scriptable way to deploy TYPO3 without setting up full
 :abbr:`CI/CD (Continuous Integration / Continuous Deployment)` systems.
 
-Compared to uploading zip or tar archives, rsync only transfers changed files
+By default, rsync only transfers changed files, compared to uploading zip or tar archives,
 and avoids the need to unpack anything on the server.
 
 Unlike tools such as
