@@ -18,9 +18,10 @@ by synchronizing project files from a local environment (such as a
 to a production server over
 `SSH <https://www.digitalocean.com/community/tutorials/what-is-ssh>`_.
 
-rsync is often used for **small to medium-sized projects** or teams who prefer
+rsync is often used for small to medium-sized projects, or by teams who prefer
 a controlled and scriptable way to deploy TYPO3 without setting up full
-:abbr:`CI/CD (Continuous Integration / Continuous Deployment)` systems.
+:abbr:`CI/CD (Continuous Integration / Continuous Deployment)` systems. It can
+also be part of automated workflows in larger or more complex environments.
 
 By default, rsync only transfers changed files, compared to uploading zip or tar archives,
 and avoids the need to unpack anything on the server.
