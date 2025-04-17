@@ -107,11 +107,11 @@ You can also define controller argument validators:
 
 **Example:**
 
-.. code-block:: php
-   :caption: Examples for controller argument validators
+..  code-block:: php
+    :caption: Examples for controller argument validators
 
-   #[Validate(['validator' => 'EmailAddress', 'param' => 'email'])]
-   public function submitAction(string $email): ResponseInterface
+    #[Validate(['validator' => 'EmailAddress', 'param' => 'email'])]
+    public function submitAction(string $email): ResponseInterface
 
 The following rules validate each controller argument:
 
