@@ -167,7 +167,7 @@ Steps:
 ..  note::
 
     Use a deployment script or tool such as
-    `Rsync <https://docs.typo3.org/permalink/t3coreapi:deployment-rsync>`_ or
+    `rsync <https://docs.typo3.org/permalink/t3coreapi:deployment-rsync>`_ or
     `Deployer <https://docs.typo3.org/permalink/t3coreapi:deployment-deployer>`_
     to automate regular deployments and avoid overwriting persistent data.
 
