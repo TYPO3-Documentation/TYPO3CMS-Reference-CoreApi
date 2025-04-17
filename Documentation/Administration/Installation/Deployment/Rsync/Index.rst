@@ -26,11 +26,14 @@ also be part of automated workflows in larger or more complex environments.
 By default, rsync only transfers changed files, compared to uploading zip or tar archives,
 and avoids the need to unpack anything on the server.
 
-Unlike tools such as
+Tools like
 `Deployer <https://docs.typo3.org/permalink/t3coreapi:deployment-deployer>`_
-or `TYPO3 Surf <https://docs.typo3.org/permalink/t3coreapi:deployment-typo3-surf>`_,
-rsync does not offer rollbacks or automated deployment steps. However, it gives
-you full control over what is transferred and when.
+or `TYPO3 Surf <https://docs.typo3.org/permalink/t3coreapi:deployment-typo3-surf>`_
+often use rsync internally to transfer files, but add features such as
+automated deployment steps, release management, and rollback support on top.
+
+Using rsync directly gives you full control over what is transferred and when,
+but you are responsible for handling additional deployment tasks yourself.
 
 ..  seealso::
 
