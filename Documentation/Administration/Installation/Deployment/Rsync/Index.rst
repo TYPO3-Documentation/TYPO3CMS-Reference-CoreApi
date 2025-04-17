@@ -37,4 +37,4 @@ you full control over what is transferred and when.
     -   `Beginner tutorial (Linuxize) <https://linuxize.com/post/how-to-use-rsync-for-local-and-remote-data-transfer-and-synchronization/>`_
     -   `rsync manual <https://linux.die.net/man/1/rsync>`_
 
-..  todo:: Add recipes for Composer-based and classic installations.
+..  todo:: Add "how-to instructions" for Composer-based and classic installations.
