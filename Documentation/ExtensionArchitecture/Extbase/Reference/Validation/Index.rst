@@ -103,6 +103,16 @@ is applied with one argument.
 Validation of controller arguments
 ===================================
 
+You can also define controller argument validators:
+
+**Example:**
+
+..  code-block:: php
+    :caption: Examples for controller argument validators
+
+    #[Validate(['validator' => 'EmailAddress', 'param' => 'email'])]
+    public function submitAction(string $email): ResponseInterface
+
 The following rules validate each controller argument:
 
 *  If the argument is a domain object, the annotations
