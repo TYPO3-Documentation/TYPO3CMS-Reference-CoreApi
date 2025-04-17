@@ -150,7 +150,7 @@ Steps:
     -   :path:`var/`, :path:`public/fileadmin/`, (these are managed on the server)
 
     You can speed up the transfer using archive tools like zip or tar, or use
-    `rsync deployment of TYPO3 <https://docs.typo3.org/permalink/t3coreapi:deployment-rsync>`_
+    `rsync <https://docs.typo3.org/permalink/t3coreapi:deployment-rsync>`_
     to copy only changed files.
 
 3.  If database changes are required:
