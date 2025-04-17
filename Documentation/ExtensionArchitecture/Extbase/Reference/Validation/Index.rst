@@ -103,7 +103,7 @@ is applied with one argument.
 Validation of controller arguments
 ===================================
 
-For controller arguments validators can be defined as well.
+You can also define controller argument validators:
 
 **Example:**
 
