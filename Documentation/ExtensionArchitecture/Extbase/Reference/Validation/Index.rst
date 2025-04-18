@@ -123,8 +123,8 @@ in the controller.
 
 ..  _extbase-validation-arguments:
 
-Annotation syntax of validators with arguments
-==============================================
+PHP Attribut syntax of validators with arguments
+================================================
 
 Validators can be called with zero, one or more arguments. See the following
 examples:
