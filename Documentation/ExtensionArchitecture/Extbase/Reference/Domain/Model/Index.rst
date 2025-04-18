@@ -130,7 +130,7 @@ If a property needs special setup (for example, using `new ObjectStorage()`),
 you can put that logic into a method called `initializeObject()`. Extbase
 calls this method automatically after loading the object:
 
-..  literalinclude:: _Hydrating/_Blog3.php
+..  literalinclude:: _codesnippets/_Hydrating/_Blog3.php
     :caption: EXT:my_extension/Classes/Domain/Model/Blog.php
 
 ..  _extbase-model-properties-default-values-cpp:
@@ -176,7 +176,7 @@ Union types of Extbase model properties
 
 Union types can be used in properties of an entity, for example:
 
-..  literalinclude:: _Model/_UnionType1.php
+..  literalinclude:: _codesnippets/_UnionType1.php
     :caption: EXT:my_extension/Classes/Domain/Model/Entity.php
 
 This is especially useful for lazy-loaded relations where the property type is
@@ -189,7 +189,7 @@ needs to know the desired target type - no union, no intersection, just one
 type. In order to achieve this, Extbase uses the first declared type as a
 so-called primary type.
 
-..  literalinclude:: _Model/_UnionType2.php
+..  literalinclude:: _codesnippets/_UnionType2.php
     :caption: EXT:my_extension/Classes/Domain/Model/Entity.php
 
 In this case, :php:`string` is the primary type. :php:`int|string` would result
@@ -205,7 +205,7 @@ boils down to :php:`?string` or :php:`?int`.
 Secondly, :php:`LazyLoadingProxy` is never detected as a primary type because it
 is just a proxy and not the actual target type, once loaded.
 
-..  literalinclude:: _Model/_UnionType3.php
+..  literalinclude:: _codesnippets/_UnionType3.php
     :caption: EXT:my_extension/Classes/Domain/Model/Entity.php
 
 Extbase supports this and detects :php:`ChildEntity` as the primary type,
@@ -217,7 +217,7 @@ A final word on :php:`\TYPO3\CMS\Extbase\Persistence\Generic\LazyObjectStorage`:
 it is a subclass of :php:`\TYPO3\CMS\Extbase\Persistence\ObjectStorage`,
 therefore the following code works and has always worked:
 
-..  literalinclude:: _Model/_ObjectStorage.php
+..  literalinclude:: _codesnippets/_ObjectStorage.php
     :caption: EXT:my_extension/Classes/Domain/Model/Entity.php
 
 ..  _extbase-model-relations:
@@ -355,7 +355,7 @@ the user's perspective.
 Creating model objects with constructor arguments
 -------------------------------------------------
 
-Imagine you have a table :sql:`tx_extension_domain_model_blog` and a
+Imagine you have a table :sql:`tx_extension_domain_codesnippets_blog` and a
 corresponding model or entity (entity is used as a synonym here)
 :php:`\MyVendor\MyExtension\Domain\Model\Blog`.
 
@@ -363,7 +363,7 @@ Now, also imagine there is a domain rule which states, that all blogs must have
 a title. This rule can easily be followed by letting the blog class have a
 constructor with a required argument :php:`string $title`.
 
-..  literalinclude:: _Hydrating/_Blog1.php
+..  literalinclude:: _codesnippets/_Hydrating/_Blog1.php
     :caption: EXT:my_extension/Classes/Domain/Model/Blog.php
 
 This example also shows how the `posts` property is initialized. It is done in
@@ -410,7 +410,7 @@ method :php:`initializeObject(): void` on models, if it exists.
 
 Here is an updated version of the model:
 
-..  literalinclude:: _Hydrating/_Blog2.php
+..  literalinclude:: _codesnippets/_Hydrating/_Blog2.php
     :caption: EXT:my_extension/Classes/Domain/Model/Blog.php
 
 This example demonstrates how Extbase expects the user to set up their models.
@@ -422,7 +422,7 @@ If there are no domain rules to follow, the recommended way to set up a model
 would then still be to define a :php:`__construct()` and
 :php:`initializeObject()` method like this:
 
-..  literalinclude:: _Hydrating/_Blog3.php
+..  literalinclude:: _codesnippets/_Hydrating/_Blog3.php
     :caption: EXT:my_extension/Classes/Domain/Model/Blog.php
 
 ..  _extbase-model-mutation:

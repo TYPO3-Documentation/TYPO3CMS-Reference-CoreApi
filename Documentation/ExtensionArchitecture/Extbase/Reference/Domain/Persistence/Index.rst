@@ -137,7 +137,7 @@ are required:
     :sql:`bodytext`, so only these two fields are available in the
     :ref:`model <extbase-model>` class.
 
-    ..  literalinclude:: _Content.php
+    ..  literalinclude:: _codesnippets/_Content.php
         :caption: EXT:my_extension/Classes/Domain/Model/Content.php
 
     ..  note::
@@ -149,14 +149,14 @@ are required:
     We need a :ref:`repository <extbase-repository>` to query the data from the
     table:
 
-    ..  literalinclude:: _ContentRepository.php
+    ..  literalinclude:: _codesnippets/_ContentRepository.php
         :caption: EXT:my_extension/Classes/Domain/Repository/ContentRepository.php
 
 #.  Connect table with model
 
     Finally, we need to :ref:`connect the table to the model <extbase_manual_mapping>`:
 
-    ..  literalinclude:: _Classes.php
+    ..  literalinclude:: _codesnippets/_Classes.php
         :caption: EXT:my_extension/Configuration/Extbase/Persistence/Classes.php
 
 
