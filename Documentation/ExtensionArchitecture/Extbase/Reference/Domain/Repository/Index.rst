@@ -126,7 +126,7 @@ in any repository class:
 
 Example to use the fallback to the default language when working with overlays:
 
-..  literalinclude:: _Repository/_LanguageAspect.php
+..  literalinclude:: _codesnippets/_LanguageAspect.php
     :language: php
     :caption: EXT:my_extension/Classes/Repository/MyRepository.php
 
@@ -138,7 +138,7 @@ Debugging an Extbase query
 When using complex queries in Extbase repositories it sometimes comes handy
 to debug them using the Extbase debug utilities.
 
-..  literalinclude:: _Repository/_DebugQuery.php
+..  literalinclude:: _codesnippets/_DebugQuery.php
     :language: php
     :caption: EXT:my_extension/Classes/Repository/MyRepository.php
 
