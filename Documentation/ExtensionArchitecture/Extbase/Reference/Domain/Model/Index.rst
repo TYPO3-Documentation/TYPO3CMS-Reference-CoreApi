@@ -106,7 +106,7 @@ preferred, untyped properties are still supported for backward compatibility.
 The example below demonstrates a basic model with both a typed and an untyped
 property:
 
-..  literalinclude:: _codesnippets/Classes/Blog.php
+..  literalinclude:: _codesnippets/_untypedProperties.php
     :caption: EXT:my_extension/Classes/Domain/Model/Blog.php
 
 -   `$title` is a *typed property*, using PHP’s type declaration. This is the
