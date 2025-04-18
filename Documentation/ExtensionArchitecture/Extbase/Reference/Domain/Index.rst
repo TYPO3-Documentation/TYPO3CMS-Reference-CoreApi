@@ -1,7 +1,7 @@
-.. include:: /Includes.rst.txt
+..  include:: /Includes.rst.txt
 
-.. index:: Extbase; Domain
-.. _extbase-domain:
+..  index:: Extbase; Domain
+..  _extbase-domain:
 
 ================
 Model / Domain
@@ -21,9 +21,9 @@ The Application domain of the extension is always located below
 
 **Contents:**
 
-.. toctree::
-   :titlesonly:
-   :caption: Domain
-   :glob:
+..  toctree::
+    :titlesonly:
+    :caption: Domain
+    :glob:
 
-   *
+    */Index
