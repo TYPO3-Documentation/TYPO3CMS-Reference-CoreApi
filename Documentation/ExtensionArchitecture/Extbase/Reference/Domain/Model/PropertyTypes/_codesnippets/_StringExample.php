@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace Vendor\Extension\Domain\Model;
@@ -7,7 +8,7 @@ use TYPO3\CMS\Extbase\Annotation\Validate;
 
 class StringExample extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
 {
-    #[Validate(['validator' => 'StringLength','options' => ['maximum' => 255]])]
+    #[Validate(['validator' => 'StringLength', 'options' => ['maximum' => 255]])]
     protected string $title = '';
     public ?string $subtitle = null;
     protected string $description = '';
@@ -17,6 +18,6 @@ class StringExample extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     #[Validate(['validator' => 'EmailAddress'])]
     protected string $email = '';
     protected string $passwordHash = '';
-    #[Validate(['validator' => 'StringLength','options' => ['maximum' => 255]])]
+    #[Validate(['validator' => 'StringLength', 'options' => ['maximum' => 255]])]
     protected string $virtualValue = '';
 }
