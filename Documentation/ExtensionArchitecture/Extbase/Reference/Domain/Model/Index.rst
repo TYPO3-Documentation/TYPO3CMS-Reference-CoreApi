@@ -94,6 +94,38 @@ however get displayed when explicitly called:
     But it is there:
     <f:debug>{post.info.combinedString}</f:debug>
 
+..  _extbase-model-properties-untyped:
+
+Typed vs. untyped properties in Extbase models
+==============================================
+
+In Extbase, you can define model properties using either PHP native type
+declarations or traditional `@var` annotations. Typed properties are
+preferred, untyped properties are still supported for backward compatibility.
+
+The example below demonstrates a basic model with both a typed and an untyped
+property:
+
+..  literalinclude:: _codesnippets/Classes/Blog.php
+    :caption: EXT:my_extension/Classes/Domain/Model/Blog.php
+
+-   `$title` is a *typed property*, using PHP’s type declaration. This is the
+    recommended approach as it enforces type safety and improves code
+    readability.
+
+-   `$published` is an *untyped property*, defined only with a docblock. This
+    remains valid and is often used in older codebases.
+
+For persisted properties (those stored in the database), ensure that the
+property type matches the corresponding
+`TCA Field type <https://docs.typo3.org/permalink/t3tca:columns-types>`_
+to avoid data mapping errors.
+
+Nullable and `Union types <https://docs.typo3.org/permalink/t3coreapi:extbase-model-properties-union-types>`_
+are also supported.
+
+..  note:: Typed properties are strongly encouraged in all new TYPO3 extensions.
+
 ..  _extbase-model-properties-default-values:
 
 Default values for model properties
