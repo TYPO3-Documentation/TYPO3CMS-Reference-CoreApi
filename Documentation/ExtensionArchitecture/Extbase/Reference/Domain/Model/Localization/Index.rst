@@ -1,5 +1,6 @@
 :navigation-title: Localization
 
+..  include:: /Includes.rst.txt
 ..  _extbase-model-localization:
 
 ==============================
