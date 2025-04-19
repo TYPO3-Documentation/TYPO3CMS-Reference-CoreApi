@@ -3,9 +3,9 @@
 ..  index:: Extbase; Domain
 ..  _extbase-domain:
 
-================
+==============
 Model / Domain
-================
+==============
 
 The Application domain of the extension is always located below
 :file:`Classes/Domain`. This folder is structured as follows:
