@@ -211,19 +211,59 @@ Enumerations as Extbase model property
     has been introduced. It is no longer necessary to extend the now deprecated
     TYPO3 Core class :ref:`\\TYPO3\\CMS\\Core\\Type\\Enumeration <Enumerations-How-to-use>`.
 
+
 Native PHP enumerations can be used for properties, if a database field has a
-specific set of values which can be represented by a backed enum:
+specific set of values which can be represented by a backed enum. A property
+with an enum type should be combined with a TCA field that only allows allowed
+values can be stored into the database. `Select fields <https://docs.typo3.org/permalink/t3tca:columns-select>`_
+or `Radio buttons <https://docs.typo3.org/permalink/t3tca:columns-radio>`_ are
+commonly used.
 
-..  literalinclude:: _codesnippets/_Level.php
-    :language: php
-    :caption: EXT:my_extension/Classes/Domain/Model/Enum/Level.php
+..  tabs::
 
-The enum can then be used for a property in the model:
+    ..  group-tab:: Model
 
-..  literalinclude:: _codesnippets/_LogEntry.php
-    :language: php
-    :caption: EXT:my_extension/Classes/Domain/Model/LogEntry.php
+        An enum can be used for a property in the model:
 
+        ..  literalinclude:: _codesnippets/_EnumModelExample.php
+            :caption: EXT:my_extension/Classes/Domain/Model/Paper.php
+
+    ..  group-tab:: Enum
+
+        It is recommended to use
+        `backed enumerations <https://www.php.net/manual/language.enumerations.backed.php>`_:
+
+        ..  literalinclude:: _codesnippets/_EnumExample.php
+            :caption: EXT:my_extension/Classes/Enum/Status.php
+
+        Implementing a method `getLabel()` enables you to use the same
+        localization strings in both Backend (see TCA) and Frontend (see Fluid).
+
+    ..  group-tab:: TCA
+
+        ..  literalinclude:: _codesnippets/_enum_example.php
+            :caption: packages/my_extension/Configuration/TCA/tx_myextension_domain_model_paper.php
+
+        You can use the enums in TCA for example to display localized labels.
+
+    ..  group-tab:: Fluid
+
+        ..  literalinclude:: _codesnippets/_enum_example.php
+            :caption: packages/my_extension/Resources/Private/Templates/Paper/Show.html
+
+    ..  group-tab:: Localization
+
+        ..  literalinclude:: _codesnippets/_enum_locallang.xlf
+            :language: php
+            :caption: packages/my_extension/Resources/Private/Languages/locallang.xlf
+
+        An enum case can be used in Fluid by calling its built in properties
+        `name` and `value` or by addressing getters. Methods with a different
+        naming scheme cannot be used directly in Fluid.
+
+        You can use the `Constant ViewHelper <f:constant> <https://docs.typo3.org/permalink/t3viewhelper:typo3fluid-fluid-constant>`_
+        to load a specific enum case into a variable to do comparisons or do
+        create selectors.
 
 ..  _extbase-model-properties-union-types:
 
