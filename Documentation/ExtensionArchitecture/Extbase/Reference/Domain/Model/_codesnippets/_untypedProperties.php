@@ -13,14 +13,14 @@ class Blog extends AbstractEntity
      *
      * @var string
      */
-    protected string $title;
+    protected string $title = '';
 
     /**
      * Untyped property (legacy-compatible)
      *
      * @var bool
      */
-    protected $published;
+    protected $published = false;
 
     // Getters and Setters
 }
