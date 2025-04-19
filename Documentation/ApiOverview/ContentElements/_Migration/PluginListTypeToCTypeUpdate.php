@@ -26,6 +26,6 @@ final class PluginListTypeToCTypeUpdate extends AbstractListTypeToCTypeUpdate
 
     public function getDescription(): string
     {
-        return 'Migrates my_extension_pi1, my_extension_pi2  from list_type to CType. ';
+        return 'Migrates my_extension_pi1, my_extension_pi2 from list_type to CType.';
     }
 }
