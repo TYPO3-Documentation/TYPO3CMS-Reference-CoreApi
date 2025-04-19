@@ -87,7 +87,7 @@ Subfolders of `Classes/Domain/`
 
 Typical subfolders include:
 
-.. card-grid::
+..  card-grid::
     :columns: 1
     :columns-md: 2
     :gap: 4
