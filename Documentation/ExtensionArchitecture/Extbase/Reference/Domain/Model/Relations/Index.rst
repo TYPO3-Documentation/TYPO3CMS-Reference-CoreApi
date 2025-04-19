@@ -1,5 +1,6 @@
 :navigation-title: Relations
 
+..  include:: /Includes.rst.txt
 ..  _extbase-model-relations:
 
 ================================
