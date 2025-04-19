@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.0" xmlns:t="x-gettext">
+    <file source-language="en" datatype="plaintext" original="messages" date="2024-04-18T00:00:00Z">
+        <header/>
+        <body>
+            <trans-unit id="status-draft">
+                <source>Draft</source>
+            </trans-unit>
+            <trans-unit id="status-in-review">
+                <source>In Review</source>
+            </trans-unit>
+            <trans-unit id="status-published">
+                <source>Published</source>
+            </trans-unit>
+        </body>
+    </file>
+</xliff>
