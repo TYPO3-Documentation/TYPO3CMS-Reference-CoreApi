@@ -129,7 +129,8 @@ it should **not** be used in the following cases:
 
 -   **Boolean values**: For fields using
     `check <https://docs.typo3.org/permalink/t3tca:columns-check>`_, use the :php:`bool` type instead of
-    :php:`int` to reflect the binary nature (0/1) of the value more clearly.
+    :php:`int` to reflect the binary nature (0/1) of the value more clearly. See
+    `bool properties <https://docs.typo3.org/permalink/t3coreapi:extbase-model-property-types-bool>`_.
 
 -   **Multi-value selections**: If a field uses
     `selectMultipleSideBySide <https://docs.typo3.org/permalink/t3tca:columns-select-rendertype-selectmultiplesidebyside>`_
@@ -139,6 +140,7 @@ it should **not** be used in the following cases:
 -   **Enums**: For fixed sets of known numeric values, avoid using :php:`int`
     and instead use a proper :php:`enum` to ensure type safety and
     better readability in your model and templates.
+    See `Enumerations <https://docs.typo3.org/permalink/t3coreapi:extbase-model-enumerations>`_.
 
 -   **Relations to other database tables**: Fields representing foreign keys
     (for example `select with foreign_table <https://docs.typo3.org/permalink/t3tca:confval-select-single-foreign-table>`_,
@@ -146,8 +148,8 @@ it should **not** be used in the following cases:
     or `group <https://docs.typo3.org/permalink/t3tca:columns-group-introduction>`_)
     should not be typed as :php:`int`, but rather use
     :php:`ObjectStorage <YourModel>` or :php:`?YourModel` depending on
-    whether the relation is singular or plural.
-
+    whether the relation is singular or plural. See
+    `Relations between Extbase models <https://docs.typo3.org/permalink/t3coreapi:extbase-model-relations>`_.
 ..  _extbase-model-property-types-float:
 
 `float` properties in Extbase
@@ -197,3 +199,79 @@ In TYPO3 v13, boolean values are typically managed using
 
         ..  literalinclude:: _codesnippets/_bool_example.php
             :caption: packages/my_extension/Configuration/TCA/tx_myextension_domain_model_boolexample.php
+
+..  _extbase-model-enumerations:
+
+Enumerations as Extbase model property
+======================================
+
+..  versionadded:: 13.0
+    Native support for
+    `backed enumerations <https://www.php.net/manual/language.enumerations.backed.php>`__
+    has been introduced. It is no longer necessary to extend the now deprecated
+    TYPO3 Core class :ref:`\\TYPO3\\CMS\\Core\\Type\\Enumeration <Enumerations-How-to-use>`.
+
+Native PHP enumerations can be used for properties, if a database field has a
+specific set of values which can be represented by a backed enum:
+
+..  literalinclude:: _codesnippets/_Level.php
+    :language: php
+    :caption: EXT:my_extension/Classes/Domain/Model/Enum/Level.php
+
+The enum can then be used for a property in the model:
+
+..  literalinclude:: _codesnippets/_LogEntry.php
+    :language: php
+    :caption: EXT:my_extension/Classes/Domain/Model/LogEntry.php
+
+
+..  _extbase-model-properties-union-types:
+
+Union types of Extbase model properties
+=======================================
+
+Union types can be used in properties of an entity, for example:
+
+..  literalinclude:: _codesnippets/_UnionType1.php
+    :caption: EXT:my_extension/Classes/Domain/Model/Entity.php
+
+This is especially useful for lazy-loaded relations where the property type is
+:php:`ChildEntity|\TYPO3\CMS\Extbase\Persistence\Generic\LazyLoadingProxy`.
+
+There is something important to understand about how Extbase detects union
+types when it comes to property mapping, that means when a database row is
+:ref:`mapped onto an object <extbase-model-hydrating>`. In this case, Extbase
+needs to know the desired target type - no union, no intersection, just one
+type. In order to achieve this, Extbase uses the first declared type as a
+so-called primary type.
+
+..  literalinclude:: _codesnippets/_UnionType2.php
+    :caption: EXT:my_extension/Classes/Domain/Model/Entity.php
+
+In this case, :php:`string` is the primary type. :php:`int|string` would result
+in :php:`int` as primary type.
+
+There is one important thing to note and one exception to this rule. First of
+all, :php:`null` is not considered a type. :php:`null|string` results in the
+primary type :php:`string` which is :ref:`nullable <extbase-model-nullable-relations>`.
+:php:`null|string|int` also results in the primary type :php:`string`. In fact,
+:php:`null` means that all other types are nullable. :php:`null|string|int`
+boils down to :php:`?string` or :php:`?int`.
+
+Secondly, :php:`LazyLoadingProxy` is never detected as a primary type because it
+is just a proxy and not the actual target type, once loaded.
+
+..  literalinclude:: _codesnippets/_UnionType3.php
+    :caption: EXT:my_extension/Classes/Domain/Model/Entity.php
+
+Extbase supports this and detects :php:`ChildEntity` as the primary type,
+although :php:`LazyLoadingProxy` is the first item in the list. However, it is
+recommended to place the actual type first, for consistency reasons:
+:php:`ChildEntity|LazyLoadingProxy`.
+
+A final word on :php:`\TYPO3\CMS\Extbase\Persistence\Generic\LazyObjectStorage`:
+it is a subclass of :php:`\TYPO3\CMS\Extbase\Persistence\ObjectStorage`,
+therefore the following code works and has always worked:
+
+..  literalinclude:: _codesnippets/_ObjectStorage.php
+    :caption: EXT:my_extension/Classes/Domain/Model/Entity.php
