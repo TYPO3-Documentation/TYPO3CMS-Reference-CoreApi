@@ -26,7 +26,7 @@ Whether you are building a quick prototype or maintaining a long-term
 client project, version control with Git adds safety, flexibility, and
 professionalism to your workflow.
 
-.. contents:: Table of contents
+..  contents:: Table of contents
 ..  _version-control-quick-start:
 
 Quick Start: Add a TYPO3 project to Git
