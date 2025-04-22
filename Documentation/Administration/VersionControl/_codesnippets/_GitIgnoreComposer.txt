@@ -1,0 +1,22 @@
+# TYPO3 system folders
+/var/
+/vendor/
+/public/typo3temp/
+/public/uploads/
+/public/fileadmin/
+
+# Environment and secrets
+.env
+
+# Node.js build tools
+/node_modules/
+/dist/
+
+# IDE and editor settings
+.idea/
+.vscode/
+*.swp
+
+# OS metadata
+.DS_Store
+Thumbs.db
