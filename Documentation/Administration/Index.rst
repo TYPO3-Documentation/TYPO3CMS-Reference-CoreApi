@@ -43,6 +43,7 @@ TYPO3 administration
 
     Installation/Index
     DirectoryStructure/Index
+    VersionControl/Index
     Upgrade/Index
     SystemSettings/Index
     UserManagement/Index
