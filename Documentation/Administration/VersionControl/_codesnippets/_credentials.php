@@ -15,7 +15,7 @@ $customChanges = [
     'EXTENSIONS' => [
         't3monitoring_client' => [
             'secret' => 'secret',
-        ]
+        ],
     ],
     'SYS' => [
         'encryptionKey' => 'also secret',
