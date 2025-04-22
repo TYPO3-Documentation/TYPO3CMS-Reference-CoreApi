@@ -21,8 +21,8 @@ TYPO3 can be installed in two ways:
     ..  card:: `Composer-based installation <https://docs.typo3.org/permalink/t3coreapi:installation>`_
 
         Composer-based setups are common in professional
-        environments with development teams. Extensions are installed via Packagist
-        (not from the TER), providing more flexibility,
+        environments with development teams. Extensions are installed via `Packagist <https://packagist.org/>`__
+        (not from the `TYPO3 Extension Repository (TER) <https://extensions.typo3.org/>`__), providing more flexibility in dependency management,
         better integration with version control, and easier environment
         automation. It is ideal for advanced projects or team-based workflows.
 
@@ -31,9 +31,9 @@ TYPO3 can be installed in two ways:
 
     ..  card:: `Classic installation <https://docs.typo3.org/permalink/t3coreapi:legacyinstallation>`_
 
-        This method includes access to the TYPO3 Extension Repository (TER)
-        via the backend. It is ideal for managed hosting, automated updates,
-        and simpler setups. Also well suited for beginners due to GUI-based
+        This method includes access to the `TYPO3 Extension Repository (TER) <https://extensions.typo3.org/>`__
+        via a regular backend module. It is ideal for managed hosting, automated updates,
+        and simpler setups. Also well-suited for beginners due to GUI-based
         extension handling.
 
         Switching to Composer later is possible, but takes effort and means
