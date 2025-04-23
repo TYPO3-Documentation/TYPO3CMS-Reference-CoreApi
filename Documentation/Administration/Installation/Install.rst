@@ -21,6 +21,8 @@ For more information on how to deploy TYPO3 to a live environment, visit the
 .. contents::
    :local:
 
+..  _installation-checklist:
+
 Pre-installation checklist
 ==========================
 
@@ -31,6 +33,7 @@ Pre-installation checklist
 *   Access to the web server's root directory
 *   Database with appropriate credentials
 
+..  _installation-create:
 
 Create the project with Composer
 ================================
@@ -100,9 +103,12 @@ is added after the first login into the TYPO3 backend:
     *   :file:`LICENSE`
     *   :file:`README.md`
 
+..  _installation-setup:
 
 Run the setup process
 =====================
+
+..  _installation-setup-cli:
 
 Setup TYPO3 in the console
 --------------------------
@@ -139,6 +145,8 @@ Interactive / guided setup (questions/answers):
             # Use console command to run the install process
             # or use the Install Tool GUI (See below)
             ddev exec ./vendor/bin/typo3 setup
+
+..  _installation-setup-gui:
 
 Or use the GUI installer in the browser
 ---------------------------------------
@@ -201,6 +209,7 @@ for the first time, TYPO3 automatically redirects all requests to
     error on initial access, accessing TYPO3 without HTTPS (`http://`) is also
     an option.
 
+..  _install-scan-environment:
 
 Scan environment
 ~~~~~~~~~~~~~~~~
@@ -224,6 +233,8 @@ the page :samp:`https://example-project-site.local/typo3/install.php`.
 
 ..  include:: /Images/AutomaticScreenshots/QuickInstall/Step1SystemEnvironment.rst.txt
 
+..  _install-select-db:
+
 Select a database
 ~~~~~~~~~~~~~~~~~
 
@@ -242,6 +253,8 @@ Once it is installed, :guilabel:`MySQL Database` will be available as an option.
 
 ..  include:: /Images/AutomaticScreenshots/QuickInstall/Step3ChooseDb.rst.txt
 
+..  _install-create-admin:
+
 Create administrative user & set site name
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -255,6 +268,8 @@ An email address for this user can also be specified and a name can be given.
     The password must comply with the configured
     :ref:`password policy <t3coreapi:password-policies>`.
 
+..  _install-initialize:
+
 Initialize
 ----------
 
@@ -266,6 +281,8 @@ select the first option and allow TYPO3 to create an empty starting page.
 This will also generate a site configuration file.
 
 ..  include:: /Images/AutomaticScreenshots/QuickInstall/Step5LastStep.rst.txt
+
+..  _install-ddev:
 
 Using DDEV
 ----------
