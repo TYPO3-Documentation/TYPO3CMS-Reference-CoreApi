@@ -32,7 +32,7 @@ TYPO3 can be installed in two ways:
     ..  card:: `Classic installation <https://docs.typo3.org/permalink/t3coreapi:legacyinstallation>`_
 
         This method includes access to the `TYPO3 Extension Repository (TER) <https://extensions.typo3.org/>`__
-        via a regular backend module. It is ideal for managed hosting, automated updates,
+        via a regular backend module. It is ideal for managed hosting, automated updates by the hosting provider,
         and simpler setups. Also well-suited for beginners due to GUI-based
         extension handling.
 
