@@ -27,15 +27,25 @@ client project, version control with Git adds safety, flexibility, and
 professionalism to your workflow.
 
 ..  contents:: Table of contents
+
 ..  _version-control-quick-start:
 
-Quick Start: Add a TYPO3 project to Git
-=======================================
+Quick Start: Add a new TYPO3 project to Git
+===========================================
 
 This step-by-step guide explains how to add a new or existing TYPO3 project
 to a Git repository. It includes instructions for safely setting up a
-`.gitignore` and avoiding the accidental inclusion of credentials or
+`.gitignore <https://docs.typo3.org/permalink/t3coreapi:version-control-gitignore-example>`_
+and `avoiding the accidental inclusion of credentials <https://docs.typo3.org/permalink/t3coreapi:version-control-credentials>`_ or
 environment-specific files.
+
+Make sure, you meet the `prerequisites to use Git <https://docs.typo3.org/permalink/t3coreapi:version-control-prerequisites>`_.
+
+Initialize the new Git repository in the root directory of your project:
+
+..  code-block:: bash
+
+    git init
 
 Depending on your installation method, some files differ. Use the relevant tab
 below to identify what to include in version control.
@@ -44,39 +54,32 @@ below to identify what to include in version control.
 
     ..  group-tab:: Composer-based
 
-        1.  Create or review your :file:`.gitignore`
-
-            Use the example from the official GitLab TYPO3 template:
-            https://gitlab.com/gitlab-org/project-templates/typo3-distribution/-/blob/main/.gitignore
+        #.  Create or review your `.gitignore <https://docs.typo3.org/permalink/t3coreapi:version-control-gitignore-example>`_
 
             Make sure it includes:
 
             -   :file:`.env`
             -   :file:`auth.json`
+            -   :file:`/public/index.php`
+            -   :file:`/public/_assets/`
+            -   :file:`/public/fileadmin/`
+            -   :file:`/public/typo3/`
+            -   :file:`/public/typo3temp/`
             -   :file:`/var/`
             -   :file:`/vendor/`
-            -   :file:`/public/fileadmin/`
-            -   :file:`/public/typo3temp/`
 
-        2.  Double-check for credentials and secrets
+        #.  Double-check for credentials and secrets
 
-            -   Do not commit passwords or API keys in:
+            Do not commit passwords or API keys in:
 
-                -   :file:`config/system/settings.php`
-                -   :file:`config/system/additional.php`
-                -   :file:`config/sites/my_site/config.yaml` and
-                    :file:`config/sites/my_site/settings.yaml`
+            -   :file:`config/system/settings.php`
+            -   :file:`config/system/additional.php`
+            -   :file:`config/sites/my_site/config.yaml`
+            -   :file:`config/sites/my_site/settings.yaml`
 
-            -   Use environment variables or include untracked files
-                (see :ref:`version-control-credentials`)
+            See `Avoid committing credentials to Git <https://docs.typo3.org/permalink/t3coreapi:version-control-credentials>`_.
 
-        3.  Add a `.env.example` file to document required variables
-
-            ..  code-block:: bash
-
-                cp .env .env.example
-
-        4.  Add the relevant project files
+        #.  Add the relevant project files
 
             ..  code-block:: bash
 
@@ -84,11 +87,14 @@ below to identify what to include in version control.
                 git add composer.json composer.lock
                 git add config/
                 git add packages/
-                git add public/index.php public/.htaccess public/typo3/
+                git add public/.htaccess public/robots.txt
+
+            See also: `Which TYPO3 directories and files should be kept under
+            version control <https://docs.typo3.org/permalink/t3coreapi:version-control-commit>`_.
 
     ..  group-tab:: Classic mode (non-Composer)
 
-        1.  Create a :file:`.gitignore`
+        #.  Create a :file:`.gitignore`
 
             Use the example in :ref:`Example .gitignore <version-control-gitignore-example>`.
 
@@ -99,14 +105,18 @@ below to identify what to include in version control.
             -   :file:`fileadmin/`
             -   :file:`.env`
 
-        2.  Check for credentials
+        #.  Check for credentials
+
+            Do not commit passwords or API keys in:
 
             -   :file:`typo3conf/system/settings.php`
             -   :file:`typo3conf/system/additional.php`
-            -   :file:`typo3conf/sites/my_site/config.yaml` and
-                :file:`typo3conf/sites/my_site/settings.yaml`
+            -   :file:`typo3conf/sites/my_site/config.yaml`
+            -   :file:`typo3conf/sites/my_site/settings.yaml`
 
-        3.  Add the selected project files
+            See `Avoid committing credentials to Git <https://docs.typo3.org/permalink/t3coreapi:version-control-credentials>`_.
+
+        #.  Add the selected project files
 
             ..  code-block:: bash
 
@@ -116,39 +126,105 @@ below to identify what to include in version control.
                 git add .htaccess
                 git add robots.txt
 
-        See also: `Which TYPO3 directories and files should be kept under
-        version control <https://docs.typo3.org/permalink/t3coreapi:version-control-commit>`_.
+            See also: `Which TYPO3 directories and files should be kept under
+            version control <https://docs.typo3.org/permalink/t3coreapi:version-control-commit>`_.
 
-These steps apply to **all TYPO3 projects**, no matter the installation type:
+The following steps apply to **all TYPO3 projects**, no matter the installation
+type:
 
-1.  Initialize the Git repository
+Make your initial commit, this adds the files to your local Git:
 
-    ..  code-block:: bash
+..  code-block:: bash
 
-        git init
+    git commit -m "Initial commit: My TYPO3 project"
 
-2.  Make your initial commit
+Use Git status to see if there are untracked files that are not added to the Git:
 
-    ..  code-block:: bash
+..  code-block:: bash
 
-        git commit -m "Initial commit: My TYPO3 project"
+    git status
 
-3.  Add a remote repository and push (optional)
+If you are using a `Git hosting platforms (GitHub, GitLab, ...) <https://docs.typo3.org/permalink/t3coreapi:version-control-platforms>`_
+you can create a remote repository on that plattform. Then add the Git SSH remote
+and push your changes to that repository.
 
-    If you are using a
-    `Git hosting platform <https://docs.typo3.org/permalink/t3coreapi:version-control-platforms>`_,
-    push your changes there:
+..  code-block:: bash
 
-    ..  code-block:: bash
+    git remote add origin git@example.com:user/project.git
+    git push -u origin main
 
-        git remote add origin git@example.com:user/project.git
-        git push -u origin main
+..  _version-control-prerequisites:
 
+Prerequisites to use Git
+========================
+
+First test if Git is installed on your computer:
+
+..  tabs::
+
+    ..  group-tab:: Linux / macOS / WSL
+
+        Open your terminal and run:
+
+        ..  code-block:: bash
+
+            git --version
+
+        If you see a message like `command not found`, you need to install Git.
+
+        If Git is missing, follow the installation guide for your system:
+
+        macOS: Install via Homebrew: `brew install git`
+
+        Linux: Use your package manager, for example `sudo apt install git`
+
+    ..  group-tab:: Windows (PowerShell or CMD)
+
+        Open PowerShell or Command Prompt and run:
+
+        ..  code-block:: powershell
+
+            git --version
+
+        If you get an error like `'git' is not recognized`, you need to
+        `install Git <https://git-scm.com/downloads/win>`_.
+
+If you want to use Git across multiple computers (e.g., your laptop and a web
+server), or collaborate with a team, you should choose a
+`Git hosting platform (GitHub, GitLab, ...) <https://docs.typo3.org/permalink/t3coreapi:version-control-platforms>`_
+and create an account there.
+
+To connect to the remote repository via **SSH**, you need to authenticate with
+your hosting provider — typically by creating and registering an **SSH key**.
+
+See for example:
+
+-   `Generating a new SSH key and adding it to the ssh-agent
+    <https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent>`_
+    (GitHub documentation)
+
+You can also choose to use Git through an IDE or graphical client. Popular
+options include:
+
+-   **PhpStorm** – Full Git integration with staging, history, merge tools, and more
+-   **Visual Studio Code** – Git support with useful extensions
+-   **GitKraken**, **Tower**, **GitHub Desktop** – Standalone Git GUIs
+
+..  note::
+
+    This guide focuses on the Git command line workflow. GUI tools and IDE
+    integrations may look different, but the underlying Git actions are the same.
+
+To learn more about Git and how it works, see the official Git documentation:
+
+-   `Git - The Simple Guide <https://rogerdudler.github.io/git-guide/>`_
+-   `Pro Git Book (free) <https://git-scm.com/book/en/v2>`_
+-   `GitHub Docs: Git Basics <https://docs.github.com/en/get-started/using-git>`_
 
 ..  _version-control-platforms:
 
-Git hosting platforms (GitHub, GitLab, Gerrit, Bitbucket, ..)
-=============================================================
+Git hosting platforms (GitHub, GitLab, ...)
+===========================================
 
 A **Git hosting platform** is a service that stores your Git repositories
 remotely and allows collaboration with others. It also provides tools such
