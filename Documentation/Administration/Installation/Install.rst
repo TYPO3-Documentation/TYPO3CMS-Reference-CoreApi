@@ -1,12 +1,13 @@
+:navigation-title: Composer-based Installation
+
 ..  include:: /Includes.rst.txt
-
 ..  index:: installation, deployment, requirements
-
 ..  _installation:
+..  _installation-composer:
 
-================
-Installing TYPO3
-================
+==============================
+Installing TYPO3 with Composer
+==============================
 
 ..  tip::
     For a tutorial on how to quickly install TYPO3 on DDEV see
@@ -102,6 +103,41 @@ is added after the first login into the TYPO3 backend:
     *   :file:`composer.lock`
     *   :file:`LICENSE`
     *   :file:`README.md`
+
+..  _direct-server-installation-composer:
+
+Install TYPO3 on the server with Composer
+=========================================
+
+If you consider working directly on the server consider reading chapter
+`Installing and using TYPO3 directly on the server <https://docs.typo3.org/permalink/t3coreapi:direct-server-workflow>`_,
+expecially the `Quick wins & caution flags <https://docs.typo3.org/permalink/t3coreapi:direct-server-workflow-pro-con>`_.
+
+If Composer is already available, the installation is simple. If not, you may
+need to find or install it. See :ref:`direct-server-composer-access`.
+
+.. code-block:: bash
+
+    composer create-project "typo3/cms-base-distribution:^13.4" my-new-project
+
+If you cannot use `composer` directly, check the command path or install it.
+See :ref:`Finding or installing Composer <direct-server-composer-access>`_.
+
+Once the project is created, continue with:
+`Setup TYPO3 <https://docs.typo3.org/permalink/installation-setup>`_.
+
+..  note::
+
+    You can run Composer directly on the server, but it can break your site if
+    something goes wrong. Always make a backup, especially of
+    :file:`composer.json` and :file:`composer.lock` or even better use Git as
+    as version control.
+
+..  tip::
+
+    If you are not ready to learn Composer or Git yet, that's okay. TYPO3 still
+    works for small sites. `Install TYPO3 in the classic mode <https://docs.typo3.org/permalink/t3coreapi:legacyinstallation>`_
+    now can improve your setup later.
 
 ..  _installation-setup:
 
