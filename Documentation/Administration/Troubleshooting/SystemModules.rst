@@ -44,10 +44,6 @@ Record Statistics
   Shows a count of the various records in the database,
   broken down by type for pages and content elements.
 
-Relations
-  Checks if certain relations are empty or broken, typically
-  used to check if files are being referenced.
-
 Search
   A tool to search through the whole database. It offers an
   advanced mode which is similar to a visual query builder.
