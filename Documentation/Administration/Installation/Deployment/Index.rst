@@ -23,6 +23,26 @@ using tools are highly recommended.
 
 ..  contents:: Table of contents
 
+..  _deployment-what-why:
+
+What is deployment and why do I need it?
+========================================
+
+It is recommended to develop a TYPO3 project working on your local maschine, for
+example by using Docker, DDEV, or a local PHP and database installation. At some
+point you want to transfer your work to the server for the very first time, the
+initial deployment, which is usually done manually or semi-manually.
+
+Afterwards you want to continue fixing bugs, preparing updates and developing
+new features on your local maschine. These changes need
+to be transferred to the server once a bugfix or feature is completed. This can
+be done manually or automatically.
+
+Deployment can only be avoided if you `Install and use TYPO3 directly on the
+server <https://docs.typo3.org/permalink/t3coreapi:direct-server-workflow>`_,
+which comes with a number of `Quick wins &
+pitfalls <https://docs.typo3.org/permalink/t3coreapi:direct-server-workflow-pro-con>`_.
+
 ..  _deployment-steps:
 ..  _manual-deployment:
 
