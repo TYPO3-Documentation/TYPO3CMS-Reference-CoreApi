@@ -12,17 +12,17 @@ The domain layer is where you define the core logic and structure of your
 application — things like entities, value objects, repositories, and
 validators.
 
-For a deeper understanding, see:
-https://en.wikipedia.org/wiki/Domain-driven_design
+See https://en.wikipedia.org/wiki/Domain-driven_design for more in-depth
+information.
 
-The :path:`Classes/Domain/` folder contains all the domain logic of your Extbase
-extension. This is where you model the real-world concepts of your application
+The :path:`Classes/Domain/` folder contains the domain logic of your Extbase
+extension. This is where you model real-world concepts in your application
 and define how they behave.
 
 While Domain-Driven Design (DDD) suggests putting business-related services in
-the Domain layer, in most TYPO3 extensions, you will actually see service
+the Domain layer, in most TYPO3 extensions you will actually see service
 classes placed in: :path:`Classes/Service/`. It is also possible to put them
-into :path:`Classes/Domain/Service/`.
+in :path:`Classes/Domain/Service/`.
 
 ..  contents:: Table of contents
 
@@ -38,7 +38,7 @@ into :path:`Classes/Domain/Service/`.
 Basic example of a model with a repository in Extbase
 =====================================================
 
-The following example shows a basic model (representing a scientific paper in
+This example shows a basic model (representing a scientific paper in
 real life) and its corresponding repository.
 
 ..  tabs::
@@ -48,7 +48,7 @@ real life) and its corresponding repository.
         ..  literalinclude:: _codesnippets/_Paper.php
             :caption: packages/my_extension/Classes/Domain/Model/Paper.php
 
-        All properties that will be persisted must be declared as `protected`
+        Properties that will be persisted must be declared as `protected`
         or `public`.
 
         To make properties available in Fluid templates, you must provide
@@ -67,15 +67,15 @@ real life) and its corresponding repository.
         based on the naming convention `<ModelName>Repository`. No registration
         is necessary.
 
-        The PHPDoc `@extends Repository<Paper>` annotation helps static analysis
-        tools (like PHPStan or Psalm) and IDEs for better type inference and
+        The PHPDoc `@extends Repository<Paper>` annotation helps static
+        analysis tools (like PHPStan or Psalm) and IDEs with type inference and
         autocompletion.
 
     ..  tab:: TCA / Database table
 
-        By default a model is persisted to a database table of the following
+        By default a model is persisted to a database table with the following
         naming scheme: `tx_[extension]_domain_model_[model].php`. To create
-        and define the database table use a TCA configuration:
+        and define the database table use TCA configuration:
 
         ..  literalinclude:: _codesnippets/_paper_tca.php
             :caption: packages/my_extension/Configuration/TCA/tx_myextension_domain_model_paper.php
@@ -106,5 +106,5 @@ Typical subfolders include:
 
     .. card:: `Validator <https://docs.typo3.org/permalink/t3coreapi:extbase-domain-validator>`_
 
-        Holds custom validators for domain objects. Use these to enforce
+        Provides custom validators for domain objects. Use these to enforce
         business rules and validate object states.
