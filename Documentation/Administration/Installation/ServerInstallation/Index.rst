@@ -7,10 +7,10 @@ Installing and using TYPO3 directly on the server
 =================================================
 
 For very small TYPO3 projects or when you're under time pressure, working
-directly on the server can be an acceptable approach.
+directly on the server is acceptable.
 
-Some hosting providers offer preinstalled TYPO3 installations, usually in
-classic mode, where you do not have to install TYPO3 your self.
+Some hosting providers provide preinstalled TYPO3 installations, usually in
+classic mode where you do not have to install TYPO3 yourself.
 
 ..  contents:: Table of contents
 
@@ -22,13 +22,13 @@ classic mode, where you do not have to install TYPO3 your self.
 
 ..  _direct-server-installation:
 
-Chose the method of installation
-================================
+Choose the method of installation
+=================================
 
-If your hosting does not come with a preinstalled TYPO3 project you can install
-it yourself.
+If your hosting provider does not come with a preinstalled TYPO3 project you
+will have to install it yourself.
 
-First you must decide on weather to use Composer or not.
+First, decide whether to use Composer or not.
 
 ..  _direct-server-installation-composer-if:
 
@@ -40,7 +40,7 @@ Use Composer if:
 -   You want better control over TYPO3 and extension versions.
 -   You plan to use version control (like Git) and a local development setup in
     the future.
--   You want easier updates and cleaner project structure.
+-   You want easier updates and a cleaner project structure.
 
 Continue with :ref:`installation-composer`.
 
@@ -53,11 +53,11 @@ Use the non-Composer (classic) method if:
 -   You are not comfortable using the command line and Composer.
 -   You prefer to upload files manually via FTP.
 
-It is perfectly fine to start with the classic installation method if you cannot take
-the time right now to learn Composer, Git, or deployment workflows. TYPO3 can
-still run well in this setup, especially for smaller projects. Just be aware
+It is perfectly fine to start with the classic installation method if you do not have
+time right now to learn Composer, Git, or deployment workflows. TYPO3 can
+still run well in this setup, especially in smaller projects. Just be aware
 that as your project grows or you take on more work, learning these tools will
-make your life easier in the long run. You can
+make your life easier. You can
 `Migrate to Composer <https://docs.typo3.org/permalink/t3coreapi:migratetocomposer>`_
 later on.
 
@@ -75,13 +75,13 @@ When it makes sense
 
 This workflow is useful when:
 
--   You want to try out TYPO3 without having to figure out installation etc.
--   The project is very small (a landing page for a campaign or page for a local sports club).
+-   You want to try out TYPO3 without having to get your head round installation, etc.
+-   The project is very small (a landing page for a campaign or a page for a local sports club).
 -   Only one person is working on the project.
 -   You need to deliver a fast prototype or campaign page.
 -   There is no immediate need for collaboration, version control, or automation.
 
-In these cases, skipping complex :ref:`deployment <deployment-what-why>` workflows can be
+In these cases, skipping complex :ref:`deployment <deployment-what-why>` workflows is
 a valid short-term decision.
 
 ..  _direct-server-risks:
@@ -103,7 +103,7 @@ what was changed and why.
 **No Version Control**: Overwriting files without Git means no history, no
 rollback, and no recovery if something breaks.
 
-**Collaboration Conflicts**: Multiple developer working directly on the live
+**Collaboration Conflicts**: Multiple developers working directly on the live
 server can overwrite each other's changes.
 
 **Non-reproducible Environments**: Manual changes build up over time, making
@@ -125,7 +125,7 @@ you track changes before uploading manually.
 
 **Avoid changing Core files** in classic installations do not make changes in
 the folder :path:`typo3` or :path:`typo3_source`. In Composer-based installations
-make no changes in the folder :path:`vendor`.
+don't make any changes in the folder :path:`vendor`.
 
 **Manual changelogs**: Keep a `CHANGES.md` or notes file listing every change.
 This is especially helpful when revisiting a project later.
