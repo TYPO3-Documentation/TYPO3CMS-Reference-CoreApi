@@ -109,35 +109,35 @@ is added after the first login into the TYPO3 backend:
 Install TYPO3 on the server with Composer
 =========================================
 
-If you consider working directly on the server consider reading chapter
+If you are planning to work directly on the server rather than locally, read chapter
 `Installing and using TYPO3 directly on the server <https://docs.typo3.org/permalink/t3coreapi:direct-server-workflow>`_,
 expecially the `Quick wins & caution flags <https://docs.typo3.org/permalink/t3coreapi:direct-server-workflow-pro-con>`_.
 
-If Composer is already available, the installation is simple. If not, you may
+If Composer is available, installation is simple. If not, you may
 need to find or install it. See :ref:`direct-server-composer-access`.
 
 .. code-block:: bash
 
     composer create-project "typo3/cms-base-distribution:^13.4" my-new-project
 
-If you cannot use `composer` directly, check the command path or install it.
+If the `composer` command doesn't work, check the command path or install it.
 See :ref:`Finding or installing Composer <direct-server-composer-access>`_.
 
-Once the project is created, continue with:
+Once the project is created, continue with
 `Setup TYPO3 <https://docs.typo3.org/permalink/installation-setup>`_.
 
 ..  note::
 
-    You can run Composer directly on the server, but it can break your site if
+    Composer can be run directly on the server, but it may break your site if
     something goes wrong. Always make a backup, especially of
-    :file:`composer.json` and :file:`composer.lock` or even better use Git as
-    as version control.
+    :file:`composer.json` and :file:`composer.lock`, or, even better, use Git for
+    version control.
 
 ..  tip::
 
     If you are not ready to learn Composer or Git yet, that's okay. TYPO3 still
-    works for small sites. `Install TYPO3 in the classic mode <https://docs.typo3.org/permalink/t3coreapi:legacyinstallation>`_
-    now can improve your setup later.
+    works for small sites without these. `Install TYPO3 in the classic mode <https://docs.typo3.org/permalink/t3coreapi:legacyinstallation>`_
+    now and you can improve your setup later.
 
 ..  _installation-setup:
 

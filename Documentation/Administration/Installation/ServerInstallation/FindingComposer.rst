@@ -7,7 +7,7 @@
 Finding or installing Composer on the server
 ============================================
 
-If `composer` is not found when you run it, you may need to use full paths or
+If `composer` is not found when you run it, you may need to use a full path or
 install it manually.
 
 **Try finding the PHP and Composer paths** using `which`:
@@ -19,7 +19,7 @@ install it manually.
     $ which composer
     /usr/local/bin/composer
 
-Use those paths in place of `composer`, for example:
+Use full paths instead of just `composer`, for example:
 
 ..  code-block:: bash
 
