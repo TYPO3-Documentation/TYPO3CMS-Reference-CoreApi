@@ -53,9 +53,10 @@ Installation
 
     SystemRequirements/Index
     Install
+    LegacyInstallation
+    ServerInstallation/Index
     EnvironmentConfiguration
     ProductionSettings
     TuneTYPO3
     Deployment/Index
-    LegacyInstallation
     LegacyExtensionInstallation
