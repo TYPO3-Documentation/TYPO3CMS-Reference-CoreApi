@@ -8,12 +8,12 @@
 Property types of Extbase models
 ================================
 
-In Extbase models, the type of a property can be defined either through a
-native PHP type declaration or via a @var annotation for untyped properties.
+In Extbase models, property types can be defined either through a
+native PHP type declaration or a @var annotation for untyped properties.
 
 For persisted properties, it is important that the PHP property type and the
-corresponding TCA field configuration are compatible — see the list below for
-commonly used property types and their correct mappings.
+matching TCA field configuration are compatible — see the list below for
+commonly used property types and their mappings.
 
 ..  contents:: Property types in Extbase
 
@@ -22,8 +22,8 @@ commonly used property types and their correct mappings.
 Primitive types in Extbase properties
 =====================================
 
-The following table lists the primitive PHP types that are commonly used
-in Extbase models and the corresponding TCA field types they typically map to:
+The following table shows the primitive PHP types that are commonly used
+in Extbase models and the TCA field types they typically map to:
 
 ===================================================  ================================================================  ============================
 PHP Type (section)                                   Common TCA field types                                             Database column types
@@ -37,9 +37,9 @@ PHP Type (section)                                   Common TCA field types     
 ===================================================  ================================================================  ============================
 
 If the primitive PHP type is nullable (`?string`, `?int` ... ) the TCA field
-must also be :ref:`nullable <t3tca:confval-input-nullable>`, a checkbox will
-appear in the backend, which by default deactivates the field. In the
-deactivated state the field is saved as :sql:`NULL` in the database.
+must also be :ref:`nullable <t3tca:confval-input-nullable>`. A checkbox will
+appear in the backend, which deactivates the field by default. If the field is
+deactivated it is saved as :sql:`NULL` in the database.
 
 ..  _extbase-model-property-types-string:
 
@@ -47,12 +47,12 @@ deactivated state the field is saved as :sql:`NULL` in the database.
 ------------------------------
 
 Extbase properties of the built-in primitive type :php:`string` are commonly
-used with TCA fields of types
+used with TCA fields of type
 `Input <https://docs.typo3.org/permalink/t3tca:columns-input-rendertype-default>`_
 (max 255 chars) or `Text areas & RTE <https://docs.typo3.org/permalink/t3tca:columns-text>`_.
 
-Strings can also be used with `Select fields <https://docs.typo3.org/permalink/t3tca:columns-select>`_
-that allow a single value an where the values are strings, with the
+Strings can also be used for `Select fields <https://docs.typo3.org/permalink/t3tca:columns-select>`_
+that set a single value where the values are strings, for
 `Color <https://docs.typo3.org/permalink/t3tca:columns-color>`_ and
 `Email <https://docs.typo3.org/permalink/t3tca:columns-email>`_ field types and
 `Pass through / virtual fields <https://docs.typo3.org/permalink/t3tca:columns-passthrough>`_.
@@ -77,13 +77,13 @@ that allow a single value an where the values are strings, with the
 
 If fields are editable by frontend users, you should use
 `Validators <https://docs.typo3.org/permalink/t3coreapi:extbase-validation>`_
-o prevent values that exceed the allowed size for their corresponding
+to prohibit values being input that are not allowed by their corresponding
 TCA fields / database columns. For virtual fields
 (`passthrough <https://docs.typo3.org/permalink/t3tca:columns-passthrough>`_),
 you must manually define the database schema in :file:`ext_tables.sql`.
 
 When using a nullable primitive type (:php:`?string`) in your Extbase
-model, you must also enable the field to be nullable in the TCA by setting
+model, you must set the field to nullable in the TCA by setting
 :ref:`nullable <t3tca:confval-input-nullable>` to true.
 
 ..  _extbase-model-property-types-int:
@@ -97,10 +97,10 @@ with TCA fields of type
 (with format integer) and
 `Select fields <https://docs.typo3.org/permalink/t3tca:columns-select>`_ that
 store integer values — for example, simple option fields where the value is a
-numeric key without a relation to an enum or database record.
+numeric key (with no relation to an enum or database record).
 
-These are typically used for rating values, importance levels, custom statuses,
-or small fixed sets of choices.
+These are typically used for ratings, importance levels, custom statuses,
+or small, fixed sets of choices.
 
 ..  tabs::
 
@@ -119,7 +119,7 @@ or small fixed sets of choices.
 When not to use type `int` for a property
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-While the :php:`int` type is commonly used for simple numeric values,
+The :php:`int` type is commonly used for simple numeric values, but
 it should **not** be used in the following cases:
 
 -   **Date and time fields**: For fields configured with
@@ -134,11 +134,11 @@ it should **not** be used in the following cases:
 
 -   **Multi-value selections**: If a field uses
     `selectMultipleSideBySide <https://docs.typo3.org/permalink/t3tca:columns-select-rendertype-selectmultiplesidebyside>`_
-    or similar to store multiple selections
-    use :php:`array` or an :php:`ObjectStorage` of related objects.
+    or similar to store multiple selections,
+    use :php:`array` or :php:`ObjectStorage` of related objects.
 
--   **Enums**: For fixed sets of known numeric values, avoid using :php:`int`
-    and instead use a proper :php:`enum` to ensure type safety and
+-   **Enums**: For fixed sets of numeric values, avoid using :php:`int`
+    and instead use an :php:`enum` to ensure type safety and
     better readability in your model and templates.
     See `Enumerations <https://docs.typo3.org/permalink/t3coreapi:extbase-model-enumerations>`_.
 
@@ -146,7 +146,7 @@ it should **not** be used in the following cases:
     (for example `select with foreign_table <https://docs.typo3.org/permalink/t3tca:confval-select-single-foreign-table>`_,
     `IRRE / inline <https://docs.typo3.org/permalink/t3tca:columns-inline-introduction>`_,
     or `group <https://docs.typo3.org/permalink/t3tca:columns-group-introduction>`_)
-    should not be typed as :php:`int`, but rather use
+    should not be type :php:`int`, but rather
     :php:`ObjectStorage <YourModel>` or :php:`?YourModel` depending on
     whether the relation is singular or plural. See
     `Relations between Extbase models <https://docs.typo3.org/permalink/t3coreapi:extbase-model-relations>`_.
@@ -155,7 +155,7 @@ it should **not** be used in the following cases:
 `float` properties in Extbase
 -----------------------------
 
-Extbase properties of the built-in primitive type :php:`float` (also known as
+Properties of built-in primitive type :php:`float` (also known as
 :php:`double`) are used to store decimal values such as prices, ratings, weights,
 or coordinates.
 
@@ -181,12 +181,12 @@ To accept and display decimal numbers in the backend form, the
 `bool` properties in Extbase
 ----------------------------
 
-Extbase properties of the built-in primitive type :php:`bool` are used for binary
-decisions, such as opting into a feature or accepting terms and conditions.
+Properties of built-in primitive type :php:`bool` are used for binary
+decisions, such as opting in to a feature or accepting terms and conditions.
 
 In TYPO3 v13, boolean values are typically managed using
 `Check fields <https://docs.typo3.org/permalink/t3tca:columns-check>`_ with
-:php:`renderType: checkboxToggle`, providing a user-friendly toggle UI.
+:php:`renderType: checkboxToggle`, which provides a user-friendly toggle UI.
 
 ..  tabs::
 
@@ -208,16 +208,15 @@ Enumerations as Extbase model property
 ..  versionadded:: 13.0
     Native support for
     `backed enumerations <https://www.php.net/manual/language.enumerations.backed.php>`__
-    has been introduced. It is no longer necessary to extend the now deprecated
+    has been introduced. It is no longer necessary to extend the deprecated
     TYPO3 Core class :ref:`\\TYPO3\\CMS\\Core\\Type\\Enumeration <Enumerations-How-to-use>`.
 
 
 Native PHP enumerations can be used for properties, if a database field has a
-specific set of values which can be represented by a backed enum. A property
-with an enum type should be combined with a TCA field that only allows allowed
-values can be stored into the database. `Select fields <https://docs.typo3.org/permalink/t3tca:columns-select>`_
-or `Radio buttons <https://docs.typo3.org/permalink/t3tca:columns-radio>`_ are
-commonly used.
+set of values which can be represented by a backed enum. A property
+with an enum type should be used with a TCA field that only allows specific
+values to be stored in the database, for example `Select fields <https://docs.typo3.org/permalink/t3tca:columns-select>`_
+and `Radio buttons <https://docs.typo3.org/permalink/t3tca:columns-radio>`_.
 
 ..  tabs::
 
@@ -237,14 +236,14 @@ commonly used.
             :caption: EXT:my_extension/Classes/Enum/Status.php
 
         Implementing a method `getLabel()` enables you to use the same
-        localization strings in both Backend (see TCA) and Frontend (see Fluid).
+        localization strings in both the Backend (see TCA) and the Frontend (see Fluid).
 
     ..  group-tab:: TCA
 
         ..  literalinclude:: _codesnippets/_enum_example.php
             :caption: packages/my_extension/Configuration/TCA/tx_myextension_domain_model_paper.php
 
-        You can use the enums in TCA for example to display localized labels.
+        You can use the enums in TCA to display localized labels, for example.
 
     ..  group-tab:: Fluid
 
@@ -257,12 +256,12 @@ commonly used.
             :language: php
             :caption: packages/my_extension/Resources/Private/Languages/locallang.xlf
 
-        An enum case can be used in Fluid by calling its built in properties
-        `name` and `value` or by addressing getters. Methods with a different
+        An enum case can be used in Fluid by calling the enum built-in properties
+        `name` and `value` or by using getters. Methods with a different
         naming scheme cannot be used directly in Fluid.
 
         You can use the `Constant ViewHelper <f:constant> <https://docs.typo3.org/permalink/t3viewhelper:typo3fluid-fluid-constant>`_
-        to load a specific enum case into a variable to do comparisons or do
+        to load a specific enum case into a variable to make comparisons or to
         create selectors.
 
 ..  _extbase-model-properties-union-types:
@@ -279,17 +278,17 @@ This is especially useful for lazy-loaded relations where the property type is
 :php:`ChildEntity|\TYPO3\CMS\Extbase\Persistence\Generic\LazyLoadingProxy`.
 
 There is something important to understand about how Extbase detects union
-types when it comes to property mapping, that means when a database row is
-:ref:`mapped onto an object <extbase-model-hydrating>`. In this case, Extbase
-needs to know the desired target type - no union, no intersection, just one
-type. In order to achieve this, Extbase uses the first declared type as a
-so-called primary type.
+types when it comes to property mapping, that is when a database row is
+:ref:`mapped onto an object <extbase-model-hydrating>`. In this situation Extbase
+needs to know the specific target type - no union, no intersection, just one
+type. In order to do the mapping, Extbase uses the first declared type as a
+primary type.
 
 ..  literalinclude:: _codesnippets/_UnionType2.php
     :caption: EXT:my_extension/Classes/Domain/Model/Entity.php
 
-In this case, :php:`string` is the primary type. :php:`int|string` would result
-in :php:`int` as primary type.
+In the example above, :php:`string` is the primary type. :php:`int|string` would result
+in :php:`int` as the primary type.
 
 There is one important thing to note and one exception to this rule. First of
 all, :php:`null` is not considered a type. :php:`null|string` results in the
@@ -299,14 +298,14 @@ primary type :php:`string` which is :ref:`nullable <extbase-model-nullable-relat
 boils down to :php:`?string` or :php:`?int`.
 
 Secondly, :php:`LazyLoadingProxy` is never detected as a primary type because it
-is just a proxy and not the actual target type, once loaded.
+is just a proxy and, once loaded, not the actual target type.
 
 ..  literalinclude:: _codesnippets/_UnionType3.php
     :caption: EXT:my_extension/Classes/Domain/Model/Entity.php
 
 Extbase supports this and detects :php:`ChildEntity` as the primary type,
 although :php:`LazyLoadingProxy` is the first item in the list. However, it is
-recommended to place the actual type first, for consistency reasons:
+recommended to place the actual type first for consistency reasons:
 :php:`ChildEntity|LazyLoadingProxy`.
 
 A final word on :php:`\TYPO3\CMS\Extbase\Persistence\Generic\LazyObjectStorage`:
