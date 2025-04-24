@@ -1,0 +1,25 @@
+# TYPO3 Core and source directory
+/typo3_src/
+
+# Temporary files and caches
+/typo3temp/
+/fileadmin/
+
+# IDE/editor folders
+/.idea/
+/.vscode/
+*.swp
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Node.js or frontend build artifacts (if used)
+/node_modules/
+/dist/
+/build/
+
+# Environment
+.env
