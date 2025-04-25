@@ -40,7 +40,7 @@ Find methods
     The "magic" find methods `findByX()`, `findOneByX()` and `countByX()` have
     been removed. See :ref:`t3coreapi/13:extbase-repository-find-by-magic-migration`
 
-    The (not-magic) methods `findByUid()` and `findByIdentifier()` did **not**
+    The (not-magic) methods `findByUid()` and `findByIdentifier()` have **not**
     get deprecated or removed, and are still valid to be used.
 
     Using these methods will fetch a given domain object by it's UID, ignoring possible storage
