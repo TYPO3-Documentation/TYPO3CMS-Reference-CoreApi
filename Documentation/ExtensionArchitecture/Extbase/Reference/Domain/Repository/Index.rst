@@ -38,6 +38,12 @@ Find methods
 
 ..  versionadded:: 12.3
 
+    The (not-magic) methods `findByUid()` and `findByIdentifier()` have **not**
+    been deprecated or removed, and are still valid.
+
+    Using these methods will fetch a given domain object by it's UID, ignoring possible storage
+    page settings - unlike `findBy([...])`, which does respect those settings.
+
 The :php:`Repository` class provides the following methods for querying against
 arbitrary criteria:
 
