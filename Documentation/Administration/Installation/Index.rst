@@ -1,12 +1,51 @@
-..  include:: /Includes.rst.txt
+:navigation-title: Installation
 
+..  include:: /Includes.rst.txt
 ..  index:: installation
 
 ..  _installation_index:
 
-============
-Installation
-============
+===========================
+TYPO3 installation overview
+===========================
+
+TYPO3 can be installed in two ways:
+
+..  card-grid::
+    :columns: 1
+    :columns-md: 2
+    :gap: 4
+    :class: pb-4
+    :card-height: 100
+
+    ..  card:: `Composer-based installation <https://docs.typo3.org/permalink/t3coreapi:installation>`_
+
+        Composer-based setups are common in professional
+        environments with development teams. Extensions are installed via `Packagist <https://packagist.org/>`__
+        (not from the `TYPO3 Extension Repository (TER) <https://extensions.typo3.org/>`__), providing more flexibility in dependency management,
+        better integration with version control, and easier environment
+        automation. It is ideal for advanced projects or team-based workflows.
+
+        ..  card-footer:: `General installation steps <https://docs.typo3.org/permalink/t3coreapi:installation>`_ `with DDEV <https://docs.typo3.org/permalink/t3start:installation-ddev-tutorial>`_
+            :button-style: btn btn-secondary
+
+    ..  card:: `Classic installation <https://docs.typo3.org/permalink/t3coreapi:legacyinstallation>`_
+
+        This method includes access to the `TYPO3 Extension Repository (TER) <https://extensions.typo3.org/>`__
+        via a regular backend module. It is ideal for managed hosting, automated updates by the hosting provider,
+        and simpler setups. Also well-suited for beginners due to GUI-based
+        extension handling.
+
+        Switching to Composer later is possible, but takes effort and means
+        restructuring the project.
+
+        ..  card-footer:: `Classic installation <https://docs.typo3.org/permalink/t3coreapi:legacyinstallation>`_ `Migrate to Composer <https://docs.typo3.org/permalink/t3coreapi:migratetocomposer>`_
+            :button-style: btn btn-secondary
+
+Both methods are fully supported and recommended depending on your project
+needs and environment.
+
+As of now, there is **no official plan to deprecate the classic installation method.**
 
 ..  card-grid::
     :columns: 1
@@ -20,11 +59,6 @@ Installation
         System requirements for the host operating system, including its web
         server and database and how they should be configured prior to
         installation.
-
-    ..  card:: :ref:`Installing TYPO3 <installation>`
-
-        The Installation Guide covers everything needed to install TYPO3. Including a preinstallation
-        checklist and a detailed walk through that details every step of the installation process.
 
     ..  card:: :ref:`Deploying TYPO3 <DeployTYPO3>`
 
@@ -41,11 +75,6 @@ Installation
         In addition, every TYPO3 package also contains a unique file hash that
         can be used to ensure file integrity when downloading the release. This guide
         details how these signatures can be checked and how file hashes can be compared.
-
-    ..  card:: :ref:`Legacy Installation Guide <legacyinstallation>`
-
-        Looking to install TYPO3 the classic way? Whilst this method of installation is no longer recommended, the Legacy Installation
-        Guide demonstrates how TYPO3 can be installed without using Composer.
 
 ..  toctree::
     :hidden:
