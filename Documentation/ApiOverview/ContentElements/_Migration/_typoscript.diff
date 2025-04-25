@@ -10,9 +10,9 @@
              listPid = 55
          }
          view {
-             templateRootPath = {$templateRootPath}
-             partialRootPath = {$partialRootPath}
-             layoutRootPath = {$layoutRootPath}
+             templateRootPaths.10 = {$templateRootPath}
+             partialRootPaths.10 = {$partialRootPath}
+             layoutRootPaths.10 = {$layoutRootPath}
          }
      }
      templateName = Generic
