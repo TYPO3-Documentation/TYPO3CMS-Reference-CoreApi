@@ -37,6 +37,7 @@ In the TYPO3 backend models are displayed as :ref:`database-records`.
     :glob:
     :titlesonly:
 
+    PropertyTypes/Index
     Persistence/Index
     Relations/Index
     Hydrating/Index
@@ -201,87 +202,6 @@ If the TCA configuration of a field defines a
 :ref:`default value <t3tca:confval-input-default>`, that value is applied **after**
 `initializeObject()` has been called, and **before** data from the database is
 mapped to the object.
-
-..  _extbase-model-properties-union-types:
-
-Union types of Extbase model properties
----------------------------------------
-
-..  versionadded:: 12.3
-    Previously, whenever a union type was needed, union type declarations led
-    Extbase not detecting any type at all, resulting in the property not being
-    mapped. However, union types could be resolved via docblocks. Since TYPO3
-    v12.3 native PHP union types can be used.
-
-Union types can be used in properties of an entity, for example:
-
-..  literalinclude:: _codesnippets/_UnionType1.php
-    :caption: EXT:my_extension/Classes/Domain/Model/Entity.php
-
-This is especially useful for lazy-loaded relations where the property type is
-:php:`ChildEntity|\TYPO3\CMS\Extbase\Persistence\Generic\LazyLoadingProxy`.
-
-There is something important to understand about how Extbase detects union
-types when it comes to property mapping, that means when a database row is
-:ref:`mapped onto an object <extbase-model-hydrating>`. In this case, Extbase
-needs to know the desired target type - no union, no intersection, just one
-type. In order to achieve this, Extbase uses the first declared type as a
-so-called primary type.
-
-..  literalinclude:: _codesnippets/_UnionType2.php
-    :caption: EXT:my_extension/Classes/Domain/Model/Entity.php
-
-In this case, :php:`string` is the primary type. :php:`int|string` would result
-in :php:`int` as primary type.
-
-There is one important thing to note and one exception to this rule. First of
-all, :php:`null` is not considered a type. :php:`null|string` results in the
-primary type :php:`string` which is :ref:`nullable <extbase-model-nullable-relations>`.
-:php:`null|string|int` also results in the primary type :php:`string`. In fact,
-:php:`null` means that all other types are nullable. :php:`null|string|int`
-boils down to :php:`?string` or :php:`?int`.
-
-Secondly, :php:`LazyLoadingProxy` is never detected as a primary type because it
-is just a proxy and not the actual target type, once loaded.
-
-..  literalinclude:: _codesnippets/_UnionType3.php
-    :caption: EXT:my_extension/Classes/Domain/Model/Entity.php
-
-Extbase supports this and detects :php:`ChildEntity` as the primary type,
-although :php:`LazyLoadingProxy` is the first item in the list. However, it is
-recommended to place the actual type first, for consistency reasons:
-:php:`ChildEntity|LazyLoadingProxy`.
-
-A final word on :php:`\TYPO3\CMS\Extbase\Persistence\Generic\LazyObjectStorage`:
-it is a subclass of :php:`\TYPO3\CMS\Extbase\Persistence\ObjectStorage`,
-therefore the following code works and has always worked:
-
-..  literalinclude:: _codesnippets/_ObjectStorage.php
-    :caption: EXT:my_extension/Classes/Domain/Model/Entity.php
-
-..  _extbase-model-enumerations:
-
-Enumerations as Extbase model property
---------------------------------------
-
-..  versionadded:: 13.0
-    Native support for
-    `backed enumerations <https://www.php.net/manual/language.enumerations.backed.php>`__
-    has been introduced. It is no longer necessary to extend the now deprecated
-    TYPO3 Core class :ref:`\\TYPO3\\CMS\\Core\\Type\\Enumeration <Enumerations-How-to-use>`.
-
-Native PHP enumerations can be used for properties, if a database field has a
-specific set of values which can be represented by a backed enum:
-
-..  literalinclude:: _codesnippets/_Level.php
-    :language: php
-    :caption: EXT:my_extension/Classes/Domain/Model/Enum/Level.php
-
-The enum can then be used for a property in the model:
-
-..  literalinclude:: _codesnippets/_LogEntry.php
-    :language: php
-    :caption: EXT:my_extension/Classes/Domain/Model/LogEntry.php
 
 
 ..  _extbase-extending:
