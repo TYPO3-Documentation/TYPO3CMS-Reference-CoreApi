@@ -4,11 +4,12 @@ declare(strict_types=1);
 
 namespace MyVendor\MyExtension\Domain\Model;
 
+use MyVendor\MyExtension\Enum\Status;
 use TYPO3\CMS\Extbase\DomainObject\AbstractEntity;
 
-class LogEntry extends AbstractEntity
+class Paper extends AbstractEntity
 {
-    protected Enum\Level $level;
+    protected Status $status = Status::DRAFT;
 
     // ... more properties
 }
