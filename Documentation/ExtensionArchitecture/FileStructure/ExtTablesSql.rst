@@ -63,7 +63,18 @@ to apply them.
 
 The :file:`ext_tables.sql` file in TYPO3 contains SQL statements written in a TYPO3-specific
 format that is not directly valid for any database system. TYPO3 utilizes Doctrine DBAL to
-interpret and translate these statements into valid SQL for the specific target :abbr:DBMS (Database Management System), such as MySQL, MariaDB, PostgreSQL, or SQLite.
+interpret and translate these statements into valid SQL for the specific target
+:abbr:`DBMS (Database Management System)`, such as MySQL, MariaDB, PostgreSQL, or SQLite.
+
+..  versionchanged:: 13.4
+    Settings defined at the column level in :file:`ext_tables.sql` are respected for
+    MySQL and MariaDB.
+
+    This allows specifying different encodings or collations for individual
+    columns. Use this carefully, as mixing collations may require special
+    handling during queries.
+
+    See also: `Important: #106508 - Respect column CHARACTER SET and COLLATE in ext_tables.sql <https://docs.typo3.org/permalink/changelog:important-106508-1743692685>`_
 
 ..  _ext-tables-sql-types:
 
