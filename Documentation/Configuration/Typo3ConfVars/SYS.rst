@@ -532,7 +532,7 @@ reverseProxySSL
 
    :php:`*` or a list of IP addresses of proxies that use SSL (https) for
    the connection to the client, but an unencrypted connection (http) to
-   the server. If php:`*` all proxies defined in
+   the server. If :php:`*` all proxies defined in
    :ref:`[SYS][reverseProxyIP]<typo3ConfVars_sys_reverseProxyIP>` use SSL.
 
 .. index::
