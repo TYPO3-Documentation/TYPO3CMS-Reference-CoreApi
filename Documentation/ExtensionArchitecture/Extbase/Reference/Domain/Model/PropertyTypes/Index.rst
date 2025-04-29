@@ -210,11 +210,11 @@ Predefined classes as types of models
 Datetime model types
 --------------------
 
-The PHP classes :php:`\DateTime` or :php:`\DateTimeImmutable` can be used with
+The PHP classes :php:`\DateTime` and :php:`\DateTimeImmutable` can be used with
 the TCA field type `datetime <https://docs.typo3.org/permalink/t3tca:columns-datetime>`_
 
-The value can be stored in the database as unix timestamp :sql:`int(11)`
-(default) or :sql:`datetime` (TCA :ref:`dbType <t3tca:confval-datetime-dbtype>`
+The value can be stored in the database as either a unix timestamp :sql:`int(11)`
+(default) or type :sql:`datetime` (TCA :ref:`dbType <t3tca:confval-datetime-dbtype>`
 `datetime`).
 
 In the frontend they are commonly displayed using the `f:format.date
@@ -227,7 +227,7 @@ ViewHelper <f:format.date> <https://docs.typo3.org/permalink/t3viewhelper:typo3-
         ..  literalinclude:: _codesnippets/_DateExample.php
             :caption: packages/my_extension/Classes/Domain/Model/DateExample.php
 
-        You can use :php:`\DateTimeImmutable` if you want the date to be
+        Use :php:`\DateTimeImmutable` if you want the date to be
         immutable.
 
     ..  group-tab:: TCA
@@ -251,7 +251,7 @@ Enumerations as Extbase model property
     has been introduced. It is no longer necessary to extend the deprecated
     TYPO3 Core class :ref:`\\TYPO3\\CMS\\Core\\Type\\Enumeration <Enumerations-How-to-use>`.
 
-Native PHP enumerations can be used for properties, if a database field has a
+Native PHP enumerations can be used for properties where the database field has a
 set of values which can be represented by a backed enum. A property
 with an enum type should be used with a TCA field that only allows specific
 values to be stored in the database, for example `Select fields <https://docs.typo3.org/permalink/t3tca:columns-select>`_
