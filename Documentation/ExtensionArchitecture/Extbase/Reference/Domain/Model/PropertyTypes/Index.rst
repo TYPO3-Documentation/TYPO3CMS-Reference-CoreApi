@@ -232,12 +232,12 @@ ViewHelper <f:format.date> <https://docs.typo3.org/permalink/t3viewhelper:typo3-
 
     ..  group-tab:: TCA
 
-        ..  literalinclude:: _codesnippets/_datetime_example.php
+        ..  literalinclude:: _codesnippets/_date_example.php
             :caption: packages/my_extension/Configuration/TCA/tx_myextension_domain_model_dateexample.php
 
     ..  group-tab:: Fluid
 
-        ..  literalinclude:: _codesnippets/_date.html
+        ..  literalinclude:: _codesnippets/_Date.html
             :caption: packages/my_extension/Resources/Private/Templates/Date/Show.html
 
 ..  _extbase-model-enumerations:
