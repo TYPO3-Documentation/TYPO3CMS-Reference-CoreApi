@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace MyVendor\MyExtension\Controller;
@@ -8,7 +9,8 @@ use Psr\Http\Message\ResponseInterface;
 use TYPO3\CMS\Core\Country\CountryProvider;
 use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
 
-class TeaSupplyController extends ActionController {
+class TeaSupplyController extends ActionController
+{
     // ...
 
     public function __construct(
