@@ -2,9 +2,9 @@
 .. include:: /Includes.rst.txt
 .. _database-records:
 
-================
-Database records
-================
+=======
+Records
+=======
 
 In TYPO3, a **record** refers to an individual piece of content or data that
 is stored in the database. Each record is part of a table and represents a
