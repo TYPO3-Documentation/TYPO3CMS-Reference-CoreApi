@@ -1,24 +1,38 @@
+:navigation-title: System configuration
+
 ..  include:: /Includes.rst.txt
 ..  index::
     $GLOBALS; TYPO3_CONF_VARS
     TYPO3_CONF_VARS
 ..  _typo3ConfVars:
 
-===============
-TYPO3_CONF_VARS
-===============
+==================================================
+System configuration and the global `settings.php`
+==================================================
 
-The main configuration is achieved via a set of global settings
-stored in a global array called :php:`$GLOBALS['TYPO3_CONF_VARS']`.
+System configuration settings, like database credentials, logging levels, mail
+settings etc are stored in a central file :file:`system/settings.php`.
+
+This file is usually managed by TYPO3. Settings can be adjusted in
+the :guilabel:`Admin Tools` modules available to user with
+`system maintainers <https://docs.typo3.org/permalink/t3coreapi:system-maintainer>`_
+role.
+
+File :file:`system/settings.php` is created automatically during the
+`setup process <https://docs.typo3.org/permalink/t3coreapi:installation-setup>`_.
+
+Configuration options are internally stored in the global array
+:php:`$GLOBALS['TYPO3_CONF_VARS']`.
+
+They can be overridden in the file  :file:`system/additional.php`. Some settings
+are also overridden in installed extensions. They are then defined in file
+`ext_localconf.php <https://docs.typo3.org/permalink/t3coreapi:ext-localconf-php>`_
+for the frontend and the backend context or in
+`ext_tables.php <https://docs.typo3.org/permalink/t3coreapi:ext-tables-php>`_
+for the backend context only.
 
 This chapter describes this global configuration in more details and gives hints
 to further configuration possibilities.
-
-..  note::
-    This variable can be set in one of the following files:
-
-    *   :ref:`config/system/settings.php <typo3ConfVars-settings>`
-    *   :ref:`config/system/additional.php <typo3ConfVars-additional>`
 
 ..  toctree::
     :titlesonly:
@@ -27,17 +41,22 @@ to further configuration possibilities.
 
     *
 
-..  index::
-    ! File; config/system/settings.php
-..  _typo3ConfVars-settings:
-..  _typo3ConfVars-localConfiguration:
+..  contents:: Table of contents
 
-File :file:`config/system/settings.php`
-=======================================
+..  _configuration-files:
 
-..  todo: We are describing these files also in Configuration/ConfigurationFiles.rst
-    Merge those two chapters?
-    https://github.com/TYPO3-Documentation/TYPO3CMS-Reference-CoreApi/issues/2289
+System configuration files
+==========================
+
+The configuration files :file:`settings.php` and
+:file:`additional.php` are located in the directory
+:ref:`directory-config-system` in Composer-based
+installations. In classic installations they are located in
+:ref:`legacy-directory-typo3conf-system`.
+
+This path can be retrieved from the Environment API, see
+:ref:`Environment-config-path` for both Composer-based and classic installations.
+
 
 The global configuration is stored in file :file:`config/system/settings.php` in
 Composer-based extensions, :file:`typo3conf/system/settings.php` in legacy
@@ -45,6 +64,27 @@ installations.
 
 This file overrides default settings from
 :file:`typo3/sysext/core/Configuration/DefaultConfiguration.php`.
+
+..  index::
+    ! File; config/system/settings.php
+..  _typo3ConfVars-settings:
+..  _typo3ConfVars-localConfiguration:
+
+File :file:`config/system/settings.php`
+---------------------------------------
+
+..  typo3:file:: settings.php
+    :scope: project
+    :regex: /^(.*\/config\/system\/settings\.php|.*\/typo3conf\/system\/settings\.php|settings\.php)$/
+    :composerPath: config/system/
+    :classicPath: typo3conf/system/
+    :shortDescription: Contains system wide settings, managed by the Admin Tools / Install Tool.
+
+    The most important configuration file is
+    :file:`settings.php`. It contains local settings of the
+    main global PHP array :php:`$GLOBALS['TYPO3_CONF_VARS']`, crucial settings
+    like database connect credentials are in here. The file is managed by the
+    modules in section :guilabel:`Admin Tools`.
 
 ..  note::
     The :file:`settings.php` file can be read-only. In this case, the
@@ -61,80 +101,65 @@ for more details about extension structure.
 
 A typical content of :file:`config/system/settings.php` looks like this:
 
-..  code-block:: php
+..  literalinclude:: _codesnippets/_settings.php
     :caption: config/system/settings.php | typo3conf/system/settings.php
-
-    <?php
-    return [
-       'BE' => [
-          'debug' => true,
-          'explicitADmode' => 'explicitAllow',
-          'installToolPassword' => '$P$Cbp90UttdtIKELNrDGjy4tDxh3uu9D/',
-          'loginSecurityLevel' => 'normal',
-       ],
-       'DB' => [
-          'Connections' => [
-             'Default' => [
-                'charset' => 'utf8',
-                'dbname' => 'empty_typo3',
-                'driver' => 'mysqli',
-                'host' => '127.0.0.1',
-                'password' => 'foo',
-                'port' => 3306,
-                'user' => 'bar',
-             ],
-          ],
-       ],
-       'EXTCONF' => [
-           'lang' => [
-               'availableLanguages' => [
-                   'de',
-                   'eo',
-               ],
-           ],
-       ],
-       'EXTENSIONS' => [
-           'backend' => [
-               'backendFavicon' => '',
-               'backendLogo' => '',
-               'loginBackgroundImage' => '',
-               'loginFootnote' => '',
-               'loginHighlightColor' => '',
-               'loginLogo' => '',
-           ],
-           'extensionmanager' => [
-               'automaticInstallation' => '1',
-               'offlineMode' => '0',
-           ],
-           'scheduler' => [
-               'maxLifetime' => '1440',
-               'showSampleTasks' => '1',
-           ],
-       ],
-       'FE' => [
-          'debug' => true,
-          'loginSecurityLevel' => 'normal',
-       ],
-       'GFX' => [
-          'jpg_quality' => '80',
-       ],
-       'MAIL' => [
-          'transport_sendmail_command' => '/usr/sbin/sendmail -t -i ',
-       ],
-       'SYS' => [
-          'devIPmask' => '*',
-          'displayErrors' => 1,
-          'encryptionKey' => '0396e1b6b53bf48b0bfed9e97a62744158452dfb9b9909fe32d4b7a709816c9b4e94dcd69c011f989d322cb22309f2f2',
-          'exceptionalErrors' => 28674,
-          'sitename' => 'New TYPO3 site',
-       ],
-    ];
 
 As you can see, the array is structured on two main levels. The first level
 corresponds roughly to a category, the second one being properties, which
 may themselves be arrays.
 
-The configuration categories are:
+..  typo3:file:: additional.php
+    :scope: project
+    :composerPath: config/system/
+    :classicPath: typo3conf/system/
+    :regex: /^(.*\/config\/system\/additional\.php|.*\/typo3conf\/system\/additional\.php|additional\.php)$/
+    :shortDescription: Contains system wide settings. Overrides settings.php and is not touched by TYPO3.
+
+    The settings in the :file:`settings.php`  can be overridden in the
+    :file:`additional.php` file, which is never touched by TYPO3
+    internal management tools. Be aware that having settings within
+    :file:`additional.php` may prevent the system from performing
+    automatic upgrades and should be used with care and only if you know what
+    you are doing.
+
+..  index::
+    ! File; config/system/additional.php
+    Configuration; additional
+..  _typo3ConfVars-additional:
+..  _typo3ConfVars-additionalConfiguration:
+
+File config/system/additional.php
+---------------------------------
+
+Although you can manually edit the :file:`config/system/settings.php`
+file, it is limited in scope because the file is expected to return
+a PHP array. Also the file is rewritten every time an option is
+changed in the Install Tool or some other operation (like changing
+an extension configuration in the Extension Manager). Thus custom
+code cannot reside in that file.
+
+Such code should be placed in the :file:`config/system/additional.php`
+file. This file is never touched by TYPO3, so any code will be
+left alone.
+
+Furthermore this file is loaded **after** :file:`config/system/settings.php`,
+which means it represents an opportunity to change global configuration
+values programmatically if needed.
+
+:file:`config/system/additional.php` is a plain PHP file.
+There are no specific rules about what it may contain. However, since
+the code is included on **every** request to TYPO3
+- whether frontend or backend - you should avoid inserting code
+which requires a lot of processing time.
+
+**Example: Changing the database hostname for development machines**
+
+..  literalinclude:: _codesnippets/_additional.php
+    :caption: config/system/additional.php | typo3conf/system/additional.php
+
+
+System configuration categories
+===============================
 
 BE
     :ref:`Options related to the TYPO3 backend <typo3ConfVars_be>`.
@@ -189,81 +214,25 @@ change parts of :file:`config/system/settings.php`, those can be found in
 :guilabel:`Admin Tools > Settings`, most importantly section
 :guilabel:`Configure installation-wide options`:
 
-.. include:: /Images/AutomaticScreenshots/AdminTools/AllConfiguration.rst.txt
+..  include:: /Images/AutomaticScreenshots/AdminTools/AllConfiguration.rst.txt
 
-.. include:: /Images/AutomaticScreenshots/AdminTools/InstallationWideOptions.rst.txt
+..  include:: /Images/AutomaticScreenshots/AdminTools/InstallationWideOptions.rst.txt
 
-
-.. index::
-   ! File; config/system/additional.php
-   Configuration; additional
-.. _typo3ConfVars-additional:
-.. _typo3ConfVars-additionalConfiguration:
-
-File config/system/additional.php
-=================================
-
-Although you can manually edit the :file:`config/system/settings.php`
-file, it is limited in scope because the file is expected to return
-a PHP array. Also the file is rewritten every time an option is
-changed in the Install Tool or some other operation (like changing
-an extension configuration in the Extension Manager). Thus custom
-code cannot reside in that file.
-
-Such code should be placed in the :file:`config/system/additional.php`
-file. This file is never touched by TYPO3, so any code will be
-left alone.
-
-Furthermore this file is loaded **after** :file:`config/system/settings.php`,
-which means it represents an opportunity to change global configuration
-values programmatically if needed.
-
-:file:`config/system/additional.php` is a plain PHP file.
-There are no specific rules about what it may contain. However, since
-the code is included on **every** request to TYPO3
-- whether frontend or backend - you should avoid inserting code
-which requires a lot of processing time.
-
-**Example: Changing the database hostname for development machines**
-
-.. code-block:: php
-   :caption: config/system/additional.php | typo3conf/system/additional.php
-
-   <?php
-
-   $applicationContext = \TYPO3\CMS\Core\Core\Environment::getContext();
-   if ($applicationContext->isDevelopment()) {
-       $GLOBALS['TYPO3_CONF_VARS']['DB']['Connections']['Default']['host'] = 'mysql-be';
-   }
-
-
-.. index:: File; typo3/sysext/core/Configuration/DefaultConfiguration.php
-.. _typo3ConfVars-defaultConfiguration:
+..  index:: File; typo3/sysext/core/Configuration/DefaultConfiguration.php
+..  _typo3ConfVars-defaultConfiguration:
 
 File DefaultConfiguration.php
 =============================
 
 TYPO3 comes with some default settings, which are defined in
-file :file:`EXT:core/Configuration/DefaultConfiguration.php`.
+file :file:`EXT:core/Configuration/DefaultConfiguration.php`. View the
+file on GitHub: :t3src:`typo3/sysext/core/Configuration/DefaultConfiguration.php`.
 
-This is the base configuration, the other files like :file:`config/system/settings.php`
-just overlay it.
+This file defines configuration defaults that can be overridden in the files
+:file:`config/system/settings.php` and :file:`config/system/additional.php`.
 
-Here is an extract of that file:
-
-..  code-block:: php
-
-    return [
-        'GFX' => [
-            'thumbnails' => true,
-            'thumbnails_png' => true,
-            'gif_compress' => true,
-            'imagefile_ext' => 'gif,jpg,jpeg,tif,tiff,bmp,pcx,tga,png,pdf,ai,svg',
-            // ...
-        ],
-        // ...
-    ];
-
+..  literalinclude:: _codesnippets/_DefaultConfiguration.php
+    :caption: vendor/typo3/cms-core/Configuration/DefaultConfiguration.php (Extract)
 
 It is certainly interesting to take a look into this file, which also contains
 values that are not displayed in the Install Tool and therefore cannot be

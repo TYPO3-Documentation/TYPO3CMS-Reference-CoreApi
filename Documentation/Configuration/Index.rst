@@ -44,7 +44,6 @@ only be changed during deployment.
     :maxdepth: 1
 
     ConfigurationOverview
-    ConfigurationFiles
     ConfigurationModule/Index
     GlobalVariables
     Typo3ConfVars/Index
