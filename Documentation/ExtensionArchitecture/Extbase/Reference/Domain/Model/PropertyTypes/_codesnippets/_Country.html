@@ -1,0 +1,13 @@
+<p>Current value for the country: {model.country.flag}
+<span title="{f:translate(key: model.country.localizedOfficialNameLabel)}">
+ {model.country.alpha2IsoCode}
+</span></p>
+
+<p>Change the country here:</p>
+<f:form action="changeCountryOfOrigin" objectName="tea" object="{tea}">
+    <f:form.countrySelect
+        name="country"
+        property="countryOfOrigin"
+        prioritizedCountries="{0: 'DE', 1: 'AT', 2: 'CH'}"
+    />
+</f:form>
