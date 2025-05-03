@@ -10,29 +10,29 @@
 System configuration and the global `settings.php`
 ==================================================
 
-System configuration settings, like database credentials, logging levels, mail
-settings etc are stored in a central file :file:`system/settings.php`.
+System configuration settings, such as database credentials, logging levels, mail
+settings, etc, are stored in the central file :file:`system/settings.php`.
 
-This file is usually managed by TYPO3. Settings can be adjusted in
-the :guilabel:`Admin Tools` modules available to user with
-`system maintainers <https://docs.typo3.org/permalink/t3coreapi:system-maintainer>`_
+This file is primarily managed by TYPO3. Settings can be changed in
+the :guilabel:`Admin Tools` modules by users with the
+`system maintainer <https://docs.typo3.org/permalink/t3coreapi:system-maintainer>`_
 role.
 
-File :file:`system/settings.php` is created automatically during the
+The file :file:`system/settings.php` is created during the
 `setup process <https://docs.typo3.org/permalink/t3coreapi:installation-setup>`_.
 
-Configuration options are internally stored in the global array
+Configuration options are stored internally in the global array
 :php:`$GLOBALS['TYPO3_CONF_VARS']`.
 
 They can be overridden in the file  :file:`system/additional.php`. Some settings
-are also overridden in installed extensions. They are then defined in file
+can also be overridden by installed extensions. They are then defined in extension file
 `ext_localconf.php <https://docs.typo3.org/permalink/t3coreapi:ext-localconf-php>`_
-for the frontend and the backend context or in
+for the frontend and backend contexts or in the extension
 `ext_tables.php <https://docs.typo3.org/permalink/t3coreapi:ext-tables-php>`_
 for the backend context only.
 
-This chapter describes this global configuration in more details and gives hints
-to further configuration possibilities.
+This chapter describes the global configuration in more detail and gives hints
+about further configuration possibilities.
 
 ..  toctree::
     :titlesonly:
@@ -54,12 +54,12 @@ The configuration files :file:`settings.php` and
 installations. In classic installations they are located in
 :ref:`legacy-directory-typo3conf-system`.
 
-This path can be retrieved from the Environment API, see
+This path can be retrieved from the Environment API. See
 :ref:`Environment-config-path` for both Composer-based and classic installations.
 
 
-The global configuration is stored in file :file:`config/system/settings.php` in
-Composer-based extensions, :file:`typo3conf/system/settings.php` in legacy
+Global configuration is stored in file :file:`config/system/settings.php` in
+Composer-based extensions and :file:`typo3conf/system/settings.php` in legacy
 installations.
 
 This file overrides default settings from
@@ -81,10 +81,10 @@ File :file:`config/system/settings.php`
     :shortDescription: Contains system wide settings, managed by the Admin Tools / Install Tool.
 
     The most important configuration file is
-    :file:`settings.php`. It contains local settings of the
-    main global PHP array :php:`$GLOBALS['TYPO3_CONF_VARS']`, crucial settings
-    like database connect credentials are in here. The file is managed by the
-    modules in section :guilabel:`Admin Tools`.
+    :file:`settings.php`. It contains local settings in the
+    main global PHP array :php:`$GLOBALS['TYPO3_CONF_VARS']`, for example,
+    important settings like database connection credentials are in here. The file
+    is managed in :guilabel:`Admin Tools`.
 
 ..  note::
     The :file:`settings.php` file can be read-only. In this case, the
@@ -92,20 +92,20 @@ File :file:`config/system/settings.php`
     system maintainer that it is write-protected. All input fields are disabled
     and the save button not available.
 
-The local configuration file is basically a long array which is simply returned
+The local configuration file is basically a long array which is returned
 when the file is included. It represents the global TYPO3 configuration.
 This configuration can be modified/extended/overridden by extensions
 by setting configuration options inside an extension's
 :file:`ext_localconf.php` file. :ref:`See extension files and locations <extension-files-locations>`
 for more details about extension structure.
 
-A typical content of :file:`config/system/settings.php` looks like this:
+:file:`config/system/settings.php` typically looks like this:
 
 ..  literalinclude:: _codesnippets/_settings.php
     :caption: config/system/settings.php | typo3conf/system/settings.php
 
 As you can see, the array is structured on two main levels. The first level
-corresponds roughly to a category, the second one being properties, which
+corresponds roughly to categories and the second level to properties, which
 may themselves be arrays.
 
 ..  typo3:file:: additional.php
@@ -115,7 +115,7 @@ may themselves be arrays.
     :regex: /^(.*\/config\/system\/additional\.php|.*\/typo3conf\/system\/additional\.php|additional\.php)$/
     :shortDescription: Contains system wide settings. Overrides settings.php and is not touched by TYPO3.
 
-    The settings in the :file:`settings.php`  can be overridden in the
+    The settings in :file:`settings.php`  can be overridden by changes in the
     :file:`additional.php` file, which is never touched by TYPO3
     internal management tools. Be aware that having settings within
     :file:`additional.php` may prevent the system from performing
@@ -132,23 +132,22 @@ File config/system/additional.php
 ---------------------------------
 
 Although you can manually edit the :file:`config/system/settings.php`
-file, it is limited in scope because the file is expected to return
-a PHP array. Also the file is rewritten every time an option is
-changed in the Install Tool or some other operation (like changing
-an extension configuration in the Extension Manager). Thus custom
-code cannot reside in that file.
+file, the changes that you can make are limited because the file is expected to return
+a PHP array. Also, the file is rewritten every time an option is
+changed in the Install Tool or other operations (like changing
+an extension configuration in the Extension Manager) so do not put custom
+code in this file.
 
-Such code should be placed in the :file:`config/system/additional.php`
+Custom code should be placed in the :file:`config/system/additional.php`
 file. This file is never touched by TYPO3, so any code will be
 left alone.
 
-Furthermore this file is loaded **after** :file:`config/system/settings.php`,
-which means it represents an opportunity to change global configuration
-values programmatically if needed.
+As this file is loaded **after** :file:`config/system/settings.php`,
+you can make programmatic changes to global configuration values here.
 
 :file:`config/system/additional.php` is a plain PHP file.
 There are no specific rules about what it may contain. However, since
-the code is included on **every** request to TYPO3
+the code is included in **every** request to TYPO3
 - whether frontend or backend - you should avoid inserting code
 which requires a lot of processing time.
 
@@ -207,11 +206,11 @@ Further details on the various configuration options can be found in the
 :guilabel:`Admin Tools` module as well as the TYPO3 source at
 :file:`EXT:core/Configuration/DefaultConfigurationDescription.yaml`.
 The documentation shown in the :guilabel:`Admin Tools` module is automatically
-extracted from those values of :file:`DefaultConfigurationDescription.yaml`.
+extracted from those values in :file:`DefaultConfigurationDescription.yaml`.
 
-The :guilabel:`Admin Tools` module provides various dedicated sections that
-change parts of :file:`config/system/settings.php`, those can be found in
-:guilabel:`Admin Tools > Settings`, most importantly section
+The :guilabel:`Admin Tools` module provides various sections that
+change parts of :file:`config/system/settings.php`. They can be found in
+:guilabel:`Admin Tools > Settings` - most importantly section
 :guilabel:`Configure installation-wide options`:
 
 ..  include:: /Images/AutomaticScreenshots/AdminTools/AllConfiguration.rst.txt
@@ -224,7 +223,7 @@ change parts of :file:`config/system/settings.php`, those can be found in
 File DefaultConfiguration.php
 =============================
 
-TYPO3 comes with some default settings, which are defined in
+TYPO3 comes with some default settings which are defined in
 file :file:`EXT:core/Configuration/DefaultConfiguration.php`. View the
 file on GitHub: :t3src:`typo3/sysext/core/Configuration/DefaultConfiguration.php`.
 
@@ -234,6 +233,6 @@ This file defines configuration defaults that can be overridden in the files
 ..  literalinclude:: _codesnippets/_DefaultConfiguration.php
     :caption: vendor/typo3/cms-core/Configuration/DefaultConfiguration.php (Extract)
 
-It is certainly interesting to take a look into this file, which also contains
+It is interesting to take a look at this file, which also contains
 values that are not displayed in the Install Tool and therefore cannot be
 changed easily.
