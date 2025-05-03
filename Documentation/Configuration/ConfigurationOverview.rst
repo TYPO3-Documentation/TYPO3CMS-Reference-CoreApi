@@ -1,26 +1,25 @@
-.. include:: /Includes.rst.txt
+:navigation-title: Overview
 
-.. _config-overview:
+..  include:: /Includes.rst.txt
+..  _config-overview:
 
-======================
-Configuration overview
-======================
+==========================================
+Overview of configuration files and syntax
+==========================================
 
-This page will give you an overview of various configuration files, syntax
-languages and :ref:`configuration methods <classification-config-methods>`
-in TYPO3. For more extensive information we will refer you to the
-respective chapter or reference.
+This page introduces TYPO3’s configuration files, syntax, and available
+:ref:`configuration methods <classification-config-methods>`. For detailed
+information, refer to the relevant chapters or references.
 
-A primary feature of TYPO3 is its configurability. Not only can
-it be configured by users with special user privileges in the backend.
-Most configuration can also be changed by extensions or
-configuration files. Additionally, configuration can be extended by
-extensions.
+TYPO3 is highly configurable—settings can be adjusted through the backend,
+extensions, or configuration files, and extended as needed.
 
+..  _config-overview-files:
 
 Configuration overview: files
 =============================
 
+..  _config-overview-global:
 
 Global files
 ------------
@@ -45,237 +44,194 @@ Global files
     The site configuration configured in the :guilabel:`Site Management > Sites`
     backend module is written to this file.
 
+..  _config-overview-global-extension:
+
 Extension files
 ---------------
 
 :ref:`composer.json <composer-json>`
-   Composer configuration, required in Composer-based installations
+    Composer configuration, required in Composer-based installations
 
 :ref:`ext_emconf.php <extension-declaration>`
-   Extension declaration, required in legacy installations
+    Extension declaration, required in legacy installations
 
 :ref:`ext_tables.php <extension-configuration-files>`
-   Various configuration. Is used only for backend or CLI requests or when a valid BE user is authenticated.
+    Various configuration. Is used only for backend or CLI requests or when a valid BE user is authenticated.
 
 :ref:`ext_localconf.php <extension-configuration-files>`
-   Various configuration. Is always included, whether frontend or backend.
+    Various configuration. Is always included, whether frontend or backend.
 
 :ref:`ext_conf_template.txt <extension-configuration>`
-   Define the "Extension Configuration" settings that can be changed in the backend.
+    Define the "Extension Configuration" settings that can be changed in the backend.
 
 :file:`Configuration/Services.yaml`
-   Can be used to configure :ref:`Console commands <symfony-console-commands>`,
-   :ref:`Dashboard widgets <ext_dashboard:register-new-widget>`,
-   :ref:`Event listeners <EventDispatcher>` and
-   :ref:`Dependency injection <DependencyInjection>`.
+    Can be used to configure :ref:`Console commands <symfony-console-commands>`,
+    :ref:`Dashboard widgets <ext_dashboard:register-new-widget>`,
+    :ref:`Event listeners <EventDispatcher>` and
+    :ref:`Dependency injection <DependencyInjection>`.
 
 :file:`Configuration/TCA`
-   :ref:`TCA configuration <t3tca:start>`.
+    :ref:`TCA configuration <t3tca:start>`.
 
 :file:`Configuration/TSconfig/`
-   :ref:`TSconfig <t3tsref:typoscript-syntax-using-setting>`.
+    :ref:`TSconfig <t3tsref:typoscript-syntax-using-setting>`.
 
 :file:`Configuration/TypoScript/`
-   :ref:`TypoScript configuration <t3tsref:start>`.
-
+    :ref:`TypoScript configuration <t3tsref:start>`.
 
 .. hint::
-   The files are explained in more depth in:
+    The files are explained in more depth in:
 
-   * :ref:`extension-files-locations`
+    * :ref:`extension-files-locations`
 
 Configuration languages
 =======================
 
-These are the main languages TYPO3 uses for configuration:
+TYPO3 uses several languages for configuration:
 
-* :ref:`TypoScript syntax <t3tsref:typoscript-syntax>` is used for TypoScript
-  and TSconfig.
-* :ref:`TypoScript constant syntax <t3tsref:typoscript-syntax-constant-editor>` is
-  used for Extension Configuration and for defining constants for TypoScript.
-* :ref:`Yaml <yaml-syntax>` is the configuration language of choice for newer
-  TYPO3 system extensions like :doc:`rte_ckeditor <ext_rte_ckeditor:Index>`,
-  :doc:`form <ext_form:Index>` and the :ref:`sites module <sitehandling>`. It has
-  partly replaced TypoScript and TSconfig as configuration languages.
-* XML is used in :ref:`Flexforms <flexforms>`.
-* PHP is used for the :php:`$GLOBALS` array which includes TCA
-  (:php:`$GLOBALS['TCA']`, Global Configuration (:php:`GLOBALS['TYPO3_CONF_VARS']`),
-  User Settings (:php:`$GLOBALS['TYPO3_USER_SETTINGS']`, etc.
-
-What is most important here, is that TypoScript has its own syntax. And the
-TypoScript syntax is used for the configuration methods **TypoScript and TSconfig**.
-The syntax for both is the same, while the semantics (what variables can be used and
-what they mean) are not.
-
-.. tip::
-
-   Hence, the term **TypoScript** is used to both define the pure syntax TypoScript
-   and the configuration method TypoScript. These are different things. To avoid
-   confusion, we will use the terms:
-
-   #. "TypoScript syntax" or "TypoScript language"
-   #. "TypoScript configuration method" or "TypoScript Templating"
+*   :ref:`TypoScript syntax <t3tsref:typoscript-syntax>` is used for frontend
+    TypoScript and backend TypoScript (also called TSconfig). TypoScript has
+    a unique syntax, shared by TypoScript and TSconfig. While the syntax is the
+    same, their semantics differ.
+*   :ref:`Yaml <yaml-syntax>` is the configuration language of choice for newer
+    TYPO3 system extensions like :doc:`rte_ckeditor <ext_rte_ckeditor:Index>`,
+    :doc:`form <ext_form:Index>` and the :ref:`sites module <sitehandling>`. It has
+    partly replaced TypoScript and TSconfig as configuration languages.
+*   XML is used in :ref:`FlexForms <flexforms>`.
+*   PHP is used for the :php:`$GLOBALS` array which includes TCA
+    (:php:`$GLOBALS['TCA']`, Global Configuration (:php:`GLOBALS['TYPO3_CONF_VARS']`),
+    User Settings (:php:`$GLOBALS['TYPO3_USER_SETTINGS']`, etc.
 
 Configuration methods
 =====================
 
+..  _classification-config-methods-tsconfig:
 
-:ref:`TSconfig <t3tsref:typoscript-syntax-using-setting>`
----------------------------------------------------------
+Backend TypoScript (TSconfig)
+-----------------------------
 
-While Frontend TypoScript is used to steer the rendering of the frontend, TSconfig is used
-to configure **backend** details for backend users. Using TSconfig it is possible to enable or
-disable certain views, change the editing interfaces, and much more. All that without coding a single
-line of PHP. `TSconfig` can be set on a page (page TSconfig), as well as a user / group (user TSconfig)
-basis.
+TSconfig configures **backend** behavior in TYPO3, such as enabling views or
+customizing editing interfaces—without writing PHP. It can be applied at the
+page level (Page TSconfig) or to users and groups (User TSconfig).
 
-TSconfig uses the same syntax as Frontend TypoScript, the syntax is outlined in detail
-in :ref:`t3tsref:typoscript-syntax`. Other than that, TSconfig and Frontend TypoScript
-don't have much more in common - they consist of entirely different properties.
+TSconfig shares the same syntax as Frontend TypoScript, detailed in
+:ref:`t3tsref:typoscript-syntax`, but uses entirely different properties.
 
-A full reference of properties as well as an introduction to explain details configuration usage, API and
-load orders can be found in the :ref:`Page TSconfig Reference <t3tsref:pagetoplevelobjects>` and
-:ref:`User TSconfig reference <t3tsref:usertoplevelobjects>`. While Developers
-should have an eye on this document, it is mostly used as a reference for Integrators who make life as
-easy as possible for backend users.
+For full usage, API details, and load order, refer to:
 
+*   :ref:`Page TSconfig Reference <t3tsref:pagetoplevelobjects>`
+*   :ref:`User TSconfig Reference <t3tsref:usertoplevelobjects>`
 
+Primarily used by integrators, TSconfig helps tailor the backend
+experience for users.
 
-:ref:`TypoScript Templating <t3tsref:start>`
---------------------------------------------
+..  tip::
+    TSconfig can also be used to override the table configuration array TCA,
+    which is always defined globally, on a per-site or per-page level.
 
-TypoScript - or more precisely "TypoScript Templating" - is used in TYPO3 to steer
-the frontend rendering (the actual website) of a TYPO3 instance. It is based on the
-TypoScript syntax which is outlined in detail in :ref:`t3tsref:typoscript-syntax`.
+..  _classification-config-methods-typoscript:
 
-TypoScript Templating is very powerful and has been the backbone of frontend rendering ever since.
-However, with the rise of the Fluid templating engine, many parts of Frontend TypoScript are much less
-often used. Nowadays, TypoScript in real life projects is often not much more than a way to
-set a series of options for plugins, to set some global config options, and to act as a simple
-pre processor between database data and Fluid templates.
+Frontend TypoScript
+-------------------
 
-Still, the :ref:`TypoScript Reference <t3tsref:start>` manual that goes deep into
-the incredible power of TypoScript Templating is daily bread for Integrators.
+TypoScript (or *TypoScript Templating*) controls frontend rendering in TYPO3. It
+uses the syntax described in `
+TypoScript Explained <https://docs.typo3.org/permalink/t3tsref:start>`_.
 
+While once central to frontend output, much of its role has been replaced by
+Fluid. Today, TypoScript is often used to configure plugins, set global options,
+or prepare data for Fluid templates.
 
-For an introduction, you may want to read one of the following tutorials:
+Still, the :ref:`TypoScript Reference <t3tsref:start>` remains essential for
+integrators.
 
+..  seealso::
 
-*   :ref:`TypoScript guide <t3tsref:guide>` - Introduction to TypoScript.
-*   :ref:`t3sitepackage:start` - Start a Sitepackage Extension to create a theme
-    for your site using TypoScript and Fluid.
+    For getting started:
 
-.. note::
+    *   :ref:`TypoScript guide <t3tsref:guide>` – Introduction to TypoScript
+    *   :ref:`t3sitepackage:start` – Create a site theme using TypoScript and
+        Fluid
 
-   There is some overlap between templating and configuration. TypoScript is
-   used mostly for templating, but is still used quite heavily to define
-   configuration options for extensions.
+    The complete reference:
 
+    *   `TypoScript Explained <https://docs.typo3.org/permalink/t3tsref:start>`_
 
-:ref:`PHP $GLOBALS <globals-variables>`
----------------------------------------
+..  _classification-config-methods-globals-variables:
 
-.. code-block:: none
+Global configuration arrays in PHP
+----------------------------------
 
-   $GLOBALS
-   ├── $GLOBALS['TCA'] = "TCA"
-   ├── GLOBALS['TYPO3_CONF_VARS'] = "Global configuration"
-   │   ├── GLOBALS['TYPO3_CONF_VARS']['EXTENSIONS'] = "Extension configuration"
-   │   └── GLOBALS['TYPO3_CONF_VARS']['SYS']['features'] = "Feature Toggles"
-   └── $GLOBALS['TYPO3_USER_SETTINGS'] = "User settings"
-   └── ...
-
-The :php:`$GLOBALS` PHP array consists of:
+TYPO3 stores global configuration in the :php:`$GLOBALS` PHP array. Key entries:
 
 :doc:`$GLOBALS['TCA'] <t3tca:Index>`:
-   TCA is the backbone of database tables displayed in the backend, it configures
-   how data is stored if editing records in the backend, how fields are displayed,
-   relations to other tables and much more. It is a huge array loaded in almost all
-   access contexts. TCA is documented in the :ref:`TCA Reference <t3tca:start>`.
-   Next to a small introduction, the document forms a complete reference of all
-   different TCA options, with bells and whistles. The document is a must-read for
-   Developers, partially for Integrators, and is often used as a reference book
-   on a daily basis. See :ref:`extending-tca` about how to extend the TCA in
-   extensions.
+    Defines how backend forms, fields, and data handling behave. It’s essential
+    for developers and integrators. Full reference: :ref:`TCA Reference <t3tca:start>`.
+    See also: :ref:`extending-tca`.
 
 :ref:`$GLOBALS['TYPO3_CONF_VARS'] <typo3ConfVars>`:
-   is used for system wide configuration. Most of the settings can be
-   modified in the backend :guilabel:`Admin Tools > Settings > Global Configuration`
-   and will be persisted to the file :file:`config/system/settings.php`.
-   The settings can be overridden by using :file:`config/system/additional.php`.
+    Stores system-wide settings. Most can be changed in
+    :guilabel:`Admin Tools > Settings > Global Configuration`. Values are saved in
+    :file:`config/system/settings.php` and can be overridden via
+    :file:`config/system/additional.php`.
 
 :ref:`Extension Configuration <extension-options>`:
-   is a subset of :php:`$GLOBALS['TYPO3_CONF_VARS']`.
-   It is stored in :php:`$GLOBALS['TYPO3_CONF_VARS']['EXTENSIONS']`.
-   It is used for configuration specific to one extension and can
-   be modified in the backend :guilabel:`Admin Tools > Settings > Extension
-   Configuration`. Do not set the values directly, use the
-   :ref:`API <extension-options-api>`.
+    A subset of :php:`TYPO3_CONF_VARS`, located in
+    :php:`TYPO3_CONF_VARS['EXTENSIONS']`. Used for extension-specific settings.
+    Editable in the backend. Use the :ref:`API <extension-options-api>`.
 
 :ref:`feature-toggles`:
-   are used to switch a specific functionality of
-   TYPO3 on or off. The values are written to
-   :php:`GLOBALS['TYPO3_CONF_VARS']['SYS']['features']`.
-   The feature toggles can be switched on or off in the backend
-   :guilabel:`Admin Tools > Settings > Feature Toggles` with **Admin**
-   privileges. The :ref:`API <feature-toggles-api>` should be used
-   to register and read feature toggles.
+    Enable or disable TYPO3 features via
+    :php:`TYPO3_CONF_VARS['SYS']['features']`. Toggle in the backend with
+    admin rights. Use the :ref:`Feature Toggle API <feature-toggles-api>`.
 
 :ref:`User settings <user-settings>`:
-   :php:`$GLOBALS['TYPO3_USER_SETTINGS']` defines configuration for backend users
-
-This is not a complete list of the entire :php:`$GLOBALS` array.
+    Stored in :php:`$GLOBALS['TYPO3_USER_SETTINGS']`, they define backend user
+    preferences.
 
 .. hint::
 
-   You can find more and view the configuration in the TYPO3 backend
-   :guilabel:`System > Configuration` (read only) or by viewing the
-   :php:`$GLOBALS` array in a debugger. The backend module is available with
-   activated `lowlevel` system extension.
+   View configurations in the backend under :guilabel:`System > Configuration`
+   (read-only) or use a debugger. This requires the `lowlevel` system extension.
 
-:php:`$GLOBALS['TYPO3_CONF_VARS']`, Extension configuration and feature toggles
-can be changed in the backend in :guilabel:`Admin Tools > Settings` by
-system maintainers. TCA cannot be modified in the backend.
-
-Configuration of the :ref:`Logging Framework <logging-configuration>` and
-:ref:`Caching Framework <caching-configuration>` - while being a part of the
-:php:`$GLOBALS['TYPO3_CONF_VARS']` array - can also not be changed in the
-backend. They must be modified in the file :file:`config/system/additional.php`.
+Only system maintainers can change :php:`TYPO3_CONF_VARS`, extension settings,
+and feature toggles in the backend. TCA and settings for the
+:ref:`Logging <logging-configuration>` and :ref:`Caching <caching-configuration>`
+frameworks must be edited manually in
+:file:`config/system/additional.php`.
 
 
-:ref:`Flexform <flexforms>`
----------------------------
+..  _classification-config-methods-globals-flexforms:
 
-Flexforms are used to define some options in plugins and content elements.
-With Flexforms, every content element can be configured differently.
+FlexForm
+--------
 
-Flexform values can be changed while editing content elements in the backend.
+:ref:`FlexForms <flexforms>` are used to define options for plugins and content
+elements. They allow each element to be configured individually.
 
-A schema defining the values that can be changed in the Flexform is
-specified in the extension which supplies the plugin or content element.
-
+Values are editable in the backend when editing the content element. The schema
+is defined by the providing extension.
 
 .. _config-overview-yaml:
 
 YAML
 ----
 
-Some system extensions use YAML for configuration:
+Several system extensions use YAML for configuration:
 
-* :ref:`Site <sitehandling>` configuration is stored in :file:`<project-root>/config/sites/<identifier>/config.yaml`.
-  It can be configured in the backend module "Sites" or changed directly in
-  the configuration file.
+* :ref:`Site <sitehandling>` config is stored in
+  :file:`config/sites/<identifier>/config.yaml` and editable via the
+  :guilabel:`Sites` backend module or directly in the file.
 
-* :ref:`routing` is also defined in the file :file:`<project-root>/config/sites/<identifier>/config.yaml`.
+* :ref:`routing` is also defined in the same YAML file.
 
-* :ref:`form <ext_form:concepts-configuration>`: The Form engine is a system
-  extension which supplies Forms to use in the frontend
+* :ref:`form <ext_form:concepts-configuration>` provides frontend forms via YAML.
 
-* :ref:`rte_ckeditor <ext_rte_ckeditor:configuration>`: RTE ckeditor is a system
-  extension. It is used to enable rich text editing in the backend.
+* :ref:`rte_ckeditor <ext_rte_ckeditor:configuration>` uses YAML to configure the
+  backend rich text editor.
 
-* A file :file:`<extension>/Configuration/Services.yaml` can be used to configure
-  :ref:`Event listeners <EventDispatcher>` and :ref:`Dependency injection <DependencyInjection>`
+* :file:`<extension>/Configuration/Services.yaml` configures
+  :ref:`Event listeners <EventDispatcher>` and
+  :ref:`Dependency injection <DependencyInjection>`.
 
-There is a :ref:`YamlFileLoader <yamlFileLoader>` which can be used to load YAML
-files.
+YAML files can be loaded using the :ref:`YamlFileLoader <yamlFileLoader>`.

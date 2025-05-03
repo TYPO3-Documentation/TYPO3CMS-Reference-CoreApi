@@ -27,7 +27,6 @@ these terms in this chapter.
 
     ConfigurationOverview
     Glossary
-    ConfigurationFiles
     ConfigurationModule/Index
     GlobalVariables
     Typo3ConfVars/Index
