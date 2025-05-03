@@ -1,4 +1,4 @@
-:navigation-title: Settings & Configuration
+:navigation-title: Settings & Config
 
 ..  include:: /Includes.rst.txt
 ..  _configuration-glossary:
@@ -9,34 +9,25 @@
 Settings and Configuration of TYPO3 systems and sites
 =====================================================
 
-Settings can generally be adjusted through the TYPO3 backend by users with
-the appropriate permissions.
+TYPO3 settings can be changed in the backend, depending on the logged-in user's
+role:
 
-*   **System-wide settings:** These typically require a user with the
-    `System Maintainer <https://docs.typo3.org/permalink/t3coreapi:system-maintainer>`_
-    role in the `Admin Tools <https://docs.typo3.org/permalink/t3start:admin-tools>`_
-    backend modules.
-*   **Site-specific settings:** Settings for an individual domain are usually
-    managed by backend `Administrators
-    <https://docs.typo3.org/permalink/t3coreapi:admin-user>`_. They can be made
-    in the `Site settings module <https://docs.typo3.org/permalink/t3coreapi:site-settings-editor>`_
-    and the `Site configuration module <https://docs.typo3.org/permalink/t3coreapi:sitehandling-create-new>`_.
-*   **Page or content element settings:** Editors can modify these settings
-    provided they have the necessary permissions. Settings on page level can
-    commonly be adjusted in the `Page properties <https://docs.typo3.org/permalink/t3editors:pages-properties>`_.
-    Content elements and plugins can offer settings in the content element
-    editor.
+System-wide settings
+    Can be changed by `System Maintainers <https://docs.typo3.org/permalink/t3coreapi:system-maintainer>`_
+    in the :guilabel:`Admin Tools` module.
 
-While configuration might seem similar to settings, they serve different
-roles. Configuration refers to static parameters defined in files that
-establish system behavior and are commonly changed by developers or
-integrators who can modify and deploy these files. Settings, on the other
-hand, are dynamic options that users adjust through the backend.
+Site-specific settings
+    Can be changed by backend
+    `Administrators <https://docs.typo3.org/permalink/t3coreapi:admin-user>`_
+    in the :guilabel:`Site Settings` and :guilabel:`Site Configuration` modules.
 
-The `Configuration module
-<https://docs.typo3.org/permalink/t3coreapi:config-module>`_ gives
-administrators an overview of configuration values including those that can
-only be changed during deployment.
+Page/content element settings
+    Can be changed by Editors with the correct permissions
+    in :guilabel:`Page properties` and in the content element editor.
+
+Settings are values that can be changed in the backend by users with the appropriate permissions
+whereas configuration refers to static parameters in files that can only be
+changed by developers and integrators.
 
 **Table of Contents**
 
