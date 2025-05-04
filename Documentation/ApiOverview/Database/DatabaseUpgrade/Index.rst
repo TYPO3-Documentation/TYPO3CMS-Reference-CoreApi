@@ -1,3 +1,5 @@
+:navigation-title: Upgrade
+
 ..  include:: /Includes.rst.txt
 ..  index:: Database; Upgrade
 ..  _database-upgrade:

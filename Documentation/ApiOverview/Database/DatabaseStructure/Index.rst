@@ -1,3 +1,5 @@
+:navigation-title: Tables
+
 ..  include:: /Includes.rst.txt
 ..  index::
     Database; Structure
@@ -5,9 +7,9 @@
 ..  _database-structure:
 ..  _database-structure-requirements:
 
-==================
-Database structure
-==================
+=============================
+Database structure and tables
+=============================
 
 Types of tables
 ===============
