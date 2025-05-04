@@ -96,10 +96,12 @@ TYPO3 uses several languages for configuration:
     TypoScript and backend TypoScript (also called TSconfig). TypoScript has
     a unique syntax, shared by TypoScript and TSconfig. While the syntax is the
     same, their semantics differ.
-*   :ref:`Yaml <yaml-syntax>` is the configuration language of choice for newer
-    TYPO3 system extensions like :doc:`rte_ckeditor <ext_rte_ckeditor:Index>`,
-    :doc:`form <ext_form:Index>` and the :ref:`sites module <sitehandling>`. It has
-    partly replaced TypoScript and TSconfig as configuration languages.
+*   :ref:`YAML <yaml-syntax>` is used to store
+    `site settings <https://docs.typo3.org/permalink/t3coreapi:sitehandling-settings>`_
+    and `site configuration <https://docs.typo3.org/permalink/t3coreapi:sitehandling-basics>`_.
+    It is also used to configure dependency injection in the
+    `Services.yaml <https://docs.typo3.org/permalink/t3coreapi:extension-configuration-services-yaml>`_ file,
+    as well as to configure various system and third-party extensions.
 *   XML is used in :ref:`FlexForms <flexforms>`.
 *   PHP is used for the :php:`$GLOBALS` array which includes TCA
     (:php:`$GLOBALS['TCA']`, Global Configuration (:php:`GLOBALS['TYPO3_CONF_VARS']`),
@@ -166,8 +168,6 @@ integrators.
 
 Global configuration arrays in PHP
 ----------------------------------
-Global Configuration Arrays in PHP
-----------------------------------
 
 TYPO3 stores global configuration in the :php:`$GLOBALS` PHP array. Key entries:
 
@@ -221,24 +221,28 @@ is defined by the providing extension.
 
 ..  _config-overview-yaml:
 
-YAML
-----
+YAML as a configuration method
+------------------------------
 
-Several system extensions use YAML for configuration:
+YAML is used throughout the TYPO3 Core and can also be used in third-party extensions.
+It is used, for example, for the following purposes:
 
-* :ref:`Site <sitehandling>` config is stored in
-  :file:`config/sites/<identifier>/config.yaml` and editable via the
-  :guilabel:`Sites` backend module or directly in the file.
+*   :ref:`Site configuration <sitehandling>` is stored in
+    :file:`config/sites/<identifier>/config.yaml` and can be edited via the
+    :guilabel:`Sites` backend module or directly in the file.
 
-* :ref:`routing` is also defined in the same YAML file.
+    :ref:`Routing <routing>` is also defined in the same YAML file.
 
-* :ref:`form <ext_form:concepts-configuration>` provides frontend forms via YAML.
+*   Defining and storing
+    `site settings <https://docs.typo3.org/permalink/t3coreapi:sitehandling-settings>`_,
+    which can also be managed in the backend module :guilabel:`Sites > Settings`.
 
-* :ref:`rte_ckeditor <ext_rte_ckeditor:configuration>` uses YAML to configure the
-  backend rich text editor.
+*   :ref:`Form configuration <ext_form:concepts-configuration>` for rendering frontend forms.
 
-* :file:`<extension>/Configuration/Services.yaml` configures
-  :ref:`Event listeners <EventDispatcher>` and
-  :ref:`Dependency injection <DependencyInjection>`.
+*   :ref:`RTE CKEditor <ext_rte_ckeditor:configuration>` configuration for the backend rich text editor.
+
+*   :file:`<extension>/Configuration/Services.yaml` for configuring
+    :ref:`event listeners <EventDispatcher>` and
+    :ref:`dependency injection <DependencyInjection>`.
 
 YAML files can be loaded using the :ref:`YamlFileLoader <yamlFileLoader>`.
