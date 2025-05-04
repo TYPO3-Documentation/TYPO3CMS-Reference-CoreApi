@@ -1,4 +1,5 @@
-:navigation-title: Database records
+:navigation-title: Records
+
 .. include:: /Includes.rst.txt
 .. _database-records:
 
