@@ -135,8 +135,8 @@ Settings have a default value that can be
 
 ..  _site-sets-settings:
 
-Override site settings defaults in a subsets
-============================================
+Override site settings defaults by subsets
+===========================================
 
 Settings for subsets (for example to configure settings in declared dependencies)
 can be shipped via :file:`settings.yaml <set-settings-yaml>` when placed next to the set file
@@ -178,7 +178,7 @@ Set-defined TypoScript can be shipped within a set. The files
 :file:`constants.typoscript <set-constants-typoscript>` (placed next to the
 :file:`config.yaml <set-config-yaml>` file) will be loaded, if available.
 They are inserted (similar to `static_file_include`) into the TypoScript chain
-of the site TypoScript that will be defined by a site that is using sets.
+of the site TypoScript.
 
 Set constants will always be overruled by site settings. Since site settings
 always provide a default value, a constant will always be overruled by a defined
@@ -213,7 +213,8 @@ sites that depend on this set.
 
 Therefore, extensions can ship page TSconfig without the need for database entries or
 by polluting global scope when registering page TSconfig globally via
-:file:`ext_localconf.php` or :file:`Configuration/page.tsconfig`.
+:file:`ext_localconf.php` or :file:`Configuration/page.tsconfig` or 
+:file:`Configuration/TCA/Overrides/pages.php`.
 Dependencies can be expressed via sets, allowing for automatic ordering and
 deduplication.
 
