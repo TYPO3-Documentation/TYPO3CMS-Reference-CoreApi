@@ -135,8 +135,8 @@ Settings have a default value that can be
 
 ..  _site-sets-settings:
 
-Override site settings defaults in a subsets
-============================================
+Override site settings defaults by subsets
+===========================================
 
 Settings for subsets (for example to configure settings in declared dependencies)
 can be shipped via :file:`settings.yaml <set-settings-yaml>` when placed next to the set file
@@ -178,7 +178,7 @@ Set-defined TypoScript can be shipped within a set. The files
 :file:`constants.typoscript <set-constants-typoscript>` (placed next to the
 :file:`config.yaml <set-config-yaml>` file) will be loaded, if available.
 They are inserted (similar to `static_file_include`) into the TypoScript chain
-of the site TypoScript that will be defined by a site that is using sets.
+of the site TypoScript.
 
 Set constants will always be overruled by site settings. Since site settings
 always provide a default value, a constant will always be overruled by a defined
@@ -213,7 +213,7 @@ sites that depend on this set.
 
 Therefore, extensions can ship page TSconfig without the need for database entries or
 by polluting global scope when registering page TSconfig globally via
-:file:`ext_localconf.php` or :file:`Configuration/page.tsconfig`.
+:file:`ext_localconf.php` or :file:`Configuration/TCA/Overrides/pages.php`.
 Dependencies can be expressed via sets, allowing for automatic ordering and
 deduplication.
 
@@ -245,7 +245,7 @@ A list of available site sets can be retrieved with the console command
 Example: Using a set within a site package
 ==========================================
 
-You can see an example of using a sets within a site package in the extension
+You can see an example of using a set within a site package in the extension
 `t3docs/site-package (Source on GitHub) <https://github.com/TYPO3-Documentation/TYPO3CMS-Tutorial-SitePackage-Code>`__.
 
 The site package example extension has the following file structure:
@@ -311,8 +311,8 @@ Loading TypoScript via the site package's set
 
 The example site package also loads its TypoScript by placing the files
 :file:`constants.typoscript` and :file:`setup.typoscript` into the folder of the
-site set. These TypoScript files use :typoscript:`@import` statements to import
-files from the extension's directory :path:`Configuration/Sets/SitePackage/TypoScript`:
+site set. These files use :typoscript:`@import` statements to import
+third party TypoScript files into this extension's directory :path:`Configuration/Sets/SitePackage/TypoScript`:
 
 ..  include:: _Sets/_site-package/_setup.rst.txt
 
@@ -443,7 +443,7 @@ Reads one or more site set definitions including their dependencies.
 
 ..  code-block:: php
 
-    $sets = $setRegistry->getSets('my-vendor/my-set', 'my-vendor/my-set');
+    $sets = $setRegistry->getSets('my-vendor/my-set', 'my-vendor/my-set-two');
 
 ..  _site-sets-php-api-setregistry-hasset:
 
@@ -473,8 +473,8 @@ SetCollector
 ~~~~~~~~~~~~
 
 TYPO3 comes with a new `ServiceProvider`, which goes through all extensions
-with the first instantiation of the :php-short:`\TYPO3\CMS\Core\Site\Set\SetCollector` and reads all site set
-definitions found.
+with the first instantiation of the :php-short:`\TYPO3\CMS\Core\Site\Set\SetCollector` and 
+reads all site set definitions found.
 
 ..  code-block:: php
 
@@ -485,8 +485,8 @@ definitions found.
 
 However, this is not the official way to access the site set definitions and
 their dependencies. Please access the configuration via the site object.
-Alternatively, you can also use the :php-short:`\TYPO3\CMS\Core\Site\Set\SetRegistry`, as only this manages the
-site sets in the order declared by the dependency specification.
+Alternatively you can also use the :php-short:`\TYPO3\CMS\Core\Site\Set\SetRegistry` 
+as only this manages the site sets in the order declared by the dependency specification.
 
 Only use the :php-short:`\TYPO3\CMS\Core\Site\Set\SetCollector` if you need to read all site set definitions.
 Dependencies are not taken into account here.
