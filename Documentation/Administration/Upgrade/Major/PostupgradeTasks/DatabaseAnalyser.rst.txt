@@ -8,6 +8,8 @@ Use the "Maintenance section" and click "Analyze Database".
 
 ..  include:: /Images/AutomaticScreenshots/AdminTools/DatabaseAnalyzer.rst.txt
 
+See also
+`Database compare during update and installation <https://docs.typo3.org/permalink/t3coreapi:database-upgrade>`_.
 
 You will be able to execute queries to remove these tables and columns so that
 your database corresponds to the structure required for the new TYPO3 version.
