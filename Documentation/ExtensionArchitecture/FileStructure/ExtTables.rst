@@ -1,5 +1,6 @@
 ..  include:: /Includes.rst.txt
 ..  index:: ! File; EXT:{extkey}/ext_tables.php
+..  _database-exttables-sql:
 ..  _ext-tables-php:
 
 ================
