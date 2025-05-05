@@ -213,8 +213,7 @@ sites that depend on this set.
 
 Therefore, extensions can ship page TSconfig without the need for database entries or
 by polluting global scope when registering page TSconfig globally via
-:file:`ext_localconf.php` or :file:`Configuration/page.tsconfig` or 
-:file:`Configuration/TCA/Overrides/pages.php`.
+:file:`ext_localconf.php` or :file:`Configuration/TCA/Overrides/pages.php`.
 Dependencies can be expressed via sets, allowing for automatic ordering and
 deduplication.
 
