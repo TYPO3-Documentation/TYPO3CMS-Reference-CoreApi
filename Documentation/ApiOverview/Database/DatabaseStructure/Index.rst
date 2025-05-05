@@ -17,10 +17,10 @@ TYPO3 distinguishes between **internal** and **managed** tables.
 Internal tables
 ===============
 
-Used internally by TYPO3 and not accessible in the backend (e.g.,
-:sql:`be_sessions`, :sql:`sys_registry`, cache tables). Accessed via TYPO3
+Used internally by TYPO3 and not accessible in the backend (e.g. tables such as
+:sql:`be_sessions`, :sql:`sys_registry`, cache tables). They are accessed via TYPO3
 APIs such as the :ref:`caching framework <caching>`. These tables are not
-editable unless a dedicated backend module provides access.
+editable unless a specific backend module provides access.
 
 Typical categories include:
 
@@ -38,7 +38,7 @@ Managed tables
 ==============
 
 Defined in the :ref:`TCA <t3tca:start>` and, by default, editable in the
-:guilabel:`Web > List` module. TYPO3 derives the database schema from the TCA
+:guilabel:`Web > List` module. TYPO3 derives database schemas from the TCA
 configuration. Required fields such as :sql:`uid` and :sql:`pid` are generated
 automatically.
 
@@ -56,16 +56,16 @@ automatically.
 *   :sql:`deleted`: Soft delete flag
 *   :sql:`hidden` or :sql:`disabled`: Visibility control
 
-The fields used and their behavior are defined in the
+These fields and their behavior are defined in the
 `table properties (ctrl section of TCA)
 <https://docs.typo3.org/permalink/t3tca:ctrl>`_.
 
 When records are rendered in the backend using the
 `FormEngine <https://docs.typo3.org/permalink/t3coreapi:formengine>`_, entries
-with the soft delete flag :sql:`deleted` set will not be shown.
+with the soft delete flag set (:sql:`deleted`) will not be shown.
 
 When querying tables via TypoScript, visibility fields such as :sql:`hidden`,
-:sql:`startdate`, and :sql:`enddate` are automatically respected.
+:sql:`startdate`, and :sql:`enddate` are respected.
 
 If you use the
 `DBAL query builder
@@ -73,7 +73,7 @@ If you use the
 the database, the
 `restriction builder
 <https://docs.typo3.org/permalink/t3coreapi:database-restriction-builder>`_
-automatically filters based on visibility fields unless explicitly disabled.
+automatically filters records based on visibility fields unless explicitly disabled.
 
 When using an
 `Extbase repository
