@@ -10,13 +10,13 @@ Database compare during update and installation
 
 Whenever you install or update an extension, or change the
 `TCA definition <https://docs.typo3.org/permalink/t3tca:start>`_ or the
-:ref:`ext_tables.sql <database-exttables-sql>` of an extension, the database
-schema might have changed.
+:ref:`ext_tables.sql <database-exttables-sql>` in an extension, you have to take
+into account the fact that the database schema might have changed.
 
 ..  figure:: /Images/ManualScreenshots/AdminTools/AnalyzeDatabase.png
     :alt: TYPO3 backend with the Maintenance Admin Tools. The database analyzer is highlighted.
 
-    System maintainers can compare the database schema and apply changes here.
+    Here system maintainers can compare the database schema and apply any changes.
 
 ..  contents:: Table of contents
 
@@ -30,11 +30,11 @@ Users with
 <https://docs.typo3.org/permalink/t3coreapi:system-maintainer>`_ can use the
 :guilabel:`Analyze Database Structure` section in the
 :guilabel:`Admin Tools > Maintenance` module to compare the defined schema
-with the current one. The module offers options to align the two by adding,
+with the current one. The module display options to incorporate changes by adding,
 removing, or updating columns.
 
 You can also use the console command `typo3 extension:setup` to add tables
-and columns defined by an installed or updated extension:
+and columns defined by installed or updated extensions:
 
 ..  tabs::
 
@@ -66,7 +66,7 @@ Deleting columns or tables: be careful
 Columns suggested for deletion might still be needed by
 `upgrade wizards <https://docs.typo3.org/permalink/t3coreapi:upgrade-wizards>`_.
 
-Before deleting tables or columns using the database analyzer:
+Before deleting tables or columns with the database analyzer:
 
 *  Run all upgrade wizards
 *  Make a database backup
@@ -81,7 +81,7 @@ Changing a column type: it depends
 
 Some column changes extend capabilities and are safe. For example:
 
-*  Changing from :sql:`TEXT` to :sql:`LONGTEXT` allows storing more data
+*  Changing from :sql:`TEXT` to :sql:`LONGTEXT` allows more data to be stored
    and does not affect existing content.
 
 Other changes can cause problems if existing data violates the new definition.
@@ -99,14 +99,14 @@ records may help.
 Conflicting column definitions
 ==============================
 
-The effective :ref:`database structure <database-structure>` is defined by the
+:ref:`Database structure <database-structure>` is defined by the
 `Table Configuration Array (TCA) <https://docs.typo3.org/permalink/t3tca:start>`_
-and, optionally, by definitions in an extension's :file:`ext_tables.sql`.
+and by definitions in the :file:`ext_tables.sql` file in an extension, if the file exists.
 
-If two extensions define the same column in conflicting ways, the definition
-from the extension
+If two extensions define the same column in different ways, the definition
+from the extension that is
 `loaded last <https://docs.typo3.org/permalink/t3coreapi:extension-loading-order>`_
 will take precedence.
 
-Therefore, an extension that changes or adds columns to a table **must**
-declare a dependency on the original extension to ensure proper load order.
+This means that an extension that changes or adds columns to a table **must**
+declare a dependency on the original extension to ensure proper loading order.
