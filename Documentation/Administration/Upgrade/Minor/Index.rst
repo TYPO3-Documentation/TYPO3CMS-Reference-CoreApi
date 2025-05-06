@@ -40,7 +40,7 @@ This will update all TYPO3 packages. The :bash:`--with-all-dependencies` signals
 Post update
 ===========
 
-Once Composer has completed updating the installation of TYPO3, log in to the
+Once Composer has completed updating the TYPO3 installation log in to the
 backend and clear all caches.
 
 You should also do a `database compare <https://docs.typo3.org/permalink/t3coreapi:database-upgrade>`_.
