@@ -1,5 +1,6 @@
 :navigation-title: Extbase persistence
 
+..  include:: /Includes.rst.txt
 .. _database-extbase:
 
 =============================================
