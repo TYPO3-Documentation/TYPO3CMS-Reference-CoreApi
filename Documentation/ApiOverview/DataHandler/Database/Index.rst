@@ -242,9 +242,9 @@ Command keywords and values
             'field' => 'tx_myfieldname', // field we want to synchronize
             'language' => 2,             // uid of the target language
             // either the key 'action' or 'ids' must be set
-            'action' => 'localize'       // or 'synchronize'
-            'ids' =>  [1, 2, 3]          // array of child IDs to be localized
-        ]
+            'action' => 'localize',      // or 'synchronize'
+            'ids' =>  [1, 2, 3],         // array of child IDs to be localized
+        ];
 
 
 ..  confval:: version
