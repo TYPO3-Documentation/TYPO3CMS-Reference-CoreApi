@@ -1,101 +1,112 @@
-:navigation-title: Upgrade
+:navigation-title: Database compare
 
 ..  include:: /Includes.rst.txt
 ..  index:: Database; Upgrade
 ..  _database-upgrade:
 
-===================================
-Upgrade table and field definitions
-===================================
+===============================================
+Database compare during update and installation
+===============================================
 
-Each extension in TYPO3 can provide the :file:`ext_tables.sql` file that defines
-which tables and fields the extension needs. Gathering all
-:file:`ext_tables.sql` files thus defines the complete set of tables, fields and
-indexes of a TYPO3 instance to unfold its full functionality. The
+Whenever you install or update an extension, or change the
+`TCA definition <https://docs.typo3.org/permalink/t3tca:start>`_ or the
+:ref:`ext_tables.sql <database-exttables-sql>` in an extension, you have to take
+into account the fact that the database schema might have changed.
+
+..  figure:: /Images/ManualScreenshots/AdminTools/AnalyzeDatabase.png
+    :alt: TYPO3 backend with the Maintenance Admin Tools. The database analyzer is highlighted.
+
+    Here system maintainers can compare the database schema and apply any changes.
+
+..  contents:: Table of contents
+
+..  _database-upgrade-compare:
+
+Compare the database schema and apply changes
+=============================================
+
+Users with
+`System Maintainer privileges
+<https://docs.typo3.org/permalink/t3coreapi:system-maintainer>`_ can use the
 :guilabel:`Analyze Database Structure` section in the
-:guilabel:`Admin Tools > Maintenance` backend module can compare the defined set
-with the current active database schema and shows options to align these two by
-adding fields, removing fields and so on.
+:guilabel:`Admin Tools > Maintenance` module to compare the defined schema
+with the current one. The module display options to incorporate changes by adding,
+removing, or updating columns.
 
-When you upgrade to newer versions of TYPO3 or upgrade an extension, the data
-definition of tables and fields may have changed. The database structure
-analyzer detects such changes.
+You can also use the console command `typo3 extension:setup` to add tables
+and columns defined by installed or updated extensions:
 
-When you install a new extension, any change to the database is performed
-automatically. When upgrading to a new major version of TYPO3, you should
-normally go through the upgrade wizard, whose first step is to perform all
-necessary database changes:
+..  tabs::
 
-..  include:: /Images/AutomaticScreenshots/AdminTools/DatabaseUpgradeWizard.rst.txt
+    ..  group-tab:: Composer-based installation
 
-If you want to perform minor updates, update extensions or generally check the
-functionality of your system, you can go to
-:guilabel:`Admin Tools > Maintenance > Analyze Database Structure`:
+        ..  code-block:: bash
 
-.. include:: /Images/AutomaticScreenshots/AdminTools/AnalyzeDatabase.rst.txt
+            vendor/bin/typo3 extension:setup
 
-This tool collects the information from all :file:`ext_tables.sql` files of all
-active extensions and compares them with the current database structure. Then it
-proposes to perform the necessary changes, grouped by type:
+    ..  group-tab:: Classic installation
 
--   creating new tables
--   adding new fields to existing tables
--   altering existing fields
--   dropping unused tables and fields
+        ..  code-block:: bash
 
-You can choose which updates you want to perform. You can even decide not to
-create new fields and tables, although that will very likely break your
-installation.
+            typo3/sysext/core/bin/typo3 extension:setup
 
-..  include:: /Images/AutomaticScreenshots/AdminTools/DatabaseAnalyzer.rst.txt
+..  _database-upgrade-add:
 
-..  seealso::
-    For more information about the process of upgrading TYPO3, see chapter
-    :ref:`Upgrades <upgrading>`.
+Adding columns and tables is safe
+=================================
 
+Adding additional columns or tables is not problematic. You can safely add any
+column shown as missing.
 
-..  index::
-    File; EXT:{extkey}/ext_tables.sql
-    Database; CREATE TABLE
-..  _database-exttables-sql:
+..  _database-upgrade-delete:
 
-The ext\_tables.sql files
-=========================
+Deleting columns or tables: be careful
+======================================
 
-As mentioned above, all data definition statements are stored in files named
-:file:`ext_tables.sql`, which may exist in any extension.
+Columns suggested for deletion might still be needed by
+`upgrade wizards <https://docs.typo3.org/permalink/t3coreapi:upgrade-wizards>`_.
 
-The peculiarity is that these files may not always contain a complete and valid
-SQL data definition. For example, the "dashboard" system extension defines a new
-table for storing dashboards:
+Before deleting tables or columns with the database analyzer:
 
-..  code-block:: sql
-    :caption: EXT:dashboard/ext_tables.sql
+*  Run all upgrade wizards
+*  Make a database backup
 
-    CREATE TABLE be_dashboards (
-        identifier varchar(120) DEFAULT '' NOT NULL,
-        title varchar(120) DEFAULT '' NOT NULL,
-        widgets text
-    );
+Some third-party extensions may rely on database columns or tables they do not
+explicitly define. Removing them could cause these extensions to break.
 
-This is a complete and valid SQL data definition. However, the community
-extension "news" extends the :sql:`tt_content` table with additional fields. It
-also provides these changes in the form of a SQL :sql:`CREATE TABLE` statement:
+..  _database-upgrade-change:
 
-..  code-block:: sql
-    :caption: EXT:news/ext_tables.sql
+Changing a column type: it depends
+==================================
 
-    CREATE TABLE tt_content (
-        tx_news_related_news int(11) DEFAULT '0' NOT NULL,
-        KEY index_newscontent (tx_news_related_news)
-    );
+Some column changes extend capabilities and are safe. For example:
 
-The classes which take care of assembling the complete SQL data definition will
-compile all the :sql:`CREATE TABLE` statements for a given table and turn them
-into a single :sql:`CREATE TABLE` statement. If the table already exists,
-missing fields are isolated and :sql:`ALTER TABLE` statements are proposed
-instead.
+*  Changing from :sql:`TEXT` to :sql:`LONGTEXT` allows more data to be stored
+   and does not affect existing content.
 
-This means that as an extension developer you should always only have
-:sql:`CREATE TABLE` statements in your :file:`ext_tables.sql` files, the system
-will handle them as needed.
+Other changes can cause problems if existing data violates the new definition.
+For instance:
+
+*  Changing from :sql:`NULL` to :sql:`NOT NULL` will fail if any row,
+   including **soft-deleted** ones (`deleted = 1`), still contains `NULL`.
+
+Some extensions provide upgrade wizards to clean or convert data. Note that
+many wizards ignore soft-deleted records. Deleting unnecessary soft-deleted
+records may help.
+
+..  _database-upgrade-conflict:
+
+Conflicting column definitions
+==============================
+
+:ref:`Database structure <database-structure>` is defined by the
+`Table Configuration Array (TCA) <https://docs.typo3.org/permalink/t3tca:start>`_
+and by definitions in the :file:`ext_tables.sql` file in an extension, if the file exists.
+
+If two extensions define the same column in different ways, the definition
+from the extension that is
+`loaded last <https://docs.typo3.org/permalink/t3coreapi:extension-loading-order>`_
+will take precedence.
+
+This means that an extension that changes or adds columns to a table **must**
+declare a dependency on the original extension to ensure proper loading order.
