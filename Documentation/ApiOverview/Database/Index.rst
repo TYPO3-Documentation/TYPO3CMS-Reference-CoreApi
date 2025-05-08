@@ -16,6 +16,8 @@ Database access and scheme in TYPO3
     DatabaseRecords/Index
     DoctrineDbal/Index
     DatabaseUpgrade/Index
+    Extbase/Index
+    */Index
     *
 
 ..  seealso::
@@ -24,6 +26,7 @@ Database access and scheme in TYPO3
 
     *   `PHP: Doctrine DBAL repositories <https://docs.typo3.org/permalink/t3coreapi:doctrine-dbal>`_
     *   `Extbase repositories <https://docs.typo3.org/permalink/t3coreapi:extbase-repository>`_
+    *   `Persistence: Saving Extbase models to the database <https://docs.typo3.org/permalink/t3coreapi:extbase-persistence>`_
     *   `TypoScript: database-query data processor <https://docs.typo3.org/permalink/t3tsref:databasequeryprocessor>`_
     *   `TypoScript: RECORDS <https://docs.typo3.org/permalink/t3tsref:cobj-records-introduction>`_
 
