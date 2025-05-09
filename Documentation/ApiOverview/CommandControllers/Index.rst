@@ -24,7 +24,7 @@ TYPO3 installation.
 *   For installations with Composer, the starting point is the project
     folder, which also contains the :file:`composer.json` file of the project.
     The CLI commands usually start with :file:`vendor/bin/typo3`.
-*   For legacy installations (without Composer), the starting point is usually
+*   For Classic mode installations (without Composer), the starting point is usually
     the web root, so CLI commands start with :file:`typo3/sysext/core/bin/typo3`.
 
 ..  attention::
@@ -50,7 +50,7 @@ You can list the available commands by calling:
 
          vendor/bin/typo3
 
-   .. group-tab:: Legacy installation
+   .. group-tab:: Classic mode installation (no Composer)
 
       .. code-block:: bash
 
@@ -70,7 +70,7 @@ Show help for the command:
 
          vendor/bin/typo3 cache:flush -h
 
-   .. group-tab:: Legacy installation
+   .. group-tab:: Classic mode installation (no Composer)
 
       .. code-block:: bash
 

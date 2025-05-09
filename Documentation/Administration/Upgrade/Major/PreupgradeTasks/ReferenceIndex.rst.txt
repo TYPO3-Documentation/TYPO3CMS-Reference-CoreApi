@@ -22,7 +22,7 @@ To run the reference index update, execute in the root folder of your project:
 
             vendor/bin/typo3 referenceindex:update
 
-    ..  group-tab:: Legacy installation
+    ..  group-tab:: Classic mode installation (No Composer)
 
         ..  code-block:: bash
 

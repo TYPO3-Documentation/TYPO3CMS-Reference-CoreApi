@@ -34,7 +34,7 @@ After you added these tables and columns, go on to the next wizard.
 
     Use :bash:`./vendor/bin/typo3 upgrade:run` to run all wizards.
 
-    For legacy mode (non-Composer mode) replace :bash:`./vendor/bin/typo3` with
+    For Classic mode (non-Composer mode) replace :bash:`./vendor/bin/typo3` with
     `./typo3/sysext/core/bin/typo3`.
 
 The "Version Compatibility" wizard sets the compatibility version of your TYPO3

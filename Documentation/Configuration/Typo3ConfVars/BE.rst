@@ -44,7 +44,7 @@ the TYPO3 backend:
     :Path: $GLOBALS['TYPO3_CONF_VARS']['BE']['lockBackendFile']
     :name: globals-typo3-conf-vars-be-lockBackendFile
     :type: string (file path)
-    :Default: `"var/lock/LOCK_BACKEND"` (Composer mode) | `"config/LOCK_BACKEND"` (Legacy mode)
+    :Default: `"var/lock/LOCK_BACKEND"` (Composer mode) | `"config/LOCK_BACKEND"` (Classic mode)
 
     ..  versionadded:: 13.3
 

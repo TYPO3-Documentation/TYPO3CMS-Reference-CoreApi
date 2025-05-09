@@ -1,9 +1,10 @@
 ..  include:: /Includes.rst.txt
 
+..  _extensions-classic-mode-management:
 ..  _extensions-legacy-management:
 
 ====================================
-Installing Extensions - Legacy Guide
+Installing Extensions - Classic mode
 ====================================
 
 .. _extension-manager:

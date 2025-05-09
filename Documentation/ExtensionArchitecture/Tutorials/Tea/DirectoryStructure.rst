@@ -37,7 +37,7 @@ extension. Otherwise they will not be available in the default
 
 In the :file:`composer.json <extension-composer-json>` we define that all PHP classes are
 automatically loaded from the :file:`Classes/` directory (also
-defined in file:`ext_emconf.php` in legacy installations):
+defined in file:`ext_emconf.php` in Classic mode installations):
 
 ..  tabs::
 
@@ -45,7 +45,7 @@ defined in file:`ext_emconf.php` in legacy installations):
 
         .. include:: /CodeSnippets/Tutorials/Tea/ComposerJsonAutoload.rst.txt
 
-    ..  group-tab:: Legacy
+    ..  group-tab:: Classic mode installation (no Composer)
 
         .. include:: /CodeSnippets/Tutorials/Tea/ExtEmconfAutoload.rst.txt
 

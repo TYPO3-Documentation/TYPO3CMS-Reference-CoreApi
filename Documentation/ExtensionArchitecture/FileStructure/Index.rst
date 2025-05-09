@@ -145,14 +145,14 @@ Reserved file names
 ===================
 
 Most of these files are not required, except of :file:`ext_emconf.php`
-in :ref:`legacy installations not based on Composer <t3start:legacyinstallation>`
+in :ref:`Classic mode installations not based on Composer <classic-installation>`
 and :file:`composer.json <extension-composer-json>` in :ref:`Composer installations <t3start:install>`
 installations.
 
 .. note::
    It is recommended to keep :file:`ext_emconf.php` and :file:`composer.json <extension-composer-json>` in
    any public extension that is published to TYPO3 Extension Repository (TER), and
-   to ensure optimal compatibility with Composer installations and legacy
+   to ensure optimal compatibility with Composer installations and Classic mode
    installations.
 
 Do not introduce your own files in the root directory of

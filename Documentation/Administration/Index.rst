@@ -23,7 +23,7 @@ TYPO3 administration
 
         This chapter describes the typical directory structure of a
         `Composer-based <https://docs.typo3.org/permalink/t3coreapi:directory-structure>`_
-        and `Classic installation <https://docs.typo3.org/permalink/t3coreapi:classic-directory-structure>`_.
+        and `Classic mode installation <https://docs.typo3.org/permalink/t3coreapi:classic-directory-structure>`_.
 
         :ref:`Directory structure <directory-structure>`
 

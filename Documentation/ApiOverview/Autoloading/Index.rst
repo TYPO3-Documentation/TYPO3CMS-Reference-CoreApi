@@ -46,7 +46,7 @@ Autoloading classes
 ===================
 
 There is one autoloader used, the one of Composer. No matter if you run TYPO3 in
-Composer mode or not (legacy mode), TYPO3 uses the Composer autoloader to
+Composer mode or not (Classic mode), TYPO3 uses the Composer autoloader to
 resolve all class file locations.
 
 

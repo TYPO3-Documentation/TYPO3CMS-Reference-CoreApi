@@ -28,7 +28,7 @@ enabled.
 
             vendor/bin/typo3 site:list
 
-    ..  group-tab:: Legacy installation
+    ..  group-tab:: Classic mode installation (no Composer)
 
         ..  code-block:: bash
 
@@ -51,7 +51,7 @@ syntax.
 
             vendor/bin/typo3 site:show <identifier>
 
-    ..  group-tab:: Legacy installation
+    ..  group-tab:: Classic mode installation (no Composer)
 
         ..  code-block:: bash
 

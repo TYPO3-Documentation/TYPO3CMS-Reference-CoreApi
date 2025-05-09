@@ -125,7 +125,7 @@ To consume messages, run the command:
 
             vendor/bin/typo3 messenger:consume <receiver-name>
 
-    ..  group-tab:: Legacy installation
+    ..  group-tab:: Classic mode installation (no Composer)
 
         ..  code-block:: bash
 
@@ -141,7 +141,7 @@ By default, you should run:
 
             vendor/bin/typo3 messenger:consume doctrine
 
-    ..  group-tab:: Legacy installation
+    ..  group-tab:: Classic mode installation (No Composer)
 
         ..  code-block:: bash
 

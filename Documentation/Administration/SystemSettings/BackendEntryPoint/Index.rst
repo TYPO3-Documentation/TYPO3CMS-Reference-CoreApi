@@ -30,7 +30,7 @@ specifying a custom URL path or domain name in
 
 Adjusting the backend entry point does not take assets into account, only
 routing is adapted. That means Composer mode will use assets provided via
-:samp:`_assets/` as before and TYPO3 legacy mode will serve backend assets from
+:samp:`_assets/` as before and TYPO3 Classic mode will serve backend assets from
 :samp:`/typo3/*` even if another backend URL is used and configured.
 
 ..  note::

@@ -86,7 +86,7 @@ page `FAQ <https://extensions.typo3.org/faq/>`__.
 **Advantages:**
 
 *  Extension can be installed in a
-   :ref:`legacy installation <t3start:legacyinstallation>`
+   :ref:`Classic mode installation (no Composer required) <classic-installation>`
    TYPO3 instance using the module :ref:`Extensions <extension-manager>`.
 *  All advantages of being listed in the TER, for example:
 

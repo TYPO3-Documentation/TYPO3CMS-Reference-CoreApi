@@ -319,7 +319,7 @@ To send the spooled emails you need to run the following CLI command:
 
             vendor/bin/typo3 mailer:spool:send
 
-    ..  group-tab:: Legacy installation
+    ..  group-tab:: Classic mode installation (no Composer)
 
         ..  code-block:: bash
 

@@ -36,9 +36,9 @@ it should not be used on production systems:
 
             ddev composer req b13/make --dev
 
-    ..  group-tab:: Legacy
+    ..  group-tab:: Classic mode installation (no Composer)
 
-        To install the extension on legacy installations, download it from the
+        To install the extension on Classic mode installations, download it from the
         `TYPO3 Extension Repository (TER), extension
         "make" <https://extensions.typo3.org/extension/make/>`__.
 
@@ -61,7 +61,7 @@ Call the CLI script on the console:
 
             ddev exec vendor/bin/typo3 make:extension
 
-    ..  group-tab:: Legacy
+    ..  group-tab:: Classic mode installation (No Composer)
 
         ..  code-block:: bash
 
@@ -112,7 +112,7 @@ Call the CLI script on the console:
 
 `May we create a ext_emconf.php for you? (yes/no) [no]:`
     Mandatory for extensions supporting TYPO3 v10. Starting with v11:
-    If your extension should be installable in legacy TYPO3 installations
+    If your extension should be installable in Classic mode TYPO3 installations
     choose `yes`. This is not necessary for local extensions in Composer-based
     installations.
 
@@ -175,7 +175,7 @@ name defined in the prompt of the script:
 
             ddev composer req my-vendor/my-test:@dev
 
-    ..  group-tab:: Legacy
+    ..  group-tab:: Classic mode installation (No Composer)
 
         Activate the extension in the Extension Manager.
 

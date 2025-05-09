@@ -247,7 +247,7 @@ It is also possible to execute the wizard from the command line:
 
             vendor/bin/typo3 upgrade:run myExtension_exampleUpgradeWizard
 
-    .. group-tab:: Legacy installation
+    .. group-tab:: Classic mode installation (no Composer)
 
         .. code-block:: bash
 
@@ -266,7 +266,7 @@ It is also possible to execute the wizard from the command line:
 
                 vendor/bin/typo3 upgrade:run '\\MyVendor\\MyExtension\\Upgrade\\ExampleUpgradeWizard'
 
-        .. group-tab:: Legacy installation
+        .. group-tab:: Classic mode installation (no Composer)
 
             .. code-block:: bash
 
