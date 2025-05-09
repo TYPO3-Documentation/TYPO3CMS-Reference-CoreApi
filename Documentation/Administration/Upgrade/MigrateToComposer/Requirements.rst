@@ -109,7 +109,7 @@ Git version control, local development and deployment
 This migration guide expects that you are working locally with your project and use
 Git version control for it.
 
-If you previously used the TYPO3 Legacy installation (from a release ZIP) and did
+If you previously used the TYPO3 Classic mode installation (from a release ZIP) and did
 not yet use Git versioning, this is a good time to learn about version control first.
 
 All operations should ideally take place in a separate branch of your Git repository.

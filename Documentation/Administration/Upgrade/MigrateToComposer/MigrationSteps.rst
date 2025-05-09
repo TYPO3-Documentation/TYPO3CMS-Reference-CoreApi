@@ -15,10 +15,10 @@ Migration steps
 
 It is recommended to perform a Composer migration using the latest TYPO3 major release to prevent
 bugs and issues that have been solved in newer versions. If you
-are using an older TYPO3 version in Legacy installation mode, you have two options:
+are using an older TYPO3 version in Classic mode, you have two options:
 
-*   **Upgrade TYPO3 Legacy first**, then migrate to Composer. This is probably
-    more straight-forward as you can follow the :ref:`Legacy Upgrade Guide <legacy>`, and then this guide.
+*   **Upgrade TYPO3 Classic mode installation first**, then migrate to Composer. This is probably
+    more straight-forward as you can follow the :ref:`Classic mode Upgrade Guide <classic-mode-upgrade>`, and then this guide.
 *   **Migrate the old TYPO3 version to Composer first**, then perform a :ref:`major upgrade <major>`.
     This might be a bit tricky, because you have to use older versions of
     `typo3/cms-composer-installers` and dependencies like `helhum/typo3-console`, or outdated

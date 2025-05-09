@@ -21,18 +21,18 @@ could look like this:
 
         ..  include:: /CodeSnippets/Tutorials/Tea/ComposerJsonSimplified.rst.txt
 
-    ..  group-tab:: Legacy
+    ..  group-tab:: Classic mode installation (no Composer)
 
         ..  include:: /CodeSnippets/Tutorials/Tea/ExtEmconf.rst.txt
 
 
 ..  hint::
-    If the extension should also be available for legacy installations it
+    If the extension should also be available for Classic mode installations it
     also needs a file called :file:`ext_emconf.php`. This file
     contains roughly the same information in a different format. Have a look
-    at the tab "Legacy" above.
+    at the tab "Classic mode" above.
 
-With just the :file:`composer.json <extension-composer-json>` present (and for legacy installations additionally
+With just the :file:`composer.json <extension-composer-json>` present (and for Classic mode installations additionally
 :file:`ext_emconf.php`) you would be able to install the extension
 but it would not do anything.
 

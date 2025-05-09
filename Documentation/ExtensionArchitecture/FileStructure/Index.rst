@@ -145,7 +145,7 @@ Reserved file names
 ===================
 
 Most of these files are not required, except of :file:`ext_emconf.php`
-in :ref:`legacy installations not based on Composer <t3start:legacyinstallation>`
+in :ref:`Classic mode installations not based on Composer <classic-installation>`
 and :file:`composer.json <extension-composer-json>` in :ref:`Composer installations <t3start:install>`
 installations.
 

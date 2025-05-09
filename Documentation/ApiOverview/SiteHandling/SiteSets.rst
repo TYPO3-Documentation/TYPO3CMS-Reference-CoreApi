@@ -233,7 +233,7 @@ A list of available site sets can be retrieved with the console command
 
             vendor/bin/typo3 site:sets:list
 
-    ..  group-tab:: Legacy installation
+    ..  group-tab:: Classic mode installation (No Composer)
 
         ..  code-block:: bash
 

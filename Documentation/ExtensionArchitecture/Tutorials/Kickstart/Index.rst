@@ -24,7 +24,7 @@ tutorials for common options:
 
         *   Create a directory with the extension name
         *   Create the :ref:`files-composer-json` file
-        *   Create the :ref:`ext_emconf-php` file for legacy installations and extensions to be uploaded to TER
+        *   Create the :ref:`ext_emconf-php` file for Classic mode installations and extensions to be uploaded to TER
 
     ..  card:: :ref:`Use b13/make to create an extension <extension-make-kickstart>`
 

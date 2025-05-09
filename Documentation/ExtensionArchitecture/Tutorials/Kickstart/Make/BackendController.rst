@@ -18,7 +18,7 @@ to put the controller in.
 
             vendor/bin/typo3 make:backendcontroller
 
-    ..  group-tab:: Legacy
+    ..  group-tab:: Classic mode installation (no Composer)
 
         ..  code-block:: bash
 

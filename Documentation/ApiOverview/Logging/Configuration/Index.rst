@@ -51,7 +51,7 @@ The above configuration applies to **all** log entries of level "ERROR" or above
 ..  note::
     The default folder for log files is :file:`<var-path>/log`.
     The `<var-path>` is :file:`<project-root>/var/` for Composer-based
-    installations and :file:`typo3temp/var/` for legacy installations.
+    installations and :file:`typo3temp/var/` for Classic mode installations.
 
 To apply a special configuration for the controllers of the *examples* extension,
 use the following configuration:
