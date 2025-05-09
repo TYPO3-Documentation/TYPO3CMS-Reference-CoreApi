@@ -6,7 +6,7 @@
 
          vendor/bin/typo3 cache:flush
 
-   .. group-tab:: Legacy installation
+   .. group-tab:: Classic mode installation (no Composer)
 
       .. code-block:: bash
 

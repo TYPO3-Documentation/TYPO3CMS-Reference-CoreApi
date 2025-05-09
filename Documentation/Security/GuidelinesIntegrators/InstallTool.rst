@@ -109,7 +109,7 @@ definitely discuss your intention with the team.
 TYPO3 Core updates
 ==================
 
-In legacy installations the Install Tool allows integrators to update the
+In Classic mode installations the Install Tool allows integrators to update the
 TYPO3 Core with a click on a button. This feature can be found under
 "Important actions" and it checks/installs revision updates only (e.g.
 bug fixes and security updates).

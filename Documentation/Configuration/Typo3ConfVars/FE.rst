@@ -396,7 +396,7 @@ the TYPO3 frontend:
     directories :file:`public/_assets/`, :file:`public/typo3temp/` and all
     local storages including :file:`public/fileadmin/`.
 
-    In legacy installations without Composer :file:`typo3conf/ext`
+    In Classic mode installations without Composer :file:`typo3conf/ext`
     and :file:`typo3/` are also prefixed.
 
 ..  _typo3ConfVars_fe_enable_mount_pids:

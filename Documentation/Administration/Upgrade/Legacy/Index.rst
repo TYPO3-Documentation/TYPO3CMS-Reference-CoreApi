@@ -1,10 +1,11 @@
 .. include:: /Includes.rst.txt
 
-.. _legacy:
+..  _classic-mode-upgrade:
+..  _legacy:
 
-==============
-Legacy Upgrade
-==============
+====================
+Classic mode upgrade
+====================
 
 Minor Upgrades  - Using The Core Updater
 ========================================

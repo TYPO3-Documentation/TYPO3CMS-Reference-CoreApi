@@ -290,7 +290,7 @@ First we extend the database schema by adding the following to the file
 
              vendor/bin/typo3 extension:setup
 
-       .. group-tab:: Legacy installation
+       .. group-tab:: Classic mode installation (no Composer)
 
           .. code-block:: bash
 

@@ -5,7 +5,7 @@
         *   :file:`var/transient/ENABLE_INSTALL_TOOL`
         *   :file:`config/ENABLE_INSTALL_TOOL`
 
-    ..  group-tab:: Legacy installation
+    ..  group-tab:: Classic mode installation (No Composer)
 
         *   :file:`typo3temp/var/transient/ENABLE_INSTALL_TOOL`
         *   :file:`typo3conf/ENABLE_INSTALL_TOOL`

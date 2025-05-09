@@ -186,7 +186,7 @@ means: Whenever core or an extension fiddles with DI (or more general "Container
 this cache has to be manually emptied for a running instance by clicking this button.
 The backend Extension Manager however *does* empty the cache automatically when loading or unloading extensions.
 Another way to quickly drop this cache during development is to remove all
-:file:`var/cache/code/di/*` files, which reside in :file:`typo3temp/` in Legacy Mode
+:file:`var/cache/code/di/*` files, which reside in :file:`typo3temp/` in Classic mode
 instances or elsewhere in Composer Mode instances (see :ref:`Environment`). TYPO3 will
 then recalculate the cache upon the next access, no matter if it's a frontend, a backend
 or a CLI request.

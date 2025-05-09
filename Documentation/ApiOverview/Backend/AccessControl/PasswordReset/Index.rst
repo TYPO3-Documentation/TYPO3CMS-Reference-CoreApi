@@ -104,7 +104,7 @@ The administrator can use the :ref:`CLI command <symfony-console-commands>`:
 
             vendor/bin/typo3 backend:resetpassword https://example.com/typo3/ editor@example.com
 
-    ..  group-tab:: Legacy installation
+    ..  group-tab:: Classic mode installation (no Composer)
 
         ..  code-block:: bash
 

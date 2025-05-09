@@ -41,10 +41,10 @@ such as for EXT:dashboard.
 
 ..  _extension-loading-order-classic:
 
-Classic installations: Loading order via ext_emconf.php
-=======================================================
+Classic mode installations: Loading order via ext_emconf.php
+============================================================
 
-In classic installations, extensions are loaded based on the order defined in the
+In Classic mode installations, extensions are loaded based on the order defined in the
 :file:`ext_emconf.php` file.
 
 For example, if an extension relies on or modifies functionality provided by
@@ -64,8 +64,8 @@ without being strictly required.
 
 ..  _extension-loading-order-composer-and-classic:
 
-Keeping the loading order in sync between Composer-based and classic installations
-==================================================================================
+Keeping the loading order in sync between Composer-based and Classic mode installations
+=======================================================================================
 
 If your extension supports both Composer-based and classic TYPO3 installations,
 you should keep dependency information consistent between the

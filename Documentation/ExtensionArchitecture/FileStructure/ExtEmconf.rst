@@ -10,16 +10,16 @@
 `ext_emconf.php`
 ================
 
-*required* in legacy installations, for functional tests and to upload an
+*required* in Classic mode installations, for functional tests and to upload an
 extension to the TER (TYPO3 Extension Repository)
 
 ..  typo3:file:: ext_emconf.php
     :scope: extension
     :regex: /^.*ext\_emconf\.php$/
-    :shortDescription: Provides information about an extension and its dependencies in Classic installations and functional tests.
+    :shortDescription: Provides information about an extension and its dependencies in Classic mode installations and functional tests.
 
     The :file:`ext_emconf.php` is used in
-    :ref:`classic installations not based on Composer <t3start:legacyinstallation>` to
+    :ref:`Classic mode installations not based on Composer <classic-installation>` to
     supply information about an extension in the :guilabel:`Admin Tools > Extensions`
     module. In these installations the ordering of installed extensions and their
     dependencies are loaded from this file as well.
@@ -135,7 +135,7 @@ Example:
         Be aware that you should add *at least* the TYPO3 and PHP version constraints
         to this file to make sure everything is working properly.
 
-    For legacy installations, the :file:`ext_emconf.php` file
+    For Classic mode installations, the :file:`ext_emconf.php` file
     is the source of truth for required dependencies and the loading order
     of active extensions.
 
@@ -204,7 +204,7 @@ Example:
     :name: ext-emconf-autoload
     :type: array
 
-    To get better class loading support for websites in legacy mode
+    To get better class loading support for websites in Classic mode
     the following information can be provided.
 
     **Extensions using namespaces and following PSR 4**

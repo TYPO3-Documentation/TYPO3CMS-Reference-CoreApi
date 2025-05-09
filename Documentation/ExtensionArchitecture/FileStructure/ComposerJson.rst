@@ -50,7 +50,7 @@ About the composer.json file
 
 ..  note::
     While the file :file:`composer.json <extension-composer-json>` is currently not strictly required
-    for an extension to function properly in legacy non-Composer installations
+    for an extension to function properly in Classic mode installations (no Composer)
     it is recommended to keep it in any public extension that is published to
     `TYPO3 Extension Repository (TER) <https://extensions.typo3.org/>`__.
 
