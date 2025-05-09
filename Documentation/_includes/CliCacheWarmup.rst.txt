@@ -6,7 +6,7 @@
 
          vendor/bin/typo3 cache:warmup
 
-   .. group-tab:: Legacy installation
+   .. group-tab:: Classic mode installation (No Composer)
 
       .. code-block:: bash
 

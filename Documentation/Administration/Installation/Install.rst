@@ -136,7 +136,7 @@ Once the project is created, continue with
 ..  tip::
 
     If you are not ready to learn Composer or Git yet, that's okay. TYPO3 still
-    works for small sites without these. `Install TYPO3 in the classic mode <https://docs.typo3.org/permalink/t3coreapi:legacyinstallation>`_
+    works for small sites without these. `Install TYPO3 in the classic mode <https://docs.typo3.org/permalink/t3coreapi:classic-installation>`_
     now and you can improve your setup later.
 
 ..  _installation-setup:

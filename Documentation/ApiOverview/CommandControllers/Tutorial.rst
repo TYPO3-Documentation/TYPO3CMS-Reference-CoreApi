@@ -134,7 +134,7 @@ The above example can be run via command line:
 
          vendor/bin/typo3 examples:dosomething
 
-   .. group-tab:: Legacy installation
+   .. group-tab:: Classic mode installation (no Composer)
 
       .. code-block:: bash
 
@@ -206,7 +206,7 @@ which can be passed on the command line:
 
          vendor/bin/typo3 examples:createwizard [-b] [wizardName]
 
-   .. group-tab:: Legacy installation
+   .. group-tab:: Classic mode installation (No Composer)
 
       .. code-block:: bash
 

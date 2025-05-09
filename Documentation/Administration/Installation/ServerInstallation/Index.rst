@@ -53,7 +53,7 @@ Use the non-Composer (classic) method if:
 -   You are not comfortable using the command line and Composer.
 -   You prefer to upload files manually via FTP.
 
-It is perfectly fine to start with the classic installation method if you do not have
+It is perfectly fine to start with the Classic mode installation method if you do not have
 time right now to learn Composer, Git, or deployment workflows. TYPO3 can
 still run well in this setup, especially in smaller projects. Just be aware
 that as your project grows or you take on more work, learning these tools will
@@ -123,7 +123,7 @@ tools or manual exports. Store backups off the live server.
 **Use Git locally**: Even without deployment workflows, using Git locally lets
 you track changes before uploading manually.
 
-**Avoid changing Core files** in classic installations do not make changes in
+**Avoid changing Core files** in Classic mode installations do not make changes in
 the folder :path:`typo3` or :path:`typo3_source`. In Composer-based installations
 don't make any changes in the folder :path:`vendor`.
 

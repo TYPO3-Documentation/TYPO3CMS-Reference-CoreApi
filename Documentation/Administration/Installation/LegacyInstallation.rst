@@ -1,13 +1,14 @@
-:navigation-title: Legacy installation
+:navigation-title: Classic mode installation
 
 ..  include:: /Includes.rst.txt
-..  index:: legacy installation
+..  index:: Classic mode installation
 
+..  _classic-installation:
 ..  _legacyinstallation:
 
-=========================
-Legacy TYPO3 installation
-=========================
+=================================================
+Classic TYPO3 installation (No Composer required)
+=================================================
 
 On any webserver that full fills the `System Requirements <https://docs.typo3.org/permalink/t3coreapi:system-requirements>`_,
 including a suitable PHP version and Database it is possible to install TYPO3

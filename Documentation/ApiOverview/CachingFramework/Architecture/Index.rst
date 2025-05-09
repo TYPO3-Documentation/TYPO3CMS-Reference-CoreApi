@@ -174,7 +174,7 @@ The following caches exist in the TYPO3 Core:
         by instance-specific :file:`config/system/settings.php` or similar.
     *   Cache entries are located in directory :file:`var/cache/code/core/`
         (for Composer-based installations) and
-        :file:`typo3temp/var/cache/code/core/` (for legacy installations). The
+        :file:`typo3temp/var/cache/code/core/` (for Classic mode installations). The
         full directory and any file in this directory can be safely removed and
         will be re-created upon next request. This is especially useful during
         development
@@ -259,7 +259,7 @@ The following caches exist in the TYPO3 Core:
     cache clearings requests themselves might throw fatal errors.
     The solution here is to manually remove the cache files from
     :file:`var/cache/code/` (for Composer-based installations) or
-    :file:`typo3temp/var/cache/code/` (for legacy installations).
+    :file:`typo3temp/var/cache/code/` (for Classic mode installations).
 
 
 .. _caching-architecture-task:

@@ -7,7 +7,7 @@ Site folder
 ===========
 
 The site folder (:file:`config/sites/my-site` in Composer-based installations,
-:file:`typo3conf/sites/my-site` in Classic installations) **must** contain the
+:file:`typo3conf/sites/my-site` in Classic mode installations) **must** contain the
 following file:
 
 ..  typo3:file:: config.yaml

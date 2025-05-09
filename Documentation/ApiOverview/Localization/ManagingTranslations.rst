@@ -35,7 +35,7 @@ Language packs can also be fetched using the command line:
 
             vendor/bin/typo3 language:update
 
-    ..  group-tab:: Legacy installation
+    ..  group-tab:: Classic mode installation (no Composer)
 
         ..  code-block:: bash
 

@@ -18,7 +18,7 @@ actions, which otherwise would only be accessible via the TYPO3 backend.
 
 This page assumes that the code is run on a Composer based installation with
 default binaries location. Here you can read how to run them in general and
-on legacy installations:
+on Classic mode installations:
 :ref:`Run a command from the command line <symfony-console-commands-cli>`.
 
 ..  _symfony-console-commands-list-list:

@@ -44,7 +44,7 @@ and columns defined by installed or updated extensions:
 
             vendor/bin/typo3 extension:setup
 
-    ..  group-tab:: Classic installation
+    ..  group-tab:: Classic mode installation (no Composer)
 
         ..  code-block:: bash
 
