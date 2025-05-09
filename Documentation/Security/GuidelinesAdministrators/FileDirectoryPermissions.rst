@@ -6,7 +6,7 @@
 File/directory permissions
 ==========================
 
-..  todo: This describes the situation in legacy installations only
+..  todo: This describes the situation in Classic mode installations only
 
 The correct and secure setup of the underlying server is an essential
 prerequisite for a secure web application. Well-considered access

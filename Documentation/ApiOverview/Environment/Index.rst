@@ -67,15 +67,15 @@ getVarPath()
 The environment provides the path to the :file:`var/` folder. This folder contains
 data like logs, sessions, locks, and cache files.
 
-For Composer-based installations, it returns :ref:`directory-var`, in legacy
-installations :ref:`legacy-directory-typo3temp-var`.
+For Composer-based installations, it returns :ref:`directory-var`, in Classic mode
+installations :ref:`classic-directory-typo3temp-var`.
 
 ..  code-block:: php
 
     use TYPO3\CMS\Core\Core\Environment;
 
     // Composer-based installations: '/path/to/my-project/var/`
-    // Legacy installations: '/path/to/my-project/typo3temp/var/'
+    // Classic mode installations: '/path/to/my-project/typo3temp/var/'
     $pathToLabels = Environment::getVarPath();
 
 
@@ -89,8 +89,8 @@ getConfigPath()
 ---------------
 
 In Composer-based installation this method provides the path
-:ref:`directory-config`, in legacy installations
-:ref:`legacy-directory-typo3conf`.
+:ref:`directory-config`, in Classic mode installations
+:ref:`classic-directory-typo3conf`.
 
 The directory returned by this method contains the folders :file:`system/`
 containing the :ref:`configuration files <configuration-files>`
@@ -102,11 +102,11 @@ containing the :ref:`configuration files <configuration-files>`
     use TYPO3\CMS\Core\Core\Environment;
 
     // Composer-based installations: '/path/to/my-project/config/system/settings.php`
-    // Legacy installations: '/path/to/my-project/typo3conf/system/settings.php'
+    // Classic mode installations: '/path/to/my-project/typo3conf/system/settings.php'
     $pathToSetting = Environment::getConfigPath() . 'system/settings.php';
 
     // Composer-based installations: '/path/to/my-project/config/sites/mysite/config.yaml`
-    // Legacy installations: '/path/to/my-project/typo3conf/sites/mysite/config.yaml'
+    // Classic mode installations: '/path/to/my-project/typo3conf/sites/mysite/config.yaml'
     $pathToSiteConfig = Environment::getConfigPath() . 'sites/' . $siteKey . '/config.yaml';
 
 
@@ -120,15 +120,15 @@ getLabelsPath()
 ---------------
 
 The environment provides the path to :ref:`directory-var-labels` in
-Composer-based installations, respective :ref:`legacy-directory-typo3conf-l10n`
-folder in legacy installations. This folder contains downloaded translation files.
+Composer-based installations, respective :ref:`classic-directory-typo3conf-l10n`
+folder in Classic mode installations. This folder contains downloaded translation files.
 
 ..  code-block:: php
 
     use TYPO3\CMS\Core\Core\Environment;
 
     // Composer-based installations: '/path/to/my-project/var/labels/`
-    // Legacy installations: '/path/to/my-project/typo3conf/l10n/'
+    // Classic mode installations: '/path/to/my-project/typo3conf/l10n/'
     $pathToLabels = Environment::getLabelsPath();
 
 .. index:: Environment; getCurrentScript

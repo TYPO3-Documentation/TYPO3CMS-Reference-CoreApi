@@ -8,7 +8,7 @@ Custom Extension Repository
 
 .. note::
 
-   This section is only relevant for Legacy installations,
+   This section is only relevant for Classic mode installations,
    as Composer Mode installations use the download functionality
    of Composer.
 

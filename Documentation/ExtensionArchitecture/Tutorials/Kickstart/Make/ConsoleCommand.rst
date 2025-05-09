@@ -18,7 +18,7 @@ command <symfony-console-commands>`:
 
             vendor/bin/typo3 make:command
 
-    ..  group-tab:: Legacy
+    ..  group-tab:: Classic mode installation (no Composer)
 
         ..  code-block:: bash
 
@@ -70,7 +70,7 @@ be available, then you can call it from the command line:
             vendor/bin/typo3 cache:flush
             vendor/bin/typo3 myextension:dosomething
 
-    ..  group-tab:: Legacy
+    ..  group-tab:: Classic mode installation (no Composer)
 
         ..  code-block:: bash
 

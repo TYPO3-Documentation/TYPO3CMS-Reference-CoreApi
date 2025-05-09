@@ -54,7 +54,7 @@ located at :file:`<project-root>/config/sites/<identifier>/`. The site
 configuration is stored in a file called :file:`config.yaml <site-config-yaml>`.
 
 ..  note::
-    If you are using a legacy installation, the location is
+    If you are using a Classic mode installation, the location is
     :file:`typo3conf/sites/config.yaml`.
 
 ..  tip::

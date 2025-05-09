@@ -9,8 +9,8 @@ System, third-party and custom extensions
 The files for an extension are installed into a folder named :file:`vendor/`
 by Composer. See also :ref:`directory-vendor`.
 
-In legacy installations they are found in :ref:`legacy-directory-typo3-sysext`
-(system extensions) or :ref:`legacy-directory-typo3conf-ext` (third-party
+In Classic mode installations they are found in :ref:`classic-directory-typo3-sysext`
+(system extensions) or :ref:`classic-directory-typo3conf-ext` (third-party
 and custom extensions).
 
 .. _extension-local:
@@ -35,8 +35,8 @@ or specialized extensions used only in one project can be kept under version
 control in a directory like :ref:`directory-packages`. They are then
 symlinked into :file:`vendor/` by Composer.
 
-In legacy installations third-party extensions are installed into
-:ref:`legacy-directory-typo3conf-ext`. Custom extensions can be kept in a
+In Classic mode installations third-party extensions are installed into
+:ref:`classic-directory-typo3conf-ext`. Custom extensions can be kept in a
 directory outside of the project root and symlinked into :file:`typo3conf/ext/`
 or manually inserted in this directory.
 
@@ -60,5 +60,5 @@ System extensions have the Composer type `typo3-cms-framework`:
 Composer installs all TYPO3 extensions, including system extensions in the
 directory :ref:`vendor/ <directory-vendor>`.
 
-In legacy installations they are installed into
-:ref:`legacy-directory-typo3-sysext`.
+In Classic mode installations they are installed into
+:ref:`classic-directory-typo3-sysext`.

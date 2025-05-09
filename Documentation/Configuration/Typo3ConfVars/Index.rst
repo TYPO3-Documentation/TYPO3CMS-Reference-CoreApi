@@ -51,15 +51,15 @@ System configuration files
 The configuration files :file:`settings.php` and
 :file:`additional.php` are located in the directory
 :ref:`directory-config-system` in Composer-based
-installations. In classic installations they are located in
-:ref:`legacy-directory-typo3conf-system`.
+installations. In Classic mode installations they are located in
+:ref:`classic-directory-typo3conf-system`.
 
 This path can be retrieved from the Environment API. See
-:ref:`Environment-config-path` for both Composer-based and classic installations.
+:ref:`Environment-config-path` for both Composer-based and Classic mode installations.
 
 
 Global configuration is stored in file :file:`config/system/settings.php` in
-Composer-based extensions and :file:`typo3conf/system/settings.php` in legacy
+Composer-based extensions and :file:`typo3conf/system/settings.php` in Classic mode
 installations.
 
 This file overrides default settings from

@@ -1,21 +1,22 @@
-:navigation-title: Classic installation
+:navigation-title: Classic mode installation
 
 ..  include:: /Includes.rst.txt
 ..  index::
-    Path; Classic installations
+    Path; Classic mode installations
     see: Directory structure; Path
 ..  _legacy-directory-structure:
 ..  _classic-directory-structure:
 
-==========================================
-Classic installations: Directory structure
-==========================================
+===============================================
+Classic mode installations: Directory structure
+===============================================
 
 The structure below describes the directory structure in a Classic
 TYPO3 installation without Composer. For the structure in a Composer-based installation
 see :ref:`Composer-based installations: Directory structure <directory-structure>`.
 
-.. _legacy-directory-project:
+..  _classic-directory-project:
+..  _legacy-directory-project:
 
 Files on project level
 ======================
@@ -42,7 +43,8 @@ Directories in a typical project
 .. contents::
    :local:
 
-.. _legacy-directory-fileadmin:
+..  _classic-directory-fileadmin:
+..  _legacy-directory-fileadmin:
 
 :file:`fileadmin/`
 ------------------
@@ -52,7 +54,8 @@ It is used for the same files like
 :ref:`public/fileadmin/ <directory-public-fileadmin>` in the Composer-based directory
 structure.
 
-.. _legacy-directory-typo3:
+..  _classic-directory-typo3:
+..  _legacy-directory-typo3:
 
 :file:`typo3/`
 --------------
@@ -64,23 +67,24 @@ file for accessing the install tool (:file:`public/typo3/install.php`).
     The TYPO3 backend entry point PHP file :file:`typo3/index.php` has
     been removed. The backend can be accessed via the :ref:`backend-entry-point`.
 
-
-.. _legacy-directory-typo3-sysext:
+..  _classic-directory-typo3-sysext:
+..  _legacy-directory-typo3-sysext:
 
 :file:`typo3/sysext/`
 ~~~~~~~~~~~~~~~~~~~~~
 
 All system extensions, supplied by the TYPO3 Core, are stored here.
 
-.. _legacy-directory-typo3_source:
+..  _classic-directory-typo3_source:
+..  _legacy-directory-typo3_source:
 
 :file:`typo3_source/`
 ---------------------
 
-It is a common practice in legacy installations to use symlinks to quickly
+It is a common practice in Classic mode installations to use symlinks to quickly
 change between TYPO3 Core versions. In many installations you will find a symlink or folder
-called :file:`typo3_source` that contains the folders :ref:`legacy-directory-typo3`,
-and :ref:`legacy-directory-vendor` and the file :file:`index.php`. In this case,
+called :file:`typo3_source` that contains the folders :ref:`classic-directory-typo3`,
+and :ref:`classic-directory-vendor` and the file :file:`index.php`. In this case,
 those directories and files only symlink to :file:`typo3_source`. This way
 the Core can be updated quickly by changing the symlink.
 
@@ -104,7 +108,8 @@ the following symlink structure:
     *   index.php -> typo3_src/index.php
 
 
-.. _legacy-directory-typo3conf:
+..  _classic-directory-typo3conf:
+..  _legacy-directory-typo3conf:
 
 :file:`typo3conf/`
 ------------------
@@ -112,7 +117,8 @@ the following symlink structure:
 This path can be retrieved from the Environment API, see
 :ref:`Environment-config-path`.
 
-.. _legacy-directory-typo3conf-autoload:
+..  _classic-directory-typo3conf-autoload:
+..  _legacy-directory-typo3conf-autoload:
 
 :file:`typo3conf/autoload/`
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -121,7 +127,8 @@ Contains :ref:`autoloading <autoload>` information.
 The files are updated each time an extension is installed via the
 :guilabel:`Extension Manager`.
 
-.. _legacy-directory-typo3conf-ext:
+..  _classic-directory-typo3conf-ext:
+..  _legacy-directory-typo3conf-ext:
 
 :file:`typo3conf/ext/`
 ~~~~~~~~~~~~~~~~~~~~~~
@@ -134,7 +141,8 @@ custom extensions and sitepackages here.
 See :ref:`extension files locations <extension-files-locations>`
 for more information on how the extensions are structured.
 
-.. _legacy-directory-typo3conf-l10n:
+..  _classic-directory-typo3conf-l10n:
+..  _legacy-directory-typo3conf-l10n:
 
 :file:`typo3conf/l10n/`
 ~~~~~~~~~~~~~~~~~~~~~~~
@@ -145,7 +153,8 @@ files.
 This path can be retrieved from the Environment API, see
 :ref:`Environment-labels-path`.
 
-.. _legacy-directory-typo3conf-sites:
+..  _classic-directory-typo3conf-sites:
+..  _legacy-directory-typo3conf-sites:
 
 :file:`typo3conf/sites/`
 ~~~~~~~~~~~~~~~~~~~~~~~~
@@ -153,7 +162,8 @@ This path can be retrieved from the Environment API, see
 The folder :file:`typo3conf/sites/` contains subfolders, one for each site
 in the installation. See chapter :ref:`site-folder`.
 
-.. _legacy-directory-typo3conf-system:
+..  _classic-directory-typo3conf-system:
+..  _legacy-directory-typo3conf-system:
 
 :file:`typo3conf/system/`
 ~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -172,7 +182,8 @@ These files define a set of global settings stored in a global array called
 This path can be retrieved from the Environment API, see
 :ref:`Environment-config-path`.
 
-.. _legacy-directory-typo3temp:
+..  _classic-directory-typo3temp:
+..  _legacy-directory-typo3temp:
 
 :file:`typo3temp/`
 ------------------
@@ -187,7 +198,8 @@ for temporary files of extensions and TYPO3 components.
     bad practice to remove the whole folder. Developers should selectively
     remove folders relevant to the changes made.
 
-.. _legacy-directory-typo3temp-assets:
+..  _classic-directory-typo3temp-assets:
+..  _legacy-directory-typo3temp-assets:
 
 :file:`typo3temp/assets/`
 ~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -195,7 +207,8 @@ for temporary files of extensions and TYPO3 components.
 Directory for temporary files that should be publicly available
 (e.g. generated images).
 
-.. _legacy-directory-typo3temp-var:
+..  _classic-directory-typo3temp-var:
+..  _legacy-directory-typo3temp-var:
 
 :file:`typo3temp/var/`
 ~~~~~~~~~~~~~~~~~~~~~~
@@ -203,7 +216,8 @@ Directory for temporary files that should be publicly available
 Directory for temporary files that should not be accessed through the web
 (cache, log, etc).
 
-.. _legacy-directory-vendor:
+..  _classic-directory-vendor:
+..  _legacy-directory-vendor:
 
 :file:`vendor/`
 ~~~~~~~~~~~~~~~

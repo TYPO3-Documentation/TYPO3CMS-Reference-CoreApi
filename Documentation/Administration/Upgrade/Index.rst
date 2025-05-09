@@ -34,7 +34,7 @@ Upgrading the TYPO3 Core and extensions
         Tools and resources developed by the community that can assist with common
         upgrade and maintenance tasks.
 
-    ..  card:: :ref:`Legacy upgrade guide <Legacy>`
+    ..  card:: :ref:`Classic mode upgrade guide <classic-mode-upgrade>`
 
         Using TYPO3 without Composer? This chapter details how to upgrade TYPO3 manually.
 
@@ -46,7 +46,7 @@ Upgrading the TYPO3 Core and extensions
 
     ..  card:: :ref:`Migrate a TYPO3 installation to Composer <MigrateToComposer>`
 
-        Information on how to migrate a legacy installation of TYPO3 to a Composer based installation.
+        Information on how to migrate a Classic mode installation of TYPO3 to a Composer based installation.
 
     ..  card:: :ref:`Migrate content <MigrateContent>`
 
