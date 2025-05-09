@@ -55,7 +55,7 @@ The project also contains a :file:`.gitlab-ci.yml` for automated deployments.
 
 To start using Deployer, adjust :file:`deploy.yaml` like this:
 
-..  literalinclude:: _gitlab-deploy-yaml
+..  literalinclude:: _gitlab-deploy.yaml
     :caption: .gitlab-ci.yml
 
 ..  _deployer-official:
