@@ -75,10 +75,7 @@ As of now, there is **no official plan to deprecate the classic installation met
     :hidden:
     :titlesonly:
 
-    SystemRequirements/Index
-    Install
-    LegacyInstallation
+    ClassicMode/Index
+    ComposerMode/Index
     ServerInstallation/Index
-    EnvironmentConfiguration
-    ProductionSettings
-    LegacyExtensionInstallation
+    SystemRequirements/Index
