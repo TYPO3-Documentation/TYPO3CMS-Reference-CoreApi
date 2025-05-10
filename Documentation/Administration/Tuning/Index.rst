@@ -1,7 +1,8 @@
+:navigation-title: Tuning
+
 .. include:: /Includes.rst.txt
 
 .. index:: tuning
-
 .. _tunetypo3:
 
 ============
@@ -11,6 +12,13 @@ Tuning TYPO3
 This chapter contains information on how to configure and optimize the infrastructure
 running TYPO3.
 
+..  attention::
+    Information on other methods to tune TYPO3 is currently scattered or missing.
+
+    Please `Contribute to the TYPO3 documentation <https://docs.typo3.org/permalink/h2document:docs-official-workflow-methods>`_
+
+..  _opcache:
+
 OPcache
 =======
 
@@ -18,6 +26,8 @@ It is recommended that OPcache be enabled on the web server running TYPO3. OPcac
 default settings will provide significant performance improvements; however there are
 some changes you can make to help further improve stability and performance. In addition
 enabling certain features in OPcache can lead to performance degradation.
+
+..  _opcache-enable:
 
 Enabling OPcache
 ----------------
@@ -28,6 +38,8 @@ Enabling OPcache
   opcache.enable=1
   opcache.revalidate_freq=30
   opcache.revalidate_path=0
+
+..  _opcache-tune:
 
 Tuning OPcache
 --------------

@@ -60,11 +60,6 @@ As of now, there is **no official plan to deprecate the classic installation met
         server and database and how they should be configured prior to
         installation.
 
-    ..  card:: :ref:`Deploying TYPO3 <DeployTYPO3>`
-
-        The deployment guide highlights some of solutions available that can help automate the process of deploying TYPO3 to
-        a remote server.
-
     ..  card:: :ref:`Tuning TYPO3 <TuneTYPO3>`
 
         This chapter contains information on how to configure and optimize the infrastructure running TYPO3.
@@ -80,12 +75,7 @@ As of now, there is **no official plan to deprecate the classic installation met
     :hidden:
     :titlesonly:
 
-    SystemRequirements/Index
-    Install
-    LegacyInstallation
+    ClassicMode/Index
+    ComposerMode/Index
     ServerInstallation/Index
-    EnvironmentConfiguration
-    ProductionSettings
-    TuneTYPO3
-    Deployment/Index
-    LegacyExtensionInstallation
+    SystemRequirements/Index
