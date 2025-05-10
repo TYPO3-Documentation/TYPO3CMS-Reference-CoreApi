@@ -11,7 +11,7 @@ Deployer for TYPO3 Deployment
 `Deployer <https://deployer.org>`__ is a deployment tool written in PHP.
 Internally Deployer uses `Rsync <https://docs.typo3.org/permalink/t3coreapi:deployment-rsync>`_.
 
-Deployer can be used to create recipes that automatically execute the required
+Deployer can be used to create recipes that automate execution of the
 deployment steps.
 
 ..  _deployer-recipes:
@@ -21,12 +21,12 @@ Deployer recipes for TYPO3
 
 ..  _deployer-SourceBroker:
 
-SourceBroker's Deployer Extended TYPO3
---------------------------------------
+SourceBroker's Deployer - Extended TYPO3
+----------------------------------------
 
-This comprehensive recipe extends Deployer's capabilities for TYPO3 projects.
+This recipe extends Deployer's capabilities to cover TYPO3 projects.
 It includes advanced features like database and file synchronization,
-multi-environment support, and integration with TYPO3 Console.
+multi-environment support, and integration with the TYPO3 Console.
 
 See: `sourcebroker/deployer-extended-typo3 <https://github.com/sourcebroker/deployer-extended-typo3>`_.
 
@@ -35,25 +35,25 @@ See: `sourcebroker/deployer-extended-typo3 <https://github.com/sourcebroker/depl
 Helhum Deployer recipe
 ----------------------
 
-You can use the `TYPO3 Deployer Recipe <https://github.com/helhum/typo3-deployer-recipe/>`_
-from Helhum, fork it, and adjust it to your needs.
+This `TYPO3 Deployer Recipe <https://github.com/helhum/typo3-deployer-recipe/>`_
+from Helhum can be forked and adapted to your needs.
 
 ..  _deployer-gitlab:
 
 GitLab template Deployer recipe for TYPO3
 -----------------------------------------
 
-If you **created** your project using the
+If you have **created** your project using the
 `official GitLab template <https://docs.typo3.org/permalink/t3start:gitlab-template>`_,
-it already contains a Deployer template.
+it will already contain a Deployer template.
 
-You can configure Deployer by adjusting the YAML configuration file
-:file:`deploy.yaml` in the project root. The actual Deployer recipe is found in
+You can configure Deployer by editing the YAML configuration file
+:file:`deploy.yaml` in the project root. The Deployer recipe is found in
 :file:`packages/site-distribution/Configuration/DeployerRsync.php`.
 
-The project also contains a :file:`.gitlab-ci.yml` for automated deployments.
+The project also contains a :file:`.gitlab-ci.yml` for automated deployment.
 
-To start using Deployer, adjust :file:`deploy.yaml` like this:
+To start using Deployer, :file:`deploy.yaml` should look like this:
 
 ..  literalinclude:: _gitlab-deploy.yaml
     :caption: .gitlab-ci.yml
@@ -64,14 +64,14 @@ Official Deployer recipe for TYPO3 <= 11.5
 ------------------------------------------
 
 ..  attention::
-    This recipe can only be used up to TYPO3 version 11.5.
+    This recipe can only be used for TYPO3 versions up to 11.5.
 
-The documentation of Deployer provides an
+The Deployer documentation describes an
 `official TYPO3 (classic mode) Deployer recipe <https://deployer.org/docs/8.x/recipe/typo3>`_.
 
-However, this recipe is designed for TYPO3 projects **up to version 11.5**,
+However, this recipe is only correct for TYPO3 projects **up to version 11.5**,
 using the **classic directory structure**.
-For newer TYPO3 versions using Composer-based setups, this recipe requires manual adjustments.
+For newer TYPO3 versions with Composer-based setups, this recipe requires manual changes.
 
 ..  _deployer-ddev:
 
@@ -88,14 +88,14 @@ Install Deployer in your project using Composer:
 
     ddev composer require --dev deployer/deployer
 
-Run the following command to list all available Deployer tasks:
+List available Deployer tasks:
 
 ..  code-block:: bash
 
     ddev exec vendor/bin/dep list
 
-Choose and adjust a suitable :ref:`deployer recipe for TYPO3 <deployer-recipes>`
-for your project. You can then deploy to your staging server with:
+Choose (and make any necessary changes to) a suitable :ref:`deployer recipe <deployer-recipes>`
+for your project. Then deploy to your staging server:
 
 ..  code-block:: bash
 
@@ -108,10 +108,10 @@ This assumes you have defined a staging server in your :file:`deploy.yaml` confi
 Manual deployment outside of DDEV
 =================================
 
-Deployer can also be run directly on your local machine or in other environments,
-such as Docker or native PHP setups, without using DDEV.
+Deployer can be run on your local machine or in other environments
+(Docker or native PHP setups) without using DDEV.
 
-First, install Deployer globally with Composer:
+First, install Deployer globally using Composer:
 
 ..  code-block:: bash
 
@@ -119,7 +119,7 @@ First, install Deployer globally with Composer:
 
 Make sure the global Composer `vendor/bin` directory is in your system’s `PATH`.
 
-You can then list available tasks with:
+Then list available tasks with:
 
 ..  code-block:: bash
 
@@ -140,20 +140,20 @@ Automatic deployment via CI/CD
 ==============================
 
 Deployer can be integrated into automated deployment pipelines,
-such as GitLab CI/CD, GitHub Actions, or other CI systems.
+such as GitLab CI/CD, GitHub Actions, and other CI systems.
 
 For example, the `official TYPO3 GitLab template <https://docs.typo3.org/permalink/t3start:gitlab-template>`_
-already includes a :file:`.gitlab-ci.yml` file with deployment stages.
+includes a :file:`.gitlab-ci.yml` file with deployment stages.
 
-You can configure these stages to deploy automatically when code is pushed
+You can configure these stages for automated deployment each time code is pushed
 to your repository.
 
 ..  _deployer-ssh-requirements:
 
-SSH requirements of Deployer
-============================
+Deployer's SSH requirements
+===========================
 
-Deployer connects to your servers via SSH. You must ensure that your
+Deployer will connect to your servers via SSH. You must ensure that your
 deployment user has passwordless SSH access to the target server.
 
 You can test SSH access with:
@@ -164,14 +164,14 @@ You can test SSH access with:
 
 If you can connect without entering a password, SSH is correctly set up.
 
-You typically manage your SSH key via your local SSH agent, for example:
+Typically your SSH key is managed via your local SSH agent, for example:
 
 ..  code-block:: bash
 
     eval $(ssh-agent -s)
     ssh-add ~/.ssh/id_rsa
 
-You may also need to add your server to the known hosts:
+You may also need to add your server to the known hosts file:
 
 ..  code-block:: bash
 
