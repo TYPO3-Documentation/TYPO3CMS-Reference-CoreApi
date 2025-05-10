@@ -1,7 +1,8 @@
+:navigation-title: Tuning
+
 .. include:: /Includes.rst.txt
 
 .. index:: tuning
-
 .. _tunetypo3:
 
 ============
