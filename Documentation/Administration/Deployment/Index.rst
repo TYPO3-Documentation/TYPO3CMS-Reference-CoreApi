@@ -21,6 +21,14 @@ However, for larger or more professional projects,
 `automated deployments <https://docs.typo3.org/permalink/t3coreapi:deployment-automatic>`_
 using tools are highly recommended.
 
+..  attention::
+    We currently work on improving this section. We are very happy about any
+    Contribution. There is a project on GitHub:
+    `Project: TYPO3 Deployment Guide <https://github.com/orgs/TYPO3-Documentation/projects/26>`_
+    dedicated to improving the deployment information.
+
+    Please `Contribute to the TYPO3 documentation <https://docs.typo3.org/permalink/h2document:docs-official-workflow-methods>`_
+
 ..  contents:: Table of contents
 
 ..  _deployment-what-why:
@@ -263,5 +271,6 @@ The following section contains examples for various deployment tools and how the
 ..  toctree::
     :titlesonly:
 
+    Environment/Index
     Tools/Index
     */Index
