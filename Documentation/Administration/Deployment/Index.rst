@@ -263,7 +263,5 @@ The following section contains examples for various deployment tools and how the
 ..  toctree::
     :titlesonly:
 
-    Rsync/Index
-    Deployer/Index
-    Surf/Index
-    Magallanes/Index
+    Tools/Index
+    */Index
