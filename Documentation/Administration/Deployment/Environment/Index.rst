@@ -29,7 +29,7 @@ simple PHP files. Each environment would load the specific
 For example, using a :file:`.env` file in your project root, you can define several
 variables:
 
-..  literalinclude:: Environments/_example.env
+..  literalinclude:: _codesnippets/_example.env
     :language: bash
     :caption: <project-root>/.env
 
@@ -37,7 +37,7 @@ The next step is to retrieve these values in the TYPO3 application bootstrap
 process. The best place for this is inside :file:`system/additional.php` (see
 :ref:`t3coreapi:configuration-files`). The PHP code for this could look like:
 
-..  literalinclude:: Environments/_additional.php
+..  literalinclude:: _codesnippets/_additional.php
     :language: php
     :caption: config/system/additional.php
 
@@ -90,13 +90,13 @@ You can require these libraries through Packagist/Composer.
 
 Example for `symfony/dotenv`:
 
-..  literalinclude:: Environments/_dotenv-symfony.php
+..  literalinclude:: _codesnippets/_dotenv-symfony.php
     :language: php
     :caption: config/system/additional.php
 
 Example for `vlucas/phpdotenv`:
 
-..  literalinclude:: Environments/_dotenv-vlucas.php
+..  literalinclude:: _codesnippets/_dotenv-vlucas.php
     :language: php
     :caption: config/system/additional.php
 
@@ -136,14 +136,14 @@ For example, you can create a custom file like :file:`system/environment.php` th
 will only be placed on your specific target server (and not be kept in your versioning
 control system).
 
-..  literalinclude:: Environments/_environment.php
+..  literalinclude:: _codesnippets/_environment.php
     :language: php
     :caption: config/system/environment.php
 
 This file would also need to be loaded through the additional configuration
 workflow (which can be kept in your versioning control system):
 
-..  literalinclude:: Environments/_additional-native.php
+..  literalinclude:: _codesnippets/_additional-native.php
     :language: php
     :caption: config/system/additional.php
 
