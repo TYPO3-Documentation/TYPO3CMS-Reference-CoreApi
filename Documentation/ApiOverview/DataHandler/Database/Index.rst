@@ -419,7 +419,7 @@ Description of keywords in syntax:
 
 ..  caution::
 
-    If you supply your own string starting with `NEW`, it must not contain an underscore.
+    If you supply your own string `NEW` must nocht be followed by an underscore.
     The occurance of an underscore implies a reference to a record in a table.
 
 
