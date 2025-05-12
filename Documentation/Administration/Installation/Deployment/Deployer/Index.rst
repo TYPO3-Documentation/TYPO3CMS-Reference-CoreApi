@@ -44,7 +44,7 @@ GitLab template Deployer recipe for TYPO3
 -----------------------------------------
 
 If you have **created** your project using the
-`official GitLab template <https://docs.typo3.org/permalink/t3start:gitlab-template>`_,
+`official GitLab template <https://docs.typo3.org/permalink/t3start:gitlab-template@13.4>`_,
 it will already contain a Deployer template.
 
 You can configure Deployer by editing the YAML configuration file
@@ -142,7 +142,7 @@ Automatic deployment via CI/CD
 Deployer can be integrated into automated deployment pipelines,
 such as GitLab CI/CD, GitHub Actions, and other CI systems.
 
-For example, the `official TYPO3 GitLab template <https://docs.typo3.org/permalink/t3start:gitlab-template>`_
+For example, the `official TYPO3 GitLab template <https://docs.typo3.org/permalink/t3start:gitlab-template@13.4>`_
 includes a :file:`.gitlab-ci.yml` file with deployment stages.
 
 You can configure these stages for automated deployment each time code is pushed
