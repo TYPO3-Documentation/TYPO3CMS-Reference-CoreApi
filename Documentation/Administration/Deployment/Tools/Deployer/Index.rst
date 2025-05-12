@@ -14,6 +14,8 @@ Internally Deployer uses `Rsync <https://docs.typo3.org/permalink/t3coreapi:depl
 Deployer can be used to create recipes that automate execution of the
 deployment steps.
 
+..  contents::
+
 ..  _deployer-recipes:
 
 Deployer recipes for TYPO3

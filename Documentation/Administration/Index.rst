@@ -1,4 +1,5 @@
 :navigation-title: Administration
+
 ..  include:: /Includes.rst.txt
 ..  _administration:
 
@@ -18,6 +19,12 @@ TYPO3 administration
         :ref:`production-settings`, :ref:`deploytypo3` and :ref:`tunetypo3`.
 
         :ref:`TYPO3 installation <installation_index>`
+
+    ..  card:: :ref:`Deploying TYPO3 <DeployTYPO3>`
+
+        The deployment guide highlights some of solutions available that can
+        help automate the process of deploying TYPO3 to
+        a remote server.
 
     ..  card:: Common directory structure
 
@@ -42,11 +49,13 @@ TYPO3 administration
     :glob:
 
     Installation/Index
+    Deployment/Index
     DirectoryStructure/Index
     VersionControl/Index
     Upgrade/Index
     SystemSettings/Index
     UserManagement/Index
+    Tuning/Index
     Troubleshooting/Index
     */Index
     *
