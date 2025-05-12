@@ -417,6 +417,11 @@ Description of keywords in syntax:
     ...) or generate them using
     :php:`\TYPO3\CMS\Core\Utility\StringUtility::getUniqueId('NEW')`.
 
+..  caution::
+
+    If you supply your own string `NEW` must not be followed by an underscore.
+    The occurance of an underscore implies a reference to a record in a table.
+
 
 ..  confval:: fieldname
     :name: datahandler-data-fieldname
