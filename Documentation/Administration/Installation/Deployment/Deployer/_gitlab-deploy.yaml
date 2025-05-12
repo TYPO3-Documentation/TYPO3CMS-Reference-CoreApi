@@ -1,0 +1,26 @@
+# Deployer Docs https://deployer.org/docs/7.x/basics
+import:
+  - packages/site-distribution/Configuration/DeployerRsync.php
+
+config:
+  repository: '.'                          # Stays as-is if deploying the current project
+  writable_mode: 'chmod'                    # Usually fine unless you have ACL or other needs
+  bin/php: 'php'                           # Adjust if PHP is not available as 'php' on remote
+  bin/composer: '{{bin/php}} /usr/bin/composer'  # Adjust path if composer lives elsewhere
+
+hosts:
+  staging:
+    hostname: staging.example.com          # Replace with your staging server hostname or IP
+    remote_user: deploy                    # Replace with your SSH user
+    deploy_path: /var/www/staging-project  # Replace with target directory on remote server
+    rsync_src: './'                        # Usually './' is correct (deploys the current dir)
+    ssh_multiplexing: false                # Usually fine as-is
+    php_version: '8.2'                     # Just metadata, but can be used in your recipe
+
+  production:
+    hostname: www.example.com              # Replace with your production server hostname or IP
+    remote_user: deploy                    # Replace with your SSH user
+    deploy_path: /var/www/production-project # Replace with target directory on remote server
+    rsync_src: './'                        # Usually './' is correct (deploys the current dir)
+    ssh_multiplexing: false                # Usually fine as-is
+    php_version: '8.2'                     # Just metadata, but can be used in your recipe
