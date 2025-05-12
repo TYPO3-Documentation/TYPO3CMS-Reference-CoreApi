@@ -9,7 +9,7 @@ Backend module configuration examples
 The configuration of backend modules is placed in the
 dedicated configuration file: :file:`Configuration/Backend/Modules.php`.
 
-See also the See also the :ref:`Backend module configuration API <backend-modules-configuration>`.
+See also the :ref:`Backend module configuration API <backend-modules-configuration>`.
 
 Read more about
 
