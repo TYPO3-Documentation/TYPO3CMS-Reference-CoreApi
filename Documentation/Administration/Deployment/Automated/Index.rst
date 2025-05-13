@@ -98,7 +98,7 @@ Code Quality
     and `TypoScript-Lint <https://github.com/martin-helmich/typo3-typoscript-lint>`_
 
 Testing
-    `PHPUnit <https://phpunit.de/>`_ and `TYPO3 Functional Testing Framework <https://docs.typo3.org/permalink/t3coreapi:testing-writing-unit>`_
+    `PHPUnit <https://phpunit.de/>`_ with the `TYPO3 Testing Framework <https://docs.typo3.org/permalink/t3coreapi:testing-writing-unit>`_
 
 Build Tools
     Composer and Webpack, Gulp, or Vite
