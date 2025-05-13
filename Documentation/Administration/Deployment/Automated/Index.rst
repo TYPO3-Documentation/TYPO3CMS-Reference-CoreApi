@@ -148,7 +148,7 @@ Using GitHub Actions
           - name: Set up PHP
             uses: shivammathur/setup-php@v2
             with:
-              php-version: '8.1'
+              php-version: '8.3'
 
           - name: Install Dependencies
             run: composer install --prefer-dist
