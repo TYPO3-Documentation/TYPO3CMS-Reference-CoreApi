@@ -101,14 +101,12 @@ Testing
     `PHPUnit <https://phpunit.de/>`_ with the `TYPO3 Testing Framework <https://docs.typo3.org/permalink/t3coreapi:testing-writing-unit>`_
 
 Build Tools
-    Composer and Webpack, Gulp, or Vite
+    Docker or Podman, Composer, Webpack, Gulp, or Vite
 
 Deployment Tools
     `Deployer <https://docs.typo3.org/permalink/t3coreapi:deployment-deployer>`_,
     `Rsync <https://docs.typo3.org/permalink/t3coreapi:deployment-rsync>`_, Helm, Ansible, GitOps
 
-Docker Support
-    DDEV, Docker Compose
 
 ..  _ci-cd-plattforms:
 
