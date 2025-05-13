@@ -123,7 +123,7 @@ provides a predefined `.gitlab-ci.yml <https://gitlab.com/gitlab-org/project-tem
 and a `Deployer recipe <https://docs.typo3.org/permalink/t3coreapi:deployer-gitlab>`_
 that you can customize to your needs.
 
-Even if you already set up your project you can find valuable examples there
+Even if you already set up your project you can find valuable examples there.
 
 ..  _ci-cd-github:
 
