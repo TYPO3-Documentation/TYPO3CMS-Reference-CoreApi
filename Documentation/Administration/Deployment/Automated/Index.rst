@@ -176,7 +176,7 @@ Best practices during CI/CD
 ===========================
 
 #.  **Version Control Everything**
-        Include ``composer.json``, ``typo3conf``, ``Configuration``, and
+        Include `composer.json`, `composer.lock`, `config/`, `packages`, and
         deployment scripts.
 
 #.  **Use Environment Variables**
