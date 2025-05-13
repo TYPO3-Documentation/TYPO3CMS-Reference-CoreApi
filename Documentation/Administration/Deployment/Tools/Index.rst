@@ -15,8 +15,7 @@ in a :abbr:`CI (Continuos Integration)` pipeline.
 
     Rsync/Index
     Deployer/Index
-    Surf/Index
-    Magallanes/Index
+    */Index
 
 ..  _deployment-magallanes:
 ..  _deployment-typo3-surf:
