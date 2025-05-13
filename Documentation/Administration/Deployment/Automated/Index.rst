@@ -151,7 +151,7 @@ Using GitHub Actions
               php-version: '8.1'
 
           - name: Install Dependencies
-            run: composer install --no-dev --prefer-dist
+            run: composer install --prefer-dist
 
           - name: Lint PHP
             run: find . -name "*.php" -exec php -l {} \;
