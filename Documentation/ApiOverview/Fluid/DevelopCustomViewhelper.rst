@@ -481,3 +481,65 @@ ViewHelper's `renderStatic()` method  you can replace the code like this:
     by calling `$this->renderingContext->getViewHelperInvoker()->invoke()` instead.
 
     See also :php:`TYPO3Fluid\Fluid\Core\ViewHelper\ViewHelperInvoker`.
+
+..  _fluid-custom-viewhelper-access:
+
+How to access classes in the ViewHelper implementation
+======================================================
+
+Custom ViewHelper implementations support
+`Dependency injection <https://docs.typo3.org/permalink/t3coreapi:dependency-injection>`_.
+
+You can, for example, inject the :php-short:`\TYPO3\CMS\Core\Database\ConnectionPool`
+to access the database by using the `database abstraction layer DBAL <https://docs.typo3.org/permalink/t3coreapi:doctrine-dbal>`_.
+
+Some objects depend on the current context and can be fetched from
+the rendering context:
+
+..  note::
+    This list is not complete, please help us with more examples.
+
+..  _fluid-custom-viewhelper-access-request:
+
+Accessing the current Request in a ViewHelper implementation
+------------------------------------------------------------
+
+You can use a `render()` method in the ViewHelper implementation to get the
+current :php-short:`\Psr\Http\Message\ServerRequestInterface` object
+from the :php-short:`TYPO3\CMS\Fluid\Core\Rendering\RenderingContext`:
+
+..  code-block:: php
+    :caption: EXT:my_extension/Classes/ViewHelpers/SomeViewHelper.php
+
+    public function render()
+    {
+        $request = $this->renderingContext->getRequest();
+        return 'Hello World!';
+    }
+
+..  _fluid-custom-viewhelper-access-contentObject:
+
+Using stdWrap / fetching the current ContentObject in a ViewHelper implementation
+---------------------------------------------------------------------------------
+
+You can `access the ContentObjectRenderer <https://docs.typo3.org/permalink/t3coreapi:tsfe-contentobjectrenderer>`_
+from the :php-short:`\Psr\Http\Message\ServerRequestInterface`:
+
+..  code-block:: php
+    :caption: EXT:my_extension/Classes/ViewHelpers/SomeViewHelper.php
+
+    use TYPO3\CMS\Frontend\ContentObject\ContentObjectRenderer;
+
+    public function render()
+    {
+        $request = $this->renderingContext->getRequest();
+        $cObj = $request->getAttribute('currentContentObject');
+        return $cObj->stdWrap('Hello World', ['wrap' => '|!']);
+    }
+
+..  deprecated:: 13.4
+    The class :php-short:`\TYPO3\CMS\Frontend\Controller\TypoScriptFrontendController`
+    and its global instance :php:`$GLOBALS['TSFE']`, which were formerly used to fetch the
+    ContentObjectRenderer, have been marked as
+    deprecated. The class will be removed in TYPO3 v14. See
+    `TSFE <https://docs.typo3.org/permalink/t3coreapi:tsfe>`_ for migration steps.
