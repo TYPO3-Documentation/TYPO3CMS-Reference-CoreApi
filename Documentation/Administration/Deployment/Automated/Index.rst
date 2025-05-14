@@ -130,10 +130,10 @@ Even if you already set up your project you can find valuable examples there.
 Using GitHub Actions
 --------------------
 
-In the following code-block you find a very simplified example of what 
+In the following code-block you find a very simplified example of what
 a deployment workflow with GitHub Actions might look like.
 
-For a more life like example see `the .github-ci.yml of Stefan Frömken's 
+For a more life like example see `the .github-ci.yml of Stefan Frömken's
 TYPO3 Lexicon <https://github.com/froemken/typo3lexikon/blob/main/.github/workflows/.github-ci.yml>`_.
 
 ..  code-block:: yaml
