@@ -484,14 +484,14 @@ ViewHelper's `renderStatic()` method  you can replace the code like this:
 
 ..  _fluid-custom-viewhelper-access:
 
-How access classes in the ViewHelper implementation
-===================================================
+How to access classes in the ViewHelper implementation
+======================================================
 
-Custom ViewHelper implementations support 
+Custom ViewHelper implementations support
 `Dependency injection <https://docs.typo3.org/permalink/t3coreapi:dependency-injection>`_.
 
-You can for example inject the :php-short:`\TYPO3\CMS\Core\Database\ConnectionPool`
-to access the database using the `database abstraction layer DBAL <https://docs.typo3.org/permalink/t3coreapi:doctrine-dbal>`_.
+You can, for example, inject the :php-short:`\TYPO3\CMS\Core\Database\ConnectionPool`
+to access the database by using the `database abstraction layer DBAL <https://docs.typo3.org/permalink/t3coreapi:doctrine-dbal>`_.
 
 Some objects depend on the current context and can be fetched from
 the rendering context:
@@ -504,8 +504,8 @@ the rendering context:
 Accessing the current Request in a ViewHelper implementation
 ------------------------------------------------------------
 
-In the `render()` method of the ViewHelper implementation you can get the
-current (:php-short:`\Psr\Http\Message\ServerRequestInterface` object 
+You can use a `render()` method in the ViewHelper implementation to get the
+current :php-short:`\Psr\Http\Message\ServerRequestInterface` object
 from the :php-short:`TYPO3\CMS\Fluid\Core\Rendering\RenderingContext`:
 
 ..  code-block:: php
@@ -522,7 +522,7 @@ from the :php-short:`TYPO3\CMS\Fluid\Core\Rendering\RenderingContext`:
 Using stdWrap / fetching the current ContentObject in a ViewHelper implementation
 ---------------------------------------------------------------------------------
 
-You can `Access the ContentObjectRenderer <https://docs.typo3.org/permalink/t3coreapi:tsfe-contentobjectrenderer>`_
+You can `access the ContentObjectRenderer <https://docs.typo3.org/permalink/t3coreapi:tsfe-contentobjectrenderer>`_
 from the :php-short:`\Psr\Http\Message\ServerRequestInterface`:
 
 ..  code-block:: php
@@ -539,7 +539,7 @@ from the :php-short:`\Psr\Http\Message\ServerRequestInterface`:
 
 ..  deprecated:: 13.4
     The class :php-short:`\TYPO3\CMS\Frontend\Controller\TypoScriptFrontendController`
-    and its global instance :php:`$GLOBALS['TSFE']` formerly used to fetch the 
-    ContentObjectRenderer have been marked as
-    deprecated. The class will be removed with TYPO3 v14. See 
+    and its global instance :php:`$GLOBALS['TSFE']`, which were formerly used to fetch the
+    ContentObjectRenderer, have been marked as
+    deprecated. The class will be removed in TYPO3 v14. See
     `TSFE <https://docs.typo3.org/permalink/t3coreapi:tsfe>`_ for migration steps.
