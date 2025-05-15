@@ -87,8 +87,8 @@ Unpack the :file:`typo3_src-13.4.y.tar.gz`:
 
     tar xzf typo3_src-13.4.y.tar.gz
 
-The `x` and `y` placeholders in the folder name will be replaced with the
-latest minor and patch version numbers of TYPO3.
+The `y` placeholders in the folder name will be replaced with the
+latest patch version number of TYPO3.
 
 ..  _classic-symlink-installation-linux-ln:
 
