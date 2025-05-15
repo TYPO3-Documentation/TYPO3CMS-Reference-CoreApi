@@ -29,7 +29,7 @@ Prerequisites:
     <https://docs.typo3.org/permalink/t3coreapi:manual-archive-installation>`_.
 -   Basic server tools such as `wget` or `curl`, `tar`, and `ln` or `mklink`
 -   A web server such as **Apache** or **nginx**
--   A PHP version and required extensions supported by the TYPO3 version you
+-   A PHP version and required PHP extensions supported by the TYPO3 version you
     plan to install. See `System requirements
     <https://docs.typo3.org/permalink/t3coreapi:system-requirements>`_.
 -   A database such as MySQL or MariaDB
