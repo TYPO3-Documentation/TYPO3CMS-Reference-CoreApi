@@ -41,17 +41,18 @@ Upload and extract the package
 -   Create a folder on your webspace where you want to install TYPO3, for
     example :path:`/public_html/typo3site`
 -   Upload the TYPO3 `.zip` file (for example :file:`typo3_src-13.4.y.zip`) directly
-    to this folder and extract it using the tools provided by your servers file manager. 
-    
+    to this folder and extract it using the tools provided by your servers file manager.
+
     If your server does not offer an option to extract files,
     see :ref:`manual-archive-alternative-upload`
--   After extraction, ensure that files such as :file:`index.php`, :path:`typo3/`,
-    and :path:`vendor/` are located **in the folder where your domain or
-    subdomain’s document root points to**
+-   After extraction, you have a folder named something like
+    :path:`typo3_src-13.4.11`. Move all files and folder contained from this
+    folder into **the folder where your domain or
+    subdomain’s document root points to**.
 
     This may be the root of your webspace (for example :path:`/public_html/`) or a
     subfolder (for example :path:`/public_html/typo3site/`), depending on how your
-    domain or subdomain is configured
+    domain or subdomain is configured.
 
 ..  _manual-archive-upload-extract-symlinks:
 
