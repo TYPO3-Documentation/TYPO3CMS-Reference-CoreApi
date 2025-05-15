@@ -1,4 +1,4 @@
-:navigation-title: Classic mode installation
+:navigation-title: Classic mode
 
 ..  include:: /Includes.rst.txt
 ..  index:: Classic mode installation
@@ -6,135 +6,73 @@
 ..  _classic-installation:
 ..  _legacyinstallation:
 
-=================================================
-Classic TYPO3 installation (No Composer required)
-=================================================
+======================================================
+Classic mode TYPO3 installation (No Composer required)
+======================================================
 
-On any webserver that full fills the `System Requirements <https://docs.typo3.org/permalink/t3coreapi:system-requirements>`_,
-including a suitable PHP version and Database it is possible to install TYPO3
-by downloading and unpacking a `.tar` or `.zip` file. You can download
-this file from https://get.typo3.org/ or - if available - via wget or curl.
+There are two installation methods for a Classic mode TYPO3 installation.
+If you have shell (SSH) access we recommend using `wget and
+symlinks <https://docs.typo3.org/permalink/t3coreapi:classic-symlink-installation>`_.
 
-..  todo: Document recommended Server tools like ssh, cronjob, etc and link to
-    that chapter
+If you only have access via FTP or the file manager of your hosting provider, use
+a `.zip or .tar.gz archive <https://docs.typo3.org/permalink/t3coreapi:manual-archive-installation>`_.
 
-To ensure future updates can be achieved smoothly and without noticeable downtime
-it is highly recommended to use symlinks.
+Choose one of the two methods:
 
-..  tip::
-    It is recommended to use the dependency manager `Composer <https://getcomposer.org/>`_
-    if possible: See :ref:`Composer-based installation instructions <install>`.
+..  card-grid::
+    :columns: 1
+    :columns-md: 2
+    :gap: 4
+    :class: pb-4
+    :card-height: 100
 
-..  warning::
-    Do not change any files belonging to the TYPO3 Core source as it makes updating
-    hard or impossible.
+    ..  card:: `.zip or .tar.gz archive <https://docs.typo3.org/permalink/t3coreapi:manual-archive-installation>`_
 
-    You can use `Events and hooks <https://docs.typo3.org/permalink/t3coreapi:hooks>`_
-    or third party extensions.
+        Prerequisites:
 
-    If you absolutely have to change files in the Core source, keep a
-    `.diff <https://en.wikipedia.org/wiki/Diff>`_ file so you can reapply the
-    changes to the next TYPO3 version on update.
+        -   A web server with PHP and database support
+        -   FTP access or web-based file manager (such as cPanel)
+        -   A web browser to run the installation wizard
 
-..  _legacyinstallation-linux:
+    ..  card:: `wget and symlinks <https://docs.typo3.org/permalink/t3coreapi:classic-symlink-installation>`_
 
-Installing on a Linux/Unix server
-=================================
+        Prerequisites:
 
-#.  Download TYPO3's source package from `https://get.typo3.org/
-    <https://get.typo3.org/>`_:
+        -   Shell (SSH) access to the server
+        -   Basic server tools such as `wget` or `curl`, `tar`, and `ln` or `mklink`
+        -   A web server with PHP and database support
+        -   A web browser to run the installation wizard
 
-    ..  code-block:: bash
-        :caption: /var/www/site/$
+The next steps are needed no matter what installation method you chose in the
+step before:
 
-        wget --content-disposition https://get.typo3.org/13
+..  card-grid::
+    :columns: 1
+    :columns-md: 1
+    :gap: 4
+    :class: pb-4
 
-    Ensure that the package is one level above the web server's document root.
+    ..  card:: `Run the installation wizard <https://docs.typo3.org/permalink/t3coreapi:classic-installation-wizard>`_
 
-    ..  note::
-        Make sure to check the :ref:`release_integrity` of the downloaded files.
-
-
-#.  Unpack the :file:`typo3_src-13.4.y.tar.gz`:
-
-    ..  code-block:: bash
-        :caption: /var/www/site/$
-
-        tar xzf typo3_src-13.4.y.tar.gz
-
-    Note that the `x` in the extracted folder will be replaced with the latest
-    minor number and the `y` by the bugfix number of TYPO3.
+        A web-based wizard guides you through the next steps, such as connecting
+        your installation to the database, creating an administrator user, and
+        setting up the file system.
 
 
-#.  Create the following symlinks in the document root:
+    ..  card:: `Choose or create a site package (theme) <https://docs.typo3.org/permalink/t3start:creating-a-site-package>`_
 
+        TYPO3 does not come with a default theme. In order to display any content
+        on your website, you need to install or create a site package.
 
-    ..  code-block:: bash
-        :caption: /var/www/site/$
-
-        cd public
-        ln -s ../typo3_src-13.4.y typo3_src
-        ln -s typo3_src/index.php index.php
-        ln -s typo3_src/typo3 typo3
-
-    ..  important::
-        Make sure to upload the whole TYPO3 source directory including the
-        :path:`vendor` directory, otherwise you will miss important dependencies.
-
-#.  This will then create the following structure:
-
-..  directory-tree::
-
-    *   :path:`typo3_src-13.4.y/`
-    *   :path:`public/`
-
-        *   :path:`typo3_src -> ../typo3_src-13.4.y/`
-        *   :path:`typo3 -> typo3_src/typo3/`
-        *   :file:`index.php -> typo3_src/index.php`
-
-..  _legacyinstallation-windows:
-
-Installing on a Windows server
-==============================
-
-#.  Download TYPO3's source package from `https://get.typo3.org/
-    <https://get.typo3.org/>`_ and extract the :file:`.zip` file on the web server.
-
-    Ensure that the package is one level above the web server's document root.
-
-#.  Use the shell to create the following symlinks in the document root:
-
-    .. code-block:: bash
-       :caption: /var/www/site/$
-
-       cd public
-       mklink /d typo3_src ..\typo3_src-13.4.y
-       mklink /d typo3 typo3_src\typo3
-       mklink index.php typo3_src\index.php
-
-#.  This will then create the following structure:
-
-    ..  directory-tree::
-
-        *   :path:`typo3_src-13.4.y/`
-        *   :path:`public/`
-
-            *   :path:`typo3_src -> ../typo3_src-13.4.y/`
-            *   :path:`typo3 -> typo3_src/typo3/`
-            *   :file:`index.php -> typo3_src/index.php`
-
-..  _legacyinstallation-completion:
-
-Completing the installation
-===========================
-
-After the source package has been extracted and the symlinks created, continue from the
-:ref:`Access TYPO3 via a web browser <install-access-typo3-via-a-web-browser>`
-section of the :ref:`instructions for installing TYPO3 using Composer <install>` to
-complete the installation.
+You can use the `Release integrity <https://docs.typo3.org/permalink/t3coreapi:release-integrity>`_
+to test if the package you just downloaded is signed correctly.
 
 ..  toctree::
     :hidden:
     :titlesonly:
 
+    TarballZip
+    WgetSymlink
+    Windows
+    InstallationWizard
     ReleaseIntegrity
