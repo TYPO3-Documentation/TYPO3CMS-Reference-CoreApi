@@ -47,7 +47,6 @@ following symlinks in your document root:
 ..  code-block:: bash
     :caption: C:\path\to\your\site\
 
-    cd public
     mklink /d typo3_src ..\typo3_src-13.4.y
     mklink /d typo3 typo3_src\typo3
     mklink index.php typo3_src\index.php
