@@ -100,7 +100,6 @@ Create the following symlinks in your document root:
 ..  code-block:: bash
     :caption: /var/www/site/$
 
-    cd public
     ln -s ../typo3_src-13.4.y typo3_src
     ln -s typo3_src/index.php index.php
     ln -s typo3_src/typo3 typo3
