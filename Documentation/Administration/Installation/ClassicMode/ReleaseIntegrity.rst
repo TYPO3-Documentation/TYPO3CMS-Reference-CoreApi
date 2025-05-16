@@ -1,5 +1,6 @@
-..  include:: /Includes.rst.txt
+:navigation-title: Release integrity
 
+..  include:: /Includes.rst.txt
 ..  _release_integrity:
 
 =======================
@@ -10,6 +11,8 @@ TYPO3 release packages (the downloadable tarballs and zip files) as well as
 Git tags are signed using :abbr:`PGP (Pretty Good Privacy)` signatures during
 the automated release process. SHA2-256, SHA1 and MD5 hashes are also generated
 for these files.
+
+..  _release_integrity-contents:
 
 Release contents
 ================
@@ -28,6 +31,8 @@ Every release of TYPO3 is made available with the following files:
     containing the source code of TYPO3
 *   :file:`*.sig` files contain the corresponding signatures for each release
     package file
+
+..  _release_integrity-hashes:
 
 Checking file hashes
 ====================
@@ -90,6 +95,7 @@ These hashes must match the hashes published on get.typo3.org to ensure package 
 ..  _MD5: https://en.wikipedia.org/wiki/MD5
 ..  _SHA2-256: https://en.wikipedia.org/wiki/SHA-2
 
+..  _release_integrity-signatures:
 
 Checking file signatures
 ========================
@@ -176,6 +182,7 @@ of currently used keys or access the https://get.typo3.org/KEYS file directly).
 ..  _OpenPGP: http://www.openpgp.org/
 ..  _pgpkeys.mit.edu: https://pgpkeys.mit.edu/
 
+..  _release_integrity-signature-tag:
 
 Checking tag signature
 ======================
@@ -223,9 +230,10 @@ The :bash:`git show` command on the name of the tag reveals more details.
     -----END PGP SIGNATURE-----
 
 
+..  _release_integrity-signatures-public-key:
 
-Public keys
-===========
+Public keys for release integrity checks
+========================================
 
 ..  note::
     Starting in June 2017, TYPO3 releases have been cryptographically signed by the
