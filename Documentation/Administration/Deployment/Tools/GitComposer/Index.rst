@@ -88,8 +88,10 @@ Install only production-relevant packages by running:
 Parameter `--no-dev`: Excludes development packages. If the PHP version running
 on the console and the PHP version running on the
 
-Step 3: Run TYPO3 Maintenance Commands
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+..  _deployment-git-composer-commands:
+
+Step 3: Run TYPO3 maintenance commands
+--------------------------------------
 
 Apply database schema updates if required:
 
