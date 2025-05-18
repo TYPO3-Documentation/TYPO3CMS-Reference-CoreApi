@@ -9,7 +9,7 @@ Frontend cache instruction
 ==========================
 
 ..  versionadded:: 13.0
-    This request attribute is a replacement for the now internal
+    This request attribute is a replacement for the removed
     :php:`TypoScriptFrontendController->no_cache` property.
 
 The :php:`frontend.cache.instruction` frontend request attribute can be used by
