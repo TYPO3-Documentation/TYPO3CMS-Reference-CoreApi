@@ -3,9 +3,9 @@
 ..  include:: /Includes.rst.txt
 ..  _deployment-git-composer:
 
-=====================================
+======================================
 Deploying TYPO3 Using Git and Composer
-=====================================
+======================================
 
 This guide describes how to deploy a TYPO3 project directly on your server
 using **Git** and **Composer**, without the need for additional deployment tools.
