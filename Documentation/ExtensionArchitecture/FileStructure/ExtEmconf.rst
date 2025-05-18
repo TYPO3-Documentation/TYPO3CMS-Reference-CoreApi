@@ -181,6 +181,17 @@ Example:
         specific installation and do not want any administrator to overwrite
         them.
 
+..  confval:: clearCacheOnLoad
+    :name: ext-emconf-clearcacheonload
+    :type: boolean
+    :Default: false
+
+    ..  deprecated:: 12.1
+        When loading or unloading extensions using the extension manager,
+        all caches are always cleared. Extensions that want to keep
+        compatibility with both TYPO3 v11 and v12 should keep the setting
+        until v11 compatibility is dropped from the extensions.
+
 ..  confval:: author
     :name: ext-emconf-author
     :type: string
