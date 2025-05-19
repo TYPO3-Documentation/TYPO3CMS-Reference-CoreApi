@@ -118,7 +118,7 @@ CI/CD Platforms
 Using GitLab CI
 ---------------
 
-The `Official GitLab template for TYPO3 <https://docs.typo3.org/permalink/t3start:gitlab-template>`_
+The `Official GitLab template for TYPO3 <https://docs.typo3.org/permalink/t3start:gitlab-template@13.4>`_
 provides a predefined `.gitlab-ci.yml <https://gitlab.com/gitlab-org/project-templates/typo3-distribution/-/blob/main/.gitlab-ci.yml>`_
 and a `Deployer recipe <https://docs.typo3.org/permalink/t3coreapi:deployer-gitlab>`_
 that you can customize to your needs.
@@ -130,10 +130,10 @@ Even if you already set up your project you can find valuable examples there.
 Using GitHub Actions
 --------------------
 
-In the following code-block you find a very simplified example of what 
+In the following code-block you find a very simplified example of what
 a deployment workflow with GitHub Actions might look like.
 
-For a more life like example see `the .github-ci.yml of Stefan Frömken's 
+For a more life like example see `the .github-ci.yml of Stefan Frömken's
 TYPO3 Lexicon <https://github.com/froemken/typo3lexikon/blob/main/.github/workflows/.github-ci.yml>`_.
 
 ..  code-block:: yaml
