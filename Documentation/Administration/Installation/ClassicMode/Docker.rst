@@ -181,7 +181,6 @@ To stop and remove the database:
     :caption: ~/projects/typo3demo/$
 
     docker stop typo3db
-    docker rm typo3db
 
 To restart the database:
 
