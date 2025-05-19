@@ -27,13 +27,6 @@ considerations to keep **file references and media consistency intact**.
     For an overview of environment workflows, see
     :ref:`multi-stage-environment-workflow`.
 
-Synchronization methods covered in this chapter:
-
--   :ref:`Manual rsync copying <multi-stage-environment-file-sync-manual>`
--   :ref:`Automated deployment scripts <multi-stage-environment-file-sync-automation>`
--   :ref:`Filefill for fetching or generating media <multi-stage-environment-file-sync-filefill>`
--   :ref:`Shared storage with isolation recommendations <multi-stage-environment-file-sync-shared-storage>`
-
 ..  _multi-stage-environment-file-storage-locations:
 
 Common file storage locations
