@@ -7,8 +7,8 @@
 Deployment tools
 ================
 
-The following tools can be used to deploy TYPO3 manually or automatically
-in a :abbr:`CI (Continuos Integration)` pipeline.
+The following tools can be used to deploy TYPO3 either manually or in an automated
+:abbr:`CI (Continuos Integration)` pipeline.
 
 ..  toctree::
     :titlesonly:
@@ -35,9 +35,9 @@ Comparison of deployment tools
         :Pros:
             - Simple setup
             - No extra tooling needed
-            - Version control directly on server
+            - Version control on server
         :Cons:
-            - Production server requires Composer and Git installed
+            - Composer and Git must be installed on production server
             - Possible downtime during install
             - Risk of untracked local changes on server
             - Deployment may fail if external package sources are temporarily unavailable
@@ -48,12 +48,12 @@ Comparison of deployment tools
 
     -   :Method: Deployer
         :Pros:
-            - Atomic deployments with rollback
+            - Atomic deployment with rollback
             - Zero-downtime deployments
-            - Keeps releases history
+            - Keeps release history
         :Cons:
             - Additional tool to learn and configure
-            - Deployment process might be more complex for beginners
+            - Deployment process might be too complex for beginners
         :Typical Use Cases:
             - Professional production environments
             - Teams with CI/CD pipelines
@@ -71,7 +71,7 @@ Comparison of deployment tools
             - Static file transfer or legacy systems
             - Environments without PHP/Composer tooling on production
 
-    -   :Method: No Deployment / Direct Installation on Server
+    -   :Method: No Deployment (Direct Installation on Server)
         :Pros:
             - No deployment tooling required
             - Easy to get started for single updates
@@ -86,10 +86,10 @@ Comparison of deployment tools
 
 ..  rubric:: Summary:
 
--   **Git + Composer**: Direct and easy but requires server-side tooling.
+-   **Git + Composer**: Easy but requires server-side tooling.
 -   **Deployer**: Advanced, safe, and rollback-friendly but requires extra setup.
 -   **Manual rsync**: Simple file sync, but requires external build or packaging steps.
--   **No Deployment / Direct Installation on Server**: Easy to get started, but risky, untracked, and not recommended for professional environments.
+-   **No Deployment (Direct Installation on Server**): Easy to get started, but risky, untracked, and not recommended for professional environments.
 
 Select the method that best suits your workflow and server capabilities.
 
@@ -99,8 +99,7 @@ Select the method that best suits your workflow and server capabilities.
 Other deployment tools
 ======================
 
-*   :doc:`TYPO3 Surf <ext_surf:Index>` was used as a deployment tool
-    specialized on TYPO3. It has mostly been succeeded by
-    `Deployer <https://docs.typo3.org/permalink/t3coreapi:deployment-deployer>`_
-    however.
+*   :doc:`TYPO3 Surf <ext_surf:Index>` was formerly commonly used as a TYPO3 deployment tool.
+    It has now mostly been succeeded by
+    `Deployer <https://docs.typo3.org/permalink/t3coreapi:deployment-deployer>`_.
 *   Another deployment tool for PHP applications written in PHP: https://www.magephp.com/
