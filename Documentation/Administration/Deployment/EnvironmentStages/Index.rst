@@ -26,6 +26,7 @@ Separating your TYPO3 project into multiple environments allows you to:
 
 ..  toctree::
     :caption: Subchapters
+    :titlesonly:
 
     Configuration/Index
     Database/Index
