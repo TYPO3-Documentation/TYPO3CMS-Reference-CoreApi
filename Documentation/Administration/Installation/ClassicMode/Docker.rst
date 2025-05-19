@@ -158,7 +158,6 @@ Use these database settings:
     *   :path:`fileadmin/`
     *   :path:`typo3conf/`
     *   :path:`typo3temp/`
-    *   :path:`uploads/`
 
 ..  note::
     All writable TYPO3 content is now persisted on your local machine.
