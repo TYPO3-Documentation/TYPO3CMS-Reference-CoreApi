@@ -7,15 +7,15 @@
 Deploying TYPO3 Using Git and Composer
 ======================================
 
-This guide describes how to deploy a TYPO3 project directly on your server
+This guide describes how to deploy a TYPO3 project directly onto your server
 using **Git** and **Composer**, without the need for additional deployment tools.
 
 This method is **simple to set up** and **requires no external deployment services**,
-but it does require **Git and Composer installed on the server** and may cause
+but it does require **Git and Composer to be installed on the server** and may cause
 **downtime during updates**.
 
 For a detailed comparison with other deployment methods, including **Deployer**
-and **rsync**, see the section
+and **rsync**, see section
 `Comparison of deployment methods <https://docs.typo3.org/permalink/t3coreapi:deployment-tools-comparision>`_.
 
 ..  _deployment-git-composer-quick:
@@ -51,7 +51,7 @@ Prerequisites:
 
 -   The TYPO3 project is under version control using Git. See chapter
     `Version control of TYPO3 projects with Git <https://docs.typo3.org/permalink/t3coreapi:version-control>`_
--   `TYPO3 was installed with Composer <https://docs.typo3.org/permalink/t3coreapi:installation-composer>`_
+-   `TYPO3 was installed using Composer <https://docs.typo3.org/permalink/t3coreapi:installation-composer>`_
 -   The server has **PHP**, **Composer**, **Git**, and other required system packages installed.
 -   **Shell (SSH) access** to the server to run deployment commands.
 
@@ -85,7 +85,7 @@ Install only production-relevant packages by running:
 
     composer install --no-dev --ignore-platform-reqs
 
-Parameter `--no-dev`: Excludes development packages. If the PHP version running
+Parameter `--no-dev` excludes development packages. If the PHP version running
 on the console and the PHP version running on the
 
 ..  _deployment-git-composer-commands:
@@ -105,4 +105,4 @@ Clear TYPO3 caches:
 
     vendor/bin/typo3 cache:flush
 
-Optional: Add project-specific tasks as needed.
+Optional: Run project-specific tasks as needed.
