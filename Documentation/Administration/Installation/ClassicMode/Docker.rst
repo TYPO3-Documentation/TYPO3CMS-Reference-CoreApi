@@ -253,7 +253,7 @@ Type `exit` to leave the container shell.
 Running TYPO3 console commands
 ------------------------------
 
-TYPO3 provides a **command-line interface (CLI)** via the ``vendor/bin/typo3`` script.
+TYPO3 provides a **command-line interface (CLI)** via the `typo3/sysext/core/bin/typo3` script.
 
 To run console commands in the running container, use:
 
