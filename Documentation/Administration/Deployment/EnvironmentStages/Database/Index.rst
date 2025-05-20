@@ -7,8 +7,8 @@
 Synchronizing database content across environments
 ==================================================
 
-TYPO3 projects not only manage code and configuration across multiple
-environments but also deal with database content and user data.
+TYPO3 projects not only involve managing code and configuration across multiple
+environments but also database content and user data.
 
 This chapter focuses on managing **database schema and content**,
 covering strategies for synchronizing schema changes, handling personal
@@ -29,18 +29,18 @@ Database schema and structural synchronization
 TYPO3 manages database schema definitions through:
 
 -   `ext_tables.sql` files provided by extensions.
--   TCA-based definitions for records and tables.
+-   TCA definitions for records and tables.
 
-You may also use external tools like Doctrine Migrations or custom scripts
+You can also use external tools like Doctrine Migrations or custom scripts
 to automate structural changes if your project requires more control.
 
 ..  _multi-stage-environment-database-personal-data:
 
-Content and personal data handling
-==================================
+Content and handling of personal data
+=====================================
 
-When copying database content between environments, you must consider
-data privacy and regulatory requirements such as GDPR.
+When you copy database content between environments, data privacy and regulatory
+requirements such as GDPR must be adhered to.
 
 Best practices include:
 
@@ -48,9 +48,9 @@ Best practices include:
 -   Anonymize or pseudonymize user records and personal information.
 -   Limit content synchronization to necessary data only.
 
-Example techniques:
+For example:
 
--   Export only selected pages or records.
+-   Export only specific pages or records.
 -   Strip sensitive tables like `fe_users`, `sys_log`, or `cache_*`.
 -   Replace personal data with dummy values.
 ..  _multi-stage-environment-database-import-export:
@@ -59,16 +59,16 @@ Import/Export workflows in TYPO3
 ================================
 
 TYPO3 provides a built-in :doc:`Import/Export module <typo3/cms-impexp:Index#typo3-import-export>`,
-:composer:`typo3/cms-impexp`, that allows exporting and importing selected
+:composer:`typo3/cms-impexp`, that allows exporting and importing
 **database records** as `.t3d` files.
 
-This module is primarily designed to work with structured data stored in
+The module is designed to work with structured data that is stored in
 the TYPO3 database, such as:
 
 -   Pages and their content elements
--   Records from system and extension tables
+-   Records in system and extension tables
 
-It can **optionally include referenced files**, such as images or user uploads,
+It can **include referenced files**, such as images or user uploads,
 when these files are related to exported records. These files are bundled
 alongside the `.t3d` export if the option to include files is selected.
 
@@ -86,7 +86,7 @@ Limitations to consider:
 
 You can work with
 `Export Presets <https://docs.typo3.org/permalink/typo3/cms-impexp:presets>`_
-to make the export settings repeatable and consistent.
+to make export settings repeatable and consistent.
 
 You can also use the
 `Command Line Interface <https://docs.typo3.org/permalink/typo3/cms-impexp:command-line>`_
@@ -98,8 +98,8 @@ to automate exports in your CI/CD pipeline or to avoid PHP runtime limitations.
 Reduced database dumps
 ======================
 
-In many projects, a **reduced database dump** is used to provide a realistic
-yet privacy-compliant dataset for development or staging.
+In many projects, **reduced database dumps** can be used to create realistic
+and privacy-compliant datasets for development or staging.
 
 Typical strategies include:
 
@@ -135,7 +135,7 @@ Best practices for sharing database content across environment stages
 
 -   Separate schema and data handling in your deployment workflow.
 -   Avoid copying full production data without anonymization.
--   Use TYPO3 Import/Export for targeted content migration.
+-   Use TYPO3 Import/Export for specific content migration.
 -   Document your project's data management strategy.
 -   Ensure compliance with data privacy regulations.
 

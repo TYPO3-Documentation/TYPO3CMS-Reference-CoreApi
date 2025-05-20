@@ -165,10 +165,10 @@ be applied to every environment of yours, and that is not managed through
 Best practices for managing multiple environments
 =================================================
 
-TYPO3 projects often go through various stages such as local development, integration, staging, and production.
+TYPO3 projects often go through various stages, such as local development, integration, staging, and production.
 
-For an overview of typical environment workflows, promotion strategies, and team collaboration best practices,
-refer to the following chapter:
+For an overview of typical environment workflows, stable product promotion strategies, and team collaboration best practices,
+refer to the following chapters:
 
 ..  seealso::
 
