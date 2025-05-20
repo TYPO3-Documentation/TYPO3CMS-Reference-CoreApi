@@ -7,14 +7,14 @@
 Synchronizing user-uploaded files across environments
 =====================================================
 
-TYPO3 sites commonly handle uploaded files such as images, videos, and
+TYPO3 sites commonly include uploaded files, such as images, videos, and
 documents. These files are typically stored in directories like `fileadmin/`
-or other storage locations defined through the
+and other storage locations defined in the
 `File storage configuration <https://docs.typo3.org/permalink/t3coreapi:fal-administration-storages>`_.
 
 While database records can be synchronized through exports or dumps,
-synchronizing **user-uploaded files** across environments requires additional
-considerations to keep **file references and media consistency intact**.
+synchronizing **user-uploaded files** across environments is different because
+**file references and media consistency need to be kept intact**.
 
 ..  contents:: Table of contents
 
@@ -38,14 +38,14 @@ By default, TYPO3 stores **user-managed files** in:
 -   Custom storage locations defined in
     `File storage configuration <https://docs.typo3.org/permalink/t3coreapi:fal-administration-storages>`_.
 
-These locations may contain:
+These locations can contain:
 
 -   Files uploaded by **backend users or editors** in the TYPO3 backend,
-    such as images, PDFs, or videos used in page content.
+    such as images, PDFs, and videos used in page content.
 -   Files uploaded by **website visitors**, for example through forms
-    or application processes (uploads, form attachments).
+    and application processes (uploads, form attachments).
 -   **Automatically generated files**, such as scaled or transformed images,
-    generated PDFs or cached previews.
+    generated PDFs and cached previews.
 
 ..  important::
 
@@ -65,7 +65,7 @@ Challenges in file management
 File-based content can become large or sensitive, leading to challenges such as:
 
 -   Storage size and synchronization effort.
--   Privacy and legal considerations (uploaded personal documents, storages
+-   Privacy and legal considerations (uploaded personal documents, storage
     with restricted access).
 -   Dependency on matching files and database references.
 
@@ -92,7 +92,7 @@ Manual / rsync copying
 ----------------------
 
 -   Copy files via `rsync`, FTP, or SSH between servers or environments.
--   Filter files based on file types or directories to reduce data transfer.
+-   Filter files based on file type or directory to reduce data transfer.
 -   Exclude temporary or processed files that can be regenerated.
 
 Example `rsync` command:
@@ -106,7 +106,7 @@ Example `rsync` command:
         user@source-server:/var/www/public/fileadmin/ \
         /var/www/public/fileadmin/
 
-Explanation of exclusions:
+The exclusion parameters refer to the following:
 
 
 -   `*.bak`: Skip backup or intermediate files, if present.
@@ -154,10 +154,10 @@ images or videos. It **cannot synchronize non-media files**, such as:
 
 -   Form configuration files
 -   Protected private storage files
--   Arbitrary file types not publicly accessible
+-   Arbitrary file types that are not publicly accessible
 
-You typically want to enable filefill **only in development environments**.
-This can be achieved using the `ApplicationContext` in your
+You typically use filefill **in development environments only**.
+It can be set using the `ApplicationContext` in your
 :file:`config/system/additional.php`:
 
 ..  literalinclude:: _codesnippets/_filefill.php
@@ -172,7 +172,7 @@ Shared storage
 --------------
 
 -   Use NFS, cloud storage (S3), or other shared storage solutions.
--   Mount the same file storage across environments if technically feasible.
+-   Mount the same file storage across environments, if technically feasible.
 
 ..  note::
 
@@ -212,7 +212,7 @@ This creates a dependency between the **file system** and the **database**.
     that TYPO3 has not yet cleaned up.
 
 TYPO3 uses the `sys_file_processedfile` table to **track processed files**.
-If you copy **only the database** without matching files, TYPO3 may **reference
+If you copy **only the database** without the matching files, TYPO3 may **reference
 files that are no longer available**.
 
 ..  _multi-stage-environment-file-processed-files-approaches:
@@ -230,7 +230,7 @@ Recommended approaches
 -   **Include processed files** if you want to avoid runtime regeneration,
     but consider cleaning up unnecessary files first to reduce data volume.
 
-    You may use `rsync` or file system cleanup tools to remove
+    You can use `rsync` or file system cleanup tools to remove
     outdated processed files before transferring them.
 
 ..  _multi-stage-environment-file-processed-files-balancing:
@@ -238,11 +238,11 @@ Recommended approaches
 Balancing performance, storage size, and deployment speed
 --------------------------------------------------------
 
-Decide based on your project’s priorities:
+Based on the priorities set for your project, choose between:
 
--   **For faster deployments** and **smaller storage**, skip processed
+-   **Faster deployment** and **smaller storage**, skip processed
     files and truncate the table.
--   **For faster page loads** on first access, copy processed files along
+-   **Faster page loads** on first access, copy processed files along
     with the table, but expect to handle larger data volumes.
 
 Make sure your team is aware of the trade-offs and apply a consistent
@@ -250,10 +250,10 @@ strategy across all environments.
 
 ..  _multi-stage-environment-file-privacy:
 
-Considerations for anonymization or exclusion of user managed files
-===================================================================
+Anonymization or exclusion of user managed files
+================================================
 
--   Review file contents for personal or sensitive data.
+-   Review file content for personal or sensitive data.
 -   Provide **reduced or dummy file sets** in non-production environments
     when appropriate.
 -   Inform clients or editors if files are excluded or replaced.
@@ -270,13 +270,13 @@ In TYPO3, **user-uploaded and editor-managed files** are typically
 Common FAL-managed references include:
 
 -   `sys_file_reference` records, which **reference the UID of a `sys_file`**
-    record to connect files to content elements or other database records.
+    record to link files to content elements or other database records.
 -   `sys_file` records, which store metadata about the actual file in
     the file system (path, size, MIME type).
 
 **Best practice:**
 Extensions and custom code should **always use FAL** to manage file relations.
-**Direct file paths should not be stored** in custom database fields,
+**File paths should not be stored** in custom database fields,
 except in TYPO3’s `sys_file` table managed by FAL.
 
 When synchronizing environments:
@@ -287,9 +287,9 @@ When synchronizing environments:
 -   In **development or staging**, it is often acceptable to have **incomplete
     file presence**, provided tools like **filefill** or **placeholders**
     are used to simulate missing files.
--   Avoid broken references by keeping **FAL metadata and file storage
-    reasonably aligned** based on the environment's purpose.
--   Verify that **no direct file paths are hardcoded or stored in custom tables**.
+-   Avoid broken references by making sure **FAL metadata and file storage
+    correspond** as much as possible depending on the purpose of the environment.
+-   Verify that **no file paths are directly hardcoded or stored in custom tables**.
 
 Broken or inconsistent references may result in **missing media** in the
 frontend or backend and may require **manual repair, re-indexing, or cleanup**.
