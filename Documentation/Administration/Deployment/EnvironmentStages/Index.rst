@@ -18,7 +18,7 @@ instances across these stages.
 Separating your TYPO3 project into multiple environments allows you to:
 
 *   Develop and test changes safely without impacting the live site.
-*   Collaborate as a team across shared environments.
+*   Collaborate in a team across shared environments.
 *   Perform client acceptance testing on a production-like system.
 *   Promote stable changes toward production in a controlled manner.
 
@@ -89,10 +89,10 @@ Best practices
 ==============
 
 *   Mirror production as closely as possible in staging.
-*   Isolate environment-specific configurations.
-*   Never use real production data in lower stages without proper
+*   Isolate environment-specific configuration.
+*   Never use real production data in earlier stages without proper
     anonymization.
-*   Automate deployments and testing where possible.
+*   Automate deployment and testing where possible.
 *   Control access to non-production environments.
 
 Separating your TYPO3 project into multiple environments helps ensure
