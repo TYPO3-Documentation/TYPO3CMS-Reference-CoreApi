@@ -81,7 +81,6 @@ to test if the package you just downloaded is signed correctly.
 
     TarballZip
     WgetSymlink
-    Docker
     Windows
     InstallationWizard
     ReleaseIntegrity
