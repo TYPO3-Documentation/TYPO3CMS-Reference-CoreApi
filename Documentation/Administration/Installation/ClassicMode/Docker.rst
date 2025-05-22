@@ -3,24 +3,37 @@
 ..  include:: /Includes.rst.txt
 ..  _classic-docker-installation:
 
-============================================
-Classic TYPO3 demo installation using Docker
-============================================
+=================================================
+Classic TYPO3 demo installation using Docker only
+=================================================
 
-..  note::
-    This demo setup is **for local development only** and
-    **not suitable for production**.
+This guide shows how to set up a TYPO3 demo site using **basic Docker commands** —
+without Docker Compose or DDEV.
 
-    It runs TYPO3 in
-    `Classic mode <https://docs.typo3.org/permalink/t3coreapi:legacyinstallation>`_
-    using the image
-    `martinhelmich/typo3 <https://hub.docker.com/r/martinhelmich/typo3>`_
-    and a MariaDB container.
+By building the environment step by step, you’ll learn how Docker actually works:
+how containers run, how they talk to each other, how volumes persist data, and how
+services like TYPO3 and MariaDB connect via networking. This hands-on setup is ideal
+for those who want to understand the fundamentals of containerized TYPO3 — not just
+use a prebuilt stack.
 
-    For production or team development, use
-    `Composer-based <https://docs.typo3.org/permalink/t3coreapi:installation-composer>`_ TYPO3,
-    `Version control (Git) <https://docs.typo3.org/permalink/t3coreapi:version-control>`_
-    and a custom Docker setup.
+This is a local development setup, **not a production deployment**.
+
+This setup runs TYPO3 in
+`Classic mode <https://docs.typo3.org/permalink/t3coreapi:legacyinstallation>`_
+using the image
+`martinhelmich/typo3 <https://hub.docker.com/r/martinhelmich/typo3>`_
+along with a MariaDB container.
+
+..  warning::
+
+    This setup is intended for **local testing and learning**.
+
+..  seealso::
+    For real-world projects, see the guides on
+
+    *   `Composer-based installations <https://docs.typo3.org/permalink/t3coreapi:installation-composer>`
+    *   `Git version control <https://docs.typo3.org/permalink/t3coreapi:version-control>`_
+
 
 ..  contents::
 
@@ -36,8 +49,8 @@ To quickly launch TYPO3 in classic mode with Docker:
 
     mkdir -p fileadmin typo3conf typo3temp
 
-    # Ensure TYPO3 can write to these directories
-    chmod -R 777 fileadmin typo3conf typo3temp
+    # On Linux and WSL during development: Ensure TYPO3 can write to these directories
+    # chmod -R 777 fileadmin typo3conf typo3temp
 
     docker network create typo3-demo-net
 
@@ -48,6 +61,8 @@ To quickly launch TYPO3 in classic mode with Docker:
 ..  literalinclude:: _codesnippets/_DockerRunTypo3Demo.sh
     :language: bash
     :caption: ~/projects/typo3demo/$
+
+If you are working on Linux or WSL, see :ref:`classic-docker-permissions`.
 
 Then open:
 
@@ -116,19 +131,7 @@ Create a local project directory and subfolders for TYPO3's writable directories
     :language: bash
     :caption: ~/projects/typo3demo/$
 
-..  important::
-    **Ensure folder permissions are correct**
-
-    Mounted folders must be writable by the web server inside the container.
-    If you use mounted folders, adjust their permissions on your host system:
-
-    ..  code-block:: bash
-        :caption: ~/projects/typo3demo/$
-
-        chmod -R 777 fileadmin typo3conf typo3temp uploads
-
-    Without correct permissions, TYPO3 may fail with **HTTP 500 errors**
-    when trying to write configuration, caches, or uploaded files.
+If you are working on Linux or WSL, see :ref:`classic-docker-permissions`.
 
 ..  _classic-docker-access:
 
@@ -275,6 +278,47 @@ Flush all caches:
     :caption: ~/projects/typo3demo/$
 
     docker exec -it typo3-demo /var/www/html/typo3/sysext/core/bin/typo3 cache:flush
+
+..  _classic-docker-permissions:
+
+Solving file permission issues
+==============================
+
+Depending on your host operating system, TYPO3 may not be able to write
+to mounted folders like `fileadmin/`, `typo3conf/`, or `typo3temp/`.
+
+Symptoms include:
+
+-   TYPO3 installer shows errors saving config
+-   HTTP 500 errors
+-   Cache or extension data not persisting
+
+..  _classic-docker-permission-linux:
+
+On Linux or WSL: File ownership and permission tips
+---------------------------------------------------
+
+Linux containers often run with a web server user like `www-data` (UID 33).
+Your local files may need matching ownership or permissions:
+
+..  code-block:: bash
+
+    # Quick fix for local development (not recommended for production)
+    # chmod -R 777 fileadmin typo3conf typo3temp
+
+    # Safer alternative: match the container's web server user (usually UID 33 for www-data)
+    sudo chown -R 33:33 fileadmin typo3conf typo3temp
+
+..  _classic-docker-permissions-mac:
+
+macOS and Windows Docker file permission issues
+-----------------------------------------------
+
+If you are using Docker Desktop, you usually **do not need to change permissions**.
+Docker handles this automatically in most cases.
+
+If you still run into issues, try restarting Docker and ensure file sharing is enabled
+for the folder you're working in.
 
 ..  _classic-docker-versions:
 
