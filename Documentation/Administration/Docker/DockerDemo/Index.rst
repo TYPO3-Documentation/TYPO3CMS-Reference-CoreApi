@@ -7,6 +7,10 @@
 Classic TYPO3 demo installation using Docker only
 =================================================
 
+..  warning::
+
+    This setup is intended for **local testing and learning**.
+
 This guide shows how to set up a TYPO3 demo site using **basic Docker commands** —
 without Docker Compose or DDEV.
 
@@ -24,16 +28,10 @@ using the image
 `martinhelmich/typo3 <https://hub.docker.com/r/martinhelmich/typo3>`_
 along with a MariaDB container.
 
-..  warning::
+..  tip::
 
-    This setup is intended for **local testing and learning**.
-
-..  seealso::
-    For real-world projects, see the guides on
-
-    *   `Composer-based installations <https://docs.typo3.org/permalink/t3coreapi:installation-composer>`
-    *   `Git version control <https://docs.typo3.org/permalink/t3coreapi:version-control>`_
-
+    New to Docker? Start here:
+    `Docker Get Started Guide <https://docs.docker.com/get-started/>`_.
 
 ..  contents::
 
