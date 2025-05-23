@@ -132,6 +132,8 @@ must include appropriate deny rules in the virtual host configuration.
 A sample configuration is provided by DDEV:
 
 ..  literalinclude:: _codesnippets/_nginx.config
+    :language: plaintext
+    :caption:  nginx-site-typo3.conf
 
 This example is taken from the `DDEV webserver config
 <https://github.com/ddev/ddev/blob/6a7655c178f5961666bb9c9efd10442314f6749c/pkg/ddevapp/webserver_config_assets/nginx-site-typo3.conf>`_.
