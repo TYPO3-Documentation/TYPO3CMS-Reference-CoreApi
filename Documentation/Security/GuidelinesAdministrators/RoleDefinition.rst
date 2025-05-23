@@ -1,23 +1,21 @@
+:navigation-title: Role Definition
+
 .. include:: /Includes.rst.txt
 .. index::
    Security guidelines; Administrator role
 .. _security-administrator-definition:
 
-===============
-Role Definition
-===============
+================================================
+Role definition: What is a system administrator?
+================================================
 
-In this chapter, we define a system administrator as the person who
-is responsible for the system/server where the TYPO3 instance is
-installed. System administrators usually have full access on a server
-level (operating system) and install, configure and maintain the base
-system and hosting environment, including the database server, web
-server, PHP, TYPO3, as well as components such as ImageMagick, etc.
+In this chapter, a **system administrator** is a person responsible for a
+server hosting a TYPO3 instance. This includes having full Operation System level
+access and managing installation, configuration, and maintenance, including the
+database, web server, PHP, TYPO3, and tools like ImageMagick.
 
-System administrators are also responsible for the security of the
-infrastructure in general, e.g. the network, the appropriate access to
-the system (e.g. SSH, FTP, etc.) as well as correct permissions on a
-file system level.
+They are also responsible for infrastructure security, which includes network access,
+secure protocols (e.g., SSH, FTP), and correct file permissions.
 
-The role of a system administrator often overlaps with a TYPO3
-integrator and it happens that one person has both roles.
+This role often overlaps with that of a TYPO3 integrator and may be held by the
+same person.

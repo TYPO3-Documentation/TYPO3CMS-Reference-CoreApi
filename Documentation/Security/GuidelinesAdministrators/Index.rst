@@ -1,55 +1,56 @@
-.. include:: /Includes.rst.txt
-.. index:: Security guidelines; Administrators
-.. _security-administrators:
+:navigation-title: System Administrators
 
-====================================
-Guidelines for System Administrators
-====================================
+..  include:: /Includes.rst.txt
+..  index:: Security guidelines; Administrators
+..  _security-administrators:
 
-General Rules
-=============
+=============================================
+Security guidelines for system administrators
+=============================================
 
-#. Subscribe to the "TYPO3 Announce" mailing list at
-   https://lists.typo3.org, so that you are
-   informed about TYPO3 security bulletins and TYPO3 updates.
+#.  Follow the `TYPO3 Security Advisories <http://typo3.org/help/security-advisories>`_.
+    Subscribe to the advisories via mailing list or RSS feed.
 
-#. React as soon as possible and update the relevant components of the
-   site(s) when new vulnerabilities become public (e.g. security issues
-   published in the mailing list).
+#.  Update the TYPO3 Core or any affected
+    third-party extensions as soon as possible after security fixes are released.
 
-#. Use different passwords for the Install Tool and the backend login.
-   Follow the guidelines for secure passwords in this document.
+#.  Use individual account names. Do not share accounts. For example,
+    administrator and system maintainer account names should be something like
+    `john.doe`. Do not use general usernames like "admin".
 
-#. If you are administrating several TYPO3 installations, use different
-   passwords for all logins and components for every installation.
+#.  Use different passwords for the
+    `Install Tool <https://docs.typo3.org/permalink/t3coreapi:security-install-tool-password>`_
+    and your personal backend login. Do not reuse passwords across multiple
+    TYPO3 installations.
 
-#. Never use the same password for a TYPO3 installation and any other
-   service such as `FTP`, `SSH`, etc.
+#.  Follow the guidelines for
+    `secure passwords <https://docs.typo3.org/permalink/t3coreapi:security-secure-passwords>`_
+    in this document. Implement secure
+    `password policies <https://docs.typo3.org/permalink/t3coreapi:password-policies>`_.
 
-#. Change the username and password of the "admin" account after the
-   installation of TYPO3 immediately.
+#.  Never use the same password for a TYPO3 installation and other
+    services such as FTP, SSH, etc.
 
-#. If you are also responsible for the setup and configuration of TYPO3,
-   follow the steps for TYPO3 integrators carefully, documented in the
-   next chapter.
+#.  If you are responsible for the setup and configuration of TYPO3,
+    carefully follow the
+    `Guidelines for TYPO3 integrators <https://docs.typo3.org/permalink/t3coreapi:security-integrators>`_
+    which are documented in the next chapter.
 
-Further topics
-==============
+Please refer to the chapters below for security-related topics of
+interest to administrators:
 
-Please see the chapters below for further security related topics of interest
-for administrators:
+..  toctree::
+    :caption: Further topics
+    :titlesonly:
 
-.. toctree::
-   :titlesonly:
-
-   RoleDefinition
-   IntegrityOfTypo3Packages
-   FileDirectoryPermissions
-   RestrictAccessToFiles
-   DirectoryIndexing
-   FileExtensionHandling
-   ContentSecurityPolicy
-   DatabaseAccess
-   EncryptedCommunication
-   OtherServices
-   FurtherActions
+    RoleDefinition
+    IntegrityOfTypo3Packages
+    FileDirectoryPermissions
+    RestrictAccessToFiles
+    DirectoryIndexing
+    FileExtensionHandling
+    ContentSecurityPolicy
+    DatabaseAccess
+    EncryptedCommunication
+    OtherServices
+    FurtherActions
