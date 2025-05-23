@@ -1,32 +1,49 @@
-.. include:: /Includes.rst.txt
-.. index::
-   Security guidelines; Checksums
-   Security guidelines; Package integrity
-.. _security-integrity-packages:
+:navigation-title: Code Integrity
 
-===========================
-Integrity of TYPO3 Packages
-===========================
+..  include:: /Includes.rst.txt
+..  _security-integrity-packages:
 
-In order to ensure that the downloaded TYPO3 package is an official
-package released by the TYPO3 developers, compare the `SHA2-256` checksum of
-the downloaded package with the checksum stated on the TYPO3 website,
-before you extract/install TYPO3. You find the `SHA2-256` checksums on
+===============================
+Verify integrity of TYPO3 code
+===============================
+
+Ensuring that the TYPO3 source code has not been tampered with is very important
+for security reasons. TYPO3 can either be installed via Composer or by downloading
+a prebuilt package. Each method requires different integrity checks.
+
+..  _security-integrity-packages-composer:
+
+Composer-based installations
+============================
+
+When using Composer, TYPO3 and its dependencies are downloaded directly by
+Composer from trusted sources such as `packagist.org` and `packages.typo3.org`.
+
+To ensure source integrity:
+
+-   Use official TYPO3 packages (for example :composer:`typo3/cms-base-distribution`)
+-   Commit the :file:`composer.lock` file to track versions and sources
+-   Keep Composer and your system's trusted certificate store (CA certificates)
+    up to date to ensure secure HTTPS connections when downloading packages.
+
+Composer ensures a secure and verifiable dependency management workflow. It is
+recommended to run Composer locally or in a
+`CI pipeline <https://docs.typo3.org/permalink/t3coreapi:ci-cd-for-typo3-projects>`_,
+and `deploy <https://docs.typo3.org/permalink/t3coreapi:deployment>`_ only the
+prepared files - including the :directory:`vendor/` directory -
+to the production environment.
+
+..  _security-integrity-packages-classic:
+
+Classic (non-Composer) installations
+====================================
+
+If installing TYPO3 via a downloaded archive (ZIP, tar.gz), verify the
+SHA2-256 checksum before extracting. Only download from the official site:
 `get.typo3.org <https://get.typo3.org>`_.
 
-Be careful when using pre-installed or pre-configured packages by
-other vendors: due to the nature and complexity of TYPO3 the system
-requires configuration. Some vendors offer download-able packages,
-sometimes including components such as Apache, MySQL, PHP and TYPO3,
-easy to extract and ready to launch. This is a comfortable way to set
-up a test or development environment very quickly but it is difficult
-to verify the integrity of the components – for example the integrity
-of TYPO3.
+For details, see: `TYPO3 release integrity
+<https://docs.typo3.org/permalink/t3coreapi:release-integrity>`_
 
-A similar thing applies to web environments offered by hosting
-companies: system images sometimes include a bunch of software
-packages, including a CMS. It depends on the specific project and if
-you can trust the provider of these pre-installed images, systems,
-packages – but if you are in doubt, use the official TYPO3 packages
-only. For a production site in particular, you should trust the source
-code published at `get.typo3.org <https://get.typo3.org>`_ only.
+Avoid vendor-provided or pre-installed packages unless you fully trust their
+source.
