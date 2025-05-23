@@ -7,26 +7,26 @@
 Verify integrity of TYPO3 code
 ===============================
 
-Ensuring that the TYPO3 source code has not been tampered with is critical for
-security. TYPO3 can be installed either via Composer or by downloading a
-prebuilt package. Each method requires different integrity checks.
+Ensuring that the TYPO3 source code has not been tampered with is very important
+for security reasons. TYPO3 can either be installed via Composer or by downloading
+a prebuilt package. Each method requires different integrity checks.
 
 ..  _security-integrity-packages-composer:
 
 Composer-based installations
 ============================
 
-When using Composer, TYPO3 and its dependencies are downloaded directly from
-trusted sources such as `packagist.org` and `packages.typo3.org`.
+When using Composer, TYPO3 and its dependencies are downloaded directly by
+Composer from trusted sources such as `packagist.org` and `packages.typo3.org`.
 
 To ensure source integrity:
 
 -   Use official TYPO3 packages (for example :composer:`typo3/cms-base-distribution`)
--   Commit the :file:`composer.lock` file to track exact versions and sources
+-   Commit the :file:`composer.lock` file to track versions and sources
 -   Keep Composer and your system's trusted certificate store (CA certificates)
     up to date to ensure secure HTTPS connections when downloading packages.
 
-Composer enables a secure and verifiable dependency management workflow. It is
+Composer ensures a secure and verifiable dependency management workflow. It is
 recommended to run Composer locally or in a
 `CI pipeline <https://docs.typo3.org/permalink/t3coreapi:ci-cd-for-typo3-projects>`_,
 and `deploy <https://docs.typo3.org/permalink/t3coreapi:deployment>`_ only the
