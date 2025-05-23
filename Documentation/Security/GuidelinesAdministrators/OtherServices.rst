@@ -11,9 +11,10 @@ Uploading untrusted scripts (e.g. PHP, Perl, Python) or executables into the
 web root is a major security risk. TYPO3 prevents this via backend restrictions
 (see :ref:`Global TYPO3 configuration options <security-global-typo3-options>`).
 
-These safeguards are bypassed if services like :abbr:`FTP`, :abbr:`SFTP`,
-:abbr:`SSH`, or :abbr:`WebDAV` allow direct file uploads—commonly into
-:file:`fileadmin/`.
+These safeguards are bypassed if services like :abbr:`FTP (File Transfer Protocol)`,
+:abbr:`SFTP (SSH File Transfer Protocol)`, :abbr:`SSH (Secure Shell)`, or
+:abbr:`WebDAV (Web Distributed Authoring and Versioning)` allow direct file
+uploads—commonly into :file:`fileadmin/`.
 
 Such access can enable:
 
