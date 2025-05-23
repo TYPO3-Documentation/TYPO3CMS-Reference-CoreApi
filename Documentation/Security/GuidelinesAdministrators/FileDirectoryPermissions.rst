@@ -1,53 +1,117 @@
+:navigation-title: File permissions
+
 .. include:: /Includes.rst.txt
 .. index:: pair: Security guidelines; File permissions
 .. _security-file-directory-permissions:
 
+================================================
+Secure file permissions (operating system level)
+================================================
+
+This chapter explains how to securely configure file and directory permissions
+at the operating system level for TYPO3 installations. It focuses on who can
+read and write to files on disk.
+
+To learn how to prevent public access via the web server, see
+:ref:`Restrict public file access in the web server <security-restrict-access-server-level>`.
+
+A common risk is allowing one user to read or modify another client's files—
+especially in shared environments. A misconfigured server where all sites run
+as the same user can allow cross-site scripting, data theft, or manipulation of
+TYPO3 files such as :file:`confif/system/settings.php`.
+
+TYPO3 can be installed either in classic (non-Composer) mode or using a
+Composer-based setup. Each approach requires a slightly different file
+permission strategy.
+
+..  contents:: Table of contents
+
+.. _file-permissions-composer:
+
+Composer-based installations
+============================
+
+In Composer-based TYPO3 installations, the document root is typically a
+:file:`public/` directory. Core files, extensions, and the :file:`vendor/` directory
+reside outside the web root, improving security by design.
+
+**Recommendations:**
+
+-   Set the web server's document root to :file:`public/` only.
+-   Grant the web server user write access to:
+
+    -   :file:`public/fileadmin/`
+    -   :file:`public/typo3temp/`
+    -   :file:`var/` (used for cache, logs, sessions, etc.)
+
+-   The :file:`public/_assets/` directory must be **readable** by the web server.
+    It is generated during deployment or Composer operations and should not be
+    writable at runtime.
+-   The :file:`config/` directory should be **read-only** for the web server in
+    production environments **unless** certain TYPO3 features require write access:
+
+    -   To allow changing site configurations via the backend, the web server needs
+        write access to :file:`config/sites/`.
+    -   To allow system maintainers to update settings via the Admin Tools module,
+        the web server needs write access to :file:`config/system/settings.php`.
+
+-   Keep :file:`vendor/`, :file:`composer.json`, and :file:`public/index.php`
+    read-only for the web server.
+
+
+.. _file-permissions-classic:
+
+Classic-mode installations
 ==========================
-File/directory permissions
-==========================
 
-..  todo: This describes the situation in Classic mode installations only
+In classic TYPO3 installations, all TYPO3 files (Core, extensions, uploads) are located
+inside the web server's document root. This increases the risk of file exposure or
+accidental manipulation, making secure filesystem permissions essential.
 
-The correct and secure setup of the underlying server is an essential
-prerequisite for a secure web application. Well-considered access
-permissions on files and directories are an important part of this
-strategy. However, too strict permissions may stop TYPO3 from working
-properly and/or restrict integrators or editors from using all
-features of the CMS. The section
-:ref:`TYPO3 administration <t3coreapi:administration>`
-provides further information about the install procedure.
+**Recommendations:**
 
-We do not need to mention that only privileged system users should
-have read/write access to files and directories inside the web root.
-In most cases these are only users such as "root" and the user, that
-the web server runs as (e.g. `www-data`). On some systems (e.g. shared
-hosting environments), the web server user can be a specific user,
-depending on the system configuration.
+-   On shared hosting, ensure each virtual host runs under a separate system user.
+-   Revoke write access for the web server user to the TYPO3 core source directories,
+    especially :file:`typo3/sysext/` (core system extensions) and :file:`vendor/`
+-   Allow write access only to:
 
-An important security measure for systems on which multiple users run
-their websites (e.g. various clients on a shared server) is to ensure
-that one user cannot access files in another client's web root. This
-server misconfiguration of file/directory permissions may occur if all
-virtual hosts run as the same user, for example the default web server
-user. The risk with this setup is, that a script on another virtual
-host includes files from the TYPO3 instance or writes or manipulates
-files. The TYPO3 configuration file :file:`config/system/settings.php`, which
-contains sensitive data, would be a typical example.
+    -   :file:`fileadmin/`
+    -   :file:`typo3temp/`
 
-Besides the strict separation between multiple virtual hosts, it is
-possible to revoke any write permissions for the web server user (e.g.
-`www-data`) to the TYPO3 source directory in general. In other words:
-only allow write access to resources, the web server user requires to
-have write access for, such as :file:`fileadmin/`, :file:`typo3conf/`,
-:file:`typo3temp/`.
+    - Only grant write access to subdirectories within :file:`typo3conf/` as needed:
 
-On UNIX/Linux based systems, a secure configuration can be achieved by
-setting the owner and group of directories and files correctly, as
-well as their specific access rights (read/write/execute). Even if
-users need write access to the :file:`fileadmin/` directory (besides the web
-server user), this can be technically achieved.
+    -   :file:`typo3conf/ext/`, :file:`typo3conf/autoload/`, :file:`typo3conf/PackageStates.php`:
+        Required if you want to install or update extensions using the Extension Manager.
 
-It is not recommended to allow TYPO3 editors and other unprivileged
-users FTP, SFTP, SSH, WebDAV, etc. access to the web server's root
-directory or any sub-directory of it. See :ref:`other services <security-other-services>`
-for further explanations.
+    -   :file:`typo3conf/sites/`: Stores site configuration; writable if managing sites
+        through the backend.
+
+    -   :file:`typo3conf/system/`: Stores system settings; writable if modifying settings
+        via the Admin Tools → Settings module.
+
+    -   :file:`typo3conf/l10n/`: Must be writable to allow downloading or updating
+        translation files via the Admin Tools.
+
+-   The rest of the :file:`typo3conf/` directory should remain read-only to the
+    web server where possible.
+
+-   On UNIX/Linux systems, enforce appropriate user/group ownership and permissions
+    (e.g., `chmod`, `chown`).
+
+..  _security-check-permissions-admin-tools:
+
+Check file permissions in the backend
+=====================================
+
+TYPO3 provides a built-in backend tool to verify directory permissions.
+
+You can access it via:
+
+:guilabel:`Admin Tools > Environment > Directory Status`
+
+This view lists key directories such as :file:`fileadmin/`, :file:`config/`,
+:file:`var/`, and others, and shows whether the current web server user has
+the recommend level of access.
+
+Use this tool to confirm that required directories are writable after
+deployment or when debugging permission-related issues.
