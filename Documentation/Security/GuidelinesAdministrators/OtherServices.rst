@@ -16,18 +16,18 @@ These safeguards are bypassed if services like :abbr:`FTP (File Transfer Protoco
 :abbr:`WebDAV (Web Distributed Authoring and Versioning)` allow direct file
 uploads—commonly into :file:`fileadmin/`.
 
-Such access can enable:
+Such access can lead to:
 
 -   Upload of malicious scripts
--   Overwriting TYPO3 Core files
+-   TYPO3 Core files being overwritten
 -   Abuse via leaked credentials
 
 Recommended actions:
 
 -   **Disable FTP/SFTP/SSH access** to the document root for users.
--   **Use the TYPO3 backend** for all file uploads.
--   **Enforce secure upload policies** through TYPO3’s file storage configuration.
+-   **Use the TYPO3 backend** for file uploads.
+-   **Enforce secure upload policies** in the TYPO3 file storage configuration.
 
 ..  warning::
-    The TYPO3 Security Team considers FTP insecure due to lack of encryption.
+    The TYPO3 Security Team considers FTP to be insecure due to the lack of encryption.
     **Do not use FTP under any circumstances.**
