@@ -10,6 +10,6 @@ $GLOBALS['TYPO3_CONF_VARS']['LOG']['TYPO3']['CMS']['Core']['Authentication']['wr
     LogLevel::INFO => [
         FileWriter::class => [
             'logFile' => Environment::getVarPath() . '/log/typo3_auth.log',
-        ]
-    ]
+        ],
+    ],
 ];
