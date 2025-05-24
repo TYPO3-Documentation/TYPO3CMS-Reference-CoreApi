@@ -159,3 +159,19 @@ be applied to every environment of yours, and that is not managed through
     The file :file:`settings.php` is used by TYPO3 to store changes made through
     the GUI of the backend. :file:`additional.php` always has the higher
     priority, so configuration values there will overwrite the GUI configuration.
+
+.. _multi-environment-best-practices:
+
+Best practices for managing multiple environments
+=================================================
+
+TYPO3 projects often go through various stages, such as local development, integration, staging, and production.
+
+For an overview of typical environment workflows, stable product promotion strategies, and team collaboration best practices,
+refer to the following chapters:
+
+..  seealso::
+
+    -   :ref:`Multi-stage environment workflow <multi-stage-environment-workflow>`
+    -   :ref:`Synchronizing database content <multi-stage-environment-database-management>`
+    -   :ref:`Synchronizing user-uploaded files <multi-stage-environment-user-upload-management>`
