@@ -95,13 +95,13 @@ security problem can be confirmed, the Security Team tries to get in
 touch with the extension developer and requests a fix. Then one of the
 following situations usually occurs:
 
-* the developer acknowledges the security vulnerability and delivers a
-  fix
-* the developer acknowledges the security vulnerability but does not
-  provide a fix
-* the developer refuses to produce a security fix (e.g. because he does
-  not maintain the extension anymore)
-* the developer cannot be contacted or does not react
+*   the developer acknowledges the security vulnerability and delivers a
+    fix
+*   the developer acknowledges the security vulnerability but does not
+    provide a fix
+*   the developer refuses to produce a security fix (e.g. because he does
+    not maintain the extension anymore)
+*   the developer cannot be contacted or does not react
 
 In the case where the extension author fails to provide a security fix
 in an appropriate time frame (see below), all affected versions of the
@@ -123,6 +123,6 @@ follow this procedure as well and coordinate the release of the fixed
 version with the TYPO3 Security Team.
 
 Further details about the handling of security incidents and time
-frames can be found in the official TYPO3 Extension Security Policy at
-`https://typo3.org/community/teams/security/extension-security-policy/
+frames can be found in the official
+`TYPO3 Extension Security Policy
 <https://typo3.org/community/teams/security/extension-security-policy/>`_
