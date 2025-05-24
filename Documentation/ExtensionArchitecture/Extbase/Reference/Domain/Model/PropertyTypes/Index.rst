@@ -240,6 +240,102 @@ ViewHelper <f:format.date> <https://docs.typo3.org/permalink/t3viewhelper:typo3-
         ..  literalinclude:: _codesnippets/_Date.html
             :caption: packages/my_extension/Resources/Private/Templates/Date/Show.html
 
+..  _extbase-model-datetime-consistency:
+
+Consistent DateTime handling
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+..  versionadded:: 13.4.12
+    Consistent `DateTime` handling across Extbase, FormEngine, and DataHandler was introduced.
+    Enabled via the feature flag :php:`extbase.consistentDateTimeHandling`.
+
+With the feature flag :php:`extbase.consistentDateTimeHandling`, Extbase aligns
+its DateTime mapping logic with the behavior of FormEngine and DataHandler.
+
+The following changes apply when the feature is enabled:
+
+*   Timezone offsets in :php:`\DateTime` objects are preserved correctly during persistence.
+*   :php:`DateTime` instances for integer-based time fields use named timezones (e.g. `Europe/Berlin`)
+    rather than offset-only values (`+01:00`).
+*   Time-only fields (`format=time`, `format=timesec`) are interpreted as seconds since midnight,
+    mapped to `1970-01-01` in local time, not as UNIX timestamps.
+*   `00:00:00` is treated as a valid midnight value even for nullable fields.
+*   All time values are initialized with `1970-01-01` rather than the current day,
+    improving stability across contexts.
+
+To enable the feature:
+
+..  code-block:: php
+
+    $GLOBALS['TYPO3_CONF_VARS']['SYS']['features']['extbase.consistentDateTimeHandling'] = true;
+
+For a detailed explanation of each behavior, see the
+`changelog entry for issue #106467 <https://docs.typo3.org/permalink/changelog:important-106467-1743452295>`_.
+
+..  _extbase-model-country:
+
+Country model type
+------------------
+
+..  versionadded:: 14.0
+
+When using Extbase Controllers to fetch Domain Models containing
+properties declared with the :php:`\TYPO3\CMS\Core\Country\Country` type,
+these models can be used with their getters, and passed along to Fluid
+templates.
+
+..  tabs::
+
+    ..  group-tab:: Controller
+
+        ..  literalinclude:: _codesnippets/_CountryController.php
+            :caption: packages/my_extension/Classes/Controller/TeaSupplyController.php
+
+        See chapter `Country API <https://docs.typo3.org/permalink/t3coreapi:country-api>`_
+        for more information on how to use countries in PHP.
+
+    ..  group-tab:: Model
+
+        ..  literalinclude:: _codesnippets/_Country.php
+            :caption: packages/my_extension/Classes/Domain/Model/Tea.php
+
+        Keep in mind that Extbase does not automatically validate country TCA
+        definitions for properties.
+
+        This means that if you restrict allowed countries using
+        :ref:`filter.onlyCountries <t3tca:confval-country-filter-onlycountries>`
+        in the TCA, you must also enforce the same constraint in your frontend
+        logic.
+
+        It is recommended to use
+        `Extbase Validators <https://docs.typo3.org/permalink/t3coreapi:extbase-validation>`__
+        for this task.
+
+    ..  group-tab:: TCA
+
+        ..  literalinclude:: _codesnippets/_country_tca.php
+            :caption: packages/my_extension/Configuration/TCA/tx_myextension_domain_model_tea.php
+
+        See also `Country picker TCA type <https://docs.typo3.org/permalink/t3tca:columns-country>`_.
+
+    ..  group-tab:: Fluid
+
+        ..  literalinclude:: _codesnippets/_Country.html
+            :caption: packages/my_extension/Resources/Private/Templates/TeaSupply/ShowTeaForm.html
+
+        You can access any :php:`getXXX()` methods from the
+        `Country API <https://docs.typo3.org/permalink/t3coreapi:country-api>`_
+        using Fluid syntax such :html:`{model.country.XXX}` accessors.
+
+        To modify country values in forms, use the
+        `Form.countrySelect ViewHelper <f:form.countrySelect> <https://docs.typo3.org/permalink/t3viewhelper:typo3-fluid-form-countryselect>`_.
+
+A complete example of using Extbase with the
+`Country API <https://docs.typo3.org/permalink/t3coreapi:country-api>`_
+is available in the
+`EXT:tca_country_example <https://packagist.org/packages/garvinhicking/tca-country-example>`_
+demo extension.
+
 ..  _extbase-model-enumerations:
 
 Enumerations as Extbase model property
