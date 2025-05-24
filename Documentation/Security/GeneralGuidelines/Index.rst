@@ -1,17 +1,19 @@
-.. include:: /Includes.rst.txt
-.. index:: ! Security guidelines
-.. _security-general-guidelines:
+:navigation-title: Guidelines
 
-==================
-General guidelines
-==================
+..  include:: /Includes.rst.txt
+..  index:: ! Security guidelines
+..  _security-general-guidelines:
+
+===========================
+General security guidelines
+===========================
 
 The recommendations in this chapter apply for all roles: system
 administrators, TYPO3 integrators, editors and strictly speaking even
 for (frontend) users.
 
-.. index:: pair: Security guidelines; passwords
-.. _security-secure-passwords:
+..  index:: pair: Security guidelines; passwords
+..  _security-secure-passwords:
 
 Secure passwords
 ================
@@ -20,32 +22,32 @@ It is critical that every user is using secure passwords to
 authenticate themselves at systems like TYPO3. Below are rules that
 should be implemented in a password policy:
 
-#. Ensure that the passwords you use have a minimum length of 8 or more
-   characters.
+#.  Ensure that the passwords you use have a minimum length of 8 or more
+    characters.
 
-#. Passwords should have a mix of upper and lower case letters, numbers
-   and special characters.
+#.  Passwords should have a mix of upper and lower case letters, numbers
+    and special characters.
 
-#. Passwords should not be made up of personal information such as names,
-   nick names, pet's names, birthdays, anniversaries, etc.
+#.  Passwords should not be made up of personal information such as names,
+    nick names, pet's names, birthdays, anniversaries, etc.
 
-#. Passwords should not be made out of common words that can be found in
-   dictionaries.
+#.  Passwords should not be made out of common words that can be found in
+    dictionaries.
 
-#. Do not store passwords on Post-it notes, under your desk cover, in
-   your wallet, unencrypted on USB sticks or somewhere else.
+#.  Do not store passwords on Post-it notes, under your desk cover, in
+    your wallet, unencrypted on USB sticks or somewhere else.
 
-#. Always use a different password for different logins! Never use the
-   same password for your e-mail account, the TYPO3 backend, an online
-   forum and so on.
+#.  Always use a different password for different logins! Never use the
+    same password for your e-mail account, the TYPO3 backend, an online
+    forum and so on.
 
-#. Change your passwords in regular intervals but not too often (this
-   would make remembering the correct password too difficult) and avoid
-   to re-use the last 10 passwords.
+#.  Change your passwords in regular intervals but not too often (this
+    would make remembering the correct password too difficult) and avoid
+    to re-use the last 10 passwords.
 
-#. Do not use the "stay logged in" feature on websites and do not store
-   passwords in applications like FTP clients. Enter the password
-   manually every time you log in.
+#.  Do not use the "stay logged in" feature on websites and do not store
+    passwords in applications like FTP clients. Enter the password
+    manually every time you log in.
 
 A good rule for a secure password would be that a search engine such
 as Google should deliver no results if you would search for it. Please
@@ -66,9 +68,8 @@ knowledge of the owner) and log your keyboard input.
     Since TYPO3 v12.0 password policies can be configured in backend and/or
     frontend context. Have a look into the chapter :ref:`password-policies`.
 
-
-.. _security-update-operating-system:
-.. _security-update-browser:
+..  _security-update-operating-system:
+..  _security-update-browser:
 
 Operating System and Browser Version
 ====================================
@@ -82,8 +83,7 @@ immediately or at least as soon as possible.
 It is also recommended to use appropriate tools for detecting viruses,
 Trojans, keyloggers, rootkits and other "malware".
 
-
-.. _security-communication:
+..  _security-communication:
 
 Communication
 =============
@@ -98,9 +98,7 @@ for coordinating these actions, is generally a good idea. This also
 lets others (e.g. integrators, editors, end-users) know, to whom they
 can report issues.
 
-
-
-.. _security-react-quickly:
+..  _security-react-quickly:
 
 React Quickly
 =============
@@ -129,8 +127,8 @@ The security bulletins may also include specific advice such as
 configuration changes or similar. Check your individual TYPO3 instance
 and follow these recommendations.
 
-.. index:: pair: Security guidelines; TYPO3 update
-.. _security-updating-typo3:
+..  index:: pair: Security guidelines; TYPO3 update
+..  _security-updating-typo3:
 
 Keep the TYPO3 Core up-to-date
 ==============================
@@ -159,8 +157,8 @@ web root directory (so they are not accessible via web requests) as
 a general rule and use symbolic links inside the web root to point to
 the correct and secure TYPO3 version.
 
-.. index:: pair: Security guidelines; Extensions update
-.. _security-updating-extensions:
+..  index:: pair: Security guidelines; Extensions update
+..  _security-updating-extensions:
 
 Keep TYPO3 Extensions Up-to-date
 ================================
@@ -199,8 +197,8 @@ an existing insecure extension, before installing the new version, he/she
 often introduces the risk of leaving the (insecure) copy on the web
 server. For example:
 
-.. code-block:: none
-   :caption: Remove old extensions, dont rename
+..  code-block:: none
+    :caption: Remove old extensions, dont rename
 
     typo3conf/ext/insecure_extension.bak
     typo3conf/ext/insecure_extension.delete_me
@@ -215,8 +213,8 @@ The advice is to move the directory of the old version outside of the
 web root directory, so the insecure extension code is not accessible.
 
 
-.. index:: pair: Security guidelines; Staging servers
-.. _security-staging-servers:
+..  index:: pair: Security guidelines; Staging servers
+..  _security-staging-servers:
 
 Use staging servers for developments and tests
 ==============================================
