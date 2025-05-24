@@ -17,7 +17,7 @@ to automate and test them, see:
 For full recommendations on how to handle backups securely, see
 :ref:`Backup strategy <administration-backups>`.
 
-.. _security-backup-risk:
+..  _security-backup-risk:
 
 Avoid exposed backups in the web root
 =====================================
