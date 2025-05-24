@@ -175,7 +175,7 @@ A common rotation strategy might include:
 This approach balances storage usage with the ability to restore older states if needed.
 
 For security-related guidance on why longer retention matters (e.g., delayed attack detection),
-see :ref:`Backup retention for security incidents <security-backup-retention-strategy>`.
+see :ref:`Backup retention for security incidents <security-backups-time-plan>`.
 
 ..  index:: Backup; Location
 ..  _security-backup-location:
