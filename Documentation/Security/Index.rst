@@ -34,5 +34,4 @@ situation.
     GuidelinesExtensionDevelopment/Index
     GuidelinesIntegrators/Index
     GuidelinesEditors/Index
-    Backups/Index
     HackedSite/Index
