@@ -14,7 +14,6 @@ can also be a security risk if stored in the web root or transmitted without enc
 For full recommendations on what to back up, how to store backups securely, and how
 to automate and test them, see:
 
-
 For full recommendations on how to handle backups securely, see
 :ref:`Backup strategy <administration-backups>`.
 
