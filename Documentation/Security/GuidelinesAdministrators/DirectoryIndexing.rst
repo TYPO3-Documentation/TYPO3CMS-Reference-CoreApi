@@ -16,8 +16,8 @@ This section explains how to disable directory indexing for TYPO3 across
 common web servers.
 
 ..  contents::
-   :depth: 1
-   :local:
+    :depth: 1
+    :local:
 
 ..  _security-directory-indexing-apache:
 
