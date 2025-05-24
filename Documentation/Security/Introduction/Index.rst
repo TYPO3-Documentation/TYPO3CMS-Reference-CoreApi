@@ -30,4 +30,4 @@ If you would like to report a security issue in a TYPO3 extension or
 the TYPO3 Core  system, please report it to the TYPO3 Security Team.
 Please refrain from making anything public before an official fix is
 released. Read more about the process of incident handling by the
-:ref:`TYPO3 Security Team`.
+:ref:`TYPO3 Security Team <security-team>`.
