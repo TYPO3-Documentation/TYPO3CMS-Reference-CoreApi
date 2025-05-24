@@ -1,0 +1,28 @@
+services:
+  db:
+    image: mariadb:10.6
+    container_name: compose-demo-typo3db
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: db
+      MYSQL_USER: db
+      MYSQL_PASSWORD: db
+    volumes:
+      - db_data:/var/lib/mysql
+
+  web:
+    image: martinhelmich/typo3:latest
+    container_name: compose-demo-typo3
+    # Using linux? Uncomment the line below and use CURRENT_UID=$(id -u):$(id -g) docker-compose up to run
+    # user: ${CURRENT_UID}
+    ports:
+      - "8081:80"
+    depends_on:
+      - db
+    volumes:
+      - ./fileadmin:/var/www/html/fileadmin
+      - ./typo3conf:/var/www/html/typo3conf
+      - ./typo3temp:/var/www/html/typo3temp
+
+volumes:
+  db_data:
