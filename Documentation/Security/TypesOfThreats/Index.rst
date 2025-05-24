@@ -1,5 +1,7 @@
-.. include:: /Includes.rst.txt
-.. _security-threats:
+:navigation-title: Security Threats
+
+..  include:: /Includes.rst.txt
+..  _security-threats:
 
 =========================
 Types of Security Threats
@@ -10,8 +12,8 @@ threats to give the reader a basic understanding of them. The sections
 for system administrators, TYPO3 integrators and editors explain in
 more detail how to secure a system against those threats.
 
-.. index:: pair: Security; Information disclosure
-.. _security-information-disclosure:
+..  index:: pair: Security; Information disclosure
+..  _security-information-disclosure:
 
 Information disclosure
 ======================
@@ -34,8 +36,8 @@ or a specific version of TYPO3 is used. Security experts say, that
 solve the root of a problem (e.g. a security vulnerability) but tries
 to obscure the facts only.
 
-.. index:: pair: Security; Identity theft
-.. _security-identity-theft:
+..  index:: pair: Security; Identity theft
+..  _security-identity-theft:
 
 Identity theft
 ==============
@@ -47,10 +49,10 @@ by criminals for fraud or financial gains. The server running a TYPO3
 website should be secured so that no data can be retrieved without the
 consent of the owner of the website.
 
-.. index::
+..  index::
    SQL; Injection
    pair: Security; SQL injections
-.. _security-sql-injection:
+..  _security-sql-injection:
 
 SQL injection
 =============
@@ -64,8 +66,8 @@ necessary to carefully analyze and filter any parameters that are used
 in a database query.
 
 
-.. index:: pair: Security; Code injection
-.. _security-code-injection:
+..  index:: pair: Security; Code injection
+..  _security-code-injection:
 
 Code injection
 ==============
@@ -83,8 +85,8 @@ for example reveal system internal files which contain configuration
 settings, passwords, encryption keys, etc.
 
 
-.. index:: pair: Security; Authentication bypass
-.. _security-authorization-bypass:
+..  index:: pair: Security; Authentication bypass
+..  _security-authorization-bypass:
 
 Authentication bypass
 =====================
@@ -98,11 +100,11 @@ solutions. The code quality and security aspects may vary, see chapter
 :ref:`Guidelines for TYPO3 Integrators: TYPO3 extensions
 <security-extensions>` for further details.
 
-.. index::
+..  index::
    ! Cross-site scripting
    XSS
    see: XSS; Cross-site scripting
-.. _security-xss:
+..  _security-xss:
 
 Cross-site scripting (XSS)
 ==========================
@@ -122,11 +124,11 @@ load code from a 3rd party website.
 Implementing :ref:`Content Security Policy <content-security-policy>` headers
 can reduce the risk of cross-site scripting.
 
-.. index::
+..  index::
    ! Cross-site request forgery
    XSRF
    see: XSRF; Cross-site request forgery
-.. _security-xsrf:
+..  _security-xsrf:
 
 Cross-site request forgery (XSRF)
 =================================

@@ -1,15 +1,41 @@
-.. include:: /Includes.rst.txt
-.. index:: Security guidelines; Integrators
-.. _security-integrators:
+:navigation-title: Integration
 
-================================
-Guidelines for TYPO3 integrators
-================================
+..  include:: /Includes.rst.txt
+..  index:: Security guidelines; Integrators
+..  _security-integrators:
 
-.. index::
+=========================================
+Security guidelines for TYPO3 integrators
+=========================================
+
+TYPO3 integrators are responsible for configuring and customizing the system,
+installing extensions, and managing backend access. Their work plays a critical
+role in the overall security of a TYPO3 site.
+
+This chapter outlines key responsibilities and security recommendations for
+TYPO3 integrators.
+
+
+Please see the chapters below for further security related topics of interest
+for integrators:
+
+..  toctree::
+    :titlesonly:
+    :caption: Further topics
+
+    InstallTool
+    GlobalTypo3Options
+    SecurityWarningsAfterLogin
+    ReportsAndLogs
+    AccessPrivileges
+    Extensions
+    Typoscript
+    ContentElements
+
+..  index::
    Security guidelines; User roles
    Security guidelines; Integrator role
-.. _security-integrator-definition:
+..  _security-integrator-definition:
 
 Role definition
 ===============
@@ -40,8 +66,8 @@ The role of a TYPO3 integrator often overlaps with a system
 administrator and often one person is in both roles.
 
 
-.. index:: Security guidelines; General rules
-.. _security-integrator-rules:
+..  index:: Security guidelines; General rules
+..  _security-integrator-rules:
 
 General rules
 =============
@@ -55,38 +81,19 @@ below.
 
 In addition, the following general rules apply for a TYPO3 integrator:
 
-#. Ensure backend users only have the permissions they need to do their
-   work, nothing more – and especially no administrator privileges, see
-   explanations below.
+#.  Ensure backend users only have the permissions they need to do their
+    work, nothing more – and especially no administrator privileges, see
+    explanations below.
 
-#. Ensure, the TYPO3 sites they are responsible for, always run a stable
-   and secure TYPO3 Core  version and always and only contain secure extensions
-   (integrators update them immediately if a vulnerability has been
-   discovered).
+#.  Ensure, the TYPO3 sites they are responsible for, always run a stable
+    and secure TYPO3 Core  version and always and only contain secure extensions
+    (integrators update them immediately if a vulnerability has been
+    discovered).
 
-#. Stay informed about TYPO3 Core  updates. Integrators should know the
-   changes when new TYPO3 major versions are released and should be aware
-   of the impacts and risks of an update.
+#.  Stay informed about TYPO3 Core  updates. Integrators should know the
+    changes when new TYPO3 major versions are released and should be aware
+    of the impacts and risks of an update.
 
-#. Integrators check for extension updates regularly and/or they know how
-   to configure a TYPO3 system to notify them about new extension
-   versions.
-
-
-Further topics
-==============
-
-Please see the chapters below for further security related topics of interest
-for integrators:
-
-.. toctree::
-   :titlesonly:
-
-   InstallTool
-   GlobalTypo3Options
-   SecurityWarningsAfterLogin
-   ReportsAndLogs
-   AccessPrivileges
-   Extensions
-   Typoscript
-   ContentElements
+#.  Integrators check for extension updates regularly and/or they know how
+    to configure a TYPO3 system to notify them about new extension
+    versions.
