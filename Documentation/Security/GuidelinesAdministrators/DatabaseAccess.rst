@@ -1,94 +1,135 @@
-.. include:: /Includes.rst.txt
-.. index:: pair: Security guidelines; Database access
-.. _security-database-access:
+:navigation-title: Database access
 
-===============
-Database access
-===============
+..  include:: /Includes.rst.txt
+..  index:: pair: Security guidelines; Database access
+..  _security-database-access:
 
-The TYPO3 database contains all data of backend and frontend users and
-therefore special care must be taken not to grant unauthorized access.
+======================
+Secure database access
+======================
 
+The TYPO3 database stores all user data (both backend and frontend), along with
+critical configuration and content. It is essential to protect this data from
+unauthorized access.
 
-.. index::
-   Database; Secure passwords
-   Database; Access privileges
+These recommendations apply to both self-managed and shared hosting environments.
 
-Secure passwords and minimum access privileges with MySQL
-=========================================================
+If you are using managed or shared hosting, you may not be responsible for
+configuring the database yourself. However, it is still important to ensure
+that your TYPO3 installation uses a dedicated database user with limited
+permissions. If you are unsure, ask your hosting provider whether the database
+user has access only to your TYPO3 database and is restricted to the minimum
+required privileges.
 
-If using MySQL, the privilege system authenticates a (database-)user who
-connects from the TYPO3 host (which is possibly on the same machine)
-and associates that user with privileges on a database. These
-privileges are for example: SELECT, INSERT, UPDATE, DELETE, etc.
+..  contents:: Table of contents
 
-When creating this user, follow the guidelines for :ref:`secure passwords
-<security-secure-passwords>`. The name of the user should definitely not be `root`,
-`admin`, `typo3`, etc. You should create a database specific user with
-limited privileges for accessing this database from TYPO3. Usually this
-user does not require access to any other databases and the database
-of your TYPO3 instance should usually only have one associated
-database user.
+..  index::
+    Database; Secure passwords
+    Database; Access privileges
 
-MySQL and other database systems provide privileges that apply at
-different levels of operation. It depends on your individual system
-and setup which privileges the database user needs (SELECT, INSERT,
-UPDATE and some more are essential of course) but privileges like LOCK
-TABLES, FILE, PROCESS, CREATE USER, RELOAD, SHUTDOWN, etc. are in the
-context of administrative privileges and not required in most cases.
+.. _security-database-git:
 
-See the documentation of your database system on how to set up
-database users and access privileges.
+Do not store credentials in version control
+===========================================
 
+Database credentials and other sensitive information should never be stored in
+Git or any other version control system.
 
-.. index::
-   Database; SQLite
-   pair: Security guidelines; SQLite
+For example, do not commit files such as:
 
-Database not within web document root with SQLite
-=================================================
+-   :file:`.env`
+-   :file:`config/system/settings.php` (if it contains credentials directly)
 
-If using SQLite as underlying database, a database is stored in a single
-file. In TYPO3, its default location is the :ref:`var/sqlite <Environment-var-path>` path
-of the instance which is derived from environment variable :php:`TYPO3_PATH_APP`. If that
-variable is **not** set which is often the case in not Composer based instances, **the database
-file will end up in the web server accessible document root directory :file:`typo3conf/`**!
-In such a setup it is important to configure Web servers to not deliver :file:`.sqlite` files.
+Exposing credentials publicly, or even within internal team repositories,
+creates unnecessary risk.
 
+**Recommendation:** Use environment-specific configuration and exclude
+credential files from version control using mechanisms like :file:`.gitignore`.
 
-Disallow external access
-========================
+For more information and best practices, see:
+:ref:`Avoid storing credentials in version control <t3coreapi:version-control-credentials>`.
 
-The database server should only be reachable from the server that your
-TYPO3 installation is running on. Make sure to disable any access from
-outside of your server or network (settings in firewall rules) and/or
-do not bind the database server to a network interface.
+..  _security-database-mysql-access:
 
-If you are using MySQL, read the chapter
-`Server Options <https://dev.mysql.com/doc/refman/8.0/en/server-option-variable-reference.html>`_
-in the manual and check for the "skip-networking" and "bind-address" options
-in particular.
+Use strong passwords and limit privileges
+=========================================
 
+When using MySQL, database users must authenticate before connecting.
+Permissions are granted at various levels (for example, per database,
+per table, or per action such as SELECT or INSERT).
 
-.. index::
+**Best practices:**
+
+-   Use a secure password for the TYPO3 database user. See
+    :ref:`secure password guidelines <security-secure-passwords>`.
+-   Do **not** use obvious usernames like `root`, `admin`, or `typo3`.
+-   Create a dedicated user with **access only to the TYPO3 database**, and only
+    with the permissions it requires (SELECT, INSERT, UPDATE, DELETE, etc.).
+-   Avoid granting administrative privileges such as `LOCK TABLES`, `FILE`,
+    `PROCESS`, `RELOAD`, or `SHUTDOWN` unless absolutely necessary.
+
+..  index::
+    Database; SQLite
+    pair: Security guidelines; SQLite
+
+..  _security-database-sqlite:
+
+Keep SQLite files out of the web root
+=====================================
+
+SQLite stores the database in a single file. By default, TYPO3 places this file
+in the :ref:`var/sqlite <Environment-var-path>` directory, derived from the
+:php:`TYPO3_PATH_APP` environment variable.
+
+**Warning:** In non-Composer installations, if :php:`TYPO3_PATH_APP` is not set,
+the SQLite file may be created in :file:`typo3conf/`, which is inside the web
+server's document root and publicly accessible.
+
+If you are using SQLite:
+
+-   Ensure that `.sqlite` files are **not accessible via the web server**
+-   Move the database file outside of the document root if possible
+
+..  _security-database-restrict-access:
+
+Restrict database server access
+===============================
+
+The database server should only accept connections from the TYPO3 application
+host. It must never be exposed to the public internet.
+
+**Recommended actions:**
+
+-   Configure firewalls to block external access to the database port
+-   Ensure the database server is bound only to `localhost` or a private network
+-   For MySQL, review the options `skip-networking` and `bind-address` in the
+    official documentation:
+    `MySQL Server Options <https://dev.mysql.com/doc/refman/8.0/en/server-option-variable-reference.html>`_
+
+..  index::
     pair: Security guidelines; Database administration tools
     pair: Security guidelines; phpMyAdmin
 
-Database administration tools
-=============================
+..  _security-database-admin-tools:
 
-`phpMyAdmin` and similar tools intend to allow the administration of
-MySQL database servers over the Web. Under certain circumstances, it
-might be required to access the database "directly", during a project
-development phase for example. Tools like `phpMyAdmin` (also available
-as a TYPO3 extension by the way) cause extra effort for ongoing
-maintenance (regular updates of these tools are required to ensure a
-minimum level of security). If they are not avoidable by any chance,
-the standalone version with an additional web server's access
-authentication (e.g. Apache's :file:`.htaccess` mechanism) should be used at
-least.
+Avoid web-based database tools in production
+============================================
 
-However, due to the fact that a properly configured TYPO3 system does
-not require direct access to the database for editors or TYPO3
-integrators, those applications should not be used on a production
-site at all.
+Tools like `phpMyAdmin` provide web access to the database for administrative
+tasks. While sometimes helpful during development, they increase the attack
+surface in production environments.
+
+If such tools must be used:
+
+-   Protect them with additional access controls, such as HTTP authentication
+    (for example, Apache `.htaccess`)
+-   Keep them updated to patch known vulnerabilities
+
+For local development or secure remote access, prefer standalone database
+clients such as `HeidiSQL <https://www.heidisql.com/>`_, `DBeaver <https://dbeaver.io/>`_,
+or `MySQL Workbench <https://www.mysql.com/products/workbench/>`_. These tools
+connect directly to the database server and do not expose a web interface,
+reducing the attack surface.
+
+**Recommendation:** Do not use phpMyAdmin or similar tools on live TYPO3 sites.
+All regular access to the database should be managed through TYPO3 or CLI tools.
