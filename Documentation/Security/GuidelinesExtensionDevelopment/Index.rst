@@ -1,18 +1,22 @@
-.. include:: /Includes.rst.txt
-.. index:: Security guidelines; Extension development
-.. _security-extension-development:
+:navigation-title: Extension development
 
-=====================================
-Guidelines for extension development
-=====================================
+..  include:: /Includes.rst.txt
+..  index:: Security guidelines; Extension development
+..  _security-extension-development:
 
-Insecure extensions can compromise the integrity of your TYPO3 installations database
-and can potentially lead to sensitive information being exposed.
+============================================
+Security guidelines for extension developers
+============================================
 
-In this section, we cover some relevant security best practices that are implemented by Extbase.
+TYPO3 extensions can introduce critical vulnerabilities if not securely coded.
+This chapter outlines secure development practices for extension developers,
+with a focus on user input handling, database queries, and protecting against
+common attacks such as SQL injection and cross-site scripting (XSS).
 
-.. index:: Security; User Input
-.. _never-trust-user-input:
+..  contents:: Table of contents
+
+..  index:: Security; User Input
+..  _never-trust-user-input:
 
 Never trust user input
 ======================
@@ -33,8 +37,8 @@ or parameters like :ref:`eval <t3tca:columns-input-properties-eval>`. In
 Extbase the :ref:`validating framework <extbase_validation>` can
 be helpful.
 
-.. index:: Security; Database Queries
-.. _create-your-own-database-queries:
+..  index:: Security; Database Queries
+..  _create-your-own-database-queries:
 
 Create your own database queries
 ================================
@@ -48,26 +52,26 @@ All SQL queries should be made in a dedicated class called a repository. This
 applies to Extbase queries, Doctrine DBAL :ref:`QueryBuilder
 <database-query-builder>` queries and pure SQL queries.
 
-.. attention::
-   **Always** escape any user input with
-   :ref:`createNamedParameter() <database-query-builder-create-named-parameter>`
-   in queries created by the QueryBuilder.
+..  attention::
+    **Always** escape any user input with
+    :ref:`createNamedParameter() <database-query-builder-create-named-parameter>`
+    in queries created by the QueryBuilder.
 
 
-.. index:: Security; Trusted properties
-.. _trusted-properties:
+..  index:: Security; Trusted properties
+..  _trusted-properties:
 
 Trusted properties (Extbase Only)
 ==================================
 
-.. danger::
+..  danger::
 
-   Be aware that request hashes (HMAC) do not protect against **Identity** field manipulation.
-   An attacker can modify the identity field value and can then update the value of
-   another record, even if they do not usually have access to it. You have to
-   implement your own validation for the Identity field value (verify ownership
-   of the record, add another hidden field that validates the identity field
-   value).
+    Be aware that request hashes (HMAC) do not protect against **Identity** field manipulation.
+    An attacker can modify the identity field value and can then update the value of
+    another record, even if they do not usually have access to it. You have to
+    implement your own validation for the Identity field value (verify ownership
+    of the record, add another hidden field that validates the identity field
+    value).
 
 In Extbase there is transparent argument mapping applied: All properties that
 are to be sent are changed transparently on the object. Certainly, this
@@ -80,27 +84,27 @@ changed in our system).
 
 The form looks like this:
 
-.. code-block:: html
-   :caption: EXT:blog_example/Resources/Private/Templates/SomeTemplate.html
+..  code-block:: html
+    :caption: EXT:blog_example/Resources/Private/Templates/SomeTemplate.html
 
-   <f:form name="user" object="{user}" action="update">
-      <f:form.textbox property="email" />
-      <f:form.textbox property="password" />
-      <f:form.textbox property="description" />
-   </f:form>
+    <f:form name="user" object="{user}" action="update">
+       <f:form.textbox property="email" />
+       <f:form.textbox property="password" />
+       <f:form.textbox property="description" />
+    </f:form>
 
 If the form is sent, the argument mapping for the user object receives
 this array:
 
-.. code-block:: none
-   :caption: HTTP POST
+..  code-block:: none
+    :caption: HTTP POST
 
-   [
-      __identity => ...
-      email =>  ...
-      password => ...
-      description => ...
-   ],
+    [
+       __identity => ...
+       email =>  ...
+       password => ...
+       description => ...
+    ],
 
 Because the :php:`__identity` property and further properties
 are set, the argument mapper gets the object from the persistence layer,
@@ -136,10 +140,10 @@ this background knowledge only if you want to change data via JavaScript
 or web services.
 
 
-.. index::
-   Security; Cross-site scripting
-   Security; XSS
-.. _prevent-cross-site-scripting:
+..  index::
+    Security; Cross-site scripting
+    Security; XSS
+..  _prevent-cross-site-scripting:
 
 Prevent cross-site scripting
 ============================
@@ -155,10 +159,10 @@ Assume you have programmed a forum. An malicious user will get access
 to the admin account. To do this, they posted the following message
 in the forum to try to embed JavaScript code:
 
-.. code-block:: html
-   :caption: A simple example for XSS
+..  code-block:: html
+    :caption: A simple example for XSS
 
-   <script type="text/javascript">alert("XSS");</script>
+    <script type="text/javascript">alert("XSS");</script>
 
 When the forum post gets displayed, if the forum's programmer
 has not made any additional security precautions, a JavaScript popup "XSS" will be
@@ -195,9 +199,9 @@ Content that is output via the ViewHelper :html:`<f:format.raw>` is not
 sanitized. See
 :ref:`ViewHelper Reference, format.raw <t3viewhelper:typo3fluid-fluid-format-raw>`.
 
-.. danger::
-   Never pass unescaped content, possibly supplied by users to the
-   :html:`<f:format.raw>` ViewHelper!
+..  danger::
+    Never pass unescaped content, possibly supplied by users to the
+    :html:`<f:format.raw>` ViewHelper!
 
 If you want to output user provided content containing HTML tags that should
 not be escaped use :html:`<f:format.html>`.
@@ -209,11 +213,11 @@ Sanitation is also deactivated for
 object accessors that are used in arguments of a ViewHelper. A short
 example for this:
 
-.. code-block:: html
-   :caption: EXT:blog_example/Resources/Private/Templates/SomeTemplate.html
+..  code-block:: html
+    :caption: EXT:blog_example/Resources/Private/Templates/SomeTemplate.html
 
-   {variable1}
-   <f:format.crop append="{variable2}">a very long text</f:format.crop>
+    {variable1}
+    <f:format.crop append="{variable2}">a very long text</f:format.crop>
 
 The content of `{variable1}` is sent to
 htmlspecialchars(), the content of `{variable2}` is not
