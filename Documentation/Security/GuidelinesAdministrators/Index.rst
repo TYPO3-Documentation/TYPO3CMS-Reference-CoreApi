@@ -51,6 +51,7 @@ interest to administrators:
     FileExtensionHandling
     ContentSecurityPolicy
     DatabaseAccess
+    Backups
     EncryptedCommunication
     OtherServices
     FurtherActions
