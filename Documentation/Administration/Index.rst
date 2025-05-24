@@ -44,6 +44,12 @@ TYPO3 administration
 
         :ref:`TYPO3 Upgrade Guide <upgrading>`
 
+    .. card:: :ref:`Backup and restore TYPO3 <security-backups>`
+
+        Learn how to create secure, restorable backups of your TYPO3 project.
+        Covers essential data, file structure differences, database dumps,
+        storage strategies, and long-term retention.
+
 ..  toctree::
     :hidden:
     :glob:
@@ -55,6 +61,7 @@ TYPO3 administration
     Upgrade/Index
     SystemSettings/Index
     UserManagement/Index
+    Backups/Index
     Tuning/Index
     Troubleshooting/Index
     */Index
