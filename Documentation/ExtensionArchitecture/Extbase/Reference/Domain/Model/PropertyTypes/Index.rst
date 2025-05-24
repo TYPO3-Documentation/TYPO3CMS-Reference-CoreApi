@@ -240,6 +240,38 @@ ViewHelper <f:format.date> <https://docs.typo3.org/permalink/t3viewhelper:typo3-
         ..  literalinclude:: _codesnippets/_Date.html
             :caption: packages/my_extension/Resources/Private/Templates/Date/Show.html
 
+..  _extbase-model-datetime-consistency:
+
+Consistent DateTime handling
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+..  versionadded:: 13.4.12
+    Consistent `DateTime` handling across Extbase, FormEngine, and DataHandler was introduced.
+    Enabled via the feature flag :php:`extbase.consistentDateTimeHandling`.
+
+With the feature flag :php:`extbase.consistentDateTimeHandling`, Extbase aligns
+its DateTime mapping logic with the behavior of FormEngine and DataHandler.
+
+The following changes apply when the feature is enabled:
+
+*   Timezone offsets in :php:`\DateTime` objects are preserved correctly during persistence.
+*   :php:`DateTime` instances for integer-based time fields use named timezones (e.g. `Europe/Berlin`)
+    rather than offset-only values (`+01:00`).
+*   Time-only fields (`format=time`, `format=timesec`) are interpreted as seconds since midnight,
+    mapped to `1970-01-01` in local time, not as UNIX timestamps.
+*   `00:00:00` is treated as a valid midnight value even for nullable fields.
+*   All time values are initialized with `1970-01-01` rather than the current day,
+    improving stability across contexts.
+
+To enable the feature:
+
+..  code-block:: php
+
+    $GLOBALS['TYPO3_CONF_VARS']['SYS']['features']['extbase.consistentDateTimeHandling'] = true;
+
+For a detailed explanation of each behavior, see the
+`changelog entry for issue #106467 <https://docs.typo3.org/permalink/changelog:important-106467-1743452295>`_.
+
 ..  _extbase-model-enumerations:
 
 Enumerations as Extbase model property
