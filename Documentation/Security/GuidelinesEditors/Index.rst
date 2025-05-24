@@ -1,15 +1,22 @@
-.. include:: /Includes.rst.txt
-.. index:: Security guidelines; Editors
-.. _security-editors:
+:navigation-title: Editor security
 
-======================
-Guidelines for editors
-======================
+..  include:: /Includes.rst.txt
+..  index:: Security guidelines; Editors
+..  _security-editors:
 
-.. index::
-   pair: Security guidelines; User roles
-   pair: Security guidelines; Editor role
-.. _security-editor-definition:
+===============================
+Security guidelines for editors
+===============================
+
+While editors typically do not handle technical setup, their habits and
+awareness directly affect the security of the system.
+
+..  contents:: Table of contents
+
+..  index::
+    pair: Security guidelines; User roles
+    pair: Security guidelines; Editor role
+..  _security-editor-definition:
 
 Role definition
 ===============
@@ -49,7 +56,7 @@ do not need to have programming, database or HTML knowledge and they
 do not configure the TYPO3 instance by changing TypoScript code or templates.
 
 
-.. _security-editor-rules:
+..  _security-editor-rules:
 
 General rules
 =============
@@ -65,8 +72,8 @@ instance, a TYPO3 integrator or system administrator) if you determine
 a system setup that does not match with the guidelines described here.
 
 
-.. index:: pair: Security guidelines; Backend access
-.. _security-backend-access:
+..  index:: pair: Security guidelines; Backend access
+..  _security-backend-access:
 
 Backend access
 ==============
@@ -90,7 +97,7 @@ password to a secure one as soon as possible. You should be able to
 change your password in the *User settings* menu, reachable by clicking on your
 user name in the :ref:`top bar <backend-modules-structure>`:
 
-.. include:: /Images/AutomaticScreenshots/Security/ChangePassword.rst.txt
+..  include:: /Images/AutomaticScreenshots/Security/ChangePassword.rst.txt
 
 
 Administrator privileges
@@ -109,7 +116,7 @@ As an indicator, if you see a *Template* entry under the :guilabel:`Web`
 you definitely have the wrong permissions as an editor and you
 should get in touch with the system provider to solve this issue.
 
-.. include:: /Images/AutomaticScreenshots/AdminTools/EditorAdminPrivileges.rst.txt
+..  include:: /Images/AutomaticScreenshots/AdminTools/EditorAdminPrivileges.rst.txt
 
 
 Notify at login
@@ -122,7 +129,7 @@ user settings, you will receive an email from TYPO3 each time you (or
 notification is an additional security measure because you will know
 if someone else picked up your password and uses your account.
 
-.. include:: /Images/AutomaticScreenshots/Security/NotifyOnLogin.rst.txt
+..  include:: /Images/AutomaticScreenshots/Security/NotifyOnLogin.rst.txt
 
 Assuming you have activated this feature and you got a notification
 email but you have not logged in and you suspect that someone misuses
@@ -149,7 +156,7 @@ the person or company who hosts and/or administers the TYPO3 site.
 Discuss the options with them.
 
 
-.. _security-restrict-to-required-functions:
+..  _security-restrict-to-required-functions:
 
 Restriction to required functions
 =================================
@@ -170,8 +177,8 @@ sometimes a lack of professionalism of the system administrator,
 hosting provider or TYPO3 integrator.
 
 
-.. index:: Security guidelines; Secure connections
-.. _security-secure-connection:
+..  index:: Security guidelines; Secure connections
+..  _security-secure-connection:
 
 Secure connection
 =================
@@ -189,7 +196,7 @@ this case you may want to check the details of the certificate and let
 the hosting provider fix this.
 
 
-.. _security-logout:
+..  _security-logout:
 
 Logout
 ======
