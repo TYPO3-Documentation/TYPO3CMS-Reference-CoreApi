@@ -18,7 +18,7 @@ To learn how to prevent public access via the web server, see
 A common risk is allowing one user to read or modify another client's files—
 especially in shared environments. A misconfigured server where all sites run
 as the same user can allow cross-site scripting, data theft, or manipulation of
-TYPO3 files such as :file:`confif/system/settings.php`.
+TYPO3 files such as :file:`config/system/settings.php`.
 
 TYPO3 can be installed either in classic (non-Composer) mode or using a
 Composer-based setup. Each approach requires a slightly different file
