@@ -13,6 +13,8 @@ services:
   web:
     image: martinhelmich/typo3:latest
     container_name: compose-demo-typo3
+    # Using linux? Uncomment the line below and use CURRENT_UID=$(id -u):$(id -g) docker-compose up to run
+    # user: ${CURRENT_UID}
     ports:
       - "8081:80"
     depends_on:
