@@ -27,7 +27,7 @@ required privileges.
     Database; Secure passwords
     Database; Access privileges
 
-.. _security-database-git:
+..  _security-database-git:
 
 Do not store credentials in version control
 ===========================================
