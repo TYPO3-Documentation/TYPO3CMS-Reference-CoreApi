@@ -1,8 +1,8 @@
 :navigation-title: File permissions
 
-.. include:: /Includes.rst.txt
-.. index:: pair: Security guidelines; File permissions
-.. _security-file-directory-permissions:
+..  include:: /Includes.rst.txt
+..  index:: pair: Security guidelines; File permissions
+..  _security-file-directory-permissions:
 
 ================================================
 Secure file permissions (operating system level)
