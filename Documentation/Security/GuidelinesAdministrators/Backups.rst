@@ -52,10 +52,10 @@ contain injected code, altered configuration, or corrupted data.
 To reduce the risk of restoring a compromised state, follow a backup rotation
 strategy that keeps versions from multiple time periods. For example:
 
-- One **daily** backup for the last 7 days
-- One **weekly** backup for the last 4 weeks
-- One **monthly** backup for the last 6 months
-- One **yearly** backup for each of the last several years
+-   One **daily** backup for the last 7 days
+-   One **weekly** backup for the last 4 weeks
+-   One **monthly** backup for the last 6 months
+-   One **yearly** backup for each of the last several years
 
 This allows you to restore from a known-good state **before** compromise and
 support forensic investigations into when and how an incident occurred.
