@@ -1,21 +1,25 @@
-.. include:: /Includes.rst.txt
-.. index:: Security team
-.. _security-team:
+:navigation-title: Security Team
 
-=======================
-The TYPO3 Security Team
-=======================
+..  include:: /Includes.rst.txt
+..  index:: Security team
+..  _security-team:
+
+====================================
+Working with the TYPO3 Security Team
+====================================
 
 You can find details about the TYPO3 Security Team at
 https://typo3.org/community/teams/security/.
 
 You can contact the TYPO3 Security Team at `security@typo3.org <mailto:security@typo3.org>`_ .
 
-TYPO3 Core security updates, extension security updates, and unmaintained insecure extensions are announced in formal `TYPO3 Security Bulletins <https://typo3.org/help/security-advisories>`_.
+TYPO3 Core security updates, extension security updates, and unmaintained
+insecure extensions are announced in formal
+`TYPO3 Security Bulletins <https://typo3.org/help/security-advisories>`_.
 
 
-.. index:: Security; Reporting
-.. _security-team-contact:
+..  index:: Security; Reporting
+..  _security-team-contact:
 
 Reporting a security issue
 ==========================
@@ -32,20 +36,33 @@ time to assess the issue and get back to you with an answer. If you
 suspect that your report has been overlooked, feel free to submit a
 reminder a few days after your initial submission.
 
-.. index::
-   Security; Extension review
-   Extension review
+..  index::
+    Security; Extension review
+    Extension review
+
+..  _security-extension-review:
 
 Extension review
 ================
 
-The Security Team does not review extensions.
-You can engage the TYPO3 GmbH to conduct an independent security audit on your
-extension or site as a part of their `Project Review service <https://typo3.com/services/project-reviews>`_
+The TYPO3 Security Team does not perform individual reviews or audits of TYPO3 extensions.
 
+If you require a professional security audit of your extension or website,
+consider engaging an experienced TYPO3 agency. Official TYPO3 Solution Partners
+often provide such services, including:
 
-.. index:: Security; Incident handling
-.. _security-incident-handling:
+-   Security audits
+-   Code and architecture reviews
+-   Consulting on best practices
+
+You can find a list of official TYPO3 partners at:
+https://typo3.com/partners
+
+Additionally, some third-party providers also offer TYPO3 security services.
+Make sure to evaluate their experience and qualifications carefully.
+
+..  index:: Security; Incident handling
+..  _security-incident-handling:
 
 Incident handling
 =================
@@ -54,6 +71,7 @@ This section provides detailed information about the differences between
 the TYPO3 Core system and TYPO3 extensions and how the TYPO3 Security
 Team deals with security issues of those.
 
+..  _security-incident-handling-core:
 
 Security issues in the TYPO3 Core
 ---------------------------------
@@ -66,6 +84,7 @@ tested and reviewed. Together with a public security bulletin, a TYPO3
 Core update will be released. Please see next chapter for further
 details about TYPO3 versions and security bulletins.
 
+..  _security-incident-handling-extensions:
 
 Security issues in TYPO3 extensions
 -----------------------------------
@@ -76,13 +95,13 @@ security problem can be confirmed, the Security Team tries to get in
 touch with the extension developer and requests a fix. Then one of the
 following situations usually occurs:
 
-* the developer acknowledges the security vulnerability and delivers a
-  fix
-* the developer acknowledges the security vulnerability but does not
-  provide a fix
-* the developer refuses to produce a security fix (e.g. because he does
-  not maintain the extension anymore)
-* the developer cannot be contacted or does not react
+*   the developer acknowledges the security vulnerability and delivers a
+    fix
+*   the developer acknowledges the security vulnerability but does not
+    provide a fix
+*   the developer refuses to produce a security fix (e.g. because he does
+    not maintain the extension anymore)
+*   the developer cannot be contacted or does not react
 
 In the case where the extension author fails to provide a security fix
 in an appropriate time frame (see below), all affected versions of the
@@ -104,6 +123,6 @@ follow this procedure as well and coordinate the release of the fixed
 version with the TYPO3 Security Team.
 
 Further details about the handling of security incidents and time
-frames can be found in the official TYPO3 Extension Security Policy at
-`https://typo3.org/community/teams/security/extension-security-policy/
+frames can be found in the official
+`TYPO3 Extension Security Policy
 <https://typo3.org/community/teams/security/extension-security-policy/>`_

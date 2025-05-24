@@ -1,17 +1,26 @@
-.. include:: /Includes.rst.txt
-.. _security-general-information:
+:navigation-title: Versions & Updates
 
-===================
-General Information
-===================
+..  include:: /Includes.rst.txt
+..  _security-general-information:
 
-.. index::
+==========================================
+TYPO3 version support and security updates
+==========================================
+
+TYPO3 evolves through regular releases, including Long Term Support (LTS) versions
+and Sprint Releases. This page explains which versions are supported, how security
+updates are announced, and what to expect from TYPO3's Core and extension maintenance.
+It also shows how to stay informed and react quickly to vulnerabilities.
+
+..  contents:: Table of contents
+
+..  index::
    pair: Security guidelines; TYPO3 versions
    Security guidelines; Long term support
    Long term support
    see: LTS; Long term support
    LTS
-.. _security-typo3-versions:
+..  _security-typo3-versions:
 
 TYPO3 versions and lifecycle
 ============================
@@ -75,7 +84,7 @@ List of TYPO3 LTS releases:
     updates any longer
 
 
-.. _security-difference-core-extensions:
+..  _security-difference-core-extensions:
 
 Difference between Core and extensions
 ======================================
@@ -97,7 +106,7 @@ known security issues in TYPO3 have been found in these extensions,
 which are not part of the Core system.
 
 
-.. _security-announcement-updates:
+..  _security-announcement-updates:
 
 Announcement of updates and security fixes
 ==========================================
@@ -120,11 +129,10 @@ Other communication channels such as https://news.typo3.org/, a RSS feed,
 an official Twitter account `@typo3\_security <https://twitter.com/typo3_security>`_  etc.
 can be used additionally to stay up-to-date on security advisories.
 
-.. index::
+..  index::
    Security guidelines; Security bulletins
    Security bulletins
-.. _security-bulletins:
-
+..  _security-bulletins:
 
 Security bulletins
 ==================
@@ -161,11 +169,13 @@ standard Core review process. This implies that the development of the
 fix including the review and deployment is publicly visible and can be
 monitored by everyone.
 
-.. index::
+..  index::
    Security bulletins; Public service announcements
    Public service announcements
    see: PSA; Public service announcements
    PSA
+
+..  _security-bulletins-psa:
 
 Public service announcements
 ----------------------------
@@ -183,11 +193,13 @@ party software, possible misconfigurations in TYPO3 products, security
 related information about the server infrastructure of typo3.org and
 other important recommendations how to securely use TYPO3 products.
 
-.. index::
+..  index::
    Security bulletins; Common vulnerability scoring system
    Common vulnerability scoring system
    see: CVSS; Common vulnerability scoring system
    CVSS
+
+..  _security-bulletins-cvss:
 
 Common vulnerability scoring system (CVSS)
 ------------------------------------------
