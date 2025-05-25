@@ -92,6 +92,24 @@ you do not need to run `composer require` again. Instead, use
 
     *   `command "composer install" <https://getcomposer.org/doc/03-cli.md#install-i>`_
 
+..  _extensions-composer-list:
+
+List extensions
+---------------
+
+Like TYPO3’s core, extensions are also Composer packages.
+You can list all currently installed packages, including extensions, using the following command:
+
+..  code-block:: bash
+
+    composer info
+
+This will display a list of all installed packages along with their names and currently installed versions.
+
+..  seealso::
+
+    * `command "composer info" <https://getcomposer.org/doc/03-cli.md#show-info>`_
+
 ..  _extensions-composer-extension-setup:
 
 Extension setup
