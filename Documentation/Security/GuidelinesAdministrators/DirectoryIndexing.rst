@@ -46,7 +46,7 @@ Alternatively, set this directly in your Apache site configuration:
 
     <IfModule mod_autoindex.c>
       <Directory /var/www/myhost/public>
-         Options FollowSymLinks
+        Options FollowSymLinks
       </Directory>
     </IfModule>
 
@@ -69,7 +69,7 @@ disable it by setting `autoindex off;`:
 
     server {
       location /var/www/myhost/public {
-         autoindex off;
+        autoindex off;
       }
     }
 
