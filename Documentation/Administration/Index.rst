@@ -13,42 +13,58 @@ TYPO3 administration
     :gap: 4
     :card-height: 100
 
-    ..  card:: TYPO3 installation
+    ..  card:: Installation
 
-        This chapter covers topics about :ref:`system-requirements`, :ref:`installation`,
-        :ref:`production-settings`, :ref:`deploytypo3` and :ref:`tunetypo3`.
+        Learn about the different ways to install TYPO3 and choose the method
+        that best matches your technical requirements and experience level.
 
-        :ref:`TYPO3 installation <installation_index>`
+        *   `TYPO3 installation overview <https://docs.typo3.org/permalink/t3coreapi:installation-index>`_
+        *   `Composer-based <https://docs.typo3.org/permalink/t3coreapi:installation-composer>`_
+        *   `Classic mode <https://docs.typo3.org/permalink/t3coreapi:classic-installation>`_
+        *   `Download TYPO3 (ZIP/TAR) <https://get.typo3.org/#download>`_
 
-    ..  card:: :ref:`Deploying TYPO3 <DeployTYPO3>`
+    ..  card:: Deployment
 
         The deployment guide highlights some of solutions available that can
         help automate the process of deploying TYPO3 to
         a remote server.
 
-    ..  card:: Common directory structure
+        *   `Deploying TYPO3 <https://docs.typo3.org/permalink/t3coreapi:deployment>`_
+        *   `Configuring environments <https://docs.typo3.org/permalink/t3coreapi:environment-configuration>`_
+        *   `CI/CD and Automatic deployment <https://docs.typo3.org/permalink/t3coreapi:ci-cd-for-typo3-projects>`_
 
-        This chapter describes the typical directory structure of a
-        `Composer-based <https://docs.typo3.org/permalink/t3coreapi:directory-structure>`_
-        and `Classic mode installation <https://docs.typo3.org/permalink/t3coreapi:classic-directory-structure>`_.
+    ..  card:: Directory structure
 
-        :ref:`Directory structure <directory-structure>`
+        The folder layout of your TYPO3 project depends on how TYPO3 was installed.
+        Composer-based installations use a modern structure that separates code from
+        public files—ideal for deployment workflows and version control. Classic mode
+        keeps everything in a single folder and is easier to set up for beginners.
 
-    ..  card:: Upgrading TYPO3
+        Both methods are fully supported for production use, however there are
+        security consideration regarding
+        `file access <https://docs.typo3.org/permalink/t3coreapi:security-restrict-access-server-level>`_
+        when using the classic structure.
 
-        The TYPO3 upgrade guide explains how to do patch level updates and how
-        to update major Core versions and extensions.
+        *   `Directory structure, Composer <https://docs.typo3.org/permalink/t3coreapi:directory-structure>`_
+        *   `Directory structure, Classic mode <https://docs.typo3.org/permalink/t3coreapi:classic-directory-structure>`_
 
-        It also explains how to :ref:`Migrate a TYPO3 project to
-        Composer <migratetocomposer>`.
+    ..  card:: Updates
 
-        :ref:`TYPO3 Upgrade Guide <upgrading>`
+        Learn how to apply patch-level updates, perform major version upgrades, and update extensions safely.
 
-    .. card:: :ref:`Backup and restore TYPO3 <security-backups>`
+        *   `Bugfix / security update (Composer) <https://docs.typo3.org/permalink/t3coreapi:minor>`_
+        *   `Major upgrade (Composer) <https://docs.typo3.org/permalink/t3coreapi:major>`_
+        *   `Applying Core patches <https://docs.typo3.org/permalink/t3coreapi:applying-core-patches>`_
+        *   `Classic-mode upgrade <https://docs.typo3.org/permalink/t3coreapi:legacy>`_
+        *   `Migrate a Classic-mode project to Composer <https://docs.typo3.org/permalink/t3coreapi:migratetocomposer>`_
+
+    ..  card:: Backup and restore TYPO3
 
         Learn how to create secure, restorable backups of your TYPO3 project.
         Covers essential data, file structure differences, database dumps,
         storage strategies, and long-term retention.
+
+        *   `Backup strategy <https://docs.typo3.org/permalink/t3coreapi:administration-backups>`_
 
 ..  toctree::
     :hidden:
