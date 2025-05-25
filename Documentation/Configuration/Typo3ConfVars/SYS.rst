@@ -256,7 +256,7 @@ configurations.
     :name: globals-typo3-conf-vars-sys-miscfile-ext
     :Path: $GLOBALS['TYPO3_CONF_VARS']['SYS']['miscfile_ext']
     :type: text
-    :Default: 'gif,jpg,jpeg,bmp,png,pdf,svg,ai,mp3,wav,mp4,ogg,flac,opus,webm,youtube,vimeo'
+    :Default: 'zip'
 
     ..  versionadded:: 13.4.12 / 12.4.31
         This property has been added with the security fix `Important: #106240 -
