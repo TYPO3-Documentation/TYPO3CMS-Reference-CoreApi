@@ -1,0 +1,10 @@
+{
+    "scripts":{
+        "typo3-cms-scripts": [
+            "vendor/bin/typo3 extension:setup"
+        ],
+        "post-autoload-dump": [
+            "@typo3-cms-scripts"
+        ]
+    }
+}
