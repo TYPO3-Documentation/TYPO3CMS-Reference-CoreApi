@@ -95,7 +95,6 @@ Deleting a file
     :language: php
     :caption: EXT:my_extension/Classes/MyClass.php
 
-
 ..  _fal-using-fal-examples-file-folder-add-file:
 
 Adding a file
@@ -123,6 +122,61 @@ To store the file in a sub-folder use :php:`$storage->getFolder()`:
 In this example, the file path would likely be
 :file:`<document-root>/fileadmin/some/nested/folder/final_file_name.ext`
 
+..  _fal-using-fal-examples-file-folder-add-file-security:
+
+Security and consistency checks
+--------------------------------
+
+..  versionadded:: 13.4.12 / 12.4.31
+    Stricter validation is enforced when working with files through the FAL API,
+    specifically regarding file extensions and MIME types.
+
+    The new behaviour was introduced with the security fix `Important: #106240 -
+    Enforce File Extension and MIME-Type Consistency in File Abstraction
+    Layer <https://docs.typo3.org/permalink/changelog:important-106240-1747316969>`_.
+
+The following methods of :php:`\TYPO3\CMS\Core\Resource\ResourceStorage` perform
+validation checks:
+
+*   :php:`addFile()`
+*   :php:`renameFile()`
+*   :php:`replaceFile()`
+*   :php:`addUploadedFile()`
+
+Validation behavior:
+
+*   Only explicitly allowed file extensions are accepted. Valid extensions must be configured in:
+    `$GLOBALS['TYPO3_CONF_VARS']['SYS']['textfile_ext']  <https://docs.typo3.org/permalink/t3coreapi:confval-globals-typo3-conf-vars-sys-textfile-ext>`_,
+    `$GLOBALS['TYPO3_CONF_VARS']['SYS']['mediafile_ext']  <https://docs.typo3.org/permalink/t3coreapi:confval-globals-typo3-conf-vars-sys-mediafile-ext>`_,
+    `$GLOBALS['TYPO3_CONF_VARS']['SYS']['miscfile_ext']  <https://docs.typo3.org/permalink/t3coreapi:confval-globals-typo3-conf-vars-sys-miscfile-ext>`_.
+*   The file’s MIME type must match the expected file extension. For example,
+    a real PNG image with a `.exe` file extension is rejected.
+
+Feature flags controlling this behavior:
+
+*   :php:`security.system.enforceAllowedFileExtensions`
+*   :php:`security.system.enforceFileExtensionMimeTypeConsistency`
+
+For controlled or low-level operations, consistency checks can be bypassed temporarily:
+
+..  code-block:: php
+
+    <?php
+    class ImportCommand
+    {
+        use \TYPO3\CMS\Core\Resource\ResourceInstructionTrait;
+
+        protected function execute(): void
+        {
+            // ...
+
+            // Skip the consistency check once for the specified storage, source, and target
+            $this->skipResourceConsistencyCheckForCommands($storage, $temporaryFileName, $targetFileName);
+
+            /** @var \TYPO3\CMS\Core\Resource\File $file */
+            $file = $storage->addFile($temporaryFileName, $targetFolder, $targetFileName);
+        }
+    }
 
 ..  _fal-using-fal-examples-file-folder-create-reference:
 

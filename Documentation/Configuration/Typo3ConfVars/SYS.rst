@@ -246,6 +246,22 @@ configurations.
     Commalist of file extensions perceived as media files by TYPO3.
     Must be written in lower case with no spaces between.
 
+..  _typo3ConfVars_sys_miscfile_ext:
+
+..  confval:: miscfile_ext
+    :name: globals-typo3-conf-vars-sys-miscfile-ext
+    :Path: $GLOBALS['TYPO3_CONF_VARS']['SYS']['miscfile_ext']
+    :type: text
+    :Default: 'zip'
+
+    ..  versionadded:: 13.4.12 / 12.4.31
+        This property has been added with the security fix `Important: #106240 -
+        Enforce File Extension and MIME-Type Consistency in File Abstraction
+        Layer <https://docs.typo3.org/permalink/changelog:important-106240-1747316969>`_.
+
+    Allows specifying file extensions that don't belong to either `textfile_ext`
+    or `mediafile_ext`, such as `zip` or `xz`.
+
 ..  _typo3ConfVars_sys_binPath:
 
 ..  confval:: binPath
