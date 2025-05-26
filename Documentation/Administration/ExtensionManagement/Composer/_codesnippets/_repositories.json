@@ -1,0 +1,20 @@
+{
+    "repositories": [
+        {
+            "type": "vcs",
+            "url":  "git@bitbucket.org:vendor/my-private-repo.git"
+        },
+        {
+            "type": "artifact",
+            "url": "path/to/directory/with/zips/"
+        },
+        {
+            "type": "path",
+            "url": "../../local_packages/my_custom_extension/"
+        },
+        {
+            "type": "path",
+            "url": "site_packages/*"
+        }
+    ]
+}
