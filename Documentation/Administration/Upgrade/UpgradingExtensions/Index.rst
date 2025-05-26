@@ -5,24 +5,39 @@
 Upgrading extensions
 ====================
 
-List extensions
----------------
+How you upgrade extensions depends on your role and project setup:
 
-Like TYPO3's core, extensions are also composer packages. The :bash:`composer info` command will list all
-extensions that are currently installed including their name and current version number.
+-   If you use third-party extensions, update them via Composer or the
+    Extension Manager.
+-   If you **maintain your own custom extension or site package**, refer to
+    the dedicated guide on updating your codebase.
 
-Check for updates
------------------
+..  card-grid::
+    :columns: 1
+    :columns-md: 2
+    :gap: 4
+    :card-height: 100
 
-To check if any extension upgrades are available, :bash:`composer outdated` can be used to display a list
-of packages that have updates along with their new version number.
+    ..  card:: :ref:`Managing extensions with Composer <extensions-composer>`
 
-Upgrade an extension (minor)
-----------------------------
+        Covers installation, upgrades, downgrades, removal, and update reverts
+        for Composer-based TYPO3 projects.
 
-Minor upgrades of an extension can be done with the composer command :bash:`composer update vendor/packagename`.
+        *   :ref:`Upgrade an extension <extensions-composer-update>`
+        *   :ref:`Downgrade an extension <extensions-composer-downgrade>`
+        *   :ref:`Revert updates safely <extensions-composer-update-revert>`
 
-Upgrade an extension (major)
-----------------------------
+    ..  card:: :ref:`Managing extensions via Extension Manager <extensions-classic-mode-management>`
 
-Major upgrades of an extension can be done with the composer command :bash:`composer require vendor/packagename:<new version>`.
+        For projects not using Composer, extensions can be installed and updated
+        using the TYPO3 backend's Extension Manager.
+
+        *   :ref:`Extension Manager documentation <extensions-classic-mode-management>`
+
+    ..  card:: :ref:`Maintaining your own extension <update-extension>`
+
+        If you maintain a custom extension or site package, see this
+        guide for tips on versioning, upgrading for new TYPO3 releases, and
+        ensuring compatibility.
+
+        *   :ref:`Update strategy for extension maintainers <update-extension>`
