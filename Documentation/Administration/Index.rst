@@ -26,6 +26,13 @@ TYPO3 administration
         help automate the process of deploying TYPO3 to
         a remote server.
 
+    ..  card:: :ref:`Running TYPO3 in Docker <admin-docker-index>`
+
+        Learn how to run TYPO3 using Docker containers for local development and testing,
+        including step-by-step guides for plain Docker, Docker Compose, and DDEV.
+
+        :ref:`Docker-based TYPO3 setups <admin-docker-index>`
+
     ..  card:: Common directory structure
 
         This chapter describes the typical directory structure of a
@@ -56,6 +63,7 @@ TYPO3 administration
 
     Installation/Index
     Deployment/Index
+    Docker/Index
     DirectoryStructure/Index
     VersionControl/Index
     Upgrade/Index

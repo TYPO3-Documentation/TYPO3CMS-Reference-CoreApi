@@ -21,7 +21,7 @@ Choose one of the two methods:
 
 ..  card-grid::
     :columns: 1
-    :columns-md: 2
+    :columns-md: 3
     :gap: 4
     :class: pb-4
     :card-height: 100
@@ -41,6 +41,14 @@ Choose one of the two methods:
         -   Shell (SSH) access to the server
         -   Basic server tools such as `wget` or `curl`, `tar`, and `ln` or `mklink`
         -   A web server with PHP and database support
+        -   A web browser to run the installation wizard
+
+    ..  card:: `Docker demo <https://docs.typo3.org/permalink/t3coreapi:classic-docker-installation>`_
+
+        Prerequisites:
+
+        -   Docker installed.
+        -   Basic knowledge of Docker.
         -   A web browser to run the installation wizard
 
 The next steps are needed no matter what installation method you chose in the
