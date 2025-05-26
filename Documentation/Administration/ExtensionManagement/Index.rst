@@ -6,7 +6,7 @@
 Extension management
 ====================
 
-Managing extensions: Installation, update and removal of extensions
+Managing extensions: installation, update and removal of extensions
 are common tasks during administration.
 
 ..  toctree::
