@@ -271,7 +271,7 @@ The following section contains examples for various deployment tools and how the
 ..  toctree::
     :titlesonly:
 
-    Environment/Index
+    EnvironmentStages/Index
     Tools/Index
     Automated/Index
     */Index
