@@ -8,7 +8,7 @@ TYPO3 extension management with Composer
 ========================================
 
 ..  seealso::
-    For a beginner friendly introduction on extension management with Composer
+    For a beginner-friendly introduction on extension management with Composer,
     see:
 
     *   `Getting Started Guide: Working with extensions <https://docs.typo3.org/permalink/t3start:extensions-index>`_
@@ -20,28 +20,28 @@ TYPO3 extension management with Composer
 Install or require an extension with Composer
 =============================================
 
-Composer makes a difference between **requiring** and **installing** an
-extension. By default you can require any package that is registered on
-https://packagist.org/ and compatible with the current requirements.
+Composer distinguishes between **requiring** and **installing** an
+extension. By default you can require any package registered on
+https://packagist.org/ and compatible with your current requirements.
 
 ..  _extensions-composer-require:
 
 Composer require
 ----------------
 
-When you use the command `composer require` or short `composer req`
-the requirement will be added to the file :file:`composer.json` and Composer
+When you use the command `composer require` or its abbreviated, shortened version
+`composer req` the requirement will be added to the file :file:`composer.json` and Composer
 installs the latest version that satisfies the version constraints in
-:file:`composer.json`, and writes the resolved version to :file:`composer.lock`.
+:file:`composer.json`, and then writes the resolved version to :file:`composer.lock`.
 
-For example to install the extension :composer:`georgringer/news` do:
+For example, to install the extension :composer:`georgringer/news`:
 
 ..  code-block:: bash
 
     # Install the news extension
     composer require georgringer/news
 
-If necessary you can also require the extension with a version requirement:
+If necessary you can also require the extension by adding a version requirement:
 
 ..  code-block:: bash
 
@@ -59,8 +59,8 @@ If necessary you can also require the extension with a version requirement:
         for more version constraint examples.
 
 
-Composer will then download the extension into the folder :path:`vendor` and
-execute additional installation steps.
+Composer will then download the extension into the :path:`vendor` folder and
+execute any additional installation steps.
 
 You can now commit the files :file:`composer.json` and :file:`composer.lock`
 to `Git <https://docs.typo3.org/permalink/t3coreapi:version-control>`_.
@@ -70,7 +70,7 @@ to `Git <https://docs.typo3.org/permalink/t3coreapi:version-control>`_.
 Composer install
 ----------------
 
-On any other system where the same project is installed — such as a co-worker’s
+If the same project is installed on other systems — such as a co-worker’s
 computer or the production server (if you are working with
 `Git and Composer deployment <https://docs.typo3.org/permalink/t3coreapi:deployment-git-composer>`_) —
 you do not need to run `composer require` again. Instead, use
@@ -97,14 +97,14 @@ you do not need to run `composer require` again. Instead, use
 List extensions
 ---------------
 
-Like TYPO3’s core, extensions are also Composer packages.
-You can list all currently installed packages, including extensions, using the following command:
+Just like in the TYPO3 core, extensions are individual Composer packages.
+You can list all installed packages, including extensions, using the following command:
 
 ..  code-block:: bash
 
     composer info
 
-This will display a list of all installed packages along with their names and currently installed versions.
+This will display a list of all installed packages along with their names and version numbers.
 
 ..  seealso::
 
@@ -115,12 +115,12 @@ This will display a list of all installed packages along with their names and cu
 Extension setup
 ---------------
 
-Many extensions make changes to your system that Composer cannot detect
-as they are TYPO3 specific. For example, an extension might define its own
-database tables in TCA or require static data to be imported.
+Many extensions make TYPO3-specific changes to your system that Composer cannot
+detect. For example, an extension might define its own
+database tables in the TCA or require static data to be imported.
 
 
-You can run the following command to set up a specific or all extensions:
+You can run the following command to set up specific or all extensions:
 
 ..  code-block:: bash
 
@@ -130,12 +130,12 @@ You can run the following command to set up a specific or all extensions:
     # Setup all extensions
     vendor/bin/typo3 extension:setup
 
-You can also :ref:`Automate the extension setup <extensions-composer-extension-setup>`.
+You can also :ref:`Automate extension setup <extensions-composer-extension-setup>`.
 
 ..  tip::
 
     The Composer package name (for example, `georgringer/news`) and the TYPO3
-    extension key (for example, `news`) are **not the same**.
+    extension key (for example `news`) are **not the same**.
 
     The **extension key** is defined in the extension’s :file:`composer.json`
     under the key
@@ -147,7 +147,7 @@ You can also :ref:`Automate the extension setup <extensions-composer-extension-s
 Automate extension setup
 ------------------------
 
-You can run the :ref:`Extension setup command <extensions-composer-extension-setup>`
+You can run the :ref:`extension setup command <extensions-composer-extension-setup>`
 automatically after each require / install / update command by adding it to
 the `script` section of your project's :file:`composer.json`:
 
@@ -163,21 +163,21 @@ the `script` section of your project's :file:`composer.json`:
 Installing a custom extension or site package via Composer
 ==========================================================
 
-In most projects you will have one special extension, also called site package
-per site, that contains the theme and configuration for the site.
+In most projects there will be one special extension per site, called a site
+package, that contains the theme and configuration for that site.
 
-Furthermore you can develop a custom extension only for a special domain of your
+There could also be custom extensions only for a specific domain in that
 project.
 
-Place such extensions in the :path:`packages` folder and require them as local (
-`@dev`) versions using Composer. This will create a symlink from
-:path:`packages` to :path:`vendor`, allowing the extension to be used
+Both these types of extensions should be placed in the :path:`packages` folder
+and required in Composer as local (`@dev`) versions. This will create a symlink from
+:path:`packages` to :path:`vendor`, allowing the extensions to be used
 like any other package.
 
 
-#.  Place the extension into the folder :path:`packages`, so that its `composer.json`
+#.  Place the extension into the folder :path:`packages` so that its `composer.json`
     can be found at :file:`packages/ext_key/composer.json`
-#.  Require the extension using Composer and accepting the `@dev` version:
+#.  Require the extension using Composer and specifying the `@dev` version:
 
     ..  code-block:: bash
 
@@ -187,7 +187,7 @@ like any other package.
         # Require a custom extension
         composer require myvendor/my-local-extension:"@dev"
 
-Composer install will work as described in section
+Composer install will work as described in
 :ref:`extensions-composer-install` if the extension is available on the system
 where you run the `composer install` command.
 
@@ -207,9 +207,9 @@ Installing extensions from a different source
 =============================================
 
 You can define `Composer repositories <https://getcomposer.org/doc/05-repositories.md>`_
-to install packages (including TYPO3 extensions) from different sources, like
-from `Git <https://getcomposer.org/doc/05-repositories.md#vcs>`_, a `local
-path <https://getcomposer.org/doc/05-repositories.md#path>`_ or a
+to install packages (including TYPO3 extensions) from different sources like
+`Git <https://getcomposer.org/doc/05-repositories.md#vcs>`_, a `local
+path <https://getcomposer.org/doc/05-repositories.md#path>`_ and
 `Private Packagist <https://getcomposer.org/doc/05-repositories.md#private-packagist>`_.
 
 After adding the repository to your project's :file:`composer.json`, you can
@@ -225,16 +225,16 @@ Extension update via Composer
 
 ..  attention::
 
-    The command `composer update` cannot be easily reverted. We recommend to
-    use `Version control (Git) <https://docs.typo3.org/permalink/t3coreapi:version-control>`_
-    and commit both files :file:`composer.json` and :file:`composer.lock` before
-    you run an update command.
+    The command `composer update` cannot easily be reverted. We recommend
+    using `Version control (Git) <https://docs.typo3.org/permalink/t3coreapi:version-control>`_
+    and committing both files :file:`composer.json` and :file:`composer.lock` before
+    running an update command.
 
-    If you do not use Git, make a backup of these two files before the update.
+    If you are not using Git, make a backup of these two files before the update.
 
 The following command updates all installed Composer packages (both TYPO3
 extensions and other PHP packages/libraries) to the newest version that the
-current constraints in your :file:`composer.json` allows. It will write the
+current constraints in your :file:`composer.json` allow. It will write the
 new versions to file :file:`composer.lock`:
 
 ..  code-block:: bash
@@ -243,7 +243,7 @@ new versions to file :file:`composer.lock`:
     composer update
 
 If you want to do a major Upgrade, for example from :composer:`georgringer/news`
-Version 11.x to 12.x you can require that extension with a different version:
+Version 11.x to 12.x, you can require that extension with a different version number:
 
 ..  code-block:: bash
 
@@ -262,7 +262,7 @@ Version 11.x to 12.x you can require that extension with a different version:
 Downgrading an extension
 ------------------------
 
-If an extension does not work after upgrading it you can downgrade the extension
+If an extension does not work after upgrade you can downgrade the extension
 by requiring a specific version:
 
 ..  code-block:: bash
@@ -271,17 +271,17 @@ by requiring a specific version:
     composer require georgringer/news:"12.0.42"
 
 The extension will remain locked to the specified version and will not be
-updated until you change the version constraint with another `composer require`
+updated until you change the version constraint using the `composer require`
 command.
 
 
 ..  _extensions-composer-update-revert:
 
-Reverting extension update
---------------------------
+Reverting extension updates
+---------------------------
 
-As a last resort you revert all changes you made by restoring the files
-:file:`composer.json` and :file:`composer.lock` and calling the command
+As a last resort you can revert any changes you have made by restoring the files
+:file:`composer.json` and :file:`composer.lock` and running the command
 `composer install`:
 
 ..  code-block:: bash
@@ -301,10 +301,10 @@ As a last resort you revert all changes you made by restoring the files
 Removing an extension via Composer
 ==================================
 
-You can remove the requirement for an extension from your project's
-:file:`composer.json` by using the command `composer remove`. However, the
+You can remove an extension requirement from your project's
+:file:`composer.json` by using the command `composer remove`, but bear in mind that the
 extension will only be uninstalled if it is no longer required by any
-installed package.
+of the installed packages.
 
 ..  code-block:: bash
 
@@ -322,25 +322,25 @@ check if the extension is listed in the `require` section of the
 
 ..  _extensions-composer-remove-used:
 
-Check if the extension is used
-------------------------------
+Check if the extension is in use
+--------------------------------
 
 Manually verify whether the extension is still in use before uninstalling it.
 
 *   Does the extension have `Site sets <https://docs.typo3.org/permalink/t3coreapi:site-sets>`_
     that are required by a site configuration or another extension's site set?
-*   Do you use any plugins or content elements provided by the extension?
+*   Are you using any plugins or content elements provided by the extension?
     Tip: Extension :composer:`fixpunkt/backendtools` lists all plugins and
     content elements that are in use.
-*   Do you include TypoScript provided by the extension? Do you use any tables
-    defined by its TCA? Does it have `Middlewares <https://docs.typo3.org/permalink/t3coreapi:request-handling>`_,
+*   Have you included any TypoScript provided by the extension? Or tables
+    defined by its TCA? Does it include `Middleware <https://docs.typo3.org/permalink/t3coreapi:request-handling>`_,
     `Console commands (CLI) <https://docs.typo3.org/permalink/t3coreapi:symfony-console-commands>`_
     or any other functionality that your project relies on?
 
 ..  _extensions-composer-remove-why:
 
-Why can the extension not be uninstalled
-----------------------------------------
+Why an extension cannot be uninstalled
+--------------------------------------
 
 If Composer refuses to remove an extension with `composer remove` you can
 run the following command to find out what other packages require the Extension
@@ -358,10 +358,10 @@ you want to remove:
 In very stubborn cases the following tricks can help:
 
 Ensure you have a backup of the files :file:`composer.json` and
-:file:`composer.lock` or committed them to Git.
+:file:`composer.lock` or have committed them to Git.
 
-Then delete the :path:`vendor` folder (it will be restored by Composer), delete the
-:file:`composer.lock` and run `composer install`. This will freshly install
+Then delete the :path:`vendor` folder (it will be restored by Composer), delete
+:file:`composer.lock` and run `composer install`. This will reinstall
 your requirements from your :file:`composer.json`. Deleting the Composer cache
 first might also help.
 

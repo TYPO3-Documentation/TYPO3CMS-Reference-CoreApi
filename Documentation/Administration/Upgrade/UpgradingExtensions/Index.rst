@@ -36,7 +36,7 @@ How you upgrade extensions depends on your role and project setup:
 
     ..  card:: :ref:`Maintaining your own extension <update-extension>`
 
-        If you are maintaining a custom extension or site package, see this
+        If you maintain a custom extension or site package, see this
         guide for tips on versioning, upgrading for new TYPO3 releases, and
         ensuring compatibility.
 
