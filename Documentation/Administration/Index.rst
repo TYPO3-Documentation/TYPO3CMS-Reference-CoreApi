@@ -33,6 +33,13 @@ TYPO3 administration
         *   `Configuring environments <https://docs.typo3.org/permalink/t3coreapi:environment-configuration>`_
         *   `CI/CD and Automatic deployment <https://docs.typo3.org/permalink/t3coreapi:ci-cd-for-typo3-projects>`_
 
+    ..  card:: :ref:`Running TYPO3 in Docker <admin-docker-index>`
+
+        Learn how to run TYPO3 using Docker containers for local development and testing,
+        including step-by-step guides for plain Docker, Docker Compose, and DDEV.
+
+        :ref:`Docker-based TYPO3 setups <admin-docker-index>`
+
     ..  card:: Directory structure
 
         The folder layout of your TYPO3 project depends on how TYPO3 was installed.
@@ -72,6 +79,7 @@ TYPO3 administration
 
     Installation/Index
     Deployment/Index
+    Docker/Index
     DirectoryStructure/Index
     VersionControl/Index
     Upgrade/Index
