@@ -106,11 +106,16 @@ will even adjust backend user permissions for the defined plugins:
 4. Search your code and replace any mentioning of `list_type`
 -------------------------------------------------------------
 
-Search your code. If you used the `list_type` of you plugin in any custom
-database statement or referred to the according
+Search your code. If you used the `list_type` of your plugin in any custom
+database statement or referred to the according key within TypoScript,
+you will need to do the possible proper replacement.
 
 Search your TCA definitions for any use of the now outdated configuration
-options
+options.
+
+Note, that if your old key was something like "example_pi1" you are not
+forced to set the CType to "ExamplePi1" with UpperCamelCase,
+but you could keep the old identifier. This makes replacements less time consuming.
 
 ..  _plugins-list-type-migration-core:
 
