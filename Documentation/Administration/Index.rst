@@ -65,6 +65,17 @@ TYPO3 administration
         *   `Classic-mode upgrade <https://docs.typo3.org/permalink/t3coreapi:legacy>`_
         *   `Migrate a Classic-mode project to Composer <https://docs.typo3.org/permalink/t3coreapi:migratetocomposer>`_
 
+    ..  card:: Security considerations
+
+        Even though TYPO3 follows modern security practices by default,
+        system administrators and integrators must take responsibility for
+        secure configuration and operations in production environments.
+
+        *   `Security guidelines for system administrators <https://docs.typo3.org/permalink/t3coreapi:security-administrators>`_
+        *   `General security guidelines <https://docs.typo3.org/permalink/t3coreapi:security-general-guidelines>`_
+        *   `TYPO3 version support and security updates <https://docs.typo3.org/permalink/t3coreapi:security-general-information>`_
+        *   `How to detect, analyze, and recover a hacked site <https://docs.typo3.org/permalink/t3coreapi:security-detect-analyze-repair>`_
+
     ..  card:: Backup and restore TYPO3
 
         Learn how to create secure, restorable backups of your TYPO3 project.
@@ -84,6 +95,7 @@ TYPO3 administration
     VersionControl/Index
     Upgrade/Index
     SystemSettings/Index
+    Security/Index
     UserManagement/Index
     Backups/Index
     Tuning/Index
