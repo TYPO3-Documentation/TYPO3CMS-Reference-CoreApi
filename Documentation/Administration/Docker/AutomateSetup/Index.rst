@@ -29,8 +29,7 @@ Docker environments.
 Update the Dockerfile to install gosu and Node.js
 =================================================
 
-Extend the Dockerfile to install `gosu`, which allows safe user switching, and
-to include the `startup.sh` script that performs the setup automation:
+Extend the Dockerfile to install `gosu`, which enables secure user switching, and include the `startup.sh` script to automate the setup process.
 
 ..  literalinclude:: _codesnippets/_Dockerfile
     :language: docker
