@@ -51,6 +51,17 @@ TYPO3 administration
 
         :ref:`TYPO3 Upgrade Guide <upgrading>`
 
+    ..  card:: Security considerations
+
+        Even though TYPO3 follows modern security practices by default,
+        system administrators and integrators must take responsibility for
+        secure configuration and operations in production environments.
+
+        *   `Security guidelines for system administrators <https://docs.typo3.org/permalink/t3coreapi:security-administrators>`_
+        *   `General security guidelines <https://docs.typo3.org/permalink/t3coreapi:security-general-guidelines>`_
+        *   `TYPO3 version support and security updates <https://docs.typo3.org/permalink/t3coreapi:security-general-information>`_
+        *   `How to detect, analyze, and recover a hacked site <https://docs.typo3.org/permalink/t3coreapi:security-detect-analyze-repair>`_
+
     .. card:: :ref:`Backup and restore TYPO3 <security-backups>`
 
         Learn how to create secure, restorable backups of your TYPO3 project.
@@ -68,6 +79,7 @@ TYPO3 administration
     VersionControl/Index
     Upgrade/Index
     SystemSettings/Index
+    Security/Index
     UserManagement/Index
     Backups/Index
     Tuning/Index
