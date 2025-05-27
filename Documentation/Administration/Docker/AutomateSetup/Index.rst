@@ -7,7 +7,7 @@
 Automate TYPO3 setup using the CLI
 ==================================
 
-This section demonstrates how to fully automate TYPO3 installation using the CLI
+This section demonstrates how to fully automate a TYPO3 installation using the CLI
 command `typo3 setup`, removing the need to complete the install wizard in the
 browser.
 
