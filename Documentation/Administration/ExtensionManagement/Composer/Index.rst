@@ -151,7 +151,7 @@ You can run the :ref:`extension setup command <extensions-composer-extension-set
 automatically after each require / install / update command by adding it to
 the `script` section of your project's :file:`composer.json`:
 
-..  literalinclude:: _repositories.json
+..  literalinclude:: _codesnippets/_repositories.json
     :caption: composer.json (Excerpt)
 
 ..  seealso::
@@ -327,8 +327,6 @@ Check if the extension is in use
 
 Manually verify whether the extension is still in use before uninstalling it.
 
-*   Does the extension have `Site sets <https://docs.typo3.org/permalink/t3coreapi:site-sets>`_
-    that are required by a site configuration or another extension's site set?
 *   Are you using any plugins or content elements provided by the extension?
     Tip: Extension :composer:`fixpunkt/backendtools` lists all plugins and
     content elements that are in use.
