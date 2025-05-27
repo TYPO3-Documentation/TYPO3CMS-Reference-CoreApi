@@ -151,7 +151,7 @@ You can run the :ref:`extension setup command <extensions-composer-extension-set
 automatically after each require / install / update command by adding it to
 the `script` section of your project's :file:`composer.json`:
 
-..  literalinclude:: _repositories.json
+..  literalinclude:: _codesnippets/_setupscripts.json
     :caption: composer.json (Excerpt)
 
 ..  seealso::
