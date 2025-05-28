@@ -16,6 +16,12 @@ Running TYPO3 in Docker is **not plug-and-play**. You must account for
 infrastructure-related topics such as security, data persistence, and update
 strategies.
 
+..  toctree::
+    :caption: Tips when running Docker on production
+    :titlesonly:
+
+    FilePermissions/Index
+
 ..  seealso::
 
     -   `Security Guidelines for TYPO3 System Administrators <https://docs.typo3.org/permalink/t3coreapi:security-administrators>`_
