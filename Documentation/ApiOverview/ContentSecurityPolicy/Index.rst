@@ -691,7 +691,7 @@ The nonce can be retrieved via the
 
     // use TYPO3\CMS\Core\Domain\ConsumableString
 
-    /** @var ConsumableString|null $nonce */
+    /** @var ConsumableString|null $nonceAttribute */
     $nonceAttribute = $this->request->getAttribute('nonce');
     if ($nonceAttribute instanceof ConsumableString) {
         $nonce = $nonceAttribute->consume();
