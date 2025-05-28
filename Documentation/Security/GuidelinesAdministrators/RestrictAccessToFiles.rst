@@ -1,16 +1,21 @@
-:navigation-title: Restrict File Access
+:navigation-title: Restrict HTTP access
 
 ..  include:: /Includes.rst.txt
 ..  _security-restrict-access-server-level:
 
-============================================
-Restrict access to files at the server level
-============================================
+====================
+Restrict HTTP access
+====================
 
-TYPO3 installations can either use a classic mode (non-Composer) or a
-Composer-based approach. File access and web server configuration differ
-significantly between these setups. This chapter outlines recommendations
-for both cases.
+This chapter explains how to configure your web server (Apache, NGINX, IIS)
+to prevent public access to sensitive files in a TYPO3 installation. TYPO3 can
+be installed in classic (non-Composer) or Composer-based mode, and web server
+configuration differs significantly between the two. This chapter outlines
+recommendations for both setups.
+
+If you are looking to control which system users and processes can access files
+at the operating system level, see
+:ref:`Secure file permissions (operating system level) <security-file-directory-permissions>`.
 
 ..  contents:: Table of contents
 
