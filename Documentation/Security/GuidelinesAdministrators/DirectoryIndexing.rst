@@ -1,111 +1,95 @@
-.. include:: /Includes.rst.txt
-.. index:: pair: Security guidelines; Directory indexing
-.. _security-directory-indexing:
+:navigation-title: Directory indexing
+
+..  include:: /Includes.rst.txt
+..  index:: pair: Security guidelines; Directory indexing
+..  _security-directory-indexing:
 
 ==========================
 Disable directory indexing
 ==========================
 
-Depending on the operating system and distribution, Apache’s default configuration may have directory indexing enabled by default.
+Directory indexing allows web servers to list the contents of directories
+when no default file (like `index.html`) is present. If enabled, it can
+expose sensitive file structures to the public or search engines.
 
-This allows search engines to index the file structure of your site and potentially
-reveal sensitive data. The screenshot below shows an example of the kind
-data that can be retrieved with a simple HTTP request.
+This section explains how to disable directory indexing for TYPO3 across
+common web servers.
 
-.. figure:: /Images/ManualScreenshots/Security/DirectoryIndexing.png
-    :class: with-shadow
-    :alt: Screenshot of an example directory index
+..  contents::
+    :depth: 1
+    :local:
 
-In this example only the list of extensions are revealed, but more
-sensitive data can also be exposed.
+..  _security-directory-indexing-apache:
 
-It is strongly recommended that you disable directory indexes.
+Disable indexing in Apache (.htaccess)
+======================================
 
-If your web server requires directory indexing in other places
-outside of your TYPO3 installation, you should consider deactivating the option globally
-and only enable indexing on a case-by-case basis.
+This applies to Apache web servers, especially in shared hosting environments
+where configuration is done via :file:`.htaccess` files.
 
+In Apache, directory indexing is controlled by the `Indexes` flag within the
+`Options` directive.
 
-.. contents::
-   :depth: 1
-   :local:
+TYPO3's default :file:`.htaccess` disables indexing with the following setting:
 
-Apache web server
-=================
+..  code-block:: apacheconf
+    :caption: /var/www/myhost/public/.htaccess
 
-By removing the `Indexes` from `Options` (or not setting it in the first place),
-Apache does not show the list of files and directories.
-
-In TYPO3, the default :file:`.htaccess` already contains the
-directive to disable directory indexing. Check if the following is
-in your :file:`.htaccess`:
-
-.. code-block:: apacheconf
-   :caption: /var/www/myhost/public/.htaccess
-
-   # Make sure that directory listings are disabled.
-   <IfModule mod_autoindex.c>
+    <IfModule mod_autoindex.c>
       Options -Indexes
-   </IfModule>
+    </IfModule>
 
-This example, does not set all `Options`, it just removes `Indexes` from the
-list of Options. Directory indexing is provided by the module `autoindex`.
-By setting the options this way, it will be disabled in any case, even if the
-module is currently not active but might be activated at a later time.
+Alternatively, set this directly in your Apache site configuration:
 
-It is also possible, to configure the `Options` in the Apache configuration,
-for example:
+..  code-block:: apacheconf
+    :caption: /etc/apache2/sites-available/myhost.conf
 
-.. code-block:: apacheconf
-   :caption: /etc/apache2/sites-available/myhost.conf
-
-   <IfModule mod_autoindex.c>
+    <IfModule mod_autoindex.c>
       <Directory /var/www/myhost/public>
-         # override all Options, do not activate Indexes for security reasons
-         Options FollowSymLinks
+        Options FollowSymLinks
       </Directory>
-   </IfModule>
+    </IfModule>
 
-Please note that the `Options` directive can be
-used in several containers (for example `<VirtualHost>`, `<Directory>`,
-in the Apache configuration) or in the file :file:`.htaccess`.
-Refer to the `Options <https://httpd.apache.org/docs/2.4/mod/core.html#options>`__
-directive for more information.
+See the `Apache Options directive documentation <https://httpd.apache.org/docs/2.4/mod/core.html#options>`__
+for more information.
 
-Nginx
-=====
+..  _security-directory-indexing-nginx:
 
-For Nginx, directory listing is handled by the `ngx_http_index_module` and
-directory listing is disabled by default.
+Disable indexing in Nginx (server block)
+========================================
 
-You can explicitly disable directory listing by using the parameter
-`autoindex`.
+This applies to Nginx installations where settings are configured in the
+server block (virtual host configuration).
 
-.. code-block:: nginx
-   :caption: /etc/nginx/sites-available/myhost.com
+Although directory listing is disabled by default in Nginx, you can explicitly
+disable it by setting `autoindex off;`:
 
-   server {
-      # ...
+..  code-block:: nginx
+    :caption: /etc/nginx/sites-available/myhost.com
 
+    server {
       location /var/www/myhost/public {
-         autoindex off;
+        autoindex off;
       }
-   }
+    }
 
-IIS
-===
+..  _security-directory-indexing-iis:
 
-For IIS web servers, directory listing is also disabled by default.
+Disable indexing in IIS (Windows Server)
+========================================
 
-It is possible to disable directory listing in the event it was enabled because of a
-regression or a configuration change.
+This applies to IIS web servers on Windows Server systems.
 
-For IIS7 and above, it is possible to disable directory listing from the
-:guilabel:`Directory Browsing` settings using the IIS manager console.
+Directory listing is disabled by default. If enabled, you can turn it off using
+the IIS Manager:
 
-Alternatively, the following command can be used:
+-   Open the :guilabel:`Directory Browsing` settings
+-   Set the feature to :guilabel:`Disabled`
 
-.. code-block:: shell
-   :caption: command line
 
-   appcmd set config /section:directoryBrowse /enabled:false
+Or use the command line:
+
+..  code-block:: shell
+    :caption: command line
+
+    appcmd set config /section:directoryBrowse /enabled:false
