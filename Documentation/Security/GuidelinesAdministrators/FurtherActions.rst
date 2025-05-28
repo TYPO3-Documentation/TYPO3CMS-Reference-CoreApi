@@ -1,111 +1,96 @@
-.. include:: /Includes.rst.txt
-.. _security-administrators-furtheractions:
+:navigation-title: Server environment
 
-===============
-Further Actions
-===============
+..  include:: /Includes.rst.txt
+..  _security-administrators-furtheractions:
 
+======================================
+Server- and environment-level security
+======================================
 
-.. index:: pair: Security guidelines; Hosting environment
+In addition to TYPO3-specific hardening, system administrators are also
+responsible for maintaining a secure hosting environment, PHP configuration,
+and monitoring systems. This section highlights complementary actions to
+strengthen the overall security posture.
 
-Hosting environment
-===================
+..  index:: pair: Security guidelines; Hosting environment
+..  _security-admins-hosting:
 
-A system administrator is usually responsible for the entirety of an
-IT infrastructure. This includes several services (e.g. web server,
-mail server, database server, SSH, DNS, etc.) on one or on
-several servers. If one component is compromised, it is likely that
-this opens holes to attack other services.
+Keep the hosting environment minimal and secure
+===============================================
 
-As a consequence, it is desired to secure all components of an IT
-infrastructure and keep them up-to-date and secure with only a little
-or no dependencies to other system. It is also wise to abandon
-services which are not necessarily required (e.g. an additional
-database server, `DNS` server, `IMAP/POP3` server, etc.). In short words:
-keep your hosting environment as slim as possible for performance and
-security purposes.
+Administrators should maintain a minimal, secure server setup. Each service
+(web, mail, database, DNS, etc.) is a potential attack vector. A compromise in
+one component can endanger the entire environment, including TYPO3.
 
+Best practices:
 
-.. index:: pair: Security guidelines; PHP settings
+-   Disable unnecessary services
+-   Keep all system software up to date, including PHP, the web server,
+    database, and other services
+-   Isolate systems where possible
 
-Security-related PHP settings
+A slim, well-maintained environment improves both performance and security.
+
+If in-house server administration is not feasible, consider using a reputable
+managed hosting provider that specializes in TYPO3 or PHP applications.
+
+..  index:: pair: Security guidelines; PHP settings
+..  _security-admins-php-settings:
+
+Use secure PHP settings
+=======================
+
+TYPO3 runs on PHP, so secure PHP configuration is critical. Useful options
+include:
+
+-   `open_basedir` to restrict accessible directories
+-   `disable_functions` to disable risky PHP functions
+
+If you rely on external services and don't have `curl` support, you may need to
+enable `allow_url_fopen`.
+
+Be aware that blocking outbound traffic (e.g. via firewall) can prevent TYPO3
+from retrieving extension updates or translation files.
+
+..  index:: pair: Security guidelines; Log files
+..  _security-admins-failed-logins:
+
+Monitor failed backend logins
 =============================
 
-Due to the fact that TYPO3 is a PHP application, secure PHP settings
-are also important, of course. PHP settings, such as `open_basedir`,
-`disable_functions` often improve the security of your system and should be considered.
+Failed backend logins and other security-related events are logged using the
+TYPO3 logging framework.
 
-In use cases where you rely on outbound connections and your PHP comes without support
-for curl it might be required to set `allow_url_fopen` to true.
+Admins can configure a dedicated log file for authentication messages and use
+external tools like `fail2ban <https://www.fail2ban.org>`_ to respond to
+suspicious activity.
 
-Note that disallowing remote connections (e.g. by blocking outgoing traffic on a firewall in
-front of the TYPO3 server) may have an impact on the retrieval of the
-TYPO3 extension list, which allows you to check if extension updates
-are available, or on retrival of translation files.
+Example configuration:
 
+..  literalinclude:: _codesnippets/_additional.php
+    :caption: config/system/additional.php | typo3conf/system/additional.php
 
-Events in TYPO3 Log Files
-=========================
+..  index::
+    pair: Security guidelines; Clickjacking
+    pair: Security guidelines; X-Frame-Options
+..  _security-administrators-furtheractions-clickjacking:
 
-Login attempts to the TYPO3 backend, which are unsuccessful, are logged
-using the TYPO3 logging API. It is possible to create a dedicated
-logfile for messages from TYPO3 authentication classes which can be
-handled by external tools, such as `fail2ban <https://www.fail2ban.org>`_.
+Protect against clickjacking
+============================
 
-Example logging configuration:
+Clickjacking tricks users into clicking hidden UI elements via transparent
+layers or iframes. TYPO3 protects its backend by sending the HTTP header
+`X-Frame-Options`, which blocks embedding backend pages in external domains
+(see `RFC 7034 <https://datatracker.ietf.org/doc/html/rfc7034>`_).
 
-.. code-block:: php
-  :caption: config/system/additional.php | typo3conf/system/additional.php
+To extend protection to the frontend, configure the web server:
 
-   $GLOBALS['TYPO3_CONF_VARS']['LOG']['TYPO3']['CMS']['Core']['Authentication']['writerConfiguration'] = [
-       \Psr\Log\LogLevel::INFO => [
-           \TYPO3\CMS\Core\Log\Writer\FileWriter::class => [
-               'logFile' => \TYPO3\CMS\Core\Core\Environment::getVarPath() . '/log/typo3_auth.log',
-           ]
-       ]
-   ];
+..  literalinclude:: _codesnippets/_sameorigin.htaccess
+    :language: apacheconf
+    :caption: .htaccess (excerpt)
 
-.. index::
-   pair: Security guidelines; Clickjacking
-   pair: Security guidelines; X-Frame-Options
-.. _security-administrators-furtheractions-clickjacking:
+Explanation of header values:
 
-
-Defending Against Clickjacking
-==============================
-
-Clickjacking, also known as *user interface (UI) redress attack* or
-*UI redressing*, is an attack scenario where an attacker tricks a web
-user into clicking on a button or following a link different from what
-the user believes he/she is clicking on. This attack can be typically
-achieved by a combination of stylesheets and iframes, where multiple
-transparent or opaque layers manipulate the visual appearance of a HTML
-page.
-
-To protect the backend of TYPO3 against this attack vector, a HTTP
-header `X-Frame-Options` is sent, which prevents embedding backend pages
-in an iframe on domains different than the one used to access the
-backend. The `X-Frame-Options` header has been officially standardized as
-`RFC 7034 <https://datatracker.ietf.org/doc/html/rfc7034>`_.
-
-System administrators should consider enabling this feature at the
-frontend of the TYPO3 website, too. A configuration of the Apache
-web server would typically look like the following:
-
-.. code-block:: apacheconf
-   :caption: .htaccess
-
-   <IfModule mod_headers.c>
-     Header always append X-Frame-Options SAMEORIGIN
-   </IfModule>
-
-The option `SAMEORIGIN` means, that the page can only be displayed in
-a frame on the same origin as the page itself. Other options are `DENY`
-(page cannot be displayed in a frame, regardless of the site attempting
-to do so) and `ALLOW-FROM [uri]`` (page can only be displayed in a frame
-on the specified origin).
-
-Please understand that detailed descriptions of further actions on a
-server-level and specific PHP security settings are out of scope of
-this document. The TYPO3 Security Guide focuses on security aspects of
-TYPO3.
+-   `SAMEORIGIN`: Allow frames from the same origin only
+-   `DENY`: Block all framing
+-   `ALLOW-FROM [uri]`: Allow framing from a specific origin (less supported)
