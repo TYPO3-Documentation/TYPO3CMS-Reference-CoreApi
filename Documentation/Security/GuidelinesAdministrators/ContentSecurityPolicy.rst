@@ -55,7 +55,7 @@ accessed via :samp:`https://example.org/fileadmin/...`:
 For nginx webservers, the following configuration example can be used to send
 a CSP_ header for any file accessed via :samp:`https://example.org/fileadmin/...`:
 
-..   code-block:: nginx
+..  code-block:: nginx
 
     map $request_uri $csp_header {
         ~^/fileadmin/ "default-src 'self'; script-src 'none'; style-src 'none'; object-src 'none';";
