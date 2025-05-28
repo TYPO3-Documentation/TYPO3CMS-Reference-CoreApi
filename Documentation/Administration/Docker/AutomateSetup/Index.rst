@@ -64,7 +64,7 @@ This script:
 
     If you see this message in the logs:
     `AH00558: apache2: Could not reliably determine the server's fully qualified domain name...`
-    you can safely ignore it, or suppress it by setting `ServerName localhost` in Apache's config.
+    you can safely ignore it.
 
 ..  _docker-cli-automated-setup-compose:
 
