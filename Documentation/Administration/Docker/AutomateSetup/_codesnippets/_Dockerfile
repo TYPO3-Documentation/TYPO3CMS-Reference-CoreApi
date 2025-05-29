@@ -1,0 +1,14 @@
+FROM martinhelmich/typo3:13.4
+
+USER root
+
+# Install Node.js and gosu (for user switching)
+RUN curl -fsSL https://deb.nodesource.com/setup_20.x | bash - && \
+    apt-get install -y nodejs gosu
+
+# Copy the startup script into place
+COPY ./startup.sh /usr/local/bin/startup.sh
+RUN chmod +x /usr/local/bin/startup.sh
+
+# Let the startup script run as entrypoint (it switches users internally)
+ENTRYPOINT ["/usr/local/bin/startup.sh"]

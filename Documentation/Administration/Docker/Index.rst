@@ -14,6 +14,8 @@ We provide step-by-step guides for:
 
 -   Using `plain Docker commands <https://docs.typo3.org/permalink/t3coreapi:classic-docker-installation>`_
 -   Running TYPO3 with `Docker Compose <https://docs.typo3.org/permalink/t3coreapi:docker-compose-typo3>`_
+-   Extending the community-maintained `Docker image <https://docs.typo3.org/permalink/t3coreapi:docker-extend-image>`_
+-   `Automating TYPO3 installation using the CLI <https://docs.typo3.org/permalink/t3coreapi:docker-cli-automated-setup>`_
 
 Many TYPO3 projects use `DDEV for development <https://docs.typo3.org/permalink/t3start:install>`_,
 which automates Docker setup and configuration.
@@ -39,4 +41,6 @@ For an overview of production-related considerations, see
 
     DockerDemo/Index
     DockerComposeDemo/Index
+    ExtendImage/Index
+    AutomateSetup/Index
     Production/Index
