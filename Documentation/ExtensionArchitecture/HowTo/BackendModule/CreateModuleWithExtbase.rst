@@ -77,7 +77,7 @@ After that you can add titles, menus and buttons using :php:`ModuleTemplate`:
 
 Using this :php:`ModuleTemplate` class, the Fluid templates for
 your module need only take care of the actual content of your module.
-TYPO3 evens comes with a default Fluid layout, that can easily be used:
+TYPO3 even comes with a default Fluid layout, that can easily be used:
 
 .. code-block:: html
 	<f:layout name="Module" />
