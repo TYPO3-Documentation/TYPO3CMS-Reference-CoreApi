@@ -1,0 +1,40 @@
+version: '3.9'
+
+services:
+  db:
+    image: mariadb:10.6
+    container_name: compose-demo-typo3db
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: db
+      MYSQL_USER: db
+      MYSQL_PASSWORD: db
+    volumes:
+      - db_data:/var/lib/mysql
+
+  web:
+    build: .
+    container_name: compose-demo-typo3
+    ports:
+      - "8080:80"
+    depends_on:
+      - db
+    volumes:
+      - ./fileadmin:/var/www/html/fileadmin
+      - ./typo3conf:/var/www/html/typo3conf
+      - ./typo3temp:/var/www/html/typo3temp
+    environment:
+      TYPO3_CONTEXT: Development
+      TYPO3_DB_DRIVER: mysqli
+      TYPO3_DB_USERNAME: db
+      TYPO3_DB_PASSWORD: db
+      TYPO3_DB_PORT: 3306
+      TYPO3_DB_HOST: db
+      TYPO3_DB_DBNAME: db
+      TYPO3_SETUP_ADMIN_EMAIL: j.doe@example.com
+      TYPO3_SETUP_ADMIN_USERNAME: j.doe
+      TYPO3_SETUP_ADMIN_PASSWORD: Password.1
+      TYPO3_PROJECT_NAME: TYPO3-Dev
+
+volumes:
+  db_data:
