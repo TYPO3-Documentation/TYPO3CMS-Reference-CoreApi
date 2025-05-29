@@ -83,9 +83,44 @@ Docker images.
 
 **Tip:** GHCR integrates well with GitHub Actions for CI/CD pipelines.
 
+.. _docker-image-distribution-gitlab:
+
+Option 3: GitLab Container Registry
+===================================
+
+If your TYPO3 project's source code is managed in GitLab, you can use the
+GitLab Container Registry to store Docker images alongside your project.
+
+This registry is built into GitLab and integrates with GitLab CI/CD,
+allowing you to build, tag, and push images during your deployment pipeline.
+
+**Steps to distribute a TYPO3 image via GitLab Registry:**
+
+1.  Authenticate with GitLab:
+
+    ..  code-block:: bash
+
+        docker login registry.gitlab.com
+
+2.  Tag your image using the GitLab project namespace:
+
+    ..  code-block:: bash
+
+        docker tag your-image registry.gitlab.com/your-namespace/your-project/your-image:tag
+
+3.  Push the image:
+
+    ..  code-block:: bash
+
+        docker push registry.gitlab.com/your-namespace/your-project/your-image:tag
+
+**Note:** You can manage image visibility and permissions through your GitLab
+project settings. This approach is ideal for teams already using GitLab
+as part of their development and deployment process.
+
 .. _docker-image-distribution-self-hosted:
 
-Option 3: Self-hosted Docker registry
+Option 4: Self-hosted Docker registry
 =====================================
 
 Running your own Docker registry gives you full control over where and how
@@ -108,7 +143,7 @@ images are stored and accessed.
 
 .. _docker-image-distribution-cloud:
 
-Option 4: Cloud provider registries
+Option 5: Cloud provider registries
 ===================================
 
 If you are deploying TYPO3 to a major cloud provider, consider using their
