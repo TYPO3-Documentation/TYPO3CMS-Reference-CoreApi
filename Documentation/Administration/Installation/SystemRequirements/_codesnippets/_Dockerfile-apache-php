@@ -1,0 +1,17 @@
+FROM php:8.4-apache
+
+# Enable Apache mod_rewrite
+RUN a2enmod rewrite
+
+# Install required PHP extensions for TYPO3
+RUN apt-get update && apt-get install -y \
+    libzip-dev libpng-dev libxml2-dev libonig-dev libicu-dev unzip git \
+    && docker-php-ext-install \
+    pdo pdo_mysql mysqli intl xml mbstring tokenizer opcache zip gd \
+    && apt-get clean && rm -rf /var/lib/apt/lists/*
+
+# Set recommended PHP settings
+COPY php.ini /usr/local/etc/php/
+
+# Document root
+WORKDIR /var/www/html
