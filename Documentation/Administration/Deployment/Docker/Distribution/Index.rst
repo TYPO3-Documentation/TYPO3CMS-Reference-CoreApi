@@ -1,4 +1,4 @@
-:navigation-title:
+:navigation-title: Distribution
 
 ..  include:: /Includes.rst.txt
 .. _docker-image-distribution-overview:
@@ -15,22 +15,23 @@ Before the container can be run on a production server, that image needs to
 be **distributed** to the server — usually via a container registry or
 manual transfer.
 
-This guide focuses specifically on **secure image distribution options**,
-which is a critical step in the overall deployment process. Running the
-container and configuring the production environment (e.g., web server,
-database, volumes) is considered part of the full deployment and is not
+This guide focuses specifically on **secure image distribution**,
+which is a critical step in the overall deployment process. Running a
+container and configuring a production environment (e.g., web server,
+database, volumes) are considered part of full deployment and are not
 covered here.
+
 .. _docker-image-distribution-dockerhub:
 
 Option 1: Docker Hub (private repository)
 =========================================
 
-Docker Hub supports private repositories, which allow you to push and pull
+Docker Hub provides private repositories, which allow you to push and pull
 images without exposing them publicly.
 
 To ensure your TYPO3 Docker image remains private, follow these steps:
 
-#.  Create a private repository in the Docker Hub web interface:
+#.  Create a private repository using the Docker Hub web interface:
 
     1.  Visit https://hub.docker.com/repositories
     2.  Click "Create Repository"
@@ -162,9 +163,9 @@ Summary: Choosing the right distribution method
 ===============================================
 
 TYPO3 Docker images must be securely transferred to the target environment
-before they can be deployed and run. This guide outlines trusted and
+before they can be deployed and run. This guide outlines secure and
 practical methods for distributing your TYPO3 image.
 
 Choose the method that best fits your infrastructure, compliance needs,
-and workflow. All methods described here are compatible with TYPO3 projects
+and workflow. All the methods described here are compatible with TYPO3 projects
 and can be part of modern DevOps pipelines.
