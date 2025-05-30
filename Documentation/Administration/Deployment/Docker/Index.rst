@@ -12,8 +12,8 @@ Deploying TYPO3 as a Docker container
 This section provides guidance on deploying TYPO3 projects using Docker
 containers in a production environment.
 
-While Docker is a powerful tool for local development, running TYPO3 in
-production involves additional concerns such as security, image distribution,
+Docker is a powerful tool for local development but running TYPO3 in
+production involves many additional concerns such as security, image distribution,
 orchestration, persistent storage, and database connectivity.
 
 ..  toctree::
