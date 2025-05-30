@@ -84,6 +84,7 @@ your module need only take care of the actual content of your module.
 TYPO3 even comes with a default Fluid layout, that can easily be used:
 
 .. code-block:: html
+
 	<f:layout name="Module" />
 
 and the actual Template needs to render the title and the content only.
