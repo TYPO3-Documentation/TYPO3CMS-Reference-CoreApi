@@ -9,9 +9,9 @@ Database considerations for deploying TYPO3 with Docker
 
 ..  include:: /Administration/Deployment/Docker/_Experimental.rst.txt
 
-TYPO3 requires a relational database to store content, configuration, and
+TYPO3 requires a relational database in order to store content, configuration, and
 extension data. When running TYPO3 in a Docker container on a server,
-several database deployment options are available — each with different
+there are several database deployment options — each with different
 levels of complexity and production readiness.
 
 The table below provides a quick comparison. You can click on each setup
@@ -26,19 +26,19 @@ type to jump to a more detailed explanation.
         :Backups needed:            Backup required?
         :Notes:                     Notes
 
-    -   :Setup type:                 `External or managed database service <#docker-deployment-external-database_>`__
+    -   :Setup type:                 `External or managed database service <docker-container-external-database_>`__
         :Production-ready:          ✅ Yes
         :Persistence:               Managed externally
         :Backups needed:            ✅ Recommended
         :Notes:                     Scalable, secure, ideal for production. Offloads maintenance.
 
-    -   :Setup type:                 `MariaDB/MySQL in separate container <#docker-deployment-mariadb-separate-container_>`__
+    -   :Setup type:                 `MariaDB/MySQL in separate container <docker-container-mariadb-separate-container_>`__
         :Production-ready:          ✅ Yes
         :Persistence:               Docker volume or bind mount
         :Backups needed:            ✅ Yes
         :Notes:                     Flexible and common. Requires backup strategy and network setup.
 
-    -   :Setup type:                 `SQLite inside TYPO3 container <#docker-deployment-sqlite-single-container_>`__
+    -   :Setup type:                 `SQLite inside TYPO3 container <docker-container-sqlite-single-container_>`__
         :Production-ready:          ❌ No
         :Persistence:               None or bind mount
         :Backups needed:            ⚠️ Manual
@@ -59,7 +59,7 @@ platform.
 -   Professional-grade storage, backup, and monitoring
 -   Excellent for production scalability and reliability
 
-**Remember:**
+**But remember:**
 
 -   Pass credentials securely using environment variables or secrets
 -   Ensure network access is reliable and secure
@@ -72,8 +72,8 @@ or want to reduce operational complexity by offloading maintenance.
 MariaDB/MySQL in separate container
 ===================================
 
-Running the database in a separate container is a common and flexible solution.
-It provides modular services and works well with Docker Compose, Swarm, or
+Running the database in a separate container is a popular, flexible solution.
+Containers provide modular services and work well with Docker Compose, Swarm, or
 Kubernetes.
 
 **Important considerations:**
@@ -94,7 +94,7 @@ Kubernetes.
 SQLite inside TYPO3 container
 =============================
 
-A simple solution is to use SQLite and include the database file inside the
+A simple solution is to use SQLite and include the database file inside a
 TYPO3 Docker container. This works for quick tests, demos, or very small-scale
 sites.
 
