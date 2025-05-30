@@ -29,7 +29,8 @@ can also be overridden by installed extensions. They are then defined in extensi
 `ext_localconf.php <https://docs.typo3.org/permalink/t3coreapi:ext-localconf-php>`_
 for the frontend and backend contexts or in the extension
 `ext_tables.php <https://docs.typo3.org/permalink/t3coreapi:ext-tables-php>`_
-for the backend context only.
+for the backend context only. Extension configuration should not try to change settings
+that are evaluated in the context of the "Install tool" (like the backend entry point URL).
 
 This chapter describes the global configuration in more detail and gives hints
 about further configuration possibilities.
