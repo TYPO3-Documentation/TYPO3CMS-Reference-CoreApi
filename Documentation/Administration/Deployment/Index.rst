@@ -274,4 +274,5 @@ The following section contains examples for various deployment tools and how the
     EnvironmentStages/Index
     Tools/Index
     Automated/Index
+    Docker/Index
     */Index
