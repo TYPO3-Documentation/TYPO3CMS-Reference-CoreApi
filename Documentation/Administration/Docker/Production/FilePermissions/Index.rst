@@ -12,7 +12,7 @@ compared to local development. A common issue during deployment is
 incorrect file permissions or ownership, particularly when using mounted
 volumes.
 
-This document describes how to handle permissions correctly when deploying
+This document describes how to handle permissions when deploying
 TYPO3 in a Docker-based setup on a server.
 
 ..  contents:: Table of contents
@@ -22,7 +22,7 @@ TYPO3 in a Docker-based setup on a server.
 Why TYPO3 file permissions fail in Docker-based deployments
 ===========================================================
 
-The same rules about `Secure file permissions (operating system
+The same rules about `secure file permissions (operating system
 level) <https://docs.typo3.org/permalink/t3coreapi:security-file-directory-permissions>`_
 as in other deployment methods should be followed.
 
@@ -33,16 +33,16 @@ Minimum requirements:
     access is required)
 -   Files should have permissions of `644`
 
-Writable directories include, Classic mode:
+Writable directories include, in Classic mode:
 
--   `/var/www/html` (root folder) – TYPO3 may write `FIRST_INSTALL` here
+-   `/var/www/html` (root folder) – TYPO3 may create `FIRST_INSTALL` here
 -   `/var/www/html/typo3temp/`
 -   `/var/www/html/fileadmin/`
 -   `/var/www/html/typo3conf/`
 
 Composer mode:
 
--   `/var/www/html/public` (document root folder) – TYPO3 may write `FIRST_INSTALL` here
+-   `/var/www/html/public` (document root folder) – TYPO3 may create `FIRST_INSTALL` here
 -   `/var/www/html/var/`
 -   `/var/www/html/public/fileadmin/`
 -   `/var/www/html/conf/`
@@ -50,7 +50,7 @@ Composer mode:
 
 ..  note::
 
-    `755` is usually sufficient and preferred in production environments.
+    `755` is usually sufficient and preferable in production environments.
     Use `775` only if the environment or volume setup requires group write
     access.
 
@@ -75,8 +75,8 @@ such as `typo3temp/`, `fileadmin/`, and others.
 If no shell access is available, contact the hosting provider:
 
 -   Ask whether volumes are mounted read-only or owned by `root`
--   Confirm whether the web server runs as `www-data`
--   Request that the required TYPO3 folders are writable by the web server user
+-   Confirm whether the web server is running as `www-data`
+-   Request that the TYPO3 folders are writable by the web server user
 
 In container-based platforms, incorrect volume mounts can prevent TYPO3 from
 writing essential files. This may lead to HTTP 500 errors with no log output.
@@ -89,7 +89,7 @@ Symptoms of permission issues in TYPO3 Docker installations
 -   HTTP 500 Internal Server Error
 -   No output in Apache or PHP logs
 -   Web installer does not load even if `FIRST_INSTALL` is present
--   TYPO3 CLI (`./typo3/sysext/core/bin/typo3`) works, but frontend does not
+-   TYPO3 CLI (`./typo3/sysext/core/bin/typo3`) works, but the frontend does not
 -   TYPO3 fails to write cache or configuration files
 
 ..  _docker-permissions-how-to-fix:
@@ -113,7 +113,7 @@ Run the following commands inside the container:
     chown -R www-data:www-data /var/www/html
     chmod -R 755 /var/www/html
 
-This ensures that Apache or PHP-FPM can read and write all required files
+This ensures that Apache and PHP-FPM can read and write all the required files
 and folders.
 
 ..  _docker-permissions-no-ssh:
@@ -192,7 +192,7 @@ If the Docker container uses a bind mount:
     volumes:
         - ./html:/var/www/html
 
-And the host system owns `./html` as `root`, Apache inside the container will
+and the host system owns `./html` as `root`, Apache inside the container will
 not be able to write files, resulting in a 500 error.
 
 To fix this issue:
@@ -203,7 +203,7 @@ To fix this issue:
     chown -R www-data:www-data /var/www/html
     chmod -R 755 /var/www/html
 
-Then reload the TYPO3 site.
+then reload the TYPO3 site.
 
 ..  _docker-permissions-debugging-tools:
 
@@ -238,10 +238,10 @@ The following commands may help identify and resolve permission issues:
 
 ..  _docker-permissions-final-notes:
 
-Ensuring a stable deployment through correct permissions
-========================================================
+Ensuring stable deployment through correct permissions
+======================================================
 
 Correct file permissions are critical for TYPO3 to function properly in
 Docker-based environments. Ensuring that files are owned by `www-data` and
-that required directories are writable helps prevent unexpected behavior such
+that relevant directories are writable helps prevent unexpected behavior such
 as blank pages or failed installations.
