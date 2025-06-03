@@ -7,24 +7,18 @@
 Deploying TYPO3 as a Docker container
 =====================================
 
-..  include:: /Administration/Deployment/Docker/_Experimental.rst.txt
+..  include:: /Administration/Docker/Production/_Experimental.rst.txt
 
-This section provides guidance on deploying TYPO3 projects using Docker
-containers in a production environment.
+Docker is a modern and flexible way to deploy TYPO3 projects in both development
+and production environments.
 
-Docker is a powerful tool for local development but running TYPO3 in
-production involves many additional concerns such as security, image distribution,
-orchestration, persistent storage, and database connectivity.
+This page serves as an entry point for Docker-based deployment strategies. It
+links to best practices and practical advice for building, running, and
+maintaining TYPO3 instances in containers.
 
-..  toctree::
-    :caption: Currently, this section includes:
-    :titlesonly:
+For in-depth information, see the main Docker chapter:
 
-    Distribution/Index
-    Database/Index
-    */Index
+.. seealso::
 
-..  seealso::
-
-    - `Using Docker in production <https://docs.typo3.org/permalink/t3coreapi:docker-production>`_
-    - `TYPO3 Docker guide <https://docs.typo3.org/p/TYPO3/Docker-guide/main/en-us/>`_
+    - `Running TYPO3 with Docker on Production <https://docs.typo3.org/permalink/t3coreapi:docker-production>`_
+    - `Docker documentation <https://docs.docker.com/>`_
