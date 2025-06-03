@@ -1,4 +1,4 @@
-:navigation-title: Docker in production
+:navigation-title: In production
 
 ..  include:: /Includes.rst.txt
 ..  _docker-production:
@@ -7,7 +7,7 @@
 Using Docker in production
 ===========================
 
-..  include:: /Administration/Deployment/Docker/_Experimental.rst.txt
+..  include:: /Administration/Docker/Production/_Experimental.rst.txt
 
 TYPO3 can be run in containers in production, but doing so requires a solid
 understanding of Docker and system administration.
@@ -17,9 +17,11 @@ infrastructure-related topics such as security, data persistence, and update
 strategies.
 
 ..  toctree::
-    :caption: Tips when running Docker on production
+    :caption: Topics
     :titlesonly:
 
+    Distribution/Index
+    Database/Index
     FilePermissions/Index
 
 ..  seealso::

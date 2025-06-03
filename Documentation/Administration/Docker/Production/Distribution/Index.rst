@@ -7,7 +7,7 @@
 Distributing TYPO3 Docker images for deployment
 ===============================================
 
-..  include:: /Administration/Deployment/Docker/_Experimental.rst.txt
+..  include:: /Administration/Docker/Production/_Experimental.rst.txt
 
 When deploying a TYPO3 site using Docker, your custom site package,
 extensions, and configuration are typically bundled into a Docker image.
@@ -37,22 +37,12 @@ To ensure your TYPO3 Docker image remains private, follow these steps:
     2.  Click "Create Repository"
     3.  Set the name (e.g. `your-image`) and make sure **"Private"** is selected
 
-#.  Log in to Docker Hub:
+#.  Log in to Docker Hub, tag and push your image
 
     .. code-block:: bash
 
         docker login
-
-#.  Tag your Docker image:
-
-    .. code-block:: bash
-
         docker tag your-image yourusername/your-image:tag
-
-#.  Push the image to the private repository:
-
-    .. code-block:: bash
-
         docker push yourusername/your-image:tag
 
 **Note:** Free Docker Hub accounts allow only a limited number of private
@@ -70,16 +60,24 @@ Docker images.
 **Steps to distribute a TYPO3 image via GHCR:**
 
 1.  Authenticate using a GitHub personal access token.
-2.  Tag your Docker image:
 
     ..  code-block:: bash
 
+        # echo YOUR_GITHUB_PAT | docker login ghcr.io -u YOUR_GITHUB_USERNAME --password-stdin
+
+    Replace:
+
+    *   `YOUR_GITHUB_PAT` with your personal access token
+    *   `YOUR_GITHUB_USERNAME` with your GitHub username
+
+2.  Tag and Push Your Image
+
+    ..  code-block:: bash
+
+        # Tag your Docker image:
         docker tag your-image ghcr.io/yourusername/your-image:tag
 
-3.  Push the image:
-
-    ..  code-block:: bash
-
+        #Push the image
         docker push ghcr.io/yourusername/your-image:tag
 
 **Tip:** GHCR integrates well with GitHub Actions for CI/CD pipelines.
@@ -97,23 +95,16 @@ allowing you to build, tag, and push images during your deployment pipeline.
 
 **Steps to distribute a TYPO3 image via GitLab Registry:**
 
-1.  Authenticate with GitLab:
+..  code-block:: bash
 
-    ..  code-block:: bash
+    # Authenticate with GitLab
+    docker login registry.gitlab.com
 
-        docker login registry.gitlab.com
+    # Tag your image using the GitLab project namespace
+    docker tag your-image registry.gitlab.com/your-namespace/your-project/your-image:tag
 
-2.  Tag your image using the GitLab project namespace:
-
-    ..  code-block:: bash
-
-        docker tag your-image registry.gitlab.com/your-namespace/your-project/your-image:tag
-
-3.  Push the image:
-
-    ..  code-block:: bash
-
-        docker push registry.gitlab.com/your-namespace/your-project/your-image:tag
+    # Push the image
+    docker push registry.gitlab.com/your-namespace/your-project/your-image:tag
 
 **Note:** You can manage image visibility and permissions through your GitLab
 project settings. This approach is ideal for teams already using GitLab
@@ -127,18 +118,14 @@ Option 4: Self-hosted Docker registry
 Running your own Docker registry gives you full control over where and how
 images are stored and accessed.
 
-**Start a local registry:**
+..  code-block:: bash
 
-    ..  code-block:: bash
+    # Start a local registry
+    docker run -d -p 5000:5000 --name registry registry:2
 
-        docker run -d -p 5000:5000 --name registry registry:2
-
-**Tag and push your image:**
-
-    ..  code-block:: bash
-
-        docker tag your-image localhost:5000/your-image
-        docker push localhost:5000/your-image
+    # Tag and push your image
+    docker tag your-image localhost:5000/your-image
+    docker push localhost:5000/your-image
 
 **Note:** For production use, configure SSL encryption and authentication.
 

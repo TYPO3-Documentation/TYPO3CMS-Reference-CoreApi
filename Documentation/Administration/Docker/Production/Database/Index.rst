@@ -1,13 +1,13 @@
-:navigation-title: Docker Container
+:navigation-title: Database considerations
 
 ..  include:: /Includes.rst.txt
 ..  _docker-container-database:
 
-=======================================================
-Database considerations for deploying TYPO3 with Docker
-=======================================================
+================================================
+Database considerations for Docker on production
+================================================
 
-..  include:: /Administration/Deployment/Docker/_Experimental.rst.txt
+..  include:: /Administration/Docker/Production/_Experimental.rst.txt
 
 TYPO3 requires a relational database in order to store content, configuration, and
 extension data. When running TYPO3 in a Docker container on a server,
