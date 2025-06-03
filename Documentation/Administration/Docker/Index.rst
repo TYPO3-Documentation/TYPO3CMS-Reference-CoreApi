@@ -3,9 +3,9 @@
 ..  include:: /Includes.rst.txt
 ..  _admin-docker-index:
 
-=======================
-Running TYPO3 in Docker
-=======================
+=====================================
+Running TYPO3 in Docker on production
+=====================================
 
 This section explains how to run TYPO3 in Docker-based environments for
 **local development and testing**.
