@@ -49,9 +49,9 @@ Initial Rsync deployment
 ========================
 
 Let us assume you have a local TYPO3 installation running in DDEV. You have
-already created some content, uploaded some images etc.
+already created some content, uploaded some images, etc.
 
-On the initial deployment you want to transport all files to the server that
+On initial deployment you want to transfer all the files that
 are needed by your installation, including user-managed content like images.
 
 Assuming:
@@ -73,7 +73,7 @@ Assuming:
 To use a custom SSH identity file or port, see:
 :ref:`deployment-rsync-sync-ssh`.
 
-Additionally transport the database dump to a temporal location:
+In addition, transfer the database dump to a temporary location:
 
 ..  code-block:: bash
 
@@ -81,7 +81,7 @@ Additionally transport the database dump to a temporal location:
       ~/Projects/typo3-site/dump.sql \
       user@example.org:/tmp/
 
-There are additional steps needed beyond file transfer. See also
+Additional steps are required beyond file transfer. See also
 `Initial deployment <https://docs.typo3.org/permalink/t3coreapi:manual-deployment-initial>`_.
 
 ..  _deployment-rsync-deployment-regular:
@@ -90,7 +90,7 @@ Regular Deployments with rsync
 ==============================
 
 On subsequent deployments you only have to deploy the files that contain the
-code that you are developing locally. You would not want to override images that
+code that you have developed locally. You do not want to override images that
 your editors have uploaded in the backend.
 
 ..  code-block:: bash
@@ -111,8 +111,8 @@ To use a custom SSH identity file or port, see:
 There are additional steps needed beyond file transfer. See also
 `Regular deployment <https://docs.typo3.org/permalink/t3coreapi:manual-deployment-regular>`_.
 
-As the steps of a regular deployment have to be repeated many times in the life
-time of a TYPO3 project, it is helpful to bundle the instructions into a recipe
+As the steps of a regular deployment have to be repeated many times during the
+lifetime of a TYPO3 project, it is helpful to bundle the instructions into a recipe
 and let `Deployer <https://docs.typo3.org/permalink/t3coreapi:deployment-deployer>`_
 do the work for you.
 
@@ -141,7 +141,7 @@ Assuming:
       user@example.org:/var/www/typo3-site/public/fileadmin/ \
       ~/Projects/typo3-site/public/fileadmin/
 
-This command will copy only changed files and preserve the directory structure.
+This command will only copy changed files and will preserve the directory structure.
 It does not delete local files unless you explicitly add the `--delete` flag.
 
 To preview changes before syncing, you can use `--dry-run`:
