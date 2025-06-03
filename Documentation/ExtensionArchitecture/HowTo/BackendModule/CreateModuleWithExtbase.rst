@@ -77,19 +77,18 @@ After that you can add titles, menus and buttons using :php:`ModuleTemplate`:
 
 Using this :php:`ModuleTemplate` class, the Fluid templates for
 your module need only take care of the actual content of your module.
-As such, the Layout may be as simple as (again from "beuser"):
+TYPO3 even comes with a default Fluid layout, that can easily be used:
 
 .. code-block:: html
-   :caption: typo3/sysext/beuser/Resources/Private/Layouts/Default.html
 
-	<f:render section="Content" />
+	<f:layout name="Module" />
 
 and the actual Template needs to render the title and the content only.
 For example, here is an extract of the "Index" action template of
 the "beuser" extension:
 
 .. code-block:: html
-   :caption: typo3/sysext/beuser/Resources/Private/Templates/BackendUser/Index.html
+   :caption: typo3/sysext/beuser/Resources/Private/Templates/BackendUser/List.html
 
    <html
       xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
@@ -97,7 +96,7 @@ the "beuser" extension:
       xmlns:be="http://typo3.org/ns/TYPO3/CMS/Backend/ViewHelpers"
       data-namespace-typo3-fluid="true">
 
-      <f:layout name="Default" />
+      <f:layout name="Module" />
 
       <f:section name="Content">
           <h1><f:translate key="backendUserListing" /></h1>
