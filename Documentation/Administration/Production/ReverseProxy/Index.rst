@@ -43,6 +43,10 @@ Add the following lines to :file:`config/system/additional.php`:
     *   `reverseProxyPrefixSSL  <https://docs.typo3.org/permalink/t3coreapi:confval-globals-typo3-conf-vars-sys-reverseproxyprefixssl>`_
     *   `trustedHostsPattern  <https://docs.typo3.org/permalink/t3coreapi:confval-globals-typo3-conf-vars-sys-trustedhostspattern>`_
 
+    The following article from the symfony docs might be helpful in determining
+    the correct IP address or CIDR ranges: `How to Configure Symfony to Work
+    behind a Load Balancer or a Reverse Proxy <https://symfony.com/doc/current/deployment/proxies.html>`_.
+
 In production environments, always use specific IP addresses or CIDR ranges
 rather than wildcards.
 
