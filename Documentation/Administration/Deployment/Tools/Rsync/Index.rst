@@ -61,13 +61,13 @@ Assuming:
 *   The target directory on the server is /var/www/typo3-site/
 
 ..  code-block:: bash
+    :caption: Run the command from your local development environment
 
     rsync -avz --progress \
-      ~/Projects/typo3-site/public/ \
-      ~/Projects/typo3-site/config/ \
-      ~/Projects/typo3-site/vendor/ \
-      ~/Projects/typo3-site/composer.json \
-      ~/Projects/typo3-site/composer.lock \
+      --exclude='.git/' \
+      --exclude='.ddev/' \
+      --exclude='node_modules/' \
+      ~/Projects/typo3-site/ \
       user@example.org:/var/www/typo3-site/
 
 To use a custom SSH identity file or port, see:
@@ -76,6 +76,7 @@ To use a custom SSH identity file or port, see:
 In addition, transfer the database dump to a temporary location:
 
 ..  code-block:: bash
+    :caption: Run the command from your local development environment
 
     rsync -avz --progress \
       ~/Projects/typo3-site/dump.sql \
@@ -94,15 +95,15 @@ code that you have developed locally. You do not want to override images that
 your editors have uploaded in the backend.
 
 ..  code-block:: bash
+    :caption: Run the command from your local development environment
 
     rsync -avz --progress \
+      --exclude='.git/' \
+      --exclude='.ddev/' \
+      --exclude='node_modules/' \
       --exclude='public/fileadmin/' \
       --exclude='public/uploads/' \
-      public/ \
-      config/ \
-      vendor/ \
-      composer.lock \
-      composer.json \
+      ~/Projects/typo3-site/ \
       user@example.org:/var/www/typo3-site/
 
 To use a custom SSH identity file or port, see:
@@ -136,6 +137,7 @@ Assuming:
 *   Your local development environment is at `~/Projects/typo3-site/`
 
 ..  code-block:: bash
+    :caption: Run the command from your local development environment
 
     rsync -avz --progress \
       user@example.org:/var/www/typo3-site/public/fileadmin/ \
@@ -147,6 +149,7 @@ It does not delete local files unless you explicitly add the `--delete` flag.
 To preview changes before syncing, you can use `--dry-run`:
 
 ..  code-block:: bash
+    :caption: Run the command from your local development environment
 
     rsync -avz --progress --dry-run \
       user@example.org:/var/www/typo3-site/public/fileadmin/ \
@@ -164,11 +167,12 @@ If your server uses a custom SSH port or requires a specific private key,
 you can specify them with the `-e` flag:
 
 ..  code-block:: bash
+    :caption: Run the command from your local development environment
 
     rsync -avz --progress \
       -e "ssh -i ~/.ssh/id_rsa -p 2222" \
-      user@example.org:/var/www/typo3-site/public/ \
-      ~/Projects/typo3-site/public/
+      user@example.org:/var/www/typo3-site/ \
+      ~/Projects/typo3-site/
 
 Replace `~/.ssh/id_rsa` with your SSH key path and `2222` with the
 actual SSH port if different from the default (22).
