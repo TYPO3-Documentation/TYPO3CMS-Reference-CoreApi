@@ -376,10 +376,24 @@ configurations.
     :Path: $GLOBALS['TYPO3_CONF_VARS']['SYS']['reverseProxyIP']
     :type: list
     :Default: ''
+    :allowedValues:
+        `''`, `'*'` or a comma separated list of IPv4 or IPv6 addresses in CIDR-notation.
+        For IPv4 addresses wildcards are additionally supported.
 
-    List of IP addresses. If TYPO3 is behind one or more (intransparent) reverse
-    proxies the IP addresses must be added here and 
+    If TYPO3 is behind one or more (intransparent) reverse
+    proxies or load balancers the IP addresses or CIDR ranges must be added here and
     :confval:`globals-typo3-conf-vars-sys-reverseProxyHeaderMultiValue` must be set to `first` or `last`.
+
+    ..  code-block:: php
+        :caption: config/system/additional.php
+
+        $GLOBALS['TYPO3_CONF_VARS']['SYS']['reverseProxyHeaderMultiValue'] = 'first';
+        $GLOBALS['TYPO3_CONF_VARS']['SYS']['reverseProxyIP'] = '192.168.0.0/16';
+
+    ..  seealso::
+
+        *   `Running TYPO3 behind a reverse proxy <https://docs.typo3.org/permalink/t3coreapi:reverse-proxy-setup>`_
+        *   `reverseProxySSL  <https://docs.typo3.org/permalink/t3coreapi:confval-globals-typo3-conf-vars-sys-reverseproxyssl>`_
 
 ..  _typo3ConfVars_sys_reverseProxyHeaderMultiValue:
 
@@ -400,7 +414,7 @@ configurations.
     :Default: 'none'
 
     Position of the authoritative IP address within the `X-Forwarded-For` header
-    (for example, `X-Forwarded-For: 1.2.3.4, 2.3.4.5, 3.4.5.6` uses `1.2.3.4` 
+    (for example, `X-Forwarded-For: 1.2.3.4, 2.3.4.5, 3.4.5.6` uses `1.2.3.4`
     with `first` and `3.4.5.6` with `last`).
 
 ..  _typo3ConfVars_sys_reverseProxyPrefix:
@@ -414,7 +428,7 @@ configurations.
     Optional prefix to be added to the internal URL (SCRIPT_NAME and
     REQUEST_URI).
 
-    Example: When proxying external.example.org to internal.example.org/prefix this has to
+    Example: When proxying `external.example.org` to `internal.example.org/prefix` this has to
     be set to :php:`prefix`
 
 ..  _typo3ConfVars_sys_reverseProxySSL:
@@ -424,11 +438,19 @@ configurations.
     :Path: $GLOBALS['TYPO3_CONF_VARS']['SYS']['reverseProxySSL']
     :type: text
     :Default: ''
+    :allowedValues:
+        `''`, `'*'` or a comma separated list of IPv4 or IPv6 addresses in CIDR-notation.
+        For IPv4 addresses wildcards are additionally supported.
 
     :php:`*` or a list of IP addresses of proxies that use SSL (https) for
     the connection to the client, but an unencrypted connection (http) to
     the server. If :php:`*` all proxies defined in
     :ref:`[SYS][reverseProxyIP]<typo3ConfVars_sys_reverseProxyIP>` use SSL.
+
+    ..  seealso::
+
+        *   `Running TYPO3 behind a reverse proxy <https://docs.typo3.org/permalink/t3coreapi:reverse-proxy-setup>`_
+        *   `reverseProxyIP  <https://docs.typo3.org/permalink/t3coreapi:confval-globals-typo3-conf-vars-sys-reverseproxyip>`_
 
 ..  _typo3ConfVars_sys_reverseProxyPrefixSSL:
 
