@@ -42,6 +42,7 @@ running TYPO3 for production.
 
     Backups/Index
     Security/Index
+    ReverseProxy/Index
     OPcache/Index
 
 ..  seealso::
