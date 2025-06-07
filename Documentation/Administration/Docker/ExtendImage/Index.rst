@@ -82,7 +82,7 @@ This should output the installed Node.js version (for example: `v18.19.0`).
 You can now use Node.js inside the container to install frontend dependencies
 or run build scripts required by your TYPO3 project.
 
-.. _docker-extend-typo3-startup-script:
+..  _docker-extend-typo3-startup-script:
 
 Add a custom startup script
 ===========================
@@ -93,51 +93,51 @@ example, to set file permissions, log environment variables, or flush caches.
 
 Create a file named ``startup.sh`` in the same folder as your ``Dockerfile``:
 
-.. code-block:: bash
-   :caption: startup.sh
+..  code-block:: bash
+    :caption: startup.sh
 
-   #!/bin/bash
-   echo "[INFO] Running custom startup script..."
+    #!/bin/bash
+    echo "[INFO] Running custom startup script..."
 
-   # Example: create a log file
-   touch /var/www/html/startup.log
+    # Example: create a log file
+    echo "Startscript executed successfully" >> /var/www/html/startup.log
 
-   # Start Apache (required by php:*-apache images)
-   exec apache2-foreground
+    # Start Apache (required by php:*-apache images)
+    exec apache2-foreground
 
 Update your ``Dockerfile`` to copy this script and use it as the new entrypoint:
 
-.. code-block:: docker
-   :caption: Dockerfile (excerpt)
+..  code-block:: docker
+    :caption: Dockerfile (excerpt)
 
-   USER root
+    USER root
 
-   COPY ./startup.sh /usr/local/bin/startup.sh
-   RUN chmod +x /usr/local/bin/startup.sh
+    COPY ./startup.sh /usr/local/bin/startup.sh
+    RUN chmod +x /usr/local/bin/startup.sh
 
-   USER www-data
+    USER www-data
 
-   ENTRYPOINT ["/usr/local/bin/startup.sh"]
+    ENTRYPOINT ["/usr/local/bin/startup.sh"]
 
 Then rebuild the image and run the container:
 
-.. code-block:: bash
+..  code-block:: bash
 
-   docker build --no-cache -t typo3-with-nodejs .
-   docker rm -f typo3-nodejs
-   docker run -d -p 8082:80 --name typo3-nodejs typo3-with-nodejs
+    docker build --no-cache -t typo3-with-nodejs .
+    docker rm -f typo3-nodejs
+    docker run -d -p 8082:80 --name typo3-nodejs typo3-with-nodejs
 
 You can verify that the script ran by checking for the log file:
 
-.. code-block:: bash
+..  code-block:: bash
 
-   docker exec -it typo3-nodejs ls -l /var/www/html/startup.log
+    docker exec -it typo3-nodejs cat /var/www/html/startup.log
 
 And view the container logs:
 
-.. code-block:: bash
+..  code-block:: bash
 
-   docker logs typo3-nodejs
+    docker logs typo3-nodejs
 
 ..  _docker-extend-typo3-compose-integration:
 
