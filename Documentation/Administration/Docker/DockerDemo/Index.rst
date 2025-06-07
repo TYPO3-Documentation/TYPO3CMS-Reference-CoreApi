@@ -168,38 +168,14 @@ Use these database settings:
 
 ..  _classic-docker-stop:
 
-7. Stopping and restarting the containers
------------------------------------------
+7. Stopping and starting the containers
+---------------------------------------
 
 To stop the webserver container for TYPO3, run:
 
 ..  code-block:: bash
 
     docker stop typo3-demo
-
-To start the webserver container for TYPO3, run:
-
-..  code-block:: bash
-
-    docker start typo3-demo
-
-To restart the webserver container for TYPO3, run:
-
-..  code-block:: bash
-
-    docker restart typo3-demo
-
-To remove the webserver container for TYPO3 (all individual stored data is gone), run:
-
-..  code-block:: bash
-
-    docker rm typo3-demo
-
-To re-create the webserver container for TYPO3 (initial file set):
-
-..  literalinclude:: _codesnippets/_DockerRunTypo3Demo.sh
-    :language: bash
-    :caption: ~/projects/typo3demo/$
 
 To stop the database container (contained data will be kept), run:
 
@@ -208,25 +184,17 @@ To stop the database container (contained data will be kept), run:
 
     docker stop typo3db
 
-To restart the database container (contained data will be kept), run:
+To start the webserver container for TYPO3, run:
 
 ..  code-block:: bash
-    :caption: ~/projects/typo3demo/$
 
-    docker restart typo3db
+    docker start typo3-demo
 
-To remove the database container (all data is gone), run:
+To start the database container, run:
 
 ..  code-block:: bash
-    :caption: ~/projects/typo3demo/$
 
-    docker rm typo3db
-
-To re-create the database container with empty data set, run:
-
-..  literalinclude:: _codesnippets/_DockerDbDemo.sh
-    :language: bash
-    :caption: ~/projects/typo3demo/$
+    docker start typo3db
 
 ..  _classic-docker-reset:
 
