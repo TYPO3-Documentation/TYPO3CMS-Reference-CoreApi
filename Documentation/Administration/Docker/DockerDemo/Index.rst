@@ -171,28 +171,60 @@ Use these database settings:
 7. Stopping and restarting the containers
 -----------------------------------------
 
-To stop TYPO3, run:
+To stop the webserver container for TYPO3, run:
 
 ..  code-block:: bash
 
     docker stop typo3-demo
 
-To stop and remove the database:
+To start the webserver container for TYPO3, run:
+
+..  code-block:: bash
+
+    docker start typo3-demo
+
+To restart the webserver container for TYPO3, run:
+
+..  code-block:: bash
+
+    docker restart typo3-demo
+
+To remove the webserver container for TYPO3 (all individual stored data is gone), run:
+
+..  code-block:: bash
+
+    docker rm typo3-demo
+
+To re-create the webserver container for TYPO3 (initial file set):
+
+..  literalinclude:: _codesnippets/_DockerRunTypo3Demo.sh
+    :language: bash
+    :caption: ~/projects/typo3demo/$
+
+To stop the database container (contained data will be kept), run:
 
 ..  code-block:: bash
     :caption: ~/projects/typo3demo/$
 
     docker stop typo3db
 
-To restart the database:
+To restart the database container (contained data will be kept), run:
 
-..  literalinclude:: _codesnippets/_DockerDbDemo.sh
-    :language: bash
+..  code-block:: bash
     :caption: ~/projects/typo3demo/$
 
-Then restart TYPO3:
+    docker restart typo3db
 
-..  literalinclude:: _codesnippets/_DockerRunTypo3Demo.sh
+To remove the database container (all data is gone), run:
+
+..  code-block:: bash
+    :caption: ~/projects/typo3demo/$
+
+    docker rm typo3db
+
+To re-create the database container with empty data set, run:
+
+..  literalinclude:: _codesnippets/_DockerDbDemo.sh
     :language: bash
     :caption: ~/projects/typo3demo/$
 
