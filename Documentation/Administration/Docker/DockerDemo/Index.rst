@@ -15,7 +15,7 @@ This guide shows how to set up a TYPO3 demo site using **basic Docker commands**
 without `Docker Compose <https://docs.typo3.org/permalink/t3coreapi:docker-compose-typo3>`_ 
 or `DDEV <https://docs.typo3.org/permalink/t3start:install>`_.
 
-By building the environment step by step, you’ll learn how Docker actually works:
+By building the environment step by step, you’ll learn how Docker actually works,
 how containers run, how they talk to each other, how volumes persist data, and how
 services like TYPO3 and MariaDB connect via networking. This hands-on setup is ideal
 for those who want to understand the fundamentals of containerized TYPO3 — not just
