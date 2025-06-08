@@ -58,6 +58,16 @@ Incorrect reverse proxy settings can unfortunately render the TYPO3 backend and 
 Therefore you need to edit the :file:`config/system/settings.php` or add a
 :file:`config/system/additional.php` for the reverse proxy settings.
 
+The linux environment inside a container that is run on production is usually very
+reduced. For example tools like `nano` and `vim` might not be installed.
+
+You can however edit the :file:`config/system/additional.php` locally and upload it via
+SCP:
+
+..  code-block:: bash
+
+    scp additional.php user@example.org:/var/www/html/typo3conf/system/
+
 If your host supports this you can use SSH or SFTP to edit the file.
 
 If your host does not support SSH directly into the container you can run a
