@@ -211,11 +211,11 @@ To **reset your TYPO3 demo environment completely**, run the following script.
     :caption: ~/Projects/typo3site/$
 
     # Stop and remove containers
-    docker stop typo3-demo typo3db || true
-    docker rm typo3-demo typo3db || true
+    docker stop typo3-demo typo3db
+    docker rm typo3-demo typo3db
 
     # Remove the Docker network
-    docker network rm typo3-demo-net || true
+    docker network rm typo3-demo-net
 
     # Remove project folders
     rm -rf fileadmin typo3conf typo3temp uploads
