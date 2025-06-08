@@ -12,7 +12,7 @@ Classic TYPO3 demo installation using Docker only
     This setup is intended for **local testing and learning**.
 
 This guide shows how to set up a TYPO3 demo site using **basic Docker commands** —
-without `Docker Compose <https://docs.typo3.org/permalink/t3coreapi:docker-compose-typo3>`_ 
+without `Docker Compose <https://docs.typo3.org/permalink/t3coreapi:docker-compose-typo3>`_
 or `DDEV <https://docs.typo3.org/permalink/t3start:install>`_.
 
 By building the environment step by step, you’ll learn how Docker actually works,
