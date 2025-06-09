@@ -30,8 +30,8 @@ The structure below describes the directory layout of a Classic TYPO3 installati
 ..  _classic-directory-project:
 ..  _legacy-directory-project:
 
-Files on project level
-======================
+Files on the root level of a typical Classic mode project
+=========================================================
 
 The project folder, usually at :path:`/path/to/your/webroot/`, must contain
 :file:`index.php`. It may also include server config files like :file:`.htaccess`.
@@ -45,8 +45,8 @@ in the site configuration to provide individualized files for each site.
 
 ..  _legacy-directory-directory:
 
-Directories in a typical project
-================================
+Directories in a typical Classic mode project
+=============================================
 
 ..  contents::
    :local:
