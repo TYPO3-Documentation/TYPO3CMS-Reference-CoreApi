@@ -3,17 +3,16 @@
 ..  include:: /Includes.rst.txt
 ..  _docker-image-distribution-overview:
 
-===============================================
-Distributing TYPO3 Docker images for deployment
-===============================================
+==================================================
+Distributing TYPO3 Docker images during deployment
+==================================================
 
 ..  include:: /Administration/Docker/Production/_Experimental.rst.txt
 
-When deploying a TYPO3 site using Docker, your custom site package,
-extensions, and configuration are typically bundled into a Docker image.
-Before the container can be run on a production server, that image needs to
-be **distributed** to the server — usually via a container registry or
-manual transfer.
+After you have created your Docker image (typically by bundling your custom
+site package, extensions, and configuration into the image) it then needs to
+be **distributed** to the production server. This can be done via a container
+registry or by manual transfer.
 
 ..  contents:: Table of contents
 
@@ -22,19 +21,19 @@ manual transfer.
 Choosing a secure Docker image distribution hub
 ===============================================
 
-This guide focuses specifically on **secure image distribution**,
-which is a critical step in the overall deployment process. Running a
-container and configuring a production environment (e.g., web server,
-database, volumes) are considered part of full deployment and are not
-covered here.
+This guide focuses on **secure image distribution**,
+which is an important step in the overall deployment process. Running a
+container and configuring a production environment (e.g. web server,
+database, volumes) are considered part of full deployment rather than
+just distribution and are not covered here.
 
 ..  _docker-image-distribution-dockerhub:
 
 Option 1: Docker Hub (private repository)
 -----------------------------------------
 
-Docker Hub provides private repositories, which allow you to push and pull
-images without exposing them publicly.
+Docker Hub provides private repositories where images can be pushed and pulled
+without exposing them publicly.
 
 To ensure your TYPO3 Docker image remains private, follow these steps:
 
@@ -42,7 +41,7 @@ To ensure your TYPO3 Docker image remains private, follow these steps:
 
     1.  Visit https://hub.docker.com/repositories
     2.  Click "Create Repository"
-    3.  Set the name (e.g. `your-image`) and make sure **"Private"** is selected
+    3.  Set the name (e.g. `your-image`) and select **"Private"**
 
 #.  Log in to Docker Hub, tag and push your image
 
@@ -77,7 +76,7 @@ Docker images.
     *   `YOUR_GITHUB_PAT` with your personal access token
     *   `YOUR_GITHUB_USERNAME` with your GitHub username
 
-2.  Tag and Push Your Image
+2.  Tag and push your image
 
     ..  code-block:: bash
 
@@ -148,13 +147,13 @@ managed container registries:
 -   **Google Artifact Registry**
 -   **Azure Container Registry**
 
-These registries offer high security, scalability, and tight integration
+These registries provide high security, scalability, and tight integration
 with their respective cloud services and IAM systems.
 
 ..  _docker-image-distribution-summary:
 
 Summary: Choosing the right distribution method
------------------------------------------------
+===============================================
 
 TYPO3 Docker images must be securely transferred to the target environment
 before they can be deployed and run. This guide outlines secure and
@@ -166,11 +165,11 @@ and can be part of modern DevOps pipelines.
 
 ..  _docker-image-distribution-github:
 
-Automatically build and tag Docker images in CI/CD pipelines
-============================================================
+Automate building and tagging of Docker images in CI/CD pipelines
+=================================================================
 
-It is common practice to build, tag, and distribute Docker images as part of
-a CI/CD pipeline. The tools used for this (such as GitHub Actions or GitLab CI)
+It is common practice to build, tag, and distribute Docker images in a
+CI/CD pipeline. The tools used for this (such as GitHub Actions and GitLab CI)
 and the general principles are similar across platforms.
 
 ..  seealso::
@@ -196,6 +195,6 @@ To use this setup, you must provide your Docker Hub credentials as secrets:
     https://docs.github.com/en/actions/security-guides/encrypted-secrets
 
 ..  note::
-    Are you using a different method to distribute your Docker image
-    automatically? Use the "Edit on GitHub" button to contribute your approach
+    Are you using a different method for automated distribution of your Docker
+    image? Use the "Edit on GitHub" button to contribute your approach
     to this documentation.
