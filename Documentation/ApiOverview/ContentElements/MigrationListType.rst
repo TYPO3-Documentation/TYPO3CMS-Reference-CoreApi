@@ -128,7 +128,7 @@ Migration example: Core-based plugin
 ----------------------------------
 
 ..  literalinclude:: _Migration/_non_extbase_tca.diff
-    :caption: EXT:my_extension/Configuration/TCA/tt_content.php (diff)
+    :caption: EXT:my_extension/Configuration/TCA/Overrides/tt_content.php (diff)
 
 ..  _plugins-list-type-migration-core-plugin-typoscript:
 
