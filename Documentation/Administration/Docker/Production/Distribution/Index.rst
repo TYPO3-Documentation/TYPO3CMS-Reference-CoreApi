@@ -163,6 +163,7 @@ practical methods for distributing your TYPO3 image.
 Choose the method that best fits your infrastructure, compliance needs,
 and workflow. All the methods described here are compatible with TYPO3 projects
 and can be part of modern DevOps pipelines.
+
 ..  _docker-image-distribution-github:
 
 Automatically build and tag Docker images in CI/CD pipelines
