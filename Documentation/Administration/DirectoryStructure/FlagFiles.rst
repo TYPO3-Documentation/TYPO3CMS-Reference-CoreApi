@@ -1,10 +1,11 @@
-.. include:: /Includes.rst.txt
+:navigation-title: Flag files
 
+.. include:: /Includes.rst.txt
 .. _flag-files:
 
-==========
-Flag files
-==========
+===================================================
+Flag files (ENABLE_INSTALL_TOOL, LOCK_BACKEND, ...)
+===================================================
 
 TYPO3 uses a set of special files known as flag files or indicator files to
 control and manage low-level configurations, behaviors, and security settings
