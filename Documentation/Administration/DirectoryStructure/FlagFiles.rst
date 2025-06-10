@@ -1,7 +1,7 @@
 :navigation-title: Flag files
 
-.. include:: /Includes.rst.txt
-.. _flag-files:
+..  include:: /Includes.rst.txt
+..  _flag-files:
 
 ===================================================
 Flag files (ENABLE_INSTALL_TOOL, LOCK_BACKEND, ...)
