@@ -49,7 +49,7 @@ Directories in a typical Classic mode project
 =============================================
 
 ..  contents::
-   :local:
+    :local:
 
 ..  _classic-directory-fileadmin:
 ..  _legacy-directory-fileadmin:
