@@ -23,15 +23,16 @@ final readonly class ImportRoutesIntoSiteConfiguration
     public function __invoke(SiteConfigurationLoadedEvent $event): void
     {
         $routeConfiguration = $this->yamlFileLoader->load(self::ROUTES);
+        $siteConfiguration = $event->getConfiguration();
 
         // Using this method instead of array_merge_recursive will
         // prevent duplicate keys, and also allow to use the special
         // "_UNSET" handling properly.
-        $configuration = ArrayUtility::mergeRecursiveWithOverrule(
-            $event->getConfiguration(),
-            $$routeConfiguration,
+        ArrayUtility::mergeRecursiveWithOverrule(
+            $siteConfiguration,
+            $routeConfiguration,
         );
 
-        $event->setConfiguration($configuration);
+        $event->setConfiguration($siteConfiguration);
     }
 }
