@@ -44,6 +44,7 @@ In multi-site installations you should use
 in the site configuration to provide individualized files for each site.
 
 ..  _legacy-directory-directory:
+..  _classic-directory-directory:
 
 Directories in a typical Classic mode project
 =============================================
