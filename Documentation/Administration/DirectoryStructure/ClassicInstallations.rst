@@ -83,14 +83,14 @@ All system extensions, supplied by the TYPO3 Core, are stored here.
 ..  _classic-directory-typo3_source:
 ..  _legacy-directory-typo3_source:
 
-:path:`typo3_source/`
+:path:`typo3_src/`
 ---------------------
 
 It is a common practice in Classic mode installations to use symlinks to quickly
 change between TYPO3 Core versions. In many installations you will find a symlink or folder
-called :path:`typo3_source` that contains the folders :ref:`classic-directory-typo3`,
+called :path:`typo3_src` that contains the folders :ref:`classic-directory-typo3`,
 and :ref:`classic-directory-vendor` and the file :file:`index.php`. In this case,
-those directories and files only symlink to :path:`typo3_source`. This way
+those directories and files only symlink to :path:`typo3_src`. This way
 the Core can be updated quickly by changing the symlink.
 
 Assuming your webroot is a directory called :path:`public` you could have
