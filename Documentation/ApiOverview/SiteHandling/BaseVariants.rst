@@ -103,7 +103,7 @@ Functions
 Functions from
 :t3src:`core/Classes/ExpressionLanguage/FunctionsProvider/DefaultFunctionsProvider.php`
 are available, as long as they are request-independent (due to caching reasons). For
-request-dependant conditions/functions, have a look at :composer:`b13/host-variants`
+request-dependent conditions/functions, have a look at :composer:`b13/host-variants`
 to see how to add custom condition/function providers to suit your needs.
 
 That means, specifically you can **not** use the `ip()` or `traverse(request...)`
