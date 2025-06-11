@@ -102,7 +102,7 @@ Functions
 
 Functions from
 :t3src:`core/Classes/ExpressionLanguage/FunctionsProvider/DefaultFunctionsProvider.php`
-are available, as long as they are request-independant (due to caching reasons). For
+are available, as long as they are request-independent (due to caching reasons). For
 request-dependant conditions/functions, have a look at :composer:`b13/host-variants`
 to see how to add custom condition/function providers to suit your needs.
 
