@@ -181,20 +181,26 @@ Best practices during CI/CD
 ===========================
 
 #.  **Version Control Everything**
-        Include `composer.json`, `composer.lock`, `config/`, `packages`, and
-        deployment scripts.
+
+    Include `composer.json`, `composer.lock`, `config/`, `packages`, and
+    deployment scripts.
 
 #.  **Use Environment Variables**
-        Never hardcode environment-specific values.
+
+    Never hardcode environment-specific values.
 
 #.  **Keep Builds Reproducible**
-        Lock dependencies with `composer.lock`.
+
+    Lock dependencies with `composer.lock`.
 
 #.  **Automate Database Migrations**
-        Apply migrations as part of the deployment step.
+
+    Apply migrations as part of the deployment step.
 
     #.  **Fail Fast**
-            Ensure the pipeline stops on errors in quality checks or tests.
+
+        Ensure the pipeline stops on errors in quality checks or tests.
 
     #.  **Use Staging Environments**
-            Test changes in staging before promoting to production.
+
+        Test changes in staging before promoting to production.
