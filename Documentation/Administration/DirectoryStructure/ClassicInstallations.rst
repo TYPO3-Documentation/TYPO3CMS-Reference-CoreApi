@@ -11,42 +11,51 @@
 Classic mode installations: Directory structure
 ===============================================
 
-The structure below describes the directory structure in a Classic
-TYPO3 installation without Composer. For the structure in a Composer-based installation
-see :ref:`Composer-based installations: Directory structure <directory-structure>`.
+The structure below describes the directory layout of a Classic TYPO3 installation
+(without Composer), sometimes also called a legacy installation.
+
+..  figure:: /Images/ManualScreenshots/Backend/ClassicMode.png
+    :alt: The TYPO3 backend Extension Manager in Classic Mode: Buttons "Upload Extension" and "Deactivate" for some extensions are visible
+
+    If the "Upload Extension" button is visible, TYPO3 is running in Classic mode.
+
+..  contents:: Table of contents
+    :depth: 1
+
+..  seealso::
+
+    *   `Composer mode: Directory structure <https://docs.typo3.org/permalink/t3coreapi:directory-structure-composer>`_
+        for details on the structure in a Composer-based installation.
 
 ..  _classic-directory-project:
 ..  _legacy-directory-project:
 
-Files on project level
-======================
+Files on the root level of a typical Classic mode project
+=========================================================
 
-The project folder is usually at :file:`/path/to/your/webroot/` (web application root).
-It must contain the main entry script :file:`index.php`.
-It might contain a file for server configuration like  :file:`.htaccess`.
+The project folder, usually at :path:`/path/to/your/webroot/`, must contain
+:file:`index.php`. It may also include server config files like :file:`.htaccess`.
 
-.. note::
+Additional files that should be available at the root of you web site like
+:file:`robots.txt` can be placed here in single site installations.
 
-   Further files might be useful depending on the server or the purpose.
-   It is for example common to place an authentication file in the web root for a search engine.
-   Also different files for server configuration might be possible.
+In multi-site installations you should use
+`Static routes <https://docs.typo3.org/permalink/t3coreapi:sitehandling-staticroutes>`_
+in the site configuration to provide individualized files for each site.
 
-   Note that TYPO3 has the possibility to provide one or more virtual file(s) :file:`robots.txt`.
-   This option can be found in the backend module 'Sites' in 'Site Management' and
-   is especially advised when different domains shall be hosted in one TYPO3 installation.
-   Like this it's possible to provide for each domain an individual :file:`robots.txt`.
+..  _legacy-directory-directory:
+..  _classic-directory-directory:
 
+Directories in a typical Classic mode project
+=============================================
 
-Directories in a typical project
-================================
-
-.. contents::
-   :local:
+..  contents::
+    :local:
 
 ..  _classic-directory-fileadmin:
 ..  _legacy-directory-fileadmin:
 
-:file:`fileadmin/`
+:path:`fileadmin/`
 ------------------
 
 This is a directory in which editors store files.
@@ -57,7 +66,7 @@ structure.
 ..  _classic-directory-typo3:
 ..  _legacy-directory-typo3:
 
-:file:`typo3/`
+:path:`typo3/`
 --------------
 
 Among others, this directory contains the PHP
@@ -70,7 +79,7 @@ file for accessing the install tool (:file:`public/typo3/install.php`).
 ..  _classic-directory-typo3-sysext:
 ..  _legacy-directory-typo3-sysext:
 
-:file:`typo3/sysext/`
+:path:`typo3/sysext/`
 ~~~~~~~~~~~~~~~~~~~~~
 
 All system extensions, supplied by the TYPO3 Core, are stored here.
@@ -78,17 +87,17 @@ All system extensions, supplied by the TYPO3 Core, are stored here.
 ..  _classic-directory-typo3_source:
 ..  _legacy-directory-typo3_source:
 
-:file:`typo3_source/`
+:path:`typo3_src/`
 ---------------------
 
 It is a common practice in Classic mode installations to use symlinks to quickly
 change between TYPO3 Core versions. In many installations you will find a symlink or folder
-called :file:`typo3_source` that contains the folders :ref:`classic-directory-typo3`,
+called :path:`typo3_src` that contains the folders :ref:`classic-directory-typo3`,
 and :ref:`classic-directory-vendor` and the file :file:`index.php`. In this case,
-those directories and files only symlink to :file:`typo3_source`. This way
+those directories and files only symlink to :path:`typo3_src`. This way
 the Core can be updated quickly by changing the symlink.
 
-Assuming your webroot is a directory called :file:`public` you could have
+Assuming your webroot is a directory called :path:`public` you could have
 the following symlink structure:
 
 *   typo3_src-12.0.0
@@ -111,7 +120,7 @@ the following symlink structure:
 ..  _classic-directory-typo3conf:
 ..  _legacy-directory-typo3conf:
 
-:file:`typo3conf/`
+:path:`typo3conf/`
 ------------------
 
 This path can be retrieved from the Environment API, see
@@ -120,7 +129,7 @@ This path can be retrieved from the Environment API, see
 ..  _classic-directory-typo3conf-autoload:
 ..  _legacy-directory-typo3conf-autoload:
 
-:file:`typo3conf/autoload/`
+:path:`typo3conf/autoload/`
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Contains :ref:`autoloading <autoload>` information.
@@ -130,7 +139,7 @@ The files are updated each time an extension is installed via the
 ..  _classic-directory-typo3conf-ext:
 ..  _legacy-directory-typo3conf-ext:
 
-:file:`typo3conf/ext/`
+:path:`typo3conf/ext/`
 ~~~~~~~~~~~~~~~~~~~~~~
 
 Directory for third-party and custom TYPO3 extensions. Each subdirectory
@@ -144,7 +153,7 @@ for more information on how the extensions are structured.
 ..  _classic-directory-typo3conf-l10n:
 ..  _legacy-directory-typo3conf-l10n:
 
-:file:`typo3conf/l10n/`
+:path:`typo3conf/l10n/`
 ~~~~~~~~~~~~~~~~~~~~~~~
 
 Directory for extension localizations. Contains all downloaded translation
@@ -156,19 +165,19 @@ This path can be retrieved from the Environment API, see
 ..  _classic-directory-typo3conf-sites:
 ..  _legacy-directory-typo3conf-sites:
 
-:file:`typo3conf/sites/`
+:path:`typo3conf/sites/`
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
-The folder :file:`typo3conf/sites/` contains subfolders, one for each site
+The folder :path:`typo3conf/sites/` contains subfolders, one for each site
 in the installation. See chapter :ref:`site-folder`.
 
 ..  _classic-directory-typo3conf-system:
 ..  _legacy-directory-typo3conf-system:
 
-:file:`typo3conf/system/`
+:path:`typo3conf/system/`
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
-The folder :file:`typo3conf/system/` contains the installation-wide
+The folder :path:`typo3conf/system/` contains the installation-wide
 :ref:`configuration files <configuration-files>`:
 
 *   :file:`settings.php`: :ref:`Configuration <typo3ConfVars-settings>` written
@@ -185,7 +194,7 @@ This path can be retrieved from the Environment API, see
 ..  _classic-directory-typo3temp:
 ..  _legacy-directory-typo3temp:
 
-:file:`typo3temp/`
+:path:`typo3temp/`
 ------------------
 
 Directory for temporary files. It contains subdirectories (see below)
@@ -194,14 +203,14 @@ for temporary files of extensions and TYPO3 components.
 ..  attention::
 
     Although it is a most common understanding in the TYPO3 world that
-    :file:`typo3temp/` can be removed at any time, it is considered
+    :path:`typo3temp/` can be removed at any time, it is considered
     bad practice to remove the whole folder. Developers should selectively
     remove folders relevant to the changes made.
 
 ..  _classic-directory-typo3temp-assets:
 ..  _legacy-directory-typo3temp-assets:
 
-:file:`typo3temp/assets/`
+:path:`typo3temp/assets/`
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Directory for temporary files that should be publicly available
@@ -210,7 +219,7 @@ Directory for temporary files that should be publicly available
 ..  _classic-directory-typo3temp-var:
 ..  _legacy-directory-typo3temp-var:
 
-:file:`typo3temp/var/`
+:path:`typo3temp/var/`
 ~~~~~~~~~~~~~~~~~~~~~~
 
 Directory for temporary files that should not be accessed through the web
@@ -219,7 +228,7 @@ Directory for temporary files that should not be accessed through the web
 ..  _classic-directory-vendor:
 ..  _legacy-directory-vendor:
 
-:file:`vendor/`
+:path:`vendor/`
 ~~~~~~~~~~~~~~~
 
 This directory contains third-party packages that are required by the
