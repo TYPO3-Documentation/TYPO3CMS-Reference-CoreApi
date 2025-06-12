@@ -216,12 +216,11 @@ basic, only :php:`OuterWrapContainer` and :php:`InlineControlContainer` currentl
 See the :ref:`TCA reference ctrl section <t3tca:ctrl-reference-container>` for more information on how to configure these
 for containers in TCA.
 
-Example. The :php:`InputTextElement` (standard input element) defines a couple of default wizards and embeds them in its
-main result HTML:
+The `InputTextElement` (standard input element) demonstrates how different wizards are loaded and integrated:
 
 ..  literalinclude:: _InputTextElement.php
     :language: php
-    :caption: EXT:my_extension/Classes/Backend/Form/InputTextElement.php
+    :caption: EXT:backend/Classes/Form/Element/InputTextElement.php
 
 This element defines three wizards to be called by default. The :php:`renderType` concept is re-used, the
 values :php:`localizationStateSelector` are registered within the :php:`NodeFactory` and resolve to class names. They

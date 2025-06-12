@@ -2,9 +2,7 @@
 
 declare(strict_types=1);
 
-namespace MyVendor\MyExtension\Backend\Form;
-
-use TYPO3\CMS\Backend\Form\Element\AbstractFormElement;
+namespace TYPO3\CMS\Backend\Form\Element;
 
 class InputTextElement extends AbstractFormElement
 {
