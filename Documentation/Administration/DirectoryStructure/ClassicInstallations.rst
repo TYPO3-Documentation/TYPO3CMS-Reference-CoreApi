@@ -165,7 +165,7 @@ This path can be retrieved from the Environment API, see
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
 The folder :path:`typo3conf/sites/` contains subfolders, one for each site
-in the installation. See chapter :ref:`site-folder`.
+in the installation. See also `Site handling <https://docs.typo3.org/permalink/t3coreapi:sitehandling>`_.
 
 ..  _classic-directory-typo3conf-system:
 ..  _legacy-directory-typo3conf-system:

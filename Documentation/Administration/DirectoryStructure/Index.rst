@@ -74,7 +74,7 @@ contains folder :path:`config/system/` for installation-wide configuration and
 ~~~~~~~~~~~~~~~~~~~~~
 
 The folder :path:`config/sites/` contains subfolders, one for each site
-in the installation. See chapter :ref:`site-folder`.
+in the installation. See also `Site handling <https://docs.typo3.org/permalink/t3coreapi:sitehandling>`_.
 
 .. _directory-config-system:
 
