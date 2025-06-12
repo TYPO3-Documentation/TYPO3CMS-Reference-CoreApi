@@ -1,59 +1,90 @@
+:navigation-title: Directory structure
+
 ..  include:: /Includes.rst.txt
 ..  index::
     ! Path
     see: Directory structure; Path
 ..  _directory-structure:
 
-===================
-Directory structure
-===================
+==============================================
+Directory structure of a typical TYPO3 project
+==============================================
 
-The overview below describes the directory structure in a typical
-Composer-based TYPO3 installation. For the structure in a Classic mode installation
-see :ref:`Classic mode installations: Directory structure <classic-directory-structure>`.
+The typical directory structure of a TYPO3 installation differs fundamentally
+between Composer mode and Classic mode. It can also vary depending on the TYPO3
+version. Use the version switch to select the correct documentation version.
 
-Also see :ref:`Environment` for further information, especially how to retrieve
-the paths within PHP code.
+This structural difference remains even when deploying TYPO3 to a production
+server without Composer, and without deploying :file:`composer.json` or
+:file:`composer.lock`. To make matters more confusing, the presence of these
+files **does not** guarantee that TYPO3 is running in Composer mode.
 
-Files on project level
-======================
+..  figure:: /Images/ManualScreenshots/Backend/ComposerMode.png
+    :alt: The TYPO3 backend Extension Manager with message "Composer mode: The system is set to composer mode. Please notice that this list is for informational purpose only. To modify which extensions are part of the system, use Composer. To set extensions up, use the TYPO3 cli (extension:setup)"
 
-On the top-most level, the project level, you can find the files
-:file:`composer.json` which contains requirements for the TYPO3 installation
-and the :file:`composer.lock` which contains information about the concrete
-installed versions of each package.
+    This info box in the Extension Manager confirms the installation is running
+    in Composer mode.
 
-Directories in a typical project
-================================
+..  contents:: Table of contents
+    :depth: 1
+
+.. seealso::
+
+    If your installation is running in Classic mode (also called Non-Composer or
+    Legacy mode), see the following for details on the directory structure:
+
+    *   `Classic mode installations: Directory structure <https://docs.typo3.org/permalink/t3coreapi:classic-directory-structure>`_
+
+
+..  _directory-structure-composer:
+
+Directories in a typical Composer mode TYPO3 project
+====================================================
+
+The overview below describes the directory structure of a typical
+Composer-based TYPO3 installation.
+
+Also see the chapter :ref:`Environment` for details on how to retrieve paths in
+PHP code.
+
+..  note::
+
+    Most paths listed here are configurable, as TYPO3 is highly flexible.
+
+    Depending on the `deployment method <https://docs.typo3.org/permalink/t3coreapi:deployment>`_,
+    especially in `CI/CD automation setups <https://docs.typo3.org/permalink/t3coreapi:ci-cd-for-typo3-projects>`_,
+    symbolic links may be used in place of actual directories.
 
 ..  contents::
     :local:
 
 ..  _directory-config:
 
-:file:`config/`
+:path:`config/`
 ---------------
 
 TYPO3 configuration directory. This directory
-contains installation-wide configuration.
+contains folder :path:`config/system/` for installation-wide configuration and
+:path:`config/sites/` for the site configuration and
+`Site settings <https://docs.typo3.org/permalink/t3coreapi:sitehandling-settings>`_.
 
 ..  _directory-config-sites:
 
-:file:`config/sites/`
+:path:`config/sites/`
 ~~~~~~~~~~~~~~~~~~~~~
 
-The folder :file:`config/sites/` contains subfolders, one for each site
+The folder :path:`config/sites/` contains subfolders, one for each site
 in the installation. See chapter :ref:`site-folder`.
 
 ..  _directory-config-system:
 
-:file:`config/system/`
+:path:`config/system/`
 ~~~~~~~~~~~~~~~~~~~~~~
 
-The folder :file:`config/system/` contains the installation-wide
+The folder :path:`config/system/` contains the installation-wide
 :ref:`configuration files <configuration-files>`:
 
-*   :file:`settings.php`: :ref:`Configuration <typo3ConfVars-settings>` written
+*   :path:`settings.php`: :ref:`Configuration <typo3ConfVars-settings>` written
     by the :guilabel:`Admin Tools > Settings` backend module
 *   :file:`additional.php`: :ref:`Manually created file <typo3ConfVars-additional>`
     which can override settings from :file:`settings.php` file
@@ -79,7 +110,7 @@ This path can be retrieved from the Environment API, see
 -----------------
 
 If you installed TYPO3 using the base distribution `composer create "typo3/cms-base-distribution"`
-this folder is automatically created and registered as repository in the the :file:`composer.json`.
+this folder is automatically created and registered as repository in the the :path:`composer.json`.
 
 You can put your site package and other extensions to be installed locally here. Then you can just
 install the extension with `composer install myvendor/my-sitepackage`.
@@ -103,7 +134,7 @@ manualy:
 
 ..  _directory-public:
 
-:file:`public/`
+:path:`public/`
 ---------------
 
 This folder contains all files that are publicly available. Your webserver's
@@ -114,7 +145,7 @@ and might contain publicly available files like a :file:`robots.txt` and
 files needed for the server configuration like a :file:`.htaccess`.
 
 If required, this directory can be renamed by setting `extra > typo3/cms > web-dir`
-in the composer.json, for example to :file:`web`:
+in the composer.json, for example to :path:`web`:
 
 ..  code-block:: json
     :caption: composer.json
@@ -132,15 +163,15 @@ This directory contains the following subdirectories:
 
 ..  _directory-public-assets:
 
-:file:`public/_assets/`
+:path:`public/_assets/`
 ~~~~~~~~~~~~~~~~~~~~~~~
 
 This directory includes symlinks to resources of extensions (stored in the
-:file:`Resources/Public/` folder), as consequence of this and further structure
-changes the folder :file:`typo3conf/ext/` is not created or used anymore.
+:path:`Resources/Public/` folder), as consequence of this and further structure
+changes the folder :path:`typo3conf/ext/` is not created or used anymore.
 So all files like CSS, JavaScript, icons, fonts, images, etc. of extensions
 are not referenced anymore directly to the extension folders but to the
-directory :file:`_assets/`.
+directory :path:`_assets/`.
 
 ..  note::
     TYPO3 v12 requires `typo3/cms-composer-installers` in version
@@ -148,26 +179,26 @@ directory :file:`_assets/`.
     extensions are now always referenced via this directory.
 
 ..  tip::
-    When creating an extension without a :file:`Resources/Public/` folder, the
-    corresponding :file:`_assets/` folder for that extension can not be symlinked
-    as the extension's :file:`Resources/Public/` folder does not exist. When you
+    When creating an extension without a :path:`Resources/Public/` folder, the
+    corresponding :path:`_assets/` folder for that extension can not be symlinked
+    as the extension's :path:`Resources/Public/` folder does not exist. When you
     create it later after the installation of the extension, run a
-    :bash:`composer dumpautoload` and the :file:`Resources/Public/` folder for
-    that extension is symlinked to :file:`_assets/`.
+    :bash:`composer dumpautoload` and the :path:`Resources/Public/` folder for
+    that extension is symlinked to :path:`_assets/`.
 
 ..  todo:: This may be fixed/addressed with this issue: https://review.typo3.org/c/Packages/TYPO3.CMS/+/84383
 
 ..  warning::
-    The :file:`_assets/` directory is not meant to be manually changed. Also, it
+    The :path:`_assets/` directory is not meant to be manually changed. Also, it
     is important for local development that all its subdirectories are symlinks
     to the specific Composer packages. Do not synchronize this directory
     from a production instance back to your development instance (only the other
-    way round). Thus, the whole :file:`_assets/` directory should always be removable and
+    way round). Thus, the whole :path:`_assets/` directory should always be removable and
     can be re-created with proper contents via :bash:`composer dumpautoload`.
     This will create symlinks for all installed TYPO3 Composer packages containing public
     assets.
 
-    If the :file:`_assets/` directory would not contain symlinks, any Composer update
+    If the :path:`_assets/` directory would not contain symlinks, any Composer update
     would never refer to updated versions of any JavaScript and CSS assets
     (including TYPO3 backend system extension), leading to incompatible code
     being loaded and causing errors in both backend and frontend.
@@ -182,7 +213,7 @@ directory :file:`_assets/`.
 
 ..  _directory-public-fileadmin:
 
-:file:`public/fileadmin/`
+:path:`public/fileadmin/`
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
 This is a directory in which editors store files. Typically images,
@@ -190,13 +221,13 @@ PDFs or video files appear in this directory and/or its subdirectories.
 
 Note this is only the default editor's file storage. This directory
 is handled via the :ref:`FAL API <fal>` internally, there may be
-further storage locations configured outside of :file:`fileadmin/`, even
+further storage locations configured outside of :path:`fileadmin/`, even
 pointing to different servers or using 3rd party digital asset management
 systems.
 
 Depending on the configuration in
 :ref:`$GLOBALS['TYPO3_CONF_VARS']['BE']['fileadminDir'] <typo3ConfVars_be_fileadminDir>`
-another folder name than :file:`fileadmin/` can be in use.
+another folder name than :path:`fileadmin/` can be in use.
 
 ..  note::
     This directory is meant for editors! Integrators should
@@ -208,7 +239,7 @@ another folder name than :file:`fileadmin/` can be in use.
 
 ..  _directory-public-typo3:
 
-:file:`public/typo3/`
+:path:`public/typo3/`
 ~~~~~~~~~~~~~~~~~~~~~
 
 This directory contains the two PHP files for accessing the TYPO3
@@ -221,7 +252,7 @@ backend (:file:`typo3/index.php`) and install tool (:file:`typo3/install.php`).
 
 ..  _directory-public-typo3temp:
 
-:file:`public/typo3temp/`
+:path:`public/typo3temp/`
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Directory for temporary files. It contains subdirectories (see below)
@@ -230,22 +261,22 @@ for temporary files of extensions and TYPO3 components.
 ..  attention::
 
     Although it is a most common understanding in the TYPO3 world that
-    :file:`public/typo3temp/` can be removed at any time, it is considered
+    :path:`public/typo3temp/` can be removed at any time, it is considered
     bad practice to remove the whole folder. Developers should selectively
     remove folders relevant to the changes made.
 
 ..  _directory-public-typo3temp-assets:
 
-:file:`public/typo3temp/assets/`
+:path:`public/typo3temp/assets/`
 """"""""""""""""""""""""""""""""
 
-The directory :file:`typo3temp/assets/` contains temporary files that should be
+The directory :path:`typo3temp/assets/` contains temporary files that should be
 public available. This includes generated images and compressed CSS and
 JavaScript files.
 
 ..  _directory-var:
 
-:file:`var/`
+:path:`var/`
 ------------
 
 Directory for temporary files that contains private files (e.g.
@@ -254,23 +285,23 @@ cache and logs files) and should not be publicly available.
 ..  attention::
 
     Although it is a most common understanding in the TYPO3 world that
-    :file:`var/` can be removed at any time, it is considered
+    :path:`var/` can be removed at any time, it is considered
     bad practice to remove the whole folder. Developers should selectively
     remove folders relevant to the changes made.
 
 ..  _directory-var-cache:
 
-:file:`var/cache/`
+:path:`var/cache/`
 ~~~~~~~~~~~~~~~~~~
 
 This directory contains internal files needed for the cache.
 
 ..  _directory-var-labels:
 
-:file:`var/labels/`
+:path:`var/labels/`
 ~~~~~~~~~~~~~~~~~~~
 
-The directory :file:`var/labels/` is for extension
+The directory :path:`var/labels/` is for extension
 localizations. It contains all downloaded translation files.
 
 This path can be retrieved from the Environment API, see
@@ -278,7 +309,7 @@ This path can be retrieved from the Environment API, see
 
 ..  _directory-var-log:
 
-:file:`var/log/`
+:path:`var/log/`
 ~~~~~~~~~~~~~~~~
 
 This directory contains log files like the
@@ -286,7 +317,7 @@ TYPO3 log, the deprecations log and logs generated by extensions.
 
 ..  _directory-vendor:
 
-:file:`vendor/`
+:path:`vendor/`
 ---------------
 
 In this directory, which lies outside of
@@ -298,9 +329,9 @@ vendor directory there is a folder with the different project names.
 
 For example the system extension `core` has the complete package name
 `typo3/cms-core` and will therefore be installed into the directory
-:file:`vendor/typo3/cms-core`. The extension `news`, package name
+:path:`vendor/typo3/cms-core`. The extension `news`, package name
 `georgringer/news` will be installed into the folder
-:file:`vendor/georgringer/news`.
+:path:`vendor/georgringer/news`.
 
 Never put or symlink your extensions manually into this directory as it is
 managed by Composer and any manual changes are getting lost,
@@ -308,7 +339,7 @@ for example on deployment. Local extensions and sitepackages
 should be kept in a separate folder outside the web root, for example
 :ref:`packages <directory-packages>`.
 Upon installation , Composer creates a symlink from packages to
-:file:`vendor/myvendor/my-extension`.
+:path:`vendor/myvendor/my-extension`.
 
 
 ..  toctree::
