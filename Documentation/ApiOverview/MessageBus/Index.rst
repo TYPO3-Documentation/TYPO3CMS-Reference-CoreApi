@@ -220,6 +220,32 @@ The TYPO3 Core has been tested with three transports:
 *   :php:`\Symfony\Component\Messenger\Transport\InMemory\InMemoryTransport`
     (for testing)
 
+Add rate limiter
+----------------
+
+..  versionadded:: 13.4
+    You can add your own rate limiter definition to asynchronous messages
+
+Rate limiting can be applied to asynchronous messages processed through the
+consume command. This allows controlling message processing rates to:
+
+*   Stay within external service limits (API quotas, mail sending thresholds)
+*   Manage server resource utilization
+
+Example
+~~~~~~~
+
+Use the following configuration to limit the process of messages to
+max. 100 each 60 seconds:
+
+..  literalinclude:: _add-rate-limiter.yaml
+    :language: yaml
+    :caption: EXT:my_extension/Configuration/Services.yaml | config/system/services.yaml
+
+..  hint::
+    As TYPO3 default transport for asynchronous messages is `doctrine` you also
+    have to set the tags `identifier` to `doctrine`.
+
 
 InMemoryTransport for testing
 -----------------------------
