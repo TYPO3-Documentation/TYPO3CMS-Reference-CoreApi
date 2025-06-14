@@ -143,6 +143,9 @@ Open:
 
     http://localhost:8080
 
+(assuming port 8080 was mapped to internal port 80 during `docker run`;
+see :ref:`classic-docker-ports`)
+
 Use these database settings:
 
 - **Database Host**: `typo3db`
@@ -195,6 +198,36 @@ To start the database container, run:
 ..  code-block:: bash
 
     docker start typo3db
+
+..  _classic-docker-ports:
+
+Understanding port mapping
+==========================
+
+The TYPO3 Docker image exposes an internal web server on **port 80**. In order
+to access this service from your host machine (via a web browser), Docker
+needs to map that internal container port to a port on your host system.
+
+This is done using the `-p` flag in `docker run`:
+
+.. code-block:: bash
+
+    docker run -p 8080:80 ...
+
+In this example:
+
+*   `8080` is the **host port** (your computer)
+*   `80` is the **container port** (inside the TYPO3 image)
+
+This means you can access TYPO3 at `http://localhost:8080`.
+
+You can choose a different host port if needed, as long as it doesn't conflict
+with other services. The container will always serve on port `80` internally.
+
+..  tip::
+
+    Learn more: `Docker Networking – Published Ports
+    <https://docs.docker.com/config/containers/container-networking/#published-ports>`_
 
 ..  _classic-docker-reset:
 

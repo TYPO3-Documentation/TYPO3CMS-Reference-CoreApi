@@ -71,12 +71,48 @@ Visit:
 
     http://localhost:8081
 
+(This URL works because port 8081 on your host maps to port 80 in the container;
+see :ref:`docker-compose-port-mapping`)
+
 Use these installer settings:
 
 -   **Database host**: `db`
 -   **Username**: `db`
 -   **Password**: `db`
 -   **Database name**: `db`
+
+.. _docker-compose-port-mapping:
+
+About port mapping in Docker Compose
+====================================
+
+By default, the TYPO3 container exposes **port 80** internally. In the
+`docker-compose.yml` file, this is mapped to a port on your local machine
+using the `ports` option:
+
+..  code-block:: yaml
+
+    ports:
+      - "8081:80"
+
+This means:
+
+*   `80` is the container’s internal web server port
+*   `8081` is the port on your local machine
+
+With this mapping, you can access TYPO3 at:
+
+..  code-block:: text
+
+    http://localhost:8081
+
+You can change the `8081` part to any available port if needed. The internal
+port `80` should not be changed, as it is required by the TYPO3 image.
+
+..  tip::
+
+    Learn more: `Docker Compose Networking – Ports
+    <https://docs.docker.com/compose/compose-file/#ports>`_
 
 ..  _docker-compose-stop-cleanup:
 
