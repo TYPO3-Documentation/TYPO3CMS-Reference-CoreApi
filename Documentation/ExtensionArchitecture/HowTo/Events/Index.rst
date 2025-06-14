@@ -30,24 +30,8 @@ the name in the :file:`Configuration/Services.yaml` or it is not found.
 It is best practice to use a descriptive class name and to put it in the
 namespace :php:`MyVendor\MyExtension\EventListener`.
 
-..  note::
-    This example is outdated as the used event :ref:`PasswordChangeEvent`
-    does not provide the method :php:`setAsInvalid()` anymore. However, it
-    illustrates the basic principle of an event listener.
-
-..  todo: Adjust example, see also https://github.com/TYPO3-Documentation/TYPO3CMS-Reference-CoreApi/issues/3155
-
-.. literalinclude:: _Joh316PasswordInvalidator.php
+.. literalinclude:: _Joh316PasswordInformer.php
    :language: php
-
-Then register the event in your extension's :file:`Configuration/Services.yaml`:
-
-.. literalinclude:: _EventServices.yaml
-   :language: yaml
-
-Additionally, the :file:`Configuration/Services.yaml` file allows to define a different
-method name for the event listener class and to influence the order in which
-events are loaded. See :ref:`EventDispatcherRegistration` for details.
 
 Dispatch an event
 =================
