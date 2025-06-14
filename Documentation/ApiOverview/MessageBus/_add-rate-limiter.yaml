@@ -1,0 +1,12 @@
+messenger.rate_limiter.limit_db_messages:
+  class: Symfony\Component\RateLimiter\RateLimiterFactory
+  arguments:
+    $config:
+      id: 'limit_db_messages'
+      policy: 'sliding_window'
+      limit: 100
+      interval: '60 seconds'
+    $storage: '@TYPO3\CMS\Core\RateLimiter\Storage\CachingFrameworkStorage'
+  tags:
+    - name: 'messenger.rate_limiter'
+      identifier: 'doctrine'
