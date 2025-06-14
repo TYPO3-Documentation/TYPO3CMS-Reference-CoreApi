@@ -437,6 +437,10 @@ configurations.
     the server. If :php:`*` all proxies defined in
     :ref:`[SYS][reverseProxyIP]<typo3ConfVars_sys_reverseProxyIP>` use SSL.
 
+    ..  versionadded:: 13.4
+        If client establishes a secure connection, TYPO3 now also checks for
+        `X-Forwarded-Proto` header.
+
     ..  seealso::
 
         *   `Running TYPO3 behind a reverse proxy <https://docs.typo3.org/permalink/t3coreapi:reverse-proxy-setup>`_
