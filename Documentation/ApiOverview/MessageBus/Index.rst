@@ -220,11 +220,12 @@ The TYPO3 Core has been tested with three transports:
 *   :php:`\Symfony\Component\Messenger\Transport\InMemory\InMemoryTransport`
     (for testing)
 
+..  _message-bus-add-rate-limiter:
+
 Add rate limiter
 ----------------
 
 ..  versionadded:: 13.4
-    You can add your own rate limiter definition to asynchronous messages
 
 Rate limiting can be applied to asynchronous messages processed through the
 consume command. This allows controlling message processing rates to:
@@ -233,7 +234,7 @@ consume command. This allows controlling message processing rates to:
 *   Manage server resource utilization
 
 Example: Usage of a rate limiter
-~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Use the following configuration to limit the process of messages to
 max. 100 each 60 seconds:
