@@ -15,10 +15,12 @@ Please refer to the documentation of that server on what exact settings are need
 
 ..  contents:: Table of contents
 
-..  _proxy-explanation:
+..  _reverse-proxy-explanation-proxy-reverse-proxy:
 
 Proxy and Reverse Proxy
 =======================
+
+..  _reverse-proxy-explanation-proxy:
 
 Proxy
 -----
@@ -31,6 +33,8 @@ from other servers. The primary use cases include:
 *   Access control and content filtering
 *   Caching frequently requested resources
 *   Bypassing geographic restrictions
+
+..  _reverse-proxy-explanation-reverse-proxy:
 
 Difference Between Proxy and Reverse Proxy
 ------------------------------------------
@@ -50,6 +54,8 @@ While both types act as intermediaries, they serve different purposes:
     *   Handles incoming requests to backend servers
     *   Server-focused
     *   Masks server identity from clients
+
+..  _reverse-proxy-benefits-reverse-proxy:
 
 Benefits of a Reverse Proxy
 ---------------------------
@@ -78,6 +84,8 @@ Implementing a reverse proxy with TYPO3 offers several advantages:
     *   Reduces load on TYPO3 backend servers
     *   Improves response times
 
+..  _reverse-proxy-importance-of-protocol-detection:
+
 Importance of Protocol Detection
 --------------------------------
 
@@ -85,12 +93,16 @@ TYPO3 needs to accurately determine whether the original client connection was
 HTTPS for several critical system functions. This information affects multiple
 core functionalities:
 
+..  _reverse-proxy-importance-of-protocol-detection-security-features:
+
 Security Features
 ~~~~~~~~~~~~~~~~~
 
 *   **Cookie Security**: Determines whether secure cookies should be set
 *   **Form Security**: Influences CSRF token handling and form security measures
 *   **Environment Detection**: Powers :php:`Environment::isHttps()` checks
+
+..  _reverse-proxy-importance-of-protocol-detection-url-generation:
 
 URL Generation
 ~~~~~~~~~~~~~~
@@ -115,6 +127,8 @@ protocol detection can lead to:
 Therefore, proper configuration of reverse proxy settings is essential for
 maintaining both security and functionality in TYPO3 installations.
 
+..  _reverse-proxy-https-detection-and-configuration:
+
 HTTPS Detection and Configuration
 ---------------------------------
 
@@ -135,6 +149,8 @@ HTTP and often configured with "HTTPS=on" (e.g., via .htaccess).
         (typically X-Forwarded-Proto) to determine the protocol
     *   Example: :php:`$GLOBALS['TYPO3_CONF_VARS']['SYS']['reverseProxyIP'] = '192.0.2.1';`
 
+
+..  _reverse-proxy-https-detection-and-configuration-protocol-detection-fallback:
 
 Protocol Detection Fallback
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
