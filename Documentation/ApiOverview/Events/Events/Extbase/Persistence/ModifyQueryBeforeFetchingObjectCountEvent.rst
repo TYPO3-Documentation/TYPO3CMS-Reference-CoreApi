@@ -13,6 +13,8 @@ The PSR-14 event
 is fired before the storage backend has asked for results count
 from a given query.
 
+..  _ModifyQueryBeforeFetchingObjectCountEvent-api:
+
 API
 ===
 
