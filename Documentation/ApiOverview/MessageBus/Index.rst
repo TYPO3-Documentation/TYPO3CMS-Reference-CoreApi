@@ -232,7 +232,7 @@ consume command. This allows controlling message processing rates to:
 *   Stay within external service limits (API quotas, mail sending thresholds)
 *   Manage server resource utilization
 
-Example
+Example: Usage of a rate limiter
 ~~~~~~~
 
 Use the following configuration to limit the process of messages to
