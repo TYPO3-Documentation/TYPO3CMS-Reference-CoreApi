@@ -7,8 +7,6 @@ ModifyQueryBeforeFetchingObjectCountEvent
 =========================================
 
 ..  versionadded:: 14.0
-    The event :php:`_ModifyQueryBeforeFetchingObjectCountEvent` was
-    introduced
 
 The PSR-14 event
 :php:`\TYPO3\CMS\Extbase\Event\Persistence\ModifyQueryBeforeFetchingObjectCountEvent`
