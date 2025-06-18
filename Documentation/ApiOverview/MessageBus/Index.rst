@@ -36,8 +36,12 @@ of a consumer command.
     :local:
 
 
+..  _message-bus-everyday-usage:
+
 "Everyday" usage - as a developer
 =================================
+
+..  _message-bus-dispatch:
 
 Dispatch a message
 ------------------
@@ -179,6 +183,8 @@ file on your server:
     WantedBy=multi-user.target
 
 
+..  _message-bus-advanced-usage:
+
 Advanced usage
 ==============
 
@@ -233,6 +239,8 @@ consume command. This allows controlling message processing rates to:
 *   Stay within external service limits (API quotas, mail sending thresholds)
 *   Manage server resource utilization
 
+..  _message-bus-example-rate-limiter:
+
 Example: Usage of a rate limiter
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -248,6 +256,8 @@ max. 100 each 60 seconds:
     have to set the tags `identifier` to `doctrine`.
 
 
+..  _message-bus-in-memory-transport-testing:
+
 InMemoryTransport for testing
 -----------------------------
 
@@ -258,6 +268,8 @@ testing.
     :language: yaml
     :caption: EXT:my_extension/Configuration/Services.yaml | config/system/services.yaml
 
+
+..  _message-bus-configure-middleware:
 
 Configure a custom middleware
 -----------------------------
@@ -274,7 +286,6 @@ order using TYPO3's :yaml:`before` and :yaml:`after` ordering mechanism:
 ..  literalinclude:: _custom-middleware.yaml
     :language: yaml
     :caption: EXT:my_extension/Configuration/Services.yaml | config/system/services.yaml
-
 
 
 ..  _Custom middleware: https://symfony.com/doc/current/components/messenger.html#bus
