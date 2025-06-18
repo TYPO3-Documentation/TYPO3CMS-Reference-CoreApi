@@ -45,6 +45,18 @@ return [
     ],
     [
         'action' => 'createPhpClassDocs',
+        'class' => \TYPO3\CMS\Extbase\Event\Persistence\ModifyQueryBeforeFetchingObjectCountEvent::class,
+        'targetFileName' => 'CodeSnippets/Events/Extbase/ModifyQueryBeforeFetchingObjectCountEvent.rst.txt',
+        'withCode' => false,
+    ],
+    [
+        'action' => 'createPhpClassDocs',
+        'class' => \TYPO3\CMS\Extbase\Event\Persistence\ModifyResultAfterFetchingObjectCountEvent::class,
+        'targetFileName' => 'CodeSnippets/Events/Extbase/ModifyResultAfterFetchingObjectCountEvent.rst.txt',
+        'withCode' => false,
+    ],
+    [
+        'action' => 'createPhpClassDocs',
         'class' => \TYPO3\CMS\Extbase\Event\Persistence\ModifyQueryBeforeFetchingObjectDataEvent::class,
         'targetFileName' => 'CodeSnippets/Events/Extbase/ModifyQueryBeforeFetchingObjectDataEvent.rst.txt',
         'withCode' => false,

@@ -36,8 +36,12 @@ of a consumer command.
     :local:
 
 
+..  _message-bus-everyday-usage:
+
 "Everyday" usage - as a developer
 =================================
+
+..  _message-bus-dispatch:
 
 Dispatch a message
 ------------------
@@ -179,6 +183,8 @@ file on your server:
     WantedBy=multi-user.target
 
 
+..  _message-bus-advanced-usage:
+
 Advanced usage
 ==============
 
@@ -220,6 +226,37 @@ The TYPO3 Core has been tested with three transports:
 *   :php:`\Symfony\Component\Messenger\Transport\InMemory\InMemoryTransport`
     (for testing)
 
+..  _message-bus-add-rate-limiter:
+
+Add rate limiter
+----------------
+
+..  versionadded:: 13.4
+
+Rate limiting can be applied to asynchronous messages processed through the
+consume command. This allows controlling message processing rates to:
+
+*   Stay within external service limits (API quotas, mail sending thresholds)
+*   Manage server resource utilization
+
+..  _message-bus-example-rate-limiter:
+
+Example: Usage of a rate limiter
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Use the following configuration to limit the process of messages to
+max. 100 each 60 seconds:
+
+..  literalinclude:: _add-rate-limiter.yaml
+    :language: yaml
+    :caption: EXT:my_extension/Configuration/Services.yaml | config/system/services.yaml
+
+..  hint::
+    As TYPO3 default transport for asynchronous messages is `doctrine` you also
+    have to set the tags `identifier` to `doctrine`.
+
+
+..  _message-bus-in-memory-transport-testing:
 
 InMemoryTransport for testing
 -----------------------------
@@ -231,6 +268,8 @@ testing.
     :language: yaml
     :caption: EXT:my_extension/Configuration/Services.yaml | config/system/services.yaml
 
+
+..  _message-bus-configure-middleware:
 
 Configure a custom middleware
 -----------------------------
@@ -247,7 +286,6 @@ order using TYPO3's :yaml:`before` and :yaml:`after` ordering mechanism:
 ..  literalinclude:: _custom-middleware.yaml
     :language: yaml
     :caption: EXT:my_extension/Configuration/Services.yaml | config/system/services.yaml
-
 
 
 ..  _Custom middleware: https://symfony.com/doc/current/components/messenger.html#bus
