@@ -49,3 +49,11 @@
 
     ..  php:method:: getContext()
         :returns: `\TYPO3\CMS\Core\Context\Context`
+
+    ..  php:method:: getRecordIdentityMap()
+        :returns: `\TYPO3\CMS\Core\Domain\Persistence\RecordIdentityMap`
+
+    ..  php:method:: getSchema()
+        :returns: `\TYPO3\CMS\Core\Schema\TcaSchema`
+
+        If available this is the subSchema for the current record type

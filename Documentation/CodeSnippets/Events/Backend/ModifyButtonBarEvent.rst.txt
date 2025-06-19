@@ -6,7 +6,7 @@
     Listeners can modify the buttons of the button bar in the backend module docheader
 
     ..  php:method:: getButtons()
-        :returns: `array`
+        :returns: `\Buttons`
 
     ..  php:method:: setButtons(array $buttons)
 
