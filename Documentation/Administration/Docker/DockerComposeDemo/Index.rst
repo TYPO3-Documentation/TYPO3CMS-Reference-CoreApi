@@ -81,7 +81,7 @@ Use these installer settings:
 -   **Password**: `db`
 -   **Database name**: `db`
 
-.. _docker-compose-port-mapping:
+..  _docker-compose-port-mapping:
 
 About port mapping in Docker Compose
 ====================================
