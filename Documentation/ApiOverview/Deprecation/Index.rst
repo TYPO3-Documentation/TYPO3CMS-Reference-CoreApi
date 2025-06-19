@@ -10,10 +10,10 @@ Deprecation handling: logging, marking and finding deprecations
 ===============================================================
 
 TYPO3 logs calls to deprecated functions to help developers identify and update
-outdated code. Deprecated methods are removed in future TYPO3 versions, so
-usage should be avoided.
+outdated code. Deprecated methods will be removed in future TYPO3 versions, so
+they should be avoided.
 
-Deprecations are triggered with :php:`trigger_error()` and pass through TYPO3’s
+Deprecations are triggered by :php:`trigger_error()` and pass through TYPO3’s
 logging and exception system. In development, they are shown as exceptions by
 default; in production, they are typically ignored.
 
@@ -30,9 +30,9 @@ default; in production, they are typically ignored.
 Enabling the deprecation log
 ============================
 
-TYPO3 ships with a default configuration, in which deprecation logging is
+TYPO3 ships with a default configuration where deprecation logging is
 **disabled**. If you upgrade to the latest TYPO3 version, you need to change
-your development configuration to enable deprecation logging in case you need
+your development configuration to enable deprecation logging if you need
 it.
 
 ..  seealso::
@@ -58,7 +58,7 @@ selecting the :guilabel:`Live` preset instead.
 
     Enabling the debug preset
 
-The debug preset enables also some other debug settings.
+The debug preset also enables some other debug settings.
 
 ..  note::
     These steps only enable/disable the :ref:`FileWriter <logging-writers-FileWriter>`,
