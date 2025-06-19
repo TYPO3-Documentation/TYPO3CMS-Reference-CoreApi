@@ -1,7 +1,7 @@
 :navigation-title: Ports
 
 ..  include:: /Includes.rst.txt
-.. _container-hosting-ports:
+..  _container-hosting-ports:
 
 ===================================================
 Ports when running TYPO3 on container-based hosting
