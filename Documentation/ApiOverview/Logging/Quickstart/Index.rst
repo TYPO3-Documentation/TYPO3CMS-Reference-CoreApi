@@ -1,10 +1,12 @@
+:navigation-title: Quickstart
+
 ..  include:: /Includes.rst.txt
 ..  index:: Logging; Quickstart
 ..  _logging-quickstart:
 
-==========
-Quickstart
-==========
+==========================================
+Quickstart: Writing to the logger from PHP
+==========================================
 
 ..  index::
     Logging; Instantiation

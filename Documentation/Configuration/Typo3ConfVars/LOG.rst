@@ -9,8 +9,15 @@
 LOG - Logging configuration
 ===========================
 
-:php:`$GLOBALS['TYPO3_CONF_VARS']['LOG']` holds the logging configuration. Have
-a look into the :ref:`logging` chapter for more details.
+The array :php:`$GLOBALS['TYPO3_CONF_VARS']['LOG']` defines how TYPO3 handles
+logging—what gets logged, how it's formatted, and where it's written.
 
-You can find the default logging configuration shipped with TYPO3 in the file
-:t3src:`core/Configuration/DefaultConfiguration.php`.
+Depending on your role, there are two relevant guides:
+
+*   For **developers** implementing logging in extensions or custom services,
+    see the :ref:`logging` chapter (developer guide).
+*   For **system administrators** and **DevOps** configuring logging in
+    production environments, see :ref:`production-logging`.
+
+The default logging configuration shipped with TYPO3 can be found in:
+:t3src:`core/Configuration/DefaultConfiguration.php`

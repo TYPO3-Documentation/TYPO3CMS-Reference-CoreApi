@@ -1,10 +1,22 @@
+:navigation-title: Logging
+
 ..  include:: /Includes.rst.txt
 ..  index:: ! Logging
 ..  _logging:
 
-=======
-Logging
-=======
+=======================================
+The logging framework (developer guide)
+=======================================
+
+This chapter is intended for **developers** who want to use TYPO3’s logging
+framework in their extensions, middleware, or custom services.
+
+It explains the internal architecture of the logging system and how to interact
+with it programmatically.
+
+If you're looking for production-level logging guidance (e.g., log rotation,
+monitoring, or security), see:
+:ref:`production-logging`.
 
 The chapter :ref:`logging-quickstart` helps you get started.
 
@@ -19,6 +31,11 @@ TYPO3 Logging consists of the following components:
 *   :ref:`Processors <logging-processors>` which enhance the log record with
     more detailed information.
 
+..  seealso::
+
+    Are you looking for information on how to configure logging for production
+    environments (log rotation, error monitoring, security)? See
+    `Logging in production <https://docs.typo3.org/permalink/t3coreapi:production-logging>`_.
 
 **Contents:**
 
