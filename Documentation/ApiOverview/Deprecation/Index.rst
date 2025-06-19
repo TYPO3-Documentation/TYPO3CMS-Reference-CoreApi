@@ -38,7 +38,7 @@ it.
 ..  seealso::
 
     To learn how to properly disable the deprecation log in production, see
-    :ref:`production-logging-disable-deprecation`.
+    :ref:`deprecation-disable-errors`.
 
 ..  _deprecation-enable-errors-gui:
 
