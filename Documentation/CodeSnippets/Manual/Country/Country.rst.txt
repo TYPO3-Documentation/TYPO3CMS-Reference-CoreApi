@@ -29,3 +29,6 @@
 
     ..  php:method:: getFlag()
         :returns: `string`
+
+    ..  php:method:: __toString()
+        :returns: `string`
