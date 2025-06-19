@@ -22,26 +22,38 @@ forwards traffic to port `80` inside the container.
 
 ..  tip::
 
-    The TYPO3 container listens on port 80 — this is a convention. If your
-    host platform expects a different internal port, you must configure
+    Most TYPO3 Docker images are configured to listen on port ``80`` inside the
+    container. This is a common convention. If your host platform or reverse
+    proxy expects a different internal port, be sure to configure the Docker
     port mapping accordingly.
 
 ..  _classic-docker-reverse-proxy:
 
-Using HTTPS and reverse proxies
-===============================
-
-If you are accessing TYPO3 via `https://` but the container receives
-traffic on internal port `80`, TYPO3 may detect the request as `http://`
-and generate a site configuration with the wrong scheme.
-
-This can lead to redirect loops or broken links in the frontend.
-
-To fix this, you should use a **reverse proxy** (such as Traefik or nginx)
-that handles HTTPS and forwards the original request information to TYPO3.
+Using HTTPS and reverse proxies (SSL Offloading)
+================================================
 
 ..  seealso::
-    For details, see: :ref:`reverse-proxy-container`
+
+    **Background reading:**
+
+    `What is SSL Offloading? <https://certera.com/blog/know-what-is-ssl-offloading-and-how-it-works/>`_
+
+When deploying TYPO3 behind a **reverse proxy** (such as Traefik or nginx) that
+handles HTTPS termination, it is common for the proxy to **offload SSL**—
+meaning the secure connection (HTTPS) is terminated at the proxy, and the
+request is forwarded to the container over plain HTTP (port `80`). This
+practice is called **SSL offloading**.
+
+However, TYPO3 may detect the incoming request as `http://` (because it is
+forwarded as HTTP), and consequently generate site URLs with the wrong scheme.
+This can cause redirect loops or incorrect links in the frontend.
+
+TYPO3 typically includes support for reverse proxy setups. When configured
+correctly, it will still generate `https://` links even if SSL is offloaded.
+Be sure to **enable reverse proxy support in TYPO3** so that it correctly
+interprets the original request scheme.
+
+For details, see: :ref:`reverse-proxy-container`
 
 After installation, **check your site configuration** in TYPO3. If it was
 automatically created with a `http://` base URL but you're accessing the site
