@@ -210,7 +210,7 @@ needs to map that internal container port to a port on your host system.
 
 This is done using the `-p` flag in `docker run`:
 
-.. code-block:: bash
+..  code-block:: bash
 
     docker run -p 8080:80 ...
 
