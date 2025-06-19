@@ -10,12 +10,12 @@ LOG - Logging configuration
 ===========================
 
 The array :php:`$GLOBALS['TYPO3_CONF_VARS']['LOG']` defines how TYPO3 handles
-logging—what gets logged, how it's formatted, and where it's written.
+logging—what gets logged, how it is formatted, and where it is written.
 
 Depending on your role, there are two relevant guides:
 
 *   For **developers** implementing logging in extensions or custom services,
-    see the :ref:`logging` chapter (developer guide).
+    see :ref:`logging` chapter.
 *   For **system administrators** and **DevOps** configuring logging in
     production environments, see :ref:`production-logging`.
 

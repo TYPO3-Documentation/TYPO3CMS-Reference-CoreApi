@@ -8,7 +8,7 @@
 The logging framework (developer guide)
 =======================================
 
-This chapter is intended for **developers** who want to use TYPO3’s logging
+This chapter is intended for **developers** who want to use the TYPO3 logging
 framework in their extensions, middleware, or custom services.
 
 It explains the internal architecture of the logging system and how to interact
