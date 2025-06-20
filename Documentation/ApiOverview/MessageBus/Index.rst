@@ -232,6 +232,7 @@ Add rate limiter
 ----------------
 
 ..  versionadded:: 13.4
+    You can add your own rate limiter definition to asynchronous messages
 
 Rate limiting can be applied to asynchronous messages processed through the
 consume command. This allows controlling message processing rates to:
@@ -254,7 +255,6 @@ max. 100 each 60 seconds:
 ..  hint::
     As TYPO3 default transport for asynchronous messages is `doctrine` you also
     have to set the tags `identifier` to `doctrine`.
-
 
 ..  _message-bus-in-memory-transport-testing:
 
