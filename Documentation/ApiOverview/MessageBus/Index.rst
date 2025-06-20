@@ -245,7 +245,6 @@ consume command. This allows controlling message processing rates to:
 Example: Usage of a rate limiter
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-
 Use the following configuration to limit the process of messages to
 max. 100 each 60 seconds:
 
