@@ -13,7 +13,7 @@ return [
     [
         'action' => 'createPhpClassDocs',
         'class' => \TYPO3\CMS\Core\Database\Query\Expression\ExpressionBuilder::class,
-        'targetFileName' => 'ApiOverview/Database/ExpressionBuilder/_ExpressionBuilderLength.rst.txt',
+        'targetFileName' => 'ApiOverview/Database/DoctrineDbal/ExpressionBuilder/_ExpressionBuilderLength.rst.txt',
         'includeClassComment' => false,
         'members' => [
             'length',
@@ -24,7 +24,7 @@ return [
     [
         'action' => 'createPhpClassDocs',
         'class' => \TYPO3\CMS\Core\Database\Query\Expression\ExpressionBuilder::class,
-        'targetFileName' => 'ApiOverview/Database/ExpressionBuilder/_ExpressionBuilderTrim.rst.txt',
+        'targetFileName' => 'ApiOverview/Database/DoctrineDbal/ExpressionBuilder/_ExpressionBuilderTrim.rst.txt',
         'includeClassComment' => false,
         'members' => [
             'trim',
@@ -35,7 +35,7 @@ return [
     [
         'action' => 'createPhpClassDocs',
         'class' => \TYPO3\CMS\Core\Database\Query\Expression\ExpressionBuilder::class,
-        'targetFileName' => 'ApiOverview/Database/ExpressionBuilder/_ExpressionBuilderAggregate.rst.txt',
+        'targetFileName' => 'ApiOverview/Database/DoctrineDbal/ExpressionBuilder/_ExpressionBuilderAggregate.rst.txt',
         'includeClassComment' => false,
         'members' => [
             'min', 'max', 'avg', 'sum', 'count',
@@ -46,7 +46,7 @@ return [
     [
         'action' => 'createPhpClassDocs',
         'class' => \TYPO3\CMS\Core\Database\Query\Expression\ExpressionBuilder::class,
-        'targetFileName' => 'ApiOverview/Database/ExpressionBuilder/_ExpressionBuilderComparisons.rst.txt',
+        'targetFileName' => 'ApiOverview/Database/DoctrineDbal/ExpressionBuilder/_ExpressionBuilderComparisons.rst.txt',
         'includeClassComment' => false,
         'members' => [
             'eq', 'neq', 'lt', 'lte', 'gt', 'gte', 'isNull', 'isNotNull', 'like', 'notLike', 'in', 'notIn', 'inSet', 'notInSet', 'bitAnd',
@@ -57,7 +57,7 @@ return [
     [
         'action' => 'createPhpClassDocs',
         'class' => \TYPO3\CMS\Core\Database\Query\Expression\ExpressionBuilder::class,
-        'targetFileName' => 'ApiOverview/Database/ExpressionBuilder/_ExpressionBuilderAs.rst.txt',
+        'targetFileName' => 'ApiOverview/Database/DoctrineDbal/ExpressionBuilder/_ExpressionBuilderAs.rst.txt',
         'includeClassComment' => false,
         'includeMemberComment' => false,
         'members' => [
@@ -69,7 +69,7 @@ return [
     [
         'action' => 'createPhpClassDocs',
         'class' => \TYPO3\CMS\Core\Database\Query\Expression\ExpressionBuilder::class,
-        'targetFileName' => 'ApiOverview/Database/ExpressionBuilder/_ExpressionBuilderConcat.rst.txt',
+        'targetFileName' => 'ApiOverview/Database/DoctrineDbal/ExpressionBuilder/_ExpressionBuilderConcat.rst.txt',
         'includeClassComment' => false,
         'includeMemberComment' => false,
         'members' => [
@@ -81,7 +81,7 @@ return [
     [
         'action' => 'createPhpClassDocs',
         'class' => \TYPO3\CMS\Core\Database\Query\Expression\ExpressionBuilder::class,
-        'targetFileName' => 'ApiOverview/Database/ExpressionBuilder/_ExpressionBuilderCastVarchar.rst.txt',
+        'targetFileName' => 'ApiOverview/Database/DoctrineDbal/ExpressionBuilder/_ExpressionBuilderCastVarchar.rst.txt',
         'includeClassComment' => false,
         'includeMemberComment' => false,
         'members' => [
@@ -93,7 +93,7 @@ return [
     [
         'action' => 'createPhpClassDocs',
         'class' => \TYPO3\CMS\Core\Database\Query\Expression\ExpressionBuilder::class,
-        'targetFileName' => 'ApiOverview/Database/ExpressionBuilder/_ExpressionBuilderCastInt.rst.txt',
+        'targetFileName' => 'ApiOverview/Database/DoctrineDbal/ExpressionBuilder/_ExpressionBuilderCastInt.rst.txt',
         'includeClassComment' => false,
         'includeMemberComment' => false,
         'members' => [
@@ -105,7 +105,7 @@ return [
     [
         'action' => 'createPhpClassDocs',
         'class' => \TYPO3\CMS\Core\Database\Query\Expression\ExpressionBuilder::class,
-        'targetFileName' => 'ApiOverview/Database/ExpressionBuilder/_ExpressionBuilderRepeat.rst.txt',
+        'targetFileName' => 'ApiOverview/Database/DoctrineDbal/ExpressionBuilder/_ExpressionBuilderRepeat.rst.txt',
         'includeClassComment' => false,
         'includeMemberComment' => false,
         'members' => [
@@ -117,7 +117,7 @@ return [
     [
         'action' => 'createPhpClassDocs',
         'class' => \TYPO3\CMS\Core\Database\Query\Expression\ExpressionBuilder::class,
-        'targetFileName' => 'ApiOverview/Database/ExpressionBuilder/_ExpressionBuilderSpace.rst.txt',
+        'targetFileName' => 'ApiOverview/Database/DoctrineDbal/ExpressionBuilder/_ExpressionBuilderSpace.rst.txt',
         'includeClassComment' => false,
         'includeMemberComment' => false,
         'members' => [
@@ -129,7 +129,7 @@ return [
     [
         'action' => 'createPhpClassDocs',
         'class' => \TYPO3\CMS\Core\Database\Query\Expression\ExpressionBuilder::class,
-        'targetFileName' => 'ApiOverview/Database/ExpressionBuilder/_ExpressionBuilderLeft.rst.txt',
+        'targetFileName' => 'ApiOverview/Database/DoctrineDbal/ExpressionBuilder/_ExpressionBuilderLeft.rst.txt',
         'includeClassComment' => false,
         'includeMemberComment' => false,
         'members' => [
@@ -141,7 +141,7 @@ return [
     [
         'action' => 'createPhpClassDocs',
         'class' => \TYPO3\CMS\Core\Database\Query\Expression\ExpressionBuilder::class,
-        'targetFileName' => 'ApiOverview/Database/ExpressionBuilder/_ExpressionBuilderRight.rst.txt',
+        'targetFileName' => 'ApiOverview/Database/DoctrineDbal/ExpressionBuilder/_ExpressionBuilderRight.rst.txt',
         'includeClassComment' => false,
         'includeMemberComment' => false,
         'members' => [
@@ -153,7 +153,7 @@ return [
     [
         'action' => 'createPhpClassDocs',
         'class' => \TYPO3\CMS\Core\Database\Query\Expression\ExpressionBuilder::class,
-        'targetFileName' => 'ApiOverview/Database/ExpressionBuilder/_ExpressionBuilderLeftPad.rst.txt',
+        'targetFileName' => 'ApiOverview/Database/DoctrineDbal/ExpressionBuilder/_ExpressionBuilderLeftPad.rst.txt',
         'includeClassComment' => false,
         'includeMemberComment' => false,
         'members' => [
@@ -165,7 +165,7 @@ return [
     [
         'action' => 'createPhpClassDocs',
         'class' => \TYPO3\CMS\Core\Database\Query\Expression\ExpressionBuilder::class,
-        'targetFileName' => 'ApiOverview/Database/ExpressionBuilder/_ExpressionBuilderRightPad.rst.txt',
+        'targetFileName' => 'ApiOverview/Database/DoctrineDbal/ExpressionBuilder/_ExpressionBuilderRightPad.rst.txt',
         'includeClassComment' => false,
         'includeMemberComment' => false,
         'members' => [
@@ -177,7 +177,7 @@ return [
     [
         'action' => 'createPhpClassDocs',
         'class' => \TYPO3\CMS\Core\Database\Query\Expression\ExpressionBuilder::class,
-        'targetFileName' => 'ApiOverview/Database/ExpressionBuilder/_ExpressionBuilderIf.rst.txt',
+        'targetFileName' => 'ApiOverview/Database/DoctrineDbal/ExpressionBuilder/_ExpressionBuilderIf.rst.txt',
         'includeClassComment' => false,
         'includeMemberComment' => false,
         'members' => [
@@ -189,7 +189,7 @@ return [
     [
         'action' => 'createPhpClassDocs',
         'class' => \TYPO3\CMS\Core\Database\Query\Expression\ExpressionBuilder::class,
-        'targetFileName' => 'ApiOverview/Database/ExpressionBuilder/_ExpressionBuilder.rst.txt',
+        'targetFileName' => 'ApiOverview/Database/DoctrineDbal/ExpressionBuilder/_ExpressionBuilder.rst.txt',
         'includeMemberComment' => false,
         'members' => [
             '__construct',
