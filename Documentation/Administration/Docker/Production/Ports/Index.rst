@@ -9,6 +9,12 @@ Ports when running TYPO3 on container-based hosting
 
 ..  include:: /Administration/Docker/Production/_Experimental.rst.txt
 
+This section applies to running TYPO3 in managed container environments such as
+Kubernetes clusters, Nexaa, AWS App Runner, or Azure App Services. These platforms
+often map internal container ports (like `80`) to external ports dynamically
+(such as `8081` or higher), which may require additional configuration in
+TYPO3 and the reverse proxy.
+
 When deploying TYPO3 to a container-based hosting platform, make sure that the
 container's **internal port 80** is correctly exposed to the outside.
 
