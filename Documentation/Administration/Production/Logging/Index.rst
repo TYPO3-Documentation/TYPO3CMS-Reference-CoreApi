@@ -36,9 +36,9 @@ Each log entry in TYPO3 is associated with a severity level. For details on
 log levels, refer to the TYPO3 documentation:
 `Log levels <https://docs.typo3.org/permalink/t3coreapi:logging-logger-shortcuts>`_.
 
-During development, it is often useful to log detailed information. However,
-on production systems, only critical messages should be written to the log
-to reduce disk usage and improve performance.
+During development, it is often useful to log detailed information. In
+production, logging should be limited to important issues—typically messages at
+the `ERROR` level or higher—to reduce disk usage and improve performance.
 
 By default, when the
 `Application Context <https://docs.typo3.org/permalink/t3coreapi:application-context>`_
