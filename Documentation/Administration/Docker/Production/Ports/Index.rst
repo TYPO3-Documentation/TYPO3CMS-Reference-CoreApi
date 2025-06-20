@@ -28,10 +28,8 @@ forwards traffic to port `80` inside the container.
 
 ..  tip::
 
-    Most TYPO3 Docker images are configured to listen on port ``80`` inside the
-    container. This is a common convention. If your host platform or reverse
-    proxy expects a different internal port, be sure to configure the Docker
-    port mapping accordingly.
+    TYPO3 Docker images typically expose port 80 internally. External access is managed 
+    through your platform’s service or ingress configuration.
 
 ..  _classic-docker-reverse-proxy:
 
