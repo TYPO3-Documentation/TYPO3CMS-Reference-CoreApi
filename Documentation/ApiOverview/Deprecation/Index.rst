@@ -1,48 +1,46 @@
+:navigation-title: Deprecation Handling
+
 ..  include:: /Includes.rst.txt
-..  index:: ! Deprecation
-..  _deprecation:
-
-===========
-Deprecation
-===========
-
-..  contents::
-    :local:
-
-..  index:: Deprecation; Log
 ..  _deprecation_introduction:
 ..  _cgl-deprecation:
+..  _deprecation:
 
-Introduction
-============
+===============================================================
+Deprecation handling: logging, marking and finding deprecations
+===============================================================
 
-Calls to deprecated functions are logged to track usage of deprecated/outdated
-methods in the TYPO3 Core. Developers have to make sure to adjust their code to
-avoid using this old functionality since deprecated methods will be removed in
-future TYPO3 releases.
+TYPO3 logs calls to deprecated functions to help developers identify and update
+outdated code. Deprecated methods will be removed in future TYPO3 versions, so
+they should be avoided.
 
-Deprecations use the PHP method :php:`trigger_error('a message', E_USER_DEPRECATED)`
-and run through the logging and exception stack of the TYPO3 Core. There are
-several methods that help extension developers in dispatching deprecation
-errors. In the development context, deprecations are turned into exceptions by
-default and ignored in the production context.
+Deprecations are triggered by :php:`trigger_error()` and pass through TYPO3’s
+logging and exception system. In development, they are shown as exceptions by
+default; in production, they are typically ignored.
 
 ..  note::
     For information how to handle deprecations in the TYPO3 Core,
     see the Contribution Guide: :ref:`t3contribute:deprecations`.
 
+..  contents:: Table of content
+    :local:
 
 ..  index:: Deprecation; Log enabling
-..  _deprecation_disable_errors:
-..  _deprecation_enable_errors:
+..  _deprecation-enable-errors:
 
-Enabling deprecation errors
-===========================
+Enabling the deprecation log
+============================
 
-TYPO3 ships with a default configuration, in which deprecation logging is
+TYPO3 ships with a default configuration where deprecation logging is
 **disabled**. If you upgrade to the latest TYPO3 version, you need to change
-your development configuration to enable deprecation logging in case you need
+your development configuration to enable deprecation logging if you need
 it.
+
+..  seealso::
+
+    To learn how to properly disable the deprecation log in production, see
+    :ref:`deprecation-disable-errors`.
+
+..  _deprecation-enable-errors-gui:
 
 Via GUI
 -------
@@ -60,13 +58,15 @@ selecting the :guilabel:`Live` preset instead.
 
     Enabling the debug preset
 
-The debug preset enables also some other debug settings.
+The debug preset also enables some other debug settings.
 
 ..  note::
     These steps only enable/disable the :ref:`FileWriter <logging-writers-FileWriter>`,
     which comes with the TYPO3 default configuration. If you manually configured
     **additional** writers for the `TYPO3.CMS.deprecations` logger, you need to
     manually remove them to completely disable deprecation logging.
+
+..  _deprecation-enable-errors-config:
 
 Via configuration file directly
 -------------------------------
