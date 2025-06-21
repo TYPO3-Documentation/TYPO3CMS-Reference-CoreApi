@@ -36,12 +36,21 @@ running TYPO3 for production.
 
         *   `Backup strategy <https://docs.typo3.org/permalink/t3coreapi:administration-backups>`_
 
+    ..  card:: Configure production logging
+
+        Learn how to properly configure TYPO3 logging for production systems.
+        Covers log levels, rotation, system tools, error monitoring services
+        (e.g., Sentry), and security best practices.
+
+        *   `Logging in production <https://docs.typo3.org/permalink/t3coreapi:production-logging>`_
+
 ..  toctree::
     :titlesonly:
     :hidden:
 
     Backups/Index
     Security/Index
+    Logging/Index
     ReverseProxy/Index
     OPcache/Index
 
