@@ -10,6 +10,13 @@ The purpose of a log writer is (usually) to save all log records into a
 persistent storage, like a log file, a database table, or to a remote syslog
 server.
 
+..  seealso::
+
+    If you are looking for guidance on configuring logging for production
+    environments — such as log rotation, file locations, retention, or
+    integration with tools like Sentry — see the chapter
+    :ref:`production-logging`.
+
 Different log writers offer possibilities to log into different targets.
 :ref:`Custom log writers <logging-writers-custom>` can extend the functionality
 shipped with TYPO3 Core.
