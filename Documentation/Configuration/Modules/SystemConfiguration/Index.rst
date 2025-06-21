@@ -1,17 +1,18 @@
+:navigation-title: Configuration inspector
+
 ..  include:: /Includes.rst.txt
 ..  index::
     pair: Configuration; Module
     TYPO3_CONF_VARS; Validation
     TCA; Validation
 ..  _config-module:
+..  _config-module-blind-options:
 
-====================
-Configuration module
-====================
+==================================
+Configuration inspector (readonly)
+==================================
 
-..  note::
-    The configuration module is only available, if the system extension `lowlevel`
-    is installed.
+Only available if :composer:`typo3/cms-lowlevel` is installed.
 
 The configuration module can be found at :guilabel:`System > Configuration`.
 It allows integrators to view and validate the global configuration of TYPO3.
@@ -22,16 +23,36 @@ extended to also display the configuration of newly introduced features like the
 :ref:`middleware stack <request-handling>` or
 :ref:`event listeners <EventDispatcherListeners>`.
 
+..  seealso::
+
+    The module is described in detail in the
+    `EXT:lowlevel docs, chapter Module System > Configuration <https://docs.typo3.org/permalink/typo3/cms-lowlevel:module-configuration>`_
+
 ..  contents:: Table of Contents
     :local:
 
+..  warning::
+    This module is always viewed in the backend context context. Variables defined
+    only in the FE context will not be visible there.
 
-..  index::
-    Configuration; Module extension
-    Configuration; Module provider
+..  _globals-exploring:
+
+Exploring global variables in array `$GLOBALS`
+==============================================
+
+Many of the global variables described in chapter `$GLOBALS <https://docs.typo3.org/permalink/t3coreapi:globals-variables>`_
+can be inspected using the module :guilabel:`System > Configuration`.
+
+..  figure:: /Images/ManualScreenshots/Backend/SystemConfigurationGlobals.png
+    :alt: Backend module System -> Configuration with the selector open to demonstrate $GLOBALS variables that can be displayed
+
+    This module is purely a browser. It does not let you change any settings.
+
 
 Extending the configuration module
 ==================================
+
+..  The following section will be moved to EXT:lowlevel with https://forge.typo3.org/issues/106918
 
 To make this module more powerful a dedicated API is available which
 allows extension authors to extend the module so they can expose their own
@@ -140,8 +161,6 @@ you can use:
             - name: 'lowlevel.configuration.module.provider'
               disabled: true
 
-
-..  _config-module-blind-options:
 
 Blinding configuration options
 ==============================

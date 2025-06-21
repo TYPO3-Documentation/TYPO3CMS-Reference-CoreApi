@@ -14,6 +14,9 @@ information, refer to the relevant chapters or references.
 TYPO3 is highly configurable—settings can be adjusted through the backend,
 extensions, or configuration files, and extended as needed.
 
+..  contents:: Table of contents
+    :depth: 2
+
 ..  _config-overview-files:
 
 Configuration overview: files
@@ -165,8 +168,6 @@ integrators.
 ..  _classification-config-methods-globals-variables:
 
 Global configuration arrays in PHP
-----------------------------------
-Global Configuration Arrays in PHP
 ----------------------------------
 
 TYPO3 stores global configuration in the :php:`$GLOBALS` PHP array. Key entries:

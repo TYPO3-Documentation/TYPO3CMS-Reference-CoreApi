@@ -9,6 +9,10 @@
 $GLOBALS
 ========
 
+..  seealso::
+    Most global variables described here can be viewed in module
+    :guilabel:`System > Configuration`: :ref:`globals-exploring`
+
 ..  confval:: TYPO3_CONF_VARS
     :name: globals-typo3-conf-vars
     :Path: $GLOBALS
@@ -152,27 +156,3 @@ $GLOBALS
     More information about retrieving the
     :php:`LanguageService` is available in
     :ref:`extension-localization-php`.
-
-
-..  index:: $GLOBALS; Admin Tools
-..  _globals-exploring:
-
-Exploring global variables
-==========================
-
-Many of the global variables described above can be inspected using the module
-:guilabel:`System > Configuration`.
-
-..  warning::
-    This module is always viewed in the BE context. Variables defined
-    only in the FE context will not be visible there.
-
-..  note::
-
-    This module is purely a browser. It does not let you change
-    values.
-
-    It also lets you browse a number of other global arrays as well as values
-    defined in other syntaxes including YAML.
-
-..  include:: /Images/AutomaticScreenshots/BackendModules/GlobalValuesConfiguration.rst.txt
