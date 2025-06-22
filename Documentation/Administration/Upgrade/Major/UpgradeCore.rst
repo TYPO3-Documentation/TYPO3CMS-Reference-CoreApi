@@ -1,46 +1,103 @@
-..  include:: /Includes.rst.txt
+:navigation-title: Upgrade the Core
 
+..  include:: /Includes.rst.txt
 ..  _upgradecore:
 
-================
-Upgrade the Core
-================
-
+===========================================
 Upgrading to a major release using Composer
 ===========================================
+
+..  seealso::
+    To upgrade a classic installation it is recommended to first switch to
+    Composer mode: `Migrate a TYPO3 project to Composer <https://docs.typo3.org/permalink/t3coreapi:migratetocomposer>`_
+    and then follow the steps below.
 
 This example details how to upgrade from one LTS release to another. In this
 example, the installation is running TYPO3 version 12.4.25 and the new LTS
 release is version 13.4.3.
 
-Check the required PHP version
-------------------------------
+..  _upgradecore-php:
 
-On https://get.typo3.org/ you can find the required PHP versions to run a
-certain TYPO3 version. For example TYPO3 13 requires at least PHP 8.2.
+Upgrade the PHP version first during major TYPO3 upgrades
+=========================================================
 
-How to switch your PHP version depends on the hosting you are using. Please
-check with your hosting provider.
+Each TYPO3 version supports at least two PHP versions, with some overlap. When
+upgrading to a new major TYPO3 version, **first update PHP** to the highest
+version your current TYPO3 version supports.
 
-Check which TYPO3 packages are currently installed
---------------------------------------------------
+Test your project thoroughly. Fix any PHP-related issues in custom extensions
+or configurations before proceeding.
 
-TYPO3's Core contains a mix of required and optional packages. For example,
-`typo3/cms-backend` is a required package. `typo3/cms-sys-note` is an optional
-package and does not need to be installed for TYPO3 to work correctly.
+Next, upgrade TYPO3 while keeping the PHP version unchanged. This helps you
+identify whether errors stem from the TYPO3 core or from PHP.
 
-Prior to upgrading, check which packages are currently installed and make a note
-of them.
+During development, tools like DDEV make it easy to switch PHP versions.
+Some hosting environments also allow multiple PHP versions. Try changes in a
+staging or relaunch setup before updating production.
 
-Running :bash:`composer info "typo3/*"` will output a list of all TYPO3 packages that
-are currently installed.
+..  _upgradecore-extension:
 
+Check each extension currently installed for compatible versions
+================================================================
 
-Running :bash:`composer require`
---------------------------------
+Many TYPO3 extensions support two major TYPO3 versions. If an extension used in
+your project follows this pattern, update it to the highest version still
+compatible with your current TYPO3 version. This helps you identify whether
+issues are caused by the TYPO3 core or the extension itself.
 
-To upgrade a Composer package, run :bash:`composer require` with the package name and
-version number.
+..  tip::
+    Check each extensions changelog (if it exists) before you update an extension.
+
+Ensure all extensions you use are available for the TYPO3 version you're
+upgrading to. If a third-party extension isn’t ready, consider supporting or
+sponsoring the author to update it. Some agencies offer early access to updated
+extensions for a fee.
+
+If an extension is no longer maintained, look for alternatives. Abandoned
+extensions are sometimes forked and maintained by others. As a last resort, you
+can fork the extension yourself or hire a developer to update it for you.
+
+All custom extensions, including the custom site package (theme) need to be
+updated by yourself.
+
+..  seealso::
+
+    *   `Update your extension for new TYPO3 versions <https://docs.typo3.org/permalink/t3coreapi:update-extension>`_
+
+..  _upgradecore-changelog:
+
+Review Core changes in the Changelog before upgrading
+=====================================================
+
+TYPO3 system extensions are part of the Core and may change between versions.
+Some may be merged, added, deprecated, or removed.
+
+Before starting a major upgrade, make sure to review the TYPO3
+:doc:`changelog <ext_core:Index>` for changes to system extensions. This helps
+you plan ahead for required adjustments.
+
+..  seealso::
+    This step is also part of the upgrade preparation process. See:
+    `Check the ChangeLog <https://docs.typo3.org/permalink/t3coreapi:check-the-changelog-and-news-md>`_
+
+Being aware of upcoming changes early can help prevent issues during the
+upgrade.
+
+..  _install-next-step:
+..  _upgradecore-require:
+
+Running :bash:`composer require` with new major version dependencies
+====================================================================
+
+..  warning::
+    Never try the following on a production system. Work locally and use
+    a `deployment strategy <https://docs.typo3.org/permalink/t3coreapi:deployment>`_.
+
+    If you have to work on the server, work on a copy of the production website
+    **including a copy of the database**
+
+To upgrade a Composer package, run :bash:`composer require` with the package
+name and version number.
 
 For example, to upgrade `typo3/cms-backend` run
 :bash:`composer require typo3/cms-backend:^13.4`.
@@ -51,17 +108,6 @@ upgraded.
 Given that a typical installation of TYPO3 will consist of a number of packages,
 it is recommended that the `Composer Helper Tool <https://get.typo3.org/go/composer-helper>`_
 be used to help generate the Composer upgrade command.
-
-..  note::
-    With TYPO3 v12 the `typo3/cms-recordlist` package was merged into
-    `typo3/cms-backend`. With TYPO3 v13 the `typo3/cms-t3editor` package was
-    merged into `typo3/cms-backend`. Therefore, if you have one of them
-    installed, remove them in your :file:`composer.json` file before upgrading:
-
-    ..  code-block:: bash
-
-        composer remove "typo3/cms-recordlist"
-        composer remove "typo3/cms-t3editor"
 
 Assuming that the packages below are installed locally, the following example
 would upgrade each of them to version 13.4.
@@ -92,20 +138,13 @@ For each of these dependency errors, add the version requirement
 `"helhum/typo3-console:^9.1"` to the end of your :bash:`composer require` string
 and retry the command.
 
-Monitoring changes to TYPO3's Core
-----------------------------------
+Sometimes version upgrades disrupt Composer’s file structure. If issues persist,
+delete the :path:`vendor` folder and possibly also :file:`composer.lock`. Then
+manually adjust :file:`composer.json` and run:
 
-The system extensions that are developed and exist within TYPO3's Core
-are likely to change over time. Some extensions are merged into others, new
-system extensions are added and others abandoned.
+..  code-block:: bash
 
-These changes are published the :doc:`changelog <ext_core:Index>`.
-
-
-..  _install-next-step:
-
-Next steps
-==========
+    composer install
 
 Once the upgrade is complete, there are a set of tasks that need to actioned to
 complete the process. See :ref:`postupgradetasks`.
