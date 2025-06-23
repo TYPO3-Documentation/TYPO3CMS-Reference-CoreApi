@@ -97,6 +97,9 @@ Steps:
 
                 ddev export-db --file=dump.sql
 
+    The credentials for the database can either be inserted in the
+    installation wizard or adjusted directly in settings.php.
+
 #.  Transfer all necessary files to the server.
 
     Folders to include:
