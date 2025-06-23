@@ -125,7 +125,7 @@ After creating the symlinks, your directory structure should look like this:
         *   :file:`index.php -> typo3_src/index.php`
 
 
-..  _classic-symlink-installation-completion:
+..  _classic-wget-symlink-installation-completion:
 
 Run the installation wizard and complete the installation
 =========================================================
