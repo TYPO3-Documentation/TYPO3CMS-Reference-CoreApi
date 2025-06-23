@@ -2,7 +2,6 @@
 
 ..  include:: /Includes.rst.txt
 ..  _deprecation_introduction:
-..  _cgl-deprecation:
 ..  _deprecation:
 
 ===============================================================
