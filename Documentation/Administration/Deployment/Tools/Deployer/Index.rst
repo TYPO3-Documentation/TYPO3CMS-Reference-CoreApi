@@ -142,7 +142,7 @@ Automatic deployment via CI/CD
 ==============================
 
 Deployer can be integrated into automated deployment pipelines,
-such as GitLab CI/CD, GitHub Actions, and other CI systems.
+such as GitLab CI/CD, `GitHub Actions <https://docs.typo3.org/permalink/t3coreapi:ci-cd-github>`_, and other CI systems.
 
 For example, the `official TYPO3 GitLab template <https://docs.typo3.org/permalink/t3start:gitlab-template@13.4>`_
 includes a :file:`.gitlab-ci.yml` file with deployment stages.
