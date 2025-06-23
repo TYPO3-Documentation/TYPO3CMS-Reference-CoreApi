@@ -21,15 +21,15 @@ release is version 13.4.3.
 Upgrade the PHP version first during major TYPO3 upgrades
 =========================================================
 
-Each TYPO3 version supports at least two PHP versions, with some overlap. When
+Each TYPO3 version is compatible with at least two PHP versions, with some overlap. When
 upgrading to a new major TYPO3 version, **first update PHP** to the highest
 version your current TYPO3 version supports.
 
 Test your project thoroughly. Fix any PHP-related issues in custom extensions
-or configurations before proceeding.
+and configurations before proceeding.
 
-Next, upgrade TYPO3 while keeping the PHP version unchanged. This helps you
-identify whether errors stem from the TYPO3 core or from PHP.
+Next, upgrade TYPO3 while keeping the PHP version unchanged. This will help you
+to identify whether errors stem from the TYPO3 core or from PHP.
 
 During development, tools like DDEV make it easy to switch PHP versions.
 Some hosting environments also allow multiple PHP versions. Try changes in a
@@ -37,16 +37,16 @@ staging or relaunch setup before updating production.
 
 ..  _upgradecore-extension:
 
-Check each extension currently installed for compatible versions
+Check each currently installed extension for compatible versions
 ================================================================
 
-Many TYPO3 extensions support two major TYPO3 versions. If an extension used in
+Many TYPO3 extensions are compatible with two major TYPO3 versions. If an extension in
 your project follows this pattern, update it to the highest version still
-compatible with your current TYPO3 version. This helps you identify whether
+compatible with your current TYPO3 version. This will help you identify whether
 issues are caused by the TYPO3 core or the extension itself.
 
 ..  tip::
-    Check each extensions changelog (if it exists) before you update an extension.
+    Check each extension's changelog (if it exists) before you update an extension.
 
 Ensure all extensions you use are available for the TYPO3 version you're
 upgrading to. If a third-party extension isn’t ready, consider supporting or
@@ -57,7 +57,7 @@ If an extension is no longer maintained, look for alternatives. Abandoned
 extensions are sometimes forked and maintained by others. As a last resort, you
 can fork the extension yourself or hire a developer to update it for you.
 
-All custom extensions, including the custom site package (theme) need to be
+All custom extensions, including your custom site package (theme), need to be
 updated by yourself.
 
 ..  seealso::
@@ -73,14 +73,14 @@ TYPO3 system extensions are part of the Core and may change between versions.
 Some may be merged, added, deprecated, or removed.
 
 Before starting a major upgrade, make sure to review the TYPO3
-:doc:`changelog <ext_core:Index>` for changes to system extensions. This helps
-you plan ahead for required adjustments.
+:doc:`changelog <ext_core:Index>` for changes to system extensions. This will help
+you plan ahead for any required changes.
 
 ..  seealso::
     This step is also part of the upgrade preparation process. See:
     `Check the ChangeLog <https://docs.typo3.org/permalink/t3coreapi:check-the-changelog-and-news-md>`_
 
-Being aware of upcoming changes early can help prevent issues during the
+Being aware of upcoming changes early can help prevent issues during an
 upgrade.
 
 ..  _install-next-step:
