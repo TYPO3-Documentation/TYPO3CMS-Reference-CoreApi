@@ -120,11 +120,9 @@ After creating the symlinks, your directory structure should look like this:
 
     *   :path:`typo3_src-13.4.y/`
 
-        *   :path:`public/`
-
-            *   :path:`typo3_src -> ../typo3_src-13.4.y/`
-            *   :path:`typo3 -> typo3_src/typo3/`
-            *   :file:`index.php -> typo3_src/index.php`
+        *   :path:`typo3_src -> ../typo3_src-13.4.y/`
+        *   :path:`typo3 -> typo3_src/typo3/`
+        *   :file:`index.php -> typo3_src/index.php`
 
 
 ..  _classic-wget-symlink-installation-completion:
