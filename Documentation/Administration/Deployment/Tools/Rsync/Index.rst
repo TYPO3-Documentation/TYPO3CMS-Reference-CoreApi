@@ -58,7 +58,11 @@ Assuming:
 
 *   Your local project is in `~/Projects/typo3-site/`
 *   Your remote server is `user@example.org`
-*   The target directory on the server is /var/www/typo3-site/
+*   The target directory on the server is `/var/www/typo3-site/` (Note:The path
+    can differ depending on your host server. It could be something like
+    `/html/typo3-site/` so substitute your correct path for :br:`br`
+    `/var/www/typo3-site/` in the commands below.)
+
 
 ..  code-block:: bash
     :caption: Run the command from your local development environment
