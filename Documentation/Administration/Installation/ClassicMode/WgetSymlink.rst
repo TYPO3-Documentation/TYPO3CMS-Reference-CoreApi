@@ -123,3 +123,17 @@ After creating the symlinks, your directory structure should look like this:
         *   :path:`typo3_src -> ../typo3_src-13.4.y/`
         *   :path:`typo3 -> typo3_src/typo3/`
         *   :file:`index.php -> typo3_src/index.php`
+
+
+..  _classic-symlink-installation-completion:
+
+Run the installation wizard and complete the installation
+=========================================================
+
+In the next steps you will use the installation wizard to connect the database,
+create additional required folders, create an administrator and chose or create
+a site package / theme:
+
+..  seealso::
+
+    :ref:`classic-installation-wizard`
