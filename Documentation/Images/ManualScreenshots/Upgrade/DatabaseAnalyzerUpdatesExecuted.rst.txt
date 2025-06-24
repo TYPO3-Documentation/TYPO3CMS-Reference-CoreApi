@@ -1,6 +1,0 @@
-
-.. figure:: /Images/ManualScreenshots/Upgrade/DatabaseAnalyzerUpdatesExecuted.png
-   :class: with-shadow
-   :alt: Database analyzer
-
-   The Database Analyzer
