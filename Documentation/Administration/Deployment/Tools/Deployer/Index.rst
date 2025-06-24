@@ -50,7 +50,7 @@ If you have **created** your project using the
 it will already contain a Deployer template.
 
 You can configure Deployer by editing the YAML configuration file
-:file:`deploy.yaml` in the project root. The `Deployer recipe <https://gitlab.com/gitlab-org/project-templates/typo3-distribution/-/blob/main/packages/site-distribution/Configuration/DeployerRsync.php?ref_type=heads>`_
+:file:`deploy.yaml` in the project root. The `Deployer recipe <https://gitlab.com/gitlab-org/project-templates/typo3-distribution/-/blob/main/packages/site-distribution/Configuration/DeployerRsync.php?ref_type=heads>`__
 is found in
 :file:`packages/site-distribution/Configuration/DeployerRsync.php`.
 
