@@ -28,7 +28,7 @@ forwards traffic to port `80` inside the container.
 
 ..  tip::
 
-    TYPO3 Docker images typically expose port 80 internally. External access is managed 
+    TYPO3 Docker images typically expose port 80 internally. External access is managed
     through your platform’s service or ingress configuration.
 
 ..  _classic-docker-reverse-proxy:
