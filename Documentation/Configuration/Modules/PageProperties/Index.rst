@@ -4,10 +4,10 @@
 ..  _config-page-properties:
 
 =======================================
-Page properties: Settings on page level
+Page properties: Settings at page level
 =======================================
 
-If the user has the necessary permissions settings for a page (and in some
+If the user has the correct permissions, settings for a page (and in some
 cases all subpages) can be made in the page properties:
 
 ..  figure:: /Images/ManualScreenshots/Backend/PageProperties.png
@@ -23,7 +23,7 @@ providing the plugin.
     *   `Tutorial for editors: Page properties <https://docs.typo3.org/permalink/t3editors:pages-properties>`_
     *   `Site package Tutorial: Choose the page layout in the page properties <https://docs.typo3.org/permalink/t3sitepackage:choose-page-layout>`_
 
-Technically the page properties are the same like the form displaying the page
+Technically the page properties are the same as the form displaying the page
 record from table :sql:`pages`. They can therefore be configured by developers
 via `TCA <https://docs.typo3.org/permalink/t3tca:start>`_.
 

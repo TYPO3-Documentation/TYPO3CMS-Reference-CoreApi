@@ -4,22 +4,22 @@
 ..  _plugin-settings:
 
 ========================================
-Plugin options: Settings on plugin level
+Plugin options: Settings at plugin level
 ========================================
 
-The plugins of many extensions, come with settings inside the content
-element representing the plugin. These are commonly labeled as "Plugin options"
+The plugins of many extensions come with settings inside the content
+element representing the plugin. These are commonly labeled "Plugin options"
 
 Depending on their permissions, editors may be able to edit the settings of
 a plugin.
 
-In general plugin-specific settings are evaluated in the following order:
+In general, plugin-specific settings are evaluated in the following order:
 
 #.  `Site settings <https://docs.typo3.org/permalink/t3coreapi:config-overview-backend-site>`_
 #.  `TypoScript <https://docs.typo3.org/permalink/t3coreapi:extbase-typoscript-configuration-plugin>`_
-#.  Settings made inside the plugins content element
+#.  Settings made inside the plugin's content element
 
-The settings of the plugin are commonly found in a tab called "Plugin" and
+The settings of a plugin are commonly found in a tab called "Plugin" and
 a section called "Plugin Options". Extension authors are, however, free to
 chose different labels.
 

@@ -16,11 +16,11 @@ Only available if :composer:`typo3/cms-lowlevel` is installed.
 
 The configuration module can be found at :guilabel:`System > Configuration`.
 It allows integrators to view and validate the global configuration of TYPO3.
-The module displays all relevant global variables such as
+The module displays all relevant global variables, such as
 :ref:`TYPO3_CONF_VARS <typo3ConfVars>`, :ref:`TCA <t3tca:start>` and many more,
-in a tree format which is easy to browse through. Over time this module got
-extended to also display the configuration of newly introduced features like the
-:ref:`middleware stack <request-handling>` or
+in a tree format which is easy to browse through. Over time, this module has been
+extended to also display configuration of newly introduced features like the
+:ref:`middleware stack <request-handling>` and
 :ref:`event listeners <EventDispatcherListeners>`.
 
 ..  seealso::
@@ -32,8 +32,8 @@ extended to also display the configuration of newly introduced features like the
     :local:
 
 ..  warning::
-    This module is always viewed in the backend context context. Variables defined
-    only in the FE context will not be visible there.
+    This module is always viewed in the backend context. Variables defined
+    only in the FE context will not be visible.
 
 ..  _globals-exploring:
 
