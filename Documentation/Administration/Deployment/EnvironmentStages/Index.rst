@@ -1,4 +1,4 @@
-:navigation-title: Environment stages
+:navigation-title: Environments
 
 .. include:: /Includes.rst.txt
 
@@ -34,8 +34,8 @@ Separating your TYPO3 project into multiple environments allows you to:
 
 .. _multi-stage-environment-stages:
 
-Common environment stages
-=========================
+Common environments in multi-stage deployment workflow
+======================================================
 
 .. _multi-stage-environment-local:
 
