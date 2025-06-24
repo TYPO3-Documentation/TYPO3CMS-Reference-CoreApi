@@ -30,7 +30,7 @@ are using an older TYPO3 version in Classic mode, you have two options:
 Delete files
 ============
 
-.. include:: /Administration/Upgrade/Major/PreupgradeTasks/Backup.rst.txt
+..  warning:: Make sure to have a  working `backup <https://docs.typo3.org/permalink/t3coreapi:administration-backups>`_.
 
 Yes, it's true that you will have to delete some files, because they will be newly created by
 Composer in some of the next steps.
