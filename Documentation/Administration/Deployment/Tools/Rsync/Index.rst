@@ -83,11 +83,12 @@ In addition, transfer the database dump to a temporary location:
       user@example.org:/tmp/
 
 Additional steps are required beyond file transfer. See also
-`Initial deployment <https://docs.typo3.org/permalink/t3coreapi:manual-deployment-initial>`_.
+`Import the database on the production server <https://docs.typo3.org/permalink/t3coreapi:import-database>`_
+in the initial (manual) deployment section.
 
 ..  _deployment-rsync-deployment-regular:
 
-Regular Deployments with rsync
+Incremental deployments with rsync
 ==============================
 
 On subsequent deployments you only have to deploy the files that contain the
@@ -110,9 +111,9 @@ To use a custom SSH identity file or port, see:
 :ref:`deployment-rsync-sync-ssh`.
 
 There are additional steps needed beyond file transfer. See also
-`Regular deployment <https://docs.typo3.org/permalink/t3coreapi:manual-deployment-regular>`_.
+`Incremental deployment <https://docs.typo3.org/permalink/t3coreapi:manual-deployment-incremental>`_.
 
-As the steps of a regular deployment have to be repeated many times during the
+As the steps of a incremental deployment have to be repeated many times during the
 lifetime of a TYPO3 project, it is helpful to bundle the instructions into a recipe
 and let `Deployer <https://docs.typo3.org/permalink/t3coreapi:deployment-deployer>`_
 do the work for you.
