@@ -113,46 +113,6 @@ have to run the update multiple times.
     :ref:`command line (CLI) <t3coreapi:symfony-console-commands>` is
     recommended to avoid a timeout.
 
-With command line (recommended)
--------------------------------
-
-To run the reference index update, execute in the root folder of your project:
-
-..  tabs::
-
-    ..  group-tab:: Composer-based installation
-
-        ..  code-block:: bash
-
-            vendor/bin/typo3 referenceindex:update
-
-    ..  group-tab:: Classic mode installation (No Composer)
-
-        ..  code-block:: bash
-
-            typo3/sysext/core/bin/typo3 referenceindex:update
-
-
-..  tip::
-    Use :bash:`referenceindex:update 2> /dev/null` to suppress the progress
-    output, for example, if the command is executed by a cronjob.
-
-Without command line
---------------------
-
-Still in your old TYPO3 version, go to the
-:guilabel:`System > DB check` module and use the
-:guilabel:`Manage Reference Index` function.
-
-Click on :guilabel:`Update reference index` to update the reference index. In
-case there is a timeout, and you do not have CLI access (see above) you might
-have to run the update multiple times.
-
-..  note::
-    The :doc:`lowlevel system extension <ext_lowlevel:Index>` must be installed
-    for the mentioned backend module.
-
-
 ..  _check-the-changelog-and-news-md:
 
 Check the ChangeLog
