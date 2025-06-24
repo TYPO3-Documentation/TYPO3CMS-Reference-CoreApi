@@ -1,0 +1,70 @@
+..  _use-the-upgrade-wizard:
+
+Enter the Install Tool at :samp:`https://example.org/typo3/install.php` on your
+TYPO3 site.
+
+..  include:: /Images/AutomaticScreenshots/Upgrade/UpgradeWizard.rst.txt
+
+TYPO3 provides an upgrade wizard for easy upgrading. Go to the :guilabel:`Upgrade`
+section and choose :guilabel:`Upgrade Wizard`.
+Take a look at the different wizards provided. You should go
+through them one by one.
+
+You must start with :guilabel:`Create missing tables and fields`
+if it's displayed, which adds new tables and columns to the database.
+
+Click :guilabel:`Execute`. Now all :file:`ext_tables.sql` files from core and extensions
+are read and compared to your current database tables and columns. Any missing
+tables and columns will be shown and you'll be able to execute queries
+sufficient to add them.
+
+After you added these tables and columns, go on to the next wizard.
+
+..  hint::
+    If you have CLI access you can run the update wizards on command line, too.
+    This allows you to run all upgrade wizards at once and might help with
+    long-running wizards that may fail because of webserver timeouts otherwise.
+
+    For Composer mode
+
+    Run :bash:`./vendor/bin/typo3 upgrade:list -a` to show a complete status of
+    upgrade wizards.
+
+    Use :bash:`./vendor/bin/typo3 upgrade:run <wizardName>` to run a specific wizard.
+
+    Use :bash:`./vendor/bin/typo3 upgrade:run` to run all wizards.
+
+    For Classic mode (non-Composer mode) replace :bash:`./vendor/bin/typo3` with
+    `./typo3/sysext/core/bin/typo3`.
+
+The "Version Compatibility" wizard sets the compatibility version of your TYPO3
+installation to the new version. This allows your frontend output to use new
+features of the new TYPO3 version.
+
+..  note::
+    This wizard might affect how your website is rendered. After finishing
+    the upgrade, check that your website still displays the way it is
+    supposed to be and adjust your TypoScript if necessary.
+
+Go through all wizards and apply the (database) updates they propose. Please
+note that some wizards provide optional features, like installing system
+extensions that you may not need in your current
+installation, so take care to only apply those wizards, which you really need.
+Apply the optional wizards too - just be sure to select the correct option
+(e.g. "No, do not execute"). This way, these wizards will also be removed from
+the list of wizards to execute and the upgrade will be marked as "done".
+
+..  include:: /Images/ManualScreenshots/Upgrade/UpgradeWizardExecute.rst.txt
+
+After running through the upgrade wizards go to :guilabel:`Maintenance` >
+:guilabel:`Analyze Database Structure`.
+You will be able to execute queries to adapt them so that the tables and
+columns used by the TYPO3 Core correspond to the structure required for the new
+TYPO3 version.
+
+..  note::
+    If you don't know the current Install Tool password,
+    you can set a new one by entering one in the Install Tool login screen,
+    hitting enter and then setting the displayed hash as value
+    of :php:`$GLOBALS['TYPO3_CONF_VARS']['BE']['installToolPassword']`
+    in :file:`config/system/settings.php`.

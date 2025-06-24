@@ -1,0 +1,31 @@
+.. include:: /Includes.rst.txt
+
+..  todo: Remove this chapter for TYPO3 v13
+
+..  versionchanged:: 12.0
+    The support of global extensions was removed with TYPO3 v12.0. Convert them
+    to local ones.
+
+Global extensions used to be saved in folders inside
+:file:`typo3/ext/`, such as :file:`typo3/ext/news`. In current
+versions of TYPO3, this location should no longer be used. Instead,
+use local extensions below :file:`typo3conf/ext/`.
+
+To convert a global extension to a local one, do the following:
+
+*   Go to the :guilabel:`Admin Tools > Extensions` backend module.
+*   Uninstall the global extension.
+*   On a filesystem-level of the installation (for example, via SSH shell
+    or S/FTP), delete the directory including files and subdirectories of the
+    corresponding extension directory in :file:`typo3/ext/`.
+*   Reinstall the extension from the TYPO3 Extension Repository, which will put
+    it into :file:`typo3conf/ext/`.
+
+
+..  note::
+    In earlier versions of TYPO3 global extensions were an easy way of sharing
+    extensions between multiple TYPO3 instances. Nowadays, the recommended way of
+    installing and maintaining extensions is via Composer, where you may use
+    different strategies to achieve the same goal. One example would be to use
+    `"path repositories" <https://getcomposer.org/doc/05-repositories.md#path>`__
+    in your :file:`composer.json` file
