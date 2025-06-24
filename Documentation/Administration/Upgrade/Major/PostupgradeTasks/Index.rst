@@ -49,15 +49,6 @@ After you added these tables and columns, go on to the next wizard.
     For Classic mode (non-Composer mode) replace :bash:`./vendor/bin/typo3` with
     `./typo3/sysext/core/bin/typo3`.
 
-The "Version Compatibility" wizard sets the compatibility version of your TYPO3
-installation to the new version. This allows your frontend output to use new
-features of the new TYPO3 version.
-
-..  note::
-    This wizard might affect how your website is rendered. After finishing
-    the upgrade, check that your website still displays the way it is
-    supposed to be and adjust your TypoScript if necessary.
-
 Go through all wizards and apply the (database) updates they propose. Please
 note that some wizards provide optional features, like installing system
 extensions that you may not need in your current
