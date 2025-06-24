@@ -35,7 +35,7 @@ changed by developers and integrators.
     :maxdepth: 1
 
     ConfigurationOverview
-    ConfigurationModule/Index
+    Modules/Index
     GlobalVariables
     Typo3ConfVars/Index
     TypoScript/Index
