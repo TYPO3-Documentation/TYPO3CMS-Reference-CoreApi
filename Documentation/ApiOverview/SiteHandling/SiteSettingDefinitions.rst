@@ -42,7 +42,7 @@ See the complete example at
 ..  figure:: /Images/ManualScreenshots/SiteHandling/SiteSettingsDefinition.png
     :alt: Screenshot demonstration the position of the categories, labels etc
 
-    The parts marked by a number can be configured, see list bellow
+    The parts marked by a number can be configured, see list below
 
 
 ..  _site-settings-definition-properties:
