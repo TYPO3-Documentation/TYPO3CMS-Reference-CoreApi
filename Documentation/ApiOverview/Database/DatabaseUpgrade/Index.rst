@@ -45,8 +45,6 @@ You can choose which updates you want to perform. You can even decide not to
 create new fields and tables, although that will very likely break your
 installation.
 
-..  include:: /Images/AutomaticScreenshots/AdminTools/DatabaseAnalyzer.rst.txt
-
 ..  seealso::
     For more information about the process of upgrading TYPO3, see chapter
     :ref:`Upgrades <upgrading>`.
