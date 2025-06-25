@@ -113,4 +113,3 @@ Flush TYPO3 caches:
     to verify folder permissions and environment compatibility.
     Open: `https://example.org/typo3/install.php` and go to
     the **System Environment** section.
-
