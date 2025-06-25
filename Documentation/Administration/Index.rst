@@ -82,6 +82,7 @@ TYPO3 administration
     Installation/Index
     Deployment/Index
     Production/Index
+    Tools/Index
     Upgrade/Index
     Docker/Index
     DirectoryStructure/Index
