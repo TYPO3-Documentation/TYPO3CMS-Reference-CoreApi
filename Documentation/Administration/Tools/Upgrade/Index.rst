@@ -51,13 +51,13 @@ The upgrade wizard should be checked before each major Core or extension upgrade
 If tasks have been left open they should be resolved before proceeding.
 
 After each upgrade, especially major or minor upgrades, you should check if
-there are new upgrade wizards to be executed.
+there are new upgrade wizards that need to be executed.
 
 The upgrade wizards can only be run if no tables or columns are missing.
 If any are missing, create them using the
 `Database Analyzer <https://docs.typo3.org/permalink/t3coreapi:admin-tools-maintenance-database-analyzer>`_.
 
-You can use console commands to list and run the upgrade wizards:
+Use console commands to list and run the upgrade wizards:
 
 ..  tabs::
 
@@ -88,16 +88,16 @@ You can use console commands to list and run the upgrade wizards:
             typo3/sysext/core/bin/typo3 upgrade:run myExtension_exampleUpgradeWizard
 
 Or access module :guilabel:`Upgrade` from the Admin Tools or Install Tool and
-the click on :guilabel:`Run upgrade wizard...`.
+then click on :guilabel:`Run upgrade wizard...`.
 
-Some upgrade wizards are not mandatory. You can choose option "No, do not
+Some upgrade wizards are not mandatory. You can choose the option "No, do not
 execute" to skip them.
 
-The TYPO3 Core contains upgrade wizards for two major versions. Third party
-extensions can contain additional upgrade wizards for their own purposes,
-commonly adjustments to the extensions database records.
+The TYPO3 Core contains upgrade wizards for two consecutive major versions.
+Third party extensions can contain additional upgrade wizards for their own
+purposes (commonly changes to extension database records).
 
-There is an extension :composer:`wapplersystems/core-upgrader`. It contains
-upgrade wizards older than two TYPO3 versions. It can be used to migrate the
-data of installations that need to be upgraded more than two major versions at
+The extension :composer:`wapplersystems/core-upgrader` contains
+upgrade wizards older than the last two TYPO3 versions. It can be used to migrate the
+data from installations that need to be upgraded across more than two major versions at
 once.
