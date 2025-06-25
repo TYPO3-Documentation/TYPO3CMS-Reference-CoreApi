@@ -35,6 +35,11 @@ During development, tools like DDEV make it easy to switch PHP versions.
 Some hosting environments also allow multiple PHP versions. Try changes in a
 staging or relaunch setup before updating production.
 
+You can use the following tools in module :guilabel:`Admin Tools > Environment`:
+:ref:`environment-overview` so see what PHP version you are currently running on
+and :ref:`environment-php-info` to get an overview on all installed PHP
+extensions and settings.
+
 ..  _upgradecore-extension:
 
 Check each currently installed extension for compatible versions

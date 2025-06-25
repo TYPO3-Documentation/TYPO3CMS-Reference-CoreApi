@@ -9,17 +9,19 @@
 MAIL settings
 =============
 
+You can test the email settings in module :guilabel:`Environment > Test Mail Setup`.
+See also :ref:`environment-test-mail-setup`.
+
 The following configuration variables can be used to configure settings for
 the sending of mails by TYPO3:
 
-..  note::
-    The configuration values listed here are keys in the global PHP array
-    :php:`$GLOBALS['TYPO3_CONF_VARS']['MAIL']`.
+The configuration values listed here are keys in the global PHP array
+:php:`$GLOBALS['TYPO3_CONF_VARS']['MAIL']`.
 
-    This variable can be set in one of the following files:
+This variable can be set in one of the following files:
 
-    *   :ref:`config/system/settings.php <typo3ConfVars-settings>`
-    *   :ref:`config/system/additional.php <typo3ConfVars-additional>`
+*   :ref:`config/system/settings.php <typo3ConfVars-settings>`
+*   :ref:`config/system/additional.php <typo3ConfVars-additional>`
 
 ..  confval-menu::
     :name: globals-typo3-conf-vars-mail
