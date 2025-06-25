@@ -8,10 +8,10 @@
 
 ## Make changes (create pull requests)
 
-* In order to make changes on a [rendered page](https://docs.typo3.org/typo3cms/CoreApiReference/), just click on "Edit me on GitHub".
-* For a step-by-step walkthrough for making a change, see [Contribute to docs.typo3.org](https://docs.typo3.org/typo3cms/HowToDocument/WritingDocsOfficial/Index.html)
-* For a step-by-step walkthrough of alternative workflow, see [Local Editing and Rendering with Docker](https://docs.typo3.org/m/typo3/docs-how-to-document/main/en-us/Howto/EditLocal.html)
-
+* In order to make changes on a [rendered page]([https://docs.typo3.org/typo3cms/CoreApiReference/](https://docs.typo3.org/permalink/t3coreapi:api-overview)), click on "Edit me on GitHub".
+* For a step-by-step walkthrough for making a change, see [Contribute to the TYPO3 documentation](https://docs.typo3.org/permalink/h2document:docs-official-workflow-methods)
+* For a step-by-step walkthrough of alternative workflow, see [Local editing and rendering with Docker](https://docs.typo3.org/permalink/h2document:docs-contribute-git-docker)
+* 
 ## (re) Generate Codesnippets
 With ddev:
 
