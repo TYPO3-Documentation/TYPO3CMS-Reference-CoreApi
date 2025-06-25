@@ -173,6 +173,19 @@ calls this method automatically after loading the object:
 ..  literalinclude:: Hydrating/_codesnippets/_Blog3.php
     :caption: EXT:my_extension/Classes/Domain/Model/Blog.php
 
+..  warning::
+
+    The method must have the exact name `initializeObject()` as it is 
+    **called by its name**. Unfortunary, the method was wrongly
+    called in old examples the Extbase Book by Michael Schams and usage
+    of the wrong method names has survived in numberous Extensions.
+
+    ..  code-block:: diff
+
+        - protected function initStorageObjects()
+        + protected function initializeObject()
+
+
 ..  _extbase-model-properties-default-values-cpp:
 
 Avoid: Constructor property promotion
