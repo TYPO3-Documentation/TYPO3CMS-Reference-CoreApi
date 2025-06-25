@@ -9,17 +9,20 @@
 GFX - graphics configuration
 ============================
 
+You can test the graphics configuration in module
+:guilabel:`Environment > Image Processing`.
+See also :ref:`environment-test-image-processing`.
+
 The following configuration variables can be used to configure settings for
 the handling of images and graphics:
 
-..  note::
-    The configuration values listed here are keys in the global PHP array
-    :php:`$GLOBALS['TYPO3_CONF_VARS']['GFX']`.
+The configuration values listed here are keys in the global PHP array
+:php:`$GLOBALS['TYPO3_CONF_VARS']['GFX']`.
 
-    This variable can be set in one of the following files:
+This variable can be set in one of the following files:
 
-    *   :ref:`config/system/settings.php <typo3ConfVars-settings>`
-    *   :ref:`config/system/additional.php <typo3ConfVars-additional>`
+*   :ref:`config/system/settings.php <typo3ConfVars-settings>`
+*   :ref:`config/system/additional.php <typo3ConfVars-additional>`
 
 ..  confval-menu::
     :name: globals-typo3-conf-vars-gfx
