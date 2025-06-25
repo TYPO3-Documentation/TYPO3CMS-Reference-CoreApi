@@ -1,7 +1,0 @@
-.. Automatic screenshot: Remove this line if you want to manually change this file
-
-.. figure:: /Images/AutomaticScreenshots/AdminTools/DatabaseAnalyzerDatabaseAnalyzed.png
-   :alt: Database analyzer
-   :class: with-shadow
-
-   The Database Analyzer with no updates to do
