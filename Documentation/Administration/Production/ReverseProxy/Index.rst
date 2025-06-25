@@ -71,7 +71,7 @@ Implementing a reverse proxy with TYPO3 offers several advantages:
 
     *   Acts as a shield for backend TYPO3 servers
     *   Prevents direct access to backend infrastructure
-    *   Provides additional layer for DDoS protection
+    *   Provides additional layer for DDoS protection, however, DDoS protection is a very complicated topic, and should be handled by experienced network engineers.
 
 #.  **SSL/TLS Termination**:
 
