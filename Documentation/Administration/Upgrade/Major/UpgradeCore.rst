@@ -36,8 +36,8 @@ Some hosting environments also allow multiple PHP versions. Try changes in a
 staging or relaunch setup before updating production.
 
 You can use the following tools in module :guilabel:`Admin Tools > Environment`:
-:ref:`environment-overview` so see what PHP version you are currently running on
-and :ref:`environment-php-info` to get an overview on all installed PHP
+:ref:`environment-overview` so see which PHP version you are currently running
+and :ref:`environment-php-info` to get an overview of installed PHP
 extensions and settings.
 
 ..  _upgradecore-extension:
