@@ -146,10 +146,12 @@ Deployer can be integrated into automated deployment pipelines,
 such as GitLab CI/CD, `GitHub Actions <https://docs.typo3.org/permalink/t3coreapi:ci-cd-github>`_, and other CI systems.
 
 For example, the `official TYPO3 GitLab template <https://docs.typo3.org/permalink/t3start:gitlab-template>`_
-includes a :file:`.gitlab-ci.yml` file with deployment stages.
+includes a :file:`.gitlab-ci.yml` `configuration file <https://gitlab.com/gitlab-org/project-templates/typo3-distribution/-/blob/main/.gitlab-ci.yml>`_
+with deployment stages and a prototype `Deployer recipe <https://docs.typo3.org/permalink/t3coreapi:deployer-gitlab>`_.
 
 You can configure these stages for automated deployment each time code is pushed
-to your repository.
+to your repository. These files should provide a starting point on how to
+configure your custom pipeline.
 
 ..  _deployer-ssh-requirements:
 
