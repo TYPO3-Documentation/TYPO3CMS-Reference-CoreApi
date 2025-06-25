@@ -174,10 +174,10 @@ calls this method automatically after loading the object:
 
 ..  warning::
 
-    The method must have the exact name `initializeObject()` as it is 
-    **called by its name**. Unfortunary, the method was wrongly
-    called in old examples the Extbase Book by Michael Schams and usage
-    of the wrong method names has survived in numberous Extensions.
+    Make sure you write the `initializeObject()` method name correctly (the method is
+    **called by name** in Extbase). Unfortunately, the method name was written
+    incorrectly in some older Extbase textbooks and has
+    survived in numerous extensions, making them error-prone.
 
     ..  code-block:: diff
 
