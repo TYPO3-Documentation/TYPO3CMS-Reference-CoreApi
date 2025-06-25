@@ -29,6 +29,8 @@
         :ref:`Configuration/TCA/ <extension-configuration-tca>`.
 
 
+..  _ext-tables-php-not-use:
+
 Should not be used for
 ======================
 
@@ -46,6 +48,8 @@ Should not be used for
         Adding table options via :php:`ExtensionManagementUtility::allowTableOnStandardPages()`
         :ref:`Example <extension-configuration-files-allow-table-standard>`
 
+..  _ext-tables-php-usage:
+
 Should be used for
 ==================
 
@@ -55,6 +59,8 @@ These are the typical functions that should be placed inside :file:`ext_tables.p
    :ref:`extension-configuration-files-scheduler`
 *  Registration of :ref:`custom page types <page-types-example>`
 *  Extending the :ref:`Backend user settings <user-settings-extending>`
+
+..  _ext-tables-php-examples:
 
 Examples
 ========
