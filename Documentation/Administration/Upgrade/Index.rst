@@ -10,7 +10,7 @@ Upgrading the TYPO3 Core and extensions
 ..  figure:: /Images/ManualScreenshots/Backend/Typo3Version.png
     :alt: The top bar of a TYPO3 backend showing the current version being used.
 
-    You find the current TYPO3 Core version being use in the top left of the TYPO3 backend.
+    You can find the current TYPO3 Core version in the top left of the TYPO3 backend.
 
 ..  card-grid::
     :columns: 1

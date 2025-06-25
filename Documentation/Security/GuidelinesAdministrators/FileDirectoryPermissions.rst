@@ -11,7 +11,7 @@ Secure file permissions (operating system level)
 ..  figure:: /Images/ManualScreenshots/AdminTools/DirectoryStatus.png
     :alt: Output of the directory status with missing writing permissions for folder public
 
-    The tool "Directory Status" in :guilabel:`Admin Tools > Environment` warns about missing writing permissions
+    The tool "Directory Status" in :guilabel:`Admin Tools > Environment` displays warnings about missing write permissions
 
 This chapter explains how to securely configure file and directory permissions
 at the operating system level for TYPO3 installations. It focuses on who can
