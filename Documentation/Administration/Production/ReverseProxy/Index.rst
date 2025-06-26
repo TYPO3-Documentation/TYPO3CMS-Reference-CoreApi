@@ -57,7 +57,7 @@ While both types act as intermediaries, they serve different purposes:
     *   Influences SSL/TLS termination and security
 
 Choosing the right kind of setup involving proxies is something that falls into the domain
-of your TYPO3 project's DevOps decissions. `https://en.wikipedia.org/wiki/Reverse_proxy`__
+of your TYPO3 project's DevOps decissions. `https://en.wikipedia.org/wiki/Reverse_proxy`_
 and `https://en.wikipedia.org/wiki/Proxy_server`__ descripe further key factors in depth.
 
 While operating a forward proxy requires virtually no TYPO3-specific configuration,
