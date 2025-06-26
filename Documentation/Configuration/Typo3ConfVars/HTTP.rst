@@ -11,7 +11,7 @@ HTTP - tune requests
 
 HTTP configuration to tune how TYPO3 behaves on HTTP requests made by TYPO3.
 See `Guzzle documentation <https://docs.guzzlephp.org/en/latest/request-options.html>`__
-for more background information on those settings.
+for more background information on many of those settings.
 
 ..  note::
     The configuration values listed here are keys in the global PHP array
@@ -64,6 +64,36 @@ for more background information on those settings.
         :Default: 5
 
         Maximum number of tries before an exception is thrown.
+
+..  _typo3ConfVars_http_allowed_hosts:
+
+..  confval:: allowed_hosts
+    :name: globals-typo3-conf-vars-sys-http-allowed_hosts
+    :Path: $GLOBALS['TYPO3_CONF_VARS']['HTTP']['allowed_hosts']
+    :type: array / null
+
+    This option is not passed on to guzzle. Instead, it configures
+    an array of allowed hosts to interact with TYPO3.
+
+    ..  _typo3ConfVars_http_allowed_hosts_webhooks:
+
+    ..  confval:: webhooks
+        :name: globals-typo3-conf-vars-sys-http-allowed_hosts-webhooks
+        :Path: $GLOBALS['TYPO3_CONF_VARS']['HTTP']['allowed_hosts']['webhooks']
+        :type: array / null
+        :Default: null
+
+        For now, the only supported array key is `webhooks` to configure an array
+        of allowed hostnames that webhooks of `EXT:webhooks`are allowed to connect to
+        (see :issue:`106229` as a protection against DNS rebinding).
+
+        Wildcards in the array values are allowed, like `*.example.com`.
+
+        An empty array is allowed, but in that case it is better to actually remove
+        the `EXT:webhooks` extension (all hosts are blocked).
+
+        Setting this option to null (or having it unset) is the default,
+        and will allow any connection.
 
 ..  _typo3ConfVars_http_cert:
 
