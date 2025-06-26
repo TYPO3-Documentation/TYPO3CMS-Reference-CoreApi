@@ -54,6 +54,15 @@ While both types act as intermediaries, they serve different purposes:
     *   Handles incoming requests to backend servers
     *   Server-focused
     *   Masks server identity from clients
+    *   Influences SSL/TLS termination and security
+
+Choosing the right kind of setup involving proxies is something that falls into the domain
+of your TYPO3 project's DevOps decissions. `https://en.wikipedia.org/wiki/Reverse_proxy`__
+and `https://en.wikipedia.org/wiki/Proxy_server`__ descripe further key factors in depth.
+
+While operating a forward proxy requires virtually no TYPO3-specific configuration,
+using a Reverse Proxy will require you to configure this integration (additionally to
+the specific proxy server configuration, like taking care of SSL/TLS termination):
 
 ..  _reverse-proxy-benefits-reverse-proxy:
 
@@ -124,9 +133,6 @@ protocol detection can lead to:
 *   Broken functionality due to incorrect redirect chains
 *   Potential security token validation issues
 
-Therefore, proper configuration of reverse proxy settings is essential for
-maintaining both security and functionality in TYPO3 installations.
-
 ..  _reverse-proxy-https-detection-and-configuration:
 
 HTTPS detection and configuration
@@ -142,7 +148,7 @@ HTTP and often configured with "HTTPS=on" (e.g., via .htaccess).
     *   Add the proxy's IP address to :php:`reverseProxySSL`
     *   Example: :php:`$GLOBALS['TYPO3_CONF_VARS']['SYS']['reverseProxySSL'] = '192.0.2.1';`
 
-*   If the reverse proxy handles **both** HTTP and HTTPS (since TYPO3 13.4):
+*   If the reverse proxy handles **both** HTTP and HTTPS:
 
     *   Add the proxy's IP address to :php:`reverseProxyIP`
     *   TYPO3 will then rely on the proxy's headers
@@ -158,7 +164,7 @@ Protocol detection fallback
 TYPO3 implements a hierarchical approach to detect secure connections:
 
 #.  First, checks :php:`reverseProxySSL` configuration
-#.  If using :php:`reverseProxyIP`, evaluates the :php:`X-Forwarded-Proto` header
+#.  If using :php:`reverseProxyIP`, evaluates the :php:`X-Forwarded-Proto` header (since TYPO3 13.4)
 #.  If no :php:`X-Forwarded-Proto` header is present, TYPO3 falls back to
     checking various other HTTP headers and server configuration settings to
     determine the connection security status
