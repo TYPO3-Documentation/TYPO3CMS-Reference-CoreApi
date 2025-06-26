@@ -66,7 +66,8 @@ These are typical functions that should be in :file:`ext_tables.php`:
 *   Extending :ref:`Backend user settings <user-settings-extending>`
 
 Before you use a utility method in :file:`ext_tables.php`, refer to the method's
-PHP doc comment. Unless it explicitly states that you can use the the
+PHP doc comment. Unless it explicitly states that you can use the method in context
+of :file:`ext_tables.php` they should not be used here.
 
 ..  _ext-tables-php-examples:
 
