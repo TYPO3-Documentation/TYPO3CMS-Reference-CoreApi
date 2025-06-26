@@ -1,3 +1,5 @@
+:navigation-title: Publishing
+
 .. include:: /Includes.rst.txt
 .. index:: Extension development; Publishing
 .. _publish-extension:

@@ -1,3 +1,5 @@
+:navigation-title: Examples
+
 ..  include:: /Includes.rst.txt
 ..  _upgrade-wizard-examples:
 

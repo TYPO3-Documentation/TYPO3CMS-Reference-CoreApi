@@ -1,3 +1,5 @@
+:navigation-title: Concept
+
 ..  include:: /Includes.rst.txt
 ..  preferably, use label upgrade-wizards-concept
 ..  index:: Upgrade wizards; Concept
@@ -15,7 +17,7 @@ the file system (for example, locations of files have changed).
 
 Wizards should be provided to ease updates for integrators and administrators.
 They are an addition to the database migration, which is handled by the Core
-based on :ref:`ext_tables.sql <ext-tables-php>`.
+based on TCA definitions and :ref:`ext_tables.sql <ext-tables-php>`.
 
 The execution order is not defined. Each administrator is able to execute
 wizards and migrations in any order. They can also be skipped completely.
