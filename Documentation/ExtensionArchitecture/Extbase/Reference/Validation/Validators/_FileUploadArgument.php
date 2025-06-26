@@ -2,21 +2,16 @@
 
 declare(strict_types=1);
 
-namespace MyVendor\MyExtension\Domain\Model;
-
 use TYPO3\CMS\Extbase\Annotation\FileUpload;
 use TYPO3\CMS\Extbase\Domain\Model\FileReference;
-use TYPO3\CMS\Extbase\DomainObject\AbstractEntity;
 
-class Blog extends AbstractEntity
+class SomeDto
 {
     #[FileUpload([
         'validation' => [
             'required' => true,
-            'maxFiles' => 1,
-            'fileSize' => ['minimum' => '0K', 'maximum' => '2M'],
             'mimeType' => [
-                'allowedMimeTypes' => ['image/jpeg', 'image/png'],
+                'allowedMimeTypes' => ['image/jpeg'],
                 'ignoreFileExtensionCheck' => false,
                 'notAllowedMessage' => 'LLL:EXT:my_extension/...',
                 'invalidExtensionMessage' => 'LLL:EXT:my_extension/...',
@@ -25,6 +20,4 @@ class Blog extends AbstractEntity
         'uploadFolder' => '1:/user_upload/files/',
     ])]
     protected ?FileReference $file = null;
-
-    // getters and setters like usual
 }
