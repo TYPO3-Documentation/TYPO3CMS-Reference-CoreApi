@@ -1,3 +1,5 @@
+:navigation-title: Documentation
+
 ..  include:: /Includes.rst.txt
 ..  index::
     Extension development; Documentation

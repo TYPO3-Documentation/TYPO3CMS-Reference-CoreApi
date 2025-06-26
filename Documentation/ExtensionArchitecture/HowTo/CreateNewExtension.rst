@@ -1,3 +1,5 @@
+:navigation-title: Kickstart
+
 .. include:: /Includes.rst.txt
 
 .. index::

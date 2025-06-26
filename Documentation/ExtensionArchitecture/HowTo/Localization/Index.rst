@@ -1,10 +1,12 @@
+:navigation-title: Localization
+
 .. include:: /Includes.rst.txt
 .. index:: Extension development; Localization
 .. _extension_localization:
 
-============
-Localization
-============
+=========================
+Localizing your extension
+=========================
 
 The configuration options for localization inside TYPO3 are versatile.
 You will find a comprehensive description of all concepts and options in the

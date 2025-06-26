@@ -1,3 +1,5 @@
+:navigation-title: Naming
+
 .. include:: /Includes.rst.txt
 .. index:: Extension development; Naming conventions
 .. _extension-naming:

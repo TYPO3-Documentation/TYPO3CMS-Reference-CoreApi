@@ -1,10 +1,11 @@
-.. include:: /Includes.rst.txt
+:navigation-title: Types
 
+.. include:: /Includes.rst.txt
 .. _extension-scope:
 
-=========================================
-System, third-party and custom extensions
-=========================================
+==================================================
+Types of extensions: System, third-party or custom
+==================================================
 
 The files for an extension are installed into a folder named :file:`vendor/`
 by Composer. See also :ref:`directory-vendor`.
