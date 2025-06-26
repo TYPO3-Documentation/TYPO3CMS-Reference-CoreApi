@@ -58,7 +58,7 @@ While both types act as intermediaries, they serve different purposes:
 
 Choosing the right kind of setup involving proxies is something that falls into the domain
 of your TYPO3 project's DevOps decissions. `https://en.wikipedia.org/wiki/Reverse_proxy`_
-and `https://en.wikipedia.org/wiki/Proxy_server`__ descripe further key factors in depth.
+and `https://en.wikipedia.org/wiki/Proxy_server`_ descripe further key factors in depth.
 
 While operating a forward proxy requires virtually no TYPO3-specific configuration,
 using a Reverse Proxy will require you to configure this integration (additionally to
