@@ -115,7 +115,7 @@ URL generation
 *   **Redirect Handling**: Controls whether redirects point
     to HTTP or HTTPS URLs
 
-This accurate protocol detection is crucial for maintaining security standards
+Accurate protocol detection is crucial for maintaining security standards
 and ensuring proper functionality across the TYPO3 installation. Incorrect
 protocol detection can lead to:
 
