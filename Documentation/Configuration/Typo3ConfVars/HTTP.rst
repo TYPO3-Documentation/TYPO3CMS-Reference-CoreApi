@@ -67,10 +67,16 @@ for more background information on many of those settings.
 
 ..  _typo3ConfVars_http_allowed_hosts:
 
+
 ..  confval:: allowed_hosts
     :name: globals-typo3-conf-vars-sys-http-allowed_hosts
     :Path: $GLOBALS['TYPO3_CONF_VARS']['HTTP']['allowed_hosts']
     :type: array / null
+
+    ..  versionadded:: 13.4.12 / 12.4.31
+        This property has been added with the security fix
+        `Important: #106229 - Allow filtering request hosts in webhook messages
+        <https://docs.typo3.org/permalink/changelog:important-106229-1747304339>`_.
 
     This option is not passed on to guzzle. Instead, it configures
     an array of allowed hosts to interact with TYPO3.
