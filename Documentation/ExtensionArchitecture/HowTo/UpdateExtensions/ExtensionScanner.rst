@@ -1,3 +1,5 @@
+:navigation-title: Extension scanner
+
 .. include:: /Includes.rst.txt
 .. index:: Extension scanner
 .. _extension-scanner:
