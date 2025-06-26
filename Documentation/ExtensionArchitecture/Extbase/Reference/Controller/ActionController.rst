@@ -35,14 +35,6 @@ parameters as this is necessary for the validation.
 
 ..  include:: /CodeSnippets/Extbase/Controllers/BlogControllerNew.rst.txt
 
-The validation of domain object can be explicitly disabled by the annotation
-:php:`@TYPO3\CMS\Extbase\Annotation\IgnoreValidation`. This might be necessary
-in actions that show forms or create domain objects.
-
-Default values can, as usual in PHP, just be indicated in the method signature.
-In the above case, the default value of the parameter :php:`$newBlog` is set to
-:php:`NULL`.
-
 If the action should render the view you can return :php:`$this->htmlResponse()`
 as a shortcut for taking care of creating the response yourself.
 
@@ -59,6 +51,18 @@ development system with activated debugging.
     :php:`initializeAction()`, :php:`initializeDoSomethingAction()` and
     :php:`errorAction()` have special meanings in initialization and error handling
     and are no Extbase actions.
+
+..  danger::
+    An action where a new object is constructed (e.g. `newAction`) does usually
+    not need the argument as action property.
+
+    `public function newAction(?Blog $blog = null)` may be a security
+    vulnerability, if no access checks are performed, since an attacker can
+    provide any blog UID and view the data of the record in the form.
+
+    It is also not required to use the `IgnoreValidation` attribute in order
+    for validation to work properly. Extbase takes care of assigning data
+    to the form in case of validation failures.
 
 ..  _extbase_class_hierarchy-define_initialization_code:
 

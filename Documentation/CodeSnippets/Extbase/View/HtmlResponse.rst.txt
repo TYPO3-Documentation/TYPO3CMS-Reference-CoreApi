@@ -3,9 +3,10 @@
 
 ..  code-block:: php
     :caption: Class T3docs\\BlogExample\\Controller\\BlogController
-    :emphasize-lines: 18
+    :emphasize-lines: 19
 
     use Psr\Http\Message\ResponseInterface;
+    use TYPO3\CMS\Core\Utility\GeneralUtility;
     use T3docs\BlogExample\Domain\Model\Blog;
     use TYPO3\CMS\Extbase\Annotation\IgnoreValidation;
 
@@ -16,10 +17,10 @@
          *
          * @IgnoreValidation("newBlog")
          */
-        public function newAction(?Blog $newBlog = null): ResponseInterface
+        public function newAction(): ResponseInterface
         {
             $this->view->assignMultiple([
-                'newBlog' => $newBlog,
+                'newBlog' => GeneralUtility::makeInstance(Blog::class),
                 'administrators' => $this->administratorRepository->findAll(),
             ]);
             return $this->htmlResponse();
