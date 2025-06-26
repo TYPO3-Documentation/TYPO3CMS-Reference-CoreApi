@@ -1,3 +1,5 @@
+:navigation-title: composer.json
+
 ..  include:: /Includes.rst.txt
 ..  _making-the-extension-installable:
 
@@ -7,10 +9,10 @@ Making the extension installable
 
 To make your TYPO3 extension installable, follow these steps:
 
-Add `example-extension/composer.json`
--------------------------------------
+Add `example-extension/composer.json`:
 
-Your `composer.json` file should contain the following essential information (for more information see :ref:`composer.json <t3coreapi:files-composer-json>`):
+Your `composer.json` file should contain the following essential information
+(for more information see :ref:`composer.json <t3coreapi:files-composer-json>`):
 
 *   Composer name (invisible in Extension Manager)
 *   Composer type
@@ -41,4 +43,3 @@ A minimal example:
     }
 
 Add `example-extension/Resources/Public/Icons/Extension.svg`
-------------------------------------------------------------

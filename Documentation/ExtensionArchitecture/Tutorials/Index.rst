@@ -1,12 +1,14 @@
+:navigation-title: Tutorials
+
 .. include:: /Includes.rst.txt
 .. index::
    Extension development; Tutorial
    Tutorial; Extension development
 .. _extension-tutorials:
 
-=========
-Tutorials
-=========
+===============================
+Extension development tutorials
+===============================
 
 ..  card-grid::
     :columns: 1

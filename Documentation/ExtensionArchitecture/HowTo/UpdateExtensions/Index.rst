@@ -1,3 +1,5 @@
+:navigation-title: Update
+
 .. include:: /Includes.rst.txt
 .. index:: Extension development; Update
 .. _update-extension:

@@ -1,3 +1,5 @@
+:navigation-title: TCA extension
+
 .. include:: /Includes.rst.txt
 .. index::
    single: Extension development; TCA

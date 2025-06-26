@@ -1,9 +1,11 @@
+:navigation-title: Configuration Files
+
 ..  include:: /Includes.rst.txt
 ..  index:: Extension development; Configuration Files
 ..  _extension-conventions-configuration-files:
 
 ========================================================
-Configuration Files (ext_tables.php & ext_localconf.php)
+Configuration files (ext_tables.php & ext_localconf.php)
 ========================================================
 
 The files :file:`ext_tables.php` and :file:`ext_localconf.php`
