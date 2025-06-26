@@ -1,10 +1,13 @@
-.. include:: /Includes.rst.txt
-.. index::
-   Extension development; Documentation
-   Path; EXT:{extkey}/Documentation/
-.. _extension-documentation:
-.. _extension-documentation-sphinx:
-.. _extension-documentation-readme:
+:navigation-title: Documentation
+
+..  include:: /Includes.rst.txt
+..  index::
+    Extension development; Documentation
+    Path; EXT:{extkey}/Documentation/
+..  _extension-documentation:
+..  _extension-documentation-sphinx:
+..  _extension-documentation-readme:
+..  _extension-documentation-tools:
 
 ====================
 Adding documentation
@@ -37,17 +40,3 @@ We recommend the first approach for the following reasons:
 For more details on both approaches see the :ref:`File structure <h2document:file-structure>`
 page and for more information on writing TYPO3 documentation in general, see the
 :ref:`Writing documentation <h2document:start>` guide.
-
-.. _extension-documentation-tools:
-
-Tools
-=====
-
-Although it is possible to write every single line of a full documentation
-from scratch, the TYPO3 community provides tools to support you:
-
--  A `Sample Manual <https://github.com/TYPO3-Documentation/TYPO3CMS-Example-ExtensionManual>`_
-   is available to be immediately copied into your own extension.
--  The :t3ext:`extension_builder`
-   optionally generates a documentation skeleton together with the extension
-   skeleton.

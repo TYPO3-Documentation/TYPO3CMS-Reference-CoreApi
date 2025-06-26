@@ -1,3 +1,5 @@
+:navigation-title: Extension repositories
+
 .. include:: /Includes.rst.txt
 .. index:: Custom Extension Repository
 .. _custom-extension-repository:

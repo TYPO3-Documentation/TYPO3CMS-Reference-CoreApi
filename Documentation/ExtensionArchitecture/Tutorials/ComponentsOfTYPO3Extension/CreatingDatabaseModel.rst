@@ -1,3 +1,5 @@
+:navigation-title: Models
+
 ..  include:: /Includes.rst.txt
 .. _creating-database-model:
 

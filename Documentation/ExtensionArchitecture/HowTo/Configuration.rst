@@ -1,10 +1,12 @@
-.. include:: /Includes.rst.txt
-.. index:: Extension; Configuration
-.. _extension_configuration:
+:navigation-title: Configuration
 
-=============
-Configuration
-=============
+..  include:: /Includes.rst.txt
+..  index:: Extension; Configuration
+..  _extension-configuration:
+
+====================================
+Configuration methods for extensions
+====================================
 
 There are several possibilities to make your extension configurable. From the
 various options described here each differs in:

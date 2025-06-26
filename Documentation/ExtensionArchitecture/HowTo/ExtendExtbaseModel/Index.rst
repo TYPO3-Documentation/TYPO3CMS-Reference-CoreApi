@@ -1,3 +1,5 @@
+:navigation-title: Model extensions
+
 .. include:: /Includes.rst.txt
 
 .. _extending-extbase-model:

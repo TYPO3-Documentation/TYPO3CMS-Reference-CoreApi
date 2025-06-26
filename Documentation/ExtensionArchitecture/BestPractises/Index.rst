@@ -1,3 +1,5 @@
+:navigation-title: Best practises
+
 .. include:: /Includes.rst.txt
 .. index::
    Extension development; Conventions

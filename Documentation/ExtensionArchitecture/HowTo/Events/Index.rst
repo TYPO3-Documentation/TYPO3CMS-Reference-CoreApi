@@ -1,10 +1,12 @@
+:navigation-title: Events
+
 .. include:: /Includes.rst.txt
 .. index:: pair: Extension development; Events
 .. _extension-development-events:
 
-======
-Events
-======
+==========================================
+Using and dispatching events in extensions
+==========================================
 
 :ref:`PSR-14 events <EventDispatcher>` can be used to extend the TYPO3 Core
 or third-party extensions.

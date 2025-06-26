@@ -1,3 +1,5 @@
+:navigation-title: Implementation
+
 ..  include:: /Includes.rst.txt
 ..  preferably, use label "upgrade-wizards-creation"
 ..  index:: Upgrade wizards; Creation
@@ -5,9 +7,9 @@
 ..  _upgrade-wizards-creation:
 ..  _upgrade-wizard-interface:
 
-========================
-Creating upgrade wizards
-========================
+==============================
+Implementing an upgrade wizard
+==============================
 
 ..  versionchanged:: 12.2
     The registration of an upgrade wizard has changed in TYPO3 v12.2. An
