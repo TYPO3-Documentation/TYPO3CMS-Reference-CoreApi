@@ -69,7 +69,9 @@ the specific proxy server configuration, like taking care of SSL/TLS termination
 Benefits of a reverse proxy
 ---------------------------
 
-Implementing a reverse proxy with TYPO3 offers several advantages:
+Implementing a reverse proxy with TYPO3 can offer several advantages,
+depending on its type and configuration. The following list highlights possible
+(but not necessary) factors:
 
 #.  **Load Balancing**:
 
