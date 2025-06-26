@@ -13,7 +13,10 @@ Introduction
 The extension scanner provides an interactive interface to scan extension code
 for usage of TYPO3 Core API which has been removed or deprecated.
 
-.. include:: /Images/AutomaticScreenshots/AdminTools/ExtensionScanner.rst.txt
+..  figure:: /Images/ManualScreenshots/AdminTools/ExtensionScanner.png
+    :alt: The extension scanner report with strong and weak matches
+
+    Deprecations as strong and weak matches in the extension scanner for EXT:news
 
 The module can be a great help for extension developers and site maintainers when upgrading to
 new Core versions. It can point out code places within extensions that need attention. However,
@@ -52,7 +55,10 @@ Quick start
 
    Click on the Changelog to view it.
 
-   .. include:: /Images/AutomaticScreenshots/AdminTools/ExtensionScannerReport.rst.txt
+   ..   figure:: /Images/ManualScreenshots/AdminTools/ExtensionScanner.png
+        :alt: The extension scanner report with strong and weak matches
+
+        Deprecations as strong and weak matches in the extension scanner for EXT:news
 
 Goals and non goals
 ===================
