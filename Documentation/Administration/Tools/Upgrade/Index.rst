@@ -107,11 +107,11 @@ once.
 View upgrade documentation (Changelogs)
 =======================================
 
-You can read all changelog entries that affect the current Core version in the
-module :guilabel:`Admin Tools > Upgrade` additionally to or instead of reading
+You can read all the changelog entries that affect the current Core version in the
+module :guilabel:`Admin Tools > Upgrade` or read
 them online: :doc:`TYPO3 Core Changelog Online <changelog:Index#typo3-core-changelog>`.
 
-In this tool you can mark changelog entries as read. Read entries are
+The module allows you to mark changelog entries as read. Read entries are
 automatically hidden.
 
 ..  _admin-tools-upgrade-tca-ext-tables:
@@ -119,10 +119,10 @@ automatically hidden.
 Check TCA in ext_tables.php
 ===========================
 
-TCA **must not** be defined in file :file:`ext_tables.php`, as TCA is required
-in frontend context while this file is only loaded in backend context.
+TCA **must not** be defined in file :file:`ext_tables.php`. This is because TCA
+is required in the frontend context and this file is only loaded in backend context.
 
-This tool can be used to check for accidental or historical definitions of TCA
+This tool can be used to check for incorrect or historical definitions of TCA
 in :file:`ext_tables.php`.
 
 ..  _admin-tools-upgrade-broken-extensions:
@@ -131,8 +131,8 @@ Check for broken extensions
 ===========================
 
 This tool tries to load the files :file:`ext_localconf.php` and
-:file:`ext_tables.php` of all installed extensions. It can help you to detect
-which extension is responsible for errors.
+:file:`ext_tables.php` from all the installed extensions. It can help you to detect
+which extensions are causing errors.
 
 ..  _admin-tools-upgrade-extension-scanner:
 
@@ -144,13 +144,13 @@ Extension scanner: Scan extension files
 
     Deprecations as strong and weak matches in the extension scanner for EXT:news
 
-When functionality is dropped or changed in the TYPO3 Core with the next major
-version it is usually already deprecated in the current TYPO3 version.
+When functionality is to be dropped or changed in the TYPO3 Core in the next major
+version it is usually already marked as deprecated in the current TYPO3 version.
 
-Therefore, by taking care of deprecations in the current TYPO3 version you can
+Therefore, by dealing with deprecations in the current TYPO3 version you can
 prepare your custom extensions to also work in the next TYPO3 Core version.
 
-The **extension scanner** can be used to find such deprecated code in extension.
+The **extension scanner** can be used to find deprecated code in extensions.
 
-Using the extension scanner to update custom extensions is described in detail
+Using the extension scanner to update custom extensions is described in more detail
 in `Extension scanner <https://docs.typo3.org/permalink/t3coreapi:extension-scanner>`_.

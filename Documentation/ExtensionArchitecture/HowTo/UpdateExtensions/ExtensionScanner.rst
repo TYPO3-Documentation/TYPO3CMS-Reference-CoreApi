@@ -19,13 +19,13 @@ for usage of TYPO3 Core API which has been removed or deprecated.
     Deprecations as strong and weak matches in the extension scanner for EXT:news
 
 The module can be a great help for extension developers and site maintainers when upgrading to
-new Core versions. It can point out code places within extensions that need attention. However,
-the detection approach - based on static code analysis - is limited by concept: false positives/negatives
+new Core versions. It can highlight parts of extension code that need attention. However,
+the detection method is based on static code analysis and is limited in nature: false positives/negatives
 are impossible to avoid.
 
-This document has been written to explain the design goals of the scanner, to point out what it can
+This document explains the design goals of the scanner - what it can
 and can't do. The document should help extension and project developers to get the best out of the tool,
-and it should help Core developers to add Core patches which use the scanner.
+and Core developers to add Core patches which use the scanner.
 
 This module has been featured on the TYPO3 YouTube channel:
 
