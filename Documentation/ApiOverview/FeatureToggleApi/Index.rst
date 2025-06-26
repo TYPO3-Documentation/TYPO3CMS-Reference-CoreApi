@@ -132,7 +132,8 @@ Enable / disable feature toggle
 Features can be toggled in the :guilabel:`Admin Tools > Settings` module via
 :guilabel:`Feature Toggles`:
 
-..  include:: /Images/AutomaticScreenshots/AdminTools/FeatureToggles.rst.txt
+..  figure:: /Images/ManualScreenshots/AdminTools/FeatureToggles.png
+    :alt: Feature toggles in the Admin Tools
 
 Internally, the changes are written to :file:`config/system/settings.php`:
 
