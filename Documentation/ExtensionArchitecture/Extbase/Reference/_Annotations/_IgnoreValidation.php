@@ -11,20 +11,22 @@ use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
 
 final class BlogController extends ActionController
 {
-    #[IgnoreValidation(['argumentName' => 'newBlog'])]
-    public function newAction(?Blog $newBlog = null): ResponseInterface
+    #[IgnoreValidation(['argumentName' => 'blog'])]
+    public function editAction(Blog $blog): ResponseInterface
     {
         // Do something
+        $this->view->assign('blog', $blog);
         return $this->htmlResponse();
     }
 
     /**
      * Use annotations instead for compatibility with TYPO3 v11:
-     * @IgnoreValidation("newBlog")
+     * @IgnoreValidation("blog")
      */
-    public function newAction2(?Blog $newBlog = null): ResponseInterface
+    public function editAction2(Blog $blog): ResponseInterface
     {
         // Do something
+        $this->view->assign('blog', $blog);
         return $this->htmlResponse();
     }
 }

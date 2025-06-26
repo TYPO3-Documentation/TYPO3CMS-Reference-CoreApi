@@ -5,6 +5,7 @@
     :caption: Class T3docs\\BlogExample\\Controller\\BlogController
 
     use Psr\Http\Message\ResponseInterface;
+    use TYPO3\CMS\Core\Utility\GeneralUtility;
     use T3docs\BlogExample\Domain\Model\Blog;
 
     class BlogController extends AbstractController
@@ -12,10 +13,10 @@
         /**
          * Displays a form for creating a new blog
          */
-        public function newAction(?Blog $newBlog = null): ResponseInterface
+        public function newAction(): ResponseInterface
         {
             $this->view->assignMultiple([
-                'newBlog' => $newBlog,
+                'newBlog' => GeneralUtility::makeInstance(Blog::class),
                 'administrators' => $this->administratorRepository->findAll(),
             ]);
             return $this->htmlResponse();
