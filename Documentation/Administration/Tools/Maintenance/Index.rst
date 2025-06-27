@@ -174,4 +174,4 @@ In the module :guilabel:`Admin Tools > Maintenance`, open tool "Manage language
 packs". You can add additional languages to be downloaded or update the language
 packs for languages already in use.
 
-See also chapter :ref:`Localization <t3coreapi:internationalization>`.
+..  seealso::
