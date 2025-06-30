@@ -189,7 +189,7 @@ script. This will typically be used from the Core scripts of TYPO3
 which do not have a natural identifier like extensions have their
 extension keys.
 
-..  literalinclude:: _ext_localconf_schema.php
+..  literalinclude:: _ext_localconf_schema_core.php
     :language: php
     :caption: EXT:my_extension/ext_localconf.php
 
