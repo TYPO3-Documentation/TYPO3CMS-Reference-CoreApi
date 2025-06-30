@@ -17,8 +17,8 @@ available.
 
 ..  _chose-backend-language:
 
-Set the language as backend language for yourself
-=================================================
+Set your backend language
+=========================
 
 One of the available backend languages can be selected in your user account.
 

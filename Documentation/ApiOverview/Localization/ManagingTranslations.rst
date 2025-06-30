@@ -16,8 +16,8 @@ Fetching translations / updating language packs
 ===============================================
 
 The backend module :guilabel:`Admin Tools > Maintenance > Manage Language Packs`
-allows to manage the list of available languages to your users and can fetch and
-update language packs of TER and Core extensions from the official translation server.
+displays a list of available languages to your users and can fetch and
+update language packs in TER and Core extensions from the official translation server.
 The module is rather straightforward to use and should be pretty much self-explanatory.
 Downloaded language packs are stored in the environment's
 :ref:`Environment-labels-path`.
@@ -46,7 +46,7 @@ Language packs can also be fetched using the command line:
 Load an additional language pack
 ================================
 
-An additional language pack can be installed as an administrator in the backend:
+Additional language packs can be installed by administrators in the backend:
 
 ..  rst-class:: bignums
 
