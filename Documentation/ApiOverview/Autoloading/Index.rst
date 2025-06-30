@@ -8,23 +8,30 @@ Autoloading
 
 The class autoloader takes care of finding classes in TYPO3.
 
-About :php:`makeInstance()`
-===========================
+..  _autoload-general-utility-make-instance:
 
-:php:`\TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance()` is a generic way
-throughout Core and extensions to create objects. It takes care of singleton
-and :ref:`XCLASS <xclasses>` handling.
+About `GeneralUtility::makeInstance()`
+======================================
+
+:php:`\TYPO3\CMS\Core\UtilityGeneralUtilitymakeInstance()` is a generic way
+throughout Core and extensions to create objects. It takes care of initializing
+service dependencies via `Dependency injection <https://docs.typo3.org/permalink/t3coreapi:dependency-injection>`_
+and handles :ref:`XCLASS <xclasses>`.
 
 ..  note::
-    When dependent services are injected via :ref:`Dependency Injection
-    <dependencyinjection>`, there is no need for :php:`makeInstance()`:
-    Injecting a different object is done by configuration - that's what
-    dependency injection is for.
+    Avoid using :php:`GeneralUtility::makeInstance()` to handle dependencies
+    between services. Always use constructor or method injection:
 
-A developer can instantiate classes using :php:`makeInstance()` - if dependency
-injection cannot be used. There are some situations where :php:`new` is used
-over :php:`makeInstance()`, effectively dropping especially the direct ability
-to :ref:`XCLASS <xclasses>`:
+    `Dependency injection <https://docs.typo3.org/permalink/t3coreapi:dependency-injection>`_
+
+..  _autoload-new:
+
+Using `new` to instantiate a PHP object
+=======================================
+
+There are some situations where :php:`new` is used
+instead of :php:`GeneralUtility::makeInstance()`, effectively dropping
+especially the direct ability to :ref:`XCLASS <xclasses>`:
 
 -   Data transfer objects are often created with :php:`new`. A good example are
     :ref:`PSR-14 events <EventDispatcher>`: The calling class creates a data
