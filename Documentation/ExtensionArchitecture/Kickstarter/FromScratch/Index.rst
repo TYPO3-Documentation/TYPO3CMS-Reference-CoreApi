@@ -1,16 +1,11 @@
-:navigation-title: Kickstart
+:navigation-title: From the Scratch
 
-.. include:: /Includes.rst.txt
+..  include:: /Includes.rst.txt
+..  _extension-create-new:
 
-.. index::
-   Extension development; Create an extension
-.. _extension-builder:
-
-.. _extension-create-new:
-
-========================
-Creating a new extension
-========================
+=====================================
+Creating a new extension from scratch
+=====================================
 
 First choose a unique `Composer name <https://getcomposer.org/doc/04-schema.md#name>`__
 for your extension. Additionally, an extension key is required.
@@ -18,12 +13,14 @@ for your extension. Additionally, an extension key is required.
 If you plan to ever publish your extension in the TYPO3 Extension Repository
 (TER), :ref:`register an extension key <extension-key>`.
 
-Kickstarting the extension
-==========================
+..  seealso::
 
-There are different options to kickstart an extension. You can create it from
-scratch or follow one of our :ref:`tutorials on kickstarting an
-extension <extension-kickstart>`.
+    There are different options to automatically kickstart an extension.
+    See `Extension kickstarters <https://docs.typo3.org/permalink/t3coreapi:extension-kickstart>`_.
+
+*   Create a directory with the extension name
+*   Create the :ref:`files-composer-json` file
+*   Create the :ref:`ext_emconf-php` file for Classic mode installations and extensions to be uploaded to TER
 
 Installing the newly created extension
 =======================================
@@ -55,10 +52,6 @@ After that you can install your extension via Composer:
 ..  code-block:: bash
 
     composer req my-vendor/my-extension:"@dev"
-
-..  hint::
-    Starting with TYPO3 v11.5 all extensions installed via Composer are
-    automatically activated when they are installed.
 
 ..  hint::
     For Classic mode installations you can put the extension directly in the directory
