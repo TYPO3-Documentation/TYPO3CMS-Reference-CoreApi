@@ -1,3 +1,5 @@
+:navigation-title: Session Manager
+
 .. include:: /Includes.rst.txt
 .. index:: pair: Session; User
 .. _session-management:
