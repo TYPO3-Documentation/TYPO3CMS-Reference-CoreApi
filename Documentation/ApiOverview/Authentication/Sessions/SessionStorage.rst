@@ -1,3 +1,5 @@
+:navigation-title: Session Storage
+
 .. include:: /Includes.rst.txt
 .. index:: Sessions; Storage
 .. _session-storage:
