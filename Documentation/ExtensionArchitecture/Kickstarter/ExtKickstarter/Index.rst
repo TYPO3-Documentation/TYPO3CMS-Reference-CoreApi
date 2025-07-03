@@ -5,23 +5,22 @@
 Extension Kickstarter
 =====================
 
-The Extension Kickstarter :composer:`stefanfroemken/ext-kickstarter` is a tool
-that helps you to quickly create your own TYPO3 extensions. It provides a
+You can use the :composer:`stefanfroemken/ext-kickstarter` Extension Kickstarter
+tool to quickly create your own TYPO3 extensions. It provides a
 basic framework and templates.
 
-Where it makes a difference, you have the choice of working with or without
-`Extbase <https://docs.typo3.org/permalink/t3coreapi:extbase>`_.
+You can choose whether the extension is based on
+`Extbase <https://docs.typo3.org/permalink/t3coreapi:extbase>`_ or not.
 
-You can create a `plugin <https://docs.typo3.org/permalink/t3coreapi:plugins>`_
-or a Controller with
-(`Extbase Controller <https://docs.typo3.org/permalink/t3coreapi:extbase-controller>`_)
-or without Extbase.
+Both `plugins <https://docs.typo3.org/permalink/t3coreapi:plugins>`_
+and Controllers can be created with or without Extbase
+(for Extbase see `Extbase Controller <https://docs.typo3.org/permalink/t3coreapi:extbase-controller>`_)
 
-The extension can also help your to create an
-`Upgrade wizard <https://docs.typo3.org/permalink/t3coreapi:upgrade-wizards>`_
-or introduce `automatic testing <https://docs.typo3.org/permalink/t3coreapi:testing-extensions>`_.
+The extension can also create
+`Upgrade wizards <https://docs.typo3.org/permalink/t3coreapi:upgrade-wizards>`_
+or add `automatic testing <https://docs.typo3.org/permalink/t3coreapi:testing-extensions>`_.
 
-The Extension Kickstarter can also be used to add functionality to existing
+The Extension Kickstarter can add functionality to existing
 custom extensions.
 
 ..  seealso::
