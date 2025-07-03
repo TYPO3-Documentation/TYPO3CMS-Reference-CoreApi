@@ -8,8 +8,8 @@
 Extension kickstarters
 ======================
 
-There is no "official" tool to create a TYPO3 extension. However there are a
-number of community managed tools that you can use.
+There is no "official" tool to create a TYPO3 extension, however, there are a
+number of community-managed tools that you can use.
 
 ..  card-grid::
     :columns: 1
@@ -22,27 +22,28 @@ number of community managed tools that you can use.
 
         *   Create a directory with the extension name
         *   Create the :ref:`files-composer-json` file
-        *   Create the :ref:`ext_emconf-php` file for Classic mode installations and extensions to be uploaded to TER
+        *   Create the :ref:`ext_emconf-php` file if you have a Classic mode
+            installation or an extension that will be uploaded to TER
 
     ..  card:: :ref:`Kickstart a TYPO3 extension with "Make" <extension-make>`
 
-        "Make" can be used to quickly create an extension with a few
-        basic commands on the console. "Make" can also be used to
-        kickstart functionality like console command (CLI), backend
-        controllers and event listeners. It does not offer to kickstart
-        a site package or an Extbase extension.
+        "Make" can be used to quickly create an extension using only a few
+        basic commands in the console. "Make" can also be used to
+        kickstart functionality like console commands (CLI), backend
+        controllers and event listeners. It cannot be used to kickstart
+        site packages or Extbase extensions.
 
     ..  card:: :ref:`Extension Kickstarter <ext-kickstarter>`
 
         The `Site Package Builder <https://get.typo3.org/sitepackage>`__
-        can be used to conveniently create an extension containing the
-        site package (theme) of a site. It can also be used to kickstart
+        makes it easy to create an extension containing a
+        site package (theme) for a site. It can also be used to kickstart
         an arbitrary extension by removing unneeded files.
 
     ..  card:: :doc:`Extension Builder <friendsoftypo3/extension-builder:Index>`
 
         The Extension Builder, :composer:`friendsoftypo3/extension-builder`
-        helps you to develop a TYPO3 extension
+        helps you create a TYPO3 extension
         based on the domain-driven MVC framework :ref:`Extbase <extbase>`
         and the templating engine :ref:`Fluid <fluid>`.
 
@@ -84,7 +85,7 @@ Extension kickstarter matrix
    * - Controller
      - ✅ Extbase or native TYPO3 controller
      - ❌ Not supported
-     - ✅ Supports generating controllers and backend modules via modeler
+     - ✅ Supports generation of controllers and backend modules via modeler
 
    * - Module
      - ❌ Not supported
@@ -94,7 +95,7 @@ Extension kickstarter matrix
    * - Repository
      - ✅ Extbase repository generation
      - ❌ Not supported
-     - ✅ Supports defining domain repositories via modeler
+     - ✅ Supports definition of domain repositories via modeler
 
    * - Model
      - ✅ Domain model with property mapping
