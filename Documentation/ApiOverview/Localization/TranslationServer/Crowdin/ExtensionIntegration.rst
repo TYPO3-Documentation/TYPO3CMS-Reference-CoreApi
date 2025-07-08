@@ -41,6 +41,7 @@ Crowdin:
 *   `BitBucket integration <https://support.crowdin.com/bitbucket-integration/>`__
 
 .. _crowdin-extension-integration-github:
+.. _crowdin-extension-integration-github-crowdin-config:
 
 Step-by-step instructions for GitHub
 ------------------------------------
