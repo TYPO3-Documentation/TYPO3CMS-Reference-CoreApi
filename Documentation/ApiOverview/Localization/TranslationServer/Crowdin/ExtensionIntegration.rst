@@ -42,6 +42,7 @@ Crowdin:
 
 .. _crowdin-extension-integration-github:
 .. _crowdin-extension-integration-github-crowdin-config:
+.. _crowdin-extension-integration-github-configure:
 
 Step-by-step instructions for GitHub
 ------------------------------------
