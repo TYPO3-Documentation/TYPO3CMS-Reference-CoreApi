@@ -1,0 +1,7 @@
+settings:
+  example.types.page:
+    type: page
+    default: 0
+    category: Example.types
+    label: 'Example page'
+    description: 'Page id which can be supplied as an integer or a string.'
