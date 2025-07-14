@@ -53,6 +53,12 @@ including administrators.
 Install Tool Password
 ---------------------
 
+..  versionadded:: 14.0
+
+    You can also use command `vendor/bin/typo3 install:password:set
+    <https://docs.typo3.org/permalink/t3coreapi:console-command-install-password-set>`_
+    to change the install tool password.
+
 Write access to :file:`config/system/settings.php` (in Classic mode installations
 :file:`typo3conf/system/settings.php`) is required to reset the
 :guilabel:`Install Tool` password.

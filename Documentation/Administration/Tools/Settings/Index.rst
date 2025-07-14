@@ -34,6 +34,12 @@ Change install tool password
 You can use this tool to easily change the install tool password from
 within Admin Tools.
 
+..  versionadded:: 14.0
+
+    You can also use command `vendor/bin/typo3 install:password:set
+    <https://docs.typo3.org/permalink/t3coreapi:console-command-install-password-set>`_
+    to change the install tool password.
+
 ..  _admin-tools-settings-maintainer:
 
 Manage system maintainers
