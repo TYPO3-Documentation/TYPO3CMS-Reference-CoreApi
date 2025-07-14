@@ -1,10 +1,12 @@
+:navigation-title: Extension integration
+
 ..  include:: /Includes.rst.txt
 ..  index:: pair: Crowdin; Extensions
 ..  _crowdin-extension-integration:
 
-=====================
-Extension integration
-=====================
+===================================
+Integrate Crowdin in your extension
+===================================
 
 This section describes how an extension author can get his extension set up at
 :ref:`Crowdin <xliff-translating-server-crowdin>`.
@@ -15,9 +17,10 @@ This section describes how an extension author can get his extension set up at
     *   Currently, TYPO3 can only handle one branch/version for languages.
         Typically you should select the "main" branch.
 
+..  _crowdin-extension-integration-setup:
 
-Setup
-=====
+Setup Crowdin
+=============
 
 Get in contact with the team in the TYPO3 Slack channel
 `#typo3-localization-team`_ with the following information:
@@ -28,9 +31,10 @@ Get in contact with the team in the TYPO3 Slack channel
 
 ..  _#typo3-localization-team: https://typo3.slack.com/app_redirect?channel=CR75200FL
 
+.. _crowdin-extension-integration-github:
 
-Integration
-===========
+Integration in GitHub or GitLab
+===============================
 
 In a next step you need to configure the integration of your Git provider into
 Crowdin. Have a look at the documentation on how to connect your repository with
@@ -40,9 +44,8 @@ Crowdin:
 *   `GitLab integration <https://support.crowdin.com/gitlab-integration/>`__
 *   `BitBucket integration <https://support.crowdin.com/bitbucket-integration/>`__
 
-.. _crowdin-extension-integration-github:
-.. _crowdin-extension-integration-github-crowdin-config:
-.. _crowdin-extension-integration-github-configure:
+..  _crowdin-extension-integration-github-crowdin-config:
+..  _crowdin-extension-integration-github-configure:
 
 Step-by-step instructions for GitHub
 ------------------------------------
@@ -153,51 +156,21 @@ Step-by-step instructions for GitHub
 
                     First, add the following GitHub secrets to your GitHub repository:
 
-                    +--------------------------+-----------------------------------------+
-                    | Secret                   | Description                             |
-                    +==========================+=========================================+
-                    | `CROWDIN_PROJECT_ID`     | Project ID, can be found in **project   |
-                    |                          | settings** when navigating to           |
-                    |                          | :guilabel:`Tools` > :guilabel:`API`.    |
-                    +--------------------------+-----------------------------------------+
-                    | `CROWDIN_PERSONAL_TOKEN` | API key used for authentication at      |
-                    |                          | Crowdin, can be generated in **personal |
-                    |                          | settings** at :guilabel:`API` >         |
-                    |                          | :guilabel:`Personal Access Tokens`.     |
-                    +--------------------------+-----------------------------------------+
+                    `CROWDIN_PROJECT_ID`
+                        Project ID, can be found in **project settings** when
+                        navigating to :guilabel:`Tools > API`.
+                    `CROWDIN_PERSONAL_TOKEN`
+                        API key used for authentication at Crowdin, can be
+                        generated in **personal settings** at
+                        :guilabel:`API > Personal Access Tokens`.
 
                 2.  Create GitHub workflow
 
                     Now create a new GitHub workflow :file:`crowdin.yaml`:
 
-                    ..  code-block:: yaml
+                    ..  literalinclude:: _codesnippets/_crowdin.yaml
                         :caption: EXT:my_extension/.github/workflows/crowdin.yaml
 
-                        name: Crowdin
-                        on:
-                          push:
-                            branches:
-                              - main
-
-                        jobs:
-                          sync:
-                            name: Synchronize with Crowdin
-                            runs-on: ubuntu-latest
-                            steps:
-                              - uses: actions/checkout@v4
-
-                              - name: Upload sources
-                                uses: crowdin/github-action@v2
-                                env:
-                                  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-                                with:
-                                  config: '.crowdin.yaml'
-                                  project_id: ${{ secrets.CROWDIN_PROJECT_ID }}
-                                  token: ${{ secrets.CROWDIN_PERSONAL_TOKEN }}
-                                  upload_sources: true
-                                  upload_translations: false
-                                  download_sources: false
-                                  download_translations: false
 
                     ..  seealso::
 
