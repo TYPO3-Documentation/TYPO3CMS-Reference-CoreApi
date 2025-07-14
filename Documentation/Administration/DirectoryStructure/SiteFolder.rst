@@ -54,6 +54,13 @@ Site settings `settings.yaml` in the site folder
         *   `Site settings <https://docs.typo3.org/permalink/t3coreapi:sitehandling-settings>`_.
         *   `Module Site Management > Settings <https://docs.typo3.org/permalink/t3coreapi:site-settings-editor>`_
 
+
+    ..  versionchanged:: 13.4.15
+
+        The settings in :file:`settings.yaml` are stored as map instead of tree.
+
+        `Important: #106894 - Site settings.yaml is now stored as a map <https://docs.typo3.org/permalink/changelog:important-106894-1750144877>`_
+
 ..  _site-folder-typoscript:
 
 The site as frontend TypoScript provider
