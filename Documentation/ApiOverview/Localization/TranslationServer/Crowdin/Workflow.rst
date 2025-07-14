@@ -1,12 +1,14 @@
+:navigation-title: Workflow
+
 ..  include:: /Includes.rst.txt
 ..  index::
     Workflow
     pair: Crowdin; Workflow
 ..  _crowdin-workflow:
 
-========
-Workflow
-========
+=================================================================
+Workflow: From new Crowdin translations to the TYPO3 installation
+=================================================================
 
 The following workflow is used to bring a translation into a TYPO3 installation.
 
@@ -44,32 +46,28 @@ The following workflow is used to bring a translation into a TYPO3 installation.
     The translations can be downloaded within a TYPO3 installation.
     This is described under :ref:`xliff-translating-fetch`.
 
-
-Chart
-=====
-
 ..  code-block:: text
 
-      +--------------+                   +----------------+
-      |  1) GitHub   |                   | 2) Crowdin.com |
-      |--------------|                   |----------------|
-      |              |  Automated Sync   |- Translate     |
-      | TYPO3 Core   |+----------------> |- Proofread     |
-      |  and         |                   |                |
-      | Extensions   |                   | in all         |
-      |              |                   | languages      |
-      +--------------+                   +----------------+
-                                                ^
-                                                |
-        +---------------------------------------+
-        |Triggered via GitHub actions
-        v
-      +-------------------+                 +-----------------------+
-      | 3) Crowdin Bridge |                 | 4) Translation Server |
-      |-------------------|                 |-----------------------|
-      |- Build projects   |                 |- Serves l10n zip      |
-      |- Download         |     rsync to    |  files, requested     |
-      |  translations     |+--------------->|  by TYPO3 sites       |
-      |- Create zips      |                 |- Hosts status page    |
-      |- Status pages     |                 +-----------------------+
-      +-------------------+
+    +--------------+                   +----------------+
+    |  1) GitHub   |                   | 2) Crowdin.com |
+    |--------------|                   |----------------|
+    |              |  Automated Sync   |- Translate     |
+    | TYPO3 Core   |+----------------> |- Proofread     |
+    |  and         |                   |                |
+    | Extensions   |                   | in all         |
+    |              |                   | languages      |
+    +--------------+                   +----------------+
+                                              ^
+                                              |
+      +---------------------------------------+
+      |Triggered via GitHub actions
+      v
+    +-------------------+                 +-----------------------+
+    | 3) Crowdin Bridge |                 | 4) Translation Server |
+    |-------------------|                 |-----------------------|
+    |- Build projects   |                 |- Serves l10n zip      |
+    |- Download         |     rsync to    |  files, requested     |
+    |  translations     |+--------------->|  by TYPO3 sites       |
+    |- Create zips      |                 |- Hosts status page    |
+    |- Status pages     |                 +-----------------------+
+    +-------------------+

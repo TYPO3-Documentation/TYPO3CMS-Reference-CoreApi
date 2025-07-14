@@ -1,3 +1,5 @@
+:navigation-title: Online translation
+
 ..  include:: /Includes.rst.txt
 ..  index::
     Translation
@@ -17,6 +19,7 @@ Online translation with Crowdin
 ..  contents::
     :local:
 
+..  _crowdin-crowdin-translation-getting-started:
 
 Getting started
 ===============
@@ -39,6 +42,7 @@ To help you get started, Tom Warwick has created a short tutorial video for you:
 
 ..  youtube:: 5TnUh0AzqHE
 
+..  _crowdin-crowdin-translation-teams:
 
 Teams and roles
 ===============
@@ -54,6 +58,7 @@ the strings have been proofread by team members with the "Proofreader" role,
 the translation will be available for all TYPO3 instances via the
 "Managing Language Packs" section in the TYPO3 backend.
 
+..  _crowdin-crowdin-translation-Core:
 
 The language files in Core
 ==========================
@@ -78,6 +83,7 @@ information:
 *   You can improve the Translation Memory by adding new terms.
 *   You can easily get in contact with the language manager and team members.
 
+..  _crowdin-crowdin-translation-preconditions:
 
 Preconditions
 =============
@@ -89,6 +95,7 @@ of the functionality and features. If you are more focused in translating
 extensions, you will need to understand all the parts of the extension before
 you start translating.
 
+..  _crowdin-crowdin-translation-skills:
 
 What skills are needed
 ======================
@@ -101,6 +108,7 @@ localization.
 A good understanding of how a language is constructed in terms of nouns, verbs,
 punctuation and grammar in general will be necessary.
 
+..  _crowdin-crowdin-translation-create:
 
 How to create (good) translations
 =================================
@@ -142,6 +150,8 @@ How to create (good) translations
 ..  note::
     When translating into German, we prefer the informal "du" to the formal "Sie".
 
+..  _crowdin-crowdin-translation-styles:
+
 Translation styles
 ==================
 
@@ -151,6 +161,7 @@ In general, and where it makes sense, we follow the
 In the future (when translation teams start getting bigger), it might be a good
 idea to develop local style guides.
 
+..  _crowdin-crowdin-translation-proofreading:
 
 Become a proofreader
 ====================
@@ -165,6 +176,8 @@ Or join the Slack channel of the Localization Team: `#typo3-localization-team`_
 
 .. _#typo3-localization-team: https://typo3.slack.com/archives/CR75200FL
 
+..  _crowdin-crowdin-translation-links:
+
 Links
 =====
 
@@ -176,10 +189,12 @@ with language.
 *   `<https://gengo.com/translators/resources/>`__
 *   `<https://docs.microsoft.com/style-guide>`__
 
+..  _crowdin-crowdin-translation-faq:
 
 FAQ
 ===
 
+..  _crowdin-crowdin-translation-faq-versions:
 
 Should I localize both 12.4 and main?
 ---------------------------------------
@@ -188,6 +203,7 @@ The main branch is the leading version. Any string that is also present in the
 previous version is automatically filled during export and only needs to be
 localized if it is different in the previous version.
 
+..  _crowdin-crowdin-translation-when-download:
 
 Strings are translated, but when are they taken into account and available for download?
 ----------------------------------------------------------------------------------------
@@ -195,10 +211,9 @@ Strings are translated, but when are they taken into account and available for d
 As soon as a string is proofread, it will be taken into account at the next export.
 The export is done every two hours.
 
-If the process takes too long, please write an email to `localization@typo3.org`_.
+If the process takes too long, please write an email to localization@typo3.org
 
-..  _localization@typo3.org: mailto:localization@typo3.org
-
+..  _crowdin-crowdin-translation-to-be-translated:
 
 How can I be sure what way a word, term or string is to be translated?
 ----------------------------------------------------------------------
@@ -207,6 +222,7 @@ There are several ways to get help: In the left panel you can either search
 the translation memory (TM) or the term base. You can also drop a comment to
 start a discussion or ask for advice.
 
+..  _crowdin-crowdin-translation-meet:
 
 Where do I meet all the other translators?
 ------------------------------------------

@@ -26,7 +26,6 @@ backend to another language. It is mandatory to set :xml:`source-language="en"`.
     Having several :xml:`<file>` elements in the same XLIFF document is not
     supported by the TYPO3 Core.
 
-
 ..  index:: XLIFF; Basics
 ..  _xliff-basics:
 

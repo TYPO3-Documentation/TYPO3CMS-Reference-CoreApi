@@ -1,11 +1,12 @@
-.. include:: /Includes.rst.txt
-.. _LanguageServiceFactory-api:
+..  include:: /Includes.rst.txt
+..  _LanguageServiceFactory-api:
 
 ======================
 LanguageServiceFactory
 ======================
 
-This factory class is for retrieving the :ref:`LanguageService <LanguageService-api>` at runtime, which then is used to translate strings in plain PHP. For examples
+This factory class is for retrieving the :ref:`LanguageService <LanguageService-api>`
+at runtime, which then is used to translate strings in plain PHP. For examples
 see :ref:`extension-localization-php`. Creates a :ref:`LanguageService-api`
 that can then be used for localizations.
 
