@@ -20,5 +20,4 @@ Example: Use
 ========
 
 ..  literalinclude:: _ExampleController.php
-    :language: php
     :caption: EXT:my_extension/Classes/Controller/ExampleController.php (not Extbase)
