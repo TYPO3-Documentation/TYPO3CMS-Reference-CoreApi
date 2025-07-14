@@ -68,6 +68,11 @@ administrator privileges.
 The Install Tool password
 -------------------------
 
+..  versionadded:: 14.0
+
+    You can also use command `vendor/bin/typo3 install:password:set
+    <https://docs.typo3.org/permalink/t3coreapi:console-command-install-password-set>`_
+
 The password for accessing the Install Tool is stored using the
 :ref:`configured password hash mechanism <password-hashing>` set for the backend
 in the global configuration file :file:`config/system/settings.php`:
@@ -83,14 +88,61 @@ in the global configuration file :file:`config/system/settings.php`:
        ],
    ];
 
-The Install Tool password is set during the
+The Install Tool password is initially set during the
 installation process. This means, in the case that a system administrator
-hands over the TYPO3 instance to you, it should also provide you
+hands over the TYPO3 instance to you, they should also provide you
 with the appropriate password.
 
 The first thing you should do, after taking over a new TYPO3 system from
-a system administrator, is to change the password to a new and secure one.
-Log-in to the Install Tool and change it there.
+a system administrator, is to change the password to a new and secure one:
+
+..  _security-install-tool-password-change-command:
+
+Change the install tool password by console command
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+You can use the command `vendor/bin/typo3 install:password:set
+<https://docs.typo3.org/permalink/t3coreapi:console-command-install-password-set>`_
+to change the install tool password:
+
+..  tabs::
+
+    ..   group-tab:: Composer-mode
+
+        ..  code-block:: bash
+
+            vendor/bin/typo3 install:password:set
+
+    ..  group-tab:: Classic mode
+
+        ..  code-block:: bash
+
+            typo3/sysext/core/bin/typo3 install:password:set
+
+    ..  group-tab:: DDEV
+
+        ..  code-block:: bash
+
+            ddev typo3 install:password:set
+
+This only works if `$GLOBALS['TYPO3_CONF_VARS']['BE']['installToolPassword'] <https://docs.typo3.org/permalink/t3coreapi:confval-globals-typo3-conf-vars-be-installtoolpassword>`_
+was not overridden in the file :file:`config/system/additional.php`.
+
+..  warning::
+    This password gives an attacker full control over your instance if cracked.
+    It should be strong (include lower and upper case characters, special
+    characters and numbers) and at least eight characters long.
+
+..  _security-install-tool-password-change-gui:
+
+Change the install tool password via GUI
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+This can only be done if you know the current install tool password and can log
+into the Install Tool successfully:
+
+Log-in to the Install Tool and change it in :guilabel:`Admin Tools > Settings > Change
+install tool password`.
 
 .. include:: /Images/AutomaticScreenshots/AdminTools/ChangeInstallToolPassword.rst.txt
 
