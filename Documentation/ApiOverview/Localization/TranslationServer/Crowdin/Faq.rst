@@ -14,11 +14,12 @@ Frequently asked questions (FAQ)
     If you miss a question, please share it in the Slack channel
     `#typo3-localization-team <https://typo3.slack.com/app_redirect?channel=CR75200FL>`__.
 
+..  _crowdin-faq-general:
 
 General questions
 =================
 
-.. _crowdin-faq-extension-missing:
+..  _crowdin-faq-extension-missing:
 
 My favorite extension is not available on Crowdin
 -------------------------------------------------
@@ -67,10 +68,12 @@ If you have :ref:`downloaded an XLIFF file <migrate-from-pootle>` from the
 deactivated Pootle language server or an old version of an extension, then it
 does not have the correct format. You need to remove some attributes.
 
+..  _crowdin-faq-integration:
+
 Questions about extension integration
 =====================================
 
-.. _crowdin-faq-duplicated-labels:
+..  _crowdin-faq-duplicated-labels:
 
 Why does Crowdin show me translations in source language?
 ---------------------------------------------------------
@@ -150,9 +153,9 @@ it will upload just master branch to Crowdin
 
 What to do:
 
-- Delete newly uploaded master
-- Rename [repo_name] master branch in Crowdin to master
-- Pause/resume GitHub sync, so the system has updated existing old files in the master branch
+-   Delete newly uploaded master
+-   Rename [repo_name] master branch in Crowdin to master
+-   Pause/resume GitHub sync, so the system has updated existing old files in the master branch
 
 The reason why the integration disconnected previously - it creates :file:`crowdin.yml`
 configuration file by default, but (probably) at some point it was renamed to
@@ -234,8 +237,13 @@ crowdin.yml, .crowdin.yml or crowdin.yaml?
 All three filenames are valid names for for Crowdin CLI to detect the configuration file.
 We recommend using `.crowdin.yml` to make it more obvious that it's a configuration file.
 
+..  _crowdin-faq-core:
+
 Questions about TYPO3 Core integration
 ======================================
+
+
+..  _crowdin-faq-core-notavailable:
 
 The Core Team added a new system extension. Why are language packs not available even though it has already been translated into language XY?
 ---------------------------------------------------------------------------------------------------------------------------------------------

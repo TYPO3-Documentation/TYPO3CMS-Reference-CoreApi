@@ -1,5 +1,5 @@
-.. include:: /Includes.rst.txt
-.. _extbase-localization-utility-api:
+..  include:: /Includes.rst.txt
+..  _extbase-localization-utility-api:
 
 =============================
 LocalizationUtility (Extbase)
