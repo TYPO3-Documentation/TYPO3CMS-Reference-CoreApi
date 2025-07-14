@@ -3,10 +3,9 @@
 
 ..  code-block:: php
     :caption: Class T3docs\\BlogExample\\Controller\\BlogController
-    :emphasize-lines: 19
+    :emphasize-lines: 18
 
     use Psr\Http\Message\ResponseInterface;
-    use TYPO3\CMS\Core\Utility\GeneralUtility;
     use T3docs\BlogExample\Domain\Model\Blog;
 
     class BlogController extends AbstractController
@@ -14,10 +13,10 @@
         /**
          * Displays a form for creating a new blog
          */
-        public function newAction(): ResponseInterface
+        public function newAction(?Blog $newBlog = null): ResponseInterface
         {
             $this->view->assignMultiple([
-                'newBlog' => GeneralUtility::makeInstance(Blog::class),
+                'newBlog' => $newBlog,
                 'administrators' => $this->administratorRepository->findAll(),
             ]);
             return $this->htmlResponse();
