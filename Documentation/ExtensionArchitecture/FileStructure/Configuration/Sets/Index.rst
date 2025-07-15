@@ -43,7 +43,9 @@ Example:
     In this file an extension can override settings defined by other sets. For
     example :ref:`Settings provided by site set "Fluid Styled Content" <typo3/cms-fluid-styled-content:site-set-fluid-styled-content-settings>`:
 
-..  include:: /ApiOverview/SiteHandling/_Sets/_site-package/_settings.rst.txt
+    ..  literalinclude:: /ApiOverview/SiteHandling/_Sets/_site-package/_settings-map.yaml
+        :language: yaml
+        :caption: config/sites/<my_site>/settings.yaml | typo3conf/sites/<my_site>/settings.yaml
 
 .. _extension-configuration-sets-settings-definitions-yaml:
 
