@@ -8,9 +8,8 @@ Searching for files
 
 An API is provided by the file abstraction layer (FAL) to search for files in a
 storage or folder. It includes matches in meta data of those files. The given
-search term is looked for in all
-:ref:`search fields defined in TCA <t3tca:ctrl-reference-searchfields>` of
-:sql:`sys_file` and :sql:`sys_file_metadata` tables.
+search term is looked for in all supported TCA fields of the tables
+:sql:`sys_file` and :sql:`sys_file_metadata`.
 
 ..  contents::
     :local:
