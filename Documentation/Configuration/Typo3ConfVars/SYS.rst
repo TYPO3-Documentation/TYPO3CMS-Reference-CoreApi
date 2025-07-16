@@ -948,7 +948,7 @@ configurations.
         :Default: see `EXT:core/Configuration/DefaultConfiguration.php <https://github.com/TYPO3/typo3/blob/006db645e4716529390fc3f07d84fe36b8694c43/typo3/sysext/core/Configuration/DefaultConfiguration.php#L369>`_
 
         ..  versionadded:: 13.4.13 / 12.4.32
-            This mapping superseeds
+            This mapping supersedes
             `$GLOBALS['TYPO3_CONF_VARS']['SYS']['FileInfo']['fileExtensionToMimeType'] <https://docs.typo3.org/permalink/t3coreapi:confval-globals-typo3-conf-vars-sys-fileinfo-fileextensiontomimetype>`_
 
 
