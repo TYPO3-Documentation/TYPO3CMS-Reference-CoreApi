@@ -1,8 +1,8 @@
 ..  include:: /Includes.rst.txt
 
 ..  index::
-   TYPO3_CONF_VARS; SYS
-   TYPO3_CONF_VARS SYS
+    TYPO3_CONF_VARS; SYS
+    TYPO3_CONF_VARS SYS
 ..  _typo3ConfVars_sys:
 
 ==========================
@@ -29,152 +29,152 @@ configurations.
 ..  _typo3ConfVars_sys_fileCreateMask:
 
 ..  confval:: fileCreateMask
-   :name: globals-typo3-conf-vars-sys-fileCreateMask
-   :Path: $GLOBALS['TYPO3_CONF_VARS']['SYS']['fileCreateMask']
-   :type: text
-   :Default: 0664
+    :name: globals-typo3-conf-vars-sys-fileCreateMask
+    :Path: $GLOBALS['TYPO3_CONF_VARS']['SYS']['fileCreateMask']
+    :type: text
+    :Default: 0664
 
-   File mode mask for Unix file systems (when files are uploaded/created).
+    File mode mask for Unix file systems (when files are uploaded/created).
 
 ..  _typo3ConfVars_sys_folderCreateMask:
 
 ..  confval:: folderCreateMask
-   :name: globals-typo3-conf-vars-sys-folderCreateMask
-   :Path: $GLOBALS['TYPO3_CONF_VARS']['SYS']['folderCreateMask']
-   :type: text
-   :Default: 2775
+    :name: globals-typo3-conf-vars-sys-folderCreateMask
+    :Path: $GLOBALS['TYPO3_CONF_VARS']['SYS']['folderCreateMask']
+    :type: text
+    :Default: 2775
 
-   As above, but for folders.
+    As above, but for folders.
 
 ..  _typo3ConfVars_sys_createGroup:
 
 ..  confval:: createGroup
-   :name: globals-typo3-conf-vars-sys-createGroup
-   :Path: $GLOBALS['TYPO3_CONF_VARS']['SYS']['createGroup']
-   :type: text
-   :Default: ''
+    :name: globals-typo3-conf-vars-sys-createGroup
+    :Path: $GLOBALS['TYPO3_CONF_VARS']['SYS']['createGroup']
+    :type: text
+    :Default: ''
 
-   Group for newly created files and folders (Unix only). Group ownership can
-   be changed on Unix file systems (see above). Set this if you want to change
-   the group ownership of created files/folders to a specific group.
+    Group for newly created files and folders (Unix only). Group ownership can
+    be changed on Unix file systems (see above). Set this if you want to change
+    the group ownership of created files/folders to a specific group.
 
-   This makes sense in all cases where the webserver is running with a
-   different user/group as you do. Create a new group on your system and add
-   you and the webserver user to the group. Now you can safely set the last
-   bit in fileCreateMask/folderCreateMask to 0 (for example 770). Important: The
-   user who is running your webserver needs to be a member of the group you
-   specify here! Otherwise you might get some error messages.
+    This makes sense in all cases where the webserver is running with a
+    different user/group as you do. Create a new group on your system and add
+    you and the webserver user to the group. Now you can safely set the last
+    bit in fileCreateMask/folderCreateMask to 0 (for example 770). Important: The
+    user who is running your webserver needs to be a member of the group you
+    specify here! Otherwise you might get some error messages.
 
 ..  _typo3ConfVars_sys_sitename:
 
 ..  confval:: sitename
-   :name: globals-typo3-conf-vars-sys-sitename
-   :Path: $GLOBALS['TYPO3_CONF_VARS']['SYS']['sitename']
-   :type: text
-   :Default: 'TYPO3'
+    :name: globals-typo3-conf-vars-sys-sitename
+    :Path: $GLOBALS['TYPO3_CONF_VARS']['SYS']['sitename']
+    :type: text
+    :Default: 'TYPO3'
 
-   Name of the base-site.
+    Name of the base-site.
 
 ..  _typo3ConfVars_sys_defaultScheme:
 
 ..  confval:: defaultScheme
-   :name: globals-typo3-conf-vars-sys-defaultScheme
-   :Path: $GLOBALS['TYPO3_CONF_VARS']['SYS']['defaultScheme']
-   :type: text
-   :Default: 'http'
+    :name: globals-typo3-conf-vars-sys-defaultScheme
+    :Path: $GLOBALS['TYPO3_CONF_VARS']['SYS']['defaultScheme']
+    :type: text
+    :Default: 'http'
 
-   Set the default URI scheme. This is used within links if no scheme is given.
-   One can set this to :php:`'https'` if this should be used by default.
+    Set the default URI scheme. This is used within links if no scheme is given.
+    One can set this to :php:`'https'` if this should be used by default.
 
 ..  _typo3ConfVars_sys_encryptionKey:
 
 ..  confval:: encryptionKey
-   :name: globals-typo3-conf-vars-sys-encryptionKey
-   :Path: $GLOBALS['TYPO3_CONF_VARS']['SYS']['encryptionKey']
-   :type: text
-   :Default: ''
+    :name: globals-typo3-conf-vars-sys-encryptionKey
+    :Path: $GLOBALS['TYPO3_CONF_VARS']['SYS']['encryptionKey']
+    :type: text
+    :Default: ''
 
-   This is a "salt" used for various kinds of encryption, CRC checksums and
-   validations. You can enter any rubbish string here but try to keep it
-   secret. You should notice that a change to this value might invalidate
-   temporary information, URLs etc. At least, clear all cache if you change
-   this so any such information can be rebuilt with the new key.
+    This is a "salt" used for various kinds of encryption, CRC checksums and
+    validations. You can enter any rubbish string here but try to keep it
+    secret. You should notice that a change to this value might invalidate
+    temporary information, URLs etc. At least, clear all cache if you change
+    this so any such information can be rebuilt with the new key.
 
 ..  _typo3ConfVars_sys_cookieDomain:
 
 ..  confval:: cookieDomain
-   :name: globals-typo3-conf-vars-sys-cookieDomain
-   :Path: $GLOBALS['TYPO3_CONF_VARS']['SYS']['cookieDomain']
-   :type: text
-   :Default: ''
+    :name: globals-typo3-conf-vars-sys-cookieDomain
+    :Path: $GLOBALS['TYPO3_CONF_VARS']['SYS']['cookieDomain']
+    :type: text
+    :Default: ''
 
-   Restricts the domain name for FE and BE session cookies. When setting the
-   value to ".example.org" (replace example.org with your domain!), login
-   sessions will be shared across subdomains. Alternatively, if you have more
-   than one domain with sub-domains, you can set the value to a regular
-   expression to match against the domain of the HTTP request. This however requires
-   that all sub-domains are within the same TYPO3 instance, because a session can be tied
-   to only one database.
+    Restricts the domain name for FE and BE session cookies. When setting the
+    value to ".example.org" (replace example.org with your domain!), login
+    sessions will be shared across subdomains. Alternatively, if you have more
+    than one domain with sub-domains, you can set the value to a regular
+    expression to match against the domain of the HTTP request. This however requires
+    that all sub-domains are within the same TYPO3 instance, because a session can be tied
+    to only one database.
 
-   The result of the match is used as the domain for the cookie. for example :
-   php:`/\.(example1|example2)\.com$/` or :php:`/\.(example1\.com)|(example2\.net)$/`.
-   Separate domains for FE and BE can be set using
-   :ref:`$TYPO3_CONF_VARS[FE][cookieDomain]<typo3ConfVars_fe_cookieDomain>` and
-   :ref:`$TYPO3_CONF_VARS[BE][cookieDomain]<typo3ConfVars_be_cookieDomain>`
-   respectively.
+    The result of the match is used as the domain for the cookie. for example :
+    php:`/\.(example1|example2)\.com$/` or :php:`/\.(example1\.com)|(example2\.net)$/`.
+    Separate domains for FE and BE can be set using
+    :ref:`$TYPO3_CONF_VARS[FE][cookieDomain]<typo3ConfVars_fe_cookieDomain>` and
+    :ref:`$TYPO3_CONF_VARS[BE][cookieDomain]<typo3ConfVars_be_cookieDomain>`
+    respectively.
 
 ..  _typo3ConfVars_sys_trustedHostsPattern:
 
 ..  confval:: trustedHostsPattern
-   :name: globals-typo3-conf-vars-sys-trustedHostsPattern
-   :Path: $GLOBALS['TYPO3_CONF_VARS']['SYS']['trustedHostsPattern']
-   :type: text
-   :Default: 'SERVER_NAME'
+    :name: globals-typo3-conf-vars-sys-trustedHostsPattern
+    :Path: $GLOBALS['TYPO3_CONF_VARS']['SYS']['trustedHostsPattern']
+    :type: text
+    :Default: 'SERVER_NAME'
 
-   Regular expression pattern that matches all allowed hostnames (including
-   their ports) of this TYPO3 installation, or the string :php:`SERVER_NAME`
-   (default).
+    Regular expression pattern that matches all allowed hostnames (including
+    their ports) of this TYPO3 installation, or the string :php:`SERVER_NAME`
+    (default).
 
-   The default value :php:`SERVER_NAME` checks if the HTTP Host header equals
-   the SERVER_NAME and SERVER_PORT. This is secure in correctly configured
-   hosting environments and does not need further configuration. If you cannot
-   change your hosting environment, you can enter a regular expression here.
+    The default value :php:`SERVER_NAME` checks if the HTTP Host header equals
+    the SERVER_NAME and SERVER_PORT. This is secure in correctly configured
+    hosting environments and does not need further configuration. If you cannot
+    change your hosting environment, you can enter a regular expression here.
 
-   Examples:
+    Examples:
 
-   :php:`.*\.example\.org` matches all hosts that end with
-   :file:`.example.org` with all corresponding subdomains.
+    :php:`.*\.example\.org` matches all hosts that end with
+    :file:`.example.org` with all corresponding subdomains.
 
-   :php:`.*\.example\.(org|com)` matches all hostnames with
-   subdomains from :file:`.example.org` and :file:`.example.com`.
+    :php:`.*\.example\.(org|com)` matches all hostnames with
+    subdomains from :file:`.example.org` and :file:`.example.com`.
 
-   Be aware that HTTP Host header may also contain a port. If your installation
+    Be aware that HTTP Host header may also contain a port. If your installation
 
-   runs on a specific port, you need to explicitly allow this in your pattern,
+    runs on a specific port, you need to explicitly allow this in your pattern,
 
-   for example :php:`example\.org:88` allows only :file:`example.org:88`,
-   **not** :file:`example.org`. To disable this check completely
-   (not recommended because it is **insecure**) you can use :php:`.*` as pattern.
+    for example :php:`example\.org:88` allows only :file:`example.org:88`,
+    **not** :file:`example.org`. To disable this check completely
+    (not recommended because it is **insecure**) you can use :php:`.*` as pattern.
 
-   Have also a look into the :ref:`security guidelines
-   <security-global-typo3-options-trustedHostsPattern>`.
+    Have also a look into the :ref:`security guidelines
+    <security-global-typo3-options-trustedHostsPattern>`.
 
 ..  _typo3ConfVars_sys_devIPmask:
 
 ..  confval:: devIPmask
-   :name: globals-typo3-conf-vars-sys-devIPmask
-   :Path: $GLOBALS['TYPO3_CONF_VARS']['SYS']['devIPmask']
-   :type: text
-   :Default: '127.0.0.1,::1'
+    :name: globals-typo3-conf-vars-sys-devIPmask
+    :Path: $GLOBALS['TYPO3_CONF_VARS']['SYS']['devIPmask']
+    :type: text
+    :Default: '127.0.0.1,::1'
 
-   Defines a list of IP addresses which will allow development output to
-   display. The :php:`debug()` function will use this as a filter. See the
-   function :php:`\TYPO3\CMS\Core\Utility\GeneralUtilitycmpIP()` for details
-   on syntax. Setting this to blank value will deny all.
-   Setting to "*" will allow all.
+    Defines a list of IP addresses which will allow development output to
+    display. The :php:`debug()` function will use this as a filter. See the
+    function :php:`\TYPO3\CMS\Core\Utility\GeneralUtilitycmpIP()` for details
+    on syntax. Setting this to blank value will deny all.
+    Setting to "*" will allow all.
 
-   Have also a look into the :ref:`security guidelines
-   <security-global-typo3-options-devIpMask>`.
+    Have also a look into the :ref:`security guidelines
+    <security-global-typo3-options-devIpMask>`.
 
 ..  _typo3ConfVars_sys_ddmmyy:
 
