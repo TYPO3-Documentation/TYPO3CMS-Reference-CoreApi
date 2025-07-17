@@ -36,6 +36,11 @@ Extension development
         theme of a site.
 
 
+    ..  card:: :ref:`Extension kickstarters <extension-concepts>`
+
+        Learn about tools that help you to create a new Extension or add
+        functionality to an existing extension.
+
     ..  card:: :ref:`Howto <extension-howto>`
 
         Helps you kickstart your own extension or sitepackage. Explains how
@@ -69,6 +74,7 @@ Extension development
     Concepts/Index
     FileStructure/Index
     SitePackage/Index
+    Kickstarter/Index
     HowTo/Index
     Extbase/Index
     BestPractises/Index
