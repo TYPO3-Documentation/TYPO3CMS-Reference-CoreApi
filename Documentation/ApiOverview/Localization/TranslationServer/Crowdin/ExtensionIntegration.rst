@@ -171,6 +171,12 @@ Step-by-step instructions for GitHub
                     ..  literalinclude:: _codesnippets/_crowdin.yaml
                         :caption: EXT:my_extension/.github/workflows/crowdin.yaml
 
+                    ..  important::
+
+                        Make sure to configure a Crowdin branch name using the
+                        `crowdin_branch_name` configuration option of the GitHub
+                        action. Otherwise, translations are delivered incomplete
+                        by TYPO3's Crowdin Bridge.
 
                     ..  seealso::
 
