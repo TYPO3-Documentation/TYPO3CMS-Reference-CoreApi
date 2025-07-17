@@ -1,0 +1,7 @@
+routeEnhancers:
+  PageTypeSuffix:
+    type: PageType
+    default: ''
+    map:
+      'rss.feed': 13
+      '.json': 26

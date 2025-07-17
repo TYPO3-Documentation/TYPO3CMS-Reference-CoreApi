@@ -1,0 +1,31 @@
+
+page = PAGE
+page {
+  typeNum = 0
+  10 = TEXT
+  10.value = Default page
+}
+
+rssfeed = PAGE
+rssfeed {
+  typeNum = 13
+  10 < plugin.tx_myplugin
+  config {
+    disableAllHeaderCode = 1
+    additionalHeaders.10.header = Content-Type: xml/rss
+  }
+}
+
+jsonview = PAGE
+jsonview {
+  typeNum = 26
+  10 = EXTBASEPLUGIN
+  10 {
+    extensionName = MyExtension
+    pluginName = MyPlugin
+  }
+  config {
+    disableAllHeaderCode = 1
+    additionalHeaders.10.header = Content-Type: application/json
+  }
+}
