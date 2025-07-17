@@ -1,0 +1,11 @@
+routeEnhancers:
+  ForgotPassword:
+    type: Plugin
+    limitToPages: [13]
+    routePath: '/forgot-password/{user}/{hash}'
+    namespace: 'tx_felogin_pi1'
+    defaults:
+      forgot: '1'
+    requirements:
+      user: '[0-9]{1,3}'
+      hash: '^[a-zA-Z0-9]{32}$'
