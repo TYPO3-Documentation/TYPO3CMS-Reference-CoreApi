@@ -1,19 +1,16 @@
-:navigation-title: For extensions
-.. include:: /Includes.rst.txt
-.. index::
-   Routing; Advanced configuration
-   pair: Routing; Extensions
-.. _routing-advanced-routing-configuration:
+:navigation-title: Route Enhancements and Aspects
+..  include:: /Includes.rst.txt
+..  index::
+    Routing; Advanced configuration
+    pair: Routing; Extensions
+..  _routing-advanced-routing-configuration:
 
-===============================================
-Advanced routing configuration (for extensions)
-===============================================
+==============================================
+Route Enhancements and Aspects: for extensions
+==============================================
 
-..  contents::
+..  contents:: Table of contents
     :local:
-
-Introduction
-============
 
 While page-based routing works out of the box, routing for extensions has to be
 configured explicitly in your :ref:`site configuration <sitehandling>`.
@@ -60,13 +57,12 @@ example, when two plugins with multiple parameters each could be configured.
 Otherwise, the first variant matching the URL parameters is used for generating
 and resolving the route.
 
+..  index:: Routing; Enhancers
 
-.. index:: Routing; Enhancers
+..  _routing-advanced-routing-configuration-enhancers:
 
-.. _routing-advanced-routing-configuration-enhancers:
-
-Enhancers
-=========
+Routing Enhancers
+=================
 
 ..  tip::
 
@@ -98,8 +94,7 @@ Custom enhancers can be registered by adding an entry to an extension's
 :file:`ext_localconf.php` file:
 
 
-..  literalinclude:: _AdvancedRoutingConfiguration/_ext_localconf.php
-    :language: php
+..  literalinclude:: _codesnippets/_ext_localconf.php
     :caption: EXT:my_extension/ext_localconf.php
 
 Within a configuration, an enhancer always evaluates the following properties:
@@ -147,8 +142,8 @@ arguments. This is done by adding :ref:`aspects
 <routing-advanced-routing-configuration-aspects>` for those arguments to provide
 a static list of expected values.
 
-.. index:: Routing; Simple Enhancer
-.. _routing-simple-enhancer:
+..  index:: Routing; Simple Enhancer
+..  _routing-simple-enhancer:
 
 Simple enhancer
 ---------------
@@ -168,7 +163,7 @@ results in
 
 The configuration looks like this:
 
-..  literalinclude:: _AdvancedRoutingConfiguration/_routeEnhancers.yaml
+..  literalinclude:: _codesnippets/_routeEnhancers.yaml
 
 :yaml:`routePath`
     defines the static keyword and the placeholders.
@@ -187,8 +182,8 @@ The configuration looks like this:
     For people coming from :composer:`dmitryd/typo3-realurl` in previous TYPO3 versions: The
     :yaml:`routePath` can be loosely compared to some as "postVarSets".
 
-.. index:: Routing; Plugin Enhancer
-.. _routing-plugin-enhancer:
+..  index:: Routing; Plugin Enhancer
+..  _routing-plugin-enhancer:
 
 Plugin enhancer
 ---------------
@@ -215,19 +210,8 @@ specific use case. For the :doc:`frontend login <ext_felogin:Index>`, we
 would need to set up two configurations of the plugin enhancer for
 "forgot password" and "recover password".
 
-..  code-block:: yaml
-
-    routeEnhancers:
-      ForgotPassword:
-        type: Plugin
-        limitToPages: [13]
-        routePath: '/forgot-password/{user}/{hash}'
-        namespace: 'tx_felogin_pi1'
-        defaults:
-          forgot: '1'
-        requirements:
-          user: '[0-9]{1,3}'
-          hash: '^[a-zA-Z0-9]{32}$'
+..  literalinclude:: _codesnippets/_pluginEnhancer.yaml
+    :caption: config/sites/my-site/config.yaml
 
 If a URL is generated with the above parameters the resulting link
 will be this:
@@ -250,9 +234,8 @@ If you want to replace the user ID (in this example "82") with a username,
 you would need an aspect that can be registered within any enhancer, see
 :ref:`below for details <routing-advanced-routing-configuration-aspects>`.
 
-
-.. index:: Routing; Extbase Plugin Enhancer
-.. _routing-extbase-plugin-enhancer:
+..  index:: Routing; Extbase Plugin Enhancer
+..  _routing-extbase-plugin-enhancer:
 
 Extbase plugin enhancer
 -----------------------
@@ -285,61 +268,7 @@ And generate the following URLs:
     https://example.org/path-to/my-page/detail/in-the-year-2525
     https://example.org/path-to/my-page/tag/future
 
-..  code-block:: yaml
-
-    routeEnhancers:
-      NewsPlugin:
-        type: Extbase
-        limitToPages: [13]
-        extension: News
-        plugin: Pi1
-        routes:
-          - routePath: '/list/'
-            _controller: 'News::list'
-          - routePath: '/list/{page}'
-            _controller: 'News::list'
-            _arguments:
-              page: '@widget_0/currentPage'
-          - routePath: '/detail/{news_title}'
-            _controller: 'News::detail'
-            _arguments:
-              news_title: 'news'
-          - routePath: '/tag/{tag_name}'
-            _controller: 'News::list'
-            _arguments:
-              tag_name: 'overwriteDemand/tags'
-          - routePath: '/list/{year}/{month}'
-            _controller: 'News::list'
-            _arguments:
-              year: 'overwriteDemand/year'
-              month: 'overwriteDemand/month'
-            requirements:
-              year: '\d+'
-              month: '\d+'
-        defaultController: 'News::list'
-        defaults:
-          page: '0'
-        aspects:
-          news_title:
-            type: PersistedAliasMapper
-            tableName: tx_news_domain_model_news
-            routeFieldName: path_segment
-          page:
-            type: StaticRangeMapper
-            start: '1'
-            end: '100'
-          month:
-            type: StaticRangeMapper
-            start: '1'
-            end: '12'
-          year:
-            type: StaticRangeMapper
-            start: '1984'
-            end: '2525'
-          tag_name:
-            type: PersistedAliasMapper
-            tableName: tx_news_domain_model_tag
-            routeFieldName: slug
+..  literalinclude:: _codesnippets/_extbasePluginEnhancer.yaml
 
 In this example, the :yaml:`_arguments` parameter is used to set sub-properties
 of an array, which is typically used within demand objects for filtering
@@ -350,15 +279,9 @@ Instead of using the combination of :yaml:`extension` and :yaml:`plugin` one can
 also provide the :yaml:`namespace` property as in the
 :ref:`regular plugin enhancer <routing-plugin-enhancer>`:
 
-..  code-block:: yaml
+..  literalinclude:: _codesnippets/_extbasePluginEnhancerNamespace.yaml
     :emphasize-lines: 5
-
-    routeEnhancers:
-      NewsPlugin:
-        type: Extbase
-        limitToPages: [13]
-        namespace: tx_news_pi1
-        # ... further configuration
+    :caption: config/sites/my-site/config.yaml
 
 To understand what is happening in the :yaml:`aspects` part, read on.
 
@@ -367,9 +290,8 @@ To understand what is happening in the :yaml:`aspects` part, read on.
     example through multiple extensions. In that case, the enhancer imported
     last will override any duplicate routes that are in place.
 
-
-.. index:: Routing; PageType decorator
-.. _routing-pagetype-decorator:
+..  index:: Routing; PageType decorator
+..  _routing-pagetype-decorator:
 
 PageType decorator
 ------------------
@@ -382,38 +304,13 @@ It is possible to map various page types to endings:
 
 Example in TypoScript:
 
-..  code-block:: typoscript
-
-    page = PAGE
-    page.typeNum = 0
-    page.10 = TEXT
-    page.10.value = Default page
-
-    rssfeed = PAGE
-    rssfeed.typeNum = 13
-    rssfeed.10 < plugin.tx_myplugin
-    rssfeed.config.disableAllHeaderCode = 1
-    rssfeed.config.additionalHeaders.10.header = Content-Type: xml/rss
-
-    jsonview = PAGE
-    jsonview.typeNum = 26
-    jsonview.config.disableAllHeaderCode = 1
-    jsonview.config.additionalHeaders.10.header = Content-Type: application/json
-    jsonview.10 = USER
-    jsonview.10.userFunc = MyVendor\MyExtension\Controller\JsonPageController->renderAction
+..  literalinclude:: _codesnippets/_pages.typoscript
+    :caption: config/sites/my-site/setup.typoscript
 
 Now we configure the enhancer in your site's :file:`config.yaml` file like this:
 
-..  code-block:: yaml
-
-    routeEnhancers:
-      PageTypeSuffix:
-        type: PageType
-        default: ''
-        map:
-          'rss.feed': 13
-          '.json': 26
-
+..  literalinclude:: _codesnippets/_pageTypeSuffix.yaml
+    :caption: config/sites/my-site/config.yaml
 
 The :yaml:`map` allows to add a filename or a file ending and map this to
 a :typoscript:`page.typeNum` value.
@@ -421,16 +318,8 @@ a :typoscript:`page.typeNum` value.
 It is also possible to set :yaml:`default`, for example to :yaml:`.html` to add
 a ".html" suffix to all default pages:
 
-..  code-block:: yaml
-
-    routeEnhancers:
-      PageTypeSuffix:
-        type: PageType
-        default: '.html'
-        index: 'index'
-        map:
-          'rss.feed': 13
-          '.json': 26
+..  literalinclude:: _codesnippets/_pageTypeSuffixDefault.yaml
+    :caption: config/sites/my-site/config.yaml
 
 The :yaml:`index` property is used when generating links on root-level page,
 so instead of having `/en/.html` it would then result in
@@ -442,11 +331,11 @@ so instead of having `/en/.html` it would then result in
     variant, but not to substitute something within the middle of a
     human-readable URL segment.
 
-.. index:: Routing; Aspects
-.. _routing-advanced-routing-configuration-aspects:
+..  index:: Routing; Aspects
+..  _routing-advanced-routing-configuration-aspects:
 
-Aspects
-=======
+Routing aspects
+===============
 
 Now that we have looked at how to transform a route to a page by using arguments
 inserted into a URL, we will look at aspects. An aspect handles
@@ -466,7 +355,8 @@ Aspects are registered within a single enhancer configuration with the option
 Let us start with some examples first:
 
 
-.. index:: Routing; StaticValueMapper
+..  _routing-aspect-StaticValueMapper:
+..  index:: Routing; StaticValueMapper
 
 StaticValueMapper
 -----------------
@@ -478,7 +368,7 @@ create human-readable segments for all available months.
 
 The configuration could look like this:
 
-..  literalinclude:: _AdvancedRoutingConfiguration/_StaticValueMapper.yaml
+..  literalinclude:: _codesnippets/_StaticValueMapper.yaml
 
 You see the placeholder :yaml:`month` where the aspect replaces the value to a
 human-readable URL path segment.
@@ -486,9 +376,10 @@ human-readable URL path segment.
 It is possible to add an optional :yaml:`localeMap` to that aspect to use the
 locale of a value to use in multi-language setups:
 
-..  literalinclude:: _AdvancedRoutingConfiguration/_localeMap.yaml
+..  literalinclude:: _codesnippets/_localeMap.yaml
 
-.. index:: Routing; LocaleModifier
+..  _routing-aspect-LocaleModifier:
+..  index:: Routing; LocaleModifier
 
 LocaleModifier
 --------------
@@ -500,12 +391,13 @@ good example where a route path is modified, but not affected by arguments.
 
 The configuration could look like this:
 
-..  literalinclude:: _AdvancedRoutingConfiguration/_LocaleModifier.yaml
+..  literalinclude:: _codesnippets/_LocaleModifier.yaml
 
 This aspect replaces the placeholder :yaml:`localized_archive` depending on the
 locale of the language of that page.
 
-.. index:: Routing; StaticRangeMapper
+..  _routing-aspect-StaticRangeMapper:
+..  index:: Routing; StaticRangeMapper
 
 StaticRangeMapper
 -----------------
@@ -514,7 +406,7 @@ A static range mapper allows to avoid the `cHash` and narrow down the available
 possibilities for a placeholder. It explicitly defines a range for a value,
 which is recommended for all kinds of pagination functionality.
 
-..  literalinclude:: _AdvancedRoutingConfiguration/_StaticRangeMapper.yaml
+..  literalinclude:: _codesnippets/_StaticRangeMapper.yaml
 
 This limits down the pagination to a maximum of 100 pages. If a user calls the
 news list with page 101, the route enhancer does not match and would not apply
@@ -523,7 +415,8 @@ the placeholder.
 ..  note::
     A range larger than 1000 is not allowed.
 
-.. index:: Routing; PersistedAliasMapper
+..  _routing-aspect-PersistedAliasMapper:
+..  index:: Routing; PersistedAliasMapper
 
 PersistedAliasMapper
 --------------------
@@ -531,7 +424,7 @@ PersistedAliasMapper
 If an extension ships with a slug field or a different field used for the
 speaking URL path, this database field can be used to build the URL:
 
-..  literalinclude:: _AdvancedRoutingConfiguration/_PersistedAliasMapper.yaml
+..  literalinclude:: _codesnippets/_PersistedAliasMapper.yaml
 
 The persisted alias mapper looks up the table and the field to map the given
 value to a URL. The property :yaml:`tableName` points to the database table,
@@ -548,8 +441,8 @@ unique and suitable for the use in an URL. On top, special characters like
 spaces will not be converted automatically. Therefore, usage of a slug TCA field
 is recommended.
 
-
-.. index:: Routing; PersistedPatternMapper
+..  _routing-aspect-PersistedPatternMapper:
+..  index:: Routing; PersistedPatternMapper
 
 PersistedPatternMapper
 ----------------------
@@ -559,7 +452,7 @@ persisted pattern mapper is for you. It allows to combine various fields into
 one variable, ensuring a unique value, for example by adding the UID to the
 field without having the need of adding a custom slug field to the system.
 
-..  literalinclude:: _AdvancedRoutingConfiguration/_PersistedPatternMapper.yaml
+..  literalinclude:: _codesnippets/_PersistedPatternMapper.yaml
 
 The :yaml:`routeFieldPattern` option builds the title and uid fields from the
 database, the :yaml:`routeFieldResult` shows how the placeholder will be output.
@@ -568,8 +461,8 @@ problem. The persisted pattern mapper might be a good choice if you are
 upgrading from a previous version and had URLs with an appended UID for
 uniqueness.
 
-
-.. index:: Routing; Aspect precedence
+..  _routing-aspect-aspect-precedence:
+..  index:: Routing; Aspect precedence
 
 Aspect precedence
 =================
@@ -583,14 +476,15 @@ explicitly define the :yaml:`requirements` for this case - which is why
 The following example illustrates the mentioned dilemma between route generation
 and resolving:
 
-..  literalinclude:: _AdvancedRoutingConfiguration/_AspectPrecedence.yaml
+..  literalinclude:: _codesnippets/_AspectPrecedence.yaml
 
 The :yaml:`map` in the previous example is already defining all valid values.
 That is why :yaml:`aspects` take precedence over :yaml:`requirements` for a
 specific :yaml:`routePath` definition.
 
 
-.. index:: Routing; Aspect fallback value handling
+..  _routing-aspect-fallback-handling:
+..  index:: Routing; Aspect fallback value handling
 
 Aspect fallback value handling
 ==============================
@@ -611,31 +505,30 @@ parameters in his calling controller action as nullable and deliver
 corresponding :ref:`flash messages <flash-messages-api>` that explain the current
 scenario better than a "404" HTTP status code.
 
-Examples
---------
+..  rubric:: Examples
 
-..  literalinclude:: _AdvancedRoutingConfiguration/_NewsPlugin.yaml
+..  literalinclude:: _codesnippets/_NewsPlugin.yaml
 
 Custom mapper implementations can incorporate this behavior by implementing
 the :php:`\TYPO3\CMS\Core\Routing\Aspect\UnresolvedValueInterface` which is
 provided by :php:`\TYPO3\CMS\Core\Routing\Aspect\UnresolvedValueTrait`:
 
-..  literalinclude:: _AdvancedRoutingConfiguration/_MyCustomEnhancer.php
+..  literalinclude:: _codesnippets/_MyCustomEnhancer.php
     :caption: EXT:my_extension/Classes/Routing/Enhancer/MyCustomEnhancer.php
 
 In another example we handle the null value in an Extbase show action
 separately, for instance, to redirect to the list page:
 
-..  literalinclude:: _AdvancedRoutingConfiguration/_MyController.php
+..  literalinclude:: _codesnippets/_MyController.php
     :caption: EXT:my_extension/Classes/Controller/MyController.php
 
-.. index::
-   Routing; PageArguments
-   Routing; cHash
-   Routing; typolink
+..  index::
+    Routing; PageArguments
+    Routing; cHash
+    Routing; typolink
 
-Behind the Scenes
-=================
+Behind the scenes of routing in TYPO3
+=====================================
 
 While accessing a page in TYPO3 in the frontend, all arguments are currently
 built back into the global GET parameters, but are also available as so-called

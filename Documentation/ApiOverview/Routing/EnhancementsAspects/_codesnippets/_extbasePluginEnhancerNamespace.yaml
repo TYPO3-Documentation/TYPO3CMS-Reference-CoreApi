@@ -1,0 +1,6 @@
+routeEnhancers:
+  NewsPlugin:
+    type: Extbase
+    limitToPages: [13]
+    namespace: tx_news_pi1
+    # ...  further configuration

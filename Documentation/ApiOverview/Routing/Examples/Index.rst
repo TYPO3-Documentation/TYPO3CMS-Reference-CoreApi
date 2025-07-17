@@ -32,7 +32,7 @@ If you use the *category menu* or *tag list* plugins to filter news records, the
 *   Category filter: :samp:`https://example.org/news/my-category`
 *   Tag filter: :samp:`https://example.org/news/my-tag`
 
-..  literalinclude:: _Examples/_news.yaml
+..  literalinclude:: _codesnippets/_news.yaml
     :caption: config/my_site/config.yaml (excerpt)
 
 For more examples and background information see the
@@ -49,50 +49,50 @@ Taken from https://typo3.com routing configuration and the blog extension.
 
 Blog Archive:
 
-..  literalinclude:: _Examples/_blog_archive.yaml
+..  literalinclude:: _codesnippets/_blog_archive.yaml
     :caption: config/my_site/config.yaml (excerpt)
 
 Posts by Author:
 
-..  literalinclude:: _Examples/_blog_author.yaml
+..  literalinclude:: _codesnippets/_blog_author.yaml
     :caption: config/my_site/config.yaml (excerpt)
 
 
 Category pages:
 
-..  literalinclude:: _Examples/_blog_category.yaml
+..  literalinclude:: _codesnippets/_blog_category.yaml
     :caption: config/my_site/config.yaml (excerpt)
 
 Blog Feeds:
 
-..  literalinclude:: _Examples/_blog_feeds.yaml
+..  literalinclude:: _codesnippets/_blog_feeds.yaml
     :caption: config/my_site/config.yaml (excerpt)
 
 
 Blog Posts:
 
-..  literalinclude:: _Examples/_blog_posts.yaml
+..  literalinclude:: _codesnippets/_blog_posts.yaml
     :caption: config/my_site/config.yaml (excerpt)
 
 Posts by Tag:
 
-..  literalinclude:: _Examples/_blog_tags.yaml
+..  literalinclude:: _codesnippets/_blog_tags.yaml
     :caption: config/my_site/config.yaml (excerpt)
 
 
 BlogStaticDatabaseMapper:
 
-..  literalinclude:: _Examples/_StaticDatabaseMapper.php
+..  literalinclude:: _codesnippets/_StaticDatabaseMapper.php
     :caption: packages/my_extension/Classes/Routing/Aspect/StaticDatabaseMapper.php
 
 ..  _routing-examples-imports:
 
 Usage with imports
-^^^^^^^^^^^^^^^^^^
+~~~~~~~~~~~~~~~~~~
 
 On typo3.com we are using imports to make routing configurations easier to manage:
 
-..  literalinclude:: _Examples/_imports.yaml
+..  literalinclude:: _codesnippets/_imports.yaml
     :caption: config/my_site/config.yaml (excerpt)
 
 ..  _routing-examples-project:
@@ -102,7 +102,7 @@ Full project example config
 
 Taken from an anonymous live project:
 
-..  literalinclude:: _Examples/_full.yaml
+..  literalinclude:: _codesnippets/_full.yaml
     :caption: config/my_site/config.yaml (excerpt)
 
 ..  index:: Routing; EXT: DpnGlossary
@@ -122,7 +122,7 @@ EXT: DpnGlossary
 *   List view: :samp:`https://example.org/<YOUR_PLUGINPAGE_SLUG>`
 *   Detail view: :samp:`https://example.org/<YOUR_PLUGINPAGE_SLUG>/term/the-term-title`
 
-..  literalinclude:: _Examples/_glossary.yaml
+..  literalinclude:: _codesnippets/_glossary.yaml
     :caption: config/my_site/config.yaml (excerpt)
 
 Taken from dpn_glossary extension manual.
