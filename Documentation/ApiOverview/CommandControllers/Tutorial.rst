@@ -162,7 +162,7 @@ When using this attribute there is no need to register the command in the
 :file:`Services.yaml` file.
 
 ..  note::
-    Only the parameters `command`, `description`, `aliases` and `hidden` are
+    Only the parameters `name`, `description`, `aliases` and `hidden` are
     available. In order to overwrite the parameter `schedulable` use the
     registration via
     :ref:`Services.yaml <console-command-tutorial-registration-services>`.
