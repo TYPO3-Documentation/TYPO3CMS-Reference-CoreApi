@@ -128,6 +128,14 @@ configuration:
     necessary so that performance is not reduced and to allow TYPO3 to match the
     expected route.
 
+:yaml:`static`
+    ..  versionadded:: 13.3
+
+    Declares certain route parameters as static, avoiding the need for
+    `cHash` in URLs. Requires a corresponding :yaml:`requirements` rule.
+    See :ref:`routing-static-variables` for details and examples.
+
+
 :yaml:`_arguments`
     Defines what route parameters should be available to the system. In the
     following example, the placeholder is called :yaml:`category_id`, but the
@@ -331,6 +339,43 @@ so instead of having `/en/.html` it would then result in
     variant, but not to substitute something within the middle of a
     human-readable URL segment.
 
+..  _routing-static-variables:
+
+Static route variables
+======================
+
+..  versionadded:: 13.3
+
+Instead of implementing a custom aspect mapper to mark route parameters as
+static and avoid `cHash` signatures, you can now define static route variables
+directly in the route enhancer configuration using the :yaml:`static` directive.
+
+To be effective, this setting requires:
+
+-   No aspect to be defined for the same variable (aspects take precedence)
+-   A restrictive :yaml:`requirements` definition for the variable
+
+Example:
+
+..  code-block:: yaml
+
+    routeEnhancers:
+      Verification:
+        type: Simple
+        routePath: '/verify/{code}'
+        static:
+          code: true
+        requirements:
+          code: '[a-f0-9]{40}'
+
+In this case, `code` is considered static, and no `cHash` is appended when
+generating URLs like `/verify/11f6ad8ec52a2984abaafd7c3b516503785c2072`.
+
+..  note::
+
+    Without a matching :yaml:`requirements` entry, the :yaml:`static` setting
+    will be ignored. Always use strict patterns to avoid cache flooding.
+
 ..  index:: Routing; Aspects
 ..  _routing-advanced-routing-configuration-aspects:
 
@@ -353,7 +398,6 @@ Aspects are registered within a single enhancer configuration with the option
 :yaml:`aspects` and can be used with any enhancer.
 
 Let us start with some examples first:
-
 
 ..  _routing-aspect-StaticValueMapper:
 ..  index:: Routing; StaticValueMapper
