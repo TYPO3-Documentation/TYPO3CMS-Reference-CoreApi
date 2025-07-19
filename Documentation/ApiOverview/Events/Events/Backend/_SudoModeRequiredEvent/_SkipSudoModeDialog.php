@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace Vendor\MyExtension\EventListener;
@@ -22,7 +23,7 @@ final class SkipSudoModeDialog
         // Filter for TableAccessSubject types only
         $tableAccessSubjects = array_filter(
             $event->getClaim()->subjects,
-            static fn (AccessSubjectInterface $subject): bool => $subject instanceof TableAccessSubject
+            static fn(AccessSubjectInterface $subject): bool => $subject instanceof TableAccessSubject,
         );
 
         // Abort if there are unhandled subject types

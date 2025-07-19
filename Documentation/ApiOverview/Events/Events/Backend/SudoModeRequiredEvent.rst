@@ -52,4 +52,4 @@ See also: `StaticPasswordVerification example <https://docs.typo3.org/permalink/
 API
 ===
 
-..  include:: /CodeSnippets/Events/Backend/SudoModeVerifyEvent.rst.txt
+..  include:: /CodeSnippets/Events/Backend/SudoModeRequiredEvent.rst.txt
