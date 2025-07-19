@@ -23,6 +23,7 @@ strategies.
     Distribution/Index
     Database/Index
     FilePermissions/Index
+    Volumes/Index
     Ports/Index
     ReverseProxy/Index
 
