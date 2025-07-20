@@ -1,10 +1,11 @@
 :navigation-title: Commands
-.. include:: /Includes.rst.txt
 
-.. _cli-mode:
-.. _cli-mode-dispatcher:
-.. _cli-mode-command-controllers:
-.. _symfony-console-commands:
+..  include:: /Includes.rst.txt
+
+..  _cli-mode:
+..  _cli-mode-dispatcher:
+..  _cli-mode-command-controllers:
+..  _symfony-console-commands:
 
 ======================
 Console commands (CLI)
@@ -35,49 +36,49 @@ TYPO3 installation.
     may cause problems. Use the :ref:`query builder <database-query-builder>`
     or :ref:`DataHandler <datahandler-basics>` where appropriate.
 
-.. _symfony-console-commands-cli:
+..  _symfony-console-commands-cli:
 
 Run a command from the command line
 ===================================
 
 You can list the available commands by calling:
 
-.. tabs::
+..  tabs::
 
-   .. group-tab:: Composer-based installation
+    ..  group-tab:: Composer-based installation
 
-      .. code-block:: bash
+        ..  code-block:: bash
 
-         vendor/bin/typo3
+            vendor/bin/typo3
 
-   .. group-tab:: Classic mode installation (no Composer)
+    ..  group-tab:: Classic mode installation (no Composer)
 
-      .. code-block:: bash
+        ..  code-block:: bash
 
-         typo3/sysext/core/bin/typo3
+            typo3/sysext/core/bin/typo3
 
 For example, you can clear all caches by calling:
 
-.. include:: /_includes/CliCacheFlush.rst.txt
+..  include:: /_includes/CliCacheFlush.rst.txt
 
 Show help for the command:
 
-.. tabs::
+..  tabs::
 
-   .. group-tab:: Composer-based installation
+    ..  group-tab:: Composer-based installation
 
-      .. code-block:: bash
+        ..  code-block:: bash
 
-         vendor/bin/typo3 cache:flush -h
+            vendor/bin/typo3 cache:flush -h
 
-   .. group-tab:: Classic mode installation (no Composer)
+    ..  group-tab:: Classic mode installation (no Composer)
 
-      .. code-block:: bash
+        ..  code-block:: bash
 
-         typo3/sysext/core/bin/typo3 cache:flush -h
+            typo3/sysext/core/bin/typo3 cache:flush -h
 
 
-.. _symfony-console-commands-scheduler:
+..  _symfony-console-commands-scheduler:
 
 Running the command from the scheduler
 ======================================
@@ -86,8 +87,8 @@ By default, it is possible to run a command from the :doc:`TYPO3 scheduler
 <ext_scheduler:Index>` as well. To do this, select the task :guilabel:`Execute console commands`
 followed by your command in the :guilabel:`Schedulable Command` field.
 
-.. note::
-   You need to save and reopen the task to define command arguments.
+..  note::
+    You need to save and reopen the task to define command arguments.
 
 In order to prevent commands from being set up as scheduler tasks,
 see :ref:`deactivating-the-command-in-scheduler`.
@@ -100,6 +101,7 @@ for details on how to create commands.
 
 DataHandler usage
 =================
+
 Using the :ref:`DataHandler <datahandler-basics>` in a CLI command requires
 backend authentication.
 See :ref:`dataHandler-cli-command` for more information.
