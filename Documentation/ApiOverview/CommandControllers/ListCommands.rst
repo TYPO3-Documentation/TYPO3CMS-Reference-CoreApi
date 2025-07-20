@@ -1,4 +1,5 @@
 :navigation-title: List Core commands
+
 ..  include:: /Includes.rst.txt
 
 ..  _symfony-console-commands-list:

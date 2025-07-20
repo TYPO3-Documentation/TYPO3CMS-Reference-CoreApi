@@ -1,19 +1,17 @@
-.. include:: /Includes.rst.txt
+:navigation-title: Create a command
 
-.. _console-command-tutorial:
+..  include:: /Includes.rst.txt
+..  _console-command-tutorial:
 
-========
-Tutorial
-========
-
-Create a console command from scratch
-=====================================
+===============================================
+Tutorial: Create a console command from scratch
+===============================================
 
 A console command is always situated in an extension. If you want to create
 one, :ref:`kickstart a custom extension <extension-kickstart>` or use your
 sitepackage extension.
 
-.. _console-command-tutorial-create:
+..  _console-command-tutorial-create:
 
 Creating a basic command
 ========================
@@ -27,7 +25,7 @@ created by different means.
 This command can be found in the
 `Examples extension <https://github.com/TYPO3-Documentation/t3docs-examples>`__.
 
-.. _console-command-tutorial-registration-services:
+..  _console-command-tutorial-registration-services:
 
 1. Register the command
 -----------------------
@@ -74,8 +72,8 @@ The following attributes are available:
     Give a short description. It will be displayed in the list of commands and
     the help information of the command.
 
-.. _deactivating-the-command-in-scheduler:
-.. _schedulable:
+..  _deactivating-the-command-in-scheduler:
+..  _schedulable:
 
 :yaml:`schedulable`
     By default, a command can be used in the :doc:`scheduler
@@ -116,7 +114,7 @@ The following two methods should be overridden by your class:
     return the constants
     :php:`Command::SUCCESS` or :php:`Command::FAILURE`.
 
-.. seealso::
+..  seealso::
 
    A detailed description and an example can be found in
    `the Symfony Command Documentation <https://symfony.com/doc/current/console.html>`_.
@@ -126,17 +124,17 @@ The following two methods should be overridden by your class:
 
 The above example can be run via command line:
 
-.. tabs::
+..  tabs::
 
-   .. group-tab:: Composer-based installation
+   ..  group-tab:: Composer-based installation
 
-      .. code-block:: bash
+      ..  code-block:: bash
 
          vendor/bin/typo3 examples:dosomething
 
-   .. group-tab:: Classic mode installation (no Composer)
+   ..  group-tab:: Classic mode installation (no Composer)
 
-      .. code-block:: bash
+      ..  code-block:: bash
 
          typo3/sysext/core/bin/typo3 examples:dosomething
 
@@ -146,7 +144,7 @@ succeeded.
 ..  note::
     If a newly created or changed command is not found, clear the cache:
 
-    .. code-block:: bash
+    ..  code-block:: bash
 
         vendor/bin/typo3 cache:flush
 
@@ -198,17 +196,17 @@ Add an optional argument and an optional option to your command:
 This command takes one optional argument :php:`wizardName` and one optional option,
 which can be passed on the command line:
 
-.. tabs::
+..  tabs::
 
-   .. group-tab:: Composer-based installation
+   ..  group-tab:: Composer-based installation
 
-      .. code-block:: bash
+      ..  code-block:: bash
 
          vendor/bin/typo3 examples:createwizard [-b] [wizardName]
 
-   .. group-tab:: Classic mode installation (No Composer)
+   ..  group-tab:: Classic mode installation (No Composer)
 
-      .. code-block:: bash
+      ..  code-block:: bash
 
          typo3/sysext/core/bin/typo3 examples:createwizard [-b] [wizardName]
 
@@ -224,7 +222,7 @@ User interaction on the console
 You can create a :php:`SymfonyStyle` console user interface from the
 :php:`$input` and :php:`$output` parameters to the :php:`execute()` function:
 
-.. code-block:: php
+..  code-block:: php
     :caption: EXT:examples/Classes/Command/CreateWizardCommand.php
 
     use Symfony\Component\Console\Style\SymfonyStyle;
