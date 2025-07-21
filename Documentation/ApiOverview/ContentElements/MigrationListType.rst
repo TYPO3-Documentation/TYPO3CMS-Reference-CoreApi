@@ -144,7 +144,7 @@ element "list" anymore:
 ..  literalinclude:: _Migration/_typoscript.diff
     :caption: EXT:my_extension/Configuration/Sets/MyPluginSet/setup.typoscript (diff)
 
- Attention: :typoscript:`templateName = Generic` is a requirment. 
+ Attention: :typoscript:`templateName = Generic` is a requirement. 
 
 ..  _plugins-list-type-migration-core-plugin-migration:
 
