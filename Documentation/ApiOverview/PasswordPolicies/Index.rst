@@ -71,13 +71,11 @@ A custom password policy with the identifier `simple` can be configured like:
 ..  code-block:: php
     :caption: config/system/additional.php | typo3conf/system/additional.php
 
-    $GLOBALS['TYPO3_CONF_VARS']['SYS']['passwordPolicies'] = [
-        'simple' => [
-            'validators' => [
-                \TYPO3\CMS\Core\PasswordPolicy\Validator\CorePasswordValidator::class => [
-                    'options' => [
-                        'minimumLength' => 6,
-                    ],
+    $GLOBALS['TYPO3_CONF_VARS']['SYS']['passwordPolicies']['simple'] = [
+        'validators' => [
+            \TYPO3\CMS\Core\PasswordPolicy\Validator\CorePasswordValidator::class => [
+                'options' => [
+                    'minimumLength' => 6,
                 ],
             ],
         ],
