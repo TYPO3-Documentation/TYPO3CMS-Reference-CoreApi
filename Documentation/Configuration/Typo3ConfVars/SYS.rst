@@ -955,7 +955,6 @@ configurations.
             This mapping supersedes
             `$GLOBALS['TYPO3_CONF_VARS']['SYS']['FileInfo']['fileExtensionToMimeType'] <https://docs.typo3.org/permalink/t3coreapi:confval-globals-typo3-conf-vars-sys-fileinfo-fileextensiontomimetype>`_
 
-
         For each generic MIME type (as detected by PHP MIME type detection) a
         map from file extension to allowed concrete MIME type can be supplied.
 
