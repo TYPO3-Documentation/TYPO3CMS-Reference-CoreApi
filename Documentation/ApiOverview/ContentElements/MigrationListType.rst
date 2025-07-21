@@ -144,6 +144,8 @@ element "list" anymore:
 ..  literalinclude:: _Migration/_typoscript.diff
     :caption: EXT:my_extension/Configuration/Sets/MyPluginSet/setup.typoscript (diff)
 
+ Attention: :typoscript:`templateName = Generic` is a requirment. 
+
 ..  _plugins-list-type-migration-core-plugin-migration:
 
 3.  Provide an upgrade wizard for automatic content migration for TYPO3 v13.4 and v12.4
