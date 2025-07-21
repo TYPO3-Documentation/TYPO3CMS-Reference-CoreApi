@@ -38,14 +38,13 @@ Extension development tutorials
 
     ..  card:: :ref:`Extension development with extbase <extbase_tutorials>`
 
-                Extension Development with Extbase, a video from the TYPO3
-                Developer Days 2019
+        Extension Development with Extbase, a video from the TYPO3
+        Developer Days 2019
 
 ..  toctree::
     :titlesonly:
     :hidden:
 
-    Kickstart/Index
     Tea/Index
     ComponentsOfTYPO3Extension/Index
     Extbase
