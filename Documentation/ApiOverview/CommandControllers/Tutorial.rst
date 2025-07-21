@@ -1,4 +1,4 @@
-:navigation-title: Create a command
+:navigation-title: Tutorial
 
 ..  include:: /Includes.rst.txt
 ..  _console-command-tutorial:
