@@ -934,25 +934,56 @@ configurations.
         :name: globals-typo3-conf-vars-sys-FileInfo-fileExtensionToMimeType
         :Path: $GLOBALS['TYPO3_CONF_VARS']['SYS']['FileInfo']['fileExtensionToMimeType']
         :type: array
-        :Default: see :file:`EXT:core/Configuration/DefaultConfiguration.php`
 
-        Static mapping for file extensions to mime types. In special cases the mime
-        type is not detected correctly. Override this array only for cases where the
-        automatic detection does not work correctly!
+        ..  versionchanged:: 13.4.13 / 12.4.32
+            This file extension-based MIME type mapping is now superseded
+            by the more fine-grained MIME type compatibility list
+            `$GLOBALS['TYPO3_CONF_VARS']['SYS']['FileInfo']['mimeTypeCompatibility'] <https://docs.typo3.org/permalink/t3coreapi:confval-globals-typo3-conf-vars-sys-fileinfo-mimetypecompatibility>`_.
 
-        It is not possible to change this value in the Backend!
+        `$GLOBALS['TYPO3_CONF_VARS']['SYS']['FileInfo']['fileExtensionToMimeType']`
+        is supported for backward compatibility reasons.
 
-        This is the default:
+    ..  _typo3ConfVars-sys-FileInfo-mimeTypeCompatibility:
+
+    ..  confval:: mimeTypeCompatibility
+        :name: globals-typo3-conf-vars-sys-FileInfo-mimeTypeCompatibility
+        :Path: $GLOBALS['TYPO3_CONF_VARS']['SYS']['FileInfo']['mimeTypeCompatibility']
+        :type: array
+        :Default: see `EXT:core/Configuration/DefaultConfiguration.php <https://github.com/TYPO3/typo3/blob/006db645e4716529390fc3f07d84fe36b8694c43/typo3/sysext/core/Configuration/DefaultConfiguration.php#L369>`_
+
+        ..  versionadded:: 13.4.13 / 12.4.32
+            This mapping supersedes
+            `$GLOBALS['TYPO3_CONF_VARS']['SYS']['FileInfo']['fileExtensionToMimeType'] <https://docs.typo3.org/permalink/t3coreapi:confval-globals-typo3-conf-vars-sys-fileinfo-fileextensiontomimetype>`_
+
+        For each generic MIME type (as detected by PHP MIME type detection) a
+        map from file extension to allowed concrete MIME type can be supplied.
+
+        The Core predefines common file extensions and MIME types. Custom ones
+        can be configured additionally.
+
+        Since PHP file detection methods can not reliable detect all IANA defined MIME
+        types, mime-db based heuristics are applied to map generic MIME types like
+        `text/plain` to `text/csv` for `*.csv` files.
+
+        Example that is already shipped with TYPO3, a `*.jfif` file that is
+        detected as image/jpeg is mapped to image/pjpeg, which is the
+        defined MIME type per IANA and enforced by the FAL persistence layer.
 
         ..  code-block:: php
+            :caption: Example from the TYPO3 Core
 
-            $GLOBALS['TYPO3_CONF_VARS']['SYS']['FileInfo']['fileExtensionToMimeType'] = [
-                'fileExtensionToMimeType' => [
-                    'svg' => 'image/svg+xml',
-                    'youtube' => 'video/youtube',
-                    'vimeo' => 'video/vimeo',
-                ],
-            ],
+            $GLOBALS['TYPO3_CONF_VARS']['SYS']['FileInfo']['mimeTypeCompatibility']['image/jpeg']['jfif'] =
+                'image/pjpeg';
+
+        Generic example, which allows a file ending in `*.foo` that is detected
+        to contain text/plain contents to be mapped to the MIME type text/x-foo,
+        other contents (e.g. if the file contains binary data) will not be mapped
+
+        ..  code-block:: php
+            :caption: config/system/additional.php
+
+            $GLOBALS['TYPO3_CONF_VARS']['SYS']['FileInfo']['mimeTypeCompatibility']['text/plain']['foo'] =
+                'text/x-foo';
 
 ..  confval:: allowedPhpDisableFunctions
     :name: globals-typo3-conf-vars-sys-allowedPhpDisableFunctions
