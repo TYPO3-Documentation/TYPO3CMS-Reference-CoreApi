@@ -42,7 +42,7 @@ mount point for a specified path.
 
     ..  group-tab:: Classic mode
 
-        ..  code-block:: powershell
+        ..  code-block:: bash
 
             VOLUME /var/www/html/public/fileadmin
             VOLUME /var/www/html/public/typo3temp
