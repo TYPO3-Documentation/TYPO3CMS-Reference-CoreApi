@@ -1,0 +1,14 @@
+services:
+  _defaults:
+    autowire: true
+    autoconfigure: true
+    public: false
+
+  Vendor\MyExtension\EventListener\SkipSudoModeDialog:
+    tags:
+      - name: event.listener
+        identifier: 'ext-myextension/skip-sudo-mode-dialog'
+  Vendor\MyExtension\EventListener\StaticPasswordVerification:
+    tags:
+      - name: event.listener
+        identifier: 'ext-myextension/static-password-verification'
