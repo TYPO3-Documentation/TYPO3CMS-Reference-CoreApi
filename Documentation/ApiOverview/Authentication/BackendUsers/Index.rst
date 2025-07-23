@@ -30,20 +30,20 @@ Sudo mode (step-up authentication) for password changes
 =======================================================
 
 ..  versionadded:: 12.4.32 / 13.4.13
-    The fix for the security advisory `TYPO3-CORE-SA-2025-013 <https://typo3.org/security/advisory/typo3-core-sa-2025-013>`_
-    introduced this behavior to mitigate password-change risks.
+    This functionality was introduced in response to security advisory `TYPO3-CORE-SA-2025-013 <https://typo3.org/security/advisory/typo3-core-sa-2025-013>`_
+    to mitigate password-change risks.
 
-In scenarios where an administrator session is hijacked or left unattended, this
-mechanism helps prevent unauthorized password changes.
+This mechanism prevents unauthorized password changes if an administrator
+session is hijacked or left unattended.
 
-Therefore, when an administrator edits their own user account or changes the
-password of another user via the admin interface, a password confirmation
+When an administrator edits their own user account or changes the
+password of another user via the admin interface, password confirmation
 (step-up authentication) is required.
 
 ..  figure:: /Images/ManualScreenshots/AdminTools/SudoMode.png
     :alt: Dialog "Verify with user password" with password prompt shown on attempting to change a password.
 
-    The step-up authentication requires the administrator to re-enter their password
+    Step-up authentication requires the administrator to re-enter their password
 
 ..  note::
     This may pose challenges when integrating remote single sign-on (SSO)
