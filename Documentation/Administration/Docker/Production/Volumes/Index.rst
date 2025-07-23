@@ -32,7 +32,7 @@ mount point for a specified path.
 
 ..  tabs::
 
-    ..  group-tab:: Composer mode
+    ..  group-tab:: Classic mode
 
         ..  code-block:: bash
 
@@ -40,7 +40,7 @@ mount point for a specified path.
             VOLUME /var/www/html/typo3conf
             VOLUME /var/www/html/typo3temp
 
-    ..  group-tab:: Classic mode
+    ..  group-tab:: Composer mode
 
         ..  code-block:: bash
 
