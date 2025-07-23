@@ -1,17 +1,18 @@
-..  include:: /Includes.rst.txt
+:navigation-title: Repository
 
+..  include:: /Includes.rst.txt
 ..  index:: Extbase; Repositories
 ..  _extbase-repository:
 
-==========
-Repository
-==========
+==================
+Extbase repository
+==================
 
 All :ref:`Extbase <extbase>` repositories inherit from
 :php:`\TYPO3\CMS\Extbase\Persistence\Repository`.
 
 A repository is always responsible for precisely one type of
-:ref:`domain object <extbase-model>`.
+:ref:`domain object (model) <extbase-model>`.
 
 The naming of the repositories is important:
 If the domain object is, for example, *Blog* (with full name
@@ -30,6 +31,12 @@ The :php:`BlogRepository` sets some default orderings and is otherwise empty:
 ..  contents:: **Table of contents**
     :local:
 
+..  seealso::
+    If you are using the :composer:`stefanfroemken/ext-kickstarter` you can use
+    command `vendor/bin/typo3 make:repository` to generate an Extbase repository.
+
+    Make sure, you create the `Model <https://docs.typo3.org/permalink/t3coreapi:extbase-model>`_
+    first.
 
 ..  _extbase-repository-find-methods:
 
