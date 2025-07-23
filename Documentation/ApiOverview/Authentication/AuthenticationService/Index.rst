@@ -162,9 +162,15 @@ processLoginDataBE, processLoginDataFE
     This subtype performs preprocessing on the submitted
     :ref:`login data <authentication-data>`.
 
-  The method to implement is :php:`processLoginData()`.
-  It receives as the only argument the login data and returns the boolean
-  value :php:`true`, when the login data has been successfully processed.
+    The method to implement is :php:`processLoginData()`.
+
+..  versionchanged:: 14.0
+    The parameter :php:`$passwordTransmissionStrategy` of the function
+    :php:`TYPO3\CMS\Core\Authentication\processLoginData` has been removed.
+    Additionally, the function does now use a strict return type.
+
+    It receives as the only argument the login data and returns the boolean
+    value :php:`true`, when the login data has been successfully processed.
 
     It may also return a numerical value equal to 200 or greater,
     which indicates that no further login data processing should
