@@ -21,7 +21,7 @@ helps prevent unauthorized password changes. However,
 it may pose challenges when using remote single sign-on (SSO) systems, which
 typically do not support a separate step-up verification process.
 
-This event allows developers to bypass or adjust the step-up
+This event allows developers to skip / bypass the step-up
 authentication process based on custom logic, such as identifying users
 authenticated through an :abbr:`SSO (single sign-on)` system.
 

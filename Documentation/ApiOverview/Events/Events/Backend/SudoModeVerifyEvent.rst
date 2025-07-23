@@ -21,9 +21,10 @@ This step-up authentication mechanism, introduced as part of the fix for
 may pose challenges when using remote single sign-on
 (SSO) systems, which typically do not support a dedicated verification step.
 
-This event allows developers to conditionally bypass or adjust the step-up
-authentication based on custom logic, such as identifying users authenticated
-via an :abbr:`SSO (single sign-on)` system.
+This event allows developers to adjust the verification logic of step-up
+authentication, such as conditionally allowing or denying verification based
+on custom logic—for example, identifying users authenticated via an
+:abbr:`SSO (single sign-on)` system.
 
 ..  seealso::
 
