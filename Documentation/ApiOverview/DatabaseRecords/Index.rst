@@ -20,6 +20,17 @@ for managing content and data within the system.
 ..  contents::
     :caption: Content on this page
 
+..  toctree::
+    :caption: Subpages
+    :glob:
+
+    *
+
+..  seealso::
+    If you are using the :composer:`stefanfroemken/ext-kickstarter` you can use
+    command `vendor/bin/typo3 make:table` to create the TCA definition for a
+    table where database records can be stored in.
+
 ..  _database-records-examples:
 
 Common examples of records in TYPO3:
