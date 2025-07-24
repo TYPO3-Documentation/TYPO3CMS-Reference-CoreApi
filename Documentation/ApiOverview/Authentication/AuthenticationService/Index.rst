@@ -169,7 +169,7 @@ processLoginDataBE, processLoginDataFE
     :php:`TYPO3\CMS\Core\Authentication\processLoginData` has been removed.
     Additionally, the function uses strict return type now.
 
-    It receives as the only argument the login data and returns the boolean
+    It receives as, the only argument, the login data and returns the boolean
     value :php:`true`, when the login data has been successfully processed.
 
     It may also return a numerical value equal to 200 or greater,
