@@ -167,7 +167,7 @@ processLoginDataBE, processLoginDataFE
 ..  versionchanged:: 14.0
     The parameter :php:`$passwordTransmissionStrategy` of the function
     :php:`TYPO3\CMS\Core\Authentication\processLoginData` has been removed.
-    Additionally, the function does now use a strict return type.
+    Additionally, the function uses strict return type now.
 
     It receives as the only argument the login data and returns the boolean
     value :php:`true`, when the login data has been successfully processed.
