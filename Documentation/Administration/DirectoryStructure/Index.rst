@@ -268,7 +268,7 @@ for temporary files of extensions and TYPO3 components.
     and can be regenerated automatically.
     
     For proper handling and steps to safely regenerate required subdirectories,  
-    see: :ref:`typo3temp-regeneration-guide` (section to be written)
+    see: :ref:`regeneration-temporary-folders` (section to be written)
 
 .. _directory-public-typo3temp-assets:
 
