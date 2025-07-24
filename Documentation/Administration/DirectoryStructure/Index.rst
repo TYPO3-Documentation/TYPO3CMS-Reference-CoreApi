@@ -250,10 +250,15 @@ for temporary files of extensions and TYPO3 components.
 
 ..  attention::
 
-    Although it is a most common understanding in the TYPO3 world that
-    :path:`public/typo3temp/` can be removed at any time, it is considered
-    bad practice to remove the whole folder. Developers should selectively
-    remove folders relevant to the changes made.
+    **Do not delete the entire** :path:`public/typo3temp/` **directory.**  
+
+    Removing the entire directory may lead to problems during runtime or deployment.
+    
+    Developers should only delete specific subfolders that are safe to remove  
+    and can be regenerated automatically.
+    
+    For proper handling and steps to safely regenerate required subdirectories,  
+    see: :ref:`regeneration-temporary-folders` (section to be written)
 
 ..  _directory-public-typo3temp-assets:
 
@@ -274,10 +279,15 @@ cache and logs files) and should not be publicly available.
 
 ..  attention::
 
-    Although it is a most common understanding in the TYPO3 world that
-    :path:`var/` can be removed at any time, it is considered
-    bad practice to remove the whole folder. Developers should selectively
-    remove folders relevant to the changes made.
+    **Do not delete the entire** :path:`var/` **directory.**  
+
+    Removing the entire directory may lead to problems during runtime or deployment.
+    
+    Developers should only delete specific subfolders that are relevant to the  
+    changes they have made and that can be safely regenerated.
+    
+    For more information and instructions on safely handling this directory, see:  
+    :ref:`regeneration-temporary-folders`.
 
 ..  _directory-var-cache:
 
@@ -331,6 +341,34 @@ should be kept in a separate folder outside the web root, for example
 Upon installation , Composer creates a symlink from packages to
 :path:`vendor/myvendor/my-extension`.
 
+..  _regeneration-temporary-folders:
+
+Regenerating temporary folders
+==============================
+
+TYPO3 requires certain folders under :path:`var/` and :path:`public/typo3temp/`  
+to exist. If they are missing, the system may not function correctly.
+
+To safely restore these folders, use one of the following methods:
+
+..  _typo3temp-regeneration-guide-command:
+
+Command line: install:fixfolderstructure
+----------------------------------------
+
+Run the following command to recreate missing directories:
+
+..  code-block:: bash
+
+    vendor/bin/typo3 install:fixfolderstructure
+
+..  _typo3temp-regeneration-guide-gui:
+
+Admin tools: Directory Status
+-----------------------------
+
+Alternatively, a system maintainer can go to :guilabel:`Admin Tools > Environment > Directory Status`
+and recreate the missing folders with the necessary permissions
 
 ..  toctree::
     :titlesonly:
