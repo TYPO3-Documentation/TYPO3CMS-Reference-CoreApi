@@ -163,11 +163,14 @@ processLoginDataBE, processLoginDataFE
     :ref:`login data <authentication-data>`.
 
     The method to implement is :php:`processLoginData()`.
-    It receives as argument the login data and the password
-    transmission strategy (which corresponds to the login security
-    level, where only 'normal' can be used.
-    It returns the boolean value :php:`true`,
-    when the login data has been successfully processed .
+
+..  versionchanged:: 14.0
+    The parameter :php:`$passwordTransmissionStrategy` of the function
+    :php:`TYPO3\CMS\Core\Authentication\processLoginData` has been removed.
+    Additionally, the function uses strict return type now.
+
+    It receives as, the only argument, the login data and returns the boolean
+    value :php:`true`, when the login data has been successfully processed.
 
     It may also return a numerical value equal to 200 or greater,
     which indicates that no further login data processing should
@@ -219,10 +222,9 @@ decreasing priority and quality.
 However, for some subtypes, there are ways to stop the chain.
 
 For "processLoginDataBE" and "processLoginDataFE" subtypes, the
-:php:`processLoginData()`
-method may return a numerical value of 200 or more. In such a case
-no further services are called and login data is not further
-processed. This makes it possible for a service to perform
+:php:`processLoginData()` method may return a numerical value of 200
+or more. In such a case no further services are called and login data is
+not further processed. This makes it possible for a service to perform
 a form of final transformation on the login data.
 
 For "authUserFE" and "authUserBE" subtypes, the :php:`authUser()` method may
