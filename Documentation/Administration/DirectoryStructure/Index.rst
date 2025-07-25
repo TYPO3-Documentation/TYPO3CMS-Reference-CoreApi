@@ -250,14 +250,14 @@ for temporary files of extensions and TYPO3 components.
 
 ..  attention::
 
-    **Do not delete the entire** :path:`public/typo3temp/` **directory.**  
+    **Do not delete the entire** :path:`public/typo3temp/` **directory.**
 
     Removing the entire directory may lead to problems during runtime or deployment.
-    
-    Developers should only delete specific subfolders that are safe to remove  
+
+    Developers should only delete specific subfolders that are safe to remove
     and can be regenerated automatically.
-    
-    For proper handling and steps to safely regenerate required subdirectories,  
+
+    For proper handling and steps to safely regenerate required subdirectories,
     see: :ref:`regeneration-temporary-folders` (section to be written)
 
 ..  _directory-public-typo3temp-assets:
@@ -279,14 +279,14 @@ cache and logs files) and should not be publicly available.
 
 ..  attention::
 
-    **Do not delete the entire** :path:`var/` **directory.**  
+    **Do not delete the entire** :path:`var/` **directory.**
 
     Removing the entire directory may lead to problems during runtime or deployment.
-    
-    Developers should only delete specific subfolders that are relevant to the  
+
+    Developers should only delete specific subfolders that are relevant to the
     changes they have made and that can be safely regenerated.
-    
-    For more information and instructions on safely handling this directory, see:  
+
+    For more information and instructions on safely handling this directory, see:
     :ref:`regeneration-temporary-folders`.
 
 ..  _directory-var-cache:
@@ -346,7 +346,7 @@ Upon installation , Composer creates a symlink from packages to
 Regenerating temporary folders
 ==============================
 
-TYPO3 requires certain folders under :path:`var/` and :path:`public/typo3temp/`  
+TYPO3 requires certain folders under :path:`var/` and :path:`public/typo3temp/`
 to exist. If they are missing, the system may not function correctly.
 
 To safely restore these folders, use one of the following methods:
