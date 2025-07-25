@@ -35,9 +35,6 @@ The :php:`BlogRepository` sets some default orderings and is otherwise empty:
     If you are using the :composer:`stefanfroemken/ext-kickstarter` you can use
     command `vendor/bin/typo3 make:repository` to generate an Extbase repository.
 
-    Make sure, you create the `Model <https://docs.typo3.org/permalink/t3coreapi:extbase-model>`_
-    first.
-
 ..  _extbase-repository-find-methods:
 
 Find methods
