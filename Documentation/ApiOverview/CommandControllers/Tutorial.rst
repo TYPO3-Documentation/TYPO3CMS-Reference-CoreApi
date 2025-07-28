@@ -286,7 +286,7 @@ or other backend permission handling related tasks.
 Simulating a Frontend Request in TYPO3 Commands
 ===============================================
 
-When executing TYPO3 commands in the CLI, there is no actual frontend (web)
+Executing a TYPO3 commands in the CLI does not trigger a frontend (web)
 request. This means that several request attributes required for link generation
 via Fluid or TypoScript are missing by default. While setting the `site`
 attribute in the request is a first step, it does not fully replicate the
@@ -302,7 +302,7 @@ generating simple links or using `FluidEmail <https://docs.typo3.org/permalink/t
     :caption: packages/my_extension/Classes/Command/DoBackendRelatedThingsCommand.php
 
 ..  note::
-    Fully simulating a frontend request in CLI is possible but requires
+    Simulating a frontend request in CLI is possible but requires
     manually performing all bootstrapping steps. While basic functionality,
     such as link generation, can work with minimal setup, complex
     TypoScript-based link modifications, access restrictions, and

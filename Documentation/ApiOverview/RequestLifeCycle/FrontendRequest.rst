@@ -7,8 +7,8 @@
 Frontend requests
 =================
 
-When handling a **frontend web request**, TYPO3 automatically sets up a rich
-context that is used to render content and generate links correctly. Several
+When handling **frontend web requests**, TYPO3 automatically sets up a rich
+context that is used to render content and generate links. Several
 objects are created and configured during this process:
 
 *   **ContentObjectRenderer (cObj)** – Responsible for processing
@@ -40,7 +40,7 @@ command), this context is missing:
     As a result, TypoScript properties like `field = my_field` or `data = my_data`
     will not work as expected.
 *   The :php-short:`\TYPO3\CMS\Core\TypoScript\FrontendTypoScriptFactory`
-    is not set up automatically in CLI either.
+    is not set up.
 
 Understanding this difference is crucial when writing custom code that depends
 on frontend rendering behavior but runs in a different context.
@@ -51,14 +51,14 @@ on frontend rendering behavior but runs in a different context.
 Simulating a frontend request
 =============================
 
-It can become necessary to simulate a frontend request to make certain
+It may be necessary to simulate a frontend request to make certain
 functionality available where it would usually not be available.
 
-For example you might need to simulate a frontend request to be able to send a
+For example, you might need to simulate a frontend request to be able to send a
 `FluidEmail <https://docs.typo3.org/permalink/t3coreapi:mail-fluid-email>`_
 from a CLI / Console command context.
 
-To simulate a frontend request you need at least a site. If the current site is
+To simulate a frontend request you need, at a minimum, a site. If the current site is
 not defined you can use the `SiteFinder <https://docs.typo3.org/permalink/t3coreapi:sitehandling-sitefinder-object>`_
 to find one.
 
@@ -77,18 +77,17 @@ The following example demonstrates how to set up a basic frontend request with
         ->withAttribute('applicationType', SystemEnvironmentBuilder::REQUESTTYPE_FE)
         ->withAttribute('site', $site);
 
-For a complete example on how to send a FluidEmail from a console command see
+For a complete example on how to send a FluidEmail with a console command see
 `Example: Sending a FluidEmail via console command <https://docs.typo3.org/permalink/t3coreapi:console-command-tutorial-fe-request-example>`_.
 
 At this stage, the simulated frontend request still lacks page-related
-information and does not load TypoScript. It remains a simplified simulation.
+information and does not load TypoScript. It is still only a simplified simulation.
 
-If you rely on any of these information you need to bootstrap them before using
+If you rely on any of these methods you will need to bootstrap them before using
 them.
 
 ..  note::
-    It is important to understand that there is no simple way to fully simulate
-    a frontend request. Some aspects, like basic link generation, can
-    work by manually setting request attributes. However, complex
-    TypoScript-based link modifications, access restrictions, and context-aware
-    rendering will not behave identically to a real web request.
+    There is no simple way to fully simulate a frontend request. Some aspects,
+    like basic link generation, can work by manually setting request attributes.
+    However, complex TypoScript-based link modifications, access restrictions,
+    and context-aware rendering will not behave the same as a real web request.
