@@ -16,11 +16,9 @@ use TYPO3\CMS\Core\Mail\MailerInterface;
 use TYPO3\CMS\Core\Site\SiteFinder;
 
 #[AsCommand(
-    name: 'examples:dosomething',
-    description: 'A command that does nothing and always succeeds.',
-    aliases: ['examples:dosomethingalias'],
+    name: 'myextension:sendmail',
 )]
-class DoSomethingCommand extends Command
+class SendFluidMailCommand extends Command
 {
     public function __construct(
         private readonly SiteFinder $siteFinder,
