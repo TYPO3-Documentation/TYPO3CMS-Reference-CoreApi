@@ -5,6 +5,5 @@
 
 return array_merge(
     //include ('Tea.php'),
-    include ('CommandControllers.php'),
     include ('LinkBrowser.php'),
 );
