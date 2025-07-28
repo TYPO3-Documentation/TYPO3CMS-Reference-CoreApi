@@ -6,12 +6,12 @@ namespace MyVendor\MyExtension\Command;
 
 use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
-use TYPO3\CMS\Core\Core\Bootstrap;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
+use TYPO3\CMS\Core\Core\Bootstrap;
 
 #[AsCommand(
-    name: 'myextension:dosomething'
+    name: 'myextension:dosomething',
 )]
 final class DoBackendRelatedThingsCommand extends Command
 {

@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace MyVendor\MyExtension\Command;
@@ -11,8 +12,9 @@ use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Style\SymfonyStyle;
 use T3docs\Examples\Exception\InvalidWizardException;
+
 #[AsCommand(
-    name: 'myextension:createwizard'
+    name: 'myextension:createwizard',
 )]
 final class CreateWizardCommand extends Command
 {
