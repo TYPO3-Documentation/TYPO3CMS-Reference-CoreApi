@@ -24,12 +24,12 @@ scheduler.
 The custom command class
 ========================
 
-To implement a console command in TYPO3 you can extend the class
-:php:`\Symfony\Component\Console\Command\Command`.
+To implement a console command in TYPO3 extend the
+:php:`\Symfony\Component\Console\Command\Command` class.
 
 ..  seealso::
 
-    Console command in TYPO3 are based on the same technology like
+    Console commands in TYPO3 are based on the same technology as
     commands in Symfony. Find more information about
     `Commands in the Symfony documentation <https://symfony.com/doc/current/console.html>`_.
 
@@ -38,7 +38,7 @@ To implement a console command in TYPO3 you can extend the class
 Console command registration
 ============================
 
-There are two ways that a console command can be registered. You can use the
+There are two ways that a console command can be registered: you can use the
 PHP Attribute AsCommand or register the command in your :file:`Services.yaml`:
 
 ..  _console-command-tutorial-registration-attribute:
@@ -47,9 +47,9 @@ PHP attribute `AsCommand`
 -------------------------
 
 CLI commands can be registered by setting the attribute
-:php:`\Symfony\Component\Console\Attribute\AsCommand` on the command class.
-When using this attribute there is no need to register the command in the
-:file:`Services.yaml` file.
+:php:`\Symfony\Component\Console\Attribute\AsCommand` in the command class.
+When using this attribute there is no need to register the command in
+:file:`Services.yaml`.
 
 ..  code-block:: php
 
@@ -66,18 +66,18 @@ The following parameters are available:
     The name under which the command is available.
 
 `description`
-    Give a short description. It will be displayed in the list of commands and
-    the help information of the command.
+    Gives a short description. It will be displayed in the list of commands and
+    the help information for the command.
 
 `hidden`
-    A command can be hidden from the command list by setting :yaml:`hidden` to
+    Hide the command from the command list by setting :yaml:`hidden` to
     :yaml:`true`.
 
 `alias`
-    A command can be made available under a different name. Set to :yaml:`true`,
+    A command can be made available under a different name. Set to :yaml:`true`
     if your command name is an alias.
 
-If you want to set a command `non-schedulable  <console-command-tutorial-registration-tag>`_
+If you want to set a command as `non-schedulable  <console-command-tutorial-registration-tag>`_
 it has to be registered via tag not attribute.
 
 ..  _console-command-tutorial-registration-tag:
@@ -85,8 +85,8 @@ it has to be registered via tag not attribute.
 Tag `console.command` in the `Services.yaml`
 --------------------------------------------
 
-You can Register the command in :file:`Configuration/Services.yaml` by adding the service
-definition for your class as tag :yaml:`console.command`:
+You can register the command in :file:`Configuration/Services.yaml` by adding the service
+definition of your class as a tag :yaml:`console.command`:
 
 ..  code-block:: yaml
     :caption: packages/my_extension/Configuration/Services.yaml
@@ -107,7 +107,7 @@ definition for your class as tag :yaml:`console.command`:
 ..  note::
     Despite using :file:`autoconfigure: true` the commands
     have to be explicitly defined in :file:`Configuration/Services.yaml`. It
-    is recommended to always supply a description, otherwise there is
+    is recommended to always supply a description, otherwise there will be
     an empty space in the list of commands.
 
 ..  _deactivating-the-command-in-scheduler:
@@ -116,7 +116,7 @@ definition for your class as tag :yaml:`console.command`:
 Making a command non-schedulable
 ================================
 
-A command can be disabled for the scheduler by setting :yaml:`schedulable`
+A command can be set as disabled for the scheduler by setting :yaml:`schedulable`
 to :yaml:`false`. This can only be done when registering the command via
 `tag <console-command-tutorial-registration-tag>`_ and not via attribute:
 
@@ -142,14 +142,14 @@ Context of a command: No request, no site, no user
 ==================================================
 
 Commands are called from the console / command line and not through a web
-request. Therefore when the code of your custom command is run by default there
+request. Therefore, when the code of your custom command is run by default there
 is no `ServerRequest <https://docs.typo3.org/permalink/t3coreapi:typo3-request>`_
 available, no backend or frontend user logged in and a request is called without
 context of a site or page.
 
 For that reason Site Settings, TypoScript and TSconfig are not loaded by default,
-Extbase repositories cannot be used without taking precautions and many more
-limitations.
+Extbase repositories cannot be used without taking precautions and there are many
+more limitations.
 
 ..  _writing-custom-commands-extbase:
 
@@ -174,7 +174,7 @@ Using the DataHandler in CLI commands
 -------------------------------------
 
 When using the :ref:`DataHandler <datahandler-basics>` in a CLI command,
-backend user authentication is required. For more information, refer to:
+backend user authentication is required. For more information see:
 :ref:`dataHandler-cli-command`.
 
 ..  _writing-custom-commands-backend-user:
@@ -182,14 +182,14 @@ backend user authentication is required. For more information, refer to:
 Initialize backend user
 -----------------------
 
-A backend user can be initialized with this call inside :php:`execute()` method.
+A backend user can be initialized inside the :php:`execute()` method as follows:
 
 ..  literalinclude:: _Tutorial/_DoBackendRelatedThingsCommand.php
     :caption: packages/my_extension/Classes/Command/DoBackendRelatedThingsCommand.php
     :emphasize-lines: 20
 
-This is necessary when using :ref:`DataHandler <datahandler-basics>`
-or other backend permission handling related tasks.
+This is necessary when using the :ref:`DataHandler <datahandler-basics>`
+or other backend permission-handling-related tasks.
 
 ..  _console-command-tutorial-fe-request:
 ..  _console-command-tutorial-fe-request-example:
@@ -197,13 +197,7 @@ or other backend permission handling related tasks.
 Simulating a frontend request in TYPO3 Commands
 -----------------------------------------------
 
-When executing TYPO3 commands in the CLI, there is no actual frontend (web)
-request. This means that several request attributes required for link generation
-via Fluid or TypoScript are missing by default. While setting the `site`
-attribute in the request is a first step, it does not fully replicate the
-frontend behavior.
-
-Executing a TYPO3 commands in the CLI does not trigger a frontend (web)
+Executing a TYPO3 command in the CLI does not trigger a frontend (web)
 request. This means that several request attributes required for link generation
 via Fluid or TypoScript are missing by default. While setting the `site`
 attribute in the request is a first step, it does not fully replicate the
@@ -212,7 +206,7 @@ frontend behavior.
 ..  seealso::
     See chapter :ref:`frontend-requests-simulation`.
 
-A minimal request configuration may be sufficient, when
+A minimal request configuration may be sufficient for
 generating simple links or using `FluidEmail <https://docs.typo3.org/permalink/t3coreapi:mail-fluid-email>`_:
 
 ..  literalinclude:: _Tutorial/_SendFluidMailCommand.php
@@ -220,8 +214,8 @@ generating simple links or using `FluidEmail <https://docs.typo3.org/permalink/t
 
 ..  note::
     Simulating a frontend request in CLI is possible but requires
-    manually performing all bootstrapping steps. While basic functionality,
-    such as link generation, can work with minimal setup, complex
+    all bootstrapping steps to be manually carried out. While basic functionality,
+    such as link generation, can work with a minimal setup, complex
     TypoScript-based link modifications, access restrictions, and
     context-aware rendering require additional configuration and may still
     behave differently from a real web request.
@@ -245,8 +239,9 @@ command API. This is explained in depth on the following Symfony Documentation p
 
     *   `Symfony: Console Input (Arguments & Options) <https://symfony.com/doc/current/console/input.html>`__
 
-Both arguments and properties can be registered in a command implementation by overriding method
-`configure()`. Here you can call methods `addArgument()` and `addOption()` to register them.
+Both arguments and properties can be registered in a command implementation by
+overriding the `configure()` method. You can call methods `addArgument()` and
+`addOption()` to register them.
 
 This argument can be retrieved with :php:`$input->getArgument()`, the options with
 :php:`$input->getOption()`, for example:
@@ -259,13 +254,13 @@ This argument can be retrieved with :php:`$input->getArgument()`, the options wi
 User interaction on the console
 -------------------------------
 
-You can create a :php:`SymfonyStyle` console user interface from the
-:php:`$input` and :php:`$output` parameters to the :php:`execute()` function:
+You can create a :php:`SymfonyStyle` console user interface using the
+:php:`$input` and :php:`$output` parameters of the :php:`execute()` function:
 
 ..  literalinclude:: _Tutorial/_CrazyCalculatorCommand.php
     :caption: packages/my_extension/Classes/Command/CrazyCalculatorCommand.php
 
-The :php:`$io` variable can then be used to generate output and prompt for
+The :php:`$io` variable can be used to generate output and prompt for
 input.
 
 ..  _writing-custom-commands-dependencyInjection:
@@ -274,7 +269,7 @@ Dependency injection in console commands
 ========================================
 
 You can use :ref:`dependency injection (DI) <Dependency-Injection>` in console
-commands by constructor injection or method injection.
+commands via constructor injection or method injection.
 
 ..  literalinclude:: _Tutorial/_MeowInformationCommand.php
     :caption: packages/my_extension/Classes/Command/MeowInformationCommand.php
