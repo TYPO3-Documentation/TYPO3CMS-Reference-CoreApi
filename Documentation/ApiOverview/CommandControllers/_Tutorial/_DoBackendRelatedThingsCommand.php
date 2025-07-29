@@ -8,24 +8,18 @@ use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
-use Symfony\Component\Console\Style\SymfonyStyle;
+use TYPO3\CMS\Core\Core\Bootstrap;
 
 #[AsCommand(
     name: 'myextension:dosomething',
-    description: 'A command that does nothing and always succeeds.',
-    aliases: ['examples:dosomethingalias'],
 )]
-class DoSomethingCommand extends Command
+final class DoBackendRelatedThingsCommand extends Command
 {
-    protected function configure(): void
-    {
-        $this->setHelp('This command does nothing. It always succeeds.');
-    }
-
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
-        $io = new SymfonyStyle($input, $output);
-        $io->info('Command needs to be implemented. ');
+        Bootstrap::initializeBackendAuthentication();
+        // Do backend related stuff
+
         return Command::SUCCESS;
     }
 }
