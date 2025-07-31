@@ -365,7 +365,7 @@ the TYPO3 backend:
     :type: text
     :Default: ''
 
-    Same as `$TYPO3_CONF_VARS[SYS][cookieDomain]<typo3ConfVars_sys_cookieDomain>`
+    Same as :ref:`$TYPO3_CONF_VARS[SYS][cookieDomain]<typo3ConfVars_sys_cookieDomain>`
     but only for BE cookies. If empty, :php:`$TYPO3_CONF_VARS[SYS][cookieDomain]`
     value will be used.
 
