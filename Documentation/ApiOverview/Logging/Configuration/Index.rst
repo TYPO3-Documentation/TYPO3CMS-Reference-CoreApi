@@ -1,3 +1,5 @@
+:navigation-title: Configuration
+
 ..  include:: /Includes.rst.txt
 ..  index:: pair: Logging; Configuration
 ..  _logging-configuration:
@@ -12,6 +14,13 @@ the log manager automatically applies its configuration.
 The logger configuration is read from :php:`$GLOBALS['TYPO3_CONF_VARS']['LOG']`,
 which contains an array reflecting the namespace and class hierarchy of your
 TYPO3 project.
+
+..  seealso::
+
+    Are you configuring logging for a live TYPO3 instance?
+    See :ref:`production-logging` for best practices on logging in production
+    environments, including log rotation, log levels, file storage, and
+    monitoring tools like Sentry.
 
 For example, to apply a configuration for all loggers within the
 :php:`\TYPO3\CMS\Core\Cache` namespace, the configuration is read from

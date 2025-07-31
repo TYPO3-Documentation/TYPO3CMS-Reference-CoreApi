@@ -1,3 +1,5 @@
+:navigation-title: Upgrade wizards
+
 ..  include:: /Includes.rst.txt
 ..  index::
     Upgrade wizards

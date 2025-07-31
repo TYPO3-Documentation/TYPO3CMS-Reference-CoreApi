@@ -26,7 +26,6 @@ backend to another language. It is mandatory to set :xml:`source-language="en"`.
     Having several :xml:`<file>` elements in the same XLIFF document is not
     supported by the TYPO3 Core.
 
-
 ..  index:: XLIFF; Basics
 ..  _xliff-basics:
 
@@ -63,9 +62,6 @@ When integrators then use "de-CH" within their
 available in :file:`de_CH.locallang.xlf`, and then automatically falls back to
 the non-region-specific "de" label file :file:`de.locallang.xlf` without any
 further configuration to TYPO3.
-
-Before TYPO3 v12.2, one has to define a
-:ref:`custom language <xliff-translating-languages>`.
 
 ..  note::
     The original file must always be in English, so it is not allowed to create

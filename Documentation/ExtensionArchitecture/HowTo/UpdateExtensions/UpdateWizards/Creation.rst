@@ -1,3 +1,5 @@
+:navigation-title: Implementation
+
 ..  include:: /Includes.rst.txt
 ..  preferably, use label "upgrade-wizards-creation"
 ..  index:: Upgrade wizards; Creation
@@ -5,9 +7,9 @@
 ..  _upgrade-wizards-creation:
 ..  _upgrade-wizard-interface:
 
-========================
-Creating upgrade wizards
-========================
+==============================
+Implementing an upgrade wizard
+==============================
 
 ..  versionchanged:: 13.0
     The registration via

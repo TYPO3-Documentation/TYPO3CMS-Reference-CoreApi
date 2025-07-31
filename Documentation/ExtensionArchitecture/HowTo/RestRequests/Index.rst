@@ -1,3 +1,5 @@
+:navigation-title: External HTTP requests
+
 ..  include:: /Includes.rst.txt
 ..  index::
     HTTP request
@@ -24,6 +26,7 @@ class. The options are a subset of the available options from Guzzle, but can be
 extended.
 
 ..  seealso::
+
     -   :ref:`typo3ConfVars_http`
     -   `Guzzle request options <https://docs.guzzlephp.org/en/stable/request-options.html>`__
     -   `Full documentation for Guzzle <https://docs.guzzlephp.org/en/stable/>`__

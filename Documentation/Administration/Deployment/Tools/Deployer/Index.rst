@@ -50,7 +50,8 @@ If you have **created** your project using the
 it will already contain a Deployer template.
 
 You can configure Deployer by editing the YAML configuration file
-:file:`deploy.yaml` in the project root. The Deployer recipe is found in
+:file:`deploy.yaml` in the project root. The `Deployer recipe <https://gitlab.com/gitlab-org/project-templates/typo3-distribution/-/blob/main/packages/site-distribution/Configuration/DeployerRsync.php?ref_type=heads>`__
+is found in
 :file:`packages/site-distribution/Configuration/DeployerRsync.php`.
 
 The project also contains a :file:`.gitlab-ci.yml` for automated deployment.
@@ -58,7 +59,7 @@ The project also contains a :file:`.gitlab-ci.yml` for automated deployment.
 To start using Deployer, :file:`deploy.yaml` should look like this:
 
 ..  literalinclude:: _gitlab-deploy.yaml
-    :caption: .gitlab-ci.yml
+    :caption: deploy.yaml
 
 ..  _deployer-official:
 
@@ -142,13 +143,15 @@ Automatic deployment via CI/CD
 ==============================
 
 Deployer can be integrated into automated deployment pipelines,
-such as GitLab CI/CD, GitHub Actions, and other CI systems.
+such as GitLab CI/CD, `GitHub Actions <https://docs.typo3.org/permalink/t3coreapi:ci-cd-github>`_, and other CI systems.
 
 For example, the `official TYPO3 GitLab template <https://docs.typo3.org/permalink/t3start:gitlab-template>`_
-includes a :file:`.gitlab-ci.yml` file with deployment stages.
+includes a :file:`.gitlab-ci.yml` `configuration file <https://gitlab.com/gitlab-org/project-templates/typo3-distribution/-/blob/main/.gitlab-ci.yml>`_
+with deployment stages and a prototype `Deployer recipe <https://docs.typo3.org/permalink/t3coreapi:deployer-gitlab>`_.
 
 You can configure these stages for automated deployment each time code is pushed
-to your repository.
+to your repository. These files should provide a starting point on how to
+configure your custom pipeline.
 
 ..  _deployer-ssh-requirements:
 

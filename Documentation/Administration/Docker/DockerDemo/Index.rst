@@ -12,9 +12,10 @@ Classic TYPO3 demo installation using Docker only
     This setup is intended for **local testing and learning**.
 
 This guide shows how to set up a TYPO3 demo site using **basic Docker commands** —
-without Docker Compose or DDEV.
+without `Docker Compose <https://docs.typo3.org/permalink/t3coreapi:docker-compose-typo3>`_
+or `DDEV <https://docs.typo3.org/permalink/t3start:install>`_.
 
-By building the environment step by step, you’ll learn how Docker actually works:
+By building the environment step by step, you’ll learn how Docker actually works,
 how containers run, how they talk to each other, how volumes persist data, and how
 services like TYPO3 and MariaDB connect via networking. This hands-on setup is ideal
 for those who want to understand the fundamentals of containerized TYPO3 — not just
@@ -142,6 +143,9 @@ Open:
 
     http://localhost:8080
 
+(assuming port 8080 was mapped to internal port 80 during `docker run`;
+see :ref:`classic-docker-ports`)
+
 Use these database settings:
 
 - **Database Host**: `typo3db`
@@ -167,33 +171,63 @@ Use these database settings:
 
 ..  _classic-docker-stop:
 
-7. Stopping and restarting the containers
------------------------------------------
+7. Stopping and starting the containers
+---------------------------------------
 
-To stop TYPO3, run:
+To stop the webserver container for TYPO3, run:
 
 ..  code-block:: bash
 
     docker stop typo3-demo
 
-To stop and remove the database:
+To stop the database container (contained data will be kept), run:
 
 ..  code-block:: bash
     :caption: ~/projects/typo3demo/$
 
     docker stop typo3db
 
-To restart the database:
+To start the webserver container for TYPO3, run:
 
-..  literalinclude:: _codesnippets/_DockerDbDemo.sh
-    :language: bash
-    :caption: ~/projects/typo3demo/$
+..  code-block:: bash
 
-Then restart TYPO3:
+    docker start typo3-demo
 
-..  literalinclude:: _codesnippets/_DockerRunTypo3Demo.sh
-    :language: bash
-    :caption: ~/projects/typo3demo/$
+To start the database container, run:
+
+..  code-block:: bash
+
+    docker start typo3db
+
+..  _classic-docker-ports:
+
+Understanding port mapping
+==========================
+
+The TYPO3 Docker image exposes an internal web server on **port 80**. In order
+to access this service from your host machine (via a web browser), Docker
+needs to map that internal container port to a port on your host system.
+
+This is done using the `-p` flag in `docker run`:
+
+..  code-block:: bash
+
+    docker run -p 8080:80 ...
+
+In this example:
+
+*   `8080` is the **host port** (your computer)
+*   `80` is the **container port** (inside the TYPO3 image)
+
+This means you can access TYPO3 at `http://localhost:8080`.
+
+You can choose a different host port if needed, as long as it doesn't conflict
+with other services. The container will always serve on port `80` internally.
+
+..  tip::
+
+    Learn more: `Docker Networking – Published Ports
+    <https://docs.docker.com/config/containers/container-networking/#published-ports>`_
 
 ..  _classic-docker-reset:
 
@@ -210,11 +244,11 @@ To **reset your TYPO3 demo environment completely**, run the following script.
     :caption: ~/Projects/typo3site/$
 
     # Stop and remove containers
-    docker stop typo3-demo typo3db || true
-    docker rm typo3-demo typo3db || true
+    docker stop typo3-demo typo3db
+    docker rm typo3-demo typo3db
 
     # Remove the Docker network
-    docker network rm typo3-demo-net || true
+    docker network rm typo3-demo-net
 
     # Remove project folders
     rm -rf fileadmin typo3conf typo3temp uploads

@@ -153,9 +153,14 @@ provided by `typo3/fluid-styled-content` is configured via
 ..  code-block:: yaml
     :caption: EXT:my_extension/Configuration/Sets/MySet/settings.yaml
 
-    styles:
-      content:
-        defaultHeaderType: 1
+    styles.content.defaultHeaderType: 1
+
+
+..  versionchanged:: 13.4.15
+
+    The settings in :file:`settings.yaml` are stored as map instead of tree.
+
+    `Important: #106894 - Site settings.yaml is now stored as a map <https://docs.typo3.org/permalink/changelog:important-106894-1750144877>`_
 
 This setting will be exposed as site setting whenever the set
 `my-vendor/my-set` is applied as dependency to a site configuration.
@@ -324,13 +329,20 @@ TypoScript imports.
 Using the site set to override default settings
 -----------------------------------------------
 
+..  versionchanged:: 13.4.15
+
+    The settings in :file:`settings.yaml` are stored as map instead of tree.
+
+    `Important: #106894 - Site settings.yaml is now stored as a map <https://docs.typo3.org/permalink/changelog:important-106894-1750144877>`_
+
 In this example the file
 :file:`EXT:site_package/Configuration/Sets/SitePackage/settings.yaml`
 is used to
 override default settings made by the by the set of
 :ref:`EXT:fluid_styled_content <typo3/cms-fluid-styled-content:start>`:
 
-..  include:: _Sets/_site-package/_settings.rst.txt
+..  literalinclude:: _Sets/_site-package/_settings-map.yaml
+    :caption: EXT:site_package/Configuration/Sets/SitePackage/settings.yaml
 
 ..  _site-sets-example-extension:
 

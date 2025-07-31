@@ -365,7 +365,7 @@ the TYPO3 backend:
     :type: text
     :Default: ''
 
-    Same as `$TYPO3_CONF_VARS[SYS][cookieDomain]<typo3ConfVars_sys_cookieDomain>`
+    Same as :ref:`$TYPO3_CONF_VARS[SYS][cookieDomain]<typo3ConfVars_sys_cookieDomain>`
     but only for BE cookies. If empty, :php:`$TYPO3_CONF_VARS[SYS][cookieDomain]`
     value will be used.
 
@@ -479,7 +479,14 @@ the TYPO3 backend:
     :type: string
     :Default: ''
 
-    The hash of the install tool password.
+    The hash of the install tool password. See also
+    `Enabling and accessing the Install Tool <https://docs.typo3.org/permalink/t3coreapi:security-install-tool-access>`_.
+
+    ..  versionadded:: 14.0
+
+        You can also use command `vendor/bin/typo3 install:password:set
+        <https://docs.typo3.org/permalink/t3coreapi:console-command-install-password-set>`_
+        to change the install tool password.
 
 ..  _typo3ConfVars_be_defaultPermissions:
 

@@ -42,7 +42,7 @@ See the complete example at
 ..  figure:: /Images/ManualScreenshots/SiteHandling/SiteSettingsDefinition.png
     :alt: Screenshot demonstration the position of the categories, labels etc
 
-    The parts marked by a number can be configured, see list bellow
+    The parts marked by a number can be configured, see list below
 
 
 ..  _site-settings-definition-properties:
@@ -242,3 +242,27 @@ Definition types
         have 3, 6 or 8 digits.
 
         ..  literalinclude:: _Settings/_settings.definitions.color.yaml
+
+    ..  confval:: page
+        :name: site-setting-type-page
+        :type: string
+        :Path: settings.[my_val].type = page
+
+        ..  versionadded:: 13.4.15
+            This type has been added to compensate the missing UX functionality
+            when using `type=int` to reference page records.
+            Integrators had no way to look up page ids while editing site
+            settings. This type adds an integrated page browser that solves this
+            problem.
+
+        ..  figure:: /Images/ManualScreenshots/SiteHandling/SiteSettingsTypePage.png
+            :alt: Screenshot of a site setting field of type page
+
+        Checks whether the value is already an integer or can be interpreted as an
+        integer. If yes, the string is converted into an integer.
+
+        Additionally renders a page browser in the settings editor to allow the
+        user to select a page for a specific setting, while still displaying the
+        UID in the field.
+
+        ..  literalinclude:: _Settings/_settings.definitions.page.yaml

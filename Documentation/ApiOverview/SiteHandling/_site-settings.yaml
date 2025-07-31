@@ -1,5 +1,2 @@
 categoryPid: 658
-styles:
-  content:
-    loginform:
-      pid: 23
+styles.content.loginform.pid: 23

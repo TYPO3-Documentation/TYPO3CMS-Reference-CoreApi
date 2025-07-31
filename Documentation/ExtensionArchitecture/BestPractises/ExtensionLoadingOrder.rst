@@ -1,3 +1,5 @@
+:navigation-title: Loading order
+
 ..  include:: /Includes.rst.txt
 ..  index:: Extension development; Software Design Principles
 ..  _extension-loading-order:

@@ -1,54 +1,21 @@
-..  include:: /Includes.rst.txt
+:navigation-title: Post-upgrade
 
+..  include:: /Includes.rst.txt
+..  _post-upgrade-clear-caches:
 ..  _postupgradetasks:
 
-==================
-Post-upgrade tasks
-==================
+===============================================
+Post-upgrade tasks for major TYPO3 Core updates
+===============================================
 
-..  _run_upgrade_wizard:
-
-Run the upgrade wizard
-======================
-
-..  include:: UpgradeWizard.rst.txt
-
-..  note::
-    There is an extension :composer:`wapplersystems/core-upgrader`. It contains
-    upgrade wizards older than two TYPO3 versions. It can be used to migrate the
-    data of installations that need to be upgraded more than two major versions at once.
-
-..  _run_the_database_analyser:
-
-Run the database analyser
-=========================
-
-..  include:: DatabaseAnalyser.rst.txt
-
-..  _clear_user_settings:
-
-Clear user settings
-===================
-
-..  include:: UserSettings.rst.txt
-
-..  _post_upgrade_clear_caches:
-
-Clear caches
-============
-
-..  include:: ClearCaches.rst.txt
-
-..  _update_backend_translation:
-
-Update backend translations
-===========================
-
-..  include:: BackendTranslations.rst.txt
-
-..  _maintain-htaccess:
-
-Verify webserver configuration (.htaccess)
-==========================================
-
-..  include:: WebserverConfiguration.rst.txt
+#.  `Flush TYPO3 and PHP Cache <https://docs.typo3.org/permalink/t3coreapi:admin-tools-maintenance-flush-cache>`_
+#.  Create missing tables and columns in the
+    `Database Analyzer <https://docs.typo3.org/permalink/t3coreapi:admin-tools-maintenance-database-analyzer>`_
+#.  Run all `Upgrade wizards <https://docs.typo3.org/permalink/t3coreapi:run_upgrade_wizard>`_
+#.  `Change or remove columns and tables in the database analyzer <https://docs.typo3.org/permalink/t3coreapi:database-analyser-remove>`_
+#.  `Flush TYPO3 and PHP Cache <https://docs.typo3.org/permalink/t3coreapi:admin-tools-maintenance-flush-cache>`_
+    (again)
+#.  `Reset backend user preferences <https://docs.typo3.org/permalink/t3coreapi:clear-user-settings>`_
+    (optional)
+#.  `Update the language packs <https://docs.typo3.org/permalink/t3coreapi:manage-language-packs>`_
+#.  `Verify webserver configuration (.htaccess) <https://docs.typo3.org/permalink/t3coreapi:maintain-htaccess>`_

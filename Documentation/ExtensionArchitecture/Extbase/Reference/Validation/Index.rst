@@ -121,7 +121,8 @@ The following rules validate each controller argument:
 
 *  If there is set an annotation
    :php:`\TYPO3\CMS\Extbase\Annotation\IgnoreValidation` for the argument,
-   no validation is done.
+   no validation is done. This option must not be used when working with
+   extbase file upload, because it leads to a property mapping error.
 
 *  Validators added in the annotation of the action are applied.
 

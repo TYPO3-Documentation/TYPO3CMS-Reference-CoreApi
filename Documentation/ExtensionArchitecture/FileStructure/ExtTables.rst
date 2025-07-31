@@ -30,8 +30,12 @@
         :ref:`Configuration/TCA/ <extension-configuration-tca>`.
 
 
-Should not be used for
-======================
+..  _ext-tables-php-not-use:
+
+ext_tables.php must not be used for
+===================================
+
+The :file:`ext_tables.php` **must not be used** for the following settings:
 
 *   TCA configurations for new tables.
     They should go in :ref:`Configuration/TCA/sometable.php <extension-configuration-tca>`.
@@ -44,15 +48,26 @@ Should not be used for
     as this might break the frontend. They should go in
     :file:`Configuration/TCA/Overrides/sys_template.php`
 
-Should be used for
-==================
+You can use the :ref:`admin-tools-upgrade-tca-ext-tables` tool to find extensions
+with :file:`ext_tables.php` files that change the TCA.
 
-These are the typical functions that should be placed inside :file:`ext_tables.php`
+..  _ext-tables-php-usage:
 
-*  Registering a scheduler tasks:
-   :ref:`extension-configuration-files-scheduler`
-*  Registration of :ref:`custom page types <page-types-example>`
-*  Extending the :ref:`Backend user settings <user-settings-extending>`
+ext_tables.php should be used for
+=================================
+
+These are typical functions that should be in :file:`ext_tables.php`:
+
+*   Registering scheduler tasks:
+    :ref:`extension-configuration-files-scheduler`
+*   Registration of :ref:`custom page types <page-types-example>`
+*   Extending :ref:`Backend user settings <user-settings-extending>`
+
+Before you use a utility method in :file:`ext_tables.php`, refer to the method's
+PHP doc comment. Unless it explicitly states that you can use the method in context
+of :file:`ext_tables.php` they should not be used here.
+
+..  _ext-tables-php-examples:
 
 Examples
 ========

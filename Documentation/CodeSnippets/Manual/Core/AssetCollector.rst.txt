@@ -28,6 +28,11 @@
         :param $attributes: additional HTML <script> tag attributes, default: []
         :param $options: ['priority' => true] means rendering before other tags, default: []
 
+    ..  php:method:: addJavaScriptModule(string $identifier)
+        :returns: `self`
+
+        :param $identifier: Bare module identifier like @my/package/Filename.js
+
     ..  php:method:: addInlineJavaScript(string $identifier, string $source, array $attributes = [], array $options = [])
         :returns: `self`
 
@@ -95,6 +100,9 @@
         :returns: `array`
 
         :param $priority: the priority, default: NULL
+
+    ..  php:method:: getJavaScriptModules()
+        :returns: `array`
 
     ..  php:method:: getStyleSheets(?bool $priority = NULL)
         :returns: `array`

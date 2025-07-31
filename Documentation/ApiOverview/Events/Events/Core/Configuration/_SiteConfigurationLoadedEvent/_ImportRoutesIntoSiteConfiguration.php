@@ -7,6 +7,7 @@ namespace MyVendor\MyExtension\Configuration\EventListener;
 use TYPO3\CMS\Core\Attribute\AsEventListener;
 use TYPO3\CMS\Core\Configuration\Event\SiteConfigurationLoadedEvent;
 use TYPO3\CMS\Core\Configuration\Loader\YamlFileLoader;
+use TYPO3\CMS\Core\Utility\ArrayUtility;
 
 #[AsEventListener(
     identifier: 'my-extension/import-routes-into-site-configuration',
@@ -22,12 +23,16 @@ final readonly class ImportRoutesIntoSiteConfiguration
     public function __invoke(SiteConfigurationLoadedEvent $event): void
     {
         $routeConfiguration = $this->yamlFileLoader->load(self::ROUTES);
+        $siteConfiguration = $event->getConfiguration();
 
-        $configuration = array_merge_recursive(
-            $event->getConfiguration(),
+        // Using this method instead of array_merge_recursive will
+        // prevent duplicate keys, and also allow to use the special
+        // "_UNSET" handling properly.
+        ArrayUtility::mergeRecursiveWithOverrule(
+            $siteConfiguration,
             $routeConfiguration,
         );
 
-        $event->setConfiguration($configuration);
+        $event->setConfiguration($siteConfiguration);
     }
 }

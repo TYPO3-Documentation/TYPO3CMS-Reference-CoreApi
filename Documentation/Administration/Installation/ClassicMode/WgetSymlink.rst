@@ -95,11 +95,15 @@ latest patch version number of TYPO3.
 Create the required symlinks using ln
 -------------------------------------
 
-Create the following symlinks in your document root:
+We assume that your document root is pointing to a directory called `my_project` at
+the same level as the source file you just downloaded. If this folder does not
+exist yet, create it:
 
 ..  code-block:: bash
     :caption: /var/www/site/$
 
+    mkdir -p my_project
+    cd my_project
     ln -s ../typo3_src-13.4.y typo3_src
     ln -s typo3_src/index.php index.php
     ln -s typo3_src/typo3 typo3
@@ -119,7 +123,22 @@ After creating the symlinks, your directory structure should look like this:
 ..  directory-tree::
 
     *   :path:`typo3_src-13.4.y/`
-    *   :path:`public/`
+    *   :path:`my_project/`
+
         *   :path:`typo3_src -> ../typo3_src-13.4.y/`
         *   :path:`typo3 -> typo3_src/typo3/`
         *   :file:`index.php -> typo3_src/index.php`
+
+
+..  _classic-wget-symlink-installation-completion:
+
+Run the installation wizard and complete the installation
+=========================================================
+
+In the next steps you will use the installation wizard to connect the database,
+create additional required folders, create an administrator and chose or create
+a site package / theme:
+
+..  seealso::
+
+    :ref:`classic-installation-wizard`

@@ -69,6 +69,10 @@ Read more about this on https://usetypo3.com/dtos-in-extbase/ or see a
 :abbr:`CRUD (Create, Read, Update, Delete)` example for this on
 https://github.com/garvinhicking/gh_validationdummy/
 
+..  warning::
+    `IgnoreValidation()` must not be used for domain models supporting
+    extbase file uploads, because this leads to a property mapping error.
+
 ..  _extbase-annotation-orm:
 
 ORM (object relational model) annotations

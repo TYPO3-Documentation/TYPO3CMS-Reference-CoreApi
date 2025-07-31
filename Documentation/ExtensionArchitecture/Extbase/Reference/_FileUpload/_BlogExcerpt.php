@@ -15,7 +15,12 @@ class Blog extends AbstractEntity
             'required' => true,
             'maxFiles' => 1,
             'fileSize' => ['minimum' => '0K', 'maximum' => '2M'],
-            'allowedMimeTypes' => ['image/jpeg', 'image/png'],
+            'mimeType' => [
+                'allowedMimeTypes' => ['image/jpeg', 'image/png'],
+                'ignoreFileExtensionCheck' => false,
+                'notAllowedMessage' => 'LLL:EXT:my_extension/...',
+                'invalidExtensionMessage' => 'LLL:EXT:my_extension/...',
+            ],
         ],
         'uploadFolder' => '1:/user_upload/files/',
     ])]

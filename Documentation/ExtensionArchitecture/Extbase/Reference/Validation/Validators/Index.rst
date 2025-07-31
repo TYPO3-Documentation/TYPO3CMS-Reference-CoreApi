@@ -340,13 +340,53 @@ for the detected MIME type.
 Options:
 
 `allowedMimeTypes`
-    Allowed MIME types (using */* IANA media types)
+    Array with list of allowed MIME types (using */* IANA media types),
+    like :php:`['image/jpeg', 'image/png']`.
 
 `ignoreFileExtensionCheck`
     If set to :php:`true`, the file extension check is disabled.
     Be aware of security implications when setting this to :php:`true`.
+    When enabled, the MIME type of uploaded files need to match their
+    assigned default file extension.
+    When disabled, uploading a PDF file named "test.txt" with allowed "text/plain"
+    MIME types would be accepted.
 
-..  include:: _NoExamples.rst.txt
+`notAllowedMessage`
+    Can contain a string or `LLL:EXT:...` reference that is displayed when
+    a MIME type is not allowed.
+
+`invalidExtensionMessage`
+    Can contain a string or `LLL:EXT:...` reference that is displayed when
+    an uploaded file extension does not match the default MIME-type registered for it.
+
+When using the :php-short:`\TYPO3\CMS\Extbase\Annotation\FileUpload` attribute
+the `MimeTypeValidator` is used internally when defined in the `validation['mimeType']`
+section:
+
+..  literalinclude:: _FileUploadArgument.php
+    :caption: packages/my_extension/Classes/Domain/Model/Dto/SomeDto.php
+
+When you do manual validation in an `initialize*Action` (or you otherwise need to
+make dynamic assignments to the validator options) you can call and
+configure the validator directly:
+
+..  literalinclude:: _FileUploadController.php
+    :caption: packages/my_extension/Classes/Controller/SomeController.php
+
+The example above showcases an "object" like `myArgument` containing
+a property `myPropertyName` that relates to an uploaded file. It is then
+configured with plain PHP API (without using
+the attribute `FileUpload` attribute/annotation mentioned above).
+
+It is important how the
+`$fileHandlingServiceConfiguration->addFileUploadConfiguration()` method
+call replaces the usual Extbase `propertyMappingConfiguration`. To not conflict with
+Extbase's internal property mapping, the `->skipProperties()` call
+takes care of this.
+
+Generally, for better "developer experience", it is suggested to
+use the auto-configuration provided by using the PHP attribute/annotation
+where possible.
 
 ..  _extbase-validator-notempty:
 

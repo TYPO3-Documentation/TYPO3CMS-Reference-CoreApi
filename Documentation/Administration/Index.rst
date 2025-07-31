@@ -33,6 +33,16 @@ TYPO3 administration
         *   `Configuring environments <https://docs.typo3.org/permalink/t3coreapi:environment-configuration>`_
         *   `CI/CD and Automatic deployment <https://docs.typo3.org/permalink/t3coreapi:ci-cd-for-typo3-projects>`_
 
+    ..  card:: Production environment
+
+        This chapter contains information on how to configure and optimize the infrastructure
+        running TYPO3 for production.
+
+        *   `Running TYPO3 in production environments <https://docs.typo3.org/permalink/t3coreapi:administation-production>`_
+        *   `Backup strategies <https://docs.typo3.org/permalink/t3coreapi:administration-backups>`_
+        *   `Security considerations for administrators <https://docs.typo3.org/permalink/t3coreapi:administration-security>`_
+        *   `Using Docker in production <https://docs.typo3.org/permalink/t3coreapi:docker-production>`_
+
     ..  card:: :ref:`Running TYPO3 in Docker <admin-docker-index>`
 
         Learn how to run TYPO3 using Docker containers for local development and testing,
@@ -65,40 +75,20 @@ TYPO3 administration
         *   `Classic-mode upgrade <https://docs.typo3.org/permalink/t3coreapi:legacy>`_
         *   `Migrate a Classic-mode project to Composer <https://docs.typo3.org/permalink/t3coreapi:migratetocomposer>`_
 
-    ..  card:: Security considerations
-
-        Even though TYPO3 follows modern security practices by default,
-        system administrators and integrators must take responsibility for
-        secure configuration and operations in production environments.
-
-        *   `Security guidelines for system administrators <https://docs.typo3.org/permalink/t3coreapi:security-administrators>`_
-        *   `General security guidelines <https://docs.typo3.org/permalink/t3coreapi:security-general-guidelines>`_
-        *   `TYPO3 version support and security updates <https://docs.typo3.org/permalink/t3coreapi:security-general-information>`_
-        *   `How to detect, analyze, and recover a hacked site <https://docs.typo3.org/permalink/t3coreapi:security-detect-analyze-repair>`_
-
-    ..  card:: Backup and restore TYPO3
-
-        Learn how to create secure, restorable backups of your TYPO3 project.
-        Covers essential data, file structure differences, database dumps,
-        storage strategies, and long-term retention.
-
-        *   `Backup strategy <https://docs.typo3.org/permalink/t3coreapi:administration-backups>`_
-
 ..  toctree::
     :hidden:
     :glob:
 
     Installation/Index
     Deployment/Index
+    Production/Index
+    Tools/Index
+    Upgrade/Index
     Docker/Index
     DirectoryStructure/Index
     VersionControl/Index
-    Upgrade/Index
     SystemSettings/Index
-    Security/Index
     UserManagement/Index
-    Backups/Index
-    Tuning/Index
     Troubleshooting/Index
     */Index
     *

@@ -1,6 +1,6 @@
 :navigation-title: List Core commands
-..  include:: /Includes.rst.txt
 
+..  include:: /Includes.rst.txt
 ..  _symfony-console-commands-list:
 
 ==============================
@@ -19,7 +19,7 @@ actions, which otherwise would only be accessible via the TYPO3 backend.
 This page assumes that the code is run on a Composer based installation with
 default binaries location. Here you can read how to run them in general and
 on Classic mode installations:
-:ref:`Run a command from the command line <symfony-console-commands-cli>`.
+:ref:`Run a command from the command line <how-to-run-a-command>`.
 
 ..  _symfony-console-commands-list-list:
 

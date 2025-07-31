@@ -14,6 +14,9 @@ Run the installation wizard and complete the installation
 Run the installation wizard
 ===========================
 
+-   To trigger the Installation Wizard, create an empty file called 'FIRST_INSTALL' in the root directory of your TYPO3 installation.
+    You can do this via FTP or the command line:
+    :bash:`touch FIRST_INSTALL`
 -   Open your web browser and navigate to your TYPO3 site (for example
     `https://example.org/`)
 -   The installation wizard will appear

@@ -12,12 +12,12 @@ This sections highlights the different ways to translate and manage XLIFF files.
 ..  index:: Localization; Fetch translations
 ..  _xliff-translating-fetch:
 
-Fetching translations
-=====================
+Fetching translations / updating language packs
+===============================================
 
 The backend module :guilabel:`Admin Tools > Maintenance > Manage Language Packs`
-allows to manage the list of available languages to your users and can fetch and
-update language packs of TER and Core extensions from the official translation server.
+displays a list of available languages to your users and can fetch and
+update language packs in TER and Core extensions from the official translation server.
 The module is rather straightforward to use and should be pretty much self-explanatory.
 Downloaded language packs are stored in the environment's
 :ref:`Environment-labels-path`.
@@ -41,6 +41,26 @@ Language packs can also be fetched using the command line:
 
             typo3/sysext/core/bin/typo3 language:update
 
+..  _load-language-pack:
+
+Load an additional language pack
+================================
+
+Additional language packs can be installed by administrators in the backend:
+
+..  rst-class:: bignums
+
+1.  Go to :guilabel:`Admin Tools > Maintenance > Manage Languages Packs`
+
+    ..  include:: /Images/AutomaticScreenshots/Modules/ManageLanguage.rst.txt
+
+2.  Select :guilabel:`Add Language` and activate the new language:
+
+    ..  include:: /Images/AutomaticScreenshots/Modules/ManageLanguagePacksAddLanguage.rst.txt
+
+3.  The selected language is now available:
+
+    ..  include:: /Images/AutomaticScreenshots/Modules/ManageLanguagePacksAddLanguageAddSuccess.rst.txt
 
 ..  index:: Localization; Local translations
 ..  _xliff-translating-local:
