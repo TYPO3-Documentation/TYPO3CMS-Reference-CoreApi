@@ -56,7 +56,7 @@ The registration and configuration of a type converter is done in the extension'
           - name: extbase.type_converter
             priority: 10
             target: \DateTime
-            sources: int,string
+            sources: integer,string
 
 For conversions of Extbase controller action parameters into Extbase domain
 model objects the incoming data is usually a numeric type, but in case of an update
@@ -73,4 +73,4 @@ Thus the configuration should list :php:`array` as one of its sources:
           - name: extbase.type_converter
             priority: 10
             target: MyVendor\MyExtension\Domain\Model\MyCustomModel
-            sources: int,string,array
+            sources: integer,string,array
