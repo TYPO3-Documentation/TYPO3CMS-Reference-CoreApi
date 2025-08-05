@@ -53,7 +53,7 @@ Here is an example on how to utilize it for a custom cache action:
 
     $myIdentifier = 'myExtensionCustomStorageCache';
     $event->addCacheAction([
-        'id' => 'customStorageCache',
+        'id' => $myIdentifier,
         'title' => 'LLL:EXT:my_extension/Resources/Private/Language/locallang.xlf:CacheActionTitle',
         // Note to register your own route, this is an example
         'href' => (string)$uriBuilder->buildUriFromRoute('ajax_' . $myIdentifier . '_purge'),
