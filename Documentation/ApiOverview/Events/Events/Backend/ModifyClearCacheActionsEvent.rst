@@ -56,7 +56,7 @@ The cache action array element consists of the following keys and values:
 The key :php:`severity` can contain one of these strings: `notice, info, success, warning, error`.
 
 The cache identifier array is a numerical array in which the array value corresponds to the registered `id` of the cache action array.
-Here is an example on how to utilize it for a custom cache action:
+Here is an example of how to use it for a custom cache action:
 
 ..  code-block:: php
     :caption: Example cache action array combined with a cache identifier array
