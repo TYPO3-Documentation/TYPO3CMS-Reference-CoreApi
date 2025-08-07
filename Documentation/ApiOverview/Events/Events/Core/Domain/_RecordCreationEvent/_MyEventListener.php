@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace MyVendor\MyExtension\Domain\Access;
+namespace MyVendor\MyExtension\Domain\EventListener;
 
 use MyVendor\MyExtension\Domain\Model\Coordinates;
 use TYPO3\CMS\Core\Attribute\AsEventListener;
