@@ -14,7 +14,7 @@ There are two installation methods for a Classic mode TYPO3 installation.
 If you have shell (SSH) access we recommend using `wget and
 symlinks <https://docs.typo3.org/permalink/t3coreapi:classic-symlink-installation>`_.
 
-If you only have access via FTP or the file manager of your hosting provider, use
+If you only have access via FTP[1]_ or the file manager of your hosting provider, use
 a `.zip or .tar.gz archive <https://docs.typo3.org/permalink/t3coreapi:manual-archive-installation>`_.
 
 Choose one of the two methods:
@@ -84,3 +84,7 @@ to test if the package you just downloaded is signed correctly.
     Windows
     InstallationWizard
     ReleaseIntegrity
+
+.. [1] In this documentation FTP is used as a synonym for file transfer, not specifically for the "File Transfer Protocol". 
+       The reason is, that all communication with FTP, including username and password, is not encrypted. You should rather
+       use protocols like SFTP, FTPS, SCP or RSYNC, where all communication is encrypted.
