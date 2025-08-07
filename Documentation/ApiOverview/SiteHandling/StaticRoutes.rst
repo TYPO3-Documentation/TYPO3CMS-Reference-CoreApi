@@ -52,7 +52,7 @@ A configuration example:
    t3://
    see: t3://; TYPO3 URL
 
-
+.. _static-routes-to-assets:
 Static routes to assets
 =======================
 
