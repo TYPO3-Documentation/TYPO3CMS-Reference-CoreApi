@@ -321,7 +321,7 @@ TYPO3 supports the following relational database systems:
 * PostgreSQL
 * SQLite
 
-See the TYPO3 system requirements for the minimum database versions supported.
+See the `system requirements <https://get.typo3.org/>`_  for the minimum database versions supported.
 
 Each system has specific configuration and extension requirements.
 See the list of required PHP extensions for supported databases:
