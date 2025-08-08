@@ -31,7 +31,7 @@ Choose one of the two methods:
         Prerequisites:
 
         -   A web server with PHP and database support
-        -   FTP access or web-based file manager (such as cPanel)
+        -   FTP/SFTP access or web-based file manager (such as cPanel or Plesk)
         -   A web browser to run the installation wizard
 
     ..  card:: `wget and symlinks <https://docs.typo3.org/permalink/t3coreapi:classic-symlink-installation>`_
