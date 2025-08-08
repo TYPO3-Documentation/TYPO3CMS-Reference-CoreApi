@@ -759,7 +759,7 @@ mitigate side effects between different services. It is often preferable to crea
 stateful services using :php:`GeneralUtility::makeInstance()` when needed, rather
 than within :php:`__construct()`.
 
-
+.. _when-to-use-php-generalutility-makeinstance:
 When to use :php:`GeneralUtility::makeInstance()`?
 --------------------------------------------------
 
