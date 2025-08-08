@@ -14,9 +14,10 @@ Run the installation wizard and complete the installation
 Run the installation wizard
 ===========================
 
--   In the control panel of your webserver you need to assign a domain or subdomain to the project directory (e.g. my_project). 
-    Depending on the server you may also need to set the PHP version that is required by the TYPO3 version.
--   To trigger the Installation Wizard, create an empty file called 'FIRST_INSTALL' in the root directory of your TYPO3 installation.
+-   In the control panel of your webserver you need to assign a domain (for example `https://example.org/`) 
+    or subdomain to the document root of the project directory (for example `var/www/my_project/). 
+-   Depending on the server you may also need to set the PHP version that is required by the TYPO3 version.
+-   To trigger the installation wizard, create an empty file called :file:'FIRST_INSTALL' in the root directory of your TYPO3 installation.
     You can do this via FTP or the command line:
     :bash:`touch FIRST_INSTALL`
 -   Open your web browser and navigate to your TYPO3 site (for example
