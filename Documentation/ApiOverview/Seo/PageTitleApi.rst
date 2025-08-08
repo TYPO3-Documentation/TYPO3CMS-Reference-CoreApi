@@ -108,6 +108,7 @@ you can change this by loading your custom provider before `seo`.
 
 .. index:: PageTitle; Priority
 
+.. _define-the-priority-of-pagetitleproviders: 
 Define the priority of PageTitleProviders
 =========================================
 
