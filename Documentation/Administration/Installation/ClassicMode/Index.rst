@@ -85,6 +85,6 @@ to test if the package you just downloaded is signed correctly.
     InstallationWizard
     ReleaseIntegrity
 
-.. [1] In this documentation FTP is used as a synonym for file transfer, not specifically for the "File Transfer Protocol". 
+.. [1] In this documentation FTP is used as a synonym for file transfer, not specifically for the "File Transfer Protocol".
        The reason is, that all communication with FTP, including username and password, is not encrypted. You should rather
        use protocols like SFTP, FTPS, SCP or RSYNC, where all communication is encrypted.
