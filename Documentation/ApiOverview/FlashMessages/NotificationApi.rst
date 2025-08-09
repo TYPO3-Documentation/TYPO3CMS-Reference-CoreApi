@@ -72,6 +72,8 @@ still be used:
 ..  literalinclude:: _RequireJS/_flash-message-demo.js
     :caption: EXT:some_extension/Resources/Public/JavaScript/FlashMessageDemo.js
 
+..  _notification_api-actions:
+
 Actions
 -------
 
