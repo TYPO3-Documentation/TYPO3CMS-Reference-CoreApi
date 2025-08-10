@@ -13,6 +13,10 @@
     ..  php:method:: getByIsoCode(string $isoCode)
         :returns: `?\TYPO3\CMS\Core\Country\Country`
 
+        Searches for a matching country with fallback; uses Alpha2 ISO-Code by
+        default, and if that does not match, compare the input $isoCode
+        as an Alpha3 ISO-Code.
+
         :param $isoCode: the isoCode
 
     ..  php:method:: getByAlpha2IsoCode(string $isoCode)
