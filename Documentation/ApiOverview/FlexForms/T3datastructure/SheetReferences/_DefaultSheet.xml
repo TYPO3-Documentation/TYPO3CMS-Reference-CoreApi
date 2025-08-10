@@ -1,0 +1,9 @@
+<T3DataStructure>
+    <ROOT>
+        <sheetTitle>My General Sheet</sheetTitle>
+        <type>array</type>
+        <el>
+            // ...
+        </el>
+    </ROOT>
+</T3DataStructure>

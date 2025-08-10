@@ -1,27 +1,24 @@
-.. include:: /Includes.rst.txt
+:navigation-title: Parsing
 
+..  include:: /Includes.rst.txt
+..  _t3ds-parsing:
 
-.. _t3ds-parsing:
-
-========================
-Parsing a Data Structure
-========================
+===========================
+Parsing T3DataStructure XML
+===========================
 
 You can convert a Data Structure XML document into a PHP array by using the
 function :php:`\TYPO3\CMS\Core\Utility\GeneralUtility::xml2array()`.
+
 The reverse transformation is achieved using
 :php:`\TYPO3\CMS\Core\Utility\GeneralUtility::array2xml()`.
 
-If the Data Structure uses referenced sheets, for example
+The PHP array can then be interpreted by the application, which may interpret
+the T3DataStructure in custom ways.
 
-.. code-block:: xml
+`Sheet References <https://docs.typo3.org/permalink/t3coreapi:t3ds-sheet-references>`_
+are not supported out of the box and have to be resolved by the application using
+the T3DataStructure.
 
-   <T3DataStructure>
-     <sheets>
-           <sDEF>fileadmin/sheets/default_sheet.xml</sDEF>
-       <s_welcome>fileadmin/sheets/welcome_sheet.xml</s_welcome>
-     </sheets>
-   </T3DataStructure>
-
-Additional operations must be performed to resolve the sheet's content. See
-class :ref:`modify-flexforms-php`.
+..  seealso::
+    `Reading FlexForm settings <https://docs.typo3.org/permalink/t3coreapi:read-flexforms>`_

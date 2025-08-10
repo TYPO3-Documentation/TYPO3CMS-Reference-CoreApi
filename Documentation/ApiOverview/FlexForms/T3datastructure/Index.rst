@@ -1,67 +1,38 @@
-.. include:: /Includes.rst.txt
+:navigation-title: T3DataStructure
 
+..  include:: /Includes.rst.txt
+..  _t3ds:
 
-.. _t3ds:
+============================================
+T3DataStructure, the format behind FlexForms
+============================================
 
-===============
-T3DataStructure
-===============
+TYPO3’s **T3DataStructure** is an XML format for defining hierarchical data.
 
-TYPO3 offers an XML format, T3DataStructure, which defines a
-hierarchical data structure. In itself the data structure definition
-does not do much - it is only a back bone for higher level applications
-which can add their own configuration inside.
+On its own, it serves only as a backbone. Applications such as
+`FlexForms <https://docs.typo3.org/permalink/t3coreapi:flexforms>`_ build
+upon it with their own configuration.
 
-The T3DataStructure could be used for different applications in theory, however it
-is commonly only used in the context of FlexForms.
+While it could be used in other contexts, it is almost always tied to
+FlexForms. This documentation covers the general XML format, leaving FlexForms
+details to their own section.
 
-FlexForms are used in the contexts:
+**Key facts:**
 
--  TCA form type :ref:`FlexForms <t3tca:columns-flex>`:
-   The type allows users to build
-   information hierarchies (in XML) according to the data structure. In
-   this sense the Data Structure is like a DTD (Document Type
-   Definition) for the backend which can render a dynamic form based on
-   the Data Structure.
-
--  The configuration of plugins of many common extensions with FlexForms like
-   `news <https://extensions.typo3.org/extension/news>`__.
-
--  FlexForms can be used for containers created by the extensions like
-   `container <https://extensions.typo3.org/extension/container>`__ or
-   `gridelements <https://extensions.typo3.org/extension/gridelements>`__
-
--  `dce <https://extensions.typo3.org/extension/dce>`__ an an extension to
-   create content elements based on FlexForms.
-
-This documentation of a data structure will document the general
-aspects of the XML format and leave the details about FlexForms and
-TemplaVoila to be documented elsewhere.
-
-Some other facts about Data Structures (DS):
-
-- A Data Structure is defined in XML with the document tag named
-  "<T3DataStructure>"
-
-- The XML format generally complies with what can be converted into a
-  PHP array by :php:`GeneralUtility::xml2array()` - thus it directly reflects how a
-  multidimensional PHP array is constructed.
-
-- A Data Structure can be arranged in a set of "sheets". The purpose of
-  sheets will depend on the application. Basically sheets are like a
-  one-dimensional internal categorization of Data Structures.
-
-- Parsing a Data Structure into a PHP array can be achieved by passing it to
-  :php:`GeneralUtility::xml2array()` (see the :ref:`t3ds-parsing` section).
-
-- "DS" is sometimes used as short for Data Structure
-
+-   Defined in XML with a root ``<T3DataStructure>`` tag.
+-   Compatible with :php:`GeneralUtility::xml2array()`, mapping directly to a
+    multidimensional PHP array.
+-   Can be divided into *sheets*, a one-dimensional categorization whose purpose
+    depends on the application.
+-   Parsing to a PHP array is done via :php:`GeneralUtility::xml2array()` (see
+    :ref:`t3ds-parsing`).
+-   “DS” is shorthand for Data Structure.
 
 **Next chapters**
 
-.. toctree::
-   :titlesonly:
+..  toctree::
+    :titlesonly:
 
-   Elements/Index
-   SheetReferences/Index
-   Parsing/Index
+    Elements/Index
+    SheetReferences/Index
+    Parsing/Index
