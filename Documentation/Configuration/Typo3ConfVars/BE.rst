@@ -805,3 +805,70 @@ the TYPO3 backend:
 
     ..  seealso::
         :ref:`backend-entry-point`
+
+..  confval:: installToolSessionHandler
+    :Path: $GLOBALS['TYPO3_CONF_VARS']['BE']['installToolSessionHandler']
+    :name: globals-typo3-conf-vars-be-installToolSessionHandler
+    :type: array
+
+    ..  versionadded:: 14.0
+
+    ..  confval:: className
+        :Path: $GLOBALS['TYPO3_CONF_VARS']['BE']['installToolSessionHandler']['className']
+        :name: globals-typo3-conf-vars-be-installToolSessionHandler-className
+        :type: fully qualified class name (implements :php:`\SessionHandlerInterface`)
+        :default: :php:`\TYPO3\CMS\Install\Service\Session\FileSessionHandler`
+
+        ..  versionadded:: 14.0
+
+        Setting `className` to :php:`\TYPO3\CMS\Install\Service\Session\RedisSessionHandler`
+        it is possible to store Install Tool sessions in Redis.
+
+        Custom session handlers can be implemented by implementing PHP's own
+        :php:`\SessionHandlerInterface`.
+
+    ..  confval:: options
+        :Path: $GLOBALS['TYPO3_CONF_VARS']['BE']['installToolSessionHandler']['options']
+        :name: globals-typo3-conf-vars-be-installToolSessionHandler-options
+        :type: array
+
+        For the :php-short:`\TYPO3\CMS\Install\Service\Session\FileSessionHandler`
+        you can configure the `sessionPath`.
+
+        ..  code-block:: php
+            :caption: File-based session handler in config/system/settings.php
+
+            return [
+                // ...
+                'BE' => [
+                    'installToolSessionHandler' => [
+                        'className' => \TYPO3\CMS\Install\Service\Session\FileSessionHandler::class,
+                        'options' => [
+                            'sessionPath' => \TYPO3\CMS\Core\Core\Environment::getVarPath() . '/session',
+                        ]
+                    ]
+                ]
+            ];
+
+        For the :php-short:`\TYPO3\CMS\Install\Service\Session\RedisSessionHandler`
+        you can configure the `host`, `port`, `database` and `authentification`:
+
+        ..  code-block:: php
+            :caption: Redis session handler in config/system/settings.php
+
+            return [
+                'BE' => [
+                    'installToolSessionHandler' => [
+                        'className' => \TYPO3\CMS\Install\Service\Session\RedisSessionHandler::class,
+                        'options' => [
+                            'host' => '127.0.0.1',
+                            'port' => 6379,
+                            'database' => 0,
+                            'authentication' => [
+                                'user' => 'redis',
+                                'pass' => 'redis'
+                            ]
+                        ]
+                    ]
+                ]
+            ];
