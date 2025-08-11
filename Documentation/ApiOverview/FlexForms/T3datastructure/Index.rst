@@ -9,13 +9,12 @@ T3DataStructure, the format behind FlexForms
 
 TYPO3’s **T3DataStructure** is an XML format for defining hierarchical data.
 
-On its own, it serves only as a backbone. Applications such as
+On its own it serves only as a backbone. Applications such as
 `FlexForms <https://docs.typo3.org/permalink/t3coreapi:flexforms>`_ build
 upon it with their own configuration.
 
-While it could be used in other contexts, it is almost always tied to
-FlexForms. This documentation covers the general XML format, leaving FlexForms
-details to their own section.
+It can be used in other contexts, but in TYPO3 it is almost always used for
+FlexForms. This documentation describes the general XML format.
 
 **Key facts:**
 

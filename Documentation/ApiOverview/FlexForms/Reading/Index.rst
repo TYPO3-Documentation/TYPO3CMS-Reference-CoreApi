@@ -14,22 +14,21 @@ column.
 
 ..  _read-flexforms-extbase:
 
-Reading FlexForm settings from an Extbase controller
-====================================================
+Reading FlexForm settings in an Extbase controller
+==================================================
 
-All plugin settings are provided in the array  :php:`$this->settings` in the
+Plugin settings are available in the :php:`$this->settings` array in the
 Extbase controller.
 
-Settings defined via TypoScript are overridden by non-empty values from
-settings in the FlexForm of the plugin's content element.
-
+TypoScript settings are overridden by non-empty FlexForm settings
+in the plugin's content element.
 
 Only FlexForm settings prefixed with `settings.` are available in the controllers
-:php:`$this->settings` array. For example FlexForm field `settings.includeCategories`
+:php:`$this->settings` array. For example, FlexForm field `settings.includeCategories`
 is available as `$this->settings['includeCategories']`.
 
 Do not rely on any key in the :php:`$this->settings` array being set and always
-cast it to the appropriate type. Otherwise PHP errors might be triggered if a
+cast it to the appropriate type. PHP errors might be triggered if a
 value is not defined in the plugin.
 
 ..  code-block:: php
@@ -45,19 +44,19 @@ FlexFormService: Read FlexForms values in PHP
 You can use the :php-short:`\TYPO3\CMS\Extbase\Service\FlexFormService` to read
 the content of a FlexForm field.
 
-This is useful in plain controllers without Extbase support or in other contexts
-like console commands or middleware, where no settings are available.
+This is useful in plain controllers without Extbase support, or in contexts
+like console commands or middleware where no settings are available.
 
-Using :php:`FlexFormService->convertFlexFormContentToArray` the resulting
-array can be used conveniently in most use cases:
+:php:`FlexFormService->convertFlexFormContentToArray` returns an array that is
+suitable for most use cases:
 
 ..  literalinclude:: _codesnippets/_NonExtbaseController.php
     :caption: EXT:my_extension/Classes/Controller/NonExtbaseController.php
 
 ..  _read-flexforms-php-structure:
 
-Read the FlexForm data preserving the internal structure
-========================================================
+Read FlexForm data while preserving internal structure
+======================================================
 
 The result of :php:`GeneralUtility::xml2array()` preserves the internal
 structure of the XML FlexForm, and is usually used to modify a FlexForm
@@ -75,11 +74,11 @@ See also section :ref:`modify-flexforms-php`.
 TypoScript: Reading flexform data
 ---------------------------------
 
-It is possible to read FlexForm properties from TypoScript:
+It is possible to read FlexForm properties in TypoScript:
 
 ..  literalinclude:: _codesnippets/_flexformContent.typoscript
 
-The key `flexform` is followed by the field which holds the FlexForm data
+The key `flexform` is followed by the field which hold the FlexForm data
 (`pi_flexform`) and the name of the property whose content should be retrieved
 (`settings.categories`).
 
@@ -92,10 +91,10 @@ The key `flexform` is followed by the field which holds the FlexForm data
 flex-form data processor
 ========================
 
-If you defined your :typoscript:`FLUIDTEMPLATE` in TypoScript, you can use
+If you have defined :typoscript:`FLUIDTEMPLATE` in TypoScript, you can use
 `flex-form data processor <https://docs.typo3.org/permalink/t3tsref:flexformprocessor>`_.
 
-This example would make your FlexForm data available as Fluid variable
+This example would make your FlexForm data available as a Fluid variable
 `{myOutputVariable}`:
 
 ..  literalinclude:: _codesnippets/_dataproccessor.typoscript

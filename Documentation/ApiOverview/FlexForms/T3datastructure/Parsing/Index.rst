@@ -13,7 +13,7 @@ function :php:`\TYPO3\CMS\Core\Utility\GeneralUtility::xml2array()`.
 The reverse transformation is achieved using
 :php:`\TYPO3\CMS\Core\Utility\GeneralUtility::array2xml()`.
 
-The PHP array can then be interpreted by the application, which may interpret
+The PHP array can then be interpreted by an application, which may interpret
 the T3DataStructure in custom ways.
 
 `Sheet References <https://docs.typo3.org/permalink/t3coreapi:t3ds-sheet-references>`_

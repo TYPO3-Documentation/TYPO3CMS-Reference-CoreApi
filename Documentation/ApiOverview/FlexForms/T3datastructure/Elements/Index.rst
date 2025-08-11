@@ -16,8 +16,8 @@ This is the list of elements and their nesting in the Data Structure.
 Elements Nesting Other Elements ("Array" Elements)
 ==================================================
 
-All elements defined here cannot contain any string value but  *must*
-contain another set of elements.
+All elements defined here cannot contain a string value but  *must*
+contain a set of elements.
 
 (In a PHP array this corresponds to saying that all these elements
 must be arrays.)
@@ -33,7 +33,7 @@ must be arrays.)
     :name: t3datastructure-meta
     :type: array
 
-    Can contain application specific meta settings, interpretation depends on
+    Can contain application specific meta settings. Interpretation depends on
     the application using the T3DataStructure. Each setting goes to a XML tag.
 
 ..  confval:: <ROOT>
@@ -73,7 +73,7 @@ must be arrays.)
 
     Title of the sheet. Mandatory for any sheet except the first (which
     gets "General" in this case). Can be a plain string or a reference to
-    language file using standard LLL syntax. Ignored if sheets are not
+    a language file using standard LLL syntax. Ignored if sheets are not
     defined for the FlexForm.
 
 ..  confval:: <displayCond>
@@ -92,7 +92,7 @@ must be arrays.)
 
     Defines an independent data structure starting with a `<ROOT>` tag.
 
-    Alternatively it can be a plain value referring to another
+    Alternatively, it can be a plain value referring to another
     XML file which contains the <ROOT> structure. See example later.
 
 ..  confval:: <el>
@@ -102,7 +102,7 @@ must be arrays.)
     Contains a collection of Data Structure "objects"
 
 Elements can use the attribute :xml:`type` to define their type, for example
-explicitly use boolean.
+they can explicitly use boolean.
 
 An example would look like:
 
@@ -135,7 +135,7 @@ must be strings or integers.)
 
     `""` (blank)
         The parent does not contain sub objects. The
-        meaning of such an object is determined by the application using the
+        meaning of an object is determined by the application using the
         data structure. For FlexForms this object would draw a form element.
 
     If the parent is `<ROOT>` this tag must have the value `"array"`.
@@ -145,20 +145,20 @@ must be strings or integers.)
     :type: Boolean
     :default: `""` (blank)
 
-    Defines for an object of the type <array> that it must contain other
-    "array" type objects in each item of <el>. The meaning of this is application specific. For
+    Defines that an object of type <array> must contain other
+    "array" objects in each item of <el>. The meaning of this is application specific. For
     FlexForms it will allow the user to select between possible arrays of
-    objects to create in the form. This is similar to the concept of
+    objects that they can create in the form. This is similar to the concept of
     :ref:`IRRE / inline TCA definitions <t3tca:columns-inline>`.
 
 ..  versionchanged:: 13.0
 
-    The usage of available element types within FlexForm sections is
+    Available element types inside FlexForm sections is
     restricted. You should only use simple TCA types like
-    :php:`type => 'input'` within sections, and relations (:php:`type =>
+    :php:`type => 'input'` in sections. Relations (:php:`type =>
     'group'`, :php:`type => 'inline'`, :php:`type => 'select'` and similar)
     should be avoided.
-    TYPO3 v13 specifically disallows using :php:`type => 'select'` with
+    TYPO3 v13 forbids using :php:`type => 'select'` with
     a :php:`foreign_table` set, which will raise an exception.
     This does not apply for FlexForm fields outside of a :xml:`<section>`.
     Details can be found in
@@ -175,9 +175,9 @@ Below is the structure of a basic FlexForm from the example extension
 
 ..  include:: /CodeSnippets/FlexForms/Simple.rst.txt
 
-For a more elaborate example, have a look at the plugin configuration of
+For a more detailed example, have a look at the plugin configuration of
 system extension `felogin` (:t3src:`felogin/Configuration/FlexForms/Login.xml`).
-It shows an example of relative complex data structure used in a FlexForm.
+It shows an example of a relatively complex data structure used in a FlexForm.
 
-More information about such usage of FlexForms can be found in the
+More information about using FlexForms can be found in the
 :ref:`relevant section of the TCA reference <t3tca:columns-flex>`.

@@ -17,11 +17,11 @@ column.
 How to modify FlexForms from PHP
 ================================
 
-Some situation make it necessary to modify FlexForms via PHP.
+Sometimes it is necessary to modify FlexForms via PHP.
 
-In order to convert a FlexForm to a PHP array, preserving the structure,
-the :php:`xml2array` method in :php:`GeneralUtility`  can be used to read
-the FlexForm data, then the :php:`FlexFormTools` can be used to write back the
+In order to convert a FlexForm to a PHP array while preserving the structure,
+use the :php:`xml2array` method in :php:`GeneralUtility` to read
+the FlexForm data, then :php:`FlexFormTools` to write back the
 changes.
 
 ..  versionchanged:: 13.0

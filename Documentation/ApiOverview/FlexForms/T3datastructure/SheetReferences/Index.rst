@@ -25,4 +25,4 @@ and the same for the other sheet :file:`WelcomeSheet.xml`.
 
 ..  warning::
     Sheet references are not resolved by default and rely on the application
-    interpreting the data structure to be resolved.
+    interpreting the data structure.
