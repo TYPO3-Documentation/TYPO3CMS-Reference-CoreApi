@@ -1,133 +1,116 @@
-.. include:: /Includes.rst.txt
+:navigation-title: Elements
 
+..  include:: /Includes.rst.txt
+..  _t3ds-elements:
 
-.. _t3ds-elements:
-
-========
-Elements
-========
+===============================
+XML Elements in T3DataStructure
+===============================
 
 This is the list of elements and their nesting in the Data Structure.
 
-.. _t3ds-elements-array:
+..  contents::
+
+..  _t3ds-elements-array:
 
 Elements Nesting Other Elements ("Array" Elements)
 ==================================================
 
-All elements defined here cannot contain any string value but  *must*
-contain another set of elements.
+All elements defined here cannot contain a string value but  *must*
+contain a set of elements.
 
 (In a PHP array this corresponds to saying that all these elements
 must be arrays.)
 
-.. t3-field-list-table::
- :header-rows: 1
+..  confval:: <T3DataStructure>
+    :name: t3datastructure
+    :type: array
 
- - :Element,20: Element
-   :Description,60: Description
-   :Child elements,20: Child elements
+    This is the root element of a T3DataStructure. It may contain tags
+    `<meta>` and `<ROOT>` or `<sheets>`
 
+..  confval:: <T3DataStructure>
+    :name: t3datastructure-meta
+    :type: array
 
- - :Element:
-         <T3DataStructure>
-   :Description:
-         Document tag
-   :Child elements:
-         <meta>
+    Can contain application specific meta settings. Interpretation depends on
+    the application using the T3DataStructure. Each setting goes to a XML tag.
 
-         <ROOT> *or* <sheets>
+..  confval:: <ROOT>
+    :name: t3datastructure-root
+    :type: array
 
+    Defines an "object" in the Data Structure
 
- - :Element:
-         <meta>
-   :Description:
-         Can contain application specific meta settings
-   :Child elements:
-         (depends on application)
+    Tag `<ROOT>` is reserved for the first element in the Data
+    Structure. The `<ROOT>` tag must have a `<type>` tag with the value
+    "array" as child and then define other objects nested in `<el>` tags.
 
+    Can have the following child tags: `<type>`, `<section>`, `<el>`
+    `<[application tag]>`.
 
- - :Element:
-         <ROOT>
+..  confval:: <[field name]>
+    :name: t3datastructure-field-name
+    :type: array
 
-         <[field name]>
-   :Description:
-         Defines an "object" in the Data Structure
+    Defines an "object" in the Data Structure, `[field name]` defines the
+    objects name.
 
-         - <ROOT> is reserved as tag for the first element in the Data
-           Structure.The <ROOT> element must have a <type> tag with the value
-           "array" and then define other objects nested in <el> tags.
+    Can have the same child tags like `<ROOT>`.
 
-         - [field name] defines the objects name
-   :Child elements:
-         <type>
+..  confval:: <sheets>
+    :name: t3datastructure-sheets
+    :type: array
 
-         <section>
+    Defines a collection of "sheets" which is like a one-dimensional list
+    of independent Data Structures.
 
-         <el>
+    Contains `<[sheet name]>` tags for the actual sheets.
 
-         <[application tag]>
+..  confval:: <sheetTitle>
+    :name: t3datastructure-sheet-title
+    :type: string or LLL reference
 
+    Title of the sheet. Mandatory for any sheet except the first (which
+    gets "General" in this case). Can be a plain string or a reference to
+    a language file using standard LLL syntax. Ignored if sheets are not
+    defined for the FlexForm.
 
- - :Element:
-         <sheets>
-   :Description:
-         Defines a collection of "sheets" which is like a one-dimensional list
-         of independent Data Structures
-   :Child elements:
-         <[sheet name]>
+..  confval:: <displayCond>
+    :name: t3datastructure-display-cond
+    :type: array
 
+    Condition that must be met in order for the sheet to be displayed.
+    If the condition is not met, the sheet is hidden.
 
- - :Element:
-         <sheetTitle>
-   :Description:
-         Title of the sheet. Mandatory for any sheet except the first (which
-         gets "General" in this case). Can be a plain string or a reference to
-         language file using standard LLL syntax. Ignored if sheets are not
-         defined for the flexform.
-   :Child elements:
-         -
+    For more details refer to the description of the "displayCond" property
+    in the :ref:`TCA Reference <t3tca:columns>`.
 
+..  confval:: <[sheet ident]>
+    :name: t3datastructure-sheet-ident
+    :type: array
 
- - :Element:
-         <displayCond>
-   :Description:
-         Condition that must be met in order for the sheet to be displayed.
-         If the condition is not met, the sheet is hidden.
+    Defines an independent data structure starting with a `<ROOT>` tag.
 
-         For more details refer to the description of the "displayCond" property
-         in the :ref:`TCA Reference <t3tca:columns>`.
-   :Child elements:
-         -
+    Alternatively, it can be a plain value referring to another
+    XML file which contains the <ROOT> structure. See example later.
 
+..  confval:: <el>
+    :name: t3datastructure-el
+    :type: array
 
- - :Element:
-         <[sheet ident]>
-   :Description:
-         Defines an independent data structure starting with a <ROOT> tag.
+    Contains a collection of Data Structure "objects"
 
-         .. note::
+Elements can use the attribute :xml:`type` to define their type, for example
+they can explicitly use boolean.
 
-            Alternatively it can be a plain value referring to another
-            XML file which contains the <ROOT> structure. See example later.
-   :Child elements:
-         <ROOT>
-
-
- - :Element:
-         <el>
-   :Description:
-         Contains a collection of Data Structure "objects"
-   :Child elements:
-         <[field name]>
-
-Elements can use the attribute :xml:`type` to define their type, for example explicitly use boolean.
 An example would look like:
 
 ..  code-block:: xml
 
     <required type="boolean">1</required>
 
-.. _t3ds-elements-value:
+..  _t3ds-elements-value:
 
 Elements Containing Values ("Value" Elements)
 =============================================
@@ -138,74 +121,63 @@ tags whatsoever!
 (In a PHP array this corresponds to saying that all these elements
 must be strings or integers.)
 
-.. t3-field-list-table::
- :header-rows: 1
+..  confval:: <type>
+    :name: t3datastructure-type
+    :type: Keyword string: `"array"`, `""` (blank)
+    :default: `""` (blank)
 
- - :Element,20: Element
-   :Format,20: Format
-   :Description,60: Description
+    Defines the type of object.
 
+    `"array"`
+        The parent tag contains a collection of other
+        objects defined inside the <el> tag on the same level. If the value is
+         `"array"` you can use the tag `<section>`. See below.
 
- - :Element:
-         <type>
-   :Format:
-         Keyword string:
+    `""` (blank)
+        The parent does not contain sub objects. The
+        meaning of an object is determined by the application using the
+        data structure. For FlexForms this object would draw a form element.
 
-         "array", [blank] (=default)
-   :Description:
-         Defines the type of object.
+    If the parent is `<ROOT>` this tag must have the value `"array"`.
 
-         - "array" means that the object contains a collection of other
-           objects defined inside the <el> tag on the same level. If the value is
-           "array" you can use the boolean "<section>". See below.
+..  confval:: <section>
+    :name: t3datastructure-section
+    :type: Boolean
+    :default: `""` (blank)
 
-         - Default value means that the object does not contain sub objects. The
-           meaning of such an object is determined by the application using the
-           data structure. For FlexForms this object would draw a form element.
-
-         .. note::
-
-            If the object was <ROOT> this tag must have the value "array"
-
-
- - :Element:
-         <section>
-   :Format:
-         Boolean
-   :Description:
-         Defines for an object of the type <array> that it must contain other
-         "array" type objects in each item of <el>. The meaning of this is application specific. For
-         FlexForms it will allow the user to select between possible arrays of
-         objects to create in the form. This is similar to the concept of
-         :ref:`IRRE / inline TCA definitions <t3tca:columns-inline>`.
+    Defines that an object of type <array> must contain other
+    "array" objects in each item of <el>. The meaning of this is application specific. For
+    FlexForms it will allow the user to select between possible arrays of
+    objects that they can create in the form. This is similar to the concept of
+    :ref:`IRRE / inline TCA definitions <t3tca:columns-inline>`.
 
 ..  versionchanged:: 13.0
 
-    The usage of available element types within FlexForm sections is
+    Available element types inside FlexForm sections is
     restricted. You should only use simple TCA types like
-    :php:`type => 'input'` within sections, and relations (:php:`type =>
+    :php:`type => 'input'` in sections. Relations (:php:`type =>
     'group'`, :php:`type => 'inline'`, :php:`type => 'select'` and similar)
     should be avoided.
-    TYPO3 v13 specifically disallows using :php:`type => 'select'` with
+    TYPO3 v13 forbids using :php:`type => 'select'` with
     a :php:`foreign_table` set, which will raise an exception.
     This does not apply for FlexForm fields outside of a :xml:`<section>`.
     Details can be found in
     :ref:`ext_core:breaking-102970-1706447911`.
 
 
-.. _t3ds-elements-example:
+..  _t3ds-elements-example:
 
-Example
-=======
+T3DataStructure example: A simple FlexForm
+==========================================
 
 Below is the structure of a basic FlexForm from the example extension
 :composer:`typo3/cms-styleguide`:
 
 ..  include:: /CodeSnippets/FlexForms/Simple.rst.txt
 
-For a more elaborate example, have a look at the plugin configuration of
+For a more detailed example, have a look at the plugin configuration of
 system extension `felogin` (:t3src:`felogin/Configuration/FlexForms/Login.xml`).
-It shows an example of relative complex data structure used in a FlexForm.
+It shows an example of a relatively complex data structure used in a FlexForm.
 
-More information about such usage of FlexForms can be found in the
+More information about using FlexForms can be found in the
 :ref:`relevant section of the TCA reference <t3tca:columns-flex>`.
