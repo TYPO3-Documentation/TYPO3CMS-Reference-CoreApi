@@ -16,8 +16,9 @@ Prerequisites:
 -   A PHP version and required extensions supported by the TYPO3 version you
     plan to install. See `System requirements
     <https://docs.typo3.org/permalink/t3coreapi:system-requirements>`_.
--   A database such as MySQL or MariaDB
--   FTP access or web-based file manager (such as cPanel)
+-   A database such as MySQL or MariaDB. See `System requirements for version requirements
+    <https://docs.typo3.org/permalink/t3coreapi:system-requirements>`_.
+-   FTP/SFTP access or web-based file manager (such as cPanel or Plesk)
 -   A web browser to run the installation wizard
 
 ..  _manual-archive-download:
@@ -46,7 +47,7 @@ Upload and extract the package
     If your server does not offer an option to extract files,
     see :ref:`manual-archive-alternative-upload`
 -   After extraction, you have a folder named something like
-    :path:`typo3_src-13.4.11`. Move all files and folder contained from this
+    :path:`typo3_src-13.4.15`. Move all files and folder contained from this
     folder into **the folder where your domain or
     subdomain’s document root points to**.
 
@@ -92,10 +93,10 @@ files:
 Create a database
 =================
 
--   Log in to your hosting control panel (such as cPanel)
+-   Log in to your hosting control panel (such as cPanel or Plesk)
 -   Create a new database (MySQL or MariaDB) and a user, and assign the user to
     the database with full privileges
--   Make a note of the database name, username, and password for later use
+-   Make a note of the database name, username, password, server and port (usually 3306) for later use
 
 ..  _manual-archive-completion:
 

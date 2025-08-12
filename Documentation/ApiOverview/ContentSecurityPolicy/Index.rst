@@ -272,6 +272,8 @@ Read on to understand more of the underlying API builder concepts below.
 Configuration
 =============
 
+..  _content-security-policy-configuration-policy-builder-approach:
+
 Policy builder approach
 -----------------------
 

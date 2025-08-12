@@ -1,0 +1,26 @@
+<T3DataStructure>
+    <sheets>
+        <sDEF>
+            <ROOT>
+                <sheetTitle>
+                    Sheet Title
+                </sheetTitle>
+                <type>array</type>
+                <el>
+                    <settings.someSetting>
+                        <label>Some Setting</label>
+                        <config>
+                            <type>input</type>
+                        </config>
+                    </settings.someSetting>
+                    <settings.anotherSetting>
+                        <label>Another Setting</label>
+                        <config>
+                            <type>input</type>
+                        </config>
+                    </settings.anotherSetting>
+                </el>
+            </ROOT>
+        </sDEF>
+    </sheets>
+</T3DataStructure>

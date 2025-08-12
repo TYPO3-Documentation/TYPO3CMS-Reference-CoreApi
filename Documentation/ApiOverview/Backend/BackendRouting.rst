@@ -120,6 +120,7 @@ Within a controller (we use here a non-Extbase controller as example):
 
 .. index:: Backend routing; Generating backend URLs
 
+.. _generating-backend-urls:
 Generating backend URLs
 =======================
 

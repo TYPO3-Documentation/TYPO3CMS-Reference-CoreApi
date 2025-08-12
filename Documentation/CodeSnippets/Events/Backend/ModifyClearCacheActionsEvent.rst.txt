@@ -14,7 +14,7 @@
         :param $cacheActions: the cacheActions
 
     ..  php:method:: getCacheActions()
-        :returns: `array`
+        :returns: `list<\CacheAction>`
 
     ..  php:method:: addCacheActionIdentifier(string $cacheActionIdentifier)
 
@@ -25,4 +25,4 @@
         :param $cacheActionIdentifiers: the cacheActionIdentifiers
 
     ..  php:method:: getCacheActionIdentifiers()
-        :returns: `array`
+        :returns: `list<non-empty-string>`
