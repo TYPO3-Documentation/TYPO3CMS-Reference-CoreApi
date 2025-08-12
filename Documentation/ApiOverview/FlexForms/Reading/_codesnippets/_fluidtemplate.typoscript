@@ -1,0 +1,7 @@
+lib.my_content = FLUIDTEMPLATE
+lib.my_content {
+  variables {
+    categories = TEXT
+    categories.data = flexform: pi_flexform:categories
+  }
+}

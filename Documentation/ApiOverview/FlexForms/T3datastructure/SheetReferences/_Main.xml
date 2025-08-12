@@ -1,0 +1,6 @@
+<T3DataStructure>
+    <sheets>
+        <sDEF>EXT:my_extension/Configuration/FlexForms/sheets/DefaultSheet.xml</sDEF>
+        <s_welcome>EXT:my_extension/Configuration/FlexForms/sheets/WelcomeSheet.xml</s_welcome>
+    </sheets>
+</T3DataStructure>

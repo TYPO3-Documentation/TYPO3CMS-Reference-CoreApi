@@ -34,7 +34,7 @@ In these cases Fluid does not have to deal with these manipulations or transform
 You can find the example below in the TYPO3 Documentation Team extension
 :composer:`t3docs/examples`.
 
-.. _adding-your-own-content-elements-prerequisites:
+..  _adding-your-own-content-elements-prerequisites:
 
 Prerequisites
 =============
