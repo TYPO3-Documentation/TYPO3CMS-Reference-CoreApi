@@ -873,14 +873,26 @@ What about injection in a XCLASS'ed class?
 
 When extending an existing class (for example, an Extbase controller) using
 :ref:`XCLASS <xclasses>` and injecting additional dependencies using constructor
-injection, ensure that a reference to the extended class is added in the
-:file:`Configuration/Services.yaml` file of the extending extension, as shown in
-the example below:
+injection, define the existing class as an alias for the extended class in the
+:file:`Configuration/Services.yaml` file of the extending extension, by using the
+shortcut notation for an alias as shown in the example below:
 
 ..  code-block:: yaml
     :caption: EXT:my_extension/Configuration/Services.yaml
 
     TYPO3\CMS\Belog\Controller\BackendLogController: '@MyVendor\MyExtension\Controller\ExtendedBackendLogController'
+
+If the extended class is instantiated by :php:`GeneralUtility::makeInstance()` and
+:ref:`must be declared public <What_to_make_public>`, either use an additional
+:ref:`PHP attribute <dependency-injection-autoconfigure>` or the full alias
+notation including the `public` argument:
+
+..  code-block:: yaml
+    :caption: EXT:my_extension/Configuration/Services.yaml
+
+    TYPO3\CMS\Belog\Controller\BackendLogController:
+      public: true
+      alias: MyVendor\MyExtension\Controller\ExtendedBackendLogController
 
 
 Not yet exemplified
