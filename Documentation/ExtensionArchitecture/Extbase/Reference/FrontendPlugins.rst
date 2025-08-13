@@ -47,12 +47,7 @@ Use the following steps to add the plugin as content element:
     #.  A unique identifier for your plugin in UpperCamelCase: :php:`'PostSingle'`
     #.  An array of allowed combinations of controllers and actions stored in an array
     #.  (Optional) an array of controller name and  action names which should not be cached
-    #.  Using any value but `ExtensionUtility::PLUGIN_TYPE_CONTENT_ELEMENT` is
-        deprecated in TYPO3 v13.4.
-
-    ..  deprecated:: 13.4
-        Setting the fifth parameter to any value but `ExtensionUtility::PLUGIN_TYPE_CONTENT_ELEMENT`
-        is deprecated. See :ref:`plugins-list_type-migration`.
+    #.  `ExtensionUtility::PLUGIN_TYPE_CONTENT_ELEMENT`
 
     :php:`TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin()` generates
     the necessary TypoScript to display the plugin in the frontend.
