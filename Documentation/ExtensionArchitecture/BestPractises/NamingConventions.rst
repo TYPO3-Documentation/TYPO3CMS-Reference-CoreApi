@@ -338,6 +338,7 @@ Examples (from TYPO3 Core extensions):
 
 Plugin signature
 ================
+
 ..  versionchanged:: 14.0
     Adding frontend plugins as a "General Plugin", setting the content
     record :sql:`CType` to :sql:`'list'` and `list_type` to the plugin signature
