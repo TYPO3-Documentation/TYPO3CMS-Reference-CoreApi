@@ -340,7 +340,7 @@ Plugin signature
 ================
 ..  versionchanged:: 14.0
     Adding frontend plugins as a "General Plugin", setting the content
-   record :sql:`CType` to :sql:`'list'` and `list_type` to the plugin signature
+    record :sql:`CType` to :sql:`'list'` and `list_type` to the plugin signature
     is not possible anymore. See :ref:`plugins-list_type-migration`.
 
 The plugin signature of non-Extbase plugins, registered via
