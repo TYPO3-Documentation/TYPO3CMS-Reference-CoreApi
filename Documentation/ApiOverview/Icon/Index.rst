@@ -60,6 +60,11 @@ Using icons in your code
 You can use the Icon API to receive icons in your PHP
 code or directly in Fluid.
 
+..  note::
+    The icons are cached in the local storage of the client to reduce the workload off the server.
+    During development, it might be necessary to clear the local storage in addition to the usual
+    TYPO3 caches.
+
 
 .. index:: Icon API; IconFactory
 
@@ -192,7 +197,6 @@ markupIdentifier
 The method :js:`getIcon()` returns a AjaxResponse Promise object, as internally
 an Ajax request is done.
 
-The icons are cached in the local storage of the client to reduce the workload off the server.
 Here is an example code how a usage of the JavaScript Icon API may look like:
 
 ..  todo: move the example to examples extension
