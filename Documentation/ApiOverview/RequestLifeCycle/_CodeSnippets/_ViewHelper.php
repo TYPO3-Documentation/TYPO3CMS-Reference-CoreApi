@@ -11,7 +11,7 @@ final class MyViewHelper extends AbstractViewHelper
 {
     public function render(): string
     {
-        $request = $this->getRequest($this->renderingContext);
+        $request = $this->getRequest();
         return $request !== null ? 'Request found' : 'No request found';
     }
 
