@@ -11,7 +11,7 @@ enforce:
 # alternatively (or additionally!), reporting can be set too,
 # for example when testing stricter rules than above
 # (note the missing 'assets.example.com')
-# reporting:
+# report:
 #   inheritDefault: true
 #   mutations:
 #    - mode: "append"

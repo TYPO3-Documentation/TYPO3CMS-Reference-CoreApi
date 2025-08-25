@@ -67,7 +67,7 @@ the feature flags:
     (for report-only mode, available since TYPO3 v12.4.20)
 
 needs to be enabled, **or** the site-specific :file:`csp.yaml` configuration
-file needs to set the `enforce` or `reporting` disposition like this:
+file needs to set the `enforce` or `report` disposition like this:
 
 ..  literalinclude:: _csp_enforce.yaml
     :language: yaml
