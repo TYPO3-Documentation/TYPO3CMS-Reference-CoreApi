@@ -65,7 +65,7 @@ the feature flags:
     (for report-only mode)
 
 needs to be enabled, **or** the site-specific :file:`csp.yaml` configuration
-file needs to set the `enforce` or `reporting` disposition like this:
+file needs to set the `enforce` or `report` disposition like this:
 
 ..  literalinclude:: _csp_enforce.yaml
     :language: yaml
