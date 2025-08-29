@@ -5,8 +5,8 @@ declare(strict_types=1);
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
 use TYPO3\CMS\Extbase\Mvc\Controller\FileUploadConfiguration;
-use TYPO3\CMS\Extbase\Validation\Validator\MimeTypeValidator;
 use TYPO3\CMS\Extbase\Validation\Validator\FileExtensionValidator;
+use TYPO3\CMS\Extbase\Validation\Validator\MimeTypeValidator;
 
 class SomeController extends ActionController
 {
