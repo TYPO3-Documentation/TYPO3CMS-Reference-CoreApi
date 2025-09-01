@@ -8,7 +8,7 @@ BeforeEmailFinisherInitializedEvent
 
 ..  versionadded:: 14.0
 
-    The PSR-14 event :php:`_BeforeEmailFinisherInitializedEvent` has
+    The PSR-14 event :php:`BeforeEmailFinisherInitializedEvent` has
     been introduced to provide developers with control over email
     configuration without needing to extend or override the :php:`EmailFinisher`
     class.
@@ -33,9 +33,7 @@ Example
 The corresponding event listener class:
 
 ..  literalinclude:: _BeforeEmailFinisherInitializedEvent/_MyEventListener.php
-    :caption: EXT:my_extension/Classes/Backend/EventListener/MyEventListener.php
-
-
+    :caption: EXT:my_package/Classes/Form/EventListener/MyEventListener.php
 
 API
 ===
