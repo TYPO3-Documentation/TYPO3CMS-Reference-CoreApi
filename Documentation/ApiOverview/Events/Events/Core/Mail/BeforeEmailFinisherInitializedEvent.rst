@@ -6,8 +6,15 @@
 BeforeEmailFinisherInitializedEvent
 ===================================
 
-A new PSR-14 event :php:`\TYPO3\CMS\Form\Event\BeforeEmailFinisherInitializedEvent`
-has been introduced. This event is dispatched before the :php:`EmailFinisher` is
+..  versionadded:: 14.0
+
+    The PSR-14 event :php:`_BeforeEmailFinisherInitializedEvent` has
+    been introduced to provide developers with control over email
+    configuration without needing to extend or override the :php:`EmailFinisher`
+    class.
+
+A PSR-14 event :php:`\TYPO3\CMS\Form\Event\BeforeEmailFinisherInitializedEvent`
+is dispatched before the :php:`\TYPO3\CMS\Form\Domain\Finishers\EmailFinisher` is
 initialized and allows listeners to modify the finisher options.
 
 This enables developers to customize email behavior programmatically, such as:
@@ -17,11 +24,6 @@ This enables developers to customize email behavior programmatically, such as:
 *   Replacing recipients with developer email addresses in test environments
 *   Adding or removing CC/BCC recipients conditionally
 *   Customizing reply-to addresses
-
-..  hint::
-    This event provides developers with comprehensive control over email
-    configuration without needing to extend or override the :php:`EmailFinisher`
-    class.
 
 ..  _BeforeEmailFinisherInitializedEvent-example:
 

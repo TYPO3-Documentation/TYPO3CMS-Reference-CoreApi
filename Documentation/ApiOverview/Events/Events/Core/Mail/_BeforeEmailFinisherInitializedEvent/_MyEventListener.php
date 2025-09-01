@@ -7,9 +7,11 @@ namespace Vendor\MyPackage\Form\EventListener;
 use TYPO3\CMS\Core\Attribute\AsEventListener;
 use TYPO3\CMS\Form\Event\BeforeEmailFinisherInitializedEvent;
 
-final class BeforeEmailFinisherInitializedEventListener
+final readonly class BeforeEmailFinisherInitializedEventListener
 {
-    #[AsEventListener('my-package/form/modify-email-finisher-options')]
+    #[AsEventListener(
+        identifier: 'my-package/form/modify-email-finisher-options',
+    )]
     public function __invoke(BeforeEmailFinisherInitializedEvent $event): void
     {
         $options = $event->getOptions();
