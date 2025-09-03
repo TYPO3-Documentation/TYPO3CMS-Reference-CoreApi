@@ -23,7 +23,7 @@ the live system).
     the setting containing sensitive information to
     :file:`config/system/additional.php` and use an :file:`.env` file in the
     project directory to configure the password and other configuration along
-    with `helhum/dotenv-collector <https://github.com/helhum/dotenv-connector>`__.
+    with `helhum/dotenv-connector <https://github.com/helhum/dotenv-connector>`__.
 
 Additionally, some files and folders added by Composer should be excluded:
 
