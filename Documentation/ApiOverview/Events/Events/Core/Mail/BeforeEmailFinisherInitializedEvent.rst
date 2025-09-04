@@ -8,9 +8,9 @@ BeforeEmailFinisherInitializedEvent
 
 ..  versionadded:: 14.0
 
-    The PSR-14 event :php:`BeforeEmailFinisherInitializedEvent` has
+    The PSR-14 event :php-short:`\TYPO3\CMS\Form\Event\BeforeEmailFinisherInitializedEvent` has
     been introduced to provide developers with control over email
-    configuration without needing to extend or override the :php:`EmailFinisher`
+    configuration without needing to extend or override the :php-short:`\TYPO3\CMS\Form\Domain\Finishers\EmailFinisher`
     class.
 
 A PSR-14 event :php:`\TYPO3\CMS\Form\Event\BeforeEmailFinisherInitializedEvent`
@@ -34,6 +34,9 @@ The corresponding event listener class:
 
 ..  literalinclude:: _BeforeEmailFinisherInitializedEvent/_MyEventListener.php
     :caption: EXT:my_package/Classes/Form/EventListener/MyEventListener.php
+
+
+..  _BeforeEmailFinisherInitializedEvent-example-api:
 
 API
 ===
