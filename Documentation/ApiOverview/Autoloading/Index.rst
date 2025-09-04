@@ -61,6 +61,8 @@ information inside your extension's :file:`composer.json`. If you do not provide
 this, the autoloader falls back to the classmap autoloading like in
 non-Composer mode.
 
+..  _autoloading-troubleshooting:
+
 Troubleshooting
 ---------------
 
