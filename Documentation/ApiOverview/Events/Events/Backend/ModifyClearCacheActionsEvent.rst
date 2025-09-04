@@ -32,14 +32,36 @@ The cache action array element consists of the following keys and values:
 ..  code-block:: php
     :caption: Example cache action array
 
-    [
+    $event->addCacheAction([
+        // Required keys:
         'id' => 'pages',
         'title' => 'LLL:EXT:core/Resources/Private/Language/locallang_core.xlf:flushPageCachesTitle',
-        'description' => 'LLL:EXT:core/Resources/Private/Language/locallang_core.xlf:flushPageCachesDescription',
         'href' => (string)$uriBuilder->buildUriFromRoute('tce_db', ['cacheCmd' => 'pages']),
-        'iconIdentifier' => 'actions-system-cache-clear-impact-low'
-    ]
+        'iconIdentifier' => 'actions-system-cache-clear-impact-low',
+        // Optional, recommended keys:
+        'description' => 'LLL:EXT:core/Resources/Private/Language/locallang_core.xlf:flushPageCachesDescription',
+        'severity' => 'success',
+    ]);
 
+The key :php:`severity` can contain one of these strings: `notice, info, success, warning, error`.
+
+The cache identifier array is a numerical array in which the array value corresponds to the registered `id` of the cache action array.
+Here is an example of how to use it for a custom cache action:
+
+..  code-block:: php
+    :caption: Example cache action array combined with a cache identifier array
+
+    $myIdentifier = 'myExtensionCustomStorageCache';
+    $event->addCacheAction([
+        'id' => $myIdentifier,
+        'title' => 'LLL:EXT:my_extension/Resources/Private/Language/locallang.xlf:CacheActionTitle',
+        // Note to register your own route, this is an example
+        'href' => (string)$uriBuilder->buildUriFromRoute('ajax_' . $myIdentifier . '_purge'),
+        'iconIdentifier' => 'actions-system-cache-clear-impact-low',
+        'description' => 'LLL:EXT:my_extension/Resources/Private/Language/locallang.xlf:CacheActionDescription',
+        'severity' => 'notice',
+    ]);
+    $event->addCacheActionIdentifier($myIdentifier);
 
 API
 ===
