@@ -73,10 +73,10 @@ Relations
 
 Extbase supports different types of hierarchical relationships
 between domain objects.
-All relationships can be defined unidirectional or multidimensional in the model.
+Relationships can be defined as unidirectional or as multidimensional in the model.
 
-On the side of the relationship that can only have one counterpart, you must
-decide whether it is possible to have no relationship (allow null) or not.
+On the side of a relationship that can only have one counterpart, you must
+decide whether it is allowed that no counterpart exists (allow null).
 
 
 Nullable relations
@@ -93,7 +93,7 @@ be used in any modern TYPO3 version:
    protected ?Person $secondAuthor = null;
 
 Union types, that can also be used to allow :php:`null`, have been introduced with
-PHP 8.0 and can only been used when the minimal PHP requirement is PHP 8.0.
+PHP 8.0.
 
 .. code-block:: php
    :caption: Example for union type of null and Person
