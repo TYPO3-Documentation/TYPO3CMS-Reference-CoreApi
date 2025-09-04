@@ -58,16 +58,25 @@ Loading classes with Composer mode
 
 In Composer mode, the autoloader checks for (classmap and `PSR-4`) autoloading
 information inside your extension's :file:`composer.json`. If you do not provide
-any information, the autoloader falls back to the classmap autoloading like in
+this, the autoloader falls back to the classmap autoloading like in
 non-Composer mode.
+
+..  _autoloading-troubleshooting:
 
 Troubleshooting
 ---------------
 
-Dump the class loading information manually via `composer dumpautoload` and
-check that the autoload information is updated. Typically you would check
-:file:`vendor/composer/` to hold files like :file:`autoload_classmap.php` and
-:file:`autoload_psr4.php`, etc.
+-   Dump the class loading information manually via
+
+    ..  code-block:: bash
+
+        composer dumpautoload
+
+    and check that the autoload information is updated. Typically you would check
+    :file:`vendor/composer/` to hold files like :file:`autoload_classmap.php` and
+    :file:`autoload_psr4.php`, etc..
+
+-   Check if you find the required class names in these files and install any missing extensions.
 
 Example:
 
