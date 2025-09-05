@@ -21,10 +21,10 @@ then the corresponding repository is named *BlogRepository* (with the full name
 :php:`\FriendsOfTYPO3\BlogExample\Domain\Repository\BlogRepository`).
 
 The :php:`\TYPO3\CMS\Extbase\Persistence\Repository` already offers a large
-number of useful functions. Therefore, in simple classes that extend the
-:php:`Repository` class and leaving the class empty otherwise is sufficient.
+number of useful functions. Therefore it is sufficient that a class extends the
+:php:`Repository` class and leaves the class body empty.
 
-The :php:`BlogRepository` sets some default orderings and is otherwise empty:
+The :php:`BlogRepository` sets the default orderings and is otherwise empty:
 
 ..  include:: /CodeSnippets/Extbase/Domain/BlogRepository.rst.txt
 
@@ -33,7 +33,7 @@ The :php:`BlogRepository` sets some default orderings and is otherwise empty:
 
 ..  seealso::
     If you are using the :composer:`stefanfroemken/ext-kickstarter` you can use
-    command `vendor/bin/typo3 make:repository` to generate an Extbase repository.
+    the command `vendor/bin/typo3 make:repository` to generate an Extbase repository.
 
 ..  _extbase-repository-find-methods:
 
