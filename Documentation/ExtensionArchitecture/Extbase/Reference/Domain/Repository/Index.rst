@@ -21,7 +21,7 @@ then the corresponding repository is named *BlogRepository* (with the full name
 :php:`\FriendsOfTYPO3\BlogExample\Domain\Repository\BlogRepository`).
 
 The :php:`\TYPO3\CMS\Extbase\Persistence\Repository` already offers a large
-number of useful functions. Therefore it is sufficient that a class only extends the
+number of useful methods. Therefore it is sufficient that a class only extends the
 :php:`Repository` class.
 
 The :php:`BlogRepository` sets the default orderings and is otherwise empty:
