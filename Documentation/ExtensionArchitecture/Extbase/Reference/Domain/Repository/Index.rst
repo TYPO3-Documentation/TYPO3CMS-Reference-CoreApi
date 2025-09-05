@@ -33,7 +33,7 @@ The :php:`BlogRepository` sets the default orderings and is otherwise empty:
 
 ..  seealso::
     If you are using the :composer:`stefanfroemken/ext-kickstarter` you can use
-    the command `vendor/bin/typo3 make:repository` to generate an Extbase repository.
+    the command :command:`vendor/bin/typo3 make:repository` to generate an Extbase repository.
 
 ..  _extbase-repository-find-methods:
 
@@ -41,14 +41,14 @@ Find methods
 ============
 
 ..  versionchanged:: 14.0
-    The "magic" find methods `findByX()`, `findOneByX()` and `countByX()` have
+    The "magic" find methods :php:`findByX()`, :php:`findOneByX()` and :php:`countByX()` have
     been removed. See :ref:`t3coreapi/13:extbase-repository-find-by-magic-migration`
 
-    The (not-magic) methods `findByUid()` and `findByIdentifier()` have **not**
+    The (not-magic) methods :php:`findByUid()` and :php:`findByIdentifier()` have **not**
     been deprecated or removed, and are still valid.
 
     Using these methods will fetch a given domain object by it's UID, ignoring possible storage
-    page settings - unlike `findBy([...])`, which does respect those settings.
+    page settings - unlike :php:`findBy([...])`, which does respect those settings.
 
 The :php:`Repository` class provides the following methods for querying against
 arbitrary criteria:
