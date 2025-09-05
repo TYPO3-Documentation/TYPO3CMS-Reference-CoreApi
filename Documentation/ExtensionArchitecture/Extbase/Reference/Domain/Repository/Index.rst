@@ -21,10 +21,10 @@ then the corresponding repository is named *BlogRepository* (with the full name
 :php:`\FriendsOfTYPO3\BlogExample\Domain\Repository\BlogRepository`).
 
 The :php:`\TYPO3\CMS\Extbase\Persistence\Repository` already offers a large
-number of useful functions. Therefore, in simple classes that extend the
-:php:`Repository` class and leaving the class empty otherwise is sufficient.
+number of useful methods. Therefore it is sufficient that a class only extends the
+:php:`Repository` class.
 
-The :php:`BlogRepository` sets some default orderings and is otherwise empty:
+The :php:`BlogRepository` sets the default orderings and is otherwise empty:
 
 ..  include:: /CodeSnippets/Extbase/Domain/BlogRepository.rst.txt
 
@@ -33,7 +33,7 @@ The :php:`BlogRepository` sets some default orderings and is otherwise empty:
 
 ..  seealso::
     If you are using the :composer:`stefanfroemken/ext-kickstarter` you can use
-    command `vendor/bin/typo3 make:repository` to generate an Extbase repository.
+    the command :command:`vendor/bin/typo3 make:repository` to generate an Extbase repository.
 
 ..  _extbase-repository-find-methods:
 
@@ -41,14 +41,14 @@ Find methods
 ============
 
 ..  versionchanged:: 14.0
-    The "magic" find methods `findByX()`, `findOneByX()` and `countByX()` have
+    The "magic" find methods :php:`findByX()`, :php:`findOneByX()` and :php:`countByX()` have
     been removed. See :ref:`t3coreapi/13:extbase-repository-find-by-magic-migration`
 
-    The (not-magic) methods `findByUid()` and `findByIdentifier()` have **not**
+    The (not-magic) methods :php:`findByUid()` and :php:`findByIdentifier()` have **not**
     been deprecated or removed, and are still valid.
 
     Using these methods will fetch a given domain object by it's UID, ignoring possible storage
-    page settings - unlike `findBy([...])`, which does respect those settings.
+    page settings - unlike :php:`findBy([...])`, which does respect those settings.
 
 The :php:`Repository` class provides the following methods for querying against
 arbitrary criteria:
