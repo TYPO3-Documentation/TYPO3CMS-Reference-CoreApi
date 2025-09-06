@@ -1,0 +1,5 @@
+config.pageTitleProviders {
+  record {
+    provider = TYPO3\CMS\Core\PageTitle\RecordPageTitleProvider
+  }
+}

@@ -15,8 +15,8 @@ Based on the priority of the providers, the
 providers if a title is given by the provider. It will start with the highest
 priority and will end with the lowest priority.
 
-By default, the Core ships two providers. If you have installed the :doc:`system
-extension SEO <ext_seo:Index>`, the provider with the (by default) highest
+By default, the Core ships two providers. If you have installed
+:composer:`typo3/cms-seo`, the provider with the (by default) highest
 priority will be the :php:`\TYPO3\CMS\Seo\PageTitle\SeoTitlePageTitleProvider`.
 When an editor has set a value for the SEO title in the page properties of the
 page, this provider will provide that title to the
@@ -40,6 +40,8 @@ integrator can define the priority of the providers for his project.
 
 ..  index:: PageTitle; Custom PageTitleProvider
 
+..  _page-title-provider-custom:
+
 Create your own page title provider
 ===================================
 
@@ -49,6 +51,8 @@ the page record will not be the correct title. To make sure to display the
 correct page title, you have to create your own page title provider. It is
 quite easy to create one.
 
+..  _page-title-provider-custom-example:
+
 Example: Set the page title from your extension's controller
 ------------------------------------------------------------
 
@@ -57,19 +61,21 @@ First, create a PHP class in your extension that implements the
 extending :php:`\TYPO3\CMS\Core\PageTitle\AbstractPageTitleProvider`.  Within
 this method you can create your own logic to define the correct title.
 
-..  literalinclude:: _ExampleSetInController/_MyOwnPageTitleProvider.php
+..  literalinclude:: _PageTitleProvider/_ExampleSetInController/_MyOwnPageTitleProvider.php
     :caption: EXT:my_extension/Classes/PageTitle/MyOwnPageTitleProvider.php
 
 Usage example in an :ref:`Extbase <extbase>` controller:
 
-..  literalinclude:: _ExampleSetInController/_SomeController.php
+..  literalinclude:: _PageTitleProvider/_ExampleSetInController/_SomeController.php
     :caption: EXT:my_extension/Classes/Controller/SomeController.php
 
 Configure the new page title provider in your TypoScript setup:
 
-..  literalinclude:: _ExampleSetInController/_setup.typoscript
+..  literalinclude:: _PageTitleProvider/_ExampleSetInController/_setup.typoscript
     :language: typoscript
     :caption: EXT:my_sitepackage/Configuration/TypoScript/setup.typoscript
+
+..  _page-title-provider-custom-site-config:
 
 Example: Use values from the site configuration in the page title
 -----------------------------------------------------------------
@@ -77,7 +83,7 @@ Example: Use values from the site configuration in the page title
 If you want to use data from the :ref:`site configuration <sitehandling>`, for
 example the site title, you can implement a page title provider as follows:
 
-..  literalinclude:: _ExampleWebsiteTitle/_WebsiteTitleProvider.php
+..  literalinclude:: _PageTitleProvider/_WebsiteTitleProvider.php
     :caption: EXT:my_sitepackage/Classes/PageTitle/WebsiteTitleProvider.php
 
 ..  versionchanged:: 13.0
@@ -93,7 +99,7 @@ and PHP Cache`.
 
 Configure the new page title provider to be used in your TypoScript setup:
 
-..  literalinclude:: _ExampleWebsiteTitle/_setup.typoscript
+..  literalinclude:: _PageTitleProvider/_website.typoscript
     :language: typoscript
     :caption: EXT:my_sitepackage/Configuration/TypoScript/setup.typoscript
 
@@ -109,22 +115,18 @@ you can change this by loading your custom provider before `seo`.
 .. index:: PageTitle; Priority
 
 .. _define-the-priority-of-pagetitleproviders:
+
 Define the priority of PageTitleProviders
 =========================================
 
 The priority of the providers is set by the TypoScript property
-:typoscript:`config.pageTitleProviders`. This way an integrator is able to set
-the priorities for his project and can even have conditions in place.
+`config.pageTitleProviders <https://docs.typo3.org/permalink/t3tsref:confval-config-pagetitleproviders>`_.
+This way an integrator is able to set
+the priorities for their project and can even have conditions in place.
 
 By default, the Core has the following setup:
 
-..  code-block:: typoscript
-
-    config.pageTitleProviders {
-        record {
-            provider = TYPO3\CMS\Core\PageTitle\RecordPageTitleProvider
-        }
-    }
+..  literalinclude:: _PageTitleProvider/_core.typoscript
 
 The sorting of the providers is based on the :typoscript:`before` and
 :typoscript:`after` parameters. If you want a provider to be handled before a
@@ -134,17 +136,7 @@ do the same with :typoscript:`after`.
 If you have installed the system extension SEO, you will also get a second
 provider. The configuration will be:
 
-..  code-block:: typoscript
-
-    config.pageTitleProviders {
-        record {
-            provider = TYPO3\CMS\Core\PageTitle\RecordPageTitleProvider
-        }
-        seo {
-            provider = TYPO3\CMS\Seo\PageTitle\SeoTitlePageTitleProvider
-            before = record
-        }
-    }
+..  literalinclude:: _PageTitleProvider/_pageTitleProviders.typoscript
 
 First the :php:`SeoTitlePageTitleProvider` (because it will be handled before
 :typoscript:`record`) and, if this providers did not provide a title, the
