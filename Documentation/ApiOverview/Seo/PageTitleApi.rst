@@ -93,7 +93,7 @@ correct page title, you have to create your own page title provider. It is
 quite easy to create one.
 
 ..  versionadded:: 14.0
-    In many use cases provider RecordTitleProvider
+    In many use cases, the provider `RecordTitleProvider`
     can be used instead of writing a custom page title provider.
 
 ..  _page-title-provider-custom-example:
