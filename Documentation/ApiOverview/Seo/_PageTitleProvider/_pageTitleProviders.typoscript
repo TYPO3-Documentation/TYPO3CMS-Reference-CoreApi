@@ -1,9 +1,5 @@
 config.pageTitleProviders {
-  record {
-    provider = TYPO3\CMS\Core\PageTitle\RecordPageTitleProvider
-  }
-  seo {
-    provider = TYPO3\CMS\Seo\PageTitle\SeoTitlePageTitleProvider
-    before = record
+  recordTitle {
+    before = seo
   }
 }
