@@ -17,6 +17,10 @@ providers if a title is given by the provider.
 Besides the providers shipped by the Core, you can add own providers. An
 integrator can define the priority of the providers for his project.
 
+..  versionadded:: 14.0
+    The page title can also be set via the `Page.title ViewHelper
+    <f:page.title> <https://docs.typo3.org/permalink/t3viewhelper:typo3-fluid-page-title>`_.
+
 .. seealso::
 
    The page title is further influenced by :ref:`t3tsref:setup-config-pagetitle`
@@ -48,6 +52,22 @@ page, this provider will provide that title.
 If you have not installed the SEO system
 extension, the field and provider are not available.
 
+..  _page-title-provider-record-title:
+
+RecordTitleProvider
+-------------------
+
+..  versionadded:: 14.0
+
+The fallback provider with the lowest priority is the
+:php:`\TYPO3\CMS\Core\PageTitle\RecordTitleProvider`. It has the identifier
+`recordTitle`.
+
+This provider can be used by 3rd party extensions to set the page title.
+
+..  literalinclude:: _PageTitleProvider/_RecordTitleProviderUsage.php
+    :caption: my_extension/Classes/Controller/ItemController.php
+
 ..  _page-title-provider-record:
 
 RecordPageTitleProvider
@@ -71,6 +91,10 @@ example, if you have an extension with records and a detail view, the title of
 the page record will not be the correct title. To make sure to display the
 correct page title, you have to create your own page title provider. It is
 quite easy to create one.
+
+..  versionadded:: 14.0
+    In many use cases provider RecordTitleProvider
+    can be used instead of writing a custom page title provider.
 
 ..  _page-title-provider-custom-example:
 
