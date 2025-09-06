@@ -28,7 +28,7 @@ return [
     [
         'action' => 'createPhpClassDocs',
         'class' => \TYPO3\CMS\Core\Cache\Backend\FreezableBackendInterface::class,
-        'targetFileName' => 'CodeSnippets/Manual/Cache/FreezableBackendInterface .rst.txt',
+        'targetFileName' => 'CodeSnippets/Manual/Cache/FreezableBackendInterface.rst.txt',
         'withCode' => false,
     ],
 ];
