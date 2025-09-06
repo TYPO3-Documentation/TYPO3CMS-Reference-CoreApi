@@ -3,9 +3,16 @@ name: tests
 on:
   push:
   pull_request:
+  schedule:
+    - cron: "0 3 * * *" # every day at 03:00 UTC
 
 jobs:
   lint:
+    # Run always on push/PR, but only run on schedule in the main repo for feature branches
+    if: github.event_name != 'schedule' || (
+      github.repository == 'TYPO3-Documentation/TYPO3CMS-Reference-CoreApi' &&
+      (github.ref_name == 'main' || github.ref_name matches '^[0-9]+\\.[0-9]+$')
+      )
     name: Linting
     runs-on: ubuntu-latest
     strategy:
@@ -22,6 +29,11 @@ jobs:
         run: Build/Scripts/runTests.sh -p ${{ matrix.php }} -s lint
 
   quality:
+    # Run always on push/PR, but only run on schedule in the main repo for feature branches
+    if: github.event_name != 'schedule' || (
+      github.repository == 'TYPO3-Documentation/TYPO3CMS-Reference-CoreApi' &&
+      (github.ref_name == 'main' || github.ref_name matches '^[0-9]+\\.[0-9]+$')
+      )
     name: Quality
     runs-on: ubuntu-latest
     env:

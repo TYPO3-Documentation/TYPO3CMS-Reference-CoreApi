@@ -1,9 +1,18 @@
 name: test documentation
 
-on: [ push, pull_request ]
+on:
+  push:
+  pull_request:
+  schedule:
+    - cron: "0 3 * * *" # every day at 03:00 UTC
 
 jobs:
   tests:
+    # Run always on push/PR, but only run on schedule in the main repo for feature branches
+    if: github.event_name != 'schedule' || (
+      github.repository == 'TYPO3-Documentation/TYPO3CMS-Reference-CoreApi' &&
+      (github.ref_name == 'main' || github.ref_name matches '^[0-9]+\\.[0-9]+$')
+      )
     name: documentation
     runs-on: ubuntu-latest
     steps:
