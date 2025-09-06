@@ -21,6 +21,7 @@ class Blog extends AbstractEntity
                 'notAllowedMessage' => 'LLL:EXT:my_extension/...',
                 'invalidExtensionMessage' => 'LLL:EXT:my_extension/...',
             ],
+            'fileExtension' => ['allowedFileExtensions' => ['jpg', 'jpeg', 'png']],
         ],
         'uploadFolder' => '1:/user_upload/files/',
     ])]
