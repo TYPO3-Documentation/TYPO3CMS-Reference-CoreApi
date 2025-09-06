@@ -146,76 +146,46 @@ Backend API
 ===========
 
 All backends must implement at least interface :code:`TYPO3\CMS\Core\Cache\Backend\BackendInterface`.
+
+..  versionchanged:: 14.0
+    The :php-short:`\TYPO3\CMS\Core\Cache\Backend\FreezableBackendInterface`
+    has been removed. See `Breaking: #107310 - Remove FreezableBackendInterface <https://docs.typo3.org/permalink/changelog:breaking-107310-1755533400>`_.
+
+.. _caching_backend-api-BackendInterface:
+
+BackendInterface
+----------------
+
+..  include:: /CodeSnippets/Manual/Cache/BackendInterface.rst.txt
+
 All operations on a specific cache must be done with these methods. There are several further interfaces that can be
 implemented by backends to declare additional capabilities. Usually, extension code should not handle cache backend operations
 directly, but should use the frontend object instead.
 
-.. t3-field-list-table::
- :header-rows: 1
+.. _caching_backend-api-TaggableBackendInterface:
 
- - :Method,30: Method
-   :Description,70: Description
+TaggableBackendInterface
+------------------------
 
- - :Method:
-      setCache
-   :Description:
-      Reference to the frontend which uses the backend. This method is mostly used internally.
+..  include:: /CodeSnippets/Manual/Cache/TaggableBackendInterface.rst.txt
 
- - :Method:
-      set
-   :Description:
-      Save data in the cache.
+.. _caching_backend-api-PhpCapableBackendInterface:
 
- - :Method:
-      get
-   :Description:
-      Load data from the cache.
+PhpCapableBackendInterface
+--------------------------
 
- - :Method:
-      has
-   :Description:
-      Checks if a cache entry with the specified identifier exists.
+..  include:: /CodeSnippets/Manual/Cache/PhpCapableBackendInterface.rst.txt
 
- - :Method:
-      remove
-   :Description:
-      Remove a cache entry with the specified identifier.
+.. _caching_backend-api-FreezableBackendInterface:
 
- - :Method:
-      flush
-   :Description:
-      Remove all cache entries.
+FreezableBackendInterface
+-------------------------
 
- - :Method:
-      collectGarbage
-   :Description:
-      Does garbage collection.
+..  attention::
+    This interface will be removed in TYPO3 14.0. See
+    `Breaking: #107310 - Remove FreezableBackendInterface <https://docs.typo3.org/permalink/changelog:breaking-107310-1755533400>`_
 
- - :Method:
-      flushByTag
-   :Description:
-      **TaggableBackendInterface only** Removes all cache entries which are tagged by the specified tag.
-
- - :Method:
-      findIdentifiersByTag
-   :Description:
-      **TaggableBackendInterface only** Finds and returns all cache entry identifiers which are tagged by the specified tag.
-
- - :Method:
-      requireOnce
-   :Description:
-      **PhpCapableBackendInterface only** Loads PHP code from the cache and require_onces it right away.
-
- - :Method:
-      freeze
-   :Description:
-      **FreezableBackendInterface only** Freezes this cache backend.
-
- - :Method:
-      isFrozen
-   :Description:
-      **FreezableBackendInterface only** Tells if this backend is frozen.
-
+..  include:: /CodeSnippets/Manual/Cache/FreezableBackendInterface.rst.txt
 
 .. _caching-backend-options:
 
