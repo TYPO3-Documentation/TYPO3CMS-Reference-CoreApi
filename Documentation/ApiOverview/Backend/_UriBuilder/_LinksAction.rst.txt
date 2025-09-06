@@ -40,7 +40,7 @@
                     'returnUrl' => $returnUrl,
                 ],
             );
-            return $view->renderResponse();
+            return $view->renderResponse('Module/Links');
         }
 
         private function getEditPageLink(int $uid, string $returnUrl): UriInterface
