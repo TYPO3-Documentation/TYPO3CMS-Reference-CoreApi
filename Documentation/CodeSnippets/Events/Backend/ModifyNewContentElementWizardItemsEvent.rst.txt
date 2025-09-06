@@ -56,3 +56,8 @@
         :returns: `int`
 
         Provides information about the element to position the new element after (uid) or into (pid).
+
+    ..  php:method:: getRequest()
+        :returns: `\Psr\Http\Message\ServerRequestInterface`
+
+        Provides the request in the state it was provided to the NewContentElementController::wizardAction() method.
