@@ -6,6 +6,8 @@ on:
 
 jobs:
   lint:
+    # Run always on push/PR, but only run on schedule in the main repo
+    if: github.event_name != 'schedule' || github.repository == 'TYPO3-Documentation/TYPO3CMS-Reference-CoreApi'
     name: Linting
     runs-on: ubuntu-latest
     strategy:
@@ -23,6 +25,8 @@ jobs:
         run: Build/Scripts/runTests.sh -p ${{ matrix.php }} -s lint
 
   quality:
+    # Run always on push/PR, but only run on schedule in the main repo
+    if: github.event_name != 'schedule' || github.repository == 'TYPO3-Documentation/TYPO3CMS-Reference-CoreApi'
     name: Quality
     runs-on: ubuntu-latest
     env:
