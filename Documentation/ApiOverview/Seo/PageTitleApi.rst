@@ -6,26 +6,13 @@
 Page title API
 ==============
 
-In order to keep setting the page titles in control, you can use the PageTitle
+In order to keep setting the page titles in control, you can use the page title
 API. The API uses *page title providers* to define the page title based on
 page record and the content on the page.
 
 Based on the priority of the providers, the
 :php:`\TYPO3\CMS\Core\PageTitle\PageTitleProviderManager` will check the
-providers if a title is given by the provider. It will start with the highest
-priority and will end with the lowest priority.
-
-By default, the Core ships two providers. If you have installed
-:composer:`typo3/cms-seo`, the provider with the (by default) highest
-priority will be the :php:`\TYPO3\CMS\Seo\PageTitle\SeoTitlePageTitleProvider`.
-When an editor has set a value for the SEO title in the page properties of the
-page, this provider will provide that title to the
-:php:`PageTitleProviderManager`. If you have not installed the SEO system
-extension, the field and provider are not available.
-
-The fallback provider with the lowest priority is the
-:php:`\TYPO3\CMS\Core\PageTitle\RecordPageTitleProvider`. When no other title is
-set by a provider, this provider will return the title of the page.
+providers if a title is given by the provider.
 
 Besides the providers shipped by the Core, you can add own providers. An
 integrator can define the priority of the providers for his project.
@@ -38,8 +25,42 @@ integrator can define the priority of the providers for his project.
 ..  contents:: Table of contents
     :local:
 
-..  index:: PageTitle; Custom PageTitleProvider
+..  _page-title-provider-list:
 
+List of page title providers shipped by the Core
+================================================
+
+The TYPO3 Core ships the following page title providers by default, listed from
+highest to lowest priority.
+
+..  _page-title-provider-seo:
+
+SeoTitlePageTitleProvider
+-------------------------
+
+System extension :composer:`typo3/cms-seo` ships
+the :php:`\TYPO3\CMS\Seo\PageTitle\SeoTitlePageTitleProvider`. It is only
+available if the extension is installed. It has the identifier `seo`.
+
+When an editor has set a value for the SEO title in the page properties of the
+page, this provider will provide that title.
+
+If you have not installed the SEO system
+extension, the field and provider are not available.
+
+..  _page-title-provider-record:
+
+RecordPageTitleProvider
+-----------------------
+
+The fallback provider with the lowest priority is the
+:php:`\TYPO3\CMS\Core\PageTitle\RecordPageTitleProvider`. It has the identifier
+`record`.
+
+When no other title is set by a provider, this provider will return the title
+of the page as defined in the page properties.
+
+..  index:: PageTitle; Custom PageTitleProvider
 ..  _page-title-provider-custom:
 
 Create your own page title provider
