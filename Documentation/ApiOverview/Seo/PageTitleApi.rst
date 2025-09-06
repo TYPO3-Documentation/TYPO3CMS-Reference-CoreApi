@@ -178,8 +178,9 @@ The sorting of the providers is based on the :typoscript:`before` and
 specific other provider, just set that provider in the :typoscript:`before`,
 do the same with :typoscript:`after`.
 
-If you have installed the system extension SEO, you will also get a second
-provider. The configuration will be:
+For example, if you want the :php-short:`\TYPO3\CMS\Core\PageTitle\RecordTitleProvider`
+to take priority over the :php-short:`\TYPO3\CMS\Seo\PageTitle\SeoTitlePageTitleProvider`
+you can change the order via TypoScript:
 
 ..  literalinclude:: _PageTitleProvider/_pageTitleProviders.typoscript
 
