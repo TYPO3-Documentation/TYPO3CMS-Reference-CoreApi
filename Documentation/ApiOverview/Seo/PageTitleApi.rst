@@ -63,7 +63,7 @@ The fallback provider with the lowest priority is the
 :php:`\TYPO3\CMS\Core\PageTitle\RecordTitleProvider`. It has the identifier
 `recordTitle`.
 
-This provider can be used by 3rd party extensions to set the page title.
+This provider can be used by third-party extensions to set the page title.
 
 ..  literalinclude:: _PageTitleProvider/_RecordTitleProviderUsage.php
     :caption: my_extension/Classes/Controller/ItemController.php
