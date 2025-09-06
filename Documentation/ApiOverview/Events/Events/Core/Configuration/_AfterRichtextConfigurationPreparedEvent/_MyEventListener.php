@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace MyVendor\MyExtension\Configuration\EventListener;
 
-use TYPO3\CMS\Core\Configuration\Event\AfterRichtextConfigurationPreparedEvent;
 use TYPO3\CMS\Core\Attribute\AsEventListener;
+use TYPO3\CMS\Core\Configuration\Event\AfterRichtextConfigurationPreparedEvent;
 
 final class EnableDebugRichTextEditorEventListener
 {
