@@ -344,5 +344,5 @@ TYPO3 Flow.
     Configuration/Index
     Architecture/Index
     Frontends/Index
-    FrontendsBackends/Index
+    Backends/Index
     Developer/Index
