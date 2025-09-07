@@ -9,6 +9,18 @@ return [
     ],
     [
         'action' => 'createPhpClassDocs',
+        'class' => \TYPO3\CMS\Core\Cache\Frontend\FrontendInterface::class,
+        'targetFileName' => 'CodeSnippets/Manual/Cache/FrontendInterface.rst.txt',
+        'withCode' => false,
+    ],
+    [
+        'action' => 'createPhpClassDocs',
+        'class' => \TYPO3\CMS\Core\Cache\Frontend\FrontendInterface::class,
+        'targetFileName' => 'CodeSnippets/Manual/Cache/FrontendInterface.rst.txt',
+        'withCode' => false,
+    ],
+    [
+        'action' => 'createPhpClassDocs',
         'class' => \TYPO3\CMS\Core\Cache\Backend\BackendInterface::class,
         'targetFileName' => 'CodeSnippets/Manual/Cache/BackendInterface.rst.txt',
         'withCode' => false,
