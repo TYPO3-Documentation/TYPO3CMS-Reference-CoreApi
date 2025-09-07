@@ -42,7 +42,7 @@ TCA file during the TCA compilation process.
     is removed. See `Important: #107328 - $GLOBALS['TCA'] in base TCA files <https://docs.typo3.org/permalink/changelog:important-107328-1756815543>`_.
 
     Using :php:`$GLOBALS['TCA']` was discouraged before this change and is
-    impossible as the global is not set starting with 14.0
+    impossible as the global is not set starting with 14.0. It **remains** possible to change this global variable in TCA Overrides for now.
 
 
 ..  index:: Path; EXT:{extkey}/Configuration/TCA/Overrides
