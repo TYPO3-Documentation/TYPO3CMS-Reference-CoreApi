@@ -473,18 +473,7 @@ This backend is the big brother of the Simple file backend and implements
 additional interfaces. Like the simple file backend it also implements the
 :php:`PhpCapableInterface`, so it can be used with :php:`PhpFrontend`. In
 contrast to the simple file backend it furthermore implements
-:php:`TaggableInterface` and :php:`FreezableInterface`.
-
-A frozen cache does no lifetime check and has a list of all existing cache
-entries that is reconstituted during initialization. As a result, a frozen cache
-needs less file system look ups and calculation time if accessing cache entries.
-On the other hand, a frozen cache can not manipulate (remove, set) cache entries
-anymore. A frozen cache must flush the complete cache again to make cache
-entries writable again. Freezing caches is currently not used in the TYPO3 Core.
-It can be an option for code logic that is able to calculate and set all
-possible cache entries during some initialization phase, to then freeze the
-cache and use those entries until the whole thing is flushed again. This can be
-useful especially if caching PHP code.
+:php:`TaggableInterface`.
 
 In general, the backend was specifically optimized to cache PHP code, the
 `get` and `set` operations have low overhead. The file backend is
