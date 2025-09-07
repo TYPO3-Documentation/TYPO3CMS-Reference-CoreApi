@@ -343,5 +343,6 @@ TYPO3 Flow.
     QuickStart/Index
     Configuration/Index
     Architecture/Index
+    Frontends/Index
     FrontendsBackends/Index
     Developer/Index
