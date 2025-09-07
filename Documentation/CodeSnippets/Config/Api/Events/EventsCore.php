@@ -338,4 +338,10 @@ return [
         'targetFileName' => 'CodeSnippets/Events/Core/RecordCreationEvent.rst.txt',
         'withCode' => false,
     ],
+    [
+        'action' => 'createPhpClassDocs',
+        'class' => \TYPO3\CMS\Core\Configuration\Event\AfterRichtextConfigurationPreparedEvent::class,
+        'targetFileName' => 'CodeSnippets/Events/Core/AfterRichtextConfigurationPreparedEvent.rst.txt',
+        'withCode' => false,
+    ],
 ];
