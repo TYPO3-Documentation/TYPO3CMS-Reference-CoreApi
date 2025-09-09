@@ -77,6 +77,43 @@ with other existing routes.
 ..  attention::
     Flushing caches is mandatory after modifying any route definition.
 
+..  _protect-ajax-endpoint:
+
+Protect the endpoint
+====================
+
+..  important::
+    AJAX routes are **accessible to all authenticated backend users** by default
+    and need proper permission checks in order to **avoid unauthorized access**.
+
+Make sure to protect your endpoint against unauthorized access, if it performs
+actions which are limited to authorized backend users only.
+
+Inherit access from backend module
+----------------------------------
+
+..  versionadded:: 12.4.37 / 13.4.18
+    This functionality was introduced in response to security advisory
+    `TYPO3-CORE-SA-2025-021 <https://typo3.org/security/advisory/typo3-core-sa-2025-021>`_
+    to mitigate broken access control in backend AJAX routes.
+
+If your endpoint is part of a :ref:`backend module <backend-modules>`, you can
+configure your endpoint to inherit access rights from this specific module by
+using the configuration option `inheritAccessFromModule`:
+
+..  literalinclude:: _Ajax/_AjaxRoutesProtected.php
+    :language: php
+    :caption: EXT:my_extension/Configuration/Backend/AjaxRoutes.php
+
+Use permission checks on standalone endpoints
+---------------------------------------------
+
+In case you're providing a standalone endpoint (that is, the endpoint is not
+bound to a specific backend module), make sure to perform proper permission
+checks on your own. You can use the
+:ref:`backend user object <t3coreapi:be-user-check>` to perform various
+authorization and permission checks on incoming requests.
+
 
 Use in Ajax
 ===========
