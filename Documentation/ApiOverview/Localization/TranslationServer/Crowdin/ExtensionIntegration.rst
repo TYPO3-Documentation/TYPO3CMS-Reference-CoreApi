@@ -164,6 +164,14 @@ Step-by-step instructions for GitHub
                         generated in **personal settings** at
                         :guilabel:`API > Personal Access Tokens`.
 
+                    ..  tip::
+                        When creating a personal access token in Crowdin, you'll need to select some scopes. For this workflow set at least the following basic `Project` scopes:
+
+                        *   **Projects (List, Get, Create, Edit)**: `Read Only`
+                        *   **Translation Status**: `Read Only`
+                        *   **Source files & strings**: `Read and Write`
+                        *   **Translations**: `Read and Write`
+
                 2.  Create GitHub workflow
 
                     Now create a new GitHub workflow :file:`crowdin.yaml`:
