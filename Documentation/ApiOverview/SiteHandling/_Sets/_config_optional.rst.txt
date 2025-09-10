@@ -1,0 +1,10 @@
+..  code-block:: yaml
+    :caption: EXT:site_package/Configuration/Sets/SitePackage/config.yaml
+
+    name: t3docs/site-package
+    label: 'Site Package with optional dependency'
+    dependencies:
+      - typo3/fluid-styled-content
+      - typo3/fluid-styled-content-css
+    optionalDependencies:
+      - typo3/form
