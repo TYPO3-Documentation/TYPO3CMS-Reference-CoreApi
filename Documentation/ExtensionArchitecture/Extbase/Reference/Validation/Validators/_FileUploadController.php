@@ -5,6 +5,7 @@ declare(strict_types=1);
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
 use TYPO3\CMS\Extbase\Mvc\Controller\FileUploadConfiguration;
+use TYPO3\CMS\Extbase\Validation\Validator\FileExtensionValidator;
 use TYPO3\CMS\Extbase\Validation\Validator\MimeTypeValidator;
 
 class SomeController extends ActionController
@@ -20,11 +21,17 @@ class SomeController extends ActionController
             'invalidExtensionMessage' => 'LLL:EXT:my_extension/...',
         ]);
 
+        $fileExtensionValidator = GeneralUtility::makeInstance(FileExtensionValidator::class);
+        $fileExtensionValidator->setOptions([
+            'allowedFileExtensions' => ['jpg', 'jpeg'],
+        ]);
+
         $fileHandlingServiceConfiguration = $this->arguments->getArgument('myArgument')->getFileHandlingServiceConfiguration();
         $fileHandlingServiceConfiguration->addFileUploadConfiguration(
             (new FileUploadConfiguration('myPropertyName'))
                 ->setRequired()
                 ->addValidator($mimeTypeValidator)
+                ->addValidator($fileExtensionValidator)
                 ->setMaxFiles(1)
                 ->setUploadFolder('1:/user_upload/files/'),
         );
