@@ -166,7 +166,7 @@ Step-by-step instructions for GitHub
 
                     ..  tip::
                         When creating a personal access token in Crowdin, you will need to select some scopes. 
-                        For this workflow set at least the following basic `Project` scopes:
+                        For this workflow, set at least the following basic `Project` scopes:
 
                         *   **Projects (List, Get, Create, Edit)**: `Read Only`
                         *   **Translation Status**: `Read Only`
