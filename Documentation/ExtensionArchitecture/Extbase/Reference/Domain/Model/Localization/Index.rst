@@ -15,13 +15,13 @@ Identifiers in localized models
 Domain models have a main identifier :php:`uid` and an additional property
 :php:`_localizedUid`.
 
-Depending on whether the `Overlay types <https://docs.typo3.org/permalink/t3coreapi:context-api-aspects-language-overlay-types>`_ 
+Depending on whether the `overlay type <https://docs.typo3.org/permalink/t3coreapi:context-api-aspects-language-overlay-types>`_
 language aspect is enabled (:typoscript:`LanguageAspect::OVERLAYS_ON` or
 :typoscript:`LanguageAspect::OVERLAYS_MIXED`) or disabled (:typoscript:`LanguageAspect::OVERLAYS_OFF`),
 the identifier contains different values.
 
-When the Overlay language aspect is enabled, then the :php:`uid`
-property contains the :php:`uid` value of the default language record,
+When the overlay language aspect is enabled, then the :php:`uid`
+property contains the :php:`uid` value of the default language record and
 the :php:`uid` of the translated record is kept in the :php:`_localizedUid`.
 
 +------------------------------------------------------------+-------------------------+---------------------------+
@@ -35,7 +35,7 @@ the :php:`uid` of the translated record is kept in the :php:`_localizedUid`.
 +------------------------------------------------------------+-------------------------+---------------------------+
 
 ..  hint::
-    In case your project uses :composer:`typo3/cms-workspaces` there is yet another
+    If your project uses :composer:`typo3/cms-workspaces` there is yet another
     additional property, :php:`_versionedUid`. Refer to the
     :doc:`Workspaces documentation <ext_workspaces:Index>` for details on
     workspace overlays.
