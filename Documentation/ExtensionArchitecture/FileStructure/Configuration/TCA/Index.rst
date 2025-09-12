@@ -33,7 +33,17 @@ TCA file during the TCA compilation process.
     :shortDescription: Contains the TCA (Table Configuration Array), which initially defines the table <tablename>. Change TCA of existing tables in directory TCA/Overrides
 
     One file per database table, using the name of the table for the file, plus
-    ".php". Only for new tables, provided by the extension itself. **Must not** be used to change existing tables provided by other extensions.
+    ".php". Only for new tables, provided by the extension itself.
+
+    **Must not** be used to change existing tables provided by other extensions.
+
+..  versionchanged:: 14.0
+    The backwards compatibility for usage of :php:`$GLOBALS['TCA']` in base TCA files
+    is removed. See `Important: #107328 - $GLOBALS['TCA'] in base TCA files <https://docs.typo3.org/permalink/changelog:important-107328-1756815543>`_.
+
+    Using :php:`$GLOBALS['TCA']` was discouraged before this change and is
+    impossible as the global is not set starting with 14.0. It **remains** possible to change this global variable in TCA Overrides for now.
+
 
 ..  index:: Path; EXT:{extkey}/Configuration/TCA/Overrides
 ..  _extension-configuration-tca-overrides:
