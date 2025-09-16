@@ -50,16 +50,11 @@ object for translations:
 ..  literalinclude:: _LocaleExample.php
     :caption: EXT:my_extension/Classes/LocaleExample.php
 
-
 ..  _IETF RFC 5646: https://www.rfc-editor.org/rfc/rfc5646.html
 ..  _ISO 639-1: https://en.wikipedia.org/wiki/ISO_639-1
 ..  _ISO 639-2: https://en.wikipedia.org/wiki/ISO_639-2
 ..  _ISO 3166-1: https://en.wikipedia.org/wiki/ISO_3166-1
 ..  _ISO 15924: https://en.wikipedia.org/wiki/ISO_15924
 ..  _tags and subtags: https://www.rfc-editor.org/rfc/rfc5646.html#section-2
-
-
-API
-===
 
 ..  include:: _Locale.rst.txt
