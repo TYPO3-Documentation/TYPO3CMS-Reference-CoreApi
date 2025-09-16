@@ -469,8 +469,8 @@ allkeys-lru, allkeys-lfu, allkeys-random
 
 ..  seealso::
 
-    *   `Redis eviction policies <https://redis.io/docs/manual/eviction/>`__
-    *   `Redis configuration <https://redis.io/docs/manual/config/>`__
+    *   `Redis eviction policies <https://redis.io/docs/latest/operate/rs/databases/memory-performance/eviction-policy/>`__
+    *   `Redis configuration <https://redis.io/docs/latest/operate/oss_and_stack/management/config/>`__
 
 ..  _caching-backend-file:
 
