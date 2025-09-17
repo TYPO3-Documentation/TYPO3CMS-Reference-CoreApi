@@ -39,7 +39,7 @@ services, and convenient helpers for TypoScript, Extbase and Fluid.
 
     ..  card:: `Localization in TypoScript <https://docs.typo3.org/permalink/t3coreapi:extension-localization-typoscript>`_
 
-        Convenience wrapper to translate labels inside Extbase.
+        Using `LLL:EXT:...` labels in TypoScript.
 
 ..  toctree::
     :titlesonly:
