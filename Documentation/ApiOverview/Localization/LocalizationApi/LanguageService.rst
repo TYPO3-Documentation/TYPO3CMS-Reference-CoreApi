@@ -17,10 +17,10 @@ variable :php:`$GLOBALS['LANG']`.
 In the frontend a :php-short:`\TYPO3\CMS\Core\Localization\LanguageService` can
 be accessed via the contentObject:
 
-..  include:: _LanguageService.rst.txt
-
-Example: Usage
-==============
-
 ..  literalinclude:: _ExampleController.php
     :caption: EXT:my_extension/Classes/Controller/ExampleController.php (not Extbase)
+
+In CLI context `$GLOBALS['LANG']` is also not available and has to be
+instantiated manually.
+
+..  include:: _LanguageService.rst.txt
