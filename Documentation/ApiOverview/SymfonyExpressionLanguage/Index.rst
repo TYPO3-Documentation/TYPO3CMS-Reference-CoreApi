@@ -63,7 +63,7 @@ Implementing a custom Symfony expression provider
 The provider is a PHP class like the following, depending on the formerly
 registered PHP class name:
 
-..  literalinclude:: _codesnippets/_CustomTypoScriptConditionProviderEmpry.php
+..  literalinclude:: _codesnippets/_CustomTypoScriptConditionProviderEmpty.php
     :caption: EXT:my_extension/Classes/ExpressionLanguage/CustomTypoScriptConditionProvider.php
 
 ..  _sel-ts-additional-variables:
