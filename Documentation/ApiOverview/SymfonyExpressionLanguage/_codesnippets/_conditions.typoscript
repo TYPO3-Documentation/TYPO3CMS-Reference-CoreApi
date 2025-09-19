@@ -1,0 +1,17 @@
+[webservice('pages', 10)]
+  page.10 >
+  page.10 = TEXT
+  page.10.value = Matched
+[GLOBAL]
+
+# Or compare the result of the function to a string
+[webservice('pages', 10) === 'Expected page title']
+  page.10 >
+  page.10 = TEXT
+  page.10.value = Matched
+[GLOBAL]
+
+# if there are no parameters, your own conditions still need brackets
+[conditionWithoutParameters()]
+  # do something
+[GLOBAL]
