@@ -21,6 +21,12 @@ configurations.
     *   :ref:`config/system/settings.php <typo3ConfVars-settings>`
     *   :ref:`config/system/additional.php <typo3ConfVars-additional>`
 
+..  versionchanged:: 14.0
+    Options within `$GLOBALS['TYPO3_CONF_VARS']['SYS']['lang']` have been moved
+    to key :ref:`$GLOBALS['TYPO3_CONF_VARS']['LANG'] <typo3ConfVars_lang>`.
+    Option `$GLOBALS['TYPO3_CONF_VARS']['SYS']['locallangXMLOverride']` has
+    been moved to `$GLOBALS['TYPO3_CONF_VARS']['LANG']['resourceOverrides'] <https://docs.typo3.org/permalink/t3coreapi:confval-globals-typo3-conf-vars-lang-resourceoverrides>`_.
+
 ..  confval-menu::
     :name: globals-typo3-conf-vars-sys
     :display: tree
@@ -815,43 +821,6 @@ configurations.
     ..  seealso::
         :ref:`LinkHandling`
 
-..  _typo3ConfVars_sys_lang:
-
-..  confval:: lang
-    :name: globals-typo3-conf-vars-sys-lang
-    :Path: $GLOBALS['TYPO3_CONF_VARS']['SYS']['lang']
-
-    ..  _typo3ConfVars_sys_lang_requireApprovedLocalizations:
-
-    ..  confval:: requireApprovedLocalizations
-        :name: globals-typo3-conf-vars-sys-lang-requireApprovedLocalizations
-        :Path: $GLOBALS['TYPO3_CONF_VARS']['SYS']['lang']['requireApprovedLocalizations']
-        :type: bool
-        :Default: true
-
-        The attribute :xml:`approved` of the :ref:`XLIFF <xliff>` standard is
-        respected by TYPO3 since version 12.0 when parsing XLF files. This attribute
-        can either have the value :xml:`yes` or :xml:`no` and indicates whether the
-        translation is final or not.
-
-        ..  code-block:: xml
-            :caption: EXT:my_extension/Resources/Private/Language/locallang.xml
-
-            <trans-unit id="label2" approved="yes">
-                <source>This is label #2</source>
-                <target>Ceci est le libellé no. 2</target>
-            </trans-unit>
-
-        This setting can be used to control the behavior:
-
-        :php:`true`
-            Only translations with the attribute :xml:`approved` set to :xml:`yes`
-            will be used. Any non-approved translation (value is set to :xml:`no`)
-            will be ignored. If the attribute :xml:`approved` is omitted, the
-            translation is still taken into account.
-
-        :php:`false`
-            All translations are used.
 
 ..  _typo3ConfVars_sys_passwordPolicies:
 
