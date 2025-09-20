@@ -20,6 +20,7 @@ return array_merge(
     include ('EventsLinkvalidator.php'),
     include ('EventsLowlevel.php'),
     include ('EventsRedirects.php'),
+    include ('EventsScheduler.php'),
     include ('EventsSeo.php'),
     include ('EventsSetup.php'),
     include ('EventsWorkspaces.php'),
