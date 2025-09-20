@@ -22,7 +22,7 @@ provider class itself and ViewHelpers like the
     the country names.
 
     If additional countries are added, add translations to `countries.xlf`
-    via :ref:`locallangXMLOverride <t3coreapi:xliff-translating-custom>`.
+    via :ref:`$GLOBALS['TYPO3_CONF_VARS']['LANG']['resourceOverrides'] <t3coreapi:xliff-translating-custom>`.
 
 ..  contents:: Table of contents
 
@@ -39,10 +39,15 @@ code 'XX' and alpha 3 code 'XXX'.
 
 ..  include:: /_includes/EventsAttributeAdded.rst.txt
 
+
+..  versionchanged:: 14.0
+    `$GLOBALS['TYPO3_CONF_VARS']['SYS']['locallangXMLOverride']` has been moved
+    to `$GLOBALS['TYPO3_CONF_VARS']['LANG']['resourceOverrides'] <https://docs.typo3.org/permalink/t3coreapi:confval-globals-typo3-conf-vars-lang-resourceoverrides>`_.
+
 As the localized names for the countries are defined in file
 :file:`EXT:core/Resources/Private/Language/Iso/countries.xlf`, this language
 file needs to be extended via
-:ref:`locallangXMLOverride <t3coreapi:xliff-translating-custom>`:
+:ref:`$GLOBALS['TYPO3_CONF_VARS']['LANG']['resourceOverrides'] <t3coreapi:xliff-translating-custom>`:
 
 ..  literalinclude:: _BeforeCountriesEvaluatedEvent/_ext_localconf.php
     :caption: EXT:my_extension/ext_localconf.php

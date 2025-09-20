@@ -20,14 +20,6 @@ return [
             ],
         ],
     ],
-    'EXTCONF' => [
-        'lang' => [
-            'availableLanguages' => [
-                'de',
-                'eo',
-            ],
-        ],
-    ],
     'EXTENSIONS' => [
         'backend' => [
             'backendFavicon' => '',
@@ -52,6 +44,12 @@ return [
     ],
     'GFX' => [
         'jpg_quality' => '80',
+    ],
+    'LANG' => [
+        'availableLocales' => [
+            'de',
+            'eo',
+        ],
     ],
     'MAIL' => [
         'transport_sendmail_command' => '/usr/sbin/sendmail -t -i ',

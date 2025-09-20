@@ -168,9 +168,9 @@ instance where PHPUnit utilizes the array keys :php:`languageKey` and
 ..  code-block:: php
     :caption: PHPUnit data provider using named arguments
 
-    final class XliffParserTest extends UnitTestCase
+    final class XliffLoaderTest extends UnitTestCase
     {
-        public static function canParseXliffDataProvider(): \Generator
+        public static function canLoadXliffDataProvider(): \Generator
         {
             yield 'Can handle default' => [
                 'languageKey' => 'default',
@@ -190,9 +190,9 @@ instance where PHPUnit utilizes the array keys :php:`languageKey` and
             ];
         }
 
-        #[DataProvider('canParseXliffDataProvider')]
+        #[DataProvider('canLoadXliffDataProvider')]
         #[Test]
-        public function canParseXliff(string $languageKey, array $expectedLabels): void
+        public function canLoadXliff(string $languageKey, array $expectedLabels): void
         {
             // Test implementation
         }
