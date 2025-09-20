@@ -439,7 +439,7 @@ Because of this, the following recommendations apply:
     the `info` command or via php-redis. Further information of the results of
     info is in the `documentation <https://redis.io/commands/info/>`__.
 
-The `maxmemory-policy <https://redis.io/docs/latest/operate/rs/databases/memory-performance/eviction-policy/>`__
+The `Eviction policy <https://redis.io/docs/latest/operate/rs/databases/memory-performance/eviction-policy/>`__
 options have the following drawbacks:
 
 volatile-ttl
