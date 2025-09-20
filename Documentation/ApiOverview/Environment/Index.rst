@@ -29,7 +29,7 @@ Environment PHP API
    A comprehensive list of methods can be found in the
    Class Reference: :php-short:`\TYPO3\CMS\Core\Core\Environment`
 
-..  versionchange:: 14.0
+..  versionchanged:: 14.0
     Method `Environment::getComposerRootPath()` has been removed.
 
     Instead of calculating relative paths manually, use absolute paths or the
