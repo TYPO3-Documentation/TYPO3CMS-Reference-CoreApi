@@ -93,9 +93,10 @@ language is placed in an additional file.
 
     By default, only translations with no :xml:`approved` attribute or with
     the attribute set to :xml:`yes` are taken into account when parsing XLF
-    files. Set the option :ref:`requireApprovedLocalizations
-    <typo3ConfVars_sys_lang_requireApprovedLocalizations>` to :php:`false`
-    to use translations with the :xml:`approved` attribute set to :xml:`no`.
+    files. Set the option
+    `$GLOBALS['TYPO3_CONF_VARS']['LANG']['requireApprovedLocalizations'] <https://docs.typo3.org/permalink/t3coreapi:confval-globals-typo3-conf-vars-sys-lang-requireapprovedlocalizations>`_
+    to :php:`false` to use translations with the :xml:`approved` attribute set
+    to :xml:`no`.
 
 ..  index:: ! Path; EXT:{extkey}/Resources/Private/Language
 ..  _xliff-files:

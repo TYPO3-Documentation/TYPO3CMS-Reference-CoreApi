@@ -104,9 +104,13 @@ or for creating :ref:`custom translations <xliff-translating-custom>`.
 Custom translations
 ===================
 
-:php:`$GLOBALS['TYPO3_CONF_VARS']['SYS']['locallangXMLOverride']` allows to
-override XLIFF files. Actually, this is not just about translations. Default
-language files can also be overridden. The syntax is as follows:
+..  versionchanged:: 14.0
+    `$GLOBALS['TYPO3_CONF_VARS']['SYS']['locallangXMLOverride']` has been moved
+    to `$GLOBALS['TYPO3_CONF_VARS']['LANG']['resourceOverrides'] <https://docs.typo3.org/permalink/t3coreapi:confval-globals-typo3-conf-vars-lang-resourceoverrides>`_.
+
+Option `$GLOBALS['TYPO3_CONF_VARS']['LANG']['resourceOverrides'] <https://docs.typo3.org/permalink/t3coreapi:confval-globals-typo3-conf-vars-lang-resourceoverrides>`_
+allows overriding XLIFF files. This applies not only to translations but
+also to default language files.
 
 ..  literalinclude:: _ext_localconf.php
     :language: php
