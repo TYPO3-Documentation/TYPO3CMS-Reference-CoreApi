@@ -5,7 +5,7 @@ namespace MyVendor\MyExtension\EventListener;
 use TYPO3\CMS\Core\Attribute\AsEventListener;
 use TYPO3\CMS\Scheduler\Event\ModifyNewSchedulerTaskWizardItemsEvent;
 
-final class ModifySchedulerTaskWizardListener
+final readonly class ModifySchedulerTaskWizardListener
 {
     #[AsEventListener('my-extension/scheduler/modify-wizard-items')]
     public function __invoke(ModifyNewSchedulerTaskWizardItemsEvent $event): void
