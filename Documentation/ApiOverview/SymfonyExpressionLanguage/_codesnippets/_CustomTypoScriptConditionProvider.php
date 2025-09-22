@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace MyVendor\MyExtension\TypoScript;
+namespace MyVendor\MyExtension\ExpressionLanguage;
 
 use TYPO3\CMS\Core\ExpressionLanguage\AbstractProvider;
 
