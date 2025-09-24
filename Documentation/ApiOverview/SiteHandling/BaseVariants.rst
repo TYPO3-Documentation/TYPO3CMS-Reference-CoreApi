@@ -100,17 +100,16 @@ Properties
 Functions
 =========
 
-All functions from
+Functions from
 :t3src:`core/Classes/ExpressionLanguage/FunctionsProvider/DefaultFunctionsProvider.php`
-are available:
+are available, as long as they are request-independent (due to caching reasons). For
+request-dependent conditions/functions, have a look at :composer:`b13/host-variants`
+to see how to add custom condition/function providers to suit your needs.
 
-..  option:: ip
+That means, specifically you can **not** use the `ip()` or `traverse(request...)`
+conditions in the handling of base variants.
 
-    :type: string
-    :Example: `ip("203.0.113.*")`
-
-    Match an IP address, value or regex, wildcards possible.
-    Special value: `devIp` for matching `devIpMask`.
+Some examples:
 
 ..  option:: compatVersion
 
@@ -151,13 +150,3 @@ are available:
 
     Check whether a feature (":ref:`feature toggle <feature-toggles>`") is
     enabled in TYPO3.
-
-..  option:: traverse
-
-    :type: array|string
-    :Example: `traverse(request.getQueryParams(), 'tx_news_pi1/news') > 0`
-
-    This function has two parameters:
-
-    *   first parameter is the array to traverse
-    *   second parameter is the path to traverse
