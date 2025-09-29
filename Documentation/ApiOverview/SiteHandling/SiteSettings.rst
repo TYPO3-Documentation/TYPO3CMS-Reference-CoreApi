@@ -42,7 +42,7 @@ it will be created.
     You *can* make use of `imports` here, but with next storing process of
     site settings editor all your `imports` are gone.
 
-To store values independant from site settings editor, use the `settings.yaml`
+To store values independent from site settings editor, use the `settings.yaml`
 file in folder `Configuration/Sets/<my_site>/` of your site package. The file
 itself will kept untouched, but the values will be overwritten by values from the
 `settings.yaml` in the `config/sites/<my_site>/`.
