@@ -29,6 +29,6 @@ Example:
 
     // ...
     'fieldConfiguration' => [
-        'foreign_table_where' => ' AND ({#sys_category}.uid = ###SITE:rootPageId### OR {#sys_category}.pid = ###SITE:mySetting.categoryPid###) ORDER BY sys_category.title ASC',
+        'foreign_table_where' => ' AND ({#sys_category}.pid = ###SITE:rootPageId### OR {#sys_category}.pid = ###SITE:mySetting.categoryPid###) ORDER BY sys_category.title ASC',
     ],
     // ...
