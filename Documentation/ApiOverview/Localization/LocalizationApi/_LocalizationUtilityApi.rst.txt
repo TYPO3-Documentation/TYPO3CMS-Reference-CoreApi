@@ -5,7 +5,7 @@
 
     Localization helper which should be used to fetch localized labels.
 
-    ..  php:method:: translate(string $key, ?string $extensionName = NULL, ?array $arguments = NULL, ?TYPO3\CMS\Core\Localization\Locale|string|null $languageKey = NULL)
+    ..  php:method:: translate(string $key, ?string $extensionName = NULL, ?array $arguments = NULL, ?TYPO3\CMS\Core\Localization\Locale|string|null $languageKey = NULL, ?\Psr\Http\Message\ServerRequestInterface $request = NULL)
         :returns: `string|null`
 
         Returns the localized label of the LOCAL_LANG key, $key.
@@ -14,4 +14,5 @@
         :param $extensionName: The name of the extension, default: NULL
         :param $arguments: The arguments of the extension, being passed over to sprintf, default: NULL
         :param $languageKey: The language key or null for using the current language from the system, default: NULL
+        :param $request: the request, default: NULL
         :Return description: The value from LOCAL_LANG or null if no translation was found.

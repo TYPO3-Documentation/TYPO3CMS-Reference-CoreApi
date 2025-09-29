@@ -19,4 +19,10 @@ return [
         'targetFileName' => 'CodeSnippets/Events/Form/BeforeFormIsCreatedEvent.rst.txt',
         'withCode' => false,
     ],
+    [
+        'action' => 'createPhpClassDocs',
+        'class' => \TYPO3\CMS\Form\Event\BeforeRenderableIsAddedToFormEvent::class,
+        'targetFileName' => 'CodeSnippets/Events/Form/BeforeRenderableIsAddedToFormEvent.rst.txt',
+        'withCode' => false,
+    ],
 ];
