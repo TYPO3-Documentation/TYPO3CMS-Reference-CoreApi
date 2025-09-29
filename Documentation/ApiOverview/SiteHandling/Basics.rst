@@ -104,7 +104,7 @@ Root pages are identified by one of these two properties:
     same root page ID is used multiple times.
 
 
-.. _sitehandling-basics-websiteTitle:
+..  _sitehandling-basics-websiteTitle:
 
 websiteTitle
 ------------
@@ -112,7 +112,7 @@ websiteTitle
 The title of the website which is used in :html:`<title>` tag in the frontend.
 
 
-.. _sitehandling-basics-base:
+..  _sitehandling-basics-base:
 
 base
 ----
@@ -149,7 +149,7 @@ a `converter`_ to get the ACE format of the domain name.
     In this case, the site administrator must set unique site base prefixes.
 
 
-.. _sitehandling-basics-languages:
+..  _sitehandling-basics-languages:
 
 languages
 ---------
@@ -159,7 +159,7 @@ both the availability of the language and the behavior. For a detailed
 description see :ref:`Language configuration <sitehandling-addingLanguages>`.
 
 
-.. _sitehandling-basics-errorHandling:
+..  _sitehandling-basics-errorHandling:
 
 errorHandling
 -------------
@@ -170,7 +170,7 @@ more. For a detailed description, see :ref:`error handling
 <sitehandling-errorHandling>`.
 
 
-.. _sitehandling-basics-routes:
+..  _sitehandling-basics-routes:
 
 routes
 ------
@@ -181,7 +181,7 @@ The routes section is used to add static routes to a site, for example a
 Read more at :ref:`static routes<sitehandling-staticRoutes>`.
 
 
-.. _sitehandling-basics-routeEnhancers:
+..  _sitehandling-basics-routeEnhancers:
 
 routeEnhancers
 --------------
@@ -193,24 +193,30 @@ enhancers allow configuring routing for TYPO3 extensions. Read more at
 :ref:`routing-advanced-routing-configuration`.
 
 
-.. _sitehandling-basics-settings:
+..  _sitehandling-basics-settings:
 
 settings
 --------
 
-The settings section can be used to define custom site settings. These settings
-can be used in PHP code, TypoScript and Fluid templates. Read more at
-:ref:`sitehandling-settings`.
+The `settings` section can be used to define custom site settings. These values
+are available in PHP code, TypoScript and Fluid templates. For further details,
+see :ref:`sitehandling-settings`.
 
 ..  note::
-    If folder contains a `settings.yaml` file, all `settings` in `config.yaml`
-    are ignored! Only values from `settings.yaml` will be used. You have to
-    delete `settings.yaml` to use the `settings` from `config.yaml` again. But,
-    if you or your customer stores `settings` in Site Settings module, TYPO3
-    will create a new `settings.yaml` file, which will instantly ignore ALL
-    `settings` from `config.yaml` again.
+    If a folder contains a `settings.yaml` file, all `settings` defined in
+    `config.yaml` are ignored. Only the values from `settings.yaml` are
+    applied.
 
-.. _sitehandling-basics-imports:
+    When you or your customer manage site settings via the *Site Settings* module
+    in the TYPO3 backend, TYPO3 automatically creates (or updates) the
+    `settings.yaml` file. As a result, the configuration in `config.yaml` is
+    no longer considered.
+
+    To avoid confusion, it is recommended to **remove** the obsolete `settings`
+    section from `config.yaml` if `settings.yaml` is in use.
+
+
+..  _sitehandling-basics-imports:
 
 imports
 -------

@@ -34,23 +34,24 @@ For instance, settings can be used in custom frontend code to deliver features
 which might vary per site for extensions. An example may be to configure
 storage page IDs.
 
-All changed values in the site settings editor are stored in the `settings.yaml`
-file of the `config/sites/<my_site>/` directory. If this file does not exist,
-it will be created.
+All changes made in the site settings editor are stored in the `settings.yaml`
+file located in `config/sites/<my_site>/`. If this file does not exist, TYPO3
+will create it automatically.
 
 ..  note::
-    You *can* make use of `imports` here, but with next storing process of
-    site settings editor all your `imports` are gone.
+    You *can* use `imports` in `settings.yaml`. However, as soon as you save
+    changes in the site settings editor, TYPO3 rewrites the file and all
+    `imports` will be removed.
 
-To store values independent from site settings editor, use the `settings.yaml`
-file in folder `Configuration/Sets/<my_site>/` of your site package. The file
-itself will kept untouched, but the values will be overwritten by values from the
-`settings.yaml` in the `config/sites/<my_site>/`.
+To store values independently from the site settings editor, use the
+`settings.yaml` file in the folder `Configuration/Sets/<my_site>/` of your
+site package. This file itself remains untouched, but its values are
+overwritten by values from the `settings.yaml` in `config/sites/<my_site>/`.
 
 ..  note::
-    As this file is independent from external modification, you can make use
-    of `imports` here, if needed. Absolute paths, relative paths and of cause
-    `EXT:` usage is allowed here.
+    As this file is not modified by the site settings editor, you can safely
+    use `imports` here if needed. Absolute paths, relative paths and the
+    `EXT:` syntax are supported.
 
 
 ..  _sitehandling-settings-add:
