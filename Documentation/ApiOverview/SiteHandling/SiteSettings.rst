@@ -48,7 +48,7 @@ itself will kept untouched, but the values will be overwritten by values from th
 `settings.yaml` in the `config/sites/<my_site>/`.
 
 ..  note::
-    As this file is independant from external modification, you can make use
+    As this file is independent from external modification, you can make use
     of `imports` here, if needed. Absolute paths, relative paths and of cause
     `EXT:` usage is allowed here.
 
