@@ -35,7 +35,7 @@ which might vary per site for extensions. An example may be to configure
 storage page IDs.
 
 All changed values in the site settings editor are stored in the `settings.yaml`
-file of the `config/sites/<my_site>/` directory. If this file does not exists,
+file of the `config/sites/<my_site>/` directory. If this file does not exist,
 it will be created.
 
 ..  note::
