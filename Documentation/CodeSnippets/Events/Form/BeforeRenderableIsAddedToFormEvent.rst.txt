@@ -3,8 +3,7 @@
 
 ..  php:class:: BeforeRenderableIsAddedToFormEvent
 
-    Listeners to this event will be able to modify the renderable (form element)
-    before it is added to the form
+    Listeners to this Event will be able to modify the renderable (form element) before being finally added to the form
 
     ..  php:attr:: renderable
         :public:

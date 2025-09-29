@@ -7,8 +7,8 @@ namespace MyVendor\MyExtension\EventListener;
 use TYPO3\CMS\Core\Attribute\AsEventListener;
 use TYPO3\CMS\Form\Event\BeforeRenderableIsAddedToFormEvent;
 
-final readonly class MyEventListener {
-
+final readonly class MyEventListener
+{
     #[AsEventListener(
         identifier: 'my-extension/before-renderable-is-added-to-form-event',
     )]
