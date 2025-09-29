@@ -8,8 +8,7 @@ Environment
 
 The TYPO3 Core includes an environment class that contains all
 environment-specific information, mostly paths within the
-filesystem. This implementation replaces previously used global variables and
-constants like :php:`PATH_site` that have been removed with TYPO3 v10.
+filesystem.
 
 The fully qualified class name is :php:`\TYPO3\CMS\Core\Core\Environment`. The
 class provides static methods to access the necessary information.
@@ -28,7 +27,13 @@ Environment PHP API
 
 .. tip::
    A comprehensive list of methods can be found in the
-   `Class Reference <https://api.typo3.org/main/class_t_y_p_o3_1_1_c_m_s_1_1_core_1_1_core_1_1_environment.html>`__.
+   Class Reference: :php-short:`\TYPO3\CMS\Core\Core\Environment`
+
+..  versionchanged:: 14.0
+    Method `Environment::getComposerRootPath()` has been removed.
+
+    Instead of calculating relative paths manually, use absolute paths or the
+    appropriate TYPO3 APIs for path handling, `Environment::getProjectPath() <https://docs.typo3.org/permalink/t3coreapi:environment-project-path>`_
 
 .. index::
    Environment; getProjectPath
