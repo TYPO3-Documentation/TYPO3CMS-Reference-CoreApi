@@ -118,16 +118,16 @@ How this looks when configuring the plugin:
 ..  index:: FlexForms; Display conditions
 ..  _flexformDisplayCond:
 
-Display fields conditionally (displayCond)
-------------------------------------------
+Display fields/sheets conditionally (displayCond)
+-------------------------------------------------
 
 Some settings may only make sense in the context of other settings.
 For example, in one setting you define a sorting order (by date, title etc.)
 and all sort orders except "title" have additional settings. These
 are only visible if sort order "title" is not selected.
 
-You can define conditions using displayCond. This defines
-whether a setting should be displayed when the plugin is configured.
+You can define conditions using displayCond. This defines whether a setting or
+sheet should be displayed when the plugin is configured.
 It can depend on one or more settings in the FlexForm,
 on database fields in the current record or be defined by a user function.
 
@@ -138,6 +138,31 @@ on database fields in the current record or be defined by a user function.
     </config>
     <!-- Hide field if value of neighbour field "settings.orderBy" on same sheet is not "title" -->
     <displayCond>FIELD:settings.orderBy:!=:title</displayCond>
+
+..  code-block:: xml
+
+    <sheets>
+        <sheetA>
+            <ROOT>
+                <sheetTitle>Sheet A</sheetTitle>
+                <el>
+                    <settings.foo>
+                        ...
+                    </settings.foo>
+                </el>
+            </ROOT>
+        </sheetA>
+        <sheetB>
+            <ROOT>
+                <sheetTitle>Optional sheet B</sheetTitle>
+                <!-- Hide entire sheet if value of field "foo" on neighboring sheet is not "bar" -->
+                <displayCond>FIELD:sheetA.settings.foo:=:bar</displayCond>
+                <el>
+                    ...
+                </el>
+            </ROOT>
+        </sheetB>
+    </sheets>
 
 Again, the syntax and available fields and comparison operators is documented
 in the TCA reference:
