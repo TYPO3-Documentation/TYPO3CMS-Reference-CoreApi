@@ -25,4 +25,10 @@ return [
         'targetFileName' => 'CodeSnippets/Events/Form/BeforeRenderableIsAddedToFormEvent.rst.txt',
         'withCode' => false,
     ],
+    [
+        'action' => 'createPhpClassDocs',
+        'class' => \TYPO3\CMS\Form\Event\BeforeFormIsDuplicatedEvent::class,
+        'targetFileName' => 'CodeSnippets/Events/Form/BeforeFormIsDuplicatedEvent.rst.txt',
+        'withCode' => false,
+    ],
 ];
