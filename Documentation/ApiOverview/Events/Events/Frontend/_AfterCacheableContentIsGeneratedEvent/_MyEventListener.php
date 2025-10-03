@@ -18,10 +18,10 @@ final readonly class MyEventListener
         if (!$event->isCachingEnabled()) {
             return;
         }
-        $event->getController()->content = str_replace(
+        $event->setContent(str_replace(
             'foo',
             'bar',
-            $event->getController()->content,
-        );
+            $event->getContent(),
+        ));
     }
 }

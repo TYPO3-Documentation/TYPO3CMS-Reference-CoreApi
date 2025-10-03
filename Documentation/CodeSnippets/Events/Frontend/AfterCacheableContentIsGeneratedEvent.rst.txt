@@ -11,8 +11,12 @@
     ..  php:method:: getRequest()
         :returns: `\Psr\Http\Message\ServerRequestInterface`
 
-    ..  php:method:: getController()
-        :returns: `\TYPO3\CMS\Frontend\Controller\TypoScriptFrontendController`
+    ..  php:method:: getContent()
+        :returns: `string`
+
+    ..  php:method:: setContent(string $content)
+
+        :param $content: the content
 
     ..  php:method:: isCachingEnabled()
         :returns: `bool`
