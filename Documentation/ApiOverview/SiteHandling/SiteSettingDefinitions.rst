@@ -22,8 +22,8 @@ TypoScript Constants.
 
 All available settings are displayed in the :ref:`site-settings-editor`.
 
-The site settings provided by an extension can be automatically documented in the
-extensions manual, see
+The site settings provided by an extension can be automatically documented in
+the extensions manual, see
 :ref:`site settings documentation <h2document:reference-site-settings>`.
 
 ..  contents:: Table of contents
@@ -121,6 +121,10 @@ Site setting definition properties
 
             ..  literalinclude:: _Settings/_enum_settings.definitions.yaml
                 :caption: EXT:my_extension/Configuration/Sets/MySet/settings.definitions.yaml
+
+..  note::
+    The `settings.definitions.yaml` does not allow any kind of imports. All
+    settings must be defined in a single file.
 
 ..  _definition-types:
 
