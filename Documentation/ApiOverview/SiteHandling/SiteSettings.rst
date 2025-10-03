@@ -43,7 +43,7 @@ will create it automatically.
     changes in the site settings editor, TYPO3 rewrites the file and all
     `imports` will be removed.
 
-To store values independently from the site settings editor, use the
+To store values independently of the site settings editor, use the
 `settings.yaml` file in the folder `Configuration/Sets/<my_site>/` of your
 site package. This file itself remains untouched, but its values are
 overwritten by values from the `settings.yaml` in `config/sites/<my_site>/`.
