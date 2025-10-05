@@ -247,7 +247,12 @@ configurations.
     :name: globals-typo3-conf-vars-sys-mediafile_ext
     :Path: $GLOBALS['TYPO3_CONF_VARS']['SYS']['mediafile_ext']
     :type: text
-    :Default: 'gif,jpg,jpeg,bmp,png,pdf,svg,ai,mp3,wav,mp4,ogg,flac,opus,webm,youtube,vimeo'
+    :Default: '3gp,aac,ai,aif,avif,bmp,flac,gif,heic,ico,jpeg,jpg,m4a,m4v,mov,mp3,mp4,ogg,opus,pdf,png,psd,svg,vimeo,wav,webm,webp,youtube'
+
+    ..  versionadded:: 14.0
+
+        The default list has been extended to include 3gp, aac, aif, avif, heic, ico, m4a,
+        m4v, mov, psd and webp file types.
 
     Commalist of file extensions perceived as media files by TYPO3.
     Must be written in lower case with no spaces between.
