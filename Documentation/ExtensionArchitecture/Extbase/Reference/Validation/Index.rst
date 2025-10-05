@@ -91,7 +91,7 @@ You can define simple validation rules in the domain model by the attribute
 
 **Example:**
 
-..  literalinclude:: ../_Attributea/_Validate.php
+..  literalinclude:: ../_Attributes/_Validate.php
     :caption: EXT:blog_example/Classes/Domain/Model/Blog.php, modified
 
 In this code section the validator :php:`StringLength` provided by Extbase
@@ -124,7 +124,7 @@ The following rules validate each controller argument:
    no validation is done. This option must not be used when working with
    extbase file upload, because it leads to a property mapping error.
 
-*  Validators added in the annotation of the action are applied.
+*  Validators added in the attribute of the action are applied.
 
 If the arguments of an action are invalid, the
 :ref:`errorAction <extbase_class_hierarchy-catching_validation_errors_with_error_action>`
