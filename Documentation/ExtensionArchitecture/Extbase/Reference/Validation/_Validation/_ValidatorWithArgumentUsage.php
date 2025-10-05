@@ -16,11 +16,6 @@ class Person extends AbstractEntity
         ],
     ])]
     protected string $email = '';
-    /**
-     * Use annotations instead for compatibility with TYPO3 v11 and PHP 7.4:
-     * @Validate("EmailAddress")
-     */
-    protected string $email2 = '';
 
     #[Validate([
         'validator' => 'StringLength',
@@ -30,11 +25,6 @@ class Person extends AbstractEntity
         ],
     ])]
     protected string $firstname = '';
-    /**
-     * Use annotations instead for compatibility with TYPO3 v11 and PHP 7.4:
-     * @Validate("StringLength", options={"maximum": 80})
-     */
-    protected string $firstname2 = '';
 
     #[Validate([
         'validator' => 'StringLength',

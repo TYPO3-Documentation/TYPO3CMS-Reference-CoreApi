@@ -124,7 +124,7 @@ Eager loading and lazy loading
 
 By default, Extbase loads all child objects with the parent object (so for
 example, all posts of a blog). This behavior is called eager loading.
-The annotation :php:`@TYPO3\CMS\Extbase\Annotation\ORM\Lazy` causes Extbase to
+The attribute :php:`\TYPO3\CMS\Extbase\Annotation\ORM\Lazy` causes Extbase to
 load and build the objects only when they
 are actually needed (lazy loading). This can lead to a significant
 increase in performance.
@@ -134,10 +134,10 @@ increase in performance.
 On cascade remove
 =================
 
-The annotation :php:`@TYPO3\CMS\Extbase\Annotation\ORM\Cascade("remove")` has
+The attribute :php:`\TYPO3\CMS\Extbase\Annotation\ORM\Cascade("remove")` has
 the effect that, if a blog is deleted, its posts will also be deleted
 immediately. Extbase usually leaves all child objects' persistence unchanged.
 
-Besides these two, there are a few more annotations available, which will be used
+Besides these two, there are a few more attributes available, which will be used
 in other contexts. For the complete list of all Extbase
-supported annotations, see the chapter :ref:`extbase-annotations`.
+supported attributes, see the chapter :ref:`extbase-attributes`.
