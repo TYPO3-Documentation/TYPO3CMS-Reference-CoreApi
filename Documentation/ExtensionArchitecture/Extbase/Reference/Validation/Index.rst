@@ -140,7 +140,7 @@ PHP Attribut syntax of validators with arguments
 Validators can be called with zero, one or more arguments. See the following
 examples:
 
-..  literalinclude:: ../_Attribute/_Validate.php
+..  literalinclude:: ../_Attributes/_Validate.php
     :caption: EXT:blog_example/Classes/Domain/Model/Person.php, modified
 
 Available validators shipped with Extbase can be found within
