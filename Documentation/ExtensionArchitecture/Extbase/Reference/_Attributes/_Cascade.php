@@ -15,12 +15,4 @@ final class Blog extends AbstractEntity
      */
     #[Cascade(['value' => 'remove'])]
     public $posts;
-
-    /**
-     * Use annotations instead for compatibility with TYPO3 v11:
-     *
-     * @var ObjectStorage<Post>
-     * @Cascade("remove")
-     */
-    public $posts2;
 }

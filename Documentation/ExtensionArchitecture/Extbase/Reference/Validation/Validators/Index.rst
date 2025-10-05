@@ -208,7 +208,7 @@ in validator resolver configurations.
     You must manually create and configure a `DisjunctionValidator` when needed.
 
     It is not currently possible to use this validator directly via
-    `#[Validate(...)]` annotations.
+    `#[Validate(...)]` attributes.
 
 ..  _extbase-validator-emailaddress:
 

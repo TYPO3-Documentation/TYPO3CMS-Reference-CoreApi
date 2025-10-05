@@ -14,8 +14,8 @@ Using validation for Extbase models and controllers
 Extbase provides a number of validators for standard use cases such as
 e-mail addresses, string length, not empty etc.
 
-All validators need to be explicitly applied by the annotation
-:ref:`extbase-annotation-validate` to either a
+All validators need to be explicitly applied by the attribute
+:ref:`extbase-attribute-validate` to either a
 controller action or a property / setter in a model.
 
 It is also possible to write custom validators for properties or complete
@@ -86,12 +86,12 @@ Validation of model properties
     using validator options. It is possible to provide either a translation key or
     a custom message as string.
 
-You can define simple validation rules in the domain model by the annotation
-:ref:`extbase-annotation-validate`.
+You can define simple validation rules in the domain model by the attribute
+:ref:`extbase-attribute-validate`.
 
 **Example:**
 
-..  literalinclude:: ../_Annotations/_Validate.php
+..  literalinclude:: ../_Attributea/_Validate.php
     :caption: EXT:blog_example/Classes/Domain/Model/Blog.php, modified
 
 In this code section the validator :php:`StringLength` provided by Extbase
@@ -115,11 +115,11 @@ You can also define controller argument validators:
 
 The following rules validate each controller argument:
 
-*  If the argument is a domain object, the annotations
+*  If the argument is a domain object, the attributes
    :php:`\TYPO3\CMS\Extbase\Annotation\Validate` in the domain object are taken into
    account.
 
-*  If there is set an annotation
+*  If there is set an attribute
    :php:`\TYPO3\CMS\Extbase\Annotation\IgnoreValidation` for the argument,
    no validation is done. This option must not be used when working with
    extbase file upload, because it leads to a property mapping error.
@@ -140,7 +140,7 @@ PHP Attribut syntax of validators with arguments
 Validators can be called with zero, one or more arguments. See the following
 examples:
 
-..  literalinclude:: ../_Annotations/_Validate.php
+..  literalinclude:: ../_Attribute/_Validate.php
     :caption: EXT:blog_example/Classes/Domain/Model/Person.php, modified
 
 Available validators shipped with Extbase can be found within

@@ -18,15 +18,4 @@ final class BlogController extends ActionController
         $this->view->assign('blog', $blog);
         return $this->htmlResponse();
     }
-
-    /**
-     * Use annotations instead for compatibility with TYPO3 v11:
-     * @IgnoreValidation("blog")
-     */
-    public function editAction2(Blog $blog): ResponseInterface
-    {
-        // Do something
-        $this->view->assign('blog', $blog);
-        return $this->htmlResponse();
-    }
 }
