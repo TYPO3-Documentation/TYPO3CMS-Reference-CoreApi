@@ -32,8 +32,8 @@ The :php:`BlogRepository` sets some default orderings and is otherwise empty:
     :local:
 
 ..  seealso::
-    If you are using the :composer:`stefanfroemken/ext-kickstarter` you can use
-    command `vendor/bin/typo3 make:repository` to generate an Extbase repository.
+    If you are using the :composer:`friendsoftypo3/kickstarter` you can use
+    the command :command:`vendor/bin/typo3 make:repository` to generate an Extbase repository.
 
 ..  _extbase-repository-find-methods:
 
@@ -67,7 +67,7 @@ Example:
     $this->blogRepository->findBy(['author' => 1, 'published' => true]);
 
 ..  attention::
-    Saving a :php:`QueryResult` to a cache is not possible, if objects in the 
+    Saving a :php:`QueryResult` to a cache is not possible, if objects in the
     :php:`QueryResult` contain closures. This is typically the case for models
     which use lazy loading on properties.
 
