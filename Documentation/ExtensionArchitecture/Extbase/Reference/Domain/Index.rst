@@ -19,6 +19,19 @@ The :path:`Classes/Domain/` folder contains the domain logic of your Extbase
 extension. This is where you model real-world concepts in your application
 and define how they behave.
 
+The Domain Model Object in the :path:`Classes/Domain/Model/` folder defines which 
+table fields are available for a database table. These must correspond to the fields in
+the TCA. 
+
+Queries in `Extbase repositories  <https://docs.typo3.org/permalink/t3coreapi:extbase-repository>`_
+made with the Extbase (:php:`\TYPO3\CMS\Extbase\Persistence\QueryInterface`) are limited to 
+the fields defined in the model, while `DBAL <https://docs.typo3.org/permalink/t3coreapi:doctrine-dbal>`_
+queries based on the `Query builder  <https://docs.typo3.org/permalink/t3coreapi:database-query-builder>`_
+are only limited to fields defined in the TCA.
+
+An Extbase model is a subset of the fields contained in the 
+`Record object  <https://docs.typo3.org/permalink/t3coreapi:record-objects>`_ of the connected table.
+
 While Domain-Driven Design (DDD) suggests putting business-related services in
 the Domain layer, in most TYPO3 extensions you will actually see service
 classes placed in: :path:`Classes/Service/`. It is also possible to put them
