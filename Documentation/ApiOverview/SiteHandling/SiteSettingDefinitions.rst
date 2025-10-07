@@ -271,20 +271,19 @@ Definition types
 
         ..  literalinclude:: _Settings/_settings.definitions.page.yaml
 
-..  _translation-of-settings:
+..  _site-settings-definition-translation:
 
-Translating Labels and Descriptions for Settings
+Translating labels and descriptions for settings
 ================================================
 
 To translate the labels and descriptions for the settings you have defined in
-:file:`settings.definition.yml`, remove the ``label`` entry from there and create a
+:file:`settings.definition.yml`, remove the `label` entry from there and create a
 :file:`labels.xlf` file in the same directory.
 
-The LL key must be the key of the setting.  
-For example, the label of the setting is simply ``label`` in the XLF file.
+The key of the translation unit must be the key of the setting.  
+For example, the label of the setting is simply `label` in the XLF file.
 
-Example
--------
+.. rubric:: Example
 
 ..  code-block:: xml
     :caption: Example label definition in labels.xlf
@@ -293,7 +292,9 @@ Example
         <source>My Custom Set</source>
     </trans-unit>
 
-Translating Category Labels
+..  _site-settings-definition-translation-category:
+
+Translating category labels
 ---------------------------
 
 To translate category labels and descriptions, use the following format:
@@ -309,7 +310,9 @@ To translate category labels and descriptions, use the following format:
         <source>Description of My Custom Category</source>
     </trans-unit>
 
-Translating Settings Labels and Descriptions
+..  _site-settings-definition-translation-labels:
+
+Translating settings labels and descriptions
 --------------------------------------------
 
 To translate the label and description of a specific setting, use this structure:
@@ -325,7 +328,9 @@ To translate the label and description of a specific setting, use this structure
         <source>My Custom Setting description</source>
     </trans-unit>
 
-Translations for Other Languages
+..  _site-settings-definition-translation-languages:
+
+Translations for other languages
 --------------------------------
 
 To provide translations in another language, use the two-letter language prefix
