@@ -63,7 +63,7 @@ Extension kickstarter matrix
    :header-rows: 1
 
    * - Feature
-     - :composer:`stefanfroemken/ext-kickstarter`
+     - :composer:`friendsoftypo3/kickstarter`
      - :composer:`b13/make`
      - :composer:`friendsoftypo3/extension-builder`
 

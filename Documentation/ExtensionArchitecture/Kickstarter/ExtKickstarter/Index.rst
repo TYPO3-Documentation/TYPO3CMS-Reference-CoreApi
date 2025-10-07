@@ -5,7 +5,7 @@
 Extension Kickstarter
 =====================
 
-You can use the :composer:`stefanfroemken/ext-kickstarter` Extension Kickstarter
+You can use the :composer:`friendsoftypo3/kickstarter` Extension Kickstarter
 tool to quickly create your own TYPO3 extensions. It provides a
 basic framework and templates.
 
@@ -25,4 +25,4 @@ custom extensions.
 
 ..  seealso::
 
-    `Extension Kickstarter (manual) <https://docs.typo3.org/permalink/stefanfroemken/ext-kickstarter:start>`_
+    `Extension Kickstarter (manual) <https://docs.typo3.org/permalink/friendsoftypo3/kickstarter:start>`_

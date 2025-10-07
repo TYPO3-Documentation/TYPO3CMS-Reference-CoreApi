@@ -32,7 +32,7 @@ The :php:`BlogRepository` sets the default orderings and is otherwise empty:
     :local:
 
 ..  seealso::
-    If you are using the :composer:`stefanfroemken/ext-kickstarter` you can use
+    If you are using the :composer:`friendsoftypo3/kickstarter` you can use
     the command :command:`vendor/bin/typo3 make:repository` to generate an Extbase repository.
 
 ..  _extbase-repository-find-methods:

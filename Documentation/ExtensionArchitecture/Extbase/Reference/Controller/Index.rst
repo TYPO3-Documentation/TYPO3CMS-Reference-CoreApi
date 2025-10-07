@@ -50,5 +50,5 @@ for details.
     TypeConverter
 
 ..  seealso::
-    If you are using the :composer:`stefanfroemken/ext-kickstarter` you can use
+    If you are using the :composer:`friendsoftypo3/kickstarter` you can use
     command `vendor/bin/typo3 make:controller` to generate a controller.
