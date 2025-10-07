@@ -337,8 +337,3 @@ To provide translations in another language, use the two-letter language prefix
 in the filename. For example:
 
 :file:`de.labels.xlf`
-
-
-
-
-
