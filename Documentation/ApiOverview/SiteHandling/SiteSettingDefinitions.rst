@@ -270,3 +270,70 @@ Definition types
         UID in the field.
 
         ..  literalinclude:: _Settings/_settings.definitions.page.yaml
+
+..  _translation-of-settings:
+
+Translating Labels and Descriptions for Settings
+================================================
+
+To translate the labels and descriptions for the settings you have defined in
+:file:`settings.definition.yml`, remove the ``label`` entry from there and create a
+:file:`labels.xlf` file in the same directory.
+
+The LL key must be the key of the setting.  
+For example, the label of the setting is simply ``label`` in the XLF file.
+
+Example
+-------
+
+..  code-block:: xml
+    :caption: Example label definition in labels.xlf
+
+    <trans-unit id="label">
+        <source>My Custom Set</source>
+    </trans-unit>
+
+Translating Category Labels
+---------------------------
+
+To translate category labels and descriptions, use the following format:
+
+..  code-block:: xml
+    :caption: Example category label definitions
+
+    <trans-unit id="categories.mycustomcategory">
+        <source>My Custom Category</source>
+    </trans-unit>
+
+    <trans-unit id="categories.description.mycustomcategory">
+        <source>Description of My Custom Category</source>
+    </trans-unit>
+
+Translating Settings Labels and Descriptions
+--------------------------------------------
+
+To translate the label and description of a specific setting, use this structure:
+
+..  code-block:: xml
+    :caption: Example setting label definitions
+
+    <trans-unit id="settings.mycustomsetting">
+        <source>My Custom Setting</source>
+    </trans-unit>
+
+    <trans-unit id="settings.description.mycustomsetting">
+        <source>My Custom Setting description</source>
+    </trans-unit>
+
+Translations for Other Languages
+--------------------------------
+
+To provide translations in another language, use the two-letter language prefix
+in the filename. For example:
+
+:file:`de.labels.xlf`
+
+
+
+
+
