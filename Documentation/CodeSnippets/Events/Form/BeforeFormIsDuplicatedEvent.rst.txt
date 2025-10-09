@@ -3,10 +3,11 @@
 
 ..  php:class:: BeforeFormIsDuplicatedEvent
 
-    Listeners to this event will be able to modify a form before it is duplicated.
-
-    ..  php:attr:: form
-        :public:
+    Listeners to this Event will be able to modify the form definition
+    and persistence identifier before a form is duplicated.
 
     ..  php:attr:: formPersistenceIdentifier
+        :public:
+
+    ..  php:attr:: form
         :public:
