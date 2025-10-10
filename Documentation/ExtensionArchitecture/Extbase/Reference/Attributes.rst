@@ -12,7 +12,7 @@ Attributes in Extbase
 All available attributes for Extbase delivered by TYPO3 Core are placed within
 the namespace :php:`\TYPO3\CMS\Extbase\Annotation` for historic reasons. Until
 TYPO3 version 11 they could only be used a an annotation, a comment in the code
-that was interpreted.
+that was interpreted (using the :composer:`doctrine/annotations` package, which is now abandoned).
 
 ..  versionchanged:: 12.0
     Starting with TYPO3 v12.0 Extbase annotations can be supplied as
