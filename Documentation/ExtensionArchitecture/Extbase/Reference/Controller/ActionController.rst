@@ -105,7 +105,7 @@ If you need a to handle errors differently this method can be overridden.
 ..  hint::
     If a domain object should not be validated, for example in the middle of an
     editing process, the validation of that object can be disabled by the
-    attribute :php:`@TYPO3\CMS\Extbase\Annotation\IgnoreValidation`.
+    attribute :php:`TYPO3\CMS\Extbase\Annotation\IgnoreValidation`.
 
 ..  _extbase-action-controller-forward:
 
