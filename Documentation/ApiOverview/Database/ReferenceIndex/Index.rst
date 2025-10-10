@@ -5,6 +5,11 @@
 Reference index
 ===============
 
+..  versionchanged:: 14.0
+    The "Update Reference Index" tool was moved from :composer:`typo3/cms-lowlevel`
+    to :composer:`typo3/cms-install`. In the backend the tool can now be found
+    in :guilabel:`Admin Tools > Maintenance > Check and Update Reference Index`.
+
 The reference index in TYPO3 is the table `sys_refindex`.
 (Related link: :ref:`Soft references <t3coreapi:soft-references>`).
 The table contains all relations/cross correlations between datasets.
@@ -18,8 +23,8 @@ See `Update Reference Index <https://docs.typo3.org/permalink/t3coreapi:update-r
 To perform an update you can use the TYPO3 Console command shown in that section.
 
 TYPO3 installations with a small number of records can use the module
-:guilabel:`System > DB check` and use the :guilabel:`Manage Reference Index`
-function.
+:guilabel:`Admin Tools > Maintenance` and use the
+:guilabel:`Check and Update Reference Index` function.
 
 On TYPO3 installations with a large number of records and many relations between
 those the maximum run time of PHP will be reached and the scripts therefore
