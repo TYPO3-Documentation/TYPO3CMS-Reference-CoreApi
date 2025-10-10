@@ -63,8 +63,11 @@ Below are the most important ones and what they provide:
 :composer:`typo3/cms-install`
     Contains the Install Tool, used for system setup, upgrades, and configuration.
 
-You can use the `get.typo3.or Composer helper <https://get.typo3.org/misc/composer/helper>`_
-to compile composer command for minimal, recommended and full TYPO2 installations
+.. tip::
+
+    You can use the `Composer Helper on get.typo3.org <https://get.typo3.org/misc/composer/helper>`_
+    to generate a Composer command, choosing between default, minimal, or full TYPO3 installation presets,
+    and optionally selecting individual packages and specifying the desired TYPO3 version.
 
 .. _extension-scope:
 
