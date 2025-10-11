@@ -1,30 +1,35 @@
-:navigation-title: Annotations
+:navigation-title: Attributes
 
 ..  include:: /Includes.rst.txt
-..  index:: Extbase; Annotations
+..  index:: Extbase; Attribute
 ..  _extbase-annotations:
+..  _extbase-attributes:
 
-======================
-Annotations in Extbase
-======================
+=====================
+Attributes in Extbase
+=====================
 
-All available annotations for Extbase delivered by TYPO3 Core are placed within
-the namespace :php:`\TYPO3\CMS\Extbase\Annotation`.
+All available attributes for Extbase delivered by TYPO3 Core are placed within
+the namespace :php:`\TYPO3\CMS\Extbase\Annotation` for historic reasons. Until
+TYPO3 version 11 they could only be used a an annotation, a comment in the code
+that was interpreted (using the :composer:`doctrine/annotations` package, which is now abandoned).
 
 Example in `EXT:blog_example <https://github.com/typo3-documentation/blog_example>`__
-for the annotation :php:`Lazy`:
+for the attribute :php:`Lazy`:
 
-..  literalinclude:: _Annotations/_Lazy.php
+..  literalinclude:: _Attributes/_Lazy.php
     :caption: EXT:blog_example/Classes/Domain/Model/Blog.php, modified
 
 ..  _extbase-annotations-internal:
+..  _extbase-attributes-internal:
 
-Annotations provided by Extbase
-===============================
+Attributes provided by Extbase
+==============================
 
-The following annotations are provided Extbase:
+The following attributes are provided Extbase:
 
 ..  _extbase-annotation-validate:
+..  _extbase-attribute-validate:
 
 Validate
 --------
@@ -36,13 +41,14 @@ Can be used in the context of a model property.
 
 **Example:**
 
-..  literalinclude:: _Annotations/_Validate.php
+..  literalinclude:: _Attributes/_Validate.php
     :caption: EXT:blog_example/Classes/Domain/Model/Blog.php, modified
 
-`Validate` annotations for a controller action are executed additionally
+`Validate` attributes for a controller action are executed additionally
 to possible domain model validators.
 
 ..  _extbase-annotation-ignore-validation:
+..  _extbase-attribute-ignore-validation:
 
 IgnoreValidation
 ----------------
@@ -55,7 +61,7 @@ Used in context of a controller action.
 
 **Example:**
 
-..  literalinclude:: _Annotations/_IgnoreValidation.php
+..  literalinclude:: _Attributes/_IgnoreValidation.php
     :caption: EXT:blog_example/Classes/Controller/BlogController.php, modified
 
 You can not exclude specific properties of a object specified in an argument.
@@ -74,13 +80,15 @@ https://github.com/garvinhicking/gh_validationdummy/
     extbase file uploads, because this leads to a property mapping error.
 
 ..  _extbase-annotation-orm:
+..  _extbase-attribute-orm:
 
-ORM (object relational model) annotations
-------------------------------------------
+ORM (object relational model) attributes
+----------------------------------------
 
-The following annotations can only be used on model properties:
+The following attributes can only be used on model properties:
 
 ..  _extbase-annotation-cascade:
+..  _extbase-attribute-cascade:
 
 Cascade
 ~~~~~~~
@@ -92,10 +100,11 @@ Extbase only supports the option "remove".
 
 **Example:**
 
-..  literalinclude:: _Annotations/_Cascade.php
+..  literalinclude:: _Attributes/_Cascade.php
     :caption: EXT:blog_example/Classes/Domain/Model/Blog.php, modified
 
 ..  _extbase-annotation-transient:
+..  _extbase-attribute-transient:
 
 Transient
 ~~~~~~~~~
@@ -105,10 +114,11 @@ Transient
 
 **Example:**
 
-..  literalinclude:: _Annotations/_Transient.php
+..  literalinclude:: _Attributes/_Transient.php
     :caption: EXT:blog_example/Classes/Domain/Model/Post.php, modified
 
 ..  _extbase-annotation-lazy:
+..  _extbase-attribute-lazy:
 
 Lazy
 ~~~~
@@ -121,18 +131,19 @@ lazily on first access.
 
 **Example:**
 
-..  literalinclude:: _Annotations/_Lazy.php
+..  literalinclude:: _Attributes/_Lazy.php
     :caption: EXT:blog_example/Classes/Domain/Model/Post.php, modified
 
 ..  _extbase-annotation-combine:
+..  _extbase-attribute-combine:
 
-Combining annotations
-=====================
+Combining attributes
+====================
 
-Annotations can be combined. For example, "lazy loading" and "removal on cascade"
+Attributes can be combined. For example, "lazy loading" and "removal on cascade"
 are frequently combined:
 
-..  literalinclude:: _Annotations/_Multiple.php
+..  literalinclude:: _Attributes/_Multiple.php
     :caption: EXT:blog_example/Classes/Domain/Model/Post.php, modified
 
 Several validations can also be combined. See :ref:`extbase_validation`

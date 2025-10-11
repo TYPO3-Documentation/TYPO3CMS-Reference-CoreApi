@@ -14,11 +14,4 @@ class Blog extends AbstractEntity
         'options' => ['maximum' => 150],
     ])]
     public string $description = '';
-
-    /**
-     * Use annotations instead for compatibility with TYPO3 v11:
-     *
-     * @Validate("StringLength", options={"maximum": 150})
-     */
-    public string $description2 = '';
 }

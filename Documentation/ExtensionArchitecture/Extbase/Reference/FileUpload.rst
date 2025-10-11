@@ -204,7 +204,7 @@ The currently available configuration array keys are:
 *   `createUploadFolderIfNotExist` (:php:`bool`, whether to create missing
     directories)
 
-It is also possible to use the :php-short:`\TYPO3\CMS\Extbase\Annotation\FileUpload` annotation to configure
+It is also possible to use the :php-short:`\TYPO3\CMS\Extbase\Annotation\FileUpload` attribute to configure
 file upload properties, but it is recommended to use the
 :php-short:`\TYPO3\CMS\Extbase\Annotation\FileUpload` attribute due to better readability.
 
