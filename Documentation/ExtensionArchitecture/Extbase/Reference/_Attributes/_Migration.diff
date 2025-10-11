@@ -1,0 +1,12 @@
+-use TYPO3\CMS\Extbase\Annotation as Extbase;
++use TYPO3\CMS\Extbase\Attribute as Extbase;
+ use TYPO3\CMS\Extbase\DomainObject\AbstractEntity;
+
+ class MyModel extends AbstractEntity
+ {
+-    /**
+-     * @Extbase\Validate("NotEmpty")
+-     */
++     #[Extbase\Validate(['validator' => 'NotEmpty'])]
+     protected string $foo = '';
+ }

@@ -6,7 +6,7 @@ namespace T3docs\BlogExample\Controller;
 
 use Psr\Http\Message\ResponseInterface;
 use T3docs\BlogExample\Domain\Model\Blog;
-use TYPO3\CMS\Extbase\Annotation\IgnoreValidation;
+use TYPO3\CMS\Extbase\Attribute\IgnoreValidation;
 use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
 
 final class BlogController extends ActionController
