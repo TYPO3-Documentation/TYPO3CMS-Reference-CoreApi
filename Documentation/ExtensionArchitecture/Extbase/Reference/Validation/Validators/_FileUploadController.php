@@ -37,7 +37,7 @@ class SomeController extends ActionController
         );
 
         // Extbase's property mapping is not handling FileUploads, so it must not operate on this property.
-        // When using the FileUpload attribute/annotation, this internally does the same. This is covered
+        // When using the FileUpload attribute, this internally does the same. This is covered
         // by the `addFileUploadConfiguration()` functionality.
         $this->arguments->getArgument('myArgument')->getPropertyMappingConfiguration()->skipProperties('myPropertyName');
     }

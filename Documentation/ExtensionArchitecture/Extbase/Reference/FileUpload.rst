@@ -168,7 +168,7 @@ so this means in any case of a validation failure ("normal" validators and file 
 validation) a file upload must be performed again by users.
 
 Possible future enhancements of this functionality could enhance the existing
-`#[FileUpload]` attribute/annotation with configuration like a temporary storage
+`#[FileUpload]` attribute with configuration like a temporary storage
 location, or specifying additional custom validators (which can be done via the PHP-API as
 described below)
 
@@ -177,7 +177,7 @@ File upload configuration with the `FileUpload` attribute
 ---------------------------------------------------------
 
 File upload for a property of a domain model can be configured using the
-newly introduced :php:`\TYPO3\CMS\Extbase\Annotation\FileUpload` attribute.
+newly introduced :php:`\TYPO3\CMS\Extbase\Attribute\FileUpload` attribute.
 
 Example:
 
@@ -187,10 +187,10 @@ Example:
 
 All configuration settings of the
 :php:`\TYPO3\CMS\Extbase\Mvc\Controller\FileUploadConfiguration` object can
-be defined using the :php-short:`\TYPO3\CMS\Extbase\Annotation\FileUpload`
+be defined using the :php-short:`\TYPO3\CMS\Extbase\Attribute\FileUpload`
 attribute. It is however not possible
 to add custom validators using the
-:php-short:`\TYPO3\CMS\Extbase\Annotation\FileUpload` attribute, which you
+:php-short:`\TYPO3\CMS\Extbase\Attribute\FileUpload` attribute, which you
 can achieve with a manual configuration as shown below.
 
 The currently available configuration array keys are:
@@ -204,9 +204,9 @@ The currently available configuration array keys are:
 *   `createUploadFolderIfNotExist` (:php:`bool`, whether to create missing
     directories)
 
-It is also possible to use the :php-short:`\TYPO3\CMS\Extbase\Annotation\FileUpload` attribute to configure
+It is also possible to use the :php-short:`\TYPO3\CMS\Extbase\Attribute\FileUpload` attribute to configure
 file upload properties, but it is recommended to use the
-:php-short:`\TYPO3\CMS\Extbase\Annotation\FileUpload` attribute due to better readability.
+:php-short:`\TYPO3\CMS\Extbase\Attribute\FileUpload` attribute due to better readability.
 
 ..  _extbase_fileupload_attribute-manual-configuration:
 
@@ -243,7 +243,7 @@ Property name:
 
 Defines the name of the property of a domain model to which the file upload
 configuration applies. The value is automatically retrieved when using
-the :php-short:`\TYPO3\CMS\Extbase\Annotation\FileUpload` attribute. If the
+the :php-short:`\TYPO3\CMS\Extbase\Attribute\FileUpload` attribute. If the
 :php-short:`\TYPO3\CMS\Extbase\Mvc\Controller\FileUploadConfiguration` object
 is created manually, it must be set using the :php:`$propertyName`
 constructor argument.
@@ -272,7 +272,7 @@ In addition, Extbase includes the following validators to validate an
 *   :php:`\TYPO3\CMS\Extbase\Validation\Validator\FileExtensionValidator`
 
 Those validators can either be configured with the
-:php-short:`\TYPO3\CMS\Extbase\Annotation\FileUpload` attribute or added
+:php-short:`\TYPO3\CMS\Extbase\Attribute\FileUpload` attribute or added
 manually to the configuration object
 with the :php:`addValidator()` method.
 
@@ -355,7 +355,7 @@ Modifying existing configuration
 --------------------------------
 
 File upload configuration defined by the
-:php-short:`\TYPO3\CMS\Extbase\Annotation\FileUpload` attribute can be
+:php-short:`\TYPO3\CMS\Extbase\Attribute\FileUpload` attribute can be
 changed in the :php:`initialize*Action`.
 
 Example:
@@ -388,7 +388,7 @@ Using TypoScript configuration for file uploads configuration
 -------------------------------------------------------------
 
 When a file upload configuration for a property has been added using the
-:php-short:`\TYPO3\CMS\Extbase\Annotation\FileUpload` attribute, it may be
+:php-short:`\TYPO3\CMS\Extbase\Attribute\FileUpload` attribute, it may be
 required make the upload folder or
 other configuration options configurable with TypoScript.
 
@@ -415,11 +415,11 @@ File upload validation
 ----------------------
 
 Each uploaded file can be validated against a configurable set of validators.
-The :php:`validation` section of the :php-short:`\TYPO3\CMS\Extbase\Annotation\FileUpload` attribute allows to
+The :php:`validation` section of the :php-short:`\TYPO3\CMS\Extbase\Attribute\FileUpload` attribute allows to
 configure commonly used validators using a configuration shorthand.
 
 The following validation rules can be configured in the :php:`validation`
-section of the :php-short:`\TYPO3\CMS\Extbase\Annotation\FileUpload` attribute:
+section of the :php-short:`\TYPO3\CMS\Extbase\Attribute\FileUpload` attribute:
 
 *   :php:`required`
 *   :php:`minFiles`
@@ -484,7 +484,7 @@ extend the Extbase :php-short:`\TYPO3\CMS\Extbase\Validation\Validator\AbstractV
 The value to be validated is
 always a PSR-7 :php-short:`\TYPO3\CMS\Core\Http\UploadedFile` object.
 Custom validators can however not
-be used in the :php-short:`\TYPO3\CMS\Extbase\Annotation\FileUpload` attribute
+be used in the :php-short:`\TYPO3\CMS\Extbase\Attribute\FileUpload` attribute
 and must be configured manually as shown in :ref:`extbase_fileupload_attribute-manual-configuration`.
 
 ..  _extbase_fileupload_attribute-validationkeys_shorthand_allowedmimetypes:
@@ -549,7 +549,7 @@ Extbase will then handle file deletion(s) before persisting a validated
 object. It will:
 
 *   validate that minimum and maximum file upload configuration for the affected
-    property is fulfilled (only if the property has a :php-short:`\TYPO3\CMS\Extbase\Annotation\FileUpload`)
+    property is fulfilled (only if the property has a :php-short:`\TYPO3\CMS\Extbase\Attribute\FileUpload`)
 *   delete the affected :php:`sys_file_reference` record
 *   delete the affected file
 

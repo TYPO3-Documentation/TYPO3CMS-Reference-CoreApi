@@ -50,7 +50,7 @@ in the attribute of that parameter:
     of that model is passed to a controller action as a parameter.
 
     The validation result of the parameter can be ignored by using the attribute
-    :ref:`extbase-annotation-ignore-validation`.
+    :ref:`extbase-attribute-ignore-validation`.
 
 ..  _extbase_domain_validator-model-complete:
 

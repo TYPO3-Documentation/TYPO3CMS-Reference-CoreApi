@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace MyVendor\MyExtension\Domain\Model;
 
-use TYPO3\CMS\Extbase\Annotation\FileUpload;
+use TYPO3\CMS\Extbase\Attribute\FileUpload;
 use TYPO3\CMS\Extbase\Domain\Model\FileReference;
 use TYPO3\CMS\Extbase\DomainObject\AbstractEntity;
 
