@@ -11,6 +11,9 @@
         Returns the SiteLanguage in an array representation for e.g. the usage
         in TypoScript.
 
+    ..  php:method:: getConfiguration()
+        :returns: `array`
+
     ..  php:method:: getLanguageId()
         :returns: `int`
 
