@@ -17,7 +17,7 @@ Extbase reference
     UriBuilder
     FrontendPlugins
     TypoScriptConfiguration
-    Annotations
+    Attributes
     Validation/Index
     FileUpload
     Caching

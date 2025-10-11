@@ -40,7 +40,7 @@ time in the moment the error message was first introduced. This way all errors
 can be uniquely identified.
 
 This validator can be used for any string property of model now by including it
-in the annotation of that parameter:
+in the attribute of that parameter:
 
 ..  literalinclude:: _PropertyValidatorUsage.php
     :caption: EXT:blog_example/Classes/Domain/Model/Blog.php, modified
@@ -49,7 +49,7 @@ in the annotation of that parameter:
     Validators added to a property of a model are executed whenever an object
     of that model is passed to a controller action as a parameter.
 
-    The validation result of the parameter can be ignored by using the annotation
+    The validation result of the parameter can be ignored by using the attribute
     :ref:`extbase-annotation-ignore-validation`.
 
 ..  _extbase_domain_validator-model-complete:
@@ -66,7 +66,7 @@ that will persist the object.
 If the error is related to a specific property of the domain object, the
 function :php:`addErrorForProperty()` should be used instead of :php:`addError()`.
 
-The validator is used as annotation in the action methods of the controller:
+The validator is used as attribute in the action methods of the controller:
 
 ..  literalinclude:: _ObjectValidatorUsage.php
     :caption: EXT:blog_example/Classes/Controller/BlogController.php, modified
