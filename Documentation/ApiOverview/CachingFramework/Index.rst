@@ -239,12 +239,24 @@ caches, too.
 Cache warmup
 ------------
 
+..  versionchanged:: 13.4.19
+    Cache warmup does not work when the PHP minor version between the CLI and
+    the web differ anymore.
+
+    See `Important: #107649 - Dependency Injection cache is now PHP version dependant <https://docs.typo3.org/permalink/changelog:important-107649-1760090777>`_
+    for details.
+
 It is possible to warmup TYPO3 caches using the command line.
 
 The administrator can use the following
 :ref:`CLI command <symfony-console-commands>`:
 
 ..  include:: /_includes/CliCacheWarmup.rst.txt
+
+..  important::
+    Cache warming will **not work correctly** if the PHP version used for the
+    CLI context differs in the minor version from the PHP version used for
+    the web context.
 
 Specific cache groups can be defined via the group option.
 The usage is described as this:
