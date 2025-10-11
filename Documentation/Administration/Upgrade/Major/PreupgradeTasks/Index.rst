@@ -95,22 +95,28 @@ To run the reference index update, execute in the root folder of your project:
 Without command line
 --------------------
 
+..  versionchanged:: 14.0
+    The "Update Reference Index" tool was moved from :composer:`typo3/cms-lowlevel`
+    to :composer:`typo3/cms-install`. In the backend the tool can now be found
+    in :guilabel:`Admin Tools > Maintenance > Check and Update Reference Index`.
+
 Still in your old TYPO3 version, go to the
-:guilabel:`System > DB check` module and use the
-:guilabel:`Manage Reference Index` function.
+:guilabel:`Admin Tools` module and use the
+:guilabel:`Check and Update Reference Index` function.
+
+..  note::
+    Until TYPO3 13.4 the tool can be found at :guilabel:`System > DB
+    check > Manage Reference Index`. :composer:`typo3/cms-lowlevel` must be
+    installed for the mentioned backend module.
 
 Click on :guilabel:`Update reference index` to update the reference index. In
 case there is a timeout, and you do not have CLI access (see above) you might
 have to run the update multiple times.
 
-..  note::
-    The :doc:`lowlevel system extension <ext_lowlevel:Index>` must be installed
-    for the mentioned backend module.
-
 ..  tip::
     As the reference index might take some time, especially on instances not
     running it regularly, an upgrade via
-    :ref:`command line (CLI) <t3coreapi:symfony-console-commands>` is
+    :ref:`command line (CLI) <t3coreapi:reference-index>` is
     recommended to avoid a timeout.
 
 ..  _check-the-changelog-and-news-md:
