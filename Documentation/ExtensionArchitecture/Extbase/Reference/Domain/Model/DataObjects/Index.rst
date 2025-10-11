@@ -74,7 +74,7 @@ a flash message and attempt to return the user to the previous action.
 You can override the default (and sometimes cryptic) error message by implementing
 the following method in your controller:
 
-..  literalinclude:: _codesnippets/getErrorFlashMessage.php
+..  literalinclude:: _codesnippets/CalculatorControllerErrorMessage.php
     :caption: EXT:bmi_calculator/Classes/Controller/CalculatorController.php
 
 It is also possible to override the default error action `errorAction()`.
