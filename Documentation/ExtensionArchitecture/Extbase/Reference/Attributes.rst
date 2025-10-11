@@ -174,7 +174,7 @@ be migrated to native PHP attributes:
 
 ..  literalinclude:: _Attributes/_Migration.diff
 
-TYPO3 rector (:composer:`sabbelasichon/typo3-rector`) has rule
+TYPO3 rector (:composer:`ssch/typo3-rector`) has rule
 :php:`\Ssch\TYPO3Rector\TYPO312\v0\ExtbaseAnnotationToAttributeRector` to
 automatically migrate from the annotation syntax to the attribute syntax.
 
