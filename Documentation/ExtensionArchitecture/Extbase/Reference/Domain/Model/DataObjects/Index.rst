@@ -117,7 +117,7 @@ the database:
 Storing DTOs in the user session
 ================================
 
-DTOs are volatile by nature. The moment you leave the controller action the are
+DTOs are volatile by nature. The moment you leave the controller action they are
 gone.
 
 Let us assume we want to remember the measurements of the user as long as they
