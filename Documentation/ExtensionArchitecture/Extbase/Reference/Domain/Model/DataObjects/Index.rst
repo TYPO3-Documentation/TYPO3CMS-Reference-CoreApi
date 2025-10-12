@@ -123,7 +123,7 @@ gone.
 Let us assume we want to remember the measurements of the user as long as they
 don't close their browser window.
 
-We can now store the DTO into the user session (See
+We can now store the DTO into the user session (see
 `Session data <https://docs.typo3.org/permalink/t3coreapi:session-data>`_)
 even if no frontend user is logged in.
 
