@@ -19,6 +19,10 @@ A data object is defined by its values and cannot be referenced by an ID.
 Forms are commonly bound to data objects. In multi-step forms, you can use
 multiple data objects with distinct validation rules for each step.
 
+..  seealso::
+    *   `Data Transfer Objects (DTO) as a software design principle <https://docs.typo3.org/permalink/t3coreapi:concept-dto>`_
+    *   `usetypo3.com: Data Transfer Objects in Extbase <https://usetypo3.com/dtos-in-extbase/>`_
+
 ..  _extbase-dto-example-dto:
 
 Example: A BMI calculator without storage
@@ -78,3 +82,32 @@ the following method in your controller:
     :caption: EXT:bmi_calculator/Classes/Controller/CalculatorController.php
 
 It is also possible to override the default error action `errorAction()`.
+
+..  _extbase-dto-example-dto-domain model:
+
+Converting DTOs to domain models
+================================
+
+In order to be persisted to the database a DTO has to be transferred into a
+domain model.
+
+This can be achieved by implementing a :php:`static` method converting the
+DTO into a domain model:
+
+To stay in our example above, let us assume we want to save the measurement
+input of our users into the database in order to use it for statistical
+purposes.
+
+To avoid storing a float we will convert the height into centimeters.
+
+As the static method is located in the same class it can access the protected
+properties of the model directly.
+
+..  literalinclude:: _codesnippets/Measurements.php
+    :caption: EXT:bmi_calculator/Classes/Domain/ModelMeasurements.php
+
+You can now transfer your data object into a model entity that can be saved into
+the database:
+
+..  literalinclude:: _codesnippets/CalculatorControllerSaveModel.php
+    :caption: EXT:bmi_calculator/Classes/Controller/CalculatorController.php
