@@ -151,7 +151,7 @@ session data there:
 Using DTOs as demand objects
 ============================
 
-DTOs can be also be used to handle instructional data. Let us assume we want
+DTOs can also be used to handle instructional data. Let us assume we want
 to display the measurements of previous users in a table. This table can be
 sorted by weight or height and it can be filtered by different criteria.
 
