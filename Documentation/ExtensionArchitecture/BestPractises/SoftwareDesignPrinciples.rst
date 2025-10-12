@@ -1,8 +1,8 @@
 :navigation-title: Software design
 
-.. include:: /Includes.rst.txt
-.. index:: Extension development; Software Design Principles
-.. _extension-software-design-principles:
+..  include:: /Includes.rst.txt
+..  index:: Extension development; Software Design Principles
+..  _extension-software-design-principles:
 
 ==========================
 Software design principles
@@ -33,18 +33,18 @@ extensions for TYPO3.
 We also recommend to study common `software design
 patterns <https://designpatternsphp.readthedocs.io/en/latest/>`__.
 
-.. _concept-dto:
+..  _concept-dto:
 
-DTO / Data Transfer Objects
-----------------------------
+Data Transfer Objects (DTO) as a software design concept
+========================================================
 
-A very common pattern in Extbase extensions is a "DTO" ("Data Transfer Object").
+A very common pattern in Extbase extensions is a :abbr:`DTO (Data Transfer Object)`.
 
 A DTO is an instance of a basic class that usually only has a constructor,
 getters and setters. It is not meant to be an extension of an Extbase `AbstractEntity`.
 
 This DTO serves as pure data storage. You can use it to receive and retrieve
-data in a `<f:form>` fluid
+data in a `<f:form>` Fluid
 `CRUD <https://en.wikipedia.org/wiki/Create,_read,_update_and_delete>`__
 ("Create Read Update Delete") setup.
 
@@ -66,6 +66,7 @@ DTOs are helpful because:
     data like filter settings that internally gets applied to actual data models.
 
 
-Some more reading:
+..  seealso::
 
-*   `Data Transfer Objects in Extbase <https://usetypo3.com/dtos-in-extbase/>`_
+    *   `Extbase reference: Data transfer objects (DTO) in Extbase <https://usetypo3.com/dtos-in-extbase/>`_
+    *   `usetypo3.com: Data Transfer Objects in Extbase <https://usetypo3.com/dtos-in-extbase/>`_
