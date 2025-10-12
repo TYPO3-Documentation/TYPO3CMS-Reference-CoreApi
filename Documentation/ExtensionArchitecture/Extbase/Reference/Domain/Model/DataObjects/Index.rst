@@ -121,7 +121,7 @@ DTOs are volatile by nature. The moment you leave the controller action they are
 gone.
 
 Let us assume we want to remember the measurements of the user as long as they
-dont close their browser window.
+don't close their browser window.
 
 We can now store the DTO into the user session (See
 `Session data <https://docs.typo3.org/permalink/t3coreapi:session-data>`_)
