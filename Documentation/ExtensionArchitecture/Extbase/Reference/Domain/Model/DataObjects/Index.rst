@@ -83,7 +83,7 @@ the following method in your controller:
 
 It is also possible to override the default error action `errorAction()`.
 
-..  _extbase-dto-example-dto-domain model:
+..  _extbase-dto-example-dto-domain-model:
 
 Converting DTOs to domain models
 ================================
@@ -111,3 +111,49 @@ the database:
 
 ..  literalinclude:: _codesnippets/CalculatorControllerSaveModel.php
     :caption: EXT:bmi_calculator/Classes/Controller/CalculatorController.php
+
+..  _extbase-dto-example-dto-session:
+
+Storing DTOs in the user session
+================================
+
+DTOs are volatile by nature. The moment you leave the controller action the are
+gone.
+
+Let us assume we want to remember the measurements of the user as long as they
+dont close their browser window.
+
+We can now store the DTO into the user session (See
+`Session data <https://docs.typo3.org/permalink/t3coreapi:session-data>`_)
+even if no frontend user is logged in.
+
+In order to store the DTO into the session we need to serialize it, turn it
+into a string. In order to load the DTO from the session we need to deserialize
+it, turn it from a string back into a DTO.
+
+..  literalinclude:: _codesnippets/MeasurementsDtoSerialization.php
+    :caption: EXT:bmi_calculator/Classes/Domain/Model/Dto/Measurements.php
+
+We can now load the measurement from the session and store changes there. In
+order to have the functionality encapsulated we implement a service for it:
+
+..  literalinclude:: _codesnippets/UserSessionService.php
+    :caption: EXT:bmi_calculator/Classes/Service/UserSessionService.php
+
+We can then inject the Service into out controller and load and store the
+session data there:
+
+..  literalinclude:: _codesnippets/CalculatorControllerSaveSession.php
+    :caption: EXT:bmi_calculator/Classes/Controller/CalculatorController.php
+
+..  _extbase-dto-example-dto-demand:
+
+Using DTOs as demand objects
+============================
+
+DTOs can be also be used to handle instructional data. Let us assume we want
+to display the measurements of previous users in a table. This table can be
+sorted by weight or height and it can be filtered by different criteria.
+
+We can use a DTO to transfer the current settings for the table and use this
+DTO for filtering and sorting in the repository.
