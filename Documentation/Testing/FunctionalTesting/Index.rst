@@ -178,6 +178,6 @@ To prepare a frontend test, the system can be instructed to load a set of
 This instructs the system to load the :file:`Basic.typoscript` as TypoScript
 file for the frontend page with uid 1.
 
-A frontend request can be executed calling :php:`$this->executeFrontendRequest()`. It will
+A frontend request can be executed calling :php:`$this->executeFrontendSubRequest()`. It will
 return a Response object to be further worked on, for instance it is possible to verify
 if the body :php:`->getBody()` contains some string.
