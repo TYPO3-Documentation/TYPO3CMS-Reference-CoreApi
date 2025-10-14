@@ -12,7 +12,7 @@ This folder can contain the following files:
 
 ..  typo3:file:: Classes.php
     :scope: extension
-    :path: /Configuration/Extbase/Persistence/Classes.php
+    :path: /Configuration/Extbase/Persistence/
     :regex: /^.*Configuration\/Extbase\/Persistence\/Classes\.php$/
     :shortDescription: Contains the mapping between a database table and its Extbase model
 
