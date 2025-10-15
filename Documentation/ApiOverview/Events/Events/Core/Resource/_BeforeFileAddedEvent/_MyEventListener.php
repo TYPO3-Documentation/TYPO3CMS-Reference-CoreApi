@@ -33,7 +33,9 @@ class BeforeFileAddedEventListener
 
         if ($uploadedFileExtension === 'pdf' && $uploadedFileSize > self::MAX_UPLOAD_SIZE_FOR_PDF) {
             throw new UploadSizeException('PDF files must not be larger than 10MB.');
-        } else if ($uploadedFileExtension === 'zip' && $uploadedFileSize > self::MAX_UPLOAD_SIZE_FOR_ZIP) {
+        }
+
+        if ($uploadedFileExtension === 'zip' && $uploadedFileSize > self::MAX_UPLOAD_SIZE_FOR_ZIP) {
             throw new UploadSizeException('ZIP files must not be larger than 20MB.');
         }
     }
