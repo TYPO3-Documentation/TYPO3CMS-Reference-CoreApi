@@ -16,7 +16,11 @@ before the file is added.
 Example
 =======
 
-..  include:: /_includes/EventsContributeNote.rst.txt
+..  literalinclude:: _BeforeFileAddedEvent/_MyEventListener.php
+    :language: php
+    :caption: EXT:my_extension/Classes/Resource/EventListener/MyEventListener.php
+
+..  include:: /_includes/EventsAttributeAdded.rst.txt
 
 API
 ===
