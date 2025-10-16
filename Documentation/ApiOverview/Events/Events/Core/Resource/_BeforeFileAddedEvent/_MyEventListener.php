@@ -24,7 +24,7 @@ class BeforeFileAddedEventListener
     public function __invoke(BeforeFileAddedEvent $event): void
     {
         $uploadedFileData = $this->getUploadedFileDataFromGlobalFiles(
-            $event->getSourceFilePath()
+            $event->getSourceFilePath(),
         );
 
         if ($uploadedFileData === null) {
@@ -34,7 +34,7 @@ class BeforeFileAddedEventListener
         $uploadedFileSize = $uploadedFileData['size'] ?? 0;
 
         $fileRefs = GeneralUtility::split_fileref(
-            $uploadedFileData['name']
+            $uploadedFileData['name'],
         );
         $uploadedFileExtension = $fileRefs['fileext'] ?? '';
 
@@ -43,7 +43,7 @@ class BeforeFileAddedEventListener
             && $uploadedFileSize > self::MAX_UPLOAD_SIZE_FOR_PDF
         ) {
             throw new UploadSizeException(
-                'PDF files must not be larger than 10MB.'
+                'PDF files must not be larger than 10MB.',
             );
         }
 
@@ -52,13 +52,13 @@ class BeforeFileAddedEventListener
             && $uploadedFileSize > self::MAX_UPLOAD_SIZE_FOR_ZIP
         ) {
             throw new UploadSizeException(
-                'ZIP files must not be larger than 20MB.'
+                'ZIP files must not be larger than 20MB.',
             );
         }
     }
 
     private function getUploadedFileDataFromGlobalFiles(
-        string $tmpName
+        string $tmpName,
     ): ?array {
         foreach ($_FILES as $uploadedFileData) {
             if ($uploadedFileData['tmp_name'] === $tmpName) {
