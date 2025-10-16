@@ -7,7 +7,7 @@ use TYPO3\CMS\Backend\Toolbar\InformationStatus;
 use TYPO3\CMS\Core\Attribute\AsEventListener;
 
 #[AsEventListener(
-    identifier: 'my-extension/backend/add-release-info-to-sysstem-information',
+    identifier: 'my-extension/backend/add-release-info-to-system-information',
 )]
 final class AddReleaseInfoToSystemInformationEventListener
 {
