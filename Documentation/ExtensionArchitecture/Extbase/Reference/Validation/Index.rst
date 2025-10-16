@@ -116,11 +116,11 @@ You can also define controller argument validators:
 The following rules validate each controller argument:
 
 *  If the argument is a domain object, the attributes
-   :php:`\TYPO3\CMS\Extbase\Annotation\Validate` in the domain object are taken into
+   :php:`\TYPO3\CMS\Extbase\Attribute\Validate` in the domain object are taken into
    account.
 
 *  If there is set an attribute
-   :php:`\TYPO3\CMS\Extbase\Annotation\IgnoreValidation` for the argument,
+   :php:`\TYPO3\CMS\Extbase\Attribute\IgnoreValidation` for the argument,
    no validation is done. This option must not be used when working with
    extbase file upload, because it leads to a property mapping error.
 

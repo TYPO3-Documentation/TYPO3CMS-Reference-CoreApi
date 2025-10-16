@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-use TYPO3\CMS\Extbase\Annotation\FileUpload;
+use TYPO3\CMS\Extbase\Attribute\FileUpload;
 use TYPO3\CMS\Extbase\Domain\Model\FileReference;
 
 class SomeDto

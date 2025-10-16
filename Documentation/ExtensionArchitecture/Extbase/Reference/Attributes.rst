@@ -9,10 +9,22 @@
 Attributes in Extbase
 =====================
 
+..  deprecated:: 14.0
+    All Extbase attributes have been moved from the namespace
+    `\TYPO3\CMS\Extbase\Annotation` to the namespace `\TYPO3\CMS\Extbase\Attribute`.
+
+    A class alias map is provided to allow further usage of the previous
+    namespaces. Since the previous namespaces are considered deprecated,
+    developers should migrate usages of the attribute classes once dropping
+    TYPO3 13 support.
+
 All available attributes for Extbase delivered by TYPO3 Core are placed within
-the namespace :php:`\TYPO3\CMS\Extbase\Annotation` for historic reasons. Until
-TYPO3 version 11 they could only be used a an annotation, a comment in the code
-that was interpreted (using the :composer:`doctrine/annotations` package, which is now abandoned).
+the namespace :php:`\TYPO3\CMS\Extbase\Attribute` and can only be used with the
+`native PHP attribute syntax <https://www.php.net/manual/en/language.attributes.overview.php>`_.
+
+..  versionchanged:: 14.0
+    Using an attribute with the :composer:`doctrine/annotations` syntax is not
+    supported anymore starting with TYPO3 14.0.
 
 Example in `EXT:blog_example <https://github.com/typo3-documentation/blog_example>`__
 for the attribute :php:`Lazy`:
@@ -34,7 +46,7 @@ The following attributes are provided Extbase:
 Validate
 --------
 
-:php:`\TYPO3\CMS\Extbase\Annotation\Validate`: Allows to configure validators
+:php:`\TYPO3\CMS\Extbase\Attribute\Validate`: Allows to configure validators
 for properties and method arguments. See :ref:`extbase_validation` for details.
 
 Can be used in the context of a model property.
@@ -53,7 +65,7 @@ to possible domain model validators.
 IgnoreValidation
 ----------------
 
-:php:`\TYPO3\CMS\Extbase\Annotation\IgnoreValidation()`: Allows to ignore
+:php:`\TYPO3\CMS\Extbase\Attribute\IgnoreValidation()`: Allows to ignore
 all Extbase default validations for a given argument (for example a domain
 model object).
 
@@ -93,7 +105,7 @@ The following attributes can only be used on model properties:
 Cascade
 ~~~~~~~
 
-:php:`\TYPO3\CMS\Extbase\Annotation\ORM\Cascade("remove")`: Allows to remove
+:php:`\TYPO3\CMS\Extbase\Attribute\ORM\Cascade("remove")`: Allows to remove
 child entities during deletion of aggregate root.
 
 Extbase only supports the option "remove".
@@ -109,7 +121,7 @@ Extbase only supports the option "remove".
 Transient
 ~~~~~~~~~
 
-:php:`\TYPO3\CMS\Extbase\Annotation\ORM\Transient`: Marks property as transient
+:php:`\TYPO3\CMS\Extbase\Attribute\ORM\Transient`: Marks property as transient
 (not persisted).
 
 **Example:**
@@ -123,7 +135,7 @@ Transient
 Lazy
 ~~~~
 
-:php:`\TYPO3\CMS\Extbase\Annotation\ORM\Lazy`: Marks model property to be loaded
+:php:`\TYPO3\CMS\Extbase\Attribute\ORM\Lazy`: Marks model property to be loaded
 lazily on first access.
 
 ..  note::
@@ -148,3 +160,23 @@ are frequently combined:
 
 Several validations can also be combined. See :ref:`extbase_validation`
 for details.
+
+..  _extbase-annotation-migration:
+
+Migrate from Extbase annotations to attributes
+==============================================
+
+The `native PHP attribute syntax <https://www.php.net/manual/en/language.attributes.overview.php>`_
+has been introduced with PHP 8 and is fully supported by Extbase since TYPO3 12.
+
+With TYPO3 14 the annotation syntax is not supported anymore and needs to
+be migrated to native PHP attributes:
+
+..  literalinclude:: _Attributes/_Migration.diff
+
+TYPO3 Rector (:composer:`ssch/typo3-rector`) has rule
+:php:`\Ssch\TYPO3Rector\TYPO312\v0\ExtbaseAnnotationToAttributeRector` to
+automatically migrate from the annotation syntax to the attribute syntax.
+
+..  seealso::
+    *   `ExtbaseAnnotationToAttributeRector <https://github.com/sabbelasichon/typo3-rector/blob/main/docs/all_rectors_overview.md#extbaseannotationtoattributerector>`_
