@@ -203,7 +203,7 @@ group level, for example:
     options.defaultUploadFolder = 3:users/uploads/
 
 
-Since TYPO3 v12.3 it is also possible to modify default upload folder per page
+It is also possible to modify default upload folder per page
 (or subtree) using page TSConfig property :typoscript:`options.defaultUploadFolder`,
 for example:
 
