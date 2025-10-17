@@ -212,6 +212,24 @@ Module configuration options
             :language: php
             :caption: Excerpt of EXT:my_extension/Configuration/Backend/Modules.php
 
+    ..  confval:: dependsOnSubmodules
+        :name: backend-module-dependsOnSubmodules
+        :type: bool
+        :Default: false
+
+        If true, the module will only be shown in the module menu if at least one of its
+        `submodules <https://docs.typo3.org/permalink/t3coreapi:backend-modules-third-level-module>`_
+        is available to the current user.
+
+        If all submodules are either disabled, removed, or the user lacks access
+        permissions to them, the parent module will automatically be hidden from
+        the module menu.
+
+        The :guilabel:`Web > Info` module leverages this feature to seamlessly vanish
+        from the module menu when extensions are uninstalled or users lack permissions
+        to access its submodules, preventing dead-end navigation paths and enhancing
+        the overall backend experience.
+
     ..  confval:: routeOptions
         :name: backend-module-routeOptions
         :type: array
