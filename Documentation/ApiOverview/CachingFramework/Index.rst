@@ -256,7 +256,7 @@ The administrator can use the following
 
 ..  important::
     Cache warming will **not work correctly** if the PHP version used for the
-    CLI context differs in the minor version from the PHP version used for
+    CLI context differs in the major or minor version from the PHP version used for
     the web context.
 
 Specific cache groups can be defined via the group option.
