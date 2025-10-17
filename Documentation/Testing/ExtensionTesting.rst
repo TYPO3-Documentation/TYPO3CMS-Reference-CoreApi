@@ -1,6 +1,6 @@
-.. include:: /Includes.rst.txt
-.. index:: pair: Testing; Extensions
-.. _testing-extensions:
+..  include:: /Includes.rst.txt
+..  index:: pair: Testing; Extensions
+..  _testing-extensions:
 
 =================
 Extension testing
@@ -21,10 +21,33 @@ The following test strategies should be applied to improve your code quality.
 
 ..  contents:: Table of contents
 
-..  seealso:: See also the :ref:`Testing enetcache <testing-tutorial-enetcache>`
-    that used to be displayed on this page.
+..  tip::
+    Using the extension kickstarter (:composer:`friendsoftypo3/kickstarter`) you
+    can create a testing environment for your extension using the command
+    `vendor/bin/typo3 make:testenv`.
 
-.. _testing-extensions-linting:
+..  _testing-extensions-composer:
+
+Composer install / update before running extensions tests
+=========================================================
+
+If you used :composer:`friendsoftypo3/kickstarter` to create your testing
+environment all packages are listed in the :file:`composer.json` section
+`require-dev`. You must therefore run `composer update` with dev dependencies
+using the correct PHP version. The :file:`runTests.sh` script created by the
+kickstarter contains a script to do that:
+
+..  code-block:: bash
+
+    Build/Scripts/runTests.sh -s composerUpdate
+
+If you want to test on a version different to the default PHP version:
+
+..  code-block:: bash
+
+    Build/Scripts/runTests.sh -s composerUpdate -p 8.4
+
+..  _testing-extensions-linting:
 
 Linting
 =======
@@ -42,9 +65,14 @@ Depending on your extension, any other file format can be linted
 too, if there is tooling for that (for example validating XML files
 against a XSD schema).
 
-..  todo: Add links to examples from blog extension and maybe others here
+If you used the :composer:`friendsoftypo3/kickstarter` to create your testing
+environment you can run the linting with:
 
-.. _testing-extensions-cgl:
+..  code-block:: bash
+
+    Build/Scripts/runTests.sh -s lint
+
+..  _testing-extensions-cgl:
 
 Coding guidelines (CGL)
 =======================
@@ -60,12 +88,17 @@ Common tools to help with applying coding guidelines are
 You can find more information in the :ref:`Coding guidelines <t3coreapi:cgl>`
 section.
 
-..  todo: Add links to examples from blog extension and maybe others here
+If you used the :composer:`friendsoftypo3/kickstarter` to create your testing
+environment you can run the CGL tests with:
 
-.. _testing-extensions-static:
+..  code-block:: bash
 
-Static code analysis
-====================
+    Build/Scripts/runTests.sh -s cgl
+
+..  _testing-extensions-static:
+
+Static code analysis (PHPStan / Psalm)
+======================================
 
 Static code analysis tools are highly recommended to be used with PHP. The most
 common tools used are `PHPStan <https://phpstan.org>`__ and `Psalm
@@ -74,12 +107,17 @@ rules and levels you apply: You should use one.
 
 There are also static code analysis tools for TypeScript and JavaScript.
 
-..  todo: Link to a detailed chapter on static code analysis and to examples
+If you used the :composer:`friendsoftypo3/kickstarter` to create your testing
+environment you can run static code analysis tests, using `phpstan`:
 
-.. _testing-extensions-unit:
+..  code-block:: bash
 
-Unit tests
-==========
+    Build/Scripts/runTests.sh -s phpstan
+
+..  _testing-extensions-unit:
+
+Unit tests (PHPUnit!)
+====================
 
 Unit tests are executing the code to be tested and define input and their
 expected outcome. They are run on an isolated classes or methods.
@@ -95,9 +133,20 @@ configurations and settings and everything done during
 
 See also :ref:`Writing unit tests <testing-writing-unit>`
 
-..  todo: Add examples
+If you used the :composer:`friendsoftypo3/kickstarter` to create your testing
+environment you can run unit tests like this:
 
-.. _testing-extensions-functional:
+..  code-block:: bash
+
+    Build/Scripts/runTests.sh -s unit
+
+To run a specific test isolated use:
+
+..  code-block:: bash
+
+    Build/Scripts/runTests.sh -s unit -- Tests/Unit/Service/MyServiceTest.php
+
+..  _testing-extensions-functional:
 
 Functional tests
 ================
@@ -122,9 +171,30 @@ TYPO3 environment being present.
 
 See also :ref:`Writing functional tests <testing-writing-functional>`
 
-..  todo: Add examples
+If you used the :composer:`friendsoftypo3/kickstarter` to create your testing
+environment you can run unit tests like this:
 
-.. _testing-extensions-acceptance:
+..  code-block:: bash
+
+    Build/Scripts/runTests.sh -s functional
+
+To run a specific test isolated use:
+
+..  code-block:: bash
+
+    Build/Scripts/runTests.sh -s functional -- Tests/Functional/Service/MyServiceTest.php
+
+It is possible to run the tests using different database systems and or PHP
+versions. Before you run the tests with a different PHP version, do a
+`composerUpdate` with the same version to ensure that composer has been run
+with the correct PHP version.
+
+..  code-block:: bash
+
+    Build/Scripts/runTests.sh -s composerUpdate -p 8.4
+    Build/Scripts/runTests.sh -s functional -p 8.4 -d postgres
+
+..  _testing-extensions-acceptance:
 
 Acceptance tests
 ================
@@ -135,7 +205,7 @@ scenarios in the TYPO3 backend.
 
 See also :ref:`Writing acceptance tests <testing-writing-acceptance>`
 
-.. _testing-extensions-organization:
+..  _testing-extensions-organization:
 
 Organizing and storing the commands
 ===================================
