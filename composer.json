@@ -11,7 +11,7 @@
         "friendsofphp/php-cs-fixer": "^3.46",
         "garvinhicking/clinspector-gadget": "^0.1.1",
         "symfony/yaml": "^7.0",
-        "t3docs/blog-example": "dev-main",
+        "t3docs/blog-example": "^13.2",
         "t3docs/codesnippet": "dev-main",
         "t3docs/examples": "^13.2",
         "t3docs/site-package": "dev-main",
