@@ -208,6 +208,7 @@ Since TYPO3 v12.3 it is also possible to modify default upload folder per page
 for example:
 
 ..  code-block:: typoscript
+    :caption: EXT:my_extension/Configuration/page.tsconfig
 
     # Set default upload folder to "fileadmin/page_upload" on PID 1
     [page["uid"] == 1]
