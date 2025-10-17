@@ -20,21 +20,32 @@ Contains Language resources.
     *   Read more about applying localised labels in the following chapter:
         :ref:`xliff_api`.
 
-In the folder :file:`EXT:my_extension/Resources/Private/Languages/` language
-files are stored in format :file:`.xlf`.
+In the folder :file:`EXT:my_extension/Resources/Private/Language/` language
+files are stored in the format :file:`.xlf`.
+
+..  versionchanged:: 14.0
+    TYPO3 14 and newer support both **XLIFF 1.2** and **XLIFF 2.0** files.
+    The loader automatically detects which version is used.
+
+..  note::
+    If your extension still supports TYPO3 13 LTS, continue using
+    **XLIFF 1.2**. TYPO3 13 does not support XLIFF 2.0.
+    Before switching to 2.0, verify that all translation tools and services
+    used by your team (for example, Crowdin or offline editors) are compatible
+    with the newer format.
 
 This folder contains all language labels supplied by the extension in the
 default language English.
 
-If the extension should provide additional translations into
-custom languages, they can be stored in language files of the same name with a
-language prefix. The German translation of the file :file:`locallang.xlf`
-must be stored in the same folder in a file called :file:`de.locallang.xlf`,
-the French translation in :file:`fr.locallang.xlf`. If the translations are
-stored in a different file name they will not be found.
+If the extension provides additional translations into
+other languages, store them in language files of the same name with a
+language prefix. For example, the German translation of
+:file:`locallang.xlf` must be stored in the same folder as
+:file:`de.locallang.xlf`, and the French translation as
+:file:`fr.locallang.xlf`. If the translations are stored under a different
+filename, they will not be found.
 
-Any arbitrary file name with ending :file:`.xlf` can be used.
-The following file names are commonly used:
+Any arbitrary filename ending with :file:`.xlf` can be used.
 
 ..  typo3:file:: locallang.xlf
     :scope: extension

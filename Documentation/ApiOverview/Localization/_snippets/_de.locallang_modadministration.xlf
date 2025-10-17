@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff version="2.0" xmlns="urn:oasis:names:tc:xliff:document:2.0" srcLang="en" trgLang="de">
+    <file id="f1">
+        <unit id="pages.title_formlabel">
+            <segment>
+                <source>Most important title</source>
+                <target state="final">Wichtigster Titel</target>
+            </segment>
+        </unit>
+    </file>
+</xliff>
