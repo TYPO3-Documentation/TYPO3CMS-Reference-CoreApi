@@ -69,9 +69,9 @@ final class GitHubLinkHandler implements LinkHandlerInterface
     {
         $this->pageRenderer->loadJavaScriptModule('@vendor/my-extension/GitHubLinkHandler.js');
         $viewFactoryData = new ViewFactoryData(
-            templateRootPaths: ['EXT:myExt/Resources/Private/Templates/LinkBrowser'],
-            partialRootPaths: ['EXT:myExt/Resources/Private/Partials/LinkBrowser'],
-            layoutRootPaths: ['EXT:myExt/Resources/Private/Layouts/LinkBrowser'],
+            templateRootPaths: ['EXT:my_extension/Resources/Private/Templates/LinkBrowser'],
+            partialRootPaths: ['EXT:my_extension/Resources/Private/Partials/LinkBrowser'],
+            layoutRootPaths: ['EXT:my_extension/Resources/Private/Layouts/LinkBrowser'],
             request: $request,
         );
         $view = $this->viewFactory->create($viewFactoryData);

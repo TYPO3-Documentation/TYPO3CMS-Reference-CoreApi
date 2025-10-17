@@ -36,7 +36,7 @@ Here is a sample XLIFF file:
 
 ..  literalinclude:: _snippets/_example.xlf
     :language: xml
-    :caption: EXT:my_ext/Resources/Private/Language/Modules/<file-name>.xlf
+    :caption: EXT:my_extension/Resources/Private/Language/Modules/<file-name>.xlf
 
 The following attributes should be populated properly in order to get the
 best support in external translation tools:
@@ -84,7 +84,7 @@ This is how the translation of our sample file might look like:
 
 ..  literalinclude:: _snippets/_example2.xlf
     :language: xml
-    :caption: EXT:my_ext/Resources/Private/Language/Modules/<file-name>.xlf
+    :caption: EXT:my_extension/Resources/Private/Language/Modules/<file-name>.xlf
 
 Only one language can be stored per file, and each translation into another
 language is placed in an additional file.

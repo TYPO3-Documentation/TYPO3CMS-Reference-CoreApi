@@ -49,7 +49,7 @@
         context)
 
         Example:
-        Label is defined in `EXT:my_ext/Resources/Private/Language/locallang.xlf` as:
+        Label is defined in `EXT:my_extension/Resources/Private/Language/locallang.xlf` as:
 
         ..  code-block:: php
 
@@ -69,7 +69,7 @@
               ->createFromSiteLanguage($language);
             $label = sprintf(
                  $languageService->sL(
-                     'LLL:EXT:my_ext/Resources/Private/Language/locallang.xlf:downloaded_times'
+                     'LLL:EXT:my_extension/Resources/Private/Language/locallang.xlf:downloaded_times'
                  ),
                  27,
                  'several'

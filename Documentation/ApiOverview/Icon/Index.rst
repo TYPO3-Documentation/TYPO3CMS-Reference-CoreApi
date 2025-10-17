@@ -124,7 +124,7 @@ to render an icon in your view:
 ..  code-block:: html
 
     {namespace core = TYPO3\CMS\Core\ViewHelpers}
-    <core:icon identifier="tx-myext-svgicon" size="small" />
+    <core:icon identifier="tx-myextension-svgicon" size="small" />
 
 This will render the desired icon using an :html:`img` tag. If you prefer having
 the SVG inlined into your HTML (for example, for being able to change colors
@@ -136,7 +136,7 @@ its surrounding element if you use this option.
 
     {namespace core = TYPO3\CMS\Core\ViewHelpers}
     <core:icon
-        identifier="tx-myext-svgicon"
+        identifier="tx-myextension-svgicon"
         size="small"
         alternativeMarkupIdentifier="inline"
     />

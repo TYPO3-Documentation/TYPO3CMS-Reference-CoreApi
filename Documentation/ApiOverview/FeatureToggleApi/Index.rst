@@ -179,7 +179,7 @@ The :ref:`t3viewhelper:typo3-fluid-feature` can be used to check for a feature i
 template:
 
 ..  code-block:: html
-    :caption: EXT:myExtension/Resources/Private/Templates/SomeTemplate.html
+    :caption: EXT:my_extension/Resources/Private/Templates/SomeTemplate.html
 
     <f:feature name="unifiedPageTranslationHandling">
        This is being shown if the flag is enabled
