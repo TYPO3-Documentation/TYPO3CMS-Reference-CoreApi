@@ -10,7 +10,7 @@ $ctypeKey = ExtensionUtility::registerPlugin(
     'my-extension-icon',
     'plugins',
     'Plugin description',
-    'FILE:EXT:my_extension/Configuration/FlexForm.xml',
+    'FILE:EXT:my_extension/Configuration/FlexForms/MyFlexform.xml',
 );
 
 ExtensionManagementUtility::addToAllTCAtypes(
@@ -22,6 +22,6 @@ ExtensionManagementUtility::addToAllTCAtypes(
 
 ExtensionManagementUtility::addPiFlexFormValue(
     '',
-    'FILE:EXT:myext/Configuration/FlexForm.xml',
+    'FILE:EXT:myext/Configuration/FlexForms/MyFlexform.xml',
     $ctypeKey,
 );
