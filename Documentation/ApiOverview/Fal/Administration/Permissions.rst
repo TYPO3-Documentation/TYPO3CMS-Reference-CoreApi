@@ -202,6 +202,19 @@ group level, for example:
 
     options.defaultUploadFolder = 3:users/uploads/
 
+
+It is also possible to modify default upload folder per page
+(or subtree) using page TSConfig property :typoscript:`options.defaultUploadFolder`,
+for example:
+
+..  code-block:: typoscript
+    :caption: EXT:my_extension/Configuration/page.tsconfig
+
+    # Set default upload folder to "fileadmin/page_upload" on PID 1
+    [page["uid"] == 1]
+        options.defaultUploadFolder = 1:/page_upload/
+    [end]
+
 There are a number of circumstances where it might be convenient
 to change the default upload folder. The PSR-14 event
 :ref:`AfterDefaultUploadFolderWasResolvedEvent` exists to provide
