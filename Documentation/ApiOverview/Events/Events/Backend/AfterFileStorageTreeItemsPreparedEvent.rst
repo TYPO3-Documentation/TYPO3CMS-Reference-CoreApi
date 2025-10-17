@@ -26,7 +26,7 @@ have multiple labels, sorted by priority, with the highest priority label
 taking precedence. All the other labels will be added to the title attribute of
 the node.
 
-A label can assigned to a node in user TSconfig using a folder identifier path:
+A label can be assigned to a node in user TSconfig using a folder identifier path:
 
 ..  code-block:: typoscript
     :caption: EXT:my_extension/Configuration/user.tsconfig
