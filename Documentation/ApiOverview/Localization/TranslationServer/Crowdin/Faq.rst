@@ -78,7 +78,7 @@ Not necessarily.
 
 Before switching, also check that your **translation workflow and tools**
 (Crowdin integration, offline editors, or automation scripts) are **compatible
-with XLIFF 2.0**. Some older tools might still expect XLIFF 1.2 files.
+with XLIFF 2.x**. Some older tools might still expect XLIFF 1.2 files.
 
 You can convert existing files manually or by script — see :ref:`xliff` for
 examples — but there is no urgent need to migrate if 1.2 works for your project.
