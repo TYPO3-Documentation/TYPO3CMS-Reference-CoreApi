@@ -111,7 +111,7 @@ The German language file could look like this:
     :language: xml
     :caption: EXT:examples/Resources/Private/Language/Overrides/de.locallang_modadministration.xlf
 
-TYPO3 loads either XLIFF 1.2 or 2.0 — the format is detected automatically.
+TYPO3 loads either XLIFF 1.2 or 2.x — the format is detected automatically.
 
 The result can be seen in the backend:
 
