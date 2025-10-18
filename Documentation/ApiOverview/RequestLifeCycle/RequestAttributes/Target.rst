@@ -9,7 +9,7 @@ Target
 ======
 
 The :php:`target` backend request attribute provides the target action of a
-backend route. For instance, the target of the :guilabel:`Web > List` module
+backend route. For instance, the target of the :guilabel:`Content > List` module
 is set to :php:`TYPO3\CMS\Recordlist\Controller\RecordListController::mainAction`.
 
 Example:

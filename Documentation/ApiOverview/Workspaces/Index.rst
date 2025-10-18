@@ -345,8 +345,8 @@ You can restrict access to backend modules by setting the value of the
     :caption: EXT:my_extension/Configuration/Backend/Modules.php
 
     return [
-        'web_examples' => [
-            'parent' => 'web',
+        'content_examples' => [
+            'parent' => 'content',
             // Only available in live workspace
             'workspaces' => 'live',
             // ... other configuration

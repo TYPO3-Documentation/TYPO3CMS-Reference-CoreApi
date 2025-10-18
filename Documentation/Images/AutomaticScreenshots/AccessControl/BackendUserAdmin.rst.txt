@@ -3,4 +3,4 @@
 .. figure:: /Images/AutomaticScreenshots/AccessControl/BackendUserAdmin.png
    :class: with-shadow
 
-   In Web > List view, the different icon for admin users
+   In :guilabel:`Content > List` view, the different icon for admin users

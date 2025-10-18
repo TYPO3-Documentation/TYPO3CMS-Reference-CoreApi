@@ -43,7 +43,7 @@ The following toplevel modules are provided by the Core:
 Register a custom toplevel module
 ==================================
 
-Toplevel modules like :guilabel:`Web` or :guilabel:`File` are registered in the
+Toplevel modules like :guilabel:`Content` or :guilabel:`File` are registered in the
 :file:`Configuration/Backend/Modules.php`. All toplevel modules provided by
 the Core are registered in EXT:core so you can look at
 :file:`typo3/sysext/core/Configuration/Backend/Modules.php` for reference.
