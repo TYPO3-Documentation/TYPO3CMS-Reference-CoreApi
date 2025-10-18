@@ -60,7 +60,7 @@ Crowdin supports both formats, and TYPO3 automatically detects which version is
 used — so you do not need to convert files manually.
 
 ..  seealso::
-    Learn more about XLIFF 2.0 in TYPO3:
+    Learn more about XLIFF 2.x in TYPO3:
     :ref:`xliff`
 
 ..  _crowdin-faq-xliff-convert:
