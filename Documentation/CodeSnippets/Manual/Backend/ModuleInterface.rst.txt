@@ -123,3 +123,10 @@
         :returns: `array`
 
         Return a list of identifiers that are aliases to this module
+
+    ..  php:method:: getDependsOnSubmodules()
+        :returns: `bool`
+
+        Whether this module should only be visible when it has submodules.
+
+        Used for second-level modules that act as containers.
