@@ -41,7 +41,7 @@ exactly one per file). Each :xml:`<file>` contains translation units that hold
 a :xml:`<source>` text and optionally a :xml:`<target>` translation.
 
 The default language is always English (`en`).
-Set :xml:`srcLang="en"` for XLIFF 2.0 or :xml:`source-language="en"` for 1.2.
+Set :xml:`srcLang="en"` for XLIFF 2.x or :xml:`source-language="en"` for 1.2.
 
 ..  note::
     Having several :xml:`<file>` elements in one document is not supported by TYPO3.
