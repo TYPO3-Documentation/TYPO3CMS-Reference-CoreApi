@@ -152,7 +152,7 @@ language is stored in an additional file.
 By default, TYPO3 considers only approved translations for both XLIFF 1.2 and 2.x:
 
 -   XLIFF 1.2: :xml:`approved="yes"` or missing attribute
--   XLIFF 2.0: :xml:`state="reviewed"` or :xml:`state="final"`
+-   XLIFF 2.x: :xml:`state="reviewed"` or :xml:`state="final"`
 
 To also include unapproved translations
 (for example :xml:`approved="no"` or :xml:`state="translated"`),
