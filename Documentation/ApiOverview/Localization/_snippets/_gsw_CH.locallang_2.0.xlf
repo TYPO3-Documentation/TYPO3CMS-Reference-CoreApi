@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff version="2.0" xmlns="urn:oasis:names:tc:xliff:document:2.0"
+srcLang="en" trgLang="gsw_CH">
+    <file id="f1">
+        <unit id="lang_gsw_CH">
+            <segment>
+                <source>Swiss German</source>
+                <target state="final">Schwiizertüütsch</target>
+            </segment>
+        </unit>
+    </file>
+</xliff>

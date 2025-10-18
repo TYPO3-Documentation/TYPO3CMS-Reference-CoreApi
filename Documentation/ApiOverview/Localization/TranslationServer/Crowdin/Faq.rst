@@ -46,6 +46,42 @@ Crowdin please contact either the maintainer of the extension or the
 
 ..  _Localization Team: https://typo3.org/community/teams/localization
 
+.  _crowdin-faq-xliff-version:
+
+Why do XLIFF files on Crowdin look different now?
+-------------------------------------------------
+
+TYPO3 v14 and newer can use the modern **XLIFF 2.x** format for translation files.
+This version introduces a cleaner structure with `<unit>` and `<segment>`
+elements and uses the `<target state="…">` attribute instead of the older
+`approved="yes"` attribute used in XLIFF 1.2.
+
+Crowdin supports both formats, and TYPO3 automatically detects which version is
+used — so you do not need to convert files manually.
+
+..  seealso::
+    Learn more about XLIFF 2.x in TYPO3:
+    :ref:`xliff`
+
+..  _crowdin-faq-xliff-convert:
+
+Do I need to convert existing XLIFF 1.2 files to 2.x?
+-----------------------------------------------------
+
+Not necessarily.
+
+-  As long as your extension **still supports TYPO3 13 LTS**, you **must not**
+   switch to XLIFF 2.x, because TYPO3 v13 only supports XLIFF 1.2.
+-  TYPO3 v14 and later can read both XLIFF 1.2 and 2.x files seamlessly.
+-  For **new extensions** that target TYPO3 14 and above, use **XLIFF 2.x**
+   from the start.
+
+Before switching, also check that your **translation workflow and tools**
+(Crowdin integration, offline editors, or automation scripts) are **compatible
+with XLIFF 2.x**. Some older tools might still expect XLIFF 1.2 files.
+
+You can convert existing files manually or by script — see :ref:`xliff` for
+examples — but there is no urgent need to migrate if XLIFF 1.2 works for your project.
 
 ..  _crowdin-faq-pootle:
 
