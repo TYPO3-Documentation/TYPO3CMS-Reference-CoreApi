@@ -15,7 +15,7 @@ BeforeRecordDownloadIsExecutedEvent
 
 The event :php:`TYPO3\CMS\Backend\RecordList\Event\BeforeRecordDownloadIsExecutedEvent`
 can be used to modify the result of a download / export initiated via
-the :guilabel:`Web > List` module.
+the :guilabel:`Content > List` module.
 
 The event lets you change both the main part and the header of the data file.
 You can use it to edit data to follow GDPR rules, change or translate data,

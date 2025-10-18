@@ -9,7 +9,7 @@ ModifyVersionDifferencesEvent
 
 The PSR-14 event :php:`\TYPO3\CMS\Workspaces\Event\ModifyVersionDifferencesEvent`
 can be used to modify the version differences data, used for the display in the
-:guilabel:`Web > Workspaces` backend module. Those data can be accessed
+:guilabel:`Content > Workspaces` backend module. Those data can be accessed
 with the :php:`getVersionDifferences()` method and updated using the
 :php:`setVersionDifferences(array $versionDifferences)` method.
 

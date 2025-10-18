@@ -9,7 +9,7 @@ AfterCompiledCacheableDataForWorkspaceEvent
 
 The PSR-14 event
 :php:`\TYPO3\CMS\Workspaces\Event\AfterCompiledCacheableDataForWorkspaceEvent`
-is used in the :guilabel:`Web > Workspaces` module to find all cacheable data of
+is used in the :guilabel:`Content > Workspaces` module to find all cacheable data of
 versions of a workspace.
 
 Example

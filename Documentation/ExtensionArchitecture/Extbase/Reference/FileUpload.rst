@@ -34,7 +34,7 @@ and the TCA definition:
     :caption: EXT:my_extension/Configuration/TCA/tx_myextension_domain_model_blog.php
 
 Once this is set up, you can create/edit records through the TYPO3
-backend (for example via :guilabel:`Web > List`), attach a single or
+backend (for example via :guilabel:`Content > List`), attach a single or
 multiple files in it. Then using a normal
 controller and Fluid template, you can display an image.
 

@@ -58,7 +58,7 @@ Modules
    Not all submodules appear in this list. It is possible to restrict a
    submodule to admin users only. This is the case, in particular, for all
    :guilabel:`Admin Tools` and :guilabel:`System` modules, as well as the
-   :guilabel:`Web > Template` module.
+   :guilabel:`Site Management` modules.
 
    .. note::
 
@@ -129,7 +129,7 @@ Mounts
 ======
 
 TYPO3 CMS natively supports two kinds of hierarchical tree structures:
-the page tree (typically visible in the :guilabel:`Web` module) and the folder
+the page tree (typically visible in the :guilabel:`Content` module) and the folder
 tree (typically visible in the :guilabel:`File` module). Each tree is
 generated based on the *mount points* configured for the current user. So a
 page tree is drawn from the *DB Mounts* which are one or more page ids

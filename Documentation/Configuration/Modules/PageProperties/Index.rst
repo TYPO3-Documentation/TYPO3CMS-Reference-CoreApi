@@ -11,7 +11,7 @@ If the user has the correct permissions, settings for a page (and in some
 cases all subpages) can be made in the page properties:
 
 ..  figure:: /Images/ManualScreenshots/Backend/PageProperties.png
-    :alt: Screenshot demonstrating the location of the "Edit page properties" button in the header of the "Web > Page" module
+    :alt: Screenshot demonstrating the location of the "Edit page properties" button in the header of the "Content > Page" module
 
     In the "Page" or "List" module click on "Edit page properties"
 

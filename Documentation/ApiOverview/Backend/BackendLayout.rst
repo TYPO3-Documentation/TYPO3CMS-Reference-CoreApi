@@ -36,9 +36,14 @@ backend layouts have been
 
 .. include:: /Images/AutomaticScreenshots/BackendLayouts/PagePropertiesAppearance.rst.txt
 
+..  versionchanged:: 14.0
+    The main module `web` has been renamed to `content`.
+    See `Feature: #107628 - Improved backend module naming and structure <https://docs.typo3.org/permalink/changelog:feature-107628-1729026000>`_
+
+
 The Info module gives an overview of the backend layouts configured or
 inherited from a parent page at
-:guilabel:`Web > Info > Pagetree overview > Type: Layouts`:
+:guilabel:`Content > Info > Pagetree overview > Type: Layouts`:
 
 .. include:: /Images/AutomaticScreenshots/BackendLayouts/PageTreeLayoutOverview.rst.txt
 

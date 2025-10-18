@@ -142,7 +142,7 @@ Module configuration options
         The module navigation component. The following are provided by the Core:
 
         :js:`@typo3/backend/tree/page-tree-element`
-            The page tree as used in the :guilabel:`Web` module.
+            The page tree as used in the :guilabel:`Content` module.
 
         :js:`@typo3/backend/tree/file-storage-tree-container`
             The file tree as used in the :guilabel:`Filelist` module.
@@ -152,7 +152,7 @@ Module configuration options
         ..  code-block:: diff
 
             'mymodule' => [
-                'parent' => 'web',
+                'parent' => 'content',
                 ...
             -   'navigationComponent' => '@typo3/backend/page-tree/page-tree-element',
             +   'navigationComponent' => '@typo3/backend/tree/page-tree-element',

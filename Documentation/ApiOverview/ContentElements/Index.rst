@@ -30,7 +30,7 @@ Introduction
 
 In TYPO3, Content elements and plugins are both stored as :ref:`database-records`
 in table :sql:`tt_content`. They are usually edited in the backend in module
-:guilabel:`Web > Page`.
+:guilabel:`Content > Page`.
 
 Content elements and plugins are both used to present and manage
 content on a website, but they serve different purposes and have distinct
@@ -79,7 +79,7 @@ A **content element** is a standard unit for managing and displaying content,
 such as text, images, videos, tables, and more.
 
 In the TYPO3 backend, content elements are commonly managed in module
-:guilabel:`Web > Page`.
+:guilabel:`Content > Page`.
 
 From a technical point of view content elements are records stored in the
 database table `tt_content`. Each content

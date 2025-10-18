@@ -27,7 +27,7 @@
      */
     return [
         'web_examples' => [
-            'parent' => 'web',
+            'parent' => 'content',
             'position' => ['after' => 'web_info'],
             'access' => 'user',
             'workspaces' => 'live',

@@ -303,12 +303,16 @@ Example usage:
 
     return [
         // Submodule key
-        'web_productmanagement' => [
-            // Main module key (use existing main module 'web' here)
-            'parent' => 'web',
+        'content_productmanagement' => [
+            // Main module key (use existing main module 'content' here)
+            'parent' => 'content',
             // ...
         ],
     ];
+
+..  versionchanged:: 14.0
+    The main module `web` has been renamed to `content`.
+    See `Feature: #107628 - Improved backend module naming and structure <https://docs.typo3.org/permalink/changelog:feature-107628-1729026000>`_
 
 For more details have a look into the :ref:`backend-modules-configuration`
 chapter.
