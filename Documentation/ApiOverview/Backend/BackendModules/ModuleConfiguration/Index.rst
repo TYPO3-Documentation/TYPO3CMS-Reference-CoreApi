@@ -217,6 +217,8 @@ Module configuration options
         :type: bool
         :Default: false
 
+        ..  versionadded:: 14.0
+
         If true, the module will only be shown in the module menu if at least one of its
         `submodules <https://docs.typo3.org/permalink/t3coreapi:backend-modules-third-level-module>`_
         is available to the current user.
