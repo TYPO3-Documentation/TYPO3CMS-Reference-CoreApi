@@ -143,7 +143,7 @@ Adding custom languages
 =======================
 
 TYPO3 :ref:`supports many languages <i18n_languages>` by default, but you can also
-add custom languages and provide your own translations using XLIFF 1.2 or 2.0.
+add custom languages and provide your own translations using XLIFF 1.2 or 2.x.
 
 ..  rst-class:: bignums-xxl
 
