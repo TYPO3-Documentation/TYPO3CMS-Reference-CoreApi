@@ -65,7 +65,7 @@ used — so you do not need to convert files manually.
 
 ..  _crowdin-faq-xliff-convert:
 
-Do I need to convert existing XLIFF 1.2 files to 2.0?
+Do I need to convert existing XLIFF 1.2 files to 2.x?
 -----------------------------------------------------
 
 Not necessarily.
