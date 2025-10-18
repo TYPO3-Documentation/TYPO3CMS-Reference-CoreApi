@@ -16,7 +16,7 @@ final class MyClass
     public function doSomething()
     {
         $icon = $this->iconFactory->getIcon(
-            'tx-myext-action-preview',
+            'tx-myextension-action-preview',
             IconSize::SMALL,
             'overlay-identifier',
         );

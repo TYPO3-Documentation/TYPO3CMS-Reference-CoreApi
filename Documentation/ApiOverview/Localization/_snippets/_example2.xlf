@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
-    <file source-language="en" target-language="de" datatype="plaintext" original="EXT:my_ext/Resources/Private/Language/Modules/<file-name>.xlf" date="2020-10-18T18:20:51Z" product-name="my_ext">
+    <file source-language="en" target-language="de" datatype="plaintext" original="EXT:my_extension/Resources/Private/Language/Modules/<file-name>.xlf" date="2020-10-18T18:20:51Z" product-name="my_ext">
         <header/>
         <body>
             <trans-unit id="headerComment" approved="yes">
