@@ -75,7 +75,7 @@ Translating XLIFF files locally
 You can translate TYPO3 XLIFF files directly in your development environment
 using any XML or translation editor that supports the XLIFF format.
 
-TYPO3 14 and newer support both **XLIFF 1.2** and **XLIFF 2.0**:
+TYPO3 v14 and newer support both **XLIFF 1.2** and **XLIFF 2.x**:
 
 -  **XLIFF 2.0:** uses `<unit>` elements and the `<target state="…">` attribute
    (`state="reviewed"` / `state="final"` = approved)
