@@ -51,7 +51,7 @@ Crowdin please contact either the maintainer of the extension or the
 Why do XLIFF files on Crowdin look different now?
 -------------------------------------------------
 
-TYPO3 14 and newer use the modern **XLIFF 2.0** format for translation files.
+TYPO3 v14 and newer can use the modern **XLIFF 2.x** format for translation files.
 This version introduces a cleaner structure with `<unit>` and `<segment>`
 elements and uses the `<target state="…">` attribute instead of the older
 `approved="yes"` attribute used in XLIFF 1.2.
