@@ -24,7 +24,7 @@ In the folder :file:`EXT:my_extension/Resources/Private/Language/` language
 files are stored in the format :file:`.xlf`.
 
 ..  versionchanged:: 14.0
-    TYPO3 14 and newer support both **XLIFF 1.2** and **XLIFF 2.0** files.
+    TYPO3 v14 and newer support both **XLIFF 1.2** and **XLIFF 2.x** files.
     The loader automatically detects which version is used.
 
 ..  note::
