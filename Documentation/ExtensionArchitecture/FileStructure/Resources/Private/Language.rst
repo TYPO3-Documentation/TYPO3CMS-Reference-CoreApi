@@ -29,7 +29,7 @@ files are stored in the format :file:`.xlf`.
 
 ..  note::
     If your extension still supports TYPO3 v13 LTS, continue using
-    **XLIFF 1.2**. TYPO3 13 does not support XLIFF 2.0.
+    **XLIFF 1.2**. TYPO3 v13 does not support XLIFF 2.x.
     Before switching to 2.0, verify that all translation tools and services
     used by your team (for example, Crowdin or offline editors) are compatible
     with the newer format.
