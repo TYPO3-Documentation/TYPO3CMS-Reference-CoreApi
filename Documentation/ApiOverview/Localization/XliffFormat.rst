@@ -54,7 +54,7 @@ XLIFF file examples
 
 ..  tabs::
 
-    ..  group-tab:: XLIFF 2.0 (recommended)
+    ..  group-tab:: XLIFF 2.x (recommended)
 
         ..  versionadded:: 14.0
 
