@@ -81,7 +81,7 @@ Before switching, also check that your **translation workflow and tools**
 with XLIFF 2.x**. Some older tools might still expect XLIFF 1.2 files.
 
 You can convert existing files manually or by script — see :ref:`xliff` for
-examples — but there is no urgent need to migrate if 1.2 works for your project.
+examples — but there is no urgent need to migrate if XLIFF 1.2 works for your project.
 
 ..  _crowdin-faq-pootle:
 
