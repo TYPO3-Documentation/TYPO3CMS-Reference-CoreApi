@@ -149,7 +149,7 @@ Sample XLIFF translation files
 Only one language can be stored per file; each translation into another
 language is stored in an additional file.
 
-By default, TYPO3 considers only approved translations for both XLIFF 1.2 and 2.0:
+By default, TYPO3 considers only approved translations for both XLIFF 1.2 and 2.x:
 
 -   XLIFF 1.2: :xml:`approved="yes"` or missing attribute
 -   XLIFF 2.0: :xml:`state="reviewed"` or :xml:`state="final"`
