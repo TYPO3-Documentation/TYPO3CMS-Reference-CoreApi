@@ -62,7 +62,7 @@ XLIFF file examples
             :language: xml
             :caption: EXT:my_ext/Resources/Private/Language/locallang.xlf
 
-        XLIFF 2.0 is the preferred format. Each :xml:`<unit>` contains a
+        XLIFF 2.x is the preferred format. Each :xml:`<unit>` contains a
         :xml:`<segment>` with :xml:`<source>` and optionally :xml:`<target>`.
 
     ..  group-tab:: XLIFF 1.2 (legacy)
