@@ -84,7 +84,7 @@ TYPO3 v14 and newer support both **XLIFF 1.2** and **XLIFF 2.x**:
 Both formats are automatically detected and parsed by TYPO3.
 
 You can use any text or translation editor to modify `.xlf` files locally.
-Ensure that your chosen tool supports the XLIFF 2.0 format, which is the
+Ensure that your chosen tool supports the XLIFF 2.x format, which is the
 default for TYPO3 14 and later.
 
 ..  index:: Localization; Custom translations
