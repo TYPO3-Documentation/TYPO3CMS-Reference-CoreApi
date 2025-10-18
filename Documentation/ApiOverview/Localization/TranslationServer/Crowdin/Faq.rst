@@ -73,7 +73,7 @@ Not necessarily.
 -  As long as your extension **still supports TYPO3 13 LTS**, you **must not**
    switch to XLIFF 2.x, because TYPO3 v13 only supports XLIFF 1.2.
 -  TYPO3 v14 and later can read both XLIFF 1.2 and 2.x files seamlessly.
--  For **new extensions** that target TYPO3 14 and above, use **XLIFF 2.0**
+-  For **new extensions** that target TYPO3 14 and above, use **XLIFF 2.x**
    from the start.
 
 Before switching, also check that your **translation workflow and tools**
