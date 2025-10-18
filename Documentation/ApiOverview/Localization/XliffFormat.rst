@@ -14,7 +14,7 @@ Translation files (XLIFF format)
     The loader automatically detects which version is used and parses it
     accordingly.
 
-Use **XLIFF 2.0** for all new projects (introduced with TYPO3 v14).
+Use **XLIFF 2.x** for all new projects (introduced with TYPO3 v14).
 Each label file is written in English (`srcLang="en"`) and stored in
 `EXT:my_ext/Resources/Private/Language/`.
 Translations are stored in separate files such as `de.locallang.xlf`.
