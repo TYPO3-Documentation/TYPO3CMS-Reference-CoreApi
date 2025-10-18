@@ -9,7 +9,7 @@ Managing translations in TYPO3
 ==============================
 
 This section highlights the different ways to translate and manage TYPO3
-language files (XLIFF 1.2 and 2.0).
+language files (XLIFF 1.2 and 2.x).
 
 ..  contents:: Table of contents
 
