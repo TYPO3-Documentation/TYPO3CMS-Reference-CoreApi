@@ -38,8 +38,13 @@
         ..  code-block:: php
 
             'LLL:EXT:core/Resources/Private/Language/locallang_core.xlf:labels.depth_0'
+            'LLL:core.messages:labels.depth_0'
+            'core.messages:labels.depth_0'  // LLL: prefix is optional
 
-        This looks up the given .xlf file path in the 'core' extension for label labels.depth_0
+        This looks up the given .xlf file path or translation domain in the 'core' extension for label labels.depth_0
+
+        The LLL: prefix is optional. If the input contains a colon (:), it will be treated as a label reference.
+        If no colon is found, the input string is returned as-is (constant non-localizable label).
 
         Only the plain string contents of a language key, like "Record title: %s" are returned.
         Placeholder interpolation must be performed separately, for example via `sprintf()`, like
@@ -47,7 +52,7 @@
         context)
 
         Example:
-        Label is defined in `EXT:my_extension/Resources/Private/Language/locallang.xlf` as:
+        Label is defined in `EXT:my_ext/Resources/Private/Language/locallang.xlf` as:
 
         ..  code-block:: php
 
@@ -67,7 +72,7 @@
               ->createFromSiteLanguage($language);
             $label = sprintf(
                  $languageService->sL(
-                     'LLL:EXT:my_extension/Resources/Private/Language/locallang.xlf:downloaded_times'
+                     'LLL:EXT:my_ext/Resources/Private/Language/locallang.xlf:downloaded_times'
                  ),
                  27,
                  'several'

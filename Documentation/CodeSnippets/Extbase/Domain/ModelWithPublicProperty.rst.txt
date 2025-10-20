@@ -6,6 +6,7 @@
 
     final class Tag extends AbstractValueObject implements \Stringable
     {
+        public string $name = '';
 
         public int $priority = 0;
     }
