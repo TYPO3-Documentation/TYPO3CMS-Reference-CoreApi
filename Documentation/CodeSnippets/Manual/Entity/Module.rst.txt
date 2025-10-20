@@ -96,5 +96,8 @@
     ..  php:method:: getAliases()
         :returns: `array`
 
+    ..  php:method:: getDependsOnSubmodules()
+        :returns: `bool`
+
     ..  php:method:: getDefaultModuleData()
         :returns: `array`
