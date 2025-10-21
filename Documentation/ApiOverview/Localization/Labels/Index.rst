@@ -45,7 +45,7 @@ the path is automatically adjusted.
 Translation domain mapping for label reference
 ==============================================
 
-Translation domains introduce an additional syntax for referencing language labels
+Translation domains are an additional syntax for referencing language labels
 in TYPO3. They provide a domain-based notation that complements the existing
 file-based `LLL:` syntax.
 
@@ -64,7 +64,7 @@ package
 subdomain
     is optional and can be used to group related labels.
 resource
-    usually corresponds to a translation file such as `messages`.
+    usually corresponds to a translation file, such as `messages`.
 
 The domain notation removes explicit file paths and extensions, improving
 readability while remaining fully compatible with existing `LLL:EXT:` references.
@@ -91,13 +91,13 @@ Both formats can be used interchangeably.
 Translation domain format
 -------------------------
 
-The format defines two parts: The *package part* (extension key) and the
-*resource part*. These are separated by a dot.
+The domain format defines two parts: the *package part* (extension key) and the
+*resource part*, separated by a dot.
 
-The resource part will leaves out previous historical
-namings, especially `locallang.xlf` and the `locallang_` prefix.
+The resource part leaves out previous historical
+names, especially `locallang.xlf` and the `locallang_` prefix.
 
-The actual identifier within the resource is separated by a colon.
+The resource identifier appears before the colon in the resource part (below `comment`).
 
 .. code-block:: php
    :caption: Example usage of "package.resource:identifier"
@@ -114,7 +114,7 @@ language files within an extension. This section describes how the mapping
 and name generation work internally.
 
 The command :bash:`vendor/bin/typo3 language:domain:list` lists all available
-translation domains with their available translations and label counts:
+translation domains with their translations and label counts:
 
 ..  code-block:: bash
 
@@ -129,23 +129,23 @@ translation domains with their available translations and label counts:
 Deterministic file-based translation domain mapping
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-TYPO3 automatically resolves translation domains to existing language files
+TYPO3 automatically resolves translation domains to language files
 inside each extension. This allows you to use short, domain-based references
 without worrying about exact file names or paths.
 
-Language files are discovered in :directory:`Resources/Private/Language/`
-of each installed extension. The system builds a mapping between file names
+Language files are discovered in the :directory:`Resources/Private/Language/`
+directory of each installed extension. The system builds a mapping between file names
 and domain identifiers, ensuring that each domain corresponds to an existing
 file.
 
-If multiple files could map to the same domain (for example,
+If multiple files can map to the same domain (for example,
 :file:`locallang_db.xlf` and :file:`db.xlf` in the same directory),
 the simplified name takes precedence, and the prefixed variant is ignored.
 
 All mappings are cached internally for performance.
 
 Compared to traditional file-based lookups, the domain mapping approach
-reduces file system operations. All label files within an extension are
+reduces file system operations. Extension label files are
 discovered once during initialization, and their mapping is reused from
 cache for subsequent lookups.
 

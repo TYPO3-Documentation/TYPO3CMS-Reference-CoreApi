@@ -10,17 +10,17 @@ BeforeLabelResourceResolvedEvent
 
 The PSR-14 event :php:`\TYPO3\CMS\Core\Mail\Event\BeforeLabelResourceResolvedEvent`
 is dispatched before the message is sent by the mailer and can be
-used to manipulate the :php:`\Symfony\Component\Mime\RawMessage` and the
+used to manipulate :php:`\Symfony\Component\Mime\RawMessage` and the
 :php:`\Symfony\Component\Mailer\Envelope`. Usually a
 :php:`\Symfony\Component\Mime\Email` or :php:`\TYPO3\CMS\Core\Mail\FluidEmail`
-instance is given as :php:`RawMessage`. Additionally the mailer instance is
-given, which depends on the implementation - usually
+instance is given as :php:`RawMessage`. Additionally, the mailer instance is
+given - depending on the implementation - usually
 :php:`\TYPO3\CMS\Core\Mail\Mailer`. It contains the
 :php:`\Symfony\Component\Mailer\Transport` object, which can be retrieved using
 the :php:`getTransport()` method.
 
-The PSR-14 event :php:`\TYPO3\CMS\Core\Localization\Event\BeforeLabelResourceResolvedEvent`
-is dispatched during translation domain resolution, directly after a domain
+The :php:`\TYPO3\CMS\Core\Localization\Event\BeforeLabelResourceResolvedEvent`
+PSR-14 event is dispatched during translation domain resolution, directly after a domain
 name has been generated from a language file path.
 It allows extensions to **customize or adjust the generated domain name**
 before the mapping is finalized.
