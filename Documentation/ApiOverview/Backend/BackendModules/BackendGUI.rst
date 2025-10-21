@@ -45,8 +45,8 @@ Navigation frame
 
   The current location (i.e. page or frame) is carried over between
   navigation frames when changing modules. This means, for example, that
-  when you move from the :guilabel:`Web > Page` module to the
-  :guilabel:`Web > List` module, the same page stays selected in the page tree.
+  when you move from the :guilabel:`Content > Page` module to the
+  :guilabel:`Content > List` module, the same page stays selected in the page tree.
 
 DocHeader
   This part is always located above the Content area. It will generally

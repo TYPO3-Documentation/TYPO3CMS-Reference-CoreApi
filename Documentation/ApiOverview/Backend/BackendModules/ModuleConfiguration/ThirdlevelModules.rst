@@ -24,23 +24,23 @@ Example
 =======
 
 Registration of an additional third-level module for the
-:guilabel:`Web > Template` module in the :file:`Configuration/Backend/Modules.php`
+:guilabel:`Content > Info` module in the :file:`Configuration/Backend/Modules.php`
 file of an extension:
 
 .. code-block:: php
    :caption: EXT:my_extension/Configuration/Backend/Modules.php
 
    'web_ts_customts' => [
-       'parent' => 'web_ts',
+       'parent' => 'web_info',
        'access' => 'user',
-       'path' => '/module/web/typoscript/custom-ts',
-       'iconIdentifier' => 'module-custom-ts',
+       'path' => '/module/web/typoscript/custom-info',
+       'iconIdentifier' => 'module-custom-info',
        'labels' => [
            'title' => 'LLL:EXT:extkey/Resources/Private/Language/locallang.xlf:mod_title',
        ],
        'routes' => [
            '_default' => [
-               'target' => CustomTsController::class . '::handleRequest',
+               'target' => CustomInfoController::class . '::handleRequest',
            ],
        ],
        'moduleData' => [

@@ -167,7 +167,7 @@ Now the edit form for tea records will look like this:
 
     The complete input form for a tea record.
 
-The list of teas in the module :guilabel:`Web -> List` looks like this:
+The list of teas in the module :guilabel:`Content -> List` looks like this:
 
 
 ..  figure:: /Images/ManualScreenshots/ExtensionArchitecture/Tutorials/Tea/TeaList.png
