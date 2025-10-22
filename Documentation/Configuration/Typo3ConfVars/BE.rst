@@ -8,12 +8,11 @@
 BE - backend configuration
 ==========================
 
-The following configuration variables can be used to configure settings for
-the TYPO3 backend:
+The following configuration variables can be used to configure the TYPO3 backend:
 
 ..  note::
-    The configuration values listed here are keys in the global PHP array
-    :php:`$GLOBALS['TYPO3_CONF_VARS']['BE']`.
+    The configuration values listed here are keys in the
+    :php:`$GLOBALS['TYPO3_CONF_VARS']['BE']` global PHP array.
 
     This variable can be set in one of the following files:
 
@@ -33,8 +32,8 @@ the TYPO3 backend:
     :type: text
     :Default: 'fileadmin/'
 
-    Path to the primary directory of files for editors. This is relative to
-    the public web dir. DefaultStorage will be created with that configuration.
+    Path to the main file directory for editors. This is relative to
+    the public web dir. DefaultStorage will be created with this configuration.
     Do not access manually but via
     :php:`\TYPO3\CMS\Core\Resource\ResourceFactory::getDefaultStorage()`.
 
@@ -48,9 +47,9 @@ the TYPO3 backend:
 
     ..  versionadded:: 13.3
 
-    Defines the location of the flag file :file:`LOCK_BACKEND`, which
-    is used to temporarily restrict backend access to prevent unauthorized
-    changes or when performing critical updates.
+    Defines the location of the flag file :file:`LOCK_BACKEND`. The file
+    temporarily restricts backend access to prevent unauthorized
+    changes or during critical updates.
 
 ..  _typo3ConfVars_be_lockRootPath:
 
@@ -60,12 +59,12 @@ the TYPO3 backend:
     :type: array of file paths
     :Default: :php:`[]`
 
-    These absolute paths are used to evaluate, if paths outside of the project
-    path should be allowed. This restriction also applies for the local driver
-    of the :ref:`File Abstraction Layer <fal>`.
+    These absolute paths are used to check if paths outside of the project
+    path should be allowed. This restriction also applies to the local driver
+    in the :ref:`File Abstraction Layer <fal>`.
 
     This option supports an array of root path prefixes to
-    allow for multiple storages to be listed.
+    allow multiple storage locations to be listed.
 
     See also the `Security bulletin "Path Traversal in TYPO3 File Abstraction
     Layer Storages" <https://typo3.org/security/advisory/typo3-core-sa-2024-001>`__.
@@ -81,10 +80,10 @@ the TYPO3 backend:
     :type: text
     :Default: ''
 
-    Combined folder identifier of the directory where TYPO3 backend users have
+    Combined folder identifier pointing to the directory where TYPO3 backend users have
     their home-dirs. A combined folder identifier looks like this:
-    :php:`[storageUid]:[folderIdentifier]`. For Example :php:`2:users/`.
-    A home for backend user 2 would be: :php:`2:users/2/`. Ending slash required!
+    :php:`[storageUid]:[folderIdentifier]`, for example, :php:`2:users/`.
+    The home directory identifier of backend user 2 would be: :php:`2:users/2/`. End slash required!
 
 ..  _typo3ConfVars_be_groupHomePath:
 
@@ -94,10 +93,10 @@ the TYPO3 backend:
     :type: text
     :Default: ''
 
-    Combined folder identifier of the directory where TYPO3 backend groups have
+    Combined folder identifier pointing to the directory where TYPO3 backend groups have
     their home-dirs. A combined folder identifier looks like this:
-    :php:`[storageUid]:[folderIdentifier]`. For example :php:`2:groups/`.
-    A home for backend group 1 would be: :php:`2:groups/1/`. Ending slash required!
+    :php:`[storageUid]:[folderIdentifier]`, for example, :php:`2:groups/`.
+    The home directory identifier of backend group 1 would be: :php:`2:groups/1/`. End slash required!
 
 ..  _typo3ConfVars_be_userUploadDir:
 
@@ -107,9 +106,9 @@ the TYPO3 backend:
     :type: text
     :Default: ''
 
-    Suffix to the user home dir which is what gets mounted in TYPO3. For example
-    if the user dir is :file:`../123_user/`  and this value
-    is :file:`/upload`  then :file:`../123_user/upload` gets mounted.
+    Suffix which as added to the user home dir path when mounted in TYPO3.
+    For example, if the user dir is :file:`../123_user/`  and the suffix
+    is :file:`/upload`  then :file:`../123_user/upload` will be mounted.
 
 ..  _typo3ConfVars_be_warning_email_addr:
 
@@ -119,12 +118,12 @@ the TYPO3 backend:
     :type: text
     :Default: ''
 
-    Email address that will receive notifications whenever an attempt to
-    login to the Install Tool is made. This address will also receive warnings
-    whenever more than 3 failed backend login attempts (regardless of user)
-    are detected within an hour.
+    Email address that will receive notifications whenever there is an attempt to
+    login to the Install Tool. This address will also receive warnings
+    when more than 3 failed backend login attempts are detected within an
+    hour (regardless of user).
 
-    Have also a look into the :ref:`security guidelines
+    See also :ref:`security guidelines
     <security-global-typo3-options-warning-email-addr>`.
 
 ..  _typo3ConfVars_be_warning_mode:
@@ -142,9 +141,9 @@ the TYPO3 backend:
        2:
            Send a notification-email every time an **admin** backend user logs in
 
-    Send emails to :php:`warning_email_addr`  upon backend-login
+    Send emails to :php:`warning_email_addr`  upon backend-login.
 
-    Have also a look into the :ref:`security guidelines
+    See also :ref:`security guidelines
     <security-global-typo3-options-warning-mode>`.
 
 ..  _typo3ConfVars_be_passwordReset:
@@ -155,10 +154,10 @@ the TYPO3 backend:
     :type: bool
     :Default: true
 
-    Enable password reset functionality on the backend login for TYPO3 Backend
+    Enable password reset in the backend login for TYPO3 Backend
     users. Can be disabled for systems where only LDAP or OAuth login is allowed.
 
-    Password reset will then still work on CLI and for admins in the backend.
+    Password reset will still work via CLI and for admins in the backend.
 
 ..  _typo3ConfVars_be_passwordResetForAdmins:
 
@@ -168,8 +167,8 @@ the TYPO3 backend:
     :type: bool
     :Default: true
 
-    Enable password reset functionality for TYPO3 Administrators. This will
-    affect all places such as backend login or CLI. Disable this option for
+    Enable password reset for TYPO3 Administrators. This will
+    affect both backend login and CLI. Disable this option for
     increased security.
 
 ..  _typo3ConfVars_be_requireMfa:
@@ -192,7 +191,7 @@ the TYPO3 backend:
     4:
         Require multi-factor authentication only for system maintainers
 
-    Define users which should be required to set up
+    Define users that should be required to set up
     :ref:`multi-factor authentication <multi-factor-authentication>`.
 
 ..  _typo3ConfVars_be_recommendedMfaProvider:
@@ -204,8 +203,8 @@ the TYPO3 backend:
     :Default: 'totp'
 
     Set the identifier of the
-    :ref:`multi-factor authentication provider <multi-factor-authentication-included-providers>`,
-    recommended for all users.
+    :ref:`multi-factor authentication provider <multi-factor-authentication-included-providers>`.
+    Recommended for all users.
 
 ..  _typo3ConfVars_be_loginRateLimit:
 
@@ -215,8 +214,8 @@ the TYPO3 backend:
     :type: int
     :Default: 5
 
-    Maximum amount of login attempts for the time interval in
-    :ref:`[BE][loginRateLimitInterval]<typo3ConfVars_be_loginRateLimitInterval>`,
+    Maximum amount of login attempts in time interval
+    :ref:`[BE][loginRateLimitInterval]<typo3ConfVars_be_loginRateLimitInterval>`
     before further login requests will be denied. Setting this value to
     :php:`"0"` will disable login rate limiting.
 
@@ -229,7 +228,7 @@ the TYPO3 backend:
     :Default: '15 minutes'
     :Allowed values: '1 minute', '5 minutes', '15 minutes', '30 minutes'
 
-    Allowed time interval for the configured rate limit. Individual values
+    Time interval for the configured rate limit. Individual values
     using
     `PHP relative formats <https://www.php.net/manual/de/datetime.formats.relative.php>`__
     can be set in :file:`config/system/additional.php`.
@@ -256,7 +255,7 @@ the TYPO3 backend:
     :Allowed values: 0-4
 
     0:
-        Default: Do not lock Backend User sessions to their IP address at all
+        Default: Do not lock Backend User sessions to their IP address
     1:
         Use the first part of the editors IPv4 address (for example "192.") as part of the session locking of Backend Users
     2:
@@ -268,7 +267,7 @@ the TYPO3 backend:
 
     Session IP locking for backend users. See :ref:`[FE][lockIP]<typo3ConfVars_fe_lockIP>` for details.
 
-    Have also a look into the :ref:`security guidelines
+    See also :ref:`security guidelines
     <security-global-typo3-options-lockIP>`.
 
 ..  _typo3ConfVars_be_lockIPv6:
@@ -281,7 +280,7 @@ the TYPO3 backend:
     :Allowed values: 0-8
 
     0:
-        Default: Do not lock Backend User sessions to their IP address at all
+        Default: Do not lock Backend User sessions to their IP address
     1:
         Use the first block (16 bits) of the editors IPv6 address (for example "2001:") as part of the session locking of Backend Users
     2:
@@ -309,8 +308,8 @@ the TYPO3 backend:
     :type: int
     :Default: 28800
 
-    Session time out for backend users in seconds. The value must be at least
-    180 to avoid side effects. Default is 28.800 seconds = 8 hours.
+    Session timeout for backend users (in seconds). The value must be at least
+    180 to avoid side effects. The default is 28800 seconds = 8 hours.
 
 ..  _typo3ConfVars_be_IPmaskList:
 
@@ -321,14 +320,14 @@ the TYPO3 backend:
     :Default: ''
 
     Lets you define a list of IP addresses (with \*-wildcards) that are the
-    ONLY ones allowed access to ANY backend activity. On error an error header
-    is sent and the script exits. Works like IP masking for users
+    ONLY IP addresses that are allowed access to ANY backend activity. On error,
+    an error header is sent and the script exits. Works like IP masking for users
     configurable through TSconfig.
 
     See syntax for that (or look up syntax for the function
     :php:`\TYPO3\CMS\Core\Utility\GeneralUtility::cmpIP())`
 
-    Have also a look into the :ref:`security guidelines
+    See also :ref:`security guidelines
     <security-global-typo3-options-IPmaskList>`.
 
 ..  _typo3ConfVars_be_lockSSL:
@@ -339,11 +338,11 @@ the TYPO3 backend:
     :type: bool
     :Default: false
 
-    If set, the backend can only be operated from an SSL-encrypted
-    connection (https). A redirect to the SSL version of a URL will happen
-    when a user tries to access non-https admin-urls
+    If set, the backend can only be accessed via an SSL-encrypted
+    connection (https). If a user tries to access non-https admin-urls,
+    they will be redirected to the SSL version of the URL.
 
-    Have also a look into the :ref:`security guidelines
+    See also :ref:`security guidelines
     <security-global-typo3-options-lockSSL>`.
 
 ..  _typo3ConfVars_be_lockSSLPort:
@@ -366,7 +365,7 @@ the TYPO3 backend:
     :Default: ''
 
     Same as :ref:`$TYPO3_CONF_VARS[SYS][cookieDomain]<typo3ConfVars_sys_cookieDomain>`
-    but only for BE cookies. If empty, :php:`$TYPO3_CONF_VARS[SYS][cookieDomain]`
+    but for BE cookies. If empty, the :php:`$TYPO3_CONF_VARS[SYS][cookieDomain]`
     value will be used.
 
 ..  _typo3ConfVars_be_cookieName:
@@ -377,7 +376,7 @@ the TYPO3 backend:
     :type: text
     :Default: 'be_typo_user'
 
-    Set the name for the cookie used for the back-end user session
+    Set the cookie name for the back-end user session.
 
 ..  _typo3ConfVars_be_cookieSameSite:
 
@@ -389,18 +388,18 @@ the TYPO3 backend:
     :Allowed values: 'lax', 'strict', 'none'
 
     lax:
-        Cookies set by TYPO3 are only available for the current site,
-        third-party integrations are not allowed to read cookies, except for
+        Cookies set by TYPO3 are only available for the current site.
+        Third-party integrations are not allowed to read cookies, except for
         links and simple HTML forms
     strict:
-        Cookies sent by TYPO3 are only available for the current site, never
-        shared to other third-party packages
+        Cookies set by TYPO3 are only available for the current site. They are never
+        shared with third-party packages
     none:
-        Allow cookies set by TYPO3 to be sent to other sites as well,
-        please note - this only works with HTTPS connections
+        Allow cookies set by TYPO3 to be sent to other sites as well.
+        Note: this only works with HTTPS connections
 
-    Indicates that the cookie should send proper information where the cookie
-    can be shared (first-party cookies vs. third-party cookies) in TYPO3 Backend.
+    Configures how cookies can be shared in the TYPO3 Backend (first-party
+    cookies vs. third-party cookies)
 
 ..  _typo3ConfVars_be_showRefreshLoginPopup:
 
@@ -410,9 +409,9 @@ the TYPO3 backend:
     :type: bool
     :Default: false
 
-    If set, the Ajax relogin will show a real popup window for relogin after
-    the count down. Some auth services need this as they add custom validation
-    to the login form. If its not set, the Ajax relogin will show an inline
+    If set, the Ajax relogin will show a popup window for relogin after
+    a countdown. Some authorization services need this as they add custom validation
+    to the login form. If it is not set, the Ajax relogin will show an inline
     relogin window.
 
 ..  _typo3ConfVars_be_adminOnly:
@@ -430,11 +429,11 @@ the TYPO3 backend:
     0:
         Default: All users can access the TYPO3 Backend
     1:
-        Only administrators / system maintainers can log in, CLI interface is disabled as well
+        Only administrators / system maintainers can log in and CLI interface is disabled
     2:
-        Only administrators / system maintainers have access to the TYPO3 Backend, CLI executions are allowed as well
+        Only administrators / system maintainers have access to the TYPO3 Backend. CLI executions are allowed
 
-    Restricts access to the TYPO3 Backend - especially useful when doing maintenance or updates
+    Restricts access to the TYPO3 Backend. Useful when doing maintenance or updates
 
 ..  _typo3ConfVars_be_disable_exec_function:
 
@@ -444,10 +443,10 @@ the TYPO3 backend:
     :type: bool
     :Default: false
 
-    Dont use exec() function (except for ImageMagick which is disabled by
+    Don't use exec() function (except for ImageMagick which is disabled by
     `[GFX][im]<typo3ConfVars_gfx_im>` =0). If set, all file operations are done
-    by the default PHP-functions. This is necessary under Windows! On Unix the
-    system commands by exec() can be used, unless this is disabled.
+    by the default PHP functions. This is necessary under Windows! On Unix
+    system commands using exec() can be used, unless this is disabled.
 
 ..  _typo3ConfVars_be_compressionLevel:
 
@@ -458,18 +457,18 @@ the TYPO3 backend:
     :Default: 0
     :Range: 0-9
 
-    Determines output compression of BE output. Makes output smaller but slows
-    down the page generation depending on the compression level. Requires
+    Determines output compression of BE output. Output is smaller but
+    page generation slows down depending on compression level. Requires
 
     *  zlib in your PHP installation and
     *  special rewrite rules for :file:`.css.gz` and :file:`.js.gz`
        (before version 12.0 the extension was :file:`.css.gzip` and :file:`.js.gzip`)
 
     Please see :file:`EXT:install/Resources/Private/FolderStructureTemplateFiles/root-htaccess`
-    for an example. Range `1`-`9`, where `1` is least
-    compression and `9` is greatest compression. :php:`true` as value will set the
-    compression based on the PHP default settings (usually `5` ). Suggested and
-    most optimal value is `5`.
+    for an example. The range is `1`-`9`, where `1` is least
+    compression and `9` is greatest compression. Setting the value to :php:`true`
+    will set the compression based on the PHP default settings (usually `5` ). The
+    recommended and most optimal value is `5`.
 
 ..  _typo3ConfVars_be_installToolPassword:
 
@@ -479,12 +478,12 @@ the TYPO3 backend:
     :type: string
     :Default: ''
 
-    The hash of the install tool password. See also
+    Hash of the install tool password. See also
     `Enabling and accessing the Install Tool <https://docs.typo3.org/permalink/t3coreapi:security-install-tool-access>`_.
 
     ..  versionadded:: 14.0
 
-        You can also use command `vendor/bin/typo3 install:password:set
+        You can also use the command `vendor/bin/typo3 install:password:set
         <https://docs.typo3.org/permalink/t3coreapi:console-command-install-password-set>`_
         to change the install tool password.
 
@@ -503,7 +502,7 @@ the TYPO3 backend:
     *   :php:`$GLOBALS['TYPO3_CONF_VARS']['BE']['defaultPermissions']` (the option described here)
     *   Page TSconfig via :ref:`TCEMAIN.permissions <t3tsref:pagetcemain-permissions-user-group>`
 
-    Example (which reflects the default permissions):
+    Example (with default permissions):
 
     ..  code-block:: php
         :caption: config/system/additional.php | typo3conf/system/additional.php
@@ -514,8 +513,8 @@ the TYPO3 backend:
             'everybody' => '',
         ];
 
-    If you want to deviate from the default permissions, for example by changing the everybody key,
-    you only need to modify the key you wish to change:
+    If you want to deviate from the default permissions, for example, by changing the 'everybody' key,
+    just modify that key:
 
     ..  code-block:: php
         :caption: config/system/additional.php | typo3conf/system/additional.php
@@ -532,13 +531,13 @@ the TYPO3 backend:
     :type: array
     :Default: []
 
-    Defines the default user settings. The following order applies:
+    Defines default user settings. The following order applies:
 
     *   :php:`uc_default` in :php:`TYPO3\CMS\Core\Authentication\BackendUserAuthentication`
     *   :php:`$GLOBALS['TYPO3_CONF_VARS']['BE']['defaultUC']` (the option described here)
     *   User TSconfig via :ref:`setup <t3tsref:usersetup>`
 
-    Example (which reflects the default user settings):
+    Example (with default user settings):
 
     ..  code-block:: php
         :caption: config/system/additional.php | typo3conf/system/additional.php
@@ -551,7 +550,7 @@ the TYPO3 backend:
         ];
 
     Visit the :ref:`setup <t3tsref:usersetup>` chapter of the User TSconfig guide for
-    a list of all available options.
+    a list of available options.
 
 ..  _typo3ConfVars_be_customPermOptions:
 
@@ -561,7 +560,7 @@ the TYPO3 backend:
     :type: array
     :Default: []
 
-    Array with sets of custom permission options. Syntax is:
+    Array with sets of custom permission options. The syntax is:
 
 
     ..  code-block:: php
@@ -574,7 +573,7 @@ the TYPO3 backend:
             )
         )
 
-    Keys cannot contain characters any of the following characters: :php:`:|,`.
+    Keys cannot contain any of the following characters: :php:`:|,`.
 
 ..  _typo3ConfVars_be_fileDenyPattern:
 
@@ -584,19 +583,19 @@ the TYPO3 backend:
     :type: text
     :Default: ''
 
-    A perl-compatible and JavaScript-compatible regular expression (without
-    delimiters `/`) that - if it matches a filename - will deny the
-    file upload/rename or whatever.
+    A perl and JavaScript-compatible regular expression that will block ('deny')
+    operations on files with matching filenames (without delimiters `/`), for
+    example, file upload, rename, etc.
 
-    For security reasons, files with multiple extensions have to be denied on
-    an Apache environment with mod_alias, if the filename contains a valid php
-    handler in an arbitrary position. Also, ".htaccess" files have to be denied.
-    Matching is done case-insensitive.
+    For security reasons, files with multiple extensions in an Apache environment must be blocked
+    using mod_alias, if the filename contains a valid php
+    handler in an arbitrary position. Also, ".htaccess" files must be blocked.
+    Matching is case-insensitive.
 
-    Default value is stored in class constant
+    The default value is stored in class constant
     :php:`\TYPO3\CMS\Core\Resource\Security\FileNameValidator::FILE_DENY_PATTERN_DEFAULT`.
 
-    Have also a look into the :ref:`security guidelines
+    See also :ref:`security guidelines
     <security-global-typo3-options-fileDenyPattern>`.
 
 ..  _typo3ConfVars_be_flexformForceCDATA:
@@ -606,7 +605,7 @@ the TYPO3 backend:
     :name: globals-typo3-conf-vars-be-flexformForceCDATA
 
     ..  versionchanged:: 13.0
-        This option was removed with TYPO3 v13.0.
+        This option was removed in TYPO3 v13.0.
 
 ..  _typo3ConfVars_be_versionNumberInFilename:
 
@@ -616,17 +615,17 @@ the TYPO3 backend:
     :type: bool
     :Default: false
 
-    If enabled, included CSS and JS files loaded in the TYPO3 Backend will
-    have the timestamp embedded in the filename, ie. :php:`filename.1269312081.js` .
-    This will make browsers and proxies reload the files if they change
+    If enabled, CSS and JS files loaded in the TYPO3 Backend will
+    have a timestamp in their filename, i.e. :php:`filename.1269312081.js` .
+    This will force browsers and proxies to reload the files if they change
     (thus avoiding caching issues).
 
-    **IMPORTANT:** This feature requires extra :file:`.htaccess` rules to
+    **IMPORTANT:** This feature requires extra :file:`.htaccess` rules in order to
     work (please refer to the
     :file:`typo3/sysext/install/Resources/Private/FolderStructureTemplateFiles/root-htaccess`
     file shipped with TYPO3).
 
-    If disabled the last modification date of the file will be appended as a query-string.
+    If disabled, the last modification date of the file will be appended as a query-string.
 
 ..  _typo3ConfVars_be_debug:
 
@@ -636,8 +635,8 @@ the TYPO3 backend:
     :type: bool
     :Default: false
 
-    If enabled, the login refresh is disabled and pageRenderer is set to debug
-    mode. Furthermore the fieldname is appended to the label of fields. Use
+    If enabled, login refresh is disabled and pageRenderer is set to debug
+    mode. Also, fieldnames are appended to field labels. Use
     this to debug the backend only!
 
     Disables the
@@ -651,10 +650,10 @@ the TYPO3 backend:
     :name: globals-typo3-conf-vars-be-http
     :type: array
 
-    Set HTTP headers to be sent with each backend request. Other keys than
+    Set HTTP headers to be sent with each backend request. Keys other than
     :php:`['Response']['Headers']` are ignored.
 
-    The default configuration:
+    Default configuration:
 
     ..  code-block:: php
 
@@ -670,7 +669,7 @@ the TYPO3 backend:
         ]
 
     ..  note::
-        The `Strict-Transport-Security` is only active, if the option
+        `Strict-Transport-Security` is only active if the option
         :ref:`$GLOBALS[TYPO3_CONF_VARS][BE][lockSSL] <typo3ConfVars_be_lockSSL>`
         is enabled.
 
@@ -708,9 +707,8 @@ the TYPO3 backend:
         :type: array
         :Default: []
 
-        Special settings for specific hashes.
-        See :ref:`password-hashing-available-algorithms` for the different options
-        depending on the algorithm.
+        Special settings for specific hash algorithms.
+        See :ref:`password-hashing-available-algorithms` for the different options.
 
 ..  _typo3ConfVars_be_passwordPolicy:
 
@@ -720,7 +718,7 @@ the TYPO3 backend:
     :type: string
     :Default: default
 
-    Defines the :ref:`password policy <password-policies>` in backend context.
+    Defines the :ref:`password policy <password-policies>` in the backend context.
 
 ..  _typo3ConfVars_be_stylesheets:
 
@@ -730,8 +728,8 @@ the TYPO3 backend:
     :type: string
     :Default: default
 
-    Load additional CSS files for the TYPO3 backend interface. This setting
-    can be set per site or within an extension's :file:`ext_localconf.php`.
+    Load additional CSS files for the TYPO3 backend interface. This can be set
+    for a site or in an extension :file:`ext_localconf.php` file.
 
     .. rubric:: Examples:
 
@@ -762,10 +760,10 @@ the TYPO3 backend:
     backend; if it is empty, the TYPO3 endpoint will be used.
 
     Setting this configuration to `'0'` disables Content Security Policy
-    reporting. If the endpoint is still called then, the
+    reporting. If the endpoint is still called, the
     server-side process responds with a 403 HTTP error message.
 
-    If defined, the :ref:`site-specific configuration <content-security-policy-site-endpoints>`
+    If defined, :ref:`site-specific configuration <content-security-policy-site-endpoints>`
     in :file:`config/sites/my_site/csp.yaml` takes precedence over the global configuration.
 
     ..  code-block:: php
@@ -821,10 +819,10 @@ the TYPO3 backend:
 
         ..  versionadded:: 14.0
 
-        Setting `className` to :php:`\TYPO3\CMS\Install\Service\Session\RedisSessionHandler`
-        it is possible to store Install Tool sessions in Redis.
+        Store Install Tool sessions in Redis by setting `className` to
+        :php:`\TYPO3\CMS\Install\Service\Session\RedisSessionHandler`
 
-        Custom session handlers can be implemented by implementing PHP's own
+        Custom session handlers can be implemented using the PHP
         :php:`\SessionHandlerInterface`.
 
     ..  confval:: options
@@ -851,7 +849,7 @@ the TYPO3 backend:
             ];
 
         For the :php-short:`\TYPO3\CMS\Install\Service\Session\RedisSessionHandler`
-        you can configure the `host`, `port`, `database` and `authentification`:
+        you can configure `host`, `port`, `database` and `authentification`:
 
         ..  code-block:: php
             :caption: Redis session handler in config/system/settings.php
