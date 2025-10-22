@@ -123,7 +123,7 @@ for example on an anchor element, which prevents the default behavior.
 :html:`data-title`
     The title text for the modal.
 
-:html:`data-bs-content`
+:html:`data-content`
     The content text for the modal.
 
 :html:`data-severity`
