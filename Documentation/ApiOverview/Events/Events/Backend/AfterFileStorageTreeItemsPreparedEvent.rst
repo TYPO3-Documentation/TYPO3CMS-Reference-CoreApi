@@ -18,6 +18,8 @@ It is dispatched in the :php:`\TYPO3\CMS\Backend\Controller\FileStorage\TreeCont
 class after the file storage tree items have been resolved and prepared. The event
 provides the current PSR-7 request object and the file storage tree items.
 
+..  _AfterFileStorageTreeItemsPreparedEvent-labels:
+
 Labels
 ======
 
