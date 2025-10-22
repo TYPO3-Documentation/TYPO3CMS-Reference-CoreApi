@@ -154,6 +154,12 @@ return [
     ],
     [
         'action' => 'createPhpClassDocs',
+        'class' => \TYPO3\CMS\Backend\Controller\Event\AfterFileStorageTreeItemsPreparedEvent::class,
+        'targetFileName' => 'CodeSnippets/Events/Backend/AfterFileStorageTreeItemsPreparedEvent.rst.txt',
+        'withCode' => false,
+    ],
+    [
+        'action' => 'createPhpClassDocs',
         'class' => \TYPO3\CMS\Backend\Form\Event\ModifyEditFormUserAccessEvent::class,
         'targetFileName' => 'CodeSnippets/Events/Backend/ModifyEditFormUserAccessEvent.rst.txt',
         'withCode' => false,
