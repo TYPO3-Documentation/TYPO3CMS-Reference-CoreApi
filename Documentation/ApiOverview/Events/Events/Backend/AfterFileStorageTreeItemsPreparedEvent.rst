@@ -66,5 +66,5 @@ API
 
 ..  note::
 
-    :php: The folder identifier path used in TSconfig must not be URL-encoded.
+    The folder identifier path used in TSconfig must not be URL-encoded.
     For example, use :typoscript:`1:/` instead of :typoscript:`1%3A%2F`.
