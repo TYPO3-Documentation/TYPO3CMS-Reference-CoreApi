@@ -55,7 +55,6 @@ Example
 ..  literalinclude:: _AfterFileStorageTreeItemsPreparedEvent/_MyEventListener.php
     :language: php
     :caption: EXT:my_extension/Classes/Backend/EventListener/ModifyFileStorageTreeItems.php
-    :emphasize-lines: 18-22
 
 ..  _AfterFileStorageTreeItemsPreparedEvent-api:
 
