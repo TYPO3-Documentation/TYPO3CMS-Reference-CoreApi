@@ -33,7 +33,7 @@ The following configuration variables can be used to configure the TYPO3 backend
     :Default: 'fileadmin/'
 
     Path to the main file directory for editors. This is relative to
-    the public web dir. DefaultStorage will be created with this configuration.
+    the public web directory. DefaultStorage will be created with this configuration.
     Do not access manually but via
     :php:`\TYPO3\CMS\Core\Resource\ResourceFactory::getDefaultStorage()`.
 
