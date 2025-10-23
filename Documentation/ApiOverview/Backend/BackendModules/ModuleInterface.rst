@@ -18,7 +18,7 @@ relation handling (main modules and sub modules).
 
     Method  :php:`getDependsOnSubmodules()` was added to the
     :php-short:`\TYPO3\CMS\Backend\Module\ModuleInterface`. See also
-    `Breaking: #107663 - New method getDependsOnSubmodules() required <https://docs.typo3.org/permalink/changelog:breaking-107663-1760110062>`_.
+    `Feature: #107663 - New method getDependsOnSubmodules() required <https://docs.typo3.org/permalink/changelog:feature-107663-1760110062>`_.
 
 ..  contents:: Table of contents
 
