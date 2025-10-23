@@ -219,7 +219,7 @@ Module configuration options
 
         ..  versionadded:: 14.0
 
-        If true, the module will only be shown in the module menu if at least one of its
+        If true, the module will only be displayed in the module menu if at least one of its
         `submodules <https://docs.typo3.org/permalink/t3coreapi:backend-modules-third-level-module>`_
         is available to the current user.
 
@@ -227,7 +227,7 @@ Module configuration options
         permissions to them, the parent module will automatically be hidden from
         the module menu.
 
-        The :guilabel:`Web > Info` module leverages this feature to seamlessly vanish
+        The :guilabel:`Web > Info` module leverages this feature to seamlessly disappear
         from the module menu when extensions are uninstalled or users lack permissions
         to access its submodules, preventing dead-end navigation paths and enhancing
         the overall backend experience.

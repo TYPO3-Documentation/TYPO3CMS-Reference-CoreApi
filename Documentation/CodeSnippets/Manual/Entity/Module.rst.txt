@@ -8,6 +8,7 @@
     ..  php:method:: getRoutes()
         :returns: `array`
 
+
     ..  php:method:: getDefaultRouteOptions()
         :returns: `array`
 

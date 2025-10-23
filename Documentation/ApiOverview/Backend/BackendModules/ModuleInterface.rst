@@ -8,10 +8,10 @@ ModuleInterface
 
 The registered backend modules are stored as objects in a registry and can be
 fetched using the :php:`\TYPO3\CMS\Backend\Module\ModuleProvider`.
-All module objects implement the :php:`\TYPO3\CMS\Backend\Module\ModuleInterface`.
+All module objects implement :php:`\TYPO3\CMS\Backend\Module\ModuleInterface`.
 
 The :php:`ModuleInterface` basically provides getters for the options
-defined in the module registration and additionally provides methods for
+defined in the module registration and provides methods for
 relation handling (main modules and sub modules).
 
 ..  versionchanged:: 14.0
