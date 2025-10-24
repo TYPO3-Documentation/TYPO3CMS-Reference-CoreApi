@@ -238,7 +238,7 @@ Examples for Extbase domain models and table names of an extension named `cool_s
 
 .. tip::
    You may notice, that the names above use the singular form, e.g. `post` and
-   not `posts`. This is recommended, but not always followed. If you do not follow this pattern,
+   not `posts`. This is recommended, but not always followed. If you do not follow this or other patterns,
    you may need :ref:`manual mapping <extbase_manual_mapping>`.
 
 ..  _naming-tables-mm:
