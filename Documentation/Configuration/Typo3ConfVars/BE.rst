@@ -35,7 +35,7 @@ The following configuration variables can be used to configure the TYPO3 backend
     Path to the main file directory for editors. This is relative to
     the public web directory. DefaultStorage will be created with this configuration.
     Do not access manually but via
-    :php:`\TYPO3\CMS\Core\Resource\ResourceFactory::getDefaultStorage()`.
+    :php:`\TYPO3\CMS\Core\Resource\StorageRepository::getDefaultStorage()`.
 
 ..  _typo3ConfVars_be_lockBackendFile:
 
