@@ -14,8 +14,8 @@ final readonly class MyEventListener
 {
     public function __invoke(BeforeFormIsDeletedEvent $event): void
     {
-        $event->preventDeletion = true;
-        $persistenceIdentifier = $event->formPersistenceIdentifier;
-        // Do something with the persistence identifier
+        if ($event->formPersistenceIdentifier === 'some-identifier') {
+            $event->preventDeletion = true;
+        }
     }
 }
