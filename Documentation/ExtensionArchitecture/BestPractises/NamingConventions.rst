@@ -280,7 +280,7 @@ follow this pattern:
    tx_<extkeyprefix>_<column-name>
 
 * `<extkeyprefix>` is the extension key without underscores, so `foo_bar` becomes `foobar`
-* `<column-name>` should clearly describe the purpose of the column
+* `<column-name>` purpose of the column, lower case letters with underscores
 
 .. _BackendModuleKey:
 
