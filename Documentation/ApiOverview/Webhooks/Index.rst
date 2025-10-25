@@ -12,7 +12,7 @@ Webhooks and reactions: Integration of external systems
 
 ..  versionchanged:: 14.0
     The backend module for the reactions was moved to
-    :guilabel:`System > Integrations > Reactions`, the module for the webhooks
+    :guilabel:`System > Integrations > Reactions` and the module for the webhooks
     to :guilabel:`System > Integrations > Webhooks`
 
 A webhook is an automated message sent from one application to another via HTTP.

@@ -90,7 +90,7 @@ for more background information on many of those settings.
         :Default: null
 
         For now, the only supported array key is `webhooks` to configure an array
-        of allowed hostnames that webhooks of `EXT:webhooks` are allowed to connect to
+        of valid hostnames that webhooks of `EXT:webhooks` are allowed to connect to
         (see :issue:`106229` as a protection against DNS rebinding).
 
         Wildcards in the array values are allowed, like `*.example.com`.
