@@ -196,7 +196,7 @@ File mounts are similar to DB mounts but instead are used to manage access to
 files.
 
 File mounts need to be created first, for example using the context menu on the
-file tree in module "Filelist", or in the
+file tree in module :guilabel:`Media > Filelist`, or in the
 `File mounts submodule of the Backend Users module <https://docs.typo3.org/permalink/t3coreapi:user-management-backend-users-file-mounts>`_
 
 They can then be selected when editing a backend user group:

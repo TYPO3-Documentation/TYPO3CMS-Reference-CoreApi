@@ -64,10 +64,10 @@ icon representation to the icon of the the first active radio icon in the
 dropdown list.
 
 ..  figure:: /Images/ManualScreenshots/Backend/FileModuleDropDownButton.png
-    :alt: DropDown button component in the File > Filelist module
+    :alt: DropDown button component in the :guilabel:`Media > Filelist` module
     :class: with-border with-shadow
 
-    DropDown button component in the :guilabel:`File > Filelist` module
+    DropDown button component in the :guilabel:`Media > Filelist` module
 
 
 ..  _dropdown-button-components-button:
