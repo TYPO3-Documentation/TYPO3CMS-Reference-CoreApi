@@ -3,7 +3,7 @@
 
 ..  php:class:: AfterFileStorageTreeItemsPreparedEvent
 
-    Listeners to this event will be able to modify the file storage tree items in the file storage tree
+    Listeners to this event will be able to modify the prepared file storage tree items for the file / folder tree
 
     ..  php:method:: getRequest()
         :returns: `\Psr\Http\Message\ServerRequestInterface`

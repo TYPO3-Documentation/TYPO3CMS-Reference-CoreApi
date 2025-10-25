@@ -9,7 +9,7 @@
     final readonly class HaikuSeasonList implements MiddlewareInterface
     {
         private const SEASONS = ['spring', 'summer', 'autumn', 'winter', 'theFifthSeason'];
-        private const TRANSLATION_PATH = 'LLL:EXT:examples/Resources/Private/Language/PluginHaiku/locallang.xlf:season.';
+        private const TRANSLATION_PATH = 'LLL:examples.plugin_haiku.messages:season.';
 
         /**
          * @return array<string, string>

@@ -8,7 +8,7 @@
 
     E.g. "vendor/myext.messages" is mapped to "EXT:myext/Resources/Private/Language/locallang.xlf"
 
-    If you want this file to be in a different location, e.g. for historical reasons, you can do this here.
+    If you want this file to be a different location, e.g. for historical reasons, you can do this here.
 
     ..  php:attr:: packageKey
         :readonly:

@@ -124,9 +124,8 @@
 
         Return a list of identifiers that are aliases to this module
 
-    ..  php:method:: getDependsOnSubmodules()
+    ..  php:method:: hasSubmoduleOverview()
         :returns: `bool`
 
-        Whether this module should only be visible when it has submodules.
-
-        Used for second-level modules that act as containers.
+        Whether this module should display a card-based overview of its submodules
+        instead of automatically routing to the first available submodule.
