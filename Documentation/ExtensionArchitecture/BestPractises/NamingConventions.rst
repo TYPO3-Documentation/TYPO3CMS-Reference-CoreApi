@@ -238,7 +238,7 @@ Examples for Extbase domain models and table names of an extension named `cool_s
 
 .. tip::
    You may notice, that the names above use the singular form, e.g. `post` and
-   not `posts`. This is recommended, but not always followed. If you do not follow this pattern,
+   not `posts`. This is recommended, but not always followed. If you do not follow this or other patterns,
    you may need :ref:`manual mapping <extbase_manual_mapping>`.
 
 ..  _naming-tables-mm:
@@ -280,7 +280,7 @@ follow this pattern:
    tx_<extkeyprefix>_<column-name>
 
 * `<extkeyprefix>` is the extension key without underscores, so `foo_bar` becomes `foobar`
-* `<column-name>` should clearly describe the purpose of the column
+* `<column-name>` purpose of the column, lower case letters with underscores
 
 .. _BackendModuleKey:
 
