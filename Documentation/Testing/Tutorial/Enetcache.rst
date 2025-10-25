@@ -12,36 +12,40 @@ Testing enetcache
 Introduction
 ============
 
-As an extension author, it is likely that you may want to test your extension during its development.
-This chapter details how extension authors can set up automatic extension testing. We'll do that with
-two examples. Both embed the given extension in a TYPO3 instance and run tests within this environment,
-both examples also configure GitHub Actions to execute tests. We'll use Docker containers for test execution again and use
-an extension specific :file:`runTests.sh` script for executing test setup and execution.
+If you are an extension author, it is likely that you will want to test your extension during development.
+This chapter describes how extension authors can set up automated extension testing. We will use
+two examples which demonstrate how an extension can be embedded
+in a TYPO3 instance to run tests in a TYPO3 environment and
+how to configure GitHub Actions to run tests. Tests are run using Docker
+containers and an extension-specific :file:`runTests.sh`.
 
 .. _testing-tutorial-enetcache-scope:
 
 Scope
 =====
 
-About this chapter and what it does *not* cover, first.
+About this chapter and what it does *not* cover.
 
-* This documentation assumes an extension is tested with only one major Core version. It
+* This documentation assumes the extension is being tested against only one major Core version. It
   does not support extension testing with multiple target Core versions (though that is
   possible).
-  The Core Team encourages extension developers to have dedicated Core branches
-  per Core version. This has various advantages, it is for instance easy to create deprecation
-  free extensions this way.
+  The Core Team encourages extension developers to have a dedicated Core branch
+  for each Core version. This has various advantages, for instance, it is easy
+  to create deprecation-free extensions.
 
-* We assume a Composer based setup. Extensions should provide a :file:`composer.json <extension-composer-json>`
-  file anyway and using Composer for extension testing is quite convenient.
+* We assume a Composer based setup. Extensions should already have a
+  :file:`composer.json <extension-composer-json>` file and using Composer for
+  extension testing is quite convenient.
 
-* Similar to Core testing, this documentation relies on docker and docker-compose. See the
+* As with Core testing, this testing described here relies on docker and docker-compose. See
   :ref:`Core testing requirements <t3contribute:testing-core-dependencies>` for more details.
 
-* We assume your extensions code is located within github and automatic testing is carried out using GitHub Actions.
-  The integration of GitHub Actions into github is easy to set up with plenty of documentation already available.
-  If your extensions code is located elsewhere or a different CI is used, this chapter may still be of use
-  in helping you build a general understanding of the testing process.
+* We assume your extension code is on github and that automated testing
+  is carried out by GitHub Actions. GitHub Actions
+  are easy to set up and plenty of documentation is available.
+  If your extension code is located elsewhere or uses a different CI, this
+  chapter may still be of use to help you build a general understanding of
+  the testing process.
 
 .. _testing-tutorial-enetcache-strategy:
 
@@ -50,37 +54,38 @@ General strategy
 
 Third party extensions often rely on TYPO3 Core extensions to add key functionality.
 
-If a project needs a TYPO3 extension, it will add the required extension using `composer require`
-to its own root composer.json file. The extensions composer.json then specifies additional detail, for
-instance which PHP class namespaces it provides and where they can be found. This properly
-integrates the extension into the project and the project then "knows" the location of extension
-classes.
+If a project needs a TYPO3 extension, it adds the extension to its own root
+composer.json file using `composer require`. The extension composer.json contains details
+such as which PHP class namespaces it provides and where these can be found. This
+integrates the extension into the project so that the project "knows" the location
+of the extension classes.
 
-If we want to test extension code directly, we do a similar change: We turn the :file:`composer.json <extension-composer-json>`
-file of the extension into a `root composer.json file <https://getcomposer.org/doc/04-schema.md#root-package>`_.
-That file then serves two needs at the same time: It is used by projects that require the extension
-as a dependency and it is used as the root composer.json to specify dependencies turning the extension
-into a project on its own for testing. The latter allows us to set up a full TYPO3
-environment in a sub folder of the extension and execute the tests within this sub folder.
+To test extension code, we do something similar by integrating the test environment
+and the extension. We turn the extension :file:`composer.json <extension-composer-json>`
+file into a `root composer.json file <https://getcomposer.org/doc/04-schema.md#root-package>`_.
+The file then serves two needs: it is used by projects that require the extension
+as a dependency and it is used as a root composer.json to specify dependencies.
+This turns the extension into a project of its own, allowing us to set up a full TYPO3
+environment in a subfolder of the extension and execute tests inside this subfolder.
 
 .. _testing-tutorial-enetcache-testing:
 
 Testing enetcache
 =================
 
-The extension `enetcache <https://github.com/lolli42/enetcache>`_ is a small extension that helps
-with frontend plugin based caches. It has been available as Composer package and a TER extension for quite
+`enetcache <https://github.com/lolli42/enetcache>`_ is a small extension that helps
+with frontend-plugin-based caches. It has been available as a Composer package and a TER extension for quite
 some time and is loosely maintained to keep up with current Core versions.
 
-The following is based on the current (May, 2023) main branch of enetcache,
-later versions may be structured differently.
+The following is based on the current (May, 2023) main branch of enetcache.
+Later versions may be structured differently.
 
-This main branch:
+The main branch:
 
 *   supports TYPO3 v11 and TYPO3 v12
 *   requires typo3/testing-framework v7 (which supports v11 and v12)
 
-Older versions of this extension were structured differently, each branch of
+Older versions of this extension were structured differently. Each branch of
 the extension supported only one TYPO3 version:
 
 * `1.2` compatible with Core v7, released to TER as 1.x.y
@@ -89,27 +94,28 @@ the extension supported only one TYPO3 version:
 
 * `master` compatible with Core v9, released to TER as 3.x.y
 
-On this page, we focus on testing one TYPO3 version at a time though it is
-possible to support and test 2 TYPO3 versions in one branch with the
-typo3/testing-framework and enetcache does this. But, for the sake of simplicity
+Here we focus on testing one TYPO3 version at a time, though it is
+possible to support and test two TYPO3 versions in one branch with the
+typo3/testing-framework - and enetcache does this. For the sake of simplicity
 we describe the simpler use case here.
 
-The enetcache extension comes with a couple of unit tests
-in `Tests/Unit`, we want to run these locally and by GitHub Actions, along with
-some PHP linting to verify there is no fatal PHP error.
+The enetcache extension comes with some unit tests
+in `Tests/Unit`. We will run these locally and use GitHub Actions, along with
+some PHP linting to verify that there is no fatal PHP error.
 
 .. _testing-tutorial-enetcache-start:
 
 Starting point
 --------------
 
-As outlined in the general strategy, we need to extend the existing :file:`composer.json <extension-composer-json>` file by
-adding some root composer.json specific things. This does not harm the functionality of the existing
-composer.json properties if the extension is a project dependency and not used as root composer.json:
-Root properties are ignored in Composer if the file is not used as root project file, see the
+As outlined in the general strategy, we need to edit the existing
+:file:`composer.json <extension-composer-json>` file to turn it into a root
+composer.json. This will not harm the functionality of the existing
+composer.json properties if the extension is a project dependency and not used as a root composer.json.
+If a file is not used as a root project file, Composer ignores root properties. See
 notes "root-only" of the `Composer documentation <https://getcomposer.org/doc/04-schema.md>`_ for details.
 
-This is how the composer.json file looks before we add a test setup:
+This is the composer.json file before adding a test setup:
 
 .. code-block:: json
 
@@ -142,11 +148,11 @@ This is how the composer.json file looks before we add a test setup:
       }
     }
 
-This is a typical composer.json file without any complexity: It's a `typo3-cms-extension`, with an
-author and a license. We are stating that "I need at least 13.0.0 of cms-core" and we tell the autoloader
-"find all class names starting with :php:`Lolli\Enetcache` in the Classes/ directory".
+This is a typical, simple composer.json file. It is a `typo3-cms-extension`, with an
+author and a license. We specify that "I need at least 13.0.0 of cms-core" and we tell the autoloader
+to "find all class names starting with :php:`Lolli\Enetcache` in the Classes/ directory".
 
-The extension already contains some unit tests that extend `typo3/testing-framework`'s base
+The extension contains unit tests that extend the `typo3/testing-framework` base
 unit test class in directory :file:`Tests/Unit/Hooks` (stripped):
 
 .. code-block:: php
@@ -173,9 +179,9 @@ unit test class in directory :file:`Tests/Unit/Hooks` (stripped):
 Preparing composer.json
 -----------------------
 
-Now let's add our properties to put these tests into action. First, we add a series of properties
+Now let's add our properties. First, we add a series of properties
 to :file:`composer.json <extension-composer-json>`
-to add root :file:`composer.json` details, turning the extension into a project at the same time:
+which are root :file:`composer.json` properties, turning the extension into a project:
 
 .. code-block:: json
     :linenos:
@@ -226,14 +232,14 @@ to add root :file:`composer.json` details, turning the extension into a project 
       }
     }
 
-Note all added properties are only used within our root :file:`composer.json` files, they are ignored if the
-extension is loaded as a dependency in our project. Note: We specify `.Build` as
+Note that the added properties are only in our root :file:`composer.json` file, they are ignored if the
+extension is loaded as a dependency in our project. `.Build` is the
 build directory. This is where our TYPO3 instance will be set up. We add `typo3/testing-framework`
-in a v13 compatible version as `require-dev` dependency. We add a `autoload-dev` to tell composer
-that test classes are found in the :file:`Tests/` directory.
+(in a v13 compatible version) as a `require-dev` dependency. We add `autoload-dev` to tell composer
+that there are test classes in the :file:`Tests/` directory.
 
 Now, before we start playing around with this setup, we instruct `git` to ignore runtime
-on-the-fly files. The :file:`.gitignore` looks like this:
+on-the-fly files. The :file:`.gitignore` file looks like this:
 
 .. code-block:: none
    :caption: .gitignore
@@ -243,14 +249,16 @@ on-the-fly files. The :file:`.gitignore` looks like this:
    Build/testing-docker/.env
    composer.lock
 
-We ignore the entire `.Build` directory, these are on-the-fly files that do not belong to the extension
-functionality. We also ignore the `.idea` directory - this is a directory where PhpStorm stores its settings.
-We also ignore `Build/testing-docker/.env` - this is a test runtime file created by :file:`runTests.sh` later.
-And we ignore the `composer.lock` file: We don't specify our dependency versions and a
-`composer install` will later always fetch for instance the youngest Core dependencies marked as
+In :file:`.gitignore` we ignore the `.Build` directory as these are on-the-fly
+files that do not belong to the extension functionality. We also ignore the
+`.idea` directory where PhpStorm stores its settings.
+We also ignore `Build/testing-docker/.env` - this is a test runtime file that
+will be created later by :file:`runTests.sh`.
+And we ignore the `composer.lock` file - we don't specify our dependency versions and
+`composer install` will always fetch the youngest Core dependencies marked as
 compatible in our `composer.json` file.
 
-Let's clone that repository and call `composer install` (stripped):
+Let's clone the repository and run `composer install` (stripped):
 
 .. code-block:: shell
     :emphasize-lines: 1, 10, 11
@@ -279,9 +287,9 @@ Let's clone that repository and call `composer install` (stripped):
     Inserting class alias loader into main autoload.php file
     lolli@apoc /var/www/local/git/enetcache $
 
-To clean up any errors created at this point, we can always run `rm -r .Build/ composer.lock` later and
-call `composer install` again. We now have a basic TYPO3 instance in our `.Build/` folder to execute
-our tests in:
+To clean up any errors, we can always run `rm -r .Build/ composer.lock` and
+call `composer install` again. In our `.Build/` folder we now have a basic
+TYPO3 instance to execute our tests in:
 
 .. code-block:: shell
 
@@ -296,31 +304,31 @@ our tests in:
     total 0
     lrwxrwxrwx 1 lolli www-data 29 Nov  5 14:19 enetcache -> /var/www/local/git/enetcache/
 
-The package `typo3/testing-framework` that we added as `require-dev` dependency has some basic Core
-extensions set as dependency, we end up with the Core extensions `backend`, `core`, `extbase`,
+The package `typo3/testing-framework` that we added as a `require-dev` dependency has some basic Core
+extensions set as dependencies. We end up with the Core extensions `backend`, `core`, `extbase`,
 `fluid` and `frontend` in `.Build/Web/typo3/sysext`.
 
-We now have a full TYPO3 instance. It is not installed, there is no database, but we are now at the point
-to begin unit testing!
+We now have a full TYPO3 instance. It is not installed and there is no database,
+but we are now at the point where we can begin unit testing!
 
 .. _testing-tutorial-enetcache-runtests:
 
 runTests.sh and docker-compose.yml
 ----------------------------------
 
-Next we need to setup our tests. These are the two files we need: `Build/Scripts/runTests.sh
+Next, we need to setup our tests. The two files we need are: `Build/Scripts/runTests.sh
 <https://github.com/lolli42/enetcache/blob/master/Build/Scripts/runTests.sh>`_ and `Build/testing-docker/
 docker-compose.yml <https://github.com/lolli42/enetcache/blob/master/Build/testing-docker/docker-compose.yml>`_.
 
-These files are re-purposed from TYPO3's Core: `core Build/Scripts/runTests.sh
+These files are re-purposed from Core files `core Build/Scripts/runTests.sh
 <https://github.com/typo3/typo3/blob/main/Build/Scripts/runTests.sh>`_ and `core Build/testing-docker/local/
 docker-compose.yml <https://github.com/typo3/typo3/tree/main/Build/testing-docker/local/docker-compose.yml>`_. You can
-copy and paste these files from extensions like enetcache or styleguide to your own extension, but you should then look
-through the files and adapt to your needs, for example.
+copy and paste these files from extensions like enetcache or styleguide into your
+own extension, but you may need to adapt them to your needs:
 
 *  search for the word "enetcache" in runTests.sh and replace it with
    your extension key.
-*  You may want to change the `PHP_VERSION` in runTests.sh to your minimally
+*  you may need to change the `PHP_VERSION` in runTests.sh to your minimally
    supported PHP version. (You can also specify the version on the command line
    using runTests.sh with -p.)
 
@@ -331,7 +339,7 @@ Let's run the unit tests:
 
     Build/Scripts/runTests.sh
 
-You may now see something similar to this:
+You should now see something similar to this:
 
 .. code-block:: text
 
@@ -357,13 +365,13 @@ If there is no test output, try changing the verbosity when you run runTests.sh:
 
    enetcache> Build/Scripts/runTests.sh -v
 
-Use -h to see all options:
+Use -h to see all the options:
 
 .. code-block:: shell
 
    enetcache> Build/Scripts/runTests.sh -h
 
-On some versions of MacOS you might get the following error message when executing :file:`runTests.sh`:
+On some versions of MacOS :file:`runTests.sh` might produce the following error:
 
 .. code-block:: shell
 
@@ -375,23 +383,26 @@ On some versions of MacOS you might get the following error message when executi
     invalid mount config for type "volume": invalid mount path: '.' mount path must be absolute
     Removing network local_default
 
-To solve this issue follow the steps described `here <https://biercoff.com/fixing-readlink-illegal-option-f-error-on-a-mac/>`_ to install greadlink which supports the needed --f option.
+To solve this issue follow the steps described `here <https://biercoff.com/fixing-readlink-illegal-option-f-error-on-a-mac/>`_ to install greadlink which supports the --f option.
 
-Rather than changing the :file:`runTests.sh` to then use `greadlink` and thus risk breaking your automated testing via GitHub Actions consider symlinking your readlink executable to the newly installed greadlink with the following command as mentioned in the comments:
+Rather than changing the :file:`runTests.sh` to then use `greadlink` and
+risk breaking your automated testing with GitHub Actions, consider symlinking
+your readlink executable to the greadlink you've just installed using the following
+command (as mentioned in the comments):
 
 .. code-block:: shell
 
    ln -s "$(which greadlink)" "$(dirname "$(which greadlink)")/readlink"
 
-The :file:`runTests.sh` file of enetcache comes with some additional features,
+The :file:`runTests.sh` file in enetcache comes with some additional features,
 for example:
 
-*   it is possible to execute `composer update` from within a container
+*   it is possible to execute `composer update` from inside a container
     using `Build/Scripts/runTests.sh -s composerUpdate`
-*   it is possible to execute unit tests with a several different PHP versions
-    (with the `-p` option). This is available for PHP linting, too (`-s lint`).
-*   Similar to :ref:`Core test execution <t3contribute:testing-core-examples>` it is possible
-    to break point tests using xdebug (`-x` option)
+*   it is possible to execute unit tests with different PHP versions
+    (with the `-p` option). This is available for PHP linting too (`-s lint`).
+*   similar to :ref:`Core test execution <t3contribute:testing-core-examples>`, it is possible
+    to set breakpoints on tests using xdebug (`-x` option)
 *   typo3gmbh containers can be updated using `runTests.sh -u`
 *   verbose output is available with `-v`
 *   help is available with `runTests.sh -h`
@@ -403,11 +414,12 @@ for example:
 Github Actions
 --------------
 
-With basic testing in place we now want automatic execution of tests whenever something is merged to the repository and if
-people create pull requests for our extension, we want to make sure our carefully crafted test setup actually
-works. We'll use the CI service of Github Actions to take care of
-that. It's free for open source projects.
-In order to tell the CI what to do, create a new workflow file in `.github/workflows/ci.yml <https://github.com/lolli42/enetcache/blob/master/.github/workflows/ci.yml>`__
+With basic testing in place, we now want automatic execution of tests whenever
+something is merged to the repository. If people create pull requests for our
+extension, we want to make sure our carefully crafted test setup actually
+works. We'll use the Github Actions CI service for that. It's free for open
+source projects. In order to tell the CI what to do, create a new workflow file
+in `.github/workflows/ci.yml <https://github.com/lolli42/enetcache/blob/master/.github/workflows/ci.yml>`__
 
 .. code-block:: yaml
 
@@ -449,14 +461,15 @@ In order to tell the CI what to do, create a new workflow file in `.github/workf
          - name: Functional tests with sqlite
            run: Build/Scripts/runTests.sh -p ${{ matrix.php }} -d sqlite -s functional
 
-In case of enetcache, we let Github Actions test the extension with the several PHP versions.
-Each of these PHP Versions will also be tested with the highest and lowest compatible dependencies (defined in `strategy.matrix.minMax`).
-All defined steps run on the same checkout, so we will see six test runs in total, one per PHP version with each minMax property.
-Each run will do a separate checkout, `composer install` first, then all the test and linting jobs we defined.
-It's possible to see executed test runs `online <https://github.com/lolli42/enetcache/actions>`_.
+We let Github Actions test the enetcache extension with several different PHP versions.
+The PHP versions will also be tested with the highest and lowest compatible
+dependencies (defined in `strategy.matrix.minMax`). All the steps run on the
+same checkout, so we will see six test runs in total, one per PHP version with each minMax property.
+Each run will do a separate checkout, `composer install`, then all the test and linting jobs we have defined.
+It is possible to see executed test runs `online <https://github.com/lolli42/enetcache/actions>`_.
 Green :)
-Note we again use :file:`runTests.sh` to actually run tests. So the environment our tests are executed in is
-identical to our local environment. It's all dockerized. The environment provided by Github Actions is only used
+Note we again use :file:`runTests.sh` to run tests. The environment our tests are executed in is
+identical to our local environment and it is dockerized. The environment provided by Github Actions is only used
 to set up the docker environment.
 
 
@@ -465,38 +478,39 @@ to set up the docker environment.
 Testing styleguide
 ==================
 
-The above enetcache extension is an example for a common extension that has few testing
-needs: It just comes with a couple of unit and functional tests. Executing these and maybe adding PHP linting is recommended.
-More ambitious testing needs additional effort. As an example, we pick the `styleguide
-<https://github.com/TYPO3/styleguide>`_ extension. This extension is developed "core-near", Core itself
-uses styleguide to test various FormEngine details with acceptance tests and if developing Core, that
-extension is installed as a dependency by default. However, styleguide is just a casual extension: It is released
-to composer's `packagist.org <https://packagist.org/packages/typo3/cms-styleguide>`_ and can be loaded as
+The enetcache extension is an example of a common extension that has few testing
+needs: it only has a couple of unit and functional tests. It is recommended to execute these tests and perhaps add PHP linting.
+More ambitious testing is more difficult. We will use the `styleguide
+<https://github.com/TYPO3/styleguide>`_ extension as an example. It is a normal extension but it is "core-near" - Core itself
+uses the styleguide extension to test the FormEngine (using acceptance tests) and during Core development the
+extension is installed as a dependency. The extension is released
+to `packagist.org <https://packagist.org/packages/typo3/cms-styleguide>`_ and can be loaded as a
 dependency (or require-dev dependency) in any project.
 
-The styleguide extension follows the Core branching principle, too: At the time of this writing, its `main`
-branch is dedicated to be compatible with Core version 13. There are branches compatible with older Core versions, too.
+The styleguide extension follows the Core branching principle. At the time
+of writing, its `main` branch is compatible with Core version 13.
+Other branches are compatible with older Core versions.
 
-In comparison to enetcache, styleguide comes with additional test suites: It has functional and
-acceptance tests! Our goal is to run the functional tests with different database platforms, and to
-execute the acceptance tests. Both locally and by GitHub Actions and with different PHP versions.
+Styleguide comes with more test suites than enetcache. It has functional and
+acceptance tests! Our goal is to run the functional tests on different database platforms, and to
+execute the acceptance tests locally, with GitHub Actions and with different PHP versions.
 
 .. _testing-tutorial-enetcache-setup:
 
 Basic setup
 -----------
 
-The setup is similar to what has been outlined in detail with enetcache above: We add properties to the
+The setup is similar to enetcache (see above). We add properties to the
 `composer.json <https://github.com/TYPO3/styleguide/blob/main/composer.json>`_ file to make it a valid
 root composer.json defining a project. The `require-dev` section is a bit longer as we also
-need `codeception <https://codeception.com/>`_ to run acceptance tests and specify a couple of additional
-Core extensions for a basic TYPO3 instance. We additionally add an `app-dir` directive in the extra section.
+need `codeception <https://codeception.com/>`_ to run acceptance tests and we need to specify a couple of additional
+Core extensions for the basic TYPO3 instance. We also add an `app-dir` directive in the extra section.
 
-Next, we have another iteration of `runTests.sh <https://github.com/TYPO3/styleguide/blob/main/Build/Scripts/runTests.sh>`_
-and `docker-compose.yml <https://github.com/TYPO3/styleguide/blob/main/Build/testing-docker/docker-compose.yml>`_ that are
-longer than the versions of enetcache to handle the functional and acceptance tests setups, too.
+Next, we run another iteration of `runTests.sh <https://github.com/TYPO3/styleguide/blob/main/Build/Scripts/runTests.sh>`_
+and `docker-compose.yml <https://github.com/TYPO3/styleguide/blob/main/Build/testing-docker/docker-compose.yml>`_ that is
+longer than that for enetcache (to handle the functional and acceptance tests setups).
 
-With this in place we can run unit tests:
+Now that this is in place we can run unit tests:
 
 .. code-block:: shell
 
@@ -512,11 +526,11 @@ With this in place we can run unit tests:
 Functional testing
 ------------------
 
-At the time writing, there is only a single functional test, but this one is important as
-it tests crucial functionality within styleguide: The extension comes with several different TCA scenarios
-to show all sorts of database relation and field possibilities supported within TYPO3. To simplify testing,
-code can generate a page tree and demo data for all of these scenarios. Codewise, this is a huge
-section of the extension and it uses quite some Core API to do its job. And yes, the generator breaks
+At the time of writing, there is only one functional test, but it is important as
+it tests crucial styleguide functionality. The extension comes with several different TCA scenarios
+to demonstrate different kinds of database relations and field possibilities. To simplify testing,
+the extension itself generates a page tree and demo data for all of these scenarios. Codewise, this is a huge
+part of the extension and it uses alot of Core API to do the job. And yes, the generator breaks
 once in a while. A perfect scenario for a `functional test!
 <https://github.com/TYPO3/styleguide/blob/main/Tests/Functional/TcaDataGenerator/GeneratorTest.php>`_
 (slightly stripped):
@@ -591,9 +605,9 @@ once in a while. A perfect scenario for a `functional test!
        }
    }
 
-Ah, shame on us! The data generator does not work well if executed using MSSQL as our DBMS. It is thus marked as
-`@group not-mssql` at the moment. We need to fix that at some point. The rest is rather straight forward:
-We extend from :php:`TYPO3\TestingFramework\Core\Functional\FunctionalTestCase`, instruct it to load
+Ah, shame on us! The data generator does not work very well if we use MSSQL as our DBMS. It is therefore marked as
+`@group not-mssql` at the moment. We will need to fix that at some point. The rest is straight forward -
+we extend from :php:`TYPO3\TestingFramework\Core\Functional\FunctionalTestCase`, instruct it to load
 the styleguide extension (:php:`$testExtensionsToLoad`), need some additional magic for the DataHandler, then
 call :php:`$generator->create();` and verify it created at least one record in one of our database tables.
 That's it. It executes fine using :file:`runTests.sh`:
@@ -619,16 +633,17 @@ That's it. It executes fine using :file:`runTests.sh`:
     Removing network local_default
     lolli@apoc /var/www/local/git/styleguide $
 
-The good thing about this test is that it actually triggers quite some functionality below. It does tons of
-database inserts and updates and uses the Core DataHandler for various details. If something goes wrong in
-this entire area, it would throw an exception, the functional test would recognize this and fail. But if
-its green, we know that a large parts of that extension are working correctly.
+The good thing about this test is that it actually triggers some functionality below it. It does tons of
+database inserts and updates and uses the Core DataHandler for various tasks. If
+something goes wrong, it throws an exception, the functional test would recognize this and fail. But if
+it is green, we know that large parts of the extension are working correctly.
 
-If looking at details - for instance if we try to fix the MSSQL issue - :file:`runTests.sh` can be called with `-x`
-again for xdebug break pointing. Also, the functional test execution becomes a bit funny: We are creating
-a TYPO3 test instance within `.Build/` folder anyway. But the functional test setup again creates instances
-for the single tests cases. The code that is actually executed is now located in a sub folder
-of `typo3temp/` of `.Build/`, in this test case it is `functional-9ad521a`:
+If we want to look at the details - for instance if we want to fix the MSSQL
+issue - :file:`runTests.sh` can be called with `-x` for xdebug breakpointing.
+Also, the functional test execution becomes a bit strange. We are creating
+a TYPO3 test instance within the `.Build/` folder anyway. But the functional test
+setup creates instances for the single tests cases. The code that is actually executed is now located in sub folder
+`typo3temp/` in `.Build/`. In this test case it is `functional-9ad521a`:
 
 .. code-block:: shell
 
@@ -643,7 +658,7 @@ of `typo3temp/` of `.Build/`, in this test case it is `functional-9ad521a`:
     drwxr-sr-x 2 lolli www-data 4096 Nov  5 17:35 uploads
 
 This can be confusing at first, but it starts making sense the more you use it.
-Also, the :file:`docker-compose.yml` file contains a setup to start needed databases for the functional tests
+Also, the :file:`docker-compose.yml` file contains setup to start databases for the functional tests
 and :file:`runTests.sh` is tuned to call the different scenarios.
 
 .. _testing-tutorial-enetcache-acceptance:
@@ -651,9 +666,9 @@ and :file:`runTests.sh` is tuned to call the different scenarios.
 Acceptance testing
 ------------------
 
-Not enough! The styleguide extension adds a module to the TYPO3 backend to the Topbar > Help section.
-Next to other things, this module adds buttons to create and delete the demo
-data that has been functional tested above already. To verify this works in the backend as well, styleguide
+You still want more! The styleguide extension adds a module in the TYPO3 backend
+to the Topbar > Help section. Among other things, this module adds buttons to create and delete the demo
+data that we functionally tested above. To verify this works in the backend, styleguide
 comes with some straight acceptance tests in `Tests/Acceptance/Backend/ModuleCest
 <https://github.com/TYPO3/styleguide/blob/main/Tests/Acceptance/Backend/ModuleCest.php>`_:
 
@@ -734,16 +749,17 @@ comes with some straight acceptance tests in `Tests/Acceptance/Backend/ModuleCes
         }
     }
 
-There are three tests: One verifies the backend module can be called, one creates demo data, the last
-one deletes demo data again. The codeception setup needs a bit more attention to setup, though. The entry point
+There are three tests. One verifies that the backend module can be called, one
+creates demo data and one deletes the demo data. The codeception setup needs more setup. The entry point
 is the main `codeception.yml file <https://github.com/TYPO3/styleguide/blob/main/Tests/codeception.yml>`_
 extended by the `backend suite <https://github.com/TYPO3/styleguide/blob/main/Tests/Acceptance/Backend.suite.yml>`_,
 a `backend tester <https://github.com/TYPO3/styleguide/blob/main/Tests/Acceptance/Support/BackendTester.php>`_ and
 a `codeception bootstrap extension
 <https://github.com/TYPO3/styleguide/blob/main/Tests/Acceptance/Support/Extension/BackendStyleguideEnvironment.php>`_
 that instructs the basic `typo3/testing-framework` acceptance bootstrap to load the styleguide extension and
-have some database fixtures included to easily log in to the backend. Additionally, the :file:`runTests.sh` and
-:file:`docker-compose.yml` files take care of adding selenium-chrome and a web server to actually execute the tests:
+some database fixtures to easily log in to the backend. In addition, the :file:`runTests.sh` and
+:file:`docker-compose.yml` files take care of adding selenium-chrome and a web
+server to execute the tests:
 
 .. code-block:: shell
 
@@ -785,8 +801,8 @@ have some database fixtures included to easily log in to the backend. Additional
     Removing local_web_1                              ... done
     Removing network local_default
 
-Ok, this setup is a bit more effort, but we end up with a browser automatically clicking things in
-an ad-hoc TYPO3 instance to verify this extension can perform its job. If something goes wrong, screenshots
+Ok, this setup took a bit more effort, but we end up with a browser automatically clicking things in
+an ad-hoc TYPO3 instance to verify that this extension can perform its job. If something goes wrong, screenshots
 of the failed run can be found in :file:`.Build/Web/typo3temp/var/tests/AcceptanceReports/`.
 
 .. _testing-tutorial-enetcache-github2:
@@ -794,7 +810,8 @@ of the failed run can be found in :file:`.Build/Web/typo3temp/var/tests/Acceptan
 Github Actions
 --------------
 
-Now we want all of this automatically checked using Github Actions. As before, we define the jobs in `.github/workflows/tests.yml <https://github.com/TYPO3/styleguide/blob/main/.github/workflows/tests.yml>`__:
+Now we want all of this checked automatically by Github Actions. As before, we
+define the jobs in `.github/workflows/tests.yml <https://github.com/TYPO3/styleguide/blob/main/.github/workflows/tests.yml>`__:
 
 .. code-block:: yaml
 
@@ -859,6 +876,6 @@ Now we want all of this automatically checked using Github Actions. As before, w
           - name: Build CSS
             run: Build/Scripts/runTests.sh -s buildCss
 
-This is similar to the enetcache example, but does some more: The functional tests are executed
-with three different DBMS (MariaDB, Postgres, sqlite), and the acceptance tests are executed, too.
-This setup takes some time to complete on Github Actions. But, `it's green <https://github.com/TYPO3/styleguide/actions>`_!
+This is similar to the enetcache example but does more. The functional tests are executed
+with three different DBMS (MariaDB, Postgres, sqlite), and the acceptance tests are executed as well.
+This will take some time to complete on Github Actions - but `it's green <https://github.com/TYPO3/styleguide/actions>`_!
