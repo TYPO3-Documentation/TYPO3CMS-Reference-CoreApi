@@ -20,7 +20,7 @@
             $this->modifyDocHeaderComponent($view, $context);
             $view->setFlashMessageQueue($this->getFlashMessageQueue());
             $view->setTitle(
-                $this->getLanguageService()->sL('LLL:EXT:blog_example/Resources/Private/Language/Module/locallang_mod.xlf:mlang_tabs_tab'),
+                $this->getLanguageService()->sL('blog_example.module.mod:mlang_tabs_tab'),
                 $context,
             );
 

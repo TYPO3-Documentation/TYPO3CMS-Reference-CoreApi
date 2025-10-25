@@ -9,11 +9,11 @@
         <sheets>
             <sDEF>
                 <ROOT>
-                    <sheetTitle>Options</sheetTitle>
+                    <sheetTitle>LLL:blog_example.plugin:options</sheetTitle>
                     <type>array</type>
                     <el>
                         <settings.itemsPerPage>
-                            <label>Max. number of items to display per page</label>
+                            <label>LLL:blog_example.plugin:itemsPerPage</label>
                             <config>
                                 <type>number</type>
                                 <size>2</size>
