@@ -7,9 +7,6 @@
 
     Does not have any effect if caching is disabled, or if there is no cached version of a page.
 
-    ..  php:method:: getController()
-        :returns: `\TYPO3\CMS\Frontend\Controller\TypoScriptFrontendController`
-
     ..  php:method:: getRequest()
         :returns: `\Psr\Http\Message\ServerRequestInterface`
 

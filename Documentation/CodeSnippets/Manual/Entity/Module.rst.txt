@@ -8,7 +8,6 @@
     ..  php:method:: getRoutes()
         :returns: `array`
 
-
     ..  php:method:: getDefaultRouteOptions()
         :returns: `array`
 
@@ -97,7 +96,7 @@
     ..  php:method:: getAliases()
         :returns: `array`
 
-    ..  php:method:: getDependsOnSubmodules()
+    ..  php:method:: hasSubmoduleOverview()
         :returns: `bool`
 
     ..  php:method:: getDefaultModuleData()

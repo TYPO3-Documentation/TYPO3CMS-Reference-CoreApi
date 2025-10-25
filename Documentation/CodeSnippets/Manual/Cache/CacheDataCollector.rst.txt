@@ -3,6 +3,13 @@
 
 ..  php:class:: CacheDataCollector
 
+    ..  php:method:: setPageCacheIdentifier(string $identifier)
+
+        :param $identifier: the identifier
+
+    ..  php:method:: getPageCacheIdentifier()
+        :returns: `string`
+
     ..  php:method:: getCacheTags()
         :returns: `\CacheTag[]`
 

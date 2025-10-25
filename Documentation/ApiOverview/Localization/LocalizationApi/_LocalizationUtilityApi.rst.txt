@@ -11,8 +11,8 @@
         Returns the localized label of the LOCAL_LANG key, $key.
 
         :param $key: The key from the LOCAL_LANG array for which to return the value.
-        :param $extensionName: The name of the extension, default: NULL
-        :param $arguments: The arguments of the extension, being passed over to sprintf, default: NULL
+        :param $extensionName: The name of the extension or domain name (such as "myextension.messages"), default: NULL
+        :param $arguments: The arguments of the label, being passed over to sprintf, default: NULL
         :param $languageKey: The language key or null for using the current language from the system, default: NULL
         :param $request: the request, default: NULL
         :Return description: The value from LOCAL_LANG or null if no translation was found.

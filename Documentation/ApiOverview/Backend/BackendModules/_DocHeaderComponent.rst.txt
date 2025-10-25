@@ -3,9 +3,42 @@
 
 ..  php:class:: DocHeaderComponent
 
-    DocHeader component class
+    Document header component for backend modules.
+
+    This component manages the header area of backend module views, providing:
+    - Breadcrumb navigation (via BreadcrumbContext)
+    - Button bar for action buttons (save, close, delete, etc.)
+    - Drop-down menus for module-specific actions
+
+    The component can be enabled or disabled to control visibility of the entire
+    document header. It integrates with the ModuleTemplate to provide a consistent
+    header across all backend modules.
+
+    Usage in a controller:
+
+    ..  code-block:: php
+
+        public function __construct(
+            protected readonly ComponentFactory $componentFactory,
+        ) }
+
+        public function myAction(): ResponseInterface
+        {
+            $view = $this->moduleTemplateFactory->create($request);
+            $docHeader = $view->getDocHeaderComponent();
+
+            // Set breadcrumb for a page
+            $docHeader->setPageBreadcrumb($pageInfo);
+
+            // Add action buttons using ComponentFactory
+            $buttonBar = $docHeader->getButtonBar();
+            $saveButton = $this->componentFactory->createSaveButton('editform');
+            $buttonBar->addButton($saveButton, ButtonBar::BUTTON_POSITION_LEFT, 1);
+        }
 
     ..  php:method:: setMetaInformation(array $metaInformation)
+
+        **Deprecated:** since v14, will be removed in v15. Use setPageBreadcrumb() instead.
 
         Set page information
 
@@ -13,32 +46,123 @@
 
     ..  php:method:: setMetaInformationForResource(\TYPO3\CMS\Core\Resource\ResourceInterface $resource)
 
+        **Deprecated:** since v14, will be removed in v15. Use setResourceBreadcrumb() instead.
+
+        Set meta information for a file/folder resource.
+
         :param $resource: the resource
 
-    ..  php:method:: getMenuRegistry()
-        :returns: `\MenuRegistry`
+    ..  php:method:: setBreadcrumbContext(?\TYPO3\CMS\Backend\Breadcrumb\BreadcrumbContext $breadcrumbContext)
 
-        Get moduleMenuRegistry
+        Sets the breadcrumb context for rendering.
+
+        This is the main API for providing breadcrumb information.
+
+        For common scenarios, use the convenience methods instead:
+        - setPageBreadcrumb() for page records
+        - setRecordBreadcrumb() for any record
+        - setResourceBreadcrumb() for files or folders
+
+        :param $breadcrumbContext: The breadcrumb context
+
+    ..  php:method:: setPageBreadcrumb(array $pageRecord)
+
+        Sets breadcrumb from a page record array.
+
+        This is the direct replacement for setMetaInformation().
+
+        Example:
+            $view->getDocHeaderComponent()->setPageBreadcrumb($pageInfo);
+
+        :param $pageRecord: The page record array (must contain 'uid')
+
+    ..  php:method:: setRecordBreadcrumb(string $table, int $uid)
+
+        Sets breadcrumb for editing a record.
+
+        Example:
+        $view->getDocHeaderComponent()->setRecordBreadcrumb('tt_content', 123);
+
+        :param $table: The table name
+        :param $uid: The record UID
+
+    ..  php:method:: setResourceBreadcrumb(\TYPO3\CMS\Core\Resource\ResourceInterface $resource)
+
+        Sets breadcrumb for any resource (file or folder).
+
+        Example:
+        $view->getDocHeaderComponent()->setResourceBreadcrumb($file);
+        $view->getDocHeaderComponent()->setResourceBreadcrumb($folder);
+
+        :param $resource: The resource (file or folder)
+
+    ..  php:method:: addBreadcrumbSuffixNode(\TYPO3\CMS\Backend\Dto\Breadcrumb\BreadcrumbNode $node)
+
+        Adds a suffix node to the current breadcrumb context.
+
+        Suffix nodes are appended after the main breadcrumb trail and are useful for:
+        - Indicating "Create New" actions
+        - Showing "Edit Multiple" states
+        - Adding custom contextual information
+
+        Example:
+
+            $docHeader->setPageBreadcrumb($pageInfo);
+            $docHeader->addBreadcrumbSuffixNode(
+                new BreadcrumbNode(
+                    identifier: 'new',
+                    label: 'Create New Content Element',
+                    icon: 'actions-add'
+                )
+            );
+
+        Note: This creates or modifies the breadcrumb context. If you need to build
+        a complete context, use BreadcrumbFactory instead.
+
+        :param $node: The node to append
+
+    ..  php:method:: getMenuRegistry()
+        :returns: `\TYPO3\CMS\Backend\Template\Components\MenuRegistry`
+
+        Returns the menu registry for adding drop-down menus to the document header.
 
     ..  php:method:: getButtonBar()
-        :returns: `\ButtonBar`
+        :returns: `\TYPO3\CMS\Backend\Template\Components\ButtonBar`
 
-        Get ButtonBar
+        Returns the button bar for adding action buttons to the document header.
+
+        The button bar supports multiple button positions (left, right) and groups
+        to organize buttons logically.
 
     ..  php:method:: isEnabled()
         :returns: `bool`
 
-        Determines whether this components is enabled.
+        Determines whether this component is enabled and should be rendered.
+
+        When disabled, the entire document header (including breadcrumbs, buttons,
+        and menus) will not be displayed in the backend module.
 
     ..  php:method:: enable()
 
-        Sets the enabled property to TRUE.
+        Enables this component for rendering.
 
     ..  php:method:: disable()
 
-        Sets the enabled property to FALSE (disabled).
+        Disables this component to prevent rendering.
 
-    ..  php:method:: docHeaderContent()
+    ..  php:method:: docHeaderContent(?\Psr\Http\Message\ServerRequestInterface $request)
         :returns: `array`
 
-        Returns the abstract content of the docHeader as an array
+        Returns the complete document header content as an array for rendering.
+
+        This method aggregates all components (buttons, menus, breadcrumbs) into
+        a structured array that can be consumed by the Fluid template rendering
+        the backend module layout.
+
+        The returned array structure:
+        - 'enabled': Whether the document header should be rendered
+        - 'buttons': Array of button configurations from the button bar
+        - 'menus': Array of menu configurations from the menu registry
+        - 'breadcrumb': Breadcrumb trail data from the breadcrumb context
+
+        :param $request: the request
