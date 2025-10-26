@@ -64,6 +64,40 @@ This variable can be set in one of the following files:
         The file extensions must be in lowercase and there must be no spaces
         between the commas and the file extensions!
 
+..  confval:: imageFileConversionFormats
+    :name: globals-typo3-conf-vars-sys-gfx-imageFileConversionFormats
+    :Path: $GLOBALS['TYPO3_CONF_VARS']['GFX']['imageFileConversionFormats']
+    :type: `array<string,string>`
+    :Default: ['jpg' => 'jpg', 'jpeg' => 'jpeg', 'gif' => 'gif', 'png' => 'png', 'svg' => 'svg', 'default' => 'png']
+
+    ..  versionadded:: 14.0
+
+    Map source image extensions to the processing/output format used by
+    TYPO3 when images are rendered (for example via `<f:image>`). Keys are
+    original file extensions, values are target file extensions. The special key
+    `default` is used for any file extension not explicitly listed.
+
+    The option can not be configured in the
+    :guilabel:`Admin Tools > Settings > Configure options ...` backend module,
+    but only by directly editing file :file:`config/system/additional.php`
+    (recommended) or :file:`config/system/settings.php`.
+
+    ..  rubric:: Example: Convert all JPEGs and GIFs to WebP by default
+
+    Convert all JPEGs and GIFs to WebP by default,
+    keep SVGs untouched, and use PNG as fallback for all others.
+
+    ..  code-block:: php
+        :caption: config/system/additional.php
+
+        $GLOBALS['TYPO3_CONF_VARS']['GFX']['imageFileConversionFormats'] = [
+            'jpg' => 'webp',
+            'jpeg' => 'webp',
+            'gif' => 'webp',
+            'svg' => 'svg',
+            'default' => 'png',
+        ];
+
 ..  _typo3ConfVars_gfx_processor_enabled:
 
 ..  confval:: processor_enabled
