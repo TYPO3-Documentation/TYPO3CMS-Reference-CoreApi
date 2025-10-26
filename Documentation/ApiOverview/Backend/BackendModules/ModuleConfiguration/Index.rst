@@ -145,7 +145,7 @@ Module configuration options
             The page tree as used in the :guilabel:`Content` module.
 
         :js:`@typo3/backend/tree/file-storage-tree-container`
-            The file tree as used in the :guilabel:`Filelist` module.
+            The file tree as used in the :guilabel:`Media` module.
 
         ..  rubric:: Migration
 

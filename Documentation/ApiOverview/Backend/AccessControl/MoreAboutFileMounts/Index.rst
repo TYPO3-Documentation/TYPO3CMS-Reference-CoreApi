@@ -46,7 +46,7 @@ File mounts
 Create a new file mount
 =======================
 
-To create a new file mount go to the module :guilabel:`File > Filelist` and create the
+To create a new file mount go to the module :guilabel:`Media > Filelist` and create the
 folder for the mount if it didn't exist yet. Then open the context menu on that
 folder and choose :guilabel:`New File mount`, then give the new file mount a name.
 The entry point is already set.
@@ -159,7 +159,7 @@ and:
 we have to create a directory :file:`/path/to/web/root/fileadmin/groups/1/`.
 
 Having set up all these properties and folders, the user
-should see the following when moving to the **FILE > Filelist**
+should see the following when moving to the :guilabel:`Media > Filelist`
 module:
 
 .. figure:: /Images/ManualScreenshots/AccessControl/AccessUserFileTree.png
