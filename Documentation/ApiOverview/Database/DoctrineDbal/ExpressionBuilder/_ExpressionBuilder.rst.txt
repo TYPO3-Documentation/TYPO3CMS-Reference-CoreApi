@@ -7,7 +7,7 @@
     SQL queries.
 
     It builds query conditions, ensuring that table and column names
-    are correctly quoted inside the expressions / SQL fragments. The class is a facade to
+    are quoted inside the expressions / SQL fragments. The class is a facade to
     the Doctrine ExpressionBuilder.
 
     The ExpressionBuilder is used in the context of the QueryBuilder to ensure
