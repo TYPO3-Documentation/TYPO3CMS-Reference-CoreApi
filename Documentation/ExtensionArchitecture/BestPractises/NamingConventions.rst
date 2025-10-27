@@ -237,8 +237,9 @@ Examples for Extbase domain models and table names of an extension named `cool_s
 +-----------------------------------------------------+-------------------------------------------------+
 
 .. tip::
-   You may notice, that the names above use the singular form, e.g. `post` and
-   not `posts`. This is recommended, but not always followed. If you do not follow this or other patterns,
+   Notice that the names above use the singular form, e.g. `post` and
+   not `posts`. This is recommended, but no requirement. 
+   If you however do not follow recommended patterns
    you may need :ref:`manual mapping <extbase_manual_mapping>`.
 
 ..  _naming-tables-mm:
@@ -281,6 +282,9 @@ follow this pattern:
 
 * `<extkeyprefix>` is the extension key without underscores, so `foo_bar` becomes `foobar`
 * `<column-name>` purpose of the column, lower case letters with underscores
+
+.. tip::
+   If you work with column-names not following this convention (e.g. :php:`colPos`), you have to add a :ref:`column mapping <extbase_manual_mapping>`.
 
 .. _BackendModuleKey:
 
@@ -351,7 +355,7 @@ Plugin signature
 The plugin signature of non-Extbase plugins, registered via
 :php:`ExtensionManagementUtility::addPlugin()` is an arbitrarily defined string.
 By convention it should always be the extension name with all underscores removed
-followed by one underscore and then a lowercase, alphanumeric plugin key.
+followed by one underscore and then a lowercase alphanumeric plugin key.
 Examples: :php:`"myextension_coolplugin"`, :php:`"examples_pi1"`.
 
 Extbase based plugins are registered via :php:`ExtensionUtility::registerPlugin()`.
