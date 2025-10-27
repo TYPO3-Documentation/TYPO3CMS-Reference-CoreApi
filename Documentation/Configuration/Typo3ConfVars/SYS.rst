@@ -9,14 +9,14 @@
 SYS - System configuration
 ==========================
 
-The following configuration variables can be used for system wide
-configurations.
+The following configuration variables can be used for system-wide
+configuration.
 
 ..  note::
-    The configuration values listed here are keys in the global PHP array
-    :php:`$GLOBALS['TYPO3_CONF_VARS']['SYS']`.
+    The configuration values listed here are keys into the
+    :php:`$GLOBALS['TYPO3_CONF_VARS']['SYS']` global PHP array.
 
-    This variable can be set in one of the following files:
+    These variables can be set in one of the following files:
 
     *   :ref:`config/system/settings.php <typo3ConfVars-settings>`
     *   :ref:`config/system/additional.php <typo3ConfVars-additional>`
@@ -64,12 +64,12 @@ configurations.
     be changed on Unix file systems (see above). Set this if you want to change
     the group ownership of created files/folders to a specific group.
 
-    This makes sense in all cases where the webserver is running with a
-    different user/group as you do. Create a new group on your system and add
-    you and the webserver user to the group. Now you can safely set the last
-    bit in fileCreateMask/folderCreateMask to 0 (for example 770). Important: The
-    user who is running your webserver needs to be a member of the group you
-    specify here! Otherwise you might get some error messages.
+    This makes sense when the webserver is running on a
+    different user/group to you. Create a new group on your system and add
+    yourself and the webserver user to the group. Now you can safely set the last
+    bit in fileCreateMask/folderCreateMask to 0 (for example 770). Note: the
+    user running your webserver needs to be a member of the group you
+    specify here otherwise there may be errors.
 
 ..  _typo3ConfVars_sys_sitename:
 
@@ -79,7 +79,7 @@ configurations.
     :type: text
     :Default: 'TYPO3'
 
-    Name of the base-site.
+    Name of the base site.
 
 ..  _typo3ConfVars_sys_defaultScheme:
 
@@ -89,8 +89,8 @@ configurations.
     :type: text
     :Default: 'http'
 
-    Set the default URI scheme. This is used within links if no scheme is given.
-    One can set this to :php:`'https'` if this should be used by default.
+    Set the default URI scheme. This is used in links if no scheme is set.
+    It can be set to :php:`'https'` for the default setting.
 
 ..  _typo3ConfVars_sys_encryptionKey:
 
@@ -100,11 +100,11 @@ configurations.
     :type: text
     :Default: ''
 
-    This is a "salt" used for various kinds of encryption, CRC checksums and
-    validations. You can enter any rubbish string here but try to keep it
-    secret. You should notice that a change to this value might invalidate
-    temporary information, URLs etc. At least, clear all cache if you change
-    this so any such information can be rebuilt with the new key.
+    This is a "salt" used for encryption, CRC checksums and
+    validations. You can enter any string containing garbage values here but try to keep it
+    secret. A change to this value might invalidate
+    temporary information, URLs, etc, so at least clear all the caches if you change
+    this so that such information can be rebuilt with the new key.
 
 ..  _typo3ConfVars_sys_cookieDomain:
 
@@ -118,11 +118,11 @@ configurations.
     value to ".example.org" (replace example.org with your domain!), login
     sessions will be shared across subdomains. Alternatively, if you have more
     than one domain with sub-domains, you can set the value to a regular
-    expression to match against the domain of the HTTP request. This however requires
-    that all sub-domains are within the same TYPO3 instance, because a session can be tied
+    expression to match against the domain of the HTTP request. However, this requires
+    that all sub-domains are within the same TYPO3 instance because a session can be tied
     to only one database.
 
-    The result of the match is used as the domain for the cookie. for example :
+    The result of the match is used as the cookie domain. For example :
     php:`/\.(example1|example2)\.com$/` or :php:`/\.(example1\.com)|(example2\.net)$/`.
     Separate domains for FE and BE can be set using
     :ref:`$TYPO3_CONF_VARS[FE][cookieDomain]<typo3ConfVars_fe_cookieDomain>` and
@@ -137,7 +137,7 @@ configurations.
     :type: text
     :Default: 'SERVER_NAME'
 
-    Regular expression pattern that matches all allowed hostnames (including
+    Regular expression pattern that matches all valid hostnames (including
     their ports) of this TYPO3 installation, or the string :php:`SERVER_NAME`
     (default).
 
@@ -155,14 +155,12 @@ configurations.
     subdomains from :file:`.example.org` and :file:`.example.com`.
 
     Be aware that HTTP Host header may also contain a port. If your installation
-
     runs on a specific port, you need to explicitly allow this in your pattern,
-
     for example :php:`example\.org:88` allows only :file:`example.org:88`,
     **not** :file:`example.org`. To disable this check completely
-    (not recommended because it is **insecure**) you can use :php:`.*` as pattern.
+    (not recommended because it is **insecure**) you can use a :php:`.*` pattern.
 
-    Have also a look into the :ref:`security guidelines
+    See also :ref:`security guidelines
     <security-global-typo3-options-trustedHostsPattern>`.
 
 ..  _typo3ConfVars_sys_devIPmask:
@@ -173,13 +171,13 @@ configurations.
     :type: text
     :Default: '127.0.0.1,::1'
 
-    Defines a list of IP addresses which will allow development output to
-    display. The :php:`debug()` function will use this as a filter. See the
+    Defines a list of IP addresses which allow development output to
+    be displayed. The :php:`debug()` function will use this as a filter. See the
     function :php:`\TYPO3\CMS\Core\Utility\GeneralUtilitycmpIP()` for details
     on syntax. Setting this to blank value will deny all.
     Setting to "*" will allow all.
 
-    Have also a look into the :ref:`security guidelines
+    See also :ref:`security guidelines
     <security-global-typo3-options-devIpMask>`.
 
 ..  _typo3ConfVars_sys_ddmmyy:
@@ -211,8 +209,8 @@ configurations.
     :type: text
     :Default: ''
 
-    If you provide warranty for TYPO3 to your customers insert you (company)
-    name here. It will appear in the login-dialog as the warranty provider.
+    If you provide a warranty for TYPO3 to your customers insert your (company)
+    name here. It will appear in the login dialog as the warranty provider.
     (You must also set URL below).
 
 ..  _typo3ConfVars_sys_loginCopyrightWarrantyURL:
@@ -223,10 +221,10 @@ configurations.
     :type: text
     :Default: ''
 
-    Add the URL where you explain the extend of the warranty you provide.
+    Add the URL of the page describing the extent of the warranty provided.
     This URL is displayed in the login dialog as the place where people can
     learn more about the conditions of your warranty. Must be set
-    (more than 10 chars) in addition with the
+    (more than 10 chars) together with the
     :ref:`loginCopyrightWarrantyProvider<typo3ConfVars_sys_loginCopyrightWarrantyProvider>`
     message.
 
@@ -238,7 +236,7 @@ configurations.
     :type: text
     :Default: 'txt,ts,typoscript,html,htm,css,tmpl,js,sql,xml,csv,xlf,yaml,yml'
 
-    Text file extensions. Those that can be edited. Executable PHP files may not
+    Text file extensions (files that can be edited). Executable PHP files may not
     be editable if disallowed!
 
 ..  _typo3ConfVars_sys_mediafile_ext:
@@ -254,8 +252,8 @@ configurations.
         The default list has been extended to include 3gp, aac, aif, avif, heic, ico, m4a,
         m4v, mov, psd and webp file types.
 
-    Commalist of file extensions perceived as media files by TYPO3.
-    Must be written in lower case with no spaces between.
+    Comma-separated list of file extensions recognized as media files by TYPO3.
+    Must be in lowercase with no spaces in between.
 
 ..  _typo3ConfVars_sys_miscfile_ext:
 
@@ -266,11 +264,11 @@ configurations.
     :Default: 'zip'
 
     ..  versionadded:: 13.4.12 / 12.4.31
-        This property has been added with the security fix `Important: #106240 -
+        This property was added with security fix `Important: #106240 -
         Enforce File Extension and MIME-Type Consistency in File Abstraction
         Layer <https://docs.typo3.org/permalink/changelog:important-106240-1747316969>`_.
 
-    Allows specifying file extensions that don't belong to either `textfile_ext`
+    Allows file extensions to be specified that don't belong to either `textfile_ext`
     or `mediafile_ext`, such as `zip` or `xz`.
 
 ..  _typo3ConfVars_sys_binPath:
@@ -281,8 +279,8 @@ configurations.
     :type: text
     :Default: ''
 
-    List of absolute paths where external programs should be searched for.
-    for example :php:`/usr/local/webbin/,/home/xyz/bin/`. (ImageMagick path have to
+    List of absolute paths as search locations for external programs,
+    for example :php:`/usr/local/webbin/,/home/xyz/bin/`. (ImageMagick paths have to
     be configured separately)
 
 ..  index::
@@ -295,7 +293,7 @@ configurations.
     :type: multiline
     :Default: ''
 
-    List of programs (separated by newline or comma). By default programs
+    List of programs separated by newlines or commas. By default, programs
     will be searched in default paths and the special paths defined by
     :ref:`binPath<typo3ConfVars_sys_binPath>`. When PHP has :php:`openbasedir`
     enabled, the programs can not be found and have to be configured here.
@@ -310,8 +308,8 @@ configurations.
     :type: int
     :Default: 0
 
-    Memory limit in MB: If more than 16, TYPO3 will try to use :php:`ini_set()`
-    to set the memory limit of PHP to the value. This works only if the function
+    Memory limit in MB: if more than 16, TYPO3 will try to use :php:`ini_set()`
+    to set the memory limit of PHP. This works only if the function
     :php:`ini_set()` is not disabled by your sysadmin.
 
 ..  _typo3ConfVars_sys_phpTimeZone:
@@ -328,7 +326,7 @@ configurations.
 
     If blank, a valid fallback will be searched for by PHP (
     `date.timezone <https://www.php.net/manual/en/datetime.configuration.php#ini.date.timezone>`__
-    in :file:`php.ini`, server defaults, etc); and if no fallback is found, the value of
+    in :file:`php.ini`, server defaults, etc). If no fallback is found, the value of
     "UTC" is used instead.
 
 ..  _typo3ConfVars_sys_UTF8filesystem:
@@ -339,16 +337,16 @@ configurations.
     :type: bool
     :Default: true
 
-    If set to :php:`true`, then TYPO3 uses UTF-8 to store file names. This allows for accented
-    latin letters as well as any other non-latin characters like Cyrillic and
+    If set to :php:`true`, TYPO3 uses UTF-8 to store file names. This allows for accented
+    latin letters as well as other non-latin characters, like Cyrillic and
     Chinese.
 
-    If set to :php:`false`, any file that contains characters like umlauts, or if the
-    file name consists only of "special" characters such as Japanese, then the file will be renamed to
+    If set to :php:`false`, filenames containing characters such as umlauts or
+    "special" characters such as Japanese will be renamed to
     something "safe" when uploaded in the backend.
 
     ..  attention::
-        This requires a UTF-8 compatible locale in order to work. Otherwise
+        This requires a UTF-8 compatible locale in order to work otherwise
         problems with filenames containing special characters will occur.
         See :ref:`[SYS][systemLocale]<typo3ConfVars_sys_UTF8filesystem>` and
         `php function setlocale() <https://www.php.net/manual/en/function.setlocale.php>`__.
@@ -362,7 +360,7 @@ configurations.
     :Default: ''
 
     Locale used for certain system related functions, for example escaping shell
-    commands. If problems with filenames containing special characters occur,
+    commands. If there are problems due to filenames containing special characters,
     the value of this option is probably wrong. See
     `php function setlocale() <https://www.php.net/manual/en/function.setlocale.php>`__.
 
@@ -437,7 +435,7 @@ configurations.
     :Default: ''
     :allowedValues:
         `''`, `'*'` or a comma separated list of IPv4 or IPv6 addresses in CIDR-notation.
-        For IPv4 addresses wildcards are additionally supported.
+        For IPv4 addresses, wildcards are supported.
 
     :php:`*` or a list of IP addresses of proxies that use SSL (https) for
     the connection to the client, but an unencrypted connection (http) to
@@ -445,7 +443,7 @@ configurations.
     :ref:`[SYS][reverseProxyIP]<typo3ConfVars_sys_reverseProxyIP>` use SSL.
 
     ..  versionadded:: 13.4
-        If client establishes a secure connection, TYPO3 now also checks for
+        If a client establishes a secure connection, TYPO3 also checks for
         `X-Forwarded-Proto` header.
 
     ..  seealso::
@@ -461,7 +459,7 @@ configurations.
     :type: text
     :Default: ''
 
-    Prefix to be added to the internal URL (SCRIPT_NAME and REQUEST_URI)
+    Prefix added to the internal URL (SCRIPT_NAME and REQUEST_URI)
     when accessing the server via an SSL proxy. This setting overrides
     :ref:`[SYS][reverseProxyPrefix]<typo3ConfVars_sys_reverseProxyPrefix>`.
 
@@ -483,13 +481,13 @@ configurations.
             to handle exceptions.
 
         `0`
-            Live: Do not display any PHP error message. Sets :php:`display_errors=0`.
+            Live: Do not display a PHP error message. Sets :php:`display_errors=0`.
             Overrides the value of
             :ref:`[SYS][exceptionalErrors]<typo3ConfVars_sys_exceptionalErrors>`
             and sets it to 0
             (= no errors are turned into exceptions). The configured
             :ref:`[SYS][productionExceptionHandler]<typo3ConfVars_sys_productionExceptionHandler>`
-            is used as exception handler.
+            is used as the exception handler.
 
         `1`
             Debug: Display error messages with the registered
@@ -502,7 +500,7 @@ configurations.
     Configures whether PHP errors or exceptions should be displayed,
     effectively setting the PHP option :php:`display_errors` during runtime.
 
-    Have also a look into the :ref:`security guidelines
+    See also :ref:`security guidelines
     <security-global-typo3-options-displayErrors>`.
 
 ..  _typo3ConfVars_sys_productionExceptionHandler:
@@ -513,7 +511,7 @@ configurations.
     :type: phpClass
     :Default: :php:`\TYPO3\CMS\Core\Error\ProductionExceptionHandler::class`
 
-    Classname to handle exceptions that might happen in the TYPO3-code. Leave
+    Classname to handle exceptions that occur in the TYPO3 code. Leave
     this empty to disable exception handling.  The default exception handler displays
     a nice error message when something goes wrong. The error message is
     logged to the configured logs.
@@ -531,10 +529,10 @@ configurations.
     :type: phpClass
     :Default: :php:`\TYPO3\CMS\Core\Error\DebugExceptionHandler::class`
 
-    Classname to handle exceptions that might happen in the TYPO3 code. Leave
-    empty to disable the exception handling. The default exception handler
-    displays the complete stack trace of any encountered exception. The error
-    message and the stack trace is logged to the configured logs.
+    Classname to handle exceptions that occur in the TYPO3 code. Leave
+    empty to disable exception handling. The default exception handler
+    displays the complete stack trace of an exception. The error
+    message and the stack trace are logged to the configured logs.
 
     Note: The configured "debugExceptionHandler" is used if
     :ref:`[SYS][displayErrors]<typo3ConfVars_sys_displayErrors>` is set to "1" or
@@ -553,7 +551,7 @@ configurations.
     This class displays and logs all errors that are registered as
     :ref:`[SYS][errorHandlerErrors]<typo3ConfVars_sys_errorHandlerErrors>`.
     Leave empty to disable error handling. Errors will be logged and can be sent
-    to the optionally installed developer log or to the :sql:`syslog` database table.
+    to the developer log (if installed) or to the :sql:`syslog` database table.
     If an error is registered in
     :ref:`[SYS][exceptionalErrors]<typo3ConfVars_sys_exceptionalErrors>`
     it will be turned into an exception to be handled by the configured
@@ -589,7 +587,7 @@ configurations.
     4096 = :php:`E_ALL & ~(E_STRICT | E_NOTICE | E_COMPILE_WARNING | E_COMPILE_ERROR | E_CORE_WARNING | E_CORE_ERROR | E_PARSE | E_ERROR | E_DEPRECATED | E_USER_DEPRECATED | E_WARNING | E_USER_ERROR | E_USER_NOTICE | E_USER_WARNING)`
     (see `PHP documentation <https://www.php.net/manual/en/errorfunc.constants.php>`__).
 
-    E_USER_DEPRECATED is always excluded to avoid exceptions to be thrown for deprecation messages.
+    E_USER_DEPRECATED is always excluded to avoid exceptions being thrown for deprecation messages.
 
 ..  _typo3ConfVars_sys_belogErrorReporting:
 
@@ -614,12 +612,11 @@ configurations.
     :Default: 1
 
     TYPO3 can create :file:`.htaccess` files which are used by Apache Webserver.
-    They are useful for access protection or performance improvements. Currently
-    :file:`.htaccess` files in the following directories are created,
-    if they do not exist: typo3temp/compressor/.
+    They are useful for access protection and performance improvements. Currently, if
+    the files don't exist, they are created from the following directories: typo3temp/compressor/.
 
-    You want to disable this feature, if you are not running Apache or
-    want to use own rule sets.
+    You should disable this feature if you are not running Apache or
+    want to use your own rule sets.
 
 ..  _typo3ConfVars_sys_ipAnonymization:
 
@@ -640,7 +637,7 @@ configurations.
 
     Configures if and how IP addresses stored via TYPO3s API should be anonymized
     ("masked") with a zero-numbered replacement. This is respected within
-    anonymization task only, not while creating new log entries.
+    anonymization tasks only, not when creating new log entries.
 
 ..  _typo3ConfVars_sys_systemMaintainers:
 
@@ -650,7 +647,7 @@ configurations.
     :type: array
     :Default: null
 
-    A list of backend user IDs allowed to access the Install Tool
+    A list of backend user IDs that are allowed to access the Install Tool
 
 ..  _typo3ConfVars_sys_features:
 
@@ -658,8 +655,8 @@ configurations.
    :name: globals-typo3-conf-vars-sys-features
    :Path: $GLOBALS['TYPO3_CONF_VARS']['SYS']['features']
 
-    New features of TYPO3 that are activated on new installations but upgrading
-    installations may still use the old behaviour.
+    New features of TYPO3 that are activated on new installations (but upgrading
+    installations may still use the old behaviour).
 
     These settings are :ref:`feature toggles <feature-toggles>` and can be
     changed in the Backend module :guilabel:`Settings` in the section
@@ -673,9 +670,9 @@ configurations.
        :type: bool
        :Default: true
 
-       If on, some mime types are predefined for the "FileUpload" and "ImageUpload"
-       elements of the "form" extension, which always allows file uploads of these
-       types, no matter the specific form element definition.
+       If enabled, some mime types are predefined for the "FileUpload" and "ImageUpload"
+       elements of the "form" extension which always allows file uploads of these
+       types, regardless of the form element definition.
 
     ..  _typo3ConfVars_sys_features_redirects.hitCount:
 
@@ -685,8 +682,8 @@ configurations.
        :type: bool
        :Default: false
 
-       If on, and if extension "redirects" is loaded, each performed redirect is
-       counted and last hit time is logged to the database.
+       If enabled, and extension "redirects" is loaded, each redirect is
+       counted and the last hit time is logged to the database.
 
     ..  _typo3ConfVars_sys_features_security.backend.enforceReferrer:
 
@@ -696,9 +693,9 @@ configurations.
        :type: bool
        :Default: true
 
-       If on, HTTP referrer headers are enforced for backend and install tool requests to mitigate
-       potential same-site request forgery attacks. The behavior can be disabled in case HTTP proxies filter
-       required referer header. As this is a potential security risk, it is recommended to enable this option.
+       If enabled, HTTP referrer headers are enforced for backend and install tool requests to mitigate
+       potential same-site request forgery attacks. The behavior can be disabled if HTTP proxies filter
+       the required referrer header. As this is a potential security risk, it is recommended to enable this option.
 
     ..  _typo3ConfVars_sys_features_security.frontend.enforceContentSecurityPolicy:
 
@@ -724,12 +721,12 @@ configurations.
         :Default: false
 
         If enabled, the :ref:`Content Security Policy <content-security-policy>`
-        is applied in frontend scope as report-only (HTTP header
+        is applied in the frontend scope as report-only (HTTP header
         `Content-Security-Policy-Report-Only`).
 
         This option can be enabled in combination with
-        :confval:`globals-typo3-conf-vars-sys-features-security-frontend-enforceContentSecurityPolicy`.
-        Then both headers are set.
+        :confval:`globals-typo3-conf-vars-sys-features-security-frontend-enforceContentSecurityPolicy`
+        to set both headers.
 
     ..  _typo3ConfVars_sys_features_security.frontend.allowInsecureFrameOptionInShowImageController:
 
@@ -741,13 +738,13 @@ configurations.
 
         ..  versionadded:: 13.1, 12.4.15, 11.5.37
 
-        This option configures,  whether the show image controller (eID
-        `tx_cms_showpic`) is allowed to supply an unsecured `&frame` URI
-        parameter for backwards compatibility. The `&frame` parameter is not
-        utilized by the TYPO3 core itself anymore.
+        This option configures whether the show image controller (eID
+        `tx_cms_showpic`) is allowed to supply an insecure `&frame` URI
+        parameter (for backwards compatibility). The `&frame` parameter is no
+        longer used in the TYPO3 core.
 
-        It is disabled by default and is strongly suggested to leave it
-        turned off, for details see :ref:`<changelog:important-103306-1714976257>`. To enable it:
+        It is disabled by default and it is strongly recommended to leave it
+        turned off. For details see :ref:`<changelog:important-103306-1714976257>`. To enable it:
 
         ..  code-block:: php
 
@@ -761,8 +758,8 @@ configurations.
         :type: bool
         :Default: false
 
-        Resolving sites by the `id` and `L` HTTP query parameters is now denied by
-        default. However, it is still allowed to resolve a particular page by, for
+        Resolving sites with the `id` and `L` HTTP query parameters is now denied by
+        default. However, it is still allowed for particular pages, for
         example, "example.org" - as long as the page ID `123` is in the scope of the
         site configured for the base URL "example.org".
 
@@ -780,8 +777,8 @@ configurations.
 
         ..  versionchanged:: 13.0
             The feature toggle `security.usePasswordPolicyForFrontendUsers` has been
-            removed, because TypoScript-based password
-            validation in :doc:`EXT:felogin <ext_felogin:Index>` has been removed, too.
+            removed because TypoScript-based password
+            validation in :doc:`EXT:felogin <ext_felogin:Index>` has also been removed.
 
             The :ref:`password policy <password-policies>` configured in
             :ref:`$GLOBALS['TYPO3_CONF_VARS']['FE']['passwordPolicy'] <typo3ConfVars_fe_passwordPolicy>`
@@ -876,7 +873,7 @@ configurations.
         :type: array
 
         The configuration of the routing for the
-        :ref:`messenger component <message-bus>`. By default, TYPO3 uses a
+        :ref:`messenger component <message-bus>`. By default, TYPO3 uses
         synchronous transport (:php:`default`) for all messages (:php:`*`):
 
         ..  code-block:: php
@@ -885,7 +882,7 @@ configurations.
                 '*' => 'default',
             ];
 
-        You can set a different transport for a specific message, for example:
+        You can set transport types for specific messages, for example:
 
         ..  code-block:: php
 
@@ -906,7 +903,7 @@ configurations.
         :type: array
 
         ..  versionchanged:: 13.4.13 / 12.4.32
-            This file extension-based MIME type mapping is now superseded
+            File extension-based MIME type mapping is now superseded
             by the more fine-grained MIME type compatibility list
             `$GLOBALS['TYPO3_CONF_VARS']['SYS']['FileInfo']['mimeTypeCompatibility'] <https://docs.typo3.org/permalink/t3coreapi:confval-globals-typo3-conf-vars-sys-fileinfo-mimetypecompatibility>`_.
 
@@ -926,17 +923,17 @@ configurations.
             `$GLOBALS['TYPO3_CONF_VARS']['SYS']['FileInfo']['fileExtensionToMimeType'] <https://docs.typo3.org/permalink/t3coreapi:confval-globals-typo3-conf-vars-sys-fileinfo-fileextensiontomimetype>`_
 
         For each generic MIME type (as detected by PHP MIME type detection) a
-        map from file extension to allowed concrete MIME type can be supplied.
+        map from file extension to a valid MIME type can be supplied.
 
-        The Core predefines common file extensions and MIME types. Custom ones
-        can be configured additionally.
+        The Core predefines common file extensions and MIME types. Custom types
+        can be configured.
 
-        Since PHP file detection methods can not reliable detect all IANA defined MIME
+        As PHP file detection methods can not reliably detect all IANA defined MIME
         types, mime-db based heuristics are applied to map generic MIME types like
         `text/plain` to `text/csv` for `*.csv` files.
 
-        Example that is already shipped with TYPO3, a `*.jfif` file that is
-        detected as image/jpeg is mapped to image/pjpeg, which is the
+        One example shipped in the Core is that `*.jfif` files are
+        detected as an image/jpeg and mapped to image/pjpeg, which is the
         defined MIME type per IANA and enforced by the FAL persistence layer.
 
         ..  code-block:: php
@@ -945,9 +942,9 @@ configurations.
             $GLOBALS['TYPO3_CONF_VARS']['SYS']['FileInfo']['mimeTypeCompatibility']['image/jpeg']['jfif'] =
                 'image/pjpeg';
 
-        Generic example, which allows a file ending in `*.foo` that is detected
-        to contain text/plain contents to be mapped to the MIME type text/x-foo,
-        other contents (e.g. if the file contains binary data) will not be mapped
+        Below is a generic example which allows a file ending in `*.foo`, that is detected
+        to contain text/plain contents, to be mapped to the MIME type text/x-foo.
+        Other contents (e.g. if the file contains binary data) will not be mapped
 
         ..  code-block:: php
             :caption: config/system/additional.php
@@ -963,11 +960,11 @@ configurations.
 
     ..  versionadded:: 13.2
 
-    A configuration option to adapt the environment check in the :guilabel:`Admin Tools`
-    for a list of sanctioned :php:`disable_functions`.
+    A configuration option to modify the environment check in :guilabel:`Admin Tools`
+    to incorporate a list of sanctioned :php:`disable_functions`.
 
-    With this configuration option
-    a system maintainer can add native PHP function names to this list,
+    Using this configuration option
+    a system maintainer can add native PHP function names to the list,
     which are then reported as environment warnings instead of errors.
 
     ..  code-block:: php
@@ -976,5 +973,5 @@ configurations.
         $GLOBALS['TYPO3_CONF_VARS']['SYS']['allowedPhpDisableFunctions']
             = ['set_time_limit', 'set_file_buffer'];
 
-    You can also define this in your :file:`settings.php` file manually
+    You can also define this manually in your :file:`settings.php` file
     or via :guilabel:`Admin Tools > Settings > Configure options`.
