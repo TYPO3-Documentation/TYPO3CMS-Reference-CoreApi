@@ -3,5 +3,6 @@ services:
   # and the configuration of the cache from above
 
   MyVendor\MyExtension\MyClass:
+    public: true
     arguments:
       $cache: '@cache.myext_mycache'
