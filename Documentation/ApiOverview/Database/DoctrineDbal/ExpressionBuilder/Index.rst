@@ -43,12 +43,12 @@ Junctions
 *   :php:`->and()` conjunction
 *   :php:`->or()` disjunction
 
-Combine multiple single expressions with :sql:`AND` or :sql:`OR`. Nesting is
+Combine multiple single expressions using :sql:`AND` or :sql:`OR`. Nesting is
 possible, both methods are variadic and accept any number of arguments, which
-are all combined. However, it usually makes little sense to pass zero or only
+are then all combined. It usually makes little sense to pass zero or only
 one argument.
 
-Example to find :sql:`tt_content` records:
+Example: finding :sql:`tt_content` records:
 
 ..  literalinclude:: _RepositoryWithJunctions.php
     :language: php
@@ -63,7 +63,7 @@ See available :ref:`parameter types <database-connection-parameter-types>`.
 Comparisons
 ===========
 
-A set of methods to create various comparison expressions or SQL functions:
+A set of methods to create comparison expressions and SQL functions:
 
 ..  include:: _ExpressionBuilderComparisons.rst.txt
 
@@ -71,18 +71,18 @@ Remarks and warnings:
 
 *   The first argument :php:`$fieldName` is always quoted automatically.
 
-*   All methods that have a :php:`$value` or :php:`$valueList` as second
+*   All methods that have :php:`$value` or :php:`$valueList` as a second
     argument **must** be quoted, usually by calling
     :ref:`$queryBuilder->createNamedParameter() <database-query-builder-create-named-parameter>`
     or :ref:`$queryBuilder->quoteIdentifier() <database-query-builder-quote-identifier>`.
 
     ..  warning::
-        Failing to quote will end up in :ref:`SQL injections <security-sql-injection>`!
+        Failing to quote will result in :ref:`SQL injections <security-sql-injection>`!
 
 *   :php:`->like()` and :php:`->notLike()` values **must** be **additionally**
     quoted with a call to :ref:`$queryBuilder->escapeLikeWildcards($value)
     <database-query-builder-escape-like-wildcards>` to suppress the special
-    meaning of `%` characters from `$value`.
+    meaning of `%` characters in `$value`.
 
 
 Examples:
@@ -187,7 +187,7 @@ Creates a statement to append a field alias to a value, identifier or sub-expres
 ..  note::
 
     Some :php:`ExpressionBuilder` methods (like :php:`select()` and :php:`from()`) provide an argument to directly add
-    the expression alias to reduce some nesting. This new method can be used for
+    the expression alias to reduce nesting. This new method can be used for
     custom expressions and avoids recurring conditional quoting and alias appending.
 
 ..  literalinclude:: _RepositoryAs.php
@@ -205,7 +205,7 @@ Creates a statement to append a field alias to a value, identifier or sub-expres
 Can be used to concatenate values, row field values or expression results into
 a single string value.
 
-The created expression is built on the proper platform-specific and preferred
+The resulting value is built using a platform-specific and preferred
 concatenation method, for example :sql:`field1 || field2 || field3 || ...`
 for SQLite and :sql:`CONCAT(field1, field2, field3, ...)` for other database vendors.
 
@@ -225,11 +225,11 @@ for SQLite and :sql:`CONCAT(field1, field2, field3, ...)` for other database ven
 ..  include:: _ExpressionBuilderCastInt.rst.txt
 
 Can be used to create an expression which converts a value, row field value or
-the result of an expression to signed integer type.
+the result of an expression to a signed integer type.
 
 Uses the platform-specific preferred way for casting to dynamic length
 character type, which means :sql:`CAST("value" AS INTEGER)` for most database vendors
-except PostgreSQL. For PostgreSQL the :sql:`"value"::INTEGER` cast notation
+except PostgreSQL. For PostgreSQL :sql:`"value"::INTEGER` cast notation
 is used.
 
 ..  literalinclude:: _RepositoryCastInt.php
@@ -246,11 +246,11 @@ is used.
 ..  todo: Add api description as soon as building code-snippets is working again
 
 Can be used to create an expression which converts a value, row field value or
-the result of an expression to type `TEXT` or a large `VARCHAR, depending on the
-database system in use.
+the result of an expression to type `TEXT` or a large `VARCHAR, depending on which
+database system is in use.
 
 Casting is done to large :sql:`VARCHAR/CHAR` types using the :sql:`CAST/CONVERT`
-or similar methods based on the used database engine.
+or similar methods based on the database engine.
 
 ..  include:: _EscapeWarning.rst.txt
 
@@ -268,12 +268,12 @@ or similar methods based on the used database engine.
 ..  include:: _ExpressionBuilderCastVarchar.rst.txt
 
 Can be used to create an expression which converts a value, row field value or
-the result of an expression to varchar type with dynamic length.
+the result of an expression to a varchar type with dynamic length.
 
 Uses the platform-specific preferred way for casting to dynamic length
 character type, which means :sql:`CAST("value" AS VARCHAR(<LENGTH>))`
-or :sql:`CAST("value" AS CHAR(<LENGTH>))` is used, except for PostgreSQL.
-For PostgreSQL the :sql:`"value"::INTEGER` cast notation is used.
+or :sql:`CAST("value" AS CHAR(<LENGTH>))`, except for PostgreSQL
+where :sql:`"value"::INTEGER` cast notation is used.
 
 ..  include:: _EscapeWarning.rst.txt
 
@@ -297,8 +297,8 @@ database engine in use.
 
 ..  warning::
     No automatic quoting or escaping is done for the condition and true/false
-    part. Extension authors need to ensure proper quoting for each part or use
-    API calls for doing the quoting, for example the
+    parts. Extension authors need to ensure proper quoting for each part or use
+    API calls to do the quoting, for example the
     :php:`TYPO3\CMS\Core\Database\Query\Expression\CompositeExpression` or
     :ref:`ExpressionBuilder calls <database-expression-builder-basic-comparisons>`.
 
@@ -340,11 +340,11 @@ Result with MySQL/MariaDB:
 
 ..  include:: _ExpressionBuilderLeft.rst.txt
 
-Extract :php:`$length` characters of :php:`$value` from the left side.
+Extract :php:`$length` characters of :php:`$value` from the left.
 
 Creates a :sql:`LEFT("value", number_of_chars)` expression for all supported
-database vendors except SQLite, where :sql:`substring("value", start[, number_of_chars])`
-is used to provide a compatible expression.
+database vendors except SQLite, which uses :sql:`substring("value", start[, number_of_chars])`
+to provide a compatible expression.
 
 ..  tip::
 
@@ -401,14 +401,14 @@ See available :ref:`parameter types <database-connection-parameter-types>`.
 
 ..  include:: _ExpressionBuilderRepeat.rst.txt
 
-Create a statement to generate a value repeating defined :php:`$value` for
+Create a statement to generate a value which repears the :php:`$value` for
 :php:`$numberOfRepeats` times. This method can be used to provide the
 repeat number as a sub-expression or calculation.
 
 :sql:`REPEAT("value", numberOfRepeats)` is used to build this expression for all database
-vendors except SQLite for which the compatible replacement construct expression
+vendors except SQLite which uses
 :sql:`REPLACE(PRINTF('%.' || <valueOrStatement> || 'c', '/'),'/', <repeatValue>)`
-is used, based on :sql:`REPLACE()` and the built-in :sql:`printf()`.
+, based on :sql:`REPLACE()` and the built-in :sql:`printf()`.
 
 ..  include:: _EscapeWarning.rst.txt
 
@@ -425,11 +425,10 @@ is used, based on :sql:`REPLACE()` and the built-in :sql:`printf()`.
 
 ..  include:: _ExpressionBuilderRight.rst.txt
 
-Extract :php:`$length` characters of :php:`$value` from the right side.
+Extract :php:`$length` characters of :php:`$value` from the right.
 
 Creates a :sql:`RIGHT("value", length)` expression for all supported
-database vendors except SQLite, where :sql:`substring("value", start_of_string[, length])`
-is used to provide a compatible expression.
+database vendors except SQLite, which uses :sql:`substring("value", start_of_string[, length])`.
 
 ..  include:: _EscapeWarning.rst.txt
 
@@ -471,7 +470,7 @@ more complex compatible replacement expression construct is created.
 Create a statement containing :php:`$numberOfSpaces` space characters.
 
 The :sql:`SPACE(numberOfSpaces)` expression is used for MariaDB and MySQL and
-:php:`ExpressionBuilder::repeat()` expression as fallback for PostgreSQL
+:php:`ExpressionBuilder::repeat()` expression as a fallback for PostgreSQL
 and SQLite.
 
 ..  include:: _EscapeWarning.rst.txt
@@ -487,7 +486,7 @@ and SQLite.
 
 ..  include:: _ExpressionBuilderTrim.rst.txt
 
-Using the :php:`->trim()` expression ensures that the fields are trimmed at the
+Using the :php:`->trim()` expression ensures that fields are trimmed at the
 database level. The following examples give a better idea of what is possible:
 
 ..  literalinclude:: _RepositoryWithTrim.php
