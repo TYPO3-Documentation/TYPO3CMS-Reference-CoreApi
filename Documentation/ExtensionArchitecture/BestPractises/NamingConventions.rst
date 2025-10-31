@@ -238,8 +238,8 @@ Examples for Extbase domain models and table names of an extension named `cool_s
 
 .. tip::
    Notice that the names above use the singular form, e.g. `post` and
-   not `posts`. This is recommended, but no requirement. 
-   If you however do not follow recommended patterns
+   not `posts`. This is recommended, but not a requirement.
+   However, if you do not follow the recommended patterns
    you may need :ref:`manual mapping <extbase_manual_mapping>`.
 
 ..  _naming-tables-mm:
@@ -349,9 +349,9 @@ Plugin signature
     is deprecated. See :ref:`plugins-list_type-migration`.
 
 The plugin signature of non-Extbase plugins, registered via
-:php:`ExtensionManagementUtility::addPlugin()` is an arbitrarily defined string.
-By convention it should always be the extension name with all underscores removed
-followed by one underscore and then a lowercase alphanumeric plugin key.
+:php:`ExtensionManagementUtility::addPlugin()`, is an arbitrary string.
+By convention it should be the extension name with all underscores removed,
+followed by one underscore and the alphanumeric plugin key in lowercase.
 Examples: :php:`"myextension_coolplugin"`, :php:`"examples_pi1"`.
 
 Extbase based plugins are registered via :php:`ExtensionUtility::registerPlugin()`.
