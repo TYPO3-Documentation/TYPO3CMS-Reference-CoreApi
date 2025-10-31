@@ -3,12 +3,12 @@
 
 ..  php:class:: ExpressionBuilder
 
-    ExpressionBuilder class is responsible to dynamically create SQL query parts.
+    The ExpressionBuilder class is responsible for dynamically creating parts of
+    SQL queries.
 
-    It takes care building query conditions while ensuring table and column names
-    are quoted within the created expressions / SQL fragments. It is a facade to
-    the actual Doctrine ExpressionBuilder.
+    It builds query conditions, ensuring that table and column names
+    are quoted inside the expressions / SQL fragments. The class is a facade to
+    the Doctrine ExpressionBuilder.
 
-    The ExpressionBuilder is used within the context of the QueryBuilder to ensure
-    queries are being build based on the requirements of the database platform in
-    use.
+    The ExpressionBuilder is used in the context of the QueryBuilder to ensure
+    that queries conform to the requirements of whichever database platform is in use.
