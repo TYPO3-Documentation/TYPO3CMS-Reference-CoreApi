@@ -5,7 +5,12 @@
 
  // Add the plugins to the list of plugins
  ExtensionManagementUtility::addPlugin(
-     [$pluginTitle, $pluginSignature, '', 'plugin'],
+     [
+         'label' => $pluginTitle,
+         'value' => $pluginSignature,
+         'icon' => '',
+         'group' => 'plugins'
+     ],
 -    'list_type',
 +    'CType',
      $extensionKey,
