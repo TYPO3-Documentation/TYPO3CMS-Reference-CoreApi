@@ -1,10 +1,10 @@
 ..  warning::
 
-    Be aware to properly quote values identifiers and sub-expressions by using
+    Make sure that you quote value identifiers and sub-expressions using
     QueryBuilder methods like :php:`quote()`, :php:`quoteIdentifier` or :php:`createNamedParameter`.
-    No automatic quoting will be applied.
+    Quotes are not added automatically.
 
-    It is of crucial importance to quote values correctly to not introduce SQL
-    injection attack vectors into your application. See the :ref:`according
-    section of the query builder <database-query-builder-create-named-parameter>`
+    It is very important to quote values correctly so that you don't introduce SQL
+    injection attack vectors into your application. See
+    :ref:`this section of the query builder <database-query-builder-create-named-parameter>`
     for details.
