@@ -3,8 +3,10 @@
 
 ..  php:class:: BeforeFormIsDeletedEvent
 
-    Listeners to this event will be able to prevent deletion of a form and/or
-    add custom logic.
+    Listeners to this Event will be able to:
+    - Get the form persistence identifier before a form is deleted
+    - Stop the deletion process by setting preventDeletion to true
+    - Add custom logic, e.g. cleanup tasks, before deletion
 
     ..  php:attr:: formPersistenceIdentifier
         :readonly:
@@ -12,4 +14,6 @@
 
     ..  php:attr:: preventDeletion
         :public:
+
+    ..  php:method:: isPropagationStopped()
         :returns: `bool`
