@@ -101,7 +101,7 @@ configuration.
     :Default: ''
 
     This is a "salt" used for encryption, CRC checksums and
-    validations. You can enter any string containing garbage values here but try to keep it
+    validations. You can enter any string here but try to keep it
     secret. A change to this value might invalidate
     temporary information, URLs, etc, so at least clear all the caches if you change
     this so that such information can be rebuilt with the new key.
