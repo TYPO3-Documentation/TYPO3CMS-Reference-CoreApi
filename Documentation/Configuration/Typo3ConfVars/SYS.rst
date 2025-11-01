@@ -167,7 +167,7 @@ configuration.
     :type: text
     :Default: '127.0.0.1,::1'
 
-    Defines a list of IP addresses which allow development output to
+    Defines a list of IP addresses which allows development output to
     be displayed. The :php:`debug()` function will use this as a filter. See the
     function :php:`\TYPO3\CMS\Core\Utility\GeneralUtilitycmpIP()` for details
     on syntax. Setting this to blank value will deny all.
