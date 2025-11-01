@@ -259,6 +259,8 @@ Options:
     The minimum file size to accept in bytes, accepts `K` / `M` / `G` suffixes
 `maximum`
     The maximum file size to accept
+`byteSizeUnits`
+    Byte size units string used for labels in `\TYPO3\CMS\Core\Utility\GeneralUtility::formatSize()` function
 
 
 Internally :php:`\TYPO3\CMS\Core\Type\File\FileInfo` is used to determine the
