@@ -33,8 +33,8 @@ return [
     ],
     [
         'action' => 'createPhpClassDocs',
-        'class' => \TYPO3\CMS\Form\Event\BeforeRenderableIsRenderedEvent::class,
-        'targetFileName' => 'CodeSnippets/Events/Form/BeforeRenderableIsRenderedEvent.rst.txt',
+        'class' => \TYPO3\CMS\Form\Event\BeforeRenderableIsRemovedFromFormEvent::class,
+        'targetFileName' => 'CodeSnippets/Events/Form/BeforeRenderableIsRemovedFromFormEvent.rst.txt',
         'withCode' => false,
     ],
     [
