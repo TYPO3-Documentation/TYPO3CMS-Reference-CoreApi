@@ -33,7 +33,7 @@ configurations.
     :Default: See :t3src:`core/Configuration/DefaultConfiguration.php`
 
     ..  confval:: cacheConfigurations
-        :name: globals-typo3-conf-vars-sys-caching
+        :name: globals-typo3-conf-vars-sys-caching-cacheConfigurations
         :Path: $GLOBALS['TYPO3_CONF_VARS']['SYS']['caching']['cacheConfigurations']
         :type: array
         :Default: See :t3src:`core/Configuration/DefaultConfiguration.php`
