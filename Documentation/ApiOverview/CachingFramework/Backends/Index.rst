@@ -363,10 +363,26 @@ Options for the redis caching backend
     is issued to one of them. Database numbers 0 and 1 are used and flushed by the Core unit tests
     and should not be used if possible.
 
+..  confval:: username
+    :name: caching-backend-redis-username
+    :type: string
+
+    ..  versionadded:: 14.0
+
+    Use this option to authenticate against Redis using both a username and a
+    password:
+
+    ..  literalinclude:: _redis_password.php
+        :caption: config/system/additional.php
 
 ..  confval:: password
     :name: caching-backend-redis-password
-    :type: string
+    :type: string | array (deprecated)
+
+    ..  deprecated:: 14.0
+        Setting this configuration option with an array is deprecated
+        and will be removed in 15.0. See `Deprecation: #107725 - Deprecate
+        usage of array in password for authentication in Redis cache backend <https://docs.typo3.org/permalink/changelog:deprecation-107725-1760807740>`_
 
     Password used to connect to the redis instance if the redis server needs authentication.
 
