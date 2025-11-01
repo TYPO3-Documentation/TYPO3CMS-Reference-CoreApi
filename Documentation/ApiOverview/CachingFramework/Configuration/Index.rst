@@ -1,10 +1,11 @@
-..  include:: /Includes.rst.txt
+:navigation-title: Configuration
 
+..  include:: /Includes.rst.txt
 ..  _caching-configuration:
 
-=============
-Configuration
-=============
+===================
+Cache configuration
+===================
 
 Caches are configured in the array
 :php:`$GLOBALS['TYPO3_CONF_VARS']['SYS']['caching']`. The basic structure is
