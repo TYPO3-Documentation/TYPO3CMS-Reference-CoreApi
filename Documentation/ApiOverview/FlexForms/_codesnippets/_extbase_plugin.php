@@ -19,9 +19,3 @@ ExtensionManagementUtility::addToAllTCAtypes(
     $ctypeKey,
     'after:subheader',
 );
-
-ExtensionManagementUtility::addPiFlexFormValue(
-    '',
-    'FILE:EXT:myext/Configuration/FlexForms/MyFlexform.xml',
-    $ctypeKey,
-);

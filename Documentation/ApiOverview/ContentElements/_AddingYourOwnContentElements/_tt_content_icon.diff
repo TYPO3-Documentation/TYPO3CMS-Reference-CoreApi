@@ -10,3 +10,4 @@
      'textmedia',
      'after',
  );
++$GLOBALS['TCA']['tt_content']['ctrl']['typeicon_classes'][$key] = 'examples-icon-basic';
