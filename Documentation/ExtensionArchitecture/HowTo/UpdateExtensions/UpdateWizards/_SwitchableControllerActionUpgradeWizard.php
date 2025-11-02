@@ -17,7 +17,7 @@ final class SwitchableControllerActionUpgradeWizard implements UpgradeWizardInte
 
     public function __construct(
         private readonly ConnectionPool $connectionPool,
-        private readonly FlexFormTools  $flexFormTools,
+        private readonly FlexFormTools $flexFormTools,
     ) {}
 
     public function getTitle(): string
