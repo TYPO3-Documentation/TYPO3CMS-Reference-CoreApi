@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace MyVendor\MyExtension\Upgrades;
 
+use TYPO3\CMS\Core\Configuration\FlexForm\FlexFormTools;
 use TYPO3\CMS\Core\Database\ConnectionPool;
-use TYPO3\CMS\Core\Service\FlexFormService;
 use TYPO3\CMS\Install\Attribute\UpgradeWizard;
 use TYPO3\CMS\Install\Updates\UpgradeWizardInterface;
 
@@ -17,7 +17,7 @@ final class SwitchableControllerActionUpgradeWizard implements UpgradeWizardInte
 
     public function __construct(
         private readonly ConnectionPool $connectionPool,
-        private readonly FlexFormService $flexFormService,
+        private readonly FlexFormTools  $flexFormTools,
     ) {}
 
     public function getTitle(): string
@@ -75,7 +75,7 @@ final class SwitchableControllerActionUpgradeWizard implements UpgradeWizardInte
 
     private function loadFlexForm(string $flexFormString): array
     {
-        return $this->flexFormService
+        return $this->flexFormTools
             ->convertFlexFormContentToArray($flexFormString);
     }
 
