@@ -60,6 +60,14 @@ the TYPO3 frontend:
 ..  confval:: compressionLevel
     :Path: $GLOBALS['TYPO3_CONF_VARS']['FE']['compressionLevel']
     :name: typo3-conf-vars-fe-compressionLevel
+    :type: text
+    :Default: 0
+    :Range: 0-9
+
+    Defines the compression level used for **frontend resource pre-compression**
+    (JavaScript and CSS files) when combined with the TypoScript settings
+    `config.compressJs  <https://docs.typo3.org/permalink/t3tsref:confval-config-compressjs>`_
+    and `compressCss  <https://docs.typo3.org/permalink/t3tsref:confval-config-compresscss>`_.
 
     ..  versionchanged:: 14.0
 
