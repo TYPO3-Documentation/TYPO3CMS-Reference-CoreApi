@@ -14,12 +14,15 @@ final readonly class MyEventListener
 {
     public function __invoke(PageContentPreviewRenderingEvent $event): void
     {
-        if ($event->getTable() !== 'tt_content') {
+        if ($event->getRecord()->getFullType() !== 'tt_content.example_ctype') {
             return;
         }
 
-        if ($event->getRecordType() === 'example_ctype') {
-            $event->setPreviewContent('<div>...</div>');
+        if ($event->getRecord()->has('header')) {
+            $header = $event->getRecord()->get('header');
+            $event->setPreviewContent(
+                sprintf('<h1>%s</h1></h1><div>...</div>', $header),
+            );
         }
     }
 }
