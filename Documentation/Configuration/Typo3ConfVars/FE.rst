@@ -63,7 +63,7 @@ the TYPO3 frontend:
 
     ..  versionchanged:: 14.0
 
-        Backend HTTP response compression has been removed. Response compression
+        Frontend HTTP response compression has been removed. Response compression
         should be applied by web servers and not by the application layer.
 
         See also: `Breaking: #107943 - Frontend and backend HTTP response
