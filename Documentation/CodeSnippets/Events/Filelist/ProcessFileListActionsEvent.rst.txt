@@ -11,9 +11,64 @@
     ..  php:method:: isFile()
         :returns: `bool`
 
-    ..  php:method:: getActionItems()
-        :returns: `array`
+    ..  php:method:: setAction(?\TYPO3\CMS\Backend\Template\Components\ComponentInterface $action, string $actionName, \TYPO3\CMS\Backend\Template\Components\ActionGroup $group = \TYPO3\CMS\Backend\Template\Components\ActionGroup::secondary, string $before = '', string $after = '')
 
-    ..  php:method:: setActionItems(array $actionItems)
+        Add a new action or override an existing one. Latter is only possible,
+        in case $columnName is given. Otherwise, the column will be added with
+        a numeric index, which is generally not recommended. It's also possible
+        to define the position of an action with either the "before" or "after"
+        argument, while their value must be an existing action.
 
-        :param $actionItems: the actionItems
+        Note: In case none or an invalid $group is provided, the new action will
+        be added to the secondary group.
+
+        :param $action: the action
+        :param $actionName: the actionName
+        :param $group: the group, default: \TYPO3\CMS\Backend\Template\Components\ActionGroup::secondary
+        :param $before: the before, default: ''
+        :param $after: the after, default: ''
+
+    ..  php:method:: hasAction(string $actionName, ?\TYPO3\CMS\Backend\Template\Components\ActionGroup $group = NULL)
+        :returns: `bool`
+
+        Whether the action exists in the given group. In case none or
+        an invalid $group is provided, both groups will be checked.
+
+        :param $actionName: the actionName
+        :param $group: the group, default: NULL
+
+    ..  php:method:: getAction(string $actionName, ?\TYPO3\CMS\Backend\Template\Components\ActionGroup $group = NULL)
+        :returns: `?\TYPO3\CMS\Backend\Template\Components\ComponentInterface`
+
+        Get action by its name. In case the action exists in both groups
+        and none or an invalid $group is provided, the action from the
+        "primary" group will be returned.
+
+        :param $actionName: the actionName
+        :param $group: the group, default: NULL
+
+    ..  php:method:: removeAction(string $actionName, ?\TYPO3\CMS\Backend\Template\Components\ActionGroup $group = NULL)
+
+        Remove action by its name. In case the action exists in both groups
+        and none or an invalid $group is provided, the action will be removed
+        from both groups.
+
+        :param $actionName: the actionName
+        :param $group: the group, default: NULL
+
+    ..  php:method:: moveActionTo(string $actionName, \TYPO3\CMS\Backend\Template\Components\ActionGroup $group, string $before = '', string $after = '')
+
+        :param $actionName: the actionName
+        :param $group: the group
+        :param $before: the before, default: ''
+        :param $after: the after, default: ''
+
+    ..  php:method:: getActionGroup(\TYPO3\CMS\Backend\Template\Components\ActionGroup $group)
+        :returns: `\TYPO3\CMS\Backend\Template\Components\ComponentGroup`
+
+        Get the actions of a specific group
+
+        :param $group: the group
+
+    ..  php:method:: getRequest()
+        :returns: `\Psr\Http\Message\RequestInterface`

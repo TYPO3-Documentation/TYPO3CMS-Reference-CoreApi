@@ -12,9 +12,9 @@
         :returns: `string`
 
     ..  php:method:: getRecord()
-        :returns: `array`
+        :returns: `\TYPO3\CMS\Core\Domain\RecordInterface`
 
-    ..  php:method:: setRecord(array $record)
+    ..  php:method:: setRecord(\TYPO3\CMS\Core\Domain\RecordInterface $record)
 
         :param $record: the record
 

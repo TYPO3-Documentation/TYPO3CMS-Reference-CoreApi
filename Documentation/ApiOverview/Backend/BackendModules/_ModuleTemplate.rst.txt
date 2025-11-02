@@ -128,3 +128,12 @@
         Generates a menu in the docheader to access third-level modules
 
         :param $additionalQueryParams: the additionalQueryParams, default: []
+
+    ..  php:method:: addButtonToButtonBar(\TYPO3\CMS\Backend\Template\Components\Buttons\ButtonInterface $button, string $buttonPosition = 'left', int $buttonGroup = 1)
+        :returns: `self`
+
+        Shorthand method to add a new button to the button bar
+
+        :param $button: the button
+        :param $buttonPosition: the buttonPosition, default: 'left'
+        :param $buttonGroup: the buttonGroup, default: 1
