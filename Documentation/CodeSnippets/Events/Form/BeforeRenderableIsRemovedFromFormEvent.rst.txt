@@ -3,14 +3,17 @@
 
 ..  php:class:: BeforeRenderableIsRemovedFromFormEvent
 
-    Listeners to this event will be able to prevent deletion of the renderable (form element) and to add custom logic based on the deletion.
+    Listeners to this Event will be able to:
+    - Get the renderable that is about to be removed from the form
+    - Stop the deletion process by setting preventRemoval to true
+    - Add custom logic, e.g. cleanup tasks, before deletion
 
     ..  php:attr:: renderable
+        :readonly:
         :public:
-
-        The form element (readonly)
 
     ..  php:attr:: preventRemoval
         :public:
 
-        A boolean flag that can be set to true to prevent removal of the renderable.
+    ..  php:method:: isPropagationStopped()
+        :returns: `bool`

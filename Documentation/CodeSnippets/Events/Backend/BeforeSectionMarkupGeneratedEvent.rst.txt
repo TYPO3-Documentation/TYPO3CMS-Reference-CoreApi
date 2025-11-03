@@ -13,7 +13,7 @@
         :returns: `\TYPO3\CMS\Backend\View\PageLayoutContext`
 
     ..  php:method:: getRecords()
-        :returns: `array`
+        :returns: `\RecordInterface[]`
 
     ..  php:method:: setContent(string $content = '')
 
