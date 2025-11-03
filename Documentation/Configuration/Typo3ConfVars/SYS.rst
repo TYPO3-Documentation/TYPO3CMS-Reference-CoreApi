@@ -102,11 +102,11 @@ configuration.
 
     This is a "salt" used for encryption, CRC checksums and
     validations. You can enter any string here but try to keep it
-    secret. 
-    
+    secret.
+
   **When changing this value, flush all the caches:** A change to this value might invalidate
     temporary information, such as URLs mappings.
-    
+
 
 ..  _typo3ConfVars_sys_cookieDomain:
 
