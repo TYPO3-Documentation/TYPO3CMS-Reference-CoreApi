@@ -38,10 +38,10 @@ configuration.
         :type: array
         :Default: See :t3src:`core/Configuration/DefaultConfiguration.php`
 
-        Registry of all configured caches. Each cache is identified by its array
-        key. Each cache can have the sub-keys `frontend`, `backend` and
-       `options` to configure the used frontend, backend and possible backend
-        options.
+        Registry of configured caches. Each cache is identified by its array
+        key. Each cache key can contain sub-keys `frontend`, `backend` and
+        `options` which set the frontend, backend and backend options for a
+        configured cache.
 
         See also `Cache configuration <https://docs.typo3.org/permalink/t3coreapi:caching-configuration>`_.
 
