@@ -453,22 +453,14 @@ The following configuration variables can be used to configure the TYPO3 backend
 ..  confval:: compressionLevel
     :Path: $GLOBALS['TYPO3_CONF_VARS']['BE']['compressionLevel']
     :name: globals-typo3-conf-vars-be-compressionLevel
-    :type: text
-    :Default: 0
-    :Range: 0-9
 
-    Determines output compression of BE output. Output is smaller but
-    page generation slows down depending on compression level. Requires
+    ..  versionchanged:: 14.0
 
-    *  zlib in your PHP installation and
-    *  special rewrite rules for :file:`.css.gz` and :file:`.js.gz`
-       (before version 12.0 the extension was :file:`.css.gzip` and :file:`.js.gzip`)
+        Backend HTTP response compression has been removed. Response compression
+        should be applied by web servers and not by the application layer.
 
-    Please see :file:`EXT:install/Resources/Private/FolderStructureTemplateFiles/root-htaccess`
-    for an example. The range is `1`-`9`, where `1` is least
-    compression and `9` is greatest compression. Setting the value to :php:`true`
-    will set the compression based on the PHP default settings (usually `5` ). The
-    recommended and most optimal value is `5`.
+        See also: `Breaking: #107943 - Frontend and backend HTTP response
+        compression removed <https://docs.typo3.org/permalink/changelog:breaking-107943-1761860828>`_
 
 ..  _typo3ConfVars_be_installToolPassword:
 
@@ -638,10 +630,6 @@ The following configuration variables can be used to configure the TYPO3 backend
     If enabled, login refresh is disabled and pageRenderer is set to debug
     mode. Also, fieldnames are appended to field labels. Use
     this to debug the backend only!
-
-    Disables the
-    :ref:`$GLOBALS[TYPO3_CONF_VARS][BE][compressionLevel] <typo3ConfVars_be_compressionLevel>`
-    setting.
 
 ..  _typo3ConfVars_be_HTTP:
 
