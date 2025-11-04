@@ -32,6 +32,25 @@ configuration.
     :display: tree
     :type:
 
+..  confval:: caching
+    :name: globals-typo3-conf-vars-sys-caching
+    :Path: $GLOBALS['TYPO3_CONF_VARS']['SYS']['caching']
+    :type: array
+    :Default: See :t3src:`core/Configuration/DefaultConfiguration.php`
+
+    ..  confval:: cacheConfigurations
+        :name: globals-typo3-conf-vars-sys-caching-cacheConfigurations
+        :Path: $GLOBALS['TYPO3_CONF_VARS']['SYS']['caching']['cacheConfigurations']
+        :type: array
+        :Default: See :t3src:`core/Configuration/DefaultConfiguration.php`
+
+        Registry of configured caches. Each cache is identified by its array
+        key. Each cache key can contain sub-keys `frontend`, `backend` and
+        `options` which set the frontend, backend and backend options for a
+        configured cache.
+
+        See also `Cache configuration <https://docs.typo3.org/permalink/t3coreapi:caching-configuration>`_.
+
 ..  _typo3ConfVars_sys_fileCreateMask:
 
 ..  confval:: fileCreateMask
