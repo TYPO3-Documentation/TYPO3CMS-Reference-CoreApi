@@ -84,7 +84,8 @@ injected via :ref:`dependency injection <DependencyInjection>`.
 ..  _significant performance penalty and memory consumption: https://www.derhansen.de/2023/10/the-pitfalls-of-reusing-typo3-querybuilder-analyzing-a-performance-bottleneck.html
 
 ..  note::
-    The RestrictionBuilder adds default restrictions if they are defined as
+    The RestrictionBuilder adds default restrictions to :ref:`select
+    <database-query-builder-select-restrictions>` queries if they are defined as
     :ref:`enableColumns <t3tca:ctrl-enablecolumns>` in the table's TCA ctrl section.
 
 ..  _database-query-builder-select:
