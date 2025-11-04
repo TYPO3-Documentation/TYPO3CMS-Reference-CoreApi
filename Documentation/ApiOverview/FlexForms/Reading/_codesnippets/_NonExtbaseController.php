@@ -4,13 +4,11 @@ declare(strict_types=1);
 
 namespace MyVendor\MyExtension\Mvc\Controller;
 
-use TYPO3\CMS\Core\Service\FlexFormService;
+use TYPO3\CMS\Core\Configuration\FlexForm\FlexFormTools;
 
 final readonly class NonExtbaseController
 {
-    public function __construct(
-        private FlexFormService $flexFormService,
-    ) {}
+    public function __construct(private FlexFormTools $flexFormTools) {}
 
     public function indexAction(array $ttContentRow): void
     {
@@ -23,6 +21,6 @@ final readonly class NonExtbaseController
         if ($field === '') {
             return [];
         }
-        return $this->flexFormService->convertFlexFormContentToArray($field);
+        return $this->flexFormTools->convertFlexFormContentToArray($field);
     }
 }
