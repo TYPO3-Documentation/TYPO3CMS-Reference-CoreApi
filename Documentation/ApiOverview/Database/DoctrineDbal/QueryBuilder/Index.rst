@@ -564,11 +564,9 @@ Remarks:
     **Always** use this when dealing with user input in expressions to protect
     the statement from SQL injections.
 
-*   :php:`->where()` should be called only once per query and resets all
+*   :php:`->where()` should be called only once at the beginning of a query. It removes all
     previously set :php:`->where()`, :php:`->andWhere()` and :php:`->orWhere()`
-    expressions. A :php:`->where()` call after a previous :php:`->where()`,
-    :php:`->andWhere()` or :php:`->orWhere()` usually indicates a bug or a
-    rather weird code flow. Doing so is discouraged.
+    expressions and replaces it with the new stuff. This is usually an unwanted error.
 
 *   When creating complex :sql:`WHERE` restrictions, :php:`->getSQL()` and
     :php:`->getParameters()` are helpful debugging tools to verify parenthesis
