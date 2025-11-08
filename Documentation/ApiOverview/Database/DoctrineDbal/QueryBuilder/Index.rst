@@ -52,6 +52,7 @@ an instance of the current query builder itself, and can be chained:
         ->select('uid')
         ->from('pages');
 
+
 ..  _database-query-builder-instantiation:
 
 Instantiation
@@ -82,11 +83,6 @@ injected via :ref:`dependency injection <DependencyInjection>`.
     is quite fast.
 
 ..  _significant performance penalty and memory consumption: https://www.derhansen.de/2023/10/the-pitfalls-of-reusing-typo3-querybuilder-analyzing-a-performance-bottleneck.html
-
-..  note::
-    The RestrictionBuilder adds default restrictions to :ref:`select
-    <database-query-builder-select-restrictions>` queries if they are defined as
-    :ref:`enableColumns <t3tca:ctrl-enablecolumns>` in the table's TCA ctrl section.
 
 ..  _database-query-builder-select:
 
@@ -185,17 +181,16 @@ Read :ref:`how to correctly instantiate <database-query-builder-instantiation>`
 a query builder with the connection pool.
 See available :ref:`parameter types <database-connection-parameter-types>`.
 
-..  _database-query-builder-select-restrictions:
+..  _database-query-builder-default-restrictions:
 
 Default Restrictions
 --------------------
 
 ..  note::
-    :php:`->select()` and :php:`->count()` queries trigger TYPO3 magic that adds
-    further default where clauses if the queried table is also registered via
-    :php:`$GLOBALS['TCA']`. See the :ref:`RestrictionBuilder
-    <database-restriction-builder>` section for details on that topic.
-
+    :php:`->select()` and :php:`->count()` queries trigger a TYPO3 magic that adds
+    further default where clauses to queries if they are defined as
+    :ref:`enableColumns <t3tca:ctrl-enablecolumns>` in the table's TCA ctrl section.
+    See the :ref:`RestrictionBuilder <database-restriction-builder>` section for details on that topic.
 
 ..  _database-query-builder-count:
 
@@ -228,6 +223,8 @@ a query builder with the connection pool.
 See available :ref:`parameter types <database-connection-parameter-types>`.
 
 Remarks:
+
+*   see :ref:`Default Restrictions <database-query-builder-default-restrictions>`
 
 *   Similar to the :php:`->select()` query type, :php:`->count()` automatically
     triggers the magic of the :ref:`RestrictionBuilder
@@ -410,7 +407,7 @@ Remarks:
 
 *   The API does not magically add `deleted = 0` or other restrictions, as is
     currently the case with :ref:`select
-    <database-query-builder-select-restrictions>`, for example.
+    <database-query-builder-default-restrictions>`, for example.
     (See also :ref:`RestrictionBuilder <database-restriction-builder>`).
 
 
@@ -881,7 +878,7 @@ queries.
     query builder.
 
     If you decide to do so you **must** take care of quoting, escaping, and
-    valid SQL Syntax for the database system in question. The `Default Restrictions <https://docs.typo3.org/permalink/t3coreapi:database-query-builder-select-restrictions>`_
+    valid SQL Syntax for the database system in question. The `Default Restrictions <https://docs.typo3.org/permalink/t3coreapi:database-query-builder-default-restrictions>`_
     are **not applied** on that part.
 
 Named placeholders, such as created by :php:`QueryBuilder::createNamedParameter()`
@@ -928,7 +925,7 @@ Line 41
 Line 50
     Named parameters must also be called on the outer most union query builder.
 
-The `Default Restrictions <https://docs.typo3.org/permalink/t3coreapi:database-query-builder-select-restrictions>`_
+The `Default Restrictions <https://docs.typo3.org/permalink/t3coreapi:database-query-builder-default-restrictions>`_
 are applied to each subquery automatically.
 
 ..  _database-query-builder-setMaxResults:
