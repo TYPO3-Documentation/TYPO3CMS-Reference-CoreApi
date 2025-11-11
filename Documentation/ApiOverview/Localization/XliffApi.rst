@@ -1,10 +1,10 @@
-:navigation-title: XLIFF Api
+:navigation-title: XLIFF API
 
 ..  include:: /Includes.rst.txt
 ..  _xliff-api:
 
 =================================
-XLIFF Api: Access language labels
+XLIFF API: Access language labels
 =================================
 
 ..  contents:: Table of contents
