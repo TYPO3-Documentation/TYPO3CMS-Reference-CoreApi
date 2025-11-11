@@ -55,5 +55,5 @@ managing translations.
     ManagingTranslations
     TranslationServer/Index
     LocalizationApi/Index
-    XliffAPI
+    XliffApi
     XliffFormat
