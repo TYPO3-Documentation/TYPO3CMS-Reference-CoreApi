@@ -6,6 +6,10 @@
 PHP syntax formatting
 =====================
 
+..  hint::
+
+    You may also want to read `PHP architecture <https://docs.typo3.org/permalink/t3coreapi:cgl-best-practices>`_
+    for best practices in PHP beyond pure code formatting.
 
 Identifiers
 ===========
