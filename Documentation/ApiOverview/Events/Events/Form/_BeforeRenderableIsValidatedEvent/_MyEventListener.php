@@ -26,7 +26,7 @@ final readonly class MyEventListener
                 GeneralUtility::makeInstance(
                     Error::class,
                     GeneralUtility::makeInstance(TranslationService::class)->translate('validation.error.1556283177', null, 'EXT:form/Resources/Private/Language/locallang.xlf'),
-                    1556283177
+                    1556283177,
                 )
             );
         }
