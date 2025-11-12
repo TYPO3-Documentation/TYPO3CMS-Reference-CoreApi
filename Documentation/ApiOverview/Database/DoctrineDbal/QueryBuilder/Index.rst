@@ -231,7 +231,7 @@ Remarks:
     triggers :ref:`RestrictionBuilder <database-restriction-builder>`
     magic that adds default restrictions such as
     :sql:`deleted`, :sql:`hidden`, :sql:`starttime` and :sql:`endtime` if
-    they defined in the TCA.
+    they are defined in the TCA.
 
 *   Similar to :php:`->select()` query types, :php:`->executeQuery()` with
     :php:`->count()` returns a result object of type :php:`\Doctrine\DBAL\Result`.
