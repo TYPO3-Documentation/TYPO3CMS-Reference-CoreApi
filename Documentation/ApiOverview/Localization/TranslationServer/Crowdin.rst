@@ -21,6 +21,7 @@ Localization with Crowdin
     Crowdin/ExtensionIntegration
     Crowdin/OnlineTranslation
     Crowdin/Workflow
+    Crowdin/Bestpractice
     Crowdin/Faq
 
 ..  _xliff-translating-server-crowdin-what-is:
