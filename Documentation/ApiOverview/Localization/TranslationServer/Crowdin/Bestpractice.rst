@@ -87,10 +87,11 @@ Popular projects typically have a lot of users, so your contribution will have a
 big impact.
 
 If you want to get started with the TYPO3 CMS project, there are typically many
-words (>57.000 and counting) and strings that need to be translated. Here, it is
-especially important to have a good plan from the start: Start with files in the
-main branch – then you know that you will hit the most users. We still hold previous
-(E)LTS versions in but unless you have massive energy, leave these files.
+words (>60.000 and counting) and strings that need to be translated. Here, it is
+especially important to have a good plan from the start: A good start is the
+Glossary with all the terms. Continue with files in the main branch – then you
+know that you will hit the most users. We still hold previous (E)LTS versions
+in but unless you have massive energy, leave these files.
 
 And follow the recommendations above, work in a structured way through files and
 projects. It can be an advantage to set intermediate goals along the way, so that
@@ -103,7 +104,8 @@ To wrap it up:
 *   Feel free to translate one file at a time to get a better understanding of the context.
 *   Choose projects that are already in use in your language area or that you will be working on yourself.
 *   Consider tackling popular projects – your contribution will have a greater impact.
-*   If you are translating TYPO3 CMS, start with files in the main branch to reach the most users.
+*   If you are translating TYPO3 CMS, start with the Glossary if it's not
+already translated, and continue in the main branch to reach the most users.
 *   Work in a structured way and preferably set sub-goals to maintain motivation in larger projects.
 
 ..  _crowdin-bestpractice-use-ext-crowdin:
@@ -117,7 +119,9 @@ into TYPO3, making it quick and easy to add translations of XLF files used in th
 backend. With this extension, you can get a more streamlined workflow, where you
 don't have to switch between multiple programs or platforms. This allows you to
 work more efficiently and easily keep track of which files have been translated
-and which ones are missing.
+and which ones are missing. And most important: the extension gives you context
+to the string, you currently translate, because you can see right away where
+it is used in TYPO3.
 
 You find the Extension here: `Extension Crowdin | TER`_
 
@@ -136,8 +140,8 @@ Select your language and the files that can be translated will appear. Here you
 have the option to start translating all files (Translate All) or start with a
 single file (the three dots ···), as described in the introductory considerations above.
 
-Now you're up and running! We recommend that you use Editor View "Comfortable".
-Here you have an overview of several parts of your work at the same time. You can
+Now you're up and running! We recommend that you stay with the default Editor
+View "Comfortable". Here you have an overview of several parts of your work at the same time. You can
 see the source text, suggestions from Translation Memory, comments from other
 translators, and the status of each string. Editor View also offers a range of
 features that make it easier to work with larger projects, such as filtering strings
@@ -217,17 +221,19 @@ Communication and collaboration
 
 Write, comment and suggest! In TYPO3, we primarily have two channels in Slack:
 TYPO3 translations for questions and problems about working with translations,
-and typo3 localization team for driving the process around Crowdin, TYPO3 and
+and TYPO3 localization team for driving the process around Crowdin, TYPO3 and
 localization. It is important to use these channels actively, as collaboration
 and knowledge sharing often lead to better and more accurate translations. You
 can ask questions, share experiences, and help others if you encounter challenges.
 
 Go to TYPO3 Slack:
 
-Channel questions and problems working with translations: `typo3-translations | Slack`_
+*   Sign Up for a `TYPO3 Slack Account`
+*   Channel questions and problems working with translations:
+`typo3-translations | Slack`_
+*   Channel for the localization team: `typo3-localization-team | Slack`_
 
-Channel for the localization team: `typo3-localization-team | Slack`_
-
+.. _TYPO3 Slack Account: https://docs.typo3.org/m/typo3/guide-step-by-step/main/en-us/10GettingStarted/05MeetTheCommunity/SignUpForATypo3SlackAccount.html
 .. _typo3-translations | Slack: https://typo3.slack.com/archives/C032FRT0W
 .. _typo3-localization-team | Slack: https://typo3.slack.com/archives/CR75200FL
 
@@ -261,8 +267,8 @@ Crowdin shows one percent for each language, but it's a bit misleading. Old vers
 do not have to be completely translated, so a language can easily be finished, even if
 the counter may only say 50%. And even if it says "100% finished", it doesn't mean
 that everything just plays – it's always a good idea to just read through the text
-and check if it sounds proper and natural in Danish. Quality is not only a question
-of quantity, but also of whether the text is understandable and accurate.
+and check if it sounds proper and natural in your language. Quality is not
+only a question of quantity, but also of whether the text is understandable and accurate.
 
 Inside each version folder there is also a counter, but it only tells you how many
 words are missing in that version. This can mean that 50% is either half of 1,000
@@ -271,8 +277,27 @@ one word in a sentence, Crowdin counts the entire sentence as changed. Luckily,
 it shows the translation from the old version, so you can copy and correct just
 that one word – it's fast and saves time.
 
+.. _crowdin-bestpractice-final:
+
+Final thoughts
+--------------
+
 To ensure the quality of the translations, it may be a good idea to do an extra
 review where you check for consistency, spelling mistakes and whether the texts
-sound natural in Danish. Feel free to share your experiences and best tips with
-the community – it empowers everyone, and together we can make TYPO3 even better
-and more accessible to users all over the world.
+sound natural in in your language. Put yourself in the position of an unexperienced
+user of TYPO3. Would you understand the translation?
+
+Feel free to share your experiences and best tips with the community – it empowers
+everyone, and together we can make TYPO3 even better and more accessible to users
+all over the world.
+
+.. _crowdin-bestpractice-further-readings:
+
+Further readings
+----------------
+
+Get inspired by Martin Pribyl's article about how he did a full translation and
+proofreading of TYPO3 CMS into Czech language: `Bringing Czech to TYPO3 - My Translation Journey`_
+
+.. _Bringing Czech to TYPO3 - My translation Journey: https://typo3.org/article/bringing-czech-to-typo3-my-translation-journey
+
