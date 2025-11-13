@@ -177,14 +177,26 @@ checkbox.
 Why is translated content not available in TYPO3?
 -------------------------------------------------
 
-*   The translated strings are not approved. As an owner of the Crowdin project
-    you can approve them yourself. With the next run of the Crowdin Bridge
-    the translations should be available.
+Approval is missing
+~~~~~~~~~~~~~~~~~~~
 
-*   Only translations provided from the following default branches in your
-    repository are used: `main`, `master`, `release`, `develop`, `dev`,
-    `development`. If you use other branches, the translations are not
-    available — even if they are translated in Crowdin.
+The translated strings are not approved. As an owner of the Crowdin project
+you can approve them yourself. With the next run of the Crowdin Bridge
+the translations should be available.
+
+Integration branch is not recognized
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+If the legacy Crowdin <> GitHub integration is used, only translations
+provided from the following default branches in your repository are used:
+`main`, `master`, `release`, `develop`, `dev`, `development`. If you use
+other branches, the translations are not available — even if they are
+translated in Crowdin.
+
+It is recommended to configure the
+:ref:`GitHub workflow as integration for Crowdin <crowdin-extension-integration-github>`,
+this way you define the `crowdin_branch_name` which can be set to
+`main` — independently of your GitHub default branch.
 
 ..  index:: Crowdin; Reconnect your project
 ..  _reconnect-your-project:
