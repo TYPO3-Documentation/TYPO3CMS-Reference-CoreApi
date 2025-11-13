@@ -228,11 +228,11 @@ can ask questions, share experiences, and help others if you encounter challenge
 
 Go to TYPO3 Slack:
 
-*   Sign Up for a `TYPO3 Slack Account | TYPO3 Docs`_
+*   Sign Up for a `TYPO3 Slack Account`
 *   Channel questions and problems working with translations: `typo3-translations | Slack`_
 *   Channel for the localization team: `typo3-localization-team | Slack`_
 
-.. _TYPO3 Slack Account | TYPO3 Docs: https://docs.typo3.org/m/typo3/guide-step-by-step/main/en-us/10GettingStarted/05MeetTheCommunity/SignUpForATypo3SlackAccount.html
+.. _TYPO3 Slack Account: https://docs.typo3.org/m/typo3/guide-step-by-step/main/en-us/10GettingStarted/05MeetTheCommunity/SignUpForATypo3SlackAccount.html
 .. _typo3-translations | Slack: https://typo3.slack.com/archives/C032FRT0W
 .. _typo3-localization-team | Slack: https://typo3.slack.com/archives/CR75200FL
 
