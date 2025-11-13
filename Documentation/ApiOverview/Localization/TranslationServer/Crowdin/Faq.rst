@@ -182,9 +182,9 @@ Why is translated content not available in TYPO3?
     the translations should be available.
 
 *   Only translations provided from the following default branches in your
-    repository are used: `main`, `master`, `release`,  `develop`, `dev`,
-    `development`. If you use other branches, the translations are not available
-    - even if they are translated in Crowdin.
+    repository are used: `main`, `master`, `release`, `develop`, `dev`,
+    `development`. If you use other branches, the translations are not
+    available — even if they are translated in Crowdin.
 
 ..  index:: Crowdin; Reconnect your project
 ..  _reconnect-your-project:
