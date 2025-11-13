@@ -56,6 +56,12 @@ docs-test: ## Build documentation with strict validation (CI mode)
 	mkdir -p $(DOCS_OUTPUT)
 	docker run --user $(DOCKER_USER) --rm --pull always -v "$(shell pwd)":/project -t $(DOCKER_IMAGE) --config=$(DOCS_DIR) --no-progress --fail-on-log
 
+docs-hot: ## Generate projects documentation with hot reloading
+	docker run --rm -it --pull always \
+  		-v "./Documentation:/project/Documentation" \
+  		-v "./Documentation-GENERATED-temp:/project/Documentation-GENERATED-temp" \
+  		-p 1337:1337 ghcr.io/typo3-documentation/render-guides:latest --config="Documentation" --watch
+
 .PHONY: docs-open
 docs-open: ## Open rendered documentation in browser
 	@if [ -f "$(DOCS_OUTPUT)/Index.html" ]; then \
