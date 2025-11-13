@@ -9,6 +9,12 @@ docs: ## Generate projects documentation (from "Documentation" directory)
 
 	docker run --user $(shell id -u):$(shell id -g) --rm --pull always -v "$(shell pwd)":/project -t ghcr.io/typo3-documentation/render-guides:latest --config=Documentation
 
+docs-hot: ## Generate projects documentation with hot reloading
+	docker run --rm -it --pull always \
+  		-v "./Documentation:/project/Documentation" \
+  		-v "./Documentation-GENERATED-temp:/project/Documentation-GENERATED-temp" \
+  		-p 1337:1337 ghcr.io/typo3-documentation/render-guides:latest --config="Documentation" --watch
+
 .PHONY: test-docs
 test-docs: ## Test the documentation rendering
 	mkdir -p Documentation-GENERATED-temp
