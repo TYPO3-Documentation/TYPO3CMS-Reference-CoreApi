@@ -259,6 +259,7 @@ Remarks:
     order of result rows on multiple different databases, a :php:`->groupBy()`
     should always be combined with an :php:`->orderBy()`.
 
+.. _database-query-builder-delete:
 
 delete()
 ========
@@ -409,6 +410,7 @@ Remarks:
     <database-query-builder-select-restrictions>`, for example.
     (See also :ref:`RestrictionBuilder <database-restriction-builder>`).
 
+.. _database-query-builder-insert-values:
 
 insert() and values()
 =====================
@@ -453,6 +455,7 @@ Remarks:
     at once, use :php:`->bulkInsert()` of the :ref:`Connection <database-connection>`
     object instead to achieve that.
 
+.. _database-query-builder-from:
 
 from()
 ======
@@ -480,6 +483,7 @@ product of tables if not constrained by a respective :php:`->where()` or
 :php:`->from()` only once per query and instead model the selection of multiple
 tables with an explicit :php:`->join()`.
 
+.. _database-query-builder-where:
 
 where(), andWhere() and orWhere()
 =================================
@@ -576,6 +580,7 @@ Remarks:
     are created in a different place that can not be easily resolved.
 
 ..  dbal-join
+.. _database-query-builder-join:
 
 join(), innerJoin(), rightJoin() and leftJoin()
 ===============================================
@@ -818,6 +823,7 @@ Remarks:
     Make sure to quote properly as this is entirely your responsibility with the
     Doctrine QueryBuilder!
 
+.. _database-query-builder-groupby:
 
 groupBy() and addGroupBy()
 ==========================
@@ -1133,6 +1139,7 @@ The :php:`executeStatement()` method can be used for :sql:`INSERT`,
 :sql:`UPDATE` and :sql:`DELETE` statements. It returns the number of affected
 rows as an integer.
 
+.. _database-query-builder-expr:
 
 expr()
 ======
@@ -1457,6 +1464,7 @@ See available :ref:`parameter types <database-connection-parameter-types>`.
     :php:`->escapeLikeWildcards()` does **not** make the value SQL injection
     safe!
 
+.. _database-query-builder-get-restrictions:
 
 getRestrictions(), setRestrictions(), resetRestrictions()
 =========================================================
