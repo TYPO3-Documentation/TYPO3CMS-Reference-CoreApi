@@ -15,8 +15,8 @@ and authenticated via the `frontend.user request attribute <https://docs.typo3.o
 The frontend user id and groups are available from the
 `User aspect (Context API) <https://docs.typo3.org/permalink/t3coreapi:context-api-aspects-user>`_.
 
-The system extension :composer:`typo3/cms-felogin` offers a plugin that can
-included in the page so that frontend users can login and logout. It also
+The system extension :composer:`typo3/cms-felogin` offers a plugin to be
+included in a page so that frontend users can login and logout. It also
 features a password-forgotten workflow.
 
 The TYPO3 Core does not provide a plugin to register frontend users. There are
