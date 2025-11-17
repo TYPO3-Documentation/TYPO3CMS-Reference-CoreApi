@@ -73,8 +73,8 @@ The key :php:`recordType` makes sure that the defined model is only used if the
 :php:`\FriendsOfTYPO3\BlogExample\Domain\Model\Administrator`. This way the
 class will only be used for administrators but not plain frontend users.
 
-The array stored in :php:`properties` to match properties to database field
-names if the names do not match.
+The array stored in :php:`properties` matches properties to database field
+names.
 
 ..  _extbase-persistance-record-types:
 
@@ -137,8 +137,8 @@ are required:
 
 #.  Create a model
 
-    In this example, we assume that we need the two fields :sql:`header` and
-    :sql:`bodytext`, so only these two fields are available in the
+    In this example we assume that we need the two fields :sql:`header` and
+    :sql:`bodytext`. So only these two fields are available in the
     :ref:`model <extbase-model>` class.
 
     ..  literalinclude:: _codesnippets/_Content.php
