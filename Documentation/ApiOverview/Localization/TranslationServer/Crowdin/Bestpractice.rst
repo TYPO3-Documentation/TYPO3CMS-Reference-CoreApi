@@ -97,7 +97,7 @@ Glossary
 
 - Ensures consistent terminology across projects.
 - TYPO3 has a shared glossary (for example TypoScript, TsConfig, Cache).
- Contributors can add or improve terms in Crowdin.
+- Contributors can add or improve terms in Crowdin.
 
 Translation Memory (TM)
 ~~~~~~~~~~~~~~~~~~~~~~~
