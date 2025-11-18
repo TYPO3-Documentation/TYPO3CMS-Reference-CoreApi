@@ -119,7 +119,7 @@ The daily work
 ~~~~~~~~~~~~~~
 
 - Skip difficult strings and return later.
-- Do **not** translate placeholders in curly brackets (e.g., {@viewPortLabel}).
+- Do **not** translate placeholders in curly brackets (for example {@viewPortLabel}).
 - Don’t rely solely on Crowdin’s percentage counters—quality matters more than quantity.
 - Review translations for consistency and natural language.
 
