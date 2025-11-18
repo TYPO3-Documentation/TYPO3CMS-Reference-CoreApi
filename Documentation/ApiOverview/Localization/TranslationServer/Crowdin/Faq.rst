@@ -178,7 +178,7 @@ Why is translated content not available in TYPO3?
 -------------------------------------------------
 
 *   The translated strings are not approved. As an owner of the Crowdin project
-    (for example when you're the extension owner) or as proofreader you can approve
+    (for example, if you're the extension owner) or as proofreader you can approve
     strings by yourself. Otherwise please ask in the Slack channel
     `#typo3-localization-team <https://typo3.slack.com/app_redirect?channel=CR75200FL>`__
     for approval. With the next run of the Crowdin Bridge the translations
