@@ -404,6 +404,8 @@ Remarks:
 
 *   :php:`->update()` ignores :php:`->join()` and :php:`->setMaxResults()`.
 
+*   :php:`->executeStatement()` returns the number of affected rows.
+
 *   The API does not magically add `deleted = 0` or other restrictions, as is
     currently the case with :ref:`select
     <database-query-builder-select-restrictions>`, for example.
