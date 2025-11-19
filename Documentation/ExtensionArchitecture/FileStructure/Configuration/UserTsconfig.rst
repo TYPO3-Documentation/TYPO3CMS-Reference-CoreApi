@@ -18,11 +18,11 @@
     :regex: /^.*Configuration\/user\.tsconfig$/
     :shortDescription: Global user TSconfig
 
-In this file global :ref:`user TSconfig <t3tsref:usertsconfig>` can be stored. It will
-be automatically included for the whole TYPO3 installation during build time.
+This file stores global :ref:`user TSconfig <t3tsref:usertsconfig>`. It is
+automatically included for the whole TYPO3 installation during build time.
 
-For details see
-:ref:`Setting the user TSconfig globally <t3tsref:usersettingdefaultusertsconfig>`.
+For details, see
+:ref:`Setting user TSconfig globally <t3tsref:usersettingdefaultusertsconfig>`.
 
 
 ..  code-block:: typoscript

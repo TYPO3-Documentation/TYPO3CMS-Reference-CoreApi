@@ -9,7 +9,7 @@
 `Services.yaml`
 ===============
 
-It is possible to use a YAML or PHP format:
+It is possible to use YAML or PHP format:
 
 ..  typo3:file:: Services.yaml
     :scope: extension
@@ -23,7 +23,7 @@ It is possible to use a YAML or PHP format:
     :regex: /^.*Configuration\/Services\.php$/
     :shortDescription: Dependency injection service configuration
 
-Services can be configured in this file. TYPO3 uses it for:
+This file can configure services. TYPO3 uses it for:
 
 *  :ref:`Dependency Injection <configure-dependency-injection-in-extensions>`
 *  :ref:`Event Listeners <EventDispatcherRegistration>`

@@ -11,11 +11,12 @@ Extension folder `Configuration/Sets`
     `Site sets <https://docs.typo3.org/permalink/t3coreapi:site-sets>`_ have
     been introduced.
 
-In this directory TYPO3 extensions can provide their
+This directory contains an extension's
 `Site sets <https://docs.typo3.org/permalink/t3coreapi:site-sets>`_.
 
-Each set must be saved in its own directory and have at least a file called
-:file:`config.yaml`.
+Each set must be in its own directory and consist of at least a
+:file:`config.yaml` file.
+
 
 .. _extension-configuration-sets-config-yaml:
 
@@ -25,8 +26,8 @@ Each set must be saved in its own directory and have at least a file called
     :regex: /^.*Configuration\/Sets\/[\w\-]+\/config\.yaml$/
     :shortDescription: Contains the definition of a site set. Mandatory.
 
-    Contains the `definition of a site set <https://docs.typo3.org/permalink/t3coreapi:site-sets-definition>`_
-    and its dependencies.
+    Contains the `definition of the site set <https://docs.typo3.org/permalink/t3coreapi:site-sets-definition>`_
+    and any dependencies.
 
 Example:
 
@@ -40,8 +41,8 @@ Example:
     :regex: /^.*Configuration\/Sets\/[\w\-]+\/settings\.yaml$/
     :shortDescription: Override settings defined by other sets.
 
-    In this file an extension can override settings defined by other sets. For
-    example :ref:`Settings provided by site set "Fluid Styled Content" <typo3/cms-fluid-styled-content:site-set-fluid-styled-content-settings>`:
+    In this file an extension can override settings defined by other sets, for
+    example, :ref:`settings defined in the "Fluid Styled Content" site set <typo3/cms-fluid-styled-content:site-set-fluid-styled-content-settings>`:
 
     ..  literalinclude:: /ApiOverview/SiteHandling/_Sets/_site-package/_settings-map.yaml
         :language: yaml
@@ -66,12 +67,12 @@ Example:
     :regex: /^.*Configuration\/Sets\/[\w\-]+\/setup\.typoscript$/
     :shortDescription: Provides frontend TypoScript for sites depending on this set.
 
-    This file contains the Frontend :ref:`TypoScript <t3tsref:guide-overview>`
-    that the set should provide. If the
+    This file contains a set's Frontend
+    :ref:`TypoScript <t3tsref:guide-overview>`. If the
     extension keeps its TypoScript in folder `TypoScript <https://docs.typo3.org/permalink/t3coreapi:extension-configuration-typoscript>`_
-    for backward compatibility reasons this file **should** contain an import of
-    file :file:`Configuration/TypoScript/setup.typoscript` for the main set of the
-    extension:
+    for backward compatibility reasons, this file **should** import
+    the :file:`Configuration/TypoScript/setup.typoscript` file in the main
+    extension set:
 
 ..  code-block:: typoscript
     :caption: EXT:my_extension/Configuration/Sets/MySet/setup.typoscript
@@ -87,8 +88,8 @@ Example:
     :regex: /^.*Configuration\/Sets\/[\w\-]+\/constants\.typoscript$/
     :shortDescription: Provides frontend TypoScript constants for sites depending on this set.
 
-    This file contains the Frontend TypoScript Constants that the set should
-    provide. This file can be used if your extension depends on other extensions
+    This file contains the Frontend TypoScript Constants in the set.
+    This file should be used if the extension depends on other extensions
     that still rely on TypoScript constants.
 
 .. _extension-configuration-sets-page-tsconfig:
@@ -100,4 +101,4 @@ Example:
     :shortDescription: Provides page TSconfig (backend TypoScript) for sites depending on this set.
 
     This file contains the :ref:`Page TSconfig <t3tsref:pagetoplevelobjects>`
-    (backend TypoScript) that the set should provide.
+    (backend TypoScript).
