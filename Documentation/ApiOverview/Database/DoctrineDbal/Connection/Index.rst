@@ -332,7 +332,7 @@ Arguments of the :php:`count()` method:
 
 1.  The field to count, usually :sql:`*` or :sql:`uid`. Required.
 2.  The name of the table. Required.
-3.  The select criteria as an array of key/value pairs. The key is the field
+3.  The select criteria as an array of key/value pair equations. The key is the field
     name, the value is the value. In SQL they are mapped in a :sql:`WHERE`
     keyword combined with :sql:`AND`. Required.
 
