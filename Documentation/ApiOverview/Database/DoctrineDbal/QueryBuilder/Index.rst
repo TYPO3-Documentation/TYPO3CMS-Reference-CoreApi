@@ -233,7 +233,8 @@ Remarks:
 
 *   Similar to :php:`->select()` query types, :php:`->executeQuery()` with
     :php:`->count()` returns a result object of type :php:`\Doctrine\DBAL\Result`.
-    To fetch the number of rows directly, use :php:`->fetchOne()`.
+    To fetch the number of rows directly, use :php:`->fetchOne()`, which 
+    returns a numeric value of the first column of the resulting row.
 
 *   The first argument to :php:`->count()` is required, typically
     :php:`->count(*)` or :php:`->count('uid')` is used, the field name is
