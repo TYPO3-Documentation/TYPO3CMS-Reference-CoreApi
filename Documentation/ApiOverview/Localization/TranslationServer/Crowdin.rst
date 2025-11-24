@@ -59,9 +59,9 @@ Contribute translations
 
 There are basically two cases where you can provide a helping hand:
 
-Join our `group of translators and proofreaders`_ and help where you can. This
-can be the translation of a whole extension into your language or the revision
-of a part of the Core.
+Pick one of our `projects`_, join our group of translators and proofreaders and
+help where you can. This can be the translation of a whole extension into your
+language or the revision of a part of the Core.
 
 #.  Contribution to the general translation of the TYPO3 Core and extensions:
     As TYPO3 is growing in features and functionality, the need for translating
@@ -91,4 +91,4 @@ team of translators and proofreaders. It does not matter which language you
 speak. We already have many language teams that are very active. Our goal is
 more diversity to help us with our work on internationalization.
 
-..  _group of translators and proofreaders: https://crowdin.com/profile/TYPO3
+..  _projects: https://crowdin.com/profile/TYPO3
