@@ -197,6 +197,16 @@ Step-by-step instructions for GitHub
                         ``<source>`` and ``<target>`` elements. If the ``<source>`` elements are missing,
                         Crowdin will not be able to match the translations with the original English labels.
 
+3.  Approve imported translations
+
+    After importing existing translations, they will arrive in Crowdin in an
+    **unapproved state**. These translations need to be explicitly approved in
+    Crowdin before they become available for export and use in TYPO3 installations.
+
+    See :ref:`crowdin-mass-approval` for instructions on how to approve translations
+    programmatically using the Crowdin API, or use Crowdin's web interface bulk
+    approval feature.
+
 Happy translating!
 
 ..  tip::
