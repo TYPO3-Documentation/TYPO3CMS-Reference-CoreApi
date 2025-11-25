@@ -91,7 +91,7 @@ Hidden site sets
 ----------------
 
 Sets may be hidden from the backend set selection in
-:guilabel:`Site Management > Sites` and the console command
+:guilabel:`Sites > Setup` and the console command
 :bash:`bin/typo3 site:sets:list` by adding a `hidden` flag to the
 :file:`config.yaml <set-config-yaml>` definition:
 
@@ -130,7 +130,7 @@ optional dependencies listed in `optionalDependencies`:
        - typo3/form
 
 Site sets can also be added to a site via the backend module
-:guilabel:`Site Management > Sites`.
+:guilabel:`Sites > Setup`.
 
 ..  _site-sets-settings-definition:
 

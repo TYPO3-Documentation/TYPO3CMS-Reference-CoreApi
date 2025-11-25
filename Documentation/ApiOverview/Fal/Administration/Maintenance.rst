@@ -54,7 +54,7 @@ Processed files
 If you change some graphics-related settings, it may be necessary
 to force a regeneration of all processed files. This can be achieved
 by deleting all existing processed files in
-:guilabel:`Admin Tools > Maintenance > Remove Temporary Assets`.
+:guilabel:`System > Maintenance > Remove Temporary Assets`.
 
 .. include:: /Images/AutomaticScreenshots/AdminTools/MaintenanceRemoveTemporaryAssets.rst.txt
 

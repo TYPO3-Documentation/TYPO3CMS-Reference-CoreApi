@@ -8,9 +8,13 @@
 Backend users module
 ====================
 
-The :guilabel:`System > Backend users` module offers a convenient way
+The :guilabel:`Administration > Users` module offers a convenient way
 of working with backend users and groups. It provides a list of both
 users and groups. The users list can be searched and filtered.
+
+..  versionchanged:: 14.0
+    Until TYPO3 V14 this module was called :guilabel:`System > Backend Users`.
+    See also: `Feature: #107628 - Improved backend module naming and structure <https://docs.typo3.org/permalink/changelog:feature-107628-1729026000>`_.
 
 Comparing Users or Groups
 =========================

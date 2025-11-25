@@ -139,7 +139,7 @@ The class must be set to :ref:`public <t3coreapi:What-to-make-public>`, because
 we :ref:`inject <DependencyInjection>` the class :php:`SiteFinder` as
 dependency.
 
-Then **flush the cache** in :guilabel:`Admin Tools > Maintenance > Flush TYPO3
+Then **flush the cache** in :guilabel:`System > Maintenance > Flush TYPO3
 and PHP Cache`.
 
 Configure the new page title provider to be used in your TypoScript setup:

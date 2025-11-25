@@ -3,9 +3,9 @@
 ..  include:: /Includes.rst.txt
 ..  _admin-tools-csp:
 
-=====================================
-Content Security Policy (Admin Tools)
-=====================================
+=========================================
+Module "Content Security Policy" (System)
+=========================================
 
 :ref:`Content Security Policy <t3coreapi:content-security-policy>` declarations
 can be applied to a TYPO3 website in frontend and backend scope with a dedicated

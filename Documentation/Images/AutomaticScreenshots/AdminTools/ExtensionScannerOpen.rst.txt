@@ -3,4 +3,4 @@
 .. figure:: /Images/AutomaticScreenshots/AdminTools/ExtensionScannerOpen.png
    :class: with-shadow
 
-   Open the extension scanner from the Admin Tools
+   Open the extension scanner at :guilabel:`System > Upgrade > Scan Extension Files`

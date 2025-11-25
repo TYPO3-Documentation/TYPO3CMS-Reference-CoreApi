@@ -6,4 +6,4 @@
 .. figure:: /Images/AutomaticScreenshots/AdminTools/EditorAdminPrivileges.png
    :class: with-shadow
 
-   Screenshot of a menu with the section "Admin Tools"
+   Screenshot of a menu with the section "System"

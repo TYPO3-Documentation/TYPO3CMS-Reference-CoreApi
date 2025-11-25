@@ -14,7 +14,7 @@ Whenever you install or update an extension, or change the
 into account the fact that the database schema might have changed.
 
 ..  figure:: /Images/ManualScreenshots/AdminTools/AnalyzeDatabase.png
-    :alt: TYPO3 backend with the Maintenance Admin Tools. The database analyzer is highlighted.
+    :alt: TYPO3 backend with the "System > Maintenance". The database analyzer is highlighted.
 
     Here system maintainers can compare the database schema and apply any changes.
 
@@ -29,7 +29,7 @@ Users with
 `System Maintainer privileges
 <https://docs.typo3.org/permalink/t3coreapi:system-maintainer>`_ can use the
 :guilabel:`Analyze Database Structure` section in the
-:guilabel:`Admin Tools > Maintenance` module to compare the defined schema
+:guilabel:`System > Maintenance` module to compare the defined schema
 with the current one. The module display options to incorporate changes by adding,
 removing, or updating columns.
 

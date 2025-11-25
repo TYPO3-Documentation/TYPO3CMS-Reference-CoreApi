@@ -20,7 +20,7 @@ Benjamin Kott: How to implement frontend layouts in TYPO3 using backend layouts
 .. youtube:: RoHaeo4fq34
 
 .. index::
-   Backend layout; Info module
+   Backend layout; Status module
    Backend layout; Configuration
 .. _be-layout-info-module:
 
@@ -41,9 +41,9 @@ backend layouts have been
     See `Feature: #107628 - Improved backend module naming and structure <https://docs.typo3.org/permalink/changelog:feature-107628-1729026000>`_
 
 
-The Info module gives an overview of the backend layouts configured or
+The :guilabel:`Content > Status` module gives an overview of the backend layouts configured or
 inherited from a parent page at
-:guilabel:`Content > Info > Pagetree overview > Type: Layouts`:
+:guilabel:`Content > Status > Pagetree overview > Type: Layouts`:
 
 .. include:: /Images/AutomaticScreenshots/BackendLayouts/PageTreeLayoutOverview.rst.txt
 

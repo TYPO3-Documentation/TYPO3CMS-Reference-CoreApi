@@ -152,7 +152,7 @@ for new directives and merge them if needed.
 
 You can check the `.htaccess` status under:
 
-:guilabel:`Admin Tools > Environment > Check Directory Status`
+:guilabel:`System > Environment > Check Directory Status`
 
 ..  _vhost-records:
 

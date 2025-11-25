@@ -3,13 +3,17 @@
 ..  include:: /Includes.rst.txt
 ..  _admin-tools-maintenance:
 
-=========================
-Maintenance (Admin Tools)
-=========================
+=============================
+Module "Maintenance" (System)
+=============================
+
+..  versionchanged:: 14.0
+    This module has been moved from :guilabel:`Admin tools` to :guilabel:`Settings`
+	<https://docs.typo3.org/permalink/changelog:feature-107628-1729026000>`_.
 
 Only available if :composer:`typo3/cms-install` is installed.
 
-The backend module :guilabel:`Admin Tools > Maintenance` offers tools
+The backend module :guilabel:`System > Maintenance` offers tools
 to system maintainers that are necessary during development or updates.
 
 Some of the tools available here include:
@@ -103,7 +107,7 @@ Remove temporary assets
 After an upgrade to a new major version, it might be necessary to delete
 temporary files which TYPO3 saves in the :file:`typo3temp/` folder.
 
-In the :guilabel:`Admin Tools > Maintenance` module, click on the
+In the :guilabel:`System > Maintenance` module, click on the
 :guilabel:`Remove Temporary Assets > Scan temporary files` button and select the
 appropriate folders.
 
@@ -112,7 +116,7 @@ appropriate folders.
 Rebuild PHP autoload information
 ================================
 
-This tool in module :guilabel:`Admin Tools > Maintenance` is only available
+This tool in module :guilabel:`System > Maintenance` is only available
 in classic mode installations. If PHP classes are not found even after
 `flushing the cache <https://docs.typo3.org/permalink/t3coreapi:admin-tools-maintenance-flush-cache>`_,
 rebuilding the autoload information might help.
@@ -133,7 +137,7 @@ You can use this tool to clear persistent database tables like `sys_log` and
 `sys_history` manually.
 
 If you need to clear these tables on a regular basis, set up a task
-in the module :guilabel:`System > Scheduler`.
+in the module :guilabel:`Administration > Scheduler`.
 
 ..  _admin-tools-maintenance-create-admin:
 
@@ -149,8 +153,13 @@ You can also create new backend users using the console:
 
     vendor/bin/typo3 backend:user:create
 
-and in the module :guilabel:`System > Backend Users`. Using this module, admins
+and in the module :guilabel:`Administration > Users`. Using this module, admins
 can create new admins but not system maintainers.
+
+..  versionchanged:: 14.0
+    Until TYPO3 V14 this module was called :guilabel:`System > Backend Users`.
+    See also: `Feature: #107628 - Improved backend module naming and structure <https://docs.typo3.org/permalink/changelog:feature-107628-1729026000>`_.
+
 
 ..  _clear-user-settings:
 
@@ -159,7 +168,7 @@ Reset backend user preferences
 
 You might consider clearing the Backend user preferences. This
 can avoid problems if something in the upgrade requires this. Open
-:guilabel:`Admin Tools > Maintanance`, scroll to
+:guilabel:`System > Maintenance`, scroll to
 "Reset user preferences" and click "Reset backend
 user preferences".
 
@@ -170,6 +179,6 @@ user preferences".
 Manage language packs
 =====================
 
-In the module :guilabel:`Admin Tools > Maintenance`, open tool "Manage language
+In the module :guilabel:`System > Maintenance`, open tool "Manage language
 packs". You can add additional languages to be downloaded or update the language
 packs for languages already in use.

@@ -25,5 +25,5 @@ Functions:
 -  Logs error messages  via the :ref:`logging API <logging>`.
 
 -  Logs error messages to the sys\_log table. Logged errors are displayed
-   in the belog extension (:guilabel:`Admin Tools > Log`). This will work only with an
+   in the belog extension (:guilabel:`Administration > Log`). This will work only with an
    existing DB connection.

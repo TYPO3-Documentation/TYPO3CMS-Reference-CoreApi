@@ -787,12 +787,16 @@ as outlined above.
 .. _content-security-policy-backend:
 .. _content-security-policy-reporting:
 
-Reporting of violations, CSP Backend module
-===========================================
+Reporting of violations, "Content Security Policy" (CSP) backend module
+=======================================================================
+
+..  versionchanged:: 14.0
+    This module has been moved from :guilabel:`Admin tools` to :guilabel:`Settings`
+	<https://docs.typo3.org/permalink/changelog:feature-107628-1729026000>`_.
 
 Potential CSP violations are reported back to the TYPO3 system and persisted
 internally in the database table :sql:`sys_http_report`. A corresponding
-:guilabel:`Admin Tools > Content Security Policy` backend module supports users
+:guilabel:`System > Content Security Policy` backend module supports users
 to keep track of recent violations and - if applicable - to select potential
 resolutions (stored in the database table :sql:`sys_csp_resolution`) which
 extends the Content Security Policy for the given scope during runtime:
