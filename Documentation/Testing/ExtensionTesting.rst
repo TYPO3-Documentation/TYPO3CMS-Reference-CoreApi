@@ -91,7 +91,7 @@ configurations and settings and everything done during
 
 ..  note::
 
-    Rule of dumb: Unit tests are isolated tests not using real services.
+    Rule of thumb: Unit tests are isolated tests not using real services.
 
 See also :ref:`Writing unit tests <testing-writing-unit>`
 
