@@ -1,8 +1,8 @@
-:navigation-title: Mass Approval
+:navigation-title: Mass approval
 
 ..  include:: /Includes.rst.txt
 ..  index::
-    Crowdin; Mass Approval
+    Crowdin; Mass approval
     Translations; Approval
 ..  _crowdin-mass-approval:
 
@@ -11,7 +11,7 @@ Mass approval on Crowdin
 ========================
 
 After :ref:`importing existing translations <crowdin-extension-integration>` into
-Crowdin, they need to be explicitly approved before becoming available for export.
+Crowdin, they must be explicitly approved before becoming available for export.
 
 This page provides a PHP implementation for programmatically approving translations
 via the Crowdin API.
@@ -21,20 +21,20 @@ via the Crowdin API.
 
 ..  _crowdin-mass-approval-workflow:
 
-Crowdin API Workflow
+Crowdin API workflow
 ====================
 
 The mass approval process follows these steps:
 
-#.  Retrieve project metadata to get available languages
-#.  List all files in the Crowdin project
-#.  For each file, retrieve all source strings (once per file)
-#.  For each string, iterate through target languages
-#.  Approve unapproved translations using the Approvals API
+#.  Retrieve project metadata to get available languages.
+#.  List all files in the Crowdin project.
+#.  For each file, retrieve all source strings (once per file).
+#.  For each string, iterate through target languages.
+#.  Approve unapproved translations using the Approvals API.
 
 ..  _crowdin-mass-approval-api:
 
-API Endpoints
+API endpoints
 -------------
 
 ..  code-block:: text
@@ -60,7 +60,7 @@ Generate tokens at: https://crowdin.com/settings#api-key
 
 ..  _crowdin-mass-approval-implementation:
 
-PHP Implementation
+PHP implementation
 ==================
 
 ..  versionadded:: 13.0
@@ -83,15 +83,15 @@ Usage
     # Set API token (leading space prevents saving to shell history)
      export CROWDIN_TOKEN="your_api_token_here"
 
-    # Approve all translations in project
+    # Approve all translations in the project
     php crowdin_mass_approve.php 12345
 
-    # Approve translations for specific language only
+    # Approve translations for a specific language only
     php crowdin_mass_approve.php 12345 de
 
 ..  _crowdin-mass-approval-implementation-progress:
 
-Progress Indicators
+Progress indicators
 -------------------
 
 During execution, the script outputs progress indicators:
@@ -112,20 +112,20 @@ Example output:
 
 ..  _crowdin-mass-approval-best-practices:
 
-Best Practices
+Best practices
 ==============
 
 ..  _crowdin-mass-approval-best-practices-error:
 
-Error Handling
+Error handling
 --------------
 
 The script includes robust error handling:
 
-*   Errors are written to STDERR (not STDOUT)
-*   Failed approvals are logged with full context (file, string, language, translation IDs)
-*   Empty API responses are handled gracefully (returns empty array)
-*   Network failures are caught and reported
+*   Errors are written to STDERR (not STDOUT).
+*   Failed approvals are logged with full context (file, string, language, translation IDs).
+*   Empty API responses are handled gracefully (returns an empty array).
+*   Network failures are caught and reported.
 
 ..  _crowdin-mass-approval-best-practices-validation:
 
@@ -134,10 +134,10 @@ Validation
 
 Before mass approval:
 
-#.  Verify translations are complete and accurate
-#.  Check for placeholder consistency (e.g., ``%s``, ``{variable}``)
-#.  Validate translations don't contain English source text
-#.  Review automatic translations from machine translation services
+#.  Verify that translations are complete and accurate.
+#.  Check for placeholder consistency (e.g., ``%s``, ``{variable}``).
+#.  Validate that translations do not contain English source text.
+#.  Review automatic translations from machine translation services.
 
 ..  _crowdin-mass-approval-security:
 
@@ -148,13 +148,13 @@ Security considerations
     Mass approval bypasses the normal translation review workflow. Use with
     caution and ensure translations are validated before approval.
 
-*   **API Token Security**: Store API tokens securely, never commit to version
+*   **API token security**: Store API tokens securely—never commit them to version
     control. Use environment variables.
-*   **Access Control**: Use tokens with minimal required permissions
-*   **Audit Logging**: The script logs all failed approval operations with
-    full context for accountability
-*   **Quality Assurance**: Implement pre-approval validation to prevent approval
-    of invalid translations
+*   **Access control**: Use tokens with the minimal required permissions.
+*   **Audit logging**: The script logs all failed approval operations with
+    full context for accountability.
+*   **Quality assurance**: Implement pre-approval validation to prevent approval
+    of invalid translations.
 
 ..  _crowdin-mass-approval-alternatives:
 
@@ -163,23 +163,23 @@ Alternatives
 
 ..  _crowdin-mass-approval-alternatives-web:
 
-Crowdin Web Interface
+Crowdin web interface
 ---------------------
 
 For smaller projects, manual approval via Crowdin's web interface may be more
 appropriate:
 
-#.  Navigate to project in Crowdin
-#.  Select language
-#.  Open the Editor in **side-by-side view**
-#.  Use the bulk actions menu to approve all strings for the current language
-#.  Alternatively, use batch operations to selectively approve multiple translations
+#.  Navigate to the project in Crowdin.
+#.  Select a language.
+#.  Open the editor in **side-by-side view**.
+#.  Use the bulk actions menu to approve all strings for the current language.
+#.  Alternatively, use batch operations to selectively approve multiple translations.
 
 ..  _crowdin-mass-approval-see-also:
 
-See Also
+See also
 ========
 
-*   :ref:`crowdin-extension-integration` - Integrate extensions with Crowdin
-*   :ref:`crowdin-workflow` - Complete Crowdin translation workflow
+*   :ref:`crowdin-extension-integration` — Integrate extensions with Crowdin
+*   :ref:`crowdin-workflow` — Complete Crowdin translation workflow
 *   `Crowdin API Documentation <https://developer.crowdin.com/api/v2/>`__
