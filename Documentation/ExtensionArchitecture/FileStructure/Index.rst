@@ -7,14 +7,13 @@
 File structure
 ==============
 
-Lists reserved file and directory names within an extension. Also
-lists file names that are used in a certain way by convention.
+This chapter lists the reserved file and directory names in an extension and
+file naming conventions.
 
-This chapter should also help you to find your way around in
-extensions and sitepackages that where automatically generated or
-that you downloaded as an example.
+It should also help you find your way around
+automatically-generated or example extensions and sitepackages.
 
-The following folders and files can typically be found in a TYPO3 extension:
+The following folder and file structure is typical for a TYPO3 extension:
 
 ..  directory-tree::
     :level: 1
@@ -129,14 +128,14 @@ Files
 
 An extension consists of:
 
-1. A directory named by the *extension key* (which is a worldwide unique
-   identification string for the extension), usually located in :file:`typo3conf/ext`
-   for local extensions, or :file:`typo3/sysext` for system extensions.
+1. A directory named *extension key* (a worldwide unique
+   identification string for the extension), located in :file:`typo3conf/ext`
+   for local extensions or :file:`typo3/sysext` for system extensions.
 
 2. Standard files with reserved names for configuration related to TYPO3
-   (of which most are optional, see list below)
+   (most are optional, see list below)
 
-3. Any number of additional files for the extension functionality itself.
+3. Additional files for the main extension functionality.
 
 .. index:: Extension development; Reserved file names
 .. _extension-reserved-filenames:
@@ -144,33 +143,30 @@ An extension consists of:
 Reserved file names
 ===================
 
-Most of these files are not required, except of :file:`ext_emconf.php`
+Most of these files are not required, except :file:`ext_emconf.php`
 in :ref:`Classic mode installations not based on Composer <classic-installation>`
-and :file:`composer.json <extension-composer-json>` in :ref:`Composer installations <t3start:install>`
-installations.
+and :file:`composer.json <extension-composer-json>` in :ref:`Composer installations <t3start:install>`.
 
 .. note::
    It is recommended to keep :file:`ext_emconf.php` and :file:`composer.json <extension-composer-json>` in
-   any public extension that is published to TYPO3 Extension Repository (TER), and
-   to ensure optimal compatibility with Composer installations and legacy
-   installations.
+   public extensions that are published in the TYPO3 Extension Repository (TER), and
+   to ensure compatibility with Composer and legacy installations.
 
-Do not introduce your own files in the root directory of
-extensions with the name prefix :file:`ext_`, because that is reserved.
+Do not use the prefix :file:`ext_` in your extension names as this is a reserved name.
 
 .. _extension-reserved-folders:
 
 Reserved Folders
 ================
 
-In the early days, every extension author baked his own bread when it came to
-file locations of PHP classes, public web resources and templates.
+In the early days, extension authors "baked their own bread" when it came to
+PHP class file locations, public web resources and templates.
 
-With the rise of Extbase, a generally accepted structure for file
-locations inside of extensions has been established. If extension authors
-stick to this and the other Coding Guidelines, the system helps in various ways. For instance, if putting
-PHP classes into the :file:`Classes/` folder and using appropriate namespaces for the classes,
-the system will be able to autoload these files.
+Since the rise of Extbase, a general structure for file
+locations inside extensions has become established. If extension authors
+stick to this and the Coding Guidelines, many things become easier. For instance, if you put
+your PHP classes into a :file:`Classes/` folder and use appropriate namespaces for the classes,
+the system will autoload the files.
 
 Extension kickstarters like the :composer:`friendsoftypo3/extension-builder`
 will create the correct structure for you.
