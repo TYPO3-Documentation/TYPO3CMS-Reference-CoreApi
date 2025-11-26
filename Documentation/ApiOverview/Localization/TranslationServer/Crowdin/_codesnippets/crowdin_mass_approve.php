@@ -9,7 +9,6 @@ declare(strict_types=1);
  * Approves all unapproved translations in a Crowdin project.
  * Requires PHP 8.4+
  */
-
 const API_BASE = 'https://api.crowdin.com/api/v2';
 const ENDPOINTS = [
     'project'      => '/projects/%d',
