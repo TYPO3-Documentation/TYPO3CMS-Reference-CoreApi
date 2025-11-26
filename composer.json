@@ -4,6 +4,7 @@
     "license": "OPL-1.0",
     "type": "typo3-cms-documentation",
     "require": {
+        "php": ">=8.2",
         "typo3/cms-core": "dev-main as 13.4"
     },
     "require-dev": {
