@@ -6,7 +6,7 @@
 :file:`Persistence`
 ===================
 
-This folder can contain the following files:
+This folder contains the following file:
 
 ..  _extension-configuration-extbase-persistence-classes:
 
@@ -16,8 +16,8 @@ This folder can contain the following files:
     :regex: /^.*Configuration\/Extbase\/Persistence\/Classes\.php$/
     :shortDescription: Contains the mapping between a database table and its Extbase model
 
-    In the file :file:`EXT:my_extension/Configuration/Extbase/Persistence/Classes.php` the
-    mapping between a database table and its model can be configured. The mapping
+    :file:`EXT:my_extension/Configuration/Extbase/Persistence/Classes.php` is
+    used to configure mapping between a database table and its model. The mapping
     in this file overrides the automatic mapping by naming convention.
 
     ..  seealso::

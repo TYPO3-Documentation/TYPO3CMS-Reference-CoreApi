@@ -10,16 +10,16 @@
 Extension folder `Configuration/TCA`
 ====================================
 
-The folder :file:`EXT:my_extension/Configuration/TCA/` may contain or override
+The folder :file:`EXT:my_extension/Configuration/TCA/` can contain or override
 :ref:`TCA (Table Configuration Array) <t3tca:introduction>` data.
 
-All files in this directory are automatically included during the TYPO3
+All files in this directory are automatically included during TYPO3
 :ref:`bootstrap <bootstrapping>`.
 
 ..  versionadded:: 12.0
-    Files within :file:`Configuration/TCA/` files are loaded within a dedicated scope.
-    This means that variables defined in those files cannot leak to any other
-    TCA file during the TCA compilation process.
+    Files in :file:`Configuration/TCA/` are loaded in a dedicated scope.
+    This means that variables defined in the files cannot leak to other
+    TCA files during the TCA compilation process.
 
     ..  note::
         In TYPO3 v11 and below, variables declared in these files were in a shared scope,

@@ -14,7 +14,7 @@
     :regex: /^.*Configuration\/Icons\.php$/
     :shortDescription: Registration of custom icons
 
-    In this file custom icons can be registered in the
+    This file registers custom icons to the
     :php:`\TYPO3\CMS\Core\Imaging\IconRegistry`.
 
     See the :ref:`Icon API <icon>` for details.

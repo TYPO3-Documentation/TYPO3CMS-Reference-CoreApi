@@ -8,9 +8,9 @@
 Extension folder `Classes` for PHP classes
 ==========================================
 
-Contains all PHP classes. One class per file. Should have sub folders like
+Contains all the PHP classes in an extension, with one class per file. Should have subfolders like
 :code:`Controller/`, :code:`Domain/`, :code:`Service/` or :code:`View/`.
-For more details on class file namings and PHP namespaces, see chapter
+For more details on class file naming and PHP namespaces, see chapter
 :ref:`namespaces <namespaces>`.
 
 Typical PHP classes in this folder:
