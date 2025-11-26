@@ -148,7 +148,7 @@ Security considerations
     Mass approval bypasses the normal translation review workflow. Use with
     caution and ensure translations are validated before approval.
 
-*   **API token security**: Store API tokens securely—never commit them to version
+*   **API token security**: Store API tokens securely - never commit them to version
     control. Use environment variables.
 *   **Access control**: Use tokens with the minimal required permissions.
 *   **Audit logging**: The script logs all failed approval operations with
