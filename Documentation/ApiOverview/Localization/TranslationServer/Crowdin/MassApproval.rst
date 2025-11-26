@@ -6,9 +6,9 @@
     Translations; Approval
 ..  _crowdin-mass-approval:
 
-==============
-Mass Approval
-==============
+========================
+Mass approval on Crowdin
+========================
 
 After :ref:`importing existing translations <crowdin-extension-integration>` into
 Crowdin, they need to be explicitly approved before becoming available for export.
@@ -18,6 +18,8 @@ via the Crowdin API.
 
 ..  contents::
     :local:
+
+..  _crowdin-mass-approval-workflow:
 
 Crowdin API Workflow
 ====================
@@ -30,6 +32,8 @@ The mass approval process follows these steps:
 #.  For each string, iterate through target languages
 #.  Approve unapproved translations using the Approvals API
 
+..  _crowdin-mass-approval-api:
+
 API Endpoints
 -------------
 
@@ -41,6 +45,8 @@ API Endpoints
     GET  /api/v2/projects/{projectId}/translations?stringId={stringId}&languageId={languageId}
     POST /api/v2/projects/{projectId}/approvals
 
+..  _crowdin-mass-approval-authentication:
+
 Authentication
 --------------
 
@@ -51,6 +57,8 @@ All API requests require a Personal Access Token:
     Authorization: Bearer YOUR_API_TOKEN
 
 Generate tokens at: https://crowdin.com/settings#api-key
+
+..  _crowdin-mass-approval-implementation:
 
 PHP Implementation
 ==================
@@ -65,6 +73,8 @@ The following script demonstrates mass approval using the Crowdin API v2:
     :caption: crowdin_mass_approve.php
     :language: php
 
+..  _crowdin-mass-approval-implementation-usage:
+
 Usage
 -----
 
@@ -78,6 +88,8 @@ Usage
 
     # Approve translations for specific language only
     php crowdin_mass_approve.php 12345 de
+
+..  _crowdin-mass-approval-implementation-progress:
 
 Progress Indicators
 -------------------
@@ -98,8 +110,12 @@ Example output:
     === Summary ===
     Approved: 234 | Skipped: 56 | Errors: 0
 
+..  _crowdin-mass-approval-best-practices:
+
 Best Practices
 ==============
+
+..  _crowdin-mass-approval-best-practices-error:
 
 Error Handling
 --------------
@@ -111,6 +127,8 @@ The script includes robust error handling:
 *   Empty API responses are handled gracefully (returns empty array)
 *   Network failures are caught and reported
 
+..  _crowdin-mass-approval-best-practices-validation:
+
 Validation
 ----------
 
@@ -121,7 +139,9 @@ Before mass approval:
 #.  Validate translations don't contain English source text
 #.  Review automatic translations from machine translation services
 
-Security Considerations
+..  _crowdin-mass-approval-security:
+
+Security considerations
 =======================
 
 ..  warning::
@@ -136,8 +156,12 @@ Security Considerations
 *   **Quality Assurance**: Implement pre-approval validation to prevent approval
     of invalid translations
 
+..  _crowdin-mass-approval-alternatives:
+
 Alternatives
 ============
+
+..  _crowdin-mass-approval-alternatives-web:
 
 Crowdin Web Interface
 ---------------------
@@ -150,6 +174,8 @@ appropriate:
 #.  Open the Editor in **side-by-side view**
 #.  Use the bulk actions menu to approve all strings for the current language
 #.  Alternatively, use batch operations to selectively approve multiple translations
+
+..  _crowdin-mass-approval-see-also:
 
 See Also
 ========
