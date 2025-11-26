@@ -15,6 +15,8 @@ However, if the extension you are trying to extend is based on :ref:`Extbase <ex
 field is not available in the frontend out of the box. Further steps are
 needed to make the fields available. These steps will not work in all cases.
 
+.. _extending-extbase-model_quick_overview:
+
 Quick overview
 ==============
 
@@ -46,6 +48,8 @@ Follow these steps:
 
 #.  :ref:`Register your extended repository <extending-extbase-model_register_extended_repository>`
     so that it is used instead of the original one.
+
+.. _extending-extbase-model_steps:
 
 Step by step
 ============
@@ -199,6 +203,8 @@ repository is requested via Dependency Injection in a controller or service.
 ..  literalinclude:: _ext_localconf_repository.php
     :language: php
     :caption: EXT:my_extension/ext_localconf.php
+
+..  _extending-extbase-model_alternative_strategies:
 
 Alternative strategies to extend Extbase models
 ===============================================
