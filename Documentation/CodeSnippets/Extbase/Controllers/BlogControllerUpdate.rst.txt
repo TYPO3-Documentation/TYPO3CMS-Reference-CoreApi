@@ -8,7 +8,7 @@
     use T3docs\BlogExample\Domain\Model\Blog;
     use T3docs\BlogExample\Exception\NoBlogAdminAccessException;
 
-    class BlogController extends AbstractController
+    class BlogController extends ActionController
     {
         /**
          * Updates an existing blog

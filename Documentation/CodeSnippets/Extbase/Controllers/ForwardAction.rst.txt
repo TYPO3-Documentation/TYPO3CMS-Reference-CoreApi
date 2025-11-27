@@ -11,7 +11,7 @@
     use TYPO3\CMS\Extbase\Http\ForwardResponse;
     use TYPO3\CMS\Extbase\Pagination\QueryResultPaginator;
 
-    class PostController extends AbstractController
+    class PostController extends ActionController
     {
         /**
          * Displays a list of posts. If $tag is set only posts matching this tag are shown
