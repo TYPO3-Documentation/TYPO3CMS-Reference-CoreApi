@@ -112,4 +112,4 @@ Flush TYPO3 caches:
     You can use the `Install Tools <https://docs.typo3.org/permalink/t3start:admin-tools>`_
     to verify folder permissions and environment compatibility.
     Open: `https://example.org/typo3/install.php` and go to
-    the m:guilabel:`System > Environment` module.
+    the :guilabel:`System > Environment` module.
