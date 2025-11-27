@@ -7,7 +7,7 @@ File storages
 =============
 
 :ref:`File storages <fal-architecture-components-storage>` can be administered
-through the :guilabel:`Content > List` module. They have a few properties which
+through the :guilabel:`Content > Records` module. They have a few properties which
 deserve further explanation.
 
 ..  include:: /Images/AutomaticScreenshots/Fal/AdministrationFileStorageAccessTab.rst.txt

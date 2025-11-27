@@ -1,13 +1,13 @@
-:navigation-title: Howto
+:navigation-title: How-to
 
 .. include:: /Includes.rst.txt
 .. index::
    Extension development; How to
 .. _extension-howto:
 
-=====================================
-Howto guides for extension developers
-=====================================
+======================================
+How-to guides for extension developers
+======================================
 
 Helps you kickstart your own extension or site package. Explains how
 to publish an extension. Contains howto for different situations
