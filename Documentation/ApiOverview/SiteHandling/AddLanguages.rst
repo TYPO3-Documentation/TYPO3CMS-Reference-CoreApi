@@ -6,7 +6,7 @@
 Adding Languages
 ================
 
-The :guilabel:`Site Management > Sites` module lets you specify which languages
+The :guilabel:`Sites > Setup` module lets you specify which languages
 are active for your site, which languages are available, and how they
 should behave. New languages for a site can also be configured in this module.
 

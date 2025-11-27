@@ -85,7 +85,7 @@ The folder :path:`config/system/` contains the installation-wide
 :ref:`configuration files <configuration-files>`:
 
 *   :path:`settings.php`: :ref:`Configuration <typo3ConfVars-settings>` written
-    by the :guilabel:`Admin Tools > Settings` backend module
+    by the :guilabel:`System > Settings` backend module
 *   :file:`additional.php`: :ref:`Manually created file <typo3ConfVars-additional>`
     which can override settings from :file:`settings.php` file
 
@@ -364,10 +364,14 @@ Run the following command to recreate missing directories:
 
 ..  _typo3temp-regeneration-guide-gui:
 
-Admin tools: Directory Status
------------------------------
+Module "Directory Status" in the "Environment" module
+-----------------------------------------------------
 
-Alternatively, a system maintainer can go to :guilabel:`Admin Tools > Environment > Directory Status`
+..  versionchanged:: 14.0
+    This module has been moved from :guilabel:`Admin tools` to :guilabel:`Settings`
+	<https://docs.typo3.org/permalink/changelog:feature-107628-1729026000>`_.
+
+Alternatively, a system maintainer can go to :guilabel:`System > Environment > Directory Status`
 and recreate the missing folders with the necessary permissions
 
 ..  toctree::

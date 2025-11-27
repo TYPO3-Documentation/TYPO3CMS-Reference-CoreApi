@@ -1,11 +1,11 @@
-:navigation-title: Admin Tools
+:navigation-title: System modules
 
 ..  include:: /Includes.rst.txt
 ..  _admin-tools:
 
-========================================
-Admin tools for TYPO3 system maintainers
-========================================
+====================================================
+"System" top level menu for TYPO3 system maintainers
+====================================================
 
 The following modules are available in a full TYPO3 installation:
 

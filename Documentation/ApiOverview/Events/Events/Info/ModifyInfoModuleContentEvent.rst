@@ -9,7 +9,7 @@ ModifyInfoModuleContentEvent
 
 The PSR-14 event :php:`\TYPO3\CMS\Info\Controller\Event\ModifyInfoModuleContentEvent`
 allows the content above and below the info module to be modified. The content
-added in the event is displayed in each submodule of :guilabel:`Content > Info`.
+added in the event is displayed in each submodule of :guilabel:`Content > Status`.
 
 The event also provides the :php:`getCurrentModule()` method, which
 returns the current requested submodule. It is therefore possible to

@@ -46,16 +46,16 @@ System Maintainers
 
 The first backend admin created during installation will automatically be a system
 maintainer as well. To give other users system privileges, you
-can add them in the :guilabel:`ADMIN TOOLS > Settings > Manage System Maintainers`
+can add them in the :guilabel:`System > Settings > Manage System Maintainers`
 configuration.
 Alternatively, the website can be set to "Development" mode in the Install
 Tool. This will give all admin users system maintainer access.
 
 ..  figure:: /Images/ManualScreenshots/UserManagement/SystemMaintainer.png
-    :alt: Screenshot of the TYPO3 backend as seen by a System Maintainer. The Admin Tools module menu is opened.
+    :alt: Screenshot of the TYPO3 backend as seen by a System Maintainer.
 
     System Maintainers are the only users who are able to see and access
-    :guilabel:`Admin Tools`, including the :guilabel:`Extension Manager`.
+    :guilabel:`System` modules, including the :guilabel:`System > Extensions` module.
 
 ..  seealso::
     *   `Granting System Maintainer rights (Getting Started Tutorial) <https://docs.typo3.org/permalink/t3start:backend-users-system-maintainer>`_

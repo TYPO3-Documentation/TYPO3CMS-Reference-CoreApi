@@ -46,7 +46,7 @@ Via GUI
 -------
 
 Enabling the deprecation log can be done in the
-:guilabel:`Admin Tools > Settings` backend module. Click on
+:guilabel:`System > Settings` backend module. Click on
 :guilabel:`Choose Preset` in the :guilabel:`Configuration Presets` pane, open
 :guilabel:`Debug settings`, activate the :guilabel:`Debug` option and submit
 with :guilabel:`Activate preset`. Disabling the deprecation log can be done by

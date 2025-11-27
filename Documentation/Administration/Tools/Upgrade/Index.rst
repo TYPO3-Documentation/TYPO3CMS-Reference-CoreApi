@@ -3,19 +3,23 @@
 ..  include:: /Includes.rst.txt
 ..  _admin-tools-upgrade:
 
-=====================
-Upgrade (Admin Tools)
-=====================
+=========================
+Module "Upgrade" (System)
+=========================
+
+..  versionchanged:: 14.0
+    This module has been moved from :guilabel:`Admin tools` to :guilabel:`Settings`
+	<https://docs.typo3.org/permalink/changelog:feature-107628-1729026000>`_.
 
 Only available if :composer:`typo3/cms-install` is installed with system
 maintainer permissions.
 
-The backend module :guilabel:`Admin Tools > Upgrade` offers tools
+The backend module :guilabel:`System > Upgrade` offers tools
 to system maintainers that are useful during
 :ref:`Major upgrades (TYPO3 explained) <t3coreapi:major>`.
 
 ..  figure:: /Images/ManualScreenshots/AdminTools/UpgradeTools.png
-    :alt: Admin Tools -> Upgrade, Overview
+    :alt: System > Upgrade, Overview
 
 The tools listed here are mainly used during  `Major Upgrades of the TYPO3 Core
 or a third party extension <https://docs.typo3.org/permalink/t3coreapi:upgrading>`_.
@@ -87,7 +91,7 @@ Use console commands to list and run the upgrade wizards:
             # Run all upgrade wizards
             typo3/sysext/core/bin/typo3 upgrade:run
 
-Or access module :guilabel:`Upgrade` from the Admin Tools or Install Tool and
+Or access module :guilabel:`System > Upgrade` from the backend or Install Tool and
 then click on :guilabel:`Run upgrade wizard...`.
 
 Some upgrade wizards are not mandatory. You can choose the option "No, do not
@@ -108,7 +112,7 @@ View upgrade documentation (Changelogs)
 =======================================
 
 You can read all the changelog entries that affect the current Core version in the
-module :guilabel:`Admin Tools > Upgrade` or read
+module :guilabel:`System > Upgrade` or read
 them online: :doc:`TYPO3 Core Changelog Online <changelog:Index#typo3-core-changelog>`.
 
 The module allows you to mark changelog entries as read. Read entries are

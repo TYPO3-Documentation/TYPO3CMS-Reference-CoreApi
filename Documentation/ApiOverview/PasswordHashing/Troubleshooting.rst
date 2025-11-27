@@ -56,7 +56,7 @@ once. This should detect
 that argon2 is not available and will configure a different default
 hash mechanism. A backend login should be possible afterwards.
 
-If that won't do, you can change the hash mechanism in :guilabel:`Admin Tools >
+If that won't do, you can change the hash mechanism in :guilabel:`System >
 Settings > Configuration Presets > Password hashing presets`. This
 might be necessary if, for example, you moved your system to a different
 server where argon2 isn't available. Create a new user that uses the

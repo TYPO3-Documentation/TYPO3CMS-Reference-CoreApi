@@ -981,8 +981,9 @@ configuration.
 
     ..  versionadded:: 13.2
 
-    A configuration option to modify the environment check in :guilabel:`Admin Tools`
-    to incorporate a list of sanctioned :php:`disable_functions`.
+    A configuration option to modify the environment check in
+    :guilabel:`System > Environment` to incorporate a list of sanctioned
+    `disable_functions`.
 
     Using this configuration option
     a system maintainer can add native PHP function names to the list,
@@ -995,4 +996,4 @@ configuration.
             = ['set_time_limit', 'set_file_buffer'];
 
     You can also define this manually in your :file:`settings.php` file
-    or via :guilabel:`Admin Tools > Settings > Configure options`.
+    or via :guilabel:`System > Settings > Configure options`.

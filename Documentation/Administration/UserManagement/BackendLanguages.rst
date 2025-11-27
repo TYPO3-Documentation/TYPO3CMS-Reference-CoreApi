@@ -30,7 +30,7 @@ the new language from the field :guilabel:`Language`:
 
 If the desired language is not available, administrators with system maintainer
 permissions can :ref:`Load an additional language pack <load-language-pack>`
-in the Admin Tools.
+in module :guilabel:`System > Maintenance`.
 
 Save the settings and reload the browser content.
 

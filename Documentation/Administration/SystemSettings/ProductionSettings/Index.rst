@@ -10,7 +10,7 @@ Production Settings
 
 To ensure a secure installation of TYPO3 on a production server, the following settings need to be set:
 
-- :guilabel:`Admin Tools > Settings > Configuration Presets` The "Live" preset has to be chosen to make sure no debug output is displayed.
+- :guilabel:`System > Settings > Configuration Presets` The "Live" preset has to be chosen to make sure no debug output is displayed.
   When using environment specific configurations, the recommended way is to specifically set the values for
   error/debugging configuration values instead of presets, like:
 

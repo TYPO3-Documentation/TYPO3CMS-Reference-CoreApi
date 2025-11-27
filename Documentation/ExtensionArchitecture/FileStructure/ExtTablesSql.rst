@@ -40,7 +40,7 @@ need. Here is an example adding a column to the pages table:
 
 TYPO3 will merge this table definition to the existing table definition when
 comparing expected and actual table definitions (for example, via the
-:guilabel:`Admin Tools > Maintenance > Analyze Database Structure` or the
+:guilabel:`System > Maintenance > Analyze Database Structure` or the
 :ref:`CLI <symfony-console-commands>` command :bash:`extension:setup`. Partial
 definitions can also contain indexes and other directives. They can also change
 existing table fields - but that is not recommended, because it may
@@ -48,7 +48,8 @@ create problems with the TYPO3 Core and/or other extensions.
 
 The :file:`ext_tables.sql` file may not necessarily be "dumpable" directly to
 a database (because of the semi-complete table definitions allowed that
-define only required fields). But the extension manager or admin tools can
+define only required fields). But the modules :guilabel:`System > Extensions` or
+:guilabel:`System > Maintenance > Analyze Database Structure` can
 handle this.
 
 TYPO3 parses :file:`ext_tables.sql` files into a Doctrine DBAL object schema

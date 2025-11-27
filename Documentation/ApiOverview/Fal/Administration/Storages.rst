@@ -14,7 +14,7 @@ deserve further explanation.
 
 Is browsable?
     If this box is not checked, the storage will not be browsable by
-    users via the :guilabel:`Media > Filelist` module, nor via the link browser
+    users via the :guilabel:`Media` module, nor via the link browser
     window.
 
 Is publicly available?

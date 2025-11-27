@@ -30,7 +30,7 @@ Typical categories include:
 *   **System tables**:
 
     *   :sql:`sys_registry`: Global configuration
-    *   :sql:`sys_log`: Viewable via :guilabel:`System > Log`
+    *   :sql:`sys_log`: Viewable via :guilabel:`Administration > Log`
 
 ..  _database-structure-managed:
 

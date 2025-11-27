@@ -14,7 +14,11 @@ Page permissions
 Users and groups also need to have rights to perform operations on the
 pages, like viewing, editing or deleting.
 
-This is managed using the :guilabel:`System > Permissions` module:
+This is managed using the :guilabel:`Administration > Permissions` module:
+
+..  versionchanged:: 14.0
+    Until TYPO3 V14 this module was called :guilabel:`System > Permissions`.
+    See also: `Feature: #107628 - Improved backend module naming and structure <https://docs.typo3.org/permalink/changelog:feature-107628-1729026000>`_.
 
 ..  figure:: /Images/ManualScreenshots/UserManagement/PermissionsModule.png
     :alt: TYPO3 Backend module called Permissions showing an overview of page owners and permissions

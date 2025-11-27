@@ -14,7 +14,7 @@ System configuration settings, such as database credentials, logging levels, mai
 settings, etc, are stored in the central file :file:`system/settings.php`.
 
 This file is primarily managed by TYPO3. Settings can be changed in
-the :guilabel:`Admin Tools` modules by users with the
+the :guilabel:`System > Settings` module by users with the
 `system maintainer <https://docs.typo3.org/permalink/t3coreapi:system-maintainer>`_
 role.
 
@@ -78,13 +78,13 @@ File :file:`config/system/settings.php`
     :regex: /^(.*\/config\/system\/settings\.php|.*\/typo3conf\/system\/settings\.php|settings\.php)$/
     :composerPath: config/system/
     :classicPath: typo3conf/system/
-    :shortDescription: Contains system wide settings, managed by the Admin Tools / Install Tool.
+    :shortDescription: Contains system wide settings, managed by the module "System Settings" / Install Tool.
 
     The most important configuration file is
     :file:`settings.php`. It contains local settings in the
     main global PHP array :php:`$GLOBALS['TYPO3_CONF_VARS']`, for example,
     important settings like database connection credentials are in here. The file
-    is managed in :guilabel:`Admin Tools`.
+    is managed in the module :guilabel:`System > Settings`.
 
 ..  note::
     The :file:`settings.php` file can be read-only. In this case, the
@@ -203,14 +203,14 @@ T3_SERVICES
     and the backend.
 
 Further details on the various configuration options can be found in the
-:guilabel:`Admin Tools` module as well as the TYPO3 source at
+:guilabel:`System > Settings` module as well as the TYPO3 source at
 :file:`EXT:core/Configuration/DefaultConfigurationDescription.yaml`.
-The documentation shown in the :guilabel:`Admin Tools` module is automatically
+The documentation shown in the :guilabel:`System > Settings` module is automatically
 extracted from those values in :file:`DefaultConfigurationDescription.yaml`.
 
-The :guilabel:`Admin Tools` module provides various sections that
+The :guilabel:`System > Settings` module provides various sections that
 change parts of :file:`config/system/settings.php`. They can be found in
-:guilabel:`Admin Tools > Settings` - most importantly section
+:guilabel:`System > Settings` - most importantly section
 :guilabel:`Configure installation-wide options`:
 
 ..  include:: /Images/AutomaticScreenshots/AdminTools/AllConfiguration.rst.txt

@@ -10,7 +10,7 @@ ModifyNewSchedulerTaskWizardItemsEvent
 
 The PSR-14 event :php:`\TYPO3\CMS\Scheduler\Event\ModifyNewSchedulerTaskWizardItemsEvent`
 allows extensions to modify the items in the wizard used to create a new task in
-backend module :guilabel:`System > Scheduler`.
+backend module :guilabel:`Administration > Scheduler`.
 
 ..  _ModifyNewSchedulerTaskWizardItemsEvent-example:
 
