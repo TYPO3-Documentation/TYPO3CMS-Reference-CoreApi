@@ -292,6 +292,11 @@ For example, the label of the setting is simply `label` in the XLF file.
         <source>My Custom Set</source>
     </trans-unit>
 
+..  important::
+    To translate the labels of your settings using Crowdin, you need to adjust
+    your extension's
+    :ref:`Crowdin configuration file <crowdin-extension-integration-github-configure>`.
+
 ..  _site-settings-definition-translation-category:
 
 Translating category labels
