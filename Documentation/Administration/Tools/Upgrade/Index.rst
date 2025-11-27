@@ -72,7 +72,7 @@ Use console commands to list and run the upgrade wizards:
             vendor/bin/typo3 upgrade:run myExtension_exampleUpgradeWizard
 
             # Run all upgrade wizards
-            vendor/bin/typo3 upgrade:run myExtension_exampleUpgradeWizard
+            vendor/bin/typo3 upgrade:run
 
     .. group-tab:: Classic mode installation (no Composer)
 
@@ -85,7 +85,7 @@ Use console commands to list and run the upgrade wizards:
             typo3/sysext/core/bin/typo3 upgrade:run myExtension_exampleUpgradeWizard
 
             # Run all upgrade wizards
-            typo3/sysext/core/bin/typo3 upgrade:run myExtension_exampleUpgradeWizard
+            typo3/sysext/core/bin/typo3 upgrade:run
 
 Or access module :guilabel:`Upgrade` from the Admin Tools or Install Tool and
 then click on :guilabel:`Run upgrade wizard...`.

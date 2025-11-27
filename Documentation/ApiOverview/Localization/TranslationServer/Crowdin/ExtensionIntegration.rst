@@ -67,6 +67,30 @@ Step-by-step instructions for GitHub
             ignore:
               - /**/%two_letters_code%.%original_file_name%
 
+    If you provide a :file:`labels.xlf` file for the
+    :ref:`site settings <site-settings-definition-translation>`,
+    the `/Configuration/Sets/` folder should be added:
+
+    ..  code-block:: yaml
+        :caption: EXT:my_extension/.crowdin.yml
+
+        preserve_hierarchy: 1
+        files:
+          - source: /Configuration/Sets/*/*.xlf
+            translation: /%original_path%/%two_letters_code%.%original_file_name%
+            ignore:
+              - /**/%two_letters_code%.%original_file_name%
+          - source: /Resources/Private/Language/*.xlf
+            translation: /%original_path%/%two_letters_code%.%original_file_name%
+            ignore:
+              - /**/%two_letters_code%.%original_file_name%
+
+    ..  note::
+        If you use the configuration with the :file:`/Configuration/Sets/*/*.xlf`
+        source and do not provide labels, the GitHub action returns an error.
+        However, your files from the :file:`/Resources/Private/Language/` folder
+        will still be uploaded.
+
 2.  Connect your GitHub repository
 
     In order for Crowdin to manage translations, you need to somehow push the
@@ -196,6 +220,16 @@ Step-by-step instructions for GitHub
                         The import will work best only if the translation files contain both the
                         ``<source>`` and ``<target>`` elements. If the ``<source>`` elements are missing,
                         Crowdin will not be able to match the translations with the original English labels.
+
+3.  Approve imported translations
+
+    After importing existing translations, they will arrive in Crowdin in an
+    **unapproved state**. These translations need to be explicitly approved in
+    Crowdin before they become available for export and use in TYPO3 installations.
+
+    See :ref:`crowdin-mass-approval` for instructions on how to approve translations
+    programmatically using the Crowdin API, or use Crowdin's web interface bulk
+    approval feature.
 
 Happy translating!
 

@@ -62,6 +62,74 @@ opportunity to work in the way that suits you best – whether you prefer to tra
 directly in Crowdin, whether you use EXT:Crowdin, or if you want to work offline
 and upload the files later.
 
+..  _crowdin-bestpractice-in-short:
+
+Best practice in short:
+-----------------------
+
+EXT:Crowdin Overview
+~~~~~~~~~~~~~~~~~~~~
+
+- **Purpose**: Integrates Crowdin’s in-context editing into TYPO3 for easy translation of backend XLF files.
+- **Benefits**:
+    - Streamlined workflow without switching platforms.
+    - Provides context for each string by showing where it’s used in TYPO3.
+    - Helps track translated vs. missing files.
+
+Crowdin Setup
+~~~~~~~~~~~~~
+
+- **Prerequisites**: Must be a translator or proofreader in Crowdin and logged in.
+- **Process**:
+    - Open project dashboard → select language → choose files to translate.
+    - Options: Translate all files or single file.
+- Recommended View: “Comfortable” Editor View for better overview and tools.
+
+Editor Features
+~~~~~~~~~~~~~~~
+
+- Shows source text, TM suggestions, comments, and string status.
+- Includes filtering, search, glossary, and TM access.
+- Keyboard shortcuts available for efficiency.
+
+Glossary
+~~~~~~~~
+
+- Ensures consistent terminology across projects.
+- TYPO3 has a shared glossary (for example TypoScript, TsConfig, Cache).
+- Contributors can add or improve terms in Crowdin.
+
+Translation Memory (TM)
+~~~~~~~~~~~~~~~~~~~~~~~
+
+- Stores approved translations for reuse.
+- Saves time and ensures consistency.
+- TYPO3 has a shared TM that grows over time.
+- Avoid mixing similar but different phrases to maintain quality.
+
+Collaboration
+~~~~~~~~~~~~~
+
+- Use Slack channels:
+    - **TYPO3 translations**: Questions and issues.
+    - **TYPO3 localization team**: Process and coordination.
+- Share experiences and tips for better results.
+
+The daily work
+~~~~~~~~~~~~~~
+
+- Skip difficult strings and return later.
+- Do **not** translate placeholders in curly brackets (for example {@viewPortLabel}).
+- Don’t rely solely on Crowdin’s percentage counters—quality matters more than quantity.
+- Review translations for consistency and natural language.
+
+Final Tips
+~~~~~~~~~~
+
+- Use shortcuts for speed.
+- Perform an extra review for spelling, clarity, and user-friendliness.
+- Engage with the community to improve overall translation quality.
+
 ..  _crowdin-bestpractice-initial:
 
 Initial considerations
@@ -104,11 +172,11 @@ To wrap it up:
 *   Feel free to translate one file at a time to get a better understanding of the context.
 *   Choose projects that are already in use in your language area or that you will be working on yourself.
 *   Consider tackling popular projects – your contribution will have a greater impact.
-*   If you are translating TYPO3 CMS, start with the Glossary if it's not
-already translated, and continue in the main branch to reach the most users.
+*   If you are translating TYPO3 CMS, start with the Glossary if it's not already translated, and continue in the main branch to reach the most users.
 *   Work in a structured way and preferably set sub-goals to maintain motivation in larger projects.
 
 ..  _crowdin-bestpractice-use-ext-crowdin:
+
 
 Use EXT:Crowdin
 ---------------
@@ -177,7 +245,7 @@ You can read more about creating and using Glossary on Crowdin Docs: `Glossary |
 
 .. _Glossary | Crowdin Docs: https://support.crowdin.com/glossary/
 
-..  _crowdin-bestpractice-tm:
+.. _crowdin-bestpractice-tm:
 
 Translation Memory (TM)
 -----------------------
@@ -228,8 +296,9 @@ can ask questions, share experiences, and help others if you encounter challenge
 
 Go to TYPO3 Slack:
 
-*   Sign Up for a `TYPO3 Slack Account`
-*   Channel questions and problems working with translations: `typo3-translations | Slack`_
+*   Sign Up for a `TYPO3 Slack Account`_
+*   Channel questions and problems working with translations:
+    `typo3-translations | Slack`_
 *   Channel for the localization team: `typo3-localization-team | Slack`_
 
 .. _TYPO3 Slack Account: https://docs.typo3.org/m/typo3/guide-step-by-step/main/en-us/10GettingStarted/05MeetTheCommunity/SignUpForATypo3SlackAccount.html
@@ -335,4 +404,3 @@ Get inspired by Martin Pribyl's article about how he did a full translation and
 proofreading of TYPO3 CMS into Czech language: `Bringing Czech to TYPO3 - My Translation Journey`_
 
 .. _Bringing Czech to TYPO3 - My translation Journey: https://typo3.org/article/bringing-czech-to-typo3-my-translation-journey
-
