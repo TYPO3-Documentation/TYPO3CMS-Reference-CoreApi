@@ -2,7 +2,7 @@
 
 ..  include:: /Includes.rst.txt
 ..  _admin-tools-settings:
-..  _system-settings-module:
+..  _system-tools-settings:
 
 ==========================
 Module "Settings" (System)
