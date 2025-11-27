@@ -345,10 +345,46 @@ one word in a sentence, Crowdin counts the entire sentence as changed. Luckily,
 it shows the translation from the old version, so you can copy and correct just
 that one word – it's fast and saves time.
 
+.. _crowdin-bestpractice-proofreader:
+
+Proofreaders 101
+================
+
+Going through many, many translated strings can be a tedious task, but still important for the
+overall result. Here are some tips for you that focus on the quality and speed in a balanced
+matter.
+
+Use the "QA Checks" feature to solve issues found by Crowdin. Crowdin does a good handfull of
+checks for different issues and highlights them as things thats not necessary a problem, but
+should be checked. UA Checks is highligted on the project Dashboard. A common issue is, what
+Crowdin consider as spell errors. By going through the spellchecks, you can ignore words and
+Crowdin should remember and ignore them in the future.
+
+Read more about QA: `QA Check | Crowdin Docs`_
+
+.. _QA Check | Crowdin Docs: https://support.crowdin.com/project-settings/qa-checks/
+
+Use the batch approval view in the Editor view, to get many translations done in a few steps. By changing the
+view from "Comfortable" to "Side-by-side", you get a full view of the translated strings and words.
+You can select more/all strings and approve all selected strings in one click.
+
+Reviewing translation is explained here: `Side-by-side | Crowdin Docs`_
+
+.. _Side-by-side | Crowdin Docs: https://support.crowdin.com/online-editor/#proofreading
+
+Finally, if you do both translation and approval in Crowdin (some of us do..), there is a neat
+little feature we will share with you: The fabulous "Auto-approve" feature! As a proofreader or
+higher, translations added by you will be automatically approved, when you save. You find the
+feature under the "Editor Settings" just beside your logo in the top right corner.
+
+Aoto-approval is explained here: `Editor Settings | Crowdin Docs`_
+
+.. _Editor Settings | Crowdin Docs: https://support.crowdin.com/online-editor/#editor-settings
+
 .. _crowdin-bestpractice-final:
 
 Final thoughts
---------------
+==============
 
 To ensure the quality of the translations, it may be a good idea to do an extra
 review where you check for consistency, spelling mistakes and whether the texts
