@@ -150,19 +150,59 @@
 
         Disables this component to prevent rendering.
 
+    ..  php:method:: setLanguageSelector(?\TYPO3\CMS\Backend\Template\Components\ComponentInterface $component)
+
+        :param $component: the component
+
+    ..  php:method:: getLanguageSelector()
+        :returns: `?\TYPO3\CMS\Backend\Template\Components\ComponentInterface`
+
+    ..  php:method:: setShortcutContext(string $routeIdentifier, string $displayName, array $arguments = [])
+
+        Sets the context for the automatic shortcut button.
+
+        Controllers can use this method to provide shortcut information without
+        manually creating and adding the shortcut button. The button will be
+        automatically added to the button bar in the correct position.
+
+        Example:
+
+            $docHeader->setShortcutContext(
+                routeIdentifier: 'site_configuration.edit',
+                displayName: sprintf('Edit site: %s', $siteIdentifier),
+                arguments: ['site' => $siteIdentifier]
+            );
+
+        :param $routeIdentifier: The route identifier for the shortcut
+        :param $displayName: The display name shown in the bookmark list
+        :param $arguments: Optional arguments to include in the shortcut URL, default: []
+
+    ..  php:method:: disableAutomaticReloadButton()
+
+        Disables the automatic reload button for this module.
+
+        Use this if your module needs custom reload behavior or should not
+        have a reload button at all.
+
+    ..  php:method:: disableAutomaticShortcutButton()
+
+        Disables the automatic shortcut button for this module.
+
+        Use this if your module should not have a shortcut button.
+
     ..  php:method:: docHeaderContent(?\Psr\Http\Message\ServerRequestInterface $request)
         :returns: `array`
 
         Returns the complete document header content as an array for rendering.
 
-        This method aggregates all components (buttons, menus, breadcrumbs) into
+        This method aggregates all components (buttons, breadcrumbs) into
         a structured array that can be consumed by the Fluid template rendering
         the backend module layout.
 
         The returned array structure:
         - 'enabled': Whether the document header should be rendered
         - 'buttons': Array of button configurations from the button bar
-        - 'menus': Array of menu configurations from the menu registry
         - 'breadcrumb': Breadcrumb trail data from the breadcrumb context
+        - 'languageSelector': Language Selector
 
         :param $request: the request

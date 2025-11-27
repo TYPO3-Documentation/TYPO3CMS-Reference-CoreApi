@@ -10,7 +10,7 @@
     use T3docs\BlogExample\PageTitle\BlogPageTitleProvider;
     use TYPO3\CMS\Extbase\Property\PropertyMapper;
 
-    class PostController extends AbstractController
+    class PostController extends ActionController
     {
         /**
          * PostController constructor.
