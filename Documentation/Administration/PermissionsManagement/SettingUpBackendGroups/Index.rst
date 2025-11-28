@@ -45,12 +45,12 @@ for listing and editing, and specific fields in backend forms.
 
 Ensure ACL groups grant essential permissions for specific elements management.
 For example, users managing custom record types (e.g., Article, Product) should list,
-create, and access records, possibly via a custom backend module or the List module.
+create, and access records, possibly via a custom backend module or the :guilabel:`Content > Records` module.
 It's crucial to equip such a group with access to:
 
 * Listing and modifying the table of a records
 * Editing fields within the record that align with this group's purpose
-* Accessing the core List module or custom module for records management
+* Accessing the core :guilabel:`Content > Records` module or custom module for records management
 * If there are relations from this record, for example, to files, it should also permit uploading, selecting, and processing these files
 
 Therefore, a group can be seen as an independent unit that provides complete

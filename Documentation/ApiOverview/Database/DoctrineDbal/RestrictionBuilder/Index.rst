@@ -16,7 +16,7 @@ should be handled and displayed by the framework.
 
 The `ctrl` section of a table's TCA array specifies optional framework-internal
 handling of soft deletes and language overlays: For instance, when a row is
-deleted in the backend using the page or list module, many tables are configured
+deleted in the backend using the page or :guilabel:`Content > Records` module, many tables are configured
 to not drop that row entirely from the table, but to set a field (often
 `deleted`) for that row from `0` to `1`. Similar mechanisms apply for start and
 end times, and to language and workspace overlays as well. See the

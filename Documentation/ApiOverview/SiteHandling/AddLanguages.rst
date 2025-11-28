@@ -13,7 +13,7 @@ should behave. New languages for a site can also be configured in this module.
 When the backend shows the list of available languages, the list of languages is
 limited to the languages defined by the sites module. For instance, the
 languages are used in the page module language selector, when editing records
-or in the list module.
+or in the :guilabel:`Content > Records` module.
 
 The language management provides the ability to hide a language on the frontend
 while allowing it on the backend. This enables editors to start translating
