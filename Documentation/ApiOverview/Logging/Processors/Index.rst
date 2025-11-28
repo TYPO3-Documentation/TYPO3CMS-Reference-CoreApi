@@ -157,8 +157,8 @@ It is suggested to extend the abstract class
 :t3src:`core/Classes/Log/Processor/AbstractProcessor.php` which allows you use
 configuration options by adding the corresponding properties and setter methods.
 
-Example
--------
+..  rubric:: Example
+
 ..  literalinclude:: _MyProcessorWithOptions.php
     :caption: EXT:my_extension/Classes/Log/Processor/MyProcessor.php
 
