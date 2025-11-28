@@ -181,7 +181,7 @@ Read :ref:`how to correctly instantiate <database-query-builder-instantiation>`
 a query builder with the connection pool.
 See available :ref:`parameter types <database-connection-parameter-types>`.
 
-..  _database-query-builder-default-restrictions:
+..  _database-query-builder-select-restrictions:
 
 Default Restrictions
 --------------------
