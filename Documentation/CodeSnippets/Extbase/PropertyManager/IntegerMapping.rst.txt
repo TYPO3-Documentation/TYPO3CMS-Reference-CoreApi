@@ -6,7 +6,7 @@
 
     use TYPO3\CMS\Extbase\Property\Exception;
 
-    class PostController extends AbstractController
+    class PostController extends ActionController
     {
         /**
          * This method demonstrates property mapping to an integer

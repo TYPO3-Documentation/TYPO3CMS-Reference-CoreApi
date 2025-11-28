@@ -39,7 +39,7 @@ Extension development
         Learn about tools to create a new extension or add
         functionality to an existing extension.
 
-    ..  card:: :ref:`Howto <extension-howto>`
+    ..  card:: :ref:`How-tos <extension-howto>`
 
         Kickstart your own extension or sitepackage. Explains how
         to publish an extension. Contains howtos for creating a frontend plugin,
