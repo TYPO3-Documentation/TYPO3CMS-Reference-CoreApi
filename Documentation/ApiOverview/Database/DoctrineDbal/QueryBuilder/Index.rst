@@ -182,6 +182,7 @@ a query builder with the connection pool.
 See available :ref:`parameter types <database-connection-parameter-types>`.
 
 ..  _database-query-builder-select-restrictions:
+..  _database-query-builder-default-restrictions:
 
 Default Restrictions
 --------------------
