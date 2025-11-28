@@ -1,4 +1,4 @@
-:navigation-title: TCA extension
+:navigation-title: Extend TCA
 
 .. include:: /Includes.rst.txt
 .. index::

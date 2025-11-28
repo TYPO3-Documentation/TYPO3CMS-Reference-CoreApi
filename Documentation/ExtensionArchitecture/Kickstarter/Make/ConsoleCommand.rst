@@ -34,7 +34,7 @@ extension is missing, check if you installed it properly.
 
 `Should the command be schedulable? (yes/no) [no]:`
     If you want the command to be available in the backend in module
-    :guilabel:`System > Scheduler` choose `yes`. If it should be only callable
+    :guilabel:`Administration > Scheduler` choose `yes`. If it should be only callable
     from the console, for example if it prompts for input, choose `no`.
 
 Have a look at the created files

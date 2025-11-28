@@ -28,7 +28,7 @@ which can be tested out in TYPO3’s install tool test email functionality.
 Configuration
 =============
 
-Several settings are available via :guilabel:`Admin Tools > Settings > Configure
+Several settings are available via :guilabel:`System > Settings > Configure
 Installation-Wide Options > Mail` which are stored into
 :php:`$GLOBALS['TYPO3_CONF_VARS']['MAIL']`. See :ref:`typo3ConfVars_mail` for
 an overview of all settings.
@@ -564,7 +564,7 @@ How to set and use a default sender
 ===================================
 
 It is possible to define a default email sender ("From:") in
-:guilabel:`Admin Tools > Settings > Configure Installation-Wide Options`:
+:guilabel:`System > Settings > Configure Installation-Wide Options`:
 
 ..  code-block:: php
     :caption: config/system/additional.php | typo3conf/system/additional.php

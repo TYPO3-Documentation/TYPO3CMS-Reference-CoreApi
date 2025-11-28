@@ -18,7 +18,7 @@ Code editor
 The code editor provides a backend editor with syntax highlighting. The editor
 is used by TYPO3 itself for :ref:`TCA fields with type "text" and renderType
 "codeEditor" <t3tca:columns-text-renderType-codeEditor>` and in the module
-:guilabel:`Media > Filelist`. Under the hood, `CodeMirror`_ is used.
+:guilabel:`Media`. Under the hood, `CodeMirror`_ is used.
 
 ..  contents::
     :local:
@@ -188,7 +188,7 @@ The following configuration options are available:
     :type: array
 
     Binds the mode to specific file extensions. This is important for using
-    the code editor in the module :guilabel:`Media > Filelist`.
+    the code editor in the module :guilabel:`Media`.
 
 ..  confval:: default
     :name: code-editor-register-mode-default

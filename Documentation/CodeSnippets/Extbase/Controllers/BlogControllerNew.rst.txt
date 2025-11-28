@@ -7,7 +7,7 @@
     use Psr\Http\Message\ResponseInterface;
     use T3docs\BlogExample\Domain\Model\Blog;
 
-    class BlogController extends AbstractController
+    class BlogController extends ActionController
     {
         /**
          * Displays a form for creating a new blog

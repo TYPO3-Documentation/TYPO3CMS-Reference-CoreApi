@@ -16,3 +16,4 @@ architecture of :abbr:`FAL (File Abstraction Layer)`.
     Database
     Components
     Events
+    MetadataExtractors

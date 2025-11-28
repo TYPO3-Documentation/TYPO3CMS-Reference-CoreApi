@@ -41,8 +41,8 @@ Module configuration options
         :name: backend-module-parent
         :type: string
 
-        If the module should be a submodule, the parent identifier, for example `web`
-        has to be set here. Have a look into the
+        If the module should be a submodule, the parent identifier, for example
+        `content` has to be set here. Have a look into the
         :ref:`list of available toplevel modules. <backend-modules-toplevel-module>`
 
         Extensions can add additional parent modules, see
@@ -99,7 +99,7 @@ Module configuration options
             permissions to them, the parent module will automatically be hidden from
             the module menu.
 
-            The :guilabel:`Content > Info` module leverages this feature to seamlessly disappear
+            The :guilabel:`Content > Status` module leverages this feature to seamlessly disappear
             from the module menu when extensions are uninstalled or users lack permissions
             to access its submodules, preventing dead-end navigation paths and enhancing
             the overall backend experience.

@@ -113,12 +113,12 @@ Sample XLIFF translation files
 
         ..  versionadded:: 14.0
 
-        ..  literalinclude:: _snippets/_example_xliff_2.0.xlf
+        ..  literalinclude:: _snippets/_de.example_xliff_2.0.xlf
             :language: xml
             :caption: EXT:my_extension/Resources/Private/Language/de.locallang.xlf
 
-        In XLIFF 2.0, the approval status of a translation is defined by the
-        :xml:`state` attribute on the :xml:`<target>` element.
+        In XLIFF 2.x, the approval status of a translation is defined by the
+        :xml:`state` attribute on the :xml:`<segment>` element.
         Common values are:
 
         `initial`
@@ -134,11 +134,11 @@ Sample XLIFF translation files
             Final, approved translation ready for use.
 
         TYPO3 treats translations with :xml:`state="reviewed"` or
-        :xml:`state="final"` as approved.
+        :xml:`state="final"` on the :xml:`<segment>` tag as approved.
 
     ..  group-tab:: XLIFF 1.2
 
-        ..  literalinclude:: _snippets/_example_xliff_1.2.xlf
+        ..  literalinclude:: _snippets/_de.example_xliff_1.2.xlf
             :language: xml
             :caption: EXT:my_extension/Resources/Private/Language/de.locallang.xlf
 
@@ -151,8 +151,12 @@ language is stored in an additional file.
 
 By default, TYPO3 considers only approved translations for both XLIFF 1.2 and 2.x:
 
--   XLIFF 1.2: :xml:`approved="yes"` or missing attribute
--   XLIFF 2.x: :xml:`state="reviewed"` or :xml:`state="final"`
+-   XLIFF 1.2: :xml:`approved="yes"` on the :xml:`<trans-unit>` tag
+-   XLIFF 2.x: :xml:`state="reviewed"` or :xml:`state="final"` on the :xml:`<segment>` tag
+
+..  note::
+    TYPO3 considers translations as approved if the :xml:`approved` attribute
+    (in XLIFF 1.2) or the :xml:`state` attribute (in XLIFF 2.x) is omitted.
 
 To also include unapproved translations
 (for example :xml:`approved="no"` or :xml:`state="translated"`),

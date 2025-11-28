@@ -38,16 +38,23 @@ value is not defined in the plugin.
 
 ..  _read-flexforms-php:
 
-FlexFormService: Read FlexForms values in PHP
-=============================================
+FlexFormTools: Read FlexForms values in PHP
+===========================================
 
-You can use the :php-short:`\TYPO3\CMS\Extbase\Service\FlexFormService` to read
+..  deprecated:: 14.0
+    Class :php-short:`\TYPO3\CMS\Core\Service\FlexFormService` has been merged
+    into :php-short:`\TYPO3\CMS\Core\Configuration\FlexForm\FlexFormTools`.
+
+    :php-short:`\TYPO3\CMS\Core\Service\FlexFormService` can be used with
+    an alias up until TYPO3 v15.
+
+You can use the :php:`\TYPO3\CMS\Core\Configuration\FlexForm\FlexFormTools` to read
 the content of a FlexForm field.
 
 This is useful in plain controllers without Extbase support, or in contexts
 like console commands or middleware where no settings are available.
 
-:php:`FlexFormService->convertFlexFormContentToArray` returns an array that is
+:php:`FlexFormTools->convertFlexFormContentToArray` returns an array that is
 suitable for most use cases:
 
 ..  literalinclude:: _codesnippets/_NonExtbaseController.php

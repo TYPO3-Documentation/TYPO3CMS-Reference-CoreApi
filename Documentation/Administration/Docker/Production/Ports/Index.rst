@@ -62,4 +62,4 @@ For details, see: :ref:`reverse-proxy-container`
 After installation, **check your site configuration** in TYPO3. If it was
 automatically created with a `http://` base URL but you're accessing the site
 via `https://`, you must adjust the base URL manually in the backend:
-:guilabel:`Site Management > Sites`.
+:guilabel:`Sites > Setup`.

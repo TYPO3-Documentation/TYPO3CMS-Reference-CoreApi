@@ -8,9 +8,9 @@ Site settings editor
 
 ..  versionadded:: 13.3
     The site setting editor has been introduced as backend module
-    :guilabel:`Site Management > Settings`.
+    :guilabel:`Sites > Setup > Settings`.
 
-In module :guilabel:`Site Management > Settings` you get an overview of all sites in
+In module :guilabel:`Sites > Setup > Settings` you get an overview of all sites in
 the current installation and can edit the :ref:`sitehandling-settings` for
 all pages that contain settings:
 

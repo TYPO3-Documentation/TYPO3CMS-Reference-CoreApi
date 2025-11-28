@@ -1,0 +1,12 @@
+<h2>{record.header}</h2>
+<p>{record.bodytext}</p>
+<f:if condition="{record.image}">
+    <p>Image UID: {record.image.uid}</p>
+</f:if>
+
+<f:variable name="path" value="s_messages/settings" />
+<small>{record.pi_flexform.{path}.welcome_header}</small>
+
+Or, the following (same result):
+
+<small>{record.pi_flexform.sheets.s_messages.settings.welcome_header}</small>

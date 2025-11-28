@@ -14,7 +14,7 @@ role:
 
 System-wide settings
     Can be changed by `System Maintainers <https://docs.typo3.org/permalink/t3coreapi:system-maintainer>`_
-    in the :guilabel:`Admin Tools` module.
+    in the :guilabel:`System > Settings` module.
 
 Site-specific settings
     Can be changed by backend

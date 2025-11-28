@@ -17,6 +17,8 @@ class is responsible for generating the preview and the wrapping.
 The default preview renderer is :php:`\TYPO3\CMS\Backend\Preview\StandardContentPreviewRenderer`
 and handles the Core's built-in content types (field :sql:`CType` in table :sql:`tt_content`).
 
+..  _ContentPreviewRenderer:
+
 Extend the default preview renderer
 ===================================
 
@@ -25,31 +27,43 @@ via page :ref:`TSconfig <ConfigureCE-Preview-PageTSconfig>` or :ref:`event liste
 
 ..  _ConfigureCE-Preview-PageTSconfig:
 
-Page TSconfig
--------------
+Preview rendering with a Fluid template and page TSconfig
+---------------------------------------------------------
+
+..  versionchanged:: 14.0
+    A :php:`\TYPO3\CMS\Core\Domain\RecordInterface` is passed as variable
+    `{record}` to the Fluid Template. The fields are not passed as direct
+    variables anymore. `{pi_flexform_transformed}` has been replaced by
+    `{record.pi_flexform}`. See also `Breaking: #92434 - Use Record API
+    in Page Module Preview Rendering <https://docs.typo3.org/permalink/changelog:breaking-92434-1761644184>`_.
+
 
 This is the "integrator" way, no PHP coding is required. Just some page TSconfig
 and a Fluid template.
 
-..  code-block:: typoscript
+..  literalinclude:: _codesnippets/_preview.typoscript
     :caption: EXT:my_extension/Configuration/page.tsconfig
 
-    mod.web_layout {
-      tt_content {
-        preview {
-          # Your CType
-          example_ctype = EXT:my_extension/Resources/Private/Templates/Preview/ExampleCType.html
-        }
-      }
-    }
+For more details see the :ref:`TSconfig Reference <t3tsref:pageweblayoutpreview>`.
 
 In the Fluid template, the following variables are available:
 
-*     All properties of the :php:`tt_content` row (for example `{uid}`, `{title}`, and `{header}`)
-*     The current record as object (:php:`\TYPO3\CMS\Core\Domain\Record`) in `{record}`
-*     FlexForm settings as array in `{pi_flexform_transformed}`
+*   The current record as object (:php-short:`\TYPO3\CMS\Core\Domain\Record`)
+    in variable `{record}`
 
-For more details see the :ref:`TSconfig Reference <t3tsref:pageweblayoutpreview>`.
+..  literalinclude:: _codesnippets/_Preview.html
+    :caption: EXT:my_extension/Resources/Private/Templates/Preview/MyCType.html
+
+..  rubric:: Migration
+
+..  code-block:: diff
+
+    -<h2>{header}</h2>
+    +<h2>{record.header}</h2>
+    -<p>{bodytext}</p>
+    +<p>{record.bodytext}</p>
+    -<small>{pi_flexform_transformed.settings.welcome_header}</small>
+    +<small>{record.pi_flexform.sheets.s_messages.settings.welcome_header}</small>
 
 ..  _ConfigureCE-Preview-EventListener:
 
@@ -67,8 +81,15 @@ Have a look at this :ref:`showcase implementation <PageContentPreviewRenderingEv
 
 For general information see the chapter on :ref:`implementing an event listener <EventDispatcherImplementation>`.
 
+..  _ConfigureCE-Preview-preview-renderer:
+
 Writing a preview renderer
 ==========================
+
+..  versionchanged:: 14.0
+    The `@internal` class
+    :php-short:`\TYPO3\CMS\Backend\View\BackendLayout\Grid\GridColumnItem` has been
+    updated to work with Record objects.
 
 A custom preview renderer must implement the interface
 :php:`\TYPO3\CMS\Backend\Preview\PreviewRendererInterface` which contains

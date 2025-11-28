@@ -174,6 +174,21 @@ Crowdin configuration. Navigate in your Crowdin project to
 click on the :guilabel:`Edit` button and disable the :guilabel:`Push Sources`
 checkbox.
 
+Why is translated content not available in TYPO3?
+-------------------------------------------------
+
+*   The translated strings are not approved. As an owner of the Crowdin project
+    (for example, if you're the extension owner) or as proofreader you can approve
+    strings by yourself. Otherwise please ask in the Slack channel
+    `#typo3-localization-team <https://typo3.slack.com/app_redirect?channel=CR75200FL>`__
+    for approval. With the next run of the Crowdin Bridge the translations
+    should be available (approx. every two hours).
+
+*   Only translations provided from the following default branches in your
+    repository are used: `main`, `master`, `release`, `develop`, `dev`,
+    `development`. If you use other branches, the translations are not
+    available — even if they are translated in Crowdin.
+
 ..  index:: Crowdin; Reconnect your project
 ..  _reconnect-your-project:
 

@@ -102,7 +102,7 @@ Method :php:`getPrerequisites()`
         :caption: EXT:my_extension/Configuration/Services.yaml
 
 After creating the new upgrade wizard, delete all caches in
-:guilabel:`Admin tools > Maintanance > Flush TYPO3 and PHP Cache` or via console
+:guilabel:`System > Maintenance > Flush TYPO3 and PHP Cache` or via console
 command:
 
 ..  include:: /_includes/CliCacheFlush.rst.txt
@@ -234,7 +234,7 @@ this class:
 Executing the wizard
 ====================
 
-Wizards are listed in the backend module :guilabel:`Admin Tools > Upgrade` and
+Wizards are listed in the backend module :guilabel:`System > Upgrade` and
 the card :guilabel:`Upgrade Wizard`. The registered wizard should be shown
 there, as long as it is not done.
 

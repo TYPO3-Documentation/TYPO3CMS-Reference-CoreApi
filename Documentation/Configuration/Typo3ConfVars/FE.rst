@@ -60,21 +60,22 @@ the TYPO3 frontend:
 ..  confval:: compressionLevel
     :Path: $GLOBALS['TYPO3_CONF_VARS']['FE']['compressionLevel']
     :name: typo3-conf-vars-fe-compressionLevel
-    :type: int
+    :type: text
     :Default: 0
+    :Range: 0-9
 
-    Determines output compression of FE output. Makes output smaller but
-    slows down the page generation depending on the compression level. Requires
+    Defines the compression level used for **frontend resource pre-compression**
+    (JavaScript and CSS files) when combined with the TypoScript settings
+    `config.compressJs  <https://docs.typo3.org/permalink/t3tsref:confval-config-compressjs>`_
+    and `compressCss  <https://docs.typo3.org/permalink/t3tsref:confval-config-compresscss>`_.
 
-    *   zlib in your PHP installation and
-    *   special rewrite rules for :file:`.css.gz` and :file:`.js.gz`
-        (before version 12.0 the extension was :file:`.css.gzip` and :file:`.js.gzip`)
+    ..  versionchanged:: 14.0
 
-    Please see :file:`EXT:install/Resources/Private/FolderStructureTemplateFiles/root-htaccess`
-    for an example. Range `1`-`9`, where `1` is least
-    compression and `9` is greatest compression. :php:`true` as value will set the
-    compression based on the PHP default settings (usually `5` ). Suggested and
-    most optimal value is `5`.
+        Frontend HTTP response compression has been removed. Response compression
+        should be applied by web servers and not by the application layer.
+
+        See also: `Breaking: #107943 - Frontend and backend HTTP response
+        compression removed <https://docs.typo3.org/permalink/changelog:breaking-107943-1761860828>`_
 
 ..  _typo3ConfVars_fe_pageNotFoundOnCHashError:
 

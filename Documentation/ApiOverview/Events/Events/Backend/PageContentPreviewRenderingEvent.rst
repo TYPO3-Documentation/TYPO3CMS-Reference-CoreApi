@@ -11,6 +11,14 @@ Use the PSR-14 event
 to ship an alternative rendering for a specific content type or
 to manipulate the record data of a content element.
 
+..  versionchanged:: 14.0
+    `PageContentPreviewRenderingEvent->getRecord()` now returns a
+    :php:`RecordInterface` object instead of an array,
+    :php:`PageContentPreviewRenderingEvent->setRecord()` has been adjusted
+    accordingly.
+
+..  _PageContentPreviewRenderingEvent-example:
+
 Example
 =======
 
@@ -20,6 +28,7 @@ Example
 
 ..  include:: /_includes/EventsAttributeAdded.rst.txt
 
+..  _PageContentPreviewRenderingEvent-api:
 
 API
 ===

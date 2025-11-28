@@ -15,7 +15,7 @@
 
     In the :file:`ext_conf_template.txt` file configuration options
     for an extension can be defined. They will be accessible in the TYPO3 backend
-    from :guilabel:`Admin Tools > Settings` module.
+    from :guilabel:`System > Settings` module.
 
 ..  _extension-options-syntax:
 

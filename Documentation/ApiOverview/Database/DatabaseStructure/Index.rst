@@ -30,7 +30,7 @@ Typical categories include:
 *   **System tables**:
 
     *   :sql:`sys_registry`: Global configuration
-    *   :sql:`sys_log`: Viewable via :guilabel:`System > Log`
+    *   :sql:`sys_log`: Viewable via :guilabel:`Administration > Log`
 
 ..  _database-structure-managed:
 
@@ -38,7 +38,7 @@ Managed tables
 ==============
 
 Defined in the :ref:`TCA <t3tca:start>` and, by default, editable in the
-:guilabel:`Content > List` module. TYPO3 derives database schemas from the TCA
+:guilabel:`Content > Records` module. TYPO3 derives database schemas from the TCA
 configuration. Required fields such as :sql:`uid` and :sql:`pid` are generated
 automatically.
 

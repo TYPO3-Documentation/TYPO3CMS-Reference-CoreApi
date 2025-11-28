@@ -193,7 +193,7 @@ from the root of the page tree using the :ref:`export module <ext_impexp:export>
    previous exports were stored that you do not want included in the export.
 
    Therefore, delete any temporary files that you do not want to export from the
-   fileadmin. Use the :guilabel:`Media > Filelist` module to delete these files.
+   fileadmin. Use the :guilabel:`Media` module to delete these files.
    If you delete them directly from the file system, the corresponding entries in
    :sql:`sys_file` will not be deleted and an error will occur during export,
    which must then be corrected directly by manually deleting the database entries.

@@ -32,6 +32,25 @@ configuration.
     :display: tree
     :type:
 
+..  confval:: caching
+    :name: globals-typo3-conf-vars-sys-caching
+    :Path: $GLOBALS['TYPO3_CONF_VARS']['SYS']['caching']
+    :type: array
+    :Default: See :t3src:`core/Configuration/DefaultConfiguration.php`
+
+    ..  confval:: cacheConfigurations
+        :name: globals-typo3-conf-vars-sys-caching-cacheConfigurations
+        :Path: $GLOBALS['TYPO3_CONF_VARS']['SYS']['caching']['cacheConfigurations']
+        :type: array
+        :Default: See :t3src:`core/Configuration/DefaultConfiguration.php`
+
+        Registry of configured caches. Each cache is identified by its array
+        key. Each cache key can contain sub-keys `frontend`, `backend` and
+        `options` which set the frontend, backend and backend options for a
+        configured cache.
+
+        See also `Cache configuration <https://docs.typo3.org/permalink/t3coreapi:caching-configuration>`_.
+
 ..  _typo3ConfVars_sys_fileCreateMask:
 
 ..  confval:: fileCreateMask
@@ -962,8 +981,9 @@ configuration.
 
     ..  versionadded:: 13.2
 
-    A configuration option to modify the environment check in :guilabel:`Admin Tools`
-    to incorporate a list of sanctioned :php:`disable_functions`.
+    A configuration option to modify the environment check in
+    :guilabel:`System > Environment` to incorporate a list of sanctioned
+    `disable_functions`.
 
     Using this configuration option
     a system maintainer can add native PHP function names to the list,
@@ -976,4 +996,4 @@ configuration.
             = ['set_time_limit', 'set_file_buffer'];
 
     You can also define this manually in your :file:`settings.php` file
-    or via :guilabel:`Admin Tools > Settings > Configure options`.
+    or via :guilabel:`System > Settings > Configure options`.

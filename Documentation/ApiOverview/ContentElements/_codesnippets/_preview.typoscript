@@ -1,0 +1,8 @@
+mod.web_layout {
+  tt_content {
+    preview {
+      # Your CType
+      example_ctype = EXT:my_extension/Resources/Private/Templates/Preview/MyCType.html
+    }
+  }
+}

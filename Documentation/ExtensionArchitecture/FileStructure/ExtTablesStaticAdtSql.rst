@@ -25,7 +25,7 @@
 Note that only :sql:`INSERT INTO` statements are allowed. The file is
 interpreted whenever the corresponding extension's setup routines get called:
 Upon first time installation, command task execution of
-:bash:`bin/typo3 extension:setup` or via the :guilabel:`Admin Tools > Extensions`
+:bash:`bin/typo3 extension:setup` or via the :guilabel:`System > Extensions`
 interface and the :guilabel:`Reload extension data` action. The static data is
 then only re-evaluated, if the file has different contents than on the last
 execution. In that case, the table is truncated and the new data imported.

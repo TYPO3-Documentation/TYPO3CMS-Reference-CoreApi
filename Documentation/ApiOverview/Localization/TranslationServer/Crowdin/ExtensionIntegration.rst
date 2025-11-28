@@ -67,6 +67,30 @@ Step-by-step instructions for GitHub
             ignore:
               - /**/%two_letters_code%.%original_file_name%
 
+    If you provide a :file:`labels.xlf` file for the
+    :ref:`site settings <site-settings-definition-translation>`,
+    the `/Configuration/Sets/` folder should be added:
+
+    ..  code-block:: yaml
+        :caption: EXT:my_extension/.crowdin.yml
+
+        preserve_hierarchy: 1
+        files:
+          - source: /Configuration/Sets/*/*.xlf
+            translation: /%original_path%/%two_letters_code%.%original_file_name%
+            ignore:
+              - /**/%two_letters_code%.%original_file_name%
+          - source: /Resources/Private/Language/*.xlf
+            translation: /%original_path%/%two_letters_code%.%original_file_name%
+            ignore:
+              - /**/%two_letters_code%.%original_file_name%
+
+    ..  note::
+        If you use the configuration with the :file:`/Configuration/Sets/*/*.xlf`
+        source and do not provide labels, the GitHub action returns an error.
+        However, your files from the :file:`/Resources/Private/Language/` folder
+        will still be uploaded.
+
 2.  Connect your GitHub repository
 
     In order for Crowdin to manage translations, you need to somehow push the
@@ -76,7 +100,62 @@ Step-by-step instructions for GitHub
     ..  accordion::
         :name: crowdinConnectionAccordion
 
-        ..  accordion-item:: Option A: Use the Crowdin <> GitHub integration
+        ..  accordion-item:: Option A: Create a GitHub workflow (recommended)
+            :name: crowdinGitHubWorkflow
+            :header-level: 4
+
+            When working with GitHub Actions, you can easily integrate the
+            `Crowdin GitHub Action <https://github.com/marketplace/actions/crowdin-action>`__
+            into your CI workflow.
+
+            ..  rst-class:: bignums
+
+                1.  Configure GitHub secrets
+
+                    First, add the following GitHub secrets to your GitHub repository:
+
+                    `CROWDIN_PROJECT_ID`
+                        Project ID, can be found in **project settings** when
+                        navigating to :guilabel:`Tools > API`.
+                    `CROWDIN_PERSONAL_TOKEN`
+                        API key used for authentication at Crowdin, can be
+                        generated in **personal settings** at
+                        :guilabel:`API > Personal Access Tokens`.
+
+                    ..  tip::
+                        When creating a personal access token in Crowdin, you will need to select some scopes.
+                        For this workflow, set at least the following basic `Project` scopes:
+
+                        *   **Projects (List, Get, Create, Edit)**: `Read Only`
+                        *   **Translation Status**: `Read Only`
+                        *   **Source files & strings**: `Read and Write`
+                        *   **Translations**: `Read and Write`
+
+                2.  Create GitHub workflow
+
+                    Now create a new GitHub workflow :file:`crowdin.yaml`:
+
+                    ..  literalinclude:: _codesnippets/_crowdin.yaml
+                        :caption: EXT:my_extension/.github/workflows/crowdin.yaml
+
+                    ..  important::
+
+                        Make sure to configure a Crowdin branch name using the
+                        `crowdin_branch_name` configuration option of the GitHub
+                        action. Otherwise, translations are delivered incomplete
+                        by TYPO3's Crowdin Bridge.
+
+                    ..  seealso::
+
+                        For more information about available configuration options,
+                        consult the `official GitHub action documentation <https://github.com/marketplace/actions/crowdin-action>`__.
+
+                3.  Push sources
+
+                    For each push in your `main` branch, the workflow will now
+                    transfer all your translation sources to Crowdin.
+
+        ..  accordion-item:: Option B: Use the Crowdin <> GitHub integration (legacy)
             :name: crowdinGitHubIntegration
             :header-level: 4
 
@@ -142,60 +221,15 @@ Step-by-step instructions for GitHub
                         ``<source>`` and ``<target>`` elements. If the ``<source>`` elements are missing,
                         Crowdin will not be able to match the translations with the original English labels.
 
-        ..  accordion-item:: Option B: Create a GitHub workflow
-            :name: crowdinGitHubWorkflow
-            :header-level: 4
+3.  Approve imported translations
 
-            When working with GitHub Actions, you can easily integrate the
-            `Crowdin GitHub Action <https://github.com/marketplace/actions/crowdin-action>`__
-            into your CI workflow.
+    After importing existing translations, they will arrive in Crowdin in an
+    **unapproved state**. These translations need to be explicitly approved in
+    Crowdin before they become available for export and use in TYPO3 installations.
 
-            ..  rst-class:: bignums
-
-                1.  Configure GitHub secrets
-
-                    First, add the following GitHub secrets to your GitHub repository:
-
-                    `CROWDIN_PROJECT_ID`
-                        Project ID, can be found in **project settings** when
-                        navigating to :guilabel:`Tools > API`.
-                    `CROWDIN_PERSONAL_TOKEN`
-                        API key used for authentication at Crowdin, can be
-                        generated in **personal settings** at
-                        :guilabel:`API > Personal Access Tokens`.
-
-                    ..  tip::
-                        When creating a personal access token in Crowdin, you will need to select some scopes.
-                        For this workflow, set at least the following basic `Project` scopes:
-
-                        *   **Projects (List, Get, Create, Edit)**: `Read Only`
-                        *   **Translation Status**: `Read Only`
-                        *   **Source files & strings**: `Read and Write`
-                        *   **Translations**: `Read and Write`
-
-                2.  Create GitHub workflow
-
-                    Now create a new GitHub workflow :file:`crowdin.yaml`:
-
-                    ..  literalinclude:: _codesnippets/_crowdin.yaml
-                        :caption: EXT:my_extension/.github/workflows/crowdin.yaml
-
-                    ..  important::
-
-                        Make sure to configure a Crowdin branch name using the
-                        `crowdin_branch_name` configuration option of the GitHub
-                        action. Otherwise, translations are delivered incomplete
-                        by TYPO3's Crowdin Bridge.
-
-                    ..  seealso::
-
-                        For more information about available configuration options,
-                        consult the `official GitHub action documentation <https://github.com/marketplace/actions/crowdin-action>`__.
-
-                3.  Push sources
-
-                    For each push in your `main` branch, the workflow will now
-                    transfer all your translation sources to Crowdin.
+    See :ref:`crowdin-mass-approval` for instructions on how to approve translations
+    programmatically using the Crowdin API, or use Crowdin's web interface bulk
+    approval feature.
 
 Happy translating!
 

@@ -15,7 +15,13 @@ Configuration inspector (readonly)
 Only available if :composer:`typo3/cms-lowlevel` is installed.
 
 The configuration module can be found at :guilabel:`System > Configuration`.
-It allows integrators to view and validate the global configuration of TYPO3.
+It allows users with system maintainer permissions to view and validate the
+global configuration of TYPO3.
+
+..  versionchanged:: 14.0
+    The :guilabel:`System > Configuration` module is now only available
+    for system maintainers.
+
 The module displays all relevant global variables, such as
 :ref:`TYPO3_CONF_VARS <typo3ConfVars>`, :ref:`TCA <t3tca:start>` and many more,
 in a tree format which is easy to browse through. Over time, this module has been

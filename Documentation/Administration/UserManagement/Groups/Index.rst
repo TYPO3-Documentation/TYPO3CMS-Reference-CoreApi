@@ -85,8 +85,12 @@ Using the "Backend Users" module
 ================================
 
 If you have not auto-created the user groups, create one in the backend module
-:guilabel:`System > Backend Users`. Use the dropdown in the module header
+:guilabel:`Administration > Users`. Use the dropdown in the module header
 to switch to the "Backend User Groups" submodule.
+
+..  versionchanged:: 14.0
+    Until TYPO3 V14 this module was called :guilabel:`System > Backend Users`.
+    See also: `Feature: #107628 - Improved backend module naming and structure <https://docs.typo3.org/permalink/changelog:feature-107628-1729026000>`_.
 
 ..  figure:: /Images/ManualScreenshots/UserManagement/Module/BackendUserGroupsModule.png
     :alt: Screenshot of the Module "Backend Users", submodule "Backend User Groups" in the TYPO3 Backend
@@ -108,7 +112,7 @@ Go to tab **Module Permissions**:
 ..  figure:: /Images/ManualScreenshots/UserManagement/BackendUserGroupsTabModule.png
     :alt: Tab "Module Permissions" with the list of allowed modules
 
-    For **Allowed Modules** choose "Web > Page" and "Web > View"
+    For **Allowed Modules** choose :guilabel:`Content > Layout` and :guilabel:`Content > Preview`
 
 Then move to tab **Record Permissions**:
 
