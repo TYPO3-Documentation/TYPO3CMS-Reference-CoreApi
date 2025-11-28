@@ -5,8 +5,8 @@
 Customization Examples
 ======================
 
-Many extracts can be found throughout the manual, but this section
-provides more complete examples.
+There are many customization examples in the documentation, but this section
+provides the most complete examples.
 
 
 .. index::
@@ -18,7 +18,7 @@ Example 1: Extending the fe\_users table
 ========================================
 
 The "examples" extension adds two fields to the "fe\_users" table.
-Here's the complete code, taken from file
+Here is the complete code, taken from file
 :file:`Configuration/TCA/Overrides/fe_users.php`:
 
 .. code-block:: php
@@ -70,23 +70,22 @@ Read :ref:`why the check for the TYPO3 constant is necessary <globals-constants-
 
 .. note::
 
-   The second example :php:`tx_examples_special` only works when the
-   :php:`renderType` has been registered implemented and then registered in
-   the ext_localconf.php. Please refer to the the following chapter of the
-   TCA reference on how to implement it: :ref:`t3tca:columns-user`.
+   The second example, :php:`tx_examples_special`, only works when
+   :php:`renderType` has been registered, implemented, and registered in
+   ext_localconf.php. Please refer to :ref:`t3tca:columns-user`.
 
 
-In this example the first method call adds fields using
-:php:`ExtensionManagementUtility::addTCAcolumns()`. This ensures that the fields
-are registered in :php:`$GLOBALS['TCA']`. Parameters:
+The first method call adds fields using
+:php:`ExtensionManagementUtility::addTCAcolumns()`. This registers the fields
+in :php:`$GLOBALS['TCA']`. The parameters are:
 
 1. Name of the table to which the fields should be added.
-2. An array of the fields to be added. Each field is represented in the
+2. An array of the fields to be added. Each field is in
    :ref:`TCA syntax for columns <t3tca:columns>`.
 
-Since the fields are only registered but not used anywhere,  the fields are
-afterwards added to the "types" definition of the :sql:`fe_users` table by
-calling :php:`ExtensionManagementUtility::addToAllTCAtypes()`. Parameters:
+At this point the fields have been registered but not used anywhere, so they need to be added
+to the "types" definition of the :sql:`fe_users` table by
+calling :php:`ExtensionManagementUtility::addToAllTCAtypes()`. The parameters are:
 
 1.  Name of the table to which the fields should be added.
 2.  Comma-separated string of fields, the same syntax used in the
@@ -97,19 +96,19 @@ calling :php:`ExtensionManagementUtility::addToAllTCAtypes()`. Parameters:
     to an existing field (:php:`after:myfield`) or
     palette (:php:`after:palette:mypalette`).
 
-So you could do this:
+Example code:
 
 ..  literalinclude:: _fe_users.php
     :language: php
     :caption: EXT:some_extension/Configuration/TCA/Overrides/fe_users.php
 
-If the fourth parameter (position) is omitted or the specified field is not found,
-new fields are added at the bottom of the form. If the table uses tabs,
-new fields are added at the bottom of the :guilabel:`Extended` tab. This tab
+If the fourth parameter is omitted or the field is not found,
+new fields are added to the bottom of the form. If the table uses tabs,
+new fields are added to the bottom of the :guilabel:`Extended` tab. This tab
 is created automatically if it does not exist.
 
-These method calls do not create the corresponding fields in the database. The new
-fields must also be defined in the :file:`ext_tables.sql` file of the extension:
+These method calls do not create fields in the database. To do
+this, the new fields must be defined in the :file:`ext_tables.sql` file of the extension:
 
 .. code-block:: sql
    :caption: EXT:some_extension/ext_tables.sql
@@ -128,12 +127,12 @@ fields must also be defined in the :file:`ext_tables.sql` file of the extension:
    table already exists.
 
 
-The following screen shot shows the placement of the two
+The following screenshot shows the position of the two
 new fields when editing a "fe\_users" record:
 
 .. include:: /Images/AutomaticScreenshots/ExtendingTca/ExtendingTcaFeUsers.rst.txt
 
-The next example shows how to place a field more precisely.
+The next example shows how to position a field more precisely.
 
 
 .. index::
@@ -144,7 +143,7 @@ The next example shows how to place a field more precisely.
 Example 2: Extending the tt\_content Table
 ==========================================
 
-In the second example, we will add a "No print" field to all content
+In this second example, we will add a "No print" field to all content
 element types. First of all, we add its SQL definition in
 :file:`ext_tables.sql`:
 
@@ -186,16 +185,14 @@ Then we add it to the :php:`$GLOBALS['TCA']` in :file:`Configuration/TCA/Overrid
       'before:editlock'
    );
 
-The code is mostly the same as in the first example, but the last method call
-is different and requires an explanation. The tables :code:`pages` and
-:code:`tt_content` use :ref:`palettes <t3tca:palettes>` extensively. This increases
-flexibility.
-
-Therefore we call :code:`ExtensionManagementUtility::addFieldsToPalette()`
+The code is similar to the first example, but the last method call
+is different. The tables :code:`pages` and
+:code:`tt_content` use :ref:`palettes <t3tca:palettes>` extensively. Therefore,
+we call :code:`ExtensionManagementUtility::addFieldsToPalette()`
 instead of :code:`ExtensionManagementUtility::addToAllTCAtypes()`.
-We need to specify the palette's key as the second argument (:code:`access`).
-Precise placement of the new field is achieved with the fourth parameter
-(:code:`before:editlock`). This will place the "no print" field right before the
+We need to specify the palette key as the second argument (:code:`access`).
+The new field is positioned by the fourth parameter
+(:code:`before:editlock`). This will position the "no print" field before the
 :guilabel:`Restrict editing by non-Admins` field, instead of putting it in the
 :guilabel:`Extended` tab.
 
@@ -205,12 +202,11 @@ The result is the following:
 
 .. note::
 
-   Obviously this new field will not magically exclude a content element
-   from being printed. For it to have any effect, it must be used during
-   the rendering by modifying the TypoScript used to render the
-   :sql:`tt_content` table. Although this is outside the scope of this
+   Obviously this new field doesn't do anything yet. For it to do its job of
+   excluding a content element from being printed, it must modify the TypoScript
+   used to render the :sql:`tt_content` table. Although this is outside the scope of this
    manual, here is an example of what you could do, for the sake of
-   showing a complete process.
+   showing the complete process.
 
    Assuming you are using "fluid\_styled\_content" (which is installed by
    default), you could add the following TypoScript to your template:
@@ -225,6 +221,6 @@ The result is the following:
    be to declare the appropriate selector in the print-media CSS file so
    that "noprint" elements don't get displayed.
 
-   This is just an example of how the effect of the "No print" checkbox
-   can be ultimately implemented. It is meant to show that just adding
+   This is just an example of how the "No print" checkbox
+   can be implemented. It is meant to show that just adding
    the field to the :php:`$GLOBALS['TCA']` is not enough.
