@@ -3,7 +3,7 @@
 
 ..  php:class:: ModifyDatabaseQueryForRecordListingEvent
 
-    Use this Event to alter the database query when loading content for a page (usually in the "Records" module)
+    Use this Event to alter the database query when loading content for a page (usually in the records module)
     before it is executed.
 
     ..  php:method:: getQueryBuilder()
