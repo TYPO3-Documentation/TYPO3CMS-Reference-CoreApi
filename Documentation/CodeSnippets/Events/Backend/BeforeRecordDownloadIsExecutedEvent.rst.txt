@@ -3,7 +3,7 @@
 
 ..  php:class:: BeforeRecordDownloadIsExecutedEvent
 
-    Listeners to this event are able to manipulate the download of records, usually triggered via Content > Records.
+    Listeners to this event are able to manipulate the download of records, usually triggered via Content > Record.
 
     ..  php:method:: getHeaderRow()
         :returns: `array`
