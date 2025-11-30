@@ -221,6 +221,13 @@ Step-by-step instructions for GitHub
                         ``<source>`` and ``<target>`` elements. If the ``<source>`` elements are missing,
                         Crowdin will not be able to match the translations with the original English labels.
 
+    ..  important::
+        Using the recommended GitHub workflow the GitHub default branch can be
+        mapped to the Crowdin branch name via the attribute :yaml:`crowdin_branch_name`.
+        It is recommended that you always use `main` as the Crowdin branch name.
+        **More than one Crowdin branch (for example via different
+        GitHub branches) is not supported by the Crowdin Bridge!**
+
 3.  Approve imported translations
 
     After importing existing translations, they will arrive in Crowdin in an
