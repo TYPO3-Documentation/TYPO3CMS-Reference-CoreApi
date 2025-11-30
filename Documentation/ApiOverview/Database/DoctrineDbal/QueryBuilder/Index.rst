@@ -52,6 +52,7 @@ an instance of the current query builder itself, and can be chained:
         ->select('uid')
         ->from('pages');
 
+
 ..  _database-query-builder-instantiation:
 
 Instantiation
@@ -82,7 +83,6 @@ injected via :ref:`dependency injection <DependencyInjection>`.
     is quite fast.
 
 ..  _significant performance penalty and memory consumption: https://www.derhansen.de/2023/10/the-pitfalls-of-reusing-typo3-querybuilder-analyzing-a-performance-bottleneck.html
-
 
 ..  _database-query-builder-select:
 
@@ -182,23 +182,24 @@ a query builder with the connection pool.
 See available :ref:`parameter types <database-connection-parameter-types>`.
 
 ..  _database-query-builder-select-restrictions:
+..  _database-query-builder-default-restrictions:
 
 Default Restrictions
 --------------------
 
 ..  note::
     :php:`->select()` and :php:`->count()` queries trigger TYPO3 magic that adds
-    further default where clauses if the queried table is also registered via
-    :php:`$GLOBALS['TCA']`. See the :ref:`RestrictionBuilder
-    <database-restriction-builder>` section for details on that topic.
-
+    default :php:`where` clauses to queries if they are defined as
+    :ref:`enableColumns <t3tca:ctrl-enablecolumns>` in the table's TCA ctrl section.
+    See the :ref:`RestrictionBuilder <database-restriction-builder>` section for
+    further details.
 
 ..  _database-query-builder-count:
 
 count()
 =======
 
-Create a :sql:`COUNT` query, a typical usage:
+Create a :sql:`COUNT` query. Typical usage:
 
 ..  code-block:: php
     :caption: EXT:my_extension/Classes/Domain/Repository/MyRepository.php
@@ -225,11 +226,13 @@ See available :ref:`parameter types <database-connection-parameter-types>`.
 
 Remarks:
 
-*   Similar to the :php:`->select()` query type, :php:`->count()` automatically
-    triggers the magic of the :ref:`RestrictionBuilder
-    <database-restriction-builder>` that adds default restrictions such as
-    :sql:`deleted`, :sql:`hidden`, :sql:`starttime` and :sql:`endtime` when
-    defined in TCA.
+*   see :ref:`Default Restrictions <database-query-builder-default-restrictions>`
+
+*   Similar to the :php:`->select()` query type, :php:`->count()`
+    triggers :ref:`RestrictionBuilder <database-restriction-builder>`
+    magic that adds default restrictions such as
+    :sql:`deleted`, :sql:`hidden`, :sql:`starttime` and :sql:`endtime` if
+    they are defined in the TCA.
 
 *   Similar to :php:`->select()` query types, :php:`->executeQuery()` with
     :php:`->count()` returns a result object of type :php:`\Doctrine\DBAL\Result`.
@@ -407,7 +410,7 @@ Remarks:
 
 *   The API does not magically add `deleted = 0` or other restrictions, as is
     currently the case with :ref:`select
-    <database-query-builder-select-restrictions>`, for example.
+    <database-query-builder-default-restrictions>`.
     (See also :ref:`RestrictionBuilder <database-restriction-builder>`).
 
 
@@ -485,7 +488,7 @@ tables with an explicit :php:`->join()`.
 where(), andWhere() and orWhere()
 =================================
 
-The three methods are used to create :sql:`WHERE` restrictions for :sql:`SELECT`,
+These three methods create :sql:`WHERE` restrictions for :sql:`SELECT`,
 :sql:`COUNT`, :sql:`UPDATE` and :sql:`DELETE` query types. Each argument is
 usually an :ref:`ExpressionBuilder <database-expression-builder>` object that
 is converted to a string on :php:`->executeQuery()` or
@@ -525,10 +528,13 @@ Read :ref:`how to correctly instantiate <database-query-builder-instantiation>`
 a query builder with the connection pool.
 See available :ref:`parameter types <database-connection-parameter-types>`.
 
-Note the parenthesis of the above example: :php:`->andWhere()` encapsulates both
-:php:`->where()` and :php:`->orWhere()` with an additional restriction.
+..  note::
+    The commented out section in the code above demonstrates how including an
+    :php:`->andWhere()` leads to nesting of the :php:`->where()` and
+    :php:`->orWhere()` clauses.
 
-Argument unpacking can become handy with these methods:
+
+Argument unpacking is useful as shown in the following methods:
 
 ..  code-block:: php
     :caption: EXT:my_extension/Classes/Domain/Repository/MyRepository.php
@@ -558,11 +564,9 @@ Remarks:
     **Always** use this when dealing with user input in expressions to protect
     the statement from SQL injections.
 
-*   :php:`->where()` should be called only once per query and resets all
-    previously set :php:`->where()`, :php:`->andWhere()` and :php:`->orWhere()`
-    expressions. A :php:`->where()` call after a previous :php:`->where()`,
-    :php:`->andWhere()` or :php:`->orWhere()` usually indicates a bug or a
-    rather weird code flow. Doing so is discouraged.
+*   :php:`->where()` replaces all previously set :php:`->where()`,
+    :php:`->andWhere()` and :php:`->orWhere()` expressions. It should therefore
+    be called only once and at the beginning of a query to prevent unwanted behavior.
 
 *   When creating complex :sql:`WHERE` restrictions, :php:`->getSQL()` and
     :php:`->getParameters()` are helpful debugging tools to verify parenthesis
@@ -872,12 +876,12 @@ queries.
         be a performance improvement.
 
 ..  note::
-    While technically possible, it is not recommended to send direct SQL queries
-    as strings to the `union()` and `addUnion()` methods. We recommend to use a
+    Although it is technically possible, it is not recommended to send direct SQL queries
+    as strings to the `union()` and `addUnion()` methods. We recommend using a
     query builder.
 
     If you decide to do so you **must** take care of quoting, escaping, and
-    valid SQL Syntax for the database system in question. The `Default Restrictions <https://docs.typo3.org/permalink/t3coreapi:database-query-builder-select-restrictions>`_
+    valid SQL Syntax for the database system in question. The `Default Restrictions <https://docs.typo3.org/permalink/t3coreapi:database-query-builder-default-restrictions>`_
     are **not applied** on that part.
 
 Named placeholders, such as created by :php:`QueryBuilder::createNamedParameter()`
@@ -924,7 +928,7 @@ Line 41
 Line 50
     Named parameters must also be called on the outer most union query builder.
 
-The `Default Restrictions <https://docs.typo3.org/permalink/t3coreapi:database-query-builder-select-restrictions>`_
+The `Default Restrictions <https://docs.typo3.org/permalink/t3coreapi:database-query-builder-default-restrictions>`_
 are applied to each subquery automatically.
 
 ..  _database-query-builder-setMaxResults:
