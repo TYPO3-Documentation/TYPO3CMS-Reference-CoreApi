@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace MyVendor\MyExtension\Upgrades;
 
-
 use TYPO3\CMS\Core\Attribute\UpgradeWizard;
 use TYPO3\CMS\Core\Upgrades\UpgradeWizardInterface;
 
