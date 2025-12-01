@@ -27,7 +27,7 @@ final readonly class MyEventListener
                     Error::class,
                     GeneralUtility::makeInstance(TranslationService::class)->translate('validation.error.1556283177', null, 'EXT:form/Resources/Private/Language/locallang.xlf'),
                     1556283177,
-                )
+                ),
             );
         }
         $event->value = $elementValue['password'];
