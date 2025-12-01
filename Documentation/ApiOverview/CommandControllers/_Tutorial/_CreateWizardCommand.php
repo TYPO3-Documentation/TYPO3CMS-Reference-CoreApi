@@ -12,10 +12,12 @@ use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Style\SymfonyStyle;
 use T3docs\Examples\Exception\InvalidWizardException;
+use TYPO3\CMS\Core\Attribute\AsNonSchedulableCommand;
 
 #[AsCommand(
     name: 'myextension:createwizard',
 )]
+#[AsNonSchedulableCommand]
 final class CreateWizardCommand extends Command
 {
     protected function configure(): void
