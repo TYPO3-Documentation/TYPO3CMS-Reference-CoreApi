@@ -122,7 +122,7 @@ Making a command non-schedulable
     mark a command as non-schedulable.
 
     To provide support for both TYPO3 v14 and v13 continue to register your
-    command in the :file:`Services.yaml` (see
+    command in :file:`Services.yaml` (see
     `Tag console.command in the Services.yaml <https://docs.typo3.org/permalink/t3coreapi:console-command-tutorial-registration-tag>`_).
 
 A command can be set as disabled for the scheduler by using the
