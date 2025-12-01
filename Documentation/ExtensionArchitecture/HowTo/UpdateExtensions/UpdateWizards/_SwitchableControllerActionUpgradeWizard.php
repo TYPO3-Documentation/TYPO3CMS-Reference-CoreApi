@@ -4,10 +4,10 @@ declare(strict_types=1);
 
 namespace MyVendor\MyExtension\Upgrades;
 
+use TYPO3\CMS\Core\Attribute\UpgradeWizard;
 use TYPO3\CMS\Core\Configuration\FlexForm\FlexFormTools;
 use TYPO3\CMS\Core\Database\ConnectionPool;
-use TYPO3\CMS\Install\Attribute\UpgradeWizard;
-use TYPO3\CMS\Install\Updates\UpgradeWizardInterface;
+use TYPO3\CMS\Core\Upgrades\UpgradeWizardInterface;
 
 #[UpgradeWizard('myExtension_switchableControllerActionUpgradeWizard')]
 final class SwitchableControllerActionUpgradeWizard implements UpgradeWizardInterface
