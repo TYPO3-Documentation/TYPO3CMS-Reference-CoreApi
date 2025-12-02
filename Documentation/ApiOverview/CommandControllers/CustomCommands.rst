@@ -99,6 +99,8 @@ definition of your class as a tag :yaml:`console.command`:
           - name: console.command
             command: 'examples:dosomething'
             description: 'A command that does nothing and always succeeds.'
+            // To hide it from the scheduler:
+            schedulable: false
           # Also an alias for the command can be configured
           - name: console.command
             command: 'examples:dosomethingalias'
@@ -106,9 +108,8 @@ definition of your class as a tag :yaml:`console.command`:
 
 ..  note::
     Despite using :file:`autoconfigure: true` the commands
-    have to be explicitly defined in :file:`Configuration/Services.yaml`. It
-    is recommended to always supply a description, otherwise there will be
-    an empty space in the list of commands.
+    have to be explicitly defined in :file:`Configuration/Services.yaml` or
+    use the PHP attribute :php:`#[AsCommand]`.
 
 ..  _deactivating-the-command-in-scheduler:
 ..  _schedulable:
@@ -116,25 +117,30 @@ definition of your class as a tag :yaml:`console.command`:
 Making a command non-schedulable
 ================================
 
-A command can be set as disabled for the scheduler by setting :yaml:`schedulable`
-to :yaml:`false`. This can only be done when registering the command via
-`tag <console-command-tutorial-registration-tag>`_ and not via attribute:
+..  versionadded:: 14.0
+    The PHP attribute :php:`#[AsNonSchedulableCommand]` has been introduced to
+    mark a command as non-schedulable.
 
+    To provide support for both TYPO3 v14 and v13 continue to register your
+    command in :file:`Services.yaml` (see
+    `Tag console.command in the Services.yaml <https://docs.typo3.org/permalink/t3coreapi:console-command-tutorial-registration-tag>`_).
 
-..  code-block:: yaml
-    :caption: packages/my_extension/Configuration/Services.yaml
+A command can be set as disabled for the scheduler by using the
+:php:`#[AsNonSchedulableCommand]` attribute:
 
-    services:
-      # ...
+..  code-block:: php
+    :caption: EXT:my_extension/Classes/Commands/MyImportCommand.php
 
-      MyVendor\MyExtension\Command\DoSomethingCommand:
-        tags:
-          - name: console.command
-            command: 'examples:dosomething'
-            description: 'A command that does nothing and cannot be scheduled.'
-            schedulable: false
+    use Symfony\Component\Console\Attribute\AsCommand;
+    use Symfony\Component\Console\Command\Command;
+    use TYPO3\CMS\Core\Attribute\AsNonSchedulableCommand;
 
-
+    #[AsCommand('myextension:import', 'Import data from external source')]
+    #[AsNonSchedulableCommand]
+    final class MyImportCommand extends Command
+    {
+        // ...
+    }
 
 ..  _writing-custom-symfony-console-command-context:
 
