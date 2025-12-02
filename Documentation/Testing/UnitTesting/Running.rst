@@ -17,8 +17,8 @@ PHPUnit and the testing framework via Composer as a development dependency:
 ..  code-block:: bash
 
     composer require --dev \
-      "typo3/testing-framework":"^8.0.9" \
-      "phpunit/phpunit":"^10.5"
+      "typo3/testing-framework":"^9.2.1" \
+      "phpunit/phpunit":"11.2.5"
 
 Which versions to use depends on the PHP and TYPO3 versions to be supported.
 
@@ -27,6 +27,7 @@ The following matrix can help you to choose the correct versions.
 ================== ================ =================================== ==========
  testing-framework  TYPO3            PHP                                 PHPUnit
 ================== ================ =================================== ==========
+ 9.x.x              v13, v14 (dev)   8.2, 8.3, (8.4)                     ^11, ^12
  8.x.x              v12, v13 (main)  8.1, 8.2, 8.3 (8.4)                 ^10, ^11
  7.x.x              v11, v12         7.4, 8.0, 8.1, 8.2, 8.3 (8.4)       ^9, ^10
  6.x.x              v10, v11         7.2, 7.3, 7.4, 8.0, 8.1, 8.2, 8.3   ^8, ^9
