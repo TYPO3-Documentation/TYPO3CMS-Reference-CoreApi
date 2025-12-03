@@ -101,7 +101,12 @@ is applied with one argument.
 ..  _extbase-validation-controller:
 
 Validation of controller arguments
-===================================
+==================================
+
+..  deprecated:: 14.0
+    Applying controller argument validation at **method level** has been
+    deprecated. Define validators at **argument level** from
+    TYPO3 v14.
 
 You can also define controller argument validators:
 
@@ -110,8 +115,12 @@ You can also define controller argument validators:
 ..  code-block:: php
     :caption: Examples for controller argument validators
 
-    #[Validate(['validator' => 'EmailAddress', 'param' => 'email'])]
-    public function submitAction(string $email): ResponseInterface
+    public function submitAction(
+        #[Validate(validator: 'EmailAddress')]
+        string $email,
+    ): ResponseInterface {
+        // Do something...
+    }
 
 The following rules validate each controller argument:
 
@@ -154,5 +163,5 @@ Manually call a validator
 It is possible to call a validator in your own code with the method
 :php:`\TYPO3\CMS\Extbase\Validation\ValidatorResolver::createValidator()`.
 
-However please note that the class :php:`ValidatorResolver` is marked as
+However please note that the class :php-short:`\TYPO3\CMS\Extbase\Validation\ValidatorResolver` is marked as
 :php:`@internal` and it is therefore not advisable to use it.
