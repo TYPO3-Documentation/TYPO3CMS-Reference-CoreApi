@@ -104,9 +104,9 @@ Validation of controller arguments
 ==================================
 
 ..  deprecated:: 14.0
-    Applying controller argument validation of **method level** has been
-    deprecated. Define the validator on **argument level** once dropping
-    TYPO3 v13 support.
+    Applying controller argument validation at **method level** has been
+    deprecated. Define validators at **argument level** from
+    TYPO3 v14.
 
 You can also define controller argument validators:
 
