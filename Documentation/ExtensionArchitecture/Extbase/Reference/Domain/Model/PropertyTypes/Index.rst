@@ -124,7 +124,7 @@ it should **not** be used in the following cases:
 
 -   **Date and time fields**: For fields configured with
     `datetime <https://docs.typo3.org/permalink/t3tca:columns-datetime>`_,
-    use :php:`\DateTimeInterface` instead of :php:`int` to benefit from proper
+    use :php:`DateTimeInterface` instead of :php:`int` to benefit from proper
     time handling and formatting in Extbase and Fluid.
 
 -   **Boolean values**: For fields using
@@ -210,7 +210,7 @@ Predefined classes as types of models
 Datetime model types
 --------------------
 
-The PHP classes :php:`\DateTime` and :php:`\DateTimeImmutable` can be used with
+The PHP classes :php:`DateTime` and :php:`DateTimeImmutable` can be used with
 the TCA field type `datetime <https://docs.typo3.org/permalink/t3tca:columns-datetime>`_
 
 The value can be stored in the database as either a unix timestamp :sql:`int(11)`
@@ -227,7 +227,7 @@ ViewHelper <f:format.date> <https://docs.typo3.org/permalink/t3viewhelper:typo3-
         ..  literalinclude:: _codesnippets/_DateExample.php
             :caption: packages/my_extension/Classes/Domain/Model/DateExample.php
 
-        Use :php:`\DateTimeImmutable` if you want the date to be
+        Use :php:`DateTimeImmutable` if you want the date to be
         immutable.
 
     ..  group-tab:: TCA
@@ -254,7 +254,7 @@ its DateTime mapping logic with the behavior of FormEngine and DataHandler.
 
 The following changes apply when the feature is enabled:
 
-*   Timezone offsets in :php:`\DateTime` objects are preserved correctly during persistence.
+*   Timezone offsets in :php:`DateTime` objects are preserved correctly during persistence.
 *   :php:`DateTime` instances for integer-based time fields use named timezones (e.g. `Europe/Berlin`)
     rather than offset-only values (`+01:00`).
 *   Time-only fields (`format=time`, `format=timesec`) are interpreted as seconds since midnight,
