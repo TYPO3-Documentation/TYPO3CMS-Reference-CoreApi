@@ -16,7 +16,7 @@
         With TYPO3 14.0 a valid composer.json is required for all TYPO3 extensions,
         including those only used in Classic-mode installations.
 
-*-- required* in **all** installations
+Required in **all** installations
 
 ..  typo3:file:: composer.json
     :name: extension-composer-json
