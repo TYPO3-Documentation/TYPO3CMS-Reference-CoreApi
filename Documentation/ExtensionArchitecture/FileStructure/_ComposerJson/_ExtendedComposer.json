@@ -1,7 +1,7 @@
 {
     "name": "my-vendor/my-extension",
     "type": "typo3-cms-extension",
-    "description": "An example extension",
+    "description": "My Extension - An example extension",
     "license": "GPL-2.0-or-later",
     "require": {
         "php": "^8.1",
