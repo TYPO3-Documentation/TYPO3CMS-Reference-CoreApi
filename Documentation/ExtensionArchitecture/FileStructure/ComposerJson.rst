@@ -10,7 +10,13 @@
 `composer.json`
 ===============
 
-*-- required* in Composer-based installations
+..  important::
+
+    ..  versionchanged:: 14.0
+        With TYPO3 14.0 a valid composer.json is required for all TYPO3 extensions,
+        including those only used in Classic-mode installations.
+
+Required in **all** installations
 
 ..  typo3:file:: composer.json
     :name: extension-composer-json
@@ -48,20 +54,11 @@ easy way via the :bash:`composer require` command.
 About the composer.json file
 ============================
 
-..  note::
-    While the file :file:`composer.json <extension-composer-json>` is currently not strictly required
-    for an extension to function properly in Classic mode installations (no Composer)
-    it is recommended to keep it in any public extension that is published to
-    `TYPO3 Extension Repository (TER) <https://extensions.typo3.org/>`__.
+Including a :file:`composer.json <extension-composer-json>` is **required**.
 
-Including a :file:`composer.json <extension-composer-json>` is strongly recommended for a number of
-reasons:
-
-#.  The file :file:`composer.json <extension-composer-json>` is required for documentation that should
-    appear on `docs.typo3.org <https://docs.typo3.org/>`__.
-
-    See :ref:`h2document:migrate` for more information on the necessary changes
-    for rendering of extension documentation.
+#.  Without a valid :file:`composer.json <extension-composer-json>` an extension
+    is not installable in TYPO3, even in Classic mode installations not using
+    Composer.
 
 #.  Working with Composer in general is strongly recommended for TYPO3.
 
