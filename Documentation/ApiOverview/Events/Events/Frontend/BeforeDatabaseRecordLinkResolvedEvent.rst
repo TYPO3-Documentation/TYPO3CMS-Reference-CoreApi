@@ -33,15 +33,6 @@ Note that the custom code needs to take care - if relevant - of all aspects
 normally handled by :php:`TYPO3\CMS\Frontend\Typolink\DatabaseRecordLinkBuilder`,
 such as record visibility, language overlay or version overlay.
 
-The event provides access to the following public properties:
-
-* :php:`$linkDetails`: Information about the link being processed
-* :php:`$databaseTable`: The name of the database the record belongs to
-* :php:`$typoscriptConfiguration`: The full TypoScript link handler configuration
-* :php:`$tsConfig`: The full TSconfig link handler configuration
-* :php:`$request`: The current request object
-* :php:`$record`: The database record as an array (initially :php:`null`)
-
 ..  _BeforeDatabaseRecordLinkResolvedEvent-example:
 
 Example

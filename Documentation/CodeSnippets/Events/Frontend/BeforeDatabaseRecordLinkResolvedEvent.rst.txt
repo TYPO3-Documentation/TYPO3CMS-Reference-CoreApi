@@ -13,18 +13,34 @@
         :readonly:
         :public:
 
+        Information about the link being processed
+
     ..  php:attr:: databaseTable
         :readonly:
         :public:
+
+        The name of the database the record belongs to
 
     ..  php:attr:: typoscriptConfiguration
         :readonly:
         :public:
 
+        The full TypoScript link handler configuration
+
+    ..  php:attr:: tsConfig
+        :readonly:
+        :public:
+
+        The full TSconfig link handler configuration
+
     ..  php:attr:: request
         :readonly:
         :public:
 
+        The current request object
+
     ..  php:attr:: record
         :readonly:
         :public:
+
+        The database record as an array (initially :php:`null`)
