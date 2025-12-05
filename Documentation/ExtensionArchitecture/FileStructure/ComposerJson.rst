@@ -75,6 +75,7 @@ This is a minimal :file:`composer.json <extension-composer-json>` for a TYPO3 ex
 
 *   The vendor name is `MyVendor`.
 *   The :ref:`extension key <extension-key>` is `my_extension`.
+*   The extension title is `My Extension` and the description is `An example extension`.
 
 Subsequently:
 
@@ -127,6 +128,8 @@ Extended composer.json
 Properties
 ==========
 
+..  _ext-composer-json-property-name:
+
 name
 ----
 
@@ -141,12 +144,22 @@ uppercase / lowercase spelling, for example: The PHP namespace
 :php:`JohnDoe\SomeExtension` may be `johndoe/some-extension` in
 :file:`composer.json <extension-composer-json>`.
 
+..  _ext-composer-json-property-description:
+
 description
 -----------
 
+..  versionchanged:: 14.0
+    Extension titles were previously taken from file :file:`ext_emconf.php` but
+    in Composer mode the :file:`ext_emconf.php` file is no longer necessary. The
+    description field in :file:`composer.json` is exploded to get the extension
+    title (in front of "-") and the extension description (after "-").
+
 (*required*)
 
-Description of your extension (1 line).
+This field contains the extension title and the description of your extension
+(1 line). The title is separated from the description by a dash "-". If there is no
+dash, the title will be the entire description.
 
 ..  _ext-composer-json-property-type:
 
