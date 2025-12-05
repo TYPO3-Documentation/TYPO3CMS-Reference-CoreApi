@@ -120,7 +120,6 @@ command:
 
 ..  include:: /_includes/CliCacheFlush.rst.txt
 
-
 .. index:: Upgrade wizards; Identifier
 .. _upgrade-wizards-identifier:
 
@@ -256,10 +255,11 @@ Executing the wizard
 ====================
 
 ..  versionchanged:: 14.0
-    While extensions implementing the
-    :php-short:`\TYPO3\CMS\Core\Upgrades\UpgradeWizardInterface` do not have to
-    require :composer:`typo3/cms-install` anymore, that extension is still
-    required to actually run upgrade wizards.
+    The upgrade wizards can always be run via the console command
+    `typo3 upgrade:run`.
+
+    The backend module :guilabel:`System > Upgrade` can only be used if
+    :composer:`typo3/cms-install` is installed.
 
 Wizards are listed in the backend module :guilabel:`System > Upgrade` and
 the card :guilabel:`Upgrade Wizard`. The registered wizard should be shown
