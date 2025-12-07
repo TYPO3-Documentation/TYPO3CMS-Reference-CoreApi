@@ -39,7 +39,7 @@ return [
     ],
     [
         'action' => 'createPhpClassDocs',
-        'class' => \TYPO3\CMS\Form\Event\BeforeRenderableIsValidatedEvent::class,
+        'class' => \TYPO3\CMS\Form\Event\BeforeRenderableIsRemovedFromFormEvent::class,
         'targetFileName' => 'CodeSnippets/Events/Form/BeforeRenderableIsRemovedFromFormEvent.rst.txt',
         'withCode' => false,
     ],
