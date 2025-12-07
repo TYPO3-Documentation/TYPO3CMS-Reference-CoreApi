@@ -1,7 +1,7 @@
 {
     "application": {
         "name": "TYPO3 CMS",
-        "version": "14.0.0-dev"
+        "version": "14.1.0-dev"
     },
     "commands": [
         {
@@ -120,7 +120,7 @@
                         "is_value_required": false,
                         "is_multiple": false,
                         "description": "Negate the \"--ansi\" option",
-                        "default": false
+                        "default": null
                     },
                     "no-interaction": {
                         "name": "--no-interaction",
@@ -223,7 +223,7 @@
                         "is_value_required": false,
                         "is_multiple": false,
                         "description": "Negate the \"--ansi\" option",
-                        "default": false
+                        "default": null
                     },
                     "no-interaction": {
                         "name": "--no-interaction",
@@ -244,7 +244,7 @@
             "usage": [
                 "help [--format FORMAT] [--raw] [--] [<command_name>]"
             ],
-            "help": "The <info>help<\/info> command displays help for a given command:\n\n  <info>.Build\/bin\/typo3 help list<\/info>\n\nYou can also output the help in other formats by using the <comment>--format<\/comment> option:\n\n  <info>.Build\/bin\/typo3 help --format=xml list<\/info>\n\nTo display the list of available commands, please use the <info>list<\/info> command.",
+            "help": "The <info>help<\/info> command displays help for a given command:\n\n  <info>.Build\/bin\/typo3 help list<\/info>\n\nYou can also output the help in other formats by using the <info>--format<\/info> option:\n\n  <info>.Build\/bin\/typo3 help --format=xml list<\/info>\n\nTo display the list of available commands, please use the <info>list<\/info> command.",
             "definition": {
                 "arguments": {
                     "command_name": {
@@ -335,7 +335,7 @@
                         "is_value_required": false,
                         "is_multiple": false,
                         "description": "Negate the \"--ansi\" option",
-                        "default": false
+                        "default": null
                     },
                     "no-interaction": {
                         "name": "--no-interaction",
@@ -356,7 +356,7 @@
             "usage": [
                 "list [--raw] [--format FORMAT] [--short] [--] [<namespace>]"
             ],
-            "help": "The <info>list<\/info> command lists all commands:\n\n  <info>.Build\/bin\/typo3 list<\/info>\n\nYou can also display the commands for a specific namespace:\n\n  <info>.Build\/bin\/typo3 list test<\/info>\n\nYou can also output the information in other formats by using the <comment>--format<\/comment> option:\n\n  <info>.Build\/bin\/typo3 list --format=xml<\/info>\n\nIt's also possible to get raw list of commands (useful for embedding command runner):\n\n  <info>.Build\/bin\/typo3 list --raw<\/info>",
+            "help": "The <info>list<\/info> command lists all commands:\n\n  <info>.Build\/bin\/typo3 list<\/info>\n\nYou can also display the commands for a specific namespace:\n\n  <info>.Build\/bin\/typo3 list test<\/info>\n\nYou can also output the information in other formats by using the <info>--format<\/info> option:\n\n  <info>.Build\/bin\/typo3 list --format=xml<\/info>\n\nIt's also possible to get raw list of commands (useful for embedding command runner):\n\n  <info>.Build\/bin\/typo3 list --raw<\/info>",
             "definition": {
                 "arguments": {
                     "namespace": {
@@ -456,7 +456,7 @@
                         "is_value_required": false,
                         "is_multiple": false,
                         "description": "Negate the \"--ansi\" option",
-                        "default": false
+                        "default": null
                     },
                     "no-interaction": {
                         "name": "--no-interaction",
@@ -668,7 +668,7 @@
                         "is_value_required": false,
                         "is_multiple": false,
                         "description": "Negate the \"--ansi\" option",
-                        "default": false
+                        "default": null
                     }
                 }
             },
@@ -688,7 +688,7 @@
                         "is_required": false,
                         "is_array": false,
                         "description": "If set, a locked TYPO3 Backend will redirect to URI specified with this argument. The URI is saved as a string in the lockfile that is specified in the system configuration.",
-                        "default": null
+                        "default": ""
                     }
                 },
                 "options": {
@@ -753,7 +753,7 @@
                         "is_value_required": false,
                         "is_multiple": false,
                         "description": "Negate the \"--ansi\" option",
-                        "default": false
+                        "default": null
                     },
                     "no-interaction": {
                         "name": "--no-interaction",
@@ -770,11 +770,11 @@
         },
         {
             "name": "backend:resetpassword",
-            "description": "Trigger a password reset for a backend user",
+            "description": "Trigger a password reset for a backend user.",
             "usage": [
                 "backend:resetpassword <backendurl> <email>"
             ],
-            "help": "Trigger a password reset for a backend user",
+            "help": "Trigger a password reset for a backend user.",
             "definition": {
                 "arguments": {
                     "backendurl": {
@@ -854,7 +854,7 @@
                         "is_value_required": false,
                         "is_multiple": false,
                         "description": "Negate the \"--ansi\" option",
-                        "default": false
+                        "default": null
                     },
                     "no-interaction": {
                         "name": "--no-interaction",
@@ -940,7 +940,7 @@
                         "is_value_required": false,
                         "is_multiple": false,
                         "description": "Negate the \"--ansi\" option",
-                        "default": false
+                        "default": null
                     },
                     "no-interaction": {
                         "name": "--no-interaction",
@@ -957,7 +957,7 @@
         },
         {
             "name": "backend:user:create",
-            "description": "Create a backend user",
+            "description": "Create a backend user.",
             "usage": [
                 "backend:user:create [-u|--username USERNAME] [-p|--password PASSWORD] [-e|--email EMAIL] [-g|--groups GROUPS] [-a|--admin] [-m|--maintainer]"
             ],
@@ -1080,7 +1080,7 @@
                         "is_value_required": false,
                         "is_multiple": false,
                         "description": "Negate the \"--ansi\" option",
-                        "default": false
+                        "default": null
                     },
                     "no-interaction": {
                         "name": "--no-interaction",
@@ -1101,7 +1101,7 @@
             "usage": [
                 "cache:flush [-g|--group [GROUP]]"
             ],
-            "help": "This command can be used to clear the caches, for example after code updates in local development and after deployments.",
+            "help": "Clears TYPO3 caches. Useful after code changes during development or after deployments. You can flush a specific cache group (system, pages, di) or all caches.",
             "definition": {
                 "arguments": [],
                 "options": {
@@ -1111,7 +1111,7 @@
                         "accept_value": true,
                         "is_value_required": false,
                         "is_multiple": false,
-                        "description": "The cache group to flush (system, pages, di or all)",
+                        "description": "Cache group to flush (system, pages, di, or all).",
                         "default": "all"
                     },
                     "help": {
@@ -1175,7 +1175,110 @@
                         "is_value_required": false,
                         "is_multiple": false,
                         "description": "Negate the \"--ansi\" option",
+                        "default": null
+                    },
+                    "no-interaction": {
+                        "name": "--no-interaction",
+                        "shortcut": "-n",
+                        "accept_value": false,
+                        "is_value_required": false,
+                        "is_multiple": false,
+                        "description": "Do not ask any interactive question",
                         "default": false
+                    }
+                }
+            },
+            "hidden": false
+        },
+        {
+            "name": "cache:flushtags",
+            "description": "Flush TYPO3 caches with tags.",
+            "usage": [
+                "cache:flushtags [-g|--groups GROUPS] [--] <tags>"
+            ],
+            "help": "This command can be used to clear the caches with specific tags, for example after code updates in local development and after deployments.",
+            "definition": {
+                "arguments": {
+                    "tags": {
+                        "name": "tags",
+                        "is_required": true,
+                        "is_array": false,
+                        "description": "Array of tags (specified as comma separated values) to flush.",
+                        "default": null
+                    }
+                },
+                "options": {
+                    "groups": {
+                        "name": "--groups",
+                        "shortcut": "-g",
+                        "accept_value": true,
+                        "is_value_required": true,
+                        "is_multiple": false,
+                        "description": "Array of groups (specified as comma separated values) for which to flush tags. If no group is specified, caches of all groups are flushed.",
+                        "default": "all"
+                    },
+                    "help": {
+                        "name": "--help",
+                        "shortcut": "-h",
+                        "accept_value": false,
+                        "is_value_required": false,
+                        "is_multiple": false,
+                        "description": "Display help for the given command. When no command is given display help for the <info>list<\/info> command",
+                        "default": false
+                    },
+                    "silent": {
+                        "name": "--silent",
+                        "shortcut": "",
+                        "accept_value": false,
+                        "is_value_required": false,
+                        "is_multiple": false,
+                        "description": "Do not output any message",
+                        "default": false
+                    },
+                    "quiet": {
+                        "name": "--quiet",
+                        "shortcut": "-q",
+                        "accept_value": false,
+                        "is_value_required": false,
+                        "is_multiple": false,
+                        "description": "Only errors are displayed. All other output is suppressed",
+                        "default": false
+                    },
+                    "verbose": {
+                        "name": "--verbose",
+                        "shortcut": "-v|-vv|-vvv",
+                        "accept_value": false,
+                        "is_value_required": false,
+                        "is_multiple": false,
+                        "description": "Increase the verbosity of messages: 1 for normal output, 2 for more verbose output and 3 for debug",
+                        "default": false
+                    },
+                    "version": {
+                        "name": "--version",
+                        "shortcut": "-V",
+                        "accept_value": false,
+                        "is_value_required": false,
+                        "is_multiple": false,
+                        "description": "Display this application version",
+                        "default": false
+                    },
+                    "ansi": {
+                        "name": "--ansi",
+                        "shortcut": "",
+                        "accept_value": false,
+                        "is_value_required": false,
+                        "is_multiple": false,
+                        "description": "Force (or disable --no-ansi) ANSI output",
+                        "default": null
+                    },
+                    "no-ansi": {
+                        "name": "--no-ansi",
+                        "shortcut": "",
+                        "accept_value": false,
+                        "is_value_required": false,
+                        "is_multiple": false,
+                        "description": "Negate the \"--ansi\" option",
+                        "default": null
                     },
                     "no-interaction": {
                         "name": "--no-interaction",
@@ -1196,7 +1299,7 @@
             "usage": [
                 "cache:warmup [-g|--group [GROUP]]"
             ],
-            "help": "This command is useful for deployments to warmup caches during release preparation.",
+            "help": "This command is useful for deployments to warmup caches during release preparation.\n\n<fg=yellow>\nCache warming does not work if the PHP version used to execute the command differs from\nthe PHP version used in the web context.\n\nSee: https:\/\/docs.typo3.org\/permalink\/changelog:important-107649-1760090777\n<\/>",
             "definition": {
                 "arguments": [],
                 "options": {
@@ -1270,7 +1373,7 @@
                         "is_value_required": false,
                         "is_multiple": false,
                         "description": "Negate the \"--ansi\" option",
-                        "default": false
+                        "default": null
                     },
                     "no-interaction": {
                         "name": "--no-interaction",
@@ -1392,7 +1495,7 @@
                         "is_value_required": false,
                         "is_multiple": false,
                         "description": "Negate the \"--ansi\" option",
-                        "default": false
+                        "default": null
                     },
                     "no-interaction": {
                         "name": "--no-interaction",
@@ -1487,7 +1590,7 @@
                         "is_value_required": false,
                         "is_multiple": false,
                         "description": "Negate the \"--ansi\" option",
-                        "default": false
+                        "default": null
                     },
                     "no-interaction": {
                         "name": "--no-interaction",
@@ -1600,7 +1703,7 @@
                         "is_value_required": false,
                         "is_multiple": false,
                         "description": "Negate the \"--ansi\" option",
-                        "default": false
+                        "default": null
                     },
                     "no-interaction": {
                         "name": "--no-interaction",
@@ -1704,7 +1807,7 @@
                         "is_value_required": false,
                         "is_multiple": false,
                         "description": "Negate the \"--ansi\" option",
-                        "default": false
+                        "default": null
                     },
                     "no-interaction": {
                         "name": "--no-interaction",
@@ -1799,7 +1902,7 @@
                         "is_value_required": false,
                         "is_multiple": false,
                         "description": "Negate the \"--ansi\" option",
-                        "default": false
+                        "default": null
                     },
                     "no-interaction": {
                         "name": "--no-interaction",
@@ -1885,7 +1988,7 @@
                         "is_value_required": false,
                         "is_multiple": false,
                         "description": "Negate the \"--ansi\" option",
-                        "default": false
+                        "default": null
                     },
                     "no-interaction": {
                         "name": "--no-interaction",
@@ -2007,7 +2110,7 @@
                         "is_value_required": false,
                         "is_multiple": false,
                         "description": "Negate the \"--ansi\" option",
-                        "default": false
+                        "default": null
                     },
                     "no-interaction": {
                         "name": "--no-interaction",
@@ -2093,7 +2196,7 @@
                         "is_value_required": false,
                         "is_multiple": false,
                         "description": "Negate the \"--ansi\" option",
-                        "default": false
+                        "default": null
                     },
                     "no-interaction": {
                         "name": "--no-interaction",
@@ -2179,7 +2282,7 @@
                         "is_value_required": false,
                         "is_multiple": false,
                         "description": "Negate the \"--ansi\" option",
-                        "default": false
+                        "default": null
                     },
                     "no-interaction": {
                         "name": "--no-interaction",
@@ -2273,7 +2376,224 @@
                         "is_value_required": false,
                         "is_multiple": false,
                         "description": "Negate the \"--ansi\" option",
+                        "default": null
+                    },
+                    "no-interaction": {
+                        "name": "--no-interaction",
+                        "shortcut": "-n",
+                        "accept_value": false,
+                        "is_value_required": false,
+                        "is_multiple": false,
+                        "description": "Do not ask any interactive question",
                         "default": false
+                    }
+                }
+            },
+            "hidden": false
+        },
+        {
+            "name": "debug:backend:modules",
+            "description": "Debugging: Show a list of the backend module tree (only for development purpose)",
+            "usage": [
+                "debug:backend:modules [-x|--csv-export] [-c|--core-only]"
+            ],
+            "help": "Debugging: Show a list of the backend module tree (only for development purpose)",
+            "definition": {
+                "arguments": [],
+                "options": {
+                    "csv-export": {
+                        "name": "--csv-export",
+                        "shortcut": "-x",
+                        "accept_value": false,
+                        "is_value_required": false,
+                        "is_multiple": false,
+                        "description": "Dump data as CSV (instead of CLI table)",
+                        "default": false
+                    },
+                    "core-only": {
+                        "name": "--core-only",
+                        "shortcut": "-c",
+                        "accept_value": false,
+                        "is_value_required": false,
+                        "is_multiple": false,
+                        "description": "Only show core extensions",
+                        "default": false
+                    },
+                    "help": {
+                        "name": "--help",
+                        "shortcut": "-h",
+                        "accept_value": false,
+                        "is_value_required": false,
+                        "is_multiple": false,
+                        "description": "Display help for the given command. When no command is given display help for the <info>list<\/info> command",
+                        "default": false
+                    },
+                    "silent": {
+                        "name": "--silent",
+                        "shortcut": "",
+                        "accept_value": false,
+                        "is_value_required": false,
+                        "is_multiple": false,
+                        "description": "Do not output any message",
+                        "default": false
+                    },
+                    "quiet": {
+                        "name": "--quiet",
+                        "shortcut": "-q",
+                        "accept_value": false,
+                        "is_value_required": false,
+                        "is_multiple": false,
+                        "description": "Only errors are displayed. All other output is suppressed",
+                        "default": false
+                    },
+                    "verbose": {
+                        "name": "--verbose",
+                        "shortcut": "-v|-vv|-vvv",
+                        "accept_value": false,
+                        "is_value_required": false,
+                        "is_multiple": false,
+                        "description": "Increase the verbosity of messages: 1 for normal output, 2 for more verbose output and 3 for debug",
+                        "default": false
+                    },
+                    "version": {
+                        "name": "--version",
+                        "shortcut": "-V",
+                        "accept_value": false,
+                        "is_value_required": false,
+                        "is_multiple": false,
+                        "description": "Display this application version",
+                        "default": false
+                    },
+                    "ansi": {
+                        "name": "--ansi",
+                        "shortcut": "",
+                        "accept_value": false,
+                        "is_value_required": false,
+                        "is_multiple": false,
+                        "description": "Force (or disable --no-ansi) ANSI output",
+                        "default": null
+                    },
+                    "no-ansi": {
+                        "name": "--no-ansi",
+                        "shortcut": "",
+                        "accept_value": false,
+                        "is_value_required": false,
+                        "is_multiple": false,
+                        "description": "Negate the \"--ansi\" option",
+                        "default": null
+                    },
+                    "no-interaction": {
+                        "name": "--no-interaction",
+                        "shortcut": "-n",
+                        "accept_value": false,
+                        "is_value_required": false,
+                        "is_multiple": false,
+                        "description": "Do not ask any interactive question",
+                        "default": false
+                    }
+                }
+            },
+            "hidden": false
+        },
+        {
+            "name": "debug:backend:routes",
+            "description": "Debugging: List all registered backend routes (only for development purpose)",
+            "usage": [
+                "debug:backend:routes [--json] [-f|--filter FILTER] [-l|--limit LIMIT]"
+            ],
+            "help": "Debugging: List all registered backend routes (only for development purpose)",
+            "definition": {
+                "arguments": [],
+                "options": {
+                    "json": {
+                        "name": "--json",
+                        "shortcut": "",
+                        "accept_value": false,
+                        "is_value_required": false,
+                        "is_multiple": false,
+                        "description": "Output routes in JSON format",
+                        "default": false
+                    },
+                    "filter": {
+                        "name": "--filter",
+                        "shortcut": "-f",
+                        "accept_value": true,
+                        "is_value_required": true,
+                        "is_multiple": false,
+                        "description": "Filter routes by name (supports partial matching)",
+                        "default": null
+                    },
+                    "limit": {
+                        "name": "--limit",
+                        "shortcut": "-l",
+                        "accept_value": true,
+                        "is_value_required": true,
+                        "is_multiple": false,
+                        "description": "Limit routes by type: ajax, module, or route",
+                        "default": null
+                    },
+                    "help": {
+                        "name": "--help",
+                        "shortcut": "-h",
+                        "accept_value": false,
+                        "is_value_required": false,
+                        "is_multiple": false,
+                        "description": "Display help for the given command. When no command is given display help for the <info>list<\/info> command",
+                        "default": false
+                    },
+                    "silent": {
+                        "name": "--silent",
+                        "shortcut": "",
+                        "accept_value": false,
+                        "is_value_required": false,
+                        "is_multiple": false,
+                        "description": "Do not output any message",
+                        "default": false
+                    },
+                    "quiet": {
+                        "name": "--quiet",
+                        "shortcut": "-q",
+                        "accept_value": false,
+                        "is_value_required": false,
+                        "is_multiple": false,
+                        "description": "Only errors are displayed. All other output is suppressed",
+                        "default": false
+                    },
+                    "verbose": {
+                        "name": "--verbose",
+                        "shortcut": "-v|-vv|-vvv",
+                        "accept_value": false,
+                        "is_value_required": false,
+                        "is_multiple": false,
+                        "description": "Increase the verbosity of messages: 1 for normal output, 2 for more verbose output and 3 for debug",
+                        "default": false
+                    },
+                    "version": {
+                        "name": "--version",
+                        "shortcut": "-V",
+                        "accept_value": false,
+                        "is_value_required": false,
+                        "is_multiple": false,
+                        "description": "Display this application version",
+                        "default": false
+                    },
+                    "ansi": {
+                        "name": "--ansi",
+                        "shortcut": "",
+                        "accept_value": false,
+                        "is_value_required": false,
+                        "is_multiple": false,
+                        "description": "Force (or disable --no-ansi) ANSI output",
+                        "default": null
+                    },
+                    "no-ansi": {
+                        "name": "--no-ansi",
+                        "shortcut": "",
+                        "accept_value": false,
+                        "is_value_required": false,
+                        "is_multiple": false,
+                        "description": "Negate the \"--ansi\" option",
+                        "default": null
                     },
                     "no-interaction": {
                         "name": "--no-interaction",
@@ -2376,7 +2696,7 @@
                         "is_value_required": false,
                         "is_multiple": false,
                         "description": "Negate the \"--ansi\" option",
-                        "default": false
+                        "default": null
                     },
                     "no-interaction": {
                         "name": "--no-interaction",
@@ -2462,7 +2782,7 @@
                         "is_value_required": false,
                         "is_multiple": false,
                         "description": "Negate the \"--ansi\" option",
-                        "default": false
+                        "default": null
                     },
                     "no-interaction": {
                         "name": "--no-interaction",
@@ -2548,7 +2868,7 @@
                         "is_value_required": false,
                         "is_multiple": false,
                         "description": "Negate the \"--ansi\" option",
-                        "default": false
+                        "default": null
                     },
                     "no-interaction": {
                         "name": "--no-interaction",
@@ -2565,11 +2885,11 @@
         },
         {
             "name": "extension:list",
-            "description": "Shows the list of extensions available to the system",
+            "description": "Shows the list of extensions available to the system.",
             "usage": [
                 "extension:list [-a|--all] [-i|--inactive]"
             ],
-            "help": "Shows the list of extensions available to the system",
+            "help": "Shows the list of extensions available to the system.",
             "definition": {
                 "arguments": [],
                 "options": {
@@ -2652,7 +2972,7 @@
                         "is_value_required": false,
                         "is_multiple": false,
                         "description": "Negate the \"--ansi\" option",
-                        "default": false
+                        "default": null
                     },
                     "no-interaction": {
                         "name": "--no-interaction",
@@ -2669,7 +2989,7 @@
         },
         {
             "name": "extension:setup",
-            "description": "Set up extensions",
+            "description": "Set up extensions and perform database migrations.",
             "usage": [
                 "extension:setup [-e|--extension EXTENSION]"
             ],
@@ -2747,7 +3067,93 @@
                         "is_value_required": false,
                         "is_multiple": false,
                         "description": "Negate the \"--ansi\" option",
+                        "default": null
+                    },
+                    "no-interaction": {
+                        "name": "--no-interaction",
+                        "shortcut": "-n",
+                        "accept_value": false,
+                        "is_value_required": false,
+                        "is_multiple": false,
+                        "description": "Do not ask any interactive question",
                         "default": false
+                    }
+                }
+            },
+            "hidden": false
+        },
+        {
+            "name": "fluid:cache:warmup",
+            "description": "Performs a cache warmup for detected Fluid templates",
+            "usage": [
+                "fluid:cache:warmup"
+            ],
+            "help": "Performs a cache warmup for detected Fluid templates",
+            "definition": {
+                "arguments": [],
+                "options": {
+                    "help": {
+                        "name": "--help",
+                        "shortcut": "-h",
+                        "accept_value": false,
+                        "is_value_required": false,
+                        "is_multiple": false,
+                        "description": "Display help for the given command. When no command is given display help for the <info>list<\/info> command",
+                        "default": false
+                    },
+                    "silent": {
+                        "name": "--silent",
+                        "shortcut": "",
+                        "accept_value": false,
+                        "is_value_required": false,
+                        "is_multiple": false,
+                        "description": "Do not output any message",
+                        "default": false
+                    },
+                    "quiet": {
+                        "name": "--quiet",
+                        "shortcut": "-q",
+                        "accept_value": false,
+                        "is_value_required": false,
+                        "is_multiple": false,
+                        "description": "Only errors are displayed. All other output is suppressed",
+                        "default": false
+                    },
+                    "verbose": {
+                        "name": "--verbose",
+                        "shortcut": "-v|-vv|-vvv",
+                        "accept_value": false,
+                        "is_value_required": false,
+                        "is_multiple": false,
+                        "description": "Increase the verbosity of messages: 1 for normal output, 2 for more verbose output and 3 for debug",
+                        "default": false
+                    },
+                    "version": {
+                        "name": "--version",
+                        "shortcut": "-V",
+                        "accept_value": false,
+                        "is_value_required": false,
+                        "is_multiple": false,
+                        "description": "Display this application version",
+                        "default": false
+                    },
+                    "ansi": {
+                        "name": "--ansi",
+                        "shortcut": "",
+                        "accept_value": false,
+                        "is_value_required": false,
+                        "is_multiple": false,
+                        "description": "Force (or disable --no-ansi) ANSI output",
+                        "default": null
+                    },
+                    "no-ansi": {
+                        "name": "--no-ansi",
+                        "shortcut": "",
+                        "accept_value": false,
+                        "is_value_required": false,
+                        "is_multiple": false,
+                        "description": "Negate the \"--ansi\" option",
+                        "default": null
                     },
                     "no-interaction": {
                         "name": "--no-interaction",
@@ -2833,7 +3239,7 @@
                         "is_value_required": false,
                         "is_multiple": false,
                         "description": "Negate the \"--ansi\" option",
-                        "default": false
+                        "default": null
                     },
                     "no-interaction": {
                         "name": "--no-interaction",
@@ -3062,7 +3468,7 @@
                         "is_value_required": false,
                         "is_multiple": false,
                         "description": "Negate the \"--ansi\" option",
-                        "default": false
+                        "default": null
                     },
                     "no-interaction": {
                         "name": "--no-interaction",
@@ -3208,7 +3614,7 @@
                         "is_value_required": false,
                         "is_multiple": false,
                         "description": "Negate the \"--ansi\" option",
-                        "default": false
+                        "default": null
                     },
                     "no-interaction": {
                         "name": "--no-interaction",
@@ -3303,7 +3709,111 @@
                         "is_value_required": false,
                         "is_multiple": false,
                         "description": "Negate the \"--ansi\" option",
+                        "default": null
+                    },
+                    "no-interaction": {
+                        "name": "--no-interaction",
+                        "shortcut": "-n",
+                        "accept_value": false,
+                        "is_value_required": false,
+                        "is_multiple": false,
+                        "description": "Do not ask any interactive question",
                         "default": false
+                    }
+                }
+            },
+            "hidden": false
+        },
+        {
+            "name": "language:domain:list",
+            "description": "Lists all translation domains and their label resource file locations.",
+            "usage": [
+                "language:domain:list [-e|--extension EXTENSION] [-d|--deprecated]"
+            ],
+            "help": "Lists all translation domains and their label resource file locations.",
+            "definition": {
+                "arguments": [],
+                "options": {
+                    "extension": {
+                        "name": "--extension",
+                        "shortcut": "-e",
+                        "accept_value": true,
+                        "is_value_required": true,
+                        "is_multiple": false,
+                        "description": "Show translations domains only for the specified extension key.",
+                        "default": null
+                    },
+                    "deprecated": {
+                        "name": "--deprecated",
+                        "shortcut": "-d",
+                        "accept_value": false,
+                        "is_value_required": false,
+                        "is_multiple": false,
+                        "description": "Include deprecated translation domains.",
+                        "default": false
+                    },
+                    "help": {
+                        "name": "--help",
+                        "shortcut": "-h",
+                        "accept_value": false,
+                        "is_value_required": false,
+                        "is_multiple": false,
+                        "description": "Display help for the given command. When no command is given display help for the <info>list<\/info> command",
+                        "default": false
+                    },
+                    "silent": {
+                        "name": "--silent",
+                        "shortcut": "",
+                        "accept_value": false,
+                        "is_value_required": false,
+                        "is_multiple": false,
+                        "description": "Do not output any message",
+                        "default": false
+                    },
+                    "quiet": {
+                        "name": "--quiet",
+                        "shortcut": "-q",
+                        "accept_value": false,
+                        "is_value_required": false,
+                        "is_multiple": false,
+                        "description": "Only errors are displayed. All other output is suppressed",
+                        "default": false
+                    },
+                    "verbose": {
+                        "name": "--verbose",
+                        "shortcut": "-v|-vv|-vvv",
+                        "accept_value": false,
+                        "is_value_required": false,
+                        "is_multiple": false,
+                        "description": "Increase the verbosity of messages: 1 for normal output, 2 for more verbose output and 3 for debug",
+                        "default": false
+                    },
+                    "version": {
+                        "name": "--version",
+                        "shortcut": "-V",
+                        "accept_value": false,
+                        "is_value_required": false,
+                        "is_multiple": false,
+                        "description": "Display this application version",
+                        "default": false
+                    },
+                    "ansi": {
+                        "name": "--ansi",
+                        "shortcut": "",
+                        "accept_value": false,
+                        "is_value_required": false,
+                        "is_multiple": false,
+                        "description": "Force (or disable --no-ansi) ANSI output",
+                        "default": null
+                    },
+                    "no-ansi": {
+                        "name": "--no-ansi",
+                        "shortcut": "",
+                        "accept_value": false,
+                        "is_value_required": false,
+                        "is_multiple": false,
+                        "description": "Negate the \"--ansi\" option",
+                        "default": null
                     },
                     "no-interaction": {
                         "name": "--no-interaction",
@@ -3424,7 +3934,7 @@
                         "is_value_required": false,
                         "is_multiple": false,
                         "description": "Negate the \"--ansi\" option",
-                        "default": false
+                        "default": null
                     },
                     "no-interaction": {
                         "name": "--no-interaction",
@@ -3491,7 +4001,7 @@
                         "is_value_required": false,
                         "is_multiple": false,
                         "description": "Negate the \"--parse-tags\" option",
-                        "default": false
+                        "default": null
                     },
                     "help": {
                         "name": "--help",
@@ -3554,7 +4064,7 @@
                         "is_value_required": false,
                         "is_multiple": false,
                         "description": "Negate the \"--ansi\" option",
-                        "default": false
+                        "default": null
                     },
                     "no-interaction": {
                         "name": "--no-interaction",
@@ -3571,12 +4081,12 @@
         },
         {
             "name": "mailer:spool:send",
-            "description": "Sends emails from the spool",
+            "description": "Sends emails from the spool.",
             "usage": [
                 "mailer:spool:send [--message-limit MESSAGE-LIMIT] [--time-limit TIME-LIMIT] [--recover-timeout RECOVER-TIMEOUT]",
                 "swiftmailer:spool:send"
             ],
-            "help": "Sends emails from the spool",
+            "help": "Sends emails from the spool.",
             "definition": {
                 "arguments": [],
                 "options": {
@@ -3668,7 +4178,7 @@
                         "is_value_required": false,
                         "is_multiple": false,
                         "description": "Negate the \"--ansi\" option",
-                        "default": false
+                        "default": null
                     },
                     "no-interaction": {
                         "name": "--no-interaction",
@@ -3789,7 +4299,7 @@
                         "is_value_required": false,
                         "is_multiple": false,
                         "description": "Negate the \"--ansi\" option",
-                        "default": false
+                        "default": null
                     },
                     "no-interaction": {
                         "name": "--no-interaction",
@@ -3883,7 +4393,7 @@
                         "is_value_required": false,
                         "is_multiple": false,
                         "description": "Negate the \"--ansi\" option",
-                        "default": false
+                        "default": null
                     },
                     "no-interaction": {
                         "name": "--no-interaction",
@@ -3902,7 +4412,7 @@
             "name": "redirects:cleanup",
             "description": "Cleanup old redirects periodically for given constraints like days, hit count or domains.",
             "usage": [
-                "redirects:cleanup [-d|--domain [DOMAIN]] [-s|--statusCode [STATUSCODE]] [-a|--days [DAYS]] [-c|--hitCount [HITCOUNT]] [-p|--path [PATH]] [-t|--creationType [CREATIONTYPE]] [-i|--integrityStatus [INTEGRITYSTATUS]]"
+                "redirects:cleanup [-d|--domain [DOMAIN]] [-s|--statusCode [STATUSCODE]] [-a|--days [DAYS]] [-c|--hitCount [HITCOUNT]] [-p|--path [PATH]] [-t|--creationType [CREATIONTYPE]] [-i|--integrityStatus [INTEGRITYSTATUS]] [--redirectType [REDIRECTTYPE]]"
             ],
             "help": "Cleanup old redirects periodically for given constraints like days, hit count or domains.",
             "definition": {
@@ -3971,6 +4481,15 @@
                         "description": "Cleanup redirects matching provided integrity status",
                         "default": null
                     },
+                    "redirectType": {
+                        "name": "--redirectType",
+                        "shortcut": "",
+                        "accept_value": true,
+                        "is_value_required": false,
+                        "is_multiple": false,
+                        "description": "Cleanup redirects matching provided redirect type",
+                        "default": "default"
+                    },
                     "help": {
                         "name": "--help",
                         "shortcut": "-h",
@@ -4032,7 +4551,7 @@
                         "is_value_required": false,
                         "is_multiple": false,
                         "description": "Negate the \"--ansi\" option",
-                        "default": false
+                        "default": null
                     },
                     "no-interaction": {
                         "name": "--no-interaction",
@@ -4127,7 +4646,7 @@
                         "is_value_required": false,
                         "is_multiple": false,
                         "description": "Negate the \"--ansi\" option",
-                        "default": false
+                        "default": null
                     },
                     "no-interaction": {
                         "name": "--no-interaction",
@@ -4144,11 +4663,11 @@
         },
         {
             "name": "scheduler:execute",
-            "description": "Execute given Scheduler tasks.",
+            "description": "Execute given TYPO3 Scheduler tasks.",
             "usage": [
                 "scheduler:execute [-t|--task [TASK]]"
             ],
-            "help": "Execute given Scheduler tasks.",
+            "help": "Execute given TYPO3 Scheduler tasks.",
             "definition": {
                 "arguments": [],
                 "options": {
@@ -4222,7 +4741,7 @@
                         "is_value_required": false,
                         "is_multiple": false,
                         "description": "Negate the \"--ansi\" option",
-                        "default": false
+                        "default": null
                     },
                     "no-interaction": {
                         "name": "--no-interaction",
@@ -4239,11 +4758,11 @@
         },
         {
             "name": "scheduler:list",
-            "description": "List all Scheduler tasks.",
+            "description": "List all TYPO3 Scheduler tasks.",
             "usage": [
                 "scheduler:list [-g|--group [GROUP]] [-w|--watch [WATCH]]"
             ],
-            "help": "List all Scheduler tasks.",
+            "help": "List all TYPO3 Scheduler tasks.",
             "definition": {
                 "arguments": [],
                 "options": {
@@ -4326,7 +4845,7 @@
                         "is_value_required": false,
                         "is_multiple": false,
                         "description": "Negate the \"--ansi\" option",
-                        "default": false
+                        "default": null
                     },
                     "no-interaction": {
                         "name": "--no-interaction",
@@ -4439,7 +4958,7 @@
                         "is_value_required": false,
                         "is_multiple": false,
                         "description": "Negate the \"--ansi\" option",
-                        "default": false
+                        "default": null
                     },
                     "no-interaction": {
                         "name": "--no-interaction",
@@ -4552,7 +5071,7 @@
                         "is_value_required": false,
                         "is_multiple": false,
                         "description": "Negate the \"--ansi\" option",
-                        "default": false
+                        "default": null
                     }
                 }
             },
@@ -4560,11 +5079,11 @@
         },
         {
             "name": "site:list",
-            "description": "Shows the list of sites available to the system",
+            "description": "Shows the list of sites available to the system.",
             "usage": [
                 "site:list"
             ],
-            "help": "Shows the list of sites available to the system",
+            "help": "Shows the list of sites available to the system.",
             "definition": {
                 "arguments": [],
                 "options": {
@@ -4629,7 +5148,7 @@
                         "is_value_required": false,
                         "is_multiple": false,
                         "description": "Negate the \"--ansi\" option",
-                        "default": false
+                        "default": null
                     },
                     "no-interaction": {
                         "name": "--no-interaction",
@@ -4646,11 +5165,11 @@
         },
         {
             "name": "site:sets:list",
-            "description": "Shows the list of available site sets",
+            "description": "Shows the list of available site sets.",
             "usage": [
                 "site:sets:list [-a|--all]"
             ],
-            "help": "Shows the list of available site sets",
+            "help": "Shows the list of available site sets.",
             "definition": {
                 "arguments": [],
                 "options": {
@@ -4724,7 +5243,7 @@
                         "is_value_required": false,
                         "is_multiple": false,
                         "description": "Negate the \"--ansi\" option",
-                        "default": false
+                        "default": null
                     },
                     "no-interaction": {
                         "name": "--no-interaction",
@@ -4741,11 +5260,11 @@
         },
         {
             "name": "site:show",
-            "description": "Shows the configuration of the specified site",
+            "description": "Shows the configuration of the specified site.",
             "usage": [
                 "site:show <identifier>"
             ],
-            "help": "Shows the configuration of the specified site",
+            "help": "Shows the configuration of the specified site.",
             "definition": {
                 "arguments": {
                     "identifier": {
@@ -4818,7 +5337,7 @@
                         "is_value_required": false,
                         "is_multiple": false,
                         "description": "Negate the \"--ansi\" option",
-                        "default": false
+                        "default": null
                     },
                     "no-interaction": {
                         "name": "--no-interaction",
@@ -4904,7 +5423,7 @@
                         "is_value_required": false,
                         "is_multiple": false,
                         "description": "Negate the \"--ansi\" option",
-                        "default": false
+                        "default": null
                     },
                     "no-interaction": {
                         "name": "--no-interaction",
@@ -5016,7 +5535,7 @@
                         "is_value_required": false,
                         "is_multiple": false,
                         "description": "Negate the \"--ansi\" option",
-                        "default": false
+                        "default": null
                     },
                     "no-interaction": {
                         "name": "--no-interaction",
@@ -5102,7 +5621,7 @@
                         "is_value_required": false,
                         "is_multiple": false,
                         "description": "Negate the \"--ansi\" option",
-                        "default": false
+                        "default": null
                     },
                     "no-interaction": {
                         "name": "--no-interaction",
@@ -5197,7 +5716,7 @@
                         "is_value_required": false,
                         "is_multiple": false,
                         "description": "Negate the \"--ansi\" option",
-                        "default": false
+                        "default": null
                     },
                     "no-interaction": {
                         "name": "--no-interaction",
@@ -5291,7 +5810,7 @@
                         "is_value_required": false,
                         "is_multiple": false,
                         "description": "Negate the \"--ansi\" option",
-                        "default": false
+                        "default": null
                     },
                     "no-interaction": {
                         "name": "--no-interaction",
@@ -5385,7 +5904,7 @@
                         "is_value_required": false,
                         "is_multiple": false,
                         "description": "Negate the \"--ansi\" option",
-                        "default": false
+                        "default": null
                     },
                     "no-interaction": {
                         "name": "--no-interaction",
@@ -5471,7 +5990,7 @@
                         "is_value_required": false,
                         "is_multiple": false,
                         "description": "Negate the \"--ansi\" option",
-                        "default": false
+                        "default": null
                     },
                     "no-interaction": {
                         "name": "--no-interaction",
@@ -5511,6 +6030,7 @@
             "id": "cache",
             "commands": [
                 "cache:flush",
+                "cache:flushtags",
                 "cache:warmup"
             ]
         },
@@ -5540,6 +6060,13 @@
             ]
         },
         {
+            "id": "debug",
+            "commands": [
+                "debug:backend:modules",
+                "debug:backend:routes"
+            ]
+        },
+        {
             "id": "examples",
             "commands": [
                 "examples:createwizard",
@@ -5557,6 +6084,7 @@
         {
             "id": "fluid",
             "commands": [
+                "fluid:cache:warmup",
                 "fluid:schema:generate"
             ]
         },
@@ -5576,6 +6104,7 @@
         {
             "id": "language",
             "commands": [
+                "language:domain:list",
                 "language:update"
             ]
         },
@@ -5707,6 +6236,10 @@
             "fqcn": "TYPO3\\CMS\\Core\\Command\\CacheFlushCommand",
             "filename": "\/var\/www\/html\/.Build\/vendor\/typo3\/cms-core\/Classes\/Command\/CacheFlushCommand.php"
         },
+        "cache:flushtags": {
+            "fqcn": "TYPO3\\CMS\\Core\\Command\\CacheFlushTagsCommand",
+            "filename": "\/var\/www\/html\/.Build\/vendor\/typo3\/cms-core\/Classes\/Command\/CacheFlushTagsCommand.php"
+        },
         "cache:warmup": {
             "fqcn": "TYPO3\\CMS\\Core\\Command\\CacheWarmupCommand",
             "filename": "\/var\/www\/html\/.Build\/vendor\/typo3\/cms-core\/Classes\/Command\/CacheWarmupCommand.php"
@@ -5751,6 +6284,14 @@
             "fqcn": "T3docs\\Codesnippet\\Command\\PhpDomainCommand",
             "filename": "\/var\/www\/html\/.Build\/vendor\/t3docs\/codesnippet\/Classes\/Command\/PhpDomainCommand.php"
         },
+        "debug:backend:modules": {
+            "fqcn": "TYPO3\\CMS\\Backend\\Command\\DebugBackendModulesCommand",
+            "filename": "\/var\/www\/html\/.Build\/vendor\/typo3\/cms-backend\/Classes\/Command\/DebugBackendModulesCommand.php"
+        },
+        "debug:backend:routes": {
+            "fqcn": "TYPO3\\CMS\\Backend\\Command\\DebugBackendRoutesCommand",
+            "filename": "\/var\/www\/html\/.Build\/vendor\/typo3\/cms-backend\/Classes\/Command\/DebugBackendRoutesCommand.php"
+        },
         "examples:createwizard": {
             "fqcn": "T3docs\\Examples\\Command\\CreateWizardCommand",
             "filename": "\/var\/www\/html\/.Build\/vendor\/t3docs\/examples\/Classes\/Command\/CreateWizardCommand.php"
@@ -5771,6 +6312,10 @@
             "fqcn": "TYPO3\\CMS\\Core\\Command\\SetupExtensionsCommand",
             "filename": "\/var\/www\/html\/.Build\/vendor\/typo3\/cms-core\/Classes\/Command\/SetupExtensionsCommand.php"
         },
+        "fluid:cache:warmup": {
+            "fqcn": "TYPO3\\CMS\\Fluid\\Command\\WarmupCommand",
+            "filename": "\/var\/www\/html\/.Build\/vendor\/typo3\/cms-fluid\/Classes\/Command\/WarmupCommand.php"
+        },
         "fluid:schema:generate": {
             "fqcn": "TYPO3\\CMS\\Fluid\\Command\\SchemaCommand",
             "filename": "\/var\/www\/html\/.Build\/vendor\/typo3\/cms-fluid\/Classes\/Command\/SchemaCommand.php"
@@ -5786,6 +6331,10 @@
         "install:password:set": {
             "fqcn": "TYPO3\\CMS\\Install\\Command\\PasswordSetCommand",
             "filename": "\/var\/www\/html\/.Build\/vendor\/typo3\/cms-install\/Classes\/Command\/PasswordSetCommand.php"
+        },
+        "language:domain:list": {
+            "fqcn": "TYPO3\\CMS\\Lowlevel\\Command\\TranslationDomainListCommand",
+            "filename": "\/var\/www\/html\/.Build\/vendor\/typo3\/cms-lowlevel\/Classes\/Command\/TranslationDomainListCommand.php"
         },
         "language:update": {
             "fqcn": "TYPO3\\CMS\\Install\\Command\\LanguagePackCommand",
@@ -5856,16 +6405,16 @@
             "filename": "\/var\/www\/html\/.Build\/vendor\/typo3\/cms-lowlevel\/Classes\/Command\/ListSysLogCommand.php"
         },
         "upgrade:list": {
-            "fqcn": "TYPO3\\CMS\\Install\\Command\\UpgradeWizardListCommand",
-            "filename": "\/var\/www\/html\/.Build\/vendor\/typo3\/cms-install\/Classes\/Command\/UpgradeWizardListCommand.php"
+            "fqcn": "TYPO3\\CMS\\Core\\Command\\UpgradeWizardListCommand",
+            "filename": "\/var\/www\/html\/.Build\/vendor\/typo3\/cms-core\/Classes\/Command\/UpgradeWizardListCommand.php"
         },
         "upgrade:mark:undone": {
-            "fqcn": "TYPO3\\CMS\\Install\\Command\\UpgradeWizardMarkUndoneCommand",
-            "filename": "\/var\/www\/html\/.Build\/vendor\/typo3\/cms-install\/Classes\/Command\/UpgradeWizardMarkUndoneCommand.php"
+            "fqcn": "TYPO3\\CMS\\Core\\Command\\UpgradeWizardMarkUndoneCommand",
+            "filename": "\/var\/www\/html\/.Build\/vendor\/typo3\/cms-core\/Classes\/Command\/UpgradeWizardMarkUndoneCommand.php"
         },
         "upgrade:run": {
-            "fqcn": "TYPO3\\CMS\\Install\\Command\\UpgradeWizardRunCommand",
-            "filename": "\/var\/www\/html\/.Build\/vendor\/typo3\/cms-install\/Classes\/Command\/UpgradeWizardRunCommand.php"
+            "fqcn": "TYPO3\\CMS\\Core\\Command\\UpgradeWizardRunCommand",
+            "filename": "\/var\/www\/html\/.Build\/vendor\/typo3\/cms-core\/Classes\/Command\/UpgradeWizardRunCommand.php"
         },
         "workspace:autopublish": {
             "fqcn": "TYPO3\\CMS\\Workspaces\\Command\\AutoPublishCommand",
