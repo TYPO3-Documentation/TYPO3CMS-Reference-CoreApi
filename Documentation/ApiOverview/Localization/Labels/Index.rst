@@ -341,7 +341,7 @@ Once you have the correct LanguageService instance, you can resolve labels as fo
 Replacing deprecated language labels
 ====================================
 
-..  versiondeprecated:: 14.0
+..  deprecated:: 14.0
     With TYPO3 14 a number of labels and localization files have been deprecated.
 
 The first time after deleting a cache that a label is used an entry such
