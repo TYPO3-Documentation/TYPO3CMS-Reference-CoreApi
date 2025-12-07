@@ -11,10 +11,15 @@
 Implementing an upgrade wizard
 ==============================
 
-..  versionchanged:: 13.0
-    The registration via
-    :php:`$GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['ext/install']['update']`
-    in :file:`ext_localconf.php` was removed in TYPO3 v13.
+..  deprecated:: 14.0
+    The attribute :php:`\TYPO3\CMS\Install\Attribute\UpgradeWizard` has been
+    deprecated in favour of :php:`\TYPO3\CMS\Core\Attribute\UpgradeWizard`.
+
+    The interfaces and classes used for upgrade wizards have been moved from
+    namespace `\TYPO3\CMS\Install\Updates` to `\TYPO3\CMS\Core\Upgrades`.
+
+    Using the old locations is deprecated in v14 but can be used to provide
+    compatibility with both TYPO3 v13 and v14.
 
 To create an upgrade wizard you have to add a class which implements the
 :ref:`UpgradeWizardInterface <upgrade-wizards-interface>`.
@@ -35,12 +40,20 @@ The class *may* implement other interfaces (optional):
 UpgradeWizardInterface
 ======================
 
+..  deprecated:: 14.0
+    :php:`\TYPO3\CMS\Install\Updates\UpgradeWizardInterface` has been deprecated,
+    implement :php:`\TYPO3\CMS\Core\Upgrades\UpgradeWizardInterface` once dropping
+    TYPO3 v13 support.
+
+    The attribute :php:`\TYPO3\CMS\Install\Attribute\UpgradeWizard` has been
+    deprecated in favour of :php:`\TYPO3\CMS\Core\Attribute\UpgradeWizard`.
+
 Each upgrade wizard consists of a single PHP file containing a single PHP class.
-This class has to implement :php:`TYPO3\CMS\Install\Updates\UpgradeWizardInterface`
+This class has to implement :php:`\TYPO3\CMS\Core\Upgrades\UpgradeWizardInterface`
 and its methods.
 
 The registration of an upgrade wizard is done directly in the class by adding
-the class attribute :php:`\TYPO3\CMS\Install\Attribute\UpgradeWizard`. The
+the class attribute :php:`\TYPO3\CMS\Core\Attribute\UpgradeWizard`. The
 :ref:`unique identifier <upgrade-wizards-identifier>` is passed as an argument.
 
 ..  literalinclude:: _ExampleUpgradeWizard.php
@@ -68,16 +81,16 @@ Method :php:`getPrerequisites()`
     can define dependencies before it can be performed. Currently, the following
     prerequisites exist:
 
-    *   `DatabaseUpdatedPrerequisite`:
+    *   :php-short:`\TYPO3\CMS\Core\Upgrades\DatabaseUpdatedPrerequisite`:
         Ensures that the database table fields are up-to-date.
-    *   `ReferenceIndexUpdatedPrerequisite`:
+    *   :php-short:`\TYPO3\CMS\Core\Upgrades\ReferenceIndexUpdatedPrerequisite`:
         The reference index needs to be up-to-date.
 
     ..  code-block:: php
         :caption: EXT:my_extension/Classes/Upgrades/ExampleUpgradeWizard.php
 
-        use TYPO3\CMS\Install\Updates\DatabaseUpdatedPrerequisite;
-        use TYPO3\CMS\Install\Updates\ReferenceIndexUpdatedPrerequisite;
+        use TYPO3\CMS\Core\Upgrades\DatabaseUpdatedPrerequisite;
+        use TYPO3\CMS\Core\Upgrades\ReferenceIndexUpdatedPrerequisite;
 
         /**
          * @return string[]
@@ -106,7 +119,6 @@ After creating the new upgrade wizard, delete all caches in
 command:
 
 ..  include:: /_includes/CliCacheFlush.rst.txt
-
 
 .. index:: Upgrade wizards; Identifier
 .. _upgrade-wizards-identifier:
@@ -158,12 +170,17 @@ Some examples:
 Marking wizard as done
 ======================
 
+..  deprecated:: 14.0
+    :php:`\TYPO3\CMS\Install\Updates\RepeatableInterface` has been deprecated,
+    implement :php:`\TYPO3\CMS\Core\Upgrades\RepeatableInterface` once dropping
+    TYPO3 v13 support.
+
 As soon as the wizard has completely finished, for example, it detected that no
 upgrade is necessary anymore, the wizard is marked as done and will not be
 checked anymore.
 
 To force TYPO3 to check the wizard every time, the interface
-:t3src:`install/Classes/Updates/RepeatableInterface.php` has to be implemented.
+:php:`\TYPO3\CMS\Core\Upgrades\RepeatableInterface` has to be implemented.
 This interface works as a marker and does not force any methods to be
 implemented.
 
@@ -175,23 +192,24 @@ implemented.
 Generating output
 =================
 
-The :php:`ChattyInterface` can be implemented for wizards which should generate
-output. :t3src:`install/Classes/Updates/ChattyInterface.php` uses the Symfony
-interface `OutputInterface`_.
-
-.. _OutputInterface: https://github.com/symfony/symfony/blob/5.4/src/Symfony/Component/Console/Output/OutputInterface.php
+The :php:`\TYPO3\CMS\Install\Updates\ChattyInterface` can be implemented for
+wizards which should generate
+output. It uses the Symfony interface
+:php:`\Symfony\Component\Console\Output\OutputInterface`.
 
 Classes using this interface must implement the following method:
 
 ..  code-block:: php
     :caption: vendor/symfony/console/Output/OutputInterface.php
 
+    use Symfony\Component\Console\Output\OutputInterface;
+
     /**
      * Setter injection for output into upgrade wizards
      */
      public function setOutput(OutputInterface $output): void;
 
-The class :t3src:`install/Classes/Updates/DatabaseUpdatedPrerequisite.php`
+The class :php:`\TYPO3\CMS\Core\Upgrades\DatabaseUpdatedPrerequisite`
 implements this interface. We are showing a simplified example here, based on
 this class:
 
@@ -200,6 +218,8 @@ this class:
     :emphasize-lines: 8,10-13,20
 
     use Symfony\Component\Console\Output\OutputInterface;
+    use TYPO3\CMS\Core\Upgrades\DatabaseUpdatedPrerequisite;
+    use TYPO3\CMS\Core\Upgrades\ChattyInterface;
 
     class DatabaseUpdatedPrerequisite implements PrerequisiteInterface, ChattyInterface
     {
@@ -233,6 +253,13 @@ this class:
 
 Executing the wizard
 ====================
+
+..  versionchanged:: 14.0
+    The upgrade wizards can always be run via the console command
+    `typo3 upgrade:run`.
+
+    The backend module :guilabel:`System > Upgrade` can only be used if
+    :composer:`typo3/cms-install` is installed.
 
 Wizards are listed in the backend module :guilabel:`System > Upgrade` and
 the card :guilabel:`Upgrade Wizard`. The registered wizard should be shown
