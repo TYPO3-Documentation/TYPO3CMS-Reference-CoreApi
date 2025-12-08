@@ -96,7 +96,7 @@ Site settings in Extbase Fluid plugins
 --------------------------------------
 
 At the time of writing site settings are not available in Extbase controllers or
-admins unless they have been passed on to the plugin settings via TypoScript
+plugins unless they have been passed on to the plugin settings via TypoScript
 or made available in the controller.
 
 To make the site settings available to all templates in your controller
