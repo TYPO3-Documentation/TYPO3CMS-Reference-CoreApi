@@ -344,8 +344,8 @@ Replacing deprecated language labels
 ..  deprecated:: 14.0
     With TYPO3 v14 a number of labels and localization files have been deprecated.
 
-The first time after deleting a cache that a label is used an entry such
-as the following is written to the deprecation log.
+The first time after deleting a cache, deprecated labels are written into the 
+deprecation log, like explained below.
 (See `Enabling the deprecation log <https://docs.typo3.org/permalink/t3coreapi:deprecation-enable-errors>`_).
 
 The Extension Scanner does not detect the usage of deprecated localization
