@@ -359,12 +359,12 @@ be removed with the next major TYPO3 version.
 It is possible to use these tags to deprecate labels in third party extensions
 as well.
 
-To ease migration for Extension developers and projects the development
+To ease migration for extension developers and projects the development
 command :bash:`vendor/bin/typo3 language:domain:search` can be used to search
 for specific label contents. :composer:`typo3/cms-lowlevel` needs to be
 installed.
 
-For example if you used the now deprecated label reference
+For example, if you used the now deprecated label reference
 `LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.starttime`
 
 You can use the following command:
@@ -412,4 +412,4 @@ new location:
     + $languageService->sL('core.db.general:starttime')
 
 If you can find no suitable label for your use case consider moving the label
-to your own extensions XLIFF localization files.
+to your own extension's XLIFF localization files.
