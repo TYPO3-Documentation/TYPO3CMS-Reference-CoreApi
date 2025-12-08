@@ -342,7 +342,7 @@ Replacing deprecated language labels
 ====================================
 
 ..  deprecated:: 14.0
-    With TYPO3 14 a number of labels and localization files have been deprecated.
+    With TYPO3 v14 a number of labels and localization files have been deprecated.
 
 The first time after deleting a cache that a label is used an entry such
 as the following is written to the deprecation log.
