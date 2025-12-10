@@ -6,6 +6,8 @@
 Site settings
 =============
 
+..  contents:: Table of contents
+
 ..  versionadded:: 13.1
     Site settings can receive a type, a default value and some documentation in
     :ref:`site settings definitions <site-sets-settings-definition>`. It is
@@ -78,11 +80,42 @@ Add settings to the :file:`settings.yaml <set-settings-yaml>`:
     :yaml:`categoryPid`.
 
 
-..  index:: Site handling; TypoScript access to settings
 ..  _sitehandling-settings-access:
 
+Accessing site settings
+=======================
+
+In PHP you can access the :php-short:`\TYPO3\CMS\Core\Site\Entity\SiteSettings`
+from the :php-short:`\TYPO3\CMS\Core\Site\Entity\Site` object via
+`getSettings()`. (See
+`Accessing the current site object <https://docs.typo3.org/permalink/t3coreapi:sitehandling-php-api-access>`_).
+
+..  _sitehandling-settings-access-extbase-fluid:
+
+Site settings in Extbase Fluid plugins
+--------------------------------------
+
+At the time of writing site settings are not available in Extbase controllers or
+plugins unless they have been passed on to the plugin settings via TypoScript
+or made available in the controller.
+
+To make the site settings available to all templates in your controller
+you can override method `AbstractController::initializeView()` and assign
+the site to the view:
+
+..  literalinclude:: _Settings/_ExampleController.php
+    :caption: EXT:myvendor/my-extension/Classes/Controller/ExampleController
+
+You can then use the variable `{site.settings}` to access the site settings:
+
+..  literalinclude:: _Settings/_ExampleControllerIndex.html
+    :caption: EXT:myvendor/my-extension/Resources/Private/Templates/Example/Index.html
+
+..  index:: Site handling; TypoScript access to settings
+..  _sitehandling-settings-access-typoscript:
+
 Accessing site settings in page TSconfig or TypoScript
-======================================================
+------------------------------------------------------
 
 ..  code-block:: typoscript
 
