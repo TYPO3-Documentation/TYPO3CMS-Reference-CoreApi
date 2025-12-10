@@ -10,9 +10,6 @@ PHP API: accessing site configuration
 ..  contents::
     :local:
 
-Introduction
-============
-
 The PHP API for sites comes in two parts:
 
 -   Accessing the current, resolved site object
@@ -27,6 +24,7 @@ current request but based on a page ID or a site identifier.
 
 Let us look at both cases in detail.
 
+..  _sitehandling-php-api-access:
 
 Accessing the current site object
 =================================
@@ -114,6 +112,7 @@ API
 
 ..  include:: /CodeSnippets/Manual/Entity/SiteLanguage.rst.txt
 
+..  _sitehandling-sitesetting-object:
 
 The :php:`SiteSettings` object
 ==============================
