@@ -2,7 +2,7 @@
 tx_blogexample_rss = PAGE
 tx_blogexample_rss {
   typeNum = {$plugin.tx_blogexample.settings.rssPageType}
-  10 < tt_content.blogexample_postlistrss
+  10 < tt_content.blogexample_postlistrss.20
 
   config {
     disableAllHeaderCode = 1
