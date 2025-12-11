@@ -1,4 +1,5 @@
 :navigation-title: XLIFF
+
 ..  include:: /Includes.rst.txt
 ..  index::
     pair: Coding guidelines; Xliff
@@ -10,27 +11,39 @@
 XLIFF coding guidelines
 =======================
 
+..  versionchanged:: 14.0
+    With TYPO3 14.0 the TYPO3 Core supports the XLIFF formats 1.2 and 2.0.
+
 Language files are typically stored in `XLIFF <https://en.wikipedia.org/wiki/XLIFF>`__
 files. XLIFF is based on XML.
+
+..  content:: Table of contents
 
 ..  seealso::
 
     :ref:`xliff`
 
+..  _cgl-xliff-filenames:
+
 Directory and file names
 ========================
 
 *   Files have the ending :file:`.xlf`.
+*   Language files are located in the directory
+    :file:`EXT:my_extension/Resources/Private/Language/`.
+*   Historically language files where named `locallang.xlf` or with a `locallang_`
+    prefix. This is not recommended anymore. For a standard translation name
+    `messages.xlf` is suggested.
 
-*   Language files are located in the directory :file:`EXT:my_extension/Resources/Private/Language/`.
+..  _cgl-xliff-indentation:
 
-Format
-======
+Indentation in XLIFF files
+==========================
 
-*   Use TABs, not spaces.
+..  versionchanged:: 14.0
+    With TYPO3 14.0 the TYPO3 Core switched from indentation with tabs to spaces.
 
-*   TAB size is 4.
-
+*   Use 2 spaces for indentation.
 
 ..  tip::
 
@@ -39,7 +52,6 @@ Format
 
 
 ..  index:: Coding guidelines; XLIFF language keys
-..  _cgl-localization:
 ..  _cgl-xliff-language-keys:
 
 Language keys
@@ -50,6 +62,7 @@ thus be avoided unless there are some technical limitations (for example, some
 very early or low-level stuff where a :ref:`$GLOBALS['LANG'] <LanguageService-api>`
 object is not yet available).
 
+..  _cgl-localization:
 
 Defining localized strings
 --------------------------
@@ -87,6 +100,10 @@ files:
     blanks before some punctuation marks.
 
 Once a localized string appears in a released version of TYPO3, it
-cannot be changed (unless it needs grammar or spelling fixes). Nor can
-it be removed. If the label of a localized string has to be changed, a
+cannot be changed (unless it needs grammar or spelling fixes).
+
+A localization string can be deprecated in one major TYPO3 version and be
+removed with the next one
+
+If the label of a localized string has to be changed, a
 new one should be introduced instead.
