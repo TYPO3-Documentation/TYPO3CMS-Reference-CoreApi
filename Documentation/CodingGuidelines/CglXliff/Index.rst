@@ -17,7 +17,7 @@ XLIFF coding guidelines
 Language files are typically stored in `XLIFF <https://en.wikipedia.org/wiki/XLIFF>`__
 files. XLIFF is based on XML.
 
-..  content:: Table of contents
+..  contents:: Table of contents
 
 ..  seealso::
 
