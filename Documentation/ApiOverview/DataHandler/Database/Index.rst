@@ -652,30 +652,23 @@ function. Configuration of the hook can be done from
 ..  index:: DataHandler; Flags
 ..  _tce-flags:
 
-Flags in DataHandler
-====================
+Flags in the DataHandler
+=======================
+
+..  versionchanged:: 14.0
+    The following public properties of the PHP class `TYPO3\CMS\Core\DataHandling\DataHandler` have been removed:
+
+    *   `copyWhichTables`
+    *   `neverHideAtCopy`
+    *   `copyTree`
+
+    See `Breaking: #107856 - DataHandler: Remove internal property
+    copyWhichTables and properties neverHideAtCopy and
+    copyTree <https://docs.typo3.org/permalink/changelog:breaking-107856-1763715381>`_
+
 
 There are a few internal variables you can set prior to executing
-commands or data submission. These are the most significant:
-
-..  confval:: ->copyTree
-    :name: datahandler-flags-copyTree
-    :Data type: integer
-    :Default: 0
-
-    Sets the number of branches on a page tree to copy.
-
-    0
-        Branch is *not* copied
-
-    1
-        Pages on the first level are copied.
-
-    2
-        Pages on the second level are copied.
-
-    And so on.
-
+commands or data submission.
 
 ..  confval:: ->reverseOrder
     :name: datahandler-flags-reverseOrder
@@ -684,13 +677,3 @@ commands or data submission. These are the most significant:
 
     If set, the data array is reversed in the order, which is a nice thing
     if you are creating a whole bunch of new records.
-
-
-..  confval:: ->copyWhichTables
-    :name: datahandler-flags-copyWhichTables
-    :Data type: list of strings (tables)
-    :Default: "*"
-
-    This list of tables decides which tables will be copied. If empty then
-    none will. If "*" then all will (that the user has permission to, of
-    course).
