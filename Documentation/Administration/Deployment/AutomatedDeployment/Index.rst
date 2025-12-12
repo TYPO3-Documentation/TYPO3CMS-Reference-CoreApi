@@ -51,7 +51,8 @@ This is an example directory structure of a "symlink-switching" TYPO3 installati
             *   :path:`public` (webserver root, via releases/current/public)
 
                 *   :path:`typo3conf`
-                *   :path:`fileadmin -> ../../../shared/fileadmin` (symlink)
+                *   :path:`fileadmin -> ../../../shared/public/fileadmin` (symlink)
+                *   :path:`typo3temp -> ../../../shared/public/typo3temp` (symlink)
                 *   :file:`index.php`
 
             *   :path:`var`
