@@ -3,8 +3,7 @@
 
 ..  php:class:: AfterFormIsBuiltEvent
 
-    Listeners to this event will be able to modify the form definition
-    after a form is created.
+    Listeners to this Event will be able to modify the form definition after it has been built
 
     ..  php:attr:: form
         :public:

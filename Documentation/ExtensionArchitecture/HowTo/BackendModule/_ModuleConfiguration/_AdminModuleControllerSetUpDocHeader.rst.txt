@@ -4,7 +4,6 @@
 ..  code-block:: php
     :caption: Class T3docs\\Examples\\Controller\\AdminModuleController
 
-    use Psr\Http\Message\ServerRequestInterface;
     use TYPO3\CMS\Backend\Template\Components\ButtonBar;
     use TYPO3\CMS\Backend\Template\ModuleTemplate;
     use TYPO3\CMS\Core\Imaging\IconSize;
@@ -12,12 +11,11 @@
     final readonly class AdminModuleController
     {
         private function setUpDocHeader(
-            ServerRequestInterface $request,
             ModuleTemplate $view,
         ): void {
             $buttonBar = $view->getDocHeaderComponent()->getButtonBar();
             $uriBuilderPath = $this->uriBuilder->buildUriFromRoute('web_list', ['id' => 0]);
-            $list = $buttonBar->makeLinkButton()
+            $list = $this->componentFactory->createLinkButton()
                 ->setHref($uriBuilderPath)
                 ->setTitle('A Title')
                 ->setShowLabelText(true)
