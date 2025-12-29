@@ -16,7 +16,7 @@ return [
                     ],
                 ],
                 'allowed' => 'common-image-types',
-            ]
+            ],
         ],
     ],
 ];
