@@ -412,7 +412,6 @@ Set the current request object for `FluidEmail`
 In order to use ViewHelpers that need a valid current request, such as :ref:`t3viewhelper:typo3-fluid-uri-page`,
 pass the current request to the FluidEmail instance:
 
-
 ..  code-block:: php
 
     use TYPO3\CMS\Core\Mail\FluidEmail;
@@ -421,8 +420,12 @@ pass the current request to the FluidEmail instance:
     $email->setRequest($this->request);
 
 Read more aboout :ref:`Getting the PSR-7 request object <getting-typo3-request-object>` in different
-contexts. In a context where no valid request object can be retrieved, such as in a
-:ref:`Console command <t3coreapi:symfony-console-commands>` the affected ViewHelpers cannot be used.
+contexts. 
+
+In a context where no valid request object can be retrieved, such as in a
+:ref:`Console command <t3coreapi:symfony-console-commands>` a valid frontend context need to be 
+simmulated (`Simulating a frontend request in TYPO3 Commands <https://docs.typo3.org/permalink/t3coreapi:console-command-tutorial-fe-request-example>`_)
+or the affected ViewHelpers cannot be used.
 
 Trying to use these ViewHelpers without a valid request throws an :doc:`error <t3exceptions:Exceptions/1639819269>`
 like the following:
