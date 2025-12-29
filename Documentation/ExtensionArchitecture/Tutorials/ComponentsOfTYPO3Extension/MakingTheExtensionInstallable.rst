@@ -39,8 +39,7 @@ A minimal example:
         "typo3/cms": {
           "extension-key": "example_extension"
         }
-      },
-      "version":"1"
+      }
     }
 
 Add `example-extension/Resources/Public/Icons/Extension.svg`
