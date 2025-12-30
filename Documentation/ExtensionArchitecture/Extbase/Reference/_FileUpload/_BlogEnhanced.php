@@ -13,8 +13,8 @@ use TYPO3\CMS\Extbase\Persistence\ObjectStorage;
 class Blog extends AbstractEntity
 {
     // A single file
-    #[FileUpload([
-        'validation' => [
+    #[FileUpload(
+        validation: [
             'required' => true,
             'maxFiles' => 1,
             'fileSize' => ['minimum' => '0K', 'maximum' => '2M'],
@@ -26,14 +26,14 @@ class Blog extends AbstractEntity
             ],
             'imageDimensions' => ['maxWidth' => 4096, 'maxHeight' => 4096],
         ],
-        'uploadFolder' => '1:/user_upload/extbase_single_file/',
-        'addRandomSuffix' => true,
-        'duplicationBehavior' => DuplicationBehavior::RENAME,
-    ])]
+        uploadFolder: '1:/user_upload/extbase_single_file/',
+        addRandomSuffix: true,
+        duplicationBehavior: DuplicationBehavior::RENAME,
+    )]
     protected ?FileReference $singleFile = null;
 
-    #[FileUpload([
-        'validation' => [
+    #[FileUpload(
+        validation: [
             'required' => true,
             'fileSize' => ['minimum' => '0K', 'maximum' => '2M'],
             'mimeType' => [
@@ -43,30 +43,24 @@ class Blog extends AbstractEntity
                 'invalidExtensionMessage' => 'LLL:EXT:my_extension/...',
             ],
         ],
-        'uploadFolder' => '1:/user_upload/extbase_multiple_files/',
-    ])]
-
+        uploadFolder: '1:/user_upload/extbase_multiple_files/',
+    )]
     /**
      * A collection of files.
      * @var ObjectStorage<FileReference>
      */
     protected ObjectStorage $multipleFiles;
 
-    // When using ObjectStorages, it is vital to initialize these.
     public function __construct()
     {
         $this->multipleFiles = new ObjectStorage();
     }
 
-    /**
-     * Called again with initialize object, as fetching an entity from the DB does not use the constructor
-     */
     public function initializeObject(): void
     {
         $this->multipleFiles = $this->multipleFiles ?? new ObjectStorage();
     }
 
-    // Typical getters
     public function getSingleFile(): ?FileReference
     {
         return $this->singleFile;
@@ -80,7 +74,6 @@ class Blog extends AbstractEntity
         return $this->multipleFiles;
     }
 
-    // Typical setters
     public function setSingleFile(?FileReference $singleFile): void
     {
         $this->singleFile = $singleFile;

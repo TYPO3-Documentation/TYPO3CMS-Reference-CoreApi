@@ -11,9 +11,10 @@ use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
 
 final class BlogController extends ActionController
 {
-    #[IgnoreValidation(['argumentName' => 'blog'])]
-    public function editAction(Blog $blog): ResponseInterface
-    {
+    public function editAction(
+        #[IgnoreValidation]
+        Blog $blog
+    ): ResponseInterface {
         // Do something
         $this->view->assign('blog', $blog);
         return $this->htmlResponse();

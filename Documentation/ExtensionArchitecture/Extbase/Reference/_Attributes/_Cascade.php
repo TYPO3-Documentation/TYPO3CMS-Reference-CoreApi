@@ -13,6 +13,6 @@ final class Blog extends AbstractEntity
     /**
      * @var ObjectStorage<Post>
      */
-    #[Cascade(['value' => 'remove'])]
-    public $posts;
+    #[Cascade(value: 'remove')]
+    public ObjectStorage $posts;
 }
