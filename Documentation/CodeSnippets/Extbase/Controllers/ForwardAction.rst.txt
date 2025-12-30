@@ -27,7 +27,7 @@
                     ->withExtensionName('blog_example')
                     ->withArguments(['currentPage' => $currentPage]);
             }
-            $this->blogPageTitleProvider->setTitle($blog->getTitle());
+            $this->recordTitleProvider->setTitle($blog->getTitle());
             if (empty($tag)) {
                 $posts = $this->postRepository->findBy(['blog' => $blog]);
             } else {
