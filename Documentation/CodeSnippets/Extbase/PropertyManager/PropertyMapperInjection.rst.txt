@@ -7,7 +7,7 @@
     use T3docs\BlogExample\Domain\Repository\BlogRepository;
     use T3docs\BlogExample\Domain\Repository\PersonRepository;
     use T3docs\BlogExample\Domain\Repository\PostRepository;
-    use T3docs\BlogExample\PageTitle\BlogPageTitleProvider;
+    use TYPO3\CMS\Core\PageTitle\RecordTitleProvider;
     use TYPO3\CMS\Extbase\Property\PropertyMapper;
 
     class PostController extends ActionController
@@ -22,6 +22,6 @@
             protected readonly PersonRepository $personRepository,
             protected readonly PostRepository $postRepository,
             protected readonly PropertyMapper $propertyMapper,
-            protected readonly BlogPageTitleProvider $blogPageTitleProvider,
+            protected readonly RecordTitleProvider $recordTitleProvider,
         ) {}
     }

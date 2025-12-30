@@ -6,7 +6,9 @@
 
     use Psr\Http\Message\ResponseInterface;
     use T3docs\BlogExample\Domain\Model\Blog;
+    use T3docs\BlogExample\Domain\Validator\BlogValidator;
     use T3docs\BlogExample\Exception\NoBlogAdminAccessException;
+    use TYPO3\CMS\Extbase\Attribute\Validate;
 
     class BlogController extends ActionController
     {
@@ -18,8 +20,10 @@
          *
          * @throws NoBlogAdminAccessException
          */
-        public function updateAction(Blog $blog): ResponseInterface
-        {
+        public function updateAction(
+            #[Validate(validator: BlogValidator::class)]
+            Blog $blog,
+        ): ResponseInterface {
             $this->checkBlogAdminAccess();
             $this->blogRepository->update($blog);
             $this->addFlashMessage('updated');
