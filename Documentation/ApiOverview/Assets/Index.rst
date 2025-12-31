@@ -27,8 +27,7 @@ be rendered and finally generates the necessary tags.
 
     TYPO3 no longer supports frontend asset concatenation or
     pre-compression in the core. The :php:`PageRenderer` therefore does not
-    concatenate or pre-compress CSS and JavaScript files in TYPO3 v14. See
-    :ref:`frontend-asset-concat-compress-not-supported`.
+    concatenate or pre-compress CSS and JavaScript files in TYPO3 v14.
 
 There are multiple ways to add assets to the :php:`PageRenderer` in TYPO3.
 For configuration options via TypoScript (usually used for the main theme files),
