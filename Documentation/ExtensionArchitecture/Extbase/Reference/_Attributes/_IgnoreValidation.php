@@ -13,7 +13,7 @@ final class BlogController extends ActionController
 {
     public function editAction(
         #[IgnoreValidation]
-        Blog $blog
+        Blog $blog,
     ): ResponseInterface {
         // Do something
         $this->view->assign('blog', $blog);
