@@ -420,10 +420,10 @@ pass the current request to the FluidEmail instance:
     $email->setRequest($this->request);
 
 Read more aboout :ref:`Getting the PSR-7 request object <getting-typo3-request-object>` in different
-contexts. 
+contexts.
 
 In a context where no valid request object can be retrieved, such as in a
-:ref:`Console command <t3coreapi:symfony-console-commands>` a valid frontend context need to be 
+:ref:`Console command <t3coreapi:symfony-console-commands>` a valid frontend context need to be
 simmulated (`Simulating a frontend request in TYPO3 Commands <https://docs.typo3.org/permalink/t3coreapi:console-command-tutorial-fe-request-example>`_)
 or the affected ViewHelpers cannot be used.
 
