@@ -172,8 +172,6 @@ A typical example in TypoScript looks like:
      includeJS {
        jQuery = https://code.jquery.com/jquery-1.11.3.min.js
        jQuery.external = 1
-       jQuery.disableCompression = 1
-       jQuery.excludeFromConcatenation = 1
        jQuery.integrity = sha256-7LkWEzqTdpEfELxcZZlS6wAx5Ff13zZ83lYO2/ujj7g=
      }
    }

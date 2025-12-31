@@ -20,9 +20,15 @@ Introduction
 The TYPO3 component responsible for rendering the HTML and adding assets to a
 TYPO3 frontend or backend page is called :php:`\TYPO3\CMS\Core\Page\PageRenderer`.
 
-The :php:`PageRenderer` collects all assets to be rendered, takes care of
-options such as concatenation or compression and finally generates the necessary
-tags.
+The :php-short:`\TYPO3\CMS\Core\Page\PageRenderer` collects all assets to
+be rendered and finally generates the necessary tags.
+
+..  versionchanged:: 14.0
+
+    TYPO3 no longer supports frontend asset concatenation or
+    pre-compression in the core. The :php:`PageRenderer` therefore does not
+    concatenate or pre-compress CSS and JavaScript files in TYPO3 v14. See
+    :ref:`frontend-asset-concat-compress-not-supported`.
 
 There are multiple ways to add assets to the :php:`PageRenderer` in TYPO3.
 For configuration options via TypoScript (usually used for the main theme files),

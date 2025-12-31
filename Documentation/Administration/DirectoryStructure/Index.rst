@@ -265,9 +265,9 @@ for temporary files of extensions and TYPO3 components.
 :path:`public/typo3temp/assets/`
 """"""""""""""""""""""""""""""""
 
-The directory :path:`typo3temp/assets/` contains temporary files that should be
-public available. This includes generated images and compressed CSS and
-JavaScript files.
+The directory :path:`typo3temp/assets/` contains temporary files that must be
+publicly accessible. This includes generated images and other temporary
+frontend assets created by the TYPO3 Core.
 
 ..  _directory-var:
 

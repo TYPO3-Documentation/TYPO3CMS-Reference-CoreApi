@@ -44,10 +44,6 @@ If :doc:`EXT:lowlevel <ext_lowlevel:Index>` is installed, the name of the
 database table or field is appended to the select options in the
 :guilabel:`System > Database > Full Search` module.
 
-Additionally, in debug mode, the page renderer does not compress or concatenate
-JavaScript or CSS resources.
-
-
 .. _examples-debug-utility:
 
 
