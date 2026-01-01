@@ -10,8 +10,8 @@ use TYPO3\CMS\Extbase\DomainObject\AbstractEntity;
 
 class Blog extends AbstractEntity
 {
-    #[Validate([
-        'validator' => TitleValidator::class,
-    ])]
+    #[Validate(
+        validator: TitleValidator::class,
+    )]
     public string $title = '';
 }
