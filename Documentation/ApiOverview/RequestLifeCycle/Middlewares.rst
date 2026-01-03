@@ -66,6 +66,18 @@ TYPO3 has implemented the PSR-15 approach in the following way:
 
 #.  This response is passed back to the execution flow.
 
+..  versionchanged:: 14.0
+
+    Middlewares must not rely on the PHP superglobals `$_GET` / `$_POST`
+    (and legacy `$HTTP_GET_VARS` / :php:`$HTTP_POST_VARS`) being synchronized
+    with the PSR-7 request. TYPO3 no longer resets these globals from request data.
+
+    Also note that :php:`$GLOBALS['TYPO3_REQUEST']` is a compatibility layer and
+    may not be available in all middleware positions (it is set later in the
+    application flow). Always use the PSR-7 request
+    (:php:`\Psr\Http\Message\ServerRequestInterface`) passed into
+    `process()` and pass it explicitly to services that need it.
+
 ..  index:: Request handling; Middleware
 ..  _request-handling-middlewares:
 
