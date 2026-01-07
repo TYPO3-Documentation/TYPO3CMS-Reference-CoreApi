@@ -1,10 +1,10 @@
 ..  include:: /Includes.rst.txt
-..  index:: pair: Events; Backend Users
-..  _eventlist-backend-users:
+..  index:: pair: Events; Backend User
+..  _eventlist-backend-user:
 
-=============
-Backend Users
-=============
+============
+Backend User
+============
 
 ..  versionadded:: 14.0
 
