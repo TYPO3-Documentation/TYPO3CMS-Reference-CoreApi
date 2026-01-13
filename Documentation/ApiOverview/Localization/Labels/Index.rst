@@ -344,30 +344,30 @@ Replacing deprecated language labels
 ..  deprecated:: 14.0
     With TYPO3 v14 a number of labels and localization files have been deprecated.
 
-The first time after deleting a cache, deprecated labels are written into the 
-deprecation log, like explained below.
+The first time after deleting a cache, deprecated labels are written into the
+deprecation log, as explained below.
 (See `Enabling the deprecation log <https://docs.typo3.org/permalink/t3coreapi:deprecation-enable-errors>`_).
 
-The Extension Scanner does not detect the usage of deprecated localization
+The Extension Scanner does not detect deprecated localization
 labels. Developers must rely on runtime deprecation logs to identify these
 occurrences.
 
 Deprecated labels are marked with attribute `x-unused-since="14.0"` in the XLIFF
 1.2 localization file and with `subState="deprecated"` in XLIFF 2.0. They will
-be removed with the next major TYPO3 version.
+be removed in the next major TYPO3 version.
 
 It is possible to use these tags to deprecate labels in third party extensions
 as well.
 
-To ease migration for extension developers and projects the development
+To ease migration for extension developers and projects, the
 command :bash:`vendor/bin/typo3 language:domain:search` can be used to search
-for specific label contents. :composer:`typo3/cms-lowlevel` needs to be
-installed.
+for specific label content (:composer:`typo3/cms-lowlevel` needs to be
+installed).
 
 For example, if you used the now deprecated label reference
 `LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.starttime`
 
-You can use the following command:
+Use the following command:
 
 ..  code-block:: bash
 
@@ -383,7 +383,7 @@ You can use the following command:
     +-----------------+--------------------+
 
 
-To search for any label reference key or content containing "starttime". If
+to search for label reference keys or content containing "starttime". If
 the label content fits your purpose you can switch your label reference to the
 new location:
 
@@ -411,5 +411,5 @@ new location:
     - $languageService->sL('LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.starttime')
     + $languageService->sL('core.db.general:starttime')
 
-If you can find no suitable label for your use case consider moving the label
+If you can't find a suitable label for your use case, consider moving the label
 to your own extension's XLIFF localization files.
