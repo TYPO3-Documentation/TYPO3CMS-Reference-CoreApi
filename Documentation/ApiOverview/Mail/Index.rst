@@ -448,7 +448,7 @@ Send email of type `MailMessage` with an injected `MailerInterface`
     *   :php:`TYPO3\CMS\Core\Mail\MailMessage->isSent()`
 
 :php:`\TYPO3\CMS\Core\Mail\MailMessage` can be used to generate an email
-without using Fluid, the email can then be send via an injected interface of
+without using Fluid. The email can then be sent via the injected interface
 :php:`\TYPO3\CMS\Core\Mail\MailerInterface`.
 
 ..  literalinclude:: _codesnippets/_MyMailerController.php
