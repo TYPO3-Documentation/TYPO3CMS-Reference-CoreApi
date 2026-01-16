@@ -18,7 +18,7 @@ const ENDPOINTS = [
     'approvals'    => '/projects/%d/approvals',
 ];
 
-readonly class CrowdinClient
+class CrowdinClient
 {
     public function __construct(
         private string $token,
