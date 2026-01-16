@@ -16,16 +16,16 @@ Introduction
 ============
 
 The :php:`TYPO3\CMS\Core\Database\Connection` class extends the basic Doctrine
-DBAL :php:`Doctrine\DBAL\Connection` class and is mainly used internally in
+DBAL :php:`Doctrine\DBAL\Connection` class and used internally in
 TYPO3 to establish, maintain and terminate connections to single database
 endpoints. These internal methods are not the scope of this documentation, since
 an extension developer usually does not have to deal with them.
 
-However, for an extension developer, the class provides a list of short-hand
-methods that allow you to deal with queries, delete and update statements
-without the complexity of the :ref:`query builder <database-query-builder>`. 
-Using these methods usually ends up in rather short and easy-to-read code. 
-The methods have in common that they only support **equal** comparison operators 
+However, the class provides extension developers with a list of short-hand
+methods for queries, delete and update statements
+without having to deal with the complexity of :ref:`query builder <database-query-builder>`.
+Using these methods will usually result in short and easy-to-read code.
+The methods only support **equal** comparison operators
 in ANDed :sql:`WHERE` conditions.
 All fields and values are automatically fully quoted, and the created queries
 are executed right away.
