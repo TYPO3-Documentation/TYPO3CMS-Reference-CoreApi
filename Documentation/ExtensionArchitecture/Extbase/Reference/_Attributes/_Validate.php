@@ -9,9 +9,9 @@ use TYPO3\CMS\Extbase\DomainObject\AbstractEntity;
 
 class Blog extends AbstractEntity
 {
-    #[Validate([
-        'validator' => 'StringLength',
-        'options' => ['maximum' => 150],
-    ])]
+    #[Validate(
+        validator: 'StringLength',
+        options: ['maximum' => 150],
+    )]
     public string $description = '';
 }

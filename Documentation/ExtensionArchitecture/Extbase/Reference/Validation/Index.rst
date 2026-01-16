@@ -81,10 +81,10 @@ of the current controller is called.
 Validation of model properties
 ==============================
 
-..  versionchanged:: 13.2
-    All validation messages from included Extbase validators can now be overwritten
-    using validator options. It is possible to provide either a translation key or
-    a custom message as string.
+..  versionchanged:: 14.0
+    Passing a configuration array to the FileUpload attribute has been deprecated.
+    Configuration must be provided via named attribute arguments. See
+    `Migration and version compatibility (TYPO3 v13 → v14) <https://docs.typo3.org/permalink/t3coreapi:extbase-validation-migration>`_.
 
 You can define simple validation rules in the domain model by the attribute
 :ref:`extbase-attribute-validate`.
@@ -98,6 +98,54 @@ In this code section the validator :php:`StringLength` provided by Extbase
 in class :php:`\TYPO3\CMS\Extbase\Validation\Validator\StringLengthValidator`
 is applied with one argument.
 
+Validation messages from included Extbase validators can be overwritten
+using validator options. It is possible to provide either a translation key or
+a custom message as string.
+
+..  _extbase-validation-migration:
+
+Migration and version compatibility (TYPO3 v13 → v14)
+-----------------------------------------------------
+
+With TYPO3 v14, passing a configuration array as the first argument to validation
+attributes (for example :php:`#[Validate([ ... ])]`) has been deprecated
+(:ref:`Deprecation #97559 <changelog:deprecation-97559-1760453281>`).
+A new syntax using named attribute arguments was introduced with TYPO3 v14.
+
+The deprecated array-based syntax continues to work in TYPO3 v14 but will be
+removed with TYPO3 v15.
+
+..  important::
+
+    There is **no validation attribute syntax that is compatible with both
+    TYPO3 v13 and TYPO3 v14**.
+
+    PHP attributes are parsed statically and cannot be conditionally defined
+    based on the TYPO3 version. Extensions that support TYPO3 v13 and v14 in the
+    same release must therefore continue to use the array-based syntax and accept
+    the deprecation warning in TYPO3 v14.
+
+..  code-block:: php
+    :caption: Example (TYPO3 v13 and v14 compatible)
+
+    // TODO: Switch to named arguments when dropping TYPO3 v13 support (Deprecation #97559).
+    #[Validate([
+        'validator' => 'StringLength',
+        'options' => ['maximum' => 150],
+    ])]
+
+..  code-block:: php
+    :caption: Example (TYPO3 v14+, recommended)
+
+    #[Validate(
+        validator: 'StringLength',
+        options: ['maximum' => 150],
+    )]
+
+TYPO3 Rector (:composer:`ssch/typo3-rector`) has rule
+:php:`\Ssch\TYPO3Rector\TYPO314\v0\MigratePassingAnArrayOfConfigurationValuesToExtbaseAttributesRector` to
+automatically migrate from the annotation syntax to the attribute syntax.
+
 ..  _extbase-validation-controller:
 
 Validation of controller arguments
@@ -107,6 +155,11 @@ Validation of controller arguments
     Applying controller argument validation at **method level** has been
     deprecated. Define validators at **argument level** from
     TYPO3 v14.
+
+..  versionchanged:: 14.0
+    Passing a configuration array to the FileUpload attribute has been deprecated.
+    Configuration must be provided via named attribute arguments. See
+    `Migration and version compatibility (TYPO3 v13 → v14) <https://docs.typo3.org/permalink/t3coreapi:extbase-validation-migration>`_.
 
 You can also define controller argument validators:
 
