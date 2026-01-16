@@ -22,11 +22,12 @@ endpoints. These internal methods are not the scope of this documentation, since
 an extension developer usually does not have to deal with them.
 
 However, for an extension developer, the class provides a list of short-hand
-methods that allow you to deal with query cases without the complexity
-of the :ref:`query builder <database-query-builder>`. Using these methods
-usually ends up in rather short and easy-to-read code. The methods have in common
-that they only support "equal" comparisons in :sql:`WHERE` conditions, that all
-fields and values are automatically fully quoted, and that the created queries
+methods that allow you to deal with queries, delete and update statements
+without the complexity of the :ref:`query builder <database-query-builder>`. 
+Using these methods usually ends up in rather short and easy-to-read code. 
+The methods have in common that they only support **equal** comparison operators 
+in ANDed :sql:`WHERE` conditions.
+All fields and values are automatically fully quoted, and the created queries
 are executed right away.
 
 ..  note::
