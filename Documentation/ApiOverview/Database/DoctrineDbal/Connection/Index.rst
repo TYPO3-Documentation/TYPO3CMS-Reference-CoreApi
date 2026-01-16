@@ -289,6 +289,11 @@ The method returns the number of deleted rows. If something goes wrong, a
     tables, it is better to use the :ref:`DataHandler <datahandler-basics>` API
     to handle deletions instead of executing such low-level queries directly.
 
+Remarks:
+
+*   For :sql:`DELETE` queries which require comparators based on greater-than
+    instead of a ANDed equations using only equal signs it is required 
+    to switch to the :php:`QueryBuilder->delete()` method.
 
 .. _database-connection-truncate:
 
