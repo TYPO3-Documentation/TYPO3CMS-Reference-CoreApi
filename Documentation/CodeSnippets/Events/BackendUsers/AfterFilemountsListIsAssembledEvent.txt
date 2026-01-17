@@ -10,4 +10,3 @@
     :param $request: The current Extbase request object
 
     :param $filemounts: An array of file mounts.
-
