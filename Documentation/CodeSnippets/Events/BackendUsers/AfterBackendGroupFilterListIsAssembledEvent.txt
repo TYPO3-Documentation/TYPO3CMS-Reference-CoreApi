@@ -10,4 +10,3 @@
     :param $request: The current Extbase request object
 
     :param $backendGroups: An array of backend groups.
-

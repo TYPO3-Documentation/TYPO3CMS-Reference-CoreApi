@@ -30,5 +30,3 @@ API
 ===
 
 ..  include:: /CodeSnippets/Events/BackendUsers/AfterBackendGroupListConstraintsAssembledFromDemandEvent.txt
-
-

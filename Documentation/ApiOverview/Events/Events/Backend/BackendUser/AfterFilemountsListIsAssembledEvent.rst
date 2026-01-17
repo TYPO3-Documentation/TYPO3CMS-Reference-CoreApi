@@ -29,5 +29,3 @@ API
 ===
 
 ..  include:: /CodeSnippets/Events/BackendUsers/AfterFilemountsListIsAssembledEvent.txt
-
-
