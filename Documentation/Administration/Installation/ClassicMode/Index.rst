@@ -10,6 +10,8 @@
 Classic mode TYPO3 installation (No Composer required)
 ======================================================
 
+This installation method includes access to the `TYPO3 Extension Repository (TER) <https://extensions.typo3.org>`_ via a regular backend module. It is ideal for managed hosting, automated updates by the hosting provider, and simpler setups. It is also well-suited for beginners, due to the GUI-based extension handling. Consider `installing TYPO3 with Composer <https://docs.typo3.org/permalink/t3coreapi:installation-composer>`_, if you value flexibility in dependency management, integration with version control, and easier environment automation. `Migrating a TYPO3 project to Composer <https://docs.typo3.org/permalink/t3coreapi:migratetocomposer>`_ is possible later, but takes effort and means restructuring the project.
+
 There are two installation methods for a Classic mode TYPO3 installation.
 If you have shell (SSH) access we recommend using `wget and
 symlinks <https://docs.typo3.org/permalink/t3coreapi:classic-symlink-installation>`_.
