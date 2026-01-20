@@ -127,7 +127,7 @@ optional dependencies listed in `optionalDependencies`:
     dependencies:
       - my-vendor/my-set
     optionalDependencies:
-       - typo3/form
+      - typo3/form
 
 Site sets can also be added to a site via the backend module
 :guilabel:`Sites > Setup`.
