@@ -14,7 +14,7 @@ Installing TYPO3 with Composer
     :ref:`Getting Started Guide: Installing TYPO3 with
     DDEV <t3start:installation-ddev-tutorial>`.
 
-This chapter covers each of the steps required to install TYPO3 using Composer.
+This chapter covers each of the steps required to install TYPO3 using the `Composer dependency manager <https://getcomposer.org>`. Composer-based setups are ideal for advanced projects or team-based workflows. They are common in professional environments with development teams. Extensions are installed via Packagist (not from the `TYPO3 Extension Repository (TER) <https://extensions.typo3.org>`_), providing more flexibility in dependency management, better integration with version control, and easier environment automation than a :ref:`Classic mode TYPO3 installation <legacyinstallation>`.
 
 For more information on how to deploy TYPO3 to a live environment, visit the
 :ref:`deploying TYPO3 <DeployTYPO3>` chapter.
