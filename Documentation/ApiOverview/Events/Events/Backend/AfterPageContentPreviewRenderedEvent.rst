@@ -6,6 +6,8 @@
 AfterPageContentPreviewRenderedEvent
 ====================================
 
+..  versionadded:: 14.1
+
 Use the PSR-14 event :php:`\TYPO3\CMS\Backend\View\Event\AfterPageContentPreviewRenderedEvent`
 to enrich backend content previews, for example, by adding information from
 different fields. This functionality may be particularly useful for

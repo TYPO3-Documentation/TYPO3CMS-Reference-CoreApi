@@ -8,7 +8,7 @@ use TYPO3\CMS\Backend\View\Event\AfterPageContentPreviewRenderedEvent;
 use TYPO3\CMS\Core\Attribute\AsEventListener;
 
 #[AsEventListener(
-    identifier: 'my-extension',
+    identifier: 'my-extension/after-page-content-preview-rendered',
 )]
 final readonly class MyEventListener
 {
