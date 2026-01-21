@@ -69,8 +69,8 @@ Before TYPO3 v12.2, one has to define a
 :ref:`custom language <xliff-translating-languages>`.
 
 ..  note::
-    The original file must always be in English, so it is not allowed to create
-    a file with the prefix "en", for example :file:`en.locallang.xlf`.
+    The original file must **not** always be in English. You can create files with
+    the prefix `en`.
 
 In the file itself, a :xml:`target-language` attribute is added to the
 :xml:`<file>` tag to indicate the translation language ("de" in our example).
