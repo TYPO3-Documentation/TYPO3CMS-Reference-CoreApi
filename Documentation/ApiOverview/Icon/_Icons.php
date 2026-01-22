@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 use TYPO3\CMS\Core\Imaging\IconProvider\BitmapIconProvider;
 use TYPO3\CMS\Core\Imaging\IconProvider\SvgIconProvider;
+use TYPO3\CMS\Core\Imaging\IconProvider\SvgSpriteIconProvider;
 
 return [
     // Icon identifier
@@ -31,5 +32,11 @@ return [
             'until' => 'my extension v3',
             'replacement' => 'alternative-icon',
         ],
+    ],
+    'tx-myextension-spriteicon' => [
+        // Icon provider for SVG sprites
+        'provider' => SvgSpriteIconProvider::class,
+        // The SVG sprite with fragment identifier (<symbol id="…">)
+        'sprite' => 'EXT:my_extension/Resources/Public/Icons/sprite.svg#tx-myextension',
     ],
 ];
