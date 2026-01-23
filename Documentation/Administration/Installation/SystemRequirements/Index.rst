@@ -77,6 +77,7 @@ Optional but commonly used:
 *   `fileinfo` – for detecting uploaded file types
 *   `gd` – for image generation and scaling
 *   `zip` – for language packs and extension archives
+*   `zlib` – for Classic installations to unpack extension files
 *   `openssl` – for encrypted SMTP mail delivery
 
 ..  _system-requirements-php-database-extensions:
