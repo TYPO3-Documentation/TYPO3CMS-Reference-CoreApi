@@ -14,7 +14,7 @@ final readonly class MyEventListener
 {
     public function __invoke(AfterPageContentPreviewRenderedEvent $event): void
     {
-        $content = 'before<hr />'. $event->getPreviewContent() . '<hr />after';
+        $content = 'before<hr />' . $event->getPreviewContent() . '<hr />after';
         $event->setPreviewContent($content);
     }
 }
