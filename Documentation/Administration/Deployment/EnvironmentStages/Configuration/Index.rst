@@ -106,7 +106,7 @@ variables, you can access contents of the variables anywhere you need.
 .. _environment-helhum-dotenv:
 
 helhum/dotenv-connector
----------------------
+-----------------------
 
 You can also use https://github.com/helhum/dotenv-connector/ (via the Packagist
 package `helhum/dotenv-connector`) to allow accessing :php:`$_ENV` variables
