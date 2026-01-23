@@ -37,16 +37,32 @@ The file needs to return a PHP configuration array with the following keys:
     :language: php
     :caption: EXT:my_extension/Configuration/Icons.php
 
+Minimal SVG sprite structure
+----------------------------
+
+When registering an icon with the :php:`SvgSpriteIconProvider`, the referenced
+SVG file must expose icons via the :html:`<symbol>` element. A minimal SVG sprite
+may look like this:
+
+..  literalinclude:: _SvgSpriteMinimal.svg
+    :language: xml
+    :caption: Minimal SVG sprite example
+
+The fragment identifier (``#tx-myextension``) is used to reference the symbol
+from the SVG sprite when registering the icon.
+
 ..  index:: Icon API; IconProviderInterface
 
 Icon provider
 -------------
 
-The TYPO3 Core ships two icon providers which can be used straight away:
+The TYPO3 Core ships three icon providers which can be used straight away:
 
 *   :php:`\TYPO3\CMS\Core\Imaging\IconProvider\BitmapIconProvider` – For all
     kinds of bitmap icons (GIF, PNG, JPEG, etc.)
 *   :php:`\TYPO3\CMS\Core\Imaging\IconProvider\SvgIconProvider` – For SVG icons
+*   :php:`\TYPO3\CMS\Core\Imaging\IconProvider\SvgSpriteIconProvider` – For SVG
+    icons bundled in an SVG sprite
 
 If you need a custom icon provider, you can add your own by writing a
 class which implements the
