@@ -394,7 +394,7 @@ Best practices
 *   When configuring listeners, it is recommended to add one listener class per
     event type, and have it called via :php:`__invoke()`.
 
-*   The php attribute `AsEventListener` should be added on the class when 
+*   The PHP attribute :php:`\TYPO3\CMS\Core\Attribute\AsEventListener` should be added on the class when 
     using the :php:`__invoke()` method.
 
 *   When creating a new event PHP class, it is recommended to add an
