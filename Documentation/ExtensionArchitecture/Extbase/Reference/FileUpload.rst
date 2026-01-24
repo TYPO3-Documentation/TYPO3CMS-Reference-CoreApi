@@ -227,7 +227,7 @@ Migration and version compatibility (TYPO3 v13 → v14)
 With TYPO3 v14, passing a configuration array as the first argument to Extbase
 attributes (for example :php:`#[FileUpload([ ... ])]`) has been deprecated
 (:ref:`Deprecation #97559 <changelog:deprecation-97559-1760453281>`).
-A new property-based configuration syntax using named attribute arguments was
+A new property-based configuration syntax using attribute arguments was
 introduced with TYPO3 v14.
 
 The deprecated array-based syntax continues to work in TYPO3 v14 but will be
