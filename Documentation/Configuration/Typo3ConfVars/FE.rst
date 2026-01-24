@@ -69,8 +69,7 @@ the TYPO3 frontend:
         Frontend HTTP response compression has been removed. Response compression
         should be applied by web servers and not by the application layer.
 
-        See also: `Breaking: #107943 - Frontend and backend HTTP response
-        compression removed <https://docs.typo3.org/permalink/changelog:breaking-107943-1761860828>`_
+        See also: `Breaking: #108055 - Removed frontend asset concatenation and compression <https://docs.typo3.org/permalink/changelog:breaking-108055-1762346705>`_.
 
 ..  _typo3ConfVars_fe_pageNotFoundOnCHashError:
 
