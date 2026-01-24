@@ -425,10 +425,10 @@ pass the current request to the FluidEmail instance:
     $email->setRequest($this->request);
 
 Read more aboout :ref:`Getting the PSR-7 request object <getting-typo3-request-object>` in different
-contexts. 
+contexts.
 
 In a context where no valid request object can be retrieved, such as in a
-:ref:`Console command <t3coreapi:symfony-console-commands>` a valid frontend context need to be 
+:ref:`Console command <t3coreapi:symfony-console-commands>` a valid frontend context need to be
 simmulated (`Simulating a frontend request in TYPO3 Commands <https://docs.typo3.org/permalink/t3coreapi:console-command-tutorial-fe-request-example>`_)
 or the affected ViewHelpers cannot be used.
 
@@ -443,83 +443,24 @@ like the following:
 ..  index:: Mail; MailMessage
 ..  _mail-mail-message:
 
-Send email with `MailMessage`
------------------------------
+Send email of type `MailMessage` with an injected `MailerInterface`
+-------------------------------------------------------------------
 
-:php:`MailMessage` can be used to generate and send an email without using
-Fluid:
+..  warning::
+    The following methods will be removed with TYPO3 v14.0:
 
-..  code-block:: php
-    :caption: EXT:site_package/Classes/Utility/MyMailUtility.php
+    *   :php:`TYPO3\CMS\Core\Mail\MailMessage->send()`
+    *   :php:`TYPO3\CMS\Core\Mail\MailMessage->isSent()`
 
-    use Symfony\Component\Mime\Address;
-    use TYPO3\CMS\Core\Mail\MailMessage;
-    use TYPO3\CMS\Core\Utility\GeneralUtility;
+    In TYPO3 v13 it is already recommended to switch to using the
+    :php:`\TYPO3\CMS\Core\Mail\MailerInterface` to send mails.
 
-    // Create the message
-    $mail = GeneralUtility::makeInstance(MailMessage::class);
-    $email = new MailMessage();
+:php:`\TYPO3\CMS\Core\Mail\MailMessage` can be used to generate an email
+without using Fluid, the email can then be send via an injected interface of
+:php:`\TYPO3\CMS\Core\Mail\MailerInterface`.
 
-    // Prepare and send the message
-    $mail
-        // Defining the "From" email address and name as an object
-        // (email clients will display the name)
-        ->from(new Address('john.doe@example.org', 'John Doe'))
-
-        // Set the "To" addresses
-        ->to(
-            new Address('receiver@example.org', 'Max Mustermann'),
-            new Address('other@example.org')
-        )
-
-        // Give the message a subject
-        ->subject('Your subject')
-
-        // Give it the text message
-        ->text('Here is the message itself')
-
-        // And optionally an HTML message
-        ->html('<p>Here is the message itself</p>')
-
-        // Optionally add any attachments
-        ->attachFromPath('/path/to/my-document.pdf')
-
-        // And finally send it
-        ->send()
-    ;
-
-
-
-Or, if you prefer, do not concatenate the calls:
-
-..  code-block:: php
-    :caption: EXT:site_package/Classes/Utility/MyMailUtility.php
-
-    use Symfony\Component\Mime\Address;
-    use TYPO3\CMS\Core\Utility\GeneralUtility;
-    use TYPO3\CMS\Core\Mail\MailMessage;
-
-    $email = new MailMessage();
-    $mail->from(new Address('john.doe@example.org', 'John Doe'));
-    $mail->to(
-        new Address('receiver@example.org', 'Max Mustermann'),
-        new Address('other@example.org')
-    );
-    $mail->subject('Your subject');
-    $mail->text('Here is the message itself');
-    $mail->html('<p>Here is the message itself</p>');
-    $mail->attachFromPath('/path/to/my-document.pdf');
-    $mail->send();
-
-
-..  note::
-    Before TYPO3 v10 the :php:`MailMessage` class only had methods like
-    :php:`->setTo()`, :php:`setFrom()`, :php:`->setSubject()` etc.
-    Now the class inherits from :php:`\Symfony\Component\Mime\Email` which
-    provides the methods from the example. To make migration from older TYPO3
-    versions easier the previous methods still exist. The use of
-    :php:`MailMessage` in own extensions is recommended.
-
+..  literalinclude:: _codesnippets/_MyMailerController.php
+    :caption: EXT:site_package/Classes/Controller/MyMailerController.php
 
 ..  index:: Mail; Attachments
 ..  _mail-attachments:
@@ -533,14 +474,13 @@ Attach files that exist in your file system:
     :caption: EXT:site_package/Classes/Utility/MyMailUtility.php
 
     // Attach file to message
-    $mail->attachFromPath('/path/to/documents/privacy.pdf');
+    $email->attachFromPath('/path/to/documents/privacy.pdf');
 
     // Optionally you can tell email clients to display a custom name for the file
-    $mail->attachFromPath('/path/to/documents/privacy.pdf', 'Privacy Policy');
+    $email->attachFromPath('/path/to/documents/privacy.pdf', 'Privacy Policy');
 
     // Alternatively attach contents from a stream
-    $mail->attach(fopen('/path/to/documents/contract.doc', 'r'));
-
+    $email->attach(fopen('/path/to/documents/contract.doc', 'r'));
 
 
 ..  index:: Mail; Inline media
@@ -555,13 +495,13 @@ Add some inline media like images in an email:
     :caption: EXT:site_package/Classes/Utility/MyMailUtility.php
 
     // Get the image contents from a PHP resource
-    $mail->embed(fopen('/path/to/images/logo.png', 'r'), 'logo');
+    $email->embed(fopen('/path/to/images/logo.png', 'r'), 'logo');
 
     // Get the image contents from an existing file
-    $mail->embedFromPath('/path/to/images/signature.png', 'footer-signature');
+    $email->embedFromPath('/path/to/images/signature.png', 'footer-signature');
 
     // reference images using the syntax 'cid:' + "image embed name"
-    $mail->html('<img src="cid:logo"> ... <img src="cid:footer-signature"> ...');
+    $email->html('<img src="cid:logo"> ... <img src="cid:footer-signature"> ...');
 
 
 ..  index::
@@ -583,39 +523,8 @@ It is possible to define a default email sender ("From:") in
 
 This is how you can use these defaults:
 
-..  code-block:: php
-    :caption: EXT:site_package/Classes/Utility/MyMailUtility.php
-
-    use TYPO3\CMS\Core\Mail\MailMessage;
-    use TYPO3\CMS\Core\Utility\GeneralUtility;
-    use TYPO3\CMS\Core\Utility\MailUtility;
-
-    $from = MailUtility::getSystemFrom();
-    $email = new MailMessage();
-
-    // As getSystemFrom() returns an array we need to use the setFrom method
-    $email->setFrom($from);
-    // ...
-    $email->send();
-
-In case of the problem "Mails are not sent" in your extension, try to set a
-``ReturnPath:``. Start as before but add:
-
-..  code-block:: php
-    :caption: EXT:site_package/Classes/Utility/MyMailUtility.php
-
-    use TYPO3\CMS\Core\Utility\MailUtility;
-
-    // You will get a valid email address from 'defaultMailFromAddress' or if
-    // not set from PHP settings or from system.
-    // If result is not a valid email address, the final result will be
-    // no-reply@example.org.
-    $returnPath = MailUtility::getSystemFromAddress();
-    if ($returnPath != "no-reply@example.org") {
-        $mail->setReturnPath($returnPath);
-    }
-    $mail->send();
-
+..  literalinclude:: _codesnippets/_MyMailerControllerDefault.php
+    :caption: EXT:site_package/Classes/Controller/MyMailerController.php
 
 ..  index::
     Mail; Custom mailer
