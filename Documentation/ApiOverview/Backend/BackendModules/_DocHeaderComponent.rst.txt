@@ -167,11 +167,7 @@
 
         Example:
 
-            $docHeader->setShortcutContext(
-                routeIdentifier: 'site_configuration.edit',
-                displayName: sprintf('Edit site: %s', $siteIdentifier),
-                arguments: ['site' => $siteIdentifier]
-            );
+            $docHeader->setShortcutContext('site_configuration.edit', sprintf('Edit site: %s', $siteIdentifier), ['site' => $siteIdentifier]);
 
         :param $routeIdentifier: The route identifier for the shortcut
         :param $displayName: The display name shown in the bookmark list
