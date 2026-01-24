@@ -10,8 +10,8 @@ use TYPO3\CMS\Extbase\DomainObject\AbstractEntity;
 
 class Blog extends AbstractEntity
 {
-    #[FileUpload([
-        'validation' => [
+    #[FileUpload(
+        validation: [
             'required' => true,
             'maxFiles' => 1,
             'fileSize' => ['minimum' => '0K', 'maximum' => '2M'],
@@ -21,10 +21,12 @@ class Blog extends AbstractEntity
                 'notAllowedMessage' => 'LLL:EXT:my_extension/...',
                 'invalidExtensionMessage' => 'LLL:EXT:my_extension/...',
             ],
-            'fileExtension' => ['allowedFileExtensions' => ['jpg', 'jpeg', 'png']],
+            'fileExtension' => [
+                'allowedFileExtensions' => ['jpg', 'jpeg', 'png'],
+            ],
         ],
-        'uploadFolder' => '1:/user_upload/files/',
-    ])]
+        uploadFolder: '1:/user_upload/files/',
+    )]
     protected ?FileReference $file = null;
 
     // getters and setters like usual

@@ -87,6 +87,11 @@ was only possible by either:
 Automatic handling based on PHP attributes
 ..........................................
 
+..  versionchanged:: 14.0
+    Passing a configuration array to the FileUpload attribute has been deprecated.
+    Configuration must be provided via attribute arguments. See
+    `Migration and version compatibility (TYPO3 v13 → v14) <https://docs.typo3.org/permalink/t3coreapi:extbase-fileupload-attribute-migration>`_.
+
 Starting with TYPO3 v13.3 it is finally possible to streamline this with commonly
 known Extbase logic, as implemented via
 :ref:`Feature: #103511 - Introduce Extbase file upload and deletion handling <changelog:feature-103511-1711894330>`.
@@ -177,13 +182,18 @@ File upload configuration with the `FileUpload` attribute
 ---------------------------------------------------------
 
 File upload for a property of a domain model can be configured using the
-newly introduced :php:`\TYPO3\CMS\Extbase\Attribute\FileUpload` attribute.
+:php:`\TYPO3\CMS\Extbase\Attribute\FileUpload` attribute.
+
+..  versionchanged:: 14.0
+    Passing a configuration array to the FileUpload attribute has been deprecated.
+    Configuration must be provided via attribute arguments. See
+    `Migration and version compatibility (TYPO3 v13 → v14) <https://docs.typo3.org/permalink/t3coreapi:extbase-fileupload-attribute-migration>`_.
 
 Example:
 
 ..  literalinclude:: _FileUpload/_BlogExcerpt.php
     :caption: EXT:my_extension/Classes/Domain/Model/Blog.php (example excerpt of an Extbase domain model)
-    :emphasize-lines: 13-26
+    :emphasize-lines: 13-29
 
 All configuration settings of the
 :php:`\TYPO3\CMS\Extbase\Mvc\Controller\FileUploadConfiguration` object can
@@ -207,6 +217,58 @@ The currently available configuration array keys are:
 It is also possible to use the :php-short:`\TYPO3\CMS\Extbase\Attribute\FileUpload` attribute to configure
 file upload properties, but it is recommended to use the
 :php-short:`\TYPO3\CMS\Extbase\Attribute\FileUpload` attribute due to better readability.
+
+
+..  _extbase_fileupload_attribute-migration:
+
+Migration and version compatibility (TYPO3 v13 → v14)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+With TYPO3 v14, passing a configuration array as the first argument to Extbase
+attributes (for example :php:`#[FileUpload([ ... ])]`) has been deprecated
+(:ref:`Deprecation #97559 <changelog:deprecation-97559-1760453281>`).
+A new property-based configuration syntax using attribute arguments was
+introduced with TYPO3 v14.
+
+The deprecated array-based syntax continues to work in TYPO3 v14 but will be
+removed with TYPO3 v15.
+
+..  important::
+
+    There is **no attribute syntax that is compatible with both TYPO3 v13 and
+    TYPO3 v14**.
+
+    PHP attributes are parsed statically and cannot be conditionally defined
+    based on the TYPO3 version. As a result, extensions that support TYPO3 v13
+    and v14 within the same release must continue to use the array-based
+    configuration syntax and accept the deprecation warning in TYPO3 v14.
+
+..  code-block:: php
+    :caption: Example (TYPO3 v13 and v14 compatible)
+
+    // TODO: Switch to named arguments when dropping TYPO3 v13 support (Deprecation #97559).
+    #[FileUpload([
+        'validation' => [
+            'required' => true,
+            'maxFiles' => 1,
+        ],
+        'uploadFolder' => '1:/user_upload/files/',
+    ])]
+
+..  code-block:: php
+    :caption: Example (TYPO3 v14+, recommended)
+
+    #[FileUpload(
+        validation: [
+            'required' => true,
+            'maxFiles' => 1,
+        ],
+        uploadFolder: '1:/user_upload/files/',
+    )]
+
+TYPO3 Rector (:composer:`ssch/typo3-rector`) has rule
+:php:`\Ssch\TYPO3Rector\TYPO314\v0\MigratePassingAnArrayOfConfigurationValuesToExtbaseAttributesRector` to
+automatically migrate from the annotation syntax to the attribute syntax.
 
 ..  _extbase_fileupload_attribute-manual-configuration:
 
@@ -319,7 +381,7 @@ Upload folder creation, when missing
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 The default creation of a missing storage folder can be disabled via the
-property :php:`createUploadFolderIfNotExist` of the :php:`#[FileUpload([...])]` attribute
+property :php:`createUploadFolderIfNotExist` of the :php:`#[FileUpload(...)]` attribute
 (:php:`bool`, default :php:`true`).
 
 ..  _extbase_fileupload_attribute-random-suffix:
@@ -430,13 +492,18 @@ section of the :php-short:`\TYPO3\CMS\Extbase\Attribute\FileUpload` attribute:
 *   :php:`mimeType` (for :php:`TYPO3\CMS\Extbase\Validation\Validator\MimeTypeValidator`)
 *   :php:`allowedMimeTypes` (shorthand notation for configuration option :php:`allowedMimeTypes` of the :php:`MimeTypeValidator`, see below)
 
+..  versionchanged:: 14.0
+    Passing a configuration array to the FileUpload attribute has been deprecated.
+    Configuration must be provided via attribute arguments. See
+    `Migration and version compatibility (TYPO3 v13 → v14) <https://docs.typo3.org/permalink/t3coreapi:extbase-fileupload-attribute-migration>`_.
+
 Example:
 
 ..  code-block:: php
     :caption: Excerpt of an attribute within an Extbase domain model class
 
-    #[FileUpload([
-        'validation' => [
+    #[FileUpload(
+        validation: [
             'required' => true,
             'maxFiles' => 1,
             'fileSize' => ['minimum' => '0K', 'maximum' => '2M'],
@@ -447,10 +514,10 @@ Example:
                 'invalidExtensionMessage' => 'LLL:EXT:my_extension/...',
             ],
             'fileExtension' => ['allowedFileExtensions' => ['jpg', 'jpeg']],
-            'imageDimensions' => ['maxWidth' => 4096, 'maxHeight' => 4096]
+            'imageDimensions' => ['maxWidth' => 4096, 'maxHeight' => 4096],
         ],
-        'uploadFolder' => '1:/user_upload/extbase_single_file/',
-    ])]
+        uploadFolder: '1:/user_upload/extbase_single_file/',
+    )]
 
 Extbase will internally use the Extbase file upload validators for
 :php:`fileExtensionMimeTypeConsistency`, :php:`fileExtension`, :php:`fileSize`, :php:`mimeType`
@@ -500,10 +567,15 @@ Shorthand notation for `allowedMimeTypes`
 Using the :php:`mimeType` configuration array, all options of the `MimeTypeValidator`
 can be set as sub-keys:
 
+..  versionchanged:: 14.0
+    Passing a configuration array to the FileUpload attribute has been deprecated.
+    Configuration must be provided via attribute arguments. See
+    `Migration and version compatibility (TYPO3 v13 → v14) <https://docs.typo3.org/permalink/t3coreapi:extbase-fileupload-attribute-migration>`_.
+
 ..  code-block:: php
 
-    #[FileUpload([
-        'validation' => [
+    #[FileUpload(
+        validation: [
             'required' => true,
             'mimeType' => [
                 'allowedMimeTypes' => ['image/jpeg'],
@@ -512,13 +584,12 @@ can be set as sub-keys:
                 'invalidExtensionMessage' => 'LLL:EXT:my_extension/...',
             ],
         ],
-        'uploadFolder' => '1:/user_upload/files/',
-    ])]
+        uploadFolder: '1:/user_upload/files/',
+    )]
 
 The shorthand notation via :php:`'allowedMimeTypes'` continues to
 exist, in case only the mime type validation is needed. However, it is recommended
 to utilize the full :php:`'mimeType'` configuration array.
-
 
 ..  _extbase_fileupload_attribute-deletion:
 

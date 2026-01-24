@@ -38,7 +38,7 @@ for the attribute :php:`Lazy`:
 Attributes provided by Extbase
 ==============================
 
-The following attributes are provided Extbase:
+The following attributes are provided by Extbase:
 
 ..  _extbase-annotation-validate:
 ..  _extbase-attribute-validate:
@@ -46,8 +46,9 @@ The following attributes are provided Extbase:
 Validate
 --------
 
-:php:`\TYPO3\CMS\Extbase\Attribute\Validate`: Allows to configure validators
-for properties and method arguments. See :ref:`extbase_validation` for details.
+:php:`\TYPO3\CMS\Extbase\Attribute\Validate(validator: "...", options: [...])`:
+Allows to configure validators for properties and method arguments.
+See :ref:`extbase_validation` for details.
 
 Can be used in the context of a model property.
 
@@ -65,11 +66,11 @@ to possible domain model validators.
 IgnoreValidation
 ----------------
 
-:php:`\TYPO3\CMS\Extbase\Attribute\IgnoreValidation()`: Allows to ignore
-all Extbase default validations for a given argument (for example a domain
-model object).
+:php:`\TYPO3\CMS\Extbase\Attribute\IgnoreValidation`:
+Allows to ignore all Extbase default validations for a given argument
+(for example a domain model object).
 
-Used in context of a controller action.
+Used in context of a controller action argument.
 
 **Example:**
 
@@ -88,7 +89,7 @@ Read more about this on https://usetypo3.com/dtos-in-extbase/ or see a
 https://github.com/garvinhicking/gh_validationdummy/
 
 ..  warning::
-    `IgnoreValidation()` must not be used for domain models supporting
+    `IgnoreValidation` must not be used for domain models supporting
     extbase file uploads, because this leads to a property mapping error.
 
 ..  _extbase-annotation-orm:
@@ -105,8 +106,8 @@ The following attributes can only be used on model properties:
 Cascade
 ~~~~~~~
 
-:php:`\TYPO3\CMS\Extbase\Attribute\ORM\Cascade("remove")`: Allows to remove
-child entities during deletion of aggregate root.
+:php:`\TYPO3\CMS\Extbase\Attribute\ORM\Cascade(value: "remove")`:
+Allows to remove child entities during deletion of aggregate root.
 
 Extbase only supports the option "remove".
 
@@ -121,8 +122,8 @@ Extbase only supports the option "remove".
 Transient
 ~~~~~~~~~
 
-:php:`\TYPO3\CMS\Extbase\Attribute\ORM\Transient`: Marks property as transient
-(not persisted).
+:php:`\TYPO3\CMS\Extbase\Attribute\ORM\Transient`:
+Marks property as transient (not persisted).
 
 **Example:**
 
@@ -135,8 +136,8 @@ Transient
 Lazy
 ~~~~
 
-:php:`\TYPO3\CMS\Extbase\Attribute\ORM\Lazy`: Marks model property to be loaded
-lazily on first access.
+:php:`\TYPO3\CMS\Extbase\Attribute\ORM\Lazy`:
+Marks model property to be loaded lazily on first access.
 
 ..  note::
    Lazy loading can greatly improve the performance of your actions.
@@ -160,6 +161,51 @@ are frequently combined:
 
 Several validations can also be combined. See :ref:`extbase_validation`
 for details.
+
+..  _extbase-attributes-migration-config-array:
+
+Migration and version compatibility (configuration arrays → attribute arguments)
+===========================================================================
+
+With TYPO3 v14, passing a configuration array as the first argument to Extbase
+attributes (for example :php:`#[Validate([ ... ])]`, :php:`#[IgnoreValidation([ ... ])]`,
+:php:`#[FileUpload([ ... ])]` or :php:`#[Cascade([ ... ])]`) has been deprecated
+(:ref:`Deprecation #97559 <changelog:deprecation-97559-1760453281>`).
+TYPO3 v14 introduces a property-based configuration syntax using attribute
+arguments.
+
+The array-based syntax continues to work in TYPO3 v14 but will be removed with
+TYPO3 v15.
+
+..  important::
+
+    There is **no attribute configuration syntax that is compatible with both
+    TYPO3 v13 and TYPO3 v14**.
+
+    PHP attributes are parsed statically and cannot be conditionally defined
+    based on the TYPO3 version. Extensions supporting TYPO3 v13 and v14 in the
+    same release must therefore continue to use the array-based syntax and accept
+    the deprecation warning in TYPO3 v14.
+
+..  code-block:: php
+    :caption: Example (TYPO3 v13 and v14 compatible)
+
+    // TODO: Switch to named arguments when dropping TYPO3 v13 support (Deprecation #97559).
+    #[Cascade([
+        'value' => 'remove',
+    ])]
+
+..  code-block:: php
+    :caption: Example (TYPO3 v14+, recommended)
+
+    #[Cascade(value: 'remove')]
+
+TYPO3 Rector (:composer:`ssch/typo3-rector`) has rule
+:php:`\Ssch\TYPO3Rector\TYPO314\v0\MigratePassingAnArrayOfConfigurationValuesToExtbaseAttributesRector` to
+automatically migrate from the annotation syntax to the attribute syntax.
+
+..  seealso::
+    *   `MigratePassingAnArrayOfConfigurationValuesToExtbaseAttributesRector <https://github.com/sabbelasichon/typo3-rector/blob/main/docs/all_rectors_overview.md#migratepassinganarrayofconfigurationvaluestoextbaseattributesrector>`_
 
 ..  _extbase-annotation-migration:
 

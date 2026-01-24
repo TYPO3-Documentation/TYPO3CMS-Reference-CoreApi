@@ -11,9 +11,9 @@ class BoolExample extends AbstractEntity
 {
     public bool $wantsNewsletter = false;
 
-    #[Validate([
-        'validator' => 'Boolean',
-        'options' => ['is' => true],
-    ])]
+    #[Validate(
+        validator: 'Boolean',
+        options: ['is' => true],
+    )]
     public bool $acceptedPrivacyPolicy = false;
 }

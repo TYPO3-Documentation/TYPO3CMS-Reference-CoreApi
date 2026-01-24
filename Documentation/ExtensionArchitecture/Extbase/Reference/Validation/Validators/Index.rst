@@ -19,6 +19,11 @@ along with example usage for each using PHP attributes.
     accept empty values as valid. If empty values should not be possible,
     combine these validators with the `NotEmptyValidator`.
 
+..  versionchanged:: 14.0
+    Passing a configuration array to the FileUpload attribute has been deprecated.
+    Configuration must be provided via attribute arguments. See
+    `Migration and version compatibility (TYPO3 v13 → v14) <https://docs.typo3.org/permalink/t3coreapi:extbase-validation-migration>`_.
+
 ..  contents:: Validators in Extbase
 
 ..  _extbase-validator-alphanumeric:
@@ -43,8 +48,9 @@ instead.
 
 ..  code-block:: php
 
-    #[Validate(['validator' => 'Alphanumeric'])]
+    #[Validate(validator: 'Alphanumeric')]
     protected string $username;
+
 
 ..  _extbase-validator-boolean:
 
@@ -75,21 +81,27 @@ Ensure that a value is a boolean (no strict check, default behavior):
 
 ..  code-block:: php
 
-    #[Validate(['validator' => 'Boolean'])]
+    #[Validate(validator: 'Boolean')]
     protected $isActive;
 
 Require that a value must be `true` (e.g. checkbox must be checked):
 
 ..  code-block:: php
 
-    #[Validate(['validator' => 'Boolean', 'options' => ['is' => true]])]
+    #[Validate(
+        validator: 'Boolean',
+        options: ['is' => true],
+    )]
     protected bool $termsAccepted;
 
 Require that a value must be `false`:
 
 ..  code-block:: php
 
-    #[Validate(['validator' => 'Boolean', 'options' => ['is' => false]])]
+    #[Validate(
+        validator: 'Boolean',
+        options: ['is' => false],
+    )]
     protected bool $isBlocked;
 
 ..  _extbase-validator-collection:
@@ -167,7 +179,7 @@ ensures a value is a valid :php:`\DateTimeInterface`.
 
 ..  code-block:: php
 
-    #[Validate(['validator' => 'DateTime'])]
+    #[Validate(validator: 'DateTime')]
     protected mixed $startDate;
 
 ..  _extbase-validator-disjunction:
@@ -220,11 +232,9 @@ an email address using method :php:`\TYPO3\CMS\Core\Utility\GeneralUtility::vali
 which uses the validators defined in
 :ref:`$GLOBALS['TYPO3_CONF_VARS']['MAIL']['validators'] <t3coreapi:confval-globals-typo3-conf-vars-mail-validators>`.
 
-It respects
-
 ..  code-block:: php
 
-    #[Validate(['validator' => 'EmailAddress'])]
+    #[Validate(validator: 'EmailAddress')]
     protected string $email;
 
 ..  _extbase-validator-file-name:
@@ -277,8 +287,9 @@ Checks if a value is a floating point number.
 
 ..  code-block:: php
 
-    #[Validate(['validator' => 'Float'])]
+    #[Validate(validator: 'Float')]
     protected float $price;
+
 
 ..  _extbase-validator-image-dimensions:
 
@@ -318,13 +329,11 @@ ensures that a value is an integer.
 This validator is useful for validating numeric fields that must contain whole
 numbers, such as quantities, IDs, or counters.
 
-#[Validate(['validator' => 'Integer'])]
-protected mixed $quantity;
-
 ..  code-block:: php
 
-    #[Validate(['validator' => 'Integer'])]
+    #[Validate(validator: 'Integer')]
     protected mixed $quantity;
+
 
 ..  _extbase-validator-mime-type:
 
@@ -410,8 +419,9 @@ This validator is commonly used to enforce required fields.
 
 ..  code-block:: php
 
-    #[Validate(['validator' => 'NotEmpty'])]
+    #[Validate(validator: 'NotEmpty')]
     protected string $title;
+
 
 ..  _extbase-validator-numberrange:
 
@@ -458,12 +468,13 @@ Example: Validate percentage
 
     class SettingsForm
     {
-        #[Validate([
-            'validator' => 'NumberRange',
-            'options' => ['minimum' => 1, 'maximum' => 100],
-        ])]
+        #[Validate(
+            validator: 'NumberRange',
+            options: ['minimum' => 1, 'maximum' => 100],
+        )]
         protected int $percentage;
     }
+
 
 ..  _extbase-validator-regularexpression:
 
@@ -513,12 +524,12 @@ Validate that a value contains only alphanumeric characters:
 
     class UserForm
     {
-        #[Validate([
-            'validator' => 'RegularExpression',
-            'options' => [
-                'regularExpression' => '/^[a-z0-9]+$/i'
-            ]
-        ])]
+        #[Validate(
+            validator: 'RegularExpression',
+            options: [
+                'regularExpression' => '/^[a-z0-9]+$/i',
+            ],
+        )]
         public string $username = '';
     }
 
@@ -535,13 +546,13 @@ Validate a 5-digit postal code with a custom error message:
 
     class AddressForm
     {
-        #[Validate([
-            'validator' => 'RegularExpression',
-            'options' => [
+        #[Validate(
+            validator: 'RegularExpression',
+            options: [
                 'regularExpression' => '/^\d{5}$/',
-                'message' => 'Bitte eine gültige Postleitzahl eingeben.'
-            ]
-        ])]
+                'message' => 'Bitte eine gültige Postleitzahl eingeben.',
+            ],
+        )]
         public string $postalCode = '';
     }
 
@@ -587,11 +598,12 @@ Options:
 
 ..  code-block:: php
 
-    #[Validate([
-        'validator' => 'StringLength',
-        'options' => ['minimum' => 5, 'maximum' => 50],
-    ])]
+    #[Validate(
+        validator: 'StringLength',
+        options: ['minimum' => 5, 'maximum' => 50],
+    )]
     protected string $description;
+
 
 ..  note::
     Even if the `minimum` option is set, empty strings are accepted as valid.
@@ -608,7 +620,7 @@ validates that a mixed variable is a string. Fails for array, numbers and bools.
 
 ..  code-block:: php
 
-    #[Validate(['validator' => 'String'])]
+    #[Validate(validator: 'String')]
     protected mixed $comment;
 
 ..  _extbase-validator-text:
@@ -625,7 +637,7 @@ Checks if the given value is a valid text (contains no HTML/XML tags).
 
 ..  code-block:: php
 
-    #[Validate(['validator' => 'Text'])]
+    #[Validate(validator: 'Text')]
     protected string $comment;
 
 ..  _extbase-validator-url:
@@ -665,7 +677,7 @@ This example ensures that a field contains a valid external website address.
 
     class UserProfile
     {
-        #[Validate(['validator' => 'Url'])]
+        #[Validate(validator: 'Url')]
         protected string $website = '';
     }
 
@@ -687,9 +699,9 @@ You can apply multiple validators on a single property.
 
 ..  code-block:: php
 
-    #[Validate(['validator' => 'NotEmpty'])]
-    #[Validate([
-        'validator' => 'StringLength',
-        'options' => ['minimum' => 3, 'maximum' => 20],
-    ])]
+    #[Validate(validator: 'NotEmpty')]
+    #[Validate(
+        validator: 'StringLength',
+        options: ['minimum' => 3, 'maximum' => 20],
+    )]
     protected string $nickname;
