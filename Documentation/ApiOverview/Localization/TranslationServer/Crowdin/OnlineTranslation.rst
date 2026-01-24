@@ -13,8 +13,8 @@ Online translation with Crowdin
 
 ..  tip::
     Crowdin provides you with a well-written and extended knowledge base on all
-    questions regarding how to use the platform. You can find it here:
-    `<https://support.crowdin.com/>`__.
+    questions regarding how to use the platform. See
+    `Crowdin Docs <https://support.crowdin.com/>`__.
 
 ..  contents::
     :local:
@@ -26,9 +26,9 @@ Getting started
 
 If you want to participate, it only takes a few steps to get started:
 
-#.  Create an account at Crowdin: `<https://accounts.crowdin.com/register>`__
-#.  Either find a TYPO3-project or go straight to TYPO3 Core
-    (`<https://crowdin.com/project/typo3-cms>`__). There is also a list of
+#.  Create an account at Crowdin or connect with Social Media: `Sign Up <https://accounts.crowdin.com/register>`__
+#.  Either find a TYPO3 project or go straight to TYPO3 Core
+    (`Crowdin TYPO3 CMS <https://crowdin.com/project/typo3-cms>`__). There is also a list of
     extensions available for translation at the
     `TYPO3 Crowdin Bridge <https://localize.typo3.org/xliff/status.html>`__
 #.  Join the project
