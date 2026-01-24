@@ -171,7 +171,7 @@ With TYPO3 v14, passing a configuration array as the first argument to Extbase
 attributes (for example :php:`#[Validate([ ... ])]`, :php:`#[IgnoreValidation([ ... ])]`,
 :php:`#[FileUpload([ ... ])]` or :php:`#[Cascade([ ... ])]`) has been deprecated
 (:ref:`Deprecation #97559 <changelog:deprecation-97559-1760453281>`).
-TYPO3 v14 introduces a property-based configuration syntax using named attribute
+TYPO3 v14 introduces a property-based configuration syntax using attribute
 arguments.
 
 The array-based syntax continues to work in TYPO3 v14 but will be removed with
