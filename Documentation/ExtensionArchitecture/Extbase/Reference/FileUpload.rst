@@ -569,7 +569,7 @@ can be set as sub-keys:
 
 ..  versionchanged:: 14.0
     Passing a configuration array to the FileUpload attribute has been deprecated.
-    Configuration must be provided via named attribute arguments. See
+    Configuration must be provided via attribute arguments. See
     `Migration and version compatibility (TYPO3 v13 → v14) <https://docs.typo3.org/permalink/t3coreapi:extbase-fileupload-attribute-migration>`_.
 
 ..  code-block:: php
