@@ -164,7 +164,7 @@ for details.
 
 ..  _extbase-attributes-migration-config-array:
 
-Migration and version compatibility (configuration arrays → named arguments)
+Migration and version compatibility (configuration arrays → attribute arguments)
 ===========================================================================
 
 With TYPO3 v14, passing a configuration array as the first argument to Extbase
