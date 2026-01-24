@@ -158,7 +158,7 @@ Validation of controller arguments
 
 ..  versionchanged:: 14.0
     Passing a configuration array to the FileUpload attribute has been deprecated.
-    Configuration must be provided via named attribute arguments. See
+    Configuration must be provided via attribute arguments. See
     `Migration and version compatibility (TYPO3 v13 → v14) <https://docs.typo3.org/permalink/t3coreapi:extbase-validation-migration>`_.
 
 You can also define controller argument validators:
