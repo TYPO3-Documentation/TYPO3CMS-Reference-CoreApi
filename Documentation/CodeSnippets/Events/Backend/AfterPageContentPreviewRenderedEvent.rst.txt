@@ -11,8 +11,3 @@
     ..  php:method:: setPreviewContent(string $content)
 
         :param $content: the content
-
-
-
-
-

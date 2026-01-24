@@ -214,10 +214,10 @@ import can be done in the template or the partial.
 
 *optional*
 
-Since Fluid version 4.3 components were introduced. Components are custom HTML-like 
-tags based on Fluid templates. Like partials they provide a good code reuseability. 
-Get more informations about components and see how they can be implemented in the 
-article `Components <https://docs.typo3.org/permalink/fluid:components>`_. 
+Since Fluid version 4.3 components were introduced. Components are custom HTML-like
+tags based on Fluid templates. Like partials they provide a good code reuseability.
+Get more informations about components and see how they can be implemented in the
+article `Components <https://docs.typo3.org/permalink/fluid:components>`_.
 
 ..  _fluid-theme-example:
 
