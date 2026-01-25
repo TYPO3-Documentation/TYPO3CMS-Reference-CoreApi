@@ -26,7 +26,8 @@
         {
             public function __construct(
                 protected readonly ComponentFactory $componentFactory,
-            ) }
+            ) {
+            }
 
             #[AsEventListener]
             public function __invoke(ModifyButtonBarEvent $event): void
