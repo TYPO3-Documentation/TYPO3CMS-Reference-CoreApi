@@ -394,13 +394,16 @@ Best practices
 *   When configuring listeners, it is recommended to add one listener class per
     event type, and have it called via :php:`__invoke()`.
 
+*   The PHP attribute :php:`\TYPO3\CMS\Core\Attribute\AsEventListener` should be added on the class when 
+    using the :php:`__invoke()` method.
+
 *   When creating a new event PHP class, it is recommended to add an
-    :php:`Event` suffix to the PHP class, and to move it into an appropriate
+    `Event` suffix to the PHP class, and to move it into an appropriate
     folder like :file:`Classes/Event/` to easily discover events provided by a
     package. Be careful about the context that should be exposed.
 
 *   The same applies to creating a new event listener PHP class: Add
-    an :php:`Listener` suffix to the PHP class, and move it to a folder
+    an `EventListener` suffix to the PHP class, and move it to a folder
     :file:`Classes/EventListener/`.
 
 *   Emitters (TYPO3 Core or extension authors) should always use
