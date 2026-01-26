@@ -26,11 +26,11 @@ Getting started
 
 If you want to participate, it only takes a few steps to get started:
 
-#.  Create an account at Crowdin or connect with Social Media: `Sign Up <https://accounts.crowdin.com/register>`__
+#.  Create an account at Crowdin or connect with online developer communities: `Sign Up <https://accounts.crowdin.com/register>`__
 #.  Either find a TYPO3 project or go straight to TYPO3 Core
     (`Crowdin TYPO3 CMS <https://crowdin.com/project/typo3-cms>`__). There is also a list of
-    extensions available for translation at 
-    `Crowdin TYPO3 Status <https://localize.typo3.org/xliff/status.html>`__ page.
+    extensions available for translation at the page
+    `Crowdin TYPO3 Status <https://localize.typo3.org/xliff/status.html>`__ .
 #.  Join the project
 #.  Select your preferred language
 #.  Start translation
@@ -211,10 +211,10 @@ localized if it is different to the previous version.
 Strings are translated, but when are they taken into account and available for download?
 ----------------------------------------------------------------------------------------
 
-As soon as a string is proofread, it will be taken into account at the next export to TYPO3.
-The export is done every two hours.
-
-If the process takes too long, please write an email to localization@typo3.org
+As soon as a string is proofread, it is ready for an export to the Crowdin Bridge.
+This is done every two hours. Afterwards it will be taken into account at the next language 
+update process started from a TYPO3 backend.
+If it takes too long, please write an email to localization@typo3.org
 
 ..  _crowdin-crowdin-translation-to-be-translated:
 
