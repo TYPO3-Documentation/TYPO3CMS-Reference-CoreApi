@@ -14,7 +14,7 @@ Online translation with Crowdin
 ..  tip::
     Crowdin provides you with a well-written and extended knowledge base on all
     questions regarding how to use the platform. See
-    `Crowdin Docs <https://support.crowdin.com/>`__.
+    `Crowdin documentation <https://support.crowdin.com/>`__.
 
 ..  contents::
     :local:
