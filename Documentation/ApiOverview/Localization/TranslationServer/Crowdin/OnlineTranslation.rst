@@ -30,7 +30,7 @@ If you want to participate, it only takes a few steps to get started:
 #.  Either find a TYPO3 project or go straight to TYPO3 Core
     (`Crowdin TYPO3 CMS <https://crowdin.com/project/typo3-cms>`__). There is also a list of
     extensions available for translation at 
-    `Crowdin TYPO3 Status <https://localize.typo3.org/xliff/status.html>`__
+    `Crowdin TYPO3 Status <https://localize.typo3.org/xliff/status.html>`__ page.
 #.  Join the project
 #.  Select your preferred language
 #.  Start translation
