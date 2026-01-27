@@ -13,8 +13,8 @@ Online translation with Crowdin
 
 ..  tip::
     Crowdin provides you with a well-written and extended knowledge base on all
-    questions regarding how to use the platform. You can find it here:
-    `<https://support.crowdin.com/>`__.
+    questions regarding how to use the platform. See
+    `Crowdin documentation <https://support.crowdin.com/>`__.
 
 ..  contents::
     :local:
@@ -26,14 +26,14 @@ Getting started
 
 If you want to participate, it only takes a few steps to get started:
 
-#.  Create an account at Crowdin: `<https://accounts.crowdin.com/register>`__
-#.  Either find a TYPO3-project or go straight to TYPO3 Core
-    (`<https://crowdin.com/project/typo3-cms>`__). There is also a list of
-    extensions available for translation at the
-    `TYPO3 Crowdin Bridge <https://localize.typo3.org/xliff/status.html>`__
-#.  Join the project
-#.  Select your preferred language
-#.  Start translation
+#.  Create an account at Crowdin or connect with online developer communities: `Sign Up <https://accounts.crowdin.com/register>`__.
+#.  Either find a TYPO3 project or go straight to TYPO3 Core
+    (`Crowdin TYPO3 CMS <https://crowdin.com/project/typo3-cms>`__). There is also a list of
+    extensions available for translation on the
+    `Crowdin TYPO3 Status <https://localize.typo3.org/xliff/status.html>`__ page.
+#.  Join the project.
+#.  Select your preferred language.
+#.  Start translating.
 
 Using Crowdin is free for Open Source projects. For private projects, Crowdin's
 pricing model is based on projects and not on individual users.
@@ -64,20 +64,24 @@ The language files in Core
 ==========================
 
 In Crowdin, the TYPO3 Core is divided into system extensions and their
-underlying language files. Each system extension contains one or more files, and
-the structure reflects the actual structure, but only for the
-:ref:`XLIFF <xliff>` files.
+underlying language files. Each system extension contains one or more
+:ref:`XLIFF <xliff>` language files.
 
-While you translate an XLIFF file, Crowdin supports you with valuable
+While you are translating an XLIFF file, Crowdin supports you with valuable
 information:
 
 *   You get a clear overview on the progress. A grey bar means that work needs
-    to be done, the blue bar shows how many words have been translated and the
+    to be done. The blue bar shows how many words have been translated, and the
     green bar shows how many words have been approved.
 *   The system offers you suggestions on terms and translations from the
     Translation Memory (TM) and Machine Translation (MT).
-*   You can sort and order the labels in different ways; show only untranslated,
-    unresolved, commented, and so on. And all the labels as well.
+*   You can sort and order the labels in different ways:
+
+    * show only untranslated,
+    * unresolved,
+    * commented
+    * and so on.
+
 *   You can start discussions about a specific string.
 *   You can search the Translation Memory.
 *   You can improve the Translation Memory by adding new terms.
@@ -91,8 +95,8 @@ Preconditions
 You need a detailed understanding of how TYPO3 works. You have preferably worked
 with TYPO3 for some years as developer, administrator, integrator or senior
 editor. You know your way around in the backend and you are familiar with most
-of the functionality and features. If you are more focused in translating
-extensions, you will need to understand all the parts of the extension before
+of the functionality and features. If you are more focused on translating
+extensions, you might need to understand some parts of the extension before
 you start translating.
 
 ..  _crowdin-crowdin-translation-skills:
@@ -101,8 +105,8 @@ What skills are needed
 ======================
 
 You need to be bilingual: fluent in both English and the language you are
-translating into. It would be hard work if you only had casual knowledge of the
-target language or English. And we would (probably) end up with a confusing
+translating into. It is insufficient to have only casual knowledge of the
+target language or English. We would most probably end up with a confusing
 localization.
 
 A good understanding of how a language is constructed in terms of nouns, verbs,
@@ -114,16 +118,15 @@ How to create (good) translations
 =================================
 
 #.  Stay true to the source labels you work with. Given that the developer of
-    the code, who made the English text, understands the functionality best,
+    the code who wrote the English text understands the functionality best,
     please try to translate the meaning of the sentences.
 
-#.  Translate organically, not literally. The structure or your target language
-    is important. English often has a different structure and tone, so you must
-    adapt the equal text but the equivalent. So please do not replicate, but
-    replace.
+#.  Translate organically, not literally. The structure of your target language
+    is important. English often has a different structure and tone so
+    look for the equivalent meaning in your language.
 
 #.  Use the same level of formality. The cultural context can be very different
-    from different languages. What works in English may be way far too informal
+    from language to language. What works in English may be far too informal
     in your language and vice versa. Try to find a good level of (in)formality
     and stick to it. And be open to discuss it with your fellow team translators.
 
@@ -143,7 +146,7 @@ How to create (good) translations
 
 #.  Work together. As in all other aspects of Open Source, things get so much
     better when we work together. So, reach out for help when you get stuck. Or
-    offer your knowledge if someone ask for it. Crowdin provides a good platform
+    offer help if someone asks for it. Crowdin provides a good platform
     for collaborating with your team translators, and please join the
     `Translation Slack channel #typo3-translations`_.
 
@@ -201,17 +204,17 @@ Should I localize both 13.4 and main?
 
 The main branch is the leading version. Any string that is also present in the
 previous version is automatically filled during export and only needs to be
-localized if it is different in the previous version.
+localized if it is different to the previous version.
 
 ..  _crowdin-crowdin-translation-when-download:
 
 Strings are translated, but when are they taken into account and available for download?
 ----------------------------------------------------------------------------------------
 
-As soon as a string is proofread, it will be taken into account at the next export.
-The export is done every two hours.
-
-If the process takes too long, please write an email to localization@typo3.org
+As soon as a string is proofread, it is ready for export to the Crowdin Bridge.
+This is done every two hours. Afterwards it will be taken into account at the next language
+update process started from a TYPO3 backend.
+If it takes too long, please write an email to localization@typo3.org
 
 ..  _crowdin-crowdin-translation-to-be-translated:
 
