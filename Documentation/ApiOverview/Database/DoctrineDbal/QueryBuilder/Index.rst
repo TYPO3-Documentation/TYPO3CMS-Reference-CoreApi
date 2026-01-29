@@ -10,8 +10,7 @@ Query builder
     :depth: 1
     :local:
 
-Class name: :php:`TYPO3\CMS\Core\Database\Query\QueryBuilder`.
-The query builder provides a set of methods to create queries
+The :php-short:`TYPO3\CMS\Core\Database\Query\QueryBuilder` provides a set of methods to create queries
 programmatically.
 
 This chapter provides examples of the most common queries.
