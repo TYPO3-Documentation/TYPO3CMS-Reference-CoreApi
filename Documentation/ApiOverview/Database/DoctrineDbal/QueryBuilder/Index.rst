@@ -892,9 +892,9 @@ Remarks:
     and take any number of arguments, argument unpacking is supported:
     :php:`->groupBy(...$myGroupArray)`
 
-*   Each argument is either a direct field name ``GROUP BY `bodytext```,
-    a :sql:`table.fieldName` or a :sql:`tableAlias.fieldName` and is properly
-    quoted.
+*   Each argument is either a field name (e.g. in :sql:`GROUP BY \`bodytext\``),
+    a :php:`table.fieldName` or a :php:`tableAlias.fieldName`. And it gets properly
+    quoted automatically.
 
 *   :php:`->groupBy()` resets all previously defined group specification and
     should only be called once per statement.
