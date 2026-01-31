@@ -892,8 +892,8 @@ Remarks:
     and take any number of arguments. Argument unpacking is supported:
     :php:`->groupBy(...$myGroupArray)`
 
-*   Each argument contains a field name which can be preceded by a table name or an alias name
-    (:php:`table.fieldName` or a :php:`tableAlias.fieldName`). It gets properly
+*   Each argument contains a field name which can be preceded by a table name (:php:`table.fieldName`) 
+    or an alias name (:php:`tableAlias.fieldName`). It gets properly
     quoted automatically.
 
 *   :php:`->groupBy()` resets all previously defined group specification and
