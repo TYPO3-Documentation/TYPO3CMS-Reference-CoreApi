@@ -889,11 +889,11 @@ methods is a single identifier:
 Remarks:
 
 *   Similar to :php:`->select()` and :php:`->where()`, both methods are variadic
-    and take any number of arguments, argument unpacking is supported:
+    and take any number of arguments. Argument unpacking is supported:
     :php:`->groupBy(...$myGroupArray)`
 
-*   Each argument is either a field name (e.g. in :sql:`GROUP BY \`bodytext\``),
-    a :php:`table.fieldName` or a :php:`tableAlias.fieldName`. And it gets properly
+*   Each argument contains a field name which can be preceded by a table name or an alias name
+    (:php:`table.fieldName` or a :php:`tableAlias.fieldName`). It gets properly
     quoted automatically.
 
 *   :php:`->groupBy()` resets all previously defined group specification and
