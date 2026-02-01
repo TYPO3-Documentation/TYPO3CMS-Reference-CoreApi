@@ -277,6 +277,16 @@ the connection to the database:
 
         Username to use when connecting to the database.
 
+    ..  _typo3ConfVars_db_connections_initcommands:
+
+    ..  confval:: initCommands
+        :Path: $GLOBALS['TYPO3_CONF_VARS']['DB']['Connections'][<connection_name>]['initCommands']
+        :name: typo3-conf-vars-db-connection-name-init-commands
+        :type: string
+
+        Initial commands to execute after connecting to the database.
+        For example, database session options.
+
 ..  _typo3ConfVars_db_tablemapping:
 
 ..  confval:: TableMapping
