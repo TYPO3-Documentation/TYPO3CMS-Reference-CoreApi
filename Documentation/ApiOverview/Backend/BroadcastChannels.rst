@@ -75,6 +75,13 @@ Example code:
 ..  literalinclude:: _BroadcastChannels/_BackendControllerHook.php
     :caption: EXT:my_extension/Classes/Hooks/BackendControllerHook.php
 
+..  versionadded:: 14.0
+    The new method  :php-short:`PageRenderer->addInlineLanguageDomain()` (above)
+    is used to load labels from a language domain and make them available in
+    JavaScript through the TYPO3.lang object. The older method
+    :php-short:`PageRenderer->addInlineLanguageLabelFile()` is
+    still valid for legacy, file-based labels.
+
 ..  code-block:: yaml
     :caption: EXT:my_extension/Configuration/Services.yaml
 
