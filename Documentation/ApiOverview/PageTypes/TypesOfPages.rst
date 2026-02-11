@@ -64,11 +64,12 @@ additional fields in pages to be filled out:
 ..  _list-of-page-types-sysfolder:
 
 `DOKTYPE_SYSFOLDER` - ID: `254`
-   System Folder
+   Folder
 
-   A system folder is the place where records of various database tables, except for content elements. are stored. 
-   All records for third party extensions should be stored inside of system folders at the bottom of the page tree. If 
-   only few records are to be shown on a page when it turns into the current üage, then it is fine to use a standard page instead.
+   A folder is the place where records of various database tables are stored. 
+   Records for extensions or categories should be stored inside of folders at the bottom of the page tree for a domain.
+   If only few records are to be shown on a page when it turns into the current page, then it is fine
+   to use a standard page instead.
 
 .. versionchanged:: 13.0
 
