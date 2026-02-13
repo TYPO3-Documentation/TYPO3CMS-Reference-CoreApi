@@ -194,7 +194,7 @@ Typical characteristics of plugins
     dynamically displayed via the plugin - often in a list view, a single view,
     optionally with pagination and search functionality. An extension may provide
     several plugins, each with a dedicated function, such as the list view.
-*   Plugins use FlexForm elements for their interactive configuration in the backend.
+*   Plugins use :ref:`FlexForm <flexforms>` elements for their interactive configuration in the backend.
 *   Plugins are often used if more complex functionality is required (than in non-
     plugin content elements)
 *   Plugins can be created using the Extbase framework or by Core functionality.
