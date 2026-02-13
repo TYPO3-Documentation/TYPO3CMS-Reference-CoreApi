@@ -382,7 +382,7 @@ A file :file:`TipsAndTricks.html` must exist in one of the paths defined in
 HTML content. For sending plaintext content, a file :file:`TipsAndTricks.txt`
 should exist.
 
-Defining a custom email subject in a custom Fluid template (this only works if "format" is set to FluidEmail::FOMRAT_HTML):
+Defining a custom email subject in a custom Fluid template (this only works if "format" is set to FluidEmail::FORMAT_HTML):
 
 ..  code-block:: html
 
