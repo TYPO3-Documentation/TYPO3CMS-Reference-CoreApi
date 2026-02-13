@@ -60,6 +60,31 @@ Conditions:
     :ref:`If ViewHelper <f:if> <t3viewhelper:typo3fluid-fluid-if>` ViewHelper.
 
 
+..  _fluid-variables:
+
+Passing Variables from PHP
+--------------------------
+
+In PHP, you can use the :php:`assign()` method on a view to pass a variable to a Fluid
+template:
+
+..  code-block:: php
+
+    $this->view->assign('title', 'An example title');
+
+Output it in a Fluid template:
+
+..  code-block:: html
+
+    <h1>{title}</h1>
+
+The result:
+
+..  code-block:: html
+
+    <h1>An example title</h1>
+
+
 ..  index:: Fluid; Directory structure
 
 ..  _fluid-directory-structure:
