@@ -14,7 +14,7 @@ Fluid is a templating engine commonly used within TYPO3.
     :titlesonly:
 
     Introduction
-    Syntax
+    Fluid Syntax <https://docs.typo3.org/permalink/fluid:syntax>
     UsingFluidInTypo3
     UsingTypoScriptCObjectViewHelper
     AdditionalAttributes
