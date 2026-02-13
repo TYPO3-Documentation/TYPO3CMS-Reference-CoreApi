@@ -1,4 +1,0 @@
-- <f:variable name="false">Some value</f:variable>
-- <div>{false}</div>
-+ <f:variable name="myVariable">Some value</f:variable>
-+ <div>{myVariable}</div>
