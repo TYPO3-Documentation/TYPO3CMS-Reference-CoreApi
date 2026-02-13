@@ -119,11 +119,11 @@ TYPO3 integrators.
 Plugins in TYPO3
 ----------------
 
-A **plugin** in TYPO3 is a more complex implementation, typically providing dynamic
+A **plugin** in TYPO3 is a software implementation, typically providing dynamic
 or interactive functionality. Plugins are usually provided by extensions
 that introduce new features to the website.
 
-The data to be displayed is usually supplied by a special PHP class
+The data to be displayed in the frontend is usually supplied by a special PHP class
 called a "controller". Depending on the technology used in the controller
 the plugin can be an Extbase plugin or a plain plugin.
 
@@ -194,6 +194,7 @@ Typical characteristics of plugins
     dynamically displayed via the plugin - often in a list view, a single view,
     optionally with pagination and search functionality. An extension may provide
     several plugins, each with a dedicated function, such as the list view.
+*   Plugins use FlexForm elements for their interactive configuration in the backend.
 *   Plugins are often used if more complex functionality is required (than in non-
     plugin content elements)
 *   Plugins can be created using the Extbase framework or by Core functionality.
@@ -206,7 +207,7 @@ The news records are stored in a custom database table (`tx_news_domain_model_ne
 and can be edited in the backend.
 
 There are also system extensions that have plugins. :composer:`typo3/cms-felogin`
-has a plugin that allow frontend users, stored in table `fe_users` to log into
+has a plugin that allow frontend users, stored in table `fe_users`, to log into
 the website. :composer:`typo3/cms-indexed-search` has a plugin that can be
 used to search in the index and display search results.
 
