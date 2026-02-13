@@ -5,31 +5,8 @@
 Fluid syntax
 ============
 
-..  _fluid-variables:
-
 Variables
 =========
-
-Assign a variable in PHP:
-
-..  code-block:: php
-
-    $this->view->assign('title', 'An example title');
-
-Output it in a Fluid template:
-
-..  code-block:: html
-
-    <h1>{title}</h1>
-
-The result:
-
-..  code-block:: html
-
-    <h1>An example title</h1>
-
-In the template's HTML code, wrap the variable name into curly
-braces to output it.
 
 ..  _fluid-variables-reserved:
 
