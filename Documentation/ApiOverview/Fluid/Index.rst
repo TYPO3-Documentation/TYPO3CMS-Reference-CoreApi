@@ -38,5 +38,5 @@ Fluid is a templating engine commonly used within TYPO3.
 
 ..  seealso::
 
-    The chapter :ref:`Fluid Syntax <https://docs.typo3.org/permalink/fluid:syntax>`_ has been
+    The chapter `Fluid Syntax <https://docs.typo3.org/permalink/fluid:syntax>`_ has been
     moved to the Fluid standalone documentation as it is not specific to TYPO3.
