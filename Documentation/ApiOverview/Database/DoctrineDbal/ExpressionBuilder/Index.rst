@@ -186,9 +186,11 @@ Creates a statement to append a field alias to a value, identifier or sub-expres
 
 ..  note::
 
-    Some :php:`ExpressionBuilder` methods (like :php:`select()` and :php:`from()`) provide an argument to directly add
-    the expression alias to reduce nesting. This new method can be used for
-    custom expressions and avoids recurring conditional quoting and alias appending.
+    The :php:`QueryBuilder` method :php:`from()` provides a second argument to directly add
+    the expression alias and the method :php:`select()` can have it by adding the :php:` AS ` keyword 
+    to improve readability. 
+    This new method can be used for custom expressions and avoids recurring conditional 
+    quoting and alias appending.
 
 ..  literalinclude:: _RepositoryAs.php
     :caption: EXT:my_extension/Classes/Domain/Repository/MyTableRepository.php
