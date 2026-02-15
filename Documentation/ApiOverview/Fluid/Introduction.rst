@@ -65,7 +65,8 @@ Conditions:
 Passing Variables from PHP
 --------------------------
 
-In PHP, you can use the :php:`assign()` method on a view to pass a variable to a Fluid
+In PHP, you can use the :php:`assign()` method on an instance of
+:php-short:`\TYPO3\CMS\Core\View\ViewInterface` to pass a variable to a Fluid
 template:
 
 ..  code-block:: php
