@@ -29,8 +29,8 @@ Introduction
     :local:
 
 In TYPO3, Content elements and plugins are both stored as :ref:`database-records`
-in table :sql:`tt_content`. They are usually edited in the backend in module
-:guilabel:`Content > Page`.
+in table :sql:`tt_content` and processed with the TypoScript :typoscript:`tt_content`. 
+They are usually edited in the backend in module :guilabel:`Content > Page`.
 
 Content elements and plugins are both used to present and manage
 content on a website, but they serve different purposes and have distinct
@@ -59,7 +59,7 @@ characteristics:
         ..  card-image:: /Images/ManualScreenshots/Backend/plugin_example.png
             :alt: Plugin news article detail
 
-        A plugin in TYPO3 is more complex, typically providing dynamic
+        A plugin in TYPO3 is an implementation, typically providing dynamic
         or interactive functionality. Plugins are usually provided by extensions
         that introduce new features to the website.
 
@@ -84,7 +84,7 @@ In the TYPO3 backend, content elements are commonly managed in module
 From a technical point of view content elements are records stored in the
 database table `tt_content`. Each content
 element has a specific content element type, specified by the database field
-`tt_content.CType`. This type influences both the backend form and the frontend
+:php:`tt_content.CType`. This type influences both the backend form and the frontend
 output.
 
 The appearance of a content element in the backend form is defined via the
@@ -119,9 +119,12 @@ TYPO3 integrators.
 Plugins in TYPO3
 ----------------
 
-A **plugin** in TYPO3 is a software implementation, typically providing dynamic
+A **plugin** in TYPO3 is an implementation, typically providing dynamic
 or interactive functionality. Plugins are usually provided by extensions
-that introduce new features to the website.
+that introduce new features to the website. 
+A plugin is treated in the same way as a :ref:`content element <content-elements>` with its own :php:`tt_content.CType`.
+However the output of the plugin does not need to go directly to the web page. A plugin can also send the answer to a JSON request 
+or process data and store it somewhere else.
 
 The data to be displayed in the frontend is usually supplied by a special PHP class
 called a "controller". Depending on the technology used in the controller
@@ -195,9 +198,10 @@ Typical characteristics of plugins
     optionally with pagination and search functionality. An extension may provide
     several plugins, each with a dedicated function, such as the list view.
 *   Plugins use :ref:`FlexForm <flexforms>` elements for their interactive configuration in the backend.
-*   Plugins are often used if more complex functionality is required (than in non-
+    The functionality of a plugin is determined by the activated FlexForm options.
+*   Plugins are used if more complex functionality is required (than in non-
     plugin content elements)
-*   Plugins can be created using the Extbase framework or by Core functionality.
+*   Plugins can be created using the Extbase framework or Core functionality.
 
 A typical extension with plugins is the :composer:`georgringer/news` extension
 which comes with plugins to display news records in lists or as a single view
@@ -207,7 +211,7 @@ The news records are stored in a custom database table (`tx_news_domain_model_ne
 and can be edited in the backend.
 
 There are also system extensions that have plugins. :composer:`typo3/cms-felogin`
-has a plugin that allow frontend users, stored in table `fe_users`, to log into
+has a plugin that allows frontend users (stored in table `fe_users`) to log into
 the website. :composer:`typo3/cms-indexed-search` has a plugin that can be
 used to search in the index and display search results.
 
