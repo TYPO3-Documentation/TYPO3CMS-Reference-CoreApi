@@ -913,6 +913,52 @@ configuration.
         ..  seealso::
             :ref:`message-bus-routing`
 
+..  _typo3ConfVars_sys_localization:
+
+..  confval:: localization
+    :name: globals-typo3-conf-vars-sys-localization
+
+    ..  _typo3ConfVars_sys_localization_locales:
+
+    ..  confval:: locales
+        :name: globals-typo3-conf-vars-sys-localization-locales
+
+        ..  _typo3ConfVars_sys_localization_locales_user:
+
+        .. confval:: user
+            :name: globals-typo3-conf-vars-sys-localization-locales-user
+            :Path: $GLOBALS['TYPO3_CONF_VARS']['SYS']['localization']['locales']['user']
+            :type: array
+
+            Define custom languages:
+
+            ..  code-block:: php
+
+                $GLOBALS['TYPO3_CONF_VARS']['SYS']['localization']['locales']['user'] = [
+                    'gsw_CH' => 'Swiss German',
+                ];
+
+        ..  _typo3ConfVars_sys_localization_locales_dependencies:
+
+        .. confval:: dependencies
+            :name: globals-typo3-conf-vars-sys-localization-locales-dependencies
+            :Path: $GLOBALS['TYPO3_CONF_VARS']['SYS']['localization']['locales']['dependencies']
+            :type: array
+
+            Add fallback to another language:
+
+            ..  code-block:: php
+
+                $GLOBALS['TYPO3_CONF_VARS']['SYS']['localization']['locales']['dependencies'] = [
+                    'gsw_CH' => ['de_AT', 'de'],
+                ];
+
+    ..  seealso::
+        :ref:`xliff-translating-languages`
+
+    ..  seealso::
+        :ref:`Changelog automatic support for language files of languages with region suffix <ext_core:feature-86913-1673955088>`
+
 ..  confval:: FileInfo
     :name: globals-typo3-conf-vars-sys-FileInfo
 
