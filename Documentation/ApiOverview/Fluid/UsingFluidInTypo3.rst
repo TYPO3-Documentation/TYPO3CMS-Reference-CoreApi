@@ -41,15 +41,15 @@ ViewHelper namespaces
 
 ..  _defining-global-fluid-namespaces:
 
-Defining global fluid namespaces
+Defining global Fluid namespaces
 --------------------------------
 
 The extension-level configuration file `Configuration/Fluid/Namespaces.php`
-can be utilized to register and extend global Fluid namespaces. Previously
+can be utilized to register and extend global Fluid namespaces. Previously,
 the configuration :php:`$GLOBALS['TYPO3_CONF_VARS']['SYS']['fluid']['namespaces']`
 was used. 
 
-For example we can define two global namespaces with the identifiers
+For example, we can define two global namespaces with the identifiers
 'myext' and 'mycmp': 
 
 ..  code-block:: php
@@ -71,10 +71,10 @@ then you can access the Button component via
 
     <mycmp:button title="{title}" teaser="{teaser}" />
 
-It is possible to override ViewHelpers of another extension. This is 
+It is possible to override one or more ViewHelpers of another extension. This is 
 realized by TYPO3 reading and merging `Configuration/Fluid/Namespaces.php` 
 files from all loaded extensions in the usual loading order. The 
-loading order can be manilulated by declaring dependencies in `composer.json`
+loading order can be manipulated by declaring dependencies in `composer.json`
 and possibly `ext_emconf.php`. In other words, if an extension registers a
 namespace that has already been registered by another extension, these 
 namespaces will be merged by Fluid.
@@ -126,6 +126,7 @@ Instead of defining the Fluid namespace globally you can specify
 the Fluid namespace like:
 
 ..  code-block:: html
+    :emphasize-lines: 2
     :caption: EXT:my_extension/Resources/Private/Templates/SomeOtherTemplate.fluid.html
 
     <html
