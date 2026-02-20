@@ -28,7 +28,6 @@ Fluid is a templating engine commonly used within TYPO3.
 ..  _fluid-arrays:
 ..  _fluid-dynamic-properties:
 ..  _fluid-syntax-viewhelpers:
-..  _fluid-syntax-viewhelpers-import-namespaces:
 ..  _fluid-viewhelper-attributes:
 ..  _fluid-viewhelper-attributes-simple:
 ..  _fluid-inline-notation:
