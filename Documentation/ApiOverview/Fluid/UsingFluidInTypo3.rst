@@ -64,10 +64,10 @@ For example we can define two global namespaces with the identifiers
 
 Assuming you have defined a Fluid component in 
 `EXT:my_extension/Resources/Private/Components/Button/Button.fluid.html`
-and you want to use this namespace you can access the button component via 
+then you can access the Button component via 
 
 ..  code-block:: html
-    :caption: EXT:my_extension/Resources/Private/Components/Button/Button.fluid.html
+    :caption: EXT:my_extension/Resources/Private/Templates/SomeOtherTemplate.fluid.html
 
     <mycmp:button title="{title}" teaser="{teaser}" />
 
@@ -123,9 +123,10 @@ Importing fluid namespaces locally
 Like previously, imagine you already have defined a Fluid component in 
 `EXT:my_extension/Resources/Private/Components/Button/Button.fluid.html`. 
 Instead of defining the Fluid namespace globally you can specify 
-the Fluid namespace like so
+the Fluid namespace like:
 
 ..  code-block:: html
+    :caption: EXT:my_extension/Resources/Private/Templates/SomeOtherTemplate.fluid.html
 
     <html
         xmlns:my="http://typo3.org/ns/MyVendor/MyExtension/Components"
