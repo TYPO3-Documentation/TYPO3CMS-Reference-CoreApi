@@ -119,7 +119,7 @@ fall back to `EXT:my_extension1/Classes/ViewHelpers/DemoViewHelper.php`.
 
 .. _importing-fluid-namespaces-locally:
 
-Importing fluid namespaces locally 
+Importing Fluid namespaces locally 
 ----------------------------------
 
 Like previously, imagine you already have defined a Fluid component in 
