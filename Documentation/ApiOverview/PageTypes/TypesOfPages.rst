@@ -66,10 +66,10 @@ additional fields in pages to be filled out:
 `DOKTYPE_SYSFOLDER` - ID: `254`
    Folder
 
-   A folder a place where records of various database tables can be stored. Some records
-   may only be created in folders and are not available on standard pages.
-   
-  It can also be used to group standard pages to be displayed in a custom menu. 
+   A folder is a place where records from various database tables can be stored. 
+   Some records may only be created in folders and are not available on standard pages.
+
+   It can also be used to group standard pages so they can be displayed in a custom menu.
 
 .. versionchanged:: 13.0
 
