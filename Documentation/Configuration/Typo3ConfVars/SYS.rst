@@ -955,8 +955,8 @@ configuration.
 
     ..  seealso::
     
-        *   :ref:`xliff-translating-languages`
-        *   :ref:`Changelog automatic support for language files of languages with region suffix <ext_core:feature-86913-1673955088>`
+        *   `Adding custom languages <https://docs.typo3.org/permalink/t3coreapi:xliff-translating-languages>`_
+        *   `Feature: #86913 - Automatic support for language files of languages with region suffix <https://docs.typo3.org/permalink/changelog:feature-86913-1673955088>`_
 
 ..  confval:: FileInfo
     :name: globals-typo3-conf-vars-sys-FileInfo
