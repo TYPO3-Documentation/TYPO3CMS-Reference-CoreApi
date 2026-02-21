@@ -954,10 +954,9 @@ configuration.
                 ];
 
     ..  seealso::
-        :ref:`xliff-translating-languages`
-
-    ..  seealso::
-        :ref:`Changelog automatic support for language files of languages with region suffix <ext_core:feature-86913-1673955088>`
+    
+        *   :ref:`xliff-translating-languages`
+        *   :ref:`Changelog automatic support for language files of languages with region suffix <ext_core:feature-86913-1673955088>`
 
 ..  confval:: FileInfo
     :name: globals-typo3-conf-vars-sys-FileInfo
