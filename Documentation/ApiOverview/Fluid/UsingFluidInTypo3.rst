@@ -77,7 +77,7 @@ It is possible to override one or more ViewHelpers of another extension. This is
 realized by TYPO3 reading and merging :file:`Configuration/Fluid/Namespaces.php` 
 files from all loaded extensions in the usual loading order. The 
 loading order can be manipulated by declaring dependencies in `composer.json`
-and possibly `ext_emconf.php`. In other words, if an extension registers a
+and possibly :file:`ext_emconf.php`. In other words, if an extension registers a
 namespace that has already been registered by another extension, these 
 namespaces will be merged by Fluid.
 
