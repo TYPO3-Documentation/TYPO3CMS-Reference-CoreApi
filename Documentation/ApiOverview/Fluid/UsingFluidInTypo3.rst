@@ -74,7 +74,7 @@ then you can access the Button component via
     <mycmp:button title="{title}" teaser="{teaser}" />
 
 It is possible to override one or more ViewHelpers of another extension. This is 
-realized by TYPO3 reading and merging `Configuration/Fluid/Namespaces.php` 
+realized by TYPO3 reading and merging :file:`Configuration/Fluid/Namespaces.php` 
 files from all loaded extensions in the usual loading order. The 
 loading order can be manipulated by declaring dependencies in `composer.json`
 and possibly `ext_emconf.php`. In other words, if an extension registers a
