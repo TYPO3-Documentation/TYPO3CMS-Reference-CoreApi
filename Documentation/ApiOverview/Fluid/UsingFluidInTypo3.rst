@@ -46,7 +46,7 @@ Defining global Fluid namespaces
 
 ..  versionadded:: 14.1
 
-The extension-level configuration file `Configuration/Fluid/Namespaces.php`
+The extension-level configuration file :file:`Configuration/Fluid/Namespaces.php`
 can be utilized to register and extend global Fluid namespaces. Previously,
 the configuration :php:`$GLOBALS['TYPO3_CONF_VARS']['SYS']['fluid']['namespaces']`
 was used. 
