@@ -47,12 +47,12 @@ Defining global Fluid namespaces
 ..  versionadded:: 14.1
 
 The extension-level configuration file :file:`Configuration/Fluid/Namespaces.php`
-can be utilized to register and extend global Fluid namespaces. Previously,
+registers and extends global Fluid namespaces. Previously,
 the configuration :php:`$GLOBALS['TYPO3_CONF_VARS']['SYS']['fluid']['namespaces']`
-was used. 
+was used.
 
 For example, we can define two global namespaces with the identifiers
-'myext' and 'mycmp': 
+'myext' and 'mycmp':
 
 ..  code-block:: php
     :caption: EXT:my_extension/Configuration/Fluid/Namespaces.php
@@ -64,24 +64,24 @@ For example, we can define two global namespaces with the identifiers
         'mycmp' => ['MyVendor\\MyExtension\\Components'],
     ];
 
-Assuming you have defined a Fluid component in 
+Assuming you have defined a Fluid component in
 `EXT:my_extension/Resources/Private/Components/Button/Button.fluid.html`
-then you can access the Button component via 
+then you can access the Button component via
 
 ..  code-block:: html
     :caption: EXT:my_extension/Resources/Private/Templates/SomeOtherTemplate.fluid.html
 
     <mycmp:button title="{title}" teaser="{teaser}" />
 
-It is possible to override one or more ViewHelpers of another extension. This is 
-realized by TYPO3 reading and merging :file:`Configuration/Fluid/Namespaces.php` 
-files from all loaded extensions in the usual loading order. The 
-loading order can be manipulated by declaring dependencies in :file:`composer.json`
-and possibly :file:`ext_emconf.php`. In other words, if an extension registers a
-namespace that has already been registered by another extension, these 
-namespaces will be merged by Fluid.
+It is possible to override ViewHelpers that are in another extension. This is
+done by TYPO3 reading and merging :file:`Configuration/Fluid/Namespaces.php`
+files in loaded extensions in the usual loading order. Loading order can
+be changed by declaring dependencies in :file:`composer.json`
+(and possibly :file:`ext_emconf.php`). In other words, if an extension registers a
+namespace that has already been registered by another extension, Fluid will merge
+the namespaces.
 
-Example (extension2 depends on extension1):
+Example (my_extension2 depends on my_extension1):
 
 ..  code-block:: php
     :caption: EXT:my_extension1/Configuration/Fluid/Namespaces.php
@@ -101,7 +101,7 @@ Example (extension2 depends on extension1):
         'myext' => ['MyVendor\\MyExtension2\\ViewHelpers'],
     ];
 
-Resulting namespace definition:
+This results in namespace definition:
 
 ..  code-block:: php
 
@@ -112,20 +112,20 @@ Resulting namespace definition:
         ],
     ];
 
-The processing order is in reverse order, which means that 
+The processing order is in reverse, which means that
 :html:`<myext:demo />` would first check for
-`EXT:my_extension2/Classes/ViewHelpers/DemoViewHelper.php`, and would
+`EXT:my_extension2/Classes/ViewHelpers/DemoViewHelper.php`, and then
 fall back to `EXT:my_extension1/Classes/ViewHelpers/DemoViewHelper.php`.
 
 .. _importing-fluid-namespaces-locally:
 
-Importing Fluid namespaces locally 
+Importing Fluid namespaces locally
 ----------------------------------
 
-Like previously, imagine you already have defined a Fluid component in 
-`EXT:my_extension/Resources/Private/Components/Button/Button.fluid.html`. 
-Instead of defining the Fluid namespace globally you can specify 
-the Fluid namespace like:
+Say you have defined a Fluid component in
+`EXT:my_extension/Resources/Private/Components/Button/Button.fluid.html`.
+Instead of defining the Fluid namespace globally you can specify
+the Fluid namespace like this:
 
 ..  code-block:: html
     :emphasize-lines: 2
@@ -138,11 +138,10 @@ the Fluid namespace like:
 
     <my:button title="{title}" teaser="{teaser}"/>
 
-In this example the namespace is called 'my'. 
-For further information visit the
+The namespace here is 'my'. For further information visit
 `ViewHelper namespaces <https://docs.typo3.org/permalink/fluid:viewhelper-namespaces-syntax>`_
-in Fluid explained. 
- 
+in Fluid explained.
+
 
 ..  _generic-view-factory:
 
