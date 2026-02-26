@@ -33,6 +33,116 @@ Here are some examples of how Fluid can be used in TYPO3:
     *   :php:`TYPO3\CMS\Extbase\Mvc\View\ViewResolverInterface`
     *   :php:`TYPO3\CMS\Extbase\Mvc\View\GenericViewResolver`
 
+
+..  _fluid-syntax-viewhelpers-import-namespaces:
+
+ViewHelper namespaces
+=====================
+
+..  _defining-global-fluid-namespaces:
+
+Defining global Fluid namespaces
+--------------------------------
+
+..  versionadded:: 14.1
+
+The extension-level configuration file :file:`Configuration/Fluid/Namespaces.php`
+registers and extends global Fluid namespaces. Previously,
+the configuration :php:`$GLOBALS['TYPO3_CONF_VARS']['SYS']['fluid']['namespaces']`
+was used.
+
+For example, we can define two global namespaces with the identifiers
+'myext' and 'mycmp':
+
+..  code-block:: php
+    :caption: EXT:my_extension/Configuration/Fluid/Namespaces.php
+
+    <?php
+
+    return [
+        'myext' => ['MyVendor\\MyExtension\\ViewHelpers'],
+        'mycmp' => ['MyVendor\\MyExtension\\Components'],
+    ];
+
+Assuming you have defined a Fluid component in
+`EXT:my_extension/Resources/Private/Components/Button/Button.fluid.html`
+then you can access the Button component via
+
+..  code-block:: html
+    :caption: EXT:my_extension/Resources/Private/Templates/SomeOtherTemplate.fluid.html
+
+    <mycmp:button title="{title}" teaser="{teaser}" />
+
+It is possible to override ViewHelpers that are in another extension. This is
+done by TYPO3 reading and merging :file:`Configuration/Fluid/Namespaces.php`
+files in loaded extensions in the usual loading order. Loading order can
+be changed by declaring dependencies in :file:`composer.json`
+(and possibly :file:`ext_emconf.php`). In other words, if an extension registers a
+namespace that has already been registered by another extension, Fluid will merge
+the namespaces.
+
+Example (my_extension2 depends on my_extension1):
+
+..  code-block:: php
+    :caption: EXT:my_extension1/Configuration/Fluid/Namespaces.php
+
+    <?php
+
+    return [
+        'myext' => ['MyVendor\\MyExtension1\\ViewHelpers'],
+    ];
+
+..  code-block:: php
+    :caption: EXT:my_extension2/Configuration/Fluid/Namespaces.php
+
+    <?php
+
+    return [
+        'myext' => ['MyVendor\\MyExtension2\\ViewHelpers'],
+    ];
+
+This results in namespace definition:
+
+..  code-block:: php
+
+    [
+        'myext' => [
+            'MyVendor\\MyExtension1\\ViewHelpers',
+            'MyVendor\\MyExtension2\\ViewHelpers',
+        ],
+    ];
+
+The processing order is in reverse, which means that
+:html:`<myext:demo />` would first check for
+`EXT:my_extension2/Classes/ViewHelpers/DemoViewHelper.php`, and then
+fall back to `EXT:my_extension1/Classes/ViewHelpers/DemoViewHelper.php`.
+
+.. _importing-fluid-namespaces-locally:
+
+Importing Fluid namespaces locally
+----------------------------------
+
+Say you have defined a Fluid component in
+`EXT:my_extension/Resources/Private/Components/Button/Button.fluid.html`.
+Instead of defining the Fluid namespace globally you can specify
+the Fluid namespace like this:
+
+..  code-block:: html
+    :emphasize-lines: 2
+    :caption: EXT:my_extension/Resources/Private/Templates/SomeOtherTemplate.fluid.html
+
+    <html
+        xmlns:my="http://typo3.org/ns/MyVendor/MyExtension/Components"
+        data-namespace-typo3-fluid="true"
+    >
+
+    <my:button title="{title}" teaser="{teaser}"/>
+
+The namespace here is 'my'. For further information visit
+`ViewHelper namespaces <https://docs.typo3.org/permalink/fluid:viewhelper-namespaces-syntax>`_
+in Fluid explained.
+
+
 ..  _generic-view-factory:
 
 Using the generic view factory (ViewFactoryInterface)
