@@ -8,7 +8,7 @@ final class ExampleController
     private ServerRequestInterface $request;
 
     public function __construct(
-        private readonly LanguageServiceFactory $LanguageServiceFactory,
+        private readonly LanguageServiceFactory $languageServiceFactory,
     ) {}
 
     public function processAction(
@@ -29,10 +29,9 @@ final class ExampleController
 
     private function getTranslatedLabel(string $key): string
     {
-        $language =
-            $this->request->getAttribute('language')
-                ?? $this->request->getAttribute('site')->getDefaultLanguage();
-        $languageService = $this->LanguageServiceFactory
+        $language = $this->request->getAttribute('language')
+            ?? $this->request->getAttribute('site')->getDefaultLanguage();
+        $languageService = $this->languageServiceFactory
             ->createFromSiteLanguage($language);
 
         return $languageService->sL($key);
