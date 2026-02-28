@@ -954,7 +954,7 @@ configuration.
                 ];
 
     ..  seealso::
-    
+
         *   `Adding custom languages <https://docs.typo3.org/permalink/t3coreapi:xliff-translating-languages>`_
         *   `Feature: #86913 - Automatic support for language files of languages with region suffix <https://docs.typo3.org/permalink/changelog:feature-86913-1673955088>`_
 
