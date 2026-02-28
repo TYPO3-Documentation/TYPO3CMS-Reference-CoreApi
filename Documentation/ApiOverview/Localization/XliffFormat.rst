@@ -96,7 +96,7 @@ the locale code, for example:
 TYPO3 automatically falls back from `de_CH` to `de` if needed.
 
 ..  note::
-    The original file must always be in English. Do **not** create files with
+    The original file must **not** always be in English. You can create files with
     the prefix `en`.
 
 The translation language is also defined in the file header:
