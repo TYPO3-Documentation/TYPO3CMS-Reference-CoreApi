@@ -1,0 +1,6 @@
+..  php:namespace::  TYPO3\CMS\Backend\Controller\Event
+
+..  php:class:: BeforeBackendPageRenderEvent
+
+    This event triggers before the main backend page has been rendered.
+

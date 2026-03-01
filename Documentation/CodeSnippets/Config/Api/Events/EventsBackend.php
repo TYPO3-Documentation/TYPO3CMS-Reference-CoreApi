@@ -148,6 +148,12 @@ return [
     ],
     [
         'action' => 'createPhpClassDocs',
+        'class' => TYPO3\CMS\Backend\Controller\Event\BeforeBackendPageRenderEvent::class,
+        'targetFileName' => 'CodeSnippets/Events/Backend/BeforeBackendPageRenderEvent.rst.txt',
+        'withCode' => false,
+    ],
+    [
+        'action' => 'createPhpClassDocs',
         'class' => \TYPO3\CMS\Backend\Controller\Event\AfterPageTreeItemsPreparedEvent::class,
         'targetFileName' => 'CodeSnippets/Events/Backend/AfterPageTreeItemsPreparedEvent.rst.txt',
         'withCode' => false,
