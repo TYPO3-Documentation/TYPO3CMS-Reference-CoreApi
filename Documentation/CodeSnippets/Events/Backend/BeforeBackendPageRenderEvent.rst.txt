@@ -3,4 +3,3 @@
 ..  php:class:: BeforeBackendPageRenderEvent
 
     This event triggers before the main backend page has been rendered.
-
