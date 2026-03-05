@@ -138,7 +138,7 @@ user input.
     :php:`htmlspecialchars()` as we have
     :ref:`disabled escaping <fluid-viewhelper-custom-escaping-of-output>`.
 
-When escaping is diabled, the `render()` method is responsible to prevent
+When escaping is disabled, the `render()` method is responsible to prevent
 :ref:`XSS attacks <prevent-cross-site-scripting>`.
 
 Therefore all arguments **must** be sanitized before they are returned.
