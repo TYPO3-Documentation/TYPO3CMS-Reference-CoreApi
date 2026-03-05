@@ -8,6 +8,8 @@ on:
 jobs:
   lint:
     if: github.repository_owner == 'TYPO3-documentation'
+    permissions:
+      contents: write        # needed to push commit
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
