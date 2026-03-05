@@ -691,12 +691,15 @@ The nonce can be retrieved via the
 
 ..  code-block:: php
 
-    // use TYPO3\CMS\Core\Domain\ConsumableString
+    // use TYPO3\CMS\Core\Security\ContentSecurityPolicy\ConsumableNonce
+    // use TYPO3\CMS\Core\Security\ContentSecurityPolicy\Directive
 
-    /** @var ConsumableString|null $nonceAttribute */
+    /** @var ConsumableNonce|null $nonceAttribute */
     $nonceAttribute = $this->request->getAttribute('nonce');
-    if ($nonceAttribute instanceof ConsumableString) {
-        $nonce = $nonceAttribute->consume();
+    if ($nonceAttribute instanceof ConsumableNonce) {
+        $nonce = $nonceAttribute->consumeInline(Directive::ScriptSrcElem); // inline script
+        // or
+        $nonce = $nonceAttribute->consumeStatic(Directive::StyleSrcElem);  // static style
     }
 
 In a Fluid template
