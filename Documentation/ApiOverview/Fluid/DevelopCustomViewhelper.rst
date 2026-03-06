@@ -115,8 +115,9 @@ through the array :php:`$this->arguments`, in method :php:`render()`.
 
 ..  tip::
 
-    Sometimes arguments can take various types. In this case, a union type can be used,
-    such as `array|string`. If any type should be allowed, `mixed` can be used instead.
+    If arguments can take various types, use a union type, for example
+    `array|string`. If any type should be allowed, use `mixed`
+    instead.
 
 .. versionadded:: 14.0
 
