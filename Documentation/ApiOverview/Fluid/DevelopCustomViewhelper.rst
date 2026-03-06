@@ -138,7 +138,7 @@ user input.
     :php:`htmlspecialchars()` as we have
     :ref:`disabled escaping <fluid-viewhelper-custom-escaping-of-output>`.
 
-When escaping is disabled, the `render()` method is responsible to prevent
+If escaping is disabled, the `render()` method is responsible for preventing
 :ref:`XSS attacks <prevent-cross-site-scripting>`.
 
 Therefore all arguments **must** be sanitized before they are returned.
@@ -333,7 +333,7 @@ between the implementations.
 `render()` method
 -----------------
 
-Most of the time, this method is implemented.
+This method is usually implemented.
 
 ..  _compile-method:
 
@@ -364,7 +364,7 @@ Custom ViewHelper implementations support
 
 You can, for example, inject the :php-short:`\TYPO3\CMS\Core\Configuration\ExtensionConfiguration`
 service to get the configuration of an installed extension. Note that ViewHelpers
-should avoid acquiring additional data from the database if possible, since this
+should avoid getting additional data from the database because this
 violates the separation of data (model) and presentation (view).
 
 Some objects depend on the current context and can be fetched from
@@ -375,9 +375,11 @@ the rendering context:
 Accessing the current Request in a ViewHelper implementation
 ------------------------------------------------------------
 
-Within the `render()` method in the ViewHelper implementation, the current
+
+The current
 :php-short:`\Psr\Http\Message\ServerRequestInterface` object can be fetched
-from the :php-short:`TYPO3\CMS\Fluid\Core\Rendering\RenderingContext`:
+from the :php-short:`TYPO3\CMS\Fluid\Core\Rendering\RenderingContext` inside
+the `render()` method in a ViewHelper implementation,:
 
 ..  code-block:: php
     :caption: EXT:my_extension/Classes/ViewHelpers/SomeViewHelper.php
@@ -392,10 +394,10 @@ from the :php-short:`TYPO3\CMS\Fluid\Core\Rendering\RenderingContext`:
         return 'Hello World!';
     }
 
-Note that the request might not be available in all contexts where Fluid templates
-can be used, which is why `hasAttribute()` should be used to check for its existence.
+Note that the request may not be available in all Fluid template contexts, so
+use `hasAttribute()` first to check if it exists.
 
-The request can contain several other attributes, which may be relevant for your
+The request may contain other attributes that are relevant for your
 ViewHelper's use case. See
 `TYPO3 request attributes <https://docs.typo3.org/permalink/t3coreapi:request-attributes>`_
 for a list of available attributes.
