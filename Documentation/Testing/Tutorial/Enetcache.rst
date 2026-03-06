@@ -438,7 +438,7 @@ in `.github/workflows/ci.yml <https://github.com/lolli42/enetcache/blob/master/.
            minMax: [ 'composerInstallMin', 'composerInstallMax' ]
        steps:
          - name: Checkout
-           uses: actions/checkout@v2
+           uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd
 
          - name: Composer
            run: Build/Scripts/runTests.sh -p ${{ matrix.php }} -s ${{ matrix.minMax }}
@@ -835,7 +835,7 @@ define the jobs in `.github/workflows/tests.yml <https://github.com/TYPO3/styleg
             php: [ '8.1', '8.2' ]
         steps:
           - name: Checkout
-            uses: actions/checkout@v3
+            uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd
 
           - name: Install dependencies
             run: Build/Scripts/runTests.sh -p ${{ matrix.php }} -s composerUpdate
