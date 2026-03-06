@@ -21,7 +21,7 @@ jobs:
           - '8.5'
     steps:
       - name: Checkout
-        uses: actions/checkout@v5
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd
 
       - name: Lint PHP
         run: Build/Scripts/runTests.sh -p ${{ matrix.php }} -s lint
@@ -35,7 +35,7 @@ jobs:
       php: '8.2'
     steps:
       - name: Checkout
-        uses: actions/checkout@v5
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd
 
       - name: Install testing system
         run: Build/Scripts/runTests.sh -p ${{ env.php }} -s composerUpdate
