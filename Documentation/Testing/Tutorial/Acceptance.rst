@@ -233,7 +233,7 @@ To tell the CI what to do, create a new workflow file in
        runs-on: ubuntu-20.04
        steps:
          - name: Checkout
-           uses: actions/checkout@v2
+           uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd
 
          - name: Start DDEV
            uses: jonaseberle/github-action-setup-ddev@v1

@@ -426,7 +426,7 @@ In order to tell the CI what to do, create a new workflow file in `.github/workf
            minMax: [ 'composerInstallMin', 'composerInstallMax' ]
        steps:
          - name: Checkout
-           uses: actions/checkout@v2
+           uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd
 
          - name: Composer
            run: Build/Scripts/runTests.sh -p ${{ matrix.php }} -s ${{ matrix.minMax }}
@@ -818,7 +818,7 @@ Now we want all of this automatically checked using Github Actions. As before, w
             php: [ '8.1', '8.2' ]
         steps:
           - name: Checkout
-            uses: actions/checkout@v3
+            uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd
 
           - name: Install dependencies
             run: Build/Scripts/runTests.sh -p ${{ matrix.php }} -s composerUpdate

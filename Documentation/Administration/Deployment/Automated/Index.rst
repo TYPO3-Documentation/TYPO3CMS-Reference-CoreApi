@@ -150,7 +150,7 @@ TYPO3 Lexicon <https://github.com/froemken/typo3lexikon/blob/main/.github/workfl
         runs-on: ubuntu-latest
 
         steps:
-          - uses: actions/checkout@v4
+          - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd
 
           - name: Set up PHP
             uses: shivammathur/setup-php@v2
