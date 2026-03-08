@@ -1,19 +1,22 @@
 name: Backport
+
 on:
   pull_request_target:
-    types:
-      - closed
-      - labeled
+    types: [closed, labeled]
 
 jobs:
   backport:
-    runs-on: ubuntu-22.04
-    name: Backport
+    if: github.event.pull_request.merged == true
+    runs-on: ubuntu-latest
+
     permissions:
-      contents: write        # needed to push the backport branch
-      pull-requests: write   # needed to open the PR
+      contents: write
+      pull-requests: write
+
     steps:
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v 6.0.2
+
       - name: Backport
-        uses: m-kuhn/backport@30b6e83906cc97bad3a02867181d6236becf68f9
+        uses: korthout/backport-action@4aaf0e03a94ff0a619c9a511b61aeb42adea5b02 # v4.2.0
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
