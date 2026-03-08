@@ -138,7 +138,7 @@ user input.
     :php:`htmlspecialchars()` as we have
     :ref:`disabled escaping <fluid-viewhelper-custom-escaping-of-output>`.
 
-When escapting is diabled, the `render()` method is responsible to prevent
+If escaping is disabled, the `render()` method is responsible for preventing
 :ref:`XSS attacks <prevent-cross-site-scripting>`.
 
 Therefore all arguments **must** be sanitized before they are returned.
@@ -328,6 +328,13 @@ ViewHelpers can have one or more of the following methods for
 implementing the rendering. The following section will describe the differences
 between the implementations.
 
+..  _render-method:
+
+`render()` method
+-----------------
+
+This method is usually implemented.
+
 ..  _compile-method:
 
 `compile()`-Method
@@ -347,47 +354,53 @@ Example implementation:
 ..  literalinclude:: _CustomViewHelper/_StrtolowerViewHelper.php
     :caption: EXT:my_extension/Classes/ViewHelpers/StrtolowerViewHelper.php
 
-..  _render-method:
-
-`render()` method
------------------
-
-Most of the time, this method is implemented.
-
 ..  _fluid-custom-viewhelper-access:
 
-How to access classes in the ViewHelper implementation
+How to access objects in the ViewHelper implementation
 ======================================================
 
 Custom ViewHelper implementations support
 `Dependency injection <https://docs.typo3.org/permalink/t3coreapi:dependency-injection>`_.
 
-You can, for example, inject the :php-short:`\TYPO3\CMS\Core\Database\ConnectionPool`
-to access the database by using the `database abstraction layer DBAL <https://docs.typo3.org/permalink/t3coreapi:doctrine-dbal>`_.
+You can, for example, inject the :php-short:`\TYPO3\CMS\Core\Configuration\ExtensionConfiguration`
+service to get the configuration of an installed extension. Note that ViewHelpers
+should avoid getting additional data from the database because this
+violates the separation of data (model) and presentation (view).
 
 Some objects depend on the current context and can be fetched from
 the rendering context:
-
-..  note::
-    This list is not complete, please help us with more examples.
 
 ..  _fluid-custom-viewhelper-access-request:
 
 Accessing the current Request in a ViewHelper implementation
 ------------------------------------------------------------
 
-You can use a `render()` method in the ViewHelper implementation to get the
-current :php-short:`\Psr\Http\Message\ServerRequestInterface` object
-from the :php-short:`TYPO3\CMS\Fluid\Core\Rendering\RenderingContext`:
+
+The current
+:php-short:`\Psr\Http\Message\ServerRequestInterface` object can be fetched
+from the :php-short:`TYPO3\CMS\Fluid\Core\Rendering\RenderingContext` inside
+the `render()` method in a ViewHelper implementation,:
 
 ..  code-block:: php
     :caption: EXT:my_extension/Classes/ViewHelpers/SomeViewHelper.php
 
-    public function render()
+    use Psr\Http\Message\ServerRequestInterface;
+
+    public function render(): string
     {
-        $request = $this->renderingContext->getRequest();
+        if ($this->renderingContext->hasAttribute(ServerRequestInterface::class)) {
+            $request = $this->renderingContext->getAttribute(ServerRequestInterface::class);
+        }
         return 'Hello World!';
     }
+
+Note that the request may not be available in all Fluid template contexts, so
+use `hasAttribute()` first to check if it exists.
+
+The request may contain other attributes that are relevant for your
+ViewHelper's use case. See
+`TYPO3 request attributes <https://docs.typo3.org/permalink/t3coreapi:request-attributes>`_
+for a list of available attributes.
 
 ..  _fluid-custom-viewhelper-access-contentObject:
 
@@ -402,11 +415,14 @@ from the :php-short:`\Psr\Http\Message\ServerRequestInterface`:
 
     use TYPO3\CMS\Frontend\ContentObject\ContentObjectRenderer;
 
-    public function render()
+    public function render(): string
     {
-        $request = $this->renderingContext->getRequest();
-        $cObj = $request->getAttribute('currentContentObject');
-        return $cObj->stdWrap('Hello World', ['wrap' => '|!']);
+        if ($this->renderingContext->hasAttribute(ServerRequestInterface::class)) {
+            $request = $this->renderingContext->getAttribute(ServerRequestInterface::class);
+            $cObj = $request->getAttribute('currentContentObject');
+            return $cObj->stdWrap('Hello World', ['wrap' => '|!']);
+        }
+        return '';
     }
 
 ..  deprecated:: 13.4
