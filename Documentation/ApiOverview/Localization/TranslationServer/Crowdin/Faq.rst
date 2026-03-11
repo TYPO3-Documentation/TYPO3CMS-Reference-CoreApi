@@ -148,14 +148,14 @@ with your files. If you follow the links you will most likely see your source fi
 marked with red color and a hover text telling that the export pattern is wrong and
 translations will not be exported for the language that shares the same language code.
 
-In TYPO3 we use %two_letters_code% for language codes and for a few cases this is forbidden
+In TYPO3 we use `%two_letters_code%` for language codes and for a few cases this is forbidden
 when you have two Chinese, French, Portuguese and similar languages. All of our languages are
-required to be exported with %two_letters_code% so we decided to keep using the mentioned placeholder.
+required to be exported with `%two_letters_code%` so we decided to keep using the mentioned placeholder.
 As for Chinese Simplified, French Canadian, Portuguese Brazilian and similar language variety or regional dialect,
 you have to set up “Language mapping” for them. It allows you to customize the language code be used on export.
 
-Here is a list of the most common %two_letters_code% you can use in the "Language Mapping" that you
-find under the Projects "Settings" -> "Languages":
+Here is a list of the most common `%two_letters_code%` you can use in the "Language Mapping" that you
+find under the Project's :guilabel:`Settings > Languages`:
 
 *   Chinese Simplified: `zh_CH`
 *   Chinese Traditional: `zh_HK`
