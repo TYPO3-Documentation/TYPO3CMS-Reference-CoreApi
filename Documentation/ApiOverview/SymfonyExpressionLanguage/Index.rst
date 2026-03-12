@@ -89,7 +89,7 @@ Additional functions
 Additional functions can be provided with another class that has to be
 registered in the provider:
 
-..  literalinclude:: _codesnippets/_CustomConditionFunctionsProvider.php
+..  literalinclude:: _codesnippets/_CustomTypoScriptConditionProvider.php
     :caption: EXT:my_extension/Classes/ExpressionLanguage/CustomTypoScriptConditionProvider.php
 
 The (artificial) implementation below calls some external URL based on given variables:
