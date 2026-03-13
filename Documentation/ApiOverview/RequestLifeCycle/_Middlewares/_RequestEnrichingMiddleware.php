@@ -8,12 +8,12 @@ use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 use Psr\Http\Server\MiddlewareInterface;
 use Psr\Http\Server\RequestHandlerInterface;
-use TYPO3\CMS\Core\Routing\RouterInterface;
+use TYPO3\CMS\Core\Routing\SiteMatcher;
 
 class RequestEnrichingMiddleware implements MiddlewareInterface
 {
     public function __construct(
-        private readonly RouterInterface $matcher,
+        private readonly SiteMatcher $matcher,
     ) {}
 
     public function process(
