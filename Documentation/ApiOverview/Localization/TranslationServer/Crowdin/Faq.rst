@@ -155,7 +155,7 @@ As for Chinese Simplified, French Canadian, Portuguese Brazilian and similar lan
 you have to set up “Language mapping” for them. It allows you to customize the language code be used on export.
 
 Here is a list of the most common `%two_letters_code%` you can use in the "Language Mapping" that you
-find under the Project's :guilabel:`Settings > Languages`:
+find under the project's :guilabel:`Settings > Languages`:
 
 *   Chinese Simplified: `zh_CH`
 *   Chinese Traditional: `zh_HK`
