@@ -210,7 +210,7 @@ via :ref:`dependency injection <Dependency-Injection>`:
 
 Read :ref:`how to configure dependency injection in extensions <dependency-injection-in-extensions>`.
 
-Do not forget to clear the hard caches in :guilabel:`Admin Tools > Maintenance`
+Do not forget to clear the hard caches in :guilabel:`System > Maintenance`
 or via the :bash:`cache:flush` :ref:`CLI <symfony-console-commands>` command
 after modifying the :abbr:`DI (Dependency Injection)` configuration.
 

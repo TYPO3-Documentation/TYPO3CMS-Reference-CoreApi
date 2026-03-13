@@ -29,7 +29,11 @@ lifetime
 
 tags
     Additional tags (an array of strings) assigned to the entry. It is used to
-    remove specific cache entries.
+    remove specific cache entries. The cache can be flushed by tag using command
+    `vendor/bin/typo3 cache:flushtags <tag>`.
+
+..  versionadded:: 14.0
+    Command `vendor/bin/typo3 cache:flushtags <tag>` has been introduced
 
 ..  tip::
     The difference between identifier and tags is quite simple: an identifier
@@ -92,6 +96,9 @@ can be retrieved from the system quickly.
 About tags
 ----------
 
+..  versionadded:: 14.0
+    Command `vendor/bin/typo3 cache:flushtags <tag>` has been introduced
+
 Tags are used to drop specific cache entries when some information they are
 based on is changed.
 
@@ -117,6 +124,20 @@ While there is always exactly one identifier for each cache entry,
 an arbitrary number of tags can be assigned to an entry and one specific tag
 can be assigned to multiple cache entries. All tags a cache entry has are given
 to the cache when the entry is stored ("set").
+
+Command `cache:flushtags` allows flushing cache entries by tag.
+
+Multiple tags can be flushed by passing a comma-separated list of tags.
+It is also possible to flush tags for a specific cache group by using the
+`--groups` or `-g` option. If no group is specified, all cache groups
+are considered.
+
+..  code-block:: bash
+    :caption: Example command usage (Composer-mode projects)
+
+    vendor/bin/typo3 cache:flushtags pageId_123
+    vendor/bin/typo3 cache:flushtags pages_100,pages_200
+    vendor/bin/typo3 cache:flushtags tx_news -g pages
 
 ..  seealso::
     :ref:`Frontend cache collector <typo3-request-attribute-frontend-cache-collector>`

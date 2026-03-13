@@ -78,7 +78,7 @@ This variable can be set in one of the following files:
     `default` is used file extensions that are not explicitly listed.
 
     The option cannot be configured in the
-    :guilabel:`Admin Tools > Settings > Configure options ...` backend module,
+    :guilabel:`System > Settings > Configure options ...` backend module,
     but only by directly editing file :file:`config/system/additional.php`
     (recommended) or :file:`config/system/settings.php`.
 

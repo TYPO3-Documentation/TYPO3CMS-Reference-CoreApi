@@ -13,7 +13,7 @@ of resolved :sql:`sys_template` rows and the
 :php:`\Psr\Http\Message\ServerRequestInterface` and allows manipulating the
 :sql:`sys_template` rows array.
 
-The event is called in the code of the :guilabel:`Site Management > TypoScript`
+The event is called in the code of the :guilabel:`Sites > TypoScript`
 backend module, for example in the submodule :guilabel:`Included TypoScript`,
 and in the frontend.
 

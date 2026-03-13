@@ -29,7 +29,7 @@ Session cookie names involved for providing the `nonce`_ value depending on the 
 Submitting request token value to application:
 
 *   HTTP body, for example in `<form>` via parameter `__RequestToken`
-*   HTTP header, for example in XHR via header `X-TYPO3-Request-Token`
+*   HTTP header, for example in XHR via header `X-TYPO3-RequestToken`
 
 ..  attention::
     When working with multiple browser tabs, an existing nonce value (stored as

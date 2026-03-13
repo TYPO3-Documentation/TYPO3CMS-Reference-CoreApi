@@ -42,11 +42,7 @@ configuration using :ref:`Page TSconfig <t3tsref:pagetsconfig>`.
 
 If :doc:`EXT:lowlevel <ext_lowlevel:Index>` is installed, the name of the
 database table or field is appended to the select options in the
-:guilabel:`System > DB Check > Full Search` module.
-
-Additionally, in debug mode, the page renderer does not compress or concatenate
-JavaScript or CSS resources.
-
+:guilabel:`System > Database > Full Search` module.
 
 .. _examples-debug-utility:
 

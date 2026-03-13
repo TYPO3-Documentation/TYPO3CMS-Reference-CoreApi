@@ -8,7 +8,7 @@ ModifyDatabaseQueryForContentEvent
 
 Use the PSR-14 event :php:`\TYPO3\CMS\Backend\View\Event\ModifyDatabaseQueryForContentEvent`
 to filter out certain content elements from being shown in the
-:guilabel:`Page` module.
+:guilabel:`Content > Layout` module.
 
 Example
 =======

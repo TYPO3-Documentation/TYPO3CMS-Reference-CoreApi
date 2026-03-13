@@ -11,16 +11,15 @@
 Extension folder `Configuration`
 ================================
 
-The folder :file:`EXT:my_extension/Configuration/` may contain
+The folder :file:`EXT:my_extension/Configuration/` contains
 configuration of different types.
 
-Some of the sub directories in here have reserved names with special meanings.
+Most subdirectories have reserved names.
 
-All files in this directory and in the sub directories :file:`TCA` and
-:file:`Backend` are automatically included during the TYPO3 bootstrap.
+Files in the root of this directory and in the :file:`TCA` and
+:file:`Backend` subdirectories are automatically included during TYPO3 bootstrap.
 
-The following files and folders are commonly found in the :file:`Configuration`
-folder:
+The typical file structure is:
 
 
 ..  directory-tree::

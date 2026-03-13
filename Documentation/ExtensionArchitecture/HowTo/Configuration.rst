@@ -47,8 +47,12 @@ Extension configuration is defined in the file :file:`ext_conf_template.txt`
 using TypoScript constant syntax.
 
 The configuration options you define in this file can be changed in the
-backend :guilabel:`Admin Tools > Settings > Extension Configuration` and is
+backend :guilabel:`System > Settings > Extension Configuration` and is
 stored in :file:`config/system/settings.php`.
+
+..  versionchanged:: 14.0
+    This module has been moved from :guilabel:`Admin tools` to :guilabel:`Settings`
+	<https://docs.typo3.org/permalink/changelog:feature-107628-1729026000>`_.
 
 Use this file for general options that should be globally applied to
 the extension.

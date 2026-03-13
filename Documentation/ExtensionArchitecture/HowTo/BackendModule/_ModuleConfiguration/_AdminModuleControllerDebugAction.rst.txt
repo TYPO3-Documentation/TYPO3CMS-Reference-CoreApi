@@ -10,7 +10,7 @@
 
     final readonly class AdminModuleController
     {
-        protected function debugAction(
+        private function debugAction(
             ServerRequestInterface $request,
             ModuleTemplate $view,
         ): ResponseInterface {

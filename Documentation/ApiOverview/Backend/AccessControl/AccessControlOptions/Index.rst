@@ -57,8 +57,8 @@ Modules
 
    Not all submodules appear in this list. It is possible to restrict a
    submodule to admin users only. This is the case, in particular, for all
-   :guilabel:`Admin Tools` and :guilabel:`System` modules, as well as the
-   :guilabel:`Site Management` modules.
+   :guilabel:`Administration` and :guilabel:`System` modules, as well as the
+   :guilabel:`Sites` modules.
 
    .. note::
 
@@ -247,8 +247,12 @@ summarized here:
    Here "Page content" means all records related to that page,
    except other pages.
 
-Page permissions are set and viewed with the module :guilabel:`System > Permissions`
+Page permissions are set and viewed with the module :guilabel:`Administration > Permissions`
 module:
+
+..  versionchanged:: 14.0
+    Until TYPO3 V14 this module was called :guilabel:`System > Permissions`.
+    See also: `Feature: #107628 - Improved backend module naming and structure <https://docs.typo3.org/permalink/changelog:feature-107628-1729026000>`_.
 
 .. include:: /Images/AutomaticScreenshots/AccessControl/AccessModule.rst.txt
 

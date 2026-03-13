@@ -7,8 +7,8 @@ use TYPO3\CMS\Extbase\Domain\Model\FileReference;
 
 class SomeDto
 {
-    #[FileUpload([
-        'validation' => [
+    #[FileUpload(
+        validation: [
             'required' => true,
             'mimeType' => [
                 'allowedMimeTypes' => ['image/jpeg'],
@@ -17,7 +17,7 @@ class SomeDto
                 'invalidExtensionMessage' => 'LLL:EXT:my_extension/...',
             ],
         ],
-        'uploadFolder' => '1:/user_upload/files/',
-    ])]
+        uploadFolder: '1:/user_upload/files/',
+    )]
     protected ?FileReference $file = null;
 }

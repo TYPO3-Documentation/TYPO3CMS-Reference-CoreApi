@@ -33,7 +33,7 @@
             }
 
             $moduleTemplate = $this->moduleTemplateFactory->create($request);
-            $this->setUpDocHeader($request, $moduleTemplate);
+            $this->setUpDocHeader($moduleTemplate);
 
             $title = $languageService->sL('examples.admin_module.mod:mlang_tabs_tab');
             switch ($moduleData->get('function')) {
@@ -48,7 +48,7 @@
                         $title,
                         $languageService->sL('examples.admin_module.mod:module.menu.password'),
                     );
-                    return $this->passwordAction($request, $moduleTemplate);
+                    return $this->passwordAction($moduleTemplate);
                 default:
                     $moduleTemplate->setTitle(
                         $title,

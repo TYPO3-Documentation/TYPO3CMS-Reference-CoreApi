@@ -137,4 +137,4 @@ Within the Core you can find the standard implementation in the system extension
 `backend`:
 
 See class :t3src:`backend/Classes/LoginProvider/UsernamePasswordLoginProvider.php`
-with its template :t3src:`backend/Resources/Private/Templates/Login/UserPassLoginForm.html`.
+with its template :t3src:`backend/Resources/Private/Templates/Login/UserPassLoginForm.fluid.html`.

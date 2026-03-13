@@ -171,6 +171,16 @@ If a request is needed initialize one as described in
 Last resort: global variable
 ----------------------------
 
+..  versionchanged:: 14.0
+
+    The global request variable is a compatibility layer and is no longer
+    guaranteed to be available in all execution contexts. In particular,
+    it may not be set yet in early PSR-15 middlewares.
+
+    Always prefer the PSR-7 request object passed explicitly to the current
+    execution context.
+
+
 TYPO3 provides the request object also in the global variable
 :php:`$GLOBALS['TYPO3_REQUEST']`. Whenever it is possible the request should be
 retrieved within the contexts described above. But this is not always possible

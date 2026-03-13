@@ -7,7 +7,7 @@
 
     use Psr\Http\Message\ResponseInterface;
 
-    class PostController extends AbstractController
+    class PostController extends ActionController
     {
         /**
          * Displays a list of posts as RSS feed

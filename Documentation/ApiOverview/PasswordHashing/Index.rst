@@ -151,7 +151,7 @@ See :ref:`Scheduler: Garbage Collection <ext_scheduler:table-garbage-collection-
 
 To verify and select which specific hash algorithm is currently configured for frontend and backend users, a
 preset of the settings module is available. It can be found in
-:guilabel:`Admin Tools > Settings
+:guilabel:`System > Settings
 > Configuration presets > Password hashing settings`:
 
 ..  figure:: /Images/ManualScreenshots/AdminTools/PasswordHashingSettings.png

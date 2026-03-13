@@ -18,7 +18,7 @@ In the backend:
 
 ..  rst-class:: bignums
 
-1.  Go to :guilabel:`Admin Tools > Extensions`
+1.  Go to :guilabel:`System > Extensions`
 2.  In the Docheader, select :guilabel:`Get Extensions`
 3.  Click :guilabel:`Update now`
 
@@ -83,7 +83,7 @@ Uninstall / Deactivate Extension via TYPO3 Backend
 
 
 Log into the TYPO3 Backend and open the module
-:guilabel:`Admin tools > Extensions`. From the menu choose
+:guilabel:`System > Extensions`. From the menu choose
 :guilabel:`Install extensions`. You get an overview about installed extensions.
 
 On the left side you see an icon, which shows the status of each extension,
@@ -143,4 +143,4 @@ as a last resort. You should only remove an extension that you uninstalled
 successfully. Make a backup first. Then you can permanently remove an extension
 by removing its folder at :file:`typo3conf/ext/[extensionname]`. The
 corresponding database tables can be removed in the
-:guilabel:`Admin Tools > Maintenance > Analyze Database Structure`.
+:guilabel:`System > Maintenance > Analyze Database Structure`.

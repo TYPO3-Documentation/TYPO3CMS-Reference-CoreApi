@@ -24,7 +24,7 @@ Default language
 
    .. note::
 
-      Language packs must be downloaded using the :guilabel:`Admin Tools > Maintenance > Manage Language Packs`
+      Language packs must be downloaded using the :guilabel:`System > Maintenance > Manage Language Packs`
       module. As long as the language packs are not available, the backend
       will still display in English.
 
@@ -60,7 +60,7 @@ Lock to domain
 
 Hide in lists
   This flag will prevent the group from appearing in various
-  listings in TYPO3. This includes modules like :guilabel:`System > Access`.
+  listings in TYPO3. This includes modules like :guilabel:`Administration > Permissions`.
 
 Inherit settings from groups (Sub Groups)
   Assigns sub-groups to this group. Sub-groups are

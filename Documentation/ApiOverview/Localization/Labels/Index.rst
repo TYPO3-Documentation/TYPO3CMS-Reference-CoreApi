@@ -335,3 +335,81 @@ Once you have the correct LanguageService instance, you can resolve labels as fo
     ): string {
         return $languageService->sL($labelReference);
     }
+
+..  _label-reference-deprecated:
+
+Replacing deprecated language labels
+====================================
+
+..  deprecated:: 14.0
+    With TYPO3 v14 a number of labels and localization files have been deprecated.
+
+The first time after deleting a cache, deprecated labels are written into the
+deprecation log, as explained below.
+(See `Enabling the deprecation log <https://docs.typo3.org/permalink/t3coreapi:deprecation-enable-errors>`_).
+
+The Extension Scanner does not detect deprecated localization
+labels. Developers must rely on runtime deprecation logs to identify these
+occurrences.
+
+Deprecated labels are marked with attribute `x-unused-since="14.0"` in the XLIFF
+1.2 localization file and with `subState="deprecated"` in XLIFF 2.0. They will
+be removed in the next major TYPO3 version.
+
+It is possible to use these tags to deprecate labels in third party extensions
+as well.
+
+To ease migration for extension developers and projects, the
+command :bash:`vendor/bin/typo3 language:domain:search` can be used to search
+for specific label content (:composer:`typo3/cms-lowlevel` needs to be
+installed).
+
+For example, if you used the now deprecated label reference
+`LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.starttime`
+
+Use the following command:
+
+..  code-block:: bash
+
+    vendor/bin/typo3 language:domain:search --search starttime
+
+    core.db.general file EXT:core/Resources/Private/Language/db/general.xlf
+    =======================================================================
+
+    +-----------------+--------------------+
+    | Label Reference | Label Content (en) |
+    +-----------------+--------------------+
+    | starttime       | Publish Date       |
+    +-----------------+--------------------+
+
+
+to search for label reference keys or content containing "starttime". If
+the label content fits your purpose you can switch your label reference to the
+new location:
+
+..  code-block:: diff
+    :caption: Fluid Template (diff)
+
+    - <f:translate id="LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.starttime" />
+    + <f:translate id="starttime" domain="core.db.general" />
+
+..  code-block:: diff
+    :caption: TCA definition (diff)
+
+     'my_special_starttime' => [
+    -    'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.starttime',
+    +    'label' => 'core.db.general:starttime',
+         'config' => [
+             'type' => 'datetime',
+             'default' => 0,
+         ],
+     ],
+
+..  code-block:: diff
+    :caption: PHP controller or service (diff)
+
+    - $languageService->sL('LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.starttime')
+    + $languageService->sL('core.db.general:starttime')
+
+If you can't find a suitable label for your use case, consider moving the label
+to your own extension's XLIFF localization files.

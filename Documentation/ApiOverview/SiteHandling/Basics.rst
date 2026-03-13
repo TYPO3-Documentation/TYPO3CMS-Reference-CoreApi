@@ -2,7 +2,7 @@
 ..  include:: /Includes.rst.txt
 ..  index::
     Site handling; Basics
-    Module; Site management
+    Module; Sites
 ..  _sitehandling-basics:
 
 ====================
@@ -11,7 +11,7 @@ Site handling basics
 
 TYPO3 site handling and configuration is the starting point for creating new
 websites. The corresponding modules are found in the TYPO3 backend in the
-section :guilabel:`Site Management`.
+section :guilabel:`Sites`.
 
 A site configuration consists of the following parts:
 
@@ -72,7 +72,7 @@ The following part explains the configuration file and options:
 ..  literalinclude:: _basics-config.yaml
     :caption: config/sites/<some_site>/config.yaml | typo3conf/sites/<some_site>/config.yaml
 
-Most settings can also be edited via the :guilabel:`Site Management > Sites`
+Most settings can also be edited via the :guilabel:`Sites > Setup`
 backend module, except for custom settings and additional routing configuration.
 
 

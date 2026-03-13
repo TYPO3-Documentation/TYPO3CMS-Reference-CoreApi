@@ -129,11 +129,11 @@ Some examples for feature toggles in the TYPO3 Core:
 Enable / disable feature toggle
 ===============================
 
-Features can be toggled in the :guilabel:`Admin Tools > Settings` module via
+Features can be toggled in the :guilabel:`System > Settings` module via
 :guilabel:`Feature Toggles`:
 
 ..  figure:: /Images/ManualScreenshots/AdminTools/FeatureToggles.png
-    :alt: Feature toggles in the Admin Tools
+    :alt: Feature toggles in module System > Settings
 
 Internally, the changes are written to :file:`config/system/settings.php`:
 

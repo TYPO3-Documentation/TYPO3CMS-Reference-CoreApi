@@ -12,7 +12,7 @@ class SomeCest
      * @param BackendTester $I
      */
     public function _before(BackendTester $I)
-    {   // Switch to "content frame", eg the "list module" content
+    {   // Switch to "content frame", eg the "Records module" content
         $I->switchToContentFrame();
 
         // Switch to "main frame", the frame with the main modules and top bar

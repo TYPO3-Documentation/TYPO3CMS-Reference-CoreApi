@@ -283,7 +283,7 @@ First we extend the database schema by adding the following to the file
 
 .. tip::
 
-    Do a database compare in the :guilabel:`Admin Tools > Maintenance` module
+    Do a database compare in the :guilabel:`System > Maintenance` module
     after changing the database schema (system maintainers only). Or call the
     console command:
 

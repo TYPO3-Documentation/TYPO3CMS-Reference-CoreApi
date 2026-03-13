@@ -181,7 +181,7 @@ The folder :path:`typo3conf/system/` contains the installation-wide
 :ref:`configuration files <configuration-files>`:
 
 *   :file:`settings.php`: :ref:`Configuration <typo3ConfVars-settings>` written
-    by the :guilabel:`Admin Tools > Settings` backend module
+    by the :guilabel:`System > Settings` backend module
 *   :file:`additional.php`: :ref:`Manually created file <typo3ConfVars-additional>`
     which can override settings from :file:`settings.php` file
 

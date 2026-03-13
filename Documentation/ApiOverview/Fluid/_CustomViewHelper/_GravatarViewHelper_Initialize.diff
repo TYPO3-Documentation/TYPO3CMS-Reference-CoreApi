@@ -1,8 +1,0 @@
- public function initializeArguments(): void
- {
-     parent::initializeArguments();
-+    // TODO: Remove registerUniversalTagAttributes and registerTagAttribute
-+    // On dropping TYPO3 v12.4 support.
-     $this->registerUniversalTagAttributes();
-     $this->registerTagAttribute('alt', 'string', 'Alternative Text for the image');
- }

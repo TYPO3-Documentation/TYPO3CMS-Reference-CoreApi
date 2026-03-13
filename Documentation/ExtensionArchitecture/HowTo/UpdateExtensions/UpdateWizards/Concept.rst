@@ -26,14 +26,11 @@ Each wizard is able to check pre-conditions to prevent execution, if nothing has
 to be updated. The wizard can log information and executed SQL statements, that
 can be displayed after execution.
 
-Best practice
-=============
+..  rubric:: Best practice
 
 Each extension can provide as many upgrade wizards as necessary. Each wizard
 should perform exactly one specific update.
 
-Examples
-========
+..  rubric:: Examples
 
-The TYPO3 Core itself provides upgrade wizards inside
-:t3src:`install/Classes/Updates/`.
+See `Examples for common upgrade wizards <https://docs.typo3.org/permalink/t3coreapi:upgrade-wizard-examples>`_.

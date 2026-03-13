@@ -24,7 +24,7 @@ $GLOBALS
     where each option is described in detail.
 
     Most values in this array can be accessed through the tool
-    :guilabel:`Admin Tools > Settings > Configure Installation-Wide Options`.
+    :guilabel:`System > Settings > Configure Installation-Wide Options`.
 
 
 ..  confval:: TCA

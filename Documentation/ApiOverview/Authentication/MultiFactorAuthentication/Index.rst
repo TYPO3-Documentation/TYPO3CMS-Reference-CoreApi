@@ -169,11 +169,11 @@ only a specific MFA provider.
     All of these deactivate buttons are executed immediately, after
     confirming the dialog, and cannot be undone.
 
-The listing of backend users in the :guilabel:`System > Backend Users` module
+The listing of backend users in the :guilabel:`Administration > Users` module
 also displays for each user, whether MFA is enabled or currently locked. This
 allows an administrator to analyze the MFA usage of their users at a glance.
 
-The :guilabel:`System > Configuration` admininistration module shows an overview
+The :guilabel:`System > Configuration` administration module shows an overview
 of all currently registered providers in the installation. This is especially
 helpful to find out the exact provider identifier, needed for some
 user TSconfig options.

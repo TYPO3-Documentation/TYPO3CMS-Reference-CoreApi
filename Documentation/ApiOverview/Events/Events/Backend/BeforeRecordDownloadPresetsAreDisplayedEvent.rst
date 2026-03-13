@@ -10,7 +10,7 @@ BeforeRecordDownloadPresetsAreDisplayedEvent
 
 The event :php:`TYPO3\CMS\Backend\RecordList\Event\BeforeRecordDownloadPresetsAreDisplayedEvent`
 can be used to manipulate the list of available download presets in
-the :guilabel:`Content > List` module.
+the :guilabel:`Content > Records` module.
 
 See :confval:`mod.web_list.downloadPresets <t3tsref:mod-web-list-downloadpresets>`
 on how to configure download presets.

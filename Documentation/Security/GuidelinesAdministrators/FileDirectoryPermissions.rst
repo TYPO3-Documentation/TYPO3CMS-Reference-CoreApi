@@ -11,7 +11,7 @@ Secure file permissions (operating system level)
 ..  figure:: /Images/ManualScreenshots/AdminTools/DirectoryStatus.png
     :alt: Output of the directory status with missing writing permissions for folder public
 
-    The tool "Directory Status" in :guilabel:`Admin Tools > Environment` displays warnings about missing write permissions
+    The tool "Directory Status" in :guilabel:`System > Environment` displays warnings about missing write permissions
 
 This chapter explains how to securely configure file and directory permissions
 at the operating system level for TYPO3 installations. It focuses on who can
@@ -57,8 +57,9 @@ reside outside the web root, improving security by design.
 
     -   To allow changing site configurations via the backend, the web server needs
         write access to :file:`config/sites/`.
-    -   To allow system maintainers to update settings via the Admin Tools module,
-        the web server needs write access to :file:`config/system/settings.php`.
+    -   To allow system maintainers to update settings via the
+        :guilabel:`System > Settings` module, the web server needs write
+        access to :file:`config/system/settings.php`.
 
 -   Keep :file:`vendor/`, :file:`composer.json`, and :file:`public/index.php`
     read-only for the web server.
@@ -92,10 +93,11 @@ accidental manipulation, making secure filesystem permissions essential.
         through the backend.
 
     -   :file:`typo3conf/system/`: Stores system settings; writable if modifying settings
-        via the Admin Tools → Settings module.
+        via the :guilabel:`System > Settings` module.
 
     -   :file:`typo3conf/l10n/`: Must be writable to allow downloading or updating
-        translation files via the Admin Tools.
+        translation files via the module
+        :guilabel:`System > Maintenance > Manage Language Packs`.
 
 -   The rest of the :file:`typo3conf/` directory should remain read-only to the
     web server where possible.
@@ -112,7 +114,7 @@ TYPO3 provides a built-in backend tool to verify directory permissions.
 
 You can access it via:
 
-:guilabel:`Admin Tools > Environment > Directory Status`
+:guilabel:`System > Environment > Directory Status`
 
 This view lists key directories such as :file:`fileadmin/`, :file:`config/`,
 :file:`var/`, and others, and shows whether the current web server user has

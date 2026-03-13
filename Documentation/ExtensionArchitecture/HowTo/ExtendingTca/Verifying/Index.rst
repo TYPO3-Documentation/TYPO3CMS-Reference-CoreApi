@@ -7,13 +7,13 @@
 =================
 Verifying the TCA
 =================
-You may find it necessary – at some point – to verify the full
-structure of the :php:`$GLOBALS['TCA']` in your TYPO3 installation.
-The :guilabel:`System > Configuration` module makes it possible to have an overview of the
-complete :php:`$GLOBALS['TCA']`, with all customizations taken into account.
+At some point it may be necessary to check the overall structure of
+:php:`$GLOBALS['TCA']` in your TYPO3 installation.
+The :guilabel:`System > Configuration` module gives you an overview of the
+complete :php:`$GLOBALS['TCA']`, with all modifications taken into account.
 
-.. note:: The :guilabel:`Configuration` module is part of the lowlevel system extension. In Composer mode
-   you can install it with:
+.. note::
+    The :guilabel:`Configuration` module is part of the lowlevel system extension. In Composer mode you can install it with:
 
    .. code-block:: shell
 
@@ -21,9 +21,8 @@ complete :php:`$GLOBALS['TCA']`, with all customizations taken into account.
 
 .. include:: /Images/AutomaticScreenshots/ExtendingTca/VerifyingTca.rst.txt
 
-If you cannot find your new field, it probably means that you have
-made some mistake.
+If you can't find your new field it probably means that you have
+made a mistake somewhere.
 
-This view is also useful when trying to find out where to insert a new
-field, to explore the combination of types and palettes that may be
-used for the table that we want to extend.
+The :guilabel:`System > Configuration` module overview is generally useful when you are extending TCA to find out where to insert
+fields and which types and palettes are used for a particular table.

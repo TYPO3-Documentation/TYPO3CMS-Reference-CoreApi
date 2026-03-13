@@ -20,7 +20,7 @@ extension to the TER (TYPO3 Extension Repository)
 
     The :file:`ext_emconf.php` is used in
     :ref:`Classic mode installations not based on Composer <classic-installation>` to
-    supply information about an extension in the :guilabel:`Admin Tools > Extensions`
+    supply information about an extension in the :guilabel:`System > Extensions`
     module. In these installations the ordering of installed extensions and their
     dependencies are loaded from this file as well.
 

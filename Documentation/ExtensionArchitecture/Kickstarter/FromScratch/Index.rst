@@ -57,4 +57,4 @@ After that install your extension via Composer:
 ..  hint::
     In Classic mode installations put the extension in the
     :file:`typo3conf/ext` directory and then **activate** it in
-    :guilabel:`Admin Tools > Extensions`.
+    :guilabel:`System > Extensions`.

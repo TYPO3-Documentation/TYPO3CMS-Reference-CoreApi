@@ -16,3 +16,4 @@ in EXT:backend.
     :glob:
 
     *
+    */Index

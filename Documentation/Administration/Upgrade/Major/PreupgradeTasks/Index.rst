@@ -98,10 +98,10 @@ Without command line
 ..  versionchanged:: 14.0
     The "Update Reference Index" tool was moved from :composer:`typo3/cms-lowlevel`
     to :composer:`typo3/cms-install`. In the backend the tool can now be found
-    in :guilabel:`Admin Tools > Maintenance > Check and Update Reference Index`.
+    in :guilabel:`System > Maintenance > Check and Update Reference Index`.
 
 Still in your old TYPO3 version, go to the
-:guilabel:`Admin Tools` module and use the
+:guilabel:`System > Maintenance` module and use the
 :guilabel:`Check and Update Reference Index` function.
 
 ..  note::
@@ -165,8 +165,8 @@ entry and see how to migrate your code corresponding to the documentation.
 Since TYPO3 v9 an :ref:`extension scanner <t3coreapi:extension-scanner>` is
 included, that provides basic scanning of your extensions for deprecated code.
 While it does not catch everything, it can be used as a base for an upgrade. You
-can either access the extension scanner via the TYPO3 admin tools (in the
-Backend: :guilabel:`Module "Upgrade" > "Scan Extension Files"`)
+can either access the extension scanner via the backend module
+:guilabel:`System > Upgrade` (function :guilabel:`Scan Extension Files`)
 or as a standalone tool (https://github.com/tuurlijk/typo3scan).
 
 The extension scanner will show the corresponding changelog which contains

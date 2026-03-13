@@ -125,7 +125,10 @@
     ..  php:method:: makeDocHeaderModuleMenu(array $additionalQueryParams = [])
         :returns: `self`
 
-        Generates a menu in the docheader to access third-level modules
+        Generates a module actions dropdown in the docheader button bar.
+
+        Creates a dropdown button on the LEFT side (group 0) containing navigation to
+        submodules or module actions. The button label shows the currently active module/action.
 
         :param $additionalQueryParams: the additionalQueryParams, default: []
 

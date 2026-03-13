@@ -12,7 +12,7 @@ A new site configuration is automatically created for each
 **page with the "is_siteroot" flag set**.
 
 To customize the automatically created site configuration,
-go to the :guilabel:`Site Management > Sites` module.
+go to the :guilabel:`Sites > Setup` module.
 
 ..  include:: /Images/AutomaticScreenshots/SiteHandling/SiteHandlingCreateNewSite-1.rst.txt
 

@@ -47,7 +47,7 @@ Configuration
 =============
 
 The configuration can be done in the backend via
-:guilabel:`Admin Tools > Settings > Configure Installation-Wide Options`:
+:guilabel:`System > Settings > Configure Installation-Wide Options`:
 
 ..  figure:: /Images/ManualScreenshots/AdminTools/ConfigureEntryPoint.png
     :alt: Configure the entry point via GUI

@@ -18,7 +18,7 @@
      * This file is part of the TYPO3 CMS project. [...]
      */
 
-    defined('TYPO3') or die();
+    defined('TYPO3') || die();
 
     $pluginSignature = 'examples_haiku_list';
 

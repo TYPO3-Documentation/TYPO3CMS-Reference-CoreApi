@@ -142,7 +142,7 @@ Change the install tool password via GUI
 This can only be done if you know the current install tool password and can log
 into the Install Tool:
 
-Log-in to the Install Tool and change it in :guilabel:`Admin Tools > Settings > Change
+Log-in to the Install Tool and change it in :guilabel:`System > Settings > Change
 install tool password`.
 
 .. include:: /Images/AutomaticScreenshots/AdminTools/ChangeInstallToolPassword.rst.txt
@@ -154,30 +154,30 @@ Accessing the Install Tool in the backend
 
 The `System Maintainer <https://docs.typo3.org/permalink/t3coreapi:confval-globals-typo3-conf-vars-sys-systemmaintainers>`_
 role allows for selected backend users to access the
-:guilabel:`Admin Tools` components from within the backend.
+:guilabel:`System` components from within the backend.
 
 The behavior depends on the current `Application Context <https://docs.typo3.org/permalink/t3coreapi:application-context>`_:
 
 * **Development context:**
   All backend users with administrator privileges can access the
-  :guilabel:`Admin Tools` directly without further security measures.
+  :guilabel:`System` modules directly without further security measures.
 
 * **Testing context:**
   All backend users with administrator privileges can see the
-  :guilabel:`Admin Tools` in the backend. However, an additional
+  :guilabel:`System` in the backend. However, an additional
   authentication step ("sudo mode") is required. The user must re-enter
   either their own backend password or the Install Tool password.
 
 * **Production context:**
   Only users listed as `System Maintainers <https://docs.typo3.org/permalink/t3coreapi:confval-globals-typo3-conf-vars-sys-systemmaintainers>`_
-  can access the :guilabel:`Admin Tools`. In addition, an extra authentication
+  can access the :guilabel:`System` modules. In addition, an extra authentication
   step ("sudo mode") is required. The user must re-enter either their own
   backend password or the Install Tool password before being granted access.
 
 The number of system maintainers should be as low as possible to mitigate
 the risks of corrupted accounts.
 
-Users can be assigned the role in the :guilabel:`Settings` section of
+Users can be assigned the role in the :guilabel:`System > Settings` section of
 :guilabel:`Install Tool` -> :guilabel:`Manage System Maintainers`.
 It is also possible to manually modify the list by adding or removing the
 user's UID (:sql:`be_users.uid`) in :file:`config/system/settings.php`:

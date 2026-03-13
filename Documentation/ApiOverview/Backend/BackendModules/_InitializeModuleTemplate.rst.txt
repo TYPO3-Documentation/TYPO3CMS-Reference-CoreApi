@@ -29,6 +29,9 @@
 
         public function showPostAction(Post $post): ResponseInterface
         {
+            if (!$this->isCurrentPageSysfolder()) {
+                return $this->redirect('index');
+            }
             $view = $this->initializeModuleTemplate($this->request);
             $view->assign('post', $post);
             return $view->renderResponse('ShowPost');

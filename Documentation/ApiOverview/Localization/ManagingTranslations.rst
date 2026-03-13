@@ -19,7 +19,7 @@ language files (XLIFF 1.2 and 2.x).
 Fetching translations or updating language packs
 ================================================
 
-The backend module :guilabel:`Admin Tools > Maintenance > Manage Language Packs`
+The backend module :guilabel:`System > Maintenance > Manage Language Packs`
 displays a list of available languages and can fetch or update language packs
 for system and extension translations from the official TYPO3 translation server.
 
@@ -53,7 +53,7 @@ Administrators can install additional language packs directly in the backend:
 
 ..  rst-class:: bignums
 
-1.  Go to :guilabel:`Admin Tools > Maintenance > Manage Language Packs`
+1.  Go to :guilabel:`System > Maintenance > Manage Language Packs`
 
     ..  include:: /Images/AutomaticScreenshots/Modules/ManageLanguage.rst.txt
 

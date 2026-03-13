@@ -77,6 +77,9 @@ A command with parameters and arguments
 ..  literalinclude:: _Tutorial/_CreateWizardCommand.php
     :caption: packages/my_extension/Classes/Command/SendFluidMailCommand.php
 
+It uses attribute :php:`#[AsNonSchedulableCommand]` so that it can only be used
+from the console and not from the :guilabel:`Administration > Scheduler` module.
+
 This command takes one argument :php:`wizardName` (optional) and one option (optional),
 which can be added on the command line:
 
@@ -93,7 +96,6 @@ which can be added on the command line:
       ..  code-block:: bash
 
          typo3/sysext/core/bin/typo3 examples:createwizard [-b] [wizardName]
-
 
 ..  _console-command-tutorial-fluidmail:
 

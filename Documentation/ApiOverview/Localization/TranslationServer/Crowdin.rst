@@ -19,6 +19,7 @@ Localization with Crowdin
     :caption: More to read
 
     Crowdin/ExtensionIntegration
+    Crowdin/MassApproval
     Crowdin/OnlineTranslation
     Crowdin/Workflow
     Crowdin/Bestpractice
@@ -59,9 +60,9 @@ Contribute translations
 
 There are basically two cases where you can provide a helping hand:
 
-Join the `Localization Team`_ and help where you can. This can be the
-translation of a whole extension into your language or the revision of a part
-of the Core.
+Pick one of our `projects`_, join our group of translators and proofreaders and
+help where you can. This can be the translation of a whole extension into your
+language or the revision of a part of the Core.
 
 #.  Contribution to the general translation of the TYPO3 Core and extensions:
     As TYPO3 is growing in features and functionality, the need for translating
@@ -83,14 +84,12 @@ The quality of your work is more important than its quantity. Ensure correct
 spelling (for example, capitalization), grammar, and punctuation. Use only
 terminology that is consistent with the rest of the language pack. Do not make
 mistakes in the technical parts of the strings, such as variable placeholders,
-HTML, etc. For these reasons, using an automatic translation (e.g. Google Translate) is never good enough.
-
-For these reasons, using automatic translation (for example, Google Translate or
-DeepL) is never good enough.
+HTML, etc. For these reasons, using an automatic translation (e.g. DeepL, Google
+Translate, AI) is never good enough.
 
 All services and documents that are visible to the user are translated by the
-translation team. It does not matter which language you speak. We already have
-many language teams that are very active. Our goal is more diversity to help us
-with our work on internationalization.
+team of translators and proofreaders. It does not matter which language you
+speak. We already have many language teams that are very active. Our goal is
+more diversity to help us with our work on internationalization.
 
-..  _Localization Team: https://typo3.org/community/teams/localization
+..  _projects: https://crowdin.com/profile/TYPO3

@@ -12,7 +12,7 @@
     Page TSconfig can be set using
     `the site as Page TSconfig provider <https://docs.typo3.org/permalink/t3tsref:include-static-page-tsconfig-per-site>`_
 
-    Only put page TSconfig in this file which absolutely has to be set globally.
+    Only put global page TSconfig in this file.
 
 ..  typo3:file:: page.tsconfig
     :scope: extension
@@ -21,7 +21,7 @@
     :shortDescription: Global page TSconfig
 
     In this file global page TSconfig can be stored. It will be automatically
-    included for all pages.
+    included in all pages.
 
     For details see
     :ref:`Setting the page TSconfig globally <t3tsref:pagesettingdefaultpagetsconfig>`.

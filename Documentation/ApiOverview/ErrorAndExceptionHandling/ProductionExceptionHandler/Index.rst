@@ -12,7 +12,7 @@ Functionality of the :php:`\TYPO3\CMS\Core\Error\ProductionExceptionHandler`:
     :php:`\TYPO3\CMS\Core\Controller\ErrorPageController` and its attendant template.
 *   Logs exception messages via the :ref:`logging API <logging>`.
 *   Logs exception messages to the sys\_log table. Logged errors are displayed
-    in the belog extension (:guilabel:`Admin Tools > Log`). This will only work with an
+    in the belog extension (:guilabel:`Administration > Log`). This will only work with an
     existing DB connection.
 
 Depending on the :ref:`Logging writer configuration <logging-configuration-writer>`
@@ -23,7 +23,7 @@ the exception output can be found for example in the following locations:
     :path:`var/logs/`. In Classic mode installations in :path:`typo3temp/var/logs/`.
 :php:`\TYPO3\CMS\Core\Log\Writer\SyslogWriter`
     Logs exception messages to the :sql:`sys_log` table. Logged errors are displayed
-    in the backend module :guilabel:`Admin Tools > Log`.
+    in the backend module :guilabel:`Administration > Log`.
 
 Here you find a complete list of :ref:`Log writers <logging-writers>`.
 

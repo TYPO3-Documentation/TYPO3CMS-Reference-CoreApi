@@ -137,7 +137,8 @@ to avoid data mapping errors.
 Nullable and `Union types <https://docs.typo3.org/permalink/t3coreapi:extbase-model-properties-union-types>`_
 are also supported.
 
-..  note:: Typed properties are strongly encouraged in all new TYPO3 extensions.
+..  note::
+    Typed properties are strongly encouraged in all new TYPO3 extensions.
 
 ..  _extbase-model-properties-default-values:
 

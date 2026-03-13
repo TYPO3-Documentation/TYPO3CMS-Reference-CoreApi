@@ -691,12 +691,15 @@ The nonce can be retrieved via the
 
 ..  code-block:: php
 
-    // use TYPO3\CMS\Core\Domain\ConsumableString
+    // use TYPO3\CMS\Core\Security\ContentSecurityPolicy\ConsumableNonce
+    // use TYPO3\CMS\Core\Security\ContentSecurityPolicy\Directive
 
-    /** @var ConsumableString|null $nonceAttribute */
+    /** @var ConsumableNonce|null $nonceAttribute */
     $nonceAttribute = $this->request->getAttribute('nonce');
-    if ($nonceAttribute instanceof ConsumableString) {
-        $nonce = $nonceAttribute->consume();
+    if ($nonceAttribute instanceof ConsumableNonce) {
+        $nonce = $nonceAttribute->consumeInline(Directive::ScriptSrcElem); // inline script
+        // or
+        $nonce = $nonceAttribute->consumeStatic(Directive::StyleSrcElem);  // static style
     }
 
 In a Fluid template
@@ -787,12 +790,16 @@ as outlined above.
 .. _content-security-policy-backend:
 .. _content-security-policy-reporting:
 
-Reporting of violations, CSP Backend module
-===========================================
+Reporting of violations, "Content Security Policy" (CSP) backend module
+=======================================================================
+
+..  versionchanged:: 14.0
+    This module has been moved from :guilabel:`Admin tools` to :guilabel:`Settings`
+	<https://docs.typo3.org/permalink/changelog:feature-107628-1729026000>`_.
 
 Potential CSP violations are reported back to the TYPO3 system and persisted
 internally in the database table :sql:`sys_http_report`. A corresponding
-:guilabel:`Admin Tools > Content Security Policy` backend module supports users
+:guilabel:`System > Content Security Policy` backend module supports users
 to keep track of recent violations and - if applicable - to select potential
 resolutions (stored in the database table :sql:`sys_csp_resolution`) which
 extends the Content Security Policy for the given scope during runtime:

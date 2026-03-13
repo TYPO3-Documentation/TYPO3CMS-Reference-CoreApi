@@ -111,8 +111,8 @@ additional configuration steps. If you, as an editor, should have an
 account with administrator privileges, it is often an indication of a
 misconfiguration.
 
-As an indicator, if you see a section :guilabel:`System`
-or even a section :guilabel:`Admin Tools` in the :ref:`Module menu <backend-modules-structure>` ,
+As an indicator, if you see a section :guilabel:`Administration`
+or even a section :guilabel:`System` in the :ref:`Module menu <backend-modules-structure>` ,
 you definitely have the wrong permissions as an editor and you
 should get in touch with the system provider to solve this issue.
 

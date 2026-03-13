@@ -1,2 +1,0 @@
-- $myView->assign('true', $something);
-+ $myView->assign('myVariable', $something);

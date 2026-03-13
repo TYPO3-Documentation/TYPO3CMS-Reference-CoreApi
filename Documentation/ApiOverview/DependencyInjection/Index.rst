@@ -187,7 +187,7 @@ this cache:
     application. For developer convenience, the container cache *is* flushed in development
     context, though.
 
-*   The container cache *is* flushed using "Admin tools" -> "Maintenance" -> "Flush Caches"
+*   The container cache *is* flushed using :guilabel:`System > Maintenance` -> "Flush Caches"
     of the Install Tool.
 
 *   The container cache *is* flushed using the CLI command :shell:`vendor/bin/typo3 cache:flush`. Using

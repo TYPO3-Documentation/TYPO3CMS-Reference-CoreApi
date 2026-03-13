@@ -43,7 +43,7 @@ Quick start
 
 1. Open extension scanner from the TYPO3 backend:
 
-   :guilabel:`Admin Tools > Upgrade > Scan Extension Files`
+   :guilabel:`System > Upgrade > Scan Extension Files`
 
    .. include:: /Images/AutomaticScreenshots/AdminTools/ExtensionScannerOpen.rst.txt
 

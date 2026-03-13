@@ -19,9 +19,13 @@ Backend Administrator Password
 ------------------------------
 
 When the password for a backend user needs to be reset, log into the backend with an
-alternative user and use the :guilabel:`System > Backend Users` tool to reset
+alternative user and use the :guilabel:`Administration > Users` tool to reset
 the users password. Note that only backend users with administrative rights can
-access the `Backend Users` tool to make this change.
+access the user management tool to make this change.
+
+..  versionchanged:: 14.0
+    Until TYPO3 V14 this module was called :guilabel:`System > Backend Users`.
+    See also: `Feature: #107628 - Improved backend module naming and structure <https://docs.typo3.org/permalink/changelog:feature-107628-1729026000>`_.
 
 If an alternative administrator account is not available or it doesn't have the
 appropriate access, the Install Tool can be accessed directly
@@ -134,7 +138,7 @@ Additionally, the following logs should be checked for additional information:
 
 *  Webserver log files for general problems (e.g. :file:`/var/log/apache2` or :file:`/var/log/httpd` on
    Linux based systems)
-*  TYPO3 Administration log in :guilabel:`SYSTEM > Log` via TYPO3's backend.
+*  TYPO3 Administration log in :guilabel:`Administation > Log` via TYPO3's backend.
 *  TYPO3 logs written by the :ref:`Logging Framework <t3coreapi:logging>` located in :file:`var/log`
    or :file:`typo3temp/var/log` depending on the installation setup.
 

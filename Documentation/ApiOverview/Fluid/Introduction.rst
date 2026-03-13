@@ -60,6 +60,32 @@ Conditions:
     :ref:`If ViewHelper <f:if> <t3viewhelper:typo3fluid-fluid-if>` ViewHelper.
 
 
+..  _fluid-variables:
+
+Passing Variables from PHP
+--------------------------
+
+In PHP, you can use the :php:`assign()` method on an instance of
+:php-short:`\TYPO3\CMS\Core\View\ViewInterface` to pass a variable to a Fluid
+template:
+
+..  code-block:: php
+
+    $this->view->assign('title', 'An example title');
+
+Output it in a Fluid template:
+
+..  code-block:: html
+
+    <h1>{title}</h1>
+
+The result:
+
+..  code-block:: html
+
+    <h1>An example title</h1>
+
+
 ..  index:: Fluid; Directory structure
 
 ..  _fluid-directory-structure:
@@ -89,6 +115,11 @@ In your extension, the following directory structure should be used for Fluid fi
                 *   Templates
 
                     *   All templates go here
+
+                *   Components
+
+                    *   All components go here
+
 
 This directory structure is the convention used by TYPO3. When using Fluid outside of
 TYPO3 you can use any folder structure you like.
@@ -201,6 +232,18 @@ The variable :html:`post.tags` is passed to the partial as variable :html:`tags`
 
 If ViewHelpers from a different namespace are used in the partial, the namespace
 import can be done in the template or the partial.
+
+..  _fluid-components:
+
+:file:`Components`
+----------------
+
+*optional*
+
+Since Fluid version 4.3 components were introduced. Components are custom HTML-like
+tags based on Fluid templates. Like partials they provide a good code reuseability.
+Get more informations about components and see how they can be implemented in the
+article `Components <https://docs.typo3.org/permalink/fluid:components>`_.
 
 ..  _fluid-theme-example:
 

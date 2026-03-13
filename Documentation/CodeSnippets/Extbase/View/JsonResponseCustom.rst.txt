@@ -8,7 +8,7 @@
     use Psr\Http\Message\ResponseInterface;
     use T3docs\BlogExample\Domain\Model\Blog;
 
-    class BlogController extends AbstractController
+    class BlogController extends ActionController
     {
         public function showBlogAjaxAction(Blog $blog): ResponseInterface
         {

@@ -6,4 +6,4 @@
 .. figure:: /Images/AutomaticScreenshots/AdminTools/AllConfiguration.png
    :class: with-shadow
 
-   Configure installation-wide options :guilabel:`Admin Tools > Settings`
+   Configure installation-wide options :guilabel:`System > Settings`

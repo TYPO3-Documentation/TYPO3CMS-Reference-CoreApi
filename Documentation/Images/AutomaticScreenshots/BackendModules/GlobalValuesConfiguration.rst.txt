@@ -3,4 +3,4 @@
 .. figure:: /Images/AutomaticScreenshots/BackendModules/GlobalValuesConfiguration.png
    :class: with-shadow
 
-   Viewing the :php:`$GLOBALS['TYPO3_CONF_VARS]` array using the :guilabel:`Admin Tools > Configuration` module
+   Viewing the :php:`$GLOBALS['TYPO3_CONF_VARS]` array using the :guilabel:`Administration > Configuration` module

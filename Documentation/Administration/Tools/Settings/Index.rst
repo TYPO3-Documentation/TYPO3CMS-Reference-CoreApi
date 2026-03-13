@@ -2,14 +2,15 @@
 
 ..  include:: /Includes.rst.txt
 ..  _admin-tools-settings:
+..  _system-tools-settings:
 
-======================
-Settings (Admin Tools)
-======================
+==========================
+Module "Settings" (System)
+==========================
 
 Only available if :composer:`typo3/cms-install` is installed.
 
-The backend module :guilabel:`Admin Tools > Settings` offers tools
+The backend module :guilabel:`System > Settings` offers tools
 to system maintainers regarding **global** settings that affect the complete
 TYPO3 installation.
 
@@ -32,7 +33,7 @@ Change install tool password
 ============================
 
 You can use this tool to easily change the install tool password from
-within Admin Tools.
+within the backend or install tool.
 
 ..  versionadded:: 14.0
 
@@ -113,7 +114,7 @@ Feature toggles
 ===============
 
 ..  figure:: /Images/ManualScreenshots/AdminTools/FeatureToggles.png
-    :alt: Feature toggles in the Admin Tools
+    :alt: Feature toggles in the system settings
 
 This tool enables and disables Core features. See
 `Feature toggle API <https://docs.typo3.org/permalink/t3coreapi:feature-toggles>`_

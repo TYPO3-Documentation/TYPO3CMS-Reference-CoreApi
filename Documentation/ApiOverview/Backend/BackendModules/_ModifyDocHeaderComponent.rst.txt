@@ -19,7 +19,7 @@
 
             $metaInformation = $this->getMetaInformation();
             if (is_array($metaInformation)) {
-                $view->getDocHeaderComponent()->setMetaInformation($metaInformation);
+                $view->getDocHeaderComponent()->setPageBreadcrumb($metaInformation);
             }
         }
 

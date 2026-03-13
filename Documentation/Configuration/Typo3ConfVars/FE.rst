@@ -64,18 +64,12 @@ the TYPO3 frontend:
     :Default: 0
     :Range: 0-9
 
-    Defines the compression level used for **frontend resource pre-compression**
-    (JavaScript and CSS files) when combined with the TypoScript settings
-    `config.compressJs  <https://docs.typo3.org/permalink/t3tsref:confval-config-compressjs>`_
-    and `compressCss  <https://docs.typo3.org/permalink/t3tsref:confval-config-compresscss>`_.
-
     ..  versionchanged:: 14.0
 
         Frontend HTTP response compression has been removed. Response compression
         should be applied by web servers and not by the application layer.
 
-        See also: `Breaking: #107943 - Frontend and backend HTTP response
-        compression removed <https://docs.typo3.org/permalink/changelog:breaking-107943-1761860828>`_
+        See also: `Breaking: #108055 - Removed frontend asset concatenation and compression <https://docs.typo3.org/permalink/changelog:breaking-108055-1762346705>`_.
 
 ..  _typo3ConfVars_fe_pageNotFoundOnCHashError:
 

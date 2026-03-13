@@ -54,7 +54,7 @@ The following option is available:
     The database table to write to.
 
     ..  warning::
-        The :guilabel:`Admin Tools > Log` module is not adapted to the records
+        The :guilabel:`Administration > Log` module is not adapted to the records
         written by the :php:`DatabaseWriter` into the :sql:`sys_log` table. If
         you write such records there, you will not be able to see them using
         that module.

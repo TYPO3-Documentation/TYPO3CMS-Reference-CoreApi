@@ -30,7 +30,7 @@ Global files
 :file:`config/system/settings.php`:
     Contains the persisted :ref:`$GLOBALS['TYPO3_CONF_VARS'] <typo3ConfVars>` array.
     Settings configured in the backend by system maintainers in
-    :guilabel:`Admin Tools > Settings > Configure Installation-Wide Options`
+    :guilabel:`System > Settings > Configure Installation-Wide Options`
     are written to this file.
 
 :file:`config/system/additional.php`:
@@ -44,7 +44,7 @@ Global files
 
 :file:`config/sites/<site>/config.yaml`
     This file is located in :file:`webroot/typo3conf/sites` in non-Composer installations.
-    The site configuration configured in the :guilabel:`Site Management > Sites`
+    The site configuration configured in the :guilabel:`Sites > Setup`
     backend module is written to this file.
 
 ..  _config-overview-global-extension:
@@ -179,7 +179,7 @@ TYPO3 stores global configuration in the :php:`$GLOBALS` PHP array. Key entries:
 
 :ref:`$GLOBALS['TYPO3_CONF_VARS'] <typo3ConfVars>`:
     Stores system-wide settings. Most can be changed in
-    :guilabel:`Admin Tools > Settings > Global Configuration`. Values are saved in
+    :guilabel:`System > Settings > Global Configuration`. Values are saved in
     :file:`config/system/settings.php` and can be overridden via
     :file:`config/system/additional.php`.
 

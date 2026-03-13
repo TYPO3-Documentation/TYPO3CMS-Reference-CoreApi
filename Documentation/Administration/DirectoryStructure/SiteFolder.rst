@@ -24,7 +24,7 @@ following file:
     for details.
 
     The file is automatically created if you use the
-    :guilabel:`Site Management > Sites` module to
+    :guilabel:`Sites > Setup` module to
     `create a new site configuration <https://docs.typo3.org/permalink/t3coreapi:sitehandling-create-new>`_.
 
     The name of the folder is editable as **Site Identifier** in the site
@@ -46,13 +46,13 @@ Site settings `settings.yaml` in the site folder
     :shortDescription: Site specific settings
 
     This file stores all changes that where made to the site settings using the
-    backend module :guilabel:`Site Management > Settings`. It overrides the
+    backend module :guilabel:`Sites > Setup > Settings`. It overrides the
     settings from all included site sets, including the set of the site package.
 
     ..  seealso::
 
         *   `Site settings <https://docs.typo3.org/permalink/t3coreapi:sitehandling-settings>`_.
-        *   `Module Site Management > Settings <https://docs.typo3.org/permalink/t3coreapi:site-settings-editor>`_
+        *   `Module Sites > Setup > Settings <https://docs.typo3.org/permalink/t3coreapi:site-settings-editor>`_
 
 
     ..  versionchanged:: 13.4.15

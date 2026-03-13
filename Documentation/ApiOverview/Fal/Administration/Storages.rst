@@ -7,14 +7,14 @@ File storages
 =============
 
 :ref:`File storages <fal-architecture-components-storage>` can be administered
-through the :guilabel:`Content > List` module. They have a few properties which
+through the :guilabel:`Content > Records` module. They have a few properties which
 deserve further explanation.
 
 ..  include:: /Images/AutomaticScreenshots/Fal/AdministrationFileStorageAccessTab.rst.txt
 
 Is browsable?
     If this box is not checked, the storage will not be browsable by
-    users via the :guilabel:`Media > Filelist` module, nor via the link browser
+    users via the :guilabel:`Media` module, nor via the link browser
     window.
 
 Is publicly available?

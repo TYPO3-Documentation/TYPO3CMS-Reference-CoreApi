@@ -9,9 +9,9 @@
 ..  versionadded:: 13.1
 
     Page TSconfig can be set using
-    `the site et as Page TSconfig provider <https://docs.typo3.org/permalink/t3tsref:include-static-page-tsconfig-per-site>`_
+    `the site set as a Page TSconfig provider <https://docs.typo3.org/permalink/t3tsref:include-static-page-tsconfig-per-site>`_
 
-    Default user TSconfig can be provided in file
+    Default user TSconfig can be put in the file
     :ref:`extension-configuration-user_tsconfig`.
 
 ..  typo3:file:: something.tsconfig

@@ -50,4 +50,4 @@ backend and clear all caches.
 
 You should also do a `database compare <https://docs.typo3.org/permalink/t3coreapi:database-upgrade>`_.
 
-:guilabel:`Admin Tools > Maintenance > Flush TYPO3 and PHP Cache`
+:guilabel:`System > Maintenance > Flush TYPO3 and PHP Cache`

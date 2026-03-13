@@ -8,10 +8,10 @@ ProcessFileListActionsEvent
 
 The PSR-14 event :php:`\TYPO3\CMS\Core\Configuration\Event\ProcessFileListActionsEvent`
 is fired after generating the actions for the files and folders listing in the
-:guilabel:`Media > Filelist` module.
+:guilabel:`Media` module.
 
 This event can be used to manipulate the icons/actions, used for the edit control
-section in the files and folders listing within the :guilabel:`Media > Filelist`
+section in the files and folders listing within the :guilabel:`Media`
 module.
 
 Example

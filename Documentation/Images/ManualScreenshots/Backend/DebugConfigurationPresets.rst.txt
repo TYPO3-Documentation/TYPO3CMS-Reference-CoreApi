@@ -3,4 +3,4 @@
 ..  figure:: /Images/ManualScreenshots/Backend/DebugConfigurationPresets.png
     :class: with-shadow
 
-    Enable the debug settings in the :guilabel:`Admin Tools`
+    Enable the debug settings in module :guilabel:`System > Settings`

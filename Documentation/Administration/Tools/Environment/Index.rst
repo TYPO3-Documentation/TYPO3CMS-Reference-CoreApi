@@ -3,13 +3,13 @@
 ..  include:: /Includes.rst.txt
 ..  _admin-tools-environment:
 
-=========================
-Environment (Admin Tools)
-=========================
+=============================
+Module "Environment" (System)
+=============================
 
 Only available if :composer:`typo3/cms-install` is installed.
 
-The backend module :guilabel:`Admin Tools > Maintenance` contains tools
+The backend module :guilabel:`System > Maintenance` contains tools
 for system maintainers to get details about the server environment, such as PHP and database
 versions, directory status, mail setup and image processing.
 

@@ -21,7 +21,7 @@ options, including a
 Site configuration
 ==================
 
-The configuration of sites is done with the :guilabel:`Site Management > Sites`
+The configuration of sites is done with the :guilabel:`Sites > Setup`
 module.
 
 As the settings for your websites are important for SEO purposes as well, please

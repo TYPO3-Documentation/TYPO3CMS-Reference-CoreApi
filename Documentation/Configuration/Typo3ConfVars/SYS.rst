@@ -913,6 +913,51 @@ configuration.
         ..  seealso::
             :ref:`message-bus-routing`
 
+..  _typo3ConfVars_sys_localization:
+
+..  confval:: localization
+    :name: globals-typo3-conf-vars-sys-localization
+
+    ..  _typo3ConfVars_sys_localization_locales:
+
+    ..  confval:: locales
+        :name: globals-typo3-conf-vars-sys-localization-locales
+
+        ..  _typo3ConfVars_sys_localization_locales_user:
+
+        .. confval:: user
+            :name: globals-typo3-conf-vars-sys-localization-locales-user
+            :Path: $GLOBALS['TYPO3_CONF_VARS']['SYS']['localization']['locales']['user']
+            :type: array
+
+            Define custom languages:
+
+            ..  code-block:: php
+
+                $GLOBALS['TYPO3_CONF_VARS']['SYS']['localization']['locales']['user'] = [
+                    'gsw_CH' => 'Swiss German',
+                ];
+
+        ..  _typo3ConfVars_sys_localization_locales_dependencies:
+
+        .. confval:: dependencies
+            :name: globals-typo3-conf-vars-sys-localization-locales-dependencies
+            :Path: $GLOBALS['TYPO3_CONF_VARS']['SYS']['localization']['locales']['dependencies']
+            :type: array
+
+            Add fallback to another language:
+
+            ..  code-block:: php
+
+                $GLOBALS['TYPO3_CONF_VARS']['SYS']['localization']['locales']['dependencies'] = [
+                    'gsw_CH' => ['de_AT', 'de'],
+                ];
+
+    ..  seealso::
+
+        *   `Adding custom languages <https://docs.typo3.org/permalink/t3coreapi:xliff-translating-languages>`_
+        *   `Feature: #86913 - Automatic support for language files of languages with region suffix <https://docs.typo3.org/permalink/changelog:feature-86913-1673955088>`_
+
 ..  confval:: FileInfo
     :name: globals-typo3-conf-vars-sys-FileInfo
 
@@ -981,8 +1026,9 @@ configuration.
 
     ..  versionadded:: 13.2
 
-    A configuration option to modify the environment check in :guilabel:`Admin Tools`
-    to incorporate a list of sanctioned :php:`disable_functions`.
+    A configuration option to modify the environment check in
+    :guilabel:`System > Environment` to incorporate a list of sanctioned
+    `disable_functions`.
 
     Using this configuration option
     a system maintainer can add native PHP function names to the list,
@@ -995,4 +1041,4 @@ configuration.
             = ['set_time_limit', 'set_file_buffer'];
 
     You can also define this manually in your :file:`settings.php` file
-    or via :guilabel:`Admin Tools > Settings > Configure options`.
+    or via :guilabel:`System > Settings > Configure options`.

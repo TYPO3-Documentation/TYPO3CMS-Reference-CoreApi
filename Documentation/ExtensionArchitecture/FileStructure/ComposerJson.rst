@@ -10,7 +10,13 @@
 `composer.json`
 ===============
 
-*-- required* in Composer-based installations
+..  important::
+
+    ..  versionchanged:: 14.0
+        With TYPO3 14.0 a valid composer.json is required for all TYPO3 extensions,
+        including those only used in Classic-mode installations.
+
+Required in **all** installations
 
 ..  typo3:file:: composer.json
     :name: extension-composer-json
@@ -48,20 +54,11 @@ easy way via the :bash:`composer require` command.
 About the composer.json file
 ============================
 
-..  note::
-    While the file :file:`composer.json <extension-composer-json>` is currently not strictly required
-    for an extension to function properly in Classic mode installations (no Composer)
-    it is recommended to keep it in any public extension that is published to
-    `TYPO3 Extension Repository (TER) <https://extensions.typo3.org/>`__.
+Including a :file:`composer.json <extension-composer-json>` is **required**.
 
-Including a :file:`composer.json <extension-composer-json>` is strongly recommended for a number of
-reasons:
-
-#.  The file :file:`composer.json <extension-composer-json>` is required for documentation that should
-    appear on `docs.typo3.org <https://docs.typo3.org/>`__.
-
-    See :ref:`h2document:migrate` for more information on the necessary changes
-    for rendering of extension documentation.
+#.  Without a valid :file:`composer.json <extension-composer-json>` an extension
+    is not installable in TYPO3, even in Classic mode installations not using
+    Composer.
 
 #.  Working with Composer in general is strongly recommended for TYPO3.
 
@@ -78,6 +75,7 @@ This is a minimal :file:`composer.json <extension-composer-json>` for a TYPO3 ex
 
 *   The vendor name is `MyVendor`.
 *   The :ref:`extension key <extension-key>` is `my_extension`.
+*   The extension title is `My Extension` and the description is `An example extension`.
 
 Subsequently:
 
@@ -130,6 +128,8 @@ Extended composer.json
 Properties
 ==========
 
+..  _ext-composer-json-property-name:
+
 name
 ----
 
@@ -144,12 +144,22 @@ uppercase / lowercase spelling, for example: The PHP namespace
 :php:`JohnDoe\SomeExtension` may be `johndoe/some-extension` in
 :file:`composer.json <extension-composer-json>`.
 
+..  _ext-composer-json-property-description:
+
 description
 -----------
 
+..  versionchanged:: 14.0
+    Extension titles were previously taken from file :file:`ext_emconf.php` but
+    in Composer mode the :file:`ext_emconf.php` file is no longer necessary. The
+    description field in :file:`composer.json` is exploded to get the extension
+    title (in front of "-") and the extension description (after "-").
+
 (*required*)
 
-Description of your extension (1 line).
+This field contains the extension title and the description of your extension
+(1 line). The title is separated from the description by a dash "-". If there is no
+dash, the title will be the entire description.
 
 ..  _ext-composer-json-property-type:
 

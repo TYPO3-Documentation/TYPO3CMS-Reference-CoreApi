@@ -28,9 +28,8 @@ The :php:`\TYPO3\CMS\Core\Localization\LanguageService` is available if a
 backend user has been initialized, in particular in the following contexts:
 
 *   frontend: only if there is a logged-in backend user
-*   backend: always, except in :guilabel:`Admin Tools` modules (e.g. within
-    :guilabel:`Upgrade Wizard`
-    in the backend)
+*   backend: always, except in :guilabel:`System` modules (for example within
+    an upgrade wizard in the backend)
 *   install tool / install tool modules in backend (e.g. Upgrade Wizard): no
 *   in cli: only if a backend user was initialized, e.g. by
     `TYPO3\CMS\Core\Core\Bootstrap::initializeBackendUser()`

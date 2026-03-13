@@ -24,16 +24,16 @@ Example
 =======
 
 Registration of an additional third-level module for the
-:guilabel:`Content > Info` module in the :file:`Configuration/Backend/Modules.php`
+:guilabel:`Content > Status` module in the :file:`Configuration/Backend/Modules.php`
 file of an extension:
 
 .. code-block:: php
    :caption: EXT:my_extension/Configuration/Backend/Modules.php
 
    'web_ts_customts' => [
-       'parent' => 'web_info',
+       'parent' => 'content_status',
        'access' => 'user',
-       'path' => '/module/web/typoscript/custom-info',
+       'path' => '/module/content/typoscript/custom-info',
        'iconIdentifier' => 'module-custom-info',
        'labels' => [
            'title' => 'LLL:EXT:extkey/Resources/Private/Language/locallang.xlf:mod_title',

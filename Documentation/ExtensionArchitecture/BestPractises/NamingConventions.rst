@@ -231,8 +231,11 @@ Examples for Extbase domain models and table names of an extension named `cool_s
 | Domain model                                        | Table name                                      |
 +=====================================================+=================================================+
 | :php:`Vendor\BlogExample\Domain\Model\Post`         | :sql:`tx_blogexample_domain_model_post`         |
++-----------------------------------------------------+-------------------------------------------------+
 | :php:`Vendor\CoolShop\Domain\Model\Tag`             | :sql:`tx_coolshop_domain_model_tag`             |
++-----------------------------------------------------+-------------------------------------------------+
 | :php:`Vendor\CoolShop\Domain\Model\ProcessedOrder`  | :sql:`tx_coolshop_domain_model_processedorder`  |
++-----------------------------------------------------+-------------------------------------------------+
 | :php:`Vendor\CoolShop\Domain\Model\Billing\Address` | :sql:`tx_coolshop_domain_model_billing_address` |
 +-----------------------------------------------------+-------------------------------------------------+
 

@@ -5,8 +5,8 @@
 Site package
 ============
 
-A site package is a custom TYPO3 extension that contains files regarding the
-theme of a site.
+A site package is a TYPO3 extension that you create to provide a theme for
+your site. This is where you store files for the theme.
 
 ..  toctree::
     :caption: Subpages
@@ -24,9 +24,9 @@ theme of a site.
 Site package tutorial
 =====================
 
-The :ref:`site package tutorial <t3sitepackage:start>` teaches you step by step
-how to create a custom site package from scratch. You can download the
-example site package created in this tutorial from GitHub and try it out:
+The :ref:`site package tutorial <t3sitepackage:start>` is a step by step
+guide to creating a site package extension from scratch. Download the
+site package that is created in the tutorial from GitHub and try it out:
 https://github.com/TYPO3-Documentation/site_package/tree/main
 
 ..  _extension-sitepackage-builder:
@@ -34,36 +34,35 @@ https://github.com/TYPO3-Documentation/site_package/tree/main
 Site package builder
 ====================
 
-You can use the `site package builder <https://get.typo3.org/sitepackage>`_ to
-generate a site package for you.
+Use the `Site package builder <https://get.typo3.org/sitepackage>`_ to generate
+a site package. It generates two types of site package.
 
 ..  _extension-sitepackage-builder-bootstrap:
 
 Bootstrap package
 -----------------
 
-Creates a site package depending extension :composer:`bk2k/bootstrap-package`.
+The Bootstrap Package creates a site package that depends on the :composer:`bk2k/bootstrap-package`
+extension.
 
-The site package comes with a frontend template that can be configured in
-multiple ways to use your own logo, colors etc. It also comes with a large
-number of predefined content elements.
+It comes with a frontend template that can be configured to use
+your logo, colors, etc, and comes with a large number of content elements.
 
-Use this options if you want to create a web site with TYPO3 quickly and with
-a standardized design.
+It is a good option if you want to create a TYPO3 website quickly with a standard design.
 
-You can use the extension :composer:`typo3/cms-introduction` to create a page
-tree with some example data demonstrating the capabilities of this package.
+To see the bootstrap package in action, install the
+:composer:`typo3/cms-introduction` package (which contains the
+bootstrap-package). The resulting site contains a page tree with example data.
 
-At https://www.bootstrap-package.com/ the features of
-:composer:`bk2k/bootstrap-package` are demonstrated.
+Or just go to https://www.bootstrap-package.com/.
 
 ..  _extension-sitepackage-builder-minimal:
 
 Minimal site package (Fluid Styled Content)
 -------------------------------------------
 
-A minimal site package without styles that you can use as boiler plate to create
-a site package based on a custom HTML structure.
+The Fluid Styled Content package is a minimal site package that provides boiler
+plate code to use with your own HTML. No styles are included.
 
-You can use extension :composer:`t3docs/site-package-data` to create a page tree
-and load some example data into your installation.
+You can use the :composer:`t3docs/site-package-data` extension to create a page tree
+and load some example data.

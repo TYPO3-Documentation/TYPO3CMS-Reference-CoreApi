@@ -11,7 +11,7 @@ Create SQL database schema
 ---------------------------
 
 *   Add `example-extension/ext_tables.sql`
-*   Model the database scheme from the TCA or PHP model perspective, then check which fields still have to be added to the ext_tables regarding your TYPO3 version by comparing database model with configuration, read more `here <https://docs.typo3.org/c/typo3/cms-core/main/en-us/Changelog/13.0/Feature-101553-Auto-createDBFieldsFromTCAColumns.html/>`_
+*   Model the database scheme from the TCA or PHP model perspective, then check which fields still have to be added to the ext_tables regarding your TYPO3 version by comparing database model with configuration, read more `here <https://docs.typo3.org/permalink/changelog:feature-101553-1691166389/>`_
 *   Insert your SQL database schema definition into that file
 
     * Each entity is represented by one database table

@@ -49,7 +49,7 @@ Typical cases for exceptions that are designed to be caught
 
 *   Race conditions than can be created by editors in a normal workflow:
 
-    *   Editor 1 calls list module and a record is shown.
+    *   Editor 1 calls :guilabel:`Content > Records` module and a record is shown.
 
     *   Editor 2 deletes this record.
 
