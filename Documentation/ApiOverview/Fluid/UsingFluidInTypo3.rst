@@ -33,6 +33,8 @@ Here are some examples of how Fluid can be used in TYPO3:
     *   :php:`TYPO3\CMS\Extbase\Mvc\View\ViewResolverInterface`
     *   :php:`TYPO3\CMS\Extbase\Mvc\View\GenericViewResolver`
 
+..  contents::
+    :local:
 
 ..  _fluid-syntax-viewhelpers-import-namespaces:
 
@@ -141,6 +143,385 @@ the Fluid namespace like this:
 The namespace here is 'my'. For further information visit
 `ViewHelper namespaces <https://docs.typo3.org/permalink/fluid:viewhelper-namespaces-syntax>`_
 in Fluid explained.
+
+.. _using_fluid_components:
+
+Using Fluid components
+======================
+
+.. _description_fluid_components:
+
+Description
+-----------
+
+With Fluid 4.3 the concept of components of Fluid was introduced.
+
+.. _register_fluid_components:
+
+Registering component collections
+---------------------------------
+
+In order to use Fluid components register a component collection
+within the file :file:`Configuration/Fluid/ComponentCollections.php` 
+
+..  code-block:: php
+    :caption: EXT:my_extension/Configuration/Fluid/ComponentCollections.php
+
+    <?php
+
+    return [
+        'MyVendor\\MyExtension\\Components' => [
+            'templatePaths' => [
+                10 => 'EXT:my_extension/Resources/Private/Components',
+            ],
+        ],
+    ];
+
+in which you define the path your Fluid components can be found.
+Components in that collections can then be used in any Fluid template.
+
+..  code-block:: html
+    :caption: EXT:my_extension/Resources/Private/Templates/Template.fluid.html
+
+    <html
+        xmlns:my="http://typo3.org/ns/MyVendor/MyExtension/Components"
+        data-namespace-typo3-fluid="true"
+    >
+
+    <my:organism.header.navigation />
+
+Note that by default, component collections use a folder structure that
+requires a separate directory per component. 
+That means, for example, imagine you defined a navigation Fluid component. 
+Then the file
+:file:`EXT:my_extension/Resources/Private/Components/Organism/Header/Navigation/Navigation.fluid.html`
+should be stored in path `my_extension/Resources/Private/Components/Organism/Header/Navigation`. 
+
+All arguments that are passed to a component need to be defined with 
+:html:`<f:argument>` in the component template, for example 
+:file:`Navigation.fluid.html`. 
+
+It is possile to adjust these configurations per collection: 
+
+*   using `templateNamePattern` allows you to use a different folder structure, 
+    available variables are `{path}` and `{name}`. For example, 
+    with :html:`<my:organism.header.navigation>`, `{path}` would be
+    `Organism/Header` and `{name}` would be `Navigation`.
+*   setting `additionalArgumentsAllowed` to `true` allows passing undefined arguments
+    to components.
+
+Here is an example where these configurations are used.
+
+..  code-block:: php
+    :caption: EXT:my_extension/Configuration/Fluid/ComponentCollections.php
+
+    <?php
+
+    return [
+        'MyVendor\\MyExtension\\Components' => [
+            'templatePaths' => [
+                10 => 'EXT:my_extension/Resources/Private/Components',
+            ],
+            'templateNamePattern' => '{path}/{name}',
+            'additionalArgumentsAllowed' => true,
+        ],
+    ];
+
+Using this example :html:`<my:organism.header.navigation />` would point to
+:file:`EXT:my_extension/Resources/Private/Components/Organism/Header/Navigation.fluid.html`
+(note the missing :file:`Navigation` folder).
+
+It is possible to influence certain aspects of Fluid components using PSR-14 events,
+see `PSR-14 events for Fluid components <https://docs.typo3.org/permalink/changelog:feature-108508-1765987847>`_.
+
+.. _creating_fluid_components:
+
+Creating components
+-------------------
+
+The typical look of a component is like a normal Fluid template, except
+that it defines all of its arguments with the
+`Argument ViewHelper <f:argument> <https://docs.typo3.org/permalink/t3viewhelper:typo3fluid-fluid-argument>`_.
+The `Slot ViewHelper <f:slot> <https://docs.typo3.org/permalink/t3viewhelper:typo3fluid-fluid-slot>`_
+can be used to receive other HTML content. With the Slot ViewHelper it is possible to nest components.
+
+Example: How you could define a Fluid component
+
+..  code-block:: html
+    :caption: EXT:my_extension/Resources/Private/Components/Molecule/TeaserCard/TeaserCard.fluid.html
+
+    <html
+        xmlns:my="http://typo3.org/ns/MyVendor/MyExtension/Components"
+        data-namespace-typo3-fluid="true"
+    >
+
+    <f:argument name="title" type="string" />
+    <f:argument name="link" type="string" />
+    <f:argument name="icon" type="string" optional="{true}" />
+
+    <a href="{link}" class="teaserCard">
+        <f:if condition="{icon}">
+            <my:atom.icon identifier="{icon}">
+        </f:if>
+        <div class="teaserCard__title">{title}</div>
+        <div class="teaserCard__content"><f:slot /></div>
+    </a>
+
+The example also demonstrates that components can (and should) use other components, in this
+case :html:`<my:atom.icon>`.
+Depending on the use case, it might also make sense to pass the output of one component
+to another component via a slot:
+
+..  code-block:: html
+
+    <html
+        xmlns:my="http://typo3.org/ns/MyVendor/MyExtension/Components"
+        data-namespace-typo3-fluid="true"
+    >
+
+    <my:molecule.teaserCard
+        title="TYPO3"
+        link="https://typo3.org/"
+        icon="typo3"
+    >
+        <my:atom.text>{content}</my:atom.text>
+    </my:molecule.teaserCard>
+
+You can learn more about components in
+`Defining Components <https://docs.typo3.org/permalink/fluid:components-definition>`_. Note
+that this is part of the documentation of Fluid Standalone, which means that it doesn't mention
+TYPO3 specifics.
+
+.. _history_fluid_components:
+
+History of Fluid components
+---------------------------
+
+In TYPO3 v13 it was possible to use components in TYPO3 projects by creating a custom
+:php:`ComponentCollection` class that essentially connects a folder of template files
+to a Fluid ViewHelper namespace. Using that class it was also possible to use an
+alternative folder structure for a component collection and to allow passing
+arbitrary arguments to components within that collection.
+
+.. _migration_co-existence_fluid_components:
+
+Migration and co-existence with class-based collections
+-------------------------------------------------------
+
+Since TYPO3 v14 you should use the configuration-based component collections over 
+the class-based. A configuration-based component collection is a collection defined
+by the configuration file :file:`ComponentCollections.php`. In contrast to that, a 
+class-based component required custom PHP code in TYPO3 v13, see 
+`Fluid components in Fluid explained <https://docs.typo3.org/permalink/fluid:components-setup>`_.
+Most use cases can easily be migrated to the configuration-based approach, since 
+they usually just consist of boilerplate code around the configuration options.
+
+In fact, you can use both component collection types side by side. For more 
+advanced use cases, it might still be best to ship a custom class to define
+a component collection. Since the configuration-based approach is not available in TYPO3 v13, 
+it is possible to ship both variants to provide backwards-compatibility: 
+if a specific component collection is
+defined both via class and via configuration, in TYPO3 v13 the class will be used,
+while in TYPO3 v14 the configuration will be used and the class will be ignored completely.
+
+.. _extending_component-collections_fluid_components:
+
+Extending component collections from other extensions
+-----------------------------------------------------
+
+It is possible to extend the configuration of other extensions using the
+introduced configuration file. This allows integrators to merge their own set of
+components into an existing component collection:
+
+..  code-block:: php
+    :caption: EXT:vendor_extension/Configuration/Fluid/ComponentCollections.php
+
+    <?php
+
+    return [
+        'SomeVendor\\VendorExtension\\Components' => [
+            'templatePaths' => [
+                10 => 'EXT:vendor_extension/Resources/Private/Components',
+            ],
+        ],
+    ];
+
+..  code-block:: php
+    :caption: EXT:my_extension/Configuration/Fluid/ComponentCollections.php
+
+    <?php
+
+    return [
+        'SomeVendor\\VendorExtension\\Components' => [
+            'templatePaths' => [
+                1765990741 => 'EXT:my_extension/Resources/Private/Extensions/VendorExtension/Components',
+            ],
+        ],
+    ];
+
+For template paths, the familiar rule applies: they will be sorted by their
+keys and will be processed in reverse order. In this example, if `my_extension`
+defines a component that already exists in `vendor_extension`, it will override
+the original component in `vendor_extension`.
+
+.. _psr_14_events_fluid_components:
+
+PSR-14 events for Fluid components
+----------------------------------
+
+There are three new PSR-14 events to influence the processing and rendering of
+Fluid components that can be registered using the new configuration file.
+(see `Feature: #108508 - Fluid components integration <https://docs.typo3.org/permalink/changelog:feature-108508-1765987901>`_).
+
+.. _modify_component_definition_event_fluid_components:
+
+ModifyComponentDefinitionEvent
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+As the name says, the :php-short:`\TYPO3\CMS\Fluid\Event\ModifyComponentDefinitionEvent`
+can be used to modify the definition of a Fluid component before it is written to the cache. 
+
+Example:
+
+..  code-block:: php
+    :caption: EXT:my_extension/Classes/EventListener/ModifyComponentDefinitionListener.php
+
+    <?php
+
+    declare(strict_types=1);
+
+    namespace MyVendor\MyExtension\EventListener;
+
+    use TYPO3\CMS\Core\Attribute\AsEventListener;
+    use TYPO3\CMS\Fluid\Event\ModifyComponentDefinitionEvent;
+    use TYPO3Fluid\Fluid\Core\Component\ComponentDefinition;
+    use TYPO3Fluid\Fluid\Core\ViewHelper\ArgumentDefinition;
+
+    #[AsEventListener]
+    final readonly class ModifyComponentDefinitionListener
+    {
+        public function __invoke(ModifyComponentDefinitionEvent $event): void
+        {
+            // Add required argument to one specific component
+            if (
+                $event->getNamespace() === 'MyVendor\\MyExtension\\Components' &&
+                $event->getComponentDefinition()->getName() === 'myComponent'
+            ) {
+                $originalDefinition = $event->getComponentDefinition();
+                $event->setComponentDefinition(new ComponentDefinition(
+                    $originalDefinition->getName(),
+                    [
+                        ...$originalDefinition->getArgumentDefinitions(),
+                        'myArgument' => new ArgumentDefinition('myArgument', 'string', '', true),
+                    ],
+                    $originalDefinition->additionalArgumentsAllowed(),
+                    $originalDefinition->getAvailableSlots(),
+                ));
+            }
+        }
+    }
+
+Note that Component definitions are cached and thus cannot have any dependencies
+on runtime information. 
+
+.. _provide_static_variables_to_component_event_fluid_components:
+
+ProvideStaticVariablesToComponentEvent
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+The event :php-short:`\TYPO3\CMS\Fluid\Event\ProvideStaticVariablesToComponentEvent`
+can be used to inject additional static variables into Fluid component
+templates. In order to add variables with runtime dependencies you can use the third
+event: :php-short:`\TYPO3\CMS\Fluid\Event\RenderComponentEvent`.
+
+Valid use cases for this event might be: 
+
+*   providing static (!) design tokens (colors, icons, ...) to all Fluid components in a collection
+*   generating prefix strings based on the Fluid component's name
+
+Example:
+
+..  code-block:: php
+    :caption: EXT:my_extension/Classes/EventListener/ProvideStaticVariablesToComponentListener.php
+
+    <?php
+
+    declare(strict_types=1);
+
+    namespace MyVendor\MyExtension\EventListener;
+
+    use TYPO3\CMS\Core\Attribute\AsEventListener;
+    use TYPO3\CMS\Fluid\Event\ProvideStaticVariablesToComponentEvent;
+
+    #[AsEventListener]
+    final readonly class ProvideStaticVariablesToComponentListener
+    {
+        public function __invoke(ProvideStaticVariablesToComponentEvent $event): void
+        {
+            // Provide design tokens to all components in a collection
+            if ($event->getComponentCollection()->getNamespace() === 'MyVendor\\MyExtension\\Components') {
+                $event->setStaticVariables([
+                    ...$event->getStaticVariables(),
+                    'designTokens' => [
+                        'color1' => '#abcdef',
+                        'color2' => '#123456',
+                    ],
+                ]);
+            }
+        }
+    }
+
+
+Note that these variables are cached as well and thus cannot have any dependencies
+on runtime information.
+
+.. _render_component_event_fluid_components:
+
+RenderComponentEvent
+~~~~~~~~~~~~~~~~~~~~
+The :php-short:`\TYPO3\CMS\Fluid\Event\RenderComponentEvent` can be used to alter or
+replace the rendering of Fluid components. 
+
+There are three possible use cases:
+
+1.  fully take over the rendering of components by filling the :php:`$renderedContent` with
+    :php:`$event->setRenderedContent()`. The first event that does this skips all following
+    event listeners.
+2.  provide additional arguments (= variables in the component template) or slots to
+    the component with :php:`$event->setArguments()`/:php:`$event->setSlots()`.
+3.  execute additional code that doesn't influence the component rendering directly, for example
+    adding certain frontend assets to the page automatically.
+
+Example:
+
+..  code-block:: php
+    :caption: EXT:my_extension/Classes/EventListener/RenderComponentListener.php
+
+    <?php
+
+    declare(strict_types=1);
+
+    namespace MyVendor\MyExtension\EventListener;
+
+    use TYPO3\CMS\Core\Attribute\AsEventListener;
+    use TYPO3\CMS\Core\Page\AssetCollector;
+    use TYPO3\CMS\Fluid\Event\RenderComponentEvent;
+
+    #[AsEventListener]
+    final readonly class RenderComponentListener
+    {
+        public function __construct(private AssetCollector $assetCollector) {}
+
+        public function __invoke(RenderComponentEvent $event): void
+        {
+            // Add bundled components css if a component is used on the page
+            if ($event->getComponentCollection()->getNamespace() === 'MyVendor\\MyExtension\\Components') {
+                $this->assetCollector->addStyleSheet(
+                    'componentsBundle',
+                    'EXT:my_extension/Resources/Public/ComponentsBundle.css'
+                );
+            }
+        }
+    }
 
 
 ..  _generic-view-factory:
