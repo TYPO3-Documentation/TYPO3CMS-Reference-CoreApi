@@ -21,7 +21,7 @@ ExtensionManagementUtility::addToAllTCAtypes(
 );
 
 ExtensionManagementUtility::addPiFlexFormValue(
-    '',
+    '*',
     'FILE:EXT:myext/Configuration/FlexForms/MyFlexform.xml',
     $ctypeKey,
 );
