@@ -13,15 +13,15 @@ on your project's update schedule and the release dates of TYPO3 versions.
 +-----------------+---------------------------------+
 | TYPO3 version   | Fluid version                   |
 +=================+=================================+
-| TYPO3 14        | Fluid 5.x                       |
+| TYPO3 v14       | Fluid 5.x                       |
 +-----------------+---------------------------------+
-| TYPO3 13        | Fluid 4.x                       |
+| TYPO3 v13       | Fluid 4.x                       |
 +-----------------+---------------------------------+
-| TYPO3 12        | Fluid 2.x                       |
+| TYPO3 v12       | Fluid 2.x                       |
 +-----------------+---------------------------------+
-| TYPO3 11        | Fluid 2.7.2                     |
-|                 | (2.x for composer-based setups) |
+| TYPO3 v11       | Fluid 2.7.2                     |
+|                 | (2.x for Composer-based setups) |
 +-----------------+---------------------------------+
 
 An overview of all available Fluid versions is available
-`on packagist <https://packagist.org/packages/typo3fluid/fluid>`_.
+`on Packagist <https://packagist.org/packages/typo3fluid/fluid>`_.
