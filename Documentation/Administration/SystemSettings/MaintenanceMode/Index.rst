@@ -37,7 +37,7 @@ It is also possible to add and remove this setting manually to the
 ..  code-block:: php
     :caption: config/system/additional.php | typo3conf/system/additional.php
 
-    // Lock the backend for editors, admins and CLI are allowed
+    // Lock the backend for editors, admins and CLI
     $GLOBALS['TYPO3_CONF_VARS']['BE']['adminOnly'] = -1;
 
 This setting excludes any user, including administrators like yourself from
