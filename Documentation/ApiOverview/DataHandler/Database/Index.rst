@@ -523,11 +523,7 @@ one new system category:
     $data['tt_content']['NEWbe68s587'] = [
         'header' => 'Look ma, categories!',
         'pid' => 45,
-        'categories' => [
-            1,
-            2,
-            'NEW9823be87', // You can also use placeholders here
-        ],
+        'categories' => '1,2,NEW9823be87', // category uids are listed in a comma-separated string. You can also use placeholders here.
     ];
 
 ..  note::
