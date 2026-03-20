@@ -23,4 +23,7 @@ TYPO3 supports incoming and outgoing webhooks:
     provides the possibility to send webhooks from TYPO3 to third-party
     systems.
 
+:guilabel:`System -> Configuration` lists available reaction and webhook types
+which administrators can facilitate in the corresponding backend modules.
+
 Have a look at the linked documentation for more details.
