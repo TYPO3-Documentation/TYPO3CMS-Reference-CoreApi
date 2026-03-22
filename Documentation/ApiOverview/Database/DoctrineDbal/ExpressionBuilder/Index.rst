@@ -190,7 +190,8 @@ Creates a statement to append a field alias to a value, identifier or sub-expres
     the expression alias and the method :php:`select()` can have it by adding the :sql:`AS` keyword 
     to improve readability. 
     This new method can be used for custom expressions and avoids recurring conditional 
-    quoting and alias appending.
+    the expression alias to reduce nesting. This new method can be used for
+    custom expressions and avoids recurring conditional quoting and alias appending.
 
 ..  literalinclude:: _RepositoryAs.php
     :caption: EXT:my_extension/Classes/Domain/Repository/MyTableRepository.php
