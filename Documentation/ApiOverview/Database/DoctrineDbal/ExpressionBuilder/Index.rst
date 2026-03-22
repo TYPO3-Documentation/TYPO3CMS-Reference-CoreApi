@@ -187,8 +187,6 @@ Creates a statement to append a field alias to a value, identifier or sub-expres
 ..  note::
 
     The :php-short:`\TYPO3\CMS\Core\Database\Query\QueryBuilder` method :php:`from()` provides a second argument to directly add
-    the expression alias and the method :php:`select()` can have it by adding the :sql:`AS` keyword 
-    to improve readability. 
     the expression alias to reduce nesting. This new method can be used for
     custom expressions and avoids recurring conditional quoting and alias appending.
 
