@@ -12,6 +12,10 @@
         :readonly:
         :public:
 
+    ..  php:attr:: request
+        :readonly:
+        :public:
+
     ..  php:attr:: preventDeletion
         :public:
 

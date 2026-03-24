@@ -7,6 +7,12 @@
 
     The architecture is highly inspired by the Symfony Routing Component.
 
+    ..  php:method:: fromSymfonyRoute(\Symfony\Component\Routing\Route $source, string $identifier)
+        :returns: `self`
+
+        :param $source: the source
+        :param $identifier: the identifier
+
     ..  php:method:: getPath()
         :returns: `string`
 

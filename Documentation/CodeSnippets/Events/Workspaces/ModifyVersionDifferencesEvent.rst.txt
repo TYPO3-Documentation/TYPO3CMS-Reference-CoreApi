@@ -6,7 +6,7 @@
     Listeners to this event will be able to modify the differences of versioned records
 
     ..  php:method:: getVersionDifferences()
-        :returns: `list<array{field:`
+        :returns: `list<array{field: string,label: string,content: string}>`
 
         Get the version differences.
 
@@ -16,8 +16,6 @@
         - label: The corresponding field label
         - content: The field values difference
 
-        :Return description: String, label: string, content: string}>
-
     ..  php:method:: setVersionDifferences(array $versionDifferences)
 
         Modifies the version differences data
@@ -25,11 +23,9 @@
         :param $versionDifferences: the versionDifferences
 
     ..  php:method:: getLiveRecordData()
-        :returns: `list<array{field:`
+        :returns: `list<array{field: string,label: string,content: string}>`
 
         Returns the records live data (used to create the version difference)
-
-        :Return description: String, label: string, content: string}>
 
     ..  php:method:: getParameters()
         :returns: `\stdClass`

@@ -38,9 +38,8 @@
     ..  php:method:: getTypo3Language()
         :returns: `string`
 
-        Returns the XLF label language key, returns "default" when it is "en".
+        Returns the XLF label language key.
 
-        "default" is currently still needed for TypoScript label overloading.
         For locales like "en-US", this method returns "en_US" which can then be used
         for XLF file prefixes properly.
 

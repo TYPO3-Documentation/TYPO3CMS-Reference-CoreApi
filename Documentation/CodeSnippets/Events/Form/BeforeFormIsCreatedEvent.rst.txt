@@ -11,3 +11,7 @@
 
     ..  php:attr:: form
         :public:
+
+    ..  php:attr:: request
+        :readonly:
+        :public:
