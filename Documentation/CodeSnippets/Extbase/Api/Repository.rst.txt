@@ -78,7 +78,7 @@
         'bar' => \TYPO3\CMS\Extbase\Persistence\QueryInterface::ORDER_DESCENDING
         )
 
-        :param $defaultOrderings: The property names to order by
+        :param $defaultOrderings: the defaultOrderings
 
     ..  php:method:: setDefaultQuerySettings(\TYPO3\CMS\Extbase\Persistence\Generic\QuerySettingsInterface $defaultQuerySettings)
 
