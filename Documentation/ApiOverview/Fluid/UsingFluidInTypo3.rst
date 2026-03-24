@@ -299,7 +299,7 @@ History of Fluid components
 
 In TYPO3 v13 it is possible to use components in TYPO3 projects by creating a custom
 :php:`ComponentCollection` class that essentially connects a folder of template files
-to a Fluid ViewHelper namespace. Using that class it was also possible to use an
+to a Fluid ViewHelper namespace. Using that class it is also possible to use an
 alternative folder structure for a component collection and to allow passing
 arbitrary arguments to components within that collection.
 
