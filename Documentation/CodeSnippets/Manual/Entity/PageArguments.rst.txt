@@ -40,7 +40,7 @@
         :param $offset: the offset
 
     ..  php:method:: offsetGet(?mixed $offset)
-        :returns: `string|array<string,string|array>|null`
+        :returns: `int|string|array<string,string|array>|null`
 
         :param $offset: the offset
 

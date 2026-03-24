@@ -16,6 +16,9 @@
     ..  php:method:: getSearchTerm()
         :returns: `?string`
 
+    ..  php:method:: hasSearchTerm()
+        :returns: `bool`
+
     ..  php:method:: getFolder()
         :returns: `?\TYPO3\CMS\Core\Resource\Folder`
 
