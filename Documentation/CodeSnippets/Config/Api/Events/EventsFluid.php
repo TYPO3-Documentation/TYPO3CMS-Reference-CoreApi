@@ -36,5 +36,5 @@ return [
         'class' => \TYPO3\CMS\Fluid\Event\RenderComponentEvent::class,
         'targetFileName' => 'CodeSnippets/Events/Fluid/RenderComponentEvent.rst.txt',
         'withCode' => false,
-    ]
+    ],
 ];
