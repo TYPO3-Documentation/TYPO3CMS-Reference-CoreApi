@@ -156,6 +156,64 @@ Description
 
 With version 4.3 the concept of components was introduced into Fluid.
 
+.. _what_is_fluid_components:
+
+Introduction to Fluid components
+--------------------------------
+
+The typical look of a component is like a normal Fluid template, except
+that it defines all of its arguments with the
+`Argument ViewHelper <f:argument> <https://docs.typo3.org/permalink/t3viewhelper:typo3fluid-fluid-argument>`_.
+The `Slot ViewHelper <f:slot> <https://docs.typo3.org/permalink/t3viewhelper:typo3fluid-fluid-slot>`_
+can be used to receive other HTML content. With the Slot ViewHelper it is possible to nest components.
+
+Example: How you could define a Fluid component
+
+..  code-block:: html
+    :caption: EXT:my_extension/Resources/Private/Components/Molecule/TeaserCard/TeaserCard.fluid.html
+
+    <html
+        xmlns:my="http://typo3.org/ns/MyVendor/MyExtension/Components"
+        data-namespace-typo3-fluid="true"
+    >
+
+    <f:argument name="title" type="string" />
+    <f:argument name="link" type="string" />
+    <f:argument name="icon" type="string" optional="{true}" />
+
+    <a href="{link}" class="teaserCard">
+        <f:if condition="{icon}">
+            <my:atom.icon identifier="{icon}">
+        </f:if>
+        <div class="teaserCard__title">{title}</div>
+        <div class="teaserCard__content"><f:slot /></div>
+    </a>
+
+The example also demonstrates that components can (and should) use other components, in this
+case :html:`<my:atom.icon>`.
+Depending on the use case, it might also make sense to pass the output of one component
+to another component via a slot:
+
+..  code-block:: html
+
+    <html
+        xmlns:my="http://typo3.org/ns/MyVendor/MyExtension/Components"
+        data-namespace-typo3-fluid="true"
+    >
+
+    <my:molecule.teaserCard
+        title="TYPO3"
+        link="https://typo3.org/"
+        icon="typo3"
+    >
+        <my:atom.text>{content}</my:atom.text>
+    </my:molecule.teaserCard>
+
+You can learn more about components in
+`Defining Components <https://docs.typo3.org/permalink/fluid:components-definition>`_. Note
+that this is part of the documentation of Fluid Standalone, which means that it doesn't mention
+TYPO3 specifics.
+
 .. _register_fluid_components:
 
 Registering component collections
@@ -233,64 +291,6 @@ Using this example :html:`<my:organism.header.navigation />` would point to
 
 It is possible to influence certain aspects of Fluid components using PSR-14 events,
 see `PSR-14 events for Fluid components <https://docs.typo3.org/permalink/changelog:feature-108508-1765987847>`_.
-
-.. _creating_fluid_components:
-
-Creating components
--------------------
-
-The typical look of a component is like a normal Fluid template, except
-that it defines all of its arguments with the
-`Argument ViewHelper <f:argument> <https://docs.typo3.org/permalink/t3viewhelper:typo3fluid-fluid-argument>`_.
-The `Slot ViewHelper <f:slot> <https://docs.typo3.org/permalink/t3viewhelper:typo3fluid-fluid-slot>`_
-can be used to receive other HTML content. With the Slot ViewHelper it is possible to nest components.
-
-Example: How you could define a Fluid component
-
-..  code-block:: html
-    :caption: EXT:my_extension/Resources/Private/Components/Molecule/TeaserCard/TeaserCard.fluid.html
-
-    <html
-        xmlns:my="http://typo3.org/ns/MyVendor/MyExtension/Components"
-        data-namespace-typo3-fluid="true"
-    >
-
-    <f:argument name="title" type="string" />
-    <f:argument name="link" type="string" />
-    <f:argument name="icon" type="string" optional="{true}" />
-
-    <a href="{link}" class="teaserCard">
-        <f:if condition="{icon}">
-            <my:atom.icon identifier="{icon}">
-        </f:if>
-        <div class="teaserCard__title">{title}</div>
-        <div class="teaserCard__content"><f:slot /></div>
-    </a>
-
-The example also demonstrates that components can (and should) use other components, in this
-case :html:`<my:atom.icon>`.
-Depending on the use case, it might also make sense to pass the output of one component
-to another component via a slot:
-
-..  code-block:: html
-
-    <html
-        xmlns:my="http://typo3.org/ns/MyVendor/MyExtension/Components"
-        data-namespace-typo3-fluid="true"
-    >
-
-    <my:molecule.teaserCard
-        title="TYPO3"
-        link="https://typo3.org/"
-        icon="typo3"
-    >
-        <my:atom.text>{content}</my:atom.text>
-    </my:molecule.teaserCard>
-
-You can learn more about components in
-`Defining Components <https://docs.typo3.org/permalink/fluid:components-definition>`_. Note
-that this is part of the documentation of Fluid Standalone, which means that it doesn't mention
-TYPO3 specifics.
 
 .. _history_fluid_components:
 
@@ -372,10 +372,6 @@ PSR-14 events for Fluid components
 There are three new PSR-14 events to influence the processing and rendering of
 Fluid components that can be registered using the new configuration file.
 (see `Feature: #108508 - Fluid components integration <https://docs.typo3.org/permalink/changelog:feature-108508-1765987901>`_).
-
-*   ModifyComponentDefinitionEvent
-*   ProvideStaticVariablesToComponentEvent
-*   RenderComponentEvent
 
 ..  _generic-view-factory:
 
