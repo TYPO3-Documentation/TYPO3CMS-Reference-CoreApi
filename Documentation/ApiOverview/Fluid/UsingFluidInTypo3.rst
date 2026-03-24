@@ -259,7 +259,11 @@ All arguments that are passed to a component need to be defined with
 :html:`<f:argument>` in the component template, for example 
 :file:`Navigation.fluid.html`. 
 
+<<<<<<< HEAD
 It is possible to adjust these configurations per collection: 
+=======
+It is possible to adjust these configurations per collection:
+>>>>>>> 93252369 (Add changes)
 
 *   using `templateNamePattern` allows you to use a different folder structure, 
     available variables are `{path}` and `{name}`. For example, 
