@@ -154,7 +154,7 @@ Using Fluid components
 Description
 -----------
 
-With Fluid 4.3 the concept of components of Fluid was introduced.
+With version 4.3 the concept of components was introduced into Fluid.
 
 .. _register_fluid_components:
 
