@@ -10,6 +10,7 @@ return array_merge(
     include ('EventsExtbase.php'),
     include ('EventsExtensionManager.php'),
     include ('EventsFilelist.php'),
+    include ('EventsFluid.php'),
     include ('EventsForm.php'),
     include ('EventsFrontend.php'),
     include ('EventsFrontendLogin.php'),
