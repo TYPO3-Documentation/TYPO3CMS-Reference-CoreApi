@@ -117,6 +117,12 @@ return [
     ],
     [
         'action' => 'createPhpClassDocs',
+        'class' => \TYPO3\CMS\Backend\Form\Event\CustomFileSelectorsEvent::class,
+        'targetFileName' => 'CodeSnippets/Events/Backend/CustomFileSelectorsEvent.rst.txt',
+        'withCode' => false,
+    ],
+    [
+        'action' => 'createPhpClassDocs',
         'class' => \TYPO3\CMS\Backend\Form\Event\ModifyInlineElementControlsEvent::class,
         'targetFileName' => 'CodeSnippets/Events/Backend/ModifyInlineElementControlsEvent.rst.txt',
         'withCode' => false,
