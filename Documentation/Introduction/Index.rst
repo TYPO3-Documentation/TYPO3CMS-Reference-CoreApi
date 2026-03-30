@@ -39,10 +39,10 @@ to generate one for you or follow the :ref:`site package tutorial <t3sitepackage
 Getting help with TYPO3
 =======================
 
-`Meet the TYPO3 Community <Meet the TYPO3 Community>`_. You can chat with us
-`on Slack <https://typo3.org/community/meet/chat-slack>`_, go to meetings in
-your `local user group <https://typo3.org/community/meet/user-groups>`_ or
-meet us at `events <https://typo3.org/community/events>`_.
+`Meet the TYPO3 Community <https://typo3.community/meet>`_. You can chat with us
+`on Slack <https://typo3.community/meet/slack>`_, go to meetings in
+your `local user group <https://typo3.community/meet/user-groups>`_ or
+meet us at `events <https://news.typo3.com/events>`_.
 
 You can discuss TYPO3 related questions in the https://talk.typo3.org/ forum.
 

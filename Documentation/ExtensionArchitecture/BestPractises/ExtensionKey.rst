@@ -97,7 +97,7 @@ Security
 
 You are responsible for security issues in your
 extensions. People may report security issues either directly to you
-or to the `TYPO3 Security Team <https://typo3.org/community/teams/security/>`__.
+or to the `TYPO3 Security Team <https://typo3.community/contribute/teams-committees/security>`__.
 In any case, you should get in
 touch with the Security Team which will validate the security fixes.
 They will also include information about your (fixed) extension in
@@ -106,7 +106,7 @@ the Security Team, your extension will be removed by force from the
 TYPO3 Extension Repository.
 
 More details on the security team's policy on handling security issues
-can be found at https://typo3.org/teams/security/extension-security-policy/.
+can be found at https://typo3.community/contribute/teams-committees/security/extension-security-policy.
 
 .. _extension-key-registration:
 
