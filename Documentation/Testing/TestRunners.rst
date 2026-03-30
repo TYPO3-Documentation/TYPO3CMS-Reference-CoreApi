@@ -364,7 +364,7 @@ Thus, effort is being made to offer generators that can create
 Composer script integration plus helpers, to achieve integrating
 a choice of most common tools.
 
-Please check out the work of the `TYPO3 Best Practices Team <https://typo3.org/community/teams/best-practices>`__
+Please check out the work of the `TYPO3 Best Practices Team <https://typo3.community/contribute/teams-committees/best-practices>`__
 for more information on this. If you are interested in helping
 this effort, please get in touch.
 
