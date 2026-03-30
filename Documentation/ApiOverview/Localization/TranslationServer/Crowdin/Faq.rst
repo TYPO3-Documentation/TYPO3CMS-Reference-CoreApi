@@ -44,7 +44,7 @@ Crowdin please contact either the maintainer of the extension or the
     The language needs to be supported by TYPO3 itself as well, see
     :ref:`i18n_languages` for a list of all languages.
 
-..  _Localization Team: https://typo3.org/community/teams/localization
+..  _Localization Team: https://typo3.community/contribute/teams-committees/localization
 
 
 ..  _crowdin-faq-pootle:
