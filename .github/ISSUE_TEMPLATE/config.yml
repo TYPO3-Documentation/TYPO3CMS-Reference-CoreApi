@@ -1,7 +1,7 @@
 blank_issues_enabled: false
 contact_links:
   - name: 🔒️ Security Issue
-    url: https://typo3.org/community/teams/security
+    url: https://typo3.community/contribute/teams-committees/security
     about: If you encounter a security issue 👿, please reach out **only** to the TYPO3 Security Team by writing to security (at) typo3.org. Please don't share the information with the Documentation Team or anyone else.
   - name: ❓ Ask question
     url: https://typo3.slack.com/app_redirect?channel=C028JEPJL

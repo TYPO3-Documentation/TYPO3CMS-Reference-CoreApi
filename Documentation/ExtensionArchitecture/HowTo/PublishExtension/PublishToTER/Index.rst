@@ -19,10 +19,11 @@ effort in coding:
 *  Are there any extensions in the TER yet which have the same functionalities?
 *  If yes, why do we need your one? Wouldn't it be an option to contribute to
    other extensions?
-*  Did you read and understand the `TYPO3 Extension Security Policy <https://typo3.org/community/teams/security/extension-security-policy>`__?
+*  Did you read and understand the
+   `TYPO3 Extension Security Policy <https://typo3.community/contribute/teams-committees/security/extension-security-policy>`__?
 *  Does your extension include or need external libraries? Watch for the
    license! Learn more about the
-   `right licensing <https://typo3.org/project/licenses/>`__.
+   `right licensing <https://typo3.com/typo3-cms/what-is-typo3/open-source/licenses>`__.
 *  Do you have a public repository on e.g. GitHub, Gitlab or Bitbucket?
 *  Do you have the resources to maintain this extension?
 *  This means that you should
