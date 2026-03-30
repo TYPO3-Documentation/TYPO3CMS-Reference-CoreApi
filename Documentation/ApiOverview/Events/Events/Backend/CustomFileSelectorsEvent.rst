@@ -10,10 +10,10 @@ CustomFileSelectorsEvent
 
 The PSR-14 event :php:`\TYPO3\CMS\Backend\Form\Event\CustomFileSelectorsEvent`
 is dispatched in :php:`\TYPO3\CMS\Backend\Form\Container\FilesControlContainer`
-during rendering of the selectors of relations to `sys_file_references`.
+during rendering of the selectors of relations to `sys_file_reference`.
 
 The event was introduced to add additional file controls and make it easier for
-extension developers to integrate DAM systems.
+extension developers to integrate :abbr:`DAM (Digital Asset Management)` systems.
 
 Example
 =======

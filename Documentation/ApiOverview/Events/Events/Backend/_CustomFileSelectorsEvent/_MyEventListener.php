@@ -10,7 +10,6 @@ use TYPO3\CMS\Core\Attribute\AsEventListener;
 #[AsEventListener(
     identifier: 'my-extension/backend/custom-file-selector',
 )]
-
 final readonly class MyEventListener
 {
     public function __construct(
