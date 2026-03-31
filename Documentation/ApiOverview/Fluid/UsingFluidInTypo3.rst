@@ -219,7 +219,7 @@ TYPO3 specifics.
 Registering component collections
 ---------------------------------
 
-In order to use Fluid components register a component collection
+In order to use Fluid components, register a component collection
 within the file :file:`Configuration/Fluid/ComponentCollections.php` 
 
 ..  code-block:: php
