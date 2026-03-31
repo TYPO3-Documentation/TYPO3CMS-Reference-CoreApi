@@ -167,7 +167,7 @@ that it defines all of its arguments with the
 The `Slot ViewHelper <f:slot> <https://docs.typo3.org/permalink/t3viewhelper:typo3fluid-fluid-slot>`_
 can be used to receive other HTML content. With the Slot ViewHelper it is possible to nest components.
 
-Example: How you could define a Fluid component
+Here is an example of how you could define a Fluid component:
 
 ..  code-block:: html
     :caption: EXT:my_extension/Resources/Private/Components/Molecule/TeaserCard/TeaserCard.fluid.html
@@ -211,7 +211,7 @@ to another component via a slot:
 
 You can learn more about components in
 `Defining Components <https://docs.typo3.org/permalink/fluid:components-definition>`_. Note
-that this is part of the documentation of Fluid Standalone, which means that it doesn't mention
+that this is part of the Fluid Standalone documentation, which means that it doesn't mention
 TYPO3 specifics.
 
 .. _register_fluid_components:
