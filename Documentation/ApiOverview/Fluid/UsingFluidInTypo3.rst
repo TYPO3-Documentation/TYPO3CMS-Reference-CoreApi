@@ -236,7 +236,7 @@ within the file :file:`Configuration/Fluid/ComponentCollections.php`
     ];
 
 in which you define the path where your Fluid components can be found.
-Components in that collections can then be used in any Fluid template.
+Components in these collections can then be used in any Fluid template.
 
 ..  code-block:: html
     :caption: EXT:my_extension/Resources/Private/Templates/Template.fluid.html
