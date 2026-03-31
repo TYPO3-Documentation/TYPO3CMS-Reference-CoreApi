@@ -248,7 +248,7 @@ Components in these collections can then be used in any Fluid template.
 
     <my:organism.header.navigation />
 
-Note that by default, component collections use a folder structure that
+Note that, by default, component collections use a folder structure that
 requires a separate directory per component. 
 That means, for example, imagine you defined a navigation Fluid component. 
 Then the file
