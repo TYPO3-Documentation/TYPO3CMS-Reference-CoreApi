@@ -220,11 +220,11 @@ Registering component collections
 ---------------------------------
 
 In order to use Fluid components, register a component collection
-within the file :file:`Configuration/Fluid/ComponentCollections.php` 
+within the file :file:`Configuration/Fluid/ComponentCollections.php`
 
 ..  literalinclude:: _UsingFluid/_ComponentCollections.php
     :caption: EXT:my_extension/Configuration/Fluid/ComponentCollections.php
- 
+
 in which you define the path where your Fluid components can be found.
 Components in these collections can then be used in any Fluid template.
 
@@ -239,20 +239,19 @@ Components in these collections can then be used in any Fluid template.
     <my:organism.header.navigation />
 
 Note that, by default, component collections use a folder structure that
-requires a separate directory for each component. 
-That means, for example, if you have defined a navigation Fluid component
-then the file
-:file:`EXT:my_extension/Resources/Private/Components/Organism/Header/Navigation/Navigation.fluid.html`
-should be stored in path `my_extension/Resources/Private/Components/Organism/Header/Navigation`. 
+requires a separate directory for each component.
+That means, for example, if you have defined a :html:`<my:organism.header.navigation />`
+Fluid component then the template file
+should be stored in :file:`EXT:my_extension/Resources/Private/Components/Organism/Header/Navigation/Navigation.fluid.html`.
 
-All arguments that are passed to a component need to be defined with 
-:html:`<f:argument>` in the component template, for example 
-:file:`Navigation.fluid.html`. 
+All arguments that are passed to a component need to be defined with
+:html:`<f:argument>` in the component template, for example
+:file:`Navigation.fluid.html`.
 
 It is possible to adjust these configurations per collection:
 
-*   using `templateNamePattern` allows you to use a different folder structure, 
-    available variables are `{path}` and `{name}`. For example, 
+*   using `templateNamePattern` allows you to use a different folder structure,
+    available variables are `{path}` and `{name}`. For example,
     with :html:`<my:organism.header.navigation>`, `{path}` would be
     `Organism/Header` and `{name}` would be `Navigation`.
 *   setting `additionalArgumentsAllowed` to `true` allows passing undefined arguments
@@ -286,18 +285,18 @@ arbitrary arguments to be passed to components in that collection.
 Migration and co-existence with class-based collections
 -------------------------------------------------------
 
-Since TYPO3 v14 you should use the configuration-based component collections over 
+Since TYPO3 v14 you should use the configuration-based component collections over
 the class-based. A configuration-based component collection is a collection defined
-by the configuration file :file:`ComponentCollections.php`. In contrast to that, a 
-class-based component required custom PHP code in TYPO3 v13, see 
+by the configuration file :file:`ComponentCollections.php`. In contrast to that, a
+class-based component required custom PHP code in TYPO3 v13, see
 `Fluid components in Fluid explained <https://docs.typo3.org/permalink/fluid:components-setup>`_.
-Most use cases can easily be migrated to the configuration-based approach, since 
+Most use cases can easily be migrated to the configuration-based approach, since
 they usually just consist of boilerplate code around the configuration options.
 
-In fact, you can use both component collection types side by side. For more 
+In fact, you can use both component collection types side by side. For more
 advanced use cases, it might still be best to ship a custom class to define
-a component collection. Since the configuration-based approach is not available in TYPO3 v13, 
-it is possible to ship both variants to provide backwards-compatibility: 
+a component collection. Since the configuration-based approach is not available in TYPO3 v13,
+it is possible to ship both variants to provide backwards-compatibility:
 if a specific component collection is
 defined both by class and by configuration, in TYPO3 v13 the class will be used,
 while in TYPO3 v14 the configuration will be used and the class will be ignored completely.
@@ -316,21 +315,12 @@ components into an existing component collection:
 
 
 ..  literalinclude:: _UsingFluid/_ComponentCollectionsSomeVendorTemplatePaths.php
-    :caption: EXT:my_extension/Configuration/Fluid/ComponentCollections.php 
+    :caption: EXT:my_extension/Configuration/Fluid/ComponentCollections.php
 
 For template paths, the familiar rule applies: they will be sorted by their
 keys and will be processed in reverse order. In this example, if `my_extension`
 defines a component that already exists in `vendor_extension`, it will override
 the original component in `vendor_extension`.
-
-.. _psr_14_events_fluid_components:
-
-PSR-14 events for Fluid components
-----------------------------------
-
-There are three new PSR-14 events to influence the processing and rendering of
-Fluid components that can be registered using the new configuration file.
-(see `Feature: #108508 - Fluid components integration <https://docs.typo3.org/permalink/changelog:feature-108508-1765987901>`_).
 
 ..  _generic-view-factory:
 
