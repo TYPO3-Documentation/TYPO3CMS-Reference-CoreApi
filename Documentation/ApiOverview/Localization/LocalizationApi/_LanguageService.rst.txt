@@ -82,6 +82,45 @@
 
         :param $input: Label key/reference
 
+    ..  php:method:: label(string $reference, array $arguments = [], ?string $default = NULL, ?TYPO3\CMS\Core\Localization\Locale|string|null $locale = NULL)
+        :returns: `\Stringable|string|?null`
+
+        Translate a label by its full reference string.
+
+        Resolves TYPO3 label reference strings in the formats:
+
+            'LLL:EXT:core/Resources/Private/Language/locallang_core.xlf:labels.depth_0'
+            'EXT:core/Resources/Private/Language/locallang_core.xlf:labels.depth_0'
+            'core.messages:labels.depth_0'
+
+        The LLL: prefix is optional and stripped before resolution.
+
+        Unlike sL(), this method:
+        - Returns null when the label reference cannot be resolved
+        - Supports argument interpolation (sprintf-style or ICU MessageFormat)
+        - Supports locale overrides per call
+        - Supports a default value fallback
+
+        :param $reference: the reference
+        :param $arguments: the arguments, default: []
+        :param $default: the default, default: NULL
+        :param $locale: the locale, default: NULL
+
+    ..  php:method:: translate(string $id, string $domain, array $arguments = [], ?string $default = NULL, ?TYPO3\CMS\Core\Localization\Locale|string|null $locale = NULL)
+        :returns: `string|\Stringable|null`
+
+        Translate a label by its identifier and domain.
+
+        This is different from sL() as it can also return null, and expects a domain (can be a file reference as well).
+        NULL is returned when the "id" is not found.
+
+        :param $id: The label identifier/key
+        :param $domain: The translation domain (file reference like 'EXT:core/Resources/Private/Language/locallang.xlf'or semantic domain like 'core.messages'). For ICU MessageFormat, suffix with '+intl-icu'.
+        :param $arguments: Optional arguments for placeholder replacement. For sprintf-style messages,pass indexed values. For ICU messages, pass named values (e.g., ['count' => 5])., default: []
+        :param $default: Optional default value, default: NULL
+        :param $locale: Optional locale override. If null, uses the service's configured locale., default: NULL
+        :Return description: The translated string, or null if the label was not found
+
     ..  php:method:: overrideLabels(string $fileRef, array $labels)
 
         Define custom labels which can be overridden for a given file. This is typically
