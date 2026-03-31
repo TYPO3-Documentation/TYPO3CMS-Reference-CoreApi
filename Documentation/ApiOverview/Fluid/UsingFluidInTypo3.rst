@@ -222,19 +222,9 @@ Registering component collections
 In order to use Fluid components, register a component collection
 within the file :file:`Configuration/Fluid/ComponentCollections.php` 
 
-..  code-block:: php
+..  literalinclude:: _UsingFluid/_ComponentCollections.php
     :caption: EXT:my_extension/Configuration/Fluid/ComponentCollections.php
-
-    <?php
-
-    return [
-        'MyVendor\\MyExtension\\Components' => [
-            'templatePaths' => [
-                10 => 'EXT:my_extension/Resources/Private/Components',
-            ],
-        ],
-    ];
-
+ 
 in which you define the path where your Fluid components can be found.
 Components in these collections can then be used in any Fluid template.
 
@@ -270,20 +260,8 @@ It is possible to adjust these configurations per collection:
 
 Here is an example where these configurations are used.
 
-..  code-block:: php
+..  literalinclude:: _UsingFluid/_ComponentCollectionsTemplateNamePattern.php
     :caption: EXT:my_extension/Configuration/Fluid/ComponentCollections.php
-
-    <?php
-
-    return [
-        'MyVendor\\MyExtension\\Components' => [
-            'templatePaths' => [
-                10 => 'EXT:my_extension/Resources/Private/Components',
-            ],
-            'templateNamePattern' => '{path}/{name}',
-            'additionalArgumentsAllowed' => true,
-        ],
-    ];
 
 Using this example, :html:`<my:organism.header.navigation />` would point to
 :file:`EXT:my_extension/Resources/Private/Components/Organism/Header/Navigation.fluid.html`
@@ -333,31 +311,12 @@ It is possible to extend the configuration of other extensions using the
 introduced configuration file. This allows integrators to merge their own set of
 components into an existing component collection:
 
-..  code-block:: php
+..  literalinclude:: _UsingFluid/_ComponentCollectionsSomeVendor.php
     :caption: EXT:vendor_extension/Configuration/Fluid/ComponentCollections.php
 
-    <?php
 
-    return [
-        'SomeVendor\\VendorExtension\\Components' => [
-            'templatePaths' => [
-                10 => 'EXT:vendor_extension/Resources/Private/Components',
-            ],
-        ],
-    ];
-
-..  code-block:: php
-    :caption: EXT:my_extension/Configuration/Fluid/ComponentCollections.php
-
-    <?php
-
-    return [
-        'SomeVendor\\VendorExtension\\Components' => [
-            'templatePaths' => [
-                1765990741 => 'EXT:my_extension/Resources/Private/Extensions/VendorExtension/Components',
-            ],
-        ],
-    ];
+..  literalinclude:: _UsingFluid/_ComponentCollectionsSomeVendorTemplatePaths.php
+    :caption: EXT:my_extension/Configuration/Fluid/ComponentCollections.php 
 
 For template paths, the familiar rule applies: they will be sorted by their
 keys and will be processed in reverse order. In this example, if `my_extension`
