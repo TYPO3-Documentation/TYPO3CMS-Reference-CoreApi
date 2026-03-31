@@ -249,9 +249,9 @@ Components in these collections can then be used in any Fluid template.
     <my:organism.header.navigation />
 
 Note that, by default, component collections use a folder structure that
-requires a separate directory per component. 
-That means, for example, imagine you defined a navigation Fluid component. 
-Then the file
+requires a separate directory for each component. 
+That means, for example, if you have defined a navigation Fluid component
+then the file
 :file:`EXT:my_extension/Resources/Private/Components/Organism/Header/Navigation/Navigation.fluid.html`
 should be stored in path `my_extension/Resources/Private/Components/Organism/Header/Navigation`. 
 
@@ -285,7 +285,7 @@ Here is an example where these configurations are used.
         ],
     ];
 
-Using this example :html:`<my:organism.header.navigation />` would point to
+Using this example, :html:`<my:organism.header.navigation />` would point to
 :file:`EXT:my_extension/Resources/Private/Components/Organism/Header/Navigation.fluid.html`
 (note the missing :file:`Navigation` folder).
 
@@ -301,7 +301,7 @@ In TYPO3 v13 it is possible to use components in TYPO3 projects by creating a cu
 :php:`ComponentCollection` class that essentially connects a folder of template files
 to a Fluid ViewHelper namespace. Using that class it is also possible to use an
 alternative folder structure for a component collection and to allow
-arbitrary arguments to components within that collection.
+arbitrary arguments to be passed to components in that collection.
 
 .. _migration_co-existence_fluid_components:
 
@@ -321,7 +321,7 @@ advanced use cases, it might still be best to ship a custom class to define
 a component collection. Since the configuration-based approach is not available in TYPO3 v13, 
 it is possible to ship both variants to provide backwards-compatibility: 
 if a specific component collection is
-defined both via class and via configuration, in TYPO3 v13 the class will be used,
+defined both by class and by configuration, in TYPO3 v13 the class will be used,
 while in TYPO3 v14 the configuration will be used and the class will be ignored completely.
 
 .. _extending_component-collections_fluid_components:
