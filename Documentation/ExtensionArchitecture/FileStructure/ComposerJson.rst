@@ -92,6 +92,8 @@ Subsequently:
   general Composer information
 * see :ref:`ext-composer-json-properties` below for TYPO3 specific hints
 
+..  versionchanged:: 14.2
+
 The order of installed extensions and their dependencies is specified in
 the :file:`composer.json <extension-composer-json>` file.
 
@@ -129,6 +131,8 @@ Extended composer.json
 Classic mode compatible composer.json
 -------------------------------------
 
+..  versionchanged:: 14.2
+
 Extension authors should add :ref:`ext-composer-json-property-version`  and
 `providesPackages <https://docs.typo3.org/permalink/t3coreapi:ext-composer-json-property-provides-packages>`_ definitions to
 :file:`composer.json <extension-composer-json>` if their extensions should remain compatible with TYPO3 Classic mode.
@@ -152,7 +156,8 @@ Here the Classic mode compatible extension does not depend on any Composer packa
     :language: json
     :caption: EXT:my_extension/composer.json
 
-
+..  important::
+    The `version` key in :file:`composer.json` **must** match the Git tag.
 ..  _ext-composer-json-properties:
 
 Properties
