@@ -334,5 +334,5 @@ Further readings
 Get inspired by Martin Pribyl's article about how he did a full translation and
 proofreading of TYPO3 CMS into Czech language: `Bringing Czech to TYPO3 - My Translation Journey`_
 
-.. _Bringing Czech to TYPO3 - My translation Journey: https://typo3.org/article/bringing-czech-to-typo3-my-translation-journey
+.. _Bringing Czech to TYPO3 - My translation Journey: https://news.typo3.com/archive/bringing-czech-to-typo3-my-translation-journey
 
