@@ -157,6 +157,22 @@ After triggering the upload, Crowdin tries to find the matching source files and
 target languages. You may have to accept both if they are not found
 automatically.
 
+..  index:: Crowdin; Rename branches in Git and Crowdin
+..  _crowdin-faq-rename-branches:
+
+How can I rename my branch "master" to "main" in Git and Crowdin?
+-----------------------------------------------------------------
+
+If you want to rename a Git branch and retain your existing Crowdin translation,
+follow these steps:
+
+#.  Go to your extension in Crowdin, select the "Sources" tab.
+#.  Search for the branch, e.g. "master" and right-click on the branch name.
+#.  Choose "Rename" and complete the renaming process.
+#.  Rename "master" to "main" in your Git repository.
+#.  In Crowdin, go to "Integrations" and edit your Git integration, specifying
+    the new "main" branch.
+
 ..  index:: Crowdin; Disable pushing of changes
 ..  _crowdin-faq-disable-push-changes:
 
