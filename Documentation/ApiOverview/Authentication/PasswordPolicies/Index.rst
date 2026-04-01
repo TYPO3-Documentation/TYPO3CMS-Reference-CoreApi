@@ -161,6 +161,78 @@ Third-party validators
 
 The extension :t3ext:`add_pwd_policy` provides additional validators.
 
+..  _password-policies-third-party-extbase:
+
+Using password policy validation in Extbase
+-------------------------------------------
+
+If you need to validate a plaintext password within Extbase, for example in a 
+`Data transfer object (DTO) <https://docs.typo3.org/permalink/t3coreapi:extbase-dto>`_,
+you can call the :php:`\TYPO3\CMS\Core\PasswordPolicy\PasswordPolicyValidator` from
+within a custom validator, for example:
+
+..  code-block::php
+    :caption: packages/my_extension/Classes/Domain/Validator/ExtbasePasswordPolicyValidator.php
+
+    <?php
+
+    declare(strict_types=1);
+    
+    namespace MyVendor\MyExtension\Domain\Validator;
+    
+    use TYPO3\CMS\Core\PasswordPolicy\PasswordPolicyAction;
+    use TYPO3\CMS\Core\PasswordPolicy\PasswordPolicyValidator;
+    use TYPO3\CMS\Extbase\Validation\Validator\AbstractValidator;
+    
+    class ExtbasePasswordPolicyValidator extends AbstractValidator
+    {
+        protected function isValid(mixed $value): void
+        {
+            if (!is_string($value)) {
+                return;
+            }
+            $passwordValidator = new PasswordPolicyValidator(PasswordPolicyAction::NEW_USER_PASSWORD);
+            if (!$passwordValidator->isValidPassword($value)) {
+                foreach ($passwordValidator->getValidationErrors() as $validationError) {
+                    $this->addError($validationError, 1774872344835);
+                }
+            }
+        }
+    }
+
+The error code should be a unique integer. It is common practice in TYPO3
+to use the current Unix timestamp in milliseconds when creating a new
+validator, as this provides a simple way to generate a unique value.
+
+You can then use your custom Extbase validator in the DTO:
+
+..  code-block::php
+    :caption: packages/my_extension/Classes/Domain/Model/Dto/UserRegistrationDto.php
+
+    <?php
+
+    declare(strict_types=1);
+    
+    namespace MyVendor\MyExtension\Domain\Model\Dto;
+
+    use MyVendor\MyExtension\Domain\Validator\ExtbasePasswordPolicyValidator;
+    use TYPO3\CMS\Extbase\Annotation\Validate;
+
+    class UserRegistrationDto
+    {
+        #[Validate([
+            'validator' => ExtbasePasswordPolicyValidator::class,
+        ])]
+        public string $plainTextPassword = '';
+        // Other validator for username
+        public string $username = '';
+    }
+
+..  warning::
+    The password in the DTO is stored in **plaintext**, you have to hash the password 
+    (see `Password hashing <https://docs.typo3.org/permalink/t3coreapi:password-hashing>`_)
+    before saving it to the database. Never persist a password that was not properly hashed.
+
 Disable password policies globally
 ==================================
 
