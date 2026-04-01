@@ -14,7 +14,7 @@
 
     ..  versionchanged:: 14.0
         With TYPO3 14.0 a valid composer.json is required for all TYPO3 extensions,
-        including those only used in Classic-mode installations.
+        including those only used in Classic mode installations.
 
 Required in **all** installations
 
@@ -58,7 +58,9 @@ Including a :file:`composer.json <extension-composer-json>` is **required**.
 
 #.  Without a valid :file:`composer.json <extension-composer-json>` an extension
     is not installable in TYPO3, even in Classic mode installations not using
-    Composer.
+    Composer. To update your :file:`composer.json <extension-composer-json>` file
+    for Classic mode compatible extensions see
+    `Classic mode compatible composer.json <https://docs.typo3.org/permalink/t3coreapi:ext-composer-json-classic-compatible>`_ below.
 
 #.  Working with Composer in general is strongly recommended for TYPO3.
 
@@ -90,9 +92,10 @@ Subsequently:
   general Composer information
 * see :ref:`ext-composer-json-properties` below for TYPO3 specific hints
 
-The ordering of installed extensions and their dependencies are loaded from
-the :file:`composer.json <extension-composer-json>` file, instead of :file:`ext_emconf.php` in
-Composer-based installations.
+..  versionchanged:: 14.2
+
+The order of installed extensions and their dependencies is specified in
+the :file:`composer.json <extension-composer-json>` file.
 
 ..  note::
     Extension authors should ensure that the information in the
@@ -123,6 +126,38 @@ Extended composer.json
 *   See :ref:`ext-composer-json-properties` below for TYPO3-specific hints.
 
 
+..  _ext-composer-json-classic-compatible:
+
+Classic mode compatible composer.json
+-------------------------------------
+
+..  versionchanged:: 14.2
+
+Extension authors should add :ref:`ext-composer-json-property-version`  and
+`providesPackages <https://docs.typo3.org/permalink/t3coreapi:ext-composer-json-property-provides-packages>`_ definitions to
+:file:`composer.json <extension-composer-json>` if their extensions should remain compatible with TYPO3 Classic mode.
+:php:`providesPackages` must exist even if it is empty.
+
+In Classic mode, TYPO3 distinguishes between dependencies on other TYPO3 extensions
+(:php:`require`, :php:`conflicts` and :php:`suggests`) and dependencies on
+plain Composer packages from Packagist (:php:`providesPackages`). The Extension
+Manager uses :php:`version` for compatibility checks and the PackageManager resolves
+the extension loading order.
+
+Here the Classic mode compatible extension has a dependency on Composer package `symfony/dotenv`:
+
+..  literalinclude:: _ComposerJson/_ClassicModeComposerWithPackages.json
+    :language: json
+    :caption: EXT:my_extension/composer.json
+
+Here the Classic mode compatible extension does not depend on any Composer packages:
+
+..  literalinclude:: _ComposerJson/_ClassicModeComposerWithoutPackages.json
+    :language: json
+    :caption: EXT:my_extension/composer.json
+
+..  important::
+    The `version` key in :file:`composer.json` **must** match the Git tag.
 ..  _ext-composer-json-properties:
 
 Properties
@@ -177,6 +212,8 @@ Additionally, `typo3-cms-framework` is available for system extensions.
 See `typo3/cms-composer-installers <https://github.com/TYPO3/CmsComposerInstallers>`__
 (required by `typo3/cms-core`).
 
+..  _ext-composer-json-property-license:
+
 license
 -------
 
@@ -185,6 +222,7 @@ license
 Has to be `GPL-2.0-only` or `GPL-2.0-or-later`.
 See: https://typo3.com/typo3-cms/what-is-typo3/open-source/licenses.
 
+..  _ext-composer-json-property-require:
 
 require
 -------
@@ -198,7 +236,7 @@ extension depends on them.
 In Composer-based installations the loading order of extensions and their
 dependencies is derived from `require` and `suggest`.
 
-
+..  _ext-composer-json-property-suggest:
 
 suggest
 -------
@@ -209,6 +247,7 @@ extension has an optional dependency on them.
 In Composer-based installations the loading order of extensions and their
 dependencies is derived from `require` and `suggest`.
 
+..  _ext-composer-json-property-autoload:
 
 autoload
 --------
@@ -242,6 +281,31 @@ Example for extension key `my_extension`:
     :language: json
     :caption: Excerpt of EXT:my_extension/composer.json
 
+..  _ext-composer-json-property-version:
+
+version
+-------
+
+(*required* for Classic mode installations)
+
+The version must match the tagged release version. Extension Manager (Classic mode)
+uses the version for compatibility checks.
+
+see :ref:`ext-composer-json-classic-compatible` above
+
+..  _ext-composer-json-property-provides-packages:
+
+extra.typo3/cms.Package.providesPackages
+----------------------------------------
+
+(*required* for Classic mode installations)
+
+Not providing this property in Classic mode compatible extensions will emit a
+deprecation notice and will fail in future versions.
+
+see :ref:`ext-composer-json-classic-compatible` above
+
+..  _ext-composer-json-property-not-used:
 
 Properties no longer used
 =========================
@@ -279,6 +343,8 @@ result in an error with Composer version 2.0+:
 See
 `comment on helhum/composer.json <https://gist.github.com/helhum/0ffd82525c90f305b81a8285329eb4f8#gistcomment-3239391>`__
 and `revisions on helhum/composer.json <https://gist.github.com/helhum/0ffd82525c90f305b81a8285329eb4f8/revisions>`__.
+
+..  _ext-composer-json-more-information:
 
 More Information
 ================
