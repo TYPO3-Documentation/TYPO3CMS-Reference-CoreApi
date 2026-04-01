@@ -127,7 +127,7 @@ Some examples of feature toggles in the TYPO3 Core:
 -   `extbase.enableHistoryTracking`: Enables tracking of history for Extbase
     domain entities by listening to Extbase persistence events and storing them
     in the :sql:`sys_history` table. If enabled, it is enabled for all extbase
-    entities but can be disabled for individual extbase storage tables in the
+    entities but can be disabled for individual extbase storage tables in
     their TCA:
 
 ..  code-block:: php
