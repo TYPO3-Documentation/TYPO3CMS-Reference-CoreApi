@@ -230,4 +230,4 @@ is relative to the site configuration folder.
     :caption: EXT:site_package/Configuration/Sets/SitePackage/config.yaml
 
     imports:
-      - { resource: 'RouteEnhancers.yaml' }
+      - { resource: 'RouteEnhancers.yaml', glob: true }
