@@ -28,7 +28,7 @@ Resources
 Support
 -------
 
-Visit the `TYPO3 Slack <https://typo3.org/community/meet/chat-slack>`__ and search for the `#ext-typo3-rector`
+Visit the `TYPO3 Slack <https://typo3.community/meet/slack>`__ and search for the `#ext-typo3-rector`
 channel. You can also open an issue or start a discussion on the projects GitHub page.
 
 EXT: Core Upgrader (v2)
@@ -44,4 +44,4 @@ The extension allows to perform multiple TYPO3 Core version upgrades in one step
 the older upgrade wizards.
 
 Another way to perform (and test/verify) upgrades of multiple TYPO3 versions in one go is outlined
-in a `blog article "Automatic TYPO3 Updates Across Several Major Versions With DDEV <https://typo3.org/article/automatic-typo3-updates-across-several-major-versions-with-ddev>`__.
+in a `blog article "Automatic TYPO3 Updates Across Several Major Versions With DDEV <https://news.typo3.com/archive/automatic-typo3-updates-across-several-major-versions-with-ddev>`__.

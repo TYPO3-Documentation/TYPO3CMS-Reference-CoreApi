@@ -9,13 +9,13 @@ Working with the TYPO3 Security Team
 ====================================
 
 You can find details about the TYPO3 Security Team at
-https://typo3.org/community/teams/security/.
+https://typo3.community/contribute/teams-committees/security.
 
 You can contact the TYPO3 Security Team at `security@typo3.org <mailto:security@typo3.org>`_ .
 
 TYPO3 Core security updates, extension security updates, and unmaintained
 insecure extensions are announced in formal
-`TYPO3 Security Bulletins <https://typo3.org/help/security-advisories>`_.
+`TYPO3 Security Bulletins <https://typo3.org/security>`_.
 
 
 ..  index:: Security; Reporting
@@ -125,4 +125,4 @@ version with the TYPO3 Security Team.
 Further details about the handling of security incidents and time
 frames can be found in the official
 `TYPO3 Extension Security Policy
-<https://typo3.org/community/teams/security/extension-security-policy/>`_
+<https://typo3.community/contribute/teams-committees/security/extension-security-policy>`_

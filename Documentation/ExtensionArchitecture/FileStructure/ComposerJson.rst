@@ -173,7 +173,7 @@ license
 (*recommended*)
 
 Has to be `GPL-2.0-only` or `GPL-2.0-or-later`.
-See: https://typo3.org/project/licenses/.
+See: https://typo3.com/typo3-cms/what-is-typo3/open-source/licenses.
 
 
 require
