@@ -1,4 +1,0 @@
-..  figure:: /Images/ManualScreenshots/Services/ServicesReport.png
-    :zoom: lightbox
-
-    The :guilabel:`Installed Services` report showing details about registered services
