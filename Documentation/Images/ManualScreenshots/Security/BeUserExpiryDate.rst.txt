@@ -1,4 +1,0 @@
-..  figure:: /Images/ManualScreenshots/Security/BeUserExpiryDate.png
-    :zoom: lightbox
-
-    Screenshot showing the screen to set an expiry date for a backend user

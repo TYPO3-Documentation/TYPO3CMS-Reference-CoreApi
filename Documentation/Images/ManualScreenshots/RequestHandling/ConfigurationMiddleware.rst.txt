@@ -1,4 +1,0 @@
-..  figure:: /Images/ManualScreenshots/RequestHandling/ConfigurationMiddleware.png
-    :zoom: lightbox
-
-    TYPO3 configuration module listing configured middlewares.
