@@ -112,9 +112,17 @@ During troubleshooting, in the :guilabel:`"Settings > Configuration Presets"`
 section of the Install Tool, under "Debug settings", the "Debug" preset can be
 change to show errors in the frontend.
 
-.. include:: /Images/ManualScreenshots/DebugSettings/ConfigurationPresets.rst.txt
+..  figure:: /Images/ManualScreenshots/DebugSettings/ConfigurationPresets.png
+    :alt: Configuration Presets Card
+    :zoom: lightbox
 
-.. include:: /Images/ManualScreenshots/DebugSettings/DebugSettings.rst.txt
+    Choose a configuration preset
+
+..  figure:: /Images/ManualScreenshots/DebugSettings/DebugSettings.png
+    :alt: Debug Presets
+    :zoom: lightbox
+
+    Choose the debug preset
 
 The following TypoScript setting can also be added to the root TypoScript for
 the site to show additional debug information.

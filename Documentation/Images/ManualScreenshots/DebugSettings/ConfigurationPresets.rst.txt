@@ -1,5 +1,0 @@
-..  figure:: /Images/ManualScreenshots/DebugSettings/ConfigurationPresets.png
-    :alt: Configuration Presets Card
-    :zoom: lightbox
-
-    Choose a configuration preset
