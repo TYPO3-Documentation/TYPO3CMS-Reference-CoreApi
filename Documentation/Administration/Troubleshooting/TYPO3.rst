@@ -38,7 +38,11 @@ using the following address to create a new administrative user:
 The Install Tool requires the "Installation Password" that would have been set
 when TYPO3 was installed.
 
-.. include:: /Images/ManualScreenshots/InstallTool/InstallToolPassword.rst.txt
+..  figure:: /Images/ManualScreenshots/InstallTool/InstallToolPassword.png
+    :alt: The install tool login
+    :zoom: lightbox
+
+    Enter the install tool password
 
 Once logged in to the Admin Tool go to :guilabel:`Maintenance > Create Administrative User`
 and select :guilabel:`Create Administrator`. In this dialogue you

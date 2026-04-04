@@ -197,7 +197,10 @@ add custom languages and provide your own translations using XLIFF 1.2 or 2.x.
 
     The new language is now available in the backend user settings:
 
-    ..  include:: /Images/ManualScreenshots/Internationalization/CustomLanguage.png.rst.txt
+    ..  figure:: /Images/ManualScreenshots/Internationalization/CustomLanguage.png
+        :zoom: lightbox
+
+        The new language appears in the user preferences
 
     For your own extensions, provide the custom language files in the
     :file:`Resources/Private/Language/` folder, for example
