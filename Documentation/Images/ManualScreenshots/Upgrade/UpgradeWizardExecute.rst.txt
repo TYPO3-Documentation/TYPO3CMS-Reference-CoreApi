@@ -1,2 +1,0 @@
-..  image:: /Images/ManualScreenshots/Upgrade/UpgradeWizardExecute.png
-    :alt: Choose "No, do not execute"
