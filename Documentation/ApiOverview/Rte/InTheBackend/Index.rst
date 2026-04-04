@@ -16,7 +16,10 @@ Rich text editors in the TYPO3 backend
 When you configure a table in :php:`$TCA` and add a field of the type `text`
 you can configure
 
-.. include:: /Images/ManualScreenshots/Rte/RteBackend.rst.txt
+..  figure:: /Images/ManualScreenshots/Rte/RteBackend.png
+    :zoom: lightbox
+
+    The rtehtmlarea RTE activated in the TYPO3 backend
 
 For full details about setting up a field to use an RTE, please refer to the
 chapter labeled 'special-configuration-options' in older versions of the
