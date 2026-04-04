@@ -122,7 +122,8 @@ Some examples of feature toggles in the TYPO3 Core:
 -   `redirects.hitCount`: Enables hit statistics in the redirects backend module
 -   `security.backend.enforceReferrer`: If on, HTTP referrer headers are enforced
     for backend and install tool requests to mitigate potential same-site
-    request forgery attacks.
+request forgery attacks.
+
 ..  versionadded:: 14.2
 -   `extbase.enableHistoryTracking`: Enables tracking of history for Extbase
     domain entities by listening to Extbase persistence events and storing them
@@ -161,7 +162,7 @@ Some examples of feature toggles in the TYPO3 Core:
 
 ..  important::
 
-    All differences to data in extbase entities are now logged, and the initial
+    All differences to data in Extbase entities are now logged, and the initial
     logging will contain all properties. Take note that this can affect
     GDPR / DSGVO / security-related data storage precautions, and data might need to be
     regularly pruned. It might be advisable to turn off history tracking for
