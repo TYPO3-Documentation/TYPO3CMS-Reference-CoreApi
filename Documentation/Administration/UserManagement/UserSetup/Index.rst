@@ -61,7 +61,7 @@ button to create a new backend user there.
 ..  figure:: /Images/ManualScreenshots/UserManagement/BackendUserCreate.png
     :alt: The main submodule Backend users of the backend user module
 
-    Click the button "Create new backend user"
+    Click the button "Create editor" (1) or "Create admin" (2)
 
 Enter the username, password and group membership:
 
@@ -69,8 +69,8 @@ Enter the username, password and group membership:
     :alt: Setting the base information for the new user
 
 ..  note::
-    If we were creating a new administrator, we would just need
-    to check the "Admin (!)" box. Admin users don't need to belong
+    If creating a new administrator, use button :guilabel:`Create admin`
+    or check the "Admin (!)" box. Admin users don't need to belong
     to a group, although this can still be useful to share
     special settings among administrators.
 
