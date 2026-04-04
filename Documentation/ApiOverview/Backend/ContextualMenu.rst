@@ -14,7 +14,7 @@ Contextual menus exist in many places in the TYPO3 backend. Just try your
 luck clicking on any **icon** that you see. Chances are good that a contextual
 menu will appear, offering useful functions to execute.
 
-.. include:: /Images/AutomaticScreenshots/Examples/ContextualMenuExtended/ContextMenuTtContent.rst.txt
+.. include:: /Images/ManualScreenshots/Examples/ContextualMenuExtended/ContextMenuTtContent.rst.txt
 
 .. _csm-implementation:
 
@@ -291,7 +291,7 @@ Tutorial: How to add a custom context menu item
 Follow these steps to add a custom menu item for pages records. You will add a
 "Hello world" item which will show an info after clicking.
 
-.. include:: /Images/AutomaticScreenshots/Examples/ContextualMenuExtended/ContextMenuHelloWorld.rst.txt
+.. include:: /Images/ManualScreenshots/Examples/ContextualMenuExtended/ContextMenuHelloWorld.rst.txt
 
 Step 1: Implementation of the item provider class
 -------------------------------------------------

@@ -1,0 +1,5 @@
+..  figure:: /Images/ManualScreenshots/ImportExport/ContextMenuMore.png
+    :alt: Select "More options..." from the context menu of the page tree
+    :zoom: lightbox
+
+    Select "More options..." from the context menu of the page tree

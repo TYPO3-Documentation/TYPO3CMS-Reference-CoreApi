@@ -1,0 +1,4 @@
+..  figure:: /Images/ManualScreenshots/Examples/Xclasses/XclassNewElementWizard.png
+    :zoom: lightbox
+
+    A help section is added at the bottom of the new record wizard

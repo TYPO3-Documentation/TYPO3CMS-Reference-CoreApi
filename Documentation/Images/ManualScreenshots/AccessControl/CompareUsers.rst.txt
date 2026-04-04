@@ -1,0 +1,4 @@
+..  figure:: /Images/ManualScreenshots/AccessControl/CompareUsers.png
+    :zoom: lightbox
+
+    Comparing users in the Backers users module

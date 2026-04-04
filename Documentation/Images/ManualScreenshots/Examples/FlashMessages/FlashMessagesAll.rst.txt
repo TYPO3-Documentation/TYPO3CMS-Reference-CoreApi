@@ -1,0 +1,4 @@
+..  figure:: /Images/ManualScreenshots/Examples/FlashMessages/FlashMessagesAll.png
+    :zoom: lightbox
+
+    The "EXT:examples" backend module shows one of each type of flash message

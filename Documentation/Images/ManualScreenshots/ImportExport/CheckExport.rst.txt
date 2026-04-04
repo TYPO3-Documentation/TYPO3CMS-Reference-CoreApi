@@ -1,0 +1,5 @@
+..  figure:: /Images/ManualScreenshots/ImportExport/CheckExport.png
+    :alt: Check the exported data
+    :zoom: lightbox
+
+    Check the exported data

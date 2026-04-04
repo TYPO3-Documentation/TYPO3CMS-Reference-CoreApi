@@ -43,7 +43,7 @@ You can check which authentication services are installed
 using the :guilabel:`System > Reports > Installed Services`
 view:
 
-..  include:: /Images/AutomaticScreenshots/Authentication/InstalledAuthServices.rst.txt
+..  include:: /Images/ManualScreenshots/Authentication/InstalledAuthServices.rst.txt
 
 ..  note::
 

@@ -1,0 +1,4 @@
+..  figure:: /Images/ManualScreenshots/Categories/AddingWithApi.png
+    :zoom: lightbox
+
+    The newly added field to define relations to categories

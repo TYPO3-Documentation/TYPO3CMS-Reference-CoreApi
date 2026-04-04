@@ -1,0 +1,2 @@
+..  figure:: /Images/ManualScreenshots/SiteHandling/SiteHandlingNoSite.png
+    :zoom: lightbox

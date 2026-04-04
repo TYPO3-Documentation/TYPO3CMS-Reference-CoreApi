@@ -79,7 +79,7 @@ of it, you can uninstall / install extensions manually with
 Uninstall / Deactivate Extension via TYPO3 Backend
 --------------------------------------------------
 
-..  include:: /Images/AutomaticScreenshots/ExtensionManager/UninstallExtension.rst.txt
+..  include:: /Images/ManualScreenshots/ExtensionManager/UninstallExtension.rst.txt
 
 
 Log into the TYPO3 Backend and open the module

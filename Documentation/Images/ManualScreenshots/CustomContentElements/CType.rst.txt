@@ -1,0 +1,4 @@
+..  figure:: /Images/ManualScreenshots/CustomContentElements/CType.png
+    :zoom: lightbox
+
+    CType dropdown in tt_content

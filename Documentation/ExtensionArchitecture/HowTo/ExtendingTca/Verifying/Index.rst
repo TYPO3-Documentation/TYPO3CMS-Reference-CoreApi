@@ -19,7 +19,7 @@ complete :php:`$GLOBALS['TCA']`, with all modifications taken into account.
 
       composer req typo3/cms-lowlevel
 
-.. include:: /Images/AutomaticScreenshots/ExtendingTca/VerifyingTca.rst.txt
+.. include:: /Images/ManualScreenshots/ExtendingTca/VerifyingTca.rst.txt
 
 If you can't find your new field it probably means that you have
 made a mistake somewhere.

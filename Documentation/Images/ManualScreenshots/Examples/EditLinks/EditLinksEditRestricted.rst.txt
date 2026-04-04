@@ -1,0 +1,4 @@
+..  figure:: /Images/ManualScreenshots/Examples/EditLinks/EditLinksEditRestricted.png
+    :zoom: lightbox
+
+    Editing of fields of two pages and one haiku at once

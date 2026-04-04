@@ -1,6 +1,0 @@
-.. Automatic screenshot: Remove this line if you want to manually change this file
-
-.. figure:: /Images/AutomaticScreenshots/Rte/RteBackend.png
-   :class: with-shadow
-
-   The rtehtmlarea RTE activated in the TYPO3 backend

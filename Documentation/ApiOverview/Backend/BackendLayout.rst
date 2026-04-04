@@ -34,13 +34,13 @@ layouts are available if an
 backend layouts have been
 :ref:`defined as records or page TSconfig <be-layout-definition>`.
 
-.. include:: /Images/AutomaticScreenshots/BackendLayouts/PagePropertiesAppearance.rst.txt
+.. include:: /Images/ManualScreenshots/BackendLayouts/PagePropertiesAppearance.rst.txt
 
 The Info module gives an overview of the backend layouts configured or
 inherited from a parent page at
 :guilabel:`Web > Info > Pagetree overview > Type: Layouts`:
 
-.. include:: /Images/AutomaticScreenshots/BackendLayouts/PageTreeLayoutOverview.rst.txt
+.. include:: /Images/ManualScreenshots/BackendLayouts/PageTreeLayoutOverview.rst.txt
 
 .. index::
    Backend layout; Record

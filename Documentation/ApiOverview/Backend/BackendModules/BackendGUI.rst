@@ -12,7 +12,7 @@ system extension and extended by many other system extensions.
 
 It is divided into the following main areas:
 
-.. include:: /Images/AutomaticScreenshots/BackendModules/BackendModulesAreas.rst.txt
+.. include:: /Images/ManualScreenshots/BackendModules/BackendModulesAreas.rst.txt
 
 Top bar
   The top bar is always present. It is itself divided into two
@@ -66,4 +66,4 @@ Contextual menus
   mechanisms vary: the page tree behaves differently than the
   rest of the backend.
 
-  .. include:: /Images/AutomaticScreenshots/BackendModules/BackendModulesContextualMenu.rst.txt
+  .. include:: /Images/ManualScreenshots/BackendModules/BackendModulesContextualMenu.rst.txt

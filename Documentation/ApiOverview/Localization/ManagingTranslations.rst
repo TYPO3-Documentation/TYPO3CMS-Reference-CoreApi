@@ -22,7 +22,7 @@ The module is rather straightforward to use and should be pretty much self-expla
 Downloaded language packs are stored in the environment's
 :ref:`Environment-labels-path`.
 
-..  include:: /Images/AutomaticScreenshots/AdminTools/ManageLanguagePacks.rst.txt
+..  include:: /Images/ManualScreenshots/AdminTools/ManageLanguagePacks.rst.txt
 
 
 Language packs can also be fetched using the command line:
@@ -52,15 +52,15 @@ Additional language packs can be installed by administrators in the backend:
 
 1.  Go to :guilabel:`Admin Tools > Maintenance > Manage Languages Packs`
 
-    ..  include:: /Images/AutomaticScreenshots/Modules/ManageLanguage.rst.txt
+    ..  include:: /Images/ManualScreenshots/Modules/ManageLanguage.rst.txt
 
 2.  Select :guilabel:`Add Language` and activate the new language:
 
-    ..  include:: /Images/AutomaticScreenshots/Modules/ManageLanguagePacksAddLanguage.rst.txt
+    ..  include:: /Images/ManualScreenshots/Modules/ManageLanguagePacksAddLanguage.rst.txt
 
 3.  The selected language is now available:
 
-    ..  include:: /Images/AutomaticScreenshots/Modules/ManageLanguagePacksAddLanguageAddSuccess.rst.txt
+    ..  include:: /Images/ManualScreenshots/Modules/ManageLanguagePacksAddLanguageAddSuccess.rst.txt
 
 ..  index:: Localization; Local translations
 ..  _xliff-translating-local:
@@ -211,7 +211,7 @@ files.
 
     The custom language is now available in the user settings:
 
-    ..  include:: /Images/AutomaticScreenshots/Internationalization/CustomLanguage.png.rst.txt
+    ..  include:: /Images/ManualScreenshots/Internationalization/CustomLanguage.png.rst.txt
 
     For translations in own extensions you can provide the custom language files
     in the :file:`Resources/Private/Language/` folder of the extension, for

@@ -56,11 +56,11 @@ Here an excerpt:
 
 The links appear in the example backend module:
 
-..  include:: /Images/AutomaticScreenshots/Examples/EditLinks/EditLinksDisplay.rst.txt
+..  include:: /Images/ManualScreenshots/Examples/EditLinks/EditLinksDisplay.rst.txt
 
 The examples above leads to the normal edit form for a page:
 
-..  include:: /Images/AutomaticScreenshots/Examples/EditLinks/EditLinksEditFull.rst.txt
+..  include:: /Images/ManualScreenshots/Examples/EditLinks/EditLinksEditFull.rst.txt
 
 
 ..  _edit-links-edit-restricted:
@@ -90,7 +90,7 @@ However if one record to be edited is missing none of the records gets displayed
 
 The example above results in the following:
 
-..  include:: /Images/AutomaticScreenshots/Examples/EditLinks/EditLinksEditRestricted.rst.txt
+..  include:: /Images/ManualScreenshots/Examples/EditLinks/EditLinksEditRestricted.rst.txt
 
 ..  _edit-links-new:
 
@@ -131,7 +131,7 @@ Note the following things:
 This results in the following new record form with a pre-filled
 title and season field.
 
-..  include:: /Images/AutomaticScreenshots/Examples/EditLinks/EditLinksNew.rst.txt
+..  include:: /Images/ManualScreenshots/Examples/EditLinks/EditLinksNew.rst.txt
 
 ..  _edit-links-columnsOnly-migration:
 

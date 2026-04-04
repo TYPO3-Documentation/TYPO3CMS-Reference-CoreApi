@@ -1,0 +1,4 @@
+..  figure:: /Images/ManualScreenshots/ExtendingTca/ExtendingTcaFeUsers.png
+    :zoom: lightbox
+
+    The new fields added at the bottom of the "Extended" tab

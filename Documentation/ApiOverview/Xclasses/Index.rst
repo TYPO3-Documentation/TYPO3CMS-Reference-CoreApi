@@ -129,7 +129,7 @@ method and then adds its own content:
 
 The result can be seen here:
 
-..  include:: /Images/AutomaticScreenshots/Examples/Xclasses/XclassNewElementWizard.rst.txt
+..  include:: /Images/ManualScreenshots/Examples/Xclasses/XclassNewElementWizard.rst.txt
 
 The object-oriented rules of PHP, such as rules about visibility, apply here.
 As you are extending the original class you can overload or call methods

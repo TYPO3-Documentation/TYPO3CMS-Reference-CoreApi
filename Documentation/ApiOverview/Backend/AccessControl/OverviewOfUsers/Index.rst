@@ -21,7 +21,7 @@ Just add users using the
 For example, this is the comparison of the three different editors
 provided by the Introduction Package:
 
-.. include:: /Images/AutomaticScreenshots/AccessControl/CompareUsers.rst.txt
+.. include:: /Images/ManualScreenshots/AccessControl/CompareUsers.rst.txt
 
 The same functionality is available for user groups, including a comparison
 of their inherited permissions.
@@ -32,11 +32,11 @@ Impersonating Users ("Switch to")
 We can impersonate (switch) to a user by clicking the :guilabel:`Switch to user`
 action icon:
 
-.. include:: /Images/AutomaticScreenshots/AccessControl/SimulateUserButton.rst.txt
+.. include:: /Images/ManualScreenshots/AccessControl/SimulateUserButton.rst.txt
 
 You will then be logged in as that user (note how the user name
 is prefixed with "SU" for "Simulated User"). To "switch back",
 use the "Exit" button (which replaces the usual "Logout"
 button).
 
-.. include:: /Images/AutomaticScreenshots/AccessControl/SimulatedUser.rst.txt
+.. include:: /Images/ManualScreenshots/AccessControl/SimulatedUser.rst.txt

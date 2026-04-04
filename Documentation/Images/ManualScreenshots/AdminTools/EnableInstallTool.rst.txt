@@ -1,0 +1,4 @@
+..  figure:: /Images/ManualScreenshots/AdminTools/EnableInstallTool.png
+    :zoom: lightbox
+
+    Screen to enable the Install Tool

@@ -60,7 +60,7 @@ administrator privileges.
     file to avoid accidentally committing and deploying it to production
     environments.
 
-..  include:: /Images/AutomaticScreenshots/AdminTools/EnableInstallTool.rst.txt
+..  include:: /Images/ManualScreenshots/AdminTools/EnableInstallTool.rst.txt
 
 ..  include:: /_includes/_EnableInstallToolWarning.rst.txt
     :show-buttons:
@@ -94,7 +94,7 @@ The first thing you should do, after taking over a new TYPO3 system from
 a system administrator, is to change the password to a new and secure one.
 Log-in to the Install Tool and change it there.
 
-.. include:: /Images/AutomaticScreenshots/AdminTools/ChangeInstallToolPassword.rst.txt
+.. include:: /Images/ManualScreenshots/AdminTools/ChangeInstallToolPassword.rst.txt
 
 .. _security-install-tool-backend-access:
 

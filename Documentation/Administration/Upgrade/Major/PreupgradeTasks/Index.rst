@@ -143,7 +143,7 @@ There are 3 different methods you can use to read the changelogs:
 #.  Read the changelog in the :ref:`Extension Scanner <t3coreapi:extension-scanner>`
     (as explained above).
 
-..  include:: /Images/AutomaticScreenshots/Upgrade/UpgradeAnalysis.rst.txt
+..  include:: /Images/ManualScreenshots/Upgrade/UpgradeAnalysis.rst.txt
 
 
 ..  _handling-deprecations:

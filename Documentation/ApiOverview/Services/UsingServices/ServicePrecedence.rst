@@ -37,4 +37,4 @@ provides an overview of all installed services and their priority
 and quality. It also shows whether a given service is available
 or not.
 
-.. include:: /Images/AutomaticScreenshots/Services/ServicesReport.rst.txt
+.. include:: /Images/ManualScreenshots/Services/ServicesReport.rst.txt

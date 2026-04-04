@@ -130,7 +130,7 @@ this, the new fields must be defined in the :file:`ext_tables.sql` file of the e
 The following screenshot shows the position of the two
 new fields when editing a "fe\_users" record:
 
-.. include:: /Images/AutomaticScreenshots/ExtendingTca/ExtendingTcaFeUsers.rst.txt
+.. include:: /Images/ManualScreenshots/ExtendingTca/ExtendingTcaFeUsers.rst.txt
 
 The next example shows how to position a field more precisely.
 
@@ -198,7 +198,7 @@ The new field is positioned by the fourth parameter
 
 The result is the following:
 
-.. include:: /Images/AutomaticScreenshots/ExtendingTca/ExtendingTcaTtContent.rst.txt
+.. include:: /Images/ManualScreenshots/ExtendingTca/ExtendingTcaTtContent.rst.txt
 
 .. note::
 

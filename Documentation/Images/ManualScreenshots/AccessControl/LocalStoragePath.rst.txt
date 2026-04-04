@@ -1,0 +1,4 @@
+..  figure:: /Images/ManualScreenshots/AccessControl/LocalStoragePath.png
+    :zoom: lightbox
+
+    The paths options for a storage based on the local file system driver

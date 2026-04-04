@@ -56,7 +56,7 @@ to force a regeneration of all processed files. This can be achieved
 by deleting all existing processed files in
 :guilabel:`Admin Tools > Maintenance > Remove Temporary Assets`.
 
-.. include:: /Images/AutomaticScreenshots/AdminTools/MaintenanceRemoveTemporaryAssets.rst.txt
+.. include:: /Images/ManualScreenshots/AdminTools/MaintenanceRemoveTemporaryAssets.rst.txt
 
 Here you can choose to delete all files in :file:`fileadmin/_processed_/`
 

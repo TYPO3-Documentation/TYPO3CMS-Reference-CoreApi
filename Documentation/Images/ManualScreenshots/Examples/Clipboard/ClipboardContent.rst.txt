@@ -1,0 +1,4 @@
+..  figure:: /Images/ManualScreenshots/Examples/Clipboard/ClipboardContent.png
+    :zoom: lightbox
+
+    The clipboard as seen in the backend

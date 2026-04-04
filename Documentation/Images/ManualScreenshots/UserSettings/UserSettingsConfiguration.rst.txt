@@ -1,0 +1,4 @@
+..  figure:: /Images/ManualScreenshots/UserSettings/UserSettingsConfiguration.png
+    :zoom: lightbox
+
+    Viewing the :guilabel:`User Settings` configuration

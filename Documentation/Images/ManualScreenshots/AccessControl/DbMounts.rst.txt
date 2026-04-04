@@ -1,0 +1,4 @@
+..  figure:: /Images/ManualScreenshots/AccessControl/DbMounts.png
+    :zoom: lightbox
+
+    The DB mounts for group "Editors"

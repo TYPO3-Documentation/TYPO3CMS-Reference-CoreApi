@@ -1,0 +1,4 @@
+..  figure:: /Images/ManualScreenshots/SiteHandling/SiteHandlingCreateNewSite-1.png
+    :zoom: lightbox
+
+    Autocreated site configuration
