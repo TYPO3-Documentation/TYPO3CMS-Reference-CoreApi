@@ -51,6 +51,12 @@ this function to automatically do patch level TYPO3 Core updates.
 Upgrade wizard
 ==============
 
+..  figure:: /Images/ManualScreenshots/Upgrade/UpgradeWizard.png
+    :alt: Upgrade wizard
+    :zoom: lightbox
+
+    The "Upgrade Wizard" in module :guilabel:`System > Upgrade`
+
 The upgrade wizard should be checked before each major Core or extension upgrade.
 If tasks have been left open they should be resolved before proceeding.
 
