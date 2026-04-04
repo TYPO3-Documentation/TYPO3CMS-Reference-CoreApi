@@ -1,0 +1,4 @@
+..  figure:: /Images/ManualScreenshots/AdminTools/AllConfiguration.png
+    :zoom: lightbox
+
+    Configure installation-wide options :guilabel:`System > Settings`

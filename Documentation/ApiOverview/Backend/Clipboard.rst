@@ -23,14 +23,14 @@ In this simple piece of code we instantiate a clipboard object and make it
 load its content. We then dump this content into the BE module's debug
 window, with the following result:
 
-.. include:: /Images/AutomaticScreenshots/Examples/Clipboard/ClipboardDump.rst.txt
+.. include:: /Images/ManualScreenshots/Examples/Clipboard/ClipboardDump.rst.txt
 
 This tells us what objects are registered on the default tab ("normal")
 (a content element with id 216 in "copy" mode) and the numeric tabs (which can
 each contain more than one element). It also tells us that the current
 tab is number 2. We can compare with the BE view of the clipboard:
 
-.. include:: /Images/AutomaticScreenshots/Examples/Clipboard/ClipboardContent.rst.txt
+.. include:: /Images/ManualScreenshots/Examples/Clipboard/ClipboardContent.rst.txt
 
 which indeed contains two files.
 
@@ -47,4 +47,4 @@ In the "examples" extension, this data is passed to a BE module view
 for display, which is really just information:
 
 
-.. include:: /Images/AutomaticScreenshots/Examples/Clipboard/ClipboardItems.rst.txt
+.. include:: /Images/ManualScreenshots/Examples/Clipboard/ClipboardItems.rst.txt

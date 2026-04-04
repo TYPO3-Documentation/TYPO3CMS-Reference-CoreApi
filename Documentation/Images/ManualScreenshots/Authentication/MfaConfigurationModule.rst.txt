@@ -1,0 +1,4 @@
+..  figure:: /Images/ManualScreenshots/Authentication/MfaConfigurationModule.png
+    :zoom: lightbox
+
+    MFA providers in the configuration module

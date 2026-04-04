@@ -47,7 +47,7 @@ view:
     Until TYPO3 V14 this module was found in :guilabel:`System > Reports`.
     See also: `Feature: #107628 - Improved backend module naming and structure <https://docs.typo3.org/permalink/changelog:feature-107628-1729026000>`_.
 
-..  include:: /Images/AutomaticScreenshots/Authentication/InstalledAuthServices.rst.txt
+..  include:: /Images/ManualScreenshots/Authentication/InstalledAuthServices.rst.txt
 
 ..  note::
 

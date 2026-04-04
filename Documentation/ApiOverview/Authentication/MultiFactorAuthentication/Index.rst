@@ -43,7 +43,7 @@ authentication or frontend authentication with a multi-factor step in-between.
 Managing MFA providers is currently possible via the :guilabel:`User Settings`
 module in the tab called :guilabel:`Account security`.
 
-..  include:: /Images/AutomaticScreenshots/Authentication/MfaActivate.rst.txt
+..  include:: /Images/ManualScreenshots/Authentication/MfaActivate.rst.txt
 
 The :guilabel:`Account security` tab displays the current state:
 
@@ -78,7 +78,7 @@ provider is active. It is only meant as a fallback provider, in case the
 authentication credentials for the "main" provider(s) are lost. It is encouraged
 to activate this provider, and keep the codes at a safe place.
 
-..  include:: /Images/AutomaticScreenshots/Authentication/MfaSelectProvider.rst.txt
+..  include:: /Images/ManualScreenshots/Authentication/MfaSelectProvider.rst.txt
 
 Third-party MFA providers
 -------------------------
@@ -106,7 +106,7 @@ Each inactive provider contains a :guilabel:`Setup` button which opens the
 corresponding configuration view. This view can be different depending on the
 MFA provider.
 
-..  include:: /Images/AutomaticScreenshots/Authentication/MfaQrCode.rst.txt
+..  include:: /Images/ManualScreenshots/Authentication/MfaQrCode.rst.txt
 
 Each provider contains an :guilabel:`Edit/Change` button, which allows to adjust
 the provider's settings. This view allows, for example, to set a provider as the
@@ -178,7 +178,7 @@ of all currently registered providers in the installation. This is especially
 helpful to find out the exact provider identifier, needed for some
 user TSconfig options.
 
-..  include:: /Images/AutomaticScreenshots/Authentication/MfaConfigurationModule.rst.txt
+..  include:: /Images/ManualScreenshots/Authentication/MfaConfigurationModule.rst.txt
 
 
 Configuration

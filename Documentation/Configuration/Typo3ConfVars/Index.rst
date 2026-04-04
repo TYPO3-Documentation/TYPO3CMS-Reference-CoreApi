@@ -213,9 +213,9 @@ change parts of :file:`config/system/settings.php`. They can be found in
 :guilabel:`System > Settings` - most importantly section
 :guilabel:`Configure installation-wide options`:
 
-..  include:: /Images/AutomaticScreenshots/AdminTools/AllConfiguration.rst.txt
+..  include:: /Images/ManualScreenshots/AdminTools/AllConfiguration.rst.txt
 
-..  include:: /Images/AutomaticScreenshots/AdminTools/InstallationWideOptions.rst.txt
+..  include:: /Images/ManualScreenshots/AdminTools/InstallationWideOptions.rst.txt
 
 ..  index:: File; typo3/sysext/core/Configuration/DefaultConfiguration.php
 ..  _typo3ConfVars-defaultConfiguration:

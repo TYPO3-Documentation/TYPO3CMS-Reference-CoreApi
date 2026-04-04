@@ -1,0 +1,4 @@
+..  figure:: /Images/ManualScreenshots/ExtendingTca/VerifyingTca.png
+    :zoom: lightbox
+
+    Checking the existence of the new field via the Configuration module

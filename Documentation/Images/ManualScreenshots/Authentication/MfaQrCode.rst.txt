@@ -1,0 +1,4 @@
+..  figure:: /Images/ManualScreenshots/Authentication/MfaQrCode.png
+    :zoom: lightbox
+
+    MFA TOTP provider configuration screen

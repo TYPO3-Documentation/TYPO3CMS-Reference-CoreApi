@@ -14,17 +14,17 @@ A new site configuration is automatically created for each
 To customize the automatically created site configuration,
 go to the :guilabel:`Sites > Setup` module.
 
-..  include:: /Images/AutomaticScreenshots/SiteHandling/SiteHandlingCreateNewSite-1.rst.txt
+..  include:: /Images/ManualScreenshots/SiteHandling/SiteHandlingCreateNewSite-1.rst.txt
 
 You can edit a site by clicking on the :guilabel:`Edit` icon (the pencil). If
 for some reason no site configuration was created, there will be a button to
 create one:
 
-..  include:: /Images/AutomaticScreenshots/SiteHandling/SiteHandlingNoSite.rst.txt
+..  include:: /Images/ManualScreenshots/SiteHandling/SiteHandlingNoSite.rst.txt
 
 The site configuration form looks like this:
 
-..  include:: /Images/AutomaticScreenshots/SiteHandling/SiteHandlingCreateNewSite-2.rst.txt
+..  include:: /Images/ManualScreenshots/SiteHandling/SiteHandlingCreateNewSite-2.rst.txt
 
 It is recommended to change the following fields:
 
@@ -67,7 +67,7 @@ You can choose
 Although 3. is always recommended when working with multi-site setups to keep
 language IDs between sites in sync, 2. is a quick start to set up a new site.
 
-..  include:: /Images/AutomaticScreenshots/SiteHandling/SiteHandlingCreateNewSite-3.rst.txt
+..  include:: /Images/ManualScreenshots/SiteHandling/SiteHandlingCreateNewSite-3.rst.txt
 
 Check and correct all other settings as they will be automatically used for
 features like the locale or displaying language flags in the backend.

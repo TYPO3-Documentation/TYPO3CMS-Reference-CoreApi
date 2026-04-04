@@ -1,7 +1,0 @@
-.. Automatic screenshot: Remove this line if you want to manually change this file
-
-.. figure:: /Images/AutomaticScreenshots/BackendUsers/CreateAdministrator.png
-   :alt: Button to create an administrator
-   :class: with-shadow
-
-   Create a new administrative user

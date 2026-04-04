@@ -1,0 +1,4 @@
+..  figure:: /Images/ManualScreenshots/UserSettings/UserSettingsExtending.png
+    :zoom: lightbox
+
+    Extending the :guilabel:`User Settings` configuration

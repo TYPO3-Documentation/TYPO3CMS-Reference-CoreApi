@@ -26,7 +26,7 @@ for system and extension translations from the official TYPO3 translation server
 The module is straightforward to use. Downloaded language packs are stored in the
 environment’s :ref:`Environment-labels-path`.
 
-..  include:: /Images/AutomaticScreenshots/AdminTools/ManageLanguagePacks.rst.txt
+..  include:: /Images/ManualScreenshots/AdminTools/ManageLanguagePacks.rst.txt
 
 Language packs can also be fetched using the command line:
 
@@ -55,15 +55,15 @@ Administrators can install additional language packs directly in the backend:
 
 1.  Go to :guilabel:`System > Maintenance > Manage Language Packs`
 
-    ..  include:: /Images/AutomaticScreenshots/Modules/ManageLanguage.rst.txt
+    ..  include:: /Images/ManualScreenshots/Modules/ManageLanguage.rst.txt
 
 2.  Select :guilabel:`Add Language` and activate the new language:
 
-    ..  include:: /Images/AutomaticScreenshots/Modules/ManageLanguagePacksAddLanguage.rst.txt
+    ..  include:: /Images/ManualScreenshots/Modules/ManageLanguagePacksAddLanguage.rst.txt
 
 3.  The selected language is now available:
 
-    ..  include:: /Images/AutomaticScreenshots/Modules/ManageLanguagePacksAddLanguageAddSuccess.rst.txt
+    ..  include:: /Images/ManualScreenshots/Modules/ManageLanguagePacksAddLanguageAddSuccess.rst.txt
 
 
 ..  index:: Localization; Local translations
@@ -197,7 +197,7 @@ add custom languages and provide your own translations using XLIFF 1.2 or 2.x.
 
     The new language is now available in the backend user settings:
 
-    ..  include:: /Images/AutomaticScreenshots/Internationalization/CustomLanguage.png.rst.txt
+    ..  include:: /Images/ManualScreenshots/Internationalization/CustomLanguage.png.rst.txt
 
     For your own extensions, provide the custom language files in the
     :file:`Resources/Private/Language/` folder, for example

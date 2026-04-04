@@ -139,7 +139,7 @@ is the folder tree drawn based on *file mounts* configured for the user.
 **DB mounts** (page mounts) are set by pointing out the
 page that should be mounted for the user (at user or group-level):
 
-.. include:: /Images/AutomaticScreenshots/AccessControl/DbMounts.rst.txt
+.. include:: /Images/ManualScreenshots/AccessControl/DbMounts.rst.txt
 
 This is what the user will see:
 
@@ -167,7 +167,7 @@ upon installation.
    changed using the global configuration option
    :code:`$GLOBALS['TYPO3_CONF_VARS']['BE']['fileadminDir']`.
 
-.. include:: /Images/AutomaticScreenshots/AccessControl/FileStorage.rst.txt
+.. include:: /Images/ManualScreenshots/AccessControl/FileStorage.rst.txt
 
 
 A *File Storage* is essentially defined by a *File Driver*
@@ -176,14 +176,14 @@ and the path to which it points.
 Next we can create a *File Mount* record (on the root page),
 which refers to a File Storage:
 
-.. include:: /Images/AutomaticScreenshots/AccessControl/CreateFilemount.rst.txt
+.. include:: /Images/ManualScreenshots/AccessControl/CreateFilemount.rst.txt
 
 
 When defining a File Mount, you can point to a specific folder
 within the chosen File Storage. Finally the mount is assigned
 to a user or group:
 
-.. include:: /Images/AutomaticScreenshots/AccessControl/AssignFilemount.rst.txt
+.. include:: /Images/ManualScreenshots/AccessControl/AssignFilemount.rst.txt
 
 
 After a successful configuration, the file mount will appear to
@@ -202,7 +202,7 @@ the default behaviour. So make sure to unset these flags if users
 should see only their "private" mount points and not those from their
 groups:
 
-.. include:: /Images/AutomaticScreenshots/AccessControl/MountFromGroups.rst.txt
+.. include:: /Images/ManualScreenshots/AccessControl/MountFromGroups.rst.txt
 
 
 "Admin" users do not need mount points. As always, they have access
@@ -254,7 +254,7 @@ module:
     Until TYPO3 V14 this module was called :guilabel:`System > Permissions`.
     See also: `Feature: #107628 - Improved backend module naming and structure <https://docs.typo3.org/permalink/changelog:feature-107628-1729026000>`_.
 
-.. include:: /Images/AutomaticScreenshots/AccessControl/AccessModule.rst.txt
+.. include:: /Images/ManualScreenshots/AccessControl/AccessModule.rst.txt
 
 
 Editing permissions is described in details in chapter

@@ -1,0 +1,4 @@
+..  figure:: /Images/ManualScreenshots/ExtendingTca/ExtendingTcaTtContent.png
+    :zoom: lightbox
+
+    The new field added next to an existing one

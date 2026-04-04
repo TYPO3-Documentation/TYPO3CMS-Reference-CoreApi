@@ -1,0 +1,4 @@
+..  figure:: /Images/ManualScreenshots/AccessControl/AccessModule.png
+    :zoom: lightbox
+
+    The Access module and its overview of page rights and owners

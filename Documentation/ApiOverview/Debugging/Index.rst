@@ -62,7 +62,7 @@ For example, the following code:
 
 will produce such an output:
 
-..  include:: /Images/AutomaticScreenshots/Examples/Debugging/DebugOutput.rst.txt
+..  include:: /Images/ManualScreenshots/Examples/Debugging/DebugOutput.rst.txt
 
 In general, look at class :php:`\TYPO3\CMS\Core\Utility\DebugUtility` for useful
 debugging tools.

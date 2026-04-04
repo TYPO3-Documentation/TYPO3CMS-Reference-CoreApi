@@ -1,0 +1,5 @@
+..  figure:: /Images/ManualScreenshots/ImportExport/ExportDialogInfiniteLevels.png
+    :alt: Select the page levels to be exported
+    :zoom: lightbox
+
+    Select the page levels to be exported

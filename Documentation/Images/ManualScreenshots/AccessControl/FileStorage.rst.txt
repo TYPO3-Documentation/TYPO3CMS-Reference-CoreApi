@@ -1,0 +1,2 @@
+..  figure:: /Images/ManualScreenshots/AccessControl/FileStorage.png
+    :zoom: lightbox

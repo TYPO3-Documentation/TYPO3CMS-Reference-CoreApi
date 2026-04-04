@@ -1,0 +1,5 @@
+..  figure:: /Images/ManualScreenshots/ImportExport/UploadImport.png
+    :alt: Upload the export data
+    :zoom: lightbox
+
+    Upload the export data

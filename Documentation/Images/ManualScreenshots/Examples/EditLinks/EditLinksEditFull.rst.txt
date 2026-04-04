@@ -1,0 +1,4 @@
+..  figure:: /Images/ManualScreenshots/Examples/EditLinks/EditLinksEditFull.png
+    :zoom: lightbox
+
+    Page 1 ready for editing with the standard form

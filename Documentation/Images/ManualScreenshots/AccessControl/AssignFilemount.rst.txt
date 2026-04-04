@@ -1,0 +1,4 @@
+..  figure:: /Images/ManualScreenshots/AccessControl/AssignFilemount.png
+    :zoom: lightbox
+
+    The file mount is assigned to the "Editors" group

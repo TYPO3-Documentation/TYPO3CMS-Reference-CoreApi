@@ -1,0 +1,4 @@
+..  figure:: /Images/ManualScreenshots/Fal/AdministrationFileStorageAccessTab.png
+    :zoom: lightbox
+
+    Special properties in the "Access capabilities" tab of a File storage

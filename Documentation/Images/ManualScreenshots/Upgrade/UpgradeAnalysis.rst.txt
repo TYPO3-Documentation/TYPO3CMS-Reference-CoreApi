@@ -1,0 +1,5 @@
+..  figure:: /Images/ManualScreenshots/Upgrade/UpgradeAnalysis.png
+    :alt: Upgrade Analysis
+    :zoom: lightbox
+
+    The "Upgrade Analysis" in the Install Tool

@@ -1,0 +1,4 @@
+..  figure:: /Images/ManualScreenshots/ExtensionManager/UninstallExtension.png
+    :zoom: lightbox
+
+    Select "Deactivate" in Extension Manager

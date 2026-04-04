@@ -30,7 +30,7 @@ See label 'extending' in older versions of the TCA-Reference.
 
 And here is the new field in the User Tools > User Settings module:
 
-.. include:: /Images/AutomaticScreenshots/UserSettings/UserSettingsExtending.rst.txt
+.. include:: /Images/ManualScreenshots/UserSettings/UserSettingsExtending.rst.txt
 
 "On Click" / "On Confirmation" JavaScript Callbacks
 ===================================================

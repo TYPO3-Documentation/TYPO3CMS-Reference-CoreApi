@@ -1,0 +1,4 @@
+..  figure:: /Images/ManualScreenshots/Examples/FlashMessages/FlashMessagesExample.png
+    :zoom: lightbox
+
+    A typical (success) message shown at the top of a module

@@ -38,15 +38,15 @@ using the following address to create a new administrative user:
 The Install Tool requires the "Installation Password" that would have been set
 when TYPO3 was installed.
 
-.. include:: /Images/AutomaticScreenshots/InstallTool/InstallToolPassword.rst.txt
+.. include:: /Images/ManualScreenshots/InstallTool/InstallToolPassword.rst.txt
 
 Once logged in to the Admin Tool go to :guilabel:`Maintenance > Create Administrative User`
 and select :guilabel:`Create Administrator`. In this dialogue you
 can create a new administrative user.
 
-.. include:: /Images/AutomaticScreenshots/BackendUsers/CreateAdministrator.rst.txt
+.. include:: /Images/ManualScreenshots/BackendUsers/CreateAdministrator.rst.txt
 
-.. include:: /Images/AutomaticScreenshots/BackendUsers/CreateAdministratorForm.rst.txt
+.. include:: /Images/ManualScreenshots/BackendUsers/CreateAdministratorForm.rst.txt
 
 Use this new administrator account to log into the TYPO3 backend. In the module
 :guilabel:`Backend Users` you can change the passwords of existing users,
@@ -112,9 +112,9 @@ During troubleshooting, in the :guilabel:`"Settings > Configuration Presets"`
 section of the Install Tool, under "Debug settings", the "Debug" preset can be
 change to show errors in the frontend.
 
-.. include:: /Images/AutomaticScreenshots/DebugSettings/ConfigurationPresets.rst.txt
+.. include:: /Images/ManualScreenshots/DebugSettings/ConfigurationPresets.rst.txt
 
-.. include:: /Images/AutomaticScreenshots/DebugSettings/DebugSettings.rst.txt
+.. include:: /Images/ManualScreenshots/DebugSettings/DebugSettings.rst.txt
 
 The following TypoScript setting can also be added to the root TypoScript for
 the site to show additional debug information.

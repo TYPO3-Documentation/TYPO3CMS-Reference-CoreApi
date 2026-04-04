@@ -1,0 +1,4 @@
+..  figure:: /Images/ManualScreenshots/Introduction/ExtensionsMinimalList.png
+    :zoom: lightbox
+
+    Screenshot of the backend showing the :guilabel:`Extensions` module

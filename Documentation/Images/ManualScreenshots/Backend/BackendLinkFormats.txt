@@ -1,7 +1,5 @@
-..  Screenshot of TYPO3 v12.0 cannot be automated yet
-
 ..  figure:: /Images/ManualScreenshots/Backend/BackendLinkFormats.png
-    :class: with-shadow
+    :zoom: lightbox
 
     Input of different link formats in the backend. The rich-text editor
     is disabled for demonstration of these formats.

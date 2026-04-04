@@ -1,0 +1,4 @@
+..  figure:: /Images/ManualScreenshots/AccessControl/BackendUserList.png
+    :zoom: lightbox
+
+    Users and groups reside on the root page

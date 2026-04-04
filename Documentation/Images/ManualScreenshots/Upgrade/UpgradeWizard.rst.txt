@@ -1,0 +1,5 @@
+..  figure:: /Images/ManualScreenshots/Upgrade/UpgradeWizard.png
+    :alt: Upgrade wizard
+    :zoom: lightbox
+
+    The "Upgrade Wizard" in the Install Tool.

@@ -1,0 +1,4 @@
+..  figure:: /Images/ManualScreenshots/Examples/EditLinks/EditLinksNew.png
+    :zoom: lightbox
+
+    Form for creating a new haiku with pre-filled title and season and restricted columns

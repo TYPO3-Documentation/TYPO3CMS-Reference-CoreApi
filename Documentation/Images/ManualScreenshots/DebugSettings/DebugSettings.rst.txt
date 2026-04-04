@@ -1,0 +1,5 @@
+..  figure:: /Images/ManualScreenshots/DebugSettings/DebugSettings.png
+    :alt: Debug Presets
+    :zoom: lightbox
+
+    Choose the debug preset

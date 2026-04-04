@@ -1,0 +1,5 @@
+..  figure:: /Images/ManualScreenshots/BackendUsers/CreateAdministrator.png
+    :alt: Button to create an administrator
+    :zoom: lightbox
+
+    Create a new administrative user

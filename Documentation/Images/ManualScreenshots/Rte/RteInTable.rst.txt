@@ -1,0 +1,5 @@
+..  figure:: /Images/ManualScreenshots/Rte/RteInTable.png
+    :alt: A RTE in the TYPO3 BE
+    :zoom: lightbox
+
+    The rtehtmlarea RTE activated in the TYPO3 backend
