@@ -10,7 +10,7 @@ File storages
 through the :guilabel:`Content > Records` module. They have a few properties which
 deserve further explanation.
 
-..  include:: /Images/AutomaticScreenshots/Fal/AdministrationFileStorageAccessTab.rst.txt
+..  include:: /Images/ManualScreenshots/Fal/AdministrationFileStorageAccessTab.rst.txt
 
 Is browsable?
     If this box is not checked, the storage will not be browsable by

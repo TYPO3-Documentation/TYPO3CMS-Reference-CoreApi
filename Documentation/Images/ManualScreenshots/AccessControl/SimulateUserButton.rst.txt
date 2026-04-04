@@ -1,0 +1,4 @@
+..  figure:: /Images/ManualScreenshots/AccessControl/SimulateUserButton.png
+    :zoom: lightbox
+
+    The button to simulate another user

@@ -18,7 +18,7 @@ Each user of the backend must be represented with a single record in
 the table "be\_users". This record contains the username and password,
 other meta data and some permissions settings.
 
-.. include:: /Images/AutomaticScreenshots/AccessControl/BackendUser.rst.txt
+.. include:: /Images/ManualScreenshots/AccessControl/BackendUser.rst.txt
 
 
 The above screenshot shows a part of the editing form for the backend
@@ -45,7 +45,7 @@ When a user is a member of many groups (including sub-groups) then the
 permission settings are added together so that the more groups a user
 is a member of, the more access is granted to him.
 
-.. include:: /Images/AutomaticScreenshots/AccessControl/BackendGroup.rst.txt
+.. include:: /Images/ManualScreenshots/AccessControl/BackendGroup.rst.txt
 
 
 This screenshot shows just an extract of the group editing form.
@@ -75,7 +75,7 @@ will most likely grant them access to more than they need.
 
 Admin users are differentiated with an orange icon.
 
-.. include:: /Images/AutomaticScreenshots/AccessControl/BackendUserAdmin.rst.txt
+.. include:: /Images/ManualScreenshots/AccessControl/BackendUserAdmin.rst.txt
 
 .. note::
 
@@ -102,7 +102,7 @@ system. However backend users and groups are configured to exist
 *only* in the root of the page tree where *only* admin users have
 access:
 
-.. include:: /Images/AutomaticScreenshots/AccessControl/BackendUserList.rst.txt
+.. include:: /Images/ManualScreenshots/AccessControl/BackendUserList.rst.txt
 
 
 Records located in the page tree root are identified by having their

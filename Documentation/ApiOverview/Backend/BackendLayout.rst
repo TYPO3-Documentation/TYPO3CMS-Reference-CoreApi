@@ -34,7 +34,7 @@ layouts are available if an
 backend layouts have been
 :ref:`defined as records or page TSconfig <be-layout-definition>`.
 
-.. include:: /Images/AutomaticScreenshots/BackendLayouts/PagePropertiesAppearance.rst.txt
+.. include:: /Images/ManualScreenshots/BackendLayouts/PagePropertiesAppearance.rst.txt
 
 ..  versionchanged:: 14.0
     The main module `web` has been renamed to `content`.
@@ -45,7 +45,7 @@ The :guilabel:`Content > Status` module gives an overview of the backend layouts
 inherited from a parent page at
 :guilabel:`Content > Status > Pagetree overview > Type: Layouts`:
 
-.. include:: /Images/AutomaticScreenshots/BackendLayouts/PageTreeLayoutOverview.rst.txt
+.. include:: /Images/ManualScreenshots/BackendLayouts/PageTreeLayoutOverview.rst.txt
 
 .. index::
    Backend layout; Record

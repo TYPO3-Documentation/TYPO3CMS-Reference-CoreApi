@@ -1,0 +1,8 @@
+..  =========================================================
+..  Manually updated for TYPO3 v12
+..  =========================================================
+
+..  figure:: /Images/ManualScreenshots/SiteHandling/SiteHandlingCreateNewSite-3.png
+    :zoom: lightbox
+
+    Set default language settings

@@ -1,0 +1,4 @@
+..  figure:: /Images/ManualScreenshots/AccessControl/BackendUserAdmin.png
+    :zoom: lightbox
+
+    In :guilabel:`Content > Records` view, the different icon for admin users

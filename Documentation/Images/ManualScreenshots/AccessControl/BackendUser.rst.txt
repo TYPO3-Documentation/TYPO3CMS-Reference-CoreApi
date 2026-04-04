@@ -1,0 +1,4 @@
+..  figure:: /Images/ManualScreenshots/AccessControl/BackendUser.png
+    :zoom: lightbox
+
+    Part of the editing form for user "simple\_editor" of the Introduction Package

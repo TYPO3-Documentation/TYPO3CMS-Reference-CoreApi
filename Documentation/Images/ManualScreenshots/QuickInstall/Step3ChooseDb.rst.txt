@@ -1,0 +1,4 @@
+..  figure:: /Images/ManualScreenshots/QuickInstall/Step3ChooseDb.png
+    :zoom: lightbox
+
+    Install Tool in 1-2-3 mode, third step.

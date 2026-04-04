@@ -1,0 +1,4 @@
+..  figure:: /Images/ManualScreenshots/Examples/EditLinks/EditLinksDisplay.png
+    :zoom: lightbox
+
+    The two links in the Examples module

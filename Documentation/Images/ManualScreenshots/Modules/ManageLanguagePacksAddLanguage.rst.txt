@@ -1,0 +1,5 @@
+..  figure:: /Images/ManualScreenshots/Modules/ManageLanguagePacksAddLanguage.png
+    :alt: Add a language
+    :zoom: lightbox
+
+    Add the desired language

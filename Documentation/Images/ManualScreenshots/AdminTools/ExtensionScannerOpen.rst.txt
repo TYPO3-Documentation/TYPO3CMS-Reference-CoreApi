@@ -1,0 +1,4 @@
+..  figure:: /Images/ManualScreenshots/AdminTools/ExtensionScannerOpen.png
+    :zoom: lightbox
+
+    Open the extension scanner at :guilabel:`System > Upgrade > Scan Extension Files`

@@ -32,7 +32,7 @@ the following example, which registers two custom permission options:
 The result is that these options appear in the group access lists like
 this:
 
-.. include:: /Images/AutomaticScreenshots/Examples/CustomPermissions/CustomOptions.rst.txt
+.. include:: /Images/ManualScreenshots/Examples/CustomPermissions/CustomOptions.rst.txt
 
 As you can see it is possible to add both an icon and a description text.
 If icons not provided by the Core are used, they need to be registered

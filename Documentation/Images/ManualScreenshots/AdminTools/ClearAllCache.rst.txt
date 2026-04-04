@@ -1,0 +1,5 @@
+..  figure:: /Images/ManualScreenshots/AdminTools/ClearAllCache.png
+    :alt: Flush Caches
+    :zoom: lightbox
+
+    The option "Flush" in the Admin Tool.

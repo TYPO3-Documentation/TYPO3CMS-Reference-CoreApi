@@ -1,0 +1,4 @@
+..  figure:: /Images/ManualScreenshots/Examples/Debugging/DebugOutput.png
+    :zoom: lightbox
+
+    Typical TYPO3 debug output

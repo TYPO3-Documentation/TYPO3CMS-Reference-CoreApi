@@ -1,0 +1,4 @@
+..  figure:: /Images/ManualScreenshots/AdminTools/MaintenanceRemoveTemporaryAssets.png
+    :zoom: lightbox
+
+    Removing all processed files in the Maintenance Tool

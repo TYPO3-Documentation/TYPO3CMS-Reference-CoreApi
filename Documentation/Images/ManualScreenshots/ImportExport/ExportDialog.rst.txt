@@ -1,0 +1,5 @@
+..  figure:: /Images/ManualScreenshots/ImportExport/ExportDialog.png
+    :alt: Select the tables to be exported
+    :zoom: lightbox
+
+    Select the tables to be exported

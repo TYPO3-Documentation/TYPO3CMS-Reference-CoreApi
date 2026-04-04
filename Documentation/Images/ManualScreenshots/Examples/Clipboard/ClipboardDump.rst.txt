@@ -1,0 +1,4 @@
+..  figure:: /Images/ManualScreenshots/Examples/Clipboard/ClipboardDump.png
+    :zoom: lightbox
+
+    A dump of the clipboard in the debug window

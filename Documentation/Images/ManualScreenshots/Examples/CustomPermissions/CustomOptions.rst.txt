@@ -1,0 +1,4 @@
+..  figure:: /Images/ManualScreenshots/Examples/CustomPermissions/CustomOptions.png
+    :zoom: lightbox
+
+    The custom permissions appear in the Access List tab of backend user groups

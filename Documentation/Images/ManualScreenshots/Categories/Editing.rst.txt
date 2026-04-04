@@ -1,0 +1,4 @@
+..  figure:: /Images/ManualScreenshots/Categories/Editing.png
+    :zoom: lightbox
+
+    A category with a parent defined

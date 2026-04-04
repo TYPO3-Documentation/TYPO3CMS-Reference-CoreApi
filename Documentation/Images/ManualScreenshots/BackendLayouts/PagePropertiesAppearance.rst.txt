@@ -1,0 +1,4 @@
+..  figure:: /Images/ManualScreenshots/BackendLayouts/PagePropertiesAppearance.png
+    :zoom: lightbox
+
+    Choose the backend layout in the page properties

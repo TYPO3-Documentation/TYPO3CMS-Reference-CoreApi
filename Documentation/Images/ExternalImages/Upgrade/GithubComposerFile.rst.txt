@@ -1,2 +1,2 @@
-.. image:: /Images/ExternalImages/Upgrade/GithubComposerFile.png
-      :scale: 80 %
+..  image:: /Images/ExternalImages/Upgrade/GithubComposerFile.png
+    :scale: 80 %

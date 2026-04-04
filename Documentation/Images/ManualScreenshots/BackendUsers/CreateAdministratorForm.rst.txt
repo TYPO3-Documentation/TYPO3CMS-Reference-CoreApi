@@ -1,0 +1,5 @@
+..  figure:: /Images/ManualScreenshots/BackendUsers/CreateAdministratorForm.png
+    :alt: Form to create an administrator
+    :zoom: lightbox
+
+    Fill in the fields for the new administrative user

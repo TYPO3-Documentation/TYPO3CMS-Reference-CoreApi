@@ -51,7 +51,7 @@ general, e.g. 6 months in the future. This forces the administrator
 team to review the accounts from time to time and only extend the
 users that are allowed to continue using the system.
 
-.. include:: /Images/AutomaticScreenshots/Security/BeUserExpiryDate.rst.txt
+.. include:: /Images/ManualScreenshots/Security/BeUserExpiryDate.rst.txt
 
 
 .. index:: pair: Security guidelines; Frontend users

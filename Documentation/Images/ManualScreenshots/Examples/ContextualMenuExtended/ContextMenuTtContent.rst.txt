@@ -1,0 +1,5 @@
+..  figure:: /Images/ManualScreenshots/Examples/ContextualMenuExtended/ContextMenuTtContent.png
+    :alt: The context menu now contains an additional item "Hello World"
+    :zoom: lightbox
+
+    The context menu shown after clicking on the Content Element icon

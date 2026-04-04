@@ -1,0 +1,4 @@
+..  figure:: /Images/ManualScreenshots/BackendModules/BackendModulesContextualMenu.png
+    :zoom: lightbox
+
+    A typical contextual menu appears when clicking on a record icon

@@ -1,0 +1,4 @@
+..  figure:: /Images/ManualScreenshots/Examples/Clipboard/ClipboardItems.png
+    :zoom: lightbox
+
+    Clipboard items

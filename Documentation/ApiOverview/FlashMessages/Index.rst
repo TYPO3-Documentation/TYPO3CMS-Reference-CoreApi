@@ -11,7 +11,7 @@ was performed successfully, or more importantly, failed. This system
 is known as "flash messages". The screenshot below shows the various
 severity levels of messages that can be emitted.
 
-.. include:: /Images/AutomaticScreenshots/Examples/FlashMessages/FlashMessagesAll.rst.txt
+.. include:: /Images/ManualScreenshots/Examples/FlashMessages/FlashMessagesAll.rst.txt
 
 The different severity levels are described below:
 
