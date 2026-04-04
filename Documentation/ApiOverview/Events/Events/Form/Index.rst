@@ -2,7 +2,6 @@
 ..  index:: pair: Events; form
 ..  _eventlist-form:
 
-
 ====
 Form
 ====
@@ -10,9 +9,12 @@ Form
 The following list contains :ref:`PSR-14 events <EventDispatcher>`
 in EXT:form.
 
-..  seealso::
-    *   :ref:`Hooks in the form editor <ext_form:apireference-formeditor-hooks>`
-    *   :ref:`Hooks for runtime manipulation <ext_form:concepts-frontendrendering-runtimemanipulation-hooks>`
+..  versionchanged:: 14.0
+    All former hooks of EXT:form are now available as PSR-14 events.
+
+    Some `Legacy hooks <https://docs.typo3.org/permalink/typo3-cms-form:apireference-events-legacy-hooks>`_
+    are still supported.
+
 
 **Contents:**
 
