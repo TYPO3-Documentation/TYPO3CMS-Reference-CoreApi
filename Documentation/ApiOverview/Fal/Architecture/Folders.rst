@@ -30,4 +30,7 @@ or thumbnails from the backend. The name of this folder is not
 hard-coded. It can be defined as a property of the storage.
 It may even point to a different storage.
 
-..  include:: /Images/ManualScreenshots/Fal/AdministrationFileStorageAccessTab.rst.txt
+..  figure:: /Images/ManualScreenshots/Fal/AdministrationFileStorageAccessTab.png
+    :zoom: lightbox
+
+    Special properties in the "Access capabilities" tab of a File storage
