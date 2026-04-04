@@ -109,7 +109,7 @@ Let us keep things simple for the further permissions.
 
 Go to tab **Module Permissions**:
 
-..  figure:: /Images/ManualScreenshots/UserManagement/BackendUserGroupsTabModule.png
+..  figure:: /Images/ManualScreenshots/UserManagement/Groups/TabModule.png
     :alt: Tab "Module Permissions" with the list of allowed modules
 
     For **Allowed Modules** choose :guilabel:`Content > Layout` and :guilabel:`Content > Preview`
@@ -125,7 +125,7 @@ On the same tab in field "Allowed page types" choose "Standard".
 
 Move to the "Mounts and workspaces" tab.
 
-..  figure:: /Images/ManualScreenshots/UserManagement/BackendUserGroupsTabMounts.png
+..  figure:: /Images/ManualScreenshots/UserManagement/Groups/TabMounts.png
     :alt: Tab "Mounts and workspaces" in the backend user group edit form.
 
     Select the "Startpage" page as DB mount (starting point for the page tree).
