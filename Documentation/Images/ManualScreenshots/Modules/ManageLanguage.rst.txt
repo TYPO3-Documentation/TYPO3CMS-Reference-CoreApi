@@ -1,5 +1,0 @@
-..  figure:: /Images/ManualScreenshots/Modules/ManageLanguage.png
-    :alt: Manage language packs
-    :zoom: lightbox
-
-    Open the backend language administration module
