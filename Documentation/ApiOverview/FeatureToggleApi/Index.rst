@@ -117,12 +117,57 @@ otherwise might lead to naming conflicts.
 Core feature toggles
 ====================
 
-Some examples for feature toggles in the TYPO3 Core:
+Some examples of feature toggles in the TYPO3 Core:
 
 -   `redirects.hitCount`: Enables hit statistics in the redirects backend module
 -   `security.backend.enforceReferrer`: If on, HTTP referrer headers are enforced
     for backend and install tool requests to mitigate potential same-site
-    request forgery attacks.
+request forgery attacks.
+
+..  versionadded:: 14.2
+-   `extbase.enableHistoryTracking`: Enables tracking of history for Extbase
+    domain entities by listening to Extbase persistence events and storing them
+    in the :sql:`sys_history` table. If enabled, it is enabled for all extbase
+    entities but can be disabled for individual extbase storage tables in
+    their TCA:
+
+..  code-block:: php
+    :emphasize-lines: 11-13
+    :caption: EXT:my_extension/Configuration/TCA/tx_myextension_domain_model_blog.php
+
+    <?php
+    declare(strict_types=1);
+    return [
+        'ctrl' => [
+            'title' => 'my_extension.messages:my_title',
+            'label' => 'uid',
+            'tstamp' => 'tstamp',
+            'crdate' => 'crdate',
+            'delete' => 'deleted',
+            // ...
+            'extbase' => [
+                'enableHistoryTracking' => false
+            ],
+        ],
+        'columns' => [
+            // ...
+        ],
+    ];
+
+..  note::
+
+    Enabling history tracking can create many history entries
+    for extbase entities. They will also be mixed with regular editorial
+    changes to extbase entities performed in the TYPO3 backend (FormEngine).
+
+..  important::
+
+    All differences to data in Extbase entities are now logged, and the initial
+    logging will contain all properties. Take note that this can affect
+    GDPR / DSGVO / security-related data storage precautions, and data might need to be
+    regularly pruned. It might be advisable to turn off history tracking for
+    tables with "private" data. Because of this, the feature toggle
+    is set to "false" by default, so an instance-wide opt-in for this is required.
 
 ..  _feature-toggles-enable:
 
