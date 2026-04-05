@@ -44,9 +44,18 @@ Once logged in to the Admin Tool go to :guilabel:`Maintenance > Create Administr
 and select :guilabel:`Create Administrator`. In this dialogue you
 can create a new administrative user.
 
-.. include:: /Images/ManualScreenshots/BackendUsers/CreateAdministrator.rst.txt
+..  figure:: /Images/ManualScreenshots/BackendUsers/CreateAdministrator.png
+    :alt: Button to create an administrator
+    :zoom: lightbox
 
-.. include:: /Images/ManualScreenshots/BackendUsers/CreateAdministratorForm.rst.txt
+    Create a new administrative user
+
+
+..  figure:: /Images/ManualScreenshots/BackendUsers/CreateAdministratorForm.png
+    :alt: Form to create an administrator
+    :zoom: lightbox
+
+    Fill in the fields for the new administrative user
 
 Use this new administrator account to log into the TYPO3 backend. In the module
 :guilabel:`Backend Users` you can change the passwords of existing users,

@@ -30,7 +30,10 @@ Managing Categories
 System categories are defined like any other record. Each category
 can have a parent, making a tree-like structure.
 
-.. include:: /Images/ManualScreenshots/Categories/Editing.rst.txt
+..  figure:: /Images/ManualScreenshots/Categories/Editing.png
+    :zoom: lightbox
+
+    A category with a parent defined
 
 The :guilabel:`Items` tab shows all related records, for example all records
 that have been marked as belonging to this category.
@@ -50,8 +53,10 @@ TCA column and add it to the desired record types:
 
 This is the result of the above code:
 
-.. include:: /Images/ManualScreenshots/Categories/AddingWithApi.rst.txt
+..  figure:: /Images/ManualScreenshots/Categories/AddingWithApi.png
+    :zoom: lightbox
 
+    The newly added field to define relations to categories
 
 .. _categories-flexforms:
 
