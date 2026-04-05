@@ -1,4 +1,0 @@
-..  figure:: /Images/ManualScreenshots/BackendModules/BackendModulesAreas.png
-    :zoom: lightbox
-
-    An overview of the visual structure of the backend

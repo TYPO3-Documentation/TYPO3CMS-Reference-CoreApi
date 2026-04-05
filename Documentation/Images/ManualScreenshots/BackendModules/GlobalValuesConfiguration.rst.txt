@@ -1,4 +1,0 @@
-..  figure:: /Images/ManualScreenshots/BackendModules/GlobalValuesConfiguration.png
-    :zoom: lightbox
-
-    Viewing the :php:`$GLOBALS['TYPO3_CONF_VARS]` array using the :guilabel:`Administration > Configuration` module

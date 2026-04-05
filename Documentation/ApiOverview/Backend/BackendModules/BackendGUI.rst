@@ -1,69 +1,88 @@
-.. include:: /Includes.rst.txt
-.. index:: ! Backend GUI
-.. _backend-gui:
-.. _backend-modules-structure:
+..  include:: /Includes.rst.txt
+..  index:: ! Backend GUI
+..  _backend-gui:
+..  _backend-modules-structure:
 
 ===========
 Backend GUI
 ===========
 
-The backend user interface is essentially driven by the "backend"
-system extension and extended by many other system extensions.
+The backend user interface is primarily provided by the :composer:`typo3/cms-backend`
+system extension nd extended by additional system and third-party extensions.
 
-It is divided into the following main areas:
+The backend interface is divided into the following main areas:
 
-.. include:: /Images/ManualScreenshots/BackendModules/BackendModulesAreas.rst.txt
+..  figure:: /Images/ManualScreenshots/BackendModules/BackendModulesAreas.png
+    :zoom: lightbox
+    :alt: An overview of the visual structure of the backend, the sections are marked with numbers
 
-Top bar
-  The top bar is always present. It is itself divided into two
-  areas: the logo and top bar tools.
+    An overview of the backend interface: (1) top bar, (2) module menu,
+    (3) page tree / navigation frame, (4) DocHeader, (5) content area,
+    (6) contextual menu, (7) module menu toggle, (8) page tree toggle
 
-  The logo can be changed using the :php:`$GLOBALS['TYPO3_CONF_VARS']['EXTENSIONS']['backend']['backendLogo']` option.
-  Additional top bar tools can be registered using
-  :php:`$GLOBALS['TYPO3_CONF_VARS']['BE']['toolbarItems']`.
+..  figure:: /Images/ManualScreenshots/BackendModules/BackendModuleCollapsed.png
+    :zoom: lightbox
+    :alt: Backend with collapsed module menu and page tree, showing toggles
 
-Module menu
-  This is the main navigation. All modules are structured in main
-  modules (which can be collapsed) and submodules which is where
-  the action really happens.
+    Collapsed navigation areas: (1) module menu toggle, (2) page tree toggle
 
-  The module menu can be opened or closed by using the icon on the top left.
+1.  Top bar
 
-  The chapter :ref:`backend-modules-configuration` describes how new
-  main or submodules are registered.
+    The top bar is always visible and consists of two areas: the logo and the toolbar.
 
-  .. note::
+    The logo can be configured using:
+    :php:`$GLOBALS['TYPO3_CONF_VARS']['EXTENSIONS']['backend']['backendLogo']`.
 
-     In the TYPO3 world, "module" is typically used for
-     the backend. Extension components which add features in the frontend
-     are referred to as "plugins".
+    Additional toolbar items can be registered via:
+    :php:`$GLOBALS['TYPO3_CONF_VARS']['BE']['toolbarItems']`.
 
-Navigation frame
-  Any backend module may have a navigation frame or not. This frame
-  will typically display the page tree or the folder tree, but
-  custom navigation frames are possible.
+2.  Module menu
 
-  The current location (i.e. page or frame) is carried over between
-  navigation frames when changing modules. This means, for example, that
-  when you move from the :guilabel:`Content > Page` module to the
-  :guilabel:`Content > Records` module, the same page stays selected in the page tree.
+    This is the main navigation area. Modules are organized into main modules
+    (collapsible) and submodules, where the actual functionality is implemented.
 
-DocHeader
-  This part is always located above the Content area. It will generally
-  contain a drop-down menu called the "Function menu", which allows to
-  navigate into the various functions offered by the module. When editing
-  it will also contain all the buttons necessary for saving, closing or
-  reverting. It may contain additional buttons for shortcuts
-  or any specific feature needed by the module.
+    The module menu can be toggled using the icon in the top-left corner (7).
 
-Content area
-  This is the actual work area. Any information to show or content
-  to edit will be displayed here.
+    The chapter :ref:`backend-modules-configuration` describes how new
+    main or submodules are registered.
 
-Contextual menus
-  (Right) clicking on record icons will often reveal a contextual menu.
-  New functions can be added to the contextual menus, but the
-  mechanisms vary: the page tree behaves differently than the
-  rest of the backend.
+    ..  note::
 
-  .. include:: /Images/ManualScreenshots/BackendModules/BackendModulesContextualMenu.rst.txt
+        In TYPO3 terminology, "module" refers to backend functionality,
+        while frontend features provided by extensions are called "plugins".
+
+3.  Page tree / navigation frame
+
+    A backend module may include a navigation frame. This typically displays
+    the page tree or folder tree, but custom navigation components are also
+    possible.
+
+    The current selection (for example, a page or folder) is preserved when
+    switching between modules.
+
+4.  DocHeader
+
+    The DocHeader is located above the content area. It typically includes a
+    "Function menu" for navigating module-specific features.
+
+    When editing content, it also provides action buttons such as save, close,
+    and revert. Additional buttons (for example, shortcuts or module-specific
+    actions) may be available.
+
+5.  Content area
+
+    This is the main workspace where content is displayed and edited.
+    Any information to show or content to edit will be displayed here.
+
+6.  Contextual menus
+
+    Right-clicking on record icons typically opens a contextual menu.
+
+    Additional actions can be added to these menus; however, implementation
+    differs depending on the component (for example, the page tree behaves
+    differently from other backend areas).
+
+..  figure:: /Images/ManualScreenshots/BackendModules/BackendModulesContextualMenu.png
+    :zoom: lightbox
+
+    A typical contextual menu appears when clicking on a record icon
