@@ -1,4 +1,0 @@
-..  figure:: /Images/ManualScreenshots/Backend/BackendModulesConfiguration.png
-    :zoom: lightbox
-
-    Exploring registered Backend Modules in the :guilabel:`Configuration` module

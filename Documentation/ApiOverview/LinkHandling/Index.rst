@@ -9,7 +9,11 @@ Link handling
 Links entered in the backend in TYPO3 are stored in an internal format in the
 database.
 
-..  include:: /Images/ManualScreenshots/Backend/BackendLinkFormats.txt
+..  figure:: /Images/ManualScreenshots/Backend/BackendLinkFormats.png
+    :zoom: lightbox
+
+    Input of different link formats in the backend. The rich-text editor
+    is disabled for demonstration of these formats.
 
 For example, a link to the page with uid 42 is stored in a backend field as
 `t3://page?uid=42` and in the rich-text editor (RTE) as
@@ -55,7 +59,10 @@ editing links. The link browser can be extended by
 :ref:`custom links to different record types <TableRecordLinkBrowserTutorials>`
 and :ref:`custom link handler implementations <tutorial-github-link-handler>`.
 
-..  include:: /Images/ManualScreenshots/Backend/HaikuLinkBrowser.rst.txt
+..  figure:: /Images/ManualScreenshots/Backend/HaikuLinkBrowser.png
+    :zoom: lightbox
+
+    A link browser for records of the custom table 'haiku'
 
 **Contents:**
 

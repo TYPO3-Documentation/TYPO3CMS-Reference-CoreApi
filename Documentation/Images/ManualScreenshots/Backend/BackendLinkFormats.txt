@@ -1,5 +1,0 @@
-..  figure:: /Images/ManualScreenshots/Backend/BackendLinkFormats.png
-    :zoom: lightbox
-
-    Input of different link formats in the backend. The rich-text editor
-    is disabled for demonstration of these formats.

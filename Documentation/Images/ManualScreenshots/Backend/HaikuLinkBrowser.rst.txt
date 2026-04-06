@@ -1,6 +1,0 @@
-..  Screenshot of TYPO3 v12.0 cannot be automated yet
-
-..  figure:: /Images/ManualScreenshots/Backend/HaikuLinkBrowser.png
-    :zoom: lightbox
-
-    A link browser for records of the custom table 'haiku'

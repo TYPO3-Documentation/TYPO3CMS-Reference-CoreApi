@@ -34,18 +34,23 @@ layouts are available if an
 backend layouts have been
 :ref:`defined as records or page TSconfig <be-layout-definition>`.
 
-.. include:: /Images/ManualScreenshots/BackendLayouts/PagePropertiesAppearance.rst.txt
+..  figure:: /Images/ManualScreenshots/BackendLayouts/PagePropertiesAppearance.png
+    :zoom: lightbox
+
+    Choose the backend layout in the page properties
 
 ..  versionchanged:: 14.0
     The main module `web` has been renamed to `content`.
     See `Feature: #107628 - Improved backend module naming and structure <https://docs.typo3.org/permalink/changelog:feature-107628-1729026000>`_
 
-
 The :guilabel:`Content > Status` module gives an overview of the backend layouts configured or
 inherited from a parent page at
 :guilabel:`Content > Status > Pagetree overview > Type: Layouts`:
 
-.. include:: /Images/ManualScreenshots/BackendLayouts/PageTreeLayoutOverview.rst.txt
+..  figure:: /Images/ManualScreenshots/BackendLayouts/PageTreeLayoutOverview.png
+    :zoom: lightbox
+
+    Overview of the backend layouts used
 
 .. index::
    Backend layout; Record

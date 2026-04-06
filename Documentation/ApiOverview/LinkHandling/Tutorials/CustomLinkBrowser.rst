@@ -11,7 +11,10 @@ In this tutorial we create a custom link browser and the associated
 
 We create a new tab in the link browser window in the TYPO3 backend:
 
-..  include:: /Images/ManualScreenshots/Backend/CustomLinkBrowser.rst.txt
+..  figure:: /Images/ManualScreenshots/Backend/CustomLinkBrowser.png
+    :zoom: lightbox
+
+    A custom link browser to link to GitHub issues
 
 ..  tip::
     If you want to link to a record in a custom table, configure the

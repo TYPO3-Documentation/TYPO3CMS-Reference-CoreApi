@@ -10,10 +10,10 @@ Page properties: Settings at page level
 If the user has the correct permissions, settings for a page (and in some
 cases all subpages) can be made in the page properties:
 
-..  figure:: /Images/ManualScreenshots/Backend/PageProperties.png
-    :alt: Screenshot demonstrating the location of the "Edit page properties" button in the header of the "Content > Page" module
+..  figure:: /Images/ManualScreenshots/Backend/Groups/TabMounts.png
+    :alt: Screenshot demonstrating the location of the "Edit page properties" button in the header of the "Content > Layout" module
 
-    In the "Page" or "List" module click on "Edit page properties"
+    In the page tree context menu click edit "Edit" or in the "Content > Layout" or "Records" module click on "Edit page properties"
 
 Some plugins also come with settings, refer to the manual of the extension
 providing the plugin.

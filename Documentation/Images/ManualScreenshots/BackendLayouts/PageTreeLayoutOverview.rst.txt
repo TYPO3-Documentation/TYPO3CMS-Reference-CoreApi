@@ -1,4 +1,0 @@
-..  figure:: /Images/ManualScreenshots/BackendLayouts/PageTreeLayoutOverview.png
-    :zoom: lightbox
-
-    Overview of the backend layouts used

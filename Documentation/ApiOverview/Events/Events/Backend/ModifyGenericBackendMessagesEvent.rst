@@ -14,7 +14,10 @@ module (default start module of the TYPO3 backend).
 Extensions such as the :doc:`EXT:reports <ext_reports:Index>` system extension
 use this event to display custom messages based on the system status:
 
-..  include:: /Images/ManualScreenshots/Backend/GenericBackendMessage.rst.txt
+..  figure:: /Images/ManualScreenshots/Backend/GenericBackendMessage.png
+    :zoom: lightbox
+
+    A generic backend message in the about module
 
 Example
 =======

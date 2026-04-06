@@ -52,7 +52,7 @@ Enabling the deprecation log can be done in the
 with :guilabel:`Activate preset`. Disabling the deprecation log can be done by
 selecting the :guilabel:`Live` preset instead.
 
-..  figure:: /Images/ManualScreenshots/Backend/EnablingDebugPreset.png
+..  figure:: /Images/ManualScreenshots/DebugSettings/DebugSettings.png
     :alt: Enabling the debug preset
     :class: with-shadow
 

@@ -22,7 +22,10 @@ handling in the presets:
 
 :guilabel:`System > Settings > Configuration Presets > Debug Settings`
 
-..  include:: /Images/ManualScreenshots/Backend/DebugConfigurationPresets.rst.txt
+..  figure:: /Images/ManualScreenshots/DebugSettings/DebugSettings.png
+    :zoom: lightbox
+
+    Enable the debug settings in module :guilabel:`System > Settings`
 
 For more fine-grained error handling you can change various settings in:
 

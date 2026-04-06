@@ -17,7 +17,7 @@ The structure below describes the directory layout of a Classic TYPO3 installati
 ..  figure:: /Images/ManualScreenshots/Backend/ClassicMode.png
     :alt: The TYPO3 backend Extension Manager in Classic Mode: Buttons "Upload Extension" and "Deactivate" for some extensions are visible
 
-    If the "Upload Extension" button is visible, TYPO3 is running in Classic mode.
+    You can check the installation method in the :guilabel:`System Information`. In Classic mode the "Upload Extension" button is visible in module :guilabel:`System > Extensions`.
 
 ..  contents:: Table of contents
     :depth: 1

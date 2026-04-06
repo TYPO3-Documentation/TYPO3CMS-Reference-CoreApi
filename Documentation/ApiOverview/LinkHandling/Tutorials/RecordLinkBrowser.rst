@@ -15,7 +15,10 @@ In our example extension `t3docs/examples <https://github.com/TYPO3-Documentatio
 we demonstrate creating a custom record link browser by linking to the single
 view of a haiku poem.
 
-..  include:: /Images/ManualScreenshots/Backend/HaikuLinkBrowser.rst.txt
+..  figure:: /Images/ManualScreenshots/Backend/HaikuLinkBrowser.png
+    :zoom: lightbox
+
+    A link browser for records of the custom table 'haiku'
 
 Backend: Configure the link browser with page TSconfig
 ======================================================

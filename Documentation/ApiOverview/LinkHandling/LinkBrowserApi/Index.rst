@@ -18,7 +18,10 @@ links belonging to this tab.
 
 Here is an example for a custom link handler in the link browser:
 
-..  include:: /Images/ManualScreenshots/Backend/CustomLinkBrowser.rst.txt
+..  figure:: /Images/ManualScreenshots/Backend/CustomLinkBrowser.png
+    :zoom: lightbox
+
+    A custom link browser to link to GitHub issues
 
 In most use cases, you can use one of the link handlers provided by the Core.
 For an example, see :ref:`Tutorial: Custom record link
