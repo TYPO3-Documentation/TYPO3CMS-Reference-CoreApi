@@ -68,8 +68,10 @@ Paths for local driver storage
 The file storages based on the "local file system" driver have an
 option for relative or absolute paths.
 
-.. include:: /Images/ManualScreenshots/AccessControl/LocalStoragePath.rst.txt
+..  figure:: /Images/ManualScreenshots/UserManagement/AccessControl/FileStorage.png
+    :zoom: lightbox
 
+    The paths options for a storage based on the local file system driver
 
 "Relative" means that the given path is relative to the :file:`fileadmin/`
 folder (or whatever other folder was configured using
@@ -162,7 +164,7 @@ Having set up all these properties and folders, the user
 should see the following when moving to the :guilabel:`Media`
 module:
 
-.. figure:: /Images/ManualScreenshots/AccessControl/AccessUserFileTree.png
+.. figure:: /Images/ManualScreenshots/UserManagement/AccessControl/AccessUserFileTree.png
    :alt: The file list with automatically mounted user and group directories
 
 

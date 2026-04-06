@@ -139,11 +139,14 @@ is the folder tree drawn based on *file mounts* configured for the user.
 **DB mounts** (page mounts) are set by pointing out the
 page that should be mounted for the user (at user or group-level):
 
-.. include:: /Images/ManualScreenshots/AccessControl/DbMounts.rst.txt
+..  figure:: /Images/ManualScreenshots/UserManagement/AccessControl/DbMounts.png
+    :zoom: lightbox
+
+    The DB mounts for group "Editors"
 
 This is what the user will see:
 
-.. figure:: /Images/ManualScreenshots/AccessControl/AccessUserPageTree.png
+.. figure:: /Images/ManualScreenshots/UserManagement/AccessControl/AccessUserPageTree.png
    :alt: Only selected pages are accessible to the user
 
 
@@ -167,8 +170,8 @@ upon installation.
    changed using the global configuration option
    :code:`$GLOBALS['TYPO3_CONF_VARS']['BE']['fileadminDir']`.
 
-.. include:: /Images/ManualScreenshots/AccessControl/FileStorage.rst.txt
-
+..  figure:: /Images/ManualScreenshots/UserManagement/AccessControl/FileStorage.png
+    :zoom: lightbox
 
 A *File Storage* is essentially defined by a *File Driver*
 and the path to which it points.
@@ -176,20 +179,24 @@ and the path to which it points.
 Next we can create a *File Mount* record (on the root page),
 which refers to a File Storage:
 
-.. include:: /Images/ManualScreenshots/AccessControl/CreateFilemount.rst.txt
+..  figure:: /Images/ManualScreenshots/UserManagement/AccessControl/CreateFilemount.png
+    :zoom: lightbox
 
+    A file mount pointing to the "user_upload" directory
 
 When defining a File Mount, you can point to a specific folder
 within the chosen File Storage. Finally the mount is assigned
 to a user or group:
 
-.. include:: /Images/ManualScreenshots/AccessControl/AssignFilemount.rst.txt
+..  figure:: /Images/ManualScreenshots/UserManagement/AccessControl/AssignFilemount.png
+    :zoom: lightbox
 
+    The file mount is assigned to the "Editors" group
 
 After a successful configuration, the file mount will appear to
 the user:
 
-.. figure:: /Images/ManualScreenshots/AccessControl/AccessUserFileTree.png
+.. figure:: /Images/ManualScreenshots/UserManagement/AccessControl/AccessUserFileTree.png
    :alt: The file tree as visible by the user
 
 
@@ -202,8 +209,10 @@ the default behaviour. So make sure to unset these flags if users
 should see only their "private" mount points and not those from their
 groups:
 
-.. include:: /Images/ManualScreenshots/AccessControl/MountFromGroups.rst.txt
+..  figure:: /Images/ManualScreenshots/UserManagement/AccessControl/MountFromGroups.png
+    :zoom: lightbox
 
+    By default DB and File Mounts from groups are set for member users
 
 "Admin" users do not need mount points. As always, they have access
 to every part of the installation.
@@ -254,8 +263,10 @@ module:
     Until TYPO3 V14 this module was called :guilabel:`System > Permissions`.
     See also: `Feature: #107628 - Improved backend module naming and structure <https://docs.typo3.org/permalink/changelog:feature-107628-1729026000>`_.
 
-.. include:: /Images/ManualScreenshots/AccessControl/AccessModule.rst.txt
+..  figure:: /Images/ManualScreenshots/UserManagement/PermissionsModule.png
+    :zoom: lightbox
 
+    The :guilabel:`System > Permissions` module and its overview of page rights and owners
 
 Editing permissions is described in details in chapter
 :ref:`page-permissions`.

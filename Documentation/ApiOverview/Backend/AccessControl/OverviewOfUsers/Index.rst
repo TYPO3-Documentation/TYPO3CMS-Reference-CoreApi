@@ -25,7 +25,10 @@ Just add users using the
 For example, this is the comparison of the three different editors
 provided by the Introduction Package:
 
-.. include:: /Images/ManualScreenshots/AccessControl/CompareUsers.rst.txt
+..  figure:: /Images/ManualScreenshots/UserManagement/AccessControl/CompareUsers.png
+    :zoom: lightbox
+
+    Comparing users in the Backers users module
 
 The same functionality is available for user groups, including a comparison
 of their inherited permissions.
@@ -36,11 +39,17 @@ Impersonating Users ("Switch to")
 We can impersonate (switch) to a user by clicking the :guilabel:`Switch to user`
 action icon:
 
-.. include:: /Images/ManualScreenshots/AccessControl/SimulateUserButton.rst.txt
+..  figure:: /Images/ManualScreenshots/UserManagement/AccessControl/SimulateUserButton.png
+    :zoom: lightbox
+
+    The button to simulate another user
 
 You will then be logged in as that user (note how the user name
 is prefixed with "SU" for "Simulated User"). To "switch back",
 use the "Exit" button (which replaces the usual "Logout"
 button).
 
-.. include:: /Images/ManualScreenshots/AccessControl/SimulatedUser.rst.txt
+..  figure:: /Images/ManualScreenshots/UserManagement/AccessControl/SimulatedUser.png
+    :zoom: lightbox
+
+    Backend with active simulate user

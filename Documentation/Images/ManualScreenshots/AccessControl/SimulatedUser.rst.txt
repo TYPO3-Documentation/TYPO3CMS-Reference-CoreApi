@@ -1,4 +1,0 @@
-..  figure:: /Images/ManualScreenshots/AccessControl/SimulatedUser.png
-    :zoom: lightbox
-
-    Backend with active simulate user

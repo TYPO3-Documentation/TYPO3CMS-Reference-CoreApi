@@ -1,4 +1,0 @@
-..  figure:: /Images/ManualScreenshots/AccessControl/MountFromGroups.png
-    :zoom: lightbox
-
-    By default DB and File Mounts from groups are set for member users

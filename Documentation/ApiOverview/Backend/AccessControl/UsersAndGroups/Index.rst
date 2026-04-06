@@ -18,8 +18,10 @@ Each user of the backend must be represented with a single record in
 the table "be\_users". This record contains the username and password,
 other meta data and some permissions settings.
 
-.. include:: /Images/ManualScreenshots/AccessControl/BackendUser.rst.txt
+..  figure:: /Images/ManualScreenshots/UserManagement/AccessControl/BackendUser.png
+    :zoom: lightbox
 
+    Part of the editing form for user "simple\_editor" of the Introduction Package
 
 The above screenshot shows a part of the editing form for the backend
 user "simple\_editor" from the Introduction Package. If you have an Introduction
@@ -45,8 +47,10 @@ When a user is a member of many groups (including sub-groups) then the
 permission settings are added together so that the more groups a user
 is a member of, the more access is granted to him.
 
-.. include:: /Images/ManualScreenshots/AccessControl/BackendGroup.rst.txt
+..  figure:: /Images/ManualScreenshots/UserManagement/AccessControl/BackendGroup.png
+    :zoom: lightbox
 
+    Part of the editing form for group "Simple editors" of the Introduction Package
 
 This screenshot shows just an extract of the group editing form.
 It contains many more fields!
@@ -75,7 +79,10 @@ will most likely grant them access to more than they need.
 
 Admin users are differentiated with an orange icon.
 
-.. include:: /Images/ManualScreenshots/AccessControl/BackendUserAdmin.rst.txt
+..  figure:: /Images/ManualScreenshots/UserManagement/AccessControl/BackendUserAdmin.png
+    :zoom: lightbox
+
+    In :guilabel:`Content > Records` view, the different icon for admin users
 
 .. note::
 
@@ -102,8 +109,10 @@ system. However backend users and groups are configured to exist
 *only* in the root of the page tree where *only* admin users have
 access:
 
-.. include:: /Images/ManualScreenshots/AccessControl/BackendUserList.rst.txt
+..  figure:: /Images/ManualScreenshots/UserManagement/AccessControl/BackendUserList.png
+    :zoom: lightbox
 
+    Users and groups reside on the root page
 
 Records located in the page tree root are identified by having their
 "pid" fields set to zero. The "pid" field normally contains the
