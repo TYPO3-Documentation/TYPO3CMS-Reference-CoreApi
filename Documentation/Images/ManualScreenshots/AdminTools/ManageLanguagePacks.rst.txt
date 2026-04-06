@@ -1,4 +1,0 @@
-..  figure:: /Images/ManualScreenshots/AdminTools/ManageLanguagePacks.png
-    :zoom: lightbox
-
-    The Languages module with some active languages and status of extensions language packs

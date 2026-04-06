@@ -45,7 +45,10 @@ Quick start
 
    :guilabel:`System > Upgrade > Scan Extension Files`
 
-   .. include:: /Images/ManualScreenshots/AdminTools/ExtensionScannerOpen.rst.txt
+   ..  figure:: /Images/ManualScreenshots/AdminTools/ExtensionScannerOpen.png
+        :zoom: lightbox
+
+        Open the extension scanner at :guilabel:`System > Upgrade > Scan Extension Files`
 
 2. Scan one extension by clicking on it or click :guilabel:`"Scan all"`.
 

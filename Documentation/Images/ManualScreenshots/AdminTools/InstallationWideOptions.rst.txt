@@ -1,4 +1,0 @@
-..  figure:: /Images/ManualScreenshots/AdminTools/InstallationWideOptions.png
-    :zoom: lightbox
-
-    Configure installation-wide options with an active search

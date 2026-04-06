@@ -26,7 +26,10 @@ for system and extension translations from the official TYPO3 translation server
 The module is straightforward to use. Downloaded language packs are stored in the
 environment’s :ref:`Environment-labels-path`.
 
-..  include:: /Images/ManualScreenshots/AdminTools/ManageLanguagePacks.rst.txt
+..  figure:: /Images/ManualScreenshots/AdminTools/ManageLanguagePacks.png
+    :zoom: lightbox
+
+    The Languages module with some active languages and status of extensions language packs
 
 Language packs can also be fetched using the command line:
 

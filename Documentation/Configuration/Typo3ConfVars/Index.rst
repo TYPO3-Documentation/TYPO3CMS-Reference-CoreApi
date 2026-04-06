@@ -213,9 +213,15 @@ change parts of :file:`config/system/settings.php`. They can be found in
 :guilabel:`System > Settings` - most importantly section
 :guilabel:`Configure installation-wide options`:
 
-..  include:: /Images/ManualScreenshots/AdminTools/AllConfiguration.rst.txt
+..  figure:: /Images/ManualScreenshots/AdminTools/AllConfiguration.png
+    :zoom: lightbox
 
-..  include:: /Images/ManualScreenshots/AdminTools/InstallationWideOptions.rst.txt
+    Configure installation-wide options :guilabel:`System > Settings`
+
+..  figure:: /Images/ManualScreenshots/AdminTools/InstallationWideOptions.png
+    :zoom: lightbox
+
+    Configure installation-wide options with an active search
 
 ..  index:: File; typo3/sysext/core/Configuration/DefaultConfiguration.php
 ..  _typo3ConfVars-defaultConfiguration:

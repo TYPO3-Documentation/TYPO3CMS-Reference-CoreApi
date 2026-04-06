@@ -1,4 +1,0 @@
-..  figure:: /Images/ManualScreenshots/AdminTools/ExtensionManager.png
-    :zoom: lightbox
-
-    Interface of the Extension Manager showing all available extensions.

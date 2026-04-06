@@ -116,7 +116,10 @@ or even a section :guilabel:`System` in the :ref:`Module menu <backend-modules-s
 you definitely have the wrong permissions as an editor and you
 should get in touch with the system provider to solve this issue.
 
-..  include:: /Images/ManualScreenshots/AdminTools/EditorAdminPrivileges.rst.txt
+..  figure:: /Images/ManualScreenshots/AdminTools/EditorAdminPrivileges.png
+    :zoom: lightbox
+
+    Screenshot of a menu with the section "System"
 
 
 Notify at login

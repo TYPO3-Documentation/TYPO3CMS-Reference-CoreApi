@@ -1,4 +1,0 @@
-..  figure:: /Images/ManualScreenshots/AdminTools/EditorAdminPrivileges.png
-    :zoom: lightbox
-
-    Screenshot of a menu with the section "System"
