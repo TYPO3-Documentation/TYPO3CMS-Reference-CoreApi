@@ -40,23 +40,15 @@ It is thus possible to find solutions for using LDAP as an
 authentication server, for example.
 
 You can check which authentication services are installed
-using the :guilabel:`Administration > Reports > Installed Services`
-view:
+using the :guilabel:`System > Configuration` module:
 
-..  versionchanged:: 14.0
-    Until TYPO3 V14 this module was found in :guilabel:`System > Reports`.
-    See also: `Feature: #107628 - Improved backend module naming and structure <https://docs.typo3.org/permalink/changelog:feature-107628-1729026000>`_.
+..  figure:: /Images/ManualScreenshots/Authentication/InstalledAuthServices.png
+    :zoom: lightbox
 
-..  include:: /Images/ManualScreenshots/Authentication/InstalledAuthServices.rst.txt
+    All installed authentication services and their priority
 
-..  note::
-
-    For the :guilabel:`Reports` module to be visible, the system extension
-    reports has to be installed. You can install it via Composer:
-
-    ..  code-block:: bash
-
-        composer require typo3/cms-reports
+For the :guilabel:`System > Configuration` module to be visible, the system
+extension :composer:`typo3/cms-lowlevel` has to be installed.
 
 ..  index::
     Authentication; Process

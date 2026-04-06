@@ -1,4 +1,0 @@
-..  figure:: /Images/ManualScreenshots/Authentication/InstalledAuthServices.png
-    :zoom: lightbox
-
-    All installed authentication services and their priority

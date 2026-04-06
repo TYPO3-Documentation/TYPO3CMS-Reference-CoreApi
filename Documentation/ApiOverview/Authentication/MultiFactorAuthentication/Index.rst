@@ -24,7 +24,7 @@ user needs
 Read more about the concepts of MFA here:
 https://en.wikipedia.org/wiki/Multi-factor_authentication
 
-..  figure:: /Images/ManualScreenshots/Frontend/Authentication/MfaEnterCode.png
+..  figure:: /Images/ManualScreenshots/Authentication/MfaEnterCode.png
     :alt: TYPO3 Login Screen for entering MFA code (TOTP)
     :class: with-border with-shadow
 
@@ -43,7 +43,10 @@ authentication or frontend authentication with a multi-factor step in-between.
 Managing MFA providers is currently possible via the :guilabel:`User Settings`
 module in the tab called :guilabel:`Account security`.
 
-..  include:: /Images/ManualScreenshots/Authentication/MfaActivate.rst.txt
+..  figure:: /Images/ManualScreenshots/Authentication/MfaActivate.png
+    :zoom: lightbox
+
+    Manage your MFA providers in the User Settings module
 
 The :guilabel:`Account security` tab displays the current state:
 
@@ -78,7 +81,10 @@ provider is active. It is only meant as a fallback provider, in case the
 authentication credentials for the "main" provider(s) are lost. It is encouraged
 to activate this provider, and keep the codes at a safe place.
 
-..  include:: /Images/ManualScreenshots/Authentication/MfaSelectProvider.rst.txt
+..  figure:: /Images/ManualScreenshots/Authentication/MfaSelectProvider.png
+    :zoom: lightbox
+
+    Select a MFA provider screen
 
 Third-party MFA providers
 -------------------------
@@ -106,7 +112,10 @@ Each inactive provider contains a :guilabel:`Setup` button which opens the
 corresponding configuration view. This view can be different depending on the
 MFA provider.
 
-..  include:: /Images/ManualScreenshots/Authentication/MfaQrCode.rst.txt
+..  figure:: /Images/ManualScreenshots/Authentication/MfaQrCode.png
+    :zoom: lightbox
+
+    MFA TOTP provider configuration screen
 
 Each provider contains an :guilabel:`Edit/Change` button, which allows to adjust
 the provider's settings. This view allows, for example, to set a provider as the
@@ -178,7 +187,7 @@ of all currently registered providers in the installation. This is especially
 helpful to find out the exact provider identifier, needed for some
 user TSconfig options.
 
-..  include:: /Images/ManualScreenshots/Authentication/MfaConfigurationModule.rst.txt
+..  include:: /Images/ManualScreenshots/Authentication/Groups/TabMounts.png
 
 
 Configuration

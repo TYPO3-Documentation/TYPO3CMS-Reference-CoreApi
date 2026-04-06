@@ -1,4 +1,0 @@
-..  figure:: /Images/ManualScreenshots/Authentication/MfaSelectProvider.png
-    :zoom: lightbox
-
-    Select a MFA provider screen

@@ -1,4 +1,0 @@
-..  figure:: /Images/ManualScreenshots/Authentication/MfaActivate.png
-    :zoom: lightbox
-
-    Manage your MFA providers in the User Settings module
