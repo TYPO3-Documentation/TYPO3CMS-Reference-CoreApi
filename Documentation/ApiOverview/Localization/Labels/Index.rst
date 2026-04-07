@@ -28,7 +28,7 @@ Examples:
     $languageService->sL('LLL:EXT:my_extension/Resources/Private/Language/locallang_forms.xlf:submit');
 
     // New domain-based syntax (TYPO3 v14+)
-    $languageService->sL('my_blog.frontend.forms:submit');
+    $languageService->sL('my_extension.forms:submit');
 
 Label references are used throughout TYPO3 — in PHP, TypoScript, Fluid templates,
 and configuration files — to access localized strings that are translated into
