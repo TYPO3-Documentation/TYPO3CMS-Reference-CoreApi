@@ -162,7 +162,6 @@ automatically.
 
 How can I rename my branch "master" to "main" in Git and Crowdin?
 -----------------------------------------------------------------
-
 If you want to rename a Git branch and retain your existing Crowdin translation,
 follow these steps:
 
