@@ -167,7 +167,7 @@ If you want to rename a Git branch and retain your existing Crowdin translation,
 follow these steps:
 
 #.  Go to your extension in Crowdin, select the "Sources" tab.
-#.  Search for the branch, e.g. "master" and right-click on the branch name.
+#.  Search for the branch, for example "master" and right-click on the branch name.
 #.  Choose "Rename" and complete the renaming process.
 #.  Rename "master" to "main" in your Git repository.
 #.  In Crowdin, go to "Integrations" and edit your Git integration, specifying
