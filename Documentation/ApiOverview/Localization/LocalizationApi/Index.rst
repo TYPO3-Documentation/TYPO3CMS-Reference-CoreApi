@@ -1,6 +1,7 @@
 ..  include:: /Includes.rst.txt
 ..  index::
     pair: Localization; API
+..  _xliff-api:
 ..  _localization-api:
 
 ================
@@ -26,10 +27,10 @@ services, and convenient helpers for TypoScript, Extbase and Fluid.
 
     ..  card:: `LanguageServiceFactory <https://docs.typo3.org/permalink/t3coreapi:languageservicefactory-api>`_
 
-        Create context-aware `LanguageService <https://docs.typo3.org/permalink/t3coreapi:languageservice-api>`_ instances
+        Create context-aware `Translator <https://docs.typo3.org/permalink/t3coreapi:translator-api>`_ instances
         at runtime.
 
-    ..  card:: `LanguageService <https://docs.typo3.org/permalink/t3coreapi:languageservice-api>`_
+    ..  card:: `Translator <https://docs.typo3.org/permalink/t3coreapi:translator-api>`_
 
         Translate labels via `LLL:EXT:...` in PHP; loads XLIFF resources on demand.
 
@@ -39,7 +40,11 @@ services, and convenient helpers for TypoScript, Extbase and Fluid.
 
     ..  card:: `Localization in TypoScript <https://docs.typo3.org/permalink/t3coreapi:extension-localization-typoscript>`_
 
-        Using `LLL:EXT:...` labels in TypoScript.
+        Using localized labels in TypoScript.
+
+    ..  card:: `Fluid translate ViewHelper <https://docs.typo3.org/permalink/t3coreapi:xliff-api-fluid>`_
+
+        Using localized labels in Fluid.
 
 ..  toctree::
     :titlesonly:

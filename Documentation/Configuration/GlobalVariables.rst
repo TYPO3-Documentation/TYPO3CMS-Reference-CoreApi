@@ -140,19 +140,19 @@ $GLOBALS
 ..  confval:: LANG
     :name: globals-lang
     :Path: $GLOBALS
-    :type: :php:`\TYPO3\CMS\Core\Localization\LanguageService`
-    :Defined: is initialized via :php:`\TYPO3\CMS\Core\Localization\LanguageServiceFactory`
+    :type: :php:`\TYPO3\CMS\Core\Localization\TranslatorInterface`
+    :Defined: is initialized via :php-short:`\TYPO3\CMS\Core\Localization\LanguageServiceFactory`
     :Frontend: no
 
     ..  attention::
 
-         It is discouraged to use this variable directly. The
-         :php:`LanguageServiceFactory` should be used instead to retrieve the
-         :php:`LanguageService`.
+        It is discouraged to use this variable directly. The
+        :php-short:`\TYPO3\CMS\Core\Localization\LanguageServiceFactory`
+        should be used instead to retrieve the translator.
 
-    The :php:`LanguageService` can be used to fetch
+    The :php-short:`\TYPO3\CMS\Core\Localization\TranslatorInterface` can be used to fetch
     translations.
 
     More information about retrieving the
-    :php:`LanguageService` is available in
+    :php-short:`\TYPO3\CMS\Core\Localization\TranslatorInterface` is available in
     :ref:`extension-localization-php`.

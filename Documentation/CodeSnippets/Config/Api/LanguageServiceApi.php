@@ -15,8 +15,8 @@ return [
     ],
     [
         'action' => 'createPhpClassDocs',
-        'class' => \TYPO3\CMS\Core\Localization\LanguageService::class,
-        'targetFileName' => 'ApiOverview/Localization/LocalizationApi/_LanguageService.rst.txt',
+        'class' => \TYPO3\CMS\Core\Localization\TranslatorInterface::class,
+        'targetFileName' => 'ApiOverview/Localization/LocalizationApi/_TranslatorInterface.rst.txt',
         'withCode' => false,
     ],
     [
