@@ -13,9 +13,7 @@ use TYPO3\CMS\Core\Attribute\AsEventListener;
 )]
 final readonly class MyEventListener
 {
-    public function __construct(private UriBuilder $uriBuilder)
-    {
-    }
+    public function __construct(private UriBuilder $uriBuilder) {}
 
     public function __invoke(ModifyClearCacheActionsEvent $event): void
     {
@@ -25,7 +23,7 @@ final readonly class MyEventListener
             'title' => 'core.cache:group.pages.label',
             'endpoint' => (string)$this->uriBuilder->buildUriFromRoute(
                 'tce_db',
-                ['cacheCmd' => 'pages']
+                ['cacheCmd' => 'pages'],
             ),
             'iconIdentifier' => 'actions-system-cache-clear-impact-low',
             // Optional, recommended keys:
