@@ -32,7 +32,7 @@ Example
 API
 ===
 
-..  include:: /CodeSnippets/Events/Setup/AddUserSettingsJavaScriptModulesEvent.rst.txt
+..  include:: /CodeSnippets/Events/Backend/AddUserSettingsJavaScriptModulesEvent.rst.txt
 
 ..  _AddUserSettingsJavaScriptModulesEvent-api-13:
 
@@ -41,7 +41,7 @@ Migration from AddJavaScriptModulesEvent to AddUserSettingsJavaScriptModulesEven
 
 When dropping TYPO3 v13 support, switch to using the new location of the event:
 
-..  code-snippet:: diff
+..  code-block:: diff
 
     + use TYPO3\CMS\Backend\Event\AddUserSettingsJavaScriptModulesEvent;
       use TYPO3\CMS\Core\Attribute\AsEventListener;
