@@ -3,6 +3,7 @@
 ..  index::
     ! Assets
     PageRenderer
+..  _assets-introduction:
 ..  _assets:
 
 ===============================
@@ -11,11 +12,6 @@ Assets (CSS, JavaScript, Media)
 
 ..  contents:: **Table of Contents**
     :local:
-
-..  _assets-introduction:
-
-Introduction
-============
 
 The TYPO3 component responsible for rendering the HTML and adding assets to a
 TYPO3 frontend or backend page is called :php:`\TYPO3\CMS\Core\Page\PageRenderer`.
@@ -81,8 +77,8 @@ path will be used as-is in the resulting HTML tag.
 
 ..  _asset-collector-api:
 
-The API
--------
+The Asset collector API
+-----------------------
 
 ..  include:: /CodeSnippets/Manual/Core/AssetCollector.rst.txt
 
@@ -98,8 +94,8 @@ The API
 
 ..  _assets-viewhelper:
 
-ViewHelper
-----------
+f:assets.* ViewHelpers
+----------------------
 
 There are also two ViewHelpers, the
 :ref:`f:asset.css<t3viewhelper:typo3-fluid-asset-css>` and the
@@ -111,8 +107,8 @@ use the :php:`AssetCollector` API.
 
 ..  _assets-rendering-order:
 
-Rendering order
----------------
+Rendering order of page assets
+------------------------------
 
 Currently, CSS and JavaScript registered with the asset collector will be
 rendered after their page renderer counterparts. The order is:
@@ -218,7 +214,6 @@ Resulting in the following HTML output:
 
     <link rel="stylesheet" href="/_assets/<hash>/myFile.css" />
 
-
 .. index::
    pair: Assets; Events
    Events; BeforeJavaScriptsRenderingEvent
@@ -226,8 +221,8 @@ Resulting in the following HTML output:
 
 ..  _assets-events:
 
-Events
-------
+Events that allow additional adjusting of assets
+------------------------------------------------
 
 There are two events available that allow additional adjusting of assets:
 
@@ -236,17 +231,13 @@ There are two events available that allow additional adjusting of assets:
 
 
 ..  _assets-other-methods:
-
-Former methods to add assets
-============================
-
 ..  _assets-page-renderer:
 
-Using the page renderer
------------------------
+Using the page renderer to add assets
+=====================================
 
-An instance of the :php:`PageRenderer` class can be injected into the
-class via :ref:`dependency injection <DependencyInjection>`:
+An instance of the :php-short:`\TYPO3\CMS\Core\Page\PageRenderer\PageRenderer`
+class can be injected via :ref:`dependency injection <DependencyInjection>`:
 
 ..  literalinclude:: _MyClassWithPageRenderer.php
     :caption: EXT:my_extension/Classes/MyClass.php
