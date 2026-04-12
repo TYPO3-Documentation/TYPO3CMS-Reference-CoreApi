@@ -49,9 +49,8 @@ When dropping TYPO3 v13 support, switch to using the new location of the event:
 
       final class SetupModuleListener
       {
-        - #[AsEventListener('my-extension/setup-module-listener')]
+        #[AsEventListener('my-extension/setup-module-listener')]
         - public function __invoke(AddJavaScriptModulesEvent $event): void
-        + #[AsEventListener('my-extension/setup-module-listener')]
         + public function __invoke(AddUserSettingsJavaScriptModulesEvent $event): void
           {
               $event->addJavaScriptModule('@my-extension/setupModule/some-file.js');
