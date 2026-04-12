@@ -333,4 +333,10 @@ return [
         'targetFileName' => 'CodeSnippets/Events/Backend/SudoModeVerifyEvent.rst.txt',
         'withCode' => false,
     ],
+    [
+        'action' => 'createPhpClassDocs',
+        'class' => \TYPO3\CMS\Backend\Event\AddUserSettingsJavaScriptModulesEvent::class,
+        'targetFileName' => 'CodeSnippets/Events/Backend/AddUserSettingsJavaScriptModulesEvent.rst.txt',
+        'withCode' => false,
+    ],
 ];

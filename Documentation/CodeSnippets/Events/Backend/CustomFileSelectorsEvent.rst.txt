@@ -3,45 +3,37 @@
 
 ..  php:class:: CustomFileSelectorsEvent
 
-    To modify the selectors that add files, the following methods are available:
+    Listeners to this Event will be able to add custom file selectors to a
+    TCA type="file" field in FormEngine
 
     ..  php:method:: getSelectors()
+        :returns: `array`
 
-        Get all selectors
+    ..  php:method:: setSelectors(array $selectors)
 
-    ..  php:method:: setSelectors()
-
-        Set all selectors
+        :param $selectors: the selectors
 
     ..  php:method:: getJavascriptModules()
+        :returns: `array`
 
-        Get all JavaScript modules
+    ..  php:method:: setJavascriptModules(array $javascriptModules)
 
-    ..  php:method:: setJavascriptModules()
-
-        Set all JavaScript modules
+        :param $javascriptModules: the javascriptModules
 
     ..  php:method:: getTableName()
-
-        Get table name of the current record
+        :returns: `string`
 
     ..  php:method:: getFieldName()
-
-        Get field name of the element
+        :returns: `string`
 
     ..  php:method:: getDatabaseRow()
-
-        Get raw database row
+        :returns: `array`
 
     ..  php:method:: getFieldConfig()
-
-        Get TCA configuration of the current field
+        :returns: `array`
 
     ..  php:method:: getFileExtensionFilter()
-
-        Get the allowed & disallowed file extensions
+        :returns: `\TYPO3\CMS\Core\Resource\Filter\FileExtensionFilter`
 
     ..  php:method:: getFormFieldIdentifier()
-
-        Get DOM object-id used in the form
-
+        :returns: `string`
