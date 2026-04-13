@@ -54,7 +54,7 @@ Referencing private resources on the server side
 The actual directory location where a file can be found varies from installation
 to installation. It depends on the mode (Composer / Classic) and on certain
 configuration, for example of the :folder:`vendor` folder. You should therefore avoid
-using absolute or large relative paths.
+using absolute or large relative paths like `../../../../public/_assets/12345`.
 
 ..  _resources-server-side-ext:
 
