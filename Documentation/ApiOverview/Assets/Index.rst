@@ -97,10 +97,8 @@ The Asset collector API
 f:assets.* ViewHelpers
 ----------------------
 
-There are also two ViewHelpers, the
-:ref:`f:asset.css<t3viewhelper:typo3-fluid-asset-css>` and the
-:ref:`f:asset.script<t3viewhelper:typo3-fluid-asset-script>` ViewHelper which
-use the :php:`AssetCollector` API.
+There are two ViewHelpers which use the :php:`AssetCollector` API - :ref:`f:asset.css<t3viewhelper:typo3-fluid-asset-css>` and the
+:ref:`f:asset.script<t3viewhelper:typo3-fluid-asset-script>`.
 
 
 .. index:: pair: Assets; Rendering order
@@ -236,7 +234,7 @@ There are two events available that allow additional adjusting of assets:
 Using the page renderer to add assets
 =====================================
 
-An instance of the :php-short:`\TYPO3\CMS\Core\Page\PageRenderer\PageRenderer`
+An instance of the :php-short:`\TYPO3\CMS\Core\Page\PageRenderer`
 class can be injected via :ref:`dependency injection <DependencyInjection>`:
 
 ..  literalinclude:: _MyClassWithPageRenderer.php
