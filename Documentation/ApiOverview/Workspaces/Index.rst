@@ -151,7 +151,7 @@ frontend:
       // use TYPO3\CMS\Core\Domain\Repository\PageRepository;
       // use TYPO3\CMS\Core\Utility\GeneralUtility;
 
-      $pageRepository = GeneralUtility::makeInstance(PageRepository);
+      $pageRepository = GeneralUtility::makeInstance(PageRepository::class);
       $result = $queryBuilder->executeQuery();
       while ($row = $result->fetchAssociative()) {
           $pageRepository->versionOL($table, $row);
@@ -209,7 +209,7 @@ These issues are not planned to be supported for preview:
    we would have to traverse all records and pass them through
    :code:`->versionOL()` before we would have a reliable result!
 
--  In :code:`\TYPO3\CMS\Core\Domain\Repository\PageRepository::getPageShortcut()`,
+-  In :code:`\\TYPO3\\CMS\\Core\\Domain\\Repository\\PageRepository::getPageShortcut()`,
    :code:`PageRepository->getMenu()` is called with an
    additional :sql:`WHERE` clause which will ignore changes made in workspaces.
    This could also be the case in other places where :code:`PageRepository->getMenu()`
@@ -383,7 +383,7 @@ Since admin users are also restricted by the workspace it is not
 possible to save any live records when in a workspace. However for
 very special occasions you might need to bypass this and to do so, you
 can set the instance variable
-:code:`\TYPO3\CMS\Core\DataHandling\DataHandler::bypassWorkspaceRestrictions` to TRUE. An example of
+:code:`\\TYPO3\\CMS\\Core\\DataHandling\\DataHandler::bypassWorkspaceRestrictions` to TRUE. An example of
 this is when users are updating their user profile using the "User Tool >
 User Settings" module; that actually allows them to save to a live record
 (their user record) while in a draft workspace.
@@ -405,8 +405,8 @@ see if a placeholder exists for a move operation and if so the record
 will take over the pid / "sortby" value upon publishing.
 
 Preview of move operations is almost fully functional through the
-:code:`\TYPO3\CMS\Core\Domain\Repository\PageRepository::versionOL()` and
-:code:`\TYPO3\CMS\Backend\Utility\BackendUtility::workspaceOL()` functions.
+:code:`\\TYPO3\\CMS\\Core\\Domain\\Repository\\PageRepository::versionOL()` and
+:code:`\\TYPO3\\CMS\\Backend\\Utility\\BackendUtility::workspaceOL()` functions.
 When the online placeholder is selected it looks up the source
 record, overlays any version on top and displays it. When the source
 record is selected it should be discarded in case shown in
