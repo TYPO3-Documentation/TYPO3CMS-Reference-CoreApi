@@ -35,7 +35,7 @@ must be arrays.)
     This is the root element of a T3DataStructure. It may contain tags
     `<meta>` and `<ROOT>` or `<sheets>`
 
-..  confval:: <T3DataStructure>
+..  confval:: <meta>
     :name: t3datastructure-meta
     :type: array
 
