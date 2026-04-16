@@ -187,7 +187,7 @@ of all currently registered providers in the installation. This is especially
 helpful to find out the exact provider identifier, needed for some
 user TSconfig options.
 
-..  include:: /Images/ManualScreenshots/UserManagement/Groups/TabMounts.png
+..  include:: /Images/ManualScreenshots/UserManagement/Groups/FileMounts.png
 
 
 Configuration
