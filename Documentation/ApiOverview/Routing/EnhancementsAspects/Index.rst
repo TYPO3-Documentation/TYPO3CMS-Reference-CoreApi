@@ -352,8 +352,9 @@ directly in the route enhancer configuration using the :yaml:`static` directive.
 
 To be effective, this setting requires:
 
--   No aspect to be defined for the same variable (aspects take precedence)
--   A restrictive :yaml:`requirements` definition for the variable
+-   No aspect is defined for the same variable (aspects take precedence over static
+    route variables)
+-   A restrictive :yaml:`requirements` definition
 
 Example:
 
