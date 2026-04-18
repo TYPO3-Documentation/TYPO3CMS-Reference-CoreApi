@@ -6,10 +6,12 @@
     Interface for translation services.
 
     This interface provides a clean abstraction for translating labels in TYPO3.
-    It uses ICU MessageFormat style where pluralization and other complex formatting
+    It uses the ICU MessageFormat style: pluralization and other complex formatting
     logic is embedded in the message string itself, not in the API signature.
 
     Example usage:
+
+    ..  code-block:: php
 
         // Simple translation
         $translator->translate('button.save', 'backend.messages');
@@ -39,28 +41,31 @@
 
         Resolves TYPO3 label reference strings in the formats:
 
-            'core.messages:labels.depth_0'
-            'LLL:EXT:core/Resources/Private/Language/locallang_core.xlf:labels.depth_0'
-            'EXT:core/Resources/Private/Language/locallang_core.xlf:labels.depth_0'
+        - `core.messages:labels.depth_0`
+        - `LLL:EXT:core/Resources/Private/Language/locallang_core.xlf:labels.depth_0`
+        - `EXT:core/Resources/Private/Language/locallang_core.xlf:labels.depth_0`
 
         The LLL: prefix is optional and stripped before resolution.
 
         Example usage:
 
-            // Simple reference
-            $translator->label('myext.messages:button.save');
+        ..  code-block:: php
 
-            // Simple reference (discouraged with file reference)
-            $translator->label('LLL:EXT:my_ext/Resources/Private/Language/locallang.xlf:button.save');
+                // Simple reference
+                $translator->label('myext.messages:button.save');
 
-            // With arguments
-            $translator->label('core.messages:record.count', [5]);
+                // Simple reference (discouraged with file reference)
+                $translator->label('LLL:EXT:my_ext/Resources/Private/Language/locallang.xlf:button.save');
 
-            // With default value
-            $translator->label('core.messages:missing.key', [], 'Fallback text');
+                // With arguments
+                $translator->label('core.messages:record.count', [5]);
 
-        :param $reference: The label reference string (with or without LLL: prefix)
+                // With default value
+                $translator->label('core.messages:missing.key', [], 'Fallback text');
+
+
+        :param $reference: The label reference string (with or without the LLL: prefix)
         :param $arguments: Optional arguments for placeholder replacement, default: []
         :param $default: Optional default value returned when the label is not found, default: NULL
-        :param $locale: Optional locale override. If null, uses the service's configured locale., default: NULL
+        :param $locale: Optional locale override. If null, uses the service's configured locale, default: NULL
         :Return description: The translated string, the default value, or null if the label was not found

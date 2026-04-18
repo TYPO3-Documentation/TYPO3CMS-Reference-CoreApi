@@ -8,7 +8,7 @@
 Fluid: The translate ViewHelper
 ===============================
 
-In Fluid, a typical call to fetch a string in the language selected by a user looks like this:
+In Fluid, a typical call to fetch a string in the user's selected language looks like this:
 
 ..  code-block:: html
 
@@ -16,8 +16,8 @@ In Fluid, a typical call to fetch a string in the language selected by a user lo
     // or inline notation
     {f:translate(key: 'someKey', extensionName: 'SomeExtensionName')}
 
-If the correct context is set, the current extension name and language is
-provided by the request. Otherwise it must be provided.
+If the correct context is set, the current extension name and language will be
+provided by the request. Otherwise it must be added.
 
 ..  seealso::
 

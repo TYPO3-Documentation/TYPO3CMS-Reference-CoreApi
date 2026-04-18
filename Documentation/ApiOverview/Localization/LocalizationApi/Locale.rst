@@ -44,7 +44,7 @@ labels. Previously, TYPO3 used the `default` language key, instead of the locale
 encouraged to use `en-US` or `en-GB` with the region subtag to identify the
 chosen language more precisely.
 
-Example for using the :php:`Locale` class for creating a
+Example of using the :php:`Locale` class for creating a
 :php-short:`\TYPO3\CMS\Core\Localization\TranslatorInterface` object for
 translations:
 

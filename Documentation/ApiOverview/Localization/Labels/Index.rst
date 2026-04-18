@@ -313,7 +313,7 @@ can be created using the
 
 The recommended way to determine the correct
 :php-short:`\TYPO3\CMS\Core\Localization\TranslatorInterface` instance depends
-on context:
+on the context:
 
 *   **Frontend:** use the language in the current request object
     (:php-short:`Psr\Http\Message\ServerRequestInterface`) or the default site

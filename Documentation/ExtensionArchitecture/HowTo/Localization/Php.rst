@@ -23,8 +23,9 @@ Localization in plain PHP
 
 ..  note::
 
-    The global variable :php:`$GLOBALS['LANG']` is not available in all contexts,
-    do not rely on it. Use :php-short:`\TYPO3\CMS\Core\Localization\LanguageServiceFactory` instead.
+    The global variable :php:`$GLOBALS['LANG']` is not available in all contexts
+    so it is best not to rely on it. Use
+    :php-short:`\TYPO3\CMS\Core\Localization\LanguageServiceFactory` instead.
 
 The :php-short:`\TYPO3\CMS\Core\Localization\TranslatorInterface` objects are
 available if a backend user has been initialized, in particular in the
@@ -112,7 +113,7 @@ Example: Translate a Flash message in an Extbase Controller
 -----------------------------------------------------------
 
 In this example the content of the flash message to be displayed in the backend
-gets translated:
+will be translated:
 
 ..  include:: /CodeSnippets/Extbase/Controllers/PhpLocalization.rst.txt
 
@@ -137,11 +138,11 @@ In the following example we use the :ref:`Translator API <translator-api>`
 to provide a list of localized season names. This list could then be loaded in
 the frontend via Ajax.
 
-You can finde the complete example on
-`GitHub, EXT:examples, HaikuSeasonList <https://github.com/TYPO3-Documentation/t3docs-examples/blob/main/Classes/Middleware/HaikuSeasonList.php>`__.
+You can find the complete example in
+`GitHub, EXT:examples and HaikuSeasonList <https://github.com/TYPO3-Documentation/t3docs-examples/blob/main/Classes/Middleware/HaikuSeasonList.php>`__.
 
 As we do not need a full frontend context with TypoScript the JSON is returned
-by a :ref:`PSR-15 middleware <request-handling>`.
+by :ref:`PSR-15 middleware <request-handling>`.
 
 Beside other factories needed by our response, we inject the
 :ref:`LanguageServiceFactory <LanguageServiceFactory-api>` with
@@ -150,16 +151,16 @@ Beside other factories needed by our response, we inject the
 ..  include:: _php/_LanguageServiceFactoryDI.rst.txt
 
 The main method :php:`process()` is called with a
-:php-short:`Psr\Http\Message\ServerRequestInterface` as argument that can be used to detect the
-current language and is therefore passed on to the private method :php:`getSeasons()` doing the
-actual translation:
+:php-short:`Psr\Http\Message\ServerRequestInterface` argument that can be used to detect the
+current language and is passed on to the private method :php:`getSeasons()`
+to do the actual translation:
 
 ..  include:: _php/_ProcessMiddleware.rst.txt
 
-Now we can let the :php:`\TYPO3\CMS\Core\Localization\LanguageServiceFactory` to
+Now we can let the :php:`\TYPO3\CMS\Core\Localization\LanguageServiceFactory`
 create an object of type
-:php-short:`\TYPO3\CMS\Core\Localization\TranslatorInterface` from the request's
-language, falling back to the default language of the site.
+:php-short:`\TYPO3\CMS\Core\Localization\TranslatorInterface` from the language
+in the request, falling back to the default language of the site.
 
 The :php-short:`\TYPO3\CMS\Core\Localization\TranslatorInterface` object can
 then be queried for the localized strings:
