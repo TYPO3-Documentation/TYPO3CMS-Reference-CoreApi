@@ -4,6 +4,7 @@
     ! Assets
     PageRenderer
 ..  _assets-introduction:
+..  _assets-TypoScriptFrontendController:
 ..  _assets:
 
 ===============================
@@ -252,23 +253,3 @@ The following methods can then be used:
 *   :php:`$this->pageRenderer->addJsFooterInlineCode($name, $javaScriptCode)`
 *   :php:`$this->pageRenderer->addJsInlineCode($name, $javaScriptCode)`
 *   :php:`$this->pageRenderer->addJsLibrary($name, $file)`
-
-
-..  _assets-TypoScriptFrontendController:
-
-Using the TypoScriptFrontendController
---------------------------------------
-
-..  versionchanged:: 13.0
-    The property :php:`additionalHeaderData` has been marked as internal
-    and should not be used. Use :php:`AssetCollector->addJavaScript()` instead
-    (like described in the :ref:`examples <assets-examples>` above).
-
-..  deprecated:: 13.4
-    The class :php:`\TYPO3\CMS\Frontend\Controller\TypoScriptFrontendController`
-    and its global instance :php:`$GLOBALS['TSFE']` have been marked as
-    deprecated. The class will be removed with TYPO3 v14.
-
-..  code-block:: php
-
-    $GLOBALS['TSFE']->additionalHeaderData[$name] = $javaScriptCode;
