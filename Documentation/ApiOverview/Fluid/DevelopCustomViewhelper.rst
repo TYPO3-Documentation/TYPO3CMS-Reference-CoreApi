@@ -412,7 +412,7 @@ for a list of available attributes.
 Using stdWrap / fetching the current ContentObject in a ViewHelper implementation
 ---------------------------------------------------------------------------------
 
-You can `access the ContentObjectRenderer <https://docs.typo3.org/permalink/t3coreapi:tsfe-contentobjectrenderer>`_
+You can access the :php-short:`\TYPO3\CMS\Frontend\ContentObject\ContentObjectRenderer`
 from the :php-short:`\Psr\Http\Message\ServerRequestInterface`:
 
 ..  code-block:: php
