@@ -1,4 +1,0 @@
-..  figure:: /Images/ManualScreenshots/SiteHandling/SiteHandlingSiteModule.png
-    :zoom: lightbox
-
-    The :guilabel:`Sites` module in the TYPO3 backend.

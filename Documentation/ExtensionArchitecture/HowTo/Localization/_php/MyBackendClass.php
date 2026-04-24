@@ -5,8 +5,8 @@ declare(strict_types=1);
 namespace MyVendor\MyExtension\Backend;
 
 use TYPO3\CMS\Core\Authentication\BackendUserAuthentication;
-use TYPO3\CMS\Core\Localization\LanguageService;
 use TYPO3\CMS\Core\Localization\LanguageServiceFactory;
+use TYPO3\CMS\Core\Localization\TranslatorInterface;
 
 final class MyBackendClass
 {
@@ -16,10 +16,10 @@ final class MyBackendClass
 
     private function translateSomething(string $input): string
     {
-        return $this->getLanguageService()->sL($input);
+        return $this->getTranslator()->label($input);
     }
 
-    private function getLanguageService(): LanguageService
+    private function getTranslator(): TranslatorInterface
     {
         return $this->languageServiceFactory
             ->createFromUserPreferences($this->getBackendUserAuthentication());

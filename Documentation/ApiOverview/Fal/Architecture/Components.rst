@@ -66,6 +66,8 @@ In the database, each file reference is represented by a record in the
 Creating a reference to a file requires the file to be indexed first,
 as the reference is done through the normal record relation handling of TYPO3.
 
+Existing file references can be loaded with :php:`FileRepository::findByRelation()`.
+
 ..  note::
     Technically, the :php:`\TYPO3\CMS\Core\Resource\FileReference` implements
     the same interface as the :php:`\TYPO3\CMS\Core\Resource\File` itself.

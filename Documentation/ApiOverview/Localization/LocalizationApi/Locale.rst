@@ -8,7 +8,7 @@ Locale
 The :php:`\TYPO3\CMS\Core\Localization\Locale` class unifies the handling of
 locales instead of dealing with "default" or other TYPO3-specific namings.
 
-The :php:`Locale` class is instantiated with a string following the
+The :php-short:`\TYPO3\CMS\Core\Localization\Locale` class is instantiated with a string following the
 `IETF RFC 5646`_ language tag standard:
 
 ..  code-block:: php
@@ -36,16 +36,17 @@ Examples for a locale string are:
 *   `zh-Hans-CN` for Chinese with the simplified script as spoken in China
     (mainland)
 
-The :php:`Locale` object can be used to create a new
-:ref:`LanguageService <LanguageService-api>` object via the
+The :php-short:`\TYPO3\CMS\Core\Localization\Locale` object can be used to create a new
+:php-short:`\TYPO3\CMS\Core\Localization\TranslatorInterface` object via the
 :ref:`LanguageServiceFactory <LanguageServiceFactory-api>` for translating
 labels. Previously, TYPO3 used the `default` language key, instead of the locale
 `en` to identify the English language. Both are supported, but it is
 encouraged to use `en-US` or `en-GB` with the region subtag to identify the
 chosen language more precisely.
 
-Example for using the :php:`Locale` class for creating a :php:`LanguageService`
-object for translations:
+Example of using the :php:`Locale` class for creating a
+:php-short:`\TYPO3\CMS\Core\Localization\TranslatorInterface` object for
+translations:
 
 ..  literalinclude:: _LocaleExample.php
     :caption: EXT:my_extension/Classes/LocaleExample.php

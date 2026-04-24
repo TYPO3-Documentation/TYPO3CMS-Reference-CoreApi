@@ -105,11 +105,6 @@ The function :php:`user_orderBy` populates the select field in
         // ...
     }
 
-How this looks when configuring the plugin:
-
-..  figure:: /Images/ManualScreenshots/FlexForms/FlexFormsItemsProcFunc.png
-   :class: with-shadow
-
 ..  seealso::
 
     * :ref:`itemsProcFunc <t3tca:columns-select-properties-itemsprocfunc>` in TCA reference.

@@ -13,11 +13,9 @@ final class LocaleExample
         private readonly LanguageServiceFactory $languageServiceFactory,
     ) {}
 
-    public function doSomething()
+    public function doSomething(): string
     {
-        $languageService = $this->languageServiceFactory->create(new Locale('de-CH'));
-        $myTranslatedString = $languageService->sL(
-            'LLL:EXT:my_extension/Resources/Private/Language/myfile.xlf:my-label',
-        );
+        $translation = $this->languageServiceFactory->create(new Locale('de-CH'));
+        return $translation->translate('my-label', 'my_extension.myfile');
     }
 }

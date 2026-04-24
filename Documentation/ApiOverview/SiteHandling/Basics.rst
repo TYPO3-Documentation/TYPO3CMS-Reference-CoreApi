@@ -32,7 +32,10 @@ actions.
 Most parts of the site configuration can be edited via the graphical interface
 in the backend module :guilabel:`Sites`.
 
-..  include:: /Images/ManualScreenshots/SiteHandling/SiteHandlingSiteModule.rst.txt
+..  figure:: /Images/ManualScreenshots/SiteHandling/SiteConfigurationOverview.png
+    :zoom: lightbox
+
+    The :guilabel:`Sites > Setup` module in the TYPO3 backend.
 
 ..  hint::
     While the editing mask for a site looks like a "normal" TYPO3 editing form,

@@ -28,6 +28,14 @@ a valid TCA for the table that should be used as a base for the model.
 Therefore you have to create a TCA definition in file
 :file:`EXT:{ext_key}/Configuration/TCA/tx_{extkey}_domain_model_{mymodel}.php`.
 
+Extbase's persistence layer will only store a model property in database when
+it has been defined in the TCA's `columns` array.
+Fields defined in the `ctrl` section are not available automatically -
+see :forge:`109494`.
+For example, simply adding a :php:`setDeleted()` method and :php:`$deleted` property
+to the model alone is not sufficient - the `deleted` column must be added
+to TCA, too.
+
 It is recommended to stick to the following naming scheme for the table:
 
 ..  code-block:: none

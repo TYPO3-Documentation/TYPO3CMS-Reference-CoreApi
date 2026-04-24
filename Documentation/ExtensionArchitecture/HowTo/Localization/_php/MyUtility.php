@@ -9,7 +9,7 @@ use TYPO3\CMS\Core\Utility\GeneralUtility;
 
 final class MyUtility
 {
-    private static function translateSomething(string $lll): string
+    private static function translateSomething(string $labelKey): string
     {
         $languageServiceFactory = GeneralUtility::makeInstance(
             LanguageServiceFactory::class,
@@ -17,10 +17,10 @@ final class MyUtility
         // As we are in a static context we cannot get the current request in
         // another way this usually points to general flaws in your software-design
         $request = $GLOBALS['TYPO3_REQUEST'];
-        $languageService = $languageServiceFactory->createFromSiteLanguage(
+        $translator = $languageServiceFactory->createFromSiteLanguage(
             $request->getAttribute('language')
             ?? $request->getAttribute('site')->getDefaultLanguage(),
         );
-        return $languageService->sL($lll);
+        return $translator->label($labelKey);
     }
 }

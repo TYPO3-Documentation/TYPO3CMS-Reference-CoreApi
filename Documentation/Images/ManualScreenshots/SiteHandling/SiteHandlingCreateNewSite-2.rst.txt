@@ -1,4 +1,0 @@
-..  figure:: /Images/ManualScreenshots/SiteHandling/SiteHandlingCreateNewSite-2.png
-    :zoom: lightbox
-
-    A new site creation form.

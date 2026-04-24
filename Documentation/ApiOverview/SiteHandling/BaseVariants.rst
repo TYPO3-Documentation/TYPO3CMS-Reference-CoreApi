@@ -33,7 +33,10 @@ would define a base variant to use in "Development" context.
     Environment variables can be used in the :yaml:`base` via ``%env(...)%``.
     :yaml:`condition` needs ``getenv(...)`` instead.
 
-..  include:: /Images/ManualScreenshots/SiteHandling/SiteHandlingBaseVariants-1.rst.txt
+..  figure:: /Images/ManualScreenshots/SiteHandling/SiteHandlingBaseVariants-1.png
+    :zoom: lightbox
+
+    A configured base variant for development context.
 
 ..  hint::
     For those coming from earlier TYPO3 versions: With site handling, there is

@@ -45,6 +45,11 @@ The typical file structure is:
             *   ...
             *   MyFlexFormN.xml
 
+        *   Fluid
+
+            *   :ref:`Namespaces.php <extension-configuration-fluid-namespaces>`
+            *   :ref:`ComponentCollections.php <extension-configuration-backend-component-collections>`
+
         *   RTE
 
             *   MyRteConfig.yaml

@@ -8,8 +8,6 @@ Create new Page Type
 
 The following example adds a new page type called "Archive".
 
-..  include:: /Images/ManualScreenshots/PageTypes/NewPageType.rst.txt
-
 Changes need to be made in several files to create a new page type. Follow
 the directions below to the end:
 

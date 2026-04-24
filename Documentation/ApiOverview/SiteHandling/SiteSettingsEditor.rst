@@ -6,18 +6,14 @@
 Site settings editor
 ====================
 
-..  versionadded:: 13.3
-    The site setting editor has been introduced as backend module
-    :guilabel:`Sites > Setup > Settings`.
-
 In module :guilabel:`Sites > Setup > Settings` you get an overview of all sites in
 the current installation and can edit the :ref:`sitehandling-settings` for
 all pages that contain settings:
 
 ..  figure:: /Images/ManualScreenshots/SiteHandling/SiteSettingsOverview.png
-    :alt: Screenshot of the Site Settings module in overview
+    :alt: Screenshot of the Site Setup module in overview, button "Edit site settings" is highlighted
 
-    Site "Home" has settings that can be edited. The others do not.
+    Click on the clog button "Edit site settings" to edit the settings
 
 The settings editor displays the settings of all site sets included in the
 current site, including their dependencies. The site sets can define categories

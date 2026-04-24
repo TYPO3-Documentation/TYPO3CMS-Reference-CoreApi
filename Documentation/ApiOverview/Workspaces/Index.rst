@@ -151,7 +151,7 @@ frontend:
       // use TYPO3\CMS\Core\Domain\Repository\PageRepository;
       // use TYPO3\CMS\Core\Utility\GeneralUtility;
 
-      $pageRepository = GeneralUtility::makeInstance(PageRepository);
+      $pageRepository = GeneralUtility::makeInstance(PageRepository::class);
       $result = $queryBuilder->executeQuery();
       while ($row = $result->fetchAssociative()) {
           $pageRepository->versionOL($table, $row);
@@ -207,12 +207,12 @@ These issues are not planned to be supported for preview:
 
 -  It is impossible to preview the value of :code:`count(*)` selections since
    we would have to traverse all records and pass them through
-   :code:`->versionOL()` before we would have a reliable result!
+   :php:`->versionOL()` before we would have a reliable result!
 
--  In :code:`\TYPO3\CMS\Core\Domain\Repository\PageRepository::getPageShortcut()`,
-   :code:`PageRepository->getMenu()` is called with an
+-  In :php:`\TYPO3\CMS\Core\Domain\Repository\PageRepository::getPageShortcut()`,
+   :php:`PageRepository->getMenu()` is called with an
    additional :sql:`WHERE` clause which will ignore changes made in workspaces.
-   This could also be the case in other places where :code:`PageRepository->getMenu()`
+   This could also be the case in other places where :php:`PageRepository->getMenu()`
    is used (but a search shows it is not a big problem).
    In this case we will for now accept that a wrong shortcut destination
    can be experienced during previews.
@@ -241,7 +241,7 @@ Workspace-related API for backend modules
 
 :php:`BackendUtility::workspaceOL()`
    Overlaying record with workspace version if any. Works like
-   :code:`->sys_page->versionOL()` does, but for the backend. Input record must
+   :php:`->sys_page->versionOL()` does, but for the backend. Input record must
    have fields only from the table (no pseudo fields) and the record is
    passed by reference.
 
@@ -292,7 +292,7 @@ Workspace-related API for backend modules
    Will fetch the rootline for the pid, then check if anywhere in the
    rootline there is a branch point. Returns either "branchpoint" (if
    branch) or "first" (if page) or false if nothing. Alternatively, it
-   returns the value of :code:`t3ver_stage` for the branchpoint (if any).
+   returns the value of :sql:`t3ver_stage` for the branchpoint (if any).
 
 
 :php:`BackendUtility::getWorkspaceVersionOfRecord()`
@@ -366,12 +366,12 @@ Detecting current workspace
 ===========================
 
 You can always check what the current workspace of the backend user is
-by reading :code:`WorkspaceAspect->getWorkspaceId()`. If the workspace is a
+by reading :php:`WorkspaceAspect->getWorkspaceId()`. If the workspace is a
 custom workspace you will find its record loaded in
-:code:`$GLOBALS['BE_USER']->workspaceRec`.
+:php:`$GLOBALS['BE_USER']->workspaceRec`.
 
 The values for workspaces is either 0 (online/live) or the uid of the
-corresponding entry in the :code:`sys_workspace` table.
+corresponding entry in the :sql:`sys_workspace` table.
 
 
 .. _workspaces-tcemain:
@@ -383,7 +383,7 @@ Since admin users are also restricted by the workspace it is not
 possible to save any live records when in a workspace. However for
 very special occasions you might need to bypass this and to do so, you
 can set the instance variable
-:code:`\TYPO3\CMS\Core\DataHandling\DataHandler::bypassWorkspaceRestrictions` to TRUE. An example of
+:php:`\TYPO3\CMS\Core\DataHandling\DataHandler::bypassWorkspaceRestrictions` to `TRUE`. An example of
 this is when users are updating their user profile using the "User Tool >
 User Settings" module; that actually allows them to save to a live record
 (their user record) while in a draft workspace.
@@ -396,7 +396,7 @@ Moving in workspaces
 
 TYPO3 v4.2 and beyond supports moving for "Element" type versions in
 workspaces. A new version of the
-source record is made and has :code:`t3ver_state = 4` (move-to pointer).
+source record is made and has :sql:`t3ver_state = 4` (move-to pointer).
 This version is necessary in order for the versioning system to
 have something to publish for the move operation.
 
@@ -405,8 +405,8 @@ see if a placeholder exists for a move operation and if so the record
 will take over the pid / "sortby" value upon publishing.
 
 Preview of move operations is almost fully functional through the
-:code:`\TYPO3\CMS\Core\Domain\Repository\PageRepository::versionOL()` and
-:code:`\TYPO3\CMS\Backend\Utility\BackendUtility::workspaceOL()` functions.
+:php:`\TYPO3\CMS\Core\Domain\Repository\PageRepository::versionOL()` and
+:php:`\TYPO3\CMS\Backend\Utility\BackendUtility::workspaceOL()` functions.
 When the online placeholder is selected it looks up the source
 record, overlays any version on top and displays it. When the source
 record is selected it should be discarded in case shown in
@@ -422,7 +422,7 @@ table for different scenarios and previously performed actions.
 Placeholders
 ------------
 
-Workspace placeholders are stored in field :code:`t3ver_state` which can have the following values:
+Workspace placeholders are stored in field :sql:`t3ver_state` which can have the following values:
 
 `-1`
    * **new placeholder version**
@@ -430,7 +430,7 @@ Workspace placeholders are stored in field :code:`t3ver_state` which can have th
 
 `0`
    * **default state**
-   * representing a workspace modification of an existing record (when :code:`t3ver_wsid > 0`)
+   * representing a workspace modification of an existing record (when :sql:`t3ver_wsid > 0`)
 
 `1`
    * **new placeholder**

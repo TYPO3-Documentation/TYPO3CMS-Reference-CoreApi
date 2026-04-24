@@ -1,4 +1,0 @@
-..  figure:: /Images/ManualScreenshots/PageTypes/NewPageType.png
-    :zoom: lightbox
-
-    The new page type visible in the TYPO3 backend

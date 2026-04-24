@@ -37,6 +37,11 @@ The following folder and file structure is typical for a TYPO3 extension:
 
                 *   :ref:`Classes.php <extension-configuration-extbase-persistence-classes>`
 
+        *   :ref:`Fluid <extension-configuration-fluid>`
+
+            *   :ref:`Namespaces.php <extension-configuration-fluid-namespaces>`
+            *   :ref:`ComponentCollections.php <extension-configuration-backend-component-collections>`
+
         *   :ref:`TCA <extension-configuration-tca>`
 
             *   :ref:`Overrides <extension-configuration-tca-overrides>`

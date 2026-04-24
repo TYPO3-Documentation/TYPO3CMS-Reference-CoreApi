@@ -140,7 +140,7 @@ to a specific language or set of languages.
 
 The section "Allowed modules" grants access to different backend modules.
 
-..  figure:: /Images/ManualScreenshots/UserManagement/BackendUserGroupsTabModule.png
+..  figure:: /Images/ManualScreenshots/UserManagement/Groups/TabModule.png
     :alt: Tab "Module Permissions" with the list of allowed modules
 
 If you allow the module "Dashboard" you should also explicitly choose
@@ -175,7 +175,7 @@ the backend.
 Each mount corresponds to a page in the tree. The user will have access only
 to those pages and their sub-pages.
 
-..  figure:: /Images/ManualScreenshots/UserManagement/BackendUserGroupsTabMounts.png
+..  figure:: /Images/ManualScreenshots/UserManagement/Groups/TabMounts.png
     :alt: Tab "Mounts and workspaces" in the backend user group edit form.
 
 ..  warning::

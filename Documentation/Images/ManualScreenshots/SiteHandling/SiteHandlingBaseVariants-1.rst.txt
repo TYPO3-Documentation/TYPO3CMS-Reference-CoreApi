@@ -1,4 +1,0 @@
-..  figure:: /Images/ManualScreenshots/SiteHandling/SiteHandlingBaseVariants-1.png
-    :zoom: lightbox
-
-    A configured base variant for development context.

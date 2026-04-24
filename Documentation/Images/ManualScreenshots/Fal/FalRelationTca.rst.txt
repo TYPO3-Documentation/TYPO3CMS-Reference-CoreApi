@@ -1,4 +1,0 @@
-..  figure:: /Images/ManualScreenshots/Fal/FalRelationTca.png
-    :zoom: lightbox
-
-    A typical FAL relation field

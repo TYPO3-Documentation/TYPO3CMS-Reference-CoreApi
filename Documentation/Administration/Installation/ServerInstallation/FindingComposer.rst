@@ -24,7 +24,7 @@ Use full paths instead of just `composer`, for example:
 ..  code-block:: bash
 
     /opt/php-8.3/bin/php /usr/local/bin/composer create-project \
-        "typo3/cms-base-distribution:^13.4" my-new-project
+        "typo3/cms-base-distribution:^14" my-new-project
 
 **If Composer is not installed**, you can download it here:
 `https://getcomposer.org/download/ <https://getcomposer.org/download/>`_
@@ -34,7 +34,7 @@ Then run it like this:
 .. code-block:: bash
 
     /opt/php-8.3/bin/php composer.phar create-project \
-        "typo3/cms-base-distribution:^13.4" my-new-project
+        "typo3/cms-base-distribution:^14" my-new-project
 
 Refer to your hosting provider’s documentation if you have multiple PHP
 versions or need special access.

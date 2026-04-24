@@ -25,10 +25,10 @@ Examples:
 ..  code-block:: php
 
     // Legacy file-based syntax
-    $languageService->sL('LLL:EXT:my_extension/Resources/Private/Language/locallang_forms.xlf:submit');
+    $myLabel = $this->getTranslator()->label('LLL:EXT:my_extension/Resources/Private/Language/locallang_forms.xlf:submit');
 
     // New domain-based syntax (TYPO3 v14+)
-    $languageService->sL('my_extension.forms:submit');
+    $myLabel = $this->getTranslator()->label('my_extension.forms:submit');
 
 Label references are used throughout TYPO3 — in PHP, TypoScript, Fluid templates,
 and configuration files — to access localized strings that are translated into
@@ -102,7 +102,7 @@ The resource identifier appears before the colon in the resource part (below `co
 .. code-block:: php
    :caption: Example usage of "package.resource:identifier"
 
-    $languageService->sL('my_extension.comment:domain_model.title');
+    $translator->label('my_extension.comment:domain_model.title');
 
 ..  _translation-domain-resolution:
 
@@ -303,15 +303,17 @@ See also:
 
 ..  _label-reference-resolve-php:
 
-PHP: Using the LanguageService
-------------------------------
+PHP: Using a translator
+-----------------------
 
-In PHP localized labels can be retrieved via the
-:php-short:`\TYPO3\CMS\Core\Localization\LanguageService`, which can be created
-using the :php-short:`\TYPO3\CMS\Core\Localization\LanguageServiceFactory`.
+In PHP localized labels can be retrieved via a
+:php-short:`\TYPO3\CMS\Core\Localization\TranslatorInterface` instance, which
+can be created using the
+:php-short:`\TYPO3\CMS\Core\Localization\LanguageServiceFactory`.
 
 The recommended way to determine the correct
-:php-short:`LanguageService` instance depends on context:
+:php-short:`\TYPO3\CMS\Core\Localization\TranslatorInterface` instance depends
+on the context:
 
 *   **Frontend:** use the language in the current request object
     (:php-short:`Psr\Http\Message\ServerRequestInterface`) or the default site
@@ -323,17 +325,17 @@ The recommended way to determine the correct
 For more details, see
 `Localization in PHP <https://docs.typo3.org/permalink/t3coreapi:extension-localization-php>`_.
 
-Once you have the correct LanguageService instance, you can resolve labels as follows:
+Once you have the correct translator instance, you can resolve labels as follows:
 
 ..  code-block:: php
 
-    use TYPO3\CMS\Core\Localization\LanguageService;
+    use TYPO3\CMS\Core\Localization\TranslatorInterface;
 
     private function translateSomething(
-        LanguageService $languageService,
+        TranslatorInterface $translator,
         string $labelReference
     ): string {
-        return $languageService->sL($labelReference);
+        return $translator->label($labelReference);
     }
 
 ..  _label-reference-deprecated:
@@ -409,7 +411,7 @@ new location:
     :caption: PHP controller or service (diff)
 
     - $languageService->sL('LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.starttime')
-    + $languageService->sL('core.db.general:starttime')
+    + $languageService->label('core.db.general:starttime')
 
-If you can't find a suitable label for your use case, consider moving the label
+If you cannot find a suitable label for your use case, consider moving the label
 to your own extension's XLIFF localization files.

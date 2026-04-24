@@ -58,16 +58,25 @@ Administrators can install additional language packs directly in the backend:
 
 1.  Go to :guilabel:`System > Maintenance > Manage Language Packs`
 
-    ..  include:: /Images/ManualScreenshots/Modules/ManageLanguage.rst.txt
+    ..  figure:: /Images/ManualScreenshots/Modules/ManageLanguage.png
+        :alt: Manage language packs
+        :zoom: lightbox
+
+        Open the backend language administration module
 
 2.  Select :guilabel:`Add Language` and activate the new language:
 
-    ..  include:: /Images/ManualScreenshots/Modules/ManageLanguagePacksAddLanguage.rst.txt
+    ..  figure:: /Images/ManualScreenshots/Modules/ManageLanguagePacksAddLanguage.png
+        :alt: Add a language
+        :zoom: lightbox
+
+        Add the desired language
 
 3.  The selected language is now available:
 
-    ..  include:: /Images/ManualScreenshots/Modules/ManageLanguagePacksAddLanguageAddSuccess.rst.txt
-
+    ..  figure:: /Images/ManualScreenshots/Modules/ManageLanguagePacksAddLanguageAddSuccess.png
+        :alt: A language has been added
+        :zoom: lightbox
 
 ..  index:: Localization; Local translations
 ..  _xliff-translating-local:
@@ -200,7 +209,10 @@ add custom languages and provide your own translations using XLIFF 1.2 or 2.x.
 
     The new language is now available in the backend user settings:
 
-    ..  include:: /Images/ManualScreenshots/Internationalization/CustomLanguage.png.rst.txt
+    ..  figure:: /Images/ManualScreenshots/Internationalization/CustomLanguage.png
+        :zoom: lightbox
+
+        The new language appears in the user preferences
 
     For your own extensions, provide the custom language files in the
     :file:`Resources/Private/Language/` folder, for example

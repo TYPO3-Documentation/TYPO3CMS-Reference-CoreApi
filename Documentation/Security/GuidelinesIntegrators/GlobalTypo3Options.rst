@@ -58,7 +58,7 @@ to `*` will show debug messages to every client without any restriction
 (definitely not recommended). The default value is `127.0.0.1,::1`
 which means "localhost" only.
 
-The PHP variable reads: :php:`$GLOBALS['TYPO3_CONF_VARS']['SYS']['devIPmask']``
+The PHP variable reads: :php:`$GLOBALS['TYPO3_CONF_VARS']['SYS']['devIPmask']`
 
 
 .. _security-global-typo3-options-fileDenyPattern:
@@ -244,7 +244,7 @@ for the default value `SERVER_NAME` as provided ports are checked
 against `SERVER_PORT` which fails in some more complex load balancing
 or SSL termination scenarios.
 
-The PHP variable reads: :php:`$GLOBALS['TYPO3_CONF_VARS']['SYS']['trustedHostsPattern']``
+The PHP variable reads: :php:`$GLOBALS['TYPO3_CONF_VARS']['SYS']['trustedHostsPattern']`
 
 
 .. _security-global-typo3-options-warning-email-addr:

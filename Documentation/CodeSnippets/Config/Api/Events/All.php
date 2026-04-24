@@ -24,6 +24,5 @@ return array_merge(
     include ('EventsRedirects.php'),
     include ('EventsScheduler.php'),
     include ('EventsSeo.php'),
-    include ('EventsSetup.php'),
     include ('EventsWorkspaces.php'),
 );

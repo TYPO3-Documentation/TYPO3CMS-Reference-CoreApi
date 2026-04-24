@@ -1,4 +1,0 @@
-..  figure:: /Images/ManualScreenshots/Internationalization/CustomLanguage.png.png
-    :zoom: lightbox
-
-    The new language appears in the user preferences

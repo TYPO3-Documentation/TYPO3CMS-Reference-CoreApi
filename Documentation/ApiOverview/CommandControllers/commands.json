@@ -675,6 +675,83 @@
             "hidden": false
         },
         {
+            "name": "asset:publish",
+            "description": "Publishes public assets. Needs to be run after composer install.",
+            "usage": [
+                "asset:publish"
+            ],
+            "help": "This command can be executed to publish public extension resources from their `Resources/Public` folder to the document root directory (`public` by default in Composer mode).",
+            "definition": {
+                "arguments": [],
+                "options": {
+                    "help": {
+                        "name": "--help",
+                        "shortcut": "-h",
+                        "accept_value": false,
+                        "is_value_required": false,
+                        "is_multiple": false,
+                        "description": "Display help for the given command. When no command is given display help for the <info>list<\/info> command",
+                        "default": false
+                    },
+                    "quiet": {
+                        "name": "--quiet",
+                        "shortcut": "-q",
+                        "accept_value": false,
+                        "is_value_required": false,
+                        "is_multiple": false,
+                        "description": "Do not output any message",
+                        "default": false
+                    },
+                    "verbose": {
+                        "name": "--verbose",
+                        "shortcut": "-v|-vv|-vvv",
+                        "accept_value": false,
+                        "is_value_required": false,
+                        "is_multiple": false,
+                        "description": "Increase the verbosity of messages: 1 for normal output, 2 for more verbose output and 3 for debug",
+                        "default": false
+                    },
+                    "version": {
+                        "name": "--version",
+                        "shortcut": "-V",
+                        "accept_value": false,
+                        "is_value_required": false,
+                        "is_multiple": false,
+                        "description": "Display this application version",
+                        "default": false
+                    },
+                    "ansi": {
+                        "name": "--ansi",
+                        "shortcut": "",
+                        "accept_value": false,
+                        "is_value_required": false,
+                        "is_multiple": false,
+                        "description": "Force (or disable --no-ansi) ANSI output",
+                        "default": null
+                    },
+                    "no-ansi": {
+                        "name": "--no-ansi",
+                        "shortcut": "",
+                        "accept_value": false,
+                        "is_value_required": false,
+                        "is_multiple": false,
+                        "description": "Negate the \"--ansi\" option",
+                        "default": null
+                    },
+                    "no-interaction": {
+                        "name": "--no-interaction",
+                        "shortcut": "-n",
+                        "accept_value": false,
+                        "is_value_required": false,
+                        "is_multiple": false,
+                        "description": "Do not ask any interactive question",
+                        "default": false
+                    }
+                }
+            },
+            "hidden": false
+        },
+        {
             "name": "backend:lock",
             "description": "Lock the TYPO3 Backend",
             "usage": [
@@ -6018,6 +6095,12 @@
             ]
         },
         {
+            "id": "asset",
+            "commands": [
+                "asset:publish"
+            ]
+        },
+        {
             "id": "backend",
             "commands": [
                 "backend:lock",
@@ -6215,6 +6298,10 @@
         "setup": {
             "fqcn": "TYPO3\\CMS\\Install\\Command\\SetupCommand",
             "filename": "\/var\/www\/html\/.Build\/vendor\/typo3\/cms-install\/Classes\/Command\/SetupCommand.php"
+        },
+        "assets:publish": {
+            "fqcn": "TYPO3\\CMS\\Core\\Command\\AssetPublishCommand",
+            "filename": "\/var\/www\/html\/.Build\/vendor\/typo3\/cms-core\/Classes\/Command\/AssetPublishCommand.php"
         },
         "backend:lock": {
             "fqcn": "TYPO3\\CMS\\Backend\\Command\\LockBackendCommand",

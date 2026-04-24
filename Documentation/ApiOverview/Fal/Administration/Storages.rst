@@ -10,7 +10,11 @@ File storages
 through the :guilabel:`Content > Records` module. They have a few properties which
 deserve further explanation.
 
-..  include:: /Images/ManualScreenshots/Fal/AdministrationFileStorageAccessTab.rst.txt
+..  figure:: /Images/ManualScreenshots/Fal/AdministrationFileStorageAccessTab.png
+    :zoom: lightbox
+
+    Special properties in the "Access capabilities" tab of a File storage
+
 
 Is browsable?
     If this box is not checked, the storage will not be browsable by

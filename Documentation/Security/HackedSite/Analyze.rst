@@ -31,7 +31,7 @@ code. An example could look like the following line:
 
 Where the hieroglyphic string "dW5saW5rKCd0ZXN0LnBocCcpOw==" contains
 the PHP command :php:`unlink('test.php');` (base64 encoded), which deletes
-the file :file:`test.php` when executed by the PHP function :php:`eval()``.
+the file :file:`test.php` when executed by the PHP function :php:`eval()`.
 This is a simple example only and more sophisticated obscurity strategies
 are imaginable.
 

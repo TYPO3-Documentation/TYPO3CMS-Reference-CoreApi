@@ -1,3 +1,0 @@
-..  figure:: /Images/ManualScreenshots/Modules/ManageLanguagePacksAddLanguageAddSuccess.png
-    :alt: A language has been added
-    :zoom: lightbox

@@ -59,7 +59,7 @@ Language keys
 
 TYPO3 is designed to be fully localizable. Hard-coded strings should
 thus be avoided unless there are some technical limitations (for example, some
-very early or low-level stuff where a :ref:`$GLOBALS['LANG'] <LanguageService-api>`
+very early or low-level stuff where a :ref:`$GLOBALS['LANG'] <translator-api>`
 object is not yet available).
 
 ..  _cgl-localization:

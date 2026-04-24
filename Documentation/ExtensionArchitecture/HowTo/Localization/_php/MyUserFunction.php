@@ -5,20 +5,20 @@ declare(strict_types=1);
 namespace MyVendor\MyExtension\Backend;
 
 use Psr\Http\Message\ServerRequestInterface;
-use TYPO3\CMS\Core\Localization\LanguageService;
 use TYPO3\CMS\Core\Localization\LanguageServiceFactory;
+use TYPO3\CMS\Core\Localization\TranslatorInterface;
 
 final class MyUserFunction
 {
-    private LanguageService $languageService;
+    private TranslatorInterface $translator;
 
     public function __construct(
         private readonly LanguageServiceFactory $languageServiceFactory,
     ) {}
 
-    private function getLanguageService(
+    private function getTranslator(
         ServerRequestInterface $request,
-    ): LanguageService {
+    ): TranslatorInterface {
         return $this->languageServiceFactory->createFromSiteLanguage(
             $request->getAttribute('language')
             ?? $request->getAttribute('site')->getDefaultLanguage(),
@@ -30,9 +30,7 @@ final class MyUserFunction
         array $conf,
         ServerRequestInterface $request,
     ): string {
-        $this->languageService = $this->getLanguageService($request);
-        return $this->languageService->sL(
-            'LLL:EXT:my_extension/Resources/Private/Language/locallang.xlf:something',
-        );
+        $this->translator = $this->getTranslator($request);
+        return $this->translator->label('my_extension.messages:something');
     }
 }

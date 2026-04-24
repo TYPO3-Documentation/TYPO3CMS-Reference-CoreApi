@@ -118,9 +118,9 @@ method and then adds its own content:
         protected function renderNewRecordControls(ServerRequestInterface $request): void
         {
             parent::renderNewRecordControls($request);
-            $ll = 'LLL:EXT:examples/Resources/Private/Language/locallang.xlf'
-            $label = $GLOBALS['LANG']->sL($ll . ':help');
-            $text = $GLOBALS['LANG']->sL($ll . ':make_choice');
+            $languageDomain = 'my_extension:messages'
+            $label = $GLOBALS['LANG']->translate('help', $languageDomain);
+            $text = $GLOBALS['LANG']->label('make_choice', $languageDomain);
             $str = '<div><h2 class="uppercase" >' .  htmlspecialchars($label)
                 . '</h2>' . $text . '</div>';
             $this->code .= $str;

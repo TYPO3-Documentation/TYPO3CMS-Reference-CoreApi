@@ -46,7 +46,7 @@ Pre-installation checklist
 Create the project with Composer
 ================================
 
-The following command will install TYPO3 v13. If you want to install another
+The following command will install TYPO3 v14. If you want to install another
 version of TYPO3 find documentation by using the version selector on the left side of this page.
 
 At the root level of your web server, execute the following command:
@@ -57,13 +57,13 @@ At the root level of your web server, execute the following command:
 
         ..  code-block:: bash
 
-            composer create-project typo3/cms-base-distribution example-project-directory "^13"
+            composer create-project typo3/cms-base-distribution example-project-directory "^14"
 
     ..  group-tab:: powershell
 
         ..  code-block:: powershell
 
-            composer create-project "typo3/cms-base-distribution:^13" example-project-directory
+            composer create-project "typo3/cms-base-distribution:^14" example-project-directory
 
     ..  group-tab:: ddev
 
@@ -77,14 +77,14 @@ At the root level of your web server, execute the following command:
 
             # Tell DDEV to create a new project of type "typo3"
             # 'docroot' MUST be set to 'public'
-            # At least PHP 8.2 is required by TYPO3 v13. Adapt the PHP version to your needs.
+            # At least PHP 8.2 is required by TYPO3 v14. Adapt the PHP version to your needs.
             ddev config --project-type=typo3 --docroot=public --php-version 8.2
 
             # Start the server
             ddev start
 
             # Fetch a basic TYPO3 installation and its dependencies
-            ddev composer create "typo3/cms-base-distribution:^13"
+            ddev composer create "typo3/cms-base-distribution:^14"
 
 ..  tip::
     The command `composer create-project` expect a completely empty directory. Do not open the project in an
@@ -125,7 +125,7 @@ need to find or install it. See :ref:`direct-server-composer-access`.
 
 .. code-block:: bash
 
-    composer create-project "typo3/cms-base-distribution:^13.4" my-new-project
+    composer create-project "typo3/cms-base-distribution:^14" my-new-project
 
 If the `composer` command doesn't work, check the command path or install it.
 See :ref:`Finding or installing Composer <direct-server-composer-access>`_.

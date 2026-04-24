@@ -1,4 +1,0 @@
-..  figure:: /Images/ManualScreenshots/CustomContentElements/ContentElementFields.png
-    :zoom: lightbox
-
-    The backend form

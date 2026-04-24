@@ -24,13 +24,13 @@ final class MyClassWithTranslation
         $france->getName();
 
         // "Frankreich"
-        $languageService->sL($france->getLocalizedNameLabel());
+        $languageService->label($france->getLocalizedNameLabel());
 
         // "French Republic"
         echo $france->getOfficialName();
 
         // "Französische Republik"
-        $languageService->sL($france->getLocalizedOfficialNameLabel());
+        $languageService->label($france->getLocalizedOfficialNameLabel());
 
         // 250
         $france->getNumericRepresentation();

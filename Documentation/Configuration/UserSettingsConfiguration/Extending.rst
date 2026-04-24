@@ -28,9 +28,7 @@ In this example the field is also added to the "be_users" table. This is
 not described here as it belongs to 'extending the $TCA array'.
 See label 'extending' in older versions of the TCA-Reference.
 
-And here is the new field in the User Tools > User Settings module:
-
-.. include:: /Images/ManualScreenshots/UserSettings/UserSettingsExtending.rst.txt
+The new field is then displayed in the user settings.
 
 "On Click" / "On Confirmation" JavaScript Callbacks
 ===================================================

@@ -20,7 +20,7 @@ final class ExampleController
 
         // ...
         $content .=  $this->getTranslatedLabel(
-            'LLL:EXT:my_extension/Resources/Private/Language/locallang.xlf:labels.exampleLabel',
+            'my_extension.messages:labels.exampleLabel',
         );
         // ...
 
@@ -31,9 +31,10 @@ final class ExampleController
     {
         $language = $this->request->getAttribute('language')
             ?? $this->request->getAttribute('site')->getDefaultLanguage();
-        $languageService = $this->languageServiceFactory
+        /** @var \TYPO3\CMS\Core\Localization\TranslatorInterface $translator */
+        $translator = $this->languageServiceFactory
             ->createFromSiteLanguage($language);
 
-        return $languageService->sL($key);
+        return $translator->label($key);
     }
 }
