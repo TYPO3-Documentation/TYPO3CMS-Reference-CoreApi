@@ -5,9 +5,9 @@
 
 ..  _classic-symlink-installation-windows:
 
-==========================================================
+=============================================================
 Classic TYPO3 installation using symlinks on a Windows server
-==========================================================
+=============================================================
 
 While it is possible to run TYPO3 on Windows, you might encounter Windows-
 specific limitations or issues.

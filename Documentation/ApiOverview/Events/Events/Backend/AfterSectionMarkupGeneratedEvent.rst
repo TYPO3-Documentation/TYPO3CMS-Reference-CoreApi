@@ -6,6 +6,12 @@
 AfterSectionMarkupGeneratedEvent
 ================================
 
+..  deprecated:: 14.3
+    The event :php-short:`\TYPO3\CMS\Backend\View\Event\AfterSectionMarkupGeneratedEvent`
+    is deprecated and will be removed in TYPO3 v15. Existing listeners will keep
+    working in v14.
+
+
 The PSR-14 event :php:`\TYPO3\CMS\Backend\View\Event\AfterSectionMarkupGeneratedEvent`
 allows extension authors to display content in any colPos after the last
 content element.
@@ -19,8 +25,6 @@ Example
 ..  literalinclude:: _AfterSectionMarkupGeneratedEvent/_MyEventListener.php
     :language: php
     :caption: EXT:my_extension/Classes/Backend/EventListener/MyEventListener.php
-
-..  include:: /_includes/EventsAttributeAdded.rst.txt
 
 API
 ===
