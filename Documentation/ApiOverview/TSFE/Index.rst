@@ -26,8 +26,6 @@ For more details it is best to look into the source code.
 
 There are several contexts in which the term TSFE is used:
 
-*   PHP: It is passed as request attribute
-    :ref:`frontend.controller <typo3-request-attribute-frontend-controller>`
 *   PHP: It was and is available as global array :php:`$GLOBALS['TSFE']` in PHP.
 *   TypoScript: TypoScript function :ref:`TSFE <t3tsref:data-type-gettext-tsfe>`
     which can be used to access public properties in TSFE.
