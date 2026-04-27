@@ -55,18 +55,6 @@ From the source:
     as :php:`$GLOBALS['TSFE']`, even though the Core development strives to get
     rid of this in the future.
 
-If access to the
-:php:`\TYPO3\CMS\Frontend\Controller\TypoScriptFrontendController` instance is
-necessary, use the request attribute
-:ref:`frontend.controller <typo3-request-attribute-frontend-controller>`:
-
-..  code-block:: php
-
-    $frontendController = $request->getAttribute('frontend.controller');
-
-..  seealso::
-    :ref:`getting-typo3-request-object`
-
 TSFE is not available in all contexts. In particular, it is
 only available in frontend contexts, not in the backend or the
 :ref:`command line <symfony-console-commands>`.
