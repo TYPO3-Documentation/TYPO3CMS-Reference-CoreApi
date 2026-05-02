@@ -57,12 +57,6 @@ The request object compatible with the PSR-7
         }
     }
 
-..  note::
-    Prior to TYPO3 v11.3, a custom Extbase request object is available that does
-    not adhere to the PSR-7 standard. If you want to stay compatible with
-    TYPO3 v10 and TYPO3 v11 you have to use the :ref:`global variable
-    <typo3-request-global-variable>`.
-
 ..  _typo3-request-extbase-validator:
 
 Extbase validator
