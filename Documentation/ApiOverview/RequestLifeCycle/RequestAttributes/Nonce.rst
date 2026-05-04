@@ -21,10 +21,16 @@ One can retrieve the nonce like this:
 
 ..  code-block:: php
 
-    // use TYPO3\CMS\Core\Domain\ConsumableString
+    // use TYPO3\CMS\Core\Security\ContentSecurityPolicy\ConsumableNonce
 
-    /** @var ConsumableString|null $nonce */
+    /** @var ConsumableNonce|null $nonce */
     $nonceAttribute = $this->request->getAttribute('nonce');
-    if ($nonceAttribute instanceof ConsumableString) {
-        $nonce = $nonceAttribute->consume();
+    if ($nonceAttribute instanceof ConsumableNonce) {
+        $nonce->consumeInline(Directive::ScriptSrcElem); // inline script
+        $nonce->consumeStatic(Directive::StyleSrcElem);  // static style
     }
+
+..  versionchanged:: 13.4.20
+    Since TYPO3 v13.4.20 the :php-short:`\TYPO3\CMS\Core\Security\ContentSecurityPolicy\ConsumableNonce`
+    class does not inherit from :php-short:`\TYPO3\CMS\Core\Domain\ConsumableString`
+    anymore.
