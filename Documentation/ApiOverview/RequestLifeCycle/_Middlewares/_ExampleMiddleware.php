@@ -12,12 +12,12 @@ use Psr\Http\Message\ServerRequestInterface;
 use Psr\Http\Server\MiddlewareInterface;
 use Psr\Http\Server\RequestHandlerInterface;
 
-class ExampleMiddleware implements MiddlewareInterface
+final readonly class ExampleMiddleware implements MiddlewareInterface
 {
     public function __construct(
-        private readonly ResponseFactoryInterface $responseFactory,
-        private readonly RequestFactoryInterface $requestFactory,
-        private readonly ClientInterface $client,
+        private ResponseFactoryInterface $responseFactory,
+        private RequestFactoryInterface $requestFactory,
+        private ClientInterface $client,
     ) {}
 
     public function process(ServerRequestInterface $request, RequestHandlerInterface $handler): ResponseInterface
