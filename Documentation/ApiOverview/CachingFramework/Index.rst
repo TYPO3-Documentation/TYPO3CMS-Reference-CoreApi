@@ -62,6 +62,7 @@ page, the detail page is different for every news entry.
 To identify the variant, TYPO3 combines a set of parameters and generates a hash
 value as identifier. These parameters include by default:
 
+*   `projectPath`: The project path
 *   `id`: The current page ID
 *   `type`: The current page type (`typeNum`)
 *   `groupIds`: The user groups of the logged-in user (if no user is logged in:
@@ -72,6 +73,10 @@ value as identifier. These parameters include by default:
     :ref:`routing configuration <routing>` and resolved in the current
     :ref:`request <typo3-request>`
 *   `dynamicArguments`: Any "GET" parameters influencing the rendered page
+*   `sys_template_rows`: The combined contents of all sys_template_records used
+    for this page
+*   `constantConditionList`: constant conditions evaluate for this request
+*   `setupConditionList`: setup conditions evaluated for this request
 
 Imagine the following URL :samp:`https://example.org/news/?tx_example_news[id]=123`
 displaying the news with ID `123`. If TYPO3 would cache that page with that
@@ -143,6 +148,10 @@ URL parameter names are prefixed with the following indicators:
 These indicators can be used for all previously existing sub-properties
 :php:`cachedParametersWhiteList`, :php:`excludedParameters`, :php:`excludedParametersIfEmpty`
 and :php:`requireCacheHashPresenceParameters`.
+
+The most flexible modification of the page cache parameters is using the
+:php:`BeforePageCacheIdentifierIsHashedEvent` event that allows adding, removing or modifying
+all parameters.
 
 Example (excerpt of `config/system/additional.php`)
 ===================================================
