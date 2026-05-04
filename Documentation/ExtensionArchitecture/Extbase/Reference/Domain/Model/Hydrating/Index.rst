@@ -93,6 +93,11 @@ would then still be to define a :php:`__construct()` and
 ..  literalinclude:: _codesnippets/_Blog3.php
     :caption: EXT:my_extension/Classes/Domain/Model/Blog.php
 
+..  warning::
+    Since Extbase does not call the constructor when thawing objects, special
+    care must be taken regarding default values. See `Default values for model properties <https://docs.typo3.org/permalink/t3coreapi:extbase-model-properties-default-values>`_
+    for recommendations.
+
 ..  _extbase-model-mutation:
 
 Mutating objects
