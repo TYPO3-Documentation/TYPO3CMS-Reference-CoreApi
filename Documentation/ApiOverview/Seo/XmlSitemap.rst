@@ -73,7 +73,7 @@ sitemap types (`pages` and additional ones, for example, from the news extension
             type: StaticValueMapper
             map:
               pages: pages
-              tx_news: tx_news
+              news: news
               my_other_sitemap: my_other_sitemap
 
 .. index:: XmlSitemapDataProviders
