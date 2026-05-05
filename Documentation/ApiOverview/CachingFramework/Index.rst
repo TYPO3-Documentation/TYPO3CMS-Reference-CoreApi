@@ -150,7 +150,7 @@ These indicators can be used for all previously existing sub-properties
 and :php:`requireCacheHashPresenceParameters`.
 
 The most flexible modification of the page cache parameters is using the
-:php:`BeforePageCacheIdentifierIsHashedEvent` event that allows adding, removing or modifying
+:ref:`BeforePageCacheIdentifierIsHashedEvent <BeforePageCacheIdentifierIsHashedEvent>` event that allows adding, removing or modifying
 all parameters.
 
 Example (excerpt of `config/system/additional.php`)
