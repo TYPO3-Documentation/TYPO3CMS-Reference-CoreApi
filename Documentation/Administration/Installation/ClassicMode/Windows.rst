@@ -45,7 +45,7 @@ Use the Windows command shell (cmd.exe) with administrator rights to create the
 following symlinks in your document root:
 
 ..  code-block:: bash
-    :caption: C:\path\to\your\site\
+    :caption: C:\\path\\to\\your\\site\\
 
     mklink /d typo3_src ..\typo3_src-13.4.y
     mklink /d typo3 typo3_src\typo3
@@ -66,10 +66,14 @@ After creating the symlinks, your directory structure should look like this:
 
 ..  directory-tree::
 
-    *   :path:`typo3_src-13.4.y\`
-    *   :path:`public\`
-        *   :path:`typo3_src -> ..\typo3_src-13.4.y\`
+    *   :path:`typo3_src-13.4.y`
+
+    *   :path:`public`
+
+        *   :path:`typo3_src -> ..\\typo3_src-13.4.y\\`
+
         *   :path:`typo3 -> typo3_src\\typo3\\`
+
         *   :file:`index.php -> typo3_src\index.php`
 
 ..  _classic-symlink-installation-completion:
