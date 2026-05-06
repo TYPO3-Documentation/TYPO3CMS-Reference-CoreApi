@@ -133,13 +133,14 @@ Classic mode compatible composer.json
 
 ..  versionchanged:: 14.2
 
-Extension authors should add :ref:`ext-composer-json-property-version`  and
-`providesPackages <https://docs.typo3.org/permalink/t3coreapi:ext-composer-json-property-provides-packages>`_ definitions to
-:file:`composer.json <extension-composer-json>` if their extensions should remain compatible with TYPO3 Classic mode.
+Extension authors should add :ref:`ext-composer-json-property-extra-version`  and
+`providesPackages <https://docs.typo3.org/permalink/t3coreapi:ext-composer-json-property-provides-packages>`_
+definitions to :file:`composer.json <extension-composer-json>` if their extensions
+need to  remain compatible with TYPO3 Classic mode.
 :php:`providesPackages` must exist even if it is empty.
 
 In Classic mode, TYPO3 distinguishes between dependencies on other TYPO3 extensions
-(:php:`require`, :php:`conflicts` and :php:`suggests`) and dependencies on
+(:php:`require`, :php:`conflicts` and :php:`suggests`) and on
 plain Composer packages from Packagist (:php:`providesPackages`). The Extension
 Manager uses :php:`version` for compatibility checks and the PackageManager resolves
 the extension loading order.
@@ -285,6 +286,14 @@ Example for extension key `my_extension`:
 
 version
 -------
+..  deprecated:: 14.2
+    Use :ref:`ext-composer-json-property-extra-version` instead.
+
+..  _ext-composer-json-property-extra-version:
+
+extra.typo3/cms.version
+-----------------------
+..  versionadded:: 14.2
 
 (*required* for Classic mode installations)
 
