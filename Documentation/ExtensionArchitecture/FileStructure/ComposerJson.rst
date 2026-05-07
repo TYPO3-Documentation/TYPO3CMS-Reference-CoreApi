@@ -286,8 +286,23 @@ Example for extension key `my_extension`:
 
 version
 -------
-..  deprecated:: 14.2
-    Use :ref:`ext-composer-json-property-extra-version` instead.
+
+(*required* for Classic mode installations but see
+:ref:`ext-composer-json-property-extra-version` below)
+
+The version must match the tagged release version. Extension Manager (Classic mode)
+uses the version property for compatibility checks.
+
+Using the top level "version" field for a TYPO3 extension version
+in classic mode has the disadvantage that Composer pulls in
+this version also for branches (i.e. dev versions).
+Extension authors would then need
+to update this field constantly for branches and/ or releases,
+which would have a bigger impact on behaviour in Composer-managed
+TYPO3 systems and extension authors than initially intended.
+
+To prevent this behavior declare the version number in the extra section -
+:ref:`ext-composer-json-property-extra-version`.
 
 ..  _ext-composer-json-property-extra-version:
 
