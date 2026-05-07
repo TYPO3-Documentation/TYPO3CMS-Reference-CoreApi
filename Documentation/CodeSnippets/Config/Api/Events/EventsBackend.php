@@ -339,4 +339,10 @@ return [
         'targetFileName' => 'CodeSnippets/Events/Backend/AddUserSettingsJavaScriptModulesEvent.rst.txt',
         'withCode' => false,
     ],
+    [
+        'action' => 'createPhpClassDocs',
+        'class' => \TYPO3\CMS\Backend\Localization\Event\ModifyLocalizationHandlerIsAvailableEvent::class,
+        'targetFileName' => 'CodeSnippets/Events/Backend/ModifyLocalizationHandlerIsAvailableEvent.rst.txt',
+        'withCode' => false,
+    ],
 ];
