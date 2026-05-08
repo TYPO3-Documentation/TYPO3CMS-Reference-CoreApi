@@ -287,22 +287,22 @@ Example for extension key `my_extension`:
 version
 -------
 
-(*required* for Classic mode installations but see
-:ref:`ext-composer-json-property-extra-version` below)
+(using either `version` or :ref:`ext-composer-json-property-extra-version`
+is *required* for Classic mode installations)
 
 The version must match the tagged release version. Extension Manager (Classic mode)
 uses the version property for compatibility checks.
 
-Using the top level "version" field for a TYPO3 extension version
+Note that using the top level `version` field for a TYPO3 extension version
 in classic mode has the disadvantage that Composer pulls in
-this version also for branches (i.e. dev versions).
+this version also for branches (for example dev versions).
 Extension authors would then need
 to update this field constantly for branches and/ or releases,
 which would have a bigger impact on behaviour in Composer-managed
 TYPO3 systems and extension authors than initially intended.
 
-To prevent this behavior declare the version number in the extra section -
-:ref:`ext-composer-json-property-extra-version`.
+To prevent this behavior declare the version number in the extra section
+(see :ref:`ext-composer-json-property-extra-version` below).
 
 ..  _ext-composer-json-property-extra-version:
 
@@ -310,7 +310,8 @@ extra.typo3/cms.version
 -----------------------
 ..  versionadded:: 14.2
 
-(*required* for Classic mode installations)
+(using either `version` or :ref:`ext-composer-json-property-extra-version`
+is *required* for Classic mode installations)
 
 The version must match the tagged release version. Extension Manager (Classic mode)
 uses the version for compatibility checks.
