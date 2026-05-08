@@ -27,6 +27,7 @@ Step 1: Scaffold the extension
 Use the `FriendsOfTYPO3 kickstarter package <https://github.com/FriendsOfTYPO3/kickstarter>`__ to generate the extension skeleton:
 
 ..  code-block:: bash
+    :caption: Shell
 
     composer require friendsoftypo3/kickstarter --dev
     vendor/bin/typo3 make:extension

@@ -9,4 +9,3 @@ Generating URLs with the UriBuilder
 ===================================
 
 ..  include:: /ExtensionArchitecture/ExtbaseRewrite/_wip.rst.txt
-

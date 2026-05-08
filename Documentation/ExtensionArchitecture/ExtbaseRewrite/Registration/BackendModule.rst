@@ -9,4 +9,3 @@ Registering a backend module
 ============================
 
 ..  include:: /ExtensionArchitecture/ExtbaseRewrite/_wip.rst.txt
-

@@ -9,4 +9,3 @@ Querying the database with Extbase
 ==================================
 
 ..  include:: /ExtensionArchitecture/ExtbaseRewrite/_wip.rst.txt
-

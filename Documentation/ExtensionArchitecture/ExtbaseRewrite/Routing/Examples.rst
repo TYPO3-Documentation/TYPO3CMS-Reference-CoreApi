@@ -9,4 +9,3 @@ Routing examples and common mistakes
 ====================================
 
 ..  include:: /ExtensionArchitecture/ExtbaseRewrite/_wip.rst.txt
-

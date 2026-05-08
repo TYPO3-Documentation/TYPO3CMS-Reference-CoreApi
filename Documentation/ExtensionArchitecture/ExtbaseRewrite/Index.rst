@@ -2,7 +2,7 @@
 
 ..  include:: /Includes.rst.txt
 ..  index:: pair: Extbase; Extbase
-..  _extbase-rewrite:
+..  _extbase-extension-framework:
 
 =====================================
 Extbase: Extension framework in TYPO3
@@ -66,6 +66,14 @@ performance-critical code paths where the ORM overhead would be a liability.
     For extension development without Extbase, see
     :ref:`extension-architecture`.
 
+    Something not working as expected? See
+    :ref:`extbase-appendix-pitfalls` for a scannable list of common
+    traps and where the full explanation lives.
+
+    Know what you want to achieve but not which chapter covers it? See
+    :ref:`extbase-appendix-tasks` for goal-oriented answers with
+    links to the full detail.
+
 ..  toctree::
     :titlesonly:
 
@@ -81,3 +89,6 @@ performance-critical code paths where the ORM overhead would be a liability.
     Caching/Index
     Configuration/Index
     Advanced/Index
+    Appendix/Attributes
+    Appendix/CommonPitfalls
+    Appendix/CommonTasks

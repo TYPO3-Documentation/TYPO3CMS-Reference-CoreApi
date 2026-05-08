@@ -127,12 +127,14 @@ repository returns an empty result — silently.
 The storagePid is configured in TypoScript:
 
 ..  code-block:: typoscript
+    :caption: EXT:my_extension/Configuration/TypoScript/setup.typoscript
 
     plugin.tx_myextension.persistence.storagePid = 42
 
 Or per plugin instance:
 
 ..  code-block:: typoscript
+    :caption: EXT:my_extension/Configuration/TypoScript/setup.typoscript
 
     plugin.tx_myextension_eventlist.persistence.storagePid = 42
 

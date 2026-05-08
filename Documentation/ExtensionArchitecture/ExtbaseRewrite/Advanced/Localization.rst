@@ -9,4 +9,3 @@ Localization in Extbase extensions
 ==================================
 
 ..  include:: /ExtensionArchitecture/ExtbaseRewrite/_wip.rst.txt
-

@@ -9,4 +9,3 @@ Property mapping: request arguments to objects
 ==============================================
 
 ..  include:: /ExtensionArchitecture/ExtbaseRewrite/_wip.rst.txt
-

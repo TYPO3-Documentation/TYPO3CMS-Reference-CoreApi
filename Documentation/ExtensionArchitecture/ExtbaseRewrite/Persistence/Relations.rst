@@ -9,4 +9,3 @@ Object relations in Extbase
 ===========================
 
 ..  include:: /ExtensionArchitecture/ExtbaseRewrite/_wip.rst.txt
-
