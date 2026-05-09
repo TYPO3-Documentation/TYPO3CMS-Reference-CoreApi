@@ -2,7 +2,7 @@
 
 ..  include:: /Includes.rst.txt
 ..  index:: pair: Extbase; Concepts
-..  _extbase-rewrite-concepts:
+..  _extbase-concepts:
 
 ========================
 Core concepts of Extbase

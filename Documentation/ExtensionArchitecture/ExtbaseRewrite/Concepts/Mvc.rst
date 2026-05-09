@@ -2,7 +2,7 @@
 
 ..  include:: /Includes.rst.txt
 ..  index:: pair: Extbase; MVC pattern
-..  _extbase-rewrite-concepts-mvc:
+..  _extbase-concepts-mvc:
 
 =======================================
 MVC pattern and request flow in Extbase
@@ -36,10 +36,10 @@ can immediately orient themselves in an unfamiliar extension.
     :depth: 1
 
 
-..  _extbase-rewrite-concepts-mvc-layers:
+..  _extbase-concepts-mvc-layers:
 
-The three layers
-================
+The three Extbase layers
+========================
 
 **Model**
     Domain objects — PHP classes that represent the data your extension works
@@ -68,7 +68,7 @@ The strict separation is intentional. When something goes wrong, you know
 exactly which layer to look at.
 
 
-..  _extbase-rewrite-concepts-mvc-request-flow:
+..  _extbase-concepts-mvc-request-flow:
 
 How a request flows through Extbase
 =====================================
@@ -100,7 +100,7 @@ happens:
 4.  **The controller action runs**
 
     The dispatcher calls :php:`processRequest()` on the controller. The
-    controller resolves the action method name (e.g. :php:`listAction` or
+    controller resolves the action method name (for example :php:`listAction` or
     :php:`showAction`), maps incoming arguments to typed PHP parameters via
     property mapping, runs validation, and then calls the action method.
 
@@ -121,14 +121,14 @@ happens:
     If an action calls :php:`$this->redirect()` or returns a
     :php:`\TYPO3\CMS\Extbase\Http\ForwardResponse`, the dispatcher loops and
     processes the new target action before returning a final response. This is
-    how multi-step flows (e.g. form → validate → confirm) work within a single
-    page request.
+    how multi-step flows (for example: form → validate → confirm) work within a
+    single page request.
 
 
-..  _extbase-rewrite-concepts-mvc-actions:
+..  _extbase-concepts-mvc-actions:
 
-Actions
-=======
+Controller actions in Extbase
+==============================
 
 Each public method in a controller whose name ends in :php:`Action` is a
 potential action. The action name in the URL is the method name without the
@@ -139,6 +139,10 @@ Actions can declare typed parameters. Extbase's property mapping resolves them
 automatically from the request:
 
 ..  code-block:: php
+    :caption: EXT:my_extension/Classes/Controller/EventController.php
+
+    use MyVendor\MyExtension\Domain\Model\Event;
+    use Psr\Http\Message\ResponseInterface;
 
     public function showAction(Event $event): ResponseInterface
     {
@@ -156,13 +160,13 @@ if it fails, :php:`errorAction()` handles the error rather than your action
 running with invalid data.
 
 
-..  _extbase-rewrite-concepts-mvc-responses:
+..  _extbase-concepts-mvc-responses:
 
-Responses
-=========
+Extbase action responses
+=========================
 
 Actions must return a :php:`\Psr\Http\Message\ResponseInterface`. The two most
-common helpers on :php:`ActionController` are:
+common helpers on :php:`\TYPO3\CMS\Extbase\Mvc\Controller\ActionController` are:
 
 *   :php:`$this->htmlResponse()` — renders the Fluid template matching the
     current action and returns a 200 HTML response
@@ -178,9 +182,9 @@ For redirects and forwards:
 
 ..  seealso::
 
-    :ref:`extbase-rewrite-controller-action` — the full controller reference,
+    :ref:`extbase-controller-action` — the full controller reference,
     including argument handling, error actions, and backend controllers.
 
-    :ref:`extbase-rewrite-domain-model` — how models and repositories work.
+    :ref:`extbase-domain-model` — how models and repositories work.
 
-    :ref:`extbase-rewrite-view` — Fluid templates and response types.
+    :ref:`extbase-view` — Fluid templates and response types.

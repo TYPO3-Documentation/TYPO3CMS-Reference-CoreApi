@@ -2,7 +2,7 @@
 
 ..  include:: /Includes.rst.txt
 ..  index:: pair: Extbase; Persistence
-..  _extbase-rewrite-concepts-persistence:
+..  _extbase-concepts-persistence:
 
 =====================================
 Persistence and the Extbase ORM
@@ -18,7 +18,7 @@ rather than raw database rows, and Extbase handles the SQL.
     :depth: 1
 
 
-..  _extbase-rewrite-concepts-persistence-orm:
+..  _extbase-concepts-persistence-orm:
 
 What the ORM does for you
 =========================
@@ -35,9 +35,27 @@ an INSERT or UPDATE statement yourself. With the Extbase ORM:
     :php:`$this->eventRepository->update($event)`.
 *   Deleting: you call :php:`$this->eventRepository->remove($event)`.
 
+A controller action that creates and stores a new event looks like this:
+
+..  code-block:: php
+    :caption: EXT:my_extension/Classes/Controller/EventController.php
+
+    use MyVendor\MyExtension\Domain\Model\Event;
+    use MyVendor\MyExtension\Domain\Repository\EventRepository;
+    use Psr\Http\Message\ResponseInterface;
+
+    public function createAction(Event $event): ResponseInterface
+    {
+        $this->eventRepository->add($event);
+        return $this->redirect('list');
+    }
+
+No SQL, no INSERT, no result-set iteration. The ORM handles the mapping.
+
 The ORM also handles relations. If an :php:`Event` has many :php:`Speaker`
-objects stored in an :php:`ObjectStorage`, Extbase loads those related objects
-automatically when you access the property — without you writing any JOIN.
+objects stored in an :php:`\TYPO3\CMS\Extbase\Persistence\ObjectStorage`,
+Extbase loads those related objects automatically when you access the property
+— without you writing any JOIN.
 
 This convenience comes with a trade-off: the ORM is optimised for working with
 individual domain objects, not for bulk operations or complex aggregate queries.
@@ -45,7 +63,7 @@ When you need those, dropping down to DBAL directly is the right choice. That
 is not a failure — it is the intended design.
 
 
-..  _extbase-rewrite-concepts-persistence-mapping:
+..  _extbase-concepts-persistence-mapping:
 
 How models map to the database
 ================================
@@ -69,7 +87,7 @@ when mapping to an existing table with its own naming — you can override them 
 :file:`Configuration/Extbase/Persistence/Classes.php`.
 
 
-..  _extbase-rewrite-concepts-persistence-repository:
+..  _extbase-concepts-persistence-repository:
 
 The repository as the only door to the database
 ================================================
@@ -88,7 +106,7 @@ Repositories are singletons — one instance per request, shared across all
 controllers that inject them.
 
 
-..  _extbase-rewrite-concepts-persistence-storagepid:
+..  _extbase-concepts-persistence-storagepid:
 
 The storagePid: where Extbase looks for records
 ================================================
@@ -129,13 +147,13 @@ Editors can also set it per plugin content element via the
     is applied.
 
 The full storagePid resolution order and how to override it in PHP are covered
-in :ref:`extbase-rewrite-persistence-queries`.
+in :ref:`extbase-persistence-queries`.
 
 
-..  _extbase-rewrite-concepts-persistence-lifecycle:
+..  _extbase-concepts-persistence-lifecycle:
 
-Object lifecycle
-================
+Extbase object lifecycle
+========================
 
 Extbase tracks the state of every domain object it loads. At the end of a
 request the persistence manager flushes automatically, comparing each object's
@@ -149,9 +167,9 @@ at flush time.
 
 ..  seealso::
 
-    :ref:`extbase-rewrite-domain-model` — defining models and their properties.
+    :ref:`extbase-domain-model` — defining models and their properties.
 
-    :ref:`extbase-rewrite-domain-repository` — writing custom repository queries.
+    :ref:`extbase-domain-repository` — writing custom repository queries.
 
-    :ref:`extbase-rewrite-persistence-queries` — the full query API, storagePid
+    :ref:`extbase-persistence-queries` — the full query API, storagePid
     deep-dive, and when to use DBAL instead.

@@ -2,7 +2,7 @@
 
 ..  include:: /Includes.rst.txt
 ..  index:: pair: Extbase; Quick start
-..  _extbase-rewrite-quickstart:
+..  _extbase-quickstart:
 
 ==============================================
 Extbase quick start for experienced developers
@@ -19,7 +19,7 @@ For the reasoning behind each step, follow the links into the relevant chapters.
     :depth: 1
 
 
-..  _extbase-rewrite-quickstart-scaffold:
+..  _extbase-quickstart-scaffold:
 
 Step 1: Scaffold the extension
 ==============================
@@ -33,7 +33,7 @@ Use the `FriendsOfTYPO3 kickstarter package <https://github.com/FriendsOfTYPO3/k
 
 Answer the prompts (vendor name, extension key, etc.). The kickstarter generates
 the directory structure, :file:`composer.json` and the boilerplate files you need.
-Since TYPO3 14 you do not need :file:`ext_emconf.php` unless you plan to publish
+Since TYPO3 v14 you do not need :file:`ext_emconf.php` unless you plan to publish
 your extension to the `TYPO3 Extension Repository <https://extensions.typo3.org>`__.
 
 ..  seealso::
@@ -42,7 +42,7 @@ your extension to the `TYPO3 Extension Repository <https://extensions.typo3.org>
     manual setup without the kickstarter.
 
 
-..  _extbase-rewrite-quickstart-model:
+..  _extbase-quickstart-model:
 
 Step 2: Create the domain model
 ================================
@@ -65,10 +65,10 @@ Key points:
 
 ..  seealso::
 
-    :ref:`extbase-rewrite-domain-model`
+    :ref:`extbase-domain-model`
 
 
-..  _extbase-rewrite-quickstart-repository:
+..  _extbase-quickstart-repository:
 
 Step 3: Create the repository
 ==============================
@@ -85,14 +85,14 @@ namespace.
 
 The base class provides :php:`findAll()`, :php:`findByUid()`,
 :php:`findBy(array $criteria)`, and :php:`findOneBy(array $criteria)` out of the
-box. The old magic :php:`findBy[PropertyName]()` methods were removed in TYPO3 14.
+box. The old magic :php:`findBy[PropertyName]()` methods were removed in TYPO3 v14.
 
 ..  seealso::
 
-    :ref:`extbase-rewrite-domain-repository`
+    :ref:`extbase-domain-repository`
 
 
-..  _extbase-rewrite-quickstart-tca:
+..  _extbase-quickstart-tca:
 
 Step 4: Define the database table (TCA)
 ========================================
@@ -100,7 +100,7 @@ Step 4: Define the database table (TCA)
 Create :file:`Configuration/TCA/tx_myextension_domain_model_event.php` with the
 column definitions matching your model properties.
 
-Since TYPO3 13, database columns are
+Since TYPO3 v13, database columns are
 `auto-created from TCA definitions <https://docs.typo3.org/permalink/changelog:feature-101553-1691166389>`__
 — you no longer need to define every field in :file:`ext_tables.sql`. Check the
 database analyser after installation to confirm the generated schema matches your
@@ -108,8 +108,8 @@ expectations. If a column needs a non-default type or index, declare it explicit
 in :file:`ext_tables.sql` and it will take precedence.
 
 The TCA column names must match the property names of your model
-(camelCase properties map to snake_case columns by default, e.g.
-:php:`$eventDate` → :sql:`event_date`).
+(camelCase properties map to snake_case columns by default — for example
+:php:`$eventDate` maps to :sql:`event_date`).
 
 ..  tip::
 
@@ -122,7 +122,7 @@ The TCA column names must match the property names of your model
     :ref:`t3tca:start` for the full TCA reference.
 
 
-..  _extbase-rewrite-quickstart-controller:
+..  _extbase-quickstart-controller:
 
 Step 5: Create the controller
 ==============================
@@ -144,29 +144,36 @@ Inject dependencies via the constructor.
 
 ..  seealso::
 
-    :ref:`extbase-rewrite-controller-action`
+    :ref:`extbase-controller-action`
 
 
-..  _extbase-rewrite-quickstart-templates:
+..  _extbase-quickstart-templates:
 
 Step 6: Add Fluid templates
 ============================
 
 Create the template files Extbase expects by convention:
 
-.. code-block:: none
+..  directory-tree::
+    :show-file-icons: true
 
-    Resources/Private/
-    ├── Templates/
-    │   └── Event/
-    │       ├── List.fluid.html
-    │       └── Show.fluid.html
-    ├── Layouts/
-    │   └── Default.fluid.html
-    └── Partials/
+    *   EXT:my_extension/Resources/Private/
 
-The template name matches the action name (e.g. :php:`listAction()` →
-:file:`List.fluid.html`). Variables assigned in the controller are available
+        *   Templates/
+
+            *   Event/
+
+                *   List.fluid.html
+                *   Show.fluid.html
+
+        *   Layouts/
+
+            *   Default.fluid.html
+
+        *   Partials/
+
+The template name matches the action name — for example :php:`listAction()` maps
+to :file:`List.fluid.html`. Variables assigned in the controller are available
 directly in the template.
 
 ..  code-block:: html
@@ -182,13 +189,13 @@ directly in the template.
 
 ..  seealso::
 
-    :ref:`extbase-rewrite-view`
+    :ref:`extbase-view`
 
     :ref:`fluid` — the full Fluid templating reference, including all built-in
     ViewHelpers.
 
 
-..  _extbase-rewrite-quickstart-plugin:
+..  _extbase-quickstart-plugin:
 
 Step 7: Register the plugin
 ============================
@@ -196,9 +203,9 @@ Step 7: Register the plugin
 Two calls are required — one in :file:`ext_localconf.php`, one in
 :file:`Configuration/TCA/Overrides/tt_content.php`.
 
-Since TYPO3 14, plugins are registered as dedicated content types (:sql:`CType`)
+Since TYPO3 v14, plugins are registered as dedicated content types (:sql:`CType`)
 rather than as subtypes of the old "General Plugin" element. The old
-:php:`list_type` approach is gone.
+:sql:`list_type` approach is gone.
 
 :file:`ext_localconf.php` tells Extbase which controller actions the plugin
 may call:
@@ -216,57 +223,41 @@ content element in the backend:
 
 ..  seealso::
 
-    :ref:`extbase-rewrite-registration-frontend-plugin`
+    :ref:`extbase-registration-frontend-plugin`
 
 
-..  _extbase-rewrite-quickstart-routing:
+..  _extbase-quickstart-routing:
 
 Step 8: Configure routing (optional but recommended)
 ======================================================
 
 Without a route enhancer, URLs contain the raw plugin namespace parameters
-(e.g. :samp:`?tx_myextension_eventlist[action]=show&tx_myextension_eventlist[event]=5`).
-Add an :yaml:`Extbase` route enhancer to your site configuration to get
+(for example: :samp:`?tx_myextension_eventlist[action]=show&tx_myextension_eventlist[event]=5`).
+Add an Extbase route enhancer to your site configuration to get
 clean URLs like :samp:`/events/my-event`.
 
-..  code-block:: yaml
+..  literalinclude:: _snippets/_routing.yaml
+    :language: yaml
     :caption: config/sites/my-site/config.yaml (excerpt)
-
-    routeEnhancers:
-      EventList:
-        type: Extbase
-        extension: MyExtension
-        plugin: EventList
-        defaultController: 'Event::list'
-        routes:
-          - routePath: '/events'
-            _controller: 'Event::list'
-          - routePath: '/events/{event}'
-            _controller: 'Event::show'
-        aspects:
-          event:
-            type: PersistedAliasMapper
-            tableName: tx_myextension_domain_model_event
-            routeFieldName: slug
 
 ..  seealso::
 
-    :ref:`extbase-rewrite-routing` — the full routing chapter with detailed
+    :ref:`extbase-routing` — the full routing chapter with detailed
     examples and common mistakes.
 
 
-..  _extbase-rewrite-quickstart-next:
+..  _extbase-quickstart-next:
 
 What next?
 ==========
 
 You have a working extension. From here:
 
-*   :ref:`extbase-rewrite-concepts` — understand the MVC and ORM patterns
+*   :ref:`extbase-concepts` — understand the MVC and ORM patterns
     underlying everything above.
-*   :ref:`extbase-rewrite-persistence-queries` — write custom repository
+*   :ref:`extbase-persistence-queries` — write custom repository
     queries with ordering, filtering, and limits.
-*   :ref:`extbase-rewrite-validation` — validate model properties and action
+*   :ref:`extbase-validation` — validate model properties and action
     arguments automatically.
-*   :ref:`extbase-rewrite-caching` — understand how caching works for your
+*   :ref:`extbase-caching` — understand how caching works for your
     plugin and what your responsibilities are.

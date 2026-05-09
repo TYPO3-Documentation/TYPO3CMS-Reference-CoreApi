@@ -30,7 +30,7 @@ with best practices throughout. Whether you are building your first extension
 or working through an inherited codebase, you will find both guided walkthroughs
 and in-depth reference material here.
 
-..  _extbase-rewrite-when-to-use:
+..  _extbase-when-to-use:
 
 When to use Extbase
 ===================
@@ -44,7 +44,7 @@ It is widely used across the TYPO3 ecosystem — extensions like
 :composer:`georgringer/news` are built on Extbase and serve as solid
 real-world references for the patterns described in this chapter.
 
-..  _extbase-rewrite-when-not-to-use:
+..  _extbase-when-not-to-use:
 
 When Extbase is not the right fit
 ==================================
@@ -60,7 +60,7 @@ performance-critical code paths where the ORM overhead would be a liability.
 
 ..  seealso::
 
-    :ref:`extbase-rewrite-concepts` explains the MVC pattern and how Extbase
+    :ref:`extbase-concepts` explains the MVC pattern and how Extbase
     implements it in detail.
 
     For extension development without Extbase, see
