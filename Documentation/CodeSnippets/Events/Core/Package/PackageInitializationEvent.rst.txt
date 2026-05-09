@@ -12,6 +12,9 @@
     ..  php:method:: getPackage()
         :returns: `\TYPO3\CMS\Core\Package\PackageInterface`
 
+    ..  php:method:: isPackageActivated()
+        :returns: `bool`
+
     ..  php:method:: getContainer()
         :returns: `?\Psr\Container\ContainerInterface`
 

@@ -14,8 +14,6 @@
 
         $normalizedParams = $request->getAttribute('normalizedParams')
 
-    This class substitutes the old GeneralUtility::getIndpEnv() method.
-
     ..  php:method:: getDocumentRoot()
         :returns: `string`
 
