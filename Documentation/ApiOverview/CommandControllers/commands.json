@@ -1,7 +1,7 @@
 {
     "application": {
         "name": "TYPO3 CMS",
-        "version": "14.1.0-dev"
+        "version": "14.3.0"
     },
     "commands": [
         {
@@ -475,9 +475,9 @@
             "name": "setup",
             "description": "Setup TYPO3 via CLI using environment variables, CLI options or interactive",
             "usage": [
-                "setup [--driver [DRIVER]] [--host HOST] [--port [PORT]] [--dbname DBNAME] [--username USERNAME] [--password PASSWORD] [--admin-username [ADMIN-USERNAME]] [--admin-user-password ADMIN-USER-PASSWORD] [--admin-email ADMIN-EMAIL] [--project-name PROJECT-NAME] [--create-site [CREATE-SITE]] [--server-type [SERVER-TYPE]] [--force] [-n|--no-interaction]"
+                "setup [--driver [DRIVER]] [--host HOST] [--port [PORT]] [--dbname DBNAME] [--username USERNAME] [--password PASSWORD] [--admin-username [ADMIN-USERNAME]] [--admin-user-password ADMIN-USER-PASSWORD] [--admin-email ADMIN-EMAIL] [--project-name PROJECT-NAME] [--create-site CREATE-SITE] [--distribution [DISTRIBUTION]] [--server-type [SERVER-TYPE]] [--force] [-n|--no-interaction]"
             ],
-            "help": "The command offers 3 ways to setup TYPO3:\n 1. environment variables\n 2. commandline options\n 3. interactive guided walk-through\n\nAll values are validated no matter where it was set.\nIf a value is missing, the user will be asked for it.\n\n<fg=green>Setup using environment variables<\/>\n---------------------------------\nTYPO3_DB_DRIVER=mysqli \\\nTYPO3_DB_USERNAME=db \\\nTYPO3_DB_PORT=3306 \\\nTYPO3_DB_HOST=db \\\nTYPO3_DB_DBNAME=db \\\nTYPO3_SETUP_ADMIN_EMAIL=admin@example.com \\\nTYPO3_SETUP_ADMIN_USERNAME=admin \\\nTYPO3_SETUP_CREATE_SITE=\"https:\/\/your-typo3-site.com\/\" \\\nTYPO3_PROJECT_NAME=\"Automated Setup\" \\\nTYPO3_SERVER_TYPE=\"apache\" \\\n.\/bin\/typo3 setup --force\n---------------------------------\n\n<fg=yellow>\nVariable `TYPO3_DB_PASSWORD` (option `--password`) can be used to provide a\npassword for the database and `TYPO3_SETUP_ADMIN_PASSWORD`\n(option `--admin-user-password`) for the admin user password.\nUsing this can be a security risk since the password may end up in shell\nhistory files. Prefer the interactive mode. Additionally, writing a command\nto shell history can be suppressed by prefixing the command with a space\nwhen using `bash` or `zsh`.\n<\/>",
+            "help": "The command offers 3 ways to setup TYPO3:\n 1. environment variables\n 2. commandline options\n 3. interactive guided walk-through\n\nAll values are validated no matter where it was set.\nIf a value is missing, the user will be asked for it.\n\n<fg=green>Setup using environment variables<\/>\n---------------------------------\nTYPO3_DB_DRIVER=mysqli \\\nTYPO3_DB_USERNAME=db \\\nTYPO3_DB_PORT=3306 \\\nTYPO3_DB_HOST=db \\\nTYPO3_DB_DBNAME=db \\\nTYPO3_SETUP_ADMIN_EMAIL=admin@example.com \\\nTYPO3_SETUP_ADMIN_USERNAME=admin \\\nTYPO3_SETUP_CREATE_SITE=\"https:\/\/your-typo3-site.com\/\" \\\nTYPO3_SETUP_DISTRIBUTION=\"theme_camino\" \\\nTYPO3_PROJECT_NAME=\"Automated Setup\" \\\nTYPO3_SERVER_TYPE=\"apache\" \\\n.\/bin\/typo3 setup --force\n---------------------------------\n\n<fg=yellow>\nVariable `TYPO3_DB_PASSWORD` (option `--password`) can be used to provide a\npassword for the database and `TYPO3_SETUP_ADMIN_PASSWORD`\n(option `--admin-user-password`) for the admin user password.\nUsing this can be a security risk since the password may end up in shell\nhistory files. Prefer the interactive mode. Additionally, writing a command\nto shell history can be suppressed by prefixing the command with a space\nwhen using `bash` or `zsh`.\n<\/>",
             "definition": {
                 "arguments": [],
                 "options": {
@@ -575,10 +575,19 @@
                         "name": "--create-site",
                         "shortcut": "",
                         "accept_value": true,
+                        "is_value_required": true,
+                        "is_multiple": false,
+                        "description": "Create a basic site setup (root page and site configuration) with the given domain, ex. \"https:\/\/my.domain.tld\/\"",
+                        "default": false
+                    },
+                    "distribution": {
+                        "name": "--distribution",
+                        "shortcut": "",
+                        "accept_value": true,
                         "is_value_required": false,
                         "is_multiple": false,
-                        "description": "Create a basic site setup (root page and site configuration) with the given domain",
-                        "default": false
+                        "description": "Import a distribution during site creation (package key, e.g. \"theme_camino\")",
+                        "default": null
                     },
                     "server-type": {
                         "name": "--server-type",
@@ -676,11 +685,11 @@
         },
         {
             "name": "asset:publish",
-            "description": "Publishes public assets. Needs to be run after composer install.",
+            "description": "Publish public assets.",
             "usage": [
                 "asset:publish"
             ],
-            "help": "This command can be executed to publish public extension resources from their `Resources/Public` folder to the document root directory (`public` by default in Composer mode).",
+            "help": "Publishes public assets. Needs to be run after composer install.",
             "definition": {
                 "arguments": [],
                 "options": {
@@ -693,13 +702,22 @@
                         "description": "Display help for the given command. When no command is given display help for the <info>list<\/info> command",
                         "default": false
                     },
+                    "silent": {
+                        "name": "--silent",
+                        "shortcut": "",
+                        "accept_value": false,
+                        "is_value_required": false,
+                        "is_multiple": false,
+                        "description": "Do not output any message",
+                        "default": false
+                    },
                     "quiet": {
                         "name": "--quiet",
                         "shortcut": "-q",
                         "accept_value": false,
                         "is_value_required": false,
                         "is_multiple": false,
-                        "description": "Do not output any message",
+                        "description": "Only errors are displayed. All other output is suppressed",
                         "default": false
                     },
                     "verbose": {
@@ -1036,9 +1054,9 @@
             "name": "backend:user:create",
             "description": "Create a backend user.",
             "usage": [
-                "backend:user:create [-u|--username USERNAME] [-p|--password PASSWORD] [-e|--email EMAIL] [-g|--groups GROUPS] [-a|--admin] [-m|--maintainer]"
+                "backend:user:create [-u|--username USERNAME] [-p|--password PASSWORD] [-e|--email EMAIL] [-g|--groups GROUPS] [-l|--language LANGUAGE] [-a|--admin] [-m|--maintainer]"
             ],
-            "help": "\n<fg=green>Create a backend user using environment variables<\/>\n\nExample:\n-------------------------------------------------\nTYPO3_BE_USER_NAME=username \\\nTYPO3_BE_USER_EMAIL=admin@example.com \\\nTYPO3_BE_USER_GROUPS=<comma-separated-list-of-group-ids> \\\nTYPO3_BE_USER_ADMIN=0 \\\nTYPO3_BE_USER_MAINTAINER=0 \\\n.\/bin\/typo3 backend:user:create --no-interaction\n-------------------------------------------------\n<fg=yellow>\nVariable \"TYPO3_BE_USER_PASSWORD\" and options \"-p\" or \"--password\" can be\nused to provide a password. Using this can be a security risk since the password\nmay end up in shell history files. Prefer the interactive mode. Additionally,\nwriting a command to shell history can be suppressed by prefixing the command\nwith a space when using `bash` or `zsh`.\n<\/>",
+            "help": "\n<fg=green>Create a backend user using environment variables<\/>\n\nExample:\n-------------------------------------------------\nTYPO3_BE_USER_NAME=username \\\nTYPO3_BE_USER_EMAIL=admin@example.com \\\nTYPO3_BE_USER_GROUPS=<comma-separated-list-of-group-ids> \\\nTYPO3_BE_USER_LANGUAGE=de \\\nTYPO3_BE_USER_ADMIN=0 \\\nTYPO3_BE_USER_MAINTAINER=0 \\\n.\/bin\/typo3 backend:user:create --no-interaction\n-------------------------------------------------\n<fg=yellow>\nVariable \"TYPO3_BE_USER_PASSWORD\" and options \"-p\" or \"--password\" can be\nused to provide a password. Using this can be a security risk since the password\nmay end up in shell history files. Prefer the interactive mode. Additionally,\nwriting a command to shell history can be suppressed by prefixing the command\nwith a space when using `bash` or `zsh`.\n<\/>",
             "definition": {
                 "arguments": [],
                 "options": {
@@ -1076,6 +1094,15 @@
                         "is_value_required": true,
                         "is_multiple": false,
                         "description": "Assign given groups to the user",
+                        "default": null
+                    },
+                    "language": {
+                        "name": "--language",
+                        "shortcut": "-l",
+                        "accept_value": true,
+                        "is_value_required": true,
+                        "is_multiple": false,
+                        "description": "The language for the user interface",
                         "default": null
                     },
                     "admin": {
@@ -2469,6 +2496,869 @@
             "hidden": false
         },
         {
+            "name": "configuration:remove",
+            "description": "Remove configuration value(s) from system\/settings.php",
+            "usage": [
+                "configuration:remove [-f|--force] [--] <paths>"
+            ],
+            "help": "Remove system configuration option(s) from system\/settings.php.\n\nMultiple paths can be specified separated by comma.\n\nExamples:\n  <info>bin\/typo3 configuration:remove EXTCONF\/myext\/setting<\/info>\n  <info>bin\/typo3 configuration:remove \"EXTCONF\/ext1,EXTCONF\/ext2\" --force<\/info>",
+            "definition": {
+                "arguments": {
+                    "paths": {
+                        "name": "paths",
+                        "is_required": true,
+                        "is_array": false,
+                        "description": "Path(s) to remove, multiple paths can be separated by comma",
+                        "default": null
+                    }
+                },
+                "options": {
+                    "force": {
+                        "name": "--force",
+                        "shortcut": "-f",
+                        "accept_value": false,
+                        "is_value_required": false,
+                        "is_multiple": false,
+                        "description": "Skip confirmation",
+                        "default": false
+                    },
+                    "help": {
+                        "name": "--help",
+                        "shortcut": "-h",
+                        "accept_value": false,
+                        "is_value_required": false,
+                        "is_multiple": false,
+                        "description": "Display help for the given command. When no command is given display help for the <info>list<\/info> command",
+                        "default": false
+                    },
+                    "silent": {
+                        "name": "--silent",
+                        "shortcut": "",
+                        "accept_value": false,
+                        "is_value_required": false,
+                        "is_multiple": false,
+                        "description": "Do not output any message",
+                        "default": false
+                    },
+                    "quiet": {
+                        "name": "--quiet",
+                        "shortcut": "-q",
+                        "accept_value": false,
+                        "is_value_required": false,
+                        "is_multiple": false,
+                        "description": "Only errors are displayed. All other output is suppressed",
+                        "default": false
+                    },
+                    "verbose": {
+                        "name": "--verbose",
+                        "shortcut": "-v|-vv|-vvv",
+                        "accept_value": false,
+                        "is_value_required": false,
+                        "is_multiple": false,
+                        "description": "Increase the verbosity of messages: 1 for normal output, 2 for more verbose output and 3 for debug",
+                        "default": false
+                    },
+                    "version": {
+                        "name": "--version",
+                        "shortcut": "-V",
+                        "accept_value": false,
+                        "is_value_required": false,
+                        "is_multiple": false,
+                        "description": "Display this application version",
+                        "default": false
+                    },
+                    "ansi": {
+                        "name": "--ansi",
+                        "shortcut": "",
+                        "accept_value": false,
+                        "is_value_required": false,
+                        "is_multiple": false,
+                        "description": "Force (or disable --no-ansi) ANSI output",
+                        "default": null
+                    },
+                    "no-ansi": {
+                        "name": "--no-ansi",
+                        "shortcut": "",
+                        "accept_value": false,
+                        "is_value_required": false,
+                        "is_multiple": false,
+                        "description": "Negate the \"--ansi\" option",
+                        "default": null
+                    },
+                    "no-interaction": {
+                        "name": "--no-interaction",
+                        "shortcut": "-n",
+                        "accept_value": false,
+                        "is_value_required": false,
+                        "is_multiple": false,
+                        "description": "Do not ask any interactive question",
+                        "default": false
+                    }
+                }
+            },
+            "hidden": false
+        },
+        {
+            "name": "configuration:set",
+            "description": "Set a configuration value in system\/settings.php",
+            "usage": [
+                "configuration:set [--json] [--] <path> <value>"
+            ],
+            "help": "Set a system configuration option in system\/settings.php.\n\nExamples:\n  <info>bin\/typo3 configuration:set SYS\/sitename \"My Site\"<\/info>\n  <info>bin\/typo3 configuration:set BE\/debug true --json<\/info>\n  <info>bin\/typo3 configuration:set SYS\/features\/myFeature true --json<\/info>",
+            "definition": {
+                "arguments": {
+                    "path": {
+                        "name": "path",
+                        "is_required": true,
+                        "is_array": false,
+                        "description": "Path to the configuration value (e.g., SYS\/sitename or BE\/debug)",
+                        "default": null
+                    },
+                    "value": {
+                        "name": "value",
+                        "is_required": true,
+                        "is_array": false,
+                        "description": "Value to set",
+                        "default": null
+                    }
+                },
+                "options": {
+                    "json": {
+                        "name": "--json",
+                        "shortcut": "",
+                        "accept_value": false,
+                        "is_value_required": false,
+                        "is_multiple": false,
+                        "description": "Parse the value as JSON (allows setting booleans, integers, arrays)",
+                        "default": false
+                    },
+                    "help": {
+                        "name": "--help",
+                        "shortcut": "-h",
+                        "accept_value": false,
+                        "is_value_required": false,
+                        "is_multiple": false,
+                        "description": "Display help for the given command. When no command is given display help for the <info>list<\/info> command",
+                        "default": false
+                    },
+                    "silent": {
+                        "name": "--silent",
+                        "shortcut": "",
+                        "accept_value": false,
+                        "is_value_required": false,
+                        "is_multiple": false,
+                        "description": "Do not output any message",
+                        "default": false
+                    },
+                    "quiet": {
+                        "name": "--quiet",
+                        "shortcut": "-q",
+                        "accept_value": false,
+                        "is_value_required": false,
+                        "is_multiple": false,
+                        "description": "Only errors are displayed. All other output is suppressed",
+                        "default": false
+                    },
+                    "verbose": {
+                        "name": "--verbose",
+                        "shortcut": "-v|-vv|-vvv",
+                        "accept_value": false,
+                        "is_value_required": false,
+                        "is_multiple": false,
+                        "description": "Increase the verbosity of messages: 1 for normal output, 2 for more verbose output and 3 for debug",
+                        "default": false
+                    },
+                    "version": {
+                        "name": "--version",
+                        "shortcut": "-V",
+                        "accept_value": false,
+                        "is_value_required": false,
+                        "is_multiple": false,
+                        "description": "Display this application version",
+                        "default": false
+                    },
+                    "ansi": {
+                        "name": "--ansi",
+                        "shortcut": "",
+                        "accept_value": false,
+                        "is_value_required": false,
+                        "is_multiple": false,
+                        "description": "Force (or disable --no-ansi) ANSI output",
+                        "default": null
+                    },
+                    "no-ansi": {
+                        "name": "--no-ansi",
+                        "shortcut": "",
+                        "accept_value": false,
+                        "is_value_required": false,
+                        "is_multiple": false,
+                        "description": "Negate the \"--ansi\" option",
+                        "default": null
+                    },
+                    "no-interaction": {
+                        "name": "--no-interaction",
+                        "shortcut": "-n",
+                        "accept_value": false,
+                        "is_value_required": false,
+                        "is_multiple": false,
+                        "description": "Do not ask any interactive question",
+                        "default": false
+                    }
+                }
+            },
+            "hidden": false
+        },
+        {
+            "name": "configuration:show",
+            "description": "Show configuration value",
+            "usage": [
+                "configuration:show [-t|--type TYPE] [--json] [--] <path>"
+            ],
+            "help": "Show a system configuration value.\n\nBy default, if the active value differs from the local value,\nboth values are shown with the difference highlighted.\n\nUse --type to show a specific configuration source:\n  active - effective runtime value from $GLOBALS['TYPO3_CONF_VARS']\n  local  - value from system\/settings.php only\n\nExamples:\n  <info>bin\/typo3 configuration:show SYS\/sitename<\/info>\n  <info>bin\/typo3 configuration:show SYS\/sitename --type=active<\/info>\n  <info>bin\/typo3 configuration:show DB\/Connections\/Default --type=local --json<\/info>",
+            "definition": {
+                "arguments": {
+                    "path": {
+                        "name": "path",
+                        "is_required": true,
+                        "is_array": false,
+                        "description": "Path to the configuration value (e.g., SYS\/sitename)",
+                        "default": null
+                    }
+                },
+                "options": {
+                    "type": {
+                        "name": "--type",
+                        "shortcut": "-t",
+                        "accept_value": true,
+                        "is_value_required": true,
+                        "is_multiple": false,
+                        "description": "Configuration source: \"active\" (effective runtime) or \"local\" (settings.php only)",
+                        "default": null
+                    },
+                    "json": {
+                        "name": "--json",
+                        "shortcut": "",
+                        "accept_value": false,
+                        "is_value_required": false,
+                        "is_multiple": false,
+                        "description": "Output as JSON",
+                        "default": false
+                    },
+                    "help": {
+                        "name": "--help",
+                        "shortcut": "-h",
+                        "accept_value": false,
+                        "is_value_required": false,
+                        "is_multiple": false,
+                        "description": "Display help for the given command. When no command is given display help for the <info>list<\/info> command",
+                        "default": false
+                    },
+                    "silent": {
+                        "name": "--silent",
+                        "shortcut": "",
+                        "accept_value": false,
+                        "is_value_required": false,
+                        "is_multiple": false,
+                        "description": "Do not output any message",
+                        "default": false
+                    },
+                    "quiet": {
+                        "name": "--quiet",
+                        "shortcut": "-q",
+                        "accept_value": false,
+                        "is_value_required": false,
+                        "is_multiple": false,
+                        "description": "Only errors are displayed. All other output is suppressed",
+                        "default": false
+                    },
+                    "verbose": {
+                        "name": "--verbose",
+                        "shortcut": "-v|-vv|-vvv",
+                        "accept_value": false,
+                        "is_value_required": false,
+                        "is_multiple": false,
+                        "description": "Increase the verbosity of messages: 1 for normal output, 2 for more verbose output and 3 for debug",
+                        "default": false
+                    },
+                    "version": {
+                        "name": "--version",
+                        "shortcut": "-V",
+                        "accept_value": false,
+                        "is_value_required": false,
+                        "is_multiple": false,
+                        "description": "Display this application version",
+                        "default": false
+                    },
+                    "ansi": {
+                        "name": "--ansi",
+                        "shortcut": "",
+                        "accept_value": false,
+                        "is_value_required": false,
+                        "is_multiple": false,
+                        "description": "Force (or disable --no-ansi) ANSI output",
+                        "default": null
+                    },
+                    "no-ansi": {
+                        "name": "--no-ansi",
+                        "shortcut": "",
+                        "accept_value": false,
+                        "is_value_required": false,
+                        "is_multiple": false,
+                        "description": "Negate the \"--ansi\" option",
+                        "default": null
+                    },
+                    "no-interaction": {
+                        "name": "--no-interaction",
+                        "shortcut": "-n",
+                        "accept_value": false,
+                        "is_value_required": false,
+                        "is_multiple": false,
+                        "description": "Do not ask any interactive question",
+                        "default": false
+                    }
+                }
+            },
+            "hidden": false
+        },
+        {
+            "name": "content-blocks:assets:publish",
+            "description": "Publish Content Blocks assets into Resources\/Public folder of the host extension.",
+            "usage": [
+                "content-blocks:assets:publish"
+            ],
+            "help": "Publish Content Blocks assets into Resources\/Public folder of the host extension.",
+            "definition": {
+                "arguments": [],
+                "options": {
+                    "help": {
+                        "name": "--help",
+                        "shortcut": "-h",
+                        "accept_value": false,
+                        "is_value_required": false,
+                        "is_multiple": false,
+                        "description": "Display help for the given command. When no command is given display help for the <info>list<\/info> command",
+                        "default": false
+                    },
+                    "silent": {
+                        "name": "--silent",
+                        "shortcut": "",
+                        "accept_value": false,
+                        "is_value_required": false,
+                        "is_multiple": false,
+                        "description": "Do not output any message",
+                        "default": false
+                    },
+                    "quiet": {
+                        "name": "--quiet",
+                        "shortcut": "-q",
+                        "accept_value": false,
+                        "is_value_required": false,
+                        "is_multiple": false,
+                        "description": "Only errors are displayed. All other output is suppressed",
+                        "default": false
+                    },
+                    "verbose": {
+                        "name": "--verbose",
+                        "shortcut": "-v|-vv|-vvv",
+                        "accept_value": false,
+                        "is_value_required": false,
+                        "is_multiple": false,
+                        "description": "Increase the verbosity of messages: 1 for normal output, 2 for more verbose output and 3 for debug",
+                        "default": false
+                    },
+                    "version": {
+                        "name": "--version",
+                        "shortcut": "-V",
+                        "accept_value": false,
+                        "is_value_required": false,
+                        "is_multiple": false,
+                        "description": "Display this application version",
+                        "default": false
+                    },
+                    "ansi": {
+                        "name": "--ansi",
+                        "shortcut": "",
+                        "accept_value": false,
+                        "is_value_required": false,
+                        "is_multiple": false,
+                        "description": "Force (or disable --no-ansi) ANSI output",
+                        "default": null
+                    },
+                    "no-ansi": {
+                        "name": "--no-ansi",
+                        "shortcut": "",
+                        "accept_value": false,
+                        "is_value_required": false,
+                        "is_multiple": false,
+                        "description": "Negate the \"--ansi\" option",
+                        "default": null
+                    },
+                    "no-interaction": {
+                        "name": "--no-interaction",
+                        "shortcut": "-n",
+                        "accept_value": false,
+                        "is_value_required": false,
+                        "is_multiple": false,
+                        "description": "Do not ask any interactive question",
+                        "default": false
+                    }
+                }
+            },
+            "hidden": false
+        },
+        {
+            "name": "content-blocks:create",
+            "description": "Create a Content Block",
+            "usage": [
+                "content-blocks:create [--content-type [CONTENT-TYPE]] [--vendor [VENDOR]] [--name [NAME]] [--title [TITLE]] [--type-name [TYPE-NAME]] [--extension [EXTENSION]] [--skeleton-path [SKELETON-PATH]] [--config-path [CONFIG-PATH]]",
+                "make:content-block"
+            ],
+            "help": "Create a Content Block",
+            "definition": {
+                "arguments": [],
+                "options": {
+                    "content-type": {
+                        "name": "--content-type",
+                        "shortcut": "",
+                        "accept_value": true,
+                        "is_value_required": false,
+                        "is_multiple": false,
+                        "description": "Content type of Content Block. One of: content-element, page-type, file-type, record-type.",
+                        "default": null
+                    },
+                    "vendor": {
+                        "name": "--vendor",
+                        "shortcut": "",
+                        "accept_value": true,
+                        "is_value_required": false,
+                        "is_multiple": false,
+                        "description": "Vendor of Content Block (The name must be lowercase and consist of words separated by dashes \"-\").",
+                        "default": null
+                    },
+                    "name": {
+                        "name": "--name",
+                        "shortcut": "",
+                        "accept_value": true,
+                        "is_value_required": false,
+                        "is_multiple": false,
+                        "description": "Name of Content Block (The name must be lowercase and consist of words separated by dashes \"-\").",
+                        "default": null
+                    },
+                    "title": {
+                        "name": "--title",
+                        "shortcut": "",
+                        "accept_value": true,
+                        "is_value_required": false,
+                        "is_multiple": false,
+                        "description": "Human-readable title of Content Block.",
+                        "default": null
+                    },
+                    "type-name": {
+                        "name": "--type-name",
+                        "shortcut": "",
+                        "accept_value": true,
+                        "is_value_required": false,
+                        "is_multiple": false,
+                        "description": "Type identifier of Content Block. Falls back to combination of \"vendor\" and \"name\". Must be integer value for content type \"page-type\".",
+                        "default": null
+                    },
+                    "extension": {
+                        "name": "--extension",
+                        "shortcut": "",
+                        "accept_value": true,
+                        "is_value_required": false,
+                        "is_multiple": false,
+                        "description": "Host extension in which the Content Block should be stored.",
+                        "default": null
+                    },
+                    "skeleton-path": {
+                        "name": "--skeleton-path",
+                        "shortcut": "",
+                        "accept_value": true,
+                        "is_value_required": false,
+                        "is_multiple": false,
+                        "description": "A folder which contains a basic skeleton for one or more content types.",
+                        "default": null
+                    },
+                    "config-path": {
+                        "name": "--config-path",
+                        "shortcut": "",
+                        "accept_value": true,
+                        "is_value_required": false,
+                        "is_multiple": false,
+                        "description": "A path to a yaml config file for this command. Default is content-blocks.yaml in the current directory.",
+                        "default": null
+                    },
+                    "help": {
+                        "name": "--help",
+                        "shortcut": "-h",
+                        "accept_value": false,
+                        "is_value_required": false,
+                        "is_multiple": false,
+                        "description": "Display help for the given command. When no command is given display help for the <info>list<\/info> command",
+                        "default": false
+                    },
+                    "silent": {
+                        "name": "--silent",
+                        "shortcut": "",
+                        "accept_value": false,
+                        "is_value_required": false,
+                        "is_multiple": false,
+                        "description": "Do not output any message",
+                        "default": false
+                    },
+                    "quiet": {
+                        "name": "--quiet",
+                        "shortcut": "-q",
+                        "accept_value": false,
+                        "is_value_required": false,
+                        "is_multiple": false,
+                        "description": "Only errors are displayed. All other output is suppressed",
+                        "default": false
+                    },
+                    "verbose": {
+                        "name": "--verbose",
+                        "shortcut": "-v|-vv|-vvv",
+                        "accept_value": false,
+                        "is_value_required": false,
+                        "is_multiple": false,
+                        "description": "Increase the verbosity of messages: 1 for normal output, 2 for more verbose output and 3 for debug",
+                        "default": false
+                    },
+                    "version": {
+                        "name": "--version",
+                        "shortcut": "-V",
+                        "accept_value": false,
+                        "is_value_required": false,
+                        "is_multiple": false,
+                        "description": "Display this application version",
+                        "default": false
+                    },
+                    "ansi": {
+                        "name": "--ansi",
+                        "shortcut": "",
+                        "accept_value": false,
+                        "is_value_required": false,
+                        "is_multiple": false,
+                        "description": "Force (or disable --no-ansi) ANSI output",
+                        "default": null
+                    },
+                    "no-ansi": {
+                        "name": "--no-ansi",
+                        "shortcut": "",
+                        "accept_value": false,
+                        "is_value_required": false,
+                        "is_multiple": false,
+                        "description": "Negate the \"--ansi\" option",
+                        "default": null
+                    },
+                    "no-interaction": {
+                        "name": "--no-interaction",
+                        "shortcut": "-n",
+                        "accept_value": false,
+                        "is_value_required": false,
+                        "is_multiple": false,
+                        "description": "Do not ask any interactive question",
+                        "default": false
+                    }
+                }
+            },
+            "hidden": false
+        },
+        {
+            "name": "content-blocks:language:generate",
+            "description": "Update labels.xlf for the given Content Block",
+            "usage": [
+                "content-blocks:language:generate [-p|--print] [-e|--extension EXTENSION] [--] [<content-block>]"
+            ],
+            "help": "Update labels.xlf for the given Content Block",
+            "definition": {
+                "arguments": {
+                    "content-block": {
+                        "name": "content-block",
+                        "is_required": false,
+                        "is_array": false,
+                        "description": "The Content Block name to generate the language file for.",
+                        "default": null
+                    }
+                },
+                "options": {
+                    "print": {
+                        "name": "--print",
+                        "shortcut": "-p",
+                        "accept_value": false,
+                        "is_value_required": false,
+                        "is_multiple": false,
+                        "description": "Print labels.xlf to terminal instead of writing to file system.",
+                        "default": false
+                    },
+                    "extension": {
+                        "name": "--extension",
+                        "shortcut": "-e",
+                        "accept_value": true,
+                        "is_value_required": true,
+                        "is_multiple": false,
+                        "description": "Define an extension key to process all Content Blocks within.",
+                        "default": null
+                    },
+                    "help": {
+                        "name": "--help",
+                        "shortcut": "-h",
+                        "accept_value": false,
+                        "is_value_required": false,
+                        "is_multiple": false,
+                        "description": "Display help for the given command. When no command is given display help for the <info>list<\/info> command",
+                        "default": false
+                    },
+                    "silent": {
+                        "name": "--silent",
+                        "shortcut": "",
+                        "accept_value": false,
+                        "is_value_required": false,
+                        "is_multiple": false,
+                        "description": "Do not output any message",
+                        "default": false
+                    },
+                    "quiet": {
+                        "name": "--quiet",
+                        "shortcut": "-q",
+                        "accept_value": false,
+                        "is_value_required": false,
+                        "is_multiple": false,
+                        "description": "Only errors are displayed. All other output is suppressed",
+                        "default": false
+                    },
+                    "verbose": {
+                        "name": "--verbose",
+                        "shortcut": "-v|-vv|-vvv",
+                        "accept_value": false,
+                        "is_value_required": false,
+                        "is_multiple": false,
+                        "description": "Increase the verbosity of messages: 1 for normal output, 2 for more verbose output and 3 for debug",
+                        "default": false
+                    },
+                    "version": {
+                        "name": "--version",
+                        "shortcut": "-V",
+                        "accept_value": false,
+                        "is_value_required": false,
+                        "is_multiple": false,
+                        "description": "Display this application version",
+                        "default": false
+                    },
+                    "ansi": {
+                        "name": "--ansi",
+                        "shortcut": "",
+                        "accept_value": false,
+                        "is_value_required": false,
+                        "is_multiple": false,
+                        "description": "Force (or disable --no-ansi) ANSI output",
+                        "default": null
+                    },
+                    "no-ansi": {
+                        "name": "--no-ansi",
+                        "shortcut": "",
+                        "accept_value": false,
+                        "is_value_required": false,
+                        "is_multiple": false,
+                        "description": "Negate the \"--ansi\" option",
+                        "default": null
+                    },
+                    "no-interaction": {
+                        "name": "--no-interaction",
+                        "shortcut": "-n",
+                        "accept_value": false,
+                        "is_value_required": false,
+                        "is_multiple": false,
+                        "description": "Do not ask any interactive question",
+                        "default": false
+                    }
+                }
+            },
+            "hidden": false
+        },
+        {
+            "name": "content-blocks:lint",
+            "description": "Lint all Content Blocks against JSON Schema",
+            "usage": [
+                "content-blocks:lint"
+            ],
+            "help": "Lint all Content Blocks against JSON Schema",
+            "definition": {
+                "arguments": [],
+                "options": {
+                    "help": {
+                        "name": "--help",
+                        "shortcut": "-h",
+                        "accept_value": false,
+                        "is_value_required": false,
+                        "is_multiple": false,
+                        "description": "Display help for the given command. When no command is given display help for the <info>list<\/info> command",
+                        "default": false
+                    },
+                    "silent": {
+                        "name": "--silent",
+                        "shortcut": "",
+                        "accept_value": false,
+                        "is_value_required": false,
+                        "is_multiple": false,
+                        "description": "Do not output any message",
+                        "default": false
+                    },
+                    "quiet": {
+                        "name": "--quiet",
+                        "shortcut": "-q",
+                        "accept_value": false,
+                        "is_value_required": false,
+                        "is_multiple": false,
+                        "description": "Only errors are displayed. All other output is suppressed",
+                        "default": false
+                    },
+                    "verbose": {
+                        "name": "--verbose",
+                        "shortcut": "-v|-vv|-vvv",
+                        "accept_value": false,
+                        "is_value_required": false,
+                        "is_multiple": false,
+                        "description": "Increase the verbosity of messages: 1 for normal output, 2 for more verbose output and 3 for debug",
+                        "default": false
+                    },
+                    "version": {
+                        "name": "--version",
+                        "shortcut": "-V",
+                        "accept_value": false,
+                        "is_value_required": false,
+                        "is_multiple": false,
+                        "description": "Display this application version",
+                        "default": false
+                    },
+                    "ansi": {
+                        "name": "--ansi",
+                        "shortcut": "",
+                        "accept_value": false,
+                        "is_value_required": false,
+                        "is_multiple": false,
+                        "description": "Force (or disable --no-ansi) ANSI output",
+                        "default": null
+                    },
+                    "no-ansi": {
+                        "name": "--no-ansi",
+                        "shortcut": "",
+                        "accept_value": false,
+                        "is_value_required": false,
+                        "is_multiple": false,
+                        "description": "Negate the \"--ansi\" option",
+                        "default": null
+                    },
+                    "no-interaction": {
+                        "name": "--no-interaction",
+                        "shortcut": "-n",
+                        "accept_value": false,
+                        "is_value_required": false,
+                        "is_multiple": false,
+                        "description": "Do not ask any interactive question",
+                        "default": false
+                    }
+                }
+            },
+            "hidden": false
+        },
+        {
+            "name": "content-blocks:list",
+            "description": "List available Content Blocks",
+            "usage": [
+                "content-blocks:list [-o|--order [ORDER]]"
+            ],
+            "help": "List available Content Blocks",
+            "definition": {
+                "arguments": [],
+                "options": {
+                    "order": {
+                        "name": "--order",
+                        "shortcut": "-o",
+                        "accept_value": true,
+                        "is_value_required": false,
+                        "is_multiple": false,
+                        "description": "Order result by one of \"vendor\", \"name\", \"table\", \"type-name\", \"content-type\" or \"extension\".",
+                        "default": "vendor"
+                    },
+                    "help": {
+                        "name": "--help",
+                        "shortcut": "-h",
+                        "accept_value": false,
+                        "is_value_required": false,
+                        "is_multiple": false,
+                        "description": "Display help for the given command. When no command is given display help for the <info>list<\/info> command",
+                        "default": false
+                    },
+                    "silent": {
+                        "name": "--silent",
+                        "shortcut": "",
+                        "accept_value": false,
+                        "is_value_required": false,
+                        "is_multiple": false,
+                        "description": "Do not output any message",
+                        "default": false
+                    },
+                    "quiet": {
+                        "name": "--quiet",
+                        "shortcut": "-q",
+                        "accept_value": false,
+                        "is_value_required": false,
+                        "is_multiple": false,
+                        "description": "Only errors are displayed. All other output is suppressed",
+                        "default": false
+                    },
+                    "verbose": {
+                        "name": "--verbose",
+                        "shortcut": "-v|-vv|-vvv",
+                        "accept_value": false,
+                        "is_value_required": false,
+                        "is_multiple": false,
+                        "description": "Increase the verbosity of messages: 1 for normal output, 2 for more verbose output and 3 for debug",
+                        "default": false
+                    },
+                    "version": {
+                        "name": "--version",
+                        "shortcut": "-V",
+                        "accept_value": false,
+                        "is_value_required": false,
+                        "is_multiple": false,
+                        "description": "Display this application version",
+                        "default": false
+                    },
+                    "ansi": {
+                        "name": "--ansi",
+                        "shortcut": "",
+                        "accept_value": false,
+                        "is_value_required": false,
+                        "is_multiple": false,
+                        "description": "Force (or disable --no-ansi) ANSI output",
+                        "default": null
+                    },
+                    "no-ansi": {
+                        "name": "--no-ansi",
+                        "shortcut": "",
+                        "accept_value": false,
+                        "is_value_required": false,
+                        "is_multiple": false,
+                        "description": "Negate the \"--ansi\" option",
+                        "default": null
+                    },
+                    "no-interaction": {
+                        "name": "--no-interaction",
+                        "shortcut": "-n",
+                        "accept_value": false,
+                        "is_value_required": false,
+                        "is_multiple": false,
+                        "description": "Do not ask any interactive question",
+                        "default": false
+                    }
+                }
+            },
+            "hidden": false
+        },
+        {
             "name": "debug:backend:modules",
             "description": "Debugging: Show a list of the backend module tree (only for development purpose)",
             "usage": [
@@ -3160,12 +4050,126 @@
             "hidden": false
         },
         {
+            "name": "fluid:analyze",
+            "description": "Analyzes Fluid templates for syntax errors and deprecated functionality.",
+            "usage": [
+                "fluid:analyze [--include-system-extensions] [--stdin] [--json]",
+                "fluid:analyse"
+            ],
+            "help": "Analyzes Fluid templates for syntax errors and deprecated functionality.",
+            "definition": {
+                "arguments": [],
+                "options": {
+                    "include-system-extensions": {
+                        "name": "--include-system-extensions",
+                        "shortcut": "",
+                        "accept_value": false,
+                        "is_value_required": false,
+                        "is_multiple": false,
+                        "description": "Include template files that belong to TYPO3 system extensions",
+                        "default": false
+                    },
+                    "stdin": {
+                        "name": "--stdin",
+                        "shortcut": "",
+                        "accept_value": false,
+                        "is_value_required": false,
+                        "is_multiple": false,
+                        "description": "Analyze template string that is provided via STDIN",
+                        "default": false
+                    },
+                    "json": {
+                        "name": "--json",
+                        "shortcut": "",
+                        "accept_value": false,
+                        "is_value_required": false,
+                        "is_multiple": false,
+                        "description": "Output results as JSON",
+                        "default": false
+                    },
+                    "help": {
+                        "name": "--help",
+                        "shortcut": "-h",
+                        "accept_value": false,
+                        "is_value_required": false,
+                        "is_multiple": false,
+                        "description": "Display help for the given command. When no command is given display help for the <info>list<\/info> command",
+                        "default": false
+                    },
+                    "silent": {
+                        "name": "--silent",
+                        "shortcut": "",
+                        "accept_value": false,
+                        "is_value_required": false,
+                        "is_multiple": false,
+                        "description": "Do not output any message",
+                        "default": false
+                    },
+                    "quiet": {
+                        "name": "--quiet",
+                        "shortcut": "-q",
+                        "accept_value": false,
+                        "is_value_required": false,
+                        "is_multiple": false,
+                        "description": "Only errors are displayed. All other output is suppressed",
+                        "default": false
+                    },
+                    "verbose": {
+                        "name": "--verbose",
+                        "shortcut": "-v|-vv|-vvv",
+                        "accept_value": false,
+                        "is_value_required": false,
+                        "is_multiple": false,
+                        "description": "Increase the verbosity of messages: 1 for normal output, 2 for more verbose output and 3 for debug",
+                        "default": false
+                    },
+                    "version": {
+                        "name": "--version",
+                        "shortcut": "-V",
+                        "accept_value": false,
+                        "is_value_required": false,
+                        "is_multiple": false,
+                        "description": "Display this application version",
+                        "default": false
+                    },
+                    "ansi": {
+                        "name": "--ansi",
+                        "shortcut": "",
+                        "accept_value": false,
+                        "is_value_required": false,
+                        "is_multiple": false,
+                        "description": "Force (or disable --no-ansi) ANSI output",
+                        "default": null
+                    },
+                    "no-ansi": {
+                        "name": "--no-ansi",
+                        "shortcut": "",
+                        "accept_value": false,
+                        "is_value_required": false,
+                        "is_multiple": false,
+                        "description": "Negate the \"--ansi\" option",
+                        "default": null
+                    },
+                    "no-interaction": {
+                        "name": "--no-interaction",
+                        "shortcut": "-n",
+                        "accept_value": false,
+                        "is_value_required": false,
+                        "is_multiple": false,
+                        "description": "Do not ask any interactive question",
+                        "default": false
+                    }
+                }
+            },
+            "hidden": false
+        },
+        {
             "name": "fluid:cache:warmup",
-            "description": "Performs a cache warmup for detected Fluid templates",
+            "description": "Performs a cache warmup for detected Fluid templates.",
             "usage": [
                 "fluid:cache:warmup"
             ],
-            "help": "Performs a cache warmup for detected Fluid templates",
+            "help": "Performs a cache warmup for detected Fluid templates.",
             "definition": {
                 "arguments": [],
                 "options": {
@@ -3246,15 +4250,371 @@
             "hidden": false
         },
         {
-            "name": "fluid:schema:generate",
-            "description": "Generate XSD schema files for all available ViewHelpers in var\/transient\/",
+            "name": "fluid:namespaces",
+            "description": "Lists all registered global Fluid ViewHelper namespaces.",
             "usage": [
-                "fluid:schema:generate"
+                "fluid:namespaces [--json]"
             ],
-            "help": "Generate XSD schema files for all available ViewHelpers in var\/transient\/",
+            "help": "Lists all registered global Fluid ViewHelper namespaces.",
             "definition": {
                 "arguments": [],
                 "options": {
+                    "json": {
+                        "name": "--json",
+                        "shortcut": "",
+                        "accept_value": false,
+                        "is_value_required": false,
+                        "is_multiple": false,
+                        "description": "Output namespaces as JSON",
+                        "default": false
+                    },
+                    "help": {
+                        "name": "--help",
+                        "shortcut": "-h",
+                        "accept_value": false,
+                        "is_value_required": false,
+                        "is_multiple": false,
+                        "description": "Display help for the given command. When no command is given display help for the <info>list<\/info> command",
+                        "default": false
+                    },
+                    "silent": {
+                        "name": "--silent",
+                        "shortcut": "",
+                        "accept_value": false,
+                        "is_value_required": false,
+                        "is_multiple": false,
+                        "description": "Do not output any message",
+                        "default": false
+                    },
+                    "quiet": {
+                        "name": "--quiet",
+                        "shortcut": "-q",
+                        "accept_value": false,
+                        "is_value_required": false,
+                        "is_multiple": false,
+                        "description": "Only errors are displayed. All other output is suppressed",
+                        "default": false
+                    },
+                    "verbose": {
+                        "name": "--verbose",
+                        "shortcut": "-v|-vv|-vvv",
+                        "accept_value": false,
+                        "is_value_required": false,
+                        "is_multiple": false,
+                        "description": "Increase the verbosity of messages: 1 for normal output, 2 for more verbose output and 3 for debug",
+                        "default": false
+                    },
+                    "version": {
+                        "name": "--version",
+                        "shortcut": "-V",
+                        "accept_value": false,
+                        "is_value_required": false,
+                        "is_multiple": false,
+                        "description": "Display this application version",
+                        "default": false
+                    },
+                    "ansi": {
+                        "name": "--ansi",
+                        "shortcut": "",
+                        "accept_value": false,
+                        "is_value_required": false,
+                        "is_multiple": false,
+                        "description": "Force (or disable --no-ansi) ANSI output",
+                        "default": null
+                    },
+                    "no-ansi": {
+                        "name": "--no-ansi",
+                        "shortcut": "",
+                        "accept_value": false,
+                        "is_value_required": false,
+                        "is_multiple": false,
+                        "description": "Negate the \"--ansi\" option",
+                        "default": null
+                    },
+                    "no-interaction": {
+                        "name": "--no-interaction",
+                        "shortcut": "-n",
+                        "accept_value": false,
+                        "is_value_required": false,
+                        "is_multiple": false,
+                        "description": "Do not ask any interactive question",
+                        "default": false
+                    }
+                }
+            },
+            "hidden": false
+        },
+        {
+            "name": "fluid:schema:generate",
+            "description": "Generate XSD schema files for all available ViewHelpers in var\/transient\/.",
+            "usage": [
+                "fluid:schema:generate"
+            ],
+            "help": "Generate XSD schema files for all available ViewHelpers in var\/transient\/.",
+            "definition": {
+                "arguments": [],
+                "options": {
+                    "help": {
+                        "name": "--help",
+                        "shortcut": "-h",
+                        "accept_value": false,
+                        "is_value_required": false,
+                        "is_multiple": false,
+                        "description": "Display help for the given command. When no command is given display help for the <info>list<\/info> command",
+                        "default": false
+                    },
+                    "silent": {
+                        "name": "--silent",
+                        "shortcut": "",
+                        "accept_value": false,
+                        "is_value_required": false,
+                        "is_multiple": false,
+                        "description": "Do not output any message",
+                        "default": false
+                    },
+                    "quiet": {
+                        "name": "--quiet",
+                        "shortcut": "-q",
+                        "accept_value": false,
+                        "is_value_required": false,
+                        "is_multiple": false,
+                        "description": "Only errors are displayed. All other output is suppressed",
+                        "default": false
+                    },
+                    "verbose": {
+                        "name": "--verbose",
+                        "shortcut": "-v|-vv|-vvv",
+                        "accept_value": false,
+                        "is_value_required": false,
+                        "is_multiple": false,
+                        "description": "Increase the verbosity of messages: 1 for normal output, 2 for more verbose output and 3 for debug",
+                        "default": false
+                    },
+                    "version": {
+                        "name": "--version",
+                        "shortcut": "-V",
+                        "accept_value": false,
+                        "is_value_required": false,
+                        "is_multiple": false,
+                        "description": "Display this application version",
+                        "default": false
+                    },
+                    "ansi": {
+                        "name": "--ansi",
+                        "shortcut": "",
+                        "accept_value": false,
+                        "is_value_required": false,
+                        "is_multiple": false,
+                        "description": "Force (or disable --no-ansi) ANSI output",
+                        "default": null
+                    },
+                    "no-ansi": {
+                        "name": "--no-ansi",
+                        "shortcut": "",
+                        "accept_value": false,
+                        "is_value_required": false,
+                        "is_multiple": false,
+                        "description": "Negate the \"--ansi\" option",
+                        "default": null
+                    },
+                    "no-interaction": {
+                        "name": "--no-interaction",
+                        "shortcut": "-n",
+                        "accept_value": false,
+                        "is_value_required": false,
+                        "is_multiple": false,
+                        "description": "Do not ask any interactive question",
+                        "default": false
+                    }
+                }
+            },
+            "hidden": false
+        },
+        {
+            "name": "form:cleanup:uploads",
+            "description": "Remove old form file upload folders based on retention period.",
+            "usage": [
+                "form:cleanup:uploads [-r|--retention-period RETENTION-PERIOD] [--dry-run] [-f|--force] [--] <upload-folder>..."
+            ],
+            "help": "Removes old form upload folders (form_<hash>) that were created by file uploads in ext:form.\n\nSince uploaded files are not moved when a form is submitted, the command cannot \ndistinguish between folders from completed and abandoned submissions. It uses \nthe folder modification time and a configurable retention period to decide \nwhich folders to remove.\n\nYou must specify at least one upload folder to scan. Each form element can configure \na different saveToFileMount; pass all relevant folders as arguments.\n\nUse --verbose for detailed output about each folder found.",
+            "definition": {
+                "arguments": {
+                    "upload-folder": {
+                        "name": "upload-folder",
+                        "is_required": true,
+                        "is_array": true,
+                        "description": "Combined folder identifier(s) to scan (e.g. \"1:\/user_upload\/\").",
+                        "default": []
+                    }
+                },
+                "options": {
+                    "retention-period": {
+                        "name": "--retention-period",
+                        "shortcut": "-r",
+                        "accept_value": true,
+                        "is_value_required": true,
+                        "is_multiple": false,
+                        "description": "Minimum age in hours before a form upload folder is considered for removal.",
+                        "default": "336"
+                    },
+                    "dry-run": {
+                        "name": "--dry-run",
+                        "shortcut": "",
+                        "accept_value": false,
+                        "is_value_required": false,
+                        "is_multiple": false,
+                        "description": "Only list expired folders without deleting them.",
+                        "default": false
+                    },
+                    "force": {
+                        "name": "--force",
+                        "shortcut": "-f",
+                        "accept_value": false,
+                        "is_value_required": false,
+                        "is_multiple": false,
+                        "description": "Skip the confirmation question. Automatically set when using --no-interaction.",
+                        "default": false
+                    },
+                    "help": {
+                        "name": "--help",
+                        "shortcut": "-h",
+                        "accept_value": false,
+                        "is_value_required": false,
+                        "is_multiple": false,
+                        "description": "Display help for the given command. When no command is given display help for the <info>list<\/info> command",
+                        "default": false
+                    },
+                    "silent": {
+                        "name": "--silent",
+                        "shortcut": "",
+                        "accept_value": false,
+                        "is_value_required": false,
+                        "is_multiple": false,
+                        "description": "Do not output any message",
+                        "default": false
+                    },
+                    "quiet": {
+                        "name": "--quiet",
+                        "shortcut": "-q",
+                        "accept_value": false,
+                        "is_value_required": false,
+                        "is_multiple": false,
+                        "description": "Only errors are displayed. All other output is suppressed",
+                        "default": false
+                    },
+                    "verbose": {
+                        "name": "--verbose",
+                        "shortcut": "-v|-vv|-vvv",
+                        "accept_value": false,
+                        "is_value_required": false,
+                        "is_multiple": false,
+                        "description": "Increase the verbosity of messages: 1 for normal output, 2 for more verbose output and 3 for debug",
+                        "default": false
+                    },
+                    "version": {
+                        "name": "--version",
+                        "shortcut": "-V",
+                        "accept_value": false,
+                        "is_value_required": false,
+                        "is_multiple": false,
+                        "description": "Display this application version",
+                        "default": false
+                    },
+                    "ansi": {
+                        "name": "--ansi",
+                        "shortcut": "",
+                        "accept_value": false,
+                        "is_value_required": false,
+                        "is_multiple": false,
+                        "description": "Force (or disable --no-ansi) ANSI output",
+                        "default": null
+                    },
+                    "no-ansi": {
+                        "name": "--no-ansi",
+                        "shortcut": "",
+                        "accept_value": false,
+                        "is_value_required": false,
+                        "is_multiple": false,
+                        "description": "Negate the \"--ansi\" option",
+                        "default": null
+                    },
+                    "no-interaction": {
+                        "name": "--no-interaction",
+                        "shortcut": "-n",
+                        "accept_value": false,
+                        "is_value_required": false,
+                        "is_multiple": false,
+                        "description": "Do not ask any interactive question",
+                        "default": false
+                    }
+                }
+            },
+            "hidden": false
+        },
+        {
+            "name": "form:definition:transfer",
+            "description": "Transfer form definitions between storage backends",
+            "usage": [
+                "form:definition:transfer [--source SOURCE] [--target TARGET] [-l|--target-location TARGET-LOCATION] [-f|--form-identifier FORM-IDENTIFIER] [-m|--move] [--dry-run]"
+            ],
+            "help": "Transfers form definitions from one storage backend to another.\n\nAvailable storage types depend on the installed adapters. Core provides:\n  - database:   Database storage (default target)\n  - extension:  Extension paths (EXT:...)\n  - filemount:  File mount storage (deprecated since v14.2)\n\nTarget location (--target-location \/ -l) per storage type:\n  - database:   Always \"0\" (fixed; forms are stored at the root level).\n  - extension:  An EXT: path configured in \"persistenceManager.allowedExtensionPaths\",\n                with \"persistenceManager.allowSaveToExtensionPaths: true\" set.\n                e.g. --target-location=\"EXT:my_extension\/Resources\/Private\/Forms\/\"\n  - filemount:  A FAL folder path configured in \"persistenceManager.allowedFileMounts\",\n                e.g. --target-location=\"1:\/forms\/\"\n\nUse --dry-run to preview which forms would be transferred.\nUse --move to delete the source form after successful transfer.\n\nAfter a successful transfer, content element references in \"tt_content\" are automatically\nupdated to point to the new storage location. No other tables are updated.",
+            "definition": {
+                "arguments": [],
+                "options": {
+                    "source": {
+                        "name": "--source",
+                        "shortcut": "",
+                        "accept_value": true,
+                        "is_value_required": true,
+                        "is_multiple": false,
+                        "description": "Source storage type identifier (e.g., \"extension\", \"filemount\", \"database\").",
+                        "default": null
+                    },
+                    "target": {
+                        "name": "--target",
+                        "shortcut": "",
+                        "accept_value": true,
+                        "is_value_required": true,
+                        "is_multiple": false,
+                        "description": "Target storage type identifier (e.g., \"database\", \"extension\").",
+                        "default": null
+                    },
+                    "target-location": {
+                        "name": "--target-location",
+                        "shortcut": "-l",
+                        "accept_value": true,
+                        "is_value_required": true,
+                        "is_multiple": false,
+                        "description": "Target storage location. For \"database\": always \"0\". For \"extension\": EXT: path from allowedExtensionPaths. For \"filemount\": FAL path from allowedFileMounts.",
+                        "default": "0"
+                    },
+                    "form-identifier": {
+                        "name": "--form-identifier",
+                        "shortcut": "-f",
+                        "accept_value": true,
+                        "is_value_required": true,
+                        "is_multiple": false,
+                        "description": "Transfer only the form with this identifier. If omitted, all forms from the source are transferred.",
+                        "default": null
+                    },
+                    "move": {
+                        "name": "--move",
+                        "shortcut": "-m",
+                        "accept_value": false,
+                        "is_value_required": false,
+                        "is_multiple": false,
+                        "description": "Delete the source form after successful transfer (move operation).",
+                        "default": false
+                    },
+                    "dry-run": {
+                        "name": "--dry-run",
+                        "shortcut": "",
+                        "accept_value": false,
+                        "is_value_required": false,
+                        "is_multiple": false,
+                        "description": "Only list forms that would be transferred without making changes.",
+                        "default": false
+                    },
                     "help": {
                         "name": "--help",
                         "shortcut": "-h",
@@ -3335,7 +4695,7 @@
             "name": "impexp:export",
             "description": "Exports a T3D \/ XML file with content of a page tree",
             "usage": [
-                "impexp:export [--type [TYPE]] [--pid [PID]] [--levels [LEVELS]] [--table [TABLE]] [--record [RECORD]] [--list [LIST]] [--include-related [INCLUDE-RELATED]] [--include-static [INCLUDE-STATIC]] [--exclude [EXCLUDE]] [--exclude-disabled-records] [--title [TITLE]] [--description [DESCRIPTION]] [--notes [NOTES]] [--dependency [DEPENDENCY]] [--save-files-outside-export-file] [--] [<filename>]"
+                "impexp:export [--type [TYPE]] [--pid [PID]] [--levels [LEVELS]] [--table [TABLE]] [--record [RECORD]] [--list [LIST]] [--include-related [INCLUDE-RELATED]] [--include-static [INCLUDE-STATIC]] [--exclude [EXCLUDE]] [--exclude-disabled-records] [--title [TITLE]] [--description [DESCRIPTION]] [--notes [NOTES]] [--dependency [DEPENDENCY]] [--save-files-outside-export-file] [--include-site-configurations] [--] [<filename>]"
             ],
             "help": "Exports a T3D \/ XML file with content of a page tree",
             "definition": {
@@ -3482,6 +4842,15 @@
                         "is_value_required": false,
                         "is_multiple": false,
                         "description": "Save files into separate folder instead of including them into the common export file. Folder name pattern is \"{filename}.files\".",
+                        "default": false
+                    },
+                    "include-site-configurations": {
+                        "name": "--include-site-configurations",
+                        "shortcut": "",
+                        "accept_value": false,
+                        "is_value_required": false,
+                        "is_multiple": false,
+                        "description": "Include site configurations for exported root pages.",
                         "default": false
                     },
                     "help": {
@@ -3710,12 +5079,21 @@
             "name": "install:password:set",
             "description": "",
             "usage": [
-                "install:password:set [-d|--dry-run]"
+                "install:password:set [-p|--password-length [PASSWORD-LENGTH]] [-d|--dry-run]"
             ],
             "help": "",
             "definition": {
                 "arguments": [],
                 "options": {
+                    "password-length": {
+                        "name": "--password-length",
+                        "shortcut": "-p",
+                        "accept_value": true,
+                        "is_value_required": false,
+                        "is_multiple": false,
+                        "description": "Specify the length of auto-generated passwords.",
+                        "default": null
+                    },
                     "dry-run": {
                         "name": "--dry-run",
                         "shortcut": "-d",
@@ -3827,6 +5205,173 @@
                         "is_value_required": false,
                         "is_multiple": false,
                         "description": "Include deprecated translation domains.",
+                        "default": false
+                    },
+                    "help": {
+                        "name": "--help",
+                        "shortcut": "-h",
+                        "accept_value": false,
+                        "is_value_required": false,
+                        "is_multiple": false,
+                        "description": "Display help for the given command. When no command is given display help for the <info>list<\/info> command",
+                        "default": false
+                    },
+                    "silent": {
+                        "name": "--silent",
+                        "shortcut": "",
+                        "accept_value": false,
+                        "is_value_required": false,
+                        "is_multiple": false,
+                        "description": "Do not output any message",
+                        "default": false
+                    },
+                    "quiet": {
+                        "name": "--quiet",
+                        "shortcut": "-q",
+                        "accept_value": false,
+                        "is_value_required": false,
+                        "is_multiple": false,
+                        "description": "Only errors are displayed. All other output is suppressed",
+                        "default": false
+                    },
+                    "verbose": {
+                        "name": "--verbose",
+                        "shortcut": "-v|-vv|-vvv",
+                        "accept_value": false,
+                        "is_value_required": false,
+                        "is_multiple": false,
+                        "description": "Increase the verbosity of messages: 1 for normal output, 2 for more verbose output and 3 for debug",
+                        "default": false
+                    },
+                    "version": {
+                        "name": "--version",
+                        "shortcut": "-V",
+                        "accept_value": false,
+                        "is_value_required": false,
+                        "is_multiple": false,
+                        "description": "Display this application version",
+                        "default": false
+                    },
+                    "ansi": {
+                        "name": "--ansi",
+                        "shortcut": "",
+                        "accept_value": false,
+                        "is_value_required": false,
+                        "is_multiple": false,
+                        "description": "Force (or disable --no-ansi) ANSI output",
+                        "default": null
+                    },
+                    "no-ansi": {
+                        "name": "--no-ansi",
+                        "shortcut": "",
+                        "accept_value": false,
+                        "is_value_required": false,
+                        "is_multiple": false,
+                        "description": "Negate the \"--ansi\" option",
+                        "default": null
+                    },
+                    "no-interaction": {
+                        "name": "--no-interaction",
+                        "shortcut": "-n",
+                        "accept_value": false,
+                        "is_value_required": false,
+                        "is_multiple": false,
+                        "description": "Do not ask any interactive question",
+                        "default": false
+                    }
+                }
+            },
+            "hidden": false
+        },
+        {
+            "name": "language:domain:search",
+            "description": "Search for translation domain labels and their references (only for development purpose)",
+            "usage": [
+                "language:domain:search [-e|--extension [EXTENSION]] [-l|--locale [LOCALE]] [-s|--search [SEARCH]] [-r|--regex [REGEX]] [--idonly] [--limit [LIMIT]] [--crop [CROP]] [--flat] [--json]"
+            ],
+            "help": "The command scans all language resource files (XLIFF) within active or\nspecific extensions and lists matching labels by domain, based on a\ngiven search string or regular expression.\n\nThis tool is especially useful during the ongoing consolidation and relocation\nof language labels in Core and extension development, allowing developers to easily\nfind labels and identify replacements when refactoring or cleaning up\ntranslations.\n\nExamples\n========\n\nSearch all active extensions for labels containing the word \"cache\":\n\n    vendor\/bin\/typo3 language:domain:search --search cache\n\nSearch only in the `core` extension using a regular expression:\n\n    vendor\/bin\/typo3 language:domain:search --extension core --regex \"\/cache|clear\/i\"\n\n",
+            "definition": {
+                "arguments": [],
+                "options": {
+                    "extension": {
+                        "name": "--extension",
+                        "shortcut": "-e",
+                        "accept_value": true,
+                        "is_value_required": false,
+                        "is_multiple": false,
+                        "description": "Show translations domains only for the specified extension key.",
+                        "default": ""
+                    },
+                    "locale": {
+                        "name": "--locale",
+                        "shortcut": "-l",
+                        "accept_value": true,
+                        "is_value_required": false,
+                        "is_multiple": false,
+                        "description": "The locale to search in.",
+                        "default": "en"
+                    },
+                    "search": {
+                        "name": "--search",
+                        "shortcut": "-s",
+                        "accept_value": true,
+                        "is_value_required": false,
+                        "is_multiple": false,
+                        "description": "Search for translation labels and label references containing a word.",
+                        "default": ""
+                    },
+                    "regex": {
+                        "name": "--regex",
+                        "shortcut": "-r",
+                        "accept_value": true,
+                        "is_value_required": false,
+                        "is_multiple": false,
+                        "description": "Search for translation labels and label references by regular expression.",
+                        "default": ""
+                    },
+                    "idonly": {
+                        "name": "--idonly",
+                        "shortcut": "",
+                        "accept_value": false,
+                        "is_value_required": false,
+                        "is_multiple": false,
+                        "description": "Only search in identifier, ignore label content.",
+                        "default": false
+                    },
+                    "limit": {
+                        "name": "--limit",
+                        "shortcut": "",
+                        "accept_value": true,
+                        "is_value_required": false,
+                        "is_multiple": false,
+                        "description": "Limit results to the first X results. Set to zero to show all labels. ",
+                        "default": null
+                    },
+                    "crop": {
+                        "name": "--crop",
+                        "shortcut": "",
+                        "accept_value": true,
+                        "is_value_required": false,
+                        "is_multiple": false,
+                        "description": "Crop labels to a maximum of x chars. Set to zero to disable cropping. ",
+                        "default": 50
+                    },
+                    "flat": {
+                        "name": "--flat",
+                        "shortcut": "",
+                        "accept_value": false,
+                        "is_value_required": false,
+                        "is_multiple": false,
+                        "description": "Output a flat list.",
+                        "default": false
+                    },
+                    "json": {
+                        "name": "--json",
+                        "shortcut": "",
+                        "accept_value": false,
+                        "is_value_required": false,
+                        "is_multiple": false,
+                        "description": "Output result as JSON (instead of table or SymfonyStyle messages).",
                         "default": false
                     },
                     "help": {
@@ -4274,9 +5819,9 @@
             "name": "messenger:consume",
             "description": "Consume messages",
             "usage": [
-                "messenger:consume [--sleep SLEEP] [--queues QUEUES] [--exit-code-on-limit EXIT-CODE-ON-LIMIT] [--] [<receivers>...]"
+                "messenger:consume [-l|--limit LIMIT] [-f|--failure-limit FAILURE-LIMIT] [-m|--memory-limit MEMORY-LIMIT] [-t|--time-limit TIME-LIMIT] [--sleep SLEEP] [-b|--bus BUS] [--queues QUEUES] [--all] [--keepalive [KEEPALIVE]] [--] [<receivers>...]"
             ],
-            "help": "The <info>messenger:consume<\/info> command consumes messages and dispatches them to the message bus.\n\n    <info>php .Build\/bin\/typo3 messenger:consume <receiver-name><\/info>\n\nTo receive from multiple transports, pass each name:\n\n    <info>php .Build\/bin\/typo3 messenger:consume receiver1 receiver2<\/info>\n\nUse the --queues option to limit a receiver to only certain queues (only supported by some receivers):\n\n    <info>php .Build\/bin\/typo3 messenger:consume <receiver-name> --queues=fasttrack<\/info>\n",
+            "help": "The <info>messenger:consume<\/info> command consumes messages and dispatches them to the message bus.\n\n    <info>php .Build\/bin\/typo3 messenger:consume <receiver-name><\/info>\n\nTo receive from multiple transports, pass each name:\n\n    <info>php .Build\/bin\/typo3 messenger:consume receiver1 receiver2<\/info>\n\nUse the --limit option to limit the number of messages received:\n\n    <info>php .Build\/bin\/typo3 messenger:consume <receiver-name> --limit=10<\/info>\n\nUse the --failure-limit option to stop the worker when the given number of failed messages is reached:\n\n    <info>php .Build\/bin\/typo3 messenger:consume <receiver-name> --failure-limit=2<\/info>\n\nUse the --memory-limit option to stop the worker if it exceeds a given memory usage limit. You can use shorthand byte values [K, M or G]:\n\n    <info>php .Build\/bin\/typo3 messenger:consume <receiver-name> --memory-limit=128M<\/info>\n\nUse the --time-limit option to stop the worker when the given time limit (in seconds) is reached.\nIf a message is being handled, the worker will stop after the processing is finished:\n\n    <info>php .Build\/bin\/typo3 messenger:consume <receiver-name> --time-limit=3600<\/info>\n\nUse the --bus option to specify the message bus to dispatch received messages\nto instead of trying to determine it automatically. This is required if the\nmessages didn't originate from Messenger:\n\n    <info>php .Build\/bin\/typo3 messenger:consume <receiver-name> --bus=event_bus<\/info>\n\nUse the --queues option to limit a receiver to only certain queues (only supported by some receivers):\n\n    <info>php .Build\/bin\/typo3 messenger:consume <receiver-name> --queues=fasttrack<\/info>\n\nUse the --all option to consume from all receivers:\n\n    <info>php .Build\/bin\/typo3 messenger:consume --all<\/info>",
             "definition": {
                 "arguments": {
                     "receivers": {
@@ -4284,10 +5829,48 @@
                         "is_required": false,
                         "is_array": true,
                         "description": "Names of the receivers\/transports to consume in order of priority",
-                        "default": []
+                        "default": [
+                            "doctrine"
+                        ]
                     }
                 },
                 "options": {
+                    "limit": {
+                        "name": "--limit",
+                        "shortcut": "-l",
+                        "accept_value": true,
+                        "is_value_required": true,
+                        "is_multiple": false,
+                        "description": "Limit the number of received messages",
+                        "default": null
+                    },
+                    "failure-limit": {
+                        "name": "--failure-limit",
+                        "shortcut": "-f",
+                        "accept_value": true,
+                        "is_value_required": true,
+                        "is_multiple": false,
+                        "description": "The number of failed messages the worker can consume",
+                        "default": null
+                    },
+                    "memory-limit": {
+                        "name": "--memory-limit",
+                        "shortcut": "-m",
+                        "accept_value": true,
+                        "is_value_required": true,
+                        "is_multiple": false,
+                        "description": "The memory limit the worker can consume",
+                        "default": null
+                    },
+                    "time-limit": {
+                        "name": "--time-limit",
+                        "shortcut": "-t",
+                        "accept_value": true,
+                        "is_value_required": true,
+                        "is_multiple": false,
+                        "description": "The time limit in seconds the worker can handle new messages",
+                        "default": null
+                    },
                     "sleep": {
                         "name": "--sleep",
                         "shortcut": "",
@@ -4296,6 +5879,15 @@
                         "is_multiple": false,
                         "description": "Seconds to sleep before asking for new messages after no messages were found",
                         "default": 1
+                    },
+                    "bus": {
+                        "name": "--bus",
+                        "shortcut": "-b",
+                        "accept_value": true,
+                        "is_value_required": true,
+                        "is_multiple": false,
+                        "description": "Name of the bus to which received messages should be dispatched (if not passed, bus is determined automatically)",
+                        "default": null
                     },
                     "queues": {
                         "name": "--queues",
@@ -4306,14 +5898,23 @@
                         "description": "Limit receivers to only consume from the specified queues",
                         "default": []
                     },
-                    "exit-code-on-limit": {
-                        "name": "--exit-code-on-limit",
+                    "all": {
+                        "name": "--all",
+                        "shortcut": "",
+                        "accept_value": false,
+                        "is_value_required": false,
+                        "is_multiple": false,
+                        "description": "Consume messages from all receivers",
+                        "default": false
+                    },
+                    "keepalive": {
+                        "name": "--keepalive",
                         "shortcut": "",
                         "accept_value": true,
-                        "is_value_required": true,
+                        "is_value_required": false,
                         "is_multiple": false,
-                        "description": "Exit code when limits are reached",
-                        "default": 0
+                        "description": "Whether to use the transport's keepalive mechanism if implemented",
+                        "default": 5
                     },
                     "help": {
                         "name": "--help",
@@ -6143,6 +7744,24 @@
             ]
         },
         {
+            "id": "configuration",
+            "commands": [
+                "configuration:remove",
+                "configuration:set",
+                "configuration:show"
+            ]
+        },
+        {
+            "id": "content-blocks",
+            "commands": [
+                "content-blocks:assets:publish",
+                "content-blocks:create",
+                "content-blocks:language:generate",
+                "content-blocks:lint",
+                "content-blocks:list"
+            ]
+        },
+        {
             "id": "debug",
             "commands": [
                 "debug:backend:modules",
@@ -6167,8 +7786,18 @@
         {
             "id": "fluid",
             "commands": [
+                "fluid:analyse",
+                "fluid:analyze",
                 "fluid:cache:warmup",
+                "fluid:namespaces",
                 "fluid:schema:generate"
+            ]
+        },
+        {
+            "id": "form",
+            "commands": [
+                "form:cleanup:uploads",
+                "form:definition:transfer"
             ]
         },
         {
@@ -6188,6 +7817,7 @@
             "id": "language",
             "commands": [
                 "language:domain:list",
+                "language:domain:search",
                 "language:update"
             ]
         },
@@ -6201,6 +7831,12 @@
             "id": "mailer",
             "commands": [
                 "mailer:spool:send"
+            ]
+        },
+        {
+            "id": "make",
+            "commands": [
+                "make:content-block"
             ]
         },
         {
@@ -6299,7 +7935,7 @@
             "fqcn": "TYPO3\\CMS\\Install\\Command\\SetupCommand",
             "filename": "\/var\/www\/html\/.Build\/vendor\/typo3\/cms-install\/Classes\/Command\/SetupCommand.php"
         },
-        "assets:publish": {
+        "asset:publish": {
             "fqcn": "TYPO3\\CMS\\Core\\Command\\AssetPublishCommand",
             "filename": "\/var\/www\/html\/.Build\/vendor\/typo3\/cms-core\/Classes\/Command\/AssetPublishCommand.php"
         },
@@ -6371,6 +8007,38 @@
             "fqcn": "T3docs\\Codesnippet\\Command\\PhpDomainCommand",
             "filename": "\/var\/www\/html\/.Build\/vendor\/t3docs\/codesnippet\/Classes\/Command\/PhpDomainCommand.php"
         },
+        "configuration:remove": {
+            "fqcn": "TYPO3\\CMS\\Lowlevel\\Command\\ConfigurationRemoveCommand",
+            "filename": "\/var\/www\/html\/.Build\/vendor\/typo3\/cms-lowlevel\/Classes\/Command\/ConfigurationRemoveCommand.php"
+        },
+        "configuration:set": {
+            "fqcn": "TYPO3\\CMS\\Lowlevel\\Command\\ConfigurationSetCommand",
+            "filename": "\/var\/www\/html\/.Build\/vendor\/typo3\/cms-lowlevel\/Classes\/Command\/ConfigurationSetCommand.php"
+        },
+        "configuration:show": {
+            "fqcn": "TYPO3\\CMS\\Lowlevel\\Command\\ConfigurationShowCommand",
+            "filename": "\/var\/www\/html\/.Build\/vendor\/typo3\/cms-lowlevel\/Classes\/Command\/ConfigurationShowCommand.php"
+        },
+        "content-blocks:assets:publish": {
+            "fqcn": "TYPO3\\CMS\\ContentBlocks\\Command\\PublishAssetsCommand",
+            "filename": "\/var\/www\/html\/.Build\/vendor\/friendsoftypo3\/content-blocks\/Classes\/Command\/PublishAssetsCommand.php"
+        },
+        "content-blocks:create": {
+            "fqcn": "TYPO3\\CMS\\ContentBlocks\\Command\\CreateContentBlockCommand",
+            "filename": "\/var\/www\/html\/.Build\/vendor\/friendsoftypo3\/content-blocks\/Classes\/Command\/CreateContentBlockCommand.php"
+        },
+        "content-blocks:language:generate": {
+            "fqcn": "TYPO3\\CMS\\ContentBlocks\\Command\\GenerateLanguageFileCommand",
+            "filename": "\/var\/www\/html\/.Build\/vendor\/friendsoftypo3\/content-blocks\/Classes\/Command\/GenerateLanguageFileCommand.php"
+        },
+        "content-blocks:lint": {
+            "fqcn": "TYPO3\\CMS\\ContentBlocks\\Command\\LintContentBlocksCommand",
+            "filename": "\/var\/www\/html\/.Build\/vendor\/friendsoftypo3\/content-blocks\/Classes\/Command\/LintContentBlocksCommand.php"
+        },
+        "content-blocks:list": {
+            "fqcn": "TYPO3\\CMS\\ContentBlocks\\Command\\ListContentBlocksCommand",
+            "filename": "\/var\/www\/html\/.Build\/vendor\/friendsoftypo3\/content-blocks\/Classes\/Command\/ListContentBlocksCommand.php"
+        },
         "debug:backend:modules": {
             "fqcn": "TYPO3\\CMS\\Backend\\Command\\DebugBackendModulesCommand",
             "filename": "\/var\/www\/html\/.Build\/vendor\/typo3\/cms-backend\/Classes\/Command\/DebugBackendModulesCommand.php"
@@ -6399,13 +8067,29 @@
             "fqcn": "TYPO3\\CMS\\Core\\Command\\SetupExtensionsCommand",
             "filename": "\/var\/www\/html\/.Build\/vendor\/typo3\/cms-core\/Classes\/Command\/SetupExtensionsCommand.php"
         },
+        "fluid:analyze": {
+            "fqcn": "TYPO3\\CMS\\Fluid\\Command\\AnalyzeCommand",
+            "filename": "\/var\/www\/html\/.Build\/vendor\/typo3\/cms-fluid\/Classes\/Command\/AnalyzeCommand.php"
+        },
         "fluid:cache:warmup": {
             "fqcn": "TYPO3\\CMS\\Fluid\\Command\\WarmupCommand",
             "filename": "\/var\/www\/html\/.Build\/vendor\/typo3\/cms-fluid\/Classes\/Command\/WarmupCommand.php"
         },
+        "fluid:namespaces": {
+            "fqcn": "TYPO3\\CMS\\Fluid\\Command\\NamespacesCommand",
+            "filename": "\/var\/www\/html\/.Build\/vendor\/typo3\/cms-fluid\/Classes\/Command\/NamespacesCommand.php"
+        },
         "fluid:schema:generate": {
             "fqcn": "TYPO3\\CMS\\Fluid\\Command\\SchemaCommand",
             "filename": "\/var\/www\/html\/.Build\/vendor\/typo3\/cms-fluid\/Classes\/Command\/SchemaCommand.php"
+        },
+        "form:cleanup:uploads": {
+            "fqcn": "TYPO3\\CMS\\Form\\Command\\CleanupFormUploadsCommand",
+            "filename": "\/var\/www\/html\/.Build\/vendor\/typo3\/cms-form\/Classes\/Command\/CleanupFormUploadsCommand.php"
+        },
+        "form:definition:transfer": {
+            "fqcn": "TYPO3\\CMS\\Form\\Command\\TransferFormDefinitionCommand",
+            "filename": "\/var\/www\/html\/.Build\/vendor\/typo3\/cms-form\/Classes\/Command\/TransferFormDefinitionCommand.php"
         },
         "impexp:export": {
             "fqcn": "TYPO3\\CMS\\Impexp\\Command\\ExportCommand",
@@ -6423,9 +8107,13 @@
             "fqcn": "TYPO3\\CMS\\Lowlevel\\Command\\TranslationDomainListCommand",
             "filename": "\/var\/www\/html\/.Build\/vendor\/typo3\/cms-lowlevel\/Classes\/Command\/TranslationDomainListCommand.php"
         },
+        "language:domain:search": {
+            "fqcn": "TYPO3\\CMS\\Lowlevel\\Command\\TranslationDomainSearchCommand",
+            "filename": "\/var\/www\/html\/.Build\/vendor\/typo3\/cms-lowlevel\/Classes\/Command\/TranslationDomainSearchCommand.php"
+        },
         "language:update": {
-            "fqcn": "TYPO3\\CMS\\Install\\Command\\LanguagePackCommand",
-            "filename": "\/var\/www\/html\/.Build\/vendor\/typo3\/cms-install\/Classes\/Command\/LanguagePackCommand.php"
+            "fqcn": "TYPO3\\CMS\\Core\\Command\\UpdateLanguagePackCommand",
+            "filename": "\/var\/www\/html\/.Build\/vendor\/typo3\/cms-core\/Classes\/Command\/UpdateLanguagePackCommand.php"
         },
         "lint:yaml": {
             "fqcn": "Symfony\\Component\\Yaml\\Command\\LintCommand",
