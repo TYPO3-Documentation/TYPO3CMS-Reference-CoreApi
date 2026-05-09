@@ -29,8 +29,3 @@ One can retrieve the nonce like this:
         $nonce->consumeInline(Directive::ScriptSrcElem); // inline script
         $nonce->consumeStatic(Directive::StyleSrcElem);  // static style
     }
-
-..  versionchanged:: 13.4.20
-    Since TYPO3 v13.4.20 the :php-short:`\TYPO3\CMS\Core\Security\ContentSecurityPolicy\ConsumableNonce`
-    class does not inherit from :php-short:`\TYPO3\CMS\Core\Domain\ConsumableString`
-    anymore.

@@ -12,10 +12,9 @@ FlexForms can be used to store data within an XML structure inside a single DB
 column.
 
 ..  attention::
-    ..  versionchanged:: 13.0
-        The superfluous tag :xml:`TCEforms` was removed and is not evaluated
-        anymore. All :xml:`TCEforms` tags **must** be removed. Otherwise the
-        FlexForm is displayed broken in the backend records.
+    The superfluous tag :xml:`TCEforms` was removed and is not evaluated
+    anymore. All :xml:`TCEforms` tags **must** be removed. Otherwise the
+    FlexForm is displayed broken in the backend records.
 
 ..  contents::
 

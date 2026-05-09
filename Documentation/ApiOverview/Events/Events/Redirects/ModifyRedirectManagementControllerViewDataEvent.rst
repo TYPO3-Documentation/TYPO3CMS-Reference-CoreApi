@@ -21,18 +21,12 @@ view. With :ref:`overriding the backend view template <t3tsref:pagetemplates>`
 via :ref:`page TSconfig <t3tsref:pagetsconfig>` this custom data can be
 displayed where it is needed and rendered the way it is wanted.
 
-..  versionadded:: 13.0
-    The methods :php:`getIntegrityStatusCodes()` and
-    :php:`setIntegrityStatusCodes()` have been added to the event class.
-
 Example
 =======
 
 ..  literalinclude:: _ModifyRedirectManagementControllerViewDataEvent/_MyEventListener.php
     :language: php
     :caption: EXT:my_extension/Classes/Redirects/EventListener/MyEventListener.php
-
-..  include:: /_includes/EventsAttributeAdded.rst.txt
 
 API
 ===

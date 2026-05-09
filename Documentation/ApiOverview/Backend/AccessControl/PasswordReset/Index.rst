@@ -29,12 +29,6 @@ The new password that the user specifies must comply with the configured
 The username of the backend user is displayed in the password recovery
 email alongside the reset link.
 
-..  versionadded:: 13.0
-    A new array variable :html:`{userData}` has been added to the password
-    recovery :php:`FluidEmail` object. It contains the values of all fields
-    belonging to the affected frontend user.
-
-
 Notes on security
 =================
 

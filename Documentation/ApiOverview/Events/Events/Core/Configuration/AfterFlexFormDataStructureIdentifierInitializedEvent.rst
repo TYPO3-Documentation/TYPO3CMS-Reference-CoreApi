@@ -28,8 +28,6 @@ Example
     :language: php
     :caption: EXT:my_extension/Classes/Configuration/EventListener/FlexFormParsingModifyEventListener.php
 
-..  include:: /_includes/EventsAttributeAdded.rst.txt
-
 API
 ===
 

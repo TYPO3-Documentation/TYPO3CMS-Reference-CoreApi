@@ -52,7 +52,7 @@ in your project root (not in your web root).
 
 You can use the :file:`composer.json` file from `typo3/cms-base-distribution` as an
 example. Use the file from the branch which matches your current version, for
-example `12.x <https://github.com/typo3/TYPO3.CMS.BaseDistribution/tree/12.x/composer.json>`__.
+example `14.x <https://github.com/typo3/TYPO3.CMS.BaseDistribution/tree/14.x/composer.json>`__.
 
 However, this file may require extensions you don't need or omit extensions you do
 need, so be sure to update the required extensions as described in the next
@@ -71,7 +71,7 @@ which use a guided approach to create the file.
    This is optional.
 
    You can look at previous versions of the
-   `Base Distribution's composer.json <https://github.com/typo3/TYPO3.CMS.BaseDistribution/tree/12.x/composer.json>`__
+   `Base Distribution's composer.json <https://github.com/typo3/TYPO3.CMS.BaseDistribution/tree/14.x/composer.json>`__
    for differences between the TYPO3 versions.
 
 
@@ -119,19 +119,19 @@ allow you to continuously update your installed packages and get an expected out
 
 There are different ways to define the version of the package you want
 to install. The most common syntaxes start with `^` (e.g.
-`^12.4`) or with `~` (e.g. `~12.4.0`). Full documentation can be
+`^14.3`) or with `~` (e.g. `~14.3.0`). Full documentation can be
 found at https://getcomposer.org/doc/articles/versions.md
 
 In short:
 
-*  `^12.4` or `^12.4.0` tells Composer to add the newest package of
-   version `12.\*` with at least `12.4.0`. When a package releases
-   version `12.9.5`, you would receive that version. Version
-   `13.0.1` would not be fetched. So this allows any new
+*  `^14.3` or `^114.3.0` tells Composer to add the newest package of
+   version `14.\*` with at least `14.3.0`. When a package releases
+   version `14.9.5`, you would receive that version. Version
+   `14.0.1` would not be fetched. So this allows any new
    minor or patch-level version, but not a new major version.
 
-*  `~12.4.0` tells Composer to add the newest package of version
-   `12.4.\*` with at least `12.4.0`, but not version `12.5.0` or `13.0.1`.
+*  `~14.3.0` tells Composer to add the newest package of version
+   `14.3.\*` with at least `14.3.0`, but not version `14.5.0` or `14.0.1`.
    This would only fetch newer patch-level versions of a package.
 
 You have to decide which syntax best fits your needs.
@@ -154,8 +154,8 @@ install additional system extensions:
 .. code-block:: shell
    :caption: typo3_root$
 
-   composer require typo3/minimal:^12.4
-   composer require typo3/cms-scheduler:^12.4
+   composer require typo3/minimal:^14.3
+   composer require typo3/cms-scheduler:^14.3
    composer require ...
 
 Or, in one line:
@@ -163,7 +163,7 @@ Or, in one line:
 .. code-block:: shell
    :caption: typo3_root$
 
-   composer require typo3/minimal:^12.4 typo3/cms-scheduler:^12.4 ...
+   composer require typo3/minimal:^14.3 typo3/cms-scheduler:^14.3 ...
 
 To find the correct package names, either take a look in the
 :file:`composer.json` of that system extension or follow the naming

@@ -214,10 +214,6 @@ One can check whether a feature is enabled in TypoScript with the function
 Feature toggles in Fluid
 ========================
 
-..  versionadded:: 13.2
-    A new condition-based Fluid ViewHelper was added. It allows
-    integrators to check for feature flags from within Fluid templates.
-
 The :ref:`t3viewhelper:typo3-fluid-feature` can be used to check for a feature in a Fluid
 template:
 

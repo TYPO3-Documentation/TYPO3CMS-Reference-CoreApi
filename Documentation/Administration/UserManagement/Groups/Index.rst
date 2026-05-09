@@ -29,10 +29,6 @@ for fine tuning of user group permissions.
 Console command to create backend user groups from presets
 ==========================================================
 
-..  versionadded:: 13.2
-    With the introduction of backend user presets it is now possible to
-    create basic user groups via command.
-
 You can use the :bash:`vendor/bin/typo3 setup:begroups:default` to create
 pre-configured backend user groups without touching the TYPO3 backend.
 

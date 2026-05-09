@@ -28,8 +28,6 @@ This event adds an additional BCC receiver right before the mail is sent:
     :language: php
     :caption: EXT:my_extension/Classes/Mail/EventListener/AddMailMessageBcc.php
 
-..  include:: /_includes/EventsAttributeAdded.rst.txt
-
 ..  _BeforeMailerSentMessageEvent-api:
 
 API

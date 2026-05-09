@@ -194,8 +194,8 @@ to automatically refactor the code for a lot of deprecations.
     If PHP classes, methods, constants, functions or parameters are to be
     removed, they will be *marked as deprecated* first and not removed until the
     next major release of TYPO3. For example: a method that gets deprecated in
-    version 12.3.0 will remain fully functional in all 12.x.y releases, but will
-    be removed in version 13.
+    version 13.3.0 will remain fully functional in all 13.x.y releases, but will
+    be removed in version v14.
 
     This strategy gives developers sufficient time to adjust their TYPO3
     extensions, assuming many agencies upgrade from one LTS release to the next

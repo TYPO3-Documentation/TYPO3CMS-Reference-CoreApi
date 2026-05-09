@@ -197,12 +197,11 @@ Implementing an event listener in your extension
     :ref:`Listen to an event <extension-development-event-listener>` in the
     extension development how-to section.
 
-..  versionadded:: 13.0
-    A `PHP attribute`_ :php:`\TYPO3\CMS\Core\Attribute\AsEventListener` is
-    available to autoconfigure a class as an event listener. If the PHP
-    attribute is used, the :ref:`configuration of the event listener
-    <EventDispatcherRegistration>` via the :file:`Configuration/Services.yaml`
-    file is not necessary anymore.
+A `PHP attribute`_ :php:`\TYPO3\CMS\Core\Attribute\AsEventListener` is
+available to autoconfigure a class as an event listener. If the PHP
+attribute is used, the :ref:`configuration of the event listener
+<EventDispatcherRegistration>` via the :file:`Configuration/Services.yaml`
+file is not necessary anymore.
 
 ..  _PHP attribute: https://www.php.net/manual/en/language.attributes.overview.php
 
@@ -280,11 +279,6 @@ be written as:
 
 Registering the event listener via :file:`Services.yaml`
 --------------------------------------------------------
-
-..  versionadded:: 13.0
-    If using the PHP attribute :php:`\TYPO3\CMS\Core\Attribute\AsEventListener`
-    to configure an event listener, the registration in the
-    :file:`Configuration/Services.yaml` file is not necessary anymore.
 
 If an extension author wants to provide a custom event listener, an according
 entry with the tag :yaml:`event.listener` can be added to the

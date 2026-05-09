@@ -24,8 +24,6 @@ Example
     :language: php
     :caption: EXT:my_extension/Classes/EventListener/ModifyComponentDefinitionListener.php
 
-..  include:: /_includes/EventsAttributeAdded.rst.txt
-
 API
 ===
 

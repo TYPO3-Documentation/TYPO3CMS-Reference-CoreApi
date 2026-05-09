@@ -8,7 +8,7 @@
 Frontend cache collector
 ========================
 
-..  versionadded:: 13.3
+..  versionchanged:: 14.0
     This request attribute is a replacement for
     :php:`TypoScriptFrontendController->addCacheTags()` and
     :php:`TypoScriptFrontendController->getPageCacheTags()` which has been

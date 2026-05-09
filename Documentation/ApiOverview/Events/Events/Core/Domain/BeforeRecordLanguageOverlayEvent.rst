@@ -27,8 +27,6 @@ type that has languages connected.
     :language: php
     :caption: EXT:my_extension/Classes/Domain/Language/MyEventListener.php
 
-..  include:: /_includes/EventsAttributeAdded.rst.txt
-
 ..  _BeforeRecordLanguageOverlayEvent-api:
 
 API

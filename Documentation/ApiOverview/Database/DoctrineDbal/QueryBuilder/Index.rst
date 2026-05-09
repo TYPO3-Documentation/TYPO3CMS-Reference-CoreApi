@@ -1020,31 +1020,6 @@ Remarks:
     reset of previous instructions is required, this method call should best
     be omitted for best compatibility.
 
-..  versionchanged:: 13.0
-    Starting with TYPO3 13 `null` instead of argument `0` (integer)
-    must be used in :php:`->setMaxResults()` to return
-    the complete result set without any :sql:`LIMIT`.
-
-.. _database-query-builder-add:
-
-add()
-=====
-
-..  versionchanged:: 13.0
-    With the upgrade to Doctrine DBAL version 4 this method has been removed.
-
-**Migration:** use the direct methods instead:
-
-..  csv-table:: Replacements
-    :header: "Before", "After"
-
-    ":php:`->add('select', $array)`", ":php:`->select(...$array)`"
-    ":php:`->add('where', $constraints)`", ":php:`->where(...$constraints)`"
-    ":php:`->add('having', $havings)`", ":php:`->having(...$havings)`"
-    ":php:`->add('orderBy', $orderBy)`", ":php:`->orderBy($orderByField, $orderByDirection)->addOrderBy($orderByField2)`"
-    ":php:`->add('groupBy', $groupBy)`", ":php:`->groupBy($groupField)->addGroupBy($groupField2)`"
-
-
 .. _database-query-builder-get-sql:
 
 getSQL()
@@ -1143,14 +1118,11 @@ Remarks:
 executeQuery() and executeStatement()
 =====================================
 
-..  versionchanged:: 13.0
-    The :php:`->execute()` method has been removed. Use
+Use :php:`->executeQuery()`, which returns a :php:`\Doctrine\DBAL\Result` for
+querries with results like `->select(...)->from()...`.
 
-    *   :php:`->executeQuery()` returning a :php:`\Doctrine\DBAL\Result` instead
-        of a :php:`\Doctrine\DBAL\Statement` (like the :php:`->execute()`
-        method returned) and
-
-    *   :php:`->executeStatement()` returning the number of affected rows.
+Use  :php:`->executeStatement()` returning the number of affected rows like
+`->update(...)` and `->insert(...)`.
 
 ..  _database-query-builder-execute-query:
 
@@ -1234,12 +1206,6 @@ Remarks:
 
 createNamedParameter()
 ======================
-
-..  versionchanged:: 13.0
-    Doctrine DBAL v4 dropped the support for using the :php:`\PDO::PARAM_*`
-    constants in favor of the enum types. Be aware of this and use
-    :php:`\TYPO3\CMS\Core\Database\Connection::PARAM_*`, which can already be
-    used in TYPO3 v12 and v11.
 
 This method creates a placeholder for a field value of a prepared statement.
 **Always** use this when dealing with user input in expressions to protect the

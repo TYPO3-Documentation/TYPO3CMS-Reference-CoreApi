@@ -29,10 +29,6 @@ stored in the global variable :php:`$GLOBALS['BE_USER']`
 Sudo mode (step-up authentication) for password changes
 =======================================================
 
-..  versionadded:: 12.4.32 / 13.4.13
-    This functionality was introduced in response to security advisory `TYPO3-CORE-SA-2025-013 <https://typo3.org/security/advisory/typo3-core-sa-2025-013>`_
-    to mitigate password-change risks.
-
 This mechanism prevents unauthorized password changes if an administrator
 session is hijacked or left unattended.
 

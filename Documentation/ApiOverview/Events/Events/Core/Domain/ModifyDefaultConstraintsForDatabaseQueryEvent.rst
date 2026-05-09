@@ -6,10 +6,6 @@
 ModifyDefaultConstraintsForDatabaseQueryEvent
 =============================================
 
-..  versionadded:: 13.0
-    This event serves as a replacement for the removed hook
-    :php:`$GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['t3lib/class.t3lib_page.php']['addEnableColumns']`.
-
 The API class :php:`\TYPO3\CMS\Core\Domain\Repository\PageRepository` has a
 method :php:`getDefaultConstraints()` which accumulates common
 restrictions for a database query. The purpose is to limit queries for

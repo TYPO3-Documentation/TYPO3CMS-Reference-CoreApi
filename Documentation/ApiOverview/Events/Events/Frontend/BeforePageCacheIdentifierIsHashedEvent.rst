@@ -6,11 +6,6 @@
 BeforePageCacheIdentifierIsHashedEvent
 ======================================
 
-..  versionadded:: 13.0
-    This event has been introduced to serve as a direct replacement for the removed
-    :php:`$GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['tslib/class.tslib_fe.php']['createHashBase']`
-    hook.
-
 The PSR-14 event :php:`\TYPO3\CMS\Frontend\Event\BeforePageCacheIdentifierIsHashedEvent`
 is dispatched just before the final page cache identifier is created, that is
 used to get - and later set, if needed and allowed - the page cache row.

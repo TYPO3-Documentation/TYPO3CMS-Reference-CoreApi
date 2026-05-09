@@ -29,26 +29,26 @@ TYPO3 is offered in Long Term Support (LTS) and Sprint Release versions.
 
 The first versions of each branch are Sprint Release versions. A Sprint Release
 version only receives support until the next Sprint Release got published. For
-example, TYPO3 v12.0.0 was the first Sprint Release of the v12 branch and its
-support ended when TYPO3 v12.1.0 got released.
+example, TYPO3 v14.0.0 was the first Sprint Release of the v14 branch and its
+support ended when TYPO3 v14.1.0 got released.
 
 An LTS version is planned to be created every 18 months. LTS versions are created
 from a branch in order to finalize it: Prior to reaching LTS status, a number of
 Sprint Releases has been created from that branch and the release of an LTS version
 marks the point after which no new features will be added to this branch. LTS
 versions get full support (bug fixes and security fixes) for at least three years.
-TYPO3 version 11 (v11) and v12 are such LTS versions.
+TYPO3 version 14 (v14) and v13 are such LTS versions.
 
 The minor-versions are skipped in the official
-naming. 13 LTS is version v13.4 internally and 12 LTS is v12.4. Versions inside
-a major-version have minor-versions as usual (v13.0, v13.1, ...) until at some
+naming. 14 LTS is version v14.3 internally and 13 LTS is v13.4. Versions inside
+a major-version have minor-versions as usual (v14.0, v14.1, ...) until at some
 point the branch receives LTS status.
 
 Support and security fixes are provided for the current as well as the
-preceding LTS release. For example, when TYPO3 v13 is the current LTS release,
-TYPO3 v12 is still actively supported, including security updates.
+preceding LTS release. For example, when TYPO3 v14 is the current LTS release,
+TYPO3 v13 is still actively supported, including security updates.
 
-For users of v12 an update to v13 is recommended. All versions below TYPO3 v12 are
+For users of v13 an update to v14 is recommended. All versions below TYPO3 v13 are
 outdated and the regular support of these versions has ended, including security updates.
 Users of these versions are strongly encouraged to update their systems
 as soon as possible.
@@ -66,7 +66,7 @@ required. The content rendering may change, so that updates in
 TypoScript, templates or CSS code may be necessary. With LTS and
 Sprint Releases also the system requirements (for example PHP or MySQL
 version) may change. For a patch level release (i.e.
-changing from release v12.4.0 to v12.4.1) the database structure and
+changing from release v14.3.0 to v14.3.1) the database structure and
 backend will usually not change and an update will only require the
 new version of the source code.
 
@@ -78,9 +78,11 @@ List of TYPO3 LTS releases:
     can be ordered at https://typo3.com/services/extended-support-elts
 *   v11 (11.5 ELTS): No free bugfix/security update. Extended long-term support
     can be ordered at https://typo3.com/services/extended-support-elts
-*   v12 (12.4 LTS): Versions 12.0 through 12.3 do not receive security
-    updates any longer
+*   v12 (12.4 LTS): No free bugfix/security update. Extended long-term support
+    can be ordered at https://typo3.com/services/extended-support-elts
 *   v13 (13.4 LTS): Versions 13.0 through 13.3 do not receive security
+    updates any longer
+*   v14 (14.3 LTS): Versions 14.0 through 14.2 do not receive security
     updates any longer
 
 

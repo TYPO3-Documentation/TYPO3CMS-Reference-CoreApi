@@ -62,10 +62,6 @@ The request object compatible with the PSR-7
 Extbase validator
 -----------------
 
-..  versionadded:: 13.2
-    Extbase :php-short:`\TYPO3\CMS\Extbase\Validation\Validator\AbstractValidator`
-    provides a getter and a setter for the PSR-7 Request object.
-
 In Extbase validators the current request is available with
 `$this->getRequest()` if they extend the :php-short:`\TYPO3\CMS\Extbase\Validation\Validator\AbstractValidator`:
 

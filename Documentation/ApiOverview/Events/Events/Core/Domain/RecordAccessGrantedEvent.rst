@@ -20,8 +20,6 @@ Example
     :language: php
     :caption: EXT:my_extension/Classes/Domain/Access/MyEventListener.php
 
-..  include:: /_includes/EventsAttributeAdded.rst.txt
-
 API
 ===
 

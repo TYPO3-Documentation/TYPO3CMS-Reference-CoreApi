@@ -45,8 +45,6 @@ The following configuration variables can be used to configure the TYPO3 backend
     :type: string (file path)
     :Default: `"var/lock/LOCK_BACKEND"` (Composer mode) | `"config/LOCK_BACKEND"` (Classic mode)
 
-    ..  versionadded:: 13.3
-
     Defines the location of the flag file :file:`LOCK_BACKEND`. The file
     temporarily restricts backend access to prevent unauthorized
     changes or during critical updates.
@@ -590,15 +588,6 @@ The following configuration variables can be used to configure the TYPO3 backend
     See also :ref:`security guidelines
     <security-global-typo3-options-fileDenyPattern>`.
 
-..  _typo3ConfVars_be_flexformForceCDATA:
-
-..  confval:: flexformForceCDATA
-    :Path: $GLOBALS['TYPO3_CONF_VARS']['BE']['flexformForceCDATA']
-    :name: globals-typo3-conf-vars-be-flexformForceCDATA
-
-    ..  versionchanged:: 13.0
-        This option was removed in TYPO3 v13.0.
-
 ..  _typo3ConfVars_be_versionNumberInFilename:
 
 ..  confval:: versionNumberInFilename
@@ -777,8 +766,6 @@ The following configuration variables can be used to configure the TYPO3 backend
     :name: globals-typo3-conf-vars-be-entryPoint
     :type: string
     :Default: '/typo3'
-
-    ..  versionadded:: 13.0
 
     A custom backend entry point can be configured by specifying a custom URL
     path or domain name.

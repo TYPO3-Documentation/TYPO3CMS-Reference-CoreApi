@@ -450,14 +450,11 @@ Description of keywords in syntax:
 
 
 ..  caution::
-    .. versionchanged:: 13.0.1/12.4.11/11.5.35
 
-    Modifying the :sql:`sys_file` table using DataHandler is blocked since TYPO3
-    version 11.5.35, 12.4.11, and 13.0.1. The table
-    should not be extended and additional fields should be added to
+    Modifying the :sql:`sys_file` table using DataHandler is blocked. The table
+    **must** not be extended and additional fields should be added to
     :sql:`sys_file_metadata`. See `security advisory TYPO3-CORE-SA-2024-006 <https://typo3.org/security/advisory/typo3-core-sa-2024-006>`__
     for more information.
-
 
 ..  index:: DataHandler; Data submission
 ..  _tce-data-examples:
@@ -624,14 +621,6 @@ custom ViewHelper):
 ..  literalinclude:: _SomeController.php
     :language: php
     :caption: EXT:my_extension/Classes/Controller/SomeController.php
-
-..  versionadded:: 13.3
-    The :ref:`frontend.cache.collector <typo3-request-attribute-frontend-cache-collector>`
-    request attribut has been introduced as a successor of the now deprecated
-    :php:`TypoScriptFrontendController->addCacheTags()` method. Switch to
-    another version of this page for an example in an older TYPO3 version. For
-    compatibility with TYPO3 v12 and v13 use
-    :php:`TypoScriptFrontendController->addCacheTags()`.
 
 Hook for cache post-processing
 ------------------------------

@@ -21,8 +21,6 @@ Example
     :language: php
     :caption: EXT:my_extension/Classes/EventListener/CustomMirror.php
 
-..  include:: /_includes/EventsAttributeAdded.rst.txt
-
 API
 ===
 

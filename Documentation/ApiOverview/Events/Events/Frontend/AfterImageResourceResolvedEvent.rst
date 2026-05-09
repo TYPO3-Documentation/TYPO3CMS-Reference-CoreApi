@@ -6,10 +6,6 @@
 AfterImageResourceResolvedEvent
 ===============================
 
-..  versionadded:: 13.0
-    This event serves as a drop-in replacement for the removed hook
-    :php:`$GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['tslib/class.tslib_content.php']['getImgResource']`.
-
 The PSR-14 event
 :php:`\TYPO3\CMS\Frontend\ContentObject\Event\AfterImageResourceResolvedEvent`
 is being dispatched just before :php:`ContentObjectRenderer->getImgResource()`
@@ -24,8 +20,6 @@ Example
 ..  literalinclude:: _AfterImageResourceResolvedEvent/_MyEventListener.php
     :language: php
     :caption: EXT:my_extension/Classes/Frontend/EventListener/MyEventListener.php
-
-..  include:: /_includes/EventsAttributeAddedNew.rst.txt
 
 API
 ===

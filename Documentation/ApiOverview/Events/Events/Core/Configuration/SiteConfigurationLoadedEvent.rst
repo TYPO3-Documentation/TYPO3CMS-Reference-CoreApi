@@ -32,8 +32,6 @@ For more sophisticated examples, see also
 `Automatically register route enhancer definitions stored in TYPO3 extensions <https://brotkrueml.dev/register-route-enhancer-definitions-extensions-automatically-typo3/>`__.
 
 
-..  include:: /_includes/EventsAttributeAdded.rst.txt
-
 API
 ===
 

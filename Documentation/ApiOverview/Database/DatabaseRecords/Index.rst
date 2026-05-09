@@ -117,9 +117,6 @@ historic reasons. Read more about it in chapter :ref:`content-element-and-plugin
 Record objects
 ==============
 
-..  versionadded:: 13.2
-    Record objects have been introduced as an experimental feature.
-
 Record objects are instances of :php:`\TYPO3\CMS\Core\Domain\Record` and
 contain an object-oriented representation of a database record.
 

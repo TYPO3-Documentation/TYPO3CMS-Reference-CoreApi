@@ -6,7 +6,7 @@ $EM_CONF[$_EXTKEY] = [
     'version' => '1.0.0',
     'constraints' => [
         'depends' => [
-            'felogin' => '12.4.0-13.4.99',
+            'felogin' => '13.4.0-14.3.99',
         ],
         'conflicts' => [],
         'suggests' => [],

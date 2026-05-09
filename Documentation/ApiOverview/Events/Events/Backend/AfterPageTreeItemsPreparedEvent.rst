@@ -20,8 +20,6 @@ items contain the corresponding page record in the special :php:`_page` key.
 Labels
 ======
 
-..  versionadded:: 13.1
-
 Tree node labels can be defined which offer customizable color markings for
 tree nodes. They also require an associated label for improved
 accessibility. Each node can support multiple labels, sorted by priority, with
@@ -36,8 +34,6 @@ additional labels will only be added to the title of the node.
 
 Status information
 ==================
-
-..  versionadded:: 13.1
 
 Tree nodes can incorporate status information. These details serve to indicate
 the status of nodes and provide supplementary information. For instance, if a
@@ -57,8 +53,6 @@ Example
 ..  literalinclude:: _AfterPageTreeItemsPreparedEvent/_MyEventListener.php
     :language: php
     :caption: EXT:my_extension/Classes/Backend/EventListener/MyEventListener.php
-
-..  include:: /_includes/EventsAttributeAdded.rst.txt
 
 ..  _AfterPageTreeItemsPreparedEvent-api:
 

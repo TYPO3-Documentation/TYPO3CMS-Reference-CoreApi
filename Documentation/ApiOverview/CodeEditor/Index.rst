@@ -6,15 +6,6 @@
 Code editor
 ===========
 
-..  versionchanged:: 13.0
-    The code editor functionality was moved from the optional "t3editor" system
-    extension into the "backend" system extension. The code editor is therefore
-    always available.
-
-    Checks whether the previous system extension is installed via
-    :php:`\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::isLoaded('t3editor')`
-    are now obsolete.
-
 The code editor provides a backend editor with syntax highlighting. The editor
 is used by TYPO3 itself for :ref:`TCA fields with type "text" and renderType
 "codeEditor" <t3tca:columns-text-renderType-codeEditor>` and in the module

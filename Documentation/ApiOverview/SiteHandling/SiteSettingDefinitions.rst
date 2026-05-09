@@ -7,12 +7,6 @@
 Site settings definitions
 =========================
 
-..  versionadded:: 13.1
-    Site-scoped setting definitions where introduced. They will most likely be
-    the place to configure site-wide configuration, which was previously only
-    possible to modify via modifying TypoScript constants, for example in the
-    Constant Editor.
-
 Site settings definitions allow to define settings with a type and a guaranteed
 default value. They can be defined in :ref:`site-sets`, in a file called
 :file:`settings.definitions.yaml <set-settings-definitions-yaml>`.
@@ -251,13 +245,6 @@ Definition types
         :name: site-setting-type-page
         :type: string
         :Path: settings.[my_val].type = page
-
-        ..  versionadded:: 13.4.15
-            This type has been added to compensate the missing UX functionality
-            when using `type=int` to reference page records.
-            Integrators had no way to look up page ids while editing site
-            settings. This type adds an integrated page browser that solves this
-            problem.
 
         ..  figure:: /Images/ManualScreenshots/SiteHandling/SiteSettingsTypePage.png
             :alt: Screenshot of a site setting field of type page

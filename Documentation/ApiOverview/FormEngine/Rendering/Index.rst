@@ -152,8 +152,6 @@ The result array for container and element nodes looks like this.
         'additionalInlineLanguageLabelFiles' => [],
         'stylesheetFiles' => [],
         'javaScriptModules' => $javaScriptModules,
-        /** @deprecated requireJsModules will be removed in TYPO3 v13.0 */
-        'requireJsModules' => [],
         'inlineData' => [],
         'html' => '',
     ]

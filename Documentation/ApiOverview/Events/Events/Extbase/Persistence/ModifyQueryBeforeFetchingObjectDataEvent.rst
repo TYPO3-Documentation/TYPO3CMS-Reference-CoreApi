@@ -22,8 +22,6 @@ centralized and does not to be repeated in each repository class.
     :language: php
     :caption: EXT:my_extension/Classes/Extbase/EventListener/DisableRespectStoragePage.php
 
-..  include:: /_includes/EventsAttributeAdded.rst.txt
-
 API
 ===
 

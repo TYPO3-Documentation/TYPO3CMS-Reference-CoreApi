@@ -35,8 +35,6 @@ Example
     :language: php
     :caption: EXT:my_extension/Classes/Linkvalidator/EventListener/MyEventListener.php
 
-..  include:: /_includes/EventsAttributeAdded.rst.txt
-
 The :php:`\TYPO3\CMS\Linkvalidator\Result\LinkAnalyzerResult` contains the
 following information by default:
 

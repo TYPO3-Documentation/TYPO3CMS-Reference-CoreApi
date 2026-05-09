@@ -67,16 +67,6 @@ format that is not directly valid for any database system. TYPO3 utilizes Doctri
 interpret and translate these statements into valid SQL for the specific target
 :abbr:`DBMS (Database Management System)`, such as MySQL, MariaDB, PostgreSQL, or SQLite.
 
-..  versionchanged:: 13.4
-    Settings defined at the column level in :file:`ext_tables.sql` are respected for
-    MySQL and MariaDB.
-
-    This allows specifying different encodings or collations for individual
-    columns. Use this carefully, as mixing collations may require special
-    handling during queries.
-
-    See also: `Important: #106508 - Respect column CHARACTER SET and COLLATE in ext_tables.sql <https://docs.typo3.org/permalink/changelog:important-106508-1743692685>`_
-
 ..  _ext-tables-sql-types:
 
 Database types
@@ -88,12 +78,6 @@ The following database types require special consideration if you use them:
 
 `CHAR` and `BINARY` as fixed length columns
 -------------------------------------------
-
-..  versionchanged:: 13.4
-    Fixed and variable length variants have been parsed already in the past,
-    but missed to flag the column as fixed for the fixed-length database field
-    types :sql:`CHAR` and :sql:`BINARY`. This resulted in the wrong creation of
-    these columns as :sql:`VARCHAR` and :sql:`VARBINARY`, which is now corrected.
 
 Not all database systems (RDBMS) act the same way for fixed-length columns.
 Implementation differences need to be respected to ensure the same query/data
@@ -194,8 +178,6 @@ overrides a manually specified column definition from an :file:`ext_tables.sql`
 file.
 
 ..  note::
-
-    ..  versionadded:: 13.0
 
     As column definitions are created automatically from the TCA configuration,
     the :file:`ext_tables.sql` file can end up with a table definition without
@@ -302,24 +284,24 @@ The following types configured via
 are considered for auto-generated fields, if they are not manually defined in
 the :file:`ext_tables.sql` file:
 
-*   :ref:`TCA type "category" <t3tca:columns-category>` (since TYPO3 v12.0)
-*   :ref:`TCA type "check" <t3tca:columns-check>` (since TYPO3 v13.0)
-*   :ref:`TCA type "color" <t3tca:columns-color>` (since TYPO3 v13.0)
+*   :ref:`TCA type "category" <t3tca:columns-category>`
+*   :ref:`TCA type "check" <t3tca:columns-check>`
+*   :ref:`TCA type "color" <t3tca:columns-color>`
 *   :ref:`TCA type "datetime" <t3tca:columns-datetime>`
-*   :ref:`TCA type "email" <t3tca:columns-email>` (since TYPO3 v13.0)
-*   :ref:`TCA type "file" <t3tca:columns-file>` (since TYPO3 v13.0)
-*   :ref:`TCA type "flex" <t3tca:columns-flex>` (since TYPO3 v13.0)
-*   :ref:`TCA type "folder" <t3tca:columns-folder>` (since TYPO3 v13.0)
-*   :ref:`TCA type "group" <t3tca:columns-group>` (since TYPO3 v13.0)
-*   :ref:`TCA type "imageManipulation" <t3tca:columns-imageManipulation>` (since TYPO3 v13.0)
-*   :ref:`TCA type "inline" <t3tca:columns-inline>` (since TYPO3 v13.0)
+*   :ref:`TCA type "email" <t3tca:columns-email>`
+*   :ref:`TCA type "file" <t3tca:columns-file>`
+*   :ref:`TCA type "flex" <t3tca:columns-flex>`
+*   :ref:`TCA type "folder" <t3tca:columns-folder>`
+*   :ref:`TCA type "group" <t3tca:columns-group>`
+*   :ref:`TCA type "imageManipulation" <t3tca:columns-imageManipulation>`
+*   :ref:`TCA type "inline" <t3tca:columns-inline>`
 *   :ref:`TCA type "json" <t3tca:columns-json>`
-*   :ref:`TCA type "language" <t3tca:columns-language>` (since TYPO3 v13.0)
-*   :ref:`TCA type "link" <t3tca:columns-link>` (since TYPO3 v13.0)
-*   :ref:`TCA type "number" <t3tca:columns-number>` (since TYPO3 v13.0)
-*   :ref:`TCA type "password" <t3tca:columns-password>` (since TYPO3 v13.0)
-*   :ref:`TCA type "radio" <t3tca:columns-radio>` (since TYPO3 v13.0)
-*   :ref:`TCA type "select" <t3tca:columns-select>` (since TYPO3 v13.0)
-*   :ref:`TCA type "slug" <t3tca:columns-slug>` (since TYPO3 v12.0)
-*   :ref:`TCA type "text" <t3tca:columns-text>` (since TYPO3 v13.0)
+*   :ref:`TCA type "language" <t3tca:columns-language>`
+*   :ref:`TCA type "link" <t3tca:columns-link>`
+*   :ref:`TCA type "number" <t3tca:columns-number>`
+*   :ref:`TCA type "password" <t3tca:columns-password>`
+*   :ref:`TCA type "radio" <t3tca:columns-radio>`
+*   :ref:`TCA type "select" <t3tca:columns-select>`
+*   :ref:`TCA type "slug" <t3tca:columns-slug>`
+*   :ref:`TCA type "text" <t3tca:columns-text>`
 *   :ref:`TCA type "uuid" <t3tca:columns-uuid>`

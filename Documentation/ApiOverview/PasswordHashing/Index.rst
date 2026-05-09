@@ -6,9 +6,6 @@
 Password hashing
 ================
 
-..  versionchanged:: 13.0
-    The default hash algorithm has been changed from Argon2i to Argon2id.
-
 .. _password-hashing-introduction:
 
 Introduction

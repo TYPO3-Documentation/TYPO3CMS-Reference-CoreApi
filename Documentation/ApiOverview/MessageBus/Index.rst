@@ -64,18 +64,16 @@ Dispatch a message
 Register a handler
 ------------------
 
-..  versionchanged:: 13.0
-    A message handler can be registered using the symfony PHP attribute
-    :php:`\Symfony\Component\Messenger\Attribute\AsMessageHandler`.
-
 Implement the handler class
 
 ..  literalinclude:: _DemoHandler.php
     :caption: EXT:my_extension/Classes/Queue/Handler/DemoHandler.php
 
-If your extension needs to be compatible with TYPO3 v13 and v12, use a tag
-to register the handler. A :file:`Services.yaml` entry is also needed to use
-:yaml:`before`/:yaml:`after` to define an order.
+The message handler can be registered using the symfony PHP attribute
+:php:`\Symfony\Component\Messenger\Attribute\AsMessageHandler`.
+
+A :file:`Services.yaml` entry is needed to use :yaml:`before`/:yaml:`after`
+for registration if you need to define an order:
 
 ..  literalinclude:: _demo-handler.yaml
     :language: yaml
@@ -230,9 +228,6 @@ The TYPO3 Core has been tested with three transports:
 
 Add rate limiter
 ----------------
-
-..  versionadded:: 13.4
-    You can add your own rate limiter definition to asynchronous messages
 
 Rate limiting can be applied to asynchronous messages processed through the
 consume command. This allows controlling message processing rates to:

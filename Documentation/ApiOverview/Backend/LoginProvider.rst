@@ -60,33 +60,13 @@ replace its registered :php:`provider` class with your custom class.
 LoginProviderInterface
 ======================
 
-..  deprecated:: 13.3
-    Method :php:`LoginProviderInterface->render()` has been marked as deprecated
-    and is substituted by  :php:`LoginProviderInterface->modifyView()` that will
-    be added to the interface in TYPO3 v14, removing :php:`render()` from the
-    interface in v14. See section :ref:`login-provider-interface-migration`.
-
-The :php-short:`TYPO3\CMS\Backend\LoginProvider\LoginProviderInterface` contains
-only the deprecated `render()` method in TYPO3 v13.
-
 ..  include:: /CodeSnippets/Backend/LoginProviderInterface.rst.txt
 
-..  _login-provider-interface-migration:
-
-Migration
----------
-
 Consumers of :php-short:`\TYPO3\CMS\Backend\LoginProvider\LoginProviderInterface`
-should implement the :php:`modifyView()` method and and retain a stub for the
-:php:`render()` method to satisfy the interface. See the example below.
-
-The transition should be smooth. Consumers that need
-:php:`\TYPO3\CMS\Core\Page\PageRenderer` for JavaScript magic, should use
-:ref:`dependency injection <dependency-injection>` to receive an instance
-of it.
+should implement the :php:`modifyView()` method. See the example below.
 
 An implementation of :php-short:`\TYPO3\CMS\Backend\LoginProvider\LoginProviderInterface` could
-look like this for TYPO3 v13:
+look like this:
 
 ..  literalinclude:: _LoginProvider/_MyLoginProvider.php
     :caption: EXT:my_extension/Classes/Login/MyLoginProvider.php
@@ -96,20 +76,10 @@ The default implementation in :php-short:`\TYPO3\CMS\Backend\LoginProvider\Usern
 is a good example. Extensions that need to configure additional template, layout or
 partial lookup paths can extend them, see lines 23-28 in the example above.
 
-Consumers of :php-short:`\TYPO3\CMS\Backend\LoginProvider\Event\ModifyPageLayoutOnLoginProviderSelectionEvent`
-should use the request instead, and/or should get an instance of
-:php-short:`\TYPO3\CMS\Core\Page\PageRenderer` injected as well.
-
 ..  _login-provider-view:
 
 The view
 ========
-
-..  deprecated:: 13.3
-    Method :php:`LoginProviderInterface->render()` has been marked as deprecated
-    and is substituted by  :php:`LoginProviderInterface->modifyView()` that will
-    be added to the interface in TYPO3 v14, removing :php:`render()` from the
-    interface in v14. See section :ref:`login-provider-interface-migration`.
 
 The name of the template must be returned by the `modifyView()` method of the
 login provider. Variables can be assigned to the view supplied as

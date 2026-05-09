@@ -38,8 +38,6 @@ are combined for a connection. They are :ref:`sortable <database-middleware-sort
 Register a global driver middleware
 ===================================
 
-..  versionadded:: 13.0
-
 Global driver middlewares are applied to all
 :ref:`configured connections <database-configuration>`.
 
@@ -64,15 +62,6 @@ Example:
 
 Register a driver middleware for a specific connection
 ======================================================
-
-..  deprecated:: 13.0
-    Using the simple :php:`'identifier' => MyClass::class'` configuration schema
-    to register Doctrine DBAL middlewares for a connection is now deprecated in
-    favour of using a
-    :ref:`sortable registration configuration <database-middleware-sorting>`
-    similar to the PSR-15 middleware registration.
-    See :ref:`database-middleware-specific-migration`
-    and :ref:`database-middleware-specific-registration-v12-v13`.
 
 In this example, the custom driver middleware :php:`MyDriverMiddleware` is added
 to the `Default` connection:
@@ -117,8 +106,6 @@ version and avoiding the deprecation notice:
 
 Sorting of driver middlewares
 =============================
-
-..  versionadded:: 13.0
 
 :ref:`Global driver middlewares <database-middleware-global>` and
 :ref:`connection driver middlewares <database-middleware-specific>`
@@ -194,8 +181,6 @@ Example:
 
 The interface :php:`UsableForConnectionInterface`
 =================================================
-
-..  versionadded:: 13.0
 
 ..  note::
     Real use cases for this interface should be rare edge cases. Typically,

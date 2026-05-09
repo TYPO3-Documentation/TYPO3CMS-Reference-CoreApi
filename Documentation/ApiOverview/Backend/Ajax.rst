@@ -92,11 +92,6 @@ actions which are limited to authorized backend users only.
 Inherit access from backend module
 ----------------------------------
 
-..  versionadded:: 12.4.37 / 13.4.18
-    This functionality was introduced in response to security advisory
-    `TYPO3-CORE-SA-2025-021 <https://typo3.org/security/advisory/typo3-core-sa-2025-021>`_
-    to mitigate broken access control in backend AJAX routes.
-
 If your endpoint is part of a :ref:`backend module <backend-modules>`, you can
 configure your endpoint to inherit access rights from this specific module by
 using the configuration option `inheritAccessFromModule`:

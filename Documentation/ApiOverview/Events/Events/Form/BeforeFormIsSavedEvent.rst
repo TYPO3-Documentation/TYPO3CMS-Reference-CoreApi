@@ -30,8 +30,6 @@ Example
 ..  literalinclude:: _BeforeFormIsSavedEvent/_MyEventListener.php
     :caption: EXT:my_extension/Classes/EventListener/MyEventListener.php
 
-..  include:: /_includes/EventsAttributeAddedNew.rst.txt
-
 ..  _BeforeFormIsSavedEvent-api:
 
 API

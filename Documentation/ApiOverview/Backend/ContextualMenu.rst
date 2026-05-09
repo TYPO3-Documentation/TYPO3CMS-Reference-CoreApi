@@ -24,16 +24,6 @@ Context menu rendering flow
 Markup
 ------
 
-..  versionchanged:: 13.0
-    The configuration of the context menu was streamlined. Replace
-
-    *   :html:`class="t3js-contextmenutrigger"` with :html:`data-contextmenu-trigger="click"`
-    *   :html:`data-table="pages"` with :html:`data-contextmenu-table="pages"`
-    *   :html:`data-uid="10"` with :html:`data-contextmenu-uid="10"`
-    *   :html:`data-context="tree"` with :html:`data-contextmenu-context="tree"`
-
-    to be compatible with TYPO3 v12+.
-
 The context menu is shown after clicking on the HTML element which has the
 :html:`data-contextmenu-trigger` attribute set together with
 :html:`data-contextmenu-table`, :html:`data-contextmenu-uid` and optional

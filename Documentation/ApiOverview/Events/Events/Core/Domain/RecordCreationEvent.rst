@@ -6,12 +6,6 @@
 RecordCreationEvent
 ===================
 
-..  versionadded:: 13.3
-    The PSR-14 :php-short:`\TYPO3\CMS\Core\Domain\Event\RecordCreationEvent` is introduced in
-    order to allow the manipulation of any property
-    before being used to create a
-    `Database Record <https://docs.typo3.org/permalink/t3coreapi:database-records>`_ object.
-
 The `Database Record <https://docs.typo3.org/permalink/t3coreapi:database-records>`_ object, which
 represents a raw database record based on TCA and is usually used in the
 frontend (via Fluid Templates).
@@ -48,8 +42,6 @@ the :php:`coordinates` field for the custom :php:`maps` content type.
 
 ..  literalinclude:: _RecordCreationEvent/_MyEventListener.php
     :caption: EXT:my_extension/Classes/Domain/EventListener/MyEventListener.php
-
-..  include:: /_includes/EventsAttributeAdded.rst.txt
 
 The model could for example look like this:
 

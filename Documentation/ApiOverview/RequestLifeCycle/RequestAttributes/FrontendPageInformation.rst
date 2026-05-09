@@ -8,9 +8,9 @@
 Frontend page information
 =========================
 
-..  versionadded:: 13.0
-    This request attribute replaces various page related properties of
-    :ref:`\\TYPO3\\CMS\\Frontend\\Controller\\TyposcriptFrontendController <tsfe>`.
+..  versionchanged:: 14.0
+    This request attribute replaces various page related properties of removed
+    `\TYPO3\CMS\Frontend\Controller\TyposcriptFrontendController`.
 
 The :php:`frontend.page.information` frontend request attribute provides
 frequently used page information. The attribute is attached to the PSR-7

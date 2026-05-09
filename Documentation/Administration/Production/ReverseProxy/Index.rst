@@ -166,7 +166,7 @@ Protocol detection fallback
 TYPO3 implements a hierarchical approach to detect secure connections:
 
 #.  First, checks :php:`reverseProxySSL` configuration
-#.  If using :php:`reverseProxyIP`, evaluates the :php:`X-Forwarded-Proto` header (since TYPO3 13.4)
+#.  If using :php:`reverseProxyIP`, evaluates the :php:`X-Forwarded-Proto`.
 #.  If no :php:`X-Forwarded-Proto` header is present, TYPO3 falls back to
     checking various other HTTP headers and server configuration settings to
     determine the connection security status

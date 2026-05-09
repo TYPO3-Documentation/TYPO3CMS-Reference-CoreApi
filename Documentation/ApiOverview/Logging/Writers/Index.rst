@@ -142,8 +142,6 @@ The corresponding configuration might look like this for the example class
 RotatingFileWriter
 ------------------
 
-..  versionadded:: 13.0
-
 TYPO3 log files tend to grow over time if not manually cleaned on a regular
 basis, potentially leading to full disks. Also, reading its contents may be
 hard when several weeks of log entries are printed as a wall of text.

@@ -53,10 +53,9 @@ A configuration example:
    see: t3://; TYPO3 URL
 
 .. _static-routes-to-assets:
+
 Static routes to assets
 =======================
-
-..  versionadded:: 13.3
 
 The type :yaml:`assets` allows to expose
 resources which are typically located in the directory

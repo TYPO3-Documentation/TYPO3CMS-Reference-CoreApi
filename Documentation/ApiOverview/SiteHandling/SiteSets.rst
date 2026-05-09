@@ -6,9 +6,6 @@
 Site sets
 =========
 
-..  versionadded:: 13.1
-    Site sets have been introduced.
-
 Site sets ship parts of the site configuration as composable pieces. They are
 intended to deliver :ref:`settings <sitehandling-settings>`,
 :ref:`TypoScript <t3tsref:start>` and
@@ -166,13 +163,6 @@ provided by `typo3/fluid-styled-content` is configured via
     :caption: EXT:my_extension/Configuration/Sets/MySet/settings.yaml
 
     styles.content.defaultHeaderType: 1
-
-
-..  versionchanged:: 13.4.15
-
-    The settings in :file:`settings.yaml` are stored as map instead of tree.
-
-    `Important: #106894 - Site settings.yaml is now stored as a map <https://docs.typo3.org/permalink/changelog:important-106894-1750144877>`_
 
 This setting will be exposed as site setting whenever the set
 `my-vendor/my-set` is applied as dependency to a site configuration.
@@ -364,12 +354,6 @@ TypoScript imports.
 
 Using the site set to override default settings
 -----------------------------------------------
-
-..  versionchanged:: 13.4.15
-
-    The settings in :file:`settings.yaml` are stored as map instead of tree.
-
-    `Important: #106894 - Site settings.yaml is now stored as a map <https://docs.typo3.org/permalink/changelog:important-106894-1750144877>`_
 
 In this example the file
 :file:`EXT:site_package/Configuration/Sets/SitePackage/settings.yaml`

@@ -71,10 +71,6 @@ file needs to set the `enforce` or `report` disposition like this:
     :language: yaml
     :caption: config/sites/<my_site>/csp.yaml | typo3conf/sites/<my_site>/csp.yaml
 
-..  versionchanged:: 13.0
-
-    In the TYPO3 backend the Content Security Policy is always enforced.
-
 Within the TYPO3 backend, a specific backend module is available to inspect policy
 violations / reports, and there is also a list to see all configured CSP rules,
 see section :ref:`content-security-policy-backend-rules`.
@@ -413,11 +409,6 @@ the global configuration :ref:`contentSecurityPolicyReportingUrl <content-securi
 
 In case the explicitly disabled endpoint still would be called, the
 server-side process responds with a 403 HTTP error message.
-
-..  versionchanged:: 12.4.27 / 13.4.5
-
-    This `reportingUrl` setting has been introduced with
-    `https://docs.typo3.org/permalink/changelog:important-105856-1737555887`__.
 
 ..  _content-security-policy-site-endpoints-disable:
 

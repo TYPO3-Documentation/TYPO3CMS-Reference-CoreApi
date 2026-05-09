@@ -45,11 +45,16 @@ The LinkHandler then has to be registered via page TSconfig:
 ..  literalinclude:: _CustomLinkHandlers/_page.tsconfig
     :caption: EXT:my_extension/Configuration/page.tsconfig
 
-And the JavaScript, depending on :ref:`requirejs`, has to be added in a file
+And the JavaScript, has to be added in a file
 :file:`Resources/Public/JavaScript/GitHubLinkHandler.js`:
 
 ..  literalinclude:: _CustomLinkHandlers/_GitHubLinkHandler.js
     :caption: EXT:my_extension/Resources/Public/JavaScript/GitHubLinkHandler.js
+
+..  attention::
+    This example is still in RequireJS. RequireJS has been deprecated with
+    TYPO3 v12. Help us transferring the example into ES6.
+    See :ref:`h2document:contribute`.
 
 This would create a link looking like this:
 

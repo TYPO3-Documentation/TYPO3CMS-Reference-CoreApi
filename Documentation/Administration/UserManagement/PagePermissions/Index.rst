@@ -6,10 +6,6 @@
 Page permissions
 ================
 
-..  versionchanged:: 13.2
-    The module to handle page permissions has been renamed from
-    :guilabel:`Access` to :guilabel:`Permissions`.
-
 :ref:`DB mounts <db-mounts>` are not the whole story about access to pages.
 Users and groups also need to have rights to perform operations on the
 pages, like viewing, editing or deleting.

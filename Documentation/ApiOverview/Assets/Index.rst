@@ -67,9 +67,6 @@ inserting JavaScript and CSS code.
 The asset collector also collects information about images on a page,
 which can be used in cached and non-cached components.
 
-..  versionadded:: 13.3
-    Option `external` to skip URL processing in AssetRenderer has been added.
-
 The :php:`AssetCollector` option `external` can be used for
 asset files using :php:`$assetCollector->addStyleSheet()`
 or :php:`$assetCollector->addJavaScript()`. If set all processing of the asset

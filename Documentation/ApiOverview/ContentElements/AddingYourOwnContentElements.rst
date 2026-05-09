@@ -105,11 +105,8 @@ own icon using the :ref:`Icon API <icon>`.
 The new content element wizard
 ==============================
 
-..  versionchanged:: 13.0
-    Starting with TYPO3 13.0 content elements added via TCA are automatically
-    displayed in the :guilabel:`New Content Element` wizard. To stay compatible
-    with both TYPO3 v12.4 and v13 keep the page TSconfig for TYPO3 v12.4.
-    See :ref:`New Content Element wizard in TYPO3 12.4 <t3coreapi/v12:AddingCE-PageTSconfig>`.
+New content elements added via TCA are automatically displayed in the
+:guilabel:`New Content Element` wizard.
 
 ..  literalinclude:: _AddingYourOwnContentElements/_tt_content.php
     :caption: EXT:my_extension/Configuration/TCA/Overrides/tt_content.php
@@ -131,14 +128,6 @@ The content element wizard configuration is described in detail in
 
 Configure the backend form
 ==========================
-
-..  versionchanged:: 13.3
-    System fields are now added automatically to custom content element
-    definitions. See also :ref:`Automatically added system fields to content
-    types (tt_content) <t3tca:types-content>`. To stay compatible with
-    both TYPO3 12 and 13 define the content element as described in
-    version 12.4 of TYPO3 explained, see
-    :ref:`Configure the backend form (TYPO3 v12.4) <t3coreapi/v12:ConfigureCE-Fields>`.
 
 Configure the backend fields for your new content element in
 the file :file:`Configuration/TCA/Overrides/tt_content.php`:

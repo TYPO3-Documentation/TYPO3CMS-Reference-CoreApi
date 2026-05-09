@@ -7,10 +7,6 @@
 Extension folder `Configuration/Sets`
 =====================================
 
-..  versionadded:: 13.1
-    `Site sets <https://docs.typo3.org/permalink/t3coreapi:site-sets>`_ have
-    been introduced.
-
 This directory contains an extension's
 `Site sets <https://docs.typo3.org/permalink/t3coreapi:site-sets>`_.
 

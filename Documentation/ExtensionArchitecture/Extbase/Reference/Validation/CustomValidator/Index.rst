@@ -92,10 +92,6 @@ without further configuration, you can use the constructor method:
 Request object in Extbase validators
 ====================================
 
-..  versionadded:: 13.2
-    Extbase :php-short:`\TYPO3\CMS\Extbase\Validation\Validator\AbstractValidator`
-    provides a getter and a setter for the PSR-7 Request object.
-
 You can use the PSR-7 request object in a validator, for example to get
 the site settings:
 

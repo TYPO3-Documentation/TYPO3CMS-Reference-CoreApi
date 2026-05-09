@@ -47,16 +47,12 @@ listener to build sources for non-zero page types.
     :language: php
     :caption: EXT:my_extension/Classes/Redirects/EventListener/MyEventListener.php
 
-..  include:: /_includes/EventsAttributeAdded.rst.txt
-
 With a custom source implementation
 -----------------------------------
 
 ..  literalinclude:: _SlugRedirectChangeItemCreatedEvent/_MyEventListener.php
     :language: php
     :caption: EXT:my_extension/Classes/Redirects/EventListener/MyEventListener.php
-
-..  include:: /_includes/EventsAttributeAdded.rst.txt
 
 Example of a :php:`CustomSource` implementation:
 
@@ -99,8 +95,6 @@ Remove plain slug source, if page type 0 differs
 ..  literalinclude:: _SlugRedirectChangeItemCreatedEvent/_AddPageTypeZeroSource/_MyEventListener.php
     :language: php
     :caption: EXT:my_extension/Classes/Backend/MyEventListener.php
-
-..  include:: /_includes/EventsAttributeAdded.rst.txt
 
 API
 ===

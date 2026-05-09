@@ -92,8 +92,6 @@ You can use the :php:`\TYPO3\CMS\Core\Imaging\IconFactory` to request an icon:
 ..  literalinclude:: _IconFactoryExample.php
     :caption: EXT:my_extension/Classes/MyClass.php
 
-..  versionchanged:: 13.0
-
 The following icon sizes are available as enum values:
 
 *   :php:`\TYPO3\CMS\Core\Imaging\IconSize::DEFAULT`: 1em, to scale with font
@@ -103,11 +101,6 @@ The following icon sizes are available as enum values:
     (used as default value in API parameters)
 *   :php:`\TYPO3\CMS\Core\Imaging\IconSize::LARGE`: fixed to 48px
 *   :php:`\TYPO3\CMS\Core\Imaging\IconSize::MEGA`: fixed to 64px
-
-..  versionchanged:: 14.0
-    The icon size class constants :php:`\TYPO3\CMS\Core\Imaging\Icon::SIZE_*`
-    deprecated in v13.0 have been removed. Use the enum values described above.
-
 
 ..  index::
     Fluid; Core icon

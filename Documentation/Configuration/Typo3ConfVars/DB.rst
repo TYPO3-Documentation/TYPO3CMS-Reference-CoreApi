@@ -97,7 +97,6 @@ the connection to the database:
         ]
 
     ..  attention::
-        ..  versionchanged:: 13.0
 
         TYPO3 expects all "main" Core system tables to be configured for the
         :php:`Default` connection (especially :sql:`sys_*`, :sql:`pages`,
@@ -219,44 +218,6 @@ the connection to the database:
 
         Port of the database to connect to. Can be used with MySQL/MariaDB and
         PostgreSQL.
-
-    ..  _typo3ConfVars_db_connections_tableoptions:
-
-    ..  confval:: tableoptions
-        :Path: $GLOBALS['TYPO3_CONF_VARS']['DB']['Connections'][<connection_name>]['tableoptions']
-        :name: typo3-conf-vars-db-connection-name-tableoptions
-        :type: array
-        :Default: []
-
-        ..  deprecated:: 13.4
-            Since TYPO3 v11 the :php:`tableoptions` keys were silently migrated
-            to :confval:`typo3-conf-vars-db-connection-name-defaultTableOptions`,
-            which is the proper Doctrine DBAL connection option for MariaDB and
-            MySQL.
-
-            Furthermore, Doctrine DBAL 3.x switched from using the array key
-            :php:`collate` to :php:`collation`, ignoring the old array key with
-            Doctrine DBAL 4.x. This was silently migrated by TYPO3, too.
-
-            These silent migrations are now deprecated in favor of using the
-            final array keys.
-
-        **Migration:**
-
-        Review :php:`settings.php` and :php:`additional.php` and adapt the
-        deprecated configuration by renaming affected array keys.
-
-        ..  code-block:: diff
-
-             'Connections' => [
-                 'Default' => [
-            -        'tableoptions' => [
-            +        'defaultTableOptions' => [
-            -            'collate' => 'utf8mb4_unicode_ci',
-            +            'collation' => 'utf8mb4_unicode_ci',
-                     ],
-                 ],
-             ],
 
     ..  _typo3ConfVars_db_connections_unixsocket:
 

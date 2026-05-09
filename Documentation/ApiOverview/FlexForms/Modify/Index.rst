@@ -24,10 +24,8 @@ use the :php:`xml2array` method in :php:`GeneralUtility` to read
 the FlexForm data, then :php:`FlexFormTools` to write back the
 changes.
 
-..  versionchanged:: 13.0
-    :php:`\TYPO3\CMS\Core\Configuration\FlexForm\FlexFormTools` is now a stateless
-    service and can be injected via :ref:`DependencyInjection`.
-    :php:`FlexFormTools::flexArray2Xml()` is now marked as internal.
+:php:`\TYPO3\CMS\Core\Configuration\FlexForm\FlexFormTools` is a stateless
+service and can be injected via :ref:`DependencyInjection`.
 
 ..  literalinclude:: _FlexformModificationService.php
     :caption: EXT:my_extension/Classes/Service/FlexformModificationService.php

@@ -129,8 +129,6 @@ configuration:
     expected route.
 
 :yaml:`static`
-    ..  versionadded:: 13.3
-
     Declares certain route parameters as static, avoiding the need for
     `cHash` in URLs. Requires a corresponding :yaml:`requirements` rule.
     See :ref:`routing-static-variables` for details and examples.
@@ -343,8 +341,6 @@ so instead of having `/en/.html` it would then result in
 
 Static route variables
 ======================
-
-..  versionadded:: 13.3
 
 Instead of implementing a custom aspect mapper to mark route parameters as
 static and avoid `cHash` signatures, you can now define static route variables

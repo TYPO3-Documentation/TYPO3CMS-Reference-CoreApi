@@ -13,8 +13,6 @@ some dynamic value:
 *   :ref:`ModifyAllowedItemsEvent`
 *   :ref:`ModifyLinkHandlersEvent`
 
-..  versionadded:: 13.0
-
 Another event allows you to resolve custom link types, but also to modify the
 link result data of existing link handlers:
 

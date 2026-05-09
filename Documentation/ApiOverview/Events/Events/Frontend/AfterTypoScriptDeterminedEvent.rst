@@ -6,13 +6,6 @@
 AfterTypoScriptDeterminedEvent
 ==============================
 
-..  versionadded:: 13.0
-    This event can be used to serve as a replacement for the removed
-    :php:`$GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['tslib/class.tslib_fe.php']['pageLoadedFromCache']`
-    hook. Another solution to substitute the removed hook is an own
-    :ref:`middleware <request-handling>` after
-    :php:`typo3/cms-frontend/prepare-tsfe-rendering`.
-
 The PSR-14 event :php:`\TYPO3\CMS\Frontend\Event\AfterTypoScriptDeterminedEvent`
 is dispatched after the :php:`\TYPO3\CMS\Core\TypoScript\FrontendTypoScript`
 object has been calculated, just before it is attached to the

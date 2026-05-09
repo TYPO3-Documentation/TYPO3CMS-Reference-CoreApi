@@ -6,9 +6,6 @@
 Record objects
 ==============
 
-..  versionadded:: 13.2
-    Record objects have been introduced as an experimental feature.
-
 Record objects are instances of :php:`\TYPO3\CMS\Core\Domain\Record`.
 
 They are an advanced data object holding the data of a database row, taking the

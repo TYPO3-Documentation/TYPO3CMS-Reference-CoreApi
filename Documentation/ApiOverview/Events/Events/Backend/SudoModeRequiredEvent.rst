@@ -6,10 +6,6 @@
 SudoModeRequiredEvent
 =====================
 
-..  versionadded:: 12.4.32 / 13.4.13
-    This event was introduced by security advisory `TYPO3-CORE-SA-2025-013 <https://typo3.org/security/advisory/typo3-core-sa-2025-013>`_
-    to address challenges with single sign-on (SSO) providers.
-
 The PSR-14 event
 :php:`\TYPO3\CMS\Backend\Backend\Event\SudoModeRequiredEvent` is triggered before
 showing the `sudo-mode verification dialog <https://docs.typo3.org/permalink/t3coreapi:backend-user-api-sudo>`_
