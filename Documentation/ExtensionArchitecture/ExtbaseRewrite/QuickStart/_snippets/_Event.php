@@ -10,7 +10,7 @@ class Event extends AbstractEntity
 {
     protected string $title = '';
     protected string $description = '';
-    protected \DateTimeImmutable $eventDate;
+    protected ?\DateTimeImmutable $eventDate = null;
 
     public function getTitle(): string
     {
@@ -22,7 +22,7 @@ class Event extends AbstractEntity
         return $this->description;
     }
 
-    public function getEventDate(): \DateTimeImmutable
+    public function getEventDate(): ?\DateTimeImmutable
     {
         return $this->eventDate;
     }

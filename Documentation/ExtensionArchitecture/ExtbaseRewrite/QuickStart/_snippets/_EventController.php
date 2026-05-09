@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace MyVendor\MyExtension\Controller;
 
+use MyVendor\MyExtension\Domain\Model\Event;
 use MyVendor\MyExtension\Domain\Repository\EventRepository;
 use Psr\Http\Message\ResponseInterface;
 use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
@@ -21,7 +22,7 @@ class EventController extends ActionController
     }
 
     public function showAction(
-        \MyVendor\MyExtension\Domain\Model\Event $event,
+        Event $event,
     ): ResponseInterface {
         $this->view->assign('event', $event);
         return $this->htmlResponse();

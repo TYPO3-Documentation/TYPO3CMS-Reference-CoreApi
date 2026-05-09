@@ -25,7 +25,7 @@ What the ORM does for you
 
 Without an ORM, reading a record means writing a query, iterating over result
 rows, and manually constructing PHP objects. Writing a record means constructing
-an INSERT or UPDATE statement yourself. With the Extbase ORM:
+an :sql:`INSERT` or :sql:`UPDATE` statement yourself. With the Extbase ORM:
 
 *   Reading: you call :php:`$this->eventRepository->findAll()` and receive a
     collection of fully populated :php:`Event` objects.
@@ -92,7 +92,7 @@ when mapping to an existing table with its own naming — you can override them 
 The repository as the only door to the database
 ================================================
 
-Controllers never query the database directly. Every database interaction goes
+Controllers should not query the database directly. Every database interaction goes
 through a repository. This is a deliberate constraint: it keeps persistence
 logic in one place and keeps controllers thin.
 
@@ -167,9 +167,9 @@ at flush time.
 
 ..  seealso::
 
-    :ref:`extbase-domain-model` — defining models and their properties.
+    `Extbase domain model <https://docs.typo3.org/permalink/extbase-domain-model>`_ — defining models and their properties.
 
-    :ref:`extbase-domain-repository` — writing custom repository queries.
+    `Extbase repository <https://docs.typo3.org/permalink/extbase-domain-repository>`_ — writing custom repository queries.
 
-    :ref:`extbase-persistence-queries` — the full query API, storagePid
+    `Persistence queries <https://docs.typo3.org/permalink/extbase-persistence-queries>`_ — the full query API, storagePid
     deep-dive, and when to use DBAL instead.
