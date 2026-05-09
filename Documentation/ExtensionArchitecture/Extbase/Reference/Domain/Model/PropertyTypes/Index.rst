@@ -245,10 +245,6 @@ ViewHelper <f:format.date> <https://docs.typo3.org/permalink/t3viewhelper:typo3-
 Consistent DateTime handling
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-..  versionadded:: 13.4.12
-    Consistent `DateTime` handling across Extbase, FormEngine, and DataHandler was introduced.
-    Enabled via the feature flag :php:`extbase.consistentDateTimeHandling`.
-
 With the feature flag :php:`extbase.consistentDateTimeHandling`, Extbase aligns
 its DateTime mapping logic with the behavior of FormEngine and DataHandler.
 
@@ -340,12 +336,6 @@ demo extension.
 
 Enumerations as Extbase model property
 ======================================
-
-..  versionadded:: 13.0
-    Native support for
-    `backed enumerations <https://www.php.net/manual/language.enumerations.backed.php>`__
-    has been introduced. It is no longer necessary to extend the deprecated
-    TYPO3 Core class :ref:`\\TYPO3\\CMS\\Core\\Type\\Enumeration <Enumerations-How-to-use>`.
 
 Native PHP enumerations can be used for properties where the database field has a
 set of values which can be represented by a backed enum. A property

@@ -28,11 +28,6 @@ their functions and typical use cases.
     :command: `vendor/bin/typo3 backend:lock`, `vendor/bin/typo3 backend:unlock`
     :regex: /^.*LOCK\_BACKEND$/
 
-    ..  versionchanged:: 13.3
-        The :file:`LOCK_BACKEND` file is now expected in :file:`var/lock/LOCK_BACKEND` (Composer mode) or
-        :file:`config/LOCK_BACKEND` (Classic mode) unless otherwise defined in
-        :php:`$GLOBALS['TYPO3_CONF_VARS']['BE']['lockBackendFile']`.
-
     If the file exists in the location specified by :php:`$GLOBALS['TYPO3_CONF_VARS']['BE']['lockBackendFile']`
     or the default and is empty, an error message is displayed when you try to log into
     the backend:

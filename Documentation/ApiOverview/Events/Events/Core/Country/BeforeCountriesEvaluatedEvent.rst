@@ -6,8 +6,6 @@
 BeforeCountriesEvaluatedEvent
 =============================
 
-..  versionadded:: 13.3
-
 The PSR-14 event :php:`\TYPO3\CMS\Core\Country\Event\BeforeCountriesEvaluatedEvent`
 allows to modify the list of countries provided by
 the :php:`\TYPO3\CMS\Core\Country\CountryProvider`.
@@ -36,8 +34,6 @@ code 'XX' and alpha 3 code 'XXX'.
 
 ..  literalinclude:: _BeforeCountriesEvaluatedEvent/_MyEventListener.php
     :caption: EXT:my_extension/Classes/Country/EventListener/MyEventListener.php
-
-..  include:: /_includes/EventsAttributeAdded.rst.txt
 
 
 ..  versionchanged:: 14.0

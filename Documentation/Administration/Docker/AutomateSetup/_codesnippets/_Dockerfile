@@ -1,4 +1,4 @@
-FROM martinhelmich/typo3:13.4
+FROM martinhelmich/typo3:14.3
 
 USER root
 

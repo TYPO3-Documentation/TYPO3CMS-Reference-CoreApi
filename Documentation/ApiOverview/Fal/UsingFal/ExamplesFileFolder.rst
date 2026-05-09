@@ -125,15 +125,7 @@ In this example, the file path would likely be
 ..  _fal-using-fal-examples-file-folder-add-file-security:
 
 Security and consistency checks
---------------------------------
-
-..  versionadded:: 13.4.12 / 12.4.31
-    Stricter validation is enforced when working with files through the FAL API,
-    specifically regarding file extensions and MIME types.
-
-    The new behaviour was introduced with the security fix `Important: #106240 -
-    Enforce File Extension and MIME-Type Consistency in File Abstraction
-    Layer <https://docs.typo3.org/permalink/changelog:important-106240-1747316969>`_.
+-------------------------------
 
 The following methods of :php:`\TYPO3\CMS\Core\Resource\ResourceStorage` perform
 validation checks:

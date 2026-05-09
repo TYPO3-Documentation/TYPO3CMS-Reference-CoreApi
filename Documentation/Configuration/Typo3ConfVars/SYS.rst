@@ -284,11 +284,6 @@ configuration.
     :type: text
     :Default: 'zip'
 
-    ..  versionadded:: 13.4.12 / 12.4.31
-        This property was added with security fix `Important: #106240 -
-        Enforce File Extension and MIME-Type Consistency in File Abstraction
-        Layer <https://docs.typo3.org/permalink/changelog:important-106240-1747316969>`_.
-
     Allows file extensions to be specified that don't belong to either `textfile_ext`
     or `mediafile_ext`, such as `zip` or `xz`.
 
@@ -463,9 +458,8 @@ configuration.
     the server. If :php:`*` all proxies defined in
     :ref:`[SYS][reverseProxyIP]<typo3ConfVars_sys_reverseProxyIP>` use SSL.
 
-    ..  versionadded:: 13.4
-        If a client establishes a secure connection, TYPO3 also checks for
-        `X-Forwarded-Proto` header.
+    If a client establishes a secure connection, TYPO3 also checks for
+    `X-Forwarded-Proto` header.
 
     ..  seealso::
 
@@ -757,8 +751,6 @@ configuration.
         :type: bool
         :Default: false
 
-        ..  versionadded:: 13.1, 12.4.15, 11.5.37
-
         This option configures whether the show image controller (eID
         `tx_cms_showpic`) is allowed to supply an insecure `&frame` URI
         parameter (for backwards compatibility). The `&frame` parameter is no
@@ -789,23 +781,6 @@ configuration.
         ..  code-block:: php
 
             $GLOBALS['TYPO3_CONF_VARS']['SYS']['features']['security.frontend.allowInsecureSiteResolutionByQueryParameters'] = true;
-
-    ..  _typo3ConfVars_sys_features_security.usePasswordPolicyForFrontendUsers:
-
-
-    ..  confval:: security.usePasswordPolicyForFrontendUsers
-        :name: globals-typo3-conf-vars-sys-features-security-usePasswordPolicyForFrontendUsers
-
-        ..  versionchanged:: 13.0
-            The feature toggle `security.usePasswordPolicyForFrontendUsers` has been
-            removed because TypoScript-based password
-            validation in :doc:`EXT:felogin <ext_felogin:Index>` has also been removed.
-
-            The :ref:`password policy <password-policies>` configured in
-            :ref:`$GLOBALS['TYPO3_CONF_VARS']['FE']['passwordPolicy'] <typo3ConfVars_fe_passwordPolicy>`
-            is now always active for frontend user records in
-            :ref:`DataHandler <datahandler-basics>` and for the password recovery
-            functionality in EXT:felogin.
 
 ..  _typo3ConfVars_sys_availablePasswordHashAlgorithms:
 
@@ -968,11 +943,6 @@ configuration.
         :Path: $GLOBALS['TYPO3_CONF_VARS']['SYS']['FileInfo']['fileExtensionToMimeType']
         :type: array
 
-        ..  versionchanged:: 13.4.13 / 12.4.32
-            File extension-based MIME type mapping is now superseded
-            by the more fine-grained MIME type compatibility list
-            `$GLOBALS['TYPO3_CONF_VARS']['SYS']['FileInfo']['mimeTypeCompatibility'] <https://docs.typo3.org/permalink/t3coreapi:confval-globals-typo3-conf-vars-sys-fileinfo-mimetypecompatibility>`_.
-
         `$GLOBALS['TYPO3_CONF_VARS']['SYS']['FileInfo']['fileExtensionToMimeType']`
         is supported for backward compatibility reasons.
 
@@ -983,10 +953,6 @@ configuration.
         :Path: $GLOBALS['TYPO3_CONF_VARS']['SYS']['FileInfo']['mimeTypeCompatibility']
         :type: array
         :Default: see `EXT:core/Configuration/DefaultConfiguration.php <https://github.com/TYPO3/typo3/blob/006db645e4716529390fc3f07d84fe36b8694c43/typo3/sysext/core/Configuration/DefaultConfiguration.php#L369>`_
-
-        ..  versionadded:: 13.4.13 / 12.4.32
-            This mapping supersedes
-            `$GLOBALS['TYPO3_CONF_VARS']['SYS']['FileInfo']['fileExtensionToMimeType'] <https://docs.typo3.org/permalink/t3coreapi:confval-globals-typo3-conf-vars-sys-fileinfo-fileextensiontomimetype>`_
 
         For each generic MIME type (as detected by PHP MIME type detection) a
         map from file extension to a valid MIME type can be supplied.
@@ -1023,8 +989,6 @@ configuration.
     :Path: $GLOBALS['TYPO3_CONF_VARS']['SYS']['allowedPhpDisableFunctions']
     :type: array
     :Default: `[]`
-
-    ..  versionadded:: 13.2
 
     A configuration option to modify the environment check in
     :guilabel:`System > Environment` to incorporate a list of sanctioned

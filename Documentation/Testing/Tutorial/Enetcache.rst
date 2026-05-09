@@ -134,7 +134,7 @@ This is the composer.json file before adding a test setup:
         "GPL-2.0-or-later"
       ],
       "require": {
-        "typo3/cms-core": "^13"
+        "typo3/cms-core": "^14"
       },
       "autoload": {
         "psr-4": {
@@ -149,7 +149,7 @@ This is the composer.json file before adding a test setup:
     }
 
 This is a typical, simple composer.json file. It is a `typo3-cms-extension`, with an
-author and a license. We specify that "I need at least 13.0.0 of cms-core" and we tell the autoloader
+author and a license. We specify that "I need at least 14.3.0 of cms-core" and we tell the autoloader
 to "find all class names starting with :php:`Lolli\Enetcache` in the Classes/ directory".
 
 The extension contains unit tests that extend the `typo3/testing-framework` base
@@ -488,7 +488,7 @@ to `packagist.org <https://packagist.org/packages/typo3/cms-styleguide>`_ and ca
 dependency (or require-dev dependency) in any project.
 
 The styleguide extension follows the Core branching principle. At the time
-of writing, its `main` branch is compatible with Core version 13.
+of writing, its `main` branch is compatible with Core v14.
 Other branches are compatible with older Core versions.
 
 Styleguide comes with more test suites than enetcache. It has functional and

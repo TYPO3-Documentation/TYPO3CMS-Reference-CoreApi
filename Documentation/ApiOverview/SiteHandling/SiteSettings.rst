@@ -8,17 +8,10 @@ Site settings
 
 ..  contents:: Table of contents
 
-..  versionadded:: 13.1
-    Site settings can receive a type, a default value and some documentation in
-    :ref:`site settings definitions <site-sets-settings-definition>`. It is
-    recommended to always define a site setting before using it, as only this way
-    you can ensure proper types and default values.
-
-..  versionchanged:: 13.4.15
-
-    The settings in :file:`settings.yaml` are stored as map instead of tree.
-
-    `Important: #106894 - Site settings.yaml is now stored as a map <https://docs.typo3.org/permalink/changelog:important-106894-1750144877>`_
+Site settings can receive a type, a default value and some documentation in
+:ref:`site settings definitions <site-sets-settings-definition>`. It is
+recommended to always define a site setting before using it, as only this way
+you can ensure proper types and default values.
 
 Site settings can be used to provide settings for a site. They can be accessed
 via
@@ -66,12 +59,6 @@ Add settings to the :file:`settings.yaml <set-settings-yaml>`:
 ..  literalinclude:: _site-settings.yaml
     :language: yaml
     :caption: config/sites/<my_site>/settings.yaml | typo3conf/sites/<my_site>/settings.yaml
-
-..  versionchanged:: 13.4.15
-
-    The settings in :file:`settings.yaml` are stored as map instead of tree.
-
-    `Important: #106894 - Site settings.yaml is now stored as a map <https://docs.typo3.org/permalink/changelog:important-106894-1750144877>`_
 
 ..  note::
     This example shows how to fill a constant of

@@ -414,10 +414,6 @@ Remarks:
 lastInsertId()
 ==============
 
-..  versionchanged:: 13.0
-    The method no longer accepts the table name as first argument and the
-    name of the auto-increment field as second argument.
-
 This method returns the :sql:`uid` of the last :ref:`insert()
 <database-connection-insert>` statement. This is useful if the ID is to be used
 directly afterwards:

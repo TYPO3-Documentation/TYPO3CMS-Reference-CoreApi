@@ -6,8 +6,6 @@
 BeforeLoadedUserTsConfigEvent
 =============================
 
-..  versionadded:: 13.0
-
 The PSR-14 event
 :php:`\TYPO3\CMS\Core\TypoScript\IncludeTree\Event\BeforeLoadedUserTsConfigEvent`
 can be used to add global static :ref:`user TSconfig <t3tsref:usertsconfig>`
@@ -23,8 +21,6 @@ Example
 ..  literalinclude:: _BeforeLoadedUserTsConfigEvent/_MyEventListener.php
     :language: php
     :caption: EXT:my_extension/Classes/TypoScript/EventListener/MyEventListener.php
-
-..  include:: /_includes/EventsAttributeAddedNew.rst.txt
 
 API
 ===

@@ -35,8 +35,6 @@ Example
     :language: php
     :caption: EXT:my_extension/Classes/Backend/EventListener/MyEventListener.php
 
-..  include:: /_includes/EventsAttributeAdded.rst.txt
-
 The response returned by the AJAX endpoint should look like this:
 
 .. code-block:: php

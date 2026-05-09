@@ -8,16 +8,6 @@
 :file:`TypoScript`
 ==================
 
-..  versionchanged:: 13.1
-    Until TYPO3 v13 frontend TypoScript files were kept in
-    :path:`EXT:my_extension/Configuration/TypoScript/` by convention.
-
-    Extensions that need to be backwardly compatible should
-    `Support both site sets and TypoScript records <https://docs.typo3.org/permalink/t3tsref:extdev-add-typoscript-sets-v12>`_.
-
-    Newly created extensions and site packages should use a
-    `Site set as a TypoScript provider <https://docs.typo3.org/permalink/t3tsref:typoscript-site-sets-set>`_
-
 TypoScript constants should be stored in the file :file:`constants.typoscript`
 and TypoScript setup in :file:`setup.typoscript`.
 

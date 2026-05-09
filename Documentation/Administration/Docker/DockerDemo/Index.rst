@@ -358,7 +358,7 @@ Selecting TYPO3 versions in the Docker container
 ================================================
 
 By default, the `martinhelmich/typo3` image runs the latest available TYPO3
-LTS release (at the time of writing `13.4.*`) when using the `latest` tag.
+LTS release (at the time of writing `14.3.*`) when using the `latest` tag.
 
 To run a specific TYPO3 version, use the corresponding image tag in your
 `docker run` command. For example:

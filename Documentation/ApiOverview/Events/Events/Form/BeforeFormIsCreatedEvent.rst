@@ -31,8 +31,6 @@ Example
     :language: php
     :caption: EXT:my_extension/Classes/EventListener/MyEventListener.php
 
-..  include:: /_includes/EventsAttributeAddedNew.rst.txt
-
 ..  _BeforeFormIsCreatedEvent-api:
 
 API

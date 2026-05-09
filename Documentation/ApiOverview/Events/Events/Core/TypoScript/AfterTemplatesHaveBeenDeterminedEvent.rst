@@ -27,8 +27,6 @@ Example
     :language: php
     :caption: EXT:my_extension/Classes/TypoScript/EventListener/MyEventListener.php
 
-..  include:: /_includes/EventsAttributeAdded.rst.txt
-
 API
 ===
 

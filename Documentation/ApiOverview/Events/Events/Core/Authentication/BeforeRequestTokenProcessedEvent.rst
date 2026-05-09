@@ -23,8 +23,6 @@ to submit a request token:
     :language: php
     :caption: EXT:my_extension/Classes/Authentication/EventListener/MyEventListener.php
 
-..  include:: /_includes/EventsAttributeAdded.rst.txt
-
 API
 ===
 

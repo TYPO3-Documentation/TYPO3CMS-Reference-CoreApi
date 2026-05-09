@@ -29,8 +29,6 @@ out. This logic is not part of the example below.
     :language: php
     :caption: EXT:my_extension/Classes/EventListeners/DeletePrivateKeyOnLogout.php
 
-..  include:: /_includes/EventsAttributeAdded.rst.txt
-
 API
 ===
 

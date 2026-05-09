@@ -74,11 +74,6 @@ Use the following steps to add the plugin as content element:
     :guilabel:`Type` of the content elements and automatically registers it for
     the :ref:`New Content Element Wizard <t3coreapi:content-element-wizard>`.
 
-    ..  versionchanged:: 13.0
-        In TYPO3 13 there are 3 further options to automatically register
-        the plugin in the TCA of field :guilabel:`Type`.
-        See :ref:`changelog:feature-102834-1705256634`
-
     ..  literalinclude::  _FrontendPlugin/_tt_content.php
         :language: php
         :caption: EXT:blog_example/Configuration/TCA/Overrides/tt_content.php

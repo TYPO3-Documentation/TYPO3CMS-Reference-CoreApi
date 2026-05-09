@@ -85,12 +85,6 @@ It is defined to :php:`true` in early TYPO3 bootstrap.
 File types
 ==========
 
-..  versionchanged:: 13.0
-    The PHP backed enum :php:`\TYPO3\CMS\Core\Resource\FileType` has been
-    introduced as a drop-in replacement for the public :php:`FILETYPE_*`
-    constants in :php:`\TYPO3\CMS\Core\Resource\AbstractFile`. The constants
-    have been removed with TYPO3 v14.0.
-
 Different types of file constants are defined in the enum
 :php:`\TYPO3\CMS\Core\Resource\FileType`. These cases are available for
 different groups of files as documented in

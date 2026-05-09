@@ -34,7 +34,7 @@ Limitations when there is no frontend request
 When executing code **outside** of a frontend request (for example, in a CLI
 command), this context is missing:
 
-*   The `ContentObjectRenderer (cObj) <https://docs.typo3.org/permalink/t3coreapi:tsfe-contentobjectrenderer>`_
+*   The  :php-short:`\TYPO3\CMS\Frontend\ContentObject\ContentObjectRenderer`
     can be instantiated manually, but it will
     not have a populated `data` array because there is no `tt_content` record.
     As a result, TypoScript properties like `field = my_field` or `data = my_data`

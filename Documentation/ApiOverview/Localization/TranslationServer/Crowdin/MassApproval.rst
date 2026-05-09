@@ -63,7 +63,7 @@ Generate tokens at: https://crowdin.com/settings#api-key
 PHP implementation
 ==================
 
-..  versionadded:: 13.0
+..  note::
     The following script requires **PHP 8.4+** and uses modern features:
     readonly classes, constructor property promotion, arrow functions, and enums.
 

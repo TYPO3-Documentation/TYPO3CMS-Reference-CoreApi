@@ -7,9 +7,6 @@
 Site settings: Site-wide settings for the site package and extensions
 =====================================================================
 
-..  versionadded:: 13.3
-    The site settings editor has been added with TYPO3 13.3.
-
 TYPO3 backend administrators can set site-wide configuration options in the
 modules :guilabel:`Sites > Setup` (Site Configuration) and
 :guilabel:`Sites > Setup > Settings` (Site settings).

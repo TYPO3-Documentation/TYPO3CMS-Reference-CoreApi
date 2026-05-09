@@ -63,11 +63,6 @@ The sequence looks like the following:
     objects (later created implicitly in this example) are organized in the
     :php:`\TYPO3\CMS\Core\Context\SecurityAspect`.
 
-    ..  versionchanged:: 13.3
-        :ref:`generic-view-factory` to create a view. The previously
-        used :php:`\TYPO3\CMS\Fluid\View\StandaloneView` is deprecated with
-        TYPO3 v13.3 and removed with TYPO3 v14.0.
-
     ..  literalinclude:: _CSRFlikeRequestTokenHandling/_MyController.php
         :caption: EXT:my_extension/Classes/Controller/MyController.php
 

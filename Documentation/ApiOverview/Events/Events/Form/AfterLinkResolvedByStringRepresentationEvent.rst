@@ -6,8 +6,6 @@
 AfterFormDefinitionLoadedEvent
 ==============================
 
-..  versionadded:: 13.0
-
 The PSR-14 event
 :php:`\TYPO3\CMS\Form\Mvc\Persistence\Event\AfterFormDefinitionLoadedEvent`
 allows extensions to modify loaded form definitions.
@@ -29,8 +27,6 @@ Example
 ..  literalinclude:: _AfterFormDefinitionLoadedEvent/_MyEventListener.php
     :language: php
     :caption: EXT:my_extension/Classes/LinkHandling/EventListener/MyEventListener.php
-
-..  include:: /_includes/EventsAttributeAddedNew.rst.txt
 
 API
 ===

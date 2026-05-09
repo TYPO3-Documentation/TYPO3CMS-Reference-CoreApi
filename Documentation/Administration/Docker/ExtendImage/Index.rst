@@ -9,7 +9,7 @@ Extending the community-maintained Docker image for TYPO3
 
 In previous chapters, you learned how to run TYPO3 using the community-maintained
 Docker image `martinhelmich/typo3 <https://docs.typo3.org/permalink/t3coreapi:classic-docker-installation>`_.
-This is a convenient way to get started with TYPO3 13.4 and is suitable for many
+This is a convenient way to get started with TYPO3 14.3 and is suitable for many
 development use cases.
 
 However, you might need to add tools or functionality that are not included by
@@ -37,7 +37,7 @@ To extend the existing Docker image and install Node.js, create a file named
 ..  code-block:: docker
     :caption: Dockerfile
 
-    FROM martinhelmich/typo3:13.4
+    FROM martinhelmich/typo3:14.3
 
     USER root
 

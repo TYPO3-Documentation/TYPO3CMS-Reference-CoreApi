@@ -6,10 +6,6 @@
 BeforeFinalSearchQueryIsExecutedEvent
 =====================================
 
-..  versionadded:: 13.4.2 / 14.0
-    This event was added as a replacement for the removed hook
-    `$GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['indexed_search']['pi1_hooks']`.
-
 The PSR-14 :php:`\TYPO3\CMS\IndexedSearch\Event\BeforeFinalSearchQueryIsExecutedEvent`
 has been introduced which allows developers to manipulate the (internal)
 :php:`\TYPO3\CMS\Core\Database\Query\QueryBuilder`

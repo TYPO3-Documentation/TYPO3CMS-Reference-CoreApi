@@ -338,12 +338,6 @@ Those validators can either be configured with the
 manually to the configuration object
 with the :php:`addValidator()` method.
 
-..  versionadded:: 13.4.18
-    The validators `FileExtensionValidator` and `FileExtensionMimeTypeConsistencyValidator` have been
-    added to provide better integration with the security feature
-    `Important: #106240 - Enforce File Extension and MIME-Type Consistency
-    in File Abstraction Layer <https://docs.typo3.org/permalink/changelog:important-106240-1747316969>`_.
-
 ..  _extbase_fileupload_attribute-required:
 
 Required

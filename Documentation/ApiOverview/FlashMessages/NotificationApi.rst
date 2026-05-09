@@ -66,12 +66,6 @@ Example:
 ..  literalinclude:: _ES6/_flash-message-demo.js
     :caption: EXT:some_extension/Resources/Public/JavaScript/flash-message-demo.js
 
-To stay compatible with both TYPO3 v11 and v12 the (deprecated) RequireJS module can
-still be used:
-
-..  literalinclude:: _RequireJS/_flash-message-demo.js
-    :caption: EXT:some_extension/Resources/Public/JavaScript/FlashMessageDemo.js
-
 ..  _notification_api-actions:
 
 Actions
@@ -121,12 +115,6 @@ Example:
 ..  literalinclude:: _ES6/_flash-message-immediate-action-demo.js
     :caption: EXT:some_extension/Resources/Public/JavaScript/flash-message-immediate-action-demo.js
 
-To stay compatible with both TYPO3 v11 and v12 the (deprecated) RequireJS module can
-still be used:
-
-..  literalinclude:: _RequireJS/_flash-message-immediate-action-demo.js
-    :caption: EXT:some_extension/Resources/Public/JavaScript/FlashMessageImmediateActionDemo.js
-
 ..  _notification_api_deferred_action:
 
 Deferred action
@@ -146,9 +134,3 @@ Example:
 
 ..  literalinclude:: _ES6/_flash-message-deferred-action-demo.js
     :caption: EXT:some_extension/Resources/Public/JavaScript/flash-message-deferred-action-demo.js
-
-To stay compatible with both TYPO3 v11 and v12 the (deprecated) RequireJS module can
-still be used:
-
-..  literalinclude:: _RequireJS/_flash-message-deferred-action-demo.js
-    :caption: EXT:some_extension/Resources/Public/JavaScript/FlashMessageDeferredActionDemo.js

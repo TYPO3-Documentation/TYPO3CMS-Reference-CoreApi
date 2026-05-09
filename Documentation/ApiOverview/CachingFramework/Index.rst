@@ -248,8 +248,8 @@ caches, too.
 Cache warmup
 ------------
 
-..  versionchanged:: 13.4.19
-    Cache warm-up now fails if the PHP **major or minor** version used by the
+.. important::
+    Cache warm-up fails if the PHP **major or minor** version used by the
     CLI differs from the version used by the web server.
     (Both numbers are part of the cache key.)
 

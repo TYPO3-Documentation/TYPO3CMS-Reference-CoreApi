@@ -6,13 +6,6 @@
 BeforeRecordDownloadIsExecutedEvent
 ===================================
 
-..  versionadded:: 13.2
-    This PSR-14 event replaces the
-    :php:`$GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['TYPO3\CMS\Recordlist\RecordList\DatabaseRecordList']['customizeCsvHeader']`
-    and
-    :php:`$GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['TYPO3\CMS\Recordlist\RecordList\DatabaseRecordList']['customizeCsvRow']`,
-    hooks, which have been deprecated with TYPO3 v13.2.
-
 The event :php:`TYPO3\CMS\Backend\RecordList\Event\BeforeRecordDownloadIsExecutedEvent`
 can be used to modify the result of a download / export initiated via
 the :guilabel:`Content > Records` module.

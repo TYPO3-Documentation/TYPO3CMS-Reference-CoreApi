@@ -101,12 +101,6 @@ Arguments:
 *   :js:`callback` (function) - the event listener
 *   :js:`wait` (number) - the amount of milliseconds to wait before the event listener is called
 
-..  versionchanged:: 13.0
-    The parameter :js:`immediate` has been removed. There is no direct migration
-    possible. An extension author may re-implement the removed behavior manually,
-    or use the :ref:`ThrottleEvent <js-event-api-throttleevent>` module,
-    providing a similar behavior.
-
 Example:
 
 ..  literalinclude:: _DebounceEvent.js

@@ -6,8 +6,6 @@
 BeforeTcaOverridesEvent
 =======================
 
-..  versionadded:: 13.0
-
 A PSR-14 event :php:`\TYPO3\CMS\Core\Configuration\Event\BeforeTcaOverridesEvent`
 enables developers to listen to the state between loaded base TCA and merging of
 TCA overrides.
@@ -34,8 +32,6 @@ Example
 ..  literalinclude:: _BeforeTcaOverridesEvent/_MyEventListener.php
     :language: php
     :caption: EXT:my_extension/Configuration/EventListener/MyEventListener.php
-
-..  include:: /_includes/EventsAttributeAddedNew.rst.txt
 
 
 API

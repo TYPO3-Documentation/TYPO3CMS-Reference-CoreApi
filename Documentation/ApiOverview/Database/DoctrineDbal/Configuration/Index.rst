@@ -77,7 +77,6 @@ Example: two connections
 ========================
 
 ..  attention::
-    ..  versionchanged:: 13.0
 
     TYPO3 expects all "main" Core system tables to be configured for the
     :php:`Default` connection (especially :sql:`sys_*`, :sql:`pages`,

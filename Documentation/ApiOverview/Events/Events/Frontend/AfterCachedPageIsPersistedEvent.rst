@@ -19,8 +19,6 @@ Example
     :language: php
     :caption: EXT:my_extension/Classes/Frontend/EventListener/MyEventListener.php
 
-..  include:: /_includes/EventsAttributeAdded.rst.txt
-
 ..  _AfterCachedPageIsPersistedEvent-api:
 
 API

@@ -6,9 +6,6 @@
 Supported languages
 ===================
 
-..  versionadded:: 13.1
-    Irish Gaelic (ga), Scottish Gaelic (gd) and Maltese (mt) are supported.
-
 The list of supported languages is defined in
 :php:`\TYPO3\CMS\Core\Localization\Locales::$languages`.
 

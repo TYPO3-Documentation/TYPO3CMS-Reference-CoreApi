@@ -178,8 +178,6 @@ Various expressions
 :php:`ExpressionBuilder::as()`
 ------------------------------
 
-..  versionadded:: 13.1
-
 ..  include:: _ExpressionBuilderAs.rst.txt
 
 Creates a statement to append a field alias to a value, identifier or sub-expression.
@@ -197,8 +195,6 @@ Creates a statement to append a field alias to a value, identifier or sub-expres
 
 :php:`ExpressionBuilder::concat()`
 ----------------------------------
-
-..  versionadded:: 13.1
 
 ..  include:: _ExpressionBuilderConcat.rst.txt
 
@@ -220,8 +216,6 @@ for SQLite and :sql:`CONCAT(field1, field2, field3, ...)` for other database ven
 :php:`ExpressionBuilder::castInt()`
 -----------------------------------
 
-..  versionadded:: 13.1
-
 ..  include:: _ExpressionBuilderCastInt.rst.txt
 
 Can be used to create an expression which converts a value, row field value or
@@ -240,8 +234,6 @@ is used.
 
 :php:`ExpressionBuilder::castText()`
 ------------------------------------
-
-..  versionadded:: 13.3
 
 ..  todo: Add api description as soon as building code-snippets is working again
 
@@ -262,8 +254,6 @@ or similar methods based on the database engine.
 
 :php:`ExpressionBuilder::castVarchar()`
 ---------------------------------------
-
-..  versionadded:: 13.1
 
 ..  include:: _ExpressionBuilderCastVarchar.rst.txt
 
@@ -286,8 +276,6 @@ where :sql:`"value"::INTEGER` cast notation is used.
 
 :php:`ExpressionBuilder::if()`
 ------------------------------
-
-..  versionadded:: 13.3
 
 ..  include:: _ExpressionBuilderIf.rst.txt
 
@@ -336,8 +324,6 @@ Result with MySQL/MariaDB:
 :php:`ExpressionBuilder::left()`
 --------------------------------
 
-..  versionadded:: 13.1
-
 ..  include:: _ExpressionBuilderLeft.rst.txt
 
 Extract :php:`$length` characters of :php:`$value` from the left.
@@ -356,8 +342,6 @@ to provide a compatible expression.
 
 :php:`ExpressionBuilder::leftPad()`
 -----------------------------------
-
-..  versionadded:: 13.1
 
 ..  include:: _ExpressionBuilderLeftPad.rst.txt
 
@@ -397,8 +381,6 @@ See available :ref:`parameter types <database-connection-parameter-types>`.
 :php:`ExpressionBuilder::repeat()`
 ----------------------------------
 
-..  versionadded:: 13.1
-
 ..  include:: _ExpressionBuilderRepeat.rst.txt
 
 Create a statement to generate a value which repears the :php:`$value` for
@@ -421,8 +403,6 @@ vendors except SQLite which uses
 :php:`ExpressionBuilder::right()`
 ---------------------------------
 
-..  versionadded:: 13.1
-
 ..  include:: _ExpressionBuilderRight.rst.txt
 
 Extract :php:`$length` characters of :php:`$value` from the right.
@@ -442,8 +422,6 @@ database vendors except SQLite, which uses :sql:`substring("value", start_of_str
 :php:`ExpressionBuilder::rightPad()`
 ------------------------------------
 
-..  versionadded:: 13.1
-
 ..  include:: _ExpressionBuilderRightPad.rst.txt
 
 Right-pad the value or sub-expression result with :php:`$paddingValue`, to a
@@ -462,8 +440,6 @@ more complex compatible replacement expression construct is created.
 
 :php:`ExpressionBuilder::space()`
 ---------------------------------
-
-..  versionadded:: 13.1
 
 ..  include:: _ExpressionBuilderSpace.rst.txt
 

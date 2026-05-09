@@ -8,10 +8,6 @@
 :file:`user.tsconfig`
 =====================
 
-..  versionadded:: 13.0
-    Starting with TYPO3 version 13.0 user TSconfig from
-    :file:`Configuration/user.tsconfig` is automatically included.
-
 ..  typo3:file:: user.tsconfig
     :scope: extension
     :path: /Configuration/

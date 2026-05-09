@@ -151,19 +151,16 @@ must be strings or integers.)
     objects that they can create in the form. This is similar to the concept of
     :ref:`IRRE / inline TCA definitions <t3tca:columns-inline>`.
 
-..  versionchanged:: 13.0
-
-    Available element types inside FlexForm sections is
-    restricted. You should only use simple TCA types like
-    :php:`type => 'input'` in sections. Relations (:php:`type =>
-    'group'`, :php:`type => 'inline'`, :php:`type => 'select'` and similar)
-    should be avoided.
-    TYPO3 v13 forbids using :php:`type => 'select'` with
-    a :php:`foreign_table` set, which will raise an exception.
-    This does not apply for FlexForm fields outside of a :xml:`<section>`.
-    Details can be found in
-    :ref:`ext_core:breaking-102970-1706447911`.
-
+Available element types inside FlexForm sections are
+restricted. You should only use simple TCA types like
+:php:`type => 'input'` in sections. Relations (:php:`type =>
+'group'`, :php:`type => 'inline'`, :php:`type => 'select'` and similar)
+should be avoided.
+TYPO3 forbids using :php:`type => 'select'` with
+a :php:`foreign_table` set, which will raise an exception.
+This does not apply for FlexForm fields outside of a :xml:`<section>`.
+Details can be found in
+:ref:`ext_core:breaking-102970-1706447911`.
 
 ..  _t3ds-elements-example:
 

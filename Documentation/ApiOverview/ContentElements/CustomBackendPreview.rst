@@ -141,13 +141,6 @@ approaches:
     This specifies the preview renderer only for records of type :php:`$type` as
     determined by the :ref:`type field <t3tca:types>` of your table.
 
-..  deprecated:: 13.4
-    Registration of subtypes has been deprecated. Registration of custom
-    types should therefore always be done by using
-    :confval:`record types <t3tca:ctrl-type>`.
-
-    See also :ref:`t3tca:migration-subtype-previewrenderer`.
-
 ..  note::
     The :ref:`recommended location <extension-configuration-tca>` is in the
     :php:`ctrl` array in your extension's :file:`Configuration/TCA/$table.php`

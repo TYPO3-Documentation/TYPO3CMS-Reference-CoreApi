@@ -23,16 +23,6 @@ Here are some examples of how Fluid can be used in TYPO3:
 *   Use the :ref:`generic view factory <generic-view-factory>` to create a
     Fluid view.
 
-..  versionchanged:: 14.0
-    These classes were marked as deprecated in TYPO3 v13.3 and have been
-    removed in v14:
-
-    *   :php:`TYPO3\CMS\Fluid\View\StandaloneView`
-    *   :php:`TYPO3\CMS\Fluid\View\TemplateView`
-    *   :php:`TYPO3\CMS\Fluid\View\AbstractTemplateView`
-    *   :php:`TYPO3\CMS\Extbase\Mvc\View\ViewResolverInterface`
-    *   :php:`TYPO3\CMS\Extbase\Mvc\View\GenericViewResolver`
-
 ..  contents::
     :local:
 
@@ -274,7 +264,7 @@ see `PSR-14 events for Fluid components <https://docs.typo3.org/permalink/change
 History of Fluid components
 ---------------------------
 
-In TYPO3 v13 it is possible to use components in TYPO3 projects by creating a custom
+In TYPO3 v13 it became possible to use components in TYPO3 projects by creating a custom
 :php:`ComponentCollection` class that essentially connects a folder of template files
 to a Fluid ViewHelper namespace. Using that class it is also possible to use an
 alternative folder structure for a component collection and to allow
@@ -339,12 +329,6 @@ of Fluid components that are registered using the new configuration file
 
 Using the generic view factory (ViewFactoryInterface)
 =====================================================
-
-..  versionadded:: 13.3
-    Class :php:`TYPO3\CMS\Core\View\ViewFactoryInterface` has been added as a
-    generic view factory interface to create views that return an instance of
-    :php:`TYPO3\CMS\Core\View\ViewInterface`. This implements the "V" of "MVC"
-    in a generic way and is used throughout the TYPO3 core.
 
 You can :ref:`inject <dependency-injection>` an instance of the
 :php:`TYPO3\CMS\Core\View\ViewFactoryInterface` to create an instance of a

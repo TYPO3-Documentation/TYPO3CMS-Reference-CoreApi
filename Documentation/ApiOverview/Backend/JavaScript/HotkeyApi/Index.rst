@@ -6,8 +6,6 @@
 Hotkey API
 ==========
 
-..  versionadded:: 13.0
-
 TYPO3 provides the :js:`@typo3/backend/hotkeys.js` module that allows developers
 to register custom keyboard shortcuts in the TYPO3 backend.
 

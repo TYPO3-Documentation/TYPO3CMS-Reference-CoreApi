@@ -6,11 +6,6 @@
 AfterLinkResolvedByStringRepresentationEvent
 ============================================
 
-..  versionadded:: 13.0
-    This event has been introduced as a more powerful replacement for the
-    removed hook
-    :php:`$GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['Link']['resolveByStringRepresentation']`.
-
 The PSR-14 event :php:`\TYPO3\CMS\Core\LinkHandling\Event\AfterLinkResolvedByStringRepresentationEvent`
 is being dispatched after the :php:`\TYPO3\CMS\Core\LinkHandling\LinkService`
 has tried to resolve a given `t3://` :abbr:`URN (Uniform Resource Name)` using
@@ -34,8 +29,6 @@ Example
 ..  literalinclude:: _AfterLinkResolvedByStringRepresentationEvent/_MyEventListener.php
     :language: php
     :caption: EXT:my_extension/Classes/LinkHandling/EventListener/MyEventListener.php
-
-..  include:: /_includes/EventsAttributeAddedNew.rst.txt
 
 API
 ===

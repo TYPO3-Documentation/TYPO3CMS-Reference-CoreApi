@@ -95,28 +95,3 @@ to be installed for this to work.
 ..  literalinclude:: _ext_tables_scheduler.php
     :language: php
     :caption: EXT:site_package/ext_tables.php
-
-..  index:: Extension development; Backend module registration
-..  _extension-configuration-files-backend-module:
-
-Registering a backend module
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-..  versionchanged:: 13.0
-    The method
-    :php:`\use TYPO3\CMS\Extbase\Utility\ExtensionUtility::registerModule()`
-    has been removed. Register modules in
-    :ref:`extension-configuration-backend-modules`.
-
-
-..  index:: Extension development; allowTableOnStandardPages
-..  _extension-configuration-files-allow-table-standard:
-
-Allowing a tables records to be added to Standard pages
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-..  versionchanged:: 13.0
-    The method :php:`ExtensionManagementUtility::allowTableOnStandardPages()`
-    has been removed. Use the TCA ctrl option
-    :ref:`ignorePageTypeRestriction <t3tca:ctrl-security-ignorePageTypeRestriction>`
-    instead.

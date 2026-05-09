@@ -41,13 +41,13 @@ Upload and extract the package
 -   Open your FTP program or web-based file manager
 -   Create a folder on your webspace where you want to install TYPO3, for
     example :path:`/public_html/typo3site`
--   Upload the TYPO3 `.zip` file (for example :file:`typo3_src-13.4.y.zip`) directly
+-   Upload the TYPO3 `.zip` file (for example :file:`typo3_src-14.3.y.zip`) directly
     to this folder and extract it using the tools provided by your servers file manager.
 
     If your server does not offer an option to extract files,
     see :ref:`manual-archive-alternative-upload`
 -   After extraction, you have a folder named something like
-    :path:`typo3_src-13.4.15`. Move all files and folder contained from this
+    :path:`typo3_src-14.3.1`. Move all files and folder contained from this
     folder into **the folder where your domain or
     subdomain’s document root points to**.
 
@@ -62,7 +62,7 @@ Best practice: use symlinks to TYPO3 source (optional)
 
 On systems where you have shell access, the recommended method is to keep
 TYPO3 source packages in a dedicated folder, such as
-`/typo3_sources/typo3_src-13.4.y/`, and create symbolic links from your project
+`/typo3_sources/typo3_src-14.3.y/`, and create symbolic links from your project
 folder (webroot) to the required parts of the TYPO3 source.
 
 This keeps your project clean and simplifies future upgrades.

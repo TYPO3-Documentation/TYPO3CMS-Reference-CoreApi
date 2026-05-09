@@ -6,11 +6,6 @@
 New content element wizard
 ==========================
 
-..  versionchanged:: 13.0
-    Custom content element types are auto-registered for the
-    :guilabel:`New Content Element` wizard. The listing can be configured using
-    TCA.
-
 ..  contents:: Table of contents
 
 The content element wizard opens when a new content element is
@@ -35,8 +30,6 @@ New content elements are usually added in extensions in file
 The following groups are available by default:
 
 default
-    ..  versionchanged:: 13.0 This group was renamed from group `common`.
-
     Default group for commonly used content elements
 forms
     Content elements representing forms like a contact form or a login form
@@ -177,17 +170,3 @@ The headers can also be overridden on a per site basis using page TSconfig.
 
 ..  literalinclude:: _AddingYourOwnContentElements/_page_change_group_header.tsconfig
     :caption: EXT:my_sitepackage/Configuration/Sets/MySet/page.tsconfig
-
-.. _content-element-wizard-v12:
-
-Content elements compatible with TYPO3 v12.4 and v13
-====================================================
-
-If your extension supplies content elements or plugins and supports both TYPO3
-v12.4 and v13 you can keep the :ref:`Page TsConfig for the New Content Element
-Wizard <t3coreapi/v12:content-element-wizard>` while you additionally supply
-the TCA settings for TYPO3 v13.
-
-You should use the same content element group for both definition ways or
-the content element will be displayed twice, once in each group. Group `common`
-is automatically migrated to `default` for TYPO3 v13.
