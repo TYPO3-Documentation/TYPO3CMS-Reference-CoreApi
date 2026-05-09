@@ -189,7 +189,7 @@ directly in the template.
 
 ..  seealso::
 
-    :ref:`extbase-view`
+    :ref:`extbase-view-overview`
 
     :ref:`fluid` — the full Fluid templating reference, including all built-in
     ViewHelpers.
@@ -257,7 +257,7 @@ You have a working extension. From here:
     underlying everything above.
 *   :ref:`extbase-persistence-queries` — write custom repository
     queries with ordering, filtering, and limits.
-*   :ref:`extbase-validation` — validate model properties and action
+*   :ref:`extbase-validation-overview` — validate model properties and action
     arguments automatically.
-*   :ref:`extbase-caching` — understand how caching works for your
+*   :ref:`extbase-caching-overview` — understand how caching works for your
     plugin and what your responsibilities are.

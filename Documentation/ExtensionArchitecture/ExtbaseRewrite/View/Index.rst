@@ -2,7 +2,7 @@
 
 ..  include:: /Includes.rst.txt
 ..  index:: pair: Extbase; View
-..  _extbase-view:
+..  _extbase-view-overview:
 
 =====================
 View layer in Extbase

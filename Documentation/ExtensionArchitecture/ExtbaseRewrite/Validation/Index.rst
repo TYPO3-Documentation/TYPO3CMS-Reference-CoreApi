@@ -2,7 +2,7 @@
 
 ..  include:: /Includes.rst.txt
 ..  index:: pair: Extbase; Validation
-..  _extbase-validation:
+..  _extbase-validation-overview:
 
 =====================
 Validation in Extbase

@@ -2,7 +2,7 @@
 
 ..  include:: /Includes.rst.txt
 ..  index:: pair: Extbase; Domain
-..  _extbase-domain:
+..  _extbase-domain-overview:
 
 =======================
 Domain layer in Extbase

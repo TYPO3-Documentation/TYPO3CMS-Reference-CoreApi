@@ -2,7 +2,7 @@
 
 ..  include:: /Includes.rst.txt
 ..  index:: pair: Extbase; Controller
-..  _extbase-controller:
+..  _extbase-controller-overview:
 
 ===========================
 Controller layer in Extbase

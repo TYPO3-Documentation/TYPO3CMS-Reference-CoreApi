@@ -2,7 +2,7 @@
 
 ..  include:: /Includes.rst.txt
 ..  index:: pair: Extbase; Caching
-..  _extbase-caching:
+..  _extbase-caching-overview:
 
 ===========================
 Caching for Extbase plugins

@@ -187,4 +187,4 @@ For redirects and forwards:
 
     :ref:`extbase-domain-model` — how models and repositories work.
 
-    :ref:`extbase-view` — Fluid templates and response types.
+    :ref:`extbase-view-overview` — Fluid templates and response types.
