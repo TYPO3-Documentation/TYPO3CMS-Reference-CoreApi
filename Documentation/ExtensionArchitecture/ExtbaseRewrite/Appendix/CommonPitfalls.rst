@@ -169,5 +169,5 @@ write operations that need IRRE-style relation management.
 ..  seealso::
 
     Deeper discussion coming — placement TBD.
-    `Controller property mapping <https://docs.typo3.org/permalink/extbase-controller-property-mapping>`_ for the HMAC argument
+    `Controller property mapping <https://docs.typo3.org/permalink/extbase-controller-propertymapping>`_ for the HMAC argument
     hashing mechanism.
