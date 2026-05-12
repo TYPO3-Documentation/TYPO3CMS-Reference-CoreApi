@@ -36,4 +36,7 @@ of that attribute.
     $rootLine = $pageInformation->getLocalRootLine();
 
 
-..  todo: Add API when class is not marked as internal anymore
+API
+===
+
+..  include:: /CodeSnippets/Manual/Entity/PageInformation.rst.txt
