@@ -1006,3 +1006,38 @@ configuration.
 
     You can also define this manually in your :file:`settings.php` file
     or via :guilabel:`System > Settings > Configure options`.
+
+..  confval:: rateLimiter
+    :name: globals-typo3-conf-vars-sys-rateLimiter
+    :Path: $GLOBALS['TYPO3_CONF_VARS']['SYS']['rateLimiter']
+    :type: array
+    :Default: `[]`
+
+    Override rate limiter configuration by limiter ID. Each key is a limiter ID
+    (for example, `login-be`, `backend-password-recovery`), and each value is an
+    array with keys like `limit`, `interval`, and/or `policy` to override the
+    programmatic defaults.
+
+    Examples:
+
+    ..  code-block:: php
+        :caption: config/system/additional.php | typo3conf/system/additional.php
+
+        $GLOBALS['TYPO3_CONF_VARS']['SYS']['rateLimiter']['login-be'] = [
+            'limit' => 3,
+            'interval' => '5 minutes',
+        ];
+
+        $GLOBALS['TYPO3_CONF_VARS']['SYS']['rateLimiter']['backend-password-recovery'] = [
+            'limit' => 1,
+            'interval' => '1 hour',
+        ];
+
+    Known limiter IDs:
+
+    *   :php:`login-be` — Backend login
+    *   :php:`login-fe` — Frontend login
+    *   :php:`backend-password-recovery` — Backend password reset
+    *   :php:`felogin-password-recovery` — Frontend password recovery
+    *   :php:`extbase-<classSlug>-<actionMethod>` —
+        :ref:`Extbase #[RateLimit] actions <rate-limiting-extbase-action>`
