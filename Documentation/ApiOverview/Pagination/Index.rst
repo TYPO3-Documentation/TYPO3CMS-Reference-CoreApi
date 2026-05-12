@@ -18,11 +18,27 @@ Along with that interface, an abstract paginator class :php:`\TYPO3\CMS\Core\Pag
 is available that implements the base pagination logic for any kind of :php:`Countable` set of
 items while it leaves the processing of items to the concrete paginator class.
 
-Two concrete paginators are available:
+..  contents:: Table of Contents
+    :depth: 2
+    :local:
 
-*  For type :php:`array`: :php:`\TYPO3\CMS\Core\Pagination\ArrayPaginator`
-*  For type :php:`\TYPO3\CMS\Extbase\Persistence\QueryResultInterface`:
-   :php:`\TYPO3\CMS\Extbase\Pagination\QueryResultPaginator`
+Paginators
+==========
+
+..  versionadded:: 14.2
+    The :php-short:`\TYPO3\CMS\Core\Pagination\QueryBuilderPaginator` has been
+    introduced.
+
+Three concrete paginators are available:
+
+*   For type :php:`array`: :php:`\TYPO3\CMS\Core\Pagination\ArrayPaginator`
+*   For type :php:`\TYPO3\CMS\Extbase\Persistence\QueryResultInterface`:
+    :php:`\TYPO3\CMS\Extbase\Pagination\QueryResultPaginator`
+*   For type :php:`\TYPO3\CMS\Core\Database\Query\QueryBuilder`:
+    :php:`\TYPO3\CMS\Core\Pagination\QueryBuilderPaginator`
+
+Example: ArrayPaginator
+-----------------------
 
 Code example for the :php:`ArrayPaginator` in an
 :ref:`Extbase controller <extbase-action-controller>`:
@@ -35,6 +51,32 @@ And the corresponding Fluid template:
 ..  literalinclude:: _ArrayPaginatorExamplePagination.html
     :caption: EXT:my_extension/Resources/Private/Templates/ExamplePagination.html
 
+Example: QueryBuilderPaginator
+------------------------------
+
+The paginated items are fetched only once per page request by storing the result
+internally, avoiding double execution of the database statement.
+
+The total item count is determined robustly using a common table expression
+(CTE) wrapping the passed :ref:`QueryBuilder <database-query-builder>` instance.
+This approach correctly handles advanced queries involving :sql:`UNION`, nested
+CTEs, windowing functions, or grouping.
+
+..  literalinclude:: _QueryBuilderPaginator.php
+    :caption: EXT:my_extension/Controller/ExampleController.php
+
+..  note::
+    The :php-short:`\TYPO3\CMS\Core\Pagination\QueryBuilderPaginator` does
+    **not** handle language overlays. Applying overlays on the result set can
+    lead to unexpected item count differences between pages when some records
+    are hidden after overlay processing. Use
+    :php-short:`\TYPO3\CMS\Extbase\Pagination\QueryResultPaginator` or
+    :php-short:`\TYPO3\CMS\Core\Pagination\ArrayPaginator` when language
+    overlay handling is required.
+
+    The paginator also takes **full control** over `LIMIT` and `OFFSET`
+    and does not respect any existing limit/offset constraints on the passed
+    :php:`QueryBuilder` instance.
 
 Sliding window pagination
 =========================
