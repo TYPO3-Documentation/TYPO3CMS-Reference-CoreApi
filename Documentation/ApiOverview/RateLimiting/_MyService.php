@@ -22,7 +22,7 @@ final readonly class MyService
                 'policy' => 'sliding_window',
                 'limit' => 10,
                 'interval' => '1 hour',
-            ]
+            ],
         );
 
         $limit = $limiter->consume();
