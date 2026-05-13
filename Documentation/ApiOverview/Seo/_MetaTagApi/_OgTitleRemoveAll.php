@@ -12,7 +12,7 @@ final class MyController
         private readonly MetaTagManagerRegistry $metaTagManagerRegistry,
     ) {}
 
-    public function removeOgTitle(): void
+    public function removeAllOgProperties(): void
     {
         $metaTagManager = $this->metaTagManagerRegistry->getManagerForProperty('og:title');
         $metaTagManager->removeAllProperties();
