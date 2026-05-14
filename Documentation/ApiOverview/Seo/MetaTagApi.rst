@@ -28,46 +28,27 @@ Using the MetaTag API
 
 To use the API, first get the right :php:`MetaTagManager` for your tag from the :php:`MetaTagManagerRegistry`.
 You can use that manager to add your meta tag; see the example below for the :html:`og:title` meta tag.
+Inject the :php:`MetaTagManagerRegistry` via :ref:`Dependency Injection <DependencyInjection>`.
 
-.. code-block:: php
-
-    use TYPO3\CMS\Core\MetaTag\MetaTagManagerRegistry;
-    use TYPO3\CMS\Core\Utility\GeneralUtility;
-
-    $metaTagManager = GeneralUtility::makeInstance(MetaTagManagerRegistry::class)->getManagerForProperty('og:title');
-    $metaTagManager->addProperty('og:title', 'This is the OG title from a controller');
+..  literalinclude:: _MetaTagApi/_OgTitle.php
+    :caption: EXT:my_extension/Classes/Controller/MyController.php
 
 This code will result in a :html:`<meta property="og:title" content="This is the OG title from a controller" />` tag in frontend.
 
 If you need to specify sub-properties, e.g. :html:`og:image:width`, you can use the following code:
 
-.. code-block:: php
-
-    use TYPO3\CMS\Core\MetaTag\MetaTagManagerRegistry;
-    use TYPO3\CMS\Core\Utility\GeneralUtility;
-
-    $metaTagManager = GeneralUtility::makeInstance(MetaTagManagerRegistry::class)->getManagerForProperty('og:image');
-    $metaTagManager->addProperty('og:image', '/path/to/image.jpg', ['width' => 400, 'height' => 400]);
+..  literalinclude:: _MetaTagApi/_OgImage.php
+    :caption: EXT:my_extension/Classes/Controller/MyController.php
 
 You can also remove a specific property:
 
-.. code-block:: php
-
-    use TYPO3\CMS\Core\MetaTag\MetaTagManagerRegistry;
-    use TYPO3\CMS\Core\Utility\GeneralUtility;
-
-    $metaTagManager = GeneralUtility::makeInstance(MetaTagManagerRegistry::class)->getManagerForProperty('og:title');
-    $metaTagManager->removeProperty('og:title');
+..  literalinclude:: _MetaTagApi/_OgTitleRemove.php
+    :caption: EXT:my_extension/Classes/Controller/MyController.php
 
 Or remove all previously set meta tags of a specific manager:
 
-.. code-block:: php
-
-    use TYPO3\CMS\Core\MetaTag\MetaTagManagerRegistry;
-    use TYPO3\CMS\Core\Utility\GeneralUtility;
-
-    $metaTagManager = GeneralUtility::makeInstance(MetaTagManagerRegistry::class)->getManagerForProperty('og:title');
-    $metaTagManager->removeAllProperties();
+..  literalinclude:: _MetaTagApi/_OgTitleRemoveAll.php
+    :caption: EXT:my_extension/Classes/Controller/MyController.php
 
 
 .. index:: MetaTag; Custom MetaTagManager
