@@ -6,6 +6,9 @@
 Supported languages
 ===================
 
+..  versionadded:: 14.2
+    Native support for language Lao.
+
 The list of supported languages is defined in
 :php:`\TYPO3\CMS\Core\Localization\Locales::$languages`.
 
@@ -48,6 +51,7 @@ The list of supported languages is defined in
         "km", "Khmer"
         "ko", "Korean"
         "lb", "Luxembourgish"
+        "lo", "Lao"
         "lt", "Lithuanian"
         "lv", "Latvian"
         "mi", "Maori"
