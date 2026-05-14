@@ -36,6 +36,8 @@ of that attribute.
     $rootLine = $pageInformation->getLocalRootLine();
 
 
+..  _typo3-request-attribute-frontend-page-information-api:
+
 API
 ===
 
