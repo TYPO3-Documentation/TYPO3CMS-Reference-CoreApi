@@ -7,8 +7,10 @@ Create new page type
 ====================
 
 ..  deprecated:: 14.3
-    TCA option allowedRecordTypes has also been deprecated:
-    `Deprecation: #108557 - TCA option allowedRecordTypes for Page Types <https://docs.typo3.org/permalink/changelog:deprecation-108557-1768610680>`_.
+    The method :php:`PageDoktypeRegistry->addAllowedRecordTypes()` has been 
+    deprecated in favor of the new TCA option.
+
+    See also: `Deprecation: #108557 - TCA option allowedRecordTypes for Page Types <https://docs.typo3.org/permalink/changelog:deprecation-108557-1768610680>`_.
 
 This example demonstrates how to add a new page type (doktype) called "Archive".
 Starting with TYPO3 v14, registration is streamlined by centralizing the
