@@ -65,7 +65,7 @@ identifiers with specific suffixes:
 
 To allow editors to create the new page type via the "New Page" wizard (the
 drag-and-drop overlay), you must add it to the ``doktypes`` list via
-User TSconfig.
+user TSconfig.
 
 ..  literalinclude:: _user.tsconfig
     :language: typoscript
