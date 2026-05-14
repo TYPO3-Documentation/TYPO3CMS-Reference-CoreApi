@@ -76,7 +76,8 @@ Properties must be :php:`protected`, typed, and have a default value:
 Key rules:
 
 *   Properties must be :php:`protected` — never :php:`public`, never
-    :php:`private`. Private properties are silently ignored during hydration
+    :php:`private`. Private properties are silently ignored during
+    :abbr:`hydration (populating a PHP object with values loaded from the database)`
     and persistence; see :ref:`extbase-appendix-pitfalls-private-properties`.
 *   Every property needs a meaningful default so the object is always in a
     valid state before it is populated by Extbase or by your code.

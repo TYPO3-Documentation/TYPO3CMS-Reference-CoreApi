@@ -43,11 +43,19 @@ A controller action that creates and stores a new conference looks like this:
     use MyVendor\MyExtension\Domain\Model\Conference;
     use MyVendor\MyExtension\Domain\Repository\ConferenceRepository;
     use Psr\Http\Message\ResponseInterface;
+    use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
 
-    public function createAction(Conference $conference): ResponseInterface
+    class ConferenceController extends ActionController
     {
-        $this->conferenceRepository->add($conference);
-        return $this->redirect('list');
+        public function __construct(
+            protected readonly ConferenceRepository $conferenceRepository,
+        ) {}
+
+        public function createAction(Conference $conference): ResponseInterface
+        {
+            $this->conferenceRepository->add($conference);
+            return $this->redirect('list');
+        }
     }
 
 No SQL, no INSERT, no result-set iteration. The ORM handles the mapping.
@@ -59,8 +67,10 @@ Extbase loads those related objects automatically when you access the property
 
 This convenience comes with a trade-off: the ORM is optimised for working with
 individual domain objects, not for bulk operations or complex aggregate queries.
-When you need those, dropping down to DBAL directly is the right choice. That
-is not a failure — it is the intended design.
+When you need those, dropping down to :abbr:`DBAL (Database Abstraction Layer)`
+directly is the right choice. That is not a failure — it is the intended design.
+See :ref:`extbase-domain-repository-dbal` for how to do this from within a
+repository.
 
 
 ..  _extbase-concepts-persistence-mapping:
@@ -148,6 +158,22 @@ Editors can also set it per plugin content element via the
     query debugger to see the exact SQL being executed and which page restriction
     is applied.
 
+To disable the storagePid restriction entirely — for example in a backend
+context or when querying across all pages — set it to :typoscript:`0`:
+
+..  code-block:: typoscript
+    :caption: EXT:my_extension/Configuration/Sets/MyExtension/setup.typoscript
+
+    plugin.tx_myextension.persistence.storagePid = 0
+
+Or override it in PHP inside a repository method:
+
+..  code-block:: php
+    :caption: EXT:my_extension/Classes/Domain/Repository/ConferenceRepository.php
+
+    $query = $this->createQuery();
+    $query->getQuerySettings()->setRespectStoragePage(false);
+
 The full storagePid resolution order and how to override it in PHP are covered
 in :ref:`extbase-persistence-queries`.
 
@@ -166,6 +192,42 @@ ORM detects the change.
 Objects you create with :php:`new` are not tracked until you pass them to a
 repository with :php:`add()`. Objects you pass to :php:`remove()` are deleted
 at flush time.
+
+In most actions the automatic flush at the end of the request is sufficient.
+Two cases require an earlier flush:
+
+*   **Before a redirect** — if you call :php:`$this->redirect()` after
+    :php:`add()`, the redirect fires before the automatic flush, so the new
+    object is never written. Call
+    :php:`$this->persistenceManager->persistAll()` before the redirect.
+*   **When you need the new UID** — a freshly created object has no UID until
+    it is persisted. Call :php:`persistAll()` and then read
+    :php:`$object->getUid()`.
+
+..  code-block:: php
+    :caption: EXT:my_extension/Classes/Controller/ConferenceController.php
+
+    use MyVendor\MyExtension\Domain\Model\Conference;
+    use MyVendor\MyExtension\Domain\Repository\ConferenceRepository;
+    use Psr\Http\Message\ResponseInterface;
+    use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
+    use TYPO3\CMS\Extbase\Persistence\PersistenceManagerInterface;
+
+    class ConferenceController extends ActionController
+    {
+        public function __construct(
+            protected readonly ConferenceRepository $conferenceRepository,
+            protected readonly PersistenceManagerInterface $persistenceManager,
+        ) {}
+
+        public function createAction(Conference $conference): ResponseInterface
+        {
+            $this->conferenceRepository->add($conference);
+            $this->persistenceManager->persistAll();
+            $uid = $conference->getUid();
+            return $this->redirect('show', null, null, ['conference' => $uid]);
+        }
+    }
 
 ..  seealso::
 

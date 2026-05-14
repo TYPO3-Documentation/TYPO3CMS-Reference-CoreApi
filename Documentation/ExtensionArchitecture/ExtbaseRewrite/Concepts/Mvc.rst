@@ -125,6 +125,37 @@ happens:
     single page request.
 
 
+..  _extbase-concepts-mvc-typo3-difference:
+
+How Extbase MVC differs from other frameworks
+==============================================
+
+Developers coming from Symfony or Laravel may expect the framework to dispatch
+the entire URL to a controller. Extbase does not work this way.
+
+In TYPO3, the **page router** handles the URL first and resolves it to a page
+in the page tree. Only after a page is determined does TYPO3 render its content
+elements — and only at that point, when a content element of the plugin's type
+is encountered, does Extbase take over.
+
+This has two practical consequences:
+
+*   **Multiple plugins can live on one page.** Each plugin content element is
+    rendered independently. If two Extbase plugins are on the same page, both
+    run their own request dispatch cycle. URL arguments are namespaced per
+    plugin (for example :samp:`tx_myextension_conferencelist[action]=show`) to
+    avoid collisions.
+*   **Extbase does not control the page URL.** Clean URLs require a route
+    enhancer configured in the site's :file:`config.yaml`. Without one, plugin
+    arguments appear as query parameters. See :ref:`extbase-routing` for the
+    full configuration.
+
+If you are used to a framework where every route maps to exactly one
+controller, it helps to think of an Extbase plugin as a self-contained
+sub-application embedded inside a TYPO3 page — the page router gets you to the
+page, then Extbase dispatches within that boundary.
+
+
 ..  _extbase-concepts-mvc-actions:
 
 Controller actions in Extbase

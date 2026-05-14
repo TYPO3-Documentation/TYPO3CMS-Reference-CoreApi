@@ -57,10 +57,11 @@ Add a class extending :php:`\TYPO3\CMS\Extbase\DomainObject\AbstractEntity` to
 
 Key points:
 
-*   Properties must be :php:`protected`, not :php:`public` — Extbase uses getters
-    and setters to access them.
-*   Do not set default values or initialise properties in the constructor.
-    Extbase bypasses the constructor when hydrating objects from the database.
+*   Declare properties as :php:`protected` rather than :php:`public`. Extbase
+    can access properties directly, but :php:`protected` keeps the door open
+    for getter/setter logic and makes lazy-loaded relations easier to handle.
+*   Do not initialise properties in the constructor. Extbase populates them
+    directly when loading objects from the database, bypassing the constructor.
 *   Use typed properties. Extbase reads the type declarations to map values
     correctly.
 
@@ -86,7 +87,7 @@ namespace.
 
 The base class provides :php:`findAll()`, :php:`findByUid()`,
 :php:`findBy(array $criteria)`, and :php:`findOneBy(array $criteria)` out of the
-box. The old magic :php:`findBy[PropertyName]()` methods were removed in TYPO3 v14.
+box.
 
 ..  seealso::
 
@@ -131,7 +132,7 @@ Step 5: Create the controller
 Controllers live in :file:`Classes/Controller/` and extend
 :php:`\TYPO3\CMS\Extbase\Mvc\Controller\ActionController`. Each public method
 ending in :php:`Action` is automatically available as a plugin action.
-Inject dependencies via the constructor.
+Use :ref:`dependency injection <Dependency-Injection>` to receive dependencies via the constructor. In Extbase, repositories and other services are injected this way — see also :ref:`extbase-domain-repository-di`.
 
 ..  literalinclude:: _snippets/_ConferenceController.php
     :language: php
@@ -140,8 +141,8 @@ Inject dependencies via the constructor.
 *   Assign variables to the view with :php:`$this->view->assign()`.
 *   Return :php:`$this->htmlResponse()` to render the Fluid template.
 *   Typed action arguments are automatically resolved from the request —
-    passing an :php:`int` UID in the URL results in a hydrated
-    :php:`Conference` object in the action.
+    passing a UID in the URL results in a fully populated :php:`Conference`
+    object in the action. Extbase loads it from the repository for you.
 
 ..  seealso::
 
@@ -204,9 +205,7 @@ Step 7: Register the plugin
 Two calls are required — one in :file:`ext_localconf.php`, one in
 :file:`Configuration/TCA/Overrides/tt_content.php`.
 
-Since TYPO3 v14, plugins are registered as dedicated content types (:sql:`CType`)
-rather than as subtypes of the old "General Plugin" element. The old
-:sql:`list_type` approach is gone.
+Since TYPO3 v14, plugins are registered as dedicated content types (:sql:`CType`).
 
 :file:`ext_localconf.php` tells Extbase which controller actions the plugin
 may call:
@@ -245,6 +244,32 @@ clean URLs like :samp:`/conferences/my-conference`.
 
     :ref:`extbase-routing` — the full routing chapter with detailed
     examples and common mistakes.
+
+
+..  _extbase-quickstart-install:
+
+Step 9: Install and try it
+===========================
+
+Install your extension if it is not already active:
+
+..  code-block:: bash
+    :caption: In your project root
+
+    vendor/bin/typo3 extension:activate my_extension
+
+Then in the TYPO3 backend:
+
+1.  Create a sysfolder page and add your conference records there.
+2.  Create or edit a regular page, add a content element, and select your
+    plugin from the content element type list.
+3.  Set the :guilabel:`Record Storage Page` on the plugin content element to
+    the sysfolder from step 1 (or configure
+    :typoscript:`plugin.tx_myextension.persistence.storagePid` in TypoScript).
+4.  Open the page in the frontend — you should see your list view.
+
+If the list is empty, check the storagePid first. See
+:ref:`extbase-domain-repository-storagepid`.
 
 
 ..  _extbase-quickstart-next:

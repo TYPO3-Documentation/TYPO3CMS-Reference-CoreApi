@@ -31,7 +31,7 @@ Model properties declared private are never populated
 **Symptom:** A model property always holds its default value after loading from
 the database, even though the database column contains data. No error is thrown.
 
-**Why:** Extbase hydrates properties via :php:`_setProperty()`, a method
+**Why:** Extbase :abbr:`hydrates (populates a PHP object with values loaded from the database)` properties via :php:`_setProperty()`, a method
 defined on :php:`AbstractDomainObject`. It assigns values using dynamic
 property access (:php:`$this->{$propertyName} = $value`). PHP's visibility
 rules prevent a parent class method from writing to a :php:`private` property
