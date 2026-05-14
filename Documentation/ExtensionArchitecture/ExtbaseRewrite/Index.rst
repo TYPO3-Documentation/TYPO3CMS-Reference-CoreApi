@@ -35,28 +35,40 @@ and in-depth reference material here.
 When to use Extbase
 ===================
 
-Extbase shines when your extension centres on structured data with create,
-read, update, and delete operations. If editors work with records in the TYPO3
-backend and those records are displayed or manipulated in the frontend, Extbase
-is very likely the right tool.
+Extbase is the right choice when your extension revolves around **structured
+data that visitors consume**: event listings, product catalogues, news feeds,
+job boards, book reviews — anything that lives in the database and needs to be
+browsed, filtered, sorted, or displayed in the frontend. This is where Extbase
+excels, and where the investment in a proper domain model pays off quickly.
+Extensions like :composer:`georgringer/news` are proof: a well-built Extbase
+extension can serve millions of page views and remain straightforward to
+maintain and extend.
 
-It is widely used across the TYPO3 ecosystem — extensions like
-:composer:`georgringer/news` are built on Extbase and serve as solid
-real-world references for the patterns described in this chapter.
+Extbase also handles **simple frontend data entry** well — a conference
+registration, a newsletter sign-up, a visitor review — as long as the data
+stays simple. When records have complex relationships, or when editors need to
+manage them, that work belongs in a backend module, not a frontend form.
 
 ..  _extbase-when-not-to-use:
 
 When Extbase is not the right fit
 ==================================
 
-Extbase is not a universal solution. It requires a full TYPO3 frontend
-bootstrap, which makes it unsuitable for middlewares, CLI commands, or
-scheduler tasks without extra effort. For those contexts TYPO3's native
-APIs are a better choice.
+Extbase is not a universal solution. If there is no structured domain to model
+— a site package, a collection of content elements, a utility extension — it
+adds overhead without benefit. Use TYPO3's native APIs directly.
 
-It is also worth considering alternatives for extensions with no meaningful
-domain model — site packages, pure content element collections, or
-performance-critical code paths where the ORM overhead would be a liability.
+Volume is another limit to keep in mind. Extbase maps every database row to a
+PHP object, which is comfortable for moderate datasets but becomes a bottleneck
+when a single page request pulls in thousands of records. There is no hard
+number; it depends on query complexity, relation depth, and how aggressively you
+cache — but if you expect very large datasets, benchmark early and consider
+whether raw database queries or a dedicated search index would serve you better
+from the start.
+
+Finally, Extbase requires a full TYPO3 frontend bootstrap and is not the right
+fit for middlewares, CLI commands, or scheduler tasks. For those, TYPO3's native
+APIs are the natural choice.
 
 ..  seealso::
 
@@ -92,3 +104,4 @@ performance-critical code paths where the ORM overhead would be a liability.
     Appendix/Attributes
     Appendix/CommonPitfalls
     Appendix/CommonTasks
+    Appendix/Upgrading

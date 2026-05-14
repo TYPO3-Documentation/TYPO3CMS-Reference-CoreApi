@@ -69,8 +69,8 @@ records live on a different page than expected, the query returns nothing.
 
 ..  _extbase-appendix-pitfalls-annotations:
 
-Annotations silently ignored in v14
-=====================================
+Annotations silently ignored in TYPO3 v14
+=========================================
 
 **Symptom:** Lazy loading, cascade delete, or validation rules defined in
 DocBlock annotations (:php:`@Extbase\ORM\Lazy`, :php:`@Extbase\Validate`,
@@ -87,8 +87,8 @@ ignores them. The replacement is native PHP attributes.
 
 ..  _extbase-appendix-pitfalls-magic-findby:
 
-Magic findBy*() methods removed in v14
-========================================
+Magic findBy*() methods removed in TYPO3 v14
+============================================
 
 **Symptom:** Calls to :php:`findByTitle($value)`, :php:`findOneBySlug($value)`,
 or :php:`countByStatus($value)` throw an error or do nothing after upgrading
@@ -99,8 +99,10 @@ in v14. The replacements use an explicit array signature.
 
 ..  seealso::
 
-    `Built-in find methods <https://docs.typo3.org/permalink/extbase-domain-repository-find-methods>`_ — migration table
-    with before/after examples.
+    :ref:`extbase-upgrading-magic-findby` — migration table with before/after
+    examples.
+
+    `Built-in find methods <https://docs.typo3.org/permalink/extbase-domain-repository-find-methods>`_ — the current find method reference.
 
 
 ..  _extbase-appendix-pitfalls-list-type:
@@ -167,8 +169,38 @@ backend module where the tooling is designed for it; use separate AJAX
 endpoints that create one related record at a time; consider DataHandler for
 write operations that need IRRE-style relation management.
 
-..  seealso::
-
-    Deeper discussion coming — placement TBD.
+..  Deeper discussion coming — placement TBD.
     `Controller property mapping <https://docs.typo3.org/permalink/extbase-controller-propertymapping>`_ for the HMAC argument
     hashing mechanism.
+
+
+..  _extbase-appendix-pitfalls-validation-tca-gap:
+
+Extbase model validation and TCA validation are independent
+===========================================================
+
+**Symptom:** A record created or edited in the TYPO3 backend passes without
+error, but the same record fails Extbase validation in the frontend — or vice
+versa. A backend editor saves a record that a frontend action then rejects
+immediately. Or a record saved through Extbase arrives in the backend in a
+state the backend form cannot open cleanly.
+
+**Why:** Extbase validation (``#[Validate]`` attributes on model properties)
+and TCA validation (``eval``, ``required``, and similar TCA column
+configuration) are entirely separate systems. Neither one knows about the
+other. Extbase validation only runs during frontend request processing; TCA
+validation only runs in the backend form engine. There is no shared layer that
+enforces both at once.
+
+This gap is most painful when multiple Extbase models map to the same database
+table — each model may carry different validation rules, but the backend always
+uses the TCA for that table regardless of which model class is involved.
+
+**What to do instead:** Treat the two systems as complementary and configure
+both deliberately. For every constraint that matters in both contexts, add it
+both as a ``#[Validate]`` attribute on the model property and as the
+corresponding TCA column configuration. For records that must be valid in both
+contexts, test both paths explicitly.
+
+..  This section also serves as an argument for keeping the number of Extbase models
+..  per table small — the validation gap compounds when multiple models diverge.

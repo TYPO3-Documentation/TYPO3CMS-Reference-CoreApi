@@ -56,13 +56,13 @@ records filtered by date, a relation, or a combination of conditions.
 **Short answer:** Call :php:`$this->createQuery()` in your repository method,
 build constraints with :php:`$query->matching()`, and return
 :php:`$query->execute()`. For anything the Extbase query API cannot express
-(aggregates, complex joins), drop down to :php:`ConnectionPool` and raw DBAL.
+(aggregates, complex joins), drop down to :php-short:`\TYPO3\CMS\Core\Database\ConnectionPool` and raw DBAL.
 
 ..  seealso::
 
-    `Custom query methods <https://docs.typo3.org/permalink/extbase-domain-repository-custom-queries>`_ for the basics.
-    `Persistence queries <https://docs.typo3.org/permalink/extbase-persistence-queries>`_ for the full query API
-    including ordering, limits, and storagePid settings.
+    * `Custom query methods <https://docs.typo3.org/permalink/extbase-domain-repository-custom-queries>`_ for the basic knowledge.
+    * `Persistence queries <https://docs.typo3.org/permalink/extbase-persistence-queries>`_ for the full query API
+       including ordering, limits, and storagePid settings.
 
 
 ..  _extbase-appendix-tasks-inject-repository:
@@ -74,7 +74,7 @@ Use a repository in a controller
 using :php:`GeneralUtility::makeInstance()`.
 
 **Short answer:** Declare the repository as a constructor parameter with
-:php:`private readonly`. TYPO3's DI container injects it automatically — no
+:php:`protected readonly`. TYPO3's DI container injects it automatically — no
 annotation, no factory call needed.
 
 ..  code-block:: php
@@ -89,8 +89,8 @@ annotation, no factory call needed.
 
 ..  seealso::
 
-    `Dependency injection <https://docs.typo3.org/permalink/extbase-domain-repository-di>`_.
-    `Extbase controller actions <https://docs.typo3.org/permalink/extbase-controller-action>`_ for the full controller setup.
+    * `Dependency injection <https://docs.typo3.org/permalink/extbase-domain-repository-di>`_.
+    * `Extbase controller actions <https://docs.typo3.org/permalink/extbase-controller-action>`_ for the full controller setup.
 
 
 ..  _extbase-appendix-tasks-default-ordering:
@@ -138,12 +138,12 @@ the getter must also handle the :php:`LazyLoadingProxy` intermediate.
 
 ..  seealso::
 
-    `Relations and ObjectStorage <https://docs.typo3.org/permalink/extbase-domain-model-relations>`_ for the full pattern
-    including the proxy-aware getter.
-    `#[Lazy] <https://docs.typo3.org/permalink/extbase-appendix-attributes-lazy>`_ for the attribute
-    reference.
-    `Persistence relations <https://docs.typo3.org/permalink/extbase-persistence-relations>`_ for the N+1 query trap
-    this prevents.
+    * `Relations and ObjectStorage <https://docs.typo3.org/permalink/extbase-domain-model-relations>`_ for the full pattern
+      including the proxy-aware getter.
+    * `#[Lazy] <https://docs.typo3.org/permalink/extbase-appendix-attributes-lazy>`_ for the attribute
+      reference.
+    * `Persistence relations <https://docs.typo3.org/permalink/extbase-persistence-relations>`_ for the N+1 query trap
+      this prevents.
 
 
 ..  _extbase-appendix-tasks-delete-cascade:
@@ -160,8 +160,8 @@ repository when the parent is deleted.
 
 ..  seealso::
 
-    `Relations and ObjectStorage <https://docs.typo3.org/permalink/extbase-domain-model-relations>`_.
-    `#[Cascade] <https://docs.typo3.org/permalink/extbase-appendix-attributes-cascade>`_.
+    * `Relations and ObjectStorage <https://docs.typo3.org/permalink/extbase-domain-model-relations>`_.
+    * `#[Cascade] <https://docs.typo3.org/permalink/extbase-appendix-attributes-cascade>`_.
 
 
 ..  _extbase-appendix-tasks-enum-property:
@@ -175,7 +175,7 @@ enum (an enum with an underlying :php:`string` or :php:`int` value that can be
 stored in the database) rather than a plain string or integer.
 
 **Short answer:** Declare the property with the enum type and a default case.
-Extbase's built-in :php:`EnumConverter` handles the conversion between the
+Extbase's built-in :php-short:`\TYPO3\CMS\Extbase\Property\TypeConverter\EnumConverter` handles the conversion between the
 stored backing value and the enum instance automatically. No extra
 configuration needed.
 
@@ -198,5 +198,5 @@ entirely during read and write operations.
 
 ..  seealso::
 
-    `Non-persisted properties <https://docs.typo3.org/permalink/extbase-domain-model-transient>`_.
-    `#[Transient] <https://docs.typo3.org/permalink/extbase-appendix-attributes-transient>`_.
+    * `Non-persisted properties <https://docs.typo3.org/permalink/extbase-domain-model-transient>`_.
+    * `#[Transient] <https://docs.typo3.org/permalink/extbase-appendix-attributes-transient>`_.

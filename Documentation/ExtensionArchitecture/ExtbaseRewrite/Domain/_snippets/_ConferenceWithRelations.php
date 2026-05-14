@@ -41,6 +41,7 @@ class Conference extends AbstractEntity
 
     public function getLocation(): ?Location
     {
+        // type check only for phpstan
         if ($this->location instanceof LazyLoadingProxy) {
             $this->location = $this->location->_loadRealInstance();
         }

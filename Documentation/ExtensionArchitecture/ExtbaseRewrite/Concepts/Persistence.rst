@@ -8,10 +8,15 @@
 Persistence and the Extbase ORM
 =====================================
 
-Extbase includes an Object-Relational Mapper (ORM). The ORM's job is to
+Extbase includes an :abbr:`ORM (Object-Relational Mapper)`. The ORM's job is to
 translate between the relational world of database tables and the
 object-oriented world of PHP classes — so you work with :php:`Conference` objects
-rather than raw database rows, and Extbase handles the SQL.
+rather than raw database rows. `SQL <https://en.wikipedia.org/wiki/SQL>`__
+(:abbr:`SQL (Structured Query Language)`) is the language used to read from and
+write to relational databases; Extbase's persistence layer generates and executes
+it for you, covering the full lifecycle of your domain objects: loading records
+from the database, tracking changes you make to objects during a request, and
+writing inserts, updates, and deletes back when the request ends.
 
 ..  contents:: On this page
     :local:
@@ -31,7 +36,7 @@ an :sql:`INSERT` or :sql:`UPDATE` statement yourself. With the Extbase ORM:
     collection of fully populated :php:`Conference` objects.
 *   Writing: you call :php:`$this->conferenceRepository->add($conference)` and the ORM
     generates the INSERT statement.
-*   Updating: you modify a property on the object and call
+*   Updating: you modify properties or relations on the object and call
     :php:`$this->conferenceRepository->update($conference)`.
 *   Deleting: you call :php:`$this->conferenceRepository->remove($conference)`.
 
@@ -58,16 +63,16 @@ A controller action that creates and stores a new conference looks like this:
         }
     }
 
-No SQL, no INSERT, no result-set iteration. The ORM handles the mapping.
+No SQL, no :sql:`INSERT`, no result-set iteration. The ORM handles the mapping.
 
 The ORM also handles relations. If a :php:`Conference` has many :php:`Speaker`
 objects stored in an :php:`\TYPO3\CMS\Extbase\Persistence\ObjectStorage`,
 Extbase loads those related objects automatically when you access the property
-— without you writing any JOIN.
+— without you writing any :sql:`JOIN`.
 
 This convenience comes with a trade-off: the ORM is optimised for working with
 individual domain objects, not for bulk operations or complex aggregate queries.
-When you need those, dropping down to :abbr:`DBAL (Database Abstraction Layer)`
+When you need those, dropping down to raw queries and result sets
 directly is the right choice. That is not a failure — it is the intended design.
 See :ref:`extbase-domain-repository-dbal` for how to do this from within a
 repository.
@@ -94,7 +99,8 @@ Property names map to column names by converting camelCase to snake_case:
 
 These conventions work automatically. When the defaults do not fit — for example
 when mapping to an existing table with its own naming — you can override them in
-:file:`Configuration/Extbase/Persistence/Classes.php`.
+:file:`Configuration/Extbase/Persistence/Classes.php`. See
+:ref:`extbase-domain-model-mapping` for the full syntax and examples.
 
 
 ..  _extbase-concepts-persistence-repository:
@@ -102,8 +108,8 @@ when mapping to an existing table with its own naming — you can override them 
 The repository as the only door to the database
 ================================================
 
-Controllers should not query the database directly. Every database interaction goes
-through a repository. This is a deliberate constraint: it keeps persistence
+Controllers should not query the database directly, but refer everything related
+to persistence to a repository. This is a deliberate constraint: it keeps persistence
 logic in one place and keeps controllers thin.
 
 A repository class extends :php:`\TYPO3\CMS\Extbase\Persistence\Repository` and
@@ -112,8 +118,6 @@ class provides :php:`findAll()`, :php:`findByUid()`,
 :php:`findBy(array $criteria)`, and :php:`findOneBy(array $criteria)` without
 any additional code. Custom queries are added as methods on the repository.
 
-Repositories are singletons — one instance per request, shared across all
-controllers that inject them.
 
 
 ..  _extbase-concepts-persistence-storagepid:
@@ -156,7 +160,9 @@ Editors can also set it per plugin content element via the
     If your repository returns nothing and the records exist in the database,
     check the storagePid first. Enable TYPO3's query logging or use the Extbase
     query debugger to see the exact SQL being executed and which page restriction
-    is applied.
+    is applied. If records are stored in subfolders below the storagePid page,
+    also check the :typoscript:`persistence.recursive` setting — without it,
+    Extbase only looks at the configured page itself, not its children.
 
 To disable the storagePid restriction entirely — for example in a backend
 context or when querying across all pages — set it to :typoscript:`0`:

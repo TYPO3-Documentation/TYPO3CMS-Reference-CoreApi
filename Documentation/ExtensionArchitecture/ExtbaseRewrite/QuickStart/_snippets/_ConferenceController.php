@@ -12,7 +12,7 @@ use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
 class ConferenceController extends ActionController
 {
     public function __construct(
-        private readonly ConferenceRepository $conferenceRepository,
+        protected readonly ConferenceRepository $conferenceRepository,
     ) {}
 
     public function listAction(): ResponseInterface

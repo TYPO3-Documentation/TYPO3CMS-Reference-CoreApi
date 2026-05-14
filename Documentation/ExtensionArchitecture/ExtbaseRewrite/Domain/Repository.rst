@@ -14,7 +14,12 @@ database directly. This keeps persistence logic in one place and makes
 controllers easy to test.
 
 Every Extbase extension has one repository per model. The repository class
-often does not need a single line of custom code.
+often only needs to exist and requires not a single line of custom code.
+
+Repositories are registered as shared services in the :ref:`dependency-injection`
+container. That means every consumer that injects a given repository within the
+same request receives the same instance — query settings configured on it in one
+place apply everywhere it is used.
 
 ..  contents:: On this page
     :local:
@@ -24,7 +29,7 @@ often does not need a single line of custom code.
 ..  _extbase-domain-repository-basics:
 
 The minimal Extbase repository
-===============================
+==============================
 
 A repository extends :php:`\TYPO3\CMS\Extbase\Persistence\Repository`. The
 class name must follow the convention: the model class
@@ -48,7 +53,7 @@ That empty class already provides all the standard methods described below.
 ..  _extbase-domain-repository-find-methods:
 
 Built-in find methods in Extbase repositories
-==============================================
+=============================================
 
 :php:`Repository` provides these methods for finding, returning, and counting domain objects out of the box:
 
@@ -102,36 +107,17 @@ Built-in find methods in Extbase repositories
 
         Returns the total number of objects in the repository.
 
-..  warning::
+..  versionchanged:: 14.0
 
-    ..  versionchanged:: 14.0
-
-        Magic find methods such as :php:`findByTitle($value)`,
-        :php:`findOneByTitle($value)`, and :php:`countByTitle($value)` were
-        deprecated in v12.3 and removed in TYPO3 v14. See
-        :ref:`t3coreapi/13:extbase-repository-find-by-magic-migration`
-        for the migration guide.
-
-    Replace them with the explicit array-based signatures:
-
-    +------------------------------+------------------------------------+
-    | Old (removed in v14)         | New                                |
-    +==============================+====================================+
-    | ``findByTitle($value)``      | ``findBy(['title' => $value])``    |
-    +------------------------------+------------------------------------+
-    | ``findOneByTitle($value)``   | ``findOneBy(['title' => $value])`` |
-    +------------------------------+------------------------------------+
-    | ``countByTitle($value)``     | ``count(['title' => $value])``     |
-    +------------------------------+------------------------------------+
-
-    :php:`findByUid()` and :php:`findByIdentifier()` are **not** affected and
-    remain available.
+    Magic find methods (:php:`findByTitle()`, :php:`findOneByTitle()`,
+    :php:`countByTitle()`, etc.) were deprecated in v12.3 and removed in v14.
+    See :ref:`extbase-upgrading-magic-findby` for the migration table.
 
 
 ..  _extbase-domain-repository-ordering:
 
-Ordering
-========
+Ordering results in Extbase repositories
+========================================
 
 There are two distinct places to define ordering, and they serve different
 purposes.
@@ -184,7 +170,7 @@ order matters to the user.
 ..  _extbase-domain-repository-ordering-relations:
 
 Ordering in Extbase relations
-------------------------------
+-----------------------------
 
 The TCA :php:`ctrl` settings :php:`default_sortby` and :php:`sortby` are
 **not** applied to repository queries — Extbase does not read them for
@@ -195,8 +181,8 @@ for any direct repository query the ordering is entirely your responsibility.
 
 ..  _extbase-domain-repository-custom-queries:
 
-Custom query methods
-====================
+Custom query methods in Extbase repositories
+============================================
 
 Use :php:`createQuery()` when the built-in find methods are not enough:
 
@@ -294,8 +280,8 @@ storagePid — when findAll() returns nothing
 
 Every repository query (except :php:`findByUid()`) is filtered to one or more
 storage pages by default. If :php:`findAll()` returns an empty result and
-records clearly exist in the database, the most likely cause is a misconfigured
-or missing :php:`storagePid`.
+records clearly exist in the database, or if there are unexpected objects in the result,
+the most likely cause is a missing or misconfigured :php:`storagePid`.
 
 Configure it for example in TypoScript:
 
@@ -313,8 +299,8 @@ Configure it for example in TypoScript:
 
 ..  _extbase-domain-repository-di:
 
-Dependency injection
-====================
+Injecting repositories with dependency injection
+================================================
 
 Inject the repository via constructor injection in your controller or service.
 Do not use :php:`GeneralUtility::makeInstance()`:
@@ -337,6 +323,7 @@ Do not use :php:`GeneralUtility::makeInstance()`:
             return $this->htmlResponse();
         }
     }
+
 
 TYPO3's :abbr:`DI (Dependency Injection)` container resolves the repository automatically. No
 :php:`@inject` annotation, no factory call.
@@ -388,8 +375,6 @@ Access :php-short:`\TYPO3\CMS\Core\Database\ConnectionPool` from within the repo
         }
     }
 
-..  note::
+..  seealso::
 
-    A full guide to dropping down to DBAL from within Extbase — including when
-    the trade-off is worth it — is planned for the persistence chapter.
-    See `Persistence queries <https://docs.typo3.org/permalink/extbase-persistence-queries>`_.
+    `Persistence queries <https://docs.typo3.org/permalink/extbase-persistence-queries>`_.

@@ -21,7 +21,7 @@ automatically.
 ..  _extbase-domain-model-abstract-entity:
 
 AbstractEntity — what you get for free
-=======================================
+======================================
 
 Every persisted domain object extends
 :php:`\TYPO3\CMS\Extbase\DomainObject\AbstractEntity`:
@@ -45,15 +45,6 @@ You do **not** declare :php:`$uid` or :php:`$pid` — they are inherited.
 *   Dirty-state tracking — Extbase knows which properties changed since the
     object was loaded and only writes those columns on :php:`update()`
 
-To check whether an object has been saved yet:
-
-..  code-block:: php
-    :caption: EXT:my_extension/Classes/Controller/ConferenceController.php
-
-    if ($event->_isNew()) {
-        // uid is null; this object has not been persisted
-    }
-
 ..  note::
 
     Do not extend :php:`AbstractDomainObject` directly. :php:`AbstractEntity`
@@ -64,10 +55,10 @@ To check whether an object has been saved yet:
 
 ..  _extbase-domain-model-properties:
 
-Defining properties
-===================
+Defining model properties in Extbase
+====================================
 
-Properties must be :php:`protected`, typed, and have a default value:
+Properties should be :php:`protected`, typed, and have a default value:
 
 ..  literalinclude:: _snippets/_Conference.php
     :language: php
@@ -75,10 +66,13 @@ Properties must be :php:`protected`, typed, and have a default value:
 
 Key rules:
 
-*   Properties must be :php:`protected` — never :php:`public`, never
-    :php:`private`. Private properties are silently ignored during
+*   Declare properties :php:`protected`. Public properties work but bypass
+    getters and setters, making lazy loading and dirty-state tracking harder to
+    reason about. Private properties are never populated during
     :abbr:`hydration (populating a PHP object with values loaded from the database)`
-    and persistence; see :ref:`extbase-appendix-pitfalls-private-properties`.
+    — PHP prevents the parent :php:`_setProperty()` method from writing to them
+    — and changes to private properties are never persisted for the same reason;
+    see :ref:`extbase-appendix-pitfalls-private-properties`.
 *   Every property needs a meaningful default so the object is always in a
     valid state before it is populated by Extbase or by your code.
 *   Provide getters. Provide setters for properties that should be changeable
@@ -90,7 +84,8 @@ Key rules:
 snake_case database columns automatically. The property :php:`$conferenceDate`
 maps to the column :sql:`conference_date`. When your table or column names do not
 follow this convention, override the mapping in
-:file:`Configuration/Extbase/Persistence/Classes.php`.
+:file:`Configuration/Extbase/Persistence/Classes.php`; see
+:ref:`extbase-domain-model-mapping` for the full syntax.
 
 ..  seealso::
 
@@ -104,13 +99,17 @@ follow this convention, override the mapping in
 
 ..  _extbase-domain-model-attributes:
 
-PHP attributes — the v14 way
-=============================
+PHP attributes in Extbase domain models
+=======================================
 
 Extbase uses native PHP attributes to control persistence behaviour and
-validation. **DocBlock annotations are not supported in TYPO3 v14** — they
-were removed in v14.0 (Breaking `#107229
-<https://docs.typo3.org/c/typo3/cms-core/main/en-us/Changelog/14.0/Breaking-107229-RemovedSupportOfAnnotationsInExtbase.html>`__).
+validation.
+
+..  versionchanged:: 14.0
+
+    DocBlock annotation support was removed. See
+    :ref:`extbase-upgrading-annotations-to-attributes` for the migration table
+    and the available Rector rule.
 
 The four attributes you will use on model properties:
 
@@ -190,50 +189,28 @@ Import from the :php:`\TYPO3\CMS\Extbase\Attribute\ORM\` namespace:
 
 ..  _extbase-domain-model-relations:
 
-Relations and ObjectStorage
-===========================
+Modelling relations in Extbase
+==============================
 
-**1:1 relations** are a nullable typed property:
-
-..  code-block:: php
-    :caption: EXT:my_extension/Classes/Domain/Model/Conference.php
-
-    use TYPO3\CMS\Extbase\Persistence\Generic\LazyLoadingProxy;
-
-    protected Location|LazyLoadingProxy|null $location = null;
-
-Adding :php:`#[Lazy]` to a 1:1 relation means the related object is not loaded
-until the property is first accessed. The proxy resolves itself automatically
-via PHP magic methods — you do not need to call :php:`_loadRealInstance()`
-yourself.
-
-The :php:`instanceof LazyLoadingProxy` check in a getter exists solely for
-static analysis: the property is declared as
-:php:`Location|LazyLoadingProxy|null`, so PHPStan and your IDE cannot infer
-that the proxy has resolved. The check lets you return :php:`?Location` cleanly:
-
-..  code-block:: php
-    :caption: EXT:my_extension/Classes/Domain/Model/Conference.php
-
-    public function getLocation(): ?Location
-    {
-        if ($this->location instanceof LazyLoadingProxy) {
-            $this->location = $this->location->_loadRealInstance();
-        }
-        return $this->location;
-    }
-
-If you do not need a precisely typed getter, the proxy resolves on any access
-and you can omit the check entirely.
-
-**1:n and m:n relations** use :php:`ObjectStorage`. Always initialise it in
-the constructor:
+The following example shows a model with both relation types — a 1:1 relation
+to a :php:`Location` and a 1:n relation to a collection of :php:`Comment`
+objects:
 
 ..  literalinclude:: _snippets/_ConferenceWithRelations.php
     :language: php
     :caption: EXT:my_extension/Classes/Domain/Model/Conference.php (with relations)
 
 A few things to note in the example above:
+
+*   **1:1 relations** are a nullable typed property. When :php:`#[Lazy]` is
+    applied, Extbase installs a
+    :php-short:`\TYPO3\CMS\Extbase\Persistence\Generic\LazyLoadingProxy` instead
+    of loading the related object immediately. The union type
+    :php:`Location|LazyLoadingProxy|null` is required so Extbase can set the
+    proxy. The :php:`instanceof LazyLoadingProxy` check in the getter exists
+    solely for static analysis — without it PHPStan cannot narrow the return
+    type to :php:`?Location`. If you do not need a precisely typed getter, the
+    proxy resolves automatically on any access and the check can be omitted.
 
 *   :php:`#[Lazy]` on an :php:`ObjectStorage` means Extbase loads the related
     records only when you first iterate over the storage or call a method on it.
@@ -266,14 +243,14 @@ A few things to note in the example above:
 
 ..  _extbase-domain-model-enums:
 
-Enum properties
-===============
+Enum properties in Extbase domain models
+========================================
 
 PHP 8.1
 `backed enums <https://www.php.net/manual/en/language.enumerations.backed.php>`__
 — enums with an underlying :php:`string` or :php:`int` value — work in Extbase
 models without any extra configuration. Extbase's built-in
-:php:`EnumConverter` converts the stored value to and from the enum instance
+:php-short:`\TYPO3\CMS\Extbase\Property\TypeConverter\EnumConverter` converts the stored value to and from the enum instance
 automatically.
 
 Define the enum:
@@ -303,32 +280,42 @@ back to the string on write.
 
 ..  _extbase-domain-model-transient:
 
-Non-persisted properties
-========================
+Non-persisted (transient) properties in Extbase models
+======================================================
 
-Mark a property :php:`#[Transient]` to exclude it from persistence entirely:
+Mark a property :php:`#[Transient]` to exclude it from persistence entirely.
+Extbase will never read or write the corresponding column. The property is
+populated by your own code — typically a getter that computes the value from
+other properties:
 
 ..  code-block:: php
     :caption: EXT:my_extension/Classes/Domain/Model/Conference.php
+
+    <?php
+
+    declare(strict_types=1);
+
+    namespace MyVendor\MyExtension\Domain\Model;
 
     use TYPO3\CMS\Extbase\Attribute\ORM\Transient;
+    use TYPO3\CMS\Extbase\DomainObject\AbstractEntity;
 
-    #[Transient]
-    protected ?string $displayLabel = null;
-
-Extbase will never read or write this column. The property is populated by
-your own code — typically a getter that computes the value from other
-properties:
-
-..  code-block:: php
-    :caption: EXT:my_extension/Classes/Domain/Model/Conference.php
-
-    public function getDisplayLabel(): string
+    class Conference extends AbstractEntity
     {
-        if ($this->displayLabel === null) {
-            $this->displayLabel = $this->title . ' (' . $this->conferenceDate?->format('Y') . ')';
+        protected string $title = '';
+
+        protected ?\DateTimeImmutable $conferenceDate = null;
+
+        #[Transient]
+        protected ?string $displayLabel = null;
+
+        public function getDisplayLabel(): string
+        {
+            if ($this->displayLabel === null) {
+                $this->displayLabel = $this->title . ' (' . $this->conferenceDate?->format('Y') . ')';
+            }
+            return $this->displayLabel;
         }
-        return $this->displayLabel;
     }
 
 
@@ -359,16 +346,13 @@ in :file:`Configuration/Extbase/Persistence/Classes.php`:
         ],
     ];
 
-..  seealso::
-
-    Full mapping reference including class hierarchy and multi-model tables is
-    coming soon in the mapping chapter.
+..  Full mapping reference including class hierarchy and multi-model tables — placement TBD.
 
 
 ..  _extbase-domain-model-db-columns:
 
-Auto-creating database columns
-===============================
+Configuring persistence for Extbase models
+==========================================
 
 A model class alone is not enough — TYPO3 also needs a
 `TCA <https://docs.typo3.org/m/typo3/reference-tca/main/en-us/>`__
@@ -413,8 +397,8 @@ You still need :file:`ext_tables.sql` when you require:
 
 ..  _extbase-domain-model-value-objects:
 
-Value objects
-=============
+Value objects in Extbase domain models
+======================================
 
 In
 `Domain-Driven Design <https://en.wikipedia.org/wiki/Domain-driven_design>`__,

@@ -42,7 +42,7 @@ model properties to control how Extbase maps them to and from the database.
 :Namespace: :php:`\TYPO3\CMS\Extbase\Attribute\ORM\Lazy`
 :Parameters: none
 
-Defers loading of a related object or :php:`ObjectStorage` until the property
+Defers loading of a related object or :php-short:`\TYPO3\CMS\Extbase\Persistence\ObjectStorage` until the property
 is first accessed. Without :php:`#[Lazy]`, Extbase loads all related objects
 when the parent is loaded — which can trigger N+1 queries in list views.
 
@@ -104,9 +104,12 @@ Currently only :php:`'remove'` is supported:
     use TYPO3\CMS\Extbase\Attribute\ORM\Cascade;
     use TYPO3\CMS\Extbase\Attribute\ORM\Lazy;
 
-    #[Lazy]
-    #[Cascade('remove')]
-    protected ObjectStorage $comments;
+    class Conference extends AbstractEntity
+    {
+        #[Lazy]
+        #[Cascade('remove')]
+        protected ObjectStorage $comments;
+    }
 
 Without :php:`#[Cascade('remove')]`, deleting the parent object leaves related
 records in the database as orphans. With it, Extbase deletes the related
@@ -135,18 +138,19 @@ the corresponding column. Use for computed values or temporary state:
 
     use TYPO3\CMS\Extbase\Attribute\ORM\Transient;
 
-    #[Transient]
-    protected ?string $displayLabel = null;
-
+    class Conference extends AbstractEntity
+    {
+        #[Transient]
+        protected ?string $displayLabel = null;
+    }
 
 ..  _extbase-appendix-attributes-validation:
 
 Validation attributes
 =====================
 
-These attributes are declared in the
-:php:`\TYPO3\CMS\Extbase\Attribute\` namespace and control validation
-behaviour on model properties and controller action parameters.
+These attributes are declared in the :php:`\TYPO3\CMS\Extbase\Attribute` namespace
+and control validation behaviour on model properties and controller action parameters.
 
 
 ..  _extbase-appendix-attributes-validate:
@@ -162,7 +166,7 @@ behaviour on model properties and controller action parameters.
     :php:`string $validator`
         The validator class name or short name (for example :php:`'NotEmpty'`,
         :php:`'StringLength'`). Short names resolve against the built-in
-        validators in :php:`\TYPO3\CMS\Extbase\Validation\Validator\`.
+        validators in :php:`\TYPO3\CMS\Extbase\Validation\Validator`.
 
     :php:`array $options = []`
         Options passed to the validator constructor. The available options
@@ -173,9 +177,12 @@ behaviour on model properties and controller action parameters.
 
     use TYPO3\CMS\Extbase\Attribute\Validate;
 
-    #[Validate(validator: 'NotEmpty')]
-    #[Validate(validator: 'StringLength', options: ['minimum' => 3, 'maximum' => 50])]
-    protected string $title = '';
+    class Conference extends AbstractEntity
+    {
+        #[Validate(validator: 'NotEmpty')]
+        #[Validate(validator: 'StringLength', options: ['minimum' => 3, 'maximum' => 50])]
+        protected string $title = '';
+    }
 
 ..  seealso::
 
@@ -202,10 +209,14 @@ where partial state is forwarded between actions:
 
     use TYPO3\CMS\Extbase\Attribute\IgnoreValidation;
 
-    public function previewAction(
-        #[IgnoreValidation] Conference $event
-    ): ResponseInterface {
-        // validation skipped for $event
+    class Conference extends AbstractEntity
+    {
+        public function previewAction(
+            #[IgnoreValidation]
+            Conference $event
+        ): ResponseInterface {
+            // validation skipped for $event
+        }
     }
 
 ..  versionchanged:: 14.0
@@ -221,12 +232,11 @@ where partial state is forwarded between actions:
 Controller attributes
 =====================
 
-These attributes are declared in the :php:`\TYPO3\CMS\Extbase\Attribute\`
+These attributes are declared in the :php:`\TYPO3\CMS\Extbase\Attribute`
 namespace and are applied to controller action methods to control access and
 rate limiting.
 
-Full documentation for these attributes is planned for the Controller and
-Security chapters.
+.. Full documentation for these attributes is planned for the Controller and Security chapters.
 
 
 ..  _extbase-appendix-attributes-authorize:
@@ -245,7 +255,7 @@ Declares access requirements for an action method. Extbase checks the
 requirements before calling the action and redirects or throws an exception
 if they are not met.
 
-Full parameter reference and usage examples are coming in the Security chapter.
+.. Full parameter reference and usage examples are coming in the Security chapter.
 
 ..  warning::
 
@@ -270,4 +280,4 @@ Full parameter reference and usage examples are coming in the Security chapter.
 Limits how often an action may be called within a time window, per visitor.
 Useful for protecting form submission endpoints against brute-force and spam.
 
-Full parameter reference and usage examples are coming in the Security chapter.
+.. Full parameter reference and usage examples are coming in the Security chapter.
