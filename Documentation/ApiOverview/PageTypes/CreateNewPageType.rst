@@ -3,94 +3,109 @@
 ..  _page-types-example:
 
 ====================
-Create new Page Type
+Create new page type
 ====================
 
-The following example adds a new page type called "Archive".
+..  deprecated:: 14.3
+    TCA option allowedRecordTypes has also been deprecated:
+    `Deprecation: #108557 - TCA option allowedRecordTypes for Page Types <https://docs.typo3.org/permalink/changelog:deprecation-108557-1768610680>`_.
 
-Changes need to be made in several files to create a new page type. Follow
-the directions below to the end:
+This example demonstrates how to add a new page type (doktype) called "Archive".
+Starting with TYPO3 v14, registration is streamlined by centralizing the
+configuration in the :abbr:`TCA (Table Configuration Array)`.
 
-..  rst-class:: bignums
+..  contents:: Table of contents
 
-1.  Add new page type to :php:`PageDoktypeRegistry`
+..  note::
+    The `doktype` value must be defined as a string, for example `'116'`.
+    TYPO3 v14 uses strict comparisons in the Page Wizard TypeScript components.
+    Using an integer may cause UI issues such as failed validation or form resets.
 
-    The new page type has to be added to the
-    :php:`\TYPO3\CMS\Core\DataHandling\PageDoktypeRegistry`. TYPO3 uses this
-    registry internally to only allow specific tables to be inserted on that
-    page type. This registry will not add or modify any TCA. In example below
-    all kind of tables (`*`) are allowed to be inserted on the new page type.
+..  _page-types-example-configure-tca:
 
-    The new page type is added to the :php:`PageDoktypeRegistry` in
-    :file:`ext_tables.php`:
+1. Configure the page type in TCA
+=================================
 
-    ..  literalinclude:: _ext_tables.php
-        :language: php
-        :caption: EXT:examples/ext_tables.php
+To define the behavior and appearance of the new page type, create or edit
+:file:`Configuration/TCA/Overrides/pages.php`.
 
-2.  Add an icon chosen for the new page type
+..  _page-types-example-inherit-configuration:
 
-    You need to add the icon chosen for the new page type and allow users to
-    drag and drop the new page type to the page tree.
+Inherit configuration
+---------------------
 
-    We need to add the following :ref:`user TSconfig <t3tsref:usertsconfig>`
-    to all users, so that the new page type is displayed in the wizard:
+A custom page type usually shares the same fields as a standard page.
+Copying the configuration from `doktype 1` ensures that all default tabs and
+fields are available. This inheritance must happen first.
 
-    ..  literalinclude:: _user.tsconfig
-        :language: typoscript
-        :caption: EXT:examples/Configuration/user.tsconfig
+..  _page-types-example-record-restrictions:
 
-    The :ref:`icon <icon>` is registered in :file:`Configuration/Icons.php`:
+Define record restrictions
+--------------------------
 
-    ..  literalinclude:: _Icons.php
-        :language: php
-        :caption: EXT:examples/Configuration/Icons.php
+The `allowedRecordTypes` key defines which database tables are allowed
+on this page type. Setting this to `['*']` allows all tables, while
+specifying tables such as `['tt_content']` restricts it to those tables.
 
-    It is possible to define additional type icons for special case pages:
+..  _page-types-example-icon-identifier:
 
-    *   Page contains content from another page `<doktype>-contentFromPid`,
-        For example: :php:`$GLOBALS['TCA']['pages']['ctrl']['typeicon_classes']['116-contentFromPid']`.
-    *   Page is hidden in navigation `<doktype>-hideinmenu`
-        For example: :php:`$GLOBALS['TCA']['pages']['ctrl']['typeicon_classes']['116-hideinmenu']`.
-    *   Page is the root of the site `<doktype>-root`
-        For example: :php:`$GLOBALS['TCA']['pages']['ctrl']['typeicon_classes']['116-root']`.
+Assign icon identifier
+----------------------
 
-    ..  note::
+The icon for the page tree and page properties is assigned via an icon
+identifier in the `typeicon_classes` array. This identifier must be registered
+later in the Icon API.
 
-        Make sure to add the additional icons using the :ref:`Icon API <icon>`!
+..  literalinclude:: _pages.php
+    :language: php
+    :caption: EXT:my_extension/Configuration/TCA/Overrides/pages.php
 
-3.  Add new page type to doktype selector
+..  _page-types-example-register-icon:
 
-    We need to modify the configuration of page records. As one can modify the
-    pages, we need to add the new doktype as a select option and associate it
-    with the configured icon. That is done in
-    :file:`Configuration/TCA/Overrides/pages.php`:
+2. Register the icon via Icon API
+=================================
 
-    ..  literalinclude:: _pages.php
-        :language: php
-        :caption: EXT:examples/Configuration/TCA/Overrides/pages.php
+The identifier used in the TCA (`tx-examples-archive-page`) must be
+registered in :file:`Configuration/Icons.php` to link it to an SVG file.
 
-    As you can see from the example, to make sure you get the correct icons,
-    you can utilize :php:`typeicon_classes`.
+..  literalinclude:: _Icons.php
+    :language: php
+    :caption: EXT:my_extension/Configuration/Icons.php
 
-4.  Define your own columns for new page type
+You can also provide icons for special states by registering additional
+identifiers with specific suffixes:
 
-    By default the new page type will render all columns of default
-    page type (`DEFAULT (1)`). If you want to chose your own columns you have
-    to copy over all columns from default page type:
+*   **Page is hidden in navigation:** `tx-examples-archive-page-hideinmenu`
+*   **Page is a root page:** `tx-examples-archive-page-root`
+*   **Page contains content from another page:** `tx-examples-archive-page-contentFromPid`
 
-    ..  literalinclude:: _pagesCopyDefaultPageType.php
-        :language: php
-        :caption: EXT:examples/Configuration/TCA/Overrides/pages.php
+..  _page-types-example-page-wizard:
 
-    Now you can modify TCA with Core API like
-    :php:`ExtensionManagementUtility::addToAllTCAtypes();`
+3. Enable drag and drop in the page wizard
+==========================================
 
-Further Information
--------------------
+To allow editors to create the new page type via the "New Page" wizard, add it
+to the `doktypes` list via user TSconfig.
 
-*   :doc:`ext_core:Changelog/11.4/Feature-94692-RegisteringIconsViaServiceContainer`
+..  literalinclude:: _user.tsconfig
+    :language: typoscript
+    :caption: EXT:my_extension/Configuration/user.tsconfig
 
-*   :doc:`ext_core:Changelog/12.0/Breaking-98487-GLOBALSPAGES_TYPESRemoved`
+..  _page-types-example-dynamic-configuration:
 
-*   :doc:`ext_core:Changelog/12.3/Feature-99739-AssociativeArrayKeysForTCAItems`
+4. Advanced: Dynamic configuration
+==================================
+
+Instead of using a static TSconfig file, you can use the
+:ref:`BeforeLoadedUserTsConfigEvent <t3coreapi:beforeloadedusertsconfigevent>`
+to add TSconfig dynamically through a PSR-14 event listener. This allows
+context-aware availability of page types.
+
+..  _page-types-example-further-information:
+
+Further information
+===================
+
+*   :ref:`PSR-14 Events in TYPO3 <t3coreapi:EventDispatcher>`
+*   :ref:`Icon API <icon>`
+*   :ref:`TSconfig Reference <t3tsref:usertsconfig>`
