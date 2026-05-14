@@ -22,6 +22,9 @@ items while it leaves the processing of items to the concrete paginator class.
     :depth: 2
     :local:
 
+
+.. _pagination-paginators:
+
 Paginators
 ==========
 
@@ -37,6 +40,9 @@ Three concrete paginators are available:
 *   For type :php:`\TYPO3\CMS\Core\Database\Query\QueryBuilder`:
     :php:`\TYPO3\CMS\Core\Pagination\QueryBuilderPaginator`
 
+
+.. _pagination-example-array-paginator:
+
 Example: ArrayPaginator
 -----------------------
 
@@ -50,6 +56,9 @@ And the corresponding Fluid template:
 
 ..  literalinclude:: _ArrayPaginatorExamplePagination.html
     :caption: EXT:my_extension/Resources/Private/Templates/ExamplePagination.html
+
+
+.. _pagination-example-query-builder-paginator:
 
 Example: QueryBuilderPaginator
 ------------------------------
@@ -78,6 +87,9 @@ CTEs, windowing functions, or grouping.
     and does not respect any existing limit/offset constraints on the passed
     :php:`QueryBuilder` instance.
 
+
+.. _pagination-sliding-window:
+
 Sliding window pagination
 =========================
 
@@ -89,6 +101,9 @@ shown.
 50 links. Using the `SlidingWindowPagination`, you will get something like
 this `< prev ... 21 22 23 24 ... next >` or `< 1 ... 21 22 23 24 ... 50 >` or
 simple `< 21 22 23 24 >`. Customise the template to suit your needs.
+
+
+.. _pagination-sliding-window-usage:
 
 Usage
 -----
