@@ -4,27 +4,27 @@ declare(strict_types=1);
 
 namespace MyVendor\MyExtension\Controller;
 
-use MyVendor\MyExtension\Domain\Model\Event;
-use MyVendor\MyExtension\Domain\Repository\EventRepository;
+use MyVendor\MyExtension\Domain\Model\Conference;
+use MyVendor\MyExtension\Domain\Repository\ConferenceRepository;
 use Psr\Http\Message\ResponseInterface;
 use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
 
-class EventController extends ActionController
+class ConferenceController extends ActionController
 {
     public function __construct(
-        private readonly EventRepository $eventRepository,
+        private readonly ConferenceRepository $conferenceRepository,
     ) {}
 
     public function listAction(): ResponseInterface
     {
-        $this->view->assign('events', $this->eventRepository->findAll());
+        $this->view->assign('conferences', $this->conferenceRepository->findAll());
         return $this->htmlResponse();
     }
 
     public function showAction(
-        Event $event,
+        Conference $conference,
     ): ResponseInterface {
-        $this->view->assign('event', $event);
+        $this->view->assign('conference', $conference);
         return $this->htmlResponse();
     }
 }

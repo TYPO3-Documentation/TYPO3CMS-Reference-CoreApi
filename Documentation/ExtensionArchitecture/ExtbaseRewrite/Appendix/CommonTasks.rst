@@ -39,10 +39,10 @@ getter/setter. No changes to the original extension required.
 
 ..  seealso::
 
-    Detailed walkthrough coming in the extending third-party extensions chapter
-    (planned, placement TBD).
     `Table and field mapping <https://docs.typo3.org/permalink/extbase-domain-model-mapping>`_ for the
     :file:`Configuration/Extbase/Persistence/Classes.php` mapping file.
+
+..  Detailed walkthrough coming in the extending third-party extensions chapter (planned, placement TBD).
 
 
 ..  _extbase-appendix-tasks-custom-query:
@@ -78,11 +78,14 @@ using :php:`GeneralUtility::makeInstance()`.
 annotation, no factory call needed.
 
 ..  code-block:: php
-    :caption: EXT:my_extension/Classes/Controller/EventController.php
+    :caption: EXT:my_extension/Classes/Controller/BlogPostController.php
 
-    public function __construct(
-        private readonly EventRepository $eventRepository,
-    ) {}
+    class BlogPostController extends ActionController
+    {
+        public function __construct(
+            protected readonly BlogPostRepository $blogPostRepository,
+        ) {}
+    }
 
 ..  seealso::
 
@@ -103,13 +106,17 @@ ordering in every call.
 repository. It applies automatically to all queries from that repository.
 
 ..  code-block:: php
-    :caption: EXT:my_extension/Classes/Domain/Repository/EventRepository.php
+    :caption: EXT:my_extension/Classes/Domain/Repository/BlogPostRepository.php
 
     use TYPO3\CMS\Extbase\Persistence\QueryInterface;
+    use TYPO3\CMS\Extbase\Persistence\Repository;
 
-    protected $defaultOrderings = [
-        'eventDate' => QueryInterface::ORDER_ASCENDING,
-    ];
+    class BlogPostRepository extends Repository
+    {
+        protected $defaultOrderings = [
+            'publishDate' => QueryInterface::ORDER_ASCENDING,
+        ];
+    }
 
 ..  seealso::
 
@@ -159,12 +166,13 @@ repository when the parent is deleted.
 
 ..  _extbase-appendix-tasks-enum-property:
 
-Use a PHP enum as a model property
-====================================
+Use a native PHP enum as a model property
+==========================================
 
 **Goal:** A model property should hold one of a fixed set of values — for
-example a status or salutation — and you want to use a PHP 8.1 backed enum
-rather than a plain string or integer.
+example a status or salutation — and you want to use a native PHP 8.1 backed
+enum (an enum with an underlying :php:`string` or :php:`int` value that can be
+stored in the database) rather than a plain string or integer.
 
 **Short answer:** Declare the property with the enum type and a default case.
 Extbase's built-in :php:`EnumConverter` handles the conversion between the

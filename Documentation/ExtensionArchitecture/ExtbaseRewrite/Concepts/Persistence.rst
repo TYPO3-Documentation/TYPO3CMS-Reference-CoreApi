@@ -10,7 +10,7 @@ Persistence and the Extbase ORM
 
 Extbase includes an Object-Relational Mapper (ORM). The ORM's job is to
 translate between the relational world of database tables and the
-object-oriented world of PHP classes — so you work with :php:`Event` objects
+object-oriented world of PHP classes — so you work with :php:`Conference` objects
 rather than raw database rows, and Extbase handles the SQL.
 
 ..  contents:: On this page
@@ -27,32 +27,32 @@ Without an ORM, reading a record means writing a query, iterating over result
 rows, and manually constructing PHP objects. Writing a record means constructing
 an :sql:`INSERT` or :sql:`UPDATE` statement yourself. With the Extbase ORM:
 
-*   Reading: you call :php:`$this->eventRepository->findAll()` and receive a
-    collection of fully populated :php:`Event` objects.
-*   Writing: you call :php:`$this->eventRepository->add($event)` and the ORM
+*   Reading: you call :php:`$this->conferenceRepository->findAll()` and receive a
+    collection of fully populated :php:`Conference` objects.
+*   Writing: you call :php:`$this->conferenceRepository->add($conference)` and the ORM
     generates the INSERT statement.
 *   Updating: you modify a property on the object and call
-    :php:`$this->eventRepository->update($event)`.
-*   Deleting: you call :php:`$this->eventRepository->remove($event)`.
+    :php:`$this->conferenceRepository->update($conference)`.
+*   Deleting: you call :php:`$this->conferenceRepository->remove($conference)`.
 
-A controller action that creates and stores a new event looks like this:
+A controller action that creates and stores a new conference looks like this:
 
 ..  code-block:: php
-    :caption: EXT:my_extension/Classes/Controller/EventController.php
+    :caption: EXT:my_extension/Classes/Controller/ConferenceController.php
 
-    use MyVendor\MyExtension\Domain\Model\Event;
-    use MyVendor\MyExtension\Domain\Repository\EventRepository;
+    use MyVendor\MyExtension\Domain\Model\Conference;
+    use MyVendor\MyExtension\Domain\Repository\ConferenceRepository;
     use Psr\Http\Message\ResponseInterface;
 
-    public function createAction(Event $event): ResponseInterface
+    public function createAction(Conference $conference): ResponseInterface
     {
-        $this->eventRepository->add($event);
+        $this->conferenceRepository->add($conference);
         return $this->redirect('list');
     }
 
 No SQL, no INSERT, no result-set iteration. The ORM handles the mapping.
 
-The ORM also handles relations. If an :php:`Event` has many :php:`Speaker`
+The ORM also handles relations. If a :php:`Conference` has many :php:`Speaker`
 objects stored in an :php:`\TYPO3\CMS\Extbase\Persistence\ObjectStorage`,
 Extbase loads those related objects automatically when you access the property
 — without you writing any JOIN.
@@ -72,14 +72,14 @@ Extbase derives the database table name from the model class name by convention:
 
 ..  code-block:: text
 
-    Vendor\MyExtension\Domain\Model\Event
-    → tx_myextension_domain_model_event
+    Vendor\MyExtension\Domain\Model\Conference
+    → tx_myextension_domain_model_conference
 
 Property names map to column names by converting camelCase to snake_case:
 
 ..  code-block:: text
 
-    $eventDate     →  event_date
+    $conferenceDate     →  conference_date
     $speakerCount  →  speaker_count
 
 These conventions work automatically. When the defaults do not fit — for example
@@ -97,7 +97,7 @@ through a repository. This is a deliberate constraint: it keeps persistence
 logic in one place and keeps controllers thin.
 
 A repository class extends :php:`\TYPO3\CMS\Extbase\Persistence\Repository` and
-is named after its model — :php:`EventRepository` for :php:`Event`. The base
+is named after its model — :php:`ConferenceRepository` for :php:`Conference`. The base
 class provides :php:`findAll()`, :php:`findByUid()`,
 :php:`findBy(array $criteria)`, and :php:`findOneBy(array $criteria)` without
 any additional code. Custom queries are added as methods on the repository.
@@ -127,14 +127,14 @@ repository returns an empty result — silently.
 The storagePid is configured in TypoScript:
 
 ..  code-block:: typoscript
-    :caption: EXT:my_extension/Configuration/TypoScript/setup.typoscript
+    :caption: EXT:my_extension/Configuration/Sets/MyExtension/setup.typoscript
 
     plugin.tx_myextension.persistence.storagePid = 42
 
 Or per plugin instance:
 
 ..  code-block:: typoscript
-    :caption: EXT:my_extension/Configuration/TypoScript/setup.typoscript
+    :caption: EXT:my_extension/Configuration/Sets/MyExtension/setup.typoscript
 
     plugin.tx_myextension_eventlist.persistence.storagePid = 42
 

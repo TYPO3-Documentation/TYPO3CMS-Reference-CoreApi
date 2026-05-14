@@ -33,7 +33,7 @@ Their usage is covered in the :ref:`model page <extbase-domain-model-value-objec
     ..  card:: :ref:`Model <extbase-domain-model>`
 
         How to define domain objects that map to database records.
-        Covers :php:`AbstractEntity`, property types, extbase related PHP attributes,
+        Covers :php-short:`\TYPO3\CMS\Extbase\DomainObject\AbstractEntity`, property types, extbase related PHP attributes,
         relations, enums and table mapping.
 
     ..  card:: :ref:`Repository <extbase-domain-repository>`

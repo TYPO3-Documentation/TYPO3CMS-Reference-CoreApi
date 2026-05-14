@@ -10,7 +10,7 @@ use TYPO3\CMS\Extbase\DomainObject\AbstractEntity;
 use TYPO3\CMS\Extbase\Persistence\Generic\LazyLoadingProxy;
 use TYPO3\CMS\Extbase\Persistence\ObjectStorage;
 
-class Event extends AbstractEntity
+class Conference extends AbstractEntity
 {
     protected string $title = '';
 

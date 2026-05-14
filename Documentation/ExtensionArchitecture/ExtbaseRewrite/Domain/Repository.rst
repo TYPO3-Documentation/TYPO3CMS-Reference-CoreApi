@@ -9,7 +9,7 @@ Extbase repository
 ==================
 
 A repository is the only entry point to the database for a given model type.
-Controllers and services ask a repository for objects — they should not query the
+Controllers and services ask a repository for objects — they must not query the
 database directly. This keeps persistence logic in one place and makes
 controllers easy to test.
 
@@ -23,16 +23,16 @@ often does not need a single line of custom code.
 
 ..  _extbase-domain-repository-basics:
 
-The minimal repository
-======================
+The minimal Extbase repository
+===============================
 
 A repository extends :php:`\TYPO3\CMS\Extbase\Persistence\Repository`. The
 class name must follow the convention: the model class
-:php:`Domain\Model\Event` maps to :php:`Domain\Repository\EventRepository`.
+:php:`Domain\Model\Conference` maps to :php:`Domain\Repository\ConferenceRepository`.
 Extbase resolves this automatically.
 
 ..  code-block:: php
-    :caption: EXT:my_extension/Classes/Domain/Repository/EventRepository.php
+    :caption: EXT:my_extension/Classes/Domain/Repository/ConferenceRepository.php
 
     declare(strict_types=1);
 
@@ -40,17 +40,17 @@ Extbase resolves this automatically.
 
     use TYPO3\CMS\Extbase\Persistence\Repository;
 
-    class EventRepository extends Repository {}
+    class ConferenceRepository extends Repository {}
 
 That empty class already provides all the standard methods described below.
 
 
 ..  _extbase-domain-repository-find-methods:
 
-Built-in find methods
-======================
+Built-in find methods in Extbase repositories
+==============================================
 
-:php:`Repository` provides these methods out of the box:
+:php:`Repository` provides these methods for finding, returning, and counting domain objects out of the box:
 
 ..  confval-menu::
     :name: extbase-repository-methods
@@ -104,12 +104,13 @@ Built-in find methods
 
 ..  warning::
 
-    **Magic find methods were removed in TYPO3 v14.**
+    ..  versionchanged:: 14.0
 
-    Methods like :php:`findByTitle($value)`, :php:`findOneByTitle($value)`,
-    and :php:`countByTitle($value)` were deprecated in v12.3 and **removed in
-    v14** (Deprecation `#100071
-    <https://docs.typo3.org/c/typo3/cms-core/main/en-us/Changelog/12.3/Deprecation-100071-MagicRepositoryFindByMethods.html>`__).
+        Magic find methods such as :php:`findByTitle($value)`,
+        :php:`findOneByTitle($value)`, and :php:`countByTitle($value)` were
+        deprecated in v12.3 and removed in TYPO3 v14. See
+        `Magic findBy*() migration <https://docs.typo3.org/permalink/t3coreapi:extbase-repository-find-by-magic-migration>`__
+        for the migration guide.
 
     Replace them with the explicit array-based signatures:
 
@@ -140,15 +141,15 @@ repository — :php:`findAll()`, :php:`findBy()`, and custom methods that do
 not override it. Set the :php:`$defaultOrderings` class property:
 
 ..  code-block:: php
-    :caption: EXT:my_extension/Classes/Domain/Repository/EventRepository.php
+    :caption: EXT:my_extension/Classes/Domain/Repository/ConferenceRepository.php
 
     use TYPO3\CMS\Extbase\Persistence\QueryInterface;
     use TYPO3\CMS\Extbase\Persistence\Repository;
 
-    class EventRepository extends Repository
+    class ConferenceRepository extends Repository
     {
         protected $defaultOrderings = [
-            'eventDate' => QueryInterface::ORDER_ASCENDING,
+            'conferenceDate' => QueryInterface::ORDER_ASCENDING,
             'title'     => QueryInterface::ORDER_ASCENDING,
         ];
     }
@@ -157,13 +158,13 @@ not override it. Set the :php:`$defaultOrderings` class property:
 overriding the default for that call. Use :php:`$query->setOrderings()`:
 
 ..  code-block:: php
-    :caption: EXT:my_extension/Classes/Domain/Repository/EventRepository.php
+    :caption: EXT:my_extension/Classes/Domain/Repository/ConferenceRepository.php
 
     public function findUpcomingByTitle(): QueryResultInterface
     {
         $query = $this->createQuery();
         $query->matching(
-            $query->greaterThanOrEqual('eventDate', new \DateTimeImmutable('today'))
+            $query->greaterThanOrEqual('conferenceDate', new \DateTimeImmutable('today'))
         );
         $query->setOrderings(['title' => QueryInterface::ORDER_ASCENDING]);
         return $query->execute();
@@ -180,6 +181,11 @@ guaranteed — the order can change after inserts, updates, or database
 maintenance. Always define an explicit ordering for any query whose result
 order matters to the user.
 
+..  _extbase-domain-repository-ordering-relations:
+
+Ordering in Extbase relations
+------------------------------
+
 The TCA :php:`ctrl` settings :php:`default_sortby` and :php:`sortby` are
 **not** applied to repository queries — Extbase does not read them for
 top-level queries. They do influence the order of child records within
@@ -194,11 +200,11 @@ Custom query methods
 
 Use :php:`createQuery()` when the built-in find methods are not enough:
 
-..  literalinclude:: _snippets/_EventRepository.php
+..  literalinclude:: _snippets/_ConferenceRepository.php
     :language: php
-    :caption: EXT:my_extension/Classes/Domain/Repository/EventRepository.php
+    :caption: EXT:my_extension/Classes/Domain/Repository/ConferenceRepository.php
 
-The query API supports these constraint methods:
+The :php:`query <\TYPO3\CMS\Extbase\Persistence\QueryInterface>` API supports these constraint methods:
 
 ..  confval-menu::
     :name: extbase-query-constraints
@@ -266,12 +272,12 @@ The query API supports these constraint methods:
 Chain multiple constraints:
 
 ..  code-block:: php
-    :caption: EXT:my_extension/Classes/Domain/Repository/EventRepository.php
+    :caption: EXT:my_extension/Classes/Domain/Repository/ConferenceRepository.php
 
     $query->matching(
         $query->logicalAnd(
             $query->equals('published', true),
-            $query->greaterThanOrEqual('eventDate', new \DateTimeImmutable('today')),
+            $query->greaterThanOrEqual('conferenceDate', new \DateTimeImmutable('today')),
         )
     );
 
@@ -294,14 +300,14 @@ or missing :php:`storagePid`.
 Configure it for example in TypoScript:
 
 ..  code-block:: typoscript
-    :caption: EXT:my_extension/Configuration/TypoScript/setup.typoscript
+    :caption: EXT:my_extension/Configuration/Sets/MyExtension/setup.typoscript
 
     plugin.tx_myextension.persistence.storagePid = 42
 
 ..  seealso::
 
     `Persistence queries <https://docs.typo3.org/permalink/extbase-persistence-queries>`_ — the full resolution
-    chain: TypoScript → plugin-specific TS → FlexForm → PHP override, plus how
+    chain: TypoScript → plugin-specific TypoScript → FlexForm → PHP override, plus how
     to debug a storagePid problem.
 
 
@@ -314,25 +320,25 @@ Inject the repository via constructor injection in your controller or service.
 Do not use :php:`GeneralUtility::makeInstance()`:
 
 ..  code-block:: php
-    :caption: EXT:my_extension/Classes/Controller/EventController.php
+    :caption: EXT:my_extension/Classes/Controller/ConferenceController.php
 
-    use MyVendor\MyExtension\Domain\Repository\EventRepository;
+    use MyVendor\MyExtension\Domain\Repository\ConferenceRepository;
     use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
 
-    class EventController extends ActionController
+    class ConferenceController extends ActionController
     {
         public function __construct(
-            private readonly EventRepository $eventRepository,
+            protected readonly ConferenceRepository $conferenceRepository,
         ) {}
 
         public function listAction(): ResponseInterface
         {
-            $this->view->assign('events', $this->eventRepository->findAll());
+            $this->view->assign('conferences', $this->conferenceRepository->findAll());
             return $this->htmlResponse();
         }
     }
 
-TYPO3's DI container resolves the repository automatically. No
+TYPO3's :abbr:`DI (Dependency Injection)` container resolves the repository automatically. No
 :php:`@inject` annotation, no factory call.
 
 ..  seealso::
@@ -343,33 +349,43 @@ TYPO3's DI container resolves the repository automatically. No
 
 ..  _extbase-domain-repository-dbal:
 
-When to drop out of the ORM
-============================
+When to drop out of the ORM (Object Relational Mapping)
+========================================================
 
-The Extbase query API covers most common patterns. Use raw DBAL when you need:
+The Extbase query API covers most common patterns. Use raw
+:abbr:`DBAL (Database Abstraction Layer)` — TYPO3's database layer built on top
+of Doctrine DBAL — when you need:
 
 *   Aggregate functions (:sql:`SUM`, :sql:`AVG`, :sql:`GROUP BY`)
 *   Bulk inserts or updates across many records
 *   Complex multi-table joins that the ORM cannot express
 *   Performance-critical queries where loading full objects is wasteful
 
-Access :php:`ConnectionPool` from within the repository:
+While you can technically access the database directly from controllers or
+services, you **should** limit raw DBAL usage to repository classes to keep
+persistence logic in one place.
+
+Access :php-short:`\TYPO3\CMS\Core\Database\ConnectionPool` from within the repository:
 
 ..  code-block:: php
-    :caption: EXT:my_extension/Classes/Domain/Repository/EventRepository.php
+    :caption: EXT:my_extension/Classes/Domain/Repository/ConferenceRepository.php
 
     use TYPO3\CMS\Core\Database\ConnectionPool;
+    use TYPO3\CMS\Extbase\Persistence\Repository;
 
-    public function countByYear(int $year): array
+    class ConferenceRepository extends Repository
     {
-        $connection = $this->connectionPool->getConnectionForTable('tx_myextension_domain_model_event');
-        // ... build and execute raw query
-    }
+        public function __construct(
+            protected readonly ConnectionPool $connectionPool,
+        ) {
+            parent::__construct();
+        }
 
-    public function __construct(
-        private readonly ConnectionPool $connectionPool,
-    ) {
-        parent::__construct();
+        public function countByYear(int $year): array
+        {
+            $connection = $this->connectionPool->getConnectionForTable('tx_myextension_domain_model_conference');
+            // ... build and execute raw query
+        }
     }
 
 ..  note::

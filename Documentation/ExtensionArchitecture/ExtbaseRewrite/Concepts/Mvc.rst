@@ -18,11 +18,11 @@ in less structured code:
 *   **Controller** — what happens when an HTTP request arrives and which data
     the response should contain
 
-To make this concrete: a visitor clicks "Read more" on an event listing. The
+To make this concrete: a visitor clicks "Read more" on a conference listing. The
 browser sends an HTTP GET request to a URL like
-:samp:`/events?tx_myextension_eventlist[action]=show&tx_myextension_eventlist[event]=42`.
+:samp:`/conferences?tx_myextension_conferencelist[action]=show&tx_myextension_conferencelist[conference]=42`.
 The **controller** receives that request, asks the **model** layer (the
-repository) for the :php:`Event` with UID 42, hands the object to the
+repository) for the :php:`Conference` with UID 42, hands the object to the
 **view**, and the view renders it as HTML. Each layer does one job and one
 job only.
 
@@ -139,18 +139,18 @@ Actions can declare typed parameters. Extbase's property mapping resolves them
 automatically from the request:
 
 ..  code-block:: php
-    :caption: EXT:my_extension/Classes/Controller/EventController.php
+    :caption: EXT:my_extension/Classes/Controller/ConferenceController.php
 
-    use MyVendor\MyExtension\Domain\Model\Event;
+    use MyVendor\MyExtension\Domain\Model\Conference;
     use Psr\Http\Message\ResponseInterface;
 
-    public function showAction(Event $event): ResponseInterface
+    public function showAction(Conference $event): ResponseInterface
     {
         $this->view->assign('event', $event);
         return $this->htmlResponse();
     }
 
-When the URL contains :samp:`event=42`, Extbase loads the :php:`Event` object
+When the URL contains :samp:`event=42`, Extbase loads the :php:`Conference` object
 with UID 42 from the repository and passes it directly to the action. You never
 write a repository lookup for this — the framework handles it.
 

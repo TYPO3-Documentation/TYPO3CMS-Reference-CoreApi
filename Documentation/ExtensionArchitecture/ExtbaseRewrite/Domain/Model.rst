@@ -27,11 +27,11 @@ Every persisted domain object extends
 :php:`\TYPO3\CMS\Extbase\DomainObject\AbstractEntity`:
 
 ..  code-block:: php
-    :caption: EXT:my_extension/Classes/Domain/Model/Event.php
+    :caption: EXT:my_extension/Classes/Domain/Model/Conference.php
 
     use TYPO3\CMS\Extbase\DomainObject\AbstractEntity;
 
-    class Event extends AbstractEntity
+    class Conference extends AbstractEntity
     {
         // your properties here
     }
@@ -48,7 +48,7 @@ You do **not** declare :php:`$uid` or :php:`$pid` — they are inherited.
 To check whether an object has been saved yet:
 
 ..  code-block:: php
-    :caption: EXT:my_extension/Classes/Controller/EventController.php
+    :caption: EXT:my_extension/Classes/Controller/ConferenceController.php
 
     if ($event->_isNew()) {
         // uid is null; this object has not been persisted
@@ -69,9 +69,9 @@ Defining properties
 
 Properties must be :php:`protected`, typed, and have a default value:
 
-..  literalinclude:: _snippets/_Event.php
+..  literalinclude:: _snippets/_Conference.php
     :language: php
-    :caption: EXT:my_extension/Classes/Domain/Model/Event.php
+    :caption: EXT:my_extension/Classes/Domain/Model/Conference.php
 
 Key rules:
 
@@ -86,8 +86,8 @@ Key rules:
     (:php:`isPublished()`, not :php:`getPublished()`).
 
 **Column mapping convention:** Extbase maps camelCase property names to
-snake_case database columns automatically. The property :php:`$eventDate`
-maps to the column :sql:`event_date`. When your table or column names do not
+snake_case database columns automatically. The property :php:`$conferenceDate`
+maps to the column :sql:`conference_date`. When your table or column names do not
 follow this convention, override the mapping in
 :file:`Configuration/Extbase/Persistence/Classes.php`.
 
@@ -153,7 +153,7 @@ The four attributes you will use on model properties:
 Import from the :php:`\TYPO3\CMS\Extbase\Attribute\ORM\` namespace:
 
 ..  code-block:: php
-    :caption: EXT:my_extension/Classes/Domain/Model/Event.php
+    :caption: EXT:my_extension/Classes/Domain/Model/Conference.php
 
     use TYPO3\CMS\Extbase\Attribute\ORM\Cascade;
     use TYPO3\CMS\Extbase\Attribute\ORM\Lazy;
@@ -195,7 +195,7 @@ Relations and ObjectStorage
 **1:1 relations** are a nullable typed property:
 
 ..  code-block:: php
-    :caption: EXT:my_extension/Classes/Domain/Model/Event.php
+    :caption: EXT:my_extension/Classes/Domain/Model/Conference.php
 
     use TYPO3\CMS\Extbase\Persistence\Generic\LazyLoadingProxy;
 
@@ -212,7 +212,7 @@ static analysis: the property is declared as
 that the proxy has resolved. The check lets you return :php:`?Location` cleanly:
 
 ..  code-block:: php
-    :caption: EXT:my_extension/Classes/Domain/Model/Event.php
+    :caption: EXT:my_extension/Classes/Domain/Model/Conference.php
 
     public function getLocation(): ?Location
     {
@@ -228,9 +228,9 @@ and you can omit the check entirely.
 **1:n and m:n relations** use :php:`ObjectStorage`. Always initialise it in
 the constructor:
 
-..  literalinclude:: _snippets/_EventWithRelations.php
+..  literalinclude:: _snippets/_ConferenceWithRelations.php
     :language: php
-    :caption: EXT:my_extension/Classes/Domain/Model/Event.php (with relations)
+    :caption: EXT:my_extension/Classes/Domain/Model/Conference.php (with relations)
 
 A few things to note in the example above:
 
@@ -240,7 +240,7 @@ A few things to note in the example above:
     parent object was loaded.
 
 *   :php:`#[Cascade('remove')]` on :php:`$comments` means: when this
-    :php:`Event` is deleted, all related :php:`Comment` objects are also
+    :php:`Conference` is deleted, all related :php:`Comment` objects are also
     deleted. A comment has no life outside its event, so this is the right
     choice. Without this attribute, deleting the event leaves orphaned comment
     records in the database. Use cascade remove only when the related objects
@@ -283,7 +283,7 @@ Define the enum:
 
 Use it as a model property:
 
-..  literalinclude:: _snippets/_EventWithEnum.php
+..  literalinclude:: _snippets/_ConferenceWithEnum.php
     :language: php
     :caption: EXT:my_extension/Classes/Domain/Model/Speaker.php
 
@@ -308,7 +308,7 @@ Non-persisted properties
 Mark a property :php:`#[Transient]` to exclude it from persistence entirely:
 
 ..  code-block:: php
-    :caption: EXT:my_extension/Classes/Domain/Model/Event.php
+    :caption: EXT:my_extension/Classes/Domain/Model/Conference.php
 
     use TYPO3\CMS\Extbase\Attribute\ORM\Transient;
 
@@ -320,12 +320,12 @@ your own code — typically a getter that computes the value from other
 properties:
 
 ..  code-block:: php
-    :caption: EXT:my_extension/Classes/Domain/Model/Event.php
+    :caption: EXT:my_extension/Classes/Domain/Model/Conference.php
 
     public function getDisplayLabel(): string
     {
         if ($this->displayLabel === null) {
-            $this->displayLabel = $this->title . ' (' . $this->eventDate?->format('Y') . ')';
+            $this->displayLabel = $this->title . ' (' . $this->conferenceDate?->format('Y') . ')';
         }
         return $this->displayLabel;
     }
@@ -337,8 +337,8 @@ Table and field mapping
 =======================
 
 Extbase derives the database table name from the class name. The class
-:php:`MyVendor\MyExtension\Domain\Model\Event` maps to the table
-:sql:`tx_myextension_domain_model_event`. Within the table, each
+:php:`MyVendor\MyExtension\Domain\Model\Conference` maps to the table
+:sql:`tx_myextension_domain_model_conference`. Within the table, each
 camelCase property maps to a snake_case column.
 
 When a table or column does not match the convention — for example, when you

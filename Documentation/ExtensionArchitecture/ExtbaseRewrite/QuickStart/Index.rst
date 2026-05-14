@@ -27,7 +27,7 @@ Step 1: Scaffold the extension
 Use the `FriendsOfTYPO3 kickstarter package <https://github.com/FriendsOfTYPO3/kickstarter>`__ to generate the extension skeleton:
 
 ..  code-block:: bash
-    :caption: Shell
+    :caption: In your project root
 
     composer require friendsoftypo3/kickstarter --dev
     vendor/bin/typo3 make:extension
@@ -51,9 +51,9 @@ Step 2: Create the domain model
 Add a class extending :php:`\TYPO3\CMS\Extbase\DomainObject\AbstractEntity` to
 :file:`Classes/Domain/Model/`. Properties map to database columns by name.
 
-..  literalinclude:: _snippets/_Event.php
+..  literalinclude:: _snippets/_Conference.php
     :language: php
-    :caption: EXT:my_extension/Classes/Domain/Model/Event.php
+    :caption: EXT:my_extension/Classes/Domain/Model/Conference.php
 
 Key points:
 
@@ -76,13 +76,13 @@ Step 3: Create the repository
 
 For a basic repository, extending
 :php:`\TYPO3\CMS\Extbase\Persistence\Repository` is all you need.
-The naming convention is mandatory: a model named :php:`Event` must have a
-repository named :php:`EventRepository` in the :php:`Domain\Repository`
+The naming convention is mandatory: a model named :php:`Conference` must have a
+repository named :php:`ConferenceRepository` in the :php:`Domain\Repository`
 namespace.
 
-..  literalinclude:: _snippets/_EventRepository.php
+..  literalinclude:: _snippets/_ConferenceRepository.php
     :language: php
-    :caption: EXT:my_extension/Classes/Domain/Repository/EventRepository.php
+    :caption: EXT:my_extension/Classes/Domain/Repository/ConferenceRepository.php
 
 The base class provides :php:`findAll()`, :php:`findByUid()`,
 :php:`findBy(array $criteria)`, and :php:`findOneBy(array $criteria)` out of the
@@ -98,7 +98,7 @@ box. The old magic :php:`findBy[PropertyName]()` methods were removed in TYPO3 v
 Step 4: Define the database table (TCA)
 ========================================
 
-Create :file:`Configuration/TCA/tx_myextension_domain_model_event.php` with the
+Create :file:`Configuration/TCA/tx_myextension_domain_model_conference.php` with the
 column definitions matching your model properties.
 
 Since TYPO3 v13, database columns are
@@ -110,7 +110,7 @@ in :file:`ext_tables.sql` and it will take precedence.
 
 The TCA column names must match the property names of your model
 (camelCase properties map to snake_case columns by default — for example
-:php:`$eventDate` maps to :sql:`event_date`).
+:php:`$conferenceDate` maps to :sql:`conference_date`).
 
 ..  tip::
 
@@ -133,15 +133,15 @@ Controllers live in :file:`Classes/Controller/` and extend
 ending in :php:`Action` is automatically available as a plugin action.
 Inject dependencies via the constructor.
 
-..  literalinclude:: _snippets/_EventController.php
+..  literalinclude:: _snippets/_ConferenceController.php
     :language: php
-    :caption: EXT:my_extension/Classes/Controller/EventController.php
+    :caption: EXT:my_extension/Classes/Controller/ConferenceController.php
 
 *   Assign variables to the view with :php:`$this->view->assign()`.
 *   Return :php:`$this->htmlResponse()` to render the Fluid template.
 *   Typed action arguments are automatically resolved from the request —
     passing an :php:`int` UID in the URL results in a hydrated
-    :php:`Event` object in the action.
+    :php:`Conference` object in the action.
 
 ..  seealso::
 
@@ -162,7 +162,7 @@ Create the template files Extbase expects by convention:
 
         *   Templates/
 
-            *   Event/
+            *   Conference/
 
                 *   List.fluid.html
                 *   Show.fluid.html
@@ -178,12 +178,12 @@ to :file:`List.fluid.html`. Variables assigned in the controller are available
 directly in the template.
 
 ..  code-block:: html
-    :caption: EXT:my_extension/Resources/Private/Templates/Event/List.fluid.html
+    :caption: EXT:my_extension/Resources/Private/Templates/Conference/List.fluid.html
 
-    <f:for each="{events}" as="event">
-        <h2>{event.title}</h2>
-        <p>{event.eventDate -> f:format.date(format: 'd.m.Y')}</p>
-        <f:link.action action="show" arguments="{event: event}">
+    <f:for each="{conferences}" as="conference">
+        <h2>{conference.title}</h2>
+        <p>{conference.conferenceDate -> f:format.date(format: 'd.m.Y')}</p>
+        <f:link.action action="show" arguments="{conference: conference}">
             Read more
         </f:link.action>
     </f:for>
@@ -233,9 +233,9 @@ Step 8: Configure routing (optional but recommended)
 ======================================================
 
 Without a route enhancer, URLs contain the raw plugin namespace parameters
-(for example: :samp:`?tx_myextension_eventlist[action]=show&tx_myextension_eventlist[event]=5`).
+(for example: :samp:`?tx_myextension_conferencelist[action]=show&tx_myextension_conferencelist[conference]=5`).
 Add an Extbase route enhancer to your site configuration to get
-clean URLs like :samp:`/events/my-event`.
+clean URLs like :samp:`/conferences/my-conference`.
 
 ..  literalinclude:: _snippets/_routing.yaml
     :language: yaml

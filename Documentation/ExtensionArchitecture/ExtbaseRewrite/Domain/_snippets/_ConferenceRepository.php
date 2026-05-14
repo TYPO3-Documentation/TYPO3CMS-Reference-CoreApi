@@ -4,28 +4,28 @@ declare(strict_types=1);
 
 namespace MyVendor\MyExtension\Domain\Repository;
 
-use MyVendor\MyExtension\Domain\Model\Event;
+use MyVendor\MyExtension\Domain\Model\Conference;
 use TYPO3\CMS\Extbase\Persistence\QueryInterface;
 use TYPO3\CMS\Extbase\Persistence\QueryResultInterface;
 use TYPO3\CMS\Extbase\Persistence\Repository;
 
-class EventRepository extends Repository
+class ConferenceRepository extends Repository
 {
     protected $defaultOrderings = [
-        'eventDate' => QueryInterface::ORDER_ASCENDING,
+        'conferenceDate' => QueryInterface::ORDER_ASCENDING,
     ];
 
-    /** @return QueryResultInterface<Event> */
+    /** @return QueryResultInterface<Conference> */
     public function findUpcoming(): QueryResultInterface
     {
         $query = $this->createQuery();
         $query->matching(
-            $query->greaterThanOrEqual('eventDate', new \DateTimeImmutable('today')),
+            $query->greaterThanOrEqual('conferenceDate', new \DateTimeImmutable('today')),
         );
         return $query->execute();
     }
 
-    /** @return QueryResultInterface<Event> */
+    /** @return QueryResultInterface<Conference> */
     public function findByTitleContaining(string $search): QueryResultInterface
     {
         $query = $this->createQuery();

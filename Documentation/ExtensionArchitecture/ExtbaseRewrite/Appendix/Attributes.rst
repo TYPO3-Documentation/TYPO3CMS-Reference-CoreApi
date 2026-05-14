@@ -11,7 +11,7 @@ Extbase PHP attributes reference
 ..  include:: /ExtensionArchitecture/ExtbaseRewrite/_wip.rst.txt
 
 This page is a quick-reference for all PHP attributes defined and handled by
-the Extbase framework itself. It covers ORM attributes (used on model
+the Extbase framework itself. It covers :abbr:`ORM (Object Relational Mapping)` attributes (used on model
 properties), validation attributes (used on model properties and action
 parameters), and controller-level attributes (used on action methods).
 
@@ -21,13 +21,13 @@ chapter, this page links there.
 
 ..  contents:: On this page
     :local:
-    :depth: 1
+    :depth: 2
 
 
 ..  _extbase-appendix-attributes-orm:
 
-ORM attributes (persistence)
-=============================
+ORM (Object Relational Mapping) attributes (persistence)
+=========================================================
 
 These attributes are declared in the :php:`\TYPO3\CMS\Extbase\Attribute\ORM`
 namespace and are placed on
@@ -50,25 +50,28 @@ The proxy resolves itself automatically via PHP magic methods on any property
 or method access — you do not need to call :php:`_loadRealInstance()` yourself.
 
 When applied to a 1:1 relation, the property type must include
-:php:`LazyLoadingProxy` so Extbase knows to install the proxy. A typed getter
+:php-short:`\TYPO3\CMS\Extbase\Persistence\Generic\LazyLoadingProxy` so Extbase knows to install the proxy. A typed getter
 needs an :php:`instanceof` check only so PHPStan and your IDE can narrow the
 return type to :php:`?Location`:
 
 ..  code-block:: php
-    :caption: EXT:my_extension/Classes/Domain/Model/Event.php
+    :caption: EXT:my_extension/Classes/Domain/Model/Conference.php
 
     use TYPO3\CMS\Extbase\Attribute\ORM\Lazy;
     use TYPO3\CMS\Extbase\Persistence\Generic\LazyLoadingProxy;
 
-    #[Lazy]
-    protected Location|LazyLoadingProxy|null $location = null;
-
-    public function getLocation(): ?Location
+    class Conference extends AbstractEntity
     {
-        if ($this->location instanceof LazyLoadingProxy) {
-            $this->location = $this->location->_loadRealInstance();
+        #[Lazy]
+        protected Location|LazyLoadingProxy|null $location = null;
+
+        public function getLocation(): ?Location
+        {
+            if ($this->location instanceof LazyLoadingProxy) {
+                $this->location = $this->location->_loadRealInstance();
+            }
+            return $this->location;
         }
-        return $this->location;
     }
 
 If you do not need a narrowly typed getter, the check is unnecessary — accessing
@@ -96,7 +99,7 @@ Controls what happens to related objects when the owning object is deleted.
 Currently only :php:`'remove'` is supported:
 
 ..  code-block:: php
-    :caption: EXT:my_extension/Classes/Domain/Model/Event.php
+    :caption: EXT:my_extension/Classes/Domain/Model/Conference.php
 
     use TYPO3\CMS\Extbase\Attribute\ORM\Cascade;
     use TYPO3\CMS\Extbase\Attribute\ORM\Lazy;
@@ -128,7 +131,7 @@ Excludes a property from persistence entirely. Extbase never reads or writes
 the corresponding column. Use for computed values or temporary state:
 
 ..  code-block:: php
-    :caption: EXT:my_extension/Classes/Domain/Model/Event.php
+    :caption: EXT:my_extension/Classes/Domain/Model/Conference.php
 
     use TYPO3\CMS\Extbase\Attribute\ORM\Transient;
 
@@ -166,7 +169,7 @@ behaviour on model properties and controller action parameters.
         depend on the validator.
 
 ..  code-block:: php
-    :caption: EXT:my_extension/Classes/Domain/Model/Event.php
+    :caption: EXT:my_extension/Classes/Domain/Model/Conference.php
 
     use TYPO3\CMS\Extbase\Attribute\Validate;
 
@@ -195,32 +198,32 @@ Suppresses validation for one action parameter. Useful in multi-step forms
 where partial state is forwarded between actions:
 
 ..  code-block:: php
-    :caption: EXT:my_extension/Classes/Controller/EventController.php
+    :caption: EXT:my_extension/Classes/Controller/ConferenceController.php
 
     use TYPO3\CMS\Extbase\Attribute\IgnoreValidation;
 
     public function previewAction(
-        #[IgnoreValidation] Event $event
+        #[IgnoreValidation] Conference $event
     ): ResponseInterface {
         // validation skipped for $event
     }
 
-..  note::
+..  versionchanged:: 14.0
 
-    In TYPO3 v14, :php:`#[IgnoreValidation]` must be placed on the
-    **parameter**, not on the method with an :php:`argumentName` property.
-    The method-level form was deprecated in v14 (Deprecation `#108227
+    :php:`#[IgnoreValidation]` must be placed on the **parameter**, not on the
+    method with an :php:`argumentName` property. The method-level form was
+    deprecated in TYPO3 v14 (Deprecation `#108227
     <https://docs.typo3.org/c/typo3/cms-core/main/en-us/Changelog/14.0/Deprecation-108227-UsageOfIgnoreValidationAndValidateAttributesForParametersAtMethodLevel.html>`__).
 
 
 ..  _extbase-appendix-attributes-controller:
 
-Controller attributes (v14)
-============================
+Controller attributes
+=====================
 
 These attributes are declared in the :php:`\TYPO3\CMS\Extbase\Attribute\`
 namespace and are applied to controller action methods to control access and
-rate limiting. Both are new in TYPO3 v14.
+rate limiting.
 
 Full documentation for these attributes is planned for the Controller and
 Security chapters.
@@ -233,7 +236,10 @@ Security chapters.
 
 :Target: Controller action method
 :Namespace: :php:`\TYPO3\CMS\Extbase\Attribute\Authorize`
-:New in: TYPO3 v14 (Feature `#107826 <https://docs.typo3.org/c/typo3/cms-core/main/en-us/Changelog/14.2/Feature-107826-IntroduceExtbaseActionAuthorizationLogic.html>`__)
+
+..  versionadded:: 14.0
+
+    Introduced in Feature `#107826 <https://docs.typo3.org/c/typo3/cms-core/main/en-us/Changelog/14.2/Feature-107826-IntroduceExtbaseActionAuthorizationLogic.html>`__.
 
 Declares access requirements for an action method. Extbase checks the
 requirements before calling the action and redirects or throws an exception
@@ -256,7 +262,10 @@ Full parameter reference and usage examples are coming in the Security chapter.
 
 :Target: Controller action method
 :Namespace: :php:`\TYPO3\CMS\Extbase\Attribute\RateLimit`
-:New in: TYPO3 v14 (Feature `#108982 <https://docs.typo3.org/c/typo3/cms-core/main/en-us/Changelog/14.2/Feature-108982-IntroduceRateLimitingForExtbaseActions.html>`__)
+
+..  versionadded:: 14.0
+
+    Introduced in Feature `#108982 <https://docs.typo3.org/c/typo3/cms-core/main/en-us/Changelog/14.2/Feature-108982-IntroduceRateLimitingForExtbaseActions.html>`__.
 
 Limits how often an action may be called within a time window, per visitor.
 Useful for protecting form submission endpoints against brute-force and spam.

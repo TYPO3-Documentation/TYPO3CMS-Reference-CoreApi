@@ -50,8 +50,8 @@ correct visibility — not :php:`public`, not :php:`private`.
 
 ..  _extbase-appendix-pitfalls-storagepid:
 
-findAll() returns nothing
-=========================
+findAll() returns nothing on an Extbase repository
+===================================================
 
 **Symptom:** :php:`$repository->findAll()` (or any repository query) returns
 an empty result, but the records clearly exist in the database.
@@ -144,13 +144,14 @@ concept is valid; the base class is not.
 
 ..  _extbase-appendix-pitfalls-frontend-forms-relations:
 
-Frontend forms that create or edit related objects
-===================================================
+Frontend form with inline relations produces incomplete saves or silent data loss
+================================================================================
 
 **Symptom:** A frontend form that creates or updates a model with inline
 relations (speakers, images, tags added dynamically) produces incomplete saves,
-orphaned records, or security errors. Trying to replicate the backend's
-"add another row" UX via JavaScript makes things worse.
+orphaned records, or silent data loss for dynamically added fields that fail
+HMAC argument hash validation. Trying to replicate the backend's "add another
+row" UX via JavaScript makes things worse.
 
 **Why:** Two independent problems compound each other. First, Extbase's
 property mapping and persistence layer were not designed to handle a graph of
