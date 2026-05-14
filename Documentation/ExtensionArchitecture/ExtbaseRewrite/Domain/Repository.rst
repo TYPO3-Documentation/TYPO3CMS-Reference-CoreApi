@@ -109,7 +109,7 @@ Built-in find methods in Extbase repositories
         Magic find methods such as :php:`findByTitle($value)`,
         :php:`findOneByTitle($value)`, and :php:`countByTitle($value)` were
         deprecated in v12.3 and removed in TYPO3 v14. See
-        `Magic findBy*() migration <https://docs.typo3.org/permalink/t3coreapi:extbase-repository-find-by-magic-migration>`__
+        :ref:`t3coreapi/13:extbase-repository-find-by-magic-migration`
         for the migration guide.
 
     Replace them with the explicit array-based signatures:
