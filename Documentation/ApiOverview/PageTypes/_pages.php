@@ -2,24 +2,26 @@
 
 defined('TYPO3') or die();
 
-// encapsulate all locally defined variables
+use TYPO3\CMS\Core\Schema\Struct\SelectItem;
+use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
+
 (function () {
-    // SAME as registered in ext_tables.php
-    $customPageDoktype = 116;
+    $customPageDoktype = '116';
     $customIconClass = 'tx-examples-archive-page';
 
-    // Add the new doktype to the page type selector
-    \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTcaSelectItem(
+    $GLOBALS['TCA']['pages']['types'][$customPageDoktype] = $GLOBALS['TCA']['pages']['types'][1];
+    $GLOBALS['TCA']['pages']['types'][$customPageDoktype]['allowedRecordTypes'] = ['*'];
+    $GLOBALS['TCA']['pages']['ctrl']['typeicon_classes'][$customPageDoktype] = $customIconClass;
+
+    ExtensionManagementUtility::addTcaSelectItem(
         'pages',
         'doktype',
-        [
-            'label' => 'LLL:EXT:examples/Resources/Private/Language/locallang.xlf:archive_page_type',
-            'value' => $customPageDoktype,
-            'icon'  => $customIconClass,
-            'group' => 'special',
-        ],
+        new SelectItem(
+            'select',
+            label: 'LLL:EXT:examples/Resources/Private/Language/locallang.xlf:archive_page_type',
+            value: $customPageDoktype,
+            icon: $customIconClass,
+            group: 'special',
+        ),
     );
-
-    // Add the icon to the icon class configuration
-    $GLOBALS['TCA']['pages']['ctrl']['typeicon_classes'][$customPageDoktype] = $customIconClass;
 })();
