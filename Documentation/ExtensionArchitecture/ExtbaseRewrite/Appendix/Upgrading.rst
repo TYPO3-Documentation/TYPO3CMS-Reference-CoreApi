@@ -53,10 +53,37 @@ TYPO3 v12; in TYPO3 v14 the annotation syntax was removed entirely.
 | ``@Extbase\IgnoreValidation``     | ``#[IgnoreValidation]``           |
 +-----------------------------------+-----------------------------------+
 
+..  code-block:: php
+    :caption: Before — DocBlock annotation (ignored in TYPO3 v14)
+
+    use TYPO3\CMS\Extbase\DomainObject\AbstractEntity;
+    use TYPO3\CMS\Extbase\Persistence\ObjectStorage;
+
+    class Entity extends AbstractEntity
+    {
+        /**
+         * @var ObjectStorage<ChildEntity>
+         * @TYPO3\CMS\Extbase\Annotation\ORM\Lazy
+         */
+        protected ObjectStorage $property;
+    }
+
+..  code-block:: php
+    :caption: After — native PHP attribute
+
+    use TYPO3\CMS\Extbase\Annotation\ORM\Lazy;
+    use TYPO3\CMS\Extbase\DomainObject\AbstractEntity;
+    use TYPO3\CMS\Extbase\Persistence\ObjectStorage;
+
+    class Entity extends AbstractEntity
+    {
+        #[Lazy()]
+        protected ObjectStorage $property;
+    }
 
 ..  seealso::
 
-    `ExtbaseAnnotationToAttributeRector <https://github.com/sabbelasichon/typo3-rector/blob/main/docs/all_rectors_overview.md#extbaseannotationtoattributerector>`__
+    + `ExtbaseAnnotationToAttributeRector <https://github.com/sabbelasichon/typo3-rector/blob/main/docs/all_rectors_overview.md#extbaseannotationtoattributerector>`__
 
 
 ..  _extbase-upgrading-attribute-namespace:

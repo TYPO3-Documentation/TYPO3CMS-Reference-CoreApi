@@ -16,8 +16,7 @@ properties), validation attributes (used on model properties and action
 parameters), and controller-level attributes (used on action methods).
 
 It does not cover attributes defined by TYPO3 Core outside of Extbase, or
-PHP built-in attributes. Where a more detailed explanation exists in another
-chapter, this page links there.
+PHP built-in attributes.
 
 ..  contents:: On this page
     :local:
@@ -29,24 +28,29 @@ chapter, this page links there.
 ORM (Object Relational Mapping) attributes (persistence)
 =========================================================
 
-These attributes are declared in the :php:`\TYPO3\CMS\Extbase\Attribute\ORM`
-namespace and are placed on
-model properties to control how Extbase maps them to and from the database.
+**ORM** (`Object-Relational Mapping <https://en.wikipedia.org/wiki/Object%E2%80%93relational_mapping>`__)
+is the mechanism that lets you work with PHP objects instead of raw database
+rows. Therefor Extbase maps database fields to Object Model properties and back.
+The attributes described below are used to control this process.
+
+The attributes are declared in the :php:`\TYPO3\CMS\Extbase\Attribute\ORM`
+namespace and are placed on model properties.
 
 ..  _extbase-appendix-attributes-lazy:
 
-#[Lazy]
--------
+`#[Lazy]`
+---------
 
 :Target: Model property
-:Namespace: :php:`\TYPO3\CMS\Extbase\Attribute\ORM\Lazy`
+:Full qualified namespace: :php:`\TYPO3\CMS\Extbase\Attribute\ORM\Lazy`
 :Parameters: none
 
-Defers loading of a related object or :php-short:`\TYPO3\CMS\Extbase\Persistence\ObjectStorage` until the property
-is first accessed. Without :php:`#[Lazy]`, Extbase loads all related objects
-when the parent is loaded — which can trigger N+1 queries in list views.
+Default relation resolving processing loads all related objects together with the parent,
+which can harm performance and trigger N+1 queries, for example in list views.
+Attributing :php:`#[Lazy]` to a relation of a Model Object will tell Extbase to
+load the related object only when it is actively accessed by calling its methods or reading its properties.
 
-The proxy resolves itself automatically via PHP magic methods on any property
+The lazy loading proxy resolves itself automatically via PHP magic methods on any property
 or method access — you do not need to call :php:`_loadRealInstance()` yourself.
 
 When applied to a 1:1 relation, the property type must include
@@ -88,11 +92,11 @@ the proxy in any way triggers resolution automatically.
 
 ..  _extbase-appendix-attributes-cascade:
 
-#[Cascade]
-----------
+`#[Cascade]`
+------------
 
 :Target: Model property
-:Namespace: :php:`\TYPO3\CMS\Extbase\Attribute\ORM\Cascade`
+:Full qualified namespace: :php:`\TYPO3\CMS\Extbase\Attribute\ORM\Cascade`
 :Parameters: :php:`string|null $value = null`
 
 Controls what happens to related objects when the owning object is deleted.
@@ -123,11 +127,11 @@ objects automatically via the repository.
 
 ..  _extbase-appendix-attributes-transient:
 
-#[Transient]
-------------
+`#[Transient]`
+--------------
 
 :Target: Model property
-:Namespace: :php:`\TYPO3\CMS\Extbase\Attribute\ORM\Transient`
+:Full qualified namespace: :php:`\TYPO3\CMS\Extbase\Attribute\ORM\Transient`
 :Parameters: none
 
 Excludes a property from persistence entirely. Extbase never reads or writes
@@ -155,11 +159,11 @@ and control validation behaviour on model properties and controller action param
 
 ..  _extbase-appendix-attributes-validate:
 
-#[Validate]
------------
+`#[Validate]`
+-------------
 
 :Target: Model property, action method parameter
-:Namespace: :php:`\TYPO3\CMS\Extbase\Attribute\Validate`
+:Full qualified namespace: :php:`\TYPO3\CMS\Extbase\Attribute\Validate`
 :Repeatable: yes — apply multiple :php:`#[Validate]` to one target
 :Parameters:
 
@@ -194,11 +198,11 @@ and control validation behaviour on model properties and controller action param
 
 ..  _extbase-appendix-attributes-ignorevalidation:
 
-#[IgnoreValidation]
--------------------
+`#[IgnoreValidation]`
+---------------------
 
 :Target: Action method parameter
-:Namespace: :php:`\TYPO3\CMS\Extbase\Attribute\IgnoreValidation`
+:Full qualified namespace: :php:`\TYPO3\CMS\Extbase\Attribute\IgnoreValidation`
 :Parameters: none (place directly on the parameter)
 
 Suppresses validation for one action parameter. Useful in multi-step forms
@@ -241,15 +245,15 @@ rate limiting.
 
 ..  _extbase-appendix-attributes-authorize:
 
-#[Authorize]
-------------
+`#[Authorize]`
+--------------
 
 :Target: Controller action method
-:Namespace: :php:`\TYPO3\CMS\Extbase\Attribute\Authorize`
+:Full qualified namespace: :php:`\TYPO3\CMS\Extbase\Attribute\Authorize`
 
 ..  versionadded:: 14.0
 
-    Introduced in Feature `#107826 <https://docs.typo3.org/c/typo3/cms-core/main/en-us/Changelog/14.2/Feature-107826-IntroduceExtbaseActionAuthorizationLogic.html>`__.
+    Introduced in Feature `#107826 <https://docs.typo3.org/permalink/changelog:feature-107826-1766220191>`_.
 
 Declares access requirements for an action method. Extbase checks the
 requirements before calling the action and redirects or throws an exception
@@ -267,15 +271,15 @@ if they are not met.
 
 ..  _extbase-appendix-attributes-ratelimit:
 
-#[RateLimit]
-------------
+`#[RateLimit]`
+--------------
 
 :Target: Controller action method
-:Namespace: :php:`\TYPO3\CMS\Extbase\Attribute\RateLimit`
+:Full qualified namespace: :php:`\TYPO3\CMS\Extbase\Attribute\RateLimit`
 
 ..  versionadded:: 14.0
 
-    Introduced in Feature `#108982 <https://docs.typo3.org/c/typo3/cms-core/main/en-us/Changelog/14.2/Feature-108982-IntroduceRateLimitingForExtbaseActions.html>`__.
+    Introduced in Feature `#108982 <https://docs.typo3.org/permalink/changelog:_feature-108982-1771078311>`_.
 
 Limits how often an action may be called within a time window, per visitor.
 Useful for protecting form submission endpoints against brute-force and spam.

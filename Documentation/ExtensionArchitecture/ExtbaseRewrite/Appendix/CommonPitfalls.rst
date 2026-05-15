@@ -4,9 +4,9 @@
 ..  index:: pair: Extbase; Common pitfalls
 ..  _extbase-appendix-pitfalls:
 
-===============================
+==========================
 Common pitfalls in Extbase
-===============================
+==========================
 
 ..  include:: /ExtensionArchitecture/ExtbaseRewrite/_wip.rst.txt
 
@@ -26,7 +26,7 @@ this page first.
 ..  _extbase-appendix-pitfalls-private-properties:
 
 Model properties declared private are never populated
-======================================================
+=====================================================
 
 **Symptom:** A model property always holds its default value after loading from
 the database, even though the database column contains data. No error is thrown.
@@ -51,7 +51,7 @@ correct visibility — not :php:`public`, not :php:`private`.
 ..  _extbase-appendix-pitfalls-storagepid:
 
 findAll() returns nothing on an Extbase repository
-===================================================
+==================================================
 
 **Symptom:** :php:`$repository->findAll()` (or any repository query) returns
 an empty result, but the records clearly exist in the database.
@@ -81,8 +81,11 @@ ignores them. The replacement is native PHP attributes.
 
 ..  seealso::
 
-    `PHP attributes — the v14 way <https://docs.typo3.org/permalink/extbase-domain-model-attributes>`_ and the full attribute
-    reference at `Extbase PHP attributes reference <https://docs.typo3.org/permalink/extbase-appendix-attributes>`_.
+    + :ref:`extbase-upgrading-annotations-to-attributes` — migration steps and
+    the full before/after example.
+
+    + `PHP attributes — the v14 way <https://docs.typo3.org/permalink/extbase-domain-model-attributes>`_
+    + `Extbase PHP attributes reference <https://docs.typo3.org/permalink/extbase-appendix-attributes>`_.
 
 
 ..  _extbase-appendix-pitfalls-magic-findby:
@@ -108,7 +111,7 @@ in v14. The replacements use an explicit array signature.
 ..  _extbase-appendix-pitfalls-list-type:
 
 Plugin registered with list_type no longer works
-=================================================
+================================================
 
 **Symptom:** An existing plugin content element stops rendering after upgrading
 to TYPO3 v14, or a newly registered plugin cannot be selected in the backend.
@@ -126,7 +129,7 @@ in v13.4 and removed in v14. Plugins must now be registered as dedicated
 ..  _extbase-appendix-pitfalls-abstract-value-object:
 
 AbstractValueObject is not public API
-=======================================
+=====================================
 
 **Symptom:** Code extending
 :php:`\TYPO3\CMS\Extbase\DomainObject\AbstractValueObject` produces
@@ -147,7 +150,7 @@ concept is valid; the base class is not.
 ..  _extbase-appendix-pitfalls-frontend-forms-relations:
 
 Frontend form with inline relations produces incomplete saves or silent data loss
-================================================================================
+=================================================================================
 
 **Symptom:** A frontend form that creates or updates a model with inline
 relations (speakers, images, tags added dynamically) produces incomplete saves,

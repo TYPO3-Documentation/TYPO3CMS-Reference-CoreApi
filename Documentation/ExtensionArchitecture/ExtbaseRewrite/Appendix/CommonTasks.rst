@@ -4,9 +4,9 @@
 ..  index:: pair: Extbase; Common tasks
 ..  _extbase-appendix-tasks:
 
-==============================
+=======================
 Common tasks in Extbase
-==============================
+=======================
 
 ..  include:: /ExtensionArchitecture/ExtbaseRewrite/_wip.rst.txt
 
@@ -25,7 +25,7 @@ start here.
 ..  _extbase-appendix-tasks-third-party-field:
 
 Add a field to a third-party extension's model
-===============================================
+==============================================
 
 **Goal:** A third-party extension (for example :composer:`georgringer/news`) has a
 model you want to extend with an extra database field — without forking the
@@ -48,7 +48,7 @@ getter/setter. No changes to the original extension required.
 ..  _extbase-appendix-tasks-custom-query:
 
 Query records with custom conditions
-======================================
+====================================
 
 **Goal:** :php:`findAll()` and :php:`findBy()` are not enough — you need
 records filtered by date, a relation, or a combination of conditions.
@@ -68,7 +68,7 @@ build constraints with :php:`$query->matching()`, and return
 ..  _extbase-appendix-tasks-inject-repository:
 
 Use a repository in a controller
-=================================
+================================
 
 **Goal:** Make a repository available inside a controller action without
 using :php:`GeneralUtility::makeInstance()`.
@@ -96,7 +96,7 @@ annotation, no factory call needed.
 ..  _extbase-appendix-tasks-default-ordering:
 
 Set a default sort order for all repository queries
-====================================================
+===================================================
 
 **Goal:** Every call to :php:`findAll()` or :php:`findBy()` on a repository
 should return records sorted by a specific property, without having to specify
@@ -126,7 +126,7 @@ repository. It applies automatically to all queries from that repository.
 ..  _extbase-appendix-tasks-lazy-relation:
 
 Load a relation only when needed
-==================================
+================================
 
 **Goal:** A model has a related object or collection that is expensive to load
 and not always needed — for example, the comments on an event in a list view.
@@ -149,7 +149,7 @@ the getter must also handle the :php:`LazyLoadingProxy` intermediate.
 ..  _extbase-appendix-tasks-delete-cascade:
 
 Delete related objects when the parent is deleted
-==================================================
+=================================================
 
 **Goal:** When an event is deleted, its related comment records should be
 deleted automatically rather than left as orphans in the database.
@@ -167,7 +167,7 @@ repository when the parent is deleted.
 ..  _extbase-appendix-tasks-enum-property:
 
 Use a native PHP enum as a model property
-==========================================
+=========================================
 
 **Goal:** A model property should hold one of a fixed set of values — for
 example a status or salutation — and you want to use a native PHP 8.1 backed
@@ -187,7 +187,7 @@ configuration needed.
 ..  _extbase-appendix-tasks-non-persisted-property:
 
 Add a computed property that is never stored in the database
-=============================================================
+============================================================
 
 **Goal:** A model needs a property that holds a computed or temporary value —
 for example a formatted label derived from other properties — that should never
