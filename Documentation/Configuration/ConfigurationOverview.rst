@@ -58,7 +58,7 @@ Extension files
 :ref:`ext_emconf.php <extension-declaration>`
 
     ..  deprecated:: 14.2
-        This file is deprecated and should be dropped once dropping TYPO3 v13
+        This file is deprecated and should be removed once dropping TYPO3 v13
         support. See also: `Deprecation: #108345 - Deprecation of ext_emconf.php <https://docs.typo3.org/permalink/changelog:deprecation-108345-1774126701>`_.
 
 :ref:`ext_tables.php <extension-configuration-files>`
