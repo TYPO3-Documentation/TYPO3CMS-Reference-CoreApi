@@ -93,4 +93,10 @@ return [
         'targetFileName' => 'CodeSnippets/Manual/Entity/CacheInstruction.rst.txt',
         'withCode' => false,
     ],
+    [
+        'action' => 'createPhpClassDocs',
+        'class' => \TYPO3\CMS\Frontend\Page\PageInformation::class,
+        'targetFileName' => 'CodeSnippets/Manual/Entity/PageInformation.rst.txt',
+        'withCode' => false,
+    ],
 ];
