@@ -36,4 +36,9 @@ of that attribute.
     $rootLine = $pageInformation->getLocalRootLine();
 
 
-..  todo: Add API when class is not marked as internal anymore
+..  _typo3-request-attribute-frontend-page-information-api:
+
+API
+===
+
+..  include:: /CodeSnippets/Manual/Entity/PageInformation.rst.txt
