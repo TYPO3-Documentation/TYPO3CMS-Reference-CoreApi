@@ -23,7 +23,6 @@ On the first level `EXT:tea <https://github.com/TYPO3-Documentation/tea>`__ has 
     ├── Resources
     ├── Tests
     ├── composer.json
-    ├── ext_emconf.php
     ├── ...
     └── README.md
 
@@ -34,20 +33,10 @@ The :file:`Classes/` folder should contain all the PHP classes provided by the
 extension. Otherwise they will not be available in the default
 :ref:`autoloading <autoload>`. (See documentation on the :ref:`extension-classes` folder).
 
-
 In the :file:`composer.json <extension-composer-json>` we define that all PHP classes are
-automatically loaded from the :file:`Classes/` directory (also
-defined in file:`ext_emconf.php` in Classic mode installations):
+automatically loaded from the :file:`Classes/` directory:
 
-..  tabs::
-
-    ..  group-tab:: Composer
-
-        .. include:: /CodeSnippets/Tutorials/Tea/ComposerJsonAutoload.rst.txt
-
-    ..  group-tab:: Classic mode installation (no Composer)
-
-        .. include:: /CodeSnippets/Tutorials/Tea/ExtEmconfAutoload.rst.txt
+..  include:: /CodeSnippets/Tutorials/Tea/ComposerJsonAutoload.rst.txt
 
 The key of the psr-4 array, here :php:`'TTN\\Tea\\'`, defines the namespace
 for all classes in order to be found by

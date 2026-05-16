@@ -110,12 +110,6 @@ Call the CLI script on the console:
     If you choose `yes` "Make" will create a basic
     :file:`Configuration/Services.yaml` which configures :ref:`dependency injection <DependencyInjection>`.
 
-`May we create a ext_emconf.php for you? (yes/no) [no]:`
-    Mandatory for extensions supporting TYPO3 v10. Starting with v11:
-    If your extension needs be installable in legacy TYPO3 installations
-    choose `yes`. If your extension is local and in a Composer-based
-    installation it is not necessary and you can choose `no`.
-
 4.  Have a look at the result
 =============================
 
@@ -131,8 +125,7 @@ the subfolder contains the following files:
         ├── Classes
         ├── Configuration
         |   └── Services.yaml (optional)
-        ├── composer.json
-        └── ext_emconf.php (optional)
+        └── composer.json
 
 5. Install the extension
 ========================

@@ -22,8 +22,6 @@ number of community-managed tools that you can use.
 
         *   Create a directory with the extension name
         *   Create the :ref:`files-composer-json` file
-        *   Create the :ref:`ext_emconf-php` file if you have a Classic mode
-            installation or an extension that will be uploaded to TER
 
     ..  card:: :ref:`Kickstart a TYPO3 extension with "Make" <extension-make>`
 

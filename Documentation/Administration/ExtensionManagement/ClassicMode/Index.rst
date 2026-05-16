@@ -61,7 +61,7 @@ in your web site. Think of the results of removing them and finally do it.
 
 If you are working locally or on a test server you might as well try to
 uninstall the extension. The Extension Manager warns you about dependencies that
-are written in an extensions :file:`ext_emconf.php` constraints section.
+are written in an extensions :file:`composer.json` constraints section.
 Note however that you depend on the extensions developers faithfully noting
 all dependencies in this config file.
 
