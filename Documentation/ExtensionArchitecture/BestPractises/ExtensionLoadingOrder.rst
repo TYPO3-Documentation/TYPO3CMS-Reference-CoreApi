@@ -15,16 +15,21 @@ and if dependencies are not loaded beforehand, it can lead to unintended
 behavior.
 
 ..  _extension-loading-order-composer:
+..  _extension-loading-order-classic:
+..  _extension-loading-order-composer-and-classic:
 
-Composer-based installations: Loading order via composer.json
-=============================================================
+Defining the loading order via file composer.json
+=================================================
 
-In Composer-based installations, extensions and dependencies are
-installed based on the configuration in the
+..  deprecated:: 14.2
+    File :file:`ext_emconf.php` is deprecated, the loading order is
+    defined in the :file:`composer.json` file for all installation methods.
+
+Extensions and dependencies are installed based on the configuration in the
 :file:`composer.json <extension-composer-json>` file.
 
 For example, if an extension relies on or modifies functionality provided by
-the :php:`ext:felogin` system extension, the dependency should be defined
+the :composer:`typo3/cms-felogin` system extension, the dependency should be defined
 as follows:
 
 ..  literalinclude:: _snippets/_require-composer.json
@@ -32,49 +37,11 @@ as follows:
     :caption: Excerpt of EXT:my_extension/composer.json
 
 This ensures that TYPO3 loads the extension **after** the
-:php:`ext:felogin` system extension.
+:composer:`typo3/cms-felogin` system extension.
 
 Instead of `require`, extensions can also use the `suggest` section.
 Suggested extensions, if installed, are loaded **before** the current one —
 just like required ones — but without being mandatory.
 
 A typical use case is suggesting an extension that provides optional widgets,
-such as for EXT:dashboard.
-
-..  _extension-loading-order-classic:
-
-Classic mode installations: Loading order via ext_emconf.php
-============================================================
-
-In Classic mode installations, extensions are loaded based on the order defined in the
-:file:`ext_emconf.php` file.
-
-For example, if an extension relies on or modifies functionality provided by
-the :php:`ext:felogin` system extension, the dependency should be defined
-as follows:
-
-..  literalinclude:: _snippets/_depends-ext-emconf.php
-    :language: json
-    :caption: EXT:my_extension/ext_emconf.php
-
-This ensures that TYPO3 loads the extension **after** the
-:php:`ext:felogin` system extension.
-
-As with Composer, you can use the `suggest` section instead of `depends`.
-Suggested extensions, if installed, are loaded **before** the current one,
-without being strictly required.
-
-..  _extension-loading-order-composer-and-classic:
-
-Keeping the loading order in sync between Composer-based and Classic mode installations
-=======================================================================================
-
-If your extension supports both Composer-based and classic TYPO3 installations,
-you should keep dependency information consistent between the
-:file:`composer.json <extension-composer-json>` and
-:ref:`ext_emconf.php <ext_emconf-php>` files.
-
-This is especially important for managing dependency constraints such as
-`depends`, `conflicts`, and `suggests`. Use the equivalent fields in
-:file:`composer.json <extension-composer-json>` — `require`, `conflict`, and
-`suggest` — to ensure consistent loading behavior across both installation types.
+such as for :composer:`typo3/cms-dashboard`.

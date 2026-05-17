@@ -20,8 +20,6 @@ If you plan to publish your extension in the TYPO3 Extension Repository
 
 *   Create a directory with the extension name
 *   Create the :ref:`files-composer-json` file
-*   Create the :ref:`ext_emconf-php` file for Classic mode installations and
-    extensions what will be uploaded to TER
 
 Installing the newly created extension
 =======================================
