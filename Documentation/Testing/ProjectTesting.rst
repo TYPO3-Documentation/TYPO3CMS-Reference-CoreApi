@@ -140,8 +140,7 @@ should be taken into consideration:
     :caption: Build/phpstan/phpstan.neon
     :language: plaintext
 
-It also makes sense to exclude the :file:`ext_emconf.php` and any
-:path:`node_modules` directory.
+It also makes sense to exclude any :path:`node_modules` directory.
 
 ..  _testing-projects-configuration-phpunit:
 

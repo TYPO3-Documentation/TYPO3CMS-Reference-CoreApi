@@ -1,0 +1,13 @@
+{
+    "extra": {
+        "typo3/cms": {
+            "extension-key": "my_extension",
+            "version": "1.2.3",
+            "Package": {
+                "providesPackages": {
+                    "symfony/dotenv": "Resources/Private/Php/ComposerVendor"
+                }
+            }
+        }
+    }
+}

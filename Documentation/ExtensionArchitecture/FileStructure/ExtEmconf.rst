@@ -1,14 +1,11 @@
 ..  include:: /Includes.rst.txt
 
-..  index::
-    ! File; EXT:{extkey}/ext_emconf.php
-    File; Declaration File
 ..  _extension-declaration:
 ..  _ext_emconf-php:
 
-================
-`ext_emconf.php`
-================
+=============================
+`ext_emconf.php` (Deprecated)
+=============================
 
 ..  deprecated:: 14.2
     Using the `ext_emconf.php` file in extensions is deprecated. TYPO3

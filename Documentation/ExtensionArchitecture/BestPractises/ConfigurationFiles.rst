@@ -119,13 +119,6 @@ file with all configuration of other extensions.
     :php:`$_EXTKEY` within the two configuration files as this variable is no
     longer loaded automatically.
 
--   However, due to limitations in the TYPO3 Extension Repository, the
-    :php:`$_EXTKEY` option **must** be kept within an extension's
-    :ref:`ext_emconf.php <extension-declaration>` file.
-
--   You **do not have to** use a directly called closure function after dropping
-    TYPO3 v10.4 support.
-
 The following example contains the complete code:
 
 ..  literalinclude:: _ext_localconf.php
