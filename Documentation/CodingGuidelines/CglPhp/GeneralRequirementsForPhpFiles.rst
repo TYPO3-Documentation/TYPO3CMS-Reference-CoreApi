@@ -141,6 +141,6 @@ Character set
 All TYPO3 source files use the UTF-8 character set without byte order
 mark (BOM). Encoding declarations like `declare(encoding = 'utf-8');`
 must not be used. They might lead to problems, especially in
-:file:`ext_tables.php` and :file:`ext_localconf.php` files of extensions, which are
+:file:`ext_localconf.php` files of extensions, which are
 merged internally in TYPO3 CMS. Files from third-party libraries may
 have different encodings.

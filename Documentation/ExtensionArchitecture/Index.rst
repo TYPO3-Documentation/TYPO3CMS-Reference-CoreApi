@@ -59,9 +59,8 @@ Extension development
     ..  card:: :ref:`Best practises and conventions <extension-Best-practises>`
 
         Explains how to choose an extension key, naming conventions
-        and how to best use configuration files
-        (:ref:`ext_localconf.php <ext-localconf-php>` and
-        :ref:`ext_tables.php <ext-tables-php>`)
+        and how to best use the configuration file
+        :ref:`ext_localconf.php <ext-localconf-php>`
 
 
     ..  card:: :ref:`Tutorials <extension-tutorials>`

@@ -55,8 +55,8 @@ TYPO3
 -----
 
 TYPO3 still has some extension PHP script files executed in global context
-without class or callable encapsulation, namely :file:`ext_localconf.php`,
-:file:`ext_tables.php` and files within :file:`Configuration/TCA/Overrides/`.
+without class or callable encapsulation, namely :file:`ext_localconf.php`
+and files within :file:`Configuration/TCA/Overrides/`.
 When those files are located within the public document root of an instance and
 called via HTTP directly, they may error out and render error messages. This can
 be a security risk. To prevent this, those files **must** have a security gate
@@ -75,7 +75,6 @@ It is defined to :php:`true` in early TYPO3 bootstrap.
 ..  seealso::
 
     *   :ref:`ext_localconf.php <ext-localconf-php>`
-    *   :ref:`ext_tables.php <ext-tables-php>`
     *   :ref:`Configuration/TCA/Overrides/ <extension-configuration-tca-overrides>`
 
 

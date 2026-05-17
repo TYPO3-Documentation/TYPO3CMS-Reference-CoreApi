@@ -4,20 +4,22 @@
 ..  index:: Extension development; Configuration Files
 ..  _extension-conventions-configuration-files:
 
-========================================================
-Configuration files (ext_tables.php & ext_localconf.php)
-========================================================
+======================================
+Configuration file (ext_localconf.php)
+======================================
 
-The files :file:`ext_tables.php` and :file:`ext_localconf.php`
-contain configuration used by the system and in
-requests. They should therefore be optimized for speed.
+..  deprecated:: 14.3
+    Using the `ext_tables.php` file in extensions is deprecated.
+
+The file :file:`ext_localconf.php`
+contains configuration used by the system and in
+requests. It should therefore be optimized for speed.
 
 See :ref:`extension-files-locations` for a full list of file and
 directory names typically used in extensions.
 
 ..  warning::
-    The content of the files :file:`ext_localconf.php` and
-    :file:`ext_tables.php` **must not** be wrapped in a
+    The content of the file :file:`ext_localconf.php` **must not** be wrapped in a
     local namespace by extension authors. This would lead to nested namespaces
     causing PHP errors that can only be solved by clearing the caches via the
     Install Tool.
@@ -27,11 +29,9 @@ directory names typically used in extensions.
 Rules and best practices
 ========================
 
-The following apply for both :php:`ext_tables.php` and :php:`ext_localconf.php`.
-
-As a rule of thumb: Your :file:`ext_tables.php` and :file:`ext_localconf.php`
-files must be designed in a way
-that they can safely be read and subsequently imploded into one single
+As a rule of thumb: Your :file:`ext_localconf.php`
+file must be designed in a way
+that it can safely be read and subsequently imploded into one single
 file with all configuration of other extensions.
 
 -   You **must not** use a :php:`return` statement in the file's global scope -
@@ -48,15 +48,15 @@ file with all configuration of other extensions.
     nested namespaces.
 
     ..  code-block:: diff
-        :caption: Diff of EXT:my_extension/ext_localconf.php | EXT:my_extension/ext_tables.php
+        :caption: Diff of EXT:my_extension/ext_localconf.php
 
         -namespace {
         -}
 
--   You **can** use :php:`use` statements starting with TYPO3 v11.4:
+-   You **can** use :php:`use` statements:
 
     ..  code-block:: diff
-        :caption: Diff of EXT:my_extension/ext_localconf.php | EXT:my_extension/ext_tables.php
+        :caption: Diff of EXT:my_extension/ext_localconf.php
 
         // you can use use:
         +use TYPO3\CMS\Core\Resource\Security\FileMetadataPermissionsAspect;
@@ -72,7 +72,7 @@ file with all configuration of other extensions.
     once in the concatenated cache file.
 
     ..  code-block:: diff
-        :caption: Diff of EXT:my_extension/ext_localconf.php | EXT:my_extension/ext_tables.php
+        :caption: Diff of EXT:my_extension/ext_localconf.php
 
         // You can use declare strict and other directives
         // which must be placed at the top of the file
@@ -89,22 +89,21 @@ file with all configuration of other extensions.
     directly, for example, do not:
 
     ..  code-block:: diff
-        :caption: Diff of EXT:my_extension/ext_localconf.php | EXT:my_extension/ext_tables.php
-
+        :caption: Diff of EXT:my_extension/ext_localconf.php
         // do NOT do this:
         -if (TYPO3_MODE === 'BE')
 
 
 -   You **should** check for the existence of the constant
     :php:`defined('TYPO3') or die();`
-    at the top of :file:`ext_tables.php` and :file:`ext_localconf.php` files
+    at the top of file :file:`ext_localconf.php`
     right after the use statements to make sure the file is
     executed only indirectly within TYPO3 context. This is a security measure
     since this code in global scope should not be executed through the web
     server directly as entry point.
 
     ..  code-block:: php
-        :caption: EXT:my_extension/ext_localconf.php | EXT:my_extension/ext_tables.php
+        :caption: EXT:my_extension/ext_localconf.php
 
         <?php
         declare(strict_types=1);
@@ -123,8 +122,7 @@ The following example contains the complete code:
 
 ..  literalinclude:: _ext_localconf.php
     :language: php
-    :caption: EXT:my_extension/ext_localconf.php | EXT:my_extension/ext_tables.php
-
+    :caption: EXT:my_extension/ext_localconf.php
 
 Additionally, it is possible to extend TYPO3 in a lot of different ways (adding
 :ref:`TCA <t3tca:start>`, :ref:`backend routes <backend-routing>`,

@@ -2,96 +2,103 @@
 ..  index:: ! File; EXT:{extkey}/ext_tables.php
 ..  _database-exttables-sql:
 ..  _ext-tables-php:
+..  _ext-tables-php-not-use:
+..  _ext-tables-php-usage:
+..  _ext-tables-php-examples:
+..  _extension-configuration-files-scheduler:
+..  _admin-tools-upgrade-tca-ext-tables:
 
-================
-`ext_tables.php`
-================
+=============================
+`ext_tables.php` (Deprecated)
+=============================
+
+..  deprecated:: 14.3
+    Using the `ext_tables.php` file in extensions is deprecated.
 
 ..  typo3:file:: ext_tables.php
     :scope: extension
     :regex: /^.*ext\_tables\.php$/
-    :shortDescription: This file is loaded in TYPO3 backend or CLI request only.
+    :shortDescription: This file is deprecated.
 
-    :file:`ext_tables.php` is *not* always included in the global scope of the
-    frontend context.
+    This file is deprecated. It was historically used to register backend
+    modules, page doktypes, user settings, and other runtime configuration.
+    All of these use cases now have dedicated alternatives in modern TYPO3.
 
-    This file is only included when
+..  _ext-tables-php-migration:
 
-    *   a TYPO3 Backend or CLI request is happening
-    *   or the TYPO3 Frontend is called and a valid backend user is authenticated
+Migration: Move registrations from `ext_tables.php`
+===================================================
 
-    This file usually gets included later within the request and after TCA
-    information is loaded, and a backend user is authenticated.
+Move all registrations from :file:`ext_tables.php` to the appropriate
+configuration files.
 
-    ..  hint::
+..  rubric:: User settings:
 
-        In many cases, the file :file:`ext_tables.php` is no longer needed,
-        since `TCA` definitions must be placed in files located at
-        :ref:`Configuration/TCA/ <extension-configuration-tca>`.
+User settings previously registered via
+:php:`ExtensionManagementUtility::addFieldsToUserSettings()` in
+:file:`ext_tables.php` should now be added via
+:php:`ExtensionManagementUtility::addUserSetting()` in
+:file:`Configuration/TCA/Overrides/be_users.php`.
 
+Before:
 
-..  _ext-tables-php-not-use:
+..  code-block:: php
+    :caption: ext_tables.php
 
-ext_tables.php must not be used for
-===================================
+    $GLOBALS['TYPO3_USER_SETTINGS']['columns']['myCustomSetting'] = [
+        'type' => 'check',
+        'label' => 'LLL:EXT:my_ext/Resources/Private/Language/locallang.xlf:myCustomSetting',
+    ];
+    \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addFieldsToUserSettings(
+        'myCustomSetting',
+        'after:emailMeAtLogin'
+    );
 
-The :file:`ext_tables.php` **must not be used** for the following settings:
+After:
 
-*   TCA configurations for new tables.
-    They should go in :ref:`Configuration/TCA/sometable.php <extension-configuration-tca>`.
-*   TCA overrides of existing tables. They should go in
-    :ref:`Configuration/TCA/Overrides/somefile.php <extension-configuration-tca-overrides>`.
-*   calling :php:`ExtensionManagementUtility::addToInsertRecords()`
-    as this might break the frontend. They should go in
-    :ref:`Configuration/TCA/Overrides/somefile.php <extension-configuration-tca-overrides>`.
-*   calling :php:`ExtensionManagementUtility::addStaticFile()`
-    as this might break the frontend. They should go in
-    :file:`Configuration/TCA/Overrides/sys_template.php`
+..  code-block:: php
+    :caption: Configuration/TCA/Overrides/be_users.php
 
-You can use the :ref:`admin-tools-upgrade-tca-ext-tables` tool to find extensions
-with :file:`ext_tables.php` files that change the TCA.
+    \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addUserSetting(
+        'myCustomSetting',
+        [
+            'label' => 'LLL:EXT:my_ext/Resources/Private/Language/locallang.xlf:myCustomSetting',
+            'config' => [
+                'type' => 'check',
+                'renderType' => 'checkboxToggle',
+            ],
+        ],
+        'after:emailMeAtLogin'
+    );
 
-..  _ext-tables-php-usage:
+..  rubric:: Page type allowed record types:
 
-ext_tables.php should be used for
-=================================
+Page doktypes previously registered via :php:`PageDoktypeRegistry->add()` in
+:file:`ext_tables.php` should now use the TCA option
+:php:`allowedRecordTypes` in :file:`Configuration/TCA/Overrides/pages.php`.
 
-These are typical functions that should be in :file:`ext_tables.php`:
+..  seealso:: `Create new page type <https://docs.typo3.org/permalink/t3coreapi:page-types-example>`_
 
-*   Registering scheduler tasks:
-    :ref:`extension-configuration-files-scheduler`
-*   Registration of :ref:`custom page types <page-types-example>`
-*   Extending :ref:`Backend user settings <user-settings-extending>`
+Before:
 
-Before you use a utility method in :file:`ext_tables.php`, refer to the method's
-PHP doc comment. Unless it explicitly states that you can use the method in context
-of :file:`ext_tables.php` they should not be used here.
+..  code-block:: php
+    :caption: ext_tables.php
 
-..  _ext-tables-php-examples:
+    \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(
+        \TYPO3\CMS\Core\DataHandling\PageDoktypeRegistry::class
+    )->add(116, [
+        'allowedTables' => ['tt_content', 'my_custom_record'],
+    ]);
 
-Examples
-========
+After:
 
-Put the following in a file called :file:`ext_tables.php` in the main directory
-of your extension. The file does not need to be registered but will be loaded
-automatically:
+..  code-block:: php
+    :caption: Configuration/TCA/Overrides/pages.php
 
-..  literalinclude:: _ext_tables.php
-    :language: php
-    :caption: EXT:site_package/ext_tables.php
+    $GLOBALS['TCA']['pages']['types']['116']['allowedRecordTypes'] = [
+        'tt_content',
+        'my_custom_record',
+    ];
 
-Read :ref:`why the check for the TYPO3 constant is necessary <globals-constants-typo3>`.
-
-..  index:: Extension development; Scheduler task registration
-..  _extension-configuration-files-scheduler:
-
-Registering a scheduler task
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-Scheduler tasks get registered in :file:`ext_tables.php` as well. Note that the system extension "scheduler" has
-to be installed for this to work.
-
-
-..  literalinclude:: _ext_tables_scheduler.php
-    :language: php
-    :caption: EXT:site_package/ext_tables.php
+Once all registrations have been moved and TYPO3 V13 support is dropped, the
+:file:`ext_tables.php` file can be removed from the extension.
