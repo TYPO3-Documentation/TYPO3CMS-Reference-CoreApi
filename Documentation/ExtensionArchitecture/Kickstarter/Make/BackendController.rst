@@ -43,8 +43,7 @@ files will be generated, new or changed files marked with a star (*):
         |   ├── Backend (*)
         |   |   └── Routes.php (*)
         |   └── Services.yaml (*)
-        ├── composer.json
-        └── ext_emconf.php
+        └── composer.json
 
 Learn how to turn the backend controller into a full-fledged backend module in
 the chapter :ref:`backend-modules`.

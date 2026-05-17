@@ -52,8 +52,7 @@ The following files will be created or changed:
         |   |   └── DoSomethingCommand.php (*)
         ├── Configuration
         |   └── Services.yaml (*)
-        ├── composer.json
-        └── ext_emconf.php
+        └── composer.json
 
 Call the new command
 ====================

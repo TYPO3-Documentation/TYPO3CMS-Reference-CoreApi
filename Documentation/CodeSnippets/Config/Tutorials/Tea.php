@@ -33,12 +33,6 @@ return [
         'targetFileName' => 'CodeSnippets/Tutorials/Tea/ComposerJsonAutoload.rst.txt',
     ],
     [
-        'action' => 'createCodeSnippet',
-        'caption' => 'EXT:tea/ext_emconf.php',
-        'sourceFile' => 'EXT:tea/ext_emconf.php',
-        'targetFileName' => 'CodeSnippets/Tutorials/Tea/ExtEmconf.rst.txt',
-    ],
-    [
         'action' => 'createPhpArrayCodeSnippet',
         'caption' => 'EXT:tea/Configuration/TCA/tx_tea_domain_model_product_tea.php',
         'sourceFile' => 'EXT:tea/Configuration/TCA/tx_tea_domain_model_product_tea.php',

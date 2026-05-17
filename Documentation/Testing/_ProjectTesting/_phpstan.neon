@@ -12,4 +12,3 @@ parameters:
 
   excludePaths:
     - '**/node_modules/*'
-    - '**/ext_emconf.php'

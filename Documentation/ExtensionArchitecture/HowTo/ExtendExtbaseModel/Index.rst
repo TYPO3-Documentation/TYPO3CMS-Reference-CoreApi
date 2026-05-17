@@ -76,8 +76,7 @@ If you are planning to publish this extension, search
 `Packagist <https://packagist.org/>`__ and the
 `TER (TYPO3 extension repository) <https://extensions.typo3.org/>`__ for
 extensions that also extend the original model. If necessary, put them in
-the `conflict` sections of your extension's :ref:`composer-json` and
-:ref:`ext_emconf-php`.
+the `conflict` sections of your extension's :file:`composer.json`.
 
 ..  _extending-extbase-model_find_original_model:
 
