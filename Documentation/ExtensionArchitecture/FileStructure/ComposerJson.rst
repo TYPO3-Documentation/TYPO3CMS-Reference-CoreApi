@@ -268,8 +268,8 @@ extra.typo3/cms.extension-key
 
 (*required*)
 
-Not providing this property will emit a deprecation notice and will fail in
-future versions.
+Not providing this property results in the extension not being installable
+properly.
 
 ..  hint::
     The property `extension-key` means the **literal string** `extension-key`,
@@ -281,6 +281,95 @@ Example for extension key `my_extension`:
 ..  literalinclude:: _ComposerJson/_ExtensionKey.json
     :language: json
     :caption: Excerpt of EXT:my_extension/composer.json
+    :emphasize-lines: 4
+
+..  _ext-composer-json-property-extra-version:
+
+extra.typo3/cms.version
+-----------------------
+
+(using either `version` or :ref:`ext-composer-json-property-extra-version`
+is *required* for Classic mode installations)
+
+..  versionadded:: 14.2
+    The version number for extensions installed in Classic mode can be set in
+    `extra.typo3/cms.version` or alternatively in the `"version"` field in :
+    file:`composer.json`. The former `state` property in :file:`ext_emconf.php`
+    is now represented by dedicated metadata instead
+    of a dedicated field.
+
+..  literalinclude:: _ComposerJson/_ExtensionKey.json
+    :language: json
+    :caption: Excerpt of EXT:my_extension/composer.json
+    :emphasize-lines: 5
+
+The version must match the tagged release version. Extension Manager (Classic mode)
+uses the version for compatibility checks.
+
+see :ref:`ext-composer-json-classic-compatible` above.
+
+Supported extension stability values are expressed as version suffixes, for
+example: `"version": "1.2.3-alpha4"`.
+
+Supported Composer stability values are:
+
+*   `dev`
+*   `alpha`
+*   `beta`
+*   `RC`
+*   `stable`
+
+For example:
+
+*   `1.2.3-dev`
+*   `1.2.3-alpha1`
+*   `1.2.3-beta2`
+*   `1.2.3-RC3`
+*   `1.2.3`
+
+Values from the former `state` field that are not supported by Composer stability
+can be expressed as build metadata by appending `+...` to the version string.
+For example: `"version": "1.4.2+obsolete"`.
+
+..  _ext-composer-json-property-provides-packages:
+
+extra.typo3/cms.Package.providesPackages
+----------------------------------------
+
+..  versionadded:: 14.2
+
+(*required* for Classic mode installations)
+
+Even if an extension does not depend on any third party Composer packages,
+it is still **required** to specify `providesPackages` in :file:`composer.json`
+as an empty object to ensure future compatibility with TYPO3 Classic mode
+and to avoid deprecation messages in TYPO3 v14:
+
+..  literalinclude:: _ComposerJson/_ExtensionKey.json
+    :language: json
+    :caption: Excerpt of EXT:my_extension/composer.json
+    :emphasize-lines: 6,7,8
+
+Extensions still need to declare Composer packages that they themselves provide
+when loaded in classic mode. For those entries, `providesPackages` can also
+define a relative path to a Composer vendor directory. If that directory contains
+a Composer-generated `autoload.php`, TYPO3 includes it early during bootstrap.
+
+This makes it possible to both declare Composer packages and bootstrap
+their autoloader in a standardized way.
+
+Here is an example of an extension that ships a local Composer vendor directory:
+
+..  literalinclude:: _ComposerJson/_providesPackagesComposer.json
+    :language: json
+    :caption: Excerpt of EXT:my_extension/composer.json
+
+In this example, the package `symfony/dotenv` is provided by the extension itself
+in TYPO3 classic mode, and TYPO3 will include
+`Resources/Private/Php/ComposerVendor/autoload.php` early if it is a
+Composer-generated autoload file.
+
+see :ref:`ext-composer-json-classic-compatible` above
 
 ..  _ext-composer-json-property-version:
 
@@ -303,32 +392,6 @@ TYPO3 systems and extension authors than initially intended.
 
 To prevent this behavior declare the version number in the extra section
 (see :ref:`ext-composer-json-property-extra-version` below).
-
-..  _ext-composer-json-property-extra-version:
-
-extra.typo3/cms.version
------------------------
-..  versionadded:: 14.2
-
-(using either `version` or :ref:`ext-composer-json-property-extra-version`
-is *required* for Classic mode installations)
-
-The version must match the tagged release version. Extension Manager (Classic mode)
-uses the version for compatibility checks.
-
-see :ref:`ext-composer-json-classic-compatible` above
-
-..  _ext-composer-json-property-provides-packages:
-
-extra.typo3/cms.Package.providesPackages
-----------------------------------------
-
-(*required* for Classic mode installations)
-
-Not providing this property in Classic mode compatible extensions will emit a
-deprecation notice and will fail in future versions.
-
-see :ref:`ext-composer-json-classic-compatible` above
 
 ..  _ext-composer-json-property-not-used:
 

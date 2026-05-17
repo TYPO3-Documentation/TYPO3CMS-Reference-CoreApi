@@ -68,8 +68,8 @@ then you can access the Button component via
 It is possible to override ViewHelpers that are in another extension. This is
 done by TYPO3 reading and merging :file:`Configuration/Fluid/Namespaces.php`
 files in loaded extensions in the usual loading order. Loading order can
-be changed by declaring dependencies in :file:`composer.json`
-(and possibly :file:`ext_emconf.php`). In other words, if an extension registers a
+be changed by declaring dependencies in :file:`composer.json`. In other words,
+if an extension registers a
 namespace that has already been registered by another extension, Fluid will merge
 the namespaces.
 
