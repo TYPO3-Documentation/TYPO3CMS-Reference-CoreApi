@@ -6,46 +6,110 @@
 Extending the user settings
 ===========================
 
-Adding fields to the User Settings is done in two steps.
-First of all, the new fields are added directly to the
-:php:`$GLOBALS['TYPO3_USER_SETTINGS']` array. Then the
-field is made visible by calling
-:php:`\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addFieldsToUserSettings()`.
+Custom user settings are configured in the TCA of the
+:php:`be_users` table using the column
+:php:`user_settings`.
 
-The configuration needs to be put into :file:`ext_tables.php`.
+Extensions should use
+:php:`\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addUserSetting()`
+to register additional fields.
 
-Here is an example, taken from the "examples" extension:
+All configuration must be placed in:
 
-..  literalinclude:: _ext_tables.php
-    :language: php
-    :caption: EXT:examples/ext_tables.php
+:file:`Configuration/TCA/Overrides/be_users.php`
 
-The second parameter in the call to :php:`addFieldsToUserSettings()`
-is used to position the new field. In this example, we decide to add it
-after the existing "email" field.
+Adding a custom user setting
+============================
 
-In this example the field is also added to the "be_users" table. This is
-not described here as it belongs to 'extending the $TCA array'.
-See label 'extending' in older versions of the TCA-Reference.
+The recommended way to add a custom user setting is:
 
-The new field is then displayed in the user settings.
+.. literalinclude:: _be_users_override.php
+   :language: php
+   :caption: EXT:my_ext/Configuration/TCA/Overrides/be_users.php
 
-"On Click" / "On Confirmation" JavaScript Callbacks
-===================================================
+The method accepts three arguments:
 
-To extend the User Settings module with JavaScript callbacks - for example with
-a custom button or special handling on confirmation, use :code:`clickData` or
-:code:`confirmData`:
+1. **Field name**
 
-..  literalinclude:: _ext_tables_settings.php
-    :language: php
-    :caption: EXT:examples/ext_tables.php
+   A unique identifier for the user setting.
 
-Events declared in corresponding `eventName` options have to be handled by
-a custom static JavaScript module. Following snippets show the relevant parts:
+2. **Field configuration**
 
-..  literalinclude:: _event.js
-    :language: js
+   A TCA configuration array defining the setting.
+   The array must contain:
 
-PSR-14 event :ref:`AddJavaScriptModulesEvent` can be used
-to inject a JavaScript module to handle those custom JavaScript events.
+   * :php:`label` – The field label (string or LLL reference)
+   * :php:`config` – A standard TCA :php:`config` array
+   * :php:`table` – (optional) Set to :php:`'be_users'` if the value
+     is stored in a dedicated database column of the
+     :php:`be_users` table.
+
+3. **Position (optional)**
+
+   A positioning instruction defining where the field
+   should appear within the user settings form,
+   for example:
+
+   * :code:`after:fieldName`
+   * :code:`before:fieldName`
+
+Alternatively: Direct TCA modification
+======================================
+
+Extensions can also directly modify the TCA definition of
+:php:`user_settings`:
+
+.. literalinclude:: _be_users_direct_tca.php
+   :language: php
+   :caption: EXT:my_ext/Configuration/TCA/Overrides/be_users.php
+
+When modifying TCA directly, the field must be added to both:
+
+* the :php:`columns` array
+* the :php:`showitem` configuration
+
+Structure
+---------
+
+The :php:`user_settings` TCA column has the following structure:
+
+:php:`columns`
+    Array of field configurations, each containing:
+
+    :php:`label`
+        The field label (LLL reference or string)
+
+    :php:`config`
+        Standard TCA config array (type, renderType, items, etc.)
+
+    :php:`table` (optional)
+        Set to :php:`'be_users'` if the field is stored in a
+        :sql:`be_users` table column
+
+:php:`showitem`
+    Comma-separated list of fields to display; supports
+    :php:`--div--;` for tabs
+
+Storing values in the database
+==============================
+
+If the user setting should persist in a real
+:php:`be_users` database column, set:
+
+:php:`'table' => 'be_users'`
+
+The database field must exist and be configured via TCA as usual.
+
+Available field types
+=====================
+
+User settings use standard TCA configuration.
+Supported field types include:
+
+* :code:`input`
+* :code:`number`
+* :code:`email`
+* :code:`password`
+* :code:`check` with :code:`renderType => checkboxToggle`
+* :code:`select` with :code:`renderType => selectSingle`
+* :code:`language`
