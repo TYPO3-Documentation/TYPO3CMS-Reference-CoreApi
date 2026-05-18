@@ -18,17 +18,17 @@ User settings configuration
 
 The user settings module determines what user settings are available
 for backend users. The users can access the settings by clicking on their name in
-the top bar and then "User settings".
+the top bar and then on "User settings".
 
-A number of settings such as backend language, password etc. are available
-by default. These settings may be extended via extensions as described in
+A number of settings such as backend language, password, etc, are available
+by default. These settings can be extended via extensions as described in
 :ref:`user-settings-extending`.
 
 The User Settings module is handled by TCA and configured via
-:php:`$GLOBALS['TCA']['be_users']['columns']['user_settings']`. It does however
+:php:`$GLOBALS['TCA']['be_users']['columns']['user_settings']`. It does, however,
 have less options then normal TCA.
 
-The actual values can be accessed via the array :php:`$GLOBALS['BE_USER']->getUserSettings()`
+The values can be accessed via the array :php:`$GLOBALS['BE_USER']->getUserSettings()`
 as described in :ref:`be-user-configuration`.
 
 **Contents:**

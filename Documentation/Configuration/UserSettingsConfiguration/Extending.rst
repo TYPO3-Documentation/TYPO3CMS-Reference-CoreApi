@@ -11,15 +11,15 @@ Extending the user settings
     The method :php:`\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addFieldsToUserSettings()`
     has been deprecated in favor of the new :php:`addUserSetting()` method.
 
-Adding fields to the User Settings is done in a TCA Overrides file.
+Adding fields to User Settings is done in a TCA Overrides file.
 
-Here is an example, taken from the "examples" extension:
+Here is an example taken from the "examples" extension:
 
 ..  literalinclude:: _be_users.php
     :caption: EXT:examples/Configuration/TCA/Overrides/be_users.php
 
 The third parameter in the call to :php:`addUserSetting()`
-is used to position the new field. In this example, we decide to add it
+is used to position the new field. In this example we add it
 after the existing "email" field.
 
 The new field is then displayed in the user settings after clearing the caches.
