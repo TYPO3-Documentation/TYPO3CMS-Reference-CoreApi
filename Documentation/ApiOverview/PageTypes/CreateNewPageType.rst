@@ -7,7 +7,7 @@ Create new page type
 ====================
 
 ..  deprecated:: 14.3
-    The method :php:`PageDoktypeRegistry->addAllowedRecordTypes()` has been 
+    The method :php:`PageDoktypeRegistry->addAllowedRecordTypes()` has been
     deprecated in favor of the new TCA option.
 
     See also: `Deprecation: #108557 - TCA option allowedRecordTypes for Page Types <https://docs.typo3.org/permalink/changelog:deprecation-108557-1768610680>`_.
@@ -25,8 +25,8 @@ configuration in the :abbr:`TCA (Table Configuration Array)`.
 
 ..  _page-types-example-configure-tca:
 
-1. Configure the page type in TCA
-=================================
+Configure the page type in TCA
+==============================
 
 To define the behavior and appearance of the new page type, create or edit
 :file:`Configuration/TCA/Overrides/pages.php`.
@@ -64,8 +64,8 @@ later in the Icon API.
 
 ..  _page-types-example-register-icon:
 
-2. Register the icon via Icon API
-=================================
+Register the icon via Icon API
+==============================
 
 The identifier used in the TCA (`tx-examples-archive-page`) must be
 registered in :file:`Configuration/Icons.php` to link it to an SVG file.
@@ -82,32 +82,23 @@ identifiers with specific suffixes:
 *   **Page contains content from another page:** `tx-examples-archive-page-contentFromPid`
 
 ..  _page-types-example-page-wizard:
-
-3. Enable drag and drop in the page wizard
-==========================================
-
-To allow editors to create the new page type via the "New Page" wizard, add it
-to the `doktypes` list via user TSconfig.
-
-..  literalinclude:: _user.tsconfig
-    :language: typoscript
-    :caption: EXT:my_extension/Configuration/user.tsconfig
-
 ..  _page-types-example-dynamic-configuration:
 
-4. Advanced: Dynamic configuration
-==================================
+Enable drag and drop in the page wizard
+=======================================
 
-Instead of using a static TSconfig file, you can use the
-:ref:`BeforeLoadedUserTsConfigEvent <t3coreapi:beforeloadedusertsconfigevent>`
-to add TSconfig dynamically through a PSR-14 event listener. This allows
-context-aware availability of page types.
+..  deprecated:: 14.2
+    The User TSConfig option :tsconfig:`options.pageTree.doktypesToShowInNewPageDragArea`
+    has been marked as deprecated and will be removed in TYPO3 v15.0.
+
+    Use it if you want to be compatible with both TYPO3 v14 and v13.
+
+The page tree toolbar submenu automatically determines available page types
+based on the users group permissions. No manual configuration is necessary.
 
 ..  _page-types-example-further-information:
 
 Further information
 ===================
 
-*   :ref:`PSR-14 Events in TYPO3 <t3coreapi:EventDispatcher>`
 *   :ref:`Icon API <icon>`
-*   :ref:`TSconfig Reference <t3tsref:usertsconfig>`
