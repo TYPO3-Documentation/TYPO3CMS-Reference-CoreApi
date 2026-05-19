@@ -46,32 +46,6 @@ $GLOBALS
 
     Global registration of :ref:`services <services-introduction>`.
 
-
-..  confval:: TSFE
-    :name: globals-tsfe
-    :Path: $GLOBALS
-    :type: TypoScriptFrontendController
-    :Defined: :file:`typo3/sysext/core/ext_tables.php`
-    :Frontend: yes
-
-    ..  deprecated:: 13.4
-        The class :php:`\TYPO3\CMS\Frontend\Controller\TypoScriptFrontendController`
-        and its global instance :php:`$GLOBALS['TSFE']` have been marked as
-        deprecated. The class will be removed with TYPO3 v14.
-
-    Contains an instantiation of :php:`\TYPO3\CMS\Frontend\Controller\TypoScriptFrontendController`.
-
-    ..  attention::
-
-         Directly access :php:`$GLOBALS['TSFE']` only as a last resort. It is
-         strongly discouraged if not absolutely necessary.
-
-    Provides some public properties and methods which can be used by extensions.
-    The public properties can also be used in TypoScript via
-    :ref:`TSFE <t3tsref:data-type-gettext-tsfe>`.
-
-    More information is available in :ref:`tsfe`.
-
 ..  confval:: TYPO3_USER_SETTINGS
     :name: globals-typo3-user-settings
     :Path: $GLOBALS
@@ -79,21 +53,6 @@ $GLOBALS
     :Defined: :file:`typo3/sysext/setup/ext_tables.php`
 
     Defines the form in the :guilabel:`User Settings`.
-
-..  confval:: PAGES_TYPES
-    :name: globals-pages-types
-    :Path: $GLOBALS
-    :type: array
-    :Defined: :file:`typo3/sysext/core/ext_tables.php`
-    :Frontend: (occasionally)
-
-    $GLOBALS['PAGES_TYPES'] defines the various types of pages (:sql:`doktype`)
-    the system can handle and what restrictions may apply to them.
-
-    Here you can define which tables are allowed on a certain page types
-    (:sql:`doktype`).
-
-    The default configuration applies if the page type is not defined otherwise.
 
 ..  confval:: BE_USER
     :name: globals-be-users
