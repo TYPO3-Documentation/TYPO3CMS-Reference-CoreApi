@@ -1,0 +1,22 @@
+:orphan:
+
+..  _not-found:
+
+===================
+Content was removed
+===================
+
+..  _not-found-12:
+
+TYPO3 12.0
+==========
+
+..  _confval-globals-pages-types:
+
+$GLOBALS['PAGES_TYPES'] removed
+===============================
+
+..  versionchanged:: 12.0
+    Removed with TYPO3 v12.0
+
+See `Create new page type <https://docs.typo3.org/permalink/t3coreapi:page-types-example>`_
