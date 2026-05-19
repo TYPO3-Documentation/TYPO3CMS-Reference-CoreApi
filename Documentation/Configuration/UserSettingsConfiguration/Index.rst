@@ -10,30 +10,30 @@
 User settings configuration
 ===========================
 
+..  versionchanged:: 14.2
+
+    The backend user profile settings configuration, previously stored in
+    :php:`$GLOBALS['TYPO3_USER_SETTINGS']`, is now available in TCA at
+    :php:`$GLOBALS['TCA']['be_users']['columns']['user_settings']`.
+
 The user settings module determines what user settings are available
 for backend users. The users can access the settings by clicking on their name in
-the top bar and then "User settings".
+the top bar and then on "User settings".
 
-A number of settings such as backend language, password etc. are available
-by default. These settings may be extended via extensions as described in
+A number of settings such as backend language, password, etc, are available
+by default. These settings can be extended via extensions as described in
 :ref:`user-settings-extending`.
 
-The User Settings module has the most complex form in the TYPO3 backend
-not driven by TCA/TCEforms. Instead it uses its own PHP configuration
-array :php:`$GLOBALS['TYPO3_USER_SETTINGS']`. It is quite similar to
-:doc:`$GLOBALS['TCA'] <t3tca:Index>`, but with less options.
+The User Settings module is handled by TCA and configured via
+:php:`$GLOBALS['TCA']['be_users']['columns']['user_settings']`. It does, however,
+have less options then normal TCA.
 
-The actual values can be accessed via the array :php:`$GLOBALS['BE_USER']->uc`
+The values can be accessed via the array :php:`$GLOBALS['BE_USER']->getUserSettings()`
 as described in :ref:`be-user-configuration`.
-
-This functionality is provided by the `typo3/cms-setup` Composer package.
 
 **Contents:**
 
 ..  toctree::
     :titlesonly:
 
-    Columns
-    Showitem
     Extending
-    Checking
