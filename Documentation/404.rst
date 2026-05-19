@@ -19,6 +19,7 @@ TYPO3 v14
 ..  _tsfe-frontenduser:
 ..  _tsfe-baseurl:
 ..  _using-the-typoscriptfrontendcontroller:
+..  _typo3-request-attribute-frontend-controller:
 
 TypoScriptFrontendController and $GLOBALS['TSFE'] removed
 =========================================================
