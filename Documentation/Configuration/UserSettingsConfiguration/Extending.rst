@@ -6,46 +6,107 @@
 Extending the user settings
 ===========================
 
-Adding fields to the User Settings is done in two steps.
-First of all, the new fields are added directly to the
-:php:`$GLOBALS['TYPO3_USER_SETTINGS']` array. Then the
-field is made visible by calling
-:php:`\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addFieldsToUserSettings()`.
+..  deprecated:: 14.2
 
-The configuration needs to be put into :file:`ext_tables.php`.
+    The method :php:`\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addFieldsToUserSettings()`
+    has been deprecated in favor of the new :php:`addUserSetting()` method.
 
-Here is an example, taken from the "examples" extension:
+Adding fields to User Settings is done in a TCA Overrides file.
 
-..  literalinclude:: _ext_tables.php
-    :language: php
-    :caption: EXT:examples/ext_tables.php
+Here is an example taken from the "examples" extension:
 
-The second parameter in the call to :php:`addFieldsToUserSettings()`
-is used to position the new field. In this example, we decide to add it
+..  literalinclude:: _be_users.php
+    :caption: EXT:examples/Configuration/TCA/Overrides/be_users.php
+
+The third parameter in the call to :php:`addUserSetting()`
+is used to position the new field. In this example we add it
 after the existing "email" field.
 
-In this example the field is also added to the "be_users" table. This is
-not described here as it belongs to 'extending the $TCA array'.
-See label 'extending' in older versions of the TCA-Reference.
+The new field is then displayed in the user settings after clearing the caches.
 
-The new field is then displayed in the user settings.
+..  _user-settings-tca:
+..  _user-settings-showitem:
+..  _user-settings-checking:
+..  _user-settings-columns:
+
+TCA available for the user settings module
+==========================================
+
+The `user_settings` TCA column has the following structure:
+
+`columns`
+    Array of field configurations, each containing:
+
+    `label`
+        The field label (LLL reference or string)
+
+    `config`
+        Standard TCA config array (type, renderType, items, etc.)
+
+    `table` (optional)
+        Set to `'be_users'` if the field is stored in a be_users table column
+
+`showitem`
+    Comma-separated list of fields to display, supports `--div--;` for tabs
+
+Available field types:
+
+*   `input` - Text input field
+*   `number` - Number input field
+*   `email` - Email input field
+*   `password` - Password input field
+*   `check` with :`renderType => 'checkboxToggle'` - Checkbox/toggle
+*   `select` with `renderType => 'selectSingle'` - Select dropdown
+*   `language` - Language selector
+
+.. _user-settings-extending-javascript:
 
 "On Click" / "On Confirmation" JavaScript Callbacks
 ===================================================
 
-To extend the User Settings module with JavaScript callbacks - for example with
-a custom button or special handling on confirmation, use :code:`clickData` or
-:code:`confirmData`:
-
-..  literalinclude:: _ext_tables_settings.php
-    :language: php
-    :caption: EXT:examples/ext_tables.php
-
-Events declared in corresponding `eventName` options have to be handled by
-a custom static JavaScript module. Following snippets show the relevant parts:
-
-..  literalinclude:: _event.js
-    :language: js
-
 PSR-14 event :ref:`AddJavaScriptModulesEvent` can be used
-to inject a JavaScript module to handle those custom JavaScript events.
+to inject a JavaScript module to handle custom JavaScript events.
+
+.. _user-settings-extending-migration:
+
+Migration from addFieldsToUserSettings to addUserSetting
+========================================================
+
+Replace the two-step approach with the new :php:`addUserSetting()` method.
+Note that the new method uses TCA-style configuration and should be called from
+:file:`Configuration/TCA/Overrides/be_users.php` instead of :file:`ext_tables.php`.
+
+Before:
+
+..  code-block:: php
+    :caption: ext_tables.php (before)
+
+    use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
+
+    $GLOBALS['TYPO3_USER_SETTINGS']['columns']['myCustomSetting'] = [
+        'type' => 'check',
+        'label' => 'my_extension.messages:myCustomSetting',
+    ];
+    ExtensionManagementUtility::addFieldsToUserSettings(
+        'myCustomSetting',
+        'after:emailMeAtLogin'
+    );
+
+After:
+
+..  code-block:: php
+    :caption: Configuration/TCA/Overrides/be_users.php (after)
+
+    use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
+
+    ExtensionManagementUtility::addUserSetting(
+        'myCustomSetting',
+        [
+            'label' => 'my_extension.messages:myCustomSetting',
+            'config' => [
+                'type' => 'check',
+                'renderType' => 'checkboxToggle',
+            ],
+        ],
+        'after:emailMeAtLogin'
+    );
