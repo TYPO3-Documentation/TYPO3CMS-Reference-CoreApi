@@ -6,10 +6,35 @@
 Content was removed
 ===================
 
+..  contents::
+
+..  _not-found-14:
+
+TYPO3 v14
+=========
+
+..  _tsfe:
+..  _tsfe-contentobjectrenderer:
+..  _tsfe-pageid:
+..  _tsfe-frontenduser:
+..  _tsfe-baseurl:
+..  _using-the-typoscriptfrontendcontroller:
+
+TypoScriptFrontendController and $GLOBALS['TSFE'] removed
+=========================================================
+
+..  deprecated:: 13.4
+
+    *   `Deprecation: #105230 - TypoScriptFrontendController and $GLOBALS['TSFE'] <https://docs.typo3.org/permalink/changelog:deprecation-105230-1728374467>`_
+    *   `Breaking: #102621 - Most TSFE members marked internal or read-only <https://docs.typo3.org/permalink/changelog:breaking-102621-1701937690>`_
+
+Most properties can be retrieved from the
+`TYPO3 request object <https://docs.typo3.org/permalink/t3coreapi:typo3-request>`_.
+
 ..  _not-found-12:
 
-TYPO3 12.0
-==========
+TYPO3 12
+========
 
 ..  _confval-globals-pages-types:
 
