@@ -90,6 +90,7 @@ file with all configuration of other extensions.
 
     ..  code-block:: diff
         :caption: Diff of EXT:my_extension/ext_localconf.php
+
         // do NOT do this:
         -if (TYPO3_MODE === 'BE')
 
