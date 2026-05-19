@@ -46,7 +46,6 @@ $GLOBALS
 
     Global registration of :ref:`services <services-introduction>`.
 
-
 ..  confval:: TYPO3_USER_SETTINGS
     :name: globals-typo3-user-settings
     :Path: $GLOBALS
@@ -54,21 +53,6 @@ $GLOBALS
     :Defined: :file:`typo3/sysext/setup/ext_tables.php`
 
     Defines the form in the :guilabel:`User Settings`.
-
-..  confval:: PAGES_TYPES
-    :name: globals-pages-types
-    :Path: $GLOBALS
-    :type: array
-    :Defined: :file:`typo3/sysext/core/ext_tables.php`
-    :Frontend: (occasionally)
-
-    $GLOBALS['PAGES_TYPES'] defines the various types of pages (:sql:`doktype`)
-    the system can handle and what restrictions may apply to them.
-
-    Here you can define which tables are allowed on a certain page types
-    (:sql:`doktype`).
-
-    The default configuration applies if the page type is not defined otherwise.
 
 ..  confval:: BE_USER
     :name: globals-be-users
