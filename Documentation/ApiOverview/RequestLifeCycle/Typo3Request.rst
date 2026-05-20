@@ -145,6 +145,14 @@ as first argument for the :php:`process()` method. This object provides a
         }
     }
 
+..  hint::
+
+    Utilizing the PSR-7 request context inside a DataProcessor is subject
+    to rework in future TYPO3 versions. The `getRequest()` method is currently
+    still the recommended way to retrieve the reqeuest object, even though marked
+    as `@internal`. It internally falls back to utilize the :php:`$GLOBALS['TYPO3_REQUEST']`
+    variable, which will vanish in the near future.
+
 ..  _typo3-request-console-command:
 
 Console command
