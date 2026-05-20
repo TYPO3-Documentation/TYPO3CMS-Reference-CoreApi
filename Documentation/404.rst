@@ -35,7 +35,7 @@ Most properties can be retrieved from the
 ..  _not-found-12:
 
 TYPO3 v12
-========
+=========
 
 ..  _confval-globals-pages-types:
 
