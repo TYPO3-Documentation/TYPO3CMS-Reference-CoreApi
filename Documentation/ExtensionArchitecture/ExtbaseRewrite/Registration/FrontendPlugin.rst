@@ -9,4 +9,3 @@ Registering a frontend plugin
 =============================
 
 ..  include:: /ExtensionArchitecture/ExtbaseRewrite/_wip.rst.txt
-

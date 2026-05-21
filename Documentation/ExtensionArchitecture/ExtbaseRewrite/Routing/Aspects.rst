@@ -9,4 +9,3 @@ Route aspects: mapping URL segments to values
 =============================================
 
 ..  include:: /ExtensionArchitecture/ExtbaseRewrite/_wip.rst.txt
-

@@ -9,4 +9,3 @@ View layer in Extbase
 =====================
 
 ..  include:: /ExtensionArchitecture/ExtbaseRewrite/_wip.rst.txt
-
