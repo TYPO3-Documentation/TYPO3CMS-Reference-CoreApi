@@ -9,4 +9,3 @@ The Extbase route enhancer
 ==========================
 
 ..  include:: /ExtensionArchitecture/ExtbaseRewrite/_wip.rst.txt
-

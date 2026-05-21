@@ -9,4 +9,3 @@ PSR-14 events in Extbase
 ========================
 
 ..  include:: /ExtensionArchitecture/ExtbaseRewrite/_wip.rst.txt
-

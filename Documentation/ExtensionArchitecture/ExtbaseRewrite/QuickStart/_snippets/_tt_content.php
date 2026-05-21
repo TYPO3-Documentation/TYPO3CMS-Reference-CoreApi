@@ -8,7 +8,7 @@ defined('TYPO3') or die();
 
 ExtensionUtility::registerPlugin(
     'MyExtension',
-    'EventList',
-    'LLL:EXT:my_extension/Resources/Private/Language/locallang.xlf:plugin.eventlist.title',
+    'ConferenceList',
+    'LLL:EXT:my_extension/Resources/Private/Language/locallang.xlf:plugin.conferencelist.title',
     'EXT:my_extension/Resources/Public/Icons/Extension.svg',
 );

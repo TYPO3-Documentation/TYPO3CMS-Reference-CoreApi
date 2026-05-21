@@ -9,4 +9,3 @@ Writing a custom validator
 ==========================
 
 ..  include:: /ExtensionArchitecture/ExtbaseRewrite/_wip.rst.txt
-
