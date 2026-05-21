@@ -9,4 +9,3 @@ Custom type converters
 ======================
 
 ..  include:: /ExtensionArchitecture/ExtbaseRewrite/_wip.rst.txt
-

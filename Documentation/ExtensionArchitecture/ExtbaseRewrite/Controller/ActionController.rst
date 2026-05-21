@@ -9,4 +9,3 @@ ActionController: actions, arguments and responses
 ==================================================
 
 ..  include:: /ExtensionArchitecture/ExtbaseRewrite/_wip.rst.txt
-

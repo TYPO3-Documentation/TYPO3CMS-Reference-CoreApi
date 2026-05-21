@@ -9,7 +9,7 @@ MVC pattern and request flow in Extbase
 =======================================
 
 Extbase structures extensions around the
-`Model-View-Controller (MVC) <https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93controller>`__
+`Model-View-Controller (MVC) <https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93controller>`_
 pattern. MVC separates three concerns that have a tendency to become entangled
 in less structured code:
 
@@ -18,11 +18,11 @@ in less structured code:
 *   **Controller** — what happens when an HTTP request arrives and which data
     the response should contain
 
-To make this concrete: a visitor clicks "Read more" on an event listing. The
+To make this concrete: a visitor clicks "Read more" on a conference listing. The
 browser sends an HTTP GET request to a URL like
-:samp:`/events?tx_myextension_eventlist[action]=show&tx_myextension_eventlist[event]=42`.
+:samp:`/conferences?tx_myextension_conferencelist[action]=show&tx_myextension_conferencelist[conference]=42`.
 The **controller** receives that request, asks the **model** layer (the
-repository) for the :php:`Event` with UID 42, hands the object to the
+repository) for the :php:`Conference` with UID 42, hands the object to the
 **view**, and the view renders it as HTML. Each layer does one job and one
 job only.
 
@@ -49,19 +49,19 @@ The three Extbase layers
     Models know nothing about HTTP, templates, or how they are displayed.
 
     Repositories sit alongside models and are the only entry point to the
-    database. A controller never queries the database directly — it asks a
+    database. A controller should never query the database directly — it asks a
     repository for objects.
 
 **View**
-    Fluid templates in :file:`Resources/Private/Templates/`. The view receives
+    Fluid templates reside in :file:`Resources/Private/Templates/`. The view receives
     variables from the controller and renders them as HTML (or JSON, or any
     other format). The view knows nothing about where data came from or what
     triggered the request.
 
 **Controller**
     The coordinator. It receives a request, asks repositories for the data it
-    needs, hands that data to the view, and returns a response. Controllers live
-    in :file:`Classes/Controller/` and extend
+    needs, applies business logic as needed and hands that data to the view,
+    and returns a response. Controllers live in :file:`Classes/Controller/` and extend
     :php:`\TYPO3\CMS\Extbase\Mvc\Controller\ActionController`.
 
 The strict separation is intentional. When something goes wrong, you know
@@ -86,16 +86,25 @@ happens:
 
 2.  **An Extbase request object is built**
 
-    The PSR-7 server request is wrapped in an Extbase
-    :php:`\TYPO3\CMS\Extbase\Mvc\Request` object. This object carries the
-    controller name, action name, and any arguments extracted from the URL or
-    POST data — for example, the UID of a record to display.
+    TYPO3 receives the browser request as a
+    `PSR-7 <https://www.php-fig.org/psr/psr-7/>`_ server request object.
+    :abbr:`PSR-7 (PHP Standard Recommendation 7)` is a
+    `PHP-FIG <https://www.php-fig.org/>`_ standard that defines a common
+    interface for HTTP messages — requests and responses — so that frameworks
+    and libraries can interoperate without depending on each other's
+    implementations. Extbase wraps that PSR-7 request in its own
+    :php:`\TYPO3\CMS\Extbase\Mvc\Request` object, which carries the controller
+    name, action name, and any arguments extracted from the URL or POST data —
+    for example, the UID of a record to display.
 
 3.  **The dispatcher resolves the controller**
 
     :php:`\TYPO3\CMS\Extbase\Mvc\Dispatcher` looks up which controller class
     corresponds to the requested controller name and instantiates it via
-    the DI container.
+    the :abbr:`DI (Dependency Injection)` container — the component responsible
+    for constructing objects and automatically providing their dependencies,
+    so your controller receives everything it needs without wiring it up
+    manually. See :ref:`dependency-injection` for details.
 
 4.  **The controller action runs**
 
@@ -125,6 +134,37 @@ happens:
     single page request.
 
 
+..  _extbase-concepts-mvc-typo3-difference:
+
+How Extbase MVC differs from other frameworks
+==============================================
+
+Developers coming from Symfony or Laravel may expect the framework to dispatch
+the entire URL to a controller. Extbase does not work this way.
+
+In TYPO3, the **page router** handles the URL first and resolves it to a page
+in the page tree. Only after a page is determined does TYPO3 render its content
+elements — and only at that point, when a content element of the plugin's type
+is encountered, does Extbase take over.
+
+This has two practical consequences:
+
+*   **Multiple plugins can live on one page.** Each plugin content element is
+    rendered independently. Two or more Extbase plugins, which may belong to different extensions,
+    can comfortably live on the same page and each runs their own request dispatch cycle.
+    URL arguments are namespaced per plugin (for example :samp:`tx_myextension_conferencelist[action]=show`)
+    to avoid collisions.
+*   **Extbase does not control the page URL.** Clean URLs require a route
+    enhancer configured in the site's :file:`config.yaml`. Without one, plugin
+    arguments appear as query parameters. See :ref:`extbase-routing` for the
+    full configuration.
+
+If you are used to a framework where every route maps to exactly one
+controller, it helps to think of an Extbase plugin as a self-contained
+sub-application embedded inside a TYPO3 page — the page router gets you to the
+page, then Extbase dispatches within that boundary.
+
+
 ..  _extbase-concepts-mvc-actions:
 
 Controller actions in Extbase
@@ -139,23 +179,29 @@ Actions can declare typed parameters. Extbase's property mapping resolves them
 automatically from the request:
 
 ..  code-block:: php
-    :caption: EXT:my_extension/Classes/Controller/EventController.php
+    :caption: EXT:my_extension/Classes/Controller/ConferenceController.php
 
-    use MyVendor\MyExtension\Domain\Model\Event;
+    namespace MyVendor\MyExtension\Controller;
+
+    use MyVendor\MyExtension\Domain\Model\Conference;
     use Psr\Http\Message\ResponseInterface;
+    use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
 
-    public function showAction(Event $event): ResponseInterface
+    class ConferenceController extends ActionController
     {
-        $this->view->assign('event', $event);
-        return $this->htmlResponse();
+        public function showAction(Conference $event): ResponseInterface
+        {
+            $this->view->assign('event', $event);
+            return $this->htmlResponse();
+        }
     }
 
-When the URL contains :samp:`event=42`, Extbase loads the :php:`Event` object
+When the URL contains :samp:`event=42`, Extbase loads the :php:`Conference` object
 with UID 42 from the repository and passes it directly to the action. You never
 write a repository lookup for this — the framework handles it.
 
 Primitive types work the same way: a parameter typed :php:`int` receives an
-integer, :php:`string` a string. Validation runs before the action is called;
+integer, :php:`string` a string. Validation is executed before the action is called;
 if it fails, :php:`errorAction()` handles the error rather than your action
 running with invalid data.
 
@@ -169,14 +215,15 @@ Actions must return a :php:`\Psr\Http\Message\ResponseInterface`. The two most
 common helpers on :php:`\TYPO3\CMS\Extbase\Mvc\Controller\ActionController` are:
 
 *   :php:`$this->htmlResponse()` — renders the Fluid template matching the
-    current action and returns a 200 HTML response
-*   :php:`$this->jsonResponse()` — returns a 200 JSON response; use with
-    :php:`\TYPO3\CMS\Extbase\Mvc\View\JsonView` to control which properties
+    current action and returns a HTML response with status code 200 (OK)
+*   :php:`$this->jsonResponse()` — returns a JSON response, also with status code 200 (OK);
+    use with :php:`\TYPO3\CMS\Extbase\Mvc\View\JsonView` to control which properties
     are serialised
 
 For redirects and forwards:
 
-*   :php:`$this->redirect('list')` — sends a 303 redirect to another action
+*   :php:`$this->redirect('list')` — creates a redirect via request with 303 status code (SEE OTHER)
+    to another action
 *   :php:`return new \TYPO3\CMS\Extbase\Http\ForwardResponse('list')` — passes
     control to another action within the same request, without a redirect
 

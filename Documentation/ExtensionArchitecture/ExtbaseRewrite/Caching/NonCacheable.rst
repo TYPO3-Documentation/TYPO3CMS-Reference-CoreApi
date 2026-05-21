@@ -9,4 +9,3 @@ Non-cacheable actions and developer responsibility
 ==================================================
 
 ..  include:: /ExtensionArchitecture/ExtbaseRewrite/_wip.rst.txt
-

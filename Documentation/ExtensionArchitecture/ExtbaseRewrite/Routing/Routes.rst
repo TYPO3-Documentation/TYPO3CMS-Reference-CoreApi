@@ -9,4 +9,3 @@ Defining routes for Extbase plugins
 ===================================
 
 ..  include:: /ExtensionArchitecture/ExtbaseRewrite/_wip.rst.txt
-

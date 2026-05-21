@@ -6,11 +6,11 @@ namespace MyVendor\MyExtension\Domain\Model;
 
 use TYPO3\CMS\Extbase\DomainObject\AbstractEntity;
 
-class Event extends AbstractEntity
+class Conference extends AbstractEntity
 {
     protected string $title = '';
     protected string $description = '';
-    protected ?\DateTimeImmutable $eventDate = null;
+    protected ?\DateTimeImmutable $conferenceDate = null;
 
     public function getTitle(): string
     {
@@ -24,6 +24,6 @@ class Event extends AbstractEntity
 
     public function getEventDate(): ?\DateTimeImmutable
     {
-        return $this->eventDate;
+        return $this->conferenceDate;
     }
 }
