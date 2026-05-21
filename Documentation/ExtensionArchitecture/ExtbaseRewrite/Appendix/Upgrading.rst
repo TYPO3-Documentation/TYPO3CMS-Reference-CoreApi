@@ -53,37 +53,26 @@ TYPO3 v12; in TYPO3 v14 the annotation syntax was removed entirely.
 | ``@Extbase\IgnoreValidation``     | ``#[IgnoreValidation]``           |
 +-----------------------------------+-----------------------------------+
 
-..  code-block:: php
-    :caption: Before — DocBlock annotation (ignored in TYPO3 v14)
+..  code-block:: diff
+    :caption: EXT:my_extension/Classes/Domain/Model/Entity.php
 
-    use TYPO3\CMS\Extbase\DomainObject\AbstractEntity;
-    use TYPO3\CMS\Extbase\Persistence\ObjectStorage;
+     use TYPO3\CMS\Extbase\DomainObject\AbstractEntity;
+    +use TYPO3\CMS\Extbase\Attribute\ORM\Lazy;
+     use TYPO3\CMS\Extbase\Persistence\ObjectStorage;
 
-    class Entity extends AbstractEntity
-    {
-        /**
-         * @var ObjectStorage<ChildEntity>
-         * @TYPO3\CMS\Extbase\Annotation\ORM\Lazy
-         */
-        protected ObjectStorage $property;
-    }
-
-..  code-block:: php
-    :caption: After — native PHP attribute
-
-    use TYPO3\CMS\Extbase\Annotation\ORM\Lazy;
-    use TYPO3\CMS\Extbase\DomainObject\AbstractEntity;
-    use TYPO3\CMS\Extbase\Persistence\ObjectStorage;
-
-    class Entity extends AbstractEntity
-    {
-        #[Lazy()]
-        protected ObjectStorage $property;
-    }
+     class Entity extends AbstractEntity
+     {
+    -    /**
+    -     * @var ObjectStorage<ChildEntity>
+    -     * @TYPO3\CMS\Extbase\Annotation\ORM\Lazy
+    -     */
+    +    #[Lazy]
+         protected ObjectStorage $property;
+     }
 
 ..  seealso::
 
-    + `ExtbaseAnnotationToAttributeRector <https://github.com/sabbelasichon/typo3-rector/blob/main/docs/all_rectors_overview.md#extbaseannotationtoattributerector>`__
+    + `ExtbaseAnnotationToAttributeRector <https://github.com/sabbelasichon/typo3-rector/blob/main/docs/all_rectors_overview.md#extbaseannotationtoattributerector>`_
 
 
 ..  _extbase-upgrading-attribute-namespace:
@@ -94,11 +83,12 @@ Attribute namespace moved from Annotation to Attribute (TYPO3 v14)
 ..  versionchanged:: 14.0
 
     The namespace :php:`\TYPO3\CMS\Extbase\Annotation` is deprecated. Class
-    aliases remain available in v14 but will be removed in v15.
+    aliases remain available in v14 but will be removed in v15. Update your
+    :php:`use` statements to :php:`\TYPO3\CMS\Extbase\Attribute` when dropping
+    TYPO3 v13 support.
 
 All Extbase attributes moved from :php:`\TYPO3\CMS\Extbase\Annotation` to
-:php:`\TYPO3\CMS\Extbase\Attribute`. Update your :php:`use` statements
-when dropping TYPO3 v13 support.
+:php:`\TYPO3\CMS\Extbase\Attribute`.
 
 
 ..  _extbase-upgrading-attribute-array-syntax:
@@ -131,7 +121,7 @@ Attribute array syntax deprecated (TYPO3 v14, removed in v15)
 
 ..  seealso::
 
-    `MigratePassingAnArrayOfConfigurationValuesToExtbaseAttributesRector <https://github.com/sabbelasichon/typo3-rector/blob/main/docs/all_rectors_overview.md#migratepassinganarrayofconfigurationvaluestoextbaseattributesrector>`__
+    `MigratePassingAnArrayOfConfigurationValuesToExtbaseAttributesRector <https://github.com/sabbelasichon/typo3-rector/blob/main/docs/all_rectors_overview.md#migratepassinganarrayofconfigurationvaluestoextbaseattributesrector>`_
 
 
 ..  _extbase-upgrading-magic-findby:

@@ -28,7 +28,7 @@ PHP built-in attributes.
 ORM (Object Relational Mapping) attributes (persistence)
 =========================================================
 
-**ORM** (`Object-Relational Mapping <https://en.wikipedia.org/wiki/Object%E2%80%93relational_mapping>`__)
+**ORM** (`Object-Relational Mapping <https://en.wikipedia.org/wiki/Object%E2%80%93relational_mapping>`_)
 is the mechanism that lets you work with PHP objects instead of raw database
 rows. Therefor Extbase maps database fields to Object Model properties and back.
 The attributes described below are used to control this process.
@@ -42,16 +42,13 @@ namespace and are placed on model properties.
 ---------
 
 :Target: Model property
-:Full qualified namespace: :php:`\TYPO3\CMS\Extbase\Attribute\ORM\Lazy`
+:Fully qualified namespace: :php:`\TYPO3\CMS\Extbase\Attribute\ORM\Lazy`
 :Parameters: none
 
-Default relation resolving processing loads all related objects together with the parent,
+By default, relations are resolved and processed by loading all related objects together with the parent,
 which can harm performance and trigger N+1 queries, for example in list views.
-Attributing :php:`#[Lazy]` to a relation of a Model Object will tell Extbase to
-load the related object only when it is actively accessed by calling its methods or reading its properties.
-
-The lazy loading proxy resolves itself automatically via PHP magic methods on any property
-or method access — you do not need to call :php:`_loadRealInstance()` yourself.
+:php:`#[Lazy]` tells Extbase to load the related object only when it is actively
+accessed — by calling its methods or reading its properties.
 
 When applied to a 1:1 relation, the property type must include
 :php-short:`\TYPO3\CMS\Extbase\Persistence\Generic\LazyLoadingProxy` so Extbase knows to install the proxy. A typed getter
@@ -71,6 +68,7 @@ return type to :php:`?Location`:
 
         public function getLocation(): ?Location
         {
+            // the check is only needed to keep phpstan happy. Remove it if not needed.
             if ($this->location instanceof LazyLoadingProxy) {
                 $this->location = $this->location->_loadRealInstance();
             }
@@ -96,10 +94,10 @@ the proxy in any way triggers resolution automatically.
 ------------
 
 :Target: Model property
-:Full qualified namespace: :php:`\TYPO3\CMS\Extbase\Attribute\ORM\Cascade`
+:Fully qualified namespace: :php:`\TYPO3\CMS\Extbase\Attribute\ORM\Cascade`
 :Parameters: :php:`string|null $value = null`
 
-Controls what happens to related objects when the owning object is deleted.
+Controls what happens to related objects when the parent object is deleted.
 Currently only :php:`'remove'` is supported:
 
 ..  code-block:: php
@@ -124,6 +122,17 @@ objects automatically via the repository.
     Only :php:`'remove'` is supported. Other Doctrine cascade operations
     (:php:`'persist'`, :php:`'merge'`, etc.) are not implemented in Extbase.
 
+..  important::
+
+    Cascade remove is triggered by Extbase's own persistence layer — it only
+    fires when you delete an object via a repository method (for example
+    :php:`$repository->remove($object)`). Deleting a record through the TYPO3
+    backend uses the DataHandler, which is unaware of :php:`#[Cascade]`. For
+    cascade behaviour in backend deletions, configure the corresponding TCA
+    relation with the appropriate delete behaviour.
+
+    ..  Verify cascade remove behaviour in edge cases against the v14 extbase source.
+
 
 ..  _extbase-appendix-attributes-transient:
 
@@ -131,7 +140,7 @@ objects automatically via the repository.
 --------------
 
 :Target: Model property
-:Full qualified namespace: :php:`\TYPO3\CMS\Extbase\Attribute\ORM\Transient`
+:Fully qualified namespace: :php:`\TYPO3\CMS\Extbase\Attribute\ORM\Transient`
 :Parameters: none
 
 Excludes a property from persistence entirely. Extbase never reads or writes
@@ -163,7 +172,7 @@ and control validation behaviour on model properties and controller action param
 -------------
 
 :Target: Model property, action method parameter
-:Full qualified namespace: :php:`\TYPO3\CMS\Extbase\Attribute\Validate`
+:Fully qualified namespace: :php:`\TYPO3\CMS\Extbase\Attribute\Validate`
 :Repeatable: yes — apply multiple :php:`#[Validate]` to one target
 :Parameters:
 
@@ -202,7 +211,7 @@ and control validation behaviour on model properties and controller action param
 ---------------------
 
 :Target: Action method parameter
-:Full qualified namespace: :php:`\TYPO3\CMS\Extbase\Attribute\IgnoreValidation`
+:Fully qualified namespace: :php:`\TYPO3\CMS\Extbase\Attribute\IgnoreValidation`
 :Parameters: none (place directly on the parameter)
 
 Suppresses validation for one action parameter. Useful in multi-step forms
@@ -228,7 +237,7 @@ where partial state is forwarded between actions:
     :php:`#[IgnoreValidation]` must be placed on the **parameter**, not on the
     method with an :php:`argumentName` property. The method-level form was
     deprecated in TYPO3 v14 (Deprecation `#108227
-    <https://docs.typo3.org/c/typo3/cms-core/main/en-us/Changelog/14.0/Deprecation-108227-UsageOfIgnoreValidationAndValidateAttributesForParametersAtMethodLevel.html>`__).
+    <https://docs.typo3.org/c/typo3/cms-core/main/en-us/Changelog/14.0/Deprecation-108227-UsageOfIgnoreValidationAndValidateAttributesForParametersAtMethodLevel.html>`_).
 
 
 ..  _extbase-appendix-attributes-controller:
@@ -249,7 +258,7 @@ rate limiting.
 --------------
 
 :Target: Controller action method
-:Full qualified namespace: :php:`\TYPO3\CMS\Extbase\Attribute\Authorize`
+:Fully qualified namespace: :php:`\TYPO3\CMS\Extbase\Attribute\Authorize`
 
 ..  versionadded:: 14.0
 
@@ -263,8 +272,8 @@ if they are not met.
 
 ..  warning::
 
-    :php:`#[Authorize]` handles action-level access (is the user logged in?
-    are they in the right group?) but does **not** verify record ownership.
+    :php:`#[Authorize]` handles action-level access ("is the user logged in?
+    are they in the right group?") but does **not** verify record ownership.
     Always check that a submitted UID belongs to the current user before
     updating or deleting records — Extbase will not do this for you.
 
@@ -275,7 +284,7 @@ if they are not met.
 --------------
 
 :Target: Controller action method
-:Full qualified namespace: :php:`\TYPO3\CMS\Extbase\Attribute\RateLimit`
+:Fully qualified namespace: :php:`\TYPO3\CMS\Extbase\Attribute\RateLimit`
 
 ..  versionadded:: 14.0
 

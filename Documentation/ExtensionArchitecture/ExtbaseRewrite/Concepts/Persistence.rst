@@ -11,7 +11,7 @@ Persistence and the Extbase ORM
 Extbase includes an :abbr:`ORM (Object-Relational Mapper)`. The ORM's job is to
 translate between the relational world of database tables and the
 object-oriented world of PHP classes — so you work with :php:`Conference` objects
-rather than raw database rows. `SQL <https://en.wikipedia.org/wiki/SQL>`__
+rather than raw database rows. `SQL <https://en.wikipedia.org/wiki/SQL>`_
 (:abbr:`SQL (Structured Query Language)`) is the language used to read from and
 write to relational databases; Extbase's persistence layer generates and executes
 it for you, covering the full lifecycle of your domain objects: loading records
@@ -94,8 +94,8 @@ Property names map to column names by converting camelCase to snake_case:
 
 ..  code-block:: text
 
-    $conferenceDate     →  conference_date
-    $speakerCount  →  speaker_count
+    $conferenceDate  →  conference_date
+    $speakerCount    →  speaker_count
 
 These conventions work automatically. When the defaults do not fit — for example
 when mapping to an existing table with its own naming — you can override them in

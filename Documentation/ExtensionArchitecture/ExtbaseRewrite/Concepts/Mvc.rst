@@ -9,7 +9,7 @@ MVC pattern and request flow in Extbase
 =======================================
 
 Extbase structures extensions around the
-`Model-View-Controller (MVC) <https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93controller>`__
+`Model-View-Controller (MVC) <https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93controller>`_
 pattern. MVC separates three concerns that have a tendency to become entangled
 in less structured code:
 
@@ -87,9 +87,9 @@ happens:
 2.  **An Extbase request object is built**
 
     TYPO3 receives the browser request as a
-    `PSR-7 <https://www.php-fig.org/psr/psr-7/>`__ server request object.
+    `PSR-7 <https://www.php-fig.org/psr/psr-7/>`_ server request object.
     :abbr:`PSR-7 (PHP Standard Recommendation 7)` is a
-    `PHP-FIG <https://www.php-fig.org/>`__ standard that defines a common
+    `PHP-FIG <https://www.php-fig.org/>`_ standard that defines a common
     interface for HTTP messages — requests and responses — so that frameworks
     and libraries can interoperate without depending on each other's
     implementations. Extbase wraps that PSR-7 request in its own
@@ -180,10 +180,6 @@ automatically from the request:
 
 ..  code-block:: php
     :caption: EXT:my_extension/Classes/Controller/ConferenceController.php
-
-    <?php
-
-    declare(strict_types=1);
 
     namespace MyVendor\MyExtension\Controller;
 

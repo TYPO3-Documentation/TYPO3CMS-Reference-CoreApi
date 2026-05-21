@@ -11,13 +11,13 @@ Core concepts of Extbase
 Before working with Extbase in detail it helps to understand the two ideas
 that shape everything else: the MVC pattern and the ORM.
 
-**MVC** (`Model-View-Controller <https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93controller>`__)
+**MVC** (`Model-View-Controller <https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93controller>`_)
 is an architectural pattern that separates what your data looks like, how it is
 displayed, and what happens when a user makes a request. Extbase enforces this
 separation structurally — controllers, models, and templates each live in their
 own place and have clearly defined responsibilities.
 
-**ORM** (`Object-Relational Mapping <https://en.wikipedia.org/wiki/Object%E2%80%93relational_mapping>`__)
+**ORM** (`Object-Relational Mapping <https://en.wikipedia.org/wiki/Object%E2%80%93relational_mapping>`_)
 is the mechanism that lets you work with PHP objects instead of raw database
 rows. You call methods on a repository and receive populated domain objects; the
 SQL stays out of your way.

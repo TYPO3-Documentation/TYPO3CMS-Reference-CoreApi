@@ -10,9 +10,9 @@ Extbase: Extension framework in TYPO3
 
 Extbase is TYPO3's framework for building structured, maintainable extensions.
 It provides an object-oriented foundation based on the
-`Model-View-Controller (MVC) <https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93controller>`__
+`Model-View-Controller (MVC) <https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93controller>`_
 pattern and an
-`Object-Relational Mapper (ORM) <https://en.wikipedia.org/wiki/Object%E2%80%93relational_mapping>`__
+`Object-Relational Mapper (ORM) <https://en.wikipedia.org/wiki/Object%E2%80%93relational_mapping>`_
 that handles persistence for you — so you work with PHP objects rather than
 raw database queries.
 
@@ -58,7 +58,7 @@ Extbase is not a universal solution. If there is no structured domain to model
 — a site package, a collection of content elements, a utility extension — it
 adds overhead without benefit. Use TYPO3's native APIs directly.
 
-Volume is another limit to keep in mind. Extbase maps every database row to a
+Performance is another limit to keep in mind. Extbase maps every database row to a
 PHP object, which is comfortable for moderate datasets but becomes a bottleneck
 when a single page request pulls in thousands of records. There is no hard
 number; it depends on query complexity, relation depth, and how aggressively you

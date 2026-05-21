@@ -41,7 +41,9 @@ properties either, so changes are never persisted.
 
 This catches developers who follow the general good-practice rule of keeping
 properties as private as possible. In Extbase models, :php:`protected` is the
-correct visibility — not :php:`public`, not :php:`private`.
+correct visibility — not :php:`private`. Public properties also work and are a
+valid, shorter alternative (no getters or setters required), but they bypass
+lazy-loading proxies and dirty-state tracking, which can matter for relations.
 
 ..  seealso::
 
@@ -204,6 +206,16 @@ both deliberately. For every constraint that matters in both contexts, add it
 both as a ``#[Validate]`` attribute on the model property and as the
 corresponding TCA column configuration. For records that must be valid in both
 contexts, test both paths explicitly.
+
+When a form needs stricter or different validation than the domain model allows
+— for example, a multi-step form that validates partial state — consider using a
+:abbr:`DTO (Data Transfer Object)`: a plain PHP class that carries only the form
+fields and their validation rules, separate from the persisted domain model. The
+DTO is validated by Extbase; only a successfully validated DTO is mapped to the
+model and persisted.
+
+..  A working example of the DTO pattern for form validation belongs in the
+..  Controller or Validation chapter and should be linked here once written.
 
 ..  This section also serves as an argument for keeping the number of Extbase models
 ..  per table small — the validation gap compounds when multiple models diverge.

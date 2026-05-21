@@ -47,10 +47,11 @@ You do **not** declare :php:`$uid` or :php:`$pid` — they are inherited.
 
 ..  note::
 
-    Do not extend :php:`AbstractDomainObject` directly. :php:`AbstractEntity`
+    Do not extend :php-short:`\TYPO3\CMS\Extbase\DomainObject\AbstractDomainObject`
+    directly. :php-short:`\TYPO3\CMS\Extbase\DomainObject\AbstractEntity`
     is the correct base class for objects that have identity (a UID).
-    :php:`AbstractValueObject` exists but is marked :php:`@internal` —
-    see :ref:`extbase-domain-model-value-objects` below.
+    :php-short:`\TYPO3\CMS\Extbase\DomainObject\AbstractValueObject` exists but
+    is marked :php:`@internal` — see :ref:`extbase-domain-model-value-objects` below.
 
 
 ..  _extbase-domain-model-properties:
@@ -102,7 +103,7 @@ follow this convention, override the mapping in
 PHP attributes in Extbase domain models
 =======================================
 
-Extbase uses native PHP attributes to control persistence behaviour and
+Extbase uses the native PHP attribute syntax to control persistence behaviour and
 validation.
 
 ..  versionchanged:: 14.0
@@ -121,7 +122,7 @@ The four attributes you will use on model properties:
 
     ..  confval:: #[Lazy]
         :name: extbase-attr-lazy
-        :type: `\TYPO3\CMS\Extbase\Attribute\ORM\Lazy`
+        :type: :php-short:`\TYPO3\CMS\Extbase\Attribute\ORM\Lazy`
 
         Defers loading of a related object or :php:`ObjectStorage` until the
         getter is first called. Use on relations in list views where you often
@@ -129,21 +130,21 @@ The four attributes you will use on model properties:
 
     ..  confval:: #[Cascade('remove')]
         :name: extbase-attr-cascade
-        :type: `\TYPO3\CMS\Extbase\Attribute\ORM\Cascade`
+        :type: :php-short:`\TYPO3\CMS\Extbase\Attribute\ORM\Cascade`
 
         Deletes related objects automatically when the owning object is
         deleted. Only :php:`'remove'` is supported.
 
     ..  confval:: #[Transient]
         :name: extbase-attr-transient
-        :type: `\TYPO3\CMS\Extbase\Attribute\ORM\Transient`
+        :type: :php-short:`\TYPO3\CMS\Extbase\Attribute\ORM\Transient`
 
         Excludes a property from persistence entirely. Useful for computed
         values or temporary state that should never reach the database.
 
     ..  confval:: #[Validate]
         :name: extbase-attr-validate
-        :type: `\TYPO3\CMS\Extbase\Attribute\ORM\Validate`
+        :type: :php-short:`\TYPO3\CMS\Extbase\Attribute\ORM\Validate`
 
         Declares a validation rule on a property. The validator runs when
         the object is submitted via a controller action.
@@ -202,7 +203,13 @@ objects:
 
 A few things to note in the example above:
 
-*   **1:1 relations** are a nullable typed property. When :php:`#[Lazy]` is
+..  Relation cardinality language needs a dedicated treatment: a nullable typed property
+..  can be a true 1:1 (both sides required and unique), a 0:1 (optional), or n:1 (many
+..  conference records pointing at one location). These all look the same in PHP but differ
+..  in intent and TCA setup. Revisit this section once the relations chapter is written.
+
+*   **Singular relations** (a typed property, nullable when the related object is optional)
+    are one common pattern. When :php:`#[Lazy]` is
     applied, Extbase installs a
     :php-short:`\TYPO3\CMS\Extbase\Persistence\Generic\LazyLoadingProxy` instead
     of loading the related object immediately. The union type
@@ -246,9 +253,9 @@ A few things to note in the example above:
 Enum properties in Extbase domain models
 ========================================
 
-PHP 8.1
-`backed enums <https://www.php.net/manual/en/language.enumerations.backed.php>`__
-— enums with an underlying :php:`string` or :php:`int` value — work in Extbase
+`Backed enums <https://www.php.net/manual/en/language.enumerations.backed.php>`_
+— enums with an underlying :php:`string` or :php:`int` value, introduced with
+PHP 8.1 — work in Extbase
 models without any extra configuration. Extbase's built-in
 :php-short:`\TYPO3\CMS\Extbase\Property\TypeConverter\EnumConverter` converts the stored value to and from the enum instance
 automatically.
@@ -272,7 +279,7 @@ back to the string on write.
 ..  note::
 
     Pure
-    `unit enums <https://www.php.net/manual/en/language.enumerations.basics.php>`__
+    `unit enums <https://www.php.net/manual/en/language.enumerations.basics.php>`_
     (without a backing type) are not supported — there is no stable scalar
     value to store in the database. Always use backed enums for model
     properties.
@@ -290,10 +297,6 @@ other properties:
 
 ..  code-block:: php
     :caption: EXT:my_extension/Classes/Domain/Model/Conference.php
-
-    <?php
-
-    declare(strict_types=1);
 
     namespace MyVendor\MyExtension\Domain\Model;
 
@@ -355,14 +358,14 @@ Configuring persistence for Extbase models
 ==========================================
 
 A model class alone is not enough — TYPO3 also needs a
-`TCA <https://docs.typo3.org/m/typo3/reference-tca/main/en-us/>`__
+`TCA <https://docs.typo3.org/m/typo3/reference-tca/main/en-us/>`_
 (Table Configuration Array) definition for the table. TCA tells TYPO3 what
 columns exist, what type they are, and how they behave in the backend. Without
 it, neither the backend nor the database analyser knows anything about your
 table.
 
-Since TYPO3 v13, the database analyser can create the actual database columns
-automatically from TCA definitions. This means you **do not need**
+The database analyser can create the actual database columns automatically from
+TCA definitions. This means you **do not need**
 :file:`ext_tables.sql` for standard column types — TYPO3 derives the SQL from
 the TCA and creates or updates the columns when the database analyser runs
 (for example after installing or updating an extension).
@@ -377,7 +380,7 @@ You still need :file:`ext_tables.sql` when you require:
 
     Writing a model class and its TCA by hand in parallel is error-prone and
     repetitive. The `TYPO3 Kickstarter
-    <https://packagist.org/packages/friendsoftypo3/kickstarter>`__
+    <https://packagist.org/packages/friendsoftypo3/kickstarter>`_
     (:composer:`friendsoftypo3/kickstarter`) can generate both together via
     its :bash:`vendor/bin/typo3 make:*` commands. It is the recommended
     starting point when creating new models from scratch.
@@ -388,7 +391,7 @@ You still need :file:`ext_tables.sql` when you require:
     folder in your extension, where TCA files live.
 
     `TCA reference — column types
-    <https://docs.typo3.org/m/typo3/reference-tca/main/en-us/ColumnsConfig/Index.html>`__
+    <https://docs.typo3.org/m/typo3/reference-tca/main/en-us/ColumnsConfig/Index.html>`_
     — full list of column types and their auto-creation support.
 
     :ref:`extension-files-locations` — complete extension file and folder
@@ -401,9 +404,9 @@ Value objects in Extbase domain models
 ======================================
 
 In
-`Domain-Driven Design <https://en.wikipedia.org/wiki/Domain-driven_design>`__,
+`Domain-Driven Design <https://en.wikipedia.org/wiki/Domain-driven_design>`_,
 a
-`value object <https://en.wikipedia.org/wiki/Value_object>`__
+`value object <https://en.wikipedia.org/wiki/Value_object>`_
 is an object defined entirely by its value rather than by an identity. Two
 value objects are equal if all their properties are equal — there is no UID,
 no database row, no concept of "the same object over time". Classic examples:
@@ -485,3 +488,17 @@ a getter:
 
 If the value object genuinely needs its own table and identity, it is no longer
 a value object — use :php:`AbstractEntity` instead.
+
+..  note::
+
+    If the set of possible values is fixed and known at compile time — a
+    salutation, a status, a priority level — use a backed enum instead.
+    Enums are simpler, Extbase maps them automatically, and PHP enforces
+    that only valid cases can be constructed. Value objects are the right
+    choice when the value has structure, behaviour, or validation logic
+    beyond what an enum case can express.
+
+..  seealso::
+
+    `Enum properties in Extbase domain models <https://docs.typo3.org/permalink/extbase-domain-model-enums>`_ — backed
+    enums as model properties, including automatic conversion by Extbase.

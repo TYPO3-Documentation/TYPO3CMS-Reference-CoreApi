@@ -9,9 +9,9 @@ Extbase repository
 ==================
 
 A repository is the only entry point to the database for a given model type.
-Controllers and services ask a repository for objects — they must not query the
+Controllers and services ask a repository for objects — they **must not** query the
 database directly. This keeps persistence logic in one place and makes
-controllers easy to test.
+controllers easier to test.
 
 Every Extbase extension has one repository per model. The repository class
 often only needs to exist and requires not a single line of custom code.
@@ -38,8 +38,6 @@ Extbase resolves this automatically.
 
 ..  code-block:: php
     :caption: EXT:my_extension/Classes/Domain/Repository/ConferenceRepository.php
-
-    declare(strict_types=1);
 
     namespace MyVendor\MyExtension\Domain\Repository;
 
@@ -303,7 +301,9 @@ Injecting repositories with dependency injection
 ================================================
 
 Inject the repository via constructor injection in your controller or service.
-Do not use :php:`GeneralUtility::makeInstance()`:
+Do not use :php:`GeneralUtility::makeInstance()` — it bypasses the
+Bootstrap procedure applied by extbase, so any query settings configured on the shared instance are lost and the
+repository is not wired with its own injected dependencies:
 
 ..  code-block:: php
     :caption: EXT:my_extension/Classes/Controller/ConferenceController.php
@@ -349,8 +349,10 @@ of Doctrine DBAL — when you need:
 *   Performance-critical queries where loading full objects is wasteful
 
 While you can technically access the database directly from controllers or
-services, you **should** limit raw DBAL usage to repository classes to keep
-persistence logic in one place.
+services, you **should** limit raw DBAL usage to repository classes. Spreading
+database calls across controllers and services makes the code harder to test,
+harder to change the underlying query, and harder to enforce consistent filters
+(such as storagePid or language overlay).
 
 Access :php-short:`\TYPO3\CMS\Core\Database\ConnectionPool` from within the repository:
 

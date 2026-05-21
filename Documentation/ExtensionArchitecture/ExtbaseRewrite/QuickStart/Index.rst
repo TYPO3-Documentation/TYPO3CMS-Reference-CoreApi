@@ -24,7 +24,7 @@ For the reasoning behind each step, follow the links into the relevant chapters.
 Step 1: Scaffold the extension
 ==============================
 
-Use the `FriendsOfTYPO3 kickstarter package <https://github.com/FriendsOfTYPO3/kickstarter>`__ to generate the extension skeleton:
+Use the `FriendsOfTYPO3 kickstarter package <https://github.com/FriendsOfTYPO3/kickstarter>`_ to generate the extension skeleton:
 
 ..  code-block:: bash
     :caption: In your project root
@@ -35,7 +35,7 @@ Use the `FriendsOfTYPO3 kickstarter package <https://github.com/FriendsOfTYPO3/k
 Answer the prompts (vendor name, extension key, etc.). The kickstarter generates
 the directory structure, :file:`composer.json` and the boilerplate files you need.
 Since TYPO3 v14 you do not need :file:`ext_emconf.php` unless you plan to publish
-your extension to the `TYPO3 Extension Repository <https://extensions.typo3.org>`__.
+your extension to the `TYPO3 Extension Repository <https://extensions.typo3.org>`_.
 
 ..  seealso::
 
@@ -57,9 +57,11 @@ Add a class extending :php:`\TYPO3\CMS\Extbase\DomainObject\AbstractEntity` to
 
 Key points:
 
-*   Declare properties as :php:`protected` rather than :php:`public`. Extbase
-    can access properties directly, but :php:`protected` keeps the door open
-    for getter/setter logic and makes lazy-loaded relations easier to handle.
+*   Declare properties :php:`protected`. Public properties also work and can
+    keep the model shorter (no getters/setters), but :php:`protected` keeps
+    the door open for getter/setter logic and makes lazy-loaded relations easier
+    to reason about. Private properties are never populated by Extbase — use
+    :php:`protected`, not :php:`private`.
 *   Do not initialise properties in the constructor. Extbase populates them
     directly when loading objects from the database, bypassing the constructor.
 *   Use typed properties. Extbase reads the type declarations to map values
@@ -103,7 +105,7 @@ Create :file:`Configuration/TCA/tx_myextension_domain_model_conference.php` with
 column definitions matching your model properties.
 
 Since TYPO3 v13, database columns are
-`auto-created from TCA definitions <https://docs.typo3.org/permalink/changelog:feature-101553-1691166389>`__
+`auto-created from TCA definitions <https://docs.typo3.org/permalink/changelog:feature-101553-1691166389>`_
 — you no longer need to define every field in :file:`ext_tables.sql`. Check the
 database analyser after installation to confirm the generated schema matches your
 expectations. If a column needs a non-default type or index, declare it explicitly
@@ -251,7 +253,16 @@ clean URLs like :samp:`/conferences/my-conference`.
 Step 9: Install and try it
 ===========================
 
-Install your extension if it is not already active:
+Install your extension if it is not already active. In a Composer-based project,
+require it first:
+
+..  code-block:: bash
+    :caption: In your project root
+
+    composer require myvendor/my-extension
+
+In non-composer-based projects, the extension is already in place, as you develop it within the code base.
+In both cases, you need to activate it:
 
 ..  code-block:: bash
     :caption: In your project root
