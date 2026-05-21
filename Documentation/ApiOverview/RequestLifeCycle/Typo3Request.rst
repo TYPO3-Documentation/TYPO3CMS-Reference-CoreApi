@@ -148,7 +148,7 @@ as first argument for the :php:`process()` method. This object provides a
 ..  hint::
 
     Utilizing the PSR-7 request context inside a DataProcessor is
-    to rework in future TYPO3 versions. The `$cObj->getRequest()` method is currently
+    currently not attainable via proper API. The `$cObj->getRequest()` method is currently
     still the recommended way to retrieve the request object, even though marked
     as `@internal`. It internally falls back to utilize the :php:`$GLOBALS['TYPO3_REQUEST']`
     variable, which will vanish in the near future.
