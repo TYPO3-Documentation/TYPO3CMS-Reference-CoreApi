@@ -8,7 +8,7 @@
 Repository
 ==========
 
-A basic `repository <https://designpatternsphp.readthedocs.io/en/latest/More/Repository/README.html>`_  
+A basic `repository <https://docs.typo3.org/permalink/t3coreapi:extbase-domain-repository>`_
 can be quite a short class. The shortest possible
 repository is an empty class inheriting from
 :php:`TYPO3\CMS\Extbase\Persistence\Repository`:
