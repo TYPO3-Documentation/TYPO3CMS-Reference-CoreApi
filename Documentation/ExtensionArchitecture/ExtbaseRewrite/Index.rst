@@ -102,6 +102,7 @@ APIs are the natural choice.
     Configuration/Index
     Advanced/Index
     Appendix/Attributes
+    Appendix/TypeConverters
     Appendix/CommonPitfalls
     Appendix/CommonTasks
     Appendix/Upgrading

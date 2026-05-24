@@ -179,6 +179,150 @@ write operations that need IRRE-style relation management.
     hashing mechanism.
 
 
+..  _extbase-appendix-pitfalls-property-mapping-denied:
+
+Property mapping denied: form fields not saved without a trusted-properties token
+==================================================================================
+
+**Symptom:** A domain object argument arrives in the action with all properties
+at their default values even though the form or URL contained data. No error
+or validation failure is shown.
+
+**Why:** When a request does not carry a :php:`__trustedProperties` token,
+Extbase denies all properties by default to prevent
+`mass assignment <https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/07-Input_Validation_Testing/20-Testing_for_Mass_Assignment>`_
+attacks. The token is generated automatically by :html:`<f:form>` and covers
+exactly the fields rendered in the form. Requests that bypass this — URL
+parameters, custom forms without the token, or JSON payloads — carry no token,
+so no property is allowed unless the controller explicitly permits it.
+
+**What to do:** If the request will never carry a :php:`__trustedProperties`
+token, add an :php:`initialize*Action()` method and call
+:php:`allowProperties()` (or :php:`allowAllProperties()`) on the relevant
+argument's property mapping configuration.
+
+..  seealso::
+
+    `Manually allowing properties on Extbase action arguments <https://docs.typo3.org/permalink/extbase-controller-propertymapping-allowproperties>`_
+    — how to write the initializer and which methods to use.
+
+
+..  _extbase-appendix-pitfalls-template-empty:
+
+Template variable renders empty in a Fluid template
+====================================================
+
+**Symptom:** A variable or property path in a Fluid template outputs nothing.
+No error is thrown and no exception appears in the log. The surrounding HTML
+renders normally; only the value is blank.
+
+**Why:** Fluid silently renders an empty string when property resolution fails.
+Resolution is attempted in this order: a public property, then :php:`getX()`,
+then :php:`hasX()`, then :php:`isX()`. If none of these exist or are
+accessible, Fluid gives up without raising an error. Common causes:
+
+*   A typo in the property name — :html:`{conference.titel}` instead of
+    :html:`{conference.title}` silently produces nothing.
+*   A :php:`private` property — Fluid can never access :php:`private`
+    properties, even if a getter exists on the same class.
+*   A missing getter — a :php:`protected` property without a corresponding
+    :php:`getX()` method is invisible to Fluid.
+*   The variable was not assigned in the controller — :php:`assign()` was not
+    called, or was called under a different name.
+
+**What to do:** Check the exact property name and visibility. Add a
+:php:`getX()` method if one is missing. In the controller, verify that
+:php:`$this->view->assign('name', $value)` is called with the correct variable
+name. In the template itself, use
+`f:debug <https://docs.typo3.org/permalink/t3viewhelper:typo3-fluid-debug>`_
+to dump the value at the point of use:
+
+..  code-block:: html
+    :caption: EXT:my_extension/Resources/Private/Templates/Conference/Show.fluid.html
+
+    <f:debug>{conference}</f:debug>
+
+This renders a formatted dump of the variable including its type and all
+accessible properties.
+
+..  _extbase-appendix-pitfalls-fdebug-no-output:
+
+f:debug produces no output
+==========================
+
+**Symptom:** :html:`<f:debug>{variable}</f:debug>` is in the template but
+nothing appears on the page.
+
+**Why:** Two independent causes exist and both are common:
+
+*   **Cached output:** Extbase plugin output is cached by default. Once the
+    page is cached, the rendered HTML — without the debug dump — is served from
+    the cache. The ViewHelper never runs again until the cache is cleared.
+    Clear the page cache in the TYPO3 backend, or make the plugin
+    non-cacheable temporarily, to force a fresh render.
+
+*   **Production Application Context suppresses debug output:** A default TYPO3
+    installation runs in :ref:`Production context <application-context>`. The
+    :php:`ProductionErrorHandler` deliberately suppresses debug output to
+    avoid leaking internal information to site visitors. In Production context,
+    :html:`f:debug` renders nothing.
+
+    The Application Context must be set via an environment variable or webserver
+    configuration — it cannot be changed from inside TYPO3. See
+    :ref:`set-application-context` for all available methods. To check which
+    context is currently active, open :guilabel:`System > Environment > Environment
+    overview` in the TYPO3 backend.
+
+..  seealso::
+
+    `How Fluid accesses object properties <https://docs.typo3.org/permalink/extbase-view-property-access>`_
+    — the full resolution order and why :php:`private` properties are
+    never accessible.
+
+
+..  _extbase-appendix-pitfalls-template-not-found:
+
+Template file not found, or wrong template rendered
+====================================================
+
+**Symptom:** Extbase throws a "Could not find template file" exception, or
+renders a template from a different path than expected — for example, a
+customised template is ignored and the original one is used instead.
+
+**Why:** Template resolution is based on a numerically keyed path array
+searched from the highest key downward. Several things can go wrong:
+
+*   **Wrong key order:** a customisation registered at key :typoscript:`5` is
+    ignored in favour of the original at key :typoscript:`10`, because
+    :typoscript:`10` is higher and wins.
+*   **Case mismatch on Linux:** :file:`List.fluid.html` and
+    :file:`list.fluid.html` are different files. The convention requires an
+    uppercase first letter for both the controller subdirectory and the action
+    file name.
+*   **Controller subdirectory name mismatch:** the subdirectory must match the
+    controller class name without the :php:`Controller` suffix —
+    :php:`ConferenceController` requires :file:`Conference/`, not
+    :file:`Conferences/` or :file:`conference/`.
+*   **Extension load order:** when overriding templates from another extension,
+    the overriding extension must be loaded after the original so its TypoScript
+    is applied last. A missing :file:`composer.json` dependency can cause the
+    override to arrive before the original, making the lower key win.
+
+**What to do:** Use the Active TypoScript module in the TYPO3 backend to
+inspect the assembled :typoscript:`plugin.tx_<extensionkey>.view` paths and
+their keys. Verify file names and subdirectory names match the convention
+exactly. Check that the overriding extension declares a dependency on the
+original in :file:`composer.json`.
+
+..  seealso::
+
+    *   `Fluid template file resolution in Extbase <https://docs.typo3.org/permalink/extbase-view-templates>`_
+        — naming convention, default paths, and key ordering.
+
+    *   `Overriding Fluid templates from a third-party extension <https://docs.typo3.org/permalink/extbase-view-third-party-override>`_
+        — extension loading order and path registration.
+
+
 ..  _extbase-appendix-pitfalls-validation-tca-gap:
 
 Extbase model validation and TCA validation are independent
@@ -214,8 +358,14 @@ fields and their validation rules, separate from the persisted domain model. The
 DTO is validated by Extbase; only a successfully validated DTO is mapped to the
 model and persisted.
 
+..  seealso::
+
+    `Validation in Extbase <https://docs.typo3.org/permalink/extbase-validation-overview>`_
+    — lifecycle, :php:`#[Validate]` placement, and how :php:`errorAction()` is triggered.
+
 ..  A working example of the DTO pattern for form validation belongs in the
 ..  Controller or Validation chapter and should be linked here once written.
 
 ..  This section also serves as an argument for keeping the number of Extbase models
 ..  per table small — the validation gap compounds when multiple models diverge.
+
