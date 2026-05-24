@@ -143,3 +143,8 @@ The data of the category records then get stored in the desired key in the
 To make the data processor more configurable, we test for a TypoScript
 :ref:`if <t3tsref:if>` condition at the beginning, and name the key
 we use to store the data configurable by the configuration :typoscript:`as`.
+
+.. hint::
+
+    See :ref:`typo3-request-data-processor` for details on accessing the request
+    object in data processors.
