@@ -184,17 +184,17 @@ write operations that need IRRE-style relation management.
 Property mapping denied: form fields not saved without a trusted-properties token
 ==================================================================================
 
-**Symptom:** A domain object argument arrives in the action with all properties
-at their default values even though the form or URL contained data. No error
+**Symptom:** A domain object argument arrives in an action with all properties
+set to default values even though the form or URL contains data. No error
 or validation failure is shown.
 
-**Why:** When a request does not carry a :php:`__trustedProperties` token,
-Extbase denies all properties by default to prevent
+**Why:** By default, Extbase denies all properties in incoming requests that do not have a
+:php:`__trustedProperties` token to prevent
 `mass assignment <https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/07-Input_Validation_Testing/20-Testing_for_Mass_Assignment>`_
-attacks. The token is generated automatically by :html:`<f:form>` and covers
-exactly the fields rendered in the form. Requests that bypass this — URL
-parameters, custom forms without the token, or JSON payloads — carry no token,
-so no property is allowed unless the controller explicitly permits it.
+attacks. A token is generated automatically by :html:`<f:form>` and covers
+the fields rendered in the form exactly. Requests that bypass this — URL
+parameters, custom forms without a token, or JSON payloads — don't carry a token,
+so properties aren't allowed unless a controller explicitly permits it.
 
 **What to do:** If the request will never carry a :php:`__trustedProperties`
 token, add an :php:`initialize*Action()` method and call
@@ -212,28 +212,28 @@ argument's property mapping configuration.
 Template variable renders empty in a Fluid template
 ====================================================
 
-**Symptom:** A variable or property path in a Fluid template outputs nothing.
-No error is thrown and no exception appears in the log. The surrounding HTML
+**Symptom:** A variable or property path in a Fluid template has no output.
+No error is thrown and there is no exception in the log. The surrounding HTML
 renders normally; only the value is blank.
 
 **Why:** Fluid silently renders an empty string when property resolution fails.
-Resolution is attempted in this order: a public property, then :php:`getX()`,
-then :php:`hasX()`, then :php:`isX()`. If none of these exist or are
+Resolution is attempted in the following order: the public property, :php:`getX()`,
+:php:`hasX()`, :php:`isX()`. If none of these exist or they are
 accessible, Fluid gives up without raising an error. Common causes:
 
 *   A typo in the property name — :html:`{conference.titel}` instead of
-    :html:`{conference.title}` silently produces nothing.
+    :html:`{conference.title}` produces nothing.
 *   A :php:`private` property — Fluid can never access :php:`private`
-    properties, even if a getter exists on the same class.
-*   A missing getter — a :php:`protected` property without a corresponding
-    :php:`getX()` method is invisible to Fluid.
+    properties, even if a getter exists in that class.
+*   A missing getter — :php:`protected` properties without corresponding
+    :php:`getX()` methods are invisible to Fluid.
 *   The variable was not assigned in the controller — :php:`assign()` was not
     called, or was called under a different name.
 
 **What to do:** Check the exact property name and visibility. Add a
-:php:`getX()` method if one is missing. In the controller, verify that
-:php:`$this->view->assign('name', $value)` is called with the correct variable
-name. In the template itself, use
+:php:`getX()` method if one is missing. Verify that
+:php:`$this->view->assign('name', $value)` is called in the controller with the
+correct variable name. In the template itself, use
 `f:debug <https://docs.typo3.org/permalink/t3viewhelper:typo3-fluid-debug>`_
 to dump the value at the point of use:
 
@@ -242,7 +242,7 @@ to dump the value at the point of use:
 
     <f:debug>{conference}</f:debug>
 
-This renders a formatted dump of the variable including its type and all
+This renders a formatted dump of the variable, including its type and
 accessible properties.
 
 ..  _extbase-appendix-pitfalls-fdebug-no-output:
@@ -253,18 +253,18 @@ f:debug produces no output
 **Symptom:** :html:`<f:debug>{variable}</f:debug>` is in the template but
 nothing appears on the page.
 
-**Why:** Two independent causes exist and both are common:
+**Why:** There are 2 possible causes and both are common:
 
-*   **Cached output:** Extbase plugin output is cached by default. Once the
+*   **Cached output:** Extbase plugin output is cached by default. If the
     page is cached, the rendered HTML — without the debug dump — is served from
-    the cache. The ViewHelper never runs again until the cache is cleared.
-    Clear the page cache in the TYPO3 backend, or make the plugin
-    non-cacheable temporarily, to force a fresh render.
+    the cache. The ViewHelper will not run again until the cache is cleared.
+    Clear the page cache in the TYPO3 backend or temporarily make the plugin
+    non-cacheable to force the page to be rerendered.
 
-*   **Production Application Context suppresses debug output:** A default TYPO3
-    installation runs in :ref:`Production context <application-context>`. The
+*   **Production Application Context suppresses debug output:** Default TYPO3
+    installations run in a :ref:`Production context <application-context>`. The
     :php:`ProductionErrorHandler` deliberately suppresses debug output to
-    avoid leaking internal information to site visitors. In Production context,
+    avoid leaking internal information to site visitors. In a Production context,
     :html:`f:debug` renders nothing.
 
     The Application Context must be set via an environment variable or webserver
@@ -276,7 +276,7 @@ nothing appears on the page.
 ..  seealso::
 
     `How Fluid accesses object properties <https://docs.typo3.org/permalink/extbase-view-property-access>`_
-    — the full resolution order and why :php:`private` properties are
+    for the full resolution order and why :php:`private` properties are
     never accessible.
 
 
@@ -304,13 +304,13 @@ searched from the highest key downward. Several things can go wrong:
     :php:`ConferenceController` requires :file:`Conference/`, not
     :file:`Conferences/` or :file:`conference/`.
 *   **Extension load order:** when overriding templates from another extension,
-    the overriding extension must be loaded after the original so its TypoScript
+    the overriding extension must be loaded after the original so that its TypoScript
     is applied last. A missing :file:`composer.json` dependency can cause the
     override to arrive before the original, making the lower key win.
 
 **What to do:** Use the Active TypoScript module in the TYPO3 backend to
-inspect the assembled :typoscript:`plugin.tx_<extensionkey>.view` paths and
-their keys. Verify file names and subdirectory names match the convention
+inspect the computed :typoscript:`plugin.tx_<extensionkey>.view` paths and
+their keys. Verify that file and subdirectory names match the convention
 exactly. Check that the overriding extension declares a dependency on the
 original in :file:`composer.json`.
 
@@ -328,8 +328,8 @@ original in :file:`composer.json`.
 Extbase model validation and TCA validation are independent
 ===========================================================
 
-**Symptom:** A record created or edited in the TYPO3 backend passes without
-error, but the same record fails Extbase validation in the frontend — or vice
+**Symptom:** A record is created or edited in the TYPO3 backend without
+error, but the same record fails Extbase validation in the frontend or vice
 versa. A backend editor saves a record that a frontend action then rejects
 immediately. Or a record saved through Extbase arrives in the backend in a
 state the backend form cannot open cleanly.
@@ -337,26 +337,27 @@ state the backend form cannot open cleanly.
 **Why:** Extbase validation (``#[Validate]`` attributes on model properties)
 and TCA validation (``eval``, ``required``, and similar TCA column
 configuration) are entirely separate systems. Neither one knows about the
-other. Extbase validation only runs during frontend request processing; TCA
-validation only runs in the backend form engine. There is no shared layer that
-enforces both at once.
+other: Extbase validation runs during frontend request processing; TCA
+validation runs in the backend form engine. There is no shared layer that
+enforces both.
 
 This gap is most painful when multiple Extbase models map to the same database
-table — each model may carry different validation rules, but the backend always
-uses the TCA for that table regardless of which model class is involved.
+table. There may be different models carrying different validation rules for a
+table, but the backend will always use TCA for that table regardless of which
+model class is involved.
 
 **What to do instead:** Treat the two systems as complementary and configure
-both deliberately. For every constraint that matters in both contexts, add it
-both as a ``#[Validate]`` attribute on the model property and as the
+both deliberately. If a constraint is important in both contexts, add it
+both as a ``#[Validate]`` attribute on the model property and as a
 corresponding TCA column configuration. For records that must be valid in both
-contexts, test both paths explicitly.
+contexts, test both paths.
 
-When a form needs stricter or different validation than the domain model allows
+If a form requires different or stricter validation than the domain model allows
 — for example, a multi-step form that validates partial state — consider using a
-:abbr:`DTO (Data Transfer Object)`: a plain PHP class that carries only the form
-fields and their validation rules, separate from the persisted domain model. The
-DTO is validated by Extbase; only a successfully validated DTO is mapped to the
-model and persisted.
+:abbr:`DTO (Data Transfer Object)`. This is a plain PHP class that includes only
+form fields with their validation rules and is separate from the persisted
+domain model. DTOs are validated by Extbase. Only successfully validated DTOs are
+mapped to models and persisted.
 
 ..  seealso::
 

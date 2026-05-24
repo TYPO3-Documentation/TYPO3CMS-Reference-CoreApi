@@ -8,8 +8,8 @@
 ActionController: actions, arguments and responses
 ==================================================
 
-A controller handles the request, coordinates repository calls, and returns a
-response. In Extbase every controller extends
+A controller handles requests, coordinates repository calls, and returns
+responses. In Extbase every controller extends
 :php:`\TYPO3\CMS\Extbase\Mvc\Controller\ActionController`.
 
 ..  contents:: On this page
@@ -22,9 +22,9 @@ response. In Extbase every controller extends
 Structure of an Extbase ActionController
 ========================================
 
-Controllers live in :file:`Classes/Controller/`. Each public method whose name
-ends in :php:`Action` is an action that can be mapped to a plugin action or
-backend module action.
+Controllers live in :file:`Classes/Controller/`. Public methods with a name
+ending in :php:`Action` are actions that can be mapped to plugin actions or
+backend module actions.
 
 ..  literalinclude:: _snippets/_ConferenceController.php
     :language: php
@@ -33,16 +33,16 @@ backend module action.
 Key rules:
 
 *   Extend :php:`\TYPO3\CMS\Extbase\Mvc\Controller\ActionController`.
-*   Do not declare the class :php:`final` — third parties extend controllers to
-    customise behaviour.
+*   Do not declare the class as :php:`final`. Third parties should be able to extend
+    controllers to customise behaviour.
 *   Inject repositories and services via the constructor using
     :ref:`dependency injection <Dependency-Injection>`. Injected dependencies
-    must be :php:`protected readonly`, not :php:`private readonly`, so
+    must be :php:`protected readonly` (not :php:`private readonly`) so that
     subclasses can access them.
 *   Every action method must return a
     :php:`\Psr\Http\Message\ResponseInterface`.
 *   Use :php:`$this->view->assign()` to pass variables to the Fluid template.
-*   Call :php:`$this->htmlResponse()` to render the Fluid template and wrap it
+*   Call :php:`$this->htmlResponse()` to render a Fluid template and wrap it
     in a :abbr:`PSR-7 (PHP Standards Recommendation 7 — HTTP message interfaces)` response.
 
 
@@ -56,7 +56,7 @@ action is called. Scalars (:php:`int`, :php:`string`, :php:`bool`) are read
 directly from the request arguments. A parameter typed as a domain object (a
 class extending
 :php:`\TYPO3\CMS\Extbase\DomainObject\AbstractEntity`) triggers a repository
-lookup: Extbase converts the incoming :abbr:`UID (unique identifier, the primary key of a TYPO3 database record)` to a fully
+lookup. Extbase converts the incoming :abbr:`UID (unique identifier, the primary key of a TYPO3 database record)` to a fully
 :abbr:`hydrated (an object populated with values loaded from the database)` object.
 
 ..  code-block:: php
@@ -68,9 +68,9 @@ lookup: Extbase converts the incoming :abbr:`UID (unique identifier, the primary
         return $this->htmlResponse();
     }
 
-When the URL carries :php:`?tx_myextension_pi1[conference]=5`, Extbase
+If, for example, a URL includes :php:`?tx_myextension_pi1[conference]=5`, Extbase
 loads :php:`Conference` with UID 5 from the repository and passes the object
-directly to :php:`showAction()`. No manual repository call is needed.
+directly to :php:`showAction()`. A manual repository call is not necessary.
 
 Optional parameters use PHP nullable types or default values:
 
@@ -81,14 +81,14 @@ Optional parameters use PHP nullable types or default values:
 
     public function showAction(?Conference $conference = null): ResponseInterface { ... }
 
-If an argument is missing from the request and has no default value, Extbase
+If an argument is missing from the request and there is no default value, Extbase
 calls :php:`errorAction()` instead. See
 :ref:`extbase-controller-action-error`.
 
 ..  seealso::
 
     `Property mapping: request arguments to objects <https://docs.typo3.org/permalink/extbase-controller-propertymapping>`_
-    — how type conversion turns raw strings and arrays into PHP objects.
+    for how type conversion turns raw strings and arrays into PHP objects.
 
 
 ..  _extbase-controller-action-settings:
@@ -129,16 +129,15 @@ convenience methods for the most common response types:
 :php:`htmlResponse(?string $html = null)`
     Returns a :html:`text/html`
     :abbr:`PSR-7 (PHP Standards Recommendation 7 — HTTP message interfaces)`
-    response. Without arguments, renders the current Fluid view. Pass a string
-    to use that as the body directly.
+    response. Renders the current Fluid view without any arguments. Pass a string
+    to use as the body.
 
 :php:`jsonResponse(?string $json = null)`
-    Returns an :html:`application/json` PSR-7 response. Without arguments,
-    renders the current view (use with
-    :php:`\TYPO3\CMS\Extbase\Mvc\View\JsonView`). Pass a JSON string to use it
-    directly.
+    Returns an :html:`application/json` PSR-7 response. Renders the current view
+    without any arguments (use with
+    :php:`\TYPO3\CMS\Extbase\Mvc\View\JsonView`). Pass a JSON string for the response.
 
-For any other status code or content type, build the response manually using
+For any other status code or content types, build the response manually using
 the injected :php:`$this->responseFactory` and :php:`$this->streamFactory`:
 
 ..  code-block:: php
@@ -157,7 +156,7 @@ Redirecting and forwarding from an Extbase action
 
 After a write operation (create, update, delete), redirect the user to avoid
 a double-submit on page reload. All three methods described here return a
-:php:`ResponseInterface` — you **must** :php:`return` them. They do not throw
+:php:`ResponseInterface`. You **must** :php:`return` them. They do not throw
 an exception or stop execution on their own.
 
 ..  _extbase-controller-action-redirect-redirect:
@@ -166,14 +165,14 @@ redirect() — redirect to another Extbase action
 -----------------------------------------------
 
 :php:`redirect()` issues an
-`HTTP 303 See Other <https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Status/303>`_
+`HTTP 303 "See Other" <https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Status/303>`_
 response. The browser discards the POST body and issues a new GET request to
 the target action URL.
 
 Discarding the POST body is intentional. After a write action (create, update,
-delete), you want the browser's address bar to show the result page URL, not
-the form submission URL. If the user presses F5 or the back button, the browser
-replays a GET — not the original POST — so the write does not happen a second
+delete) you want the browser's address bar to show the result page URL, not
+a form submission URL. If the user presses F5 or the back button, the browser
+replays a GET — not the original POST — so that the write does not happen a second
 time. This pattern is called
 `Post/Redirect/Get <https://en.wikipedia.org/wiki/Post/Redirect/Get>`_.
 
@@ -232,9 +231,9 @@ The full signature is:
 ..  note::
 
     If you need the browser to resend the original POST to a different Extbase
-    action — for example to hand off to another controller — pass
+    action, for example, to hand off to another controller, pass
     `HTTP 307 Temporary Redirect <https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Status/307>`_
-    as the sixth argument. The redirect response itself carries no body; it
+    as the sixth argument. The redirect response itself has no body; it
     only tells the browser where to go. The browser then re-sends the original
     POST, including its body, to the new action URL:
 
@@ -254,7 +253,7 @@ redirectToUri() — redirect to an arbitrary URL
 ----------------------------------------------
 
 :php:`redirectToUri(string|\Psr\Http\Message\UriInterface $uri)` issues the
-same HTTP 303 redirect but accepts any URL rather than an Extbase action
+same HTTP 303 redirect but accepts a URL rather than an Extbase action
 name. Use it when the target URL is assembled outside the action, for example
 with :php-short:`\TYPO3\CMS\Extbase\Mvc\Web\Routing\UriBuilder`:
 
@@ -286,9 +285,9 @@ ForwardResponse — transfer control within the same request
 ----------------------------------------------------------
 
 :php-short:`\TYPO3\CMS\Extbase\Http\ForwardResponse` transfers control to
-another action *within the same request* — no browser redirect, no new HTTP
+another action *within the same request*. There is no browser redirect or new HTTP
 round-trip. Use it to re-display a form after a validation failure without
-losing the submitted data:
+losing any submitted data:
 
 ..  code-block:: php
     :caption: EXT:my_extension/Classes/Controller/ConferenceController.php
@@ -308,8 +307,8 @@ losing the submitted data:
     }
 
 Unlike a redirect, :php-short:`\TYPO3\CMS\Extbase\Http\ForwardResponse`
-preserves the current request's arguments and flash messages so the forwarded
-action can re-render the form with the submitted values still in place. The
+preserves the current request's arguments and flash messages so that the forwarded
+action can re-render the form with submitted values still in place. The
 browser URL does not change.
 
 
@@ -319,8 +318,8 @@ Flash messages in Extbase controllers
 =====================================
 
 Flash messages are one-time notifications that survive a redirect or a forward
-and are rendered in the Fluid template via :html:`<f:flashMessages />`. They
-are also useful for in-page feedback when no redirect is involved — the message
+and are rendered in a Fluid template via :html:`<f:flashMessages />`. They
+are also useful for in-page feedback when no redirect is involved. The message
 is rendered in the same response.
 
 ..  code-block:: php
@@ -342,9 +341,9 @@ The four severity levels are:
 *   :php:`ContextualFeedbackSeverity::WARNING`
 *   :php:`ContextualFeedbackSeverity::ERROR`
 
-By default flash messages are stored in the session and survive the redirect.
-To keep a message only for the current request — for example when forwarding
-rather than redirecting — pass :php:`false` as the fourth argument:
+By default, flash messages are stored inside the session and survive the redirect.
+To keep a message only for the current request, for example, when forwarding
+rather than redirecting, pass :php:`false` as the fourth argument:
 
 ..  code-block:: php
     :caption: EXT:my_extension/Classes/Controller/ConferenceController.php
@@ -359,11 +358,11 @@ Render them in Fluid with the :html:`<f:flashMessages />` ViewHelper.
 initializeAction and per-action initialization in Extbase
 =========================================================
 
-:php:`initializeAction()` runs before every action in the controller. Use it
+:php:`initializeAction()` is called before every controller action. Use it
 for setup that is common to all actions.
 
 For setup that applies to a single action only, define a method named
-:php:`initialize` + the capitalized action name. Extbase calls it
+:php:`initialize` and then the UpperCamelCase action name. Extbase will call it
 automatically before the corresponding action:
 
 ..  literalinclude:: _snippets/_ConferenceControllerInitialize.php
@@ -371,8 +370,8 @@ automatically before the corresponding action:
     :caption: EXT:my_extension/Classes/Controller/ConferenceController.php
 
 The per-action initializer is the standard place to configure property
-mapping — for example to allow specific properties or to set a custom date
-format for an argument. See :ref:`_extbase-controller-propertymapping-typeconverters`.
+mapping, for example, to allow specific properties or to set custom date
+formats for arguments. See :ref:`_extbase-controller-propertymapping-typeconverters`.
 
 
 ..  _extbase-controller-action-authorize:
@@ -383,8 +382,8 @@ Protecting Extbase actions with :php:`#[Authorize]`
 ..  versionadded:: 14.0
 
 The :php:`#[Authorize]` attribute restricts access to individual action methods
-without writing boilerplate login checks. It is repeatable — stack multiple
-attributes to combine conditions.
+without having to write boilerplate login checks. It is repeatable so multiple
+attributes can be stacked to combine conditions.
 
 ..  literalinclude:: _snippets/_ConferenceControllerAuthorize.php
     :language: php
@@ -405,7 +404,7 @@ The three options:
     (array form). The method receives the same arguments as the action and must
     return :php:`bool`. Use this for ownership or record-level checks.
 
-    The callback method must be :php:`public` — Extbase verifies visibility via
+    The callback method must be :php:`public`. Extbase verifies visibility via
     reflection and throws an exception if it is not.
 
     Inside a controller callback, read the current frontend user from the
@@ -422,13 +421,13 @@ The three options:
         }
 
 When access is denied, Extbase dispatches
-:php-short:`\TYPO3\CMS\Extbase\Event\Mvc\BeforeActionAuthorizationDeniedEvent`,
+:php-short:`\TYPO3\CMS\Extbase\Event\Mvc\BeforeActionAuthorizationDeniedEvent`
 which lets event listeners return a custom response instead of the default 403.
 
 ..  seealso::
 
     `Extbase PHP attributes reference <https://docs.typo3.org/permalink/extbase-appendix-attributes>`_
-    — full attribute reference including the event for custom denial responses.
+    for the full attribute reference including the event for custom denial responses.
 
 
 ..  _extbase-controller-action-ratelimit:
@@ -486,7 +485,7 @@ listener to customize this response.
 errorAction: Extbase validation and argument-mapping errors
 ===========================================================
 
-When argument mapping or validation fails, Extbase calls :php:`errorAction()`
+If argument mapping or validation fails, Extbase calls :php:`errorAction()`
 instead of the original action. The default implementation either dispatches back
 to the referring action (re-displaying the form with validation errors) or
 returns a plain `HTTP 400 Bad Request <https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Status/400>`_ text response.
@@ -505,17 +504,17 @@ appears when validation fails:
         };
     }
 
-Return :php:`false` to suppress the flash message entirely.
+Return :php:`false` to suppress the flash message.
 
-For full control over the error response, override :php:`errorAction()` itself.
-If you do, return a :php-short:`\Psr\Http\Message\ResponseInterface` — the contract is the same as for
-regular actions.
+For full control over the error response, override :php:`errorAction()`.
+Make sure you return a :php-short:`\Psr\Http\Message\ResponseInterface` — the contract
+is the same as for normal actions.
 
 ..  seealso::
 
     *   `Extbase validation <https://docs.typo3.org/permalink/extbase-validation>`_
-        — validation rules configured on model properties and action parameters via
+        for how validation rules are configured on model properties and action parameters via
         :php:`#[Validate]` attributes.
 
     *   `Property mapping: request arguments to objects <https://docs.typo3.org/permalink/extbase-controller-propertymapping>`_
-        — how to allow properties on action arguments and configure type converters.
+        for how to allow properties on action arguments and configure type converters.

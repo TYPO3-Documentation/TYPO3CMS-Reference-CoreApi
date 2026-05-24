@@ -24,8 +24,8 @@ selectable in the backend.
 Configuring the plugin dispatcher
 =================================
 
-:php:`ExtensionUtility::configurePlugin()` registers the allowed controller
-actions and generates the TypoScript needed to route requests to the Extbase
+:php:`ExtensionUtility::configurePlugin()` registers which controller
+actions are allowed and generates the TypoScript to route requests to the Extbase
 dispatcher. Call it in :file:`ext_localconf.php`:
 
 ..  code-block:: php
@@ -43,27 +43,26 @@ dispatcher. Call it in :file:`ext_localconf.php`:
         [ConferenceController::class => 'list'],
     );
 
-The four arguments:
+The four arguments are:
 
 1.  **Extension name** — the extension key in UpperCamelCase
     (``my_extension`` → ``MyExtension``).
-2.  **Plugin name** — a unique UpperCamelCase identifier for this plugin within
-    the extension. Combined with the extension name it forms the plugin
+2.  **Plugin name** — a unique UpperCamelCase identifier for this plugin inside
+    the extension. Combined with the extension name, it forms the plugin
     signature used in TypoScript and routing (``myextension_conferencelist``).
     The combined length must not exceed 32 characters.
 3.  **Allowed controller actions** — an array mapping controller class names to
     a comma-separated list of action names. The first entry and its first action
-    are the default. Only actions listed here are reachable via this plugin.
-4.  **Non-cacheable actions** — a subset of the above whose output must not be
+    are the default. Only actions listed here are available via this plugin.
+4.  **Non-cacheable actions** — a subset of the above defining output that must not be
     stored in the page cache. See :ref:`extbase-caching-noncacheable`
-    for the implications and developer responsibilities.
+    for the implications.
 
 ..  note::
 
-    The fifth parameter ``$pluginType`` was removed in TYPO3 v14. Omit it —
-    passing any value other than ``'CType'`` (or omitting it) is the only
-    valid option. All plugins are registered as dedicated ``CType`` content
-    elements in v14.
+    The fifth parameter ``$pluginType`` was removed in TYPO3 v14. Omit it by
+    passing any value other than ``'CType'`` (or omitting it). All plugins are
+    registered as ``CType`` content elements in v14.
 
 
 ..  _extbase-registration-frontend-plugin-register:
@@ -91,7 +90,7 @@ available content element types in the backend. Call it in
         'my_extension.db:plugin.conferencelist.description',
     );
 
-The arguments:
+The arguments are:
 
 1.  **Extension name** — same as in :php:`configurePlugin()`.
 2.  **Plugin name** — same as in :php:`configurePlugin()`. The two values must
@@ -103,7 +102,7 @@ The arguments:
     legacy ``LLL:EXT:`` path syntax. Both are equivalent and interchangeable.
 4.  **Plugin icon** — an icon identifier registered via the Icon
     :abbr:`API (Application Programming Interface)`, or a path prefixed with
-    ``EXT:``. Optional; defaults to the generic plugin icon.
+    ``EXT:``. Optional. Defaults to the generic plugin icon.
 5.  **Group** — groups the plugin in the content element wizard. Common values
     are ``'plugins'`` (generic plugin group) or a custom group name matching
     your extension.
@@ -118,14 +117,14 @@ the dispatcher will not find the controller actions registered for that plugin.
 TypoScript plugin object path
 =============================
 
-:php:`configurePlugin()` generates a TypoScript object for the plugin
-automatically. The path follows the pattern:
+:php:`configurePlugin()` generates a TypoScript object for the plugin. The
+path follows the pattern:
 
 ..  code-block:: typoscript
 
     plugin.tx_<extensionkey>_<pluginname>
 
-where both parts are lowercased and underscores removed from the extension key.
+where both parts are lowercase and underscores removed from the extension key.
 For the example above:
 
 ..  code-block:: typoscript
@@ -150,19 +149,19 @@ TypoScript settings:
         }
     }
 
-To find the exact path for an installed plugin, open the TYPO3 backend,
-navigate to the site or page where the plugin is placed, and inspect the
-assembled TypoScript tree in :guilabel:`Site Management > TypoScript`.
+To find the exact TypoScript path of a plugin, open the TYPO3 backend,
+navigate to a site or page containing the plugin, and inspect the
+computed TypoScript tree in :guilabel:`Site Management > TypoScript`.
 
 ..  seealso::
 
     *   `Non-cacheable actions <https://docs.typo3.org/permalink/extbase-caching-noncacheable>`_
-        — consequences of marking actions non-cacheable and developer
+        for the consequences of marking actions non-cacheable and developer
         responsibilities.
 
     *   `View layer in Extbase <https://docs.typo3.org/permalink/extbase-view-overview>`_
-        — template path configuration via TypoScript.
+        for template path configuration via TypoScript.
 
     *   `storagePid — when findAll() returns nothing <https://docs.typo3.org/permalink/extbase-domain-repository-storagepid>`_
-        — how the persistence storagePid setting controls which records are
+        for how the persistence storagePid setting limits which records are
         returned.

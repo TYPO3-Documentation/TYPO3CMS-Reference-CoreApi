@@ -9,9 +9,9 @@ Registering an Extbase backend module
 =====================================
 
 Backend modules are registered via
-:file:`Configuration/Backend/Modules.php` — this is the :ref:`standard TYPO3
-backend module registration mechanism <backend-modules-api>`, not
-Extbase-specific. Extbase adds two extra keys to that configuration
+:file:`Configuration/Backend/Modules.php`. This is the :ref:`standard TYPO3
+backend module registration mechanism <backend-modules-api>` which is not
+Extbase-specific. Extbase adds two extra keys to the configuration
 (:confval:`extensionName <backend-module-extensionName>`
 and :confval:`controllerActions <backend-module-controllerActions>`) that tell
 TYPO3 to bootstrap Extbase and route requests to an
@@ -28,7 +28,7 @@ Registering the module
 ======================
 
 Create or extend :file:`Configuration/Backend/Modules.php` in your extension.
-Return an array where each key is a unique module identifier and the value is
+Return an array where each key is a unique module identifier and the values are
 the module configuration:
 
 ..  code-block:: php
@@ -53,25 +53,25 @@ the module configuration:
         ],
     ];
 
-The Extbase-specific keys:
+The Extbase-specific keys are:
 
 :confval:`extensionName <backend-module-extensionName>`
-    The extension name in UpperCamelCase. If the extension key is
-    ``my_extension`` the extension name is ``MyExtension``.
+    The extension name in UpperCamelCase, for example, if the extension key is
+    ``my_extension`` the extension name will be ``MyExtension``.
 
 :confval:`controllerActions <backend-module-controllerActions>`
     An array mapping controller class names to a list of allowed action names.
-    The first entry and its first action are the default. Actions can be given
+    The first entry and its first action are the default. Actions can be set
     as an array (as shown above) or as a comma-separated string.
 
 These two keys instruct TYPO3 to bootstrap Extbase for this module. Do not use
 them for modules whose controllers do not extend
-:php-short:`\TYPO3\CMS\Extbase\Mvc\Controller\ActionController` — use the
+:php-short:`\TYPO3\CMS\Extbase\Mvc\Controller\ActionController`. Use the
 standard :confval:`routes <backend-module-routes>` key instead.
 
 The remaining keys — ``parent``, ``position``, ``access``, ``path``,
 ``iconIdentifier``, ``labels`` — are standard backend module configuration and
-apply to all modules regardless of whether they use Extbase. See
+apply to all modules regardless of whether they use Extbase or not. See
 :ref:`backend-modules-api` for the full reference.
 
 
@@ -80,14 +80,14 @@ apply to all modules regardless of whether they use Extbase. See
 Access control
 ==============
 
-The ``access`` key controls who can open the module:
+The ``access`` key limits who can access the module:
 
 *   ``'user'`` — available to backend users who have been granted access in
     their user or group settings.
 *   ``'admin'`` — available to administrators only.
 *   ``'systemMaintainer'`` — available to system maintainers only.
 
-User-level access (``'user'``) requires an explicit permission grant in
+User-level access (``'user'``) requires permission to be explicitly granted in
 :guilabel:`Backend Users > Edit > Modules`. Admin-only modules skip this check.
 
 
@@ -106,7 +106,7 @@ translation domain string. Using the
 
 This resolves to
 :file:`EXT:my_extension/Resources/Private/Language/locallang_module_conferences.xlf`.
-The file must define at least the keys ``title``, ``description``, and
+The file must define the keys ``title``, ``description``, and
 ``shortDescription`` for the module to display correctly in the backend.
 
 The legacy ``LLL:EXT:`` syntax is equally valid and remains fully supported.
@@ -118,10 +118,10 @@ Rendering in the module controller
 ==================================
 
 Extbase backend module controllers extend
-:php-short:`\TYPO3\CMS\Extbase\Mvc\Controller\ActionController` exactly like
-frontend controllers — the same :php:`$this->view->assign()` pattern, the same
-Fluid templates. The main addition for backend modules is wrapping the rendered
-output in the backend frame using
+:php-short:`\TYPO3\CMS\Extbase\Mvc\Controller\ActionController`, just like
+frontend controllers. They use the same :php:`$this->view->assign()` pattern and
+Fluid templates. The main difference is that they wrap the rendered
+output in a backend frame using
 :php-short:`\TYPO3\CMS\Backend\Template\ModuleTemplateFactory`:
 
 ..  code-block:: php
@@ -153,9 +153,9 @@ components. See :ref:`ModuleTemplateFactory` for the full
 
 ..  seealso::
 
-    *   :ref:`backend-modules-api` — full reference for all module configuration
+    *   :ref:`backend-modules-api` for the full reference for all module configuration
         keys including ``parent``, ``position``, ``access``, ``path``, and
         submodule definitions.
 
-    *   :ref:`ModuleTemplateFactory` — how to add buttons, menus, and
-        navigation to the module chrome.
+    *   :ref:`ModuleTemplateFactory` for how to add buttons, menus, and
+        navigation to the chrome module.

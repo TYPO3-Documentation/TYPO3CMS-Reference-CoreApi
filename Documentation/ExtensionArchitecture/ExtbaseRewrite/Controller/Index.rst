@@ -8,13 +8,13 @@
 Controller layer in Extbase
 ===========================
 
-The controller layer sits between the request and the view. It receives the
+The controller layer sits between the request and the view. It receives a
 dispatched request, resolves action arguments, runs business logic, assigns
-variables for the view, and returns a response. For straightforward extensions
+variables to the view, and returns a response. In straightforward extensions
 this is the natural home for business logic. When logic grows complex or needs
 to be reused across controllers, extracting it into a dedicated service class
-keeps controllers focused — but that is a design choice, not a requirement.
-Direct database queries belong in repositories, not in controllers.
+keeps controllers focused. However, this is a design choice and not a requirement.
+Database queries belong in repositories and not in controllers.
 
 ..  contents:: On this page
     :local:
@@ -26,12 +26,12 @@ Direct database queries belong in repositories, not in controllers.
 Responses are not tied to Fluid
 ===============================
 
-Fluid is the standard and recommended way to render output, but it is not a
+Fluid is the recommended way to render output but this is not a
 hard requirement. Every action must return a
-:php:`\Psr\Http\Message\ResponseInterface` — what goes into that response is
+:php:`\Psr\Http\Message\ResponseInterface` but what goes into that response is
 entirely up to the action. Calling :php:`$this->htmlResponse()` without
-arguments renders the Fluid template and wraps it in a response. Passing a
-string skips Fluid entirely. Actions can also return JSON, plain text, a
+any arguments renders the Fluid template and wraps it in a response. Passing a
+string skips Fluid entirely. Actions can return JSON, plain text, a
 redirect, or any other valid
 :abbr:`PSR-7 (PHP Standards Recommendation 7 — HTTP message interfaces)`
 response without involving Fluid at all.
@@ -42,13 +42,13 @@ response without involving Fluid at all.
 Injecting dependencies into Extbase controllers
 ===============================================
 
-Controllers receive their dependencies via
+Dependencies are added to controllers via
 :ref:`dependency injection <Dependency-Injection>`. Two mechanisms are
 available:
 
 **Constructor injection** is the standard approach. Declare dependencies as
 :php:`protected readonly` constructor parameters and the
-:abbr:`DI (Dependency Injection)` container provides them automatically:
+:abbr:`DI (Dependency Injection)` container will provide them automatically:
 
 ..  code-block:: php
     :caption: EXT:my_extension/Classes/Controller/ConferenceController.php
@@ -63,11 +63,11 @@ available:
         ) {}
     }
 
-**Inject methods** are the right choice when the controller extends a parent
-class that already defines a constructor — since PHP allows only one
-constructor per class, additional dependencies cannot be added there without
+**Inject methods** should be used when a controller extends a parent
+class that already has a constructor. As PHP only allows one
+constructor per class, additional dependencies cannot be added without
 repeating the parent's parameter list. A public method named
-:php:`inject` + the dependency name receives the dependency instead:
+:php:`inject` with the dependency name will receive the dependency instead:
 
 ..  code-block:: php
     :caption: EXT:my_extension/Classes/Controller/ConferenceController.php
@@ -95,7 +95,7 @@ repeating the parent's parameter list. A public method named
     }
 
 Both mechanisms can be combined in the same class. Injected properties must
-be :php:`protected`, not :php:`private`, so subclasses can access them.
+be :php:`protected` (not :php:`private`) so that subclasses can access them.
 
 
 ..  _extbase-controller-overview-pages:
@@ -116,11 +116,11 @@ In this chapter
 ..  seealso::
 
     *   `Extbase validation <https://docs.typo3.org/permalink/extbase-validation>`_
-        — validation rules on action arguments and model properties; how
+        for validation rules on action arguments and model properties; how
         validation failure feeds into :php:`errorAction`.
 
     *   `Extbase view layer <https://docs.typo3.org/permalink/extbase-view-overview>`_
-        — Fluid integration, template resolution, and response types.
+        for Fluid integration, template resolution, and response types.
 
 ..  toctree::
     :titlesonly:

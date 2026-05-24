@@ -9,9 +9,9 @@ Built-in validators and the :php:`#[Validate]` attribute
 ========================================================
 
 Extbase ships a set of validators that cover the most common input constraints.
-You attach them to action parameters or model properties using the
+They are attached to action parameters and model properties using the
 :php:`#[Validate]` attribute. Multiple :php:`#[Validate]` attributes on the
-same target are treated as a conjunction — all of them must pass.
+same target are treated as a conjunction. All of them must pass.
 
 ..  contents:: On this page
     :local:
@@ -42,7 +42,7 @@ The attribute takes the validator name as its first argument and an optional
         protected string $contactEmail = '';
     }
 
-The validator name can be either the short name (for built-in validators listed
+The validator name can be either a short name (for built-in validators listed
 below) or a fully qualified class name for :ref:`custom validators
 <extbase-validation-custom>`:
 
@@ -60,10 +60,10 @@ below) or a fully qualified class name for :ref:`custom validators
 Empty values and the acceptsEmptyValues flag
 ============================================
 
-Most built-in validators skip validation when the value is :php:`null` or an
-empty string. This is intentional: a field being blank is a separate concern
-from it being in the wrong format. Combine with ``NotEmpty`` to enforce that
-a field must be present *and* well-formed:
+Most built-in validators skip validation if the value is :php:`null` or an
+empty string. This is intentional: a blank field is different
+to a field being in the wrong format. Add ``NotEmpty`` to make sure
+a field exists *and* that it is well-formed:
 
 ..  code-block:: php
     :caption: Requiring a non-empty, correctly formatted email address
@@ -72,8 +72,8 @@ a field must be present *and* well-formed:
     #[Validate('EmailAddress')]
     protected string $contactEmail = '';
 
-Without ``NotEmpty``, an empty string passes ``EmailAddress`` validation
-silently.
+Without ``NotEmpty``, an empty string can silently pass ``EmailAddress``
+validation above.
 
 
 ..  _extbase-validation-builtin-reference:
@@ -82,7 +82,7 @@ Built-in validator reference
 ============================
 
 The following validators are provided out of the box. This list covers the
-validators available for general use; file upload validators are listed
+validators available for general use. File upload validators are listed
 separately in :ref:`extbase-validation-builtin-file`.
 
 ..  _extbase-validation-builtin-notempty:
@@ -92,8 +92,8 @@ NotEmpty
 
 Rejects :php:`null`, empty strings, empty arrays, and
 `Countable <https://www.php.net/manual/en/class.countable.php>`_ objects with
-a count of zero. This is the only built-in validator that does *not* accept
-empty values — it is always executed.
+a count of zero. This is the only built-in validator that does not accept
+empty values. It is always executed.
 
 Class: :php:`\TYPO3\CMS\Extbase\Validation\Validator\NotEmptyValidator`
 
@@ -106,10 +106,10 @@ Class: :php:`\TYPO3\CMS\Extbase\Validation\Validator\NotEmptyValidator`
      - Description
    * - ``nullMessage``
      - built-in
-     - Custom translation key or message shown when the value is :php:`null`.
+     - Translation key or message shown when the value is :php:`null`.
    * - ``emptyMessage``
      - built-in
-     - Custom translation key or message shown when the value is empty.
+     - Translation key or message shown when the value is empty.
 
 
 ..  _extbase-validation-builtin-stringlength:
@@ -168,9 +168,9 @@ Class: :php:`\TYPO3\CMS\Extbase\Validation\Validator\NumberRangeValidator`
 RegularExpression
 -----------------
 
-Validates the value against a
+Validates a value against a
 `PCRE regular expression <https://www.php.net/manual/en/book.pcre.php>`_.
-The expression is passed directly to :php:`preg_match()` — include the
+The expression is passed to :php:`preg_match()`. Include the
 delimiters.
 
 Class: :php:`\TYPO3\CMS\Extbase\Validation\Validator\RegularExpressionValidator`
@@ -184,7 +184,7 @@ Class: :php:`\TYPO3\CMS\Extbase\Validation\Validator\RegularExpressionValidator`
      - Description
    * - ``regularExpression``
      - *(required)*
-     - The full PCRE pattern including delimiters, for example ``'/^[a-z]+$/i'``.
+     - The full PCRE pattern including delimiters, for example, ``'/^[a-z]+$/i'``.
 
 ..  code-block:: php
     :caption: Restricting a slug to lowercase letters and hyphens
@@ -224,8 +224,8 @@ No options beyond the optional ``message`` override.
 Text
 ----
 
-Checks that the value contains no HTML or XML tags (that is, the value equals
-:php:`strip_tags($value)`). Useful for plain-text fields that must not accept
+Checks that the value does not contain HTML or XML tags (that is, the value equals
+:php:`strip_tags($value)`). Useful for plain-text fields that should not accept
 markup.
 
 Class: :php:`\TYPO3\CMS\Extbase\Validation\Validator\TextValidator`
@@ -238,7 +238,7 @@ No options beyond the optional ``message`` override.
 Alphanumeric
 ------------
 
-Checks that the value contains only alphanumeric characters (letters and
+Checks that a value contains alphanumeric characters only (letters and
 digits). The exact character set depends on the locale.
 
 Class: :php:`\TYPO3\CMS\Extbase\Validation\Validator\AlphanumericValidator`
@@ -251,7 +251,7 @@ No options beyond the optional ``message`` override.
 Integer
 -------
 
-Checks that the value is a valid integer (or a string that represents one).
+Checks that a value is a valid integer (or a string that represents one).
 
 Class: :php:`\TYPO3\CMS\Extbase\Validation\Validator\IntegerValidator`
 
@@ -263,7 +263,7 @@ No options beyond the optional ``message`` override.
 Float
 -----
 
-Checks that the value is a valid floating-point number (or a string that
+Checks that a value is a valid floating-point number (or a string that
 represents one).
 
 Class: :php:`\TYPO3\CMS\Extbase\Validation\Validator\FloatValidator`
@@ -276,7 +276,7 @@ No options beyond the optional ``message`` override.
 Number
 ------
 
-Checks that the value is numeric — accepts both integers and floats.
+Checks that a value is numeric. It accepts both integers and floats.
 
 Class: :php:`\TYPO3\CMS\Extbase\Validation\Validator\NumberValidator`
 
@@ -288,7 +288,7 @@ No options beyond the optional ``message`` override.
 Boolean
 -------
 
-Checks that the value is a boolean. Useful for checkboxes where the mapping
+Checks that a value is a boolean. Useful for checkboxes where the mapping
 must produce exactly :php:`true` or :php:`false`.
 
 Class: :php:`\TYPO3\CMS\Extbase\Validation\Validator\BooleanValidator`
@@ -301,8 +301,8 @@ No options beyond the optional ``message`` override.
 DateTime
 --------
 
-Checks that the value is a :php:`\DateTime` or :php:`\DateTimeImmutable`
-instance. Typically used after property mapping has already converted a string
+Checks that a value is a :php:`\DateTime` or :php:`\DateTimeImmutable`
+instance. Typically used after property mapping has converted a string
 to a date object.
 
 Class: :php:`\TYPO3\CMS\Extbase\Validation\Validator\DateTimeValidator`
@@ -326,7 +326,7 @@ action parameters.
 FileExtension
 -------------
 
-Checks that the uploaded file has one of the allowed extensions.
+Checks that the uploaded file has an allowed file extension.
 
 Class: :php:`\TYPO3\CMS\Extbase\Validation\Validator\FileExtensionValidator`
 
@@ -337,7 +337,7 @@ Class: :php:`\TYPO3\CMS\Extbase\Validation\Validator\FileExtensionValidator`
    * - Option
      - Description
    * - ``allowedExtensions``
-     - Comma-separated list of allowed file extensions without leading dot,
+     - Comma-separated list of allowed file extensions without the leading dot,
        for example ``'jpg,jpeg,png'``.
 
 

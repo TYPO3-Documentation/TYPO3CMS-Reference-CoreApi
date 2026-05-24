@@ -10,7 +10,7 @@ Writing a custom Extbase validator
 
 When the :ref:`built-in validators <extbase-validation-builtin>` cannot
 express a domain rule — for example "a conference end date must be after its
-start date" or "a registration is only open while seats remain" — write a
+start date" or "registration is only open while seats remain" — write a
 custom validator class and attach it with :php:`#[Validate]` just like any
 built-in validator.
 
@@ -24,9 +24,9 @@ built-in validator.
 Structure of a custom validator
 ===============================
 
-A custom validator extends
+Custom validators extend
 :php:`\TYPO3\CMS\Extbase\Validation\Validator\AbstractValidator` and
-implements one method: :php:`isValid(mixed $value): void`. When the value
+implement a single method :php:`isValid(mixed $value): void`. If a value
 fails validation, call :php:`$this->addError()` or
 :php:`$this->addErrorForProperty()` — do not throw an exception and do not
 return anything. The framework reads :php:`$this->result` after
@@ -41,15 +41,15 @@ extension, following the naming convention :php:`<Subject>Validator`:
 
 Key points:
 
-*   Do not declare the class :php:`final` — the same convention that applies
-    to controllers applies here, so third parties can extend the validator.
+*   Do not declare the class as :php:`final` — the same convention that applies
+    to controllers applies here. Third parties can extend the validator.
 *   :php:`$acceptsEmptyValues = true` (the default) means :php:`isValid()` is
-    skipped when the value is :php:`null` or an empty string. Set it to
-    :php:`false` only if the validator must explicitly reject empty values
+    skipped when a value is :php:`null` or an empty string. Set it to
+    :php:`false` only if a validator should explicitly reject empty values
     (as :php-short:`\TYPO3\CMS\Extbase\Validation\Validator\NotEmptyValidator`
     does).
 *   Use a `Unix timestamp <https://www.php.net/manual/en/function.time.php>`_
-    as the error code — it must be unique across your extension.
+    as the error code. It must be unique across your extension.
 *   Translation keys use the domain syntax introduced in TYPO3 v14:
     ``my_extension:some.key`` resolves to
     :file:`EXT:my_extension/Resources/Private/Language/locallang.xlf`. See
@@ -85,9 +85,9 @@ object and does not belong to any single field.
 Supporting options and substitution values in messages
 ======================================================
 
-If your validator needs configuration — for example a minimum seat count — declare
-options in :php:`$supportedOptions`. Each entry is an array of
-``[default, description, type]``. Access resolved values via
+If your validator needs to be configured, for example, there needs to be a
+minimum seat count, declare the options in :php:`$supportedOptions`. Each option contains
+an array with values ``[default, description, type]``. Access resolved values using
 :php:`$this->options`:
 
 ..  literalinclude:: _snippets/_SeatCountValidator.php
@@ -103,9 +103,9 @@ The error message in :file:`locallang.xlf` uses a ``%s`` placeholder:
         <source>At least %s seat(s) must be available for registration.</source>
     </trans-unit>
 
-:php:`translateErrorMessage()` accepts the substitution values as its third
+:php:`translateErrorMessage()` accepts the values to be substituted as its third
 argument and passes them through :php:`vsprintf()`. The same values are passed
-as the third argument to :php:`addError()`, where they are stored on the
+as the third argument to :php:`addError()`. They are stored in the
 :php-short:`\TYPO3\CMS\Extbase\Validation\Error` object for programmatic
 access:
 
@@ -140,10 +140,10 @@ Making the error message overridable
 ====================================
 
 To allow callers to override the message text via the ``options`` array
-without subclassing — the same mechanism used by built-in validators — declare
+without having to subclass (the same mechanism used by built-in validators) declare
 a :php:`protected string $message` property, add it to
 :php:`$translationOptions`, and list it in :php:`$supportedOptions`. The
-:php:`SeatCountValidator` above already follows this pattern. A caller can
+:php:`SeatCountValidator` above follows this pattern. A caller can
 then replace the message at the call site:
 
 ..  code-block:: php
@@ -161,6 +161,6 @@ What to read next
 =================
 
 *   :ref:`extbase-validation-builtin` — check whether a built-in validator
-    already covers the constraint before writing a custom one.
+    already covers a constraint before writing a custom one.
 *   :ref:`extbase-validation-overview` — how the framework triggers
     :php:`errorAction()` and how to display errors in Fluid templates.

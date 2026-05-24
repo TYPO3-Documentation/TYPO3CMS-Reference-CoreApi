@@ -8,9 +8,9 @@
 Extbase built-in type converters reference
 ==========================================
 
-Extbase selects a type converter automatically based on the PHP type
-declaration of the action parameter and the shape of the incoming request
-value. This page lists all converters shipped with TYPO3 v14, their accepted
+Extbase selects type converters automatically based on the PHP type
+declaration of the action parameter and the incoming request
+value. This page lists all the type converters shipped with TYPO3 v14, their accepted
 source types, and the configuration constants they expose.
 
 For an introduction to how type converters are selected and configured, see
@@ -27,7 +27,7 @@ Scalar type converters
 ======================
 
 These converters handle PHP primitive types and are selected automatically
-whenever an action parameter is typed as :php:`int`, :php:`float`,
+whenever an action parameter has type :php:`int`, :php:`float`,
 :php:`bool`, or :php:`string`.
 
 ..  _extbase-appendix-typeconverters-integer:
@@ -108,7 +108,7 @@ ArrayConverter
 :Target: :php:`array`
 :Priority: 10
 
-Passes an array source through unchanged. When the source is a string,
+Passes an array source unchanged. If the source is a string,
 splits it on a configurable delimiter:
 
 :php:`ArrayConverter::CONFIGURATION_DELIMITER`
@@ -141,7 +141,7 @@ Converts a string, Unix timestamp, or array of date parts into a
 
 :php:`DateTimeConverter::CONFIGURATION_DATE_FORMAT`
     The format string passed to :php:`\DateTime::createFromFormat()`. Defaults
-    to :php:`\DateTime::W3C`. Set this when your form sends a date in a locale
+    to :php:`\DateTime::W3C`. Set this if your form sends a date in a locale
     format (for example :php:`'d.m.Y'`).
 
 ..  code-block:: php
@@ -182,9 +182,9 @@ PersistentObjectConverter
 :Target: :php-short:`\TYPO3\CMS\Extbase\DomainObject\AbstractDomainObject` (and subclasses)
 :Priority: 20
 
-The converter used for domain object parameters. When the source is an
+The converter used for domain object parameters. If the source is an
 integer or plain string, it loads the record with that UID from the
-repository. When the source is an array, it maps array keys to object
+repository. If the source is an array, it maps array keys to object
 properties (and optionally creates or modifies the object):
 
 :php:`PersistentObjectConverter::CONFIGURATION_MODIFICATION_ALLOWED`
@@ -256,7 +256,7 @@ EnumConverter
 ..  versionadded:: 14.0
 
 Converts a scalar value to a PHP backed enum case. For backed enums the
-source value is matched against the :php:`value` of each case; for pure
+source value is matched against the :php:`value` of each case. For pure
 (unit) enums it is matched against the case :php:`name`.
 
 No configuration constants.
@@ -268,7 +268,7 @@ TYPO3 Core type converters
 ==========================
 
 These converters handle TYPO3-specific types and are selected automatically
-when the action parameter is typed accordingly.
+for the relevant action parameters.
 
 
 ..  _extbase-appendix-typeconverters-coretype:
@@ -281,7 +281,7 @@ CoreTypeConverter
 :Target: :php-short:`\TYPO3\CMS\Core\Type\TypeInterface`
 :Priority: 10
 
-Handles TYPO3 Core value types implementing
+Handles TYPO3 Core value types that implement
 :php-short:`\TYPO3\CMS\Core\Type\TypeInterface`, such as
 :php-short:`\TYPO3\CMS\Core\Type\Enumeration` subclasses.
 
@@ -299,7 +299,7 @@ CountryConverter
 :Priority: 10
 
 Looks up a :php-short:`\TYPO3\CMS\Core\Country\Country` object by ISO code.
-Defaults to matching by alpha-2 code (for example :php:`'DE'`):
+Defaults to matching alpha-2 codes (for example :php:`'DE'`):
 
 :php:`CountryConverter::CONFIGURATION_FROM`
     How to match the source string. Accepted values:
@@ -315,7 +315,7 @@ FAL type converters
 
 ..  warning::
 
-    These three converter classes carry :php:`@internal` at the class level
+    These three converter classes are :php:`@internal` at the class level
     and are not part of the public Extbase API. Their behaviour or existence
     may change without notice.
 
@@ -337,8 +337,8 @@ FAL type converters
 Writing a custom type converter
 ===============================
 
-There is no PHP attribute for registering a type converter. Registration
-requires a :yaml:`extbase.type_converter` service tag in
+There are no PHP attributes for registering type converters. Registration
+requires an :yaml:`extbase.type_converter` service tag in
 :file:`Configuration/Services.yaml`.
 
 Implement
@@ -376,5 +376,5 @@ and add the tag:
           target: MyVendor\MyExtension\Domain\Model\Isbn
           sources: string
 
-The :yaml:`priority` determines which converter wins when multiple converters
+The :yaml:`priority` determines which converter "wins" when multiple converters
 match the same source-and-target combination. Higher numbers win.

@@ -8,17 +8,17 @@
 View layer in Extbase
 =====================
 
-The view layer turns assigned variables into rendered output — a string of
-HTML, JSON, or anything else. It knows nothing about HTTP responses; that is
+The view layer converts variables into rendered output such as strings of
+HTML or JSON. It knows nothing about HTTP responses; that is
 the controller's concern. The controller assigns variables and calls the render
 method indirectly via :php:`$this->htmlResponse()` or :php:`$this->jsonResponse()`.
 
-`Fluid <https://docs.typo3.org/permalink/t3coreapi:fluid>`_ is the standard
-and recommended template engine. It integrates with Extbase out of the box and
-requires no additional setup. Other template engines such as Blade or Twig can
-be wired in via
-:php-short:`\TYPO3\CMS\Core\View\ViewFactoryInterface`, but that is entirely
-out of scope for this documentation.
+`Fluid <https://docs.typo3.org/permalink/t3coreapi:fluid>`_ is the
+recommended template engine. It integrates with Extbase out of the box and
+does not require any additional setup. Other template engines such as Blade or Twig can
+be integrated via
+:php-short:`\TYPO3\CMS\Core\View\ViewFactoryInterface`, but that is outside the
+scope of this documentation.
 
 ..  contents:: On this page
     :local:
@@ -30,7 +30,7 @@ out of scope for this documentation.
 Assigning variables to the Extbase view
 =======================================
 
-Use :php:`$this->view->assign()` to make a value available under a name in the
+Use :php:`$this->view->assign()` to make a value available under the variable name in the
 template. :php:`assignMultiple()` assigns several values at once:
 
 ..  code-block:: php
@@ -63,12 +63,12 @@ template. :php:`assignMultiple()` assigns several values at once:
         }
     }
 
-The name passed to :php:`assign()` becomes the variable name in the template:
-:html:`{conferences}`, :html:`{title}`, :html:`{conference}`.
+The name passed to :php:`assign()` becomes the variable name in the template, for example
+:html:`{conferences}`, :html:`{title}`, and :html:`{conference}` above.
 
-In addition, :php:`$this->settings` is always assigned automatically under the
-name :html:`{settings}`, so TypoScript settings are available in every template
-without an explicit assign call.
+TypoScript settings (:php:`$this->settings`) are automatically available in Fluid
+templates under the name :html:`{settings}`. This means they do not need
+an explicit assign call.
 
 
 ..  _extbase-view-property-access:
@@ -76,21 +76,21 @@ without an explicit assign call.
 How Fluid accesses object properties and collections
 ====================================================
 
-When a template variable is an object, Fluid resolves a property path such as
-:html:`{conference.title}` by trying the following in order:
+If a template variable is an object, Fluid resolves property paths such as
+:html:`{conference.title}` in the following order:
 
 *   A public property :php:`$title` directly.
 *   A public getter method :php:`getTitle()`.
 *   A public method :php:`hasTitle()`.
 *   A public method :php:`isTitle()`.
 
-This means :php:`protected` properties with a conventional getter work
+This means :php:`protected` properties with conventional getters work
 transparently in templates — :html:`{conference.title}` calls
-:php:`getTitle()` automatically.
+:php:`getTitle()`.
 
 ..  warning::
 
-    If none of the above exist, Fluid renders an empty string with no error or
+    If none of the above exist, Fluid renders an empty string without an error or
     exception. A typo in a property name, a missing getter, or a :php:`private`
     property (which is never accessible to Fluid) will produce silent blank
     output. See
@@ -102,7 +102,7 @@ Property paths can be chained: :html:`{conference.mainSpeaker.name}` resolves
 result.
 
 **Arrays and ObjectStorage collections** are accessed using
-`f:for <https://docs.typo3.org/permalink/t3viewhelper:typo3fluid-fluid-for>`_ to
+` f:for <https://docs.typo3.org/permalink/t3viewhelper:typo3fluid-fluid-for>`_ to
 iterate, or with an explicit numeric index:
 
 ..  code-block:: html
@@ -129,7 +129,7 @@ so :html:`f:for` works with it just like with arrays.
 Fluid template file resolution in Extbase
 =========================================
 
-Extbase resolves the template file from three configurable path lists:
+Extbase finds a template file by searching through three configurable path lists:
 :php:`templateRootPaths`, :php:`layoutRootPaths`, and :php:`partialRootPaths`.
 Each list is a numerically keyed array; Fluid searches from the highest key
 downward and uses the first match it finds.
@@ -140,7 +140,7 @@ downward and uses the first match it finds.
 *   :file:`EXT:my_extension/Resources/Private/Layouts/`
 *   :file:`EXT:my_extension/Resources/Private/Partials/`
 
-**Template file naming convention:** the file must be at
+**Template file naming convention:** the file must exist at
 :file:`Templates/{ControllerName}/{ActionName}.fluid.html`. The controller
 name is the class name without the :php:`Controller` suffix —
 :php:`ConferenceController` → :file:`Conference/`. The action name matches the
@@ -149,12 +149,12 @@ uppercased — :php:`listAction()` → :file:`List.fluid.html`.
 
 ..  note::
 
-    File names are case-sensitive on Linux systems.
+    File names are case-sensitive on Linux systems, therefore
     :file:`list.fluid.html` and :file:`List.fluid.html` are different files.
     The convention requires an uppercase first letter.
 
 **Bypassing the naming convention** is possible but discouraged. Passing an
-explicit template path to :php:`$this->view->render()` overrides the automatic
+explicit template path to :php:`$this->view->render()` overrides automatic
 resolution:
 
 ..  code-block:: php
@@ -168,8 +168,8 @@ resolution:
         );
     }
 
-This bypasses the controller/action convention entirely. Reserve it for rare
-situations where one action needs to render a different template — for example
+This bypasses the controller/action convention. Reserve it for rare
+situations where one action needs to render a different template, for example
 for AJAX variants that share a controller action.
 
 
@@ -189,15 +189,15 @@ Add paths via TypoScript to extend or override the default resolution:
         partialRootPaths.10 = EXT:my_extension/Resources/Private/Partials/
     }
 
-Because Fluid searches from the highest key downward, a path at key
-:typoscript:`10` takes precedence over the default at key :typoscript:`0`.
+Fluid searches from the highest key downward, so the path at key
+:typoscript:`10` above takes precedence over a default at key :typoscript:`0`.
 
 **Finding the TypoScript object path for a plugin:** open the TYPO3 backend,
-navigate to the site or page where the plugin resides, and open
+navigate to the site or page containing the plugin, and open
 :guilabel:`Site Management > TypoScript`. The Active TypoScript module shows
-the fully assembled TypoScript tree including all registered plugin objects.
-The object path for a plugin is always :typoscript:`plugin.tx_<extensionkey>`,
-where the extension key is lowercased and has underscores removed.
+the computed TypoScript tree including all the registered plugin objects.
+The object path of a plugin is always :typoscript:`plugin.tx_<extensionkey>`,
+where the extension key is in lowercase and the underscores are removed.
 
 
 ..  _extbase-view-third-party-override:
@@ -206,9 +206,9 @@ Overriding Fluid templates from a third-party extension
 =======================================================
 
 To replace a template provided by an extension you do not control, add the
-override paths to your own extension or sitepackage — never modify the
-third-party extension directly. Add a path at a key higher than the one the
-original extension uses. Most extensions register their paths at key
+override paths to your own extension or sitepackage. Never modify a
+third-party extension directly. Add a path at a key higher than the one used in the
+original extension. Most extensions register their paths at key
 :typoscript:`10` or leave the default at key :typoscript:`0`. Using key
 :typoscript:`20` in your sitepackage is therefore safe in the majority of
 cases:
@@ -221,12 +221,12 @@ cases:
         partialRootPaths.20 = EXT:my_sitepackage/Resources/Private/ThirdParty/Partials/
     }
 
-Place your overriding template at the same relative path as the original —
+Place your overriding template in the same relative path as in the original.
 :file:`Conference/List.fluid.html` overrides :file:`Conference/List.fluid.html`
-from the third-party extension.
+in the third-party extension.
 
 **Extension loading order:** for the path override to work, your extension must
-be loaded after the third-party extension so its TypoScript is applied last.
+be loaded after the third-party extension so that its TypoScript is applied last.
 Declare the dependency in your :file:`composer.json`:
 
 ..  code-block:: json
@@ -244,7 +244,7 @@ This ensures Composer resolves your extension after the dependency. See
 ..  seealso::
 
     *   `Template file not found, or wrong template rendered <https://docs.typo3.org/permalink/extbase-appendix-pitfalls-template-not-found>`_
-        — common causes and how to debug them.
+        for common causes and how to debug them.
 
 
 ..  _extbase-view-viewhelpers:
@@ -253,7 +253,7 @@ ViewHelpers in Fluid templates
 ==============================
 
 `ViewHelpers <https://docs.typo3.org/permalink/t3viewhelper:start>`_
-are the Fluid equivalent of template functions and tags. They handle
+are Fluid template functions and tags. They are used for
 conditionals, loops, links, formatting, and much more. The built-in ViewHelpers
 use the :html:`f:` namespace, which is available in every template without
 declaration.
@@ -279,7 +279,7 @@ Two equivalent syntaxes exist — tag style and inline style:
         Details
     </a>
 
-Commonly used ViewHelpers with links to their full reference:
+Commonly used ViewHelpers (with links to their full reference) are:
 
 *   `f:for <https://docs.typo3.org/permalink/t3viewhelper:typo3fluid-fluid-for>`_
     — iterate over arrays and :php:`\TYPO3\CMS\Extbase\Persistence\ObjectStorage`
@@ -299,10 +299,10 @@ Commonly used ViewHelpers with links to their full reference:
 *   `f:translate <https://docs.typo3.org/permalink/t3viewhelper:typo3-fluid-translate>`_
     — render localised labels from :file:`locallang.xlf`.
 *   `f:debug <https://docs.typo3.org/permalink/t3viewhelper:typo3-fluid-debug>`_
-    — dump a variable's type and value during development; remove before
+    — dump a variable's type and value during development. Remove before
     deploying to production.
 
-For the complete reference of all built-in ViewHelpers see the
+For the complete reference of all built-in ViewHelpers, see the
 `ViewHelper reference <https://docs.typo3.org/permalink/t3viewhelper:start>`_.
 
 To write your own ViewHelper, see
@@ -314,16 +314,16 @@ To write your own ViewHelper, see
 JsonView: rendering JSON responses from Extbase
 ===============================================
 
-For actions that return :abbr:`JSON (JavaScript Object Notation)`, set
+To return :abbr:`JSON (JavaScript Object Notation)` from an action, set
 :php:`$this->defaultViewObjectName` to
-:php:`\TYPO3\CMS\Extbase\Mvc\View\JsonView::class` and return
-:php:`$this->jsonResponse()`. Extbase uses
+:php:`\TYPO3\CMS\Extbase\Mvc\View\JsonView::class` and then return
+:php:`$this->jsonResponse()`. Extbase will then use
 :php-short:`\TYPO3\CMS\Extbase\Mvc\View\JsonView` instead of Fluid to render
 the response body.
 
 :php-short:`\TYPO3\CMS\Extbase\Mvc\View\JsonView` does not expose all assigned
 variables by default. Declare which variables to include with
-:php:`setVariablesToRender()`, and control which properties of each object are
+:php:`setVariablesToRender()`, and set which properties of each object are
 exposed with :php:`setConfiguration()`:
 
 ..  code-block:: php
@@ -352,7 +352,7 @@ exposed with :php:`setConfiguration()`:
         }
     }
 
-The configuration keys:
+The configuration keys are:
 
 *   :php:`_only` — allowlist of property names to include.
 *   :php:`_exclude` — denylist of property names to omit.
@@ -362,7 +362,7 @@ The configuration keys:
     of an array or :php:`\TYPO3\CMS\Extbase\Persistence\ObjectStorage`.
 
 For simple cases where the JSON structure can be built explicitly, skip
-:php-short:`\TYPO3\CMS\Extbase\Mvc\View\JsonView` entirely and pass a string
+:php-short:`\TYPO3\CMS\Extbase\Mvc\View\JsonView` by passing a string
 to :php:`jsonResponse()` directly:
 
 ..  code-block:: php
@@ -378,4 +378,4 @@ to :php:`jsonResponse()` directly:
 ..  seealso::
 
     `Registration: frontend plugin <https://docs.typo3.org/permalink/extbase-registration-frontend-plugin>`_
-    — how to register a controller action as a cacheable or non-cacheable plugin.
+    for how to register a controller action as a cacheable or non-cacheable plugin.

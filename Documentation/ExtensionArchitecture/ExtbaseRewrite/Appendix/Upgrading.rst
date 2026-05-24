@@ -166,7 +166,7 @@ StandaloneView removed (TYPO3 v14)
     :php-short:`\TYPO3\CMS\Core\View\ViewFactoryData`.
 
 :php:`StandaloneView` was the historical way to render a Fluid template outside
-of a controller — for example in a service class, a scheduler task, or a mail
+of a controller, for example, inside a service class, a scheduler task, or an email
 renderer. It is no longer available.
 
 The replacement injects :php-short:`\TYPO3\CMS\Core\View\ViewFactoryInterface`
@@ -198,13 +198,13 @@ and creates a view by passing a
         }
     }
 
-Pass the current :php:`ServerRequestInterface` wherever possible — the view
+Pass the current :php:`ServerRequestInterface` wherever possible. The view
 factory uses it for request-aware rendering (language, base URI, etc.).
 
 ..  seealso::
 
     *   `Deprecation: #104773 — Custom Fluid views and Extbase <https://docs.typo3.org/permalink/changelog:deprecation-104773-1724942036>`_
-        — the changelog entry with the full migration notes.
+        changelog entry with full migration notes.
 
 
 ..  _extbase-upgrading-plugin-list-type:
@@ -214,7 +214,7 @@ list_type plugin removed; fifth parameter of configurePlugin() restricted (TYPO3
 
 ..  versionchanged:: 14.0
 
-    The ``list_type`` / "General Plugin" content element was removed. All
+    The ``list_type`` / "General Plugin" content element has been removed. All
     plugins must be registered as dedicated ``CType`` content elements. The
     fifth parameter ``$pluginType`` of :php:`ExtensionUtility::configurePlugin()`
     now only accepts ``'CType'`` (or being omitted); any other value throws an
@@ -230,15 +230,15 @@ approaches no longer work in TYPO3 v14.
 *   Remove the fifth argument from :php:`configurePlugin()` entirely, or pass
     :php:`ExtensionUtility::PLUGIN_TYPE_CONTENT_ELEMENT` explicitly.
 *   Run the TYPO3 upgrade wizard to migrate existing ``list_type`` content
-    records to dedicated ``CType`` records.
+    records to ``CType`` records.
 
 ..  seealso::
 
     *   `Registering an Extbase frontend plugin <https://docs.typo3.org/permalink/extbase-registration-frontend-plugin>`_
-        — current registration approach.
+        — the current registration approach.
 
     *   `Plugin registered with list_type no longer works <https://docs.typo3.org/permalink/extbase-appendix-pitfalls-list-type>`_
-        — the common pitfalls entry.
+        — common pitfalls.
 
 
 ..  _extbase-upgrading-translation-domain-syntax:
@@ -248,7 +248,7 @@ Translation domain syntax as shorter alternative to LLL:EXT: (TYPO3 v14)
 
 ..  versionadded:: 14.0
 
-    A shorter domain-based syntax for label references was introduced as an
+    A shorter domain-based syntax for label references has been introduced as an
     alternative to the legacy ``LLL:EXT:`` file path syntax
     (:ref:`Feature #93334 <changelog:feature-93334-1729000000>`).
 
@@ -266,7 +266,7 @@ resolve to the same translation entries and can be used interchangeably:
 The domain is formed from the extension key plus an optional resource name. The
 resource name is the language file name without the ``locallang_`` prefix and
 without the ``.xlf`` extension. The plain ``locallang.xlf`` file has no
-resource suffix — the domain is just the extension key.
+resource suffix. The domain is just the extension key.
 
 ..  seealso::
 

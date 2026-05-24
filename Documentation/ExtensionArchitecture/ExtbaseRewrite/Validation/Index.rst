@@ -20,8 +20,8 @@ reaches your domain logic.
 
 ..  _extbase-validation-lifecycle:
 
-Where validation fits in the Extbase request lifecycle
-======================================================
+Where validation fits into the Extbase request lifecycle
+========================================================
 
 The sequence for every request that carries arguments is:
 
@@ -43,7 +43,7 @@ to run the checks and *where* to route the request on failure.
 ..  note::
 
     Validation is not limited to form submissions. It runs on *every* action
-    that receives typed arguments — including detail, filter, and search
+    that receives typed arguments including detail, filter, and search
     actions that read their input from URL parameters. A record created in the
     TYPO3 backend may satisfy TCA validation but still fail Extbase model
     validation when the same record is loaded as an action argument in the
@@ -59,8 +59,8 @@ Where to declare validators
 Validators can be declared on action parameters, on domain model properties,
 or both.
 
-**On an action parameter** — validates the value passed directly to one
-action, before the action runs:
+**On an action parameter** — validates the value passed to an
+action before the action runs:
 
 ..  code-block:: php
     :caption: EXT:my_extension/Classes/Controller/ConferenceController.php
@@ -95,9 +95,9 @@ is used as an action argument:
         protected string $title = '';
     }
 
-Placing validators on the model means every action that receives a
-:php:`Conference` argument benefits from the same rules automatically,
-without repeating the attribute on every parameter.
+Placing validators on the model above means that every action that receives a
+:php:`Conference` argument benefits from the same rules,
+without having to repeat the attribute on every parameter.
 
 
 ..  _extbase-validation-ignore:
@@ -105,7 +105,7 @@ without repeating the attribute on every parameter.
 Skipping validation with :php:`#[IgnoreValidation]`
 ===================================================
 
-Sometimes you need to receive an object without running its validators — for
+Sometimes you need to receive an object without running its validators, for
 example when displaying a "new" form that is pre-populated from a submitted but
 invalid object, or when an action intentionally accepts a partially filled
 model.
@@ -143,7 +143,7 @@ Customising :php:`errorAction()`
 
 The built-in :php:`errorAction()` adds a generic flash message and redirects
 the user to the referring request. For most contact or registration forms this
-is enough.
+is sufficient.
 
 To show a custom error flash message, override :php:`getErrorFlashMessage()`:
 
@@ -155,7 +155,7 @@ To show a custom error flash message, override :php:`getErrorFlashMessage()`:
         return 'Please correct the errors in the form before saving.';
     }
 
-Return :php:`false` to suppress the flash message entirely.
+Return :php:`false` to suppress the flash message.
 
 To completely change how validation errors are handled — for example to return
 a :abbr:`JSON (JavaScript Object Notation)` response — override
