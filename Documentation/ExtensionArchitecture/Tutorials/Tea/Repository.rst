@@ -8,7 +8,8 @@
 Repository
 ==========
 
-A basic repository can be quite a short class. The shortest possible
+A basic `repository <https://docs.typo3.org/permalink/t3coreapi:extbase-repository>`_
+can be quite a short class. The shortest possible
 repository is an empty class inheriting from
 :php:`TYPO3\CMS\Extbase\Persistence\Repository`:
 
