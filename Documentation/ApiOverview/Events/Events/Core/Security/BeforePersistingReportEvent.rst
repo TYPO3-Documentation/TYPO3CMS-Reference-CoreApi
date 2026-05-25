@@ -23,8 +23,9 @@ Example
     :language: php
     :caption: EXT:my_extension/Classes/ContentSecurityPolicy/EventListener/MyEventListener.php
 
+..  _BeforePersistingReportEvent-example-api:
 
-API
+API: BeforePersistingReportEvent
 ===
 
 ..  include:: /CodeSnippets/Events/Core/Security/BeforePersistingReportEvent.rst.txt
