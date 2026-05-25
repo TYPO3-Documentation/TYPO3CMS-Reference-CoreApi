@@ -29,7 +29,7 @@ injecting the factory.
 
 .. _rate-limiting-typo3-conf-vars:
 
-Overrides via TYPO3_CONF_VARS
+Overriding the `rateLimiter` via the TYPO3_CONF_VARS
 =============================
 
 ..  seealso::
