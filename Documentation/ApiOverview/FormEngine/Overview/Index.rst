@@ -36,9 +36,10 @@ The rendering part of the :php:`EditDocumentController` job splits into these pa
 
 *   Let the :php:`PageRenderer` output its compiled result.
 
-
-..  figure:: /Images/Plantuml/FormEngine/FormEngineMainWorkflow.svg
-    :alt: Main FormEngine workflow
+..  uml:: /Images/Plantuml/FormEngine/FormEngineMainWorkflow.plantuml
+    :align: center
+    :width: 1000
+    :caption: Main FormEngine workflow
 
 The controller does two distinct things here: First, it initializes a data array and lets it get enriched by
 data providers of FormEngine which add all information needed for the rendering part. Then feed this data array
