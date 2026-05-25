@@ -84,8 +84,10 @@ which in turn hands over the data array to a specific :php:`FormDataGroup`. What
 single classes that add or change data within the data array. They are called in a chain after each other. A :php:`FormDataGroup`
 has the responsibility to find out, which specific single data providers should be used, and calls them in a specific order.
 
-.. figure:: /Images/Plantuml/FormEngine/FormEngineDataCompiling.svg
-   :alt: Data compiling by multiple providers
+..  uml:: /Images/Plantuml/FormEngine/FormEngineDataCompiling.plantuml
+    :align: center
+    :width: 1000
+    :caption: Data compiling by multiple providers
 
 Why do we need this?
 

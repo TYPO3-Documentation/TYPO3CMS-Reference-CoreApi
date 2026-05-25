@@ -18,8 +18,10 @@ a fraction of the full result, and delegates details to another container. The s
 and calls a third one. This continues to happen until a single field should be rendered, at which point an
 element class is called taking care of one element.
 
-.. figure:: /Images/Plantuml/FormEngine/FormEngineRenderTree.svg
-   :alt: Render tree example
+..  uml:: /Images/Plantuml/FormEngine/FormEngineRenderTree.plantuml
+    :align: center
+    :width: 1000
+    :caption: Render tree example
 
 Each container creates some "outer" part of the result, calls some sub-container or element, merges the
 sub-result with its own content and returns the merged array up again. The data array is given to each sub class
@@ -47,8 +49,10 @@ on it.
 Class Inheritance
 =================
 
-..  figure:: /Images/Plantuml/FormEngine/FormEngineRenderClasses.svg
-    :alt: Main render class inheritance
+..  uml:: /Images/Plantuml/FormEngine/FormEngineRenderClasses.plantuml
+    :align: center
+    :width: 1000
+    :caption: Main render class inheritance
 
 All classes must implement :php:`NodeInterface` to be routed through the :php:`NodeFactory`. The :php:`AbstractNode`
 implements some basic helpers for nodes, the two classes :php:`AbstractContainer` and :php:`AbstractFormElement`
