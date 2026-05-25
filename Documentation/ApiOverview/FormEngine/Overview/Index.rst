@@ -54,6 +54,10 @@ The controller does two distinct things here. First, it initializes a data array
 data providers from FormEngine that add all the information needed for the rendering stage. This data array
 is then passed onto FormEngine rendering to produce a result array containing all the HTML, CSS and JavaScript.
 
+..  deprecated:: 14.2
+    The `outerWrapContainer` has been deprecated in favour of the
+    `formWrapContainer`. See `Deprecation: #109192 - FormEngine OuterWrapContainer <https://docs.typo3.org/permalink/changelog:deprecation-109192-1741560000>`_
+
 In code, the basic workflow looks like this:
 
 ..  literalinclude:: _SomeClass.php

@@ -213,7 +213,9 @@ FieldControl
 Currently, all elements usually implement all three of these, except in cases where it does not make sense. This API allows
 adding functionality to single nodes, without overriding the whole node. Containers and elements can come with default
 expansions (and usually do). TCA configuration can be used to add own stuff. On container side the implementation is still
-basic, only :php:`OuterWrapContainer` and :php:`InlineControlContainer` currently implement FieldInformation and FieldWizard.
+basic, only :php-short:`\TYPO3\CMS\Backend\Form\Container\FormWrapContainer` and
+:php-short:`\TYPO3\CMS\Backend\Form\Container\InlineControlContainer` currently
+implement FieldInformation and FieldWizard.
 
 See the :ref:`TCA reference ctrl section <t3tca:ctrl-reference-container>` for more information on how to configure these
 for containers in TCA.
