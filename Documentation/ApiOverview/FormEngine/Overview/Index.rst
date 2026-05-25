@@ -9,19 +9,24 @@ Main rendering workflow
 This is done by example. The details to steer and how to use only sub-parts of the rendering chain are
 explained in more detail in the following sections.
 
-Editing a record in the backend - often from within the `Page` or `List` module - triggers the
-:php:`EditDocumentController` by routing definitions using :php:`UriBuilder->buildUriFromRoute($moduleIdentifier)`
+Editing a record in the backend - often from within the
+:guilabel:`Content > Layout` or :guilabel:`Content > Records` module - triggers the
+:php-short:`\TYPO3\CMS\Backend\Controller\EditDocumentController` by routing
+definitions using :php:`UriBuilder->buildUriFromRoute($moduleIdentifier)`
 and handing over which record of which table should be edited. This can be an existing record, or it could be a command
-to create the form for a new record. The EditDocumentController is the main logic triggered whenever
-an editor changes a record!
+to create the form for a new record. The
+:php-short:`\TYPO3\CMS\Backend\Controller\EditDocumentController` is the main
+logic triggered whenever an editor changes a record.
 
-The :php:`EditDocumentController` has two main jobs: Trigger rendering of one or multiple records
-via FormEngine, and hand over any given data by a FormEngine :code:`POST` result over to the DataHandler
+The :php-short:`\TYPO3\CMS\Backend\Controller\EditDocumentController` has two
+main jobs: Trigger rendering of one or multiple records
+via FormEngine, and hand over any given data by a FormEngine `POST` result over to the DataHandler
 to persist stuff in the database.
 
-The rendering part of the :php:`EditDocumentController` job splits into these parts:
+The rendering part of the :php-short:`\TYPO3\CMS\Backend\Controller\EditDocumentController`
+job splits into these parts:
 
-*   Initialize main FormEngine data array using :code:`POST` or :code:`GET` data to specify which specific record(s)
+*   Initialize main FormEngine data array using `POST` or `GET` data to specify which specific record(s)
     should be edited.
 
 *   Select which group of DataProviders should be used.
@@ -31,10 +36,14 @@ The rendering part of the :php:`EditDocumentController` job splits into these pa
 
 *   Hand over DataCompiler result to an entry "render container" of FormEngine and receive a result array.
 
-*   Take result array containing HTML, CSS and JavaScript details and put them into :php:`FormResultCompiler` which
-    hands them over to the :php:`PageRenderer`.
+*   Convert the raw result array into a :php-short:`\TYPO3\CMS\Backend\Form\FormResult`
+    DTO using :php-short:`\TYPO3\CMS\Backend\Form\FormResultFactory`.
 
-*   Let the :php:`PageRenderer` output its compiled result.
+*   Use :php-short:`\TYPO3\CMS\Backend\Form\FormResultHandler` to pass collected
+    assets such as CSS, JavaScript and labels to the
+    :php-short:`TYPO3\CMS\Core\Page\PageRenderer`.
+
+*   Let the :php-short:`TYPO3\CMS\Core\Page\PageRenderer` output its compiled result.
 
 ..  uml:: /Images/Plantuml/FormEngine/FormEngineMainWorkflow.plantuml
     :align: center
@@ -48,8 +57,11 @@ to the rendering part of FormEngine to end up with a result array containing all
 In code, this basic workflow looks like this:
 
 ..  literalinclude:: _SomeClass.php
-    :language: php
     :caption: EXT:my_extension/Classes/SomeClass.php
+
+..  deprecated:: 14.2
+    The class :php:`TYPO3\CMS\Backend\Form\FormResultCompiler` has been
+    deprecated. See `Deprecation: #109230 - FormResultCompiler <https://docs.typo3.org/permalink/changelog:deprecation-109230-1773404000>`_.
 
 This basically means the main FormEngine concept is a two-fold process: First create an array to gather all
 render-relevant information, then call the render engine using this array to come up with output.
