@@ -28,7 +28,7 @@ what changed, which version introduced the change, and what to do.
 ..  _extbase-upgrading-annotations-to-attributes:
 
 Annotations replaced by PHP attributes (TYPO3 v12 / required from v14)
-=======================================================================
+======================================================================
 
 ..  versionchanged:: 14.0
 
@@ -78,7 +78,7 @@ TYPO3 v12; in TYPO3 v14 the annotation syntax was removed entirely.
 ..  _extbase-upgrading-attribute-namespace:
 
 Attribute namespace moved from Annotation to Attribute (TYPO3 v14)
-===================================================================
+==================================================================
 
 ..  versionchanged:: 14.0
 
@@ -94,7 +94,7 @@ All Extbase attributes moved from :php:`\TYPO3\CMS\Extbase\Annotation` to
 ..  _extbase-upgrading-attribute-array-syntax:
 
 Attribute array syntax deprecated (TYPO3 v14, removed in v15)
-==============================================================
+=============================================================
 
 ..  versionchanged:: 14.0
 
@@ -124,10 +124,44 @@ Attribute array syntax deprecated (TYPO3 v14, removed in v15)
     `MigratePassingAnArrayOfConfigurationValuesToExtbaseAttributesRector <https://github.com/sabbelasichon/typo3-rector/blob/main/docs/all_rectors_overview.md#migratepassinganarrayofconfigurationvaluestoextbaseattributesrector>`_
 
 
+..  _extbase-upgrading-ignorevalidation-parameter:
+
+:php:`#[Validate]` and :php:`#[IgnoreValidation]` moved to parameter level (TYPO3 v14, removed in v15)
+======================================================================================================
+
+..  versionchanged:: 14.0
+
+    Placing :php:`#[Validate]` and :php:`#[IgnoreValidation]` on the action
+    method with a named :php:`$param` / :php:`$argumentName` property is
+    deprecated and will be removed in TYPO3 v15.
+
+Before TYPO3 v14, PHP attributes could only be attached to methods, so both
+attributes required a named property to identify which parameter they targeted.
+TYPO3 v14 introduced support for placing attributes directly on the parameter,
+making the indirection unnecessary. Place the attribute on the parameter itself:
+
+..  code-block:: diff
+    :caption: EXT:my_extension/Classes/Controller/ConferenceController.php
+
+    -#[Validate(param: 'conference', validator: 'NotEmpty')]
+    -#[IgnoreValidation(argumentName: 'conference')]
+     public function editAction(
+    +    #[Validate(validator: 'NotEmpty')]
+    +    #[IgnoreValidation]
+         Conference $conference,
+     ): ResponseInterface {
+     }
+
+..  seealso::
+
+    :ref:`Deprecation #108227 <changelog:deprecation-108227-1763668119>`
+    — full deprecation details and automated migration via Rector.
+
+
 ..  _extbase-upgrading-magic-findby:
 
 Magic findBy*(), findOneBy*(), countBy*() methods removed (TYPO3 v14)
-======================================================================
+=====================================================================
 
 ..  versionchanged:: 14.0
 
@@ -156,7 +190,7 @@ available.
 ..  _extbase-upgrading-standalone-view:
 
 StandaloneView removed (TYPO3 v14)
-===================================
+==================================
 
 ..  versionchanged:: 14.0
 
@@ -179,10 +213,10 @@ and creates a view by passing a
     use TYPO3\CMS\Core\View\ViewFactoryData;
     use TYPO3\CMS\Core\View\ViewFactoryInterface;
 
-    class MailService
+    readonly class MailService
     {
         public function __construct(
-            protected readonly ViewFactoryInterface $viewFactory,
+            protected ViewFactoryInterface $viewFactory,
         ) {}
 
         public function renderTemplate(ServerRequestInterface $request): string
@@ -210,14 +244,14 @@ factory uses it for request-aware rendering (language, base URI, etc.).
 ..  _extbase-upgrading-plugin-list-type:
 
 list_type plugin removed; fifth parameter of configurePlugin() restricted (TYPO3 v14)
-======================================================================================
+=====================================================================================
 
 ..  versionchanged:: 14.0
 
-    The ``list_type`` / "General Plugin" content element has been removed. All
-    plugins must be registered as dedicated ``CType`` content elements. The
-    fifth parameter ``$pluginType`` of :php:`ExtensionUtility::configurePlugin()`
-    now only accepts ``'CType'`` (or being omitted); any other value throws an
+    The :php:`list_type` / "General Plugin" content element was removed. All
+    plugins must be registered as dedicated :php:`CType` content elements. The
+    fifth parameter :php:`$pluginType` of :php:`ExtensionUtility::configurePlugin()`
+    now only accepts :php:`'CType'` (or being omitted); any other value throws an
     :php:`\InvalidArgumentException` (:ref:`Important #105538 <changelog:important-105538-1730752784>`).
 
 Older extensions may pass
@@ -229,8 +263,13 @@ approaches no longer work in TYPO3 v14.
 
 *   Remove the fifth argument from :php:`configurePlugin()` entirely, or pass
     :php:`ExtensionUtility::PLUGIN_TYPE_CONTENT_ELEMENT` explicitly.
-*   Run the TYPO3 upgrade wizard to migrate existing ``list_type`` content
-    records to ``CType`` records.
+*   Provide an upgrade wizard for your extension that extends
+    :php:`\TYPO3\CMS\Install\Updates\AbstractListTypeToCTypeUpdate` to migrate
+    existing content records from :php:`list_type` to the new :php:`CType`.
+    TYPO3 does not ship a wizard for extension-specific plugins — each extension
+    must provide its own
+    (:ref:`Deprecation #105076 <changelog:deprecation-105076-1726923626>` for a
+    reference implementation).
 
 ..  seealso::
 
@@ -244,29 +283,37 @@ approaches no longer work in TYPO3 v14.
 ..  _extbase-upgrading-translation-domain-syntax:
 
 Translation domain syntax as shorter alternative to LLL:EXT: (TYPO3 v14)
-=========================================================================
+========================================================================
 
 ..  versionadded:: 14.0
 
-    A shorter domain-based syntax for label references has been introduced as an
-    alternative to the legacy ``LLL:EXT:`` file path syntax
+    A shorter domain-based syntax for label references was introduced as an
+    alternative to the legacy :php:`LLL:EXT:` file path syntax
     (:ref:`Feature #93334 <changelog:feature-93334-1729000000>`).
 
 The legacy syntax remains fully supported and is not deprecated. Both forms
 resolve to the same translation entries and can be used interchangeably:
 
-+--------------------------------------------------------------------+------------------------------------+
-| Legacy syntax                                                      | Domain syntax (v14+)               |
-+====================================================================+====================================+
-| ``LLL:EXT:my_ext/Resources/Private/Language/locallang.xlf:key``    | ``my_ext:key``                     |
-+---------------------------------------------------------------+-----------------------------------------+
-| ``LLL:EXT:my_ext/Resources/Private/Language/locallang_db.xlf:key`` | ``my_ext.db:key``                  |
-+---------------------------------------------------------------+-----------------------------------------+
++----------------------------------------------------------------------+--------------------------------------+
+| Legacy syntax                                                        | Domain syntax (v14+)                 |
++======================================================================+======================================+
+| ``LLL:EXT:my_ext/Resources/Private/Language/locallang.xlf:key``      | ``my_ext.messages:key``              |
++----------------------------------------------------------------------+--------------------------------------+
+| ``LLL:EXT:my_ext/Resources/Private/Language/locallang_db.xlf:key``   | ``my_ext.db:key``                    |
++----------------------------------------------------------------------+--------------------------------------+
+| ``LLL:EXT:my_ext/Resources/Private/Language/locallang_val.xlf:key``  | ``my_ext.val:key``                   |
++----------------------------------------------------------------------+--------------------------------------+
+| ``LLL:EXT:my_ext/Resources/Private/Language/Form/locallang.xlf:key`` | ``my_ext.form.messages:key``         |
++----------------------------------------------------------------------+--------------------------------------+
 
-The domain is formed from the extension key plus an optional resource name. The
-resource name is the language file name without the ``locallang_`` prefix and
-without the ``.xlf`` extension. The plain ``locallang.xlf`` file has no
-resource suffix. The domain is just the extension key.
+The domain syntax follows the pattern :php:`extension_key.resource:label_key`.
+The resource name is derived from the file name:
+
+*   :file:`locallang.xlf` maps to the fixed resource name ``messages``.
+*   :file:`locallang_suffix.xlf` strips the ``locallang_`` prefix, leaving
+    ``suffix`` — so :file:`locallang_db.xlf` becomes ``db``.
+*   Subdirectories below :file:`Resources/Private/Language/` are prepended as
+    dot-separated parts — :file:`Form/locallang.xlf` becomes ``form.messages``.
 
 ..  seealso::
 

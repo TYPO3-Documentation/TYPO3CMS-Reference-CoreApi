@@ -8,8 +8,10 @@
 ActionController: actions, arguments and responses
 ==================================================
 
-A controller handles requests, coordinates repository calls, and returns
-responses. In Extbase every controller extends
+A controller handles the request, coordinates repository and service calls,
+and returns a response. Business logic can live in the controller directly —
+for anything complex or reused, a dedicated service class keeps the controller
+focused. In Extbase every controller extends
 :php:`\TYPO3\CMS\Extbase\Mvc\Controller\ActionController`.
 
 ..  contents:: On this page
@@ -27,7 +29,6 @@ ending in :php:`Action` are actions that can be mapped to plugin actions or
 backend module actions.
 
 ..  literalinclude:: _snippets/_ConferenceController.php
-    :language: php
     :caption: EXT:my_extension/Classes/Controller/ConferenceController.php
 
 Key rules:
@@ -37,13 +38,25 @@ Key rules:
     controllers to customise behaviour.
 *   Inject repositories and services via the constructor using
     :ref:`dependency injection <Dependency-Injection>`. Injected dependencies
-    must be :php:`protected readonly` (not :php:`private readonly`) so that
-    subclasses can access them.
+    must be :php:`protected readonly`, not :php:`private readonly`, so
+    subclasses can access them. In a service class that does not extend anything
+    and carries no mutable state, you can declare the whole class :php:`readonly`
+    instead — but controllers extend :php:`ActionController` and cannot use
+    :php:`readonly class`.
 *   Every action method must return a
     :php:`\Psr\Http\Message\ResponseInterface`.
-*   Use :php:`$this->view->assign()` to pass variables to the Fluid template.
-*   Call :php:`$this->htmlResponse()` to render a Fluid template and wrap it
-    in a :abbr:`PSR-7 (PHP Standards Recommendation 7 — HTTP message interfaces)` response.
+*   **Frontend plugins:** use :php:`$this->view->assign()` to pass variables
+    to the Fluid template and return :php:`$this->htmlResponse()` to render it.
+    Actions can also return JSON, a redirect, or any other
+    :abbr:`PSR-7 (PHP Standards Recommendation 7 — HTTP message interfaces)`
+    response.
+*   **Backend modules:** inject
+    :php-short:`\TYPO3\CMS\Backend\Template\ModuleTemplateFactory`, create a
+    :php-short:`\TYPO3\CMS\Backend\Template\ModuleTemplate` instance per action,
+    assign variables via :php:`$moduleTemplate->assignMultiple()`, and return
+    :php:`$moduleTemplate->renderResponse('ActionName')`. Do not use
+    :php:`$this->view` or :php:`$this->htmlResponse()` in a module controller.
+    See :ref:`extbase-registration-backend-module`.
 
 
 ..  _extbase-controller-action-arguments:
@@ -72,7 +85,15 @@ If, for example, a URL includes :php:`?tx_myextension_pi1[conference]=5`, Extbas
 loads :php:`Conference` with UID 5 from the repository and passes the object
 directly to :php:`showAction()`. A manual repository call is not necessary.
 
-Optional parameters use PHP nullable types or default values:
+The lookup ignores the storagePid restriction but always respects enableFields
+— hidden records, records outside their starttime/endtime window, deleted
+records, and records from other workspaces will not be resolved. If the record
+cannot be found, Extbase calls :php:`errorAction()` instead of the action.
+
+Optional parameters require a default value. A nullable type alone
+(:php:`?Conference $conference`) is not sufficient — without :php:`= null`,
+PHP requires the caller to pass explicitly :php:`null`, which Extbase will not
+do for a missing argument. Always combine the nullable type with a default:
 
 ..  code-block:: php
     :caption: EXT:my_extension/Classes/Controller/ConferenceController.php
@@ -113,8 +134,15 @@ action via :php:`$this->settings`:
     }
 
 :php:`$this->settings` contains the merged result of
-:typoscript:`plugin.tx_myextension.settings.*` and any FlexForm overrides. The
-full resolution order is covered in
+:typoscript:`plugin.tx_myextension.settings.*`,
+:typoscript:`plugin.tx_myextension_myplugin.settings.*`, and any FlexForm
+overrides. It has nothing to do with
+:ref:`site settings <sitehandling-settings>` — those are a separate
+configuration layer defined in :file:`settings.yaml`. Site settings can feed
+into TypoScript constants via the :typoscript:`{$...}` syntax, but that is an
+explicit mapping, not an automatic merge. Only values that flow through
+:typoscript:`plugin.tx_myextension.settings.*` end up in
+:php:`$this->settings`. The full resolution order is covered in
 `Extbase TypoScript configuration <https://docs.typo3.org/permalink/extbase-configuration-typoscript>`_.
 
 
@@ -156,7 +184,7 @@ Redirecting and forwarding from an Extbase action
 
 After a write operation (create, update, delete), redirect the user to avoid
 a double-submit on page reload. All three methods described here return a
-:php:`ResponseInterface`. You **must** :php:`return` them. They do not throw
+:php:`\Psr\Http\Message\ResponseInterface` — you **must** :php:`return` them. They do not throw
 an exception or stop execution on their own.
 
 ..  _extbase-controller-action-redirect-redirect:
@@ -203,8 +231,8 @@ The full signature is:
     return $this->redirect('list', 'Conference', null, [], $targetPageUid);
 
 ..  list-table:: :php:`redirect()` parameters
-   :header-rows: 1
-   :widths: 20 20 60
+    :header-rows: 1
+    :widths: 20 20 60
 
    * - Parameter
      - Default
@@ -311,6 +339,12 @@ preserves the current request's arguments and flash messages so that the forward
 action can re-render the form with submitted values still in place. The
 browser URL does not change.
 
+:php-short:`\TYPO3\CMS\Extbase\Http\ForwardResponse` accepts action name,
+:php:`withControllerName()`, :php:`withExtensionName()`, and
+:php:`withArguments()` — but no explicit page UID. The dispatching always
+continues within the current request context. If you need to send the user to a
+specific page, use :php:`redirect()` instead.
+
 
 ..  _extbase-controller-action-flashmessages:
 
@@ -334,10 +368,11 @@ is rendered in the same response.
     );
     return $this->redirect('list');
 
-The four severity levels are:
+The five severity levels are:
 
-*   :php:`ContextualFeedbackSeverity::OK`
+*   :php:`ContextualFeedbackSeverity::NOTICE`
 *   :php:`ContextualFeedbackSeverity::INFO`
+*   :php:`ContextualFeedbackSeverity::OK`
 *   :php:`ContextualFeedbackSeverity::WARNING`
 *   :php:`ContextualFeedbackSeverity::ERROR`
 
@@ -362,11 +397,11 @@ initializeAction and per-action initialization in Extbase
 for setup that is common to all actions.
 
 For setup that applies to a single action only, define a method named
-:php:`initialize` and then the UpperCamelCase action name. Extbase will call it
-automatically before the corresponding action:
+:php:`initialize` + the capitalized action name + :php:`Action` (for example
+:php:`initializeCreateAction()` before :php:`createAction()`). Extbase calls
+it automatically before the corresponding action:
 
 ..  literalinclude:: _snippets/_ConferenceControllerInitialize.php
-    :language: php
     :caption: EXT:my_extension/Classes/Controller/ConferenceController.php
 
 The per-action initializer is the standard place to configure property
@@ -386,7 +421,6 @@ without having to write boilerplate login checks. It is repeatable so multiple
 attributes can be stacked to combine conditions.
 
 ..  literalinclude:: _snippets/_ConferenceControllerAuthorize.php
-    :language: php
     :caption: EXT:my_extension/Classes/Controller/ConferenceController.php
 
 The three options:
@@ -496,6 +530,7 @@ appears when validation fails:
 ..  code-block:: php
     :caption: EXT:my_extension/Classes/Controller/ConferenceController.php
 
+    #[\Override]
     protected function getErrorFlashMessage(): bool|string
     {
         return match ($this->actionMethodName) {

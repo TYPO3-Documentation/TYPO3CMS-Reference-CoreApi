@@ -182,21 +182,21 @@ write operations that need IRRE-style relation management.
 ..  _extbase-appendix-pitfalls-property-mapping-denied:
 
 Property mapping denied: form fields not saved without a trusted-properties token
-==================================================================================
+=================================================================================
 
 **Symptom:** A domain object argument arrives in an action with all properties
 set to default values even though the form or URL contains data. No error
 or validation failure is shown.
 
-**Why:** By default, Extbase denies all properties in incoming requests that do not have a
-:php:`__trustedProperties` token to prevent
+**Why:** When a request does not carry a `__trustedProperties` token,
+Extbase denies all properties by default to prevent
 `mass assignment <https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/07-Input_Validation_Testing/20-Testing_for_Mass_Assignment>`_
 attacks. A token is generated automatically by :html:`<f:form>` and covers
 the fields rendered in the form exactly. Requests that bypass this — URL
 parameters, custom forms without a token, or JSON payloads — don't carry a token,
 so properties aren't allowed unless a controller explicitly permits it.
 
-**What to do:** If the request will never carry a :php:`__trustedProperties`
+**What to do:** If the request will never carry a `__trustedProperties`
 token, add an :php:`initialize*Action()` method and call
 :php:`allowProperties()` (or :php:`allowAllProperties()`) on the relevant
 argument's property mapping configuration.
@@ -210,7 +210,7 @@ argument's property mapping configuration.
 ..  _extbase-appendix-pitfalls-template-empty:
 
 Template variable renders empty in a Fluid template
-====================================================
+===================================================
 
 **Symptom:** A variable or property path in a Fluid template has no output.
 No error is thrown and there is no exception in the log. The surrounding HTML
@@ -222,17 +222,32 @@ Resolution is attempted in the following order: the public property, :php:`getX(
 accessible, Fluid gives up without raising an error. Common causes:
 
 *   A typo in the property name — :html:`{conference.titel}` instead of
-    :html:`{conference.title}` produces nothing.
-*   A :php:`private` property — Fluid can never access :php:`private`
-    properties, even if a getter exists in that class.
-*   A missing getter — :php:`protected` properties without corresponding
-    :php:`getX()` methods are invisible to Fluid.
+    :html:`{conference.title}` silently produces nothing.
+*   A typo in an array key — for arrays, Fluid resolves :html:`{data.title}`
+    via :php:`$data['title']`. A missing or misspelled key produces nothing,
+    just like a missing property on an object.
+*   A :php:`private` property without a public getter — Fluid cannot read a
+    :php:`private` property directly. Add a public :php:`getX()` method and
+    Fluid will find it regardless of property visibility.
+*   A missing getter — a :php:`protected` property without a corresponding
+    :php:`getX()` method is invisible to Fluid.
 *   The variable was not assigned in the controller — :php:`assign()` was not
     called, or was called under a different name.
+*   The variable was not passed to a partial — variables assigned in the
+    controller are available in the template, but partials only receive what is
+    explicitly passed via :html:`<f:render partial="..." arguments="{conference: conference}" />`.
+    Pass each variable by name, or use :html:`arguments="{_all}"` to forward
+    everything the template has. :html:`{_all}` is convenient and mostly fine —
+    partials tend to grow and need more input over time — but be aware it makes
+    the partial's dependencies implicit.
+*   A missing TCA column definition — Extbase only hydrates properties that
+    have a corresponding column in :php:`$GLOBALS['TCA']`. A model property
+    with no TCA column is silently skipped during loading and stays at its
+    default value.
 
 **What to do:** Check the exact property name and visibility. Add a
-:php:`getX()` method if one is missing. Verify that
-:php:`$this->view->assign('name', $value)` is called in the controller with the
+public :php:`getX()` method if one is missing. In the controller, verify that
+:php:`$this->view->assign('conference', $conference)` is called with the
 correct variable name. In the template itself, use
 `f:debug <https://docs.typo3.org/permalink/t3viewhelper:typo3-fluid-debug>`_
 to dump the value at the point of use:
@@ -273,6 +288,17 @@ nothing appears on the page.
     context is currently active, open :guilabel:`System > Environment > Environment
     overview` in the TYPO3 backend.
 
+*   **Output is prepended to the page, not rendered in place:** By default
+    :html:`f:debug` prepends its output to the top of the DOM rather than
+    rendering at the point of use. This means the dump is easy to miss if you
+    are looking at a specific section of the page, and it is invisible in JSON
+    views or when JavaScript consumes the output. Use :html:`inline="1"` to
+    render the dump exactly where the tag appears:
+
+    ..  code-block:: html
+
+        <f:debug inline="1">{conference}</f:debug>
+
 ..  seealso::
 
     `How Fluid accesses object properties <https://docs.typo3.org/permalink/extbase-view-property-access>`_
@@ -283,7 +309,7 @@ nothing appears on the page.
 ..  _extbase-appendix-pitfalls-template-not-found:
 
 Template file not found, or wrong template rendered
-====================================================
+===================================================
 
 **Symptom:** Extbase throws a "Could not find template file" exception, or
 renders a template from a different path than expected — for example, a
@@ -303,10 +329,10 @@ searched from the highest key downward. Several things can go wrong:
     controller class name without the :php:`Controller` suffix —
     :php:`ConferenceController` requires :file:`Conference/`, not
     :file:`Conferences/` or :file:`conference/`.
-*   **Extension load order:** when overriding templates from another extension,
-    the overriding extension must be loaded after the original so that its TypoScript
-    is applied last. A missing :file:`composer.json` dependency can cause the
-    override to arrive before the original, making the lower key win.
+*   **Path array key too low:** the overriding path is registered at a key
+    lower than the original (for example :typoscript:`5` vs :typoscript:`10`),
+    so the original wins. The numeric key is the only thing that determines
+    precedence — use a key higher than whatever the original extension uses.
 
 **What to do:** Use the Active TypoScript module in the TYPO3 backend to
 inspect the computed :typoscript:`plugin.tx_<extensionkey>.view` paths and

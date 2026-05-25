@@ -71,7 +71,7 @@ exactly which layer to look at.
 ..  _extbase-concepts-mvc-request-flow:
 
 How a request flows through Extbase
-=====================================
+===================================
 
 When TYPO3 renders a page containing an Extbase plugin, the following sequence
 happens:
@@ -137,7 +137,7 @@ happens:
 ..  _extbase-concepts-mvc-typo3-difference:
 
 How Extbase MVC differs from other frameworks
-==============================================
+=============================================
 
 Developers coming from Symfony or Laravel may expect the framework to dispatch
 the entire URL to a controller. Extbase does not work this way.
@@ -168,7 +168,7 @@ page, then Extbase dispatches within that boundary.
 ..  _extbase-concepts-mvc-actions:
 
 Controller actions in Extbase
-==============================
+=============================
 
 Each public method in a controller whose name ends in :php:`Action` is a
 potential action. The action name in the URL is the method name without the
@@ -209,7 +209,7 @@ running with invalid data.
 ..  _extbase-concepts-mvc-responses:
 
 Extbase action responses
-=========================
+========================
 
 Actions must return a :php:`\Psr\Http\Message\ResponseInterface`. The two most
 common helpers on :php:`\TYPO3\CMS\Extbase\Mvc\Controller\ActionController` are:

@@ -52,7 +52,7 @@ manage them, that work belongs in a backend module rather than in a frontend for
 ..  _extbase-when-not-to-use:
 
 When Extbase is not the right fit
-==================================
+=================================
 
 Extbase is not a universal solution. If there is no structured domain to model
 — a site package, a collection of content elements, a utility extension — it

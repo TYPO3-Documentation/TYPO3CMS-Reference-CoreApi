@@ -185,7 +185,6 @@ Custom query methods in Extbase repositories
 Use :php:`createQuery()` when the built-in find methods are not enough:
 
 ..  literalinclude:: _snippets/_ConferenceRepository.php
-    :language: php
     :caption: EXT:my_extension/Classes/Domain/Repository/ConferenceRepository.php
 
 The :php:`query <\TYPO3\CMS\Extbase\Persistence\QueryInterface>` API supports these constraint methods:
@@ -337,7 +336,7 @@ TYPO3's :abbr:`DI (Dependency Injection)` container resolves the repository auto
 ..  _extbase-domain-repository-dbal:
 
 When to drop out of the ORM (Object Relational Mapping)
-========================================================
+=======================================================
 
 The Extbase query API covers most common patterns. Use raw
 :abbr:`DBAL (Database Abstraction Layer)` — TYPO3's database layer built on top

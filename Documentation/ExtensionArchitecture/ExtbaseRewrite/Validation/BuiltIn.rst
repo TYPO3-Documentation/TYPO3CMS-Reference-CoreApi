@@ -460,7 +460,7 @@ given validator, check its :php:`$supportedOptions` array in the source at
     :caption: Custom message via translation key
 
     #[Validate('NotEmpty', options: [
-        'nullMessage' => 'my_extension:error.title.required',
+        'nullMessage' => 'my_extension.messages:error.title.required',
     ])]
     protected string $title = '';
 

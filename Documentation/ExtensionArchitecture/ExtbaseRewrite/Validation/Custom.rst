@@ -36,7 +36,6 @@ Place validators in :file:`Classes/Validation/Validator/` inside your
 extension, following the naming convention :php:`<Subject>Validator`:
 
 ..  literalinclude:: _snippets/_ConferenceDateValidator.php
-    :language: php
     :caption: EXT:my_extension/Classes/Validation/Validator/ConferenceDateValidator.php
 
 Key points:
@@ -51,7 +50,7 @@ Key points:
 *   Use a `Unix timestamp <https://www.php.net/manual/en/function.time.php>`_
     as the error code. It must be unique across your extension.
 *   Translation keys use the domain syntax introduced in TYPO3 v14:
-    ``my_extension:some.key`` resolves to
+    ``my_extension.messages:some.key`` resolves to
     :file:`EXT:my_extension/Resources/Private/Language/locallang.xlf`. See
     :ref:`extbase-upgrading-translation-domain-syntax` for the full syntax
     including non-default language files.
@@ -91,7 +90,6 @@ an array with values ``[default, description, type]``. Access resolved values us
 :php:`$this->options`:
 
 ..  literalinclude:: _snippets/_SeatCountValidator.php
-    :language: php
     :caption: EXT:my_extension/Classes/Validation/Validator/SeatCountValidator.php
 
 The error message in :file:`locallang.xlf` uses a ``%s`` placeholder:
@@ -151,7 +149,7 @@ then replace the message at the call site:
 
     #[Validate(SeatCountValidator::class, options: [
         'minimum' => 1,
-        'message' => 'my_extension:validator.conference.notEnoughSeats.short',
+        'message' => 'my_extension.messages:validator.conference.notEnoughSeats.short',
     ])]
 
 

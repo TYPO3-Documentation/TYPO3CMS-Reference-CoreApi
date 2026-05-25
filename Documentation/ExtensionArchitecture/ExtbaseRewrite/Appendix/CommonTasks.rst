@@ -37,6 +37,25 @@ that tells Extbase to use your subclass instead of the original, and your
 subclass extending the third-party model with the new property and
 getter/setter. No changes to the original extension required.
 
+**Extension load order matters here.** The class mapping in
+:file:`Configuration/Extbase/Persistence/Classes.php` and any DI alias
+(used by tools like :composer:`friendsoftypo3/extension-builder` or
+:composer:`evoweb/extender`) must be processed after the original extension
+registers its own mapping. Declare the third-party extension as a dependency
+in your :file:`composer.json` to guarantee this:
+
+..  code-block:: json
+    :caption: EXT:my_extension/composer.json
+
+    {
+        "require": {
+            "georgringer/news": "^11.0"
+        }
+    }
+
+Without this, the load order is undefined and your class mapping may be
+silently overwritten by the original.
+
 ..  seealso::
 
     `Table and field mapping <https://docs.typo3.org/permalink/extbase-domain-model-mapping>`_ for the

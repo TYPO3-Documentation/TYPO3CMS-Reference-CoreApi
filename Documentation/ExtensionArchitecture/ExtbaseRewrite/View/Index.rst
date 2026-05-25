@@ -225,21 +225,11 @@ Place your overriding template in the same relative path as in the original.
 :file:`Conference/List.fluid.html` overrides :file:`Conference/List.fluid.html`
 in the third-party extension.
 
-**Extension loading order:** for the path override to work, your extension must
-be loaded after the third-party extension so that its TypoScript is applied last.
-Declare the dependency in your :file:`composer.json`:
-
-..  code-block:: json
-    :caption: EXT:my_sitepackage/composer.json
-
-    {
-        "require": {
-            "vendor/thirdpartyextension": "^3.0"
-        }
-    }
-
-This ensures Composer resolves your extension after the dependency. See
-:ref:`extension-loading-order` for the full details.
+**Key value is the only thing that matters:** TypoScript path arrays are
+assembled from all active extensions and resolved by numeric key — the higher
+key wins. Load order between extensions does not affect this. Declare the
+third-party extension as a dependency in :file:`composer.json` to ensure it is
+installed, but not because load order influences template resolution:
 
 ..  seealso::
 
@@ -295,12 +285,13 @@ Commonly used ViewHelpers (with links to their full reference) are:
 *   `f:flashMessages <https://docs.typo3.org/permalink/t3viewhelper:typo3-fluid-flashmessages>`_
     — render flash messages added by the controller.
 *   `f:form <https://docs.typo3.org/permalink/t3viewhelper:typo3-fluid-form>`_
-    — build forms with automatic :php:`__trustedProperties` token generation.
+    — build forms with automatic ``__trustedProperties`` token generation.
 *   `f:translate <https://docs.typo3.org/permalink/t3viewhelper:typo3-fluid-translate>`_
     — render localised labels from :file:`locallang.xlf`.
 *   `f:debug <https://docs.typo3.org/permalink/t3viewhelper:typo3-fluid-debug>`_
-    — dump a variable's type and value during development. Remove before
-    deploying to production.
+    — dump a variable's type and value during development; remove before
+    deploying to production. By default output is prepended to the page top;
+    use :html:`inline="1"` to render it in place.
 
 For the complete reference of all built-in ViewHelpers, see the
 `ViewHelper reference <https://docs.typo3.org/permalink/t3viewhelper:start>`_.
