@@ -30,7 +30,7 @@ injecting the factory.
 .. _rate-limiting-typo3-conf-vars:
 
 Overriding the `rateLimiter` via the TYPO3_CONF_VARS
-=============================
+====================================================
 
 ..  seealso::
     :confval:`$GLOBALS['TYPO3_CONF_VARS']['SYS']['rateLimiter'] <globals-typo3-conf-vars-sys-rateLimiter>`
