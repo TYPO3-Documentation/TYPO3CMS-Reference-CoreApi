@@ -46,13 +46,12 @@ your extension to the `TYPO3 Extension Repository <https://extensions.typo3.org>
 ..  _extbase-quickstart-model:
 
 Step 2: Create the domain model
-================================
+===============================
 
 Add a class extending :php:`\TYPO3\CMS\Extbase\DomainObject\AbstractEntity` to
 :file:`Classes/Domain/Model/`. Properties map to database columns by name.
 
 ..  literalinclude:: _snippets/_Conference.php
-    :language: php
     :caption: EXT:my_extension/Classes/Domain/Model/Conference.php
 
 Key points:
@@ -75,7 +74,7 @@ Key points:
 ..  _extbase-quickstart-repository:
 
 Step 3: Create the repository
-==============================
+=============================
 
 For a basic repository, extending
 :php:`\TYPO3\CMS\Extbase\Persistence\Repository` is all you need.
@@ -84,7 +83,6 @@ repository named :php:`ConferenceRepository` in the :php:`Domain\Repository`
 namespace.
 
 ..  literalinclude:: _snippets/_ConferenceRepository.php
-    :language: php
     :caption: EXT:my_extension/Classes/Domain/Repository/ConferenceRepository.php
 
 The base class provides :php:`findAll()`, :php:`findByUid()`,
@@ -99,7 +97,7 @@ box.
 ..  _extbase-quickstart-tca:
 
 Step 4: Define the database table (TCA)
-========================================
+=======================================
 
 Create :file:`Configuration/TCA/tx_myextension_domain_model_conference.php` with the
 column definitions matching your model properties.
@@ -129,7 +127,7 @@ The TCA column names must match the property names of your model
 ..  _extbase-quickstart-controller:
 
 Step 5: Create the controller
-==============================
+=============================
 
 Controllers live in :file:`Classes/Controller/` and extend
 :php:`\TYPO3\CMS\Extbase\Mvc\Controller\ActionController`. Each public method
@@ -137,7 +135,6 @@ ending in :php:`Action` is automatically available as a plugin action.
 Use :ref:`dependency injection <Dependency-Injection>` to receive dependencies via the constructor. In Extbase, repositories and other services are injected this way — see also :ref:`extbase-domain-repository-di`.
 
 ..  literalinclude:: _snippets/_ConferenceController.php
-    :language: php
     :caption: EXT:my_extension/Classes/Controller/ConferenceController.php
 
 *   Assign variables to the view with :php:`$this->view->assign()`.
@@ -154,7 +151,7 @@ Use :ref:`dependency injection <Dependency-Injection>` to receive dependencies v
 ..  _extbase-quickstart-templates:
 
 Step 6: Add Fluid templates
-============================
+===========================
 
 Create the template files Extbase expects by convention:
 
@@ -202,7 +199,7 @@ directly in the template.
 ..  _extbase-quickstart-plugin:
 
 Step 7: Register the plugin
-============================
+===========================
 
 Two calls are required — one in :file:`ext_localconf.php`, one in
 :file:`Configuration/TCA/Overrides/tt_content.php`.
@@ -213,14 +210,12 @@ Since TYPO3 v14, plugins are registered as dedicated content types (:sql:`CType`
 may call:
 
 ..  literalinclude:: _snippets/_ext_localconf.php
-    :language: php
     :caption: EXT:my_extension/ext_localconf.php
 
 :file:`Configuration/TCA/Overrides/tt_content.php` registers the plugin as a
 content element in the backend:
 
 ..  literalinclude:: _snippets/_tt_content.php
-    :language: php
     :caption: EXT:my_extension/Configuration/TCA/Overrides/tt_content.php
 
 ..  seealso::
@@ -231,7 +226,7 @@ content element in the backend:
 ..  _extbase-quickstart-routing:
 
 Step 8: Configure routing (optional but recommended)
-======================================================
+====================================================
 
 Without a route enhancer, URLs contain the raw plugin namespace parameters
 (for example: :samp:`?tx_myextension_conferencelist[action]=show&tx_myextension_conferencelist[conference]=5`).
@@ -239,7 +234,6 @@ Add an Extbase route enhancer to your site configuration to get
 clean URLs like :samp:`/conferences/my-conference`.
 
 ..  literalinclude:: _snippets/_routing.yaml
-    :language: yaml
     :caption: config/sites/my-site/config.yaml (excerpt)
 
 ..  seealso::
@@ -251,7 +245,7 @@ clean URLs like :samp:`/conferences/my-conference`.
 ..  _extbase-quickstart-install:
 
 Step 9: Install and try it
-===========================
+==========================
 
 Install your extension if it is not already active. In a Composer-based project,
 require it first:

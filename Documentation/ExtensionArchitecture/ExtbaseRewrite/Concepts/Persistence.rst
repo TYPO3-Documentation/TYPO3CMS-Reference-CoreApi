@@ -81,7 +81,7 @@ repository.
 ..  _extbase-concepts-persistence-mapping:
 
 How models map to the database
-================================
+==============================
 
 Extbase derives the database table name from the model class name by convention:
 
@@ -106,7 +106,7 @@ when mapping to an existing table with its own naming — you can override them 
 ..  _extbase-concepts-persistence-repository:
 
 The repository as the only door to the database
-================================================
+===============================================
 
 Controllers should not query the database directly, but refer everything related
 to persistence to a repository. This is a deliberate constraint: it keeps persistence
@@ -123,7 +123,7 @@ any additional code. Custom queries are added as methods on the repository.
 ..  _extbase-concepts-persistence-storagepid:
 
 The storagePid: where Extbase looks for records
-================================================
+===============================================
 
 This is the single most common source of confusion in Extbase: a repository
 returns no results even though the records exist in the database.
