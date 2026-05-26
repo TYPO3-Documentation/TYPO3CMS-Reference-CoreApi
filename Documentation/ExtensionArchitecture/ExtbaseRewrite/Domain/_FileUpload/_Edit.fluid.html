@@ -1,0 +1,33 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+      data-namespace-typo3-fluid="true">
+
+<f:layout name="Default" />
+
+<f:section name="main">
+    <f:form action="update" name="conference" object="{conference}" enctype="multipart/form-data">
+        <div>
+            <label>Logo</label>
+            <f:if condition="{conference.logo}">
+                <f:form.uploadDeleteCheckbox id="deleteLogo"
+                                             property="logo"
+                                             fileReference="{conference.logo}" />
+                <label for="deleteLogo">Delete logo</label>
+            </f:if>
+            <f:form.upload property="logo" />
+        </div>
+
+        <div>
+            <label>Impressions</label>
+            <f:for each="{conference.impressions}" as="impression" iteration="i">
+                <f:form.uploadDeleteCheckbox property="impressions.{i.index}"
+                                             fileReference="{impression}" />
+                <label>Delete impression</label>
+            </f:for>
+            <f:form.upload property="impressions" multiple="1" />
+        </div>
+
+        <f:form.submit value="Save" />
+    </f:form>
+</f:section>
+
+</html>

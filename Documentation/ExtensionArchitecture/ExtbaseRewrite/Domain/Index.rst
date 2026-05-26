@@ -42,9 +42,16 @@ Their usage is covered in the :ref:`model page <extbase-domain-model-value-objec
         methods, default ordering and custom queries.
         StoragePid configuration gets special attention.
 
+    ..  card:: :ref:`File uploads <extbase-domain-fileupload>`
+
+        Reading :abbr:`FAL (File Abstraction Layer)` file references from a
+        domain model, handling uploads with :php:`#[FileUpload]`, validation and
+        deletion.
+
 ..  toctree::
     :titlesonly:
     :hidden:
 
     Model
     Repository
+    FileUpload

@@ -124,6 +124,56 @@ Attribute array syntax deprecated (TYPO3 v14, removed in v15)
     `MigratePassingAnArrayOfConfigurationValuesToExtbaseAttributesRector <https://github.com/sabbelasichon/typo3-rector/blob/main/docs/all_rectors_overview.md#migratepassinganarrayofconfigurationvaluestoextbaseattributesrector>`_
 
 
+..  _extbase-upgrading-fileupload-named-arguments:
+
+:php:`#[FileUpload]` array syntax replaced by named arguments (TYPO3 v14)
+=========================================================================
+
+..  versionchanged:: 14.0
+
+    The array-based configuration syntax for :php:`#[FileUpload]` is deprecated
+    and will be removed in TYPO3 v15. Replace the array with named arguments.
+
+In TYPO3 v13, :php:`#[FileUpload]` accepted a single configuration array. In
+v14 the attribute requires named arguments instead:
+
+..  code-block:: diff
+    :caption: EXT:my_extension/Classes/Domain/Model/Conference.php
+
+    -#[FileUpload([
+    -    'validation' => [
+    -        'required' => true,
+    -        'maxFiles' => 1,
+    -        'fileSize' => ['minimum' => '10K', 'maximum' => '2M'],
+    -        'mimeType' => ['allowedMimeTypes' => ['image/jpeg', 'image/png']],
+    -        'fileExtension' => ['allowedFileExtensions' => ['jpg', 'jpeg', 'png']],
+    -    ],
+    -    'uploadFolder' => '1:/user_upload/conference_logos/',
+    -])]
+    +#[FileUpload(
+    +    validation: [
+    +        'required' => true,
+    +        'maxFiles' => 1,
+    +        'fileSize' => ['minimum' => '10K', 'maximum' => '2M'],
+    +        'mimeType' => ['allowedMimeTypes' => ['image/jpeg', 'image/png']],
+    +        'fileExtension' => ['allowedFileExtensions' => ['jpg', 'jpeg', 'png']],
+    +    ],
+    +    uploadFolder: '1:/user_upload/conference_logos/',
+    +)]
+     protected ?FileReference $logo = null;
+
+..  important::
+
+    There is **no syntax that is compatible with both TYPO3 v13 and v14**.
+    Extensions that support both versions in the same release must keep the
+    array-based syntax and accept the deprecation warning in v14.
+
+..  seealso::
+
+    *   :ref:`extbase-domain-fileupload` — full reference for the :php:`#[FileUpload]`
+        attribute and its named arguments.
+
+
 ..  _extbase-upgrading-ignorevalidation-parameter:
 
 :php:`#[Validate]` and :php:`#[IgnoreValidation]` moved to parameter level (TYPO3 v14, removed in v15)

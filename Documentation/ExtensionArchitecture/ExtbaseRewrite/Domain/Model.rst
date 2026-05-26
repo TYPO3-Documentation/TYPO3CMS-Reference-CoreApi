@@ -246,6 +246,38 @@ A few things to note in the example above:
     with parameters and usage examples
 
 
+..  _extbase-domain-model-filereference:
+
+File reference properties
+=========================
+
+A model property that maps to a
+:abbr:`FAL (File Abstraction Layer)` file uses
+:php-short:`\TYPO3\CMS\Extbase\Domain\Model\FileReference` — Extbase's own
+thin wrapper around the :sql:`sys_file_reference` table. A single file becomes
+a nullable property; a collection uses
+:php-short:`\TYPO3\CMS\Extbase\Persistence\ObjectStorage`:
+
+..  literalinclude:: _FileUpload/_Conference.php
+    :caption: EXT:my_extension/Classes/Domain/Model/Conference.php
+
+The corresponding TCA column must be of :ref:`type=file <t3tca:columns-file>`.
+
+In a Fluid template, pass the
+:php-short:`\TYPO3\CMS\Extbase\Domain\Model\FileReference` object directly to
+:ref:`f:image <t3viewhelper:typo3-fluid-image>`. This honours any crop
+configuration or additional properties set in the TYPO3 backend for that file reference:
+
+..  literalinclude:: _FileUpload/_Show.fluid.html
+    :caption: EXT:my_extension/Resources/Private/Templates/Conference/Show.fluid.html
+
+..  seealso::
+
+    :ref:`extbase-domain-fileupload` — handling file uploads submitted through a
+    frontend form, including the :php:`#[FileUpload]` attribute, validation,
+    and deletion.
+
+
 ..  _extbase-domain-model-enums:
 
 Enum properties in Extbase domain models
