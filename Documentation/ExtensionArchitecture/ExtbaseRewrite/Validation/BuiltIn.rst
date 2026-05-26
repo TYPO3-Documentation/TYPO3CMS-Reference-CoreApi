@@ -192,6 +192,21 @@ Class: :php:`\TYPO3\CMS\Extbase\Validation\Validator\RegularExpressionValidator`
     #[Validate('RegularExpression', options: ['regularExpression' => '/^[a-z0-9\-]+$/'])]
     protected string $slug = '';
 
+..  tip::
+
+    The default error message for ``RegularExpression`` is the generic "The
+    given subject did not match the pattern". Consider overriding it with a
+    ``message`` option that tells the visitor what the field actually expects:
+
+    ..  code-block:: php
+        :caption: RegularExpression with a descriptive error message
+
+        #[Validate('RegularExpression', options: [
+            'regularExpression' => '/^[a-z0-9\-]+$/',
+            'message' => 'my_extension.messages:error.slug.invalidCharacters',
+        ])]
+        protected string $slug = '';
+
 
 ..  _extbase-validation-builtin-emailaddress:
 
@@ -420,13 +435,21 @@ Class: :php:`\TYPO3\CMS\Extbase\Validation\Validator\FileExtensionMimeTypeConsis
 
 No configurable options.
 
+..  important::
+
+    This validator is enforced automatically for every ``#[FileUpload]``
+    parameter. You do not need to declare it — and declaring it manually has
+    no effect since Extbase only adds it once.
+
 
 ..  _extbase-validation-builtin-filename:
 
 FileName
 --------
 
-Checks that the uploaded file's name matches a given regular expression.
+Rejects uploaded files whose name matches dangerous executable extensions
+(such as ``.php``, ``.phar``, ``.exe``). The default pattern is derived from
+TYPO3's ``fileDenyPattern`` configuration.
 
 Class: :php:`\TYPO3\CMS\Extbase\Validation\Validator\FileNameValidator`
 
@@ -438,6 +461,14 @@ Class: :php:`\TYPO3\CMS\Extbase\Validation\Validator\FileNameValidator`
      - Description
    * - ``regularExpression``
      - A PCRE pattern the file name must match.
+
+..  important::
+
+    ``FileName`` is enforced automatically for every ``#[FileUpload]``
+    parameter — you do not need to declare it manually. If you want to
+    restrict uploads to specific extensions, use
+    :ref:`extbase-validation-builtin-fileextension` (``FileExtension``)
+    instead, which is designed for that purpose.
 
 
 ..  _extbase-validation-builtin-custom-messages:

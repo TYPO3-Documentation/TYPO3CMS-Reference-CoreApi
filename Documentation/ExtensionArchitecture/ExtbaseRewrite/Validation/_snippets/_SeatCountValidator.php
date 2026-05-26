@@ -1,3 +1,5 @@
+<?php
+
 namespace MyVendor\MyExtension\Validation\Validator;
 
 use TYPO3\CMS\Extbase\Validation\Validator\AbstractValidator;

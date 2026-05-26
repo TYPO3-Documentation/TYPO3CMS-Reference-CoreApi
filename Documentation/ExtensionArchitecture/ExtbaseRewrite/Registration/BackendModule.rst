@@ -43,7 +43,7 @@ the module configuration:
             'access' => 'user',
             'path' => '/module/web/my-extension-conferences',
             'iconIdentifier' => 'my-extension-conference-module',
-            'labels' => 'my_extension.module_conferences',
+            'labels' => 'my_extension.modules.conferences',
             'extensionName' => 'MyExtension',
             'controllerActions' => [
                 ConferenceController::class => [
@@ -102,12 +102,14 @@ translation domain string. Using the
 
 ..  code-block:: php
 
-    'labels' => 'my_extension.module_conferences',
+    'labels' => 'my_extension.modules.conferences',
 
 This resolves to
-:file:`EXT:my_extension/Resources/Private/Language/locallang_module_conferences.xlf`.
-The file must define the keys ``title``, ``description``, and
-``shortDescription`` for the module to display correctly in the backend.
+:file:`EXT:my_extension/Resources/Private/Language/Modules/conferences.xlf`.
+The middle segment (``modules``) becomes a subdirectory under
+:file:`Resources/Private/Language/`; the last segment (``conferences``)
+becomes the filename. The file should define the key ``title`` and optionally
+``description`` and ``shortDescription``.
 
 The legacy ``LLL:EXT:`` syntax is equally valid and remains fully supported.
 
@@ -119,14 +121,18 @@ Rendering in the module controller
 
 Extbase backend module controllers extend
 :php-short:`\TYPO3\CMS\Extbase\Mvc\Controller\ActionController`, just like
-frontend controllers. They use the same :php:`$this->view->assign()` pattern and
-Fluid templates. The main difference is that they wrap the rendered
-output in a backend frame using
-:php-short:`\TYPO3\CMS\Backend\Template\ModuleTemplateFactory`:
+frontend controllers. The key difference is that instead of :php:`$this->view`,
+the controller uses a
+:php-short:`\TYPO3\CMS\Backend\Template\ModuleTemplate` object obtained from
+:php-short:`\TYPO3\CMS\Backend\Template\ModuleTemplateFactory`. The
+:php-short:`\TYPO3\CMS\Backend\Template\ModuleTemplate` provides
+:php:`assign()` and :php:`renderResponse()` methods and wraps the rendered
+output in the backend page frame:
 
 ..  code-block:: php
     :caption: EXT:my_extension/Classes/Controller/ConferenceController.php
 
+    use MyVendor\MyExtension\Domain\Repository\ConferenceRepository;
     use Psr\Http\Message\ResponseInterface;
     use TYPO3\CMS\Backend\Template\ModuleTemplateFactory;
     use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
@@ -135,21 +141,60 @@ output in a backend frame using
     {
         public function __construct(
             protected readonly ModuleTemplateFactory $moduleTemplateFactory,
+            protected readonly ConferenceRepository $conferenceRepository,
         ) {}
 
         public function indexAction(): ResponseInterface
         {
             $moduleTemplate = $this->moduleTemplateFactory->create($this->request);
-            $this->view->assign('conferences', $this->conferenceRepository->findAll());
-            $moduleTemplate->setContent($this->view->render());
-            return $this->htmlResponse($moduleTemplate->renderResponse());
+            $moduleTemplate->assign('conferences', $this->conferenceRepository->findAll());
+            return $moduleTemplate->renderResponse('Conference/Index');
         }
     }
 
+Do not use :php:`$this->view` in a backend module controller. The
+:php:`$this->view` object operates in a frontend context — it lacks the backend
+link generation, flash message queue, and header components that
+:php-short:`\TYPO3\CMS\Backend\Template\ModuleTemplate` provides.
+
 :php-short:`\TYPO3\CMS\Backend\Template\ModuleTemplateFactory` provides the
 backend page frame, toolbar buttons, flash message area, and navigation
-components. See :ref:`ModuleTemplateFactory` for the full
-:abbr:`API (Application Programming Interface)`.
+components — but only when the Fluid template uses the backend Module Layout.
+Without it, :php:`renderResponse()` returns plain rendered HTML with no backend
+chrome. Using the Module Layout is strongly recommended for any module that
+should look like a native TYPO3 backend page. See :ref:`ModuleTemplateFactory`
+for the full :abbr:`API (Application Programming Interface)`.
+
+
+..  _extbase-registration-backend-module-configuration-assembly:
+
+How the module configuration is assembled
+=========================================
+
+When an Extbase backend module handles a request, the framework assembles a
+single configuration array from two layers, each able to override the previous:
+
+1.  :typoscript:`module.tx_myextension` — extension-wide defaults, applied to
+    every module of this extension.
+2.  :typoscript:`module.tx_myextension_mymodule` — module-specific values,
+    override the extension-wide layer.
+
+There is no FlexForm layer — backend modules are not content elements and have
+no :typoscript:`pi_flexform` record.
+
+The resulting array has three top-level keys that Extbase uses directly:
+
+*   :typoscript:`settings` — arbitrary key/value pairs available as
+    :php:`$this->settings` in the controller.
+    :php-short:`\TYPO3\CMS\Backend\Template\ModuleTemplate` does not
+    auto-assign :html:`{settings}` to the template — pass it explicitly with
+    :php:`$moduleTemplate->assign('settings', $this->settings)` when needed.
+*   :typoscript:`persistence` — controls record loading; the most relevant
+    sub-key is :typoscript:`storagePid`, which limits which page(s) the
+    repository queries.
+*   :typoscript:`view` — overrides template file resolution via
+    :typoscript:`templateRootPaths`, :typoscript:`layoutRootPaths`, and
+    :typoscript:`partialRootPaths`.
 
 ..  seealso::
 

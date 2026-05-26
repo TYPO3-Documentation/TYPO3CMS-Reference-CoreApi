@@ -14,6 +14,46 @@ start date" or "registration is only open while seats remain" — write a
 custom validator class and attach it with :php:`#[Validate]` just like any
 built-in validator.
 
+**Model property vs. action parameter** — where you place the validator
+determines what it can see and when it runs.
+
+A validator on a *model property* receives only that property's value. It
+runs on every action that takes the model as an argument. Use it for
+self-contained rules that must always hold: ``$title`` must not be empty,
+``$contactEmail`` must be a valid address.
+
+A validator on an *action parameter* receives the whole object and runs only
+for that specific action. This makes it the right choice for two distinct
+situations: rules that only apply in a particular context (a seat count check
+that matters for ``registerAction()`` but not for ``showAction()``), and
+rules that span multiple properties. For example: if a conference starts more
+than four weeks from now, a speaker assignment is optional — but if it starts
+sooner, a speaker is required. That rule cannot be expressed on any single
+property; it needs both ``$startDate`` and ``$speaker`` at the same time:
+
+..  code-block:: php
+    :caption: EXT:my_extension/Classes/Validation/Validator/ConferenceSpeakerValidator.php
+
+    use TYPO3\CMS\Extbase\Validation\Validator\AbstractValidator;
+
+    class ConferenceSpeakerValidator extends AbstractValidator
+    {
+        protected function isValid(mixed $value): void
+        {
+            $weeksUntilStart = (int)(($value->getStartDate()->getTimestamp() - time()) / 604800);
+            if ($weeksUntilStart < 4 && $value->getSpeaker() === null) {
+                $this->addErrorForProperty(
+                    'speaker',
+                    $this->translateErrorMessage('my_extension.messages:validator.conference.speakerRequired'),
+                    1716300100,
+                );
+            }
+        }
+    }
+
+Both approaches can be combined on the same type — property validators run
+first, and action-parameter validators run afterwards.
+
 ..  contents:: On this page
     :local:
     :depth: 1
@@ -47,8 +87,9 @@ Key points:
     :php:`false` only if a validator should explicitly reject empty values
     (as :php-short:`\TYPO3\CMS\Extbase\Validation\Validator\NotEmptyValidator`
     does).
-*   Use a `Unix timestamp <https://www.php.net/manual/en/function.time.php>`_
-    as the error code. It must be unique across your extension.
+*   The error code is an arbitrary integer that must be unique across your
+    extension. Using the Unix timestamp at the time of writing is a convenient
+    way to generate a unique number.
 *   Translation keys use the domain syntax introduced in TYPO3 v14:
     ``my_extension.messages:some.key`` resolves to
     :file:`EXT:my_extension/Resources/Private/Language/locallang.xlf`. See
@@ -62,9 +103,9 @@ Reporting errors on a specific property
 =======================================
 
 :php:`$this->addErrorForProperty()` attaches the error to a named property of
-the validated object rather than to the object itself. Fluid's
-``f:form.validationResults`` view helper can then display the message adjacent
-to the right form field:
+the validated object rather than to the object itself. The
+:ref:`t3viewhelper:typo3-fluid-form-validationresults` view helper can then
+display the message adjacent to the right form field:
 
 ..  code-block:: html
     :caption: EXT:my_extension/Resources/Private/Templates/Conference/New.fluid.html
@@ -112,7 +153,7 @@ access:
 
     $this->addError(
         $this->translateErrorMessage($this->message, '', [$minimum]),
-        1716300001,
+        1716300001, // An arbitrary unique number, for example the timestamp when writing the code
         [$minimum],
     );
 

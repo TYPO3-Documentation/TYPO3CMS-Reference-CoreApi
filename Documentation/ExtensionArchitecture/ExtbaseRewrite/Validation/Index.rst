@@ -10,8 +10,12 @@ Validation in Extbase
 
 Extbase validates incoming request arguments automatically before your action
 method is called. If validation fails, the framework calls
-:php:`errorAction()` instead of the intended action, so malformed input never
-reaches your domain logic.
+:php:`errorAction()` instead of the intended action. Use
+:php:`#[IgnoreValidation]` on a parameter to let an action receive an object
+even if it is invalid — for example to redisplay a form with its errors.
+
+Validators can be Extbase built-ins, custom classes, or — since TYPO3 v14 —
+`Symfony constraints <https://docs.typo3.org/permalink/changelog:feature-106945-1750757664>`_.
 
 ..  contents:: On this page
     :local:
@@ -25,11 +29,14 @@ Where validation fits into the Extbase request lifecycle
 
 The sequence for every request that carries arguments is:
 
-1.  **Property mapping** — raw strings from the request are converted to typed
-    PHP objects (see :ref:`extbase-property-mapping`).
+1.  **Property mapping** — everything arriving from the request is a string or
+    an array of strings. Property mapping converts these into typed PHP values
+    and objects (see :ref:`extbase-property-mapping`).
 2.  **Validation** — the mapped values are checked against any
-    :php:`#[Validate]` attributes declared on the action parameter or on
-    the domain model property.
+    :php:`#[Validate]` attributes declared on the action parameter, on the
+    domain model property, or both. Property validators run first; action
+    parameter validators run afterwards. Either alone is sufficient — both
+    can be combined on the same type.
 3.  **Action dispatch** — if validation passes, the action method is called
     with the resolved arguments.
 4.  **Error handling** — if validation fails, :php:`errorAction()` is called
@@ -99,19 +106,37 @@ Placing validators on the model above means that every action that receives a
 :php:`Conference` argument benefits from the same rules,
 without having to repeat the attribute on every parameter.
 
+..  tip::
+
+    Validators do not have to live on the persisted domain model. A base model
+    can carry no validators at all, while separate
+    :abbr:`DTO (Data Transfer Object)` classes carry different validator sets
+    for different use cases — for example a ``ConferenceRegistrationForm`` DTO
+    with strict seat-count validation and a ``ConferenceDraftForm`` DTO with
+    only a title requirement. Each DTO is mapped by property mapping just like
+    a domain model and can have its own independent validation rules.
+
+When a form submission fails validation, Extbase re-calls the originating
+action (typically ``newAction()`` or ``editAction()``). If that action has the
+model as a typed parameter and declares :php:`#[IgnoreValidation]` on it,
+the :ref:`t3viewhelper:typo3-fluid-form` view helper can read the submitted
+values from the object and :ref:`t3viewhelper:typo3-fluid-form-validationresults`
+can display the errors inline — the object does not need to be valid for
+this to work.
+
 
 ..  _extbase-validation-ignore:
 
-Skipping validation with :php:`#[IgnoreValidation]`
-===================================================
+Ignoring the validation result with :php:`#[IgnoreValidation]`
+==============================================================
 
 Sometimes you need to receive an object without running its validators, for
 example when displaying a "new" form that is pre-populated from a submitted but
 invalid object, or when an action intentionally accepts a partially filled
 model.
 
-Place :php:`#[IgnoreValidation]` on the parameter to suppress all validators
-for that argument:
+Place :php:`#[IgnoreValidation]` on the parameter to tell Extbase to ignore
+the validation result for that argument and dispatch the action regardless:
 
 ..  code-block:: php
     :caption: EXT:my_extension/Classes/Controller/ConferenceController.php
@@ -130,10 +155,16 @@ for that argument:
         }
     }
 
-Without :php:`#[IgnoreValidation]`, the framework would validate the
-still-invalid :php:`Conference` object on arrival in :php:`newAction()`,
-fail again, and the user would be stuck in an infinite cycle between
-:php:`newAction()` and :php:`errorAction()`.
+Validation still runs — :php:`#[IgnoreValidation]` does not skip it. It
+instructs Extbase to call the action even when the argument is invalid.
+This is what allows :php:`newAction()` to receive a partially filled
+:php:`Conference` back from a failed :php:`createAction()` and hand it to
+the template so ``f:form`` can redisplay the submitted values with inline
+errors.
+
+Without :php:`#[IgnoreValidation]`, the framework would see the invalid
+:php:`Conference`, call :php:`errorAction()`, which redirects back to
+:php:`newAction()`, which would validate again — an infinite cycle.
 
 
 ..  _extbase-validation-error-action:
@@ -141,8 +172,8 @@ fail again, and the user would be stuck in an infinite cycle between
 Customising :php:`errorAction()`
 ================================
 
-The built-in :php:`errorAction()` adds a generic flash message and redirects
-the user to the referring request. For most contact or registration forms this
+The built-in :php:`errorAction()` adds a generic :ref:`flash message
+<flash-messages>` and redirects the user to the referring request. For most contact or registration forms this
 is sufficient.
 
 To show a custom error flash message, override :php:`getErrorFlashMessage()`:
@@ -172,7 +203,7 @@ a :abbr:`JSON (JavaScript Object Notation)` response — override
         $errors = $this->arguments->validate();
         return $this->jsonResponse(json_encode([
             'errors' => $this->flattenErrors($errors),
-        ]))->withStatus(422);
+        ]))->withStatus(422); // choose the status code appropriate for your API; 422 or 400 are common choices
     }
 
 
@@ -213,6 +244,12 @@ What to read next
     rules that the built-in validators cannot express.
 *   :ref:`extbase-property-mapping` — how request data is mapped to objects
     before validation runs.
+
+..  versionadded:: 14.0
+
+    Symfony validators can be used in Extbase directly — see
+    `Feature #106945 <https://docs.typo3.org/permalink/changelog:feature-106945-1750757664>`_
+    for details.
 
 ..  toctree::
     :titlesonly:

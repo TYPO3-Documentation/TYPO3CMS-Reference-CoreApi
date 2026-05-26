@@ -39,8 +39,8 @@ dispatcher. Call it in :file:`ext_localconf.php`:
     ExtensionUtility::configurePlugin(
         'MyExtension',
         'ConferenceList',
-        [ConferenceController::class => 'list, show'],
-        [ConferenceController::class => 'list'],
+        [ConferenceController::class => 'list, show, create'],
+        [ConferenceController::class => 'create'],
     );
 
 The four arguments are:
@@ -50,7 +50,8 @@ The four arguments are:
 2.  **Plugin name** — a unique UpperCamelCase identifier for this plugin inside
     the extension. Combined with the extension name, it forms the plugin
     signature used in TypoScript and routing (``myextension_conferencelist``).
-    The combined length must not exceed 32 characters.
+    The combined length must not exceed 32 characters. snake_case is also
+    accepted and normalised internally, but UpperCamelCase is the convention.
 3.  **Allowed controller actions** — an array mapping controller class names to
     a comma-separated list of action names. The first entry and its first action
     are the default. Only actions listed here are available via this plugin.
@@ -58,11 +59,10 @@ The four arguments are:
     stored in the page cache. See :ref:`extbase-caching-noncacheable`
     for the implications.
 
-..  note::
+..  versionchanged:: 14.0
 
-    The fifth parameter ``$pluginType`` was removed in TYPO3 v14. Omit it by
-    passing any value other than ``'CType'`` (or omitting it). All plugins are
-    registered as ``CType`` content elements in v14.
+    The fifth parameter ``$pluginType`` was removed. All plugins are registered
+    as ``CType`` content elements. Omit this argument entirely.
 
 
 ..  _extbase-registration-frontend-plugin-register:
@@ -88,6 +88,7 @@ available content element types in the backend. Call it in
         'my-extension-conference-list',
         'plugins',
         'my_extension.db:plugin.conferencelist.description',
+        'EXT:my_extension/Configuration/FlexForms/ConferenceList.xml',
     );
 
 The arguments are:
@@ -97,8 +98,8 @@ The arguments are:
     match exactly.
 3.  **Plugin title** — label shown in the backend content element wizard.
     Use a translatable label reference. The example uses the
-    :ref:`translation domain syntax <label-reference-domain>` introduced in
-    TYPO3 v14 (``extension_key.resource:label_key``), which is shorter than the
+    :ref:`translation domain syntax <label-reference-domain>`
+    (``extension_key.file:label_key``), which is shorter than the
     legacy ``LLL:EXT:`` path syntax. Both are equivalent and interchangeable.
 4.  **Plugin icon** — an icon identifier registered via the Icon
     :abbr:`API (Application Programming Interface)`, or a path prefixed with
@@ -107,9 +108,44 @@ The arguments are:
     are ``'plugins'`` (generic plugin group) or a custom group name matching
     your extension.
 6.  **Description** — optional longer text shown in the content element wizard.
+7.  **FlexForm** — path to a FlexForm XML file that adds configurable fields to
+    the content element in the backend, for example
+    ``'EXT:my_extension/Configuration/FlexForms/ConferenceList.xml'``.
+    Optional. Omit if the plugin needs no backend configuration form.
 
 Both calls must use the same extension name and plugin name. A mismatch means
 the dispatcher will not find the controller actions registered for that plugin.
+
+
+..  _extbase-registration-frontend-plugin-configuration-assembly:
+
+How the plugin configuration is assembled
+=========================================
+
+When an Extbase frontend plugin handles a request, the framework assembles a
+single configuration array from three layers, each able to override the
+previous:
+
+1.  :typoscript:`plugin.tx_myextension` — extension-wide defaults, applied to
+    every plugin of this extension.
+2.  :typoscript:`plugin.tx_myextension_myplugin` — plugin-specific values,
+    override the extension-wide layer.
+3.  FlexForm data — values the editor entered in the content element's plugin
+    tab. These have the highest priority and override both TypoScript layers.
+    Only :typoscript:`settings`, :typoscript:`persistence`, and
+    :typoscript:`view` keys are merged from the FlexForm.
+
+The resulting array has three top-level keys that Extbase uses directly:
+
+*   :typoscript:`settings` — arbitrary key/value pairs available as
+    :php:`$this->settings` in the controller and as :html:`{settings}` in
+    Fluid templates (auto-assigned by the framework for frontend plugins).
+*   :typoscript:`persistence` — controls record loading; the most relevant
+    sub-key is :typoscript:`storagePid`, which limits which page(s) the
+    repository queries.
+*   :typoscript:`view` — overrides template file resolution via
+    :typoscript:`templateRootPaths`, :typoscript:`layoutRootPaths`, and
+    :typoscript:`partialRootPaths`.
 
 
 ..  _extbase-registration-frontend-plugin-typoscript:
@@ -117,22 +153,15 @@ the dispatcher will not find the controller actions registered for that plugin.
 TypoScript plugin object path
 =============================
 
-:php:`configurePlugin()` generates a TypoScript object for the plugin. The
-path follows the pattern:
+:php:`configurePlugin()` generates a TypoScript object for the plugin at:
 
 ..  code-block:: typoscript
 
     plugin.tx_<extensionkey>_<pluginname>
 
-where both parts are lowercase and underscores removed from the extension key.
-For the example above:
-
-..  code-block:: typoscript
-
-    plugin.tx_myextension_conferencelist
-
-Use this path to configure view paths, persistence settings, and plugin-specific
-TypoScript settings:
+Both parts are lowercase; underscores are removed from the extension key. For
+the example above that is :typoscript:`plugin.tx_myextension_conferencelist`.
+A full example covering all three configuration keys:
 
 ..  code-block:: typoscript
     :caption: EXT:my_extension/Configuration/Sets/MyExtension/setup.typoscript

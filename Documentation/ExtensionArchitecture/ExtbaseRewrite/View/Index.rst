@@ -66,9 +66,61 @@ template. :php:`assignMultiple()` assigns several values at once:
 The name passed to :php:`assign()` becomes the variable name in the template, for example
 :html:`{conferences}`, :html:`{title}`, and :html:`{conference}` above.
 
-TypoScript settings (:php:`$this->settings`) are automatically available in Fluid
-templates under the name :html:`{settings}`. This means they do not need
-an explicit assign call.
+:php:`$this->settings` is the :typoscript:`settings` slice of the full Extbase
+configuration array. How that array is assembled — and how :typoscript:`view`,
+:typoscript:`persistence`, and :typoscript:`settings` relate to TypoScript paths
+and FlexForm overrides — is covered in the registration chapters:
+:ref:`extbase-registration-frontend-plugin-configuration-assembly` and
+:ref:`extbase-registration-backend-module-configuration-assembly`.
+
+
+..  _extbase-view-assign-shared:
+
+Assigning variables needed in every action
+------------------------------------------
+
+If a variable must be available in every action of a controller — for example
+the current site object or a global configuration value — override
+:php:`initializeAction()` and assign it once there instead of repeating the
+call in each action method:
+
+..  code-block:: php
+    :caption: EXT:my_extension/Classes/Controller/ConferenceController.php
+
+    use MyVendor\MyExtension\Domain\Repository\ConferenceRepository;
+    use Psr\Http\Message\ResponseInterface;
+    use TYPO3\CMS\Core\Site\Entity\Site;
+    use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
+
+    class ConferenceController extends ActionController
+    {
+        public function __construct(
+            protected readonly ConferenceRepository $conferenceRepository,
+        ) {}
+
+        #[\Override]
+        protected function initializeAction(): void
+        {
+            /** @var Site $site */
+            $site = $this->request->getAttribute('site');
+            $this->view->assign('siteSettings', $site->getSettings()->all());
+        }
+
+        public function listAction(): ResponseInterface
+        {
+            $this->view->assign('conferences', $this->conferenceRepository->findAll());
+            return $this->htmlResponse();
+        }
+
+        public function showAction(Conference $conference): ResponseInterface
+        {
+            $this->view->assign('conference', $conference);
+            return $this->htmlResponse();
+        }
+    }
+
+If a variable is only needed in one or two actions, assign it directly inside
+those action methods — :php:`initializeAction()` is not required.
 
 
 ..  _extbase-view-property-access:
@@ -178,12 +230,15 @@ for AJAX variants that share a controller action.
 Overriding Fluid template paths via TypoScript
 ==============================================
 
-Add paths via TypoScript to extend or override the default resolution:
+Add paths via TypoScript to extend or override the default resolution. Use the
+plugin-specific path :typoscript:`plugin.tx_myextension_myplugin` to target one
+plugin, or :typoscript:`plugin.tx_myextension` (no plugin suffix) to set
+defaults for every plugin of the extension:
 
 ..  code-block:: typoscript
     :caption: EXT:my_extension/Configuration/Sets/MyExtension/setup.typoscript
 
-    plugin.tx_myextension.view {
+    plugin.tx_myextension_conferencelist.view {
         templateRootPaths.10 = EXT:my_extension/Resources/Private/Templates/
         layoutRootPaths.10 = EXT:my_extension/Resources/Private/Layouts/
         partialRootPaths.10 = EXT:my_extension/Resources/Private/Partials/
@@ -195,9 +250,9 @@ Fluid searches from the highest key downward, so the path at key
 **Finding the TypoScript object path for a plugin:** open the TYPO3 backend,
 navigate to the site or page containing the plugin, and open
 :guilabel:`Site Management > TypoScript`. The Active TypoScript module shows
-the computed TypoScript tree including all the registered plugin objects.
-The object path of a plugin is always :typoscript:`plugin.tx_<extensionkey>`,
-where the extension key is in lowercase and the underscores are removed.
+the computed TypoScript tree including all registered plugin objects. See
+:ref:`extbase-registration-frontend-plugin-configuration-assembly` for how the
+extension-wide and plugin-specific paths are merged.
 
 
 ..  _extbase-view-third-party-override:
@@ -206,7 +261,7 @@ Overriding Fluid templates from a third-party extension
 =======================================================
 
 To replace a template provided by an extension you do not control, add the
-override paths to your own extension or sitepackage. Never modify a
+override paths to your own extension or site package. Never modify a
 third-party extension directly. Add a path at a key higher than the one used in the
 original extension. Most extensions register their paths at key
 :typoscript:`10` or leave the default at key :typoscript:`0`. Using key
@@ -268,6 +323,9 @@ Two equivalent syntaxes exist — tag style and inline style:
     <a href="{f:uri.action(action: 'show', arguments: '{conference: conference}')}">
         Details
     </a>
+    <time datetime="{conference.conferenceDate -> f:format.date(format: 'Y-m-d')}">
+        {conference.conferenceDate -> f:format.date(format: 'd.m.Y')}
+    </time>
 
 Commonly used ViewHelpers (with links to their full reference) are:
 
@@ -291,13 +349,30 @@ Commonly used ViewHelpers (with links to their full reference) are:
 *   `f:debug <https://docs.typo3.org/permalink/t3viewhelper:typo3-fluid-debug>`_
     — dump a variable's type and value during development; remove before
     deploying to production. By default output is prepended to the page top;
-    use :html:`inline="1"` to render it in place.
+    use :html:`inline="1"` to render it in place. For deeper introspection of
+    Extbase objects and lazy-loaded relations, the community extension
+    `includekrexx <https://extensions.typo3.org/extension/includekrexx>`_
+    provides a richer debug output than :html:`f:debug`.
 
 For the complete reference of all built-in ViewHelpers, see the
 `ViewHelper reference <https://docs.typo3.org/permalink/t3viewhelper:start>`_.
 
 To write your own ViewHelper, see
 `Creating custom ViewHelpers <https://docs.typo3.org/permalink/t3coreapi:fluid-custom-viewhelper>`_.
+
+For reusable template fragments with a typed argument contract, Fluid v4
+introduced `Fluid Components <https://docs.typo3.org/permalink/t3coreapi:using-fluid-components>`_
+as an alternative to both partials and custom ViewHelpers. Components are
+pure Fluid templates — no PHP class required — with typed, named arguments
+declared via :html:`<f:argument>`. They are the right choice for
+:abbr:`UI (User Interface)` building blocks such as buttons, cards, or form
+field wrappers that need to be reused across templates.
+
+Custom ViewHelpers are the right choice when logic cannot be expressed in
+Fluid alone, or when access to the rendering context is needed — for example
+ViewHelpers like :html:`f:form.textfield` that must locate a parent
+:html:`f:form` tag. Components do not have access to the parent rendering
+context and must not be used in those situations.
 
 
 ..  _extbase-view-jsonview:

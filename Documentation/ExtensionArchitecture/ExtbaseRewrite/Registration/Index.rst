@@ -8,15 +8,16 @@
 Registering plugins and backend modules
 =======================================
 
-An Extbase extension exposes itself to TYPO3 in two distinct ways:
+An Extbase extension can register frontend plugins, backend modules, both, or
+neither — depending on what it needs to deliver.
 
 *   A **frontend plugin** renders content on a page. Editors add it as a
     content element and visitors see the output in the frontend.
 *   A **backend module** adds a section to the TYPO3 backend for editors or
     administrators to manage data.
 
-Both require a small amount of registration code — no database records,
-no install steps, just PHP and configuration files loaded during bootstrap.
+Each registration requires a small amount of PHP and configuration files loaded
+during bootstrap — no database records, no install steps.
 
 ..  contents:: On this page
     :local:
