@@ -26,7 +26,7 @@ PHP built-in attributes.
 ..  _extbase-appendix-attributes-orm:
 
 ORM (Object Relational Mapping) attributes (persistence)
-=========================================================
+========================================================
 
 **ORM** (`Object-Relational Mapping <https://en.wikipedia.org/wiki/Object%E2%80%93relational_mapping>`_)
 is the mechanism that lets you work with PHP objects instead of raw database
@@ -221,23 +221,22 @@ where partial state is forwarded between actions:
     :caption: EXT:my_extension/Classes/Controller/ConferenceController.php
 
     use TYPO3\CMS\Extbase\Attribute\IgnoreValidation;
+    use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
+    use Psr\Http\Message\ResponseInterface;
 
-    class Conference extends AbstractEntity
+    class ConferenceController extends ActionController
     {
         public function previewAction(
             #[IgnoreValidation]
-            Conference $event
+            Conference $conference,
         ): ResponseInterface {
-            // validation skipped for $event
+            // validation skipped for $conference
         }
     }
 
-..  versionchanged:: 14.0
-
-    :php:`#[IgnoreValidation]` must be placed on the **parameter**, not on the
-    method with an :php:`argumentName` property. The method-level form was
-    deprecated in TYPO3 v14 (Deprecation `#108227
-    <https://docs.typo3.org/c/typo3/cms-core/main/en-us/Changelog/14.0/Deprecation-108227-UsageOfIgnoreValidationAndValidateAttributesForParametersAtMethodLevel.html>`_).
+Place :php:`#[IgnoreValidation]` directly on the parameter — method-level
+placement with :php:`argumentName` is deprecated in TYPO3 v14 and removed in
+v15. See :ref:`extbase-upgrading-ignorevalidation-parameter`.
 
 
 ..  _extbase-appendix-attributes-controller:

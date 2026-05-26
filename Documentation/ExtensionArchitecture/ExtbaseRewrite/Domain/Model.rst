@@ -62,7 +62,6 @@ Defining model properties in Extbase
 Properties should be :php:`protected`, typed, and have a default value:
 
 ..  literalinclude:: _snippets/_Conference.php
-    :language: php
     :caption: EXT:my_extension/Classes/Domain/Model/Conference.php
 
 Key rules:
@@ -198,7 +197,6 @@ to a :php:`Location` and a 1:n relation to a collection of :php:`Comment`
 objects:
 
 ..  literalinclude:: _snippets/_ConferenceWithRelations.php
-    :language: php
     :caption: EXT:my_extension/Classes/Domain/Model/Conference.php (with relations)
 
 A few things to note in the example above:
@@ -263,13 +261,11 @@ automatically.
 Define the enum:
 
 ..  literalinclude:: _snippets/_Salutation.php
-    :language: php
     :caption: EXT:my_extension/Classes/Domain/Model/Enum/Salutation.php
 
 Use it as a model property:
 
 ..  literalinclude:: _snippets/_ConferenceWithEnum.php
-    :language: php
     :caption: EXT:my_extension/Classes/Domain/Model/Speaker.php
 
 The database column stores the raw backing value (:php:`''`, :php:`'mr'`,
