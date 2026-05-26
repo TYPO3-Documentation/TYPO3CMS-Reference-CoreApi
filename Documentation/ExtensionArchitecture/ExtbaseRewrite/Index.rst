@@ -1,4 +1,4 @@
-:navigation-title: Extbase
+:navigation-title: New Extbase Docu (WIP)
 
 ..  include:: /Includes.rst.txt
 ..  index:: pair: Extbase; Extbase
