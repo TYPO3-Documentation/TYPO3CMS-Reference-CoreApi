@@ -250,6 +250,12 @@ return [
     ],
     [
         'action' => 'createPhpClassDocs',
+        'class' => \TYPO3\CMS\Core\Security\ContentSecurityPolicy\Event\BeforePersistingReportEvent::class,
+        'targetFileName' => 'CodeSnippets/Events/Core/Security/BeforePersistingReportEvent.rst.txt',
+        'withCode' => false,
+    ],
+    [
+        'action' => 'createPhpClassDocs',
         'class' => \TYPO3\CMS\Core\Cache\Event\CacheFlushEvent::class,
         'targetFileName' => 'CodeSnippets/Events/Core/Cache/CacheFlushEvent.rst.txt',
         'withCode' => false,

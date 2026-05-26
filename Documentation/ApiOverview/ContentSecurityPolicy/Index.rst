@@ -888,5 +888,6 @@ PSR-14 events
 
 The following PSR-14 events are available:
 
+*   :ref:`BeforePersistingReportEvent`
 *   :ref:`InvestigateMutationsEvent`
 *   :ref:`PolicyMutatedEvent`
