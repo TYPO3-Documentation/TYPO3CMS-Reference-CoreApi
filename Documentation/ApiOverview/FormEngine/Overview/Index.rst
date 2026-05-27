@@ -6,55 +6,55 @@
 Main rendering workflow
 =======================
 
-This is done by example. The details to steer and how to use only sub-parts of the rendering chain are
+The details of how to control or use only sub-parts of the rendering chain are
 explained in more detail in the following sections.
 
-Editing a record in the backend - often from within the
-:guilabel:`Content > Layout` or :guilabel:`Content > Records` module - triggers the
-:php-short:`\TYPO3\CMS\Backend\Controller\EditDocumentController` by routing
-definitions using :php:`UriBuilder->buildUriFromRoute($moduleIdentifier)`
-and handing over which record of which table should be edited. This can be an existing record, or it could be a command
-to create the form for a new record. The
+Editing a record in the backend - usually in
+:guilabel:`Content > Layout` or :guilabel:`Content > Records` modules - triggers the
+:php-short:`\TYPO3\CMS\Backend\Controller\EditDocumentController` from routing
+definitions in :php:`UriBuilder->buildUriFromRoute($moduleIdentifier)`
+and hands over records from the tables which should be edited. This could be an
+existing record, or it could be a command to create a form for a new record. The
 :php-short:`\TYPO3\CMS\Backend\Controller\EditDocumentController` is the main
-logic triggered whenever an editor changes a record.
+logic that is triggered when an editor switches between records.
 
 The :php-short:`\TYPO3\CMS\Backend\Controller\EditDocumentController` has two
-main jobs: Trigger rendering of one or multiple records
-via FormEngine, and hand over any given data by a FormEngine `POST` result over to the DataHandler
-to persist stuff in the database.
+main jobs: triggering the rendering of records
+via FormEngine; and handing over data from a FormEngine `POST` to the DataHandler
+to persist in the database.
 
-The rendering part of the :php-short:`\TYPO3\CMS\Backend\Controller\EditDocumentController`
-job splits into these parts:
+The rendering stage of the :php-short:`\TYPO3\CMS\Backend\Controller\EditDocumentController`
+follows these steps:
 
-*   Initialize main FormEngine data array using `POST` or `GET` data to specify which specific record(s)
-    should be edited.
+*   Initialize main FormEngine data array with `POST` or `GET` data which specifies
+    which record(s) should be be edited.
 
-*   Select which group of DataProviders should be used.
+*   Select group of DataProviders.
 
-*   Trigger FormEngine DataCompiler to enrich the initialized data array with further data by calling all data
-    providers specified by selected data provider group.
+*   Trigger FormEngine DataCompiler to enrich the data array with extra data by
+    calling the selected DataProviders group.
 
-*   Hand over DataCompiler result to an entry "render container" of FormEngine and receive a result array.
+*   Hand over DataCompiler result to an entry "render container" in FormEngine and receive back a result array.
 
 *   Convert the raw result array into a :php-short:`\TYPO3\CMS\Backend\Form\FormResult`
     DTO using :php-short:`\TYPO3\CMS\Backend\Form\FormResultFactory`.
 
-*   Use :php-short:`\TYPO3\CMS\Backend\Form\FormResultHandler` to pass collected
+*   Use :php-short:`\TYPO3\CMS\Backend\Form\FormResultHandler` to pass
     assets such as CSS, JavaScript and labels to the
-    :php-short:`TYPO3\CMS\Core\Page\PageRenderer`.
+    :php-short:`TYPO3\CMS\Core\Page\PageRenderer`
 
-*   Let the :php-short:`TYPO3\CMS\Core\Page\PageRenderer` output its compiled result.
+*   The :php-short:`TYPO3\CMS\Core\Page\PageRenderer` outputs the compiled result.
 
 ..  uml:: /Images/Plantuml/FormEngine/FormEngineMainWorkflow.plantuml
     :align: center
     :width: 1000
     :caption: Main FormEngine workflow
 
-The controller does two distinct things here: First, it initializes a data array and lets it get enriched by
-data providers of FormEngine which add all information needed for the rendering part. Then feed this data array
-to the rendering part of FormEngine to end up with a result array containing all HTML, CSS and JavaScript.
+The controller does two distinct things here. First, it initializes a data array which is enriched by
+data providers from FormEngine that add all the information needed for the rendering stage. This data array
+is then passed onto FormEngine rendering to produce a result array containing all the HTML, CSS and JavaScript.
 
-In code, this basic workflow looks like this:
+In code, the basic workflow looks like this:
 
 ..  literalinclude:: _SomeClass.php
     :caption: EXT:my_extension/Classes/SomeClass.php
@@ -63,20 +63,21 @@ In code, this basic workflow looks like this:
     The class :php:`TYPO3\CMS\Backend\Form\FormResultCompiler` has been
     deprecated. See `Deprecation: #109230 - FormResultCompiler <https://docs.typo3.org/permalink/changelog:deprecation-109230-1773404000>`_.
 
-This basically means the main FormEngine concept is a two-fold process: First create an array to gather all
-render-relevant information, then call the render engine using this array to come up with output.
+Basically, behind the FormEngine concept is a 2-step process: first create an array to gather all
+rendering-relevant information, then call the rendering engine using this array to produce output.
 
-This two-fold process has a number of advantages:
+This 2-step process has a number of advantages:
 
-*   The data compiler step can be regulated by a controller to only enrich with stuff that is needed in any given context.
-    This part is supported by encapsulating single data providers in data groups, single data providers can be omitted if
-    not relevant in given scope.
+*   The data compiler step can be modified by controller to only enrich the array
+    with data relevant to the context. Data providers are encapulated into
+    groups so that individual data providers can be omitted if not relevant in a given scope.
 
-*   Data providing and rendering is split: Controllers could re-use the rendering part of FormEngine while
-    all or parts of the data providers are omitted, or their data comes from "elsewhere". Furthermore, controllers can
-    re-use the data providing part of FormEngine and output the result in an entirely different way than HTML. The
-    latter is for instance used when FormEngine is triggered for a TCA tree by an Ajax call and thus outputs a JSON array.
+*   Data providing and rendering is split. Controllers can use the rendering
+    stage of FormEngine even if all or parts of the data providers are omitted or
+    their data comes from "elsewhere". Controllers can use the
+    data provider stage of FormEngine and then output the result in an entirely different
+    way than HTML, for example, for a TCA tree by an Ajax call which outputs a JSON array.
 
-*   The code constructs behind "data providing" and "rendering" can be different to allow higher re-use and more
-    flexibility with having the "data array" as main communication base in between. This will become more obvious
-    in the next sections where it is shown that data providers are a linked list, while rendering is a tree.
+*   The functionality behind "data providing" and "rendering" can be modified to promote higher re-use and more
+    flexibility, with only the "data array" as the main communication between them. This will become more obvious
+    in the next sections which show that data providers are a linked list and rendering is a tree.
