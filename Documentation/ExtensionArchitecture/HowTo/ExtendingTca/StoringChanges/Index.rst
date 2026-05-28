@@ -74,12 +74,6 @@ The advantage of this method is that changes will be incorporated into
     folder up in :file:`Configuration/TCA/`
 
 ..  attention::
-    You cannot extend the TCA of an extension if the modifications
-    are in its :file:`ext_tables.php` file (usually a "ctrl" section
-    referencing a "dynamicConfigFile"). Please ask the extension author to switch
-    to the :file:`Configuration/TCA/<tablename>.php` setup.
-
-..  attention::
     Only TCA-related modifications should go in :file:`Configuration/TCA/Overrides`
     files. Some API calls may be okay if all they do is manipulate
     :php:`$GLOBALS['TCA']`. For example, a plugin can be registered with

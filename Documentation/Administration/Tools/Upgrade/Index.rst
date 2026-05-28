@@ -124,24 +124,13 @@ them online: :doc:`TYPO3 Core Changelog Online <changelog:Index#typo3-core-chang
 The module allows you to mark changelog entries as read. Read entries are
 automatically hidden.
 
-..  _admin-tools-upgrade-tca-ext-tables:
-
-Check TCA in ext_tables.php
-===========================
-
-TCA **must not** be defined in file :file:`ext_tables.php`. This is because TCA
-is required in the frontend context and this file is only loaded in backend context.
-
-This tool can be used to check for incorrect or historical definitions of TCA
-in :file:`ext_tables.php`.
-
 ..  _admin-tools-upgrade-broken-extensions:
 
 Check for broken extensions
 ===========================
 
-This tool tries to load the files :file:`ext_localconf.php` and
-:file:`ext_tables.php` from all the installed extensions. It can help you to detect
+This tool tries to load the files :file:`ext_localconf.php` from all the
+installed extensions. It can help you to detect
 which extensions are causing errors.
 
 ..  _admin-tools-upgrade-extension-scanner:

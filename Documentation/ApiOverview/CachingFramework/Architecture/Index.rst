@@ -187,7 +187,6 @@ The following caches exist in the TYPO3 Core:
         :ref:`Simple file backend <caching-backend-simple-file>` for maximum
         performance.
     *   Stores Core internal compiled PHP code like concatenated
-        :ref:`ext_tables.php <ext-tables-php>` and
         :ref:`ext_localconf.php <ext-localconf-php>` files and
         :ref:`autoloader <autoload>`.
     *   This cache is instantiated very early during

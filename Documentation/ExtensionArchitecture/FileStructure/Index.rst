@@ -121,7 +121,6 @@ The following folder and file structure is typical for a TYPO3 extension:
 
     *   :ref:`composer.json <files-composer-json>`
     *   :ref:`ext_localconf.php <ext-localconf-php>`
-    *   :ref:`ext_tables.php <ext-tables-php>`
     *   :ref:`ext_tables.sql <ext_tables-sql>`
 
 
