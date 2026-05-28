@@ -52,7 +52,9 @@ $GLOBALS
     :type: array
     :Defined: :file:`typo3/sysext/setup/ext_tables.php`
 
-    Defines the form in the :guilabel:`User Settings`.
+    ..  deprecated:: 14.2
+
+        See: `Migration from addFieldsToUserSettings to addUserSetting <https://docs.typo3.org/permalink/t3coreapi:user-settings-extending-migration>`_
 
 ..  confval:: BE_USER
     :name: globals-be-users
