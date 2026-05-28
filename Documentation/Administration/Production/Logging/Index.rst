@@ -185,7 +185,7 @@ If the deprecation log continues to be written, check the following:
 #.  **Look for overrides in extensions**
 
     Some extensions may override logging settings in their
-    :file:`ext_localconf.php` or :file:`ext_tables.php`. Check these files
+    :file:`ext_localconf.php`. Check these files
     if your configuration appears to be ignored.
 
 ..  _production-logging-security:

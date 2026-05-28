@@ -55,14 +55,18 @@ Extension files
 :ref:`composer.json <composer-json>`
     Composer configuration, required in Composer-based installations
 
-:ref:`ext_emconf.php <extension-declaration>`
+:ref:`ext_emconf.php (Deprecated) <extension-declaration>`
 
     ..  deprecated:: 14.2
         This file is deprecated and should be removed once dropping TYPO3 v13
         support. See also: `Deprecation: #108345 - Deprecation of ext_emconf.php <https://docs.typo3.org/permalink/changelog:deprecation-108345-1774126701>`_.
 
-:ref:`ext_tables.php <extension-configuration-files>`
-    Various configuration. Is used only for backend or CLI requests or when a valid BE user is authenticated.
+:ref:`ext_tables.php (Deprecated) <extension-configuration-files>`
+
+    ..  deprecated:: 14.2
+        This file is deprecated and should be removed once dropping TYPO3 v13
+        support. See:
+        `Deprecation: #109438 - ext_tables.php in extensions <https://docs.typo3.org/permalink/changelog:deprecation-109438-1774951763>`_
 
 :ref:`ext_localconf.php <extension-configuration-files>`
     Various configuration. Is always included, whether frontend or backend.
