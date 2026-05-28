@@ -8,8 +8,8 @@
 File uploads in Extbase domain models
 ======================================
 
-Extbase can handle file uploads automatically as part of its normal property
-mapping and persistence flow, using the
+Extbase can handle file uploads as part of its normal property
+mapping and persistence flow by using the
 :ref:`FAL (File Abstraction Layer) <t3coreapi:using-fal>` for storage.
 Two distinct topics are covered here: reading existing
 :php-short:`\TYPO3\CMS\Core\Resource\FileReference` properties from a domain
@@ -53,18 +53,18 @@ Writing uploaded files with :php:`#[FileUpload]`
 ================================================
 
 The :php:`\TYPO3\CMS\Extbase\Attribute\FileUpload` attribute on a model
-property is all that is needed to wire up upload processing. Extbase validates
+property is all that is needed for upload processing. Extbase validates
 the upload, moves the file into the configured
 :abbr:`FAL (File Abstraction Layer)` storage folder, and creates the
-:php-short:`\TYPO3\CMS\Core\Resource\FileReference` record — all
-automatically, after property mapping succeeds.
+:php-short:`\TYPO3\CMS\Core\Resource\FileReference` record. This is all
+carried out automatically after property mapping succeeds.
 
-The domain model with :php:`#[FileUpload]` on both properties:
+Here is a domain model with :php:`#[FileUpload]` on both properties:
 
 ..  literalinclude:: _FileUpload/_ConferenceWithUpload.php
     :caption: EXT:my_extension/Classes/Domain/Model/Conference.php
 
-The TCA definition is identical to the read-only case above — no special TCA
+The TCA definition is identical to the read-only case above. No special TCA
 configuration is required for upload handling.
 
 The upload form must declare :html:`enctype="multipart/form-data"` and use
@@ -74,8 +74,8 @@ property:
 ..  literalinclude:: _FileUpload/_New.fluid.html
     :caption: EXT:my_extension/Resources/Private/Templates/Conference/New.fluid.html
 
-The controller actions require no special upload code. Extbase handles
-everything between property mapping and persistence. The only requirement is
+The controller actions do not require any special upload code. Extbase handles
+everything that happens between property mapping and persistence. The only requirement is
 that the model is persisted within the same request:
 
 ..  literalinclude:: _FileUpload/_ConferenceController.php
@@ -83,13 +83,13 @@ that the model is persisted within the same request:
 
 ..  important::
 
-    The model must be persisted (via :php:`$conferenceRepository->add()` or
-    :php:`$conferenceRepository->update()`) in the same request that processes
-    the upload. Without persistence, dangling :sql:`sys_file` records are
+    The model must be persisted in the same request that processes
+    the upload (via :php:`$conferenceRepository->add()` or
+    :php:`$conferenceRepository->update()`). Without persistence, dangling :sql:`sys_file` records are
     created without a corresponding :php:`FileReference`, leaving stale
     temporary files that require manual cleanup.
 
-Upload processing runs after property mapping completes. If any model property
+Upload processing runs after property mapping completes. If a model property
 fails validation, the file is not uploaded and the user must re-upload on the
 next attempt. This avoids stale temporary files.
 
@@ -97,8 +97,8 @@ next attempt. This avoids stale temporary files.
 
     File upload handling for nested domain models — for example
     :php:`conferenceA.speaker.photo` — is not supported. The
-    :php:`#[FileUpload]` attribute must be placed on a property of the model
-    that is the direct argument of the action.
+    :php:`#[FileUpload]` attribute must be placed on model property
+    that is a direct argument of the action.
 
 
 ..  _extbase-domain-fileupload-attribute:
@@ -106,7 +106,7 @@ next attempt. This avoids stale temporary files.
 Configuring the :php:`#[FileUpload]` attribute
 ==============================================
 
-The :php:`#[FileUpload]` attribute accepts named arguments:
+The :php:`#[FileUpload]` attribute accepts named arguments as follows:
 
 :php:`validation`
     Array configuring built-in file upload validators. See
@@ -143,21 +143,21 @@ File upload validation
 Two validators are enforced automatically for every :php:`#[FileUpload]`
 property and cannot be removed:
 
-*   :ref:`extbase-validation-builtin-filename` — rejects files whose name
-    matches dangerous executable extensions such as :file:`.php` or
-    :file:`.phar`. This is a hard security boundary; there is no legitimate
+*   :ref:`extbase-validation-builtin-filename` — rejects files with names
+    matching dangerous executable extensions such as :file:`.php` or
+    :file:`.phar`. This is a hard security boundary. There is no legitimate
     reason to bypass it.
 *   :ref:`extbase-validation-builtin-fileextensionmimetypeconsistency` —
     cross-checks that the file extension and the detected MIME type are
     consistent, guarding against disguised uploads such as a PHP script renamed
     to :file:`image.jpg`.
 
-Beyond these two, the :php:`validation` array configures additional validators
-via shorthand keys. The most important ones to configure on any public upload
+Beyond these two validators, the :php:`validation` array configures additional validators
+via shorthand keys. The most important ones for a public upload
 form are:
 
 **fileSize** — always set a meaningful lower and upper bound. A minimum of
-:php:`'10K'` rejects empty or near-empty files that would otherwise pass
+:php:`10K` rejects empty or near-empty files that would otherwise pass
 silently. An upper bound prevents storage exhaustion:
 
 ..  code-block:: php
@@ -165,8 +165,8 @@ silently. An upper bound prevents storage exhaustion:
 
     'fileSize' => ['minimum' => '10K', 'maximum' => '2M'],
 
-**mimeType** — restricts accepted content types by inspecting the actual file
-content, not just the name. Always combine with :php:`fileExtension` to cover
+**mimeType** — restricts accepted content types by inspecting the file
+content as well as the file name. Always combine with :php:`fileExtension` to cover
 both the client-supplied extension and the server-detected type:
 
 ..  code-block:: php
@@ -215,7 +215,7 @@ upload count. For the full option reference see
 Manual file upload configuration
 ================================
 
-When :php:`#[FileUpload]` is not flexible enough — for example to add a custom
+When :php:`#[FileUpload]` is not flexible enough — for example if you want to add a custom
 validator class — create a
 :php:`\TYPO3\CMS\Extbase\Mvc\Controller\FileUploadConfiguration` object
 manually in an :php:`initialize*Action()`:
@@ -228,8 +228,8 @@ operate on the file property when manual upload configuration is used.
 The :php:`#[FileUpload]` attribute handles this internally; with manual
 configuration it must be done explicitly.
 
-To modify configuration already defined by :php:`#[FileUpload]` — for example
-to read the upload folder from TypoScript settings — retrieve the existing
+To modify configuration that is already defined by :php:`#[FileUpload]` — for example
+to read the upload folder out of the TypoScript settings — retrieve the existing
 configuration object instead of creating a new one:
 
 ..  code-block:: php
@@ -252,7 +252,7 @@ To strip all application-level validators and start from a clean slate, call
 :ref:`extbase-validation-builtin-fileextensionmimetypeconsistency`) are always
 re-added and cannot be removed. Calling :php:`resetValidators()` on a
 public-facing upload form without immediately adding back type and size
-restrictions leaves the upload open to any file content — do this only when
+restrictions will leave the upload open to any file content. Do this only when
 you have a deliberate, application-specific reason and compensate with other
 controls.
 
@@ -273,12 +273,12 @@ persisting the updated model:
 
 ..  warning::
 
-    Extbase deletes the file directly from
+    Extbase deletes the file from
     :abbr:`FAL (File Abstraction Layer)` **without checking whether any other
-    record references the same file**. This is different from the TYPO3 backend,
-    which prevents deletion of files that still have consumers. If the same
+    record references the same file**. This is different from the TYPO3 backend
+    which prevents the deletion of files that still have consumers. If the same
     :php-short:`\TYPO3\CMS\Core\Resource\FileReference` is referenced by
-    multiple domain objects, deleting it through this mechanism will break the
+    multiple domain objects, deleting it via this mechanism will break the
     other references silently. Ensure files are not shared before enabling
     deletion.
 
@@ -289,9 +289,9 @@ Modifying the target filename before persistence
 ================================================
 
 :php-short:`\TYPO3\CMS\Extbase\Event\Service\ModifyUploadedFileTargetFilenameEvent`
-allows event listeners to alter the filename of an uploaded file before it is
+allows event listeners to change the filename of an uploaded file before it is
 written to :abbr:`FAL (File Abstraction Layer)`. Use :php:`getTargetFilename()`
-to read the current name and :php:`setTargetFilename()` to replace it. The
+to read the current name and :php:`setTargetFilename()` to rename it. The
 active :php:`FileUploadConfiguration` is available via
 :php:`getConfiguration()`.
 
@@ -303,12 +303,12 @@ File uploads in multi-step forms
 
 Extbase file upload handling is coupled to the persistence step of a single
 action. If a multi-step form must carry file state across requests before final
-persistence, two patterns work:
+persistence, two patterns will work:
 
 *   **DTO approach** — persist the uploaded file as a standalone domain object
     (or a dedicated DTO with its own :php:`FileReference`) in the first step.
     Pass its :php:`uid` as a hidden field through subsequent steps. In the
-    final step, attach the :php:`FileReference` to the actual domain model.
+    final step, attach the :php:`FileReference` to the domain model.
 
 *   **Client-side preview** — use the JavaScript :js:`FileReader()` API to
     render a preview of the selected file in the browser before the form is

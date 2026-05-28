@@ -16,7 +16,7 @@ data to the database.
 A model describes what an object looks like — its properties, their types,
 and how they relate to other objects. A repository knows how to find and
 persist those objects. Controllers and views should never touch the database directly,
-but refer those tasks to a repository.
+but refer such tasks to a repository.
 
 Value objects — objects defined by their value rather than their identity —
 are also part of the domain layer. In TYPO3 v14, value objects are implemented
