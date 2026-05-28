@@ -40,8 +40,16 @@ use these options.
 DatabaseWriter
 --------------
 
-The database writer logs into a database table. This table has to reside
-in the database used by TYPO3 and is **not** automatically created.
+..  deprecated:: 14.2
+    Using the :php-short:`\TYPO3\CMS\Core\Log\Writer\DatabaseWriter` for a
+    custom table is deprecated, see
+    `Deprecation: #109295 - DatabaseWriter::setLogTable()/getLogTable() <https://docs.typo3.org/permalink/changelog:deprecation-109295-1742407200>`_.
+
+    Use a `Custom log writer <https://docs.typo3.org/permalink/t3coreapi:logging-writers-custom>`_
+    instead
+
+:php:`\TYPO3\CMS\Core\Log\Writer\DatabaseWriter` is a dedicated writer for the
+:sql:`sys_log` table.
 
 The following option is available:
 
@@ -51,38 +59,8 @@ The following option is available:
     :Mandatory: no
     :Default: :sql:`sys_log`
 
-    The database table to write to.
-
-    ..  warning::
-        The :guilabel:`Administration > Log` module is not adapted to the records
-        written by the :php:`DatabaseWriter` into the :sql:`sys_log` table. If
-        you write such records there, you will not be able to see them using
-        that module.
-
-    ..  tip::
-        There is the third-party extension :composer:`co-stack/logs` available for viewing
-        such records in the TYPO3 backend.
-
-    Example of a :sql:`CREATE TABLE` statement for :php:`logTable`:
-
-    ..  literalinclude:: _ext_tables.sql
-        :language: sql
-        :caption: EXT:my_extension/ext_tables.sql
-
-    The corresponding configuration might look like this for the example class
-    :php:`\T3docs\Examples\Controller`:
-
-    ..  literalinclude:: _ext_localconf.php
-        :language: php
-        :caption: EXT:my_extension/ext_localconf.php
-
-..  warning::
-    If you are using a MariaDB Galera Cluster you should definitely add a
-    primary key field to the database definition, since it is required by
-    Galera (this can be a normal :sql:`uid` autoincrement field as known from
-    other tables):
-    `MariaDB Galera Cluster - Known Limitations <https://mariadb.com/kb/en/mariadb/mariadb-galera-cluster-known-limitations/>`__.
-
+    ..  deprecated:: 14.2
+        `Deprecation: #109295 - DatabaseWriter::setLogTable()/getLogTable() <https://docs.typo3.org/permalink/changelog:deprecation-109295-1742407200>`_
 
 ..  _logging-writers-FileWriter:
 
