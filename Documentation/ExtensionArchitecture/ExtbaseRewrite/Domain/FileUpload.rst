@@ -96,9 +96,9 @@ next attempt. This avoids stale temporary files.
 ..  note::
 
     File upload handling for nested domain models — for example
-    :php:`conferenceA.speaker.photo` — is not supported. The
-    :php:`#[FileUpload]` attribute must be placed on model property
-    that is a direct argument of the action.
+    :php:`conference.speaker.photo` — is not supported. The
+    :php:`#[FileUpload]` attribute must be placed on model properties
+    of the direct argument of the action.
 
 
 ..  _extbase-domain-fileupload-attribute:
@@ -233,7 +233,7 @@ to read the upload folder out of the TypoScript settings — retrieve the existi
 configuration object instead of creating a new one:
 
 ..  code-block:: php
-    :caption: Applying TypoScript settings to the upload folder
+    :caption: EXT:my_extension/Classes/Controller/ConferenceController.php
 
     public function initializeCreateAction(): void
     {

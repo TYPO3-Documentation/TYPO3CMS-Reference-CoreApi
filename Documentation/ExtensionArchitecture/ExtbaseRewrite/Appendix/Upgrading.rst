@@ -11,7 +11,7 @@ Upgrading from older Extbase versions
 ..  include:: /ExtensionArchitecture/ExtbaseRewrite/_wip.rst.txt
 
 This page lists breaking changes and migration steps for
-upgrading an Extbase extension to a newer TYPO3 version. Each entry lists
+upgrading an Extbase extension to a newer TYPO3 version. Each entry details
 what has changed, which version introduced the change, and what to do.
 
 .. tip::
@@ -164,7 +164,7 @@ v14 the attribute requires named arguments instead:
 
 ..  important::
 
-    There is **no syntax that is compatible with both TYPO3 v13 and v14**.
+    There is **no syntax that is not deprecated in either TYPO3 v13 or v14**.
     Extensions that support both versions in the same release must keep the
     array-based syntax and accept the deprecation warning in v14.
 
