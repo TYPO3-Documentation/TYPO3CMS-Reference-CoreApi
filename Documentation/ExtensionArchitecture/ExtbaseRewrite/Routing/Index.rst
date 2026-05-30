@@ -35,6 +35,8 @@ TYPO3 routing concepts first makes Extbase routing much easier to follow.
         the full reference for all enhancer types and aspects available in TYPO3 Core.
 
 
+..  _extbase-routing-how-it-works:
+
 How TYPO3 routing works with Extbase
 ====================================
 
@@ -70,6 +72,8 @@ The :ref:`Extbase plugin enhancer <extbase-routing-enhancer>` uses exactly this
 namespace to match and generate URLs. You never need to write the namespace by
 hand — configure :yaml:`extension` and :yaml:`plugin` keys and the enhancer derives it.
 
+
+..  _extbase-routing-where-configured:
 
 Where routing is configured
 ===========================
@@ -108,6 +112,8 @@ via a YAML import:
     *   `Using imports in YAML files <https://docs.typo3.org/permalink/t3coreapi:routing-tips>`_ —
         how to split routing configuration across files without site sets.
 
+
+..  _extbase-routing-prerequisites:
 
 Prerequisites
 =============

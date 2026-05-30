@@ -113,7 +113,7 @@ A link to page 2 still produces :samp:`/conferences/page/2`.
 
 ..  literalinclude:: _snippets/_routes-defaults.yaml
     :caption: EXT:my_extension/Configuration/Sets/MyExtension/route-enhancers.yaml
-    :emphasize-lines: 16-17
+    :emphasize-lines: 20-21
 
 
 ..  _extbase-routing-routes-requirements:
@@ -141,7 +141,7 @@ corresponding :yaml:`aspects` entry — the aspect takes precedence.
 
 ..  literalinclude:: _snippets/_routes-defaults.yaml
     :caption: EXT:my_extension/Configuration/Sets/MyExtension/route-enhancers.yaml
-    :emphasize-lines: 18-19
+    :emphasize-lines: 22-23
 
 The next step is configuring the :yaml:`aspects` entries that translate placeholder
 values into human-readable URL segments — see :ref:`extbase-routing-aspects`.

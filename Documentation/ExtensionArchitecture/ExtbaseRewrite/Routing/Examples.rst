@@ -119,10 +119,11 @@ derive missing arguments from partial matches.
 
 ..  warning::
 
-    The total number of possible value combinations across all
-    :yaml:`StaticRangeMapper` aspects in one enhancer must not exceed 10,000.
-    Multiply the ranges to check: 31 years × 12 months × 50 pages = 18,600 —
-    that exceeds the limit. Reduce the page range or the year span accordingly.
+    Each :yaml:`StaticRangeMapper` is limited to 1000 values: TYPO3 throws a
+    :php:`\LengthException` when the range between :yaml:`start` and :yaml:`end`
+    is larger than 1000 items. This guards against brute-force requests and
+    cache-flooding. The ranges above stay well within that limit (31 years,
+    50 pages); for a wider span, narrow the range or write a custom mapper.
 
 
 ..  _extbase-routing-examples-custom-aspects:

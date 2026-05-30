@@ -4,7 +4,7 @@
 ..  index:: pair: Extbase; Route enhancer
 ..  _extbase-routing-enhancer:
 
-=======================================
+=================================
 The Extbase plugin route enhancer
 =================================
 
