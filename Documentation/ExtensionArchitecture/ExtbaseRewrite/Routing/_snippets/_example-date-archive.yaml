@@ -1,0 +1,71 @@
+routeEnhancers:
+    ConferencesPlugin:
+        type: Extbase
+        limitToPages:
+            - 'page["module"] == "conferences"'
+        extension: MyExtension
+        plugin: Conferences
+        defaultController: 'Conference::list'
+        routes:
+            - routePath: '/'
+              _controller: 'Conference::list'
+            - routePath: '/page-{page}'
+              _controller: 'Conference::list'
+              _arguments:
+                  page: currentPage
+            - routePath: '/{year}/{month}/page-{page}'
+              _controller: 'Conference::list'
+              _arguments:
+                  year: overwriteDemand/year
+                  month: overwriteDemand/month
+                  page: currentPage
+            - routePath: '/{year}/{month}'
+              _controller: 'Conference::list'
+              _arguments:
+                  year: overwriteDemand/year
+                  month: overwriteDemand/month
+            - routePath: '/{year}'
+              _controller: 'Conference::list'
+              _arguments:
+                  year: overwriteDemand/year
+            - routePath: '/article/{conference_slug}'
+              _controller: 'Conference::show'
+              _arguments:
+                  conference_slug: conference
+        defaults:
+            page: '1'
+            month: ''
+            year: ''
+        requirements:
+            page: '\d+'
+            month: '\d+'
+            year: '\d{4}'
+        aspects:
+            page:
+                type: StaticRangeMapper
+                start: '1'
+                end: '50'
+            month:
+                type: StaticValueMapper
+                map:
+                    january: '01'
+                    february: '02'
+                    march: '03'
+                    april: '04'
+                    may: '05'
+                    june: '06'
+                    july: '07'
+                    august: '08'
+                    september: '09'
+                    october: '10'
+                    november: '11'
+                    december: '12'
+            year:
+                type: StaticRangeMapper
+                start: '2000'
+                end: '2030'
+            conference_slug:
+                type: PersistedAliasMapper
+                tableName: tx_myextension_domain_model_conference
+                routeFieldName: slug
+                routeValuePrefix: '/'

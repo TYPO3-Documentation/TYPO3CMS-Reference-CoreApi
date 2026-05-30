@@ -1,0 +1,21 @@
+routeEnhancers:
+    ConferencesPlugin:
+        type: Extbase
+        limitToPages:
+            - 'page["module"] == "conferences"'
+        extension: MyExtension
+        plugin: Conferences
+        defaultController: 'Conference::show'
+        routes:
+            - routePath: '/{conference_slug}'
+              _controller: 'Conference::show'
+              _arguments:
+                  conference_slug: conference
+        aspects:
+            conference_slug:
+                type: PersistedAliasMapper
+                tableName: tx_myextension_domain_model_conference
+                routeFieldName: slug
+                # null removes the argument from the route result entirely;
+                # the action receives null and can redirect to the list
+                fallbackValue: null
