@@ -16,7 +16,7 @@ and is an instance of the class :php:`\TYPO3\CMS\Core\Authentication\BackendUser
 
 When working with middlewares in the frontend or with CLI and commands you might initialize the backend user object with :php:`\TYPO3\CMS\Core\Core\Bootstrap::initializeBackendUser()`. 
 In addition, you can call :php:`\TYPO3\CMS\Core\Core\Bootstrap::initializeBackendAuthentication()` 
-to load the language of the CLI user set in the backend so that view helpers 
+to load the language of the CLI user set in the backend so that ViewHelpers
 (like :php:`f:translate()`) used in the CLI resolve to the correct language.
 
 .. index:: Backend user; Access
