@@ -9,13 +9,24 @@ jobs:
   lint:
     if: github.repository_owner == 'TYPO3-documentation'
     permissions:
-      contents: write        # needed to push commit
+      contents: read
+
     runs-on: ubuntu-latest
+
     steps:
+      - name: Generate GitHub App token
+        id: app-token
+        uses: actions/create-github-app-token@v3
+        with:
+          app-id: ${{ secrets.APP_ID }}
+          private-key: ${{ secrets.APP_PRIVATE_KEY }}
+          permission-contents: write
+          permission-pull-requests: write
+
       - name: Checkout code
         uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
+          token: ${{ steps.app-token.outputs.token }}
 
       - name: Set up Python
         uses: actions/setup-python@a309ff8b426b58ec0e2a45f0f869d46889d02405
@@ -26,37 +37,15 @@ jobs:
         run: pip install pre-commit
 
       - name: Run pre-commit hooks and apply fixes
-        id: pre-commit
         run: |
-          # Run pre-commit with auto-fix and ignore exit code
           pre-commit run --all-files --hook-stage=manual --show-diff-on-failure || true
-          # Check if any files were modified
-          git diff --exit-code || echo "FIX_NEEDED=true" >> $GITHUB_ENV
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Create and push changes if needed
-        if: env.FIX_NEEDED == 'true'
-        id: create_branch
-        run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
-          # Create a new branch for the changes
-          BRANCH_NAME="fix/whitespace-$(date +'%Y%m%d%H%M%S')"
-          git checkout -b "$BRANCH_NAME"
-          git add .
-          git commit -m "fix: apply whitespace fixes"
-          git push origin "$BRANCH_NAME"
-          echo "branch_name=$BRANCH_NAME" >> $GITHUB_ENV
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: Open Pull Request
-        if: env.FIX_NEEDED == 'true'
-        uses: repo-sync/pull-request@7e79a9f5dc3ad0ce53138f01df2fad14a04831c5
+      - name: Create pull request
+        uses: peter-evans/create-pull-request@5f6978faf089d4d20b00c7766989d076bb2fc7f1 # v8.1.1
         with:
-          source_branch: ${{ env.branch_name }}
-          destination_branch: ${{ github.ref_name }}
-          pr_title: "Fix whitespace issues"
-          pr_body: "This PR automatically applies whitespace fixes."
-          token: ${{ secrets.GITHUB_TOKEN }}
+          token: ${{ steps.app-token.outputs.token }}
+          commit-message: "fix: apply whitespace fixes"
+          branch: fix/whitespace
+          delete-branch: true
+          title: "Fix whitespace issues"
+          body: "This PR automatically applies whitespace fixes."
