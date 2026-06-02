@@ -9,4 +9,3 @@ TypoScript configuration reference
 ==================================
 
 ..  include:: /ExtensionArchitecture/ExtbaseRewrite/_wip.rst.txt
-

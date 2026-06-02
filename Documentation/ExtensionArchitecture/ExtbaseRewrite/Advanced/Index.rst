@@ -16,4 +16,3 @@ Advanced Extbase topics
     Events
     Localization
     TypeConverters
-
