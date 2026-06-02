@@ -166,7 +166,7 @@ The extension :t3ext:`add_pwd_policy` provides additional validators.
 Using password policy validation in Extbase
 -------------------------------------------
 
-If you need to validate a plaintext password within Extbase, for example in a 
+If you need to validate a plaintext password within Extbase, for example in a
 `Data transfer object (DTO) <https://docs.typo3.org/permalink/t3coreapi:extbase-dto>`_,
 you can call the :php:`\TYPO3\CMS\Core\PasswordPolicy\PasswordPolicyValidator` from
 within a custom validator, for example:
@@ -177,13 +177,13 @@ within a custom validator, for example:
     <?php
 
     declare(strict_types=1);
-    
+
     namespace MyVendor\MyExtension\Domain\Validator;
-    
+
     use TYPO3\CMS\Core\PasswordPolicy\PasswordPolicyAction;
     use TYPO3\CMS\Core\PasswordPolicy\PasswordPolicyValidator;
     use TYPO3\CMS\Extbase\Validation\Validator\AbstractValidator;
-    
+
     class ExtbasePasswordPolicyValidator extends AbstractValidator
     {
         protected function isValid(mixed $value): void
@@ -212,7 +212,7 @@ You can then use your custom Extbase validator in the DTO:
     <?php
 
     declare(strict_types=1);
-    
+
     namespace MyVendor\MyExtension\Domain\Model\Dto;
 
     use MyVendor\MyExtension\Domain\Validator\ExtbasePasswordPolicyValidator;
@@ -229,7 +229,7 @@ You can then use your custom Extbase validator in the DTO:
     }
 
 ..  warning::
-    The password in the DTO is stored in **plaintext**, you have to hash the password 
+    The password in the DTO is stored in **plaintext**, you have to hash the password
     (see `Password hashing <https://docs.typo3.org/permalink/t3coreapi:password-hashing>`_)
     before saving it to the database. Never persist a password that was not properly hashed.
 

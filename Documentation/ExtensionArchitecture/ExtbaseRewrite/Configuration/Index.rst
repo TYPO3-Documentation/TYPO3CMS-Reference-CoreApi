@@ -14,4 +14,3 @@ Configuring Extbase plugins with TypoScript
     :titlesonly:
 
     TypoScript
-

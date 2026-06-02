@@ -522,4 +522,3 @@ What to read next
     the built-in validators cannot express.
 *   :ref:`extbase-validation-overview` — how validation fits into the request
     lifecycle and how :php:`errorAction()` is triggered.
-

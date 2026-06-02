@@ -14,4 +14,3 @@ Caching for Extbase plugins
     :titlesonly:
 
     NonCacheable
-

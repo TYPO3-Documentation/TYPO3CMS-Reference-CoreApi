@@ -18,4 +18,3 @@ Routing for Extbase plugins
     Aspects
     UriBuilder
     Examples
-

@@ -395,4 +395,3 @@ mapped to models and persisted.
 
 ..  This section also serves as an argument for keeping the number of Extbase models
 ..  per table small — the validation gap compounds when multiple models diverge.
-

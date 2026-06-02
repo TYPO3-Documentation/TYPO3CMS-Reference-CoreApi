@@ -15,4 +15,3 @@ Persistence layer in Extbase
 
     Queries
     Relations
-
