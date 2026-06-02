@@ -43,4 +43,10 @@ return [
         'targetFileName' => 'CodeSnippets/Events/Redirects/AfterPageUrlsForSiteForRedirectIntegrityHaveBeenCollectedEvent.rst.txt',
         'withCode' => false,
     ],
+    [
+        'action' => 'createPhpClassDocs',
+        'class' => TYPO3\CMS\Redirects\Event\RedirectIntegrityCheckEvent::class,
+        'targetFileName' => 'CodeSnippets/Events/Redirects/RedirectIntegrityCheckEvent.rst.txt',
+        'withCode' => false,
+    ],
 ];
