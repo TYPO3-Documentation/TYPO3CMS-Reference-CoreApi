@@ -148,4 +148,10 @@ return [
         'sourceFile' => 'EXT:examples/Resources/Private/Templates/AdminModule/Debug.html',
         'targetFileName' => 'ExtensionArchitecture/HowTo/BackendModule/_ModuleConfiguration/_DebugHtml.rst.txt',
     ],
+    [
+        'action' => 'createCodeSnippet',
+        'sourceFile' => 'EXT:examples/Classes/Module/AccessGate/ExampleGate.php',
+        'caption' => 'EXT:examples/Classes/Module/AccessGate/ExampleGate.php',
+        'targetFileName' => 'ApiOverview/Backend/BackendModules/_AccessGate/_ExampleGate.rst.txt',
+    ],
 ];
