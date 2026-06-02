@@ -10,14 +10,14 @@ Upgrading from older Extbase versions
 
 ..  include:: /ExtensionArchitecture/ExtbaseRewrite/_wip.rst.txt
 
-This page collects breaking changes and the migration steps needed when
-upgrading an Extbase extension to a newer TYPO3 version. Each entry names
-what changed, which version introduced the change, and what to do.
+This page lists breaking changes and migration steps for
+upgrading an Extbase extension to a newer TYPO3 version. Each entry details
+what has changed, which version introduced the change, and what to do.
 
 .. tip::
 
     Many migrations can be automated, and TYPO3 Rector (:composer:`ssch/typo3-rector`) provides
-    rules to do so. The tool is actively maintained and extended for each TYPO3 version to be
+    rules to do so. The tool is actively maintained and updated for each TYPO3 version that is
     released.
 
 ..  contents:: On this page
@@ -37,7 +37,7 @@ Annotations replaced by PHP attributes (TYPO3 v12 / required from v14)
 
 Native PHP attributes (introduced in PHP 8.0) replace the Doctrine-based
 DocBlock annotation syntax. Extbase has supported PHP attributes since
-TYPO3 v12; in TYPO3 v14 the annotation syntax was removed entirely.
+TYPO3 v12. In TYPO3 v14 the annotation syntax was removed entirely.
 
 +-----------------------------------+-----------------------------------+
 | Old annotation (removed in v14)   | New PHP attribute                 |
@@ -87,7 +87,7 @@ Attribute namespace moved from Annotation to Attribute (TYPO3 v14)
     :php:`use` statements to :php:`\TYPO3\CMS\Extbase\Attribute` when dropping
     TYPO3 v13 support.
 
-All Extbase attributes moved from :php:`\TYPO3\CMS\Extbase\Annotation` to
+All Extbase attributes have been moved from :php:`\TYPO3\CMS\Extbase\Annotation` to
 :php:`\TYPO3\CMS\Extbase\Attribute`.
 
 
@@ -124,6 +124,56 @@ Attribute array syntax deprecated (TYPO3 v14, removed in v15)
     `MigratePassingAnArrayOfConfigurationValuesToExtbaseAttributesRector <https://github.com/sabbelasichon/typo3-rector/blob/main/docs/all_rectors_overview.md#migratepassinganarrayofconfigurationvaluestoextbaseattributesrector>`_
 
 
+..  _extbase-upgrading-fileupload-named-arguments:
+
+:php:`#[FileUpload]` array syntax replaced by named arguments (TYPO3 v14)
+=========================================================================
+
+..  versionchanged:: 14.0
+
+    The array-based configuration syntax for :php:`#[FileUpload]` is deprecated
+    and will be removed in TYPO3 v15. Replace the array with named arguments.
+
+In TYPO3 v13, :php:`#[FileUpload]` accepted a single configuration array. In
+v14 the attribute requires named arguments instead:
+
+..  code-block:: diff
+    :caption: EXT:my_extension/Classes/Domain/Model/Conference.php
+
+    -#[FileUpload([
+    -    'validation' => [
+    -        'required' => true,
+    -        'maxFiles' => 1,
+    -        'fileSize' => ['minimum' => '10K', 'maximum' => '2M'],
+    -        'mimeType' => ['allowedMimeTypes' => ['image/jpeg', 'image/png']],
+    -        'fileExtension' => ['allowedFileExtensions' => ['jpg', 'jpeg', 'png']],
+    -    ],
+    -    'uploadFolder' => '1:/user_upload/conference_logos/',
+    -])]
+    +#[FileUpload(
+    +    validation: [
+    +        'required' => true,
+    +        'maxFiles' => 1,
+    +        'fileSize' => ['minimum' => '10K', 'maximum' => '2M'],
+    +        'mimeType' => ['allowedMimeTypes' => ['image/jpeg', 'image/png']],
+    +        'fileExtension' => ['allowedFileExtensions' => ['jpg', 'jpeg', 'png']],
+    +    ],
+    +    uploadFolder: '1:/user_upload/conference_logos/',
+    +)]
+     protected ?FileReference $logo = null;
+
+..  important::
+
+    There is **no syntax that is not deprecated in either TYPO3 v13 or v14**.
+    Extensions that support both versions in the same release must keep the
+    array-based syntax and accept the deprecation warning in v14.
+
+..  seealso::
+
+    *   :ref:`extbase-domain-fileupload` — full reference for the :php:`#[FileUpload]`
+        attribute and its named arguments.
+
+
 ..  _extbase-upgrading-ignorevalidation-parameter:
 
 :php:`#[Validate]` and :php:`#[IgnoreValidation]` moved to parameter level (TYPO3 v14, removed in v15)
@@ -138,7 +188,7 @@ Attribute array syntax deprecated (TYPO3 v14, removed in v15)
 Before TYPO3 v14, PHP attributes could only be attached to methods, so both
 attributes required a named property to identify which parameter they targeted.
 TYPO3 v14 introduced support for placing attributes directly on the parameter,
-making the indirection unnecessary. Place the attribute on the parameter itself:
+meaning you can now position the attribute on the parameter itself:
 
 ..  code-block:: diff
     :caption: EXT:my_extension/Classes/Controller/ConferenceController.php
@@ -203,7 +253,7 @@ StandaloneView removed (TYPO3 v14)
 of a controller, for example, inside a service class, a scheduler task, or an email
 renderer. It is no longer available.
 
-The replacement injects :php-short:`\TYPO3\CMS\Core\View\ViewFactoryInterface`
+The new way injects :php-short:`\TYPO3\CMS\Core\View\ViewFactoryInterface`
 and creates a view by passing a
 :php-short:`\TYPO3\CMS\Core\View\ViewFactoryData` value object:
 
@@ -254,30 +304,30 @@ list_type plugin removed; fifth parameter of configurePlugin() restricted (TYPO3
     now only accepts :php:`'CType'` (or being omitted); any other value throws an
     :php:`\InvalidArgumentException` (:ref:`Important #105538 <changelog:important-105538-1730752784>`).
 
-Older extensions may pass
+Older extensions could pass
 :php:`ExtensionUtility::PLUGIN_TYPE_PLUGIN_LIST` (``'list_type'``) as the
-fifth argument, or register their plugin with a ``list_type`` TCA entry. Both
+fifth argument, or register their plugin as a ``list_type`` TCA entry. Both
 approaches no longer work in TYPO3 v14.
 
 **What to do:**
 
-*   Remove the fifth argument from :php:`configurePlugin()` entirely, or pass
-    :php:`ExtensionUtility::PLUGIN_TYPE_CONTENT_ELEMENT` explicitly.
+*   Remove the fifth argument from :php:`configurePlugin()` or pass
+    :php:`ExtensionUtility::PLUGIN_TYPE_CONTENT_ELEMENT`.
 *   Provide an upgrade wizard for your extension that extends
     :php:`\TYPO3\CMS\Install\Updates\AbstractListTypeToCTypeUpdate` to migrate
     existing content records from :php:`list_type` to the new :php:`CType`.
-    TYPO3 does not ship a wizard for extension-specific plugins — each extension
+    TYPO3 does not ship a wizard for extension-specific plugins. Each extension
     must provide its own
-    (:ref:`Deprecation #105076 <changelog:deprecation-105076-1726923626>` for a
+    (see :ref:`Deprecation #105076 <changelog:deprecation-105076-1726923626>` for a
     reference implementation).
 
 ..  seealso::
 
     *   `Registering an Extbase frontend plugin <https://docs.typo3.org/permalink/extbase-registration-frontend-plugin>`_
-        — the current registration approach.
+        for the current registration approach.
 
     *   `Plugin registered with list_type no longer works <https://docs.typo3.org/permalink/extbase-appendix-pitfalls-list-type>`_
-        — common pitfalls.
+        for common pitfalls.
 
 
 ..  _extbase-upgrading-translation-domain-syntax:
@@ -291,7 +341,7 @@ Translation domain syntax as shorter alternative to LLL:EXT: (TYPO3 v14)
     alternative to the legacy :php:`LLL:EXT:` file path syntax
     (:ref:`Feature #93334 <changelog:feature-93334-1729000000>`).
 
-The legacy syntax remains fully supported and is not deprecated. Both forms
+Legacy syntax remains fully supported and is not deprecated. Both forms
 resolve to the same translation entries and can be used interchangeably:
 
 +----------------------------------------------------------------------+--------------------------------------+
@@ -317,5 +367,5 @@ The resource name is derived from the file name:
 
 ..  seealso::
 
-    *   :ref:`label-reference-domain` — full syntax reference and resolution
+    *   :ref:`label-reference-domain` for a full syntax reference and resolution
         rules including the :bash:`language:domain:list` CLI command.
