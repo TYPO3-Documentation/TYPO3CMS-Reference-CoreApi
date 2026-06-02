@@ -470,6 +470,11 @@ Class: :php:`\TYPO3\CMS\Extbase\Validation\Validator\FileNameValidator`
     :ref:`extbase-validation-builtin-fileextension` (``FileExtension``)
     instead, which is designed for that purpose.
 
+..  seealso::
+
+    :ref:`extbase-domain-fileupload` — how to wire up upload handling with
+    :php:`#[FileUpload]`, configure validators, and handle deletion.
+
 
 ..  _extbase-validation-builtin-custom-messages:
 
