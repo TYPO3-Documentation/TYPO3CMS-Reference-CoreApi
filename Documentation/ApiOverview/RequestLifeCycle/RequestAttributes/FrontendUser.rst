@@ -11,7 +11,7 @@ Frontend user
 The :php:`frontend.user` frontend request attribute provides the
 :php:`\TYPO3\CMS\Frontend\Authentication\FrontendUserAuthentication` object.
 
-The topic is described in depth in chapter 
+The topic is described in depth in chapter
 `Authentication <https://docs.typo3.org/permalink/t3coreapi:authentication>`_.
 
 Example:

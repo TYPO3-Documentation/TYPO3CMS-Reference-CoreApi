@@ -86,7 +86,7 @@ Install only production-relevant packages by running:
     composer install --no-dev --ignore-platform-reqs
 
 Parameter `--no-dev` excludes development packages. If the PHP version running
-on the console and the PHP version running on the server differ, you may need 
+on the console and the PHP version running on the server differ, you may need
 to use `--ignore-platform-reqs` to skip platform checks.
 
 ..  _deployment-git-composer-commands:

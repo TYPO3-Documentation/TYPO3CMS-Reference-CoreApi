@@ -75,7 +75,3 @@ The :path:`releases` directory contains the TYPO3 code that will change between 
 When using a deployment tool this kind of directory structure is usually created automatically.
 
 The following sections contain examples of various deployment tools and how they can be configured to use TYPO3:
-
-
-
-

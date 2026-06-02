@@ -50,7 +50,7 @@ Site settings `settings.yaml` in the site folder
     settings from all included site sets, including the set of the site package.
 
     ..  seealso::
-    
+
         *   `Site settings <https://docs.typo3.org/permalink/t3coreapi:sitehandling-settings>`_.
         *   `Module Site Management > Settings <https://docs.typo3.org/permalink/t3coreapi:site-settings-editor>`_
 

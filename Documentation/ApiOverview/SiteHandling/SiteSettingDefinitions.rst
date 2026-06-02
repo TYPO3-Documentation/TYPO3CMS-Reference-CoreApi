@@ -280,7 +280,7 @@ To translate the labels and descriptions for the settings you have defined in
 :file:`settings.definition.yml`, remove the `label` entry from there and create a
 :file:`labels.xlf` file in the same directory.
 
-The key of the translation unit must be the key of the setting.  
+The key of the translation unit must be the key of the setting.
 For example, the label of the setting is simply `label` in the XLF file.
 
 .. rubric:: Example

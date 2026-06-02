@@ -115,11 +115,11 @@ configuration.
 
     This is a "salt" used for encryption, CRC checksums and
     validations. You can enter any string here but try to keep it
-    secret. 
-    
+    secret.
+
   **When changing this value, flush all the caches:** A change to this value might invalidate
     temporary information, such as URLs mappings.
-    
+
 
 ..  _typo3ConfVars_sys_cookieDomain:
 
@@ -984,7 +984,7 @@ configuration.
                 ];
 
     ..  seealso::
-    
+
         *   `Adding custom languages <https://docs.typo3.org/permalink/t3coreapi:xliff-translating-languages>`_
         *   `Feature: #86913 - Automatic support for language files of languages with region suffix <https://docs.typo3.org/permalink/changelog:feature-86913-1673955088>`_
 

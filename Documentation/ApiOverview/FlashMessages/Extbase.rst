@@ -39,7 +39,7 @@ A more elaborate example:
    );
 
 
-The messages are then displayed by Fluid with the 
+The messages are then displayed by Fluid with the
 `FlashMessages ViewHelper <f:flashMessages> <https://docs.typo3.org/permalink/t3viewhelper:typo3-fluid-flashmessages>`_:
 
 .. code-block:: html
@@ -65,10 +65,10 @@ flash message queue identifier will be
 Using explicit flash message queues in Extbase
 ==============================================
 
-It is possible to add a message to a different flash message queue. Use 
-cases could be a detailed display of different flash message queues in 
-different places of the page  or displaying a flash message when you 
-forward to a different controller or even a different extension. 
+It is possible to add a message to a different flash message queue. Use
+cases could be a detailed display of different flash message queues in
+different places of the page  or displaying a flash message when you
+forward to a different controller or even a different extension.
 
 If you need distinct queues, you can use a custom identifier to fetch
 and operate on that queue:
