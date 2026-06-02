@@ -7,45 +7,7 @@ on:
 
 jobs:
   fix-whitespace:
-    if: github.repository_owner == 'TYPO3-documentation'
-    permissions:
-      contents: read
-
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Generate GitHub App token
-        id: app-token
-        uses: actions/create-github-app-token@bcd2ba49218906704ab6c1aa796996da409d3eb1 #v3.2.0
-        with:
-          client-id: ${{ secrets.APP_ID }}
-          private-key: ${{ secrets.APP_PRIVATE_KEY }}
-          permission-contents: write
-          permission-pull-requests: write
-
-      - name: Checkout code
-        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd
-        with:
-          token: ${{ steps.app-token.outputs.token }}
-
-      - name: Set up Python
-        uses: actions/setup-python@a309ff8b426b58ec0e2a45f0f869d46889d02405
-        with:
-          python-version: '3.x'
-
-      - name: Install pre-commit
-        run: pip install pre-commit
-
-      - name: Run pre-commit hooks and apply fixes
-        run: |
-          pre-commit run --all-files --hook-stage=manual --show-diff-on-failure || true
-
-      - name: Create pull request
-        uses: peter-evans/create-pull-request@5f6978faf089d4d20b00c7766989d076bb2fc7f1 # v8.1.1
-        with:
-          token: ${{ steps.app-token.outputs.token }}
-          commit-message: "fix: apply whitespace fixes"
-          branch: fix/whitespace
-          delete-branch: true
-          title: "Fix whitespace issues"
-          body: "This PR automatically applies whitespace fixes."
+    uses: TYPO3-Documentation/.github/.github/workflows/reusable-apply-precommit.yml@6cdf90e700f7c32376aa2cb2d96a201b67c77ed2
+    secrets:
+      APP_CLIENT_ID: ${{ secrets.APP_ID }}
+      APP_PRIVATE_KEY: ${{ secrets.APP_PRIVATE_KEY }}
