@@ -240,3 +240,14 @@ the :php:`$GLOBALS['BE_USER']->uc` array. This will return the current state of
    :caption: EXT:some_extension/Classes/Controller/SomeModuleController.php
 
    $GLOBALS['BE_USER']->uc['emailMeAtLogin']
+
+You can read the configured language of the backend user:
+
+.. code-block:: php
+   :caption: Read the language to be used in the backend
+
+   $backendLanguage = $GLOBALS['BE_USER']->uc['lang'] ?? 'en';
+
+
+
+
