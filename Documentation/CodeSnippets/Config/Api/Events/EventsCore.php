@@ -350,4 +350,16 @@ return [
         'targetFileName' => 'CodeSnippets/Events/Core/AfterRichtextConfigurationPreparedEvent.rst.txt',
         'withCode' => false,
     ],
+    [
+        'action' => 'createPhpClassDocs',
+        'class' => \TYPO3\CMS\Core\Localization\Event\ModifyLanguagePackRemoteBaseUrlEvent::class,
+        'targetFileName' => 'CodeSnippets/Events/Core/ModifyLanguagePackRemoteBaseUrlEvent.rst.txt',
+        'withCode' => false,
+    ],
+    [
+        'action' => 'createPhpClassDocs',
+        'class' => \TYPO3\CMS\Core\Localization\Event\ModifyLanguagePacksEvent::class,
+        'targetFileName' => 'CodeSnippets/Events/Core/ModifyLanguagePacksEvent.rst.txt',
+        'withCode' => false,
+    ],
 ];
