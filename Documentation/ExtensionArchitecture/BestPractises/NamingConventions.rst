@@ -384,8 +384,6 @@ Example:
 The plugin signature is used in:
 
 *   the database field `tt_content.CType`
-*   when defining a :ref:`FlexForm <flexforms>` to be used for the plugin in
-    :php:`addPiFlexFormValue()`
 *   in TypoScript, :typoscript:`plugin.tx_myexample_myplugin` to define settings
     for the plugin etc.
 *   As :ref:`record type <t3tca:types>` in TCA. It can therefore be used to
@@ -426,58 +424,26 @@ follow these conventions:
 *  use UpperCamelCase, e.g. InventoryList
 *  use alphanumeric characters
 
-For the plugin key, `Pi1`, `Pi2` etc. are often used, but it can be named differently.
+Avoid using meaningless keys like `Pi1`, `Pi2` etc. They can still be seen in
+older extensions.
 
 The plugin key used in :php:`registerPlugin()` and :php:`configurePlugin()`
 **must** match or the later method will fail.
 
+Method `ExtensionUtility::registerPlugin()` returns the `Plugin signature <https://docs.typo3.org/permalink/t3coreapi:naming-conventions-plugin-signature>`_
+that can be used if additional TCA changes are required by the plugin, for
+example to display additional fields.
+
+..  _naming-conventions-plugin-key-example:
+
 Example register and configure an Extbase plugin:
 -------------------------------------------------
 
-..  code-block:: php
+..  literalinclude:: _snippets/_tt_content_plugin_htmlparser.php
     :caption: EXT:examples/Configuration/TCA/Overrides/tt_content_plugin_htmlparser.php
 
-    use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
-    use TYPO3\CMS\Extbase\Utility\ExtensionUtility;
-
-    $extensionKey = 'Examples';
-    $pluginName = 'HtmlParser';
-    $pluginTitle = 'LLL:EXT:examples/Resources/Private/Language/locallang.xlf:htmlparser_plugin_title';
-
-    $pluginSignature = ExtensionUtility::registerPlugin(
-        $extensionKey,
-        $pluginName,
-        $pluginTitle
-    );
-
-    // $pluginSignature == "examples_htmlparser"
-
-    ExtensionManagementUtility::addToAllTCAtypes(
-        'tt_content',
-        '--div--;Configuration,pi_flexform,',
-        $pluginSignature,
-        'after:subheader',
-    );
-
-    ExtensionManagementUtility::addPiFlexFormValue(
-        '*',
-        'FILE:EXT:example/Configuration/FlexForms/Registration.xml',
-        $pluginSignature,
-    );
-
-..  code-block:: php
+..  literalinclude:: _snippets/_ext_localconf.php
     :caption: EXT:examples/ext_localconf.php
-
-    use TYPO3\CMS\Extbase\Utility\ExtensionUtility;
-
-    ExtensionUtility::configurePlugin(
-        'Examples',
-        'HtmlParser',
-        [
-            \T3docs\Examples\Controller\HtmlParserController::class => 'index',
-        ],
-        ExtensionUtility::PLUGIN_TYPE_CONTENT_ELEMENT,
-    );
 
 ..  code-block:: typoscript
     :caption: EXT:examples/Configuration/setup.typoscript
@@ -489,11 +455,12 @@ Example register and configure an Extbase plugin:
 Class name
 ==========
 
-Class names SHOULD be in UpperCamelCase.
+Class names **should** be in UpperCamelCase.
 
 Examples:
-    * :php:`CodeCompletionController`
-    * :php:`AjaxController`
+
+*   :php:`CodeCompletionController`
+*   :php:`AjaxController`
 
 .. seealso::
 
