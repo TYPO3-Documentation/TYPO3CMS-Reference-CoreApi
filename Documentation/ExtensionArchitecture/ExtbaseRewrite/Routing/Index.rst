@@ -8,8 +8,8 @@
 Routing for Extbase plugins
 ===========================
 
-Without routing configuration, every Extbase plugin action produces URLs
-with a namespaced query string:
+Every Extbase plugin action produces URLs with a namespaced query string when
+no routing configuration exists:
 
 ..  code-block:: none
 
@@ -23,8 +23,11 @@ Routing configuration transforms these into readable, :abbr:`SEO (Search Engine 
 
 TYPO3's routing system is built on top of Symfony routing components. The
 Extbase plugin enhancer is a specialised layer on top — it handles the
-controller/action namespace automatically. Understanding the general
-TYPO3 routing concepts first makes Extbase routing much easier to follow.
+controller/action namespace automatically. Moving plugin arguments out of the
+query string and into the path also simplifies
+:ref:`cHash <extbase-routing-enhancer-chash>` handling considerably — a fully
+routed URL needs no ``cHash`` at all. Understanding the general TYPO3 routing
+concepts first makes Extbase routing much easier to follow.
 
 ..  seealso::
 
@@ -43,12 +46,15 @@ How TYPO3 routing works with Extbase
 TYPO3 resolves a request in two stages:
 
 1. **Page routing** — maps the URL path to a page (using page slugs defined in the site tree).
-2. **Route enhancement** — the configured route enhancer parses the remainder of the URL
-   and populates plugin arguments.
+2. **Route enhancement** — a configured route enhancer parses the remainder of the URL
+   and populates plugin arguments. A site can define many enhancers (one per plugin,
+   each under its own key in :yaml:`routeEnhancers`); TYPO3 tries each until one matches.
 
 Only after both stages does Extbase dispatch the request to a controller action.
-This means routing configuration always lives at the *site* level, not inside the
-extension itself.
+Route enhancers are resolved as part of the *site* configuration. The configuration
+itself can still ship inside your extension — a :ref:`site set <site-sets>` is the
+recommended way to provide it — but it only takes effect once the site activates that
+set. The :ref:`section below <extbase-routing-where-configured>` covers placement.
 
 ..  _extbase-routing-namespace:
 
@@ -85,15 +91,18 @@ extension:
 
     EXT:my_extension/Configuration/Sets/MyExtension/route-enhancers.yaml
 
-TYPO3 picks this file up automatically when the set is active — no additional
-declaration is needed. The file must use :yaml:`routeEnhancers` as the root key:
+The filename is fixed: a site set is scanned for a file named exactly
+:file:`route-enhancers.yaml` at the set root, and TYPO3 picks it up automatically
+when the set is active — no additional declaration is needed. The file must use
+:yaml:`routeEnhancers` as its single root key (TYPO3 raises an error on any other
+top-level key):
 
 ..  code-block:: yaml
     :caption: EXT:my_extension/Configuration/Sets/MyExtension/route-enhancers.yaml
 
     routeEnhancers:
-        MyExtensionPlugin:
-            # … enhancer configuration
+      MyExtensionPlugin:
+        # … enhancer configuration
 
 If the project does not use site sets, routing configuration lives directly in
 the site's :file:`config/sites/<site-identifier>/config.yaml`, or is pulled in
@@ -103,11 +112,12 @@ via a YAML import:
     :caption: config/sites/my-site/config.yaml
 
     imports:
-        - { resource: "EXT:my_extension/Configuration/Routes/Default.yaml" }
+      - { resource: "EXT:my_extension/Configuration/Routes/Default.yaml" }
 
 ..  seealso::
 
-    *   :ref:`site-sets` — site sets and what they can ship.
+    *   `Site sets <https://docs.typo3.org/permalink/t3coreapi:site-sets>`_ —
+        site sets and what they can ship.
 
     *   `Using imports in YAML files <https://docs.typo3.org/permalink/t3coreapi:routing-tips>`_ —
         how to split routing configuration across files without site sets.
@@ -121,11 +131,12 @@ Prerequisites
 Before routing can work:
 
 *   The plugin must be :ref:`registered and placed on a page <extbase-registration-frontend-plugin>`.
-*   The page must have a slug set (visible in page properties).
+*   A :ref:`slug <t3tca:columns-slug>` must be set for the page (visible in the
+    page properties).
 *   The site must have a site configuration (:file:`config/sites/`).
 
-A detail page URL like ``/conferences/typo3camp-2025`` requires both a ``/conferences``
-page slug *and* a plugin instance placed on that page. If either is missing, TYPO3
+A detail page URL like :samp:`/conferences/typo3camp-2025` requires both a
+:samp:`/conferences` page slug *and* a plugin instance placed on that page. If either is missing, TYPO3
 cannot resolve the route.
 
 ..  toctree::

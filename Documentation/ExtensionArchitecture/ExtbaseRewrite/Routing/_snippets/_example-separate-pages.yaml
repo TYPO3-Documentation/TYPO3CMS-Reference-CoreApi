@@ -1,41 +1,41 @@
 routeEnhancers:
-    ConferencesList:
-        type: Extbase
-        limitToPages:
-            - 'page["module"] == "conferences_list"'
-        extension: MyExtension
-        plugin: Conferences
-        defaultController: 'Conference::list'
-        routes:
-            - routePath: '/'
-              _controller: 'Conference::list'
-            - routePath: '/page-{page}'
-              _controller: 'Conference::list'
-              _arguments:
-                  page: currentPage
-        defaults:
-            page: '1'
-        aspects:
-            page:
-                type: StaticRangeMapper
-                start: '1'
-                end: '100'
-    ConferencesDetail:
-        type: Extbase
-        limitToPages:
-            - 42
-        extension: MyExtension
-        plugin: Conferences
-        defaultController: 'Conference::show'
-        routes:
-            - routePath: '/{conference_slug}'
-              _controller: 'Conference::show'
-              _arguments:
-                  conference_slug: conference
-        aspects:
-            conference_slug:
-                type: PersistedAliasMapper
-                tableName: tx_myextension_domain_model_conference
-                routeFieldName: slug
-                routeValuePrefix: '/'
-                fallbackValue: null
+  ConferencesList:
+    type: Extbase
+    limitToPages:
+      - 'page["module"] == "conferences_list"'
+    extension: MyExtension
+    plugin: Conferences
+    defaultController: 'Conference::list'
+    routes:
+      - routePath: '/'
+        _controller: 'Conference::list'
+      - routePath: '/page-{page}'
+        _controller: 'Conference::list'
+        _arguments:
+          page: currentPage
+    defaults:
+      page: '1'
+    aspects:
+      page:
+        type: StaticRangeMapper
+        start: '1'
+        end: '100'
+  ConferencesDetail:
+    type: Extbase
+    limitToPages:
+      - 42
+    extension: MyExtension
+    plugin: Conferences
+    defaultController: 'Conference::show'
+    routes:
+      - routePath: '/{conference_slug}'
+        _controller: 'Conference::show'
+        _arguments:
+          conference_slug: conference
+    aspects:
+      conference_slug:
+        type: PersistedAliasMapper
+        tableName: tx_myextension_domain_model_conference
+        routeFieldName: slug
+        routeValuePrefix: '/'
+        fallbackValue: null

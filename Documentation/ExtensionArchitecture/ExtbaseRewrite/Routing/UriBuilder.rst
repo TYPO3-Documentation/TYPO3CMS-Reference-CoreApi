@@ -26,27 +26,8 @@ Generating URLs in a controller action
 Use :php:`uriFor()` to generate a URL for any action. It is available as
 :php:`$this->uriBuilder->uriFor()` in any controller action:
 
-..  code-block:: php
+..  literalinclude:: _snippets/_ConferenceController-uriFor.php
     :caption: EXT:my_extension/Classes/Controller/ConferenceController.php
-
-    use MyVendor\MyExtension\Domain\Model\Conference;
-    use Psr\Http\Message\ResponseInterface;
-
-    class ConferenceController extends ActionController
-    {
-        public function listAction(): ResponseInterface
-        {
-            // Link to the detail action on the same plugin/page
-            $uri = $this->uriBuilder->uriFor(
-                'show',                  // action name — no 'Action' suffix
-                ['conference' => $conference],
-                'Conference',            // controller name
-            );
-
-            $this->view->assign('detailUri', $uri);
-            return $this->htmlResponse();
-        }
-    }
 
 :php:`uriFor()` signature:
 
@@ -104,8 +85,8 @@ a loop:
         }
     }
 
-The detail page UID is typically stored in TypoScript settings so it does not
-need to be hardcoded:
+The detail page UID is typically stored in TypoScript settings (or site set
+settings) so it does not need to be hardcoded:
 
 ..  code-block:: php
     :caption: EXT:my_extension/Classes/Controller/ConferenceController.php
@@ -139,7 +120,7 @@ For use in emails, JSON responses, or redirects, generate an absolute URL:
 Generating URLs in Fluid templates
 ==================================
 
-``<f:link.action>`` and ``<f:uri.action>`` are the Fluid equivalents of
+:html:`<f:link.action>` and :html:`<f:uri.action>` are the Fluid equivalents of
 :php:`uriFor()`. When routing configuration is in place, they produce the
 same clean URLs automatically.
 

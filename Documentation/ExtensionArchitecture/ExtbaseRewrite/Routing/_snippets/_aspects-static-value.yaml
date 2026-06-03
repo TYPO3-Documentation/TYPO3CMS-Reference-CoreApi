@@ -1,18 +1,18 @@
 routeEnhancers:
-    ConferencesPlugin:
-        type: Extbase
-        limitToPages:
-            - 'page["module"] == "conferences"'
-        extension: MyExtension
-        plugin: Conferences
-        defaultController: 'Conference::list'
-        routes:
-            - routePath: '/status/{status}'
-              _controller: 'Conference::list'
-        aspects:
-            status:
-                type: StaticValueMapper
-                map:
-                    upcoming: 1
-                    running: 2
-                    past: 3
+  ConferencesPlugin:
+    type: Extbase
+    limitToPages:
+      - 'page["module"] == "conferences"'
+    extension: MyExtension
+    plugin: Conferences
+    defaultController: 'Conference::list'
+    routes:
+      - routePath: '/status/{status}'
+        _controller: 'Conference::list'
+    aspects:
+      status:
+        type: StaticValueMapper
+        map:
+          upcoming: 1
+          running: 2
+          past: 3

@@ -47,10 +47,14 @@ key):
     :caption: EXT:my_extension/Configuration/Sets/MyExtension/route-enhancers.yaml
 
     routeEnhancers:
-        ConferencesPlugin:
-            type: Extbase
-            namespace: tx_myextension_conferences
-            # … routes …
+      ConferencesPlugin:
+        type: Extbase
+        namespace: tx_myextension_conferences
+        # … routes …
+
+The key directly under :yaml:`routeEnhancers` — :yaml:`ConferencesPlugin` here — is
+an arbitrary identifier you choose. It only has to be unique across all enhancers on
+the site; it is not tied to the extension or plugin name. Pick something descriptive.
 
 ..  seealso::
 
@@ -63,47 +67,44 @@ key):
 Enhancer configuration
 ======================
 
-A minimal working enhancer for a plugin with a list and a detail action:
+A complete enhancer for a plugin with a list and a detail action, showing the
+recommended baseline. Only :yaml:`type`, :yaml:`extension`, :yaml:`plugin` and
+:yaml:`routes` are strictly required; :yaml:`limitToPages` is included here
+because you should always scope an enhancer to its pages (see below), and
+:yaml:`defaultController` is omitted as it is optional:
 
 ..  literalinclude:: _snippets/_enhancer-minimal.yaml
     :caption: EXT:my_extension/Configuration/Sets/MyExtension/route-enhancers.yaml
 
 The key properties:
 
-``type: Extbase``
+:yaml:`type: Extbase`
     Selects the Extbase plugin enhancer.
 
-``limitToPages``
+:yaml:`limitToPages`
     Restricts the enhancer to specific pages. Always set this — without it TYPO3
     evaluates the enhancer for every page, which slows down route generation
     across the whole site.
 
     Each entry is :abbr:`OR (logical or)`-combined. Integer values match against
-    the page UID. String values are Symfony ExpressionLanguage expressions with
-    access to ``page`` (the full page record array), ``site``, and
-    ``siteLanguage``.
+    the page UID. String values are
+    :ref:`Symfony expression language <t3coreapi:symfony-expression-language>`
+    expressions with access to :yaml:`page` (the full page record array),
+    :yaml:`site`, and :yaml:`siteLanguage`.
 
     ..  versionadded:: 14.2
 
-        Expression language support in ``limitToPages`` was added.
-
-    Plain page UIDs — sufficient for small, stable site trees:
-
-    ..  code-block:: yaml
-
-        limitToPages:
-            - 42
-            - 99
+        Expression language support in :yaml:`limitToPages` was added.
 
     Match by backend layout — useful when layout reliably identifies plugin pages:
 
     ..  code-block:: yaml
 
         limitToPages:
-            - 'page["backend_layout"] == "pagets__conferences"'
+          - 'page["backend_layout"] == "pagets__conferences"'
 
     A robust, UID-free approach is to register a custom value for the
-    :guilabel:`Contains Plugin` page property (the ``module`` field) in
+    :guilabel:`Contains Plugin` page property (the :sql:`module` field) in
     :file:`EXT:my_extension/Configuration/TCA/Overrides/pages.php`:
 
     ..  code-block:: php
@@ -124,32 +125,60 @@ The key properties:
     ..  code-block:: yaml
 
         limitToPages:
-            - 'page["module"] == "conferences"'
+          - 'page["module"] == "conferences"'
+
+    Plain page UIDs:
+
+    ..  code-block:: yaml
+
+        limitToPages:
+          - 42
+          - 99
 
     All approaches can be mixed in one array — entries are OR-combined. Use
     ``&&`` inside a single string for AND logic.
 
-``extension``
+:yaml:`extension`
     The extension name in UpperCamelCase, without vendor prefix and without
-    underscores (for example ``MyExtension``, not ``my_extension``).
+    underscores (for example :yaml:`MyExtension`, not :yaml:`my_extension`).
 
-``plugin``
+:yaml:`plugin`
     The plugin name as registered in :php:`\TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin()`
-    (for example ``Conferences``).
+    (for example :yaml:`Conferences`).
 
-:yaml:`defaultController`
-    The controller/action pair used when no route variant matches. Written as
-    :yaml:`ControllerName::actionName` (no :php:`Action` suffix, no namespace).
-    When a URL is generated for this controller/action combination and no
-    :yaml:`routePath` has placeholders, the route still resolves cleanly.
+:yaml:`defaultController` (optional)
+    The controller/action pair to assume when an incoming URL carries no explicit
+    controller or action. Written as :yaml:`ControllerName::actionName` (no
+    :php:`Action` suffix, no namespace). It is only a fallback: generated URLs
+    (via :ref:`uriFor() <extbase-routing-uri-builder>`) always supply the
+    controller and action, so a minimal enhancer can omit this key.
 
 :yaml:`routes`
     One entry per controller/action combination that should produce a readable
-    URL. See :ref:`extbase-routing-routes` for the full route syntax.
+    URL. For example, a single route for the detail action:
+
+    ..  code-block:: yaml
+
+        routes:
+          - routePath: '/{conference_slug}'
+            _controller: 'Conference::show'
+
+    See :ref:`extbase-routing-routes` for the full route syntax.
 
 :yaml:`aspects`
     Maps placeholder names to mappers that translate between internal values
-    (UIDs) and URL segments (slugs). See :ref:`extbase-routing-aspects`.
+    (UIDs) and URL segments (slugs). For example, mapping the
+    :yaml:`conference_slug` placeholder above to a database slug field:
+
+    ..  code-block:: yaml
+
+        aspects:
+          conference_slug:
+            type: PersistedAliasMapper
+            tableName: tx_myextension_domain_model_conference
+            routeFieldName: slug
+
+    See :ref:`extbase-routing-aspects`.
 
 
 ..  _extbase-routing-enhancer-variants:
@@ -176,14 +205,23 @@ The cHash parameter
 ===================
 
 When a URL contains dynamic parameters that are not fully constrained,
-TYPO3 appends a ``cHash`` signature to prevent cache poisoning. Strict
-:yaml:`requirements` and :ref:`aspects <extbase-routing-aspects>` that define
-a fixed set of valid values eliminate the need for ``cHash``.
+TYPO3 appends a ``cHash`` signature. This prevents arbitrary URIs from being
+cached under the same content — both stopping the cache from growing without
+bound and guarding against
+`cache poisoning <https://en.wikipedia.org/wiki/Cache_poisoning>`_, where an
+attacker fills the cache with junk variants of a page.
+
+Strict :yaml:`requirements` and :ref:`aspects <extbase-routing-aspects>` that
+define a fixed set of valid values eliminate the need for ``cHash`` — but only
+when *every* placeholder in the route is covered. If even one placeholder is
+left unconstrained, TYPO3 still adds ``cHash`` to the whole URL.
 
 A :php-short:`\TYPO3\CMS\Core\Routing\Aspect\PersistedAliasMapper` aspect on
-a slug field removes ``cHash`` for that placeholder because the mapper acts as
-a static value source. A ``\d+`` requirement alone does not — only a
-:php-short:`\TYPO3\CMS\Core\Routing\Aspect\StaticRangeMapper` does.
+a slug field removes the need for ``cHash`` for that placeholder, because the
+mapper restricts it to a known set of database values rather than an open input.
+A ``\d+`` requirement alone does not — it still allows unbounded values — so only
+a :php-short:`\TYPO3\CMS\Core\Routing\Aspect\StaticRangeMapper` (a fixed range)
+removes ``cHash`` for a numeric placeholder.
 
 ..  seealso::
 

@@ -1,47 +1,47 @@
 routeEnhancers:
-    ConferencesPlugin:
-        type: Extbase
-        limitToPages:
-            - 'page["module"] == "conferences"'
-        extension: MyExtension
-        plugin: Conferences
-        defaultController: 'Conference::list'
-        routes:
-            - routePath: '/'
-              _controller: 'Conference::list'
-            - routePath: '/page-{page}'
-              _controller: 'Conference::list'
-              _arguments:
-                  page: currentPage
-            - routePath: '/{conference_slug}'
-              _controller: 'Conference::show'
-              _arguments:
-                  conference_slug: conference
-            - routePath: '/{conference_slug}/talks'
-              _controller: 'Talk::list'
-              _arguments:
-                  conference_slug: conference
-            - routePath: '/{conference_slug}/talks/{talk_slug}'
-              _controller: 'Talk::show'
-              _arguments:
-                  conference_slug: conference
-                  talk_slug: talk
-        defaults:
-            page: '1'
-        aspects:
-            page:
-                type: StaticRangeMapper
-                start: '1'
-                end: '100'
-            conference_slug:
-                type: PersistedAliasMapper
-                tableName: tx_myextension_domain_model_conference
-                routeFieldName: slug
-                routeValuePrefix: '/'
-                fallbackValue: null
-            talk_slug:
-                type: PersistedAliasMapper
-                tableName: tx_myextension_domain_model_talk
-                routeFieldName: slug
-                routeValuePrefix: '/'
-                fallbackValue: null
+  ConferencesPlugin:
+    type: Extbase
+    limitToPages:
+      - 'page["module"] == "conferences"'
+    extension: MyExtension
+    plugin: Conferences
+    defaultController: 'Conference::list'
+    routes:
+      - routePath: '/'
+        _controller: 'Conference::list'
+      - routePath: '/page-{page}'
+        _controller: 'Conference::list'
+        _arguments:
+          page: currentPage
+      - routePath: '/{conference_slug}'
+        _controller: 'Conference::show'
+        _arguments:
+          conference_slug: conference
+      - routePath: '/{conference_slug}/talks'
+        _controller: 'Talk::list'
+        _arguments:
+          conference_slug: conference
+      - routePath: '/{conference_slug}/talks/{talk_slug}'
+        _controller: 'Talk::show'
+        _arguments:
+          conference_slug: conference
+          talk_slug: talk
+    defaults:
+      page: '1'
+    aspects:
+      page:
+        type: StaticRangeMapper
+        start: '1'
+        end: '100'
+      conference_slug:
+        type: PersistedAliasMapper
+        tableName: tx_myextension_domain_model_conference
+        routeFieldName: slug
+        routeValuePrefix: '/'
+        fallbackValue: null
+      talk_slug:
+        type: PersistedAliasMapper
+        tableName: tx_myextension_domain_model_talk
+        routeFieldName: slug
+        routeValuePrefix: '/'
+        fallbackValue: null
