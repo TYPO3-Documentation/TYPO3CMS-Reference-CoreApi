@@ -15,7 +15,6 @@
         "t3docs/blog-example": "dev-main",
         "t3docs/codesnippet": "dev-main",
         "t3docs/examples": "dev-main",
-        "t3docs/site-package": "dev-main",
         "typo3/cms-adminpanel": "dev-main as 14.3",
         "typo3/cms-backend": "dev-main as 14.3",
         "typo3/cms-belog": "dev-main as 14.3",

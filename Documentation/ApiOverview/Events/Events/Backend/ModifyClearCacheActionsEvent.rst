@@ -6,13 +6,6 @@
 ModifyClearCacheActionsEvent
 ============================
 
-..  versionchanged:: 14.3
-    The `CacheAction` array key `href` used in cache action definitions
-    provided via the :php-short:`\TYPO3\CMS\Backend\Backend\Event\ModifyClearCacheActionsEvent`
-    has been deprecated in favor of `endpoint`. The new key name better reflects
-    the purpose of this field, which is used as an AJAX endpoint URL. The value
-    must be a :php:`string`. See :ref:`Migration <ModifyClearCacheActionsEvent-migration-v14>`.
-
 The PSR-14 event :php:`\TYPO3\CMS\Backend\Backend\Event\ModifyClearCacheActionsEvent`
 is fired in the :php-short:`\TYPO3\CMS\Backend\Backend\ToolbarItems\ClearCacheToolbarItem`
 class and allows extension authors to modify the clear cache actions, shown
@@ -156,25 +149,3 @@ Here is an example of how to use it for a custom cache action:
         'severity' => 'notice',
     ]);
     $event->addCacheActionIdentifier($myIdentifier);
-
-..  _ModifyClearCacheActionsEvent-migration-v14:
-
-Migration: replace key `href` with key `endpoint`
-=================================================
-
-When dropping TYPO3 v13 support replace the :php:`href` key with :php:`endpoint`
-in any `CacheAction` array returned from a
-:php-short:`\TYPO3\CMS\Backend\Backend\Event\ModifyClearCacheActionsEvent`
-listener:
-
-.. code-block:: diff
-
-    $event->addCacheAction([
-        'id' => 'my_custom_cache',
-    -   'href' => $uriBuilder->buildUriFromRoute('ajax_my_cache_clear'),
-    +   'endpoint' => (string)$uriBuilder->buildUriFromRoute('ajax_my_cache_clear'),
-        'iconIdentifier' => 'actions-system-cache-clear',
-        'title' => 'Clear my cache',
-        'description' => 'Optional description',
-        'severity' => 'notice',
-    ]);
