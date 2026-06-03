@@ -8,6 +8,23 @@ Content was removed
 
 ..  contents::
 
+..  _not-found-15:
+
+TYPO3 v15
+=========
+
+..  _confval-database-writer-logTable:
+
+`DatabaseWriter->getLogTable()` and `DatabaseWriter->setLogTable()` where removed
+=================================================================================
+
+..  deprecated:: 14.2
+    `Deprecation: #109295 - DatabaseWriter::setLogTable()/getLogTable() <https://docs.typo3.org/permalink/changelog:deprecation-109295-1742407200>`_
+
+The `DatabaseWriter <https://docs.typo3.org/permalink/t3coreapi:logging-writers-database>`_
+can only be used with the :sql:`sys_log` table starting with TYPO3 v15.
+
+
 ..  _not-found-14:
 
 TYPO3 v14

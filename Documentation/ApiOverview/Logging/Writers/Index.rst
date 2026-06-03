@@ -40,27 +40,8 @@ use these options.
 DatabaseWriter
 --------------
 
-..  deprecated:: 14.2
-    Using the :php-short:`\TYPO3\CMS\Core\Log\Writer\DatabaseWriter` for a
-    custom table is deprecated, see
-    `Deprecation: #109295 - DatabaseWriter::setLogTable()/getLogTable() <https://docs.typo3.org/permalink/changelog:deprecation-109295-1742407200>`_.
-
-    Use a `Custom log writer <https://docs.typo3.org/permalink/t3coreapi:logging-writers-custom>`_
-    instead
-
 :php:`\TYPO3\CMS\Core\Log\Writer\DatabaseWriter` is a dedicated writer for the
 :sql:`sys_log` table.
-
-The following option is available:
-
-..  confval:: logTable
-    :name: database-writer-logTable
-    :type: string
-    :Mandatory: no
-    :Default: :sql:`sys_log`
-
-    ..  deprecated:: 14.2
-        `Deprecation: #109295 - DatabaseWriter::setLogTable()/getLogTable() <https://docs.typo3.org/permalink/changelog:deprecation-109295-1742407200>`_
 
 ..  _logging-writers-FileWriter:
 
