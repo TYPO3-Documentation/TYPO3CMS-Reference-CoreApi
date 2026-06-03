@@ -15,7 +15,7 @@ Classic TYPO3 installation on linux using symlinks and shell access
     compared to using Composer.
 
     If possible, use the dependency manager `Composer <https://getcomposer.org/>`_.
-    See :ref:`Composer-based installation instructions <install>`.
+    See :ref:`Composer-based installation instructions <installation>`.
 
 This guide explains how to install TYPO3 manually on a Linux/Unix or Windows
 server using a `.tar.gz` or `.zip` archive. Shell access is required to

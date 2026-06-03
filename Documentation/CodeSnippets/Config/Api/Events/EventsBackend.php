@@ -311,18 +311,6 @@ return [
     ],
     [
         'action' => 'createPhpClassDocs',
-        'class' => TYPO3\CMS\Backend\View\Event\BeforeSectionMarkupGeneratedEvent::class,
-        'targetFileName' => 'CodeSnippets/Events/Backend/BeforeSectionMarkupGeneratedEvent.rst.txt',
-        'withCode' => false,
-    ],
-    [
-        'action' => 'createPhpClassDocs',
-        'class' => TYPO3\CMS\Backend\View\Event\AfterSectionMarkupGeneratedEvent::class,
-        'targetFileName' => 'CodeSnippets/Events/Backend/AfterSectionMarkupGeneratedEvent.rst.txt',
-        'withCode' => false,
-    ],
-    [
-        'action' => 'createPhpClassDocs',
         'class' => TYPO3\CMS\Backend\Security\SudoMode\Event\SudoModeRequiredEvent::class,
         'targetFileName' => 'CodeSnippets/Events/Backend/SudoModeRequiredEvent.rst.txt',
         'withCode' => false,
