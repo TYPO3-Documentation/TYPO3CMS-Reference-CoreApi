@@ -15,7 +15,7 @@ translation server for their extensions.
 The event :ref:`ModifyLanguagePackRemoteBaseUrlEvent` can be caught to change
 the translation server URL, for example:
 
-..  literalinclude:: /ApiOverview/Events/Events/Core/_ModifyLanguagePackRemoteBaseUrlEvent/_CustomMirror.php
+..  literalinclude:: /ApiOverview/Events/Events/Core/Localization/_ModifyLanguagePackRemoteBaseUrlEvent/_CustomMirror.php
     :caption: EXT:my_extension/Classes/EventListener/CustomMirror.php
 
 In the above example, the URL is changed only for a given extension, but of
