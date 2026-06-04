@@ -13,10 +13,6 @@ Password policies
    :depth: 1
    :local:
 
-
-Introduction
-============
-
 TYPO3 includes a password policy validator which can be used to validate
 passwords against configurable password policies. A default password policy is
 included which ensures that passwords meet the following requirements:
@@ -93,6 +89,7 @@ context:
     When implementing a custom password policy please refer to the
     :ref:`secure password guidelines <security-secure-passwords>`.
 
+..  _password-policies-validators:
 
 Password policy validators
 ==========================
@@ -100,10 +97,13 @@ Password policy validators
 TYPO3 ships with two password policy validators, which are both used in the
 default password policy.
 
-:php:`\TYPO3\CMS\Core\PasswordPolicy\Validator\CorePasswordValidator`
----------------------------------------------------------------------
+..  _password-policies-validators-CorePasswordValidator:
 
-This validator has the ability to ensure a complex password with a defined
+CorePasswordValidator
+---------------------
+
+The :php:`\TYPO3\CMS\Core\PasswordPolicy\Validator\CorePasswordValidator`
+validator has the ability to ensure a complex password with a defined
 minimum length and four individual requirements.
 
 The following options are available:
@@ -144,11 +144,13 @@ The following options are available:
     If set to :php:`true` at least one special character (not `0`-`9`, `a`-`z`,
     `A`-`Z`) is required.
 
+..  _password-policies-validators-NotCurrentPasswordValidator:
 
-:php:`\TYPO3\CMS\Core\PasswordPolicy\Validator\NotCurrentPasswordValidator`
----------------------------------------------------------------------------
+NotCurrentPasswordValidator
+---------------------------
 
-This validator can be used to ensure, that the new user password is not
+The :php:`\TYPO3\CMS\Core\PasswordPolicy\Validator\NotCurrentPasswordValidator`
+validator can be used to ensure, that the new user password is not
 equal to the old password. The validator must always be configured with
 the exclude action :php:`\TYPO3\CMS\Core\PasswordPolicy\PasswordPolicyAction::NEW_USER_PASSWORD`,
 because it should be excluded, when a new user account is created.
@@ -166,39 +168,13 @@ The extension :t3ext:`add_pwd_policy` provides additional validators.
 Using password policy validation in Extbase
 -------------------------------------------
 
-If you need to validate a plaintext password within Extbase, for example in a 
+If you need to validate a plaintext password within Extbase, for example in a
 `Data transfer object (DTO) <https://docs.typo3.org/permalink/t3coreapi:extbase-dto>`_,
 you can call the :php:`\TYPO3\CMS\Core\PasswordPolicy\PasswordPolicyValidator` from
 within a custom validator, for example:
 
-..  code-block::php
+..  literalinclude:: _ExtbasePasswordPolicyValidator.php
     :caption: packages/my_extension/Classes/Domain/Validator/ExtbasePasswordPolicyValidator.php
-
-    <?php
-
-    declare(strict_types=1);
-    
-    namespace MyVendor\MyExtension\Domain\Validator;
-    
-    use TYPO3\CMS\Core\PasswordPolicy\PasswordPolicyAction;
-    use TYPO3\CMS\Core\PasswordPolicy\PasswordPolicyValidator;
-    use TYPO3\CMS\Extbase\Validation\Validator\AbstractValidator;
-    
-    class ExtbasePasswordPolicyValidator extends AbstractValidator
-    {
-        protected function isValid(mixed $value): void
-        {
-            if (!is_string($value)) {
-                return;
-            }
-            $passwordValidator = new PasswordPolicyValidator(PasswordPolicyAction::NEW_USER_PASSWORD);
-            if (!$passwordValidator->isValidPassword($value)) {
-                foreach ($passwordValidator->getValidationErrors() as $validationError) {
-                    $this->addError($validationError, 1774872344835);
-                }
-            }
-        }
-    }
 
 The error code should be a unique integer. It is common practice in TYPO3
 to use the current Unix timestamp in milliseconds when creating a new
@@ -206,32 +182,15 @@ validator, as this provides a simple way to generate a unique value.
 
 You can then use your custom Extbase validator in the DTO:
 
-..  code-block::php
+..  literalinclude:: _UserRegistrationDto.php
     :caption: packages/my_extension/Classes/Domain/Model/Dto/UserRegistrationDto.php
 
-    <?php
-
-    declare(strict_types=1);
-    
-    namespace MyVendor\MyExtension\Domain\Model\Dto;
-
-    use MyVendor\MyExtension\Domain\Validator\ExtbasePasswordPolicyValidator;
-    use TYPO3\CMS\Extbase\Annotation\Validate;
-
-    class UserRegistrationDto
-    {
-        #[Validate([
-            'validator' => ExtbasePasswordPolicyValidator::class,
-        ])]
-        public string $plainTextPassword = '';
-        // Other validator for username
-        public string $username = '';
-    }
-
 ..  warning::
-    The password in the DTO is stored in **plaintext**, you have to hash the password 
+    The password in the DTO is stored in **plaintext**, you have to hash the password
     (see `Password hashing <https://docs.typo3.org/permalink/t3coreapi:password-hashing>`_)
     before saving it to the database. Never persist a password that was not properly hashed.
+
+..  _password-policies-disable:
 
 Disable password policies globally
 ==================================
@@ -274,6 +233,8 @@ for a detailed implementation example.
     password validators. It can also be used as a resource for writing your
     own password validator.
 
+..  _password-policies-manual-validation:
+
 Validate a password manually
 ============================
 
@@ -290,11 +251,12 @@ a public-private key pair validates the password from user input against the
 default policy of the current TYPO3 installation.
 
 ..  literalinclude:: _PrivateKeyGeneratorCommand.php
-    :language: php
     :caption: EXT:my_extension/Classes/Command/PrivateKeyGeneratorCommand.php
 
-Event
-=====
+..  _password-policies-events:
+
+Events regarding password policies
+==================================
 
 The following PSR-14 event is available:
 
