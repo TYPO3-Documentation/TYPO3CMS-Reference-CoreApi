@@ -7,15 +7,35 @@
 Password policies
 =================
 
-..  versionadded::  12.0
 
-.. contents::
-   :depth: 1
-   :local:
+..  toctree::
+    :caption: Subpages
+    :glob:
+    :titlesonly:
+
+    */Index
+
+..  contents:: Sections
 
 TYPO3 includes a password policy validator which can be used to validate
-passwords against configurable password policies. A default password policy is
-included which ensures that passwords meet the following requirements:
+passwords against configurable password policies.
+
+TYPO3 ships with three preconfigured policies:
+
+*   `default` Used for backend and frontend users
+*   `installTool` Used for Install Tool passwords
+*   `secretToken` Used for secret token fields (e.g. webhooks, reactions)
+
+Each policy contains both a `generator` and a `validators` section. The
+generator is responsible for creating passwords, while validators enforce
+password requirements. They are configured independently within the same
+policy.
+
+A password policy can also define `Password generators <https://docs.typo3.org/permalink/t3coreapi:password-generator>`_
+and `Password policy validators <https://docs.typo3.org/permalink/t3coreapi:password-policies-validators>`_.
+
+The `default` password policy ensures that passwords meet the
+following requirements:
 
 *   At least 8 characters
 *   At least one number
@@ -27,9 +47,9 @@ Password policies can be configured individually for both frontend and backend
 context. It is also possible to extend a password policy with custom validation
 requirements.
 
-The password policy applies to:
+Password policies apply to:
 
-*   Creating a backend user during installation
+*   Creating a backend user during installation (`installTool`)
 *   Setting a new password for a backend user in :guilabel:`User settings`
 *   Resetting a password for a backend user
 *   Resetting a password for a frontend user
@@ -66,9 +86,11 @@ A custom password policy with the identifier `simple` can be configured like:
 ..  code-block:: php
     :caption: config/system/additional.php | typo3conf/system/additional.php
 
+    use TYPO3\CMS\Core\PasswordPolicy\Generator\PasswordGenerator;
+
     $GLOBALS['TYPO3_CONF_VARS']['SYS']['passwordPolicies']['simple'] = [
         'validators' => [
-            \TYPO3\CMS\Core\PasswordPolicy\Validator\CorePasswordValidator::class => [
+            CorePasswordValidator::class => [
                 'options' => [
                     'minimumLength' => 6,
                 ],
@@ -89,106 +111,6 @@ context:
     When implementing a custom password policy please refer to the
     :ref:`secure password guidelines <security-secure-passwords>`.
 
-..  _password-policies-validators:
-
-Password policy validators
-==========================
-
-TYPO3 ships with two password policy validators, which are both used in the
-default password policy.
-
-..  _password-policies-validators-CorePasswordValidator:
-
-CorePasswordValidator
----------------------
-
-The :php:`\TYPO3\CMS\Core\PasswordPolicy\Validator\CorePasswordValidator`
-validator has the ability to ensure a complex password with a defined
-minimum length and four individual requirements.
-
-The following options are available:
-
-..  confval:: minimumLength
-
-    :type: int
-    :Default: 8
-
-    The minimum length of a given password.
-
-..  confval:: upperCaseCharacterRequired
-
-    :type: bool
-    :Default: true
-
-    If set to :php:`true` at least one upper case character (`A`-`Z`) is required.
-
-..  confval:: lowerCaseCharacterRequired
-
-    :type: bool
-    :Default: true
-
-    If set to :php:`true` at least one lower case character (`a`-`z`) is required.
-
-..  confval:: digitCharacterRequired
-
-    :type: bool
-    :Default: true
-
-    If set to :php:`true` at least one digit character (`0`-`9`) is required.
-
-..  confval:: specialCharacterRequired
-
-    :type: bool
-    :Default: true
-
-    If set to :php:`true` at least one special character (not `0`-`9`, `a`-`z`,
-    `A`-`Z`) is required.
-
-..  _password-policies-validators-NotCurrentPasswordValidator:
-
-NotCurrentPasswordValidator
----------------------------
-
-The :php:`\TYPO3\CMS\Core\PasswordPolicy\Validator\NotCurrentPasswordValidator`
-validator can be used to ensure, that the new user password is not
-equal to the old password. The validator must always be configured with
-the exclude action :php:`\TYPO3\CMS\Core\PasswordPolicy\PasswordPolicyAction::NEW_USER_PASSWORD`,
-because it should be excluded, when a new user account is created.
-
-
-..  _password-policies-third-party-validators:
-
-Third-party validators
-----------------------
-
-The extension :t3ext:`add_pwd_policy` provides additional validators.
-
-..  _password-policies-third-party-extbase:
-
-Using password policy validation in Extbase
--------------------------------------------
-
-If you need to validate a plaintext password within Extbase, for example in a
-`Data transfer object (DTO) <https://docs.typo3.org/permalink/t3coreapi:extbase-dto>`_,
-you can call the :php:`\TYPO3\CMS\Core\PasswordPolicy\PasswordPolicyValidator` from
-within a custom validator, for example:
-
-..  literalinclude:: _ExtbasePasswordPolicyValidator.php
-    :caption: packages/my_extension/Classes/Domain/Validator/ExtbasePasswordPolicyValidator.php
-
-The error code should be a unique integer. It is common practice in TYPO3
-to use the current Unix timestamp in milliseconds when creating a new
-validator, as this provides a simple way to generate a unique value.
-
-You can then use your custom Extbase validator in the DTO:
-
-..  literalinclude:: _UserRegistrationDto.php
-    :caption: packages/my_extension/Classes/Domain/Model/Dto/UserRegistrationDto.php
-
-..  warning::
-    The password in the DTO is stored in **plaintext**, you have to hash the password
-    (see `Password hashing <https://docs.typo3.org/permalink/t3coreapi:password-hashing>`_)
-    before saving it to the database. Never persist a password that was not properly hashed.
 
 ..  _password-policies-disable:
 
@@ -211,53 +133,3 @@ string has to be supplied as password policy for frontend and backend context:
     decreases security massively. In the example above the deactivation of
     the password policies is wrapped into a condition which is only applied
     in development context.
-
-
-..  _password-policies-custom-validator:
-
-Custom password validator
-=========================
-
-To create a custom password validator, a new class has to be added which
-extends :php:`\TYPO3\CMS\Core\PasswordPolicy\Validator\AbstractPasswordValidator`.
-It is required to overwrite the following functions:
-
-*   :php:`public function initializeRequirements(): void`
-*   :php:`public function validate(string $password, ?ContextData $contextData = null): bool`
-
-Please refer to :php:`\TYPO3\CMS\Core\PasswordPolicy\Validator\CorePasswordValidator`
-for a detailed implementation example.
-
-..  tip::
-    The third-party extension :composer:`derhansen/add_pwd_policy` provides additional
-    password validators. It can also be used as a resource for writing your
-    own password validator.
-
-..  _password-policies-manual-validation:
-
-Validate a password manually
-============================
-
-You can use the :php:`\TYPO3\CMS\Core\PasswordPolicy\PasswordPolicyValidator` to validate a
-password using the validators configured in :php:`$GLOBALS['TYPO3_CONF_VARS']['SYS']['passwordPolicies']`.
-
-The class cannot be injected as it must be instantiated with an action. Available actions can be found in
-enum :t3src:`core/Classes/PasswordPolicy/PasswordPolicyAction.php`.
-
-..  rubric:: Example:
-
-In the following example a :ref:`command <symfony-console-commands>` to generate
-a public-private key pair validates the password from user input against the
-default policy of the current TYPO3 installation.
-
-..  literalinclude:: _PrivateKeyGeneratorCommand.php
-    :caption: EXT:my_extension/Classes/Command/PrivateKeyGeneratorCommand.php
-
-..  _password-policies-events:
-
-Events regarding password policies
-==================================
-
-The following PSR-14 event is available:
-
-*   :ref:`EnrichPasswordValidationContextDataEvent <EnrichPasswordValidationContextDataEvent>`

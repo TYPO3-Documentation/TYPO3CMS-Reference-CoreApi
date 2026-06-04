@@ -827,34 +827,18 @@ configuration.
     :Path: $GLOBALS['TYPO3_CONF_VARS']['SYS']['passwordPolicies']
     :type: array
 
-    Defines the available :ref:`password policies <password-policies>`. Each
-    policy must have a unique identifier (the identifier `default` is reserved
-    by TYPO3) and must at least contain one validator.
+    Defines the available :ref:`password policies <password-policies>`,
+    including validators and generators. Each
+    policy must have a unique identifier.
 
-    The default configuration:
+    TYPO3 ships with three preconfigured policies:
 
-    ..  code-block:: php
+    *   `default` Used for backend and frontend users
+    *   `installTool` Used for Install Tool passwords
+    *   `secretToken` Used for secret token fields (e.g. webhooks, reactions)
 
-        $GLOBALS['TYPO3_CONF_VARS']['SYS']['passwordPolicies']['default'] = [
-            'validators' => [
-                \TYPO3\CMS\Core\PasswordPolicy\Validator\CorePasswordValidator::class => [
-                    'options' => [
-                        'minimumLength' => 8,
-                        'upperCaseCharacterRequired' => true,
-                        'lowerCaseCharacterRequired' => true,
-                        'digitCharacterRequired' => true,
-                        'specialCharacterRequired' => true,
-                    ],
-                    'excludeActions' => [],
-                ],
-                \TYPO3\CMS\Core\PasswordPolicy\Validator\NotCurrentPasswordValidator::class => [
-                    'options' => [],
-                    'excludeActions' => [
-                        \TYPO3\CMS\Core\PasswordPolicy\PasswordPolicyAction::NEW_USER_PASSWORD,
-                    ],
-                ],
-            ],
-        ];
+    For the default configuration see the default configuration on GitHub:
+    https://github.com/TYPO3/typo3/blob/main/typo3/sysext/core/Configuration/DefaultConfiguration.php
 
 ..  _typo3ConfVars_sys_messenger:
 
