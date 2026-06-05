@@ -78,6 +78,7 @@ TYPO3 v14
 ..  _tsfe-baseurl:
 ..  _using-the-typoscriptfrontendcontroller:
 ..  _typo3-request-attribute-frontend-controller:
+..  _assets-TypoScriptFrontendController:
 
 TypoScriptFrontendController and $GLOBALS['TSFE'] removed
 =========================================================

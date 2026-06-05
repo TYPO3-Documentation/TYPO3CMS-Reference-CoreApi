@@ -4,7 +4,6 @@
     ! Assets
     PageRenderer
 ..  _assets-introduction:
-..  _assets-TypoScriptFrontendController:
 ..  _assets:
 
 ===============================
