@@ -199,14 +199,6 @@ Acquire and use an exclusive, non-blocking lock:
    }
 
 
-.. index::  pair: Locking; Core
-
-Usage in the Core
-=================
-
-The locking API is used in the Core for caching, see :php:`TypoScriptFrontendController`.
-
-
 .. index::  pair: Locking; Extensions
 
 .. _use-locking-api-in-extensions:
@@ -268,8 +260,8 @@ first choice for most locking operations in TYPO3.
 Multiple servers & Cache locking
 --------------------------------
 
-Since the Core uses the locking API for some cache operations (see for
-example :php:`TypoScriptFrontendController`), make sure that you correctly
+Since the Core uses the locking API for some cache operations, make sure that
+you correctly
 setup your caching and locking if you share your TYPO3 instance on multiple
 servers for load balancing or high availability.
 

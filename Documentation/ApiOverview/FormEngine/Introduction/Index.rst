@@ -20,9 +20,8 @@ FormEngine
     by some controller.
 
 Frontend rendering
-    :php:`TYPO3\CMS\Frontend\...`: Renders the website frontend. The frontend rendering, usually based on
-    :php:`TYPO3\CMS\Frontend\Controller\TypoScriptFrontendController` uses :code:`TypoScript` and / or :code:`Fluid`
-    to process and render database content into the frontend.
+    :php:`TYPO3\CMS\Frontend\...`: Renders the website frontend. The frontend rendering
+    uses `TypoScript` and / or `Fluid` to process and render database content into the frontend.
 
 The glue between these three pillars is :ref:`TCA (Table Configuration Array) <t3tca:tca-what-is>`: It defines how
 database tables are constructed, which localization or workspace facilities exist, how it should be displayed in the
