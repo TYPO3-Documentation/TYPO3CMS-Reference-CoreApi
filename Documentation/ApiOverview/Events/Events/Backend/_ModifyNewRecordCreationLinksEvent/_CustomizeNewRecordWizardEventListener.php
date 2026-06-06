@@ -32,8 +32,8 @@ final readonly class CustomizeNewRecordWizardEventListener
                     ]),
                     'icon' => $this->iconFactory->getIconForRecord('tx_myext_domain_model_item', []),
                     'label' => 'Custom Item',
-                ]
-            ]
+                ],
+            ],
         ];
 
         // Add the custom group to the existing structure
@@ -64,7 +64,7 @@ final readonly class CustomizeNewRecordWizardEventListener
                     ]),
                     'icon' => $this->iconFactory->getIcon('status-dialog-information', IconSize::SMALL),
                     'label' => 'Information Note',
-                ]
+                ],
             ];
         }
     }
