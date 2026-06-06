@@ -18,7 +18,7 @@ final class MyLayoutDataProvider implements DataProviderInterface
 
     public function addBackendLayouts(
         DataProviderContext $dataProviderContext,
-        BackendLayoutCollection $backendLayoutCollection
+        BackendLayoutCollection $backendLayoutCollection,
     ) {
         // TODO implement
     }
