@@ -263,3 +263,34 @@ integrates the grid layout concept also to regular content elements.
 
 The extension :composer:`ichhabrecht/content-defender` offers advanced options to
 the column positions i.e. allowed or disallowed content elements, a maximal number of content elements.
+
+.. _backend-layout-providers:
+
+Backend layout providers
+========================
+
+..  versionchanged:: 14.0
+    Backend layout providers are now autoconfigured once they implement the required
+    :php:`\TYPO3\CMS\Backend\View\BackendLayout\DataProviderInterface`.
+
+    The configuration via :php:`$GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['BackendLayoutDataProvider']`
+    has no effect anymore but can be kept until dropping TYPO3 v13 support.
+
+    See `Feature: #107784 - Autoconfigure backend layout data providers <https://docs.typo3.org/permalink/changelog:feature-107784-1760946896>`_.
+
+Backend layout data providers, classes implementing :php:`\TYPO3\CMS\Backend\View\BackendLayout\DataProviderInterface`,
+supply TYPO3 with the available backend layouts
+and allow layout definitions to be loaded from different sources, such
+as database records, Page TSconfig, or custom implementations.
+
+They define which content areas editors can see and use in the
+:guilabel:`Content > Layout` module.
+
+..  literalinclude:: _BackendLayout/_MyLayoutDataProvider.php
+    :caption: EXT:my_extension/Classes/DataProviders/MyLayoutDataProvider.php
+
+The TYPO3 Core provides the :php-short:`\TYPO3\CMS\Backend\View\BackendLayout\DefaultDataProvider` and
+the :php-short:`\TYPO3\CMS\Backend\View\BackendLayout\PageTsBackendLayoutDataProvider`.
+
+Third party extension :composer:`fluidtypo3/flux` implements, for example, its
+own backend layout data provider.
