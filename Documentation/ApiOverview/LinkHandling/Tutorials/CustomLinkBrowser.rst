@@ -233,16 +233,22 @@ in an array for you. You can perform further processing here if needed.
 4. Render the custom link format in the frontend
 ================================================
 
-The link builder, a class extending the abstract class
-:php:`\TYPO3\CMS\Frontend\Typolink\AbstractTypolinkBuilder` is called whenever
+..  deprecated:: 14.0
+    The :php:`build()` method in :php:`TYPO3\CMS\Frontend\Typolink\AbstractTypolinkBuilder`
+    has been deprecated in favor of the new
+    :php:`\TYPO3\CMS\Frontend\Typolink\TypolinkBuilderInterface`.
+
+    See also `Deprecation: #106405 - AbstractTypolinkBuilder->build <https://docs.typo3.org/permalink/changelog:deprecation-106405-1742674605>`_.
+
+The link builder, a class extending the implementing
+:php:`\TYPO3\CMS\Frontend\Typolink\TypolinkBuilderInterface` is called whenever
 a link is rendered in the frontend, for example via
 TypoScript :typoscript:`.typolink`, by the
 :php:`\TYPO3\CMS\Frontend\ContentObject\ContentObjectRenderer::typoLink`
 function or by the :php:`\TYPO3\CMS\Extbase\Mvc\Web\Routing\UriBuilder`.
 
-..  include:: _CustomLinkBrowser/_GithubLinkBuilder.rst.txt
-
-..  todo: Mention LinkFactory for v12 and other calling API for v11
+..  literalinclude:: _CustomLinkBrowser/_GithubLinkBuilder.php
+    :caption: Class T3docs\\Examples\\LinkHandler\\GithubLinkBuilder
 
 The link builder must be registered in :file:`ext_localconf.php`, so that
 the correct link builder for the new type can be determined by the calling API:
@@ -253,7 +259,7 @@ the correct link builder for the new type can be determined by the calling API:
     $GLOBALS['TYPO3_CONF_VARS']['FE']['typolinkBuilder']['github'] =
         \T3docs\Examples\LinkHandler\GithubLinkBuilder::class;
 
-The function :php:`AbstractTypolinkBuilder::build()` is called with the link
+The function :php:`TypolinkBuilderInterface::buildLink()` is called with the link
 configuration and data from the typolink function. If the link can be rendered,
 it returns a new :php:`\TYPO3\CMS\Frontend\Typolink\LinkResultInterface`. The
 actual rendering of the link depends on the context the link is rendered in
@@ -268,3 +274,40 @@ If the link cannot be built it should throw a
     repository to use must be stored in another way. In this example we
     hardcoded it. But you could also make it available by TypoScript
     setup or as part of the link format that is saved.
+
+..  _AbstractTypolinkBuilder-migration:
+
+Migration from AbstractTypolinkBuilder::build() to TypolinkBuilderInterface
+===========================================================================
+
+For extension developers with custom TypolinkBuilder classes:
+
+1.  Implement the new interface:
+
+    ..  code-block:: php
+        :caption: Recommended migration approach
+
+        // Before (deprecated)
+        class MyCustomLinkBuilder extends AbstractTypolinkBuilder
+        {
+            public function build(array &$linkDetails, string $linkText, string $target, array $conf): LinkResultInterface
+            {
+                // Custom logic using $this->contentObjectRenderer
+            }
+        }
+
+        // After (recommended)
+        class MyCustomLinkBuilder implements TypolinkBuilderInterface
+        {
+            public function buildLink(array $linkDetails, array $configuration, ServerRequestInterface $request, string $linkText = ''): LinkResultInterface
+            {
+                $contentObjectRenderer = $request->getAttribute('currentContentObject');
+                // Custom logic using $contentObjectRenderer
+            }
+        }
+
+2.  Use dependency injection for required services instead of accessing
+    them via global state or constructor arguments.
+
+3.  Access ContentObjectRenderer via the request object rather than
+    the deprecated property.
