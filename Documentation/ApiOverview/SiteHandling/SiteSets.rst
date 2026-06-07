@@ -225,6 +225,71 @@ by polluting global scope when registering page TSconfig globally via
 Dependencies can be expressed via sets, allowing for automatic ordering and
 deduplication.
 
+..  _site-sets-route-enhancers:
+
+Defining route enhancers in a site set
+======================================
+
+..  versionadded:: 14.1
+    See `Feature: #107837 - Route enhancers in site sets <https://docs.typo3.org/permalink/changelog:feature-107837-1732800000>`_
+
+Site sets can define route enhancers in a dedicated :file:`route-enhancers.yaml`
+file. They are automatically merged into the site configuration when
+the set is used as a dependency.
+
+Route enhancers from site sets are merged in dependency order. When a site
+uses multiple sets, enhancers from earlier dependencies are loaded first,
+and later sets can override them.
+
+Site-level route enhancer configuration always takes precedence over
+set-defined enhancers. This allows sites to customize or override
+preset configurations from sets.
+Create a :file:`route-enhancers.yaml` file in your site set directory alongside
+the :file:`config.yaml`:
+
+..  directory-tree::
+    :show-file-icons: true
+
+    *   EXT:my_extension/Configuration/Sets/MySet/
+
+        *   config.yaml
+        *   ...
+        *   route-enhancers.yaml
+
+The file must contain a `routeEnhancers` key with the route enhancer definitions:
+
+..  code-block:: yaml
+    :caption: EXT:my_extension/Configuration/Sets/MySet/route-enhancers.yaml
+
+    routeEnhancers:
+      MyEnhancer:
+        type: Simple
+        routePath: '/my-path/{param}'
+        aspects:
+          param:
+            type: StaticValueMapper
+            map:
+              value1: '1'
+              value2: '2'
+
+The route enhancers file supports YAML imports, allowing you to split
+configuration across multiple files:
+
+..  code-block:: yaml
+    :caption: EXT:my_extension/Configuration/Sets/MySet/route-enhancers.yaml
+
+    imports:
+      - { resource: 'route-enhancers/*.yaml' }
+
+    routeEnhancers:
+      # Additional enhancers can be defined here
+
+..  seealso::
+
+    *   `Routing - readable, SEO-friendly URLs <https://docs.typo3.org/permalink/t3coreapi:routing-introduction>`_
+    *   `Route Enhancements and Aspects <https://docs.typo3.org/permalink/t3coreapi:routing-advanced-routing-configuration>`_
+    *   `The Extbase plugin route enhancer <https://docs.typo3.org/permalink/t3coreapi:extbase-routing-enhancer>`_
+
 ..  _site-sets-cli:
 
 Analyzing the available site sets via console command
@@ -265,13 +330,14 @@ The site package example extension has the following file structure:
 
         *   Sets
 
-            *   SitePackage
+            *   MySitePackage
 
                 *   config.yaml
                 *   constants.typoscript
                 *   page.tsconfig
                 *   settings.yaml
                 *   setup.typoscript
+                *   route-enhancers.yaml
 
             *   ...
 
