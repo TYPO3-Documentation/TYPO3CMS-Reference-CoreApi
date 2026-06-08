@@ -36,6 +36,22 @@
             $buttonBar->addButton($saveButton, ButtonBar::BUTTON_POSITION_LEFT, 1);
         }
 
+    ..  php:method:: setMetaInformation(array $metaInformation)
+
+        **Deprecated:** since v14, will be removed in v15. Use setPageBreadcrumb() instead.
+
+        Set page information
+
+        :param $metaInformation: Record array
+
+    ..  php:method:: setMetaInformationForResource(\TYPO3\CMS\Core\Resource\ResourceInterface $resource)
+
+        **Deprecated:** since v14, will be removed in v15. Use setResourceBreadcrumb() instead.
+
+        Set meta information for a file/folder resource.
+
+        :param $resource: the resource
+
     ..  php:method:: setBreadcrumbContext(?\TYPO3\CMS\Backend\Breadcrumb\BreadcrumbContext $breadcrumbContext)
 
         Sets the breadcrumb context for rendering.
@@ -53,8 +69,10 @@
 
         Sets breadcrumb from a page record array.
 
+        This is the direct replacement for setMetaInformation().
+
         Example:
-        $view->getDocHeaderComponent()->setPageBreadcrumb($pageInfo);
+            $view->getDocHeaderComponent()->setPageBreadcrumb($pageInfo);
 
         :param $pageRecord: The page record array (must contain 'uid')
 
