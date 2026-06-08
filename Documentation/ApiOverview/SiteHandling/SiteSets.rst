@@ -234,7 +234,7 @@ Defining route enhancers in a site set
     See `Feature: #107837 - Route enhancers in site sets <https://docs.typo3.org/permalink/changelog:feature-107837-1732800000>`_
 
 Site sets can define route enhancers in a dedicated :file:`route-enhancers.yaml`
-file. They are automatically merged into the site configuration when
+file. The route enhancers are automatically merged into the site configuration when
 the set is used as a dependency.
 
 Route enhancers from site sets are merged in dependency order. When a site
@@ -272,7 +272,7 @@ The file must contain a `routeEnhancers` key with the route enhancer definitions
               value1: '1'
               value2: '2'
 
-The route enhancers file supports YAML imports, allowing you to split
+The route enhancer file supports YAML imports, allowing you to split
 configuration across multiple files:
 
 ..  code-block:: yaml
