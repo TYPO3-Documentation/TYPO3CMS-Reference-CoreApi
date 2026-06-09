@@ -1,20 +1,27 @@
-.. include:: /Includes.rst.txt
-.. index:: Link builder
-.. _link-builder:
+..  include:: /Includes.rst.txt
+..  index:: Link builder
+..  _link-builder:
 
 =====================
 Frontend link builder
 =====================
 
-A link builder, a class extending the abstract class
-:php:`\TYPO3\CMS\Frontend\Typolink\AbstractTypolinkBuilder`, is called whenever
+..  deprecated:: 14.0
+    The :php:`build()` method in :php:`TYPO3\CMS\Frontend\Typolink\AbstractTypolinkBuilder`
+    has been deprecated in favor of the new
+    :php:`\TYPO3\CMS\Frontend\Typolink\TypolinkBuilderInterface`.
+
+    See also `Deprecation: #106405 - AbstractTypolinkBuilder->build <https://docs.typo3.org/permalink/changelog:deprecation-106405-1742674605>`_.
+
+A link builder is a class that implements
+:php:`\TYPO3\CMS\Frontend\Typolink\TypolinkBuilderInterface` and that is called when
 a link is rendered in the frontend.
 
-There are specific link builders for each type of link. Which link to
-call is determined by the class configured in global configuration,
+There are link builders for every type of link. Which link to
+call is determined by the respective class configured in global configuration,
 see :ref:`typo3ConfVars_fe_typolinkBuilder`.
 
-You can register a custom link builder in your extension's
+Register a custom link builder in your extension's
 :ref:`ext-localconf-php`:
 
 ..  literalinclude:: _ext_localconf.php
@@ -29,7 +36,7 @@ The link builders provided by the Core can be found in namespace
     how the link builders are used in v11
 
 The main method of a link builder is the function
-:php:`AbstractTypolinkBuilder::build()`. It is called with
+:php:`TypolinkBuilderInterface::buildLink()`. It is called with
 with the parameter array provided by the
 :ref:`Core link handler <core-link-handler>`.
 
