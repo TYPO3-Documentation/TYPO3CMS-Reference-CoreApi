@@ -264,7 +264,7 @@ integrates the grid layout concept also to regular content elements.
 The extension :composer:`ichhabrecht/content-defender` offers advanced options to
 the column positions i.e. allowed or disallowed content elements, a maximal number of content elements.
 
-.. _backend-layout-providers:
+..  _backend-layout-providers:
 
 Backend layout providers
 ========================
@@ -294,3 +294,38 @@ the :php-short:`\TYPO3\CMS\Backend\View\BackendLayout\PageTsBackendLayoutDataPro
 
 Third party extension :composer:`fluidtypo3/flux` implements, for example, its
 own backend layout data provider.
+
+..  _backend-layout-providers-configuration:
+
+Manual service configuration
+----------------------------
+
+If autoconfiguration is disabled, manually tag the service in
+:file:`Services.yaml`:
+
+..  code-block:: yaml
+    :caption: EXT:my_extension/Configuration/Services.yaml
+
+     services:
+       MyVendor\MyExtension\View\BackendLayout\MyLayoutDataProvider:
+         tags:
+           - name: page_layout.data_provider
+
+..  _backend-layout-providers:
+
+Backend layout provider ordering
+--------------------------------
+
+If you need to control the order in which providers are processed, use service
+priorities in your :file:`Services.yaml`:
+
+..  code-block:: yaml
+    :caption: EXT:my_extension/Configuration/Services.yaml
+
+    services:
+      MyVendor\MyExtension\View\BackendLayout\MyLayoutDataProvider:
+        tags:
+          - name: page_layout.data_provider
+            priority: 100
+
+
