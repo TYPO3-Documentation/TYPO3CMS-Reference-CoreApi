@@ -11,8 +11,9 @@ ModifyNewRecordCreationLinksEvent
 
 The PSR-14 event
 :php:`\TYPO3\CMS\Backend\Controller\Event\ModifyNewRecordCreationLinksEvent`
-allows to modify the
-`New record component in the Contents > Records module <https://docs.typo3.org/permalink/t3coreapi:news-record-component>`_.
+allows the
+`New record component in the Contents > Records module <https://docs.typo3.org/permalink/t3coreapi:news-record-component>`_
+to be modified.
 
 ..  contents:: Table of contents
 

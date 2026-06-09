@@ -28,8 +28,9 @@ the current page.
 All available record types for tables that support sub-schemas
 (record types) are also displayed.
 
-Record types can be prevented from display in the "New record" component
-via TCA `$GLOBALS['TCA']['my_table']['types']['my_type']['creationOptions']['enableDirectRecordTypeCreation'] = false`
+Record types can be prevented from being displayed in the "New record" component
+by setting `$GLOBALS['TCA']['my_table']['types']['my_type']['creationOptions']['enableDirectRecordTypeCreation'] = false`
+in TCA.
 
 Additionally, the PSR-14 `ModifyNewRecordCreationLinksEvent <https://docs.typo3.org/permalink/t3coreapi:modifynewrecordcreationlinksevent>`_
 allows for complete customization of the creation links.
