@@ -339,4 +339,11 @@ return [
         'targetFileName' => 'CodeSnippets/Events/Backend/ModifyLocalizationHandlerIsAvailableEvent.rst.txt',
         'withCode' => false,
     ],
+    [
+        'action' => 'createPhpClassDocs',
+        'class' => \TYPO3\CMS\Backend\Controller\Event\ModifyNewRecordCreationLinksEvent::class,
+        'targetFileName' => 'CodeSnippets/Events/Backend/ModifyNewRecordCreationLinksEvent.rst.txt',
+        'withCode' => false,
+    ],
+
 ];
