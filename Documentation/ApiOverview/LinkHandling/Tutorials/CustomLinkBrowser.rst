@@ -6,7 +6,7 @@
 Create a custom link browser
 ============================
 
-In this tutorial we create a custom link browser and the associated
+In this tutorial we create a custom link browser and an associated
 :ref:`backend link handler <tutorial_backend_link_handler>`.
 
 We create a new tab in the link browser window in the TYPO3 backend:
@@ -240,12 +240,12 @@ in an array for you. You can perform further processing here if needed.
 
     See also `Deprecation: #106405 - AbstractTypolinkBuilder->build <https://docs.typo3.org/permalink/changelog:deprecation-106405-1742674605>`_.
 
-The link builder, a class extending the implementing
-:php:`\TYPO3\CMS\Frontend\Typolink\TypolinkBuilderInterface` is called whenever
+The link builder, a class which implements
+:php:`\TYPO3\CMS\Frontend\Typolink\TypolinkBuilderInterface`, is called whenever
 a link is rendered in the frontend, for example via
 TypoScript :typoscript:`.typolink`, by the
 :php:`\TYPO3\CMS\Frontend\ContentObject\ContentObjectRenderer::typoLink`
-function or by the :php:`\TYPO3\CMS\Extbase\Mvc\Web\Routing\UriBuilder`.
+function or by :php:`\TYPO3\CMS\Extbase\Mvc\Web\Routing\UriBuilder`.
 
 ..  literalinclude:: _CustomLinkBrowser/_GithubLinkBuilder.php
     :caption: Class T3docs\\Examples\\LinkHandler\\GithubLinkBuilder
@@ -265,14 +265,14 @@ it returns a new :php:`\TYPO3\CMS\Frontend\Typolink\LinkResultInterface`. The
 actual rendering of the link depends on the context the link is rendered in
 (for example HTML or JSON).
 
-If the link cannot be built it should throw a
+If the link cannot be built, it should throw a
 :php:`\TYPO3\CMS\Frontend\Typolink\UnableToLinkException`.
 
-..  attention:: The configuration from the :ref:`page TSconfig
-    configuration <tutorial_backend_link_handler-tsconfig>` (step 1)
-    is **not available in the frontend**. Therefore the information which
+..  attention::
+    :ref:`Page TSconfig configuration <tutorial_backend_link_handler-tsconfig>` (step 1)
+    is **not available in the frontend**. Therefore the information about which
     repository to use must be stored in another way. In this example we
-    hardcoded it. But you could also make it available by TypoScript
+    have hardcoded it but you could also make it available in TypoScript
     setup or as part of the link format that is saved.
 
 ..  _AbstractTypolinkBuilder-migration:
@@ -280,7 +280,7 @@ If the link cannot be built it should throw a
 Migration from AbstractTypolinkBuilder::build() to TypolinkBuilderInterface
 ===========================================================================
 
-For extension developers with custom TypolinkBuilder classes:
+If you are an extension developer with custom TypolinkBuilder classes:
 
 1.  Implement the new interface:
 
@@ -306,7 +306,7 @@ For extension developers with custom TypolinkBuilder classes:
             }
         }
 
-2.  Use dependency injection for required services instead of accessing
+2.  Use dependency injection to add services instead of accessing
     them via global state or constructor arguments.
 
 3.  Access ContentObjectRenderer via the request object rather than
