@@ -352,22 +352,6 @@ the TYPO3 frontend:
 
     Enter lines of default TypoScript, setup-field.
 
-..  _typo3ConfVars_fe_additionalAbsRefPrefixDirectories:
-
-..  confval:: additionalAbsRefPrefixDirectories
-    :Path: $GLOBALS['TYPO3_CONF_VARS']['FE']['additionalAbsRefPrefixDirectories']
-    :name: typo3-conf-vars-fe-additionalAbsRefPrefixDirectories
-    :type: text
-    :Default: ''
-
-    Enter additional directories to be prepended with absRefPrefix.
-    Directories must be comma-separated. TYPO3 already prepends the following
-    directories :file:`public/_assets/`, :file:`public/typo3temp/` and all
-    local storages including :file:`public/fileadmin/`.
-
-    In Classic mode installations without Composer :file:`typo3conf/ext`
-    and :file:`typo3/` are also prefixed.
-
 ..  _typo3ConfVars_fe_enable_mount_pids:
 
 ..  confval:: enable_mount_pids

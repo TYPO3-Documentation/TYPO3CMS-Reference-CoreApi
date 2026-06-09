@@ -91,6 +91,21 @@ TypoScriptFrontendController and $GLOBALS['TSFE'] removed
 Most properties can be retrieved from the
 `TYPO3 request object <https://docs.typo3.org/permalink/t3coreapi:typo3-request>`_.
 
+
+..  _typo3ConfVars-fe-additionalAbsRefPrefixDirectories:
+..  _convval-typo3-conf-vars-fe-additionalAbsRefPrefixDirectories:
+
+$GLOBALS['TYPO3_CONF_VARS']['FE']['additionalAbsRefPrefixDirectories'] has no effect anymore
+============================================================================================
+
+..  versionchanged:: 14.0
+    Global search and replace code for links has been removed, which means setting
+    :php:`$GLOBALS['TYPO3_CONF_VARS']['FE']['additionalAbsRefPrefixDirectories']`
+    is obsolete as well.
+
+    See `Breaking: #108114 - Global frontend content link prefixing removed <https://docs.typo3.org/permalink/changelog:breaking-108114-1763085569>`_
+
+
 ..  _not-found-12:
 
 TYPO3 v12
