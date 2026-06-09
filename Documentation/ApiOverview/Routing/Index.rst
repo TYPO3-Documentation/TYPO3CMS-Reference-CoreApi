@@ -14,15 +14,30 @@
 Routing - readable, SEO-friendly URLs
 =====================================
 
-When TYPO3 serves a request, it maps the incoming URL to a specific page or action.
-For example it maps an URL like :samp:`https://example.org/news` to the News page. This process of
-determining the page and/or action to execute for a specific URL is called "Routing".
+..  versionadded:: 14.1
+    Site sets can define route enhancers in a dedicated :file:`route-enhancers.yaml`
+    file.
 
-The input of a route is made up of several components; some components can also be split further
-into sub-components.
+    See `Feature: #107837 - Route enhancers in site sets <https://docs.typo3.org/permalink/changelog:feature-107837-1732800000>`_
 
-Routing will also take care of beautifying URI parameters, for example converting
-:samp:`https://example.org/profiles?user=magdalena` to :samp:`https://example.org/profiles/magdalena`.
+When TYPO3 serves a request, it maps the incoming URL to a specific page or action,
+for example, it maps an URL like :samp:`https://example.org/news` to a News page.
+This process of determining the page and/or action to execute based on a specific
+URL is called "Routing".
+
+The input of a route is made up of several components. Some components can also be
+split into further sub-components.
+
+Routing also beautifies URI parameters, for example,
+:samp:`https://example.org/profiles?user=magdalena` is converted into
+:samp:`https://example.org/profiles/magdalena`
+
+Routing is defined in the site configuration file :file:`config/sites/my_site/config.yaml`
+or in a site set like `EXT:my_extension/Configuration/Sets/MySet/route-enhancers.yaml`.
+
+Site-level route enhancer configuration always takes precedence over
+set-defined enhancers. Route enhancers from site sets are merged in dependency
+order.
 
 ..  contents:: Table of contents
 
@@ -198,6 +213,12 @@ redirects are automatically generated when a slug is adjusted by and editor.
 Tips: Using imports in YAML files
 =================================
 
+..  versionadded:: 14.1
+    Site sets can define route enhancers in a dedicated :file:`route-enhancers.yaml`
+    file. You can also set up imports in the yaml file (see below).
+
+    See `Feature: #107837 - Route enhancers in site sets <https://docs.typo3.org/permalink/changelog:feature-107837-1732800000>`_
+
 As routing configuration (and site configuration in general) can get pretty long
 fast, you should make use of imports in your YAML configuration which allows you
 to add routing configurations from different files and different extensions.
@@ -205,9 +226,7 @@ to add routing configurations from different files and different extensions.
 Example:
 
 ..  code-block:: yaml
-    :caption: config/sites/<site-identifier>/config.yaml
+    :caption: EXT:my_extension/Configuration/Sets/MySet/route-enhancers.yaml
 
     imports:
-        - { resource: "EXT:myblog/Configuration/Routes/Default.yaml" }
-        - { resource: "EXT:mynews/Configuration/Routes/Default.yaml" }
-        - { resource: "EXT:template/Configuration/Routes/Default.yaml" }
+      - { resource: 'route-enhancers/*.yaml' }

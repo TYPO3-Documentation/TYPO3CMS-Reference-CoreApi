@@ -1,4 +1,5 @@
 :navigation-title: Examples
+
 ..  include:: /Includes.rst.txt
 ..  index:: Routing; Examples
 ..  _routing-examples:
@@ -126,3 +127,14 @@ EXT: DpnGlossary
     :caption: config/my_site/config.yaml (excerpt)
 
 Taken from dpn_glossary extension manual.
+
+..  _routing-examples-seo:
+
+EXT:seo routing
+===============
+
+..  versionadded:: 14.2
+
+The system extension :composer:`typo3/cms-seo` comes with a ready-to-use
+route enhancer in its "Sitemap" site set:
+`EXT:seo/Configuration/Sets/Sitemap/route-enhancers.yaml <https://github.com/TYPO3/typo3/blob/main/typo3/sysext/seo/Configuration/Sets/Sitemap/route-enhancers.yaml>`_
