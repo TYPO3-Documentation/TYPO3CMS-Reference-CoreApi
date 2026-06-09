@@ -99,9 +99,9 @@ $GLOBALS['TYPO3_CONF_VARS']['FE']['additionalAbsRefPrefixDirectories'] has no ef
 ============================================================================================
 
 ..  versionchanged:: 14.0
-    The global search and replace code for links has been removed which obsoletes setting
+    Global search and replace code for links has been removed, which means setting
     :php:`$GLOBALS['TYPO3_CONF_VARS']['FE']['additionalAbsRefPrefixDirectories']`
-    as well.
+    is obsolete as well.
 
     See `Breaking: #108114 - Global frontend content link prefixing removed <https://docs.typo3.org/permalink/changelog:breaking-108114-1763085569>`_
 
