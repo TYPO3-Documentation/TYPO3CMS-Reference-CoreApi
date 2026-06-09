@@ -311,6 +311,12 @@ return [
     ],
     [
         'action' => 'createPhpClassDocs',
+        'class' => \TYPO3\CMS\Backend\Search\Event\ModifyConstraintsForLiveSearchEvent::class,
+        'targetFileName' => 'CodeSnippets/Events/Backend/ModifyConstraintsForLiveSearchEvent.rst.txt',
+        'withCode' => false,
+    ],
+    [
+        'action' => 'createPhpClassDocs',
         'class' => TYPO3\CMS\Backend\Security\SudoMode\Event\SudoModeRequiredEvent::class,
         'targetFileName' => 'CodeSnippets/Events/Backend/SudoModeRequiredEvent.rst.txt',
         'withCode' => false,
