@@ -1,13 +1,15 @@
-.. include:: /Includes.rst.txt
+:navigation-title: General Configuration
 
-.. _cropvariants_general:
+..  include:: /Includes.rst.txt
 
-=====================
-General Configuration
-=====================
+..  _cropvariants-general:
+
+==========================
+Crop variant configuration
+==========================
 
 The following examples are meant to add one single
-cropping configuration to sys_file_reference, which will then apply to every
+cropping configuration to table :sql:`sys_file_reference`, which will then apply to every
 record referencing images.
 
 In this example we configure two crop variants, one with the id "mobile",
@@ -26,9 +28,10 @@ For each crop variant there's at least one *ratio configuration* defined as ``al
    *  ``title``: should be a string (or even better: a LLL reference)
    *  ``value``: **should** be a float (not a string!)
 
-.. code-block:: php
+..  code-block:: php
+    :caption: EXT:my_extension/Configuration/TCA/Overrides/sys_file_reference.php
 
-    'config' => [
+    $GLOBALS['TCA']['sys_file_reference']['columns']['crop']['config'] = [
          'type' => 'imageManipulation',
          'cropVariants' => [
              'mobile' => [
@@ -60,6 +63,8 @@ For each crop variant there's at least one *ratio configuration* defined as ``al
          ]
     ]
 
+..  _cropvariants-general-cropArea:
+
 Crop Area
 =========
 
@@ -68,8 +73,9 @@ Crop areas are defined relatively with floating point numbers. The x and y coord
 The below example has an initial crop area in the size the previous image cropper provided by default.
 
 .. code-block:: php
+    :caption: EXT:my_extension/Configuration/TCA/Overrides/sys_file_reference.php
 
-    'config' => [
+    $GLOBALS['TCA']['sys_file_reference']['columns']['crop']['config'] = [
         'type' => 'imageManipulation',
         'cropVariants' => [
             'mobile' => [
@@ -83,6 +89,8 @@ The below example has an initial crop area in the size the previous image croppe
             ],
         ],
     ]
+
+..  _cropvariants-general-focusArea:
 
 Focus Area
 ==========
@@ -98,7 +106,9 @@ and centered.
 
 .. code-block:: php
 
-    'config' => [
+    :caption: EXT:my_extension/Configuration/TCA/Overrides/sys_file_reference.php
+
+    $GLOBALS['TCA']['sys_file_reference']['columns']['crop']['config'] = [
         'type' => 'imageManipulation',
         'cropVariants' => [
             'mobile' => [
@@ -113,6 +123,8 @@ and centered.
         ],
     ]
 
+..  _cropvariants-general-coverAreas:
+
 Cover Area
 ==========
 
@@ -123,7 +135,9 @@ the crop area. The focus area cannot intersect with any of the cover areas.
 
 .. code-block:: php
 
-    'config' => [
+    :caption: EXT:my_extension/Configuration/TCA/Overrides/sys_file_reference.php
+
+    $GLOBALS['TCA']['sys_file_reference']['columns']['crop']['config'] = [
         'type' => 'imageManipulation',
         'cropVariants' => [
             'mobile' => [
@@ -140,6 +154,7 @@ the crop area. The focus area cannot intersect with any of the cover areas.
         ],
     ]
 
+..  _cropvariants-general-rendering:
 
 Rendering crop variants
 =======================
