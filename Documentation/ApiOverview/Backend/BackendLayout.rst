@@ -327,5 +327,3 @@ priorities in your :file:`Services.yaml`:
         tags:
           - name: page_layout.data_provider
             priority: 100
-
-
