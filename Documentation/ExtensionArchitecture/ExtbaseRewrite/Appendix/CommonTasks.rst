@@ -223,21 +223,21 @@ entirely during read and write operations.
 
 ..  _extbase-appendix-tasks-contentblock-settings:
 
-Let editors set plugin settings through a Content Block FlexForm
-================================================================
+Let editors set plugin settings in a Content Block FlexForm
+===========================================================
 
 **Goal:** Expose a plugin setting (for example "items per page") as an editable
-field on the content element, so an editor can change it per element — without
-writing a FlexForm data structure by hand.
+field in a content element, so that an editor can change it without having to
+write a FlexForm data structure by hand.
 
-**Short answer:** When you register the Extbase plugin as a Content Block that
-renders through an :ref:`EXTBASEPLUGIN <t3tsref:cobj-extbaseplugin>` and reuses
-the :sql:`pi_flexform` field, a FlexForm field whose identifier is
-:yaml:`settings.<name>` folds straight into :php:`$this->settings['<name>']` —
-exactly like a TypoScript-defined setting. The reusable :sql:`pages` and
+**Short answer:** When you register an Extbase plugin as a Content Block that
+is rendered through an :ref:`EXTBASEPLUGIN <t3tsref:cobj-extbaseplugin>` and reuses
+the :sql:`pi_flexform` field, a FlexForm field with an identifier like
+:yaml:`settings.<name>` will be converted into :php:`$this->settings['<name>']` —
+exactly like a TypoScript setting. The reusable :sql:`pages` and
 :sql:`recursive` fields likewise feed :typoscript:`persistence.storagePid` and
-:typoscript:`persistence.recursive`. This is a little-known mechanism and becomes
-more relevant as Content Blocks technology moves into the Core.
+:typoscript:`persistence.recursive`. This is a little-known mechanism and is becoming
+more relevant as Content Block technology moves into the Core.
 
 ..  seealso::
 

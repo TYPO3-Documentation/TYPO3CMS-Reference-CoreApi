@@ -383,23 +383,24 @@ Check Extbase feature toggle defaults after upgrading (TYPO3 v14)
     (:ref:`Important #106467 <changelog:important-106467-1743452295>`).
 
 Feature toggles behave differently on upgrade than fresh installs: an existing
-instance **keeps whatever value it already had**, while a new installation gets
-the current default. A toggle whose default changed between versions therefore
-silently retains the *old* behaviour after an upgrade unless you set it
-explicitly. After upgrading to TYPO3 v14, check the values below — the defaults
+instance **keeps whatever value it already had**, while a new installation will get
+the new default. A toggle whose default changed between versions will therefore
+retain the *old* behaviour after an upgrade unless you set it
+explicitly. After upgrading to TYPO3 v14 check the values below — the defaults
 may not match what your code now expects.
 
 :php:`extbase.consistentDateTimeHandling`
-    Introduced in TYPO3 v13.4 with a default of :php:`false`; new TYPO3 v14
+    Introduced in TYPO3 v13.4 and set to :php:`false` by default; new TYPO3 v14
     installations default to :php:`true`. (TYPO3 v12 did not have this toggle.)
 
-    An instance upgraded from v12 or v13 keeps :php:`false` and continues to use
-    the **old** :php:`\DateTime` mapping. What you miss by staying on
-    :php:`false`: correct timezone-offset handling for native datetime fields,
+    An instance upgraded from v12 or v13 will keep the :php:`false` setting and will
+    continue to use
+    the **old** :php:`\DateTime` mapping. Certain functionality is missing
+    with the :php:`false` setting: correct timezone-offset handling for native datetime fields,
     named timezones instead of fixed offsets (no daylight-saving shifts), correct
     interpretation of integer-based time fields, and support for `00:00:00` as a
-    valid time on nullable fields. Many extensions carry timezone workarounds
-    that exist *only* to compensate for the old behaviour; enabling the toggle
+    valid time in nullable fields. Many extensions contain timezone workarounds
+    that exist *only* to rectify the old behaviour; enabling the toggle
     lets you remove them. Enable it once you have reviewed your
     :php:`\DateTime` handling:
 
@@ -409,10 +410,10 @@ may not match what your code now expects.
         $GLOBALS['TYPO3_CONF_VARS']['SYS']['features']['extbase.consistentDateTimeHandling'] = true;
 
 :php:`extbase.enableHistoryTracking`
-    Added in TYPO3 v14.2 with a default of :php:`false`, so there is no
-    upgrade-preservation surprise — but it is worth knowing it exists. The global
+    Added in TYPO3 v14.2 and set to :php:`false` by default, so you won't get
+    an upgrade-preservation surprise, but it is worth knowing that it exists. The global
     feature toggle enables history tracking for **all** Extbase domain model
-    tables at once; individual tables can then opt out via TCA with
+    tables; individual tables can then opt out via TCA with
     :php:`'ctrl' => ['extbase' => ['enableHistoryTracking' => false]]`. Note the
     GDPR implication: full data snapshots are written to :sql:`sys_history`, so
     disable it for tables holding sensitive data and prune regularly. See
@@ -421,7 +422,7 @@ may not match what your code now expects.
 ..  seealso::
 
     *   :ref:`extbase-model-datetime-consistency` for the full list of DateTime
-        behaviour changes the toggle activates.
+        behaviour activated by the toggle.
 
     *   `Feature toggles (TYPO3 Explained) <https://docs.typo3.org/permalink/t3coreapi:feature-toggles>`_
         for how toggles are stored and edited.
