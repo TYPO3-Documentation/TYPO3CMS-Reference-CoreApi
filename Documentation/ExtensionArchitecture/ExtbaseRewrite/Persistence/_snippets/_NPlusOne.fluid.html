@@ -1,0 +1,4 @@
+<f:for each="{conferences}" as="conference">
+    <h2>{conference.title}</h2>
+    <p>{conference.comments -> f:count()} comments</p>
+</f:for>

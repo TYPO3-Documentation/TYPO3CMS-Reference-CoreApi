@@ -111,6 +111,17 @@ Built-in find methods in Extbase repositories
     :php:`countByTitle()`, etc.) were deprecated in v12.3 and removed in v14.
     See :ref:`extbase-upgrading-magic-findby` for the migration table.
 
+These methods are the starting point. The full behaviour *around* every query —
+which storage pages and languages it covers, how to limit, order and paginate
+results, and how related objects are loaded — is the subject of the persistence
+chapter:
+
+..  seealso::
+
+    *   `Querying the database with Extbase <https://docs.typo3.org/permalink/extbase-persistence-queries>`_ — storagePid resolution, query settings, limits, pagination, persisting and debugging.
+
+    *   `Object relations in Extbase <https://docs.typo3.org/permalink/extbase-persistence-relations>`_ — the relation cardinalities, lazy loading and the N+1 query trap.
+
 
 ..  _extbase-domain-repository-ordering:
 
@@ -158,6 +169,13 @@ In both cases the keys are **property names**, not column names. Order
 direction is :php:`QueryInterface::ORDER_ASCENDING` (:php:`'ASC'`) or
 :php:`QueryInterface::ORDER_DESCENDING` (:php:`'DESC'`).
 
+As an alternative to the :php:`setOrderings()` array, the query offers a fluent
+form: :php:`$query->orderBy('title')` sets a single ordering (replacing any
+existing one), and :php:`$query->addOrderBy('conferenceDate', QueryInterface::ORDER_DESCENDING)`
+appends a further ordering. Both take a property name and an optional direction
+that defaults to ascending. Use whichever reads better — they produce the same
+:sql:`ORDER BY` clause.
+
 If neither :php:`$defaultOrderings` nor a method-level :php:`setOrderings()`
 is set, no :sql:`ORDER BY` clause is added and the database returns rows in an
 undefined order. This may appear consistent in development but is not
@@ -195,10 +213,12 @@ The :php:`query <\TYPO3\CMS\Extbase\Persistence\QueryInterface>` API supports th
     :type:
     :default:
 
-    ..  confval:: equals(string $property, mixed $value)
+    ..  confval:: equals(string $property, mixed $value, bool $caseSensitive = true)
         :name: query-equals
 
-        Exact match. Generates a SQL :sql:`=` comparison.
+        Exact match. Generates a SQL :sql:`=` comparison. For string properties,
+        pass :php:`false` as the third argument for a case-insensitive match. If
+        :php:`$value` is :php:`null`, a strict :sql:`IS NULL` check is generated.
 
     ..  confval:: like(string $property, string $value)
         :name: query-like
@@ -251,6 +271,13 @@ The :php:`query <\TYPO3\CMS\Extbase\Persistence\QueryInterface>` API supports th
         :name: query-logicalnot
 
         Negates a constraint with :sql:`NOT`.
+
+    ..  confval:: count()
+        :name: query-count
+
+        Executes the query and returns the number of matching objects without
+        hydrating them. Call it on the query after :php:`matching()`, when you
+        need a count for the same constraints you would otherwise execute.
 
 Chain multiple constraints:
 

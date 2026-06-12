@@ -201,11 +201,6 @@ objects:
 
 A few things to note in the example above:
 
-..  Relation cardinality language needs a dedicated treatment: a nullable typed property
-..  can be a true 1:1 (both sides required and unique), a 0:1 (optional), or n:1 (many
-..  conference records pointing at one location). These all look the same in PHP but differ
-..  in intent and TCA setup. Revisit this section once the relations chapter is written.
-
 *   **Singular relations** (a typed property, nullable when the related object is optional)
     are one common pattern. When :php:`#[Lazy]` is
     applied, Extbase installs a
@@ -239,8 +234,9 @@ A few things to note in the example above:
 
 ..  seealso::
 
-    `Persistence relations <https://docs.typo3.org/permalink/extbase-persistence-relations>`_ for relations, lazy loading,
-    and the N+1 query trap.
+    `Persistence relations <https://docs.typo3.org/permalink/extbase-persistence-relations>`_ for the three relation
+    cardinalities (1:1, 1:n, m:n) and how each is stored, plus lazy loading and
+    the N+1 query trap.
 
     `Extbase PHP attributes <https://docs.typo3.org/permalink/extbase-appendix-attributes>`_ for all Extbase PHP attributes,
     with parameters and usage examples
