@@ -10,7 +10,7 @@ Querying the database with Extbase
 
 This page is the complete query reference for Extbase. It covers what happens
 *around* a query — which pages Extbase searches, which records it includes, how
-it limits and orders results, when changes are written back, and how to debug a
+it limits and orders results, when changes are written, and how to debug a
 query that misbehaves.
 
 The constraint methods (:php:`equals()`, :php:`like()`, :php:`logicalAnd()` and
@@ -34,19 +34,19 @@ Where Extbase looks: the storagePid resolution chain
 ====================================================
 
 Every Extbase query — except :php:`findByUid()` and
-:php:`findByIdentifier()` — is restricted to records stored on one or more
+:php:`findByIdentifier()` — is restricted to records stored on
 specific TYPO3 pages, the *storage pages* (often called the **storagePid**).
 
-This restriction is the single most common reason an Extbase query does not
+This restriction is the most common reason that an Extbase query does not
 behave as expected. The classic symptom is a repository that returns *nothing*,
-but that is only the most obvious case. Just as often the storagePid returns the
+but that is only the most obvious case. Just as often, the storagePid returns the
 *wrong* result: too few records because some live on a page outside the
-restriction, too many because a recursive lookup reaches into unrelated
-subpages, or seemingly random records because the configured page is not the one
-holding the data. An empty result at least announces the problem; a plausible
-but incomplete result can go unnoticed for a long time.
+restriction, or too many records because a recursive lookup includes unrelated
+subpages, or seemingly random records because a configured page is not the one
+containing the data. An empty result at least makes it clear that there is a
+problem; a plausible but incomplete result can go unnoticed.
 
-Several options feed the storagePid, and later ones override earlier ones. In a
+Several options affect the storagePid, and later ones override earlier ones. In a
 frontend request Extbase resolves them in this order:
 
 #.  **Extension-wide TypoScript** —
@@ -54,25 +54,25 @@ frontend request Extbase resolves them in this order:
 #.  **Plugin-specific TypoScript** —
     :typoscript:`plugin.tx_myextension_conferencelist.persistence.storagePid`
     overrides the extension-wide value for that one plugin.
-#.  **The Startingpoint field** on the plugin's content element. When an editor
+#.  **The Startingpoint field** on a plugin's content element. When an editor
     fills in the :guilabel:`Behaviour > Starting point` field, the chosen pages
     override the TypoScript value. The label hides the real database column,
     which is :sql:`pages` — useful to know when inspecting records or writing
     overrides, as the label is not guaranteed to read the same on every
     instance or in every language.
-#.  **FlexForm** — only if the plugin's FlexForm defines a field bound to
+#.  **FlexForm** — this is only if a plugin's FlexForm defines a field bound to
     :typoscript:`persistence.storagePid`. A FlexForm overrides the storage page only
-    when it deliberately exposes the :typoscript:`persistence` sheet. This is
-    mentioned only for completeness — it would be rather unusual to expose a
+    if it deliberately exposes the :typoscript:`persistence` sheet. This is
+    mentioned only for completeness — it would be unusual to expose a
     :typoscript:`persistence.storagePid` FlexForm field on a plugin that already
-    offers the :sql:`pages` (Startingpoint) field.
-#.  **PHP, per query** — the query settings, covered in the next section,
+    has a :sql:`pages` (Startingpoint) field.
+#.  **PHP, per query** — query settings, covered in the next section,
     override everything above. Where in your code you set them decides how wide
     the effect is: inside a single repository method only that one query
     changes; inside an overridden :php:`createQuery()` every query the
     repository builds is affected.
 
-The most specific option that supplies a value wins. The query settings always have the
+The most specific option that supplies a value is applied. A specific query's settings always have the
 final say.
 
 
@@ -81,7 +81,7 @@ final say.
 Searching subpages with the recursive setting
 ---------------------------------------------
 
-By default Extbase searches only the exact storage pages you configure — not
+By default, Extbase searches only the storage pages that you have configured — not
 their subpages. To include records stored in subfolders below the storage page,
 set a recursion depth.
 
@@ -97,7 +97,7 @@ next to it that does the same for the editor-chosen pages.
 ..  warning::
 
     Recursion is a frequent source of *too many* results, not too few. A
-    recursive depth set too high pulls in records from unrelated subpages that
+    recursive depth that is set too high pulls in records from unrelated subpages that
     happen to sit below the storage page. Set the depth to the smallest value
     that covers your folder structure.
 
@@ -109,7 +109,7 @@ Overriding query behaviour with query settings
 
 Every query carries a
 :php:`query settings <\TYPO3\CMS\Extbase\Persistence\Generic\QuerySettingsInterface>`
-object that controls the implicit restrictions Extbase applies. Reach it with
+object that controls the implicit restrictions Extbase applies. Set it with
 :php:`$query->getQuerySettings()` inside a custom repository method:
 
 ..  literalinclude:: _snippets/_QuerySettings.php
@@ -130,7 +130,7 @@ The most relevant settings:
 
         When :php:`false`, the storagePid restriction is dropped entirely and
         the query searches the whole table regardless of page. This is how
-        you genuinely disable the page restriction.
+        you can disable the page restriction.
 
     ..  confval:: setStoragePageIds(array)
         :name: qs-storagePageIds
@@ -185,7 +185,7 @@ the UID of the page tree root, a level no editor ever stores records on — so t
 query looks for records on page 0 and finds none. The effect is an empty result,
 not an unrestricted query.
 
-To actually search the whole table irrespective of page, drop the restriction in
+Instead, to search the whole table irrespective of page, drop the restriction in
 PHP:
 
 ..  literalinclude:: _snippets/_DisableStoragePid.php
@@ -197,8 +197,8 @@ PHP:
 Building the storagePid array from editor input
 -----------------------------------------------
 
-When for any reason the storagePid array can't be build by extbase, but you want
-to do it manually, use Core API rather than constructing the recursive pages yourself. The core
+If for any reason the storagePid array can't be built by Extbase but you would like
+to build it manually, use Core API rather than constructing the recursive pages yourself. The core
 :php:`\TYPO3\CMS\Core\Domain\Repository\PageRepository` resolves the recursive
 list of page UIDs for you, honouring access rights and the enable-field rules:
 
@@ -215,7 +215,7 @@ Extbase applies internally.
 Limiting, paging and ordering the result
 ========================================
 
-Ordering is set with :php:`setOrderings()` (or the repository's
+Sort order is set with :php:`setOrderings()` (or the repository's
 :php:`$defaultOrderings`) and is documented with the repository, because the
 keys are property names and the behaviour belongs next to where you write
 queries:
@@ -230,23 +230,23 @@ To return a slice of the result, combine :php:`setLimit()` and
 ..  literalinclude:: _snippets/_LimitOffset.php
     :caption: EXT:my_extension/Classes/Domain/Repository/ConferenceRepository.php
 
-:php:`setLimit()` expects a positive integer; passing :php:`0` throws an
+:php:`setLimit()` expects a positive integer. Passing :php:`0` throws an
 exception rather than returning an empty result, so guard against it if the
 value is computed.
 
 :php:`execute()` returns a
-:php:`\TYPO3\CMS\Extbase\Persistence\QueryResultInterface`, which is iterable
+:php:`\TYPO3\CMS\Extbase\Persistence\QueryResultInterface` which is iterable
 and countable. Two methods on it are worth knowing: :php:`getFirst()` returns
 the first object (or :php:`null`) without you slicing the result, and
 :php:`toArray()` returns the results as a plain array of **fully mapped domain
-objects** — useful when you need an array rather than the lazy result object.
+objects**. This is useful when you need an array rather than the lazy result object.
 
 If you do not need domain objects at all, pass :php:`true` to
 :php:`execute()`. This is a different array: :php:`$query->execute(true)`
 returns the **raw database rows** as a :php:`list<array<string, mixed>>` and
 skips object mapping entirely. It is the lighter option for read-only data you
-will not modify or persist, at the cost of losing the typed model objects, their
-getters, and relation access. Reach for it when hydration is pure overhead — a
+will not modify or persist at the cost of losing the typed model objects, their
+getters, and relation access. Use it when hydration is pure overhead — a
 report, an export, a quick lookup — and stay with the default
 :php:`QueryResultInterface` whenever you work with the objects themselves.
 
@@ -262,13 +262,13 @@ pagination into two collaborating roles, each with its own family of classes:
 *   A **paginator** wraps the item source and slices it to the current page.
     All paginators extend
     :php:`\TYPO3\CMS\Core\Pagination\AbstractPaginator` and expose the current
-    page's items through :php:`getPaginatedItems()`. Which one you pick depends
+    page's items in :php:`getPaginatedItems()`. Which one you pick depends
     on the source: :php:`\TYPO3\CMS\Extbase\Pagination\QueryResultPaginator` for
     an Extbase query result,
     :php:`\TYPO3\CMS\Core\Pagination\ArrayPaginator` for a plain array,
     :php:`\TYPO3\CMS\Core\Pagination\QueryBuilderPaginator` for a raw DBAL
     query, and several source-specific paginators shipped by other extensions.
-*   A **pagination** takes a paginator and computes the page-number metadata
+*   **Pagination** takes a paginator and computes the page-number metadata
     used to render the navigation — previous, next, first, last and the list of
     page numbers. All implement
     :php:`\TYPO3\CMS\Core\Pagination\PaginationInterface`. Core ships two
@@ -303,10 +303,11 @@ When changes reach the database
 Reads happen immediately. Writes do not. Extbase tracks the state of every
 object it loads and flushes the accumulated changes once, automatically, at the
 end of the request — comparing each object against its original state and
-writing only what changed. In most actions you do not call a save method on an
-object you loaded and modified; the ORM detects the change and writes it for you.
+writing only what has changed. In most actions you do not need to call a save method on an
+object that you have loaded and modified; the ORM will detect the change and
+write it for you.
 
-This deferred flush is convenient but has two consequences worth knowing.
+This deferred flush is convenient, but has two consequences that are worth knowing.
 
 
 ..  _extbase-persistence-queries-persistall:
@@ -318,7 +319,7 @@ Two situations need the flush to happen earlier than the end of the request.
 Call :php:`$this->persistenceManager->persistAll()` in both:
 
 *   **Before a redirect.** :php:`$this->redirect()` ends the request before the
-    automatic flush runs, so an object added just before it is never written.
+    automatic flush runs, so an object that is added just before it is never written.
 *   **When you need the new UID.** A freshly created object has no UID until it
     is persisted. Persist first, then read the UID.
 
@@ -332,7 +333,7 @@ Detecting an unpersisted object
 -------------------------------
 
 Before persistence, an object has no UID — :php:`getUid()` returns :php:`null`.
-To check whether Extbase still considers an object new (not yet written), use
+To check whether Extbase still considers an object to be new (not yet written), use
 the persistence manager's public :php:`isNewObject()` method:
 
 ..  literalinclude:: _snippets/_IsNew.php
@@ -341,9 +342,9 @@ the persistence manager's public :php:`isNewObject()` method:
 ..  note::
 
     The domain object also carries an :php:`_isNew()` method, but it is marked
-    :php:`@internal`. Use
+    as :php:`@internal`. Use
     :php:`\TYPO3\CMS\Extbase\Persistence\PersistenceManagerInterface::isNewObject()`
-    in extension code — it is the supported public API and returns the same
+    in extension code — it is the supported public API and will return the same
     answer.
 
 
@@ -353,23 +354,23 @@ Debugging an Extbase query
 ==========================
 
 When a query returns something other than what you expect — nothing, too few
-records, too many, or the wrong ones — work through this checklist before
-suspecting the constraint logic:
+records, too many, or the wrong ones — work through this checklist first before
+checking for possibly incorrect constraint logic:
 
-#.  **Check the storagePid first.** It is the cause far more often than the
-    query. Confirm which page the records live on and which page the query
+#.  **Check the storagePid first.** This is the cause far more often than the
+    query itself. Confirm which page the records live on and which page the query
     searches.
 #.  **Check the recursive depth.** Records in subfolders are invisible without
     it; an over-broad depth pulls in unrelated records.
 #.  **Check the language.** With :php:`setRespectSysLanguage(true)` (the
-    default), records in another language are filtered out or overlaid.
+    default), records in other languages are filtered out or overlaid.
 #.  **Check enable fields.** Hidden or time-restricted records are excluded by
     default — correct for the frontend, surprising during debugging.
 #.  **Inspect the generated SQL.** Extbase builds real SQL; seeing the exact
-    statement and its parameters shows the page restriction and every other
-    condition actually applied.
+    SQL statement and its parameters will show the page restrictions and any conditions that
+    have been applied.
 
-To see the SQL, convert the query to a Doctrine query builder and dump it with
+To see the SQL, convert the query to a Doctrine query builder and dump it using
 the Extbase debugger:
 
 ..  literalinclude:: _snippets/_DebugQuery.php
@@ -378,7 +379,7 @@ the Extbase debugger:
 ..  warning::
 
     :php:`\TYPO3\CMS\Extbase\Persistence\Generic\Storage\Typo3DbQueryParser` is
-    marked :php:`@internal` and may change without notice. Use it for debugging
+    marked as :php:`@internal` and may change without notice. Use it for debugging
     only, never in production code paths.
 
 ..  seealso::

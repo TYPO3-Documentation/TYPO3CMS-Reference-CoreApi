@@ -192,7 +192,7 @@ Import from the :php:`\TYPO3\CMS\Extbase\Attribute\ORM\` namespace:
 Modelling relations in Extbase
 ==============================
 
-The following example shows a model with both relation types — a 1:1 relation
+The following example shows a model with two types of relation — a 1:1 relation
 to a :php:`Location` and a 1:n relation to a collection of :php:`Comment`
 objects:
 
@@ -201,12 +201,12 @@ objects:
 
 A few things to note in the example above:
 
-*   **Singular relations** (a typed property, nullable when the related object is optional)
-    are one common pattern. When :php:`#[Lazy]` is
+*   **Singular relations** (a typed property, nullable if the related object is optional)
+    are a common pattern. If :php:`#[Lazy]` is
     applied, Extbase installs a
     :php-short:`\TYPO3\CMS\Extbase\Persistence\Generic\LazyLoadingProxy` instead
     of loading the related object immediately. The union type
-    :php:`Location|LazyLoadingProxy|null` is required so Extbase can set the
+    :php:`Location|LazyLoadingProxy|null` is required so that Extbase can set the
     proxy. The :php:`instanceof LazyLoadingProxy` check in the getter exists
     solely for static analysis — without it PHPStan cannot narrow the return
     type to :php:`?Location`. If you do not need a precisely typed getter, the
@@ -215,10 +215,10 @@ A few things to note in the example above:
 *   :php:`#[Lazy]` on an :php:`ObjectStorage` means Extbase loads the related
     records only when you first iterate over the storage or call a method on it.
     This avoids loading potentially hundreds of related records just because the
-    parent object was loaded.
+    parent object is loaded.
 
-*   :php:`#[Cascade('remove')]` on :php:`$comments` means: when this
-    :php:`Conference` is deleted, all related :php:`Comment` objects are also
+*   :php:`#[Cascade('remove')]` on :php:`$comments` means that when this
+    :php:`Conference` object is deleted, all related :php:`Comment` objects are also
     deleted. A comment has no life outside its event, so this is the right
     choice. Without this attribute, deleting the event would leave orphaned comment
     records in the database. Use cascade remove only when the related objects
@@ -229,7 +229,7 @@ A few things to note in the example above:
     manipulate :php:`$this->comments` directly.
 
 *   The :php:`@var ObjectStorage<Comment>` docblock is required for IDE
-    autocompletion and static analysis, even though PHP itself does not enforce
+    autocompletion and static analysis even though PHP itself does not enforce
     generic types.
 
 ..  seealso::

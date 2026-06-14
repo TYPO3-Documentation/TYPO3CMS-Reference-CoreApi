@@ -9,9 +9,9 @@ Persistence layer in Extbase
 ============================
 
 The persistence layer is where Extbase turns database rows into domain objects
-and writes your changes back. Once your models and repositories exist, this
-chapter is about *using* them well: querying for the right records, controlling
-which pages and languages a query covers, loading related objects, and knowing
+and writes your changes. Once your models and repositories exist, this
+chapter is about *using* them well: querying for the right records, setting
+which pages and languages a query covers, loading all related objects, and knowing
 the performance trade-offs before they bite.
 
 This chapter assumes you already have a model and a repository. If you do not,
@@ -32,12 +32,12 @@ The two pages in this chapter cover:
     common reason a query does not return what you expect), query settings
     (language, enable fields, deleted records), limiting, ordering and
     pagination, when changes reach the database with :php:`persistAll()`, and how
-    to debug a query by inspecting its generated SQL.
+    to debug a query by inspecting its SQL.
 
 :ref:`extbase-persistence-relations`
     The three relation **cardinalities** (1:1, 1:n, m:n) and how each is stored,
     how Extbase loads related objects, and the **lazy loading versus N+1 query**
-    trade-off that decides the performance of any list view with relations.
+    trade-off that decides the performance of a list view with relations.
 
 ..  toctree::
     :titlesonly:
