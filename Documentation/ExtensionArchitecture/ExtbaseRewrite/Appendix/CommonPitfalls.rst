@@ -395,3 +395,86 @@ mapped to models and persisted.
 
 ..  This section also serves as an argument for keeping the number of Extbase models
 ..  per table small — the validation gap compounds when multiple models diverge.
+
+
+..  _extbase-appendix-pitfalls-global-config:
+
+A global config.tx_extbase value breaks an unrelated plugin
+===========================================================
+
+**Symptom:** A third-party Extbase plugin that works in a clean installation
+misbehaves in a particular TYPO3 instance. A list that should fall back to its
+default view returns a 404 for a mistyped action; a detail action that used to
+throw a catchable exception now displays "page not found". Nothing
+in the extension's TypoScript explains the change, and its code is
+unmodified. The same extension behaves correctly in a different installation.
+
+**Why:** Somewhere in the site's TypoScript — typically in a site package — a
+framework setting is in the global :typoscript:`config.tx_extbase` scope
+instead of in a plugin scope. Because :typoscript:`config.tx_extbase` is the
+lowest-precedence layer that applies to **every** Extbase plugin in the
+frontend, a value intended to fix one extension silently reconfigures all of
+them. A common trigger is copying an MVC error-handling line such as
+
+..  code-block:: typoscript
+
+    config.tx_extbase.mvc.throwPageNotFoundExceptionIfActionCantBeResolved = 1
+
+from a snippet meant for a single plugin. Every installed Extbase plugin that
+relied on the default behaviour — fall back to the first registered action —
+now returns a 404 instead, including plugins whose authors deliberately depend
+on that graceful fallback.
+
+**What to do:** Inspect the computed configuration in the
+:guilabel:`Active TypoScript` backend module for both
+:typoscript:`config.tx_extbase` and the affected
+:typoscript:`plugin.tx_<extensionkey>` tree. Move any framework setting that was
+meant for one extension down to that plugin's scope. Reserve
+:typoscript:`config.tx_extbase` for a genuine installation-wide policy, and if
+a single plugin differs from this, override the key under its own
+:typoscript:`plugin.tx_<extensionkey>_<pluginname>` scope, which will take
+precedence over the global one.
+
+..  seealso::
+
+    `The global scope: config.tx_extbase <https://docs.typo3.org/permalink/extbase-configuration-typoscript-global-scope>`_
+    — what the global scope is for and why it should be used sparingly.
+
+
+..  _extbase-appendix-pitfalls-flexform-empty-overrides:
+
+A blank FlexForm field silently overrides the TypoScript default
+================================================================
+
+**Symptom:** A setting works until a plugin is added to a page, where it takes
+the controller's hard-coded fallback instead of the TypoScript value. A
+concrete case: :typoscript:`settings.itemsPerPage` is set to `35` in
+TypoScript, the controller falls back to `20` if the setting is missing, and
+the plugin's FlexForm also exposes an "Items per page" field. The editor never
+touches the field. The list paginates at **20** items per page — the
+controller fallback — therefore ignoring the `35` that should apply.
+
+**Why:** FlexForm values override TypoScript field by field, and a FlexForm
+field that an editor leaves blank is still stored and participates in the
+override — but obviously only as an empty value. So :php:`$this->settings['itemsPerPage']` arrives
+as an empty string rather than `35`. The controller then sees an empty value, treats
+it as "not set", and applies its own fallback of `20`. Nothing errors; the
+configured `35` is overwritten before it gets to the controller.
+
+**What to do:** add the field to
+:typoscript:`ignoreFlexFormSettingsIfEmpty` so that it does not
+overrule the TypoScript default if it is empty:
+
+..  code-block:: typoscript
+    :caption: EXT:my_extension/Configuration/Sets/MyExtension/setup.typoscript
+
+    plugin.tx_myextension_conferencelist.ignoreFlexFormSettingsIfEmpty = itemsPerPage
+
+With this set, the empty FlexForm value will be dropped before the merge and
+the TypoScript `35` will survive. In this way you can add every FlexForm field that mirrors a
+TypoScript default the editor may legitimately leave blank.
+
+..  seealso::
+
+    `Output format, language overrides and FlexForm handling <https://docs.typo3.org/permalink/extbase-configuration-typoscript-other>`_
+    — the :typoscript:`ignoreFlexFormSettingsIfEmpty` reference.

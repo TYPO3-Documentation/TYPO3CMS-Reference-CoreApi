@@ -1,0 +1,20 @@
+name: my-vendor/conference-list
+group: default
+prefixFields: true
+prefixType: vendor
+fields:
+  - identifier: TYPO3/Header
+    type: Basic
+  # Reuse the existing pages + recursive fields: they feed
+  # persistence.storagePid and persistence.recursive
+  - identifier: pages
+    useExistingField: true
+  - identifier: recursive
+    useExistingField: true
+  # Reuse pi_flexform: any field named settings.* folds into $this->settings
+  - identifier: pi_flexform
+    type: FlexForm
+    useExistingField: true
+    fields:
+      - identifier: settings.itemsPerPage
+        type: Number

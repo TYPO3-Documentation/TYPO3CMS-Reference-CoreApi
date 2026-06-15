@@ -1,0 +1,19 @@
+plugin.tx_myextension {
+    view {
+        // combined path configuration for sitepackage and extension - the higher
+        // index is red first and falls back to the lower if no template gets found
+        templateRootPaths {
+            10 = EXT:my_extension/Resources/Private/Extensions/MyExtension/Templates/
+            20 = EXT:my_sitepackage/Resources/Private/Extensions/MyExtension/Templates/
+        }
+        partialRootPaths {
+            10 = EXT:my_extension/Resources/Private/Extensions/MyExtension/Partials/
+            20 = EXT:my_sitepackage/Resources/Private/Extensions/MyExtension/Partials/
+        }
+        // sitepackage does not provide any layouts, so here the extension is the only
+        // source to look up
+        layoutRootPaths {
+            10 = EXT:my_extension/Resources/Private/Extensions/MyExtension/Layouts/
+        }
+    }
+}

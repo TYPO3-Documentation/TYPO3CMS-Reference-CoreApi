@@ -219,3 +219,29 @@ entirely during read and write operations.
 
     * `Non-persisted properties <https://docs.typo3.org/permalink/extbase-domain-model-transient>`_.
     * `#[Transient] <https://docs.typo3.org/permalink/extbase-appendix-attributes-transient>`_.
+
+
+..  _extbase-appendix-tasks-contentblock-settings:
+
+Let editors set plugin settings in a Content Block FlexForm
+===========================================================
+
+**Goal:** Expose a plugin setting (for example "items per page") as an editable
+field in a content element, so that an editor can change it without having to
+write a FlexForm data structure by hand.
+
+**Short answer:** When you register an Extbase plugin as a Content Block that
+is rendered through an :ref:`EXTBASEPLUGIN <t3tsref:cobj-extbaseplugin>` and reuses
+the :sql:`pi_flexform` field, a FlexForm field with an identifier like
+:yaml:`settings.<name>` will be converted into :php:`$this->settings['<name>']` —
+exactly like a TypoScript setting. The reusable :sql:`pages` and
+:sql:`recursive` fields likewise feed :typoscript:`persistence.storagePid` and
+:typoscript:`persistence.recursive`. This is a little-known mechanism and is becoming
+more relevant as Content Block technology moves into the Core.
+
+..  seealso::
+
+    *   `Feeding settings from a Content Block FlexForm <https://docs.typo3.org/permalink/extbase-configuration-typoscript-settings-contentblocks>`_
+        for the full example and how the wiring works.
+
+    *   `Create Extbase plugins (Content Blocks documentation) <https://docs.typo3.org/permalink/friendsoftypo3-content-blocks:create-extbase-plugin>`_.
