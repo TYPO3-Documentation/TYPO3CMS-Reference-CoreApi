@@ -1,0 +1,8 @@
+plugin.tx_myextension {
+    settings {
+        itemsPerPage = 10
+        archive {
+            showInSidebar = 1
+        }
+    }
+}

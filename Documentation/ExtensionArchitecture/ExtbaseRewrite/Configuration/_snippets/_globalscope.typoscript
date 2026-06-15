@@ -1,0 +1,7 @@
+# Site-wide policy: an unresolvable Extbase action is a 404 everywhere,
+# for every plugin on the installation — including third-party ones.
+config.tx_extbase.mvc {
+    throwPageNotFoundExceptionIfActionCantBeResolved = 1
+    showPageNotFoundIfTargetNotFoundException = 1
+    showPageNotFoundIfRequiredArgumentIsMissingException = 1
+}

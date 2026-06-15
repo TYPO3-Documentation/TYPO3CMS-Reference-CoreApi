@@ -1,0 +1,19 @@
+plugin.tx_myextension {
+    persistence {
+        # Read records from pages 42 and 43 ...
+        storagePid = 42,43
+        # ... and from four levels of subpages below them
+        recursive = 4
+
+        classes {
+            # New conferences are written to page 50
+            MyVendor\MyExtension\Domain\Model\Conference {
+                newRecordStoragePid = 50
+            }
+            # New speakers are written to a separate folder, page 51
+            MyVendor\MyExtension\Domain\Model\Speaker {
+                newRecordStoragePid = 51
+            }
+        }
+    }
+}
