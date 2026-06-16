@@ -4,13 +4,14 @@
    pair: Create; Content elements
 .. _adding-your-own-content-elements:
 
-====================================
-Create a custom content element type
-====================================
+============================================
+Create a custom content element type (CType)
+============================================
 
 This page explains how to create your own custom content element types. These
-are comparable to the predefined content element types supplied by TYPO3. The latter
-can be found in the system extension `fluid_styled_content`.
+are comparable to the predefined content element types supplied by TYPO3. They 
+are used from extensions like :composer:`typo3/cms-fluid-styled-content` . 
+See :doc:`fluid_styled_content <typo3/cms-fluid-styled-content:Index>`
 
 A content element can be based on fields already available in the `tt_content`
 table.
@@ -27,11 +28,11 @@ processors are frequently used for example to process files
 (:ref:`t3tsref:DatabaseQueryProcessor`).
 
 A data processor can also be used to convert a string to an array,
-as is done for example in the *table* content element with the field `bodytext`.
+as is done for example in the *table* content element (tt_content) with the field `bodytext`.
 
 In these cases Fluid does not have to deal with these manipulations or transformation.
 
-You can find the example below in the TYPO3 Documentation Team extension
+You can find the examples below in the TYPO3 Documentation Team extension
 :composer:`t3docs/examples`.
 
 ..  _adding-your-own-content-elements-prerequisites:
@@ -39,8 +40,8 @@ You can find the example below in the TYPO3 Documentation Team extension
 Prerequisites
 =============
 
-The following examples require the system extension
-:doc:`fluid_styled_content <typo3/cms-fluid-styled-content:Index>`.
+The following examples require an extension like the system extension 
+:composer:`typo3/cms-fluid-styled-content`.
 
 It can be installed via Composer with:
 
@@ -72,7 +73,7 @@ First we need to define the key of the new content element type. We use
 `myextension_basiccontent` throughout the simple example.
 
 Next the key needs to be added to the select field `CType`. This will make it
-available in :guilabel:`Type` dropdown in the backend.
+available in the :guilabel:`Type` dropdown in the backend.
 
 The following call needs to be added to the file
 :file:`Configuration/TCA/Overrides/tt_content.php`.
@@ -84,6 +85,12 @@ The following call needs to be added to the file
 
 Now the new content element is available in the CType selector and the
 "New Content Element" wizard.
+
+..  note::
+    In plain Core native plugins you need to call 
+    :php:`ExtensionManagementUtility::addPlugin`instead of 
+    :php:`ExtensionManagementUtility::addTcaSelectItem`.
+
 
 .. index:: Content element; Icon
 .. _AddingCE-Icon:
@@ -154,10 +161,10 @@ The output in the frontend gets configured in the setup TypoScript. See
 :ref:`Add TypoScript to your extension <t3tsref:extdev-add-typoscript>` about how
 to add TypoScript.
 
-In the :file:`examples` extension the TypoScript can be found at
-:file:`Configuration/TypoScript/CustomContentElements/Basic.typoscript`
+In the `examples` extension the TypoScript can be found at
+:file:`Configuration/TypoScript/CustomContentElements/Basic.typoscript`.
 
-The Fluid templates for our custom content element will be saved in our
+The Fluid templates for a custom content element will be saved in the
 extension. Therefore we need to add the path to the
 :ref:`t3tsref:cobj-fluidtemplate-properties-templaterootpaths`:
 
