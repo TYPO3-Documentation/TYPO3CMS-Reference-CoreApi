@@ -28,7 +28,7 @@ processors are frequently used for example to process files
 (:ref:`t3tsref:DatabaseQueryProcessor`).
 
 A data processor can also be used to convert a string to an array,
-as is done for example in the *table* content element (tt_content) with the field `bodytext`.
+as is done for example in the *table* content element (:sql:`tt_content`) with the field :sql:`bodytext`.
 
 In these cases Fluid does not have to deal with these manipulations or transformation.
 
