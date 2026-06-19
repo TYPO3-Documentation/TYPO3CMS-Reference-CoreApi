@@ -77,7 +77,8 @@ Backend TypoScript
 Anonther means needs to be used than the Frontend method to read the TypoScript of the currently selected page in the backend page module.
 The needed TYPO3 internal object of the :php:`Extbase` class :php:`BackendConfigurationManager` can be obtained by means of Dependency Injection. 
 Note that it may be required to enrich the request object. TypoScript parsing is time consuming. Consider unsing the
-:php:`SiteFinder` instead of this solution.
+`SiteFinder class <https://docs.typo3.org/permalink/t3coreapi:sitehandling-sitefinder-object>`_
+instead of this solution. 
 
 .. code-block:: php
 
