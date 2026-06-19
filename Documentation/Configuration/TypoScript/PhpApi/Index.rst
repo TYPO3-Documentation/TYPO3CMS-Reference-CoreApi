@@ -66,7 +66,43 @@ setup as array:
 
 .. code-block:: php
 
-        $fullTypoScript = $request->getAttribute('frontend.typoscript')->getSetupArray();
+    $fullTypoScript = $request->getAttribute('frontend.typoscript')->getSetupArray();
 
 Read more about :ref:`Getting the PSR-7 request object <getting-typo3-request-object>`
 from different contexts.
+
+Backend TypoScript
+==================
+
+Anonther means needs to be used than the Frontend method to read the TypoScript of the currently selected page in the backend page module.
+The needed TYPO3 internal object of the :php:`Extbase` class :php:`BackendConfigurationManager` can be obtained by means of Dependency Injection. 
+Note that it may be required to enrich the request object. TypoScript parsing is time consuming. Consider unsing the
+:php:`SiteFinder` instead of this solution.
+
+.. code-block:: php
+
+    use Psr\Http\Message\ServerRequestInterface;
+    use TYPO3\CMS\Core\SingletonInterface;
+    use TYPO3\CMS\Extbase\Configuration\BackendConfigurationManager;
+
+    class OrderBackend implements SingletonInterface
+    {
+        private ContainerInterface $container;
+        protected BackendConfigurationManager $concreteConfigurationManager;
+    
+        public function __construct(
+            ContainerInterface $container,
+            BackendConfigurationManager $configurationManager
+        )
+        {
+            $this->container = $container;
+            $this->concreteConfigurationManager = $configurationManager;
+        }
+
+        public function getTypoScript(ServerRequestInterface $request): array
+        {
+             $setup = $this->concreteConfigurationManager->getTypoScriptSetup($request);
+             return $setup;
+        }
+    }
+
