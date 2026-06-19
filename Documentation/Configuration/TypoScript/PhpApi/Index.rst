@@ -81,6 +81,9 @@ Note that it may be required to enrich the request object. TypoScript parsing is
 instead of this solution. 
 
 .. code-block:: php
+    :caption: EXT:my_extension/OrderBackend.php
+
+    namespace MyDomain\MyExtension\Backend;
 
     use Psr\Http\Message\ServerRequestInterface;
     use TYPO3\CMS\Core\SingletonInterface;
