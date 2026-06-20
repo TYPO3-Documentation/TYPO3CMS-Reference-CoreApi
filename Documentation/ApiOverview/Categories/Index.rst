@@ -6,6 +6,12 @@
 System categories
 =================
 
+..  versionchanged:: 14.2
+    Fields of `TCA column type category <https://docs.typo3.org/permalink/t3tca:columns-category>`_
+    are now hidden by default if no categories are available.
+
+    See `Feature: #109366 - Hide form fields with no selectable items <https://docs.typo3.org/permalink/changelog:feature-109366-1742900000>`_
+
 TYPO3 provides a generic categorization system.
 Categories can be created in the backend like any other type of
 :ref:`record <database-records>`.
@@ -135,6 +141,8 @@ for rendering. Check out the
 The HMENU object also has a :ref:`"categories" special type <t3tsref:hmenu-special-categories>`
 to display a menu based on categorized pages.
 
+..  _categories-permissions:
+
 User permissions for system categories
 ======================================
 
@@ -148,3 +156,32 @@ Additionally it is possible to set :guilabel:`Mounts and Workspaces >
 Category Mounts` in the :ref:`user group <access-lists-category-permissions>`. If at
 least one category is set in the category mounts only the chosen categories are
 allowed to be attached to records.
+
+..  _categories-hidden:
+
+Hidden category fields
+======================
+
+..  versionchanged:: 14.2
+    Fields of `TCA column type category <https://docs.typo3.org/permalink/t3tca:columns-category>`_
+    are now hidden by default if no categories are available.
+
+    See `Feature: #109366 - Hide form fields with no selectable items <https://docs.typo3.org/permalink/changelog:feature-109366-1742900000>`_
+
+Fields of `TCA column type category <https://docs.typo3.org/permalink/t3tca:columns-category>`_
+are hidden by default if no categories are available. This also hides the tab
+`Categories` in many records.
+
+Reasons why no categories are available include:
+
+*   No category records have been created yet or all have been deleted.
+*   The currently logged in user lacks permissions for the :sql:`sys_category`
+    table or for the available categories.
+*   The categories reside on a page that the current user has no permissions for.
+
+The category field can be made visible by setting `showIfEmpty` to true:
+
+..  code-block:: php
+    :caption: EXT:my_extension/Configuration/TCA/Overrides/pages.php
+
+    $GLOBALS['TCA']['pages']['columns']['categories']['config']['showIfEmpty'] = true;
