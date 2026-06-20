@@ -81,26 +81,40 @@ Note that it may be required to enrich the request object. TypoScript parsing is
 instead of this solution. 
 
 .. code-block:: php
-    :caption: EXT:my_extension/OrderBackend.php
+    :caption: EXT:my_extension/Classes/Backend/OrderController.php
 
     namespace MyDomain\MyExtension\Backend;
 
     use Psr\Http\Message\ServerRequestInterface;
+    use TYPO3\CMS\Core\Database\ConnectionPool;
     use TYPO3\CMS\Core\SingletonInterface;
     use TYPO3\CMS\Extbase\Configuration\BackendConfigurationManager;
 
-    class OrderBackend implements SingletonInterface
+    class OrderController implements SingletonInterface
     {
-        private ContainerInterface $container;
+        protected ConnectionPool $connectionPool;
+        private   ContainerInterface $container;
         protected BackendConfigurationManager $concreteConfigurationManager;
     
         public function __construct(
+            ConnectionPool $connectionPool,
             ContainerInterface $container,
             BackendConfigurationManager $configurationManager
         )
         {
+            $this->connectionPool = $connectionPool;
             $this->container = $container;
             $this->concreteConfigurationManager = $configurationManager;
+        }
+
+        public function main(
+            string $content,
+            array $conf,
+            ServerRequestInterface $request,
+        ) : string {
+            $setup = $this->getTypoScript($request);
+            $foo = $setup['my_extension']['bar'] ?? '';
+            return '<div>Foo Setup: ' . $foo . '</div>';
         }
 
         public function getTypoScript(ServerRequestInterface $request): array
