@@ -1,34 +1,36 @@
-.. include:: /Includes.rst.txt
+:navigation-title: General Configuration
 
-.. _cropvariants_general:
+..  include:: /Includes.rst.txt
 
-=====================
-General Configuration
-=====================
+..  _cropvariants-general:
 
-The following examples are meant to add one single
-cropping configuration to sys_file_reference, which will then apply to every
-record referencing images.
+==========================
+Crop variant configuration
+==========================
 
-In this example we configure two crop variants, one with the id "mobile",
-one with the id "desktop". The array key defines the crop variant id, which will be used
-when rendering an image with the image view helper.
+The example below adds a new crop configuration to table :sql:`sys_file_reference`,
+which is then applied to every record that references images.
 
-For each crop variant there's at least one *ratio configuration* defined as ``allowedAspectRatios``:
+Two crop variants are configured; one with the id "mobile" and
+one with the id "desktop". Crop variant ids are referenced
+by image view helpers to render images.
 
-*  its key **must not** contain the dot character (``.``):
+Each crop variant has at least one *ratio configuration* defined under ``allowedAspectRatios``:
+
+*  the ratio configuration key **must not** contain a dot character (``.``):
 
    *  good examples: ``NaN``, ``4:3`` or ``other-format``
    *  bad example: ``1:1.441``
 
-*  its value is an array consisting of two keys:
+*  the ratio configuration value is an array consisting of two keys:
 
-   *  ``title``: should be a string (or even better: a LLL reference)
-   *  ``value``: **should** be a float (not a string!)
+   *  ``title``: should be a string (or preferably an LLL reference)
+   *  ``value``: should be a **float** (not a string)
 
-.. code-block:: php
+..  code-block:: php
+    :caption: EXT:my_extension/Configuration/TCA/Overrides/sys_file_reference.php
 
-    'config' => [
+    $GLOBALS['TCA']['sys_file_reference']['columns']['crop']['config'] = [
          'type' => 'imageManipulation',
          'cropVariants' => [
              'mobile' => [
@@ -60,16 +62,19 @@ For each crop variant there's at least one *ratio configuration* defined as ``al
          ]
     ]
 
+..  _cropvariants-general-cropArea:
+
 Crop Area
 =========
 
-It is also possible to define an initial crop area. If no initial crop area is defined, the default selected crop area will cover the complete image.
-Crop areas are defined relatively with floating point numbers. The x and y coordinates and width and height must be specified for that.
-The below example has an initial crop area in the size the previous image cropper provided by default.
+An initial crop area can be defined. If it is not defined, the default crop area will cover the complete image.
+Crop areas are defined relatively with floating point numbers: x and y coordinates and width and height must be specified.
+The example below has an initial crop area in the same size that the previous image cropper provided by default.
 
 .. code-block:: php
+    :caption: EXT:my_extension/Configuration/TCA/Overrides/sys_file_reference.php
 
-    'config' => [
+    $GLOBALS['TCA']['sys_file_reference']['columns']['crop']['config'] = [
         'type' => 'imageManipulation',
         'cropVariants' => [
             'mobile' => [
@@ -84,21 +89,25 @@ The below example has an initial crop area in the size the previous image croppe
         ],
     ]
 
+..  _cropvariants-general-focusArea:
+
 Focus Area
 ==========
 
-Users can also select a focus area, when configured. The focus area is always **inside**
-the crop area and marks the area of the image which must be visible for the image to transport
-its meaning. The selected area is persisted to the database but will have no effect on image processing.
-The data points are however made available as data attribute when using the `<f:image />` view helper and
+Users can also select a focus area, if configured. The focus area is always **inside**
+the crop area and marks the area of the image which is important and must be
+visible. The selected area is persisted to the database but will have no effect on image processing.
+The data points are, however, made available as data attribute when using the `<f:image />` view helper and
 can be used by Javascript libraries.
 
-The below example adds a focus area, which is initially one third of the size of the image
+The example below adds a focus area which is initially one third of the size of the image
 and centered.
 
 .. code-block:: php
 
-    'config' => [
+    :caption: EXT:my_extension/Configuration/TCA/Overrides/sys_file_reference.php
+
+    $GLOBALS['TCA']['sys_file_reference']['columns']['crop']['config'] = [
         'type' => 'imageManipulation',
         'cropVariants' => [
             'mobile' => [
@@ -113,17 +122,21 @@ and centered.
         ],
     ]
 
+..  _cropvariants-general-coverAreas:
+
 Cover Area
 ==========
 
 Images are often used in a context where they are overlaid with other DOM elements
-like a headline. To give editors a hint which area of the image is affected, when selecting a crop area,
-it is possible to define multiple so-called cover areas. These areas are shown inside
-the crop area. The focus area cannot intersect with any of the cover areas.
+like a headline. To give editors a hint about which area of an image is affected,
+when selecting a crop area it is possible to define multiple "cover areas". These areas are shown inside
+the crop area. The focus area cannot intersect with any cover areas.
 
 .. code-block:: php
 
-    'config' => [
+    :caption: EXT:my_extension/Configuration/TCA/Overrides/sys_file_reference.php
+
+    $GLOBALS['TCA']['sys_file_reference']['columns']['crop']['config'] = [
         'type' => 'imageManipulation',
         'cropVariants' => [
             'mobile' => [
@@ -140,11 +153,12 @@ the crop area. The focus area cannot intersect with any of the cover areas.
         ],
     ]
 
+..  _cropvariants-general-rendering:
 
 Rendering crop variants
 =======================
 
-To render specific crop variants, the variant can be specified as argument of the image view helper:
+Render a crop variant by adding it as an argument to an image view helper:
 
 .. code-block:: html
 
