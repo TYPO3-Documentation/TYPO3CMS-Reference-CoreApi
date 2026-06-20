@@ -71,14 +71,17 @@ setup as array:
 Read more about :ref:`Getting the PSR-7 request object <getting-typo3-request-object>`
 from different contexts.
 
+.. _typoscript-backend-access_frontend_typoscript:
+
 Backend TypoScript
 ==================
 
-Another means needs to be used than the Frontend method to read the TypoScript of the currently selected page in the backend page module.
+Another means needs to be used to read the Frontend TypoScript of the currently selected page in the backend page module.
 The needed TYPO3 internal object of the :php:`Extbase` class :php:`BackendConfigurationManager` can be obtained by means of Dependency Injection. 
 Note that it may be required to enrich the request object. TypoScript parsing is time consuming. Consider unsing the
 `SiteFinder class <https://docs.typo3.org/permalink/t3coreapi:sitehandling-sitefinder-object>`_
-instead of this solution. 
+instead of this solution. For backend module configuration you should use 
+`Backend TypoScript / TSconfig <https://docs.typo3.org/permalink/t3tsref:about-tsconfig>`_ instead of Frontend TypoScript. 
 
 .. code-block:: php
     :caption: EXT:my_extension/Classes/Backend/OrderController.php
