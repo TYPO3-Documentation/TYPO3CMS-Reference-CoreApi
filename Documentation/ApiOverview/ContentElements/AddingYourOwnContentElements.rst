@@ -9,8 +9,8 @@ Create a custom content element type (CType)
 ============================================
 
 This page explains how to create your own custom content element types. These
-are comparable to the predefined content element types supplied by TYPO3. They 
-are used from extensions like :composer:`typo3/cms-fluid-styled-content` . 
+are comparable to the predefined content element types supplied by TYPO3. They
+are used from extensions like :composer:`typo3/cms-fluid-styled-content` .
 See :doc:`fluid_styled_content <typo3/cms-fluid-styled-content:Index>`
 
 A content element can be based on fields already available in the `tt_content`
@@ -40,7 +40,7 @@ You can find the examples below in the TYPO3 Documentation Team extension
 Prerequisites
 =============
 
-The following examples require an extension like the system extension 
+The following examples require an extension like the system extension
 :composer:`typo3/cms-fluid-styled-content`.
 
 It can be installed via Composer with:
@@ -87,8 +87,8 @@ Now the new content element is available in the CType selector and the
 "New Content Element" wizard.
 
 ..  note::
-    In plain Core native plugins you need to call 
-    :php:`ExtensionManagementUtility::addPlugin`instead of 
+    In plain Core native plugins you need to call
+    :php:`ExtensionManagementUtility::addPlugin`instead of
     :php:`ExtensionManagementUtility::addTcaSelectItem`.
 
 

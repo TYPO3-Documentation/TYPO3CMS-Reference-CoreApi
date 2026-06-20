@@ -14,8 +14,8 @@ as the global variable :php:`$GLOBALS['BE_USER']` only in backend contexts. This
 and is an instance of the class :php:`\TYPO3\CMS\Core\Authentication\BackendUserAuthentication`
 (which extends :php:`\TYPO3\CMS\Core\Authentication\AbstractUserAuthentication`).
 
-When working with CLI and commands you might initialize the backend user object with :php:`\TYPO3\CMS\Core\Core\Bootstrap::initializeBackendUser()`. 
-In addition, you can call :php:`\TYPO3\CMS\Core\Core\Bootstrap::initializeBackendAuthentication()` 
+When working with CLI and commands you might initialize the backend user object with :php:`\TYPO3\CMS\Core\Core\Bootstrap::initializeBackendUser()`.
+In addition, you can call :php:`\TYPO3\CMS\Core\Core\Bootstrap::initializeBackendAuthentication()`
 to load the language of the CLI user set in the backend so that ViewHelpers
 (like :php:`f:translate()`) used in the CLI resolve to the correct language.
 
@@ -247,7 +247,3 @@ You can read the configured language of the backend user:
    :caption: Read the language to be used in the backend
 
    $backendLanguage = $GLOBALS['BE_USER']->uc['lang'] ?? 'en';
-
-
-
-
