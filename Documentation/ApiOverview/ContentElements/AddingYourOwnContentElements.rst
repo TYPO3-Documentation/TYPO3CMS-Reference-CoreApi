@@ -243,7 +243,7 @@ Extended example: Extend tt_content and use data processing
 You can find the complete example in the  TYPO3 Documentation Team extension
 :composer:`t3docs/examples`. The steps for
 creating a simple new content element as above need to be repeated. We use the
-key *examples_newcontentcsv* in this example.
+key *myextension_newcontentcsv* in this example.
 
 We want to output comma separated values (CSV) stored in the field bodytext.
 As different programs use different separators to store CSV we want to make
