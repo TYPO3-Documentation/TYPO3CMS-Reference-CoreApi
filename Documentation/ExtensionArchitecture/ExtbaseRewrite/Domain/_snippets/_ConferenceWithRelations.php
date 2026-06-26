@@ -14,7 +14,7 @@ class Conference extends AbstractEntity
 {
     protected string $title = '';
 
-    // 1:1 relation — a nullable typed property
+    // a relation to one other object — a nullable typed property
     protected Location|LazyLoadingProxy|null $location = null;
 
     /**

@@ -8,24 +8,153 @@
 Querying the database with Extbase
 ==================================
 
-This page is the complete query reference for Extbase. It covers what happens
-*around* a query — which pages Extbase searches, which records it includes, how
-it limits and orders results, when changes are written, and how to debug a
-query that misbehaves.
+Most of what an extension does with the database is *reading* it: fetching the
+records a list view shows, the single record behind a detail page, the handful
+that match a filter. In Extbase you do this by building a **query** on a
+repository and executing it.
 
-The constraint methods (:php:`equals()`, :php:`like()`, :php:`logicalAnd()` and
-so on) and the built-in find methods (:php:`findAll()`, :php:`findBy()` …) are
-documented where you write them, on the repository:
+The built-in find methods (:php:`findAll()`, :php:`findBy()`, :php:`findByUid()`)
+cover the simplest cases and are documented with the repository itself:
 
 ..  seealso::
 
-    *   `Built-in find methods <https://docs.typo3.org/permalink/extbase-domain-repository-find-methods>`_ — :php:`findAll()`, :php:`findBy()`, :php:`findByUid()`, counting.
+    `The Extbase repository <https://docs.typo3.org/permalink/extbase-domain-repository>`_ — what a repository is, the built-in find methods, and injecting it into a controller.
 
-    *   `Custom query methods <https://docs.typo3.org/permalink/extbase-domain-repository-custom-queries>`_ — :php:`createQuery()` and the full constraint list.
+This page covers everything beyond those: writing your own query methods with
+:php:`createQuery()`, constraining and ordering the result, and then the parts
+that decide *which* records a query can even see — storage pages, language,
+visibility — followed by paging, persisting and debugging.
 
 ..  contents:: On this page
     :local:
     :depth: 1
+
+
+..  _extbase-persistence-queries-build:
+
+Building a query with createQuery()
+===================================
+
+When :php:`findBy(['published' => true])` is not expressive enough — you need a
+range, a pattern, or a combination of conditions — write a method on the
+repository that builds the query itself. Every custom query follows the same
+three steps:
+
+#.  **Create** a query object with :php:`$this->createQuery()`. It is already
+    bound to this repository's model and its storage pages.
+#.  **Constrain** it with :php:`matching()`, passing one constraint built from
+    the query's own constraint methods (:php:`equals()`, :php:`like()`,
+    :php:`greaterThan()`, …).
+#.  **Execute** it with :php:`execute()`, which returns a
+    :php:`\TYPO3\CMS\Extbase\Persistence\QueryResultInterface` you can iterate
+    and count.
+
+..  literalinclude:: _snippets/_FindPublished.php
+    :caption: EXT:my_extension/Classes/Domain/Repository/ConferenceRepository.php
+
+The method lives on the repository because the repository is the only place
+allowed to talk to the database. The controller calls
+:php:`$conferenceRepository->findPublished()` and never sees the query.
+
+
+..  _extbase-persistence-queries-constraints:
+
+Constraining the result
+-----------------------
+
+A *constraint* is one condition the records must satisfy. The query object
+creates them — each method returns a constraint and does not change the query
+until you hand it to :php:`matching()`:
+
+..  list-table::
+    :header-rows: 1
+
+    *   -   Method
+        -   Matches when
+    *   -   :php:`equals($property, $value)`
+        -   the property equals the value. :php:`null` becomes :sql:`IS NULL`;
+            pass :php:`false` as the third argument for case-insensitive strings.
+    *   -   :php:`like($property, $value)`
+        -   the string property matches an SQL :sql:`LIKE` pattern
+            (:php:`'%search%'`).
+    *   -   :php:`in($property, $values)`
+        -   the property is one of the values in the array.
+    *   -   :php:`contains($property, $object)`
+        -   a multivalued (:php:`ObjectStorage`) property contains the object.
+    *   -   :php:`greaterThan` / :php:`greaterThanOrEqual`
+        -   the property is :sql:`>` / :sql:`>=` the value.
+    *   -   :php:`lessThan` / :php:`lessThanOrEqual`
+        -   the property is :sql:`<` / :sql:`<=` the value.
+
+The property names are **model property names**, not database column names —
+Extbase maps them for you.
+
+To count matches without loading the objects, call :php:`count()` on the query
+after :php:`matching()` instead of :php:`execute()`. It runs the same constraints
+and returns an integer.
+
+
+..  _extbase-persistence-queries-combine:
+
+Combining constraints with logicalAnd(), logicalOr() and logicalNot()
+---------------------------------------------------------------------
+
+:php:`matching()` takes exactly one constraint. To apply several conditions,
+combine them with :php:`logicalAnd()`, :php:`logicalOr()` and
+:php:`logicalNot()`, which themselves return a single constraint:
+
+..  literalinclude:: _snippets/_FindUpcomingPublished.php
+    :caption: EXT:my_extension/Classes/Domain/Repository/ConferenceRepository.php
+
+A date range is a :php:`logicalAnd()` of :php:`greaterThanOrEqual()` and
+:php:`lessThanOrEqual()` — the snippet above pairs a comparison with an
+:php:`equals()` constraint in the same way.
+
+
+..  _extbase-persistence-queries-order-limit:
+
+Ordering and limiting the result
+--------------------------------
+
+Set the order with :php:`setOrderings()` (or the repository's
+:php:`$defaultOrderings`). The two ordering forms and the
+property-versus-column rule are documented with the repository:
+
+..  seealso::
+
+    `Ordering results in Extbase repositories <https://docs.typo3.org/permalink/extbase-domain-repository-ordering>`_ — :php:`$defaultOrderings`, :php:`setOrderings()`, :php:`orderBy()`, and why an unordered query has no guaranteed order.
+
+To return a slice of the result, combine :php:`setLimit()` and
+:php:`setOffset()`:
+
+..  literalinclude:: _snippets/_LimitOffset.php
+    :caption: EXT:my_extension/Classes/Domain/Repository/ConferenceRepository.php
+
+:php:`setLimit()` expects a positive integer. Passing :php:`0` throws an
+exception rather than returning an empty result, so guard against it if the
+value is computed.
+
+
+..  _extbase-persistence-queries-results:
+
+Working with the query result
+-----------------------------
+
+:php:`execute()` returns a
+:php:`\TYPO3\CMS\Extbase\Persistence\QueryResultInterface` which is iterable
+and countable. Two methods on it are worth knowing: :php:`getFirst()` returns
+the first object (or :php:`null`) without you slicing the result, and
+:php:`toArray()` returns the results as a plain array of **fully mapped domain
+objects**. This is useful when you need an array rather than the lazy result object.
+
+If you do not need domain objects at all, pass :php:`true` to
+:php:`execute()`. This is a different array: :php:`$query->execute(true)`
+returns the **raw database rows** as a :php:`list<array<string, mixed>>` and
+skips object mapping entirely. It is the lighter option for read-only data you
+will not modify or persist at the cost of losing the typed model objects, their
+getters, and relation access. Use it when hydration is pure overhead — a
+report, an export, a quick lookup — and stay with the default
+:php:`QueryResultInterface` whenever you work with the objects themselves.
 
 
 ..  _extbase-persistence-queries-storagepid:
@@ -210,51 +339,10 @@ Letting the core API build it keeps the recursion logic identical to what
 Extbase applies internally.
 
 
-..  _extbase-persistence-queries-limit-offset:
-
-Limiting, paging and ordering the result
-========================================
-
-Sort order is set with :php:`setOrderings()` (or the repository's
-:php:`$defaultOrderings`) and is documented with the repository, because the
-keys are property names and the behaviour belongs next to where you write
-queries:
-
-..  seealso::
-
-    `Ordering results <https://docs.typo3.org/permalink/extbase-domain-repository-ordering>`_ — :php:`$defaultOrderings`, :php:`setOrderings()`, and why an unordered query has no guaranteed order.
-
-To return a slice of the result, combine :php:`setLimit()` and
-:php:`setOffset()`:
-
-..  literalinclude:: _snippets/_LimitOffset.php
-    :caption: EXT:my_extension/Classes/Domain/Repository/ConferenceRepository.php
-
-:php:`setLimit()` expects a positive integer. Passing :php:`0` throws an
-exception rather than returning an empty result, so guard against it if the
-value is computed.
-
-:php:`execute()` returns a
-:php:`\TYPO3\CMS\Extbase\Persistence\QueryResultInterface` which is iterable
-and countable. Two methods on it are worth knowing: :php:`getFirst()` returns
-the first object (or :php:`null`) without you slicing the result, and
-:php:`toArray()` returns the results as a plain array of **fully mapped domain
-objects**. This is useful when you need an array rather than the lazy result object.
-
-If you do not need domain objects at all, pass :php:`true` to
-:php:`execute()`. This is a different array: :php:`$query->execute(true)`
-returns the **raw database rows** as a :php:`list<array<string, mixed>>` and
-skips object mapping entirely. It is the lighter option for read-only data you
-will not modify or persist at the cost of losing the typed model objects, their
-getters, and relation access. Use it when hydration is pure overhead — a
-report, an export, a quick lookup — and stay with the default
-:php:`QueryResultInterface` whenever you work with the objects themselves.
-
-
 ..  _extbase-persistence-queries-pagination:
 
 Paginating a query result
--------------------------
+=========================
 
 For page-by-page navigation, do not compute offsets by hand. TYPO3 splits
 pagination into two collaborating roles, each with its own family of classes:

@@ -35,9 +35,10 @@ The two pages in this chapter cover:
     to debug a query by inspecting its SQL.
 
 :ref:`extbase-persistence-relations`
-    The three relation **cardinalities** (1:1, 1:n, m:n) and how each is stored,
-    how Extbase loads related objects, and the **lazy loading versus N+1 query**
-    trade-off that decides the performance of a list view with relations.
+    The two relation **shapes** — a relation to one object and a relation to many
+    — and how each is stored, how Extbase loads related objects, and the **lazy
+    loading versus N+1 query** trade-off that decides the performance of a list
+    view with relations.
 
 ..  toctree::
     :titlesonly:

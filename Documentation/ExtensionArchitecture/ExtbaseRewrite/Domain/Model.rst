@@ -192,18 +192,19 @@ Import from the :php:`\TYPO3\CMS\Extbase\Attribute\ORM\` namespace:
 Modelling relations in Extbase
 ==============================
 
-The following example shows a model with two types of relation — a 1:1 relation
-to a :php:`Location` and a 1:n relation to a collection of :php:`Comment`
-objects:
+A relation is just a property, and Extbase offers two shapes for it: a property
+that holds **one other object**, and a property that holds **many objects** in an
+:php:`ObjectStorage`. The following example shows both — a relation to one
+:php:`Location` and a relation to many :php:`Comment` objects:
 
 ..  literalinclude:: _snippets/_ConferenceWithRelations.php
     :caption: EXT:my_extension/Classes/Domain/Model/Conference.php (with relations)
 
 A few things to note in the example above:
 
-*   **Singular relations** (a typed property, nullable if the related object is optional)
-    are a common pattern. If :php:`#[Lazy]` is
-    applied, Extbase installs a
+*   **A relation to one other object** is a single typed property, nullable when
+    the related object is optional. If :php:`#[Lazy]` is applied, Extbase
+    installs a
     :php-short:`\TYPO3\CMS\Extbase\Persistence\Generic\LazyLoadingProxy` instead
     of loading the related object immediately. The union type
     :php:`Location|LazyLoadingProxy|null` is required so that Extbase can set the
@@ -211,6 +212,13 @@ A few things to note in the example above:
     solely for static analysis — without it PHPStan cannot narrow the return
     type to :php:`?Location`. If you do not need a precisely typed getter, the
     proxy resolves automatically on any access and the check can be omitted.
+
+*   **A relation to many objects** is an :php:`ObjectStorage`. You read it by
+    iterating, and change it through :php:`addComment()` / :php:`removeComment()`
+    methods that call :php:`attach()` and :php:`detach()` — never manipulate the
+    storage property directly. The :php:`@var ObjectStorage<Comment>` annotation
+    is required for IDE autocompletion and static analysis, even though PHP does
+    not enforce the generic type.
 
 *   :php:`#[Lazy]` on an :php:`ObjectStorage` means Extbase loads the related
     records only when you first iterate over the storage or call a method on it.
@@ -224,22 +232,11 @@ A few things to note in the example above:
     records in the database. Use cascade remove only when the related objects
     genuinely belong to the parent and have no independent existence.
 
-*   The :php:`addComment()` / :php:`removeComment()` pair uses
-    :php:`ObjectStorage::attach()` and :php:`ObjectStorage::detach()`. Do not
-    manipulate :php:`$this->comments` directly.
-
-*   The :php:`@var ObjectStorage<Comment>` docblock is required for IDE
-    autocompletion and static analysis even though PHP itself does not enforce
-    generic types.
-
 ..  seealso::
 
-    `Persistence relations <https://docs.typo3.org/permalink/extbase-persistence-relations>`_ for the three relation
-    cardinalities (1:1, 1:n, m:n) and how each is stored, plus lazy loading and
-    the N+1 query trap.
+    *   `Object relations in Extbase <https://docs.typo3.org/permalink/extbase-persistence-relations>`_ — the two relation shapes, how each is stored, unidirectional versus bidirectional relations, plus lazy loading and the N+1 query trap.
 
-    `Extbase PHP attributes <https://docs.typo3.org/permalink/extbase-appendix-attributes>`_ for all Extbase PHP attributes,
-    with parameters and usage examples
+    *   `Extbase PHP attributes <https://docs.typo3.org/permalink/extbase-appendix-attributes>`_ — all Extbase PHP attributes, with parameters and usage examples.
 
 
 ..  _extbase-domain-model-filereference:

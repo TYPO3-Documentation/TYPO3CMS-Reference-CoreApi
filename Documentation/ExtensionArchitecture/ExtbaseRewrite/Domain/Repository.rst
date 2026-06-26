@@ -202,101 +202,20 @@ for any direct repository query the sorting order is entirely your responsibilit
 Custom query methods in Extbase repositories
 ============================================
 
-Use :php:`createQuery()` when the built-in find methods are not enough:
+Use :php:`createQuery()` when the built-in find methods are not enough. A custom
+query method builds a query, constrains it, and executes it:
 
 ..  literalinclude:: _snippets/_ConferenceRepository.php
     :caption: EXT:my_extension/Classes/Domain/Repository/ConferenceRepository.php
 
-The :php:`query <\TYPO3\CMS\Extbase\Persistence\QueryInterface>` API supports these constraint methods:
-
-..  confval-menu::
-    :name: extbase-query-constraints
-    :display: table
-    :type:
-    :default:
-
-    ..  confval:: equals(string $property, mixed $value, bool $caseSensitive = true)
-        :name: query-equals
-
-        Exact match. Generates a SQL :sql:`=` comparison. For string properties,
-        pass :php:`false` as the third argument for a case-insensitive match. If
-        :php:`$value` is :php:`null`, a strict :sql:`IS NULL` check is generated.
-
-    ..  confval:: like(string $property, string $value)
-        :name: query-like
-
-        Pattern match. Generates SQL :sql:`LIKE`. Use :php:`%` as wildcard,
-        for example :php:`'%search%'`.
-
-    ..  confval:: lessThan(string $property, mixed $value)
-        :name: query-lessthan
-
-        Generates SQL :sql:`<`.
-
-    ..  confval:: lessThanOrEqual(string $property, mixed $value)
-        :name: query-lessthanorequal
-
-        Generates SQL :sql:`<=`.
-
-    ..  confval:: greaterThan(string $property, mixed $value)
-        :name: query-greaterthan
-
-        Generates SQL :sql:`>`.
-
-    ..  confval:: greaterThanOrEqual(string $property, mixed $value)
-        :name: query-greaterthanorequal
-
-        Generates SQL :sql:`>=`.
-
-    ..  confval:: in(string $property, array $values)
-        :name: query-in
-
-        Matches any value in the given array. Generates SQL :sql:`IN (...)`.
-
-    ..  confval:: contains(string $property, object $value)
-        :name: query-contains
-
-        Checks whether an :php:`ObjectStorage` relation contains the given
-        object.
-
-    ..  confval:: logicalAnd(mixed ...$constraints)
-        :name: query-logicaland
-
-        Combines multiple constraints with :sql:`AND`.
-
-    ..  confval:: logicalOr(mixed ...$constraints)
-        :name: query-logicalor
-
-        Combines multiple constraints with :sql:`OR`.
-
-    ..  confval:: logicalNot(ConstraintInterface $constraint)
-        :name: query-logicalnot
-
-        Negates a constraint with :sql:`NOT`.
-
-    ..  confval:: count()
-        :name: query-count
-
-        Executes the query and returns the number of matching objects without
-        hydrating them. Call it on the query after :php:`matching()`, when you
-        need a count for the same constraints you would otherwise execute.
-
-Chain multiple constraints:
-
-..  code-block:: php
-    :caption: EXT:my_extension/Classes/Domain/Repository/ConferenceRepository.php
-
-    $query->matching(
-        $query->logicalAnd(
-            $query->equals('published', true),
-            $query->greaterThanOrEqual('conferenceDate', new \DateTimeImmutable('today')),
-        )
-    );
+The full set of constraint methods (:php:`equals()`, :php:`like()`, :php:`in()`,
+the comparisons, and combining them with :php:`logicalAnd()` / :php:`logicalOr()`
+/ :php:`logicalNot()`), together with worked examples, is documented on the
+persistence query page:
 
 ..  seealso::
 
-    `Persistence queries <https://docs.typo3.org/permalink/extbase-persistence-queries>`_ — the full query reference,
-    including ordering, limits, offsets, and the storagePid deep-dive.
+    `Querying the database with Extbase <https://docs.typo3.org/permalink/extbase-persistence-queries>`_ — building a query with :php:`createQuery()`, the constraint methods, ordering, limits, offsets, and the storagePid deep-dive.
 
 
 ..  _extbase-domain-repository-storagepid:
