@@ -15,7 +15,7 @@ Frontend page information
 The :php:`frontend.page.information` frontend request attribute provides
 frequently used page information. The attribute is attached to the PSR-7
 frontend request by the :ref:`middleware <request-handling>`
-:php:`TypoScriptFrontendInitialization`, middlewares below can rely on existence
+:php:`PrepareTypoScriptFrontendRendering`, middlewares below can rely on existence
 of that attribute.
 
 ..  code-block:: php
