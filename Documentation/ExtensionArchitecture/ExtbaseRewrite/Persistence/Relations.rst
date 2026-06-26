@@ -94,26 +94,12 @@ When an object holds a collection of others, the property is an
 related objects. A :php:`Conference` collects many :php:`Comment` objects, and is
 staffed by many :php:`Speaker` objects; both are :php:`ObjectStorage` properties:
 
-..  code-block:: php
+..  literalinclude:: _snippets/_ConferenceWithComments.php
     :caption: EXT:my_extension/Classes/Domain/Model/Conference.php
 
-    use TYPO3\CMS\Extbase\DomainObject\AbstractEntity;
-    use TYPO3\CMS\Extbase\Persistence\ObjectStorage;
-
-    class Conference extends AbstractEntity
-    {
-
-        /** @var ObjectStorage<Comment> */
-        protected ObjectStorage $comments;
-
-        /** @var ObjectStorage<Speaker> */
-        protected ObjectStorage $speakers;
-
-    }
-
 You iterate the storage to read the related objects, and add or remove single
-objects with :php:`attach()` and :php:`detach()` through dedicated
-:php:`addComment()` / :php:`removeComment()` methods. The :php:`@var
+objects through dedicated :php:`addComment()` / :php:`removeComment()` methods
+that call :php:`attach()` and :php:`detach()`. The :php:`@var
 ObjectStorage<Comment>` annotation is required so that IDEs and static analysis
 know the element type.
 

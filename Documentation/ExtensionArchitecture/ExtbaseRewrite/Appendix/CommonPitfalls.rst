@@ -65,8 +65,7 @@ records live on a different page than expected, the query returns nothing.
 
 ..  seealso::
 
-    `storagePid — when findAll() returns nothing <https://docs.typo3.org/permalink/extbase-domain-repository-storagepid>`_ and the full
-    resolution chain in `Persistence queries <https://docs.typo3.org/permalink/extbase-persistence-queries>`_.
+    `The storagePid <https://docs.typo3.org/permalink/extbase-persistence-storagepid>`_ — the page restriction explained in full: the resolution chain, the recursive setting, and how to override or drop it.
 
 
 ..  _extbase-appendix-pitfalls-annotations:

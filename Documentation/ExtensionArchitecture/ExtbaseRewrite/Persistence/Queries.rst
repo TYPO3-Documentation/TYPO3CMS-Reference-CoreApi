@@ -53,7 +53,7 @@ three steps:
     :caption: EXT:my_extension/Classes/Domain/Repository/ConferenceRepository.php
 
 The method lives on the repository because the repository is the only place
-allowed to talk to the database. The controller calls
+that should talk to the database. The controller calls
 :php:`$conferenceRepository->findPublished()` and never sees the query.
 
 
@@ -64,34 +64,142 @@ Constraining the result
 
 A *constraint* is one condition the records must satisfy. The query object
 creates them — each method returns a constraint and does not change the query
-until you hand it to :php:`matching()`:
+until you hand it to :php:`matching()`. In every method the first argument is a
+**model property name**, not a database column name; Extbase maps it for you.
 
-..  list-table::
-    :header-rows: 1
+In the reference below, each PHP line is the constraint you pass to
+:php:`matching()` — as in :php:`$query->matching($query->equals(...))`. The
+generated SQL shows the :sql:`WHERE` fragment Extbase produces **on MariaDB**.
+Extbase always binds values as named parameters; the SQL here shows the values
+inlined as they would land, for readability. The page restrictions Extbase adds
+(storagePid, enable fields) are omitted for clarity. Other database platforms may
+differ — most visibly PostgreSQL, which uses :sql:`ILIKE` for :php:`like()`.
 
-    *   -   Method
-        -   Matches when
-    *   -   :php:`equals($property, $value)`
-        -   the property equals the value. :php:`null` becomes :sql:`IS NULL`;
-            pass :php:`false` as the third argument for case-insensitive strings.
-    *   -   :php:`like($property, $value)`
-        -   the string property matches an SQL :sql:`LIKE` pattern
-            (:php:`'%search%'`).
-    *   -   :php:`in($property, $values)`
-        -   the property is one of the values in the array.
-    *   -   :php:`contains($property, $object)`
-        -   a multivalued (:php:`ObjectStorage`) property contains the object.
-    *   -   :php:`greaterThan` / :php:`greaterThanOrEqual`
-        -   the property is :sql:`>` / :sql:`>=` the value.
-    *   -   :php:`lessThan` / :php:`lessThanOrEqual`
-        -   the property is :sql:`<` / :sql:`<=` the value.
+..  confval-menu::
+    :name: extbase-query-constraints
 
-The property names are **model property names**, not database column names —
-Extbase maps them for you.
+    ..  confval:: equals(string $property, mixed $value, bool $caseSensitive = true)
+        :name: query-equals
+
+        Exact match. If :php:`$value` is :php:`null`, a strict :sql:`IS NULL`
+        check is generated instead. For string properties, pass :php:`false` as
+        the third argument to match case-insensitively.
+
+        ..  code-block:: php
+
+            $query->equals('published', true)
+
+        ..  code-block:: sql
+
+            `published` = 1
+
+    ..  confval:: like(string $property, string $value)
+        :name: query-like
+
+        Pattern match on a string property. Use :php:`%` as the wildcard. Using
+        :php:`like()` on a non-string property throws an
+        :php-short:`\TYPO3\CMS\Extbase\Persistence\Exception\InvalidQueryException`.
+
+        ..  code-block:: php
+
+            $query->like('title', '%symfony%')
+
+        ..  code-block:: sql
+
+            `title` LIKE '%symfony%'
+
+    ..  confval:: in(string $property, array $values)
+        :name: query-in
+
+        Matches when the property equals any value in the array. An empty array
+        never matches.
+
+        ..  code-block:: php
+
+            $query->in('uid', [4, 8, 15])
+
+        ..  code-block:: sql
+
+            `uid` IN (4, 8, 15)
+
+    ..  confval:: contains(string $property, mixed $value)
+        :name: query-contains
+
+        Matches when a multivalued property (an :php:`ObjectStorage` relation)
+        contains the given object. Passing :php:`null` never matches. Unlike the
+        scalar comparisons, this resolves through the relation: Extbase joins the
+        MM table (or matches the foreign key) for the related object's UID.
+
+        ..  code-block:: php
+
+            $query->contains('speakers', $speaker)
+
+        ..  code-block:: sql
+
+            `uid` IN (
+                SELECT `uid_local` FROM `tx_myextension_conference_speaker_mm`
+                WHERE `uid_foreign` = 42
+            )
+
+    ..  confval:: greaterThan(string $property, mixed $value)
+        :name: query-greaterthan
+
+        Strictly greater than the value.
+
+        ..  code-block:: php
+
+            $query->greaterThan('seats', 100)
+
+        ..  code-block:: sql
+
+            `seats` > 100
+
+    ..  confval:: greaterThanOrEqual(string $property, mixed $value)
+        :name: query-greaterthanorequal
+
+        Greater than or equal — the usual building block for an open-ended
+        "from this date onward" range. A :php:`DateTimeImmutable` is bound
+        according to the column type: a Unix timestamp for an integer column
+        (shown below), or a formatted string for a :sql:`datetime` column.
+
+        ..  code-block:: php
+
+            $query->greaterThanOrEqual('conferenceDate', new \DateTimeImmutable('today'))
+
+        ..  code-block:: sql
+
+            `conference_date` >= 1782518400
+
+    ..  confval:: lessThan(string $property, mixed $value)
+        :name: query-lessthan
+
+        Strictly less than the value.
+
+        ..  code-block:: php
+
+            $query->lessThan('seats', 50)
+
+        ..  code-block:: sql
+
+            `seats` < 50
+
+    ..  confval:: lessThanOrEqual(string $property, mixed $value)
+        :name: query-lessthanorequal
+
+        Less than or equal. Combine with :php:`greaterThanOrEqual()` inside a
+        :php:`logicalAnd()` to express a closed range.
+
+        ..  code-block:: php
+
+            $query->lessThanOrEqual('conferenceDate', new \DateTimeImmutable('2026-12-31'))
+
+        ..  code-block:: sql
+
+            `conference_date` <= 1798675200
 
 To count matches without loading the objects, call :php:`count()` on the query
-after :php:`matching()` instead of :php:`execute()`. It runs the same constraints
-and returns an integer.
+after :php:`matching()` instead of :php:`execute()`. It applies the same
+constraints and returns an integer.
 
 
 ..  _extbase-persistence-queries-combine:
@@ -159,76 +267,17 @@ report, an export, a quick lookup — and stay with the default
 
 ..  _extbase-persistence-queries-storagepid:
 
-Where Extbase looks: the storagePid resolution chain
-====================================================
+The storagePid page restriction
+===============================
 
-Every Extbase query — except :php:`findByUid()` and
-:php:`findByIdentifier()` — is restricted to records stored on
-specific TYPO3 pages, the *storage pages* (often called the **storagePid**).
+Every query a repository builds is restricted to records on configured *storage
+pages* (the **storagePid**), in addition to the constraints you set with
+:php:`matching()`. This is the most common reason a query returns something other
+than what you expect, and it has its own page:
 
-This restriction is the most common reason that an Extbase query does not
-behave as expected. The classic symptom is a repository that returns *nothing*,
-but that is only the most obvious case. Just as often, the storagePid returns the
-*wrong* result: too few records because some live on a page outside the
-restriction, or too many records because a recursive lookup includes unrelated
-subpages, or seemingly random records because a configured page is not the one
-containing the data. An empty result at least makes it clear that there is a
-problem; a plausible but incomplete result can go unnoticed.
+..  seealso::
 
-Several options affect the storagePid, and later ones override earlier ones. In a
-frontend request Extbase resolves them in this order:
-
-#.  **Extension-wide TypoScript** —
-    :typoscript:`plugin.tx_myextension.persistence.storagePid`.
-#.  **Plugin-specific TypoScript** —
-    :typoscript:`plugin.tx_myextension_conferencelist.persistence.storagePid`
-    overrides the extension-wide value for that one plugin.
-#.  **The Startingpoint field** on a plugin's content element. When an editor
-    fills in the :guilabel:`Behaviour > Starting point` field, the chosen pages
-    override the TypoScript value. The label hides the real database column,
-    which is :sql:`pages` — useful to know when inspecting records or writing
-    overrides, as the label is not guaranteed to read the same on every
-    instance or in every language.
-#.  **FlexForm** — this is only if a plugin's FlexForm defines a field bound to
-    :typoscript:`persistence.storagePid`. A FlexForm overrides the storage page only
-    if it deliberately exposes the :typoscript:`persistence` sheet. This is
-    mentioned only for completeness — it would be unusual to expose a
-    :typoscript:`persistence.storagePid` FlexForm field on a plugin that already
-    has a :sql:`pages` (Startingpoint) field.
-#.  **PHP, per query** — query settings, covered in the next section,
-    override everything above. Where in your code you set them decides how wide
-    the effect is: inside a single repository method only that one query
-    changes; inside an overridden :php:`createQuery()` every query the
-    repository builds is affected.
-
-The most specific option that supplies a value is applied. A specific query's settings always have the
-final say.
-
-
-..  _extbase-persistence-queries-recursive:
-
-Searching subpages with the recursive setting
----------------------------------------------
-
-By default, Extbase searches only the storage pages that you have configured — not
-their subpages. To include records stored in subfolders below the storage page,
-set a recursion depth.
-
-In TypoScript, :typoscript:`persistence.recursive` applies to the
-TypoScript-configured storagePids:
-
-..  literalinclude:: _snippets/_recursive.typoscript
-    :caption: EXT:my_extension/Configuration/Sets/MyExtension/setup.typoscript
-
-The :guilabel:`Starting point` field has its own :guilabel:`Recursive` selector
-next to it that does the same for the editor-chosen pages.
-
-..  warning::
-
-    Recursion is a frequent source of *too many* results, not too few. A
-    recursive depth that is set too high pulls in records from unrelated subpages that
-    happen to sit below the storage page. Set the depth to the smallest value
-    that covers your folder structure.
+    `The storagePid <https://docs.typo3.org/permalink/extbase-persistence-storagepid>`_ — the resolution chain, the recursive setting, why ``storagePid = 0`` does not disable the restriction, and how to override or drop the restriction for a single query.
 
 
 ..  _extbase-persistence-queries-querysettings:
@@ -244,30 +293,16 @@ object that controls the implicit restrictions Extbase applies. Set it with
 ..  literalinclude:: _snippets/_QuerySettings.php
     :caption: EXT:my_extension/Classes/Domain/Repository/ConferenceRepository.php
 
-The most relevant settings:
+The storagePid is one of these settings; its two methods
+(:php:`setRespectStoragePage()` and :php:`setStoragePageIds()`) are documented on
+the `storagePid page <https://docs.typo3.org/permalink/extbase-persistence-storagepid-override>`_.
+The remaining settings control language and visibility:
 
 ..  confval-menu::
     :name: extbase-querysettings
     :display: table
     :type:
     :default:
-
-    ..  confval:: setRespectStoragePage(bool)
-        :name: qs-respectStoragePage
-        :type: `bool`
-        :default: `true`
-
-        When :php:`false`, the storagePid restriction is dropped entirely and
-        the query searches the whole table regardless of page. This is how
-        you can disable the page restriction.
-
-    ..  confval:: setStoragePageIds(array)
-        :name: qs-storagePageIds
-        :type: `int[]`
-
-        Sets the storage pages explicitly for this query, overriding the
-        configured storagePid. Expects an array of integer page UIDs. Has no
-        effect once :php:`setRespectStoragePage(false)` is set.
 
     ..  confval:: setRespectSysLanguage(bool)
         :name: qs-respectSysLanguage
@@ -301,42 +336,6 @@ The most relevant settings:
     fields will show hidden and time-restricted records to visitors. Reserve
     these for backend or maintenance contexts and never apply them to a default
     frontend listing.
-
-
-..  _extbase-persistence-queries-storagepid-zero:
-
-Why ``storagePid = 0`` does not disable the restriction
--------------------------------------------------------
-
-A common misconception is that setting the storagePid to :typoscript:`0`
-switches off the page restriction. It does not. For an ordinary table, ``0`` is
-the UID of the page tree root, a level no editor ever stores records on — so the
-query looks for records on page 0 and finds none. The effect is an empty result,
-not an unrestricted query.
-
-Instead, to search the whole table irrespective of page, drop the restriction in
-PHP:
-
-..  literalinclude:: _snippets/_DisableStoragePid.php
-    :caption: EXT:my_extension/Classes/Domain/Repository/ConferenceRepository.php
-
-
-..  _extbase-persistence-queries-build-storagepid:
-
-Building the storagePid array from editor input
------------------------------------------------
-
-If for any reason the storagePid array can't be built by Extbase but you would like
-to build it manually, use Core API rather than constructing the recursive pages yourself. The core
-:php:`\TYPO3\CMS\Core\Domain\Repository\PageRepository` resolves the recursive
-list of page UIDs for you, honouring access rights and the enable-field rules:
-
-..  literalinclude:: _snippets/_RecursivePids.php
-    :caption: EXT:my_extension/Classes/Domain/Repository/ConferenceRepository.php
-
-The resulting integer array is exactly what :php:`setStoragePageIds()` expects.
-Letting the core API build it keeps the recursion logic identical to what
-Extbase applies internally.
 
 
 ..  _extbase-persistence-queries-pagination:

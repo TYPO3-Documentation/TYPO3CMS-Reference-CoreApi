@@ -220,6 +220,14 @@ A few things to note in the example above:
     is required for IDE autocompletion and static analysis, even though PHP does
     not enforce the generic type.
 
+*   **Each :php:`ObjectStorage` must be initialised**, otherwise the first access
+    to the typed property triggers a fatal error. Do this in
+    :php:`initializeObject()` and call that method from the constructor. Extbase
+    calls :php:`initializeObject()` itself after mapping a record from the
+    database, so the storage is ready on loaded objects; calling it from
+    :php:`__construct()` as well covers objects you create with :php:`new`. Both
+    code paths then end up with an initialised storage.
+
 *   :php:`#[Lazy]` on an :php:`ObjectStorage` means Extbase loads the related
     records only when you first iterate over the storage or call a method on it.
     This avoids loading potentially hundreds of related records just because the

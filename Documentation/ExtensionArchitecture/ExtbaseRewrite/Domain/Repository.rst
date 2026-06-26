@@ -220,14 +220,15 @@ persistence query page:
 
 ..  _extbase-domain-repository-storagepid:
 
-storagePid — when findAll() returns nothing
-===========================================
+The storagePid constraint on repository queries
+===============================================
 
-A repository query (all except :php:`findByUid()`) queries one or more
-particular storage pages by default. If :php:`findAll()` returns an empty result but
-records clearly exist in the database, or if there are unexpected objects in the result,
-the most likely cause is a missing or misconfigured :php:`storagePid`.
+Every repository query — except :php:`findByUid()` and :php:`findByIdentifier()`
+— is automatically restricted to records stored on specific TYPO3 pages, the
+*storage pages*, configured through the **storagePid**. Extbase adds this as a
+:sql:`WHERE` condition to the query; it is not something you opt into.
 
+A repository therefore needs a storagePid before its queries return anything.
 Configure it in TypoScript:
 
 ..  code-block:: typoscript
@@ -235,11 +236,13 @@ Configure it in TypoScript:
 
     plugin.tx_myextension.persistence.storagePid = 42
 
+The value can come from several sources that override one another, it can be
+widened to subpages, and it can be overridden or dropped per query. The whole
+story lives on its own page:
+
 ..  seealso::
 
-    `Persistence queries <https://docs.typo3.org/permalink/extbase-persistence-queries>`_ — the full resolution
-    chain: TypoScript → plugin-specific TypoScript → FlexForm → PHP override, plus how
-    to debug storagePid problems.
+    `The storagePid <https://docs.typo3.org/permalink/extbase-persistence-storagepid>`_ — the resolution chain, the recursive setting, why ``storagePid = 0`` does not disable the restriction, and how to override or drop it for a single query.
 
 
 ..  _extbase-domain-repository-di:
