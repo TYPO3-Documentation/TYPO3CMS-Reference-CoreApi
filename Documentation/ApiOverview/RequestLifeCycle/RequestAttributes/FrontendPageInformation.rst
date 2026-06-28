@@ -10,12 +10,12 @@ Frontend page information
 
 ..  versionchanged:: 14.0
     This request attribute replaces various page related properties of removed
-    `\TYPO3\CMS\Frontend\Controller\TyposcriptFrontendController`.
+    :php-short:`\TYPO3\CMS\Frontend\Controller\TyposcriptFrontendController`.
 
 The :php:`frontend.page.information` frontend request attribute provides
 frequently used page information. The attribute is attached to the PSR-7
 frontend request by the :ref:`middleware <request-handling>`
-:php:`PrepareTypoScriptFrontendRendering`, middlewares below can rely on existence
+:php-short:`\TYPO3\CMS\Frontend\Middleware\PrepareTypoScriptFrontendRendering`, middlewares below can rely on existence
 of that attribute.
 
 ..  code-block:: php
