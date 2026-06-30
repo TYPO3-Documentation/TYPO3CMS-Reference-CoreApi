@@ -66,7 +66,64 @@ setup as array:
 
 .. code-block:: php
 
-        $fullTypoScript = $request->getAttribute('frontend.typoscript')->getSetupArray();
+    $fullTypoScript = $request->getAttribute('frontend.typoscript')->getSetupArray();
 
 Read more about :ref:`Getting the PSR-7 request object <getting-typo3-request-object>`
 from different contexts.
+
+.. _typoscript-backend-access_frontend_typoscript:
+
+Backend TypoScript
+==================
+
+Another means needs to be used to read the Frontend TypoScript of the currently selected page in the backend page module.
+The needed TYPO3 internal object of the :php:`Extbase` class :php:`BackendConfigurationManager` can be obtained by means of Dependency Injection. 
+Note that it may be required to enrich the request object. TypoScript parsing is time consuming. Consider unsing the
+`SiteFinder class <https://docs.typo3.org/permalink/t3coreapi:sitehandling-sitefinder-object>`_
+instead of this solution. For backend module configuration you should use 
+`Backend TypoScript / TSconfig <https://docs.typo3.org/permalink/t3tsref:about-tsconfig>`_ instead of Frontend TypoScript. 
+
+.. code-block:: php
+    :caption: EXT:my_extension/Classes/Backend/OrderController.php
+
+    namespace MyDomain\MyExtension\Backend;
+
+    use Psr\Http\Message\ServerRequestInterface;
+    use TYPO3\CMS\Core\Database\ConnectionPool;
+    use TYPO3\CMS\Core\SingletonInterface;
+    use TYPO3\CMS\Extbase\Configuration\BackendConfigurationManager;
+
+    class OrderController implements SingletonInterface
+    {
+        protected ConnectionPool $connectionPool;
+        private   ContainerInterface $container;
+        protected BackendConfigurationManager $concreteConfigurationManager;
+    
+        public function __construct(
+            ConnectionPool $connectionPool,
+            ContainerInterface $container,
+            BackendConfigurationManager $configurationManager
+        )
+        {
+            $this->connectionPool = $connectionPool;
+            $this->container = $container;
+            $this->concreteConfigurationManager = $configurationManager;
+        }
+
+        public function main(
+            string $content,
+            array $conf,
+            ServerRequestInterface $request,
+        ) : string {
+            $setup = $this->getTypoScript($request);
+            $foo = $setup['my_extension']['bar'] ?? '';
+            return '<div>Foo Setup: ' . $foo . '</div>';
+        }
+
+        public function getTypoScript(ServerRequestInterface $request): array
+        {
+             $setup = $this->concreteConfigurationManager->getTypoScriptSetup($request);
+             return $setup;
+        }
+    }
+
