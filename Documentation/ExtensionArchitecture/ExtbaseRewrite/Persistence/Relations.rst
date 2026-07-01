@@ -125,7 +125,7 @@ for parent-owned children.
 
 Because the child belongs to the parent, this is the natural place for
 :php:`#[Cascade('remove')]`: deleting the conference deletes its comments. See
-`Modelling relations <https://docs.typo3.org/permalink/extbase-domain-model-relations>`_
+:ref:`Modelling relations <extbase-domain-model-relations>`
 for the attribute.
 
 

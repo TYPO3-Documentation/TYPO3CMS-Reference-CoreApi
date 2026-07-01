@@ -387,7 +387,7 @@ Configuring persistence for Extbase models
 ==========================================
 
 A model class alone is not enough — TYPO3 also needs a
-`TCA <https://docs.typo3.org/m/typo3/reference-tca/main/en-us/>`_
+:ref:`TCA <t3tca:start>`
 (Table Configuration Array) definition for the corresponding database table. TCA
 tells TYPO3 which columns exist, what type they are, and how they behave in the backend. Without
 TCA, neither the backend nor the database analyser would know anything about your

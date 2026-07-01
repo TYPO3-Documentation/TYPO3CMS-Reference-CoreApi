@@ -295,7 +295,7 @@ object that controls the implicit restrictions Extbase applies. Set it with
 
 The storagePid is one of these settings; its two methods
 (:php:`setRespectStoragePage()` and :php:`setStoragePageIds()`) are documented on
-the `storagePid page <https://docs.typo3.org/permalink/extbase-persistence-storagepid-override>`_.
+the :ref:`storagePid page <extbase-persistence-storagepid-override>`.
 The remaining settings control language and visibility:
 
 ..  confval-menu::
