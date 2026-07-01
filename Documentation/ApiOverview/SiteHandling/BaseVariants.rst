@@ -103,16 +103,30 @@ Properties
 Functions
 =========
 
-Functions from
-:t3src:`core/Classes/ExpressionLanguage/FunctionsProvider/DefaultFunctionsProvider.php`
-are available, as long as they are request-independent (due to caching reasons). For
-request-dependent conditions/functions, have a look at :composer:`b13/host-variants`
-to see how to add custom condition/function providers to suit your needs.
+The functions provided by
+:php-short:`\TYPO3\CMS\Core\ExpressionLanguage\FunctionsProvider\DefaultFunctionsProvider`
+can be used in base variant conditions, **as long as they do not depend on
+the current request**.
 
-That means, specifically you can **not** use the `ip()` or `traverse(request...)`
-conditions in the handling of base variants.
+Base variant conditions are evaluated while the site configuration is loaded
+and the :php-short:`\TYPO3\CMS\Core\Site\Entity\Site` object is built. In that
+``site`` context the expression language does not receive a request, so the
+``request`` variable is unavailable. Among the built-in functions this affects
+only ``ip()``, which reads the client IP from the request and fails with an
+exception:
 
-Some examples:
+..  code-block:: none
+
+    #1686745105 RuntimeException
+    Using expression language function "ip(devIp)" in a context without request.
+
+..  note::
+    For request-dependent base variants (for example matching the current
+    host or request parameters), use a dedicated extension such as
+    :composer:`b13/host-variants`, or register your own condition or function
+    provider that injects the request into the expression language context.
+
+The following request-independent functions are available:
 
 ..  option:: compatVersion
 
