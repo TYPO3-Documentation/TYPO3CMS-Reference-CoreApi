@@ -13,10 +13,27 @@ Content was removed
 TYPO3 v15
 =========
 
+..  _extension-declaration:
+..  _ext_emconf-php:
+
+`ext_emconf.php` no longer evaluated
+------------------------------------
+
+..  deprecated:: 14.2
+    See `Deprecation: #108345 - Deprecation of ext_emconf.php <https://docs.typo3.org/permalink/changelog:deprecation-108345-1774126701>`_
+
+
+:file:`ext_emconf.php` files in extensions are no longer evaluated for package
+metadata. In TYPO3 classic (non-Composer) mode the :file:`composer.json` must
+declare the extension version and the :php:`providesPackages` definition in
+the :php:`extra/typo3/cms` section. These two fields are now mandatory,
+also for extensions that no longer ship an :file:`ext_emconf.php`, otherwise
+loading the extension throws an exception.
+
 ..  _confval-database-writer-logTable:
 
 `DatabaseWriter->getLogTable()` and `DatabaseWriter->setLogTable()` where removed
-=================================================================================
+---------------------------------------------------------------------------------
 
 ..  deprecated:: 14.2
     See `Deprecation: #109295 - DatabaseWriter::setLogTable()/getLogTable() <https://docs.typo3.org/permalink/changelog:deprecation-109295-1742407200>`_
@@ -29,7 +46,7 @@ can only be used with the :sql:`sys_log` table starting with TYPO3 v15.
 ..  _AfterSectionMarkupGeneratedEvent:
 
 Page module section markup events removed
-=========================================
+-----------------------------------------
 
 ..  deprecated:: 14.3
     `Deprecation: #109529 - Page module section markup events <https://docs.typo3.org/permalink/changelog:deprecation-109529-1775733107>`_
@@ -42,7 +59,7 @@ backend layout columns with these events should be removed.
 ..  _ModifyClearCacheActionsEvent-migration-v14:
 
 CacheAction "href" key removed
-==============================
+------------------------------
 
 ..  versionchanged:: 14.3
     The `CacheAction` array key `href` used in cache action definitions
@@ -56,7 +73,7 @@ CacheAction "href" key removed
 ..  _AddJavaScriptModulesEvent:
 
 AddJavaScriptModulesEvent renamed to AddUserSettingsJavaScriptModulesEvent
-==========================================================================
+--------------------------------------------------------------------------
 
 ..  versionchanged:: 14.3
     See `Deprecation: #109517 - PSR-14 event \TYPO3\CMS\Setup\Event\AddJavaScriptModulesEvent <https://docs.typo3.org/permalink/changelog:deprecation-109517-1744105201>`_.
@@ -68,7 +85,7 @@ as the system extension `setup` was integrated into :composer:`typo3/cms-backend
 ..  _eventlist-install:
 
 ModifyLanguagePackRemoteBaseUrlEvent and ModifyLanguagePacksEvent moved to EXT:core
-===================================================================================
+-----------------------------------------------------------------------------------
 
 ..  deprecated:: 14.2
     See `Deprecation: #109027 - Move language:update command and events to EXT:core <https://docs.typo3.org/permalink/changelog:deprecation-109027-1771514240>`_.
