@@ -1,0 +1,15 @@
+<h1>Conferences</h1>
+
+<ul>
+    <f:for each="{paginator.paginatedItems}" as="conference">
+        <li>{conference.title}</li>
+    </f:for>
+</ul>
+
+<nav aria-label="Pagination">
+    <f:for each="{pagination.allPageNumbers}" as="page">
+        <f:link.action action="list" arguments="{currentPage: page}">
+            {page}
+        </f:link.action>
+    </f:for>
+</nav>

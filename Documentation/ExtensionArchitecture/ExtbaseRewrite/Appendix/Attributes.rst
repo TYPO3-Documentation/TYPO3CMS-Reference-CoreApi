@@ -50,7 +50,7 @@ which can harm performance and trigger N+1 queries, for example in list views.
 :php:`#[Lazy]` tells Extbase to load the related object only when it is actively
 accessed — by calling its methods or reading its properties.
 
-When applied to a 1:1 relation, the property type must include
+When applied to a relation to a single object, the property type must include
 :php-short:`\TYPO3\CMS\Extbase\Persistence\Generic\LazyLoadingProxy` so Extbase knows to install the proxy. A typed getter
 needs an :php:`instanceof` check only so PHPStan and your IDE can narrow the
 return type to :php:`?Location`:

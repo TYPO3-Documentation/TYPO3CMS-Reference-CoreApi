@@ -192,58 +192,59 @@ Import from the :php:`\TYPO3\CMS\Extbase\Attribute\ORM\` namespace:
 Modelling relations in Extbase
 ==============================
 
-The following example shows a model with both relation types — a 1:1 relation
-to a :php:`Location` and a 1:n relation to a collection of :php:`Comment`
-objects:
+A relation is just a property, and Extbase offers two shapes for it: a property
+that holds **one other object**, and a property that holds **many objects** in an
+:php-short:`\TYPO3\CMS\Extbase\Persistence\ObjectStorage`. The following example shows both — a relation to one
+:php:`Location` and a relation to many :php:`Comment` objects:
 
 ..  literalinclude:: _snippets/_ConferenceWithRelations.php
     :caption: EXT:my_extension/Classes/Domain/Model/Conference.php (with relations)
 
 A few things to note in the example above:
 
-..  Relation cardinality language needs a dedicated treatment: a nullable typed property
-..  can be a true 1:1 (both sides required and unique), a 0:1 (optional), or n:1 (many
-..  conference records pointing at one location). These all look the same in PHP but differ
-..  in intent and TCA setup. Revisit this section once the relations chapter is written.
-
-*   **Singular relations** (a typed property, nullable when the related object is optional)
-    are one common pattern. When :php:`#[Lazy]` is
-    applied, Extbase installs a
+*   **A relation to a single other object** is a single typed property, nullable when
+    the related object is optional. If :php:`#[Lazy]` is applied, Extbase
+    installs a
     :php-short:`\TYPO3\CMS\Extbase\Persistence\Generic\LazyLoadingProxy` instead
     of loading the related object immediately. The union type
-    :php:`Location|LazyLoadingProxy|null` is required so Extbase can set the
+    :php:`Location|LazyLoadingProxy|null` is required so that Extbase can set the
     proxy. The :php:`instanceof LazyLoadingProxy` check in the getter exists
     solely for static analysis — without it PHPStan cannot narrow the return
     type to :php:`?Location`. If you do not need a precisely typed getter, the
     proxy resolves automatically on any access and the check can be omitted.
 
+*   **A relation to many objects** is an :php:`ObjectStorage`. You read it by
+    iterating, and change it through :php:`addComment()` / :php:`removeComment()`
+    methods that call :php:`attach()` and :php:`detach()` — never manipulate the
+    storage property directly. The :php:`@var ObjectStorage<Comment>` annotation
+    is required for IDE autocompletion and static analysis, even though PHP does
+    not enforce the generic type.
+
+*   **Each ObjectStorage must be initialised**, otherwise the first access
+    to the typed property triggers a fatal error. Do this in
+    :php:`initializeObject()` and call that method from the constructor. Extbase
+    calls :php:`initializeObject()` itself after mapping a record from the
+    database, so the storage is ready on loaded objects; calling it from
+    :php:`__construct()` as well covers objects you create with :php:`new`. Both
+    code paths then end up with an initialised storage.
+
 *   :php:`#[Lazy]` on an :php:`ObjectStorage` means Extbase loads the related
     records only when you first iterate over the storage or call a method on it.
     This avoids loading potentially hundreds of related records just because the
-    parent object was loaded.
+    parent object is loaded.
 
-*   :php:`#[Cascade('remove')]` on :php:`$comments` means: when this
-    :php:`Conference` is deleted, all related :php:`Comment` objects are also
+*   :php:`#[Cascade('remove')]` on :php:`$comments` means that when this
+    :php:`Conference` object is deleted, all related :php:`Comment` objects are also
     deleted. A comment has no life outside its event, so this is the right
     choice. Without this attribute, deleting the event would leave orphaned comment
     records in the database. Use cascade remove only when the related objects
     genuinely belong to the parent and have no independent existence.
 
-*   The :php:`addComment()` / :php:`removeComment()` pair uses
-    :php:`ObjectStorage::attach()` and :php:`ObjectStorage::detach()`. Do not
-    manipulate :php:`$this->comments` directly.
-
-*   The :php:`@var ObjectStorage<Comment>` docblock is required for IDE
-    autocompletion and static analysis, even though PHP itself does not enforce
-    generic types.
-
 ..  seealso::
 
-    `Persistence relations <https://docs.typo3.org/permalink/extbase-persistence-relations>`_ for relations, lazy loading,
-    and the N+1 query trap.
+    *   `Object relations in Extbase <https://docs.typo3.org/permalink/extbase-persistence-relations>`_ — explains the two relation types, how they are stored, unidirectional and bidirectional relations, lazy loading, and the N+1 query problem.
 
-    `Extbase PHP attributes <https://docs.typo3.org/permalink/extbase-appendix-attributes>`_ for all Extbase PHP attributes,
-    with parameters and usage examples
+    *   `Extbase PHP attributes <https://docs.typo3.org/permalink/extbase-appendix-attributes>`_ — all Extbase PHP attributes, with parameters and usage examples.
 
 
 ..  _extbase-domain-model-filereference:
@@ -386,7 +387,7 @@ Configuring persistence for Extbase models
 ==========================================
 
 A model class alone is not enough — TYPO3 also needs a
-`TCA <https://docs.typo3.org/m/typo3/reference-tca/main/en-us/>`_
+:ref:`TCA <t3tca:start>`
 (Table Configuration Array) definition for the corresponding database table. TCA
 tells TYPO3 which columns exist, what type they are, and how they behave in the backend. Without
 TCA, neither the backend nor the database analyser would know anything about your
