@@ -103,17 +103,38 @@ Properties
 Functions
 =========
 
-All functions from
-:t3src:`core/Classes/ExpressionLanguage/FunctionsProvider/DefaultFunctionsProvider.php`
-are available:
+The functions provided by
+:php-short:`\TYPO3\CMS\Core\ExpressionLanguage\FunctionsProvider\DefaultFunctionsProvider`
+can be used in base variant conditions, **as long as they do not depend on
+the current request**.
 
-..  option:: ip
+Base variant conditions are evaluated while the site configuration is loaded
+and the :php-short:`\TYPO3\CMS\Core\Site\Entity\Site` object is built. In that
+``site`` context the expression language does not receive a request, so the
+``request`` variable is unavailable. Among the built-in functions this affects
+only ``ip()``, which reads the client IP from the request and fails with an
+exception:
 
-    :type: string
-    :Example: `ip("203.0.113.*")`
+..  code-block:: none
 
-    Match an IP address, value or regex, wildcards possible.
-    Special value: `devIp` for matching `devIpMask`.
+    #1686745105 RuntimeException
+    Using expression language function "ip(devIp)" in a context without request.
+
+..  versionchanged:: 13.0
+    Until TYPO3 v12, request-dependent functions such as ``ip()`` did work in
+    base variant conditions: their implementation read the client address
+    directly from the server environment, independent of a request object.
+    This request-less fallback was deprecated in v12.3 and removed in v13.0,
+    which is why such conditions now fail with the exception shown above. See
+    `Breaking: #100963 <https://docs.typo3.org/permalink/changelog:breaking-100963-1686129084>`__.
+
+..  note::
+    For request-dependent base variants (for example matching the current
+    host or request parameters), use a dedicated extension such as
+    :composer:`b13/host-variants`, or register your own condition or function
+    provider that injects the request into the expression language context.
+
+The following request-independent functions are available:
 
 ..  option:: compatVersion
 
@@ -154,13 +175,3 @@ are available:
 
     Check whether a feature (":ref:`feature toggle <feature-toggles>`") is
     enabled in TYPO3.
-
-..  option:: traverse
-
-    :type: array|string
-    :Example: `traverse(request.getQueryParams(), 'tx_news_pi1/news') > 0`
-
-    This function has two parameters:
-
-    *   first parameter is the array to traverse
-    *   second parameter is the path to traverse
