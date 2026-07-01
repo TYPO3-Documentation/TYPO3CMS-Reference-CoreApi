@@ -1,0 +1,5 @@
+plugin.tx_myextension.persistence {
+    storagePid = 42
+    # Include records stored up to two levels below page 42
+    recursive = 2
+}

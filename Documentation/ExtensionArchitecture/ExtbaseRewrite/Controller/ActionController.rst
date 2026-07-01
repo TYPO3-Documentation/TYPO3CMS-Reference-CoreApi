@@ -143,7 +143,7 @@ into TypoScript constants via the :typoscript:`{$...}` syntax, but that is an
 explicit mapping, not an automatic merge. Only values that flow through
 :typoscript:`plugin.tx_myextension.settings.*` end up in
 :php:`$this->settings`. The full resolution order is covered in
-`Extbase TypoScript configuration <https://docs.typo3.org/permalink/extbase-configuration-typoscript-scopes>`_.
+:ref:`Extbase TypoScript configuration <extbase-configuration-typoscript-scopes>`.
 
 
 ..  _extbase-controller-action-responses:
