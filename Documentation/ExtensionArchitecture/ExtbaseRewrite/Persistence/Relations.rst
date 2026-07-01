@@ -44,7 +44,7 @@ How to **declare** relations in a model — the attributes, the
 A relation to one other object
 ==============================
 
-The simplest relation points from one object to one other — a
+The simplest relation points from one object to a single other one — a
 :php:`Conference` is held at a :php:`Location`. In the model this is a single,
 typed, usually nullable property:
 

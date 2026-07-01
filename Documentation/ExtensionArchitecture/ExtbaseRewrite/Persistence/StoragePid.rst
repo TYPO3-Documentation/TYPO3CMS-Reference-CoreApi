@@ -45,14 +45,21 @@ actually searches is not always the one you set.
 
 ..  _extbase-persistence-storagepid-resolution:
 
-The storagePid resolution chain
-===============================
+The storagePid resolution chain in the frontend
+===============================================
 
 Several options feed the storagePid, and later ones override earlier ones. In a
-frontend request Extbase resolves them in this order:
+frontend request Extbase resolves them in this order, depending on the controller that
+handles the request:
 
-#.  **Extension-wide TypoScript** —
-    :typoscript:`plugin.tx_myextension.persistence.storagePid`.
+#.  **Framework TypoScript** —
+    :typoscript:`config.tx_extbase.persistence.storagePid`. This is the
+    framework-level default that applies to every Extbase plugin, and the same
+    key a backend module reads (see below). When nothing sets it, the frontend
+    default is :sql:`0`.
+#.  **Extension plugin TypoScript** —
+    :typoscript:`plugin.tx_myextension.persistence.storagePid` overrides the
+    framework value for all plugins of one extension.
 #.  **Plugin-specific TypoScript** —
     :typoscript:`plugin.tx_myextension_conferencelist.persistence.storagePid`
     overrides the extension-wide value for that one plugin.
@@ -76,6 +83,58 @@ frontend request Extbase resolves them in this order:
 
 The most specific option that supplies a value is applied; a specific query's
 settings always have the final say.
+
+
+..  _extbase-persistence-storagepid-backend:
+
+The storagePid resolution chain in a backend module
+===================================================
+
+An Extbase repository behaves the same way inside a backend module as it does in
+the frontend: every query is restricted to the configured storage pages. What
+differs is *how* the storagePid is resolved. A backend module is not a content
+element on a page, so there is no plugin record, no FlexForm and no
+:guilabel:`Starting point` field to draw from. The chain is therefore much
+shorter:
+
+#.  **Framework TypoScript** —
+    :typoscript:`config.tx_extbase.persistence.storagePid`. Note the
+    :typoscript:`config` scope: a backend module reads the same framework-level
+    key the frontend uses for its Extbase configuration, not a
+    :typoscript:`plugin` scope.
+#.  **The current page** — if nothing above sets a storagePid, Extbase falls back
+    to the **page the module is currently showing**, taken from the ``id``
+    request parameter (the page selected in the page tree). When no page is
+    selected — or the module has no page tree at all, as many backend modules do
+    not — this falls back to :sql:`0`.
+#.  **Module TypoScript** —
+    :typoscript:`module.tx_myextension.persistence.storagePid`, overridden by the
+    module-specific
+    :typoscript:`module.tx_myextension_mymodule.persistence.storagePid`. This is
+    the backend counterpart of the :typoscript:`plugin.tx_*` scope used in the
+    frontend, and the usual place to set a storagePid for a module.
+#.  **PHP, per query** — query settings override everything above, exactly as in
+    the frontend. See :ref:`extbase-persistence-storagepid-override`.
+
+..  literalinclude:: _snippets/_module_storagepid.typoscript
+    :caption: EXT:my_extension/ext_typoscript_setup.typoscript
+
+Module TypoScript is conventionally registered in the extension's
+:file:`ext_typoscript_setup.typoscript`, as shown above, so the configuration is
+global and does not depend on which page the module happens to be viewing. This
+is the recommended placement, see :ref:`module <t3tsref:tlo-module>` TypoScript reference.
+
+..  note::
+
+    Because the current-page fallback depends on the ``id`` request parameter, a
+    module without a page tree (or with no page selected) resolves its storagePid
+    to :sql:`0`. If your module is not meant to be scoped to the current page or the root,
+    set an explicit storagePid in :typoscript:`module.tx_*` TypoScript, or drop
+    the restriction per query with :php:`setRespectStoragePage(false)` — see
+    :ref:`extbase-persistence-storagepid-override`.
+
+The :typoscript:`recursive` setting works the same in a backend module as in the
+frontend, as described next.
 
 
 ..  _extbase-persistence-storagepid-recursive:

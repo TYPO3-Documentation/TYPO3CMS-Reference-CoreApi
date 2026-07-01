@@ -194,7 +194,7 @@ Modelling relations in Extbase
 
 A relation is just a property, and Extbase offers two shapes for it: a property
 that holds **one other object**, and a property that holds **many objects** in an
-:php:`ObjectStorage`. The following example shows both — a relation to one
+:php-short:`\TYPO3\CMS\Extbase\Persistence\ObjectStorage`. The following example shows both — a relation to one
 :php:`Location` and a relation to many :php:`Comment` objects:
 
 ..  literalinclude:: _snippets/_ConferenceWithRelations.php
@@ -202,7 +202,7 @@ that holds **one other object**, and a property that holds **many objects** in a
 
 A few things to note in the example above:
 
-*   **A relation to one other object** is a single typed property, nullable when
+*   **A relation to a single other object** is a single typed property, nullable when
     the related object is optional. If :php:`#[Lazy]` is applied, Extbase
     installs a
     :php-short:`\TYPO3\CMS\Extbase\Persistence\Generic\LazyLoadingProxy` instead
@@ -220,7 +220,7 @@ A few things to note in the example above:
     is required for IDE autocompletion and static analysis, even though PHP does
     not enforce the generic type.
 
-*   **Each :php:`ObjectStorage` must be initialised**, otherwise the first access
+*   **Each ObjectStorage must be initialised**, otherwise the first access
     to the typed property triggers a fatal error. Do this in
     :php:`initializeObject()` and call that method from the constructor. Extbase
     calls :php:`initializeObject()` itself after mapping a record from the
@@ -242,7 +242,7 @@ A few things to note in the example above:
 
 ..  seealso::
 
-    *   `Object relations in Extbase <https://docs.typo3.org/permalink/extbase-persistence-relations>`_ — the two relation shapes, how each is stored, unidirectional versus bidirectional relations, plus lazy loading and the N+1 query trap.
+    *   `Object relations in Extbase <https://docs.typo3.org/permalink/extbase-persistence-relations>`_ — explains the two relation types, how they are stored, unidirectional and bidirectional relations, lazy loading, and the N+1 query problem.
 
     *   `Extbase PHP attributes <https://docs.typo3.org/permalink/extbase-appendix-attributes>`_ — all Extbase PHP attributes, with parameters and usage examples.
 

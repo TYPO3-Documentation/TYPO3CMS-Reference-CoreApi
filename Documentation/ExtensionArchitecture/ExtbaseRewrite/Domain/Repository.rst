@@ -277,11 +277,15 @@ shared instance will be lost and the repository will not be wired with its own i
 
 TYPO3's :abbr:`DI (Dependency Injection)` container resolves the repository automatically without needing
 :php:`@inject` annotation or a factory call.
+If the constructor is already taken by a parent controller or you expect the extending constructors to need it,
+inject methods are an alternative to use.
 
 ..  seealso::
 
-    `Extbase controller actions <https://docs.typo3.org/permalink/extbase-controller-action>`_ — full controller reference
+    * `Extbase controller actions <https://docs.typo3.org/permalink/extbase-controller-action>`_ — full controller reference
     including how DI works in controllers.
+
+    * `Dependency injection in TYPO3 <https://docs.typo3.org/permalink/dependency-injection>`_ — How TYPO3 handles Dependency injection
 
 
 ..  _extbase-domain-repository-dbal:
