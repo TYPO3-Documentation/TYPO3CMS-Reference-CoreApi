@@ -13,7 +13,7 @@ HTML or JSON. It knows nothing about HTTP responses; that is
 the controller's concern. The controller assigns variables and calls the render
 method indirectly via :php:`$this->htmlResponse()` or :php:`$this->jsonResponse()`.
 
-`Fluid <https://docs.typo3.org/permalink/t3coreapi:fluid>`_ is the
+:ref:`Fluid <t3coreapi:fluid>` is the
 recommended template engine. It integrates with Extbase out of the box and
 does not require any additional setup. Other template engines such as Blade or Twig can
 be integrated via
@@ -154,7 +154,7 @@ Property paths can be chained: :html:`{conference.mainSpeaker.name}` resolves
 result.
 
 **Arrays and ObjectStorage collections** are accessed using
-` f:for <https://docs.typo3.org/permalink/t3viewhelper:typo3fluid-fluid-for>`_ to
+:ref:`f:for <t3viewhelper:typo3fluid-fluid-for>` to
 iterate, or with an explicit numeric index:
 
 ..  code-block:: html
@@ -297,7 +297,7 @@ installed, but not because load order influences template resolution:
 ViewHelpers in Fluid templates
 ==============================
 
-`ViewHelpers <https://docs.typo3.org/permalink/t3viewhelper:start>`_
+:ref:`ViewHelpers <t3viewhelper:start>`
 are Fluid template functions and tags. They are used for
 conditionals, loops, links, formatting, and much more. The built-in ViewHelpers
 use the :html:`f:` namespace, which is available in every template without
@@ -329,24 +329,24 @@ Two equivalent syntaxes exist — tag style and inline style:
 
 Commonly used ViewHelpers (with links to their full reference) are:
 
-*   `f:for <https://docs.typo3.org/permalink/t3viewhelper:typo3fluid-fluid-for>`_
+*   :ref:`f:for <t3viewhelper:typo3fluid-fluid-for>`
     — iterate over arrays and :php:`\TYPO3\CMS\Extbase\Persistence\ObjectStorage`
     collections.
-*   `f:if <https://docs.typo3.org/permalink/t3viewhelper:typo3fluid-fluid-if>`_
+*   :ref:`f:if <t3viewhelper:typo3fluid-fluid-if>`
     — conditional output.
-*   `f:link.action <https://docs.typo3.org/permalink/t3viewhelper:typo3-fluid-link-action>`_
+*   :ref:`f:link.action <t3viewhelper:typo3-fluid-link-action>`
     — generate links to controller actions.
-*   `f:uri.action <https://docs.typo3.org/permalink/t3viewhelper:typo3-fluid-uri-action>`_
+*   :ref:`f:uri.action <t3viewhelper:typo3-fluid-uri-action>`
     — generate action URIs for use inside attributes.
-*   `f:format.date <https://docs.typo3.org/permalink/t3viewhelper:typo3-fluid-format-date>`_
+*   :ref:`f:format.date <t3viewhelper:typo3-fluid-format-date>`
     — format date objects and timestamps.
-*   `f:flashMessages <https://docs.typo3.org/permalink/t3viewhelper:typo3-fluid-flashmessages>`_
+*   :ref:`f:flashMessages <t3viewhelper:typo3-fluid-flashmessages>`
     — render flash messages added by the controller.
-*   `f:form <https://docs.typo3.org/permalink/t3viewhelper:typo3-fluid-form>`_
+*   :ref:`f:form <t3viewhelper:typo3-fluid-form>`
     — build forms with automatic ``__trustedProperties`` token generation.
-*   `f:translate <https://docs.typo3.org/permalink/t3viewhelper:typo3-fluid-translate>`_
+*   :ref:`f:translate <t3viewhelper:typo3-fluid-translate>`
     — render localised labels from :file:`locallang.xlf`.
-*   `f:debug <https://docs.typo3.org/permalink/t3viewhelper:typo3-fluid-debug>`_
+*   :ref:`f:debug <t3viewhelper:typo3-fluid-debug>`
     — dump a variable's type and value during development; remove before
     deploying to production. By default output is prepended to the page top;
     use :html:`inline="1"` to render it in place. For deeper introspection of
@@ -355,13 +355,13 @@ Commonly used ViewHelpers (with links to their full reference) are:
     provides a richer debug output than :html:`f:debug`.
 
 For the complete reference of all built-in ViewHelpers, see the
-`ViewHelper reference <https://docs.typo3.org/permalink/t3viewhelper:start>`_.
+:ref:`ViewHelper reference <t3viewhelper:start>`.
 
 To write your own ViewHelper, see
-`Creating custom ViewHelpers <https://docs.typo3.org/permalink/t3coreapi:fluid-custom-viewhelper>`_.
+:ref:`Creating custom ViewHelpers <t3coreapi:fluid-custom-viewhelper>`.
 
 For reusable template fragments with a typed argument contract, Fluid v4
-introduced `Fluid Components <https://docs.typo3.org/permalink/t3coreapi:using-fluid-components>`_
+introduced :ref:`Fluid Components <t3coreapi:using-fluid-components>`
 as an alternative to both partials and custom ViewHelpers. Components are
 pure Fluid templates — no PHP class required — with typed, named arguments
 declared via :html:`<f:argument>`. They are the right choice for

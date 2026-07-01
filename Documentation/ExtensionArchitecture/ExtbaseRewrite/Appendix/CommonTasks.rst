@@ -152,8 +152,8 @@ and not always needed — for example, the comments on an event in a list view.
 You want to avoid loading them unless the template actually uses them.
 
 **Short answer:** Add :php:`#[Lazy]` to the relation property. Extbase defers
-the database query until the property is first accessed. For 1:1 relations,
-the getter must also handle the :php:`LazyLoadingProxy` intermediate.
+the database query until the property is first accessed. For a relation to a
+single object, the getter must also handle the :php:`LazyLoadingProxy` intermediate.
 
 ..  seealso::
 

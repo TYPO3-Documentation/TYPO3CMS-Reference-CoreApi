@@ -65,8 +65,7 @@ records live on a different page than expected, the query returns nothing.
 
 ..  seealso::
 
-    `storagePid — when findAll() returns nothing <https://docs.typo3.org/permalink/extbase-domain-repository-storagepid>`_ and the full
-    resolution chain in `Persistence queries <https://docs.typo3.org/permalink/extbase-persistence-queries>`_.
+    `The storagePid <https://docs.typo3.org/permalink/extbase-persistence-storagepid>`_ — the page restriction explained in full: the resolution chain, the recursive setting, and how to override or drop it.
 
 
 ..  _extbase-appendix-pitfalls-annotations:
@@ -175,7 +174,7 @@ endpoints that create one related record at a time; consider DataHandler for
 write operations that need IRRE-style relation management.
 
 ..  Deeper discussion coming — placement TBD.
-    `Controller property mapping <https://docs.typo3.org/permalink/extbase-controller-propertymapping>`_ for the HMAC argument
+    :ref:`Controller property mapping <extbase-controller-propertymapping>` for the HMAC argument
     hashing mechanism.
 
 
@@ -249,7 +248,7 @@ accessible, Fluid gives up without raising an error. Common causes:
 public :php:`getX()` method if one is missing. In the controller, verify that
 :php:`$this->view->assign('conference', $conference)` is called with the
 correct variable name. In the template itself, use
-`f:debug <https://docs.typo3.org/permalink/t3viewhelper:typo3-fluid-debug>`_
+:ref:`f:debug <t3viewhelper:typo3-fluid-debug>`
 to dump the value at the point of use:
 
 ..  code-block:: html
