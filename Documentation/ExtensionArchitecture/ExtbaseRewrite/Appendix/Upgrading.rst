@@ -373,8 +373,8 @@ The resource name is derived from the file name:
 
 ..  _extbase-upgrading-feature-toggle-defaults:
 
-Check Extbase feature toggle defaults after upgrading (TYPO3 v14)
-================================================================
+Check relevant feature toggle defaults after upgrading (TYPO3 v14)
+==================================================================
 
 ..  versionchanged:: 14.0
 
@@ -409,6 +409,25 @@ may not match what your code now expects.
 
         $GLOBALS['TYPO3_CONF_VARS']['SYS']['features']['extbase.consistentDateTimeHandling'] = true;
 
+:php:`frontend.cache.autoTagging`
+    Introduced in TYPO3 v13.3 and enabled by default on fresh TYPO3 v14
+    installations, but :php:`false` in the shipped default configuration
+    (:ref:`Feature #104990 <changelog:feature-104990-1726495719>`).
+
+    An instance upgraded from an earlier version keeps the :php:`false` value and
+    therefore gets **no** automatic frontend cache tagging: repository reads no
+    longer tag the page cache, so a changed record does not evict the pages that
+    display it, and those pages serve stale content until they expire or are
+    cleared another way. Extbase's :ref:`automatic cache clearing
+    <extbase-caching-autoclearing>` still covers records written through a
+    repository, but the broad read-side tagging is off. Enable it once you have
+    verified your caches invalidate as expected:
+
+    ..  code-block:: php
+        :caption: config/system/settings.php
+
+        $GLOBALS['TYPO3_CONF_VARS']['SYS']['features']['frontend.cache.autoTagging'] = true;
+
 :php:`extbase.enableHistoryTracking`
     Added in TYPO3 v14.2 and set to :php:`false` by default, so you won't get
     an upgrade-preservation surprise, but it is worth knowing that it exists. The global
@@ -423,6 +442,9 @@ may not match what your code now expects.
 
     *   :ref:`extbase-model-datetime-consistency` for the full list of DateTime
         behaviour activated by the toggle.
+
+    *   :ref:`extbase-caching-cachetags-featureflag` for what automatic cache
+        tagging does and how to enable it.
 
     *   `Feature toggles (TYPO3 Explained) <https://docs.typo3.org/permalink/t3coreapi:feature-toggles>`_
         for how toggles are stored and edited.

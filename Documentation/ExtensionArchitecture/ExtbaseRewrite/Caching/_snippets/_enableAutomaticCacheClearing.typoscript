@@ -1,0 +1,7 @@
+config.tx_extbase {
+    persistence {
+        # On by default. Set to 0 to stop repository writes from clearing
+        # the page cache automatically.
+        enableAutomaticCacheClearing = 1
+    }
+}
