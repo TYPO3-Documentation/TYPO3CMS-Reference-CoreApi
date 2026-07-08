@@ -68,8 +68,8 @@ actions, it only flags which of the registered actions are non-cacheable.
 
 ..  _extbase-caching-noncacheable-userint:
 
-What a non-cacheable Extbase action means: USER versus USER_INT
-===============================================================
+What a non-cacheable Extbase action means: `USER` versus `USER_INT`
+===================================================================
 
 An Extbase plugin is rendered on the page as a content object. In its normal,
 cacheable state it is a :ref:`USER <t3tsref:cobj-user>` object: TYPO3 runs it
@@ -95,7 +95,7 @@ render is cached.
 ..  note::
 
     Within a single non-cacheable render, the whole output of that render is
-    uncached — USER_INT is all or nothing for the request it applies to. You
+    uncached — :typoscript:`USER_INT` is all or nothing for the request it applies to. You
     cannot keep *part* of a non-cached action's output in the page cache through
     this mechanism. To avoid repeating expensive work inside such an action, cache
     it yourself — see :ref:`extbase-caching-noncacheable-optimise`.
@@ -195,7 +195,7 @@ sorting options, and pagination. The form submits by **POST**.
 This is the case that forces you off the page cache. TYPO3 builds the page cache
 identifier from the page arguments — the page ID, the page type, and the
 :abbr:`GET (query string)` parameters covered by the :ref:`cHash <caching-architecture-identifier>`.
-The POST body is **not** part of that identifier. Two visitors who POST different
+The `POST` body is **not** part of that identifier. Two visitors who POST different
 searches to the same URL therefore resolve to the *same* page cache entry: the
 second visitor would be served the first visitor's results. A detail view that
 selects its record through a GET parameter with a valid cHash does not have this
@@ -260,7 +260,7 @@ nothing is flushed. The filtered lists that should now include it keep serving
 their old contents until they expire. The same blind spot applies to any change
 that bypasses Extbase's write path, and completely to data that lives outside
 TYPO3 altogether, so no write event ever fired.
-The only saving grace for this scenario is to include page into the :typoscript:`TCEMAIN.clearCacheCmd`
+The only saving grace for this scenario is to include the page into the :ref:`TCEMAIN.clearCacheCmd <t3tsref:pagetcemain-clearcachecmd>`
 list, but this comes with the cost, that absolutely each change in the storage folder will invalidate
 absolutely all cache entries, which is usually expensive and therefor not wanted.
 

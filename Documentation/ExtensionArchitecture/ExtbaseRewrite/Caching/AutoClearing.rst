@@ -65,7 +65,7 @@ For each changed record, Extbase clears three kinds of page:
     Consider the impact before deciding where a record stores as to not invalidate
     page caches for pages that might not even display that record.
 
-*   **Any pages named in that page's** :typoscript:`TCEMAIN.clearCacheCmd`
+*   **Any pages named in that page's** :ref:`TCEMAIN.clearCacheCmd <t3tsref:pagetcemain-clearcachecmd>`
     **Page TSconfig.** An integrator can name further page UIDs to flush whenever
     *any* record on the storage page changes. Unlike the per-record tag above,
     this is a coarse, page-level rule the integrator maintains by hand — useful
@@ -172,7 +172,7 @@ Extbase repository**. It does not cover:
 :php:`\TYPO3\CMS\Core\DataHandling\DataHandler` is a different case: it is not
 covered by *this* mechanism, but it clears caches on its own. A DataHandler write
 registers the changed record for page-cache clearing through its own routine and
-honours the same :typoscript:`TCEMAIN.clearCacheCmd` Page TSconfig — so records
+honours the same :ref:`TCEMAIN.clearCacheCmd <t3tsref:pagetcemain-clearcachecmd>` Page TSconfig — so records
 written through DataHandler do refresh the frontend, just not via the Extbase path
 described here.
 
