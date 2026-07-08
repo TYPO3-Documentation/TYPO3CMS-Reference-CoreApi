@@ -32,8 +32,8 @@ The link builders provided by the Core can be found in namespace
 :php:`\TYPO3\CMS\Frontend\Typolink`. It is possible to also create a
 :ref:`custom link builder <tutorial-typolink-builder>`.
 
-..  todo: Add link to the linkfactory for TYPO3 v12, add information on
-    how the link builders are used in v11
+Link builders are called by the :ref:`frontend link factory <link-factory>`, which
+is the main entry point for generating links from PHP.
 
 The main method of a link builder is the function
 :php:`TypolinkBuilderInterface::buildLink()`. It is called with
