@@ -58,7 +58,7 @@ configuration is stored in a file called :file:`config.yaml <site-config-yaml>`.
 
 ..  note::
     If you are using a Classic mode installation, the location is
-    :file:`typo3conf/sites/config.yaml`.
+    :file:`typo3conf/sites/<identifier>/config.yaml`.
 
 ..  tip::
     Add this folder to your version control system.
