@@ -107,11 +107,13 @@ rendering method and your wrapping method does
 entire output becomes :html:`<div><h4>Header</h4><p>Body</p></div>` when
 combined.
 
-Should you wish to reuse parts of the default preview rendering and only change,
-for example, the method that renders the preview body content, you can extend
-:php:`\TYPO3\CMS\Backend\Preview\StandardContentPreviewRenderer` in your custom
-preview renderer class - and selectively override the methods from the API
-displayed above.
+..  versionchanged:: 15.0
+    :php-short:`\TYPO3\CMS\Backend\Preview\StandardContentPreviewRenderer` has been turned
+    into a stateless, dependency-injected service. It is now declared :php:`final`
+    and can no longer be subclassed.
+
+The standard renderer may be composed and its rendering methods delegated to where its output
+is desired, as :php-short:`\TYPO3\CMS\Form\Preview\FormPagePreviewRenderer` demonstrates.
 
 
 Configuring the implementation
