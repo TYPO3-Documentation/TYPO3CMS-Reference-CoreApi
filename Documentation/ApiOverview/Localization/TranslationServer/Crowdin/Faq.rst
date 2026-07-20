@@ -137,6 +137,31 @@ located in the extension root directory.
     `Crowdin configuration file <https://support.crowdin.com/configuration-file/>`__
 
 
+..  index:: Crowdin; language Mapping
+..  _crowdin-faq-language-mapping:
+
+Some files require your attention
+---------------------------------
+
+There is a message at the top of your project in Crowdin saying that there is a problem
+with your files. If you follow the links you will most likely see that your source files
+are marked in red with a hover text telling you that the export pattern is wrong and
+that translations will not be exported for the language that shares the same language code.
+
+In TYPO3 we use `%two_letters_code%` for language codes. In a few cases this is forbidden
+if there are two Chinese, French, Portuguese or similar languages. All of our languages are
+required to be exported with `%two_letters_code%`, so we decided to keep using the mentioned placeholder.
+For Chinese Simplified, French Canadian, Portuguese Brazilian and similar language varieties or regional dialects,
+you have to set up “Language mapping”. This will allow you to customize the language code to be used on export.
+
+Here is a list of the most common `%two_letters_code%` that you can use in "Language Mapping"
+under the project's :guilabel:`Settings > Languages`:
+
+*   Chinese Simplified: `zh_CH`
+*   Chinese Traditional: `zh_HK`
+*   French Canadian: `fr_CA`
+*   Portuguese Brazilian: `pt_BR`
+
 ..  index:: Crowdin; Upload XLIFF files
 ..  _crowdin-faq-upload-xliff-files:
 
@@ -144,8 +169,8 @@ Can I upload translated XLIFF files?
 ------------------------------------
 
 Yes, you can! Switch to the settings area of your project (you need to have the
-proper permissions for that) and you can upload XLIFF files or even ZIP files
-containing the XLIFF files.
+proper permissions) and upload your XLIFF files or ZIP files
+containing XLIFF files.
 
 ..  figure:: /Images/ExternalImages/Crowdin/Upload.png
     :alt: Upload translations
