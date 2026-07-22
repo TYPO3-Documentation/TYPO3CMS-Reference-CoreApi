@@ -3,6 +3,7 @@
 ..  include:: /Includes.rst.txt
 ..  index:: Extbase; Model
 ..  _extbase-domain-property-types:
+..  _extbase-model-property-types:
 
 ================================
 Property types of Extbase models
@@ -28,6 +29,7 @@ commonly used property types and their mappings.
 ..  contents:: Property types in Extbase
 
 ..  _extbase-domain-property-types-primitive:
+..  _extbase-model-property-types-primitive:
 
 Primitive types in Extbase properties
 =====================================
@@ -52,6 +54,7 @@ appear in the backend, which deactivates the field by default. If the field is
 deactivated it is saved as :sql:`NULL` in the database.
 
 ..  _extbase-domain-property-types-string:
+..  _extbase-model-property-types-string:
 
 `string` properties in Extbase
 ------------------------------
@@ -97,6 +100,7 @@ model, you must set the field to nullable in the TCA by setting
 :ref:`nullable <t3tca:confval-input-nullable>` to true.
 
 ..  _extbase-domain-property-types-int:
+..  _extbase-model-property-types-int:
 
 `int` properties in Extbase
 ---------------------------
@@ -125,6 +129,7 @@ or small, fixed sets of choices.
             :caption:  packages/my_extension/Configuration/TCA/tx_myextension_domain_model_intexample.php
 
 ..  _extbase-domain-property-types-int-when-not:
+..  _extbase-model-property-types-int-when-not:
 
 When not to use type `int` for a property
 -----------------------------------------
@@ -162,6 +167,7 @@ it should **not** be used in the following cases:
     `Relations between Extbase models <https://docs.typo3.org/permalink/t3coreapi:extbase-persistence-relations>`_.
 
 ..  _extbase-domain-property-types-float:
+..  _extbase-model-property-types-float:
 
 `float` properties in Extbase
 -----------------------------
@@ -188,6 +194,7 @@ To accept and display decimal numbers in the backend form, the
             :caption: packages/my_extension/Configuration/TCA/tx_myextension_domain_model_floatexample.php
 
 ..  _extbase-domain-property-types-bool:
+..  _extbase-model-property-types-bool:
 
 `bool` properties in Extbase
 ----------------------------
@@ -212,11 +219,13 @@ In TYPO3 v13, boolean values are typically managed using
             :caption: packages/my_extension/Configuration/TCA/tx_myextension_domain_model_boolexample.php
 
 ..  _extbase-domain-property-types-classes:
+..  _extbase-model-predefined-classes:
 
 Predefined classes as types of models
 =====================================
 
 ..  _extbase-domain-property-types-datetime:
+..  _extbase-model-datetime:
 
 Datetime model types
 --------------------
@@ -252,6 +261,7 @@ ViewHelper <f:format.date> <https://docs.typo3.org/permalink/t3viewhelper:typo3-
             :caption: packages/my_extension/Resources/Private/Templates/Date/Show.html
 
 ..  _extbase-domain-property-types-datetime-consistency:
+..  _extbase-model-datetime-consistency:
 
 Consistent DateTime handling
 ----------------------------
@@ -280,6 +290,7 @@ For a detailed explanation of each behavior, see the
 `changelog entry for issue #106467 <https://docs.typo3.org/permalink/changelog:important-106467-1743452295>`_.
 
 ..  _extbase-domain-property-types-country:
+..  _extbase-model-country:
 
 Country model type
 ------------------
@@ -344,6 +355,7 @@ is available in the
 demo extension.
 
 ..  _extbase-domain-property-types-enum:
+..  _extbase-model-enumerations:
 
 Enumerations as Extbase model property
 ======================================
@@ -401,6 +413,7 @@ and `Radio buttons <https://docs.typo3.org/permalink/t3tca:columns-radio>`_.
         create selectors.
 
 ..  _extbase-domain-property-types-union:
+..  _extbase-model-properties-union-types:
 
 Union types of Extbase model properties
 =======================================

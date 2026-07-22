@@ -96,16 +96,22 @@ have been moved to :composer:`typo3/cms-core`.
 
 :composer:`typo3/cms-install` has no events anymore as it was made optional.
 
-.. _extbase-documentation-overhaul:
+.. _extbase-examples:
+.. _extbase-examples-extensions:
+.. _extbase-examples-extensions-tea:
+.. _extbase-examples-extensions-blog:
+.. _extbase-examples-extensions-real-world:
+.. _extbase-examples-extensions-news:
 
 Extbase Documentation Rewrite
 -----------------------------
 
 .. versionchanged:: 14.3
-   See `Team Budget Idea Extbase Documentation Overhaul <https://news.typo3.com/article/extbase-routing-finally-explained-and-the-docs-keep-growing>
+   See `Team Budget Idea Extbase Documentation Overhaul <https://news.typo3.com/article/extbase-routing-finally-explained-and-the-docs-keep-growing>`_.
 
-The old extbase documentation chapter has been removed and replaced with the new one under the same url. The structure has changed,
-redirects for pages have been established, but the anchors could not be preserved.
+The old Extbase documentation chapter has been removed and rewritten. Most pages
+have a direct successor under the same URL. The list of example extensions has
+been retired — see the rewritten Extbase documentation for current guidance.
 
 ..  _not-found-14:
 

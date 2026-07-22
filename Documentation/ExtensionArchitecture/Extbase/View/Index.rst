@@ -3,6 +3,8 @@
 ..  include:: /Includes.rst.txt
 ..  index:: pair: Extbase; View
 ..  _extbase-view-overview:
+..  _extbase-start-fluid-integration:
+..  _extbase-view:
 
 =====================
 View layer in Extbase
@@ -226,6 +228,7 @@ for AJAX variants that share a controller action.
 
 
 ..  _extbase-view-path-override:
+..  _extbase-view-configuration:
 
 Overriding Fluid template paths via TypoScript
 ==============================================
@@ -376,6 +379,7 @@ context and must not be used in those situations.
 
 
 ..  _extbase-view-jsonview:
+..  _extbase-response-json:
 
 JsonView: rendering JSON responses from Extbase
 ===============================================

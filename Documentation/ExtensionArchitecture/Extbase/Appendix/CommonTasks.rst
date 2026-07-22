@@ -21,6 +21,7 @@ start here.
 
 
 ..  _extbase-appendix-tasks-third-party-field:
+..  _extbase-persistence-custom-model:
 
 Add a field to a third-party extension's model
 ==============================================

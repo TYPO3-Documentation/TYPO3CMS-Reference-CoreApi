@@ -3,6 +3,10 @@
 ..  include:: /Includes.rst.txt
 ..  index:: pair: Extbase; Built-in validators
 ..  _extbase-validation-builtin:
+..  _extbase-validator:
+..  _extbase-validator-collection:
+..  _extbase-validator-conjunction:
+..  _extbase-validator-disjunction:
 
 ========================================================
 Built-in validators and the :php:`#[Validate]` attribute
@@ -19,6 +23,8 @@ same target are treated as a conjunction. All of them must pass.
 
 
 ..  _extbase-validation-builtin-syntax:
+..  _extbase-validation-arguments:
+..  _extbase-validator-multiple-example:
 
 Syntax of the :php:`#[Validate]` attribute
 ==========================================
@@ -86,6 +92,7 @@ validators available for general use. File upload validators are listed
 separately in :ref:`extbase-validation-builtin-file`.
 
 ..  _extbase-validation-builtin-notempty:
+..  _extbase-validator-notempty:
 
 NotEmpty
 --------
@@ -113,6 +120,7 @@ Class: :php:`\TYPO3\CMS\Extbase\Validation\Validator\NotEmptyValidator`
 
 
 ..  _extbase-validation-builtin-stringlength:
+..  _extbase-validator-stringlength:
 
 StringLength
 ------------
@@ -139,6 +147,9 @@ Class: :php:`\TYPO3\CMS\Extbase\Validation\Validator\StringLengthValidator`
 
 
 ..  _extbase-validation-builtin-numberrange:
+..  _extbase-validator-numberrange:
+..  _extbase-validator-numberrange-example:
+..  _extbase-validator-numberrange-options:
 
 NumberRange
 -----------
@@ -164,6 +175,11 @@ Class: :php:`\TYPO3\CMS\Extbase\Validation\Validator\NumberRangeValidator`
 
 
 ..  _extbase-validation-builtin-regularexpression:
+..  _extbase-validator-regularexpression:
+..  _extbase-validator-regularexpression-example-basic:
+..  _extbase-validator-regularexpression-example-zip:
+..  _extbase-validator-regularexpression-important:
+..  _extbase-validator-regularexpression-use-cases:
 
 RegularExpression
 -----------------
@@ -209,6 +225,7 @@ Class: :php:`\TYPO3\CMS\Extbase\Validation\Validator\RegularExpressionValidator`
 
 
 ..  _extbase-validation-builtin-emailaddress:
+..  _extbase-validator-emailaddress:
 
 EmailAddress
 ------------
@@ -223,6 +240,10 @@ No options beyond the optional ``message`` override (see
 
 
 ..  _extbase-validation-builtin-url:
+..  _extbase-validator-url:
+..  _extbase-validator-url-behavior:
+..  _extbase-validator-url-example-basic:
+..  _extbase-validator-url-use-cases:
 
 Url
 ---
@@ -235,6 +256,8 @@ No options beyond the optional ``message`` override.
 
 
 ..  _extbase-validation-builtin-text:
+..  _extbase-validator-string:
+..  _extbase-validator-text:
 
 Text
 ----
@@ -249,6 +272,7 @@ No options beyond the optional ``message`` override.
 
 
 ..  _extbase-validation-builtin-alphanumeric:
+..  _extbase-validator-alphanumeric:
 
 Alphanumeric
 ------------
@@ -262,6 +286,7 @@ No options beyond the optional ``message`` override.
 
 
 ..  _extbase-validation-builtin-integer:
+..  _extbase-validator-integer:
 
 Integer
 -------
@@ -274,6 +299,7 @@ No options beyond the optional ``message`` override.
 
 
 ..  _extbase-validation-builtin-float:
+..  _extbase-validator-float:
 
 Float
 -----
@@ -299,6 +325,7 @@ No options beyond the optional ``message`` override.
 
 
 ..  _extbase-validation-builtin-boolean:
+..  _extbase-validator-boolean:
 
 Boolean
 -------
@@ -312,6 +339,7 @@ No options beyond the optional ``message`` override.
 
 
 ..  _extbase-validation-builtin-datetime:
+..  _extbase-validator-datetime:
 
 DateTime
 --------
@@ -357,6 +385,7 @@ Class: :php:`\TYPO3\CMS\Extbase\Validation\Validator\FileExtensionValidator`
 
 
 ..  _extbase-validation-builtin-filesize:
+..  _extbase-validator-file-size:
 
 FileSize
 --------
@@ -378,6 +407,7 @@ Class: :php:`\TYPO3\CMS\Extbase\Validation\Validator\FileSizeValidator`
 
 
 ..  _extbase-validation-builtin-mimetype:
+..  _extbase-validator-mime-type:
 
 MimeType
 --------
@@ -398,6 +428,7 @@ Class: :php:`\TYPO3\CMS\Extbase\Validation\Validator\MimeTypeValidator`
 
 
 ..  _extbase-validation-builtin-imagedimensions:
+..  _extbase-validator-image-dimensions:
 
 ImageDimensions
 ---------------
@@ -443,6 +474,7 @@ No configurable options.
 
 
 ..  _extbase-validation-builtin-filename:
+..  _extbase-validator-file-name:
 
 FileName
 --------

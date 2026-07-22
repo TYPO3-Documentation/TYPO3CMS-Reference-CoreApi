@@ -3,6 +3,7 @@
 ..  include:: /Includes.rst.txt
 ..  index:: pair: Extbase; Backend module
 ..  _extbase-registration-backend-module:
+..  _extbase-examples-user-module:
 
 =====================================
 Registering an Extbase backend module

@@ -22,6 +22,7 @@ this page first.
 
 
 ..  _extbase-appendix-pitfalls-private-properties:
+..  _extbase-model-properties-default-values-cpp:
 
 Model properties declared private are never populated
 =====================================================

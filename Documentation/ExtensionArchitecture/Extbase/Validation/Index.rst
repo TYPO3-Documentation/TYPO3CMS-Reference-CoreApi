@@ -3,6 +3,8 @@
 ..  include:: /Includes.rst.txt
 ..  index:: pair: Extbase; Validation
 ..  _extbase-validation-overview:
+..  _extbase-validation:
+..  _extbase-validation-why:
 
 =====================
 Validation in Extbase
@@ -23,6 +25,7 @@ Validators can be Extbase built-ins, custom classes, or — since TYPO3 v14 —
 
 
 ..  _extbase-validation-lifecycle:
+..  _extbase-validation-when:
 
 Where validation fits into the Extbase request lifecycle
 ========================================================
@@ -59,6 +62,8 @@ to run the checks and *where* to route the request on failure.
 
 
 ..  _extbase-validation-where-to-declare:
+..  _extbase-validation-controller:
+..  _extbase-validation-model:
 
 Where to declare validators
 ===========================
@@ -168,6 +173,7 @@ Without :php:`#[IgnoreValidation]`, the framework would see the invalid
 
 
 ..  _extbase-validation-error-action:
+..  _extbase_error_action-howto:
 
 Customising :php:`errorAction()`
 ================================

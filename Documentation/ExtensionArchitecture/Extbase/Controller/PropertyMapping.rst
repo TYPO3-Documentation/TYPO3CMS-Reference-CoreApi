@@ -3,6 +3,7 @@
 ..  include:: /Includes.rst.txt
 ..  index:: pair: Extbase; Property mapping
 ..  _extbase-controller-propertymapping:
+..  _extbase-property-mapping:
 
 ==============================================
 Property mapping: request arguments to objects
@@ -22,6 +23,7 @@ automatically, so action methods receive typed objects rather than raw strings.
 
 
 ..  _extbase-controller-propertymapping-how:
+..  _extbase-property-mapping-how-to:
 
 How Extbase property mapping works
 ==================================

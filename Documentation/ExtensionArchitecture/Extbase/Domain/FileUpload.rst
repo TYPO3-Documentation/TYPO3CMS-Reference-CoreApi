@@ -3,6 +3,7 @@
 ..  include:: /Includes.rst.txt
 ..  index:: pair: Extbase; File upload
 ..  _extbase-domain-fileupload:
+..  _extbase_fileupload:
 
 ======================================
 File uploads in Extbase domain models
@@ -22,6 +23,7 @@ attribute.
 
 
 ..  _extbase-domain-fileupload-reading:
+..  _extbase_fileupload_accessing:
 
 Reading a file reference from a domain model
 ============================================
@@ -48,6 +50,7 @@ renders them:
 
 
 ..  _extbase-domain-fileupload-writing:
+..  _extbase_fileupload_writing:
 
 Writing uploaded files with :php:`#[FileUpload]`
 ================================================
@@ -102,6 +105,17 @@ next attempt. This avoids stale temporary files.
 
 
 ..  _extbase-domain-fileupload-attribute:
+..  _extbase_fileupload_attribute:
+..  _extbase_fileupload_attribute-configuration-change:
+..  _extbase_fileupload_attribute-duplication-behavior:
+..  _extbase_fileupload_attribute-options:
+..  _extbase_fileupload_attribute-property-name:
+..  _extbase_fileupload_attribute-random-suffix:
+..  _extbase_fileupload_attribute-typoscript:
+..  _extbase_fileupload_attribute-upload-folder:
+..  _extbase_fileupload_attribute-upload-folder-creation:
+..  _extbase_fileupload_attribute_configuration:
+..  _extbase_fileupload_writing-attributes:
 
 Configuring the :php:`#[FileUpload]` attribute
 ==============================================
@@ -136,6 +150,12 @@ The :php:`#[FileUpload]` attribute accepts named arguments as follows:
 
 
 ..  _extbase-domain-fileupload-validation:
+..  _extbase_fileupload_attribute-maximum-files:
+..  _extbase_fileupload_attribute-minimum-files:
+..  _extbase_fileupload_attribute-required:
+..  _extbase_fileupload_attribute-validation:
+..  _extbase_fileupload_attribute-validationkeys:
+..  _extbase_fileupload_attribute-validationkeys_shorthand_allowedmimetypes:
 
 File upload validation
 ======================
@@ -211,6 +231,8 @@ upload count. For the full option reference see
 
 
 ..  _extbase-domain-fileupload-manual:
+..  _extbase_fileupload_attribute-manual-configuration:
+..  _extbase_fileupload_writing-manual:
 
 Manual file upload configuration
 ================================
@@ -258,6 +280,7 @@ controls.
 
 
 ..  _extbase-domain-fileupload-deletion:
+..  _extbase_fileupload_attribute-deletion:
 
 Deleting uploaded files
 =======================
@@ -284,6 +307,7 @@ persisting the updated model:
 
 
 ..  _extbase-domain-fileupload-event:
+..  _extbase_fileupload_attribute-psr-event:
 
 Modifying the target filename before persistence
 ================================================
@@ -297,6 +321,7 @@ active :php:`FileUploadConfiguration` is available via
 
 
 ..  _extbase-domain-fileupload-multistep:
+..  _extbase_fileupload_multistep:
 
 File uploads in multi-step forms
 ================================

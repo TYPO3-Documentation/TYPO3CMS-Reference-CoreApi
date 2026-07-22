@@ -281,6 +281,8 @@ than what you expect, and it has its own page:
 
 
 ..  _extbase-persistence-queries-querysettings:
+..  _extbase-repository-localization:
+..  _extbase-repository-query-setting:
 
 Overriding query behaviour with query settings
 ==============================================
@@ -436,6 +438,7 @@ the persistence manager's public :php:`isNewObject()` method:
 
 
 ..  _extbase-persistence-queries-debug:
+..  _extbase-repository-debug-query:
 
 Debugging an Extbase query
 ==========================

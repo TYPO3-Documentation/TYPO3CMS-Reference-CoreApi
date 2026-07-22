@@ -3,6 +3,7 @@
 ..  include:: /Includes.rst.txt
 ..  index:: pair: Extbase; Frontend plugin
 ..  _extbase-registration-frontend-plugin:
+..  _extbase_registration_of_frontend_plugins:
 
 ======================================
 Registering an Extbase frontend plugin
@@ -66,6 +67,7 @@ The four arguments are:
 
 
 ..  _extbase-registration-frontend-plugin-register:
+..  _extbase_frontend_plugin_content_element:
 
 Registering the plugin in the backend
 =====================================
@@ -149,6 +151,7 @@ The resulting array has three top-level keys that Extbase uses directly:
 
 
 ..  _extbase-registration-frontend-plugin-typoscript:
+..  _extbase_frontend_plugin_typoscript:
 
 TypoScript plugin object path
 =============================

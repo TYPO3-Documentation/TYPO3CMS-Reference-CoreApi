@@ -3,6 +3,8 @@
 ..  include:: /Includes.rst.txt
 ..  index:: pair: Extbase; UriBuilder
 ..  _extbase-routing-uri-builder:
+..  _extbase-uri-builder:
+..  _uri-builder-api:
 
 ===================================
 Generating URLs with the UriBuilder
@@ -19,6 +21,8 @@ and :html:`<f:uri.action>`.
 
 
 ..  _extbase-routing-uri-builder-controller:
+..  _extbase-uri-builder-controller:
+..  _extbase-uri-builder-other:
 
 Generating URLs in a controller action
 ======================================
@@ -116,6 +120,7 @@ For use in emails, JSON responses, or redirects, generate an absolute URL:
 
 
 ..  _extbase-routing-uri-builder-fluid:
+..  _extbase-uri-builder-viewhelper:
 
 Generating URLs in Fluid templates
 ==================================

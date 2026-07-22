@@ -73,11 +73,13 @@ does all the translation. The method can be called like this:
         $anotherString = LocalizationUtility::translate('greeting', 'BlogExample', [$userName])
 
 ..  _extbase-localisation-model:
+..  _extbase-model-localization:
 
 Localization of Extbase models
 ==============================
 
 ..  _extbase-localisation-localized-uid:
+..  _extbase-model-localizedUid:
 
 Identifiers in localized models
 -------------------------------

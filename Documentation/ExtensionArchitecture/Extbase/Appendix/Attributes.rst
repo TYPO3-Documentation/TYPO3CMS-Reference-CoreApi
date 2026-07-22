@@ -3,6 +3,12 @@
 ..  include:: /Includes.rst.txt
 ..  index:: pair: Extbase; PHP attributes
 ..  _extbase-appendix-attributes:
+..  _extbase-annotation-combine:
+..  _extbase-annotations:
+..  _extbase-annotations-internal:
+..  _extbase-attribute-combine:
+..  _extbase-attributes:
+..  _extbase-attributes-internal:
 
 ================================
 Extbase PHP attributes reference
@@ -22,6 +28,8 @@ PHP built-in attributes.
 
 
 ..  _extbase-appendix-attributes-orm:
+..  _extbase-annotation-orm:
+..  _extbase-attribute-orm:
 
 ORM (Object Relational Mapping) attributes (persistence)
 ========================================================
@@ -35,6 +43,8 @@ The attributes are declared in the :php:`\TYPO3\CMS\Extbase\Attribute\ORM`
 namespace and are placed on model properties.
 
 ..  _extbase-appendix-attributes-lazy:
+..  _extbase-annotation-lazy:
+..  _extbase-attribute-lazy:
 
 `#[Lazy]`
 ---------
@@ -87,6 +97,9 @@ the proxy in any way triggers resolution automatically.
 
 
 ..  _extbase-appendix-attributes-cascade:
+..  _extbase-annotation-cascade:
+..  _extbase-attribute-cascade:
+..  _extbase-model-cascade-remove:
 
 `#[Cascade]`
 ------------
@@ -133,6 +146,8 @@ objects automatically via the repository.
 
 
 ..  _extbase-appendix-attributes-transient:
+..  _extbase-annotation-transient:
+..  _extbase-attribute-transient:
 
 `#[Transient]`
 --------------
@@ -165,6 +180,8 @@ and control validation behaviour on model properties and controller action param
 
 
 ..  _extbase-appendix-attributes-validate:
+..  _extbase-annotation-validate:
+..  _extbase-attribute-validate:
 
 `#[Validate]`
 -------------
@@ -204,6 +221,8 @@ and control validation behaviour on model properties and controller action param
 
 
 ..  _extbase-appendix-attributes-ignorevalidation:
+..  _extbase-annotation-ignore-validation:
+..  _extbase-attribute-ignore-validation:
 
 `#[IgnoreValidation]`
 ---------------------

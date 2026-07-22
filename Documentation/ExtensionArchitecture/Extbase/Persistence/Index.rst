@@ -3,6 +3,7 @@
 ..  include:: /Includes.rst.txt
 ..  index:: pair: Extbase; Persistence
 ..  _extbase-persistence-overview:
+..  _extbase-start-database-interaction:
 
 ============================
 Persistence layer in Extbase

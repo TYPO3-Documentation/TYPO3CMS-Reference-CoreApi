@@ -3,6 +3,11 @@
 ..  include:: /Includes.rst.txt
 ..  index:: pair: Extbase; Extbase
 ..  _extbase-extension-framework:
+..  _extbase:
+..  _extbase-introduction:
+..  _extbase-introduction-what-is:
+..  _extbase-start-overview:
+..  _extbase_reference:
 
 =====================================
 Extbase: Extension framework in TYPO3
@@ -31,6 +36,7 @@ or working through an inherited codebase, you will find both guided walkthroughs
 and in-depth reference material here.
 
 ..  _extbase-when-to-use:
+..  _extbase-start-considerations:
 
 When to use Extbase
 ===================
@@ -50,6 +56,7 @@ stays simple. When records have complex relationships, or when editors need to
 manage them, that work belongs in a backend module rather than in a frontend form.
 
 ..  _extbase-when-not-to-use:
+..  _extbase-introduction-or-not:
 
 When Extbase is not the right fit
 =================================

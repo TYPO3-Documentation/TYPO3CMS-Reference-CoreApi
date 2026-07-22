@@ -3,6 +3,7 @@
 ..  include:: /Includes.rst.txt
 ..  index:: pair: Extbase; Configuration reference
 ..  _extbase-configuration-reference:
+..  _extbase-typoscript-configuration:
 
 ===============================
 Extbase configuration reference
@@ -29,6 +30,7 @@ For the bigger picture of configuration "surfaces" and what belongs in them, see
     :depth: 1
 
 ..  _extbase-configuration-typoscript-scopes:
+..  _extbase-typoscript-configuration-plugin:
 
 Where Extbase TypoScript lives
 ==============================

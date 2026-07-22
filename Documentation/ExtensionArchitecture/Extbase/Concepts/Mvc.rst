@@ -3,6 +3,7 @@
 ..  include:: /Includes.rst.txt
 ..  index:: pair: Extbase; MVC pattern
 ..  _extbase-concepts-mvc:
+..  _extbase-start-principles:
 
 =======================================
 MVC pattern and request flow in Extbase

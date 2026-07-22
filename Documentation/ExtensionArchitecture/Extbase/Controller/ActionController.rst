@@ -3,6 +3,8 @@
 ..  include:: /Includes.rst.txt
 ..  index:: pair: Extbase; ActionController
 ..  _extbase-controller-action:
+..  _extbase-action-controller:
+..  _extbase-action-controller-events:
 
 ==================================================
 ActionController: actions, arguments and responses
@@ -20,6 +22,7 @@ focused. In Extbase every controller extends
 
 
 ..  _extbase-controller-action-structure:
+..  _extbase_class_hierarchy-actions:
 
 Structure of an Extbase ActionController
 ========================================
@@ -147,6 +150,10 @@ explicit mapping, not an automatic merge. Only values that flow through
 
 
 ..  _extbase-controller-action-responses:
+..  _extbase-action-controller-stop:
+..  _extbase-response-format:
+..  _extbase-response-html:
+..  _extbase-responses:
 
 Extbase action response helpers
 ===============================
@@ -308,6 +315,7 @@ do not leak into the next one.
 
 
 ..  _extbase-controller-action-redirect-forward:
+..  _extbase-action-controller-forward:
 
 ForwardResponse — transfer control within the same request
 ----------------------------------------------------------
@@ -389,6 +397,7 @@ Render them in Fluid with the :html:`<f:flashMessages />` ViewHelper.
 
 
 ..  _extbase-controller-action-initialize:
+..  _extbase_class_hierarchy-define_initialization_code:
 
 initializeAction and per-action initialization in Extbase
 =========================================================
@@ -515,6 +524,8 @@ listener to customize this response.
 
 
 ..  _extbase-controller-action-error:
+..  _extbase_class_hierarchy-catching_validation_errors_with_error_action:
+..  _extbase_error_action:
 
 errorAction: Extbase validation and argument-mapping errors
 ===========================================================

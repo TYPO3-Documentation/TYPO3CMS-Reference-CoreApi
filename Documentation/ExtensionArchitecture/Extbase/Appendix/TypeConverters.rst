@@ -3,6 +3,7 @@
 ..  include:: /Includes.rst.txt
 ..  index:: pair: Extbase; Type converters
 ..  _extbase-appendix-typeconverters:
+..  _extbase-type-converters:
 
 ==========================================
 Extbase built-in type converters reference
@@ -319,6 +320,7 @@ FAL type converters
 
 
 ..  _extbase-appendix-typeconverters-custom:
+..  _extbase-type-converters-custom:
 
 Writing a custom type converter
 ===============================

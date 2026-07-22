@@ -3,6 +3,8 @@
 ..  include:: /Includes.rst.txt
 ..  index:: pair: Extbase; Repository
 ..  _extbase-domain-repository:
+..  _extbase-repository:
+..  _extbase-repository-api:
 
 ==================
 Extbase repository
@@ -50,6 +52,7 @@ needing any extra code.
 
 
 ..  _extbase-domain-repository-find-methods:
+..  _extbase-repository-find-methods:
 
 Built-in find methods in Extbase repositories
 =============================================
@@ -198,6 +201,7 @@ for any direct repository query the sorting order is entirely your responsibilit
 
 
 ..  _extbase-domain-repository-custom-queries:
+..  _extbase-repository-find-by-custom:
 
 Custom query methods in Extbase repositories
 ============================================

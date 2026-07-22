@@ -24,6 +24,7 @@ what has changed, which version introduced the change, and what to do.
 
 
 ..  _extbase-upgrading-annotations-to-attributes:
+..  _extbase-annotation-migration:
 
 Annotations replaced by PHP attributes (TYPO3 v12 / required from v14)
 ======================================================================
@@ -90,6 +91,7 @@ All Extbase attributes have been moved from :php:`\TYPO3\CMS\Extbase\Annotation`
 
 
 ..  _extbase-upgrading-attribute-array-syntax:
+..  _extbase-attributes-migration-config-array:
 
 Attribute array syntax deprecated (TYPO3 v14, removed in v15)
 =============================================================
@@ -123,6 +125,7 @@ Attribute array syntax deprecated (TYPO3 v14, removed in v15)
 
 
 ..  _extbase-upgrading-fileupload-named-arguments:
+..  _extbase_fileupload_attribute-migration:
 
 :php:`#[FileUpload]` array syntax replaced by named arguments (TYPO3 v14)
 =========================================================================
@@ -173,6 +176,7 @@ v14 the attribute requires named arguments instead:
 
 
 ..  _extbase-upgrading-ignorevalidation-parameter:
+..  _extbase-validation-migration:
 
 :php:`#[Validate]` and :php:`#[IgnoreValidation]` moved to parameter level (TYPO3 v14, removed in v15)
 ======================================================================================================

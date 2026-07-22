@@ -3,6 +3,9 @@
 ..  include:: /Includes.rst.txt
 ..  index:: pair: Extbase; Model
 ..  _extbase-domain-model:
+..  _extbase-domain-example:
+..  _extbase-extending:
+..  _extbase-model:
 
 ====================
 Extbase domain model
@@ -55,6 +58,10 @@ You do **not** need to declare :php:`$uid` or :php:`$pid` — they are inherited
 
 
 ..  _extbase-domain-model-properties:
+..  _extbase-model-properties:
+..  _extbase-model-properties-default-values:
+..  _extbase-model-properties-default-values-directly:
+..  _extbase-model-properties-untyped:
 
 Defining model properties in Extbase
 ====================================
@@ -188,6 +195,7 @@ Import from the :php:`\TYPO3\CMS\Extbase\Attribute\ORM\` namespace:
 
 
 ..  _extbase-domain-model-relations:
+..  _extbase-model-relations:
 
 Modelling relations in Extbase
 ==============================
@@ -352,6 +360,11 @@ other properties:
 
 
 ..  _extbase-domain-model-mapping:
+..  _extbase-model-persistence:
+..  _extbase-persistance-record-types:
+..  _extbase-persistence:
+..  _extbase-persistence-database-connection:
+..  _extbase_manual_mapping:
 
 Table and field mapping
 =======================
@@ -382,6 +395,7 @@ in :file:`Configuration/Extbase/Persistence/Classes.php`:
 
 
 ..  _extbase-domain-model-db-columns:
+..  _extbase-model-properties-default-values-tca:
 
 Configuring persistence for Extbase models
 ==========================================
@@ -533,6 +547,7 @@ a value object — use :php:`AbstractEntity` instead.
     enums as model properties, including automatic conversion by Extbase.
 
 ..  _extbase-domain-model-hydration:
+..  _extbase-model-hydrating:
 
 Hydrating / thawing objects of Extbase models
 =============================================
@@ -559,6 +574,7 @@ the user's perspective.
 ..  _doctrine/orm: https://github.com/doctrine/orm
 
 ..  _extbase-domain-model-hydration-constructor:
+..  _extbase-model-constructor:
 
 Creating model objects with constructor arguments
 -------------------------------------------------
@@ -579,6 +595,7 @@ the constructor because PHP does not allow setting a default value that is of
 type object.
 
 ..  _extbase-domain-model-hydration-thawing:
+..  _extbase-model-constructor-hydration:
 
 Hydrating objects with constructor arguments
 --------------------------------------------
@@ -605,6 +622,8 @@ But there is more to all this.
 ..  _doctrine/instantiator: https://github.com/doctrine/instantiator
 
 ..  _extbase-domain-model-hydration-initializing:
+..  _extbase-model-initializing:
+..  _extbase-model-properties-default-values-initialize:
 
 Initializing objects
 --------------------
@@ -639,6 +658,7 @@ would then still be to define a :php:`__construct()` and
     for recommendations.
 
 ..  _extbase-domain-model-hydration-mutation:
+..  _extbase-model-mutation:
 
 Mutating objects
 ----------------
@@ -659,6 +679,7 @@ looks a bit dirty and is a way around all business rules but that is what the
     mapping, either use existing mutators or gather type information from them.
 
 ..  _extbase-domain-model-hydration-visibility:
+..  _extbase-model-visibility:
 
 Property visibility
 -------------------
@@ -670,6 +691,7 @@ However, :php:`AbstractDomainObject` is not able to access private properties of
 child classes, hence the need to have protected or public properties.
 
 ..  _extbase-domain-model-hydration-di:
+..  _extbase-model-dependency-injection:
 
 Dependency injection
 --------------------
@@ -687,6 +709,7 @@ If you think that your entities need to use/access services, you need to find
 other ways to implement it.
 
 ..  _extbase-domain-model-hydration-event:
+..  _extbase-model-event:
 
 Using an event when a object is thawed
 --------------------------------------

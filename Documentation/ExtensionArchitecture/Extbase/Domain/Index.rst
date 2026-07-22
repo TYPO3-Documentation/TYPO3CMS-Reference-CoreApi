@@ -3,6 +3,8 @@
 ..  include:: /Includes.rst.txt
 ..  index:: pair: Extbase; Domain
 ..  _extbase-domain-overview:
+..  _extbase-domain:
+..  _extbase-domain-subfolders:
 
 =======================
 Domain layer in Extbase

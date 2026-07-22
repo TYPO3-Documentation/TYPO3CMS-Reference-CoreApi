@@ -40,6 +40,9 @@ How to **declare** relations in a model — the attributes, the
 
 
 ..  _extbase-persistence-relations-to-one:
+..  _extbase-model-nullable-relations:
+..  _extbase-model-relations-many-one:
+..  _extbase-model-relations-one-one:
 
 A relation to one other object
 ==============================
@@ -85,6 +88,7 @@ pointed at — nothing on the :php:`Location` side records the conference.
 
 
 ..  _extbase-persistence-relations-to-many:
+..  _extbase-model-relations-one-many:
 
 A relation to many objects
 ==========================
@@ -130,6 +134,7 @@ for the attribute.
 
 
 ..  _extbase-persistence-relations-to-many-shared:
+..  _extbase-model-relations-many-many:
 
 Shared records linked through an MM table
 -----------------------------------------
@@ -235,6 +240,7 @@ part of the parent. Child ordering comes from the TCA of the relation
 
 
 ..  _extbase-persistence-relations-lazy:
+..  _extbase-model-lazy-loading:
 
 Lazy loading and the N+1 query trap
 ===================================

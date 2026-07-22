@@ -3,6 +3,10 @@
 ..  include:: /Includes.rst.txt
 ..  index:: pair: Extbase; Custom validators
 ..  _extbase-validation-custom:
+..  _extbase-validation-manual-creation:
+..  _extbase_domain_validator:
+..  _extbase_domain_validator-di:
+..  _extbase_domain_validator-request:
 
 ==================================
 Writing a custom Extbase validator
@@ -60,6 +64,7 @@ first, and action-parameter validators run afterwards.
 
 
 ..  _extbase-validation-custom-structure:
+..  _extbase_domain_validator-model-complete:
 
 Structure of a custom validator
 ===============================
@@ -98,6 +103,7 @@ Key points:
 
 
 ..  _extbase-validation-custom-property-errors:
+..  _extbase_domain_validator-model:
 
 Reporting errors on a specific property
 =======================================

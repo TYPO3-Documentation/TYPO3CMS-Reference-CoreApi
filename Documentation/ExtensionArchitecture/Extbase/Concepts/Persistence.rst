@@ -185,6 +185,7 @@ in :ref:`extbase-persistence-queries`.
 
 
 ..  _extbase-concepts-persistence-lifecycle:
+..  _extbase-persistence-events:
 
 Extbase object lifecycle
 ========================

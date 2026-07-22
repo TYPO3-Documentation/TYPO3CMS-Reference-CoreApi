@@ -3,6 +3,7 @@
 ..  include:: /Includes.rst.txt
 ..  index:: pair: Extbase; Routing
 ..  _extbase-routing:
+..  _extbase-arguments:
 
 ===========================
 Routing for Extbase plugins

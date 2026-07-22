@@ -3,6 +3,7 @@
 ..  include:: /Includes.rst.txt
 ..  index:: pair: Extbase; Data transfer object (DTO)
 ..  _extbase-domain-dto:
+..  _extbase-dto:
 
 ======================================
 Data transfer objects (DTO) in Extbase
@@ -36,6 +37,7 @@ multiple data objects with distinct validation rules for each step.
     *   `usetypo3.com: Data Transfer Objects in Extbase <https://usetypo3.com/dtos-in-extbase/>`_
 
 ..  _extbase-domain-dto-example:
+..  _extbase-dto-example-dto:
 
 Example: A BMI calculator without storage
 =========================================
@@ -58,6 +60,7 @@ the setter methods will be invoked.
     https://github.com/TYPO3-Documentation/bmi_calculator
 
 ..  _extbase-domain-dto-usage:
+..  _extbase-dto-example-dto-usage:
 
 Using a DTO in the controller
 =============================
@@ -71,6 +74,7 @@ input:
 The DTO can also be used to transfer data to and from the business logic.
 
 ..  _extbase-domain-dto-validation:
+..  _extbase-dto-example-dto-validation:
 
 DTO and validation
 ==================
@@ -96,6 +100,7 @@ the following method in your controller:
 It is also possible to override the default error action `errorAction()`.
 
 ..  _extbase-domain-dto-to-model:
+..  _extbase-dto-example-dto-domain-model:
 
 Converting DTOs to domain models
 ================================
@@ -125,6 +130,7 @@ the database:
     :caption: EXT:bmi_calculator/Classes/Controller/CalculatorController.php
 
 ..  _extbase-domain-dto-session:
+..  _extbase-dto-example-dto-session:
 
 Storing DTOs in the user session
 ================================
@@ -159,6 +165,7 @@ session data there:
     :caption: EXT:bmi_calculator/Classes/Controller/CalculatorController.php
 
 ..  _extbase-domain-dto-demand:
+..  _extbase-dto-example-dto-demand:
 
 Using DTOs as demand objects
 ============================
