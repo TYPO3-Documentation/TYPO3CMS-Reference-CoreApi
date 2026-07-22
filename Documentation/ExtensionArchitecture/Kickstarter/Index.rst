@@ -42,7 +42,7 @@ number of community-managed tools that you can use.
 
         The Extension Builder, :composer:`friendsoftypo3/extension-builder`
         helps you create a TYPO3 extension
-        based on the domain-driven MVC framework :ref:`Extbase <extbase>`
+        based on the domain-driven MVC framework :ref:`Extbase <extbase-extension-framework>`
         and the templating engine :ref:`Fluid <fluid>`.
 
 ..  toctree::

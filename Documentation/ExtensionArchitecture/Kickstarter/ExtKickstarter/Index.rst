@@ -10,11 +10,11 @@ tool to quickly create your own TYPO3 extensions. It provides a
 basic framework and templates.
 
 You can choose whether the extension is based on
-`Extbase <https://docs.typo3.org/permalink/t3coreapi:extbase>`_ or not.
+`Extbase <https://docs.typo3.org/permalink/t3coreapi:extbase-extension-framework>`_ or not.
 
 Both `plugins <https://docs.typo3.org/permalink/t3coreapi:plugins>`_
 and Controllers can be created with or without Extbase
-(for Extbase see `Extbase Controller <https://docs.typo3.org/permalink/t3coreapi:extbase-controller>`_)
+(for Extbase see `Extbase Controller <https://docs.typo3.org/permalink/t3coreapi:extbase-controller-overview>`_)
 
 The extension can also create
 `Upgrade wizards <https://docs.typo3.org/permalink/t3coreapi:upgrade-wizards>`_

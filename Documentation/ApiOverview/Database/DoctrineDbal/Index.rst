@@ -19,11 +19,11 @@ In the TYPO3 backend rows of database tables are usually represented as
 :ref:`database-records` and configured in :ref:`database-records-tca`.
 
 In Extbase extensions tables are abstracted as
-:ref:`Extbase models <extbase-model>`. Operations such as creating, updating and
+:ref:`Extbase models <extbase-domain-model>`. Operations such as creating, updating and
 deleting database records are usually performed from within a
-:ref:`Extbase repository <extbase-repository>` with methods provided by Extbase
+:ref:`Extbase repository <extbase-domain-repository>` with methods provided by Extbase
 classes. However, Doctrine DBAL can also be used by extensions that use, for
-example, an :ref:`Extbase controller <extbase-controller>`.
+example, an :ref:`Extbase controller <extbase-controller-overview>`.
 
 ..  toctree::
     :caption: Contents

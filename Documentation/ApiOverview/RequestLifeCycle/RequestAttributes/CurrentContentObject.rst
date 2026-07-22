@@ -8,7 +8,7 @@
 Current content object
 ======================
 
-Instances with :ref:`Extbase controllers <extbase-action-controller>` may need
+Instances with :ref:`Extbase controllers <extbase-controller-action>` may need
 to retrieve data from the current content object that initiated the frontend
 Extbase plugin call.
 

@@ -37,7 +37,7 @@ is also defined in the parent class
 the database.
 
 Then we also add a custom find-by method. See also chapter
-:ref:`"Repository" in the Extbase reference <extbase-repository>`.
+:ref:`"Repository" in the Extbase reference <extbase-domain-repository>`.
 
 ..  _extbase_tutorial_tea_repository-usage:
 

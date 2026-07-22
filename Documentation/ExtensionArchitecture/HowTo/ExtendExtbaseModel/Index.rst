@@ -11,7 +11,7 @@ Extending an Extbase model
 Once you have added a new field to the
 :ref:`TCA <extending-tca>` it will be displayed in the backend forms.
 
-However, if the extension you are trying to extend is based on :ref:`Extbase <extbase>` the new
+However, if the extension you are trying to extend is based on :ref:`Extbase <extbase-extension-framework>` the new
 field is not available in the frontend out of the box. Further steps are
 needed to make the fields available. These steps will not work in all cases.
 
@@ -67,7 +67,7 @@ your current installation you can proceed by extending the extended model.
 In the rest of this tutorial use the extended model
 as the original model.
 
-If the model has different :ref:`record types <extbase-persistance-record-types>`
+If the model has different :ref:`record types <extbase-domain-model-mapping>`
 you can add a new type and
 only extend that one type. This is commonly done when extending
 the :composer:`georgringer/news` model.
@@ -159,7 +159,7 @@ fields and the model names are prefixed with the name of your extension.
 Register the extended model
 ---------------------------
 
-The extended model needs to be registered for :ref:`Extbase persistence <extbase-Persistence>` in files
+The extended model needs to be registered for :ref:`Extbase persistence <extbase-domain-model-mapping>` in files
 :file:`Configuration/Extbase/Persistence/Classes.php` and :file:`ext_localconf.php`.
 
 ..  literalinclude:: _Classes.php

@@ -1,66 +1,108 @@
-:navigation-title: Extbase
+:navigation-title: New Extbase Docu (WIP)
 
 ..  include:: /Includes.rst.txt
-..  index::
-    pair: Extension development; Extbase
-..  _extbase:
+..  index:: pair: Extbase; Extbase
+..  _extbase-extension-framework:
 
 =====================================
 Extbase: Extension framework in TYPO3
 =====================================
 
-Extbase is an extension framework to create TYPO3 frontend plugins and TYPO3
-backend modules. Extbase can be used to develop extensions but it does not
-have to be used.
+Extbase is the TYPO3 framework for building structured, maintainable extensions.
+It provides an object-oriented foundation based on the
+`Model-View-Controller (MVC) <https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93controller>`_
+pattern and an
+`Object-Relational Mapper (ORM) <https://en.wikipedia.org/wiki/Object%E2%80%93relational_mapping>`_
+that handles persistence for you so that you can work with PHP objects rather than
+raw database queries.
 
-..  _extbase-start-overview:
+Extbase is the natural choice for extensions that revolve around a domain model:
+event listings, product catalogues, news feeds, job boards, and any structured
+content that editors manage in the backend and visitors browse in the frontend.
+It gives you automatic property mapping, built-in validation, clean URL routing,
+and a consistent architecture that other TYPO3 developers will immediately
+recognise and feel at home with.
 
-Overview
-========
+This chapter takes you from the first line of code to a fully working extension.
+It covers the domain model and repository layer, controllers and views, frontend
+plugins and backend modules, routing, validation, persistence, and caching —
+with best practices throughout. Whether you are building your first extension
+or working through an inherited codebase, you will find both guided walkthroughs
+and in-depth reference material here.
 
-Extbase is a framework for developing TYPO3 extensions, providing a structured
-approach based on the `Model-View-Controller (MVC) pattern <https://de.wikipedia.org/wiki/Model_View_Controller>`_.
+..  _extbase-when-to-use:
 
-..  _extbase-start-principles:
+When to use Extbase
+===================
 
-Key Principles
-==============
+Extbase is the right choice when your extension revolves around **structured
+data that visitors consume**: event listings, product catalogues, news feeds,
+job boards, book reviews — anything that lives in the database and needs to be
+browsed, filtered, sorted, or displayed in the frontend. This is where Extbase
+excels, and where the investment in a proper domain model pays off quickly.
+Extensions like :composer:`georgringer/news` are proof: a well-built Extbase
+extension can serve millions of page views and remain straightforward to
+maintain and extend.
 
-Extbase follows principles of `Domain-Driven Design (DDD) <https://en.wikipedia.org/wiki/Domain-driven_design>`_,
-enabling developers to build well-structured domain models. By leveraging
-object-oriented programming concepts and dependency injection, Extbase
-promotes maintainability and testability.
+Extbase also handles **simple frontend data entry** well — conference
+registration, newsletter sign-up, visitor reviews — as long as the data
+stays simple. When records have complex relationships, or when editors need to
+manage them, that work belongs in a backend module rather than in a frontend form.
 
-..  _extbase-start-fluid-integration:
+..  _extbase-when-not-to-use:
 
-Integration with Fluid
-======================
+When Extbase is not the right fit
+=================================
 
-Extbase integrates seamlessly with `Fluid <https://docs.typo3.org/permalink/t3coreapi:fluid>`_,
-TYPO3's templating engine, for flexible rendering of frontend content.
+Extbase is not a universal solution. If there is no structured domain to model
+— a site package, a collection of content elements, a utility extension — it
+adds overhead without benefit. In that case use TYPO3's native APIs directly.
 
-..  _extbase-start-database-interaction:
+Performance is another limit to keep in mind. Extbase maps every database row to a
+PHP object, which is convenient for moderate datasets but becomes a bottleneck
+when a single page request pulls in thousands of records. There is no hard
+number; it depends on query complexity, relation depth, and how aggressively you
+cache — but if you are expecting very large datasets, benchmark early and consider
+whether raw database queries or a dedicated search index would serve you better
+from the start.
 
-Database Interaction
-====================
+Finally, Extbase requires a full TYPO3 frontend bootstrap and is not the right
+fit for middleware, CLI commands, or scheduler tasks. For those, TYPO3's native
+APIs are the best choice.
 
-Extbase offers a repository pattern and automatic data mapping to interact with
-the database.
+..  seealso::
 
-..  _extbase-start-considerations:
+    :ref:`extbase-concepts` explains the MVC pattern and how Extbase
+    implements it in detail.
 
-Considerations
-==============
+    For extension development without Extbase, see
+    :ref:`extension-architecture`.
 
-While Extbase is a supported and widely used framework within TYPO3, developers
-should evaluate whether it fits their specific project needs, as performance
-considerations may lead to different implementation strategies. For practical
-guidance, refer to :ref:`extension tutorials <extension-tutorials>`, which
-demonstrate best practices for using Extbase in various scenarios.
+    Something not working as expected? See
+    :ref:`extbase-appendix-pitfalls` for a list of common
+    traps and full explanations.
+
+    Know what you want to achieve but not which chapter covers it? See
+    :ref:`extbase-appendix-tasks` for goal-oriented answers with
+    links to the full details.
 
 ..  toctree::
     :titlesonly:
 
-    Introduction/Index
-    Reference/Index
-    Examples/Index
+    QuickStart/Index
+    Concepts/Index
+    Domain/Index
+    Controller/Index
+    View/Index
+    Registration/Index
+    Routing/Index
+    Validation/Index
+    Persistence/Index
+    Caching/Index
+    Configuration/Index
+    Localization/Index
+    Appendix/Attributes
+    Appendix/TypeConverters
+    Appendix/CommonPitfalls
+    Appendix/CommonTasks
+    Appendix/Upgrading

@@ -106,7 +106,7 @@ Using password policy validation in Extbase
 ===========================================
 
 If you need to validate a plaintext password within Extbase, for example in a
-`Data transfer object (DTO) <https://docs.typo3.org/permalink/t3coreapi:extbase-dto>`_,
+`Data transfer object (DTO) <https://docs.typo3.org/permalink/t3coreapi:extbase-domain-dto>`_,
 you can call the :php:`\TYPO3\CMS\Core\PasswordPolicy\PasswordPolicyValidator` from
 within a custom validator, for example:
 

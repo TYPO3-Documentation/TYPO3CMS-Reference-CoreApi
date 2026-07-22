@@ -25,7 +25,7 @@ Typical PHP classes in this folder:
     Contains MVC Controller classes. In Extbase extensions the classes inherit
     from :php:`\TYPO3\CMS\Extbase\Mvc\Controller\ActionController`.
 
-    See also chapter `Extbase Controller <https://docs.typo3.org/permalink/t3coreapi:extbase-controller>`_.
+    See also chapter `Extbase Controller <https://docs.typo3.org/permalink/t3coreapi:extbase-controller-overview>`_.
 
 ..  typo3:file:: Something.php
     :scope: extension
@@ -36,7 +36,7 @@ Typical PHP classes in this folder:
 
     Contains MVC Domain model classes. In Extbase they inherit from
     :php:`\TYPO3\CMS\Extbase\DomainObject\AbstractEntity`. See also
-    `Extbase Model <https://docs.typo3.org/permalink/t3coreapi:extbase-model>`_.
+    `Extbase Model <https://docs.typo3.org/permalink/t3coreapi:extbase-domain-model>`_.
 
 ..  typo3:file:: SomethingRepository.php
     :scope: extension
@@ -47,7 +47,7 @@ Typical PHP classes in this folder:
 
     Contains data repository classes. In Extbase a repository inherits from
     :php:`\TYPO3\CMS\Extbase\Persistence\Repository`. See also
-    `Extbase Repository <https://docs.typo3.org/permalink/t3coreapi:extbase-repository>`_.
+    `Extbase Repository <https://docs.typo3.org/permalink/t3coreapi:extbase-domain-repository>`_.
 
 ..  typo3:file:: MyViewHelper.php
     :scope: extension

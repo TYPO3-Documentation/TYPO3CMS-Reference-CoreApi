@@ -36,7 +36,7 @@ system falls back to the default backend and default frontend settings:
     :language: php
     :caption: EXT:my_extension/ext_localconf.php
 
-Extensions, like :ref:`Extbase <extbase>`, define default caches this way,
+Extensions, like :ref:`Extbase <extbase-extension-framework>`, define default caches this way,
 giving administrators full freedom for specific and possibly quicker setups
 (for example, a memory-driven cache for the Extbase reflection cache).
 

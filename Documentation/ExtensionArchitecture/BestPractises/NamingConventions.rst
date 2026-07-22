@@ -243,7 +243,7 @@ Examples for Extbase domain models and table names of an extension named `cool_s
    Notice that the names above use the singular form, e.g. `post` and
    not `posts`. This is recommended, but not a requirement.
    However, if you do not follow the recommended patterns
-   you may need :ref:`manual mapping <extbase_manual_mapping>`.
+   you may need :ref:`manual mapping <extbase-domain-model-mapping>`.
 
 ..  _naming-tables-mm:
 
@@ -287,7 +287,7 @@ follow this pattern:
 * `<column-name>` purpose of the column, lower case letters with underscores
 
 .. tip::
-   If you work with column-names not following this convention (e.g. :php:`colPos`), you have to add a :ref:`column mapping <extbase_manual_mapping>`.
+   If you work with column-names not following this convention (e.g. :php:`colPos`), you have to add a :ref:`column mapping <extbase-domain-model-mapping>`.
 
 .. _BackendModuleKey:
 
