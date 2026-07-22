@@ -96,6 +96,17 @@ have been moved to :composer:`typo3/cms-core`.
 
 :composer:`typo3/cms-install` has no events anymore as it was made optional.
 
+.. _extbase-documentation-overhaul:
+
+Extbase Documentation Rewrite
+-----------------------------
+
+.. versionchanged:: 14.3
+   See `Team Budget Idea Extbase Documentation Overhaul <https://news.typo3.com/article/extbase-routing-finally-explained-and-the-docs-keep-growing>
+
+The old extbase documentation chapter has been removed and replaced with the new one under the same url. The structure has changed,
+redirects for pages have been established, but the anchors could not be preserved.
+
 ..  _not-found-14:
 
 TYPO3 v14
