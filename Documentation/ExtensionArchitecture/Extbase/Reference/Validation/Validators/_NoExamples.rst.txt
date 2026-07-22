@@ -1,3 +1,0 @@
-..  note::
-    We are still missing working examples for this validator. Click the
-    "Report Issue" button on the top of this page and send us your examples.

@@ -174,7 +174,7 @@ Where to store XLIFF files
 In the TYPO3 Core, XLIFF files are located in the various system extensions
 and are expected to be stored in :file:`Resources/Private/Language`.
 
-In :ref:`Extbase <extbase>`, the main file (:file:`locallang.xlf`) is loaded
+In :ref:`Extbase <extbase-extension-framework>`, the main file (:file:`locallang.xlf`) is loaded
 automatically and is available in the controller and Fluid views without any
 further work. Other files must be explicitly referenced with the syntax
 `LLL:EXT:extkey/Resources/Private/Language/myfile.xlf:my.label`.

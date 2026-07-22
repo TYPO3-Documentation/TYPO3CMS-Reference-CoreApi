@@ -24,8 +24,8 @@ For pure output it is often sufficient to use a
 :ref:`Creating a custom content element <adding-your-own-content-elements>`.
 
 For scenarios with user input and or complicated data operations consider
-using :ref:`Extbase <extbase>` (specifically
-:ref:`Registration of frontend plugins <t3coreapi:extbase_registration_of_frontend_plugins>`).
+using :ref:`Extbase <extbase-extension-framework>` (specifically
+:ref:`Registration of frontend plugins <t3coreapi:extbase-registration-frontend-plugin>`).
 
 It is also possible to create a frontend plugin using Core functionality
 only.

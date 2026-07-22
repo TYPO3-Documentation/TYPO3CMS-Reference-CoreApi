@@ -109,7 +109,7 @@ this method you can create your own logic to define the correct title.
 ..  literalinclude:: _PageTitleProvider/_ExampleSetInController/_MyOwnPageTitleProvider.php
     :caption: EXT:my_extension/Classes/PageTitle/MyOwnPageTitleProvider.php
 
-Usage example in an :ref:`Extbase <extbase>` controller:
+Usage example in an :ref:`Extbase <extbase-extension-framework>` controller:
 
 ..  literalinclude:: _PageTitleProvider/_ExampleSetInController/_SomeController.php
     :caption: EXT:my_extension/Classes/Controller/SomeController.php

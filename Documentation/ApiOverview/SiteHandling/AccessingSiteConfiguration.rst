@@ -40,7 +40,7 @@ available as :ref:`attributes <typo3-request-attributes>` in the current
 Depending on the context, there are two main ways to access them:
 
 -   via the PSR-7 HTTP request object directly - for example in a PSR-15
-    middleware, an :ref:`Extbase controller <extbase-action-controller>` or a
+    middleware, an :ref:`Extbase controller <extbase-controller-action>` or a
     :ref:`user function <t3tsref:cobj-user>`.
 -   via :php:`$GLOBALS['TYPO3_REQUEST']` - everywhere you do not have a
     request object.
@@ -60,7 +60,7 @@ Methods:
     // current site language
     $siteLanguage = $request->getAttribute('language');
 
-The :ref:`Extbase <extbase>` request class implements the
+The :ref:`Extbase <extbase-extension-framework>` request class implements the
 PSR-7 :php:`\Psr\Http\Message\ServerRequestInterface`. Therefore, you can
 retrieve all needed attributes from the request object.
 

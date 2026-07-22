@@ -95,7 +95,7 @@ for example a static function, you can still do translations:
 Localization in Extbase
 =======================
 
-In :ref:`Extbase <extbase>` context you can use the method
+In :ref:`Extbase <extbase-extension-framework>` context you can use the method
 :ref:`\\TYPO3\\CMS\\Extbase\\Utility\\LocalizationUtility::translate($key, $extensionName) <extbase-localization-utility-api>`.
 
 This method requires the localization key as the first and the extension's

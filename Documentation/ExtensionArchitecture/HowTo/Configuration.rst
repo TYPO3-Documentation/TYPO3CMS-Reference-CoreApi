@@ -29,7 +29,7 @@ The changes apply to the current page and all subpages.
 
 ..  seealso::
 
-    * :ref:`Extbase TypoScript configuration <extbase_typoscript_configuration>`
+    * :ref:`Extbase TypoScript configuration <extbase-configuration-reference>`
 
     * :ref:`t3tsref:typoscript-syntax-what-are-constants`
 

@@ -156,7 +156,7 @@ element into the page it also needs to be registered with
     :caption: EXT:my_extension/Configuration/TCA/Overrides/tt_content.php
 
 For a detailed explanation of Extbase plugins including examples for controllers
-see chapter :ref:`extbase`.
+see chapter :ref:`extbase-extension-framework`.
 
 ..  _plugins-non-extbase:
 
@@ -254,7 +254,7 @@ plugins:
 
 *   :ref:`adding-your-own-content-elements`
 *   :ref:`Registering frontend plugins in
-    Extbase <extbase_registration_of_frontend_plugins>`
+    Extbase <extbase-registration-frontend-plugin>`
 
 How to make your plugins or content elements configurable by editors with
 

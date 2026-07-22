@@ -33,7 +33,7 @@ Extbase controller
 
 The request object compatible with the PSR-7
 :php:`\Psr\Http\Message\ServerRequestInterface` is available in an
-:ref:`Extbase controller <extbase-action-controller>` via the class property
+:ref:`Extbase controller <extbase-controller-action>` via the class property
 :php:`$this->request`:
 
 ..  code-block:: php
@@ -65,7 +65,7 @@ Extbase validator
 In Extbase validators the current request is available with
 `$this->getRequest()` if they extend the :php-short:`\TYPO3\CMS\Extbase\Validation\Validator\AbstractValidator`:
 
-..  literalinclude:: /ExtensionArchitecture/Extbase/Reference/Validation/CustomValidator/_RequestValidator.php
+..  literalinclude:: _CodeSnippets/_RequestValidator.php
     :caption: EXT:my_extension/Classes/Domain/Validators/MyCustomValidator.php
 
 ..  _typo3-request-viewhelper:

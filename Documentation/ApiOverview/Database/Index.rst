@@ -25,8 +25,8 @@ Database access and scheme in TYPO3
     Accessing the database:
 
     *   `PHP: Doctrine DBAL repositories <https://docs.typo3.org/permalink/t3coreapi:doctrine-dbal>`_
-    *   `Extbase repositories <https://docs.typo3.org/permalink/t3coreapi:extbase-repository>`_
-    *   `Persistence: Saving Extbase models to the database <https://docs.typo3.org/permalink/t3coreapi:extbase-persistence>`_
+    *   `Extbase repositories <https://docs.typo3.org/permalink/t3coreapi:extbase-domain-repository>`_
+    *   `Persistence: Saving Extbase models to the database <https://docs.typo3.org/permalink/t3coreapi:extbase-domain-model-mapping>`_
     *   `TypoScript: database-query data processor <https://docs.typo3.org/permalink/t3tsref:databasequeryprocessor>`_
     *   `TypoScript: RECORDS <https://docs.typo3.org/permalink/t3tsref:cobj-records-introduction>`_
 

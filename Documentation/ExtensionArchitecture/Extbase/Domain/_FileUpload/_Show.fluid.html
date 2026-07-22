@@ -1,0 +1,16 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+      data-namespace-typo3-fluid="true">
+
+<f:layout name="Default" />
+
+<f:section name="main">
+    <f:if condition="{conference.logo}">
+        <f:image image="{conference.logo}" cropVariant="default" alt="{conference.title}" />
+    </f:if>
+
+    <f:for each="{conference.impressions}" as="impression">
+        <f:image image="{impression}" cropVariant="default" alt="{conference.title}" />
+    </f:for>
+</f:section>
+
+</html>

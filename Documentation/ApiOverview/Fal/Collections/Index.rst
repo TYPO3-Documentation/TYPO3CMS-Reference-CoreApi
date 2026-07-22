@@ -44,7 +44,7 @@ inside extensions. The most important classes are:
 
 :php:`\TYPO3\CMS\Core\Resource\FileCollectionRepository`
     Used to retrieve collections. It is not exactly an
-    :ref:`Extbase repository <extbase-repository>` but works in a similar way.
+    :ref:`Extbase repository <extbase-domain-repository>` but works in a similar way.
     The default "find" methods refer to the
     :ref:`sys_file_collection <fal-architecture-database-sys-file-collection>`
     table and will fetch "static"-type collections.

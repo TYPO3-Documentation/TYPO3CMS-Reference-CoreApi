@@ -55,9 +55,9 @@ Example:
 	{fileReference.publicUrl}
 
 ..  tip::
-    If you are in :ref:`Extbase <extbase>` context, you usually have a
+    If you are in :ref:`Extbase <extbase-extension-framework>` context, you usually have a
     :php:`\TYPO3\CMS\Extbase\Domain\Model\FileReference`
-    :ref:`domain model <extbase-model>` instead of a "pure"
+    :ref:`domain model <extbase-domain-model>` instead of a "pure"
     :php:`\TYPO3\CMS\Core\Resource\FileReference` object. In order to get the
     meta data, you need to resolve the :php:`\TYPO3\CMS\Core\Resource\FileReference`
     first by accessing the :html:`originalResource` property:

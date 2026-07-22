@@ -46,14 +46,10 @@ Extension development
         a backend module and extending existing TCA.
 
 
-    ..  card:: :ref:`Extbase <extbase>`
+    ..  card:: :ref:`Extbase <extbase-extension-framework>`
 
         Extbase is a framework for creating TYPO3 frontend plugins
         and TYPO3 backend modules.
-
-    ..  card:: :ref:`Extbase (work in progress) <extbase-extension-framework>`
-
-        New Extbase documentation for TYPO3 v14. Work in progress.
 
 
     ..  card:: :ref:`Best practises and conventions <extension-Best-practises>`
@@ -77,6 +73,5 @@ Extension development
     Kickstarter/Index
     HowTo/Index
     Extbase/Index
-    ExtbaseRewrite/Index
     BestPractises/Index
     Tutorials/Index
