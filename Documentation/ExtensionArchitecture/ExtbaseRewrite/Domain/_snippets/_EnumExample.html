@@ -1,0 +1,8 @@
+<div class="status">
+    <f:translate key="{paper.status.label}" default="Not Translated"/>
+    [{paper.status.value}]
+</div>
+<f:variable name="draftStatus"><f:constant name="\MyVendor\MyExtension\Enum\Status::DRAFT"/></f:variable>
+<f:switch expression="{paper.status.name}">
+    <f:case value="{draftStatus.name}"></f:case>
+</f:switch>

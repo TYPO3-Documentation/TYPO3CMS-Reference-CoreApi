@@ -8,8 +8,6 @@
 Common tasks in Extbase
 =======================
 
-..  include:: /ExtensionArchitecture/ExtbaseRewrite/_wip.rst.txt
-
 This page answers the "how do I…" questions that come up repeatedly when
 building or maintaining Extbase extensions. Each entry states the goal, gives
 a short direct answer, and links to the full explanation.

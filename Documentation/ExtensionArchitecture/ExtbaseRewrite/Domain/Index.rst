@@ -48,6 +48,18 @@ Their usage is covered in the :ref:`model page <extbase-domain-model-value-objec
         domain model, handling uploads with :php:`#[FileUpload]`, validation and
         deletion.
 
+    ..  card:: :ref:`Data transfer objects <extbase-domain-dto>`
+
+        Non-persisted objects that carry data between the business logic and the
+        view: validation, converting to a model, session storage and demand
+        objects.
+
+    ..  card:: :ref:`Property types <extbase-domain-property-types>`
+
+        Which PHP property types map to which TCA field and database column:
+        primitives, :php:`\DateTime`, :php:`\Country`, enumerations and union
+        types.
+
 ..  toctree::
     :titlesonly:
     :hidden:
@@ -55,3 +67,5 @@ Their usage is covered in the :ref:`model page <extbase-domain-model-value-objec
     Model
     Repository
     FileUpload
+    Dto
+    PropertyTypes

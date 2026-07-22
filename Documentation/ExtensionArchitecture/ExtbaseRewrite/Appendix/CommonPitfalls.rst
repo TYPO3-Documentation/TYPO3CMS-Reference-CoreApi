@@ -8,8 +8,6 @@
 Common pitfalls in Extbase
 ==========================
 
-..  include:: /ExtensionArchitecture/ExtbaseRewrite/_wip.rst.txt
-
 This page collects the situations that most commonly trip up Extbase
 developers — from beginners hitting their first wall to experienced developers
 upgrading from older TYPO3 versions. Each entry names the symptom, explains

@@ -8,8 +8,6 @@
 Upgrading from older Extbase versions
 =====================================
 
-..  include:: /ExtensionArchitecture/ExtbaseRewrite/_wip.rst.txt
-
 This page lists breaking changes and migration steps for
 upgrading an Extbase extension to a newer TYPO3 version. Each entry details
 what has changed, which version introduced the change, and what to do.

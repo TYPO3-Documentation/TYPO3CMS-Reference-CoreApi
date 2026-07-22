@@ -8,8 +8,6 @@
 Extbase PHP attributes reference
 ================================
 
-..  include:: /ExtensionArchitecture/ExtbaseRewrite/_wip.rst.txt
-
 This page is a quick-reference for all PHP attributes defined and handled by
 the Extbase framework itself. It covers :abbr:`ORM (Object Relational Mapping)` attributes (used on model
 properties), validation attributes (used on model properties and action

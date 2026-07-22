@@ -100,7 +100,7 @@ APIs are the best choice.
     Persistence/Index
     Caching/Index
     Configuration/Index
-    Advanced/Index
+    Localization/Index
     Appendix/Attributes
     Appendix/TypeConverters
     Appendix/CommonPitfalls
