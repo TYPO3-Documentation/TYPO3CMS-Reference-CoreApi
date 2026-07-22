@@ -615,7 +615,7 @@ ensures that every record update in the TYPO3 backend (which is processed by the
 record is displayed.
 
 Following the rules mentioned above you could register :ref:`cache tags <caching>`
-from within your :ref:`Extbase <extbase>` plugin (for example, controller or a
+from within your :ref:`Extbase <extbase-extension-framework>` plugin (for example, controller or a
 custom ViewHelper):
 
 ..  literalinclude:: _SomeController.php

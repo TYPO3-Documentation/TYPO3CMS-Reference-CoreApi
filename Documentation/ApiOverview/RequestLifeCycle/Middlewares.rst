@@ -105,7 +105,7 @@ By doing so, the middleware can do one or multiple of the following:
 Using Extbase
 -------------
 
-One note about using :ref:`Extbase <extbase>` in middlewares: do not! Extbase
+One note about using :ref:`Extbase <extbase-extension-framework>` in middlewares: do not! Extbase
 relies on :ref:`frontend TypoScript <t3tsref:start>` being present; otherwise
 the configuration is not applied. This is usually no problem - Extbase plugins
 are typically either included as :ref:`USER content object <t3tsref:cobj-user>`

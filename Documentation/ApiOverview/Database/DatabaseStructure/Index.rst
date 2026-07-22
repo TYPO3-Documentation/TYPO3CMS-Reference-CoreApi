@@ -77,9 +77,9 @@ automatically filters records based on visibility fields unless explicitly disab
 
 When using an
 `Extbase repository
-<https://docs.typo3.org/permalink/t3coreapi:extbase-repository>`_, the
+<https://docs.typo3.org/permalink/t3coreapi:extbase-domain-repository>`_, the
 `query settings
-<https://docs.typo3.org/permalink/t3coreapi:extbase-repository-query-setting>`_
+<https://docs.typo3.org/permalink/t3coreapi:extbase-persistence-queries-querysettings>`_
 also apply visibility constraints by default, but can be reconfigured to change
 this behavior.
 

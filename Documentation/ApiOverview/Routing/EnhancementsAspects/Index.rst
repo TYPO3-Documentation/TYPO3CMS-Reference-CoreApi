@@ -26,7 +26,7 @@ GET parameters to routes.
 
 An :ref:`enhancer <routing-advanced-routing-configuration-enhancers>` creates
 variations of a specific page-based route for a specific purpose (e.g. an
-:ref:`Extbase <extbase>` plugin) and "enhances" an existing route path, which
+:ref:`Extbase <extbase-extension-framework>` plugin) and "enhances" an existing route path, which
 can contain flexible values, so-called "placeholders".
 
 :ref:`Aspects <routing-advanced-routing-configuration-aspects>` can
@@ -246,7 +246,7 @@ you would need an aspect that can be registered within any enhancer, see
 Extbase plugin enhancer
 -----------------------
 
-When creating :ref:`Extbase <extbase>` plugins, it is very common to have
+When creating :ref:`Extbase <extbase-extension-framework>` plugins, it is very common to have
 multiple controller/action combinations. Therefore, the Extbase plugin enhancer
 is an extension to the :ref:`regular plugin enhancer
 <routing-plugin-enhancer>` and provides the
@@ -541,7 +541,7 @@ record, language or other detail can be represented. Specifying :yaml:`null`
 removes the corresponding parameter from the route result. In this way, it is
 up to the developer to react accordingly.
 
-In the case of :ref:`Extbase <extbase>` extensions, the developer can define the
+In the case of :ref:`Extbase <extbase-extension-framework>` extensions, the developer can define the
 parameters in his calling controller action as nullable and deliver
 corresponding :ref:`flash messages <flash-messages-api>` that explain the current
 scenario better than a "404" HTTP status code.

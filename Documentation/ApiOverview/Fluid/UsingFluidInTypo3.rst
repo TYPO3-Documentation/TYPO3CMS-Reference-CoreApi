@@ -15,7 +15,7 @@ Here are some examples of how Fluid can be used in TYPO3:
     creation of a sitepackage extension.
 *   :ref:`adding-your-own-content-elements` in addition to the already existing
     content elements TYPO3 supplies.
-*   :ref:`Extbase-based controllers <extbase-controller>` have a default Fluid
+*   :ref:`Extbase-based controllers <extbase-controller-overview>` have a default Fluid
     view in :php:`$this->view`.
 *   Use Fluid to create emails using the :ref:`TYPO3 Mail API <mail-fluid-email>`.
 *   Use Fluid in :ref:`backend modules <backend-modules-template>`, either with or
@@ -337,7 +337,7 @@ You can :ref:`inject <dependency-injection>` an instance of the
 :php:`TYPO3\CMS\Core\View\ViewInterface` where you need one.
 
 ..  note::
-    :ref:`Extbase-based controllers <extbase-controller>` create a view
+    :ref:`Extbase-based controllers <extbase-controller-overview>` create a view
     instance based on this factory by default and which is accessible as
     :php:`$this->view`.
 

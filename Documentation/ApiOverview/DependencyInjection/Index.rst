@@ -10,6 +10,7 @@
 
 .. _DependencyInjection:
 .. _Dependency-Injection:
+.. _dependency-injection:
 
 ====================
 Dependency injection

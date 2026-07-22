@@ -12,9 +12,9 @@ Extbase provides its own way to persist and retrieve data using **models** and
 
 ..  seealso::
 
-    -   `Extbase models <https://docs.typo3.org/permalink/t3coreapi:extbase-model>`_
-    -   `Repository pattern in Extbase <https://docs.typo3.org/permalink/t3coreapi:extbase-repository>`_
-    -   `Manual mapping for arbitrary tables <https://docs.typo3.org/permalink/t3coreapi:extbase-manual-mapping>`_
+    -   `Extbase models <https://docs.typo3.org/permalink/t3coreapi:extbase-domain-model>`_
+    -   `Repository pattern in Extbase <https://docs.typo3.org/permalink/t3coreapi:extbase-domain-repository>`_
+    -   `Manual mapping for arbitrary tables <https://docs.typo3.org/permalink/t3coreapi:extbase-domain-model-mapping>`_
 
 Repositories in Extbase usually define custom `find*()` methods and rely on
 :php:`\TYPO3\CMS\Extbase\Persistence\Generic\Query` to perform queries on models.

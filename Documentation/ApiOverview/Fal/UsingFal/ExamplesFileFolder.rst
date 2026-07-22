@@ -226,8 +226,8 @@ The simplest solution is to create a database entry into table
 using the :ref:`database connection <database-connection>` class or the
 :ref:`query builder <database-query-builder>` provided by TYPO3.
 
-See :ref:`Extbase file upload <extbase_fileupload>` for details on how
-to achieve this using :ref:`Extbase <extbase>`.
+See :ref:`Extbase file upload <extbase-domain-fileupload>` for details on how
+to achieve this using :ref:`Extbase <extbase-extension-framework>`.
 
 
 ..  _fal-using-fal-examples-file-folder-get-references:

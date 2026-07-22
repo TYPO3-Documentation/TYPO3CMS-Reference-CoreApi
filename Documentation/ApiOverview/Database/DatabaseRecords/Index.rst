@@ -137,4 +137,4 @@ can store their data in the same database table. Additionally, the same record
 can be represented in various ways by different Extbase models, depending on
 the specific requirements of each model.
 
-See also chapter :ref:`Extbase models <extbase-model>`.
+See also chapter :ref:`Extbase models <extbase-domain-model>`.

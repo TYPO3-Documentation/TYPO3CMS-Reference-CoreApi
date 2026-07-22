@@ -20,7 +20,7 @@ On migration of existing installations using plugins with switchable controller
 actions all plugins have to be changed to a new type. It is recommended to
 also change them from being defined via field `list-type` to field `CType`.
 
-See also :ref:`Registration of frontend plugins <t3coreapi:extbase_registration_of_frontend_plugins>`.
+See also :ref:`Registration of frontend plugins <t3coreapi:extbase-registration-frontend-plugin>`.
 
 The following upgrade wizard can be run on any installation which still has
 plugins of the outdated type and configuration. It is then not needed anymore

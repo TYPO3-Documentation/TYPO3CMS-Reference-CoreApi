@@ -164,7 +164,7 @@ Extbase limitations in CLI context
 
 ..  attention::
 
-    It is not recommended to use :ref:`Extbase <extbase>` repositories in a
+    It is not recommended to use :ref:`Extbase <extbase-extension-framework>` repositories in a
     CLI context.
 
 Extbase relies on frontend :ref:`TypoScript <t3tsref:start>`,  and features such as

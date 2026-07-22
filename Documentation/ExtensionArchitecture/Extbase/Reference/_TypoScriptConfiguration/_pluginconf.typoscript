@@ -1,5 +1,0 @@
-plugin.tx_blogexample {
-    settings {
-        postsPerPage = 3
-    }
-}

@@ -47,7 +47,7 @@ Example: ArrayPaginator
 -----------------------
 
 Code example for the :php:`ArrayPaginator` in an
-:ref:`Extbase controller <extbase-action-controller>`:
+:ref:`Extbase controller <extbase-controller-action>`:
 
 ..  literalinclude:: _ArrayPaginatorExampleController.php
     :caption: EXT:my_extension/Controller/ExampleController.php
