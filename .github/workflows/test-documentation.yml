@@ -3,25 +3,9 @@ name: test documentation
 on:
   push:
   pull_request:
-  schedule:
-    - cron: "0 3 * * *" # every day at 03:00 UTC
 
 jobs:
-  tests:
-    # Run always on push/PR, but only run on schedule in the main repo
-    if: github.event_name != 'schedule' || github.repository == 'TYPO3-Documentation/TYPO3CMS-Reference-CoreApi'
-    name: documentation
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd
-
-      - name: Test if the documentation will render without warnings
-        run: |
-          mkdir -p Documentation-GENERATED-temp \
-          && docker run --rm --pull always -v $(pwd):/project \
-             ghcr.io/typo3-documentation/render-guides:latest \
-             --config=Documentation \
-             --output-format=singlepage \
-             --no-progress \
-             --fail-on-log
+  render:
+    uses: TYPO3-Documentation/.github/.github/workflows/reusable-test-documentation.yml@main
+    with:
+      render-flags: '--no-progress --minimal-test'
