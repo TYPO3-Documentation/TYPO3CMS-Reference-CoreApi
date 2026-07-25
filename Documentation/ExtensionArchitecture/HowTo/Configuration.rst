@@ -94,7 +94,9 @@ Extbase controller action and via :html:`{settings}` within Fluid.
 Example: Access settings in an Extbase controller
 -------------------------------------------------
 
-..  include:: /CodeSnippets/Extbase/Controllers/Settings.rst.txt
+..  literalinclude:: /ExtensionArchitecture/HowTo/_codesnippets/Settings.php
+    :caption: Class MyVendor\\MyExtension\\Controller\\PostController
+    :emphasize-lines: 17
 
 ..  _extension-configuration-yaml:
 
