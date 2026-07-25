@@ -115,7 +115,9 @@ Example: Translate a Flash message in an Extbase Controller
 In this example the content of the flash message to be displayed in the backend
 will be translated:
 
-..  include:: /CodeSnippets/Extbase/Controllers/PhpLocalization.rst.txt
+..  literalinclude:: /ExtensionArchitecture/HowTo/Localization/_php/PhpLocalization.php
+    :caption: Class MyVendor\\MyExtension\\Controller\\ModuleController
+    :emphasize-lines: 30,31,32,33,34
 
 The string in the translation file is defined like this:
 
